@@ -487,13 +487,13 @@ ro:
     share_types:
       request: ~
       offer: ~
-      borrow: imprumutare
+      borrow: împrumutare
       buy: cumpărare
-      give_away: oferire
+      give_away: donatie
       lend: împrumut
       receive: gratuit
       rent: inchiriere
-      rent_out: "de dat spre închiriere"
+      rent_out: "de închiriat"
       sell: "de vânzare"
       offer_to_swap: ~
       request_to_swap: ~
@@ -601,9 +601,9 @@ ro:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: "Cere o favoare de la"
-      favor_request_message_form_title: "Oferă o favoare pentru"
-      housing_offer_message_form_title: Răspunde
+      favor_offer_message_form_title: "Cere o ajutor de la %{person}"
+      favor_request_message_form_title: "Oferă ajutor lui %{person}"
+      housing_offer_message_form_title: "Oferă spatiu pentru %{person}"
       housing_request_message_form_title: ~
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
@@ -834,9 +834,9 @@ ro:
       turning_on_confirmations_in_this_community: ~
     common:
       check_your_settings: ~
-      hey: ~
-      kassi_team: ~
-      thanks: ~
+      hey: "Salut %{name}"
+      kassi_team: "Echipa %{service_name}"
+      thanks: "Mulţumim,"
       want_to_control_emails: ~
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
@@ -1006,7 +1006,7 @@ ro:
       we_hate_this: ~
       refer_to_error_id: ~
     error_500_title: ~
-    error_description: ~
+    error_description: "S-a produs o eroare"
     no_javascript:
       javascript_is_disabled_in_your_browser: ~
       kassi_does_not_currently_work_without_javascript: ~
@@ -1052,7 +1052,7 @@ ro:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: ~
+    about: "Despre noi"
     home: Acasa
     members: ~
     new_listing: ~

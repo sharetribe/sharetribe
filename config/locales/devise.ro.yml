@@ -1,55 +1,55 @@
 ro:
   errors:
     messages:
-      expired: ~
-      not_found: ~
-      already_confirmed: ~
-      not_locked: ~
+      expired: "a expirat, te rog cere una noua"
+      not_found: inexistent
+      already_confirmed: "a fost deja confirmat, te rog logeaza-te"
+      not_locked: "nu a fost blocat"
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
-      unconfirmed: ~
-      locked: ~
-      invalid: ~
-      invalid_token: ~
-      timeout: ~
-      inactive: ~
+      already_authenticated: "Eşti deja înregistrat şi conectat."
+      unauthenticated: "Pentru a continuna, înregistrați-vă."
+      unconfirmed: "Pentru a continua, confirmați contul dvs."
+      locked: "Contul dvs. este blocat."
+      invalid: "Adresă de email sau parolă invalidă"
+      invalid_token: "Cheie de autentificare invalidă."
+      timeout: "Sesiunea dvs. a expirat, autentificați-vă din nou pentru a continua."
+      inactive: "Contul dvs. încă nu a fost activat."
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: ~
+      updated_not_active: "Parolă schimbată cu success."
+      send_paranoid_instructions: "Dacă e-mail-ul dvs. există in baza noastra de date, veti primi un link prin care vă veti putea schimba parola."
+      send_instructions: "Veti primi un e-mail cu instructiunile necesare pentru a reseta parola in cateva minute."
+      updated: "Parolă schimbată cu success. Sunteți acum autentificat(ă)."
     sessions:
-      signed_in: ~
-      signed_out: ~
+      signed_in: "Autentificare cu succes."
+      signed_out: "Deconectare cu succes."
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_paranoid_instructions: "Dacă e-mail-ul dvs. există in baza noastra de date, veti primi un e-mail cu instructiunile necesare pentru a vă confirma contul in cateva minute."
+      send_instructions: "Veti primi un e-mail cu instructiunile referitoare la metoda prin care vă puteti confirma contul in cateva minute."
+      confirmed: "Contul dvs. a fost confirmat cu succes."
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "Un mesaj cu un link de confirmare v-a fost trimis pe e-mail. Va rugăm să-l deschideti pentru a vă activa contul."
+      signed_up_but_inactive: "Sunteți autentificat(ă). Cu toate acestea, nu va puteti loga deoarece contul dvs. nu a fost activat."
+      signed_up_but_locked: "Sunteți autentificat(ă). Cu toate acestea, nu va puteti loga deoarece contul dvs. este blocat."
       reasons:
-        inactive: ~
-        unconfirmed: ~
+        inactive: inactiv
+        unconfirmed: neconfirmat
         locked: ~
       update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
+      signed_up: "Bine ati venit! V-ati autentificat cu succes."
+      updated: "Cont actualizat cu succes."
       destroyed: ~
     unlocks:
       send_paranoid_instructions: ~
       send_instructions: ~
-      unlocked: ~
+      unlocked: "Contul dvs. a fost deblocat. Autentificați-vă pentru a continua."
     omniauth_callbacks:
       success: ~
       failure: ~
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "Instrucţiuni de confirmare"
       reset_password_instructions:
-        subject: ~
+        subject: "Instrucţiuni pentru a reseta parola"
       unlock_instructions:
-        subject: ~
+        subject: "Instrucţiuni pentru deblocare"

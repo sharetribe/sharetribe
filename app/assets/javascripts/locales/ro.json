@@ -1,13 +1,13 @@
 {
-  "please_wait": null,
+  "please_wait": "Vă rugăm să așteptați...",
   "validation_messages": {
     "accept": null,
-    "creditcard": null,
-    "date": null,
+    "creditcard": "Te rugăm să introduci un număr card valid.",
+    "date": "Te rugăm să introduci o dată validă.",
     "dateISO": null,
-    "digits": null,
+    "digits": "Te rugam să introduci numai cifre.",
     "email": null,
-    "equalTo": null,
+    "equalTo": "Te rugam să introduci din nou aceleasi valori.",
     "max": null,
     "maxlength": null,
     "min": null,
@@ -18,11 +18,11 @@
     "remote": null,
     "required": null,
     "url": null,
-    "address_validator": "The location was not found.",
-    "money": "You need to insert a valid monetary value.",
-    "min_bound": "Please enter a value less than max value ({0})",
+    "address_validator": "Locatia nu a fost găsită.",
+    "money": "Te rog să introduci o sumă validă.",
+    "min_bound": "Te rugăm să introduci o valoare mai mică decat ({0})",
     "max_bound": "Please enter a value more than min value ({0})",
-    "number_no_decimals": "Please enter a whole number",
+    "number_no_decimals": "Te rog să introduci un numar intreg.",
     "number_decimals": "Please enter a valid number with either dot (.) or comma (,) as a decimal separator"
   }
 }

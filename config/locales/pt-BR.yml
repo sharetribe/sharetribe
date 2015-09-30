@@ -101,7 +101,7 @@ pt-BR:
         small_cover_photo_instructions_text_with_dimensions: "A foto será redimensionada para %{width} x %{height} pixel e imagens mais altas serão cortadas no meio."
         main_content_width: "Ao escolher fotos de capa, por favor, note que o conteúdo principal da página é %{main_width} pixels de largura, no máximo. Lembre-se de verificar também como a sua foto da capa parece nas telas menores (por exemplo, usando uma janela do navegador mais estreita)."
         custom_color1_instructions_text: "Você pode mudar a cor principal da interface de usuário desta comunidade, inserindo um valor de cor hex. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\"> ColorPicker.com </a> pode ajudar você a escolher a cor e copie o código aqui."
-        custom_color2_instructions_text: "Você pode alterar a segunda cor da interface do usuário dessa comunidade, inserindo um valor de cor hex."
+        custom_color2_instructions_text: "Você pode alterar a segunda cor da interface do usuário inserindo um valor de cor hexadecimal."
         default_browse_view: "Visualização navegação padrão"
         default_browse_view_instructions_text: "Visualização de navegação padrão é usado na página inicial para definir a forma como os anúncios são exibidos por padrão."
         grid: Grade
@@ -123,21 +123,21 @@ pt-BR:
         edit_message: "Editar mensagem"
         send_test_message: "Enviar mensagem de teste"
       outgoing_email:
-        title: ~
-        info: ~
-        read_more: ~
+        title: "E-mail do remetente"
+        info: "Este nome e endereço é usado para os e-mails enviados para os usuários pelo seu marketplace."
+        read_more: "Saiba mais sobre endereços de e-mail de de saída"
         sender_address: "Endereço do remetente: %{sender_address}"
         sender_address_default: "Endereço do remetente: não foi definido (usando endereço default %{sender_address})"
-        need_to_change: ~
+        need_to_change: "Se você precisar mudar seu endereço de e-mail, por favor %{contact_support_link}."
         contact_support_link_text: "Entre em contato com o nosso suporte"
-        set_sender_address: ~
+        set_sender_address: "Configure o e-mail do remetente"
         sender_name_label: Nome
-        sender_name_placeholder: ~
+        sender_name_placeholder: "Nome do remetente"
         sender_email_label: "Endereço de e-mail"
-        sender_email_placeholder: ~
+        sender_email_placeholder: remetente@exemplo.com
         this_is_how_it_will_look: "Vai ficar assim:"
         send_verification_button: "Envie e-mail de verificação"
-        successfully_saved: ~
+        successfully_saved: "Endereço de e-mail do remetente salvo com sucesso. O e-mail de verificação será enviado em breve."
         status: "Estado: %{status}"
         status_verified: "Verificado - em uso"
         status_error: "Aconteceu um erro. Por favor carregue a página novamente."
@@ -165,7 +165,7 @@ pt-BR:
         categories_link_text: "adicionar categorias e subcategorias"
         custom_fields_link_text: "configurar os campos do formulário"
         filters_link_text: "que tipo de filtros"
-        order_types: ~
+        order_types: "Você também pode configurar como as transações funcionam no seu marketplace. Seus usuários vendem, alugam ou doam produtos? Eles oferecem alugueis por hora, dia ou semana? Essas coisas podem ser configuradas em %{order_types_link}."
         order_types_link_text: "visão do tipo de pedido"
         payments: "Se você quer que as pessoas sejam capazes de pagar suas compras através do seu mercado virtual, de modo que você possa cobrar uma taxa por cada transação, você deve %{payments_link}."
         payments_link_text: "configurar um método de pagamento"
@@ -211,7 +211,7 @@ pt-BR:
       settings:
         settings: Opções
         general: Geral
-        users_can_review_each_other_after_transaction: "Os usuários podem revisar o outro depois de operação"
+        users_can_review_each_other_after_transaction: "Os usuários podem avaliar um ao outro após a completar a transação."
         access: Acesso
         join_with_invite_only: "Novos usuários só podem se cadastrar neste mercado virtual com o convite de outro usuário"
         users_can_invite_new_users: "Todos os usuários podem convidar novos usuários para este mercado virtual"
@@ -235,13 +235,13 @@ pt-BR:
         newsletter_daily: Diaramente
         newsletter_weekly: Semanal
         delete_marketplace_title: "Excluir marketplace"
-        type_marketplace_domain: ~
+        type_marketplace_domain: "Entre com o domínio do seu marketplace %{domain} no campo abaixo:"
         type_marketplace_domain_placeholder: "Entre o domínio do seu marketplace"
         once_you_delete: "Uma vez que você tenha excluído seu marketplace você não poderá mais acessá-lo. Tenha cuidado."
         are_you_sure: "Tem certeza?"
         i_understand_button: "Compreendo que após clicar neste botão meu marketplace será excluído"
         last_community_updates: "Por favor note que após a exclusão, você e os usuários do seu marketplace podem ainda receber alguns e-mails do marketplace."
-        you_will_be_redirected_to: ~
+        you_will_be_redirected_to: "Após excluir seu marketplace você será redirecionado para %{destination}. Você não poderá acessar seu marketplace novamente."
         delete_this_marketplace: "Exclua este marketplace"
       manage_members:
         manage_members: "Gerenciar usuários"
@@ -338,7 +338,7 @@ pt-BR:
       form:
         field_required:
           this_field_is_required: "Esse campo é obrigatório"
-          this_field_is_required_checkbox: "Este campo é obrigatório (Usuário tem que selecionar pelo menos uma opção)"
+          this_field_is_required_checkbox: "Este campo é obrigatório (o usuário deve selecionar pelo menos uma opção)"
       index:
         listing_fields: "Anúncio campos & filtros"
         listing_fields_help: "Aqui você pode editar os campos que os usuários têm de preencher ao criar um novo anúncio. Por favor, note que alguns campos são predefinidos e não podem ser editados."
@@ -432,6 +432,9 @@ pt-BR:
       listing_shape_name_placeholder: "P.ex. Vender"
       action_button_label: "Etiqueta do botão checkout"
       action_button_placeholder: "P.ex. Comprar"
+      open_listings_warning:
+        one: "Existe %{count} anúncio ativo com este tipo de ordem. Se você modificar qualquer uma das configurações abaixo esse anúncio manterá a configuração anterior. O anúncio deve ser editado manualmente para usar as novas configurações. Se você não quiser ter o anúncio visível com a antiga configuração deve fecha-lo clicando no botão abaixo."
+        other: "Existem %{count} anúncios ativos com este tipo de ordem. Se você modificar qualquer uma das configurações abaixo esses anúncios manterão a configuração anterior. Os anúncios devem ser editados manualmente para usar as novas configurações. Se você não quiser ter os anúncios visíveis com a antiga configuração deve fecha-los clicando no botão abaixo."
       close_listings_action:
         one: "Fechar %{count} anúncio"
         other: "Fechar %{count} anúncios"
@@ -441,7 +444,7 @@ pt-BR:
       successfully_closed: "Anúncios encerrados com sucesso"
       successfully_deleted: "Pedido '%{order_type}' encerrado com sucesso"
       pricing_and_checkout_title: "Preços e planos"
-      online_payments_label: "Use o sistema de pagamento online"
+      online_payments_label: "Permitir que os vendedores aceitem pagamentos online"
       shipping_label: "Permitir que vendedores definam uma taxa de envio"
       price_label: "Mostrar o campo de preço"
       units_title: "Preço das unidades"
@@ -675,8 +678,8 @@ pt-BR:
       conversation_with: "Conversa com %{person}"
       last_message_at: "(última mensagem %{time})"
       price: "Preço: %{price}"
-      sum: "Soma: %{sum}"
-      price_excludes_vat: "(exclui VAT)"
+      sum: "Total: %{sum}"
+      price_excludes_vat: "(exclui impostos)"
       total: "Total: %{total}"
     status:
       payment_errored: "O pagamento falhou. Por favor, tente novamente."
@@ -708,7 +711,7 @@ pt-BR:
       request_confirmed: Concluído
       request_canceled: Cancelado
       request_paid: "Pagamento efetuado com sucesso"
-      request_preauthorized: "Pagamento efetuado com sucesso"
+      request_preauthorized: "Pagamento autorizado"
       skip_feedback: "Não deixar opinião"
       waiting_for_listing_author_to_accept_offer: "Aguardando %{listing_author_name} aceitar a oferta"
       waiting_for_listing_author_to_accept_request: "Aguardando que %{listing_author_name} aceite seu pedido. Você somente será cobrado quando %{listing_author_name} aceite o pedido."
@@ -778,7 +781,7 @@ pt-BR:
   feedback:
     feedback_subject: "Novo comentário do %{service_name}"
     feedback_body: "%{author_name_and_email} enviou este comentário do %{service_name}"
-    unlogged_user: ~
+    unlogged_user: "Usuário desconectado"
     anonymous_user: "Usuário anônimo"
   preauthorize_payments:
     edit:
@@ -826,9 +829,9 @@ pt-BR:
       if_will_not_happen_you_should_cancel: "Se você acha que este pedido não será concluído por uma razão ou outra, você também pode ainda %{cancel_it_link}."
       cancel_it_link_text: Cancelar
     payment_settings_reminder:
-      remember_to_add_payment_details: "Lembre-se de adicionar os detalhes de pagamento para receber pagamentos"
-      you_have_added_listing_with_payment: "Você adicionou um anúncio %{listing_link} com pagamento. No entanto, você ainda não adicionou seus detalhes de pagamento. Para receber, você tem que adicionar suas informações de pagamento."
-      please_go_to_payment_settings: "Por favor, vá para %{payment_settings_link} e preencha as informações de pagamento exigidas."
+      remember_to_add_payment_details: "Lembre-se de configurar seus dados para receber pagamentos"
+      you_have_added_listing_with_payment: "Você adicionou um anúncio %{listing_link}. No entanto você ainda não configurou seus dados para pagamento. Você precisa configurar essas informações para poder receber pagamentos."
+      please_go_to_payment_settings: "Por favor vá para %{payment_settings_link} e preencha as informações de pagamento."
       payment_settings_link: "configurações de pagamento"
     transaction_confirmed:
       here_is_a_message_from: "Veja a mensagem de %{other_party_given_name} :"
@@ -941,7 +944,7 @@ pt-BR:
       added_listing: "%{name_link} adicionou um anúncio:"
       update_mail_title: "%{title_link} Novidades"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Aqui se encontram algumas coisas que aconteceram na %{community_link} desde %{time_since_last_update}."
+      intro_paragraph: "Veja algumas coisas que aconteceram no %{community_link} nos últimos %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Postar um novo anúncio!"
       reduce_email_footer_text: "E-mails demais ? %{settings_link} ou %{unsubscribe_link}"
@@ -960,13 +963,13 @@ pt-BR:
       remember_to_give_feedback_to: "Lembrete: Lembre de dar feedback para %{name}"
       you_have_not_given_feedback_yet: "Você ainda não deu feedback para %{name} sobre o evento %{event}. Lembre de dar um feedback de como %{given_name} foi no evento"
     transaction_preauthorized:
-      subject: "%{requester} solicitou e pagou por %{listing_title}"
+      subject: "%{requester} solicitou e autorizou o pagamento de %{listing_title}"
       transaction_requested_by_user: "%{requester} solicitou e pagou por \"%{listing_title}\""
       you_have_time_to_accept: "Você precisa aceitar ou rejeitar o pedido no prazo de %{payment_expires_in}. Se você aceita vender, dentro deste prazo, o pagamento vai ser enviado para sua conta. Se você não aceitar, o pedido será rejeitado automaticamente e você não vai ser pago."
       click_here_to_reply: "Clique aqui para responder ao pedido"
     transaction_preauthorized_reminder:
       subject: "Não esqueça de aceitar o pedido de %{requester} sobre o anúncio %{listing_title}"
-      remember_to_accept: "Não esqueça de aceitar o pedido de %{requester} em relação ao anúncio %{listing_title} para receber o pagamento. %{requester} já pagou por esse anúncio. "
+      remember_to_accept: "Não esqueça de aceitar o pedido de %{requester} pelo anúncio %{listing_title} para receber o pagamento. %{requester} já pagou por esse anúncio."
       one_day_left: "Se você não aceitar o pedido no prazo de um dia, ele será rejeitado automaticamente e você não será pago."
       click_here_to_reply: "Clique aqui para responder ao pedido"
     welcome_email:
@@ -993,7 +996,7 @@ pt-BR:
       contact_support_link_text: "entre em contato com o nosso suporte"
       admin_panel_link_text: "painel de administração"
     new_listing_by_followed_person:
-      subject: "%{author_name} publicou um novo anúncio no(a) %{community}"
+      subject: "%{author_name} publicou um novo anúncio no %{service_name}"
       has_posted_a_new_listing: "%{author_name} publicou um novo anúncio:"
       you_are_receiving_this_because: "Você recebeu esta notificação porque você segue %{author_name}."
       view_listing: "Ver anúncio"
@@ -1074,7 +1077,7 @@ pt-BR:
     join:
       joined_kassi: "%{name} entrou no %{service_name} %{time_ago}."
     login:
-      logged_in_to_kassi: "%{name} se conectou à %{service_name} %{time_ago}"
+      logged_in_to_kassi: "%{name} se conectou a %{service_name} %{time_ago}"
     comment:
       commented: "%{commenter_name} comentou o anúncio %{listing_title} %{time_ago}."
       offer_partitive: oferta
@@ -1160,7 +1163,7 @@ pt-BR:
       requesting: precisa
       tell_it_here: "Conte isso aqui!"
       welcome_to_new_kassi: "Bem-vindo(a) à nova %{service_name}!"
-      no_reviews: "nenhum comentário"
+      no_reviews: "Nenhuma avaliação"
       no_image: "Sem imagem"
       filter: Filtro
       this_is_private_community: "Você precisa registrar-se antes de poder ver o conteúdo."
@@ -1168,15 +1171,15 @@ pt-BR:
       email: "Endereço de e-mail(s)"
       message: "Uma mensagem pessoal"
       send_invitation: "Enviar convite"
-      add_email_addresses_description: "Adicione os endereços de e-mail das pessoas que você está convidando para o campo abaixo. Se você adicionar vários endereços de e-mail, separe-os com vírgula."
-      add_lots_of_email_addresses: ~
+      add_email_addresses_description: "Adicione os endereços de e-mail das pessoas que você está convidando no campo abaixo. Para adicionar vários endereços de e-mail, separe-os com vírgula."
+      add_lots_of_email_addresses: "Se você planeja enviar um grande número de convites você deverá usar uma ferramenta de envio de e-mails. Dê uma olhada em %{this_article_link} para encontrar alguns serviços de envio de e-mails."
       this_article_link: "este artigo"
       invitation_emails_field_placeholder: "convidado1@exemplo.com.br, convidado2@exemplo.com.br, ......"
       invitation_message_field_placeholder: "Entrei para este mercado virtual incrível. Você também deveria!"
       errors_in_emails: "Verifique que os e-mails que você adiciona são validos. Se você adicionar vários e-mails, verifique se eles são separados pour uma vírgula."
     list_item:
-      review: opinião
-      reviews: resenhas
+      review: avaliação
+      reviews: avaliações
     news_item:
       show_less: "Mostrar menos"
       show_more: Programar
@@ -1250,7 +1253,7 @@ pt-BR:
     logged_in:
       admin: Administrador
       go_to_your_profile_page: Perfil
-      hi: Ola
+      hi: Olá
       login: Entrar
       logout: Sair
       notifications: Notificações
@@ -1264,7 +1267,7 @@ pt-BR:
     mobile_logged_in:
       admin: Administrador
       go_to_your_profile_page: Perfil
-      hi: Ola
+      hi: Olá
       login: Entrar
       logout: Sair
       notifications: Notificações
@@ -1300,7 +1303,7 @@ pt-BR:
       invitation_sent: "Convite enviado com sucesso"
       inviting_new_users_is_not_allowed_in_this_community: "Não é permitido convidar novos usuários."
       login_again: "Por favor, tente conectar novamente."
-      login_failed: "Falha ao conectar sua conta. Por favor, digite as dados corretos."
+      login_failed: "Problemas ao conectar sua conta. Por favor entre com os dados corretos."
       account_creation_successful: "Bem-vindo(a) à %{service_name}, %{person_name}!"
       account_deleted: "Sua conta já está deletada."
       login_successful: "Bem-vindo(a), %{person_name}"
@@ -1346,7 +1349,7 @@ pt-BR:
       request_rejected: "Pedido rejeitado"
       request_canceled: "Pedido cancelado"
       message_sent: "Mensagem enviada"
-      this_content_is_not_available_in_this_community: "Este conteúdo não está disponível nesta comunidade."
+      this_content_is_not_available_in_this_community: "Este conteúdo não está disponível"
       unknown_error: "Erro desconhecido. Por favor use o link Fale conosco para enviar detalhes sobre o que aconteceu."
       update_error: "Ocorreu um erro ao tentar atualizar as suas informações, por favor, tente novamente"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Você não está autorizado a fazer comentários sobre este evento"
@@ -1402,21 +1405,21 @@ pt-BR:
       wrote: escreveu
       send_private_message: "Enviar uma mensagem a %{person}"
     comment_form:
-      ask_a_question: "Comente no anúncio ou peça mais detalhes. Todos os outros usuários serão capazes de ver o seu comentário."
+      ask_a_question: "Comente o anúncio ou peça mais detalhes. Todos os outros usuários serão capazes de ver o seu comentário."
       log_in: entrar
       send_comment: "Enviar comentário"
       to_send_a_comment: "para enviar um novo comentário."
       write_comment: "Escrever um novo comentário:"
       you_cannot_send_a_new_comment_because_listing_is_closed: "Você não pode enviar novos comentários pois este anúncio está fechado."
       you_must: "Você deve"
-      subscribe_to_comments: "Avise-me se houver novos comentários ou atualizações."
+      subscribe_to_comments: "Avise-me quando houver novos comentários ou atualizações."
     edit:
       edit_listing: "Editar anúncio"
     edit_links:
       close_listing: "Encerrar anúncio"
       edit_listing: "Editar anúncio"
       reopen_listing: "Reativar anúncio"
-      move_to_top: "Mover para o início da página inicial"
+      move_to_top: "Mover para o topo da página inicial"
       show_in_updates_email: "Mostrar no próximo e-mail automático"
       show_in_updates_email_loading: Carregando...
       show_in_updates_email_error: "Não foi possível acessar o servidor. Tente novamente depois de atualizar a página."
@@ -1424,8 +1427,8 @@ pt-BR:
     error:
       something_went_wrong: "Alguma coisa deu errado, código do erro: %{error_code}"
     follow_links:
-      follow: "Obter e-mails sobre novos comentários"
-      unfollow: "Não receber e-mails sobre novos comentários"
+      follow: "Receber e-mails quando houver novos comentários"
+      unfollow: "Não receber e-mails quando houver novos comentários"
     form:
       custom_field_partials:
         dropdown:
@@ -1476,11 +1479,11 @@ pt-BR:
         long_time: "semana, mês, ..."
         after_service_fee_you_will_get: "Depois do processamento das taxas da %{service_name}, você receberá %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} irá deduzir do preço."
-        after_service_fee_you_will_get_paypal_text: "%{service_name} taxa (%{sum_with_currency}) and %{paypal_fee_info_link} será deduzida do preço."
-        paypal_fee_info_link_text: "taxa de processamento do pagamento do PayPal"
-        after_service_fee_you_will_get_vat: "Depois do processamento das taxas da %{service_name}, você receberá aproximadamente %{sum_with_currency} (VAT 0%)"
-        price_excludes_vat: "O preço não inclui VAT."
-        delivery: "Método de entrega"
+        after_service_fee_you_will_get_paypal_text: "Desse valor será deduzida uma taxa de (%{sum_with_currency}) cobrada pelo %{service_name} e a %{paypal_fee_info_link}."
+        paypal_fee_info_link_text: "Taxa de processamento do pagamento do PayPal"
+        after_service_fee_you_will_get_vat: "Depois do processamento das taxas da %{service_name}, você receberá aproximadamente %{sum_with_currency}"
+        price_excludes_vat: "O preço não inclui impostos."
+        delivery: "Forma de entrega"
         shipping: Envio
         shipping_price: "Taxa de envio"
         shipping_price_additional: "Itens adicionais"
@@ -1603,7 +1606,7 @@ pt-BR:
       item_request_trade: "Trocar requisição"
       no_description: "Este anúncio não tem descrição"
       no_image: "Sem imagem"
-      no_reviews: "Nenhum comentário recebido"
+      no_reviews: "Nenhuma avaliação recebida"
       offer: Oferta
       listing_created: Criado
       open_until: "Válido até %{date}"
@@ -1621,12 +1624,12 @@ pt-BR:
       times: vezes
       times_viewed: Visualizado
       processing_uploaded_image: "(Processando imagem...)"
-      price_excludes_vat: "(exclui VAT)"
+      price_excludes_vat: "(exclui impostos)"
       listing_created_at: "Anúncio criado"
       price:
         per_quantity_unit: "por %{quantity_unit}"
         per_day: "por dia"
-      delivery: Entrega
+      delivery: "Forma de entrega"
       shipping: "Envio (+%{price})"
       shipping_no_price: Envio
       shipping_price_additional: "Envio (+ %{price}, itens adicionais: + %{shipping_price_additional})"
@@ -1704,25 +1707,25 @@ pt-BR:
   paypal_accounts:
     payout_info_title: "Informação de pagametno"
     paypal_account_email_connected: "<del>1. Conectar-se a conta PayPal</del> Concluído!"
-    paypal_billing_agreement_made: "<del>2. Conceder permissão a %{service_name} para cobrar uma taxa de transação</del> Concluída!"
+    paypal_billing_agreement_made: "<del>2. Conceder permissão a %{service_name} para cobrar taxa de transação</del> Concluída!"
     you_are_ready_to_accept_payments: "Você está pronto para aceitar pagamentos!"
     commission: "%{commission} %"
     connected_account: "Conta PayPal '%{email}' connectada com sucesso."
     change_account: "Mudar conta"
-    missing: "Você têm anúncios ativos, mas você ainda não adicionou a sua conta do PayPal por isso você não será capaz de receber os pagamentos. Por favor, conecte sua conta do PayPal em %{settings_link}, você também tem que dar permissão para que %{service_name} cobre taxa de transação."
+    missing: "Você têm anúncios ativos mas como você ainda não adicionou a sua conta do PayPal não é possível receber pagamentos. Por favor conecte sua conta do PayPal em %{settings_link}, você também também precisa dar permissão para que %{service_name} cobre taxa de transação."
     from_your_payment_settings_link_text: "configurações de pagamento"
     new:
       payout_info_you_need_to_connect: "Para aceitar pagamentos você deve conectar a sua conta PayPal com %{service_name}."
-      payout_info_text: "Por favor, preencha os dois passos seguintes para se conectar a sua conta."
+      payout_info_text: "Por favor, realize os dois passos seguintes para se conectar a sua conta."
       contact_admin_link_text: "contate o administrador"
       admin_account_not_connected: "Você não pode conectar sua conta PayPal porque o administrador do mercado não finalizou as configurações necessárias do PayPal."
       paypal_account_email: "1. Conecte sua conta PayPal"
       paypal_account_email_placeholder: "Seu endereço de e-mail PayPal"
       paypal_account_email_info_text: "Atenção: Você precisa de uma conta individual no PayPal ou empresarial para aceitar pagamentos. Se você já possui sua conta pessoal, você poderá fazer o upgrade da mesma. É grátis e você só leva alguns minutos. %{upgrade_paypal_account} Se você não tem uma conta PayPal ainda, você pode criar esta nova conta %{create_paypal_account}. Sua conta PayPal deve estar configurada para receber %{currency}."
       create_paypal_account: aqui
-      upgrade_paypal_account: "Aprimore sua conta aqui."
+      upgrade_paypal_account: "Entre na sua conta no PayPal"
       connect_paypal_account: "Conecte-se a uma conta PayPal"
-      paypal_account_billing_agreement: "2. Conceder permissão a %{service_name} para cobrar uma taxa de transação"
+      paypal_account_billing_agreement: "2. Conceder permissão a %{service_name} para cobrar taxa de transação"
       paypal_account_billing_agreement_info_both: "Depois de realizar uma venda no %{service_name}, uma taxa de (%{commission_from_seller} do valor total, excluindo custo de envio, de no mínimo %{minimum_commission}) será cobrada através de sua conta no PayPal. Para aceitar pagamentos no %{service_name}, você deve permitir essa cobrança automática. A taxa cobrada exclui %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Depois de realizar uma venda no %{service_name}, uma taxa de %{minimum_commission} será cobrada através de sua conta no PayPal. Para aceitar pagamentos no %{service_name}, você deve permitir essa cobrança automática. A taxa cobrada exclui %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Depois de realizar uma venda no %{service_name}, uma taxa de (%{commission_from_seller} do valor total, excluindo custo de envio será cobrada através de sua conta no PayPal. Para aceitar pagamentos no %{service_name}, você deve permitir essa cobrança automática. A taxa cobrada exclui %{paypal_info_link}."
@@ -1770,8 +1773,8 @@ pt-BR:
       email_is_in_use_or_not_allowed: "Este endereço de e-mail não é permitido ou já está sendo utilizado. Se você não conseguir entrar entre em contato conosco."
       email_not_allowed: "Esse e-mail não foi aceito pela %{service_name}. Por favor, utilize um e-mail válido. Se você não conseguir se conectar, entre em contato conosco."
       email_restriction_instructions:
-        one: "Essa tribo é reservada à %{community_name}. Para entrar, você deve ter um e-mail do tipo %{allowed_emails}."
-        other: "Essa tribo é reservada à %{community_name}. Para entrar, você deve ter um e-mail autorizado."
+        one: "O acesso a %{service_name} é restrito. Para entrar, você deve ter '%{allowed_emails}' endereço de e-mail."
+        other: "O acesso a %{service_name} é restrito. Para entrar, você deve ter um e-mail autorizado."
       enter_captcha: "Eu sou humano:"
       family_name: Sobrenome
       given_name: Nome
@@ -1828,18 +1831,18 @@ pt-BR:
       slightly_better_than_expected: "Excedeu as expectativas"
       slightly_less_than_expected: "Pior do que o esperado"
       what_are_these: "O que é isso?"
-      review: "comentário recebido"
-      reviews: "comentários recebidos"
+      review: "avaliação recebida"
+      reviews: "avaliações recebidas"
       listing: anúncio
       listings: anúncios
       open_listing: "anúncio ativo"
       open_listings: "anúncios ativos"
       no_listings: "Sem anúncios"
       no_open_listings: "Nenhum anúncio ativo"
-      no_reviews: "nenhum comentário"
+      no_reviews: "Nenhuma avaliação"
       show_all_listings: "Mostrar todos os anúncios"
       show_all_open_listings: "Listar todos os anúncios ativos"
-      show_all_reviews: "Mostrar todas as opiniões"
+      show_all_reviews: "Mostrar todas as avaliações"
     followed_people:
       you_follow_plural: "Você segue %{count} pessoas"
       you_follow_singular: "Você segue %{count} pessoa"
@@ -1904,7 +1907,7 @@ pt-BR:
       new_email: "Novo endereço de e-mail"
       delete_all_memberships: "Se você excluir sua conta, não será capaz de usá-la mais nos seguintes mercados virtuais: %{marketplaces}"
       delete_personal_information: "Se você excluir sua conta, suas informações pessoais (nome, número de telefone, endereço, e-mail, foto do perfil, etc.) serão excluídas permanentemente e não poderão ser recuperadas. Todos os anúncios que você criou serão removidos. Você não será capaz de reativar a sua conta."
-      delete_information_others_involved: "Informações onde outros membros estão envolvidos (conversas com outras pessoas, transações que você fez, comentários que você tenha feito aos outros, etc) não serão removidas quando você excluir sua conta. No entanto, seu nome não será mais exibido junto a essas informações."
+      delete_information_others_involved: "Informações onde outros membros estão envolvidos (conversas com outras pessoas, transações que você fez, avaliações que você tenha feito dos outros, etc) não serão removidas quando você excluir sua conta. No entanto, seu nome não será mais exibido junto a essas informações."
       unfinished_transactions: "Sua conta não pode ser excluída porque você tem transações em andamento. Por favor, conclua todas as transações antes de excluir a sua conta."
       new_password: "Nova senha"
       save: Salvar
