@@ -1,3 +1,5 @@
+require 'csv'
+
 class Admin::CommunityTransactionsController < ApplicationController
   TransactionQuery = MarketplaceService::Transaction::Query
   before_filter :ensure_is_admin
@@ -45,6 +47,8 @@ class Admin::CommunityTransactionsController < ApplicationController
         transaction[:listing_url] = listing_path(id: transaction[:listing][:id])
       end
 
+      transaction[:last_activity_at] = last_activity_for(transaction)
+
       transaction.merge({author: author, starter: starter})
     end
 
@@ -52,15 +56,75 @@ class Admin::CommunityTransactionsController < ApplicationController
       pager.replace(conversations)
     end
 
-    render("index",
-      { locals: {
-        community: @current_community,
-        conversations: conversations
-      }}
-    )
+    respond_to do |format|
+      format.html do
+        render("index", {
+          locals: {
+            community: @current_community,
+            conversations: conversations
+          }
+        })
+      end
+      with_feature(:export_as_csv) do
+        format.csv do
+          marketplace_name = if @current_community.use_domain
+            @current_community.domain
+          else
+            @current_community.ident
+          end
+          send_data generate_csv_for(conversations), filename: "#{marketplace_name}-transactions-#{Date.today}.csv"
+        end
+      end
+    end
+  end
+
+  def generate_csv_for(conversations)
+    CSV.generate(headers: true) do |csv|
+      # first line is column names
+      csv << %w{
+        transaction_id
+        listing_id
+        listing_name
+        status
+        sum
+        commission
+        started_at
+        last_activity_at
+        starter_username
+        other_party_username
+      }
+      conversations.each do |conversation|
+        starter_username = conversation[:starter] ? conversation[:starter][:username] : "DELETED"
+        other_party_username = conversation[:author] ? conversation[:author][:username] : "DELETED"
+        csv << [
+          conversation[:id],
+          conversation[:listing][:id],
+          conversation[:listing_title] || "N/A",
+          conversation[:status],
+          conversation[:payment_total],
+          conversation[:commission_from_seller],
+          conversation[:created_at],
+          conversation[:last_activity_at],
+          starter_username,
+          other_party_username
+        ]
+      end
+    end
   end
 
   private
+
+  def last_activity_for(conversation)
+    last_activity_at = 0
+    if conversation[:conversation][:last_message_at].nil?
+      last_activity_at = conversation[:last_transition_at]
+    elsif conversation[:last_transition_at].nil?
+      last_activity_at = conversation[:conversation][:last_message_at]
+    else
+      last_activity_at = [conversation[:last_transition_at], conversation[:conversation][:last_message_at]].max
+    end
+    last_activity_at
+  end
 
   def simple_sort_column(sort_column)
     case sort_column
