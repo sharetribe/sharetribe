@@ -17,6 +17,7 @@ class Admin::CommunityMembershipsController < ApplicationController
       with_feature(:export_as_csv) do
         format.csv do
           all_memberships = CommunityMembership.where(:community_id => @community.id)
+                                                .where("status != 'deleted_user'")
                                                 .includes(:person => :emails)
                                                 .order("created_at ASC")
           marketplace_name = if @community.use_domain
