@@ -79,7 +79,7 @@ class Admin::CommunityTransactionsController < ApplicationController
   end
 
   def generate_csv_for(conversations)
-    CSV.generate(headers: true) do |csv|
+    CSV.generate(headers: true, force_quotes: true) do |csv|
       # first line is column names
       csv << %w{
         transaction_id

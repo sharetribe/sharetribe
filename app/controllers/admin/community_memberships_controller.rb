@@ -67,7 +67,7 @@ class Admin::CommunityMembershipsController < ApplicationController
   private
 
   def generate_csv_for(memberships)
-    CSV.generate(headers: true) do |csv|
+    CSV.generate(headers: true, force_quotes: true) do |csv|
       # first line is column names
       header_row = %w{
         first_name
