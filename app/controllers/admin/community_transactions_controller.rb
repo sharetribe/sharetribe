@@ -88,7 +88,6 @@ class Admin::CommunityTransactionsController < ApplicationController
         status
         currency
         sum
-        commission
         started_at
         last_activity_at
         starter_username
@@ -102,7 +101,6 @@ class Admin::CommunityTransactionsController < ApplicationController
           conversation[:status],
           conversation[:payment_total].is_a?(Money) ? conversation[:payment_total].currency : "N/A",
           conversation[:payment_total],
-          conversation[:commission_from_seller],
           conversation[:created_at],
           conversation[:last_activity_at],
           conversation[:starter] ? conversation[:starter][:username] : "DELETED",
