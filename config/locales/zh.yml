@@ -248,6 +248,7 @@ zh:
         ban_user: 禁止用户
         saving_user_status: 正在保存……
         save_user_status_successful: 已保存
+        export_all_as_csv: ~
         save_user_status_error: 保存失败。请刷新页面后重试。
         ban_user_confirmation: 这将会把用户从集市中删除并阻止他们使用这个帐号再次访问该站点。你确认要继续吗？
         ban_me_error: 你不能禁止自己。
@@ -286,6 +287,7 @@ zh:
         url: 网址
         empty: 你没有更多的菜单链接
       transactions:
+        export_all_as_csv: ~
         transactions: 查看交易记录
         headers:
           conversation: 会话

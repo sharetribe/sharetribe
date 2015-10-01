@@ -253,6 +253,7 @@ fi:
         ban_user: Poista
         saving_user_status: Tallennetaan...
         save_user_status_successful: "Tallennus onnistui"
+        export_all_as_csv: ~
         save_user_status_error: "Tallennus epäonnistui. Päivitä sivu ja yritä uudelleen."
         ban_user_confirmation: "Olet poistamassa käyttäjää palvelusta ja estämästä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
         ban_me_error: "Et voi poistaa itseäsi."
@@ -291,6 +292,7 @@ fi:
         url: "Osoite (URL)"
         empty: "Sinulla ei ole lisälinkkejä valikossa"
       transactions:
+        export_all_as_csv: ~
         transactions: "Näytä transaktiot"
         headers:
           conversation: Viestiketju
@@ -1555,6 +1557,7 @@ fi:
       booking_from: Alkaa
       booking_to: Loppuu
       how_paypal_works: "Miten PayPal toimii"
+      payment_help: ~
     new:
       post_a_new_listing: "Lisää uusi ilmoitus"
       listing: ilmoitus

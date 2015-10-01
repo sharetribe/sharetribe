@@ -253,6 +253,7 @@ nb:
         ban_user: "Forby bruker"
         saving_user_status: "Lagrer ..."
         save_user_status_successful: Lagret
+        export_all_as_csv: "Eksportér alle i CSV-fil"
         save_user_status_error: "Lagring feilet. Vennligst oppdater siden på nytt og prøv igjen."
         ban_user_confirmation: "Dette fjerner bruker fra denne markedsplassen og hindrer vedkommende tilgang med denne bruker kontoen igjen. Er du sikker på at du ønsker å fortsette?"
         ban_me_error: "Du kan ikke forby deg selv."
@@ -291,6 +292,7 @@ nb:
         url: URL
         empty: "Du har ingen ekstra menylenker"
       transactions:
+        export_all_as_csv: "Eksportér alle i CSV-fil"
         transactions: "Vis transaksjoner"
         headers:
           conversation: "Samtale tråd"

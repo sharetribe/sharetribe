@@ -253,6 +253,7 @@ sv:
         ban_user: "Spärra användare"
         saving_user_status: Sparar...
         save_user_status_successful: Sparad
+        export_all_as_csv: ~
         save_user_status_error: "Ett fel inträffade när sidan sparades. Försök igen eller ladda om sidan."
         ban_user_confirmation: "Detta tar bort medlemmen från marknadsplatsen och förhindrar att dem ska komma åt sidan igen med deras konto. Är du säker att du vill fortsätta?"
         ban_me_error: "Du kan inte bannlysa dig själv."
@@ -291,6 +292,7 @@ sv:
         url: URL
         empty: "Du har inga ytterligare menylänkar"
       transactions:
+        export_all_as_csv: ~
         transactions: "Visa transaktioner"
         headers:
           conversation: Konversationstråd

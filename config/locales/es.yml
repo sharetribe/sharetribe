@@ -238,6 +238,7 @@ es:
         ban_user: ~
         saving_user_status: ~
         save_user_status_successful: ~
+        export_all_as_csv: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
         ban_me_error: ~
@@ -276,6 +277,7 @@ es:
         url: ~
         empty: ~
       transactions:
+        export_all_as_csv: ~
         transactions: ~
         headers:
           conversation: ~
@@ -1543,6 +1545,7 @@ es:
       booking_from: ~
       booking_to: ~
       how_paypal_works: ~
+      payment_help: ~
     new:
       post_a_new_listing: "Publica un nuevo listado"
       listing: listado

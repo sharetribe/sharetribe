@@ -253,6 +253,7 @@ de:
         ban_user: "Nutzer sperren"
         saving_user_status: Speichern...
         save_user_status_successful: Gespeichert
+        export_all_as_csv: "Exportiere Alles als CSV Datei"
         save_user_status_error: "Speichern fehlgeschlagen. Bitte erneuere die Seite und versuch es noch einmal."
         ban_user_confirmation: ~
         ban_me_error: "Du kannst dich nicht selber sperren."
@@ -291,6 +292,7 @@ de:
         url: URL
         empty: "Du hast keine zusätzlichen Menü-Links"
       transactions:
+        export_all_as_csv: "Exportiere Alles als CSV Datei"
         transactions: "Transaktionen anzeigen"
         headers:
           conversation: Unterhaltungsverlauf

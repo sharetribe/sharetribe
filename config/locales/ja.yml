@@ -248,6 +248,7 @@ ja:
         ban_user: アカウント停止ユーザ
         saving_user_status: 保存中...
         save_user_status_successful: 保存しました
+        export_all_as_csv: ~
         save_user_status_error: 保存に失敗しました。ページを再読込してもう一度試してください
         ban_user_confirmation: これはマーケットプレイスのユーザを削除するものであり、今後二度とこのアカウントに戻れないようになります。本当にこの削除手続きを実行してもよろしいですか。
         ban_me_error: 自分自身をアカウント停止ユーザに出来ません。
@@ -286,6 +287,7 @@ ja:
         url: URL
         empty: 追加メニューリンクはありません
       transactions:
+        export_all_as_csv: ~
         transactions: お支払い履歴の表示
         headers:
           conversation: 会話のスレッド

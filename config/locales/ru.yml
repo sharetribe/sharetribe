@@ -263,6 +263,7 @@ ru:
         ban_user: "Заблокировать участника"
         saving_user_status: Сохранение...
         save_user_status_successful: Сохранено
+        export_all_as_csv: ~
         save_user_status_error: "Во время сохранения поля произошла ошибка Обновите страницу и попробуйте еще раз."
         ban_user_confirmation: "Это удалит участника из проекта и доступ из этого аккаунта будет не возможен. Вы уверены что хотите продолжить?"
         ban_me_error: "Вы не можете заблокировать сами себя"
@@ -301,6 +302,7 @@ ru:
         url: URL
         empty: "У вас нет дополнительных ссылок меню"
       transactions:
+        export_all_as_csv: ~
         transactions: "Посмотреть транзакции"
         headers:
           conversation: Обсуждение
@@ -1561,6 +1563,7 @@ ru:
       booking_from: От
       booking_to: До
       how_paypal_works: "Как функционирует PayPal"
+      payment_help: ~
     new:
       post_a_new_listing: "Новое предложение"
       listing: список

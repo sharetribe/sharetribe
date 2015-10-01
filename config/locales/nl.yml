@@ -253,6 +253,7 @@ nl:
         ban_user: "Verban gebruiker"
         saving_user_status: Opslaan...
         save_user_status_successful: Opgeslagen
+        export_all_as_csv: ~
         save_user_status_error: "Opslaan mislukt. Vernieuw de pagina en probeer opnieuw."
         ban_user_confirmation: "Dit verwijdert de gebruiker van de marktplaats en belet hem de site opnieuw te gebruiken met deze account. Ben je zeker dat je verder wil gaan?"
         ban_me_error: "Je kunt jezelf niet uitsluiten."
@@ -291,6 +292,7 @@ nl:
         url: URL
         empty: "Je hebt geen bijkomende menu koppelingen"
       transactions:
+        export_all_as_csv: ~
         transactions: "Bekijk transacties"
         headers:
           conversation: Conversatie
@@ -1551,6 +1553,7 @@ nl:
       booking_from: Van
       booking_to: Tot
       how_paypal_works: "Hoe PayPal werkt"
+      payment_help: ~
     new:
       post_a_new_listing: "Plaats een nieuw item"
       listing: Item

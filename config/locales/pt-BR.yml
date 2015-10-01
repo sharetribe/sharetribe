@@ -253,6 +253,7 @@ pt-BR:
         ban_user: "Banir usuário"
         saving_user_status: Gravando...
         save_user_status_successful: Salvo
+        export_all_as_csv: "Exporte tudo como CSV"
         save_user_status_error: "Erro ao gravar. Por favor, atualize a página e tente novamente"
         ban_user_confirmation: "Isso remove o usuário do mercado virtual e o impede de acessar o site novamente com esta conta. Tem certeza de que deseja continuar?"
         ban_me_error: "Você não pode se banir."
@@ -291,6 +292,7 @@ pt-BR:
         url: URL
         empty: "Você não tem quaisquer ligações de menu adicionais"
       transactions:
+        export_all_as_csv: "Exporte tudo como CSV"
         transactions: "Ver transações"
         headers:
           conversation: "Criou a conversa"
@@ -553,10 +555,10 @@ pt-BR:
     paypal_fee_info:
       title: "Taxa de processamento do pagamento do PayPal"
       body_text: |-
-          O PayPal cobra uma taxa de processamento de cada pagamento. Esta taxa varia entre 2% e 5% do preço total da venda, dependendo do seu volume de vendas mensal e do país de residência do comprador. Em geral, as compras locais tem taxas mais baixas do que as internacionais, e um alto volume de vendas mensais dão descontos na taxa. 
+          O PayPal cobra uma taxa de 4,99% + R$0,60 em cada pagamento. 
           Você pode ver as taxas exatas, fazendo login em sua conta do PayPal clicando %{link_to_paypal}. Após cada compra você receberá um recibo exibindo a taxa exata.
       body_with_shipping_text: |-
-          O PayPal cobra uma taxa de processamento de cada pagamento. Esta taxa varia entre 2% e 5% do preço total da venda (incluindo frete), dependendo do seu volume de vendas mensal e do país de residência do comprador. Em geral, as compras locais tem taxas mais baixas do que as internacionais, e um alto volume de vendas mensais dão descontos na taxa. 
+          O PayPal cobra uma taxa de 4,99% + R$0,60 em cada pagamento. 
           Você pode ver as taxas exatas, fazendo login em sua conta do PayPal clicando %{link_to_paypal}. Após cada compra você receberá um recibo exibindo a taxa exata.
       link_to_paypal_text: aqui
   conversations:
@@ -1712,7 +1714,7 @@ pt-BR:
     commission: "%{commission} %"
     connected_account: "Conta PayPal '%{email}' connectada com sucesso."
     change_account: "Mudar conta"
-    missing: "Você têm anúncios ativos mas como você ainda não adicionou a sua conta do PayPal não é possível receber pagamentos. Por favor conecte sua conta do PayPal em %{settings_link}, você também também precisa dar permissão para que %{service_name} cobre taxa de transação."
+    missing: "Você têm anúncios ativos mas não pode receber pagamentos porque sua conta no PayPal ainda não foi configurada. Por favor conecte sua conta do PayPal em %{settings_link}, você também também precisa dar permissão para que %{service_name} cobre taxa de transação."
     from_your_payment_settings_link_text: "configurações de pagamento"
     new:
       payout_info_you_need_to_connect: "Para aceitar pagamentos você deve conectar a sua conta PayPal com %{service_name}."
@@ -1728,8 +1730,8 @@ pt-BR:
       paypal_account_billing_agreement: "2. Conceder permissão a %{service_name} para cobrar taxa de transação"
       paypal_account_billing_agreement_info_both: "Depois de realizar uma venda no %{service_name}, uma taxa de (%{commission_from_seller} do valor total, excluindo custo de envio, de no mínimo %{minimum_commission}) será cobrada através de sua conta no PayPal. Para aceitar pagamentos no %{service_name}, você deve permitir essa cobrança automática. A taxa cobrada exclui %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Depois de realizar uma venda no %{service_name}, uma taxa de %{minimum_commission} será cobrada através de sua conta no PayPal. Para aceitar pagamentos no %{service_name}, você deve permitir essa cobrança automática. A taxa cobrada exclui %{paypal_info_link}."
-      paypal_account_billing_agreement_info_relative: "Depois de realizar uma venda no %{service_name}, uma taxa de (%{commission_from_seller} do valor total, excluindo custo de envio será cobrada através de sua conta no PayPal. Para aceitar pagamentos no %{service_name}, você deve permitir essa cobrança automática. A taxa cobrada exclui %{paypal_info_link}."
-      paypal_info_link_text: "rocessando o pagamento da taxa do PayPal"
+      paypal_account_billing_agreement_info_relative: "Depois de realizar uma venda no %{service_name} uma taxa de %{commission_from_seller} do valor total, excluindo custo de envio, será cobrada através de sua conta no PayPal. Para aceitar pagamentos no %{service_name} você deve permitir essa cobrança automática. A taxa cobrada exclui %{paypal_info_link}."
+      paypal_info_link_text: "taxa de processamento do pagamento do PayPal"
       billing_agreement_description: "Conceder permissão a %{service_name} para cobrar uma taxa de transação."
       billing_agreement: "Conceder permissão"
       permissions_not_granted: "Permissões para conectar com a conta PayPal não são concedidas."

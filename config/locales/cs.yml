@@ -250,6 +250,7 @@ cs:
         ban_user: ~
         saving_user_status: Ukládání...
         save_user_status_successful: Uloženo
+        export_all_as_csv: ~
         save_user_status_error: "Ukládání selhalo. Prosíme, aktualizujte stránku a zkuste to znovu."
         ban_user_confirmation: ~
         ban_me_error: ~
@@ -288,6 +289,7 @@ cs:
         url: ~
         empty: ~
       transactions:
+        export_all_as_csv: ~
         transactions: ~
         headers:
           conversation: ~
@@ -504,7 +506,7 @@ cs:
       give_away: ~
       lend: ~
       receive: ~
-      rent: ~
+      rent: "K pronájmu"
       rent_out: ~
       sell: ~
       offer_to_swap: ~
@@ -1388,11 +1390,11 @@ cs:
     comment_form:
       ask_a_question: ~
       log_in: "přihlásit se"
-      send_comment: "Poslat komentář"
-      to_send_a_comment: ~
-      write_comment: ~
+      send_comment: "Odeslat komentář"
+      to_send_a_comment: "Poslat nový komentář"
+      write_comment: "Napsat nový komentář:"
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
-      you_must: ~
+      you_must: Musíte
       subscribe_to_comments: ~
     edit:
       edit_listing: ~
@@ -1415,32 +1417,32 @@ cs:
         dropdown:
           select_one___: ~
       departure_time:
-        at: ~
-        departure_time: ~
+        at: V
+        departure_time: "Čas odjezdu"
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: ~
+        detailed_description: "Detailní popis"
       destination:
-        destination: ~
+        destination: "Místo určení"
       form_content:
-        favor: ~
+        favor: služba
         housing: ~
-        item: ~
-        offer_something: ~
-        request_something: ~
-        rideshare: ~
+        item: položka
+        offer_something: "Nabídněte něco"
+        request_something: "Požádejte o něco"
+        rideshare: jízda
         i_want_to_offer: ~
         i_want_to_request: ~
       googlemap:
         googlemap_copy: ~
-        googlemap_description: ~
-        googlemap_updatemap: ~
+        googlemap_description: "Zobrazit mapu"
+        googlemap_updatemap: "Aktualizovat mapu"
       images:
-        image: ~
-        no_file_selected: ~
-        remove_image: ~
-        select_file: ~
+        image: Obrázek
+        no_file_selected: "Žádný soubor není vybrán"
+        remove_image: "Odstranit obrázek"
+        select_file: "Vybrat soubor"
         removing: ~
         processing: ~
         loading_image: ~
@@ -1450,7 +1452,7 @@ cs:
         file_too_large: ~
         accepted_formats: ~
       location:
-        location: ~
+        location: Umístění
       price:
         price: ~
         per: ~
@@ -1470,8 +1472,8 @@ cs:
         shipping_price_additional: ~
         pickup: ~
       origin:
-        location: ~
-        origin: ~
+        location: Umístění
+        origin: Původ
       send_button:
         save_listing: ~
       share_type:
@@ -1480,70 +1482,70 @@ cs:
         buy: ~
         give_away: ~
         lend: ~
-        offer_type: ~
-        receive: ~
+        offer_type: "Typ nabídky"
+        receive: "Přijetí zdarma"
         rent: ~
         rent_out: ~
-        request_type: ~
+        request_type: "Typ žádosti"
         sell: ~
         share_for_free: ~
         accept_for_free: ~
-        trade: ~
+        trade: Výměna
       tag_list:
-        comma_separate: ~
-        tags: ~
+        comma_separate: "(oddělit čárkou)"
+        tags: Pojmenování
       title:
         listing_title: ~
       valid_until:
-        valid_until: ~
+        valid_until: "Platnost do"
       valid_until_radio_buttons:
-        for_the_time_being: ~
+        for_the_time_being: Prozatím
       privacy:
         privacy: ~
         private: ~
         public: ~
     help_texts:
-      help_share_type_title: ~
+      help_share_type_title: "Typ nabídky nebo žádosti"
       help_tags_title: ~
-      help_valid_until_title: ~
+      help_valid_until_title: "Platnost do"
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
+      all_categories: "Všechny kategorie"
+      all_offer_types: "Všechny nabídky"
+      all_request_types: "Všechny žádosti"
+      category: Kategorie
+      did_not_found_what_you_were_looking_for: "Nenalezli jste, co jste hledali?"
+      favors: Služby
       housing: ~
-      items: ~
-      list_view: ~
+      items: Položky
+      list_view: "Zobrazit seznam"
       listings: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
+      map_view: "Zobrazit mapu"
+      offer_something: "Dejte vědět ostatním!"
+      offer_type: "Typ nabídky"
+      offers: Nabídky
+      request_something: "Požádejte o něco!"
+      request_type: "Typ žádosti"
+      requests: Žádosti
+      rideshare: Spolujízda
+      search_verb: Hledat
+      you_have_something_others_do_not: "Máte něco, co byste chtěli nabídnout?"
       feed_title: ~
     left_panel_link:
-      borrows: ~
-      buys: ~
-      favors: ~
-      give_aways: ~
+      borrows: Půjčím
+      buys: Koupím
+      favors: Služby
+      give_aways: Daruji
       housings: ~
-      items: ~
-      lends: ~
-      receives: ~
+      items: Položky
+      lends: Zapůjčím
+      receives: Daruji
       rent_outs: ~
       rents: ~
-      rideshares: ~
-      sells: ~
+      rideshares: Spolujízda
+      sells: Prodám
       share_for_frees: ~
       accept_for_frees: ~
-      trades: ~
+      trades: Výměním
     listing_actions:
       booking_from: ~
       booking_to: ~
@@ -1571,39 +1573,39 @@ cs:
       month: ~
       custom: ~
     quantity_placeholder: ~
-    please_comment: ~
+    please_comment: Komentář
     reply_link:
       listing_closed: ~
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
-      comments: ~
+      comments: "Veřejná diskuze"
       contact_by_phone: ~
       contact: ~
-      favor_offer: ~
-      favor_request: ~
+      favor_offer: "Nabídka služeb"
+      favor_request: "Žádosti o služby"
       inquiry: ~
       item_offer_trade: ~
       item_request_trade: ~
-      no_description: ~
+      no_description: "Tento seznam není popsán"
       no_image: ~
       no_reviews: ~
-      offer: ~
+      offer: Nabídnout
       listing_created: ~
       open_until: ~
       feedback: ~
       qr_code: ~
-      request: ~
-      rideshare_offer: ~
-      rideshare_request: ~
+      request: Požádat
+      rideshare_offer: "Nabídnout spolujízdu"
+      rideshare_request: "Požádat o spolujízdu"
       send_private_message: ~
       share_types: ~
-      share_types_offer: ~
-      share_types_request: ~
-      tags: ~
-      time: ~
-      times: ~
-      times_viewed: ~
+      share_types_offer: "Typ nabídky"
+      share_types_request: "Typ žádosti"
+      tags: Pojmenování
+      time: čas
+      times: časy
+      times_viewed: Zobrazeno
       processing_uploaded_image: ~
       price_excludes_vat: ~
       listing_created_at: ~
@@ -1638,26 +1640,26 @@ cs:
       read_more: Zobrazit.
   mapview:
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
+      all_categories: "Všechny kategorie"
+      all_offer_types: "Všechny nabídky"
+      all_request_types: "Všechny žádosti"
+      category: Kategorie
+      did_not_found_what_you_were_looking_for: "Nenalezli jste, co jste hledali?"
+      favors: Služby
       housing: ~
-      items: ~
-      list_view: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
-    please_comment: ~
+      items: Položky
+      list_view: "Zobrazit seznam"
+      map_view: "Zobrazit mapu"
+      offer_something: "Dejte vědět ostatním!"
+      offer_type: "Typ nabídky"
+      offers: Nabídky
+      request_something: "Požádat o něco!"
+      request_type: "Typ žádosti"
+      requests: Žádosti
+      rideshare: Spolujízda
+      search_verb: Hledat
+      you_have_something_others_do_not: "Máte něco, co byste chtěli nabídnout?"
+    please_comment: Komentář
   mercury:
     content_too_long: ~
   okl:
@@ -1734,79 +1736,79 @@ cs:
       activate: ~
       deactivate: ~
     help_texts:
-      feedback_description_title: ~
-      help_captcha_title: ~
+      feedback_description_title: "Zpětná vazba"
+      help_captcha_title: "Jste člověk?"
       help_invitation_code_title: ~
-      terms_title: ~
+      terms_title: "%{service_name} podmínky použití"
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
     new:
-      captcha_incorrect: ~
-      captcha_was_wrong: ~
-      create_new_account: ~
-      email: ~
-      email_is_in_use: ~
+      captcha_incorrect: "Ověření selhalo. Prosíme, opište znovu text z obrázku níže."
+      captcha_was_wrong: "Text byl zadán nesprávně."
+      create_new_account: "Vytvořit účet"
+      email: "E-mailová adresa"
+      email_is_in_use: "E-mail, který byl zadán, je již obsazen."
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
-      enter_captcha: ~
-      family_name: ~
-      given_name: ~
-      i_accept_the: ~
+      enter_captcha: "Jsem člověk:"
+      family_name: Příjmení
+      given_name: Jméno
+      i_accept_the: Přijímám
       invalid_invitation_code: ~
       invitation_code: ~
-      not_required: ~
+      not_required: ", není požadováno"
       notification_is_mandatory: ~
       organization_name: ~
-      password_again: ~
+      password_again: "Potvrďte heslo"
       show_my_name_to_others: ~
-      sign_up: ~
-      terms: ~
-      username_is_in_use: ~
-      username_is_invalid: ~
-      visible_only_to_you: ~
-      visible_to_everybody: ~
+      sign_up: "Vytvořit nový %{service_name} účet"
+      terms: "podmínky použití"
+      username_is_in_use: "Toto uživatelské jméno je již obsazené."
+      username_is_invalid: "Uživatelské jméno je neplatné. Povolenými znaky jsou písmena, číslice a podtržítko."
+      visible_only_to_you: "viditelné pouze pro Vás a pro správce tržiště"
+      visible_to_everybody: "viditelné pro všechny"
       create_account_with_facebook: ~
       OR: ~
       signup_with_email: ~
     not_member:
-      explanation_text: ~
-      read_more_about_kassi_communities: ~
-      this_user_does_not_belong_to_this_community: ~
+      explanation_text: "Právě si prohlížíte %{community}. Pokusili jste se zobrazit profil uživatele, který je uživatelem jiné tržiště vytvořeného přes platformu Sharetribe. Nelze získat přístup k tomuto profilu uživatele v %{community}."
+      read_more_about_kassi_communities: "Přečtěte si více o Sharetribe tržišti."
+      this_user_does_not_belong_to_this_community: "Tento uživatel není členem %{community}."
     profile_feedback:
-      as_expected: ~
-      exceeded_expectations: ~
-      grade: ~
+      as_expected: "Podle očekávání"
+      exceeded_expectations: "Mnohem lépší, než se očekávalo"
+      grade: "známka:"
       and_gave_following_feedback: ~
-      less_than_expected: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
+      less_than_expected: "Horší, než se očekávalo"
+      slightly_better_than_expected: "Trochu lepší, než se očekávalo"
+      slightly_less_than_expected: "Trochu horší, než se očekávalo"
     profile_listings:
-      show_also_closed: ~
-      show_only_open: ~
+      show_also_closed: "Zobrazit pouze uzavřené"
+      show_only_open: "Zobrazit pouze otevřené"
       no_image: ~
     show:
       contact: ~
-      about_me: ~
+      about_me: "O mně:"
       add_description: ~
       add_location: ~
       add_phone_number: ~
-      address: ~
-      as_expected: ~
-      edit_profile_info: ~
-      exceeded_expectations: ~
+      address: "Bydliště:"
+      as_expected: "Podle očekávání"
+      edit_profile_info: "Upravit profil"
+      exceeded_expectations: "Předčilo očekávání"
       positive: ~
-      hide_description: ~
-      less_than_expected: ~
-      phone_number: ~
-      show_all_feedback: ~
-      show_all_testimonials: ~
-      show_full_description: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      what_are_these: ~
+      hide_description: "Zobrazit méně"
+      less_than_expected: "Horší, než se očekávalo"
+      phone_number: "Telefonní číslo:"
+      show_all_feedback: "Ukázat všechny zpětné vazby"
+      show_all_testimonials: "Ukázat všechny zpětné vazby"
+      show_full_description: "Zobrazit více"
+      slightly_better_than_expected: "Předčilo očekávání"
+      slightly_less_than_expected: "Horší, než se očekávalo"
+      what_are_these: "Co je to?"
       review: ~
       reviews: ~
       listing: ~
@@ -1832,20 +1834,20 @@ cs:
       unfollow: ~
   search:
     show:
-      all_results: ~
-      loading_more_search_results: ~
-      offers: ~
-      requests: ~
-      search: ~
-      search_results: ~
-      search_returned_no_results: ~
-      search_verb: ~
+      all_results: "Všechny výsledky"
+      loading_more_search_results: "Načítání dalších výsledků hledání"
+      offers: Nabídky
+      requests: Žádosti
+      search: Hledat
+      search_results: "Výsledky hledání"
+      search_returned_no_results: "Nebyly nalezeny žádné výsledky."
+      search_verb: Hledat
   sessions:
     new:
-      create_new_account: ~
-      i_forgot_my_password: ~
-      login: ~
-      login_to_kassi: ~
+      create_new_account: "Vytvořit nový účet"
+      i_forgot_my_password: "Zapomenuté uživatelské jméno nebo heslo"
+      login: "Přihlásit se"
+      login_to_kassi: "Přihlásit se do %{service_name}"
       connect_your_facebook_to_kassi: ~
       facebook_account: ~
       log_in_to_link_account: ~
@@ -1857,9 +1859,9 @@ cs:
       or_sign_up_with_your_username: ~
       we_will_not_post_without_asking_you: ~
     password_forgotten:
-      email: ~
-      password_recovery_instructions: ~
-      request_new_password: ~
+      email: E-mail
+      password_recovery_instructions: "Zadejte svoji e-mailovou adresu, abyste obdrželi své uživatelské jméno a změnili si své heslo."
+      request_new_password: "Požádat o nové heslo"
       change_your_password: ~
     confirmation_pending:
       welcome_to_kassi: ~
@@ -1874,20 +1876,20 @@ cs:
       account_confirmation_instructions_admin: ~
   settings:
     account:
-      change: ~
-      confirm_new_password: ~
+      change: Změnit
+      confirm_new_password: "Potvrdit nové heslo"
       delete_account: ~
       delete_account_button: ~
       delete_account_confirmation_popup: ~
       email_addresses: ~
-      new_email: ~
+      new_email: "Nová e-mailová adresa"
       delete_all_memberships: ~
       delete_personal_information: ~
       delete_information_others_involved: ~
       unfinished_transactions: ~
-      new_password: ~
-      save: ~
-      these_fields_are_shown_only_to_you: ~
+      new_password: "Nové heslo"
+      save: Uložit
+      these_fields_are_shown_only_to_you: "Uživatelské jméno je zobrazeno ve Vašem profilu, pokud jste zadali své jméno. Ostatní informace se zobrazí pouze Vám."
       email_already_confirmed: ~
       email:
         address_title: ~
@@ -1905,20 +1907,20 @@ cs:
         status_pending: ~
     notifications:
       email_from_admins: ~
-      i_want_to_get_email_notification_when: ~
+      i_want_to_get_email_notification_when: "Chci dostávat upozornění když..."
       newsletters: ~
       community_updates: ~
-      email_about_accept_reminders: ~
+      email_about_accept_reminders: "...zapomněl/a jsem přijmout nabídku nebo žádost."
       email_about_confirm_reminders: ~
-      email_about_new_comments_to_own_listing: ~
-      email_about_new_messages: ~
-      email_about_new_received_testimonials: ~
-      email_about_testimonial_reminders: ~
+      email_about_new_comments_to_own_listing: "...někdo komentuje moji nabídku nebo žádost"
+      email_about_new_messages: "...někdo mi posílá zprávu"
+      email_about_new_received_testimonials: "...někdo mi dává zpětnou vazbu"
+      email_about_testimonial_reminders: "...zapomněl/a jsem vyplnit zpětnou vazbu na událost"
       email_daily_community_updates: ~
       email_weekly_community_updates: ~
       do_not_email_community_updates: ~
-      email_when_conversation_accepted: ~
-      email_when_conversation_rejected: ~
+      email_when_conversation_accepted: "...někdo přijal moji nabídku nebo žádost"
+      email_when_conversation_rejected: "...někdo odmítl moji nabídku nebo žádost"
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_payment_reminders: ~
@@ -1930,43 +1932,43 @@ cs:
       unsubscribe_unsuccesful: ~
       unsuccessful_unsubscribe_info_text: ~
     profile:
-      about_you: ~
-      city: ~
-      family_name: ~
-      given_name: ~
+      about_you: "O Vás"
+      city: Město
+      family_name: Příjmení
+      given_name: Jméno
       first_name_with_initial: ~
       first_name_only: ~
       location_description: ~
-      phone_number: ~
+      phone_number: "Telefonní číslo"
       profile_picture: ~
-      postal_code: ~
-      profile_page: ~
-      profilemap: ~
-      street_address: ~
-      these_fields_are_shown_in_your: ~
-      visible_to_everybody: ~
-      visible_to_registered_users: ~
+      postal_code: PSČ
+      profile_page: "na stránce Vašeho profilu"
+      profilemap: "Zobrazení mapy"
+      street_address: Umístění
+      these_fields_are_shown_in_your: "Tato informace je viditelná všem %{service_name} uživatelům"
+      visible_to_everybody: "viditelné pro všechny"
+      visible_to_registered_users: "(viditelné pro všechny přihlášené uživatele)"
       default_in_listing: ~
       invisible: ~
       image_is_processing: ~
-    save_information: ~
+    save_information: "Uložit informace"
   shipping_address:
     shipping_address: ~
   tag_cloud:
     tag_used:
-      with_tag: ~
-      without_tag: ~
+      with_tag: "Se štítkem"
+      without_tag: "Bez štítku"
   terms:
     show:
-      accept_terms: ~
-      here: ~
-      i_accept_new_terms: ~
-      i_accept_terms: ~
-      terms: ~
-      terms_have_changed: ~
-      you_can_view_the_new_terms: ~
-      you_need_to_accept: ~
-      you_need_to_accept_new_terms: ~
+      accept_terms: "Přijetí %{service_name} podmínek použití"
+      here: "kliknutím zde"
+      i_accept_new_terms: "Přijímám nové podmínky"
+      i_accept_terms: "Přijímám podmínky"
+      terms: "%{service_name} podmínky použití"
+      terms_have_changed: "Podmínky použití byly změněny"
+      you_can_view_the_new_terms: "Můžete si prohlédnout nové podmínky"
+      you_need_to_accept: "Vítejte v %{service_name}! Zdá se, že je to poprvé, co využíváte tuto službu. Předtím než začnete, musíte nejprve přijmout"
+      you_need_to_accept_new_terms: "%{service_name} podmínky použití byly změněny. Nejdříve musíte přijmout nové podmínky, abyste mohli pokračovat v užívání %{service_name}. Nové podmínky slouží k umožnění údržby služeb i poté, co již výzkumný projekt skončil."
   testimonials:
     index:
       all_testimonials: ~

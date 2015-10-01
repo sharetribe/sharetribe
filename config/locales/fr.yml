@@ -253,6 +253,7 @@ fr:
         ban_user: "Bannir l'utilisateur"
         saving_user_status: Sauvegarde...
         save_user_status_successful: Sauvegardé
+        export_all_as_csv: ~
         save_user_status_error: "La sauvegarde a échoué. Veuillez rafraîchir la page et essayer de nouveau."
         ban_user_confirmation: "Ceci bannit l'utilisateur de la place de marché et l'empêche d’y accéder de nouveau avec ce compte. Voulez-vous vraiment faire cela ?"
         ban_me_error: "Vous ne pouvez pas vous bannir vous-même."
@@ -291,6 +292,7 @@ fr:
         url: URL
         empty: "Vous n'avez pas encore ajouté de liens au menu"
       transactions:
+        export_all_as_csv: ~
         transactions: "Voir les transactions"
         headers:
           conversation: "Fil de conversation"
@@ -1567,6 +1569,7 @@ fr:
       booking_from: Du
       booking_to: Au
       how_paypal_works: "Comment fonctionne PayPal"
+      payment_help: "Aide à propos du paiement"
     new:
       post_a_new_listing: "Déposer une annonce"
       listing: annonce

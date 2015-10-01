@@ -123,36 +123,36 @@ es-ES:
         edit_message: "Editar mensaje"
         send_test_message: "Enviar mensaje de prueba"
       outgoing_email:
-        title: ~
-        info: ~
-        read_more: ~
-        sender_address: ~
-        sender_address_default: ~
-        need_to_change: ~
-        contact_support_link_text: ~
-        set_sender_address: ~
-        sender_name_label: ~
-        sender_name_placeholder: ~
-        sender_email_label: ~
-        sender_email_placeholder: ~
-        this_is_how_it_will_look: ~
-        send_verification_button: ~
-        successfully_saved: ~
-        status: ~
-        status_verified: ~
-        status_error: ~
-        status_requested: ~
-        status_expired: ~
-        status_resent: ~
-        resend_link: ~
-        invalid_email_error: ~
-        invalid_email_domain: ~
-        invalid_email_domain_read_more_link: ~
-        unknown_error: ~
-        only_white_label_offer: ~
-        upgrade_pro_plan_link: ~
-        verification_sent_from: ~
-        follow_the_instructions: ~
+        title: "Dirección de correo electrónico saliente"
+        info: "Este nombre y dirección se usan para los e-mails enviados por tu marketplace a los miembros."
+        read_more: "Leer más sobre las direcciones de correo saliente"
+        sender_address: "Dirección del remitente: %{sender_address}"
+        sender_address_default: "Dirección del remitente: no establecida (se utiliza la dirección por defecto %{sender_address})"
+        need_to_change: "Si necesitas cambiar la dirección de correo electrónico, por favor %{contact_support_link}"
+        contact_support_link_text: "Contacta a nuestro servicio de soporte"
+        set_sender_address: "Establecer una dirección de remitente"
+        sender_name_label: Nombre
+        sender_name_placeholder: "Nombre del remitente"
+        sender_email_label: E-mail
+        sender_email_placeholder: remitente-email@ejemplo.com
+        this_is_how_it_will_look: "Así se verá:"
+        send_verification_button: "Enviar e-mail de verificación"
+        successfully_saved: "Dirección de remitente guardada correctamente. El e-mail de verificación se enviará pronto."
+        status: "Estado: %{status}"
+        status_verified: "Verificado - En uso"
+        status_error: "Ocurrió un error. Por favor refresca la página e intenta de nuevo."
+        status_requested: "Sin verificar - El e-mail de verificación se envió a %{email} %{time_ago}. %{resend_link}"
+        status_expired: "La verificación del e-mail %{email} expiró. %{resend_link}"
+        status_resent: "E-mail de verificación reenviado a %{email}. %{resend_link}"
+        resend_link: Reenviar
+        invalid_email_error: "Formato de e-mail para '%{email}' es inválido"
+        invalid_email_domain: "La dirección de correo '%{email}' usa un proveedor de correo no soportado por nuestro sistema: '%{domain}'. %{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: "Lee el artículo en nuestra base de conocimiento para más información."
+        unknown_error: "Algo salió mal"
+        only_white_label_offer: "Esta opción es parte de la oferta de marca blanca de Sharetribe. Para activar esta opción deberás %{upgrade_pro_plan_link}."
+        upgrade_pro_plan_link: "Actualizar al Plan Pro o superior"
+        verification_sent_from: "El email de verificación se envió desde %{verification_sender_name}."
+        follow_the_instructions: "Por favor sigue las instrucciones que te enviamos en el e-mail para verificar tu dirección."
       getting_started:
         getting_started: "Guía para comenzar"
         welcome_to_your_marketplace: "Bienvenido a tu marketplace, %{name}!"
@@ -255,6 +255,7 @@ es-ES:
         ban_user: "Bloquear usuario"
         saving_user_status: Guardando...
         save_user_status_successful: Guardado
+        export_all_as_csv: "Exportar todos como CSV"
         save_user_status_error: "No se han guardado los cambios. Por favor, actualiza la página y vuelve a intentarlo."
         ban_user_confirmation: "Esto bloquea al usuario del marketplace y le impide volver a acceder con esta cuenta. Estás seguro de que quieres continuar?"
         ban_me_error: "No te puedes rechazar a ti mismo."
@@ -295,6 +296,7 @@ es-ES:
         url: URL
         empty: "No tienes ningún menú de enlaces adicionales"
       transactions:
+        export_all_as_csv: "Exportar todos como CSV"
         transactions: "Ver transacciones"
         headers:
           conversation: Conversación
@@ -392,7 +394,7 @@ es-ES:
     listing_shapes:
       index:
         listing_shapes: "Tipos de Orden"
-        description: ~
+        description: "Los tipos de ordenación determinan cómo funciona el proceso en tu sitio. Puedes decidir si tus usuarios van a alquilar o vender, o incluso si sólo van a publicar anuncios y comunicarse por medio de mensajes gratuitos."
         read_more_about_order_types: "Leer más sobre tipos de pedidos"
         add_new_shape: "Añadir un nuevo tipo de pedido: "
         select_template: "Seleccionar plantilla..."
@@ -400,7 +402,7 @@ es-ES:
         no_categories: "Sin categorías"
         category_count: "%{category_count} categorías"
         header:
-          listing_shape_name: ~
+          listing_shape_name: "Nombre del tipo de ordenación"
           listing_shape_categories: ~
         order:
           saving_order: "Guardando pedido"
@@ -421,10 +423,10 @@ es-ES:
         create_success: "Nuevo tipo de pedido '%{shape}' creado"
         create_failure: "No se pudo crear un nuevo tipo de pedido. Error: %{error_msg}"
       edit:
-        edit_listing_shape: ~
+        edit_listing_shape: "Editar el tipo de ordenación '%{shape}'"
         update: Guardar
         cancel: Cancelar
-        update_success: ~
+        update_success: "Se han guardado los cambios al tipo de ordenación '%{shape}'"
         update_failure: "No se pudieron guardar los cambios. Error: %{error_msg}"
         delete: "Borrar tipo de pedido"
         confirm_delete_order_type:
@@ -779,10 +781,10 @@ es-ES:
       confirm_payment: "Confirmar pago"
       exp: "Exp:"
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    feedback_subject: "Nuevo feedback de %{service_name}"
+    feedback_body: "%{author_name_and_email} ha enviado el siguiente feedback desde %{service_name}"
+    unlogged_user: "Usuario no identificado"
+    anonymous_user: "Usuario anónimo"
   preauthorize_payments:
     edit:
       confirm_payment: "Confirmar pago"
@@ -1122,10 +1124,10 @@ es-ES:
       items_to_offer: "Bienes para prestar: "
       items_to_request: "Cosas para prestar: "
       log_in: "Inicia sesión!"
-      no_offers_visible_unless_logged_in: "No aparecen visibles los artículos, servicios o traslados compartidos para usuarios no registrados."
+      no_offers_visible_unless_logged_in: "Las ofertas de artículos, servicios o traslados compartidos no son visibles para usuarios no registrados."
       no_open_offers_currently: "No hay abiertas ofertas de productos, servicios o traslados compartidos."
       no_open_requests_currently: "No hay abiertas solicitudes de productos, servicios o traslados compartidos."
-      no_requests_visible_unless_logged_in: "No aparecen visibles los artículos, servicios o traslados compartidos para usuarios no registrados."
+      no_requests_visible_unless_logged_in: "Las solicitudes de artículos, servicios o traslados compartidos no son visibles para usuarios no registrados."
       one_private_offer_exists: "Ya hay <b>una oferta</b>,"
       one_private_request_exists: "Ya existe <b>una solicitud</b>,"
       ride_offer: "Lleva a los niños de otros a hacer sus hobbies"
@@ -1569,6 +1571,7 @@ es-ES:
       booking_from: De
       booking_to: a
       how_paypal_works: "Cómo funciona PayPal"
+      payment_help: "Ayuda de pagos"
     new:
       post_a_new_listing: "Publicar un anuncio"
       listing: anuncio
@@ -1605,7 +1608,7 @@ es-ES:
       inquiry: Solicitar
       item_offer_trade: "Oferta de trueque"
       item_request_trade: "Solicitud de trueque"
-      no_description: "No hay descripción"
+      no_description: "Esta publicación no tiene una descripción"
       no_image: "Sin imagen"
       no_reviews: "No ha recibido opiniones"
       offer: Oferta
@@ -1787,7 +1790,7 @@ es-ES:
       invalid_invitation_code: "El código de invitación no es válido."
       invitation_code: "Código de invitación:"
       not_required: ", no es necesario"
-      notification_is_mandatory: ~
+      notification_is_mandatory: "Debes elegir al menos una dirección de correo para recibir notificaciones. Si no deseas recibir e-mails de %{service_name}, revisa tus ajustes de notificaciones."
       organization_name: "Nombre de la empresa"
       password_again: "Confirme la contraseña:"
       show_my_name_to_others: "Mostrar mi nombre real a otros usuarios de %{service_name}"
@@ -1988,7 +1991,7 @@ es-ES:
   terms:
     show:
       accept_terms: "Aceptar los términos de uso de %{service_name}"
-      here: Aquí
+      here: "Click aquí"
       i_accept_new_terms: "Acepto los nuevos términos"
       i_accept_terms: "Acepto los términos"
       terms: "Términos de uso de %{service_name}"
@@ -2077,10 +2080,10 @@ es-ES:
     format: dd/mm/aaaa
   time:
     formats:
-      short: "%e %b %Y al %H:%M"
-      shorter: "%e %b al %H:%M"
+      short: "%e %b %Y a las %H:%M"
+      shorter: "%e %b a las %H:%M"
       short_date: "%e %b  %Y"
-      sms: "%e %b al %H:%M"
+      sms: "%e %b a las %H:%M"
   timestamps:
     day_ago: "un día atrás"
     days_ago: "%{count} días atrás"

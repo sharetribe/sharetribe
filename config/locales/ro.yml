@@ -238,6 +238,7 @@ ro:
         ban_user: ~
         saving_user_status: ~
         save_user_status_successful: ~
+        export_all_as_csv: "Exportă tot in format CSV"
         save_user_status_error: ~
         ban_user_confirmation: ~
         ban_me_error: ~
@@ -276,6 +277,7 @@ ro:
         url: ~
         empty: ~
       transactions:
+        export_all_as_csv: "Exportă tot in formatul CSV"
         transactions: ~
         headers:
           conversation: ~
@@ -573,7 +575,7 @@ ro:
       loading_more_messages: "Se încarcă mai multe mesaje"
       message_partitive: mesaj
       messages_partitive: mesaje
-      no_received_messages: "Nici un mesaj primit"
+      no_received_messages: "Niciun mesaj primit"
       no_sent_messages: "Nici un mesaj trimis"
     conversation:
       accepted_request: ~
@@ -601,9 +603,9 @@ ro:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: "Cere o ajutor de la %{person}"
+      favor_offer_message_form_title: "Cere ajutor de la %{person}"
       favor_request_message_form_title: "Oferă ajutor lui %{person}"
-      housing_offer_message_form_title: "Oferă spatiu pentru %{person}"
+      housing_offer_message_form_title: "Oferă spațiu pentru %{person}"
       housing_request_message_form_title: ~
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
@@ -641,7 +643,7 @@ ro:
       message_sent_by: ~
       message_sent_to: ~
       send_reply: "Trimite raspuns"
-      write_a_reply: "Scrie un răspuns"
+      write_a_reply: "Scrie un răspuns:"
       conversation_about_listing: ~
       conversation_with_user: ~
       conversation_with: ~
@@ -681,7 +683,7 @@ ro:
       request_canceled: ~
       request_paid: ~
       request_preauthorized: ~
-      skip_feedback: ~
+      skip_feedback: "Omite feedback-ul."
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
@@ -698,8 +700,8 @@ ro:
           verify: ~
     status_link:
       accept_offer: "Acceptă ofertă"
-      accept_request: "Acceptă cerere"
-      reject_offer: "Respinge ofertă"
+      accept_request: "Acceptă cererea"
+      reject_offer: "Respinge oferta"
       reject_request: "Respinge cerere"
       accept_preauthorized_offer: ~
       accept_preauthorized_request: ~
@@ -774,11 +776,11 @@ ro:
   emails:
     accept_reminder:
       remember_to_accept_offer: ~
-      remember_to_accept_request: ~
-      you_can_accept_or_reject_offer_at: ~
-      you_can_accept_or_reject_request_at: ~
-      you_have_not_yet_accepted_or_rejected_offer: ~
-      you_have_not_yet_accepted_or_rejected_request: ~
+      remember_to_accept_request: "Amintește-ți să accepți sau să refuzi cererea de la %{sender_name}."
+      you_can_accept_or_reject_offer_at: "Poți accepta sau refuza oferta la"
+      you_can_accept_or_reject_request_at: "Poți accepta sau refuza oferta la"
+      you_have_not_yet_accepted_or_rejected_offer: "Nu ai acceptat sau refuzat oferta %{title} pe care ai primit-o pe %{date}."
+      you_have_not_yet_accepted_or_rejected_request: "Nu ai acceptat sau refuzat oferta %{title} pe care ai primit-o pe %{date}."
       show_thread: ~
     braintree_account_approved:
       account_ready: ~
@@ -833,11 +835,11 @@ ro:
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
-      check_your_settings: ~
+      check_your_settings: "Verifică-ți setările."
       hey: "Salut %{name}"
       kassi_team: "Echipa %{service_name}"
       thanks: "Mulţumim,"
-      want_to_control_emails: ~
+      want_to_control_emails: "Vrei să controlezi e-mail-urile pe care le primești de la %{service_name}?"
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
@@ -845,15 +847,15 @@ ro:
       or: ~
       unsubscribe_from_these_emails: ~
     conversation_status_changed:
-      has_accepted_your_offer: ~
-      has_accepted_your_request: ~
-      has_rejected_your_offer: ~
-      has_rejected_your_request: ~
+      has_accepted_your_offer: "%{accepter} ți-a acceptat oferta %{listing}."
+      has_accepted_your_request: "%{accepter} ți-a acceptat cererea %{listing}."
+      has_rejected_your_offer: "%{accepter} ți-a refuzat oferta %{listing}."
+      has_rejected_your_request: "%{accepter} ți-a refuzat cererea %{listing}."
       view_thread: ~
-      your_offer_was_accepted: ~
-      your_offer_was_rejected: ~
-      your_request_was_accepted: ~
-      your_request_was_rejected: ~
+      your_offer_was_accepted: "Oferta ți-a fost acceptată."
+      your_offer_was_rejected: "Oferta ți-a fost refuzată."
+      your_request_was_accepted: "Cererea ți-a fost acceptată."
+      your_request_was_rejected: "Cererea ți-a fost refuzată."
       you_can_now_pay_to: ~
       pay_now: ~
       remember_to_confirm: ~
@@ -1213,7 +1215,7 @@ ro:
     global-header:
       select_language: ~
     infos:
-      about: "Ce este Kassi?"
+      about: "Despre noi"
       how_to_use: "Cum să folosești Kassi"
       info_about_kassi: "Informații despre Kassi"
       news: ~

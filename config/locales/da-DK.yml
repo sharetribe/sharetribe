@@ -253,6 +253,7 @@ da-DK:
         ban_user: "Ban bruger"
         saving_user_status: Gemmer...
         save_user_status_successful: Gemt
+        export_all_as_csv: "Eksporter alle som CSV"
         save_user_status_error: "Der opstod en fejl da vi forsøgte at gemme dit valg. Venligst genindlæs siden og prøv igen."
         ban_user_confirmation: "Dette sletter brugeren fra markedspladsen og hindrer ham/hende i at logge ind på markedspladsen igen med denne bruger. Er du sikker på at du vil fortsætte?"
         ban_me_error: "Du kan ikke forbyde dig selv."
@@ -291,6 +292,7 @@ da-DK:
         url: URL
         empty: "Du har ikke tilføjet nogen nye links i menuen"
       transactions:
+        export_all_as_csv: "Eksporter alle som CSV"
         transactions: "Vis transaktioner"
         headers:
           conversation: Samtaletråd
