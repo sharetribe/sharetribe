@@ -17,6 +17,7 @@ class Admin::CommunityMembershipsController < ApplicationController
       with_feature(:export_as_csv) do
         format.csv do
           all_memberships = CommunityMembership.where(:community_id => @community.id)
+                                                .where("status != 'deleted_user'")
                                                 .includes(:person => :emails)
                                                 .order("created_at ASC")
           marketplace_name = if @community.use_domain
@@ -67,7 +68,7 @@ class Admin::CommunityMembershipsController < ApplicationController
   private
 
   def generate_csv_for(memberships)
-    CSV.generate(headers: true) do |csv|
+    CSV.generate(headers: true, force_quotes: true) do |csv|
       # first line is column names
       header_row = %w{
         first_name
