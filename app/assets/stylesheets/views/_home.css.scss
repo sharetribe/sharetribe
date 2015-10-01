@@ -281,18 +281,9 @@ $home-list-avatar-padding: lines(0.25);
 
 .home-list-price-mobile {
   position: absolute;
-  font-size: 24px;
-
-  & > .smaller {
-    font-size: 18px;
-  }
-
   bottom: lines(0.25, 24);
   @include media(large-mobile) {
-    font-size: 36px;
-    & > .smaller {
-      font-size: 24px;
-    }
+    text-align: right;
     right: 0;
     padding-top: 10px;
     bottom: lines(0.5, 36);
@@ -305,8 +296,21 @@ $home-list-avatar-padding: lines(0.25);
   }
 }
 
+.home-list-price-value-mobile {
+  font-size: 24px;
+  & > .smaller {
+    font-size: 18px;
+  }
+  @include media(large-mobile) {
+    font-size: 36px;
+    & > .smaller {
+      font-size: 24px;
+    }
+  }
+}
+
 .home-list-price-mobile-with-listing-image {
-  left: lines(3.5, 24);
+  left: 84px;
 
   @include media(large-mobile) {
     left: auto;
