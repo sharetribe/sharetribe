@@ -82,7 +82,7 @@ def deploy(params)
   set_app(@destination)
 
   fetch_remote_heroku_branch if params[:migrations] != false || params[:css].nil?
-  migrations = params[:migrations] == false ? [] : ask_all_migrations_to_run
+  migrations = params[:migrations] == false ? [] : ask_local_migrations_to_run
   abort_if_css_modifications if params[:css].nil?
 
   deploy_to_server
@@ -132,10 +132,6 @@ def heroku(cmd)
   Bundler.with_clean_env { system("heroku #{cmd}") }
 end
 
-def heroku_with_output(cmd)
-  Bundler.with_clean_env { `heroku #{cmd}` }
-end
-
 def deploy_to_server
   system("git push #{@destination} #{@branch}:master --force")
 
@@ -163,10 +159,6 @@ def fetch_remote_heroku_branch
   `git fetch #{@destination} master`
 end
 
-def ask_all_migrations_to_run
-  ask_local_migrations_to_run.concat(ask_heroku_migrations_to_run).sort
-end
-
 def ask_local_migrations_to_run
   # List of files added to db/migrate dir
   new_files = `git diff --name-only --diff-filter=A #{@destination}/master..#{@branch} db/migrate`
@@ -177,22 +169,6 @@ def ask_local_migrations_to_run
   else
     puts ""
     puts "You are about to deploy #{migrations.length} new migrations:"
-    puts ""
-    ask_migrations_to_run(migrations)
-  end
-end
-
-# Returns an array of migration versions to run
-def ask_heroku_migrations_to_run
-  puts "Checking for pending migrations in heroku ..."
-  output = heroku_with_output("run rake db:migrate:status --app #{@app}")
-  migrations = select_down_migrations(parse_migration_status(output))
-
-  if migrations.empty?
-    []
-  else
-    puts ""
-    puts "There are #{migrations.length} migration in Heroku that have not been run:"
     puts ""
     ask_migrations_to_run(migrations)
   end
@@ -209,11 +185,6 @@ def ask_migrations_to_run(migrations)
       response == 'y' || response == 'Y'
     }
     .map { |migration| migration[:version] }
-end
-
-def parse_migration_status(output)
-  arr = output.split("\n")
-  arr.drop(arr.find_index("-" * 50) + 1).map { |line| parse_status_line(line, output) }
 end
 
 # Remove `output`. It's only for debugging
