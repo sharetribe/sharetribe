@@ -79,7 +79,7 @@ class Admin::CommunityMembershipsController < ApplicationController
         joined_at
         status
         is_admin
-        email_from_admins_allowed
+        accept_emails_from_admin
       }
       community_requires_verification_to_post =
         memberships.first && memberships.first.community.require_verification_to_post_listings
@@ -94,12 +94,12 @@ class Admin::CommunityMembershipsController < ApplicationController
             user.username,
             membership.created_at,
             membership.status,
-            membership.admin,
-            user.preferences["email_from_admins"]
+            membership.admin
           ]
           user_data.push(membership.can_post_listings) if community_requires_verification_to_post
           user.emails.each do |email|
-            csv << user_data.clone.insert(3, email.address, !!email.confirmed_at)
+            accept_emails_from_admin = user.preferences["email_from_admins"] && email.send_notifications
+            csv << user_data.clone.insert(3, email.address, !!email.confirmed_at).insert(8, accept_emails_from_admin)
           end
         end
       end
