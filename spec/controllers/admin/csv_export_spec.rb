@@ -8,7 +8,7 @@ describe Admin::CommunityMembershipsController do
     @other_email = FactoryGirl.create(:email, person: @person)
     sign_in_for_spec(@person)
 
-    FeatureFlagService::API::Api.features.enable(community_id: @community.id, features: [:export_as_csv])
+    FeatureFlagService::API::Api.features.enable(community_id: @community.id, features: [:export_users_as_csv])
   end
 
   describe "users CSV export" do
@@ -46,7 +46,7 @@ describe Admin::CommunityTransactionsController do
     @request.host = "#{@community.ident}.lvh.me"
     @transaction = FactoryGirl.create(:transaction, starter: @person, listing: @listing, community: @community)
 
-    FeatureFlagService::API::Api.features.enable(community_id: @community.id, features: [:export_as_csv])
+    FeatureFlagService::API::Api.features.enable(community_id: @community.id, features: [:export_transactions_as_csv])
   end
   
   describe "transactions CSV export" do

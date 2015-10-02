@@ -65,7 +65,7 @@ class Admin::CommunityTransactionsController < ApplicationController
           }
         })
       end
-      with_feature(:export_as_csv) do
+      with_feature(:export_transactions_as_csv) do
         format.csv do
           marketplace_name = if @current_community.use_domain
             @current_community.domain
