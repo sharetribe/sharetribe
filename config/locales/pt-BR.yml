@@ -336,13 +336,13 @@ pt-BR:
         price_max: "Preço máximo"
       edit_location:
         edit_location_field: "Editar campo 'Lugar'"
-        this_field_is_required: "Esse campo é obrigatório"
+        this_field_is_required: "Este campo é obrigatório"
       form:
         field_required:
-          this_field_is_required: "Esse campo é obrigatório"
+          this_field_is_required: "Este campo é obrigatório"
           this_field_is_required_checkbox: "Este campo é obrigatório (o usuário deve selecionar pelo menos uma opção)"
       index:
-        listing_fields: "Anúncio campos & filtros"
+        listing_fields: "Campos de anúncios & filtros"
         listing_fields_help: "Aqui você pode editar os campos que os usuários têm de preencher ao criar um novo anúncio. Por favor, note que alguns campos são predefinidos e não podem ser editados."
         add_new_field: "Adicionar novo campo:"
         remove_field_confirmation: "Você tem certeza que deseja remover o campo '%{field_name}'?"
@@ -1098,7 +1098,7 @@ pt-BR:
     profile: Perfil
     invite: "Convidar novos membros"
     login: Entrar
-    signup: Registrar
+    signup: "Criar conta"
     menu: Menu
   homepage:
     additional_private_listings_slate:
@@ -1231,7 +1231,7 @@ pt-BR:
       send_feedback_to_admin: "Enviar feedback"
       to_see_what_others_have_suggested: "para ver o que outros usuários sugeriram, e votar para novas idéias."
       your_email_address: "Seu e-mail (para entrar em contato)"
-      connect: Registrar
+      connect: "Criar conta"
       invite_your_friends: "Convide amigos!"
       invite_your_neighbors: "Convidar os vizinhos!"
       invite_your_friends_description: "Quanto mais pessoas no %{service_name}, mais o serviço é útil e eficaz."
@@ -1275,7 +1275,7 @@ pt-BR:
       notifications: Notificações
       requests: "Solicitações de amizade"
       settings: Configurações
-      sign_up: Registrar
+      sign_up: "Criar conta"
     notifications:
       listing_could_not_be_saved: "O anúncio não pôde ser salvo. Por favor, tente novamente. Se o problema persistir, por favor, %{contact_admin_link}."
       contact_admin_link_text: "entre em contato com o administrador"
@@ -1794,7 +1794,7 @@ pt-BR:
       username_is_invalid: "Nome de usuário é inválido. Os caracteres permitidos são letras, números e sublinhado."
       visible_only_to_you: "visível apenas para você e para o administrador do mercado virtual"
       visible_to_everybody: "visível para todos"
-      create_account_with_facebook: "Criar uma conta no Facebook"
+      create_account_with_facebook: "Registre-se com seu Facebook"
       OR: OU
       signup_with_email: "Registre-se com e-mail"
     not_member:

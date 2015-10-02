@@ -253,7 +253,7 @@ fr:
         ban_user: "Bannir l'utilisateur"
         saving_user_status: Sauvegarde...
         save_user_status_successful: Sauvegardé
-        export_all_as_csv: ~
+        export_all_as_csv: "Exporter au format CSV"
         save_user_status_error: "La sauvegarde a échoué. Veuillez rafraîchir la page et essayer de nouveau."
         ban_user_confirmation: "Ceci bannit l'utilisateur de la place de marché et l'empêche d’y accéder de nouveau avec ce compte. Voulez-vous vraiment faire cela ?"
         ban_me_error: "Vous ne pouvez pas vous bannir vous-même."
@@ -292,7 +292,7 @@ fr:
         url: URL
         empty: "Vous n'avez pas encore ajouté de liens au menu"
       transactions:
-        export_all_as_csv: ~
+        export_all_as_csv: "Exporter au format CSV"
         transactions: "Voir les transactions"
         headers:
           conversation: "Fil de conversation"
