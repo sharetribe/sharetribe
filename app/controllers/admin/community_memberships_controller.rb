@@ -14,7 +14,7 @@ class Admin::CommunityMembershipsController < ApplicationController
                                            .paginate(:page => params[:page], :per_page => 50)
                                            .order("#{sort_column} #{sort_direction}")
       end
-      with_feature(:export_as_csv) do
+      with_feature(:export_users_as_csv) do
         format.csv do
           all_memberships = CommunityMembership.where(:community_id => @community.id)
                                                 .where("status != 'deleted_user'")
