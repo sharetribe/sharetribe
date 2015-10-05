@@ -33,9 +33,9 @@ cs:
           few: "Zde jsou %{count} seznamy v této kategorii. Seznamy budou přesunuty do vybrané kategorie."
           other: "Zde je %{count} seznamů v této kategorii. Seznamy budou přesunuty do vybrané kategorie."
         warning_custom_field_will_be_moved:
-          one: "Zde je %{count} pole v této kategorii. Pole bude přesunuto do vybrané kategorie."
-          few: "Zde jsou %{count} pole v této kategorii. Pole budou přesunuta do vybrané kategorie."
-          other: "Zde je %{count} polí v této kategorii. Pole budou přesunuta do vybrané kategorie."
+          one: "Zde je %{count} položka v této kategorii. Pole bude přesunuto do vybrané kategorie."
+          few: "Zde jsou %{count} položky v této kategorii. Pole budou přesunuta do vybrané kategorie."
+          other: "Zde je %{count} položek v této kategorii. Pole budou přesunuta do vybrané kategorie."
         warning_subcategory_will_be_removed:
           one: "Zde je %{count} subkategorie v této kategorii. Tato subkategorie bude odstraněna."
           few: "Zde jsou %{count} subkategorie v této kategorii. Tyto subkategorie budou odstraněny."
@@ -44,6 +44,14 @@ cs:
         buttons:
           remove: Odstranit
           cancel: Zrušit
+        warning_with_subcategories_listing_will_be_moved:
+          one: "Zde je %{count} inzerát v této kategorii a podkategoriích. Inzerát bude přesunut do vybrané kategorie."
+          few: "Zde jsou %{count} inzeráty v této kategorii a podkategoriích. Inzeráty budou přesunuty do vybrané kategorie."
+          other: "Zde je %{count} inzerátů v této kategorii a podkategoriích. Inzeráty budou přesunuty do vybrané kategorie."
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "Zde je %{count} položka v této kategorii a subkategoriích. Položka bude přesunuta do vybrané kategorie."
+          few: "Zde jsou %{count} položky v této kategorii a subkategoriích. Položky budou přesunuty do vybrané kategorie."
+          other: "Zde je %{count} položek v této kategorii a subkategoriích. Položky budou přesunuty do vybrané kategorie."
     communities:
       edit_details:
         community_details: "Základní údaje"
@@ -558,7 +566,7 @@ cs:
       price_to_pay: "Celková částka k zaplacení"
       you_need_to_fill_payout_details_before_accepting: "Nejdříve musíte vyplnit podrobnosti ohledně platby, teprve potom můžete přijmout žádost a obdržet platbu. Přejděte do %{payment_settings_link} a vyplňte podrobnosti."
       payment_settings_link: "nastavení plateb"
-      minimum_price_error_message: ~
+      minimum_price_error_message: "Cena nemůže být nižší než %{amount}."
       accept: ~
       decline: ~
       quantity_label: ~
@@ -723,43 +731,43 @@ cs:
       cancel: Problém
   braintree_accounts:
     new:
-      add_payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
-      ssn: ~
-      routing_number: ~
-      account_number: ~
-      save: ~
+      add_payout_details: "Přidat podrobnosti o platbě"
+      first_name: Jméno
+      last_name: Příjmení
+      email: "E-mailová adresa"
+      phone: "Telefonní číslo"
+      address_street_address: "Adresa ulice"
+      address_postal_code: PSČ
+      address_locality: Město
+      address_region: Stát
+      date_of_birth: "Datum narození"
+      ssn: "Číslo sociálního zabezpečení"
+      routing_number: "Clearingový kód"
+      account_number: "Číslo účtu"
+      save: Uložit
     show:
-      payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
-      ssn: ~
-      routing_number: ~
-      account_number: ~
+      payout_details: "Vaše podrobnosti o platbě"
+      first_name: Jméno
+      last_name: Příjmení
+      email: "E-mailová adresa"
+      phone: "Telefonní číslo"
+      address_street_address: "Adresa ulice"
+      address_postal_code: PSČ
+      address_locality: Město
+      address_region: Stát
+      date_of_birth: "Datum narození"
+      ssn: "Číslo sociálního zabezpečení"
+      routing_number: "Clearingový kód"
+      account_number: "Číslo účtu"
   braintree_payments:
     edit:
-      new_credit_card_payment: ~
-      payment_receiver: ~
-      cardholder_name: ~
-      credit_card_number: ~
-      cvv: ~
-      credit_card_expiration_date: ~
-      confirm_payment: ~
+      new_credit_card_payment: "Platba novou platební kartou"
+      payment_receiver: "Příjemce platby"
+      cardholder_name: "Jméno držitele karty"
+      credit_card_number: "Číslo platební karty"
+      cvv: "Ověřovací kód platební karty"
+      credit_card_expiration_date: "Datum vypršení platnosti platební karty"
+      confirm_payment: "Potvrdit platbu"
       exp: ~
   feedback:
     feedback_subject: ~
@@ -795,8 +803,8 @@ cs:
       you_have_not_yet_accepted_or_rejected_request: "Ještě jste nepřijali nebo neodmítli nabídku %{title}, kterou jste obdrželi %{date}"
       show_thread: "Zobrazit konverzaci"
     braintree_account_approved:
-      account_ready: ~
-      message: ~
+      account_ready: "Již můžete přijímat platby"
+      message: "Vaše platební údaje byly potvrzeny a již můžete přijímat platby v %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Žádost nebyla ještě ani potvrzena či zrušena %{request_link}. V případě, že žádost byla splněna, měli byste to potvrdit. Poté můžete poskytnout zpětnou vazbu uživateli %{other_party_given_name}."
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
@@ -896,22 +904,22 @@ cs:
       paypal_gateway_fee: ~
       shipping_total: ~
     braintree_new_payment:
-      product: ~
-      price_payer_paid: ~
-      service_fee: ~
-      you_will_get: ~
+      product: "Produkt:"
+      price_payer_paid: "Cena zaplacena uživatelem %{payer_full_name}:"
+      service_fee: "%{service_name} servisní poplatek:"
+      you_will_get: "Celkem:"
       money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: "Stvrzenka provedené platby"
       you_have_made_new_payment: "Zaplatili jste částku <b>%{payment_sum}</b> za <b>%{listing_title}</b> uživateli %{recipient_full_name}. Zde je stvrzenka provedené platby."
-      product: ~
+      product: Produkt
       price_per_unit_type: ~
       duration: ~
       quantity: ~
       subtotal: ~
-      total: ~
-      price: ~
-      service_fee: ~
+      total: Celkem
+      price: Cena
+      service_fee: "Servisní poplatek"
       money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} Vás ohodnotil na tržišti %{service_name}."
@@ -1077,7 +1085,7 @@ cs:
     create_new_marketplace: "Vytvořit nové tržiště"
     contact_us: "Kontaktujte nás"
     profile: Profil
-    invite: ~
+    invite: "Pozvat nové členy"
     login: ~
     signup: ~
     menu: ~
@@ -1360,7 +1368,7 @@ cs:
       you_must_log_in_to_view_your_settings: "Musíte se přihlásit do %{service_name} k zobrazení Vašeho nastavení."
       you_must_log_in_to_add_news_item: "Nejprve se musíte přihlásit do %{service_name}, abyste mohli přidat nový článek."
       you_must_log_in_to_change_profile_settings: "Musíte se přihlásit do %{service_name}, abyste změnili nastavení profilu"
-      you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_change_payment_settings: "Musíte se přihlásit k %{service_name}, abyste  nastavení plateb"
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Musíte potvrdit svoji e-mailovou adresu."
@@ -1371,8 +1379,8 @@ cs:
       can_not_delete_email: "Nemůžete odstranit e-mailovou adresu"
       user_does_not_have_email_to_delete: "Nemáte e-mailovou adresu, kterou se snažíte odstranit"
       email_deleted: "E-mail byl odstraněn"
-      payment_details_add_successful: ~
-      payment_details_add_error: ~
+      payment_details_add_successful: "Platební údaje byly úspěšně přidány"
+      payment_details_add_error: "Platební údaje nemohly být přidány"
       listing_author_payment_details_missing: ~
       stylesheet_needs_recompiling: ~
     settings:
@@ -1415,7 +1423,7 @@ cs:
     form:
       custom_field_partials:
         dropdown:
-          select_one___: ~
+          select_one___: "Vybrat jeden..."
       departure_time:
         at: V
         departure_time: "Čas odjezdu"
@@ -1460,7 +1468,7 @@ cs:
         mass: "kus, kg, l, m2, ..."
         time: "hodinu, den, měsíc, ..."
         long_time: "týden, měsíc, ..."
-        after_service_fee_you_will_get: ~
+        after_service_fee_you_will_get: "Po %{service_name} a zaplacení procesních poplatků obdržíte %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: ~
         after_service_fee_you_will_get_paypal_text: ~
         paypal_fee_info_link_text: ~
@@ -1556,10 +1564,10 @@ cs:
       listing: inzerát
       selected_category: "Kategorie: %{category}"
       selected_subcategory: "Podkategorie: %{subcategory}"
-      selected_transaction_type: ~
+      selected_transaction_type: "Typ inzerátu: %{transaction_type}"
       select_category: "Vybrat kategorii"
-      select_subcategory: ~
-      select_transaction_type: ~
+      select_subcategory: "Vybrat podkategorii"
+      select_transaction_type: "Vybrat typ inzerátu"
       you_need_to_fill_payout_details_before_accepting: ~
       contact_admin_link_text: ~
       community_not_configured_for_payments: ~
@@ -1584,7 +1592,7 @@ cs:
       contact: Kontakt
       favor_offer: "Nabídka služeb"
       favor_request: "Žádosti o služby"
-      inquiry: ~
+      inquiry: Oznámení
       item_offer_trade: "Nabídka výměny"
       item_request_trade: "Žádost o výměnu"
       no_description: "Tento seznam není popsán"
@@ -1608,7 +1616,7 @@ cs:
       times_viewed: Zobrazeno
       processing_uploaded_image: "(Probíhá nahrávání obrázku...)"
       price_excludes_vat: "(nezahrnuje DPH)"
-      listing_created_at: ~
+      listing_created_at: "Inzerát vytvořen"
       price:
         per_quantity_unit: ~
         per_day: ~
@@ -1626,7 +1634,7 @@ cs:
       week: ~
       month: ~
     verification_required:
-      verification_required: ~
+      verification_required: "Požadování ověření"
   listing_conversations:
     preauthorize:
       details: Detaily
@@ -1676,15 +1684,15 @@ cs:
       service_charge: "Poplatek za službu"
       product: "Produkt:"
       price: "Částka:"
-      price_for: ~
+      price_for: "Cena za %{payer_given_name}:"
       continue_to_pay: "Pokračovat v platbě"
-      invoice: ~
-      service_fee: ~
-      you_will_get: ~
+      invoice: Faktura
+      service_fee: "%{service_name} servisní poplatek:"
+      you_will_get: "Obdržíte:"
     braintree:
       terms:
-        braintree_terms_also_included: ~
-        terms_link_text: ~
+        braintree_terms_also_included: "POZNÁMKA: Braintree se používá jako platební brána a pomocí této stránky můžete také přijmout %{terms_link_text}, dle níže uvedených podmínek."
+        terms_link_text: "Podmínky použití Braintree"
   paypal_accounts:
     payout_info_title: ~
     paypal_account_email_connected: ~
@@ -1898,17 +1906,17 @@ cs:
       email:
         address_title: Adŕesa
         remove_title: Odstranit
-        remove_confirmation: ~
-        receive_notifications_title_desktop: ~
-        receive_notifications_title_mobile: ~
-        receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
-        add_new_cancel: ~
-        confirmation_title_mobile: ~
-        confirmation_title_desktop: ~
-        confirmation_resend: ~
-        status_confirmed: ~
-        status_pending: ~
+        remove_confirmation: "Jste si jisti, že chcete odstranit tuto e-mailovou adresu?"
+        receive_notifications_title_desktop: "Dostávat upozornění"
+        receive_notifications_title_mobile: "Dostávat upozornění"
+        receive_notifications_new_title_mobile: "Dostávat upozornění"
+        add_new_with_plus: "+ Přidat e-mailovou adresu"
+        add_new_cancel: Zrušit
+        confirmation_title_mobile: "Potvrzení:"
+        confirmation_title_desktop: Potvrzení
+        confirmation_resend: Přeposlat
+        status_confirmed: Potvrzeno
+        status_pending: "Čeká na vyřízení"
     notifications:
       email_from_admins: "Souhlasím s příležitostnými aktualizacemi od správce."
       i_want_to_get_email_notification_when: "Chci dostávat upozornění když..."
@@ -2056,7 +2064,7 @@ cs:
     formats:
       short: "%e %b %Y v %H:%M"
       shorter: "%e %b v %H:%M"
-      short_date: ~
+      short_date: "%e %b %Y"
       sms: "%e %b v %H:%M"
   timestamps:
     day_ago: "před %{count} dnem"
@@ -2090,9 +2098,25 @@ cs:
     day: ~
     days: ~
   will_paginate:
-    previous_label: ~
-    next_label: ~
-    page_gap: ~
+    previous_label: "&#8592; Předchozí"
+    next_label: "Následující &#8594;"
+    page_gap: "&hellip;"
     page_entries_info:
       multi_page: ~
       multi_page_html: ~
+      single_page:
+        zero: "Žádný %{model} nenalezen"
+        one: "Nalezen 1 %{model}"
+        few: "Nalezeny %{count} %{model}"
+        other: "Nalezeno všech %{count} %{model}"
+      single_page_html:
+        zero: "Žádný %{model} nebyl nalezen"
+        one: "Nalezen <b>1</b> %{model}"
+        few: "Nalezeny %{count} %{model}"
+        other: "Nalezeno všech %{count} %{model}"
+    models:
+      person:
+        zero: uživatelů
+        one: uživatel
+        few: uživatelé
+        other: uživatelů

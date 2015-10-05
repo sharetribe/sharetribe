@@ -542,8 +542,14 @@ de:
     removed_user: "Entfernter Benutzer"
     paypal_fee_info:
       title: PayPal-Zahlungsbearbeitungsgebühr
-      body_text: ~
-      body_with_shipping_text: ~
+      body_text: |-
+          PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt in Deutschland bei maximal 1,9% + 0,35 € pro inländischer Transaktion (sie ist geringer bei höheren Umsätzen). 
+          Wenn Du Dich bei Deinem Paypal Account anmeldest, erhälst Du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen.
+          Nach jeder Transaktion bekommst Du einen Beleg mit der exakten Gebühr.
+      body_with_shipping_text: |-
+          PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt in Deutschland bei maximal 1,9% + 0,35 € pro inländischer Transaktion (sie ist geringer bei höheren Umsätzen). 
+          Wenn Du Dich bei Deinem Paypal Account anmeldest, erhälst Du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen.
+          Nach jeder Transaktion bekommst Du einen Beleg mit der exakten Gebühr.
       link_to_paypal_text: hier
   conversations:
     accept:
@@ -1776,7 +1782,7 @@ de:
       username_is_invalid: "Der Benutzername ist ungültig. Erlaubte Zeichen sind Buchstaben (keine Umlaute), Ziffern und Unterstriche."
       visible_only_to_you: "nur für dich und den Admin der Community sichtbar"
       visible_to_everybody: "für jeden sichtbar"
-      create_account_with_facebook: "Lege einen ccount mit Facebook an"
+      create_account_with_facebook: "Lege einen account mit Facebook an"
       OR: ODER
       signup_with_email: "Registriere dich mit deiner E-Mail-Adresse"
     not_member:

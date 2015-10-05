@@ -1141,7 +1141,7 @@ pt-BR:
     grid_item:
       processing_uploaded_image: "(Processando imagem...)"
     index:
-      no_listings_with_your_search_criteria: "Nós não encontramos nenhum resultado que corresponde à sua pesquisa."
+      no_listings_with_your_search_criteria: "Não encontramos nenhum resultado que corresponda a sua busca."
       no_listings_notification: "Nenhum anúncio. %{add_listing_link}."
       add_listing_link_text: "Adicionar novo anúncio"
       open_listing: "anúncio ativo"
@@ -1728,9 +1728,9 @@ pt-BR:
       upgrade_paypal_account: "Entre na sua conta no PayPal"
       connect_paypal_account: "Conecte-se a uma conta PayPal"
       paypal_account_billing_agreement: "2. Conceder permissão a %{service_name} para cobrar taxa de transação"
-      paypal_account_billing_agreement_info_both: "Depois de realizar uma venda no %{service_name}, uma taxa de (%{commission_from_seller} do valor total, excluindo custo de envio, de no mínimo %{minimum_commission}) será cobrada através de sua conta no PayPal. Para aceitar pagamentos no %{service_name}, você deve permitir essa cobrança automática. A taxa cobrada exclui %{paypal_info_link}."
-      paypal_account_billing_agreement_info_fixed: "Depois de realizar uma venda no %{service_name}, uma taxa de %{minimum_commission} será cobrada através de sua conta no PayPal. Para aceitar pagamentos no %{service_name}, você deve permitir essa cobrança automática. A taxa cobrada exclui %{paypal_info_link}."
-      paypal_account_billing_agreement_info_relative: "Depois de realizar uma venda no %{service_name} uma taxa de %{commission_from_seller} do valor total, excluindo custo de envio, será cobrada através de sua conta no PayPal. Para aceitar pagamentos no %{service_name} você deve permitir essa cobrança automática. A taxa cobrada exclui %{paypal_info_link}."
+      paypal_account_billing_agreement_info_both: "Depois de realizar uma venda no %{service_name}, uma taxa de (%{commission_from_seller} do valor total, excluindo custos de envio, de no mínimo %{minimum_commission}) será cobrada através de sua conta no PayPal. Para aceitar pagamentos no %{service_name}, você deve permitir essa cobrança automática. Esta taxa não inclui a %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "Depois de realizar uma venda no %{service_name}, uma taxa de %{minimum_commission} será cobrada através de sua conta no PayPal. Para aceitar pagamentos no %{service_name}, você deve permitir essa cobrança automática. Esta taxa não inclui a %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Depois de realizar uma venda no %{service_name} uma taxa de %{commission_from_seller} do valor total, excluindo custo de envio, será cobrada através de sua conta no PayPal. Para aceitar pagamentos no %{service_name} você deve permitir essa cobrança automática. Esta taxa não inclui a %{paypal_info_link}."
       paypal_info_link_text: "taxa de processamento do pagamento do PayPal"
       billing_agreement_description: "Conceder permissão a %{service_name} para cobrar uma taxa de transação."
       billing_agreement: "Conceder permissão"
