@@ -71,6 +71,7 @@ class PaypalAccountsController < ApplicationController
       minimum_commission: Money.new(payment_settings[:minimum_transaction_fee_cents], community_currency),
       commission_type: payment_settings[:commission_type],
       currency: community_currency,
+      paypal_fees_url: PaypalHelper.fee_link(community_country_code),
       create_url: "https://www.paypal.com/#{community_country_code}/signup/account",
       upgrade_url: "https://www.paypal.com/#{community_country_code}/upgrade"
     })

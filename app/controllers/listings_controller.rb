@@ -452,6 +452,8 @@ class ListingsController < ApplicationController
           0
         end
 
+      community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
+
       commission(@current_community, process).merge({
         shape: shape,
         unit_options: unit_options,
@@ -459,7 +461,8 @@ class ListingsController < ApplicationController
         shipping_enabled: @listing.require_shipping_address?,
         pickup_enabled: @listing.pickup_enabled?,
         shipping_price_additional: shipping_price_additional,
-        always_show_additional_shipping_price: shape[:units].length == 1 && shape[:units].first[:kind] == :quantity
+        always_show_additional_shipping_price: shape[:units].length == 1 && shape[:units].first[:kind] == :quantity,
+        paypal_fees_url: PaypalHelper.fee_link(community_country_code)
       })
     else
       nil
