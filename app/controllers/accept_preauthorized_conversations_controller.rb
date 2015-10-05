@@ -143,6 +143,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     transaction_conversation = MarketplaceService::Transaction::Query.transaction(@listing_conversation.id)
     result = TransactionService::Transaction.get(community_id: @current_community.id, transaction_id: @listing_conversation.id)
     transaction = result[:data]
+    community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 
     render "accept", locals: {
       payment_gateway: :paypal,
@@ -160,7 +161,8 @@ class AcceptPreauthorizedConversationsController < ApplicationController
         person_id: @current_user.id,
         id: @listing_conversation.id
       ),
-      preselected_action: preselected_action
+      preselected_action: preselected_action,
+      paypal_fees_url: PaypalHelper.fee_link(community_country_code)
     }
   end
 
