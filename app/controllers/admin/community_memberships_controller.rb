@@ -95,7 +95,6 @@ class Admin::CommunityMembershipsController < ApplicationController
             user.username,
             membership.created_at,
             membership.status,
-            membership.admin
             membership.admin,
             user.locale
           ]
