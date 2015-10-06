@@ -80,6 +80,7 @@ class Admin::CommunityMembershipsController < ApplicationController
         status
         is_admin
         accept_emails_from_admin
+        language
       }
       community_requires_verification_to_post =
         memberships.first && memberships.first.community.require_verification_to_post_listings
@@ -95,6 +96,8 @@ class Admin::CommunityMembershipsController < ApplicationController
             membership.created_at,
             membership.status,
             membership.admin
+            membership.admin,
+            user.locale
           ]
           user_data.push(membership.can_post_listings) if community_requires_verification_to_post
           user.emails.each do |email|
