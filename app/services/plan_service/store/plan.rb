@@ -1,15 +1,24 @@
 module PlanService::Store::Plan
 
-  Plan = EntityUtils.define_builder(
+  NewPlan = EntityUtils.define_builder(
     [:community_id, :fixnum, :mandatory],
     [:plan_level, :fixnum, :mandatory],
-    [:expires_at, :time, :optional] # Passing nil means that the plan never expires
+    [:expires_at, :time, :optional], # Passing nil means that the plan never expires
+  )
+
+  Plan = EntityUtils.define_builder(
+    [:id, :fixnum, :mandatory],
+    [:community_id, :fixnum, :mandatory],
+    [:plan_level, :fixnum, :mandatory],
+    [:expires_at, :time, :optional],
+    [:created_at, :time, :mandatory],
+    [:updated_at, :time, :mandatory],
   )
 
   module_function
 
   def create(community_id:, plan:)
-    plan_entity = Plan.call(plan.merge(community_id: community_id))
+    plan_entity = NewPlan.call(plan.merge(community_id: community_id))
     from_model(CommunityPlan.create!(plan_entity))
   end
 
@@ -20,6 +29,12 @@ module PlanService::Store::Plan
                  .first
 
     from_model(plan_model)
+  end
+
+  def get_trials(after:)
+    CommunityPlan.where("created_at >? ", after).map { |plan_model|
+      from_model(plan_model)
+    }
   end
 
   def from_model(model)

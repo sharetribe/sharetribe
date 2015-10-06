@@ -69,4 +69,56 @@ describe "plan provisioning" do
                              })
     end
   end
+
+  describe "trials" do
+
+    it "fetches trials after given time" do
+      id111 = nil
+      id222 = nil
+      id333 = nil
+
+      Timecop.freeze(Time.utc(2015, 9, 15)) {
+        id111 = PlanService::API::Api.plans.create(community_id: 111, plan: {plan_level: 0}).data[:id]
+      }
+
+      Timecop.freeze(Time.utc(2015, 10, 15)) {
+        id222 = PlanService::API::Api.plans.create(community_id: 222, plan: {plan_level: 0}).data[:id]
+      }
+
+      Timecop.freeze(Time.utc(2015, 11, 15)) {
+        id333 = PlanService::API::Api.plans.create(community_id: 333, plan: {plan_level: 0}).data[:id]
+      }
+
+      after = Time.utc(2015, 10, 1).to_i
+
+      get "http://webhooks.sharetribe.com/webhooks/trials?token=#{token}&after=#{after}"
+
+      puts response.body
+
+      expect(response.status).to eq(200)
+      expect(JSON.parse(response.body))
+        .to eq(JSON.parse({
+                            plans: [
+                              {
+                                marketplace_plan_id: id222,
+                                marketplace_id: 222,
+                                plan_level: 0,
+                                created_at: Time.utc(2015, 10, 15),
+                                updated_at: Time.utc(2015, 10, 15),
+                                expires_at: nil,
+                              },
+                              {
+                                marketplace_plan_id: id333,
+                                marketplace_id: 333,
+                                plan_level: 0,
+                                created_at: Time.utc(2015, 11, 15),
+                                updated_at: Time.utc(2015, 11, 15),
+                                expires_at: nil,
+                              }
+                            ]
+                          }.to_json))
+
+    end
+
+  end
 end

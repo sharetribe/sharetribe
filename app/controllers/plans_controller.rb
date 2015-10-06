@@ -1,6 +1,7 @@
 class PlansController < ApplicationController
   skip_before_filter :verify_authenticity_token, :fetch_logged_in_user, :fetch_community, :fetch_community_membership
   skip_filter :check_email_confirmation
+  before_filter :do_jwt_authentication!
 
   include PlanService::ExternalPlanServiceInjector
 
@@ -16,11 +17,7 @@ class PlansController < ApplicationController
 
       render json: {}, status: 200
     }.on_error { |error_msg, data|
-      case data[:error_code]
-      when :decode_error
-        render json: {error: :unauthorized}, status: 401
-      when :verification_error
-        render json: {error: :unauthorized}, status: 401
+      case data
       when JSON::ParserError
         render json: {error: :json_parser_error}, status: 400
       else
@@ -29,7 +26,27 @@ class PlansController < ApplicationController
     }
   end
 
+  def get_trials
+    after = Maybe(params)[:after].to_i.map { |time_int| Time.at(time_int) }.or_else(nil)
+
+    if after
+      render json: {plans: PlanService::API::Api.plans.get_trials(after: after).data.map { |plan|
+                      from_plan_entity(plan)
+                    }
+                   }
+    else
+      render json: {error: "Missing 'after' parameter"}, status: 400
+    end
+
+  end
+
   # private
+
+  def do_jwt_authentication!
+    JWTUtils.decode(params[:token], external_plan_service[:jwt_secret]).on_error {
+      render json: {error: :unauthorized}, status: 401
+    }
+  end
 
   def parse_json(body)
     begin
@@ -47,5 +64,12 @@ class PlansController < ApplicationController
       plan_level: plan["plan_level"],
       expires_at: Maybe(plan)["expires_at"].map { |ts| TimeUtils.utc_str_to_time(ts) }.or_else(nil)
     }
+  end
+
+  def from_plan_entity(plan)
+    HashUtils.rename_keys({
+                            :community_id => :marketplace_id,
+                            :id => :marketplace_plan_id
+                          }, plan)
   end
 end
