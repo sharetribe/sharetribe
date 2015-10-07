@@ -48,11 +48,9 @@ describe "plan provisioning" do
 
       post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", body
 
-      plan1234 = PlanService::API::Api.plans.get_current(community_id: 1234)
-                 .data
-                 .slice(:community_id, :plan_level, :expires_at)
+      plan1234 = PlanService::API::Api.plans.get_current(community_id: 1234).data
 
-      expect(plan1234).to eq({
+      expect(plan1234.slice(:community_id, :plan_level, :expires_at)).to eq({
                                community_id: 1234,
                                plan_level: 2,
                                expires_at: nil
@@ -60,13 +58,20 @@ describe "plan provisioning" do
 
       plan5555 = PlanService::API::Api.plans.get_current(community_id: 5555)
                  .data
-                 .slice(:community_id, :plan_level, :expires_at)
 
-      expect(plan5555).to eq({
+      expect(plan5555.slice(:community_id, :plan_level, :expires_at)).to eq({
                                community_id: 5555,
                                plan_level: 5,
                                expires_at: Time.utc(2015, 10, 15, 15, 0, 0)
                              })
+
+      expect(response.status).to eq(200)
+      expect(response.body).to eq({
+                                    plans: [
+                                      {marketplace_plan_id: plan1234[:id]},
+                                      {marketplace_plan_id: plan5555[:id]}
+                                    ]
+                                  }.to_json)
     end
   end
 

@@ -9,13 +9,15 @@ class PlansController < ApplicationController
     res = JWTUtils.decode(params[:token], external_plan_service[:jwt_secret]).and_then {
       parse_json(request.raw_post)
     }.on_success { |ext_plans|
-      Maybe(ext_plans)["plans"].or_else([]).map { |ext_plan|
+      result = Maybe(ext_plans)["plans"].or_else([]).map { |ext_plan|
         to_plan_entity(ext_plan)
-      }.each { |plan|
-        PlanService::API::Api.plans.create(community_id: plan[:community_id], plan: plan)
+      }.map { |plan|
+        new_plan = PlanService::API::Api.plans.create(community_id: plan[:community_id], plan: plan).data
+
+        { marketplace_plan_id: new_plan[:id] }
       }
 
-      render json: {}, status: 200
+      render json: {plans: result}, status: 200
     }.on_error { |error_msg, data|
       case data
       when JSON::ParserError
