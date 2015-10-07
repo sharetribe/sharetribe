@@ -67,4 +67,9 @@ window.ST.initializeManageMembers = function() {
   ajaxStatus.idle.onValue(function() {
     $(".ajax-update-notification").fadeOut();
   });
+
+  // Attach analytics click handler for CSV export
+  $(".js-users-csv-export").click(function(){
+    report_analytics_event(['admin', 'export', 'users']);
+  });
 };
