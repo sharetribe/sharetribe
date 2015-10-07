@@ -14,19 +14,17 @@ class Admin::CommunityMembershipsController < ApplicationController
                                            .paginate(:page => params[:page], :per_page => 50)
                                            .order("#{sort_column} #{sort_direction}")
       end
-      with_feature(:export_users_as_csv) do
-        format.csv do
-          all_memberships = CommunityMembership.where(:community_id => @community.id)
-                                                .where("status != 'deleted_user'")
-                                                .includes(:person => :emails)
-                                                .order("created_at ASC")
-          marketplace_name = if @community.use_domain
-            @community.domain
-          else
-            @community.ident
-          end
-          send_data generate_csv_for(all_memberships), filename: "#{marketplace_name}-users-#{Date.today}.csv"
+      format.csv do
+        all_memberships = CommunityMembership.where(:community_id => @community.id)
+                                              .where("status != 'deleted_user'")
+                                              .includes(:person => :emails)
+                                              .order("created_at ASC")
+        marketplace_name = if @community.use_domain
+          @community.domain
+        else
+          @community.ident
         end
+        send_data generate_csv_for(all_memberships), filename: "#{marketplace_name}-users-#{Date.today}.csv"
       end
     end
   end
