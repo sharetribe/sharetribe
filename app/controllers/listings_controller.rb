@@ -252,7 +252,19 @@ class ListingsController < ApplicationController
       if @listing.save
         upsert_field_values!(@listing, params[:custom_fields])
 
-        listing_image_ids = params[:listing_images].collect { |h| h[:id] }.select { |id| id.present? }
+        listing_image_ids =
+          if params[:listing_images]
+            params[:listing_images].collect { |h| h[:id] }.select { |id| id.present? }
+          else
+            Rails.logger.error({tag: :error,
+                                free: "Listing images array is missing",
+                                structured: {params: params,
+                                             community_id: @current_community.id,
+                                             current_user: @current_user.id},
+                                request_id: request.uuid}.to_json)
+            []
+          end
+
         ListingImage.where(id: listing_image_ids, author_id: @current_user.id).update_all(listing_id: @listing.id)
 
         Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, @current_community.id))
