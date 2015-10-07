@@ -70,6 +70,7 @@ window.ST.initializeManageMembers = function() {
 
   // Attach analytics click handler for CSV export
   $(".js-users-csv-export").click(function(){
+    /* global report_analytics_event */
     report_analytics_event(['admin', 'export', 'users']);
   });
 };
