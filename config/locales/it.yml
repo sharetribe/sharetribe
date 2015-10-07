@@ -2075,14 +2075,14 @@ it:
     day: giorno
     days: giorni
   will_paginate:
+    models:
+      listing_conversation:
+        zero: transazioni
+        one: transazione
+        other: transazioni
     previous_label: ~
     next_label: ~
     page_gap: ~
     page_entries_info:
       multi_page: ~
       multi_page_html: ~
-    models:
-      listing_conversation:
-        zero: transazioni
-        one: transazione
-        other: transazioni

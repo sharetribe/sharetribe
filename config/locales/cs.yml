@@ -2,85 +2,85 @@ cs:
   admin:
     categories:
       edit:
-        edit_listing_category: "Přidat kategorii %{category}"
+        edit_listing_category: "Přidat kategorii \"%{category}\""
       index:
-        listing_categories: "Seznam kategorií"
-        create_a_new_category: "+ Přidat novou kategorii"
-        remove_category_confirmation: "Jste si jisti, že chcete odstranit kategorii %{category_name}?"
+        listing_categories: "Kategorie inzerátů"
+        create_a_new_category: "+ Vytvořit novou kategorii"
+        remove_category_confirmation: "Jste si jisti, že chcete odstranit kategorii \"%{category_name}\"?"
         saving_order: "Uložit uspořádání kategorií"
         save_order_successful: "Uspořádání kategorií bylo úspěšně uloženo"
-        save_order_error: "Došlo k chybě při ukládání uspořádání kategorií. Aktualizujte, prosím, stránku a zkuste to znovu."
+        save_order_error: "Došlo k chybě při ukládání uspořádání kategorií. Prosíme, aktualizujte stránku a zkuste to znovu."
       new:
-        new_listing_category: "Nový seznam kategorií"
+        new_listing_category: "Nová kategorie inzerátu"
       form:
         category_name:
           category_title: "Název kategorie"
         category_parent:
-          category_parent: "Základní kategorie"
-          no_parent: "Žádná základní kategorie"
+          category_parent: "Podobná kategorie"
+          no_parent: "Žádná shoda"
         category_transaction_types:
           transaction_types: "Typy uspořádání"
-          transaction_types_description: "Typy uspořádání určují, jaký druh uspořádání je povolen pro seznamy v této kategorii. Například pouze pro prodej nebo pro pronájem nebo pro darování je to povoleno."
+          transaction_types_description: "Typy uspořádání určují, jaký druh uspořádání je povolen pro inzeráty v této kategorii. Například povoleno pouze pro prodám, pronajmu nebo pro daruji."
         buttons:
           save: Uložit
           cancel: Zrušit
       remove:
         remove_category: "Odstranit kategorii"
-        remove_category_name: "Odstranit kategorii %{category_name}"
-        warning_remove_effects: "Pozor! Odstraněním kategorie %{category_name} bude mít následující důsledky:"
+        remove_category_name: "Odstranit kategorii \"%{category_name}\""
+        warning_remove_effects: "Pozor! Odstranění kategorie %{category_name} bude mít následující důsledky:"
         warning_listing_will_be_moved:
-          one: "Zde je %{count} seznam v této kategorii. Seznam bude přesunut do vybrané kategorie."
-          few: "Zde jsou %{count} seznamy v této kategorii. Seznamy budou přesunuty do vybrané kategorie."
-          other: "Zde je %{count} seznamů v této kategorii. Seznamy budou přesunuty do vybrané kategorie."
+          one: "Zde je %{count} inzerát v této kategorii. Inzerát bude přesunut do vybrané kategorie."
+          few: "Zde jsou %{count} inzeráty v této kategorii. Inzeráty budou přesunuty do vybrané kategorie."
+          other: "Zde je %{count} inzerátů v této kategorii. Inzeráty budou přesunuty do vybrané kategorie."
         warning_custom_field_will_be_moved:
-          one: "Zde je %{count} položka v této kategorii. Pole bude přesunuto do vybrané kategorie."
-          few: "Zde jsou %{count} položky v této kategorii. Pole budou přesunuta do vybrané kategorie."
-          other: "Zde je %{count} položek v této kategorii. Pole budou přesunuta do vybrané kategorie."
+          one: "Zde je %{count} vlastní pole v této kategorii. Pole bude přesunuto do vybrané kategorie."
+          few: "Zde jsou %{count} vlastní v této kategorii. Pole budou přesunuta do vybrané kategorie."
+          other: "Zde je %{count} vlastních polí v této kategorii. Pole budou přesunuta do vybrané kategorie."
         warning_subcategory_will_be_removed:
           one: "Zde je %{count} subkategorie v této kategorii. Tato subkategorie bude odstraněna."
           few: "Zde jsou %{count} subkategorie v této kategorii. Tyto subkategorie budou odstraněny."
           other: "Zde je %{count} subkategorií v této kategorii. Tyto subkategorie budou odstraněny."
-        select_new_category: "Vyberte novou kategorii, kam budou výše uvedené položky přesunuty:"
-        buttons:
-          remove: Odstranit
-          cancel: Zrušit
         warning_with_subcategories_listing_will_be_moved:
           one: "Zde je %{count} inzerát v této kategorii a podkategoriích. Inzerát bude přesunut do vybrané kategorie."
           few: "Zde jsou %{count} inzeráty v této kategorii a podkategoriích. Inzeráty budou přesunuty do vybrané kategorie."
           other: "Zde je %{count} inzerátů v této kategorii a podkategoriích. Inzeráty budou přesunuty do vybrané kategorie."
         warning_with_subcategories_custom_field_will_be_moved:
-          one: "Zde je %{count} položka v této kategorii a subkategoriích. Položka bude přesunuta do vybrané kategorie."
-          few: "Zde jsou %{count} položky v této kategorii a subkategoriích. Položky budou přesunuty do vybrané kategorie."
-          other: "Zde je %{count} položek v této kategorii a subkategoriích. Položky budou přesunuty do vybrané kategorie."
+          one: "Zde je %{count} vlastní pole v této kategorii a subkategoriích. Pole bude přesunuto do vybrané kategorie."
+          few: "Zde jsou %{count} vlastní pole v této kategorii a subkategoriích. Pole budou přesunuta do vybrané kategorie."
+          other: "Zde je %{count} vlastních polí v této kategorii a subkategoriích. Pole budou přesunuta do vybrané kategorie."
+        select_new_category: "Vyberte novou kategorii, kam budou výše uvedené položky přesunuty:"
+        buttons:
+          remove: Odstranit
+          cancel: Zrušit
     communities:
       edit_details:
-        community_details: "Základní údaje"
+        community_details: "Základní informace"
         community_look_and_feel: Design
-        edit_community: "Základní údaje"
-        enabled_languages: ~
-        enabled_languages_description: ~
-        default_language: ~
-        language_selection_disabled: ~
+        edit_community: "Základní informace"
+        enabled_languages: "Povolené jazyky"
+        enabled_languages_description: "Seznam jazyků dostupných pro uživatele. První z nich je použit jako výchozí."
+        default_language: "Výchozí jazyk"
+        language_selection_disabled: "Výběr jazyka je pro Vaše tržiště zakázán, protože používáte následující neoficiální jazyky: %{languages}. Prosíme, kontaktujte podporu Sharetribe, pokud chcete změnit nastavení Vašeho jazyka."
         community_name: "Název tržiště"
         edit_community_name_description: "Název Vašeho tržiště. Tento název se zobrazí uživatelům v e-mailech a na jiných místech."
         community_slogan: "Slogan tržiště"
-        edit_community_slogan_description: "Toto se zobrazí na domovské stránce tržiště pro nepřihlášené uživatele. %{see_how_it_looks_like}"
+        edit_community_slogan_description: "Toto se zobrazí na domovské stránce tržiště nepřihlášeným uživatelům. %{see_how_it_looks_like}"
         community_description: "Popis tržiště"
-        edit_community_description_description: "Toto se zobrazí na domovské stránce tržiště pro nepřihlášené uživatele. %{see_how_it_looks_like}"
-        community_search_placeholder: "Hledat text nápovědy"
-        edit_community_search_placeholder_description: "Toto je vidět na domovské stránce tržiště jako podpůrný text ve vyhledávacím řádku. %{see_how_it_looks_like}"
+        edit_community_description_description: "Toto se zobrazí na domovské stránce tržiště nepřihlášeným uživatelům. %{see_how_it_looks_like}"
+        community_search_placeholder: "Text vyhledávacího pole"
+        edit_community_search_placeholder_description: "Toto je zobrazí na domovské stránce tržiště jako podpůrný text ve vyhledávacím řádku. %{see_how_it_looks_like}"
         private_community_homepage_content: "Obsah domovské stránky soukromého tržiště"
-        edit_private_community_homepage_content_description: "Tento obsah se zobrazí nepřihlášeným uživatelům na domovské stránce soukromého tržiště. Zde můžete popsat Vaše tržiště a postup, jak se k němu připojit. Můžete sem také přidávat obrázky, videa a HTML obsahy. %{see_how_it_looks_like}signed"
+        edit_private_community_homepage_content_description: "Tento obsah se zobrazí nepřihlášeným uživatelům na domovské stránce soukromého tržiště. Zde můžete popsat Vaše tržiště a postup, jak se připojit. Můžete sem také přidávat obrázky, videa a HTML obsahy. %{see_how_it_looks_like}"
         update_information: "Uložit nastavení"
         invite_people: "Pozvěte nové uživatele"
-        edit_signup_info: "Přihlašovací informace"
-        edit_signup_info_description: "Toto je informační text, který lze zobrazit pouze uživatelům na registrační stránce. Zde můžete dát uživatelům instrukce k registraci, jako kde získat pozvání, atd. Ve výchozím nastavením nejsou k dispozici jakékoliv instrukce."
+        edit_signup_info: "Registrační informace"
+        edit_signup_info_description: "Toto je informační text, který lze zobrazit pouze uživatelům při registraci. Zde můžete popsat uživatelům instrukce k registraci, jako např. kde získat pozvání, atd. Ve výchozím nastavením nejsou k dispozici jakékoliv instrukce."
         edit_info: "Upravit informace"
         see_how_it_looks_like: "Podívejte se, jak to vypadá"
         verification_to_post_listings_info_content: "Informace pro neověřené uživatele"
-        verification_to_post_listings_info_content_description: "Požadujete po svých uživatelích, aby se manuálně ověřili před tím, než budou moci přidávat příspěvky. Zde můžete nastavit výchozí text, který se zobrazí neověřeným uživatelům, když se budou snažit přidat nový příspěvek."
-        verification_to_post_listings_info_content_default: "%{service_name} vyžaduje, aby byli lidé manuálně ověřeni správcem předtím, než budou moci přidávat příspěvky. Ještě jste nebyl/a ověřen/a. Prosíme %{contact_admin_link}, obraťte se na tento kontakt kvůli ověření."
-        contact_admin_link_text: "kontaktovat správce"
+        verification_to_post_listings_info_content_description: "Požadujete po svých uživatelích, aby se ručně ověřili předtím, než budou moci přidávat příspěvky. Zde můžete nastavit výchozí text, který se zobrazí neověřeným uživatelům, když se budou snažit přidat nový příspěvek."
+        verification_to_post_listings_info_content_default: "%{service_name} vyžaduje, aby byli lidé ručně ověřeni správcem předtím, než budou moci přidávat příspěvky. Ještě jste nebyl/a ověřen/a. Prosíme, %{contact_admin_link} kvůli ověření."
+        contact_admin_link_text: "kontaktujte správce"
         save: "Uložit nastavení"
         transaction_agreement: "Souhlas s provedením transakce"
         transaction_agreement_checkbox: "Požádat uživatele, aby potvrdili smlouvu před provedením transakce"
@@ -89,7 +89,7 @@ cs:
         transaction_agreement_text_header: "Text smlouvy"
         transaction_agreement_description: "Toto je obsah aktuální smlouvy, kterou musí uživatel potvrdit. Obsah smlouvy se zobrazí, když uživatel klikne na odkaz %{read_more} vedle označení smlouvy."
       edit_look_and_feel:
-        edit_community_look_and_feel: "\"%{community_name}\" - úprava vzhledu"
+        edit_community_look_and_feel: "Upravit vzhled tržiště \"%{community_name}\""
         community_logo: "Logo pozadí"
         community_logo_icon: "Logo pro sociální sítě a mobilní zařízení"
         community_cover_photo: "Úvodní fotka"
@@ -98,66 +98,66 @@ cs:
         favicon_info_text: "Ikona webové stránky nahradí výchozí Sharetribe logo. Rozlišení by mělo být 32x32 pixelů a nahraný obrázek bude přizpůsoben těmto rozměrům."
         community_custom_color1: "Základní barva"
         community_custom_color2: "Druhá barva"
-        logo_instructions_text_with_dimensions: "Logo pozadí by mělo být %{width}x%{height}px. To se zobrazí uživatelům s většími obrazovkami."
+        logo_instructions_text_with_dimensions: "Logo pozadí by mělo být %{width}x%{height}px. Toto logo se zobrazí uživatelům s většími obrazovkami."
         logo_icon_instructions_text_with_dimensions: "Toto čtvercové logo se zobrazí v případě, pokud lidé sdílí Vaše stránky na Facebooku, když si je prohlížejí na mobilním zařízení nebo když nastaví Vaše stránky jako domovskou stránku na jejich mobilním zařízení. Rozměry by měly být (alespoň) %{width}x%{height}px."
         cover_photo_visibility: "Úvodní fotka se zobrazí na domovské stránce nepřihlášeným uživatelům."
         cover_photo_instructions_text_with_dimensions: "Fotografie budou přizpůsobeny velikosti %{width}x%{height} pixelů a větší snímky budou ořezány. %{see_how_it_looks_like}"
         small_cover_photo_visibility: "Malá úvodní fotka se zobrazí nepřihlášeným uživatelům na všech stránkách kromě domovské stránky."
-        small_cover_photo_instructions_text_with_dimensions: "Fotografie budou přizpůsobeny velikosti %{width}x%{height} pixelů a větší snímky budou ořezány."
-        main_content_width: "Při výběru úvodních fotek vezměte, prosím, na vědomí, že rozlišení hlavní stránky je maximálně %{main_width} pixelů na šířku. Nezapomeňte také zkontrolovat, jak bude Vaše fotografie vypadat na menších obrazovkách. (např. použitím užších oken vyhledávačů)."
+        small_cover_photo_instructions_text_with_dimensions: "Fotografie bude přizpůsobena velikosti %{width}x%{height} pixelů a větší obrázky budou ořezány."
+        main_content_width: "Při výběru úvodních fotek vezměte na vědomí, že rozlišení hlavní stránky je maximálně %{main_width} pixelů na šířku. Nezapomeňte také zkontrolovat, jak bude Vaše úvodní fotografie vypadat na menších obrazovkách. (např. použitím užších oken vyhledávačů)."
         custom_color1_instructions_text: "Můžete změnit základní barvu uživatelského rozhraní zadáním hodnoty hexa barvy.  <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> Vám pomůže vybrat barvu a následně sem zkopírujte kód barvy."
-        custom_color2_instructions_text: "Můžete změnit druhou barvu uživatelského rozhraním zadáním hodnoty hexa barvy."
+        custom_color2_instructions_text: "Můžete změnit druhou barvu uživatelského rozhraní zadáním hodnoty hexa barvy."
         default_browse_view: "Výchozí zobrazení prohlížeče"
-        default_browse_view_instructions_text: "Výchozí zobrazení prohlížeče se používá na domovské stránce k nastavení jak jsou transakce zobrazeny ve výchozím nastavení."
+        default_browse_view_instructions_text: "Výchozí zobrazení prohlížeče se používá na domovské stránce k nastavení, jak mají být inzeráty zobrazeny ve výchozím nastavení."
         grid: Mřížka
         list: Seznam
         map: Mapa
         name_display_type: "Název typu zobrazení"
-        name_display_type_instructions_text: "Vyberte si, jak se jméno každého uživatele zobrazí na stránce"
+        name_display_type_instructions_text: "Vyberte si, jak se jméno každého uživatele zobrazí na stránce."
         full_name: "Celé jméno (jméno a příjmení)"
-        first_name_with_initial: "Počáteční písmeno křestního jména"
+        first_name_with_initial: "Křestní jméno a počáteční písmeno příjmení"
         first_name_only: "Pouze křestní jméno"
         invalid_color_code: "Kód barvy by měl obsahovat 6 čísel nebo písmena A-F, například D96E21"
         custom_head_script: "Vlastní skript"
-        custom_head_script_instructions_text: "Tento skript je součástí <head> části každé stránky a může být vložen do CSS, JavaScript nebo HTML. Vezměte, prosíme, na vědomí, že budoucí změny v Sharetribe mohou způsobit, že Váš skript bude nekompatibilní."
+        custom_head_script_instructions_text: "Tento skript je součástí <head> části každé stránky a může být vložen do CSS, JavaScript nebo HTML. Vezměte na vědomí, že budoucí změny v Sharetribe mohou způsobit, že Váš skript nebude kompatibilní."
       edit_text_instructions:
         edit_text_instructions: Návody
       edit_welcome_email:
         welcome_email_content: "Obsah uvítacího e-mailu"
-        welcome_email_content_description: "Níže uvedená zpráva bude zaslána novým uživatelům, kteří se připojí. Zprávu můžete upravit dle Vaší potřeby. Kliknutím na %{send_test_message_link} můžete odeslat na Váš e-mail náhled zprávy, takže můžete vidět, jak to vypadá v e-mailovém klientovi."
+        welcome_email_content_description: "Níže uvedená zpráva bude poslána novým uživatelům, když se připojí. Zprávu můžete upravit dle Vaší potřeby. Kliknutím na %{send_test_message_link} můžete odeslat na Váš e-mail náhled zprávy, takže můžete vidět, jak to vypadá v přijatém e-mailu."
         edit_message: "Upravit zprávu"
         send_test_message: "Poslat text zprávy"
       outgoing_email:
-        title: ~
-        info: ~
-        read_more: ~
-        sender_address: ~
-        sender_address_default: ~
-        need_to_change: ~
-        contact_support_link_text: ~
-        set_sender_address: ~
-        sender_name_label: ~
-        sender_name_placeholder: ~
-        sender_email_label: ~
-        sender_email_placeholder: ~
-        this_is_how_it_will_look: ~
-        send_verification_button: ~
-        successfully_saved: ~
-        status: ~
-        status_verified: ~
-        status_error: ~
-        status_requested: ~
-        status_expired: ~
-        status_resent: ~
-        resend_link: ~
-        invalid_email_error: ~
-        invalid_email_domain: ~
-        invalid_email_domain_read_more_link: ~
-        unknown_error: ~
-        only_white_label_offer: ~
-        upgrade_pro_plan_link: ~
-        verification_sent_from: ~
-        follow_the_instructions: ~
+        title: "Odchozí e-mailová adresa"
+        info: "Toto jméno a adresa se používá pro e-maily poslané z Vašeho tržiště členům."
+        read_more: "Přečtěte si více o odchozí e-mailové adrese"
+        sender_address: "Adresa odesílatele: %{sender_address}"
+        sender_address_default: "Adresa odesílatele: nenastaveno (použít výchozí adresu %{sender_address})"
+        need_to_change: "Pokud potřebujete změnit e-mailovou adresu, prosíme %{contact_support_link}."
+        contact_support_link_text: "kontaktujte naši podporu"
+        set_sender_address: "Nastavit adresu odesílatele"
+        sender_name_label: Jméno
+        sender_name_placeholder: "Jméno odesílatele"
+        sender_email_label: "E-mailová adresa"
+        sender_email_placeholder: sender-email@example.com
+        this_is_how_it_will_look: "Takto to bude vypadat:"
+        send_verification_button: "Ověřovací e-mail byl odeslán"
+        successfully_saved: "Adresa odesílatele byla úspěšně uložena. Ověřovací e-mail bude brzy poslán."
+        status: "Status: %{status}"
+        status_verified: "Ověřeno - již využito"
+        status_error: "Došlo k chybě. Prosíme, aktualizujte stránku."
+        status_requested: "Neověřeno - ověřovací e-mail byl poslán na %{email} %{time_ago}. %{resend_link}"
+        status_expired: "Ověření e-mailu %{email} vypršelo. %{resend_link}"
+        status_resent: "Ověřovací e-mail znovu odeslán na %{email}. %{resend_link}"
+        resend_link: Přeposlat
+        invalid_email_error: "Neplatný formát e-mailu pro \"%{email}\"."
+        invalid_email_domain: "E-mailová adresa %{email} využívá nepodporovaného poskytovatele e-mailu: \"%{domain}\". %{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: "Přečtěte si následující článek pro více informací."
+        unknown_error: "Něco se nezdařilo"
+        only_white_label_offer: "Tato funkce je součástí Sharetribe white-label nabídky. Chcete-li povolit tuto funkci, měli byste %{upgrade_pro_plan_link}."
+        upgrade_pro_plan_link: "upgradovat na náš Pro plan nebo vyšší"
+        verification_sent_from: "Ověřovací e-mail byl odeslán od %{verification_sender_name}."
+        follow_the_instructions: "Prosíme, postupujte dle pokynů v e-mailu pro ověření Vaší adresy."
       getting_started:
         getting_started: ~
         welcome_to_your_marketplace: ~
@@ -170,8 +170,8 @@ cs:
         categories_link_text: ~
         custom_fields_link_text: ~
         filters_link_text: ~
-        order_types: ~
-        order_types_link_text: ~
+        order_types: "Můžete také nastavit, jak proces objednávky funguje na Vašem tržišti. Prodávají, pronajímají nebo dávají věci zadarmo Vaši uživatelé? Zapůjčují hodinově, denně nebo týdně? Tyto věci mohou být nastaveny na %{order_types_link}."
+        order_types_link_text: "Zobrazit typ objednávky"
         payments: ~
         payments_link_text: ~
         info_texts: ~
@@ -193,61 +193,61 @@ cs:
         view_transactions_link_text: ~
         contact_support_link_text: ~
       available_languages:
-        en: ~
-        en-AU: ~
-        en-GB: ~
-        fr: ~
-        fr-CA: ~
-        es: ~
-        es-ES: ~
-        pt-BR: ~
-        nb: ~
-        sv: ~
-        da-DK: ~
-        fi: ~
-        ru: ~
-        de: ~
-        el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
-        it: ~
+        en: Angličtina
+        en-AU: "Angličtina (Austrálie)"
+        en-GB: "Angličtina (Spojené království)"
+        fr: Fransouzština
+        fr-CA: "Francouzština (Kanada)"
+        es: "Španělština (Chile)"
+        es-ES: Španělština
+        pt-BR: "Portugalština (Brazílie)"
+        nb: "Norština (Bokmål)"
+        sv: Švédština
+        da-DK: Dánština
+        fi: Finština
+        ru: Ruština
+        de: Němčina
+        el: Řečtina
+        nl: Holandština
+        tr-TR: Turečtina
+        zh: Čínština
+        ja: Japonština
+        it: Italština
       settings:
         settings: Nastavení
         general: Obecné
         users_can_review_each_other_after_transaction: "Uživatelé mohou navzájem zkontrolovat proběhlou transakci"
         access: Přístup
-        join_with_invite_only: "Uživatelé se mohou připojit k tomuto tržišti pouze pozvánkou od jiného uživatele"
+        join_with_invite_only: "Pouze uživatelé se mohou připojit k tomuto tržišti pozvánkou od jiného uživatele"
         users_can_invite_new_users: "Všichni uživatelé mohou pozvat nové uživatele do tohoto tržiště"
-        private: "Toto tržiště je soukromé (pouze registrovaní uživatelé mohou vidět obsah)"
-        require_verification_to_post_listings: "Pouze uživatelé ověření správcem mohou přidávat nové příspěvky"
-        listing_preferences: "Nastavení transakce"
-        transaction_preferences: "Transakční preference"
-        show_listing_publishing_date: "Zobrazit datum zveřejnění transakce na stránce transakcí"
-        show_category_in_listing_list: "Zobrazit typ transakce v seznamu zobrazení"
-        hide_expiration_date: "Nevyžadovat transakce s datem vypršení platnosti"
-        listing_comments_in_use: "Povolit uživatelům přidávat komentáře k transakcím (viditelné pro všechny další uživatele)"
+        private: "Toto tržiště je soukromé (pouze registrovaní uživatelé mohou zobrazit obsah)"
+        require_verification_to_post_listings: "Pouze uživatelé ověření správcem mohou přidávat nové inzeráty"
+        listing_preferences: "Nastavení inzerátů"
+        transaction_preferences: "Nastavení transakcí"
+        show_listing_publishing_date: "Zobrazit datum zveřejnění inzerátu na stránce inzerátu"
+        show_category_in_listing_list: "Zobrazit typ inzerátu v seznamu zobrazení"
+        hide_expiration_date: "Nevyžadovat inzeráty s datem vypršení platnosti"
+        listing_comments_in_use: "Povolit uživatelům přidávat příspěvky k inzerátům (viditelné pro všechny uživatele)"
         email_preferences: "Nastavení e-mailu"
-        automatic_newsletters: "Poslat automaticky denní / týdenní newsletter všem uživatelům (v případě, že se neodhlásí)"
+        automatic_newsletters: "Poslat automaticky denní / týdenní newsletter všem uživatelům (v případě, že nezruší zasílání)"
         email_admins_about_new_members: "Poslat správcům e-mail v případě, že se zaregistruje nový uživatel"
-        google_analytics_key: "sledování ID pomocí Google Analytics"
+        google_analytics_key: "sledování identifikačního čísla pomocí Google Analytics"
         twitter_handle: "Twitter (používá se tweet tlačítkem na straně)"
         update_settings: "Uložit nastavení"
-        automatically_confirmed: "Transakce bude automaticky označena jako vyřízená za %{days_dropdown} dní od doby, co byla provedena platba. Pokud je systém úschovy zdrojových kódů v provozu, budou peníze převedeny poskytovateli v tomto bodě."
+        automatically_confirmed: "Transakce bude automaticky označena jako vyřízená za %{days_dropdown} dní od doby, co byla platba provedena. Pokud je systém úschovy zdrojových kódů v provozu, budou peníze poskytovateli co nejdříve převedeny."
         automatically_confirmed_no_escrow: ~
-        automatic_newsletter_frequency: "Automaticky zasílat novinky: %{frequency_dropdown}"
+        automatic_newsletter_frequency: "Automaticky posílat newsletter: %{frequency_dropdown}"
         newsletter_daily: Denně
         newsletter_weekly: Týdně
-        delete_marketplace_title: ~
-        type_marketplace_domain: ~
-        type_marketplace_domain_placeholder: ~
-        once_you_delete: ~
-        are_you_sure: ~
-        i_understand_button: ~
-        last_community_updates: ~
-        you_will_be_redirected_to: ~
-        delete_this_marketplace: ~
+        delete_marketplace_title: "Smazat tržiště"
+        type_marketplace_domain: "Napište doménu Vašeho tržitě (%{domain}) do textového pole níže:"
+        type_marketplace_domain_placeholder: "Sem napište doménu Vašeho tržiště"
+        once_you_delete: "Jakmile jednou smažete tržiště, již nikdy do něj nebudete mít přístup. Buďte opatrní."
+        are_you_sure: "Jste si jisti?"
+        i_understand_button: "Rozumím, že kliknutím na tlačítko bude moje tržiště smazáno"
+        last_community_updates: "Prosíme, vezměte na vědomí, že po smazání, Vy a uživatelé Vašeho tržiště mohou stále dostávat e-maily s novinkami."
+        you_will_be_redirected_to: "Poté, co smažete Vaše tržiště, budete přesměrování na %{destination}. Již nikdy nebudete mít přístup do Vašeho tržiště."
+        delete_this_marketplace: "Vymazat toto tržiště"
       manage_members:
         manage_members: "Spravovat uživatele"
         email: E-mail
@@ -258,9 +258,9 @@ cs:
         ban_user: "Zakázaný uživatel"
         saving_user_status: Ukládání...
         save_user_status_successful: Uloženo
-        export_all_as_csv: ~
+        export_all_as_csv: "Exportovat vše do formátu CSV"
         save_user_status_error: "Ukládání selhalo. Prosíme, aktualizujte stránku a zkuste to znovu."
-        ban_user_confirmation: "Tímto bude uživatel z tržiště odstraněn a nebude již mít přístup na tuto stránku pod tímto účtem. Jste si jisti, že chcete pokračovat?"
+        ban_user_confirmation: "Tímto bude uživatel z tržiště odstraněn a nebude již mít pod tímto účtem přístup na tuto stránku. Jste si jisti, že chcete pokračovat?"
         ban_me_error: ~
       social_media:
         social_media: "Sociální média"
@@ -294,10 +294,10 @@ cs:
         url_placeholder: "http://example.com/en"
         title: Název
         language: Jazyk
-        url: URL
+        url: "URL adresa"
         empty: "Nemáte žádné další odkazy"
       transactions:
-        export_all_as_csv: ~
+        export_all_as_csv: "Exportovat vše do formátu CSV"
         transactions: "Zobrazit transakce"
         headers:
           conversation: "Vlákno konverzace"
@@ -333,7 +333,7 @@ cs:
         paypal_admin_account: Platby
     custom_fields:
       edit:
-        edit_listing_field: "Upravit seznam polí %{field_name}"
+        edit_listing_field: "Upravit pole inzerát %{field_name}"
       edit_price:
         edit_price_field: "Upravit cenu pole"
         show_price_filter_homepage: "Ukázat cenový filtr na domovské stránce"
@@ -348,30 +348,30 @@ cs:
           this_field_is_required_checkbox: "Toto pole je povinné (uživatel musí zvolit alespoň jednu možnost)"
       index:
         listing_fields: "Seznam polí & filtrů"
-        listing_fields_help: "Zde můžete upravit pole, která uživatelé musí vyplnit při vytváření nového inzerátu. Vezměte, prosím, na vědomí, že některá pole jsou předepsaná a nemohou být upravena."
-        add_new_field: "Přidat nové pole"
+        listing_fields_help: "Zde můžete upravit pole, která uživatelé musí vyplnit při vytváření nového inzerátu. Vezměte na vědomí, že některá pole jsou předepsaná a nemohou být upravena."
+        add_new_field: "Přidat nové pole:"
         remove_field_confirmation: "Jste si jisti, že chcete odstranit pole %{field_name}?"
         cancel: Zrušit
         save: Uložit
         field_title: "Název pole"
         field_type: "Typ pole"
-        categories: "Seznam kategorií, kde se pole vyskytuje"
+        categories: "Kategorie inzerátů, kde se pole vyskytuje"
         options: Možnosti
-        add_option: "+Přidat možnost"
+        add_option: "+ Přidat možnost"
         saving_order: "Uložit uspořádání polí"
         save_order_successful: "Uspořádání polí bylo úspěšně uloženo"
-        save_order_error: "Došlo k chybě při ukládání uspořádání polí. Aktualizujte, prosím, stránku a zkuste to znovu."
+        save_order_error: "Došlo k chybě při ukládání uspořádání polí. Prosíme, aktualizujte stránku a zkuste to znovu."
         select_one: "Vyberte typ pole..."
         continue: Pokračovat
-        minimum_value: Minumum
+        minimum_value: Minimum
         maximum_value: Maximum
         allow_decimals: "Povolit desetinná čísla"
       new:
-        new_listing_field: "Nový seznam polí"
+        new_listing_field: "Nové pole inzerátu"
       field_types:
         text: Text
         number: Číslo
-        dropdown: Opustit
+        dropdown: Rozbalit
         checkbox_group: "Zaškrtávací pole"
         date: Datum
     emails:
@@ -380,11 +380,11 @@ cs:
         send_email_to_members_title: "Poslat e-mail všem svým uživatelům"
         email_subject: "Předmět e-mailu"
         email_content: "Obsah e-mailu"
-        email_content_placeholder: "Co chcete sdělit svým uživatelům?"
+        email_content_placeholder: "Co chcete sdělit Vašim uživatelům?"
         email_language: "Jazyk e-mailu příjemců"
         any_language: "Jakýkoliv jazyk"
         send_email: "Poslat e-mail"
-        message_will_be_sent_only_to_people_with_this_language: "Poznámka: e-mail bude zaslán pouze uživatelům, kteří používají  %{service_name} v jazyce, který vyberete."
+        message_will_be_sent_only_to_people_with_this_language: "Poznámka: e-mail bude poslán pouze uživatelům, kteří používají  %{service_name} v jazyce, který vyberete."
         email_sent: "E-mail byl odeslán."
     left_hand_navigation:
       general: ~
@@ -396,94 +396,110 @@ cs:
       index:
         listing_shapes: ~
         description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
-        select_template: ~
-        all_categories: ~
-        no_categories: ~
-        category_count: ~
+        read_more_about_order_types: "Přečtěte si více o typech objednávek"
+        add_new_shape: "Přidat nový typ objednávky: "
+        select_template: "Vybrat šablonu..."
+        all_categories: "Všechny kategorie"
+        no_categories: "Žádné kategorie"
+        category_count: "%{category_count} kategorie"
         header:
           listing_shape_name: ~
           listing_shape_categories: ~
         order:
-          saving_order: ~
-          save_order_successful: ~
-          save_order_error: ~
+          saving_order: "Ukládání objednávky"
+          save_order_successful: "Typ objednávky byl úspěšně uložen"
+          save_order_error: "Došlo k chybě při ukládání uspořádání polí. Prosím, aktualizujte stránku a zkuste to znovu."
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
-        announcement: ~
-        custom: ~
+        selling_products: "Prodávání produktů"
+        renting_products: "Pronajímání produktů"
+        offering_services: "Nabízím služby"
+        giving_things_away: Daruji
+        requesting: Žádám
+        announcement: "Zveřejnění oznámení"
+        custom: Vlastní
       new:
-        create_listing_shape: ~
-        create: ~
-        cancel: ~
-        create_success: ~
-        create_failure: ~
+        create_listing_shape: "Vytvořit typ objednávky"
+        create: Vytvořit
+        cancel: Zrušit
+        create_success: "Nový typ objednávky \"%{shape}\" byl vytvořen"
+        create_failure: "Nelze vytvořit nový typ objednávky. Chyba. %{error_msg}"
       edit:
         edit_listing_shape: ~
-        update: ~
-        cancel: ~
+        update: Uložit
+        cancel: Zrušit
         update_success: ~
-        update_failure: ~
-        delete: ~
-        can_not_delete_last: ~
-        can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
-      listing_shape_name_placeholder: ~
+        update_failure: "Změny nelze uložit. Chyba:%{error_msg}"
+        delete: "Smazat typ objednávky"
+        confirm_delete_order_type:
+          one: "K dispozici je %{count} inzerát s tímto typem objednávky. Pokud odstraníte typ objednávky, tento inzerát bude uzavřen. Jste si jisti, že chcete odstranit typ objednávky?"
+          few: "K dispozici je %{count} inzeráty s tímto typem objednávky. Pokud odstraníte typ objednávky, tyto inzeráty budou uzavřeny. Jste si jisti, že chcete odstranit typ objednávky?"
+          other: "K dispozici je %{count} inzerátů s tímto typem objednávky. Pokud odstraníte typ objednávky, tyto inzeráty budou uzavřeny. Jste si jisti, že chcete odstranit typ objednávky?"
+        can_not_delete_last: "Nemůžete smazat tento typ objednávky, protože je to jediný typ na Vašem tržišti."
+        can_not_delete_only_one_in_categories: "Nemůžete smazat tento typ objednávky, protože v následujících kategoriích se tento typ objednávky jako jediný používá: %{categories}"
+      listing_shape_name: Název
+      listing_shape_name_placeholder: "Např.: prodat"
       action_button_label: ~
-      action_button_placeholder: ~
-      successfully_closed: ~
-      successfully_deleted: ~
-      pricing_and_checkout_title: ~
-      online_payments_label: ~
-      shipping_label: ~
-      price_label: ~
-      units_title: ~
-      units_desc: ~
+      action_button_placeholder: "Např.: koupit"
+      open_listings_warning:
+        one: "K dispozici je %{count} otevřený inzerát. Pokud změníte některá z níže uvedených nastavení, tento inzerát si zachová staré nastavení. Tento inzerát lze změnit ruční úpravou na nové nastavení. Pokud nechcete, aby byl inzerát se starým nastavením viditelný na Vaší stránce, můžete ho uzavřít kliknutím na tlačítko níže."
+        few: "K dispozici jsou %{count} otevřené inzeráty. Pokud změníte některá z níže uvedených nastavení, tyto inzeráty si zachovají staré nastavení. Tyto inzeráty lze změnit ruční úpravou na nové nastavení. Pokud nechcete, aby byly inzeráty se starým nastavením viditelné na Vaší stránce, můžete je uzavřít kliknutím na tlačítko níže."
+        other: "K dispozici je %{count} otevřených inzerátů. Pokud změníte některá z níže uvedených nastavení, tyto inzeráty si zachovají staré nastavení. Tyto inzeráty lze změnit ruční úpravou na nové nastavení. Pokud nechcete, aby byly inzeráty se starým nastavením viditelné na Vaší stránce, můžete je uzavřít kliknutím na tlačítko níže."
+      close_listings_action:
+        one: "Uzavřít %{count} inzerát"
+        few: "Uzavřít %{count} inzeráty"
+        other: "Uzavřít %{count} inzerátů"
+      confirm_close_listings_action:
+        one: "Jste si jisti, že chcete uzavřít %{count} inzerát? "
+        few: "Jste si jisti, že chcete uzavřít %{count} inzeráty?"
+        other: "Jste si jisti, že chcete uzavřít %{count} inzerátů?"
+      successfully_closed: "Inzerát byl úspěšně uzavřen"
+      successfully_deleted: "Typ objednávky \"%{order_type}\" byl úspěšně smazán"
+      pricing_and_checkout_title: "Ceny & pokladna"
+      online_payments_label: "Povolit prodejcům přijímat platby online"
+      shipping_label: "Umožnit prodejcům určit poplatek za dopravu"
+      price_label: "Povolit prodejcům přidat ceny jejich inzerátů"
+      units_title: "Cenové jednotky"
+      units_desc: "Pokud jste povolili jednotkové ceny, cena za inzerát se zobrazuje jako \"cena za cenovou jednotku\". Např.: \"39 dolarů za hodinu\"."
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
-      can_not_find: ~
-      add_custom_unit: ~
-      delete_custom_unit: ~
+        piece: "Za kus"
+        hour: "Za hodinu"
+        day: "Za den"
+        night: "Za noc"
+        week: "Za týden"
+        month: "Za měsíc"
+      can_not_find: "Nelze najít typ objednávky pomocí identifikačního čísla: %{id}"
+      add_custom_unit: "+ Přidat vlastní cenovou jednotku..."
+      delete_custom_unit: odstranit
       custom_unit_form:
-        title: ~
-        label_heading: ~
-        selector_label_heading: ~
-        label_placeholder: ~
-        selector_placeholder: ~
-        per: ~
+        title: "Nová cenová jednotka"
+        label_heading: Označení
+        selector_label_heading: "Výběr označení"
+        label_placeholder: "např.: \"kg\", \"30 minut\", \"osoba\", \"kurz\""
+        selector_placeholder: "např.: \"Počet osob\", \"Množství v kg\""
+        per: Za
         unit_type:
-          heading: ~
-          quantity_label: ~
-          time_label: ~
+          heading: "Typ jednotky"
+          quantity_label: "Množství (za kus, za kg, za osobu, za 2 hodinovou prohlídku...)"
+          time_label: "Čas (za 30 minut, za 2 týdny, za rok...)"
     paypal_accounts:
       marketplace_paypal_integration: "Platební preference"
-      preferences_updated: ~
-      integration_info_text: ~
+      preferences_updated: "Platební preference aktualizovány"
+      integration_info_text: "Platební systém Sharetribe funguje přes PayPal. Pokud chcete uživatelům povolit, aby prováděli platby prostřednictvím Vašeho tržiště, musíte připojit svůj účet PayPal a rozhodnout se o minimální velikosti transakce a poplatku z každé provedené transakce."
       read_more_about_paypal: ~
-      paypal_account_email: ~
-      paypal_account_email_completed: ~
-      set_minimum_price_and_fee: ~
-      set_minimum_price_and_fee_completed: ~
-      minimum_listing_price_label: ~
-      transaction_fee_label: ~
+      paypal_account_email: "1. Připojit se k PayPal účtu"
+      paypal_account_email_completed: Hotovo!
+      set_minimum_price_and_fee: "2. Nastavit minimální cenu & transakční poplatek"
+      set_minimum_price_and_fee_completed: Hotovo!
+      minimum_listing_price_label: "Minimální částka transakce:"
+      transaction_fee_label: "Transakční poplatek:"
       minimum_transaction_fee_label: ~
-      save_settings: ~
+      save_settings: "Uložit nastavení"
       note_about_transaction_fee: ~
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
     transaction_types:
       sell: Prodám
-      rent: "K pronájmu"
+      rent: Pronajmu
       give: Daruji
       lend: Zapůjčím
       swap: Výměním
@@ -496,7 +512,7 @@ cs:
         rent: Pronajmout
         request: Nabídnout
         offer: Žádat
-        inquiry: Kontakt
+        inquiry: Kontaktovat
   common:
     edit_page: "Upravit stránku"
     default_community_slogan: Tržiště
@@ -509,14 +525,14 @@ cs:
     share_types:
       request: žádost
       offer: nabídka
-      borrow: vypůjčení
-      buy: ~
-      give_away: ~
-      lend: ~
-      receive: ~
-      rent: "K pronájmu"
-      rent_out: ~
-      sell: ~
+      borrow: půjčím
+      buy: koupím
+      give_away: daruji
+      lend: zapůjčím
+      receive: daruji
+      rent: "pronajmu si"
+      rent_out: pronajímám
+      sell: prodám
       offer_to_swap: výměna
       request_to_swap: výměna
       share_for_free: "sdílení zdarma"
@@ -558,7 +574,7 @@ cs:
       respond_to_request: "Odpovědět na žádost"
       accept_offer: "Přijmout nabídku"
       accept_request: "Přijmout žádost"
-      reject_offer: "Ne teď"
+      reject_offer: "Teď ne"
       reject_request: "Teď ne"
       close_listing: "Zavřít inzerát %{listing_title_link}"
       update_later: "Ponechat inzerát otevřený"
@@ -569,7 +585,7 @@ cs:
       minimum_price_error_message: "Cena nemůže být nižší než %{amount}."
       accept: ~
       decline: ~
-      quantity_label: ~
+      quantity_label: "Množství:"
       sum_label: ~
       service_fee_label: ~
       you_will_get_label: ~
@@ -619,7 +635,7 @@ cs:
       canceled_request: "zrušená žádost"
       canceled_offer: "zrušená nabídka"
       paid: "zaplaceno %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Platba schválena: %{sum}"
     new:
       offer_message_form_title: "Nabídnout %{listing} uživateli %{person}"
       request_message_form_title: "Požádat o %{listing} od uživatele %{person}"
@@ -770,10 +786,10 @@ cs:
       confirm_payment: "Potvrdit platbu"
       exp: "Vypršení platnosti:"
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    feedback_subject: "Nová zpětná vazba z%{service_name}"
+    feedback_body: "Uživatel %{author_name_and_email} poslal následující zpětnou vazbu z %{service_name}"
+    unlogged_user: "Nepřihlášený uživatel"
+    anonymous_user: "Anonymní uživatel"
   preauthorize_payments:
     edit:
       confirm_payment: "Potvrdit platbu"
@@ -897,8 +913,8 @@ cs:
       you_have_a_new_message: "Máte novou zprávu na tržišti %{service_name} od %{sender_name}."
     new_payment:
       new_payment: "Obdrželi jste novou platbu"
-      price_per_unit_type: ~
-      quantity: ~
+      price_per_unit_type: "Cena za %{unit_type}"
+      quantity: "Množství:"
       you_have_received_new_payment: "Obdrželi jste částku <b>%{payment_sum}</b> za <b>%{listing_title}</b> od %{payer_full_name}. Zde je Vaše stvrzenka."
     paypal_new_payment:
       paypal_gateway_fee: ~
@@ -913,10 +929,10 @@ cs:
       receipt_of_payment: "Stvrzenka provedené platby"
       you_have_made_new_payment: "Zaplatili jste částku <b>%{payment_sum}</b> za <b>%{listing_title}</b> uživateli %{recipient_full_name}. Zde je stvrzenka provedené platby."
       product: Produkt
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      price_per_unit_type: "Cena za %{unit_type}"
+      duration: "Doba:"
+      quantity: "Množství:"
+      subtotal: "Mezisoučet:"
       total: Celkem
       price: Cena
       service_fee: "Servisní poplatek"
@@ -956,7 +972,7 @@ cs:
     transaction_preauthorized:
       subject: "Uživatel %{requester} požádal a autorizoval platbu pro inzerát %{listing_title}"
       transaction_requested_by_user: "Uživatel %{requester} požádal a autorizoval platbu pro inzerát %{listing_title}"
-      you_have_time_to_accept: ~
+      you_have_time_to_accept: "Musíte přijmout nebo odmítnout žádost do %{payment_expires_in}. Pokud žádost přijmete v tomto časovém rámci, platba bude provedena. Pokud nepřijmete, žádost bude automaticky odmítnuta a nedostanete zaplaceno."
       click_here_to_reply: "Klikněte zde a odpovězte na žádost"
     transaction_preauthorized_reminder:
       subject: "Nezapomeňte přijmout žádost od uživatele %{requester} na inzerát %{listing_title}"
@@ -1004,11 +1020,11 @@ cs:
     transaction_agreement:
       required_error: ~
     paypal:
-      buyer_cannot_pay_error: ~
-      pending_review_error: ~
+      buyer_cannot_pay_error: "Platba byla odmítnuta serverem PayPal. Prosíme, kontaktujte jejich zákaznický servis pro více informací: %{customer_service_link}"
+      pending_review_error: "Platba byla provedena, ale byla označena serverem PayPal jako \"vyžaduje přezkoumání\". Jakmile PayPal dokončí přezkoumání platby, bude platba automaticky vyřízena."
       generic_error: "Došlo k chybě během platebního procesu. Nelze dokončit Vaši platbu přes PayPal."
       cancel_error: "Nastala chyba při zrušení. Nelze dokončit zrušení."
-      accept_authorization_error: ~
+      accept_authorization_error: "Došlo k chybě při pokusu o přijetí předschválení PayPal platby. Prosíme, zkuste to znovu."
       reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Zpět na titulní stranu"
@@ -1047,7 +1063,7 @@ cs:
       on_or_before: "musí být na nebo před %{restriction}"
       after: "musí být po %{restriction}"
       on_or_after: "musí být na nebo po %{restriction}"
-      positive_number: ~
+      positive_number: "Vložit číslo:"
   event_feed_events:
     accept:
       has_accepted_lend_item: "Uživatel %{offerer_name} souhlasil k zapůjčení %{listing_title} uživateli %{requester_name} na %{time_ago}."
@@ -1290,7 +1306,7 @@ cs:
       feedback_sent_to: "Zpětná vazba odeslána uživateli %{target_person}."
       feedback_skipped: "Zpětná vazba přeskočena"
       invitation_cannot_be_sent: "Pozvánka nemohla být odeslána"
-      invitation_limit_reached: ~
+      invitation_limit_reached: "Snažíte se poslat příliš mnoho pozvánek. Dosáhli jste denního limitu."
       invitation_sent: "Pozvánka byla úspěšně odeslána"
       inviting_new_users_is_not_allowed_in_this_community: "Není povoleno pozvat nové uživatele."
       login_again: "Prosíme, přihlaste se znovu."
@@ -1346,7 +1362,7 @@ cs:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Nemáte oprávnění k provedení zpětné vazby této akce"
       you_are_not_authorized_to_do_this: "Nejste k tomuto oprávněni"
       you_are_not_authorized_to_view_this_content: "Nemáte oprávnění k prohlížení tohoto obsahu"
-      listing_closed: ~
+      listing_closed: "Tento inzerát již byl uzavřen"
       send_instructions: "Obdržíte e-mail s pokyny, jak obnovit Vaše heslo během několika minut."
       you_cannot_reply_to_a_closed_offer: "Nemůžete odpovídat na uzavřené nabídky"
       you_cannot_reply_to_a_closed_request: "Nemůžete odpovídat na uzavřené žádosti"
@@ -1361,7 +1377,7 @@ cs:
       you_must_log_in_to_invite_new_users: "Nejdříve se musíte se přihlásit, abyste mohli pozvat nové uživatele do %{service_name}"
       you_must_log_in_to_send_a_comment: "Musíte se přihlásit, abyste mohli poslat nový komentář"
       you_must_log_in_to_send_a_message: "Musíte se přihlásit do %{service_name}, abyste mohli poslat zprávu jinému uživateli."
-      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_do_a_transaction: "Nejdříve se musíte přihlásit k %{service_name}, abyste mohli provést transakci."
       you_must_log_in_to_view_this_content: "Musíte se přihlásit k zobrazení tohoto obsahu"
       you_must_log_in_to_view_this_page: "Musíte se přihlásit, aby se Vám tato stránka zobrazila"
       you_must_log_in_to_view_your_inbox: "Musíte se přihlásit do %{service_name} k zobrazení Vaší schránky."
@@ -1416,7 +1432,7 @@ cs:
       show_in_updates_email_error: "Nepodařilo se připojit k serveru. Zkuste to znovu po obnovení stránky."
       show_in_updates_email_success: "Tento inzerát bude uveden v dalším automatickém e-mailu s novinkami zasílaném uživatelům"
     error:
-      something_went_wrong: ~
+      something_went_wrong: "Něco se nezdařilo, kód chyby: %{error_code}"
     follow_links:
       follow: "Dostávat e-maily o nových komentářích"
       unfollow: "Nedostávat e-maily o nových komentářích"
@@ -1477,7 +1493,7 @@ cs:
         delivery: ~
         shipping: ~
         shipping_price: ~
-        shipping_price_additional: ~
+        shipping_price_additional: "Dodatečné položky"
         pickup: ~
       origin:
         location: Umístění
@@ -1558,7 +1574,7 @@ cs:
       booking_from: Od
       booking_to: Komu
       how_paypal_works: "Jak PayPal funguje"
-      payment_help: ~
+      payment_help: "Nápověda k platbě"
     new:
       post_a_new_listing: "Přidat nový inzerát"
       listing: inzerát
@@ -1574,13 +1590,13 @@ cs:
       payment_settings_link: "nastavení plateb"
       community_not_configured_for_payments_admin: ~
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
-      custom: ~
-    quantity_placeholder: ~
+      hour: "Počet hodin:"
+      day: "Počet dní:"
+      night: "Počet nocí:"
+      week: "Počet týdnů:"
+      month: "Počet měsíců:"
+      custom: "Množství:"
+    quantity_placeholder: Množství
     please_comment: Komentář
     reply_link:
       listing_closed: "Inzerát je uzavřen"
@@ -1622,17 +1638,17 @@ cs:
         per_day: "za den"
       delivery: ~
       shipping: ~
-      shipping_no_price: ~
-      shipping_price_additional: ~
+      shipping_no_price: "Cena za dopravu"
+      shipping_price_additional: "Cena za dopravu (+%{price}, dodatečné položky: +%{shipping_price_additional})"
       pickup: ~
-      pickup_no_price: ~
+      pickup_no_price: Vyzvednout
     unit_types:
-      piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      piece: kus
+      hour: hodina
+      day: den
+      night: noc
+      week: týden
+      month: měsíc
     verification_required:
       verification_required: "Požadování ověření"
   listing_conversations:
@@ -1669,7 +1685,7 @@ cs:
       you_have_something_others_do_not: "Máte něco, co byste chtěli nabídnout?"
     please_comment: Komentář
   mercury:
-    content_too_long: ~
+    content_too_long: "Vložený obsah byl příliš dlouhý."
   okl:
     member_id: "Členské ID"
     member_id_or_email: "Členské ID nebo e-mail"
@@ -1761,6 +1777,10 @@ cs:
       email_is_in_use: "E-mail, který byl zadán, je již obsazen."
       email_is_in_use_or_not_allowed: "Tento e-mail není povolen nebo je již využíván. Pokud se nemůžete přihlásit, kontaktujte nás."
       email_not_allowed: "Tento e-mail nebyl povolen v %{service_name}. Prosíme, použijte povolenou e-mailovou adresu. Pokud se i nadále nemůžete přihlásit, napište nám."
+      email_restriction_instructions:
+        one: "Přístup do %{service_name} je omezený. K připojení budete potřebovat %{allowed_emails} e-mailovou adresu."
+        few: "Přístup do %{service_name} je omezený. Budete potřebovat e-mailovou adresu, díky které budete mít nárok se přihlásit."
+        other: "Přístup do %{service_name} je omezený. Budete potřebovat e-mailovou adresu, díky které budete mít nárok se přihlásit."
       enter_captcha: "Jsem člověk:"
       family_name: Příjmení
       given_name: Jméno
@@ -1768,7 +1788,7 @@ cs:
       invalid_invitation_code: "Kód na pozvánce není platný."
       invitation_code: "Kód na pozvánce"
       not_required: ", není požadováno"
-      notification_is_mandatory: ~
+      notification_is_mandatory: "Musíte vybrat alespoň jednu e-mailovou adresu pro obdržení upozornění. Pokud nechcete dostávat žádné e-maily od %{service_name}, zkontrolujte si nastavení upozornění e-mailem."
       organization_name: "Název organizace"
       password_again: "Potvrďte heslo"
       show_my_name_to_others: "Zobrazit moje skutečné jméno jiným uživatelům %{service_name}."
@@ -1781,10 +1801,6 @@ cs:
       create_account_with_facebook: "Přihlásit se přes Facebook"
       OR: NEBO
       signup_with_email: "Zaregistrovat se přes e-mail"
-      email_restriction_instructions:
-        one: "Přístup do %{service_name} je omezený. K připojení budete potřebovat %{allowed_emails} e-mailovou adresu."
-        few: "Přístup do %{service_name} je omezený. Budete potřebovat e-mailovou adresu, díky které budete mít nárok se přihlásit."
-        other: "Přístup do %{service_name} je omezený. Budete potřebovat e-mailovou adresu, díky které budete mít nárok se přihlásit."
     not_member:
       explanation_text: "Právě si prohlížíte %{community}. Pokusili jste se zobrazit profil uživatele, který je uživatelem jiné tržiště vytvořeného přes platformu Sharetribe. Nelze získat přístup k tomuto profilu uživatele v %{community}."
       read_more_about_kassi_communities: "Přečtěte si více o Sharetribe tržišti."
@@ -2082,38 +2098,39 @@ cs:
       one: "%{count} den"
       few: "%{count} dny"
       other: "%{count} dnů"
+    time_to:
+      seconds:
+        one: "%{count} sekunda"
+        few: "%{count} dny"
+        other: "%{count} dnů"
+      minutes:
+        one: "%{count} minuta"
+        few: "%{count} minuty"
+        other: "%{count} minut"
+      hours:
+        one: "%{count} hodina"
+        few: "%{count} hodiny"
+        other: "%{count} hodin"
+      days:
+        one: "%{count} den"
+        few: "%{count} dny"
+        other: "%{count} dnů"
   transactions:
     initiate:
-      booked_days: ~
-      price_per_day: ~
-      quantity: ~
+      booked_days: "Rezervované dny:"
+      price_per_day: "Cena za den:"
+      quantity: "Množství:"
       subtotal: ~
       shipping-price: ~
-    price_per_quantity: ~
-    price: ~
-    quantity: ~
-    unit_price: ~
-    total: ~
+    price_per_quantity: "Cena za %{unit_type}:"
+    price: "Cena:"
+    quantity: "Množství: %{quantity}"
+    unit_price: "Jednotková cena: %{unit_price}"
+    total: "Celkem:"
   unit:
     day: den
     days: dny
   will_paginate:
-    previous_label: "&#8592; Předchozí"
-    next_label: "Následující &#8594;"
-    page_gap: "&hellip;"
-    page_entries_info:
-      multi_page: ~
-      multi_page_html: ~
-      single_page:
-        zero: "Žádný %{model} nenalezen"
-        one: "Nalezen 1 %{model}"
-        few: "Nalezeny %{count} %{model}"
-        other: "Nalezeno všech %{count} %{model}"
-      single_page_html:
-        zero: "Žádný %{model} nebyl nalezen"
-        one: "Nalezen <b>1</b> %{model}"
-        few: "Nalezeny %{count} %{model}"
-        other: "Nalezeno všech %{count} %{model}"
     models:
       person:
         zero: uživatelů
@@ -2125,3 +2142,19 @@ cs:
         one: transakce
         few: transakce
         other: transakcí
+    previous_label: "&#8592; Předchozí"
+    next_label: "Následující &#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      single_page:
+        zero: "Žádný %{model} nenalezen"
+        one: "Nalezen 1 %{model}"
+        few: "Nalezeny %{count} %{model}"
+        other: "Nalezeno všech %{count} %{model}"
+      single_page_html:
+        zero: "Žádný %{model} nebyl nalezen"
+        one: "Nalezen <b>1</b> %{model}"
+        few: "Nalezeny %{count} %{model}"
+        other: "Nalezeno všech %{count} %{model}"
+      multi_page: ~
+      multi_page_html: ~
