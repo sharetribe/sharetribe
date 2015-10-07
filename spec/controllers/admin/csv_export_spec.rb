@@ -7,8 +7,6 @@ describe Admin::CommunityMembershipsController do
     @person = create_admin_for(@community)
     @other_email = FactoryGirl.create(:email, person: @person)
     sign_in_for_spec(@person)
-
-    FeatureFlagService::API::Api.features.enable(community_id: @community.id, features: [:export_users_as_csv])
   end
 
   describe "users CSV export" do

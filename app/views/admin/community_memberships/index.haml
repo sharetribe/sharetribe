@@ -26,8 +26,7 @@
 .left-navi-section
   %h2= t("admin.communities.manage_members.manage_members", :community_name => @community.name(I18n.locale))
 
-  - if feature_enabled?(:export_users_as_csv)
-    #export-as-csv.right= link_to(" " + t("admin.communities.manage_members.export_all_as_csv"), {format: :csv}, {class: "js-users-csv-export " + icon_class("download")})
+  #export-as-csv.right= link_to(" " + t("admin.communities.manage_members.export_all_as_csv"), {format: :csv}, {class: "js-users-csv-export " + icon_class("download")})
 
   %span#admin_members_count= page_entries_info(@memberships, :model => "Person")
 
