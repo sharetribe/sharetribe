@@ -99,7 +99,7 @@ class Admin::CommunityMembershipsController < ApplicationController
           user_data.push(membership.can_post_listings) if community_requires_verification_to_post
           user.emails.each do |email|
             accept_emails_from_admin = user.preferences["email_from_admins"] && email.send_notifications
-            csv << user_data.clone.insert(3, email.address, !!email.confirmed_at).insert(8, accept_emails_from_admin)
+            csv << user_data.clone.insert(3, email.address, !!email.confirmed_at).insert(8, !!accept_emails_from_admin)
           end
         end
       end
