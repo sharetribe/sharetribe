@@ -240,6 +240,12 @@ window.ST.imageUploader = function(listings, opts) {
 
   var imageUploaded = processingDone ? newImageProcessingDone.merge(processingDone) : newImageProcessingDone;
 
+  var numberOfProcessingImages = imageUploaded.map(function() { return -1; })
+        .merge(processingRendered.map(function() { return 1; }))
+        .scan(processingListings.length, function(a, b) { return a + b; });
+
+  numberOfProcessingImages.onValue(function(v) { console.log(v); });
+
   var newPreviewRendered = imageUploaded.map(function(listing) {
     return renderPreview(listing);
   });
