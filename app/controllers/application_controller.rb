@@ -402,8 +402,8 @@ class ApplicationController < ActionController::Base
     priority_counts = Delayed::Job.where('attempts < ? AND run_at < ?', 3, Time.now).group(:priority).count
 
     Librato.group 'delayed_job_queue' do |g|
-      g.increment 'high', by: priority_counts.select { |p, _| p < 7 }.values.sum
-      g.increment 'low', by: priority_counts.select { |p, _| p >= 7 }.values.sum
+      g.measure 'high', by: priority_counts.select { |p, _| p < 7 }.values.sum
+      g.measure 'low', by: priority_counts.select { |p, _| p >= 7 }.values.sum
     end
   end
 
