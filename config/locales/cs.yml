@@ -84,10 +84,10 @@ cs:
         save: "Uložit nastavení"
         transaction_agreement: "Souhlas s provedením transakce"
         transaction_agreement_checkbox: "Požádat uživatele, aby potvrdili smlouvu před provedením transakce"
-        transaction_agreement_checkbox_header: "Označení smlouvy"
-        transaction_agreement_checkbox_label_description: "Tento text se zobrazí vedle zaškrtávacích polí v odhlašovacím formuláři. Uživatel musí zaškrtnout pole k uskutečnění transakce. Příkladem označení by mohlo být něco jako \"Kliknutím na toto pole potvrzuji souhlas se smlouvou.\""
-        transaction_agreement_text_header: "Text smlouvy"
-        transaction_agreement_description: "Toto je obsah aktuální smlouvy, kterou musí uživatel potvrdit. Obsah smlouvy se zobrazí, když uživatel klikne na odkaz %{read_more} vedle označení smlouvy."
+        transaction_agreement_checkbox_header: "Pojmenování ujednání"
+        transaction_agreement_checkbox_label_description: "Tento text se zobrazí vedle zaškrtávacích polí ve formuláři. Uživatel musí zaškrtnout pole, aby mohla být transakce provedena. Příkladem pojmenování by mohlo být něco jako \"Kliknutím na toto pole souhlasím s podmínkami.\""
+        transaction_agreement_text_header: "Text ujednání"
+        transaction_agreement_description: "Toto je obsah aktuálních podmínek, který musí uživatel potvrdit. Obsah se zobrazí, když uživatel klikne na odkaz %{read_more} vedle pojmenování ujednání."
       edit_look_and_feel:
         edit_community_look_and_feel: "Upravit vzhled tržiště \"%{community_name}\""
         community_logo: "Logo pozadí"
@@ -159,27 +159,27 @@ cs:
         verification_sent_from: "Ověřovací e-mail byl odeslán od %{verification_sender_name}."
         follow_the_instructions: "Prosíme, postupujte dle pokynů v e-mailu pro ověření Vaší adresy."
       getting_started:
-        getting_started: ~
-        welcome_to_your_marketplace: ~
-        intro: ~
+        getting_started: "Příručka pro začátečníky"
+        welcome_to_your_marketplace: "Vítejte ve Vašem tržišti, uživateli %{name}!"
+        intro: "Toto je rychlý průvodce pro nastavení a správu stránek Vašeho tržiště. Můžete zobrazit i na stránce %{live_site_link}."
         live_site_link_text: ~
-        look_and_feel: ~
-        logo_link_text: ~
-        custom_domain: ~
-        categories_and_custom_fields: ~
-        categories_link_text: ~
-        custom_fields_link_text: ~
-        filters_link_text: ~
+        look_and_feel: "Před spuštěním Vaší stránky veřejnosti budete pravděpodobně chtít nastavit několik věcí. Například, možná budete chtít %{logo_link} a změnit úvodní fotky a barvy, aby ladily se vzhledem Vaší značky."
+        logo_link_text: "přidat Vaše logo"
+        custom_domain: "Možná budete chtít také přidat svoji vlastní webovou adresu (např.: www.yourmarketplace.com). Toto nastavení bude na naší straně vyžadovat nějakou tu práci, takže zakoupíme SSL certifikát, aby byly Vaše stránky v bezpečí. Z těchto důvodů nejsou vlastní domény právě teď dostupné v bezplatné zkušební verzi, takže budete muset mít přejít na náš Pro plan nebo vyšší, abyste nějaký měli. Pokud byste chtěli mít svoji vlastní doménu, prosíme, %{contact_support_link}."
+        categories_and_custom_fields: "Další věc, kterou je třeba rozhodnout je, jakými druhy obsahu mohou lidé na Vašich přispívat. Můžete %{categories_link}, %{custom_fields_link}, které obsahují aktuální podobu inzerátů a rozhodnout, %{filters_link} se používá, když lidé vyhledávají inzeráty."
+        categories_link_text: "přidat kategorie a subkategorie"
+        custom_fields_link_text: "nastavit seznamy"
+        filters_link_text: "jaký druh filtrů"
         order_types: "Můžete také nastavit, jak proces objednávky funguje na Vašem tržišti. Prodávají, pronajímají nebo dávají věci zadarmo Vaši uživatelé? Zapůjčují hodinově, denně nebo týdně? Tyto věci mohou být nastaveny na %{order_types_link}."
         order_types_link_text: "Zobrazit typ objednávky"
-        payments: ~
-        payments_link_text: ~
-        info_texts: ~
-        about_page_link_text: ~
-        terms_of_use_link_text: ~
-        privacy_policy_link_text: ~
-        welcome_email_link_text: ~
-        instruction_texts_link_text: ~
+        payments: "Pokud chcete, aby lidé mohli za své nákupy zaplatit prostřednictvím Vašeho tržiště, můžete si nastavit poplatek z každé transakce a měli byste tedy %{payments_link}."
+        payments_link_text: "nastavit způsob platby"
+        info_texts: "Nezapomeňte přizpůsobit informační stránky a další texty, kde se můžete zmínit uživatelům o Vašem tržišti. Měli byste zkontrolovat Váš odkaz %{about_page_link}, Vaše %{terms_of_use_link} (měli byste přidat Vaše vlastní podmínky použití, buď úpravou stávající šablony, nebo vytvořením zcela nového dokumentu), Vaše %{privacy_policy_link} a %{welcome_email_link}, který je odesílán každému novému uživateli. Jsou zde také některé %{instruction_texts_link}, které si můžete nastavit."
+        about_page_link_text: "o nás"
+        terms_of_use_link_text: "podmínky použití"
+        privacy_policy_link_text: "zásady ochrany osobních údajů"
+        welcome_email_link_text: "uvítací e-mail"
+        instruction_texts_link_text: "další informační texty"
         social_media: ~
         facebook_link_text: ~
         twitter_link_text: ~
@@ -265,18 +265,18 @@ cs:
       social_media:
         social_media: "Sociální média"
         twitter_handle: Twitter
-        twitter_handle_info_text: "Uživatelské jméno Twitter účtu Vašeho tržiště (pokud máte). To se zobrazí lidem, kteří používají Twitter tlačítko na straně."
+        twitter_handle_info_text: "Uživatelské jméno Twitter účtu Vašeho tržiště (pokud nějaké máte). To se zobrazí lidem, kteří používají Twitter tlačítko na straně stránky."
         twitter_handle_info_text_with_instructions: ~
         twitter_instructions_link_text: ~
         twitter_handle_placeholder: "uživatelské jméno"
         invalid_twitter_handle: "Uživatelské jméno Twitter účtu by mělo obsahovat maximálně 15 alfanumerických znaků (písmena A-Z a číslice 0-9)."
         facebook_connect: Facebook
-        facebook_connect_info_text: "Abyste se mohli přihlásit přes Facebook, je potřeba vytvořit aplikaci pro Vaše tržiště na <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Vyplňte přidělené identifikační číslo a heslo aplikace zde."
+        facebook_connect_info_text: "Abyste se mohli přihlásit přes Facebook, je potřeba vytvořit aplikaci pro Vaše tržiště na <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Následně vyplňte přidělené identifikační číslo a heslo aplikace."
         facebook_connect_info_text_with_instructions: ~
         facebook_instructions_link_text: ~
         facebook_connect_id: "Identifikační číslo Facebook klienta"
         invalid_facebook_connect_id: "Klientské identifikační číslo by mělo obsahovat pouze číslice."
-        facebook_connect_secret: "Heslo Facebook klienta"
+        facebook_connect_secret: "Heslo pro přihlášení přes Facebook"
         invalid_facebook_connect_secret: "Heslo by mělo obsahovat pouze číslice a znaky od A do F."
         save: "Uložit nastavení"
       analytics:
@@ -328,7 +328,7 @@ cs:
         client_side_encryption_key: "Šifrovací kód klienta"
         merchant_id: "Identifikační číslo obchodníka"
         master_merchant_id: "Identifikační číslo hlavního obchodníka"
-        commission_from_seller: "Procento přirážky od prodejce"
+        commission_from_seller: "Procentní přirážka od prodejce"
       paypal_account:
         paypal_admin_account: Platby
     custom_fields:
@@ -482,9 +482,9 @@ cs:
           quantity_label: "Množství (za kus, za kg, za osobu, za 2 hodinovou prohlídku...)"
           time_label: "Čas (za 30 minut, za 2 týdny, za rok...)"
     paypal_accounts:
-      marketplace_paypal_integration: "Platební preference"
-      preferences_updated: "Platební preference aktualizovány"
-      integration_info_text: "Platební systém Sharetribe funguje přes PayPal. Pokud chcete uživatelům povolit, aby prováděli platby prostřednictvím Vašeho tržiště, musíte připojit svůj účet PayPal a rozhodnout se o minimální velikosti transakce a poplatku z každé provedené transakce."
+      marketplace_paypal_integration: "Nastavení plateb"
+      preferences_updated: "Nastavení plateb aktualizováno"
+      integration_info_text: "Platební systém Sharetribe funguje díky PayPal. Pokud chcete uživatelům umožnit, aby prováděli platby přes Vaše tržiště, musíte se připojit ke svému PayPal účtu a zadat minimální velikost transakce a poplatek z každé provedené transakce."
       read_more_about_paypal: ~
       paypal_account_email: "1. Připojit se k PayPal účtu"
       paypal_account_email_completed: Hotovo!
@@ -494,7 +494,7 @@ cs:
       transaction_fee_label: "Transakční poplatek:"
       minimum_transaction_fee_label: ~
       save_settings: "Uložit nastavení"
-      note_about_transaction_fee: ~
+      note_about_transaction_fee: "Poznámka: poplatek transakce zahrnuje poplatky PayPal, které závisí na Vaší měně a na objemu prodeje prodávajícího. Z tohoto důvodu je poplatek vždy alespoň %{min_paypal_commission}. Pokud je poplatek účtován od prodávajícího, nejdříve si PayPal strhne své poplatky a zbytek bude převeden na Váš PayPal účet."
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
     transaction_types:
