@@ -244,7 +244,32 @@ window.ST.imageUploader = function(listings, opts) {
         .merge(processingRendered.map(function() { return 1; }))
         .scan(processingListings.length, function(a, b) { return a + b; });
 
-  numberOfProcessingImages.onValue(function(v) { console.log(v); });
+  var numberOfLoadingImages = uploadingRendered.map(function() { return 1; })
+        .merge(processingRendered.map(function() { return -1; }))
+        .scan(0, function(a, b) { return a + b; });
+
+  var status = Bacon.combineTemplate(
+    {loading: numberOfLoadingImages, processing: numberOfProcessingImages });
+
+  status.onValue(function(stats) {
+
+    $('.flash-notifications').click(function() {
+      $('.flash-notifications').fadeOut('slow');
+    });
+
+    if(stats.loading === 0) {
+      $(".js-listing-image-loading").hide();
+
+      if(stats.processing === 0) {
+        $(".js-listing-image-loading-done").hide();
+      } else {
+        $(".js-listing-image-loading-done").show();
+      }
+    } else {
+      $(".js-listing-image-loading-done").hide();
+      $(".js-listing-image-loading").show();
+    }
+  });
 
   var newPreviewRendered = imageUploaded.map(function(listing) {
     return renderPreview(listing);
