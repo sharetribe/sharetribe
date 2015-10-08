@@ -1,5 +1,7 @@
 = form.label :image, t('.image'), :class => "input"
 
+= render partial: "layouts/info_text", locals: { text: t("listings.form.images.best_result", width: 660, height: 440) }
+
 .listing-images#image-uploader-container
   %script{type: "text/template", class: "template", id: "new-image-tmpl"}
     #fileupload.fileinput-button.upload-image-placeholder
