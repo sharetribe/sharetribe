@@ -31,7 +31,8 @@ class ApplicationController < ActionController::Base
     :fetch_community_admin_status,
     :fetch_community_plan_expiration_status,
     :warn_about_missing_payment_info,
-    :set_homepage_path
+    :set_homepage_path,
+    :report_queue_length
   before_filter :cannot_access_without_joining, :except => [ :confirmation_pending, :check_email_availability]
   before_filter :can_access_only_organizations_communities
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
@@ -394,6 +395,10 @@ class ApplicationController < ActionController::Base
       warning = t("paypal_accounts.missing", settings_link: settings_link)
       flash.now[:warning] = warning.html_safe
     end
+  end
+
+  def report_queue_length
+    Librato.increment 'delayed_job_queue', source: Delayed::Job.where("attempts < ?", 3).count
   end
 
   private
