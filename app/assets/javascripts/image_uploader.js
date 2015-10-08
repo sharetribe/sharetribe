@@ -251,26 +251,6 @@ window.ST.imageUploader = function(listings, opts) {
   var status = Bacon.combineTemplate(
     {loading: numberOfLoadingImages, processing: numberOfProcessingImages });
 
-  status.onValue(function(stats) {
-
-    $('.flash-notifications').click(function() {
-      $('.flash-notifications').fadeOut('slow');
-    });
-
-    if(stats.loading === 0) {
-      $(".js-listing-image-loading").hide();
-
-      if(stats.processing === 0) {
-        $(".js-listing-image-loading-done").hide();
-      } else {
-        $(".js-listing-image-loading-done").show();
-      }
-    } else {
-      $(".js-listing-image-loading-done").hide();
-      $(".js-listing-image-loading").show();
-    }
-  });
-
   var newPreviewRendered = imageUploaded.map(function(listing) {
     return renderPreview(listing);
   });
@@ -509,4 +489,6 @@ window.ST.imageUploader = function(listings, opts) {
 
     return {element: $element, stream: ajaxResponse};
   }
+
+  return status;
 };
