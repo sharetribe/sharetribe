@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151008090106) do
+ActiveRecord::Schema.define(:version => 20151008130725) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -387,7 +387,7 @@ ActiveRecord::Schema.define(:version => 20151008090106) do
     t.string   "queue"
   end
 
-  add_index "delayed_jobs", ["attempts"], :name => "index_delayed_jobs_on_attempts"
+  add_index "delayed_jobs", ["attempts", "run_at", "priority"], :name => "index_delayed_jobs_on_attempts_and_run_at_and_priority"
   add_index "delayed_jobs", ["locked_at", "created_at"], :name => "index_delayed_jobs_on_locked_created"
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
