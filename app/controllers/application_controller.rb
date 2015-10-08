@@ -398,7 +398,13 @@ class ApplicationController < ActionController::Base
   end
 
   def report_queue_length
-    Librato.increment 'delayed_job_queue', source: Delayed::Job.where("attempts < ?", 3).count
+    # Priorities are from 0..10, where 0..6 are high priority and 7..10 low
+    priority_counts = Delayed::Job.where('attempts < ? AND run_at < ?', 3, Time.now).group(:priority).count
+
+    Librato.group 'delayed_job_queue' do |g|
+      g.increment 'high', by: priority_counts.select { |p, _| p < 7 }.values.sum
+      g.increment 'low', by: priority_counts.select { |p, _| p >= 7 }.values.sum
+    end
   end
 
   private
