@@ -366,7 +366,7 @@ window.ST.imageUploader = function(listings, opts) {
       $element.showError(data.files[0].error);
     });
 
-    fileValidated.onValue(function(data) {
+    fileValidated.onValue(function() {
       $element.hideError();
     });
 
