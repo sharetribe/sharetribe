@@ -8,43 +8,43 @@ cs:
   devise:
     failure:
       already_authenticated: "Už jste přihlášen."
-      unauthenticated: "Než budete pokračovat, musíte se zaregistrovat nebo přihlásit."
-      unconfirmed: "Než budete pokračovat, musíte potvrdit váš účet."
+      unauthenticated: "Než budete moci pokračovat, musíte se přihlásit nebo zaregistrovat."
+      unconfirmed: "Než budete pokračovat, musíte potvrdit Váš účet."
       locked: "Váš účet ja uzamčen."
       invalid: "Neplatný email nebo heslo."
       invalid_token: "Neplatné potvrzení."
-      timeout: "Spojení vypršelo. Přihlaste se, prosím, znovu."
-      inactive: "Váš účet zatím nebyl aktivován."
+      timeout: "Spojení vypršelo. Prosíme, přihlaste se znovu, abyste mohli pokračovat."
+      inactive: "Váš účet nebyl zatím aktivován."
     passwords:
       updated_not_active: "Vaše heslo bylo úspěšně změněno."
-      send_paranoid_instructions: "Pokud už máme váš email v naší databázi, obdržíte odkaz s obnovením hesla na váš email."
-      send_instructions: "Email s pokyny k resetu vašeho hesla obdržíte během pár minut."
-      updated: "Vaše heslo bylo úspěšně změněno. Nyní jste přihlášen."
+      send_paranoid_instructions: "Pokud se už Váš e-mail nachází v naší databázi, obdržíte odkaz s obnovením hesla na Váš e-mail."
+      send_instructions: "E-mail s pokyny k resetování Vašeho hesla obdržíte během pár minut."
+      updated: "Vaše heslo bylo úspěšně změněno. Nyní jste přihlášeni."
     sessions:
       signed_in: "Přihlášení proběhlo úspěšně."
       signed_out: "Odhlášení proběhlo úspěšně."
     confirmations:
-      send_paranoid_instructions: "Pokud váš email už je v naší databázi, obdržíte email s instrukcemi o tom, jak během několika minut váš účet potvrdit."
-      send_instructions: "Během několika minut obdržíte email s instrukcemi k potvrzení vašeho účtu."
+      send_paranoid_instructions: "Pokud se už Váš email nachází v naší databázi, obdržíte e-mail s instrukcemi o tom, jak během několika minut Váš účet potvrdit."
+      send_instructions: "Během několika minut obdržíte e-mail s instrukcemi k potvrzení Vašeho účtu."
       confirmed: "Váš účet byl uspěšně potvrzen. Nyní jste přihlášeni."
     registrations:
-      signed_up_but_unconfirmed: "Na vaši emailovou adresu byl odeslán email s potvrzujícím odkazem. K aktivování vašeho účtu je potřeba tento odkaz otevřít."
-      signed_up_but_inactive: "Registrace proběhla úspěšně. Před dalším pokračováním je ale potřeba váš účet nejprve aktivovat."
-      signed_up_but_locked: "Registrace proběhla úspěšně. Nemohli jsme vás ale přihlásit do systému, váš účet je uzamčen."
+      signed_up_but_unconfirmed: "Na vaši e-mailovou adresu byl odeslán e-mail s potvrzujícím odkazem. K aktivování vašeho účtu je potřeba tento odkaz otevřít."
+      signed_up_but_inactive: "Registrace proběhla úspěšně. Před dalším pokračováním je ale potřeba Váš účet nejprve aktivovat."
+      signed_up_but_locked: "Registrace proběhla úspěšně. Nemohli jsme Vás ale přihlásit do systému, Váš účet je uzamčen."
       reasons:
         inactive: neaktivity
         unconfirmed: neaktivování
         locked: uzamčení
-      update_needs_confirmation: "Aktualizace účtu proběhla úspěšně, ale potřebujeme ověřit Vaši emailovou adresu. Zkontrolujte, prosím, Vaši emailovou schránku a klikněte na potvrzovací odkaz."
+      update_needs_confirmation: "Aktualizace účtu proběhla úspěšně, ale potřebujeme ověřit Vaši e-mailovou adresu. Prosíme, zkontrolujte Vaši emailovou schránku a klikněte na potvrzovací odkaz."
       signed_up: "Vítejte! Úspěšně jste se přihlásili."
       updated: "Aktualizace účtu proběhla úspěšně."
       destroyed: "Váš účet byl úspěšně smazán."
     unlocks:
       send_paranoid_instructions: "Pokud je Váš email skutečný, tak během několika minut obdržíte instrukce k odemčení účtu."
-      send_instructions: "Během několika minut obdržíte email s instrukcemi k odemknutí vašeho účtu."
+      send_instructions: "Během několika minut obdržíte e-mail s instrukcemi k odemknutí Vašeho účtu."
       unlocked: "Váš účet byl úspěšně odblokován. Pro pokračování se přihlaste."
     omniauth_callbacks:
-      success: "Úspěšné potvrzení účtu %{kind}."
+      success: "Úspěšné potvrzení od %{kind} účtu."
       failure: "Nebylo možné ověřit účet %{kind} z důvodu %{reason}."
     mailer:
       confirmation_instructions:
