@@ -1459,17 +1459,21 @@ en:
         googlemap_updatemap: "Update Map"
       images:
         image: Image
+        best_result: "For the best result, upload JPEG, GIF or PNG format images sized %{width}x%{height} px"
         no_file_selected: "No file selected"
         remove_image: "Remove image"
         select_file: "Select file"
         removing: Removing...
         processing: Processing...
         loading_image: Loading...
-        this_may_take_a_while: "(this may take a while)"
+        image_uploading_in_progress: "Image uploading in progress..."
+        processing_takes_a_while: "All images are now successfully uploaded! Processing them will take some time, but it's safe to save the listing and move forward."
+        this_may_take_a_while: "this takes only a second"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Image uploading failed"
         file_too_large: "File is too large"
         accepted_formats: "The image file must be either in GIF, JPG or PNG format."
+        images_not_uploaded_confirm: "All images are not uploaded yet. Do you really want to continue?"
       location:
         location: Location
       price:

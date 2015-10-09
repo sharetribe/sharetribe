@@ -73,6 +73,9 @@ $listing-image-cellpadding: lines(0.5);
 }
 
 .fileupload-text-container {
+  padding-left: em(5);
+  padding-right: em(5);
+
   @include fileupload-thumbnail(3);
   text-align: center;
 
@@ -101,5 +104,6 @@ $listing-image-cellpadding: lines(0.5);
 }
 
 .fileupload-small-text {
+  margin-top: em(5);
   @include small-type;
 }

@@ -2,7 +2,7 @@ window.ST = window.ST || {};
 
 (function(module) {
   /* global report_analytics_event */
-  /* global disable_and_submit */
+  /* global disable_submit_button */
   /* global set_textarea_maxlength */
   /* global auto_resize_text_areas */
   /* jshint eqeqeq: false */ // Some parts of the code in this file actually compares number that is string to a number
@@ -384,7 +384,10 @@ window.ST = window.ST || {};
     minimum_price,
     subunit_to_unit,
     minimum_price_message,
-    numeric_field_names) {
+    numeric_field_names,
+    listingImages,
+    listingImageOpts,
+    imageLoadingInProgressConfirm) {
 
     $('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true, zIndex: 1000000}); });
     $('input.title_text_field:first').focus();
@@ -477,10 +480,51 @@ window.ST = window.ST || {};
       onkeyup: false,
       onclick: false,
       onfocusout: false,
-      onsubmit: true,
-      submitHandler: function(form) {
+      onsubmit: true
+    });
+
+    var status = window.ST.imageUploader(listingImages, listingImageOpts).log("status returned");
+
+    status.onValue(function(stats) {
+
+      $('.flash-notifications').click(function() {
+        $('.flash-notifications').fadeOut('slow');
+      });
+
+      if(stats.loading === 0) {
+        $(".js-listing-image-loading").hide();
+
+        if(stats.processing === 0) {
+          $(".js-listing-image-loading-done").hide();
+        } else {
+          $(".js-listing-image-loading-done").show();
+        }
+      } else {
+        $(".js-listing-image-loading-done").hide();
+        $(".js-listing-image-loading").show();
+      }
+    });
+
+    var formSubmitted = $(form_id).asEventStream("submit");
+    var validFormSubmitted = formSubmitted.filter(function() {
+      return $(form_id).valid();
+    });
+
+    var isLoading = status.map(function(stats) { return stats.loading > 0; });
+
+    validFormSubmitted.filter(isLoading).onValue(function(e) {
+      var confirmed = window.confirm(imageLoadingInProgressConfirm);
+
+      if(!confirmed) {
+        e.preventDefault();
+
+        // This will prevent the jQuery validation submitHandler from
+        // executing. Please note that the order matters. This works
+        // before it's called BEFORE the submitHandler
+        e.stopImmediatePropagation();
+      } else {
         report_analytics_event(["listing", "created"]);
-        disable_and_submit(form_id, form, "false", locale);
+        disable_submit_button(form_id, locale);
       }
     });
 
