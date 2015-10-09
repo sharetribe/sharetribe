@@ -55,6 +55,16 @@
   @include clearfix();
 }
 
+.expiration-plan-external {
+  max-width: 300px;
+  margin: 30px auto 0 auto;
+  @include clearfix();
+  background-color: $sharetribe-color;
+  border: solid 1px $sharetribe-color;
+  @include border-radius(em(5));
+  color: white;
+}
+
 .expiration-plan-wrapper {
   width: 185px;
   margin: 10px auto;
@@ -114,9 +124,11 @@
 }
 .expiration-footer {
   padding: 30px 10px;
-}
-.expiration-alternative-plans {
   font-size: 14px;
   line-height: 14px;
   text-align: center;
+}
+.expiration-footer-thin{
+  @extend .expiration-footer;
+  padding-top: 0;
 }
