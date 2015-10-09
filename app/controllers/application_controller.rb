@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
     :fetch_community_plan_expiration_status,
     :warn_about_missing_payment_info,
     :set_homepage_path,
-    :report_queue_length
+    :report_queue_size
   before_filter :cannot_access_without_joining, :except => [ :confirmation_pending, :check_email_availability]
   before_filter :can_access_only_organizations_communities
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
@@ -397,14 +397,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def report_queue_length
-    # Priorities are from 0..10, where 0..6 are high priority and 7..10 low
-    priority_counts = Delayed::Job.where('attempts < ? AND run_at < ?', 3, Time.now).group(:priority).count
-
-    Librato.group 'delayed_job_queue' do |g|
-      g.increment 'high', by: priority_counts.select { |p, _| p < 7 }.values.sum
-      g.increment 'low', by: priority_counts.select { |p, _| p >= 7 }.values.sum
-    end
+  def report_queue_size
+    MonitoringService::Monitoring.report_queue_size
   end
 
   private
