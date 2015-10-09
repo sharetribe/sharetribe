@@ -386,10 +386,14 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_chargebee_plan_data
-    @pro_biannual_link = APP_CONFIG.chargebee_pro_biannual_link
-    @pro_biannual_price = APP_CONFIG.chargebee_pro_biannual_price
-    @pro_monthly_link = APP_CONFIG.chargebee_pro_monthly_link
-    @pro_monthly_price = APP_CONFIG.chargebee_pro_monthly_price
+    if !feature_enabled?(:new_plan_page)
+      @charm_link = APP_CONFIG.charm_link
+    else
+      @pro_biannual_link = APP_CONFIG.chargebee_pro_biannual_link
+      @pro_biannual_price = APP_CONFIG.chargebee_pro_biannual_price
+      @pro_monthly_link = APP_CONFIG.chargebee_pro_monthly_link
+      @pro_monthly_price = APP_CONFIG.chargebee_pro_monthly_price
+    end
   end
 
   # Before filter for PayPal, shows notification if user is not ready for payments
