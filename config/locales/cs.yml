@@ -1468,17 +1468,22 @@ cs:
         googlemap_updatemap: "Aktualizovat mapu"
       images:
         image: Obrázek
+        best_result: ~
         no_file_selected: "Žádný soubor není vybrán"
         remove_image: "Odstranit obrázek"
         select_file: "Vybrat soubor"
+        add_more: ~
         removing: "Probíhá odstraňování..."
         processing: "Probíhá zpracovávání..."
         loading_image: "Probíhá nahrávání..."
+        image_uploading_in_progress: ~
+        processing_takes_a_while: ~
         this_may_take_a_while: "(toto může chvíli trvat)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Nahrávání obrázku selhalo"
         file_too_large: "Soubor je příliš velký"
         accepted_formats: "Obrázek musí být ve formátu GIF, JPG nebo PNG."
+        images_not_uploaded_confirm: ~
       location:
         location: Umístění
       price:

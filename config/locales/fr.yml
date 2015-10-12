@@ -961,7 +961,7 @@ fr:
       change_my_password: "Changer mon mot de passe"
       reset_password_instructions: "<p>Vous avez déclaré avoir oublié votre nom d'utilisateur et/ou votre mot de passe pour %{service_name}.</p><p>Votre nom d'utilisateur est : %{username}</p><p>Si vous souhaitez réinitialiser votre mot de passe, cliquez ici : %{password_reset_link}</p><br/><p>Si vous n'avez fait aucune demande, ignorez simplement cet email. Votre mot de passe ne sera pas modifié tant que vous ne cliquez pas sur le lien ci-dessus et en créez un nouveau.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Les avis sont publics et visibles à tous les autres utilisateurs. En fonction des avis reçus, les autres utilisateurs peuvent décider de faire ou pas confiance à %{name} et d'engager des transactions avec cette personne. Il est donc important de toujours donner un avis à la fin de chaque transaction et de rappeler aux autres participants de vous en donner un. C'est également grâce aux avis positifs que vous obtiendrez la plupart des badges."
+      feedback_is_public_and_is_shown: "Les avis sont publics et visibles par tous les autres utilisateurs. En fonction des avis reçus, les autres utilisateurs peuvent décider de faire confian, ou non, à %{name} et d'engager des transactions avec cette personne. Il est donc important de toujours donner un avis à la fin de chaque transaction et de rappeler aux autres participants de vous en donner un. C'est également grâce aux avis positifs que vous obtiendrez la plupart des badges."
       remember_to_give_feedback_to: "Rappel : n'oubliez pas de donner un avis sur %{name}"
       you_have_not_given_feedback_yet: "Vous n'avez pas encore donné d'avis sur %{name} suite à l'annonce '%{event}'. N'oubliez pas de donner un avis sur la façon dont %{given_name} a agi lors de la transaction."
     transaction_preauthorized:
@@ -1459,17 +1459,22 @@ fr:
         googlemap_updatemap: "Mettre à jour le plan"
       images:
         image: Image
+        best_result: "Pour un résultat idéal, ajoutez des images au format JPEG, GIF ou PNG, de dimensions %{width}x%{height} pixels."
         no_file_selected: "Aucun fichier sélectionné"
         remove_image: "Supprimer l'image"
         select_file: "Choisir une image"
+        add_more: ~
         removing: Suppression...
         processing: Traitement...
         loading_image: Chargement...
-        this_may_take_a_while: "(cela peut prendre un moment)"
+        image_uploading_in_progress: "Envoi de l'image en cours..."
+        processing_takes_a_while: "Toutes les images ont bien été envoyées ! Leur traitement va prendre quelques instants mais vous pouvez publier l'annonce et continuer sans crainte."
+        this_may_take_a_while: "cela ne prend qu'un instant"
         percentage_loaded: "%{percentage} %"
         uploading_failed: "Erreur lors de l'envoi d'image"
         file_too_large: "Le fichier est trop volumineux"
         accepted_formats: "L'image doit être un fichier au format GIF, JPG ou PNG."
+        images_not_uploaded_confirm: "Toutes les images ne sont pas encore envoyées. Voulez-vous vraiment continuer ?"
       location:
         location: Lieu
       price:

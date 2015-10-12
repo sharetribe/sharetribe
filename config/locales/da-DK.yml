@@ -1455,17 +1455,22 @@ da-DK:
         googlemap_updatemap: "Opdater Kort"
       images:
         image: Billede
+        best_result: "For det bedste resultat, upload billeder i formatet JPEG, GIF eller PNG i størrelsen %{width}x%{height} px"
         no_file_selected: "Ingen fil valgt"
         remove_image: "Fjern billede"
         select_file: "Vælg fil"
+        add_more: ~
         removing: Sletter...
         processing: Arbejder...
         loading_image: Venter...
+        image_uploading_in_progress: "Billede upload i gang..."
+        processing_takes_a_while: "Alle billeder er nu uploadet med succes! Behandling af dem vil tage nogen tid, men det er sikkert at gemme annoncen og gå videre."
         this_may_take_a_while: "(dette kan tage et øjeblik)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Billedeupload fejlede"
         file_too_large: "Filen er for stor"
         accepted_formats: "Billedet skal være i GIF, JPG eller PNG format."
+        images_not_uploaded_confirm: "Alle billeder er ikke uploadet endnu. Ønsker du virkelig at fortsætte?"
       location:
         location: Sted
       price:

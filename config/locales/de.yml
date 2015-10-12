@@ -1449,17 +1449,22 @@ de:
         googlemap_updatemap: "Karte aktualisieren"
       images:
         image: Bild
+        best_result: ~
         no_file_selected: "Keine Datei ausgewählt"
         remove_image: "Bild entfernen"
         select_file: "Datei wählen"
+        add_more: ~
         removing: Entfernen...
         processing: "Wird bearbeitet..."
         loading_image: Lädt...
+        image_uploading_in_progress: ~
+        processing_takes_a_while: ~
         this_may_take_a_while: "(dies kann eine Weile dauern)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Bild hochladen fehlgeschlagen"
         file_too_large: "Die Datei ist zu groß."
         accepted_formats: "Die Bilddatei muss entweder im GIF-, JPG- oder PNG-Format vorliegen."
+        images_not_uploaded_confirm: ~
       location:
         location: Standort
       price:

@@ -1447,17 +1447,22 @@ fr-CA:
         googlemap_updatemap: "Mettre à jour le plan"
       images:
         image: Image
+        best_result: ~
         no_file_selected: "Aucun fichier sélectionné"
         remove_image: "Supprimer l'image"
         select_file: "Choisir une image"
+        add_more: ~
         removing: Suppression...
         processing: Traitement...
         loading_image: Chargement...
+        image_uploading_in_progress: ~
+        processing_takes_a_while: ~
         this_may_take_a_while: "(cela peut prendre un moment)"
         percentage_loaded: "%{percentage} %"
         uploading_failed: "Erreur lors de l'envoi d'image"
         file_too_large: "Le fichier est trop volumineux"
         accepted_formats: "L'image doit être au fomat GIF, JPG ou PNG."
+        images_not_uploaded_confirm: ~
       location:
         location: Lieu
       price:

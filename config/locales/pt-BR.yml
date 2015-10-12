@@ -1459,17 +1459,22 @@ pt-BR:
         googlemap_updatemap: "Atualizar mapa"
       images:
         image: Imagem
+        best_result: "Para um melhor resultado faça upload de imagens JPEG, GIF ou PNG de %{width}x%{height} pixels"
         no_file_selected: "Nenhum arquivo selecionado"
         remove_image: "Remover imagem"
         select_file: "Escolher arquivo"
+        add_more: ~
         removing: Removendo...
         processing: Processando...
         loading_image: "Carregando ..."
+        image_uploading_in_progress: "Carregando imagem..."
+        processing_takes_a_while: "Todas as imagens foram carregadas com sucesso! Vai levar algum tempo até processá-las mas já pode salvar o anúncio e continuar."
         this_may_take_a_while: "(pode demorar um pouco)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Upload da imagem falhou"
         file_too_large: "O arquivo é muito grande"
         accepted_formats: "A imagem deve ser em formato GIF, JPG ou PNG."
+        images_not_uploaded_confirm: "Faltam carregar algumas imagens. Você realmente quer continuar?"
       location:
         location: Local
       price:

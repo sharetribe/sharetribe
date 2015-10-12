@@ -1442,17 +1442,22 @@ ja:
         googlemap_updatemap: 地図を更新
       images:
         image: 画像
+        best_result: ~
         no_file_selected: ファイルが選択されていません
         remove_image: 画像を削除する
         select_file: ファイルを選択
+        add_more: ~
         removing: 削除しています...
         processing: 処理中です...
         loading_image: 読み込み中...
+        image_uploading_in_progress: ~
+        processing_takes_a_while: ~
         this_may_take_a_while: （もう少々かかります）
         percentage_loaded: "%{percentage}％"
         uploading_failed: イメージ画像のアップロードに失敗しました
         file_too_large: ファイルが大きすぎます。
         accepted_formats: GIF、JPG、PNGのいずれかの画像フォーマットにしてください。
+        images_not_uploaded_confirm: ~
       location:
         location: "場所 （地区、郵便番号、市町村名...）"
       price:

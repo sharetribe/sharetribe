@@ -1461,17 +1461,22 @@ nb:
         googlemap_updatemap: "Oppdater kart"
       images:
         image: Bilde
+        best_result: "For beste resultatet, last opp bilder i JPEG, GIF eller PNG-format i oppløsning %{width}x%{height} pixler."
         no_file_selected: "Ingen fil er valgt"
         remove_image: "Fjern bilde"
         select_file: "Velg fil"
+        add_more: ~
         removing: Fjern...
         processing: Arbeider...
         loading_image: "Laster opp..."
+        image_uploading_in_progress: "Bildeopplastning pågår..."
+        processing_takes_a_while: "Alle bilder er nå lastet opp! Å behandle dem vil ta litt tid, men det er trygt å lagre annonsen og gå videre."
         this_may_take_a_while: "(dette kan ta en stund)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Bildeopplasting feilet"
         file_too_large: "Filen er for stor"
         accepted_formats: "Bilde-filen må enten være GIF, JPG or PNG."
+        images_not_uploaded_confirm: "Alle bildene er ikke lastet opp end. Er du sikker på at du vil gå videre?"
       location:
         location: Sted
       price:

@@ -1444,17 +1444,22 @@ tr-TR:
         googlemap_updatemap: "Haritayı Güncelle"
       images:
         image: Görsel
+        best_result: ~
         no_file_selected: "Dosya seçilmedi"
         remove_image: "Görseli kaldır"
         select_file: "Dosya seç"
+        add_more: ~
         removing: Kaldırılıyor...
         processing: İşleniyor...
         loading_image: Yükleniyor...
+        image_uploading_in_progress: ~
+        processing_takes_a_while: ~
         this_may_take_a_while: "(bu biraz zaman alabilir)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Görsel yükleme başarısız oldu"
         file_too_large: "Dosya çok büyük"
         accepted_formats: "Resim dosyası GIF, JPG veya PNG formatında olmalıdır."
+        images_not_uploaded_confirm: ~
       location:
         location: Konum
       price:

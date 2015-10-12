@@ -1430,17 +1430,22 @@ it:
         googlemap_updatemap: "Mappa aggiornata"
       images:
         image: Immagine
+        best_result: ~
         no_file_selected: "Nessun file selezionato"
         remove_image: "Rimuovi immagine"
         select_file: "Seleziona file"
+        add_more: ~
         removing: "In rimozione..."
         processing: "In attesa..."
         loading_image: Caricamento...
+        image_uploading_in_progress: ~
+        processing_takes_a_while: ~
         this_may_take_a_while: "(potrebbe richiedere del tempo)"
         percentage_loaded: ~
         uploading_failed: "Il caricamento dell'immagine non è andato a buon fine."
         file_too_large: "L'immagine è troppo grande"
         accepted_formats: "Il file immagine deve essere nel formato GIF, JPG o PNG."
+        images_not_uploaded_confirm: ~
       location:
         location: Luogo
       price:

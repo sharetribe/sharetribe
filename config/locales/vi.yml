@@ -1428,17 +1428,22 @@ vi:
         googlemap_updatemap: "Cập nhật bản đồ"
       images:
         image: Ảnh
+        best_result: ~
         no_file_selected: "Không có tập tin được chọn"
         remove_image: "Loại bỏ ảnh"
         select_file: "Chọ tập tin"
+        add_more: ~
         removing: ~
         processing: ~
         loading_image: ~
+        image_uploading_in_progress: ~
+        processing_takes_a_while: ~
         this_may_take_a_while: ~
         percentage_loaded: ~
         uploading_failed: ~
         file_too_large: ~
         accepted_formats: "Tập tin ảnh phải là một trong các định dạng GIF, JPG hoặc PNG"
+        images_not_uploaded_confirm: ~
       location:
         location: "Địa điểm"
       price:

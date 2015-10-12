@@ -1428,17 +1428,22 @@ el:
         googlemap_updatemap: "Ενημέρωση του χάρτη"
       images:
         image: Εικόνα
+        best_result: ~
         no_file_selected: "Δεν έχει επιλεγεί αρχείο"
         remove_image: "Κατάργηση εικόνας"
         select_file: "Επιλέξτε αρχείο"
+        add_more: ~
         removing: ~
         processing: ~
         loading_image: ~
+        image_uploading_in_progress: ~
+        processing_takes_a_while: ~
         this_may_take_a_while: ~
         percentage_loaded: ~
         uploading_failed: ~
         file_too_large: ~
         accepted_formats: "Το αρχείο εικόνας πρέπει να είναι σε μορφή GIF, JPEG ή PNG."
+        images_not_uploaded_confirm: ~
       location:
         location: Τοποθεσία
       price:

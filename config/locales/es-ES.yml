@@ -1461,17 +1461,22 @@ es-ES:
         googlemap_updatemap: "Actualizar mapa"
       images:
         image: Imagen
+        best_result: ~
         no_file_selected: "No hay archivos seleccionados"
         remove_image: "Quitar imagen"
         select_file: "Elegir Archivo"
+        add_more: ~
         removing: Eliminando...
         processing: Procesando...
         loading_image: Cargando...
+        image_uploading_in_progress: ~
+        processing_takes_a_while: ~
         this_may_take_a_while: "(puede que tarde un poco...)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Ha habido un error al subir la imagen"
         file_too_large: "El archivo es demasiado grande"
         accepted_formats: "El archivo de imagen debe estar en formato GIF, JPG o PNG."
+        images_not_uploaded_confirm: ~
       location:
         location: "Ubicación (Calle, Código postal, Ciudad...)"
       price:

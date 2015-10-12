@@ -1428,17 +1428,22 @@ is:
         googlemap_updatemap: "Uppfæra kort"
       images:
         image: Mynd
+        best_result: ~
         no_file_selected: "Engin skrá valin"
         remove_image: "Fjarlægja mynd"
         select_file: "Velja mynd"
+        add_more: ~
         removing: ~
         processing: ~
         loading_image: ~
+        image_uploading_in_progress: ~
+        processing_takes_a_while: ~
         this_may_take_a_while: ~
         percentage_loaded: ~
         uploading_failed: ~
         file_too_large: ~
         accepted_formats: ~
+        images_not_uploaded_confirm: ~
       location:
         location: Staðsetning
       price:

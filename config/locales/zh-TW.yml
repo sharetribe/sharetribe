@@ -1448,17 +1448,22 @@ zh-TW:
         googlemap_updatemap: 更新地图
       images:
         image: 图片
+        best_result: ~
         no_file_selected: 未选择文件
         remove_image: 移除图片
         select_file: 选择文件
+        add_more: ~
         removing: 移除中……
         processing: 处理中……
         loading_image: 正在加载……
+        image_uploading_in_progress: ~
+        processing_takes_a_while: ~
         this_may_take_a_while: （这可能会花一些时间）
         percentage_loaded: "%{percentage}%"
         uploading_failed: 图片加载出错
         file_too_large: 文件太大
         accepted_formats: "图片必须是GIF,JPG或PNG格式。"
+        images_not_uploaded_confirm: ~
       location:
         location: 地点
       price:
