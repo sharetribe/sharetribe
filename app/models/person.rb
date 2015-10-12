@@ -76,10 +76,6 @@ class Person < ActiveRecord::Base
     devise :encryptable # to be able to use similar encrypt method as ASI
   end
 
-  # Setup accessible attributes for your model (the rest are protected)
-  attr_accessible :username, :password, :password2, :password_confirmation,
-                  :remember_me, :consent, :login
-
   attr_accessor :guid, :password2, :form_login,
                 :form_given_name, :form_family_name, :form_password,
                 :form_password2, :form_email, :consent,
