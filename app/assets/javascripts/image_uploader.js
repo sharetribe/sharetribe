@@ -14,6 +14,7 @@ window.ST.renderImagePlaceholder = function() {
   var normalText = $(".fileupload-text", element);
   var smallText = $(".fileupload-small-text", element);
   var listingId = $(".listing-image-id", element);
+  var errorText = $(".fileupload-error-text", element);
 
   function showMessage(normal, small) {
     if(normal) {
@@ -29,6 +30,19 @@ window.ST.renderImagePlaceholder = function() {
     }
 
     showTexts();
+  }
+
+  function showError(msg) {
+    normalText.hide();
+    smallText.hide();
+    errorText.show();
+    errorText.text(msg);
+  }
+
+  function hideError() {
+    errorText.hide();
+    normalText.show();
+    smallText.show();
   }
 
   function hideTexts() {
@@ -68,10 +82,20 @@ window.ST.renderImagePlaceholder = function() {
     removeLink: removeLink,
     showRemove: showRemove,
     hideRemove: hideRemove,
-    setListingId: setListingId
+    setListingId: setListingId,
+    showError: showError,
+    hideError: hideError
   };
 };
 
+/**
+  Element manager manages the order of the elements in the
+  image uploading component.
+
+  Since it's the only component that is aware of the element
+  position in the component, it also ensures that the last
+  empty element shows text "Add more"
+*/
 window.ST.imageUploadElementManager = function($container) {
   var empties = [];
   var uploadings = [];
@@ -125,13 +149,22 @@ window.ST.imageUploadElementManager = function($container) {
     uploadings = _.without(uploadings, element);
   }
 
+  // Notice! Unlike the other functions, this one takes the
+  // whole element, not only the DOM element (container)
   function addEmpty(element) {
-    $container.append(element);
+    var last = _.last(empties);
+    if(last) {
+      last.showMessage(ST.t("listings.form.images.select_file"));
+    }
+    element.showMessage(ST.t("listings.form.images.add_more"));
+    $container.append(element.container);
     empties.push(element);
   }
 
   function removeEmpty() {
-    empties.pop().remove();
+    var elementToRemove = empties.pop();
+    elementToRemove.container.remove();
+    _.last(empties).showMessage(ST.t("listings.form.images.add_more"));
   }
 
   return {
@@ -186,7 +219,7 @@ window.ST.imageUploader = function(listings, opts) {
   var imageSelected = _().range(extraPlaceholdersNeeded + 1).map(function() {
     return directUploadToS3 ? renderS3Uploader() : renderLocalUploader();
   }).each(function(rendered) {
-    elementManager.addEmpty(rendered.element.container);
+    elementManager.addEmpty(rendered.element);
   }).map(function(rendered) {
     return rendered.stream;
   }).reduce(function(a, b) {
@@ -280,7 +313,7 @@ window.ST.imageUploader = function(listings, opts) {
 
   imageRemoved.filter(maybeNeedsAddPlaceholder).onValue(function() {
     var rendered = directUploadToS3 ? renderS3Uploader() : renderLocalUploader();
-    elementManager.addEmpty(rendered.element.container);
+    elementManager.addEmpty(rendered.element);
   });
 
   imageSelected.filter(maybeNeedsRemovePlaceholder).onValue(function() {
@@ -330,12 +363,11 @@ window.ST.imageUploader = function(listings, opts) {
     });
 
     fileValidated.onError(function(data) {
-      $element.showMessage(data.files[0].error);
+      $element.showError(data.files[0].error);
     });
 
     fileValidated.onValue(function() {
-      // Remove the error message by showing the default message
-      $element.showMessage(ST.t("listings.form.images.select_file"));
+      $element.hideError();
     });
 
     return {element: $element, stream: fileValidated};
