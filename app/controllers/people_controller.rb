@@ -206,7 +206,14 @@ class PeopleController < Devise::RegistrationsController
     @person.set_emails_that_receive_notifications(params[:person][:send_notifications])
 
     begin
-      if @person.update_attributes(params[:person])
+      if @person.update_attributes(params[:person].slice(
+                                    :given_name,
+                                    :family_name,
+                                    :street_address,
+                                    :phone_number,
+                                    :image,
+                                    :description,
+                                    :location))
         if params[:person][:password]
           #if password changed Devise needs a new sign in.
           sign_in @person, :bypass => true
