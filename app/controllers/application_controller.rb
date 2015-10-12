@@ -166,6 +166,8 @@ class ApplicationController < ActionController::Base
   def fetch_logged_in_user
     if person_signed_in?
       @current_user = current_person
+      logger.user_id = @current_user.id
+      logger.username = @current_user.username
     end
   end
 
@@ -211,6 +213,9 @@ class ApplicationController < ActionController::Base
   # Before filter to get the current community
   def fetch_community
     @current_community = ApplicationController.find_community(community_identifiers)
+
+    logger.community_id = @current_community.id
+    logger.community_ident = @current_community.ident
 
     # Save :found or :not_found to community status
     # This is needed because we need to distinguish to cases
@@ -503,6 +508,10 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :fetch_feature_flags # Make this method available for FeatureFlagHelper
+
+  def logger
+    @logger ||= SharetribeLogger.new
+  end
 
   # Fetch temporary flags from params and session
   def self.fetch_temp_flags(is_admin, params, session)
