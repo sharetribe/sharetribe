@@ -214,8 +214,9 @@ class ApplicationController < ActionController::Base
   def fetch_community
     @current_community = ApplicationController.find_community(community_identifiers)
 
-    logger.community_id = @current_community.id
-    logger.community_ident = @current_community.ident
+    m_community = Maybe(@current_community)
+    logger.community_id = m_community.id
+    logger.community_ident = m_community.ident
 
     # Save :found or :not_found to community status
     # This is needed because we need to distinguish to cases
@@ -510,7 +511,12 @@ class ApplicationController < ActionController::Base
   helper_method :fetch_feature_flags # Make this method available for FeatureFlagHelper
 
   def logger
-    @logger ||= SharetribeLogger.new
+    if @logger.nil?
+      @logger = SharetribeLogger.new
+      @logger.request_uuid = request.uuid
+    end
+
+    @logger
   end
 
   # Fetch temporary flags from params and session
