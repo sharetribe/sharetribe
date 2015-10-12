@@ -1,14 +1,9 @@
 - if (APP_CONFIG.use_google_analytics)
-
-  - # drop first subdomain part of domain to make it easier to collect
-  - # multiple subdomains. Note: request.domain didn't work with 4 part domains.
-  - host_without_subdomain = request.host.split('.').drop(1).join(".")
-
   <script type="text/javascript">
 
   var _gaq = _gaq || [];
   = "_gaq.push(['_setAccount', '#{APP_CONFIG.google_analytics_key}']);"
-  = "_gaq.push(['_setDomainName', '.#{host_without_subdomain}']);"
+  = "_gaq.push(['_setDomainName', '#{request.host}']);"
   _gaq.push(
   ['_addIgnoredOrganic', 'sharetribe'],
   ['_addIgnoredOrganic', 'sharetribe.com'],
@@ -23,7 +18,7 @@
 
   - if @current_community && @current_community.google_analytics_key
     = "_gaq.push(['b._setAccount', '#{@current_community.google_analytics_key}']);"
-    = "_gaq.push(['b._setDomainName', '.#{host_without_subdomain}']);"
+    = "_gaq.push(['b._setDomainName', '#{request.host}']);"
     = "_gaq.push(['b._addIgnoredOrganic', '#{@current_community.name(I18n.locale).gsub("'","")}']);"
     = "_gaq.push(['b._addIgnoredOrganic', '#{@current_community.domain || @current_community.ident}']);"
     _gaq.push(
