@@ -1408,7 +1408,7 @@ de:
     edit:
       edit_listing: "Eintrag bearbeiten"
     edit_links:
-      close_listing: "Eintrag beenden"
+      close_listing: "Angebot pausieren"
       edit_listing: "Eintrag bearbeiten"
       reopen_listing: "Eintrag wieder aktivieren"
       move_to_top: "Auf der Homepage nach oben verschieben"
@@ -1449,22 +1449,22 @@ de:
         googlemap_updatemap: "Karte aktualisieren"
       images:
         image: Bild
-        best_result: ~
+        best_result: "Für eine optimale Darstellung lade Bilder im JPEG, GIF oder PNG Format mit des Maßen %{width}x%{height} Pixel hoch"
         no_file_selected: "Keine Datei ausgewählt"
         remove_image: "Bild entfernen"
         select_file: "Datei wählen"
-        add_more: ~
+        add_more: "Weitere hinzufügen"
         removing: Entfernen...
         processing: "Wird bearbeitet..."
         loading_image: Lädt...
-        image_uploading_in_progress: ~
-        processing_takes_a_while: ~
+        image_uploading_in_progress: "Bilder werden hochgeladen..."
+        processing_takes_a_while: "Alle Bilder wurden erfolgreich hochgeladen! Es dauert nun ein wenig, bis die Bilder verarbeitet sind, aber das Sichern des Eintrags und Weiterarbeiten ist problemlos möglich."
         this_may_take_a_while: "(dies kann eine Weile dauern)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Bild hochladen fehlgeschlagen"
         file_too_large: "Die Datei ist zu groß."
         accepted_formats: "Die Bilddatei muss entweder im GIF-, JPG- oder PNG-Format vorliegen."
-        images_not_uploaded_confirm: ~
+        images_not_uploaded_confirm: "Es sind noch nicht alle Bilder hochgeladen. Möchtest Du wirklich fortfahren?"
       location:
         location: Standort
       price:
