@@ -385,9 +385,17 @@ class ApplicationController < ActionController::Base
     }
   end
 
+  def external_plan_service_login_link(marketplace_id)
+    payload = {user_id: marketplace_id}
+    secret = APP_CONFIG.external_plan_service_secret
+    external_plan_service_url = APP_CONFIG.external_plan_service_url_base + "login"
+    token = JWTUtils.encode(payload, secret)
+    URLUtils.append_query_param(external_plan_service_url, "token", token)
+  end
+
   def fetch_chargebee_plan_data
-    if !feature_enabled?(:new_plan_page)
-      @charm_link = APP_CONFIG.charm_link
+    if feature_enabled?(:new_plan_page)
+      @external_plan_service_link = external_plan_service_login_link(@current_community.id)
     else
       @pro_biannual_link = APP_CONFIG.chargebee_pro_biannual_link
       @pro_biannual_price = APP_CONFIG.chargebee_pro_biannual_price
