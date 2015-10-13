@@ -82,6 +82,7 @@ gem 'paypal-sdk-merchant', '~> 1.116.0'
 gem 'airbrake', '~>4.1.0'
 gem 'cache_digests'
 gem 'librato-rails'
+gem 'jwt', '~> 1.5.1'
 
 gem 'lograge'
 
