@@ -256,12 +256,7 @@ class ListingsController < ApplicationController
           if params[:listing_images]
             params[:listing_images].collect { |h| h[:id] }.select { |id| id.present? }
           else
-            Rails.logger.error({tag: :error,
-                                free: "Listing images array is missing",
-                                structured: {params: params,
-                                             community_id: @current_community.id,
-                                             current_user: @current_user.id},
-                                request_id: request.uuid}.to_json)
+            logger.error("Listing images array is missing", nil, {params: params})
             []
           end
 
@@ -278,7 +273,7 @@ class ListingsController < ApplicationController
         ).html_safe
         redirect_to @listing, status: 303 and return
       else
-        Rails.logger.error "Errors in creating listing: #{@listing.errors.full_messages.inspect}"
+        logger.error("Errors in creating listing: #{@listing.errors.full_messages.inspect}")
         flash[:error] = t(
           "layouts.notifications.listing_could_not_be_saved",
           :contact_admin_link => view_context.link_to(t("layouts.notifications.contact_admin_link_text"), new_user_feedback_path, :class => "flash-error-link")
@@ -371,7 +366,7 @@ class ListingsController < ApplicationController
       Delayed::Job.enqueue(ListingUpdatedJob.new(@listing.id, @current_community.id))
       redirect_to @listing
     else
-      Rails.logger.error "Errors in editing listing: #{@listing.errors.full_messages.inspect}"
+      logger.error("Errors in editing listing: #{@listing.errors.full_messages.inspect}")
       flash[:error] = t("layouts.notifications.listing_could_not_be_saved", :contact_admin_link => view_context.link_to(t("layouts.notifications.contact_admin_link_text"), new_user_feedback_path, :class => "flash-error-link")).html_safe
       redirect_to edit_listing_path(@listing)
     end
@@ -402,7 +397,7 @@ class ListingsController < ApplicationController
       redirect_to homepage_index_path
     else
       flash[:warning] = "An error occured while trying to move the listing to the top of the homepage"
-      Rails.logger.error "An error occured while trying to move the listing (id=#{Maybe(@listing).id.or_else('No id available')}) to the top of the homepage"
+      logger.error("An error occured while trying to move the listing (id=#{Maybe(@listing).id.or_else('No id available')}) to the top of the homepage")
       redirect_to @listing
     end
   end
@@ -414,7 +409,7 @@ class ListingsController < ApplicationController
     if @listing.update_attribute(:updates_email_at, Time.now)
       render :nothing => true, :status => 200
     else
-      Rails.logger.error "An error occured while trying to move the listing (id=#{Maybe(@listing).id.or_else('No id available')}) to the top of the homepage"
+      logger.error("An error occured while trying to move the listing (id=#{Maybe(@listing).id.or_else('No id available')}) to the top of the homepage")
       render :nothing => true, :status => 500
     end
   end
