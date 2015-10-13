@@ -1,55 +1,52 @@
 class SharetribeLogger
-  attr_writer(
-    :community_id,
-    :community_ident,
-    :user_id,
-    :username,
-    :request_uuid
-  )
-
-  def initialize(tag = nil, log_target = Rails.logger)
+  def initialize(tag = nil, metadata_keys = [], log_target = Rails.logger)
     @tag = tag
     @log_target = log_target
+    @metadata_keys = metadata_keys
+    @metadata = {}
   end
 
-  def debug(msg, type = :other, structured = nil)
+  def debug(msg, type = nil, structured = nil)
     @log_target.debug(
-      add_details(to_hash(msg, type, structured)).to_json)
+      include_metadata(to_hash(msg, type, structured)).to_json)
   end
 
-  def info(msg, type = :other, structured = nil)
+  def info(msg, type = nil, structured = nil)
     @log_target.info(
-      add_details(to_hash(msg, type, structured)).to_json)
+      include_metadata(to_hash(msg, type, structured)).to_json)
   end
 
-  def warn(msg, type = :other, structured = nil)
+  def warn(msg, type = nil, structured = nil)
     @log_target.warn(
-      add_details(to_hash(msg, type, structured)).to_json)
+      include_metadata(to_hash(msg, type, structured)).to_json)
   end
 
-  def error(msg, type = :other, structured = nil)
+  def error(msg, type = nil, structured = nil)
     @log_target.error(
-      add_details(to_hash(msg, type, structured)).to_json)
+      include_metadata(to_hash(msg, type, structured)).to_json)
+  end
+
+  def add_metadata(new_data)
+    unknown_keys = new_data.keys - @metadata_keys
+
+    if unknown_keys.present?
+      raise ArgumentError.new("Unknown metadata keys: #{unknown_keys}")
+    end
+    @metadata = @metadata.merge(new_data.slice(*@metadata_keys))
   end
 
   private
 
   def to_hash(msg, type, structured)
-    {
-      tag: @tag,
-      free: msg,
-      type: type,
-      structured: structured,
-    }
+    HashUtils.compact({
+                        tag: @tag,
+                        free: msg,
+                        type: type,
+                        structured: structured,
+                      })
   end
 
-  def add_details(log_data)
-    {
-      user_id: @user_id,
-      username: @username,
-      community_id: @community_id,
-      community_ident: @community_ident,
-      request_uuid: @request_uuid
-    }.merge(log_data)
+  def include_metadata(log_data)
+    @metadata.merge(log_data)
   end
 end
