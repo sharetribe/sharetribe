@@ -1,13 +1,17 @@
 cs:
   errors:
     messages:
-      expired: "vypršel, prosím, požádejte o nové"
+      expired: "vypršel, prosíme, požádejte o nové"
       not_found: nenalezeno
       already_confirmed: "už bylo potvrzeno, prosím, přihlaste se znovu"
       not_locked: "nebylo uzamčeno"
+      not_saved:
+        one: "%{count} chyba zakázala, že %{resource} nemohl být uložen"
+        few: "%{count} chyby zakázaly, že %{resource} nemohl být uložen"
+        other: "%{count} chyb zakázalo, že %{resource} nemohl být uložen"
   devise:
     failure:
-      already_authenticated: "Už jste přihlášen."
+      already_authenticated: "Už jste přihlášeni."
       unauthenticated: "Než budete moci pokračovat, musíte se přihlásit nebo zaregistrovat."
       unconfirmed: "Než budete pokračovat, musíte potvrdit Váš účet."
       locked: "Váš účet ja uzamčen."

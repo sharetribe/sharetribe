@@ -6,7 +6,6 @@ zh-TW:
       already_confirmed: "已经确认,请重新登录"
       not_locked: 未锁定
       not_saved:
-        one: "因为1个错误导致此%{resource}保存失败:"
         other: "有%{count}個錯誤導致此%{resource}保存失敗："
   devise:
     failure:
