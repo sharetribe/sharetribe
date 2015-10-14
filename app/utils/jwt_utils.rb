@@ -1,14 +1,16 @@
 module JWTUtils
 
+  ALGORITHM = "HS256"
+
   module_function
 
   def encode(payload, secret)
-    JWT.encode(payload, secret)
+    JWT.encode(payload, secret, ALGORITHM)
   end
 
   def decode(token, secret)
     begin
-      result(JWT.decode(token, secret, true), nil)
+      result(JWT.decode(token, secret, true, algorithm: ALGORITHM), nil)
     rescue JWT::VerificationError
       result(nil, :verification_error)
     rescue JWT::DecodeError
