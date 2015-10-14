@@ -27,7 +27,8 @@
 
 - if @current_community.private? && show_big_cover_photo?
   - if @community_customization && @community_customization.private_community_homepage_content
-    = @community_customization.private_community_homepage_content.html_safe
+    .community-customization-wrapper
+      = @community_customization.private_community_homepage_content.html_safe
   - else
     = t(".this_is_private_community")
 
