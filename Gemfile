@@ -84,6 +84,8 @@ gem 'cache_digests'
 gem 'librato-rails'
 
 gem 'lograge'
+gem 'public_suffix' # Needed currently to set GA hostname right, probably not
+                    # needed anymore when GA script updated.
 
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
