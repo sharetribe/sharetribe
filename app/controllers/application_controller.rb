@@ -393,9 +393,19 @@ class ApplicationController < ActionController::Base
     URLUtils.append_query_param(external_plan_service_url, "token", token)
   end
 
+  def display_expiration_notice?
+    if feature_enabled?(:new_plan_page)
+      APP_CONFIG.external_plan_service_secret && @is_current_community_admin && PlanUtils.expired?(@current_plan)
+    else
+      @is_current_community_admin && PlanUtils.expired?(@current_plan)
+    end
+  end
+
   def fetch_chargebee_plan_data
     if feature_enabled?(:new_plan_page)
-      @external_plan_service_link = external_plan_service_login_link(@current_community.id)
+      if display_expiration_notice?
+        @external_plan_service_link = external_plan_service_login_link(@current_community.id)
+      end
     else
       @pro_biannual_link = APP_CONFIG.chargebee_pro_biannual_link
       @pro_biannual_price = APP_CONFIG.chargebee_pro_biannual_price
