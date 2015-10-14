@@ -1459,11 +1459,11 @@ fr:
         googlemap_updatemap: "Mettre à jour le plan"
       images:
         image: Image
-        best_result: "Pour un résultat idéal, ajoutez des images au format JPEG, GIF ou PNG, de dimensions %{width}x%{height} pixels."
+        best_result: "Pour un résultat idéal, ajoutez des images au format JPEG, GIF ou PNG, de dimensions %{width} par %{height} pixels."
         no_file_selected: "Aucun fichier sélectionné"
         remove_image: "Supprimer l'image"
         select_file: "Choisir une image"
-        add_more: ~
+        add_more: "+ En ajouter plus"
         removing: Suppression...
         processing: Traitement...
         loading_image: Chargement...
