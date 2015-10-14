@@ -10,12 +10,6 @@ class InfosController < ApplicationController
   def how_to_use
     @selected_tribe_navi_tab = "about"
     @selected_left_navi_link = "how_to_use"
-    case(how_to_use_content?)
-    when None, Some(false)
-      raise ActiveRecord::RecordNotFound
-    else
-      render locals: { how_to_use_content: @community_customization.how_to_use_page_content }
-    end
   end
 
   def terms

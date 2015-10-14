@@ -543,14 +543,12 @@ module ApplicationHelper
         :name => "about"
       }
     ]
-    if @community_customization && !@community_customization.how_to_use_page_content.blank?
-      links << {
-        :text => t('layouts.infos.how_to_use'),
-        :icon_class => icon_class("how_to_use"),
-        :path => how_to_use_infos_path,
-        :name => "how_to_use"
-      }
-    end
+    links << {
+      :text => t('layouts.infos.how_to_use'),
+      :icon_class => icon_class("how_to_use"),
+      :path => how_to_use_infos_path,
+      :name => "how_to_use"
+    }
     links << {
       :text => t('layouts.infos.register_details'),
       :icon_class => icon_class("privacy"),
