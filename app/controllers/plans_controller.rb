@@ -6,9 +6,14 @@ class PlansController < ApplicationController
   include PlanService::ExternalPlanServiceInjector
 
   def create
+    body = request.raw_post
+    logger.info("Received plan notification", nil, {raw: body})
+
     res = JWTUtils.decode(params[:token], external_plan_service[:jwt_secret]).and_then {
       parse_json(request.raw_post)
     }.on_success { |ext_plans|
+      logger.info("Parsed plan notification", nil, ext_plans)
+
       result = Maybe(ext_plans)["plans"].or_else([]).map { |ext_plan|
         to_plan_entity(ext_plan)
       }.map { |plan|
@@ -17,27 +22,35 @@ class PlansController < ApplicationController
         { marketplace_plan_id: new_plan[:id] }
       }
 
+      logger.info("Created new plans based on the notification", nil, {plans: result})
+
       render json: {plans: result}, status: 200
     }.on_error { |error_msg, data|
       case data
       when JSON::ParserError
+        logger.error("Error while parsing JSON: #{data.message}")
         render json: {error: :json_parser_error}, status: 400
       else
+        logger.error("Unknown error")
         render json: {error: :unknown_error}, status: 500
       end
     }
   end
 
   def get_trials
-    after = Maybe(params)[:after].to_i.map { |time_int| Time.at(time_int) }.or_else(nil)
+    after = Maybe(params)[:after].to_i.map { |time_int| Time.at(time_int).utc }.or_else(nil)
 
     if after
-      render json: {plans: PlanService::API::Api.plans.get_trials(after: after).data.map { |plan|
-                      from_plan_entity(plan)
-                    }
-                   }
+      plans = PlanService::API::Api.plans.get_trials(after: after).data.map { |plan|
+        from_plan_entity(plan)
+      }
+
+      render json: {plans: plans}
+
+      logger.info("Returned #{plans.count} plans that were created after #{after}", nil, {plan_count: plans.count, after: after})
     else
       render json: {error: "Missing 'after' parameter"}, status: 400
+      logger.error("Missing 'after' parameter")
     end
 
   end
@@ -46,6 +59,7 @@ class PlansController < ApplicationController
 
   def do_jwt_authentication!
     JWTUtils.decode(params[:token], external_plan_service[:jwt_secret]).on_error {
+      logger.error("Unauthorized", nil, token: params[:token])
       render json: {error: :unauthorized}, status: 401
     }
   end
