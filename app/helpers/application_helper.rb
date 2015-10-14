@@ -72,6 +72,8 @@ module ApplicationHelper
       "openbook" => "ss-openbook",
       "order_types" => "ss-cart",
       "download" => "ss-download",
+      "credit_card" => "ss-creditcard",
+
 
       # Default category & share type icons
       "offer" => "ss-share",
@@ -190,6 +192,7 @@ module ApplicationHelper
       "download" => "icon-download",
       "link" => "icon-link",
       "external_link" => "icon-external-link",
+      "credit_card" => "icon-credit-card",
 
       "information" => "icon-info-sign",
       "alert" => "icon-warning-sign",
