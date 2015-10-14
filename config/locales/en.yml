@@ -962,7 +962,6 @@ en:
       change_my_password: "Change my password"
       reset_password_instructions: "<p>You have indicated that you have forgotten either your password or username in the %{service_name} service.</p><p>Your username is: %{username}</p><p>If you need to reset your password, click the following link: %{password_reset_link}</p><br/><p>If you didn't request this, please ignore this email. Your password won't change until you access the link above and create a new one.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Feedback is public and is shown to all the other users. Based on the feedback the other users can judge, whether %{name} is a trustworthy person and someone they want to interact with. Thus, it's good to always remember to give feedback on events, and also remind the other party to give feedback to you. You also need positive feedback in order to achieve most of the badges."
       remember_to_give_feedback_to: "Reminder: remember to give feedback to %{name}"
       you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
     transaction_preauthorized:
