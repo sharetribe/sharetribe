@@ -3,7 +3,44 @@ class PlansController < ApplicationController
   skip_filter :check_email_confirmation
   before_filter :do_jwt_authentication!
 
+  # includes: external_plan_service (Hash with jwt_secret)
+  # includes: logger
   include PlanService::ExternalPlanServiceInjector
+
+  # Request data types
+
+  NewPlanRequest = EntityUtils.define_builder(
+    [:marketplace_id, :fixnum, :mandatory],
+    [:plan_level, :fixnum, :mandatory],
+    [:expires_at, :utc_str_to_time, :optional],
+  )
+
+  NewPlansRequest = EntityUtils.define_builder(
+    [:plans, :mandatory, collection: NewPlanRequest]
+  )
+
+  # Response data types
+
+  NewPlanResponse = EntityUtils.define_builder(
+    [:marketplace_plan_id, :fixnum, :mandatory],
+    [:marketplace_id, :fixnum, :mandatory],
+    [:plan_level, :fixnum, :mandatory],
+    [:expires_at, :time, :optional],
+    [:created_at, :time, :mandatory],
+    [:updated_at, :time, :mandatory],
+  )
+
+  NewPlansResponse = EntityUtils.define_builder(
+    [:plans, :mandatory, collection: NewPlanResponse]
+  )
+
+  # Map from External service key names to Entity key names
+  EXT_SERVICE_TO_ENTITY_MAP = {
+    :marketplace_id => :community_id,
+    :marketplace_plan_id => :id
+  }
+
+  ENTITY_TO_EXT_SERVICE_MAP = EXT_SERVICE_TO_ENTITY_MAP.invert
 
   def create
     body = request.raw_post
@@ -11,20 +48,31 @@ class PlansController < ApplicationController
 
     res = JWTUtils.decode(params[:token], external_plan_service[:jwt_secret]).and_then {
       parse_json(request.raw_post)
-    }.on_success { |ext_plans|
-      logger.info("Parsed plan notification", nil, ext_plans)
+    }.and_then { |parsed_json|
+      NewPlansRequest.validate(parsed_json)
+    }.and_then { |parsed_request|
+      logger.info("Parsed plan notification", nil, parsed_request)
 
-      result = Maybe(ext_plans)["plans"].or_else([]).map { |ext_plan|
-        to_plan_entity(ext_plan)
-      }.map { |plan|
-        new_plan = PlanService::API::Api.plans.create(community_id: plan[:community_id], plan: plan).data
+      create_plan_operations = parsed_request[:plans].map { |plan_request|
+        plan_entity = to_entity(plan_request)
 
-        { marketplace_plan_id: new_plan[:id] }
+        ->(*) {
+          PlanService::API::Api.plans.create(community_id: plan_entity[:community_id], plan: plan_entity)
+        }
       }
 
-      logger.info("Created new plans based on the notification", nil, {plans: result})
+      if create_plan_operations.present?
+        Result.all(*create_plan_operations)
+      else
+        # Nothing to save
+        Result::Success.new([])
+      end
+    }.on_success { |created_plans|
+      logger.info("Created new plans based on the notification", nil, created_plans)
 
-      render json: {plans: result}, status: 200
+      response = NewPlansResponse.build(plans: created_plans.map { |plan_entity| from_entity(plan_entity) })
+
+      render json: response, status: 200
     }.on_error { |error_msg, data|
       case data
       when JSON::ParserError
@@ -42,7 +90,7 @@ class PlansController < ApplicationController
 
     if after
       plans = PlanService::API::Api.plans.get_trials(after: after).data.map { |plan|
-        from_plan_entity(plan)
+        from_entity(plan)
       }
 
       render json: {plans: plans}
@@ -66,26 +114,17 @@ class PlansController < ApplicationController
 
   def parse_json(body)
     begin
-      Result::Success.new(JSON.parse(body))
+      Result::Success.new(JSONUtils.symbolize_keys(JSON.parse(body)))
     rescue StandardError => e
       Result::Error.new(e)
     end
   end
 
-  # Converts plan hash from external service to the format
-  # that is expected by PlanService::API::Api.plans.create
-  def to_plan_entity(plan)
-    {
-      community_id: plan["marketplace_id"],
-      plan_level: plan["plan_level"],
-      expires_at: Maybe(plan)["expires_at"].map { |ts| TimeUtils.utc_str_to_time(ts) }.or_else(nil)
-    }
+  def from_entity(entity)
+    HashUtils.rename_keys(ENTITY_TO_EXT_SERVICE_MAP, entity)
   end
 
-  def from_plan_entity(plan)
-    HashUtils.rename_keys({
-                            :community_id => :marketplace_id,
-                            :id => :marketplace_plan_id
-                          }, plan)
+  def to_entity(hash)
+    HashUtils.rename_keys(EXT_SERVICE_TO_ENTITY_MAP, hash)
   end
 end

@@ -20,7 +20,7 @@ describe "plan provisioning" do
 
   describe "security" do
     it "returns 401 if token doesn't match" do
-      post "http://webhooks.sharetribe.com/webhooks/plans", "{}"
+      post "http://webhooks.sharetribe.com/webhooks/plans", {plans: []}.to_json
       expect(response.status).to eq(401)
 
       error_log = log_target.parse_log(:error)
@@ -29,7 +29,8 @@ describe "plan provisioning" do
     end
 
     it "returns 200 if authorized" do
-      post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", "{}"
+      post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", {plans: []}.to_json
+      puts response.body
       expect(response.status).to eq(200)
     end
   end
@@ -81,12 +82,8 @@ describe "plan provisioning" do
                              })
 
       expect(response.status).to eq(200)
-      expect(response.body).to eq({
-                                    plans: [
-                                      {marketplace_plan_id: plan1234[:id]},
-                                      {marketplace_plan_id: plan5555[:id]}
-                                    ]
-                                  }.to_json)
+      expect(JSONUtils.symbolize_keys(JSON.parse(response.body))[:plans].map { |plan| plan[:marketplace_plan_id] })
+              .to eq([plan1234[:id], plan5555[:id]])
 
       expect(log_target.parse_log(:info).map { |entry| entry[:free] })
         .to eq([
