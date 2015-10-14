@@ -5,10 +5,13 @@ module JWTUtils
   module_function
 
   def encode(payload, secret)
+    raise ArgumentError.new("Secret is not specified") if secret.blank?
     JWT.encode(payload, secret, ALGORITHM)
   end
 
   def decode(token, secret)
+    raise ArgumentError.new("Secret is not specified") if secret.blank?
+
     begin
       result(JWT.decode(token, secret, true, algorithm: ALGORITHM), nil)
     rescue JWT::VerificationError

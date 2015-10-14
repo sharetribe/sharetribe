@@ -24,5 +24,18 @@ describe JWTUtils do
       expect(decode_result.success).to eq(false)
       expect(decode_result.data[:error_code]).to eq(:verification_error)
     end
+
+    it "throws if secret is empty" do
+      payload = {"test_data" => true}
+
+      expect {
+        JWTUtils.encode(payload, "")
+      }.to raise_error(ArgumentError, "Secret is not specified")
+
+      expect {
+        JWTUtils.decode("encoded jwt token", "")
+      }.to raise_error(ArgumentError, "Secret is not specified")
+
+    end
   end
 end
