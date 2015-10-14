@@ -1,7 +1,10 @@
 -# Admin navigation is split into link groups.
+
 - links_general = links[0..1]
-- links_manage = links[2..5]
-- links_configure = links[6..21]
+- if feature_enabled?(:new_plan_page)
+  - links_general = links[0..2]
+- links_manage = links[3..6]
+- links_configure = links[7..22]
 
 = render :partial => "admin/uservoice_widget" if APP_CONFIG.uservoice_widget_url.present?
 
