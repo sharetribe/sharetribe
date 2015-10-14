@@ -3,7 +3,8 @@ module ListingIndexService::API
   RELATED_RESOURCES = [:listing_images, :author, :num_of_reviews, :location].to_set
 
   # TODO Maybe conf+injector?
-  ENGINE = :sphinx
+  # ENGINE = :sphinx
+  ENGINE = :zappy
 
   ListingIndexResult = ListingIndexService::DataTypes::ListingIndexResult
 
@@ -42,6 +43,8 @@ module ListingIndexService::API
       case ENGINE
       when :sphinx
         ListingIndexService::Search::SphinxAdapter.new
+      when :zappy
+        ListingIndexService::Search::ZappyAdapter.new
       else
         raise NotImplementedError.new("Adapter for search engine #{ENGINE} not implemented")
       end

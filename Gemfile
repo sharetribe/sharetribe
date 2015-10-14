@@ -106,6 +106,7 @@ gem 'protected_attributes', "~> 1.1.3"
 gem 'demoji', "~> 0.0.5"
 
 gem 'faraday', '~> 0.9.1'
+gem 'faraday_middleware', '~> 0.10.0'
 
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
