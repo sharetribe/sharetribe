@@ -32,7 +32,7 @@ module PlanService::Store::Plan
   end
 
   def get_trials(after:)
-    CommunityPlan.where("created_at >? ", after).map { |plan_model|
+    CommunityPlan.where("created_at > ?", after).map { |plan_model|
       from_model(plan_model)
     }
   end
