@@ -9,8 +9,8 @@ module ListingIndexService::API
 
   class Listings
 
-    def initialize(logger)
-      @logger = logger
+    def initialize(logger_target)
+      @logger_target = logger_target
     end
 
     def search(community_id:, search:, includes: [])
@@ -31,8 +31,8 @@ module ListingIndexService::API
           listings: res[:listings].map { |search_res|
             search_res.merge(url: "#{search_res[:id]}-#{search_res[:title].to_url}")}))
       }.or_else {
-        log_error(search_result.error_msg)
-        Result::Error.new(search_result.error_msg)
+        log_error(search_result, community_id)
+        search_result
       }
     end
 
@@ -47,8 +47,12 @@ module ListingIndexService::API
       end
     end
 
-    def log_error(err)
-      @logger.error(err) unless @logger.nil?
+    def log_error(err_response, community_id)
+      logger = SharetribeLogger.new(:listing_index_service,
+                                    [:marketplace_id],
+                                    @logger_target)
+      logger.add_metadata({marketplace_id: community_id})
+      logger.error(err_response.error_msg)
     end
   end
 
