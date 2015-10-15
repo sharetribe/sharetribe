@@ -7,7 +7,7 @@ module ListingIndexService::API
     end
 
     def self.listings
-      self.listings_api ||= ListingIndexService::API::Listings.new
+      self.listings_api ||= ListingIndexService::API::Listings.new(Rails.logger)
     end
   end
 end

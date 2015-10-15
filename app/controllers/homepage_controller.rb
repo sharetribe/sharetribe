@@ -81,7 +81,7 @@ class HomepageController < ApplicationController
                  testimonials_in_use: @current_community.testimonials_in_use,
                  listing_shape_menu_enabled: listing_shape_menu_enabled }
       }.on_error { |e|
-        flash[:error] = t("layouts.notifications.something_went_wrong")
+        flash[:error] = t("homepage.errors.search_engine_not_responding")
         @listings = Listing.none.paginate(:per_page => 1, :page => 1)
         render status: 500, locals: {
                  shapes: all_shapes,

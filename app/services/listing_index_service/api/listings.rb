@@ -9,27 +9,31 @@ module ListingIndexService::API
 
   class Listings
 
-    def search(community_id:, search:, includes: [])
+    def initialize(logger_target)
+      @logger_target = logger_target
+    end
 
+    def search(community_id:, search:, includes: [])
       unless includes.to_set <= RELATED_RESOURCES
         return Result::Error.new("Unknown included resources: #{(includes.to_set - RELATED_RESOURCES).to_a}")
       end
 
-      s = ListingIndexService::DataTypes.create_search_params(search)
-
       search_result = search_engine.search(
         community_id: community_id,
-        search: s,
+        search: ListingIndexService::DataTypes.create_search_params(search),
         includes: includes
       )
 
-      Result::Success.new(
-        ListingIndexResult.call(
-        count: search_result[:count],
-        listings: search_result[:listings].map { |search_res|
-          search_res.merge(url: "#{search_res[:id]}-#{search_res[:title].to_url}")
-        })
-      )
+      search_result.maybe().map { |res|
+        Result::Success.new(
+          ListingIndexResult.call(
+          count: res[:count],
+          listings: res[:listings].map { |search_res|
+            search_res.merge(url: "#{search_res[:id]}-#{search_res[:title].to_url}")}))
+      }.or_else {
+        log_error(search_result, community_id)
+        search_result
+      }
     end
 
     private
@@ -41,6 +45,14 @@ module ListingIndexService::API
       else
         raise NotImplementedError.new("Adapter for search engine #{ENGINE} not implemented")
       end
+    end
+
+    def log_error(err_response, community_id)
+      logger = SharetribeLogger.new(:listing_index_service,
+                                    [:marketplace_id],
+                                    @logger_target)
+      logger.add_metadata({marketplace_id: community_id})
+      logger.error(err_response.error_msg)
     end
   end
 
