@@ -166,6 +166,18 @@ module EntityUtils
         TimeUtils::utc_str_to_time(v)
       end
     },
+    str_to_bool: -> (_, v) {
+      if !!v == v
+        # http://stackoverflow.com/questions/3028243/check-if-ruby-object-is-a-boolean
+        v
+      elsif v.nil?
+        nil
+      elsif v == "" || v == "false"
+        false
+      else
+        true
+      end
+    },
     transform_with: -> (transformer, v) { transformer.call(v) }
   }
 

@@ -1,4 +1,6 @@
 module PlanService::ExternalPlanServiceInjector
+  Configuration = DataTypes::Configuration
+
   def external_plan_service
     @external_plan_service ||= build_external_plan_service
   end
@@ -11,9 +13,9 @@ module PlanService::ExternalPlanServiceInjector
   module_function
 
   def build_external_plan_service
-    {
-      active: APP_CONFIG.external_plan_service_in_use,
-      jwt_secret: APP_CONFIG.external_plan_service_secret
-    }
+    Configuration.call({
+                         active: APP_CONFIG.external_plan_service_in_use,
+                         jwt_secret: APP_CONFIG.external_plan_service_secret
+                       })
   end
 end

@@ -1,11 +1,14 @@
 module PlanService::ExternalPlanServiceInjector
+  Configuration = DataTypes::Configuration
+
   @@active = true
 
   def external_plan_service
-    {
-      active: @@active,
-      jwt_secret: "test_secret"
-    }
+    Configuration.call(
+      {
+        active: @@active,
+        jwt_secret: "test_secret"
+      })
   end
 
   def logger
