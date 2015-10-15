@@ -238,6 +238,11 @@ default: &default_settings
   # This is completely optional and probably not needed in most cases.
   uservoice_widget_url:
 
+  # External plan service connection
+  # The connection details hosted Sharetribe uses to connect to external subscription management system.
+  external_plan_service_in_use: false
+  external_plan_service_secret:
+
 production: &production_settings
   <<: *default_settings
 
