@@ -1213,6 +1213,8 @@ cs:
       list_button: Seznam
       all_listing_types: "Všechny typy inzerátů"
       all_categories: "Všechny kategorie"
+    errors:
+      search_engine_not_responding: ~
   infos:
     about:
       default_about_text_title: "Co je to Sharetribe?"
@@ -1310,7 +1312,7 @@ cs:
       feedback_sent_to: "Zpětná vazba odeslána uživateli %{target_person}."
       feedback_skipped: "Zpětná vazba přeskočena"
       invitation_cannot_be_sent: "Pozvánka nemohla být odeslána"
-      invitation_limit_reached: "Snažíte se poslat příliš mnoho pozvánek. Dosáhli jste denního limitu."
+      invitation_limit_reached: "Snažíte se poslat příliš mnoho pozvánek. Dosáhli jste již denního limitu."
       invitation_sent: "Pozvánka byla úspěšně odeslána"
       inviting_new_users_is_not_allowed_in_this_community: "Není povoleno pozvat nové uživatele."
       login_again: "Prosíme, přihlaste se znovu."
@@ -1401,8 +1403,8 @@ cs:
       email_deleted: "E-mail byl odstraněn"
       payment_details_add_successful: "Platební údaje byly úspěšně přidány"
       payment_details_add_error: "Platební údaje nemohly být přidány"
-      listing_author_payment_details_missing: "Prosíme, kontaktujte autora kliknutím na tlačítko \"Kontaktovat\" níže. Je totiž zapotřebí aktualizovat podrobnosti o platbě, aby mohla být platba přijata."
-      stylesheet_needs_recompiling: ~
+      listing_author_payment_details_missing: "Prosíme, kontaktujte autora kliknutím na tlačítko \"Kontaktovat\" níže. Je totiž zapotřebí aktualizovat podrobnosti o platbě, aby platba mohla být přijata."
+      stylesheet_needs_recompiling: "Šablony se právě přetvářejí. Prosíme, aktualizujte stránku po chvíli."
     settings:
       account: Účet
       notifications: Upozornění
@@ -1411,35 +1413,35 @@ cs:
       payments: Platby
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: "Nemáte oprávnění k zobrazení tohoto seznamu."
+      listing_not_visible: "Nemáte oprávnění k zobrazení tohoto inzerátu."
     comment:
       wrote: "byl napsán"
       send_private_message: "Poslat soukromou zprávu uživateli %{person}"
     comment_form:
-      ask_a_question: "Okomentujte inzerát nebo se zeptejte na více podrobností. Ostatní uživatelé uvidí váš komentář."
+      ask_a_question: "Okomentujte inzerát nebo se zeptejte na více podrobností. Ostatní uživatelé Váš komentář uvidí."
       log_in: "přihlásit se"
       send_comment: "Odeslat komentář"
-      to_send_a_comment: "Poslat nový komentář"
+      to_send_a_comment: "poslat nový komentář"
       write_comment: "Napsat nový komentář:"
       you_cannot_send_a_new_comment_because_listing_is_closed: "Nemůžete tento inzerát okomentovat, protože je již uzavřen."
       you_must: Musíte
-      subscribe_to_comments: "Upozorňovat mě na nové komentáře a aktualizace."
+      subscribe_to_comments: "Upozorňovat mě na nové příspěvky a aktualizace."
     edit:
       edit_listing: "Upravit inzerát"
     edit_links:
       close_listing: "Uzavřít inzerát"
       edit_listing: "Upravit inzerát"
       reopen_listing: "Znovu otevřít inzerát"
-      move_to_top: "Přesunout na domovskou stránku"
-      show_in_updates_email: "Uvést v dalším automatickém e-mailu"
+      move_to_top: "Posunout se zcela nahoru na domovské stránce"
+      show_in_updates_email: "Zahrnout do dalšího automatického e-mailu"
       show_in_updates_email_loading: "Probíhá nahrávání..."
       show_in_updates_email_error: "Nepodařilo se připojit k serveru. Zkuste to znovu po obnovení stránky."
       show_in_updates_email_success: "Tento inzerát bude uveden v dalším automatickém e-mailu s novinkami zasílaném uživatelům"
     error:
       something_went_wrong: "Něco se nezdařilo, kód chyby: %{error_code}"
     follow_links:
-      follow: "Dostávat e-maily o nových komentářích"
-      unfollow: "Nedostávat e-maily o nových komentářích"
+      follow: "Dostávat e-maily o nových příspěvcích"
+      unfollow: "Nedostávat e-maily o nových příspěvcích"
     form:
       custom_field_partials:
         dropdown:
@@ -1455,7 +1457,7 @@ cs:
         destination: "Místo určení"
       form_content:
         favor: služba
-        housing: ~
+        housing: prostory
         item: položka
         offer_something: "Nabídněte něco"
         request_something: "Požádejte o něco"
@@ -1463,29 +1465,29 @@ cs:
         i_want_to_offer: "Chci nabídnout..."
         i_want_to_request: Potřebuji...
       googlemap:
-        googlemap_copy: ~
-        googlemap_description: "Zobrazit mapu"
+        googlemap_copy: "Konečné body z mapy"
+        googlemap_description: "Zobrazení mapy"
         googlemap_updatemap: "Aktualizovat mapu"
       images:
         image: Obrázek
-        best_result: ~
+        best_result: "Abyste dosáhli nejlepších výsledků, použijte JPG, GIF nebo PNG obrázky v rozlišení %{width} x %{height} pixelů."
         no_file_selected: "Žádný soubor není vybrán"
         remove_image: "Odstranit obrázek"
         select_file: "Vybrat soubor"
-        add_more: ~
+        add_more: "+ Přidat další"
         removing: "Probíhá odstraňování..."
-        processing: "Probíhá zpracovávání..."
+        processing: "Probíhá zpracování..."
         loading_image: "Probíhá nahrávání..."
-        image_uploading_in_progress: ~
-        processing_takes_a_while: ~
+        image_uploading_in_progress: "Probíhá nahrávání obrázku..."
+        processing_takes_a_while: "Všechny obrázky byly nahrány! Zpracování však bude chvíli trvat, ale stačí, pokud je uložíte a můžete pokračovat."
         this_may_take_a_while: "(toto může chvíli trvat)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Nahrávání obrázku selhalo"
         file_too_large: "Soubor je příliš velký"
         accepted_formats: "Obrázek musí být ve formátu GIF, JPG nebo PNG."
-        images_not_uploaded_confirm: ~
+        images_not_uploaded_confirm: "Všechny obrázky ještě nebyly nahrány. Opravdu chcete pokračovat?"
       location:
-        location: Umístění
+        location: Poloha
       price:
         price: Cena
         per: za
@@ -1494,39 +1496,39 @@ cs:
         time: "hodinu, den, měsíc, ..."
         long_time: "týden, měsíc, ..."
         after_service_fee_you_will_get: "Po %{service_name} a zaplacení procesních poplatků obdržíte %{sum_with_currency}"
-        no_service_fee_you_will_get_paypal_text: ~
-        after_service_fee_you_will_get_paypal_text: ~
-        paypal_fee_info_link_text: ~
+        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} bude odečten z ceny."
+        after_service_fee_you_will_get_paypal_text: "%{service_name} poplatek (%{sum_with_currency}) a %{paypal_fee_info_link} bude odečten z ceny."
+        paypal_fee_info_link_text: "PayPal poplatek za zpracování platby"
         after_service_fee_you_will_get_vat: "Po %{service_name} a zaplacení procesních poplatků obdržíte cca %{sum_with_currency} (DPH 0%)"
         price_excludes_vat: "Cena nezahrnuje DPH."
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
+        delivery: "Způsob doručení"
+        shipping: Doprava
+        shipping_price: "Poplatek za dopravu"
         shipping_price_additional: "Dodatečné položky"
-        pickup: ~
+        pickup: Vyzvednout
       origin:
-        location: Umístění
+        location: Poloha
         origin: Původ
       send_button:
         save_listing: "Uložit inzerát"
       share_type:
         select: Vybrat
-        borrow: ~
-        buy: ~
-        give_away: ~
-        lend: ~
+        borrow: "Půjčím si"
+        buy: Koupím
+        give_away: Daruji
+        lend: Zapůjčím
         offer_type: "Typ nabídky"
         receive: "Přijetí zdarma"
-        rent: ~
-        rent_out: ~
+        rent: "Pronajmu si"
+        rent_out: Pronajmu
         request_type: "Typ žádosti"
-        sell: ~
+        sell: Prodám
         share_for_free: "Sdílení zdarma"
         accept_for_free: "Přijetí zdarma"
-        trade: Výměna
+        trade: Výměním
       tag_list:
         comma_separate: "(oddělit čárkou)"
-        tags: Pojmenování
+        tags: Označení
       title:
         listing_title: "Název inzerátu"
       valid_until:
@@ -1534,24 +1536,24 @@ cs:
       valid_until_radio_buttons:
         for_the_time_being: Prozatím
       privacy:
-        privacy: Soukromí
+        privacy: Soukromé
         private: "Soukromé (pouze přihlášení uživatelé mohou zobrazit)"
         public: "Veřejné (viditelné pro všechny nepřihlášené uživatele)"
     help_texts:
       help_share_type_title: "Typ nabídky nebo žádosti"
-      help_tags_title: ~
-      help_valid_until_title: "Platnost do"
+      help_tags_title: Označení
+      help_valid_until_title: "Datum vypršení platnosti"
     index:
       all_categories: "Všechny kategorie"
-      all_offer_types: "Všechny nabídky"
-      all_request_types: "Všechny žádosti"
+      all_offer_types: "Všechny typy nabídek"
+      all_request_types: "Všechny typy žádostí"
       category: Kategorie
       did_not_found_what_you_were_looking_for: "Nenalezli jste, co jste hledali?"
       favors: Služby
-      housing: ~
+      housing: Prostory
       items: Položky
       list_view: "Zobrazit seznam"
-      listings: Seznamy
+      listings: Inzeráty
       map_view: "Zobrazit mapu"
       offer_something: "Dejte vědět ostatním!"
       offer_type: "Typ nabídky"
@@ -1568,12 +1570,12 @@ cs:
       buys: Koupím
       favors: Služby
       give_aways: Daruji
-      housings: ~
+      housings: Prostory
       items: Položky
       lends: Zapůjčím
       receives: Daruji
-      rent_outs: ~
-      rents: ~
+      rent_outs: Pronajmu
+      rents: "Pronajmu si"
       rideshares: Spolujízda
       sells: Prodám
       share_for_frees: "Sdílení zdarma"
@@ -1594,10 +1596,10 @@ cs:
       select_subcategory: "Vybrat podkategorii"
       select_transaction_type: "Vybrat typ inzerátu"
       you_need_to_fill_payout_details_before_accepting: "Nejdříve musíte vyplnit podrobnosti ohledně platby, teprve potom můžete přidat inzerát. Jděte na %{payment_settings_link} a vyplňte podrobnosti."
-      contact_admin_link_text: ~
-      community_not_configured_for_payments: ~
+      contact_admin_link_text: "kontaktujte správce"
+      community_not_configured_for_payments: "%{service_name} ještě nebyl nakonfigurován pro platby, takže ještě nemůžete přidávat nové inzeráty. Prosíme, %{contact_admin_link} pro více informací."
       payment_settings_link: "nastavení plateb"
-      community_not_configured_for_payments_admin: ~
+      community_not_configured_for_payments_admin: "%{service_name} ještě nebyl nakonfigurován pro platby, takže ještě nemůžete přidávat nové inzeráty. Jděte na %{payment_settings_link} a vyplňte podrobnosti o platbách."
     quantity:
       hour: "Počet hodin:"
       day: "Počet dní:"
@@ -1613,29 +1615,29 @@ cs:
       add_your_phone_number: "Přidat telefonní číslo"
       add_profile_picture: "Přidat profilový obrázek"
       comments: "Veřejná diskuze"
-      contact_by_phone: "Kontaktovat telefonicky"
+      contact_by_phone: "Telefonní kontakt:"
       contact: Kontakt
       favor_offer: "Nabídka služeb"
       favor_request: "Žádosti o služby"
       inquiry: Oznámení
       item_offer_trade: "Nabídka výměny"
       item_request_trade: "Žádost o výměnu"
-      no_description: "Tento seznam není popsán"
+      no_description: "Tento inzerát neobsahuje popis"
       no_image: "Žádný obrázek"
       no_reviews: "Nebyly obdrženy žádné recenze"
-      offer: Nabídnout
+      offer: Nabídka
       listing_created: Vytvořeno
-      open_until: "Otevřen až do %{date}"
+      open_until: "Otevřeno až do %{date}"
       feedback: "Zpětná vazba"
       qr_code: "QR kód"
-      request: Požádat
+      request: Žádost
       rideshare_offer: "Nabídnout spolujízdu"
       rideshare_request: "Požádat o spolujízdu"
       send_private_message: "Poslat soukromou zprávu"
-      share_types: ~
+      share_types: "Typy sdílení"
       share_types_offer: "Typ nabídky"
       share_types_request: "Typ žádosti"
-      tags: Pojmenování
+      tags: Označení
       time: čas
       times: časy
       times_viewed: Zobrazeno
@@ -1645,11 +1647,11 @@ cs:
       price:
         per_quantity_unit: "za %{quantity_unit}"
         per_day: "za den"
-      delivery: ~
-      shipping: ~
+      delivery: "Způsob doručení"
+      shipping: "Doprava (+%{price})"
       shipping_no_price: "Cena za dopravu"
-      shipping_price_additional: "Cena za dopravu (+%{price}, dodatečné položky: +%{shipping_price_additional})"
-      pickup: ~
+      shipping_price_additional: "Poplatek za dopravu (+%{price}, dodatečné položky: +%{shipping_price_additional})"
+      pickup: Vyzvednout
       pickup_no_price: Vyzvednout
     unit_types:
       piece: kus
@@ -1659,14 +1661,14 @@ cs:
       week: týden
       month: měsíc
     verification_required:
-      verification_required: "Požadování ověření"
+      verification_required: "Ověření požadováno"
   listing_conversations:
     preauthorize:
-      details: Detaily
-      by: "Inzerát %{listing} od uživatele %{author}"
+      details: Podrobnosti
+      by: "%{listing} od uživatele %{author}"
       payment: Platba
       exp: "Vypršení platnosti:"
-      you_will_be_charged: "Platba Vám bude naúčtována, pouze když uživatel %{author} přijme podmínky transakce. Uživatel %{author} musí tyto podmínky přijmout do %{expiration_period} dní. Pokud tak uživatel %{author} neučiní či podmínky odmítne, tak platba neproběhne."
+      you_will_be_charged: "Platba Vám bude zaúčtována pouze, když uživatel %{author} přijme podmínky transakce. Uživatel %{author} musí tyto podmínky přijmout do %{expiration_period} dní. Pokud tak uživatel %{author} neučiní či podmínky odmítne, tak platba nebude provedena."
       day: den
       days: dní
     transaction_agreement_checkbox:
@@ -1674,12 +1676,12 @@ cs:
   mapview:
     index:
       all_categories: "Všechny kategorie"
-      all_offer_types: "Všechny nabídky"
-      all_request_types: "Všechny žádosti"
+      all_offer_types: "Všechny typy nabídek"
+      all_request_types: "Všechny typy žádostí"
       category: Kategorie
       did_not_found_what_you_were_looking_for: "Nenalezli jste, co jste hledali?"
       favors: Služby
-      housing: ~
+      housing: Prostory
       items: Položky
       list_view: "Zobrazit seznam"
       map_view: "Zobrazit mapu"
@@ -1696,8 +1698,8 @@ cs:
   mercury:
     content_too_long: "Vložený obsah byl příliš dlouhý."
   okl:
-    member_id: "Členské ID"
-    member_id_or_email: "Členské ID nebo e-mail"
+    member_id: "Členské identifikační číslo"
+    member_id_or_email: "Členské identifikační číslo nebo e-mail"
   payments:
     new:
       new_payment: "Nová platba"
@@ -1712,12 +1714,12 @@ cs:
       price_for: "Cena za %{payer_given_name}:"
       continue_to_pay: "Pokračovat v platbě"
       invoice: Faktura
-      service_fee: "%{service_name} servisní poplatek:"
+      service_fee: "%{service_name} poplatek za službu:"
       you_will_get: "Obdržíte:"
     braintree:
       terms:
-        braintree_terms_also_included: "POZNÁMKA: Braintree se používá jako platební brána a pomocí této stránky můžete také přijmout %{terms_link_text}, dle níže uvedených podmínek."
-        terms_link_text: "Podmínky použití Braintree"
+        braintree_terms_also_included: "POZNÁMKA: Braintree je používán jako platební brána a pomocí této stránky můžete také přijmout %{terms_link_text}, dle níže uvedených podmínek."
+        terms_link_text: "podmínky použití Braintree"
   paypal_accounts:
     payout_info_title: "Informace o platbě"
     paypal_account_email_connected: "<del>Připojit se přes PayPal účet </del> Hotovo!"
@@ -1725,45 +1727,45 @@ cs:
     you_are_ready_to_accept_payments: "Nyní už můžete přijímat platby!"
     commission: "%{commission} %"
     connected_account: "Přihlášení k PayPal účtu %{email} proběhlo úspěšně."
-    change_account: ~
+    change_account: "Změnit účet"
     missing: ~
-    from_your_payment_settings_link_text: ~
+    from_your_payment_settings_link_text: "nastavení plateb"
     new:
       payout_info_you_need_to_connect: "Abyste mohli přijímat platby, musíte se připojit k Vašemu PayPal účtu na %{service_name}."
       payout_info_text: "Prosíme, vyplňte následující kroky, abyste se mohli přihlásit ke svému účtu."
-      contact_admin_link_text: ~
+      contact_admin_link_text: "kontaktujte správce"
       admin_account_not_connected: "%{service_name} ještě nebyl nakonfigurován pro platby, takže se nemůžete přihlásit k Vašemu PayPal účtu. Prosíme, %{contact_admin_link} pro více informací."
       paypal_account_email: "Připojit se k PayPal účtu"
       paypal_account_email_placeholder: "Vaše PayPal e-mailová adresa"
-      paypal_account_email_info_text: "Pokud nemáte PayPal účet, můžete si ho vytvořit na %{create_paypal_account}.Pokud se Vám zobrazí zpráva o chybě při připojení k PayPal účtu, budete ho muset upgradovat na podnikatelský účet. Převedení na podnikatelský účet je rychlé a snadné a nic vás to stát nebude. Pokud jste fyzická osoba, stačí zadat Vaše jméno a příjmení do pole \"obchodní název\", když o to PayPal požádá. Abyste mohli provést upgrade Vašeho účtu, stačí %{upgrade_paypal_account} a najít odkaz na upgrade."
+      paypal_account_email_info_text: "Pokud nemáte PayPal účet, můžete si ho vytvořit na %{create_paypal_account}.Pokud se Vám zobrazí zpráva o chybě při připojení k PayPal účtu, bude potřeba ho upgradovat na podnikatelský účet. Převedení na podnikatelský účet je rychlé a snadné a nic vás to stát nebude. Pokud jste fyzická osoba, stačí zadat Vaše jméno a příjmení do pole \"obchodní název\", když o to PayPal požádá. Abyste mohli provést upgrade Vašeho účtu, stačí %{upgrade_paypal_account} a najít odkaz na upgrade."
       create_paypal_account: "kliknout zde"
       upgrade_paypal_account: "přihlásit se k Vašemu PayPal účtu"
       connect_paypal_account: "Připojit se k PayPal účtu"
-      paypal_account_billing_agreement: "%{service_name} opravňuje účtovat poplatek za transakce"
-      paypal_account_billing_agreement_info_both: ~
-      paypal_account_billing_agreement_info_fixed: ~
-      paypal_account_billing_agreement_info_relative: ~
-      paypal_info_link_text: ~
-      billing_agreement_description: "%{service_name} opravňuje účtovat poplatek za transakce"
+      paypal_account_billing_agreement: "%{service_name} opravňuje účtovat transakční poplatek"
+      paypal_account_billing_agreement_info_both: "Po provedení prodeje na %{service_name}, poplatek za služby (%{commission_from_seller} z celkové ceny položky, kromě dopravného, minimální poplatek %{minimum_commission}) bude stržen z Vašeho PayPal účtu. Chcete-li přijímat platby v %{service_name}, je třeba povolit, aby Vám poplatek mohl být stržen. Tento poplatek nezahrnuje %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "Po provedení prodej na %{service_name}, poplatek za služby %{minimum_commission} bude stržen z Vašeho PayPal účtu. Chcete-li přijímat platby v %{service_name}, je třeba povolit, aby Vám poplatek mohl být stržen. Tento poplatek nezahrnuje %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Po provedení prodeje na %{service_name}, poplatek za služby (%{commission_from_seller} z celkové ceny položky, kromě dopravného) bude stržen z Vašeho PayPal účtu. Chcete-li přijímat platby v %{service_name}, je třeba povolit, aby Vám poplatek mohl být stržen. Tento poplatek nezahrnuje %{paypal_info_link}."
+      paypal_info_link_text: "PayPal poplatek za provedení platby"
+      billing_agreement_description: "%{service_name} opravňuje účtovat transakční poplatek"
       billing_agreement: "Udělit oprávnění"
       permissions_not_granted: "Oprávnění k připojení se k PayPal účtu nebylo uděleno"
       could_not_fetch_redirect_url: "Nelze načíst přesměrovanou URL adresu k připojení se přes PayPal."
       paypal_not_enabled: "PayPal platby nejsou povoleny."
       billing_agreement_canceled: "Dohoda o vyúčtování byla zrušena"
-      billing_agreement_not_accepted: ~
-      billing_agreement_wrong_account: ~
+      billing_agreement_not_accepted: "Ještě jste nepřijali dohodu o vyúčtování na PayPal."
+      billing_agreement_wrong_account: "PayPal účet se neshoduje. Prosíme, použijte stejný PayPal účet, kterým jste se připojili v prvním kroku."
       something_went_wrong: "Něco se pokazilo. Prosíme, zkuste to znovu. Pokud problémy přetrvají, kontaktujte správce stránek."
-      account_not_verified: ~
-      account_restricted: ~
+      account_not_verified: "Ještě jste neověřili Váš PayPal účet. Přejděte na paypal.com a ověřte Vás účet než budete pokračovat."
+      account_restricted: "Váš PayPal účet má omezený přístup a nemůžete být připojeni. Prosíme, přihlaste se na paypal.com a zjistěte, co to znamená nebo kontaktujte PayPal zákaznickou podporu, abyste problém vyřešili."
   paypal:
-    pay_with_paypal: ~
-    checkout_with_paypal: "Odhlášení se z PayPal"
+    pay_with_paypal: "Přejít k platbě"
+    checkout_with_paypal: "Odhlášení z PayPal"
     cancel_succesful: "Platba přes PayPal byla úspěšně zrušena"
     transaction:
       commission_payment_name: "Přirážka k platbě za %{listing_title}"
       commission_payment_description: "Tržiště %{service_name} si vzalo provizi z transakce za %{listing_title}"
-    wait_while_loading: ~
-    chatting_with_paypal: ~
+    wait_while_loading: "Prosíme, čekejte."
+    chatting_with_paypal: "Právě se domlouváme s PayPal."
   people:
     edit_links:
       activate: Aktivovat
@@ -1777,27 +1779,27 @@ cs:
       invite_only_help_text_title: "Pozvat pouze"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Tento uživatel již není aktivní v %{service_name}."
-      inactive_description: "Tento uživatel přestal používat %{service_name}. Nemůžete již tohoto uživatele kontaktovat, poskytnout mu zpětnou vazbu ani komentovat jeho příspěvky."
+      inactive_description: "Tento uživatel přestal používat %{service_name}. Nemůžete již tohoto uživatele kontaktovat, poskytnout mu zpětnou vazbu ani okomentovat jeho inzeráty."
     new:
       captcha_incorrect: "Ověření selhalo. Prosíme, opište znovu text z obrázku níže."
       captcha_was_wrong: "Text byl zadán nesprávně."
       create_new_account: "Vytvořit účet"
       email: "E-mailová adresa"
-      email_is_in_use: "E-mail, který byl zadán, je již obsazen."
+      email_is_in_use: "Vámi zadaný e-mail je již obsazen."
       email_is_in_use_or_not_allowed: "Tento e-mail není povolen nebo je již využíván. Pokud se nemůžete přihlásit, kontaktujte nás."
       email_not_allowed: "Tento e-mail nebyl povolen v %{service_name}. Prosíme, použijte povolenou e-mailovou adresu. Pokud se i nadále nemůžete přihlásit, napište nám."
       email_restriction_instructions:
         one: "Přístup do %{service_name} je omezený. K připojení budete potřebovat %{allowed_emails} e-mailovou adresu."
-        few: "Přístup do %{service_name} je omezený. Budete potřebovat e-mailovou adresu, díky které budete mít nárok se přihlásit."
-        other: "Přístup do %{service_name} je omezený. Budete potřebovat e-mailovou adresu, díky které budete mít nárok se přihlásit."
+        few: "Přístup do %{service_name} je omezený. Budete potřebovat e-mailovou adresu, díky které se budete moci přihlásit."
+        other: "Přístup do %{service_name} je omezený. Budete potřebovat e-mailovou adresu, díky které se budete moci přihlásit."
       enter_captcha: "Jsem člověk:"
       family_name: Příjmení
       given_name: Jméno
       i_accept_the: Přijímám
-      invalid_invitation_code: "Kód na pozvánce není platný."
-      invitation_code: "Kód na pozvánce"
+      invalid_invitation_code: "Kód pozvánky není platný."
+      invitation_code: "Kód pozvánky"
       not_required: ", není požadováno"
-      notification_is_mandatory: "Musíte vybrat alespoň jednu e-mailovou adresu pro obdržení upozornění. Pokud nechcete dostávat žádné e-maily od %{service_name}, zkontrolujte si nastavení upozornění e-mailem."
+      notification_is_mandatory: "Musíte vybrat alespoň jednu e-mailovou adresu, abyste dostávali upozornění. Pokud nechcete dostávat žádné e-maily od %{service_name}, zkontrolujte si nastavení upozornění e-mailem."
       organization_name: "Název organizace"
       password_again: "Potvrďte heslo"
       show_my_name_to_others: "Zobrazit moje skutečné jméno jiným uživatelům %{service_name}."
@@ -1811,7 +1813,7 @@ cs:
       OR: NEBO
       signup_with_email: "Zaregistrovat se přes e-mail"
     not_member:
-      explanation_text: "Právě si prohlížíte %{community}. Pokusili jste se zobrazit profil uživatele, který je uživatelem jiné tržiště vytvořeného přes platformu Sharetribe. Nelze získat přístup k tomuto profilu uživatele v %{community}."
+      explanation_text: "Právě si prohlížíte %{community}. Pokusili jste se zobrazit profil uživatele, který je uživatelem jiného tržiště vytvořeného přes platformu Sharetribe. Nemůžete získat přístup k tomuto profilu uživatele v %{community}."
       read_more_about_kassi_communities: "Přečtěte si více o Sharetribe tržišti."
       this_user_does_not_belong_to_this_community: "Tento uživatel není členem %{community}."
     profile_feedback:
@@ -1872,7 +1874,7 @@ cs:
   search:
     show:
       all_results: "Všechny výsledky"
-      loading_more_search_results: "Načítání dalších výsledků hledání"
+      loading_more_search_results: "Načítání dalších výsledků vyhledávání"
       offers: Nabídky
       requests: Žádosti
       search: Hledat

@@ -1192,6 +1192,8 @@ fi:
       list_button: Lista
       all_listing_types: "Kaikki ilmoitustyypit"
       all_categories: "Kaikki ilmoituskategoriat"
+    errors:
+      search_engine_not_responding: "Haku on tilapäisesti poissa toiminnasta. Yritä hetken päästä uudelleen."
   infos:
     about:
       default_about_text_title: "Mikä on Sharetribe?"
