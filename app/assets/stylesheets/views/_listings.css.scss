@@ -159,6 +159,12 @@ $listing-author-avatar-height: 108;
   margin: lines(0.5) 0; // Some top & bottom margin to give links some space
 }
 
+.map-link {
+  float: right;
+  font-size: em(14);
+  margin-top: 0.2em;
+}
+
 // Delivery options
 .delivery-title {
   margin-bottom: 0;
