@@ -1,5 +1,5 @@
 module PlanService::ExternalPlanServiceInjector
-  Configuration = DataTypes::Configuration
+  Configuration = PlanService::DataTypes::Configuration
 
   def external_plan_service
     @external_plan_service ||= build_external_plan_service

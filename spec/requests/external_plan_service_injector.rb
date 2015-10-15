@@ -1,5 +1,5 @@
 module PlanService::ExternalPlanServiceInjector
-  Configuration = DataTypes::Configuration
+  Configuration = PlanService::DataTypes::Configuration
 
   @@active = true
 
