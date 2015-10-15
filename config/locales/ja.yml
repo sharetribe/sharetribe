@@ -1411,6 +1411,8 @@ ja:
       show_in_updates_email_loading: 読み込み中...
       show_in_updates_email_error: サーバに接続できませんでした。ページを読み込んだ後、再度お試しください。
       show_in_updates_email_success: このリストはユーザに送信される、次回の自動お知らせメールに掲載されます。
+    map:
+      open_in_google_maps: ~
     error:
       something_went_wrong: "何か不具合がありました。 エラーコード： %{error_code}"
     follow_links:

@@ -1195,7 +1195,7 @@ de:
       all_listing_types: "Alle Einträge"
       all_categories: "Alle Kategorien"
     errors:
-      search_engine_not_responding: ~
+      search_engine_not_responding: "Die Suchfunktion ist derzeit nicht verfügbar. Bitte versuche es später noch einmal."
   infos:
     about:
       default_about_text_title: "Was ist Sharetribe?"
@@ -1419,7 +1419,7 @@ de:
       show_in_updates_email_error: "Der Server konnte nicht erreicht werden. Lade die Seite neu und versuche es erneut."
       show_in_updates_email_success: ~
     map:
-      open_in_google_maps: ~
+      open_in_google_maps: "In Google Maps öffnen"
     error:
       something_went_wrong: "Etwas ist schief gelaufen, Fehlercode: %{error_code}"
     follow_links:

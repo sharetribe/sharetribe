@@ -1430,6 +1430,8 @@ sv:
       show_in_updates_email_loading: Laddar...
       show_in_updates_email_error: "Det gick inte att nå servern. Försök igen efter att du laddat om sidan."
       show_in_updates_email_success: "Dessa annonser kommer att visas i nästa automatiska uppdateringsmail som skickas till användarna."
+    map:
+      open_in_google_maps: ~
     error:
       something_went_wrong: "Något gick fel, felmeddelande: %{error_code}"
     follow_links:

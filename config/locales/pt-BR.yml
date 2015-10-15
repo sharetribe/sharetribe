@@ -1205,7 +1205,7 @@ pt-BR:
       all_listing_types: "Todos os tipos de anúncios"
       all_categories: "Todas categorias"
     errors:
-      search_engine_not_responding: ~
+      search_engine_not_responding: "No momento a busca não está disponível. Tente novamente dentro de alguns minutos."
   infos:
     about:
       default_about_text_title: "O que é Sharetribe?"
@@ -1428,6 +1428,8 @@ pt-BR:
       show_in_updates_email_loading: Carregando...
       show_in_updates_email_error: "Não foi possível acessar o servidor. Tente novamente depois de atualizar a página."
       show_in_updates_email_success: "Este anúncio será mostrado na próxima atualização automática de e-mail enviado aos usuários"
+    map:
+      open_in_google_maps: "Abrir no Google Maps"
     error:
       something_went_wrong: "Alguma coisa deu errado, código do erro: %{error_code}"
     follow_links:

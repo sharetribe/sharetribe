@@ -1417,6 +1417,8 @@ zh-TW:
       show_in_updates_email_loading: 加载……
       show_in_updates_email_error: 不能访问服务器。页面刷新后重试。
       show_in_updates_email_success: 这个发布的信息将被显示在下一封自动发送给用户的邮件中。
+    map:
+      open_in_google_maps: ~
     error:
       something_went_wrong: "出错了，错误代码：%{error_code}"
     follow_links:
