@@ -30,7 +30,6 @@ describe "plan provisioning" do
 
     it "returns 200 if authorized" do
       post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", {plans: []}.to_json
-      puts response.body
       expect(response.status).to eq(200)
     end
   end
@@ -42,6 +41,22 @@ describe "plan provisioning" do
 
       error_log = log_target.parse_log(:error)
       expect(error_log.first[:free]).to include("Error while parsing JSON")
+    end
+  end
+
+  describe "not in use" do
+    before(:each) {
+      PlanService::ExternalPlanServiceInjector.set_active(false)
+    }
+
+    after(:each) {
+      # reset
+      PlanService::ExternalPlanServiceInjector.set_active(true)
+    }
+
+    it "returns 404 if external plan service is not in use" do
+      post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", {plans: []}.to_json
+      expect(response.status).to eq(404)
     end
   end
 

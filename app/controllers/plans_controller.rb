@@ -1,6 +1,7 @@
 class PlansController < ApplicationController
   skip_before_filter :verify_authenticity_token, :fetch_logged_in_user, :fetch_community, :fetch_community_membership
   skip_filter :check_email_confirmation
+  before_filter :ensure_external_plan_service_in_use!
   before_filter :do_jwt_authentication!
 
   # includes: external_plan_service (Hash with jwt_secret)
@@ -105,13 +106,6 @@ class PlansController < ApplicationController
 
   # private
 
-  def do_jwt_authentication!
-    JWTUtils.decode(params[:token], external_plan_service[:jwt_secret]).on_error {
-      logger.error("Unauthorized", nil, token: params[:token])
-      render json: {error: :unauthorized}, status: 401
-    }
-  end
-
   def parse_json(body)
     begin
       Result::Success.new(JSONUtils.symbolize_keys(JSON.parse(body)))
@@ -127,4 +121,20 @@ class PlansController < ApplicationController
   def to_entity(hash)
     HashUtils.rename_keys(EXT_SERVICE_TO_ENTITY_MAP, hash)
   end
+
+  # filters
+
+  def do_jwt_authentication!
+    JWTUtils.decode(params[:token], external_plan_service[:jwt_secret]).on_error {
+      logger.error("Unauthorized", nil, token: params[:token])
+      render json: {error: :unauthorized}, status: 401
+    }
+  end
+
+  def ensure_external_plan_service_in_use!
+    unless external_plan_service[:active]
+      raise ActiveRecord::RecordNotFound
+    end
+  end
+
 end

@@ -12,6 +12,7 @@ module PlanService::ExternalPlanServiceInjector
 
   def build_external_plan_service
     {
+      active: APP_CONFIG.external_plan_service_in_use,
       jwt_secret: APP_CONFIG.external_plan_service_secret
     }
   end
