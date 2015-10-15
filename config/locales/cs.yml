@@ -1437,6 +1437,8 @@ cs:
       show_in_updates_email_loading: "Probíhá nahrávání..."
       show_in_updates_email_error: "Nepodařilo se připojit k serveru. Zkuste to znovu po obnovení stránky."
       show_in_updates_email_success: "Tento inzerát bude uveden v dalším automatickém e-mailu s novinkami zasílaném uživatelům"
+    map:
+      open_in_google_maps: ~
     error:
       something_went_wrong: "Něco se nezdařilo, kód chyby: %{error_code}"
     follow_links:

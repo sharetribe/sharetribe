@@ -1416,6 +1416,8 @@ fi:
       show_in_updates_email_loading: Ladataan...
       show_in_updates_email_error: "Palveluun ei saatu yhteyttä. Päivitä sivu ja yritä uudestaan."
       show_in_updates_email_success: "Tämä ilmoitus näytetään seuraavassa tapahtumapäivityssähköpostissa"
+    map:
+      open_in_google_maps: ~
     error:
       something_went_wrong: "Jotain meni vikaan, virhekoodi: %{error_code}"
     follow_links:

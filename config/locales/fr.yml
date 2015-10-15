@@ -1428,6 +1428,8 @@ fr:
       show_in_updates_email_loading: Chargement...
       show_in_updates_email_error: "Impossible de se connecter au serveur. Veuillez essayer de nouveau après avoir rafraîchi la page."
       show_in_updates_email_success: "Cette annonce sera diffusée dans le prochain email d'actualité, automatiquement envoyée aux utilisateurs"
+    map:
+      open_in_google_maps: ~
     error:
       something_went_wrong: "Quelque chose s'est mal passé, code d'erreur : %{error_code}"
     follow_links:

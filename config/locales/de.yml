@@ -1418,6 +1418,8 @@ de:
       show_in_updates_email_loading: Lädt...
       show_in_updates_email_error: "Der Server konnte nicht erreicht werden. Lade die Seite neu und versuche es erneut."
       show_in_updates_email_success: ~
+    map:
+      open_in_google_maps: ~
     error:
       something_went_wrong: "Etwas ist schief gelaufen, Fehlercode: %{error_code}"
     follow_links:

@@ -1424,6 +1424,8 @@ da-DK:
       show_in_updates_email_loading: Venter...
       show_in_updates_email_error: "Serveren kunne ikke findes. Prøv at genindlæse siden."
       show_in_updates_email_success: ~
+    map:
+      open_in_google_maps: ~
     error:
       something_went_wrong: "Noget gik galt, error code: %{error_code}"
     follow_links:
