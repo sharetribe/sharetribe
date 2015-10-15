@@ -115,6 +115,19 @@ module Result
 
   module_function
 
+  # Runs the given operations (lambdas) sequentially.
+  # The result data from the first operation is passed to the second operation, and so on
+  # If you are not interested in the previous operation result, you can ignore them, but you have
+  # to let the lambda allow n-number of arguments.
+  #
+  # Usage:
+  #
+  # fetch_user = ->() { UserService.fetch(user_id) }
+  # fetch_user_email = ->(user) { EmailService.fetch(user[:email_id]) }
+  # send_authentication_token = ->(user, email) { AuthenticationService.send_token(user[:name], email[:address]) }
+  #
+  # authentication_send_result = Result.all(fetch_user, fetch_user_email, send_authentication_token)
+  #
   def all(*operations)
     operations.inject(Result::Success.new([])) { |res, op|
       if res.success

@@ -5,40 +5,51 @@ describe PlanService::API::Plans do
   describe "#create" do
     context "#get_current" do
       it "creates a new plan" do
-        expires_at = 1.month.from_now.change(usec: 0)
+        Timecop.freeze(Time.now.change(usec: 0)) {
+          expires_at = 1.month.from_now.change(usec: 0)
 
-        plans_api.plans.create(
-          community_id: 123, plan: {
-            plan_level: PlanService::Levels::SCALE,
-            expires_at: expires_at,
-          })
+          plans_api.plans.create(
+            community_id: 123, plan: {
+              plan_level: PlanService::Levels::SCALE,
+              expires_at: expires_at,
+            })
 
-        res = plans_api.plans.get_current(community_id: 123)
+          res = plans_api.plans.get_current(community_id: 123)
 
-        expect(res.success).to eq(true)
-        expect(res.data).to eq(
-                              community_id: 123,
-                              plan_level: 4,
-                              expires_at: expires_at,
-                              expired: false
-                            )
+          expect(res.success).to eq(true)
+          expect(res.data[:id]).to be_a(Fixnum)
+          expect(res.data.except(:id)).to eq(
+                                community_id: 123,
+                                plan_level: 4,
+                                expires_at: expires_at,
+                                created_at: Time.now,
+                                updated_at: Time.now,
+                                expired: false,
+                                          )
+
+        }
       end
 
       it "creates a new plan that never expires" do
-        plans_api.plans.create(
-          community_id: 123, plan: {
-            plan_level: PlanService::Levels::PRO
-          })
+        Timecop.freeze(Time.now.change(usec: 0)) {
+          plans_api.plans.create(
+            community_id: 123, plan: {
+              plan_level: PlanService::Levels::PRO
+            })
 
-        res = plans_api.plans.get_current(community_id: 123)
+          res = plans_api.plans.get_current(community_id: 123)
 
-        expect(res.success).to eq(true)
-        expect(res.data).to eq(
-                              community_id: 123,
-                              plan_level: 2,
-                              expires_at: nil,
-                              expired: false,
-                            )
+          expect(res.success).to eq(true)
+          expect(res.data[:id]).to be_a(Fixnum)
+          expect(res.data.except(:id)).to eq(
+                                            community_id: 123,
+                                            plan_level: 2,
+                                            expires_at: nil,
+                                            created_at: Time.now,
+                                            updated_at: Time.now,
+                                            expired: false,
+                                          )
+        }
       end
     end
 

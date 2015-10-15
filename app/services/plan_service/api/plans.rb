@@ -28,6 +28,10 @@ module PlanService::API
       }
     end
 
+    def get_trials(after:)
+      Result::Success.new(PlanStore.get_trials(after: after))
+    end
+
     private
 
     def with_expiration_status(plan)
