@@ -114,7 +114,7 @@ module ListingIndexService::Search
           with: with,
           with_all: with_all,
           order: 'sort_date DESC',
-          max_query_time: 500 # Timeout and fail after 500ms
+          max_query_time: 1000 # Timeout and fail after 500ms
         )
 
         begin
