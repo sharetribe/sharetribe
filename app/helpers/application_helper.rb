@@ -66,6 +66,7 @@ module ApplicationHelper
       "send" => "ss-send",
       "form" => "ss-form",
       "link" => "ss-link",
+      "external_link" => "ss-action",
       "social_media" => "ss-share",
       "analytics" => "ss-analytics",
       "openbook" => "ss-openbook",
@@ -187,6 +188,8 @@ module ApplicationHelper
       "facebook" => "icon-facebook",
       "invite" => "icon-users",
       "download" => "icon-download",
+      "link" => "icon-link",
+      "external_link" => "icon-external-link",
 
       "information" => "icon-info-sign",
       "alert" => "icon-warning-sign",
