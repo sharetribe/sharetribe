@@ -139,7 +139,7 @@ class HomepageController < ApplicationController
       keywords: filter_params[:search],
       fields: checkboxes.concat(dropdowns).concat(numbers),
       per_page: listings_per_page,
-      page: params[:page] || 1,
+      page: params[:page].to_i > 0 ? params[:page].to_i : 1
     }
 
     ListingIndexService::API::Api.listings.search(community_id: @current_community.id, search: search, includes: includes).and_then { |res|
