@@ -1201,7 +1201,7 @@ da-DK:
       all_listing_types: "Alle annonce typer"
       all_categories: "Alle kategorier"
     errors:
-      search_engine_not_responding: ~
+      search_engine_not_responding: "Det er ikke muligt at søge på nuværende tidspunkt. Prøv venligst igen senere."
   infos:
     about:
       default_about_text_title: "Hvad er Sharetribe?"
@@ -1425,7 +1425,7 @@ da-DK:
       show_in_updates_email_error: "Serveren kunne ikke findes. Prøv at genindlæse siden."
       show_in_updates_email_success: ~
     map:
-      open_in_google_maps: ~
+      open_in_google_maps: "Åbn i Google Maps"
     error:
       something_went_wrong: "Noget gik galt, error code: %{error_code}"
     follow_links:
