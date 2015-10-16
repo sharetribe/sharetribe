@@ -124,9 +124,9 @@ cs:
         edit_text_instructions: Návody
       edit_welcome_email:
         welcome_email_content: "Obsah uvítacího e-mailu"
-        welcome_email_content_description: "Níže uvedená zpráva bude poslána novým uživatelům, když se připojí. Zprávu můžete upravit dle Vaší potřeby. Kliknutím na %{send_test_message_link} můžete odeslat na Váš e-mail náhled zprávy, takže můžete vidět, jak to vypadá v přijatém e-mailu."
+        welcome_email_content_description: "Níže uvedená zpráva bude zaslána novým uživatelům, když se připojí. Zprávu můžete upravit dle Vaší potřeby. Kliknutím na %{send_test_message_link} můžete odeslat na Váš e-mail náhled zprávy, takže můžete vidět, jak to vypadá v přijatém e-mailu."
         edit_message: "Upravit zprávu"
-        send_test_message: "Poslat text zprávy"
+        send_test_message: "Odeslat text zprávy"
       outgoing_email:
         title: "Odchozí e-mailová adresa"
         info: "Toto jméno a adresa se používá pro e-maily poslané členům z Vašeho tržiště."
@@ -155,7 +155,7 @@ cs:
         invalid_email_domain_read_more_link: "Přečtěte si následující článek pro více informací."
         unknown_error: "Něco se nezdařilo"
         only_white_label_offer: "Tato funkce je součástí nabídky Sharetribe white-label. Chcete-li povolit tuto funkci, měli byste %{upgrade_pro_plan_link}."
-        upgrade_pro_plan_link: "upgradovat na náš Pro plan nebo vyšší verzi"
+        upgrade_pro_plan_link: "upgradovat na Pro plan nebo vyšší verzi"
         verification_sent_from: "Ověřovací e-mail byl odeslán z %{verification_sender_name}."
         follow_the_instructions: "Prosíme, postupujte dle pokynů v e-mailu pro ověření Vaší adresy."
       getting_started:
@@ -218,7 +218,7 @@ cs:
         general: Obecné
         users_can_review_each_other_after_transaction: "Uživatelé mohou navzájem zkontrolovat proběhlou transakci"
         access: Přístup
-        join_with_invite_only: "Pouze uživatelé se mohou připojit k tomuto tržišti pozvánkou od jiného uživatele"
+        join_with_invite_only: "Pouze uživatelé s pozvánkou od jiného uživatele se mohou připojit k tomuto tržišti"
         users_can_invite_new_users: "Všichni uživatelé mohou pozvat nové uživatele do tohoto tržiště"
         private: "Toto tržiště je soukromé (pouze registrovaní uživatelé mohou zobrazit obsah)"
         require_verification_to_post_listings: "Pouze uživatelé ověření správcem mohou přidávat nové inzeráty"
@@ -229,8 +229,8 @@ cs:
         hide_expiration_date: "Nevyžadovat inzeráty s datem vypršení platnosti"
         listing_comments_in_use: "Povolit uživatelům přidávat příspěvky k inzerátům (viditelné pro všechny uživatele)"
         email_preferences: "Nastavení e-mailu"
-        automatic_newsletters: "Poslat automaticky denní / týdenní newsletter všem uživatelům (v případě, že nezruší zasílání)"
-        email_admins_about_new_members: "Poslat správcům e-mail v případě, že se zaregistruje nový uživatel"
+        automatic_newsletters: "Zasílat automaticky denní / týdenní newsletter všem uživatelům (v případě, že nezruší zasílání)"
+        email_admins_about_new_members: "Zasílat správcům e-mail v případě, že se zaregistruje nový uživatel"
         google_analytics_key: "sledování identifikačního čísla pomocí Google Analytics"
         twitter_handle: "Twitter (používá se tweet tlačítkem na straně)"
         update_settings: "Uložit nastavení"
@@ -280,7 +280,7 @@ cs:
         invalid_facebook_connect_secret: "Heslo by mělo obsahovat pouze číslice a znaky od A do F."
         save: "Uložit nastavení"
       analytics:
-        analytics: Analytics
+        analytics: "Google Analytics"
         google_analytics_key: "sledování identifikačního čísla pomocí Google Analytics"
         google_analytics_key_info_text: "Sledování identifikačního čísla Vašeho Google Analytics účtu"
         google_analytics_key_info_text_with_instructions: "Sledování identifikačního čísla Vašeho Google Analytics účtu. %{instructions_link}"
@@ -340,7 +340,7 @@ cs:
         price_min: "Minimální cena"
         price_max: "Maximální cena"
       edit_location:
-        edit_location_field: "Upravit pole umístění"
+        edit_location_field: "Upravit umístění"
         this_field_is_required: "Toto pole je povinné"
       form:
         field_required:
@@ -360,7 +360,7 @@ cs:
         add_option: "+ Přidat možnost"
         saving_order: Uložit
         save_order_successful: "Typ objednávky byl úspěšně uložen"
-        save_order_error: "Došlo k chybě při ukládání typu objednávky. Prosíme, aktualizujte stránku a zkuste to znovu."
+        save_order_error: "Došlo k chybě při ukládání uspořádání polí. Prosíme, aktualizujte stránku a zkuste to znovu."
         select_one: "Vyberte typ pole..."
         continue: Pokračovat
         minimum_value: Minimum
@@ -403,7 +403,7 @@ cs:
         no_categories: "Žádné kategorie"
         category_count: "%{category_count} kategorie"
         header:
-          listing_shape_name: "Název uspořádání"
+          listing_shape_name: Název
           listing_shape_categories: "Kategorie, ve kterých je již použito"
         order:
           saving_order: "Ukládání objednávky"
@@ -424,10 +424,10 @@ cs:
         create_success: "Nový typ objednávky \"%{shape}\" byl vytvořen"
         create_failure: "Nelze vytvořit nový typ objednávky. Chyba. %{error_msg}"
       edit:
-        edit_listing_shape: "Upravit typ uspořádání \"%{shape}\""
+        edit_listing_shape: "Upravit typ objednávky \"%{shape}\""
         update: Uložit
         cancel: Zrušit
-        update_success: "Změna typu uspořádání \"%{shape}\" byla uložena"
+        update_success: "Změna typu objednávky \"%{shape}\" byla uložena"
         update_failure: "Změny nelze uložit. Chyba:%{error_msg}"
         delete: "Smazat typ objednávky"
         confirm_delete_order_type:
@@ -485,7 +485,7 @@ cs:
       marketplace_paypal_integration: "Nastavení plateb"
       preferences_updated: "Nastavení plateb aktualizováno"
       integration_info_text: "Platební systém Sharetribe funguje díky PayPal. Pokud chcete uživatelům umožnit, aby prováděli platby přes Vaše tržiště, musíte se připojit ke svému PayPal účtu a zadat minimální velikost transakce a poplatek z každé provedené transakce."
-      read_more_about_paypal: "Přečtěte si více o Sharetribe platební systému"
+      read_more_about_paypal: "Přečtěte si více o Sharetribe platebním systému"
       paypal_account_email: "1. Připojit se k PayPal účtu"
       paypal_account_email_completed: Hotovo!
       set_minimum_price_and_fee: "2. Nastavit minimální cenu & transakční poplatek"
@@ -1741,8 +1741,8 @@ cs:
       admin_account_not_connected: "%{service_name} ještě nebyl nakonfigurován pro platby, takže se nemůžete přihlásit k Vašemu PayPal účtu. Prosíme, %{contact_admin_link} pro více informací."
       paypal_account_email: "Připojit se k PayPal účtu"
       paypal_account_email_placeholder: "Vaše PayPal e-mailová adresa"
-      paypal_account_email_info_text: "Pokud nemáte PayPal účet, můžete si ho vytvořit na %{create_paypal_account}.Pokud se Vám zobrazí zpráva o chybě při připojení k PayPal účtu, bude potřeba ho upgradovat na podnikatelský účet. Převedení na podnikatelský účet je rychlé a snadné a nic vás to stát nebude. Pokud jste fyzická osoba, stačí zadat Vaše jméno a příjmení do pole \"obchodní název\", když o to PayPal požádá. Abyste mohli provést upgrade Vašeho účtu, stačí %{upgrade_paypal_account} a najít odkaz na upgrade."
-      create_paypal_account: "kliknout zde"
+      paypal_account_email_info_text: "Pokud nemáte PayPal účet, můžete si ho vytvořit %{create_paypal_account}.Pokud se Vám zobrazí zpráva o chybě při připojení k PayPal účtu, bude potřeba ho upgradovat na podnikatelský účet. Převedení na podnikatelský účet je rychlé a snadné a nic vás to stát nebude. Pokud jste fyzická osoba, stačí zadat Vaše jméno a příjmení do pole \"obchodní název\", když o to PayPal požádá. Abyste mohli provést upgrade Vašeho účtu, stačí se %{upgrade_paypal_account} a najít odkaz na upgrade"
+      create_paypal_account: zde
       upgrade_paypal_account: "přihlásit se k Vašemu PayPal účtu"
       connect_paypal_account: "Připojit se k PayPal účtu"
       paypal_account_billing_agreement: "%{service_name} opravňuje účtovat transakční poplatek"
