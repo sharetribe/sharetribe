@@ -19,8 +19,8 @@ cs:
           category_parent: "Podobná kategorie"
           no_parent: "Žádná shoda"
         category_transaction_types:
-          transaction_types: "Typy uspořádání"
-          transaction_types_description: "Typy uspořádání určují, jaký druh uspořádání je povolen pro inzeráty v této kategorii. Například povoleno pouze pro prodám, pronajmu nebo pro daruji."
+          transaction_types: "Typy objednávek"
+          transaction_types_description: "Typy objednávek určují, jaký druh objednávek bude povolen pro inzeráty v této kategorii. Například povoleno pouze pro prodám, pronajmu nebo pro daruji."
         buttons:
           save: Uložit
           cancel: Zrušit
@@ -60,7 +60,7 @@ cs:
         enabled_languages: "Povolené jazyky"
         enabled_languages_description: "Seznam jazyků dostupných pro uživatele. První z nich je použit jako výchozí."
         default_language: "Výchozí jazyk"
-        language_selection_disabled: "Výběr jazyka je pro Vaše tržiště zakázán, protože používáte následující neoficiální jazyky: %{languages}. Prosíme, kontaktujte podporu Sharetribe, pokud chcete změnit nastavení Vašeho jazyka."
+        language_selection_disabled: "Výběr jazyka je pro Vaše tržiště zakázán, protože používáte následující neoficiální jazyk: %{languages}. Prosíme, kontaktujte podporu Sharetribe, pokud chcete změnit nastavení Vašeho jazyka."
         community_name: "Název tržiště"
         edit_community_name_description: "Název Vašeho tržiště. Tento název se zobrazí uživatelům v e-mailech a na jiných místech."
         community_slogan: "Slogan tržiště"
@@ -72,7 +72,7 @@ cs:
         private_community_homepage_content: "Obsah domovské stránky soukromého tržiště"
         edit_private_community_homepage_content_description: "Tento obsah se zobrazí nepřihlášeným uživatelům na domovské stránce soukromého tržiště. Zde můžete popsat Vaše tržiště a postup, jak se připojit. Můžete sem také přidávat obrázky, videa a HTML obsahy. %{see_how_it_looks_like}"
         update_information: "Uložit nastavení"
-        invite_people: "Pozvěte nové uživatele"
+        invite_people: "Pozvat nové uživatele"
         edit_signup_info: "Registrační informace"
         edit_signup_info_description: "Toto je informační text, který lze zobrazit pouze uživatelům při registraci. Zde můžete popsat uživatelům instrukce k registraci, jako např. kde získat pozvání, atd. Ve výchozím nastavením nejsou k dispozici jakékoliv instrukce."
         edit_info: "Upravit informace"
@@ -105,7 +105,7 @@ cs:
         small_cover_photo_visibility: "Malá úvodní fotka se zobrazí nepřihlášeným uživatelům na všech stránkách kromě domovské stránky."
         small_cover_photo_instructions_text_with_dimensions: "Fotografie bude přizpůsobena velikosti %{width}x%{height} pixelů a větší obrázky budou ořezány."
         main_content_width: "Při výběru úvodních fotek vezměte na vědomí, že rozlišení hlavní stránky je maximálně %{main_width} pixelů na šířku. Nezapomeňte také zkontrolovat, jak bude Vaše úvodní fotografie vypadat na menších obrazovkách. (např. použitím užších oken vyhledávačů)."
-        custom_color1_instructions_text: "Můžete změnit základní barvu uživatelského rozhraní zadáním hodnoty hexa barvy.  <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> Vám pomůže vybrat barvu a následně sem zkopírujte kód barvy."
+        custom_color1_instructions_text: "Můžete změnit základní barvu uživatelského rozhraní zadáním hodnoty hexa barvy.  Na <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> si můžete vybrat barvu a následně sem bude zkopírován kód barvy."
         custom_color2_instructions_text: "Můžete změnit druhou barvu uživatelského rozhraní zadáním hodnoty hexa barvy."
         default_browse_view: "Výchozí zobrazení prohlížeče"
         default_browse_view_instructions_text: "Výchozí zobrazení prohlížeče se používá na domovské stránce k nastavení, jak mají být inzeráty zobrazeny ve výchozím nastavení."
@@ -166,28 +166,28 @@ cs:
         look_and_feel: "Předtím, než spustíte Vaše stránky pro veřejnost, budete pravděpodobně chtít nastavit několik věcí. Například budete možná chtít %{logo_link} a změnit úvodní fotky a barvy, aby ladily se vzhledem Vaší značky."
         logo_link_text: "přidat Vaše logo"
         custom_domain: "Možná budete chtít také přidat svoji vlastní webovou adresu (např.: www.yourmarketplace.com). Toto nastavení bude na naší straně vyžadovat nějakou tu práci, takže zakoupíme SSL certifikát, aby byly Vaše stránky v bezpečí. Z těchto důvodů nejsou vlastní domény právě teď dostupné v bezplatné zkušební verzi, takže budete muset nejdřív přejít na náš Pro plan nebo vyšší verzi. Pokud byste chtěli mít svoji vlastní doménu, prosíme, %{contact_support_link}."
-        categories_and_custom_fields: "Další věc, o které se budete muset rozhodnout je, jakými druhy obsahu mohou lidé na Vašich stránkách přispívat. Můžete %{categories_link}, %{custom_fields_link}, které obsahují aktuální podobu inzerátů a rozhodnout, %{filters_link} se použijete v případě, když si lidé budou vyhledávat inzeráty."
+        categories_and_custom_fields: "Další věc, o které se budete muset rozhodnout, je, jakými druhy obsahu mohou lidé na Vašich stránkách přispívat. Můžete %{categories_link}, %{custom_fields_link}, které obsahují aktuální podobu inzerátů a rozhodnout, %{filters_link} se použijete v případě, když si lidé budou vyhledávat inzeráty."
         categories_link_text: "přidat kategorie a subkategorie"
         custom_fields_link_text: "nastavit seznamy"
         filters_link_text: "jaký druh filtrů"
-        order_types: "Můžete také nastavit, jak bude proces objednávání na Vašem tržišti fungovat. Prodávají, pronajímají nebo dávají věci zadarmo Vaši uživatelé? Zapůjčují hodinově, denně nebo týdně? Tyto věci mohou být nastaveny na %{order_types_link}."
-        order_types_link_text: "Zobrazit typ objednávky"
-        payments: "Pokud chcete, aby lidé mohli za své nákupy zaplatit prostřednictvím Vašeho tržiště, můžete si nastavit poplatek z každé transakce, takže byste tedy měli %{payments_link}."
-        payments_link_text: "nastavit způsob platby"
-        info_texts: "Nezapomeňte přizpůsobit informační stránky a další texty, kde se můžete zmínit uživatelům o Vašem tržišti. Měli byste zkontrolovat Váš odkaz %{about_page_link}, Vaše %{terms_of_use_link} (měli byste přidat Vaše vlastní podmínky použití buď úpravou stávající šablony, nebo vytvořením zcela nového dokumentu), Vaše %{privacy_policy_link} a %{welcome_email_link}, který je odeslán každému novému uživateli. Jsou zde také některé %{instruction_texts_link}, které si můžete nastavit."
-        about_page_link_text: "o nás"
+        order_types: "Můžete také nastavit, jak bude proces objednávání na Vašem tržišti probíhat. Prodávají, pronajímají nebo darují věci zadarmo Vaši uživatelé? Půjčují uživatelé hodinově, denně či týdně? Tyto věci můžete nastavit v %{order_types_link}."
+        order_types_link_text: "zobrazení typu objednávky"
+        payments: "Pokud chcete, aby lidé mohli za své nákupy zaplatit prostřednictvím Vašeho tržiště, měli byste tedy si nastavit poplatek z každé transakce v tedy měli %{payments_link}."
+        payments_link_text: "nastavení způsobu platby"
+        info_texts: "Nezapomeňte nastavit informační stránky a další texty, kterými se můžete zmínit uživatelům o Vašem tržišti. Měli byste zkontrolovat odkaz %{about_page_link}, Vaše %{terms_of_use_link} (měli byste přidat Vaše vlastní podmínky použití buď úpravou stávající šablony, nebo vytvořením zcela nových podmínek), %{privacy_policy_link} a %{welcome_email_link}, který je zasílán každému novému uživateli. Jsou zde také některé %{instruction_texts_link}, které si můžete nastavit."
+        about_page_link_text: "O nás"
         terms_of_use_link_text: "podmínky použití"
         privacy_policy_link_text: "zásady ochrany osobních údajů"
         welcome_email_link_text: "uvítací e-mail"
         instruction_texts_link_text: "další informační texty"
-        social_media: "Používání sociálních sítí je skvělý způsob, jak vybudovat komunitu. Můžete %{facebook_link}, což lidem může usnadnit přihlášení k Vašemu tržišti a %{twitter_link}, abyste byli viditelnější, když lidé budou tweetovat ohledně produktů na Vašem tržišti."
+        social_media: "Používání sociálních sítí je skvělý způsob, jak si vybudovat vlastní komunitu. Můžete se %{facebook_link}, což lidem usnadní přihlášení tržišti a %{twitter_link}, abyste byli viditelnější, když lidé budou tweetovat o zboží na Vašem tržišti."
         facebook_link_text: "připojit k Vaši vlastní Facebook aplikaci"
-        twitter_link_text: "a přidejte i Váš Twitter účet"
+        twitter_link_text: "přidejte i Váš Twitter účet"
         analytics: "Dobrý nápad je se také %{analytics_link}. Díky tomu pro Vás bude snažší sledovat, co se na Vašem tržišti děje, kolik návštěvníků máte atd."
         analytics_link_text: "přihlásit k účtu Google Analytics"
-        settings: "Existuje spousta dalších nastavení, se kterými byste si mohli hrát. Například můžete požadovat, aby každý byl pozvaný od nějakého uživatele předtím, než se bude moci přidat k Vašemu tržišti, takže pouze přihlášení uživatelé mohou vidět obsah. %{settings_link}"
+        settings: "Existuje spousta dalších nastavení, se kterými byste si mohli hrát. Například můžete požadovat, aby byl každý pozvaný již od nějakého uživatele předtím, než se bude moci přidat k Vašemu tržišti, takže pouze přihlášení uživatelé si budou moci zobrazit obsah. %{settings_link}"
         settings_link_text: "Zobrazit nastavení tržiště zde"
-        final_words: "A o tom to je! Pokud je vše připraveno, můžete začít %{invite_link} k Vašemu tržišti. Můžete vidět všechny uživatele, kteří se připojili %{view_users_link} a všechny provedené transakce %{view_transactions_link}. Velmi snadno můžete spravovat i inzeráty: jděte stránku s inzerátem a uvidíte tam odkazy pro úpravu a uzavření inzerátu. Pokud byste potřebovali pomoc, %{contact_support_link} - jsme tu přece pro Vás!"
+        final_words: "A je to! Pokud si myslíte, že je vše připraveno, můžete začít %{invite_link} do Vašeho tržiště. Můžete zobrazit všechny přihlášené uživatele %{view_users_link} či všechny provedené transakce %{view_transactions_link}. Velmi snadno můžete spravovat i inzeráty: přejděte na stránku s inzerátem a uvidíte tam odkazy pro úpravu a uzavření inzerátu. Pokud byste potřebovali pomoci, %{contact_support_link} - jsme tu přece pro Vás!"
         invite_link_text: "s pozváním uživatelů"
         view_users_link_text: zde
         view_transactions_link_text: zde
@@ -249,13 +249,13 @@ cs:
         you_will_be_redirected_to: "Poté, co smažete Vaše tržiště, budete přesměrováni do %{destination}. Již nikdy nebudete mít přístup do Vašeho tržiště."
         delete_this_marketplace: "Smazat toto tržiště"
       manage_members:
-        manage_members: "Spravovat uživatele"
+        manage_members: "Správa uživatelů"
         email: E-mail
         name: Jméno
-        join_date: Připojen
+        join_date: "Naposledy přihlášen"
         admin: Správce
         posting_allowed: "Přidávání příspěvků povoleno"
-        ban_user: "Zakázaný uživatel"
+        ban_user: "Zakázat uživatele"
         saving_user_status: Ukládání...
         save_user_status_successful: Uloženo
         export_all_as_csv: "Exportovat vše do formátu CSV"
@@ -295,10 +295,10 @@ cs:
         title: Název
         language: Jazyk
         url: "URL adresa"
-        empty: "Nemáte žádné další odkazy"
+        empty: "Nejsou zde žádné odkazy"
       transactions:
         export_all_as_csv: "Exportovat vše do formátu CSV"
-        transactions: "Zobrazit transakce"
+        transactions: Transakce
         headers:
           conversation: "Vlákno konverzace"
           listing: Inzerát
@@ -358,9 +358,9 @@ cs:
         categories: "Kategorie inzerátů, kde se pole vyskytuje"
         options: Možnosti
         add_option: "+ Přidat možnost"
-        saving_order: "Uložit uspořádání polí"
-        save_order_successful: "Uspořádání polí bylo úspěšně uloženo"
-        save_order_error: "Došlo k chybě při ukládání uspořádání polí. Prosíme, aktualizujte stránku a zkuste to znovu."
+        saving_order: Uložit
+        save_order_successful: "Typ objednávky byl úspěšně uložen"
+        save_order_error: "Došlo k chybě při ukládání typu objednávky. Prosíme, aktualizujte stránku a zkuste to znovu."
         select_one: "Vyberte typ pole..."
         continue: Pokračovat
         minimum_value: Minimum
@@ -383,7 +383,7 @@ cs:
         email_content_placeholder: "Co chcete sdělit Vašim uživatelům?"
         email_language: "Jazyk e-mailu příjemců"
         any_language: "Jakýkoliv jazyk"
-        send_email: "Poslat e-mail"
+        send_email: Odeslat
         message_will_be_sent_only_to_people_with_this_language: "Poznámka: e-mail bude poslán pouze uživatelům, kteří používají  %{service_name} v jazyce, který vyberete."
         email_sent: "E-mail byl odeslán."
     left_hand_navigation:
@@ -394,8 +394,8 @@ cs:
       support: "Zákaznická podpora"
     listing_shapes:
       index:
-        listing_shapes: "Typy uspořádání"
-        description: "Typy uspořádání určují, jak to na Vaší stránce bude fungovat. Můžete se rozhodnout, zda Vaši uživatele budou pronajímat nebo prodávat nebo možná pouze přidávat příspěvky a komunikovat přes zprávy."
+        listing_shapes: "Typy objednávek"
+        description: "Zde můžete nastavit, jak bude Vaše stránka fungovat. Můžete se rozhodnout, zda Vaši uživatelé mohou pronajímat nebo prodávat nebo pouze přidávat příspěvky a komunikovat přes zprávy."
         read_more_about_order_types: "Přečtěte si více o typech objednávek"
         add_new_shape: "Přidat nový typ objednávky: "
         select_template: "Vybrat šablonu..."
@@ -1261,7 +1261,7 @@ cs:
       how_to_use: "Jak to funguje"
       info_about_kassi: "Informace o %{service_name}"
       news: Novinky
-      register_details: Soukromé
+      register_details: "Osobní údaje"
       terms: "Podmínky použití"
     logged_in:
       admin: Správce
@@ -1417,6 +1417,8 @@ cs:
     comment:
       wrote: "byl napsán"
       send_private_message: "Poslat soukromou zprávu uživateli %{person}"
+      delete: ~
+      are_you_sure: ~
     comment_form:
       ask_a_question: "Okomentujte inzerát nebo se zeptejte na více podrobností. Ostatní uživatelé Váš komentář uvidí."
       log_in: "přihlásit se"

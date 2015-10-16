@@ -1392,6 +1392,8 @@ nl:
     comment:
       wrote: schreef
       send_private_message: "Verstuur privé bericht naar %{person}"
+      delete: ~
+      are_you_sure: ~
     comment_form:
       ask_a_question: "Plaats een reactie als u meer wilt weten over dit item. Andere gebruikers kunnen uw reactie zien."
       log_in: "log in"

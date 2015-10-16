@@ -1396,6 +1396,8 @@ fi:
     comment:
       wrote: kirjoitti
       send_private_message: "Lähetä yksityisviesti käyttäjälle %{person}"
+      delete: ~
+      are_you_sure: ~
     comment_form:
       ask_a_question: "Kommentoi ilmoitusta tai kysy lisätietoja. Kommenttisi näkyy muille käyttäjille."
       log_in: "kirjautua sisään"

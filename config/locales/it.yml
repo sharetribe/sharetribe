@@ -1379,6 +1379,8 @@ it:
     comment:
       wrote: scritto
       send_private_message: "Invia un messaggio privato a %{person}"
+      delete: ~
+      are_you_sure: ~
     comment_form:
       ask_a_question: "Lascia un commento su questo annuncio o richiedi maggiori dettagli. Tutti gli altri utenti saranno in grado di vedere il tuo commento"
       log_in: Accedi
