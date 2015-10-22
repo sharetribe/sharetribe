@@ -1410,8 +1410,8 @@ nb:
     comment:
       wrote: skrev
       send_private_message: "Send privat melding til %{person}"
-      delete: ~
-      are_you_sure: ~
+      delete: slett
+      are_you_sure: "Er du sikker på at du vil slette kommentaren?"
     comment_form:
       ask_a_question: "Kommenter på en listing eller etterpør flere detaljer. Alle brukere kan se din kommentar."
       log_in: "logg inn"

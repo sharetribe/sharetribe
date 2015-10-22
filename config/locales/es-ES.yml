@@ -1410,8 +1410,8 @@ es-ES:
     comment:
       wrote: escrito
       send_private_message: "Enviar mensaje privado a %{person}"
-      delete: ~
-      are_you_sure: ~
+      delete: eliminar
+      are_you_sure: "Estás seguro de que deseas borrar el comentario?"
     comment_form:
       ask_a_question: "Escribe un comentario o pregunta para solicitar más detalles sobre el anuncio. Todos los demás usuarios podrán verlo."
       log_in: entrar

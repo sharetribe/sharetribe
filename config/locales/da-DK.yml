@@ -1164,7 +1164,7 @@ da-DK:
       no_reviews: "Ingen anmeldelser"
       no_image: "Intet billede"
       filter: Filter
-      this_is_private_community: "Du skal en opret profil﻿ før du kan se dette indhold."
+      this_is_private_community: "Du skal oprette en profil før du kan se indholdet"
     invitation_form:
       email: "E-mail-adresse (r)"
       message: "En personlig meddelelse"
@@ -1404,8 +1404,8 @@ da-DK:
     comment:
       wrote: skrev
       send_private_message: "Send privat besked til %{person}"
-      delete: ~
-      are_you_sure: ~
+      delete: slet
+      are_you_sure: "Er du sikker på, at du vil slette kommentaren?"
     comment_form:
       ask_a_question: "Skriv en kommentar eller spørg efter flere detaljer. Alle andre brugere har mulighed for at se din kommentar."
       log_in: "Log ind"

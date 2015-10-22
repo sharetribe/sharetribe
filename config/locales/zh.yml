@@ -248,7 +248,7 @@ zh:
         ban_user: 禁止用户
         saving_user_status: 正在保存……
         save_user_status_successful: 已保存
-        export_all_as_csv: ~
+        export_all_as_csv: 导出为CSV文件
         save_user_status_error: 保存失败。请刷新页面后重试。
         ban_user_confirmation: 这将会把用户从集市中删除并阻止他们使用这个帐号再次访问该站点。你确认要继续吗？
         ban_me_error: 你不能禁止自己。
@@ -287,7 +287,7 @@ zh:
         url: 网址
         empty: 你没有更多的菜单链接
       transactions:
-        export_all_as_csv: ~
+        export_all_as_csv: 导出为CSV文件
         transactions: 查看交易记录
         headers:
           conversation: 会话
@@ -950,7 +950,7 @@ zh:
       change_my_password: 修改密码
       reset_password_instructions: "<p>你声明你忘记了%{service_name}的用户名或者密码。</p><p>你的用户名是：%{username}</p><p>如果你需要重置密码，点击以下链接：%{password_reset_link}</p><br/><p>如果你没有这个要求，请忽略这封电子邮件。 你的密码将不会改变，直到你访问上面的链接并创建一个新的密码。</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "评价是对其他用户公开的。其他用户可根据评价来判断 %{name} 是否值得信赖。所以，记得评价别人发起的活动，也提醒别人评价你发起的活动。你需要正面的评价来获得更多的徽章。"
+      feedback_is_public_and_is_shown: "评价是对其他用户公开的。其他用户可根据评价来判断 %{name} 是否值得信赖。所以，记得评价别人发布的信息，也提醒别人评价你发布的信息。你需要正面的评价来获得更多的徽章。"
       remember_to_give_feedback_to: "提醒：记得给%{name} 评价"
       you_have_not_given_feedback_yet: "你尚未评价%{name} 参与的活动'%{event}'。记得评价%{given_name} 在活动中的表现。"
     transaction_preauthorized:
@@ -1194,7 +1194,7 @@ zh:
       all_listing_types: 全部类型 
       all_categories: 全部分类
     errors:
-      search_engine_not_responding: ~
+      search_engine_not_responding: 搜索功能当前无法使用，请稍后再试。
   infos:
     about:
       default_about_text_title: 什么是Sharetribe？
@@ -1397,8 +1397,8 @@ zh:
     comment:
       wrote: 写到
       send_private_message: "发送私人消息给%{person}"
-      delete: ~
-      are_you_sure: ~
+      delete: 删除
+      are_you_sure: 你确定要删除这条评论吗？
     comment_form:
       ask_a_question: 评论该条信息或者询问更多细节。所有其他用户都能看到你的评论。
       log_in: 登录
@@ -1420,7 +1420,7 @@ zh:
       show_in_updates_email_error: 不能访问服务器。页面刷新后重试。
       show_in_updates_email_success: 这个发布的信息将被显示在下一封自动发送给用户的邮件中。
     map:
-      open_in_google_maps: ~
+      open_in_google_maps: 在Google地图中打开
     error:
       something_went_wrong: "出错了，错误代码：%{error_code}"
     follow_links:
@@ -1454,22 +1454,22 @@ zh:
         googlemap_updatemap: 更新地图
       images:
         image: 图片
-        best_result: ~
+        best_result: "为了达到最好的效果，使用%{width}*%{height}像素的JPG, GIF或者PNG格式的图片"
         no_file_selected: 未选择文件
         remove_image: 移除图片
         select_file: 选择文件
-        add_more: ~
+        add_more: +添加更多
         removing: 移除中……
         processing: 处理中……
         loading_image: 正在加载……
-        image_uploading_in_progress: ~
-        processing_takes_a_while: ~
-        this_may_take_a_while: （这可能会花一些时间）
+        image_uploading_in_progress: 图片正在上传...
+        processing_takes_a_while: 所有的图片上传完成！图片处理需要一些时间，你可以保存信息并继续浏览。
+        this_may_take_a_while: 这只需要一小会
         percentage_loaded: "%{percentage}%"
         uploading_failed: 图片加载出错
         file_too_large: 文件太大
         accepted_formats: "图片必须是GIF,JPG或PNG格式。"
-        images_not_uploaded_confirm: ~
+        images_not_uploaded_confirm: 图片还没有上传完成。你真的想要跳过吗?
       location:
         location: 地点
       price:
@@ -1951,7 +1951,7 @@ zh:
       settings_link: 设置
       homepage_link: 主页
       unsubscribe_unsuccesful: 取消订阅出错
-      unsuccessful_unsubscribe_info_text: 原因可能是你点击的退订链接过久或已经失效。通过左边的反馈按钮联系我们进行退订或者登录并修改你的电子邮件配置。
+      unsuccessful_unsubscribe_info_text: 退订链接已经失效。登录并修改你的电子邮件订阅配置。
     profile:
       about_you: 关于你
       city: 城市

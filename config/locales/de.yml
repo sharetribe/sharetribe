@@ -706,7 +706,7 @@ de:
       request_preauthorized: "Zahlung erfolgreich"
       skip_feedback: "Keine Bewertung geben"
       waiting_for_listing_author_to_accept_offer: "Warte bis %{listing_author_name} das Angebt annimmt"
-      waiting_for_listing_author_to_accept_request: "Warten bis %{listing_author_name} die Anfrage annimmt. Sobald %{listing_author_name} akzeptiert hat, wird dein Konto belastet."
+      waiting_for_listing_author_to_accept_request: "Warten bis %{listing_author_name} die Anfrage annimmt. Sobald %{listing_author_name} akzeptiert hat, wird Dein Konto belastet."
       waiting_for_you_to_accept_request: "Wartet, dass Du die Anfrage akzeptierst"
       waiting_confirmation_from_requester: "Warten bis %{requester_name} die Anfrage als erledigt markiert"
       waiting_confirmation_from_you: "Wartet darauf, dass Du den Vorgang als abgeschlossen markierst"
@@ -882,8 +882,8 @@ de:
       remember_to_confirm: "Wenn der Auftrag erfüllt ist, denke daran, ihn als erledigt zu markieren. Wenn der Auftrag noch nicht erfüllt ist, hast Du %{days_to_automatic_confirmation} Tage, um ihn abzubrechen. Sonst wird er automatisch als abgeschlossen markiert werden."
     invitation_to_kassi:
       hi: Hallo!
-      you_have_been_invited_to_kassi: "%{inviter} hat dich dazu eingeladen %{community} zu benutzen."
-      here_is_a_message_from: "Hier ist eine persönliche Nachricht von %{inviter}:"
+      you_have_been_invited_to_kassi: "%{inviter} hat Dich eingeladen, %{service_name} zu benutzen."
+      here_is_a_message_from: "Persönliche Nachricht von %{inviter}:"
       join_now: "Jetzt Mitglied werden"
       invitation_code: "Einladungscode %{code}"
     new_comment:
@@ -1227,7 +1227,7 @@ de:
       invite_your_friends: "Freunde einladen"
       invite_your_neighbors: "Lade Nachbarn ein!"
       invite_your_friends_description: "Je mehr Leute im %{service_name} sind, desto nützlicher ist es."
-      invite_your_friends_invite_only_description: "Andere Leute können dieser Community nur beitreten, wenn sie eingeladen werden."
+      invite_your_friends_invite_only_description: "Andere Leute können %{service_name} nur beitreten, wenn sie eingeladen werden."
       join_without_facebook: ".... oder alternativ %{join_without_facebook_link}"
       join_without_facebook_link: "Melde dich an ohne Facebook Mitglied zu sein"
     conversations:
@@ -1398,8 +1398,8 @@ de:
     comment:
       wrote: schrieb
       send_private_message: "Private Nachricht an %{person} senden"
-      delete: ~
-      are_you_sure: ~
+      delete: löschen
+      are_you_sure: "Möchtest Du diesen Kommentar wirklich löschen?"
     comment_form:
       ask_a_question: "Kommentiere den Eintrag und frage nach mehr Details. Alle anderen Mitglieder werden deine Kommentare sehen."
       log_in: Anmelden
