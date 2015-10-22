@@ -1,5 +1,9 @@
 @import "mixins/all";
 
+.conversation-unread {
+  background: $highlight;
+}
+
 .conversation-details-container {
   position: relative;
 }
@@ -24,9 +28,13 @@
 }
 
 .conversation-title-link {
-  font-weight: bold;
   display: block;
   @include ellipsis;
+}
+
+.conversation-title-link-unread {
+  font-weight: bold;
+  @extend .conversation-title-link;
 }
 
 .conversation-title-link-text {

@@ -1,4 +1,4 @@
-.row-with-divider.without-margin.conversation-row{:class => conversation[:should_notify] ? "unread" : ""}
+.row-with-divider.without-margin.conversation-row{:class => conversation[:should_notify] ? "conversation-unread" : ""}
 
   .col-3
     .conversation-details-container
@@ -11,7 +11,7 @@
           = conversation[:last_activity_ago]
 
   %div{class: payments_in_use ? "col-6" : "col-9"}
-    = link_to conversation[:path], class: "conversation-title-link" do
+    = link_to conversation[:path], class:(conversation[:should_notify] ? 'conversation-title-link-unread' : 'conversation-title-link') do
       = conversation[:title]
     .conversation-context
       - if conversation[:listing_url].present?
