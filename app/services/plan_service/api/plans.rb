@@ -4,6 +4,16 @@ module PlanService::API
   class Plans
 
     def create(community_id:, plan:)
+      if plan[:plan_level] == 0
+        Result::Success.new(
+          with_expiration_status(
+            PlanStore.create_trial(community_id: community_id, plan: plan)))
+      else
+        Result::Success.new(
+          with_expiration_status(
+            PlanStore.create_plan(community_id: community_id, plan: plan)))
+      end
+
       Result::Success.new(
         with_expiration_status(
           PlanStore.create(community_id: community_id, plan: plan)))
