@@ -131,7 +131,7 @@ Given /^I want to pay "(.*?)"$/ do |item_title|
   steps %Q{
     Given I am on the messages page
     Then I should see "Waiting for you to pay"
-    When I click ".conversation-title-link"
+    When I click ".conversation-title-link-unread"
     And I follow "Pay"
     Then I should see payment details form for Braintree
   }
@@ -142,7 +142,7 @@ When /^I cancel the transaction$/ do
   steps %Q{
     Given I am on the messages page
     Then I should see "Waiting for you to mark the request completed"
-    When I click ".conversation-title-link"
+    When I click ".conversation-title-link-unread"
     And I follow "Dispute"
   }
 end
