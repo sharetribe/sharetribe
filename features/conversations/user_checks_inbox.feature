@@ -67,7 +67,7 @@ Feature: User checks inbox
     And I should see "Fine"
     And I follow "Fine"
     And I follow inbox link
-    And I should not see "Fine" within ".unread"
+    And I should not see "Fine" within ".conversation-title-link-unread"
     And I should see that there is 1 new message
 
   Scenario: Viewing sent messages when there are multiple messages from different senders
