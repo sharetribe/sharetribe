@@ -22,7 +22,14 @@ class IntApi::MarketplacesController < ApplicationController
                    :marketplace_country,
                    :marketplace_language)
             .merge(payment_process: :preauthorize)
-      )
+    )
+
+    # Create initial trial plan
+    plan = {
+      plan_level: PlanUtils::FREE,
+      expires_at: Time.now.change({ hour: 9, min: 0, sec: 0 }) + 31.days
+    }
+    PlanService::API::Api.plans.create_initial_trial(community_id: marketplace[:id], plan: plan)
 
     if marketplace
       TransactionService::API::Api.settings.provision(
@@ -42,8 +49,6 @@ class IntApi::MarketplacesController < ApplicationController
 
     auth_token = UserService::API::AuthTokens.create_login_token(user[:id])
     url = URLUtils.append_query_param(marketplace[:url], "auth", auth_token[:token])
-
-    # TODO Add user to mailchimp list
 
     # TODO handle error cases with proper response
 

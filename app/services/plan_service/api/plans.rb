@@ -1,9 +1,20 @@
 module PlanService::API
   PlanStore = PlanService::Store::Plan
 
+  Plan = PlanService::DataTypes::Plan
+
   class Plans
 
+    def initialize(ext_plan_service)
+      @active = Maybe(ext_plan_service)[:active].map { true }.or_else(false)
+    end
+
     def create(community_id:, plan:)
+
+      unless @active
+        Result::Failure.new("External plan service is not in use.")
+      end
+
       Result::Success.new(
         with_expiration_status(
           PlanStore.create_plan(community_id: community_id, plan: plan)))
@@ -24,6 +35,11 @@ module PlanService::API
     # why this function is deprecated
     #
     def create_initial_trial(community_id:, plan:)
+
+      unless @active
+        Result::Failure.new("External plan service is not in use.")
+      end
+
       Result::Success.new(
         with_expiration_status(
           PlanStore.create_trial(community_id: community_id, plan: plan)))
@@ -37,11 +53,22 @@ module PlanService::API
     end
 
     def get_current(community_id:)
-      Maybe(PlanStore.get_current(community_id: community_id)).map { |plan|
-        Result::Success.new(with_expiration_status(plan))
-      }.or_else {
-        Result::Error.new("Can not find plan for community id: #{community_id}")
-      }
+      if !@active
+        Result::Success.new(
+          Plan.new(
+          community_id: community_id,
+          plan_level: PlanService::Levels::OS,
+          expires_at: nil,
+          created_at: Time.now,
+          updated_at: Time.now)
+        )
+      else
+        Maybe(PlanStore.get_current(community_id: community_id)).map { |plan|
+          Result::Success.new(with_expiration_status(plan))
+        }.or_else {
+          Result::Error.new("Can not find plan for community id: #{community_id}")
+        }
+      end
     end
 
     def expired?(community_id:)
@@ -56,6 +83,10 @@ module PlanService::API
     end
 
     def get_trials(after:)
+      unless @active
+        Result::Failure.new("External plan service is not in use.")
+      end
+
       Result::Success.new(PlanStore.get_trials(after: after))
     end
 

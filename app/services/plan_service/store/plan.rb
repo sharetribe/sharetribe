@@ -19,14 +19,7 @@ module PlanService::Store::Plan
     [:expires_at, :time],
   )
 
-  Plan = EntityUtils.define_builder(
-    [:id, :fixnum, :mandatory],
-    [:community_id, :fixnum, :mandatory],
-    [:plan_level, :fixnum, :mandatory],
-    [:expires_at, :time, :optional],
-    [:created_at, :time, :mandatory],
-    [:updated_at, :time, :mandatory],
-  )
+  Plan = PlanService::DataTypes::Plan
 
   module_function
 
