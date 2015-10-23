@@ -26,7 +26,6 @@ class IntApi::MarketplacesController < ApplicationController
 
     # Create initial trial plan
     plan = {
-      plan_level: PlanUtils::FREE,
       expires_at: Time.now.change({ hour: 9, min: 0, sec: 0 }) + 31.days
     }
     PlanService::API::Api.plans.create_initial_trial(community_id: marketplace[:id], plan: plan)
