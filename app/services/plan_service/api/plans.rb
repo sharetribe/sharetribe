@@ -47,7 +47,7 @@ module PlanService::API
       # Use create_plan and create_initial_trial methods instead
       Result::Success.new(
         with_expiration_status(
-          PlanStore.create(community_id: community_id, plan: plan)))
+          PlanStore.create(community_id: community_id, plan: plan.merge(plan_level: 0))))
     end
 
     def get_current(community_id:)

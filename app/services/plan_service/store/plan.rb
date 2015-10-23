@@ -31,7 +31,7 @@ module PlanService::Store::Plan
   end
 
   def create_trial(community_id:, plan:)
-    plan_entity = NewTrialPlan.call(plan.merge(community_id: community_id, plan_level: PlanService::Levels::FREE))
+    plan_entity = NewTrialPlan.call(plan.merge(community_id: community_id))
     from_trial_model(TrialModel.create!(plan_entity))
   end
 
