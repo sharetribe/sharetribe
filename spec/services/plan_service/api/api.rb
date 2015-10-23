@@ -3,11 +3,22 @@ module PlanService::API
     Configuration = PlanService::DataTypes::Configuration
 
     def self.plans
-      @plans ||= PlanService::API::Plans.new(build_configuration(environment))
+      configuration = build_configuration()
+
+      @plans ||=
+        if configuration[:active]
+          PlanService::API::Plans.new(configuration)
+        else
+          PlanService::API::NoPlans.new()
+        end
     end
 
     def self.logger
       @logger ||= build_logger(log_target)
+    end
+
+    def self.reset!
+      @plans = nil
     end
 
     # private
@@ -37,8 +48,8 @@ module PlanService::API
       @env = default_test_environment.merge(env)
     end
 
-    def self.build_configuration(env)
-      Configuration.call(env)
+    def self.build_configuration()
+      Configuration.call(environment())
     end
 
     def self.build_logger(log_target)

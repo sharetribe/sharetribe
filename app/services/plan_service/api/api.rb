@@ -3,7 +3,14 @@ module PlanService::API
     Configuration = PlanService::DataTypes::Configuration
 
     def self.plans
-      @plans ||= PlanService::API::Plans.new(build_configuration())
+      configuration = build_configuration()
+
+      @plans ||=
+        if configuration[:active]
+          PlanService::API::Plans.new(configuration)
+        else
+          PlanService::API::NoPlans.new()
+        end
     end
 
     def self.logger
