@@ -4,16 +4,33 @@ module PlanService::API
   class Plans
 
     def create(community_id:, plan:)
-      if plan[:plan_level] == 0
-        Result::Success.new(
-          with_expiration_status(
-            PlanStore.create_trial(community_id: community_id, plan: plan)))
-      else
-        Result::Success.new(
-          with_expiration_status(
-            PlanStore.create_plan(community_id: community_id, plan: plan)))
-      end
+      Result::Success.new(
+        with_expiration_status(
+          PlanStore.create_plan(community_id: community_id, plan: plan)))
 
+      # deprecated
+      # TODO remove this
+      # Use create_plan and create_initial_trial methods instead
+      Result::Success.new(
+        with_expiration_status(
+          PlanStore.create(community_id: community_id, plan: plan)))
+    end
+
+    # Create an initial trial plan
+    #
+    # deprecated
+    #
+    # All plans should come from the external plan service and that's
+    # why this function is deprecated
+    #
+    def create_initial_trial(community_id:, plan:)
+      Result::Success.new(
+        with_expiration_status(
+          PlanStore.create_trial(community_id: community_id, plan: plan)))
+
+      # deprecated
+      # TODO remove this
+      # Use create_plan and create_initial_trial methods instead
       Result::Success.new(
         with_expiration_status(
           PlanStore.create(community_id: community_id, plan: plan)))

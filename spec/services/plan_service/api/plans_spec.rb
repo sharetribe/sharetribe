@@ -4,6 +4,32 @@ describe PlanService::API::Plans do
 
   describe "#create" do
     context "#get_current" do
+      it "creates a new initial trial" do
+        Timecop.freeze(Time.now.change(usec: 0)) {
+          expires_at = 1.month.from_now.change(usec: 0)
+
+          plans_api.plans.create_initial_trial(
+            community_id: 123, plan: {
+              plan_level: PlanService::Levels::FREE,
+              expires_at: expires_at,
+            })
+
+          res = plans_api.plans.get_current(community_id: 123)
+
+          expect(res.success).to eq(true)
+          expect(res.data[:id]).to be_a(Fixnum)
+          expect(res.data.except(:id)).to eq(
+                                community_id: 123,
+                                plan_level: 0,
+                                expires_at: expires_at,
+                                created_at: Time.now,
+                                updated_at: Time.now,
+                                expired: false,
+                                          )
+
+        }
+      end
+
       it "creates a new plan" do
         Timecop.freeze(Time.now.change(usec: 0)) {
           expires_at = 1.month.from_now.change(usec: 0)

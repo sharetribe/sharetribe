@@ -75,7 +75,12 @@ module MarketplaceService::API
 
       plan_level = p[:plan_level].or_else(PlanUtils::FREE)
       expires_at = p[:expires_at].or_else(Time.now.change({ hour: 9, min: 0, sec: 0 }) + 31.days)
-      PlanService::API::Api.plans.create(community_id: community.id, plan: { plan_level: plan_level, expires_at: expires_at })
+
+      if plan_level == PlanUtils::FREE
+        PlanService::API::Api.plans.create_initial_trial(community_id: community.id, plan: { plan_level: plan_level, expires_at: expires_at })
+      else
+        PlanService::API::Api.plans.create(community_id: community.id, plan: { plan_level: plan_level, expires_at: expires_at })
+      end
 
       return from_model(community)
     end
