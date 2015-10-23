@@ -5,10 +5,17 @@ module PlanService::API
 
   class Plans
 
-    def initialize(ext_plan_service)
-      @active = Maybe(ext_plan_service)[:active].map {
-        |v| !!v # to bool
-      }.or_else(false)
+    def initialize(configuration)
+      @active = configuration[:active]
+      @jwt_secret = configuration[:jwt_secret]
+    end
+
+    def active?
+      @active
+    end
+
+    def authorize(token)
+      JWTUtils.decode(token, @jwt_secret)
     end
 
     def create(community_id:, plan:)
