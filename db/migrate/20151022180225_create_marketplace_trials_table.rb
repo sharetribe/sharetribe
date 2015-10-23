@@ -1,7 +1,7 @@
 class CreateMarketplaceTrialsTable < ActiveRecord::Migration
 
   def change
-    create_table :marketplace_trials, :force => true do |t|
+    create_table :marketplace_trials do |t|
       t.integer  :community_id,              :null => false
       t.datetime :expires_at
       t.datetime :created_at,                  :null => false

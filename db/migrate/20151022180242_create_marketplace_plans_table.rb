@@ -1,7 +1,7 @@
 class CreateMarketplacePlansTable < ActiveRecord::Migration
 
   def change
-    create_table :marketplace_plans, :force => true do |t|
+    create_table :marketplace_plans do |t|
       t.integer  :community_id,                :null => false
       t.integer  :plan_level
       t.datetime :expires_at
