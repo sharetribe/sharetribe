@@ -1,10 +1,10 @@
 module PaypalHelper
 
   # List all the contries that have the new fee page available
-  SHOW_NEW_FEE_PAGE = ["us", "de", "br"].to_set
+  SHOW_NEW_FEE_PAGE = ["us", "de", "br", "fr"].to_set
 
   # List all the contries that have the popup URL available
-  SHOW_POPUP_COUNTRIES = ["us", "de"].to_set
+  SHOW_POPUP_COUNTRIES = ["us", "de", "fr"].to_set
 
   # List all the countries that should use the home URL, because popup is not available
   # (and default English popup is not good)
