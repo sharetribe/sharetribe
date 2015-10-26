@@ -130,7 +130,7 @@ class PlansController < ApplicationController
   end
 
   def ensure_external_plan_service_in_use!
-    raise ActiveRecord::RecordNotFound unless plans_api.active?
+    render_not_found! unless plans_api.active?
   end
 
   def plans_api

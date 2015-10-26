@@ -548,4 +548,8 @@ class ApplicationController < ActionController::Base
   def self.ensure_feature_enabled(feature_name, options = {})
     before_filter(options) { ensure_feature_enabled(feature_name) }
   end
+
+  def render_not_found!(msg = "Not found")
+    raise ActionController::RoutingError.new(msg)
+  end
 end
