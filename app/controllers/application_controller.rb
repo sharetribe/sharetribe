@@ -385,11 +385,33 @@ class ApplicationController < ActionController::Base
     }
   end
 
+  def external_plan_service_login_link(marketplace_id)
+    payload = {user_id: marketplace_id}
+    secret = APP_CONFIG.external_plan_service_secret
+    external_plan_service_url = APP_CONFIG.external_plan_service_url_base + "login"
+    token = JWTUtils.encode(payload, secret)
+    URLUtils.append_query_param(external_plan_service_url, "token", token)
+  end
+
+  def display_expiration_notice?
+    if feature_enabled?(:new_plan_page)
+      APP_CONFIG.external_plan_service_secret && @is_current_community_admin && PlanUtils.expired?(@current_plan)
+    else
+      @is_current_community_admin && PlanUtils.expired?(@current_plan)
+    end
+  end
+
   def fetch_chargebee_plan_data
-    @pro_biannual_link = APP_CONFIG.chargebee_pro_biannual_link
-    @pro_biannual_price = APP_CONFIG.chargebee_pro_biannual_price
-    @pro_monthly_link = APP_CONFIG.chargebee_pro_monthly_link
-    @pro_monthly_price = APP_CONFIG.chargebee_pro_monthly_price
+    if feature_enabled?(:new_plan_page)
+      if display_expiration_notice?
+        @external_plan_service_link = external_plan_service_login_link(@current_community.id)
+      end
+    else
+      @pro_biannual_link = APP_CONFIG.chargebee_pro_biannual_link
+      @pro_biannual_price = APP_CONFIG.chargebee_pro_biannual_price
+      @pro_monthly_link = APP_CONFIG.chargebee_pro_monthly_link
+      @pro_monthly_price = APP_CONFIG.chargebee_pro_monthly_price
+    end
   end
 
   # Before filter for PayPal, shows notification if user is not ready for payments
