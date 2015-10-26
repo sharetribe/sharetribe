@@ -5,17 +5,29 @@
   <div class="expiration-content">
     <div class="expiration-head-panel">
       <h1 class="expiration-title"><%= t("expiration.title") %></h1>
-      <h2 class="expiration-subtitle" ><%= t("expiration.sub_title") %></h2>
+      <h2 class="expiration-subtitle" >
+        <% if feature_enabled?(:new_plan_page) %><%= t("expiration.sub_title_new") %>
+        <% else %><%= t("expiration.sub_title") %>
+        <% end %>
+      </h2>
+      <% if feature_enabled?(:new_plan_page) %>
+      <div class="expiration-plan-external">
+        <a href="<%= external_plan_service_login_url %>">
+          <div class="expiration-plan-biannual">
+            <p class="expiration-subscribe-title"><%= t("expiration.link_to_external_service") %></p>
+          </div>
+        </a>
+      </div>
+      <% end %>
     </div>
+    <% if !feature_enabled?(:new_plan_page) %>
     <div class="expiration-plans-panel">
       <div class="expiration-plans-wrapper">
         <h1 class="expiration-plan-title"><%= t("expiration.plans_feature_title") %></h1>
         <p class="expiration-plan-desc"><%= t("expiration.plans_feature_domain") %></p>
         <p class="expiration-plan-desc"><%= t("expiration.plans_feature_size") %></p>
         <p class="expiration-plan-desc"><%= t("expiration.plans_feature_popular") %></p>
-
         <div class="expiration-plan-select">
-
           <a href="<%= @pro_biannual_link %>" class="expiration-plan-wrapper-right">
             <div class="expiration-plan-biannual">
               <p class="expiration-subscribe-title"><%= t("expiration.subscribe") %></p>
@@ -32,13 +44,15 @@
               <span class="expiration-subscribe-per"><%= t("expiration.per_month") %></span></p>
             </div>
           </a>
-
         </div>
 
       </div>
     </div>
-    <div class="expiration-footer">
-      <p class="expiration-alternative-plans"><%= t("expiration.alternative_plans") %> <a href="mailto:sales@sharetribe.com"><%= t("expiration.contact_us") %></a></p>
-    </div>
+    <% end %>
+    <% if feature_enabled?(:new_plan_page) %>
+    <p class="expiration-footer-thin"><%= t("expiration.need_more_info") %> <a href="mailto:sales@sharetribe.com"><%= t("expiration.contact_us") %></a></p>
+    <% else %>
+    <p class="expiration-footer"><%= t("expiration.alternative_plans") %> <a href="mailto:sales@sharetribe.com"><%= t("expiration.contact_us") %></a></p>
+    <% end %>
   </div>
 </div>

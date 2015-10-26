@@ -242,6 +242,7 @@ default: &default_settings
   # The connection details hosted Sharetribe uses to connect to external subscription management system.
   external_plan_service_in_use: false
   external_plan_service_secret:
+  external_plan_service_url:
 
 production: &production_settings
   <<: *default_settings

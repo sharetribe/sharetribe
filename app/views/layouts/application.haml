@@ -8,8 +8,9 @@
 
   = render :partial => 'layouts/global-header'
 
-  - if @is_current_community_admin && PlanUtils.expired?(@current_plan)
-    = render partial: "layouts/expiration_notice"
+  - if display_expiration_notice?
+    = render partial: "layouts/expiration_notice",
+        :locals => {external_plan_service_login_url: external_plan_service_login_url(@current_community.id)}
 
   - content_for(:page_content) do
     %section.marketplace-lander
