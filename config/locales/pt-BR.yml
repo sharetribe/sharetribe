@@ -859,7 +859,7 @@ pt-BR:
       if_this_was_error: "Se você acha que foi um erro, %{please_contant_admin_link}."
       please_contant_admin_link: "entre em contato com o administrador"
     confirmation_instructions:
-      confirmation_instructions_signature: "Cordialmente <br/> A équipe de %{service_name}"
+      confirmation_instructions_signature: "Cordialmente <br/> a equipe %{service_name}"
       welcome_to_kassi: "Bem-vindo à %{service_name} !"
       need_to_confirm: "Você precisa confirmar o seu endereço de e-mail."
       confirmation_link_text: "Confirmar meu e-mail"
@@ -868,7 +868,7 @@ pt-BR:
     common:
       check_your_settings: "Verifique suas configurações"
       hey: "Olá %{name}"
-      kassi_team: "O Time %{service_name}"
+      kassi_team: "Equipe %{service_name}"
       thanks: "Obrigado,"
       want_to_control_emails: "Quer controlar quais e-mails receber de %{service_name}?"
       dont_want_to_receive_these_emails: "Você deseja receber e-mails?"
@@ -1174,8 +1174,8 @@ pt-BR:
       message: "Uma mensagem pessoal"
       send_invitation: "Enviar convite"
       add_email_addresses_description: "Adicione os endereços de e-mail das pessoas que você está convidando no campo abaixo. Para adicionar vários endereços de e-mail, separe-os com vírgula."
-      add_lots_of_email_addresses: "Se você planeja enviar um grande número de convites você deverá usar uma ferramenta de envio de e-mails. Dê uma olhada em %{this_article_link} para encontrar alguns serviços de envio de e-mails."
-      this_article_link: "este artigo"
+      add_lots_of_email_addresses: "Se você planeja enviar um grande número de convites você deverá usar uma ferramenta de envio de e-mails. Dê uma olhada %{this_article_link} para encontrar alguns serviços de envio de e-mails."
+      this_article_link: "neste artigo"
       invitation_emails_field_placeholder: "convidado1@exemplo.com.br, convidado2@exemplo.com.br, ......"
       invitation_message_field_placeholder: "Entrei para este mercado virtual incrível. Você também deveria!"
       errors_in_emails: "Verifique que os e-mails que você adiciona são validos. Se você adicionar vários e-mails, verifique se eles são separados pour uma vírgula."
@@ -1285,7 +1285,7 @@ pt-BR:
       something_went_wrong: "Algo deu errado"
       community_updated: "Detalhes atualizados"
       community_update_failed: "A atualização de detalhes falhou."
-      account_creation_succesful_you_still_need_to_confirm_your_email: "Conta criada com sucesso. Em seguida, você precisa confirmar seu endereço de e-mail."
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Sua conta foi criada com sucesso. Agora você precisa confirmar seu endereço de e-mail."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Obrigado por entrar no %{service_name}. Agora você precisa confirmar seu endereço de e-mail."
       comment_cannot_be_empty: "Comentários não podem ser em branco"
       comment_sent: "Comentário enviado"
@@ -1807,7 +1807,7 @@ pt-BR:
       visible_to_everybody: "visível para todos"
       create_account_with_facebook: "Registre-se com seu Facebook"
       OR: OU
-      signup_with_email: "Registre-se com e-mail"
+      signup_with_email: "Registre-se com seu e-mail"
     not_member:
       explanation_text: "Você está atualmente navegando na %{community}. Você tentou ver o perfil de um membro que pertence a outro mercado virtual criado com a plataforma Sharetribe. Você não pode acessar este perfil de usuário na %{community}."
       read_more_about_kassi_communities: "Leia mais sobre os mercados virtuais da Sharetribe"
@@ -1905,7 +1905,7 @@ pt-BR:
       your_current_email_is: "Seu e-mail é %{email}"
       change_email: Trocar
       confirm_your_email: "Confirme o seu e-mail"
-      account_confirmation_instructions: "Você receberá um e-mail com um link que você precisa clicar para confirmar o endereço de email que você digitou. Após a confirmação de e-mail você pode entrar no %{service_name}."
+      account_confirmation_instructions: "Você receberá um e-mail com um link para confirmar o endereço de e-mail informado. Após a confirmação do e-mail você poderá entrar no %{service_name}."
       account_confirmation_instructions_title_admin: "Bem-vindo(a) ao seu mercado virtual!"
       your_marketplace_has_now_been_created: "Seu site de mercado virtual já foi criado. Isso foi fácil, não foi? Há apenas mais um passo para que possa acessar seu site: você precisa confirmar o seu endereço de e-mail."
       account_confirmation_instructions_admin: "Em breve você receberá um e-mail com um link que deve ser clicado para confirmar o endereço de e-mail informado. Após a confirmação do seu e-mail, você pode começar a configurar o seu mercado."
