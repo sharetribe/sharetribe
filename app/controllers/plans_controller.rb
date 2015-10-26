@@ -4,10 +4,6 @@ class PlansController < ApplicationController
   before_filter :ensure_external_plan_service_in_use!
   before_filter :do_jwt_authentication!
 
-  # includes: external_plan_service (Hash with jwt_secret)
-  # includes: logger
-  include PlanService::ExternalPlanServiceInjector
-
   # Request data types
 
   NewPlanRequest = EntityUtils.define_builder(
@@ -47,9 +43,7 @@ class PlansController < ApplicationController
     body = request.raw_post
     logger.info("Received plan notification", nil, {raw: body})
 
-    res = JWTUtils.decode(params[:token], external_plan_service[:jwt_secret]).and_then {
-      parse_json(request.raw_post)
-    }.and_then { |parsed_json|
+    res = parse_json(request.raw_post).and_then { |parsed_json|
       NewPlansRequest.validate(parsed_json)
     }.and_then { |parsed_request|
       logger.info("Parsed plan notification", nil, parsed_request)
@@ -106,6 +100,10 @@ class PlansController < ApplicationController
 
   # private
 
+  def logger
+    PlanService::API::Api.logger
+  end
+
   def parse_json(body)
     begin
       Result::Success.new(JSONUtils.symbolize_keys(JSON.parse(body)))
@@ -125,16 +123,18 @@ class PlansController < ApplicationController
   # filters
 
   def do_jwt_authentication!
-    JWTUtils.decode(params[:token], external_plan_service[:jwt_secret]).on_error {
+    plans_api.authorize(params[:token]).on_error {
       logger.error("Unauthorized", nil, token: params[:token])
       render json: {error: :unauthorized}, status: 401
     }
   end
 
   def ensure_external_plan_service_in_use!
-    unless external_plan_service[:active]
-      raise ActiveRecord::RecordNotFound
-    end
+    render_not_found! unless plans_api.active?
+  end
+
+  def plans_api
+    PlanService::API::Api.plans
   end
 
 end

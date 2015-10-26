@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-# override the injector with test injector
-require_relative 'external_plan_service_injector'
+# Override the API with test API
+require_relative '../services/plan_service/api/api'
 
 describe "plan provisioning" do
 
   let(:log_target) {
-    PlanService::ExternalPlanServiceInjector.log_target
+    PlanService::API::Api.log_target
   }
 
   before(:each) do
@@ -46,12 +46,13 @@ describe "plan provisioning" do
 
   describe "not in use" do
     before(:each) {
-      PlanService::ExternalPlanServiceInjector.set_active(false)
+      PlanService::API::Api.reset!
+      PlanService::API::Api.set_environment(active: false)
     }
 
     after(:each) {
-      # reset
-      PlanService::ExternalPlanServiceInjector.set_active(true)
+      PlanService::API::Api.reset!
+      PlanService::API::Api.set_environment(active: true)
     }
 
     it "returns 404 if external plan service is not in use" do

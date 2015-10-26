@@ -2,12 +2,21 @@
 
 require 'spec_helper'
 
+# Override the API with test API
+require_relative '../../services/plan_service/api/api'
 
 class TransactionMailer; end
 
 describe IntApi::MarketplacesController do
 
   let(:listings_api) { ListingService::API::Api }
+
+  def expect_trial_plan(cid)
+    # Create trial plan
+    plan = PlanService::API::Api.plans.get_current(community_id: cid).data
+    expect(plan[:plan_level]).to eq(0)
+    expect(plan[:expires_at]).not_to eq(nil)
+  end
 
   describe "#create" do
     it "should create a marketplace and an admin user" do
@@ -46,6 +55,8 @@ describe IntApi::MarketplacesController do
       expect(p.username).to eql "eddiea"
       expect(p.locale).to eql "fi"
       expect(p.emails.first.address).to eql "eddie.admin@example.com"
+
+      expect_trial_plan(c.id)
     end
 
     it "should handle emails starting with info@" do
@@ -80,6 +91,8 @@ describe IntApi::MarketplacesController do
       expect(p.username).to eql "eddiea"
       expect(p.locale).to eql "fi"
       expect(p.emails.first.address).to eql "info@example.com"
+
+      expect_trial_plan(c.id)
     end
 
     it "should handle short emails like fo@barbar.com" do
@@ -114,6 +127,8 @@ describe IntApi::MarketplacesController do
       expect(p.username).to eql "eddiea"
       expect(p.locale).to eql "fi"
       expect(p.emails.first.address).to eql "fo@example.com"
+
+      expect_trial_plan(c.id)
     end
 
     it "should handle short first + last names" do
@@ -148,6 +163,8 @@ describe IntApi::MarketplacesController do
       expect(p.username).to eql "em1"
       expect(p.locale).to eql "fi"
       expect(p.emails.first.address).to eql "fo@example.com"
+
+      expect_trial_plan(c.id)
     end
 
   end
