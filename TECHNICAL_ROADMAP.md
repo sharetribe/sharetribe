@@ -79,4 +79,4 @@ Sharetribe's user interface is currently intertwined with the core Sharetribe ap
 
 ## How can I affect these plans?
 
-Talk to us! These plans are formed based on an overall understanding of Sharetribe customer needs and the Sharetribe vision. Feedback can alter either of these, which will then lead to changes in plans. You can either contact us via [email](mailto:support@sharetribe.com), the Sharetribe [idea forum](http://support.sharetribe.com/forums/240322-sharetribe-development-ideas) or our [Flowdock developer chat room](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main).
+Talk to us! These plans are formed based on an overall understanding of Sharetribe customer needs and the Sharetribe vision. Feedback can alter either of these, which will then lead to changes in plans. You can either contact us via [email](mailto:support@sharetribe.com), the Sharetribe [idea forum](http://support.sharetribe.com/forums/240322-sharetribe-development-ideas) or our [Flowdock developer chat room](https://www.flowdock.com/invitations/de227bdbe48d24c31a6b749933d3b4eca82e307c).

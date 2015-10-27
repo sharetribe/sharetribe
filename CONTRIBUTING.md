@@ -17,7 +17,7 @@ Use the [ISSUE_TEMPLATE.md](https://raw.githubusercontent.com/sharetribe/sharetr
 
 By default, we don't accept pull requests that introduce new features if it hasn’t been greenlighted by the Sharetribe team in advance.
 
-Join the [Sharetribe Development chat room in Flowdock](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main) and tell us what you are about to do. The team might be able to offer some suggestions on how to proceed. Features that don’t fit with Sharetribe’s vision and roadmap will not be accepted. Talking with the team is the best way to find out whether your feature is in line with Sharetribe’s plans.
+Join the [Sharetribe Development chat room in Flowdock](https://www.flowdock.com/invitations/de227bdbe48d24c31a6b749933d3b4eca82e307c) and tell us what you are about to do. The team might be able to offer some suggestions on how to proceed. Features that don’t fit with Sharetribe’s vision and roadmap will not be accepted. Talking with the team is the best way to find out whether your feature is in line with Sharetribe’s plans.
 
 From a technical point of view, the Sharetribe Ruby on Rails app is not always built using the traditional "Rails way". In addition to the MVC layers, additional API and Store layers are used to define self-contained boundaries inside the application. All new features have to follow this structure.
 
