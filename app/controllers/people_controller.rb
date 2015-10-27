@@ -26,7 +26,6 @@ class PeopleController < Devise::RegistrationsController
     PersonViewUtils.ensure_person_belongs_to_community!(@person, @current_community)
 
     redirect_to root and return if @current_community.private? && !@current_user
-    redirect_to url_for(params.merge(:locale => nil)) and return if params[:locale] # This is an important URL to keep pretty
     @selected_tribe_navi_tab = "members"
     @community_membership = CommunityMembership.find_by_person_id_and_community_id_and_status(@person.id, @current_community.id, "accepted")
 
