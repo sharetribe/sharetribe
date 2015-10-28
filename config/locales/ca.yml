@@ -931,7 +931,6 @@ ca:
       change_my_password: ~
       reset_password_instructions: ~
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Els suggeriments són públics i estan disponibles per a tots els usuaris. Basant-se en els comentaris i suggeriments els usuaris poden jutjar, o saber, si %{name} és una persona fiable. Recorda sempre fer suggeriments o comentaris als esdeveniments. Recorda que, també, és necessari rebre comentaris positius per obtenir medalles."
       remember_to_give_feedback_to: "Recordatori: Recorda fer un suggeriment a %{name}"
       you_have_not_given_feedback_yet: |-
           Encara no has enviat un suggeriment a %{name} sobre l'esdeveniment '%{event}'.

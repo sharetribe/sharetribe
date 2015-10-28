@@ -971,7 +971,6 @@ cs:
       change_my_password: "Změnit mé heslo"
       reset_password_instructions: "<p>V žádosti jste uvedli, že jste zapomněli své heslo nebo uživatelské jméno v %{service_name}.</p><p>Vaše uživatelské jméno je: %{username}</p><p>Pokud potřebujete změnit heslo, klikněte na následující odkaz: %{password_reset_link}</p><br/><p>Pokud jste o nic nežádali, prosíme, ignorujte tento e-mail. Vaše heslo se změní po tom, co kliknete na výše uvedený odkaz a zadáte nové heslo.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Hodnocení je veřejné a vidí ho všichni uživatelé. Na základě hodnocení se mohou ostatní uživatelé rozhodnout, zda je uživatel %{name} důvěryhodný. Z tohoto důvodu je dobré hodnotit a připomínat ostatním, aby ohodnotili i Vás. Kladné hodnocení Vám také zaručí většinu uživatelských odznaků."
       remember_to_give_feedback_to: "Připomínka: nezapomeňte ohodnotit uživatele %{name}."
       you_have_not_given_feedback_yet: "Stále jste neohodnotil/a uživatele %{name} ohledně %{event}. Nezapomeňte vyjádřit svoji spokojenost s uživatelem %{given_name}."
     transaction_preauthorized:

@@ -945,7 +945,6 @@ ja:
       change_my_password: パスワードの変更
       reset_password_instructions: "<p>あなたは%{service_name}のサービスにおいて、パスワードかユーザ名を忘れのお手続き中です。</p><p>あなたのユーザ名：%{username}</p><p>もしパスワードのリセットが必要な場合は、こちらをクリックしてください：%{password_reset_link}</p><br><p>もしそれをしない場合は、このメールを無視してください。パスワードは上記のリンクをクリックしない限り変更されることはありません。<p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "レビューはすべてのユーザに表示されます。他のユーザは%{name}さんが信頼できる人かどうかそして、互いに影響を与えても良いか判断が出来ます。従ってレビューを書くことを忘れないでください。また、他の人にあなたに関してレビューを書かれることに注意してください。多くのバッチをもらうにはポジティブなレビューが必要です。"
       remember_to_give_feedback_to: "ご注意：%{name}さんにレビューを書くのを忘れないでください"
       you_have_not_given_feedback_yet: "%{name}さんに「%{event}」の件でまだレビューを書いていないようです。この際に、%{given_name}さんのレビューを是非お願いします。"
     transaction_preauthorized:

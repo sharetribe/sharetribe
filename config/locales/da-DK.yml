@@ -958,7 +958,6 @@ da-DK:
       change_my_password: "Skift min adgangskode"
       reset_password_instructions: "<p> Du har angivet, at du har glemt enten din adgangskode eller dit brugernavn på %{service_name}.</ p> <p> Dit brugernavn er: %{username} </ p> <p> Hvis du har brug for at nulstille din adgangskode, klik på følgende link: %{password_reset_link} </ p> <br/> <p> Hvis du ikke har anmodet om dette, bedes du ignorere denne e-mail. Din adgangskode vil ikke ændre sig, medmindre du går ind på linket ovenfor og opretter en ny. </ P>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Feedback er offentlig og er vist at alle de andre brugere. Ud fra den feedback de andre brugere kan bedømme, hvorvidt %{name} er en troværdig person, og nogen, de ønsker at interagere med. Således er det godt at altid huske at give feedback på begivenheder og også minde den anden part til at give feedback til dig. Du skal også positiv feedback for at opnå de fleste af badges."
       remember_to_give_feedback_to: "Påmindelse: Husk at give feedback til %{name}"
       you_have_not_given_feedback_yet: "Du har endnu ikke givet feedback til %{name} om event '%{event}'. Husk at give feedback på, hvordan %{given_name} udført i begivenheden."
     transaction_preauthorized:

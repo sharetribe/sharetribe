@@ -931,7 +931,6 @@ is:
       change_my_password: ~
       reset_password_instructions: ~
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Umsögn er opinber sem þýðir að allir aðrir notendur geta séð hana. Með umsögn geta aðrir notendur dæmt um það hvort %{name} er áreiðanleg manneskja og hvort þeir vilji eiga samskipti við hann/hana. Þess vegna er alltaf gott að muna að gefa umsögn og minna aðra á að gefa þér umsögn. Þú þarft jákvæða umsögn til að fá sem flest merki."
       remember_to_give_feedback_to: "Áminning: mundu að gefa %{name} umsögn"
       you_have_not_given_feedback_yet: "Þú hefur enn ekki gefið %{name} umsögn vegna '%{event}'. Mundu að gefa umsögn um það hvernig %{given_name} stóð sig."
     transaction_preauthorized:

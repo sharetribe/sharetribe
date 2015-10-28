@@ -931,7 +931,6 @@ id:
       change_my_password: ~
       reset_password_instructions: ~
     testimonial_reminder:
-      feedback_is_public_and_is_shown: ~
       remember_to_give_feedback_to: "Reminder: Ingat untuk memberikan feedback untuk %{name}"
       you_have_not_given_feedback_yet: "Anda belum memberikan feedback untuk %{name} tentang  '%{event}'. Ingat untuk memberikan feedback bagaimana layanan %{given_name}."
     transaction_preauthorized:

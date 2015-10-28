@@ -933,7 +933,6 @@ it:
       change_my_password: "Cambia la mia password"
       reset_password_instructions: "Hai indicato di aver dimenticato o la  tua password o il tuo nome utente per %{service_name}.</p><p>Il tuo nome utente è: %{username}</p><p>Se vuoi resettare la tua password, clicca sul link seguente:%{password_reset_link}</p><br/><p>Se non hai richiesto tutto ciò, ignora pure questa email. La tua password non cambierà finchè non accedi al link sopra e ne crei una nuova."
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Il feedback è pubblico e è mostrato a tutti gli altri utenti. In base al feedback, gli altri utenti possono giudicare se %{name} è una persona fidata e qualcuno con cui voler interagire. Quindi è bene ricordarsi sempre di lasciare feedback dopo ogni evento e anche ricordare all'altra parte di lasciarti un feedback. Inoltre hai bisogno di feedback positivi per ottenere altri badge."
       remember_to_give_feedback_to: "Promemoria: ricordati di lasciare feedback a %{name}"
       you_have_not_given_feedback_yet: "NOn hai ancora lasciato feedback a %{name} per l'evento %{event}. Ricordati di lasciare il feedback su come %{given_name} ha condotto l'evento."
     transaction_preauthorized:

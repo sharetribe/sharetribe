@@ -947,7 +947,6 @@ tr-TR:
       change_my_password: "Parolamı değiştir"
       reset_password_instructions: "%{service_name} şifre ya da kullanıcı adınızı unuttuğunuzu belirttiniz. Kullanıcı adınız: %{username} Şifrenizi sıfırlamak istiyorsanız, linke tıklayın: %{password_reset_link} Eğer böyle bir şey talep etmediyseniz, bu e-postayı görmezden gelin. Aşağıdaki linke tıklayıp yeni bir şifre oluşturmadan, geçerli şifreniz değişmeyecektir."
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Geri bildirimler açık olarak yayınlanmakta olup tüm diğer üyeler tarafından görüntülenebilmektedir. Diğer kullanıcılar geri bildirimleri dikkate alarak %{name} kullanıcısının güvenilir ve temasa geçmek isteyecekleri bir kişi olup olmadığına karar verebilirler. Bu nedenle başınıza gelenlerle ilgili geri bildirim vermenin her zaman iyi bir şey olduğunu akılda tutmakta ve karşı taraflara da hatırlatmakta fayda var. Ayrıca başarılı olabilmek için olumlu geri bildirimler almanız çok gerekli."
       remember_to_give_feedback_to: "Hatırlatma: Lütfen %{name} kullanıcına geri bildirim vermeyi unutmayınız"
       you_have_not_given_feedback_yet: "%{name} kullanıcısına %{event} hakkında geri bildirim vermediniz. %{given_name} kullanıcısının bu konuda nasıl bir performans sergilediğine ilişkin geri bildirim vermeyi unutmayınız."
     transaction_preauthorized:

@@ -795,7 +795,7 @@ pt-BR:
       you_are_banned_in_this_community: "O administrador bloqueou seu acesso ao %{service_name}. Se você quiser entrar em contato com o administrador você pode enviar %{link_to_contact_page}."
       contact_page_link: Reposta
     new:
-      welcome_fb_user: "Bem-vindo(a) à %{service_name}, %{name} !"
+      welcome_fb_user: "Seja bem-vindo ao %{service_name}, %{name} !"
       fb_join_accept_terms: "Última étapa para fazer parte de %{service_name} : você deve aceitar as condições de uso."
       join_community: "Entrar em %{service_name}"
       you_can_join: "Para participar de %{service_name} você deve aceitar os termos de uso e clicar em 'Entrar em %{service_name}' abaixo."
@@ -962,7 +962,6 @@ pt-BR:
       change_my_password: "Alterar minha senha"
       reset_password_instructions: "<p>Você informou que esqueceu sua senha ou nome de usuário no serviço %{service_name}.</p><p>Seu nome de usuário é: %{username}</p><p>Se você precisa redefinir sua senha, clique no link seguinte: %{password_reset_link}</p><br/><p>Se você não fez essa solicitação, por favor ignore este e-mail. Sua senha não mudará até que acesse o link acima e crie uma nova.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "O 'feedback' é publico e é exibido a todos outros usuários. Baseado no feedback os outros usuários podem julgar o quanto %{name} é uma pessoa confiavel e qualquer um que ele queira interagir. Por isso é sempre bom lembrar de dar 'feedback' nos eventos, e também lembrar os outros para te darem o 'feedback'. Você precisa de 'feedbacks' positivos para ganhar mais emblemas."
       remember_to_give_feedback_to: "Lembrete: Lembre de dar feedback para %{name}"
       you_have_not_given_feedback_yet: "Você ainda não deu feedback para %{name} sobre o evento %{event}. Lembre de dar um feedback de como %{given_name} foi no evento"
     transaction_preauthorized:
@@ -977,7 +976,7 @@ pt-BR:
       click_here_to_reply: "Clique aqui para responder ao pedido"
     welcome_email:
       welcome_email_subject: "Bem-vindo(a) à %{service_name}"
-      welcome_to_marketplace: "Bem-vindo(a) à %{service_name}! Ficamos felizes em tê-lo a bordo."
+      welcome_to_marketplace: "Seja bem-vindo ao %{service_name}! Ficamos felizes em tê-lo a bordo."
       love_marketplace_crew: "Com carinho,<br/><i>Equipe %{service_name}</i>"
       welcome_email_footer_text: "Que tipo de e-mails que você quer receber da %{service_name}? %{settings_link}"
       settings_link_text: "Verifique suas configurações"
@@ -1309,7 +1308,7 @@ pt-BR:
       inviting_new_users_is_not_allowed_in_this_community: "Não é permitido convidar novos usuários."
       login_again: "Por favor, tente conectar novamente."
       login_failed: "Problemas ao conectar sua conta. Por favor entre com os dados corretos."
-      account_creation_successful: "Bem-vindo(a) à %{service_name}, %{person_name}!"
+      account_creation_successful: "Seja bem-vindo ao %{service_name}, %{person_name}!"
       account_deleted: "Sua conta já está deletada."
       login_successful: "Bem-vindo(a), %{person_name}"
       logout_successful: "Você foi desconectado do %{service_name}. Nos vemos em breve!"
@@ -1367,7 +1366,7 @@ pt-BR:
       you_cannot_send_message_to_yourself: "Você não pode enviar uma mensagem para si mesmo"
       you_followed_listing: "Você está agora seguindo este anúncio"
       you_have_already_given_feedback_about_this_event: "Você já deixou sua opinião sobre este evento"
-      you_are_now_member: "Bem-vindo(a) à %{service_name}!"
+      you_are_now_member: "Seja bem-vindo ao %{service_name}!"
       you_are_already_member: "Você já é membro da %{service_name}. Bem-vindo(a) de volta!"
       you_must_log_in_to_create_new_listing: "Você deve conectar a sua conta para %{service_name} para criar um novo anúncio. Se você não tem uma conta, você pode %{sign_up_link}."
       additional_email_confirmed_dashboard: "Seu e-mail está confirmado."
@@ -1900,7 +1899,7 @@ pt-BR:
       request_new_password: "Pedir uma nova senha"
       change_your_password: "Alterar sua senha"
     confirmation_pending:
-      welcome_to_kassi: "Bem-vindo(a) à %{service_name} !"
+      welcome_to_kassi: "Seja bem-vindo ao %{service_name} !"
       check_your_email: "Verifique sua caixa de entrada"
       resend_confirmation_instructions: "Reenviar instruções de confirmação"
       your_current_email_is: "Seu e-mail é %{email}"
