@@ -19,7 +19,7 @@
   - if @current_community && @current_community.google_analytics_key
     = "_gaq.push(['b._setAccount', '#{@current_community.google_analytics_key}']);"
     = "_gaq.push(['b._setDomainName', '.#{PublicSuffix.parse(request.host).domain}']);"
-    = "_gaq.push(['b._addIgnoredOrganic', '#{@current_community.name(I18n.locale).gsub("'","")}']);"
+    = "_gaq.push(['b._addIgnoredOrganic', '#{Maybe(@current_community.name(I18n.locale)).gsub("'","").or_else("")}']);"
     = "_gaq.push(['b._addIgnoredOrganic', '#{@current_community.domain || @current_community.ident}']);"
     _gaq.push(
     ['b._setAllowLinker', true],
