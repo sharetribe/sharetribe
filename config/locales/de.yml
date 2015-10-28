@@ -387,7 +387,7 @@ de:
       configure: Konfiguration
       emails_title: E-Mails
       support: Support
-      subscription: ~
+      subscription: "Mein Abonnement"
     listing_shapes:
       index:
         listing_shapes: ~
@@ -857,7 +857,7 @@ de:
       or_paste_link: "Alternativ kannst Du den folgenden Link in die Adresszeile deines Browsers kopieren:"
       turning_on_confirmations_in_this_community: "Wir beginnen mit der Verwendung von E-Mail-Bestätigungen in dieser %{service_name} Community."
     common:
-      check_your_settings: "Überprüfe deine Einstellungen"
+      check_your_settings: "Überprüfe Deine Einstellungen"
       hey: "Hallo %{name},"
       kassi_team: "Das %{service_name} Team"
       thanks: "Danke,"
@@ -896,7 +896,7 @@ de:
     new_message:
       view_message: "Nachricht ansehen"
       has_sent_you_a_message_in_kassi: "%{sender} hat dir eine Nachricht auf %{service_name} gesendet."
-      you_have_a_new_message: "Du hast eine neue Nachricht von %{sender_name} von %{service_name}"
+      you_have_a_new_message: "Du hast eine neue Nachricht von %{sender_name} auf %{service_name}"
     new_payment:
       new_payment: "Du hast eine neue Zahlung erhalten"
       price_per_unit_type: "Preis pro %{unit_type}"
@@ -970,7 +970,7 @@ de:
       welcome_to_marketplace: "Willkommen bei %{service_name}! Schön, dass du dabei bist."
       love_marketplace_crew: "Herzliche Grüße,<br /><i>das %{service_name} Team</i>"
       welcome_email_footer_text: "Welche Art von E-Mails willst Du von %{service_name} empfangen? %{settings_link}"
-      settings_link_text: "Überprüfe deine Einstellungen"
+      settings_link_text: "Überprüfe Deine Einstellungen"
       welcome_email_subject_for_marketplace_creator: "Willkommen bei Sharetribe"
       welcome_to_marketplace_creator: "Willkommen bei Sharetribe, %{name}!"
       congrats_for_creating_your_marketplace: "Herzlichen Glückwunsch für die Erstellung deines Marktplatzes! Das war einfach, nicht wahr?"
@@ -1950,7 +1950,7 @@ de:
       email_about_payment_reminders: "...ich vergessen habe zu zahlen"
       email_about_new_listings_by_followed_people: "... jemand dem ich folge, veröffentlicht ein neues Listing"
       unsubscribe_succesful: "Abbestellen erfolgreich"
-      unsubscribe_info_text: "Du wirst keine dieser E-Mails mehr erhalten. Überprüfe deine %{settings_link} und wähle die E-Mails aus, die du empfangen möchtest von %{service_name} oder gehe zurück zu der %{homepage_link}."
+      unsubscribe_info_text: "Du wirst keine dieser E-Mails mehr erhalten. Überprüfe Deine %{settings_link} und wähle die E-Mails aus, die Du empfangen möchtest von %{service_name} oder gehe zurück zu %{homepage_link}."
       settings_link: Einstellungen
       homepage_link: Homepage
       unsubscribe_unsuccesful: "Fehler im Abbestellen"

@@ -372,7 +372,7 @@ ro:
       configure: ~
       emails_title: ~
       support: ~
-      subscription: ~
+      subscription: "Abonamentul meu"
     listing_shapes:
       index:
         listing_shapes: ~
@@ -1089,8 +1089,8 @@ ro:
       favors_to_request: "Ajutor: "
       item_offer_list: ~
       item_request_list: ~
-      items_to_offer: ~
-      items_to_request: ~
+      items_to_offer: "Bunuri de inchiriat: "
+      items_to_request: "Bunuri de imprumutat: "
       log_in: conecteaza-te!
       no_offers_visible_unless_logged_in: ~
       no_open_offers_currently: ~
@@ -1099,7 +1099,7 @@ ro:
       one_private_offer_exists: ~
       one_private_request_exists: ~
       ride_offer: ~
-      ride_request: ~
+      ride_request: "O cursa pana la munca"
       some_private_offers_exist: ~
       some_private_requests_exist: ~
     custom_filters:
@@ -1125,15 +1125,15 @@ ro:
       add_news_item: ~
       lend_rent_help_carpool: ~
       loading_more_content: ~
-      more_events: ~
+      more_events: "Mai multe evenimente..."
       news: Stiri
       no_news: ~
       more_news: ~
       or: sau
       or_see_what_the_others: ~
-      recent_events: ~
+      recent_events: "Evenimente recente"
       requesting: ~
-      tell_it_here: ~
+      tell_it_here: "Spune aici!"
       welcome_to_new_kassi: ~
       no_reviews: ~
       no_image: ~
@@ -1196,11 +1196,11 @@ ro:
       read_more: ~
       feedback: ~
       default_feedback: ~
-      feedback_forum: ~
+      feedback_forum: "Forum de feedback"
       feedback_handle: ~
-      give_feedback: ~
-      or_check_our: ~
-      send_feedback_to_admin: ~
+      give_feedback: Contacteaza-ne
+      or_check_our: "...sau verifica a noastra"
+      send_feedback_to_admin: "Trimite feedback"
       to_see_what_others_have_suggested: ~
       your_email_address: ~
       connect: ~
@@ -1270,7 +1270,7 @@ ro:
       feedback_considered_spam: ~
       feedback_not_saved: ~
       feedback_saved: ~
-      feedback_sent_to: ~
+      feedback_sent_to: "Feedback trimis lui %{target_person}"
       feedback_skipped: ~
       invitation_cannot_be_sent: ~
       invitation_limit_reached: ~
@@ -1280,18 +1280,18 @@ ro:
       login_failed: ~
       account_creation_successful: ~
       account_deleted: ~
-      login_successful: ~
+      login_successful: "Bine ai venit, %{person_name}!"
       logout_successful: ~
       news_item_created: ~
       news_item_creation_failed: ~
       news_item_update_failed: ~
       news_item_updated: ~
       news_item_deleted: ~
-      offer_accepted: ~
+      offer_accepted: "Oferta acceptata"
       offer_confirmed: ~
-      offer_closed: ~
+      offer_closed: "Oferta inchisa"
       listing_created_successfully: ~
-      offer_rejected: ~
+      offer_rejected: "Oferta respinsa"
       offer_canceled: ~
       listing_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: ~
@@ -1313,10 +1313,10 @@ ro:
       poll_update_failed: ~
       poll_updated: ~
       poll_deleted: ~
-      read_more: ~
+      read_more: "Citește mai mult!"
       registration_considered_spam: ~
-      reply_cannot_be_empty: ~
-      reply_sent: ~
+      reply_cannot_be_empty: "Nu poti citi un mesaj gol"
+      reply_sent: "Raspuns trimis cu succes"
       request_accepted: ~
       request_confirmed: ~
       request_closed: ~

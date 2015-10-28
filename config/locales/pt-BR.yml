@@ -387,7 +387,7 @@ pt-BR:
       configure: Configuração
       emails_title: E-mails
       support: Suporte
-      subscription: ~
+      subscription: "Minha Assinatura"
     listing_shapes:
       index:
         listing_shapes: "Pedidos por tipos"
@@ -861,7 +861,7 @@ pt-BR:
       please_contant_admin_link: "entre em contato com o administrador"
     confirmation_instructions:
       confirmation_instructions_signature: "Cordialmente <br/> a equipe %{service_name}"
-      welcome_to_kassi: "Bem-vindo à %{service_name} !"
+      welcome_to_kassi: "Bem-vindo ao %{service_name} !"
       need_to_confirm: "Você precisa confirmar o seu endereço de e-mail."
       confirmation_link_text: "Confirmar meu e-mail"
       or_paste_link: "Alternativamente, você pode copiar o seguinte link para a barra de endereços do seu navegador:"
