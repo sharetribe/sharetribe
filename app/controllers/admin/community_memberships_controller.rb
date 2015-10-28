@@ -17,7 +17,7 @@ class Admin::CommunityMembershipsController < ApplicationController
       format.csv do
         all_memberships = CommunityMembership.where(:community_id => @community.id)
                                               .where("status != 'deleted_user'")
-                                              .includes(:person => :emails)
+                                              .includes(:person => [:emails, :location])
                                               .order("created_at ASC")
         marketplace_name = if @community.use_domain
           @community.domain
@@ -72,6 +72,8 @@ class Admin::CommunityMembershipsController < ApplicationController
         first_name
         last_name
         username
+        phone_number
+        address
         email_address
         email_address_confirmed
         joined_at
@@ -91,6 +93,8 @@ class Admin::CommunityMembershipsController < ApplicationController
             user.given_name,
             user.family_name,
             user.username,
+            user.phone_number,
+            user.location ? user.location.address : "",
             membership.created_at,
             membership.status,
             membership.admin,
@@ -99,7 +103,7 @@ class Admin::CommunityMembershipsController < ApplicationController
           user_data.push(membership.can_post_listings) if community_requires_verification_to_post
           user.emails.each do |email|
             accept_emails_from_admin = user.preferences["email_from_admins"] && email.send_notifications
-            csv << user_data.clone.insert(3, email.address, !!email.confirmed_at).insert(8, !!accept_emails_from_admin)
+            csv << user_data.clone.insert(5, email.address, !!email.confirmed_at).insert(10, !!accept_emails_from_admin)
           end
         end
       end

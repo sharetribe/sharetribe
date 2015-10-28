@@ -24,11 +24,13 @@ describe Admin::CommunityMembershipsController do
 
       user["first_name"].should == @person.given_name
       user["last_name"].should == @person.family_name
+      user["phone_number"].should == @person.phone_number
       user["email_address"].should == @person.emails.first.address
       user["status"].should == "accepted"
 
       user2["first_name"].should == @person.given_name
       user2["last_name"].should == @person.family_name
+      user2["phone_number"].should == @person.phone_number
       user2["email_address"].should == @other_email.address
       user2["status"].should == "accepted"
     end
@@ -46,7 +48,7 @@ describe Admin::CommunityTransactionsController do
 
     FeatureFlagService::API::Api.features.enable(community_id: @community.id, features: [:export_transactions_as_csv])
   end
-  
+
   describe "transactions CSV export" do
     it "returns 200" do
       get :index, {format: :csv, per_page: 99999}
