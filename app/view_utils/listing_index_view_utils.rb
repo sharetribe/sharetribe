@@ -29,10 +29,6 @@ module ListingIndexViewUtils
     :is_deleted,
     :num_of_reviews)
 
-  Price = Struct.new(
-    :price_cents,
-    :currency)
-
   ListingImage = Struct.new(
     :thumb,
     :small_3x2)
