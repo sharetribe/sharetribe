@@ -39,6 +39,10 @@ module PlanService::API
       not_in_use
     end
 
+    def get_external_service_link(marketplace_data)
+      Result::Error.new("Plan service is not in use.")
+    end
+
     # private
 
     def not_in_use

@@ -74,6 +74,26 @@ module PlanService::API
       end
     end
 
+    def get_external_service_link(marketplace_data)
+      Maybe(APP_CONFIG.external_plan_service_url).map { |external_plan_service_url|
+        marketplace_id = marketplace_data[:id]
+        current_plan = get_current(community_id: marketplace_id).data
+
+        payload = {
+          marketplace: marketplace_data,
+          current_plan: HashUtils.rename_keys({
+              id: :marketplace_plan_id,
+              community_id: :marketplace_id
+            }, current_plan.slice(:id, :community_id, :plan_level, :expires_at, :created_at, :updated_at))
+        }
+
+        secret = APP_CONFIG.external_plan_service_secret
+        external_plan_service_url = external_plan_service_url + "/login"
+        token = JWTUtils.encode(payload, secret)
+        URLUtils.append_query_param(external_plan_service_url, "token", token)
+        }.or_else(Result::Error.new("external_plan_service_url is not defined"))
+    end
+
     private
 
     def with_expiration_status(plan)

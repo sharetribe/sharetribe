@@ -801,11 +801,15 @@ module ApplicationHelper
 
   def external_plan_service_login_url(marketplace_id)
     if APP_CONFIG.external_plan_service_url && APP_CONFIG.external_plan_service_secret
-      payload = {user_id: marketplace_id}
-      secret = APP_CONFIG.external_plan_service_secret
-      external_plan_service_url = APP_CONFIG.external_plan_service_url + "login"
-      token = JWTUtils.encode(payload, secret)
-      URLUtils.append_query_param(external_plan_service_url, "token", token)
+      default_locale = @current_community.locales[0]
+      marketplace_default_name = @current_community.name(default_locale)
+
+      PlanService::API::Api.plans.get_external_service_link({
+        id: @current_community.id,
+        ident: @current_community.ident,
+        domain: @current_community.domain,
+        marketplace_default_name: marketplace_default_name
+      })
     end
   end
 
