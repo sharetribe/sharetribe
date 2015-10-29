@@ -13,4 +13,13 @@ module PlanService::DataTypes
     [:updated_at, :time, :mandatory],
   )
 
+  CharmPlan = EntityUtils.define_builder(
+    [:marketplace_plan_id, :fixnum, :mandatory],
+    [:marketplace_id, :fixnum, :mandatory],
+    [:plan_level, :fixnum, :mandatory],
+    [:expires_at, :time, :optional],
+    [:created_at, :time, :mandatory],
+    [:updated_at, :time, :mandatory],
+  )
+
 end

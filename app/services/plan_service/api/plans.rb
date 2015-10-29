@@ -2,6 +2,7 @@ module PlanService::API
   PlanStore = PlanService::Store::Plan
 
   Plan = PlanService::DataTypes::Plan
+  CharmPlan = PlanService::DataTypes::CharmPlan
 
   class Plans
 
@@ -79,21 +80,22 @@ module PlanService::API
         .map { |external_plan_service_url|
           marketplace_id = marketplace_data[:id]
           Maybe(PlanStore.get_trial(community_id: marketplace_id))
-            .map { |initial_trial_data|
+            .map { |trial_data|
+              trial_hash = CharmPlan.call(HashUtils.rename_keys({
+                id: :marketplace_plan_id,
+                community_id: :marketplace_id
+              }, trial_data))
               payload = {
                 marketplace: marketplace_data,
-                initial_trial_data: HashUtils.rename_keys({
-                    id: :marketplace_plan_id,
-                    community_id: :marketplace_id
-                  }, initial_trial_data.slice(:id, :community_id, :plan_level, :expires_at, :created_at, :updated_at))
+                initial_trial_data: trial_hash
               }
 
               secret = APP_CONFIG.external_plan_service_secret
-              external_plan_service_url = external_plan_service_url + "/login"
+              url = external_plan_service_url + "/login"
               token = JWTUtils.encode(payload, secret)
-              URLUtils.append_query_param(external_plan_service_url, "token", token)
+              URLUtils.append_query_param(url, "token", token)
             }
-            .or_else(Result::Error.new("external_plan_service_url is not defined"))
+            .or_else(Result::Error.new("Initial data not found"))
         }
         .or_else(Result::Error.new("external_plan_service_url is not defined"))
     end
