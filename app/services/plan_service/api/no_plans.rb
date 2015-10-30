@@ -20,7 +20,7 @@ module PlanService::API
       not_in_use
     end
 
-    def get_current(*)
+    def get_current(community_id:)
       Result::Success.new(
         Plan.call(
         community_id: community_id,
