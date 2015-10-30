@@ -2,12 +2,13 @@ module PlanService::API
   PlanStore = PlanService::Store::Plan
 
   Plan = PlanService::DataTypes::Plan
-  CharmPlan = PlanService::DataTypes::CharmPlan
+  ExternalPlan = PlanService::DataTypes::ExternalPlan
 
   class Plans
 
     def initialize(configuration)
       @jwt_secret = configuration[:jwt_secret]
+      @external_plan_service_url = configuration[:external_plan_service_url]
     end
 
     def active?
@@ -76,12 +77,12 @@ module PlanService::API
     end
 
     def get_external_service_link(marketplace_data)
-      Maybe(APP_CONFIG.external_plan_service_url)
+      Maybe(@external_plan_service_url)
         .map { |external_plan_service_url|
           marketplace_id = marketplace_data[:id]
-          Maybe(PlanStore.get_trial(community_id: marketplace_id))
+          Maybe(PlanStore.get_initial_trial(community_id: marketplace_id))
             .map { |trial_data|
-              trial_hash = CharmPlan.call(HashUtils.rename_keys({
+              trial_hash = ExternalPlan.call(HashUtils.rename_keys({
                 id: :marketplace_plan_id,
                 community_id: :marketplace_id
               }, trial_data))
@@ -90,10 +91,10 @@ module PlanService::API
                 initial_trial_data: trial_hash
               }
 
-              secret = APP_CONFIG.external_plan_service_secret
+              secret = @jwt_secret
               url = external_plan_service_url + "/login"
               token = JWTUtils.encode(payload, secret)
-              URLUtils.append_query_param(url, "token", token)
+              Result::Success.new(URLUtils.append_query_param(url, "token", token))
             }
             .or_else(Result::Error.new("Initial data not found"))
         }

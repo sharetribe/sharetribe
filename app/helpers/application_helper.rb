@@ -800,17 +800,14 @@ module ApplicationHelper
   end
 
   def external_plan_service_login_url(marketplace_id)
-    if APP_CONFIG.external_plan_service_url && APP_CONFIG.external_plan_service_secret
-      default_locale = @current_community.locales[0]
-      marketplace_default_name = @current_community.name(default_locale)
+    marketplace_default_name = @current_community.name(@current_community.default_locale)
 
-      PlanService::API::Api.plans.get_external_service_link({
-        id: @current_community.id,
-        ident: @current_community.ident,
-        domain: @current_community.domain,
-        marketplace_default_name: marketplace_default_name
-      })
-    end
+    PlanService::API::Api.plans.get_external_service_link({
+      id: @current_community.id,
+      ident: @current_community.ident,
+      domain: @current_community.domain,
+      marketplace_default_name: marketplace_default_name
+    }).data
   end
 
   def display_expiration_notice?
