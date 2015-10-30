@@ -80,7 +80,7 @@ describe "plan provisioning" do
 
       post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", body
 
-      plan1234 = PlanService::API::Api.plans.get_current(community_id: 1234).data
+      plan1234 = PlanService::API::Api.plans.get_current_plan(community_id: 1234).data
 
       expect(plan1234.slice(:community_id, :plan_level, :expires_at)).to eq({
                                community_id: 1234,
@@ -88,7 +88,7 @@ describe "plan provisioning" do
                                expires_at: nil
                              })
 
-      plan5555 = PlanService::API::Api.plans.get_current(community_id: 5555)
+      plan5555 = PlanService::API::Api.plans.get_current_plan(community_id: 5555)
                  .data
 
       expect(plan5555.slice(:community_id, :plan_level, :expires_at)).to eq({
@@ -120,15 +120,15 @@ describe "plan provisioning" do
         id333 = nil
 
         Timecop.freeze(Time.utc(2015, 9, 15)) {
-          id111 = PlanService::API::Api.plans.create(community_id: 111, plan: {plan_level: 0}).data[:id]
+          id111 = PlanService::API::Api.plans.create_initial_trial(community_id: 111, plan: {plan_level: 0}).data[:id]
         }
 
         Timecop.freeze(Time.utc(2015, 10, 15)) {
-          id222 = PlanService::API::Api.plans.create(community_id: 222, plan: {plan_level: 0}).data[:id]
+          id222 = PlanService::API::Api.plans.create_initial_trial(community_id: 222, plan: {plan_level: 0}).data[:id]
         }
 
         Timecop.freeze(Time.utc(2015, 11, 15)) {
-          id333 = PlanService::API::Api.plans.create(community_id: 333, plan: {plan_level: 0}).data[:id]
+          id333 = PlanService::API::Api.plans.create_initial_trial(community_id: 333, plan: {plan_level: 0}).data[:id]
         }
 
         after = Time.utc(2015, 10, 1).to_i
@@ -160,20 +160,70 @@ describe "plan provisioning" do
 
         log_entry = log_target.parse_log(:info).first
         expect(log_entry[:free]).to eq("Returned 2 plans that were created after 2015-10-01 00:00:00 UTC")
-        expect(log_entry[:structured]).to eq({"plan_count" => 2, "after" => "2015-10-01T00:00:00Z"})
+        expect(log_entry[:structured]).to eq({"count" => 2, "after" => "2015-10-01T00:00:00Z"})
       end
 
-    end
+      it "supports pagination" do
+        id111 = nil
+        id222 = nil
+        id333 = nil
 
-    context "failure" do
+        Timecop.freeze(Time.utc(2015, 9, 15)) {
+          id111 = PlanService::API::Api.plans.create_initial_trial(community_id: 111, plan: {plan_level: 0}).data[:id]
+        }
 
-      it "fetches trials after given time" do
-        get "http://webhooks.sharetribe.com/webhooks/trials?token=#{token}"
+        Timecop.freeze(Time.utc(2015, 10, 15)) {
+          id222 = PlanService::API::Api.plans.create_initial_trial(community_id: 222, plan: {plan_level: 0}).data[:id]
+        }
 
-        expect(response.status).to eq(400)
-        expect(response.body).to eq({error: "Missing 'after' parameter"}.to_json)
-        log_entry = log_target.parse_log(:error).first
-        expect(log_entry[:free]).to eq("Missing 'after' parameter")
+        Timecop.freeze(Time.utc(2015, 11, 15)) {
+          id333 = PlanService::API::Api.plans.create_initial_trial(community_id: 333, plan: {plan_level: 0}).data[:id]
+        }
+
+        after = Time.utc(2015, 9, 1).to_i
+        get "http://webhooks.sharetribe.com/webhooks/trials?token=#{token}&after=#{after}&limit=1"
+
+        expect(response.status).to eq(200)
+        expect(JSON.parse(response.body))
+          .to eq(JSON.parse({
+                              plans: [
+                                {
+                                  marketplace_plan_id: id111,
+                                  marketplace_id: 111,
+                                  plan_level: 0,
+                                  created_at: Time.utc(2015, 9, 15),
+                                  updated_at: Time.utc(2015, 9, 15),
+                                  expires_at: nil,
+                                }
+                              ],
+                              next_after: Time.utc(2015, 10, 15).to_i
+                            }.to_json))
+
+        after = Time.utc(2015, 10, 15).to_i
+        get "http://webhooks.sharetribe.com/webhooks/trials?token=#{token}&after=#{after}&limit=2"
+
+        expect(response.status).to eq(200)
+        expect(JSON.parse(response.body))
+          .to eq(JSON.parse({
+                              plans: [
+                                {
+                                  marketplace_plan_id: id222,
+                                  marketplace_id: 222,
+                                  plan_level: 0,
+                                  created_at: Time.utc(2015, 10, 15),
+                                  updated_at: Time.utc(2015, 10, 15),
+                                  expires_at: nil,
+                                },
+                                {
+                                  marketplace_plan_id: id333,
+                                  marketplace_id: 333,
+                                  plan_level: 0,
+                                  created_at: Time.utc(2015, 11, 15),
+                                  updated_at: Time.utc(2015, 11, 15),
+                                  expires_at: nil,
+                                }
+                              ]
+                            }.to_json))
       end
     end
   end

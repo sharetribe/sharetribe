@@ -49,9 +49,42 @@ module PlanService::Store::Plan
     from_model(plan_model)
   end
 
-  def get_trials(after:)
-    CommunityPlan.where("created_at >= ?", after).map { |plan_model|
-      from_model(plan_model)
+  # TODO When we are ready to read from the new plans table, some renaming is needed
+  def get_current_plan(community_id:)
+    Maybe(get_current_non_trial_plan(community_id: community_id)).or_else {
+      get_initial_trial(community_id: community_id)
+    }
+  end
+
+  # TODO When we are ready to read from the new plans table, some renaming is needed
+  def get_current_non_trial_plan(community_id:)
+    plan_model = PlanModel.where(community_id: community_id)
+                 .order("created_at DESC")
+                 .first
+
+    from_model(plan_model)
+  end
+
+  def get_initial_trial(community_id:)
+    plan_model = TrialModel.where(community_id: community_id)
+                 .order("created_at DESC")
+                 .first
+
+    from_model(plan_model)
+  end
+
+  def get_trials(after:, limit:)
+    sorted_trials = TrialModel.order(:created_at)
+
+    trials_after =
+      if after
+        sorted_trials.where("created_at >= ?", after)
+      else
+        sorted_trials
+      end
+
+    trials_after.limit(limit).map { |plan_model|
+      from_trial_model(plan_model)
     }
   end
 

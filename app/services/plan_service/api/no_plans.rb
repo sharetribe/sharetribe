@@ -8,15 +8,15 @@ module PlanService::API
       false
     end
 
-    def authorize(token)
+    def authorize(*)
       not_in_use
     end
 
-    def create(community_id:, plan:)
+    def create(*)
       not_in_use
     end
 
-    def create_initial_trial(community_id:, plan:)
+    def create_initial_trial(*)
       not_in_use
     end
 
@@ -31,11 +31,11 @@ module PlanService::API
       )
     end
 
-    def expired?(community_id:)
+    def expired?(*)
       Result::Success.new(false)
     end
 
-    def get_trials(after:)
+    def get_trials(*)
       not_in_use
     end
 
