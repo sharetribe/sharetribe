@@ -81,15 +81,7 @@ module PlanService::API
       }
     end
 
-    # Returns paginated trials
-    #
-    # Result:
-    #
-    # ```
-    # { plans: [ ... ],
-    #   next_offset: 1234567890
-    # }
-    def get_trials(after:, limit: nil)
+    def get_trials(after:, limit:)
       # Fetch one extra, so that we can return the next_offset
       plus_one = limit + 1
 

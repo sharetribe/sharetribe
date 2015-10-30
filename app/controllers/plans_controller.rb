@@ -82,6 +82,14 @@ class PlansController < ApplicationController
     }
   end
 
+  # Returns paginated trials
+  #
+  # Result:
+  #
+  # ```
+  # { plans: [ ... ],
+  #   next_offset: 1234567890
+  # }
   def get_trials
     after = Maybe(params)[:after].to_i.map { |time_int| Time.at(time_int).utc }.or_else(nil)
     limit = Maybe(params)[:limit].to_i.or_else(MAX_TRIALS_LIMIT)
