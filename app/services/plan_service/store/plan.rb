@@ -70,7 +70,7 @@ module PlanService::Store::Plan
                  .order("created_at DESC")
                  .first
 
-    from_model(plan_model)
+    from_trial_model(plan_model)
   end
 
   def get_trials(after:, limit:)
