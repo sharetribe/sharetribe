@@ -39,6 +39,8 @@ class PlansController < ApplicationController
 
   ENTITY_TO_EXT_SERVICE_MAP = EXT_SERVICE_TO_ENTITY_MAP.invert
 
+  MAX_TRIALS_LIMIT = 1000
+
   def create
     body = request.raw_post
     logger.info("Received plan notification", nil, {raw: body})
@@ -52,7 +54,7 @@ class PlansController < ApplicationController
         plan_entity = to_entity(plan_request)
 
         ->(*) {
-          PlanService::API::Api.plans.create(community_id: plan_entity[:community_id], plan: plan_entity)
+          PlanService::API::Api.plans.create_plan(community_id: plan_entity[:community_id], plan: plan_entity)
         }
       }
 
@@ -82,20 +84,15 @@ class PlansController < ApplicationController
 
   def get_trials
     after = Maybe(params)[:after].to_i.map { |time_int| Time.at(time_int).utc }.or_else(nil)
+    limit = Maybe(params)[:limit].to_i.or_else(MAX_TRIALS_LIMIT)
 
-    if after
-      plans = PlanService::API::Api.plans.get_trials(after: after).data.map { |plan|
-        from_entity(plan)
-      }
+    res = PlanService::API::Api.plans.get_trials(after: after, limit: limit).data
+    return_value = res.merge(plans: res[:plans].map { |p| from_entity(p) })
+    count = return_value[:plans].count
 
-      render json: {plans: plans}
+    render json: return_value
 
-      logger.info("Returned #{plans.count} plans that were created after #{after}", nil, {plan_count: plans.count, after: after})
-    else
-      render json: {error: "Missing 'after' parameter"}, status: 400
-      logger.error("Missing 'after' parameter")
-    end
-
+    logger.info("Returned #{count} plans that were created after #{after}", nil, {count: count, after: after})
   end
 
   # private
