@@ -27,6 +27,14 @@ module PlanService::API
     end
 
     def create_plan(community_id:, plan:)
+      if plan[:plan_level] == 0
+        # deprecated
+        # TODO remove this
+        Result::Success.new(
+          with_expiration_status(
+            PlanStore.create(community_id: community_id, plan: plan)))
+      end
+
       Result::Success.new(
         with_expiration_status(
           PlanStore.create_plan(community_id: community_id, plan: plan)))
