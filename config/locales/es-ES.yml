@@ -391,7 +391,7 @@ es-ES:
       configure: Configuración
       emails_title: Emails
       support: Soporte
-      subscription: ~
+      subscription: "Mi suscripción"
     listing_shapes:
       index:
         listing_shapes: "Tipos de Orden"
@@ -962,7 +962,6 @@ es-ES:
       change_my_password: "Cambiar mi contraseña"
       reset_password_instructions: "<p>Has indicado que has olvidado tu contraseña o tu nombre de usuario de %{service_name} .</p><p>Tu nombre de usuario es: %{username}</p><p>Si necesitas restablecer tu contraseña, haz click en el siguiente enlace: %{password_reset_link}</p><br/><p>Si no has solicitado este cambio, por favor ignora este e-mail. Tu contraseña no cambiará hasta que accedas al enlace que aparece más arriba arriba y crees una nueva.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Los comentarios son públicos y están a disposición de todos los usuarios. Basándose en los comentarios y sugerencias los usuarios pueden juzgar o decidir si %{name} es una persona confiable y con la cual desean interactuar. Entonces, siempre recuerda dar tu feedback o comentarios en los eventos, y también recuerda a los demás darte feedback a ti. Recuerda que también es necesario recibir comentarios positivos para obtener más medallas."
       remember_to_give_feedback_to: "Recordatorio: Recuerda hacer una sugerencia o comentarios a %{name}"
       you_have_not_given_feedback_yet: |-
           Aún no has enviado feedback a %{name} acerca del evento '%{event}'.

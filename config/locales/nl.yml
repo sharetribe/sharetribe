@@ -6,7 +6,7 @@ nl:
       index:
         listing_categories: "Lijst categorieën"
         create_a_new_category: "+ Nieuwe categorie toevoegen"
-        remove_category_confirmation: "Weet u zeker dat u de categorie '%{category_name}' wilt verwijderen?"
+        remove_category_confirmation: "Weet u zeker dat u de categorie '%{category_name}' wil verwijderen?"
         saving_order: "Opslaan volgorde categorieën"
         save_order_successful: "Succesvol volgorde categorieën opgeslagen"
         save_order_error: "Fout tijdens het opslagen volgorde categorieën. Vernieuw de pagina en probeer opnieuw."
@@ -54,7 +54,7 @@ nl:
         edit_community: "Basis details"
         enabled_languages: ~
         enabled_languages_description: ~
-        default_language: ~
+        default_language: Standaardtaal
         language_selection_disabled: ~
         community_name: "Naam marktplaats"
         edit_community_name_description: "De naam van je marktplaats. Deze wordt getoond aan gebruikers in e-mails en op diverse andere plaatsen."
@@ -203,7 +203,7 @@ nl:
         ru: ~
         de: ~
         el: ~
-        nl: ~
+        nl: Nederlands
         tr-TR: ~
         zh: ~
         ja: ~
@@ -395,9 +395,9 @@ nl:
         read_more_about_order_types: ~
         add_new_shape: ~
         select_template: ~
-        all_categories: ~
-        no_categories: ~
-        category_count: ~
+        all_categories: "Alle categorieën"
+        no_categories: "Geen categorieën"
+        category_count: "%{category_count} categorieën"
         header:
           listing_shape_name: ~
           listing_shape_categories: ~
@@ -421,14 +421,14 @@ nl:
         create_failure: ~
       edit:
         edit_listing_shape: ~
-        update: ~
+        update: Bewaar
         cancel: ~
         update_success: ~
         update_failure: ~
         delete: ~
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
+      listing_shape_name: Naam
       listing_shape_name_placeholder: ~
       action_button_label: ~
       action_button_placeholder: ~
@@ -946,7 +946,6 @@ nl:
       change_my_password: "Wijzig mijn wachtwoord"
       reset_password_instructions: "<p>U heeft aangegeven dat u uw gebruikersnaam of wachtwoord vergeten bent voor de %{service_name} dienst.</p><p>Uw gebruikersnaam is: %{username}.</p><p>Indien u uw wachtwoord wilt resetten, klik dan op de volgende link: %{password_reset_link}.</p><br/><p>Indien u dit niet heeft aangevraagd, negeer dan dit bericht. Uw wachtwoord zal niet gewijzigd worden tenzij u op bovenstaande link klikt.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Feedback is openbaar en zichtbaar voor alle andere gebruikers. Met de feedback kunnen gebruikers beslissen of %{name} betrouwbaar is en of het iemand is met wie ze in zee willen gaan. Het is dus goed om altijd feedback te geven en herinner anderen er aan om u feedback te geven. U heeft positieve feedback nodig om de meeste badges te verdienen."
       remember_to_give_feedback_to: "Herinnering: vergeet niet om feedback te geven aan %{name}"
       you_have_not_given_feedback_yet: "U heeft nog geen feedback gegeven aan %{name} over '%{event}'. Vergeet niet feedback te geven over hoe %{given_name} gepresteerd heeft in het evenement."
     transaction_preauthorized:
@@ -1043,7 +1042,7 @@ nl:
       on_or_before: "moet zijn op of voor %{restriction}"
       after: "moet zijn na %{restriction}"
       on_or_after: "moet zijn op of na %{restriction}"
-      positive_number: ~
+      positive_number: "Voer een getal in."
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te lenen aan %{requester_name} %{time_ago}."
@@ -1083,7 +1082,7 @@ nl:
     profile: Profiel
     invite: "Nodig nieuwe leden uit"
     login: "Log in"
-    signup: "Meld je aan"
+    signup: Registreer
     menu: Menu
   homepage:
     additional_private_listings_slate:
@@ -1209,7 +1208,7 @@ nl:
     application:
       join_this_community: "Sluit aan bij marktplaats"
       read_more: "Lees meer"
-      feedback: "Wat wilt u ons vertellen?"
+      feedback: "Wat wil u ons vertellen?"
       default_feedback: "Heeft u een probleem gehad met %{service_name}? Heeft u suggesties om onze dienst te verbeteren? Ongepaste inhoud gezien? Of wilt u gewoon iets vertellen? Laat het ons weten!"
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
@@ -1218,7 +1217,7 @@ nl:
       send_feedback_to_admin: "Verstuur feedback"
       to_see_what_others_have_suggested: "om te zien wat voor ideeën andere gebruikers hebben en om op die ideeën te stemmen."
       your_email_address: "Je e-mail adres"
-      connect: Aanmelden
+      connect: Registreer
       invite_your_friends: "Nodig vrienden uit!"
       invite_your_neighbors: "Nodig je buren uit!"
       invite_your_friends_description: "Hoe meer mensen er zijn op %{service_name}, hoe nuttiger het wordt."
@@ -1262,7 +1261,7 @@ nl:
       notifications: Meldingen
       requests: Vriendschapsverzoeken
       settings: Instellingen
-      sign_up: "Meld je aan"
+      sign_up: Registreer
     notifications:
       listing_could_not_be_saved: "Item kon niet worden opgeslagen. Probeer het a.u.b. opnieuw. Als dit probleem zich blijft voordoen, %{contact_admin_link}."
       contact_admin_link_text: "contacteer de beheerder"
@@ -1450,11 +1449,11 @@ nl:
         googlemap_updatemap: "Update kaart"
       images:
         image: Foto
-        best_result: ~
+        best_result: "Gebruik JPG, GIF of PNG beelden van %{width} op %{height} pixels voor de beste resultaten"
         no_file_selected: "Geen bestand geselecteerd"
         remove_image: "Verwijder afbeelding"
         select_file: "Selecteer bestand"
-        add_more: ~
+        add_more: "Voeg meerdere toe"
         removing: Verwijderen...
         processing: Verwerken...
         loading_image: Laden...
@@ -1569,8 +1568,8 @@ nl:
     new:
       post_a_new_listing: "Plaats een nieuw item"
       listing: Item
-      selected_category: "Categorie%{category}"
-      selected_subcategory: "Subcategorie:%{subcategory}"
+      selected_category: "Categorie: %{category}"
+      selected_subcategory: "Subcategorie: %{subcategory}"
       selected_transaction_type: "Item type: %{transaction_type}"
       select_category: "Selecteer categorie"
       select_subcategory: "Kies subcategorie"
@@ -1930,19 +1929,19 @@ nl:
       community_updates: "Update e-mails"
       email_about_accept_reminders: "...ik ben vergeten om een voorstel of een verzoek te accepteren"
       email_about_confirm_reminders: "...ik ben vergeten om een verzoek als uitgevoerd te bevestigen"
-      email_about_new_comments_to_own_listing: "...iemand heeft gereageerd op mijn vraag of aanbod"
-      email_about_new_messages: "...iemand stuurt me een bericht"
-      email_about_new_received_testimonials: "...iemand geeft me feedback"
+      email_about_new_comments_to_own_listing: "...iemand op mijn vraag of aanbod heeft gereageerd"
+      email_about_new_messages: "...iemand me een bericht stuurt"
+      email_about_new_received_testimonials: "...iemand me feedback geeft"
       email_about_testimonial_reminders: "...ik ben vergeten feedback te geven op een event"
       email_daily_community_updates: "Stuur mij een <b>dagelijkse<b> update als er nieuwe items geplaatst worden"
       email_weekly_community_updates: "Stuur mij een <b>wekelijkse<b> update als er nieuwe items geplaatst worden"
       do_not_email_community_updates: "Ik ontvang liever geen updates"
-      email_when_conversation_accepted: "...iemand accepteert mijn vraag of aanbod"
-      email_when_conversation_rejected: "...iemand weigert mijn vraag of aanbod"
+      email_when_conversation_accepted: "...iemand mijn vraag of aanbod accepteert"
+      email_when_conversation_rejected: "...iemand mijn vraag of aanbod weigert"
       email_about_completed_transactions: "...iemand mijn vraag markeert als voltooid"
       email_about_new_payments: "...ik een nieuwe betaling ontvang"
       email_about_payment_reminders: "...ik ben vergeten om te betalen"
-      email_about_new_listings_by_followed_people: "...iemand die ik volg heeft iets nieuws geplaatst"
+      email_about_new_listings_by_followed_people: "...iemand die ik volg iets nieuws heeft geplaatst"
       unsubscribe_succesful: "Uitschrijven succesvol uitgevoerd"
       unsubscribe_info_text: "U zal deze berichten niet langer ontvangen. Controleer uw %{settings_link} om te kiezen welke e-mails u wilt ontvangen van %{service_name}, of keer terug naar %{homepage_link}."
       settings_link: instellingen
@@ -1968,7 +1967,7 @@ nl:
       visible_to_registered_users: "(zichtbaar voor ingelogde gebruikers)"
       default_in_listing: "(enkel als standaard gebruikt bij het aanmaken van een nieuwe lijst)"
       invisible: "(niet getoond aan andere gebruikers)"
-      image_is_processing: ~
+      image_is_processing: "Je profielfoto wordt voorbereid. Laadt de pagina aub dadelijk even opnieuw."
     save_information: "Informatie opslaan"
   shipping_address:
     shipping_address: "Verzend adres"
@@ -2091,7 +2090,7 @@ nl:
     initiate:
       booked_days: ~
       price_per_day: "Prijs per dag:"
-      quantity: ~
+      quantity: "Hoeveelheid:"
       subtotal: "Subtotaal:"
       shipping-price: "Verzenden:"
     price_per_quantity: "Prijs per %{unit_type}:"

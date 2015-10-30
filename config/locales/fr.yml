@@ -149,7 +149,7 @@ fr:
         invalid_email_domain: "L'adresse email '%{email}' utilise le fournisseur '%{domain}' non supporté. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Lisez l'article dans la base de connaissances pour en savoir plus."
         unknown_error: "Quelque chose s'est mal passé."
-        only_white_label_offer: "Cette fonctionnalité faire partie de l'offre marque blanche de Sharetribe. Pour activer cette fonctionnalité vous devriez %{upgrade_pro_plan_link}."
+        only_white_label_offer: "Cette fonctionnalité fait partie de l'offre marque blanche de Sharetribe. Pour activer cette fonctionnalité vous devriez %{upgrade_pro_plan_link}."
         upgrade_pro_plan_link: "passer à notre offre Pro ou supérieure"
         verification_sent_from: "L'email de vérification a été envoyé par %{verification_sender_name}."
         follow_the_instructions: "Veuillez suivre les instructions dans cet email pour vérifier votre adresse."
@@ -387,7 +387,7 @@ fr:
       configure: Configuration
       emails_title: Emails
       support: Support
-      subscription: ~
+      subscription: "Votre abonnement"
     listing_shapes:
       index:
         listing_shapes: "Types de transaction"
@@ -962,7 +962,6 @@ fr:
       change_my_password: "Changer mon mot de passe"
       reset_password_instructions: "<p>Vous avez déclaré avoir oublié votre nom d'utilisateur et/ou votre mot de passe pour %{service_name}.</p><p>Votre nom d'utilisateur est : %{username}</p><p>Si vous souhaitez réinitialiser votre mot de passe, cliquez ici : %{password_reset_link}</p><br/><p>Si vous n'avez fait aucune demande, ignorez simplement cet email. Votre mot de passe ne sera pas modifié tant que vous ne cliquez pas sur le lien ci-dessus et en créez un nouveau.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Les avis sont publics et visibles par tous les autres utilisateurs. En fonction des avis reçus, les autres utilisateurs peuvent décider de faire confian, ou non, à %{name} et d'engager des transactions avec cette personne. Il est donc important de toujours donner un avis à la fin de chaque transaction et de rappeler aux autres participants de vous en donner un. C'est également grâce aux avis positifs que vous obtiendrez la plupart des badges."
       remember_to_give_feedback_to: "Rappel : n'oubliez pas de donner un avis sur %{name}"
       you_have_not_given_feedback_yet: "Vous n'avez pas encore donné d'avis sur %{name} suite à l'annonce '%{event}'. N'oubliez pas de donner un avis sur la façon dont %{given_name} a agi lors de la transaction."
     transaction_preauthorized:

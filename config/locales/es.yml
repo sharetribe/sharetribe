@@ -936,7 +936,6 @@ es:
       change_my_password: "Cambiar mi contraseña"
       reset_password_instructions: "<p>Has indicado que has olvidado tu contraseña o tu nombre de usuario en el %{service_name} servicio.</p><p>Tu nombre de usuario es: %{username}</p><p>Si necesitas restablecer tu contraseña, haz click en el siguiente enlace: %{password_reset_link}</p><br/><p>Si no solicitaste esto, por favor ignora este e-mail. Tu contraseña no cambiará hasta que accedas al enlace de más arriba y crees una nueva.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Los feedbacks son públicos y están a disposición de todos los usuarios. Basándose en los comentarios y feedbacks los usuarios pueden juzgar o saber si %{name} es una persona confiable y si es con quien se desean contactar. Por eso, no olvides ingresar recomendaciones o comentarios en los eventos, ya que así también recuerdas a los demás para que te den feedbacks. Ten en cuenta que es necesario recibir comentarios positivos para obtener medallas."
       remember_to_give_feedback_to: "Recordatorio: Recuerda dar feeedback a %{name}"
       you_have_not_given_feedback_yet: |-
           Aún no has enviado feedback a %{name} acerca del evento '%{event}'.
