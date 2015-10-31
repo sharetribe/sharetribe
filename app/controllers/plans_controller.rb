@@ -54,7 +54,7 @@ class PlansController < ApplicationController
         plan_entity = to_entity(plan_request)
 
         ->(*) {
-          PlanService::API::Api.plans.create_plan(community_id: plan_entity[:community_id], plan: plan_entity)
+          PlanService::API::Api.plans.create(community_id: plan_entity[:community_id], plan: plan_entity)
         }
       }
 

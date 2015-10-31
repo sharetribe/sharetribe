@@ -18,26 +18,9 @@ module PlanService::API
     end
 
     def create(community_id:, plan:)
-      # deprecated
-      # TODO remove this
-      # Use create_plan and create_initial_trial methods instead
       Result::Success.new(
         with_expiration_status(
           PlanStore.create(community_id: community_id, plan: plan)))
-    end
-
-    def create_plan(community_id:, plan:)
-      if plan[:plan_level] == 0
-        # deprecated
-        # TODO remove this
-        Result::Success.new(
-          with_expiration_status(
-            PlanStore.create(community_id: community_id, plan: plan)))
-      end
-
-      Result::Success.new(
-        with_expiration_status(
-          PlanStore.create_plan(community_id: community_id, plan: plan)))
     end
 
     # Create an initial trial plan
@@ -48,13 +31,6 @@ module PlanService::API
     # why this function is deprecated
     #
     def create_initial_trial(community_id:, plan:)
-      # deprecated
-      # TODO remove this
-      # Use create_plan and create_initial_trial methods instead
-      Result::Success.new(
-        with_expiration_status(
-          PlanStore.create(community_id: community_id, plan: plan.merge(plan_level: 0))))
-
       Result::Success.new(
         with_expiration_status(
           PlanStore.create_trial(community_id: community_id, plan: plan)))
@@ -63,15 +39,6 @@ module PlanService::API
 
     def get_current(community_id:)
       Maybe(PlanStore.get_current(community_id: community_id)).map { |plan|
-        Result::Success.new(with_expiration_status(plan))
-      }.or_else {
-        Result::Error.new("Can not find plan for community id: #{community_id}")
-      }
-    end
-
-    # TODO When we are ready to read from the new plans table, some renaming is needed
-    def get_current_plan(community_id:)
-      Maybe(PlanStore.get_current_plan(community_id: community_id)).map { |plan|
         Result::Success.new(with_expiration_status(plan))
       }.or_else {
         Result::Error.new("Can not find plan for community id: #{community_id}")

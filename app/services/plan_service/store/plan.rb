@@ -23,11 +23,9 @@ module PlanService::Store::Plan
 
   module_function
 
-  # deprecated
-  # use create_trial or create_plan
   def create(community_id:, plan:)
     plan_entity = NewPlan.call(plan.merge(community_id: community_id))
-    from_model(CommunityPlan.create!(plan_entity))
+    from_model(PlanModel.create!(plan_entity))
   end
 
   def create_trial(community_id:, plan:)
@@ -35,42 +33,11 @@ module PlanService::Store::Plan
     from_trial_model(TrialModel.create!(plan_entity))
   end
 
-  def create_plan(community_id:, plan:)
-    plan_entity = NewPlan.call(plan.merge(community_id: community_id))
-    from_model(PlanModel.create!(plan_entity))
-  end
-
-  def get_current(community_id:)
-    plan_model = CommunityPlan
-                 .where(:community_id => community_id)
-                 .order("created_at DESC")
-                 .first
-
-    from_model(plan_model)
-  end
-
   # TODO When we are ready to read from the new plans table, some renaming is needed
-  def get_current_plan(community_id:)
-    Maybe(get_current_non_trial_plan(community_id: community_id)).or_else {
+  def get_current(community_id:)
+    Maybe(get_current_plan(community_id: community_id)).or_else {
       get_initial_trial(community_id: community_id)
     }
-  end
-
-  # TODO When we are ready to read from the new plans table, some renaming is needed
-  def get_current_non_trial_plan(community_id:)
-    plan_model = PlanModel.where(community_id: community_id)
-                 .order("created_at DESC")
-                 .first
-
-    from_model(plan_model)
-  end
-
-  def get_initial_trial(community_id:)
-    plan_model = TrialModel.where(community_id: community_id)
-                 .order("created_at DESC")
-                 .first
-
-    from_trial_model(plan_model)
   end
 
   def get_trials(after:, limit:)
@@ -87,6 +54,25 @@ module PlanService::Store::Plan
       from_trial_model(plan_model)
     }
   end
+
+  # private
+
+  def get_current_plan(community_id:)
+    plan_model = PlanModel.where(community_id: community_id)
+                 .order("created_at DESC")
+                 .first
+
+    from_model(plan_model)
+  end
+
+  def get_initial_trial(community_id:)
+    plan_model = TrialModel.where(community_id: community_id)
+                 .order("created_at DESC")
+                 .first
+
+    from_trial_model(plan_model)
+  end
+
 
   def from_model(model)
     Maybe(model).map { |m|

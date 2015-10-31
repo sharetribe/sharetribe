@@ -80,7 +80,7 @@ describe "plan provisioning" do
 
       post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", body
 
-      plan1234 = PlanService::API::Api.plans.get_current_plan(community_id: 1234).data
+      plan1234 = PlanService::API::Api.plans.get_current(community_id: 1234).data
 
       expect(plan1234.slice(:community_id, :plan_level, :expires_at)).to eq({
                                community_id: 1234,
@@ -88,7 +88,7 @@ describe "plan provisioning" do
                                expires_at: nil
                              })
 
-      plan5555 = PlanService::API::Api.plans.get_current_plan(community_id: 5555)
+      plan5555 = PlanService::API::Api.plans.get_current(community_id: 5555)
                  .data
 
       expect(plan5555.slice(:community_id, :plan_level, :expires_at)).to eq({
