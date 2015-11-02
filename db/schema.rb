@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151022183133) do
+ActiveRecord::Schema.define(:version => 20151102084029) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -589,6 +589,9 @@ ActiveRecord::Schema.define(:version => 20151022183133) do
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "marketplace_plans", ["community_id"], :name => "index_marketplace_plans_on_community_id"
+  add_index "marketplace_plans", ["created_at"], :name => "index_marketplace_plans_on_created_at"
+
   create_table "marketplace_sender_emails", :force => true do |t|
     t.integer  "community_id",                            :null => false
     t.string   "name"
@@ -607,6 +610,9 @@ ActiveRecord::Schema.define(:version => 20151022183133) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+
+  add_index "marketplace_trials", ["community_id"], :name => "index_marketplace_trials_on_community_id"
+  add_index "marketplace_trials", ["created_at"], :name => "index_marketplace_trials_on_created_at"
 
   create_table "menu_link_translations", :force => true do |t|
     t.integer  "menu_link_id"
