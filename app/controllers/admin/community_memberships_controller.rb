@@ -9,22 +9,21 @@ class Admin::CommunityMembershipsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        @memberships = CommunityMembership.where(:community_id => @current_community.id, :status => "accepted")
-                                           .includes(:person => :emails)
-                                           .paginate(:page => params[:page], :per_page => 50)
+        @memberships = CommunityMembership.where(community_id: @current_community.id, status: "accepted")
+                                           .includes(person: :emails)
+                                           .paginate(page: params[:page], per_page: 50)
                                            .order("#{sort_column} #{sort_direction}")
       end
       format.csv do
-        all_memberships = CommunityMembership.where(:community_id => @community.id)
+        all_memberships = CommunityMembership.where(community_id: @community.id)
                                               .where("status != 'deleted_user'")
-                                              .includes(:person => :emails)
-                                              .order("created_at ASC")
+                                              .includes(person: [:emails, :location])
         marketplace_name = if @community.use_domain
           @community.domain
         else
           @community.ident
         end
-        send_data generate_csv_for(all_memberships), filename: "#{marketplace_name}-users-#{Date.today}.csv"
+        send_data generate_csv_for(all_memberships, @community), filename: "#{marketplace_name}-users-#{Date.today}.csv"
       end
     end
   end
@@ -37,8 +36,8 @@ class Admin::CommunityMembershipsController < ApplicationController
       return redirect_to admin_community_community_memberships_path(@current_community)
     end
 
-    membership.update_attributes(:status => "banned")
-    membership.update_attributes(:admin => 0) if membership.admin == 1
+    membership.update_attributes(status: "banned")
+    membership.update_attributes(admin: 0) if membership.admin == 1
 
     @current_community.close_listings_by_author(membership.person)
 
@@ -49,29 +48,31 @@ class Admin::CommunityMembershipsController < ApplicationController
     if removes_itself?(params[:remove_admin], @current_user, @current_community)
       render nothing: true, status: 405
     else
-      @current_community.community_memberships.where(:person_id => params[:add_admin]).update_all("admin = 1")
-      @current_community.community_memberships.where(:person_id => params[:remove_admin]).update_all("admin = 0")
+      @current_community.community_memberships.where(person_id: params[:add_admin]).update_all("admin = 1")
+      @current_community.community_memberships.where(person_id: params[:remove_admin]).update_all("admin = 0")
 
       render nothing: true, status: 200
     end
   end
 
   def posting_allowed
-    @current_community.community_memberships.where(:person_id => params[:allowed_to_post]).update_all("can_post_listings = 1")
-    @current_community.community_memberships.where(:person_id => params[:disallowed_to_post]).update_all("can_post_listings = 0")
+    @current_community.community_memberships.where(person_id: params[:allowed_to_post]).update_all("can_post_listings = 1")
+    @current_community.community_memberships.where(person_id: params[:disallowed_to_post]).update_all("can_post_listings = 0")
 
     render nothing: true, status: 200
   end
 
   private
 
-  def generate_csv_for(memberships)
+  def generate_csv_for(memberships, community)
     CSV.generate(headers: true, force_quotes: true) do |csv|
       # first line is column names
       header_row = %w{
         first_name
         last_name
         username
+        phone_number
+        address
         email_address
         email_address_confirmed
         joined_at
@@ -80,26 +81,26 @@ class Admin::CommunityMembershipsController < ApplicationController
         accept_emails_from_admin
         language
       }
-      community_requires_verification_to_post =
-        memberships.first && memberships.first.community.require_verification_to_post_listings
-      header_row.push("can_post_listings") if community_requires_verification_to_post
+      header_row.push("can_post_listings") if community.require_verification_to_post_listings
       csv << header_row
-      memberships.each do |membership|
+      memberships.find_each do |membership|
         user = membership.person
         unless user.blank?
           user_data = [
             user.given_name,
             user.family_name,
             user.username,
+            user.phone_number,
+            user.location ? user.location.address : "",
             membership.created_at,
             membership.status,
             membership.admin,
             user.locale
           ]
-          user_data.push(membership.can_post_listings) if community_requires_verification_to_post
+          user_data.push(membership.can_post_listings) if community.require_verification_to_post_listings
           user.emails.each do |email|
             accept_emails_from_admin = user.preferences["email_from_admins"] && email.send_notifications
-            csv << user_data.clone.insert(3, email.address, !!email.confirmed_at).insert(8, !!accept_emails_from_admin)
+            csv << user_data.clone.insert(5, email.address, !!email.confirmed_at).insert(10, !!accept_emails_from_admin)
           end
         end
       end
