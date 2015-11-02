@@ -21,6 +21,8 @@ en:
         category_transaction_types:
           transaction_types: "Order types"
           transaction_types_description: "Order types determine what kind of order process is allowed with listings in this category. For example, is it only selling, or are renting and giving away for free also allowed."
+          select_all: "Select all"
+          clear_all: "Clear all"
         buttons:
           save: Save
           cancel: Cancel
@@ -351,6 +353,8 @@ en:
         field_title: "Field title"
         field_type: "Field type"
         categories: "Listing categories where the field is used"
+        select_all: "Select all"
+        clear_all: "Clear all"
         options: Options
         add_option: "+ Add option"
         saving_order: "Saving field order"

@@ -1,5 +1,6 @@
 - content_for :javascript do
   initialize_admin_category_form_view("#{I18n.locale}", "#edit_category_#{@category.id}");
+  ST.initializeCategoriesSelectionClickHandlers();
 
 - content_for :title_header do
   %h1

@@ -1,5 +1,14 @@
 - if shapes.size > 1
-  %label= t("admin.categories.form.category_transaction_types.transaction_types")
+  .row
+    .col-8
+      %label= t("admin.categories.form.category_transaction_types.transaction_types")
+    .col-4
+      .selection-options
+        %a.select-all{href: "#"}
+          = t("admin.categories.form.category_transaction_types.select_all")
+        |
+        %a.deselect-all{href: "#"}
+          = t("admin.categories.form.category_transaction_types.clear_all")
   = render :partial => "layouts/info_text", :locals => { :text => t("admin.categories.form.category_transaction_types.transaction_types_description") }
   .row
     .col-12
