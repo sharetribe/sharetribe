@@ -193,10 +193,10 @@ $elementSpacing: lines(0.5);
 }
 
 .header-wide-logo {
-  background-image: url(image-path($wide-logo-lowres-url));
+  background-image: asset-url($wide-logo-lowres-url, image);
 
   @include highres {
-    background-image: url(image-path($wide-logo-highres-url));
+    background-image: asset-url($wide-logo-highres-url, image);
   }
 
   width: em(168);
@@ -210,10 +210,10 @@ $elementSpacing: lines(0.5);
 }
 
 .header-square-logo {
-  background-image: url(image-path($square-logo-lowres-url));
+  background-image: asset-url($square-logo-lowres-url, image);
 
   @include highres {
-    background-image: url(image-path($square-logo-highres-url));
+    background-image: asset-url($square-logo-highres-url, image);
   }
 
   width: em(40);
