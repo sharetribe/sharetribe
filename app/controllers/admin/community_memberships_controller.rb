@@ -9,15 +9,15 @@ class Admin::CommunityMembershipsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        @memberships = CommunityMembership.where(:community_id => @current_community.id, :status => "accepted")
-                                           .includes(:person => :emails)
-                                           .paginate(:page => params[:page], :per_page => 50)
+        @memberships = CommunityMembership.where(community_id: @current_community.id, status: "accepted")
+                                           .includes(person: :emails)
+                                           .paginate(page: params[:page], per_page: 50)
                                            .order("#{sort_column} #{sort_direction}")
       end
       format.csv do
-        all_memberships = CommunityMembership.where(:community_id => @community.id)
+        all_memberships = CommunityMembership.where(community_id: @community.id)
                                               .where("status != 'deleted_user'")
-                                              .includes(:person => [:emails, :location])
+                                              .includes(person: [:emails, :location])
         marketplace_name = if @community.use_domain
           @community.domain
         else
@@ -36,8 +36,8 @@ class Admin::CommunityMembershipsController < ApplicationController
       return redirect_to admin_community_community_memberships_path(@current_community)
     end
 
-    membership.update_attributes(:status => "banned")
-    membership.update_attributes(:admin => 0) if membership.admin == 1
+    membership.update_attributes(status: "banned")
+    membership.update_attributes(admin: 0) if membership.admin == 1
 
     @current_community.close_listings_by_author(membership.person)
 
@@ -48,16 +48,16 @@ class Admin::CommunityMembershipsController < ApplicationController
     if removes_itself?(params[:remove_admin], @current_user, @current_community)
       render nothing: true, status: 405
     else
-      @current_community.community_memberships.where(:person_id => params[:add_admin]).update_all("admin = 1")
-      @current_community.community_memberships.where(:person_id => params[:remove_admin]).update_all("admin = 0")
+      @current_community.community_memberships.where(person_id: params[:add_admin]).update_all("admin = 1")
+      @current_community.community_memberships.where(person_id: params[:remove_admin]).update_all("admin = 0")
 
       render nothing: true, status: 200
     end
   end
 
   def posting_allowed
-    @current_community.community_memberships.where(:person_id => params[:allowed_to_post]).update_all("can_post_listings = 1")
-    @current_community.community_memberships.where(:person_id => params[:disallowed_to_post]).update_all("can_post_listings = 0")
+    @current_community.community_memberships.where(person_id: params[:allowed_to_post]).update_all("can_post_listings = 1")
+    @current_community.community_memberships.where(person_id: params[:disallowed_to_post]).update_all("can_post_listings = 0")
 
     render nothing: true, status: 200
   end
