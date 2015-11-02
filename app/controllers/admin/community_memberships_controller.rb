@@ -24,7 +24,7 @@ class Admin::CommunityMembershipsController < ApplicationController
         else
           @community.ident
         end
-        send_data generate_csv_for(all_memberships), filename: "#{marketplace_name}-users-#{Date.today}.csv"
+        send_data generate_csv_for(all_memberships, @community), filename: "#{marketplace_name}-users-#{Date.today}.csv"
       end
     end
   end
@@ -65,7 +65,7 @@ class Admin::CommunityMembershipsController < ApplicationController
 
   private
 
-  def generate_csv_for(memberships)
+  def generate_csv_for(memberships, community)
     CSV.generate(headers: true, force_quotes: true) do |csv|
       # first line is column names
       header_row = %w{
@@ -82,9 +82,7 @@ class Admin::CommunityMembershipsController < ApplicationController
         accept_emails_from_admin
         language
       }
-      community_requires_verification_to_post =
-        memberships.first && memberships.first.community.require_verification_to_post_listings
-      header_row.push("can_post_listings") if community_requires_verification_to_post
+      header_row.push("can_post_listings") if community.require_verification_to_post_listings
       csv << header_row
       memberships.each do |membership|
         user = membership.person
@@ -100,7 +98,7 @@ class Admin::CommunityMembershipsController < ApplicationController
             membership.admin,
             user.locale
           ]
-          user_data.push(membership.can_post_listings) if community_requires_verification_to_post
+          user_data.push(membership.can_post_listings) if community.require_verification_to_post_listings
           user.emails.each do |email|
             accept_emails_from_admin = user.preferences["email_from_admins"] && email.send_notifications
             csv << user_data.clone.insert(5, email.address, !!email.confirmed_at).insert(10, !!accept_emails_from_admin)
