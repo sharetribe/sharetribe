@@ -50,5 +50,13 @@ input.auto_width {
     padding: lines(0.4);
     border-radius: 6px;
   }
+}
 
+// Select all / clear all links in a few admin pages
+.selection-options {
+  @include media(tablet) {
+    margin-top: lines(0.5);
+    margin-bottom: em(3);
+    float: right;
+  }
 }
