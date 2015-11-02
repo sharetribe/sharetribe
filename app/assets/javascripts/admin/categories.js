@@ -1,4 +1,16 @@
 /**
+  Add click handlers for the select/clear all links.
+*/
+window.ST.initializeCategoriesSelectionClickHandlers = function() {
+  $(".select-all").click(function() {
+    $(".category-listing-shape-checkbox").prop("checked", true);
+  });
+  $(".deselect-all").click(function() {
+    $(".category-listing-shape-checkbox").prop("checked", false);
+  });
+}
+
+/**
   Category order manager
 */
 window.ST.initializeCategoriesOrder = function() {
