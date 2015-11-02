@@ -2251,3 +2251,11 @@ figure.fluidratio {
     }
   }
 }
+
+.selection-options {
+  @include media(tablet) {
+    margin-top: lines(0.5);
+    margin-bottom: em(3);
+    float: right;
+  }
+}

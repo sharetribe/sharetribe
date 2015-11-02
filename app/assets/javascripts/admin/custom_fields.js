@@ -1,6 +1,18 @@
 window.ST = window.ST || {};
 
 /**
+  Add click handlers for the select/clear all links.
+*/
+window.ST.initializeCustomFieldsSelectionClickHandlers = function() {
+  $(".select-all").click(function() {
+    $(".custom-field-category-checkbox").prop("checked", true);
+  });
+  $(".deselect-all").click(function() {
+    $(".custom-field-category-checkbox").prop("checked", false);
+  });
+}
+
+/**
   Custom field order manager.
 
   Makes a POST request when order changes.

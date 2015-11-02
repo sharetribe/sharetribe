@@ -1,6 +1,7 @@
 - content_for :javascript do
   initialize_admin_listing_field_form_view("#{I18n.locale}", "#new_custom_field", #{@custom_field.options.size}, #{@min_option_count});
   ST.customFieldOptionOrder = ST.createCustomFieldOptionOrder(".custom-field-option-container");
+  ST.initializeCustomFieldsSelectionClickHandlers();
 
 - content_for :title_header do
   %h1

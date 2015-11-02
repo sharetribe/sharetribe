@@ -1,5 +1,14 @@
 - if @current_community.categories.size > 1
-  = form.label :category_attributes, t("admin.custom_fields.index.categories")
+  .row
+    .col-8
+      = form.label :category_attributes, t("admin.custom_fields.index.categories")
+    .col-4
+      .selection-options
+        %a.select-all{href: "#"}
+          = t("admin.custom_fields.index.select_all")
+        |
+        %a.deselect-all{href: "#"}
+          = t("admin.custom_fields.index.clear_all")
   .row
     .col-12
       .custom-field-categories-container.clearfix#custom-field-categories-container
