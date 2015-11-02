@@ -33,7 +33,6 @@ module PlanService::Store::Plan
     from_trial_model(TrialModel.create!(plan_entity))
   end
 
-  # TODO When we are ready to read from the new plans table, some renaming is needed
   def get_current(community_id:)
     Maybe(get_current_plan(community_id: community_id)).or_else {
       get_initial_trial(community_id: community_id)
