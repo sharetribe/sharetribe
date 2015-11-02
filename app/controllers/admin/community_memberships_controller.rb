@@ -18,7 +18,6 @@ class Admin::CommunityMembershipsController < ApplicationController
         all_memberships = CommunityMembership.where(:community_id => @community.id)
                                               .where("status != 'deleted_user'")
                                               .includes(:person => [:emails, :location])
-                                              .order("created_at ASC")
         marketplace_name = if @community.use_domain
           @community.domain
         else
@@ -84,7 +83,7 @@ class Admin::CommunityMembershipsController < ApplicationController
       }
       header_row.push("can_post_listings") if community.require_verification_to_post_listings
       csv << header_row
-      memberships.each do |membership|
+      memberships.find_each do |membership|
         user = membership.person
         unless user.blank?
           user_data = [
