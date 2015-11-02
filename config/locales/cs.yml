@@ -21,6 +21,8 @@ cs:
         category_transaction_types:
           transaction_types: "Typy objednávek"
           transaction_types_description: "Typy objednávek určují, jaký druh objednávek bude povolen pro inzeráty v této kategorii. Například povoleno pouze pro prodám, pronajmu nebo pro daruji."
+          select_all: ~
+          clear_all: ~
         buttons:
           save: Uložit
           cancel: Zrušit
@@ -356,6 +358,8 @@ cs:
         field_title: "Název pole"
         field_type: "Typ pole"
         categories: "Kategorie inzerátů, kde se pole vyskytuje"
+        select_all: ~
+        clear_all: ~
         options: Možnosti
         add_option: "+ Přidat možnost"
         saving_order: Uložit

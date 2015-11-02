@@ -21,6 +21,8 @@ fr-CA:
         category_transaction_types:
           transaction_types: "Types de transaction"
           transaction_types_description: "Les types de transaction définissent quels genres de transactions sont autorisés pour les annonces dans cette catégorie. Par exemple, est-ce uniquement de la vente ou bien louer et donner gratuitement sont-ils également permis."
+          select_all: ~
+          clear_all: ~
         buttons:
           save: Sauvegarder
           cancel: Annuler
@@ -351,6 +353,8 @@ fr-CA:
         field_title: "Nom du champ"
         field_type: "Type de champ"
         categories: "Catégories d'annonces pour lequel le champ est utilisé"
+        select_all: ~
+        clear_all: ~
         options: Choix
         add_option: "+ Ajouter une option"
         saving_order: "Sauvegarder l'ordre des champs"

@@ -21,6 +21,8 @@ tr-TR:
         category_transaction_types:
           transaction_types: "İşlem türleri"
           transaction_types_description: "İşlem türleri bu kategorideki listelemelerde izin verilen işlemleri belirler. Örneğin, sadece satışa ya da kiralama ve hediye etme türlerine izin verilebilir."
+          select_all: ~
+          clear_all: ~
         buttons:
           save: Kaydet
           cancel: İptal
@@ -346,6 +348,8 @@ tr-TR:
         field_title: "Alan adı"
         field_type: "Alan türü"
         categories: "Alanın kullanıldığı listeleme kategorileri"
+        select_all: ~
+        clear_all: ~
         options: Tercihler
         add_option: "+ Seçenek ekle"
         saving_order: "Alan düzeni kaydediliyor"

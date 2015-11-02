@@ -21,6 +21,8 @@ sv:
         category_transaction_types:
           transaction_types: Transaktionstyp
           transaction_types_description: "Transaktionstyper avgör vilka typ av transaktioner som tillåts med annonser i denna kategori. T ex är det bara försäljning, eller är det uthyrning och ge bort också tillåtet."
+          select_all: ~
+          clear_all: ~
         buttons:
           save: Spara
           cancel: Avbryt
@@ -351,6 +353,8 @@ sv:
         field_title: Fältnamn
         field_type: "Typ av fält"
         categories: "Annonskategorier där fältet används"
+        select_all: ~
+        clear_all: ~
         options: Val
         add_option: "+ Lägg till alternativ"
         saving_order: "Spara fältordning"

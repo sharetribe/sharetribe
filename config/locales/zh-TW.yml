@@ -21,6 +21,8 @@ zh-TW:
         category_transaction_types:
           transaction_types: 订单的类型
           transaction_types_description: 交易类型决定了在该类别中的发布的信息的订购流程。比如，是否只能卖，或者出租以及允许免费赠送。
+          select_all: ~
+          clear_all: ~
         buttons:
           save: 保存
           cancel: 取消
@@ -346,6 +348,8 @@ zh-TW:
         field_title: 字段标题
         field_type: 字段类型
         categories: 信息分类字段
+        select_all: ~
+        clear_all: ~
         options: 选项
         add_option: +添加选项
         saving_order: 保存字段顺序

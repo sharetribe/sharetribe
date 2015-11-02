@@ -21,6 +21,8 @@ ms-MY:
         category_transaction_types:
           transaction_types: ~
           transaction_types_description: ~
+          select_all: ~
+          clear_all: ~
         buttons:
           save: ~
           cancel: ~
@@ -336,6 +338,8 @@ ms-MY:
         field_title: ~
         field_type: ~
         categories: ~
+        select_all: ~
+        clear_all: ~
         options: ~
         add_option: ~
         saving_order: ~

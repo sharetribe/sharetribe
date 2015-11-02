@@ -21,6 +21,8 @@ ja:
         category_transaction_types:
           transaction_types: 課金タイプ
           transaction_types_description: カテゴリーの中のリストはどの課金タイプに該当するかを決めます。例えば、「売ります」だけにする場合、「貸します」と「あげます」「ご自由にどうぞ」にも適用する場合。
+          select_all: ~
+          clear_all: ~
         buttons:
           save: 保存する
           cancel: キャンセル
@@ -346,6 +348,8 @@ ja:
         field_title: 項目のタイトル
         field_type: 項目の種類
         categories: 項目が使用されるリストのカテゴリ
+        select_all: ~
+        clear_all: ~
         options: オプション
         add_option: "+ オプションを追加する"
         saving_order: 項目の順番を保存する

@@ -21,6 +21,8 @@ de:
         category_transaction_types:
           transaction_types: Transaktionsarten
           transaction_types_description: "Transaktionsarten bestimmen, welche Art von Transaktionen mit Einträgen in dieser Kategorie erlaubt sind. Zum Beispiel ob nur der Verkauf erlaubt ist oder Miete und verschenken ebenfalls."
+          select_all: ~
+          clear_all: ~
         buttons:
           save: Speichern
           cancel: Abbrechen
@@ -351,6 +353,8 @@ de:
         field_title: "Name des Feldes"
         field_type: "Art des Feldes"
         categories: "Kategorien, in denen das Feld angewendet wird"
+        select_all: ~
+        clear_all: ~
         options: Optionen
         add_option: "+ Auswahl hinzufügen"
         saving_order: "Feldreihenfolge speichern"

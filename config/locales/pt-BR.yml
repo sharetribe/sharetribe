@@ -21,6 +21,8 @@ pt-BR:
         category_transaction_types:
           transaction_types: "Tipos de transação"
           transaction_types_description: "Os tipos de transação determinam quais operações são permitidas com anúncios nesta categoria. Por exemplo, só está vendendo, alugando ou permitindo doações também."
+          select_all: ~
+          clear_all: ~
         buttons:
           save: Salvar
           cancel: Anular
@@ -351,6 +353,8 @@ pt-BR:
         field_title: Nome
         field_type: "Especificar tipo de campo"
         categories: "Categorias de anúncio onde o campo é usado"
+        select_all: ~
+        clear_all: ~
         options: Opção
         add_option: "+ Adicionar opção"
         saving_order: Salvar

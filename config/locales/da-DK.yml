@@ -21,6 +21,8 @@ da-DK:
         category_transaction_types:
           transaction_types: "Transaktions typer"
           transaction_types_description: "Transaktionstyper afgøre hvilke transaktioner som er tilladt i denne annonce kategori. Eksempelvis hvis den ikke sælger, er udlånt eller bliver givet væk gratis."
+          select_all: "Vælg alle"
+          clear_all: ~
         buttons:
           save: Gem
           cancel: Annuller
@@ -351,6 +353,8 @@ da-DK:
         field_title: "Felt titel"
         field_type: "Felt type"
         categories: "Annonce kategorier hvor feltet er i brug"
+        select_all: ~
+        clear_all: ~
         options: Valg
         add_option: "+ Tilføj mulighed"
         saving_order: "Gem feltets rækkefølge"
