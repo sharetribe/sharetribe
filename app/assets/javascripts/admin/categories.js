@@ -8,7 +8,7 @@ window.ST.initializeCategoriesSelectionClickHandlers = function() {
   $(".deselect-all").click(function() {
     $(".category-listing-shape-checkbox").prop("checked", false);
   });
-}
+};
 
 /**
   Category order manager

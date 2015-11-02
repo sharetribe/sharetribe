@@ -10,7 +10,7 @@ window.ST.initializeCustomFieldsSelectionClickHandlers = function() {
   $(".deselect-all").click(function() {
     $(".custom-field-category-checkbox").prop("checked", false);
   });
-}
+};
 
 /**
   Custom field order manager.
