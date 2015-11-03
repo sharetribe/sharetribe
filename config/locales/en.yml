@@ -332,10 +332,11 @@ en:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
       edit_price:
+        description: "The minimum and maximum price only affect the filter. They do not set a limit for listing prices."
         edit_price_field: "Edit price field"
         show_price_filter_homepage: "Show price filter on homepage"
-        price_min: "Minimum price"
-        price_max: "Maximum price"
+        price_min: "Filter minimum price"
+        price_max: "Filter maximum price"
       edit_location:
         edit_location_field: "Edit location field"
         this_field_is_required: "This field is required"
