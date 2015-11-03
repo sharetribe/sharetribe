@@ -587,10 +587,10 @@ module ApplicationHelper
     if feature_enabled?(:new_plan_page) && APP_CONFIG.external_plan_service_in_use
       links << {
         :topic => :general,
-        :text => t("admin.left_hand_navigation.subscription"),
+        :text => t("admin.left_hand_navigation.plan"),
         :icon_class => icon_class("credit_card"),
-        :path => "#{external_plan_service_login_url(@current_community.id)}",
-        :name => "subscription",
+        :path => plan_admin_community_path(@current_community),
+        :name => "plan",
       }
     end
 
@@ -796,16 +796,6 @@ module ApplicationHelper
       person_checkout_account_url(person, url_params.merge(locale: person.locale))
     elsif gateway_type == :paypal
       show_paypal_account_settings_payment_url(person, url_params.merge(locale: person.locale))
-    end
-  end
-
-  def external_plan_service_login_url(marketplace_id)
-    if APP_CONFIG.external_plan_service_url && APP_CONFIG.external_plan_service_secret
-      payload = {user_id: marketplace_id}
-      secret = APP_CONFIG.external_plan_service_secret
-      external_plan_service_url = APP_CONFIG.external_plan_service_url + "login"
-      token = JWTUtils.encode(payload, secret)
-      URLUtils.append_query_param(external_plan_service_url, "token", token)
     end
   end
 

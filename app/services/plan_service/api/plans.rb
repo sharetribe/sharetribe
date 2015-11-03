@@ -2,11 +2,13 @@ module PlanService::API
   PlanStore = PlanService::Store::Plan
 
   Plan = PlanService::DataTypes::Plan
+  ExternalPlan = PlanService::DataTypes::ExternalPlan
 
   class Plans
 
     def initialize(configuration)
       @jwt_secret = configuration[:jwt_secret]
+      @external_plan_service_url = configuration[:external_plan_service_url]
     end
 
     def active?
@@ -72,6 +74,31 @@ module PlanService::API
           plans: trials
         )
       end
+    end
+
+    def get_external_service_link(marketplace_data)
+      Maybe(@external_plan_service_url)
+        .map { |external_plan_service_url|
+          marketplace_id = marketplace_data[:id]
+          Maybe(PlanStore.get_initial_trial(community_id: marketplace_id))
+            .map { |trial_data|
+              trial_hash = ExternalPlan.call(HashUtils.rename_keys({
+                id: :marketplace_plan_id,
+                community_id: :marketplace_id
+              }, trial_data))
+              payload = {
+                marketplace: marketplace_data,
+                initial_trial_data: trial_hash
+              }
+
+              secret = @jwt_secret
+              url = external_plan_service_url + "/login"
+              token = JWTUtils.encode(payload, secret)
+              Result::Success.new(URLUtils.append_query_param(url, "token", token))
+            }
+            .or_else(Result::Error.new("Initial data not found"))
+        }
+        .or_else(Result::Error.new("external_plan_service_url is not defined"))
     end
 
     private

@@ -120,6 +120,7 @@ Kassi::Application.routes.draw do
       resources :communities do
         member do
           get :getting_started, to: 'communities#getting_started'
+          get :plan, to: 'communities#plan'
           get :edit_details, to: 'community_customizations#edit_details'
           put :update_details, to: 'community_customizations#update_details'
           get :edit_look_and_feel
