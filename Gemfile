@@ -17,6 +17,7 @@ end
 
 gem 'sass-rails'
 gem 'compass-rails'
+gem 'compass', '~> 0.13.alpha'
 
 gem 'jquery-rails', '2.1.4'
 
