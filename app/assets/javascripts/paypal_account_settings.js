@@ -2,31 +2,28 @@ window.ST = window.ST || {};
 
 (function(module) {
 
-  module.initializePayPalAccountForm = function(formId) {
-    var form = $('#'+formId);
+
+  module.initializePayPalAccountForm = function(button_id, action) {
+    var button = $('#'+button_id);
     var spinner = new Image();
     spinner.src = "https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif";
     spinner.className = "send-button-loading-img";
 
-    form.validate({
-      submitHandler: function(form) {
-        var $form = $(form);
-        var $sendButton = $form.find(".send_button");
-        if(!$sendButton.hasClass("send-button-loading")) {
-          $form.find(".send-button-wrapper").append(spinner);
-          $sendButton.addClass("send-button-loading").blur();
+    console.log("Does this workL");
+    button.click(function(){
+      $(".send-button-wrapper").append(spinner);
+      button.addClass("send-button-loading").blur();
 
-          $.ajax({
-            type: 'GET',
-            url: $form.attr('action'),
-            success: function(response){
-              $form.find(".send-button-wrapper").before(response.redirect_message);
-              window.location = response.redirect_url;
-            }
-          });
+      $.ajax({
+        type: 'GET',
+        url: action,
+        success: function(response){
+          $(".send-button-wrapper").before(response.redirect_message);
+          window.location = response.redirect_url;
         }
-      }
-    });
+      });
+
+    })
   };
 
   module.initializePayPalPreferencesForm = function(formId, commissionRange, minCommission) {

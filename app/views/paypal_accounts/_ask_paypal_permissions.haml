@@ -1,5 +1,9 @@
+- content_for :javascript do
+  ST.initializePayPalAccountForm("ask_paypal_permissions", "#{ask_order_permission_person_paypal_account_path}");
+
 .row
-  = form.label :paypal_email, title
+  %h3= title
+
 .row
   - create_link = link_to(I18n.t("paypal_accounts.new.create_paypal_account"), create_url, target: "_blank")
   - upgrade_link = link_to(I18n.t("paypal_accounts.new.upgrade_paypal_account"), upgrade_url, target: "_blank")
@@ -7,4 +11,4 @@
   = render :partial => "layouts/info_text", :locals => {text: text}
 
 .row.send-button-wrapper
-  = form.button t("paypal_accounts.new.connect_paypal_account"), :class => "send_button"
+  = content_tag(:button, t("paypal_accounts.new.connect_paypal_account"), class: "send_button", id: "ask_paypal_permissions", type: :button)

@@ -1,3 +1,6 @@
+- content_for :javascript do
+  ST.initializePayPalAccountForm("ask_billing_agreement","#{ask_billing_agreement_person_paypal_account_path}");
+
 .row.paypal-connected-email-row
   %h3.paypal-account-connected
     =t("paypal_accounts.paypal_account_email_connected").html_safe
@@ -8,7 +11,7 @@
 
 - if commission_type != :none
   .row
-    = form.label :paypal_email, t("paypal_accounts.new.paypal_account_billing_agreement")
+    %h3= t("paypal_accounts.new.paypal_account_billing_agreement")
 
   .row
     - paypal_info_link = "<a id='paypal_fee_info_link' href='#'>#{t("paypal_accounts.new.paypal_info_link_text")}</a>"
@@ -27,7 +30,7 @@
       paypal_info_link: paypal_info_link).html_safe }
 
   .row.send-button-wrapper
-    = form.button t("paypal_accounts.new.billing_agreement"), :class => "send_button"
+    = content_tag(:button, t("paypal_accounts.new.billing_agreement"), class: "send_button", type: "button", id: "ask_billing_agreement")
 
   = render layout: "layouts/lightbox", locals: { id: "paypal_fee_info_content"} do
     %h2= t("common.paypal_fee_info.title")
