@@ -21,8 +21,8 @@ pt-BR:
         category_transaction_types:
           transaction_types: "Tipos de transação"
           transaction_types_description: "Os tipos de transação determinam quais operações são permitidas com anúncios nesta categoria. Por exemplo, só está vendendo, alugando ou permitindo doações também."
-          select_all: ~
-          clear_all: ~
+          select_all: "Selecionar todos"
+          clear_all: "Limpar tudo"
         buttons:
           save: Salvar
           cancel: Anular
@@ -332,6 +332,7 @@ pt-BR:
       edit:
         edit_listing_field: "Alterar anúncio '%{field_name}'"
       edit_price:
+        description: "O preço máximo e o mínimo afetam somente o filtro. Eles não limitam o preço dos anúncios."
         edit_price_field: "Editar campo 'Preço'"
         show_price_filter_homepage: "Mostrar filtro de preço na página inicial"
         price_min: "Preço mínimo"
@@ -353,8 +354,8 @@ pt-BR:
         field_title: Nome
         field_type: "Especificar tipo de campo"
         categories: "Categorias de anúncio onde o campo é usado"
-        select_all: ~
-        clear_all: ~
+        select_all: "Selecionar todos"
+        clear_all: "Limpar tudo"
         options: Opção
         add_option: "+ Adicionar opção"
         saving_order: Salvar
@@ -1377,15 +1378,15 @@ pt-BR:
       you_must_log_in_to_give_feedback: "Você deve conectar para escrever um 'feedback'"
       you_must_log_in_to_invite_new_users: "Você deve se conectar para convidar novos usuários a %{service_name}"
       you_must_log_in_to_send_a_comment: "Você deve conectar para enviar um novo comentário"
-      you_must_log_in_to_send_a_message: "Você deve fazer se conectar em %{service_name} para enviar uma mensagem para outro usuário."
+      you_must_log_in_to_send_a_message: "Você deve fazer entrar no %{service_name} para enviar uma mensagem para outro usuário."
       you_must_log_in_to_do_a_transaction: "Você precisa entrar no %{service_name} para realizar uma transação"
       you_must_log_in_to_view_this_content: "Você deve se conectar para visualizar este conteúdo"
       you_must_log_in_to_view_this_page: "Você deve se conectar para ver esta página"
-      you_must_log_in_to_view_your_inbox: "Você deve se conectar em %{service_name} para ver sua caixa de entrada."
-      you_must_log_in_to_view_your_settings: "Você deve se conectar em %{service_name} para exibir suas configurações."
-      you_must_log_in_to_add_news_item: "Você deve se conectar em %{service_name} para adicionar um novo artigo."
-      you_must_log_in_to_change_profile_settings: "Você deve se conectar em %{service_name} para mudar as configurações de perfil."
-      you_must_log_in_to_change_payment_settings: "Você deve se conectar em %{service_name} para alterar as configurações de pagamento"
+      you_must_log_in_to_view_your_inbox: "Você deve entrar no %{service_name} para ver a sua caixa de entrada."
+      you_must_log_in_to_view_your_settings: "Você deve entrar no %{service_name} para exibir suas configurações."
+      you_must_log_in_to_add_news_item: "Você deve entrar no %{service_name} para adicionar um novo artigo."
+      you_must_log_in_to_change_profile_settings: "Você deve entrar no %{service_name} para mudar as configurações de perfil."
+      you_must_log_in_to_change_payment_settings: "Você deve entrar no %{service_name} para alterar as configurações de pagamento"
       you_must_log_in_to_accept_or_reject: "Você deve conectar sua conta para aceitar ou rejeitar a transação"
       you_must_log_in_to_confirm_or_cancel: "Você deve conectar sua conta para cancelar ou confirmar a transação"
       you_need_to_confirm_your_account_first: "Você precisa confirmar o seu e-mail."
@@ -1803,7 +1804,7 @@ pt-BR:
       organization_name: "Nome da organização"
       password_again: "Confirme a senha"
       show_my_name_to_others: "Mostrar o meu nome completo aos utilizadores de %{service_name}"
-      sign_up: "Cadastrar-se em %{service_name}"
+      sign_up: "Criar uma conta no %{service_name}"
       terms: "termos de uso"
       username_is_in_use: "Este nome de usuário já está em uso."
       username_is_invalid: "Nome de usuário é inválido. Os caracteres permitidos são letras, números e sublinhado."
@@ -1886,7 +1887,7 @@ pt-BR:
       create_new_account: "Criar uma nova conta"
       i_forgot_my_password: "Esqueci meu usuário ou a minha senha"
       login: Entrar
-      login_to_kassi: "Conectar em %{service_name}"
+      login_to_kassi: "Entrar no %{service_name}"
       connect_your_facebook_to_kassi: "Associar a sua conta Facebook à %{service_name}"
       facebook_account: "Conta Facebook :"
       log_in_to_link_account: "Se você já tem uma conta %{service_name}, se conecte para vinculá-la com a sua conta do Facebook."

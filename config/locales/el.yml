@@ -21,6 +21,8 @@ el:
         category_transaction_types:
           transaction_types: ~
           transaction_types_description: ~
+          select_all: ~
+          clear_all: ~
         buttons:
           save: ~
           cancel: ~
@@ -315,6 +317,7 @@ el:
       edit:
         edit_listing_field: ~
       edit_price:
+        description: ~
         edit_price_field: ~
         show_price_filter_homepage: ~
         price_min: ~
@@ -336,6 +339,8 @@ el:
         field_title: ~
         field_type: ~
         categories: ~
+        select_all: ~
+        clear_all: ~
         options: ~
         add_option: ~
         saving_order: ~
@@ -372,7 +377,7 @@ el:
       configure: ~
       emails_title: ~
       support: ~
-      subscription: ~
+      plan: ~
     listing_shapes:
       index:
         listing_shapes: ~

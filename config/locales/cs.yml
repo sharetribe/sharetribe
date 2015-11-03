@@ -337,6 +337,7 @@ cs:
       edit:
         edit_listing_field: "Upravit pole inzerát %{field_name}"
       edit_price:
+        description: ~
         edit_price_field: "Upravit cenu pole"
         show_price_filter_homepage: "Ukázat cenový filtr na domovské stránce"
         price_min: "Minimální cena"
@@ -396,7 +397,7 @@ cs:
       configure: Nastavení
       emails_title: Emaily
       support: "Zákaznická podpora"
-      subscription: ~
+      plan: ~
     listing_shapes:
       index:
         listing_shapes: "Typy objednávek"

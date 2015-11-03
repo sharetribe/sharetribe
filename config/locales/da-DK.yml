@@ -22,7 +22,7 @@ da-DK:
           transaction_types: "Transaktions typer"
           transaction_types_description: "Transaktionstyper afgøre hvilke transaktioner som er tilladt i denne annonce kategori. Eksempelvis hvis den ikke sælger, er udlånt eller bliver givet væk gratis."
           select_all: "Vælg alle"
-          clear_all: ~
+          clear_all: "Fravælg alle"
         buttons:
           save: Gem
           cancel: Annuller
@@ -332,6 +332,7 @@ da-DK:
       edit:
         edit_listing_field: "Rediger annoncefelt '%{field_name}'"
       edit_price:
+        description: "Minimum og maksimum prisen påvirker kun filteret. Det sætte ikke en grænse for annonce priser."
         edit_price_field: "Rediger pris felt"
         show_price_filter_homepage: "Hvis prisfilter på forsiden"
         price_min: "Minimums pris"
@@ -353,8 +354,8 @@ da-DK:
         field_title: "Felt titel"
         field_type: "Felt type"
         categories: "Annonce kategorier hvor feltet er i brug"
-        select_all: ~
-        clear_all: ~
+        select_all: "Vælg alle"
+        clear_all: "Fravælg alle"
         options: Valg
         add_option: "+ Tilføj mulighed"
         saving_order: "Gem feltets rækkefølge"
@@ -391,7 +392,7 @@ da-DK:
       configure: Konfiguration
       emails_title: Emails
       support: support
-      subscription: "Dit abonnement"
+      plan: "Dit abonnement"
     listing_shapes:
       index:
         listing_shapes: "Ordre typer"

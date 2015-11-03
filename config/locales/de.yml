@@ -21,8 +21,8 @@ de:
         category_transaction_types:
           transaction_types: Transaktionsarten
           transaction_types_description: "Transaktionsarten bestimmen, welche Art von Transaktionen mit Einträgen in dieser Kategorie erlaubt sind. Zum Beispiel ob nur der Verkauf erlaubt ist oder Miete und verschenken ebenfalls."
-          select_all: ~
-          clear_all: ~
+          select_all: "Alle auswählen"
+          clear_all: "Alle löschen"
         buttons:
           save: Speichern
           cancel: Abbrechen
@@ -332,6 +332,7 @@ de:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
       edit_price:
+        description: ~
         edit_price_field: "Preisfeld bearbeiten"
         show_price_filter_homepage: "Preisfilter auf der Homepage anzeigen"
         price_min: Mindestpreis
@@ -353,8 +354,8 @@ de:
         field_title: "Name des Feldes"
         field_type: "Art des Feldes"
         categories: "Kategorien, in denen das Feld angewendet wird"
-        select_all: ~
-        clear_all: ~
+        select_all: "Alle auswählen"
+        clear_all: "Alle löschen"
         options: Optionen
         add_option: "+ Auswahl hinzufügen"
         saving_order: "Feldreihenfolge speichern"
@@ -391,7 +392,7 @@ de:
       configure: Konfiguration
       emails_title: E-Mails
       support: Support
-      subscription: "Mein Abonnement"
+      plan: "Mein Abonnement"
     listing_shapes:
       index:
         listing_shapes: ~

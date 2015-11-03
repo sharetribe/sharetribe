@@ -21,6 +21,8 @@ es-ES:
         category_transaction_types:
           transaction_types: Transacciones
           transaction_types_description: "El tipo de transacción determina qué tipo de transacciones se permiten en los anuncios publicados en ésta categoría. Por ejemplo, venta, alquiler, o si el producto puede ser gratuito."
+          select_all: "Seleccionar todo"
+          clear_all: "Borrar todo"
         buttons:
           save: Guardar
           cancel: Cancelar
@@ -334,6 +336,7 @@ es-ES:
       edit:
         edit_listing_field: "Editar campo '%{field_name}'"
       edit_price:
+        description: "El precio mínimo y máximo solo afecta al filtro. No establece un límite para los precios de las ofertas."
         edit_price_field: "Ha habido un fallo al editar el precio"
         show_price_filter_homepage: "Mostrar filtro por precio en la página principal"
         price_min: "Precio mínimo"
@@ -355,6 +358,8 @@ es-ES:
         field_title: "Título del campo"
         field_type: "Tipo de campo"
         categories: "Categorías donde se muestra el campo"
+        select_all: "Seleccionar todo"
+        clear_all: "Borrar todo"
         options: Opciones
         add_option: "+ Añadir opción"
         saving_order: "Guardando orden de los campos en el formulario"
@@ -391,7 +396,7 @@ es-ES:
       configure: Configuración
       emails_title: Emails
       support: Soporte
-      subscription: "Mi suscripción"
+      plan: "Mi suscripción"
     listing_shapes:
       index:
         listing_shapes: "Tipos de Orden"
