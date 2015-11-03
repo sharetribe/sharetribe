@@ -17,6 +17,13 @@ end
 
 gem 'sass-rails'
 gem 'compass-rails'
+
+# Requiring 'compass' gem directly is not normally needed,
+# 'compass-rails' already does that.
+#
+# However, we want to have compass version which is at least 0.13,
+# because it fixes a bug that caused compass helpers to override
+# important Rails asset helpers
 gem 'compass', '~> 0.13.alpha'
 
 gem 'jquery-rails', '2.1.4'
