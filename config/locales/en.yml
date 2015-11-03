@@ -1725,6 +1725,8 @@ en:
     change_account: "Change account"
     missing: "You have open listings but your Paypal account is not set up to receive payments. Connect your Paypal account and grant %{service_name} permission to charge a transaction fee from your %{settings_link}."
     from_your_payment_settings_link_text: "payment settings"
+    redirect_message: "Redirecting you to PayPal. If nothing happens, click"
+    redirect_here: "here."
     new:
       payout_info_you_need_to_connect: "To accept payments you need to connect your PayPal account with %{service_name}."
       payout_info_text: "Please complete the following steps to connect your account."

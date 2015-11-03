@@ -15,7 +15,14 @@ window.ST = window.ST || {};
         if(!$sendButton.hasClass("send-button-loading")) {
           $form.find(".send-button-wrapper").append(spinner);
           $sendButton.addClass("send-button-loading").blur();
-          form.submit();
+          $.ajax({
+            type: 'GET',
+            url: $form.attr('action'),
+            success: function(response){
+              $form.find(".send-button-wrapper").before(response.redirect_message);
+              window.location = (response.redirect_url);
+            }
+          });
         }
       }
     });
