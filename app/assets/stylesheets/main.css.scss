@@ -2013,7 +2013,7 @@ figure.fluidratio {
   position: relative;
 
   figure.marketplace-cover {
-    background-image: url(image-path($cover-photo-url));
+    background-image: asset-url($cover-photo-url, image);
     height: em($cover-photo-mobile-height);
     @include media(tablet) {
       @include fluid-ratio(em(1920) em($cover-photo-height), em(300) em($cover-photo-height));
@@ -2021,7 +2021,7 @@ figure.fluidratio {
   }
 
   figure.marketplace-cover-small {
-    background-image: url(image-path($small-cover-photo-url));
+    background-image: asset-url($small-cover-photo-url, image);
     height: em($small-cover-photo-mobile-height);
     @include media(tablet) {
       @include fluid-ratio(em(1920) em($small-cover-photo-height), em(300) em($small-cover-photo-height));
