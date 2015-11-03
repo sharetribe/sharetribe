@@ -135,7 +135,8 @@ class PaypalAccountsController < ApplicationController
         flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
         return redirect_to action: :new
       else
-        return redirect_to billing_agreement_url
+        render json: {redirect_url: billing_agreement_url,
+                      redirect_message: "#{t("paypal_accounts.redirect_message")} <a href=#{billing_agreement_url}>#{t("paypal_accounts.redirect_here")}</a>"}
       end
 
     else
