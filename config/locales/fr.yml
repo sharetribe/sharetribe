@@ -21,6 +21,8 @@ fr:
         category_transaction_types:
           transaction_types: "Types de transaction"
           transaction_types_description: "Les types de transaction définissent quels genres de transactions sont autorisés pour les annonces dans cette catégorie. Par exemple, est-ce uniquement de la vente ou bien louer et donner gratuitement sont-ils également permis."
+          select_all: "Tout cocher"
+          clear_all: "Tout décocher"
         buttons:
           save: Sauvegarder
           cancel: Annuler
@@ -330,10 +332,11 @@ fr:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
       edit_price:
+        description: "Les valeurs minimum et maximum du filtre prix ne concernent que le filtre. Elles ne définissent pas une limites pour le prix des annonces."
         edit_price_field: "Modifier le champ d'annonce 'Prix'"
         show_price_filter_homepage: "Afficher le filtre de prix sur la page d'accueil"
-        price_min: "Prix minimum"
-        price_max: "Prix maximum"
+        price_min: "Valeur minimum du filtre prix"
+        price_max: "Valeur maximum du filtre prix"
       edit_location:
         edit_location_field: "Modifier le champ d'annonce 'Lieu'"
         this_field_is_required: "Ce champ est obligatoire"
@@ -351,6 +354,8 @@ fr:
         field_title: "Nom du champ"
         field_type: "Type de champ"
         categories: "Catégories d'annonces pour lequel le champ est utilisé"
+        select_all: "Tout cocher"
+        clear_all: "Tout décocher"
         options: Choix
         add_option: "+ Ajouter une option"
         saving_order: "Sauvegarder l'ordre des champs"
@@ -387,7 +392,7 @@ fr:
       configure: Configuration
       emails_title: Emails
       support: Support
-      subscription: "Votre abonnement"
+      plan: "Votre abonnement"
     listing_shapes:
       index:
         listing_shapes: "Types de transaction"

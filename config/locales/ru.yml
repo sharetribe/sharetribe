@@ -21,6 +21,8 @@ ru:
         category_transaction_types:
           transaction_types: "Тип транзакции"
           transaction_types_description: "Типы транзакций определяют какие типы транзакций допустимы для предложений данной категории. Для примера, это продажа, аренда или в дар где есть бесплатная возможность."
+          select_all: ~
+          clear_all: ~
         buttons:
           save: Сохранить
           cancel: Отменить
@@ -340,6 +342,7 @@ ru:
       edit:
         edit_listing_field: "Редактировать поле предложения \"%{field_name}\""
       edit_price:
+        description: ~
         edit_price_field: "Редактировать поле цены"
         show_price_filter_homepage: "Показать фильтр цены на главной странице"
         price_min: "Минимальная цена"
@@ -361,6 +364,8 @@ ru:
         field_title: "Наименование поля"
         field_type: "Тип поля"
         categories: "Категории предложений где данное поле используется"
+        select_all: ~
+        clear_all: ~
         options: Варианты
         add_option: "+ Добавить опцию"
         saving_order: "Сохранение порядка полей"
@@ -397,7 +402,7 @@ ru:
       configure: Конфигурация
       emails_title: Emails
       support: Поддержка
-      subscription: ~
+      plan: ~
     listing_shapes:
       index:
         listing_shapes: ~

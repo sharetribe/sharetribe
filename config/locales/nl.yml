@@ -21,6 +21,8 @@ nl:
         category_transaction_types:
           transaction_types: "Transactie types"
           transaction_types_description: "Transactie types bepalen welke soort transacties toegelaten zijn met items in deze categorie. Bijvoorbeeld: enkel verkoop of zijn verhuur en gratis weggeven ook toegestaan."
+          select_all: ~
+          clear_all: ~
         buttons:
           save: Opslaan
           cancel: Annueleren
@@ -330,6 +332,7 @@ nl:
       edit:
         edit_listing_field: "Edit item veld '%{field_name}'"
       edit_price:
+        description: ~
         edit_price_field: "Pas veld prijs aan"
         show_price_filter_homepage: "Toon filter prijs op homepagina"
         price_min: "Minimum prijs"
@@ -351,6 +354,8 @@ nl:
         field_title: "Veld titel"
         field_type: "Veld type"
         categories: "Lijst categorieën waar het veld is gebruikt"
+        select_all: ~
+        clear_all: ~
         options: Opties
         add_option: "+ Voeg optie toe"
         saving_order: "Veld volgorde opslaan"
@@ -387,7 +392,7 @@ nl:
       configure: Configuratie
       emails_title: E-mails
       support: Support
-      subscription: ~
+      plan: ~
     listing_shapes:
       index:
         listing_shapes: ~
