@@ -11,4 +11,9 @@
   = render :partial => "layouts/info_text", :locals => {text: text}
 
 .row.send-button-wrapper
-  = content_tag(:button, t("paypal_accounts.new.connect_paypal_account"), class: "send_button", id: "ask_paypal_permissions", type: :button)
+  %button#ask_paypal_permissions
+    = t("paypal_accounts.new.connect_paypal_account")
+.row
+  .paypal-redirect-message.hidden
+    - paypal_redirect_link = "<a href='#' id='ask_paypal_permissions_redirect'>#{t("paypal_accounts.redirect_link_text")}</a>"
+    = t("paypal_accounts.redirect_message", redirect_link: paypal_redirect_link).html_safe

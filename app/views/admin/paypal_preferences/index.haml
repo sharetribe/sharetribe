@@ -39,6 +39,11 @@
             ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{order_permission_action}");
         %button#ask_paypal_permissions
           = t("paypal_accounts.change_account")
+    .row
+      .paypal-redirect-message.hidden
+        - paypal_redirect_link = "<a href='#' id='ask_paypal_permissions_redirect'>#{t("paypal_accounts.redirect_link_text")}</a>"
+        = t("paypal_accounts.redirect_message", redirect_link: paypal_redirect_link).html_safe
+
   - else
 
     - title = t("admin.paypal_accounts.paypal_account_email")

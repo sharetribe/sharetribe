@@ -18,7 +18,9 @@ window.ST = window.ST || {};
         type: 'GET',
         url: action,
         success: function(response){
-          $buttonWrapper.before(response.redirect_message);
+          var $redirectLink = $('#' + buttonId + '_redirect');
+          $redirectLink.attr('href', response.redirect_url);
+          $redirectLink.parent().toggleClass('hidden');
           window.location = response.redirect_url;
         }
       });
