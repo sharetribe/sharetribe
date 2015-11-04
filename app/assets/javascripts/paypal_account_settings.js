@@ -3,22 +3,22 @@ window.ST = window.ST || {};
 (function(module) {
 
 
-  module.initializeNewPayPalAccountHandler = function(button_id, action) {
-    var $button = $('#'+button_id);
+  module.initializeNewPayPalAccountHandler = function(buttonId, action) {
+    var $button = $('#'+buttonId);
     var spinner = new Image();
     spinner.src = "https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif";
     spinner.className = "send-button-loading-img";
 
     $button.click(function(){
-      var $button_wrapper = $button.parent()
-      $button_wrapper.append(spinner);
+      var $buttonWrapper = $button.parent()
+      $buttonWrapper.append(spinner);
       $button.addClass("send-button-loading").blur();
 
       $.ajax({
         type: 'GET',
         url: action,
         success: function(response){
-          $button_wrapper.before(response.redirect_message);
+          $buttonWrapper.before(response.redirect_message);
           window.location = response.redirect_url;
         }
       });
