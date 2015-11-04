@@ -11,21 +11,6 @@ class Admin::CommunitiesController < ApplicationController
     render locals: {paypal_enabled: PaypalHelper.paypal_active?(@current_community.id)}
   end
 
-  def plan
-    marketplace_default_name = @current_community.name(@current_community.default_locale)
-
-    PlanService::API::Api.plans.get_external_service_link(
-      id: @current_community.id,
-      ident: @current_community.ident,
-      domain: @current_community.domain,
-      marketplace_default_name: marketplace_default_name
-    ).on_success { |link|
-      redirect_to link
-    }.on_error { |error_msg|
-      render_not_found!(error_msg)
-    }
-  end
-
   def edit_look_and_feel
     @selected_left_navi_link = "tribe_look_and_feel"
     @community = @current_community
