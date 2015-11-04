@@ -33,18 +33,16 @@
         = t("admin.paypal_accounts.paypal_account_email_completed")
       .paypal-connected-email.paypal-account-connected
         = t("paypal_accounts.connected_account", :email => paypal_account_email)
-      .paypal-connected-change
-        = link_to t("paypal_accounts.change_account"), order_permission_action
+      .paypal-connected-change.send-button-wrapper
+        - content_for :extra_javascript do
+          :javascript
+            ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{order_permission_action}");
+        %button#ask_paypal_permissions
+          = t("paypal_accounts.change_account")
   - else
 
-    - content_for :extra_javascript do
-      :javascript
-        ST.initializePayPalAccountForm("paypal_account_form");
-
-    = form_for paypal_account_form, url: order_permission_action, method: "get", html: { id: "paypal_account_form"} do |form|
-
-      - title = t("admin.paypal_accounts.paypal_account_email")
-      = render :partial => "paypal_accounts/ask_paypal_permissions", locals: {form: form, title: title, currency: currency, create_url: create_url, upgrade_url: upgrade_url}
+    - title = t("admin.paypal_accounts.paypal_account_email")
+    = render :partial => "paypal_accounts/ask_paypal_permissions", locals: {title: title, currency: currency, create_url: create_url, upgrade_url: upgrade_url, order_permission_action: order_permission_action}
 
   = form_for paypal_prefs_form, url: paypal_prefs_form_action, html: { id: "paypal_preferences_form" } do |form|
 

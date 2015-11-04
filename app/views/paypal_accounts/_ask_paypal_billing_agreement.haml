@@ -1,6 +1,6 @@
 - content_for :javascript do
-  ST.initializeNewPaypalAccountHandler("ask_billing_agreement","#{ask_billing_agreement_person_paypal_account_path}");
-  ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{ask_order_permission_person_paypal_account_path}");
+  ST.initializeNewPaypalAccountHandler("ask_billing_agreement", "#{billing_agreement_action}");
+  ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{order_permission_action}");
 
 .row.paypal-connected-email-row
   %h3.paypal-account-connected
@@ -8,7 +8,8 @@
   .paypal-connected-email.paypal-account-connected
     = t("paypal_accounts.connected_account", :email => paypal_account_email)
   .paypal-connected-change.send-button-wrapper
-    = content_tag(:button, t("paypal_accounts.change_account"), type: :button, id: "ask_paypal_permissions")
+    %button#ask_paypal_permissions
+      = t("paypal_accounts.change_account")
 
 - if commission_type != :none
   .row
@@ -31,7 +32,8 @@
       paypal_info_link: paypal_info_link).html_safe }
 
   .row.send-button-wrapper
-    = content_tag(:button, t("paypal_accounts.new.billing_agreement"), class: "send_button", type: "button", id: "ask_billing_agreement")
+    %button.send_button#ask_paypal_permissions
+      = t("paypal_accounts.new.billing_agreement")
 
   = render layout: "layouts/lightbox", locals: { id: "paypal_fee_info_content"} do
     %h2= t("common.paypal_fee_info.title")

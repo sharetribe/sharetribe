@@ -1,5 +1,5 @@
 - content_for :javascript do
-  ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{ask_order_permission_person_paypal_account_path}");
+  ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{order_permission_action}");
 
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => left_hand_navigation_links }
 
@@ -19,7 +19,8 @@
       .paypal-connected-email.paypal-account-connected
         = t("paypal_accounts.connected_account", :email => paypal_account_email)
       .paypal-connected-change.send-button-wrapper
-        = content_tag(:button, t("paypal_accounts.change_account"), type: :button, id: "ask_paypal_permissions")
+        %button#ask_paypal_permissions
+          = t("paypal_accounts.change_account")
 
     - if paypal_account_state == :verified
       .row.paypal-billing-agreement-row
