@@ -10,7 +10,7 @@ window.ST = window.ST || {};
     spinner.className = "send-button-loading-img";
 
     $button.click(function(){
-      var $buttonWrapper = $button.parent()
+      var $buttonWrapper = $button.parent();
       $buttonWrapper.append(spinner);
       $button.addClass("send-button-loading").blur();
 
@@ -23,7 +23,7 @@ window.ST = window.ST || {};
         }
       });
 
-    })
+    });
   };
 
   module.initializePayPalPreferencesForm = function(formId, commissionRange, minCommission) {
