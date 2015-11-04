@@ -21,6 +21,8 @@ fi:
         category_transaction_types:
           transaction_types: Transaktiotyypit
           transaction_types_description: "Transaktiotyypit määrittelevät, millaiset transaktiot ovat sallittuja tässä kategoriassa oleville ilmoituksille. Voit esimerkiksi määritellä, että ainoastaan myynti-ilmoitukset ovat sallittuja, tai sitten sallia myös vuokrauksen ja lainaamisen."
+          select_all: ~
+          clear_all: ~
         buttons:
           save: Tallenna
           cancel: Peruuta
@@ -330,6 +332,7 @@ fi:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
       edit_price:
+        description: ~
         edit_price_field: "Muokkaa hintakenttää"
         show_price_filter_homepage: "Näytä hintasuodatin etusivulla"
         price_min: Minimihinta
@@ -351,6 +354,8 @@ fi:
         field_title: "Kentän nimi"
         field_type: "Kentän tyyppi"
         categories: "Ilmoituskategoriat joihin kenttä liittyy"
+        select_all: ~
+        clear_all: ~
         options: Vastausvaihtoehdot
         add_option: "+ Lisää vastausvaihtoehto"
         saving_order: "Tallennetaan kenttien järjestystä"
@@ -387,7 +392,7 @@ fi:
       configure: "Sivuston muokkaus"
       emails_title: Sähköpostit
       support: Asiakastuki
-      subscription: ~
+      plan: ~
     listing_shapes:
       index:
         listing_shapes: Tilaustavat

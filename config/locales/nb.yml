@@ -21,8 +21,8 @@ nb:
         category_transaction_types:
           transaction_types: Transaksjonstyper
           transaction_types_description: "Transaksjonstyper bestemmer hvilke type transaksjoner som er tillatt for annonser i denne kategorien. For eksempel kun salg eller også mulig å leie ut og gi bort."
-          select_all: ~
-          clear_all: ~
+          select_all: "Merk alle"
+          clear_all: "Fjern alle"
         buttons:
           save: Lagre
           cancel: Avbryt
@@ -354,8 +354,8 @@ nb:
         field_title: "Tittel på felt"
         field_type: Felttype
         categories: "Annonsekategorier hvor feltet er brukt"
-        select_all: ~
-        clear_all: ~
+        select_all: "Merk alle"
+        clear_all: "Fjern alle"
         options: Valg
         add_option: "+Legg til valg"
         saving_order: "Lagrer rekkefølgen på felt"
@@ -392,7 +392,7 @@ nb:
       configure: Innstillinger
       emails_title: E-poster
       support: Support
-      subscription: ~
+      plan: ~
     listing_shapes:
       index:
         listing_shapes: Annonsetype
