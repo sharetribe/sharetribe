@@ -34,7 +34,7 @@ class CommunityMembershipsController < ApplicationController
   def create
     # if there already exists one, modify that
     existing = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
-    @community_membership = existing || CommunityMembership.new(params[:community_membership])
+    @community_membership = existing || CommunityMembership.new(params[:community_membership].merge({status: "pending_email_confirmation"}))
 
     # if invitation code is stored in session, use it here
     params[:invitation_code] ||= session[:invitation_code]
@@ -57,9 +57,8 @@ class CommunityMembershipsController < ApplicationController
 
     # If community requires certain email address and user doesn't have it confirmed.
     # Send confirmation for that.
-    if @current_community.allowed_emails.present?
-
-      unless @current_user.has_valid_email_for_community?(@current_community)
+    if !@current_user.has_valid_email_for_community?(@current_community)
+      if @current_community.allowed_emails.present?
 
         # no confirmed allowed email found. Check if there is unconfirmed or should we add one.
         if @current_user.has_email?(params[:community_membership][:email])
@@ -70,10 +69,19 @@ class CommunityMembershipsController < ApplicationController
 
         # Send confirmation and make membership pending
         Email.send_confirmation(e, @current_community)
-        @community_membership.status = "pending_email_confirmation"
 
-        flash[:notice] = "#{t("layouts.notifications.you_need_to_confirm_your_account_first")} #{t("sessions.confirmation_pending.check_your_email")}."
+      # If user is already a member of one community (with pending email address)
+      # we need to resend the confirmation email and update membership status to "pending_email_confirmation"
+      elsif @current_user.community_memberships.size > 0
+        Maybe(@current_user.latest_pending_email_address(@current_community)).map { |email_address|
+          Email.send_confirmation(Email.find_by_address(email_address), @current_community)
+        }
       end
+
+      @community_membership.status = "pending_email_confirmation"
+      flash[:notice] = "#{t("layouts.notifications.you_need_to_confirm_your_account_first")} #{t("sessions.confirmation_pending.check_your_email")}."
+    else
+      @community_membership.status = "accepted"
     end
 
     @community_membership.invitation = invitation if invitation.present?
