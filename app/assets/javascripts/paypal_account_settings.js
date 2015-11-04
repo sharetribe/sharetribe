@@ -3,7 +3,7 @@ window.ST = window.ST || {};
 (function(module) {
 
 
-  module.initializeNewPayPalAccountHandler = function(buttonId, action) {
+  module.initializeNewPaypalAccountHandler = function(buttonId, action) {
     var $button = $('#'+buttonId);
     var spinner = new Image();
     spinner.src = "https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif";

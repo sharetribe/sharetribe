@@ -1,6 +1,6 @@
 - content_for :javascript do
-  ST.initializeNewPayPalAccountHandler("ask_billing_agreement","#{ask_billing_agreement_person_paypal_account_path}");
-  ST.initializeNewPayPalAccountHandler("ask_paypal_permissions", "#{ask_order_permission_person_paypal_account_path}");
+  ST.initializeNewPaypalAccountHandler("ask_billing_agreement","#{ask_billing_agreement_person_paypal_account_path}");
+  ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{ask_order_permission_person_paypal_account_path}");
 
 .row.paypal-connected-email-row
   %h3.paypal-account-connected
