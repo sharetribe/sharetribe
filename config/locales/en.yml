@@ -1731,7 +1731,7 @@ en:
       payout_info_you_need_to_connect: "In order to accept payments, you need to connect your PayPal account with %{service_name}."
       payout_info_text: "To connect your account, please complete the following steps."
       contact_admin_link_text: "contact the administrator"
-      admin_account_not_connected: "Connecting your PayPal account is not possible since %{service_name} has not set up for payments. Please %{contact_admin_link} for details."
+      admin_account_not_connected: "Connecting your PayPal account is not possible since %{service_name} has not set up payments. Please %{contact_admin_link} for details."
       paypal_account_email: "Connect your PayPal account"
       paypal_account_email_placeholder: "Your PayPal email address"
       paypal_account_email_info_text: "If you don't have a PayPal account, you can create one by %{create_paypal_account}. If you get an error message when connecting your PayPal account, upgrade your PayPal account to a business account. Upgrading is free and easy. If you are an individual, you can use your first and last name as your \"business name\". To upgrade your account, %{upgrade_paypal_account} and find the upgrade link."
