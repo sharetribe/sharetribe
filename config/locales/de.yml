@@ -332,7 +332,7 @@ de:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
       edit_price:
-        description: "Der Mindest- und Höchstpreis wirkt sich nur auf den Filter aus. Es wird keine Beschränkung für die Preise der Listings festgelegt."
+        description: "Der Mindest- und Höchstpreis wirkt sich nur auf den Filter aus. Angebotspreise werden in ihrer Höhe nicht limitiert."
         edit_price_field: "Preisfeld bearbeiten"
         show_price_filter_homepage: "Preisfilter auf der Homepage anzeigen"
         price_min: Mindestpreis
@@ -1320,7 +1320,7 @@ de:
       offer_canceled: "Angebot abgebrochen"
       listing_updated_successfully: "Eintrag wurde erfolgreich aktualisiert"
       only_kassi_administrators_can_access_this_area: "Nur  %{service_name} Administratoren können diesen Bereich aufrufen"
-      only_listing_author_can_close_a_listing: "Nur Autoren können ein Angebot pausieren"
+      only_listing_author_can_close_a_listing: "Nur der erstellende Anbieter kann ein Angebot pausieren"
       only_listing_author_can_edit_a_listing: "Nur Autoren eines Eintrags können den Eintrag bearbeiten"
       payment_successful: "erfolgreiche Bezahlung"
       payment_canceled: "Zahlung abgebrochen"
@@ -1581,10 +1581,10 @@ de:
       listing: Eintrag
       selected_category: "Kategorie: %{category}"
       selected_subcategory: "Unterkategorie: %{subcategory}"
-      selected_transaction_type: "Eintragsart: %{transaction_type}"
+      selected_transaction_type: "Eintragstyp: %{transaction_type}"
       select_category: "Kategorie auswählen"
       select_subcategory: "Unterkategorie auswählen"
-      select_transaction_type: "Eintragsart auswählen"
+      select_transaction_type: "Eintragstyp auswählen"
       you_need_to_fill_payout_details_before_accepting: "Du musst die Zahlungsdetails ausfüllen, bevor Du ein Angebot erstellen kannst. Gehe zu %{payment_settings_link}, um die Angaben einzutragen."
       contact_admin_link_text: "Bitte kontaktiere den Administrator"
       community_not_configured_for_payments: "%{service_name} wurde nicht für Zahlungen konfiguriert, deswegen kannst Du keine Angebote veröffentlichen. Bitte kontaktiere %{contact_admin_link} für Einzelheiten."
@@ -1720,6 +1720,8 @@ de:
     change_account: "Konto ändern"
     missing: "Du hast offene Angebote, aber weil du dein PayPal-Konto nicht eingebunden hast, kannst du keine Zahlungen erhalten. Bitte verknüpfe Dein PayPal Konto in deinen %{settings_link}"
     from_your_payment_settings_link_text: Zahlungseinstellungen
+    redirect_message: "Weiterleitung zu Paypal. Wenn nichts passiert, bitte diesen Link anklicken: %{redirect_link}"
+    redirect_link_text: hier
     new:
       payout_info_you_need_to_connect: "Um Zahlungen entgegenzunehmen musst du dein PayPal-Konto mit %{service_name} verbinden."
       payout_info_text: "Bitte führe die folgenden Schritte aus, um dein Konto zu verbinden."
@@ -1814,7 +1816,7 @@ de:
       slightly_better_than_expected: "Etwas besser als erwartet"
       slightly_less_than_expected: "Etwas schlechter als erwartet"
     profile_listings:
-      show_also_closed: "Auch beendete anzeigen"
+      show_also_closed: "Auch pausierte Angebote anzeigen"
       show_only_open: "Nur offene anzeigen"
       no_image: "Kein Bild"
     show:

@@ -1714,6 +1714,8 @@ nl:
     change_account: "Wijzig account"
     missing: "Je hebt openstaande items, maar je hebt je PayPal account nog niet gekoppeld. Daardoor kun je nog geen betalingen ontvangen. Koppel a.u.b. je PayPal account in je %{settings_link}."
     from_your_payment_settings_link_text: "instellingen betalingen"
+    redirect_message: ~
+    redirect_link_text: ~
     new:
       payout_info_you_need_to_connect: "Om betalingen te kunnen accepteren moet je jouw PayPal account koppelen aan %{service_name}."
       payout_info_text: "Voer a.u.b. de volgende stappen uit om je account te koppelen."

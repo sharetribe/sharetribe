@@ -1718,6 +1718,8 @@ fr-CA:
     change_account: "Changer de compte"
     missing: "Vous avez des annonces actives mais n'avez pas encore connecté votre compte PayPal, vous ne pouvez donc pas recevoir de paiements. Veuillez connecter votre compte PayPal dans vos %{settings_link}."
     from_your_payment_settings_link_text: "paramètres de paiement"
+    redirect_message: ~
+    redirect_link_text: ~
     new:
       payout_info_you_need_to_connect: "Pour accepter les paiements vous devez connecter votre compte PayPal à %{service_name}"
       payout_info_text: "Veuillez réaliser les actions suivantes pour connecter votre compte."
