@@ -106,7 +106,7 @@ class PlansController < ApplicationController
       after = Maybe(params)[:after].to_i.map { |time_int| Time.at(time_int).utc }.or_else(nil)
       limit = Maybe(params)[:limit].to_i.or_else(MAX_TRIALS_LIMIT)
 
-      logger.info("Fetching plans that are created after #{after}", nil, {after: after})
+      logger.info("Fetching plans that are created after #{after}", nil, {after: after, limit: limit})
 
       PlanService::API::Api.plans.get_trials(after: after, limit: limit)
     }.on_success { |res|
