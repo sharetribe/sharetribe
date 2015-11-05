@@ -1,6 +1,3 @@
-- content_for :javascript do
-  ST.initializePayPalAccountForm("paypal_account_form");
-
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => left_hand_navigation_links }
 
 .left-navi-section.settings-section.payment-settings
@@ -17,13 +14,11 @@
     %br/
 
     - if paypal_account_state == :verified
-      = form_for paypal_account_form, :url => billing_agreement_action, method: "get", :html => { :id => "paypal_account_form"} do |form|
-        = render :partial => "ask_paypal_billing_agreement", locals: {paypal_account_email: paypal_account_email, form: form, change_url: change_url, commission_type: commission_type, commission_from_seller: commission_from_seller, minimum_commission: minimum_commission, paypal_fees_url: paypal_fees_url}
+      = render :partial => "ask_paypal_billing_agreement", locals: {paypal_account_email: paypal_account_email, change_url: change_url, commission_type: commission_type, commission_from_seller: commission_from_seller, minimum_commission: minimum_commission, paypal_fees_url: paypal_fees_url, order_permission_action: order_permission_action, billing_agreement_action: billing_agreement_action}
     - else
-      = form_for paypal_account_form, :url => order_permission_action, method: "get", :html => { :id => "paypal_account_form"} do |form|
-        - title = t("paypal_accounts.new.paypal_account_email")
-        = render :partial => "ask_paypal_permissions", locals: {form: form, title: title, currency: currency, create_url: create_url, upgrade_url: upgrade_url}
+      - title = t("paypal_accounts.new.paypal_account_email")
+      = render :partial => "ask_paypal_permissions", locals: {title: title, currency: currency, create_url: create_url, upgrade_url: upgrade_url, order_permission_action: order_permission_action}
 
-        %br/
-        .row
-          = form.label :paypal_email, t("paypal_accounts.new.paypal_account_billing_agreement", commission: commission_from_seller), :class => "input disabled"
+      %br/
+      .row
+        %h3.input.disabled= t("paypal_accounts.new.paypal_account_billing_agreement", commission: commission_from_seller)

@@ -1,5 +1,9 @@
+- content_for :javascript do
+  ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{order_permission_action}");
+
 .row
-  = form.label :paypal_email, title
+  %h3= title
+
 .row
   - create_link = link_to(I18n.t("paypal_accounts.new.create_paypal_account"), create_url, target: "_blank")
   - upgrade_link = link_to(I18n.t("paypal_accounts.new.upgrade_paypal_account"), upgrade_url, target: "_blank")
@@ -7,4 +11,9 @@
   = render :partial => "layouts/info_text", :locals => {text: text}
 
 .row.send-button-wrapper
-  = form.button t("paypal_accounts.new.connect_paypal_account"), :class => "send_button"
+  %button#ask_paypal_permissions
+    = t("paypal_accounts.new.connect_paypal_account")
+.row
+  .paypal-redirect-message.hidden
+    - paypal_redirect_link = "<a href='#' id='ask_paypal_permissions_redirect'>#{t("paypal_accounts.redirect_link_text")}</a>"
+    = t("paypal_accounts.redirect_message", redirect_link: paypal_redirect_link).html_safe

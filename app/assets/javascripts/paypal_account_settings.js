@@ -2,22 +2,29 @@ window.ST = window.ST || {};
 
 (function(module) {
 
-  module.initializePayPalAccountForm = function(formId) {
-    var form = $('#'+formId);
+
+  module.initializeNewPaypalAccountHandler = function(buttonId, action) {
+    var $button = $('#'+buttonId);
     var spinner = new Image();
     spinner.src = "https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif";
     spinner.className = "send-button-loading-img";
 
-    form.validate({
-      submitHandler: function(form) {
-        var $form = $(form);
-        var $sendButton = $form.find(".send_button");
-        if(!$sendButton.hasClass("send-button-loading")) {
-          $form.find(".send-button-wrapper").append(spinner);
-          $sendButton.addClass("send-button-loading").blur();
-          form.submit();
+    $button.click(function(){
+      var $buttonWrapper = $button.parent();
+      $buttonWrapper.append(spinner);
+      $button.addClass("send-button-loading").blur();
+
+      $.ajax({
+        type: 'GET',
+        url: action,
+        success: function(response){
+          var $redirectLink = $('#' + buttonId + '_redirect');
+          $redirectLink.attr('href', response.redirect_url);
+          $redirectLink.parent().toggleClass('hidden');
+          window.location = response.redirect_url;
         }
-      }
+      });
+
     });
   };
 

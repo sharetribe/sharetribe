@@ -29,6 +29,7 @@ class PaypalAccountsController < ApplicationController
 
     render(locals: {
       community_ready_for_payments: community_ready_for_payments,
+      order_permission_action: ask_order_permission_person_paypal_account_path(@current_user),
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
       paypal_account_email: m_account[:email].or_else(""),
       paypal_account_state: m_account[:state].or_else(:not_connected),
@@ -101,7 +102,7 @@ class PaypalAccountsController < ApplicationController
       flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
       return redirect_to action: :new
     else
-      return redirect_to permissions_url
+      render json: {redirect_url: permissions_url}
     end
   end
 
@@ -134,7 +135,7 @@ class PaypalAccountsController < ApplicationController
         flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
         return redirect_to action: :new
       else
-        return redirect_to billing_agreement_url
+        render json: {redirect_url: billing_agreement_url}
       end
 
     else
