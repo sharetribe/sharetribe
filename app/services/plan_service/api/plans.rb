@@ -111,9 +111,16 @@ module PlanService::API
       )
     end
 
+    # Return true, if plan is closed, i.e.
+    # - Hold plan
+    # - Expired non-trial plan
     def plan_closed?(plan)
       Maybe(plan).map { |p|
-        plan_expired?(p) && p[:plan_level] > 0
+        if p[:plan_level] == 5
+          true
+        else
+          plan_expired?(p) && p[:plan_level] > 0
+        end
       }.or_else(false)
     end
 

@@ -153,7 +153,7 @@ describe PlanService::API::Plans do
       it "returns false, if plan has not expired" do
         plan = plans_api.create(
           community_id: 111, plan: {
-            plan_level: 5,
+            plan_level: 2,
             expires_at: nil, # plan never expires
           }).data
 
@@ -175,11 +175,22 @@ describe PlanService::API::Plans do
       it "returns true, if non-trial plan has expired" do
         plan = plans_api.create(
           community_id: 111, plan: {
-            plan_level: 5,
+            plan_level: 2,
             expires_at: Time.now - 1.day
           }).data
 
         expect(plan[:expired]).to eq(true)
+        expect(plan[:closed]).to eq(true)
+      end
+
+      it "returns true, for hold plan" do
+        plan = plans_api.create(
+          community_id: 111, plan: {
+            plan_level: 5,
+            expires_at: nil
+          }).data
+
+        expect(plan[:expired]).to eq(false)
         expect(plan[:closed]).to eq(true)
       end
     end
