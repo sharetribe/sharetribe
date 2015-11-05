@@ -48,7 +48,7 @@ describe JWTUtils do
       exp = nil
 
       Timecop.freeze(Time.utc(2015, 11, 5, 12, 0, 0)) {
-        exp = 1.day.from_now.to_i
+        exp = 1.day.from_now
         encoded = JWTUtils.encode(payload, secret, exp: exp)
       }
 
@@ -63,7 +63,7 @@ describe JWTUtils do
       exp = nil
 
       Timecop.freeze(Time.utc(2015, 11, 5, 12, 0, 0)) {
-        exp = 1.day.from_now.to_i
+        exp = 1.day.from_now
         encoded = JWTUtils.encode(payload, secret, exp: exp)
       }
 

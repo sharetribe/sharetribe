@@ -21,6 +21,9 @@ module JWTUtils
   def encode(payload, secret, claims = {})
     ensure_secret!(secret)
 
+    exp = Maybe(claims)[:exp].to_i.or_else(nil)
+    claims = HashUtils.compact(claims.merge(exp: exp))
+
     JWT.encode({data: payload}.merge(claims), secret, ALGORITHM)
   end
 
