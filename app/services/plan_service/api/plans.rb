@@ -15,8 +15,12 @@ module PlanService::API
       true
     end
 
-    def authorize(token)
-      JWTUtils.decode(token, @jwt_secret)
+    def authorize_provisioning(token)
+      JWTUtils.decode(token, @jwt_secret, sub: :provisioning)
+    end
+
+    def authorize_trial_sync(token)
+      JWTUtils.decode(token, @jwt_secret, sub: :trial_sync)
     end
 
     def create(community_id:, plan:)
@@ -93,7 +97,7 @@ module PlanService::API
 
               secret = @jwt_secret
               url = external_plan_service_url + "/login"
-              token = JWTUtils.encode(payload, secret)
+              token = JWTUtils.encode(payload, secret, sub: :login, exp: 5.minutes.from_now)
               Result::Success.new(URLUtils.append_query_param(url, "token", token))
             }
             .or_else(Result::Error.new("Initial data not found"))
