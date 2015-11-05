@@ -29,7 +29,7 @@ describe PlanService::API::Plans do
 
             expect(res.success).to eq(true)
             expect(res.data[:id]).to be_a(Fixnum)
-            expect(res.data.except(:id)).to eq(
+            expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               plan_level: 0,
                                               expires_at: expires_at,
@@ -55,7 +55,7 @@ describe PlanService::API::Plans do
 
             expect(res.success).to eq(true)
             expect(res.data[:id]).to be_a(Fixnum)
-            expect(res.data.except(:id)).to eq(
+            expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               plan_level: 4,
                                               expires_at: expires_at,
@@ -78,7 +78,7 @@ describe PlanService::API::Plans do
 
             expect(res.success).to eq(true)
             expect(res.data[:id]).to be_a(Fixnum)
-            expect(res.data.except(:id)).to eq(
+            expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               plan_level: 2,
                                               expires_at: nil,
@@ -146,6 +146,41 @@ describe PlanService::API::Plans do
           res = plans_api.get_current(community_id: 123)
           expect(res.success).to eq(false)
         end
+      end
+    end
+
+    describe "#closed?" do
+      it "returns false, if plan has not expired" do
+        plan = plans_api.create(
+          community_id: 111, plan: {
+            plan_level: 5,
+            expires_at: nil, # plan never expires
+          }).data
+
+        expect(plan[:expired]).to eq(false)
+        expect(plan[:closed]).to eq(false)
+      end
+
+      it "returns false, if trial plan" do
+        plan = plans_api.create(
+          community_id: 111, plan: {
+            plan_level: 0,
+            expires_at: Time.now - 1.day,
+          }).data
+
+        expect(plan[:expired]).to eq(true)
+        expect(plan[:closed]).to eq(false)
+      end
+
+      it "returns true, if non-trial plan has expired" do
+        plan = plans_api.create(
+          community_id: 111, plan: {
+            plan_level: 5,
+            expires_at: Time.now - 1.day
+          }).data
+
+        expect(plan[:expired]).to eq(true)
+        expect(plan[:closed]).to eq(true)
       end
     end
 

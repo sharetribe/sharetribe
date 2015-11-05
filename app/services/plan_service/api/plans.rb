@@ -53,10 +53,7 @@ module PlanService::API
 
     def expired?(community_id:)
       Maybe(PlanStore.get_current(community_id: community_id)).map { |plan|
-        Result::Success.new(
-          Maybe(plan[:expires_at]).map { |expires_at|
-            expires_at < Time.now }
-          .or_else(false))
+        Result::Success.new(plan_expired?(plan))
       }.or_else {
         Result::Error.new("Can not find plan for community id: #{community_id}")
       }
@@ -109,8 +106,15 @@ module PlanService::API
 
     def with_expiration_status(plan)
       plan.merge(
-        expired: plan_expired?(plan)
+        expired: plan_expired?(plan),
+        closed: plan_closed?(plan)
       )
+    end
+
+    def plan_closed?(plan)
+      Maybe(plan).map { |p|
+        plan_expired?(p) && p[:plan_level] > 0
+      }.or_else(false)
     end
 
     def plan_expired?(plan)
