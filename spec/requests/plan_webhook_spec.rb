@@ -25,7 +25,7 @@ describe "plan provisioning" do
 
       error_log = log_target.parse_log(:error)
       expect(error_log)
-        .to eq([{tag: "external_plan_service", free: "Unauthorized", structured: {"token"=>nil}}])
+        .to eq([{tag: "external_plan_service", free: "Unauthorized", structured: {"error" => "token_missing", "token"=>nil}}])
     end
 
     it "returns 200 if authorized" do
@@ -159,8 +159,11 @@ describe "plan provisioning" do
                             }.to_json))
 
         log_entry = log_target.parse_log(:info).first
-        expect(log_entry[:free]).to eq("Returned 2 plans that were created after 2015-10-01 00:00:00 UTC")
-        expect(log_entry[:structured]).to eq({"count" => 2, "after" => "2015-10-01T00:00:00Z"})
+        expect(log_entry[:free]).to eq("Fetching plans that are created after 2015-10-01 00:00:00 UTC")
+        expect(log_entry[:structured]).to eq({"after" => "2015-10-01T00:00:00Z"})
+        log_entry = log_target.parse_log(:info).second
+        expect(log_entry[:free]).to eq("Returned 2 plans")
+        expect(log_entry[:structured]).to eq({"count" => 2})
       end
 
       it "supports pagination" do

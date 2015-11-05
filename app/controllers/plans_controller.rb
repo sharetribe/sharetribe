@@ -2,7 +2,6 @@ class PlansController < ApplicationController
   skip_before_filter :verify_authenticity_token, :fetch_logged_in_user, :fetch_community, :fetch_community_membership
   skip_filter :check_email_confirmation
   before_filter :ensure_external_plan_service_in_use!
-  before_filter :do_jwt_authentication!
 
   # Request data types
 
@@ -42,10 +41,14 @@ class PlansController < ApplicationController
   MAX_TRIALS_LIMIT = 1000
 
   def create
-    body = request.raw_post
-    logger.info("Received plan notification", nil, {raw: body})
+    parse_token(params).and_then {
+      plans_api.authorize_provisioning(params[:token])
+    }.and_then {
+      body = request.raw_post
+      logger.info("Received plan notification", nil, {raw: body})
 
-    res = parse_json(request.raw_post).and_then { |parsed_json|
+      parse_json(request.raw_post)
+    }.and_then { |parsed_json|
       NewPlansRequest.validate(parsed_json)
     }.and_then { |parsed_request|
       logger.info("Parsed plan notification", nil, parsed_request)
@@ -75,6 +78,12 @@ class PlansController < ApplicationController
       when JSON::ParserError
         logger.error("Error while parsing JSON: #{data.message}")
         render json: {error: :json_parser_error}, status: 400
+      when :verification_error,
+           :expired_signature,
+           :invalid_sub_error,
+           :token_missing
+        logger.error("Unauthorized", nil, error: data, token: params[:token])
+        render json: {error: :unauthorized}, status: 401
       else
         logger.error("Unknown error")
         render json: {error: :unknown_error}, status: 500
@@ -91,19 +100,38 @@ class PlansController < ApplicationController
   #   next_offset: 1234567890
   # }
   def get_trials
-    after = Maybe(params)[:after].to_i.map { |time_int| Time.at(time_int).utc }.or_else(nil)
-    limit = Maybe(params)[:limit].to_i.or_else(MAX_TRIALS_LIMIT)
+    parse_token(params).and_then {
+      plans_api.authorize_trial_sync(params[:token])
+    }.and_then {
+      after = Maybe(params)[:after].to_i.map { |time_int| Time.at(time_int).utc }.or_else(nil)
+      limit = Maybe(params)[:limit].to_i.or_else(MAX_TRIALS_LIMIT)
 
-    res = PlanService::API::Api.plans.get_trials(after: after, limit: limit).data
-    return_value = res.merge(plans: res[:plans].map { |p| from_entity(p) })
-    count = return_value[:plans].count
+      logger.info("Fetching plans that are created after #{after}", nil, {after: after})
 
-    render json: return_value
+      PlanService::API::Api.plans.get_trials(after: after, limit: limit)
+    }.on_success { |res|
+      return_value = res.merge(plans: res[:plans].map { |p| from_entity(p) })
+      count = return_value[:plans].count
 
-    logger.info("Returned #{count} plans that were created after #{after}", nil, {count: count, after: after})
+      render json: return_value
+
+      logger.info("Returned #{count} plans", nil, {count: count})
+    }.on_error { |error_msg, data|
+      case data
+      when :verification_error,
+           :expired_signature,
+           :invalid_sub_error,
+           :token_missing
+        logger.error("Unauthorized", nil, error: data, token: params[:token])
+        render json: {error: :unauthorized}, status: 401
+      else
+        logger.error("Unknown error")
+        render json: {error: :unknown_error}, status: 500
+      end
+    }
   end
 
-  # private
+  private
 
   def logger
     PlanService::API::Api.logger
@@ -117,6 +145,14 @@ class PlansController < ApplicationController
     end
   end
 
+  def parse_token(params)
+    if params[:token]
+      Result::Success.new(params[:token])
+    else
+      Result::Error.new("JWT Token missing", :token_missing)
+    end
+  end
+
   def from_entity(entity)
     HashUtils.rename_keys(ENTITY_TO_EXT_SERVICE_MAP, entity)
   end
@@ -126,13 +162,6 @@ class PlansController < ApplicationController
   end
 
   # filters
-
-  def do_jwt_authentication!
-    plans_api.authorize(params[:token]).on_error {
-      logger.error("Unauthorized", nil, token: params[:token])
-      render json: {error: :unauthorized}, status: 401
-    }
-  end
 
   def ensure_external_plan_service_in_use!
     render_not_found! unless plans_api.active?

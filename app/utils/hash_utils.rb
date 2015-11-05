@@ -35,6 +35,10 @@ module HashUtils
     map_keys(h) { |k| k.to_sym }
   end
 
+  def stringify_keys(h)
+    map_keys(h) { |k| k.to_s }
+  end
+
   def map_keys(h, &block)
     Hash[h.map { |(k, v)| [block.call(k), v] }]
   end
