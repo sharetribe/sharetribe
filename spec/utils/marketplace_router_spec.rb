@@ -13,6 +13,7 @@ describe MarketplaceRouter do
     default_community = {
       use_domain: true,
       deleted: false,
+      closed: false,
       domain: "www.marketplace.com",
       domain_verification_file: nil,
       ident: "marketplace",
@@ -92,10 +93,10 @@ describe MarketplaceRouter do
                       }).to eq(route_name: :not_found, status: :moved_permanently, protocol: "https")
     end
 
-    it "redirects deleted marketplaces" do
+    it "redirects closed marketplaces" do
       expect_redirect(community: {
                         domain: "www.marketplace.com",
-                        deleted: true,
+                        closed: true,
                         use_domain: true,
                       }).to eq(route_name: :not_found, status: :moved_permanently, protocol: "https")
     end
