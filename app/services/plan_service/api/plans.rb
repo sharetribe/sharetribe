@@ -25,7 +25,7 @@ module PlanService::API
 
     def create(community_id:, plan:)
       Result::Success.new(
-        with_expiration_status(
+        with_statuses(
           PlanStore.create(community_id: community_id, plan: plan)))
     end
 
@@ -38,14 +38,14 @@ module PlanService::API
     #
     def create_initial_trial(community_id:, plan:)
       Result::Success.new(
-        with_expiration_status(
+        with_statuses(
           PlanStore.create_trial(community_id: community_id, plan: plan)))
 
     end
 
     def get_current(community_id:)
       Maybe(PlanStore.get_current(community_id: community_id)).map { |plan|
-        Result::Success.new(with_expiration_status(plan))
+        Result::Success.new(with_statuses(plan))
       }.or_else {
         Result::Error.new("Can not find plan for community id: #{community_id}")
       }
@@ -96,7 +96,7 @@ module PlanService::API
 
     private
 
-    def with_expiration_status(plan)
+    def with_statuses(plan)
       plan.merge(
         expired: plan_expired?(plan),
         closed: plan_closed?(plan)
