@@ -5,8 +5,6 @@ class PaypalAccountsController < ApplicationController
 
   before_filter :ensure_paypal_enabled
 
-  PaypalAccountForm = FormUtils.define_form("PaypalAccountForm")
-
   DataTypePermissions = PaypalService::DataTypes::Permissions
 
   def index
@@ -34,10 +32,8 @@ class PaypalAccountsController < ApplicationController
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
       order_permission_action: ask_order_permission_person_paypal_account_path(@current_user),
       billing_agreement_action: ask_billing_agreement_person_paypal_account_path(@current_user),
-      paypal_account_form: PaypalAccountForm.new,
       paypal_account_state: m_account[:order_permission_state].or_else(""),
       paypal_account_email: m_account[:email].or_else(""),
-      change_url: ask_order_permission_person_paypal_account_path(@current_user),
       commission_from_seller: t("paypal_accounts.commission", commission: payment_settings[:commission_from_seller]),
       minimum_commission: Money.new(payment_settings[:minimum_transaction_fee_cents], community_currency),
       commission_type: payment_settings[:commission_type],
