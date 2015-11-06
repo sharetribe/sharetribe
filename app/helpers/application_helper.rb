@@ -800,7 +800,7 @@ module ApplicationHelper
   end
 
   def display_expiration_notice?
-    ext_service_active = PlanService::API::Api.active?
+    ext_service_active = PlanService::API::Api.plans.active?
     is_admin = Maybe(@current_user).has_admin_rights_in?(@current_community).or_else(false)
     is_expired = Maybe(@current_plan)[:expired].or_else(false)
 
