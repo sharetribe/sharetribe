@@ -216,14 +216,9 @@ describe PlanService::API::Plans do
       expect(res.data).to include(
                        plan_level: 99999,
                        community_id: 123,
-                       expires_at: nil
+                       expires_at: nil,
+                       expired: false
                      )
-    end
-
-    it "never expires" do
-      res = plans_api.expired?(community_id: 123)
-      expect(res.success).to eq(true)
-      expect(res.data).to eq(false)
     end
   end
 

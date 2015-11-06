@@ -27,7 +27,7 @@ module PlanService::API
         plan_level: PlanService::Levels::OS,
         expires_at: nil,
         created_at: Time.now,
-        updated_at: Time.now)
+        updated_at: Time.now).merge(expired: false)
       )
     end
 
