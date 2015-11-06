@@ -92,7 +92,7 @@ module PlanService::API
               }, trial_data))
               payload = {
                 marketplace: marketplace_data,
-                initial_trial_data: trial_hash
+                initial_trial_plan: trial_hash
               }
 
               secret = @jwt_secret
