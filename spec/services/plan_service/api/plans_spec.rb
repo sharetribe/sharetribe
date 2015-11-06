@@ -106,46 +106,34 @@ describe PlanService::API::Plans do
     end
 
     describe "#expired?" do
-      context "success" do
-        it "returns false if plan never expires" do
-          plans_api.create(
-            community_id: 111, plan: {
-              plan_level: 5,
-              expires_at: nil, # plan never expires
-            })
+      it "returns false if plan never expires" do
+        plan = plans_api.create(
+          community_id: 111, plan: {
+            plan_level: 5,
+            expires_at: nil, # plan never expires
+          }).data
 
-          res = plans_api.expired?(community_id: 111).data
-          expect(res).to eq(false)
-        end
-
-        it "returns false if plan has not yet expired" do
-          plans_api.create(
-            community_id: 111, plan: {
-              plan_level: 5,
-              expires_at: 1.month.from_now,
-            })
-
-          res = plans_api.expired?(community_id: 111).data
-          expect(res).to eq(false)
-        end
-
-        it "returns true if plan has expired" do
-          plans_api.create(
-            community_id: 111, plan: {
-              plan_level: 5,
-              expires_at: 1.month.ago,
-            })
-
-          res = plans_api.expired?(community_id: 111).data
-          expect(res).to eq(true)
-        end
+        expect(plan[:expired]).to eq(false)
       end
 
-      context "error" do
-        it "returns error if plan can not be found" do
-          res = plans_api.get_current(community_id: 123)
-          expect(res.success).to eq(false)
-        end
+      it "returns false if plan has not yet expired" do
+        plan = plans_api.create(
+          community_id: 111, plan: {
+            plan_level: 5,
+            expires_at: 1.month.from_now,
+          }).data
+
+        expect(plan[:expired]).to eq(false)
+      end
+
+      it "returns true if plan has expired" do
+        plan = plans_api.create(
+          community_id: 111, plan: {
+            plan_level: 5,
+            expires_at: 1.month.ago,
+          }).data
+
+        expect(plan[:expired]).to eq(true)
       end
     end
 

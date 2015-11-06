@@ -18,13 +18,4 @@ module PlanUtils
     # FIXME, wrong result for hold plan
     valid?(plan) && plan[:plan_level] >= level
   end
-
-  def expired?(plan)
-    plan.present? && plan[:expired]
-  end
-
-  def valid?(plan)
-    plan.present? && !plan[:expired]
-  end
-
 end

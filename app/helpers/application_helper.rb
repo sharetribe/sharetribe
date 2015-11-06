@@ -800,9 +800,11 @@ module ApplicationHelper
   end
 
   def display_expiration_notice?
-    APP_CONFIG.external_plan_service_in_use &&
-      Maybe(@current_user).has_admin_rights_in?(@current_community).or_else(false) &&
-      PlanUtils.expired?(@current_plan)
+    ext_service_active = PlanService::API::Api.active?
+    is_admin = Maybe(@current_user).has_admin_rights_in?(@current_community).or_else(false)
+    is_expired = Maybe(@current_plan)[:expired].or_else(false)
+
+    ext_service_active && is_admin && is_expired
   end
 
   # returns either "http://" or "https://" based on configuration settings
