@@ -82,8 +82,8 @@ module ListingIndexService::Search
 
       if perform_numeric_search && numeric_search_match_listing_ids.empty?
         # No matches found with the numeric search
-        # Do a short circuit and return emtpy paginated collection of listings
-        {count: 0, listings: []}
+        # Do a short circuit and return emtpy paginated collection of listings wrapped into a success result
+        success_result(0, [], nil)
       else
 
         with = HashUtils.compact(
