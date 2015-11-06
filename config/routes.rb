@@ -343,7 +343,6 @@ Kassi::Application.routes.draw do
             get :ask_order_permission
             get :ask_billing_agreement
             get :permissions_verified
-            get :paypal_connect
             get :billing_agreement_success
             get :billing_agreement_cancel
           end
