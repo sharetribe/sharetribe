@@ -9,37 +9,7 @@ class PaypalAccountsController < ApplicationController
 
   DataTypePermissions = PaypalService::DataTypes::Permissions
 
-  def show
-    return redirect_to action: :new unless PaypalHelper.account_prepared_for_user?(@current_user.id, @current_community.id)
-
-    m_account = accounts_api.get(
-      community_id: @current_community.id,
-      person_id: @current_user.id
-    ).maybe
-
-    @selected_left_navi_link = "payments"
-
-    community_ready_for_payments = PaypalHelper.community_ready_for_payments?(@current_community)
-    unless community_ready_for_payments
-      flash.now[:warning] = t("paypal_accounts.new.admin_account_not_connected",
-                            contact_admin_link: view_context.link_to(
-                              t("paypal_accounts.new.contact_admin_link_text"),
-                                new_user_feedback_path)).html_safe
-    end
-
-    render(locals: {
-      community_ready_for_payments: community_ready_for_payments,
-      order_permission_action: ask_order_permission_person_paypal_account_path(@current_user),
-      left_hand_navigation_links: settings_links_for(@current_user, @current_community),
-      paypal_account_email: m_account[:email].or_else(""),
-      paypal_account_state: m_account[:state].or_else(:not_connected),
-      change_url: ask_order_permission_person_paypal_account_path(@current_user)
-    })
-  end
-
-  def new
-    return redirect_to action: :show if PaypalHelper.account_prepared_for_user?(@current_user.id, @current_community.id)
-
+  def index
     m_account = accounts_api.get(
       community_id: @current_community.id,
       person_id: @current_user.id
@@ -79,8 +49,7 @@ class PaypalAccountsController < ApplicationController
   end
 
   def ask_order_permission
-    return redirect_to action: :new unless PaypalHelper.community_ready_for_payments?(@current_community)
-
+    return redirect_to action: :index unless PaypalHelper.community_ready_for_payments?(@current_community)
 
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
     response = accounts_api.request(
@@ -97,14 +66,14 @@ class PaypalAccountsController < ApplicationController
 
     if permissions_url.blank?
       flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
-      return redirect_to action: :new
+      return redirect_to action: :index
     else
       render json: {redirect_url: permissions_url}
     end
   end
 
   def ask_billing_agreement
-    return redirect_to action: :new unless PaypalHelper.community_ready_for_payments?(@current_community)
+    return redirect_to action: :index unless PaypalHelper.community_ready_for_payments?(@current_community)
 
     account_response = accounts_api.get(
       community_id: @current_community.id,
@@ -130,7 +99,7 @@ class PaypalAccountsController < ApplicationController
 
       if billing_agreement_url.blank?
         flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
-        return redirect_to action: :new
+        return redirect_to action: :index
       else
         render json: {redirect_url: billing_agreement_url}
       end
@@ -172,7 +141,7 @@ class PaypalAccountsController < ApplicationController
     )
 
     if response[:success]
-      redirect_to show_paypal_account_settings_payment_path(@current_user.username)
+      redirect_to paypal_account_settings_payment_path(@current_user.username)
     else
       case response.error_msg
       when :billing_agreement_not_accepted
@@ -192,7 +161,7 @@ class PaypalAccountsController < ApplicationController
     )
 
     flash[:error] = t("paypal_accounts.new.billing_agreement_canceled")
-    redirect_to new_paypal_account_settings_payment_path(@current_user.username)
+    redirect_to paypal_account_settings_payment_path(@current_user.username)
   end
 
 
@@ -223,11 +192,7 @@ class PaypalAccountsController < ApplicationController
   end
 
   def error_redirect_action
-    if PaypalHelper.account_prepared_for_user?(@current_user.id, @current_community.id)
-      :show
-    else
-      :new
-    end
+    :index
   end
 
   def payment_gateway_commission(community_id)

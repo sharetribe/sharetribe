@@ -202,3 +202,19 @@
 .paypal-ready-to-accept-payments {
   font-style: italic;
 }
+
+.alert-text-container {
+  position: relative;
+  margin-top: lines(0.25);
+}
+
+.alert-text-icon {
+  position: absolute;
+  width: lines(0.5);
+  margin-top: 3px; // to align with text
+}
+
+.alert-text-content {
+  padding-left: lines(1);
+  font-weight: bold;
+}

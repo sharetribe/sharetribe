@@ -785,7 +785,7 @@ module ApplicationHelper
     elsif gateway_type == :checkout
       person_checkout_account_path(person)
     elsif gateway_type == :paypal
-      show_paypal_account_settings_payment_path(person)
+      paypal_account_settings_payment_path(person)
     end
   end
 
@@ -795,7 +795,7 @@ module ApplicationHelper
     elsif gateway_type == :checkout
       person_checkout_account_url(person, url_params.merge(locale: person.locale))
     elsif gateway_type == :paypal
-      show_paypal_account_settings_payment_url(person, url_params.merge(locale: person.locale))
+      paypal_account_settings_payment_url(person, url_params.merge(locale: person.locale))
     end
   end
 
