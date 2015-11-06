@@ -15,7 +15,6 @@ module PlanUtils
   module_function
 
   def valid_plan_at_least?(plan, level)
-    # FIXME, wrong result for hold plan
-    valid?(plan) && plan[:plan_level] >= level
+    !plan[:expired] && !plan[:closed] && plan[:plan_level] >= level
   end
 end
