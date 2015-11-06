@@ -31,10 +31,6 @@ module PlanService::API
       )
     end
 
-    def expired?(*)
-      Result::Success.new(false)
-    end
-
     def get_trials(*)
       not_in_use
     end

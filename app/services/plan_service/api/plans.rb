@@ -51,14 +51,6 @@ module PlanService::API
       }
     end
 
-    def expired?(community_id:)
-      Maybe(PlanStore.get_current(community_id: community_id)).map { |plan|
-        Result::Success.new(plan_expired?(plan))
-      }.or_else {
-        Result::Error.new("Can not find plan for community id: #{community_id}")
-      }
-    end
-
     def get_trials(after:, limit:)
       # Fetch one extra, so that we can return the next_offset
       plus_one = limit + 1
