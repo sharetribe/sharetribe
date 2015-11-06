@@ -1732,8 +1732,8 @@ pt-BR:
     change_account: "Mudar conta"
     missing: "Você têm anúncios ativos mas não pode receber pagamentos porque sua conta no PayPal ainda não foi configurada. Por favor conecte sua conta do PayPal em %{settings_link}, você também também precisa dar permissão para que %{service_name} cobre taxa de transação."
     from_your_payment_settings_link_text: "configurações de pagamento"
-    redirect_message: ~
-    redirect_link_text: ~
+    redirect_message: "Estamos redirecionando você para o PayPal. Se nada acontecer, clique %{redirect_link}"
+    redirect_link_text: aqui
     new:
       payout_info_you_need_to_connect: "Para aceitar pagamentos você deve conectar a sua conta PayPal com %{service_name}."
       payout_info_text: "Por favor, realize os dois passos seguintes para se conectar a sua conta."

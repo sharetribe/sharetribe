@@ -1726,8 +1726,8 @@ da-DK:
     change_account: "Ændre konto"
     missing: "Du har åbne annoncer, men du har ikke tilknyttet din PayPal-konto, så du er ikke i stand til at modtage betalinger. Tilknyt venligst din PayPal-konto i din %{settings_link}."
     from_your_payment_settings_link_text: betalingsindstillinger
-    redirect_message: ~
-    redirect_link_text: ~
+    redirect_message: "Omdirigere dig til PayPal. Hvis der ikke sker noget, skal du klikke %{redirect_link}."
+    redirect_link_text: her
     new:
       payout_info_you_need_to_connect: "For at acceptere betalinger skal du tilknytte din PayPal-konto til %{service_name}."
       payout_info_text: "Udfør venligt disse to steps for at tilknyttet din konto."
