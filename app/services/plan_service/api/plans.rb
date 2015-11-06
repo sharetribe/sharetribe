@@ -51,17 +51,6 @@ module PlanService::API
       }
     end
 
-    def expired?(community_id:)
-      Maybe(PlanStore.get_current(community_id: community_id)).map { |plan|
-        Result::Success.new(
-          Maybe(plan[:expires_at]).map { |expires_at|
-            expires_at < Time.now }
-          .or_else(false))
-      }.or_else {
-        Result::Error.new("Can not find plan for community id: #{community_id}")
-      }
-    end
-
     def get_trials(after:, limit:)
       # Fetch one extra, so that we can return the next_offset
       plus_one = limit + 1
@@ -109,8 +98,22 @@ module PlanService::API
 
     def with_expiration_status(plan)
       plan.merge(
-        expired: plan_expired?(plan)
+        expired: plan_expired?(plan),
+        closed: plan_closed?(plan)
       )
+    end
+
+    # Return true, if plan is closed, i.e.
+    # - Hold plan
+    # - Expired non-trial plan
+    def plan_closed?(plan)
+      Maybe(plan).map { |p|
+        if p[:plan_level] == 5
+          true
+        else
+          plan_expired?(p) && p[:plan_level] > 0
+        end
+      }.or_else(false)
     end
 
     def plan_expired?(plan)
