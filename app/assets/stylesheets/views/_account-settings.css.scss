@@ -214,14 +214,11 @@ $success-green: #19b400;
   font-weight: bold;
 }
 
-.paypal-follow-steps {
-  margin-bottom: lines(2);
-}
-
 .paypal-wizard {
   border: 1px solid $border;
   @include border-radius($default-border-radius);
   margin-bottom: lines(1);
+  margin-top: lines(2);
 }
 
 .paypal-wizard-content {
