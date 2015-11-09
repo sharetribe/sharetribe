@@ -492,7 +492,6 @@ en:
       transaction_fee_label: "Transaction fee:"
       minimum_transaction_fee_label: "Minimum transaction fee:"
       save_settings: "Save settings"
-      note_about_transaction_fee: "Note: the transaction fee includes PayPal's fees, which depend on your currency and the sales volume of the seller. For this reason, the fee is always at least %{min_paypal_commission}. When the fee is charged from the seller, PayPal will take its fees first, and the remainder will be moved to your PayPal account."
       minimum_listing_price_below_tx_fee: "The minimum transaction size has to be greater than or equal to the minimum transaction fee: %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "The minimum transaction size has to be greater than the minimum commission %{minimum_commission}."
     transaction_types:
@@ -1747,8 +1746,6 @@ en:
       follow_steps: "Follow the steps below to start receiving funds."
       connect_paypal_account_title: "Connect your PayPal account"
       connect_paypal_account_title_with_step: "Step %{current_step}/%{total_steps}: Connect your PayPal account"
-      paypal_account_email_placeholder: "Your PayPal email address"
-      paypal_account_email_info_text: "If you don't have a PayPal account, you can create one by %{create_paypal_account}. If you get an error message when connecting your PayPal account, upgrade your PayPal account to a business account. Upgrading is free and easy. If you are an individual, you can use your first and last name as your \"business name\". To upgrade your account, %{upgrade_paypal_account} and find the upgrade link."
       connect_paypal_account_instructions: "Click on the button below to log in to PayPal and connect your PayPal account with %{service_name}."
       connect_paypal_account: "Connect your PayPal account"
       paypal_account_billing_agreement_with_step: "Step %{current_step}/%{total_steps}: Grant permission to charge a transaction fee"
