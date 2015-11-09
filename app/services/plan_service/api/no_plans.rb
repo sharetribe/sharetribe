@@ -26,10 +26,8 @@ module PlanService::API
         community_id: community_id,
         plan_level: PlanService::Levels::OS,
         expires_at: nil,
-        closed: false,
-        deleted: false,
         created_at: Time.now,
-        updated_at: Time.now).merge(expired: false)
+        updated_at: Time.now).merge(expired: false, closed: false)
       )
     end
 
