@@ -1,5 +1,7 @@
 @import "mixins/all";
 
+$success-green: #19b400;
+
 /*
   ----------------
   Person settings
@@ -193,14 +195,7 @@
 .paypal-account-connected,
 .paypal-preferences-valid,
 .paypal-billing-agreement-made {
-  color: $green;
-}
-.paypal-connected-email {
-  font-style: italic;
-}
-
-.paypal-ready-to-accept-payments {
-  font-style: italic;
+  color: $success-green;
 }
 
 .alert-text-container {
@@ -217,4 +212,50 @@
 .alert-text-content {
   padding-left: lines(1);
   font-weight: bold;
+}
+
+.paypal-follow-steps {
+  margin-bottom: lines(2);
+}
+
+.paypal-wizard {
+  border: 1px solid $border;
+  @include border-radius($default-border-radius);
+  margin-bottom: lines(1);
+}
+
+.paypal-wizard-content {
+  padding: lines(1) lines(1.5);
+}
+
+.paypal-wizard-divider {
+  border-top: 1px solid $border;
+}
+
+.paypal-wizard-step {
+  @include big-type;
+  font-weight: normal;
+}
+
+.paypal-wizard-step-complete {
+  @extend .paypal-wizard-step;
+  color: $success-green;
+}
+
+.paypal-change-link {
+  cursor: pointer;
+}
+
+.paypal-success-mark {
+  color: $success-green;
+}
+
+.paypal-link-wrapper {
+  & .send-button-loading-img {
+    width: lines(0.75);
+    height: lines(0.75);
+    margin: 0 lines(0.5);
+    top: 3px;
+    position: relative;
+  }
 }

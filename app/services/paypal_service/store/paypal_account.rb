@@ -360,11 +360,12 @@ module PaypalService::Store::PaypalAccount
     when matches([nil, :verified])
       # verified community account
       :verified
-    when matches([__, :verified, :not_verified])
-      :connected
     when matches([__, :verified, :verified])
       # verified personal account
       :verified
+    when matches([__, :verified, __])
+      # billing agreement might be pending or not set
+      :connected
     else
       :not_connected
     end

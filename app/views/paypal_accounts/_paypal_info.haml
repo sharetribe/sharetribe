@@ -1,5 +1,7 @@
 .row
   = t("paypal_accounts.payout_info_paypal", create_paypal_account_link: create_paypal_account_link).html_safe
+  - if commission_required
+    = t("paypal_accounts.commission_permission_needed")
 
 .row
   .alert-text-container

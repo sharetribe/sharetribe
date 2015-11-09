@@ -17,9 +17,9 @@ class PaypalAccountsController < ApplicationController
 
     community_ready_for_payments = PaypalHelper.community_ready_for_payments?(@current_community)
     unless community_ready_for_payments
-      flash.now[:warning] = t("paypal_accounts.new.admin_account_not_connected",
+      flash.now[:warning] = t("paypal_accounts.admin_account_not_connected",
                             contact_admin_link: view_context.link_to(
-                              t("paypal_accounts.new.contact_admin_link_text"),
+                              t("paypal_accounts.contact_admin_link_text"),
                                 new_user_feedback_path)).html_safe
     end
 
@@ -28,11 +28,11 @@ class PaypalAccountsController < ApplicationController
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 
     render(locals: {
+      next_action: next_action(m_account[:state].or_else("")),
       community_ready_for_payments: community_ready_for_payments,
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
       order_permission_action: ask_order_permission_person_paypal_account_path(@current_user),
       billing_agreement_action: ask_billing_agreement_person_paypal_account_path(@current_user),
-      paypal_account_state: m_account[:order_permission_state].or_else(""),
       paypal_account_email: m_account[:email].or_else(""),
       commission_from_seller: t("paypal_accounts.commission", commission: payment_settings[:commission_from_seller]),
       minimum_commission: Money.new(payment_settings[:minimum_transaction_fee_cents], community_currency),
@@ -162,6 +162,16 @@ class PaypalAccountsController < ApplicationController
 
 
   private
+
+  def next_action(paypal_account_state)
+    if paypal_account_state == :verified
+      :none
+    elsif paypal_account_state == :connected
+      :ask_billing_agreement
+    else
+      :ask_order_permission
+    end
+  end
 
   # Before filter
   def ensure_paypal_enabled
