@@ -484,7 +484,7 @@ en:
       marketplace_currency_used: "This marketplace uses <strong>%{currency}</strong> as its currency. To change the currency, %{contact_support_link}."
       contact_support_link_text: "contact Sharetribe support"
       integration_info_text: "Sharetribe payments are powered by PayPal. To allow your users to pay using your marketplace, you must connect your PayPal account. Once you have connected your PayPal account, you can choose a minimum transaction size and a possible commission fee."
-      link_paypal_account_second_time_note: "Note: if you wish to sell products on your marketplace, you will also need to connect your PayPal account to %{personal_payment_preferences_link}."
+      link_paypal_account_second_time_note: "<strong>Are you selling products yourself?</strong> If so, you will also need to connect your PayPal account to %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "your personal marketplace account"
       read_more_about_paypal: "Read more about Sharetribe's payment system"
       set_minimum_price_and_fee: "Set a minimum price & transaction fee"

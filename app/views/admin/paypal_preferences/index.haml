@@ -36,9 +36,9 @@
 
   .row.paypal-connect-second-time-note
     .col-12
-      %strong
-        =t("admin.paypal_accounts.link_paypal_account_second_time_note",
-          personal_payment_preferences_link: link_to(t("admin.paypal_accounts.personal_payment_preferences_link_text"), paypal_account_settings_payment_path(@current_user.username))).html_safe
+      =t("admin.paypal_accounts.link_paypal_account_second_time_note",
+        personal_payment_preferences_link: link_to(t("admin.paypal_accounts.personal_payment_preferences_link_text"),
+          paypal_account_settings_payment_path(@current_user.username))).html_safe
 
   - if paypal_account_email.present? # has linked their PayPal account
     .row.paypal-wizard
