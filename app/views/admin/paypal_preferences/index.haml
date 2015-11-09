@@ -46,8 +46,9 @@
         .paypal-wizard-content
           .row
             .col-12
-              =icon_tag("check", ["icon-fix", "paypal-success-mark"])
-              =t('paypal_accounts.paypal_account_connected_summary', :email => paypal_account_email)
+              %h3.paypal-account-connected
+                =icon_tag("check", ["icon-fix"])
+                =t("paypal_accounts.paypal_account_connected_title")
           .row.paypal-link-wrapper
             .col-12
               .paypal-connected-email.paypal-account-connected
