@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :check_auth_token,
     :fetch_community,
+    :fetch_community_plan_expiration_status,
     :perform_redirect,
     :fetch_logged_in_user,
     :save_current_host_with_port,
@@ -29,7 +30,6 @@ class ApplicationController < ActionController::Base
     :set_default_url_for_mailer,
     :fetch_chargebee_plan_data,
     :fetch_community_admin_status,
-    :fetch_community_plan_expiration_status,
     :warn_about_missing_payment_info,
     :set_homepage_path,
     :report_queue_size
@@ -239,7 +239,8 @@ class ApplicationController < ActionController::Base
         domain: c.domain,
         deleted: c.deleted?,
         use_domain: c.use_domain?,
-        domain_verification_file: c.dv_test_file_name
+        domain_verification_file: c.dv_test_file_name,
+        closed: Maybe(@current_plan)[:closed].or_else(false)
       }
     }.or_else(nil)
 

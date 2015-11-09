@@ -12,6 +12,7 @@ module MarketplaceRouter
     Community = EntityUtils.define_builder(
       [:use_domain, :bool, :mandatory],
       [:deleted, :bool, :mandatory],
+      [:closed, :bool, :mandatory],
       [:domain, :string, :optional],
       [:domain_verification_file, :optional],
       [:ident, :string, :mandatory]
@@ -109,7 +110,7 @@ module MarketplaceRouter
         # -> Redirect to not found
         paths[:community_not_found].merge(status: :found, protocol: protocol)
 
-      elsif community && community[:deleted]
+      elsif community && (community[:deleted] || community[:closed])
         # Community deleted
         # -> Redirect to not found
         paths[:community_not_found].merge(status: :moved_permanently, protocol: protocol)
