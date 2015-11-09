@@ -1743,7 +1743,7 @@ en:
     paypal_account_connected_summary: "PayPal account <%{email}> connected successfully"
     paypal_permission_granted_summary: "Permission for transaction fees granted"
     new:
-      follow_steps: "Follow the steps below to start receiving funds."
+      follow_steps: "Follow the steps below to start receiving funds:"
       connect_paypal_account_title: "Connect your PayPal account"
       connect_paypal_account_title_with_step: "Step %{current_step}/%{total_steps}: Connect your PayPal account"
       connect_paypal_account_instructions: "Click on the button below to log in to PayPal and connect your PayPal account with %{service_name}."
