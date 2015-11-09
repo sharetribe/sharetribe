@@ -3,9 +3,10 @@
   - if commission_required
     = t("paypal_accounts.commission_permission_needed")
 
-.row
-  .alert-text-container
-    .alert-text-icon
-      = icon_tag("alert")
-    .alert-text-content
-      %p= t("paypal_accounts.paypal_receive_funds_info", upgrade_paypal_account_link: upgrade_paypal_account_link).html_safe
+- unless paypal_account_linked
+  .row
+    .alert-text-container
+      .alert-text-icon
+        = icon_tag("alert")
+      .alert-text-content
+        %p= t("paypal_accounts.paypal_receive_funds_info", upgrade_paypal_account_link: upgrade_paypal_account_link).html_safe

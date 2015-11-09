@@ -10,6 +10,7 @@
                                     upgrade_url, target: "_blank")
     = render partial: "paypal_info", locals: { create_paypal_account_link: create_paypal_link,
         upgrade_paypal_account_link: upgrade_paypal_link,
+        paypal_account_linked: next_action != :ask_order_permission,
         commission_required: commission_type != :none }
 
     - if next_action == :ask_order_permission
