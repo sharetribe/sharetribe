@@ -117,11 +117,11 @@
             .row
               .col-12
                 =t("paypal_accounts.can_receive_payments")
-            .row
+            .row.paypal-first-steps-list
               .col-12
                 =icon_tag("check", ["icon-fix", "paypal-success-mark"])
                 =t("paypal_accounts.paypal_account_connected_summary", :email => paypal_account_email)
-            .row
+            .row.paypal-last-steps-list
               .col-12
                 =icon_tag("check", ["icon-fix", "paypal-success-mark"])
                 =t("paypal_accounts.paypal_permission_granted_summary")
