@@ -115,7 +115,7 @@ def abort_if_css_modifications
   if local_css_modifications?
     puts ""
     puts "You have local changes to css files."
-    puts "Run css compile with rake deploy_to[#{@destination}] css=true"
+    puts "Run css compile with: bundle exec rake deploy_to[#{@destination}] css=true"
     puts "If you know what you are doing, skip with css=false"
     puts "Aborting deploy process."
     exit
