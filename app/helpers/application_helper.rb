@@ -589,7 +589,7 @@ module ApplicationHelper
         :topic => :general,
         :text => t("admin.left_hand_navigation.plan"),
         :icon_class => icon_class("credit_card"),
-        :path => plan_admin_community_path(@current_community),
+        :path => admin_plan_path,
         :name => "plan",
       }
     end
