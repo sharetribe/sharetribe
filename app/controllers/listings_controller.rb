@@ -41,9 +41,9 @@ class ListingsController < ApplicationController
           PersonViewUtils.ensure_person_belongs_to_community!(@person, @current_community)
 
           # Returns the listings for one person formatted for profile page view
-          per_page = params[:per_page] || 200 # the point is to show all here by default
+          per_page = params[:per_page] || 1000 # the point is to show all here by default
           includes = [:author, :listing_images]
-          include_closed = @person == @current_user
+          include_closed = @person == @current_user && params[:show_closed]
           search = {
             author_id: @person.id,
             include_closed: include_closed,
