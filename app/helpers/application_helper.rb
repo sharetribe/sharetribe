@@ -859,13 +859,11 @@ module ApplicationHelper
 
   def community_description(truncate=true)
     if @community_customization && !@community_customization.description.blank?
-      truncate ? truncate(@community_customization.description, :length => 140, :omission => "...").html_safe : @community_customization.description.html_safe
+      truncate ? truncate_html(@community_customization.description, length: 140, omission: "...") : @community_customization.description
+    elsif @current_community.description && !@current_community.description.blank?
+      truncate ? truncate_html(@current_community.description, length: 140, omission: "...") : @current_community.description
     else
-      if @current_community.description && !@current_community.description.blank?
-        truncate ? truncate(@current_community.description, :length => 140, :omission => "...") : @current_community.description
-      else
-        truncate ? truncate(t("common.default_community_description"), :length => 125, :omission => "...").html_safe : t("common.default_community_description").html_safe
-      end
+      truncate ? truncate_html(t("common.default_community_description"), length: 125, omission: "...") : t("common.default_community_description")
     end
   end
 
