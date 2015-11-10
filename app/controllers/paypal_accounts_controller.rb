@@ -39,7 +39,7 @@ class PaypalAccountsController < ApplicationController
       commission_type: payment_settings[:commission_type],
       currency: community_currency,
       paypal_fees_url: PaypalHelper.fee_link(community_country_code),
-      create_url: "https://www.paypal.com/#{community_country_code}/signup/account",
+      create_url: "https://www.paypal.com/#{community_country_code}/webapps/mpp/home",
       upgrade_url: "https://www.paypal.com/#{community_country_code}/upgrade"
     })
   end
