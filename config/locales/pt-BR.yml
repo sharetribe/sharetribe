@@ -481,17 +481,22 @@ pt-BR:
     paypal_accounts:
       marketplace_paypal_integration: "Preferências de pagamento"
       preferences_updated: "Preferências de pagamento atualizadas."
+      marketplace_currency_used: ~
+      contact_support_link_text: ~
       integration_info_text: "O sistema de pagamento de Sharetribe é gerenciado pelo PayPal. Se você quiser permitir que os seus usuários façam pagamentos através de seu mercado virtual, você deve se conectar a sua conta PayPal e decidir o tamanho mínimo da transação e a taxa que você quer ganhar de cada transação."
-      read_more_about_paypal: "Leia mais sobre o sistema de pagamento do Sharetribe"
       paypal_account_email: "1. Conecte sua conta PayPal"
+      link_paypal_personal_account_label: ~
       paypal_account_email_completed: Concluído!
-      set_minimum_price_and_fee: "2. Definir preço mínimo e taxa de transação"
+      link_paypal_personal_account: ~
+      personal_payment_preferences_link_text: ~
       set_minimum_price_and_fee_completed: Concluído!
+      read_more_about_paypal: "Leia mais sobre o sistema de pagamento do Sharetribe"
+      set_minimum_price_and_fee: "2. Definir preço mínimo e taxa de transação"
       minimum_listing_price_label: "Preço mínimo de anúncio:"
       transaction_fee_label: "Taxa de transação:"
       minimum_transaction_fee_label: "Taxa mínima de transação:"
-      save_settings: "Salvar definições"
       note_about_transaction_fee: "Nota: a taxa de transação inclui taxas do PayPal que dependem de sua moeda e o volume de vendas do vendedor. Por esta razão, a taxa é sempre pelo menos %{min_paypal_commission}. Quando a taxa é cobrada do vendedor, o PayPal cobrará as suas taxas em primeiro lugar, e o restante será transferido para sua conta PayPal."
+      save_settings: "Salvar definições"
       minimum_listing_price_below_tx_fee: "tem que ser, pelo menos, o mesmo que a taxa de transação mínima de %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "tem de ser maior do que o mínimo de comissão que é %{minimum_commission}."
     transaction_types:
@@ -1725,15 +1730,18 @@ pt-BR:
   paypal_accounts:
     payout_info_title: "Informação de pagametno"
     paypal_account_email_connected: "<del>1. Conectar-se a conta PayPal</del> Concluído!"
+    payout_info_paypal: ~
     paypal_billing_agreement_made: "<del>2. Conceder permissão a %{service_name} para cobrar taxa de transação</del> Concluída!"
+    commission_permission_needed: ~
+    create_paypal_account_link_text: ~
+    connected_account: "Conta PayPal '%{email}' connectada com sucesso."
+    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info: ~
+    upgrade_paypal_account_link_text: ~
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
     you_are_ready_to_accept_payments: "Você está pronto para aceitar pagamentos!"
     commission: "%{commission} %"
-    connected_account: "Conta PayPal '%{email}' connectada com sucesso."
-    change_account: "Mudar conta"
-    missing: "Você têm anúncios ativos mas não pode receber pagamentos porque sua conta no PayPal ainda não foi configurada. Por favor conecte sua conta do PayPal em %{settings_link}, você também também precisa dar permissão para que %{service_name} cobre taxa de transação."
-    from_your_payment_settings_link_text: "configurações de pagamento"
-    redirect_message: "Estamos redirecionando você para o PayPal. Se nada acontecer, clique %{redirect_link}"
-    redirect_link_text: aqui
     new:
       payout_info_you_need_to_connect: "Para aceitar pagamentos você deve conectar a sua conta PayPal com %{service_name}."
       payout_info_text: "Por favor, realize os dois passos seguintes para se conectar a sua conta."
@@ -1744,11 +1752,17 @@ pt-BR:
       paypal_account_email_info_text: "Atenção: Você precisa de uma conta individual no PayPal ou empresarial para aceitar pagamentos. Se você já possui sua conta pessoal, você poderá fazer o upgrade da mesma. É grátis e você só leva alguns minutos. %{upgrade_paypal_account} Se você não tem uma conta PayPal ainda, você pode criar esta nova conta %{create_paypal_account}. Sua conta PayPal deve estar configurada para receber %{currency}."
       create_paypal_account: aqui
       upgrade_paypal_account: "Entre na sua conta no PayPal"
-      connect_paypal_account: "Conecte-se a uma conta PayPal"
       paypal_account_billing_agreement: "2. Conceder permissão a %{service_name} para cobrar taxa de transação"
+      follow_steps: ~
+      connect_paypal_account_title: ~
+      connect_paypal_account_title_with_step: ~
+      connect_paypal_account_instructions: ~
+      connect_paypal_account: "Conecte-se a uma conta PayPal"
+      paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: "Depois de realizar uma venda no %{service_name}, uma taxa de (%{commission_from_seller} do valor total, excluindo custos de envio, de no mínimo %{minimum_commission}) será cobrada através de sua conta no PayPal. Para aceitar pagamentos no %{service_name}, você deve permitir essa cobrança automática. Esta taxa não inclui a %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Depois de realizar uma venda no %{service_name}, uma taxa de %{minimum_commission} será cobrada através de sua conta no PayPal. Para aceitar pagamentos no %{service_name}, você deve permitir essa cobrança automática. Esta taxa não inclui a %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Depois de realizar uma venda no %{service_name} uma taxa de %{commission_from_seller} do valor total, excluindo custo de envio, será cobrada através de sua conta no PayPal. Para aceitar pagamentos no %{service_name} você deve permitir essa cobrança automática. Esta taxa não inclui a %{paypal_info_link}."
+      paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: "taxa de processamento do pagamento do PayPal"
       billing_agreement_description: "Conceder permissão a %{service_name} para cobrar uma taxa de transação."
       billing_agreement: "Conceder permissão"
@@ -1761,6 +1775,17 @@ pt-BR:
       something_went_wrong: "Algo deu errado. Por favor, tente novamente. Se o problema persistir, entre em contato com os administradores do site."
       account_not_verified: "Você não verificou a sua conta PayPal. Você precisa ir para paypal.com e verificar a sua conta antes de continuar."
       account_restricted: "A sua conta do PayPal é restrita e não pode ser conectada. Por favor, conecte via paypal.com para saber mais o que isso significa ou entre em contato com o suporte ao cliente do PayPal para resolver o problema."
+    paypal_account_connected_title: ~
+    paypal_account_connected: ~
+    change_account: "Mudar conta"
+    missing: "Você têm anúncios ativos mas não pode receber pagamentos porque sua conta no PayPal ainda não foi configurada. Por favor conecte sua conta do PayPal em %{settings_link}, você também também precisa dar permissão para que %{service_name} cobre taxa de transação."
+    from_your_payment_settings_link_text: "configurações de pagamento"
+    redirect_message: "Estamos redirecionando você para o PayPal. Se nada acontecer, clique %{redirect_link}"
+    redirect_link_text: aqui
+    paypal_account_all_set_up: ~
+    can_receive_payments: ~
+    paypal_account_connected_summary: ~
+    paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: "Proceder ao pagamento"
     checkout_with_paypal: "Pagar com PayPal"

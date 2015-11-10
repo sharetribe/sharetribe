@@ -481,17 +481,22 @@ fr:
     paypal_accounts:
       marketplace_paypal_integration: "Paramètres de paiement"
       preferences_updated: "Préférences de paiement mises à jour"
+      marketplace_currency_used: ~
+      contact_support_link_text: ~
       integration_info_text: "Le système de paiement de Sharetribe est propulsé par PayPal. Si vous souhaitez permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal, choisir un montant minimal pour les transactions et éventuellement vos frais de service."
-      read_more_about_paypal: "En savoir plus sur le système de paiement avec Sharetribe."
       paypal_account_email: "1. Connecter votre compte PayPal"
+      link_paypal_personal_account_label: ~
       paypal_account_email_completed: "Terminé !"
-      set_minimum_price_and_fee: "2. Définir un montant minimum et les frais de service"
+      link_paypal_personal_account: ~
+      personal_payment_preferences_link_text: ~
       set_minimum_price_and_fee_completed: "Terminé !"
+      read_more_about_paypal: "En savoir plus sur le système de paiement avec Sharetribe."
+      set_minimum_price_and_fee: "2. Définir un montant minimum et les frais de service"
       minimum_listing_price_label: "Montant minimal de transaction : "
       transaction_fee_label: "Frais de service : "
       minimum_transaction_fee_label: "Frais minimaux de transaction : "
-      save_settings: "Sauvegarder les paramètres"
       note_about_transaction_fee: "Note : les frais de service incluent les frais PayPal qui dépendent de la monnaie et du volume des ventes du vendeur. Pour cette raison, les frais de service sont d'au minimum %{min_paypal_commission}. Lorsque les frais de service sont facturés au vendeur, PayPal prélève d'abord ses frais puis le restant est viré sur votre propre compte PayPal."
+      save_settings: "Sauvegarder les paramètres"
       minimum_listing_price_below_tx_fee: "Le montant minimal de transaction doit être au moins égal aux frais minimaux de transaction %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "Le montant minimal de transaction doit être supérieur aux frais de service minimaux %{minimum_commission}."
     transaction_types:
@@ -1723,15 +1728,18 @@ fr:
   paypal_accounts:
     payout_info_title: "Information de paiement"
     paypal_account_email_connected: "<del>Connecter votre compte PayPal</del> Connecté !"
+    payout_info_paypal: ~
     paypal_billing_agreement_made: "<del>Autoriser %{service_name} à prélever des frais de service sur chaque transaction.</del> Autorisé !"
+    commission_permission_needed: ~
+    create_paypal_account_link_text: ~
+    connected_account: "Le compte PayPal '%{email}' est désormais connecté."
+    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info: ~
+    upgrade_paypal_account_link_text: ~
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
     you_are_ready_to_accept_payments: "Vous pouvez désormais recevoir des paiements !"
     commission: "%{commission} %"
-    connected_account: "Le compte PayPal '%{email}' est désormais connecté."
-    change_account: "Changer de compte"
-    missing: "Vous avez des annonces actives mais votre compte PayPal n'est pas encore configuré pour recevoir des paiements. Veuillez connecter votre compte PayPal depuis vos %{settings_link} et y autoriser %{service_name} à prélever une commission."
-    from_your_payment_settings_link_text: "paramètres de paiement"
-    redirect_message: "Redirection vers PayPal. Si rien ne se produit, veuillez cliquer %{redirect_link}."
-    redirect_link_text: ici
     new:
       payout_info_you_need_to_connect: "Pour accepter les paiements vous devez connecter votre compte PayPal à %{service_name}."
       payout_info_text: "Pour connecter votre compte, veuillez suivre ces étapes."
@@ -1742,11 +1750,17 @@ fr:
       paypal_account_email_info_text: "Si vous n'avez pas de compte PayPal, vous pouvez en créer un en %{create_paypal_account}. Si vous obtenez un message d'erreur en connectant votre compte PayPal, surclassez le en un compte Business. Surclasser un compte est simple et gratuit. Si vous êtes un particulier, vous pouvez utiliser votre nom et prénom comme \"Nom de société\". Pour surclasser votre compte, %{upgrade_paypal_account} et cherchez le lien de surclassement."
       create_paypal_account: "cliquant ici"
       upgrade_paypal_account: "connectez-vous à votre compte PayPal"
-      connect_paypal_account: "Connecter votre compte PayPal"
       paypal_account_billing_agreement: "Autoriser %{service_name} à prélever des frais de service"
+      follow_steps: ~
+      connect_paypal_account_title: ~
+      connect_paypal_account_title_with_step: ~
+      connect_paypal_account_instructions: ~
+      connect_paypal_account: "Connecter votre compte PayPal"
+      paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: "Après avoir réalisé une vente sur %{service_name}, des frais (%{commission_from_seller} du montant total, hors frais de livraison, frais minimaux de %{minimum_commission}) seront prélevés sur votre compte PayPal. Pour accepter les paiements sur %{service_name}, autorisez %{service_name} à prélever ces frais. Ces frais n'incluent pas %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Après avoir réalisé une vente sur %{service_name}, des frais de %{minimum_commission} seront prélevés sur votre compte PayPal. Pour accepter les paiements sur %{service_name}, autorisez %{service_name} à prélever ces frais. Ces frais n'incluent pas %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Après avoir réalisé une vente sur %{service_name}, des frais (%{commission_from_seller} du montant total, hors frais de livraison) seront prélevés sur votre compte PayPal. Pour accepter les paiements sur %{service_name}, autorisez %{service_name} à prélever ces frais. Ces frais n'incluent pas %{paypal_info_link}."
+      paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: "les frais de transaction PayPal"
       billing_agreement_description: "Autoriser %{service_name} à prélever des frais de service."
       billing_agreement: Autoriser
@@ -1759,6 +1773,17 @@ fr:
       something_went_wrong: "Quelque chose s'est mal passé. Veuillez essayer de nouveau. Si le problème persiste, veuillez contacter l'administrateur du site."
       account_not_verified: "Vous n'avez pas vérifié votre compte PayPal. Vous devez vous connecter sur paypal.com et vérifier votre compte avant de pouvoir poursuivre."
       account_restricted: "Votre compte PayPal est restreint et ne peut être connecté. Veuillez vous connecter sur paypal.com pour en savoir plus ou contactez le support PayPal pour résoudre le problème."
+    paypal_account_connected_title: ~
+    paypal_account_connected: ~
+    change_account: "Changer de compte"
+    missing: "Vous avez des annonces actives mais votre compte PayPal n'est pas encore configuré pour recevoir des paiements. Veuillez connecter votre compte PayPal depuis vos %{settings_link} et y autoriser %{service_name} à prélever une commission."
+    from_your_payment_settings_link_text: "paramètres de paiement"
+    redirect_message: "Redirection vers PayPal. Si rien ne se produit, veuillez cliquer %{redirect_link}."
+    redirect_link_text: ici
+    paypal_account_all_set_up: ~
+    can_receive_payments: ~
+    paypal_account_connected_summary: ~
+    paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: "Procéder au paiement"
     checkout_with_paypal: "Payer avec PayPal"

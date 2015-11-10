@@ -11,7 +11,7 @@ th-TH:
       unauthenticated: ~
       unconfirmed: ~
       locked: ~
-      invalid: ~
+      invalid: อีเมล์หรือรหัสผ่านไม่ถูกต้อง
       invalid_token: ~
       timeout: ~
       inactive: ~
@@ -21,7 +21,7 @@ th-TH:
       send_instructions: ~
       updated: ~
     sessions:
-      signed_in: ~
+      signed_in: ลงชื่อเข้าระบบเรียบร้อยแล้ว
       signed_out: ~
     confirmations:
       send_paranoid_instructions: ~

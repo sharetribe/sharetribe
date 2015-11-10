@@ -481,17 +481,22 @@ nb:
     paypal_accounts:
       marketplace_paypal_integration: Betalingsinnstillinger
       preferences_updated: "Betalingsinnstillinger oppdatert"
+      marketplace_currency_used: ~
+      contact_support_link_text: ~
       integration_info_text: "Betalingssystemet i Sharetribe er laget av PayPal. Hvis du vil gjøre det mulig for brukere å ta betalt i din markedsplass må du koble til din PayPal-konto og velge minimumsstørrelse på transaksjonene samt din tjenestekostnad for hver transaksjon."
-      read_more_about_paypal: "Les mer om Sharetribe`s betalingssystem"
       paypal_account_email: "Koble til din PayPal konto"
+      link_paypal_personal_account_label: ~
       paypal_account_email_completed: fullført!
-      set_minimum_price_and_fee: "2. Sett minimums pris & transaksjonsgebyr"
+      link_paypal_personal_account: ~
+      personal_payment_preferences_link_text: ~
       set_minimum_price_and_fee_completed: fullført!
+      read_more_about_paypal: "Les mer om Sharetribe`s betalingssystem"
+      set_minimum_price_and_fee: "2. Sett minimums pris & transaksjonsgebyr"
       minimum_listing_price_label: "Minimum transaksjonsstørrelse:"
       transaction_fee_label: "Transaksjonskostnad:"
       minimum_transaction_fee_label: "Minimum transaksjonskostnad:"
-      save_settings: "Lagre innstillinger"
       note_about_transaction_fee: "Transaksjonskostnad inkluderer PayPal-kostnad som varierer fra valuta til valuta og ditt salgsvolum. Derfor vil kostnaden alltid være minst %{min_paypal_commission}. Når kostnaden er trukket fra selger vil PayPal ta sin provisjon først og resten vil bli flyttet til din PayPal-konto."
+      save_settings: "Lagre innstillinger"
       minimum_listing_price_below_tx_fee: "må være minst det samme som minimum transaksjonskostnad %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "må være mer enn minimum transaksjonsprovisjon %{minimum_commission}."
     transaction_types:
@@ -1725,15 +1730,18 @@ nb:
   paypal_accounts:
     payout_info_title: Utbetalingsinformasjon
     paypal_account_email_connected: "1. <del>Koble til PayPal-konto</del> Fullført!"
+    payout_info_paypal: ~
     paypal_billing_agreement_made: "2. <del>Tillat %{service_name} å ta betalt for sine tjenester</del> Fullført!"
+    commission_permission_needed: ~
+    create_paypal_account_link_text: ~
+    connected_account: "PayPal-konto '%{email}' tilkoblet."
+    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info: ~
+    upgrade_paypal_account_link_text: ~
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
     you_are_ready_to_accept_payments: "Du er klar til å motta betaling!"
     commission: "%{commission} %"
-    connected_account: "PayPal-konto '%{email}' tilkoblet."
-    change_account: "Endre konto"
-    missing: "Du har åpne annonser men har ikke koblet til en PayPal-konto så du vil ikke kunne motta betalinger. Vennligst koble til din PayPal-konto i dine %{settings_link}."
-    from_your_payment_settings_link_text: betalingsinnstillinger
-    redirect_message: "Omdirigerer deg til PayPal. Hvis ingenting skjer, klikk %{redirect_link}."
-    redirect_link_text: her
     new:
       payout_info_you_need_to_connect: "For å motta betaling må du knytte din PayPal-konto sammen med %{service_name}"
       payout_info_text: "Vennligst fullfør følgende steg for koble opp din konto."
@@ -1744,11 +1752,17 @@ nb:
       paypal_account_email_info_text: "Hvis du ikke har en PayPal-konto kan du raskt og enkelt opprette en konto ved å %{create_paypal_account}. Hvis du får feilmelding ved tilkobling av kontoen må du oppgradere kontoen til en bedriftskonto. Dette gjøres ved noen ekstra klikk og koster ingenting. Hvis du er privatperson skriver du ditt fulle navn under \"bedriftsnavn\". For å oppgradere kontoen din finner du klikker du her for å %{upgrade_paypal_account}."
       create_paypal_account: "klikke her"
       upgrade_paypal_account: "logge inn på din PayPal-konto"
-      connect_paypal_account: "1. Koble til PayPal-konto"
       paypal_account_billing_agreement: "2. Tillat %{service_name} å ta et transaksjonsgebyr"
+      follow_steps: ~
+      connect_paypal_account_title: ~
+      connect_paypal_account_title_with_step: ~
+      connect_paypal_account_instructions: ~
+      connect_paypal_account: "1. Koble til PayPal-konto"
+      paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad (%{commission_from_seller} av totalsum, minus frakt, minimumkostnad %{minimum_commission}) bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad på %{minimum_commission} bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad (%{commission_from_seller} av totalsum, minus frakt) bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."
+      paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: "PayPal transaksjonskostnad"
       billing_agreement_description: "Gi %{service_name} tilgang til å ta betalt for sine tjenester."
       billing_agreement: "Gi tillatelse"
@@ -1761,6 +1775,17 @@ nb:
       something_went_wrong: "Noe gikk galt. Vennligst prøv igjen. Dersom problemet fortsetter, vennligst kontakt administrator."
       account_not_verified: "Du har ikke verifisert din PayPal-konto. Du må gå til paypal.com og verifisere kontoen før du kan fortsette."
       account_restricted: "Din PayPal-konto er begrenset og kan ikke bli koblet til. Vennligst logg på paypal.com for å finne ut mer hva dette betyr og ta kontakt med PayPal-support for å løse saken."
+    paypal_account_connected_title: ~
+    paypal_account_connected: ~
+    change_account: "Endre konto"
+    missing: "Du har åpne annonser men har ikke koblet til en PayPal-konto så du vil ikke kunne motta betalinger. Vennligst koble til din PayPal-konto i dine %{settings_link}."
+    from_your_payment_settings_link_text: betalingsinnstillinger
+    redirect_message: "Omdirigerer deg til PayPal. Hvis ingenting skjer, klikk %{redirect_link}."
+    redirect_link_text: her
+    paypal_account_all_set_up: ~
+    can_receive_payments: ~
+    paypal_account_connected_summary: ~
+    paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: "Gå til betaling"
     checkout_with_paypal: "Betal med PayPal"

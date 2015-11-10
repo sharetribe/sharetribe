@@ -454,17 +454,22 @@ it:
     paypal_accounts:
       marketplace_paypal_integration: "Integrazione PayPal"
       preferences_updated: "Preferenze di pagamento aggiornate"
+      marketplace_currency_used: ~
+      contact_support_link_text: ~
       integration_info_text: "Il sistema di pagamento di %{service_name} è gestito da PayPal. Se vuoi consentire ai tuoi utenti di effettuare pagamenti sulla tua piattaforma, è necessario collegare il tuo conto PayPal e decidere il prezzo minimo del tuo spazio e la quota che vuoi trattenere per ogni transazione."
-      read_more_about_paypal: ~
       paypal_account_email: "1. Collega il tuo conto PayPal"
+      link_paypal_personal_account_label: ~
       paypal_account_email_completed: Completato!
-      set_minimum_price_and_fee: "2. Inserisci un prezzo minimo e una tariffa di transazione"
+      link_paypal_personal_account: ~
+      personal_payment_preferences_link_text: ~
       set_minimum_price_and_fee_completed: Completato!
+      read_more_about_paypal: ~
+      set_minimum_price_and_fee: "2. Inserisci un prezzo minimo e una tariffa di transazione"
       minimum_listing_price_label: "Prezzo minimo per lo spazio:"
       transaction_fee_label: "Tariffa di transazione:"
       minimum_transaction_fee_label: ~
-      save_settings: "Salva le impostazioni"
       note_about_transaction_fee: "Nota: la quota di transazione include la percentuale di PayPal che dipende dalla valuta e dal volume delle vendite del venditore. Per questo motivo, la quota  è sempre almeno %{min_paypal_commission}. Quando la quota viene imposta da parte del venditore, PayPal detrarrà prima le sue spese , e il resto sarà trasferito al tuo conto PayPal."
+      save_settings: "Salva le impostazioni"
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
     transaction_types:
@@ -1694,15 +1699,18 @@ it:
   paypal_accounts:
     payout_info_title: "Informazioni sul compenso"
     paypal_account_email_connected: "<del>Connetti un account Paypal</del> Completato!"
+    payout_info_paypal: ~
     paypal_billing_agreement_made: "<del>Concedi a %{service_name} il permesso per applicare una commissione alla transazione</del> Completato!"
+    commission_permission_needed: ~
+    create_paypal_account_link_text: ~
+    connected_account: "Il conto PayPal '%{email}' è stato connesso con successo."
+    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info: ~
+    upgrade_paypal_account_link_text: ~
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
     you_are_ready_to_accept_payments: "Ora sei pronto per accettare i pagamenti!"
     commission: ~
-    connected_account: "Il conto PayPal '%{email}' è stato connesso con successo."
-    change_account: ~
-    missing: ~
-    from_your_payment_settings_link_text: ~
-    redirect_message: ~
-    redirect_link_text: ~
     new:
       payout_info_you_need_to_connect: "Per accettare i pagamenti devi connettere il tuo conto PayPal con %{service_name}."
       payout_info_text: "Ti preghiamo di completare gli step successivi per connettere il tuo account."
@@ -1713,11 +1721,17 @@ it:
       paypal_account_email_info_text: "Se non hai un account paypal, puoi crearne uno %{create_paypal_account}. Se ti viene dato errore quando connetti il tuo account, significa che devi aggiornare ad un account Business. L'aggiornamento è rapido e facile e non ti costa nulla. Se sei una persona fisica, dovresti usare il tuo nome e cognome nel campo \"ragione sociale\" quando Paypal te lo richiede. Per aggiornare il tuo account, %{upgrade_paypal_account} e trova il link per l'aggiornamento."
       create_paypal_account: "Cliccando qui"
       upgrade_paypal_account: "Accedi al tuo account Paypal"
-      connect_paypal_account: "Connetti il tuo account Paypal"
       paypal_account_billing_agreement: "Concedi a %{service_name} l'autorizzazione per applicare una commissione"
+      follow_steps: ~
+      connect_paypal_account_title: ~
+      connect_paypal_account_title_with_step: ~
+      connect_paypal_account_instructions: ~
+      connect_paypal_account: "Connetti il tuo account Paypal"
+      paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: ~
       paypal_account_billing_agreement_info_fixed: ~
       paypal_account_billing_agreement_info_relative: ~
+      paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: ~
       billing_agreement_description: "Concedi a %{service_name} l'autorizzazione per applicare una commissione sulla transazione."
       billing_agreement: "Concedi l'autorizzazione"
@@ -1730,6 +1744,17 @@ it:
       something_went_wrong: "Qualcosa è andato storto. Riprova. Se il problema persiste, si prega di contattare gli amministratori del sito."
       account_not_verified: ~
       account_restricted: ~
+    paypal_account_connected_title: ~
+    paypal_account_connected: ~
+    change_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
+    redirect_message: ~
+    redirect_link_text: ~
+    paypal_account_all_set_up: ~
+    can_receive_payments: ~
+    paypal_account_connected_summary: ~
+    paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: ~
     checkout_with_paypal: ~

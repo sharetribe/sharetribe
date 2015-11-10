@@ -490,17 +490,22 @@ cs:
     paypal_accounts:
       marketplace_paypal_integration: "Nastavení plateb"
       preferences_updated: "Nastavení plateb aktualizováno"
+      marketplace_currency_used: ~
+      contact_support_link_text: ~
       integration_info_text: "Platební systém Sharetribe funguje díky PayPal. Pokud chcete uživatelům umožnit, aby prováděli platby přes Vaše tržiště, musíte se připojit ke svému PayPal účtu a zadat minimální velikost transakce a poplatek z každé provedené transakce."
-      read_more_about_paypal: "Přečtěte si více o Sharetribe platebním systému"
       paypal_account_email: "1. Připojit se k PayPal účtu"
+      link_paypal_personal_account_label: ~
       paypal_account_email_completed: Hotovo!
-      set_minimum_price_and_fee: "2. Nastavit minimální cenu & transakční poplatek"
+      link_paypal_personal_account: ~
+      personal_payment_preferences_link_text: ~
       set_minimum_price_and_fee_completed: Hotovo!
+      read_more_about_paypal: "Přečtěte si více o Sharetribe platebním systému"
+      set_minimum_price_and_fee: "2. Nastavit minimální cenu & transakční poplatek"
       minimum_listing_price_label: "Minimální částka transakce:"
       transaction_fee_label: "Transakční poplatek:"
       minimum_transaction_fee_label: "Minimální transakční poplatek:"
-      save_settings: "Uložit nastavení"
       note_about_transaction_fee: "Poznámka: poplatek transakce zahrnuje poplatky PayPal, které závisí na Vaší měně a na objemu prodeje prodávajícího. Z tohoto důvodu je poplatek vždy alespoň %{min_paypal_commission}. Pokud je poplatek účtován od prodávajícího, nejdříve si PayPal strhne své poplatky a zbytek bude převeden na Váš PayPal účet."
+      save_settings: "Uložit nastavení"
       minimum_listing_price_below_tx_fee: "Minimální velikost transakce musí být alespoň stejná částka jako minimální transakční poplatek %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "Minimální velikost transakce musí být větší než minimální přirážka %{minimum_commission}."
     transaction_types:
@@ -1732,15 +1737,18 @@ cs:
   paypal_accounts:
     payout_info_title: "Informace o platbě"
     paypal_account_email_connected: "<del>Připojit se přes PayPal účet </del> Hotovo!"
+    payout_info_paypal: ~
     paypal_billing_agreement_made: "<del>%{service_name} opravňuje účtovat poplatek za transakce </del> Hotovo!"
+    commission_permission_needed: ~
+    create_paypal_account_link_text: ~
+    connected_account: "Přihlášení k PayPal účtu %{email} proběhlo úspěšně."
+    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info: ~
+    upgrade_paypal_account_link_text: ~
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
     you_are_ready_to_accept_payments: "Nyní už můžete přijímat platby!"
     commission: "%{commission} %"
-    connected_account: "Přihlášení k PayPal účtu %{email} proběhlo úspěšně."
-    change_account: "Změnit účet"
-    missing: "Máte otevřené inzeráty, ale Váš PayPal účet není ještě nastaven k přijímání plateb. Připojte svůj PayPal účet a prověďte %{service_name} povolení zúčtovat transakční poplatek z Vašeho %{settings_link}."
-    from_your_payment_settings_link_text: "nastavení plateb"
-    redirect_message: ~
-    redirect_link_text: ~
     new:
       payout_info_you_need_to_connect: "Abyste mohli přijímat platby, musíte se připojit k Vašemu PayPal účtu na %{service_name}."
       payout_info_text: "Prosíme, vyplňte následující kroky, abyste se mohli přihlásit ke svému účtu."
@@ -1751,11 +1759,17 @@ cs:
       paypal_account_email_info_text: "Pokud nemáte PayPal účet, můžete si ho vytvořit %{create_paypal_account}.Pokud se Vám zobrazí zpráva o chybě při připojení k PayPal účtu, bude potřeba ho upgradovat na podnikatelský účet. Převedení na podnikatelský účet je rychlé a snadné a nic vás to stát nebude. Pokud jste fyzická osoba, stačí zadat Vaše jméno a příjmení do pole \"obchodní název\", když o to PayPal požádá. Abyste mohli provést upgrade Vašeho účtu, stačí se %{upgrade_paypal_account} a najít odkaz na upgrade"
       create_paypal_account: zde
       upgrade_paypal_account: "přihlásit se k Vašemu PayPal účtu"
-      connect_paypal_account: "Připojit se k PayPal účtu"
       paypal_account_billing_agreement: "%{service_name} opravňuje účtovat transakční poplatek"
+      follow_steps: ~
+      connect_paypal_account_title: ~
+      connect_paypal_account_title_with_step: ~
+      connect_paypal_account_instructions: ~
+      connect_paypal_account: "Připojit se k PayPal účtu"
+      paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: "Po provedení prodeje na %{service_name}, poplatek za služby (%{commission_from_seller} z celkové ceny položky, kromě dopravného, minimální poplatek %{minimum_commission}) bude stržen z Vašeho PayPal účtu. Chcete-li přijímat platby v %{service_name}, je třeba povolit, aby Vám poplatek mohl být stržen. Tento poplatek nezahrnuje %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Po provedení prodej na %{service_name}, poplatek za služby %{minimum_commission} bude stržen z Vašeho PayPal účtu. Chcete-li přijímat platby v %{service_name}, je třeba povolit, aby Vám poplatek mohl být stržen. Tento poplatek nezahrnuje %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Po provedení prodeje na %{service_name}, poplatek za služby (%{commission_from_seller} z celkové ceny položky, kromě dopravného) bude stržen z Vašeho PayPal účtu. Chcete-li přijímat platby v %{service_name}, je třeba povolit, aby Vám poplatek mohl být stržen. Tento poplatek nezahrnuje %{paypal_info_link}."
+      paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: "PayPal poplatek za provedení platby"
       billing_agreement_description: "%{service_name} opravňuje účtovat transakční poplatek"
       billing_agreement: "Udělit oprávnění"
@@ -1768,6 +1782,17 @@ cs:
       something_went_wrong: "Něco se pokazilo. Prosíme, zkuste to znovu. Pokud problémy přetrvají, kontaktujte správce stránek."
       account_not_verified: "Ještě jste neověřili Váš PayPal účet. Přejděte na paypal.com a ověřte Vás účet než budete pokračovat."
       account_restricted: "Váš PayPal účet má omezený přístup a nemůžete být připojeni. Prosíme, přihlaste se na paypal.com a zjistěte, co to znamená nebo kontaktujte PayPal zákaznickou podporu, abyste problém vyřešili."
+    paypal_account_connected_title: ~
+    paypal_account_connected: ~
+    change_account: "Změnit účet"
+    missing: "Máte otevřené inzeráty, ale Váš PayPal účet není ještě nastaven k přijímání plateb. Připojte svůj PayPal účet a prověďte %{service_name} povolení zúčtovat transakční poplatek z Vašeho %{settings_link}."
+    from_your_payment_settings_link_text: "nastavení plateb"
+    redirect_message: ~
+    redirect_link_text: ~
+    paypal_account_all_set_up: ~
+    can_receive_payments: ~
+    paypal_account_connected_summary: ~
+    paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: "Přejít k platbě"
     checkout_with_paypal: "Odhlášení z PayPal"

@@ -472,17 +472,22 @@ zh-TW:
     paypal_accounts:
       marketplace_paypal_integration: 支付偏好
       preferences_updated: 支付偏好设置更新
+      marketplace_currency_used: ~
+      contact_support_link_text: ~
       integration_info_text: Sharetribe的支付系统由PayPal提供支持。如果你想使用你的用户名在你的集市上付款，你必须连接你的PayPal帐号及决定最小交易规模以及对每个交易收取的费用。
-      read_more_about_paypal: 了解更多关于Sharetribe的支付系统
       paypal_account_email: "1. 连接你的PayPal帐号"
+      link_paypal_personal_account_label: ~
       paypal_account_email_completed: 已完成！
-      set_minimum_price_and_fee: "2. 设置最低价格和交易费用"
+      link_paypal_personal_account: ~
+      personal_payment_preferences_link_text: ~
       set_minimum_price_and_fee_completed: 已完成！
+      read_more_about_paypal: 了解更多关于Sharetribe的支付系统
+      set_minimum_price_and_fee: "2. 设置最低价格和交易费用"
       minimum_listing_price_label: 最小交易规模：
       transaction_fee_label: 交易费用：
       minimum_transaction_fee_label: 最低交易费用：
-      save_settings: 保存设置
       note_about_transaction_fee: "注意：交易费用包括PayPal的费用都依赖于你的货币种类和卖家的销售量。因此，费用至少是%{min_paypal_commission}。当费用从卖家收取时，PayPal会先取费用，然后剩余的费用将被汇入你的PayPal帐号。"
+      save_settings: 保存设置
       minimum_listing_price_below_tx_fee: "最少的交易额至少等于最低交易费用%{minimum_transaction_fee}。"
       minimum_listing_price_below_min: "最少的交易额必须高于最低佣金%{minimum_commission}。"
     transaction_types:
@@ -1712,15 +1717,18 @@ zh-TW:
   paypal_accounts:
     payout_info_title: 支付信息
     paypal_account_email_connected: "<del>连接PayPal 帐号</del> 完成！"
+    payout_info_paypal: ~
     paypal_billing_agreement_made: "<del>授权%{service_name}收取交易费</del> 完成！"
+    commission_permission_needed: ~
+    create_paypal_account_link_text: ~
+    connected_account: "PayPal帐号“%{email}”连接成功。"
+    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info: ~
+    upgrade_paypal_account_link_text: ~
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
     you_are_ready_to_accept_payments: 你已准备好接受付款！
     commission: "%{commission}%"
-    connected_account: "PayPal帐号“%{email}”连接成功。"
-    change_account: 更改帐户
-    missing: "你有开放的信息，但是并没有连接到你的PayPal帐号来接受付款。通过你的%{settings_link}连接你的Paypal账号并且授予%{service_name}权限来收取交易费。"
-    from_your_payment_settings_link_text: 付款设置
-    redirect_message: ~
-    redirect_link_text: ~
     new:
       payout_info_you_need_to_connect: "要接受付款你需要连接你的PayPal帐号和%{service_name}。"
       payout_info_text: 请完成下列两个步骤来连接你的帐号。
@@ -1731,11 +1739,17 @@ zh-TW:
       paypal_account_email_info_text: "如果你没有PayPal帐号，你可以用%{create_paypal_account}创建一个。如果你在连接PayPal帐号时的到错误信息，那你需要升级到商业帐号。升级是免费而快捷的。如果你是个人用户，你应该只需要在PayPal询问”商业名称“时填入姓名。要升级帐号，通过%{upgrade_paypal_account}查找升级链接。"
       create_paypal_account: 点击这里
       upgrade_paypal_account: 登录你的PayPal帐号
-      connect_paypal_account: 连接PayPal帐号
       paypal_account_billing_agreement: "授权%{service_name}收取交易费"
+      follow_steps: ~
+      connect_paypal_account_title: ~
+      connect_paypal_account_title_with_step: ~
+      connect_paypal_account_instructions: ~
+      connect_paypal_account: 连接PayPal帐号
+      paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: "当你在%{service_name}完成一个销售后，服务费（%{commission_from_seller}的商品总价，不包括运费，最少的费用%{minimum_commission}）将从你的Paypal账号中扣除。要在%{service_name}中接受付款，你必须允许收取此费用。该费用不包括%{paypal_info_link}"
       paypal_account_billing_agreement_info_fixed: "当你在%{service_name}完成的一个销售后，服务费%{minimum_commission}将从你的PayPal帐号中扣除。要在%{service_name}中接受付款，你必须允许收取此费用。该费用不包括%{paypal_info_link}"
       paypal_account_billing_agreement_info_relative: "当你在%{service_name}完成一个销售后，服务费（%{commission_from_seller}的商品总价，不包括运费）将从你的Paypal账号中扣除。要在%{service_name}中接受付款，你必须允许收取此费用。该费用不包括%{paypal_info_link}"
+      paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: PayPal的支付处理费
       billing_agreement_description: "授权%{service_name}收取交易费。"
       billing_agreement: 授权
@@ -1748,6 +1762,17 @@ zh-TW:
       something_went_wrong: 出错了。请再试一次。如果这个问题仍旧存在，请联系网站管理员。
       account_not_verified: 你还没有验证你的PayPal帐号。要继续请先登录paypal.com并确认你的帐号。
       account_restricted: 你的PayPal帐号受到限制且不能被连接。请登录paypal.com以了解更多或联系PayPal的客户服务解决这个问题。
+    paypal_account_connected_title: ~
+    paypal_account_connected: ~
+    change_account: 更改帐户
+    missing: "你有开放的信息，但是并没有连接到你的PayPal帐号来接受付款。通过你的%{settings_link}连接你的Paypal账号并且授予%{service_name}权限来收取交易费。"
+    from_your_payment_settings_link_text: 付款设置
+    redirect_message: ~
+    redirect_link_text: ~
+    paypal_account_all_set_up: ~
+    can_receive_payments: ~
+    paypal_account_connected_summary: ~
+    paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: 进行支付
     checkout_with_paypal: 用PayPal结帐

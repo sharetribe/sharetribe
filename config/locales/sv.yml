@@ -481,17 +481,22 @@ sv:
     paypal_accounts:
       marketplace_paypal_integration: Betalningsegenskaper
       preferences_updated: "Betalningsinställningarna uppdaterade"
+      marketplace_currency_used: ~
+      contact_support_link_text: ~
       integration_info_text: "Betalningssystemet på %{service_name} drivs av PayPal. Om du vill aktivera så att dina användare kan göra betalningar på din marknadsplats så måste du koppla ditt PayPal-konto och välja minsta annonspriset och avgiften som du ska ta i provision från varje transaktion."
-      read_more_about_paypal: "Läs mer om Sharetribes betalningssystem"
       paypal_account_email: "1. Koppla ditt PayPal konto"
+      link_paypal_personal_account_label: ~
       paypal_account_email_completed: Klart!
-      set_minimum_price_and_fee: "2. Ställ in lägsta pris och transaktionskonstnad"
+      link_paypal_personal_account: ~
+      personal_payment_preferences_link_text: ~
       set_minimum_price_and_fee_completed: Klart!
+      read_more_about_paypal: "Läs mer om Sharetribes betalningssystem"
+      set_minimum_price_and_fee: "2. Ställ in lägsta pris och transaktionskonstnad"
       minimum_listing_price_label: "Lägsta annonspris:"
       transaction_fee_label: "Transaktionsavgift:"
       minimum_transaction_fee_label: "Lägsta transaktionskostnad:"
-      save_settings: "Spara inställningar"
       note_about_transaction_fee: "Notera: i transaktionsavgiften ingår PayPals avgifter som beror på din valuta och försäljningsvolymen på säljaren. Av denna anledning är avgiften alltid minst %{min_paypal_commission}. När avgiften tas ut från säljaren, kommer PayPal att ta sina arvoden först, och resten kommer att flyttas till ditt PayPal-konto."
+      save_settings: "Spara inställningar"
       minimum_listing_price_below_tx_fee: "Minsta transaktionsstorlek måste minst vara samma som minsta transaktionsavgift %{minimum_transaction_fee}"
       minimum_listing_price_below_min: "Minsta transaktionsstorlek måste vara större än minsta provision %{minimum_commission}."
     transaction_types:
@@ -1725,15 +1730,18 @@ sv:
   paypal_accounts:
     payout_info_title: Utbetalningsinformation
     paypal_account_email_connected: "<del>1. Anslut PayPal konto</del> Klart!"
+    payout_info_paypal: ~
     paypal_billing_agreement_made: "<del>2. Ge %{service_name} tillåtelse att ta ut en serviceavgift</del> Klart!"
+    commission_permission_needed: ~
+    create_paypal_account_link_text: ~
+    connected_account: "PayPal konto %{email} kopplades korrekt."
+    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info: ~
+    upgrade_paypal_account_link_text: ~
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
     you_are_ready_to_accept_payments: "Du är redo att ta emot betalningar!"
     commission: "%{commission} %"
-    connected_account: "PayPal konto %{email} kopplades korrekt."
-    change_account: "Byt konto"
-    missing: "Du har öppna annonser, men ditt PayPal-konto är inte inställt för att ta emot betalningar. Koppla ditt PayPal-konto och ge %{service_name} tillåtelse at ta en transaktionsavgift från din %{settings_link}."
-    from_your_payment_settings_link_text: betalningsinställningar
-    redirect_message: ~
-    redirect_link_text: ~
     new:
       payout_info_you_need_to_connect: "För att kunna ta emot betalningar så måste du koppla ditt PayPal-konto med %{service_name}."
       payout_info_text: "Vänligen slutför dessa två steg för att koppla ditt konto."
@@ -1744,11 +1752,17 @@ sv:
       paypal_account_email_info_text: "Om du inte har ett PayPalkonto, så kan du skapa ett %{create_paypal_account}. Om du får ett felmeddelande när du kopplar ditt PayPalkonto så måste du uppgradera till företagskonto. Uppgradera går fort och kostar ingenting. Om du är privatperson så skriver du bara förnamn och efternamn där det står \"företagsnamn\" när PayPal frågar efter det. För att uppgradera ditt konto, %{upgrade_paypal_account} och hitta uppgraderingslänken."
       create_paypal_account: "klicka här"
       upgrade_paypal_account: "logga in till ditt PayPal konto"
-      connect_paypal_account: "Koppla ditt PayPal konto"
       paypal_account_billing_agreement: "2. Ge %{service_name} tillåtelse att ta ut en serviceavgift."
+      follow_steps: ~
+      connect_paypal_account_title: ~
+      connect_paypal_account_title_with_step: ~
+      connect_paypal_account_instructions: ~
+      connect_paypal_account: "Koppla ditt PayPal konto"
+      paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: "När du gör en försäljning på %{service_name}, så kommer en serviceavgift på %{commission_from_seller} av det totala priset (exkl. frakt), minsta avgift %{minimum_commission} att dras från ditt PayPalkonto. Du behöver tillåta betalningar på %{service_name}, och du behöver godkänna att denna avgift tas. Avgiften inkluderar inte %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "När du gör en försäljning på %{service_name}, så kommer en serviceavgift på %{minimum_commission} att dras från ditt PayPalkonto. För att acceptera betalningar på %{service_name} så behöver du tillåta att denna avgift tas. Avgiften inkluderar inte %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "När du gör en försäljning på %{service_name}, så kommer en serviceavgift på %{commission_from_seller} av det totala priset (exkl. frakt) att dras från ditt PayPalkonto. För att godkänna betalningar på %{service_name} så behöver du tillåta att denna avgift tas. Avgiften inkluderar inte %{paypal_info_link}"
+      paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: "PayPal's betalningshanteringsavgift"
       billing_agreement_description: "Ge %{service_name} behörighet att ta ut en transaktionsavgift."
       billing_agreement: "Bevilja behörighet"
@@ -1761,6 +1775,17 @@ sv:
       something_went_wrong: "Något gick fel. Vänligen försök igen. Om problemet kvarstår kontakta sidans administratör."
       account_not_verified: "Du har inte verifierat ditt PayPal-konto. Du behöver gå till www.paypal.com och verifiera ditt konto innan du kan gå vidare."
       account_restricted: "Ditt PayPalkonto är begränsat och kan inte kopplas. Vänligen logga in på PayPal.com och hitta vad detta beror på eller kontakta PayPals användarsupport för att lösa detta."
+    paypal_account_connected_title: ~
+    paypal_account_connected: ~
+    change_account: "Byt konto"
+    missing: "Du har öppna annonser, men ditt PayPal-konto är inte inställt för att ta emot betalningar. Koppla ditt PayPal-konto och ge %{service_name} tillåtelse at ta en transaktionsavgift från din %{settings_link}."
+    from_your_payment_settings_link_text: betalningsinställningar
+    redirect_message: ~
+    redirect_link_text: ~
+    paypal_account_all_set_up: ~
+    can_receive_payments: ~
+    paypal_account_connected_summary: ~
+    paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: "Fortsätt till betalning"
     checkout_with_paypal: "Gå till kassan med PayPal"

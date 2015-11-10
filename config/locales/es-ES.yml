@@ -485,17 +485,22 @@ es-ES:
     paypal_accounts:
       marketplace_paypal_integration: "Preferencias de pago"
       preferences_updated: "Preferencias de pago actualizadas"
+      marketplace_currency_used: ~
+      contact_support_link_text: ~
       integration_info_text: "El sistema de pago de %{service_name} se basa en PayPal. Si quieres permitir a tus usuarios hacer pagos a través del marketplace, debes conectar tu cuenta de PayPal y decidir el precio mínimo para cada anuncio así como la comisión por transacción que quieres recibir."
-      read_more_about_paypal: "Leer más sobre el sistema de pagos de Sharetribe."
       paypal_account_email: "Conecta tu cuenta de PayPal"
+      link_paypal_personal_account_label: ~
       paypal_account_email_completed: ¡Completado!
-      set_minimum_price_and_fee: "Configura un precio mínimo y una comisión por transacción"
+      link_paypal_personal_account: ~
+      personal_payment_preferences_link_text: ~
       set_minimum_price_and_fee_completed: ¡Completado!
+      read_more_about_paypal: "Leer más sobre el sistema de pagos de Sharetribe."
+      set_minimum_price_and_fee: "Configura un precio mínimo y una comisión por transacción"
       minimum_listing_price_label: "Precio mínimo para anuncio:"
       transaction_fee_label: "Comisión por transacción:"
       minimum_transaction_fee_label: "Fee mínimo por transacción"
-      save_settings: "Guardar configuración"
       note_about_transaction_fee: "Nota: la comisión por transacción incluye las tasas de PayPal que dependen de tu moneda y del volumen de ventas del vendedor. Por esta razón, la comisión siempre es al menos %{min_paypal_commission}. Cuando se carga la comisión al vendedor, Paypal cobra su comisión primero y el resto del dinero se moverá a tu cuenta de PayPal."
+      save_settings: "Guardar configuración"
       minimum_listing_price_below_tx_fee: "Tiene que ser al menos igual al fee mínimo por transacción %{minimum_transaction_fee}"
       minimum_listing_price_below_min: "Debe ser superior a la comisión mínima %{minimum_commission}"
     transaction_types:
@@ -1725,15 +1730,18 @@ es-ES:
   paypal_accounts:
     payout_info_title: "Información de pago"
     paypal_account_email_connected: "<del>Conectar cuenta PayPal</del> Completado!"
+    payout_info_paypal: ~
     paypal_billing_agreement_made: "<del>Otorgar permiso a %{service_name} para cobrar la comisión de servicio</del> Completado!"
+    commission_permission_needed: ~
+    create_paypal_account_link_text: ~
+    connected_account: "La cuenta de PayPal '%{email}' se ha conectado con éxito."
+    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info: ~
+    upgrade_paypal_account_link_text: ~
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
     you_are_ready_to_accept_payments: "¡Estás listo para aceptar pagos!"
     commission: "%{commission} %"
-    connected_account: "La cuenta de PayPal '%{email}' se ha conectado con éxito."
-    change_account: "Cambiar cuenta"
-    missing: "Tienes publicaciones abiertas, pero no has conectado tu cuenta de Paypal, por lo que no podrás recibir pagos. Por favor conecta tu cuenta de Paypal en tu %{settings_link}."
-    from_your_payment_settings_link_text: "Configuración de los pagos"
-    redirect_message: "Redirigiendo a PayPal. Si no sucede nada, haz clic %{redirect_link}."
-    redirect_link_text: aquí
     new:
       payout_info_you_need_to_connect: "Para aceptar pagos necesitar conectar tu cuenta de PayPal con %{service_name}."
       payout_info_text: "Por favor, completa estos dos pasos para conectar tu cuenta."
@@ -1744,8 +1752,13 @@ es-ES:
       paypal_account_email_info_text: "Si no tiene suna cuenta PayPal, puedes crear una yendo a %{create_paypal_account}. Si el sistema arroja un error al conectar tu cuenta, necesitas actualizar tu cuenta a una cuenta empresarial (business). Actualizar es fácil y rápido y no te costará nada.  Si eres una persona natural (un indviduo), deberás poner tu nombre y apellido en el campo del \"nombre de la empresa\" cuando PayPal te lo solicite.  Para actualizar tu cuenta, %{upgrade_paypal_account} y busca el enlace de actualización."
       create_paypal_account: aquí
       upgrade_paypal_account: "Actualiza tu cuenta aquí."
-      connect_paypal_account: "Conecta tu cuenta de Paypal"
       paypal_account_billing_agreement: "Concede permisos a %{service_name} para cargar la comisión por transferencia"
+      follow_steps: ~
+      connect_paypal_account_title: ~
+      connect_paypal_account_title_with_step: ~
+      connect_paypal_account_instructions: ~
+      connect_paypal_account: "Conecta tu cuenta de Paypal"
+      paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: |-
           Después de realizar una venta en %{service_name}, se le cobrará de su cuenta de PayPal la tarifa de servicio (%{commission_from_seller} del precio total del ítem, excluyendo los costos de envío, tarifa mínima de %{minimum_commission}).
           Para poder aceptar pagos en %{service_name} debe aceptar y dar permiso a %{service_name} para que cobre esta tarifa de servicio.  La tarifa de servicio excluye %{paypal_info_link}.
@@ -1755,6 +1768,7 @@ es-ES:
       paypal_account_billing_agreement_info_relative: |-
           Después de realizar una venta en %{service_name}, se le cobrará de su cuenta de PayPal la tarifa de servicio (%{commission_from_seller} del precio total del ítem, excluyendo los costos de envío).
           Para poder aceptar pagos en %{service_name} debe aceptar y dar permiso a %{service_name} para que cobre esta tarifa de servicio.  La tarifa de servicio excluye %{paypal_info_link}.
+      paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: "Comisión de procesamiento de pago de PayPal"
       billing_agreement_description: "Concede permisos a %{service_name} para cargar una comisión por transferencia."
       billing_agreement: "Concede permiso"
@@ -1767,6 +1781,17 @@ es-ES:
       something_went_wrong: "Ocurrió algún error. Por favor, prueba de nuevo. Si el problema persiste, ponte en contacto con los administradores."
       account_not_verified: "No has verificado tu cuenta de PayPal. Necesitas ir a paypal.com y verificar tu cuenta antes de continuar."
       account_restricted: "Tu cuenta de Paypal está restringida y no se puede conectar. Por favor inicia sesión en paypal.com para más información de lo que esto significa o ponte en contacto con Atención al Cliente de Paypal para resolver este problema."
+    paypal_account_connected_title: ~
+    paypal_account_connected: ~
+    change_account: "Cambiar cuenta"
+    missing: "Tienes publicaciones abiertas, pero no has conectado tu cuenta de Paypal, por lo que no podrás recibir pagos. Por favor conecta tu cuenta de Paypal en tu %{settings_link}."
+    from_your_payment_settings_link_text: "Configuración de los pagos"
+    redirect_message: "Redirigiendo a PayPal. Si no sucede nada, haz clic %{redirect_link}."
+    redirect_link_text: aquí
+    paypal_account_all_set_up: ~
+    can_receive_payments: ~
+    paypal_account_connected_summary: ~
+    paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: "Revisar la solicitud y proceder a la Pasarela de Pagos"
     checkout_with_paypal: "Pago con PayPal"

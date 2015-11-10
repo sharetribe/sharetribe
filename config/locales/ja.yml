@@ -464,17 +464,22 @@ ja:
     paypal_accounts:
       marketplace_paypal_integration: お支払い方法
       preferences_updated: お支払い情報は更新されました
+      marketplace_currency_used: ~
+      contact_support_link_text: ~
       integration_info_text: Sharetribeのお支払いシステムはPayPalを導入しています。あなたのマーケットプレイスで、お支払いが発生するようなサービスをご検討の場合は、PayPalと連携させる必要がございます。最小価格を設定し、取引毎にいただく手数料を設定します。
-      read_more_about_paypal: Sharetribeのお支払い方法にについてさらに読む
       paypal_account_email: "1. PayPalアカウントに接続する"
+      link_paypal_personal_account_label: ~
       paypal_account_email_completed: 完了しました！
-      set_minimum_price_and_fee: 最低価格とお支払い手数料の設定
+      link_paypal_personal_account: ~
+      personal_payment_preferences_link_text: ~
       set_minimum_price_and_fee_completed: 完了しました！
+      read_more_about_paypal: Sharetribeのお支払い方法にについてさらに読む
+      set_minimum_price_and_fee: 最低価格とお支払い手数料の設定
       minimum_listing_price_label: 最低価格：
       transaction_fee_label: 課金手数料：
       minimum_transaction_fee_label: 最小ご利用手数料額
-      save_settings: 設定を保存する
       note_about_transaction_fee: "注意： 取引手数料は、PayPal利用手数料も含まれています。それは、通貨や価格のボリュームにより異なります。そのため、手数料は少なくても%{min_paypal_commission}に設定しています。PayPalははじめにその手数料を差し引いてからの金額が、あなたのPayPalアカウントに送金されます。"
+      save_settings: 設定を保存する
       minimum_listing_price_below_tx_fee: "最小でも、%{minimum_transaction_fee}と同じ値にしてください。"
       minimum_listing_price_below_min: "最小手数料は、%{minimum_commission}より大きい値にしてください。"
     transaction_types:
@@ -1706,15 +1711,18 @@ ja:
   paypal_accounts:
     payout_info_title: お支払い情報
     paypal_account_email_connected: "<del>1. PayPalアカウントに接続する</del> 完了しました！"
+    payout_info_paypal: ~
     paypal_billing_agreement_made: "<del>2. %{service_name}からの利用料金のお支払いを許可する</del> 完了しました！"
+    commission_permission_needed: ~
+    create_paypal_account_link_text: ~
+    connected_account: "PayPalアカウントと「%{email}」は接続されました。"
+    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info: ~
+    upgrade_paypal_account_link_text: ~
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
     you_are_ready_to_accept_payments: お支払いの受諾が出来ます！
     commission: "%{commission}％"
-    connected_account: "PayPalアカウントと「%{email}」は接続されました。"
-    change_account: アカウントの変更
-    missing: "公開されているリストがありますが、Paypalに接続できていないようなのでお支払いを受け取れません。%{settings_link}からPaypal口座に接続手続きをお願いします。"
-    from_your_payment_settings_link_text: お支払い設定
-    redirect_message: ~
-    redirect_link_text: ~
     new:
       payout_info_you_need_to_connect: "購入者からのお支払いを受け取るには、あなたのPayPalアカウントを%{service_name}に接続する必要があります。"
       payout_info_text: あなたのアカウントを接続するために次の２つのステップを完了させてください。
@@ -1725,11 +1733,17 @@ ja:
       paypal_account_email_info_text: "注意： ここでは、お支払いを受け取るための、PayPalプレミアアカウント（個人用）か、ビジネスアカウント（ビジネス用）のいずれかが必要です。もし個人用のアカウントをお持ちの場合は、プレミアアカウントに無料でかつ数分で、アップグレードできますので、PayPal上でお手続きをお願いします %{upgrade_paypal_account} 。もしPayPalアカウントをまだお持ちでない場合は、新しいアカウントを作成してください %{create_paypal_account}。また、あなたのPayPalアカウントが、お取り扱いされる通貨 %{currency} を受け取れるかどうか、確認してください。"
       create_paypal_account: こちら
       upgrade_paypal_account: ここであなたのアカウントをアップグレードしてください。
-      connect_paypal_account: PayPalアカウントに接続する
       paypal_account_billing_agreement: "%{service_name}に対する手数料の支払いを承諾してください"
+      follow_steps: ~
+      connect_paypal_account_title: ~
+      connect_paypal_account_title_with_step: ~
+      connect_paypal_account_instructions: ~
+      connect_paypal_account: PayPalアカウントに接続する
+      paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: "%{service_name}内で売り上げ後: 送料を除いた%{commission_from_seller}のご利用手数料が、最低でも%{minimum_commission}があなたのPayPalの口座より、差し引かれます。%{service_name}内でのお支払いを受け入れるには、お支払い手数料の請求に同意する必要があります。なお、手数料は%{paypal_info_link}を含みません。"
       paypal_account_billing_agreement_info_fixed: "%{service_name}内で売り上げ後、最低でも%{minimum_commission}があなたのPayPalの口座より、差し引かれます。%{service_name}内でのお支払いを受け入れるには、お支払い手数料の請求に同意する必要があります。なお、手数料は%{paypal_info_link}を含みません。"
       paypal_account_billing_agreement_info_relative: "%{service_name}内で売り上げ後、送料を除いた合計金額の%{commission_from_seller}の手数料があなたのPayPalの口座より、差し引かれます。%{service_name}内でのお支払いを受け入れるには、お支払い手数料の請求に同意する必要があります。なお、手数料は%{paypal_info_link}を含みません。"
+      paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: PayPalのご利用手数料
       billing_agreement_description: "%{service_name}に対する手数料の支払いを承諾してください"
       billing_agreement: 承諾する
@@ -1742,6 +1756,17 @@ ja:
       something_went_wrong: 異常発生しました。もう一度やり直してください。もしこのまま問題が続くようであれば、サイト管理者にお問い合わせください。
       account_not_verified: あなたはPayPalアカウントを検証していません。ご利用を続けるには、paypal.comへ行って確認する必要があります。
       account_restricted: あなたのPayPalアカウントは、拒否され接続できないようです。paypal.comにログインしてから、この問題の詳細について、PayPalカスタマーサポートに問い合わせをして状況を改善してください。
+    paypal_account_connected_title: ~
+    paypal_account_connected: ~
+    change_account: アカウントの変更
+    missing: "公開されているリストがありますが、Paypalに接続できていないようなのでお支払いを受け取れません。%{settings_link}からPaypal口座に接続手続きをお願いします。"
+    from_your_payment_settings_link_text: お支払い設定
+    redirect_message: ~
+    redirect_link_text: ~
+    paypal_account_all_set_up: ~
+    can_receive_payments: ~
+    paypal_account_connected_summary: ~
+    paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: お支払いへ進む
     checkout_with_paypal: PayPalでお支払い

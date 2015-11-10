@@ -464,17 +464,22 @@ tr-TR:
     paypal_accounts:
       marketplace_paypal_integration: "Ödeme tercihleri"
       preferences_updated: "Ödeme referansları güncellendi"
+      marketplace_currency_used: ~
+      contact_support_link_text: ~
       integration_info_text: "%{service_name}'in ödeme sistemi PayPal altyapısını kullanmaktadır. Eğer kullanıcılarınızın ödemelerini pazar aracılığıyla yapmasına izin vermek istiyorsanız, PayPal hesabınızı eklemeli, minimum listeleme ücreti ve her işlemden keseceğiniz ücreti belirlemelisiniz."
-      read_more_about_paypal: "Sharetribe'nin ödeme sistemi hakkında daha fazla bilgi edinin"
       paypal_account_email: "1. PayPal hesabınızı bağlayın"
+      link_paypal_personal_account_label: ~
       paypal_account_email_completed: Tamamlandı!
-      set_minimum_price_and_fee: "2. Minimum fiyat & işletim bedeli belirleyin"
+      link_paypal_personal_account: ~
+      personal_payment_preferences_link_text: ~
       set_minimum_price_and_fee_completed: Tamamlandı!
+      read_more_about_paypal: "Sharetribe'nin ödeme sistemi hakkında daha fazla bilgi edinin"
+      set_minimum_price_and_fee: "2. Minimum fiyat & işletim bedeli belirleyin"
       minimum_listing_price_label: "Minimum listeleme fiyatı:"
       transaction_fee_label: "İşlem ücreti:"
       minimum_transaction_fee_label: "Minumum işlem ücreti:"
-      save_settings: "Ayarları kaydet"
       note_about_transaction_fee: "Not: İşlem ücreti para birimi ve satıcının satış hacmine bağlı PayPal ücretlerini de içerir. Bu sebeple, ücret her zaman en azından %{min_paypal_commission} kadardır. Bu ücret satıcıdan kesildiğinde, PayPal önce kendi ücretlerini keser, geri kalan meblağ ise PayPal hesabınıza aktarılır."
+      save_settings: "Ayarları kaydet"
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
     transaction_types:
@@ -1708,15 +1713,18 @@ tr-TR:
   paypal_accounts:
     payout_info_title: "Ödeme bilgileri"
     paypal_account_email_connected: "<del>1. PayPal hesabını bağla</del> Tamamlandı!"
+    payout_info_paypal: ~
     paypal_billing_agreement_made: "<del>2. %{service_name} pazar yerine işletim ücreti kesme izni ver</del> Tamamlandı!"
+    commission_permission_needed: ~
+    create_paypal_account_link_text: ~
+    connected_account: "'%{email}' PayPal hesabı başarıyla eklendi."
+    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info: ~
+    upgrade_paypal_account_link_text: ~
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
     you_are_ready_to_accept_payments: "Ödeme kabul etmeye hazırsınız!"
     commission: "%{commission}%"
-    connected_account: "'%{email}' PayPal hesabı başarıyla eklendi."
-    change_account: "Hesabı Değiştir"
-    missing: "Aktif listeniz bulunmakta fakat PayPal hesabınızı sitemize bağlamadığınız için ödeme alamayacaksınız. Lütfen %{settings_link} kısmından PayPal hesabınızı en kısa zamanda bağlayın."
-    from_your_payment_settings_link_text: "ödeme ayarları"
-    redirect_message: ~
-    redirect_link_text: ~
     new:
       payout_info_you_need_to_connect: "Ödeme kabul edebilmek için PayPal hesabınızı %{service_name}'a bağlamanız gerekmektedir."
       payout_info_text: "Lütfen, hesabınızı bağlamak için aşağıdaki iki adımı tamamlayın."
@@ -1727,11 +1735,17 @@ tr-TR:
       paypal_account_email_info_text: "Not: Ödeme alabilmek için PayPal premier (kişiler) ya da business (kurumlar) hesabına sahip olmalısınız. Eğer şahsi bir PayPal hesabınız varsa, bunu yükseltebilirsiniz. Bu ücretsizdir sadece bir dakikanızı alır. %{upgrade_paypal_account} Eğer PayPal hesabı sahibi değilseniz, yeni bir hesap oluşturabilirsiniz %{create_paypal_account}. PayPal hesabınız %{currency} cinsinden ödeme almaya tanımlı olmalıdır."
       create_paypal_account: buradan
       upgrade_paypal_account: "Hesabınızı buradan yükseltebilirsiniz."
-      connect_paypal_account: "PayPal hesabınızı bağlayın"
       paypal_account_billing_agreement: "2. %{service_name} pazar yerine işletim ücreti kesme izni verin"
+      follow_steps: ~
+      connect_paypal_account_title: ~
+      connect_paypal_account_title_with_step: ~
+      connect_paypal_account_instructions: ~
+      connect_paypal_account: "PayPal hesabınızı bağlayın"
+      paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: "%{service_name} sitesinde satış yaptıktan sonra, toplamın %{commission_from_seller} oranında servis ücreti, kargo ücreti hariç, ve minimum ücret olan %{minimum_commission} PayPal hesabınızdan düşülecektir. %{service_name} sitesinde ödeme alabilmek için buna izin vermeniz gerekmektedir. Ücrete %{paypal_info_link} dahil değildir."
       paypal_account_billing_agreement_info_fixed: "%{service_name} sitesinde satış yaptıktan sonra, toplamın %{minimum_commission} oranında servis ücreti PayPal hesabınızdan düşülecektir. %{service_name} sitesinde ödeme alabilmek için buna izin vermeniz gerekmektedir. Ücrete %{paypal_info_link} dahil değildir."
       paypal_account_billing_agreement_info_relative: "%{service_name} sitesinde satış yaptıktan sonra, toplam rakamın %{commission_from_seller} kadar bir servis ücreti, kargo ücreti hariç, PayPal hesabınızdan kesilecektir. %{service_name} sitesinde ödeme alabilmek için buna izin vermeniz gerekmektedir. Ücretlere %{paypal_info_link} dahil değildir."
+      paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: "PayPal işlem ücreti"
       billing_agreement_description: "%{service_name}'in işletim ücreti kesmesine izin ver."
       billing_agreement: "İzin ver"
@@ -1744,6 +1758,17 @@ tr-TR:
       something_went_wrong: "Bir şeyler ters gitti. Lütfen tekrar deneyin. Eğer sorun devam ederse, lütfen site yöneticilerine ulaşın."
       account_not_verified: "PayPal hesabınızı doğrulamadınız. Devam etmeden önce paypal.com adresini ziyaret edip hesabınızı doğrulamanız gerekmektedir."
       account_restricted: "PayPal hesabınız sınırlandırılmıştır ve bu yüzden bağlantı sağlanamamaktadır. paypal.com adresine giriş yaparak bunun ne anlama geldiğine bakabilirsiniz veya PayPal müşteri destek ile bağlantıya geçebilirsiniz."
+    paypal_account_connected_title: ~
+    paypal_account_connected: ~
+    change_account: "Hesabı Değiştir"
+    missing: "Aktif listeniz bulunmakta fakat PayPal hesabınızı sitemize bağlamadığınız için ödeme alamayacaksınız. Lütfen %{settings_link} kısmından PayPal hesabınızı en kısa zamanda bağlayın."
+    from_your_payment_settings_link_text: "ödeme ayarları"
+    redirect_message: ~
+    redirect_link_text: ~
+    paypal_account_all_set_up: ~
+    can_receive_payments: ~
+    paypal_account_connected_summary: ~
+    paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: "Ödeme yap"
     checkout_with_paypal: "PayPal ile öde"

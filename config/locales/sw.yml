@@ -454,17 +454,22 @@ sw:
     paypal_accounts:
       marketplace_paypal_integration: ~
       preferences_updated: ~
+      marketplace_currency_used: ~
+      contact_support_link_text: ~
       integration_info_text: ~
-      read_more_about_paypal: ~
       paypal_account_email: ~
+      link_paypal_personal_account_label: ~
       paypal_account_email_completed: ~
-      set_minimum_price_and_fee: ~
+      link_paypal_personal_account: ~
+      personal_payment_preferences_link_text: ~
       set_minimum_price_and_fee_completed: ~
+      read_more_about_paypal: ~
+      set_minimum_price_and_fee: ~
       minimum_listing_price_label: ~
       transaction_fee_label: ~
       minimum_transaction_fee_label: ~
-      save_settings: ~
       note_about_transaction_fee: ~
+      save_settings: ~
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
     transaction_types:
@@ -1692,15 +1697,18 @@ sw:
   paypal_accounts:
     payout_info_title: ~
     paypal_account_email_connected: ~
+    payout_info_paypal: ~
     paypal_billing_agreement_made: ~
+    commission_permission_needed: ~
+    create_paypal_account_link_text: ~
+    connected_account: ~
+    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info: ~
+    upgrade_paypal_account_link_text: ~
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
     you_are_ready_to_accept_payments: ~
     commission: ~
-    connected_account: ~
-    change_account: ~
-    missing: ~
-    from_your_payment_settings_link_text: ~
-    redirect_message: ~
-    redirect_link_text: ~
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: ~
@@ -1711,11 +1719,17 @@ sw:
       paypal_account_email_info_text: ~
       create_paypal_account: ~
       upgrade_paypal_account: ~
-      connect_paypal_account: ~
       paypal_account_billing_agreement: ~
+      follow_steps: ~
+      connect_paypal_account_title: ~
+      connect_paypal_account_title_with_step: ~
+      connect_paypal_account_instructions: ~
+      connect_paypal_account: ~
+      paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: ~
       paypal_account_billing_agreement_info_fixed: ~
       paypal_account_billing_agreement_info_relative: ~
+      paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: ~
       billing_agreement_description: ~
       billing_agreement: ~
@@ -1728,6 +1742,17 @@ sw:
       something_went_wrong: ~
       account_not_verified: ~
       account_restricted: ~
+    paypal_account_connected_title: ~
+    paypal_account_connected: ~
+    change_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
+    redirect_message: ~
+    redirect_link_text: ~
+    paypal_account_all_set_up: ~
+    can_receive_payments: ~
+    paypal_account_connected_summary: ~
+    paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: ~
     checkout_with_paypal: ~

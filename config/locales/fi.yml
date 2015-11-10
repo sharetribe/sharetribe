@@ -469,17 +469,22 @@ fi:
     paypal_accounts:
       marketplace_paypal_integration: Maksuasetukset
       preferences_updated: "Maksuasetukset päivitetty"
+      marketplace_currency_used: ~
+      contact_support_link_text: ~
       integration_info_text: "Sharetribe-markkinapaikkojen maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun sivustosi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus sekä ilmoituksen minimihinta."
-      read_more_about_paypal: "Lue lisää Sharetriben maksujärjestelmästä"
       paypal_account_email: "1. Yhdistä PayPal-tilisi"
+      link_paypal_personal_account_label: ~
       paypal_account_email_completed: Tehty!
-      set_minimum_price_and_fee: "2. Aseta maksutapahtuman minimikoko ja välityspalkkioprosentti"
+      link_paypal_personal_account: ~
+      personal_payment_preferences_link_text: ~
       set_minimum_price_and_fee_completed: Tehty!
+      read_more_about_paypal: "Lue lisää Sharetriben maksujärjestelmästä"
+      set_minimum_price_and_fee: "2. Aseta maksutapahtuman minimikoko ja välityspalkkioprosentti"
       minimum_listing_price_label: "Maksutapahtuman minimikoko:"
       transaction_fee_label: "Välityspalkkioprosentti:"
       minimum_transaction_fee_label: "Minimipalkkio:"
-      save_settings: "Tallenna asetukset"
       note_about_transaction_fee: "Huom! Välityspalkkioon sisältyy PayPal-palvelun palvelumaksu, jonka suuruus riippuu valuutasta ja myyjän myyntimääristä. Tästä syystä välityspalkkio on vähintään %{min_paypal_commission}. PayPal-palvelun palvelumaksu vähennetään välityspalkkiosta automaattisesti, minkä jälkeen loppuosa välityspalkkiosta siirretään sinun PayPal-tilillesi."
+      save_settings: "Tallenna asetukset"
       minimum_listing_price_below_tx_fee: "Maksutapahtuman minimikoon tulee olla vähintään minimipalkkio %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "Maksutapahtuman minimikoon tulee olla suurempi kuin %{minimum_commission}."
     transaction_types:
@@ -1711,15 +1716,18 @@ fi:
   paypal_accounts:
     payout_info_title: "Maksujen vastaanotto"
     paypal_account_email_connected: "<del>Yhdistä Paypal-tilisi</del> Tehty!"
+    payout_info_paypal: ~
     paypal_billing_agreement_made: "<del>Anna %{service_name}-palvelulle lupa veloittaa välityspalkkio kaupoista.</del> Tehty!"
+    commission_permission_needed: ~
+    create_paypal_account_link_text: ~
+    connected_account: "PayPal-tili '%{email}' yhdistetty onnistuneesti."
+    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info: ~
+    upgrade_paypal_account_link_text: ~
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
     you_are_ready_to_accept_payments: "Olet nyt valmis ottamaan rahaa vastaan."
     commission: "%{commission} %"
-    connected_account: "PayPal-tili '%{email}' yhdistetty onnistuneesti."
-    change_account: "Vaihda tili"
-    missing: "Sinulla on avoimia ilmoituksia, mutta et ole yhdistänyt PayPal-tiliäsi, joten et pysty ottamaan maksuja vastaan. Yhdistä PayPal-tilisi %{settings_link}."
-    from_your_payment_settings_link_text: maksuasetuksistasi
-    redirect_message: ~
-    redirect_link_text: ~
     new:
       payout_info_you_need_to_connect: "Vastaanottaaksesi maksuja sinun täytyy yhdistää PayPal-tilisi %{service_name}-palveluun."
       payout_info_text: ~
@@ -1730,11 +1738,17 @@ fi:
       paypal_account_email_info_text: "Jos sinulla ei ole PayPal-tiliä, voit luoda uuden tilin %{create_paypal_account}. Jos saat virheviestin yrittäessäsi yhdistää PayPal-tilisi, sinun pitää päivittää tilisi business-tiliksi. Päivittäminen on helppoa ja nopeaa eikä maksa sinulle mitään. Jos olet yksityishenkilö, voit lisätä etu- ja sukunimesi \"business name\"-kenttään PayPalin kysyessä sitä. Päivittäminen onnistuu %{upgrade_paypal_account} ja etsimällä linkin \"Upgrade to business account\"."
       create_paypal_account: "klikkaamalla tästä"
       upgrade_paypal_account: "kirjautumalla PayPal-tilillesi"
-      connect_paypal_account: "Yhdistä PayPal-tili"
       paypal_account_billing_agreement: "Anna %{service_name}-palvelulle lupa veloittaa välityspalkkio kaupoista."
+      follow_steps: ~
+      connect_paypal_account_title: ~
+      connect_paypal_account_title_with_step: ~
+      connect_paypal_account_instructions: ~
+      connect_paypal_account: "Yhdistä PayPal-tili"
+      paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{commission_from_seller} myyntihinnasta, poislukien postikulut, vähintään %{minimum_commission}). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{minimum_commission}). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{commission_from_seller} myyntihinnasta, poislukien postikulut). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä %{paypal_info_link}."
+      paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: "PayPalin käsittelymaksua"
       billing_agreement_description: "Anna %{service_name}-palvelulle lupa ottaa välityspalkkio kaupoista."
       billing_agreement: "Anna lupa veloittaa välityspalkkio"
@@ -1747,6 +1761,17 @@ fi:
       something_went_wrong: "Jotain meni vikaan. Yritä uudestaan. Jos ongelma toistuu, ota yhteys ylläpitoon."
       account_not_verified: "Et ole vahvistanut PayPal-tiliäsi. Sinun on vahvistettava tilisi ennen kuin voit jatkaa."
       account_restricted: "PayPal-tiliisi on rajoitetussa tilassa eikä sitä voida yhdistää. Sinun tulee kirjautua PayPal-sivustolle selvittääksesi ongelman."
+    paypal_account_connected_title: ~
+    paypal_account_connected: ~
+    change_account: "Vaihda tili"
+    missing: "Sinulla on avoimia ilmoituksia, mutta et ole yhdistänyt PayPal-tiliäsi, joten et pysty ottamaan maksuja vastaan. Yhdistä PayPal-tilisi %{settings_link}."
+    from_your_payment_settings_link_text: maksuasetuksistasi
+    redirect_message: ~
+    redirect_link_text: ~
+    paypal_account_all_set_up: ~
+    can_receive_payments: ~
+    paypal_account_connected_summary: ~
+    paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: "Siirry maksamaan"
     checkout_with_paypal: "Maksa PayPal-tilillä"

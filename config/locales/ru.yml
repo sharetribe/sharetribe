@@ -479,17 +479,22 @@ ru:
     paypal_accounts:
       marketplace_paypal_integration: "Настройки платежей"
       preferences_updated: "Настройки платежей обновлены."
+      marketplace_currency_used: ~
+      contact_support_link_text: ~
       integration_info_text: "Система платежей Sharetribe функционирует на основе PayPal. Если вы желаете разрешить вашим пользователям осуществлять платежи в вашем проекте, вы обязаны подключить ваш аккаунт PayPal и определить минимальный размер транзакции и комиссию которую вы желаете установить от каждой транзакции."
-      read_more_about_paypal: "Узнать больше о системе платежей Sharetribe"
       paypal_account_email: "1. Подключите ваш PayPal аккаунт"
+      link_paypal_personal_account_label: ~
       paypal_account_email_completed: Завершено!
-      set_minimum_price_and_fee: "2. Установите минимальную цену и комиссию за платеж"
+      link_paypal_personal_account: ~
+      personal_payment_preferences_link_text: ~
       set_minimum_price_and_fee_completed: Завершено!
+      read_more_about_paypal: "Узнать больше о системе платежей Sharetribe"
+      set_minimum_price_and_fee: "2. Установите минимальную цену и комиссию за платеж"
       minimum_listing_price_label: "Минимальный размер транзакции:"
       transaction_fee_label: "Комиссия за транзакцию:"
       minimum_transaction_fee_label: "Минимальная комиссия за платеж:"
-      save_settings: "Сохранить настройки"
       note_about_transaction_fee: "Примечание: Комиссия за транзакцию включает комиссию PayPal которая зависит от вашей валюты и объема продаж данного продавца. По этой причине, комиссия всегда как минимум %{min_paypal_commission}. Когда комиссия удерживается с продавца, PayPal сначала удерживает свою комиссию, и далее сумма поступает на ваш PayPal аккаунт."
+      save_settings: "Сохранить настройки"
       minimum_listing_price_below_tx_fee: "должно быть не менее чем минимальная комиссия за транзакцию %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "должно быть больше чем минимальная комиссия %{minimum_commission}."
     transaction_types:
@@ -1717,15 +1722,18 @@ ru:
   paypal_accounts:
     payout_info_title: "Информация о выплате"
     paypal_account_email_connected: "<del>Connect PayPal account</del> Завершено!"
+    payout_info_paypal: ~
     paypal_billing_agreement_made: "<del>Разрешить %{service_name} комиссионное вознаграждение</del> Сделано!"
+    commission_permission_needed: ~
+    create_paypal_account_link_text: ~
+    connected_account: "Email \"%{email}\" PayPal аккаунта успешно подключен."
+    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info: ~
+    upgrade_paypal_account_link_text: ~
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
     you_are_ready_to_accept_payments: "Теперь вы готовы принимать платежи!"
     commission: "%{commission} %"
-    connected_account: "Email \"%{email}\" PayPal аккаунта успешно подключен."
-    change_account: "Изменить аккаунт"
-    missing: "У вас есть открытые предложения, но вы не подключили ваш PayPal аккаунт, поэтому вы не можете получать платежи. Пожалуйста подключите ваш PayPal аккаунт %{settings_link}."
-    from_your_payment_settings_link_text: "настройки оплаты"
-    redirect_message: ~
-    redirect_link_text: ~
     new:
       payout_info_you_need_to_connect: "Чтобы принимать платежи вам нужно подключить ваш PayPal аккаунт через %{service_name}."
       payout_info_text: "Пожалуйста завершите следующие действия чтобы подключить ваш аккаунт."
@@ -1736,11 +1744,17 @@ ru:
       paypal_account_email_info_text: "Если у вас нет PayPal аккаунта, вы можете создать его здесь %{create_paypal_account}. Если вы получили сообщение об ошибке при подключении PayPal аккаунта, вам необходимо обновить его до уровня бизнес. Обновление быстро и легко, без дополнительных затрат.Если вы физическое лицо, вам необходимо указать ваше имя и фамилию в поле \"Название компании\" когда PayPal запросит это. Нажмите здесь чтобы обновить %{upgrade_paypal_account}."
       create_paypal_account: "Нажмите здесь"
       upgrade_paypal_account: "Войдите в ваш PayPal аккаунт"
-      connect_paypal_account: "Подключить PayPal аккаунт"
       paypal_account_billing_agreement: "Предоставьте %{service_name} разрешение получить комиссию за транзакцию"
+      follow_steps: ~
+      connect_paypal_account_title: ~
+      connect_paypal_account_title_with_step: ~
+      connect_paypal_account_instructions: ~
+      connect_paypal_account: "Подключить PayPal аккаунт"
+      paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: "После того, как вы сделаете продажу через %{service_name}, комиссия сервиса составит %{commission_from_seller} от общей стоимости, исключая доставку, минимальная комиссия %{minimum_commission} будет удержана с вашего аккаунта PayPal. Чтобы принимать платежи в %{service_name}, вам нужно позволить сервису удерживать комиссию. Комиссия исключает %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "После того, как вы сделаете продажу через %{service_name}, комиссия сервиса %{minimum_commission} будет удержана с вашего PayPal аккаунта. Чтобы принимать платежи в %{service_name}, вам необходимо позволить сервису удерживать комиссию. Комиссия исключает %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "После того, как вы сделаете продажу через %{service_name}, комиссия сервиса (%{commission_from_seller} от общей стоимости продукта, исключая доставку) будет удержана с вашего PayPal аккаунта. Чтобы принимать платежи в %{service_name}, вам нужно позволить сервису удерживать комиссию. Комиссия исключает %{paypal_info_link}."
+      paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: "Комиссия PayPal за обработку платежа"
       billing_agreement_description: "Предоставьте %{service_name} разрешение получить комиссию за транзакцию"
       billing_agreement: "Предоставьте разрешение"
@@ -1753,6 +1767,17 @@ ru:
       something_went_wrong: "Произошла какая-то ошибка. Если проблема повторится, оправьте эту информацию в службу поддержки."
       account_not_verified: "Вы не подтвердили ваш PayPal аккаунт. Вам необходимо перейти на paypal.com и подтвердить ваш аккаунт перед тем как продолжить."
       account_restricted: "Ваш PayPal аккаунт имеет ограничения и не может быть подключен. Пожалуйста войдите в paypal.com чтобы уточнить детали или свяжитесь со службой поддержки PayPal чтобы решить данный вопрос."
+    paypal_account_connected_title: ~
+    paypal_account_connected: ~
+    change_account: "Изменить аккаунт"
+    missing: "У вас есть открытые предложения, но вы не подключили ваш PayPal аккаунт, поэтому вы не можете получать платежи. Пожалуйста подключите ваш PayPal аккаунт %{settings_link}."
+    from_your_payment_settings_link_text: "настройки оплаты"
+    redirect_message: ~
+    redirect_link_text: ~
+    paypal_account_all_set_up: ~
+    can_receive_payments: ~
+    paypal_account_connected_summary: ~
+    paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: "Перейти к оплате"
     checkout_with_paypal: "Осуществить расчет через PayPal"

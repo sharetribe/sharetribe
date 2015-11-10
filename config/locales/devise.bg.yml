@@ -1,0 +1,55 @@
+bg:
+  errors:
+    messages:
+      expired: ~
+      not_found: "не е открито"
+      already_confirmed: "беше потвърден(а), моля опитайте да се впишете"
+      not_locked: "не е заключена"
+  devise:
+    failure:
+      already_authenticated: "Вече си регистриран и свързан към страницата."
+      unauthenticated: "Впишете се или се регистрирайте, за да продължите."
+      unconfirmed: "Потвърдете акаунта, за да продължите."
+      locked: "Акаунтът Ви е заключен."
+      invalid: "Невалидена ел.поща или парола."
+      invalid_token: "Невалиден код за разпознаване."
+      timeout: "Сесията ви изтече, моля впишете се отново, за да продължите."
+      inactive: "Акаунтът все още не е активиран."
+    passwords:
+      updated_not_active: ~
+      send_paranoid_instructions: ~
+      send_instructions: ~
+      updated: ~
+    sessions:
+      signed_in: "Вписахте се успешно."
+      signed_out: "Отписахте се успешно."
+    confirmations:
+      send_paranoid_instructions: ~
+      send_instructions: ~
+      confirmed: ~
+    registrations:
+      signed_up_but_unconfirmed: ~
+      signed_up_but_inactive: ~
+      signed_up_but_locked: ~
+      reasons:
+        inactive: ~
+        unconfirmed: ~
+        locked: ~
+      update_needs_confirmation: ~
+      signed_up: ~
+      updated: ~
+      destroyed: ~
+    unlocks:
+      send_paranoid_instructions: ~
+      send_instructions: ~
+      unlocked: ~
+    omniauth_callbacks:
+      success: ~
+      failure: ~
+    mailer:
+      confirmation_instructions:
+        subject: ~
+      reset_password_instructions:
+        subject: ~
+      unlock_instructions:
+        subject: ~

@@ -469,17 +469,22 @@ de:
     paypal_accounts:
       marketplace_paypal_integration: Zahlungseinstellungen
       preferences_updated: "Zahlungseinstellungen aktualisiert"
+      marketplace_currency_used: ~
+      contact_support_link_text: ~
       integration_info_text: ~
-      read_more_about_paypal: "Mehr über das Shartetribe Zahlungssystem hier lesen."
       paypal_account_email: "1. Verbinde dein PayPal Konto"
+      link_paypal_personal_account_label: ~
       paypal_account_email_completed: Abgeschlossen!
-      set_minimum_price_and_fee: "2. Setze Mindestpreis und Transaktionsgebühr fest"
+      link_paypal_personal_account: ~
+      personal_payment_preferences_link_text: ~
       set_minimum_price_and_fee_completed: Abgeschlossen!
+      read_more_about_paypal: "Mehr über das Shartetribe Zahlungssystem hier lesen."
+      set_minimum_price_and_fee: "2. Setze Mindestpreis und Transaktionsgebühr fest"
       minimum_listing_price_label: "Minimaler Listing Preis:"
       transaction_fee_label: "Transaktionsgebühr:"
       minimum_transaction_fee_label: ~
-      save_settings: "Einstellungen speichern"
       note_about_transaction_fee: ~
+      save_settings: "Einstellungen speichern"
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
     transaction_types:
@@ -1713,15 +1718,18 @@ de:
   paypal_accounts:
     payout_info_title: Auszahlungsinformationen
     paypal_account_email_connected: "<del>Verknüpfung PayPal Konto</del> Abgeschlossen!"
+    payout_info_paypal: ~
     paypal_billing_agreement_made: "<del>Gewähre %{service_name} die Erlaubnis, eine Transaktionsgebühr zu berechnen</del> Abgeschlossen!"
+    commission_permission_needed: ~
+    create_paypal_account_link_text: ~
+    connected_account: "PayPal Konto '%{email}' erfolgreich verknüpft."
+    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info: ~
+    upgrade_paypal_account_link_text: ~
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
     you_are_ready_to_accept_payments: "Du bist bereit, Zahlungen entgegenzunehmen!"
     commission: "%{commission} %"
-    connected_account: "PayPal Konto '%{email}' erfolgreich verknüpft."
-    change_account: "Konto ändern"
-    missing: "Du hast offene Angebote, aber weil du dein PayPal-Konto nicht eingebunden hast, kannst du keine Zahlungen erhalten. Bitte verknüpfe Dein PayPal Konto in deinen %{settings_link}"
-    from_your_payment_settings_link_text: Zahlungseinstellungen
-    redirect_message: "Weiterleitung zu Paypal. Wenn nichts passiert, bitte diesen Link anklicken: %{redirect_link}"
-    redirect_link_text: hier
     new:
       payout_info_you_need_to_connect: "Um Zahlungen entgegenzunehmen musst du dein PayPal-Konto mit %{service_name} verbinden."
       payout_info_text: "Bitte führe die folgenden Schritte aus, um dein Konto zu verbinden."
@@ -1732,11 +1740,17 @@ de:
       paypal_account_email_info_text: "Wenn du kein PayPal-Konto hast, kannst du %{create_paypal_account} eines erstellen. Sofern du eine Fehlermeldung erhältst, wenn du dein PayPal-Konto verknüpfst, musst du auf ein Geschäftskonto upgraden. Ein Upgrade ist schnell und einfach und kostet dich nichts. Wenn Du eine Privatperson bist, solltest du deinen Vor- und Nachnamen ins Feld \"Firma\" eintragen, wenn PayPal danach fragt. Den Link für ein Upgrade deine Kontos findest du hier %{upgrade_paypal_account}."
       create_paypal_account: hier
       upgrade_paypal_account: "Upgrade deinen PayPal Konto hier."
-      connect_paypal_account: "Verbinde deinen PayPal Account"
       paypal_account_billing_agreement: "Erteile dem Webservice %{service_name} die Erlaubnis eine Transaktionsgebühr zu berechnen."
+      follow_steps: ~
+      connect_paypal_account_title: ~
+      connect_paypal_account_title_with_step: ~
+      connect_paypal_account_instructions: ~
+      connect_paypal_account: "Verbinde deinen PayPal Account"
+      paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: "Nachdem Sie etwas auf %{service_name} verkauft haben, wird eine Servicegebühr (%{commission_from_seller} des Gesamtpreises, ohne Versandkosten, Mindestgebühr %{minimum_commission}) von Ihrem PayPal-Konto abgebucht. Um Zahlungen in %{service_name} zu akzeptieren, musst Du die Erlaubnis gewähren, diese Gebühr zu erheben. Die Gebühr umfasst nicht die %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Nachdem Sie etwas auf %{service_name} verkauft haben, wird eine Servicegebühr von %{minimum_commission} des Gesamtpreises von Ihrem PayPal-Konto abgebucht. Um Zahlungen in %{service_name} zu akzeptieren, musst Du die Erlaubnis gewähren, diese Gebühr zu erheben. Die Gebühr umfasst nicht die %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Nachdem Sie etwas auf %{service_name} verkauft haben, wird eine Servicegebühr (%{commission_from_seller} des Gesamtpreises, ohne Versandkosten) von Ihrem PayPal-Konto abgebucht. Um Zahlungen in %{service_name} zu akzeptieren, musst Du die Erlaubnis gewähren, diese Gebühr zu erheben. Die Gebühr umfasst nicht die %{paypal_info_link}"
+      paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: "PayPal's payment processing fee"
       billing_agreement_description: "Gewähre %{service_name} die Erlaubnis, eine Transaktionsgebühr zu berechnen."
       billing_agreement: "Erteile die Erlaubnis"
@@ -1749,6 +1763,17 @@ de:
       something_went_wrong: "Da lief was falsch. Bitte versuche es erneut. Wenn das Problem weiterhin besteht, kontaktiere bitte den Website-Administrator."
       account_not_verified: "Du hast Dein PayPal-Konto nicht verifiziert. Du musst Dein Konto bei paypal.com überprüfen und betätigen, bevor Du fortfahren kannst."
       account_restricted: "Dein PayPal-Konto ist eingeschränkt und kann nicht verbunden werden. Bitte logge Dich bei paypal.com ein, um mehr darüber zu erfahren, was das bedeutet oder nimm Kontakt mit dem PayPal Kundendienstauf, um das Problem zu lösen."
+    paypal_account_connected_title: ~
+    paypal_account_connected: ~
+    change_account: "Konto ändern"
+    missing: "Du hast offene Angebote, aber weil du dein PayPal-Konto nicht eingebunden hast, kannst du keine Zahlungen erhalten. Bitte verknüpfe Dein PayPal Konto in deinen %{settings_link}"
+    from_your_payment_settings_link_text: Zahlungseinstellungen
+    redirect_message: "Weiterleitung zu Paypal. Wenn nichts passiert, bitte diesen Link anklicken: %{redirect_link}"
+    redirect_link_text: hier
+    paypal_account_all_set_up: ~
+    can_receive_payments: ~
+    paypal_account_connected_summary: ~
+    paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: "Weiter zur Zahlung"
     checkout_with_paypal: "Mit PayPal bezahlen"
