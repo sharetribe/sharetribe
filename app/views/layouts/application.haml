@@ -10,7 +10,7 @@
 
   - if display_expiration_notice?
     = render partial: "layouts/expiration_notice",
-        :locals => {external_plan_service_login_url: plan_admin_community_path(@current_community)}
+        :locals => {external_plan_service_login_url: admin_plan_path}
 
   - content_for(:page_content) do
     %section.marketplace-lander
