@@ -3,24 +3,23 @@ window.ST = window.ST || {};
 (function(module) {
 
 
-  module.initializeNewPaypalAccountHandler = function(buttonId, action) {
-    var $button = $('#'+buttonId);
+  module.initializeNewPaypalAccountHandler = function(linkId, action, redirectMessageSelector) {
+    var $link = $('#'+linkId);
     var spinner = new Image();
     spinner.src = "https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif";
     spinner.className = "send-button-loading-img";
 
-    $button.click(function(){
-      var $buttonWrapper = $button.parent();
-      $buttonWrapper.append(spinner);
-      $button.addClass("send-button-loading").blur();
+    $link.click(function(){
+      $link.after(spinner);
+      $link.addClass("send-button-loading").blur();
 
       $.ajax({
         type: 'GET',
         url: action,
         success: function(response){
-          var $redirectLink = $('#' + buttonId + '_redirect');
+          var $redirectLink = $('#' + linkId + '_redirect');
           $redirectLink.attr('href', response.redirect_url);
-          $redirectLink.parent().toggleClass('hidden');
+          $(redirectMessageSelector).removeClass('hidden');
           window.location = response.redirect_url;
         }
       });

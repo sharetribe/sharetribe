@@ -13,77 +13,106 @@
     = t("admin.communities.paypal_account.paypal_admin_account")
 
 = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+- content_for :extra_javascript do
+  :javascript
+    ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{order_permission_action}", ".js-paypal-redirect-order-permission");
 
 .left-navi-section.payment-settings
-  %h2= t("admin.paypal_accounts.marketplace_paypal_integration")
+  %h1= t("admin.paypal_accounts.marketplace_paypal_integration")
 
   .row
-    = t("admin.paypal_accounts.integration_info_text").html_safe
+    .col-12
+      =t("admin.paypal_accounts.marketplace_currency_used", currency: "<strong>#{currency}</strong>",
+        contact_support_link: link_to(t("admin.paypal_accounts.contact_support_link_text"), "mailto:support@sharetribe.com")).html_safe
+
+  .row
+    .col-12
+      =t("admin.paypal_accounts.integration_info_text").html_safe
 
   - if display_knowledge_base_articles
     .row
-      = link_to t("admin.paypal_accounts.read_more_about_paypal"), "#{knowledge_base_url}/articles/501684"
-
-  .row
-
-  - if paypal_account_email.present?
-    .row.paypal-connected-email-row
-      %h3.paypal-account-connected
-        %del= t("admin.paypal_accounts.paypal_account_email")
-        = t("admin.paypal_accounts.paypal_account_email_completed")
-      .paypal-connected-email.paypal-account-connected
-        = t("paypal_accounts.connected_account", :email => paypal_account_email)
-      .paypal-connected-change.send-button-wrapper
-        - content_for :extra_javascript do
-          :javascript
-            ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{order_permission_action}");
-        %button#ask_paypal_permissions
-          = t("paypal_accounts.change_account")
-    .row
-      .paypal-redirect-message.hidden
-        - paypal_redirect_link = "<a href='#' id='ask_paypal_permissions_redirect'>#{t("paypal_accounts.redirect_link_text")}</a>"
-        = t("paypal_accounts.redirect_message", redirect_link: paypal_redirect_link).html_safe
-
-  - else
-
-    - title = t("admin.paypal_accounts.paypal_account_email")
-    = render :partial => "paypal_accounts/ask_paypal_permissions", locals: {title: title, currency: currency, create_url: create_url, upgrade_url: upgrade_url, order_permission_action: order_permission_action}
-
-  = form_for paypal_prefs_form, url: paypal_prefs_form_action, html: { id: "paypal_preferences_form" } do |form|
-
-    .row
       .col-12
-        - if paypal_prefs_valid
-          %h3.paypal-preferences-valid
-            %del= t("admin.paypal_accounts.set_minimum_price_and_fee")
-            = t("admin.paypal_accounts.set_minimum_price_and_fee_completed")
-        - else
-          %label= t("admin.paypal_accounts.set_minimum_price_and_fee")
+        = link_to t("admin.paypal_accounts.read_more_about_paypal"), "#{knowledge_base_url}/articles/501684"
 
-    .row
-      .col-6
-        = form.label :minimum_listing_price, t("admin.paypal_accounts.minimum_listing_price_label"), class: "paypal-horizontal-input-label"
-      .col-6
-        = form.text_field :minimum_listing_price, class: "paypal-preferences-input"
-        %label.paypal-horizontal-input-label-unit
-          = currency
+  .row.paypal-connect-second-time-note
+    .col-12
+      %strong
+        =t("admin.paypal_accounts.link_paypal_personal_account_label")
+      =t("admin.paypal_accounts.link_paypal_personal_account",
+        personal_payment_preferences_link: link_to(t("admin.paypal_accounts.personal_payment_preferences_link_text"),
+          paypal_account_settings_payment_path(@current_user.username))).html_safe
 
-    .row
-      .col-6
-        = form.label :commission_from_seller, t("admin.paypal_accounts.transaction_fee_label"), class: "paypal-horizontal-input-label"
-      .col-6
-        = form.text_field :commission_from_seller, class: "paypal-preferences-input"
-        %label.paypal-horizontal-input-label-unit
-          = "%"
-
-    .row
-      .col-6
-        = form.label :minimum_transaction_fee, t("admin.paypal_accounts.minimum_transaction_fee_label"), class: "paypal-horizontal-input-label"
-      .col-6
-        = form.text_field :minimum_transaction_fee, class: "paypal-preferences-input"
-        %label.paypal-horizontal-input-label-unit
-          = currency
-
-    .row
+  - if paypal_account_email.present? # has linked their PayPal account
+    .row.paypal-wizard
       .col-12
-        = form.button t("admin.paypal_accounts.save_settings")
+        .paypal-wizard-content
+          .row
+            .col-12
+              %h3.paypal-account-connected
+                =icon_tag("check", ["icon-fix"])
+                =t("paypal_accounts.paypal_account_connected_title")
+          .row.paypal-link-wrapper
+            .col-12
+              .paypal-connected-email.paypal-account-connected
+                = t("paypal_accounts.paypal_account_connected", :email => paypal_account_email)
+                %a.paypal-change-link#ask_paypal_permissions
+                  = t("paypal_accounts.change_account")
+          .row.js-paypal-redirect-order-permission.hidden
+            .col-12
+              .paypal-redirect-message
+                - paypal_redirect_link = "<a href='#' id='ask_paypal_permissions_redirect'>#{t("paypal_accounts.redirect_link_text")}</a>"
+                = t("paypal_accounts.redirect_message", redirect_link: paypal_redirect_link).html_safe
+        .paypal-wizard-divider
+        .paypal-wizard-content
+          = form_for paypal_prefs_form, url: paypal_prefs_form_action, html: { id: "paypal_preferences_form" } do |form|
+            .row.paypal-preferences
+              .col-12
+                %h3.paypal-wizard-step
+                  - if paypal_prefs_valid
+                    =icon_tag("check", ["icon-fix", "paypal-success-mark"])
+                  =t("admin.paypal_accounts.set_minimum_price_and_fee")
+            .row
+              .col-6
+                = form.label :minimum_listing_price, t("admin.paypal_accounts.minimum_listing_price_label"), class: "paypal-horizontal-input-label"
+              .col-6
+                = form.text_field :minimum_listing_price, class: "paypal-preferences-input"
+                %label.paypal-horizontal-input-label-unit
+                  = currency
+            .row
+              .col-6
+                = form.label :commission_from_seller, t("admin.paypal_accounts.transaction_fee_label"), class: "paypal-horizontal-input-label"
+              .col-6
+                = form.text_field :commission_from_seller, class: "paypal-preferences-input"
+                %label.paypal-horizontal-input-label-unit
+                  = "%"
+            .row
+              .col-6
+                = form.label :minimum_transaction_fee, t("admin.paypal_accounts.minimum_transaction_fee_label"), class: "paypal-horizontal-input-label"
+              .col-6
+                = form.text_field :minimum_transaction_fee, class: "paypal-preferences-input"
+                %label.paypal-horizontal-input-label-unit
+                  = currency
+            .row
+              .col-12
+                = form.button t("admin.paypal_accounts.save_settings")
+
+  - else # no PayPal account connected
+    .row.paypal-wizard
+      .col-12
+        .paypal-wizard-content
+          .row
+            .col-12
+              %h3.paypal-wizard-step
+                =t("paypal_accounts.new.connect_paypal_account_title")
+          .row
+            .col-12
+              =t("paypal_accounts.new.connect_paypal_account_instructions")
+          .row.send-button-wrapper.without-margin
+            .col-12
+              %button#ask_paypal_permissions
+                = t("paypal_accounts.new.connect_paypal_account")
+          .row.js-paypal-redirect-order-permission.hidden
+            .col-12
+              .paypal-redirect-message
+                - paypal_redirect_link = "<a href='#' id='ask_paypal_permissions_redirect'>#{t("paypal_accounts.redirect_link_text")}</a>"
+                = t("paypal_accounts.redirect_message", redirect_link: paypal_redirect_link).html_safe

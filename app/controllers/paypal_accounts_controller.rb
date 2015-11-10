@@ -5,13 +5,9 @@ class PaypalAccountsController < ApplicationController
 
   before_filter :ensure_paypal_enabled
 
-  PaypalAccountForm = FormUtils.define_form("PaypalAccountForm")
-
   DataTypePermissions = PaypalService::DataTypes::Permissions
 
-  def show
-    return redirect_to action: :new unless PaypalHelper.account_prepared_for_user?(@current_user.id, @current_community.id)
-
+  def index
     m_account = accounts_api.get(
       community_id: @current_community.id,
       person_id: @current_user.id
@@ -21,37 +17,9 @@ class PaypalAccountsController < ApplicationController
 
     community_ready_for_payments = PaypalHelper.community_ready_for_payments?(@current_community)
     unless community_ready_for_payments
-      flash.now[:warning] = t("paypal_accounts.new.admin_account_not_connected",
+      flash.now[:warning] = t("paypal_accounts.admin_account_not_connected",
                             contact_admin_link: view_context.link_to(
-                              t("paypal_accounts.new.contact_admin_link_text"),
-                                new_user_feedback_path)).html_safe
-    end
-
-    render(locals: {
-      community_ready_for_payments: community_ready_for_payments,
-      order_permission_action: ask_order_permission_person_paypal_account_path(@current_user),
-      left_hand_navigation_links: settings_links_for(@current_user, @current_community),
-      paypal_account_email: m_account[:email].or_else(""),
-      paypal_account_state: m_account[:state].or_else(:not_connected),
-      change_url: ask_order_permission_person_paypal_account_path(@current_user)
-    })
-  end
-
-  def new
-    return redirect_to action: :show if PaypalHelper.account_prepared_for_user?(@current_user.id, @current_community.id)
-
-    m_account = accounts_api.get(
-      community_id: @current_community.id,
-      person_id: @current_user.id
-    ).maybe
-
-    @selected_left_navi_link = "payments"
-
-    community_ready_for_payments = PaypalHelper.community_ready_for_payments?(@current_community)
-    unless community_ready_for_payments
-      flash.now[:warning] = t("paypal_accounts.new.admin_account_not_connected",
-                            contact_admin_link: view_context.link_to(
-                              t("paypal_accounts.new.contact_admin_link_text"),
+                              t("paypal_accounts.contact_admin_link_text"),
                                 new_user_feedback_path)).html_safe
     end
 
@@ -60,30 +28,24 @@ class PaypalAccountsController < ApplicationController
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 
     render(locals: {
+      next_action: next_action(m_account[:state].or_else("")),
       community_ready_for_payments: community_ready_for_payments,
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
       order_permission_action: ask_order_permission_person_paypal_account_path(@current_user),
       billing_agreement_action: ask_billing_agreement_person_paypal_account_path(@current_user),
-      paypal_account_form: PaypalAccountForm.new,
-      paypal_account_state: m_account[:order_permission_state].or_else(""),
       paypal_account_email: m_account[:email].or_else(""),
-      change_url: ask_order_permission_person_paypal_account_path(@current_user),
       commission_from_seller: t("paypal_accounts.commission", commission: payment_settings[:commission_from_seller]),
       minimum_commission: Money.new(payment_settings[:minimum_transaction_fee_cents], community_currency),
       commission_type: payment_settings[:commission_type],
       currency: community_currency,
       paypal_fees_url: PaypalHelper.fee_link(community_country_code),
-      create_url: "https://www.paypal.com/#{community_country_code}/signup/account",
+      create_url: "https://www.paypal.com/#{community_country_code}/webapps/mpp/home",
       upgrade_url: "https://www.paypal.com/#{community_country_code}/upgrade"
     })
   end
 
   def ask_order_permission
-    return redirect_to action: :new unless PaypalHelper.community_ready_for_payments?(@current_community)
-
-    # Select paypal account connect flow
-    flow = use_new_connect_flow?(@current_community) ? :new : :old
-    callback_url = flow == :new ? paypal_connect_person_paypal_account_url : permissions_verified_person_paypal_account_url
+    return redirect_to action: :index unless PaypalHelper.community_ready_for_payments?(@current_community)
 
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
     response = accounts_api.request(
@@ -91,23 +53,23 @@ class PaypalAccountsController < ApplicationController
       {
         community_id: @current_community.id,
         person_id: @current_user.id,
-        callback_url: callback_url,
+        callback_url: permissions_verified_person_paypal_account_url,
         country: community_country_code
       }),
-      flow: flow)
+      flow: :old)
 
     permissions_url = response.data[:redirect_url]
 
     if permissions_url.blank?
       flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
-      return redirect_to action: :new
+      return redirect_to action: :index
     else
       render json: {redirect_url: permissions_url}
     end
   end
 
   def ask_billing_agreement
-    return redirect_to action: :new unless PaypalHelper.community_ready_for_payments?(@current_community)
+    return redirect_to action: :index unless PaypalHelper.community_ready_for_payments?(@current_community)
 
     account_response = accounts_api.get(
       community_id: @current_community.id,
@@ -133,7 +95,7 @@ class PaypalAccountsController < ApplicationController
 
       if billing_agreement_url.blank?
         flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
-        return redirect_to action: :new
+        return redirect_to action: :index
       else
         render json: {redirect_url: billing_agreement_url}
       end
@@ -161,36 +123,7 @@ class PaypalAccountsController < ApplicationController
       flow: :old)
 
     if response[:success]
-      redirect_to new_paypal_account_settings_payment_path(@current_user.username)
-    else
-      flash_error_and_redirect_to_settings(error_response: response) unless response[:success]
-    end
-  end
-
-  def paypal_connect
-    onboarding_params = params.slice(
-      :merchantId,
-      :merchantIdInPayPal,
-      :permissionsGranted,
-      :accountStatus,
-      :consentStatus,
-      :productIntentID,
-      :isEmailConfirmed,
-      :returnMessage)
-
-    response = accounts_api.create(
-      community_id: @current_community.id,
-      person_id: @current_user.id,
-      order_permission_request_token: nil,
-      body: PaypalService::API::DataTypes.create_account_permission_verification_request(
-        {
-          onboarding_params: onboarding_params,
-        }
-      ),
-      flow: :new)
-
-    if response[:success]
-      redirect_to new_paypal_account_settings_payment_path(@current_user.username)
+      redirect_to paypal_account_settings_payment_path(@current_user.username)
     else
       flash_error_and_redirect_to_settings(error_response: response) unless response[:success]
     end
@@ -204,7 +137,7 @@ class PaypalAccountsController < ApplicationController
     )
 
     if response[:success]
-      redirect_to show_paypal_account_settings_payment_path(@current_user.username)
+      redirect_to paypal_account_settings_payment_path(@current_user.username)
     else
       case response.error_msg
       when :billing_agreement_not_accepted
@@ -224,11 +157,21 @@ class PaypalAccountsController < ApplicationController
     )
 
     flash[:error] = t("paypal_accounts.new.billing_agreement_canceled")
-    redirect_to new_paypal_account_settings_payment_path(@current_user.username)
+    redirect_to paypal_account_settings_payment_path(@current_user.username)
   end
 
 
   private
+
+  def next_action(paypal_account_state)
+    if paypal_account_state == :verified
+      :none
+    elsif paypal_account_state == :connected
+      :ask_billing_agreement
+    else
+      :ask_order_permission
+    end
+  end
 
   # Before filter
   def ensure_paypal_enabled
@@ -255,11 +198,7 @@ class PaypalAccountsController < ApplicationController
   end
 
   def error_redirect_action
-    if PaypalHelper.account_prepared_for_user?(@current_user.id, @current_community.id)
-      :show
-    else
-      :new
-    end
+    :index
   end
 
   def payment_gateway_commission(community_id)
@@ -272,11 +211,6 @@ class PaypalAccountsController < ApplicationController
     raise ArgumentError.new("No active paypal gateway for community: #{community_id}.") if p_set.nil?
 
     p_set[:commission_from_seller]
-  end
-
-  # TODO Per community "Feature flag" for using new paypal account connect flow
-  def use_new_connect_flow?(community)
-    false
   end
 
   def paypal_minimum_commissions_api
