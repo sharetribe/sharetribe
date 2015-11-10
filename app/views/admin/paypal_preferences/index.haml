@@ -22,7 +22,7 @@
 
   .row
     .col-12
-      =t("admin.paypal_accounts.marketplace_currency_used", currency: currency,
+      =t("admin.paypal_accounts.marketplace_currency_used", currency: "<strong>#{currency}</strong>",
         contact_support_link: link_to(t("admin.paypal_accounts.contact_support_link_text"), "mailto:support@sharetribe.com")).html_safe
 
   .row
@@ -36,7 +36,9 @@
 
   .row.paypal-connect-second-time-note
     .col-12
-      =t("admin.paypal_accounts.link_paypal_account_second_time_note",
+      %strong
+        =t("admin.paypal_accounts.link_paypal_personal_account_label")
+      =t("admin.paypal_accounts.link_paypal_personal_account",
         personal_payment_preferences_link: link_to(t("admin.paypal_accounts.personal_payment_preferences_link_text"),
           paypal_account_settings_payment_path(@current_user.username))).html_safe
 
