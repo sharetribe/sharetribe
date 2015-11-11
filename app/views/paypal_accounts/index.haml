@@ -8,6 +8,7 @@
                                    create_url, target: "_blank")
     - upgrade_paypal_link = link_to(t("paypal_accounts.upgrade_paypal_account_link_text"),
                                     upgrade_url, target: "_blank")
+    - paypal_redirect_link = "<a href='#' id='ask_paypal_permissions_redirect'>#{t("paypal_accounts.redirect_link_text")}</a>"
     = render partial: "paypal_info", locals: { create_paypal_account_link: create_paypal_link,
         upgrade_paypal_account_link: upgrade_paypal_link,
         paypal_account_linked: next_action != :ask_order_permission,
@@ -38,12 +39,12 @@
             .row.js-paypal-redirect-order-permission.hidden
               .col-12
                 .paypal-redirect-message
-                  - paypal_redirect_link = "<a href='#' id='ask_paypal_permissions_redirect'>#{t("paypal_accounts.redirect_link_text")}</a>"
+
                   = t("paypal_accounts.redirect_message", redirect_link: paypal_redirect_link).html_safe
     - elsif next_action == :ask_billing_agreement
       - content_for :javascript do
         ST.initializeNewPaypalAccountHandler("ask_billing_agreement", "#{billing_agreement_action}", ".js-paypal-redirect-billing-agreement");
-
+        ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{order_permission_action}", ".js-paypal-redirect-change-account");
       - if commission_type != :none # only warn if the marketplace charges a commission
         .row.paypal-follow-steps
           .col-12
@@ -52,15 +53,8 @@
       .row.paypal-wizard
         .col-12
           .paypal-wizard-content
-            .row
-              .col-12
-                %h3.paypal-account-connected
-                  =icon_tag("check", ["icon-fix"])
-                  =t("paypal_accounts.paypal_account_connected_title")
-                .paypal-connected-email.paypal-account-connected
-                  = t("paypal_accounts.paypal_account_connected", :email => paypal_account_email)
-                  %a.paypal-change-link#ask_paypal_permissions
-                    = t("paypal_accounts.change_account")
+            = render partial: "layouts/paypal_account_connected", locals: {paypal_account_email: paypal_account_email,
+                paypal_redirect_link: paypal_redirect_link}
           .paypal-wizard-divider
           .paypal-wizard-content
             .row

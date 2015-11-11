@@ -1,0 +1,15 @@
+@import "mixins/all";
+
+.paypal-link-wrapper {
+  & .send-button-loading-img {
+    width: lines(0.75);
+    height: lines(0.75);
+    margin: 0 lines(0.5);
+    top: 3px;
+    position: relative;
+  }
+}
+
+.paypal-account-connected {
+  color: $success-green;
+}
