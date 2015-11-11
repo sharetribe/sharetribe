@@ -911,8 +911,8 @@ da-DK:
       has_commented_listing_you_follow_in_kassi: "%{author} har kommenteret på annoncen '%{listing}' som du følger på %{service_name}."
     new_message:
       view_message: "Se besked"
-      has_sent_you_a_message_in_kassi: "%{sender} har sendt dig en besked i %{service_name}"
-      you_have_a_new_message: "En ny besked i %{sender_name} fra %{service_name}"
+      has_sent_you_a_message_in_kassi: "%{sender} har sendt dig en besked på %{service_name}"
+      you_have_a_new_message: "En ny besked fra %{sender_name} på %{service_name}"
     new_payment:
       new_payment: "Du har modtaget en ny betaling"
       price_per_unit_type: "Pris pr. %{unit_type}"
