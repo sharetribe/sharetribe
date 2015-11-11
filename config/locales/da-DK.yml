@@ -481,14 +481,14 @@ da-DK:
     paypal_accounts:
       marketplace_paypal_integration: Betalingsindstillinger
       preferences_updated: "Betalings indstillinger blev opdateret"
-      marketplace_currency_used: ~
-      contact_support_link_text: ~
+      marketplace_currency_used: "Denne markedsplads bruger %{currency} som sin valuta. For at ændre valuta, %{contact_support_link}."
+      contact_support_link_text: "kontakt Sharetribe support"
       integration_info_text: "Betalingssystemet på %{service_name} kører gennem PayPal. Hvis du vil have mulighed for at tage imod betalinger på din markedsplads, skal du tilknytte din PayPal-konto, og vælge en minimumspris pr. annonce og størrelsen på dit servicegebyr."
       paypal_account_email: "1. Tilknyt din PayPal-konto"
-      link_paypal_personal_account_label: ~
+      link_paypal_personal_account_label: "Sælger du selv produkter?"
       paypal_account_email_completed: Gennemført!
-      link_paypal_personal_account: ~
-      personal_payment_preferences_link_text: ~
+      link_paypal_personal_account: "Hvis ja, vil du også være nødt til at tilslutte din PayPa konto til %{personal_payment_preferences_link}."
+      personal_payment_preferences_link_text: "din personlige markedsplads konto"
       set_minimum_price_and_fee_completed: Gennemført!
       read_more_about_paypal: "Læs mere om Sharetribe's betalingssystem"
       set_minimum_price_and_fee: "2. Vælg en minimumspris og servicegebyr"
@@ -1724,16 +1724,16 @@ da-DK:
   paypal_accounts:
     payout_info_title: Betalingsoplysninger
     paypal_account_email_connected: "<del>1. Tilknyt din PayPal-konto</del> Godkendt!"
-    payout_info_paypal: ~
+    payout_info_paypal: "%{service_name} bruger PayPal som dens betalingsudbyder. En %{create_paypal_account_link} er nødvendig for at modtage betalinger for dine annoncer, og skal tilsluttes %{service_name}."
     paypal_billing_agreement_made: "<del>2. Tillad %{service_name} at tage et servicegebyr</del> Godkendt!"
-    commission_permission_needed: ~
-    create_paypal_account_link_text: ~
+    commission_permission_needed: "Du er også nødt til at give %{service_name} tilladelse til at opkræve et gebyr."
+    create_paypal_account_link_text: "PayPal konto"
     connected_account: "Din PayPal-konto '%{email}' er nu tilknyttet."
-    paypal_receive_funds_info_label: ~
-    paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: ~
-    admin_account_not_connected: ~
-    contact_admin_link_text: ~
+    paypal_receive_funds_info_label: "Din PayPal konto skal være i stand til at modtage betalinger. Dette kan kræve en Firma konto."
+    paypal_receive_funds_info: "Hvis du ser en fejl, når du forsøger at forbinde din konto til %{service_name}, opgradere din PayPal konto ved %{upgrade_paypal_account_link}. Det er gratis og nemt. Hvis du er en privat person, anbefaler PayPal at bruge dit navn som Firma navn."
+    upgrade_paypal_account_link_text: "logge ind og klikke på linket opgradering"
+    admin_account_not_connected: "Brug af %{service_name}s betalingssystem, til brug for modtagelse af betalinger, er ikke muligt, da betalinger ikke er sat op. Venligst %{contact_admin_link} for detaljer."
+    contact_admin_link_text: "kontakt markedspladsens administrator"
     you_are_ready_to_accept_payments: "Du er nu klar til at modtage betalinger!"
     commission: "%{commission}%"
     new:
@@ -1747,16 +1747,16 @@ da-DK:
       create_paypal_account: her
       upgrade_paypal_account: "Opgrader din konto her."
       paypal_account_billing_agreement: "2. Tillad %{service_name} at tage et servicegebyr"
-      follow_steps: ~
-      connect_paypal_account_title: ~
-      connect_paypal_account_title_with_step: ~
-      connect_paypal_account_instructions: ~
+      follow_steps: "Følg trinene nedenfor for at begynde modtagelsen af midler:"
+      connect_paypal_account_title: "Forbind din PayPal konto"
+      connect_paypal_account_title_with_step: "Trin %{current_step}/%{total_steps}: Tilslut din PayPal konto"
+      connect_paypal_account_instructions: "PayPal konto med %{service_name}."
       connect_paypal_account: "Tilknyt PayPal-konto"
-      paypal_account_billing_agreement_with_step: ~
+      paypal_account_billing_agreement_with_step: "Trin %{current_step}/%{total_steps}: Giv tilladelse til at opkræve et transaktionsgebyr"
       paypal_account_billing_agreement_info_both: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr (%{commission_from_seller} af produktprisen, undtaget leveringsomkostninger, minimumsgebyr %{minimum_commission}) blive trukket fra din PayPal-konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr %{minimum_commission} af produktprisen blive trukket fra din PayPal-konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr (%{commission_from_seller} af produktprisen, undtaget leveringsomkostninger blive trukket fra din PayPal-konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
-      paypal_account_billing_agreement_info_none: ~
+      paypal_account_billing_agreement_info_none: "%{service_name} opkræver i øjeblikket ikke et servicegebyr. Hvis servicegebyr er aktiveret, skal du give %{service_name} tilladelse til at opkræve et servicegebyr for at kunne modtage betalinger. Gebyret omfatter ikke %{paypal_info_link}."
       paypal_info_link_text: "PayPal's ekspeditionsgebyr"
       billing_agreement_description: "Tillad %{service_name} at tage et servicegebyr."
       billing_agreement: "Tillad adgang"
@@ -1769,17 +1769,17 @@ da-DK:
       something_went_wrong: "Noget gik galt. Prøv venligst igen. Hvis problemer fortsætter, så kontakt os gerne."
       account_not_verified: "Du har ikke bekræftet din PayPal-konto. Du skal gå til paypal.com og bekræfte din konto før du kan fortsætte."
       account_restricted: "Din PayPal-konto er begrænset og kan ikke tilknyttes. Venligst log ind på paypal.com for at få yderligere information om, hvad det betyder, eller kontakt PayPal kundesupport for at få løst dette."
-    paypal_account_connected_title: ~
-    paypal_account_connected: ~
+    paypal_account_connected_title: "PayPal konto forbundet"
+    paypal_account_connected: "PayPal kontoen <%{email}> er tilsluttet med %{service_name}."
     change_account: "Ændre konto"
     missing: "Du har åbne annoncer, men du har ikke tilknyttet din PayPal-konto, så du er ikke i stand til at modtage betalinger. Tilknyt venligst din PayPal-konto i din %{settings_link}."
     from_your_payment_settings_link_text: betalingsindstillinger
     redirect_message: "Omdirigere dig til PayPal. Hvis der ikke sker noget, skal du klikke %{redirect_link}."
     redirect_link_text: her
-    paypal_account_all_set_up: ~
-    can_receive_payments: ~
-    paypal_account_connected_summary: ~
-    paypal_permission_granted_summary: ~
+    paypal_account_all_set_up: "Hurraaa! alt er sat op!"
+    can_receive_payments: "Du kan nu modtage betalinger for dine annoncer."
+    paypal_account_connected_summary: "PayPal konto %{email} forbundet med succes"
+    paypal_permission_granted_summary: "Tilladelse til transaktionsgebyrer bevilget"
   paypal:
     pay_with_paypal: "Fortsæt til betaling"
     checkout_with_paypal: "Betal med PayPal"

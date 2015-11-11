@@ -123,7 +123,7 @@ bg:
         sender_email_label: ~
         sender_email_placeholder: ~
         this_is_how_it_will_look: ~
-        send_verification_button: ~
+        send_verification_button: "Изпратено писмо за потвърждение."
         successfully_saved: ~
         status: ~
         status_verified: ~
@@ -247,7 +247,7 @@ bg:
       social_media:
         social_media: ~
         twitter_handle: ~
-        twitter_handle_info_text: ~
+        twitter_handle_info_text: "Потребителско име в Twitter на Вашият пазар(Ако имате такова). Ще бъде видимо, когато някой използва tweet бутона на страницата на Вашата обява."
         twitter_handle_info_text_with_instructions: ~
         twitter_instructions_link_text: ~
         twitter_handle_placeholder: ~
@@ -420,8 +420,8 @@ bg:
         can_not_delete_only_one_in_categories: ~
       listing_shape_name: ~
       listing_shape_name_placeholder: ~
-      action_button_label: ~
-      action_button_placeholder: ~
+      action_button_label: "Заглавие на бутона за поръчка"
+      action_button_placeholder: "Т.е. Купи"
       successfully_closed: ~
       successfully_deleted: ~
       pricing_and_checkout_title: ~
@@ -1100,7 +1100,7 @@ bg:
       item_request_list: ~
       items_to_offer: ~
       items_to_request: ~
-      log_in: ~
+      log_in: Влез.
       no_offers_visible_unless_logged_in: ~
       no_open_offers_currently: ~
       no_open_requests_currently: ~
@@ -1373,7 +1373,7 @@ bg:
       email_deleted: ~
       payment_details_add_successful: ~
       payment_details_add_error: ~
-      listing_author_payment_details_missing: ~
+      listing_author_payment_details_missing: "Моля, свържете се с автора като натиснете бутона 'Свържи се'. Необходимо е да си настроят профила за приемане на плащания."
       stylesheet_needs_recompiling: ~
     settings:
       account: ~
@@ -1424,7 +1424,7 @@ bg:
         at: ~
         departure_time: ~
       departure_time_radio_buttons:
-        repeated: ~
+        repeated: "Повтаряемо (добавете часове и дати в полето 'Допълнително описание')"
       description:
         detailed_description: ~
       destination:
@@ -1484,7 +1484,7 @@ bg:
         location: ~
         origin: ~
       send_button:
-        save_listing: ~
+        save_listing: Запази
       share_type:
         select: ~
         borrow: ~
@@ -1508,7 +1508,7 @@ bg:
       valid_until:
         valid_until: ~
       valid_until_radio_buttons:
-        for_the_time_being: ~
+        for_the_time_being: "За времето"
       privacy:
         privacy: ~
         private: ~
@@ -1723,7 +1723,7 @@ bg:
       follow_steps: ~
       connect_paypal_account_title: ~
       connect_paypal_account_title_with_step: ~
-      connect_paypal_account_instructions: ~
+      connect_paypal_account_instructions: "Натиснете бутона по долу за да се впишете в PayPal и да свържете вашият PayPal профил с %{service_name}."
       connect_paypal_account: ~
       paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: ~
@@ -1910,7 +1910,7 @@ bg:
       change: ~
       confirm_new_password: ~
       delete_account: ~
-      delete_account_button: ~
+      delete_account_button: "Изтрии профила завинаги."
       delete_account_confirmation_popup: ~
       email_addresses: ~
       new_email: ~

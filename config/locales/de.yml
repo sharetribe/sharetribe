@@ -469,14 +469,14 @@ de:
     paypal_accounts:
       marketplace_paypal_integration: Zahlungseinstellungen
       preferences_updated: "Zahlungseinstellungen aktualisiert"
-      marketplace_currency_used: ~
-      contact_support_link_text: ~
+      marketplace_currency_used: "Dieser Marktplatz nutzt %{currency} als Währung. Um die Währungseinstellung zu ändern, %{contact_support_link}"
+      contact_support_link_text: "kontaktiere den Sharetribe Support"
       integration_info_text: ~
       paypal_account_email: "1. Verbinde dein PayPal Konto"
-      link_paypal_personal_account_label: ~
+      link_paypal_personal_account_label: "Verkaufst Du selbst Produkte?"
       paypal_account_email_completed: Abgeschlossen!
-      link_paypal_personal_account: ~
-      personal_payment_preferences_link_text: ~
+      link_paypal_personal_account: "Wenn ja, dann musst Du auch Dein PayPal Konto mit %{personal_payment_preferences_link} verbinden."
+      personal_payment_preferences_link_text: "Deinem Konto"
       set_minimum_price_and_fee_completed: Abgeschlossen!
       read_more_about_paypal: "Mehr über das Shartetribe Zahlungssystem hier lesen."
       set_minimum_price_and_fee: "2. Setze Mindestpreis und Transaktionsgebühr fest"
@@ -1718,16 +1718,16 @@ de:
   paypal_accounts:
     payout_info_title: Auszahlungsinformationen
     paypal_account_email_connected: "<del>Verknüpfung PayPal Konto</del> Abgeschlossen!"
-    payout_info_paypal: ~
+    payout_info_paypal: "%{service_name} nutzt PayPal als Zahlungsdienstleister. Ein %{create_paypal_account_link} ist nötig, um Zahlungen für Deine Angebote annehmen zu können. Dieser muss mit %{service_name} verbunden sein."
     paypal_billing_agreement_made: "<del>Gewähre %{service_name} die Erlaubnis, eine Transaktionsgebühr zu berechnen</del> Abgeschlossen!"
-    commission_permission_needed: ~
-    create_paypal_account_link_text: ~
+    commission_permission_needed: "Du musst %{service_name} außerdem die Erlaubnis erteilen, eine Buchungsgebühr zu erheben."
+    create_paypal_account_link_text: "PayPal Konto"
     connected_account: "PayPal Konto '%{email}' erfolgreich verknüpft."
-    paypal_receive_funds_info_label: ~
-    paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: ~
-    admin_account_not_connected: ~
-    contact_admin_link_text: ~
+    paypal_receive_funds_info_label: "Dein PayPal Konto muss Zahlungen empfangen können. Dafür ist u.U. ein PayPal Geschäftskonto erforderlich."
+    paypal_receive_funds_info: "Wenn Du einen Fehler beim Versuch siehst, Dein PayPal Konto mit %{service_name} zu verbinden, solltest Du %{upgrade_paypal_account_link}. Das ist kostenlos und einfach. Wenn Du ein Einzelunternehmer bist, empfiehlt PayPal einfach Deinen Namen als Geschäftsnamen zu verwenden."
+    upgrade_paypal_account_link_text: "Dich anmelden und auf ein Geschäftskonto umstellen"
+    admin_account_not_connected: "Die Nutzung des Zahlungssystem von %{service_name} zum Empfang von Zahlungen ist nicht möglich, da es noch nicht konfiguriert wurde. Bitte %{contact_admin_link} für Details."
+    contact_admin_link_text: "kontaktiere den Administrator"
     you_are_ready_to_accept_payments: "Du bist bereit, Zahlungen entgegenzunehmen!"
     commission: "%{commission} %"
     new:
@@ -1741,16 +1741,16 @@ de:
       create_paypal_account: hier
       upgrade_paypal_account: "Upgrade deinen PayPal Konto hier."
       paypal_account_billing_agreement: "Erteile dem Webservice %{service_name} die Erlaubnis eine Transaktionsgebühr zu berechnen."
-      follow_steps: ~
-      connect_paypal_account_title: ~
-      connect_paypal_account_title_with_step: ~
-      connect_paypal_account_instructions: ~
+      follow_steps: "Folge den unten stehenden Schritten, um Geld einnehmen zu können:"
+      connect_paypal_account_title: "Verbinde Dein PayPal Konto"
+      connect_paypal_account_title_with_step: "Schritt %{current_step}/%{total_steps}: Verbinde Dein PayPal Konto"
+      connect_paypal_account_instructions: "Klicke auf die Schaltfläche unten, um Dich bei Paypal einzuloggen und Dein PayPal Konto mit %{service_name} zu verbinden."
       connect_paypal_account: "Verbinde deinen PayPal Account"
-      paypal_account_billing_agreement_with_step: ~
+      paypal_account_billing_agreement_with_step: "Schritt %{current_step}/%{total_steps}: Erteile die Erlaubnis, eine Buchungsgebühr zu erheben"
       paypal_account_billing_agreement_info_both: "Nachdem Sie etwas auf %{service_name} verkauft haben, wird eine Servicegebühr (%{commission_from_seller} des Gesamtpreises, ohne Versandkosten, Mindestgebühr %{minimum_commission}) von Ihrem PayPal-Konto abgebucht. Um Zahlungen in %{service_name} zu akzeptieren, musst Du die Erlaubnis gewähren, diese Gebühr zu erheben. Die Gebühr umfasst nicht die %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Nachdem Sie etwas auf %{service_name} verkauft haben, wird eine Servicegebühr von %{minimum_commission} des Gesamtpreises von Ihrem PayPal-Konto abgebucht. Um Zahlungen in %{service_name} zu akzeptieren, musst Du die Erlaubnis gewähren, diese Gebühr zu erheben. Die Gebühr umfasst nicht die %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Nachdem Sie etwas auf %{service_name} verkauft haben, wird eine Servicegebühr (%{commission_from_seller} des Gesamtpreises, ohne Versandkosten) von Ihrem PayPal-Konto abgebucht. Um Zahlungen in %{service_name} zu akzeptieren, musst Du die Erlaubnis gewähren, diese Gebühr zu erheben. Die Gebühr umfasst nicht die %{paypal_info_link}"
-      paypal_account_billing_agreement_info_none: ~
+      paypal_account_billing_agreement_info_none: "%{service_name} erhebt derzeit keine Buchungsgebühr. Wenn Buchungsgebühren aktiviert werden sollten, wird es nötig sein, dass Du %{service_name} die Erlaubnis zur Erhebung einer solchen Gebühr erteilst, um Zahlungen empfangen zu können. Die Buchungsgebühr enthält nicht %{paypal_info_link}."
       paypal_info_link_text: "PayPal's payment processing fee"
       billing_agreement_description: "Gewähre %{service_name} die Erlaubnis, eine Transaktionsgebühr zu berechnen."
       billing_agreement: "Erteile die Erlaubnis"
@@ -1763,17 +1763,17 @@ de:
       something_went_wrong: "Da lief was falsch. Bitte versuche es erneut. Wenn das Problem weiterhin besteht, kontaktiere bitte den Website-Administrator."
       account_not_verified: "Du hast Dein PayPal-Konto nicht verifiziert. Du musst Dein Konto bei paypal.com überprüfen und betätigen, bevor Du fortfahren kannst."
       account_restricted: "Dein PayPal-Konto ist eingeschränkt und kann nicht verbunden werden. Bitte logge Dich bei paypal.com ein, um mehr darüber zu erfahren, was das bedeutet oder nimm Kontakt mit dem PayPal Kundendienstauf, um das Problem zu lösen."
-    paypal_account_connected_title: ~
-    paypal_account_connected: ~
+    paypal_account_connected_title: "PayPal Konto verbunden"
+    paypal_account_connected: "Das PayPal Konto <%{email}> wurde mit %{service_name} verbunden."
     change_account: "Konto ändern"
     missing: "Du hast offene Angebote, aber weil du dein PayPal-Konto nicht eingebunden hast, kannst du keine Zahlungen erhalten. Bitte verknüpfe Dein PayPal Konto in deinen %{settings_link}"
     from_your_payment_settings_link_text: Zahlungseinstellungen
     redirect_message: "Weiterleitung zu Paypal. Wenn nichts passiert, bitte diesen Link anklicken: %{redirect_link}"
     redirect_link_text: hier
-    paypal_account_all_set_up: ~
-    can_receive_payments: ~
-    paypal_account_connected_summary: ~
-    paypal_permission_granted_summary: ~
+    paypal_account_all_set_up: "Super! Alles ist fertig eingerichtet!"
+    can_receive_payments: "Du kannst jetzt Zahlungen für Deine Angebote empfangen."
+    paypal_account_connected_summary: "PayPal Konto <%{email}> erfolgreich verbunden"
+    paypal_permission_granted_summary: "Erlaubnis für Buchungsgebühren erteilt"
   paypal:
     pay_with_paypal: "Weiter zur Zahlung"
     checkout_with_paypal: "Mit PayPal bezahlen"
