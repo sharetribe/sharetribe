@@ -57,18 +57,22 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def order
-    sort_priorities = params[:order].each_with_index.map do |category_id, index|
+    sort_priorities = params[:order]
+                      .reject { |o| !o.match /[0-9]+/} #Guard against sql injection
+                      .each_with_index
+                      .map do |category_id, index|
       [category_id, index]
     end.inject({}) do |hash, ids|
       category_id, sort_priority = ids
       hash.merge(category_id.to_i => sort_priority)
     end
 
-    @current_community.categories.select do |category|
-      sort_priorities.has_key?(category.id)
-    end.each do |category|
-      category.update_attributes(:sort_priority => sort_priorities[category.id])
-    end
+    #Guard against updates to wrong communities
+    category_ids = @current_community.categories.pluck(:id)
+    to_update = sort_priorities.select { |id, _| category_ids.include?(id) }
+
+    # Optimize for marketplaces with large number of categories to sort
+    ActiveRecord::Base.connection.execute(order_sql(to_update))
 
     render nothing: true, status: 200
   end
@@ -105,6 +109,29 @@ class Admin::CategoriesController < ApplicationController
   end
 
   private
+
+  ##
+  # Builds the following for category ids and corresponding priorities:
+  # UPDATE categories
+  #    SET sort_priority = CASE id
+  #                          WHEN 1 THEN 0
+  #                          WHEN 2 THEN 1
+  #                            .
+  #                            .
+  #                            .
+  #                       END
+  #  WHERE id IN(1, 2, ...);
+  ##
+  def order_sql(sort_priorities)
+    base = "UPDATE categories
+              SET sort_priority = CASE id\n"
+
+    update_statements = sort_priorities.reduce(base) do |sql, (cat_id, priority)|
+      sql + "WHEN #{cat_id} THEN #{priority}\n"
+    end
+
+    update_statements + "END\n WHERE id IN (#{sort_priorities.keys.join(",")});"
+  end
 
   def update_category_listing_shapes(shape_ids, category)
     shapes = ListingService::API::Api.shapes.get(community_id: @current_community.id)[:data]
