@@ -786,7 +786,7 @@ ro:
       join_community_button: ~
   emails:
     accept_reminder:
-      remember_to_accept_offer: ~
+      remember_to_accept_offer: "Nu uita sa accepti sau sa respingi oferta de la %{sender_name}"
       remember_to_accept_request: "Amintește-ți să accepți sau să refuzi cererea de la %{sender_name}."
       you_can_accept_or_reject_offer_at: "Poți accepta sau refuza oferta la"
       you_can_accept_or_reject_request_at: "Poți accepta sau refuza oferta la"
@@ -879,13 +879,13 @@ ro:
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
-      you_have_a_new_comment: ~
+      you_have_a_new_comment: "%{author} a comentat la anuntul tau listat in %{service_name}"
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} ti-a trimis un mesaj in %{service_name}"
+      you_have_a_new_message: "Un nou mesaj in %{service_name} de la %{sender_name}"
     new_payment:
       new_payment: ~
       price_per_unit_type: ~
@@ -913,8 +913,8 @@ ro:
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: ~
-      you_can_give_feedback_to: ~
+      has_given_you_feedback_in_kassi: "%{name} si-a lasat parerea despre tine in %{service_name}"
+      you_can_give_feedback_to: "Inca nu ti-ai spus parerea despre %{name}"
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
@@ -941,8 +941,8 @@ ro:
       change_my_password: ~
       reset_password_instructions: ~
     testimonial_reminder:
-      remember_to_give_feedback_to: ~
-      you_have_not_given_feedback_yet: ~
+      remember_to_give_feedback_to: "Memento: nu uita sa-ti spui parerea despre %{name}"
+      you_have_not_given_feedback_yet: "Inca nu ti-ai spus parerea despre %{name} cu privire la %{event}. Nu uita sa lasi feedback despre modul in care %{given_name} a colaborat in tranzactie."
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -983,14 +983,14 @@ ro:
       view_listing: ~
   error_messages:
     listings:
-      departure_time: ~
-      share_type: ~
-      valid_until: ~
+      departure_time: "Timpul de plecare trebuie sa fie intre timpul actual si un an de acum incolo."
+      share_type: "Trebuie sa faci o selectie."
+      valid_until: "Data indicata trebuie sa fie intre acum si 6 luni de acum."
       price: ~
       minimum_price: ~
     testimonials:
-      you_must_explain_not_neutral_feedback: ~
-      you_must_select_a_grade: ~
+      you_must_explain_not_neutral_feedback: "Daca vrei sa lasi o parere non-neutra, trebuie sa explici de ce."
+      you_must_select_a_grade: "Nu uita sa precizezi daca experienta ta a fost una pozitiva sau negativa."
     transaction_agreement:
       required_error: ~
     paypal:
@@ -1001,12 +1001,12 @@ ro:
       accept_authorization_error: ~
       reject_authorization_error: ~
   error_pages:
-    back_to_kassi_front_page: ~
+    back_to_kassi_front_page: "Inapoi la pagina principala"
     error_404:
-      if_you_believe: ~
-      page_can_not_be_found: ~
-      page_you_requested_can_not_be_found: ~
-    error_404_title: ~
+      if_you_believe: "Daca crezi ca adresa este corecta si ar trebui sa functioneze, te rog sa ne ajuti sa localizam eroarea indicandu-ne care adresa a cauzat eroarea si ce ar putea fi vazut pe pagina cu formularul de mai jos."
+      page_can_not_be_found: "Pagina nu a putut fi gasita!"
+      page_you_requested_can_not_be_found: "Pagina pe care ati solicitat-o nu exista. Sigur ati scris adresa corect?"
+    error_404_title: "pagina inexistenta"
     error_410:
       page_removed: ~
       page_you_requested_has_been_removed: ~
@@ -1017,11 +1017,11 @@ ro:
       unable_to_process: ~
       we_hate_this: ~
       refer_to_error_id: ~
-    error_500_title: ~
-    error_description: "S-a produs o eroare"
+    error_500_title: "incarcarea paginii nu a reusit"
+    error_description: "Descrierea erorii"
     no_javascript:
-      javascript_is_disabled_in_your_browser: ~
-      kassi_does_not_currently_work_without_javascript: ~
+      javascript_is_disabled_in_your_browser: "JavaScript este dezactivat pentru browserul tau."
+      kassi_does_not_currently_work_without_javascript: "%{service_name} nu functioneaza corect fara JavaScript. Te rog sa activezi JavaScript din setarile browserului si apoi reincarca aceasta pagina."
       contact_us: ~
       send_feedback: "Trimite feedback"
       your_feedback_to_admins: "Feedback-ul tau pentru administratori"
@@ -1071,7 +1071,7 @@ ro:
     mobile_version: "Versiune pentru mobil"
     offers: Oferte
     requests: Cereri
-    search_kassi: ~
+    search_kassi: "Cauta %{service_name}"
     create_new_marketplace: ~
     contact_us: ~
     profile: ~
@@ -1081,36 +1081,36 @@ ro:
     menu: ~
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: ~
-      additionally_one_private_request_exists: ~
-      additionally_some_private_offers_exist: ~
-      additionally_some_private_requests_exist: ~
+      additionally_one_private_offer_exists: "In plus, mai exista <b>o inca alta oferta</b>,"
+      additionally_one_private_request_exists: "In plus, mai exista <b>o inca alta oferta</b>,"
+      additionally_some_private_offers_exist: "In plus, mai exista <b>%{number_of_listings} alte oferte</b>,"
+      additionally_some_private_requests_exist: "In plus, mai exista <b>%{number_of_listings} alte solicitari</b>,"
     blank_slate:
-      add_first: ~
-      but_that_is_visible_only_to_registered_members: ~
-      but_those_are_visible_only_to_registered_members: ~
-      create_new_account_for_yourself: ~
-      examples_of_what_you_could_offer_to_others: ~
-      examples_of_what_you_could_request_to_others: ~
-      favor_offer_list: ~
-      favor_request_list: ~
+      add_first: Adauga!
+      but_that_is_visible_only_to_registered_members: "dar vizibilitatea e activata numai pentru utilizatorii inregistrati."
+      but_those_are_visible_only_to_registered_members: "dar vizibilitatea e activata numai pentru utilizatorii inregistrati."
+      create_new_account_for_yourself: "Creati-va un nou cont"
+      examples_of_what_you_could_offer_to_others: "Ce ai putea sa oferi altora"
+      examples_of_what_you_could_request_to_others: "Ce ai putea sa soliciti altora"
+      favor_offer_list: "asistenta cu calculatorul, servicii de croitorie, gătit, reparatii de biciclete"
+      favor_request_list: "babysitting, lectii de pian, plimbat caini, tuns iarba"
       favors_to_offer: "Ajutor: "
       favors_to_request: "Ajutor: "
-      item_offer_list: ~
-      item_request_list: ~
+      item_offer_list: "unelte, articole sportive, costume, echipament de camping"
+      item_request_list: "unelte, articole sportive, costume, echipament de camping"
       items_to_offer: "Bunuri de inchiriat: "
       items_to_request: "Bunuri de imprumutat: "
       log_in: conecteaza-te!
-      no_offers_visible_unless_logged_in: ~
-      no_open_offers_currently: ~
-      no_open_requests_currently: ~
-      no_requests_visible_unless_logged_in: ~
-      one_private_offer_exists: ~
-      one_private_request_exists: ~
-      ride_offer: ~
+      no_offers_visible_unless_logged_in: "Bunuri, servicii sau oferte de car-sharing nu sunt vizibile utilizatorilor neconectati in cont."
+      no_open_offers_currently: "Niciun bun disponibil, servicii sau oferte de car-sharing."
+      no_open_requests_currently: "Niciun bun disponibil, servicii sau oferte de car-sharing."
+      no_requests_visible_unless_logged_in: "Bunuri, servicii sau oferte de car-sharing nu sunt vizibile utilizatorilor neconectati in cont."
+      one_private_offer_exists: "Exista deja <b>o oferta</b>,"
+      one_private_request_exists: "Exista deja <b>o solicitare</b>,"
+      ride_offer: "Insoteste copii la activitatile lor preferate"
       ride_request: "O cursa pana la munca"
-      some_private_offers_exist: ~
-      some_private_requests_exist: ~
+      some_private_offers_exist: "Exista deja <b>%{number_of_listings} oferte</b>,"
+      some_private_requests_exist: "Exista deja <b>%{number_of_listings} solicitari</b>,"
     custom_filters:
       update_view: ~
       min: ~
@@ -1132,18 +1132,18 @@ ro:
       post_new_listing: ~
       are_offering: oferta
       add_news_item: ~
-      lend_rent_help_carpool: ~
-      loading_more_content: ~
+      lend_rent_help_carpool: "Vinde, imprumuta, ajuta, partajeaza calatoriile cu masina"
+      loading_more_content: "Se incarca mai mult continut"
       more_events: "Mai multe evenimente..."
       news: Stiri
       no_news: ~
       more_news: ~
       or: sau
-      or_see_what_the_others: ~
+      or_see_what_the_others: "...sau vezi ceea ce altii"
       recent_events: "Evenimente recente"
       requesting: ~
       tell_it_here: "Spune aici!"
-      welcome_to_new_kassi: ~
+      welcome_to_new_kassi: "Bine ai venit un nou %{service_name}"
       no_reviews: ~
       no_image: ~
       filter: ~
@@ -1195,7 +1195,7 @@ ro:
       default_content: ~
   layouts:
     admin:
-      admin: ~
+      admin: "%{service_name} panou de administrare"
     no_tribe:
       inbox: ~
       settings: ~
@@ -1203,15 +1203,15 @@ ro:
     application:
       join_this_community: ~
       read_more: ~
-      feedback: ~
-      default_feedback: ~
-      feedback_forum: "Forum de feedback"
-      feedback_handle: ~
+      feedback: "Ce doresti sa ne transmiti?"
+      default_feedback: "Ai intampinat o problema cu %{service_name}? Ai o sugestie pentru imbunatatirea serviciului? Ai observat continut suspect? Sau doresti sa discuti cu noi? Da-ne de veste!"
+      feedback_forum: "Forum de sugestii"
+      feedback_handle: Sugestii
       give_feedback: Contacteaza-ne
       or_check_our: "...sau verifica a noastra"
-      send_feedback_to_admin: "Trimite feedback"
-      to_see_what_others_have_suggested: ~
-      your_email_address: ~
+      send_feedback_to_admin: "Trimite sugestii"
+      to_see_what_others_have_suggested: "pentru a vedea ceea ce altii au sugerat si pentru a vota acele idei."
+      your_email_address: "Adresa ta e-mail (pentru a te contacta)"
       connect: ~
       invite_your_friends: ~
       invite_your_neighbors: ~
@@ -1231,8 +1231,8 @@ ro:
       how_to_use: "Cum să folosești Kassi"
       info_about_kassi: "Informații despre Kassi"
       news: ~
-      register_details: ~
-      terms: ~
+      register_details: Confidentialitate
+      terms: "Termeni de utilizare"
     logged_in:
       admin: Admin
       go_to_your_profile_page: Profil
@@ -1241,7 +1241,7 @@ ro:
       logout: Deconectează-te
       notifications: Notificări
       requests: "Cereri prietenie"
-      settings: ~
+      settings: Setari
       sign_up: "Creează cont"
     logged_in_messages_icon:
       messages: Mesaje
@@ -1266,31 +1266,31 @@ ro:
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
-      comment_cannot_be_empty: ~
+      comment_cannot_be_empty: "Comentariul nu poate fi fara continut."
       comment_sent: "Comentariu trimis"
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
       create_new_listing: ~
-      create_one_here: ~
+      create_one_here: "creaza aici"
       email_confirmation_sent_to_new_address: ~
-      email_not_found: ~
-      error_with_session: ~
-      feedback_considered_spam: ~
-      feedback_not_saved: ~
-      feedback_saved: ~
+      email_not_found: "Emailul pe care l-ai indicat nu a fost gasit in baza de date de la %{service_name}"
+      error_with_session: "Eroare in aceasta sesiune."
+      feedback_considered_spam: "Sugestia nu a fost salvata din pricina formatarii. Incearca din nou sau foloseste forumul de sugestii."
+      feedback_not_saved: "Sugestia nu a putut fi trimisa."
+      feedback_saved: "Multumim mult pentru sugestie! Vom raspunde in cel mai scurt timp posibil!"
       feedback_sent_to: "Feedback trimis lui %{target_person}"
-      feedback_skipped: ~
+      feedback_skipped: "Sugestia a fost omisa"
       invitation_cannot_be_sent: ~
       invitation_limit_reached: ~
       invitation_sent: ~
       inviting_new_users_is_not_allowed_in_this_community: ~
-      login_again: ~
-      login_failed: ~
+      login_again: "Te rog, conecteaza-te din nou."
+      login_failed: "Conectarea nu a reusit. Te rog, introdu datele corecte."
       account_creation_successful: ~
       account_deleted: ~
       login_successful: "Bine ai venit, %{person_name}!"
-      logout_successful: ~
+      logout_successful: "Esti deconectat(a) din %{service_name}. Larevedere!"
       news_item_created: ~
       news_item_creation_failed: ~
       news_item_update_failed: ~
@@ -1303,18 +1303,18 @@ ro:
       offer_rejected: "Oferta respinsa"
       offer_canceled: ~
       listing_updated_successfully: ~
-      only_kassi_administrators_can_access_this_area: ~
-      only_listing_author_can_close_a_listing: ~
-      only_listing_author_can_edit_a_listing: ~
+      only_kassi_administrators_can_access_this_area: "Numai administratorii %{service_name} pot accesa aceasta zona."
+      only_listing_author_can_close_a_listing: "Numai autorul anuntului poate sa inchida acest anunt"
+      only_listing_author_can_edit_a_listing: "Numai autorul anuntului poate edita un anunt"
       payment_successful: ~
       payment_canceled: ~
       error_in_payment: ~
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
-      password_recovery_sent: ~
+      password_recovery_sent: "Instructiunile de schimbare a parolei v-au fost trimise prin e-mail."
       person_activated: ~
       person_deactivated: ~
-      person_updated_successfully: ~
+      person_updated_successfully: "Informatie actualizata"
       poll_answered: ~
       poll_could_not_be_answered: ~
       poll_created: ~
@@ -1326,14 +1326,14 @@ ro:
       registration_considered_spam: ~
       reply_cannot_be_empty: "Nu poti citi un mesaj gol"
       reply_sent: "Raspuns trimis cu succes"
-      request_accepted: ~
+      request_accepted: "Cerere acceptata"
       request_confirmed: ~
-      request_closed: ~
-      request_rejected: ~
+      request_closed: "Cerere inchisa."
+      request_rejected: "Cerere respinsa."
       request_canceled: ~
       message_sent: ~
       this_content_is_not_available_in_this_community: ~
-      unknown_error: ~
+      unknown_error: "Eroare necunoscuta. Utilizati pagina \"Contactati-ne\" pentru a trimite detaliile despre ceea ce s-a intamplat."
       update_error: ~
       you_are_not_allowed_to_give_feedback_on_this_transaction: ~
       you_are_not_authorized_to_do_this: ~

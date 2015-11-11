@@ -1,7 +1,7 @@
 bg:
   errors:
     messages:
-      expired: ~
+      expired: "изтече, моля изискайте нова"
       not_found: "не е открито"
       already_confirmed: "беше потвърден(а), моля опитайте да се впишете"
       not_locked: "не е заключена"
@@ -16,17 +16,17 @@ bg:
       timeout: "Сесията ви изтече, моля впишете се отново, за да продължите."
       inactive: "Акаунтът все още не е активиран."
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: ~
+      updated_not_active: "Паролата е променена успешно."
+      send_paranoid_instructions: "Вашата електронна поща съществува в нашата база данни, ще получите писмо с връзка за възстановяване на паролата."
+      send_instructions: "Ще получите електронно писмо с инструкции как да изискате нова парола."
+      updated: "Паролата е променена успешно. Сега сте вписани."
     sessions:
       signed_in: "Вписахте се успешно."
       signed_out: "Отписахте се успешно."
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_paranoid_instructions: "Вашата електронна поща съществува в нашата база данни, след няколко минути ще получите ел. писмо съдържащо инструкции как да потвърдите акаунта си."
+      send_instructions: "След няколко минути ще получите ел. писмо съдържащо инструкции как да потвърдите акаунта си."
+      confirmed: "Акаунтът е потвърден. Сега сте вписани."
     registrations:
       signed_up_but_unconfirmed: ~
       signed_up_but_inactive: ~
@@ -36,7 +36,7 @@ bg:
         unconfirmed: ~
         locked: ~
       update_needs_confirmation: ~
-      signed_up: ~
+      signed_up: "Добре Дошли! Сега сте вписани."
       updated: ~
       destroyed: ~
     unlocks:
