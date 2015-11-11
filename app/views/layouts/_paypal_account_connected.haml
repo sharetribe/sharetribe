@@ -1,0 +1,18 @@
+.row
+  .col-12
+    %h3.paypal-account-connected
+      =icon_tag("check", ["icon-fix"])
+      =t("paypal_accounts.paypal_account_connected_title")
+.row
+  .col-12
+    .paypal-connected-email.paypal-account-connected
+      =t("paypal_accounts.paypal_account_connected", :email => paypal_account_email)
+.row.paypal-link-wrapper
+  .col-12
+    %a.paypal-change-link#ask_paypal_permissions
+      =t("paypal_accounts.change_account")
+.row.js-paypal-redirect-order-permission.hidden
+  .col-12
+    .paypal-redirect-message
+      - paypal_redirect_link = "<a href='#' id='ask_paypal_permissions_redirect'>#{t("paypal_accounts.redirect_link_text")}</a>"
+      =t("paypal_accounts.redirect_message", redirect_link: paypal_redirect_link).html_safe

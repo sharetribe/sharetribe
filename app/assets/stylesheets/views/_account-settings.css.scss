@@ -1,7 +1,5 @@
 @import "mixins/all";
 
-$success-green: #19b400;
-
 /*
   ----------------
   Person settings
@@ -192,12 +190,6 @@ $success-green: #19b400;
   }
 }
 
-.paypal-account-connected,
-.paypal-preferences-valid,
-.paypal-billing-agreement-made {
-  color: $success-green;
-}
-
 .alert-text-container {
   position: relative;
   margin-top: lines(0.25);
@@ -240,20 +232,6 @@ $success-green: #19b400;
 
 .paypal-change-link {
   cursor: pointer;
-}
-
-.paypal-success-mark {
-  color: $success-green;
-}
-
-.paypal-link-wrapper {
-  & .send-button-loading-img {
-    width: lines(0.75);
-    height: lines(0.75);
-    margin: 0 lines(0.5);
-    top: 3px;
-    position: relative;
-  }
 }
 
 .paypal-first-steps-list {
