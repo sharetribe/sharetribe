@@ -81,7 +81,7 @@ module PlanService::API
               id: :marketplace_plan_id,
               community_id: :marketplace_id
             }, trial_data))
-        }
+        }.or_else(nil)
 
         payload = {
           marketplace: marketplace,
