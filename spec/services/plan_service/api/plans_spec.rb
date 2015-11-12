@@ -105,6 +105,43 @@ describe PlanService::API::Plans do
       end
     end
 
+    describe "#get_external_service_link" do
+
+      it "creates a link to external service with initial trial" do
+        # First, create initial trial plan
+        plans_api.create_initial_trial(community_id: 123, plan: {})
+
+        link_res = plans_api.get_external_service_link(
+          id: 123,
+          ident: "marketplace",
+          domain: "www.marketplace.com",
+          marketplace_default_name: "Marketplace"
+        )
+
+        expect(link_res.success).to eq(true)
+        expect(link_res.data.present?).to eq(true)
+        expect(link_res.data).to be_a(String)
+
+        # Improvement idea: decode the token and verify the correct data
+      end
+
+      it "creates a link to external service without initial trial" do
+        link_res = plans_api.get_external_service_link(
+          id: 123,
+          ident: "marketplace",
+          domain: "www.marketplace.com",
+          marketplace_default_name: "Marketplace"
+        )
+
+        expect(link_res.success).to eq(true)
+        expect(link_res.data.present?).to eq(true)
+        expect(link_res.data).to be_a(String)
+
+        # Improvement idea: decode the token and verify the correct data
+      end
+
+    end
+
     describe "#expired?" do
       it "returns false if plan never expires" do
         plan = plans_api.create(

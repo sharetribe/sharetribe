@@ -40,7 +40,8 @@ module PlanService::API
     def self.default_test_environment()
       {
         active: true,
-        jwt_secret: "test_secret"
+        jwt_secret: "test_secret",
+        external_plan_service_login_url: "http://external.plan.service.com",
       }
     end
 
