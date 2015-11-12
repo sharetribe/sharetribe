@@ -28,28 +28,28 @@ bg:
       send_instructions: "След няколко минути ще получите ел. писмо съдържащо инструкции как да потвърдите акаунта си."
       confirmed: "Акаунтът е потвърден. Сега сте вписани."
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "Съобщение с връзка за потвърждение беше изпратено на Вашата електронна поща. Моля отворете връзката и активирайте профила си."
+      signed_up_but_inactive: "Регистрирахте се успешно. Ако е включена опцията за потвърждаване ще получите ел. писмо с инструкции."
+      signed_up_but_locked: "Включихте се успешно. За съжаление акаунта Ви е заключен."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
+        inactive: неактивен
+        unconfirmed: непотвърден
+        locked: заключен
+      update_needs_confirmation: "Обновихте успешно акаунта си, но е необходимо да потвърдите новият си ел. адрес. Моля, проверете си електронната поща."
       signed_up: "Добре Дошли! Сега сте вписани."
-      updated: ~
-      destroyed: ~
+      updated: "Обновихте успешно акаунта си."
+      destroyed: "Довиждане! Акаунтът Ви е изтрит успешно. Надяваме се да се видим отново."
     unlocks:
       send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_instructions: "След няколко минути ще получите ел. писмо съдържащо инструкции как да отключите акаунта си."
+      unlocked: "Акаунта Ви е отключен.Моля впишете се отново, за да продължите."
     omniauth_callbacks:
       success: ~
       failure: ~
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "Инструкции за потвърждение"
       reset_password_instructions:
-        subject: ~
+        subject: "Инструкции за анулиране на паролата"
       unlock_instructions:
-        subject: ~
+        subject: "Инструкции за отключване"

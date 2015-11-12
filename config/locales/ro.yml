@@ -1612,9 +1612,9 @@ ro:
       share_types_offer: ~
       share_types_request: ~
       tags: ~
-      time: ~
-      times: ~
-      times_viewed: ~
+      time: data
+      times: ori
+      times_viewed: Vizualizat
       processing_uploaded_image: ~
       price_excludes_vat: ~
       listing_created_at: ~
@@ -1649,26 +1649,26 @@ ro:
       read_more: ~
   mapview:
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
-    please_comment: ~
+      all_categories: "Toate categoriile"
+      all_offer_types: "Toate tipurile de oferte"
+      all_request_types: "Toate tipurile de solicitari"
+      category: Categorie
+      did_not_found_what_you_were_looking_for: "Ai gasit ceea ce cautai?"
+      favors: Servicii
+      housing: Spatii
+      items: Itemi
+      list_view: "Vezi listă"
+      map_view: "Afiseaza pe harta"
+      offer_something: "Spune-le si altora!"
+      offer_type: "Tip de oferta"
+      offers: Oferte
+      request_something: "Solicita ceva!"
+      request_type: "Tip de cerere"
+      requests: Cereri
+      rideshare: Rideshare
+      search_verb: Cauta
+      you_have_something_others_do_not: "Ai ceva de oferit?"
+    please_comment: Comenteaza
   mercury:
     content_too_long: ~
   okl:
@@ -1767,17 +1767,17 @@ ro:
       activate: ~
       deactivate: ~
     help_texts:
-      feedback_description_title: ~
-      help_captcha_title: ~
+      feedback_description_title: Sugestii
+      help_captcha_title: "Esti o persoana reala?"
       help_invitation_code_title: ~
-      terms_title: ~
+      terms_title: "termeni de utilizare pentru %{service_name}"
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
     new:
-      captcha_incorrect: ~
+      captcha_incorrect: "Verificarea codului reCAPTCHA a esuat. Te rog, scrie cuvintele din imaginea de mai jos."
       captcha_was_wrong: ~
       create_new_account: ~
       email: ~
