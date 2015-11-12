@@ -25,7 +25,7 @@ module PlanService::API
     def self.build_configuration()
       Configuration.call(
         active: APP_CONFIG.external_plan_service_in_use,
-        external_plan_service_url: APP_CONFIG.external_plan_service_url,
+        external_plan_service_login_url: APP_CONFIG.external_plan_service_login_url,
         jwt_secret: APP_CONFIG.external_plan_service_secret
       )
     end
