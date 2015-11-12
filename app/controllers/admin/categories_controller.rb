@@ -4,7 +4,7 @@ class Admin::CategoriesController < ApplicationController
 
   def index
     @selected_left_navi_link = "listing_categories"
-    @categories = @current_community.top_level_categories.includes(:children)
+    @categories = @current_community.top_level_categories.includes(:translations, children: :translations)
   end
 
   def new
