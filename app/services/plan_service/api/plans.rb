@@ -71,8 +71,7 @@ module PlanService::API
     end
 
     def get_external_service_link(marketplace_data)
-      Maybe(@external_plan_service_login_url)
-        .map { |external_plan_service_login_url|
+      Maybe(@external_plan_service_login_url).map { |external_plan_service_login_url|
         marketplace = LoginLinkMarketplaceData.call(marketplace_data)
 
         trial_hash = Maybe(PlanStore.get_initial_trial(community_id: marketplace[:id])).map { |trial_data|
