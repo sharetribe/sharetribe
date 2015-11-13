@@ -69,7 +69,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
         redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
       else
         flash[:error] = t("error_messages.paypal.generic_error")
-        warn("Unhandled PayPal error response. Showing genering error to user.", :paypal_unhandled_error, response_data)
+        warn("Unhandled PayPal error response. Showing generic error to user.", :paypal_unhandled_error, response_data)
         redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
       end
     end
