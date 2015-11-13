@@ -60,11 +60,16 @@ class PaypalService::CheckoutOrdersController < ApplicationController
                                                                       class: "flash-error-link"))
                         .html_safe
         redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
+
+      elsif response_data[:paypal_error_code] == "10425"
+        flash[:error] = t("error_messages.paypal.seller_express_checkout_disabled")
+        redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
       elsif response_data[:error_code] == :"payment-review"
         flash[:warning] = t("error_messages.paypal.pending_review_error")
         redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
       else
         flash[:error] = t("error_messages.paypal.generic_error")
+        warn("Unhandled PayPal error response. Showing generic error to user.", :paypal_unhandled_error, response_data)
         redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
       end
     end
