@@ -12,9 +12,10 @@ module PaypalCountryHelper
     "br"      => "https://www.paypal.com/br/webapps/mpp/paypal-fees",
     "fr"      => "https://www.paypal.com/fr/webapps/mpp/paypal-fees",
     "au"      => "https://www.paypal.com/au/webapps/mpp/paypal-seller-fees",
-
-    "default" => "https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside",
   }
+
+  FEE_URL.default = "https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside",
+
 
   POPUP_URL = {
     # List all the contries that have the popup URL available
@@ -26,9 +27,9 @@ module PaypalCountryHelper
     # List all the countries that should use the home URL, because popup is not available
     # (and default English popup is not good)
     "br"      => "https://www.paypal.com/br/webapps/mpp/home",
-
-    "default" => "https://www.paypal.com/webapps/mpp/paypal-popup",
   }
+
+  POPUP_URL.default => "https://www.paypal.com/webapps/mpp/paypal-popup",
 
   CREATE_ACCOUNT_URL = {
     "au"      => "https://www.paypal.com/au/webapps/mpp/account-selection",
@@ -67,7 +68,7 @@ module PaypalCountryHelper
     Maybe(key).map { |k|
       hash[k.to_s.downcase]
     }.or_else {
-      hash["default"]
+      hash.default
     }
   end
 
