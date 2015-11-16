@@ -70,7 +70,7 @@ module CommunityStylesheetCompiler
 
       with_customizations_prioritized = Community.with_customizations.order("members_count DESC")
 
-      puts "Genarete custom CSS for #{with_customizations_prioritized.count} communities"
+      puts "Generate custom CSS for #{with_customizations_prioritized.count} communities"
       with_customizations_prioritized.each &block
     end
 
