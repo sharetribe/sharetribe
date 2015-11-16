@@ -115,6 +115,11 @@ Kassi::Application.routes.draw do
 
     namespace :admin do
 
+      get  "/paypal_preferences"                      => "paypal_preferences#index"
+      post "/paypal_preferences/preferences_update"   => "paypal_preferences#preferences_update"
+      get  "/paypal_preferences/account_create"       => "paypal_preferences#account_create"
+      get  "/paypal_preferences/permissions_verified" => "paypal_preferences#permissions_verified"
+
       resources :communities do
         member do
           get :getting_started, to: 'communities#getting_started'
@@ -153,11 +158,16 @@ Kassi::Application.routes.draw do
           end
         end
         resource :paypal_preferences, only: :index do
+
+          # DEPRECATED (2015-11-16)
+          # Do not add new routes here.
+          # See the above :paypal_preferences resource, outside of communities resource
+
           member do
-            get :index
-            post :preferences_update
-            get :account_create
-            get :permissions_verified
+            get :index,                to: redirect("/admin/paypal_preferences")
+            post :preferences_update   # POST request, no redirect
+            get :account_create,       to: redirect("/admin/paypal_preferences/account_create")
+            get :permissions_verified, to: redirect("/admin/paypal_preferences/permissions_verified")
           end
         end
       end

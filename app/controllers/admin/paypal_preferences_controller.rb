@@ -55,11 +55,11 @@ class Admin::PaypalPreferencesController < ApplicationController
 
     render("index", locals: {
         paypal_account_email: paypal_account[:email].or_else(nil),
-        order_permission_action: account_create_admin_community_paypal_preferences_path(@current_community.id),
+        order_permission_action: admin_paypal_preferences_account_create_path(),
         paypal_account_form: PaypalAccountForm.new,
         paypal_prefs_valid: paypal_prefs_form.valid?,
         paypal_prefs_form: paypal_prefs_form,
-        paypal_prefs_form_action: preferences_update_admin_community_paypal_preferences_path(@current_community.id),
+        paypal_prefs_form_action: admin_paypal_preferences_preferences_update_path(),
         min_commission: minimum_commission,
         min_commission_percentage: MIN_COMMISSION_PERCENTAGE,
         max_commission_percentage: MAX_COMMISSION_PERCENTAGE,
@@ -100,7 +100,7 @@ class Admin::PaypalPreferencesController < ApplicationController
       body: PaypalService::API::DataTypes.create_create_account_request(
       {
         community_id: @current_community.id,
-        callback_url: permissions_verified_admin_community_paypal_preferences_url,
+        callback_url: admin_paypal_preferences_permissions_verified_url,
         country: community_country_code
       }))
     permissions_url = response.data[:redirect_url]
