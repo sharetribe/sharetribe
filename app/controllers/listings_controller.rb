@@ -744,7 +744,7 @@ class ListingsController < ApplicationController
           t("listings.new.community_not_configured_for_payments_admin",
             payment_settings_link: view_context.link_to(
               t("listings.new.payment_settings_link"),
-              admin_community_paypal_preferences_path(community_id: community.id)))
+              admin_paypal_preferences_path()))
             .html_safe
         else
           t("listings.new.community_not_configured_for_payments",

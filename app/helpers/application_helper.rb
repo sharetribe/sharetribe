@@ -677,7 +677,7 @@ module ApplicationHelper
         :topic => :configure,
         :text => t("admin.communities.paypal_account.paypal_admin_account"),
         :icon_class => icon_class("payments"),
-        :path => admin_community_paypal_preferences_path(@current_community),
+        :path => admin_paypal_preferences_path(),
         :name => "paypal_account"
       }
     end
