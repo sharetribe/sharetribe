@@ -14,7 +14,7 @@ module PaypalCountryHelper
     "au"      => "https://www.paypal.com/au/webapps/mpp/paypal-seller-fees",
   }
 
-  FEE_URL.default = "https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside",
+  FEE_URL.default = "https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside"
 
 
   POPUP_URL = {
@@ -29,22 +29,23 @@ module PaypalCountryHelper
     "br"      => "https://www.paypal.com/br/webapps/mpp/home",
   }
 
-  POPUP_URL.default => "https://www.paypal.com/webapps/mpp/paypal-popup",
+  POPUP_URL.default = "https://www.paypal.com/webapps/mpp/paypal-popup"
+
 
   CREATE_ACCOUNT_URL = {
     "au"      => "https://www.paypal.com/au/webapps/mpp/account-selection",
-
-    "default" => "https://www.paypal.com/%{country_code}/webapps/mpp/home",
   }
+
+  CREATE_ACCOUNT_URL.default = "https://www.paypal.com/%{country_code}/webapps/mpp/home"
+
 
   RECEIVE_FUNDS_INFO_LABEL_TR_KEY = {
     "au"      => "paypal_accounts.paypal_receive_funds_info_label_australia_only",
-
-    "default" => "paypal_accounts.paypal_receive_funds_info_label",
   }
 
-  module_function
+  RECEIVE_FUNDS_INFO_LABEL_TR_KEY.default = "paypal_accounts.paypal_receive_funds_info_label"
 
+  module_function
 
   def fee_link(country_code)
     find_or_default(FEE_URL, country_code)
