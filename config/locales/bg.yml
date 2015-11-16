@@ -431,12 +431,12 @@ bg:
       units_title: ~
       units_desc: ~
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: "за парче"
+        hour: "За час"
+        day: "На ден"
+        night: "За нощ"
+        week: "За седмица"
+        month: "За месец"
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: ~
@@ -449,8 +449,8 @@ bg:
         per: ~
         unit_type:
           heading: ~
-          quantity_label: ~
-          time_label: ~
+          quantity_label: "Количество(за парче, за кг, за човек, за 2 часа тур..  )"
+          time_label: "Време(за 30 минути, за 2 седмици, за година...)"
     paypal_accounts:
       marketplace_paypal_integration: ~
       preferences_updated: ~
@@ -559,7 +559,7 @@ bg:
       payment_settings_link: ~
       minimum_price_error_message: ~
       accept: ~
-      decline: ~
+      decline: Отказ
       quantity_label: ~
       sum_label: ~
       service_fee_label: ~
@@ -581,7 +581,7 @@ bg:
     details:
       day: ~
       days: ~
-      price_per_day: ~
+      price_per_day: "Цена за ден: %{price}"
     index:
       loading_more_messages: "Зареди повече съобщения"
       message_partitive: съобщение
@@ -888,7 +888,7 @@ bg:
       you_have_a_new_message: "Имате ново съобщение в %{service_name} от %{sender_name}."
     new_payment:
       new_payment: ~
-      price_per_unit_type: ~
+      price_per_unit_type: "Цена за %{unit_type}"
       quantity: ~
       you_have_received_new_payment: ~
     paypal_new_payment:
@@ -904,7 +904,7 @@ bg:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
       product: ~
-      price_per_unit_type: ~
+      price_per_unit_type: "Цена за %{unit_type}"
       duration: ~
       quantity: ~
       subtotal: ~
@@ -994,8 +994,9 @@ bg:
     transaction_agreement:
       required_error: ~
     paypal:
-      buyer_cannot_pay_error: ~
+      buyer_cannot_pay_error: "Плащането беше отказано от PayPal. Моля, свържете се с Отдел Обслужване на %{customer_service_link}."
       pending_review_error: ~
+      seller_express_checkout_disabled: ~
       generic_error: ~
       cancel_error: ~
       accept_authorization_error: ~
@@ -1076,8 +1077,8 @@ bg:
     contact_us: ~
     profile: ~
     invite: ~
-    login: ~
-    signup: ~
+    login: Вход
+    signup: "Регистрирай се"
     menu: ~
   homepage:
     additional_private_listings_slate:
@@ -1125,7 +1126,7 @@ bg:
       add_listing_link_text: ~
       open_listing: ~
       open_listings: ~
-      private_listing_notification_log_in: ~
+      private_listing_notification_log_in: Вход
       is: ~
       are: ~
       what_do_you_need: ~
@@ -1134,20 +1135,20 @@ bg:
       add_news_item: ~
       lend_rent_help_carpool: ~
       loading_more_content: ~
-      more_events: ~
+      more_events: Още...
       news: Новини
       no_news: ~
       more_news: ~
       or: и
-      or_see_what_the_others: ~
+      or_see_what_the_others: "...или вижте какво другите"
       recent_events: Най-нови
       requesting: ~
-      tell_it_here: ~
+      tell_it_here: "Разкажи го тук!"
       welcome_to_new_kassi: "Добре дошли в %{service_name}!"
       no_reviews: ~
       no_image: ~
       filter: ~
-      this_is_private_community: ~
+      this_is_private_community: "Трябва да сте регистриран преди да видите съдържанието."
     invitation_form:
       email: ~
       message: ~
@@ -1203,22 +1204,22 @@ bg:
     application:
       join_this_community: ~
       read_more: ~
-      feedback: ~
+      feedback: "Какво искате да ни препоръчате?"
       default_feedback: ~
-      feedback_forum: ~
-      feedback_handle: ~
+      feedback_forum: "форум за препоръки"
+      feedback_handle: Препоръка
       give_feedback: "Свържете се с нас"
-      or_check_our: ~
+      or_check_our: "..или проверете нашата"
       send_feedback_to_admin: "Изпрати обратна връзка"
       to_see_what_others_have_suggested: ~
-      your_email_address: ~
-      connect: ~
+      your_email_address: "Вашата електронна поща(За контакт с Вас)"
+      connect: "Регистрирай се"
       invite_your_friends: ~
       invite_your_neighbors: ~
       invite_your_friends_description: ~
       invite_your_friends_invite_only_description: ~
       join_without_facebook: ~
-      join_without_facebook_link: ~
+      join_without_facebook_link: "Регистрирай се без Facebook"
     conversations:
       messages: Съобщения
       notifications: Известия
@@ -1254,9 +1255,9 @@ bg:
       login: Вход
       logout: Изход
       notifications: Известия
-      requests: ~
+      requests: "Заявки за приятелство"
       settings: ~
-      sign_up: ~
+      sign_up: "Регистрирай се"
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
@@ -1355,10 +1356,10 @@ bg:
       you_must_log_in_to_send_a_message: ~
       you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: ~
-      you_must_log_in_to_view_this_page: ~
+      you_must_log_in_to_view_this_page: "Трябва да се вписани за да видите тази страница"
       you_must_log_in_to_view_your_inbox: ~
       you_must_log_in_to_view_your_settings: ~
-      you_must_log_in_to_add_news_item: ~
+      you_must_log_in_to_add_news_item: "Трябва да сте регистрирани в %{service_name} за да добавите обява."
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
       you_must_log_in_to_accept_or_reject: ~
@@ -1391,7 +1392,7 @@ bg:
       are_you_sure: ~
     comment_form:
       ask_a_question: ~
-      log_in: ~
+      log_in: Вход
       send_comment: ~
       to_send_a_comment: ~
       write_comment: ~
@@ -1454,7 +1455,7 @@ bg:
         loading_image: ~
         image_uploading_in_progress: ~
         processing_takes_a_while: ~
-        this_may_take_a_while: ~
+        this_may_take_a_while: "това ще отнеме секунда"
         percentage_loaded: ~
         uploading_failed: ~
         file_too_large: ~
@@ -1465,7 +1466,7 @@ bg:
       price:
         price: ~
         per: ~
-        per_day: ~
+        per_day: "на ден"
         mass: ~
         time: ~
         long_time: ~
@@ -1619,8 +1620,8 @@ bg:
       price_excludes_vat: ~
       listing_created_at: ~
       price:
-        per_quantity_unit: ~
-        per_day: ~
+        per_quantity_unit: "за %{quantity_unit}"
+        per_day: "на ден"
       delivery: ~
       shipping: ~
       shipping_no_price: ~
@@ -1801,9 +1802,9 @@ bg:
       username_is_invalid: ~
       visible_only_to_you: ~
       visible_to_everybody: ~
-      create_account_with_facebook: ~
+      create_account_with_facebook: "Регистрирай се чрез Facebook"
       OR: ~
-      signup_with_email: ~
+      signup_with_email: "Регистрирай се с ел.поща."
     not_member:
       explanation_text: ~
       read_more_about_kassi_communities: ~
@@ -1878,7 +1879,7 @@ bg:
       create_new_account: ~
       i_forgot_my_password: ~
       login: ~
-      login_to_kassi: ~
+      login_to_kassi: "Влезте в %{service_name}"
       connect_your_facebook_to_kassi: ~
       facebook_account: ~
       log_in_to_link_account: ~
@@ -1886,7 +1887,7 @@ bg:
       account_creation_link_text: ~
       cancle_facebook_connect: ~
       facebook_cancel_link_text: ~
-      log_in_with_your_facebook_account: ~
+      log_in_with_your_facebook_account: "Влезте с Facebook"
       or_sign_up_with_your_username: ~
       we_will_not_post_without_asking_you: ~
     password_forgotten:
@@ -2051,31 +2052,31 @@ bg:
       friday: ~
       saturday: ~
     months:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: Януари
+      february: Февруари
+      march: Март
+      april: Април
+      may: Май
+      june: Юни
+      july: Юли
+      august: Август
+      september: Септември
+      october: Октомври
+      november: Ноември
+      december: Декември
     months_short:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: Яну
+      february: Фев
+      march: Март
+      april: Апр
+      may: Май
+      june: Юни
+      july: Юли
+      august: Авг
+      september: Септ
+      october: Окт
+      november: Ное
+      december: Дек
     today: ~
     clear: ~
     format: ~
@@ -2095,16 +2096,16 @@ bg:
     month_ago: ~
     months_ago: ~
     seconds_ago: ~
-    year_ago: ~
-    years_ago: ~
+    year_ago: "преди %{count} години"
+    years_ago: "преди %{count} години"
   transactions:
     initiate:
       booked_days: ~
-      price_per_day: ~
+      price_per_day: "Цена на ден:"
       quantity: ~
       subtotal: ~
       shipping-price: ~
-    price_per_quantity: ~
+    price_per_quantity: "Цена за %{unit_type}:"
     price: ~
     quantity: ~
     unit_price: ~

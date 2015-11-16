@@ -1023,6 +1023,7 @@ da-DK:
     paypal:
       buyer_cannot_pay_error: "Betalingen er blevet afvist af PayPal. Kontakt venligst deres Kundeservice for yderligere information: %{customer_service_link}"
       pending_review_error: "Betalingen er sendt afsted, men PayPal har markeret den som 'behøver gennemgang'. Når gennemgangen har fundet sted, vil betalingen automatisk blive autoriseret."
+      seller_express_checkout_disabled: "PayPal Express Checkout er blevet deaktiveret for visning af leverandørens PayPal-konto. Kontakt venligst leverandøren og lad dem vide, at der er et problem med deres PayPal konto og opfordre dem til at kontakte PayPal kundeservice."
       generic_error: "Der skete en teknisk fejl under betalingsprocessen."
       cancel_error: "Der skete en fejl. Vi kunne ikke annullere."
       accept_authorization_error: "Der skete en fejl da vi prøvede at gennemføre din PayPal betaling. Prøv venligst igen."

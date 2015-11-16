@@ -870,7 +870,7 @@ fr:
       if_this_was_error: "Si vous pensez que c'était une erreur, %{please_contant_admin_link}."
       please_contant_admin_link: "veuillez contacter l'administrateur"
     confirmation_instructions:
-      confirmation_instructions_signature: "Cordialement, <br/> L'équipe de %{service_name}"
+      confirmation_instructions_signature: "Cordialement, <br/> L'équipe %{service_name}"
       welcome_to_kassi: "Bienvenue sur %{service_name} !"
       need_to_confirm: "Vous devez confirmer votre adresse email."
       confirmation_link_text: "Confirmer mon email"
@@ -879,7 +879,7 @@ fr:
     common:
       check_your_settings: "Vérifiez vos paramètres"
       hey: "Bonjour %{name},"
-      kassi_team: "L'équipe de %{service_name}"
+      kassi_team: "L'équipe %{service_name}"
       thanks: "Merci,"
       want_to_control_emails: "Vous souhaitez contrôler les emails que vous recevez de %{service_name} ?"
       dont_want_to_receive_these_emails: "Souhaitez-vous recevoir ces emails ?"
@@ -1003,7 +1003,7 @@ fr:
       have_questions: "Vous avez des questions ?"
       our_happiness_team_is_here_to_help: "L'équipe chargée de votre bonheur est là pour vous ! Vous pouvez %{knowledge_base_link} ou contacter notre support depuis le %{admin_panel_link}."
       love: "Love,"
-      sharetribe_crew: "l'équipe Sharetribe"
+      sharetribe_crew: "L'équipe Sharetribe"
       knowledge_base_link_text: "parcourir notre base de connaissance"
       contact_support_link_text: "contacter notre support"
       admin_panel_link_text: "panneau d'administration"
@@ -1027,6 +1027,7 @@ fr:
     paypal:
       buyer_cannot_pay_error: "Le paiement a été refusé par PayPal. Veuillez contacter leur support client pour obtenir plus d'informations : %{customer_service_link}"
       pending_review_error: "Le paiement a été soumis mais a été marqué par PayPal comme 'nécessitant une validation'. Quand cette validation sera confirmée par PayPal, le paiement sera automatiquement autorisé."
+      seller_express_checkout_disabled: "PayPal Express Checkout a été désactivé pour le compte PayPal de l'auteur de cette annonce. Veuillez contacter l'auteur pour lui signaler qu'il y a un problème avec son compte PayPal et lui conseiller de contacter le service client PayPal."
       generic_error: "Une erreur s'est produite durant le processus de paiement. Le paiement PayPal n'a pas pu être réalisé."
       cancel_error: "Une erreur s'est produite durant l'annulation. Celle-ci n'a pas pu être réalisée."
       accept_authorization_error: "Une erreur s'est produite lors de la validation de la pré-autorisation du paiement PayPal. Merci d'essayer de nouveau."
@@ -1728,7 +1729,7 @@ fr:
   paypal_accounts:
     payout_info_title: "Recevoir des paiements"
     paypal_account_email_connected: "<del>Connecter votre compte PayPal</del> Connecté !"
-    payout_info_paypal: "%{service_name} utilise PayPal comme solution de paiement. Un %{create_paypal_account_link} est nécessaire pour recevoir des paiements pour vos annonce et il doit être connecté à %{service_name}."
+    payout_info_paypal: "%{service_name} utilise PayPal comme solution de paiement. Un %{create_paypal_account_link} est nécessaire pour recevoir des paiements pour vos annonces et il doit être connecté à %{service_name}."
     paypal_billing_agreement_made: "<del>Autoriser %{service_name} à prélever des frais de service sur chaque transaction.</del> Autorisé !"
     commission_permission_needed: "Vous devez également autoriser %{service_name} à prélever des frais de service."
     create_paypal_account_link_text: "compte PayPal"

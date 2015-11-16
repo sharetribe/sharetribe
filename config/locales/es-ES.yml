@@ -1029,6 +1029,7 @@ es-ES:
     paypal:
       buyer_cannot_pay_error: "El pago fue rechazado por PayPal. Por favor contacta al servicio al cliente de PayPal para más información: %{customer_service_link}"
       pending_review_error: "El pago se realizó pero fue marcado por PayPal como 'pendiente de revisión'. Cuando PayPal complete esta revisión, el pago será autorizado automáticamente."
+      seller_express_checkout_disabled: ~
       generic_error: "Ha ocurrido un error durante el proceso de pago. No se pudo finalizar el pago a través de PayPal."
       cancel_error: "Ha ocurrido un error durante la cancelación. No se ha podido finalizar la cancelación"
       accept_authorization_error: "Ha ocurrido un error mientras intentábamos aceptar el pago preautorizado con PayPal. Por favor, inténtalo de nuevo."

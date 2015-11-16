@@ -1029,6 +1029,7 @@ sv:
     paypal:
       buyer_cannot_pay_error: "Betalningen har avslagits av PayPal. Vänligen kontakta deras kundtjänst för mer information: %{customer_service_link}"
       pending_review_error: "Betalningen gick iväg men flaggas av PayPal som \"kräver en översyn\". När PayPal avslutar översynen kommer betalningen bli godkänd."
+      seller_express_checkout_disabled: ~
       generic_error: "Ett fel uppstod i betalningsprocessen. Kunde inte slutföra din PayPal betalning."
       cancel_error: "Ett fel inträffade. Det gick ej att slutföra."
       accept_authorization_error: "Ett fel uppstod vid försök att acceptera PayPal betalningen. Försök igen."

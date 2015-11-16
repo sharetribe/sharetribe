@@ -915,7 +915,7 @@ pt-BR:
       has_commented_listing_you_follow_in_kassi: "%{author} comentou o anúncio '%{listing}' que você segue no %{service_name}."
     new_message:
       view_message: "Ver mensagem"
-      has_sent_you_a_message_in_kassi: "%{sender} te enviou uma mensagem em %{service_name}."
+      has_sent_you_a_message_in_kassi: "%{sender} te enviou uma mensagem no %{service_name}."
       you_have_a_new_message: "Uma nova mensagem em %{service_name} de %{sender_name}"
     new_payment:
       new_payment: "Você recebeu um novo pagamento"
@@ -1027,6 +1027,7 @@ pt-BR:
     paypal:
       buyer_cannot_pay_error: "O pagamento foi rejeitado pelo PayPal. Por favor contate o atendimento a cliente deles para maiores informações: %{customer_service_link}"
       pending_review_error: "O pagamento foi enviado mas foi marcado como \"requerendo verificação\" pelo PayPal. Quando o PayPal complete essa verificação o pagamento será automaticamente autorizado."
+      seller_express_checkout_disabled: ~
       generic_error: "Ocorreu um erro durante o processo de pagamento. Não foi possível finalizar o seu pagamento PayPal."
       cancel_error: "Um erro ocorreu durante o cancelamento. Não foi possível finalizar."
       accept_authorization_error: "Ocorreu um erro durante a tentativa de aceitar pagamento pré-autorizado pelo Paypal. Por favor, tente novamente."
@@ -1144,8 +1145,8 @@ pt-BR:
       some_private_requests_exist: "Existem <b>%{number_of_listings} requisições</b>"
     custom_filters:
       update_view: Atualizar
-      min: "Mínimo:"
-      max: "Máximo:"
+      min: "Mín:"
+      max: "Máx:"
     event_feed:
       latest_events: "O que está acontecendo"
     grid_item:

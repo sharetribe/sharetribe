@@ -1036,6 +1036,7 @@ cs:
     paypal:
       buyer_cannot_pay_error: "Platba byla odmítnuta serverem PayPal. Prosíme, kontaktujte jejich zákaznický servis pro více informací: %{customer_service_link}"
       pending_review_error: "Platba byla provedena, ale byla serverem PayPal označena jako \"vyžaduje přezkoumání\". Jakmile PayPal dokončí přezkoumání platby, bude platba automaticky vyřízena."
+      seller_express_checkout_disabled: ~
       generic_error: "Došlo k chybě během platebního procesu. Nelze dokončit Vaši platbu přes PayPal."
       cancel_error: "Při zrušení došlo k chybě. Nelze zrušení dokončit."
       accept_authorization_error: "Došlo k chybě při pokusu o přijetí předschválení PayPal platby. Prosíme, zkuste to znovu."

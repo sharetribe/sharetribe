@@ -1017,6 +1017,7 @@ de:
     paypal:
       buyer_cannot_pay_error: "Die Bezahlung wurde von Paypal abgelehnt. Bitte kontaktiere den Kundenservice für mehr Informationen: %{customer_service_link}"
       pending_review_error: "Die Zahlung wurde eingereicht, wurde aber von PayPal als \"erfordert Bewertung' gekennzeichnet. Wenn PayPal die Überprüfung abgeschlossen hat, wird die Zahlung automatisch genehmigt werden."
+      seller_express_checkout_disabled: ~
       generic_error: "Während des Zahlungsvorgangs ist ein Fehler aufgetreten. Die PayPal Zahlung konnte nicht abgeschlossen werden."
       cancel_error: "Während der Stornierung ist ein Fehler aufgetreten. Der Abbruch konnte nicht abgeschlossen werden."
       accept_authorization_error: "Bei dem Versuch, eine vorab autorisierte PayPal-Zahlung zu akzeptieren, ist ein Fehler aufgetreten. Bitte versuche es erneut."
@@ -1422,7 +1423,7 @@ de:
     edit:
       edit_listing: "Eintrag bearbeiten"
     edit_links:
-      close_listing: "Angebot pausieren"
+      close_listing: "Eintrag beenden"
       edit_listing: "Eintrag bearbeiten"
       reopen_listing: "Eintrag wieder aktivieren"
       move_to_top: "Auf der Homepage nach oben verschieben"
