@@ -49,6 +49,9 @@ class IntApi::MarketplacesController < ApplicationController
     auth_token = UserService::API::AuthTokens.create_login_token(user[:id])
     url = URLUtils.append_query_param(marketplace[:url], "auth", auth_token[:token])
 
+    # TODO: remove this after external_plan_page is available to everyone.
+    FeatureFlagService::API::Api.features.enable(community_id: marketplace[:id], features: [:new_plan_page])
+
     # TODO handle error cases with proper response
 
     render status: 201, json: {"marketplace_url" => url}
