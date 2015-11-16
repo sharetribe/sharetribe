@@ -409,7 +409,7 @@ fr:
         order:
           saving_order: "Sauvegarder l'ordre"
           save_order_successful: "Ordre des types de transaction sauvegardé avec succès"
-          save_order_error: "Une erreur s'est produite  lors de la sauvegarde de l'ordre. Veuillez actualiser la page et essayer de nouveau."
+          save_order_error: "Une erreur s'est produite lors de la sauvegarde de l'ordre. Veuillez actualiser la page et essayer de nouveau."
       templates:
         selling_products: "Vendre des produits"
         renting_products: "Louer des produits"
@@ -1734,6 +1734,7 @@ fr:
     commission_permission_needed: "Vous devez également autoriser %{service_name} à prélever des frais de service."
     create_paypal_account_link_text: "compte PayPal"
     connected_account: "Le compte PayPal '%{email}' est désormais connecté."
+    paypal_receive_funds_info_label_australia_only: "Votre compte PayPal doit permettre de recevoir des paiements. Cela peut nécessiter un compte Premier ou Business."
     paypal_receive_funds_info_label: "Votre compte PayPal doit permettre la réception de paiements. Cela nécessite un compte Business."
     paypal_receive_funds_info: "Si vous voyez une erreur en essayant de connecter votre compte à %{service_name}, surclassez votre compte PayPal en %{upgrade_paypal_account_link}. C'est simple et gratuit. Si vous êtes un particulier, PayPal recommande d'utiliser votre nom comme nom Business ou Entreprise."
     upgrade_paypal_account_link_text: "vous connectant et cliquant sur le lien de surclassement"

@@ -1724,6 +1724,7 @@ de:
     commission_permission_needed: "Du musst %{service_name} außerdem die Erlaubnis erteilen, eine Buchungsgebühr zu erheben."
     create_paypal_account_link_text: "PayPal Konto"
     connected_account: "PayPal Konto '%{email}' erfolgreich verknüpft."
+    paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: "Dein PayPal Konto muss Zahlungen empfangen können. Dafür ist u.U. ein PayPal Geschäftskonto erforderlich."
     paypal_receive_funds_info: "Wenn Du einen Fehler beim Versuch siehst, Dein PayPal Konto mit %{service_name} zu verbinden, solltest Du %{upgrade_paypal_account_link}. Das ist kostenlos und einfach. Wenn Du ein Einzelunternehmer bist, empfiehlt PayPal einfach Deinen Namen als Geschäftsnamen zu verwenden."
     upgrade_paypal_account_link_text: "Dich anmelden und auf ein Geschäftskonto umstellen"

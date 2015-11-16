@@ -1736,6 +1736,7 @@ pt-BR:
     commission_permission_needed: "Você também precisa dar ao %{service_name} permissão para que cobre  uma taxa sobre a venda."
     create_paypal_account_link_text: "conta PayPal"
     connected_account: "Conta PayPal '%{email}' connectada com sucesso."
+    paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: "Sua conta PayPal deve ser capaz de aceitar pagamentos. Por isso ela deve ser uma conta para \"Receber pagamentos com PayPal\"."
     paypal_receive_funds_info: "Se você receber um erro quando tentar conectar sua conta com o %{service_name}, faça um upgrade da sua conta PayPal clicando em %{upgrade_paypal_account_link}. É fácil e rápido. Se você for pessoa física o PayPal recomenda que você use seu nome como nome da companhia."
     upgrade_paypal_account_link_text: "entrando e clicando no link de upgrade"
