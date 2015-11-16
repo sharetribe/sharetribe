@@ -38,8 +38,9 @@ class PaypalAccountsController < ApplicationController
       minimum_commission: Money.new(payment_settings[:minimum_transaction_fee_cents], community_currency),
       commission_type: payment_settings[:commission_type],
       currency: community_currency,
-      paypal_fees_url: PaypalHelper.fee_link(community_country_code),
-      create_url: "https://www.paypal.com/#{community_country_code}/webapps/mpp/home",
+      paypal_fees_url: PaypalCountryHelper.fee_link(community_country_code),
+      create_url: PaypalCountryHelper.create_paypal_account_url(community_country_code),
+      receive_funds_info_label_tr_key: PaypalCountryHelper.receive_funds_info_label_tr_key(community_country_code),
       upgrade_url: "https://www.paypal.com/#{community_country_code}/upgrade"
     })
   end

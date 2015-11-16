@@ -162,7 +162,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
         id: @listing_conversation.id
       ),
       preselected_action: preselected_action,
-      paypal_fees_url: PaypalHelper.fee_link(community_country_code)
+      paypal_fees_url: PaypalCountryHelper.fee_link(community_country_code)
     }
   end
 
