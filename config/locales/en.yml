@@ -9,7 +9,7 @@ en:
         remove_category_confirmation: "Are you sure you want to remove category '%{category_name}'?"
         saving_order: "Saving category order"
         save_order_successful: "Successfully saved category order"
-        save_order_error: "An error occured while saving category order. Please refresh the page and try again."
+        save_order_error: "An error occurred while saving category order. Please refresh the page and try again."
       new:
         new_listing_category: "New listing category"
       form:
@@ -142,7 +142,7 @@ en:
         successfully_saved: "Sender address saved successfully. The verification email will be sent soon."
         status: "Status: %{status}"
         status_verified: "Verified - in use"
-        status_error: "An error occured. Please refresh the page."
+        status_error: "An error occurred. Please refresh the page."
         status_requested: "Unverified - verification email sent to %{email} %{time_ago}. %{resend_link}"
         status_expired: "Verification of %{email} expired. %{resend_link}"
         status_resent: "Verification email resent to %{email}. %{resend_link}"
@@ -360,7 +360,7 @@ en:
         add_option: "+ Add option"
         saving_order: "Saving field order"
         save_order_successful: "Successfully saved field order"
-        save_order_error: "An error occured while saving field order. Please refresh the page and try again."
+        save_order_error: "An error occurred while saving field order. Please refresh the page and try again."
         select_one: "Select field type..."
         continue: Continue
         minimum_value: Minimum
@@ -409,7 +409,7 @@ en:
         order:
           saving_order: "Saving order"
           save_order_successful: "Successfully saved order type order"
-          save_order_error: "An error occured while saving order. Please refresh the page and try again."
+          save_order_error: "An error occurred while saving order. Please refresh the page and try again."
       templates:
         selling_products: "Selling products"
         renting_products: "Renting products"
@@ -1028,10 +1028,10 @@ en:
       buyer_cannot_pay_error: "The payment has been declined by PayPal. Please contact their Customer Service for more information: %{customer_service_link}"
       pending_review_error: "The payment was submitted but was flagged by PayPal as 'requiring a review'. When PayPal completes the review, the payment will be automatically authorized."
       seller_express_checkout_disabled: "PayPal Express Checkout has been disabled for the listing author's PayPal account. Please contact the author and let them know that there's an issue with their PayPal account, and advise them to contact PayPal Customer Service."
-      generic_error: "An error occured during the payment process. Could not finalize your PayPal payment."
-      cancel_error: "An error occured during cancellation. Could not finalize cancel."
-      accept_authorization_error: "An error occured while trying to accept preauthorized Paypal payment. Please, try again."
-      reject_authorization_error: "An error occured while trying to reject preauthorized Paypal payment. Please, try again."
+      generic_error: "An error occurred during the payment process. Could not finalize your PayPal payment."
+      cancel_error: "An error occurred during cancellation. Could not finalize cancel."
+      accept_authorization_error: "An error occurred while trying to accept preauthorized Paypal payment. Please, try again."
+      reject_authorization_error: "An error occurred while trying to reject preauthorized Paypal payment. Please, try again."
   error_pages:
     back_to_kassi_front_page: "Back to the front page"
     error_404:
