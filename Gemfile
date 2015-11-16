@@ -32,7 +32,6 @@ gem 'jquery-rails', '2.1.4'
 
 # gem 'heroku' install the Heroku toolbelt (https://toolbelt.heroku.com/) instead (as gem had some problems)
 gem "passenger", "~> 5.0.18"
-gem "rack-timeout"
 
 gem "mysql2"
 gem 'haml'
