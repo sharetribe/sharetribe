@@ -1734,6 +1734,7 @@ en:
     commission_permission_needed: "You will also need to grant %{service_name} permission to charge a transaction fee."
     create_paypal_account_link_text: "PayPal account"
     connected_account: "PayPal account '%{email}' connected successfully."
+    paypal_receive_funds_info_label_australia_only: "Your PayPal account needs to be able to accept payments. This might require a Premier or Business account."
     paypal_receive_funds_info_label: "Your PayPal account needs to be able to accept payments. This might require a Business account."
     paypal_receive_funds_info: "If you see an error when trying to connect your account to %{service_name}, upgrade your PayPal account by %{upgrade_paypal_account_link}. It's free and easy. If you're an individual, PayPal recommends using your name as the Business name."
     upgrade_paypal_account_link_text: "logging in and clicking the upgrade link"

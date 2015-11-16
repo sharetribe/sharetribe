@@ -1,15 +1,5 @@
 module PaypalHelper
 
-  # List all the contries that have the new fee page available
-  SHOW_NEW_FEE_PAGE = ["us", "de", "br", "fr"].to_set
-
-  # List all the contries that have the popup URL available
-  SHOW_POPUP_COUNTRIES = ["us", "de", "fr"].to_set
-
-  # List all the countries that should use the home URL, because popup is not available
-  # (and default English popup is not good)
-  SHOW_HOMEPAGE_COUNTRIES = ["br"].to_set
-
   TxApi = TransactionService::API::Api
 
   module_function
@@ -49,25 +39,6 @@ module PaypalHelper
 
   def account_prepared_for_community?(community_id)
     account_prepared?(community_id: community_id)
-  end
-
-  def fee_link(country_code)
-    if SHOW_NEW_FEE_PAGE.include?(country_code)
-      "https://www.paypal.com/#{country_code}/webapps/mpp/paypal-fees"
-    else
-      "https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside"
-    end
-  end
-
-  def popup_link(country_code)
-    if SHOW_POPUP_COUNTRIES.include?(country_code)
-      "https://www.paypal.com/#{country_code}/webapps/mpp/paypal-popup"
-    elsif SHOW_HOMEPAGE_COUNTRIES.include?(country_code)
-      "https://www.paypal.com/#{country_code}/webapps/mpp/home"
-    else
-      # Default popup
-      "https://www.paypal.com/webapps/mpp/paypal-popup"
-    end
   end
 
   # Private
