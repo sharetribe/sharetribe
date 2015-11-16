@@ -72,41 +72,47 @@ class Admin::CommunityTransactionsController < ApplicationController
           else
             @current_community.ident
           end
-          send_data generate_csv_for(conversations), filename: "#{marketplace_name}-transactions-#{Date.today}.csv"
+
+          self.response.headers["Content-Type"] ||= 'text/csv'
+          self.response.headers["Content-Disposition"] = "attachment; filename=#{marketplace_name}-transactions-#{Date.today}.csv"
+          self.response.headers["Content-Transfer-Encoding"] = "binary"
+          self.response.headers["Last-Modified"] = Time.now.ctime.to_s
+
+          self.response_body = Enumerator.new do |yielder|
+            generate_csv_for(yielder, conversations)
+          end
         end
       end
     end
   end
 
-  def generate_csv_for(conversations)
-    CSV.generate(headers: true, force_quotes: true) do |csv|
-      # first line is column names
-      csv << %w{
-        transaction_id
-        listing_id
-        listing_title
-        status
-        currency
-        sum
-        started_at
-        last_activity_at
-        starter_username
-        other_party_username
-      }
-      conversations.each do |conversation|
-        csv << [
-          conversation[:id],
-          conversation[:listing] ? conversation[:listing][:id] : "N/A",
-          conversation[:listing_title] || "N/A",
-          conversation[:status],
-          conversation[:payment_total].is_a?(Money) ? conversation[:payment_total].currency : "N/A",
-          conversation[:payment_total],
-          conversation[:created_at],
-          conversation[:last_activity_at],
-          conversation[:starter] ? conversation[:starter][:username] : "DELETED",
-          conversation[:author] ? conversation[:author][:username] : "DELETED"
-        ]
-      end
+  def generate_csv_for(yielder, conversations)
+    # first line is column names
+    yielder << %w{
+      transaction_id
+      listing_id
+      listing_title
+      status
+      currency
+      sum
+      started_at
+      last_activity_at
+      starter_username
+      other_party_username
+    }.to_csv(force_quotes: true)
+    conversations.each do |conversation|
+      yielder << [
+        conversation[:id],
+        conversation[:listing] ? conversation[:listing][:id] : "N/A",
+        conversation[:listing_title] || "N/A",
+        conversation[:status],
+        conversation[:payment_total].is_a?(Money) ? conversation[:payment_total].currency : "N/A",
+        conversation[:payment_total],
+        conversation[:created_at],
+        conversation[:last_activity_at],
+        conversation[:starter] ? conversation[:starter][:username] : "DELETED",
+        conversation[:author] ? conversation[:author][:username] : "DELETED"
+      ].to_csv(force_quotes: true)
     end
   end
 
