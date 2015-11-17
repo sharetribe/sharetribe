@@ -9,7 +9,7 @@ class Admin::PlansController < ApplicationController
     PlanService::API::Api.plans.get_external_service_link(
       id: @current_community.id,
       ident: @current_community.ident,
-      domain: @current_community.domain,
+      domain: @current_community.use_domain? ? @current_community.domain : nil,
       marketplace_default_name: marketplace_default_name
     ).on_success { |link|
       redirect_to link
