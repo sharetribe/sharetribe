@@ -392,7 +392,7 @@ nl:
       configure: Configuratie
       emails_title: E-mails
       support: Support
-      plan: ~
+      subscription: ~
     listing_shapes:
       index:
         listing_shapes: ~
@@ -1169,8 +1169,8 @@ nl:
       message: "Een persoonlijk bericht"
       send_invitation: "Verstuur uitnodiging"
       add_email_addresses_description: "Voeg hieronder e-mail adressen toe van de mensen die je wil uitnodigen. Als je verschillende adressen wil toevoegen, scheid deze dan met een komma."
-      add_lots_of_email_addresses: ~
-      this_article_link: ~
+      add_lots_of_email_addresses: "Gebruik een emailtool als je veel uitnodigingen wil verzenden. Check %{this_article_link} voor een overzicht van geschikte emailtools."
+      this_article_link: "dit artikel"
       invitation_emails_field_placeholder: "vriend1@voorbeeld.com, vriend2@voorbeeld.com, ..."
       invitation_message_field_placeholder: "Ik werd lid van deze geweldige marktplaats. Doe het ook!"
       errors_in_emails: "Check of de e-mail adressen die je toegevoegd hebt geldig zijn. indien je meerdere adressen hebt toegevoegd, verzeker je ervan dat ze zijn gescheiden door comma's"

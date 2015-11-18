@@ -396,7 +396,7 @@ es-ES:
       configure: Configuración
       emails_title: Emails
       support: Soporte
-      plan: "Mi suscripción"
+      subscription: ~
     listing_shapes:
       index:
         listing_shapes: "Tipos de Orden"
@@ -1736,6 +1736,7 @@ es-ES:
     commission_permission_needed: "También es necesario que otorgue permiso a %{service_name} para cobrar la comisión de servicio"
     create_paypal_account_link_text: "cuenta PayPal"
     connected_account: "La cuenta de PayPal '%{email}' se ha conectado con éxito."
+    paypal_receive_funds_info_label_australia_only: "Es necesario que tu cuenta PayPal esté habilitada para aceptar pagos. Esto puede requerir una cuenta Premium o de Empresa."
     paypal_receive_funds_info_label: "Es necesario que tu cuenta PayPal pueda aceptar pagos. Esto puede requerir que tengas una cuenta empresarial (Business account)."
     paypal_receive_funds_info: "Si ves un error al intentar conectar tu cuenta a %{service_name}, actualiza tu cuenta PayPal %{upgrade_paypal_account_link}. Es gratis y fácil. Si eres un individuo, PayPal recomienda que utilices tu nombre como el nombre de la empresa."
     upgrade_paypal_account_link_text: "iniciando sesión y haciendo clic en el enlace de actualización"

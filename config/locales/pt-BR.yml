@@ -392,7 +392,7 @@ pt-BR:
       configure: Configuração
       emails_title: E-mails
       support: Suporte
-      plan: "Minha Assinatura"
+      subscription: ~
     listing_shapes:
       index:
         listing_shapes: "Pedidos por tipos"
@@ -1729,14 +1729,14 @@ pt-BR:
         braintree_terms_also_included: "NOTA: Braintree é usado como um serviço de gateway de pagamento e por utilizar este site você também aceita %{terms_link_text}, além dos termos abaixo."
         terms_link_text: "Termos de uso Braintree"
   paypal_accounts:
-    payout_info_title: "Informação de pagametno"
+    payout_info_title: "Receber pagamentos"
     paypal_account_email_connected: "<del>1. Conectar-se a conta PayPal</del> Concluído!"
-    payout_info_paypal: "%{service_name} usa o PayPal para processar seus pagamentos. Uma %{create_paypal_account_link} é necessária para poder aceitar pagamentos pelos seus produtos e ela precisa ser conectada ao  %{service_name}."
+    payout_info_paypal: "O %{service_name} usa o PayPal para processar seus pagamentos. Uma %{create_paypal_account_link} é necessária para poder aceitar pagamentos pelos seus produtos e ela precisa ser conectada ao  %{service_name}."
     paypal_billing_agreement_made: "<del>2. Conceder permissão a %{service_name} para cobrar taxa de transação</del> Concluída!"
     commission_permission_needed: "Você também precisa dar ao %{service_name} permissão para que cobre  uma taxa sobre a venda."
     create_paypal_account_link_text: "conta PayPal"
     connected_account: "Conta PayPal '%{email}' connectada com sucesso."
-    paypal_receive_funds_info_label_australia_only: ~
+    paypal_receive_funds_info_label_australia_only: "Sua conta PayPal deve poder aceitar pagamentos. Talvez você precise de uma conta especifica para receber pagamentos."
     paypal_receive_funds_info_label: "Sua conta PayPal deve ser capaz de aceitar pagamentos. Por isso ela deve ser uma conta para \"Receber pagamentos com PayPal\"."
     paypal_receive_funds_info: "Se você receber um erro quando tentar conectar sua conta com o %{service_name}, faça um upgrade da sua conta PayPal clicando em %{upgrade_paypal_account_link}. É fácil e rápido. Se você for pessoa física o PayPal recomenda que você use seu nome como nome da companhia."
     upgrade_paypal_account_link_text: "entrando e clicando no link de upgrade"
