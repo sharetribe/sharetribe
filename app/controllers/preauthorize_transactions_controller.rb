@@ -212,7 +212,7 @@ class PreauthorizeTransactionsController < ApplicationController
     if @current_community.transaction_agreement_in_use? && conversation_params[:contract_agreed] != "1"
       return render_error_response(request.xhr?,
         t("error_messages.transaction_agreement.required_error"),
-        { action: :book, start_on: TransactionViewUtils.stringify_booking_data(start_on), end_on: TransactionViewUtils.stringify_booking_data(end_on) })
+        { action: :book, start_on: TransactionViewUtils.stringify_booking_date(start_on), end_on: TransactionViewUtils.stringify_booking_date(end_on) })
     end
 
     delivery_method = valid_delivery_method(delivery_method_str: preauthorize_form.delivery_method,
@@ -225,7 +225,7 @@ class PreauthorizeTransactionsController < ApplicationController
     unless preauthorize_form.valid?
       return render_error_response(request.xhr?,
         preauthorize_form.errors.full_messages.join(", "),
-       { action: :book, start_on: TransactionViewUtils.stringify_booking_data(start_on), end_on: TransactionViewUtils.stringify_booking_data(end_on) })
+       { action: :book, start_on: TransactionViewUtils.stringify_booking_date(start_on), end_on: TransactionViewUtils.stringify_booking_date(end_on) })
     end
 
     transaction_response = create_preauth_transaction(
@@ -252,7 +252,7 @@ class PreauthorizeTransactionsController < ApplicationController
           "An error occured while trying to create a new transaction: #{transaction_response[:error_msg]}"
         end
 
-      return render_error_response(request.xhr?, error, { action: :book, start_on: TransactionViewUtils.stringify_booking_data(start_on), end_on: TransactionViewUtils.stringify_booking_data(end_on) })
+      return render_error_response(request.xhr?, error, { action: :book, start_on: TransactionViewUtils.stringify_booking_date(start_on), end_on: TransactionViewUtils.stringify_booking_date(end_on) })
     end
 
     transaction_id = transaction_response[:data][:transaction][:id]
