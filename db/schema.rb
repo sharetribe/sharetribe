@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151102084029) do
+ActiveRecord::Schema.define(:version => 20151105120334) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -205,6 +205,7 @@ ActiveRecord::Schema.define(:version => 20151102084029) do
     t.datetime "favicon_updated_at"
     t.integer  "default_min_days_between_community_updates",               :default => 7
     t.boolean  "listing_location_required",                                :default => false
+    t.text     "custom_head_script"
     t.boolean  "follow_in_use",                                            :default => true,                      :null => false
     t.boolean  "logo_processing"
     t.boolean  "wide_logo_processing"
@@ -214,7 +215,6 @@ ActiveRecord::Schema.define(:version => 20151102084029) do
     t.string   "dv_test_file_name",                          :limit => 64
     t.string   "dv_test_file",                               :limit => 64
     t.boolean  "deleted"
-    t.text     "custom_head_script"
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
@@ -404,6 +404,13 @@ ActiveRecord::Schema.define(:version => 20151102084029) do
 
   add_index "emails", ["address"], :name => "index_emails_on_address", :unique => true
   add_index "emails", ["person_id"], :name => "index_emails_on_person_id"
+
+  create_table "facebook_signup_fails", :force => true do |t|
+    t.integer  "community_id"
+    t.text     "auth_data"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "feature_flags", :force => true do |t|
     t.integer  "community_id",                   :null => false

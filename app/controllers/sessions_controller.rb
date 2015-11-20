@@ -124,6 +124,10 @@ class SessionsController < ApplicationController
         redirect_to sign_up_path and return
       end
 
+      if data.username.blank? && data.family_name.blank? && data.given_name.blank?
+        FacebookSignupFails.create(auth_data: data, community_id: @current_community.id)
+      end
+
       facebook_data = {"email" => data.email,
                        "given_name" => data.first_name,
                        "family_name" => data.last_name,
