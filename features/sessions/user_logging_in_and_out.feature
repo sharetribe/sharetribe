@@ -18,7 +18,7 @@ Feature: User logging in and out
     When I fill in "main_person_login" with "whatever"
     And I fill in "main_person_password" with "certainly_not_the_correct_password"
     And I click "#main_log_in_button"
-    Then I should see "Sign in failed."
+    Then I should see "Login failed."
     Then I should not be logged in
 
   Scenario: logging out
@@ -60,6 +60,5 @@ Feature: User logging in and out
     When I fill in "main_person_login" with "kassi_testperson1"
     And I fill in "main_person_password" with "testi"
     And I click "#main_log_in_button"
-    Then I should see "You can not sign in with your personal account"
+    Then I should see "You can not log in with your personal account"
     Then I should not be logged in
-

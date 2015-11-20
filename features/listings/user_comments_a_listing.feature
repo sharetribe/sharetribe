@@ -87,7 +87,7 @@ Feature: User comments a listing
     And I am not logged in
     And I am on the home page
     When I follow "Massage"
-    Then I should see "You must sign in to send a new comment."
+    Then I should see "You must log in to send a new comment."
     And I should not see "Write a new comment:"
 
   @javascript
@@ -123,5 +123,3 @@ Feature: User comments a listing
     Then I should see "Walking dogs"
     And I should see "Test comment 1" within "#comments"
     And I should see "Test comment 2" within "#comments"
-
-
