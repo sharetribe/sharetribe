@@ -18,9 +18,9 @@
 - full_url = "#{@current_community.full_url}#{request.fullpath}"
 
 - if content_for?(:meta_description)
-  - meta_description = "#{@current_community.name(I18n.locale)} - #{content_for(:meta_description)}"
+  - meta_description = "#{content_for(:meta_description)}"
 - else
-  - meta_description = "#{@current_community.name(I18n.locale)} - #{community_slogan} - #{community_description(false)}"
+  - meta_description = "#{community_description(false)} - #{community_slogan}"
 
 - if content_for?(:meta_image)
   - meta_image = content_for(:meta_image)
