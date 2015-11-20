@@ -10,7 +10,6 @@ module FeatureFlagService::Store
     FLAGS = [
       :location_search,
       :export_transactions_as_csv,
-      :new_plan_page
     ].to_set
 
     def initialize(additional_flags:)

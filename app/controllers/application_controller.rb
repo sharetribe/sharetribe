@@ -28,7 +28,6 @@ class ApplicationController < ActionController::Base
     :redirect_locale_param,
     :generate_event_id,
     :set_default_url_for_mailer,
-    :fetch_chargebee_plan_data,
     :fetch_community_admin_status,
     :warn_about_missing_payment_info,
     :set_homepage_path,
@@ -384,13 +383,6 @@ class ApplicationController < ActionController::Base
     Maybe(@current_community).id.each { |community_id|
       @current_plan = PlanService::API::Api.plans.get_current(community_id: community_id).data
     }
-  end
-
-  def fetch_chargebee_plan_data
-    @pro_biannual_link = APP_CONFIG.chargebee_pro_biannual_link
-    @pro_biannual_price = APP_CONFIG.chargebee_pro_biannual_price
-    @pro_monthly_link = APP_CONFIG.chargebee_pro_monthly_link
-    @pro_monthly_price = APP_CONFIG.chargebee_pro_monthly_price
   end
 
   # Before filter for PayPal, shows notification if user is not ready for payments
