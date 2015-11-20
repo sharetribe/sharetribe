@@ -1591,7 +1591,7 @@ nl:
       payment_settings_link: "instellingen betalingen"
       community_not_configured_for_payments_admin: "%{service_name} is nog niet ingesteld voor betalingen, dus je kunt nog geen items plaatsen. Ga naar %{payment_settings_link} om de betalingsgegevens in te stellen."
     quantity:
-      hour: ~
+      hour: "Aantal uur:"
       day: ~
       night: ~
       week: ~
@@ -2098,7 +2098,7 @@ nl:
       december: Dec
     today: Vandaag
     clear: Leeg
-    format: mm/dd/yyyy
+    format: dd/mm/yyyy
   time:
     formats:
       short: "%e %b %Y om %H:%M"
