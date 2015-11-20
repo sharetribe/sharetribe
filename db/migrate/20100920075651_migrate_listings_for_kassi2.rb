@@ -12,7 +12,7 @@ class MigrateListingsForKassi2 < ActiveRecord::Migration
     say "***** THIS MIGRATION REQUIRES MANUAL WORK ALSO, PLEASE PAY ATTENTION! ******"
 
     say "Going through all the listings with listing_type.nil?"
-    say "Those attributes that can not be set automatically are listed to 'value_other'.", true
+    say "Those attributes that cannot be set automatically are listed to 'value_other'.", true
     say ""
     say "It is HIGHLY RECOMMENDED to change the 'set_property :delta => true' to false in listing.rb before running this migration, since delta indexing makes it really slow if there are lot of listings."
     say "Just remember to turn it back on afterwards!", true

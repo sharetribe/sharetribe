@@ -14,7 +14,7 @@ class ShapeService
     listing_api.shapes.get(community_id: community_id, name: name).and_then { |shape|
       process = @processes.find { |p| p[:id] == shape[:transaction_process_id] }
 
-      raise ArgumentError.new("Can not find process with id: #{shape[:transaction_process_id]}") if process.nil?
+      raise ArgumentError.new("Cannot find process with id: #{shape[:transaction_process_id]}") if process.nil?
 
       shape_with_process = shape.merge(online_payments: process[:process] == :preauthorize, author_is_seller: process[:author_is_seller])
 
@@ -128,7 +128,7 @@ class ShapeService
     process = online_payments ? :preauthorize : :none
     selected = processes.find { |p| p[:author_is_seller] == author_is_seller && p[:process] == process }
 
-    raise ArgumentError.new("Can not find suitable process") if selected.nil?
+    raise ArgumentError.new("Cannot find suitable process") if selected.nil?
 
     selected[:id]
   end

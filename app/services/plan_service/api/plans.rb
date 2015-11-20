@@ -48,7 +48,7 @@ module PlanService::API
       Maybe(PlanStore.get_current(community_id: community_id)).map { |plan|
         Result::Success.new(with_statuses(plan))
       }.or_else {
-        Result::Error.new("Can not find plan for community id: #{community_id}")
+        Result::Error.new("Cannot find plan for community id: #{community_id}")
       }
     end
 

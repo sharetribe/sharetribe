@@ -152,7 +152,7 @@ class Admin::CategoriesController < ApplicationController
 
   def get_shapes
     ListingService::API::Api.shapes.get(community_id: @current_community.id).maybe.or_else(nil).tap { |shapes|
-      raise ArgumentError.new("Can not find any shapes for community #{@current_community.id}") if shapes.nil?
+      raise ArgumentError.new("Cannot find any shapes for community #{@current_community.id}") if shapes.nil?
     }
   end
 

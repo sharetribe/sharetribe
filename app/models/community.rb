@@ -286,7 +286,7 @@ class Community < ActiveRecord::Base
     if customization
       customization.name
     else
-      raise ArgumentError.new("Can not find translation for marketplace name community_id: #{id}, locale: #{locale}")
+      raise ArgumentError.new("Cannot find translation for marketplace name community_id: #{id}, locale: #{locale}")
     end
   end
 

@@ -23,7 +23,7 @@ module ListingService::API
       Maybe(ListingStore.update_all(find_opts.merge(opts: opts))).map {
         Result::Success.new()
       }.or_else {
-        Result::Error.new("Can not find listings #{find_opts}")
+        Result::Error.new("Cannot find listings #{find_opts}")
       }
     end
 
