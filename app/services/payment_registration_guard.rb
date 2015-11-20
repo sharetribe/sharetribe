@@ -17,7 +17,7 @@ class PaymentRegistrationGuard
     price_enabled = res.maybe.map { |shape|
       shape[:price_enabled]
     }.or_else(nil).tap { |result|
-      raise ArgumentError.new("Can not find shape: #{find_opts}") if result.nil?
+      raise ArgumentError.new("Cannot find shape: #{find_opts}") if result.nil?
     }
 
     price_enabled && not_registered_already? && preauthorize_flow_in_use?
@@ -35,7 +35,7 @@ class PaymentRegistrationGuard
       .maybe[:process]
       .map { |process| process == :preauthorize }
       .tap { |process|
-      raise ArgumentError.new("Can not find transaction process: #{opts}") if process.nil?
+      raise ArgumentError.new("Cannot find transaction process: #{opts}") if process.nil?
     }
   end
 

@@ -20,7 +20,7 @@ module LoginHelpers
     steps %Q{
       When I open user menu
     }
-    click_link "Sign out"
+    click_link "Log out"
 
     @current_user = nil
   end

@@ -148,7 +148,7 @@ class Admin::ListingShapesController < ApplicationController
     }.on_success { |deleted_shape|
       flash[:notice] = t("admin.listing_shapes.successfully_deleted", order_type: t(deleted_shape[:name_tr_key]))
     }.on_error { |error_msg|
-      flash[:error] = "Can not delete order type, error: #{error_msg}"
+      flash[:error] = "Cannot delete order type, error: #{error_msg}"
     }
 
     redirect_to action: :index
@@ -280,15 +280,15 @@ class Admin::ListingShapesController < ApplicationController
     errors = []
 
     if form[:shipping_enabled] && !form[:online_payments]
-      errors << "Shipping can not be enabled without online payments"
+      errors << "Shipping cannot be enabled without online payments"
     end
 
     if form[:online_payments] && !form[:price_enabled]
-      errors << "Online payments can not be enabled without price"
+      errors << "Online payments cannot be enabled without price"
     end
 
     if (form[:units].present? || form[:custom_units].present?) && !form[:price_enabled]
-      errors << "Price units can not be used without price field"
+      errors << "Price units cannot be used without price field"
     end
 
     if errors.empty?

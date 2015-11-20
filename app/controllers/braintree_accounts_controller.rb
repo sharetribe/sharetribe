@@ -144,7 +144,7 @@ class BraintreeAccountsController < ApplicationController
     braintree_account = BraintreeAccount.find_by_person_id(@current_user.id)
 
     unless braintree_account.blank?
-      flash[:error] = "Can not create a new Braintree account. You already have one"
+      flash[:error] = "Cannot create a new Braintree account. You already have one"
       redirect_to @show_path
     end
   end
@@ -160,7 +160,7 @@ class BraintreeAccountsController < ApplicationController
       if @braintree_account.community_id.present? && @braintree_account.community_id != @current_community.id
         # ...but is associated to different community
         account_community = Community.find(@braintree_account.community_id)
-        flash[:error] = "You have payment account for community #{account_community.name(I18n.locale)}. Unfortunately, you can not have payment accounts for multiple communities. You are unable to receive money from transactions in community #{@current_community.name(I18n.locale)}. Please contact administrators."
+        flash[:error] = "You have payment account for community #{account_community.name(I18n.locale)}. Unfortunately, you cannot have payment accounts for multiple communities. You are unable to receive money from transactions in community #{@current_community.name(I18n.locale)}. Please contact administrators."
 
         error_msg = "User #{@current_user.id} tried to create a Braintree payment account for community #{@current_community.name(I18n.locale)} even though she has existing account for #{account_community.name(I18n.locale)}"
         BTLog.error(error_msg)

@@ -13,7 +13,7 @@ class Admin::CommunityCustomizationsController < ApplicationController
     @show_transaction_agreement = TransactionService::API::Api.processes.get(community_id: @current_community.id)
       .maybe
       .map { |data| has_preauthorize_process?(data) }
-      .or_else(nil).tap { |p| raise ArgumentError.new("Can not find transaction process: #{opts}") if p.nil? }
+      .or_else(nil).tap { |p| raise ArgumentError.new("Cannot find transaction process: #{opts}") if p.nil? }
     render locals: {
       locale_selection_locals: { all_locales: all_locales, enabled_locale_keys: enabled_locale_keys, unofficial_locales: unofficial_locales }
     }

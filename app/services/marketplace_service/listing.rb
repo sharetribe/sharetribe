@@ -46,7 +46,7 @@ module MarketplaceService
 
         process = TransactionService::API::Api.processes.get(opts).maybe[:process].or_else(nil)
 
-        raise ArgumentError.new("Can not find transaction process: #{opts}") if process.nil?
+        raise ArgumentError.new("Cannot find transaction process: #{opts}") if process.nil?
 
         payment_type &&
         (process == :preauthorize || process == :postpay) &&

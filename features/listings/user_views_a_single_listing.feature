@@ -56,7 +56,7 @@ Feature: User views a single listing
     And this community is private
     And I am on the home page
     When I go to the listing page
-    Then I should see "You must sign in to view this content"
+    Then I should see "You must log in to view this content"
 
   Scenario: User views listing created
     Given I am not logged in

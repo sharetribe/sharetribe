@@ -48,7 +48,7 @@ class BraintreePaymentsController < ApplicationController
       if @braintree_account.community_id.present? && @braintree_account.community_id != @current_community.id
         # ...but is associated to different community
         account_community = Community.find(@braintree_account.community_id)
-        flash[:error] = "Unfortunately, we can not proceed with the payment. Please contact administrators."
+        flash[:error] = "Unfortunately, we cannot proceed with the payment. Please contact the administrators."
 
         error_msg = "User #{@current_user.id} tries to pay for user #{@braintree_payment.recipient_id} which has Braintree account for another community #{account_community.name(I18n.locale)}"
         BTLog.error(error_msg)

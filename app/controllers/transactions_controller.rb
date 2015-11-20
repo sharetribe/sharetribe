@@ -44,7 +44,7 @@ class TransactionsController < ApplicationController
         redirect_to post_pay_listing_path(transaction_params)
       else
         opts = "listing_id: #{listing_id}, payment_gateway: #{gateway}, payment_process: #{process}, booking: #{booking}"
-        raise ArgumentError.new("Can not find new transaction path to #{opts}")
+        raise ArgumentError.new("Cannot find new transaction path to #{opts}")
       end
     }.on_error { |error_msg, data|
       flash[:error] = Maybe(data)[:error_tr_key].map { |tr_key| t(tr_key) }.or_else("Could not start a transaction, error message: #{error_msg}")
@@ -257,7 +257,7 @@ class TransactionsController < ApplicationController
         # TODO Do not use Models directly. The data should come from the APIs
         Maybe(@current_community.listings.where(id: listing_id).first)
           .map     { |listing_model| Result::Success.new(listing_model) }
-          .or_else { Result::Error.new("Can not find listing with id #{listing_id}") }
+          .or_else { Result::Error.new("Cannot find listing with id #{listing_id}") }
       },
       ->(_, listing_model) {
         # TODO Do not use Models directly. The data should come from the APIs
@@ -274,7 +274,7 @@ class TransactionsController < ApplicationController
 
   def validate_form(form_params, process)
     if process[:process] == :none && form_params[:message].blank?
-      Result::Error.new("Message can not be empty")
+      Result::Error.new("Message cannot be empty")
     else
       Result::Success.new
     end

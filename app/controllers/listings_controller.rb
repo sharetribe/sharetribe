@@ -796,7 +796,7 @@ class ListingsController < ApplicationController
       .maybe[:process]
       .or_else(nil)
       .tap { |process|
-        raise ArgumentError.new("Can not find transaction process: #{opts}") if process.nil?
+        raise ArgumentError.new("Cannot find transaction process: #{opts}") if process.nil?
       }
   end
 
@@ -818,13 +818,13 @@ class ListingsController < ApplicationController
 
   def get_shapes
     @shapes ||= listings_api.shapes.get(community_id: @current_community.id).maybe.or_else(nil).tap { |shapes|
-      raise ArgumentError.new("Can not find any listing shape for community #{@current_community.id}") if shapes.nil?
+      raise ArgumentError.new("Cannot find any listing shape for community #{@current_community.id}") if shapes.nil?
     }
   end
 
   def get_processes
     @processes ||= transactions_api.processes.get(community_id: @current_community.id).maybe.or_else(nil).tap { |processes|
-      raise ArgumentError.new("Can not find any transaction process for community #{@current_community.id}") if processes.nil?
+      raise ArgumentError.new("Cannot find any transaction process for community #{@current_community.id}") if processes.nil?
     }
   end
 

@@ -11,12 +11,12 @@ en:
   devise:
     failure:
       already_authenticated: "You are already signed in."
-      unauthenticated: "You need to sign in or sign up before continuing."
+      unauthenticated: "You need to log in or sign up before continuing."
       unconfirmed: "You have to confirm your account before continuing."
       locked: "Your account is locked."
       invalid: "Invalid email or password."
       invalid_token: "Invalid authentication token."
-      timeout: "Your session expired, please sign in again to continue."
+      timeout: "Your session has expired. Please log in again to continue."
       inactive: "Your account was not activated yet."
     passwords:
       updated_not_active: "Your password was changed successfully."
@@ -45,7 +45,7 @@ en:
     unlocks:
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions about how to unlock it in a few minutes."
       send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
-      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+      unlocked: "Your account has been unlocked successfully. Please log in to continue."
     omniauth_callbacks:
       success: "Successfully authorized from %{kind} account."
       failure: "Could not authorize you from %{kind} because \"%{reason}\"."

@@ -267,7 +267,7 @@ module PaypalService::Store::PaypalAccount
 
       from_model(Maybe(account_model))
     else
-      msg = "Can not find Paypal account #{find_params}"
+      msg = "Cannot find Paypal account #{find_params}"
 
       raise ArgumentError.new(msg) unless account_model
     end

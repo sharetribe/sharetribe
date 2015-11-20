@@ -27,9 +27,9 @@ module BraintreeService
         response = BraintreeApi.release_from_escrow(community, transaction_id)
         BTLog.info("Released transaction '#{transaction_id} from escrow, status: '#{txn.escrow_status}'")
       when ReleasePending, Released, Refunded
-        BTLog.error("Transaction '#{transaction_id}' can not be release from escrow: already released/refunded. Status: '#{txn.escrow_status}'")
+        BTLog.error("Transaction '#{transaction_id}' cannot be release from escrow: already released/refunded. Status: '#{txn.escrow_status}'")
       else
-        BTLog.error("Transaction '#{transaction_id}' can not be release from escrow: unknown status '#{txn.escrow_status}'")
+        BTLog.error("Transaction '#{transaction_id}' cannot be release from escrow: unknown status '#{txn.escrow_status}'")
       end
     end
 

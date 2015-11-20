@@ -16,7 +16,7 @@ module ListingService::API
           Maybe(ShapeStore.get(find_opts)).map { |shape|
             Result::Success.new(shape)
           }.or_else {
-            Result::Error.new("Can not find listing shape for #{find_opts}")
+            Result::Error.new("Cannot find listing shape for #{find_opts}")
           }
         else
           Result::Success.new(ShapeStore.get_all(community_id: community_id, include_categories: include_categories))
@@ -42,7 +42,7 @@ module ListingService::API
         Maybe(ShapeStore.update(find_opts.merge(opts: opts))).map { |shape|
           Result::Success.new(shape)
         }.or_else {
-          Result::Error.new("Can not find listing shape for #{find_opts}")
+          Result::Error.new("Cannot find listing shape for #{find_opts}")
         }
       }
     end
@@ -58,7 +58,7 @@ module ListingService::API
         Maybe(ShapeStore.delete(find_opts)).map { |shape|
           Result::Success.new(shape)
         }.or_else {
-          Result::Error.new("Can not find listing shape for #{find_opts}")
+          Result::Error.new("Cannot find listing shape for #{find_opts}")
         }
       }
     end
@@ -67,7 +67,7 @@ module ListingService::API
 
     def validate_find_opts(opts, unique_result_required:)
       if opts[:listing_shape_id].present? && opts[:name].present?
-        return Result::Error.new("Can not have both listing shape id (#{opts[:listing_shape_id]}) and name (#{opts[:name]}) present.")
+        return Result::Error.new("Cannot have both listing shape id (#{opts[:listing_shape_id]}) and name (#{opts[:name]}) present.")
       elsif unique_result_required && opts[:listing_shape_id].nil? && opts[:name].nil?
         return Result::Error.new("Must have either id or name present.")
       else

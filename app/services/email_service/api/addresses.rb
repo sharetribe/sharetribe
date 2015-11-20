@@ -32,7 +32,7 @@ module EmailService::API
         Result::Success.new(
           with_formats(address))
       }.or_else {
-        Result::Error.new("Can not find for community_id: #{community_id}")
+        Result::Error.new("Cannot find for community_id: #{community_id}")
       }
     end
 
