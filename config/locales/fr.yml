@@ -97,7 +97,7 @@ fr:
         community_custom_color2: "Couleur secondaire"
         logo_instructions_text_with_dimensions: "Le logo large doit avoir des dimensions de %{width}x%{height} pixels. Il sera affiché sur les grands écrans."
         logo_icon_instructions_text_with_dimensions: "Ce logo carré sera utilisé lorsque des gens partageront votre site sur Facebook, quand ils navigueront sur votre site depuis un appareil mobile ou en tant qu'image lorsqu'ils mettront le site en favori. Les dimensions doivent être d'au moins %{width}x%{height} pixels."
-        cover_photo_visibility: "La photo de couverture est affichée aux utilisateurs non connectés sur la page d'accueil."
+        cover_photo_visibility: "La photo de couverture est affichée sur la page d'accueil aux utilisateurs non connectés."
         cover_photo_instructions_text_with_dimensions: "La photo sera redimensionnée en %{width}x%{height} pixels et les images trop grandes seront coupées au centre. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "La photo de couverture réduite est affichée sur toute les pages excepté sur la page d'accueil pour les visiteurs non connectés."
         small_cover_photo_instructions_text_with_dimensions: "La photo sera redimensionnée en %{width}x%{height} pixels et les images trop grandes seront coupées au centre."
@@ -1037,7 +1037,7 @@ fr:
     error_404:
       if_you_believe: "Si vous pensez que l'adresse est correcte et qu'elle devrait fonctionner, veuillez nous aider à localiser l'erreur en indiquant notamment l'adresse ayant causé le problème et ce qui aurait dû s'afficher (utiliser formulaire ci-dessous)."
       page_can_not_be_found: "Page introuvable !"
-      page_you_requested_can_not_be_found: "La page que vous avez demandé n'a pas pu être trouvée. Avez-vous saisi l'adresse correctement ?"
+      page_you_requested_can_not_be_found: "La page que vous avez demandé n'a pas pu être trouvée. Avez-vous saisi la bonne adresse ?"
     error_404_title: "page introuvable"
     error_410:
       page_removed: "Page supprimée"
@@ -1269,7 +1269,7 @@ fr:
       admin: Admin
       go_to_your_profile_page: Profil
       hi: Bonjour
-      login: "Se connecter"
+      login: Connexion
       logout: Déconnexion
       notifications: Notifications
       requests: "Demandes d'amis"
@@ -1317,7 +1317,7 @@ fr:
       invitation_limit_reached: "Vous avez essayé d'envoyer trop d'invitations. La limite journalière a été atteinte."
       invitation_sent: "L' (les) invitation(s) a (ont) été envoyée(s)"
       inviting_new_users_is_not_allowed_in_this_community: "Inviter de nouveaux utilisateurs n'est pas autorisé."
-      login_again: "Merci de vous reconnecter."
+      login_again: "Veuillez vous reconnecter de nouveau."
       login_failed: "La connexion a échoué. Veuillez saisir vos identifiants."
       account_creation_successful: "Bienvenue sur %{service_name}, %{person_name} !"
       account_deleted: "Votre compte a été supprimé."
@@ -1383,11 +1383,11 @@ fr:
       additional_email_confirmed_dashboard: "Votre adresse email est confirmée."
       you_must_log_in_to_give_feedback: "Vous devez vous connecter pour donner un avis"
       you_must_log_in_to_invite_new_users: "Vous devez vous connecter pour pouvoir inviter de nouveaux utilisateurs sur %{service_name}"
-      you_must_log_in_to_send_a_comment: "Vous devez vous connecter pour envoyer un nouveau commentaire"
+      you_must_log_in_to_send_a_comment: "Vous devez vous connecter pour déposer un nouveau commentaire"
       you_must_log_in_to_send_a_message: "Vous devez vous connecter à %{service_name} pour envoyer un message à un autre utilisateur."
       you_must_log_in_to_do_a_transaction: "Vous devez vous connecter à %{service_name} pour réaliser une transaction."
       you_must_log_in_to_view_this_content: "Vous devez vous connecter pour voir ce contenu"
-      you_must_log_in_to_view_this_page: "Connectez vous pour voir cette page"
+      you_must_log_in_to_view_this_page: "Vous devez vous connecter pour voir cette page"
       you_must_log_in_to_view_your_inbox: "Vous devez vous connecter à %{service_name} pour consulter votre boîte de réception."
       you_must_log_in_to_view_your_settings: "Vous devez vous connecter à %{service_name} pour afficher vos paramètres."
       you_must_log_in_to_add_news_item: "Vous devez vous connecter à %{service_name} pour ajouter un nouvel article."
@@ -1913,8 +1913,8 @@ fr:
     new:
       create_new_account: "Créer un nouveau compte"
       i_forgot_my_password: "Identifiant ou mot de passe oublié"
-      login: "Se connecter"
-      login_to_kassi: "Se connecter à %{service_name}"
+      login: Connexion
+      login_to_kassi: "Connexion à %{service_name}"
       connect_your_facebook_to_kassi: "Lier votre compte Facebook à %{service_name}"
       facebook_account: "Compte Facebook :"
       log_in_to_link_account: "Si vous avez déjà un compte %{service_name}, connectez vous pour le lier à votre compte Facebook."
@@ -1997,7 +1997,7 @@ fr:
       settings_link: paramètres
       homepage_link: "page d'accueil"
       unsubscribe_unsuccesful: "Erreur lors de la désinscription"
-      unsuccessful_unsubscribe_info_text: "Le lien de désinscription a expiré. Connectez-vous pour gérer vos paramètres de notifications."
+      unsuccessful_unsubscribe_info_text: "Le lien de désinscription a expiré. Veuillez vous connecter pour gérer vos paramètres de notifications."
     profile:
       about_you: "A propos de vous"
       city: Ville

@@ -16,7 +16,7 @@ fr:
       locked: "Votre compte est verrouillé."
       invalid: "Email ou mot de passe incorrect."
       invalid_token: "Jeton d'authentification incorrect."
-      timeout: "Votre session est expirée, veuillez vous reconnecter pour continuer."
+      timeout: "Votre session a expiré. Veuillez vous connecter de nouveau pour continuer."
       inactive: "Votre compte n'est pas encore activé."
     passwords:
       updated_not_active: "Votre mot de passe a bien été changé."
@@ -45,7 +45,7 @@ fr:
     unlocks:
       send_paranoid_instructions: "Si votre compte existe bien, vous allez recevoir dans quelques minutes les instructions pour débloquer votre compte."
       send_instructions: "Vous allez recevoir les instructions nécessaires au déblocage de votre compte dans quelques instants"
-      unlocked: "Votre compte a été débloqué avec succès, vous êtes maintenant connecté."
+      unlocked: "Votre compte a bien été débloqué. Veuillez vous connecter de nouveau pour continuer."
     omniauth_callbacks:
       success: "Authentifié avec succès via %{kind}."
       failure: "Nous n'avons pas pu vous authentifier via %{kind} : '%{reason}'."

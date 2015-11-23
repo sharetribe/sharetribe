@@ -1731,13 +1731,13 @@ nb:
   paypal_accounts:
     payout_info_title: Utbetalingsinformasjon
     paypal_account_email_connected: "1. <del>Koble til PayPal-konto</del> Fullført!"
-    payout_info_paypal: ~
+    payout_info_paypal: "%{service_name} bruker PayPal som betalingsleverandør. Du må ha en %{create_paypal_account_link} for å kunne ta imot betalinger for bestillinger av dine reklameplasser, som så kobles til %{service_name}."
     paypal_billing_agreement_made: "2. <del>Tillat %{service_name} å ta betalt for sine tjenester</del> Fullført!"
     commission_permission_needed: ~
-    create_paypal_account_link_text: ~
+    create_paypal_account_link_text: PayPal-konto
     connected_account: "PayPal-konto '%{email}' tilkoblet."
     paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info_label: "Din PayPal-konto må konfigureres til å ta imot betalinger. Du må opprette en Bedriftskonto."
     paypal_receive_funds_info: ~
     upgrade_paypal_account_link_text: ~
     admin_account_not_connected: ~
@@ -1757,10 +1757,10 @@ nb:
       paypal_account_billing_agreement: "2. Tillat %{service_name} å ta et transaksjonsgebyr"
       follow_steps: ~
       connect_paypal_account_title: ~
-      connect_paypal_account_title_with_step: ~
+      connect_paypal_account_title_with_step: "Steg %{current_step}/%{total_steps}: Koble til din PayPal-konto"
       connect_paypal_account_instructions: ~
       connect_paypal_account: "1. Koble til PayPal-konto"
-      paypal_account_billing_agreement_with_step: ~
+      paypal_account_billing_agreement_with_step: "Steg %{current_step}/%{total_steps}: Gi tillatelse til å belaste transaksjonsgebyr"
       paypal_account_billing_agreement_info_both: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad (%{commission_from_seller} av totalsum, minus frakt, minimumkostnad %{minimum_commission}) bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad på %{minimum_commission} bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad (%{commission_from_seller} av totalsum, minus frakt) bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."
