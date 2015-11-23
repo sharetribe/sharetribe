@@ -21,7 +21,10 @@
             = unit_option[:display]
 
     %small
-      - paypal_fee_info_link = "<a href=# id='paypal_fee_info_link'>#{t(".paypal_fee_info_link_text")}</a>"
+      - paypal_fee_info_link = capture do
+        %a.listing-paypal-fee-info-link#paypal_fee_info_link
+          = t(".paypal_fee_info_link_text")
+
       = t(".price_excludes_vat", :vat => @current_community.vat) if @current_community.vat
       - if !seller_commission_in_use && payment_gateway == :paypal
         = t(".no_service_fee_you_will_get_paypal_text", :paypal_fee_info_link => paypal_fee_info_link).html_safe
