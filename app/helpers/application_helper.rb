@@ -584,7 +584,7 @@ module ApplicationHelper
       }
     ]
 
-    if feature_enabled?(:new_plan_page) && APP_CONFIG.external_plan_service_in_use
+    if APP_CONFIG.external_plan_service_in_use
       links << {
         :topic => :general,
         :text => t("admin.left_hand_navigation.subscription"),
