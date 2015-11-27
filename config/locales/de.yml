@@ -392,7 +392,7 @@ de:
       configure: Konfiguration
       emails_title: E-Mails
       support: Support
-      subscription: ~
+      subscription: Abonnement
     listing_shapes:
       index:
         listing_shapes: ~
@@ -1326,7 +1326,7 @@ de:
       offer_canceled: "Angebot abgebrochen"
       listing_updated_successfully: "Eintrag wurde erfolgreich aktualisiert"
       only_kassi_administrators_can_access_this_area: "Nur  %{service_name} Administratoren können diesen Bereich aufrufen"
-      only_listing_author_can_close_a_listing: "Nur der erstellende Anbieter kann ein Angebot pausieren"
+      only_listing_author_can_close_a_listing: "Nur der erstellende Anbieter kann ein Angebot deaktivieren"
       only_listing_author_can_edit_a_listing: "Nur Autoren eines Eintrags können den Eintrag bearbeiten"
       payment_successful: "erfolgreiche Bezahlung"
       payment_canceled: "Zahlung abgebrochen"
@@ -1423,7 +1423,7 @@ de:
     edit:
       edit_listing: "Eintrag bearbeiten"
     edit_links:
-      close_listing: "Eintrag beenden"
+      close_listing: "Eintrag deaktivieren"
       edit_listing: "Eintrag bearbeiten"
       reopen_listing: "Eintrag wieder aktivieren"
       move_to_top: "Auf der Homepage nach oben verschieben"
@@ -1844,7 +1844,7 @@ de:
       slightly_less_than_expected: "Etwas schlechter als erwartet"
     profile_listings:
       show_also_closed: "Auch pausierte Angebote anzeigen"
-      show_only_open: "Nur offene anzeigen"
+      show_only_open: "Nur aktive Angebote anzeigen"
       no_image: "Kein Bild"
     show:
       contact: "%{person} kontaktieren"
