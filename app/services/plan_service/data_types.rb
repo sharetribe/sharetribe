@@ -27,7 +27,7 @@ module PlanService::DataTypes
     [:id, :fixnum, :mandatory],
     [:ident, :string, :mandatory],
     [:domain, :string],
-    [:marketplace_default_name, :string, :mandatory]
+    [:marketplace_default_name, :string]
   )
 
 end
