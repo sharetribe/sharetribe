@@ -130,11 +130,6 @@ class ListingImage < ActiveRecord::Base
     width.to_f / height.to_f > aspect_ratio.to_f
   end
 
-  def download_from_url(url)
-    self.image = URI.parse(url)
-    self.update_attribute(:image_downloaded, true)
-  end
-
   def image_ready?
     image_downloaded && !image_processing
   end
