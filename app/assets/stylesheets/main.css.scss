@@ -50,6 +50,8 @@ body {
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     hyphens: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
   br {
