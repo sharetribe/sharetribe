@@ -23,7 +23,7 @@ class ListingImagesController < ApplicationController
     url = escape_s3_url(params[:path], params[:filename])
 
     if !url.present?
-      logger.warn("No image URL provided", :no_image_url_provided, params)
+      logger.info("No image URL provided", :no_image_url_provided, params)
       render json: {:errors => "No image URL provided"}, status: 400, content_type: 'text/plain'
     end
 
@@ -76,12 +76,12 @@ class ListingImagesController < ApplicationController
         logger.info("Asynchronously downloading image", :start_async_image_download, listing_image_id: listing_image.id, url: url, params: params)
         Delayed::Job.enqueue(DownloadListingImageJob.new(listing_image.id, url), priority: 1)
       else
-        logger.info("Listing image downloaded already", :image_downloaded_already, listing_image_id: listing_image.id, params: params)
+        logger.info("Listing image is already downloaded", :image_already_downloaded, listing_image_id: listing_image.id, params: params)
       end
 
       render json: ListingImageJSAdapter.new(listing_image).to_json, status: 202, content_type: 'text/plain' # Browsers without XHR fileupload support do not support other dataTypes than text
     else
-      logger.error("Saving listing image failed", :saving_listing_image_failed, params: params)
+      logger.error("Saving listing image failed", :saving_listing_image_failed, params: params, errors: listing_image.errors.full_messages)
       render json: {:errors => listing_image.errors.full_messages}, status: 400, content_type: 'text/plain'
     end
   end
