@@ -1,55 +1,58 @@
 mn:
   errors:
     messages:
-      expired: ~
-      not_found: ~
-      already_confirmed: ~
-      not_locked: ~
+      expired: "Хугацаа нь дууссан байна, шинэ хүсэлт гаргана уу"
+      not_found: Олдсонгүй
+      already_confirmed: "батлагдсан байна, нэвтэрнэ үү"
+      not_locked: "түгжигдээгүй байна"
+      not_saved:
+        one: "1 алдаагаас болж %{resource} хадгалагдсангүй"
+        other: "%{count} алдаагаас болж %{resource} хадгалагдсангүй"
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
-      unconfirmed: ~
-      locked: ~
-      invalid: ~
-      invalid_token: ~
-      timeout: ~
-      inactive: ~
+      already_authenticated: "Та нэвтэрсэн байна."
+      unauthenticated: "Үргэлжлүүлэхийн тулд нэвтрэх эсхүл бүртгүүлнэ үү."
+      unconfirmed: "Үргэлжлүүлэхийн тулд гишүүнчлэлээ баталгаажуулна уу."
+      locked: "Таны гишүүнчлэл түгжигдлээ."
+      invalid: "Имэйл эсхүл нууц үг буруу байна."
+      invalid_token: "Тоо алдаатай байна."
+      timeout: "Хугацаа дууссан байна. Та дахин нэвтэрнэ үү."
+      inactive: "Таны бүртгэл итгэвхжээгүй байна."
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: ~
+      updated_not_active: "Таны нууц үг амжилттай өөрчлөгдсөн."
+      send_paranoid_instructions: "Таны и-мэйл манай мэдээллийн санд байгаа бол, та өөрийн и-мэйл дээр нууц үг сэргээх холбоосыг хүлээн авах болно."
+      send_instructions: "Та хэдэн минутын дотор нууц үгээ сэргээх зааварчилгааг и-мэйлээр хүлээн авах болно."
+      updated: "Таны нууц үг амжилттай өөрчлөгдсөн. Та одоо нэвтэрсэн байна."
     sessions:
-      signed_in: ~
-      signed_out: ~
+      signed_in: "Амжилттай нэвтэрлээ."
+      signed_out: "Амжилттай гарлаа"
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_paranoid_instructions: "Таны и-мэйл манай мэдээллийн санд байгаа бол та хэдхэн минутын дотор таны гишүүнчлэлийг баталгаажуулах талаар заавар бүхий и-мэйл хүлээн авах болно."
+      send_instructions: "Та хэдэн минутын дараа таны гишүүнчлэлийг баталгаажуулах талаар заавар бүхий и-мэйл хүлээн авах болно."
+      confirmed: "Таны бүртгэл амжилттай батлагдсан байна."
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "Баталгаажуулах холбоосыг таны и-мэйл хаяг руу илгээсэн байна. Та бүртгэлээ идэвхжүүлэх холбоосыг нээнэ үү."
+      signed_up_but_inactive: "Та амжилттай бүртгүүллээ. Гэвч таны бүртгэл хараахан идэвхжээгүй байх тул та нэвтэрч чадахгүй байна."
+      signed_up_but_locked: "Та амжилттай бүртгүүллээ. Гэвч таны гишүүнчлэл түгжигдсэн тул та нэвтэрч чадахгүй байна."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+        inactive: идэвхгүй
+        unconfirmed: батлагдаагүй
+        locked: Түгжигдлээ
+      update_needs_confirmation: "Таны гишүүнчлэл амжилттай шинэчлэгдлээ, гэхдээ бид таны шинэ и-мэйл хаягыг баталгаажуулах хэрэгтэй. Таны и-мэйлээ шалгаж, шинэ и-мэйл хаягаа баталгаажуулах холбоос дээр дарна уу."
+      signed_up: "Тавтай морилно уу! Та амжилттай бүртгүүллээ."
+      updated: "Таны гишүүнчлэл амжилттай шинэчлэгдлээ."
+      destroyed: "Баяртай! Таны бүртгэл амжилттай цуцалагдлаа. Бид таныг дахин харна гэж найдаж байна."
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: "Танд гишүүнчлэл байгаа бол та нээх талаар заавар бүхий и-мэйл хүлээн авах болно."
+      send_instructions: "Та хэдэн минутын дараа гишүүнчлэлээ нээх талаар заавар бүхий и-мэйл хүлээн авах болно."
+      unlocked: "Таны гишүүнчлэл амжилттай нээгдлээ. Үргэлжлүүлэн нэвтэрч орно уу."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "%{kind} гишүүнчлэлээс амжилттай зөвшөөрөгдлөө."
+      failure: "%{reason} шалтгаанаас %{kind} зөвшөөрөгдсөнгүй."
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "Батлах заавар"
       reset_password_instructions:
-        subject: ~
+        subject: "Нууц үгээ сэргээх заавар."
       unlock_instructions:
-        subject: ~
+        subject: "Нээх заавар."
