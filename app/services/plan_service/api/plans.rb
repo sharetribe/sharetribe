@@ -53,7 +53,7 @@ module PlanService::API
     end
 
     def get_trials(after:, limit:)
-      # Fetch one extra, so that we can return the next_offset
+      # Fetch one extra, so that we can return the next_after
       plus_one = limit + 1
 
       trials = PlanStore.get_trials(after: after, limit: plus_one)

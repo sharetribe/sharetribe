@@ -97,7 +97,7 @@ class PlansController < ApplicationController
   #
   # ```
   # { plans: [ ... ],
-  #   next_offset: 1234567890
+  #   next_after: 1234567890
   # }
   def get_trials
     parse_token(params).and_then {
