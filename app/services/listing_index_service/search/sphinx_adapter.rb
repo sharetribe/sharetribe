@@ -47,7 +47,8 @@ module ListingIndexService::Search
       where_opts = HashUtils.compact(
         {
           community_id: community_id,
-          author_id: search[:author_id]
+          author_id: search[:author_id],
+          deleted: 0
         })
 
       query = Listing
