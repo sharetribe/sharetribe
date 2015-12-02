@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151102084029) do
+ActiveRecord::Schema.define(:version => 20151202062609) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -205,6 +205,7 @@ ActiveRecord::Schema.define(:version => 20151102084029) do
     t.datetime "favicon_updated_at"
     t.integer  "default_min_days_between_community_updates",               :default => 7
     t.boolean  "listing_location_required",                                :default => false
+    t.text     "custom_head_script"
     t.boolean  "follow_in_use",                                            :default => true,                      :null => false
     t.boolean  "logo_processing"
     t.boolean  "wide_logo_processing"
@@ -214,7 +215,6 @@ ActiveRecord::Schema.define(:version => 20151102084029) do
     t.string   "dv_test_file_name",                          :limit => 64
     t.string   "dv_test_file",                               :limit => 64
     t.boolean  "deleted"
-    t.text     "custom_head_script"
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
@@ -556,9 +556,9 @@ ActiveRecord::Schema.define(:version => 20151102084029) do
 
   add_index "listings", ["category_id"], :name => "index_listings_on_new_category_id"
   add_index "listings", ["community_id", "author_id"], :name => "person_listings"
-  add_index "listings", ["community_id", "open", "sort_date"], :name => "homepage_query"
+  add_index "listings", ["community_id", "open", "sort_date", "deleted"], :name => "homepage_query"
   add_index "listings", ["community_id", "open", "updates_email_at"], :name => "updates_email_listings"
-  add_index "listings", ["community_id", "open", "valid_until", "sort_date"], :name => "homepage_query_valid_until"
+  add_index "listings", ["community_id", "open", "valid_until", "sort_date", "deleted"], :name => "homepage_query_valid_until"
   add_index "listings", ["community_id"], :name => "index_listings_on_community_id"
   add_index "listings", ["listing_shape_id"], :name => "index_listings_on_listing_shape_id"
   add_index "listings", ["old_category_id"], :name => "index_listings_on_category_id"
