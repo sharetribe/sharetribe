@@ -59,7 +59,7 @@ class PostPayTransactionsController < ApplicationController
           AcceptReminderJob.new(
             transaction_id,
             @listing.author.id, @current_community.id),
-          :priority => 10, :run_at => send_interval.days.from_now)
+          :priority => 9, :run_at => send_interval.days.from_now)
       end
 
       redirect_to session[:return_to_content] || root
