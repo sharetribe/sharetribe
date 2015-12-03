@@ -5,13 +5,13 @@ class DelayedJobLoggerPlugin < Delayed::Plugin
   callbacks do |lifecycle|
 
     lifecycle.around(:invoke_job) do |job, &block|
-      logger.info "Running job", job_to_hash(job)
+      logger.info "Running job", :running, job_to_hash(job)
       begin
         block.call(job)
-        logger.info "Job success", job_to_hash(job)
+        logger.info "Job success", :success, job_to_hash(job)
       rescue Exception => e
         # log and reraise
-        logger.info "Job error: #{e.inspect}", job_to_hash(job)
+        logger.info "Job error: #{e.inspect}", :error, job_to_hash(job)
         raise e
       end
     end
