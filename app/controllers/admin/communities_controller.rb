@@ -201,7 +201,7 @@ class Admin::CommunitiesController < ApplicationController
            params[:community].merge(stylesheet_needs_recompile: regenerate_css?(params, @current_community)),
            edit_look_and_feel_admin_community_path(@current_community),
            :edit_look_and_feel) {
-      Delayed::Job.enqueue(CompileCustomStylesheetJob.new(@current_community.id))
+      Delayed::Job.enqueue(CompileCustomStylesheetJob.new(@current_community.id), priority: 3)
     }
   end
 

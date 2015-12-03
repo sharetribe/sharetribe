@@ -20,7 +20,7 @@ class ConfirmConversation
   def confirm!
     Delayed::Job.enqueue(TransactionConfirmedJob.new(@transaction.id, @community.id))
     [3, 10].each do |send_interval|
-      Delayed::Job.enqueue(TestimonialReminderJob.new(@transaction.id, nil, @community.id), :priority => 10, :run_at => send_interval.days.from_now)
+      Delayed::Job.enqueue(TestimonialReminderJob.new(@transaction.id, nil, @community.id), :priority => 9, :run_at => send_interval.days.from_now)
     end
     release_escrow if @hold_in_escrow
   end
@@ -68,7 +68,7 @@ class ConfirmConversation
     activate_reminder           = @community.testimonials_in_use && @transaction.automatic_confirmation_after_days > REMIND_DAYS_BEFORE_CLOSING
 
     if activate_reminder
-      Delayed::Job.enqueue(ConfirmReminderJob.new(@transaction.id, @requester.id, @community.id, REMIND_DAYS_BEFORE_CLOSING), :priority => 10, :run_at => reminder_email_at)
+      Delayed::Job.enqueue(ConfirmReminderJob.new(@transaction.id, @requester.id, @community.id, REMIND_DAYS_BEFORE_CLOSING), :priority => 9, :run_at => reminder_email_at)
     end
   end
 
