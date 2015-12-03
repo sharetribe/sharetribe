@@ -115,26 +115,27 @@
           - # Filters will be relocated here when in desktop
 
     - main_container_class = if @category_menu_enabled then "col-9" else "col-12" end
-    %div{:class => main_container_class}
-      - if @listings.total_entries > 0
-        - if @view_type.eql?("map")
-          .home-map
-            = render :partial => "map"
+    - cache(["index_haml", @current_community.cache_key, param_digest]) do
+      %div{:class => main_container_class}
+        - if @listings.total_entries > 0
+          - if @view_type.eql?("map")
+            .home-map
+              = render :partial => "map"
+          - else
+            - if @view_type.eql?("grid")
+              %div{class: @category_menu_enabled ? "home-fluid-thumbnail-grid-narrow" : "home-fluid-thumbnail-grid-wide"}
+                .home-fluid-thumbnail-grid
+                  = render :partial => "grid_item", :collection => @listings, :as => :listing
+            - else
+              .home-listings
+                = render :partial => "list_item", :collection => @listings, :as => :listing, locals:{shape_name_map: shape_name_map, testimonials_in_use: testimonials_in_use}
+            .home-loading-more
+              = will_paginate(@listings)
+              - item_container = if @view_type.eql?("grid") then '.home-fluid-thumbnail-grid' else '.home-listings' end
+              = pageless(@listings.total_pages, item_container, request.fullpath, t('.loading_more_content'))
         - else
-          - if @view_type.eql?("grid")
-            %div{class: @category_menu_enabled ? "home-fluid-thumbnail-grid-narrow" : "home-fluid-thumbnail-grid-wide"}
-              .home-fluid-thumbnail-grid
-                = render :partial => "grid_item", :collection => @listings, :as => :listing
-          - else
-            .home-listings
-              = render :partial => "list_item", :collection => @listings, :as => :listing, locals:{shape_name_map: shape_name_map, testimonials_in_use: testimonials_in_use}
-          .home-loading-more
-            = will_paginate(@listings)
-            - item_container = if @view_type.eql?("grid") then '.home-fluid-thumbnail-grid' else '.home-listings' end
-            = pageless(@listings.total_pages, item_container, request.fullpath, t('.loading_more_content'))
-      - else
-        .home-no-listings
-          - if params[:q] || params[:category] || params[:share_type] # Some filter in use
-            = t(".no_listings_with_your_search_criteria")
-          - else
-            = t(".no_listings_notification", :add_listing_link => link_to(t(".add_listing_link_text"), new_listing_path)).html_safe
+          .home-no-listings
+            - if params[:q] || params[:category] || params[:share_type] # Some filter in use
+              = t(".no_listings_with_your_search_criteria")
+            - else
+              = t(".no_listings_notification", :add_listing_link => link_to(t(".add_listing_link_text"), new_listing_path)).html_safe
