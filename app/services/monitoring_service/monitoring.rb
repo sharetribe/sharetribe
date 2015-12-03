@@ -7,13 +7,13 @@ module MonitoringService::Monitoring
 
   def report_queue_size
     if Librato.tracker.should_start? && should_report?
-      # Priorities are from 0..10, where 0..6 are high priority and 7..10 low
+      # Priorities are from 0..10, where 0..5 are high priority and 6..10 low
       priority_counts = Delayed::Job.where('attempts < ? AND run_at < ?', 3, Time.now).group(:priority).count
 
       Librato.group 'delayed_job_queue' do |g|
         # We are measuring an average in the sampling period, by default 60 seconds
-        g.measure 'high', priority_counts.select { |p, _| p < 7 }.values.sum
-        g.measure 'low', priority_counts.select { |p, _| p >= 7 }.values.sum
+        g.measure 'high', priority_counts.select { |p, _| p < 6 }.values.sum
+        g.measure 'low', priority_counts.select { |p, _| p >= 6 }.values.sum
       end
       @delayed_job_last_reported = Time.now
     end
