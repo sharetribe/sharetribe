@@ -75,7 +75,7 @@ module MarketplaceService
       conversation_spec = [
         [:type, const_value: :conversation],
         [:last_message_at, :time, :mandatory],
-        [:last_message_content, :string, :mandatory]
+        [:last_message_content, :string, :optional]
       ]
 
       transaction_spec = [
