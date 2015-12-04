@@ -115,7 +115,7 @@
               %span.alert-box-icon<>
                 = icon_tag("alert", ["icon-fix"])
               %span<
-                = t("admin.communities.outgoing_email.only_white_label_offer", upgrade_pro_plan_link: link_to(t("admin.communities.outgoing_email.upgrade_pro_plan_link"), "#{knowledge_base_url}/articles/463242")).html_safe
+                = t("admin.communities.outgoing_email.only_white_label_offer", upgrade_pro_plan_link: link_to(t("admin.communities.outgoing_email.upgrade_pro_plan_link"), admin_plan_path)).html_safe
 
     - disabled_attr = can_set_sender_address ? nil : :disabled
     - disabled_class = can_set_sender_address ? "" : "sender-address-disabled"
