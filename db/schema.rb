@@ -897,6 +897,13 @@ ActiveRecord::Schema.define(:version => 20151202062609) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "search_settings", :force => true do |t|
+    t.integer  "community_id",                        :null => false
+    t.string   "main_search",  :default => "KEYWORD", :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+  end
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
