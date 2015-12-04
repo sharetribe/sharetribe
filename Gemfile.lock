@@ -491,6 +491,11 @@ GEM
       railties (= 3.2.21)
     rails-i18n (0.7.2)
       i18n (~> 0.5)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.4)
+    rails_stdout_logging (0.0.4)
     railties (3.2.21)
       actionpack (= 3.2.21)
       activesupport (= 3.2.21)
@@ -684,6 +689,7 @@ DEPENDENCIES
   rack-test
   rails (= 3.2.21)
   rails-i18n
+  rails_12factor (~> 0.0.3)
   rake
   rb-fsevent
   recaptcha

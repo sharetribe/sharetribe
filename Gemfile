@@ -97,6 +97,7 @@ gem 'public_suffix' # Needed currently to set GA hostname right, probably not
 
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
+  gem 'rails_12factor', '~> 0.0.3'
 end
 
 group :development, :test do
