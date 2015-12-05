@@ -36,6 +36,6 @@ class PersonBackgroundCheck < ActiveRecord::Base
   #validates_attachment_presence :image
   validates_attachment_size :document, :less_than => 5.megabytes
   validates_attachment_content_type :document,
-                                    :content_type => ["image/jpeg", "image/png", "image/gif",
+                                    :content_type => ["application/pdf", "application/doc", "application/download", "image/jpeg", "image/png", "image/gif",
                                       "image/pjpeg", "image/x-png"] #the two last types are sent by IE.
 end

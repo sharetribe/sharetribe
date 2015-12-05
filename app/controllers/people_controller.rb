@@ -201,13 +201,7 @@ class PeopleController < Devise::RegistrationsController
         bcc_data = bcc_data.split(',')
         field_type = bcc_data[0].to_i  # 1 - textfield/textarea, 2 - file
         bcc_id = bcc_data[1].to_i
-        puts bcc_id
-        puts bcc_id == 3
         person_background_check = @person.person_background_checks.where(background_check_container_id: bcc_id).first
-        puts "11111111"
-        puts person_background_check.nil?
-        puts field_type == 1
-        puts field_type == 2
         if person_background_check.nil?
           if field_type == 1
             @person.person_background_checks.create(background_check_container_id: bcc_id, value: value)
