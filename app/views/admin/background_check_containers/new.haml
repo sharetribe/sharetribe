@@ -1,0 +1,15 @@
+- content_for :javascript do
+  ST.initializeManageMembers();
+
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.manage_members.manage_members")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section
+  %h1 New background_check_container
+  = render 'form', url: admin_community_background_check_containers_path, method: 'post'
+  = link_to 'Back', admin_community_background_check_containers_path

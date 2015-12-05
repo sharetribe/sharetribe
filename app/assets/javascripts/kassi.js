@@ -666,6 +666,10 @@ function initialize_update_profile_info_form(locale, person_id, name_required) {
       disable_and_submit(form_id, form, "false", locale);
     }
   });
+  $(document).on('click', '[id^=fake_btn_]', function(){
+    real_btn_bcc_id = $(this).data('real-button-bcc-id');
+    $("#real_btn_" + real_btn_bcc_id).click();
+  });
 }
 
 function initialize_update_notification_settings_form(locale, person_id) {
@@ -1160,4 +1164,20 @@ function enableSamePageScroll() {
     }
     return [];
   }
+}
+
+function initialize_background_check_form () {
+  // $(document).on('change', '#background_check_container_container_type', function(){
+  //   if ($(this).val() == 'textfield' || $(this).val() == 'textarea') {
+  //     console.log('1')
+  //     console.log($(this).val())
+  //     $('.text_fields').removeClass('hidden');
+  //     $('.file_fields').addClass('hidden');
+  //   } else if ($(this).val() == 'file') {};{
+  //     console.log('2')
+  //     console.log($(this).val())
+  //     $('.text_fields').addClass('hidden');
+  //     $('.file_fields').removeClass('hidden');
+  //   }
+  // })
 }

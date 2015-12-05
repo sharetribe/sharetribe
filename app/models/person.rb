@@ -110,6 +110,7 @@ class Person < ActiveRecord::Base
   has_many :followers, :through => :follower_relationships, :foreign_key => "person_id"
   has_many :inverse_follower_relationships, :class_name => "FollowerRelationship", :foreign_key => "follower_id"
   has_many :followed_people, :through => :inverse_follower_relationships, :source => "person"
+  has_many :person_background_checks
 
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
 

@@ -1,0 +1,46 @@
+- content_for :javascript do
+  ST.initializeManageMembers();
+
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.manage_members.manage_members")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section
+  %p#notice= notice
+  %p
+    %b Name:
+    = @admin_community_background_check_container.name
+  %p
+    %b Community:
+    = @admin_community_background_check_container.community_id
+  %p
+    %b Field type:
+    = @admin_community_background_check_container.container_type
+  %p
+    %b Icon:
+    = image_tag @admin_community_background_check_container.icon(:thumb)
+  %p
+    %b Button text:
+    = @admin_community_background_check_container.button_text
+  %p
+    %b Placeholder text:
+    = @admin_community_background_check_container.placeholder_text
+  %p
+    %b Active:
+    = @admin_community_background_check_container.active
+  %p
+    %b Visible:
+    = @admin_community_background_check_container.visible
+  %p
+    %b Status:
+    = @admin_community_background_check_container.status
+  %p
+    %b Status background color:
+    = @admin_community_background_check_container.status_bg_color
+  = link_to 'Edit', edit_admin_community_background_check_container_path(@admin_community_background_check_container)
+  |
+  \#{link_to 'Back', admin_community_background_check_containers_path}

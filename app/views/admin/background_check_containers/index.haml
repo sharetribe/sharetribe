@@ -1,0 +1,43 @@
+- content_for :javascript do
+  ST.initializeManageMembers();
+
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.manage_members.manage_members")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section
+  %h1 Listing background_check_containers
+  %table
+    %tr
+      %th Name
+      %th Field type
+      %th Icon
+      %th Button text
+      %th Placeholder text
+      %th Active
+      %th Visible
+      %th Status
+      %th Status background color
+      %th
+      %th
+      %th
+    - @admin_community_background_check_containers.each do |background_check_container|
+      %tr
+        %td= background_check_container.name
+        %td= background_check_container.container_type
+        %td= image_tag background_check_container.icon(:thumb)
+        %td= background_check_container.button_text
+        %td= background_check_container.placeholder_text
+        %td= background_check_container.active
+        %td= background_check_container.visible
+        %td= background_check_container.status
+        %td= background_check_container.status_bg_color
+        %td= link_to 'Show', admin_community_background_check_container_path(id: background_check_container.id, community_id: @current_community.id)
+        %td= link_to 'Edit', edit_admin_community_background_check_container_path(id: background_check_container.id, community_id: @current_community.id)
+        %td= link_to 'Destroy', admin_community_background_check_container_path(id: background_check_container.id, community_id: @current_community.id), method: :delete, data: { confirm: 'Are you sure?' }
+  %br/
+  = link_to 'New Background check container', new_admin_community_background_check_container_path

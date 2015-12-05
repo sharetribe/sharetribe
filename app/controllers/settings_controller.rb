@@ -12,6 +12,7 @@ class SettingsController < ApplicationController
     flash.now[:notice] = t("settings.profile.image_is_processing") if @current_user.image.processing?
     @selected_left_navi_link = "profile"
     add_location_to_person
+    add_background_check_container_to_person
   end
 
   def account
@@ -54,6 +55,11 @@ class SettingsController < ApplicationController
     end
   end
 
+  def background_check
+    @selected_left_navi_link = "background_check"
+    add_background_check_container_to_person
+  end
+
   private
 
   def add_location_to_person
@@ -61,6 +67,10 @@ class SettingsController < ApplicationController
       @person.build_location(:address => @person.street_address,:location_type => 'person')
       @person.location.search_and_fill_latlng
     end
+  end
+
+   def add_background_check_container_to_person
+    @background_check_container = @current_community.background_check_containers
   end
 
   def find_person_to_unsubscribe(current_user, auth_token)

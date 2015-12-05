@@ -1,0 +1,44 @@
+= form_for(@admin_community_background_check_container, url: url, html: {method: :post}) do |f|
+  - if @admin_community_background_check_container.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@admin_community_background_check_container.errors.count, "error")
+        prohibited this background_check_container from being saved:
+      %ul
+        - @admin_community_background_check_container.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :container_type, value: 'Field Type'
+    = f.select :container_type, options_for_select(get_field_type)
+  .field
+    = f.label :icon
+    = f.file_field :icon
+  .field.file_fields.hidden
+    = f.label :button_text
+    = f.text_field :button_text
+  .field.text_fields
+    = f.label :placeholder_text
+    = f.text_area :placeholder_text
+  .field
+    = f.label :state
+    = f.radio_button :active, true
+    %span Enable
+    = f.radio_button :active, false
+    %span Disable
+  .field
+    = f.label :visible
+    = f.radio_button :visible, true
+    %span Visible
+    = f.radio_button :visible, false
+    %span Hidden
+  .field
+    = f.label :status
+    = f.text_area :status
+  .field
+    = f.label 'Status background color'
+    = f.select :status_bg_color, options_for_select(status_bg_color)
+  .actions
+    = f.submit

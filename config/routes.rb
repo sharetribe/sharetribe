@@ -170,6 +170,9 @@ Kassi::Application.routes.draw do
             get :permissions_verified, to: redirect("/admin/paypal_preferences/permissions_verified")
           end
         end
+        resources :background_check_containers, except: [:update] do
+          post :update
+        end
       end
       resources :custom_fields do
         collection do
@@ -363,6 +366,7 @@ Kassi::Application.routes.draw do
             get :notifications
             get :payments
             get :unsubscribe
+            get :background_check
           end
         end
         resources :testimonials

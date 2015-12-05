@@ -132,6 +132,7 @@ class Community < ActiveRecord::Base
   has_many :custom_fields, :dependent => :destroy
   has_many :custom_dropdown_fields, :class_name => "CustomField", :conditions => ["type = 'DropdownField'"], :dependent => :destroy
   has_many :custom_numeric_fields, :class_name => "NumericField", :conditions => ["type = 'NumericField'"], :dependent => :destroy
+  has_many :background_check_containers
 
   after_create :initialize_settings
 

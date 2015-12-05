@@ -1,0 +1,19 @@
+- content_for :title_header do
+  %h1 Background Check
+
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user, @current_community) }
+
+#person_settings_form.left-navi-section.settings-section
+  %table
+    %thead
+      %tr
+        %th Name
+        %th Icon
+        %th Status
+    %tbody
+    - @background_check_container.each do |bcc|
+      %tr{style: "background-color: #{bcc.status_bg_color}"}
+        %td= bcc.name
+        %td= image_tag bcc.icon(:thumb)
+        %td= bcc.status
+  

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151202062609) do
+ActiveRecord::Schema.define(:version => 20151204123307) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -25,6 +25,26 @@ ActiveRecord::Schema.define(:version => 20151202062609) do
   end
 
   add_index "auth_tokens", ["token"], :name => "index_auth_tokens_on_token", :unique => true
+
+  create_table "background_check_containers", :force => true do |t|
+    t.string   "name"
+    t.integer  "community_id"
+    t.string   "container_type"
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.integer  "icon_file_size"
+    t.datetime "icon_updated_at"
+    t.string   "button_text"
+    t.text     "placeholder_text"
+    t.boolean  "active"
+    t.boolean  "visible"
+    t.text     "status"
+    t.string   "status_bg_color"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "background_check_containers", ["community_id"], :name => "index_background_check_containers_on_community_id"
 
   create_table "billing_agreements", :force => true do |t|
     t.integer  "paypal_account_id",    :null => false
@@ -890,6 +910,21 @@ ActiveRecord::Schema.define(:version => 20151202062609) do
   add_index "people", ["id"], :name => "index_people_on_id"
   add_index "people", ["reset_password_token"], :name => "index_people_on_reset_password_token", :unique => true
   add_index "people", ["username"], :name => "index_people_on_username", :unique => true
+
+  create_table "person_background_checks", :force => true do |t|
+    t.string   "person_id"
+    t.integer  "background_check_container_id"
+    t.text     "value"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "person_background_checks", ["background_check_container_id"], :name => "index_person_background_checks_on_background_check_container_id"
+  add_index "person_background_checks", ["person_id"], :name => "index_person_background_checks_on_person_id"
 
   create_table "prospect_emails", :force => true do |t|
     t.string   "email"

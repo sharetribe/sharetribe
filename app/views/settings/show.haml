@@ -61,4 +61,11 @@
       = loc.hidden_field :latitude, :value => @person.location.latitude
       = loc.hidden_field :longitude, :value => @person.location.longitude
       = loc.hidden_field :location_type, :value => "person"
+
+    - @background_check_container.each do |bcc|
+      - if bcc.visible
+        %label= bcc.name
+        = get_background_check_field(bcc)
+        - if bcc.container_type == 'file'
+          %button{id: "fake_btn_#{bcc.id}", disabled: bcc.active ? false : true, type: "button", data: {real_button_bcc_id: bcc.id}}= bcc.button_text
     = form.button t("settings.save_information"), :class => "send_button"

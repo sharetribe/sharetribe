@@ -196,6 +196,34 @@ class PeopleController < Devise::RegistrationsController
       end
     end
 
+    if params[:background_check_container]
+      params[:background_check_container].each do |bcc_data, value|
+        bcc_data = bcc_data.split(',')
+        field_type = bcc_data[0].to_i  # 1 - textfield/textarea, 2 - file
+        bcc_id = bcc_data[1].to_i
+        puts bcc_id
+        puts bcc_id == 3
+        person_background_check = @person.person_background_checks.where(background_check_container_id: bcc_id).first
+        puts "11111111"
+        puts person_background_check.nil?
+        puts field_type == 1
+        puts field_type == 2
+        if person_background_check.nil?
+          if field_type == 1
+            @person.person_background_checks.create(background_check_container_id: bcc_id, value: value)
+          elsif field_type == 2
+            @person.person_background_checks.create(background_check_container_id: bcc_id, document: value)
+          end
+        else
+          if field_type == 1
+            person_background_check.update_attributes(value: value)
+          elsif field_type == 2
+            person_background_check.update_attributes(document: value)
+          end
+        end
+      end
+    end
+
     #Check that people don't exploit changing email to be confirmed to join an email restricted community
     if params["request_new_email_confirmation"] && @current_community && ! @current_community.email_allowed?(params[:person][:email])
       flash[:error] = t("people.new.email_not_allowed")
