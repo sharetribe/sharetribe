@@ -43,6 +43,10 @@
   }
 }
 
+.conversation-last-message-content-not-available {
+  font-style: italic;
+}
+
 .conversation-context {
   @include small-type;
   line-height: lines(1, $small-type)
