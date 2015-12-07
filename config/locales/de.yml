@@ -717,7 +717,7 @@ de:
       request_preauthorized: "Zahlung erfolgreich"
       skip_feedback: "Keine Bewertung geben"
       waiting_for_listing_author_to_accept_offer: "Warte bis %{listing_author_name} das Angebt annimmt"
-      waiting_for_listing_author_to_accept_request: "Warten bis %{listing_author_name} die Anfrage annimmt. Sobald %{listing_author_name} akzeptiert hat, wird Dein Konto belastet."
+      waiting_for_listing_author_to_accept_request: "Warten auf Annahme der Anfrage durch %{listing_author_name}. Erst wenn %{listing_author_name} akzeptiert hat, wird Dein Konto belastet."
       waiting_for_you_to_accept_request: "Wartet, dass Du die Anfrage akzeptierst"
       waiting_confirmation_from_requester: "Warten bis %{requester_name} die Anfrage als erledigt markiert"
       waiting_confirmation_from_you: "Wartet darauf, dass Du den Vorgang als abgeschlossen markierst"
@@ -864,13 +864,13 @@ de:
       welcome_to_kassi: "Willkommen bei %{service_name},"
       need_to_confirm: "Du musst Deine E-Mail-Adresse bestätigen."
       confirmation_link_text: "Meine E-Mail-Adresse bestätigen"
-      or_paste_link: "Alternativ kannst Du den folgenden Link in die Adresszeile deines Browsers kopieren:"
+      or_paste_link: "Alternativ kannst Du den folgenden Link in die Adresszeile Deines Browsers kopieren:"
       turning_on_confirmations_in_this_community: "Wir beginnen mit der Verwendung von E-Mail-Bestätigungen in dieser %{service_name} Community."
     common:
       check_your_settings: "Überprüfe Deine Einstellungen"
       hey: "Hallo %{name},"
       kassi_team: "Das %{service_name} Team"
-      thanks: "Danke,"
+      thanks: "Vielen Dank,"
       want_to_control_emails: "Willst du festlegen, welche Art von E-Mails Du von %{service_name} erhältst?"
       dont_want_to_receive_these_emails: "Willst du diese E-Mails nicht empfangen?"
       edit_your_email_settings_here: "Bearbeite hier deine E-Mail-Grundeinstellungen."
@@ -1927,7 +1927,7 @@ de:
       your_current_email_is: "Deine E-Mail-Adresse ist %{email}."
       change_email: Ändern
       confirm_your_email: "Bestätige deine E-Mail"
-      account_confirmation_instructions: "Du wirst in Kürze eine E-Mail mit einem Link erhalten, den du anklicken musst, um die eingegebene E-Mail-Adresse zu bestätigen. Nach der Bestätigung deiner E-Mail kannst du der Community beitreten."
+      account_confirmation_instructions: "Du wirst in Kürze eine E-Mail mit einem Link erhalten, den Du anklicken musst, um die angegebene E-Mail-Adresse zu bestätigen. Nach der Bestätigung Deiner E-Mail ist die Registrierung bei %{service_name} abgeschlossen."
       account_confirmation_instructions_title_admin: "Willkommen auf Deinem Marktplatz!"
       your_marketplace_has_now_been_created: ~
       account_confirmation_instructions_admin: ~
