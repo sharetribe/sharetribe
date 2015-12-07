@@ -5,12 +5,12 @@
   %h1
     = t("layouts.admin.admin")
     = "-"
-    = t("admin.communities.manage_members.manage_members")
+    = t("admin.communities.background_check_container.background_check_container")
 
 = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
 .left-navi-section
-  %h1 Editing background_check_container
+  %h1 Editing Background Check Containers
   = render 'form', url: admin_community_background_check_container_update_path(background_check_container_id: @admin_community_background_check_container.id, community_id: @current_community.id)#, method: 'put'
   = link_to 'Show', admin_community_background_check_container_path(id: @admin_community_background_check_container.id, community_id: @current_community.id)
   |
