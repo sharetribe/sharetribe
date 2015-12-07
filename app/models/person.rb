@@ -113,11 +113,6 @@ class Person < ActiveRecord::Base
 
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
 
-  after_save do
-    # This is required to invalidate the fragment caches for listings on front page, since the author is shown there.
-    self.listings.all.map(&:touch)
-  end
-
   def to_param
     username
   end
