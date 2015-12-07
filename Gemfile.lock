@@ -398,6 +398,7 @@ GEM
     multi_xml (0.5.5)
     multipart-post (1.2.0)
     mysql2 (0.3.14)
+    nested_form (0.3.2)
     newrelic_rpm (3.9.1.236)
     nokogiri (1.6.7)
       mini_portile2 (~> 2.0.0.rc2)
@@ -668,6 +669,7 @@ DEPENDENCIES
   money-rails
   multi_json (~> 1.7.3)
   mysql2
+  nested_form
   newrelic_rpm (~> 3.9.1.236)
   omniauth-facebook (~> 2.0.1)
   paperclip

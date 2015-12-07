@@ -25,9 +25,10 @@
 #
 
 class BackgroundCheckContainer < ActiveRecord::Base
-  attr_accessible :active, :button_text, :community_id, :container_type, :icon, :name, :placeholder_text, :status, :status_bg_color, :visible
+  attr_accessible :active, :button_text, :community_id, :container_type, :icon, :name, :placeholder_text, :visible, :bcc_statuses_attributes
 
   belongs_to :community
+  has_many :bcc_statuses, :dependent => :destroy
   has_attached_file :icon, :styles => {:thumb => "48x48#"},
                     :default_url => ActionController::Base.helpers.asset_path("/assets/profile_image/:style/missing.png", :digest => true)
   process_in_background :icon
@@ -37,4 +38,6 @@ class BackgroundCheckContainer < ActiveRecord::Base
   validates_attachment_content_type :icon,
                                     :content_type => ["image/jpeg", "image/png", "image/gif",
                                       "image/pjpeg", "image/x-png"] #the two last types are sent by IE.
+
+  accepts_nested_attributes_for :bcc_statuses, :allow_destroy => true#, update_only: true
 end

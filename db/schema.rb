@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151204123307) do
+ActiveRecord::Schema.define(:version => 20151207173250) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(:version => 20151204123307) do
   end
 
   add_index "background_check_containers", ["community_id"], :name => "index_background_check_containers_on_community_id"
+
+  create_table "bcc_statuses", :force => true do |t|
+    t.integer  "background_check_container_id"
+    t.text     "status"
+    t.string   "bg_color"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "bcc_statuses", ["background_check_container_id"], :name => "index_bcc_statuses_on_background_check_container_id"
 
   create_table "billing_agreements", :force => true do |t|
     t.integer  "paypal_account_id",    :null => false

@@ -27,6 +27,7 @@ class Admin::BackgroundCheckContainersController < ApplicationController
   # GET /background_check_containers/new.json
   def new
     @admin_community_background_check_container = BackgroundCheckContainer.new
+    @admin_community_background_check_container.bcc_statuses.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -89,6 +90,6 @@ class Admin::BackgroundCheckContainersController < ApplicationController
     # params.require(:person).permit(:name, :age)
     # Also, you can specialize this method with per-user checking of permissible attributes.
     def background_check_container_params
-      params.require(:background_check_container).permit(:active, :button_text, :community_id, :container_type, :icon, :name, :placeholder_text, :status, :status_bg_color, :visible)
+      params.require(:background_check_container).permit(:active, :button_text, :community_id, :container_type, :icon, :name, :placeholder_text, :visible, bcc_statuses_attributes: [:id, :status, :bg_color, :_destroy])
     end
 end

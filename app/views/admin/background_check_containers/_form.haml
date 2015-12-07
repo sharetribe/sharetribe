@@ -1,4 +1,4 @@
-= form_for(@admin_community_background_check_container, url: url, html: {method: :post}) do |f|
+= nested_form_for(@admin_community_background_check_container, url: url, html: {method: :post}) do |f|
   - if @admin_community_background_check_container.errors.any?
     #error_explanation
       %h2
@@ -34,11 +34,18 @@
     %span Visible
     = f.radio_button :visible, false
     %span Hidden
+  
   .field
-    = f.label :status
-    = f.text_area :status
-  .field
-    = f.label 'Status background color'
-    = f.select :status_bg_color, options_for_select(status_bg_color)
+    = label_tag 'Background Check Status'
+    .row
+      .col-8
+        = label_tag 'Status'
+      .col-2
+        = label_tag 'Color'
+    = f.fields_for :bcc_statuses do |s|
+      .row
+        = render 'bcc_status_form', :s => s
+    .row
+      = f.link_to_add "Add status", :bcc_statuses
   .actions
     = f.submit

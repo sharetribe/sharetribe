@@ -1,0 +1,9 @@
+/= @admin_community_background_check_container.bcc_statuses.count
+
+/- for bcc_status in @admin_community_background_check_container.bcc_statuses
+.col-8
+  = s.text_field :status
+.col-2
+  = s.select :bg_color, options_for_select(status_bg_color, s.object.bg_color)
+.col-2
+  = s.link_to_remove "Remove status"

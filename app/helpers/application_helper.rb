@@ -624,6 +624,13 @@ module ApplicationHelper
         :name => "transactions"
       },
       {
+        :topic => :manage,
+        :text => 'Manage Background Check',
+        :icon_class => icon_class("coins"),
+        :path => '#',
+        :name => "background_check"
+      },
+      {
         :topic => :configure,
         :text => t("admin.communities.edit_details.community_details"),
         :icon_class => "ss-page",
