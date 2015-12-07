@@ -13,7 +13,7 @@
   %div{class: payments_in_use ? "col-6" : "col-9"}
     = link_to conversation[:path], class:(conversation[:should_notify] ? 'conversation-title-link-unread' : 'conversation-title-link') do
       - if conversation[:title].present?
-        conversation[:title]
+        = conversation[:title]
       - else
         %span.conversation-last-message-content-not-available
           = t("conversations.conversation.message_content_not_available")
