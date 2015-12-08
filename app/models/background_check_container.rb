@@ -14,8 +14,6 @@
 #  placeholder_text  :text
 #  active            :boolean
 #  visible           :boolean
-#  status            :text
-#  status_bg_color   :string(255)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #

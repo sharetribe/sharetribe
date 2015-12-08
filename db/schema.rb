@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151208073322) do
+ActiveRecord::Schema.define(:version => 20151208214338) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -38,8 +38,6 @@ ActiveRecord::Schema.define(:version => 20151208073322) do
     t.text     "placeholder_text"
     t.boolean  "active"
     t.boolean  "visible"
-    t.text     "status"
-    t.string   "status_bg_color"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end

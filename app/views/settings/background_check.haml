@@ -17,6 +17,6 @@
           - person_status = get_status status
           %tr{style: "background-color: #{person_status.bg_color}"}
             %td= bcc.name
-            %td= image_tag bcc.icon(:thumb)
+            %td= image_tag(bcc.icon(:original), style: 'width:50px;')
             %td= person_status.status
   
