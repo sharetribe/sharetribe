@@ -1,0 +1,38 @@
+- content_for :javascript do
+  /ST.initializeManageMembers();
+
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.person_background_checks.manage_background_check")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section
+  %h1 Assign background checks to users
+  = hidden_field_tag :community_id, params[:community_id]
+  = hidden_field_tag :locale, params[:locale]
+  %table
+    %thead
+      %tr
+        %th Name
+        %th Status
+        %th Background Check
+        %th Background Check Status
+        %th Action
+    %tbody
+    - @memberships.each do |membership|
+      - member = membership.person
+      - unless member.blank?
+        - unless member.is_admin_of?(@community)
+          %tr{id: "member_#{member.id}"}
+            %td= member.full_name
+            %td
+            %td= select_tag 'background_check_container', options_for_select(member.get_bg_check_containers), { prompt: 'Select'}
+            %td.bcc_status
+              / = select_tag 'background_check_container_status', options_for_select(member.get_bg_check_container_status(@bcc)), { prompt: 'Select'}
+            %td= link_to "Assign", 'javascript:void(0)', class: 'btn btn-primary assign_status'
+  .row
+    .col-12
+      = will_paginate @memberships

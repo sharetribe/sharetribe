@@ -12,6 +12,7 @@
 #  document_updated_at           :datetime
 #  created_at                    :datetime         not null
 #  updated_at                    :datetime         not null
+#  status_ids                    :integer
 #
 # Indexes
 #
@@ -21,7 +22,7 @@
 
 class PersonBackgroundCheck < ActiveRecord::Base
   attr_accessible :background_check_container_id, :document, :person_id, :value
-
+  serialize :status_ids, Array
   belongs_to :person
   belongs_to :background_check_container
 

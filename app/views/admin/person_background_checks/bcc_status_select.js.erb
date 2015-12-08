@@ -1,0 +1,2 @@
+alert("hello");
+$("#member_<%= @member.id %>").find(".bcc_status").html("<%= escape_javascript(render(:partial => 'admin/person_background_checks/bcc_status_select')) %>");
