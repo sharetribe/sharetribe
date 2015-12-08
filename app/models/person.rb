@@ -457,10 +457,9 @@ class Person < ActiveRecord::Base
   end
 
   def get_bg_check_container_status(bcc)
-    status_ids = []
     person_background_check = PersonBackgroundCheck.where(background_check_container_id: bcc.id, person_id: self.id).first
     if person_background_check.present? && person_background_check.status_ids.present?
-      status_ids << person_background_check.status_ids.split(',').trim()
+      status_ids = person_background_check.status_ids
       sql = "SELECT c.status, c.id FROM bcc_statuses c WHERE c.background_check_container_id = #{bcc.id} AND c.id NOT IN #{status_ids} order by c.id"
     else
       sql = "SELECT c.status, c.id FROM bcc_statuses c WHERE c.background_check_container_id = #{bcc.id} order by c.id"

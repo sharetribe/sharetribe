@@ -173,6 +173,12 @@ Kassi::Application.routes.draw do
         resources :background_check_containers, except: [:update] do
           post :update
         end
+        resources :person_background_checks do
+          collection do
+            get :bcc_status_select
+            post :assign_status
+          end
+        end
       end
       resources :custom_fields do
         collection do
