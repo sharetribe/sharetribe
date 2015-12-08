@@ -619,6 +619,7 @@ fi:
       message_from: "Viesti käyttäjältä %{person}"
       about_listing: "Liittyy ilmoitukseen %{listing_title}"
       free_message: "Vapaa viesti"
+      message_content_not_available: ~
     message:
       accepted_request: "hyväksyi pyynnön"
       accepted_offer: "hyväksyi tarjouksen"

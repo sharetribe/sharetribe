@@ -615,6 +615,7 @@ nl:
       message_from: "Bericht van %{person}"
       about_listing: "Over item %{listing_title}"
       free_message: "Vrij bericht"
+      message_content_not_available: ~
     message:
       accepted_request: "heeft het verzoek aanvaard"
       accepted_offer: "heeft het voorstel aanvaard"

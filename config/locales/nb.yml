@@ -629,6 +629,7 @@ nb:
       message_from: "Melding fra %{person}"
       about_listing: "Vedrørende annonse %{listing_title}"
       free_message: "Gratis melding"
+      message_content_not_available: ~
     message:
       accepted_request: "godtok forespørselen"
       accepted_offer: "Tilbud godtatt"

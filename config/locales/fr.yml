@@ -631,6 +631,7 @@ fr:
       message_from: "Message de %{person}"
       about_listing: "A propos de l'annonce %{listing_title}"
       free_message: "Message libre"
+      message_content_not_available: "Le contenu du message n'est pas disponible"
     message:
       accepted_request: "a accepté la demande"
       accepted_offer: "a accepté l'offre"
@@ -1937,10 +1938,10 @@ fr:
       your_current_email_is: "Votre email est : %{email}."
       change_email: Modifier
       confirm_your_email: "Veuillez confirmer votre adresse email"
-      account_confirmation_instructions: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer votre adresse email. Dès que vous l'aurez confirmée, vous pourrez rejoindre %{service_name}."
+      account_confirmation_instructions: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer votre adresse email. N'oubliez pas de vérifier votre dossier \"Spam\" ou \"Indésirables\" ! Dès que vous l'aurez confirmée, vous pourrez rejoindre %{service_name}."
       account_confirmation_instructions_title_admin: "Bienvenue sur votre place de marché !"
       your_marketplace_has_now_been_created: "Votre place de marché a été créée. C'était simple, non ? Il ne reste qu'une étape pour que vous puissiez y accéder : vous devez confirmer votre adresse email."
-      account_confirmation_instructions_admin: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer l'adresse email que vous avez saisie. Après cette confirmation vous pourrez commencer à configurer votre place de marché."
+      account_confirmation_instructions_admin: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer l'adresse email que vous avez saisie. N'oubliez pas de vérifier votre dossier \"Spam\" ou \"Indésirables\" ! Après cette confirmation vous pourrez commencer à configurer votre place de marché."
   settings:
     account:
       change: Changer

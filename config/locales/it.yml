@@ -602,6 +602,7 @@ it:
       message_from: "Messaggio da %{person}"
       about_listing: "Informazioni su %{listing_title}"
       free_message: ~
+      message_content_not_available: ~
     message:
       accepted_request: ~
       accepted_offer: ~
