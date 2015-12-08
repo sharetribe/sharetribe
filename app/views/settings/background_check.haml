@@ -11,10 +11,12 @@
         %th Icon
         %th Status
     %tbody
-    - if false
       - @background_check_container.each do |bcc|
-        %tr{style: "background-color: #{bcc.status_bg_color}"}
-          %td= bcc.name
-          %td= image_tag bcc.icon(:thumb)
-          %td= bcc.status
+        - person_bcc_status = get_person_status @current_user, bcc.id
+        - person_bcc_status.each do |status|
+          - person_status = get_status status
+          %tr{style: "background-color: #{person_status.bg_color}"}
+            %td= bcc.name
+            %td= image_tag bcc.icon(:thumb)
+            %td= person_status.status
   

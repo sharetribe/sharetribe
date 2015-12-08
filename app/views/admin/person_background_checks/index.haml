@@ -13,26 +13,31 @@
   %h1 Assign background checks to users
   = hidden_field_tag :community_id, params[:community_id]
   = hidden_field_tag :locale, params[:locale]
-  %table
+  %table.table-bordered
     %thead
       %tr
         %th Name
         %th Status
-        %th Background Check
-        %th Background Check Status
-        %th Action
     %tbody
     - @memberships.each do |membership|
       - member = membership.person
       - unless member.blank?
-        - unless member.is_admin_of?(@community)
-          %tr{id: "member_#{member.id}"}
-            %td= member.full_name
-            %td
-            %td= select_tag 'background_check_container', options_for_select(member.get_bg_check_containers), { prompt: 'Select'}
-            %td.bcc_status
-              / = select_tag 'background_check_container_status', options_for_select(member.get_bg_check_container_status(@bcc)), { prompt: 'Select'}
-            %td= link_to "Assign", 'javascript:void(0)', class: 'btn btn-primary assign_status'
+        / - unless member.is_admin_of?(@current_community)
+        %tr
+          %td= link_to member.full_name, people_admin_community_person_background_checks_path(id: member.id)
+          %td
+            - @background_check_container.each do |bcc|
+              - person_bcc_status = get_person_status member, bcc.id
+              - person_bcc_status.each do |status|
+                - person_status = get_status status
+                %span{style: "background-color: #{person_status.bg_color}"} &nbsp; &nbsp; &nbsp; &nbsp;
+                %span
+                  = bcc.name
+                  = '-'
+                  = person_status.status
+                %br
+        
+
   .row
     .col-12
       = will_paginate @memberships

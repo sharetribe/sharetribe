@@ -448,25 +448,7 @@ class Person < ActiveRecord::Base
   def is_admin_of?(community)
     community_membership = community_memberships.find_by_community_id(community.id)
     community_membership && community_membership.admin?
-  end
-
-  def get_bg_check_containers    
-    sql = "SELECT c.name, c.id FROM background_check_containers c WHERE c.id NOT IN (SELECT background_check_container_id FROM person_background_checks WHERE person_id LIKE '#{self.id.to_s}') order by c.id"
-    bg_check_containers = BackgroundCheckContainer.find_by_sql(sql)
-    bg_check_containers.map{|c| [c.name, c.id]}
-  end
-
-  def get_bg_check_container_status(bcc)
-    person_background_check = PersonBackgroundCheck.where(background_check_container_id: bcc.id, person_id: self.id).first
-    if person_background_check.present? && person_background_check.status_ids.present?
-      status_ids = person_background_check.status_ids
-      sql = "SELECT c.status, c.id FROM bcc_statuses c WHERE c.background_check_container_id = #{bcc.id} AND c.id NOT IN #{status_ids} order by c.id"
-    else
-      sql = "SELECT c.status, c.id FROM bcc_statuses c WHERE c.background_check_container_id = #{bcc.id} order by c.id"
-    end
-    bg_check_container_status = BccStatus.find_by_sql(sql)
-    bg_check_container_status.map{|c| [c.status, c.id]}
-  end  
+  end 
 
   def has_admin_rights_in?(community)
     is_admin? || is_admin_of?(community)

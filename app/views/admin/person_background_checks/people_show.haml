@@ -1,0 +1,24 @@
+- content_for :javascript do
+  /ST.initializeManageMembers();
+
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.person_background_checks.manage_background_check")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section
+  = form_for :people_status, url: update_status_admin_community_person_background_checks_path(id: @person.id) do |f|
+    - @background_check_containers.each do |bcc|
+      - person_status = get_person_status @person, bcc.id
+      .field
+        = label_tag bcc.name
+        - bcc.bcc_statuses.each do |bcc_status|
+          .field
+            = check_box_tag "background_check_containers[#{bcc.id}][#{bcc_status.id}]", 1, person_status.include?(bcc_status.id) ? true : false
+            = h bcc_status.status
+
+    .actions
+      = f.submit

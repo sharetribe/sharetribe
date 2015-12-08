@@ -627,7 +627,7 @@ module ApplicationHelper
         :topic => :manage,
         :text => t("admin.communities.person_background_checks.manage_background_check"),
         :icon_class => icon_class("coins"),
-        :path => admin_community_person_background_checks_path,
+        :path => admin_community_person_background_checks_path(@current_community),
         :name => "background_check"
       },
       {

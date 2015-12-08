@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151207173250) do
+ActiveRecord::Schema.define(:version => 20151208073322) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -931,6 +931,7 @@ ActiveRecord::Schema.define(:version => 20151207173250) do
     t.datetime "document_updated_at"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+    t.text     "status_ids"
   end
 
   add_index "person_background_checks", ["background_check_container_id"], :name => "index_person_background_checks_on_background_check_container_id"

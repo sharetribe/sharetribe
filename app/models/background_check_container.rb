@@ -29,7 +29,7 @@ class BackgroundCheckContainer < ActiveRecord::Base
 
   belongs_to :community
   has_many :bcc_statuses, :dependent => :destroy
-  has_attached_file :icon, :styles => {:thumb => "48x48#"},
+  has_attached_file :icon, :styles => {:thumb => "48x48#", :original => "600x800>"},
                     :default_url => ActionController::Base.helpers.asset_path("/assets/profile_image/:style/missing.png", :digest => true)
   process_in_background :icon
 

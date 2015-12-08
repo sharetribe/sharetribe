@@ -57,7 +57,6 @@
 //= require admin/settings.js
 //= require admin/emails.js
 //= require admin/background_check_containers
-//= require admin/person_background_check
 //= require payment_math
 //= require dropdown
 //= require jquery.nouislider

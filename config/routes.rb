@@ -175,8 +175,8 @@ Kassi::Application.routes.draw do
         end
         resources :person_background_checks do
           collection do
-            get :bcc_status_select
-            post :assign_status
+            get 'people/:id' => 'person_background_checks#people_show', as: 'people'
+            post 'update_status/:id' => 'person_background_checks#update_status', as: 'update_status'
           end
         end
       end

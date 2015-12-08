@@ -41,4 +41,17 @@ module BackgroundCheckContainersHelper
       end
     end
   end
+
+  def get_person_status person, bcc_id
+    person_background_checks = person.person_background_checks.where(background_check_container_id: bcc_id).first
+    if person_background_checks.nil?
+      []
+    else
+      person_background_checks.status_ids
+    end
+  end
+
+  def get_status status_id
+    BccStatus.find(status_id)
+  end
 end
