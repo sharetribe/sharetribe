@@ -150,3 +150,4 @@ end
 
 gem 'strong_parameters'
 gem "nested_form"
+gem 'unicorn'
