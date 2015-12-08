@@ -97,14 +97,13 @@ gem 'public_suffix' # Needed currently to set GA hostname right, probably not
 
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
-  gem 'pg'
-  gem 'rails_12factor'
+  #gem 'pg'
+  #gem 'rails_12factor'
 end
 
 group :development, :test do
   gem 'rubocop',          require: false
   gem 'factory_girl_rails'
-
 end
 
 group :development, :staging do
