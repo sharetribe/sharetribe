@@ -34,6 +34,7 @@ class DownloadListingImageJob < Struct.new(:listing_image_id, :url)
 
   def failure
     listing_image.on_success { |listing_image|
+      listing_image.update_column(:errored, true) # Have to use `update_column` here because `update_attribute` runs the before save hooks
       logger.error("Listing image process and download failed permanently", :listing_image_download_failed_permanently)
     }.on_error { |error_msg, data|
       logger.error(error_msg, :listing_image_download_failed_permanently, data)

@@ -12,6 +12,7 @@
 #  image_updated_at   :datetime
 #  image_processing   :boolean
 #  image_downloaded   :boolean          default(FALSE)
+#  errored            :boolean          default(FALSE), not null
 #  width              :integer
 #  height             :integer
 #  author_id          :string(255)
