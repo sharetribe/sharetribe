@@ -1734,7 +1734,7 @@ nb:
     paypal_account_email_connected: "1. <del>Koble til PayPal-konto</del> Fullført!"
     payout_info_paypal: "%{service_name} bruker PayPal som betalingsleverandør. Du må ha en %{create_paypal_account_link} for å kunne ta imot betalinger for bestillinger av dine reklameplasser, som så kobles til %{service_name}."
     paypal_billing_agreement_made: "2. <del>Tillat %{service_name} å ta betalt for sine tjenester</del> Fullført!"
-    commission_permission_needed: ~
+    commission_permission_needed: "Du vil også måtte gi %{service_name} tillatelse til å belaste en transaksjonskostnad."
     create_paypal_account_link_text: PayPal-konto
     connected_account: "PayPal-konto '%{email}' tilkoblet."
     paypal_receive_funds_info_label_australia_only: ~
