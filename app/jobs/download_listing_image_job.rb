@@ -13,7 +13,7 @@ class DownloadListingImageJob < Struct.new(:listing_image_id, :url)
     # It's doing network operations, so I guess it can also throw.
     #
 
-    listing_image.and_then { |listing_image|
+    @result = listing_image.and_then { |listing_image|
 
       begin
         # Download the original image
@@ -25,7 +25,9 @@ class DownloadListingImageJob < Struct.new(:listing_image_id, :url)
         Result::Error.new(e)
       end
 
-    }.on_error { |error_msg, ex|
+    }
+
+    @result.on_error { |error_msg, ex|
       logger.error(error_msg, :listing_image_download_failed)
 
       raise ex # Reraise the exception to mark the delayed job failed
@@ -33,11 +35,13 @@ class DownloadListingImageJob < Struct.new(:listing_image_id, :url)
   end
 
   def failure
-    listing_image.on_success { |listing_image|
-      listing_image.update_column(:errored, true) # Have to use `update_column` here because `update_attribute` runs the before save hooks
-      logger.error("Listing image process and download failed permanently", :listing_image_download_failed_permanently)
-    }.on_error { |error_msg, data|
-      logger.error(error_msg, :listing_image_download_failed_permanently, data)
+    @result.on_error { |error_msg|
+      logger.error("Listing image process and download failed permanently: #{error_msg}", :listing_image_download_failed_permanently)
+
+      listing_image.on_success { |image|
+        # Have to use `update_column` here because `update_attribute` runs the before save hooks
+        image.update_column(:error, error_msg || "unknown")
+      }
     }
   end
 

@@ -5,7 +5,7 @@ class ListingImageJSAdapter < JSAdapter
     @id = listing_image.id
     @listing_id = listing_image.listing_id
     @ready = !listing_image.image_processing && listing_image.image_downloaded;
-    @errored = listing_image.errored
+    @errored = listing_image.error.present?
     @images = {
       thumb: listing_image.image.url(:thumb),
       big: listing_image.image.url(:big)
