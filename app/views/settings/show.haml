@@ -68,4 +68,6 @@
         = get_background_check_field(bcc)
         - if bcc.container_type == 'file'
           %button{id: "fake_btn_#{bcc.id}", disabled: bcc.active ? false : true, type: "button", data: {real_button_bcc_id: bcc.id}}= bcc.button_text
+          - pbcc = get_person_background_check_value(@person, bcc.id)
+          = link_to "Download last uploaded document", download_path(id: @person.id, pbcc_id: pbcc.id), 'data-no-turbolink' => true unless pbcc.nil?
     = form.button t("settings.save_information"), :class => "send_button"

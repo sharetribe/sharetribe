@@ -11,12 +11,20 @@
         %th Icon
         %th Status
     %tbody
+      /- if @background_check_container.empty?
+      /  %tr
+      /    %td No background check found
+      /- else
+      - flag = false
       - @background_check_container.each do |bcc|
         - person_bcc_status = get_person_status @current_user, bcc.id
         - person_bcc_status.each do |status|
+          - flag = true
           - person_status = get_status status
           %tr{style: "background-color: #{person_status.bg_color}"}
             %td= bcc.name
             %td= image_tag(bcc.icon(:original), style: 'width:50px;')
             %td= person_status.status
-  
+      - unless flag
+        %tr
+          %td No background check found

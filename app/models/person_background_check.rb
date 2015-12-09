@@ -26,17 +26,31 @@ class PersonBackgroundCheck < ActiveRecord::Base
   belongs_to :person
   belongs_to :background_check_container
 
-  has_attached_file :document, :styles => {
-                      :medium => "288x288#",
-                      :small => "108x108#",
-                      :thumb => "48x48#",
-                      :original => "600x800>"},
-                    :default_url => ActionController::Base.helpers.asset_path("/assets/profile_image/:style/missing.png", :digest => true)
-  process_in_background :document
+  # has_attached_file :document, :styles => {
+  #                     :medium => "288x288#",
+  #                     :small => "108x108#",
+  #                     :thumb => "48x48#",
+  #                     :original => "600x800>"},
+  #                   :default_url => ActionController::Base.helpers.asset_path("/assets/profile_image/:style/missing.png", :digest => true)
+  # process_in_background :document
 
   #validates_attachment_presence :image
-  validates_attachment_size :document, :less_than => 5.megabytes
+  # validates_attachment_size :document, :less_than => 5.megabytes
+  # validates_attachment_content_type :document,
+  #                                   :content_type => ["application/pdf", "application/doc", "application/download", "image/jpeg", "image/png", "image/gif",
+  #                                     "image/pjpeg", "image/x-png"] #the two last types are sent by IE.
+
+  has_attached_file :document,
+                    :url => "/:class/:id/:filename",
+                    :path => "public/:class/:id/:filename"
+  validates_presence_of :document, :message => "Please choose the file."
+  # validates_attachment_content_type :resume,
+  #                                   :content_type => ['application/pdf', 'application/download', 'image/jpeg', 'image/png', 'application/doc'],
+  #                                   :message      => "Please upload the correct file type."
+  # do_not_validate_attachment_file_type :document
+  
   validates_attachment_content_type :document,
                                     :content_type => ["application/pdf", "application/doc", "application/download", "image/jpeg", "image/png", "image/gif",
                                       "image/pjpeg", "image/x-png"] #the two last types are sent by IE.
+  validates_attachment_size :document, :less_than => 3.megabytes
 end

@@ -29,15 +29,16 @@ module BackgroundCheckContainersHelper
 
   def get_person_background_check_value person, bcc_id
     person_background_check = person.person_background_checks.where(background_check_container_id: bcc_id).first
+    background_check_container = BackgroundCheckContainer.find(bcc_id)
     if person_background_check.nil?
-      ''
+      background_check_container.container_type == 'file' ? nil : ''
     else
-      background_check_container = BackgroundCheckContainer.find(bcc_id)
       case  background_check_container.container_type
       when 'textfield' || 'textarea'
         person_background_check.value
       when 'file'
-        person_background_check.document
+        # person_background_check.document
+        person_background_check
       end
     end
   end

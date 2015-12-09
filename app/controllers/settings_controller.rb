@@ -58,6 +58,16 @@ class SettingsController < ApplicationController
   def background_check
     @selected_left_navi_link = "background_check"
     add_background_check_container_to_person
+    # @pbcc = @person.person_background_checks
+  end
+
+  def download
+    @pbcc = PersonBackgroundCheck.find(params[:pbcc_id])
+    data = open("#{Rails.root}/public/person_background_checks/#{@pbcc.id}/#{@pbcc.document_file_name}")
+    send_data data.read,
+              :filename => @pbcc.document_file_name,
+              :type => @pbcc.document_content_type,
+              :disposition => 'attachment'
   end
 
   private

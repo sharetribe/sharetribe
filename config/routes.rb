@@ -393,6 +393,10 @@ Kassi::Application.routes.draw do
 
   end # scope locale
 
+  devise_scope :person do
+    get '/download/:pbcc_id' => 'settings#download', :as => 'download'
+  end
+
   id_to_username = Proc.new do |params, req|
     username = Person.find(params[:person_id]).try(:username)
     locale = params[:locale] + "/" if params[:locale]
