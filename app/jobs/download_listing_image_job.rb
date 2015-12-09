@@ -44,13 +44,9 @@ class DownloadListingImageJob < Struct.new(:listing_image_id, :url)
   private
 
   def logger
-    if @logger
-      @logger
-    else
-      @logger = SharetribeLogger.new(:download_listing_image_job, logger_metadata.keys).tap { |logger|
-        logger.add_metadata(logger_metadata)
-      }
-    end
+    @logger ||= SharetribeLogger.new(:download_listing_image_job, logger_metadata.keys).tap { |logger|
+      logger.add_metadata(logger_metadata)
+    }
   end
 
   def logger_metadata

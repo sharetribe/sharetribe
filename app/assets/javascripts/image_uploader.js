@@ -288,10 +288,6 @@ window.ST.imageUploader = function(listings, opts) {
     return value.ready && !value.errored;
   });
 
-  var errorDuringUpload = imageUploaded.filter(function(value) {
-    return value.errored;
-  });
-
   var newPreviewRendered = successfullyUploaded.map(function(listing) {
     return renderPreview(listing);
   });
