@@ -284,7 +284,11 @@ window.ST.imageUploader = function(listings, opts) {
   var status = Bacon.combineTemplate(
     {loading: numberOfLoadingImages, processing: numberOfProcessingImages });
 
-  var newPreviewRendered = imageUploaded.map(function(listing) {
+  var successfullyUploaded = imageUploaded.filter(function(value) {
+    return value.ready && !value.errored;
+  });
+
+  var newPreviewRendered = successfullyUploaded.map(function(listing) {
     return renderPreview(listing);
   });
 
@@ -477,15 +481,27 @@ window.ST.imageUploader = function(listings, opts) {
     $element.showMessage(ST.t("listings.form.images.processing"), ST.t("listings.form.images.this_may_take_a_while"));
     $element.setListingId(listing.id);
 
-    var filePostprocessed = ST.utils.baconStreamFromAjaxPolling({url: listing.urls.status}, function(pollingResult) {
-      return pollingResult.ready;
+    var filePostprocessingDone = ST.utils.baconStreamFromAjaxPolling({url: listing.urls.status}, function(pollingResult) {
+      return pollingResult.ready || pollingResult.errored;
     });
 
-    filePostprocessed.onValue(function() {
+    var filePostprocessingSuccessful = filePostprocessingDone.filter(function(value) {
+      return value.ready && !value.errored;
+    });
+
+    var filePostprocessingError = filePostprocessingDone.filter(function(value) {
+      return value.errored;
+    });
+
+    filePostprocessingSuccessful.onValue(function() {
       elementManager.removeUploading($element.container);
     });
 
-    return {element: $element, stream: filePostprocessed};
+    filePostprocessingError.onValue(function() {
+      $element.showMessage(ST.t("listings.form.images.image_processing_failed"));
+    });
+
+    return {element: $element, stream: filePostprocessingDone};
   }
 
   function renderPreview(listing) {

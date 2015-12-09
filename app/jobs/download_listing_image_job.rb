@@ -13,44 +13,60 @@ class DownloadListingImageJob < Struct.new(:listing_image_id, :url)
     # It's doing network operations, so I guess it can also throw.
     #
 
-    find_listing_image(listing_image_id).and_then { |listing_image|
+    @result = listing_image.and_then { |listing_image|
 
-      # Download the original image
       begin
+        # Download the original image
         listing_image.image = URI.parse(url)
-        Result::Success.new(listing_image)
-      rescue StandardError => e
-        Result::Error.new(e)
-      end
-
-    }.and_then { |listing_image|
-
-      # Save the image, create delayed jobs for processing, update the download status
-      begin
+        # Save the image, create delayed jobs for processing, update the download status
         listing_image.update_attribute(:image_downloaded, true)
         Result::Success.new(listing_image)
       rescue StandardError => e
         Result::Error.new(e)
       end
 
-    }.on_error { |error_msg, data|
-      logger.error(error_msg, :listing_image_download_failed, data)
+    }
+
+    @result.on_error { |error_msg, ex|
+      logger.error(error_msg, :listing_image_download_failed)
+
+      raise ex # Reraise the exception to mark the delayed job failed
+    }
+  end
+
+  def failure
+    @result.on_error { |error_msg|
+      logger.error("Listing image process and download failed permanently: #{error_msg}", :listing_image_download_failed_permanently)
+
+      listing_image.on_success { |image|
+        # Have to use `update_column` here because `update_attribute` runs the before save hooks
+        image.update_column(:error, error_msg || "unknown")
+      }
     }
   end
 
   private
 
   def logger
-    @logger ||= SharetribeLogger.new(:download_listing_image_job)
+    @logger ||= SharetribeLogger.new(:download_listing_image_job, logger_metadata.keys).tap { |logger|
+      logger.add_metadata(logger_metadata)
+    }
   end
 
-  def find_listing_image(listing_image_id)
-    Maybe(ListingImage.where(id: listing_image_id).first).map { |listing_image|
+  def logger_metadata
+    @logger_metadata ||=
+      if listing_image.success
+        listing_image.data.attributes
+      else
+        {}
+      end
+  end
+
+  def listing_image
+    @listing_image ||= Maybe(ListingImage.where(id: listing_image_id).first).map { |listing_image|
       Result::Success.new(listing_image)
     }.or_else {
-      Result::Error.new("Could not find listing image with id #{listing_image_id}",
-                        :listing_image_not_found,
-                        listing_image_id: listing_image_id)
+      Result::Error.new(ArgumentError.new("Could not find listing image with id #{listing_image_id}"))
     }
   end
 end

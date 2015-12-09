@@ -68,7 +68,7 @@ class Listing < ActiveRecord::Base
 
   belongs_to :author, :class_name => "Person", :foreign_key => "author_id"
 
-  has_many :listing_images, :dependent => :destroy
+  has_many :listing_images, :dependent => :destroy, conditions: ["error IS NULL"]
 
   has_many :conversations
   has_many :comments, :dependent => :destroy
