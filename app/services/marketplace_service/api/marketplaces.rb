@@ -43,6 +43,7 @@ module MarketplaceService::API
       "internal",
       "webinar",
       "local",
+      "marketplace-academy",
       "academy-proxy",
       "proxy",
       "preproduction",
