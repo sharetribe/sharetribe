@@ -196,6 +196,7 @@ class PeopleController < Devise::RegistrationsController
       end
     end
 
+    # Admin added background check containers form data
     if params[:background_check_container]
       params[:background_check_container].each do |bcc_data, value|
         bcc_data = bcc_data.split(',')
