@@ -4,6 +4,6 @@ class AddErrorToListingImages < ActiveRecord::Migration
   end
 
   def down
-    drop_column :listing_images, :error
+    remove_column :listing_images, :error
   end
 end
