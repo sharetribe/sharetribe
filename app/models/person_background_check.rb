@@ -43,7 +43,7 @@ class PersonBackgroundCheck < ActiveRecord::Base
   has_attached_file :document,
                     :url => "/:class/:id/:filename",
                     :path => "public/:class/:id/:filename"
-  validates_presence_of :document, :message => "Please choose the file."
+  # validates_presence_of :document, :message => "Please choose the file."
   # validates_attachment_content_type :resume,
   #                                   :content_type => ['application/pdf', 'application/download', 'image/jpeg', 'image/png', 'application/doc'],
   #                                   :message      => "Please upload the correct file type."
