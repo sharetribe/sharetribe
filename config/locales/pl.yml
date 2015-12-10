@@ -385,7 +385,7 @@ pl:
         read_more_about_order_types: ~
         add_new_shape: ~
         select_template: ~
-        all_categories: ~
+        all_categories: "Wszystkie kategorie"
         no_categories: ~
         category_count: ~
         header:
@@ -431,12 +431,12 @@ pl:
       units_title: ~
       units_desc: ~
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: "Za sztukę"
+        hour: "Za godzinę"
+        day: Dziennie
+        night: "Za noc"
+        week: Tygodniowo
+        month: Miesięcznie
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: ~
@@ -444,9 +444,9 @@ pl:
         title: ~
         label_heading: ~
         selector_label_heading: ~
-        label_placeholder: ~
+        label_placeholder: "np. \"kg\", \"30 minut\", \"osobę\", \"zajęcia\""
         selector_placeholder: ~
-        per: ~
+        per: Za
         unit_type:
           heading: ~
           quantity_label: ~
@@ -662,7 +662,7 @@ pl:
       last_message_at: ~
       price: ~
       sum: ~
-      price_excludes_vat: ~
+      price_excludes_vat: "(bez podatku VAT)"
       total: ~
     status:
       payment_errored: ~
@@ -889,7 +889,7 @@ pl:
       you_have_a_new_message: ~
     new_payment:
       new_payment: ~
-      price_per_unit_type: ~
+      price_per_unit_type: "Price per %{unit_type}"
       quantity: ~
       you_have_received_new_payment: ~
     paypal_new_payment:
@@ -905,12 +905,12 @@ pl:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
       product: ~
-      price_per_unit_type: ~
+      price_per_unit_type: "Price per %{unit_type}"
       duration: ~
       quantity: ~
       subtotal: ~
       total: ~
-      price: ~
+      price: Cena
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
@@ -1180,11 +1180,11 @@ pl:
       search: ~
       map: ~
       list: ~
-      map_button: ~
-      grid_button: ~
-      list_button: ~
+      map_button: Mapa
+      grid_button: Miniaturki
+      list_button: Lista
       all_listing_types: "Wszystkie typy ofert"
-      all_categories: ~
+      all_categories: "Wszystkie kategorie"
     errors:
       search_engine_not_responding: ~
   infos:
@@ -1392,22 +1392,22 @@ pl:
       delete: ~
       are_you_sure: ~
     comment_form:
-      ask_a_question: ~
+      ask_a_question: "Skomentuj tą ofertę lub zapytaj o więcej szczegółów. Wszyscy inni użytkownicy będą mogli zobaczyć Twój komentarz."
       log_in: ~
-      send_comment: ~
+      send_comment: "Wyślij komentarz"
       to_send_a_comment: ~
       write_comment: ~
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
       you_must: ~
-      subscribe_to_comments: ~
+      subscribe_to_comments: "Powiadamiaj mnie o nowych komentarzach i uaktualnieniach"
     edit:
       edit_listing: ~
     edit_links:
-      close_listing: ~
-      edit_listing: ~
+      close_listing: "Usuń ofertę"
+      edit_listing: "Edytuj ofertę"
       reopen_listing: ~
-      move_to_top: ~
-      show_in_updates_email: ~
+      move_to_top: "Przesuń na górę strony"
+      show_in_updates_email: "Pokaż w najbliższym automatycznym emailu"
       show_in_updates_email_loading: ~
       show_in_updates_email_error: ~
       show_in_updates_email_success: ~
@@ -1416,8 +1416,8 @@ pl:
     error:
       something_went_wrong: ~
     follow_links:
-      follow: ~
-      unfollow: ~
+      follow: "Powiadom mnie emailem, gdy pojawią się nowe komentarze"
+      unfollow: "Nie powiadamiaj mnie emailem, gdy pojawią się nowe komentarze"
     form:
       custom_field_partials:
         dropdown:
@@ -1428,7 +1428,7 @@ pl:
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: ~
+        detailed_description: "Szczegółowy opis"
       destination:
         destination: ~
       form_content:
@@ -1445,11 +1445,11 @@ pl:
         googlemap_description: ~
         googlemap_updatemap: ~
       images:
-        image: ~
-        best_result: ~
+        image: Zdjęcie
+        best_result: "Dla najlepszych rezultatów użyj plików JPG, GIF lub PNG, które mają rozdzielczość %{width} na %{height} pikseli"
         no_file_selected: ~
         remove_image: ~
-        select_file: ~
+        select_file: "Wybierz plik"
         add_more: ~
         removing: ~
         processing: ~
@@ -1459,34 +1459,35 @@ pl:
         this_may_take_a_while: ~
         percentage_loaded: ~
         uploading_failed: ~
+        image_processing_failed: "Błąd przetwarzania obrazu"
         file_too_large: ~
         accepted_formats: ~
         images_not_uploaded_confirm: ~
       location:
-        location: ~
+        location: Lokalizacja
       price:
-        price: ~
-        per: ~
-        per_day: ~
+        price: Cena
+        per: za
+        per_day: "za dzień"
         mass: ~
-        time: ~
+        time: "godzina, dzień, miesiąc, ..."
         long_time: ~
         after_service_fee_you_will_get: ~
         no_service_fee_you_will_get_paypal_text: ~
         after_service_fee_you_will_get_paypal_text: ~
         paypal_fee_info_link_text: ~
         after_service_fee_you_will_get_vat: ~
-        price_excludes_vat: ~
+        price_excludes_vat: "Cena nie zawiera podatku VAT"
         delivery: ~
         shipping: ~
         shipping_price: ~
         shipping_price_additional: ~
         pickup: ~
       origin:
-        location: ~
+        location: Lokalizacja
         origin: ~
       send_button:
-        save_listing: ~
+        save_listing: "Zapisz ofertę"
       share_type:
         select: ~
         borrow: ~
@@ -1506,7 +1507,7 @@ pl:
         comma_separate: ~
         tags: ~
       title:
-        listing_title: ~
+        listing_title: "Tytuł oferty"
       valid_until:
         valid_until: ~
       valid_until_radio_buttons:
@@ -1520,7 +1521,7 @@ pl:
       help_tags_title: ~
       help_valid_until_title: ~
     index:
-      all_categories: ~
+      all_categories: "Wszystkie kategorie"
       all_offer_types: ~
       all_request_types: ~
       category: ~
@@ -1618,11 +1619,11 @@ pl:
       times: ~
       times_viewed: ~
       processing_uploaded_image: ~
-      price_excludes_vat: ~
+      price_excludes_vat: "(bez podatku VAT)"
       listing_created_at: ~
       price:
-        per_quantity_unit: ~
-        per_day: ~
+        per_quantity_unit: "za %{quantity_unit}"
+        per_day: "za dzień"
       delivery: ~
       shipping: ~
       shipping_no_price: ~
@@ -1651,7 +1652,7 @@ pl:
       read_more: ~
   mapview:
     index:
-      all_categories: ~
+      all_categories: "Wszystkie kategorie"
       all_offer_types: ~
       all_request_types: ~
       category: ~
@@ -2103,11 +2104,11 @@ pl:
   transactions:
     initiate:
       booked_days: ~
-      price_per_day: ~
+      price_per_day: "Cena za dzień:"
       quantity: ~
       subtotal: ~
       shipping-price: ~
-    price_per_quantity: ~
+    price_per_quantity: "Cena za %{unit_type}:"
     price: ~
     quantity: ~
     unit_price: ~

@@ -1490,6 +1490,7 @@ pt-BR:
         this_may_take_a_while: "(pode demorar um pouco)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Upload da imagem falhou"
+        image_processing_failed: ~
         file_too_large: "O arquivo é muito grande"
         accepted_formats: "A imagem deve ser em formato GIF, JPG ou PNG."
         images_not_uploaded_confirm: "Faltam carregar algumas imagens. Você realmente quer continuar?"
@@ -1512,7 +1513,7 @@ pt-BR:
         shipping: Envio
         shipping_price: "Taxa de envio"
         shipping_price_additional: "Itens adicionais"
-        pickup: Pegar
+        pickup: Levantar
       origin:
         location: Local
         origin: Origem
@@ -1658,8 +1659,8 @@ pt-BR:
       shipping: "Envio (+%{price})"
       shipping_no_price: Envio
       shipping_price_additional: "Envio (+ %{price}, itens adicionais: + %{shipping_price_additional})"
-      pickup: Pegar
-      pickup_no_price: Pegar
+      pickup: Levantar
+      pickup_no_price: Levantar
     unit_types:
       piece: pedaço
       hour: hora
