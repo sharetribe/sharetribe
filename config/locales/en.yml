@@ -2120,10 +2120,9 @@ en:
     format: mm/dd/yyyy
   time:
     formats:
-      short: "%e %b %Y at %H:%M"
-      shorter: "%e %b at %H:%M"
-      short_date: "%e %b %Y"
-      sms: "%e %b at %H:%M"
+      short: "%b %e, %Y at %H:%M"
+      shorter: "%b %e at %H:%M"
+      short_date: "%b %e, %Y"
   timestamps:
     day_ago: "%{count} day ago"
     days_ago: "%{count} days ago"
