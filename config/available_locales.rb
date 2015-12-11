@@ -29,6 +29,7 @@ module Sharetribe
     {ident: "sv", name: "Svenska", language: "sv", region: "SE", fallback: nil}, # Swedish (Sweden)
     {ident: "tr-TR", name: "Turkish", language: "tr", region: "TR", fallback: nil}, # Turkish (Turkey)
     {ident: "zh", name: "中文", language: "zh", region: "CN", fallback: nil}, # Chinese (China)
+    {ident: "pt-PT", name: "Português", language: "pt", region: "PT", fallback: "pt-BR"}, # Portuguese (Portugal)
   ]
 
   # List of locales that are incomplete
