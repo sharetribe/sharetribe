@@ -631,7 +631,7 @@ pt-BR:
       message_from: "Mensagem de %{person}"
       about_listing: "Sobre o anúncio %{listing_title}"
       free_message: "Mensagem livre"
-      message_content_not_available: ~
+      message_content_not_available: "O conteúdo da mensagem não está disponível"
     message:
       accepted_request: "aceitou o pedido"
       accepted_offer: "aceitou a oferta"
@@ -1490,7 +1490,7 @@ pt-BR:
         this_may_take_a_while: "(pode demorar um pouco)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Upload da imagem falhou"
-        image_processing_failed: ~
+        image_processing_failed: "O processamento da imagem falhou"
         file_too_large: "O arquivo é muito grande"
         accepted_formats: "A imagem deve ser em formato GIF, JPG ou PNG."
         images_not_uploaded_confirm: "Faltam carregar algumas imagens. Você realmente quer continuar?"
@@ -1513,7 +1513,7 @@ pt-BR:
         shipping: Envio
         shipping_price: "Taxa de envio"
         shipping_price_additional: "Itens adicionais"
-        pickup: Levantar
+        pickup: Pegar
       origin:
         location: Local
         origin: Origem
@@ -1659,8 +1659,8 @@ pt-BR:
       shipping: "Envio (+%{price})"
       shipping_no_price: Envio
       shipping_price_additional: "Envio (+ %{price}, itens adicionais: + %{shipping_price_additional})"
-      pickup: Levantar
-      pickup_no_price: Levantar
+      pickup: Pegar
+      pickup_no_price: Pegar
     unit_types:
       piece: pedaço
       hour: hora

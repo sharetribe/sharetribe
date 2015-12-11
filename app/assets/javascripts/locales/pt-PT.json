@@ -1,0 +1,28 @@
+{
+  "please_wait": "Por favor aguarde...",
+  "validation_messages": {
+    "accept": "O formato do arquivo de imagem deve ser GIF, JPG ou PNG.",
+    "creditcard": "Por favor, insira um número válido de cartão de crédito.",
+    "date": "Digite uma data válida.",
+    "dateISO": "Digite uma data válida. (ISO)",
+    "digits": "Por favor digite apenas números.",
+    "email": "Por favor, indique um e-mail válido.",
+    "equalTo": "Por favor, digite o mesmo valor novamente.",
+    "max": "Por favor digite valor menor ou igual a {0}.",
+    "maxlength": "Por favor, digite mais de {0} caracteres.",
+    "min": "Por favor, digite um valor maior que {0}.",
+    "minlength": "Por favor, digite ao menos {0} caracteres.",
+    "number": "Por favor insira um número válido",
+    "range": "Por favor, digite um valor entre {0} e {1}.",
+    "rangelength": "Por favor, digite um valor entre {0} e {1} de caracteres de comprimento",
+    "remote": "Por favor, corrija este campo.",
+    "required": "Este campo é obrigatório.",
+    "url": "Favor entrar um URL válido.",
+    "address_validator": "O local não foi encontrado.",
+    "money": "Você deve inserir um valor financeiro valido.",
+    "min_bound": "Por favor, insira um valor menor que o valor máximo ({0})",
+    "max_bound": "Por favor, insira um valor maior que o valor mínimo ({0})",
+    "number_no_decimals": "Por favor, insira um numero inteiro.",
+    "number_decimals": "Por favor, digite um numero valido com ponto (.) ou virgula (,) como separador decimal."
+  }
+}
