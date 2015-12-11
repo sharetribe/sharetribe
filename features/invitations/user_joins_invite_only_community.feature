@@ -14,7 +14,6 @@ Feature: User joins invite only community
     And there is an invitation for community "test" with code "GH1JX8"
     When I fill in "Invitation code" with "GH1JX8"
     And I remove the focus
-    Then there should be an active ajax request
     When ajax requests are completed
     And I fill in "person[username]" with random username
     And I fill in "First name" with "Testmanno"
