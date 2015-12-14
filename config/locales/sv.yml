@@ -197,6 +197,7 @@ sv:
         fr-CA: "Franska (Kanada)"
         es: "Spanska (Chile)"
         es-ES: Spanska
+        pt-PT: ~
         pt-BR: "Brasiliansk portugisiska"
         nb: Norska
         sv: Svenska
@@ -2124,7 +2125,6 @@ sv:
       short: "%e %b %Y vid %H:%M"
       shorter: "%e %b vid %H:%M"
       short_date: "%e %b %Y"
-      sms: "%e %b vid %H:%M"
   timestamps:
     day_ago: "%{count} dag sedan"
     days_ago: "%{count} dagar sedan"

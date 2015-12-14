@@ -182,6 +182,7 @@ it:
         fr-CA: ~
         es: ~
         es-ES: ~
+        pt-PT: ~
         pt-BR: ~
         nb: ~
         sv: ~
@@ -2087,10 +2088,9 @@ it:
     format: dd/mm/yyyy
   time:
     formats:
-      short: ~
-      shorter: ~
-      short_date: ~
-      sms: ~
+      short: "%e %b %Y at %H:%M"
+      shorter: "%e %b at %H:%M"
+      short_date: "%e %b %Y"
   timestamps:
     day_ago: "%{count} giorno fa"
     days_ago: "%{count} giorni fa"

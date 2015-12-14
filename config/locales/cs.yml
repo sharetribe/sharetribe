@@ -202,6 +202,7 @@ cs:
         fr-CA: "Francouzština (Kanada)"
         es: "Španělština (Chile)"
         es-ES: Španělština
+        pt-PT: ~
         pt-BR: "Portugalština (Brazílie)"
         nb: "Norština (Bokmål)"
         sv: Švédština
@@ -2132,7 +2133,6 @@ cs:
       short: "%e %b %Y v %H:%M"
       shorter: "%e %b v %H:%M"
       short_date: "%e %b %Y"
-      sms: "%e %b v %H:%M"
   timestamps:
     day_ago: "před %{count} dnem"
     days_ago: "před %{count} dny"

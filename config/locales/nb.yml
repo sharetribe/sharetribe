@@ -197,6 +197,7 @@ nb:
         fr-CA: "Fransk (Canada)"
         es: "Spansk (Chile)"
         es-ES: Spansk
+        pt-PT: ~
         pt-BR: Portugisisk
         nb: Norsk
         sv: Svensk
@@ -2124,7 +2125,6 @@ nb:
       short: "%e %b %Y klokken %H:%M"
       shorter: "%e %b klokken %H:%M"
       short_date: "%e %b %Y"
-      sms: "%e %b klokken %H:%M"
   timestamps:
     day_ago: "%{count} dag siden"
     days_ago: "%{count} dager siden"

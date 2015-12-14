@@ -197,6 +197,7 @@ fi:
         fr-CA: "ranska (Kanada)"
         es: "espanja (Chile)"
         es-ES: espanja
+        pt-PT: ~
         pt-BR: "portugali (Brasilia)"
         nb: norja
         sv: ruotsi
@@ -2110,7 +2111,6 @@ fi:
       short: "%e. %b %Y kello %H:%M"
       shorter: "%e. %b klo %H:%M"
       short_date: "%d.%m.%Y"
-      sms: "%e.%m. klo %H:%M"
   timestamps:
     day_ago: "%{count} päivä sitten"
     days_ago: "%{count} päivää sitten"

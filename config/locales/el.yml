@@ -182,6 +182,7 @@ el:
         fr-CA: ~
         es: ~
         es-ES: ~
+        pt-PT: ~
         pt-BR: ~
         nb: ~
         sv: ~
@@ -2090,8 +2091,7 @@ el:
     formats:
       short: "%e %b %Y στις %H:%M"
       shorter: "%e %b στις %H:%M"
-      short_date: ~
-      sms: "%e %b στις %H:%M"
+      short_date: "%e %b %Y"
   timestamps:
     day_ago: "πριν από %{count} μέρα"
     days_ago: "πριν από %{count} μέρες"

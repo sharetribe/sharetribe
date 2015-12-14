@@ -182,6 +182,7 @@ mn:
         fr-CA: ~
         es: ~
         es-ES: ~
+        pt-PT: ~
         pt-BR: ~
         nb: ~
         sv: ~
@@ -492,22 +493,22 @@ mn:
     edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
-    cancel: ~
-    fields_that_are_mandatory: ~
-    or: ~
+    cancel: Цуцлах
+    fields_that_are_mandatory: "Од (*) тэмдэглэгдсэн талбарууд шаардлагатай."
+    or: эсвэл
     password: ~
     service_name: ~
     share_types:
       request: ~
       offer: ~
-      borrow: ~
-      buy: ~
-      give_away: ~
-      lend: ~
-      receive: ~
-      rent: ~
-      rent_out: ~
-      sell: ~
+      borrow: зээлэх
+      buy: "худалдан авах"
+      give_away: "Үнэгүй өгөх"
+      lend: зээлүүлэх
+      receive: "үнэгүй авах"
+      rent: түрээслэх
+      rent_out: түрээслүүлэх
+      sell: зарах
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: ~
@@ -534,7 +535,7 @@ mn:
       other: ~
     username: ~
     username_or_email: ~
-    what_is_this: ~
+    what_is_this: "Энэ юү вэ?"
     removed_user: ~
     paypal_fee_info:
       title: ~
@@ -583,11 +584,11 @@ mn:
       days: ~
       price_per_day: ~
     index:
-      loading_more_messages: ~
-      message_partitive: ~
-      messages_partitive: ~
-      no_received_messages: ~
-      no_sent_messages: ~
+      loading_more_messages: "Захиа ачааллаж байна"
+      message_partitive: Захиа
+      messages_partitive: Захианууд
+      no_received_messages: "Ямар ч захиа алга"
+      no_sent_messages: "Ямар ч илгээсэн захиа алга"
     conversation:
       accepted_request: ~
       accepted_offer: ~
@@ -600,7 +601,7 @@ mn:
       message_from: ~
       about_listing: ~
       free_message: ~
-      message_content_not_available: ~
+      message_content_not_available: "Захианы агуулга олдсонгүй"
     message:
       accepted_request: ~
       accepted_offer: ~
@@ -615,10 +616,10 @@ mn:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: ~
-      favor_request_message_form_title: ~
-      housing_offer_message_form_title: ~
-      housing_request_message_form_title: ~
+      favor_offer_message_form_title: "%{person}-аас тусламж асуух"
+      favor_request_message_form_title: "%{person}-д туслах"
+      housing_offer_message_form_title: "%{person}-д зай санал болгох"
+      housing_request_message_form_title: "%{person}-с зай хүсэх"
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -635,18 +636,18 @@ mn:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_request_message_form_title: ~
-      message: ~
+      item_request_message_form_title: "%{person}-д бараа санал болгох"
+      message: Захиа
       message_to: ~
       optional_message_to: ~
-      rideshare_offer_message_form_title: ~
-      rideshare_request_message_form_title: ~
+      rideshare_offer_message_form_title: "%{person}-с унаа асуух"
+      rideshare_request_message_form_title: "%{person}-д унаа санал болгох"
       send_message: ~
       send: ~
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
-      title: ~
+      title: Гарчиг
       send_message_to_user: ~
       about_listing: ~
       author_has_to_accept_request: ~
@@ -654,8 +655,8 @@ mn:
       in_response_to_listing: ~
       message_sent_by: ~
       message_sent_to: ~
-      send_reply: ~
-      write_a_reply: ~
+      send_reply: Хариулах
+      write_a_reply: "Хариу бичих"
       conversation_about_listing: ~
       conversation_with_user: ~
       conversation_with: ~
@@ -669,11 +670,11 @@ mn:
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: ~
-      feedback_given: ~
-      feedback_skipped: ~
-      give_feedback: ~
-      offer_accepted: ~
-      offer_rejected: ~
+      feedback_given: "Үнэлэлт өгсөн"
+      feedback_skipped: "Үнэлэлт алгассан"
+      give_feedback: "Үнэлэлт өгөх"
+      offer_accepted: Зөвшөөрсөн
+      offer_rejected: Татгалзсан
       offer_canceled: ~
       offer_confirmed: ~
       offer_paid: ~
@@ -689,13 +690,13 @@ mn:
           intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
-      request_accepted: ~
-      request_rejected: ~
+      request_accepted: Зөвшөөрсөн
+      request_rejected: Татгалзсан
       request_confirmed: ~
       request_canceled: ~
       request_paid: ~
       request_preauthorized: ~
-      skip_feedback: ~
+      skip_feedback: "Үнэлэлт алгасах"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
@@ -711,10 +712,10 @@ mn:
           unknown_reason: ~
           verify: ~
     status_link:
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
+      accept_offer: "Санал хүлээж авах"
+      accept_request: "Хүсэлтийг хүлээн зөвшөөр"
+      reject_offer: "Энэ удаад биш"
+      reject_request: "Энэ удаад биш"
       accept_preauthorized_offer: ~
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
@@ -787,12 +788,12 @@ mn:
       join_community_button: ~
   emails:
     accept_reminder:
-      remember_to_accept_offer: ~
-      remember_to_accept_request: ~
-      you_can_accept_or_reject_offer_at: ~
-      you_can_accept_or_reject_request_at: ~
-      you_have_not_yet_accepted_or_rejected_offer: ~
-      you_have_not_yet_accepted_or_rejected_request: ~
+      remember_to_accept_offer: "%{sender_name}-с санал авахаа эсхүл татгалзахаа санаарай"
+      remember_to_accept_request: "%{sender_name}-с хүсэлтийг зөвшөөрөх эсхүл татгалзахаа санаарай"
+      you_can_accept_or_reject_offer_at: "Та санал авч эсхүл татгалзаж болно"
+      you_can_accept_or_reject_request_at: "Та хүсэлтийг зөвшөөрч эсхүл татгалзаж болно"
+      you_have_not_yet_accepted_or_rejected_offer: "Та %{date} өдөр ирсэн %{title} саналыг авах эсхүл татгалзаагүй байна."
+      you_have_not_yet_accepted_or_rejected_request: "Та %{date} өдөр ирсэн %{title} хүсэлтийг зөвшөөрөх эсхүл татгалзаагүй байна."
       show_thread: ~
     braintree_account_approved:
       account_ready: ~
@@ -847,10 +848,10 @@ mn:
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
-      check_your_settings: ~
-      hey: ~
-      kassi_team: ~
-      thanks: ~
+      check_your_settings: "Та тохиргоогоо шалгана уу"
+      hey: "Сайн байна уу %{name}"
+      kassi_team: "%{service_name} хамт олон"
+      thanks: "Баярлалаа,"
       want_to_control_emails: ~
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
@@ -859,15 +860,15 @@ mn:
       or: ~
       unsubscribe_from_these_emails: ~
     conversation_status_changed:
-      has_accepted_your_offer: ~
-      has_accepted_your_request: ~
-      has_rejected_your_offer: ~
-      has_rejected_your_request: ~
+      has_accepted_your_offer: "%{accepter} таны %{listing} саналыг хүлээн авсан байна"
+      has_accepted_your_request: "%{accepter} таны %{listing} хүсэлтийг зөвшөөрсөн байна"
+      has_rejected_your_offer: "%{accepter} таны %{listing} саналыг татгалзсан байна"
+      has_rejected_your_request: "%{accepter} таны %{listing} хүсэлтийг татгалзсан байна"
       view_thread: ~
-      your_offer_was_accepted: ~
-      your_offer_was_rejected: ~
-      your_request_was_accepted: ~
-      your_request_was_rejected: ~
+      your_offer_was_accepted: "Таны саналыг хүлээн авсан байна"
+      your_offer_was_rejected: "Таны саналыг татгалзсан байна"
+      your_request_was_accepted: "Таны хүсэлтийг зөвшөөрсөн байна"
+      your_request_was_rejected: "Таны хүсэлтийг татгалзсан байна"
       you_can_now_pay_to: ~
       pay_now: ~
       remember_to_confirm: ~
@@ -880,13 +881,13 @@ mn:
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
-      you_have_a_new_comment: ~
+      you_have_a_new_comment: "%{author} таны %{service_name} дээр тайлбар бичсэн байна"
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} танд %{service_name} захиа илгээсэн байна"
+      you_have_a_new_message: "%{sender_name}-с танд %{service_name} шинэ захиа ирсэн байна"
     new_payment:
       new_payment: ~
       price_per_unit_type: ~
@@ -914,8 +915,8 @@ mn:
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: ~
-      you_can_give_feedback_to: ~
+      has_given_you_feedback_in_kassi: "%{name} танд %{service_name} дээр үнэлэлт өгсөн байна"
+      you_can_give_feedback_to: "Та %{name}-д үнэлэлт өгөөгүй байна"
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
@@ -942,8 +943,8 @@ mn:
       change_my_password: ~
       reset_password_instructions: ~
     testimonial_reminder:
-      remember_to_give_feedback_to: ~
-      you_have_not_given_feedback_yet: ~
+      remember_to_give_feedback_to: "Сануулах нь: та %{name}-д үнэлэлт өгнө үү"
+      you_have_not_given_feedback_yet: "Та %{name}-д %{event} тухай үнэлэлт өгөөгүй байна. %{given_name}-г хэр гүйцэтгэсэн талаар үнэлэлт өгнө үү."
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -985,13 +986,13 @@ mn:
   error_messages:
     listings:
       departure_time: ~
-      share_type: ~
-      valid_until: ~
+      share_type: "Та нэгийг сонгох ёстой."
+      valid_until: "Энэ өдөр нь одоогийн цаг болон түүнээс хойш 6 сарын хооронд байх ёстой."
       price: ~
       minimum_price: ~
     testimonials:
-      you_must_explain_not_neutral_feedback: ~
-      you_must_select_a_grade: ~
+      you_must_explain_not_neutral_feedback: "Хэрэв та дундаж үнэлэлт өгөхийг хүсэж байгаа бол, та тайлбарлах ёстой."
+      you_must_select_a_grade: "Таны туршлага сайн, муу эсэхийг хэлээрэй."
     transaction_agreement:
       required_error: ~
     paypal:
@@ -1003,12 +1004,12 @@ mn:
       accept_authorization_error: ~
       reject_authorization_error: ~
   error_pages:
-    back_to_kassi_front_page: ~
+    back_to_kassi_front_page: "Урд хуудсанд буцах"
     error_404:
       if_you_believe: ~
-      page_can_not_be_found: ~
-      page_you_requested_can_not_be_found: ~
-    error_404_title: ~
+      page_can_not_be_found: "Хуудас олдсонгүй!"
+      page_you_requested_can_not_be_found: "Таны хүссэн хуудас олдохгүй байна. Та зөв хаяг бичсэн эсэхээ шалгана уу?"
+    error_404_title: "Хуудас олдсонгүй!"
     error_410:
       page_removed: ~
       page_you_requested_has_been_removed: ~
@@ -1019,16 +1020,16 @@ mn:
       unable_to_process: ~
       we_hate_this: ~
       refer_to_error_id: ~
-    error_500_title: ~
-    error_description: ~
+    error_500_title: "хуудасны ачаалал амжилтгүй боллоо"
+    error_description: "Тодорхойлолт алдаатай байна"
     no_javascript:
-      javascript_is_disabled_in_your_browser: ~
+      javascript_is_disabled_in_your_browser: "Javascript таны браузерт хаалттай байна"
       kassi_does_not_currently_work_without_javascript: ~
       contact_us: ~
-      send_feedback: ~
-      your_feedback_to_admins: ~
-    send: ~
-    your_email_address: ~
+      send_feedback: "Үнэлэлт явуулах"
+      your_feedback_to_admins: "Админд таны үнэлэлт"
+    send: Илгээх
+    your_email_address: "Таны и-мэйл хаяг"
   errors:
     messages:
       invalid_date: ~
@@ -1066,14 +1067,14 @@ mn:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: ~
-    home: ~
+    about: Танилцуулга
+    home: Нүүр
     members: ~
     new_listing: ~
-    mobile_version: ~
-    offers: ~
-    requests: ~
-    search_kassi: ~
+    mobile_version: "Мобайл хувилбар"
+    offers: Санал
+    requests: Хүсэлт
+    search_kassi: "%{service_name} хайх"
     create_new_marketplace: ~
     contact_us: ~
     profile: ~
@@ -1088,7 +1089,7 @@ mn:
       additionally_some_private_offers_exist: ~
       additionally_some_private_requests_exist: ~
     blank_slate:
-      add_first: ~
+      add_first: "Нэгийг нэмнэ!"
       but_that_is_visible_only_to_registered_members: ~
       but_those_are_visible_only_to_registered_members: ~
       create_new_account_for_yourself: ~
@@ -2088,7 +2089,6 @@ mn:
       short: ~
       shorter: ~
       short_date: ~
-      sms: ~
   timestamps:
     day_ago: ~
     days_ago: ~
