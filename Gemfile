@@ -16,7 +16,7 @@ group :assets do
 end
 
 gem 'sass-rails'
-gem 'compass-rails'
+gem 'compass-rails', '~> 1.1'
 
 # Requiring 'compass' gem directly is not normally needed,
 # 'compass-rails' already does that.
