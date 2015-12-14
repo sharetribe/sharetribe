@@ -74,7 +74,7 @@ gem "truncate_html"
 gem 'money-rails'
 gem 'mercury-rails'
 gem 'fb-channel-file'
-gem 'country_select', '> 1.2.0'
+gem 'country_select', '~> 1.3.1'
 gem 'braintree'
 gem "mail_view", "~> 1.0.3"
 gem 'statesman', '~> 0.5.0'
