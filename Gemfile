@@ -135,7 +135,7 @@ group :test do
   gem "parallel_tests", :group => :development
   gem 'timecop'
   gem 'rack-test'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '~> 1.1'
   gem 'connection_pool'
   gem 'coveralls', require: false
 end
