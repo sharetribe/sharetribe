@@ -124,7 +124,7 @@ end
 group :test do
   gem "rspec-rails", "~>2.99.0"
   gem 'capybara', "~> 2.2.1"
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails', '~> 1.4.0', :require => false
   gem 'cucumber'
   gem 'selenium-webdriver'
   gem 'launchy'
