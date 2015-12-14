@@ -126,7 +126,7 @@ group :test do
   gem 'capybara', "~> 2.2.1"
   gem 'cucumber-rails', '~> 1.4.0', :require => false
   gem 'cucumber'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 2.45.0'
   gem 'launchy'
   gem 'ruby-prof'
   gem "pickle"

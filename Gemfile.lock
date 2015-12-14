@@ -700,7 +700,7 @@ DEPENDENCIES
   ruby-prof
   sass (~> 3.2.9)
   sass-rails
-  selenium-webdriver
+  selenium-webdriver (~> 2.45.0)
   spreadsheet
   statesman (~> 0.5.0)
   stringex (~> 2.5.2)
