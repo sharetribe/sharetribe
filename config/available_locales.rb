@@ -50,6 +50,7 @@ module Sharetribe
     {ident: "cs", name: "Čeština", language: "cs", region: "CS", fallback: nil}, # Czech
     {ident: "th-TH", name: "Thai", language: "th", region: "TH", fallback: nil}, # Thai (Thailand)
     {ident: "bg", name: "български", language: "bg", reqion: "BG", fallback: nil}, # Bulgarian
+    {ident: "mn", name: "Mongolian", language: "mn", reqion: "MN", fallback: nil}, # Mongolian
   ]
 
   AVAILABLE_LOCALES = SUPPORTED_LOCALES + UNSUPPORTED_LOCALES
