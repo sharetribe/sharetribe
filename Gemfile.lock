@@ -61,7 +61,7 @@ GEM
     arel (3.0.3)
     asset_sync (1.0.0)
       activemodel
-      fog
+      fog (>= 1.8.0)
     ast (2.0.0)
     aws-sdk (2.1.12)
       aws-sdk-resources (= 2.1.12)
@@ -622,7 +622,7 @@ DEPENDENCIES
   action_mailer_cache_delivery
   airbrake (~> 4.1.0)
   annotate
-  asset_sync
+  asset_sync (~> 1.0.0)
   aws-sdk (~> 2)
   aws-sdk-v1
   better_errors

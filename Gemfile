@@ -12,7 +12,7 @@ gem 'rails', '3.2.21'
 group :assets do
   gem 'coffee-rails', "~> 3.2.2"
   gem 'uglifier'
-  gem 'asset_sync'
+  gem 'asset_sync', '~> 1.0.0'
 end
 
 gem 'sass-rails'
