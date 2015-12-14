@@ -468,7 +468,7 @@ GEM
       websocket (~> 1.0.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
-    rabl (0.7.9)
+    rabl (0.7.10)
       activesupport (>= 2.3.14)
       multi_json (~> 1.0)
     rack (1.4.5)
@@ -685,7 +685,7 @@ DEPENDENCIES
   pry-stack_explorer
   public_suffix
   quiet_assets
-  rabl
+  rabl (~> 0.7.10)
   rack-livereload
   rack-test
   rails (= 3.2.21)

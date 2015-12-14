@@ -66,7 +66,7 @@ gem 'devise', "~>2.2.4"  #3.0rc requires bit bigger changes
 gem "devise-encryptable"
 gem "omniauth-facebook", "~> 2.0.1"
 gem 'spreadsheet'
-gem 'rabl'
+gem 'rabl', '~> 0.7.10'
 gem 'rake'
 gem 'xpath'
 gem 'dynamic_form'
