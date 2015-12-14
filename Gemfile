@@ -106,7 +106,7 @@ group :development, :test do
 end
 
 group :development, :staging do
-  gem 'meta_request'
+  gem 'meta_request', '~> 0.3'
 end
 
 group :development do
