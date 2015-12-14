@@ -628,7 +628,7 @@ DEPENDENCIES
   better_errors
   braintree
   cache_digests
-  capybara
+  capybara (~> 2.2.1)
   coffee-rails (~> 3.2.2)
   compass (~> 0.13.alpha)
   compass-rails
