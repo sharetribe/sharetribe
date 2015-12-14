@@ -197,7 +197,7 @@ Scenario: User creates a new listing with date field
   And I fill in "listing_title" with "My house"
   And I fill select custom date "building_date_test" with day="19", month="April" and year="2014"
   And I press "Save listing"
-  Then I should see "building_date_test: 19 Apr 2014"
+  Then I should see "building_date_test: Apr 19, 2014"
 
   @javascript @sphinx @no-transaction
   Scenario: User creates a new listing with checkbox field
