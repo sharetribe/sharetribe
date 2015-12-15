@@ -105,10 +105,10 @@ default: &default_settings
   airbrake_api_key: 'your_own_api_key_here'
 
   # Mail delivery method for mails sent by Sharetribe
-  # possible values for delivery method are: sendmail, smtp or postmark
+  # possible values for delivery method are: sendmail or smtp
   # The default is sendmail, it uses the system sendmail command and
   # doesn't require other configuration if sendmail command works
-  # If using SMTP or postmark, uncomment corresponding lines and enter your information.
+  # If using SMTP, uncomment corresponding lines and enter your information.
   # the SMPT lines below contain example of using Gmail, but you can use any SMTP
   # For the domain part you can enter HELO domain, if needed. Google for more info. :)
   mail_delivery_method: sendmail
@@ -118,8 +118,6 @@ default: &default_settings
   # smtp_email_user_name: "<YOUR_GMAIL_USERNAME>@gmail.com"
   # smtp_email_password: "<YOUR_GMAIL_PASSWORD>"
   # smtp_email_domain: "localhost"
-
-  # postmark_api_key:
 
   # This will be the from field in the mails sent from Sharetribe
   sharetribe_mail_from_address: "your-team@example.com"

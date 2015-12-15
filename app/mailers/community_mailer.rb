@@ -60,12 +60,7 @@ class CommunityMailer < ActionMailer::Base
                            :community_name => @community.full_name(@recipient.locale))
       subject = t("emails.community_updates.update_mail_title", :title_link => @title_link_text)
 
-      if APP_CONFIG.mail_delivery_method == "postmark"
-        # Postmark doesn't support bulk emails, so use Sendmail for this
-        delivery_method = :sendmail
-      else
-        delivery_method = APP_CONFIG.mail_delivery_method.to_sym unless Rails.env.test?
-      end
+      delivery_method = APP_CONFIG.mail_delivery_method.to_sym unless Rails.env.test?
 
       premailer_mail(:to => @recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
