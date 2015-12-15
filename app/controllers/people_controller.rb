@@ -315,14 +315,6 @@ class PeopleController < Devise::RegistrationsController
     params[:closed] && params[:closed].eql?("true")
   end
 
-  def check_captcha
-    if verify_recaptcha_unless_already_accepted
-      render :json => "success" and return
-    else
-      render :json => "failed" and return
-    end
-  end
-
   # Showed when somebody tries to view a profile of
   # a person that is not a member of that community
   def not_member
@@ -341,16 +333,6 @@ class PeopleController < Devise::RegistrationsController
   # Create a new person by params and current community
   def new_person(params, current_community)
     person = Person.new
-    if APP_CONFIG.use_recaptcha && current_community && current_community.use_captcha && !verify_recaptcha_unless_already_accepted(:model => person, :message => t('people.new.captcha_incorrect'))
-
-      # This should not actually ever happen if all the checks work at Sharetribe's end.
-      # Anyway if Captha responses with error, show message to user
-      # Also notify admins that this kind of error happened.
-      # TODO: if this ever happens, should change the message to something else than "unknown error"
-      flash[:error] = t("layouts.notifications.unknown_error")
-      ApplicationHelper.send_error_notification("New user Sign up failed because Captha check failed, when it shouldn't.", "Captcha error")
-      redirect_to error_redirect_path and return false
-    end
 
     params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
     params[:person][:test_group_number] = 1 + rand(4)
@@ -378,19 +360,6 @@ class PeopleController < Devise::RegistrationsController
 
     respond_to do |format|
       format.json { render :json => available }
-    end
-  end
-
-  def verify_recaptcha_unless_already_accepted(options={})
-    # Check if this captcha is already accepted, because ReCAPTCHA API will return false for further queries
-    if session[:last_accepted_captha] == "#{params["recaptcha_challenge_field"]}#{params["recaptcha_response_field"]}"
-      return true
-    else
-      accepted = verify_recaptcha(options)
-      if accepted
-        session[:last_accepted_captha] = "#{params["recaptcha_challenge_field"]}#{params["recaptcha_response_field"]}"
-      end
-      return accepted
     end
   end
 

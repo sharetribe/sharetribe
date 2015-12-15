@@ -18,7 +18,6 @@
 #  feedback_to_admin                          :boolean          default(TRUE)
 #  automatic_newsletters                      :boolean          default(TRUE)
 #  join_with_invite_only                      :boolean          default(FALSE)
-#  use_captcha                                :boolean          default(FALSE)
 #  allowed_emails                             :text
 #  users_can_invite_new_users                 :boolean          default(TRUE)
 #  private                                    :boolean          default(FALSE)

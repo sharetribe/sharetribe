@@ -117,11 +117,6 @@ module Kassi
     # ActiveRecord should be in UTC timezone.
     config.time_zone = 'UTC'
 
-    if APP_CONFIG.use_recaptcha
-      ENV['RECAPTCHA_PUBLIC_KEY']  = APP_CONFIG.recaptcha_public_key
-      ENV['RECAPTCHA_PRIVATE_KEY'] = APP_CONFIG.recaptcha_private_key
-    end
-
     # Configure Paperclip
     paperclip_options = {
           :path => ":rails_root/public/system/:attachment/:id/:style/:filename",

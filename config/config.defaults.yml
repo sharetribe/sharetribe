@@ -92,13 +92,6 @@ default: &default_settings
   fb_connect_id:
   fb_connect_secret:
 
-  # reCAPTChA is used to avoid bots registering accounts
-  # You need to register your domain at https://www.google.com/recaptcha
-  # to get the keys
-  use_recaptcha: false
-  recaptcha_public_key: 'enter_your_own_key_here'
-  recaptcha_private_key: 'enter_your_own_key_here'
-
   # You can use Airbrake to track errors if you want.
   # You need to register an account and get an API key from airbrake.io
   use_airbrake: false
@@ -267,9 +260,6 @@ test:
   # The locale should be "en" for test environment
   # even if you change it for others
   default_locale: en
-
-  # captcha is expected to be off when running tests
-  use_recaptcha: false
 
   # The tests currently work only with ASI encryptor
   use_asi_encryptor: true
