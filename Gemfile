@@ -12,11 +12,11 @@ gem 'rails', '3.2.21'
 group :assets do
   gem 'coffee-rails', "~> 3.2.2"
   gem 'uglifier'
-  gem 'asset_sync'
+  gem 'asset_sync', '~> 1.0.0'
 end
 
 gem 'sass-rails'
-gem 'compass-rails'
+gem 'compass-rails', '~> 1.1'
 
 # Requiring 'compass' gem directly is not normally needed,
 # 'compass-rails' already does that.
@@ -37,7 +37,7 @@ gem "mysql2"
 gem 'haml'
 gem 'sass', "  ~> 3.2.9"
 gem 'rest-client', '>= 1.6.0'
-gem 'paperclip'
+gem 'paperclip', '~> 3.5.1'
 gem 'delayed_paperclip'
 gem 'aws-sdk-v1'
 gem 'aws-sdk', '~> 2'
@@ -66,7 +66,7 @@ gem 'devise', "~>2.2.4"  #3.0rc requires bit bigger changes
 gem "devise-encryptable"
 gem "omniauth-facebook", "~> 2.0.1"
 gem 'spreadsheet'
-gem 'rabl'
+gem 'rabl', '~> 0.7.10'
 gem 'rake'
 gem 'xpath'
 gem 'dynamic_form'
@@ -74,7 +74,7 @@ gem "truncate_html"
 gem 'money-rails'
 gem 'mercury-rails'
 gem 'fb-channel-file'
-gem 'country_select', '> 1.2.0'
+gem 'country_select', '~> 1.3.1'
 gem 'braintree'
 gem "mail_view", "~> 1.0.3"
 gem 'statesman', '~> 0.5.0'
@@ -106,7 +106,7 @@ group :development, :test do
 end
 
 group :development, :staging do
-  gem 'meta_request'
+  gem 'meta_request', '~> 0.3'
 end
 
 group :development do
@@ -123,10 +123,10 @@ end
 
 group :test do
   gem "rspec-rails", "~>2.99.0"
-  gem 'capybara'
-  gem 'cucumber-rails', :require => false
+  gem 'capybara', "~> 2.2.1"
+  gem 'cucumber-rails', '~> 1.4.0', :require => false
   gem 'cucumber'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 2.45.0'
   gem 'launchy'
   gem 'ruby-prof'
   gem "pickle"
@@ -135,7 +135,7 @@ group :test do
   gem "parallel_tests", :group => :development
   gem 'timecop'
   gem 'rack-test'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '~> 1.1'
   gem 'connection_pool'
   gem 'coveralls', require: false
 end

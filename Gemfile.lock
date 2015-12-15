@@ -61,7 +61,7 @@ GEM
     arel (3.0.3)
     asset_sync (1.0.0)
       activemodel
-      fog
+      fog (>= 1.8.0)
     ast (2.0.0)
     aws-sdk (2.1.12)
       aws-sdk-resources (= 2.1.12)
@@ -113,8 +113,9 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.2.0.alpha.93)
-    compass-rails (1.0.3)
-      compass (>= 0.12.2, < 0.14)
+    compass-rails (1.1.7)
+      compass (>= 0.12.2)
+      sprockets (<= 2.11.0)
     connection_pool (0.9.3)
     countries (0.9.3)
       currencies (~> 0.4.2)
@@ -141,7 +142,7 @@ GEM
       rails (>= 3.0.0)
     currencies (0.4.2)
     dalli (2.6.4)
-    database_cleaner (0.9.1)
+    database_cleaner (1.5.1)
     debug_inspector (0.0.2)
     delayed_job (3.0.5)
       activesupport (~> 3.0)
@@ -467,7 +468,7 @@ GEM
       websocket (~> 1.0.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
-    rabl (0.7.9)
+    rabl (0.7.10)
       activesupport (>= 2.3.14)
       multi_json (~> 1.0)
     rack (1.4.5)
@@ -622,23 +623,23 @@ DEPENDENCIES
   action_mailer_cache_delivery
   airbrake (~> 4.1.0)
   annotate
-  asset_sync
+  asset_sync (~> 1.0.0)
   aws-sdk (~> 2)
   aws-sdk-v1
   better_errors
   braintree
   cache_digests
-  capybara
+  capybara (~> 2.2.1)
   coffee-rails (~> 3.2.2)
   compass (~> 0.13.alpha)
-  compass-rails
+  compass-rails (~> 1.1)
   connection_pool
-  country_select (> 1.2.0)
+  country_select (~> 1.3.1)
   coveralls
   cucumber
-  cucumber-rails
+  cucumber-rails (~> 1.4.0)
   dalli
-  database_cleaner
+  database_cleaner (~> 1.1)
   delayed_job (~> 3.0.5)
   delayed_job_active_record
   delayed_paperclip
@@ -663,13 +664,13 @@ DEPENDENCIES
   mail_view (~> 1.0.3)
   memcachier
   mercury-rails
-  meta_request
+  meta_request (~> 0.3)
   money-rails
   multi_json (~> 1.7.3)
   mysql2
   newrelic_rpm (~> 3.9.1.236)
   omniauth-facebook (~> 2.0.1)
-  paperclip
+  paperclip (~> 3.5.1)
   parallel_tests
   passenger (~> 5.0.18)
   paypal-sdk-merchant (~> 1.116.0)
@@ -684,7 +685,7 @@ DEPENDENCIES
   pry-stack_explorer
   public_suffix
   quiet_assets
-  rabl
+  rabl (~> 0.7.10)
   rack-livereload
   rack-test
   rails (= 3.2.21)
@@ -699,7 +700,7 @@ DEPENDENCIES
   ruby-prof
   sass (~> 3.2.9)
   sass-rails
-  selenium-webdriver
+  selenium-webdriver (~> 2.45.0)
   spreadsheet
   statesman (~> 0.5.0)
   stringex (~> 2.5.2)
