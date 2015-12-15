@@ -581,7 +581,6 @@ GEM
     thread_safe (0.3.4)
     tilt (1.4.1)
     timecop (0.6.3)
-    timeliness (0.3.7)
     timers (1.1.0)
     tins (1.0.0)
     treetop (1.4.15)
@@ -593,8 +592,6 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    validates_timeliness (3.0.14)
-      timeliness (~> 0.3.6)
     warden (1.2.3)
       rack (>= 1.0)
     web_translate_it (2.1.8)
@@ -702,7 +699,6 @@ DEPENDENCIES
   truncate_html
   ts-delayed-delta (~> 2.0.2)!
   uglifier
-  validates_timeliness (~> 3.0)
   web_translate_it
   will_paginate
   xpath

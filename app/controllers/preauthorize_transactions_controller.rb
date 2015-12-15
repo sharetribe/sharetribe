@@ -13,7 +13,7 @@ class PreauthorizeTransactionsController < ApplicationController
   BookingForm = FormUtils.define_form("BookingForm", :start_on, :end_on)
     .with_validations do
       validates :start_on, :end_on, presence: true
-      validates_date :end_on, on_or_after: :start_on
+      validates_with DateOnOrAfterValidator
     end
 
   ContactForm = FormUtils.define_form("ListingConversation", :content, :sender_id, :listing_id, :community_id)

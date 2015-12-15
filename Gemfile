@@ -79,7 +79,6 @@ gem "mail_view", "~> 1.0.3"
 gem 'statesman', '~> 0.5.0'
 gem "premailer"
 gem 'stringex', '~> 2.5.2'
-gem 'validates_timeliness', '~> 3.0'
 gem 'paypal-sdk-permissions',
   :git    => 'git://github.com/paypal/permissions-sdk-ruby.git',
   :branch => 'master',
