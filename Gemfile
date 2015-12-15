@@ -54,8 +54,8 @@ gem 'ts-delayed-delta', "~>2.0.2",
   :branch => 'master',
   :ref    => '839284f2f28b3f4caf3a3bf5ccde9a6d222c7f4d'
 gem 'possibly', '~> 0.2.0'
-gem 'delayed_job', "~>3.0.5"
-gem 'delayed_job_active_record'
+gem 'delayed_job', "~> 4.0.0", "<= 4.0.3" # Test break with > 4.0.3
+gem 'delayed_job_active_record', "~> 4.0.0"
 gem 'json', "~>1.8.0"
 gem 'multi_json', "~>1.7.3" # 1.8.0 caused "invalid byte sequence in UTF-8" at heroku
 gem 'web_translate_it'
