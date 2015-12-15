@@ -504,7 +504,6 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    recaptcha (0.3.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     riddle (1.5.11)
@@ -682,7 +681,6 @@ DEPENDENCIES
   rails_12factor (~> 0.0.3)
   rake
   rb-fsevent
-  recaptcha
   rest-client (>= 1.6.0)
   rspec-rails (~> 2.99.0)
   rubocop
