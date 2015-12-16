@@ -31,6 +31,7 @@ module Kassi
     config.autoload_paths += Dir[Rails.root.join('app', 'utils')]
     config.autoload_paths += Dir[Rails.root.join('app', 'view_utils')]
     config.autoload_paths += Dir[Rails.root.join('app', 'forms')]
+    config.autoload_paths += Dir[Rails.root.join('app', 'validators')]
 
     # Enable the asset pipeline
     config.assets.enabled = true
@@ -116,11 +117,6 @@ module Kassi
 
     # ActiveRecord should be in UTC timezone.
     config.time_zone = 'UTC'
-
-    if APP_CONFIG.use_recaptcha
-      ENV['RECAPTCHA_PUBLIC_KEY']  = APP_CONFIG.recaptcha_public_key
-      ENV['RECAPTCHA_PRIVATE_KEY'] = APP_CONFIG.recaptcha_private_key
-    end
 
     # Configure Paperclip
     paperclip_options = {

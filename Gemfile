@@ -54,13 +54,11 @@ gem 'ts-delayed-delta', "~>2.0.2",
   :branch => 'master',
   :ref    => '839284f2f28b3f4caf3a3bf5ccde9a6d222c7f4d'
 gem 'possibly', '~> 0.2.0'
-gem 'recaptcha'
 gem 'delayed_job', "~>3.0.5"
 gem 'delayed_job_active_record'
 gem 'json', "~>1.8.0"
 gem 'multi_json', "~>1.7.3" # 1.8.0 caused "invalid byte sequence in UTF-8" at heroku
 gem 'web_translate_it'
-gem 'postmark-rails' # could be removed as not currently used
 gem 'rails-i18n'
 gem 'devise', "~>2.2.4"  #3.0rc requires bit bigger changes
 gem "devise-encryptable"
@@ -80,7 +78,6 @@ gem "mail_view", "~> 1.0.3"
 gem 'statesman', '~> 0.5.0'
 gem "premailer"
 gem 'stringex', '~> 2.5.2'
-gem 'validates_timeliness', '~> 3.0'
 gem 'paypal-sdk-permissions',
   :git    => 'git://github.com/paypal/permissions-sdk-ruby.git',
   :branch => 'master',
