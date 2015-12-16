@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/jejacks0n/mercury.git
+  revision: 1cc637b0bccea19085f824d2881c6513ed5ee8ae
+  ref: 1cc637b0bccea19085f824d2881c6513ed5ee8ae
+  branch: master
+  specs:
+    mercury-rails (0.9.0)
+      coffee-rails (>= 3.2.2)
+      railties (>= 3.0)
+
+GIT
   remote: git://github.com/pat/ts-delayed-delta.git
   revision: 839284f2f28b3f4caf3a3bf5ccde9a6d222c7f4d
   ref: 839284f2f28b3f4caf3a3bf5ccde9a6d222c7f4d
@@ -376,9 +386,6 @@ GEM
     mail_view (1.0.3)
       tilt
     memcachier (0.0.2)
-    mercury-rails (0.9.0)
-      coffee-rails
-      railties (~> 3.2)
     meta_request (0.3.4)
       callsite (~> 0.0, >= 0.0.11)
       rack-contrib (~> 1.1)
@@ -654,7 +661,7 @@ DEPENDENCIES
   lograge
   mail_view (~> 1.0.3)
   memcachier
-  mercury-rails
+  mercury-rails!
   meta_request (~> 0.3)
   money-rails
   multi_json (~> 1.7.3)
