@@ -70,7 +70,13 @@ gem 'xpath'
 gem 'dynamic_form'
 gem "truncate_html"
 gem 'money-rails'
-gem 'mercury-rails'
+
+# The latest release (0.9.0) is not Rails 4 compatible
+gem 'mercury-rails',
+  git: 'git://github.com/jejacks0n/mercury.git',
+  branch: 'master',
+  ref: '1cc637b0bccea19085f824d2881c6513ed5ee8ae'
+
 gem 'fb-channel-file'
 gem 'country_select', '~> 1.3.1'
 gem 'braintree'
