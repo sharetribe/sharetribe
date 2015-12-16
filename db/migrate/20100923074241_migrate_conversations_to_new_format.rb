@@ -101,7 +101,7 @@ class MigrateConversationsToNewFormat < ActiveRecord::Migration
       when "Listing"
         listing = Listing.find(ke.eventable_id)
         # Maybe need to create a conversation
-        possible_conversations = Conversation.find_all_by_listing_id(ke.eventable_id)
+        possible_conversations = Conversation.where(listing_id: ke.eventable_id)
         #puts "Number of matching conversations: #{possible_conversations.count}"
         
         # pick the conversation with the right participants
@@ -146,7 +146,7 @@ class MigrateConversationsToNewFormat < ActiveRecord::Migration
       unless conversation.nil?
         ke.person_comments.each do |person_comment|
           # find the right participation to attach this testimonial
-          participation = Participation.where(:conversation_id => conversation.id, :person_id => person_comment.author_id).first 
+          participation = Participation.where(:conversation_id => conversation.id, :person_id => person_comment.author_id).first
           # create the testimonial based on the PersonComment
           testimonial = Testimonial.new(:grade => person_comment.grade,
                           :text => person_comment.text_content,

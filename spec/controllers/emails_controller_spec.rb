@@ -18,11 +18,11 @@ describe EmailsController do
       @community.members << person
       sign_in_for_spec(person)
 
-      Email.find_all_by_person_id(person.id).count.should == 2
+      Email.where(person_id: person.id).count.should == 2
 
       delete :destroy, {:person_id => person.id, :id => person.emails.first.id}
 
-      Email.find_all_by_person_id(person.id).count.should == 1
+      Email.where(person_id: person.id).count.should == 1
       response.status.should == 302
     end
 
@@ -38,11 +38,11 @@ describe EmailsController do
       @community.members << person
       sign_in_for_spec(person)
 
-      Email.find_all_by_person_id(person.id).count.should == 2
+      Email.where(person_id: person.id).count.should == 2
 
       delete :destroy, {:person_id => person.id, :id => person.emails.first.id}
 
-      Email.find_all_by_person_id(person.id).count.should == 2
+      Email.where(person_id: person.id).count.should == 2
       response.status.should == 302
     end
   end

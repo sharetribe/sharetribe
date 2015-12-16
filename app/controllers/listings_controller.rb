@@ -289,7 +289,7 @@ class ListingsController < ApplicationController
         @listing.build_origin_loc(:location_type => "origin_loc")
     end
 
-    @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
+    @custom_field_questions = @listing.category.custom_fields.where(community_id: @current_community.id)
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
     shape = select_shape(get_shapes, @listing.listing_shape_id)
