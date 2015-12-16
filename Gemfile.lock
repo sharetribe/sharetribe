@@ -144,11 +144,11 @@ GEM
     dalli (2.6.4)
     database_cleaner (1.5.1)
     debug_inspector (0.0.2)
-    delayed_job (3.0.5)
-      activesupport (~> 3.0)
-    delayed_job_active_record (0.3.3)
-      activerecord (>= 2.1.0, < 4)
-      delayed_job (~> 3.0)
+    delayed_job (4.0.3)
+      activesupport (>= 3.0, < 4.2)
+    delayed_job_active_record (4.0.3)
+      activerecord (>= 3.0, < 5.0)
+      delayed_job (>= 3.0, < 4.1)
     delayed_paperclip (2.6.1)
       paperclip (>= 3.3.0)
     devise (2.2.7)
@@ -629,8 +629,8 @@ DEPENDENCIES
   cucumber-rails (~> 1.4.0)
   dalli
   database_cleaner (~> 1.1)
-  delayed_job (~> 3.0.5)
-  delayed_job_active_record
+  delayed_job (~> 4.0.0, <= 4.0.3)
+  delayed_job_active_record (~> 4.0.0)
   delayed_paperclip
   devise (~> 2.2.4)
   devise-encryptable
