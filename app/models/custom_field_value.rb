@@ -26,6 +26,6 @@ class CustomFieldValue < ActiveRecord::Base
 
   delegate :with_type, :to => :question
 
-  default_scope includes(:question).order("custom_fields.sort_priority")
+  default_scope { includes(:question).order("custom_fields.sort_priority") }
 
 end
