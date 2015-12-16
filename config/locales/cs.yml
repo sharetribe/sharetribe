@@ -1813,7 +1813,6 @@ cs:
       deactivate: Deaktivovat
     help_texts:
       feedback_description_title: Hodnocení
-      help_captcha_title: "Jste člověk?"
       help_invitation_code_title: "Potřebujete pozvánku, abyste se mohli připojit"
       terms_title: "%{service_name} podmínky použití"
       invite_only_help_text: "Vyberte tuto možnost, pokud chcete, aby se noví členové mohli připojit pouze v případě, že byli pozváni stávajícím uživatelem."
@@ -1822,8 +1821,6 @@ cs:
       this_person_is_not_active_in_kassi: "Tento uživatel již není aktivní v %{service_name}."
       inactive_description: "Tento uživatel přestal používat %{service_name}. Nemůžete již tohoto uživatele kontaktovat, poskytnout mu zpětnou vazbu ani okomentovat jeho inzeráty."
     new:
-      captcha_incorrect: "Ověření selhalo. Prosíme, opište znovu text z obrázku níže."
-      captcha_was_wrong: "Text byl zadán nesprávně."
       create_new_account: "Vytvořit účet"
       email: "E-mailová adresa"
       email_is_in_use: "Vámi zadaný e-mail je již obsazen."
@@ -1833,7 +1830,6 @@ cs:
         one: "Přístup do %{service_name} je omezený. K připojení budete potřebovat %{allowed_emails} e-mailovou adresu."
         few: "Přístup do %{service_name} je omezený. Budete potřebovat e-mailovou adresu, díky které se budete moci přihlásit."
         other: "Přístup do %{service_name} je omezený. Budete potřebovat e-mailovou adresu, díky které se budete moci přihlásit."
-      enter_captcha: "Jsem člověk:"
       family_name: Příjmení
       given_name: Jméno
       i_accept_the: Přijímám

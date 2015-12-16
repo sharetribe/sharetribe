@@ -1773,7 +1773,6 @@ bg:
       deactivate: ~
     help_texts:
       feedback_description_title: ~
-      help_captcha_title: ~
       help_invitation_code_title: ~
       terms_title: ~
       invite_only_help_text: ~
@@ -1782,14 +1781,11 @@ bg:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
     new:
-      captcha_incorrect: ~
-      captcha_was_wrong: ~
       create_new_account: ~
       email: ~
       email_is_in_use: ~
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
-      enter_captcha: ~
       family_name: ~
       given_name: ~
       i_accept_the: ~

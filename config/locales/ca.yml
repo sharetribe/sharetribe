@@ -1775,7 +1775,6 @@ ca:
       deactivate: Desactivar
     help_texts:
       feedback_description_title: Suggeriment
-      help_captcha_title: "Ets una persona?"
       help_invitation_code_title: "Necessites una invitació per unir-te a"
       terms_title: "Termes d'ús de Kassi"
       invite_only_help_text: ~
@@ -1784,14 +1783,11 @@ ca:
       this_person_is_not_active_in_kassi: "Aquest usuari ja no està actiu."
       inactive_description: "Aquest usuari ha deixat d'utilitzar Kassi. No pots posar-te en contacte amb ell."
     new:
-      captcha_incorrect: "Error de la verificació de ReCAPTCHA. Si us plau, introdueixi les paraules que apareixen al requadre de sota"
-      captcha_was_wrong: "Text captcha incorrecte."
       create_new_account: "Crea un compte"
       email: "Correu electrònic"
       email_is_in_use: "Aquest correu ja està registrat"
       email_is_in_use_or_not_allowed: "Aquest correu electrònic no està autoritzat per a aquesta comunitat o ja està sent utilitzat. Si us plau, utilitza una adreça que estigui associada amb aquesta comunitat. Si encara tens problemes per accedir, envia'ns un comentari utilitzant el botó de \"Feedback\" de l'esquerra."
       email_not_allowed: ~
-      enter_captcha: "Sóc un ser humà"
       family_name: "Cognoms:"
       given_name: "Nom:"
       i_accept_the: "Accepto la"

@@ -1789,7 +1789,6 @@ tr-TR:
       deactivate: Etkisizleştir
     help_texts:
       feedback_description_title: "Geri bildirim"
-      help_captcha_title: "Gerçek bir insan mısınız?"
       help_invitation_code_title: "Katılmak için davetiyeye ihtiyacınız var"
       terms_title: "%{service_name} kullanım koşulları"
       invite_only_help_text: "Yeni üyelerin sadece mevcut üyelerin davetiyle katılabilmesini istiyorsanız bunu seçin."
@@ -1798,8 +1797,6 @@ tr-TR:
       this_person_is_not_active_in_kassi: "Bu kullanıcı artık %{service_name}'de aktif değildir."
       inactive_description: "Bu kullanıcı %{service_name}'ı kullanmayı bıraktı. Bu kullanıcıyla iletişim kuramaz, geri bildirim bırakamaz ve listelemelerine yorum yapamazsınız."
     new:
-      captcha_incorrect: "reCAPTCHA testi başarısız oldu. Lütfen görseldeki kelimeleri aşağıdaki kutucuğa yazın."
-      captcha_was_wrong: "Captcha metni hatalı."
       create_new_account: "Hesap oluştur"
       email: "E-posta adresi"
       email_is_in_use: "Girdiğiniz e-posta adresi kullanımda."
@@ -1807,7 +1804,6 @@ tr-TR:
       email_not_allowed: "Bu e-mail adresine %{service_name}'ta izin verilmemektedir. Lütfen izin verilen bir e-posta adresi kullanın. Yine de giriş yapamıyorsanız, bize ulaşın."
       email_restriction_instructions:
         other: "%{service_name}'e erişim sınırlandırılmıştır. Katılım izniniz olduğunu gösteren bir e-posta adresine sahip olmalısınız."
-      enter_captcha: "Gerçek bir insanım:"
       family_name: Soyad
       given_name: Ad
       i_accept_the: "Okudum ve Kabul ediyorum:"

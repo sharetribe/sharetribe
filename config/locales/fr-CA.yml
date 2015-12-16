@@ -1792,7 +1792,6 @@ fr-CA:
       deactivate: Désactiver
     help_texts:
       feedback_description_title: Avis
-      help_captcha_title: "Etes-vous humain ?"
       help_invitation_code_title: "Il vous faut une invitation pour participer"
       terms_title: "Conditions d'utilisation de %{service_name}"
       invite_only_help_text: "Choisissez cette option si vous souhaitez que les nouveaux membres ne puissent rejoindre la place de marché que s'ils ont été invités par un utilisateur déjà membre."
@@ -1801,8 +1800,6 @@ fr-CA:
       this_person_is_not_active_in_kassi: "Cet utilisateur n'est plus actif sur %{service_name}"
       inactive_description: "Cet utilisateur a arrêté d'utiliser %{service_name}. Vous ne pouvez plus le contacter, l'évaluer ni commenter ses annonces."
     new:
-      captcha_incorrect: "Vérification reCAPTCHA échouée. Veuillez saisir les mots de l'image dans la case dessous."
-      captcha_was_wrong: "Texte Captcha incorrecte."
       create_new_account: "Créer un compte"
       email: "Adresse email"
       email_is_in_use: "L'adresse email que vous avez saisi est déjà utilisée."
@@ -1811,7 +1808,6 @@ fr-CA:
       email_restriction_instructions:
         one: "L'accès à %{service_name} est limité. Pour en être membre, vous devez avoir une adresse email du type %{allowed_emails}."
         other: "L'accès à %{service_name} est limité. Pour en être membre, vous devez avoir une adresse email autorisée."
-      enter_captcha: "Je suis un être humain :"
       family_name: Nom
       given_name: Prénom
       i_accept_the: "J'accepte les"

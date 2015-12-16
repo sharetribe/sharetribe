@@ -1812,7 +1812,6 @@ es-ES:
       deactivate: Desactivar
     help_texts:
       feedback_description_title: Sugerencia
-      help_captcha_title: "¿Eres humano?"
       help_invitation_code_title: "Necesitas una invitación para unirte a"
       terms_title: "Términos de uso de %{service_name}"
       invite_only_help_text: "Selecciona esta opción si quieres que los nuevos miembros sólo puedan unirse si son invitados por un miembro de esta tribu."
@@ -1821,8 +1820,6 @@ es-ES:
       this_person_is_not_active_in_kassi: "Este usuario ya no está activo en %{service_name}"
       inactive_description: "Este usuario ha dejado de utilizar %{service_name}. No puedes ponerte en contacto con él, hacerle sugerencias o comentar sus peticiones."
     new:
-      captcha_incorrect: "Error de comprobación de reCAPTCHA. Por favor escriba las palabras que aparecen en el recuadro siguiente."
-      captcha_was_wrong: "Texto captcha incorrecto."
       create_new_account: "Crear una cuenta"
       email: "Dirección de correo electrónico:"
       email_is_in_use: "El mail ingresado ya se encuentra registrado."
@@ -1831,7 +1828,6 @@ es-ES:
       email_restriction_instructions:
         one: "Esta comunidad es sólo para %{community_name}. Para unirte necesitas una dirección de email %{allowed_emails}."
         other: "Esta comunidad es sólo para %{community_name}. Para unirte necesitas un email que tenga una de los siguientes direcciones: %{allowed_emails}."
-      enter_captcha: "Soy un ser humano:"
       family_name: "Apellido:"
       given_name: "Nombre:"
       i_accept_the: "Acepto los"

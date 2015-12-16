@@ -1806,7 +1806,6 @@ sv:
       deactivate: Avaktivera
     help_texts:
       feedback_description_title: Feedback
-      help_captcha_title: "Är du en människa?"
       help_invitation_code_title: "Du behöver en inbjudan för att gå med"
       terms_title: "%{service_name} användarvillkor"
       invite_only_help_text: "Välj detta alternativ om du vill att nya medlemmar ska gå med bara om de är inbjudna från en nuvarande medlem."
@@ -1815,8 +1814,6 @@ sv:
       this_person_is_not_active_in_kassi: "Denna användare är ej längre aktiv i %{service_name}"
       inactive_description: "Användaren har slutat använda %{service_name}. Du kan inte kontakta användaren, ge feedback till dem eller kommentera deras listor."
     new:
-      captcha_incorrect: "reCAPTCHA misslyckades. Vänligen skriv in ordet du ser i bilden i rutan nedan."
-      captcha_was_wrong: "Captcha-texten var inkorrekt."
       create_new_account: "Skapa konto"
       email: E-postadress
       email_is_in_use: "E-postadressen du angav används redan."
@@ -1825,7 +1822,6 @@ sv:
       email_restriction_instructions:
         one: "Access till %{service_name} är begränsad. För att gå med så behöver du en '%{allowed_emails}' e-postadress."
         other: "Access till %{service_name} är begränsad. Du behöver en e-postadress som bevisar att du har rätt att gå med."
-      enter_captcha: "Jag är en människa:"
       family_name: Efternamn
       given_name: Förnamn
       i_accept_the: "Jag accepterar"

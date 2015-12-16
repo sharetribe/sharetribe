@@ -1788,7 +1788,6 @@ nl:
       deactivate: Deactiveer
     help_texts:
       feedback_description_title: Feedback
-      help_captcha_title: "Ben je een mens?"
       help_invitation_code_title: "U heeft een uitnodiging nodig om deel te nemen"
       terms_title: "%{service_name} gebruiksvoorwaarden"
       invite_only_help_text: "Kies deze optie indien u wilt dat nieuwe leden enkel kunnen aansluiten na een uitnodiging door een bestaand lid."
@@ -1797,8 +1796,6 @@ nl:
       this_person_is_not_active_in_kassi: "Deze gebruiker is niet meer actief %{service_name}"
       inactive_description: "Deze gebruiker is gestopt met het gebruiken van %{service_name}. U kunt deze gebruiker niet contacteren, feedback geven of commentaar geven op listings."
     new:
-      captcha_incorrect: "reCAPTCHA check mislukt. Schrijf de woorden in het blok hieronder alstublieft."
-      captcha_was_wrong: "Captcha tekst was verkeerd."
       create_new_account: "Maak account"
       email: "E-mail adres"
       email_is_in_use: "Het e-mail adres is al in gebruik."
@@ -1807,7 +1804,6 @@ nl:
       email_restriction_instructions:
         one: "De toegang tot %{service_name} is beperkt. Om aan te sluiten heeft u een '%{allowed_emails}' e-mail adres nodig."
         other: "De toegang tot %{service_name} is beperkt. U heeft een e-mail adres nodig dat aantoont dat u gerechtigd bent om aan te sluiten."
-      enter_captcha: "Ik ben een mens:"
       family_name: Familienaam
       given_name: Voornaam
       i_accept_the: "Ik accepteer de"

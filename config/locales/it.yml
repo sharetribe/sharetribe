@@ -1775,7 +1775,6 @@ it:
       deactivate: Disattiva
     help_texts:
       feedback_description_title: Feedback
-      help_captcha_title: "Sei un umano?"
       help_invitation_code_title: "Hai bisogno di un invito per partecipare"
       terms_title: "Termini di utilizzo di %{service_name}"
       invite_only_help_text: ~
@@ -1784,14 +1783,11 @@ it:
       this_person_is_not_active_in_kassi: "Questo utente non è più attivo in %{service_name}"
       inactive_description: "Questo utente ha smesso di utilizzare %{service_name}. Non puoi contattare questo utente, lascia un feedback o un commento nei suoi annunci."
     new:
-      captcha_incorrect: "Verifica reCAPTCHA fallita. Scrivi le parole che appaiono nell'immagine nel box sottostante."
-      captcha_was_wrong: "il testo Captcha era sbagliato."
       create_new_account: "Crea account"
       email: "Indirizzo email"
       email_is_in_use: "L'email che hai fornito è già utilizzata."
       email_is_in_use_or_not_allowed: "Questa email non è valida per accedere a questa comunità o è già in uso. Per favore utilizza un indirizzo email che è associato con questa comunità (leggi le istruzioni qui sopra). Se ancora non ti è possibile accedere, inviaci un'email."
       email_not_allowed: ~
-      enter_captcha: "Sono umano:"
       family_name: Cognome
       given_name: Nome
       i_accept_the: "Accetto il"

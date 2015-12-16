@@ -1773,7 +1773,6 @@ el:
       deactivate: Απενεργοποίηση
     help_texts:
       feedback_description_title: Κριτική
-      help_captcha_title: "Είσαι όντως άνθρωπος;"
       help_invitation_code_title: "Χρειάζεσαι πρόσκληση για να συμμετέχεις."
       terms_title: "Όροι χρήσης του %{service_name}"
       invite_only_help_text: "Επιλέξτε αν θέλετε νέα μέλη να συμμετέχουν σε αυτό το sharetribe μόνο εάν έχουν λάβει πρόσκληση από άλλα μέλη."
@@ -1782,8 +1781,6 @@ el:
       this_person_is_not_active_in_kassi: "Αυτός ο χρήστης δεν είναι πια ενεργός στο %{service_name}"
       inactive_description: "Αυτός ο χρήστης έχει σταματήσει να χρησιμοποιεί το %{service_name}. Δεν μπορείς να επικοινωνήσεις μαζί του/της, να του/της κάνεις κριτική, ή να δεις τις καταχωρήσεις του/της."
     new:
-      captcha_incorrect: "Ο έλεγχος του reCAPTCHA απέτυχε. Παρακαλούμε, γράψτε στο παρακάτω κουτάκι τις λέξεις που φαίνονται στην εικόνα."
-      captcha_was_wrong: "Το κείμενο του Captcha ήταν λάθος."
       create_new_account: Εγγραφή
       email: "Διεύθυνση email:"
       email_is_in_use: "Το email που δώσατε χρησιμοποιείται ήδη."
@@ -1792,7 +1789,6 @@ el:
       email_restriction_instructions:
         one: "Αυτή η κοινότητα αφορά το %{community_name}. Για να συμμετέχετε πρέπει να έχετε διεύθυνση email της μορφής '%{allowed_emails}'."
         other: "Αυτή η κοινότητα αφορά το %{community_name}. Για να εγγραφείτε πρέπει η διεύθυνση email σας να αποδεικνύει ότι μπορείτε να συμμετέχετε εδώ."
-      enter_captcha: "Είμαι άνθρωπος:"
       family_name: Επώνυμο
       given_name: Όνομα
       i_accept_the: "Αποδέχομαι τους"

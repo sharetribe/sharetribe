@@ -1793,7 +1793,6 @@ zh-TW:
       deactivate: 停用
     help_texts:
       feedback_description_title: 反馈
-      help_captcha_title: 你是人类么？
       help_invitation_code_title: 你需要被邀请才能加入
       terms_title: "%{service_name}的使用条款"
       invite_only_help_text: 如果你希望新用户通过被已有用户邀请的方式加入，请选择这个选项。
@@ -1802,8 +1801,6 @@ zh-TW:
       this_person_is_not_active_in_kassi: "此用户在%{service_name}网站上处于冻结状态"
       inactive_description: "该用户已停用%{service_name}。你不能联系此用户，给予反馈或者评价他们的发布的信息。"
     new:
-      captcha_incorrect: 验证码错误。请输入下图中显示的单词
-      captcha_was_wrong: 验证码错误
       create_new_account: 创建新用户
       email: 电子邮件地址
       email_is_in_use: 此邮箱已使用。
@@ -1811,7 +1808,6 @@ zh-TW:
       email_not_allowed: "该电子邮件不允许在%{service_name}中使用。请使用允许的电子邮件地址。如果你还是不能进入，发送反馈给我们。"
       email_restriction_instructions:
         other: "访问%{service_name}受限。你需要一个电子邮件地址来加入。"
-      enter_captcha: 我是一个人类：
       family_name: 姓
       given_name: 名
       i_accept_the: 我接受

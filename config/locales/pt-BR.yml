@@ -1806,7 +1806,6 @@ pt-BR:
       deactivate: Desativar
     help_texts:
       feedback_description_title: Reposta
-      help_captcha_title: "Você é um humano?"
       help_invitation_code_title: "Você precisa de um convite para se juntar a"
       terms_title: "%{service_name} termos de uso"
       invite_only_help_text: "Selecione esta opção se você quiser que novos membros só possam entrar se forem convidados por um membro existente."
@@ -1815,8 +1814,6 @@ pt-BR:
       this_person_is_not_active_in_kassi: "Esse usuário está inativo no %{service_name}"
       inactive_description: "Esse usuário parou de usar %{service_name}. Você pode não pode entrar em contato, nem avaliar, nem comentar seus anúncios."
     new:
-      captcha_incorrect: "verificação reCAPTCHA falhou. Por favor, escreva as palavras que a imagem na caixa abaixo."
-      captcha_was_wrong: "Texto da imagem estava incorreta."
       create_new_account: "Criar conta"
       email: "Endereço de e-mail"
       email_is_in_use: "O e-mail já está em uso."
@@ -1825,7 +1822,6 @@ pt-BR:
       email_restriction_instructions:
         one: "O acesso a %{service_name} é restrito. Para entrar, você deve ter '%{allowed_emails}' endereço de e-mail."
         other: "O acesso a %{service_name} é restrito. Para entrar, você deve ter um e-mail autorizado."
-      enter_captcha: "Eu sou humano:"
       family_name: Sobrenome
       given_name: Nome
       i_accept_the: "Eu aceito os"

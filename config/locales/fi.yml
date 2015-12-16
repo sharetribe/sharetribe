@@ -1792,7 +1792,6 @@ fi:
       deactivate: "Muuta epäaktiiviseksi"
     help_texts:
       feedback_description_title: Palaute
-      help_captcha_title: "Olethan ihminen"
       help_invitation_code_title: "Tarvitset kutsun liittyäksesi"
       terms_title: "%{service_name}-palvelun käyttöehdot"
       invite_only_help_text: "Valitse tämä, jos haluat, että uudet jäsenet voivat liittyä vain, jos he ovat saaneet kutsun olemassaolevalta jäseneltä."
@@ -1801,8 +1800,6 @@ fi:
       this_person_is_not_active_in_kassi: "Tämä käyttäjä ei ole enää aktiivinen %{service_name}-palvelussa"
       inactive_description: "Tämä käyttäjä on lopettanut %{service_name}-palvelun käytön. Et voi enää lähettää hänelle viestejä, antaa hänelle palautetta tai kommentoida hänen ilmoituksiaan."
     new:
-      captcha_incorrect: "reCAPTCHA varmistus epäonnistui. Kirjoita kuvassa näkyvät sanat alla olevaan kenttään."
-      captcha_was_wrong: "Kirjoittamasi teksti ei vastannut kuvan sanoja."
       create_new_account: "Luo tunnus"
       email: Sähköpostiosoite
       email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
@@ -1811,7 +1808,6 @@ fi:
       email_restriction_instructions:
         one: "%{service_name}-palveluun liittyminen on rajattua. Liittyäksesi tarvitset '%{allowed_emails}'-sähköpostiosoitteen."
         other: "%{service_name}-palveluun liittyminen on rajattua. Liittyäksesi tarvitset sellaisen organisaation sähköpostiosoitteen, jolle on myönnetty mahdollisuus liittyä tähän palveluun."
-      enter_captcha: "Olen ihminen"
       family_name: Sukunimi
       given_name: Etunimi
       i_accept_the: Hyväksyn

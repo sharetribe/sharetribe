@@ -1794,7 +1794,6 @@ de:
       deactivate: Deaktivieren
     help_texts:
       feedback_description_title: Feedback
-      help_captcha_title: "Bist du ein Mensch?"
       help_invitation_code_title: "Du benötigst eine Einladung, um beitreten zu können."
       terms_title: "%{service_name}Nutzungsbedingungen"
       invite_only_help_text: "Wähle diese Option aus, wenn du willst, dass neue Mitglieder von einem bestehenden Mitglied des Stammes aufgenommen werden können durch eine Einladung."
@@ -1803,8 +1802,6 @@ de:
       this_person_is_not_active_in_kassi: "Der Benutzer ist nicht mehr aktiv in %{service_name}"
       inactive_description: "Der Benutzer hat aufgehört, %{service_name} zu verwenden. Du kannst diesen Benutzer weder kontaktieren, noch kannst Du ihn bewerten oder Kommentare hinterlassen."
     new:
-      captcha_incorrect: "ReCAPTCHA-Überprüfung fehlgeschlagen. Bitte schreibe die Wörter aus dem Bild in das Feld unten."
-      captcha_was_wrong: "Captcha-Text war falsch."
       create_new_account: "Konto erstellen"
       email: E-Mail-Adresse
       email_is_in_use: "Die angegebene E-Mail-Adresse wird bereits genutzt."
@@ -1813,7 +1810,6 @@ de:
       email_restriction_instructions:
         one: "Diese Community ist nur für %{community_name}. Um beitreten zu können, brauchst du eine '%{allowed_emails}' E-Mail-Adresse. "
         other: "Diese Community ist nur für %{community_name}. Um beitreten zu können, brauchst du eine E-Mail-Adresse, die belegt, dass deine Teilnahme erlaubt ist."
-      enter_captcha: "Ich bin ein Mensch:"
       family_name: Nachname
       given_name: Vorname
       i_accept_the: "Ich akzeptiere die"

@@ -1773,7 +1773,6 @@ vi:
       deactivate: "Vô hiệu hóa"
     help_texts:
       feedback_description_title: "Thông tin phản hồi"
-      help_captcha_title: "Bạn là người?"
       help_invitation_code_title: "Bạn cần một lời mời để tham gia"
       terms_title: "Các điều khoán của việc sử dụng %{service_name}"
       invite_only_help_text: "Chọn lựa này nếu bạn muốn các thành viên mới có thể tham gia nếu họ được mời bởi thành viên của cộng đồng."
@@ -1782,14 +1781,11 @@ vi:
       this_person_is_not_active_in_kassi: "Người dùng này không còn hoạt động trong %{service_name}"
       inactive_description: "Người dùng này đã ngừng sử dụng  %{service_name} . Bạn không thể liên lạc với người dùng này, đưa ra phản hồi cho họ hoặc nhận xét danh sách của họ."
     new:
-      captcha_incorrect: "kiểm tra reCAPTCHA không thành công. Xin vui lòng viết các từ trong hình vào hộp dưới đây."
-      captcha_was_wrong: "Văn bản CAPTCHA không chính xác."
       create_new_account: "Tạo tài khoản"
       email: "Địa chỉ email:"
       email_is_in_use: "Email bạn cho đang được sử dụng."
       email_is_in_use_or_not_allowed: "Email này không được phép đối với cộng đồng này hoặc nó vừa được sử dụng. Vui lòng sử dụng một địa chỉ tương thích với cộng đồng này (xem hướng dẫn ở trên). Nếu bạn vẫn không thể vào được, gửi cho chúng tôi phản hồi bằng cách nhấp vào liên kết ở phía bên trái."
       email_not_allowed: "Email này không được phép trong cộng đồng này. Xin vui lòng sử dụng một địa chỉ đó là liên kết với cộng đồng này. Nếu bạn vẫn không thể nhận được trong, gửi cho chúng tôi thông tin phản hồi bằng cách nhấp vào liên kết ở bên trái."
-      enter_captcha: "Tôi là con người:"
       family_name: "Họ:"
       given_name: "Tên:"
       i_accept_the: "Tôi chấp nhận"

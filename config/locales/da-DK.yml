@@ -1800,7 +1800,6 @@ da-DK:
       deactivate: Deaktiver
     help_texts:
       feedback_description_title: Feedback
-      help_captcha_title: "Er du et menneske?"
       help_invitation_code_title: "Du har brug for en invitation til at deltage"
       terms_title: "%{service_name} brugsvilkår"
       invite_only_help_text: "Vælg denne mulighed hvis du vil have at nye medlemmer kun kan være med, hvis de er blevet inviteret af en eksisterende bruger."
@@ -1809,8 +1808,6 @@ da-DK:
       this_person_is_not_active_in_kassi: "Denne bruger er ikke længere aktiv i %{service_name}"
       inactive_description: "Denne bruger har stoppet med at bruge %{service_name}. Du kan ikke kontakte denne bruger, give feedback til dem eller kommentere deres programoversigter."
     new:
-      captcha_incorrect: "reCAPTCHA mislykkedes. Skriv venligst ordene i billedet til feltet nedenfor."
-      captcha_was_wrong: "Captcha tekst var forkert."
       create_new_account: "Opret konto"
       email: Email-adresse
       email_is_in_use: "Den e-mail, du gav, er allerede i brug."
@@ -1819,7 +1816,6 @@ da-DK:
       email_restriction_instructions:
         one: "Du har ikke adgang til serveren %{service_name}. For at få adgang skal du bruge en %{allowed_emails} email adresse."
         other: "Du har ikke adgang til serveren %{service_name}. For at få adgang skal du bruge en godkendt emailadresse."
-      enter_captcha: "Jeg er et menneske:"
       family_name: Efternavn
       given_name: Fornavn
       i_accept_the: "Jeg accepterer"

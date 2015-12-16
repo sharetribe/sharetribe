@@ -1806,7 +1806,6 @@ nb:
       deactivate: Deaktiver
     help_texts:
       feedback_description_title: Tilbakemelding
-      help_captcha_title: "Er du et menneske?"
       help_invitation_code_title: "Du trenger en invitasjon for å bli med"
       terms_title: "%{service_name} vilkår"
       invite_only_help_text: "Velg dette alternativet dersom du ønsker at nye medlemmer kun kan bli medlem via invitasjon fra eksisterende medlemmer."
@@ -1815,8 +1814,6 @@ nb:
       this_person_is_not_active_in_kassi: "Denne brukeren er ikke lenger aktiv på %{service_name}"
       inactive_description: "Denne brukeren benytter ikke lenger %{service_name}. Du kan hverken kontakte brukeren, gi vurdering eller kommentere denne brukerens annonser."
     new:
-      captcha_incorrect: "reCAPTCHA-sjekk feilet. Vennligst skriv inn ordene du ser i bildet i feltet nedenfor."
-      captcha_was_wrong: "Captcha-tekst var ikke riktig."
       create_new_account: "Opprett brukerkonto"
       email: E-post
       email_is_in_use: "E-posten du oppga er allerede i bruk."
@@ -1825,7 +1822,6 @@ nb:
       email_restriction_instructions:
         one: " %{service_name} har restriksjoner. For å bli medlem trenger du en  '%{allowed_emails}' e-postaddresse."
         other: "%{service_name} har restriksjoner. Du trenger en e-postadresse som viser at du er godkjent for å bli medlem."
-      enter_captcha: "Jeg er et menneske:"
       family_name: Etternavn
       given_name: Fornavn
       i_accept_the: "Jeg aksepterer"
