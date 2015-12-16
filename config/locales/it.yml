@@ -503,7 +503,7 @@ it:
       offer: offri
       borrow: "prendere in prestito"
       buy: acquistare
-      give_away: "dare via"
+      give_away: cedere
       lend: prestare
       receive: "prendere gratuitamente"
       rent: affittare
@@ -534,7 +534,7 @@ it:
       travel: Viaggi
       other: Altro
     username: "Nome utente"
-    username_or_email: "Email o username"
+    username_or_email: "Email o nome utente"
     what_is_this: "Cos'è questo?"
     removed_user: ~
     paypal_fee_info:
@@ -620,8 +620,8 @@ it:
       request_message_form_title: "Richiedi %{listing} da %{person}"
       favor_offer_message_form_title: "Chiedi aiuto a %{person}"
       favor_request_message_form_title: "Offri aiuto a %{person}"
-      housing_offer_message_form_title: "Offri spazio fisico a %{person}"
-      housing_request_message_form_title: "Richiesi spazio fisico a %{person}"
+      housing_offer_message_form_title: "Offri spazio a %{person}"
+      housing_request_message_form_title: "Richiedi spazio a %{person}"
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -844,7 +844,7 @@ it:
       please_contant_admin_link: "ti preghiamo di contattare l'admin"
     confirmation_instructions:
       confirmation_instructions_signature: "Cordiali saluti,<br/> Il Team di %{service_name}"
-      welcome_to_kassi: "Benvenuto in %{service_name}!"
+      welcome_to_kassi: "Benvenuto su %{service_name}!"
       need_to_confirm: "Devi confermare il tuo indirizzo email cliccando sul link segunte:"
       confirmation_link_text: "Conferma la tua email"
       or_paste_link: "Altrimenti puoi copiare il seguente link nella barra degli indirizzi del tuo browser:"
@@ -940,7 +940,7 @@ it:
       hi: "Ciao %{name},"
       newest_offers: "Quello che le persone attualmente offrono agli altri"
       newest_requests: "Quello che le persone attualmente necessitano"
-      text_version_text: "Potresti condividere qualcosa di cui gli altri potrebbero avere bisogno? Oppure hai bisogno di qualcosa che altri potrebbero avere? Aggiungi un'offerta o una richiesta o controllare tutto ciò che gli altri stanno offrendo o stanno richiedendo a %{url}"
+      text_version_text: "Potresti condividere qualcosa di cui gli altri potrebbero avere bisogno? Oppure hai bisogno di qualcosa che altri potrebbero avere? Aggiungi un'offerta o una richiesta o controlla tutto ciò che gli altri stanno offrendo o stanno richiedendo a %{url}"
     reset_password_instructions:
       change_my_password: "Cambia la mia password"
       reset_password_instructions: "Hai indicato di aver dimenticato o la  tua password o il tuo nome utente per %{service_name}.</p><p>Il tuo nome utente è: %{username}</p><p>Se vuoi resettare la tua password, clicca sul link seguente:%{password_reset_link}</p><br/><p>Se non hai richiesto tutto ciò, ignora pure questa email. La tua password non cambierà finchè non accedi al link sopra e ne crei una nuova."
@@ -1023,7 +1023,7 @@ it:
       we_hate_this: ~
       refer_to_error_id: ~
     error_500_title: "errore caricamento pagina"
-    error_description: "Descrizione errore"
+    error_description: "Descrizione dell'errore"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript è disabilitato nel tuo browser"
       kassi_does_not_currently_work_without_javascript: "%{service_name} non funziona bene senza javascript. Prova ad abilitare javascript nelle preferenze del tuo browser e dopo ricarica nuovamente la pagina."
@@ -1073,7 +1073,7 @@ it:
     home: Home
     members: ~
     new_listing: "Nuova inserzione"
-    mobile_version: "Versione Mobile"
+    mobile_version: "Versione per cellulari"
     offers: Offerte
     requests: Richieste
     search_kassi: "Cerca %{service_name}"
@@ -1091,10 +1091,10 @@ it:
       additionally_some_private_offers_exist: "Inoltre ci sono <b> %{number_of_listings} altre offerte</b>,  "
       additionally_some_private_requests_exist: "Inoltre ci sono <b>%{number_of_listings} altre richieste</b>,  "
     blank_slate:
-      add_first: "Aggiungi uno!"
+      add_first: "Aggiungine uno!"
       but_that_is_visible_only_to_registered_members: "ma è visibile solo ai membri registrati."
       but_those_are_visible_only_to_registered_members: "ma sono visibili solo ai membri registrati."
-      create_new_account_for_yourself: "Crea un nuovo account per te stesso"
+      create_new_account_for_yourself: "Crea da solo un nuovo account"
       examples_of_what_you_could_offer_to_others: "Cosa potresti offrire agli altri"
       examples_of_what_you_could_request_to_others: "Cosa potresti richiedere agli altri"
       favor_offer_list: "assistenza al computer, riparazione abiti, cotture al forno, riparazione biciclette"
@@ -1148,7 +1148,7 @@ it:
       recent_events: "Eventi recenti"
       requesting: bisogno
       tell_it_here: "Dillo qui!"
-      welcome_to_new_kassi: "Benvenuto al nuovo %{service_name}!"
+      welcome_to_new_kassi: "Benvenuto sul nuovo %{service_name}!"
       no_reviews: "Nessuna recensione"
       no_image: "Nessuna immagine"
       filter: Filtri
@@ -1171,7 +1171,7 @@ it:
       show_more: "Mostra di più"
     profile_info_empty_notification:
       add_your_info: "Aggiungi le tue informazioni per essere contattato"
-      add_a_profile_picture: "Aggiungi una foto per il profilo"
+      add_a_profile_picture: "Aggiungi un'immagine del profilo"
       you_have_not_added_your_info: "Non hai aggiunto le tue informazioni di contatto. Per cortesia aggiungile, in modo che gli altri possano raggiungerti più facilmente. Aggiungi anche un'immagine per il profilo, perché gli altri avranno più fiducia."
       add_your_info_link: "Aggiungi le tue informazioni ora"
     recent_listing:
@@ -1233,7 +1233,7 @@ it:
       select_language: "Seleziona lingua"
     infos:
       about: Info
-      how_to_use: FAQ
+      how_to_use: "Come funziona"
       info_about_kassi: "Informazioni su %{service_name}"
       news: News
       register_details: Privacy
@@ -1261,7 +1261,7 @@ it:
       notifications: Notifiche
       requests: "Richieste di amicizia"
       settings: Impostazioni
-      sign_up: Iscriviti
+      sign_up: Registrati
     notifications:
       listing_could_not_be_saved: "L'annuncio non può essere salvato. Ti preghiamo di riprovare. Se il problema persiste, %{contact_admin_link}."
       contact_admin_link_text: "Contatta l'admin"
@@ -1279,7 +1279,7 @@ it:
       create_new_listing: "Crea una nuova inserzione"
       create_one_here: "creane uno qui"
       email_confirmation_sent_to_new_address: "l'email di conferma è stata inviata al nuovo indirizzo email"
-      email_not_found: "L'email che hai fornito non è stato trovato nel database %{service_name}."
+      email_not_found: "L'email che hai fornito non è stato trovato nel database di %{service_name}."
       error_with_session: "Errore con la sessione."
       feedback_considered_spam: "Feedback non salvato a causa della formattazione. Prova ancora o usa il forum dei feedback."
       feedback_not_saved: "Il feedback non può essere inviato."
@@ -1309,8 +1309,8 @@ it:
       offer_canceled: "Offerta cancellata"
       listing_updated_successfully: "L'inserzione è stata aggiornata con successo"
       only_kassi_administrators_can_access_this_area: "Solo gli amministratori di %{service_name} possono accedere a questa area"
-      only_listing_author_can_close_a_listing: "Solo l'autore della lista può chiudere una lista"
-      only_listing_author_can_edit_a_listing: "Solo l'autore della lista può modificare una lista"
+      only_listing_author_can_close_a_listing: "Solo l'autore dell'inserzione può chiudere l'inserzione"
+      only_listing_author_can_edit_a_listing: "Solo l'autore dell'inserzione può modificare l'inserzione"
       payment_successful: "Pagamento riuscito"
       payment_canceled: "Pagamento cancellato"
       error_in_payment: "Errore nel pagamento. Se non hai ancora completato il pagamento, riprova. Se hai già riprovato, per favore inviaci un feedback."
@@ -1319,7 +1319,7 @@ it:
       password_recovery_sent: "Le istruzioni per cambiare la tua password sono state inviate alla tua email."
       person_activated: "Utente attivato"
       person_deactivated: "Utente disattivato"
-      person_updated_successfully: "Informazione aggiornata"
+      person_updated_successfully: "Informazioni aggiornate"
       poll_answered: ~
       poll_could_not_be_answered: ~
       poll_created: "Sondaggio creato"
@@ -1327,7 +1327,7 @@ it:
       poll_update_failed: ~
       poll_updated: "Sondaggio aggiornato"
       poll_deleted: "Sondaggio rimosso"
-      read_more: "Leggi di più!"
+      read_more: "Scopri di più!"
       registration_considered_spam: "La registrazione non funziona, per cortesia invia un feedback dal menu principale e fai riferimento a \"email2 error\"."
       reply_cannot_be_empty: "Non puoi inviare un messaggio vuoto"
       reply_sent: "Risposta inviata con successo"
@@ -1341,14 +1341,14 @@ it:
       unknown_error: "Errore sconosciuto. Usa il link Contattaci per inviarci i dettagli di quanto accaduto."
       update_error: "È avvenuto un errore mentre stavi aggiornando le tue informazioni, prova nuovamente"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Non sei autorizzato a fornire feedback su questo evento"
-      you_are_not_authorized_to_do_this: "Non sei autorizzato a farlo"
+      you_are_not_authorized_to_do_this: "Non sei autorizzato a proseguire con questa operazione"
       you_are_not_authorized_to_view_this_content: "Non sei autorizzato a vedere questo commento"
       listing_closed: ~
       send_instructions: "Entro qualche minuto riceverai un messaggio email con le istruzioni per reimpostare la tua password."
       you_cannot_reply_to_a_closed_offer: "Non puoi rispondere ad un'offerta chiusa"
       you_cannot_reply_to_a_closed_request: "Non puoi rispondere ad una richiesta chiusa"
       you_cannot_send_message_to_yourself: "Non puoi inviare un messaggio a te stesso"
-      you_followed_listing: "Ora stai seguendo questo annuncio"
+      you_followed_listing: "Ora stai seguendo questa inserzione"
       you_have_already_given_feedback_about_this_event: "Hai già fornito feedback su questo evento"
       you_are_now_member: ~
       you_are_already_member: ~
@@ -1512,7 +1512,7 @@ it:
       title:
         listing_title: "Titolo dell'inserzione"
       valid_until:
-        valid_until: "Data scadenza"
+        valid_until: "Data di scadenza"
       valid_until_radio_buttons:
         for_the_time_being: "Per il futuro"
       privacy:
@@ -1522,11 +1522,11 @@ it:
     help_texts:
       help_share_type_title: "Tipo di offerta o richiesta"
       help_tags_title: Tag
-      help_valid_until_title: "Data scadenza"
+      help_valid_until_title: "Data di scadenza"
     index:
       all_categories: "Tutte le categorie"
-      all_offer_types: "Tutti i tipi di offerta"
-      all_request_types: "Tutti i tipi di richiesta"
+      all_offer_types: "Tutti i tipi di offerte"
+      all_request_types: "Tutti i tipi di richieste"
       category: Categoria
       did_not_found_what_you_were_looking_for: "Non hai trovato quello che ti occorre?"
       favors: Servizi
@@ -1535,7 +1535,7 @@ it:
       list_view: "Vista elenco"
       listings: Inserzioni
       map_view: "Vista della mappa"
-      offer_something: "Falla conoscere agli altri!"
+      offer_something: "Fai conoscere agli altri!"
       offer_type: "Tipo di offerta"
       offers: Offerte
       request_something: "Richiedi qualcosa!"
@@ -1549,7 +1549,7 @@ it:
       borrows: "Prendere in prestito"
       buys: Acquistare
       favors: Servizi
-      give_aways: "Dare via"
+      give_aways: Cedere
       housings: Spazi
       items: Articoli
       lends: Prestare
@@ -1593,7 +1593,7 @@ it:
       listing_closed: "L'inserzione è chiusa"
     show:
       add_your_phone_number: "Aggiungi il tuo numero di telefono"
-      add_profile_picture: "Aggiungi una foto per il profilo"
+      add_profile_picture: "Aggiungi un'immagine del profilo"
       comments: "Discussione pubblica"
       contact_by_phone: "Contatta via telefono:"
       contact: Contatto
@@ -1614,11 +1614,11 @@ it:
       rideshare_offer: "Offerta di passaggio"
       rideshare_request: "Richiesta di passaggio"
       send_private_message: "Invia messaggio privato"
-      share_types: "Tipo di condivisione"
+      share_types: "Tipi di condivisione"
       share_types_offer: "Tipo di offerta"
       share_types_request: "Tipo di richiesta"
       tags: Tag
-      time: ora
+      time: volta
       times: volte
       times_viewed: Visto
       processing_uploaded_image: "(Elaborazione immagine in corso...)"
@@ -1665,7 +1665,7 @@ it:
       items: Articoli
       list_view: "Vista elenco"
       map_view: "Vista della mappa"
-      offer_something: "Falla conoscere agli altri!"
+      offer_something: "Fai conoscere agli altri!"
       offer_type: "Tipo d'offerta"
       offers: Offerte
       request_something: "Richiedi qualcosa!"
@@ -1775,9 +1775,9 @@ it:
       deactivate: Disattiva
     help_texts:
       feedback_description_title: Feedback
-      help_captcha_title: "Sei umano?"
+      help_captcha_title: "Sei un umano?"
       help_invitation_code_title: "Hai bisogno di un invito per partecipare"
-      terms_title: "%{service_name} termini di utilizzo"
+      terms_title: "Termini di utilizzo di %{service_name}"
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
@@ -1825,7 +1825,7 @@ it:
       slightly_less_than_expected: "Leggermente peggio del previsto"
     profile_listings:
       show_also_closed: "Mostra anche quelle chiuse"
-      show_only_open: "Mostra solo quelli aperti"
+      show_only_open: "Mostra solo quelle attive"
       no_image: "Nessuna immagine"
     show:
       contact: "contatta %{person}"
@@ -1873,7 +1873,7 @@ it:
   search:
     show:
       all_results: "Tutti i risultati"
-      loading_more_search_results: "Caricando ulteriori risultati della ricerca"
+      loading_more_search_results: "Caricamento di ulteriori risultati della ricerca"
       offers: Offerte
       requests: Richieste
       search: Cerca
@@ -1885,16 +1885,16 @@ it:
       create_new_account: "Crea un nuovo account"
       i_forgot_my_password: "Username o password dimenticata"
       login: Accedi
-      login_to_kassi: "Accedi al %{service_name}"
+      login_to_kassi: "Accedi a %{service_name}"
       connect_your_facebook_to_kassi: "Collega il tuo account Facebook a %{service_name}"
       facebook_account: "Account Facebook:"
       log_in_to_link_account: ~
-      you_can_also_create_new_account: "Se non hai un account in %{service_name}, %{accont_creation_link} per crearne uno con il tuo login Facebook."
+      you_can_also_create_new_account: "Se non hai un account su %{service_name}, %{accont_creation_link} per crearne uno con il tuo login Facebook."
       account_creation_link_text: "clicca qui"
       cancle_facebook_connect: "Se non vuoi collegare questo account, puoi %{cancel_link}"
       facebook_cancel_link_text: annulla
       log_in_with_your_facebook_account: ~
-      or_sign_up_with_your_username: "o con la tua username e password"
+      or_sign_up_with_your_username: "...o con il tuo nome utente o password"
       we_will_not_post_without_asking_you: "Non pubblicheremo mai post su Facebook senza il tuo consenso."
     password_forgotten:
       email: Email
@@ -1902,7 +1902,7 @@ it:
       request_new_password: "Richiedi una nuova password"
       change_your_password: "Cambia la tua password"
     confirmation_pending:
-      welcome_to_kassi: "Benvenuto a %{service_name}!"
+      welcome_to_kassi: "Benvenuto su %{service_name}!"
       check_your_email: "Controlla la tua casella di posta elettronica"
       resend_confirmation_instructions: "Invia nuovamente le informazioni per la conferma"
       your_current_email_is: "La tua email è %{email}."
@@ -1950,7 +1950,7 @@ it:
       community_updates: ~
       email_about_accept_reminders: "...Ho dimenticato di accettare un'offerta o una richiesta"
       email_about_confirm_reminders: "...mi sono dimenticato di confermare una richiesta come completa"
-      email_about_new_comments_to_own_listing: "...qualcuno commente la mia offerta o richiesta"
+      email_about_new_comments_to_own_listing: "...qualcuno commenti la mia offerta o richiesta"
       email_about_new_messages: "...qualcuno mi invia un messaggio"
       email_about_new_received_testimonials: "...qualcuno mi offre feedback"
       email_about_testimonial_reminders: "...ho dimenticato di offrire feedback su un evento"
@@ -1981,7 +1981,7 @@ it:
       profile_picture: "Foto per il profilo"
       postal_code: CAP
       profile_page: "nella pagina del tuo profilo"
-      profilemap: "Visione della mappa"
+      profilemap: Mappa
       street_address: Luogo
       these_fields_are_shown_in_your: "Questa informazione è visibile a tutti gli utenti di %{service_name}"
       visible_to_everybody: "Visibile a tutti"
@@ -1998,11 +1998,11 @@ it:
       without_tag: "Senza tag"
   terms:
     show:
-      accept_terms: "Accettazione %{service_name} Termini di Utilizzo"
+      accept_terms: "Accettazione Termini di Utilizzo di %{service_name}"
       here: "cliccando qui"
       i_accept_new_terms: "Accetto i nuovi termini"
       i_accept_terms: "Accetto i termini"
-      terms: "Termini di utilizzo %{service_name}"
+      terms: "Termini di utilizzo di %{service_name}"
       terms_have_changed: "I termini di utilizzo sono cambiati"
       you_can_view_the_new_terms: "Puoi vedere i nuovi termini"
       you_need_to_accept: "Benvenuto su %{service_name}! Questa sembra essere la prima volta che utilizzi questo servizio. Prima di iniziare devi accettare i"
