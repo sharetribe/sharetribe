@@ -6,7 +6,7 @@ module MarketplaceRouter
       [:protocol, :string, one_of: ["http://", "https://"]],
       [:fullpath, :string, :mandatory],
       [:port_string, :string, :optional, default: ""],
-      [:headers, :hash, :mandatory]
+      [:headers, :mandatory]
     )
 
     Community = EntityUtils.define_builder(
