@@ -140,14 +140,12 @@ class PeopleController < Devise::RegistrationsController
     end
   end
 
-  def build_devise_resource_from_person(person)
-    params["person"].delete(:terms) #remove terms part which confuses Devise
+  def build_devise_resource_from_person(person_params)
+    person_params.delete(:terms) #remove terms part which confuses Devise
 
     # This part is copied from Devise's regstration_controller#create
-    build_resource
-    person = resource
-
-    person
+    build_resource(person_params)
+    resource
   end
 
   def create_facebook_based
@@ -340,7 +338,7 @@ class PeopleController < Devise::RegistrationsController
     email = Email.new(:person => person, :address => params[:person][:email].downcase, :send_notifications => true)
     params["person"].delete(:email)
 
-    person = build_devise_resource_from_person(person)
+    person = build_devise_resource_from_person(params[:person])
 
     person.emails << email
 
