@@ -6,7 +6,7 @@ class CheckoutAccountsController < ApplicationController
   CheckoutAccountForm = FormUtils.define_form("CheckoutAccountForm", :company_id_or_personal_id, :organization_address, :phone_number, :organization_website)
     .with_validations do
       validates_presence_of :organization_address, :phone_number
-      validates_format_of :company_id_or_personal_id, with: /^(\d{7}\-\d)$|^(\d{6}\D\d{3}\w)$/, allow_nil: false
+      validates_format_of :company_id_or_personal_id, with: /^(\d{7}\-\d)$|^(\d{6}\D\d{3}\w)$/, allow_nil: false, multiline: true
     end
 
   def new
