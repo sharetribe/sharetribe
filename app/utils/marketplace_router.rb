@@ -1,12 +1,20 @@
 module MarketplaceRouter
   module DataTypes
 
+    LIKE_HASH = ->(v) {
+      return if v.nil?
+
+      unless v.respond_to?(:[])
+        {code: :must_be_hash_like, msg: "Value must be like hash (i.e. responds to :[])"}
+      end
+    }
+
     Request = EntityUtils.define_builder(
       [:host, :string, :mandatory],
       [:protocol, :string, one_of: ["http://", "https://"]],
       [:fullpath, :string, :mandatory],
       [:port_string, :string, :optional, default: ""],
-      [:headers, :hash, :mandatory]
+      [:headers, :mandatory, validate_with: LIKE_HASH]
     )
 
     Community = EntityUtils.define_builder(
