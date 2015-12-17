@@ -100,6 +100,12 @@ gem 'public_suffix' # Needed currently to set GA hostname right, probably not
 gem 'activerecord-session_store'
 gem 'protected_attributes'
 
+# Observers is only used by SyncDelayedJobObserver, which is used
+# in tests. However, since observers need to be placed in app/models
+# we need to include observers here and not in the :test group
+# Do not use observers in the future, consider removing this gem
+gem 'rails-observers', '~> 0.1.2'
+
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
   gem 'rails_12factor', '~> 0.0.3'

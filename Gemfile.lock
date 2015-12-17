@@ -373,6 +373,8 @@ GEM
       sprockets-rails (~> 2.0)
     rails-i18n (0.7.2)
       i18n (~> 0.5)
+    rails-observers (0.1.2)
+      activemodel (~> 4.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -560,6 +562,7 @@ DEPENDENCIES
   rack-test
   rails (= 4.0.13)
   rails-i18n
+  rails-observers (~> 0.1.2)
   rails_12factor (~> 0.0.3)
   rake
   rb-fsevent
