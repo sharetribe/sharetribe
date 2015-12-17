@@ -1,11 +1,11 @@
 class AddNewTransactionTypeShareForFree < ActiveRecord::Migration
   def up
-    Category.find_all_by_name("housing").each do |category|
-      
+    Category.where(name: "housing").each do |category|
+
       # don't react if community id is nil
       if category.community
 
-        listings = Listing.find_all_by_category_id(category.id)
+        listings = Listing.where(category_id: category.id)
 
         # create share_for_free if needed
         sff = ShareForFree.find_by_community_id(category.community_id)

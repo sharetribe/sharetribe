@@ -94,7 +94,7 @@ class Listing < ActiveRecord::Base
   #
   # When moving to Rails 4.0, remove this and use Model.none
   # http://stackoverflow.com/questions/4877931/how-to-return-an-empty-activerecord-relation
-  scope :none, where('1 = 0')
+  scope :none, -> { where('1 = 0') }
 
   before_validation :set_valid_until_time
 

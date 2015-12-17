@@ -81,8 +81,8 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
             print_stat "c"
           else
             # Default categories, we'll keep only those which had listings
-            
-            new_categories = Category.find_all_by_community_id(community.id)
+
+            new_categories = Category.where(community_id: community.id)
             new_main_categories = new_categories.select{|c| c.parent_id.nil?}
             new_subcategories   = new_categories.select{|c| ! c.parent_id.nil?}
 
@@ -148,10 +148,10 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
 
     # THEN FETCH THE COMMUNITYCATEOGRIES AND CREATE NEEDED TRANSACTIONTYPES
 
-    com_cats_for_this_cat = CommunityCategory.find_all_by_community_id_and_category_id(community.id, old_cat.id)
+    com_cats_for_this_cat = CommunityCategory.where(community_id: community.id, category_id: old_cat.id)
     if com_cats_for_this_cat.empty?
       # defaults in use
-      com_cats_for_this_cat = CommunityCategory.find_all_by_community_id_and_category_id(nil, old_cat.id)
+      com_cats_for_this_cat = CommunityCategory.where(community_id: nil, category_id: old_cat.id)
     end
 
     # Update sort priority based on first com_cat for this category
@@ -182,7 +182,7 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
       else
         # This com_cat doesn't have share type. Reason usually is that it's a subcategory and should be linked to parent's share types
 
-        CategoryTransactionType.find_all_by_category_id(new_parent_id).each do |parents_ctt|
+        CategoryTransactionType.where(category_id: new_parent_id).each do |parents_ctt|
           # Link category and transaction type
           CategoryTransactionType.create!(:category_id => new_cat.id, :transaction_type_id => parents_ctt.transaction_type_id)
         end
