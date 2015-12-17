@@ -2,16 +2,16 @@ source 'http://rubygems.org'
 
 ruby '2.1.2'
 
-gem 'rails', '3.2.21'
+gem 'rails', '4.0.13'
 
 # To use debugger
 #gem 'ruby-debug'
 
-gem 'coffee-rails', "~> 3.2.2"
+gem 'coffee-rails', "~> 4.0.1"
 gem 'uglifier'
 gem 'asset_sync', '~> 1.0.0'
 
-gem 'sass-rails'
+gem 'sass-rails', '~> 4.0.0'
 gem 'compass-rails', '~> 1.1'
 
 # Requiring 'compass' gem directly is not normally needed,
@@ -96,7 +96,10 @@ gem 'jwt', '~> 1.5.1'
 
 gem 'lograge'
 gem 'public_suffix' # Needed currently to set GA hostname right, probably not
-                    # needed anymore when GA script updated.
+# needed anymore when GA script updated.
+
+gem 'activerecord-session_store'
+gem 'protected_attributes'
 
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
@@ -134,7 +137,6 @@ group :test do
   gem 'ruby-prof'
   gem "pickle"
   gem 'email_spec'
-  gem 'action_mailer_cache_delivery'
   gem "parallel_tests", :group => :development
   gem 'timecop'
   gem 'rack-test'
@@ -149,5 +151,3 @@ group :development, :test do
   gem 'pry-nav'
   gem 'pry-stack_explorer'
 end
-
-gem 'strong_parameters'

@@ -9,13 +9,13 @@ Kassi::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  match "/robots.txt" => RobotsGenerator
+  get "/robots.txt" => RobotsGenerator
 
   # A route for DV test file
   # A CA will check if there is a file in this route
   get "/:dv_file" => "domain_validation#index", constraints: {dv_file: /.*\.txt/}
 
-  match "/design" => "design#design"
+  get "/design" => "design#design"
 
   # config/routes.rb
   if Rails.env.development?
@@ -31,14 +31,14 @@ Kassi::Application.routes.draw do
 
   post '/bounces' => 'amazon_bounces#notification'
 
-  match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
-  match "/listings/new/:type" => "listings#new", :as => :new_request_without_locale # needed for some emails, where locale part is already set
-  match "/change_locale" => "i18n#change_locale", :as => :change_locale
+  get "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
+  get "/listings/new/:type" => "listings#new", :as => :new_request_without_locale # needed for some emails, where locale part is already set
+  get "/change_locale" => "i18n#change_locale", :as => :change_locale
 
 
   # Prettier link for admin panel
   namespace :admin do
-    match '' => "communities#getting_started"
+    get '' => "communities#getting_started"
   end
 
   # Internal API
@@ -52,55 +52,55 @@ Kassi::Application.routes.draw do
   locale_matcher = Regexp.new(Sharetribe::AVAILABLE_LOCALES.map { |l| l[:ident] }.concat(REMOVED_LOCALES).join("|"))
 
   # Inside this constraits are the routes that are used when request has subdomain other than www
-  match '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }, as: :homepage_with_locale
-  match '/' => 'homepage#index', as: :homepage_without_locale
+  get '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }, as: :homepage_with_locale
+  get '/' => 'homepage#index', as: :homepage_without_locale
   root :to => 'homepage#index'
 
   # error handling: 3$: http://blog.plataformatec.com.br/2012/01/my-five-favorite-hidden-features-in-rails-3-2/
-  match '/500' => 'errors#server_error'
-  match '/404' => 'errors#not_found', :as => :error_not_found
-  match '/410' => 'errors#gone', as: :error_gone
-  match '/community_not_found' => 'errors#community_not_found', as: :community_not_found
+  match '/500' => 'errors#server_error', via: :all
+  match '/404' => 'errors#not_found', :as => :error_not_found, via: :all
+  match '/410' => 'errors#gone', as: :error_gone, via: :all
+  match '/community_not_found' => 'errors#community_not_found', as: :community_not_found, via: :all
 
   resources :communities, only: [:new, :create]
 
   # Adds locale to every url right after the root path
   scope "(/:locale)", :constraints => { :locale => locale_matcher } do
 
-    match '/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
+    match '/mercury_update' => "mercury_update#update", :as => :mercury_update, via: [:put, :patch]
 
-    match "/transactions/op_status/:process_token" => "transactions#op_status", :as => :transaction_op_status
+    get "/transactions/op_status/:process_token" => "transactions#op_status", :as => :transaction_op_status
 
     # All new transactions (in the future)
-    match "/transactions/new" => "transactions#new", as: :new_transaction
+    match "/transactions/new" => "transactions#new", as: :new_transaction, via: :all
 
     # preauthorize flow
-    match "/listings/:listing_id/preauthorize" => "preauthorize_transactions#preauthorize", :as => :preauthorize_payment
-    match "/listings/:listing_id/preauthorized" => "preauthorize_transactions#preauthorized", :as => :preauthorized_payment
-    match "/listings/:listing_id/book" => "preauthorize_transactions#book", :as => :book
-    match "/listings/:listing_id/booked" => "preauthorize_transactions#booked", :as => :booked
-    match "/listings/:listing_id/initiate" => "preauthorize_transactions#initiate", :as => :initiate_order
-    match "/listings/:listing_id/initiated" => "preauthorize_transactions#initiated", :as => :initiated_order
+    match "/listings/:listing_id/preauthorize" => "preauthorize_transactions#preauthorize", :as => :preauthorize_payment, via: :all
+    match "/listings/:listing_id/preauthorized" => "preauthorize_transactions#preauthorized", :as => :preauthorized_payment, via: :all
+    match "/listings/:listing_id/book" => "preauthorize_transactions#book", :as => :book, via: :all
+    match "/listings/:listing_id/booked" => "preauthorize_transactions#booked", :as => :booked, via: :all
+    match "/listings/:listing_id/initiate" => "preauthorize_transactions#initiate", :as => :initiate_order, via: :all
+    match "/listings/:listing_id/initiated" => "preauthorize_transactions#initiated", :as => :initiated_order, via: :all
 
     # post pay flow
-    match "/listings/:listing_id/post_pay" => "post_pay_transactions#new", :as => :post_pay_listing
-    match "/listings/:listing_id/create_transaction" => "post_pay_transactions#create", :as => :create_transaction, :method => :post
+    match "/listings/:listing_id/post_pay" => "post_pay_transactions#new", :as => :post_pay_listing, via: :all
+    match "/listings/:listing_id/create_transaction" => "post_pay_transactions#create", :as => :create_transaction, :method => :post, via: :all
 
     # free flow
-    match "/listings/:listing_id/create_contact" => "free_transactions#create_contact", :as => :create_contact
-    match "/listings/:listing_id/contact" => "free_transactions#contact", :as => :contact_to_listing
+    match "/listings/:listing_id/create_contact" => "free_transactions#create_contact", :as => :create_contact, via: :all
+    match "/listings/:listing_id/contact" => "free_transactions#contact", :as => :contact_to_listing, via: :all
 
-    match "/listings/new/:type/:category" => "listings#new", :as => :new_request_category
-    match "/listings/new/:type" => "listings#new", :as => :new_request
-    match "/logout" => "sessions#destroy", :as => :logout, :method => :delete
-    match "/confirmation_pending" => "sessions#confirmation_pending", :as => :confirmation_pending
-    match "/login" => "sessions#new", :as => :login
-    match "/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble
-    match "/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
-    match '/:person_id/settings/payments/braintree/new' => 'braintree_accounts#new', :as => :new_braintree_settings_payment
-    match '/:person_id/settings/payments/braintree/show' => 'braintree_accounts#show', :as => :show_braintree_settings_payment
-    match '/:person_id/settings/payments/braintree/create' => 'braintree_accounts#create', :as => :create_braintree_settings_payment
-    match '/:person_id/settings/payments/paypal_account' => 'paypal_accounts#index', :as => :paypal_account_settings_payment
+    match "/listings/new/:type/:category" => "listings#new", :as => :new_request_category, via: :all
+    match "/listings/new/:type" => "listings#new", :as => :new_request, via: :all
+    match "/logout" => "sessions#destroy", :as => :logout, :method => :delete, via: :all
+    match "/confirmation_pending" => "sessions#confirmation_pending", :as => :confirmation_pending, via: :all
+    match "/login" => "sessions#new", :as => :login, via: :all
+    match "/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble, via: :all
+    match "/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple, via: :all
+    match '/:person_id/settings/payments/braintree/new' => 'braintree_accounts#new', :as => :new_braintree_settings_payment, via: :all
+    match '/:person_id/settings/payments/braintree/show' => 'braintree_accounts#show', :as => :show_braintree_settings_payment, via: :all
+    match '/:person_id/settings/payments/braintree/create' => 'braintree_accounts#create', :as => :create_braintree_settings_payment, via: :all
+    match '/:person_id/settings/payments/paypal_account' => 'paypal_accounts#index', :as => :paypal_account_settings_payment, via: :all
 
     namespace :paypal_service do
       resources :checkout_orders do
@@ -276,14 +276,11 @@ Kassi::Application.routes.draw do
       # these matches need to be before the general resources to have more priority
       get "/people/confirmation" => "confirmations#show", :as => :confirmation
       put "/people/confirmation" => "confirmations#create"
-      match "/people/password/edit" => "devise/passwords#edit"
-      post "/people/password" => "devise/passwords#create"
-      put "/people/password" => "devise/passwords#update"
-      match "/people/sign_up" => redirect("/%{locale}/login")
+      match "/people/sign_up" => redirect("/%{locale}/login"), via: :all
 
       # List few specific routes here for Devise to understand those
-      match "/signup" => "people#new", :as => :sign_up
-      match '/people/auth/:provider/setup' => 'sessions#facebook_setup' #needed for devise setup phase hook to work
+      match "/signup" => "people#new", :as => :sign_up, via: :all
+      match '/people/auth/:provider/setup' => 'sessions#facebook_setup', via: :all #needed for devise setup phase hook to work
 
       resources :people, :path => "", :only => :show, :constraints => { :id => /[_a-z0-9]+/ }
 
@@ -376,7 +373,7 @@ Kassi::Application.routes.draw do
 
     end # devise scope person
 
-    match "/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
+    get "/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
 
     get '/:person_id/settings/profile', to: redirect("/%{person_id}/settings") #needed to keep old links working
 
@@ -392,9 +389,9 @@ Kassi::Application.routes.draw do
     end
   end
 
-  match "(/:locale)/people/:person_id(*path)" => redirect(id_to_username), :constraints => { :locale => locale_matcher, :person_id => /[a-zA-Z0-9_-]{20,}/ }
+  get "(/:locale)/people/:person_id(*path)" => redirect(id_to_username), :constraints => { :locale => locale_matcher, :person_id => /[a-zA-Z0-9_-]{20,}/ }
 
   #keep this matcher last
   #catches all non matched routes, shows 404 and logs more reasonably than the alternative RoutingError + stacktrace
-  match "*path" => "errors#not_found"
+  match "*path" => "errors#not_found", via: :all
 end
