@@ -58,7 +58,7 @@ class ListingImagesController < ApplicationController
 
   def add_image(listing_id, params, url)
     listing_image_params = params.merge(
-      author: @current_user,
+      author_id: @current_user.id,
       listing_id: listing_id
     )
 
@@ -67,7 +67,13 @@ class ListingImagesController < ApplicationController
 
   # Create a new image object
   def new_image(params, url)
-    listing_image = ListingImage.new(params)
+    listing_image_params = params.permit(
+      :image,
+      :author_id,
+      :listing_id
+    )
+
+    listing_image = ListingImage.new(listing_image_params)
 
     listing_image.image_downloaded = if url.present? then false else true end
 

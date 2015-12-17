@@ -24,6 +24,9 @@
 
 class ListingImage < ActiveRecord::Base
 
+  # TODO Rails 4, Remove
+  include ActiveModel::ForbiddenAttributesProtection
+
   belongs_to :listing, touch: true
   belongs_to :author, :class_name => "Person"
 
