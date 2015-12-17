@@ -284,7 +284,7 @@ it:
         transactions: "Visualizza transazioni"
         headers:
           conversation: ~
-          listing: inserzione
+          listing: Inserzione
           status: Stato
           sum: Importo
           started: ~
@@ -734,7 +734,7 @@ it:
       address_street_address: Indirizzo
       address_postal_code: "CAP/Codice Postale"
       address_locality: Città
-      address_region: Reggione
+      address_region: Regione
       date_of_birth: ~
       ssn: ~
       routing_number: ~
@@ -749,7 +749,7 @@ it:
       address_street_address: Indirizzo
       address_postal_code: "CAP/Codice Postale"
       address_locality: Città
-      address_region: Reggione
+      address_region: Regione
       date_of_birth: ~
       ssn: ~
       routing_number: ~
@@ -960,7 +960,7 @@ it:
     welcome_email:
       welcome_email_subject: ~
       welcome_to_marketplace: "Benvenuto su %{service_name}!"
-      love_marketplace_crew: "Con affetto,<br /><i>%{service_name} team</i>"
+      love_marketplace_crew: "Con affetto,<br /><i>il team di %{service_name}</i>"
       welcome_email_footer_text: "Quale genere di email vuoi ricevere da%{service_name}? %{settings_link}"
       settings_link_text: "Controlla le tue impostazioni"
       welcome_email_subject_for_marketplace_creator: ~
@@ -1396,7 +1396,7 @@ it:
       are_you_sure: ~
     comment_form:
       ask_a_question: "Lascia un commento su questo annuncio o richiedi maggiori dettagli. Tutti gli altri utenti saranno in grado di vedere il tuo commento"
-      log_in: Accedi
+      log_in: accedi
       send_comment: "Invia un commento"
       to_send_a_comment: "per inviare un nuovo commento"
       write_comment: "Scrivi un nuovo commento:"
@@ -1606,7 +1606,7 @@ it:
       no_image: "Nessuna immagine"
       no_reviews: "Nessuna recensione è stata ricevuta"
       offer: Offerta
-      listing_created: Create
+      listing_created: Creata
       open_until: "Aperto fino %{date}"
       feedback: ~
       qr_code: "codice QR"
@@ -1622,7 +1622,7 @@ it:
       times: volte
       times_viewed: Visto
       processing_uploaded_image: "(Elaborazione immagine in corso...)"
-      price_excludes_vat: "(esclude IVA)"
+      price_excludes_vat: "(IVA esclusa)"
       listing_created_at: "Annuncio creato con successo"
       price:
         per_quantity_unit: "per %{quantity_unit}"
@@ -1692,7 +1692,7 @@ it:
       product: "Prodotto:"
       price: "Importo da pagare"
       price_for: "Prezzo per %{payer_given_name}:"
-      continue_to_pay: "Procedi per il pagamento"
+      continue_to_pay: "Procedi con il pagamento"
       invoice: Ricevuta
       service_fee: "Commissione di %{service_name}:"
       you_will_get: "Riceverai:"
@@ -1725,7 +1725,7 @@ it:
       paypal_account_email_placeholder: "Il tuo indirizzo email di PayPal"
       paypal_account_email_info_text: "Se non hai un account paypal, puoi crearne uno %{create_paypal_account}. Se ti viene dato errore quando connetti il tuo account, significa che devi aggiornare ad un account Business. L'aggiornamento è rapido e facile e non ti costa nulla. Se sei una persona fisica, dovresti usare il tuo nome e cognome nel campo \"ragione sociale\" quando Paypal te lo richiede. Per aggiornare il tuo account, %{upgrade_paypal_account} e trova il link per l'aggiornamento."
       create_paypal_account: "Cliccando qui"
-      upgrade_paypal_account: "Accedi al tuo account Paypal"
+      upgrade_paypal_account: "accedi al tuo account Paypal"
       paypal_account_billing_agreement: "Concedi a %{service_name} l'autorizzazione per applicare una commissione"
       follow_steps: ~
       connect_paypal_account_title: ~
@@ -1974,7 +1974,7 @@ it:
       first_name_only: "(non visibile ad altri utenti)"
       location_description: "Puoi specificare la tua posizione esatta o, per esempio, solo il codice di avviamento postale. Per favore, aggiungi almeno il tuo CAP. Puoi anche selezionare una posizione dalla mappa sotto."
       phone_number: "Numero di telefono"
-      profile_picture: "Foto per il profilo"
+      profile_picture: "Immagine del profilo"
       postal_code: CAP
       profile_page: "nella pagina del tuo profilo"
       profilemap: Mappa
