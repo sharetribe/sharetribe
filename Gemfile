@@ -133,8 +133,7 @@ group :test do
   gem 'launchy'
   gem 'ruby-prof'
   gem "pickle"
-  gem 'email_spec'
-  gem 'action_mailer_cache_delivery'
+  gem 'email_spec', '~> 1.6.0'
   gem "parallel_tests", :group => :development
   gem 'timecop'
   gem 'rack-test'
