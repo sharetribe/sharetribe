@@ -70,8 +70,7 @@ describe "routing for people" do
     expect(get "/logout").to(
       route_to({
                  :controller => "sessions",
-                 :action => "destroy",
-                 :method => :delete
+                 :action => "destroy"
                }))
   end
 

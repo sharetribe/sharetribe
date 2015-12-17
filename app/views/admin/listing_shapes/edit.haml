@@ -32,7 +32,7 @@
               = icon_tag("cross", ["icon-fix"])
               = t("admin.listing_shapes.edit.delete")
           - else
-            = link_to admin_listing_shape_path, {method: :delete, class: "listing-shape-delete-link"}.merge(confirm_opts) do
+            = link_to admin_listing_shape_path, {method: :delete, class: "listing-shape-delete-link", data: confirm_opts} do
               = icon_tag("cross", ["icon-fix"])
               = t("admin.listing_shapes.edit.delete")
 
