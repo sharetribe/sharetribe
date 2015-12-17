@@ -143,10 +143,10 @@ class Community < ActiveRecord::Base
   validates_format_of :custom_color1, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
   validates_format_of :custom_color2, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
 
-  VALID_BROWSE_TYPES = %{grid map list}
+  VALID_BROWSE_TYPES = %w{grid map list}
   validates_inclusion_of :default_browse_view, :in => VALID_BROWSE_TYPES
 
-  VALID_NAME_DISPLAY_TYPES = %{first_name_only first_name_with_initial full_name}
+  VALID_NAME_DISPLAY_TYPES = %w{first_name_only first_name_with_initial full_name}
   validates_inclusion_of :name_display_type, :in => VALID_NAME_DISPLAY_TYPES
 
   # The settings hash contains some community specific settings:
