@@ -11,12 +11,12 @@ describe Admin::CommunityMembershipsController do
 
   describe "users CSV export" do
     it "returns 200" do
-      get :index, {format: :csv}
+      get :index, {format: :csv, community_id: @community.id}
       response.status.should == 200
     end
 
     it "returns CSV with actual data" do
-      get :index, {format: :csv}
+      get :index, {format: :csv, community_id: @community.id}
       response_arr = CSV.parse(response.body)
       response_arr.count.should == 3
       user = Hash[*response_arr[0].zip(response_arr[1]).flatten]
@@ -51,12 +51,12 @@ describe Admin::CommunityTransactionsController do
 
   describe "transactions CSV export" do
     it "returns 200" do
-      get :index, {format: :csv, per_page: 99999}
+      get :index, {format: :csv, per_page: 99999, community_id: @community.id}
       response.status.should == 200
     end
 
     it "returns CSV with actual data" do
-      get :index, {format: :csv, per_page: 99999}
+      get :index, {format: :csv, per_page: 99999, community_id: @community.id}
       response_arr = CSV.parse(response.body)
       tx = Hash[*response_arr[0].zip(response_arr[1]).flatten]
 
