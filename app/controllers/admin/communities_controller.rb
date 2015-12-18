@@ -126,8 +126,10 @@ class Admin::CommunitiesController < ApplicationController
   def update_menu_links
     @community = @current_community
 
+    menu_links_params = Maybe(params)[:menu_links].permit!.or_else({menu_link_attributes: {}})
+
     update(@community,
-            params.require(:menu_links).permit!,
+            menu_links_params,
             menu_links_admin_community_path(@community),
             :menu_links)
   end
