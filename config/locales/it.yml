@@ -675,8 +675,8 @@ it:
       feedback_given: "Feedback rilasciato"
       feedback_skipped: "Feedback saltato"
       give_feedback: "Rilascia feedback"
-      offer_accepted: "Offerta accettata"
-      offer_rejected: "Offerta rifiutata"
+      offer_accepted: accettata
+      offer_rejected: rifiutata
       offer_canceled: ~
       offer_confirmed: ~
       offer_paid: "Pagamento riuscito"
@@ -692,8 +692,8 @@ it:
           intl: "Non siamo stati in grado di processare il pagamento PayPal in quanto il tuo conto PayPal non ha abilitato un meccanismo di prelievo. Apri %{paypal_url} e accedi al tuo conto per accettare o rifiutare manualmente il pagamento."
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
-      request_accepted: "Richiesta accettata"
-      request_rejected: "Richiesta rifiutata"
+      request_accepted: accettata
+      request_rejected: rifiutata
       request_confirmed: ~
       request_canceled: ~
       request_paid: "Pagamento riuscito"
