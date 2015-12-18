@@ -19,6 +19,12 @@ module ListingIndexService::Search
         Result::Error.new(ArgumentError.new("Both DB query and search engine would be needed to fulfill the search"))
       end
 
+      # rename listing_shape_ids to singular so that Sphinx understands it
+      if search[:listing_shape_ids] && search[:listing_shape_id].nil?
+        search[:listing_shape_id] = search[:listing_shape_ids]
+        search.delete(:listing_shape_ids)
+      end
+
       if needs_search?(search)
         if search_out_of_bounds?(search[:per_page], search[:page])
           success_result(0, [], includes)

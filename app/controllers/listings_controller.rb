@@ -85,7 +85,7 @@ class ListingsController < ApplicationController
         search_res = @current_community.private ? Result::Success.new({count: 0, listings: []}) : ListingIndexService::API::Api.listings.search(
                      community_id: @current_community.id,
                      search: {
-                       listing_shape_id: params[:listing_shapes],
+                       listing_shape_ids: params[:listing_shapes],
                        page: page,
                        per_page: per_page
                      },
