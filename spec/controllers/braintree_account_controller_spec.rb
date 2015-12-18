@@ -32,7 +32,7 @@ describe BraintreeAccountsController do
         :"date_of_birth(3i)" => "09",
         :routing_number => "101000187",
         :account_number => "43759348798"
-      }
+      }, person_id: @person.id
 
       braintree_account = BraintreeAccount.find_by_person_id(@person.id)
       braintree_account.first_name.should be_eql("Joe")
@@ -55,7 +55,7 @@ describe BraintreeAccountsController do
       # Mock BraintreeApi
       BraintreeApi.should_not_receive(:create_merchant_account)
 
-      post :create, :braintree_account => {:person_id => @person.id, :first_name => "Joe", :last_name => "Bloggs"}
+      post :create, :braintree_account => {:person_id => @person.id, :first_name => "Joe", :last_name => "Bloggs"}, person_id: @person.id
       BraintreeAccount.find_by_person_id(@person.id).should be_nil
     end
   end
