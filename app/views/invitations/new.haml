@@ -18,6 +18,4 @@
     = f.text_area :email, :class => "text_field", :placeholder => t("homepage.invitation_form.invitation_emails_field_placeholder")
     = f.label :message, t("homepage.invitation_form.message")
     = f.text_area :message, :class => "invitation_message_text", :placeholder => t("homepage.invitation_form.invitation_message_field_placeholder")
-    = f.hidden_field :community_id, :value => @current_community.id.to_s
-    = f.hidden_field :inviter_id, :value => @current_user.id
     = f.button t("homepage.invitation_form.send_invitation")

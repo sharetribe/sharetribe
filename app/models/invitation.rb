@@ -24,7 +24,9 @@
 
 class Invitation < ActiveRecord::Base
 
-  #include ApplicationHelper
+  # TODO Rails 4, Remove
+  include ActiveModel::ForbiddenAttributesProtection
+
   INVITATION_LIMIT = 100
   INVITE_ONLY_INVITATION_LIMIT = 500
 
