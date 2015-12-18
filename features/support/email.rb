@@ -18,7 +18,6 @@ module EmailHelpers
   end
 
   def find_email_with_subject(address, subject)
-    open_email(address)
     unread_emails_for(address).find { |m| m.subject =~ Regexp.new(Regexp.escape(subject)) }
   end
 

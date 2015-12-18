@@ -94,7 +94,13 @@ class Admin::CustomFieldsController < ApplicationController
     params[:community][:price_filter_min] = MoneyUtil.parse_str_to_money(params[:community][:price_filter_min], @current_community.default_currency).cents if params[:community][:price_filter_min]
     params[:community][:price_filter_max] = MoneyUtil.parse_str_to_money(params[:community][:price_filter_max], @current_community.default_currency).cents if params[:community][:price_filter_max]
 
-    success = @current_community.update_attributes(params[:community])
+    price_params = params.require(:community).permit(
+      :show_price_filter,
+      :price_filter_min,
+      :price_filter_max
+    )
+
+    success = @current_community.update_attributes(price_params)
 
     if success
       redirect_to admin_custom_fields_path
@@ -105,7 +111,9 @@ class Admin::CustomFieldsController < ApplicationController
   end
 
   def update_location
-    success = @current_community.update_attributes(params[:community])
+    location_params = params.require(:community).permit(:listing_location_required)
+
+    success = @current_community.update_attributes(location_params)
 
     if success
       redirect_to admin_custom_fields_path

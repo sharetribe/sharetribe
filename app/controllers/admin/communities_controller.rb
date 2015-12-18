@@ -126,8 +126,10 @@ class Admin::CommunitiesController < ApplicationController
   def update_menu_links
     @community = @current_community
 
+    menu_links_params = Maybe(params)[:menu_links].permit!.or_else({menu_link_attributes: {}})
+
     update(@community,
-            Maybe(params)[:menu_links].or_else({menu_link_attributes: {}}),
+            menu_links_params,
             menu_links_admin_community_path(@community),
             :menu_links)
   end
@@ -149,7 +151,7 @@ class Admin::CommunitiesController < ApplicationController
     redirect_to edit_details_admin_community_path(@current_community) if @current_community.payment_gateway && !@current_community.braintree_in_use?
 
     braintree_params = params[:payment_gateway]
-    community_params = params[:community]
+    community_params = params.require(:community).permit(:commission_from_seller)
 
     unless @current_community.update_attributes(community_params)
       flash.now[:error] = t("layouts.notifications.community_update_failed")
@@ -196,9 +198,10 @@ class Admin::CommunitiesController < ApplicationController
       :custom_color2, :default_browse_view, :name_display_type
     ]
     permitted_params << :custom_head_script
-    params.require(:community).permit(*permitted_params)
+    community_params = params.require(:community).permit(*permitted_params)
+
     update(@current_community,
-           params[:community].merge(stylesheet_needs_recompile: regenerate_css?(params, @current_community)),
+           community_params.merge(stylesheet_needs_recompile: regenerate_css?(params, @current_community)),
            edit_look_and_feel_admin_community_path(@current_community),
            :edit_look_and_feel) {
       Delayed::Job.enqueue(CompileCustomStylesheetJob.new(@current_community.id), priority: 3)
@@ -215,12 +218,12 @@ class Admin::CommunitiesController < ApplicationController
       params[:community][param] = nil if params[:community][param] == ""
     end
 
-    params.require(:community).permit(
+    social_media_params = params.require(:community).permit(
       :twitter_handle, :facebook_connect_id, :facebook_connect_secret
     )
 
     update(@current_community,
-            params[:community],
+            social_media_params,
             social_media_admin_community_path(@current_community),
             :social_media)
   end
@@ -230,9 +233,10 @@ class Admin::CommunitiesController < ApplicationController
     @selected_left_navi_link = "analytics"
 
     params[:community][:google_analytics_key] = nil if params[:community][:google_analytics_key] == ""
-    params.require(:community).permit(:google_analytics_key)
+    analytic_params = params.require(:community).permit(:google_analytics_key)
+
     update(@current_community,
-            params[:community],
+            analytic_params,
             analytics_admin_community_path(@current_community),
             :analytics)
   end
@@ -241,21 +245,27 @@ class Admin::CommunitiesController < ApplicationController
     @selected_left_navi_link = "settings"
 
     permitted_params = [
-      :join_with_invite_only, :users_can_invite_new_users, :private,
+      :join_with_invite_only,
+      :users_can_invite_new_users,
+      :private,
       :require_verification_to_post_listings,
-      :show_category_in_listing_list, :show_listing_publishing_date,
-      :hide_expiration_date, :listing_comments_in_use,
-      :automatic_confirmation_after_days, :automatic_newsletters,
+      :show_category_in_listing_list,
+      :show_listing_publishing_date,
+      :hide_expiration_date,
+      :listing_comments_in_use,
+      :automatic_confirmation_after_days,
+      :automatic_newsletters,
       :default_min_days_between_community_updates,
       :email_admins_about_new_members
     ]
     permitted_params << :testimonials_in_use if @current_community.payment_gateway
-    params.require(:community).permit(*permitted_params)
+
+    settings_params = params.require(:community).permit(*permitted_params)
 
     maybe_update_payment_settings(@current_community.id, params[:community][:automatic_confirmation_after_days])
 
     update(@current_community,
-            params[:community],
+            settings_params,
             settings_admin_community_path(@current_community),
             :settings)
   end

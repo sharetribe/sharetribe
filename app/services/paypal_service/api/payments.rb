@@ -13,6 +13,7 @@ module PaypalService::API
     Lookup = PaypalService::API::Lookup
     Worker = PaypalService::API::Worker
     Invnum = PaypalService::API::Invnum
+    APIDataTypes = PaypalService::API::DataTypes
 
     def initialize(events, merchant, logger = PaypalService::Logger.new)
       @logger = logger
@@ -82,7 +83,7 @@ module PaypalService::API
         })
 
         Result::Success.new(
-          DataTypes.create_payment_request({
+          APIDataTypes.create_payment_request({
               transaction_id: create_payment[:transaction_id],
               token: response[:token],
               redirect_url: response[:redirect_url]}))
@@ -199,7 +200,7 @@ module PaypalService::API
           transaction_id: transaction_id
          )
 
-        payment_entity = DataTypes.create_payment(payment)
+        payment_entity = APIDataTypes.create_payment(payment)
 
         # Trigger payment_updated event
         @events.send(:payment_updated, :success, payment_entity)
@@ -212,7 +213,7 @@ module PaypalService::API
     ## GET /payments/:community_id/:transaction_id
     def get_payment(community_id, transaction_id)
       Maybe(PaymentStore.get(community_id, transaction_id))
-        .map { |payment| Result::Success.new(DataTypes.create_payment(payment)) }
+        .map { |payment| Result::Success.new(APIDataTypes.create_payment(payment)) }
         .or_else { Result::Error.new("No matching payment for community_id: #{community_id} and transaction_id: #{transaction_id}.")}
     end
 
@@ -333,7 +334,7 @@ module PaypalService::API
                 .merge({receiver_id: m_acc[:payer_id], merchant_id: m_acc[:person_id]})
             )
 
-            payment_entity = DataTypes.create_payment(payment)
+            payment_entity = APIDataTypes.create_payment(payment)
 
             # Send event payment_crated
             @events.send(:payment_created, :success, payment_entity)
@@ -346,7 +347,7 @@ module PaypalService::API
     end
 
     def create_order_details(data)
-      DataTypes.create_order_details(
+      APIDataTypes.create_order_details(
         HashUtils.rename_keys({
           shipping_address_status: :status,
           shipping_address_city: :city,
@@ -378,7 +379,7 @@ module PaypalService::API
 
           # Save authorization data to payment
           payment = PaymentStore.update(data: auth_res, community_id: community_id , transaction_id: payment[:transaction_id])
-          payment_entity = DataTypes.create_payment(payment)
+          payment_entity = APIDataTypes.create_payment(payment)
 
           # Trigger callback for authorized
           @events.send(:payment_updated, :success, payment_entity)
@@ -415,7 +416,7 @@ module PaypalService::API
             community_id: community_id,
             transaction_id: transaction_id)
 
-          payment_entity = DataTypes.create_payment(payment)
+          payment_entity = APIDataTypes.create_payment(payment)
 
           # Trigger payment_updated
           @events.send(:payment_updated, flow, payment_entity)
@@ -427,7 +428,7 @@ module PaypalService::API
 
     def proc_status_response(proc_token)
       Result::Success.new(
-        DataTypes.create_process_status({
+        APIDataTypes.create_process_status({
             process_token: proc_token[:process_token],
             completed: proc_token[:op_completed],
             result: proc_token[:op_output]}))

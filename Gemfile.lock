@@ -31,8 +31,6 @@ GEM
   remote: http://rubygems.org/
   specs:
     CFPropertyList (2.3.2)
-    action_mailer_cache_delivery (0.3.4)
-      actionmailer (~> 3.0)
     actionmailer (3.2.21)
       actionpack (= 3.2.21)
       mail (~> 2.5.4)
@@ -60,7 +58,7 @@ GEM
     activesupport (3.2.21)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
-    addressable (2.3.5)
+    addressable (2.4.0)
     aggregate (0.2.2)
     airbrake (4.1.0)
       builder
@@ -180,7 +178,7 @@ GEM
     em-websocket (0.5.0)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.5.3)
-    email_spec (1.4.0)
+    email_spec (1.6.0)
       launchy (~> 2.1)
       mail (~> 2.2)
     erubis (2.7.0)
@@ -359,7 +357,7 @@ GEM
     json (1.8.3)
     jwt (1.5.1)
     kgio (2.8.1)
-    launchy (2.1.2)
+    launchy (2.4.3)
       addressable (~> 2.3)
     librato-metrics (1.5.1)
       aggregate (~> 0.2.2)
@@ -618,7 +616,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  action_mailer_cache_delivery
   airbrake (~> 4.1.0)
   annotate
   asset_sync (~> 1.0.0)
@@ -644,7 +641,7 @@ DEPENDENCIES
   devise (~> 3.0.0)
   devise-encryptable
   dynamic_form
-  email_spec
+  email_spec (~> 1.6.0)
   factory_girl_rails
   fb-channel-file
   flying-sphinx (~> 1.2.0)
