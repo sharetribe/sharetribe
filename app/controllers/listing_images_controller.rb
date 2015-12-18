@@ -33,7 +33,8 @@ class ListingImagesController < ApplicationController
   # Add new listing image to existing listing
   # Create image from uploaded file
   def add_from_file
-    add_image(params[:listing_id], params[:listing_image], nil)
+    listing_image_params = params.require(:listing_image).permit(:image)
+    add_image(params[:listing_id], listing_image_params, nil)
   end
 
   # Return image status and thumbnail url
@@ -67,13 +68,7 @@ class ListingImagesController < ApplicationController
 
   # Create a new image object
   def new_image(params, url)
-    listing_image_params = params.permit(
-      :image,
-      :author_id,
-      :listing_id
-    )
-
-    listing_image = ListingImage.new(listing_image_params)
+    listing_image = ListingImage.new(params)
 
     listing_image.image_downloaded = if url.present? then false else true end
 
