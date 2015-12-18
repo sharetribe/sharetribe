@@ -61,8 +61,8 @@ class ConfirmConversationsController < ApplicationController
     end
 
 
-    msg, sender_id = parse_message_param()
-    transaction = complete_or_cancel_tx(@current_community.id, @listing_transaction.id, status, msg, sender_id)
+    msg = parse_message_param()
+    transaction = complete_or_cancel_tx(@current_community.id, @listing_transaction.id, status, msg, @current_user.id)
 
     give_feedback = Maybe(params)[:give_feedback].select { |v| v == "true" }.or_else { false }
 
@@ -94,9 +94,9 @@ class ConfirmConversationsController < ApplicationController
 
   def parse_message_param
     if(params[:message])
-      message = MessageForm.new(params[:message].merge({ sender_id: @current_user.id, conversation_id: @listing_transaction.conversation.id }))
+      message = MessageForm.new(params.require(:message).permit(:content).merge({ conversation_id: @listing_transaction.conversation.id }))
       if(message.valid?)
-        [message.content, message.sender_id]
+        message.content
       end
     end
   end

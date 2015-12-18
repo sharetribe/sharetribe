@@ -25,7 +25,12 @@ class PersonMessagesController < ApplicationController
   private
 
   def new_conversation
-    conversation = Conversation.new(params[:conversation].merge(community: @current_community))
+    conversation_params = params.require(:conversation).permit(
+      message_attributes: :content
+    )
+    conversation_params[:message_attributes][:sender_id] = @current_user.id
+
+    conversation = Conversation.new(conversation_params.merge(community: @current_community))
     conversation.build_starter_participation(@current_user)
     conversation.build_participation(@recipient)
     conversation

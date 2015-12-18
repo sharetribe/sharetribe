@@ -33,9 +33,9 @@ class AcceptConversationsController < ApplicationController
     # Update first everything else than the status, so that the payment is in correct
     # state before the status change callback is called
     if @listing_conversation.update_attributes(params[:listing_conversation].except(:status))
-      message = MessageForm.new(params[:message].merge({ sender_id: @current_user.id, conversation_id: @listing_conversation.id }))
+      message = MessageForm.new(params[:message].merge({ conversation_id: @listing_conversation.id }))
       if(message.valid?)
-        @listing_conversation.conversation.messages.create({content: message.content, sender_id: message.sender_id})
+        @listing_conversation.conversation.messages.create({content: message.content}.merge(sender_id: @current_user.id))
       end
 
       MarketplaceService::Transaction::Command.transition_to(@listing_conversation.id, params[:listing_conversation][:status])
