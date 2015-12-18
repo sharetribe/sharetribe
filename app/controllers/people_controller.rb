@@ -203,7 +203,7 @@ class PeopleController < Devise::RegistrationsController
     @person.set_emails_that_receive_notifications(params[:person][:send_notifications])
 
     begin
-      person_params = params[:person].slice(
+      person_params = params.require(:person).permit(
         :given_name,
         :family_name,
         :street_address,
@@ -213,8 +213,8 @@ class PeopleController < Devise::RegistrationsController
         :location,
         :password,
         :password2,
-        :send_notifications,
-        :email_attributes,
+        { send_notifications: [] },
+        { email_attributes: [:address] },
         :min_days_between_community_updates,
         :preferences,
       )
