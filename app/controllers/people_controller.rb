@@ -210,7 +210,7 @@ class PeopleController < Devise::RegistrationsController
         :phone_number,
         :image,
         :description,
-        :location,
+        { location: [:address, :google_address, :latitude, :longitude] },
         :password,
         :password2,
         { send_notifications: [] },
@@ -218,6 +218,10 @@ class PeopleController < Devise::RegistrationsController
         :min_days_between_community_updates,
         :preferences,
       )
+
+      Maybe(person_params)[:location].each { |loc|
+        person_params[:location] = loc.merge(location_type: :person)
+      }
 
       if @person.update_attributes(person_params)
         if params[:person][:password]
