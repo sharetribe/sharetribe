@@ -197,10 +197,9 @@ class ListingsController < ApplicationController
 
     if (@current_user.location != nil)
       temp = @current_user.location
-      temp.location_type = "origin_loc"
       @listing.build_origin_loc(temp.attributes)
     else
-      @listing.build_origin_loc(:location_type => "origin_loc")
+      @listing.build_origin_loc()
     end
 
     form_content
@@ -210,7 +209,7 @@ class ListingsController < ApplicationController
     return redirect_to action: :edit unless request.xhr?
 
     if !@listing.origin_loc
-        @listing.build_origin_loc(:location_type => "origin_loc")
+        @listing.build_origin_loc()
     end
 
     form_content
@@ -284,7 +283,7 @@ class ListingsController < ApplicationController
   def edit
     @selected_tribe_navi_tab = "home"
     if !@listing.origin_loc
-        @listing.build_origin_loc(:location_type => "origin_loc")
+        @listing.build_origin_loc()
     end
 
     @custom_field_questions = @listing.category.custom_fields.where(community_id: @current_community.id)
@@ -773,15 +772,36 @@ class ListingsController < ApplicationController
     end
   end
 
-  def create_listing_params(listing_params)
-    listing_params.except(:delivery_methods).merge(
-      require_shipping_address: Maybe(listing_params[:delivery_methods]).map { |d| d.include?("shipping") }.or_else(false),
-      pickup_enabled: Maybe(listing_params[:delivery_methods]).map { |d| d.include?("pickup") }.or_else(false),
-      price_cents: listing_params[:price_cents],
-      shipping_price_cents: listing_params[:shipping_price_cents],
-      shipping_price_additional_cents: listing_params[:shipping_price_additional_cents],
-      currency: listing_params[:currency]
+  def create_listing_params(params)
+    listing_params = params.except(:delivery_methods).merge(
+      require_shipping_address: Maybe(params[:delivery_methods]).map { |d| d.include?("shipping") }.or_else(false),
+      pickup_enabled: Maybe(params[:delivery_methods]).map { |d| d.include?("pickup") }.or_else(false),
+      price_cents: params[:price_cents],
+      shipping_price_cents: params[:shipping_price_cents],
+      shipping_price_additional_cents: params[:shipping_price_additional_cents],
+      currency: params[:currency]
     )
+
+    add_location_params(listing_params, params)
+  end
+
+  def add_location_params(listing_params, params)
+    if params[:origin_loc_attributes].nil?
+      listing_params
+    else
+      location_params = params[:origin_loc_attributes].permit(
+        :address,
+        :google_address,
+        :latitude,
+        :longitude
+      ).merge(
+        location_type: :origin_loc
+      )
+
+      listing_params.merge(
+        origin_loc_attributes: location_params
+      )
+    end
   end
 
   def get_transaction_process(community_id:, transaction_process_id:)
