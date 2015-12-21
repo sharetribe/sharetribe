@@ -45,8 +45,8 @@
 
     -# TODO Fix this, no respond_to?
     - if preauthorize_form.respond_to?(:start_on) && preauthorize_form.respond_to?(:end_on)
-      = form.date_select :start_on, discard_day: true, discard_month: true, discard_year: true, default: preauthorize_form.start_on
-      = form.date_select :end_on, discard_day: true, discard_month: true, discard_year: true, default: preauthorize_form.end_on
+      = form.date_select :start_on, { value: preauthorize_form.start_on }, { class: "hidden" }
+      = form.date_select :end_on, { value: preauthorize_form.end_on }, { class: "hidden" }
 
     .preauthorize-section
       %h2
