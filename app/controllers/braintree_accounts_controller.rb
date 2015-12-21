@@ -94,12 +94,29 @@ class BraintreeAccountsController < ApplicationController
 
   def create
     @list_of_states = LIST_OF_STATES
-    braintree_params = params[:braintree_account]
+    braintree_params = params.require(:braintree_account).permit(
+      :person_id,
+      :first_name,
+      :last_name,
+      :email,
+      :phone,
+      :address_street_address,
+      :address_postal_code,
+      :address_locality,
+      :address_region,
+      :"date_of_birth(1i)",
+      :"date_of_birth(2i)",
+      :"date_of_birth(3i)",
+      :routing_number,
+      :account_number
+    )
+
+    model_attributes = braintree_params
       .merge(person: @current_user)
       .merge(community_id: @current_community.id)
       .merge(hidden_account_number: StringUtils.trim_and_hide(params[:braintree_account][:account_number]))
 
-    @braintree_account = BraintreeAccount.new(braintree_params)
+    @braintree_account = BraintreeAccount.new(model_attributes)
     if @braintree_account.valid?
       # Save Braintree account before calling the Braintree API
       # Braintree may trigger the webhook very, very fast (at least in sandbox)

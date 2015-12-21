@@ -22,6 +22,10 @@
 #
 
 class BraintreeAccount < ActiveRecord::Base
+
+  # TODO Rails 4, Remove
+  include ActiveModel::ForbiddenAttributesProtection
+
   attr_accessor :account_number # Not persisted, only sent to Braintree
 
   belongs_to :person

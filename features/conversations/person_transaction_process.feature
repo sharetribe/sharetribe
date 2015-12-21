@@ -64,8 +64,7 @@ Feature: Transaction process between two users
     And I log in as "kassi_testperson1"
     And I fill in "message[content]" with "Ok, that works!"
     And I press "Send reply"
-    Then I should see "Please wait..."
-    And I should see "Send reply"
-    When the system processes jobs
+    Then I should see "Ok, that works!" in the message list
+    And the system processes jobs
     Then "kassi_testperson2@example.com" should receive an email
     And I log out

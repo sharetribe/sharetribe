@@ -16,7 +16,14 @@ class MessagesController < ApplicationController
       return redirect_to root
     end
 
-    @message = Message.new(params[:message])
+    message_params = params.require(:message).permit(
+      :conversation_id,
+      :content
+    ).merge(
+      sender_id: @current_user.id
+    )
+
+    @message = Message.new(message_params)
     if @message.save
       Delayed::Job.enqueue(MessageSentJob.new(@message.id, @current_community.id))
     else

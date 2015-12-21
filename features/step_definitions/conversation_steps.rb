@@ -316,3 +316,7 @@ end
 Then /^I should see that the request is completed$/ do
   expect(page.find(".conversation-status")).to have_content("Completed")
 end
+
+Then /^I should see "(.*?)" in the message list$/ do |msg|
+  expect(page.find("#messages")).to have_content(msg)
+end

@@ -21,7 +21,7 @@
   #admin-members-error-posting-allowed.ajax-update-error
     = t("admin.communities.manage_members.save_user_status_error")
 
-= render :partial => "layouts/ajax-update-notification"
+= render :partial => "layouts/ajax_update_notification"
 
 .left-navi-section
   %h2= t("admin.communities.manage_members.manage_members", :community_name => @community.name(I18n.locale))

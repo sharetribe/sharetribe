@@ -17,6 +17,9 @@
 
 class Comment < ActiveRecord::Base
 
+  # TODO Rails 4, Remove
+  include ActiveModel::ForbiddenAttributesProtection
+
   belongs_to :author, :class_name => "Person"
   belongs_to :listing, :counter_cache => true
 

@@ -14,7 +14,6 @@
 
     = form.label :content, t("conversations.new.message_to", author_name: link_to(listing.author.name(@current_community), listing.author)).html_safe
     = form.text_area :content, :class => "text_area"
-    = form.hidden_field :sender_id, :value => @current_user.id
 
     = form.hidden_field :listing_id, :value => @listing.id
     = form.hidden_field :community_id, :value => @current_community.id
