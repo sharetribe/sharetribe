@@ -39,6 +39,13 @@ describe PersonMailer do
   it "should send email about listing with payment but without user's payment details" do
     community = FactoryGirl.create(:community)
     listing = FactoryGirl.create(:listing, listing_shape_id: 123)
+
+    TransactionService::API::Api.settings.provision(
+      community_id: community.id,
+      payment_gateway: :paypal,
+      payment_process: :preauthorize,
+      active: true)
+
     recipient = listing.author
     email = PersonMailer.payment_settings_reminder(listing, recipient, community).deliver
 
