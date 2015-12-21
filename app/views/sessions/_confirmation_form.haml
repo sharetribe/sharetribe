@@ -13,7 +13,7 @@
 %br/
 
 %p
-  = form_for(Person, :as => "person", :url => confirmation_path(:locale => I18n.locale), :html => { :method => :post, :id => "change_mistyped_email_form"} ) do |form|
+  = form_for(Person, :as => "person", :url => confirmation_path(:locale => I18n.locale), :html => { :method => :put, :id => "change_mistyped_email_form"} ) do |form|
     .form_field_container
       = form.hidden_field :id, :value => @current_user.id
       = form.button t("sessions.confirmation_pending.resend_confirmation_instructions"), :class => "resend_email_confirmation_button send_button"
