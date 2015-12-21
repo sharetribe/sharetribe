@@ -15,10 +15,6 @@ elif [ "$SUITE" = "cucumber" ]
 then
 	bundle install --without development --path=~/.bundle
 	exit
-elif [ "$SUITE" = "mocha" ]
-then
-	bundle install --without development --path=~/.bundle
-	exit
 elif [ "$SUITE" = "jshint" ]
 then
 	exit

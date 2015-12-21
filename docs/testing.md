@@ -42,11 +42,3 @@ We are using [Mocha](http://visionmedia.github.io/mocha/) test framework for Jav
 2. Go to `http://localhost:3000/test/`
 
 When running on development mode, make sure you DO NOT have a file `public/assets/application.js`. If you do, delete it. This way Rails will use asset pipeline instead of precompiled file.
-
-### Run Mocha tests from command-line
-
-1. Install node
-2. `npm install`
-3. `npm install -g grunt-cli`
-4. `rake assets:precompile`
-5. `grunt connect mocha`

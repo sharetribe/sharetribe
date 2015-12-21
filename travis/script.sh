@@ -16,10 +16,6 @@ then
 	phantomjs --webdriver=8910 &
 	PHANTOMJS=true bundle exec cucumber -ptravis 2>&1
 	exit
-elif [ "$SUITE" = "mocha" ]
-then
-	grunt connect mocha 2>&1
-	exit
 elif [ "$SUITE" = "jshint" ]
 then
 	grunt jshint 2>&1
