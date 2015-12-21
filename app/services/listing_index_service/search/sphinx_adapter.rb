@@ -15,6 +15,9 @@ module ListingIndexService::Search
     def search(community_id:, search:, includes:)
       included_models = includes.map { |m| INCLUDE_MAP[m] }
 
+      # rename listing_shape_ids to singular so that Sphinx understands it
+      search = HashUtils.rename_keys({:listing_shape_ids => :listing_shape_id}, search)
+
       if needs_db_query?(search) && needs_search?(search)
         Result::Error.new(ArgumentError.new("Both DB query and search engine would be needed to fulfill the search"))
       end

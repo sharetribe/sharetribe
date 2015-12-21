@@ -77,17 +77,15 @@ class ListingsController < ApplicationController
 
         if params[:share_type].present?
           direction = params[:share_type]
-
-          params[:listing_shapes] = {
-            id: all_shapes.select { |shape|
+          params[:listing_shapes] =
+            all_shapes.select { |shape|
               direction_map[shape[:id]] == direction
             }.map { |shape| shape[:id] }
-          }
         end
         search_res = @current_community.private ? Result::Success.new({count: 0, listings: []}) : ListingIndexService::API::Api.listings.search(
                      community_id: @current_community.id,
                      search: {
-                       listing_shapes: params[:listing_shapes],
+                       listing_shape_ids: params[:listing_shapes],
                        page: page,
                        per_page: per_page
                      },

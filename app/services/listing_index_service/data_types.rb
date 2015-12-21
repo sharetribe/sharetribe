@@ -17,7 +17,7 @@ module ListingIndexService::DataTypes
     [:per_page, :to_integer, :mandatory, gte: 1],
     [:keywords, :string, :optional],
     [:categories, :array, :optional],
-    [:listing_shape_id, :fixnum, :optional],
+    [:listing_shape_ids, :array, :optional],
     [:price_cents, :range, :optional],
     [:fields, :array, default: []],
     [:author_id, :string],
