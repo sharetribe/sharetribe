@@ -89,13 +89,6 @@ class Listing < ActiveRecord::Base
   monetize :shipping_price_cents, allow_nil: true, with_model_currency: :currency
   monetize :shipping_price_additional_cents, allow_nil: true, with_model_currency: :currency
 
-  # Create an "empty" relationship. This is needed in search when we want to stop the search chain (NumericFields)
-  # and just return empty result.
-  #
-  # When moving to Rails 4.0, remove this and use Model.none
-  # http://stackoverflow.com/questions/4877931/how-to-return-an-empty-activerecord-relation
-  scope :none, -> { where('1 = 0') }
-
   before_validation :set_valid_until_time
 
   validates_presence_of :author_id
