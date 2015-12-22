@@ -606,8 +606,7 @@ class Person < ActiveRecord::Base
   # If community is given as parameter, in case of many pending
   # emails the one required by the community is returned
   def latest_pending_email_address(community=nil)
-    pending_emails = []
-    Email.where(:person_id => id, :confirmed_at => nil).all.each { |e| pending_emails << e.address }
+    pending_emails = Email.where(:person_id => id, :confirmed_at => nil).pluck(:address)
 
     allowed_emails = if community && community.allowed_emails
       pending_emails.select do |e|
