@@ -30,7 +30,15 @@ class TestimonialsController < ApplicationController
   end
 
   def create
-    @testimonial = @transaction.testimonials.build(params[:testimonial])
+    testimonial_params = params.require(:testimonial).permit(
+      :text,
+      :grade,
+    ).merge(
+      receiver_id: @transaction.other_party(@current_user).id,
+      author_id: @current_user.id
+    )
+
+    @testimonial = @transaction.testimonials.build(testimonial_params)
 
     if @testimonial.save
       Delayed::Job.enqueue(TestimonialGivenJob.new(@testimonial.id, @current_community))

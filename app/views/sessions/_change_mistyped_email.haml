@@ -1,4 +1,4 @@
-= form_for @current_user, :html => {:id => 'change_mistyped_email_form'} do |form|
+= fields_for @current_user, :html => {:id => 'change_mistyped_email_form'} do |form|
   %label{:for => "email"}
     = t('settings.account.new_email') + ":"
   = form.text_field(:email, :value => email_to_confirm, :class => "text_field text_field_account", :maxlenght => "255")

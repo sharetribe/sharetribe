@@ -14,7 +14,12 @@ class InvitationsController < ApplicationController
   end
 
   def create
-    invitation_emails = params[:invitation][:email].split(",")
+    invitation_params = params.require(:invitation).permit(
+      :email,
+      :message
+    )
+
+    invitation_emails = invitation_params[:email].split(",").map(&:strip)
 
     unless validate_daily_limit(@current_user.id, invitation_emails.size, @current_community)
       return redirect_to new_invitation_path, flash: { error: t("layouts.notifications.invitation_limit_reached")}
@@ -22,7 +27,13 @@ class InvitationsController < ApplicationController
 
     sending_problems = nil
     invitation_emails.each do |email|
-      invitation = Invitation.new(params[:invitation].merge!({:email => email.strip, :inviter => @current_user}))
+      invitation = Invitation.new(
+        message: invitation_params[:message],
+        email: email,
+        inviter: @current_user,
+        community_id: @current_community.id
+      )
+
       if invitation.save
         Delayed::Job.enqueue(InvitationCreatedJob.new(invitation.id, @current_community.id))
       else

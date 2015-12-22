@@ -21,6 +21,9 @@
 
 class Testimonial < ActiveRecord::Base
 
+  # TODO Rails 4, Remove
+  include ActiveModel::ForbiddenAttributesProtection
+
   GRADES = [
     [ "positive", { :form_value => "5", :db_value => 1, :default => false, :icon => "like" } ],
     [ "negative", { :form_value => "1", :db_value => 0, :default => false, :icon => "dislike" } ]

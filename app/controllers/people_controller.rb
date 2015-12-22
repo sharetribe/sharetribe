@@ -203,21 +203,39 @@ class PeopleController < Devise::RegistrationsController
     @person.set_emails_that_receive_notifications(params[:person][:send_notifications])
 
     begin
-      person_params = params[:person].slice(
+      person_params = params.require(:person).permit(
         :given_name,
         :family_name,
         :street_address,
         :phone_number,
         :image,
         :description,
-        :location,
+        { location: [:address, :google_address, :latitude, :longitude] },
         :password,
         :password2,
-        :send_notifications,
-        :email_attributes,
+        { send_notifications: [] },
+        { email_attributes: [:address] },
         :min_days_between_community_updates,
-        :preferences,
+        { preferences: [
+          :email_from_admins,
+          :email_about_new_messages,
+          :email_about_new_comments_to_own_listing,
+          :email_when_conversation_accepted,
+          :email_when_conversation_rejected,
+          :email_about_new_received_testimonials,
+          :email_about_accept_reminders,
+          :email_about_confirm_reminders,
+          :email_about_testimonial_reminders,
+          :email_about_completed_transactions,
+          :email_about_new_payments,
+          :email_about_payment_reminders,
+          :email_about_new_listings_by_followed_people,
+        ] }
       )
+
+      Maybe(person_params)[:location].each { |loc|
+        person_params[:location] = loc.merge(location_type: :person)
+      }
 
       if @person.update_attributes(person_params)
         if params[:person][:password]

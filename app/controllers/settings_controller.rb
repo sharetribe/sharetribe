@@ -58,7 +58,7 @@ class SettingsController < ApplicationController
 
   def add_location_to_person
     unless @person.location
-      @person.build_location(:address => @person.street_address,:location_type => 'person')
+      @person.build_location(:address => @person.street_address)
       @person.location.search_and_fill_latlng
     end
   end
