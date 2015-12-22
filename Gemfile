@@ -98,6 +98,10 @@ gem 'public_suffix' # Needed currently to set GA hostname right, probably not
 # needed anymore when GA script updated.
 
 gem 'activerecord-session_store'
+
+# This gem was added to make Rails 3.2 -> 4 upgrade path easier.
+# It adds `attr_protected` and `attr_accessor` methods to models.
+# We should remove this gem before upgrading to Rails 5
 gem 'protected_attributes'
 
 # Observers is only used by SyncDelayedJobObserver, which is used
