@@ -314,7 +314,9 @@ module PaypalService::Store::PaypalAccount
         {
           billing_agreement_id: billing_agreement_id,
           paypal_accounts: {payer_id: payer_id}
-        }).first
+        })
+      .readonly(false)
+      .first
     )
   end
 

@@ -143,16 +143,16 @@ describe "plan provisioning" do
                                   marketplace_plan_id: id222,
                                   marketplace_id: 222,
                                   plan_level: 0,
-                                  created_at: Time.utc(2015, 10, 15),
-                                  updated_at: Time.utc(2015, 10, 15),
+                                  created_at: Time.utc(2015, 10, 15).in_time_zone,
+                                  updated_at: Time.utc(2015, 10, 15).in_time_zone,
                                   expires_at: nil,
                                 },
                                 {
                                   marketplace_plan_id: id333,
                                   marketplace_id: 333,
                                   plan_level: 0,
-                                  created_at: Time.utc(2015, 11, 15),
-                                  updated_at: Time.utc(2015, 11, 15),
+                                  created_at: Time.utc(2015, 11, 15).in_time_zone,
+                                  updated_at: Time.utc(2015, 11, 15).in_time_zone,
                                   expires_at: nil,
                                 }
                               ]
@@ -194,8 +194,8 @@ describe "plan provisioning" do
                                   marketplace_plan_id: id111,
                                   marketplace_id: 111,
                                   plan_level: 0,
-                                  created_at: Time.utc(2015, 9, 15),
-                                  updated_at: Time.utc(2015, 9, 15),
+                                  created_at: Time.utc(2015, 9, 15).in_time_zone,
+                                  updated_at: Time.utc(2015, 9, 15).in_time_zone,
                                   expires_at: nil,
                                 }
                               ],
@@ -213,16 +213,16 @@ describe "plan provisioning" do
                                   marketplace_plan_id: id222,
                                   marketplace_id: 222,
                                   plan_level: 0,
-                                  created_at: Time.utc(2015, 10, 15),
-                                  updated_at: Time.utc(2015, 10, 15),
+                                  created_at: Time.utc(2015, 10, 15).in_time_zone,
+                                  updated_at: Time.utc(2015, 10, 15).in_time_zone,
                                   expires_at: nil,
                                 },
                                 {
                                   marketplace_plan_id: id333,
                                   marketplace_id: 333,
                                   plan_level: 0,
-                                  created_at: Time.utc(2015, 11, 15),
-                                  updated_at: Time.utc(2015, 11, 15),
+                                  created_at: Time.utc(2015, 11, 15).in_time_zone,
+                                  updated_at: Time.utc(2015, 11, 15).in_time_zone,
                                   expires_at: nil,
                                 }
                               ]

@@ -190,7 +190,8 @@ describe ListingsController do
       get :index, :community_id => @c1.id, :format => :atom
       response.status.should == 200
       doc = Nokogiri::XML::Document.parse(response.body)
-      doc.at("feed/entry/content").text.should =~ /&lt;b&gt;shiny&lt;\/b&gt; new hammer, see details at <a href="http:\/\/en\.wikipedia\.org\/wiki\/MC_Hammer" class=\"truncated-link\">http:\/\/en\.wikipedia\.org\/wiki\/MC_Hammer<\/a>/
+      doc.at("feed/entry/content").text.should =~ /&lt;b&gt;shiny&lt;\/b&gt; new hammer, see details at/
+      doc.at("feed/entry/content").text.should =~ /http:\/\/en\.wikipedia\.org\/wiki\/MC_Hammer<\/a>/
     end
 
     # TODO: fix search tests after sphinx upgraded (or changed)
