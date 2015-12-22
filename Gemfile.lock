@@ -482,7 +482,7 @@ GEM
       multipart-post (~> 1.2.0)
       trollop (~> 2.0)
     websocket (1.0.7)
-    will_paginate (3.0.3)
+    will_paginate (3.0.7)
     xml-simple (1.1.4)
     xpath (2.0.0)
       nokogiri (~> 1.3)
@@ -582,7 +582,7 @@ DEPENDENCIES
   ts-delayed-delta (~> 2.0.2)!
   uglifier
   web_translate_it
-  will_paginate
+  will_paginate (~> 3.0.5)
   xpath
   zeus (= 0.15.1)
 
