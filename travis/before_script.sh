@@ -18,12 +18,6 @@ then
 	mysql -e 'create database sharetribe_test;'
 	bundle exec rake db:test:load
 	exit
-elif [ "$SUITE" = "mocha" ]
-then
-	cp config/database.example.yml config/database.yml
-	mysql -e 'create database sharetribe_test;'
-	bundle exec rake assets:precompile
-	exit
 elif [ "$SUITE" = "jshint" ]
 then
 	exit
