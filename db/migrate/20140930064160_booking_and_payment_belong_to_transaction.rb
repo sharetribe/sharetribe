@@ -2,7 +2,6 @@ class BookingAndPaymentBelongToTransaction < ActiveRecord::Migration
   def up
     rename_column :bookings, :listing_conversation_id, :transaction_id
     rename_column :payments, :conversation_id, :transaction_id
-    rename_index :payments, :conversation_id, :transaction_id
   end
 
   def down
@@ -16,6 +15,5 @@ class BookingAndPaymentBelongToTransaction < ActiveRecord::Migration
 
     rename_column :bookings, :transaction_id, :listing_conversation_id
     rename_column :payments, :transaction_id, :conversation_id
-    rename_index :payments, :transaction_id, :conversation_id
   end
 end
