@@ -37,6 +37,9 @@ default: &default_settings
   # Bucket for files users upload directly to S3. You can add an expiration policy to these files.
   s3_upload_bucket_name:
 
+  # Your CDN distribution host name
+  asset_host:
+
   # AWS keys
   aws_access_key_id:
   aws_secret_access_key:
