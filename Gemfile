@@ -9,7 +9,6 @@ gem 'rails', '3.2.21'
 
 gem 'coffee-rails', "~> 3.2.2"
 gem 'uglifier'
-gem 'asset_sync', '~> 1.0.0'
 
 gem 'sass-rails'
 gem 'compass-rails', '~> 1.1'
