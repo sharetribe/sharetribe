@@ -25,41 +25,39 @@ module StylesheetCompiler
     def compile(source_dir, source_file, target_file, variable_file, variable_hash={})
       in_work_dir(source_dir) do |work_dir|
         replace_variables("#{work_dir}/#{variable_file}", variable_hash)
-        sprockets_compile(work_dir, source_file, target_file)
+        sprockets_compile(source_dir, work_dir, source_file, target_file)
       end
     end
 
     private
 
-    def create_sprockets_env(path)
-      Sprockets::Environment.new(Rails.root).tap do |env|
-        env.append_path path
-        env.append_path Kassi::Application::VENDOR_CSS_PATH
+    def create_sprockets_env(source_dir, work_dir)
+      env = get_sprockets_env()
 
-        env.context_class.instance_eval do
-          # Include these helpers to allow SASS files to use image-url etc. helpers
-          include Sprockets::Helpers::RailsHelper
-          include Sprockets::Helpers::IsolatedHelper
+      paths_without_source_dir = env.paths.reject { |p| p.include?(source_dir) }
+      paths_with_work_dir = [work_dir] + paths_without_source_dir
 
-          def sass_config
-            ActiveSupport::OrderedOptions.new.tap do |s|
-              compass = Compass::Frameworks['compass']
+      env.clear_paths
 
-              s.load_paths = [
-                compass.stylesheets_directory,
-                compass.templates_directory
-              ]
+      paths_with_work_dir.each { |p|
+        env.append_path p
+      }
 
-              # Here we can add SASS configurations
-              s.style = :compressed
-            end
-          end
-        end
+      env
+    end
+
+    def get_sprockets_env
+      if Rails.application.assets.is_a?(Sprockets::Index)
+        # Production
+        Rails.application.assets.instance_variable_get('@environment')
+      else
+        # Development
+        Rails.application.assets
       end
     end
 
-    def sprockets_compile(work_dir, source, target)
-      sprockets = create_sprockets_env(work_dir)
+    def sprockets_compile(source_dir, work_dir, source, target)
+      sprockets = create_sprockets_env(source_dir, work_dir)
       asset = sprockets[source]
       asset.write_to(target)
     end
