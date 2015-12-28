@@ -38,6 +38,19 @@ default: &default_settings
   s3_upload_bucket_name:
 
   # Your CDN distribution host name
+  #
+  # From Rails documations: Browsers typically open at most two simultaneous connections to a single host,
+  # which means your assets often have to wait for other assets to finish downloading. You can alleviate
+  # this by using a %d wildcard in the asset_host. For example, “assets%d.example.com”. If that wildcard
+  # is present Rails distributes asset requests among the corresponding four hosts
+  # “assets0.example.com”, …, “assets3.example.com”. With this trick browsers will open eight simultaneous
+  # connections rather than two.
+  #
+  # Examples values:
+  #
+  # - 0c84dc78c9435aec606bbf2428c2c476.cloudfront.com
+  # - assets%0.your_domain.com
+  #
   asset_host:
 
   # AWS keys
