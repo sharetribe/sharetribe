@@ -59,6 +59,7 @@ module MarketplaceService::API
       "clients",
       "assets",
       "assets-origin",
+      "assets-sharetribecom",
       "assets0",
       "assets1",
       "assets2",
