@@ -174,7 +174,7 @@ module ListingIndexService::Search
               organization_name: l.author.organization_name,
               is_organization: l.author.is_organization,
               avatar: {
-                thumb: l.author.image(:thumb)
+                thumb: l.author.image.present? ? l.author.image.url(:thumb) : nil
               },
               is_deleted: l.author.deleted?,
             }.merge(num_of_reviews_hash(l, includes))

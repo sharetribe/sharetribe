@@ -36,7 +36,7 @@
     .home-list-author{:class => (listing.listing_images.size > 0 ? "home-list-author-with-listing-image" : "home-list-author-without-listing-image")}
       .home-list-avatar
         = link_to(person_path(id: listing.author.username), :class => "home-fluid-thumbnail-grid-author-avatar-image") do
-          = image_tag(listing.author.avatar.thumb)
+          = image_tag(listing.author.avatar.thumb || missing_avatar(:thumb))
       .home-list-author-details
         = link_to(person_path(id: listing.author.username), :class => "home-list-author-name") do
           = PersonViewUtils::person_entity_display_name(listing.author, @current_community.name_display_type)
