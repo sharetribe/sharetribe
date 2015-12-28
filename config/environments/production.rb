@@ -1,3 +1,5 @@
+require_relative './common.rb'
+
 Kassi::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
@@ -60,13 +62,6 @@ Kassi::Application.configure do
     compress: true
   }
 
-  # Disable Rails's static asset server
-  # In production, Apache or nginx will already do this
-  config.serve_static_assets = APP_CONFIG.serve_static_assets_in_production || false
-
-  # Enable serving of images, stylesheets, and javascripts from an asset server
-  # config.action_controller.asset_host = "http://assets.example.com"
-
   # Compress JavaScript and CSS
   #
   # Notice: To GZIP assets on production (with S3) you also need to setup
@@ -79,10 +74,6 @@ Kassi::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
-
-  # settings for asset-sync gem
-  config.action_controller.asset_host = "#{APP_CONFIG.FOG_DIRECTORY}.s3.amazonaws.com" if APP_CONFIG.FOG_DIRECTORY
-  config.assets.prefix = "/assets"
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false

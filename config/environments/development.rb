@@ -1,3 +1,5 @@
+require_relative './common.rb'
+
 Kassi::Application.configure do
   APP_CONFIG ||= ConfigLoader.load_app_config
 
