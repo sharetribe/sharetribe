@@ -353,16 +353,36 @@ module ApplicationHelper
 
   def avatar_thumb(size, person, avatar_html_options={})
     return "" if person.nil?
-    link_to_unless(person.deleted?, image_tag(person.image.url(size), avatar_html_options), person)
+
+    image_url = person.image.present? ? person.image.url(size) : missing_avatar(size)
+
+    link_to_unless(person.deleted?, image_tag(image_url, avatar_html_options), person)
   end
 
   def large_avatar_thumb(person, options={})
-    image_tag person.image.url(:medium), { :alt => person.name(@current_community) }.merge(options)
+    image_url = person.image.present? ? person.image.url(:medium) : missing_avatar(:medium)
+
+    image_tag image_url, { :alt => person.name(@current_community) }.merge(options)
   end
 
   def huge_avatar_thumb(person, options={})
     # FIXME! Need a new picture size: :large
-    image_tag person.image.url(:medium), { :alt => person.name(@current_community) }.merge(options)
+
+    image_url = person.image.present? ? person.image.url(:medium) : missing_avatar(:medium)
+
+    image_tag image_url, { :alt => person.name(@current_community) }.merge(options)
+  end
+
+  def missing_avatar(size = :medium)
+    case size.to_sym
+    when :small
+      image_path("profile_image/small/missing.png")
+    when :thumb
+      image_path("profile_image/thumb/missing.png")
+    else
+      # default to medium size
+      image_path("profile_image/medium/missing.png")
+    end
   end
 
   def pageless(total_pages, target_id, url=nil, loader_message='Loading more results')

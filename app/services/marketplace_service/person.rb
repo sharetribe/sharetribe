@@ -20,7 +20,7 @@ module MarketplaceService
           username: person_model.username,
           first_name: person_model.given_name,
           last_name: person_model.family_name,
-          avatar: person_model.image.url(:thumb),
+          avatar: person_model.image.present? ? person_model.image.url(:thumb) : ActionController::Base.helpers.image_path("profile_image/thumb/missing.png"),
           is_deleted: person_model.deleted?
         ]
       end
