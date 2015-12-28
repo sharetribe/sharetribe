@@ -62,10 +62,6 @@ Kassi::Application.configure do
     compress: true
   }
 
-  # Disable Rails's static asset server
-  # In production, Apache or nginx will already do this
-  config.serve_static_assets = APP_CONFIG.serve_static_assets_in_production || false
-
   # Compress JavaScript and CSS
   #
   # Notice: To GZIP assets on production (with S3) you also need to setup

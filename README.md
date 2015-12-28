@@ -203,7 +203,7 @@ Before starting these steps, perform [steps 1-6 from above](#setting-up-the-deve
 
 The built-in WEBrick server (which was started in the last step above) should not be used in production due to performance reasons. A dedicated HTTP server such as [unicorn](http://unicorn.bogomips.org/) is recommended.
 
-It is also not recommended to serve static assets from a Rails server in production. Instead, you should serve assets from Amazon S3 or use an Apache/Nginx server. In this case, you'll need to set the value of `serve_static_assets_in_production` to `false` in `config/config.yml`.
+It is also not recommended to serve static assets from a Rails server in production. Instead, you should serve assets from Amazon S3 or use an Apache/Nginx server.
 
 #### Setting your domain
 
