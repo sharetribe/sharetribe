@@ -229,7 +229,7 @@ pt-BR:
         email_preferences: "Preferências de e-mail"
         automatic_newsletters: "Enviar automáticamente boletins diários / semanais para todos os usuários (a menos que optar por sair)"
         email_admins_about_new_members: "Envie um e-mail sempre para adminstrador quando um novo usuário se cadastrar"
-        google_analytics_key: "ID de acompanhamento do \"Google Analytics\""
+        google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Twitter handle (usado com o botão de tweet na página de anúncio)"
         update_settings: "Salvar configurações"
         automatically_confirmed: "Os anúncios serão automaticamente confirmados %{days_dropdown} dias após o pagamento. Se o sistema de depósito for utilizado, o dinheiro sera transmitido ao vendedor nesse momento."
@@ -278,8 +278,8 @@ pt-BR:
         invalid_facebook_connect_secret: "Segredo do cliente deve conter apenas números e letras de A a F."
         save: "Salvar definições"
       analytics:
-        analytics: "Google Analytics"
-        google_analytics_key: "ID de acompanhamento do \"Google Analytics\""
+        analytics: Analytics
+        google_analytics_key: "Google Analytics tracking ID"
         google_analytics_key_info_text: "ID de rastreamento da sua conta do \"Google Analytics\"."
         google_analytics_key_info_text_with_instructions: "ID de acompanhamento da sua conta do \"Google Analytics\". %{instructions_link}."
         google_analytics_instructions_link_text: "Leia mais sobre como conectar com o \"Google Analytics\""
