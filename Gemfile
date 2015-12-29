@@ -2,15 +2,15 @@ source 'http://rubygems.org'
 
 ruby '2.1.2'
 
-gem 'rails', '3.2.21'
+gem 'rails', '4.0.13'
 
 # To use debugger
 #gem 'ruby-debug'
 
-gem 'coffee-rails', "~> 3.2.2"
+gem 'coffee-rails', "~> 4.0.1"
 gem 'uglifier'
 
-gem 'sass-rails'
+gem 'sass-rails', '~> 4.0.0'
 gem 'compass-rails', '~> 1.1'
 
 # Requiring 'compass' gem directly is not normally needed,
@@ -36,7 +36,7 @@ gem 'paperclip', '~> 3.5.1'
 gem 'delayed_paperclip'
 gem 'aws-sdk-v1'
 gem 'aws-sdk', '~> 2'
-gem "will_paginate"
+gem "will_paginate", '~>3.0.5'
 gem 'dalli'
 gem "memcachier"
 gem 'kgio', "~>2.8.0"
@@ -95,7 +95,28 @@ gem 'jwt', '~> 1.5.1'
 
 gem 'lograge'
 gem 'public_suffix' # Needed currently to set GA hostname right, probably not
-                    # needed anymore when GA script updated.
+# needed anymore when GA script updated.
+
+gem 'activerecord-session_store'
+
+# This gem was added to make Rails 3.2 -> 4 upgrade path easier.
+# It adds `attr_protected` and `attr_accessor` methods to models.
+# We should remove this gem before upgrading to Rails 5
+gem 'protected_attributes'
+
+# Observers should be used only in test code. Do NOT use them in production
+# code.
+#
+# Observers need to be placed in app/models and that's why they will get
+# loaded also in a non-test environment. That's also the reason why we need
+# to include the observers gem here and not in the :test group
+gem 'rails-observers', '~> 0.1.2'
+
+# Remove Emojis.
+# This will prevent MySQL from blowing up if someone's trying to insert Emojis
+# This gem was inserted to make Rails 3->4 migration path easier. However,
+# it's a hack and should be removed soon.
+gem 'demoji'
 
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
@@ -147,5 +168,3 @@ group :development, :test do
   gem 'pry-nav'
   gem 'pry-stack_explorer'
 end
-
-gem 'strong_parameters'

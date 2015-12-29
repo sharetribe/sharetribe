@@ -14,9 +14,6 @@ Kassi::Application.configure do
   # (this is a hack which is fixed properly in Rails 4)
   # config.action_view.cache_template_loading = false
 
-  # Log error messages when you accidentally call methods on nil.
-  config.whiny_nils = true
-
   config.log_level = :debug
 
   # Basic log config, for calls to Rails.logger.<level> { <message> }
@@ -74,18 +71,11 @@ Kassi::Application.configure do
 
   config.active_support.deprecation = :stderr
 
-  # Do not compress assets
-  config.assets.compress = false
-
   # Expands the lines which load the assets
   config.assets.debug = false
 
   # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict
-
-  # Log the query plan for queries taking more than this (works
-  # with SQLite, MySQL, and PostgreSQL)
-  config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   config.cache_store = :memory_store, { :namespace => "sharetribe-dev"}
 

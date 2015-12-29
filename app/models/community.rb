@@ -111,16 +111,16 @@ class Community < ActiveRecord::Base
   include EmailHelper
 
   has_many :community_memberships, :dependent => :destroy
-  has_many :members, :through => :community_memberships, :conditions => ['community_memberships.status = ?', 'accepted'], :source => :person
-  has_many :admins, :through => :community_memberships, :conditions => ['community_memberships.admin = ? AND community_memberships.status <> ?', true, 'banned'], :source => :person
+  has_many :members, -> { where("community_memberships.status = 'accepted'") }, :through => :community_memberships, :source => :person
+  has_many :admins, -> { where("community_memberships.admin = true AND community_memberships.status <> 'banned'") }, :through => :community_memberships, :source => :person
   has_many :invitations, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
-  has_many :menu_links, :dependent => :destroy, :order => "sort_priority"
+  has_many :menu_links, -> { order("sort_priority") }, :dependent => :destroy
 
-  has_many :categories, :order => "sort_priority"
-  has_many :top_level_categories, :class_name => "Category", :conditions => ["parent_id IS NULL"], :order => "sort_priority"
-  has_many :subcategories, :class_name => "Category", :conditions => ["parent_id IS NOT NULL"], :order => "sort_priority"
+  has_many :categories, -> { order("sort_priority") }
+  has_many :top_level_categories, -> { where("parent_id IS NULL").order("sort_priority") }, :class_name => "Category"
+  has_many :subcategories, -> { where("parent_id IS NOT NULL").order("sort_priority") }, :class_name => "Category"
 
   has_many :conversations
   has_many :transactions
@@ -133,8 +133,8 @@ class Community < ActiveRecord::Base
   has_one :paypal_account # Admin paypal account
 
   has_many :custom_fields, :dependent => :destroy
-  has_many :custom_dropdown_fields, :class_name => "CustomField", :conditions => ["type = 'DropdownField'"], :dependent => :destroy
-  has_many :custom_numeric_fields, :class_name => "NumericField", :conditions => ["type = 'NumericField'"], :dependent => :destroy
+  has_many :custom_dropdown_fields, -> { where("type = 'DropdownField'") }, :class_name => "CustomField", :dependent => :destroy
+  has_many :custom_numeric_fields, -> { where("type = 'NumericField'") }, :class_name => "NumericField", :dependent => :destroy
 
   after_create :initialize_settings
 

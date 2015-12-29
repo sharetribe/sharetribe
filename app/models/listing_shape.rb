@@ -36,7 +36,7 @@ class ListingShape < ActiveRecord::Base
     :deleted
   )
 
-  has_and_belongs_to_many :categories, order: "sort_priority", join_table: "category_listing_shapes"
+  has_and_belongs_to_many :categories, -> { order("sort_priority") }, join_table: "category_listing_shapes"
   has_many :listing_units
 
   def self.columns

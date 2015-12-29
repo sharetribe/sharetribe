@@ -68,7 +68,7 @@ class Listing < ActiveRecord::Base
 
   belongs_to :author, :class_name => "Person", :foreign_key => "author_id"
 
-  has_many :listing_images, :dependent => :destroy, conditions: ["error IS NULL"]
+  has_many :listing_images, -> { where("error IS NULL") }, :dependent => :destroy
 
   has_many :conversations
   has_many :comments, :dependent => :destroy
@@ -77,8 +77,8 @@ class Listing < ActiveRecord::Base
   has_many :custom_checkbox_field_values, :class_name => "CheckboxFieldValue"
 
   has_one :location, :dependent => :destroy
-  has_one :origin_loc, :class_name => "Location", :conditions => ['location_type = ?', 'origin_loc'], :dependent => :destroy
-  has_one :destination_loc, :class_name => "Location", :conditions => ['location_type = ?', 'destination_loc'], :dependent => :destroy
+  has_one :origin_loc, -> { where('location_type = ?', 'origin_loc') }, :class_name => "Location", :dependent => :destroy
+  has_one :destination_loc, -> { where('location_type = ?', 'destination_loc') }, :class_name => "Location", :dependent => :destroy
   accepts_nested_attributes_for :origin_loc, :destination_loc
 
   has_and_belongs_to_many :followers, :class_name => "Person", :join_table => "listing_followers"
@@ -88,13 +88,6 @@ class Listing < ActiveRecord::Base
   monetize :price_cents, :allow_nil => true, with_model_currency: :currency
   monetize :shipping_price_cents, allow_nil: true, with_model_currency: :currency
   monetize :shipping_price_additional_cents, allow_nil: true, with_model_currency: :currency
-
-  # Create an "empty" relationship. This is needed in search when we want to stop the search chain (NumericFields)
-  # and just return empty result.
-  #
-  # When moving to Rails 4.0, remove this and use Model.none
-  # http://stackoverflow.com/questions/4877931/how-to-return-an-empty-activerecord-relation
-  scope :none, -> { where('1 = 0') }
 
   before_validation :set_valid_until_time
 

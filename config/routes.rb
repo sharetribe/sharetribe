@@ -392,6 +392,5 @@ Kassi::Application.routes.draw do
   #keep this matcher last
   #catches all non matched routes, shows 404 and logs more reasonably than the alternative RoutingError + stacktrace
 
-  # TODO: Rails 4.0, add via: :all
-  match "*path" => "errors#not_found"
+  match "*path" => "errors#not_found", via: :all
 end

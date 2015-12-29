@@ -31,17 +31,17 @@ class Category < ActiveRecord::Base
 
   attr_accessor :basename
 
-  has_many :subcategories, :class_name => "Category", :foreign_key => "parent_id", :dependent => :destroy, :order => "sort_priority"
+  has_many :subcategories, -> { order("sort_priority") }, :class_name => "Category", :foreign_key => "parent_id", :dependent => :destroy
   # children is a more generic alias for sub categories, used in classification.rb
-  has_many :children, :class_name => "Category", :foreign_key => "parent_id", :order => "sort_priority"
+  has_many :children, -> { order("sort_priority") }, :class_name => "Category", :foreign_key => "parent_id"
   belongs_to :parent, :class_name => "Category"
   has_many :listings
   has_many :translations, :class_name => "CategoryTranslation", :dependent => :destroy
 
-  has_and_belongs_to_many :listing_shapes, order: "sort_priority", join_table: "category_listing_shapes"
+  has_and_belongs_to_many :listing_shapes, -> { order("sort_priority") }, join_table: "category_listing_shapes"
 
   has_many :category_custom_fields, :dependent => :destroy
-  has_many :custom_fields, :through => :category_custom_fields, :order => "sort_priority"
+  has_many :custom_fields, -> { order("sort_priority") }, :through => :category_custom_fields
 
   belongs_to :community
 

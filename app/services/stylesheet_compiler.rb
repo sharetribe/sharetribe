@@ -3,14 +3,11 @@ module StylesheetCompiler
 
     # Compile SASS files at runtime using Sprockets.
     #
-    # Replace SASS variables on fly by pointing the variable file and
-    # providing key/value hash of variable names/values
-    #
     # params:
     # - `source_dir`    Path to SASS files
     # - `source_file`   Sprockets manifest file (usually application.css)
     # - `target_file`   Path for target file
-    # - `variable_file` File where variables are (relative to `source_dir`)
+    # - `variable_file` File where the replacable variables are (relative to `source_dir`)
     # - `variabhe_hash` Hash for variable values.
     #    `key` is SASS variable name without dollar ($)
     #    `value` the new value (including optional quotes ("), excluding ;)
@@ -18,48 +15,94 @@ module StylesheetCompiler
     # examples params:
     # - `source_dir`: "app/assets/stylesheets"
     # - `source_file`: "application.scss"
-    # - `target_file`: "public/assets/blue-links.css.gz"
+    # - `target_file`: "public/assets/custom-marketplace-styles.css.gz"
     # - `variable_file`: "colors.scss"
     # - `variable_hash`: {link_color: "#0000FF"}
+    #
+    # More detailed explanation about the compilation process:
+    #
+    # Rails' asset pipeline (which is powered by Sprockets) is somewhat tightly coupled
+    # to the Controller/View layer. However, in some cases, like compiling custom stylesheets
+    # in background job, we need to use Sprockets outside the Controller/View context.
+    # That's not super easy thing to do and that's why this module may seem a bit black magic.
+    #
+    # The compilation process has the following phases:
+    #
+    # ## 1. Copy the whole `source_dir` to a temporary direction, e.g. `work_dir`
+    #
+    # In the next step we will replace some content in the directory. We want to do it in
+    # isolation and that's why we make the temporary copy of the directory.
+    #
+    # ## 2. Replace SCSS variables
+    #
+    # Open the `variable_file` and replace the SCSS variables with those that are given in
+    # `variable_hash`. Do the replacement in that file.
+    #
+    # ## 3. Create a Sprockets environment
+    #
+    # From sprockets documentation:
+    #
+    # > You'll need an instance of the Sprockets::Environment
+    # class to access and serve assets from your application. Under Rails 4.0 and later,
+    # YourApp::Application.assets is a preconfigured Sprockets::Environment instance.
+    #
+    # We will use the preconfigured Sprockets environment to compile the assets. However,
+    # we need to do one change to the existing environment. We need to remove the `source_dir`
+    # from the environment `paths` and replace it with the `work_dir`. That's how we can use
+    # the newly created copy of the source dir.
+    #
+    # The `Rails.application.assets` can be either a Sprockets::Environment or an immutable
+    # Sprockets::Index (in production). Because we need to make changes to the `paths` we need
+    # to use the mutable Sprockets::Environment. We can fetch the environment from the
+    # Sprockets::Index by getting the @environment instance variable.
+    #
+    # Read more:
+    # http://matteodepalo.github.io/blog/2013/01/31/how-to-create-custom-stylesheets-dynamically-with-rails-and-sass/
+    #
+    # Warning! We will change the Rails.application.assets which is a globally mutable value.
+    # This is very dangerous! Do not run this method in the server process!
+    #
+    # ## 4. Compile and write to file
+    #
+    # After setting up the Sprockets environment for compilation, we will compile the file
+    # and write it to the filesystem.
     #
     def compile(source_dir, source_file, target_file, variable_file, variable_hash={})
       in_work_dir(source_dir) do |work_dir|
         replace_variables("#{work_dir}/#{variable_file}", variable_hash)
-        sprockets_compile(work_dir, source_file, target_file)
+        sprockets_compile(source_dir, work_dir, source_file, target_file)
       end
     end
 
     private
 
-    def create_sprockets_env(path)
-      Sprockets::Environment.new(Rails.root).tap do |env|
-        env.append_path path
-        env.append_path Kassi::Application::VENDOR_CSS_PATH
+    def create_sprockets_env(source_dir, work_dir)
+      env = get_sprockets_env()
 
-        env.context_class.instance_eval do
-          # Include these helpers to allow SASS files to use image-url etc. helpers
-          include Sprockets::Helpers::RailsHelper
-          include Sprockets::Helpers::IsolatedHelper
+      paths_without_source_dir = env.paths.reject { |p| p.include?(source_dir) }
+      paths_with_work_dir = [work_dir] + paths_without_source_dir
 
-          def sass_config
-            ActiveSupport::OrderedOptions.new.tap do |s|
-              compass = Compass::Frameworks['compass']
+      env.clear_paths
 
-              s.load_paths = [
-                compass.stylesheets_directory,
-                compass.templates_directory
-              ]
+      paths_with_work_dir.each { |p|
+        env.append_path p
+      }
 
-              # Here we can add SASS configurations
-              s.style = :compressed
-            end
-          end
-        end
+      env
+    end
+
+    def get_sprockets_env
+      if Rails.application.assets.is_a?(Sprockets::Index)
+        # Production
+        Rails.application.assets.instance_variable_get('@environment')
+      else
+        # Development
+        Rails.application.assets
       end
     end
 
-    def sprockets_compile(work_dir, source, target)
-      sprockets = create_sprockets_env(work_dir)
+    def sprockets_compile(source_dir, work_dir, source, target)
+      sprockets = create_sprockets_env(source_dir, work_dir)
       asset = sprockets[source]
       asset.write_to(target)
     end

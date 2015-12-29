@@ -87,23 +87,23 @@ class Person < ActiveRecord::Base
 
   attr_protected :is_admin
 
-  has_many :listings, :dependent => :destroy, :foreign_key => "author_id", :conditions => { :deleted => 0 }
+  has_many :listings, -> { where(deleted: 0) }, :dependent => :destroy, :foreign_key => "author_id"
   has_many :emails, :dependent => :destroy, :inverse_of => :person
 
-  has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
+  has_one :location, -> { where(location_type: :person) }, :dependent => :destroy
   has_one :braintree_account, :dependent => :destroy
   has_one :checkout_account, dependent: :destroy
 
   has_many :participations, :dependent => :destroy
   has_many :conversations, :through => :participations, :dependent => :destroy
   has_many :authored_testimonials, :class_name => "Testimonial", :foreign_key => "author_id", :dependent => :destroy
-  has_many :received_testimonials, :class_name => "Testimonial", :foreign_key => "receiver_id", :order => "id DESC", :dependent => :destroy
-  has_many :received_positive_testimonials, :class_name => "Testimonial", :foreign_key => "receiver_id", :conditions => "grade IN (0.5,0.75,1)", :order => "id DESC"
-  has_many :received_negative_testimonials, :class_name => "Testimonial", :foreign_key => "receiver_id", :conditions => "grade IN (0.0,0.25)", :order => "id DESC"
+  has_many :received_testimonials, -> { order("id DESC")}, :class_name => "Testimonial", :foreign_key => "receiver_id", :dependent => :destroy
+  has_many :received_positive_testimonials, -> { where("grade IN (0.5,0.75,1)").order("id DESC") }, :class_name => "Testimonial", :foreign_key => "receiver_id"
+  has_many :received_negative_testimonials, -> { where("grade IN (0.0,0.25)").order("id DESC") }, :class_name => "Testimonial", :foreign_key => "receiver_id"
   has_many :messages, :foreign_key => "sender_id"
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id", :dependent => :destroy
   has_many :community_memberships, :dependent => :destroy
-  has_many :communities, :through => :community_memberships, :conditions => ['status = ?', 'accepted']
+  has_many :communities, -> { where("community_memberships.status = 'accepted'") }, :through => :community_memberships
   has_many :invitations, :foreign_key => "inviter_id", :dependent => :destroy
   has_many :auth_tokens, :dependent => :destroy
   has_many :follower_relationships
@@ -606,8 +606,7 @@ class Person < ActiveRecord::Base
   # If community is given as parameter, in case of many pending
   # emails the one required by the community is returned
   def latest_pending_email_address(community=nil)
-    pending_emails = []
-    Email.where(:person_id => id, :confirmed_at => nil).all.each { |e| pending_emails << e.address }
+    pending_emails = Email.where(:person_id => id, :confirmed_at => nil).pluck(:address)
 
     allowed_emails = if community && community.allowed_emails
       pending_emails.select do |e|
