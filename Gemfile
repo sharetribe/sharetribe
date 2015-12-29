@@ -104,10 +104,12 @@ gem 'activerecord-session_store'
 # We should remove this gem before upgrading to Rails 5
 gem 'protected_attributes'
 
-# Observers is only used by SyncDelayedJobObserver, which is used
-# in tests. However, since observers need to be placed in app/models
-# we need to include observers here and not in the :test group
-# Do not use observers in the future, consider removing this gem
+# Observers should be used only in test code. Do NOT use them in production
+# code.
+#
+# Observers need to be placed in app/models and that's why they will get
+# loaded also in a non-test environment. That's also the reason why we need
+# to include the observers gem here and not in the :test group
 gem 'rails-observers', '~> 0.1.2'
 
 group :staging, :production do
