@@ -158,6 +158,15 @@ module PaypalService
         [:invnum, :string, :mandatory]
         )
 
+      CommissionPendingExt = EntityUtils.define_builder(
+        [:type, const_value: :commission_pending_ext],
+        [:commission_status, :string, :mandatory],
+        [:commission_pending_reason, :string, :mandatory],
+        [:commission_payment_id, :string, :mandatory],
+        [:commission_total, :money, :mandatory],
+        [:invnum, :string, :mandatory]
+      )
+
       module_function
 
       def create_order_created(opts); OrderCreated.call(opts) end
@@ -172,6 +181,7 @@ module PaypalService
       def create_payment_voided(opts); PaymentVoided.call(opts) end
       def create_payment_denied(opts); PaymentDenied.call(opts) end
       def create_commission_paid(opts); CommissionPaid.call(opts) end
+      def create_commission_pending_ext(opts); CommissionPendingExt.call(opts) end
 
       def from_params(params)
         p = HashUtils.symbolize_keys(params)
@@ -186,6 +196,8 @@ module PaypalService
           to_authorization_created(p)
         when :authorization_expired
           to_authorization_expired(p)
+        when :commission_pending_ext
+          to_commission_pending_ext(p)
         when :commission_paid
           to_commission_paid(p)
         when :payment_completed
@@ -226,6 +238,8 @@ module PaypalService
           return :authorization_created
         elsif status == "expired"
           return :authorization_expired
+        elsif status == "pending" && txn_type == "merch_pmt"
+          return :commission_pending_ext
         elsif status == "pending"
           return :payment_pending_ext
         elsif status == "completed" && inv_type == :payment
@@ -409,6 +423,24 @@ module PaypalService
           }))
       end
       private_class_method :to_commission_paid
+
+      def to_commission_pending_ext(params)
+        p = HashUtils.rename_keys(
+          {
+            invoice: :invnum,
+            txn_id: :commission_payment_id,
+            payment_status: :commission_status,
+            pending_reason: :commission_pending_reason
+          },
+          params
+        )
+
+        create_commission_pending_ext(
+          p.merge({
+            commission_total: to_money(params[:mc_gross], params[:mc_currency])
+          }))
+      end
+      private_class_method :to_commission_pending_ext
 
       def to_billing_agreement_created(params)
         p = HashUtils.rename_keys(
