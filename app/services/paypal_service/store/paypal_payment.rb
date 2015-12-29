@@ -161,15 +161,22 @@ module PaypalService::Store::PaypalPayment
     payment_update = {}
 
     new_status = transform_status(update[:payment_status]) if update[:payment_status]
+
     new_pending_reason = transform_pending_reason(update[:pending_reason])
     new_state = to_state(new_status, new_pending_reason) if new_status
+
+    commission_new_status = transform_status(update[:commission_status]) if update[:commission_status]
+    commission_new_pending_reason = transform_pending_reason(update[:commission_pending_reason])
 
     if(new_state && valid_transition?(current_state, new_state))
       payment_update[:payment_status] = new_status
       payment_update[:pending_reason] = new_pending_reason
     end
 
-    payment_update[:commission_status] = transform_status(update[:commission_status]) if update[:commission_status]
+    if (commission_new_status)
+      payment_update[:commission_status] = commission_new_status
+      payment_update[:commission_pending_reason] = commission_new_pending_reason
+    end
 
     payment_update = HashUtils.sub(update, *OPT_UPDATE_FIELDS).merge(cent_totals).merge(payment_update)
 

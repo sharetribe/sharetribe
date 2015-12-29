@@ -212,6 +212,15 @@ describe PaypalService::IPN do
       invnum: "1-1-commission"
     }
 
+    @commission_pending_ext_msg = {
+      type: :commission_pending_ext,
+      commission_status: "Pending",
+      commission_pending_reason: "multi_currency",
+      commission_payment_id: "5SB7123462UR2969339",
+      commission_total: Money.new(174, "GBP"),
+      invnum: "1-1-commission"
+    }
+
     @cid = 1
     @txid = 1
     @txid_auth = 2
@@ -332,6 +341,17 @@ describe PaypalService::IPN do
       payment = PaypalPayment.first
       expect(payment.commission_total).to eql Money.new(174, "GBP")
       expect(payment.commission_fee_total).to eql Money.new(10, "GBP")
+    end
+
+    it "should handle commission pending ext" do
+      @ipn_service.handle_msg(@auth_created_msg)
+      @ipn_service.handle_msg(@payment_completed_msg)
+      @ipn_service.handle_msg(@commission_pending_ext_msg)
+
+      payment = PaypalPayment.first
+      expect(payment.commission_total).to eql Money.new(174, "GBP")
+      expect(payment.commission_status).to eql "pending"
+      expect(payment.commission_pending_reason).to eql "multicurrency"
     end
 
     it "should handle commission refunded" do
