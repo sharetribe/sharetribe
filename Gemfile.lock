@@ -158,6 +158,7 @@ GEM
       delayed_job (>= 3.0, < 4.1)
     delayed_paperclip (2.6.1)
       paperclip (>= 3.3.0)
+    demoji (0.0.5)
     devise (3.0.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -515,6 +516,7 @@ DEPENDENCIES
   delayed_job (~> 4.0.0, <= 4.0.2)
   delayed_job_active_record
   delayed_paperclip
+  demoji
   devise (~> 3.0.0)
   devise-encryptable
   dynamic_form

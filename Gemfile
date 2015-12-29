@@ -112,6 +112,12 @@ gem 'protected_attributes'
 # to include the observers gem here and not in the :test group
 gem 'rails-observers', '~> 0.1.2'
 
+# Remove Emojis.
+# This will prevent MySQL from blowing up if someone's trying to insert Emojis
+# This gem was inserted to make Rails 3->4 migration path easier. However,
+# it's a hack and should be removed soon.
+gem 'demoji'
+
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
   gem 'rails_12factor', '~> 0.0.3'
