@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215071150) do
+ActiveRecord::Schema.define(version: 20151230071554) do
 
   create_table "auth_tokens", force: true do |t|
     t.string   "token"
@@ -612,6 +612,8 @@ ActiveRecord::Schema.define(version: 20151215071150) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  add_index "menu_link_translations", ["menu_link_id"], name: "index_menu_link_translations_on_menu_link_id", using: :btree
 
   create_table "menu_links", force: true do |t|
     t.integer  "community_id"
