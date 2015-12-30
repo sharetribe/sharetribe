@@ -62,7 +62,6 @@ gem 'rails-i18n'
 gem 'devise', "~>3.0.0"
 gem "devise-encryptable"
 gem "omniauth-facebook", "~> 2.0.1"
-gem 'rabl', '~> 0.7.10'
 gem 'rake'
 gem 'xpath'
 gem 'dynamic_form'
