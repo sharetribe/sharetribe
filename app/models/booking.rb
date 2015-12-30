@@ -9,6 +9,10 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
+# Indexes
+#
+#  index_bookings_on_transaction_id  (transaction_id)
+#
 
 class Booking < ActiveRecord::Base
 
