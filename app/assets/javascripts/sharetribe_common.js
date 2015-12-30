@@ -44,11 +44,11 @@ function prepare_ajax_form(form_id, locale, rules) {
   });
 }
 
-function disable_submit_button(form_id, locale) {
+function disable_submit_button(form_id) {
   $(form_id).find("button").attr('disabled', 'disabled');
-  jQuery.getJSON('/assets/locales/' + locale + '.json', function(json) {
-    $(form_id).find("button").text(json.please_wait);
-  });
+
+  var json = ST.jsonTranslations;
+  $(form_id).find("button").text(json.please_wait);
 }
 
 function auto_resize_text_areas(class_name) {
@@ -63,34 +63,33 @@ function translate_validation_messages(locale) {
     }
   }
 
-  jQuery.getJSON('/assets/locales/' + locale + '.json', function(json) {
-    jQuery.extend(jQuery.validator.messages, {
-        required: json.validation_messages.required,
-        remote: json.validation_messages.remote,
-        email: json.validation_messages.email,
-        url: json.validation_messages.url,
-        date: json.validation_messages.date,
-        dateISO: json.validation_messages.dateISO,
-        number: json.validation_messages.number,
-        digits: json.validation_messages.digits,
-        creditcard: json.validation_messages.creditcard,
-        equalTo: json.validation_messages.equalTo,
-        accept: json.validation_messages.accept,
-        maxlength: jQuery.validator.format(json.validation_messages.maxlength),
-        minlength: jQuery.validator.format(json.validation_messages.minlength),
-        rangelength: jQuery.validator.format(json.validation_messages.rangelength),
-        range: jQuery.validator.format(json.validation_messages.range),
-        max: jQuery.validator.format(json.validation_messages.max),
-        min: jQuery.validator.format(json.validation_messages.min),
-        address_validator: jQuery.validator.format(json.validation_messages.address_validator),
-        money: jQuery.validator.format(json.validation_messages.money),
-        min_bound: formatMinMaxMessage(json.validation_messages.min_bound),
-        max_bound: formatMinMaxMessage(json.validation_messages.max_bound),
-        number_min: jQuery.validator.format(json.validation_messages.min),
-        number_max: jQuery.validator.format(json.validation_messages.max),
-        number_no_decimals: json.validation_messages.number_no_decimals,
-        number_decimals: json.validation_messages.number_decimals,
-        number_conditional_decimals: json.validation_messages.number
-    });
+  var json = ST.jsonTranslations;
+  jQuery.extend(jQuery.validator.messages, {
+      required: json.validation_messages.required,
+      remote: json.validation_messages.remote,
+      email: json.validation_messages.email,
+      url: json.validation_messages.url,
+      date: json.validation_messages.date,
+      dateISO: json.validation_messages.dateISO,
+      number: json.validation_messages.number,
+      digits: json.validation_messages.digits,
+      creditcard: json.validation_messages.creditcard,
+      equalTo: json.validation_messages.equalTo,
+      accept: json.validation_messages.accept,
+      maxlength: jQuery.validator.format(json.validation_messages.maxlength),
+      minlength: jQuery.validator.format(json.validation_messages.minlength),
+      rangelength: jQuery.validator.format(json.validation_messages.rangelength),
+      range: jQuery.validator.format(json.validation_messages.range),
+      max: jQuery.validator.format(json.validation_messages.max),
+      min: jQuery.validator.format(json.validation_messages.min),
+      address_validator: jQuery.validator.format(json.validation_messages.address_validator),
+      money: jQuery.validator.format(json.validation_messages.money),
+      min_bound: formatMinMaxMessage(json.validation_messages.min_bound),
+      max_bound: formatMinMaxMessage(json.validation_messages.max_bound),
+      number_min: jQuery.validator.format(json.validation_messages.min),
+      number_max: jQuery.validator.format(json.validation_messages.max),
+      number_no_decimals: json.validation_messages.number_no_decimals,
+      number_decimals: json.validation_messages.number_decimals,
+      number_conditional_decimals: json.validation_messages.number
   });
 }
