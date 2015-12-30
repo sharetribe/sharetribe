@@ -36,7 +36,7 @@ class TranslationCache
 
   def translations
     fetch_cache(cache_key) do
-      @model.send(@translation_attr_sym)
+      @model.send(@translation_attr_sym).to_a
     end
   end
 
