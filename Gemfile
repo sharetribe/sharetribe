@@ -80,10 +80,7 @@ gem "mail_view", "~> 1.0.3"
 gem 'statesman', '~> 0.5.0'
 gem "premailer"
 gem 'stringex', '~> 2.5.2'
-gem 'paypal-sdk-permissions',
-  :git    => 'git://github.com/paypal/permissions-sdk-ruby.git',
-  :branch => 'master',
-  :ref    => 'c0240bee9f94fe6338d67b4f754e1a11ce81619a'
+gem 'paypal-sdk-permissions', '~> 1.96.4'
 gem 'paypal-sdk-merchant', '~> 1.116.0'
 gem 'airbrake', '~>4.1.0'
 gem 'cache_digests'
