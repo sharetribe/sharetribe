@@ -80,11 +80,11 @@ de:
         contact_admin_link_text: "Administrator kontaktieren"
         save: "Einstellungen speichern"
         transaction_agreement: Transaktionsvereinbarung
-        transaction_agreement_checkbox: "Benutzer müssen die Nutzungsvereinbarungen vor der Transaktion akzeptieren"
-        transaction_agreement_checkbox_header: "Nutzungsvereinbarung Label"
+        transaction_agreement_checkbox: "Benutzer müssen die Allgemeinen Geschäftsbedingungen vor der Transaktion akzeptieren"
+        transaction_agreement_checkbox_header: "Allgemeine Geschäftsbedingungen Label"
         transaction_agreement_checkbox_label_description: ~
-        transaction_agreement_text_header: Nutzungsvereinbarung
-        transaction_agreement_description: "Dies ist der Inhalt der eigentlichen Nutzungsvereinbarung, die der Anwender akzeptieren muss. Der Inhalt der Nutzungsvereinbarung wird angezeigt, wenn der Benutzer den %{read_more} Link neben dem Label der Nutzungsvereinbarung klickt."
+        transaction_agreement_text_header: "Allgemeine Geschäftsbedingungen"
+        transaction_agreement_description: "Dies ist der Inhalt der allgemeinen Geschäftsbedingungen (AGBs), die der Anwender akzeptieren muss. Der Inhalt der AGBs wird angezeigt, wenn der Benutzer den %{read_more} Link neben dem Label der Allgemeinen Geschäftsbedingungen klickt."
       edit_look_and_feel:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" der Community %{community_name}"
         community_logo: Logo
