@@ -16,6 +16,7 @@
 # Indexes
 #
 #  index_custom_field_values_on_listing_id  (listing_id)
+#  index_custom_field_values_on_type        (type)
 #
 
 class DateFieldValue < CustomFieldValue

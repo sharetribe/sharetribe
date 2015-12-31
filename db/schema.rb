@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151230095128) do
+ActiveRecord::Schema.define(version: 20151231083524) do
 
   create_table "auth_tokens", force: true do |t|
     t.string   "token"
@@ -349,6 +349,7 @@ ActiveRecord::Schema.define(version: 20151230095128) do
   end
 
   add_index "custom_field_values", ["listing_id"], name: "index_custom_field_values_on_listing_id", using: :btree
+  add_index "custom_field_values", ["type"], name: "index_custom_field_values_on_type", using: :btree
 
   create_table "custom_fields", force: true do |t|
     t.string   "type"
@@ -365,10 +366,10 @@ ActiveRecord::Schema.define(version: 20151230095128) do
   add_index "custom_fields", ["community_id"], name: "index_custom_fields_on_community_id", using: :btree
 
   create_table "delayed_jobs", force: true do |t|
-    t.integer  "priority",                    default: 0
-    t.integer  "attempts",                    default: 0
+    t.integer  "priority",   default: 0
+    t.integer  "attempts",   default: 0
     t.text     "handler"
-    t.text     "last_error", limit: 16777215
+    t.text     "last_error"
     t.datetime "run_at"
     t.datetime "locked_at"
     t.datetime "failed_at"
