@@ -12,6 +12,21 @@ When updating, always run the following commands to update gem set and database 
  - check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed
  - if running on local instance (localhost), you need to precompile assets using "rake assets:precompile" once update is done
 
+5.0.0
+-----
+
+Rails updated to from 3.2 to 4.0.
+
+Before updating to your Sharetribe installations to 5.0.0, make sure that your current version is 4.6.0 or newer.
+
+After you have deployed the new version you need to clear Rails cache by running to following command in your production application Rails console:
+
+```
+Rails.cache.clear
+```
+
+If something goes wrong, you can safely roll back this version back to 4.6.0. You don't need to roll back the database migrations. You may need to empty the cache again after the rollback.
+
 4.6.0
 -----
 
