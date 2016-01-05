@@ -54,7 +54,12 @@ class HomepageController < ApplicationController
         raise ArgumentError.new("Unknown view_type #{@view_type}")
       end
 
-    search_result = find_listings(params, per_page, compact_filter_params, includes.to_set)
+    search_param_digest = Digest::MD5.hexdigest([params, per_page, compact_filter_params, includes].join)
+    view_param_digest = Digest::MD5.hexdigest([params, per_page, compact_filter_params, includes, I18n.locale].join)
+
+    search_result = Rails.cache.fetch(["index_listings", @current_community.cache_key, search_param_digest]) do
+      find_listings(params, per_page, compact_filter_params, includes.to_set)
+    end
 
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
@@ -74,6 +79,7 @@ class HomepageController < ApplicationController
       search_result.on_success { |listings|
         @listings = listings
         render locals: {
+                 param_digest: view_param_digest,
                  shapes: all_shapes,
                  show_price_filter: show_price_filter,
                  selected_shape: selected_shape,

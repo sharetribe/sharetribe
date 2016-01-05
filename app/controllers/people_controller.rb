@@ -248,6 +248,8 @@ class PeopleController < Devise::RegistrationsController
           Email.send_confirmation(@person.emails.last, @current_community)
         end
 
+        invalidate_caches(@person)
+
         flash[:notice] = t("layouts.notifications.person_updated_successfully")
 
         # Send new confirmation email, if was changing for that
@@ -273,6 +275,7 @@ class PeopleController < Devise::RegistrationsController
 
     # Do all delete operations in transaction. Rollback if any of them fails
     ActiveRecord::Base.transaction do
+      invalidate_caches(@current_user)
       UserService::API::Users.delete_user(@current_user.id)
       MarketplaceService::Listing::Command.delete_listings(@current_user.id)
 
@@ -393,6 +396,14 @@ class PeopleController < Devise::RegistrationsController
         render :layout => false
       }
     end
+  end
+
+  def invalidate_caches(person_model)
+    author_id = person_model.id
+    communities = person_model.communities.map(&:id)
+
+    listings_updated = Listing.where(author_id: author_id).update_all(updated_at: Time.now)
+    Community.where(id: communities).update_all(updated_at: Time.now) if listings_updated
   end
 
 end

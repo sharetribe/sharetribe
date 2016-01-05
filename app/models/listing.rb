@@ -67,6 +67,7 @@ class Listing < ActiveRecord::Base
   include Rails.application.routes.url_helpers
 
   belongs_to :author, :class_name => "Person", :foreign_key => "author_id"
+  belongs_to :community, :foreign_key => "community_id", :touch => true
 
   has_many :listing_images, -> { where("error IS NULL") }, :dependent => :destroy
 
