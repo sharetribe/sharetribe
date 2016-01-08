@@ -627,6 +627,13 @@ class Person < ActiveRecord::Base
     @followed_people_by_id ||= followed_people.group_by(&:id)
   end
 
+  # This method is temporary and only needed until the possibility to have
+  # one account in many communities is disabled. Then this can be deleted
+  # and return to use just simpler followed_people
+  def followed_people_in_community(community)
+    followed_people.select{|p| p.member_of?(community)}
+  end
+
   def self.members_of(community)
     joins(:communities).where("communities.id" => community.id)
   end
