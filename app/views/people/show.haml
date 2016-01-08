@@ -1,3 +1,5 @@
+- received_testimonials = @person.received_testimonials_in_community(@current_community)
+
 - content_for :javascript do
   initialize_profile_view("#{@person.username}");
 
@@ -54,14 +56,14 @@
       #people-testimonials.listing-main
         .row
           %h2.people-header
-            - if @person.received_testimonials.size > 0
-              = pluralize(@person.received_testimonials.size, t(".review"), t(".reviews"))
-              = "(#{@person.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{@person.received_positive_testimonials.size}/#{@person.received_testimonials.size})"
+            - if received_testimonials.size > 0
+              = pluralize(received_testimonials.size, t(".review"), t(".reviews"))
+              = "(#{@person.feedback_positive_percentage_in_community(@current_community).to_s}% #{t("people.show.positive")}, #{@person.received_positive_testimonials_in_community(@current_community).size}/#{received_testimonials.size})"
             - else
               = t(".no_reviews")
-          - if @person.received_testimonials.size > 0
+          - if received_testimonials.size > 0
             #profile-testimonials-list
-              = render :partial => "testimonials", :locals => {:received_testimonials => @person.received_testimonials, :limit => 3}
+              = render :partial => "testimonials", :locals => {:received_testimonials => received_testimonials, :limit => 3}
 
   .col-4
     .row

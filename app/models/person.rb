@@ -367,14 +367,19 @@ class Person < ActiveRecord::Base
 
   # The percentage of received testimonials with positive grades
   # (grades between 3 and 5 are positive, 1 and 2 are negative)
-  def feedback_positive_percentage
-    if received_positive_testimonials.size > 0
-      if received_negative_testimonials.size > 0
-        (received_positive_testimonials.size.to_f/received_testimonials.size.to_f*100).round
+  def feedback_positive_percentage_in_community(community)
+    # NOTE the filtering with communinity can be removed when
+    # user accounts are no more shared among communities
+    positive_testimonials = received_positive_testimonials_in_community(community)
+    negative_testimonials = received_negative_testimonials_in_community(community)
+
+    if positive_testimonials.size > 0
+      if negative_testimonials.size > 0
+        (positive_testimonials.size.to_f/received_testimonials_in_community(community).size.to_f*100).round
       else
         return 100
       end
-    elsif received_negative_testimonials.size > 0
+    elsif negative_testimonials.size > 0
       return 0
     end
   end
@@ -627,12 +632,28 @@ class Person < ActiveRecord::Base
     @followed_people_by_id ||= followed_people.group_by(&:id)
   end
 
+  # Filters out those followed_people that are not members of the community
   # This method is temporary and only needed until the possibility to have
   # one account in many communities is disabled. Then this can be deleted
   # and return to use just simpler followed_people
   def followed_people_in_community(community)
     followed_people.select{|p| p.member_of?(community)}
   end
+
+  # Filters out those testimonials that do not belong to this community
+  # These methods are temporary and only needed until the possibility to have
+  # one account in many communities is disabled. Then these can be deleted
+  # and return to use just simpler received_testimonials named scopes
+  def received_testimonials_in_community(community)
+    received_testimonials.includes(:transaction).select{|t|t.transaction.community_id == community.id }
+  end
+  def received_positive_testimonials_in_community(community)
+    received_positive_testimonials.includes(:transaction).select{|t|t.transaction.community_id == community.id }
+  end
+  def received_negative_testimonials_in_community(community)
+    received_negative_testimonials.includes(:transaction).select{|t|t.transaction.community_id == community.id }
+  end
+
 
   def self.members_of(community)
     joins(:communities).where("communities.id" => community.id)
