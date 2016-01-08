@@ -361,10 +361,6 @@ class Person < ActiveRecord::Base
     listings.requests
   end
 
-  def feedback_average
-    ((received_testimonials.average(:grade) * 4 + 1) * 10).round / 10.0
-  end
-
   # The percentage of received testimonials with positive grades
   # (grades between 3 and 5 are positive, 1 and 2 are negative)
   def feedback_positive_percentage_in_community(community)
