@@ -1,5 +1,3 @@
-- received_testimonials = @listing.author.received_testimonials_in_community(@current_community)
-
 - content_for :javascript do
   initialize_listing_view('#{I18n.locale}');
 
@@ -154,9 +152,9 @@
           .listing-author-activity-item
             .listing-author-activity-value
               - if received_testimonials.size > 0
-                = @listing.author.feedback_positive_percentage_in_community(@current_community).to_s + "%"
+                = feedback_positive_percentage.to_s + "%"
                 = t("people.show.positive")
-                = "(#{@listing.author.received_positive_testimonials_in_community(@current_community).size}/#{received_testimonials.size})"
+                = "(#{received_positive_testimonials.size}/#{received_testimonials.size})"
               - else
                 = t(".no_reviews")
             .listing-author-activity-description

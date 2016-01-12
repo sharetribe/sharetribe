@@ -1,5 +1,3 @@
-- received_testimonials = @person.received_testimonials_in_community(@current_community)
-
 - content_for :javascript do
   initialize_profile_view("#{@person.username}");
 
@@ -50,7 +48,7 @@
       = render :partial => 'listings/profile_listings', :locals => {person: @person, limit: limit, listings: listings}
 
     - if @current_community.follow_in_use?
-      = render :partial => "followed_people", :locals => { :person => @person, :limit => 6 }
+      = render :partial => "followed_people", :locals => { person: @person, followed_people: followed_people, limit: 6 }
 
     - if @current_community.testimonials_in_use
       #people-testimonials.listing-main
@@ -58,7 +56,7 @@
           %h2.people-header
             - if received_testimonials.size > 0
               = pluralize(received_testimonials.size, t(".review"), t(".reviews"))
-              = "(#{@person.feedback_positive_percentage_in_community(@current_community).to_s}% #{t("people.show.positive")}, #{@person.received_positive_testimonials_in_community(@current_community).size}/#{received_testimonials.size})"
+              = "(#{feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{received_positive_testimonials.size}/#{received_testimonials.size})"
             - else
               = t(".no_reviews")
           - if received_testimonials.size > 0

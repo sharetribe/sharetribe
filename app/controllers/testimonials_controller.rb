@@ -15,7 +15,7 @@ class TestimonialsController < ApplicationController
     PersonViewUtils.ensure_person_belongs_to_community!(@person, @current_community)
 
     if request.xhr?
-      @testimonials = @person.received_testimonials_in_community(@current_community).paginate(:per_page => params[:per_page], :page => params[:page])
+      @testimonials = PeopleController.received_testimonials_in_community(@person, @current_community).paginate(:per_page => params[:per_page], :page => params[:page])
       limit = params[:per_page].to_i
       render :partial => "people/testimonials", :locals => {:received_testimonials => @testimonials, :limit => limit}
     else

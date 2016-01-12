@@ -1,8 +1,6 @@
 class PeopleController < Devise::RegistrationsController
   class PersonDeleted < StandardError; end
 
-  include PeopleHelper
-
   skip_before_filter :verify_authenticity_token, :only => [:creates]
   skip_before_filter :require_no_authentication, :only => [:new]
 
@@ -48,7 +46,17 @@ class PeopleController < Devise::RegistrationsController
       ))
     }.data
 
-    render locals: { listings: listings }
+    followed_people = PeopleController.followed_people_in_community(@person, @current_community)
+    received_testimonials = PeopleController.received_testimonials_in_community(@person, @current_community)
+    received_positive_testimonials = PeopleController.received_positive_testimonials_in_community(@person, @current_community)
+    feedback_positive_percentage = @person.feedback_positive_percentage_in_community(@current_community)
+
+    render locals: { listings: listings,
+                     followed_people: followed_people,
+                     received_testimonials: received_testimonials,
+                     received_positive_testimonials: received_positive_testimonials,
+                     feedback_positive_percentage: feedback_positive_percentage
+                   }
   end
 
   def new
@@ -344,6 +352,28 @@ class PeopleController < Devise::RegistrationsController
     change_active_status("deactivated")
   end
 
+  # Filters out those followed_people that are not members of the community
+  # This method is temporary and only needed until the possibility to have
+  # one account in many communities is disabled. Then this can be deleted
+  # and return to use just simpler followed_people
+  def self.followed_people_in_community(person, community)
+    person.followed_people.select{|p| p.member_of?(community)}
+  end
+
+  # Filters out those testimonials that do not belong to this community
+  # These methods are temporary and only needed until the possibility to have
+  # one account in many communities is disabled. Then these can be deleted
+  # and return to use just simpler received_testimonials named scopes
+  def self.received_testimonials_in_community(person, community)
+    person.received_testimonials.includes(:transaction).select{|t|t.transaction.community_id == community.id }
+  end
+  def self.received_positive_testimonials_in_community(person, community)
+    person.received_positive_testimonials.includes(:transaction).select{|t|t.transaction.community_id == community.id }
+  end
+  def self.received_negative_testimonials_in_community(person, community)
+    person.received_negative_testimonials.includes(:transaction).select{|t|t.transaction.community_id == community.id }
+  end
+
   private
 
   # Create a new person by params and current community
@@ -394,5 +424,6 @@ class PeopleController < Devise::RegistrationsController
       }
     end
   end
+
 
 end
