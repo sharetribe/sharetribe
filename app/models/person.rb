@@ -366,9 +366,9 @@ class Person < ActiveRecord::Base
   def feedback_positive_percentage_in_community(community)
     # NOTE the filtering with communinity can be removed when
     # user accounts are no more shared among communities
-    received_testimonials = PeopleController.received_testimonials_in_community(self, community)
-    positive_testimonials = PeopleController.received_positive_testimonials_in_community(self, community)
-    negative_testimonials = PeopleController.received_negative_testimonials_in_community(self, community)
+    received_testimonials = TestimonialViewUtils.received_testimonials_in_community(self, community)
+    positive_testimonials = TestimonialViewUtils.received_positive_testimonials_in_community(self, community)
+    negative_testimonials = TestimonialViewUtils.received_negative_testimonials_in_community(self, community)
 
     if positive_testimonials.size > 0
       if negative_testimonials.size > 0
