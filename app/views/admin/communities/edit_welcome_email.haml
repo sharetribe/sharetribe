@@ -34,7 +34,8 @@
   - content_for(:resend_link) do
     = link_to(t("admin.communities.outgoing_email.resend_link"), nil, class: "js-sender-address-resend-verification")
 
-  - if user_defined_address.nil?
+  - if user_defined_address.nil? || !ses_in_use
+    -# SES not in use, or the marketplace uses default sender address
     .row
       .col-12
         .sender-address-preview
@@ -42,6 +43,7 @@
             = content_for(:sender_address_preview)
 
   - elsif [:none, :requested, :expired].include?(user_defined_address[:verification_status])
+    -# Custom sender address is set, but not yet verified
     .row.js-status-loading
       .col-12
         = image_tag("ajax-loader-grey.gif", class: "sender-address-status-loading-spinner")
