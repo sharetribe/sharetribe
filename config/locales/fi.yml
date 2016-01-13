@@ -1832,13 +1832,8 @@ fi:
       read_more_about_kassi_communities: "Lue lisää %{service_name}-palvelusta"
       this_user_does_not_belong_to_this_community: "Tämä käyttäjä ei ole %{service_name}-palvelun jäsen"
     profile_feedback:
-      as_expected: "Vastasi odotuksia"
-      exceeded_expectations: "Ylitti täysin odotukset"
       grade: "arvio:"
       and_gave_following_feedback: "ja antoi seuraavan palautteen"
-      less_than_expected: "Ei vastannut lainkaan odotuksia"
-      slightly_better_than_expected: "Ylitti jossain määrin odotukset"
-      slightly_less_than_expected: "Ei täysin vastannut odotuksia"
     profile_listings:
       show_also_closed: "Näytä myös suljetut"
       show_only_open: "Näytä vain avoimet"

@@ -82,7 +82,7 @@ de:
         transaction_agreement: Transaktionsvereinbarung
         transaction_agreement_checkbox: "Benutzer müssen die Allgemeinen Geschäftsbedingungen vor der Transaktion akzeptieren"
         transaction_agreement_checkbox_header: "Allgemeine Geschäftsbedingungen Label"
-        transaction_agreement_checkbox_label_description: ~
+        transaction_agreement_checkbox_label_description: "Dieser Text wird neben einer Checkbox beim Checkout angezeigt. Der Nutzer muss mit einem Haken in der Checkbox zustimmen, um die Transaktion abzuschließen. Ein Beispiel wäre etwa \"Mit Klicken dieser Box akzeptiere ich die Vereinbarung.\""
         transaction_agreement_text_header: "Allgemeine Geschäftsbedingungen"
         transaction_agreement_description: "Dies ist der Inhalt der allgemeinen Geschäftsbedingungen (AGBs), die der Anwender akzeptieren muss. Der Inhalt der AGBs wird angezeigt, wenn der Benutzer den %{read_more} Link neben dem Label der Allgemeinen Geschäftsbedingungen klickt."
       edit_look_and_feel:
@@ -116,7 +116,7 @@ de:
         first_name_only: "Nur der Vorname"
         invalid_color_code: "Der Farben Code sollte 6 Ziffern oder Buchstaben A-F haben, zum Beispiel D96E21"
         custom_head_script: "Angepasstes Skript"
-        custom_head_script_instructions_text: ~
+        custom_head_script_instructions_text: "Dieses Skript ist im <head> Tag jeder Seite eingebettet und kann genutzt werden, um angepasstes CSS, JavaScript oder HTML einzubinden. Bitte beachte, dass zukünftige Änderungen an Sharetribe Deine Anpassungen inkompatibel machen können."
       edit_text_instructions:
         edit_text_instructions: Anleitungstexte
       edit_welcome_email:
@@ -191,26 +191,26 @@ de:
         contact_support_link_text: "Kontaktiere unseren Support"
       available_languages:
         en: ~
-        en-AU: ~
-        en-GB: ~
+        en-AU: "Englisch (Australien)"
+        en-GB: "Englisch (Großbritannien)"
         fr: ~
-        fr-CA: ~
-        es: ~
+        fr-CA: "Französisch (Canada)"
+        es: "Spanisch (Chile)"
         es-ES: ~
         pt-PT: ~
         pt-BR: ~
         nb: ~
         sv: ~
-        da-DK: ~
-        fi: ~
-        ru: ~
-        de: ~
-        el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
-        it: ~
+        da-DK: Dänisch
+        fi: Finisch
+        ru: Russisch
+        de: Deutsch
+        el: Griechisch
+        nl: Holländisch
+        tr-TR: Türkisch
+        zh: Chinesisch
+        ja: Japanisch
+        it: Italienisch
       settings:
         settings: Einstellungen
         general: Allgemein
@@ -432,8 +432,8 @@ de:
         update_success: ~
         update_failure: ~
         delete: "Auftragsart löschen"
-        can_not_delete_last: ~
-        can_not_delete_only_one_in_categories: ~
+        can_not_delete_last: "Du kannst diesen Auftragstyp nicht löschen weil er der einzige auf Deinem Marktplatz ist."
+        can_not_delete_only_one_in_categories: "Du kannst diesen Auftragstyp nicht löschen weil er in folgenden Kategorien der einzig verfügbare Auftragstyp ist: %{categories}"
       listing_shape_name: ~
       listing_shape_name_placeholder: ~
       action_button_label: ~
@@ -454,11 +454,11 @@ de:
         week: ~
         month: ~
       can_not_find: ~
-      add_custom_unit: ~
+      add_custom_unit: "+ Füge eine angepasste Preis Einheit hinzu"
       delete_custom_unit: löschen
       custom_unit_form:
-        title: ~
-        label_heading: ~
+        title: "Neue Preis Einheit"
+        label_heading: Label
         selector_label_heading: ~
         label_placeholder: ~
         selector_placeholder: ~
@@ -555,13 +555,11 @@ de:
     paypal_fee_info:
       title: PayPal-Zahlungsbearbeitungsgebühr
       body_text: |-
-          PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt in Deutschland bei maximal 1,9% + 0,35 € pro inländischer Transaktion (sie ist geringer bei höheren Umsätzen). 
-          Wenn Du Dich bei Deinem Paypal Account anmeldest, erhälst Du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen.
-          Nach jeder Transaktion bekommst Du einen Beleg mit der exakten Gebühr.
+          PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt zwischen 2% und 5% der Transaktionssumme, je nach monatlichem Umsatz und Land des Käufers.
+          Wenn Du Dich bei Deinem Paypal Account anmeldest, erhältst Du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen. Nach jeder Transaktion bekommst Du einen Beleg mit der exakten Gebühr.
       body_with_shipping_text: |-
-          PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt in Deutschland bei maximal 1,9% + 0,35 € pro inländischer Transaktion (sie ist geringer bei höheren Umsätzen). 
-          Wenn Du Dich bei Deinem Paypal Account anmeldest, erhälst Du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen.
-          Nach jeder Transaktion bekommst Du einen Beleg mit der exakten Gebühr.
+          PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt zwischen 2% und 5% der Transaktionssumme, je nach monatlichem Umsatz und Land des Käufers.
+          Wenn Du Dich bei Deinem Paypal Account anmeldest, erhälst Du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen. Nach jeder Transaktion bekommst Du einen Beleg mit der exakten Gebühr.
       link_to_paypal_text: hier
   conversations:
     accept:
@@ -1834,13 +1832,8 @@ de:
       read_more_about_kassi_communities: "Lies mehr über Sharetribe-Communities"
       this_user_does_not_belong_to_this_community: "Dieser Benutzer gehört nicht zu %{community}"
     profile_feedback:
-      as_expected: "Wie erwartet"
-      exceeded_expectations: "Viel besser als erwartet"
       grade: "Note:"
       and_gave_following_feedback: "und gab das folgende Feedback"
-      less_than_expected: "Schlechter als erwartet"
-      slightly_better_than_expected: "Etwas besser als erwartet"
-      slightly_less_than_expected: "Etwas schlechter als erwartet"
     profile_listings:
       show_also_closed: "Auch pausierte Angebote anzeigen"
       show_only_open: "Nur aktive Angebote anzeigen"

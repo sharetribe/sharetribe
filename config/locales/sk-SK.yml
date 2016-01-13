@@ -1,4 +1,4 @@
-lv:
+sk-SK:
   admin:
     categories:
       edit:
@@ -493,22 +493,22 @@ lv:
     edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
-    cancel: Atcelt
-    fields_that_are_mandatory: "Laukus atzīmētus ar (*) ir jāaizpilda obligāti."
-    or: vai
+    cancel: ~
+    fields_that_are_mandatory: ~
+    or: ~
     password: ~
     service_name: ~
     share_types:
       request: ~
       offer: ~
-      borrow: aizņemas
-      buy: pērk
-      give_away: atdod
-      lend: aizdod
-      receive: "par brīvu"
-      rent: īrē
-      rent_out: "meklē īrniekus"
-      sell: pārdod
+      borrow: ~
+      buy: ~
+      give_away: ~
+      lend: ~
+      receive: ~
+      rent: ~
+      rent_out: ~
+      sell: ~
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: ~
@@ -535,7 +535,7 @@ lv:
       other: ~
     username: ~
     username_or_email: ~
-    what_is_this: "Kas tas ir?"
+    what_is_this: ~
     removed_user: ~
     paypal_fee_info:
       title: ~
@@ -584,11 +584,11 @@ lv:
       days: ~
       price_per_day: ~
     index:
-      loading_more_messages: "Ielādē vēl ziņojumus"
-      message_partitive: ziņojums
-      messages_partitive: ziņojumi
-      no_received_messages: "Nav saņemtu ziņojumu"
-      no_sent_messages: "Nav nosūtītu ziņu"
+      loading_more_messages: ~
+      message_partitive: ~
+      messages_partitive: ~
+      no_received_messages: ~
+      no_sent_messages: ~
     conversation:
       accepted_request: ~
       accepted_offer: ~
@@ -616,9 +616,9 @@ lv:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: "Lūgt palīdzību"
-      favor_request_message_form_title: "Piedāvāt palīdzību"
-      housing_offer_message_form_title: "Piedāvāt vietu"
+      favor_offer_message_form_title: ~
+      favor_request_message_form_title: ~
+      housing_offer_message_form_title: ~
       housing_request_message_form_title: ~
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
@@ -2023,56 +2023,56 @@ lv:
       long_with_abbr_day_name: ~
   datepicker:
     days:
-      sunday: Svētdiena
-      monday: Pirmdiena
-      tuesday: Otrdiena
-      wednesday: Trešdiena
-      thursday: Ceturtdiena
-      friday: Piektdiena
-      saturday: Sestdiena
+      sunday: ~
+      monday: ~
+      tuesday: ~
+      wednesday: ~
+      thursday: ~
+      friday: ~
+      saturday: ~
     days_short:
-      sunday: Sv
-      monday: P
-      tuesday: O
-      wednesday: T
-      thursday: C
-      friday: Pk
-      saturday: S
+      sunday: ~
+      monday: ~
+      tuesday: ~
+      wednesday: ~
+      thursday: ~
+      friday: ~
+      saturday: ~
     days_min:
-      sunday: Sv
-      monday: Pr
-      tuesday: Ot
-      wednesday: Tr
-      thursday: Ce
-      friday: Pk
-      saturday: Se
+      sunday: ~
+      monday: ~
+      tuesday: ~
+      wednesday: ~
+      thursday: ~
+      friday: ~
+      saturday: ~
     months:
-      january: Janvāris
-      february: Februāris
-      march: Marts
-      april: Aprīlis
-      may: Maijs
-      june: Jūnijs
-      july: Jūlijs
-      august: Augusts
-      september: Septembris
-      october: Oktobris
-      november: Novembris
-      december: Decembris
+      january: ~
+      february: ~
+      march: ~
+      april: ~
+      may: ~
+      june: ~
+      july: ~
+      august: ~
+      september: ~
+      october: ~
+      november: ~
+      december: ~
     months_short:
-      january: Jan
-      february: Feb
-      march: Mar
-      april: Apr
-      may: Mai
-      june: Jūn
-      july: Jūl
-      august: Aug
-      september: Sep
-      october: Okt
-      november: Nov
-      december: Dec
-    today: Šodien
+      january: ~
+      february: ~
+      march: ~
+      april: ~
+      may: ~
+      june: ~
+      july: ~
+      august: ~
+      september: ~
+      october: ~
+      november: ~
+      december: ~
+    today: ~
     clear: ~
     format: ~
   time:
