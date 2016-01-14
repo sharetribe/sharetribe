@@ -135,6 +135,10 @@
       - else
         .home-no-listings
           - if params[:q] || params[:category] || params[:share_type] # Some filter in use
-            = t(".no_listings_with_your_search_criteria")
+            = t(".no_listings_with_your_search_criteria",
+                post_your_own_listing_link: link_to(t(".post_your_own_listing_link_text"),
+                new_listing_path(ref: "post_your_own_listing_link"))).html_safe
           - else
-            = t(".no_listings_notification", :add_listing_link => link_to(t(".add_listing_link_text"), new_listing_path)).html_safe
+            = t(".no_listings_notification",
+                  add_listing_link: link_to(t(".add_listing_link_text"),
+                  new_listing_path(ref: "add_listing_link"))).html_safe
