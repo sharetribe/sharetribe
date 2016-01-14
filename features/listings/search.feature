@@ -49,7 +49,7 @@ Feature: Search
     When I fill in "q" with "chair"
     And I press "search-button"
     Then I should not see "old sofa for sale"
-    And I should see "We couldn't find any results that matched your search criteria"
+    And I should see "Sorry, no listings could be found for your search criteria"
 
   @javascript
   Scenario: Finding by description
@@ -81,7 +81,7 @@ Feature: Search
 
     When I fill in "q" with "light-weight"
     And I press "search-button"
-    Then I should see "We couldn't find any results that matched your search criteria"
+    Then I should see "Sorry, no listings could be found for your search criteria"
 
   @javascript
   Scenario: Finding by price
@@ -92,7 +92,7 @@ Feature: Search
 
     When I set price range between "500" and "1000"
     And I press "Update view"
-    Then I should see "We couldn't find any results that matched your search criteria"
+    Then I should see "Sorry, no listings could be found for your search criteria"
 
   @javascript
   Scenario: Finding by checkbox field
