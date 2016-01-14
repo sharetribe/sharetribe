@@ -493,22 +493,22 @@ sk-SK:
     edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
-    cancel: ~
-    fields_that_are_mandatory: ~
-    or: ~
+    cancel: Zrušiť
+    fields_that_are_mandatory: "Polia označené hviezdičkou (*) sú povinné."
+    or: alebo
     password: ~
     service_name: ~
     share_types:
       request: ~
       offer: ~
-      borrow: ~
-      buy: ~
-      give_away: ~
-      lend: ~
-      receive: ~
-      rent: ~
-      rent_out: ~
-      sell: ~
+      borrow: vypožičať
+      buy: nakupovať
+      give_away: rozdávať
+      lend: požičať
+      receive: "prevzať zadarmo"
+      rent: "prenajať si"
+      rent_out: prenájom
+      sell: predať
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: ~
@@ -535,7 +535,7 @@ sk-SK:
       other: ~
     username: ~
     username_or_email: ~
-    what_is_this: ~
+    what_is_this: "Čo to je?"
     removed_user: ~
     paypal_fee_info:
       title: ~
@@ -584,11 +584,11 @@ sk-SK:
       days: ~
       price_per_day: ~
     index:
-      loading_more_messages: ~
-      message_partitive: ~
-      messages_partitive: ~
-      no_received_messages: ~
-      no_sent_messages: ~
+      loading_more_messages: "Načítávam viac správ"
+      message_partitive: správa
+      messages_partitive: správy
+      no_received_messages: "Žiadne správy"
+      no_sent_messages: "Žiadné odoslané správy"
     conversation:
       accepted_request: ~
       accepted_offer: ~
@@ -616,10 +616,10 @@ sk-SK:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: ~
-      favor_request_message_form_title: ~
-      housing_offer_message_form_title: ~
-      housing_request_message_form_title: ~
+      favor_offer_message_form_title: "Opýtajte pomoc od %{person}"
+      favor_request_message_form_title: "Ponuknúť pomoc %{person}"
+      housing_offer_message_form_title: "Ponuknúť priestor pre %{person}"
+      housing_request_message_form_title: "Žiadosť o priestor od %{person}"
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -636,18 +636,18 @@ sk-SK:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_request_message_form_title: ~
-      message: ~
+      item_request_message_form_title: "Ponuka položiek %{person}"
+      message: Správa
       message_to: ~
       optional_message_to: ~
-      rideshare_offer_message_form_title: ~
-      rideshare_request_message_form_title: ~
+      rideshare_offer_message_form_title: "Spýtajte sa na jazdu od %{person}"
+      rideshare_request_message_form_title: "Ponuka na jazdu %{person}"
       send_message: ~
       send: ~
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
-      title: ~
+      title: Titul
       send_message_to_user: ~
       about_listing: ~
       author_has_to_accept_request: ~
@@ -655,8 +655,8 @@ sk-SK:
       in_response_to_listing: ~
       message_sent_by: ~
       message_sent_to: ~
-      send_reply: ~
-      write_a_reply: ~
+      send_reply: "Poslať odpoveď"
+      write_a_reply: Odpovedať
       conversation_about_listing: ~
       conversation_with_user: ~
       conversation_with: ~
@@ -670,11 +670,11 @@ sk-SK:
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: ~
-      feedback_given: ~
-      feedback_skipped: ~
-      give_feedback: ~
-      offer_accepted: ~
-      offer_rejected: ~
+      feedback_given: "Spätná väzba"
+      feedback_skipped: "Spätná väzba preskočená."
+      give_feedback: "Dať spätnú väzbu."
+      offer_accepted: Schválené
+      offer_rejected: Odmietnuté
       offer_canceled: ~
       offer_confirmed: ~
       offer_paid: ~
@@ -690,13 +690,13 @@ sk-SK:
           intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
-      request_accepted: ~
-      request_rejected: ~
+      request_accepted: Schválené
+      request_rejected: Odmietnuté
       request_confirmed: ~
       request_canceled: ~
       request_paid: ~
       request_preauthorized: ~
-      skip_feedback: ~
+      skip_feedback: "Preskočiť spätnú väzbu."
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
@@ -712,10 +712,10 @@ sk-SK:
           unknown_reason: ~
           verify: ~
     status_link:
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
+      accept_offer: "Akceptovať ponuku."
+      accept_request: "Akceptovať žiadosť."
+      reject_offer: "Momentálne nie."
+      reject_request: "Momentálne nie."
       accept_preauthorized_offer: ~
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
@@ -788,12 +788,12 @@ sk-SK:
       join_community_button: ~
   emails:
     accept_reminder:
-      remember_to_accept_offer: ~
-      remember_to_accept_request: ~
-      you_can_accept_or_reject_offer_at: ~
-      you_can_accept_or_reject_request_at: ~
-      you_have_not_yet_accepted_or_rejected_offer: ~
-      you_have_not_yet_accepted_or_rejected_request: ~
+      remember_to_accept_offer: "Nezabudnite prijať alebo odmietnuť ponuku od %{sender_name}"
+      remember_to_accept_request: "Nezabudnite prijať alebo odmietnuť žiadosť od %{sender_name}"
+      you_can_accept_or_reject_offer_at: "Môžete prijať alebo odmietnuť ponuku u"
+      you_can_accept_or_reject_request_at: "Môžete prijať alebo odmietnuť žiadosť u"
+      you_have_not_yet_accepted_or_rejected_offer: "Ešte nie je prijatá alebo odmietnutá ponuka %{title}, ktorú ste dostali %{date}"
+      you_have_not_yet_accepted_or_rejected_request: "Ešte nie je prijatá alebo odmietnutá žiadosť %{title}, ktorú ste dostali %{date}"
       show_thread: ~
     braintree_account_approved:
       account_ready: ~
@@ -848,11 +848,11 @@ sk-SK:
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
-      check_your_settings: ~
-      hey: ~
-      kassi_team: ~
-      thanks: ~
-      want_to_control_emails: ~
+      check_your_settings: "Skontrolujte si nastavenia"
+      hey: "Dobrý deň %{name}"
+      kassi_team: "Prehľad o %{service_name} tíme"
+      thanks: Ďakujeme
+      want_to_control_emails: "Chcete sa určiť, ktoré e-maily dostávate od %{service_name}?"
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
@@ -860,15 +860,15 @@ sk-SK:
       or: ~
       unsubscribe_from_these_emails: ~
     conversation_status_changed:
-      has_accepted_your_offer: ~
-      has_accepted_your_request: ~
-      has_rejected_your_offer: ~
-      has_rejected_your_request: ~
+      has_accepted_your_offer: "%{accepter} prijal Vašu ponuku %{listing}"
+      has_accepted_your_request: "%{accepter} prijal Vašu žiadosť %{listing}"
+      has_rejected_your_offer: "%{accepter} odmietol Vašu ponuku %{listing}"
+      has_rejected_your_request: "%{accepter} odmietol Vašu žiadosť %{listing}"
       view_thread: ~
-      your_offer_was_accepted: ~
-      your_offer_was_rejected: ~
-      your_request_was_accepted: ~
-      your_request_was_rejected: ~
+      your_offer_was_accepted: "Vaša ponuka je prijatá"
+      your_offer_was_rejected: "Vaša ponuka bola odmietnutá"
+      your_request_was_accepted: "Vaša žiadosť bola prijatá"
+      your_request_was_rejected: "Vaša žiadosť bola odmietnutá"
       you_can_now_pay_to: ~
       pay_now: ~
       remember_to_confirm: ~

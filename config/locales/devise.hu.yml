@@ -1,10 +1,10 @@
 hu:
   errors:
     messages:
-      expired: ~
-      not_found: "Nincs találat."
-      already_confirmed: "Jelentkez be."
-      not_locked: "Nem volt bezárva."
+      expired: "lejárt, kérjen újat legyen szíves"
+      not_found: "nincs találat"
+      already_confirmed: "már megerősítésre került, próbáljon meg belépni"
+      not_locked: "nem volt lezárva"
   devise:
     failure:
       already_authenticated: "Már bejelentkeztél."
