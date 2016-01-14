@@ -10,13 +10,8 @@ class ErrorsController < ActionController::Base
     render "status_500", status: 500, locals: { status: 500, title: title(500), error_id: error_id }
   end
 
-  # not_found is duplicated in ApplicationController, since we need to handle some special
-  # cases by rescuing exceptions
   def not_found
-    respond_to do |format|
-      format.html {render "status_404", status: 404, locals: { status: 404, title: title(404) }}
-      format.all { render nothing: true, status: 404 }
-    end
+    render "status_404", status: 404, locals: { status: 404, title: title(404) }
   end
 
   def gone
