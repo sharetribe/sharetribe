@@ -34,6 +34,7 @@ class Admin::CommunitiesController < ApplicationController
 
     sender_address = EmailService::API::Api.addresses.get_sender(community_id: @current_community.id).data
     user_defined_address = EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).data
+    ses_in_use = EmailService::API::Api.ses_client.present?
 
     enqueue_status_sync!(user_defined_address)
 
@@ -46,6 +47,7 @@ class Admin::CommunitiesController < ApplicationController
              post_sender_address_url: create_sender_address_admin_community_path,
              can_set_sender_address: can_set_sender_address(@current_plan),
              knowledge_base_url: APP_CONFIG.knowledge_base_url,
+             ses_in_use: ses_in_use,
            }
   end
 
