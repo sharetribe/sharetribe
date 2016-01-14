@@ -881,13 +881,13 @@ sk-SK:
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
-      you_have_a_new_comment: ~
+      you_have_a_new_comment: "%{author} komentoval na Váš zoznam %{service_name}"
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} poslal Vám správu v %{service_name}"
+      you_have_a_new_message: "Nová správa v %{service_name} od %{sender_name}"
     new_payment:
       new_payment: ~
       price_per_unit_type: ~
@@ -915,8 +915,8 @@ sk-SK:
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: ~
-      you_can_give_feedback_to: ~
+      has_given_you_feedback_in_kassi: "%{name} Vám dal spätnú väzbu %{service_name}"
+      you_can_give_feedback_to: "Ešte ste nedali spätnú väzbu %{name}"
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
@@ -943,8 +943,8 @@ sk-SK:
       change_my_password: ~
       reset_password_instructions: ~
     testimonial_reminder:
-      remember_to_give_feedback_to: ~
-      you_have_not_given_feedback_yet: ~
+      remember_to_give_feedback_to: "Pripomenutie: nezabudnite uviesť spätnú väzbu %{name}"
+      you_have_not_given_feedback_yet: "Ešte ste neuviedli spätnú väzbu %{name} o udalosti %{event}. event. Nezabudnite uviesť spätnú väzbu %{given_name} ako prevádzal udalosť."
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -985,14 +985,14 @@ sk-SK:
       view_listing: ~
   error_messages:
     listings:
-      departure_time: ~
-      share_type: ~
-      valid_until: ~
+      departure_time: "Čas odchodu musí byť medzi aktuálnym časom a jednym rokom odo dneška."
+      share_type: "Musíte zvoliť jeden."
+      valid_until: "Dátum musí byť medzi aktuálnym časom a 6 mesiacov odo dneška."
       price: ~
       minimum_price: ~
     testimonials:
-      you_must_explain_not_neutral_feedback: ~
-      you_must_select_a_grade: ~
+      you_must_explain_not_neutral_feedback: "Ak chcete dať nie neutrálny názor, musíte vysvetliť prečo."
+      you_must_select_a_grade: "Nezabudnite povedať, či Vaše zážitky boli pozitívne alebo negatívne."
     transaction_agreement:
       required_error: ~
     paypal:
@@ -1004,12 +1004,12 @@ sk-SK:
       accept_authorization_error: ~
       reject_authorization_error: ~
   error_pages:
-    back_to_kassi_front_page: ~
+    back_to_kassi_front_page: "Späť na titulnú stránku."
     error_404:
-      if_you_believe: ~
-      page_can_not_be_found: ~
-      page_you_requested_can_not_be_found: ~
-    error_404_title: ~
+      if_you_believe: "Ak si myslíte, že adresa je správna, a malo by byť funkčné, prosím, pomôžte nám nájsť chybu, ktorá nám nechá vedieť aká adresa spôsobila chybu a čo by malo vidieť na stránke z nižšie uvedeného formulára."
+      page_can_not_be_found: "Stránka nenájdená!"
+      page_you_requested_can_not_be_found: "Požadovaná stránka nebola nájdená. Ste si istí, že ste správne napísali adresu?"
+    error_404_title: "stránka nenájdená"
     error_410:
       page_removed: ~
       page_you_requested_has_been_removed: ~
@@ -1020,16 +1020,16 @@ sk-SK:
       unable_to_process: ~
       we_hate_this: ~
       refer_to_error_id: ~
-    error_500_title: ~
-    error_description: ~
+    error_500_title: "nepodarilo sa nájsť stránku"
+    error_description: "Popis chyby"
     no_javascript:
-      javascript_is_disabled_in_your_browser: ~
-      kassi_does_not_currently_work_without_javascript: ~
+      javascript_is_disabled_in_your_browser: "Javascript je deaktivovaný vo Vašom prehliadači."
+      kassi_does_not_currently_work_without_javascript: "%{service_name} nefunguje správne bez JavaScriptu. Skúste povoliť javascript z preferencií v prehliadači a potom obnovte túto stránku znova."
       contact_us: ~
-      send_feedback: ~
-      your_feedback_to_admins: ~
-    send: ~
-    your_email_address: ~
+      send_feedback: "Pošlite spätnú väzbu"
+      your_feedback_to_admins: "Vaša spätná väzba administrátorov"
+    send: Poslať
+    your_email_address: "Vaša e-mailová adresa"
   errors:
     messages:
       invalid_date: ~
@@ -1067,14 +1067,14 @@ sk-SK:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: ~
-    home: ~
+    about: O
+    home: Domov
     members: ~
     new_listing: ~
-    mobile_version: ~
-    offers: ~
-    requests: ~
-    search_kassi: ~
+    mobile_version: "Mobilná verzia"
+    offers: Ponuky
+    requests: Žiadosti
+    search_kassi: "Hľadať %{service_name}"
     create_new_marketplace: ~
     contact_us: ~
     profile: ~
@@ -1084,26 +1084,26 @@ sk-SK:
     menu: ~
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: ~
-      additionally_one_private_request_exists: ~
-      additionally_some_private_offers_exist: ~
-      additionally_some_private_requests_exist: ~
+      additionally_one_private_offer_exists: "Ďalej je tu <b>jedna iná ponuka</b>,"
+      additionally_one_private_request_exists: "Ďalej je tu <b>jedna iná žiadosť</b>,"
+      additionally_some_private_offers_exist: "Ďalej sú tu %{number_of_listings} iné ponuky"
+      additionally_some_private_requests_exist: "Ďalej sú tu %{number_of_listings} iné žiadosti"
     blank_slate:
-      add_first: ~
-      but_that_is_visible_only_to_registered_members: ~
-      but_those_are_visible_only_to_registered_members: ~
-      create_new_account_for_yourself: ~
-      examples_of_what_you_could_offer_to_others: ~
-      examples_of_what_you_could_request_to_others: ~
-      favor_offer_list: ~
-      favor_request_list: ~
-      favors_to_offer: ~
-      favors_to_request: ~
-      item_offer_list: ~
-      item_request_list: ~
-      items_to_offer: ~
-      items_to_request: ~
-      log_in: ~
+      add_first: "Pridať jeden!"
+      but_that_is_visible_only_to_registered_members: "ale to je viditeľný len pre registrovaných členov."
+      but_those_are_visible_only_to_registered_members: "ale sú to viditeľné len pre registrovaných členov."
+      create_new_account_for_yourself: "Vytvorte Váš nový účet"
+      examples_of_what_you_could_offer_to_others: "Čo môžete ponúknuť ostatným"
+      examples_of_what_you_could_request_to_others: "Čo by ste mohli požiadať od ostatných"
+      favor_offer_list: "počítačová podpora, oprava odevu, pečenie, upevnenie bicyklov"
+      favor_request_list: "stráženie detí, lekcie na klavíri, venčenie psov, sekanie trávy"
+      favors_to_offer: "Pomoc: "
+      favors_to_request: "Pomoc: "
+      item_offer_list: "náradie, športové potreby, kostýmy, kempingové zariadenia"
+      item_request_list: "náradie, športové potreby, kostýmy, kempingové zariadenia"
+      items_to_offer: "Tovar na zapožičanie: "
+      items_to_request: "Vypožičať si tovar: "
+      log_in: Prihlásiť
       no_offers_visible_unless_logged_in: ~
       no_open_offers_currently: ~
       no_open_requests_currently: ~
