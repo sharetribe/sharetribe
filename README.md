@@ -71,7 +71,7 @@ Before you get started, the following needs to be installed:
   bundle exec rake ts:index
   ```
 
-1. Stat the Sphinx daemon:
+1. Start the Sphinx daemon:
 
   ```bash
   bundle exec rake ts:start
