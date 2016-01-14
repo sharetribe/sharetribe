@@ -393,6 +393,9 @@ label.radiobutton {
 
 button, .button {
   @include button($link);
+  padding-top: lines(0.375);
+  padding-bottom: lines(0.375);
+  height: auto;
 }
 
 .inline-button-container {
