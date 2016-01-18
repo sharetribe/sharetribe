@@ -83,7 +83,7 @@ Feature: Preauthorized payment
      When 20 days have passed
       And the system processes jobs
       And I refresh the page
-     Then I should see that the request is confirmed
+     Then I should see that the order is confirmed
 
   Scenario: User buys Skateboard but seller doesn't respond
     Given I am logged in as "buyer_bob"

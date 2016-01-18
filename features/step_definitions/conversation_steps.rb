@@ -166,13 +166,13 @@ end
 
 Then(/^the (buyer|requester) of that conversation should receive an email about automatically confirmed listing$/) do |_|
   steps %Q{
-    Then the requester of that conversation should receive an email with subject "Request automatically completed - remember to give feedback"
+    Then the requester of that conversation should receive an email with subject "Order automatically completed - remember to give feedback"
   }
 end
 
 Then(/^the (offerer|seller) of that conversation should receive an email confirmed listing$/) do |_|
   steps %Q{
-    Then the offerer of that conversation should receive an email with subject "Request completed - remember to give feedback"
+    Then the offerer of that conversation should receive an email with subject "Order completed - remember to give feedback"
   }
 end
 
@@ -180,7 +180,7 @@ Then(/^the buyer of that conversation should receive an email about unconfirmed 
   steps %Q{
     Then the requester of that conversation should receive an email with subject "Remember to confirm or cancel a request"
     When I open the email with subject "Remember to confirm or cancel a request"
-    Then I should see "a) you have marked the request completed" in the email body
+    Then I should see "a) you have marked the order completed" in the email body
     And I should see "b) 14 days have passed since you paid" in the email body
     And I should see "you have 2 days to" in the email body
     And I should see "cancel it" in the email body
@@ -225,8 +225,8 @@ Then /^I should see that I should now deliver the board$/ do
   page.should have_content(/Waiting for you to deliver (.*)/)
 end
 
-Then(/^I should see that the request is confirmed/) do
-  page.should have_content(/marked the request as completed/)
+Then(/^I should see that the order is confirmed/) do
+  page.should have_content(/marked the order as completed/)
 end
 
 When(/^I accept the "(.*?)" request for that listing for post pay$/) do |request|
