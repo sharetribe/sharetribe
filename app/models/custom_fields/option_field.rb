@@ -45,11 +45,11 @@ class OptionField < CustomField
       }
     }
 
-    attributes_hash = attributes.map { |(option_id, opts)|
+    attributes_hash = attributes.map { |opts|
       {
-        id: Maybe(option_id).to_i.or_else(nil),
-        sort_priority: opts["sort_priority"].to_i,
-        title_attributes: opts["title_attributes"]
+        id: Maybe(opts[:id]).to_i.or_else(nil),
+        sort_priority: opts[:sort_priority].to_i,
+        title_attributes: opts[:title_attributes]
       }
     }
 

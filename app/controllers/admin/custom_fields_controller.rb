@@ -3,6 +3,73 @@ class Admin::CustomFieldsController < ApplicationController
   before_filter :ensure_is_admin
   before_filter :field_type_is_valid, :only => [:new, :create]
 
+  CHECKBOX_TO_BOOLEAN = ->(v) {
+    if v == false || v == true
+      v
+    elsif v == "1"
+      true
+    else
+      false
+    end
+  }
+
+  HASH_VALUES = ->(v) {
+    if v.is_a?(Array)
+      v
+    elsif v.is_a?(Hash)
+      v.values
+    elsif v == nil
+      nil
+    else
+      raise ArgumentError.new("Illegal argument given to transformer: #{v.to_inspect}")
+    end
+  }
+
+  CategoryAttributeSpec = EntityUtils.define_builder(
+    [:category_id, :fixnum, :to_integer, :mandatory]
+  )
+
+  OptionAttribute = EntityUtils.define_builder(
+    [:id, :mandatory],
+    [:sort_priority, :fixnum, :to_integer, :mandatory],
+    [:title_attributes, :hash, :to_hash, :mandatory]
+  )
+
+  CustomFieldSpec = [
+    [:name_attributes, :hash, :mandatory],
+    [:category_attributes, collection: CategoryAttributeSpec],
+    [:sort_priority, :fixnum, :optional],
+    [:required, :bool, :optional, default: false, transform_with: CHECKBOX_TO_BOOLEAN]
+  ]
+
+  TextFieldSpec = [
+    # nothing here
+  ] + CustomFieldSpec
+
+  NumericFieldSpec = [
+    [:min, :mandatory],
+    [:max, :mandatory],
+    [:allow_decimals, :bool, :mandatory, transform_with: CHECKBOX_TO_BOOLEAN]
+  ] + CustomFieldSpec
+
+  DropdownFieldSpec = [
+    [:option_attributes, :mandatory, transform_with: HASH_VALUES, collection: OptionAttribute]
+  ] + CustomFieldSpec
+
+  CheckboxFieldSpec = [
+    [:option_attributes, :mandatory, transform_with: HASH_VALUES, collection: OptionAttribute]
+  ] + CustomFieldSpec
+
+  DateFieldSpec = [
+    # nothing here
+  ] + CustomFieldSpec
+
+  TextFieldEntity     = EntityUtils.define_builder(*TextFieldSpec)
+  NumericFieldEntity  = EntityUtils.define_builder(*NumericFieldSpec)
+  DropdownFieldEntity = EntityUtils.define_builder(*DropdownFieldSpec)
+  CheckboxFieldEntity = EntityUtils.define_builder(*CheckboxFieldSpec)
+  DateFieldEntity     = EntityUtils.define_builder(*DateFieldSpec)
+
   def index
     @selected_left_navi_link = "listing_fields"
     @community = @current_community
@@ -36,7 +103,9 @@ class Admin::CustomFieldsController < ApplicationController
     params[:custom_field][:min] = ParamsService.parse_float(params[:custom_field][:min]) if params[:custom_field][:min].present?
     params[:custom_field][:max] = ParamsService.parse_float(params[:custom_field][:max]) if params[:custom_field][:max].present?
 
-    @custom_field = params[:field_type].constantize.new(params[:custom_field]) #before filter checks valid field types and prevents code injection
+    custom_field_entity = build_custom_field_entity(params[:field_type], params[:custom_field])
+
+    @custom_field = params[:field_type].constantize.new(custom_field_entity) #before filter checks valid field types and prevents code injection
     @custom_field.community = @current_community
 
     success = if valid_categories?(@current_community, params[:custom_field][:category_attributes])
@@ -48,6 +117,21 @@ class Admin::CustomFieldsController < ApplicationController
     else
       flash[:error] = "Listing field saving failed"
       render :new
+    end
+  end
+
+  def build_custom_field_entity(type, params)
+    case type
+    when "TextField"
+      TextFieldEntity.call(params)
+    when "NumericField"
+      NumericFieldEntity.call(params)
+    when "DropdownField"
+      DropdownFieldEntity.call(params)
+    when "CheckboxField"
+      CheckboxFieldEntity.call(params)
+    when "DateField"
+      DateFieldEntity.call(params)
     end
   end
 
@@ -72,7 +156,9 @@ class Admin::CustomFieldsController < ApplicationController
     params[:custom_field][:min] = ParamsService.parse_float(params[:custom_field][:min]) if params[:custom_field][:min].present?
     params[:custom_field][:max] = ParamsService.parse_float(params[:custom_field][:max]) if params[:custom_field][:max].present?
 
-    @custom_field.update_attributes(params[:custom_field])
+    custom_field_entity = build_custom_field_entity(@custom_field.type, params[:custom_field])
+
+    @custom_field.update_attributes(custom_field_entity)
 
     redirect_to admin_custom_fields_path
   end

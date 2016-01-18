@@ -21,17 +21,6 @@
 class CustomField < ActiveRecord::Base
   include SortableByPriority # use `sort_priority()` for sorting
 
-  attr_accessible(
-    :type,
-    :name_attributes,
-    :category_attributes,
-    :option_attributes,
-    :sort_priority,
-    :required,
-    :min,
-    :max
-  )
-
   has_many :names, class_name: "CustomFieldName", dependent: :destroy
 
   has_many :category_custom_fields, dependent: :destroy
