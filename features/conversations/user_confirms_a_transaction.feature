@@ -31,8 +31,8 @@ Feature: User confirms a transaction
     And the system processes jobs
     And "kassi_testperson2@example.com" should receive 2 emails
     And I log out
-    When I open the email with subject "Request completed"
-    And I should see "has marked the request about 'Skateboard' completed" in the email body
+    When I open the email with subject "Order completed"
+    And I should see "has marked the order about 'Skateboard' completed" in the email body
     And I should see "Give feedback" in the email body
     When "4" days have passed
     And the system processes jobs

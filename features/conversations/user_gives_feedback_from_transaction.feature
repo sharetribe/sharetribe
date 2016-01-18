@@ -47,7 +47,7 @@ Feature: User gives feedback from transaction
     And I am logged in as "kassi_testperson1"
     When I follow inbox link
     Then I should see "Waiting for you to give feedback"
-    And I follow "marked the request as completed"
+    And I follow "marked the order as completed"
     And I follow "Give feedback"
     And I press "send_testimonial_button"
     Then I should see "Remember to tell whether your experience was positive or negative."
