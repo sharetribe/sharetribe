@@ -23,7 +23,7 @@ Feature: User gives feedback from transaction
     And I am logged in as "kassi_testperson1"
     When I follow inbox link
     Then I should see "Waiting for you to give feedback"
-    And I follow "marked the request as completed"
+    And I follow "marked the order as completed"
     And I follow "Give feedback"
     And I click "#positive-grade-link"
     And I fill in "How did things go?" with "Everything was great!"

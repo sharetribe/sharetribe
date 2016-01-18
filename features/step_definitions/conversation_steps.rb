@@ -217,8 +217,8 @@ When(/^I accepts the request for that listing$/) do
 end
 
 
-Then(/^I should see that the request is waiting for buyer confirmation$/) do
-  page.should have_content(/Waiting for (.*) to mark the request completed/)
+Then(/^I should see that the order is waiting for buyer confirmation$/) do
+  page.should have_content(/Waiting for (.*) to mark the order completed/)
 end
 
 Then /^I should see that I should now deliver the board$/ do

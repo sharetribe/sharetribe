@@ -31,7 +31,7 @@ Feature: Preauthorized payment
 
      When I log in as "seller_jane"
       And I accepts the request for that listing
-     Then I should see that the request is waiting for buyer confirmation
+     Then I should see that the order is waiting for buyer confirmation
 
      When I log in as "buyer_bob"
       And I confirm the request for that listing
@@ -57,7 +57,7 @@ Feature: Preauthorized payment
      When I log in as "seller_jane"
       And I accepts the request for that listing
      Then I should see receipt info for unit_type hour with quantity 2 and subtotal of $100
-      And I should see that the request is waiting for buyer confirmation
+      And I should see that the order is waiting for buyer confirmation
 
      When I log in as "buyer_bob"
       And I confirm the request for that listing
@@ -78,7 +78,7 @@ Feature: Preauthorized payment
 
      When I log in as "seller_jane"
       And I accepts the request for that listing
-     Then I should see that the request is waiting for buyer confirmation
+     Then I should see that the order is waiting for buyer confirmation
 
      When 20 days have passed
       And the system processes jobs
