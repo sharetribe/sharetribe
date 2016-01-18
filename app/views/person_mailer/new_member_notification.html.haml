@@ -1,4 +1,4 @@
-A new member has joined #{@community.full_name(@person.locale)}.
+A new member has joined #{@community.full_name(@person.locale)}. They may still have to confirm their email address.
 
 %div{:style => "margin: 15px 0; padding: 10px; background-color: #d1c9b4;"}
   %b Name:
@@ -7,4 +7,4 @@ A new member has joined #{@community.full_name(@person.locale)}.
   %b Email:
   = @email
 
-This is an automatic message sent from #{@community.full_name(@person.locale)}.
+This is an automatic message sent to administrators of #{@community.full_name(@person.locale)}.
