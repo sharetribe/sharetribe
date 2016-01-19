@@ -1104,16 +1104,16 @@ sk-SK:
       items_to_offer: "Tovar na zapožičanie: "
       items_to_request: "Vypožičať si tovar: "
       log_in: Prihlásiť
-      no_offers_visible_unless_logged_in: ~
-      no_open_offers_currently: ~
-      no_open_requests_currently: ~
-      no_requests_visible_unless_logged_in: ~
-      one_private_offer_exists: ~
-      one_private_request_exists: ~
-      ride_offer: ~
-      ride_request: ~
-      some_private_offers_exist: ~
-      some_private_requests_exist: ~
+      no_offers_visible_unless_logged_in: "Žiadna položka, služby sú viditeľné pre užívateľov, ktorí nie sú prihlásení."
+      no_open_offers_currently: "Žiadné otvorené položky."
+      no_open_requests_currently: "Žiadné otvorené položky."
+      no_requests_visible_unless_logged_in: "Žiadna položka, služby sú viditeľné pre užívateľov, ktorí nie sú prihlásení."
+      one_private_offer_exists: "Je tu už <b>jedna ponuka</b>,"
+      one_private_request_exists: "Je tu už <b>jedna žiadost</b>"
+      ride_offer: "Vezmite deti druhých za svoje koníčky"
+      ride_request: "Jazda do práce"
+      some_private_offers_exist: "Sú tu už %{number_of_listings} ponuky"
+      some_private_requests_exist: "Sú tu už %{number_of_listings} žiadosti"
     custom_filters:
       update_view: ~
       min: ~
@@ -1133,20 +1133,20 @@ sk-SK:
       are: ~
       what_do_you_need: ~
       post_new_listing: ~
-      are_offering: ~
+      are_offering: ponuka
       add_news_item: ~
-      lend_rent_help_carpool: ~
-      loading_more_content: ~
-      more_events: ~
-      news: ~
+      lend_rent_help_carpool: "Predať, požičať, pomáhať, zdieľať jázd"
+      loading_more_content: "Načítanie viac obsahu"
+      more_events: "Viac udalosti..."
+      news: Novinky
       no_news: ~
       more_news: ~
-      or: ~
-      or_see_what_the_others: ~
-      recent_events: ~
-      requesting: ~
-      tell_it_here: ~
-      welcome_to_new_kassi: ~
+      or: a
+      or_see_what_the_others: "...alebo si pozrite, čo ostatní"
+      recent_events: "Nedávne udalosti"
+      requesting: potrebovať
+      tell_it_here: "Povedzte to tu!"
+      welcome_to_new_kassi: "Vitajte v novom %{service_name}"
       no_reviews: ~
       no_image: ~
       filter: ~
@@ -1173,7 +1173,7 @@ sk-SK:
       you_have_not_added_your_info: ~
       add_your_info_link: ~
     recent_listing:
-      please_offer: ~
+      please_offer: Ponuka
       comment: ~
       comments: ~
     filters:
@@ -1198,7 +1198,7 @@ sk-SK:
       default_content: ~
   layouts:
     admin:
-      admin: ~
+      admin: "%{service_name} panel administrátora"
     no_tribe:
       inbox: ~
       settings: ~
@@ -1206,15 +1206,15 @@ sk-SK:
     application:
       join_this_community: ~
       read_more: ~
-      feedback: ~
-      default_feedback: ~
-      feedback_forum: ~
-      feedback_handle: ~
-      give_feedback: ~
-      or_check_our: ~
-      send_feedback_to_admin: ~
-      to_see_what_others_have_suggested: ~
-      your_email_address: ~
+      feedback: "Čo by ste potrebovali nám pvedať?"
+      default_feedback: "Stretli ste sa už s problémom %{service_name} ? Máte návrh na vylepšenie služieb? Všimli ste si nejaký podozrivý obsah? Alebo len niečo, čo chcete diskutovať s nami? Dajte nám vedieť!"
+      feedback_forum: "fórum spätnej väzby"
+      feedback_handle: "Spätná väzba"
+      give_feedback: "Kontaktujte nás"
+      or_check_our: "...alebo si pozrite náš"
+      send_feedback_to_admin: "Pošlite spätnú väzbu"
+      to_see_what_others_have_suggested: "aby ste videli, čo ostatní používatelia navrhli, a hlasujte pre nápady."
+      your_email_address: "Vaša e-mailová adresa (kontaktovať Vás)"
       connect: ~
       invite_your_friends: ~
       invite_your_neighbors: ~
@@ -1223,43 +1223,43 @@ sk-SK:
       join_without_facebook: ~
       join_without_facebook_link: ~
     conversations:
-      messages: ~
-      notifications: ~
-      received: ~
-      sent: ~
+      messages: Správy
+      notifications: Oznamenia
+      received: Prijaté
+      sent: Odoslané
     global-header:
       select_language: ~
     infos:
-      about: ~
-      how_to_use: ~
-      info_about_kassi: ~
+      about: o
+      how_to_use: "Ako to funguje"
+      info_about_kassi: "Informácie o %{service_name}"
       news: ~
-      register_details: ~
-      terms: ~
+      register_details: "Ochrana osobných údajov"
+      terms: "Podmienky používania"
     logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
-      settings: ~
-      sign_up: ~
+      admin: Administrátor
+      go_to_your_profile_page: Profil
+      hi: Vitajte
+      login: Prihlásiť
+      logout: Odhlásiť
+      notifications: Oznámnie
+      requests: "Žiadosti o priateľstvo"
+      settings: Nastavenia
+      sign_up: "Vytvoriť účet"
     logged_in_messages_icon:
-      messages: ~
+      messages: Správy
     logged_in_notifications_icon:
-      notifications: ~
+      notifications: Oznámenia
     mobile_logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
+      admin: Administrátor
+      go_to_your_profile_page: Profil
+      hi: Vitajte
+      login: Prihlásiť
+      logout: Odhlásiť
+      notifications: Oznámenia
+      requests: "Žiadosti o priateľstvo"
       settings: ~
-      sign_up: ~
+      sign_up: "Zaregistrovať sa"
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
@@ -1269,44 +1269,44 @@ sk-SK:
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
-      comment_cannot_be_empty: ~
-      comment_sent: ~
+      comment_cannot_be_empty: "Komentár nemôže byť prázdny"
+      comment_sent: "Komentár odoslaný"
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
       create_new_listing: ~
-      create_one_here: ~
+      create_one_here: "Vytvoriť tu jeden"
       email_confirmation_sent_to_new_address: ~
-      email_not_found: ~
-      error_with_session: ~
-      feedback_considered_spam: ~
-      feedback_not_saved: ~
-      feedback_saved: ~
-      feedback_sent_to: ~
-      feedback_skipped: ~
+      email_not_found: "E-mailová adresa, ktorú ste zadali, nebola nájdená v datanáze %{service_name}"
+      error_with_session: Chyba
+      feedback_considered_spam: "Spätná väzba nie je uložená, kvôli jeho formátovania. Skúste znova alebo použite fórum na spätnú väzbu."
+      feedback_not_saved: "Spätnú väzbu nebolo možné odoslať"
+      feedback_saved: "Ďakujem za Vašu spätnú väzbu. Dostaneme späť k Vám čo najskôr."
+      feedback_sent_to: "Spätná väzba poslaná %{target_person}"
+      feedback_skipped: "Spätná väzba vynechaná"
       invitation_cannot_be_sent: ~
       invitation_limit_reached: ~
       invitation_sent: ~
       inviting_new_users_is_not_allowed_in_this_community: ~
-      login_again: ~
-      login_failed: ~
+      login_again: "Prosím, prihláste sa znovu."
+      login_failed: "Prihlásenie neúspešné. Prosím, zadajte správne poverenia."
       account_creation_successful: ~
       account_deleted: ~
-      login_successful: ~
-      logout_successful: ~
+      login_successful: "Vitajte, %{person_name}!"
+      logout_successful: "Teraz ste odhlásený z %{service_name}. Čoskoro sa vidíme!"
       news_item_created: ~
       news_item_creation_failed: ~
       news_item_update_failed: ~
       news_item_updated: ~
       news_item_deleted: ~
-      offer_accepted: ~
+      offer_accepted: "Ponuka schválená"
       offer_confirmed: ~
-      offer_closed: ~
+      offer_closed: "Ponuka uzatvorená"
       listing_created_successfully: ~
-      offer_rejected: ~
+      offer_rejected: "Ponuka odmietnutá"
       offer_canceled: ~
       listing_updated_successfully: ~
-      only_kassi_administrators_can_access_this_area: ~
+      only_kassi_administrators_can_access_this_area: "Iba %{service_name} administrátory majú prístup k tejto oblasti"
       only_listing_author_can_close_a_listing: ~
       only_listing_author_can_edit_a_listing: ~
       payment_successful: ~
@@ -1314,10 +1314,10 @@ sk-SK:
       error_in_payment: ~
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
-      password_recovery_sent: ~
+      password_recovery_sent: "Inštrukcie, ako zmeniť heslo bolo zaslané na Vašu e-mailovú adresu"
       person_activated: ~
       person_deactivated: ~
-      person_updated_successfully: ~
+      person_updated_successfully: "Informácie boli aktualizované"
       poll_answered: ~
       poll_could_not_be_answered: ~
       poll_created: ~
@@ -1325,42 +1325,42 @@ sk-SK:
       poll_update_failed: ~
       poll_updated: ~
       poll_deleted: ~
-      read_more: ~
+      read_more: "Prečítajte si viac!"
       registration_considered_spam: ~
-      reply_cannot_be_empty: ~
-      reply_sent: ~
-      request_accepted: ~
+      reply_cannot_be_empty: "Nemôžete poslať prázdnu správu"
+      reply_sent: "Odpoveď bola úspešne odoslaná"
+      request_accepted: "Žiadosť schválená"
       request_confirmed: ~
-      request_closed: ~
-      request_rejected: ~
+      request_closed: "Žiadosť uzatvorené"
+      request_rejected: "Žiadosť odmietnutá"
       request_canceled: ~
       message_sent: ~
       this_content_is_not_available_in_this_community: ~
-      unknown_error: ~
-      update_error: ~
-      you_are_not_allowed_to_give_feedback_on_this_transaction: ~
-      you_are_not_authorized_to_do_this: ~
-      you_are_not_authorized_to_view_this_content: ~
+      unknown_error: "Neznáma chyba. Prosím použite odkaz Kontaktujte nás, aby ste vedeli poslať čo sa vlastne stalo."
+      update_error: "Došlo k chybe pri pokuse o aktualizáciu údajov, skúste to prosím znova"
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Nie ste oprávnení poskytnúť spätnú väzbu na táto udalosť"
+      you_are_not_authorized_to_do_this: "Nie ste oprávnený"
+      you_are_not_authorized_to_view_this_content: "Nemáte oprávnenie na tento obsah"
       listing_closed: ~
       send_instructions: ~
-      you_cannot_reply_to_a_closed_offer: ~
-      you_cannot_reply_to_a_closed_request: ~
+      you_cannot_reply_to_a_closed_offer: "Nemôžete odpovedať na uzavretú ponuku"
+      you_cannot_reply_to_a_closed_request: "Nemôžete odpovedať na uzavretú žiadosť"
       you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
-      you_have_already_given_feedback_about_this_event: ~
+      you_have_already_given_feedback_about_this_event: "Už ste si dali spätnú väzbu na tento udalosť"
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: ~
-      you_must_log_in_to_give_feedback: ~
+      you_must_log_in_to_give_feedback: "Musíte sa prihlásiť pre písanie spätnú väzbu"
       you_must_log_in_to_invite_new_users: ~
-      you_must_log_in_to_send_a_comment: ~
-      you_must_log_in_to_send_a_message: ~
+      you_must_log_in_to_send_a_comment: "Musíte sa prihlásiť pre poslanie nového komentára"
+      you_must_log_in_to_send_a_message: "Musíte sa prihlásiť do %{service_name} aby ste mohli poslať správu pre ďalších užívateľov"
       you_must_log_in_to_do_a_transaction: ~
-      you_must_log_in_to_view_this_content: ~
+      you_must_log_in_to_view_this_content: "Musíte sa prihlásiť pre zobrazenie obsahu"
       you_must_log_in_to_view_this_page: ~
-      you_must_log_in_to_view_your_inbox: ~
-      you_must_log_in_to_view_your_settings: ~
+      you_must_log_in_to_view_your_inbox: "Musíte sa prihlásiť v %{service_name} pre zobrazovanie Vašej schránky"
+      you_must_log_in_to_view_your_settings: "Musíte sa prihlásiť v %{service_name} pre zobrazenie nastavenia"
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
@@ -1379,10 +1379,10 @@ sk-SK:
       listing_author_payment_details_missing: ~
       stylesheet_needs_recompiling: ~
     settings:
-      account: ~
-      notifications: ~
-      profile: ~
-      settings: ~
+      account: Účet
+      notifications: Oznámenia
+      profile: "Informácie o profile"
+      settings: Nastavenia
       payments: ~
   listings:
     bubble_listing_not_visible:
@@ -1394,12 +1394,12 @@ sk-SK:
       are_you_sure: ~
     comment_form:
       ask_a_question: ~
-      log_in: ~
-      send_comment: ~
-      to_send_a_comment: ~
-      write_comment: ~
+      log_in: "Prihlásiť sa"
+      send_comment: "Pošlite komentár"
+      to_send_a_comment: "pre poslanie nového komentára"
+      write_comment: "Píšte nový koment"
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
-      you_must: ~
+      you_must: Musíte
       subscribe_to_comments: ~
     edit:
       edit_listing: ~
@@ -1424,33 +1424,33 @@ sk-SK:
         dropdown:
           select_one___: ~
       departure_time:
-        at: ~
-        departure_time: ~
+        at: u
+        departure_time: "Čas odchodu"
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: ~
+        detailed_description: Popis
       destination:
-        destination: ~
+        destination: Destinácia
       form_content:
-        favor: ~
-        housing: ~
-        item: ~
-        offer_something: ~
-        request_something: ~
-        rideshare: ~
+        favor: služba
+        housing: Medzerník
+        item: položka
+        offer_something: "Ponúkajte niečo"
+        request_something: "Žiadajte niečo"
+        rideshare: jazda
         i_want_to_offer: ~
         i_want_to_request: ~
       googlemap:
-        googlemap_copy: ~
-        googlemap_description: ~
-        googlemap_updatemap: ~
+        googlemap_copy: "Koncové body z Mapy"
+        googlemap_description: "Zobrazovanie mapy"
+        googlemap_updatemap: "Aktualizovať mapu"
       images:
-        image: ~
+        image: Fotka
         best_result: ~
-        no_file_selected: ~
-        remove_image: ~
-        select_file: ~
+        no_file_selected: "Nebol vybraný žiaden súbor"
+        remove_image: "Odstrániť fotku"
+        select_file: "Vyberte si súbor"
         add_more: ~
         removing: ~
         processing: ~
@@ -1465,7 +1465,7 @@ sk-SK:
         accepted_formats: ~
         images_not_uploaded_confirm: ~
       location:
-        location: ~
+        location: Lokalita
       price:
         price: ~
         per: ~
@@ -1485,80 +1485,80 @@ sk-SK:
         shipping_price_additional: ~
         pickup: ~
       origin:
-        location: ~
-        origin: ~
+        location: Lokalita
+        origin: Pôvod
       send_button:
         save_listing: ~
       share_type:
         select: ~
-        borrow: ~
-        buy: ~
-        give_away: ~
-        lend: ~
-        offer_type: ~
-        receive: ~
-        rent: ~
-        rent_out: ~
-        request_type: ~
-        sell: ~
+        borrow: vypožičať
+        buy: Kúpiť
+        give_away: rozdávať
+        lend: požičať
+        offer_type: "Typ ponuky"
+        receive: "Akceptovať zadarmo"
+        rent: "prenajať si"
+        rent_out: prenájom
+        request_type: "Typ žiadosti"
+        sell: predať
         share_for_free: ~
         accept_for_free: ~
-        trade: ~
+        trade: Vymeniť
       tag_list:
-        comma_separate: ~
-        tags: ~
+        comma_separate: "(oddelené čiarkou)"
+        tags: "Určenia (štítky)"
       title:
         listing_title: ~
       valid_until:
-        valid_until: ~
+        valid_until: "Dátum expirácie"
       valid_until_radio_buttons:
-        for_the_time_being: ~
+        for_the_time_being: Zatiaľ
       privacy:
         privacy: ~
         private: ~
         public: ~
     help_texts:
-      help_share_type_title: ~
-      help_tags_title: ~
-      help_valid_until_title: ~
+      help_share_type_title: "Typ ponuky alebo žiadosti"
+      help_tags_title: Označenie
+      help_valid_until_title: "Dátum expirácie"
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
+      all_categories: "Všetky kategórie"
+      all_offer_types: "Všetky typy ponúk"
+      all_request_types: "Všetky typy žiadosti"
+      category: Kategória
+      did_not_found_what_you_were_looking_for: "Nenašli ste čo ste potrebovali?"
+      favors: Služby
+      housing: Medzerník
+      items: Položky
+      list_view: "Zobraziť zoznamu."
       listings: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
+      map_view: "Zobraziť mapu"
+      offer_something: "Dajte všetkým vedieť"
+      offer_type: "Typ ponuky"
+      offers: Ponuky
+      request_something: "Žiadajte si niečo"
+      request_type: "Typ žiadosti"
+      requests: Žiadosti
+      rideshare: jazda
+      search_verb: Hľadať
+      you_have_something_others_do_not: "Máte nejakú ponuku?"
       feed_title: ~
     left_panel_link:
-      borrows: ~
-      buys: ~
-      favors: ~
-      give_aways: ~
-      housings: ~
-      items: ~
-      lends: ~
-      receives: ~
-      rent_outs: ~
-      rents: ~
-      rideshares: ~
-      sells: ~
+      borrows: vypožičať
+      buys: Kúpiť
+      favors: Služby
+      give_aways: rozdávať
+      housings: Medzermík
+      items: Položky
+      lends: požičať
+      receives: "prevzať zadarmo"
+      rent_outs: prenájom
+      rents: "prenajať si"
+      rideshares: jazda
+      sells: predať
       share_for_frees: ~
       accept_for_frees: ~
-      trades: ~
+      trades: Vymeniť
     listing_actions:
       booking_from: ~
       booking_to: ~
@@ -1586,39 +1586,39 @@ sk-SK:
       month: ~
       custom: ~
     quantity_placeholder: ~
-    please_comment: ~
+    please_comment: Komentár
     reply_link:
       listing_closed: ~
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
-      comments: ~
+      comments: "Verejná diskusia"
       contact_by_phone: ~
       contact: ~
-      favor_offer: ~
-      favor_request: ~
+      favor_offer: "Ponuka služieb"
+      favor_request: "Žiadosť o službu"
       inquiry: ~
       item_offer_trade: ~
       item_request_trade: ~
-      no_description: ~
+      no_description: "Tento zoznam nemá popis"
       no_image: ~
       no_reviews: ~
-      offer: ~
+      offer: ponuka
       listing_created: ~
       open_until: ~
       feedback: ~
       qr_code: ~
-      request: ~
+      request: Žiadosť
       rideshare_offer: ~
       rideshare_request: ~
       send_private_message: ~
-      share_types: ~
-      share_types_offer: ~
-      share_types_request: ~
-      tags: ~
-      time: ~
-      times: ~
-      times_viewed: ~
+      share_types: "Zdielajte typy"
+      share_types_offer: "Typ ponuky"
+      share_types_request: "Typ žiadosti"
+      tags: Označenia
+      time: Čas
+      times: časy
+      times_viewed: Zobrazené
       processing_uploaded_image: ~
       price_excludes_vat: ~
       listing_created_at: ~
@@ -1653,26 +1653,26 @@ sk-SK:
       read_more: ~
   mapview:
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
-    please_comment: ~
+      all_categories: "Všetky kategórie"
+      all_offer_types: "Všetky typy ponúk"
+      all_request_types: "Všetky typy žiadosti"
+      category: Kategórie
+      did_not_found_what_you_were_looking_for: "Nenašli ste čo ste potrebovali?"
+      favors: Služby
+      housing: Medzerníky
+      items: Položky
+      list_view: "Zobraziť zoznam"
+      map_view: "Zobraziť mapu"
+      offer_something: "Dajte všetkým vedieť"
+      offer_type: "Typ ponuky"
+      offers: Ponuky
+      request_something: "Žiadajte si niečo"
+      request_type: "Typ žiadosti"
+      requests: Žiadosti
+      rideshare: jazda
+      search_verb: Hľadať
+      you_have_something_others_do_not: "Máte nejakú ponuku?"
+    please_comment: Komentár
   mercury:
     content_too_long: ~
   okl:
@@ -1772,7 +1772,7 @@ sk-SK:
       activate: ~
       deactivate: ~
     help_texts:
-      feedback_description_title: ~
+      feedback_description_title: "Spätná väzba"
       help_invitation_code_title: ~
       terms_title: ~
       invite_only_help_text: ~

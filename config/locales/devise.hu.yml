@@ -5,51 +5,53 @@ hu:
       not_found: "nincs találat"
       already_confirmed: "már megerősítésre került, próbáljon meg belépni"
       not_locked: "nem volt lezárva"
+      not_saved:
+        other: "%{count} hiba következtében nem lehet elmenteni: %{resource}"
   devise:
     failure:
-      already_authenticated: "Már bejelentkeztél."
-      unauthenticated: "A folytatáshoz be kell jelentkezned vagy iratkozz fel."
-      unconfirmed: "Előbb meg kell erősítened fiókodat."
-      locked: "A fiókod zárolva van."
+      already_authenticated: "Ön már bejelentkezett."
+      unauthenticated: "A folytatáshoz jelentkezzen be vagy regisztráljon."
+      unconfirmed: "Szükségünk van a feliratkozása megerősítésére."
+      locked: "Az Ön fiókja blokkolva van."
       invalid: "Helytelen email cím vagy jelszó."
       invalid_token: "Érvénytelen azonosító."
-      timeout: "A munkamenet lejárt, kérjük jelentkezz be újra."
-      inactive: "A fiókodat még nem aktiváltad."
+      timeout: "A munkamenet lejárt, jelentkezzen be újra."
+      inactive: "A fiók még nem aktiválva."
     passwords:
-      updated_not_active: "A jelszavadat sikeresen megváltoztattad."
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: "A jelszavad megváltozott."
+      updated_not_active: "A jelszóváltoztatás sikerült."
+      send_paranoid_instructions: "Amennyiben az Ön e-mail címe már szerepel adatbázisunkban, hamarosan megkapja a jelszóváltoztatáshoz szükséges linket."
+      send_instructions: "Pár percen belül e-mail-ben küldjük az instrukciókat amelynek segítségével megváltoztathatja jelszavát."
+      updated: "A jelszóváltoztatás sikerült. Ön most be van jelentkezve."
     sessions:
-      signed_in: "Sikeresen bejelentkeztél."
-      signed_out: "Sikeresen kijelentkeztél."
+      signed_in: "Sikeres bejelentkezés."
+      signed_out: "Ön kijelentkezett."
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: "Pár percen belül kapsz egy e-mailt, benne a megerősítéshez szükséges utasításokkal."
-      confirmed: "Fiókodat sikeresen megerősítetted."
+      send_paranoid_instructions: "Amennyiben az Ön e-mail címe már szerepel adatbázisunkban, hamarosan megkapja a regisztráció megerősítéséhez szükséges linket."
+      send_instructions: "Pár percen belül e-mail-ben küldjük az instrukciókat amelynek segítségével megerősítheti regisztrációját."
+      confirmed: "Az Ön fiókja sikeresen vissza lett igazolva."
     registrations:
-      signed_up_but_unconfirmed: "A megerősítő linket elküldtük az e-mail címedre."
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "A megerősítő linket elküldtük az e-mail címére. Kattintson a linkre a regisztráció véglegesítéséhez."
+      signed_up_but_inactive: "A regisztráció sikeres volt. Jelenleg azonban még nem tud bejelentkezni, ehhez még szükség van egy megerősítésre."
+      signed_up_but_locked: "A regisztráció sikeres volt. Jelenleg azonban nem tud bejelentkezni, mert az Ön fiókja blokkolva van."
       reasons:
         inactive: Inaktív
         unconfirmed: "Nem megerősített."
         locked: Zárolt
-      update_needs_confirmation: ~
-      signed_up: "Helló! Sikeresen csatlakoztál!"
-      updated: "Fiókodat frissítettük."
-      destroyed: "Viszlát! A fiókodat töröltük. Reméljük hamarosan újra látunk."
+      update_needs_confirmation: "A frissítés sikeres volt, de az új e-mail címét még meg kell erősítenie. Küldtünk Önnek ezzel kapcsolatban egy e-mail-t, kérjük kattintson az abban található linkre."
+      signed_up: "Üdvözöljük! Sikeres regisztráció."
+      updated: "Az Ön fiókja sikeresen frissítve lett."
+      destroyed: "Viszlát! Az Ön fiókját töröltük. Reméljük hamarosan viszontlátjuk."
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: "Pár percen belül kapsz egy e-mailt, benne a feloldáshoz szükséges utasításokkal."
-      unlocked: "A munkamenet lejárt, kérjük jelentkezz be újra."
+      send_paranoid_instructions: "Amennyiben az ön fiókja létező, néhány percen belül kapni fog egy e-mail-t amelynek segítségével feloldhatja a blokkolást."
+      send_instructions: "Pár percen belül kap egy e-mail-t amelynek segítségével feloldhatja a fiókját."
+      unlocked: "A munkamenet lejárt, kérjük jelentkezzen be újra."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "Sikeres megerősítés a következő fiókkal: %{kind}"
+      failure: "Nem sikerült a megerősítés: %{kind}, ennek az oka: %{reason}"
     mailer:
       confirmation_instructions:
-        subject: "Megerősítési utasítások."
+        subject: "Megerősítési instrukciók."
       reset_password_instructions:
-        subject: ~
+        subject: "Jelszó visszaállítási instrukciók."
       unlock_instructions:
-        subject: "Feloldási utasítások."
+        subject: "Feloldási instrukciók."
