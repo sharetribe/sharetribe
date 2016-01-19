@@ -251,8 +251,13 @@ default: &default_settings
   external_plan_service_secret:
   external_plan_service_login_url:
 
+  # Rails config.eager_load. Eager loads classes. Should be true only for production
+  eager_load: false
+
 production: &production_settings
   <<: *default_settings
+
+  eager_load: true
 
 staging:
   <<: *production_settings
