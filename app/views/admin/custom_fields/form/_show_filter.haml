@@ -1,0 +1,13 @@
+.row
+  .col-12
+    .checkbox-container
+      - custom_field.with_type do |type|
+        - if type == :date_field
+          = form.check_box :show_filter, disabled: true
+          = form.label :show_filter, t("admin.custom_fields.form.show_filter.show_filter"), class: "disabled"
+
+          = render :partial => "layouts/info_text", :locals => { :text => t("admin.custom_fields.form.show_filter.date_cant_be_filtered") }
+
+        - else
+          = form.check_box :show_filter
+          = form.label :show_filter, t("admin.custom_fields.form.show_filter.show_filter")

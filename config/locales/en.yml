@@ -345,6 +345,9 @@ en:
         field_required:
           this_field_is_required: "This field is required"
           this_field_is_required_checkbox: "This field is required (user has to select at least one option)"
+        show_filter:
+          show_filter: "Show filter on homepage"
+          date_cant_be_filtered: "There's no filter available for date field."
       index:
         listing_fields: "Listing fields & filters"
         listing_fields_help: "Here you can edit the fields that users have to fill in when they create a new listing. Please note that some fields are predefined and cannot be edited."

@@ -21,7 +21,7 @@ class HomepageController < ApplicationController
     listing_shape_menu_enabled = all_shapes.size > 1
     @show_categories = @categories.size > 1
     show_price_filter = @current_community.show_price_filter && all_shapes.any? { |s| s[:price_enabled] }
-    @show_custom_fields = @current_community.custom_fields.any?(&:can_filter?) || show_price_filter
+    @show_custom_fields = @current_community.custom_fields.any? { |field| field.can_filter? && field.show_filter? } || show_price_filter
     @category_menu_enabled = @show_categories || @show_custom_fields
 
     filter_params = {}

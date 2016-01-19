@@ -39,7 +39,8 @@ class Admin::CustomFieldsController < ApplicationController
     [:name_attributes, :hash, :mandatory],
     [:category_attributes, collection: CategoryAttributeSpec],
     [:sort_priority, :fixnum, :optional],
-    [:required, :bool, :optional, default: false, transform_with: CHECKBOX_TO_BOOLEAN]
+    [:required, :bool, :optional, default: false, transform_with: CHECKBOX_TO_BOOLEAN],
+    [:show_filter, :bool, :optional, default: false, transform_with: CHECKBOX_TO_BOOLEAN]
   ]
 
   TextFieldSpec = [

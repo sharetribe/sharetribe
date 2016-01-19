@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151231083524) do
+ActiveRecord::Schema.define(version: 20160119092534) do
 
   create_table "auth_tokens", force: true do |t|
     t.string   "token"
@@ -354,6 +354,7 @@ ActiveRecord::Schema.define(version: 20151231083524) do
   create_table "custom_fields", force: true do |t|
     t.string   "type"
     t.integer  "sort_priority"
+    t.boolean  "show_filter",    default: false, null: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.integer  "community_id"
