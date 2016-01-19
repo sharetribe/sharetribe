@@ -938,7 +938,7 @@ hu:
       hi: "Üdvözöljük %{name}"
       newest_offers: "Jelenleg kik ajánlanak"
       newest_requests: "jelenleg kik keresnek"
-      text_version_text: ~
+      text_version_text: "Tud Ön is olyat felkínálni amire másoknak szüksége lehet? Vagy esetleg olyanra van szüksége ami másoknak van? Itt feladhatja kínál vagy keres hirdetését vagy átböngészheti a mások által feladott hirdetéseket: %{url}"
     reset_password_instructions:
       change_my_password: "Megváltoztatom a jelszavamat"
       reset_password_instructions: ~
@@ -1078,6 +1078,7 @@ hu:
     create_new_marketplace: "Új piactér létrehozása"
     contact_us: "Keressen minket"
     profile: Profil
+    manage_listings: ~
     invite: ~
     login: ~
     signup: Feliratkozás
@@ -1085,9 +1086,9 @@ hu:
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Ezen kívül van még <b>egy további ajánlat</b>,  "
-      additionally_one_private_request_exists: ~
-      additionally_some_private_offers_exist: ~
-      additionally_some_private_requests_exist: ~
+      additionally_one_private_request_exists: "Továbbá van még <b>egy másik kérés</b>,  "
+      additionally_some_private_offers_exist: "Továbbá van még <b>%{number_of_listings} másik ajánlat</b>,"
+      additionally_some_private_requests_exist: "Továbbá van még<b>%{number_of_listings} másik kérés</b>,"
     blank_slate:
       add_first: "adjon hozzá egyet"
       but_that_is_visible_only_to_registered_members: "de az csak regisztráltak számára látható"
@@ -1110,7 +1111,7 @@ hu:
       no_requests_visible_unless_logged_in: "Nincs találat, a szolgáltatás vagy telekocsi ajánlatkérések eléréséhez jelentkezzen be."
       one_private_offer_exists: "Már van egy ajánlat"
       one_private_request_exists: "Már van egy ajánlatkérés"
-      ride_offer: ~
+      ride_offer: "Elvinni más gyerekeit foglalkozásokra"
       ride_request: "fuvar a munkahelyre"
       some_private_offers_exist: "Van már %{number_of_listings} ajánlata"
       some_private_requests_exist: "Van már %{number_of_listings} ajánlatkérése"
@@ -1427,7 +1428,7 @@ hu:
         at: Ekkor
         departure_time: Indulás
       departure_time_radio_buttons:
-        repeated: ~
+        repeated: "Ismételt (az alkalmakat és a napokat a 'részletes leírás' mezőbe írja)"
       description:
         detailed_description: "Részletes leírás"
       destination:
@@ -1779,7 +1780,7 @@ hu:
       invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: "Ez a felhasználó már nem elérhető a %{service_name}n"
-      inactive_description: ~
+      inactive_description: "Ez a felhasználó már nem található meg a %{service_name} piactéren, ezért nem lehet kapcsolatba lépni vele, értékelni vagy kommentelni."
     new:
       create_new_account: "Fiók létrehozása"
       email: "E-mail cím"
@@ -1893,7 +1894,7 @@ hu:
     confirmation_pending:
       welcome_to_kassi: "Üdvözöljük az %{service_name}n"
       check_your_email: "Ellenőrizze a beérkező leveleit"
-      resend_confirmation_instructions: ~
+      resend_confirmation_instructions: "A megerősítésre vonatkozó instrukciók újraküldése."
       your_current_email_is: "Az ön e-mail-je %{email}"
       change_email: Változás
       confirm_your_email: ~
