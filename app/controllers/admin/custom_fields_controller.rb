@@ -35,7 +35,7 @@ class Admin::CustomFieldsController < ApplicationController
     [:title_attributes, :hash, :to_hash, :mandatory]
   )
 
-  CustomFieldSpec = [
+  CUSTOM_FIELD_SPEC = [
     [:name_attributes, :hash, :mandatory],
     [:category_attributes, collection: CategoryAttributeSpec],
     [:sort_priority, :fixnum, :optional],
@@ -44,25 +44,25 @@ class Admin::CustomFieldsController < ApplicationController
 
   TextFieldSpec = [
     # nothing here
-  ] + CustomFieldSpec
+  ] + CUSTOM_FIELD_SPEC
 
   NumericFieldSpec = [
     [:min, :mandatory],
     [:max, :mandatory],
     [:allow_decimals, :bool, :mandatory, transform_with: CHECKBOX_TO_BOOLEAN]
-  ] + CustomFieldSpec
+  ] + CUSTOM_FIELD_SPEC
 
   DropdownFieldSpec = [
     [:option_attributes, :mandatory, transform_with: HASH_VALUES, collection: OptionAttribute]
-  ] + CustomFieldSpec
+  ] + CUSTOM_FIELD_SPEC
 
   CheckboxFieldSpec = [
     [:option_attributes, :mandatory, transform_with: HASH_VALUES, collection: OptionAttribute]
-  ] + CustomFieldSpec
+  ] + CUSTOM_FIELD_SPEC
 
   DateFieldSpec = [
     # nothing here
-  ] + CustomFieldSpec
+  ] + CUSTOM_FIELD_SPEC
 
   TextFieldEntity     = EntityUtils.define_builder(*TextFieldSpec)
   NumericFieldEntity  = EntityUtils.define_builder(*NumericFieldSpec)
