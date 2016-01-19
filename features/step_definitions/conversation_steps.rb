@@ -180,7 +180,7 @@ Then(/^the buyer of that conversation should receive an email about unconfirmed 
   steps %Q{
     Then the requester of that conversation should receive an email with subject "Remember to confirm or cancel a request"
     When I open the email with subject "Remember to confirm or cancel a request"
-    Then I should see "a) you have marked the order completed" in the email body
+    Then I should see "a) you have marked the request completed" in the email body
     And I should see "b) 14 days have passed since you paid" in the email body
     And I should see "you have 2 days to" in the email body
     And I should see "cancel it" in the email body
