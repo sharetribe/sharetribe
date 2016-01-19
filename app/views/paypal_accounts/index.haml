@@ -1,7 +1,10 @@
+- content_for :title_header do
+  %h1= t("layouts.no_tribe.settings")
+
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => left_hand_navigation_links }
 
 .left-navi-section.settings-section.payment-settings
-  %h1= t("paypal_accounts.payout_info_title")
+  %h2= t("paypal_accounts.payout_info_title")
 
   - if community_ready_for_payments
     - create_paypal_link = link_to(t("paypal_accounts.create_paypal_account_link_text"),
