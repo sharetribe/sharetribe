@@ -13,8 +13,9 @@ Want to get in touch? Email [info@sharetribe.com](mailto:info@sharetribe.com)
 - [Payments](#payments)
 - [Versioning](#versioning)
 - [Changes][#changes]
-- [Updating](#updating)
-- [Contributing](#contributing)
+- [Upgrade](#upgrade)
+- [Contribute](#contribute)
+- [Release](#release)
 - [Technical roadmap](#technical-roadmap)
 - [Translation](#translation)
 - [Known issues](#known-issues)
@@ -248,21 +249,19 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 
 See [CHANGELOG.md](CHANGELOG.md) for detailed list of changes between releases.
 
-For keeping up the CHANGELOG we are following the best-practices from [keepchangelog.com](http://keepachangelog.com/).
+
+## Upgrade
+
+See [UPGRADE.md](UPGRADE.md) for information about actions needed when upgrading.
 
 
-## Updating
-
-See [UPGRADING.md](UPGRADING.md) for information about actions needed when upgrading.
-
-
-## Contributing
+## Contribute
 
 Would you like to make Sharetribe better?
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the steps to contribute.
 
-## Releasing
+## Release
 
 See [RELEASE.md](RELEASE.md) for information about how to make a new Sharetribe release.
 
