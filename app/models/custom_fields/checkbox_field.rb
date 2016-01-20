@@ -5,6 +5,7 @@
 #  id             :integer          not null, primary key
 #  type           :string(255)
 #  sort_priority  :integer
+#  search_filter  :boolean          default(FALSE), not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  community_id   :integer

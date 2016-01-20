@@ -1,0 +1,20 @@
+.row
+  .col-12
+    .checkbox-container
+      - custom_field.with_type do |type|
+        - case type
+        - when :date_field
+          = form.check_box :search_filter, disabled: true
+          = form.label :search_filter, t("admin.custom_fields.form.search_filter.search_filter"), class: "disabled"
+
+          = render :partial => "layouts/info_text", :locals => { :text => t("admin.custom_fields.form.search_filter.date_cant_be_filtered") }
+
+        - when :text
+          = form.check_box :search_filter, disabled: true
+          = form.label :search_filter, t("admin.custom_fields.form.search_filter.search_filter"), class: "disabled"
+
+          = render :partial => "layouts/info_text", :locals => { :text => t("admin.custom_fields.form.search_filter.text_cant_be_filtered") }
+
+        - else
+          = form.check_box :search_filter
+          = form.label :search_filter, t("admin.custom_fields.form.search_filter.search_filter")

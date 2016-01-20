@@ -22,7 +22,7 @@ class HomepageController < ApplicationController
     @show_categories = @categories.size > 1
     show_price_filter = @current_community.show_price_filter && all_shapes.any? { |s| s[:price_enabled] }
 
-    filters = @current_community.custom_fields.where(show_filter: true).sort
+    filters = @current_community.custom_fields.where(search_filter: true).sort
     @show_custom_fields = filters.present? || show_price_filter
     @category_menu_enabled = @show_categories || @show_custom_fields
 
