@@ -254,9 +254,12 @@ FactoryGirl.define do
     factory :custom_numeric_field, class: 'NumericField' do
       min 0
       max 100
+      show_filter true
     end
 
     factory :custom_checkbox_field, class: 'CheckboxField' do
+      show_filter true
+
       has_many :options do |custom_field|
         [FactoryGirl.build(:custom_field_option), FactoryGirl.build(:custom_field_option)]
       end
