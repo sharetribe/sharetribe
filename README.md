@@ -12,7 +12,7 @@ Want to get in touch? Email [info@sharetribe.com](mailto:info@sharetribe.com)
 - [Installation](#installation)
 - [Payments](#payments)
 - [Versioning](#versioning)
-- [Changes][#changes]
+- [Changes](#changes)
 - [Upgrade](#upgrade)
 - [Contribute](#contribute)
 - [Release](#release)
