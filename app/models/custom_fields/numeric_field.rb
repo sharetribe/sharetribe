@@ -33,8 +33,4 @@ class NumericField < CustomField
   def with_type(&block)
     block.call(:numeric)
   end
-
-  def can_filter?
-    true
-  end
 end

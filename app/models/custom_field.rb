@@ -58,11 +58,6 @@ class CustomField < ActiveRecord::Base
     TranslationCache.new(self, :names).translate(locale, :value)
   end
 
-  def can_filter?
-    # Default to false
-    false
-  end
-
   def with(expected_type, &block)
     with_type do |own_type|
       if own_type == expected_type
@@ -74,5 +69,4 @@ class CustomField < ActiveRecord::Base
   def with_type(&block)
     throw "Implement this in the subclass"
   end
-
 end
