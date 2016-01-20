@@ -12,7 +12,7 @@ The Change Log starts from the release 5.0.0. For older release, see [RELEASE_NO
 
 ### Added
 
-- CHANGELOG, UPGRADE and RELEASE files (#1234)
+- CHANGELOG, UPGRADE and RELEASE files (#1658)
 
 ## [5.0.0] - 2015-12-31
 
