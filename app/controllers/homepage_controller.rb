@@ -24,11 +24,6 @@ class HomepageController < ApplicationController
     @show_custom_fields = @current_community.custom_fields.any?(&:can_filter?) || show_price_filter
     @category_menu_enabled = @show_categories || @show_custom_fields
 
-    @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_en_135x40.svg"
-    if File.exists?("app/assets/images/Available_on_the_App_Store_Badge_#{I18n.locale}_135x40.svg")
-       @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_#{I18n.locale}_135x40.svg"
-    end
-
     filter_params = {}
 
     listing_shape_param = params[:transaction_type]
