@@ -343,10 +343,10 @@ en:
         this_field_is_required: "This field is required"
       form:
         field_required:
-          this_field_is_required: "This field is required"
-          this_field_is_required_checkbox: "This field is required (user has to select at least one option)"
+          this_field_is_required: "Make it mandatory to fill in this field when creating a new listing"
+          this_field_is_required_checkbox: "Make it mandatory to fill in this field when creating a new listing (user has to select at least one option)"
         search_filter:
-          search_filter: "Show as filter on homepage"
+          search_filter: "Display a filter based on this field on the homepage"
           date_cant_be_filtered: "There's no filter available for date field."
           text_cant_be_filtered: "There's no filter for text field. The main text search searches from text fields."
       index:
