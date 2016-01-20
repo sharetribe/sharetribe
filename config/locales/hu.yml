@@ -257,8 +257,8 @@ hu:
         facebook_connect_info_text: ~
         facebook_connect_info_text_with_instructions: ~
         facebook_instructions_link_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
+        facebook_connect_id: "Facebook felhasználó azonosító"
+        invalid_facebook_connect_id: "Felhasználó azonosító csak számokat tartalmazhat."
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
         save: "Beállítások mentése"
@@ -553,7 +553,7 @@ hu:
       reject_offer: "Nem most"
       reject_request: "Most nem"
       close_listing: ~
-      update_later: ~
+      update_later: "Maradjon a hirdetés aktív"
       optional_message: "Választható üzenet"
       price_to_pay: "Teljes ár fizetendő"
       you_need_to_fill_payout_details_before_accepting: ~
@@ -577,7 +577,7 @@ hu:
       confirm: ~
       cancel: ~
       continue: Folytatás
-      give_feedback_to: ~
+      give_feedback_to: "Adjon értékelést %{person_link}ről"
       do_not_give_feedback: "Értékelés kihagyása"
     details:
       day: nap
@@ -594,7 +594,7 @@ hu:
       accepted_offer: "Ajánlat elfogadva"
       rejected_request: "Kérését elutasították"
       rejected_offer: "Ajánlat visszautasítva"
-      confirmed_request: ~
+      confirmed_request: "Kérés teljesítve"
       confirmed_offer: "Ajánlat kész"
       canceled_request: "Kérését törölték"
       canceled_offer: "Ajánlat törölve"
@@ -608,14 +608,14 @@ hu:
       rejected_request: "Hirdetés megszakítva"
       rejected_offer: "Ajánlat megszakítása"
       confirmed_request: "Megjelölés befejezettként"
-      confirmed_offer: ~
+      confirmed_offer: "Az ajánlat teljesítettként megjelölve"
       canceled_request: "Hirdetés törölve"
       canceled_offer: "Ajánlat törlése"
       paid: ~
       payment_preauthorized: ~
     new:
-      offer_message_form_title: ~
-      request_message_form_title: ~
+      offer_message_form_title: "Ajánlat %{listing} %{person}nak"
+      request_message_form_title: "Ajánlatkérés %{listing} %{person}tól"
       favor_offer_message_form_title: "Segítséget kérek tőle: %{person}"
       favor_request_message_form_title: "Segítek neki: %{person}"
       housing_offer_message_form_title: "Helyet kínálok neki: %{person}"
@@ -833,7 +833,7 @@ hu:
       we_have_marked_request_as_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      give_feedback_to: "Adjon értékelést %{other_party_given_name}ról"
       show_thread: "Mutassa a beszélgetéseket"
     escrow_canceled:
       subject: "Fizetés megszakítva"
@@ -1078,7 +1078,7 @@ hu:
     create_new_marketplace: "Új piactér létrehozása"
     contact_us: "Keressen minket"
     profile: Profil
-    manage_listings: ~
+    manage_listings: "Hirdetések szerkesztése"
     invite: ~
     login: ~
     signup: Feliratkozás
@@ -1515,7 +1515,7 @@ hu:
       valid_until_radio_buttons:
         for_the_time_being: Egyenlőre
       privacy:
-        privacy: ~
+        privacy: Titoktartás
         private: ~
         public: ~
     help_texts:
@@ -1745,7 +1745,7 @@ hu:
       billing_agreement_canceled: ~
       billing_agreement_not_accepted: ~
       billing_agreement_wrong_account: ~
-      something_went_wrong: ~
+      something_went_wrong: "Hiba történt. Kérem próbálja meg újra. Amennyiben a probléma továbbra is fennáll, lépjen kapcsolatba az oldal adminisztrátorával."
       account_not_verified: ~
       account_restricted: ~
     paypal_account_connected_title: "PayPal fiókhoz csatlakozva"
