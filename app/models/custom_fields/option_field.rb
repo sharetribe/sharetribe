@@ -16,7 +16,8 @@
 #
 # Indexes
 #
-#  index_custom_fields_on_community_id  (community_id)
+#  index_custom_fields_on_community_id   (community_id)
+#  index_custom_fields_on_search_filter  (search_filter)
 #
 
 class OptionField < CustomField
