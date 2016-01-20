@@ -19,8 +19,6 @@
 #
 
 class NumericField < CustomField
-  attr_accessible :allow_decimals
-
   validates_numericality_of :min
   validates_numericality_of :max, greater_than: :min
 
