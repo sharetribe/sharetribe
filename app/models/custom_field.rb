@@ -5,6 +5,7 @@
 #  id             :integer          not null, primary key
 #  type           :string(255)
 #  sort_priority  :integer
+#  search_filter  :boolean          default(FALSE), not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  community_id   :integer
@@ -15,7 +16,8 @@
 #
 # Indexes
 #
-#  index_custom_fields_on_community_id  (community_id)
+#  index_custom_fields_on_community_id   (community_id)
+#  index_custom_fields_on_search_filter  (search_filter)
 #
 
 class CustomField < ActiveRecord::Base
@@ -58,11 +60,6 @@ class CustomField < ActiveRecord::Base
     TranslationCache.new(self, :names).translate(locale, :value)
   end
 
-  def can_filter?
-    # Default to false
-    false
-  end
-
   def with(expected_type, &block)
     with_type do |own_type|
       if own_type == expected_type
@@ -74,5 +71,4 @@ class CustomField < ActiveRecord::Base
   def with_type(&block)
     throw "Implement this in the subclass"
   end
-
 end

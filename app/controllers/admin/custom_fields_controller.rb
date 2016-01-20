@@ -39,29 +39,33 @@ class Admin::CustomFieldsController < ApplicationController
     [:name_attributes, :hash, :mandatory],
     [:category_attributes, collection: CategoryAttributeSpec],
     [:sort_priority, :fixnum, :optional],
-    [:required, :bool, :optional, default: false, transform_with: CHECKBOX_TO_BOOLEAN]
+    [:required, :bool, :optional, default: false, transform_with: CHECKBOX_TO_BOOLEAN],
+    [:search_filter, :bool, :optional, default: false, transform_with: CHECKBOX_TO_BOOLEAN]
   ]
 
   TextFieldSpec = [
-    # nothing here
+    [:search_filter, :bool, const_value: false]
   ] + CUSTOM_FIELD_SPEC
 
   NumericFieldSpec = [
     [:min, :mandatory],
     [:max, :mandatory],
-    [:allow_decimals, :bool, :mandatory, transform_with: CHECKBOX_TO_BOOLEAN]
+    [:allow_decimals, :bool, :mandatory, transform_with: CHECKBOX_TO_BOOLEAN],
+    [:search_filter, :bool, :optional, default: false, transform_with: CHECKBOX_TO_BOOLEAN]
   ] + CUSTOM_FIELD_SPEC
 
   DropdownFieldSpec = [
-    [:option_attributes, :mandatory, transform_with: HASH_VALUES, collection: OptionAttribute]
+    [:option_attributes, :mandatory, transform_with: HASH_VALUES, collection: OptionAttribute],
+    [:search_filter, :bool, :optional, default: false, transform_with: CHECKBOX_TO_BOOLEAN],
   ] + CUSTOM_FIELD_SPEC
 
   CheckboxFieldSpec = [
-    [:option_attributes, :mandatory, transform_with: HASH_VALUES, collection: OptionAttribute]
+    [:option_attributes, :mandatory, transform_with: HASH_VALUES, collection: OptionAttribute],
+    [:search_filter, :bool, :optional, default: false, transform_with: CHECKBOX_TO_BOOLEAN]
   ] + CUSTOM_FIELD_SPEC
 
   DateFieldSpec = [
-    # nothing here
+    [:search_filter, :bool, const_value: false]
   ] + CUSTOM_FIELD_SPEC
 
   TextFieldEntity     = EntityUtils.define_builder(*TextFieldSpec)
