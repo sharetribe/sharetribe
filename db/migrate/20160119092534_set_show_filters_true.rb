@@ -1,6 +1,6 @@
 class SetShowFiltersTrue < ActiveRecord::Migration
   def up
-    execute("UPDATE custom_fields SET show_filter = TRUE WHERE type != 'DateField'")
+    execute("UPDATE custom_fields SET show_filter = TRUE WHERE (type != 'DateField' AND type != 'TextField')")
   end
 
   def down
