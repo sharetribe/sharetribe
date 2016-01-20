@@ -263,7 +263,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the steps to contribute.
 
 ## Release
 
-See [RELEASE.md](RELEASE.md) for information about how to make a new Sharetribe release.
+See [RELEASE.md](RELEASE.md) for information about how to make a new release.
 
 
 ## Technical roadmap

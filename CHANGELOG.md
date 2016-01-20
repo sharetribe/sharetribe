@@ -4,9 +4,9 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-This file follows the best-practices from [keepchangelog.com](http://keepachangelog.com/).
+This file follows the best practices from [keepchangelog.com](http://keepachangelog.com/).
 
-The Change Log starts from the release 5.0.0. For older release, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
+The Change Log starts from the release 5.0.0. For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
 ## [Unreleased]
 

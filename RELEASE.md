@@ -1,6 +1,6 @@
 # Release
 
-When ready to release a new version, follow these steps:
+When you are ready to release a new version, follow these steps:
 
 1. Bump up the [VERSION](VERSION)
 
@@ -20,7 +20,7 @@ When ready to release a new version, follow these steps:
 5. Add a new tag
 
   ```bash
-  git tag -a v5.0.0 -m v5.0.0
+  git tag -a v1.2.3 -m v1.2.3
   ```
 
 6. Push the tag

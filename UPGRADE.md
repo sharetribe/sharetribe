@@ -1,6 +1,6 @@
 # Upgrade
 
-All necessary upgrade notes will be documented in this file.
+Upgrade notes will be documented in this file.
 
 ## General update instructions
 
