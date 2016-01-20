@@ -11,9 +11,11 @@ Want to get in touch? Email [info@sharetribe.com](mailto:info@sharetribe.com)
 ### Contents
 - [Installation](#installation)
 - [Payments](#payments)
-- [Updating](#payments)
-- [Technical roadmap](#technical-roadmap)
+- [Versioning](#versioning)
+- [Changes][#changes]
+- [Updating](#updating)
 - [Contributing](#contributing)
+- [Technical roadmap](#technical-roadmap)
 - [Translation](#translation)
 - [Known issues](#known-issues)
 - [Developer documentation](#developer-documentation)
@@ -231,19 +233,43 @@ Sharetribe's open source version supports payments using [Braintree Marketplace]
 PayPal payments are only available on marketplaces hosted at [Sharetribe.com](https://www.sharetribe.com) due to special permissions needed from PayPal. We hope to add support for PayPal payments to the open source version of Sharetribe in the future.
 
 
+## Versioning
+
+Sharetribe follows semantic versioning schema:
+
+Given a version number MAJOR.MINOR.PATCH, increment the:
+
+* MAJOR version when you make incompatible API changes,
+* MINOR version when you add functionality in a backwards-compatible manner, and
+* PATCH version when you make backwards-compatible bug fixes.
+
+
+## Changes
+
+See [CHANGELOG.md](CHANGELOG.md) for detailed list of changes between releases.
+
+For keeping up the CHANGELOG we are following the best-practices from [keepchangelog.com](http://keepachangelog.com/).
+
+
 ## Updating
 
-See [release notes](RELEASE_NOTES.md) for information about what has changed and if actions are needed to upgrade.
+See [UPGRADING.md](UPGRADING.md) for information about actions needed when upgrading.
+
+
+## Contributing
+
+Would you like to make Sharetribe better?
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the steps to contribute.
+
+## Releasing
+
+See [RELEASE.md](RELEASE.md) for information about how to make a new Sharetribe release.
 
 
 ## Technical roadmap
 
 For a better high-level understanding of what the Sharetribe core team is working on currently and what it plans to work on next, read the [technical roadmap](TECHNICAL_ROADMAP.md).
-
-
-## Contributing
-
-Would you like to make Sharetribe better? [Follow these steps](CONTRIBUTING.md).
 
 
 ## Translation
