@@ -146,7 +146,6 @@ group :test do
   gem 'selenium-webdriver', '~> 2.45.0'
   gem 'launchy'
   gem 'ruby-prof'
-  gem "pickle"
   gem 'email_spec', '~> 1.6.0'
   gem "parallel_tests", :group => :development
   gem 'timecop'
