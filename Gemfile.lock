@@ -508,7 +508,7 @@ DEPENDENCIES
   mysql2 (~> 0.3.14)
   newrelic_rpm (~> 3.9.1.236)
   omniauth-facebook (~> 2.0.1)
-  paperclip (~> 3.5.1)
+  paperclip (= 3.5.1)
   passenger (~> 5.0.18)
   paypal-sdk-merchant (~> 1.116.0)
   paypal-sdk-permissions (~> 1.96.4)
