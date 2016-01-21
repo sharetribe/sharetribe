@@ -93,6 +93,23 @@ GEM
       actionpack (>= 3.2)
       thread_safe
     callsite (0.0.11)
+    capistrano (3.4.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (~> 1.3)
+    capistrano-bundler (1.1.4)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-passenger (0.2.0)
+      capistrano (~> 3.0)
+    capistrano-rails (1.1.5)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
+    capistrano-upload-config (0.7.0)
+      capistrano (>= 3.0)
     capybara (2.2.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -291,6 +308,9 @@ GEM
     multi_xml (0.5.5)
     multipart-post (1.2.0)
     mysql2 (0.3.14)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (3.0.2)
     newrelic_rpm (3.9.1.236)
     nokogiri (1.6.7)
       mini_portile2 (~> 2.0.0.rc2)
@@ -451,6 +471,9 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    sshkit (1.8.1)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     statesman (0.5.0)
     stringex (2.5.2)
     term-ansicolor (1.3.0)
@@ -502,6 +525,12 @@ DEPENDENCIES
   better_errors
   braintree
   cache_digests
+  capistrano
+  capistrano-bundler
+  capistrano-passenger
+  capistrano-rails
+  capistrano-rvm
+  capistrano-upload-config
   capybara (~> 2.2.1)
   coffee-rails (~> 4.0.1)
   compass (~> 0.13.alpha)
@@ -587,6 +616,3 @@ DEPENDENCIES
   will_paginate (~> 3.0.5)
   xpath
   zeus (= 0.15.1)
-
-BUNDLED WITH
-   1.10.6
