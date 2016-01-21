@@ -301,7 +301,7 @@ GEM
     passenger (5.0.23)
       rack
       rake (>= 0.8.1)
-    paypal-sdk-core (0.3.1)
+    paypal-sdk-core (0.3.4)
       multi_json (~> 1.0)
       xml-simple
     paypal-sdk-merchant (1.116.0)
@@ -451,7 +451,7 @@ GEM
       trollop (~> 2.0)
     websocket (1.2.2)
     will_paginate (3.0.7)
-    xml-simple (1.1.4)
+    xml-simple (1.1.5)
     xpath (2.0.0)
       nokogiri (~> 1.3)
     zeus (0.15.1)
