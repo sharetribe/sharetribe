@@ -153,7 +153,6 @@ group :test do
   gem 'rack-test'
   gem 'database_cleaner', '~> 1.1'
   gem 'connection_pool'
-  gem 'coveralls', require: false
 end
 
 group :development, :test do
