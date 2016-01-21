@@ -10,6 +10,8 @@ The Change Log starts from the release 5.0.0. For older releases, see [RELEASE_N
 
 ## [Unreleased]
 
+## [5.1.0] - 2016-01-21
+
 ### Added
 
 - Marketplace admins can select if the custom field creates a search filter on the homepage [#1653](https://github.com/sharetribe/sharetribe/pull/1653)
@@ -21,5 +23,6 @@ The Change Log starts from the release 5.0.0. For older releases, see [RELEASE_N
 
 - Rails upgraded from 3.2 to 4.0
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v5.0.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v5.1.0...HEAD
+[5.1.0]: https://github.com/sharetribe/sharetribe/compare/v5.0.0...v5.1.0
 [5.0.0]: https://github.com/sharetribe/sharetribe/compare/v4.6.0...v5.0.0
