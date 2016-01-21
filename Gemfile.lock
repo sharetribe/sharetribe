@@ -461,52 +461,52 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-session_store
+  activerecord-session_store (~> 0.1.2)
   airbrake (~> 4.1.0)
-  annotate
+  annotate (~> 2.6.5)
   aws-sdk (~> 2)
-  aws-sdk-v1
-  better_errors
-  braintree
-  cache_digests
+  aws-sdk-v1 (~> 1.64.0)
+  better_errors (~> 2.1.1)
+  braintree (~> 2.30.0)
+  cache_digests (~> 0.3.1)
   capybara (~> 2.2.1)
   coffee-rails (~> 4.0.1)
   compass (~> 0.13.alpha)
   compass-rails (~> 1.1)
-  connection_pool
+  connection_pool (~> 0.9.3)
   countries (~> 1.2, >= 1.2.2)
-  cucumber
+  cucumber (~> 1.3.14)
   cucumber-rails (~> 1.4.0)
-  dalli
+  dalli (~> 2.6.4)
   database_cleaner (~> 1.1)
   delayed_job (~> 4.0.0, <= 4.0.2)
-  delayed_job_active_record
-  delayed_paperclip
-  demoji
+  delayed_job_active_record (= 4.0.3)
+  delayed_paperclip (~> 2.6.1)
+  demoji (~> 0.0.5)
   devise (~> 3.0.0)
   devise-encryptable (~> 0.2.0)
-  dynamic_form
+  dynamic_form (~> 1.1.4)
   email_spec (~> 1.6.0)
-  factory_girl_rails
+  factory_girl_rails (~> 4.4.1)
   flying-sphinx (~> 1.2.0)
-  guard-livereload
-  guard-rspec
-  haml
+  guard-livereload (~> 1.4.0)
+  guard-rspec (~> 4.3.1)
+  haml (~> 4.0.5)
   i18n-tasks (~> 0.6.2)
   jquery-rails (= 2.1.4)
-  json (~> 1.8.0)
+  json (~> 1.8.3)
   jwt (~> 1.5.1)
   kgio (~> 2.8.0)
   launchy (~> 2.4, >= 2.4.3)
-  librato-rails
-  lograge
+  librato-rails (~> 0.11.1)
+  lograge (~> 0.3.2)
   mail_view (~> 1.0.3)
-  memcachier
+  memcachier (~> 0.0.2)
   mercury-rails!
   meta_request (~> 0.3)
-  money-rails
-  multi_json (~> 1.7.3)
-  mysql2
+  money-rails (~> 1.3.0)
+  multi_json (~> 1.7.9)
+  mysql2 (~> 0.3.14)
   newrelic_rpm (~> 3.9.1.236)
   omniauth-facebook (~> 2.0.1)
   paperclip (~> 3.5.1)
@@ -514,35 +514,35 @@ DEPENDENCIES
   paypal-sdk-merchant (~> 1.116.0)
   paypal-sdk-permissions (~> 1.96.4)
   possibly (~> 0.2.0)
-  premailer
-  protected_attributes
-  pry
-  pry-nav
-  pry-rails
-  pry-stack_explorer
-  public_suffix
-  quiet_assets
-  rack-livereload
-  rack-test
+  premailer (~> 1.8.2)
+  protected_attributes (~> 1.1.3)
+  pry (~> 0.9.12.6)
+  pry-nav (~> 0.2.3)
+  pry-rails (~> 0.3.2)
+  pry-stack_explorer (~> 0.4.9.1)
+  public_suffix (~> 1.5.1)
+  quiet_assets (~> 1.1.0)
+  rack-livereload (~> 0.3.15)
+  rack-test (~> 0.6.2)
   rails (= 4.0.13)
   rails-i18n (~> 4.0, >= 4.0.8)
   rails-observers (~> 0.1.2)
   rails_12factor (~> 0.0.3)
-  rb-fsevent
+  rb-fsevent (~> 0.9.4)
   rest-client (>= 1.6.0)
   rspec-rails (~> 2.99.0)
-  rubocop
+  rubocop (~> 0.21.0)
   sass (~> 3.2.9)
   sass-rails (~> 4.0.0)
   selenium-webdriver (~> 2.45)
   statesman (~> 0.5.0)
   stringex (~> 2.5.2)
   thinking-sphinx (~> 3.1.1)
-  timecop
-  truncate_html
+  timecop (~> 0.6.3)
+  truncate_html (~> 0.9.1)
   ts-delayed-delta (~> 2.0.2)!
-  uglifier
-  web_translate_it
+  uglifier (~> 1.3.0)
+  web_translate_it (~> 2.1.8)
   will_paginate (~> 3.0.5)
   zeus (= 0.15.1)
 
