@@ -40,12 +40,7 @@ When you are ready to release a new version, follow these steps:
   **Describe this release:**
 
   ```markdown
-  ## Change Log
-
   <copy the content from the [CHANGELOG.md](UPGRADE.md)>
-
-  ## Upgrade from x.x.x to y.y.y
-
   <copy the content from the [UPGRADE.md](UPGRADE.md)>
   ```
 
@@ -58,8 +53,6 @@ When you are ready to release a new version, follow these steps:
   **Describe this release:**
 
   ```markdown
-  ## Change Log
-
   ### Changed
 
   - Rails upgraded from 3.2 to 4.0
