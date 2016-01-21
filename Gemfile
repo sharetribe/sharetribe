@@ -74,7 +74,7 @@ gem 'mercury-rails',
   branch: 'master',
   ref: '1cc637b0bccea19085f824d2881c6513ed5ee8ae'
 
-gem 'country_select', '~> 1.3.1'
+gem 'countries', '~> 1.2', '>= 1.2.2'
 gem 'braintree'
 gem "mail_view", "~> 1.0.3"
 gem 'statesman', '~> 0.5.0'
