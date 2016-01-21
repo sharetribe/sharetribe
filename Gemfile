@@ -58,12 +58,14 @@ gem 'delayed_job_active_record' # , "~> 4.0.0"
 gem 'json', "~>1.8.0"
 gem 'multi_json', "~>1.7.3" # 1.8.0 caused "invalid byte sequence in UTF-8" at heroku
 gem 'web_translate_it'
-gem 'rails-i18n'
+gem 'rails-i18n', '~> 4.0', '>= 4.0.8'
 gem 'devise', "~>3.0.0"
-gem "devise-encryptable"
+gem 'devise-encryptable', '~> 0.2.0'
 gem "omniauth-facebook", "~> 2.0.1"
 gem 'rake'
 gem 'xpath'
+
+# Dynamic form adds helpers that are needed, e.g. error_messages
 gem 'dynamic_form'
 gem "truncate_html"
 gem 'money-rails'
