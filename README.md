@@ -11,9 +11,12 @@ Want to get in touch? Email [info@sharetribe.com](mailto:info@sharetribe.com)
 ### Contents
 - [Installation](#installation)
 - [Payments](#payments)
-- [Updating](#payments)
+- [Versioning](#versioning)
+- [Changes](#changes)
+- [Upgrade](#upgrade)
+- [Contribute](#contribute)
+- [Release](#release)
 - [Technical roadmap](#technical-roadmap)
-- [Contributing](#contributing)
 - [Translation](#translation)
 - [Known issues](#known-issues)
 - [Developer documentation](#developer-documentation)
@@ -231,19 +234,41 @@ Sharetribe's open source version supports payments using [Braintree Marketplace]
 PayPal payments are only available on marketplaces hosted at [Sharetribe.com](https://www.sharetribe.com) due to special permissions needed from PayPal. We hope to add support for PayPal payments to the open source version of Sharetribe in the future.
 
 
-## Updating
+## Versioning
 
-See [release notes](RELEASE_NOTES.md) for information about what has changed and if actions are needed to upgrade.
+Sharetribe follows [Semantic Versioning](http://semver.org/) where possible.
+
+Given a version number MAJOR.MINOR.PATCH, increment the:
+
+* MAJOR version when you make incompatible API changes,
+* MINOR version when you add functionality in a backwards-compatible manner, and
+* PATCH version when you make backwards-compatible bug fixes.
+
+
+## Changes
+
+See [CHANGELOG.md](CHANGELOG.md) for detailed list of changes between releases.
+
+
+## Upgrade
+
+See [UPGRADE.md](UPGRADE.md) for information about actions needed when upgrading.
+
+
+## Contribute
+
+Would you like to make Sharetribe better?
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the steps to contribute.
+
+## Release
+
+See [RELEASE.md](RELEASE.md) for information about how to make a new release.
 
 
 ## Technical roadmap
 
 For a better high-level understanding of what the Sharetribe core team is working on currently and what it plans to work on next, read the [technical roadmap](TECHNICAL_ROADMAP.md).
-
-
-## Contributing
-
-Would you like to make Sharetribe better? [Follow these steps](CONTRIBUTING.md).
 
 
 ## Translation
