@@ -12,6 +12,7 @@ The Change Log starts from the release 5.0.0. For older releases, see [RELEASE_N
 
 ### Added
 
+- Marketplace admins can select if the custom field creates a search filter on the homepage [#1653](https://github.com/sharetribe/sharetribe/pull/1653)
 - CHANGELOG, UPGRADE and RELEASE files [#1658](https://github.com/sharetribe/sharetribe/pull/1658)
 
 ## [5.0.0] - 2015-12-31
