@@ -345,6 +345,10 @@ sv:
         field_required:
           this_field_is_required: "Detta fält måste fyllas i"
           this_field_is_required_checkbox: "Detta fält krävs (användaren måste välja minst ett alternativ)"
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: "Annonsfält och filter"
         listing_fields_help: "Här kan du redigera fälten som användarna behöver fylla i när de skapar en ny annons. Notera att det är några fält som är fördefinierade och inte går att ändra."

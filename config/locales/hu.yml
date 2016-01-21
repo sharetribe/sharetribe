@@ -127,7 +127,7 @@ hu:
         successfully_saved: ~
         status: ~
         status_verified: ~
-        status_error: ~
+        status_error: "Hiba történt. Kérem frissítse ezt az oldalt."
         status_requested: ~
         status_expired: ~
         status_resent: ~
@@ -157,7 +157,7 @@ hu:
         payments: ~
         payments_link_text: ~
         info_texts: ~
-        about_page_link_text: ~
+        about_page_link_text: "az oldalról"
         terms_of_use_link_text: "felhasználási feltételek"
         privacy_policy_link_text: "Adatvédelmi politika"
         welcome_email_link_text: "Üdvözlő e-mail:"
@@ -330,6 +330,10 @@ hu:
         field_required:
           this_field_is_required: "A mező kitöltése kötelező."
           this_field_is_required_checkbox: ~
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: ~
         listing_fields_help: ~
@@ -1012,7 +1016,7 @@ hu:
     error_404_title: "az oldal nem található"
     error_410:
       page_removed: "Oldal törölve"
-      page_you_requested_has_been_removed: ~
+      page_you_requested_has_been_removed: "Az ön által kért oldalt eltávolították."
       page_removed_reason: ~
     error_410_title: "Oldal törölve"
     error_500:
@@ -1188,14 +1192,14 @@ hu:
       all_listing_types: "Összes hirdetés típus"
       all_categories: "Összes kategória"
     errors:
-      search_engine_not_responding: ~
+      search_engine_not_responding: "A keresés jelenleg nem elérhető. Próbálja újra később."
   infos:
     about:
       default_about_text_title: "Mi az a Sharetribe?"
       default_about_text: ~
       click_here_link_text: "Kattintson ide"
     how_to_use:
-      default_title: ~
+      default_title: "Hogyan működik"
       default_content: ~
   layouts:
     admin:
@@ -1575,7 +1579,7 @@ hu:
       select_subcategory: ~
       select_transaction_type: "Válassza ki a hirdetés típusát"
       you_need_to_fill_payout_details_before_accepting: ~
-      contact_admin_link_text: ~
+      contact_admin_link_text: "Lépjen kapcsolatba az adminisztrátorral"
       community_not_configured_for_payments: ~
       payment_settings_link: "Fizetési beállítások"
       community_not_configured_for_payments_admin: ~
@@ -1718,7 +1722,7 @@ hu:
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: ~
-      contact_admin_link_text: ~
+      contact_admin_link_text: "Lépjen kapcsolatba az adminisztrátorral"
       admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: "Az Ön PayPal emailcíme"
@@ -1794,7 +1798,7 @@ hu:
       invitation_code: "Meghívó kód"
       not_required: ", nem szükséges"
       notification_is_mandatory: ~
-      organization_name: ~
+      organization_name: "Szervezet neve"
       password_again: "Jelszó megerősítése"
       show_my_name_to_others: "Lássák a valós nevem az %{service_name} felhasználói"
       sign_up: "Új %{service_name} fiók létrehozása"

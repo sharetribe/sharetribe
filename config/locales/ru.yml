@@ -355,6 +355,10 @@ ru:
         field_required:
           this_field_is_required: "Это обязательное поле"
           this_field_is_required_checkbox: "Это обязательное поле (пользователь должен выбрать по крайней мере одну опцию)"
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: "Поля и фильтры для предложений"
         listing_fields_help: "Здесь вы можете редактировать поля которые участники должны заполнить когда они создают новое предложение. Пожалуйста имейте ввиду что некоторые поля предопределены и не не могут быть редактируемые."

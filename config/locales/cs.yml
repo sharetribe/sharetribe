@@ -350,6 +350,10 @@ cs:
         field_required:
           this_field_is_required: "Toto pole je povinné"
           this_field_is_required_checkbox: "Toto pole je povinné (uživatel musí zvolit alespoň jednu možnost)"
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: "Seznam polí & filtrů"
         listing_fields_help: "Zde můžete upravit pole, která uživatelé musí vyplnit při vytváření nového inzerátu. Vezměte na vědomí, že některá pole jsou předepsaná a nemohou být upravena."

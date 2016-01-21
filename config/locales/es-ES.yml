@@ -349,6 +349,10 @@ es-ES:
         field_required:
           this_field_is_required: "Campo obligatorio"
           this_field_is_required_checkbox: "El campo es obligatorio (selecciona una opción)"
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: "Campos & Filtros de los anuncios"
         listing_fields_help: "Aquí puedes elegir los campos que los usuarios han de completar al publicar un nuevo anuncio. Por favor, recuerda que los campos son predefinidos y no pueden ser editados."

@@ -345,6 +345,10 @@ de:
         field_required:
           this_field_is_required: "Dieses Feld ist erforderlich."
           this_field_is_required_checkbox: ~
+        search_filter:
+          search_filter: "Filter auf Basis dieses Feldes auf der Homepage anzeigen"
+          date_cant_be_filtered: "Es ist kein Filter für das Datum verfügbar"
+          text_cant_be_filtered: "Es gibt keinen Filter für Text Felder. Die allgemeine Suchfunktion durchsucht Text Felder."
       index:
         listing_fields: Filter
         listing_fields_help: "Hier kannst Du die Felder bearbeiten, die Nutzer ausfüllen müssen, wenn sie einen neuen Eintrag erstellen. Bitte beachte, dass einige Felder vorgegeben sind und nicht geändert werden können."
@@ -1480,7 +1484,7 @@ de:
         this_may_take_a_while: "(dies kann eine Weile dauern)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Bild hochladen fehlgeschlagen"
-        image_processing_failed: ~
+        image_processing_failed: "Bildverarbeitung fehlgeschlagen"
         file_too_large: "Die Datei ist zu groß."
         accepted_formats: "Die Bilddatei muss entweder im GIF-, JPG- oder PNG-Format vorliegen."
         images_not_uploaded_confirm: "Es sind noch nicht alle Bilder hochgeladen. Möchtest Du wirklich fortfahren?"

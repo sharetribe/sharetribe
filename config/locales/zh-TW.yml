@@ -340,6 +340,10 @@ zh-TW:
         field_required:
           this_field_is_required: 这个字段是必填的。
           this_field_is_required_checkbox: 该字段必须填写（用户必须选择至少一个选项）
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: 信息字段&过滤器
         listing_fields_help: 你可以在这里编辑用户在创建新的信息时必须填入的字段。请注意某些预定义字段不能被编辑。

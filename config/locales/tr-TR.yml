@@ -340,6 +340,10 @@ tr-TR:
         field_required:
           this_field_is_required: "Bu alanı doldurmak zorunludur"
           this_field_is_required_checkbox: "Bu alanı doldurmak zorunludur (Kullanıcı en az birini tercih etmelidir)"
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: "Listelenen alan & filtreleri"
         listing_fields_help: "Buradan kullanıcıların yeni listeleme oluştururken doldurmaları gereken alanları düzenleyebilirsiniz. Lütfen bazı alanların önceden belirlenmiş ve değiştirilemez olduğunu unutmayın."
@@ -1094,7 +1098,7 @@ tr-TR:
     create_new_marketplace: "Yeni pazar oluştur"
     contact_us: "Bize ulaşın"
     profile: Profil
-    manage_listings: ~
+    manage_listings: "Listelemeyi yönet"
     invite: "Yeni üye davet edin"
     login: "Giriş yap"
     signup: "Kayıt ol"

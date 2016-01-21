@@ -345,6 +345,10 @@ nb:
         field_required:
           this_field_is_required: "Dette feltet er påkrevd"
           this_field_is_required_checkbox: "Dette feltet er påkrevd(bruker må velge minst ett valg)"
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: "Annonse felt & filter"
         listing_fields_help: "Her kan du endre feltene brukere må fylle inn når de oppretter en annonse. Noen av feltene er predefinerte og kan ikke endres."

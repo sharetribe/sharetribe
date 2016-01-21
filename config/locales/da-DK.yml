@@ -345,6 +345,10 @@ da-DK:
         field_required:
           this_field_is_required: "Dette felt er påkrævet."
           this_field_is_required_checkbox: "Dette felt er påkrævet (Bruger skal minimum vælge en)"
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: Annoncefiltrering
         listing_fields_help: "Her kan du ændre de felter som brugere skal udfylde når de skal oprette en annonce på din markedsplads. Du skal være opmærksom på at nogle felter ikke kan ændres."
