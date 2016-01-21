@@ -62,7 +62,6 @@ gem 'rails-i18n', '~> 4.0', '>= 4.0.8'
 gem 'devise', "~>3.0.0"
 gem 'devise-encryptable', '~> 0.2.0'
 gem "omniauth-facebook", "~> 2.0.1"
-gem 'rake'
 gem 'xpath'
 
 # Dynamic form adds helpers that are needed, e.g. error_messages
