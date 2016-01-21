@@ -12,6 +12,6 @@ end
 
 When(/^(author ".*?") and (starter ".*?") should be notified about automatic confirmation$/) do |author, starter|
   process_jobs
-  user_should_have_email(author, "Request completed - remember to give feedback")
-  user_should_have_email(starter, "Request automatically completed - remember to give feedback")
+  user_should_have_email(author, "Order completed - remember to give feedback")
+  user_should_have_email(starter, "Order automatically completed - remember to give feedback")
 end

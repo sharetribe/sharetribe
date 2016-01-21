@@ -141,7 +141,7 @@ When /^I cancel the transaction$/ do
   # This probably fails if there are many payments waiting
   steps %Q{
     Given I am on the messages page
-    Then I should see "Waiting for you to mark the request completed"
+    Then I should see "Waiting for you to mark the order completed"
     When I click ".conversation-title-link-unread"
     And I follow "Dispute"
   }
