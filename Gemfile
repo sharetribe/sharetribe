@@ -89,7 +89,9 @@ gem 'paypal-sdk-merchant', '~> 1.116.0'
 gem 'airbrake', '~> 4.1.0'
 gem 'cache_digests', "~> 0.3.1"
 gem 'librato-rails', "~> 0.11.1"
-gem 'jwt', '~> 1.5.1'
+
+# Updating to 1.5.2 breaks tests
+gem 'jwt', '1.5.1'
 
 gem 'lograge', "~> 0.3.2"
 gem 'public_suffix', "~> 1.5.1" # Needed currently to set GA hostname right, probably not
