@@ -54,9 +54,9 @@ GEM
     airbrake (4.1.0)
       builder
       multi_json
-    annotate (2.6.5)
-      activerecord (>= 2.3.0)
-      rake (>= 0.8.7)
+    annotate (2.6.10)
+      activerecord (>= 3.2, <= 4.3)
+      rake (~> 10.4)
     arel (4.0.2)
     ast (2.2.0)
     aws-sdk (2.2.12)
