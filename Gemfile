@@ -32,8 +32,11 @@ gem "mysql2", "~> 0.3.14"
 gem 'haml', "~> 4.0.5"
 gem 'sass', "  ~> 3.2.9"
 gem 'rest-client', '~> 1.6.7'
-gem 'paperclip', '~> 3.5.1'
+
+# Updating paperclip caused problems with delayed paperclip
+gem 'paperclip', '3.5.1'
 gem 'delayed_paperclip', "~> 2.6.1"
+
 gem 'aws-sdk-v1', "~> 1.64.0"
 gem 'aws-sdk', '~> 2'
 gem "will_paginate", '~>3.0.5'
