@@ -236,7 +236,7 @@ PayPal payments are only available on marketplaces hosted at [Sharetribe.com](ht
 
 ## Versioning
 
-Sharetribe follows semantic versioning schema:
+Sharetribe follows [Semantic Versioning](http://semver.org/) where possible.
 
 Given a version number MAJOR.MINOR.PATCH, increment the:
 
