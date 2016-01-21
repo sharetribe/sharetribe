@@ -345,6 +345,10 @@ pt-BR:
         field_required:
           this_field_is_required: "Este campo é obrigatório"
           this_field_is_required_checkbox: "Este campo é obrigatório (o usuário deve selecionar pelo menos uma opção)"
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: "Campos de anúncios & filtros"
         listing_fields_help: "Aqui você pode editar os campos que os usuários têm de preencher ao criar um novo anúncio. Por favor, note que alguns campos são predefinidos e não podem ser editados."
@@ -1109,6 +1113,7 @@ pt-BR:
     create_new_marketplace: "Criar um novo mercado virtual"
     contact_us: Contato
     profile: Perfil
+    manage_listings: ~
     invite: "Convidar novos membros"
     login: Entrar
     signup: "Criar conta"
@@ -1846,13 +1851,8 @@ pt-BR:
       read_more_about_kassi_communities: "Leia mais sobre os mercados virtuais da Sharetribe"
       this_user_does_not_belong_to_this_community: "Este usuário não pertence a %{community}."
     profile_feedback:
-      as_expected: "Como esperado"
-      exceeded_expectations: "Muito melhor do que o esperado"
       grade: "nota :"
       and_gave_following_feedback: "deu a opinião seguinte"
-      less_than_expected: "Pior do que o esperado"
-      slightly_better_than_expected: "Ligeiramente melhor do que o esperado"
-      slightly_less_than_expected: "Um pouco pior do que o esperado"
     profile_listings:
       show_also_closed: "Mostar também anúncios invisíveis"
       show_only_open: "Exibir apenas os abertos"

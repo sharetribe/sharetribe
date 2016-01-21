@@ -32,7 +32,7 @@ Feature: Booking transaction process
      When I log in as "owner"
       And I accepts the request for that listing
 
-     Then I should see that the request is waiting for buyer confirmation
+     Then I should see that the order is waiting for buyer confirmation
       And I should see that I should now deliver the board
       And author "owner" and starter "booker" should receive receipts for payment
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151231083524) do
+ActiveRecord::Schema.define(version: 20160120112839) do
 
   create_table "auth_tokens", force: true do |t|
     t.string   "token"
@@ -354,6 +354,7 @@ ActiveRecord::Schema.define(version: 20151231083524) do
   create_table "custom_fields", force: true do |t|
     t.string   "type"
     t.integer  "sort_priority"
+    t.boolean  "search_filter",  default: false, null: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.integer  "community_id"
@@ -364,6 +365,7 @@ ActiveRecord::Schema.define(version: 20151231083524) do
   end
 
   add_index "custom_fields", ["community_id"], name: "index_custom_fields_on_community_id", using: :btree
+  add_index "custom_fields", ["search_filter"], name: "index_custom_fields_on_search_filter", using: :btree
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0

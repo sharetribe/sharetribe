@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 include ApplicationHelper
-include PeopleHelper
 include ListingsHelper
 include TruncateHtmlHelper
 

@@ -17,8 +17,6 @@ class CustomFieldOption < ActiveRecord::Base
   include SortableByPriority # use `sort_priority()` for sorting
 
   belongs_to :custom_field
-  attr_accessible :sort_priority, :title_attributes
-
   has_many :titles, :foreign_key => "custom_field_option_id", :class_name => "CustomFieldOptionTitle", :dependent => :destroy
 
   has_many :custom_field_option_selections, :dependent => :destroy

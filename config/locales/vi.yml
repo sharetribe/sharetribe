@@ -330,6 +330,10 @@ vi:
         field_required:
           this_field_is_required: ~
           this_field_is_required_checkbox: ~
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: ~
         listing_fields_help: ~
@@ -1078,6 +1082,7 @@ vi:
     create_new_marketplace: ~
     contact_us: ~
     profile: ~
+    manage_listings: ~
     invite: ~
     login: ~
     signup: ~
@@ -1810,13 +1815,8 @@ vi:
       read_more_about_kassi_communities: "Tìm hiểu thêm về cộng đồng %{service_name}"
       this_user_does_not_belong_to_this_community: "Người dùng này không thuộc về cộng đồng %{community}"
     profile_feedback:
-      as_expected: "Như mong đợi"
-      exceeded_expectations: "Tốt hơn nhiều so với dự kiến"
       grade: "xếp loại:"
       and_gave_following_feedback: "và đã cung cấp thông tin phản hồi sau"
-      less_than_expected: "Tệ hơn so với dự kiến"
-      slightly_better_than_expected: "Tốt hơn một chút so với dự kiến"
-      slightly_less_than_expected: "Tệ hơn một chút so với dự kiến"
     profile_listings:
       show_also_closed: "Hiển thị cũng đóng"
       show_only_open: "Chỉ hiển thị mở"

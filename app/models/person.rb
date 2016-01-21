@@ -361,20 +361,22 @@ class Person < ActiveRecord::Base
     listings.requests
   end
 
-  def feedback_average
-    ((received_testimonials.average(:grade) * 4 + 1) * 10).round / 10.0
-  end
-
   # The percentage of received testimonials with positive grades
   # (grades between 3 and 5 are positive, 1 and 2 are negative)
-  def feedback_positive_percentage
-    if received_positive_testimonials.size > 0
-      if received_negative_testimonials.size > 0
-        (received_positive_testimonials.size.to_f/received_testimonials.size.to_f*100).round
+  def feedback_positive_percentage_in_community(community)
+    # NOTE the filtering with communinity can be removed when
+    # user accounts are no more shared among communities
+    received_testimonials = TestimonialViewUtils.received_testimonials_in_community(self, community)
+    positive_testimonials = TestimonialViewUtils.received_positive_testimonials_in_community(self, community)
+    negative_testimonials = TestimonialViewUtils.received_negative_testimonials_in_community(self, community)
+
+    if positive_testimonials.size > 0
+      if negative_testimonials.size > 0
+        (positive_testimonials.size.to_f/received_testimonials.size.to_f*100).round
       else
         return 100
       end
-    elsif received_negative_testimonials.size > 0
+    elsif negative_testimonials.size > 0
       return 0
     end
   end

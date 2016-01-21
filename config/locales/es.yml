@@ -330,6 +330,10 @@ es:
         field_required:
           this_field_is_required: ~
           this_field_is_required_checkbox: ~
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: ~
         listing_fields_help: ~
@@ -1085,6 +1089,7 @@ es:
     create_new_marketplace: "Crear un nuevo mercado"
     contact_us: Contáctenos
     profile: Perfil
+    manage_listings: ~
     invite: "Invitar a nuevos miembros"
     login: Conectarse
     signup: Registrarse
@@ -1820,13 +1825,8 @@ es:
       read_more_about_kassi_communities: "Lee más sobre las comunidades de %{service_name}"
       this_user_does_not_belong_to_this_community: "El usuario no pertenece a la comunidad %{community}"
     profile_feedback:
-      as_expected: "Como lo esperado"
-      exceeded_expectations: "Mucho mejor de lo esperado"
       grade: "puntaje:"
       and_gave_following_feedback: "Feedbacks dados"
-      less_than_expected: "Peor de lo esperado"
-      slightly_better_than_expected: "Un poco mejor de lo esperado"
-      slightly_less_than_expected: "Un poco peor de lo esperado"
     profile_listings:
       show_also_closed: "Mostrar los cerrados"
       show_only_open: "Mostrar los abiertos"

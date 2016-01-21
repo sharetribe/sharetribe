@@ -4,36 +4,36 @@ hu:
       edit:
         edit_listing_category: ~
       index:
-        listing_categories: ~
-        create_a_new_category: ~
-        remove_category_confirmation: ~
+        listing_categories: "Hirdetési kategóriák"
+        create_a_new_category: "+ Hozzon létre új kategóriát"
+        remove_category_confirmation: "Biztos ki akar lépni a %{category_name} kategóriából?"
         saving_order: ~
         save_order_successful: ~
         save_order_error: ~
       new:
-        new_listing_category: ~
+        new_listing_category: "Új hirdetési kategória"
       form:
         category_name:
-          category_title: ~
+          category_title: "Kategória elnevezés"
         category_parent:
-          category_parent: ~
-          no_parent: ~
+          category_parent: "Előző kategória"
+          no_parent: "nincs előző"
         category_transaction_types:
           transaction_types: ~
           transaction_types_description: ~
-          select_all: ~
-          clear_all: ~
+          select_all: "Mindet kijelöl"
+          clear_all: "Mindet töröl"
         buttons:
-          save: ~
-          cancel: ~
+          save: Mentés
+          cancel: Mégse
       remove:
-        remove_category: ~
+        remove_category: "Kategória eltávolítása"
         remove_category_name: ~
         warning_remove_effects: ~
         select_new_category: ~
         buttons:
-          remove: ~
-          cancel: ~
+          remove: Eltávolít
+          cancel: Mégse
     communities:
       edit_details:
         community_details: ~
@@ -41,7 +41,7 @@ hu:
         edit_community: ~
         enabled_languages: ~
         enabled_languages_description: ~
-        default_language: ~
+        default_language: "Alapértelmezett nyelv"
         language_selection_disabled: ~
         community_name: ~
         edit_community_name_description: ~
@@ -53,18 +53,18 @@ hu:
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
-        update_information: ~
+        update_information: "Beállítások mentése"
         invite_people: ~
         edit_signup_info: ~
         edit_signup_info_description: ~
-        edit_info: ~
-        see_how_it_looks_like: ~
+        edit_info: "Információk változtatása"
+        see_how_it_looks_like: Előnézet
         verification_to_post_listings_info_content: ~
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: ~
-        save: ~
-        transaction_agreement: ~
+        save: "Beállítások mentése"
+        transaction_agreement: "Tranzakciós megállapodás"
         transaction_agreement_checkbox: ~
         transaction_agreement_checkbox_header: ~
         transaction_agreement_checkbox_label_description: ~
@@ -75,11 +75,11 @@ hu:
         community_logo: ~
         community_logo_icon: ~
         community_cover_photo: ~
-        small_community_cover_photo: ~
+        small_community_cover_photo: "Kis háttérkép"
         favicon: ~
         favicon_info_text: ~
-        community_custom_color1: ~
-        community_custom_color2: ~
+        community_custom_color1: "Fő szín"
+        community_custom_color2: "Másodlagos szín"
         logo_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
@@ -96,21 +96,21 @@ hu:
         map: "Térkép nézet"
         name_display_type: ~
         name_display_type_instructions_text: ~
-        full_name: ~
+        full_name: "Teljes név (keresztnév először)"
         first_name_with_initial: ~
-        first_name_only: ~
+        first_name_only: "Keresztnév csak"
         invalid_color_code: ~
         custom_head_script: ~
         custom_head_script_instructions_text: ~
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
-        welcome_email_content: ~
+        welcome_email_content: "Üdvözlő üzenet tartalma"
         welcome_email_content_description: ~
-        edit_message: ~
-        send_test_message: ~
+        edit_message: "Üzenet szerkesztése"
+        send_test_message: "Tesztüzenet küldése"
       outgoing_email:
-        title: ~
+        title: "Kimenő emailcím"
         info: ~
         read_more: ~
         sender_address: ~
@@ -118,24 +118,24 @@ hu:
         need_to_change: ~
         contact_support_link_text: ~
         set_sender_address: ~
-        sender_name_label: ~
-        sender_name_placeholder: ~
-        sender_email_label: ~
+        sender_name_label: Név
+        sender_name_placeholder: "Feladó neve"
+        sender_email_label: Emailcím
         sender_email_placeholder: ~
-        this_is_how_it_will_look: ~
+        this_is_how_it_will_look: "Így fog kinézni:"
         send_verification_button: ~
         successfully_saved: ~
         status: ~
         status_verified: ~
-        status_error: ~
+        status_error: "Hiba történt. Kérem frissítse ezt az oldalt."
         status_requested: ~
         status_expired: ~
         status_resent: ~
-        resend_link: ~
-        invalid_email_error: ~
+        resend_link: Újraküld
+        invalid_email_error: "Hibás e-mail formátum %{email}"
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
-        unknown_error: ~
+        unknown_error: "Hiba történt"
         only_white_label_offer: ~
         upgrade_pro_plan_link: ~
         verification_sent_from: ~
@@ -144,356 +144,360 @@ hu:
         getting_started: ~
         welcome_to_your_marketplace: ~
         intro: ~
-        live_site_link_text: ~
+        live_site_link_text: itt
         look_and_feel: ~
-        logo_link_text: ~
+        logo_link_text: "Az Ön logójának hozzáadása"
         custom_domain: ~
         categories_and_custom_fields: ~
         categories_link_text: ~
         custom_fields_link_text: ~
-        filters_link_text: ~
+        filters_link_text: "Mely szűrők"
         order_types: ~
         order_types_link_text: ~
         payments: ~
         payments_link_text: ~
         info_texts: ~
-        about_page_link_text: ~
-        terms_of_use_link_text: ~
-        privacy_policy_link_text: ~
-        welcome_email_link_text: ~
+        about_page_link_text: "az oldalról"
+        terms_of_use_link_text: "felhasználási feltételek"
+        privacy_policy_link_text: "Adatvédelmi politika"
+        welcome_email_link_text: "Üdvözlő e-mail:"
         instruction_texts_link_text: ~
         social_media: ~
         facebook_link_text: ~
-        twitter_link_text: ~
+        twitter_link_text: "Twitteréhez hozzáadás"
         analytics: ~
         analytics_link_text: ~
         settings: ~
         settings_link_text: ~
         final_words: ~
-        invite_link_text: ~
-        view_users_link_text: ~
-        view_transactions_link_text: ~
+        invite_link_text: "Hívjon meg ismerősöket"
+        view_users_link_text: itt
+        view_transactions_link_text: itt
         contact_support_link_text: ~
       available_languages:
-        en: ~
-        en-AU: ~
-        en-GB: ~
-        fr: ~
-        fr-CA: ~
-        es: ~
-        es-ES: ~
-        pt-PT: ~
-        pt-BR: ~
+        en: Angol
+        en-AU: "Angol (Ausztrália)"
+        en-GB: "Angol (Egyesült Királyság)"
+        fr: Francia
+        fr-CA: "Francia (Kanada)"
+        es: "Spanyol (Chile)"
+        es-ES: Spanyol
+        pt-PT: Portugál
+        pt-BR: "Portugál (Brazil)"
         nb: ~
-        sv: ~
-        da-DK: ~
-        fi: ~
-        ru: ~
-        de: ~
-        el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
-        it: ~
+        sv: Svéd
+        da-DK: Dán
+        fi: Finn
+        ru: Orosz
+        de: Német
+        el: Görök
+        nl: Holland
+        tr-TR: Török
+        zh: Kínai
+        ja: Japán
+        it: Olasz
       settings:
-        settings: ~
-        general: ~
+        settings: Beállítások
+        general: Általános
         users_can_review_each_other_after_transaction: ~
         access: ~
         join_with_invite_only: ~
         users_can_invite_new_users: ~
         private: ~
         require_verification_to_post_listings: ~
-        listing_preferences: ~
+        listing_preferences: "Hirdetési beállítások"
         transaction_preferences: ~
         show_listing_publishing_date: ~
         show_category_in_listing_list: ~
         hide_expiration_date: ~
         listing_comments_in_use: ~
-        email_preferences: ~
+        email_preferences: "Email beállítások"
         automatic_newsletters: ~
         email_admins_about_new_members: ~
         google_analytics_key: ~
         twitter_handle: ~
-        update_settings: ~
+        update_settings: "Beállítások mentése"
         automatically_confirmed: ~
         automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
-        newsletter_daily: ~
-        newsletter_weekly: ~
-        delete_marketplace_title: ~
+        newsletter_daily: Napi
+        newsletter_weekly: Heti
+        delete_marketplace_title: "Piactér törlése"
         type_marketplace_domain: ~
         type_marketplace_domain_placeholder: ~
         once_you_delete: ~
-        are_you_sure: ~
+        are_you_sure: "Biztos benne?"
         i_understand_button: ~
         last_community_updates: ~
         you_will_be_redirected_to: ~
-        delete_this_marketplace: ~
+        delete_this_marketplace: "Piactér törlése"
       manage_members:
         manage_members: ~
-        email: ~
-        name: ~
-        join_date: ~
-        admin: ~
+        email: Email
+        name: Név
+        join_date: Csatlakozva
+        admin: Rendszergazda
         posting_allowed: ~
-        ban_user: ~
-        saving_user_status: ~
-        save_user_status_successful: ~
+        ban_user: "Felhasználó tiltása"
+        saving_user_status: Mentés...
+        save_user_status_successful: "Mentve "
         export_all_as_csv: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
-        ban_me_error: ~
+        ban_me_error: "Nem tilthatja le önmagát"
       social_media:
-        social_media: ~
+        social_media: "Közösségi média"
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
-        twitter_instructions_link_text: ~
-        twitter_handle_placeholder: ~
+        twitter_instructions_link_text: Bővebben
+        twitter_handle_placeholder: felhasználó
         invalid_twitter_handle: ~
-        facebook_connect: ~
+        facebook_connect: Facebook
         facebook_connect_info_text: ~
         facebook_connect_info_text_with_instructions: ~
         facebook_instructions_link_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
+        facebook_connect_id: "Facebook felhasználó azonosító"
+        invalid_facebook_connect_id: "Felhasználó azonosító csak számokat tartalmazhat."
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
-        save: ~
+        save: "Beállítások mentése"
       analytics:
-        analytics: ~
+        analytics: Vizsgálat
         google_analytics_key: ~
         google_analytics_key_info_text: ~
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
-        save: ~
+        save: "Beállítások mentése"
       menu_links:
         menu_links: ~
-        save: ~
-        add_menu_link: ~
+        save: "Beállítások mentése"
+        add_menu_link: "Új link menühöz adása"
         title_placeholder: ~
         url_placeholder: ~
-        title: ~
-        language: ~
-        url: ~
+        title: Cím
+        language: Nyelv
+        url: link
         empty: ~
       transactions:
         export_all_as_csv: ~
-        transactions: ~
+        transactions: "Mutassa a tranzakciókat"
         headers:
           conversation: ~
-          listing: ~
-          status: ~
-          sum: ~
-          started: ~
+          listing: Hirdetések
+          status: Állapot
+          sum: Össz
+          started: Elkezdve
           last_activity: ~
           initiated_by: ~
-          other_party: ~
+          other_party: "Egyéb party"
         status:
           free: ~
-          pending: ~
+          pending: Folyamatban
           preauthorized: ~
-          accepted: ~
-          rejected: ~
-          paid: ~
-          confirmed: ~
-          canceled: ~
-          initiated: ~
+          accepted: Elfogadva
+          rejected: Elutasítva
+          paid: Fizetve
+          confirmed: Megerősítve
+          canceled: Törölve
+          initiated: "Várjuk PayPal utalását"
           pending_ext: ~
-        not_available: ~
+        not_available: "Nem elérhető"
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
-        private_key: ~
-        public_key: ~
+        private_key: "Személyes kulcs"
+        public_key: "Bárki számára hozzáférhető"
         client_side_encryption_key: ~
         merchant_id: ~
         master_merchant_id: ~
         commission_from_seller: ~
       paypal_account:
-        paypal_admin_account: ~
+        paypal_admin_account: Fizetések
     custom_fields:
       edit:
         edit_listing_field: ~
       edit_price:
         description: ~
-        edit_price_field: ~
+        edit_price_field: "Ár változtatása"
         show_price_filter_homepage: ~
         price_min: ~
         price_max: ~
       edit_location:
         edit_location_field: ~
-        this_field_is_required: ~
+        this_field_is_required: "A mező kitöltése kötelező."
       form:
         field_required:
-          this_field_is_required: ~
+          this_field_is_required: "A mező kitöltése kötelező."
           this_field_is_required_checkbox: ~
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: ~
         listing_fields_help: ~
         add_new_field: ~
         remove_field_confirmation: ~
-        cancel: ~
-        save: ~
+        cancel: Mégse
+        save: Mentés
         field_title: ~
-        field_type: ~
+        field_type: "Mező típus"
         categories: ~
-        select_all: ~
-        clear_all: ~
-        options: ~
-        add_option: ~
+        select_all: "Mindet kijelöl"
+        clear_all: "Mindet töröl"
+        options: Beállítások
+        add_option: "Opció hozzáadása"
         saving_order: ~
         save_order_successful: ~
         save_order_error: ~
-        select_one: ~
-        continue: ~
-        minimum_value: ~
-        maximum_value: ~
+        select_one: "Válasszon mező típust"
+        continue: Folytatás
+        minimum_value: Minimum
+        maximum_value: Maximum
         allow_decimals: ~
       new:
         new_listing_field: ~
       field_types:
-        text: ~
-        number: ~
+        text: Szöveg
+        number: Szám
         dropdown: ~
         checkbox_group: ~
-        date: ~
+        date: Dátum
     emails:
       new:
         send_email_to_members: ~
         send_email_to_members_title: ~
-        email_subject: ~
-        email_content: ~
+        email_subject: "E-mail tárgya"
+        email_content: "E-mail tartalma"
         email_content_placeholder: ~
-        email_language: ~
-        any_language: ~
-        send_email: ~
+        email_language: "Az e-mailt fogadók anyanyelve"
+        any_language: "Egyéb nyelvek"
+        send_email: "E-mail küldése"
         message_will_be_sent_only_to_people_with_this_language: ~
-        email_sent: ~
+        email_sent: "Email elküldve"
     left_hand_navigation:
-      general: ~
+      general: Általános
       users_and_transactions: ~
-      configure: ~
-      emails_title: ~
-      support: ~
-      subscription: ~
+      configure: Beállítás
+      emails_title: Emailek
+      support: Segítség
+      subscription: Feliratkozás
     listing_shapes:
       index:
         listing_shapes: ~
         description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
-        select_template: ~
-        all_categories: ~
-        no_categories: ~
+        read_more_about_order_types: "Tudjon meg többet az ajánlattípusokról"
+        add_new_shape: "Adjon meg új ajánlattípust: "
+        select_template: Válasszon
+        all_categories: "Összes kategória"
+        no_categories: "Nincsenek kategóriák"
         category_count: ~
         header:
-          listing_shape_name: ~
+          listing_shape_name: "Ajánlattípus neve"
           listing_shape_categories: ~
         order:
-          saving_order: ~
+          saving_order: "Rendelés mentése"
           save_order_successful: ~
           save_order_error: ~
       templates:
-        selling_products: ~
+        selling_products: "Eladó termékek"
         renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
+        offering_services: "Szolgáltatási ajánlatok"
+        giving_things_away: Ajándékozás
         requesting: ~
         announcement: ~
         custom: ~
       new:
-        create_listing_shape: ~
-        create: ~
-        cancel: ~
+        create_listing_shape: "Hozzon létre ajánlattípust"
+        create: Létrehoz
+        cancel: Mégse
         create_success: ~
-        create_failure: ~
+        create_failure: "Nem tudott új ajánlattípust létrehozni. Hiba:%{error_msg}"
       edit:
         edit_listing_shape: ~
-        update: ~
-        cancel: ~
+        update: Mentés
+        cancel: Mégse
         update_success: ~
         update_failure: ~
-        delete: ~
+        delete: "Ajánlattípus törlése"
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
+      listing_shape_name: Név
       listing_shape_name_placeholder: ~
       action_button_label: ~
       action_button_placeholder: ~
-      successfully_closed: ~
+      successfully_closed: "Sikeresen lezárt hirdetések"
       successfully_deleted: ~
       pricing_and_checkout_title: ~
       online_payments_label: ~
       shipping_label: ~
       price_label: ~
-      units_title: ~
+      units_title: Egységár
       units_desc: ~
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: Darabonként
+        hour: Óránként
+        day: Naponként
+        night: Éjszakánként
+        week: Hetente
+        month: Havonta
       can_not_find: ~
       add_custom_unit: ~
-      delete_custom_unit: ~
+      delete_custom_unit: töröl
       custom_unit_form:
-        title: ~
-        label_heading: ~
+        title: "Új egységár"
+        label_heading: Címke
         selector_label_heading: ~
         label_placeholder: ~
         selector_placeholder: ~
         per: ~
         unit_type:
-          heading: ~
+          heading: "Egység típus"
           quantity_label: ~
           time_label: ~
     paypal_accounts:
-      marketplace_paypal_integration: ~
+      marketplace_paypal_integration: "Fizetési beállítások"
       preferences_updated: ~
       marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: ~
-      paypal_account_email: ~
-      link_paypal_personal_account_label: ~
-      paypal_account_email_completed: ~
+      paypal_account_email: "1. Csatlakozás az Ön PayPal fiókjához"
+      link_paypal_personal_account_label: "Ön gondoskodik a termékekről illetve szolgáltatásokról személyesen?"
+      paypal_account_email_completed: Befejeződött
       link_paypal_personal_account: ~
-      personal_payment_preferences_link_text: ~
-      set_minimum_price_and_fee_completed: ~
+      personal_payment_preferences_link_text: "Az Ön személyes piactéri fiókja"
+      set_minimum_price_and_fee_completed: Befejeződött
       read_more_about_paypal: ~
       set_minimum_price_and_fee: ~
-      minimum_listing_price_label: ~
+      minimum_listing_price_label: "Minimum tranzakciós méret:"
       transaction_fee_label: ~
-      minimum_transaction_fee_label: ~
+      minimum_transaction_fee_label: "Minimum tranzakciós költség:"
       note_about_transaction_fee: ~
-      save_settings: ~
+      save_settings: "Beállítások mentése"
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
     transaction_types:
-      sell: ~
-      rent: ~
-      give: ~
+      sell: Eladás
+      rent: Bérbeadás
+      give: Ajándékozás
       lend: ~
       swap: ~
       service: ~
       request: ~
       inquiry: ~
-      share_for_free: ~
+      share_for_free: "ingyen fuvar"
       default_action_button_labels:
-        sell: ~
-        rent: ~
-        request: ~
-        offer: ~
+        sell: Vásárlás
+        rent: Bérlet
+        request: Ajánlat
+        offer: ajánlatkérés
         inquiry: Kapcsolatfelvétel
   common:
     edit_page: "Oldal szerkesztése"
     default_community_slogan: "Közösség piactér"
     default_community_description: ~
-    cancel: Mégse
+    cancel: Mégsem
     fields_that_are_mandatory: "Kötelező mezők (*)"
     or: vagy
     password: Jelszó
@@ -505,7 +509,7 @@ hu:
       buy: Vétel
       give_away: Ajándékozás
       lend: Kölcsönadás
-      receive: Fogadás
+      receive: "Ingyen átvétel"
       rent: Kölcsönzés
       rent_out: Kölcsönözés
       sell: Eladás
@@ -514,175 +518,175 @@ hu:
       share_for_free: "Ingyenes kölcsönadás"
       accept_for_free: "Ingyenes kölcsönvétel"
     categories:
-      item: ~
-      favor: ~
-      rideshare: ~
-      housing: ~
-      tools: ~
-      sports: ~
-      music: ~
-      books: ~
-      games: ~
-      furniture: ~
-      outdoors: ~
-      food: ~
-      electronics: ~
-      pets: ~
-      film: ~
-      clothes: ~
-      garden: ~
-      travel: ~
-      other: ~
+      item: Tételek
+      favor: Szolgáltatások
+      rideshare: Telekocsi
+      housing: "Üres helyek"
+      tools: Eszközök
+      sports: Sportok
+      music: Zene
+      books: "Könyvek és magazinok\n"
+      games: Játékok
+      furniture: Bútorok
+      outdoors: "Kemping és szabadidő"
+      food: "Étel és konyha"
+      electronics: "Elektronikai felszerelések"
+      pets: "Kiskedvencek és állatok"
+      film: Filmek
+      clothes: Ruhák
+      garden: Kert
+      travel: Utazás
+      other: Egyéb
     username: Felhasználónév
     username_or_email: "Felhasználónév vagy email"
     what_is_this: "Mi ez?"
     removed_user: "Törölt felhasználó"
     paypal_fee_info:
-      title: ~
+      title: "PayPal fizetési folyamat költsége"
       body_text: ~
       body_with_shipping_text: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: itt
   conversations:
     accept:
-      details: ~
+      details: "Rendelés részletei"
       order_by: ~
-      respond_to_offer: ~
-      respond_to_request: ~
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
+      respond_to_offer: "Válasz az ajánlatra"
+      respond_to_request: "Válasz a hirdetésre"
+      accept_offer: "Ajánlat elfogadás"
+      accept_request: "Kérés elfogadása"
+      reject_offer: "Nem most"
+      reject_request: "Most nem"
       close_listing: ~
-      update_later: ~
-      optional_message: ~
-      price_to_pay: ~
+      update_later: "Maradjon a hirdetés aktív"
+      optional_message: "Választható üzenet"
+      price_to_pay: "Teljes ár fizetendő"
       you_need_to_fill_payout_details_before_accepting: ~
-      payment_settings_link: ~
+      payment_settings_link: "fizetési beállítások"
       minimum_price_error_message: ~
-      accept: ~
-      decline: ~
-      quantity_label: ~
-      sum_label: ~
+      accept: Elfogad
+      decline: Visszautasít
+      quantity_label: "Mennyiség:"
+      sum_label: "Végösszeg:"
       service_fee_label: ~
       you_will_get_label: ~
-      total_label: ~
+      total_label: "Összesen:"
       total_value: ~
       paypal_fee_info: ~
-      shipping_price_label: ~
+      shipping_price_label: "Szállítás:"
     confirm:
       confirm_description: ~
       cancel_description: ~
       cancel_payed_description: ~
-      canceling_payed_transaction: ~
+      canceling_payed_transaction: "Tranzakció megszakítása"
       confirm: ~
       cancel: ~
-      continue: ~
-      give_feedback_to: ~
-      do_not_give_feedback: ~
+      continue: Folytatás
+      give_feedback_to: "Adjon értékelést %{person_link}ről"
+      do_not_give_feedback: "Értékelés kihagyása"
     details:
-      day: ~
-      days: ~
-      price_per_day: ~
+      day: nap
+      days: napok
+      price_per_day: "Ár naponként: %{price}"
     index:
       loading_more_messages: "Több üzenet betöltése"
-      message_partitive: Üzenet
-      messages_partitive: Üzenetek
-      no_received_messages: "Nincs üzeneted"
+      message_partitive: üzenet
+      messages_partitive: üzenetek
+      no_received_messages: "Nincs üzenet"
       no_sent_messages: "Nincs elküldött üzenet"
     conversation:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      message_from: ~
+      accepted_request: "Kérését elfogadták"
+      accepted_offer: "Ajánlat elfogadva"
+      rejected_request: "Kérését elutasították"
+      rejected_offer: "Ajánlat visszautasítva"
+      confirmed_request: "Kérés teljesítve"
+      confirmed_offer: "Ajánlat kész"
+      canceled_request: "Kérését törölték"
+      canceled_offer: "Ajánlat törölve"
+      message_from: "Üzenet tőle: %{person}"
       about_listing: "A következő hirdetéssel kapcsolatban: %{listing_title}"
       free_message: Kapcsolatfelvétel
-      message_content_not_available: ~
+      message_content_not_available: "Üzenet tartalom nem elérhető"
     message:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
+      accepted_request: "Hirdetés elfogadva"
+      accepted_offer: "Ajánlat elfogadása"
+      rejected_request: "Hirdetés megszakítva"
+      rejected_offer: "Ajánlat megszakítása"
+      confirmed_request: "Megjelölés befejezettként"
+      confirmed_offer: "Az ajánlat teljesítettként megjelölve"
+      canceled_request: "Hirdetés törölve"
+      canceled_offer: "Ajánlat törlése"
       paid: ~
       payment_preauthorized: ~
     new:
-      offer_message_form_title: ~
-      request_message_form_title: ~
+      offer_message_form_title: "Ajánlat %{listing} %{person}nak"
+      request_message_form_title: "Ajánlatkérés %{listing} %{person}tól"
       favor_offer_message_form_title: "Segítséget kérek tőle: %{person}"
       favor_request_message_form_title: "Segítek neki: %{person}"
-      housing_offer_message_form_title: ~
-      housing_request_message_form_title: ~
-      item_offer_lend_message_form_title: ~
-      item_offer_sell_message_form_title: ~
-      item_offer_give_away_message_form_title: ~
-      item_offer_trade_message_form_title: ~
-      item_offer_rent_out_message_form_title: ~
-      item_request_borrow_message_form_title: ~
-      item_request_buy_message_form_title: ~
-      item_request_take_for_free_message_form_title: ~
-      item_request_trade_message_form_title: ~
+      housing_offer_message_form_title: "Helyet kínálok neki: %{person}"
+      housing_request_message_form_title: "Helyet kérek tőle: %{person}"
+      item_offer_lend_message_form_title: "kölcsön:  %{listing}  %{person}"
+      item_offer_sell_message_form_title: "vásárlás:  %{listing}  %{person}"
+      item_offer_give_away_message_form_title: "Kap:  %{listing} %{person}"
+      item_offer_trade_message_form_title: "Csere: %{listing} %{person}"
+      item_offer_rent_out_message_form_title: "Bérlet: %{listing}  %{person}"
+      item_request_borrow_message_form_title: "Kölcsönöz: %{listing} %{person}"
+      item_request_buy_message_form_title: "Elad: %{listing} %{person}"
+      item_request_take_for_free_message_form_title: "Odaad:  %{listing} %{person}"
+      item_request_trade_message_form_title: "Csere: %{listing} %{person}"
       item_request_rent_message_form_title: ~
       housing_offer_sell_message_form_title: ~
-      housing_offer_rent_out_message_form_title: ~
+      housing_offer_rent_out_message_form_title: "Bérbevétel %{listing} tőle %{person}"
       housing_offer_share_for_free_message_form_title: ~
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_request_message_form_title: ~
+      item_request_message_form_title: "Egy tétel ajánlása neki: %{person}"
       message: Üzenet
-      message_to: ~
+      message_to: "Üzenet neki: %{author_name}"
       optional_message_to: ~
-      rideshare_offer_message_form_title: ~
-      rideshare_request_message_form_title: ~
-      send_message: ~
-      send: ~
+      rideshare_offer_message_form_title: "Fuvart kérni tőle: %{person}"
+      rideshare_request_message_form_title: "Fuvart ajánlani neki: %{person}"
+      send_message: "Küldjön üzenetet"
+      send: Elküld
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
-      title: Cím
+      title: Megszólítás
       send_message_to_user: "Üzenet küldése %{person} felhasználónak"
       about_listing: "A következő hirdetéssel kapcsolatban: %{listing_title}"
       author_has_to_accept_request: ~
     show:
       in_response_to_listing: ~
-      message_sent_by: ~
-      message_sent_to: ~
-      send_reply: "Választ küldök"
-      write_a_reply: "Választ írok"
+      message_sent_by: "Az üzenetet küldte"
+      message_sent_to: "Üzenet elküldve:"
+      send_reply: "Válasz küldés"
+      write_a_reply: "Válasz írása"
       conversation_about_listing: ~
       conversation_with_user: "%{person} felhasználóval"
       conversation_with: "Üzenetváltás %{person} felhasználóval"
       last_message_at: ~
       price: ~
-      sum: ~
-      price_excludes_vat: ~
+      sum: "Összesen: %{sum}"
+      price_excludes_vat: "ÁFA nélküli ár"
       total: ~
     status:
-      payment_errored: ~
+      payment_errored: "Sikertelen fizetés. Kérem próbálja újra."
       payment_errored_starter: ~
       payment_errored_author: ~
-      cancel_payed_transaction: ~
+      cancel_payed_transaction: Töröl
       feedback_given: "Visszajelzés elküldve"
-      feedback_skipped: "Visszajelzés küldést kihagyom"
+      feedback_skipped: "Értékelés kihagyása"
       give_feedback: "Visszajelzés küldése"
       offer_accepted: Elfogadva
       offer_rejected: Elutasítva
-      offer_canceled: ~
-      offer_confirmed: ~
-      offer_paid: ~
-      offer_preauthorized: ~
+      offer_canceled: Törölve
+      offer_confirmed: Kész
+      offer_paid: "Fizetés sikeres"
+      offer_preauthorized: "Fizetés sikeres"
       offer_waiting_for_payment: ~
-      pay: ~
-      preauthorized: ~
-      paid: ~
+      pay: Fizet
+      preauthorized: "Sikeres fizetés"
+      paid: "Sikeres fizetés"
       pending_external:
         paypal:
           multicurrency: ~
@@ -692,18 +696,18 @@ hu:
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: Elfogadva
       request_rejected: Elutasítva
-      request_confirmed: ~
-      request_canceled: ~
-      request_paid: ~
+      request_confirmed: Kész
+      request_canceled: Törölve
+      request_paid: "Fizetés sikeres"
       request_preauthorized: ~
-      skip_feedback: "Visszajelzés küldését kihagyom"
+      skip_feedback: "Visszajelzés küldés kihagyása"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
       waiting_confirmation_from_requester: ~
       waiting_confirmation_from_you: ~
       waiting_payment_from_requester: ~
-      waiting_payment_from_you: ~
+      waiting_payment_from_you: "Várjuk az utalását"
       waiting_feedback_from_you: ~
       pending_external_inbox:
         paypal:
@@ -712,69 +716,69 @@ hu:
           unknown_reason: ~
           verify: ~
     status_link:
-      accept_offer: "Ajánlást elfogadom"
-      accept_request: "Kérést elfogadom"
-      reject_offer: ~
-      reject_request: ~
-      accept_preauthorized_offer: ~
+      accept_offer: "Ajánlat elfogadása"
+      accept_request: "Ajánlatkérés elfogadása"
+      reject_offer: "Most nem"
+      reject_request: "Most nem"
+      accept_preauthorized_offer: "Ajánlat elfogadása"
       accept_preauthorized_request: ~
-      reject_preauthorized_offer: ~
-      reject_preauthorized_request: ~
+      reject_preauthorized_offer: "Most nem"
+      reject_preauthorized_request: "Most nem"
       confirm: ~
       cancel: ~
   braintree_accounts:
     new:
       add_payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
-      ssn: ~
+      first_name: Keresztnév
+      last_name: Vezetéknév
+      email: "E-mail cím"
+      phone: Telefonszám
+      address_street_address: "Utca neve"
+      address_postal_code: Irányítószám
+      address_locality: Város
+      address_region: Állam
+      date_of_birth: "Születési idő"
+      ssn: SSN
       routing_number: ~
       account_number: ~
-      save: ~
+      save: Mentés
     show:
       payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
-      ssn: ~
+      first_name: Keresztnév
+      last_name: Vezetéknév
+      email: "E-mail cím"
+      phone: Telefonszám
+      address_street_address: "Utca neve"
+      address_postal_code: Irányítószám
+      address_locality: Város
+      address_region: Állam
+      date_of_birth: "Születési idő"
+      ssn: SSN
       routing_number: ~
       account_number: ~
   braintree_payments:
     edit:
       new_credit_card_payment: ~
       payment_receiver: ~
-      cardholder_name: ~
-      credit_card_number: ~
-      cvv: ~
-      credit_card_expiration_date: ~
-      confirm_payment: ~
+      cardholder_name: "Kártyatulajdonos neve"
+      credit_card_number: "Bankkártya száma"
+      cvv: Önéletrajz
+      credit_card_expiration_date: "Bankkártya érvényességi ideje"
+      confirm_payment: "Fizetés jóváhagyása"
       exp: ~
   feedback:
-    feedback_subject: ~
+    feedback_subject: "Új értékelés %{service_name}tól"
     feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    unlogged_user: "Nem regisztrált felhasználó"
+    anonymous_user: "Névtelen felhasználó"
   preauthorize_payments:
     edit:
-      confirm_payment: ~
+      confirm_payment: "Fizetés jóváhagyása"
   community_memberships:
     access_denied:
       access_denied: ~
       you_are_banned_in_this_community: ~
-      contact_page_link: ~
+      contact_page_link: Értékelés
     new:
       welcome_fb_user: ~
       fb_join_accept_terms: ~
@@ -788,15 +792,15 @@ hu:
       join_community_button: ~
   emails:
     accept_reminder:
-      remember_to_accept_offer: ~
-      remember_to_accept_request: ~
-      you_can_accept_or_reject_offer_at: ~
-      you_can_accept_or_reject_request_at: ~
-      you_have_not_yet_accepted_or_rejected_offer: ~
-      you_have_not_yet_accepted_or_rejected_request: ~
-      show_thread: ~
+      remember_to_accept_offer: "Kérjük ne feledkezzen meg %{sender_name} ajánlatának elfogadásáról vagy elutasításáról"
+      remember_to_accept_request: "Kérjük ne feledkezzen meg %{sender_name} ajánlatkérésének elfogadásáról vagy elutasításáról"
+      you_can_accept_or_reject_offer_at: "Elfogadhatja vagy elutasíthatja az ajánlatot itt"
+      you_can_accept_or_reject_request_at: "Elfogadhatja vagy elutasíthatja az ajánlatkérést itt"
+      you_have_not_yet_accepted_or_rejected_offer: "Még nem történt meg a %{date}-i %{title} ajánlat elfogadása vagy elutasítása."
+      you_have_not_yet_accepted_or_rejected_request: "Még nem történt meg a %{date}-i %{title} ajánlatkérés elfogadása vagy elutasítása."
+      show_thread: "Beszélgetések megmutatása"
     braintree_account_approved:
-      account_ready: ~
+      account_ready: "Ön kész fizetések fogadására"
       message: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
@@ -805,22 +809,22 @@ hu:
       if_will_not_happen_you_should_cancel: ~
       if_will_not_happen_you_should_cancel_escrow: ~
       if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
-      cancel_it_link_text: ~
+      cancel_it_link_text: töröl
       automatic_confirmation: ~
     payment_reminder:
       remember_to_pay: ~
       you_have_not_yet_paid: ~
       if_will_not_happen_you_should_cancel: ~
-      cancel_it_link_text: ~
+      cancel_it_link_text: töröl
     payment_settings_reminder:
       remember_to_add_payment_details: ~
       you_have_added_listing_with_payment: ~
       please_go_to_payment_settings: ~
-      payment_settings_link: ~
+      payment_settings_link: "Fizetési beállítások"
     transaction_confirmed:
       here_is_a_message_from: ~
       request_marked_as_confirmed: ~
-      request_marked_as_canceled: ~
+      request_marked_as_canceled: "Hirdetés törölve"
       has_marked_request_as_confirmed: ~
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: ~
@@ -833,10 +837,10 @@ hu:
       we_have_marked_request_as_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
-      show_thread: ~
+      give_feedback_to: "Adjon értékelést %{other_party_given_name}ról"
+      show_thread: "Mutassa a beszélgetéseket"
     escrow_canceled:
-      subject: ~
+      subject: "Fizetés megszakítva"
       has_marked_request_as_canceled: ~
       if_this_was_error: ~
       please_contant_admin_link: ~
@@ -848,80 +852,80 @@ hu:
       or_paste_link: "Az aktiválás az alábbi URL-cím böngészőbe másolásával is hozzáférhető:"
       turning_on_confirmations_in_this_community: ~
     common:
-      check_your_settings: "Ellenőrizd a beállításaidat."
-      hey: "Szia %{name}!"
-      kassi_team: "Az %{service_name} csapat"
-      thanks: "Köszi,"
-      want_to_control_emails: ~
-      dont_want_to_receive_these_emails: ~
+      check_your_settings: "Ellenőrizze a beállításokat"
+      hey: "Üdvözöljük %{name}!"
+      kassi_team: "A(z) %{service_name} Csapat"
+      thanks: "Köszönjük,"
+      want_to_control_emails: "Itt állíthatja be mikor és miről kapjon %{service_name} e-mail értesítéseket."
+      dont_want_to_receive_these_emails: "Nem szeretné ezeket az e-maileket kapni?"
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
-      view_it_in_your_browser: ~
+      view_it_in_your_browser: "Megtekintés böngészőben"
       or: vagy
       unsubscribe_from_these_emails: ~
     conversation_status_changed:
-      has_accepted_your_offer: ~
-      has_accepted_your_request: ~
-      has_rejected_your_offer: ~
-      has_rejected_your_request: ~
-      view_thread: ~
+      has_accepted_your_offer: "%{accepter} elfogadta az Ön %{listing} ajánlatát"
+      has_accepted_your_request: "%{accepter} elfogadta az Ön %{listing} ajánlatkérését"
+      has_rejected_your_offer: "%{accepter} elutasította az Ön %{listing} ajánlatát."
+      has_rejected_your_request: "%{accepter} elutasította az Ön %{listing} ajánlatkérését ."
+      view_thread: "Beszélgetések megtekintése"
       your_offer_was_accepted: "Ajánlat elfogadva"
       your_offer_was_rejected: "Ajánlat elutasítva"
       your_request_was_accepted: Elfogadva
       your_request_was_rejected: Elutasítva
       you_can_now_pay_to: ~
-      pay_now: ~
+      pay_now: "Azonnali fizetés"
       remember_to_confirm: ~
     invitation_to_kassi:
-      hi: ~
+      hi: Üdvözlöm!
       you_have_been_invited_to_kassi: ~
-      here_is_a_message_from: ~
-      join_now: ~
+      here_is_a_message_from: "Privát üzenete érkezett %{inviter}"
+      join_now: "Csatlakozás most"
       invitation_code: ~
     new_comment:
-      has_commented_your_listing_in_kassi: ~
-      view_comment: ~
-      you_have_a_new_comment: ~
+      has_commented_your_listing_in_kassi: "%{author} hozzászólt az ön hirdetéséhez %{listing}"
+      view_comment: "Hozzászólás megtekintése"
+      you_have_a_new_comment: "%{author} megjegyzést fűzött az Ön %{service_name} hirdetéséhez"
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
-      view_message: ~
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      view_message: "Üzenetek megtekintése"
+      has_sent_you_a_message_in_kassi: "%{sender} üzenetet küldött Önnek itt: %{service_name}"
+      you_have_a_new_message: "Egy új  %{service_name} üzenet tőle: %{sender_name}"
     new_payment:
-      new_payment: ~
-      price_per_unit_type: ~
-      quantity: ~
+      new_payment: "Új utalást kellett kapjon"
+      price_per_unit_type: "Ár: %{unit_type}"
+      quantity: "Mennyiség:"
       you_have_received_new_payment: ~
     paypal_new_payment:
-      paypal_gateway_fee: ~
-      shipping_total: ~
+      paypal_gateway_fee: "PayPal költségei"
+      shipping_total: "Szállítás:"
     braintree_new_payment:
-      product: ~
-      price_payer_paid: ~
+      product: "Termék:"
+      price_payer_paid: "Ár %{payer_full_name} fizetve:"
       service_fee: ~
       you_will_get: ~
       money_will_be_transferred: ~
     receipt_to_payer:
-      receipt_of_payment: ~
+      receipt_of_payment: "Fizetés elfogadása"
       you_have_made_new_payment: ~
-      product: ~
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
-      total: ~
-      price: ~
+      product: Termék
+      price_per_unit_type: "Ár: %{unit_type}"
+      duration: "Időtartam:"
+      quantity: "Mennyiség:"
+      subtotal: "Végösszeg:"
+      total: Összesen
+      price: Ár
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: ~
-      you_can_give_feedback_to: ~
-      view_feedback: ~
+      has_given_you_feedback_in_kassi: "%{name} értékelte Önt itt: %{service_name}"
+      you_can_give_feedback_to: "Ön még nem értékelte a következő usert: %{name}"
+      view_feedback: "Értékelések megtekintése"
     new_update_to_listing:
-      listing_you_follow_has_been_updated: ~
+      listing_you_follow_has_been_updated: "Az ön által követett hirdetést frisssítették"
       has_updated_listing_you_follow_in_kassi: ~
-      view_changes: ~
+      view_changes: "Változások megtekintése"
     community_updates:
       added_offer: ~
       added_request: ~
@@ -930,54 +934,54 @@ hu:
       title_link_text: ~
       intro_paragraph: ~
       intro_paragraph_link_text: ~
-      post_a_new_listing: ~
-      reduce_email_footer_text: ~
+      post_a_new_listing: "Adjon fel új hirdetést!"
+      reduce_email_footer_text: "Túl sok e-mailt kapott? %{settings_link} vagy %{unsubscribe_link}"
       settings_link_text: ~
-      unsubscribe_link_text: ~
+      unsubscribe_link_text: Leiratkozás
     newsletter:
-      hi: ~
-      newest_offers: ~
-      newest_requests: ~
-      text_version_text: ~
+      hi: "Üdvözöljük %{name}"
+      newest_offers: "Jelenleg kik ajánlanak"
+      newest_requests: "jelenleg kik keresnek"
+      text_version_text: "Tud Ön is olyat felkínálni amire másoknak szüksége lehet? Vagy esetleg olyanra van szüksége ami másoknak van? Itt feladhatja kínál vagy keres hirdetését vagy átböngészheti a mások által feladott hirdetéseket: %{url}"
     reset_password_instructions:
-      change_my_password: ~
+      change_my_password: "Megváltoztatom a jelszavamat"
       reset_password_instructions: ~
     testimonial_reminder:
-      remember_to_give_feedback_to: ~
-      you_have_not_given_feedback_yet: ~
+      remember_to_give_feedback_to: "Emlékeztető: kérjük értékelje a következő usert: %{name}"
+      you_have_not_given_feedback_yet: "Én még nem értékelte %{name}-t ezzel az ügylettel kapcsolatban: %{event}. Kérjük értékelje %{given_name} milyen partnerként viselkedett."
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
       you_have_time_to_accept: ~
-      click_here_to_reply: ~
+      click_here_to_reply: "Kattintson ide a kérésre válaszoláshoz"
     transaction_preauthorized_reminder:
       subject: ~
       remember_to_accept: ~
       one_day_left: ~
-      click_here_to_reply: ~
+      click_here_to_reply: "Kattintson ide a kérésre válaszoláshoz"
     welcome_email:
       welcome_email_subject: ~
       welcome_to_marketplace: ~
       love_marketplace_crew: ~
       welcome_email_footer_text: ~
-      settings_link_text: ~
-      welcome_email_subject_for_marketplace_creator: ~
-      welcome_to_marketplace_creator: ~
+      settings_link_text: "Ellenőrizze a beállításokat"
+      welcome_email_subject_for_marketplace_creator: "Üdvözlet a Sharetribe-n"
+      welcome_to_marketplace_creator: "Üdvözöljük a  Sharetribe-n %{name}!"
       congrats_for_creating_your_marketplace: ~
       here_is_your_account_information: ~
       your_email_address: ~
-      your_marketplace_address: ~
+      your_marketplace_address: "Az Ön piacterének címe:"
       your_marketplace_admin_area: ~
       just_follow_details: ~
       we_will_guide_you_along_the_way: ~
       are_you_new_to_online_marketplaces: ~
-      have_questions: ~
+      have_questions: "Kérdései vannak?"
       our_happiness_team_is_here_to_help: ~
-      love: ~
+      love: "Szeretettel,"
       sharetribe_crew: ~
       knowledge_base_link_text: ~
       contact_support_link_text: ~
-      admin_panel_link_text: ~
+      admin_panel_link_text: "Rendszergazda felület"
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -985,16 +989,16 @@ hu:
       view_listing: ~
   error_messages:
     listings:
-      departure_time: ~
-      share_type: "Ki kell választani egyet."
-      valid_until: ~
-      price: ~
-      minimum_price: ~
+      departure_time: "Az indulás idejének a mai nap és az egy évvel későbbi dátum közé kell esnie."
+      share_type: "Kérjük válasszon egyet."
+      valid_until: "A dátumnak a mai nap és a hat hónappal későbbi dátum közé kell esnie."
+      price: "Az ár csak egész szám lehet"
+      minimum_price: "A minimálár %{minimum_price}%{currency}"
     testimonials:
-      you_must_explain_not_neutral_feedback: ~
-      you_must_select_a_grade: ~
+      you_must_explain_not_neutral_feedback: "Amennyiben nem semleges érékelést tesz közzé, kérjük írja le szövegesen is pontosan mi történt."
+      you_must_select_a_grade: "Kérjük mondja el pozitív vagy negatív tapasztalata volt-e."
     transaction_agreement:
-      required_error: ~
+      required_error: "Kérem fogadja el a megegyezést"
     paypal:
       buyer_cannot_pay_error: ~
       pending_review_error: ~
@@ -1004,37 +1008,37 @@ hu:
       accept_authorization_error: ~
       reject_authorization_error: ~
   error_pages:
-    back_to_kassi_front_page: "Vissza a kezdőoldalra"
+    back_to_kassi_front_page: Főoldalra
     error_404:
-      if_you_believe: ~
+      if_you_believe: "Amennyiben Ön úgy gondolja, hogy a cím így helyes, akkor kérjük segítsen nekünk megtalálni a hiba okát."
       page_can_not_be_found: "Az oldal nem található!"
-      page_you_requested_can_not_be_found: ~
-    error_404_title: "Nincs ilyen oldal"
+      page_you_requested_can_not_be_found: "A kért oldal nem található. Biztosan nem lett elgépelve?"
+    error_404_title: "az oldal nem található"
     error_410:
-      page_removed: ~
-      page_you_requested_has_been_removed: ~
+      page_removed: "Oldal törölve"
+      page_you_requested_has_been_removed: "Az ön által kért oldalt eltávolították."
       page_removed_reason: ~
-    error_410_title: ~
+    error_410_title: "Oldal törölve"
     error_500:
       temporary_unavailable: ~
       unable_to_process: ~
       we_hate_this: ~
       refer_to_error_id: ~
     error_500_title: "Az oldal betöltése nem sikerült"
-    error_description: ~
+    error_description: "A hiba leírása"
     no_javascript:
-      javascript_is_disabled_in_your_browser: "A JavaScript ki van kapcsolva a böngésződben"
-      kassi_does_not_currently_work_without_javascript: ~
-      contact_us: ~
+      javascript_is_disabled_in_your_browser: "A JavaScript ki van kapcsolva az Ön böngészőjében"
+      kassi_does_not_currently_work_without_javascript: "%{service_name} nem tud megfelelően működni JavaScript nélkül. A böngésző beállításokban engedélyezze a JavaSript-et és frissítse az oldalt."
+      contact_us: "Lépjen velünk kapcsolatba"
       send_feedback: "Visszajelzés küldése"
-      your_feedback_to_admins: ~
+      your_feedback_to_admins: "Visszajelzés küldése az oldal adminisztrátorának"
     send: Küldés
-    your_email_address: "Az e-mail címed"
+    your_email_address: "Az ön email címe"
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
-      invalid_datetime: ~
+      invalid_date: "nem valós dátum"
+      invalid_time: "nem elfogadott idő"
+      invalid_datetime: "Nem valós dátum"
       is_at: ~
       before: ~
       on_or_before: ~
@@ -1064,92 +1068,93 @@ hu:
       logged_in_to_kassi: ~
     comment:
       commented: ~
-      offer_partitive: ~
-      request_partitive: ~
+      offer_partitive: Ajánlat
+      request_partitive: Ajánlatkérés
   header:
     about: Rólunk
     home: Főoldal
-    members: ~
-    new_listing: ~
+    members: Közösség
+    new_listing: "Új hirdetés"
     mobile_version: "Mobil verzió"
     offers: Ajánlatok
     requests: Kérések
-    search_kassi: ~
-    create_new_marketplace: ~
-    contact_us: ~
-    profile: ~
+    search_kassi: "%{service_name} keresés"
+    create_new_marketplace: "Új piactér létrehozása"
+    contact_us: "Keressen minket"
+    profile: Profil
+    manage_listings: "Hirdetések szerkesztése"
     invite: ~
     login: ~
-    signup: ~
-    menu: ~
+    signup: Feliratkozás
+    menu: Menü
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: ~
-      additionally_one_private_request_exists: ~
-      additionally_some_private_offers_exist: ~
-      additionally_some_private_requests_exist: ~
+      additionally_one_private_offer_exists: "Ezen kívül van még <b>egy további ajánlat</b>,  "
+      additionally_one_private_request_exists: "Továbbá van még <b>egy másik kérés</b>,  "
+      additionally_some_private_offers_exist: "Továbbá van még <b>%{number_of_listings} másik ajánlat</b>,"
+      additionally_some_private_requests_exist: "Továbbá van még<b>%{number_of_listings} másik kérés</b>,"
     blank_slate:
-      add_first: ~
-      but_that_is_visible_only_to_registered_members: ~
-      but_those_are_visible_only_to_registered_members: ~
-      create_new_account_for_yourself: ~
-      examples_of_what_you_could_offer_to_others: ~
-      examples_of_what_you_could_request_to_others: ~
-      favor_offer_list: ~
-      favor_request_list: ~
-      favors_to_offer: ~
-      favors_to_request: ~
-      item_offer_list: ~
-      item_request_list: ~
-      items_to_offer: ~
-      items_to_request: ~
+      add_first: "adjon hozzá egyet"
+      but_that_is_visible_only_to_registered_members: "de az csak regisztráltak számára látható"
+      but_those_are_visible_only_to_registered_members: "de azok csak regisztráltak számára láthatóak"
+      create_new_account_for_yourself: "(Kérem) készítsen magának egy új számlát"
+      examples_of_what_you_could_offer_to_others: "Mit ajánlhat másoknak"
+      examples_of_what_you_could_request_to_others: "Mit kérdezhet le másoktól"
+      favor_offer_list: "Számítógépes segítség, ruhajavítás, sütés, kerékpáros rögzítő"
+      favor_request_list: "Gyermekfelügyelet, zongoraleckék, kutyasétáltatás, fűnyírás"
+      favors_to_offer: Súgó
+      favors_to_request: Súgó
+      item_offer_list: "Szerszámok, sporteszközök, jelmezek, kemping felszerelések"
+      item_request_list: "Szerszámok, sporteszközök, jelmezek, kemping felszerelések"
+      items_to_offer: "Kölcsönözhető dolgok"
+      items_to_request: "Kölcsönözhető dolgok"
       log_in: ~
-      no_offers_visible_unless_logged_in: ~
-      no_open_offers_currently: ~
-      no_open_requests_currently: ~
-      no_requests_visible_unless_logged_in: ~
-      one_private_offer_exists: ~
-      one_private_request_exists: ~
-      ride_offer: ~
-      ride_request: ~
-      some_private_offers_exist: ~
-      some_private_requests_exist: ~
+      no_offers_visible_unless_logged_in: "Nincs találat, a szolgáltatás vagy telekocsi ajánlatok eléréséhez jelentkezzen be"
+      no_open_offers_currently: "Nincs elérhető tétel, szolgáltatás vagy telekocsi ajánlat"
+      no_open_requests_currently: "Nincs elérhető tétel, szolgáltatás vagy telekocsi ajánlatkérés"
+      no_requests_visible_unless_logged_in: "Nincs találat, a szolgáltatás vagy telekocsi ajánlatkérések eléréséhez jelentkezzen be."
+      one_private_offer_exists: "Már van egy ajánlat"
+      one_private_request_exists: "Már van egy ajánlatkérés"
+      ride_offer: "Elvinni más gyerekeit foglalkozásokra"
+      ride_request: "fuvar a munkahelyre"
+      some_private_offers_exist: "Van már %{number_of_listings} ajánlata"
+      some_private_requests_exist: "Van már %{number_of_listings} ajánlatkérése"
     custom_filters:
       update_view: ~
-      min: ~
-      max: ~
+      min: "Min:"
+      max: "Max:"
     event_feed:
-      latest_events: ~
+      latest_events: "Mi történt?"
     grid_item:
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(Képek feltöltése folyamatban)"
     index:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
-      add_listing_link_text: ~
-      open_listing: ~
-      open_listings: ~
+      add_listing_link_text: "Új hirdetés hozzáadása"
+      open_listing: "Aktuális hirdetés"
+      open_listings: "Aktuális hirdetések"
       private_listing_notification_log_in: ~
-      is: ~
-      are: ~
-      what_do_you_need: ~
-      post_new_listing: ~
-      are_offering: ~
-      add_news_item: ~
-      lend_rent_help_carpool: ~
+      is: van
+      are: vannak
+      what_do_you_need: "Mit keres?"
+      post_new_listing: "Adjon fel új hirdetést"
+      are_offering: Ajánlat
+      add_news_item: "Adjon fel egy hírdetést"
+      lend_rent_help_carpool: "Eladás, Kölcsönzés, Segítség, Telekocsi"
       loading_more_content: "További tartalom betöltése"
-      more_events: ~
-      news: ~
-      no_news: ~
-      more_news: ~
-      or: ~
-      or_see_what_the_others: ~
-      recent_events: ~
-      requesting: ~
-      tell_it_here: ~
-      welcome_to_new_kassi: ~
+      more_events: "Több esemény"
+      news: Újdonságok
+      no_news: "Nem érkezett üzenet"
+      more_news: "Több üzenet"
+      or: és
+      or_see_what_the_others: "vagy ha kiváncsi másra"
+      recent_events: "Újabb események"
+      requesting: szükséges
+      tell_it_here: "Mondja el itt!"
+      welcome_to_new_kassi: "Üdvözöljük az új %{service_name}"
       no_reviews: ~
-      no_image: ~
-      filter: ~
+      no_image: "Nincs kép"
+      filter: Szűrő
       this_is_private_community: ~
     invitation_form:
       email: "E-mail cím(ek)"
@@ -1157,7 +1162,7 @@ hu:
       send_invitation: "Meghívó küldése"
       add_email_addresses_description: ~
       add_lots_of_email_addresses: ~
-      this_article_link: ~
+      this_article_link: "ez a termék"
       invitation_emails_field_placeholder: ~
       invitation_message_field_placeholder: ~
       errors_in_emails: ~
@@ -1165,159 +1170,159 @@ hu:
       review: ~
       reviews: ~
     news_item:
-      show_less: ~
-      show_more: ~
+      show_less: "Mutass kevesebbet"
+      show_more: "Mutass többet"
     profile_info_empty_notification:
-      add_your_info: ~
-      add_a_profile_picture: ~
-      you_have_not_added_your_info: ~
-      add_your_info_link: ~
+      add_your_info: "Adja meg elérhetőségét"
+      add_a_profile_picture: "Adjon hozzá profil képet"
+      you_have_not_added_your_info: "Nem adta meg elérhetőségeit. Kérem adja meg, hogy mások könnyebben kapcsolatba léphessenek önnel. Mellékelje hozzá fényképét, ami növeli a bizalmat ön iránt."
+      add_your_info_link: "Adjon leírást most"
     recent_listing:
-      please_offer: ~
-      comment: ~
-      comments: ~
+      please_offer: Ajánlat
+      comment: Hozzászólás
+      comments: Hozzászólások
     filters:
-      show: ~
-      search: ~
-      map: ~
-      list: ~
-      map_button: ~
+      show: "Szűrő:"
+      search: Keresés
+      map: "Mutasd a térképet"
+      list: "Lista megjelenítése"
+      map_button: Térkép
       grid_button: ~
-      list_button: ~
-      all_listing_types: ~
-      all_categories: ~
+      list_button: Hirdetés
+      all_listing_types: "Összes hirdetés típus"
+      all_categories: "Összes kategória"
     errors:
-      search_engine_not_responding: ~
+      search_engine_not_responding: "A keresés jelenleg nem elérhető. Próbálja újra később."
   infos:
     about:
-      default_about_text_title: ~
+      default_about_text_title: "Mi az a Sharetribe?"
       default_about_text: ~
-      click_here_link_text: ~
+      click_here_link_text: "Kattintson ide"
     how_to_use:
-      default_title: ~
+      default_title: "Hogyan működik"
       default_content: ~
   layouts:
     admin:
       admin: ~
     no_tribe:
-      inbox: ~
-      settings: ~
-      feedback: ~
+      inbox: Bejövő
+      settings: Beállítások
+      feedback: "Keressen minket"
     application:
       join_this_community: ~
-      read_more: ~
-      feedback: ~
-      default_feedback: ~
-      feedback_forum: ~
-      feedback_handle: ~
-      give_feedback: ~
-      or_check_our: ~
-      send_feedback_to_admin: ~
-      to_see_what_others_have_suggested: ~
-      your_email_address: ~
-      connect: ~
-      invite_your_friends: ~
+      read_more: Bővebben
+      feedback: "Mit szeretne mondani nekünk?"
+      default_feedback: "Problémával találkozott %{service_name}nél? Lenne ötlete, hogyan fejleszthetnénk szolgáltatásaink színvonalát? Gyanús tartalommal találkozott? Vagy csak szeretne beszélgetni velünk? Keressen minket!"
+      feedback_forum: "Értékelések fóruma"
+      feedback_handle: Értékelés
+      give_feedback: Elérhetőség
+      or_check_our: "vagy elenőrizze a mi"
+      send_feedback_to_admin: "Értékelés készítése"
+      to_see_what_others_have_suggested: "itt láthatja milyen fejlesztési ötletei voltak a többi felhasználónak és szavazhat is rájuk"
+      your_email_address: "Az Ön e-mail címe"
+      connect: Bejelentkezés
+      invite_your_friends: "Hívja meg ismerőseit!"
       invite_your_neighbors: ~
       invite_your_friends_description: ~
       invite_your_friends_invite_only_description: ~
       join_without_facebook: ~
-      join_without_facebook_link: ~
+      join_without_facebook_link: "bejelentkezés Facebook nélkül"
     conversations:
-      messages: ~
-      notifications: ~
-      received: ~
-      sent: ~
+      messages: Üzenetek
+      notifications: Megjegyzések
+      received: Fogadott
+      sent: Elküldött
     global-header:
-      select_language: ~
+      select_language: "Válasszon nyelvet"
     infos:
-      about: ~
-      how_to_use: ~
-      info_about_kassi: ~
-      news: ~
-      register_details: ~
-      terms: ~
+      about: Leírás
+      how_to_use: "Hogyan működik"
+      info_about_kassi: "Tájékoztatás: %{service_name}"
+      news: Újdonságok
+      register_details: Magán
+      terms: "Felhasználási feltételek"
     logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
-      settings: ~
-      sign_up: ~
+      admin: Adminisztrátor
+      go_to_your_profile_page: Profil
+      hi: Üdvözlöm
+      login: Bejelentkezés
+      logout: Kijelentkezés
+      notifications: Megjegyzések
+      requests: "Barát ajánlatkérései"
+      settings: Beállítások
+      sign_up: "Fiók létrehozása"
     logged_in_messages_icon:
-      messages: ~
+      messages: Üzenetek
     logged_in_notifications_icon:
-      notifications: ~
+      notifications: Megjegyzések
     mobile_logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
-      settings: ~
-      sign_up: ~
+      admin: Admin
+      go_to_your_profile_page: Profil
+      hi: Üdvözlöm
+      login: Bejelentkezés
+      logout: Kijelentkezés
+      notifications: Megjegyzések
+      requests: "Barát ajánlatkérései"
+      settings: Beállítások
+      sign_up: Feliratkozás
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
       test_welcome_email_delivered_to: ~
-      something_went_wrong: ~
+      something_went_wrong: "Hiba történt"
       community_updated: ~
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
-      comment_cannot_be_empty: ~
-      comment_sent: ~
+      comment_cannot_be_empty: "A megjegyzés rovat nem maradhat üresen"
+      comment_sent: "Megjegyzés elküldve"
       confirmation_link_is_wrong_or_used: ~
-      additional_email_confirmed: ~
+      additional_email_confirmed: "A kért e-mail megerősítve"
       could_not_get_email_from_facebook: ~
-      create_new_listing: ~
-      create_one_here: ~
-      email_confirmation_sent_to_new_address: ~
-      email_not_found: ~
-      error_with_session: ~
-      feedback_considered_spam: ~
-      feedback_not_saved: ~
-      feedback_saved: ~
-      feedback_sent_to: ~
-      feedback_skipped: ~
-      invitation_cannot_be_sent: ~
+      create_new_listing: "Adjon fel még egy hirdetést"
+      create_one_here: "Hozzon létre egyet itt"
+      email_confirmation_sent_to_new_address: "E-mail megerősítését elküldtük az új címre"
+      email_not_found: "Az ön által megadott e-mail nem található az %{service_name} adatbázisában."
+      error_with_session: Hiba
+      feedback_considered_spam: "A visszajelzés nem lett elmentve, problémák vannak a formátumával. Próbálja újra vagy használja a fórumot."
+      feedback_not_saved: "Értékelése nincs elküldve"
+      feedback_saved: "Köszönjük visszajelzését! Hamarosan jelentkezünk"
+      feedback_sent_to: "Visszajelzését elküldtük neki: %{target_person}"
+      feedback_skipped: "Értékelés kihagyva"
+      invitation_cannot_be_sent: "Meghívó küldés sikertelen"
       invitation_limit_reached: ~
-      invitation_sent: ~
-      inviting_new_users_is_not_allowed_in_this_community: ~
-      login_again: ~
-      login_failed: ~
+      invitation_sent: "Meghívó sikeresen elküldve"
+      inviting_new_users_is_not_allowed_in_this_community: "Új felhasználók meghívása nem engedélyezett"
+      login_again: "Kérjük lépjen be újra."
+      login_failed: "Sikertelen bejelentkezés. Kérjük adjon meg helyes felhasználónevet, jelszót."
       account_creation_successful: ~
-      account_deleted: ~
-      login_successful: ~
-      logout_successful: ~
-      news_item_created: ~
-      news_item_creation_failed: ~
-      news_item_update_failed: ~
-      news_item_updated: ~
-      news_item_deleted: ~
-      offer_accepted: ~
-      offer_confirmed: ~
-      offer_closed: ~
+      account_deleted: "Az Ön fiókja törölve"
+      login_successful: "Üdvözöljük, %{person_name}!"
+      logout_successful: "Ö sikeresen kijelentkezett: %{service_name} szolgáltatásból. Viszontlátásra!"
+      news_item_created: "Hirdetés létrehozva"
+      news_item_creation_failed: "Hirdetésfeladás sikertelen"
+      news_item_update_failed: "Hirdetés frissítése sikertelen"
+      news_item_updated: "Hirdetését frissítette"
+      news_item_deleted: "Hirdetés törölve"
+      offer_accepted: "Ajánlatát elfogadtuk"
+      offer_confirmed: "Ajánlat elfogadva"
+      offer_closed: "Ajánlat lezárva"
       listing_created_successfully: ~
-      offer_rejected: ~
-      offer_canceled: ~
-      listing_updated_successfully: ~
-      only_kassi_administrators_can_access_this_area: ~
-      only_listing_author_can_close_a_listing: ~
-      only_listing_author_can_edit_a_listing: ~
-      payment_successful: ~
-      payment_canceled: ~
+      offer_rejected: "Ajánlat visszautasítva"
+      offer_canceled: "Ajánlat törölve"
+      listing_updated_successfully: "Hidetését frissítette"
+      only_kassi_administrators_can_access_this_area: "Csak a %{service_name} adminisztrátoroknak van jogosultságuk ezt szerkeszteni."
+      only_listing_author_can_close_a_listing: "Csak a hirdetés feladója törölheti a hirdetést\n"
+      only_listing_author_can_edit_a_listing: "Csak a hirdetés feladója szerkesztheti a hirdetést\n"
+      payment_successful: "Sikeres fizetés"
+      payment_canceled: "Fizetés megszakítva"
       error_in_payment: ~
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
-      password_recovery_sent: ~
-      person_activated: ~
-      person_deactivated: ~
-      person_updated_successfully: ~
+      password_recovery_sent: "A jelszómódosítás útmutatásairól e-mailben értesítettük."
+      person_activated: "Felhasználó aktiválva"
+      person_deactivated: "Felhasználó kikapcsolva"
+      person_updated_successfully: "Információk frissítve"
       poll_answered: ~
       poll_could_not_be_answered: ~
       poll_created: ~
@@ -1325,373 +1330,373 @@ hu:
       poll_update_failed: ~
       poll_updated: ~
       poll_deleted: ~
-      read_more: ~
+      read_more: "Még több információ"
       registration_considered_spam: ~
-      reply_cannot_be_empty: ~
-      reply_sent: ~
-      request_accepted: ~
-      request_confirmed: ~
-      request_closed: ~
-      request_rejected: ~
-      request_canceled: ~
-      message_sent: ~
+      reply_cannot_be_empty: "Nem küldhet üres üzenetet"
+      reply_sent: "A válasz sikeresen elküldve"
+      request_accepted: "Kérését elfogadták"
+      request_confirmed: "Kérését teljesítették"
+      request_closed: "Kérés lezárva"
+      request_rejected: "Kérése elutasítva"
+      request_canceled: "Hirdetés törölve"
+      message_sent: "Üzenet elküldve"
       this_content_is_not_available_in_this_community: ~
-      unknown_error: ~
-      update_error: ~
-      you_are_not_allowed_to_give_feedback_on_this_transaction: ~
-      you_are_not_authorized_to_do_this: ~
-      you_are_not_authorized_to_view_this_content: ~
-      listing_closed: ~
+      unknown_error: "Ismeretlen hiba történt. Kérjük küldje el a linket mi történt."
+      update_error: "Hiba történt az adatok frissítése közben, kérjük próbálkozzon újra."
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Önnek nincs jogosultsága visszajelzést küldeni erről az eseményről"
+      you_are_not_authorized_to_do_this: "Önnek ehhez nincs jogosultsága"
+      you_are_not_authorized_to_view_this_content: "Önnek nincs jogosultsága ezt megtekinteni"
+      listing_closed: "Ez a hirdetés lezárult"
       send_instructions: ~
-      you_cannot_reply_to_a_closed_offer: ~
-      you_cannot_reply_to_a_closed_request: ~
-      you_cannot_send_message_to_yourself: ~
-      you_followed_listing: ~
-      you_have_already_given_feedback_about_this_event: ~
+      you_cannot_reply_to_a_closed_offer: "Nem válaszolhat egy lezárt ajánlatra"
+      you_cannot_reply_to_a_closed_request: "Nem válaszolhat egy lezárt kérésre."
+      you_cannot_send_message_to_yourself: "Nem küldhet értesítést saját magának"
+      you_followed_listing: "Követi ezt a hirdetést"
+      you_have_already_given_feedback_about_this_event: "Visszajelzését már elküldte"
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_listing: ~
-      additional_email_confirmed_dashboard: ~
-      you_must_log_in_to_give_feedback: ~
-      you_must_log_in_to_invite_new_users: ~
-      you_must_log_in_to_send_a_comment: ~
-      you_must_log_in_to_send_a_message: ~
+      additional_email_confirmed_dashboard: "Az ön e-mail-je megerősítve."
+      you_must_log_in_to_give_feedback: "Csak bejelentkezés után készíthet értékelést."
+      you_must_log_in_to_invite_new_users: "Jelentkezzen be, ha új felhasználókat szeretne meghívni az %{service_name}ra"
+      you_must_log_in_to_send_a_comment: "Csak bejelentkezés után fűzhet hozzá megjegyzést"
+      you_must_log_in_to_send_a_message: "Csak bejelentkezés után küldhet egy másik felhasználónak üzenetet."
       you_must_log_in_to_do_a_transaction: ~
-      you_must_log_in_to_view_this_content: ~
+      you_must_log_in_to_view_this_content: "Csak bejelentkezés után láthatja ezt a tartalmat"
       you_must_log_in_to_view_this_page: ~
-      you_must_log_in_to_view_your_inbox: ~
-      you_must_log_in_to_view_your_settings: ~
+      you_must_log_in_to_view_your_inbox: "Csak bejelentkezés után láthatja az üzeneteit."
+      you_must_log_in_to_view_your_settings: "Csak bejelentkezés utána láthatja a beállításokat."
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
-      you_need_to_confirm_your_account_first: ~
-      you_must_fill_all_the_fields: ~
-      you_unfollowed_listing: ~
+      you_need_to_confirm_your_account_first: "E-mail megerősítése"
+      you_must_fill_all_the_fields: "Ki kell töltenie az összes mezőt"
+      you_unfollowed_listing: "Ön már nem követi ezt a hirdetést"
       joining_community_failed: ~
       can_not_login_with_private_user: ~
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
-      email_deleted: ~
+      email_deleted: "Email eltávolítva"
       payment_details_add_successful: ~
       payment_details_add_error: ~
       listing_author_payment_details_missing: ~
       stylesheet_needs_recompiling: ~
     settings:
-      account: ~
-      notifications: ~
-      profile: ~
-      settings: ~
-      payments: ~
+      account: "Felhasználói fiók"
+      notifications: Megjegyzések
+      profile: "Felhasználói profil"
+      settings: Beállítások
+      payments: Fizetések
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: ~
+      listing_not_visible: "Ehhez a hirdetéshez nincs hozzáférése"
     comment:
-      wrote: ~
-      send_private_message: ~
-      delete: ~
-      are_you_sure: ~
+      wrote: Írt
+      send_private_message: "Küldjön privát üzenetet %{person}"
+      delete: töröl
+      are_you_sure: "Biztosan törölni szeretné a hozzászólást?"
     comment_form:
       ask_a_question: "Írj hozzászólást vagy vedd fel a kapcsolatot az eladóval, ha kérdésed van. Hozzászólásódát valamennyi felhasználó olvashatja."
-      log_in: ~
+      log_in: Bejelentkezés
       send_comment: "Hozzászólás küldése"
-      to_send_a_comment: ~
-      write_comment: ~
-      you_cannot_send_a_new_comment_because_listing_is_closed: ~
-      you_must: ~
+      to_send_a_comment: "Új hozzászólás küldése"
+      write_comment: "Új komment írása"
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Nem küldhet új hozzászólást, mert a hirdetés lezárult."
+      you_must: "Szükség van erre:"
       subscribe_to_comments: "Értesítsen engem új hozzászólás vagy frissítés esetén"
     edit:
-      edit_listing: ~
+      edit_listing: "Hirdetés szerkesztése"
     edit_links:
-      close_listing: ~
-      edit_listing: ~
-      reopen_listing: ~
+      close_listing: "Hirdetés zárása"
+      edit_listing: "Hirdetés szerkesztése"
+      reopen_listing: "Hirdetés újraindítása"
       move_to_top: ~
       show_in_updates_email: ~
       show_in_updates_email_loading: Töltés...
       show_in_updates_email_error: ~
       show_in_updates_email_success: ~
     map:
-      open_in_google_maps: ~
+      open_in_google_maps: "Megnyitása Google Maps-szal"
     error:
-      something_went_wrong: ~
+      something_went_wrong: "Hiba történt, hibakód: %{error_code}"
     follow_links:
       follow: "E-mail értesítést kérek új hozzászólás esetén"
       unfollow: "Nem kérek e-mail értesítést új hozzászólás esetén"
     form:
       custom_field_partials:
         dropdown:
-          select_one___: ~
+          select_one___: Válasszon
       departure_time:
-        at: ~
-        departure_time: ~
+        at: Ekkor
+        departure_time: Indulás
       departure_time_radio_buttons:
-        repeated: ~
+        repeated: "Ismételt (az alkalmakat és a napokat a 'részletes leírás' mezőbe írja)"
       description:
-        detailed_description: ~
+        detailed_description: "Részletes leírás"
       destination:
-        destination: ~
+        destination: Célállomás
       form_content:
-        favor: ~
-        housing: ~
-        item: ~
-        offer_something: ~
-        request_something: ~
-        rideshare: ~
-        i_want_to_offer: ~
-        i_want_to_request: ~
+        favor: "egy szolgáltatás"
+        housing: "egy hely(szín)"
+        item: "egy cikk"
+        offer_something: "Tegyen ajánlatot"
+        request_something: "Kérjen ajánlatot"
+        rideshare: "Egy fuvar"
+        i_want_to_offer: "Ajánlani szeretnék"
+        i_want_to_request: Keresek
       googlemap:
-        googlemap_copy: ~
-        googlemap_description: ~
-        googlemap_updatemap: ~
+        googlemap_copy: "Végpontok a térképről"
+        googlemap_description: Térképnézet
+        googlemap_updatemap: "Térkép frissítés"
       images:
-        image: ~
+        image: Kép
         best_result: ~
-        no_file_selected: ~
-        remove_image: ~
-        select_file: ~
-        add_more: ~
-        removing: ~
-        processing: ~
+        no_file_selected: "Nincs fájl kiválasztva"
+        remove_image: "Kép eltávolítása"
+        select_file: "File kiválasztása"
+        add_more: "További hozzáadása"
+        removing: Eltávolítva...
+        processing: Folyamatban...
         loading_image: Töltés...
-        image_uploading_in_progress: ~
+        image_uploading_in_progress: "Kép feltöltése folyamatban..."
         processing_takes_a_while: ~
         this_may_take_a_while: ~
         percentage_loaded: ~
         uploading_failed: "A kép feltöltése sikertelen"
-        image_processing_failed: ~
+        image_processing_failed: "Kép feltöltése sikertelen"
         file_too_large: ~
         accepted_formats: ~
-        images_not_uploaded_confirm: ~
+        images_not_uploaded_confirm: "A képek feltöltése még nem fejeződött be. Biztosan folytatni szeretné?"
       location:
-        location: ~
+        location: Hely
       price:
-        price: ~
+        price: Ár
         per: ~
-        per_day: ~
-        mass: ~
-        time: ~
-        long_time: ~
+        per_day: naponta
+        mass: "darab, kg, liter, négyzetméter..."
+        time: "óra, nap, hónap..."
+        long_time: "hét, hónap,..."
         after_service_fee_you_will_get: ~
         no_service_fee_you_will_get_paypal_text: ~
         after_service_fee_you_will_get_paypal_text: ~
-        paypal_fee_info_link_text: ~
+        paypal_fee_info_link_text: "PayPal fizetési folyamat költsége"
         after_service_fee_you_will_get_vat: ~
-        price_excludes_vat: ~
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
-        shipping_price_additional: ~
-        pickup: ~
+        price_excludes_vat: "Az ár nem tartalmazza az ÁFÁ-t"
+        delivery: "Szállítás módja"
+        shipping: Szállítás
+        shipping_price: "Szállítási költség"
+        shipping_price_additional: "Hozzáadott tételek"
+        pickup: Felvétel
       origin:
-        location: ~
-        origin: ~
+        location: Hely
+        origin: Eredet
       send_button:
-        save_listing: ~
+        save_listing: "Hirdetés mentése"
       share_type:
-        select: ~
-        borrow: ~
-        buy: ~
-        give_away: ~
-        lend: ~
-        offer_type: ~
-        receive: ~
-        rent: ~
-        rent_out: ~
-        request_type: ~
-        sell: ~
-        share_for_free: ~
-        accept_for_free: ~
-        trade: ~
+        select: Válasszon
+        borrow: Kölcsönzés
+        buy: Vásárlás
+        give_away: Ajándékozás
+        lend: Kölcsönadás
+        offer_type: "Ajánlat típusa"
+        receive: "Ingyen elfogadom"
+        rent: Bérlet
+        rent_out: Bérbeadás
+        request_type: Kéréstípus
+        sell: Eladás
+        share_for_free: "Ingyen megosztás"
+        accept_for_free: "Ingyen elfogadom"
+        trade: Csere
       tag_list:
-        comma_separate: ~
-        tags: ~
+        comma_separate: "(vessző elválasztó)"
+        tags: Címkék
       title:
         listing_title: ~
       valid_until:
-        valid_until: ~
+        valid_until: "Lejárat dátuma"
       valid_until_radio_buttons:
-        for_the_time_being: ~
+        for_the_time_being: Egyenlőre
       privacy:
-        privacy: ~
+        privacy: Titoktartás
         private: ~
         public: ~
     help_texts:
-      help_share_type_title: ~
-      help_tags_title: ~
-      help_valid_until_title: ~
+      help_share_type_title: "Az ajánlat vagy kérés típusa"
+      help_tags_title: Címkék
+      help_valid_until_title: "Lejárat dátuma"
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      listings: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
+      all_categories: "Minden kategória"
+      all_offer_types: "Minden ajánlat típus"
+      all_request_types: "Minden ajánlatkérés típus"
+      category: Kategóriák
+      did_not_found_what_you_were_looking_for: "Nem találta meg amit keresett?"
+      favors: Szolgáltatások
+      housing: Helyek
+      items: Tételek
+      list_view: "Lista nézet"
+      listings: Hirdetések
+      map_view: "Mappa nézet"
+      offer_something: "Tudassa másokkal!"
+      offer_type: "Ajánlat típusa"
+      offers: Ajánlatok
+      request_something: "Kérjen ajánlatot"
+      request_type: "Kérés típusa"
+      requests: Kérések
+      rideshare: Telekocsi
+      search_verb: Keresés
+      you_have_something_others_do_not: "Ajánlata van?"
       feed_title: ~
     left_panel_link:
-      borrows: ~
-      buys: ~
-      favors: ~
-      give_aways: ~
-      housings: ~
-      items: ~
-      lends: ~
-      receives: ~
-      rent_outs: ~
-      rents: ~
-      rideshares: ~
-      sells: ~
-      share_for_frees: ~
-      accept_for_frees: ~
-      trades: ~
+      borrows: Kölcsönzés
+      buys: Vásárlás
+      favors: Szolgáltatások
+      give_aways: Ajándékozás
+      housings: Helyek
+      items: Tételek
+      lends: Hitelezés
+      receives: "Ingyen elvihető"
+      rent_outs: Bérbeadás
+      rents: Bérlet
+      rideshares: Telekocsi
+      sells: Eladás
+      share_for_frees: "ingyen fuvar"
+      accept_for_frees: "Ingyen elfogadom"
+      trades: Csere
     listing_actions:
       booking_from: ~
       booking_to: ~
-      how_paypal_works: ~
-      payment_help: ~
+      how_paypal_works: "Hogyan működik a PayPal"
+      payment_help: "Segítség a fizetéshez"
     new:
       post_a_new_listing: ~
-      listing: ~
-      selected_category: ~
+      listing: Hirdetés
+      selected_category: "Kategória: %{category}"
       selected_subcategory: ~
       selected_transaction_type: ~
-      select_category: ~
+      select_category: "Válasszon kategóriát"
       select_subcategory: ~
-      select_transaction_type: ~
+      select_transaction_type: "Válassza ki a hirdetés típusát"
       you_need_to_fill_payout_details_before_accepting: ~
-      contact_admin_link_text: ~
+      contact_admin_link_text: "Lépjen kapcsolatba az adminisztrátorral"
       community_not_configured_for_payments: ~
-      payment_settings_link: ~
+      payment_settings_link: "Fizetési beállítások"
       community_not_configured_for_payments_admin: ~
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
-      custom: ~
-    quantity_placeholder: ~
-    please_comment: ~
+      hour: "Órák száma:"
+      day: "Napok száma:"
+      night: "Éjszakák száma:"
+      week: "Hetek száma:"
+      month: "Hónapok száma:"
+      custom: "Mennyiség:"
+    quantity_placeholder: Mennyiség
+    please_comment: Megjegyzés
     reply_link:
-      listing_closed: ~
+      listing_closed: "Hirdetés törölve"
     show:
-      add_your_phone_number: ~
-      add_profile_picture: ~
-      comments: "Nyilvános beszélgetés"
-      contact_by_phone: ~
-      contact: ~
-      favor_offer: ~
-      favor_request: ~
+      add_your_phone_number: "Adja meg telefonszámát"
+      add_profile_picture: "Adjon hozzá profil képet"
+      comments: "Publikus megjegyzés"
+      contact_by_phone: "Telefon:"
+      contact: Kapcsolat
+      favor_offer: "Szolgáltatás ajánlat"
+      favor_request: "Szolgáltatás kérés"
       inquiry: ~
-      item_offer_trade: ~
+      item_offer_trade: "Csere ajánlat"
       item_request_trade: ~
-      no_description: ~
-      no_image: ~
+      no_description: "Ehhez a felsoroláshoz nincs leírás"
+      no_image: "Nincs kép"
       no_reviews: ~
-      offer: ~
-      listing_created: ~
+      offer: Ajánlat
+      listing_created: Létrehozva
       open_until: ~
-      feedback: ~
-      qr_code: ~
-      request: ~
-      rideshare_offer: ~
-      rideshare_request: ~
-      send_private_message: ~
-      share_types: ~
-      share_types_offer: ~
-      share_types_request: ~
-      tags: ~
-      time: ~
-      times: ~
-      times_viewed: ~
-      processing_uploaded_image: ~
-      price_excludes_vat: ~
+      feedback: Értékelés
+      qr_code: "QR kód"
+      request: Kérés
+      rideshare_offer: "Telekocsi ajánlat"
+      rideshare_request: "Telekocsi ajánlatkérés"
+      send_private_message: "Küldjön privát üzenetet"
+      share_types: "Megosztás típusai"
+      share_types_offer: "Ajánlat típus"
+      share_types_request: "Kérés típus"
+      tags: Címkék
+      time: Idő
+      times: Idő
+      times_viewed: Látta
+      processing_uploaded_image: "(Képek feltöltése folyamatban)"
+      price_excludes_vat: "( ÁFÁ-val együtt)"
       listing_created_at: "Hirdetés létrehozva"
       price:
         per_quantity_unit: ~
-        per_day: ~
-      delivery: ~
-      shipping: ~
-      shipping_no_price: ~
+        per_day: naponta
+      delivery: "Szállítás módja"
+      shipping: "Szállítás (+%{price})"
+      shipping_no_price: Szállítás
       shipping_price_additional: ~
-      pickup: ~
-      pickup_no_price: ~
+      pickup: Felvétel
+      pickup_no_price: Felvétel
     unit_types:
-      piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      piece: darab
+      hour: óra
+      day: nap
+      night: éj
+      week: hét
+      month: hónap
     verification_required:
       verification_required: ~
   listing_conversations:
     preauthorize:
-      details: ~
+      details: Részletek
       by: ~
-      payment: ~
+      payment: Fizetés
       exp: ~
       you_will_be_charged: ~
-      day: ~
-      days: ~
+      day: day
+      days: napok
     transaction_agreement_checkbox:
-      read_more: ~
+      read_more: Nézet
   mapview:
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
-    please_comment: ~
+      all_categories: "Összes kategória"
+      all_offer_types: "Összes ajánlat típus"
+      all_request_types: "Összes kérés típus"
+      category: Kategória
+      did_not_found_what_you_were_looking_for: "Nem találta meg amit keresett?"
+      favors: Szolgáltatások
+      housing: Helyek
+      items: Tételek
+      list_view: "Lista nézet"
+      map_view: "Mappa nézet"
+      offer_something: "Tudassa másokkal!"
+      offer_type: "Ajánlat típus"
+      offers: Ajánlatok
+      request_something: "Kérjen ajánlatot"
+      request_type: "Kérés típus"
+      requests: Kérések
+      rideshare: Telekocsi
+      search_verb: Keresés
+      you_have_something_others_do_not: "Ajánlata van?"
+    please_comment: Megjegyzés
   mercury:
-    content_too_long: ~
+    content_too_long: "A beszúrt tétel túl hosszú"
   okl:
-    member_id: ~
-    member_id_or_email: ~
+    member_id: "Felhasználó adatai"
+    member_id_or_email: "Felhasználói azonosító vagy e-mail"
   payments:
     new:
-      new_payment: ~
-      continue: ~
-      payment_receiver: ~
-      sum: ~
+      new_payment: "Új fizetés"
+      continue: Folytatás
+      payment_receiver: "Utalás címzettje:"
+      sum: "Fizetés össz.:"
     form:
-      total: ~
-      service_charge: ~
-      product: ~
-      price: ~
-      price_for: ~
+      total: Összesen
+      service_charge: "Szolgáltatás ára"
+      product: "Termék:"
+      price: "Össz.:"
+      price_for: "Ár %{payer_given_name}:"
       continue_to_pay: ~
-      invoice: ~
+      invoice: Számla
       service_fee: ~
       you_will_get: ~
     braintree:
@@ -1704,29 +1709,29 @@ hu:
     payout_info_paypal: ~
     paypal_billing_agreement_made: ~
     commission_permission_needed: ~
-    create_paypal_account_link_text: ~
+    create_paypal_account_link_text: "PayPal fiók"
     connected_account: ~
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: ~
     paypal_receive_funds_info: ~
     upgrade_paypal_account_link_text: ~
     admin_account_not_connected: ~
-    contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
+    contact_admin_link_text: "Kapcsolat a piactér adminisztrátorral"
+    you_are_ready_to_accept_payments: "Ön kész fizetések fogadására"
     commission: ~
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: ~
-      contact_admin_link_text: ~
+      contact_admin_link_text: "Lépjen kapcsolatba az adminisztrátorral"
       admin_account_not_connected: ~
       paypal_account_email: ~
-      paypal_account_email_placeholder: ~
+      paypal_account_email_placeholder: "Az Ön PayPal emailcíme"
       paypal_account_email_info_text: ~
-      create_paypal_account: ~
+      create_paypal_account: "Kattintson ide"
       upgrade_paypal_account: ~
       paypal_account_billing_agreement: ~
       follow_steps: ~
-      connect_paypal_account_title: ~
+      connect_paypal_account_title: "Csatlakozás az Ön PayPal fiókjához"
       connect_paypal_account_title_with_step: ~
       connect_paypal_account_instructions: ~
       connect_paypal_account: ~
@@ -1735,7 +1740,7 @@ hu:
       paypal_account_billing_agreement_info_fixed: ~
       paypal_account_billing_agreement_info_relative: ~
       paypal_account_billing_agreement_info_none: ~
-      paypal_info_link_text: ~
+      paypal_info_link_text: "PayPal fizetési folyamat költsége"
       billing_agreement_description: ~
       billing_agreement: ~
       permissions_not_granted: ~
@@ -1744,24 +1749,24 @@ hu:
       billing_agreement_canceled: ~
       billing_agreement_not_accepted: ~
       billing_agreement_wrong_account: ~
-      something_went_wrong: ~
+      something_went_wrong: "Hiba történt. Kérem próbálja meg újra. Amennyiben a probléma továbbra is fennáll, lépjen kapcsolatba az oldal adminisztrátorával."
       account_not_verified: ~
       account_restricted: ~
-    paypal_account_connected_title: ~
+    paypal_account_connected_title: "PayPal fiókhoz csatlakozva"
     paypal_account_connected: ~
-    change_account: ~
+    change_account: "Paypal fiók változtatás"
     missing: ~
-    from_your_payment_settings_link_text: ~
+    from_your_payment_settings_link_text: "Fizetési beállítások"
     redirect_message: ~
-    redirect_link_text: ~
-    paypal_account_all_set_up: ~
-    can_receive_payments: ~
-    paypal_account_connected_summary: ~
+    redirect_link_text: itt
+    paypal_account_all_set_up: "Sikeres beállítás"
+    can_receive_payments: "Most már tud a hirdetéseivel kapcsolatos fizetést fogadni"
+    paypal_account_connected_summary: "PayPal fiók  <%{email}> csatlakozás sikeres"
     paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: ~
     checkout_with_paypal: ~
-    cancel_succesful: ~
+    cancel_succesful: "PayPal fizetés sikeresen megszakítva"
     transaction:
       commission_payment_name: ~
       commission_payment_description: ~
@@ -1769,138 +1774,133 @@ hu:
     chatting_with_paypal: ~
   people:
     edit_links:
-      activate: ~
-      deactivate: ~
+      activate: Aktiválva
+      deactivate: Kikapcsolva
     help_texts:
-      feedback_description_title: ~
-      help_invitation_code_title: ~
-      terms_title: ~
+      feedback_description_title: Visszajelzés
+      help_invitation_code_title: "Meghívás szükséges hogy csatlakozni tudjon"
+      terms_title: "%{service_name} felhasználási feltételek"
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
-      this_person_is_not_active_in_kassi: ~
-      inactive_description: ~
+      this_person_is_not_active_in_kassi: "Ez a felhasználó már nem elérhető a %{service_name}n"
+      inactive_description: "Ez a felhasználó már nem található meg a %{service_name} piactéren, ezért nem lehet kapcsolatba lépni vele, értékelni vagy kommentelni."
     new:
-      create_new_account: ~
-      email: ~
-      email_is_in_use: ~
+      create_new_account: "Fiók létrehozása"
+      email: "E-mail cím"
+      email_is_in_use: "Az e-mail cím amit megadott már foglalt"
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
-      family_name: ~
-      given_name: ~
-      i_accept_the: ~
-      invalid_invitation_code: ~
-      invitation_code: ~
-      not_required: ~
+      family_name: Családnév
+      given_name: Keresztnév
+      i_accept_the: Elfogadom
+      invalid_invitation_code: "Meghívó kód érvénytelen"
+      invitation_code: "Meghívó kód"
+      not_required: ", nem szükséges"
       notification_is_mandatory: ~
-      organization_name: ~
-      password_again: ~
-      show_my_name_to_others: ~
-      sign_up: ~
-      terms: ~
-      username_is_in_use: ~
-      username_is_invalid: ~
-      visible_only_to_you: ~
-      visible_to_everybody: ~
-      create_account_with_facebook: ~
-      OR: ~
-      signup_with_email: ~
+      organization_name: "Szervezet neve"
+      password_again: "Jelszó megerősítése"
+      show_my_name_to_others: "Lássák a valós nevem az %{service_name} felhasználói"
+      sign_up: "Új %{service_name} fiók létrehozása"
+      terms: "felhasználási feltételek"
+      username_is_in_use: "Ez a felhasználónév már foglalt"
+      username_is_invalid: "Érvénytelen felhasználónév. Csak betűk, számok és alsó aláhúzás engedélyezett."
+      visible_only_to_you: "csak Ön és az adminisztrátor látja"
+      visible_to_everybody: "Mindenki számára látható"
+      create_account_with_facebook: "Regisztráció Facebookkal"
+      OR: VAGY
+      signup_with_email: "Bejelentkezés emaillel"
     not_member:
-      explanation_text: ~
-      read_more_about_kassi_communities: ~
-      this_user_does_not_belong_to_this_community: ~
+      explanation_text: "Ön jelenleg a %{community} oldalait böngészi. Egy olyan felhasználó adatait próbálta megtekinteni, amit egy másik fiókban hoztak létre. Ennek a felhasználónak az adait a %{community} oldalain nem láthatja."
+      read_more_about_kassi_communities: "További információk a Sharetribe piactérrel kapcsolatban."
+      this_user_does_not_belong_to_this_community: "Ez a felhasználó nem tagja a %{community} közösségnek."
     profile_feedback:
-      as_expected: ~
-      exceeded_expectations: ~
-      grade: ~
-      and_gave_following_feedback: ~
-      less_than_expected: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
+      grade: "fokozat:"
+      and_gave_following_feedback: "A következő értékelést adta"
     profile_listings:
-      show_also_closed: ~
-      show_only_open: ~
-      no_image: ~
+      show_also_closed: "Mutassa a lezártakat is"
+      show_only_open: "Mutassa csak a nyitottakat"
+      no_image: "Nincs kép"
     show:
       contact: ~
-      about_me: ~
-      add_description: ~
-      add_location: ~
-      add_phone_number: ~
-      address: ~
-      as_expected: ~
-      edit_profile_info: ~
-      exceeded_expectations: ~
-      positive: ~
-      hide_description: ~
-      less_than_expected: ~
-      phone_number: ~
-      show_all_feedback: ~
-      show_all_testimonials: ~
-      show_full_description: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      what_are_these: ~
+      about_me: "Rólam:"
+      add_description: "Osszon meg valamit magáról"
+      add_location: "Adja meg helyzetét"
+      add_phone_number: "Adja meg telefonszámát"
+      address: "Hely:"
+      as_expected: "Elvárásoknak megfelelő"
+      edit_profile_info: "Profil szerkesztése"
+      exceeded_expectations: "Felülmúlta a várakozásaimat"
+      positive: pozitív
+      hide_description: "Kevesebb mutatása"
+      less_than_expected: "Rosszabb, mint vártam"
+      phone_number: "Telefonszám:"
+      show_all_feedback: "Mutassa az összes visszajelzést"
+      show_all_testimonials: "Mutassa az összes visszajelzést"
+      show_full_description: "Mutasson többet"
+      slightly_better_than_expected: "Elvártnál jobb"
+      slightly_less_than_expected: "Elvártnál rosszabb"
+      what_are_these: "Mik ezek?"
       review: ~
       reviews: ~
-      listing: ~
-      listings: ~
-      open_listing: ~
-      open_listings: ~
-      no_listings: ~
-      no_open_listings: ~
+      listing: hirdetés
+      listings: hirdetések
+      open_listing: "Aktuális hirdetés"
+      open_listings: "Aktuális hirdetések"
+      no_listings: "Nincs hirdetés"
+      no_open_listings: "Nincs nyitott hirdetés"
       no_reviews: ~
-      show_all_listings: ~
-      show_all_open_listings: ~
+      show_all_listings: "Mutassa az összes hirdetést"
+      show_all_open_listings: "Összes nyitott hirdetés mutatása"
       show_all_reviews: ~
     followed_people:
-      you_follow_plural: ~
-      you_follow_singular: ~
+      you_follow_plural: "Ön követi %{count} embert"
+      you_follow_singular: "Ön követi %{count} személyt"
       they_follow_plural: ~
       they_follow_singular: ~
-      show_all_followed_people: ~
-      no_followed_people: ~
+      show_all_followed_people: "Az összes követett mutatása"
+      no_followed_people: "Nincs követés"
     follow_button:
-      following: ~
-      follow: ~
-      unfollow: ~
+      following: Következő
+      follow: Követ
+      unfollow: "Követés leállítása"
   search:
     show:
-      all_results: ~
-      loading_more_search_results: ~
-      offers: ~
-      requests: ~
-      search: ~
-      search_results: ~
-      search_returned_no_results: ~
-      search_verb: ~
+      all_results: "Összes találat"
+      loading_more_search_results: "Mutasson több találati eredményt"
+      offers: Ajánlatok
+      requests: Kérések
+      search: Keresés
+      search_results: Találatok
+      search_returned_no_results: "Nincs találat"
+      search_verb: Keresés
   sessions:
     new:
-      create_new_account: ~
-      i_forgot_my_password: ~
-      login: ~
-      login_to_kassi: ~
+      create_new_account: "Fiók létrehozása"
+      i_forgot_my_password: "Elfelejtett felhasználónév vagy jelszó"
+      login: Bejelentkezés
+      login_to_kassi: "Bejelentkezés az %{service_name}"
       connect_your_facebook_to_kassi: ~
-      facebook_account: ~
+      facebook_account: "Facebook felhasználói fiók"
       log_in_to_link_account: ~
       you_can_also_create_new_account: ~
-      account_creation_link_text: ~
+      account_creation_link_text: "Kattintson ide"
       cancle_facebook_connect: ~
-      facebook_cancel_link_text: ~
+      facebook_cancel_link_text: Törlés
       log_in_with_your_facebook_account: ~
-      or_sign_up_with_your_username: ~
-      we_will_not_post_without_asking_you: ~
+      or_sign_up_with_your_username: "...vagy a felhasználó nevével vagy e-mail"
+      we_will_not_post_without_asking_you: "Soha nem posztolunk az Ön Facebookján a beleegyezése nélkül"
     password_forgotten:
-      email: ~
-      password_recovery_instructions: ~
-      request_new_password: ~
-      change_your_password: ~
+      email: E-mail
+      password_recovery_instructions: "Adja meg e-mail címét, hogy elérje felhasználónevét és visszaállíthassa jelszavát."
+      request_new_password: "Új jelszó kérése"
+      change_your_password: "Változtasson jelszót"
     confirmation_pending:
-      welcome_to_kassi: ~
-      check_your_email: ~
-      resend_confirmation_instructions: ~
-      your_current_email_is: ~
-      change_email: ~
+      welcome_to_kassi: "Üdvözöljük az %{service_name}n"
+      check_your_email: "Ellenőrizze a beérkező leveleit"
+      resend_confirmation_instructions: "A megerősítésre vonatkozó instrukciók újraküldése."
+      your_current_email_is: "Az ön e-mail-je %{email}"
+      change_email: Változás
       confirm_your_email: ~
       account_confirmation_instructions: ~
       account_confirmation_instructions_title_admin: ~
@@ -1908,119 +1908,119 @@ hu:
       account_confirmation_instructions_admin: ~
   settings:
     account:
-      change: ~
-      confirm_new_password: ~
-      delete_account: ~
+      change: Módosítás
+      confirm_new_password: "Új jelszó megerősítése"
+      delete_account: "Felhasználói fiók törlése"
       delete_account_button: ~
       delete_account_confirmation_popup: ~
-      email_addresses: ~
-      new_email: ~
+      email_addresses: "Email címek"
+      new_email: "Új e-mail cím"
       delete_all_memberships: ~
       delete_personal_information: ~
       delete_information_others_involved: ~
       unfinished_transactions: ~
-      new_password: ~
-      save: ~
-      these_fields_are_shown_only_to_you: ~
+      new_password: "Új jelszó"
+      save: Mentés
+      these_fields_are_shown_only_to_you: "A felhasználónév a profilban látható, kivéve ha a nevét adta meg. A többi infomációt csak Ön látja."
       email_already_confirmed: ~
       email:
-        address_title: ~
-        remove_title: ~
+        address_title: Cím
+        remove_title: Eltávolít
         remove_confirmation: ~
-        receive_notifications_title_desktop: ~
-        receive_notifications_title_mobile: ~
+        receive_notifications_title_desktop: "Megjegyzések fogadása"
+        receive_notifications_title_mobile: "Megjegyzések fogadása"
         receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
-        add_new_cancel: ~
-        confirmation_title_mobile: ~
-        confirmation_title_desktop: ~
-        confirmation_resend: ~
-        status_confirmed: ~
-        status_pending: ~
+        add_new_with_plus: "Új emailcímek hozzáadása"
+        add_new_cancel: Mégse
+        confirmation_title_mobile: Megerősítés
+        confirmation_title_desktop: Megerősítés
+        confirmation_resend: Újraküld
+        status_confirmed: Megerősítve
+        status_pending: Folyamatban
     notifications:
       email_from_admins: ~
-      i_want_to_get_email_notification_when: ~
-      newsletters: ~
+      i_want_to_get_email_notification_when: "Szeretnék e-mail értesítést, ha"
+      newsletters: Hírlevelek
       community_updates: ~
-      email_about_accept_reminders: ~
+      email_about_accept_reminders: "...elfelejtettem elfogadni egy ajánlatot vagy kérést"
       email_about_confirm_reminders: ~
-      email_about_new_comments_to_own_listing: ~
-      email_about_new_messages: ~
-      email_about_new_received_testimonials: ~
-      email_about_testimonial_reminders: ~
+      email_about_new_comments_to_own_listing: "Hozzászólás érkezett az ajánlatomra vagy ajánlatkérésemre"
+      email_about_new_messages: "Üzenetem érkezett"
+      email_about_new_received_testimonials: "Értékelést kaptam"
+      email_about_testimonial_reminders: "Elfelejtettem értékelést készíteni egy eseményről"
       email_daily_community_updates: ~
       email_weekly_community_updates: ~
       do_not_email_community_updates: ~
-      email_when_conversation_accepted: ~
-      email_when_conversation_rejected: ~
+      email_when_conversation_accepted: "valaki elfogadta az ajánlatomat vagy ajánlatkérésemet."
+      email_when_conversation_rejected: "valaki visszautasította az ajánlatomat vagy ajánlatkérésemet."
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_payment_reminders: ~
       email_about_new_listings_by_followed_people: ~
-      unsubscribe_succesful: ~
+      unsubscribe_succesful: "Leiratkozás sikeres"
       unsubscribe_info_text: ~
-      settings_link: ~
-      homepage_link: ~
-      unsubscribe_unsuccesful: ~
+      settings_link: Beállítások
+      homepage_link: Honlap
+      unsubscribe_unsuccesful: "Hiba a leiratkozásnál"
       unsuccessful_unsubscribe_info_text: ~
     profile:
-      about_you: ~
-      city: ~
-      family_name: ~
-      given_name: ~
+      about_you: Információk
+      city: Város
+      family_name: Vezetéknév
+      given_name: Keresztnév
       first_name_with_initial: ~
       first_name_only: ~
-      location_description: ~
-      phone_number: ~
-      profile_picture: ~
-      postal_code: ~
-      profile_page: ~
-      profilemap: ~
-      street_address: ~
-      these_fields_are_shown_in_your: ~
-      visible_to_everybody: ~
-      visible_to_registered_users: ~
+      location_description: "Nem adta meg a pontos címét, vagy például az irányítószámát. Kérem a végén adja meg irányítószámát. Kiválaszthat címet a lenti térkép segítségével is."
+      phone_number: Telefonszám
+      profile_picture: Profilkép
+      postal_code: Irányítószám
+      profile_page: "a profil oldalon"
+      profilemap: Térképnézet
+      street_address: Hely
+      these_fields_are_shown_in_your: "Ez az információ látható az összes %{service_name} felhasználó számára"
+      visible_to_everybody: "Mindenki számára látható"
+      visible_to_registered_users: "Regisztrált felhasználók láthatják"
       default_in_listing: ~
       invisible: ~
       image_is_processing: ~
-    save_information: ~
+    save_information: Mentés
   shipping_address:
-    shipping_address: ~
+    shipping_address: "Szállítási cím"
   tag_cloud:
     tag_used:
-      with_tag: ~
-      without_tag: ~
+      with_tag: Cimkével
+      without_tag: "Cimke nélkül"
   terms:
     show:
-      accept_terms: ~
-      here: ~
-      i_accept_new_terms: ~
-      i_accept_terms: ~
-      terms: ~
-      terms_have_changed: ~
-      you_can_view_the_new_terms: ~
-      you_need_to_accept: ~
-      you_need_to_accept_new_terms: ~
+      accept_terms: "A %{service_name} felhasználási feltételek elfogadása"
+      here: "Ide kattintva"
+      i_accept_new_terms: "Elfogadom az új feltételeket"
+      i_accept_terms: "Elfogadom a feltételeket"
+      terms: "%{service_name} felhasználási feltételek"
+      terms_have_changed: "A felhasználási feltételek megváltoztak"
+      you_can_view_the_new_terms: "Megtekintheti az új feltételeket"
+      you_need_to_accept: "Üdvözöli Önt az %{service_name}! Első alkalommal veszi igénybe szolgáltatásunkat. Mielőtt folytatná, kérjük fogadja el a"
+      you_need_to_accept_new_terms: "Az %{service_name} felhasználási feltételei megváltoztak. Kérjük fogadja el az új feltételeket az %{service_name} folytatásához."
   testimonials:
     index:
-      all_testimonials: ~
-      feedback_altogether: ~
-      loading_more_testimonials: ~
-      no_testimonials: ~
+      all_testimonials: "Összes értékelés"
+      feedback_altogether: "Értékelés összesen: "
+      loading_more_testimonials: "Több értékelés betöltése"
+      no_testimonials: "Nem érkezett értékelés"
     new:
-      as_expected: ~
-      exceeded_expectations: ~
-      give_feedback_to: ~
-      grade: ~
-      less_than_expected: ~
-      send_feedback: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      textual_feedback: ~
+      as_expected: "Elvárásom szerinti"
+      exceeded_expectations: "Sokkal jobb, mint vártam"
+      give_feedback_to: "Készítsen értékelést %{person}"
+      grade: "Mi az általános benyomása?"
+      less_than_expected: "Rosszabb, mint vártam"
+      send_feedback: "Küldjön értékelést"
+      slightly_better_than_expected: "Kicsivel jobb, mint vártam"
+      slightly_less_than_expected: "Kicsivel rosszabb, mint vártam"
+      textual_feedback: "Hogy mentek a dolgok?"
       this_will_be_shown_in_profile: ~
-      positive: ~
-      negative: ~
-      default_textual_feedback: ~
+      positive: Pozitív
+      negative: Negatív
+      default_textual_feedback: "Minden zökkenőmentes volt, nagyon köszönöm!"
     testimonial:
       about_listing: ~
   date:
@@ -2078,7 +2078,7 @@ hu:
       november: Nov
       december: Dec
     today: Ma
-    clear: ~
+    clear: Töröl
     format: yyyy.mm.dd
   time:
     formats:
@@ -2086,35 +2086,50 @@ hu:
       shorter: ~
       short_date: ~
   timestamps:
-    day_ago: ~
-    days_ago: ~
-    hour_ago: ~
-    hours_ago: ~
-    minute_ago: ~
-    minutes_ago: ~
-    month_ago: ~
-    months_ago: ~
-    seconds_ago: ~
-    year_ago: ~
-    years_ago: ~
+    day_ago: "%{count} napja"
+    days_ago: "%{count} napja"
+    hour_ago: "%{count} órája"
+    hours_ago: "%{count} órája"
+    minute_ago: "%{count} perce"
+    minutes_ago: "%{count} perce"
+    month_ago: "%{count} hónapja"
+    months_ago: "%{count} hónapja"
+    seconds_ago: "%{count} másodperce"
+    year_ago: "%{count} éve"
+    years_ago: "%{count} éve"
+    days_since:
+      other: "%{count} nap"
+    time_to:
+      seconds:
+        other: "%{count} másodperc"
+      minutes:
+        other: "%{count} másodpercek"
+      hours:
+        other: "%{count} óra"
+      days:
+        other: "%{count} nap"
   transactions:
     initiate:
-      booked_days: ~
-      price_per_day: ~
-      quantity: ~
-      subtotal: ~
-      shipping-price: ~
-    price_per_quantity: ~
-    price: ~
-    quantity: ~
-    unit_price: ~
-    total: ~
+      booked_days: "Lefoglalt napok:"
+      price_per_day: "Napi díja"
+      quantity: "Mennyisége:"
+      subtotal: "Végösszeg:"
+      shipping-price: "Szállítás:"
+    price_per_quantity: "Ár %{unit_type}:"
+    price: "Ár:"
+    quantity: "Mennyiség: %{quantity}"
+    unit_price: "Egységár: %{unit_price}"
+    total: "Összesen:"
   unit:
-    day: ~
-    days: ~
+    day: nap
+    days: napok
   will_paginate:
-    previous_label: ~
-    next_label: ~
+    models:
+      person:
+        zero: Felhasználók
+        other: Felhasználó
+    previous_label: "&#8592; Előző"
+    next_label: "Következő &#8594;"
     page_gap: ~
     page_entries_info:
       multi_page: ~

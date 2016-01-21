@@ -345,6 +345,10 @@ da-DK:
         field_required:
           this_field_is_required: "Dette felt er påkrævet."
           this_field_is_required_checkbox: "Dette felt er påkrævet (Bruger skal minimum vælge en)"
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: Annoncefiltrering
         listing_fields_help: "Her kan du ændre de felter som brugere skal udfylde når de skal oprette en annonce på din markedsplads. Du skal være opmærksom på at nogle felter ikke kan ændres."
@@ -1105,6 +1109,7 @@ da-DK:
     create_new_marketplace: "Opret en ny markedsplads"
     contact_us: "Kontakt os"
     profile: Profil
+    manage_listings: "Administrer annoncer"
     invite: "Inviter nye medlemmer"
     login: "Log ind"
     signup: "Opret profil﻿"
@@ -1840,13 +1845,8 @@ da-DK:
       read_more_about_kassi_communities: "Læs mere om Sharetribe markedspladser"
       this_user_does_not_belong_to_this_community: "Denne bruger er ikke medlem af %{community}"
     profile_feedback:
-      as_expected: "Som forventet"
-      exceeded_expectations: "Meget bedre end forventet"
       grade: "klasse:"
       and_gave_following_feedback: "og gav følgende feedback"
-      less_than_expected: "Værre end ventet"
-      slightly_better_than_expected: "Lidt bedre end forventet"
-      slightly_less_than_expected: "Lidt værrere end forventet"
     profile_listings:
       show_also_closed: "Vis lukkede annoncer"
       show_only_open: "Vis kun åbne annoncer"

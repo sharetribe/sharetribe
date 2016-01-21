@@ -345,6 +345,10 @@ fi:
         field_required:
           this_field_is_required: "Tämä on pakollinen kenttä"
           this_field_is_required_checkbox: "Tämä on pakollinen kenttä (käyttäjän pitää valita ainakin yksi vaihtoehdoista)"
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: Ilmoituskentät
         listing_fields_help: "Voit muokata kenttiä, jotka käyttäjän pitää täyttää listausta luodessa. Osa kentistä on ennaltamäärättyjä eikä niitä voi muokata."
@@ -1097,6 +1101,7 @@ fi:
     create_new_marketplace: "Luo uusi verkkotori"
     contact_us: "Ota yhteyttä"
     profile: "Oma profiili"
+    manage_listings: ~
     invite: "Kutsu uusia jäseniä"
     login: "Kirjaudu sisään"
     signup: Rekisteröidy
@@ -1832,13 +1837,8 @@ fi:
       read_more_about_kassi_communities: "Lue lisää %{service_name}-palvelusta"
       this_user_does_not_belong_to_this_community: "Tämä käyttäjä ei ole %{service_name}-palvelun jäsen"
     profile_feedback:
-      as_expected: "Vastasi odotuksia"
-      exceeded_expectations: "Ylitti täysin odotukset"
       grade: "arvio:"
       and_gave_following_feedback: "ja antoi seuraavan palautteen"
-      less_than_expected: "Ei vastannut lainkaan odotuksia"
-      slightly_better_than_expected: "Ylitti jossain määrin odotukset"
-      slightly_less_than_expected: "Ei täysin vastannut odotuksia"
     profile_listings:
       show_also_closed: "Näytä myös suljetut"
       show_only_open: "Näytä vain avoimet"

@@ -345,6 +345,10 @@ nb:
         field_required:
           this_field_is_required: "Dette feltet er påkrevd"
           this_field_is_required_checkbox: "Dette feltet er påkrevd(bruker må velge minst ett valg)"
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: "Annonse felt & filter"
         listing_fields_help: "Her kan du endre feltene brukere må fylle inn når de oppretter en annonse. Noen av feltene er predefinerte og kan ikke endres."
@@ -1111,6 +1115,7 @@ nb:
     create_new_marketplace: "Lag en ny markedsplass"
     contact_us: "Kontakt oss"
     profile: Profil
+    manage_listings: ~
     invite: "Invitér nye brukere"
     login: "Logg inn"
     signup: "Registrér deg"
@@ -1846,13 +1851,8 @@ nb:
       read_more_about_kassi_communities: "Les mer om Sharetribes markedsplasser"
       this_user_does_not_belong_to_this_community: "Denne brukeren er ikke medlem av %{community}."
     profile_feedback:
-      as_expected: "Som forventet"
-      exceeded_expectations: "Mye bedre enn forventet"
       grade: "karakter:"
       and_gave_following_feedback: "og gav følgende tilbakemelding"
-      less_than_expected: "Dårligere enn forventet"
-      slightly_better_than_expected: "Noe bedre enn forventet"
-      slightly_less_than_expected: "Noe dårligere enn forventet"
     profile_listings:
       show_also_closed: "Vis også lukkede"
       show_only_open: "Vis kun åpne"

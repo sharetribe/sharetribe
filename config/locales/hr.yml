@@ -330,6 +330,10 @@ hr:
         field_required:
           this_field_is_required: ~
           this_field_is_required_checkbox: ~
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: ~
         listing_fields_help: ~
@@ -1078,6 +1082,7 @@ hr:
     create_new_marketplace: "Kreiraj novu tržnicu"
     contact_us: "Kontaktiraj nas"
     profile: Profil
+    manage_listings: ~
     invite: ~
     login: ~
     signup: ~
@@ -1810,13 +1815,8 @@ hr:
       read_more_about_kassi_communities: ~
       this_user_does_not_belong_to_this_community: ~
     profile_feedback:
-      as_expected: ~
-      exceeded_expectations: ~
       grade: ~
       and_gave_following_feedback: ~
-      less_than_expected: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
     profile_listings:
       show_also_closed: ~
       show_only_open: ~

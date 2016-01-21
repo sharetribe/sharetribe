@@ -343,8 +343,12 @@ fr:
         this_field_is_required: "Ce champ est obligatoire"
       form:
         field_required:
-          this_field_is_required: "Ce champ est obligatoire"
-          this_field_is_required_checkbox: "Ce champ est obligatoire (l'utilisateur doit sélectionner au moins un choix)"
+          this_field_is_required: "Rendre ce champ obligatoire lors de la création d'une nouvelle annonce"
+          this_field_is_required_checkbox: "Rendre ce champ obligatoire lors de la création d'une nouvelle annonce (l'utilisateur doit sélectionner au moins un choix)"
+        search_filter:
+          search_filter: "Afficher un filtre basé sur ce champ sur la page d'accueil"
+          date_cant_be_filtered: "Il n'y a pas de filtre possible pour un champ date."
+          text_cant_be_filtered: "Il n'y a pas de filtre possible pour un champ texte. La recherche prend en compte les champs texte."
       index:
         listing_fields: "Champs d'annonces & filtres"
         listing_fields_help: "Vous pouvez ici modifier les champs qu'un utilisateur doit compléter lors de la création d'une annonce. Notez que certains champs sont prédéfinis et ne peuvent être modifiés."
@@ -1109,6 +1113,7 @@ fr:
     create_new_marketplace: "Créer une nouvelle place de marché"
     contact_us: "Nous contacter"
     profile: Profil
+    manage_listings: "Gérer les annonces"
     invite: "Inviter des nouveaux membres"
     login: "Se connecter"
     signup: S'inscrire
@@ -1187,7 +1192,7 @@ fr:
       message: "Votre message"
       send_invitation: "Envoyer les invitations"
       add_email_addresses_description: "Ajoutez ci-dessous les adresses email des gens que vous souhaitez inviter. Pour ajouter plusieurs adresses, séparez les par une virgule."
-      add_lots_of_email_addresses: "Si vous souhaitez envoyer de nombreuses invitations, vous devriez utiliser un outil d'emailing. Lisez %{this_article_link} pour découvrir plusieurs services qui pourront répondre à ce besoin."
+      add_lots_of_email_addresses: "Puisque vous êtes administrateur, voici un conseil : si vous souhaitez envoyer de nombreuses invitations, vous devriez utiliser un outil d'emailing. Lisez %{this_article_link} pour découvrir plusieurs services qui pourront répondre à ce besoin."
       this_article_link: "cet article"
       invitation_emails_field_placeholder: "ami1@exemple.fr, ami2@exemple.fr, ..."
       invitation_message_field_placeholder: "J'ai rejoint cette super place de marché. Tu devrais aussi !"
@@ -1844,13 +1849,8 @@ fr:
       read_more_about_kassi_communities: "En savoir plus sur les places de marché Sharetribe"
       this_user_does_not_belong_to_this_community: "Cet utilisateur ne fait pas partie de %{community}"
     profile_feedback:
-      as_expected: "Correspondait à mes attentes"
-      exceeded_expectations: "Dépassait complètement mes attentes"
       grade: "note :"
       and_gave_following_feedback: "et a donné l'avis suivant"
-      less_than_expected: "Ne correspondait pas à mes attentes"
-      slightly_better_than_expected: "Mieux qu'attendu"
-      slightly_less_than_expected: "Moins bien qu'attendu"
     profile_listings:
       show_also_closed: "Voir également les offres et demandes closes"
       show_only_open: "Voir uniquement les offres et demandes en cours"

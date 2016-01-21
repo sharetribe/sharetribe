@@ -21,13 +21,10 @@ class HomepageController < ApplicationController
     listing_shape_menu_enabled = all_shapes.size > 1
     @show_categories = @categories.size > 1
     show_price_filter = @current_community.show_price_filter && all_shapes.any? { |s| s[:price_enabled] }
-    @show_custom_fields = @current_community.custom_fields.any?(&:can_filter?) || show_price_filter
-    @category_menu_enabled = @show_categories || @show_custom_fields
 
-    @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_en_135x40.svg"
-    if File.exists?("app/assets/images/Available_on_the_App_Store_Badge_#{I18n.locale}_135x40.svg")
-       @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_#{I18n.locale}_135x40.svg"
-    end
+    filters = @current_community.custom_fields.where(search_filter: true).sort
+    @show_custom_fields = filters.present? || show_price_filter
+    @category_menu_enabled = @show_categories || @show_custom_fields
 
     filter_params = {}
 
@@ -75,6 +72,7 @@ class HomepageController < ApplicationController
         @listings = listings
         render locals: {
                  shapes: all_shapes,
+                 filters: filters,
                  show_price_filter: show_price_filter,
                  selected_shape: selected_shape,
                  shape_name_map: shape_name_map,
@@ -85,6 +83,7 @@ class HomepageController < ApplicationController
         @listings = Listing.none.paginate(:per_page => 1, :page => 1)
         render status: 500, locals: {
                  shapes: all_shapes,
+                 filters: filters,
                  show_price_filter: show_price_filter,
                  selected_shape: selected_shape,
                  shape_name_map: shape_name_map,

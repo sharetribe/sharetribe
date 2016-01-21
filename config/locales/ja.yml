@@ -340,6 +340,10 @@ ja:
         field_required:
           this_field_is_required: この項目は入力必須です
           this_field_is_required_checkbox: この項目は必須です（ユーザは少なくてもひとつ選択しなければなりません）
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: リストの項目とフィルターの設定
         listing_fields_help: ここにユーザが、リストを作成する時に記入する記入項目を設定できます。いくつかの項目は所定の位置にあり編集が出来ないので注意してください。
@@ -1092,6 +1096,7 @@ ja:
     create_new_marketplace: 新規マーケットプレイスを作成
     contact_us: お問い合わせ
     profile: プロフィール
+    manage_listings: ~
     invite: メンバーを招待する
     login: ログイン
     signup: 新規登録
@@ -1826,13 +1831,8 @@ ja:
       read_more_about_kassi_communities: Sharetribeマーケットプレイスについてもっと読む
       this_user_does_not_belong_to_this_community: "このユーザは%{community}のメンバーではありません。"
     profile_feedback:
-      as_expected: 期待通り
-      exceeded_expectations: 期待以上に良い
       grade: 評価：
       and_gave_following_feedback: 次のレビューを書く
-      less_than_expected: 期待以下
-      slightly_better_than_expected: 期待よりまあまあ良い
-      slightly_less_than_expected: 期待より少しだけ悪い
     profile_listings:
       show_also_closed: クローズ済のリストも表示
       show_only_open: 現在進行のリストのみ表示

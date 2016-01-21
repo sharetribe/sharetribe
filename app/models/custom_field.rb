@@ -5,6 +5,7 @@
 #  id             :integer          not null, primary key
 #  type           :string(255)
 #  sort_priority  :integer
+#  search_filter  :boolean          default(FALSE), not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  community_id   :integer
@@ -15,38 +16,28 @@
 #
 # Indexes
 #
-#  index_custom_fields_on_community_id  (community_id)
+#  index_custom_fields_on_community_id   (community_id)
+#  index_custom_fields_on_search_filter  (search_filter)
 #
 
 class CustomField < ActiveRecord::Base
   include SortableByPriority # use `sort_priority()` for sorting
 
-  attr_accessible(
-    :type,
-    :name_attributes,
-    :category_attributes,
-    :option_attributes,
-    :sort_priority,
-    :required,
-    :min,
-    :max
-  )
+  has_many :names, class_name: "CustomFieldName", dependent: :destroy
 
-  has_many :names, :class_name => "CustomFieldName", :dependent => :destroy
+  has_many :category_custom_fields, dependent: :destroy
+  has_many :categories, through: :category_custom_fields
 
-  has_many :category_custom_fields, :dependent => :destroy
-  has_many :categories, :through => :category_custom_fields
+  has_many :answers, class_name: "CustomFieldValue", dependent: :destroy
 
-  has_many :answers, :class_name => "CustomFieldValue", :dependent => :destroy
-
-  has_many :options, :class_name => "CustomFieldOption"
+  has_many :options, class_name: "CustomFieldOption"
 
   belongs_to :community
 
   VALID_TYPES = ["TextField", "NumericField", "DropdownField", "CheckboxField","DateField"]
 
-  validates_length_of :names, :minimum => 1
-  validates_length_of :category_custom_fields, :minimum => 1
+  validates_length_of :names, minimum: 1
+  validates_length_of :category_custom_fields, minimum: 1
   validates_presence_of :community
 
   def name_attributes=(attributes)
@@ -69,11 +60,6 @@ class CustomField < ActiveRecord::Base
     TranslationCache.new(self, :names).translate(locale, :value)
   end
 
-  def can_filter?
-    # Default to false
-    false
-  end
-
   def with(expected_type, &block)
     with_type do |own_type|
       if own_type == expected_type
@@ -85,5 +71,4 @@ class CustomField < ActiveRecord::Base
   def with_type(&block)
     throw "Implement this in the subclass"
   end
-
 end

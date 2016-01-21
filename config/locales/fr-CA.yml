@@ -345,6 +345,10 @@ fr-CA:
         field_required:
           this_field_is_required: "Ce champ est obligatoire"
           this_field_is_required_checkbox: "Ce champ est obligatoire (l'utilisateur doit sélectionner au moins un choix)"
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: "Champs d'annonces & filtres"
         listing_fields_help: "Vous pouvez ici modifier les champs qu'un utilisateur doit compléter lors de la création d'une annonce. Notez que certains champs sont prédéfinis et ne peuvent être modifiés."
@@ -1097,6 +1101,7 @@ fr-CA:
     create_new_marketplace: "Créer une nouvelle place de marché"
     contact_us: "Nous contacter"
     profile: Profil
+    manage_listings: ~
     invite: "Inviter des nouveaux membres"
     login: "Se connecter"
     signup: S'inscrire
@@ -1832,13 +1837,8 @@ fr-CA:
       read_more_about_kassi_communities: "En savoir plus sur les places de marché Sharetribe"
       this_user_does_not_belong_to_this_community: "Cet utilisateur ne fait pas partie de %{community}"
     profile_feedback:
-      as_expected: "Correspondait à mes attentes"
-      exceeded_expectations: "Dépassait complètement mes attentes"
       grade: "note :"
       and_gave_following_feedback: "et a donné l'avis suivant"
-      less_than_expected: "Ne correspondait pas à mes attentes"
-      slightly_better_than_expected: "Mieux qu'attendu"
-      slightly_less_than_expected: "Moins bien qu'attendu"
     profile_listings:
       show_also_closed: "Voir également les offres et demandes closes"
       show_only_open: "Voir uniquement les offres et demandes en cours"

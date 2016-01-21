@@ -166,13 +166,13 @@ end
 
 Then(/^the (buyer|requester) of that conversation should receive an email about automatically confirmed listing$/) do |_|
   steps %Q{
-    Then the requester of that conversation should receive an email with subject "Request automatically completed - remember to give feedback"
+    Then the requester of that conversation should receive an email with subject "Order automatically completed - remember to give feedback"
   }
 end
 
 Then(/^the (offerer|seller) of that conversation should receive an email confirmed listing$/) do |_|
   steps %Q{
-    Then the offerer of that conversation should receive an email with subject "Request completed - remember to give feedback"
+    Then the offerer of that conversation should receive an email with subject "Order completed - remember to give feedback"
   }
 end
 
@@ -217,16 +217,16 @@ When(/^I accepts the request for that listing$/) do
 end
 
 
-Then(/^I should see that the request is waiting for buyer confirmation$/) do
-  page.should have_content(/Waiting for (.*) to mark the request completed/)
+Then(/^I should see that the order is waiting for buyer confirmation$/) do
+  page.should have_content(/Waiting for (.*) to mark the order completed/)
 end
 
 Then /^I should see that I should now deliver the board$/ do
   page.should have_content(/Waiting for you to deliver (.*)/)
 end
 
-Then(/^I should see that the request is confirmed/) do
-  page.should have_content(/marked the request as completed/)
+Then(/^I should see that the order is confirmed/) do
+  page.should have_content(/marked the order as completed/)
 end
 
 When(/^I accept the "(.*?)" request for that listing for post pay$/) do |request|

@@ -345,6 +345,10 @@ sv:
         field_required:
           this_field_is_required: "Detta fält måste fyllas i"
           this_field_is_required_checkbox: "Detta fält krävs (användaren måste välja minst ett alternativ)"
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: "Annonsfält och filter"
         listing_fields_help: "Här kan du redigera fälten som användarna behöver fylla i när de skapar en ny annons. Notera att det är några fält som är fördefinierade och inte går att ändra."
@@ -1111,6 +1115,7 @@ sv:
     create_new_marketplace: "Skapa en ny marknadsplats"
     contact_us: "Kontakta oss"
     profile: Profil
+    manage_listings: ~
     invite: "Bjud in nya medlemmar"
     login: "Logga in"
     signup: "Bli medlem"
@@ -1846,13 +1851,8 @@ sv:
       read_more_about_kassi_communities: "Läs mer om Sharetribe marknadsplatser."
       this_user_does_not_belong_to_this_community: "Denna användare är inte en medlem av %{community}."
     profile_feedback:
-      as_expected: "Som förväntat"
-      exceeded_expectations: "Mycket bättre än väntat"
       grade: "betyg:"
       and_gave_following_feedback: "och gav följande feedback"
-      less_than_expected: "Värre än väntat"
-      slightly_better_than_expected: "Något bättre än väntat"
-      slightly_less_than_expected: "Något sämre än förväntat"
     profile_listings:
       show_also_closed: "Visa avslutade också"
       show_only_open: "Visa bara öppnade"

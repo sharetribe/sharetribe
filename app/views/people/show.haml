@@ -48,20 +48,20 @@
       = render :partial => 'listings/profile_listings', :locals => {person: @person, limit: limit, listings: listings}
 
     - if @current_community.follow_in_use?
-      = render :partial => "followed_people", :locals => { :person => @person, :limit => 6 }
+      = render :partial => "followed_people", :locals => { person: @person, followed_people: followed_people, limit: 6 }
 
     - if @current_community.testimonials_in_use
       #people-testimonials.listing-main
         .row
           %h2.people-header
-            - if @person.received_testimonials.size > 0
-              = pluralize(@person.received_testimonials.size, t(".review"), t(".reviews"))
-              = "(#{@person.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{@person.received_positive_testimonials.size}/#{@person.received_testimonials.size})"
+            - if received_testimonials.size > 0
+              = pluralize(received_testimonials.size, t(".review"), t(".reviews"))
+              = "(#{feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{received_positive_testimonials.size}/#{received_testimonials.size})"
             - else
               = t(".no_reviews")
-          - if @person.received_testimonials.size > 0
+          - if received_testimonials.size > 0
             #profile-testimonials-list
-              = render :partial => "testimonials", :locals => {:received_testimonials => @person.received_testimonials, :limit => 3}
+              = render :partial => "testimonials", :locals => {:received_testimonials => received_testimonials, :limit => 3}
 
   .col-4
     .row

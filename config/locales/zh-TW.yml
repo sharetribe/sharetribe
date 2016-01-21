@@ -340,6 +340,10 @@ zh-TW:
         field_required:
           this_field_is_required: 这个字段是必填的。
           this_field_is_required_checkbox: 该字段必须填写（用户必须选择至少一个选项）
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
       index:
         listing_fields: 信息字段&过滤器
         listing_fields_help: 你可以在这里编辑用户在创建新的信息时必须填入的字段。请注意某些预定义字段不能被编辑。
@@ -1098,6 +1102,7 @@ zh-TW:
     create_new_marketplace: 创建一个新的集市
     contact_us: 联系我们
     profile: 个人主页
+    manage_listings: ~
     invite: 邀请新成员
     login: 登录
     signup: 注册
@@ -1832,13 +1837,8 @@ zh-TW:
       read_more_about_kassi_communities: 阅读更多关于这个网站
       this_user_does_not_belong_to_this_community: "此用户不是%{community} 社区的成员。"
     profile_feedback:
-      as_expected: 符合期望
-      exceeded_expectations: 比期望的好很多
       grade: 评分：
       and_gave_following_feedback: 并且给出以下反馈
-      less_than_expected: 差
-      slightly_better_than_expected: 较好
-      slightly_less_than_expected: 较差
     profile_listings:
       show_also_closed: 显示已关闭的
       show_only_open: 仅显示开放的

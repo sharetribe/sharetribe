@@ -1,5 +1,4 @@
 include ApplicationHelper
-include PeopleHelper
 include ListingsHelper
 include TruncateHtmlHelper
 

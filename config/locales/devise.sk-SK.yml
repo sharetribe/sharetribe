@@ -1,0 +1,59 @@
+sk-SK:
+  errors:
+    messages:
+      expired: "vypršala, prosím požiadať o nové"
+      not_found: "súbor nenájdený"
+      already_confirmed: "bolo už potvrdené, prosím skúste sa znova prihlásiť"
+      not_locked: "nebol zamknutý"
+      not_saved:
+        one: "1 chyba zabraňuje%{zdroj} ukladať"
+        few: "%{spočítať} chyby zabraňujú %{zdroj} ukladať"
+        other: "Premenné: %{spočítať}%{zdroj}"
+  devise:
+    failure:
+      already_authenticated: "Už ste prihlásený."
+      unauthenticated: "Musíte sa prihlásiť alebo zaregistrovať pred pokračovaním."
+      unconfirmed: "Musíte potvrdiť svoje konto pred pokračovaním."
+      locked: "Váše konto je zamknutý."
+      invalid: "Neplatný e-mail alebo neplatné heslo"
+      invalid_token: "Neplatné identifikačné číslo."
+      timeout: "Vaše prihlásenie vypršalo. Prosím, prihláste sa znovu."
+      inactive: "Váš účet ešte nebol aktivovaný."
+    passwords:
+      updated_not_active: "Vaše heslo bolo úspešne zmenené."
+      send_paranoid_instructions: "Ak Váš e-mail exisuje v našej databáze, na Váš e-mail dostanete odkaz pre obnovenie hesla."
+      send_instructions: "V priebehu niekoľkých minút dostanete e-mail s pokynmi, ako obnoviť Vaše heslo."
+      updated: "Vaše heslo bolo úspešne zmenené. Teraz ste prihlásený."
+    sessions:
+      signed_in: "Úspešne ste sa prihlásili."
+      signed_out: "Úspešne ste sa odhlásili."
+    confirmations:
+      send_paranoid_instructions: "Ak Váš e-mail existuje v našej databáze, dostanete e-mail s pokynmi, ako potvrdiť Vaše konto v priebehu niekoľkých minút."
+      send_instructions: "O niekoľko minút dostanete e-mail s pokynmi na potvrdenie Vášho konta."
+      confirmed: "Vaše konto bol úspešne potvrdený."
+    registrations:
+      signed_up_but_unconfirmed: "Na Váš e-mail ste dostali správu. Otvorte si ju pre úspešné aktivovanie Vášho konta."
+      signed_up_but_inactive: "Ste úspešne prihlásený. Avšak Vás nevieme zaregisrovať, lebo Vaše konto nie je aktivované."
+      signed_up_but_locked: "Ste úspešne prihlásený. Avšak Vás nevieme zaregisrovať, lebo Vaše konto je zablokované."
+      reasons:
+        inactive: Neaktívne
+        unconfirmed: "nie je potvrdené"
+        locked: uzamknuté
+      update_needs_confirmation: "Úspešne ste aktualizovali konto, ale musíme overiť Vašu novú e-mailovú adresu. Skontrolujte prosím Váš e-mail a kliknite na potvrdzujúci odkaz pre dokončenie potvrdenia Vašej e-mailovej adresy."
+      signed_up: "Vítame Vás! Ste úspešne prihlásený."
+      updated: "Úspešne ste aktualizovali účet."
+      destroyed: "Dovidenia! Váš účet bol úspešne zrušený. Dúfame, že Vás čoskoro znova vidíme."
+    unlocks:
+      send_paranoid_instructions: "Ak Vaše konto existuje, dostanete e-mail s pokynmi, ako ju odomknúť počas niekoľkých minút."
+      send_instructions: "O niekoľko minút dostanete e-mail s pokynmi, ako si odomknúť Váš účet."
+      unlocked: "Vaše konto bolo úspešne odomknuté. Prosím prihláste sa pre pokračovanie."
+    omniauth_callbacks:
+      success: "Úspešne autorizované z %{kind} konta."
+      failure: "Nemožno Vás autorizovať z %{kind}, lebo %{reason}"
+    mailer:
+      confirmation_instructions:
+        subject: "Pokyny na potvrdenie"
+      reset_password_instructions:
+        subject: "Pokyny na zmenu hesla"
+      unlock_instructions:
+        subject: "Pokyny na odomknutie"

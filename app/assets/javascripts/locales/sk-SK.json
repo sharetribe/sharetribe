@@ -1,0 +1,28 @@
+{
+  "please_wait": "Čakajte prosím...",
+  "validation_messages": {
+    "accept": "Tento dokument musí byť vo formáte GIF, JPG alebo PNG.",
+    "creditcard": "Prosím zadajte správne číslo kreditnej karty.",
+    "date": "Prosím zadajte platný dátum.",
+    "dateISO": "Prosím zadajte platný dátum (ISO).",
+    "digits": "Prosím zadajte iba číslice.",
+    "email": "Prosím zadajte platnú e-mailovú adresu.",
+    "equalTo": "Prosím zadajte rovnakú hodnotu.",
+    "max": "Prosím zadajte menej alebo rovnakú hodnotu {0}.",
+    "maxlength": "Prosím, zadajte nie viac ako {0} znakov.",
+    "min": "Prosím zadajte hodnotu väčšiu alebo rovnakú ako {0},",
+    "minlength": "Prosím zadajte najmenej {0} znakov.",
+    "number": "Prosím zadajte správne číslo.",
+    "range": "Prosím zadajte hodnotu medzi {0} a {1}.",
+    "rangelength": "Prosím zadajte hodnotu znakov medzi {0} a {1}.",
+    "remote": "Prosím potvrdit pole.",
+    "required": "Toto pole je povinné.",
+    "url": "Prosím zadajte platné URL.",
+    "address_validator": "Lokalita nebola nájdená.",
+    "money": "Musíte vložiť platnú peňažnú hodnotu.",
+    "min_bound": "Prosím, zadajte hodnotu menšiu, než maximálna hodnota {0}",
+    "max_bound": "Prosím, zadajte hodnotu väčšiu než minimálna hodnota {0}",
+    "number_no_decimals": "Prosím zadajte celé číslo.",
+    "number_decimals": "Prosím zadajte platné číslo buď s bodkou (.) Alebo čiarkou (,) ako oddeľovač desatinných miest"
+  }
+}
