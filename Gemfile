@@ -148,7 +148,6 @@ group :test do
   # Launchy is needed by Capybara, e.g. save_and_open command needs Launchy to open a browser
   gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'email_spec', '~> 1.6.0'
-  gem "parallel_tests", :group => :development
   gem 'timecop'
   gem 'rack-test'
   gem 'database_cleaner', '~> 1.1'
