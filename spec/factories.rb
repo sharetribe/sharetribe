@@ -243,6 +243,8 @@ FactoryGirl.define do
     end
 
     factory :custom_dropdown_field, class: 'DropdownField' do
+      search_filter true
+
       has_many :options do |custom_field|
         [FactoryGirl.build(:custom_field_option), FactoryGirl.build(:custom_field_option)]
       end
