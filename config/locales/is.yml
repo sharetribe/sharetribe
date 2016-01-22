@@ -1336,7 +1336,6 @@ is:
       reply_sent: "Skilaboðum hefur verið svarað"
       request_accepted: "Beiðni samþykkt"
       request_confirmed: ~
-      request_closed: "Beiðni hefur verið lokað"
       request_rejected: "Beiðni var hafnað"
       request_canceled: ~
       message_sent: ~
@@ -1349,7 +1348,6 @@ is:
       listing_closed: ~
       send_instructions: ~
       you_cannot_reply_to_a_closed_offer: "Þú getur ekki svarað auglýsingum sem hafa lokað"
-      you_cannot_reply_to_a_closed_request: "Þú getur ekki svarað beiðnum sem hafa lokað"
       you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: "Þú hefur gefið umsögn á þetta nú þegar"
