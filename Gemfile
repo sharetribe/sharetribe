@@ -8,7 +8,7 @@ gem 'rails', '4.0.13'
 #gem 'ruby-debug'
 
 gem 'coffee-rails', "~> 4.0.1"
-gem 'uglifier', "~> 1.3.0"
+gem 'uglifier', "~> 2.7.2"
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'compass-rails', '~> 1.1'
