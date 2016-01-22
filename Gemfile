@@ -147,8 +147,11 @@ end
 group :test do
   gem "rspec-rails", "~>2.99.0"
   gem 'capybara', "~> 2.2.1"
-  gem 'cucumber-rails', '~> 1.4.0', require: false
-  gem 'cucumber', '~> 1.3.14'
+
+  # Updating Cucumber caused issues with RSpec::Matchers. Locking version.
+  gem 'cucumber-rails', '1.4.0', require: false
+  gem 'cucumber', '1.3.14'
+
   gem 'selenium-webdriver', '~> 2.45'
 
   # Launchy is needed by Capybara, e.g. save_and_open command needs Launchy to open a browser
