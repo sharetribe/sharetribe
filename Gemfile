@@ -58,14 +58,12 @@ gem 'delayed_job_active_record' # , "~> 4.0.0"
 gem 'json', "~>1.8.0"
 gem 'multi_json', "~>1.7.3" # 1.8.0 caused "invalid byte sequence in UTF-8" at heroku
 gem 'web_translate_it'
-gem 'rails-i18n'
+gem 'rails-i18n', '~> 4.0', '>= 4.0.8'
 gem 'devise', "~>3.0.0"
-gem "devise-encryptable"
+gem 'devise-encryptable', '~> 0.2.0'
 gem "omniauth-facebook", "~> 2.0.1"
-gem 'spreadsheet'
-gem 'rabl', '~> 0.7.10'
-gem 'rake'
-gem 'xpath'
+
+# Dynamic form adds helpers that are needed, e.g. error_messages
 gem 'dynamic_form'
 gem "truncate_html"
 gem 'money-rails'
@@ -76,17 +74,13 @@ gem 'mercury-rails',
   branch: 'master',
   ref: '1cc637b0bccea19085f824d2881c6513ed5ee8ae'
 
-gem 'fb-channel-file'
-gem 'country_select', '~> 1.3.1'
+gem 'countries', '~> 1.2', '>= 1.2.2'
 gem 'braintree'
 gem "mail_view", "~> 1.0.3"
 gem 'statesman', '~> 0.5.0'
 gem "premailer"
 gem 'stringex', '~> 2.5.2'
-gem 'paypal-sdk-permissions',
-  :git    => 'git://github.com/paypal/permissions-sdk-ruby.git',
-  :branch => 'master',
-  :ref    => 'c0240bee9f94fe6338d67b4f754e1a11ce81619a'
+gem 'paypal-sdk-permissions', '~> 1.96.4'
 gem 'paypal-sdk-merchant', '~> 1.116.0'
 gem 'airbrake', '~>4.1.0'
 gem 'cache_digests'
@@ -150,16 +144,14 @@ group :test do
   gem 'cucumber-rails', '~> 1.4.0', :require => false
   gem 'cucumber'
   gem 'selenium-webdriver', '~> 2.45.0'
-  gem 'launchy'
-  gem 'ruby-prof'
-  gem "pickle"
+
+  # Launchy is needed by Capybara, e.g. save_and_open command needs Launchy to open a browser
+  gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'email_spec', '~> 1.6.0'
-  gem "parallel_tests", :group => :development
   gem 'timecop'
   gem 'rack-test'
   gem 'database_cleaner', '~> 1.1'
   gem 'connection_pool'
-  gem 'coveralls', require: false
 end
 
 group :development, :test do

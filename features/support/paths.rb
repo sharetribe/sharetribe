@@ -92,27 +92,6 @@ module NavigationHelpers
       admin_community_transactions_path(:community_id => @current_community.id)
     when /the getting started page for admins/
       getting_started_admin_community_path(:id => @current_community.id)
-
-    # the following are examples using path_to_pickle
-
-    when /^#{capture_model}(?:'s)? page$/                           # eg. the forum's page
-      path_to_pickle $1
-
-    when /^#{capture_model}(?:'s)? #{capture_model}(?:'s)? page$/   # eg. the forum's post's page
-      path_to_pickle $1, $2
-
-    when /^#{capture_model}(?:'s)? #{capture_model}'s (.+?) page$/  # eg. the forum's post's comments page
-      path_to_pickle $1, $2, :extra => $3                           #  or the forum's post's edit page
-
-    when /^#{capture_model}(?:'s)? (.+?) page$/                     # eg. the forum's posts page
-      path_to_pickle $1, :extra => $2                               #  or the forum's edit page
-
-    # Add more mappings here.
-    # Here is an example that pulls values out of the Regexp:
-    #
-    #   when /^(.*)'s profile page$/i
-    #     user_profile_path(User.find_by_login($1))
-
     else
       begin
         page_name =~ /the (.*) page/

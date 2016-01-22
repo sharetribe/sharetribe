@@ -18,15 +18,6 @@ GIT
       delayed_job
       thinking-sphinx (>= 1.5.0)
 
-GIT
-  remote: git://github.com/paypal/permissions-sdk-ruby.git
-  revision: c0240bee9f94fe6338d67b4f754e1a11ce81619a
-  ref: c0240bee9f94fe6338d67b4f754e1a11ce81619a
-  branch: master
-  specs:
-    paypal-sdk-permissions (1.96.3)
-      paypal-sdk-core (~> 0.3.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -58,7 +49,7 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
-    addressable (2.3.5)
+    addressable (2.4.0)
     aggregate (0.2.2)
     airbrake (4.1.0)
       builder
@@ -124,16 +115,9 @@ GEM
       compass (>= 0.12.2)
       sprockets (<= 2.11.0)
     connection_pool (0.9.3)
-    countries (0.9.3)
+    countries (1.2.2)
       currencies (~> 0.4.2)
-    country_select (1.3.1)
-      countries (= 0.9.3)
-    coveralls (0.7.0)
-      multi_json (~> 1.3)
-      rest-client
-      simplecov (>= 0.7)
-      term-ansicolor
-      thor
+      i18n_data (~> 0.7.0)
     css_parser (1.3.5)
       addressable
     cucumber (1.3.14)
@@ -164,10 +148,9 @@ GEM
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
       warden (~> 1.2.3)
-    devise-encryptable (0.1.1)
-      devise (>= 2.1.0.rc)
+    devise-encryptable (0.2.0)
+      devise (>= 2.1.0)
     diff-lcs (1.2.5)
-    docile (1.1.3)
     dynamic_form (1.1.4)
     easy_translate (0.5.0)
       json
@@ -189,8 +172,6 @@ GEM
       railties (>= 3.0.0)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
-    fb-channel-file (0.0.2)
-      rails (>= 3.0)
     ffi (1.9.8)
     flying-sphinx (1.2.0)
       faraday (>= 0.9)
@@ -231,6 +212,7 @@ GEM
       slop (>= 3.5.0)
       term-ansicolor
       terminal-table
+    i18n_data (0.7.0)
     innertube (1.1.0)
     jmespath (1.0.2)
       multi_json (~> 1.0)
@@ -314,9 +296,6 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.0)
       mime-types
-    parallel (0.6.2)
-    parallel_tests (0.9.3)
-      parallel
     parser (2.1.9)
       ast (>= 1.1, < 3.0)
       slop (~> 3.4, >= 3.4.5)
@@ -328,9 +307,8 @@ GEM
       xml-simple
     paypal-sdk-merchant (1.116.0)
       paypal-sdk-core (~> 0.3.0)
-    pickle (0.4.11)
-      cucumber (>= 0.8)
-      rake
+    paypal-sdk-permissions (1.96.4)
+      paypal-sdk-core (~> 0.3.0)
     possibly (0.2.0)
     powerpack (0.0.9)
     premailer (1.8.2)
@@ -354,9 +332,6 @@ GEM
       websocket (~> 1.0.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
-    rabl (0.7.10)
-      activesupport (>= 2.3.14)
-      multi_json (~> 1.0)
     rack (1.5.5)
     rack-contrib (1.2.0)
       rack (>= 0.9.1)
@@ -372,8 +347,9 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.13)
       sprockets-rails (~> 2.0)
-    rails-i18n (0.7.2)
-      i18n (~> 0.5)
+    rails-i18n (4.0.8)
+      i18n (~> 0.7)
+      railties (~> 4.0)
     rails-observers (0.1.2)
       activemodel (~> 4.0)
     rails_12factor (0.0.3)
@@ -387,7 +363,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rainbow (2.0.0)
-    rake (10.4.2)
+    rake (10.5.0)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -419,8 +395,6 @@ GEM
       powerpack (~> 0.0.6)
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.4)
-    ruby-ole (1.2.11.6)
-    ruby-prof (0.14.2)
     ruby-progressbar (1.4.2)
     rubyzip (1.1.7)
     sass (3.2.19)
@@ -434,14 +408,7 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
-    simplecov (0.8.2)
-      docile (~> 1.1.0)
-      multi_json
-      simplecov-html (~> 0.8.0)
-    simplecov-html (0.8.0)
     slop (3.6.0)
-    spreadsheet (0.7.5)
-      ruby-ole (>= 1.0)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -465,7 +432,7 @@ GEM
       riddle (>= 1.5.11)
     thor (0.19.1)
     thread (0.1.4)
-    thread_safe (0.3.4)
+    thread_safe (0.3.5)
     tilt (1.4.1)
     timecop (0.6.3)
     timers (1.1.0)
@@ -507,8 +474,7 @@ DEPENDENCIES
   compass (~> 0.13.alpha)
   compass-rails (~> 1.1)
   connection_pool
-  country_select (~> 1.3.1)
-  coveralls
+  countries (~> 1.2, >= 1.2.2)
   cucumber
   cucumber-rails (~> 1.4.0)
   dalli
@@ -518,11 +484,10 @@ DEPENDENCIES
   delayed_paperclip
   demoji
   devise (~> 3.0.0)
-  devise-encryptable
+  devise-encryptable (~> 0.2.0)
   dynamic_form
   email_spec (~> 1.6.0)
   factory_girl_rails
-  fb-channel-file
   flying-sphinx (~> 1.2.0)
   guard-livereload
   guard-rspec
@@ -532,7 +497,7 @@ DEPENDENCIES
   json (~> 1.8.0)
   jwt (~> 1.5.1)
   kgio (~> 2.8.0)
-  launchy
+  launchy (~> 2.4, >= 2.4.3)
   librato-rails
   lograge
   mail_view (~> 1.0.3)
@@ -545,11 +510,9 @@ DEPENDENCIES
   newrelic_rpm (~> 3.9.1.236)
   omniauth-facebook (~> 2.0.1)
   paperclip (~> 3.5.1)
-  parallel_tests
   passenger (~> 5.0.18)
   paypal-sdk-merchant (~> 1.116.0)
-  paypal-sdk-permissions!
-  pickle
+  paypal-sdk-permissions (~> 1.96.4)
   possibly (~> 0.2.0)
   premailer
   protected_attributes
@@ -559,23 +522,19 @@ DEPENDENCIES
   pry-stack_explorer
   public_suffix
   quiet_assets
-  rabl (~> 0.7.10)
   rack-livereload
   rack-test
   rails (= 4.0.13)
-  rails-i18n
+  rails-i18n (~> 4.0, >= 4.0.8)
   rails-observers (~> 0.1.2)
   rails_12factor (~> 0.0.3)
-  rake
   rb-fsevent
   rest-client (>= 1.6.0)
   rspec-rails (~> 2.99.0)
   rubocop
-  ruby-prof
   sass (~> 3.2.9)
   sass-rails (~> 4.0.0)
   selenium-webdriver (~> 2.45.0)
-  spreadsheet
   statesman (~> 0.5.0)
   stringex (~> 2.5.2)
   thinking-sphinx (~> 3.1.1)
@@ -585,7 +544,6 @@ DEPENDENCIES
   uglifier
   web_translate_it
   will_paginate (~> 3.0.5)
-  xpath
   zeus (= 0.15.1)
 
 BUNDLED WITH
