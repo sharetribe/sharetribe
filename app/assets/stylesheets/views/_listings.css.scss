@@ -2,6 +2,11 @@
 @import "compass/css3/box-sizing";
 @import "mixins/all";
 
+.listing-details-container {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
 // Social buttons
 .listing-social {
   @include clearfix();
