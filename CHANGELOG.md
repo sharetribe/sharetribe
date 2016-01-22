@@ -10,6 +10,10 @@ The Change Log starts from the release 5.0.0. For older releases, see [RELEASE_N
 
 ## [Unreleased]
 
+### Removed
+
+- Gemfile clean up. Removed bunch of unused gems. [#1625](https://github.com/sharetribe/sharetribe/pull/1625)
+
 ## [5.1.0] - 2016-01-21
 
 ### Added
