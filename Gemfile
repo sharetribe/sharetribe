@@ -21,7 +21,7 @@ gem 'compass-rails', '~> 1.1'
 # important Rails asset helpers
 gem 'compass', '~> 0.13.alpha'
 
-gem 'jquery-rails', '2.1.4'
+gem 'jquery-rails', '3.1.3'
 
 # Bundle the extra gems:
 

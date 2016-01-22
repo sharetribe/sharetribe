@@ -6,7 +6,7 @@ window.ST = window.ST || {};
 window.ST.initializeManageMembers = function() {
   function elementToValueObject(element) {
     var r = {};
-    r[$(element).val()] = !! $(element).attr("checked");
+    r[$(element).val()] = $(element).prop("checked");
     return r;
   }
 
