@@ -859,7 +859,7 @@ hu:
       want_to_control_emails: "Itt állíthatja be mikor és miről kapjon %{service_name} e-mail értesítéseket."
       dont_want_to_receive_these_emails: "Nem szeretné ezeket az e-maileket kapni?"
       edit_your_email_settings_here: ~
-      message_not_displaying_correctly: ~
+      message_not_displaying_correctly: "Nem helyesen jelent meg az e-mail?"
       view_it_in_your_browser: "Megtekintés böngészőben"
       or: vagy
       unsubscribe_from_these_emails: ~
@@ -936,7 +936,7 @@ hu:
       intro_paragraph_link_text: ~
       post_a_new_listing: "Adjon fel új hirdetést!"
       reduce_email_footer_text: "Túl sok e-mailt kapott? %{settings_link} vagy %{unsubscribe_link}"
-      settings_link_text: ~
+      settings_link_text: "E-mail beállítások szerkesztése itt"
       unsubscribe_link_text: Leiratkozás
     newsletter:
       hi: "Üdvözöljük %{name}"
@@ -1946,8 +1946,8 @@ hu:
       email_about_new_messages: "Üzenetem érkezett"
       email_about_new_received_testimonials: "Értékelést kaptam"
       email_about_testimonial_reminders: "Elfelejtettem értékelést készíteni egy eseményről"
-      email_daily_community_updates: ~
-      email_weekly_community_updates: ~
+      email_daily_community_updates: "Küldjön nekem új e-mailt - naponta - ha új hírdetések kerülnek fel"
+      email_weekly_community_updates: "Küldjön nekem új e-mailt - hetente - ha új hírdetések kerülnek fel"
       do_not_email_community_updates: ~
       email_when_conversation_accepted: "valaki elfogadta az ajánlatomat vagy ajánlatkérésemet."
       email_when_conversation_rejected: "valaki visszautasította az ajánlatomat vagy ajánlatkérésemet."
