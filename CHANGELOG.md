@@ -10,6 +10,10 @@ The Change Log starts from the release 5.0.0. For older releases, see [RELEASE_N
 
 ## [Unreleased]
 
+### Added
+
+- Added pessimistic version number for all the gems in Gemfile. Now we can safely run `bundle update` to update gems with patch level updates. [#1663](https://github.com/sharetribe/sharetribe/pull/1663)
+
 ### Removed
 
 - Gemfile clean up. Removed bunch of unused gems. [#1625](https://github.com/sharetribe/sharetribe/pull/1625)
