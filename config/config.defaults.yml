@@ -254,6 +254,9 @@ default: &default_settings
   # Rails config.eager_load. Eager loads classes. Should be true only for production
   eager_load: false
 
+  # Delayed job maximum run time in seconds
+  delayed_job_max_run_time: 180
+
 production: &production_settings
   <<: *default_settings
 
