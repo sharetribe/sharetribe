@@ -41,6 +41,7 @@ This file follows the best practices from [keepchangelog.com](http://keepachange
 - Added pessimistic version number for all the gems in Gemfile. Now we can safely run `bundle update` to update gems with patch level updates. [#1663](https://github.com/sharetribe/sharetribe/pull/1663)
 - Added a new environment variable `delayed_job_max_run_time` which controls the maximum time for a single Delayed Job job. [#1668](https://github.com/sharetribe/sharetribe/pull/1668)
 - Added a new environment variable `devise_allow_insecure_token_lookup` for seamless migration from earlier versions. See [UPGRADE.md](UPGRADE.md) for more information. [#1672](https://github.com/sharetribe/sharetribe/pull/1672)
+- Added marketplace_configurations table for storing community related search settings (at this point: search type) [#1666](https://github.com/sharetribe/sharetribe/pull/1666)
 
 ### Changed
 
