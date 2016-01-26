@@ -12,6 +12,7 @@ The Change Log starts from the release 5.0.0. For older releases, see [RELEASE_N
 
 ### Added
 
+- Added `secret_key_base` [#1671](https://github.com/sharetribe/sharetribe/pull/1671)
 - Added pessimistic version number for all the gems in Gemfile. Now we can safely run `bundle update` to update gems with patch level updates. [#1663](https://github.com/sharetribe/sharetribe/pull/1663)
 - Added a new environment variable `delayed_job_max_run_time` which controls the maximum time for a single Delayed Job job. [#1668](https://github.com/sharetribe/sharetribe/pull/1668)
 
