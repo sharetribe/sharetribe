@@ -17,7 +17,7 @@ rake assets:precompile
 
 ## Upgrade from 5.x to [Unreleased]
 
-No special upgrade notes.
+After updating, you are not able to downgrade to Rails 3 (version 4.6.0). Do not upgrade until you are sure that you don't need to roll back to Rails 3.
 
 ## Upgrade from 4.6.0 to 5.0.0
 
