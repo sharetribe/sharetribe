@@ -141,7 +141,7 @@ module TransactionViewUtils
     when "preauthorized"
       t("conversations.message.payment_preauthorized", sum: humanized_money_with_symbol(payment_sum))
     when "accepted"
-      t("conversations.message.accepted_request", sum: humanized_money_with_symbol(payment_sum))
+      t("conversations.message.received_payment", sum: humanized_money_with_symbol(payment_sum))
     when "rejected"
       t("conversations.message.rejected_request")
     when preauthorize_accepted
