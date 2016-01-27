@@ -191,6 +191,16 @@ Before starting these steps, perform [steps 1-6 from above](#setting-up-the-deve
   bundle exec rake assets:precompile
   ```
 
+1. Set environment variables
+
+  Set environment variable `secret_key_base`.
+
+  To generate the new `secret_key_base` key, go rails console and type:
+
+  ```ruby
+  SecureRandom.hex(64)
+  ```
+
 1. Invoke the delayed job worker:
 
   ```bash

@@ -7,14 +7,27 @@
 
 # Will use the secert found in the file if exists. Otherwise generate new and store.
 
-secret_file = File.join(Rails.root.to_s, "config/session_secret")
-if File.exist?(secret_file)
-  secret = File.read(secret_file)
-elsif APP_CONFIG.session_secret
-  secret = APP_CONFIG.session_secret
+if APP_CONFIG.secret_key_base
+  Rails.application.config.secret_key_base = APP_CONFIG.secret_key_base
 else
-  secret = SecureRandom.hex(64)
-  File.open(secret_file, 'w') { |f| f.write(secret) }
+  warning = [
+    "'secret_key_base' is not set.",
+    "Run SecureRandom.hex(64) in rails console or irb to generate a new key.",
+    "Add 'secret_key_base' key to config.yml or to environment variables.",
+  ].join(" ")
+
+  Rails.logger.warn(warning)
 end
 
+# TODO Deprecated. Remove this code STARTS.
+secret_file = File.join(Rails.root.to_s, "config/session_secret")
+
+secret =
+  if File.exist?(secret_file)
+    File.read(secret_file)
+  elsif APP_CONFIG.session_secret
+    APP_CONFIG.session_secret
+  end
+
 Rails.application.config.secret_token = secret
+# Remove this code ENDS
