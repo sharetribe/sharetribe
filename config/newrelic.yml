@@ -157,7 +157,15 @@ common: &default_settings
     # to comma separated values.  Default is to ignore routing errors
     # which are how 404's get triggered.
     #
-    ignore_errors: ActionController::RoutingError
+    # NB: ignores for other services are defined in airbrake.rb and
+    # production.rb, consider keeping them in sync!
+    ignore_errors: >-
+      ActionController::RoutingError,
+      AbstractController::ActionNotFound,
+      ActiveRecord::RecordNotFound,
+      ActionController::UnknownAction,
+      PeopleController::PersonDeleted,
+      ListingsController::ListingDeleted
 
   # (Advanced) Uncomment this to ensure the cpu and memory samplers
   # won't run.  Useful when you are using the agent to monitor an

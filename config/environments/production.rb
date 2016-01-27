@@ -42,6 +42,22 @@ Kassi::Application.configure do
       request_uuid: event.payload[:request_uuid] }
   }
 
+  # NB: ignores for other services are defined in airbrake.rb and
+  # newrelic.yml, consider keeping them in sync!
+  config.lograge.ignore_custom = lambda do |event|
+    exceptions = event.payload[:exception]
+    return false unless exceptions
+    ignore = ["AbstractController::ActionNotFound",
+              "ActiveRecord::RecordNotFound",
+              "ActionController::RoutingError",
+              "ActionController::UnknownAction",
+              "PeopleController::PersonDeleted",
+              "ListingsController::ListingDeleted"
+              ]
+    relevant_errors = exceptions - ignore
+    relevant_errors.empty?
+  end
+
   config.lograge.formatter = Lograge::Formatters::Json.new
 
   config.after_initialize do
