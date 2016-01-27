@@ -257,6 +257,11 @@ default: &default_settings
   # Delayed job maximum run time in seconds
   delayed_job_max_run_time: 180
 
+  # Set this variable to `true` for seamless migration when upgrading.
+  # This variable is only meant for making the migration easier and
+  # this will be deleted in the future.
+  devise_allow_insecure_token_lookup: false
+
 production: &production_settings
   <<: *default_settings
 
