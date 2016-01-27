@@ -639,6 +639,7 @@ fr:
       message_content_not_available: "Le contenu du message n'est pas disponible"
     message:
       accepted_request: "a accepté la demande"
+      received_payment: "a accepté la demande, a reçu le paiement de %{sum}"
       accepted_offer: "a accepté l'offre"
       rejected_request: "a refusé la demande"
       rejected_offer: "a refusé l'offre"

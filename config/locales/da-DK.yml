@@ -65,7 +65,7 @@ da-DK:
         community_description: "Beskrivelse af markedsplads"
         edit_community_description_description: "Dette vises på markedspladsens forside til brugere som ikke er logget ind. %{see_how_it_looks_like}."
         community_search_placeholder: "Hjælpetekst i søgefeltet"
-        edit_community_search_placeholder_description: ~
+        edit_community_search_placeholder_description: "Dette vises på markedspladsens forside som en tekstboks i søgefeltet. %{see_how_it_looks_like}."
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
         update_information: "Gem instillinger"
@@ -100,7 +100,7 @@ da-DK:
         cover_photo_visibility: "Coverbillede bliver vist på startsiden for dem som ikke er logget ind."
         cover_photo_instructions_text_with_dimensions: "Billedet vil blive skalleret til %{width}x%{height}px og større billede vil blive beskåret i midten. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Det lille coverbillede bliver vist på alle sider undtagen forsiden, for dem som ikke er logget ind."
-        small_cover_photo_instructions_text_with_dimensions: "Billedet vil blive skalleret to %{width}x%{height}px og større billede vil blive beskåret i midten."
+        small_cover_photo_instructions_text_with_dimensions: "Billedet vil blive skaleret til %{width}x%{height}px og større billede vil blive beskåret i midten."
         main_content_width: "Når du vælger et coverbillede, så læg mærke til at siden hovedindhold er %{main_width} pixels bredde ved største skærm. Husk at tjekke om coverbilledet sær normalt ud på mindre skærme (f.eks ved at gøre browser vinduet mindre)."
         custom_color1_instructions_text: "Du kan ændre brugerfladens primære farve ved at indtaste en hex-farvekode. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> kan hjælpe dig med at vælge en farve og bagefter kan du kopiere farvekoden hertil."
         custom_color2_instructions_text: "Du kan ændre brugerfladens sekundære farve ved at indtaste en hex-farvekode."
@@ -116,12 +116,12 @@ da-DK:
         first_name_only: "Kun fornavn (Fornavn)"
         invalid_color_code: "Farvekoden skal indeholde 6 cifre eller bogstaver, eksempelvis D96E21"
         custom_head_script: "Brugerdefineret script"
-        custom_head_script_instructions_text: "Dit script vil blive indsat i <head> tag på enhver side på din markedsplads. Du kan indsætte CSS, JavaScript eller HTML. Du skal være opmærksom på at fremtidige opdatering hos Sharetribe kan skabe problemer med dine egne scripts."
+        custom_head_script_instructions_text: "Dit script vil blive indsat i <head> tag på enhver side på din markedsplads. Du kan indsætte CSS, JavaScript eller HTML. Du skal være opmærksom på at fremtidige opdateringer hos Sharetribe kan skabe problemer med dine egne scripts."
       edit_text_instructions:
         edit_text_instructions: "Instruktion tekster"
       edit_welcome_email:
         welcome_email_content: "Velkomst email indhold"
-        welcome_email_content_description: "Nedenstående besked vil blive sendt til alle nye brugere når de opretter sig. Du kan tilpasse beskeden så den passer til din markedsplads. Ved at klikke på  %{send_test_message_link} kan du sende en testbesked til din e-mailadresse, så du kan se hvordan e-mailen vil se ud."
+        welcome_email_content_description: "Nedenstående besked vil blive sendt til alle nye brugere når de opretter sig. Du kan tilpasse beskeden så den passer til din markedsplads. Ved at klikke på '%{send_test_message_link}' kan du sende en testbesked til din e-mailadresse, så du kan se hvordan e-mailen vil se ud."
         edit_message: "Rediger besked"
         send_test_message: "Send test besked"
       outgoing_email:
@@ -160,31 +160,31 @@ da-DK:
         welcome_to_your_marketplace: "Velkommen til din markedsplads, %{name}!"
         intro: "Dette er en hurtig guide til hvordan du kommer i gang med din nye markedsplads."
         live_site_link_text: her
-        look_and_feel: "Før du offentliggør dit site, vil du sandsynligvis gerne tilrette dele af den. Eksempelvis at %{logo_link} og ændre forsidebillede og farver, så det matcher dit brand."
+        look_and_feel: "Før du offentliggør din markedsplads, vil du sandsynligvis gerne tilrette dele af den. Eksempelvis %{logo_link} samt ændre forsidebillede og farver, så det matcher dit brand."
         logo_link_text: "tilføj et logo"
-        custom_domain: "Du vil måske også ønske at tilføje en personlig webadresse (eksempel: www.yourmarketplace.com). Opsætningen kræver noget manuelt arbejde fra vores side, og vi skal også købe et SSL certifikat for domænet for at gøre din site sikker. Derfor er personlige webadresser ikke tilgængelige i gratis-versionen lige nu. Abonnerement på vores Pro plan eller højere er nødvendigt for en personlig webadresse. Hvis du gerne vil have en personlig webadresse, så %{contact_support_link}."
-        categories_and_custom_fields: "Det næste er at beslutte, hvilken slags indhold man kan poste på dit site. Du kan %{categories_link}, %{custom_fields_link} hvad de aktuelle søgeresultater indeholder, og beslutte %{filters_link} er i brug, når brugerne gennemgår søgeresultaterne."
+        custom_domain: "Du vil måske også ønske at tilføje en personlig webadresse (eksempel: www.yourmarketplace.com). Opsætningen kræver noget manuelt arbejde fra vores side, og vi skal også købe et SSL certifikat for domænet for at gøre din markedsplads sikker. Derfor er personlige webadresser ikke tilgængelige i gratis-versionen lige nu. Abonnement på vores Pro plan eller højere, er nødvendigt for at kunne anvende en personlig webadresse. Hvis du gerne vil have en personlig webadresse, så %{contact_support_link}."
+        categories_and_custom_fields: "Det næste er at beslutte, hvilken slags indhold man kan poste på dit site - %{categories_link}, %{custom_fields_link} og beslut %{filters_link} som kan anvendes, når brugerne gennemgår søgeresultaterne."
         categories_link_text: "tilføj kategorier og underkategorier"
         custom_fields_link_text: "konfigurer form felterne"
         filters_link_text: "hvilken slags filtre"
-        order_types: "Du kan også konfigurere, hvordan ordre processen fungerer i din markedsplads. Er dine brugere sælger, leje eller give de ting væk gratis? Tilbyder de udlejning pr. time, dag eller uge. Disse ting kan konfigureres fra %{order_types_link}."
+        order_types: "Du kan også konfigurere ordre processen på din markedsplads. Er dine brugere sælgere, lejere eller bortgiver de ting? Tilbyder de udlejning pr. time, dag eller uge. Disse ting kan konfigureres fra %{order_types_link}."
         order_types_link_text: "ordretype visning"
-        payments: "Hvis du ønsker brugerne skal være i stand til at betale for deres køb på din markedsplads, så du får en bid fra hver transaktion, skal du %{payments_link}."
+        payments: "Hvis du ønsker brugerne skal være i stand til at betale for deres køb på din markedsplads, så du får en bid fra hver transaktion, så %{payments_link}."
         payments_link_text: "indstil betalingsmetode"
-        info_texts: "Glem ikke at tilrette info sider og andre tekster hvor du kan fortælle brugerne om din markedsplads. Gode steder at tjekke er din %{about_page_link}, dine %{terms_of_use_link} (du bør tilføje dine egne brugsvilkår her, enten ved at modificere den eksisterende skabelon, eller ved at oprette et helt nyt dokument), din %{privacy_policy_link}, og %{welcome_email_link} som sendes til alle nye brugere. Der er også en %{instruction_texts_link} du kan tilrette."
+        info_texts: "Glem ikke at tilrette info sider og andre tekster hvor du kan fortælle brugerne om din markedsplads. Gode steder at tjekke er din %{about_page_link}, dine %{terms_of_use_link} (du bør tilføje dine egne brugsvilkår her, enten ved at modificere den eksisterende skabelon, eller ved at oprette et helt nyt dokument), %{privacy_policy_link}, og %{welcome_email_link} som sendes til alle nye brugere. Der er også en %{instruction_texts_link} du kan tilrette."
         about_page_link_text: "om-os side"
         terms_of_use_link_text: "terms of use"
         privacy_policy_link_text: Personoplysninger
         welcome_email_link_text: "velkommen email"
         instruction_texts_link_text: "anden instruktionstekst"
-        social_media: "At anvende sociale medier er en god måde at opbygge dit community på. Du kan %{facebook_link} for at gøre det nemmere at logge ind på din markedsplads, og %{twitter_link} for at få viral opmærksomhed når brugere tweeter om produkter på din markedsplads."
+        social_media: "At anvende sociale medier er en god måde at opbygge dit community på - %{facebook_link} for at gøre det nemmere at logge ind på din markedsplads, og %{twitter_link} for at få viral opmærksomhed når brugere tweeter om produkter på din markedsplads."
         facebook_link_text: "tilknyt din Facebook app"
         twitter_link_text: "tilføj din Twitter konto"
         analytics: "Det er også en god idé at %{analytics_link}. På den måde kan du let se hvad der sker på din markedsplads, hvor mange besøgende du har og så videre."
         analytics_link_text: "tilknytte din Google Analytics-konto"
         settings: "Der er en bunke andre indstillinger du kan fifle med. For eksempel kan du indstille at alle skal have en invitation fra andre brugere, for at kunne deltage og dermed gøre markedspladsen privat, så kun registrerede brugere kan se indholdet. %{settings_link}."
         settings_link_text: "Se indstillinger for din markedsplads her"
-        final_words: "Det er det hele! Hvis alt er klart, kan du starte %{invite_link} til din markedsplads. Du kan se alle brugerne som er registreret %{view_users_link}, og alle deres gennemførte transaktioner %{view_transactions_link}. Du kan også let håndtere annoncer: Gå til annonce-siden og du vil se administrator links til redigering og lukning. Har du brug for hjælp, kan du %{contact_support_link} - vi er her for dig!"
+        final_words: "Det er det hele! Hvis alt er klart, kan du starte med at %{invite_link} til din markedsplads. Du kan se alle brugerne som er registreret %{view_users_link}, og alle deres gennemførte transaktioner %{view_transactions_link}. Du kan også let håndtere annoncer: Gå til annonce-siden og du vil se administrator links til redigering og lukning. Har du brug for hjælp, %{contact_support_link} - vi er her for dig!"
         invite_link_text: "inviter brugere"
         view_users_link_text: her
         view_transactions_link_text: her
@@ -235,8 +235,8 @@ da-DK:
         automatically_confirmed: "Transaktioner vil automatisk blive markeret som godkendt %{days_dropdown} dage efter betaling er lavet. Betalingen vil blive frigivet til sælger herefter."
         automatically_confirmed_no_escrow: "Transaktioner vil automatisk blive markeret som godkendt %{days_dropdown} dage efter betaling er foretaget"
         automatic_newsletter_frequency: "Send automatiske nyhedsbreve: %{frequency_dropdown}"
-        newsletter_daily: Daligt
-        newsletter_weekly: Ugenligt
+        newsletter_daily: Dagligt
+        newsletter_weekly: Ugentligt
         delete_marketplace_title: "Slet markedsplads"
         type_marketplace_domain: "Skriv dit markedsplads domæne (%{domain}) i tekstfeltet nedenfor:"
         type_marketplace_domain_placeholder: "Skriv dit markedsplads domæne her"
@@ -253,7 +253,7 @@ da-DK:
         join_date: Tilmeldt
         admin: Administrator
         posting_allowed: "Oprettelse af annoncer tilladt"
-        ban_user: "Ban bruger"
+        ban_user: "Blokér bruger"
         saving_user_status: Gemmer...
         save_user_status_successful: Gemt
         export_all_as_csv: "Eksporter alle som CSV"
@@ -263,8 +263,8 @@ da-DK:
       social_media:
         social_media: Social
         twitter_handle: "Twitter konto"
-        twitter_handle_info_text: "Bruger navn (@navn) til din Twitter konto for din markedsplads. (hvis du har en). Din konto vil blive nævn hvergang nogen klikker på tweet knappen på siden."
-        twitter_handle_info_text_with_instructions: "Bruger navn (@navn) til din Twitter konto for din markedsplads. (hvis du har en). Din konto vil blive nævn hvergang nogen klikker på tweet knappen på siden. %{instructions_link}."
+        twitter_handle_info_text: "Bruger navn (@navn) til din Twitter konto for din markedsplads. (hvis du har en). Din konto vil blive nævnt hver gang nogen klikker på tweet knappen på siden."
+        twitter_handle_info_text_with_instructions: "Bruger navn (@navn) til din Twitter konto for din markedsplads. (hvis du har en). Din konto vil blive nævnt hver gang nogen klikker på tweet knappen på siden. %{instructions_link}."
         twitter_instructions_link_text: "Læs mere"
         twitter_handle_placeholder: "@brugernavn"
         invalid_twitter_handle: "Dit Twitter brugernavn kan max indeholde 15 tegn."
@@ -492,7 +492,7 @@ da-DK:
       paypal_account_email: "1. Tilknyt din PayPal-konto"
       link_paypal_personal_account_label: "Sælger du selv produkter?"
       paypal_account_email_completed: Gennemført!
-      link_paypal_personal_account: "Hvis ja, vil du også være nødt til at tilslutte din PayPa konto til %{personal_payment_preferences_link}."
+      link_paypal_personal_account: "Hvis ja, vil du også være nødt til at tilslutte din PayPal konto til %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "din personlige markedsplads konto"
       set_minimum_price_and_fee_completed: Gennemført!
       read_more_about_paypal: "Læs mere om Sharetribe's betalingssystem"
@@ -635,6 +635,7 @@ da-DK:
       message_content_not_available: ~
     message:
       accepted_request: "accepter anmodningen"
+      received_payment: ~
       accepted_offer: "accepter tilbudet"
       rejected_request: "afvis anmodningen"
       rejected_offer: "afvis tilbudet"
@@ -1185,16 +1186,16 @@ da-DK:
       this_is_private_community: "Du skal oprette en profil før du kan se indholdet"
     invitation_form:
       email: "E-mail-adresse (r)"
-      message: "En personlig meddelelse"
-      send_invitation: "Send en invitation"
+      message: "Skriv din invitation her:"
+      send_invitation: "Send invitation"
       add_email_addresses_description: "Tilføj emailadresser på dem du ønsker at invitere i feltet nedenfor. Hvis du vil tilføje flere emailadresser, skal de adskilles med komma."
       add_lots_of_email_addresses: "Hvis du planlægger at sende mange invitationer, skal du bruge et e-mail værktøj. Tjek %{this_article_link} for at finde informationer omkring egnede e-mail tjenester."
       this_article_link: "denne artikel"
       invitation_emails_field_placeholder: "email1@example.com, email2@example.com, ..."
-      invitation_message_field_placeholder: "Jeg har fundet noget jeg mener du også kan gøre brug af!"
+      invitation_message_field_placeholder: "Jeg er kommet på denne fantastiske markedsplads - og syntes at du også skulle have muligheden!"
       errors_in_emails: "Tjek at den email du har indtastet er korrekt. Hvis du har indtastet flere emails, så tjek om du har opdelt dem med komma."
     list_item:
-      review: anmeld
+      review: anmeldelse
       reviews: anmeldelser
     news_item:
       show_less: "Vis mindre"
@@ -1238,7 +1239,7 @@ da-DK:
     application:
       join_this_community: "Slut dig til markedspladsen"
       read_more: "Læs mere"
-      feedback: "Skriv gerne til os:"
+      feedback: "Din besked til os:"
       default_feedback: "Er du stødt på et problem med %{service_name}? Har du forslag til forbedring af servicen? Har du bemærket noget mistænkeligt? Eller vil du bare gerne i kontakt med os? Skriv endelig!"
       feedback_forum: "fællesskabets diskussionsforum"
       feedback_handle: Feedback
@@ -1248,7 +1249,7 @@ da-DK:
       to_see_what_others_have_suggested: "at se, hvad andre brugere har foreslået, og stemme for de idéer der."
       your_email_address: "Din email adresse (for at kontakte dig)"
       connect: "Opret profil﻿"
-      invite_your_friends: "Send en invitation!"
+      invite_your_friends: "Send invitation!"
       invite_your_neighbors: "Inviter andre!"
       invite_your_friends_description: "Desto flere mennesker der er i %{service_name}, desto mere anvendeligt bliver det."
       invite_your_friends_invite_only_description: "Folk kan ikke tilslutte sig %{service_name} uden invitation."
@@ -1424,9 +1425,9 @@ da-DK:
       are_you_sure: "Er du sikker på, at du vil slette kommentaren?"
     comment_form:
       ask_a_question: "Skriv en kommentar eller spørg efter flere detaljer. Alle andre brugere har mulighed for at se din kommentar."
-      log_in: "Log ind"
+      log_in: "logge ind"
       send_comment: "Send kommentar"
-      to_send_a_comment: "at sende en ny kommentar."
+      to_send_a_comment: "for at sende en ny kommentar."
       write_comment: "Skriv en ny kommentar:"
       you_cannot_send_a_new_comment_because_listing_is_closed: "Du kan ikke skrive en kommentar, da annoncen er lukket."
       you_must: "Du skal"
@@ -1676,7 +1677,7 @@ da-DK:
       by: "%{listing} af %{author}"
       payment: Betaling
       exp: "Udløbsdato:"
-      you_will_be_charged: "Du vil kun blive opkrævet betaling hvis %{author} accepterer transaktionen. %{author} er nødt til at acceptere transaktionen inden %{expiration_period} days. I tilfælde af at %{author} afviser transaktionen eller ikke svarer, vil du ikke blive opkrævet betaling."
+      you_will_be_charged: "Du vil kun blive opkrævet betaling hvis %{author} accepterer transaktionen. %{author} er nødt til at acceptere transaktionen inden %{expiration_period} dage. I tilfælde af at %{author} afviser transaktionen eller ikke svarer, vil du ikke blive opkrævet betaling."
       day: dag
       days: dage
     transaction_agreement_checkbox:
@@ -1737,8 +1738,8 @@ da-DK:
     create_paypal_account_link_text: "PayPal konto"
     connected_account: "Din PayPal-konto '%{email}' er nu tilknyttet."
     paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: "Din PayPal konto skal være i stand til at modtage betalinger. Dette kan kræve en Firma konto."
-    paypal_receive_funds_info: "Hvis du ser en fejl, når du forsøger at forbinde din konto til %{service_name}, opgradere din PayPal konto ved %{upgrade_paypal_account_link}. Det er gratis og nemt. Hvis du er en privat person, anbefaler PayPal at bruge dit navn som Firma navn."
+    paypal_receive_funds_info_label: "Din PayPal konto skal være i stand til at modtage betalinger. Dette kræver en PayPal Premier eller PayPal Business konto."
+    paypal_receive_funds_info: "Hvis du ser en fejl når du forsøger at forbinde din konto til %{service_name}, opgradér din PayPal konto ved at %{upgrade_paypal_account_link}. Det er gratis og nemt. Hvis du er en privatperson, anbefaler PayPal at du anvender dit personnavn som firmanavn."
     upgrade_paypal_account_link_text: "logge ind og klikke på linket opgradering"
     admin_account_not_connected: "Brug af %{service_name}s betalingssystem, til brug for modtagelse af betalinger, er ikke muligt, da betalinger ikke er sat op. Venligst %{contact_admin_link} for detaljer."
     contact_admin_link_text: "kontakt markedspladsens administrator"
@@ -1758,7 +1759,7 @@ da-DK:
       follow_steps: "Følg trinene nedenfor for at begynde modtagelsen af midler:"
       connect_paypal_account_title: "Forbind din PayPal konto"
       connect_paypal_account_title_with_step: "Trin %{current_step}/%{total_steps}: Tilslut din PayPal konto"
-      connect_paypal_account_instructions: "PayPal konto med %{service_name}."
+      connect_paypal_account_instructions: "Forbind din PayPal konto med %{service_name}."
       connect_paypal_account: "Tilknyt PayPal-konto"
       paypal_account_billing_agreement_with_step: "Trin %{current_step}/%{total_steps}: Giv tilladelse til at opkræve et transaktionsgebyr"
       paypal_account_billing_agreement_info_both: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr (%{commission_from_seller} af produktprisen, undtaget leveringsomkostninger, minimumsgebyr %{minimum_commission}) blive trukket fra din PayPal-konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
@@ -1779,7 +1780,7 @@ da-DK:
       account_restricted: "Din PayPal-konto er begrænset og kan ikke tilknyttes. Venligst log ind på paypal.com for at få yderligere information om, hvad det betyder, eller kontakt PayPal kundesupport for at få løst dette."
     paypal_account_connected_title: "PayPal konto forbundet"
     paypal_account_connected: "PayPal kontoen <%{email}> er tilsluttet med %{service_name}."
-    change_account: "Ændre konto"
+    change_account: "Ret PayPal konto"
     missing: "Du har åbne annoncer, men du har ikke tilknyttet din PayPal-konto, så du er ikke i stand til at modtage betalinger. Tilknyt venligst din PayPal-konto i din %{settings_link}."
     from_your_payment_settings_link_text: betalingsindstillinger
     redirect_message: "Omdirigere dig til PayPal. Hvis der ikke sker noget, skal du klikke %{redirect_link}."
@@ -1992,7 +1993,7 @@ da-DK:
       unsubscribe_unsuccesful: "Der skete en fejl, da du prøvede af afmelde nyhedsbrevet"
       unsuccessful_unsubscribe_info_text: "Det kan være grundet at det link du klikkede på var gammelt, eller ikke virker længere. Kontakt os ved hjælp af feedback knappen til venstre så kan vi hjælpe dig med at afmelde nyhedsbrevet, eller log ind til dine email indstillinger."
     profile:
-      about_you: "Skriv lidt om dig/jer selv"
+      about_you: "Skriv lidt om dig selv"
       city: By
       family_name: Efternavn
       given_name: Fornavn
