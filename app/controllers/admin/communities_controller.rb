@@ -180,12 +180,31 @@ class Admin::CommunitiesController < ApplicationController
   def settings
     @selected_left_navi_link = "admin_settings"
 
-    render :settings, locals: {
-             supports_escrow: escrow_payments?(@current_community),
-             delete_redirect_url: delete_redirect_url(APP_CONFIG),
-             delete_confirmation: @current_community.ident,
-             can_delete_marketplace: can_delete_marketplace?(@current_community.id)
-           }
+    # When feature flag is removed, make this pretty
+    if feature_enabled?(:location_search)
+      marketplace_configurations = MarketplaceService::API::Marketplaces.marketplace_configurations(community_id: @current_community.id).data
+
+      main_search_select_options = [:keyword, :location]
+        .map { |type|
+          [SettingsViewUtils.search_type_translation(type), type]
+        }
+
+      render :settings, locals: {
+        supports_escrow: escrow_payments?(@current_community),
+        delete_redirect_url: delete_redirect_url(APP_CONFIG),
+        delete_confirmation: @current_community.ident,
+        can_delete_marketplace: can_delete_marketplace?(@current_community.id),
+        main_search: marketplace_configurations[:main_search],
+        main_search_select_options: main_search_select_options
+      }
+    else
+      render :settings, locals: {
+        supports_escrow: escrow_payments?(@current_community),
+        delete_redirect_url: delete_redirect_url(APP_CONFIG),
+        delete_confirmation: @current_community.ident,
+        can_delete_marketplace: can_delete_marketplace?(@current_community.id)
+      }
+    end
   end
 
   def update_look_and_feel
@@ -265,6 +284,8 @@ class Admin::CommunitiesController < ApplicationController
     settings_params = params.require(:community).permit(*permitted_params)
 
     maybe_update_payment_settings(@current_community.id, params[:community][:automatic_confirmation_after_days])
+
+    MarketplaceService::API::Marketplaces.update_marketplace_configurations(community_id: @current_community.id, main_search: params[:main_search]) if feature_enabled?(:location_search)
 
     update(@current_community,
             settings_params,
