@@ -11,7 +11,17 @@ class ErrorsController < ActionController::Base
   end
 
   def not_found
-    render "status_404", status: 404, locals: { status: 404, title: title(404) }
+    respond_to do |format|
+      format.html {render "status_404", status: 404, locals: { status: 404, title: title(404) }}
+      format.all { render nothing: true, status: 404 }
+    end
+  end
+
+  def not_acceptable
+    respond_to do |format|
+      format.html {render "status_404", status: 406, locals: { status: 406, title: title(406) }}
+      format.all { render nothing: true, status: 406 }
+    end
   end
 
   def gone

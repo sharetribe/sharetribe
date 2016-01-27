@@ -42,6 +42,8 @@ Kassi::Application.configure do
       request_uuid: event.payload[:request_uuid] }
   }
 
+  # to ignore certain messages, see commit e1ac643f677b0a9f73b10454fa04f67595c8c0c5
+
   config.lograge.formatter = Lograge::Formatters::Json.new
 
   config.after_initialize do
