@@ -20,6 +20,10 @@ The Change Log starts from the release 5.0.0. For older releases, see [RELEASE_N
 - Gemfile clean up. Removed bunch of unused gems. [#1625](https://github.com/sharetribe/sharetribe/pull/1625)
 - Removed ability to downgrade to Rails 3. [#1669](https://github.com/sharetribe/sharetribe/pull/1669)
 
+### Fixed
+
+- Updating a listing field changes the sorting order [#1673](https://github.com/sharetribe/sharetribe/pull/1673)
+
 ## [5.1.0] - 2016-01-21
 
 ### Added
