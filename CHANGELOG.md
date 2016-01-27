@@ -24,6 +24,10 @@ The Change Log starts from the release 5.0.0. For older releases, see [RELEASE_N
 
 - Updating a listing field changes the sorting order [#1673](https://github.com/sharetribe/sharetribe/pull/1673)
 
+### Security
+
+- Updated Gems with known security issues [#1667](https://github.com/sharetribe/sharetribe/pull/1667)
+
 ## [5.1.0] - 2016-01-21
 
 ### Added
