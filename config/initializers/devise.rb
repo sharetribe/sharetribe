@@ -1,6 +1,12 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+
+  # secret_key_base will be the default in version 3.2.3
+  # TODO Remove this when updating to 3.2.3
+  config.secret_key = APP_CONFIG.secret_key_base
+  # TODO Remove this when updating to 3.2.3
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
