@@ -38,6 +38,7 @@ class Admin::CustomFieldsController < ApplicationController
   CUSTOM_FIELD_SPEC = [
     [:name_attributes, :hash, :mandatory],
     [:category_attributes, collection: CategoryAttributeSpec],
+    [:sort_priority, :fixnum, :optional],
     [:required, :bool, :optional, default: false, transform_with: CHECKBOX_TO_BOOLEAN],
     [:search_filter, :bool, :optional, default: false, transform_with: CHECKBOX_TO_BOOLEAN]
   ]
@@ -159,9 +160,11 @@ class Admin::CustomFieldsController < ApplicationController
     params[:custom_field][:min] = ParamsService.parse_float(params[:custom_field][:min]) if params[:custom_field][:min].present?
     params[:custom_field][:max] = ParamsService.parse_float(params[:custom_field][:max]) if params[:custom_field][:max].present?
 
-    custom_field_entity = build_custom_field_entity(@custom_field.type, params[:custom_field]).merge(
+    custom_field_params = params[:custom_field].merge(
       sort_priority: @custom_field.sort_priority
     )
+
+    custom_field_entity = build_custom_field_entity(@custom_field.type, custom_field_params)
 
     @custom_field.update_attributes(custom_field_entity)
 
