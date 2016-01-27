@@ -550,8 +550,13 @@ class Person < ActiveRecord::Base
   end
 
   def reset_password_token_if_needed
-    # Using methods from Devise
-    generate_reset_password_token! if should_generate_reset_token?
+    # Devise 3.1.0 doesn't expose methods to generate reset_password_token without
+    # sending the email, so this code is copy-pasted from Recoverable module
+    raw, enc = Devise.token_generator.generate(self.class, :reset_password_token)
+    self.reset_password_token   = enc
+    self.reset_password_sent_at = Time.now.utc
+    save(:validate => false)
+    raw
   end
 
   # If image_file_name is null, it means the user

@@ -374,14 +374,15 @@ class PersonMailer < ActionMailer::Base
     end
   end
 
-  def reset_password_instructions(person, email_address, community)
+  def reset_password_instructions(person, email_address, reset_token, community)
     set_up_urls(nil, community) # Using nil as recipient, as we don't want auth token here.
     @person = person
     @no_settings = true
-    premailer_mail(:to => email_address,
-         :from => community_specific_sender(@community),
-         :subject => t("devise.mailer.reset_password_instructions.subject")) do |format|
-       format.html { render :layout => false }
+    premailer_mail(
+         to: email_address,
+         from: community_specific_sender(@community),
+         subject: t("devise.mailer.reset_password_instructions.subject")) do |format|
+       format.html { render layout: false, locals: { reset_token: reset_token } }
      end
   end
 
