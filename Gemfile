@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '2.1.2'
 
-gem 'rails', '4.0.13'
+gem 'rails', '4.1.14.1'
 
 # To use debugger
 #gem 'ruby-debug'
