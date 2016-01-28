@@ -665,7 +665,7 @@ hu:
       conversation_about_listing: ~
       conversation_with_user: "%{person} felhasználóval"
       conversation_with: "Üzenetváltás %{person} felhasználóval"
-      last_message_at: ~
+      last_message_at: "( legutolsó üzenet %{time})"
       price: ~
       sum: "Összesen: %{sum}"
       price_excludes_vat: "ÁFA nélküli ár"
@@ -1609,7 +1609,7 @@ hu:
       no_reviews: ~
       offer: Ajánlat
       listing_created: Létrehozva
-      open_until: ~
+      open_until: "Érvényes %{date}"
       feedback: Értékelés
       qr_code: "QR kód"
       request: Kérés

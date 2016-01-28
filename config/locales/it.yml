@@ -19,8 +19,8 @@ it:
           category_parent: ~
           no_parent: ~
         category_transaction_types:
-          transaction_types: ~
-          transaction_types_description: ~
+          transaction_types: "Tipo di ordini"
+          transaction_types_description: "Scegliendo il Tipo di ordini si determina quale tipo di azione è consentita nell'inserimento degli annunci. Ad esempio: solo la vendita, o affitto, o cessione gratuita."
           select_all: ~
           clear_all: ~
         buttons:
@@ -385,9 +385,9 @@ it:
       subscription: ~
     listing_shapes:
       index:
-        listing_shapes: ~
-        description: ~
-        read_more_about_order_types: ~
+        listing_shapes: "Tipo di ordini"
+        description: "Il Tipo di ordini determina come funziona il processo di ordine nel tuo sito. Si può decidere se gli utenti sono affittanti o venditori, o forse solo pubblicisti di annunci e messaggi gratuiti."
+        read_more_about_order_types: "Leggi maggiori informazioni sul tipo di ordini"
         add_new_shape: ~
         select_template: ~
         all_categories: ~
