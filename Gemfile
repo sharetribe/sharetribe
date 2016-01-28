@@ -63,7 +63,7 @@ gem 'json', "~>1.8.3"
 gem 'multi_json', "~>1.7.9" # 1.8.0 caused "invalid byte sequence in UTF-8" at heroku
 gem 'web_translate_it', "~>2.1.8"
 gem 'rails-i18n', '~> 4.0.8'
-gem 'devise', "~>3.0.0"
+gem 'devise', "~>3.2.0"
 gem 'devise-encryptable', '~> 0.2.0'
 gem "omniauth-facebook", "~> 3.0.0"
 
