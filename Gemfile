@@ -34,8 +34,8 @@ gem 'sass', "  ~> 3.2.9"
 gem 'rest-client', '~> 1.8.0'
 
 # Updating paperclip caused problems with delayed paperclip
-gem 'paperclip', '3.5.1'
-gem 'delayed_paperclip', "~> 2.6.1"
+gem 'paperclip', '~> 4.2.4'
+gem 'delayed_paperclip', "~> 2.9.1"
 
 gem 'aws-sdk-v1', "~> 1.64.0"
 gem 'aws-sdk', '~> 2'
