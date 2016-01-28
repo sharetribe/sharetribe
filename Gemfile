@@ -8,7 +8,7 @@ gem 'rails', '4.0.13'
 #gem 'ruby-debug'
 
 gem 'coffee-rails', "~> 4.0.1"
-gem 'uglifier', "~> 1.3.0"
+gem 'uglifier', "~> 2.7.2"
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'compass-rails', '~> 1.1'
@@ -21,7 +21,7 @@ gem 'compass-rails', '~> 1.1'
 # important Rails asset helpers
 gem 'compass', '~> 0.13.alpha'
 
-gem 'jquery-rails', '2.1.4'
+gem 'jquery-rails', '3.1.3'
 
 # Bundle the extra gems:
 
@@ -31,7 +31,7 @@ gem "passenger", "~> 5.0.18"
 gem "mysql2", "~> 0.3.14"
 gem 'haml', "~> 4.0.5"
 gem 'sass', "  ~> 3.2.9"
-gem 'rest-client', '~> 1.6.7'
+gem 'rest-client', '~> 1.8.0'
 
 # Updating paperclip caused problems with delayed paperclip
 gem 'paperclip', '3.5.1'
