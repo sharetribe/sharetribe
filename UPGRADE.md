@@ -23,6 +23,10 @@ rake assets:precompile
 
   Run `SecureRandom.hex(64)` in rails console or irb to generate a new key.
 
+* This version changes the way how password reset tokens are being stored to the database. Due to this, tokens that are created with the earlier versions do not work anymore.
+
+  For seamless migration, set the environment variable `devise_allow_insecure_token_lookup` to `true`. After you are sure you have migrated all the reset tokens to the new format, you can remove the environment variable.
+
 ## Upgrade from 4.6.0 to 5.0.0
 
 After you have deployed the new version you need to clear Rails cache by running to following command in your production application Rails console:
