@@ -19,9 +19,6 @@ The Change Log starts from the release 5.0.0. For older releases, see [RELEASE_N
 ### Changed
 
 - Upgraded jQuery from 1.8.3 to 1.11.1 [#1667](https://github.com/sharetribe/sharetribe/pull/1667)
-
-### Changed
-
 - Updated Devise gem to version 3.1. [#1672](https://github.com/sharetribe/sharetribe/pull/1672)
 
 ### Removed
@@ -35,7 +32,7 @@ The Change Log starts from the release 5.0.0. For older releases, see [RELEASE_N
 
 ### Security
 
-- Updated Gems with known security issues [#1667](https://github.com/sharetribe/sharetribe/pull/1667)
+- Updated Gems with known security issues [#1667](https://github.com/sharetribe/sharetribe/pull/1667) [#1676](https://github.com/sharetribe/sharetribe/pull/1676)
 
 ## [5.1.0] - 2016-01-21
 
