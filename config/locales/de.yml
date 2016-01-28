@@ -627,7 +627,7 @@ de:
       message_content_not_available: ~
     message:
       accepted_request: "Anfrage akzeptiert"
-      received_payment: ~
+      received_payment: "Hat die Anfrage angenommen und eine Zahlung in Höhe von %{sum} erhalten."
       accepted_offer: "Angebot akzeptieren"
       rejected_request: "Anfrage abgelehnt"
       rejected_offer: "Angebot ablehnen"
