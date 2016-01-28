@@ -6,7 +6,7 @@ class BraintreeWebhooksController < ApplicationController
   before_filter do
     unless @current_community.braintree_in_use?
       BTLog.error("Received webhook notification even though '#{@current_community.ident}' does not have Braintree in use")
-      render :nothing => true, :status => 400 and return
+      render :nothing => true, :status => 400
     end
   end
 

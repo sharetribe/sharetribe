@@ -4,7 +4,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
 
   before_filter do
     unless PaypalHelper.community_ready_for_payments?(@current_community.id)
-      render :nothing => true, :status => 400 and return
+      render :nothing => true, :status => 400
     end
   end
 
