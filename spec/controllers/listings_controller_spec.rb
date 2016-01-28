@@ -50,7 +50,6 @@ describe ListingsController do
 
     @p1 = FactoryGirl.create(:person)
     @p1.communities << @c1
-    @p1.ensure_authentication_token!
 
     @category_item      = FactoryGirl.create(:category, :community => @c1)
     @category_item.translations << FactoryGirl.create(:category_translation, :name => "Tavarat", :locale => "fi", :category => @category_item)
