@@ -104,27 +104,27 @@ class TransactionMailer < ActionMailer::Base
       service_fee = payment.total_commission
       you_get = payment.seller_gets
 
-      transaction = payment.transaction
+      transaction = payment.tx
       unit_type = Maybe(transaction).select { |t| t.unit_type.present? }.map { |t| ListingViewUtils.translate_unit(t.unit_type, t.unit_tr_key) }.or_else(nil)
-      duration = payment.transaction.booking.present? ? payment.transaction.booking.duration : nil
+      duration = payment.tx.booking.present? ? payment.tx.booking.duration : nil
 
       premailer_mail(:to => payment.recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
                      :subject => t("emails.new_payment.new_payment")) { |format|
         format.html {
           render "braintree_payment_receipt_to_seller", locals: {
-                   conversation_url: person_transaction_url(payment.recipient, @url_params.merge({:id => payment.transaction.id.to_s})),
-                   listing_title: payment.transaction.listing_title,
+                   conversation_url: person_transaction_url(payment.recipient, @url_params.merge({:id => payment.tx.id.to_s})),
+                   listing_title: payment.tx.listing_title,
                    price_per_unit_title: t("emails.new_payment.price_per_unit_type", unit_type: unit_type),
-                   listing_price: humanized_money_with_symbol(payment.transaction.unit_price),
-                   listing_quantity: payment.transaction.listing_quantity,
+                   listing_price: humanized_money_with_symbol(payment.tx.unit_price),
+                   listing_quantity: payment.tx.listing_quantity,
                    duration: duration,
                    payment_total: humanized_money_with_symbol(payment.total_sum),
                    payment_service_fee: humanized_money_with_symbol(-service_fee),
                    payment_seller_gets: humanized_money_with_symbol(you_get),
                    payer_full_name: payment.payer.name(community),
                    payer_given_name: payment.payer.given_name_or_username,
-                   automatic_confirmation_days: payment.transaction.automatic_confirmation_after_days,
+                   automatic_confirmation_days: payment.tx.automatic_confirmation_after_days,
                    show_money_will_be_transferred_note: true
                  }
         }
@@ -137,26 +137,26 @@ class TransactionMailer < ActionMailer::Base
     prepare_template(community, recipient, "email_about_new_payments")
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
 
-      unit_type = Maybe(payment.transaction).select { |t| t.unit_type.present? }.map { |t| ListingViewUtils.translate_unit(t.unit_type, t.unit_tr_key) }.or_else(nil)
-      duration = payment.transaction.booking.present? ? payment.transaction.booking.duration : nil
+      unit_type = Maybe(payment.tx).select { |t| t.unit_type.present? }.map { |t| ListingViewUtils.translate_unit(t.unit_type, t.unit_tr_key) }.or_else(nil)
+      duration = payment.tx.booking.present? ? payment.tx.booking.duration : nil
 
       premailer_mail(:to => payment.payer.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
                      :subject => t("emails.receipt_to_payer.receipt_of_payment")) { |format|
         format.html {
           render "payment_receipt_to_buyer", locals: {
-                   conversation_url: person_transaction_url(payment.payer, @url_params.merge({:id => payment.transaction.id.to_s})),
-                   listing_title: payment.transaction.listing_title,
+                   conversation_url: person_transaction_url(payment.payer, @url_params.merge({:id => payment.tx.id.to_s})),
+                   listing_title: payment.tx.listing_title,
                    price_per_unit_title: t("emails.new_payment.price_per_unit_type", unit_type: unit_type),
-                   listing_price: humanized_money_with_symbol(payment.transaction.unit_price),
-                   listing_quantity: payment.transaction.listing_quantity,
+                   listing_price: humanized_money_with_symbol(payment.tx.unit_price),
+                   listing_quantity: payment.tx.listing_quantity,
                    duration: duration,
                    payment_total: humanized_money_with_symbol(payment.total_sum),
                    subtotal: humanized_money_with_symbol(payment.total_sum),
                    shipping_total: nil,
                    recipient_full_name: payment.recipient.name(community),
                    recipient_given_name: payment.recipient.given_name_or_username,
-                   automatic_confirmation_days: payment.transaction.automatic_confirmation_after_days,
+                   automatic_confirmation_days: payment.tx.automatic_confirmation_after_days,
                    show_money_will_be_transferred_note: true
                  }
         }

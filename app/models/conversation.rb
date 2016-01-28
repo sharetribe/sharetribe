@@ -27,7 +27,7 @@ class Conversation < ActiveRecord::Base
   has_many :participations
   has_many :participants, :through => :participations, :source => :person
   belongs_to :listing
-  has_one :transaction
+  has_one :tx, class_name: "Transaction", foreign_key: "transaction_id"
   belongs_to :community
 
   scope :for_person, -> (person){

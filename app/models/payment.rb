@@ -31,7 +31,7 @@ class Payment < ActiveRecord::Base
 
   attr_accessible :transaction_id, :conversation_id, :payer_id, :recipient_id, :community_id, :payment_gateway_id, :status
 
-  belongs_to :transaction
+  belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id"
   belongs_to :payer, :class_name => "Person"
   belongs_to :recipient, :class_name => "Person"
 

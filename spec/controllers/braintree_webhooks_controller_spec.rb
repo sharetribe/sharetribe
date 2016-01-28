@@ -69,7 +69,7 @@ describe BraintreeWebhooksController do
       before(:each) do
         # Prepare
         @transaction = FactoryGirl.create(:transaction)
-        @payment = FactoryGirl.create(:braintree_payment, :status => "paid", :braintree_transaction_id => "123abc", :type => "BraintreePayment", :transaction => @transaction, :sum_cents => 1000, :currency => "EUR")
+        @payment = FactoryGirl.create(:braintree_payment, status: "paid", braintree_transaction_id: "123abc", type: "BraintreePayment", tx: @transaction, sum_cents: 1000, currency: "EUR")
         Payment.find_by_braintree_transaction_id("123abc").status.should == "paid"
       end
 
