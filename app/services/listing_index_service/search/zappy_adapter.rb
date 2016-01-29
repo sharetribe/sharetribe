@@ -10,12 +10,12 @@ module ListingIndexService::Search
          c.adapter  Faraday.default_adapter  # make requests with Net::HTTP
       end
     end
- 
+
     def search(community_id:, search:, includes: nil)
- 
+
       begin
         res = @conn.get do |req|
-          req.url '/api/v1/marketplace/1/listings', {keywords: search[:keywords]}
+          req.url "/api/v1/marketplace/#{community_id}/listings", {keywords: search[:keywords]}
           req.headers['Authorization'] = 'apikey key=asdf1234'
         end.body
         Result::Success.new(parse_response(res["result"], includes))
@@ -32,15 +32,15 @@ module ListingIndexService::Search
       # https://github.com/rails/rails/issues/17049
 
       Listing
-        .where(id: res) # use find_each for more efficient batch processing after updating to Rails 4.1
-        .order("field(listings.id, #{res.join ','})")
+        .where(id: ids) # use find_each for more efficient batch processing after updating to Rails 4.1
+        .order("field(listings.id, #{ids.join ','})")
         .map {
           |l| ListingIndexService::Search::Commons.listing_hash(l, includes)
         }
     end
 
     def parse_response(res, includes)
-      listings = res.count > 0 ? listings_from_ids(res) : []
+      listings = res.count > 0 ? listings_from_ids(res, includes) : []
       {count: res.count,
        listings: listings}
     end
