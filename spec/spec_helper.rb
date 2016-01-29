@@ -36,6 +36,7 @@ prefork = lambda {
   # from the project root directory.
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
+  require 'rails/test_help'
   require 'rspec/rails'
   require "email_spec"
 
