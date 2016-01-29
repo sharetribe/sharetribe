@@ -264,6 +264,7 @@ See [CHANGELOG.md](CHANGELOG.md) for detailed list of changes between releases.
 
 See [UPGRADE.md](UPGRADE.md) for information about actions needed when upgrading.
 
+For production use we recommend you to upgrade only when new version is released and not to follow the master branch.
 
 ## Contribute
 
