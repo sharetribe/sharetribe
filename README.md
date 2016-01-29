@@ -303,6 +303,7 @@ Browse open issues and submit new ones at http://github.com/sharetribe/sharetrib
 * [Delayed job priorities](docs/delayed-job-priorities.md)
 * [Cucumber testing Do's and Don'ts](docs/cucumber-do-dont.md)
 * [Technical roadmap](TECHNICAL_ROADMAP.md)
+* [Feature flags](docs/feature-flags.md)
 
 
 ## MIT License
