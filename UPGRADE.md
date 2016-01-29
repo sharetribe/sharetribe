@@ -17,6 +17,8 @@ rake assets:precompile
 
 ## Upgrade from 5.x to [Unreleased]
 
+## Upgrade from 5.0.x or 5.1.x to 5.2.0
+
 * After updating, you are not able to downgrade to Rails 3 (version 4.6.0). Do not upgrade until you are sure that you don't need to roll back to Rails 3.
 
 * You need to set `secret_key_base` to environment variables or to `config.yml` for `production` environment. Default values for `development` and `test` environments are provided.
