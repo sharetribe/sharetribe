@@ -15,8 +15,8 @@ module ListingIndexService::Search
 
       begin
         res = @conn.get do |req|
-          req.url "/api/v1/marketplace/#{community_id}/listings", {keywords: search[:keywords]}
-          req.headers['Authorization'] = 'apikey key=asdf1234'
+          req.url("/api/v1/marketplace/#{community_id}/listings", search)
+          req.headers['Authorization'] = 'apikey key=asdfasdf'
         end.body
         Result::Success.new(parse_response(res["result"], includes))
       rescue StandardError => e
@@ -40,8 +40,8 @@ module ListingIndexService::Search
     end
 
     def parse_response(res, includes)
-      listings = res.count > 0 ? listings_from_ids(res, includes) : []
-      {count: res.count,
+      listings = res["meta"]["total"] > 0 ? listings_from_ids(res["data"], includes) : []
+      {count: res["meta"]["total"],
        listings: listings}
     end
   end
