@@ -218,6 +218,8 @@ The built-in WEBrick server (which was started in the last step above) should no
 
 It is not recommended to serve static assets from a Rails server in production. Instead, you should use a CDN (Content Delivery Network) service, such as [Amazon CloudFront](https://aws.amazon.com/cloudfront/). To serve the assets from the CDN service, you need to change the `asset_host` configuration in the the `config/config.yml` file to point your CDN distribution.
 
+**For production use we recommend you to upgrade only when new version is released and not to follow the master branch.**
+
 #### Setting your domain
 
 1. In your database, change the value of the `domain` column in the `communities` table to match the hostname of your domain. For example, if the URL for your marketplace is http://mymarketplace.myhosting.com, then the domain is `mymarketplace.myhosting.com`.
