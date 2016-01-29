@@ -2,10 +2,6 @@ module ListingIndexService::API
 
   RELATED_RESOURCES = [:listing_images, :author, :num_of_reviews, :location].to_set
 
-  # TODO Maybe conf+injector?
-  # ENGINE = :sphinx
-  ENGINE = :zappy
-
   ListingIndexResult = ListingIndexService::DataTypes::ListingIndexResult
 
   class Listings
@@ -14,12 +10,12 @@ module ListingIndexService::API
       @logger_target = logger_target
     end
 
-    def search(community_id:, search:, includes: [])
+    def search(community_id:, search:, includes: [], engine: :sphinx)
       unless includes.to_set <= RELATED_RESOURCES
         return Result::Error.new("Unknown included resources: #{(includes.to_set - RELATED_RESOURCES).to_a}")
       end
 
-      search_result = search_engine.search(
+      search_result = search_engine(engine).search(
         community_id: community_id,
         search: ListingIndexService::DataTypes.create_search_params(search),
         includes: includes
@@ -39,14 +35,14 @@ module ListingIndexService::API
 
     private
 
-    def search_engine
-      case ENGINE
+    def search_engine(engine)
+      case engine
       when :sphinx
         ListingIndexService::Search::SphinxAdapter.new
       when :zappy
         ListingIndexService::Search::ZappyAdapter.new
       else
-        raise NotImplementedError.new("Adapter for search engine #{ENGINE} not implemented")
+        raise NotImplementedError.new("Adapter for search engine #{engine} not implemented")
       end
     end
 

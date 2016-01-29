@@ -141,7 +141,9 @@ class HomepageController < ApplicationController
       page: params[:page].to_i > 0 ? params[:page].to_i : 1
     }
 
-    ListingIndexService::API::Api.listings.search(community_id: @current_community.id, search: search, includes: includes).and_then { |res|
+    search_engine = feature_enabled?(:new_search) ? :zappy : :sphinx;
+
+    ListingIndexService::API::Api.listings.search(community_id: @current_community.id, search: search, includes: includes, engine: search_engine).and_then { |res|
       Result::Success.new(
         ListingIndexViewUtils.to_struct(
         result: res,
