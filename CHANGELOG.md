@@ -8,6 +8,14 @@ This file follows the best practices from [keepchangelog.com](http://keepachange
 
 ## [Unreleased]
 
+### Removed
+
+- Removed environment variable `devise_allow_insecure_token_lookup`. [#1675](https://github.com/sharetribe/sharetribe/pull/1675)
+
+### Security
+
+- Updated Devise gem to version 3.5 [#1675](https://github.com/sharetribe/sharetribe/pull/1675)
+
 ## [5.2.0] - 2016-01-29
 
 ### Added

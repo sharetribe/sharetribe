@@ -2,11 +2,6 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
 
-  # secret_key_base will be the default in version 3.2.3
-  # TODO Remove this when updating to 3.2.3
-  config.secret_key = APP_CONFIG.secret_key_base
-  # TODO Remove this when updating to 3.2.3
-
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
@@ -204,21 +199,6 @@ Devise.setup do |config|
   # This will configure a setup phase hook, that will use SessionsController#facebook_setup as callback
   # It allows dynamic configuring on community basis
   config.omniauth :facebook, :setup => true
-
-  # Devise version 3.1.0 changed the way how tokens are stored to the database. Due to this,
-  # tokens that were created with old version are invalid. Setting this setting true will make
-  # those tokens valid again.
-  #
-  # When upgrading, you should set this to `true` and change it to `false` after a couple of days.
-  insecure_token = APP_CONFIG.devise_allow_insecure_token_lookup
-  config.allow_insecure_token_lookup =
-    if insecure_token == true || insecure_token == false
-      insecure_token
-    elsif insecure_token == "true"
-      true
-    else
-      false
-    end
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
