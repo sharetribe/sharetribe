@@ -161,21 +161,21 @@ da-DK:
         intro: "Dette er en hurtig guide til hvordan du kommer i gang med din nye markedsplads."
         live_site_link_text: her
         look_and_feel: "Før du offentliggør din markedsplads, vil du sandsynligvis gerne tilrette dele af den. Eksempelvis %{logo_link} samt ændre forsidebillede og farver, så det matcher dit brand."
-        logo_link_text: "tilføj et logo"
+        logo_link_text: "tilføje et logo"
         custom_domain: "Du vil måske også ønske at tilføje en personlig webadresse (eksempel: www.yourmarketplace.com). Opsætningen kræver noget manuelt arbejde fra vores side, og vi skal også købe et SSL certifikat for domænet for at gøre din markedsplads sikker. Derfor er personlige webadresser ikke tilgængelige i gratis-versionen lige nu. Abonnement på vores Pro plan eller højere, er nødvendigt for at kunne anvende en personlig webadresse. Hvis du gerne vil have en personlig webadresse, så %{contact_support_link}."
-        categories_and_custom_fields: "Det næste er at beslutte, hvilken slags indhold man kan poste på dit site - %{categories_link}, %{custom_fields_link} og beslut %{filters_link} som kan anvendes, når brugerne gennemgår søgeresultaterne."
+        categories_and_custom_fields: "Det næste er at beslutte, hvilken slags indhold man kan poste på dit domæne - %{categories_link}, %{custom_fields_link} og %{filters_link} som er i brug, når brugerne får søgeresultaterne vist."
         categories_link_text: "tilføj kategorier og underkategorier"
         custom_fields_link_text: "konfigurer form felterne"
         filters_link_text: "hvilken slags filtre"
-        order_types: "Du kan også konfigurere ordre processen på din markedsplads. Er dine brugere sælgere, lejere eller bortgiver de ting? Tilbyder de udlejning pr. time, dag eller uge. Disse ting kan konfigureres fra %{order_types_link}."
+        order_types: "Du kan også konfigurere ordre processen på din markedsplads. Er dine brugere sælgere, lejere eller bortgiver de ting? Tilbyder de udlejning pr. time, dag eller uge. Disse ting kan konfigureres under %{order_types_link}."
         order_types_link_text: "ordretype visning"
-        payments: "Hvis du ønsker brugerne skal være i stand til at betale for deres køb på din markedsplads, så du får en bid fra hver transaktion, så %{payments_link}."
+        payments: "Hvis du ønsker at få en bid fra hver transaktion på markedspladsen, så %{payments_link}."
         payments_link_text: "indstil betalingsmetode"
         info_texts: "Glem ikke at tilrette info sider og andre tekster hvor du kan fortælle brugerne om din markedsplads. Gode steder at tjekke er din %{about_page_link}, dine %{terms_of_use_link} (du bør tilføje dine egne brugsvilkår her, enten ved at modificere den eksisterende skabelon, eller ved at oprette et helt nyt dokument), %{privacy_policy_link}, og %{welcome_email_link} som sendes til alle nye brugere. Der er også en %{instruction_texts_link} du kan tilrette."
-        about_page_link_text: "om-os side"
-        terms_of_use_link_text: "terms of use"
-        privacy_policy_link_text: Personoplysninger
-        welcome_email_link_text: "velkommen email"
+        about_page_link_text: om-side
+        terms_of_use_link_text: brugsvilkår
+        privacy_policy_link_text: privatlivspolitik
+        welcome_email_link_text: "velkomst email"
         instruction_texts_link_text: "anden instruktionstekst"
         social_media: "At anvende sociale medier er en god måde at opbygge dit community på - %{facebook_link} for at gøre det nemmere at logge ind på din markedsplads, og %{twitter_link} for at få viral opmærksomhed når brugere tweeter om produkter på din markedsplads."
         facebook_link_text: "tilknyt din Facebook app"
@@ -184,7 +184,7 @@ da-DK:
         analytics_link_text: "tilknytte din Google Analytics-konto"
         settings: "Der er en bunke andre indstillinger du kan fifle med. For eksempel kan du indstille at alle skal have en invitation fra andre brugere, for at kunne deltage og dermed gøre markedspladsen privat, så kun registrerede brugere kan se indholdet. %{settings_link}."
         settings_link_text: "Se indstillinger for din markedsplads her"
-        final_words: "Det er det hele! Hvis alt er klart, kan du starte med at %{invite_link} til din markedsplads. Du kan se alle brugerne som er registreret %{view_users_link}, og alle deres gennemførte transaktioner %{view_transactions_link}. Du kan også let håndtere annoncer: Gå til annonce-siden og du vil se administrator links til redigering og lukning. Har du brug for hjælp, %{contact_support_link} - vi er her for dig!"
+        final_words: "Det er det hele! Hvis alt er klart, så %{invite_link} til din markedsplads. Du kan se alle brugerne som er registreret %{view_users_link}, og alle deres gennemførte transaktioner %{view_transactions_link}. Du kan også let håndtere annoncer: Gå til annonce-siden og du vil se administrator links til redigering og lukning. Har du brug for hjælp, %{contact_support_link} - vi er her for dig!"
         invite_link_text: "inviter brugere"
         view_users_link_text: her
         view_transactions_link_text: her
@@ -1192,7 +1192,7 @@ da-DK:
       add_lots_of_email_addresses: "Hvis du planlægger at sende mange invitationer, skal du bruge et e-mail værktøj. Tjek %{this_article_link} for at finde informationer omkring egnede e-mail tjenester."
       this_article_link: "denne artikel"
       invitation_emails_field_placeholder: "email1@example.com, email2@example.com, ..."
-      invitation_message_field_placeholder: "Jeg er kommet på denne fantastiske markedsplads - og syntes at du også skulle have muligheden!"
+      invitation_message_field_placeholder: "Hej. Jeg er stødt på denne fantastiske markedsplads - og synes at du også skal have muligheden!"
       errors_in_emails: "Tjek at den email du har indtastet er korrekt. Hvis du har indtastet flere emails, så tjek om du har opdelt dem med komma."
     list_item:
       review: anmeldelse
@@ -1756,7 +1756,7 @@ da-DK:
       create_paypal_account: her
       upgrade_paypal_account: "Opgrader din konto her."
       paypal_account_billing_agreement: "2. Tillad %{service_name} at tage et servicegebyr"
-      follow_steps: "Følg trinene nedenfor for at begynde modtagelsen af midler:"
+      follow_steps: "Følg trinene nedenfor - og bliv i stand til at modtage betalinger:"
       connect_paypal_account_title: "Forbind din PayPal konto"
       connect_paypal_account_title_with_step: "Trin %{current_step}/%{total_steps}: Tilslut din PayPal konto"
       connect_paypal_account_instructions: "Forbind din PayPal konto med %{service_name}."
@@ -1781,7 +1781,7 @@ da-DK:
     paypal_account_connected_title: "PayPal konto forbundet"
     paypal_account_connected: "PayPal kontoen <%{email}> er tilsluttet med %{service_name}."
     change_account: "Ret PayPal konto"
-    missing: "Du har åbne annoncer, men du har ikke tilknyttet din PayPal-konto, så du er ikke i stand til at modtage betalinger. Tilknyt venligst din PayPal-konto i din %{settings_link}."
+    missing: "Du kan modtage direkte betalinger på %{service_name} hvis du tilknytter en PayPal-konto i dine %{settings_link}."
     from_your_payment_settings_link_text: betalingsindstillinger
     redirect_message: "Omdirigere dig til PayPal. Hvis der ikke sker noget, skal du klikke %{redirect_link}."
     redirect_link_text: her

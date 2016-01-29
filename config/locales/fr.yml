@@ -214,14 +214,14 @@ fr:
       settings:
         settings: Paramètres
         general: Général
-        users_can_review_each_other_after_transaction: "Les utilisateurs peuvent s'évaluer mutuellement après une transaction"
-        access: Accès
+        users_can_review_each_other_after_transaction: "Les utilisateurs peuvent s'évaluer mutuellement après une commande"
+        access: "Paramètres d'accès"
         join_with_invite_only: "Les utilisateurs doivent être invités par un autre utilisateur pour rejoindre cette place de marché"
         users_can_invite_new_users: "Tous les utilisateurs peuvent inviter des nouveaux utilisateurs dans cette place de marché"
         private: "Cette place de marché est privée (seuls les utilisateurs connectés peuvent en voir le contenu)"
         require_verification_to_post_listings: "Seuls les utilisateurs validés par un administrateur peuvent poster de nouvelles annonces"
         listing_preferences: "Paramètres d'annonces"
-        transaction_preferences: "Paramètres de transactions"
+        transaction_preferences: "Paramètres de commandes"
         show_listing_publishing_date: "Afficher la date de publication de l'annonce sur la page de l'annonce"
         show_category_in_listing_list: "Afficher les types de transaction dans la vue liste"
         hide_expiration_date: "Ne pas demander de date d'expiration pour les annonces"
@@ -232,8 +232,8 @@ fr:
         google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Nom Twitter (utilisé dans le bouton \"Tweeter\" sur les pages des annonces)"
         update_settings: "Sauvegarder les paramètres"
-        automatically_confirmed: "Les transactions seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement. Si le système de dépôt est utilisé, l'argent sera transmis au vendeur à ce moment."
-        automatically_confirmed_no_escrow: "Les transactions seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement"
+        automatically_confirmed: "Les commandes seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement. Si le système de dépôt est utilisé, l'argent sera transmis au vendeur à ce moment."
+        automatically_confirmed_no_escrow: "Les commandes seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement"
         automatic_newsletter_frequency: "Fréquence d'envoi de la newsletter : %{frequency_dropdown}"
         newsletter_daily: Quotidienne
         newsletter_weekly: Hebdomadaire

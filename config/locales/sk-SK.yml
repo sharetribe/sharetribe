@@ -1795,23 +1795,23 @@ sk-SK:
       i_accept_the: Akceptujem
       invalid_invitation_code: ~
       invitation_code: ~
-      not_required: ~
+      not_required: "nie je požadované"
       notification_is_mandatory: ~
       organization_name: ~
-      password_again: ~
+      password_again: "Potvrdiť heslo"
       show_my_name_to_others: ~
-      sign_up: ~
-      terms: ~
-      username_is_in_use: ~
-      username_is_invalid: ~
-      visible_only_to_you: ~
-      visible_to_everybody: ~
+      sign_up: "Vytvoriť nový %{service_name} účet"
+      terms: "Podmienky používania"
+      username_is_in_use: "Požívateľské meno je už používané."
+      username_is_invalid: "Používateľské meno je neplatné. Povolené sú len písmená, číslice a podčiarkovníky."
+      visible_only_to_you: "viditeľné iba pre Vás a pre admin použivateľa"
+      visible_to_everybody: "videiteľné pre každích"
       create_account_with_facebook: ~
       OR: ~
       signup_with_email: ~
     not_member:
       explanation_text: ~
-      read_more_about_kassi_communities: ~
+      read_more_about_kassi_communities: "Čítajte viac o trhu Sharetribe"
       this_user_does_not_belong_to_this_community: ~
     profile_feedback:
       grade: ~
