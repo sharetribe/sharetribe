@@ -160,7 +160,7 @@ describe "plan provisioning" do
 
         log_entry = log_target.parse_log(:info).first
         expect(log_entry[:free]).to eq("Fetching plans that are created after 2015-10-01 00:00:00 UTC")
-        expect(log_entry[:structured]).to eq({"after" => "2015-10-01T00:00:00Z", "limit" => 1000})
+        expect(log_entry[:structured]).to eq({"after" => "2015-10-01T00:00:00.000Z", "limit" => 1000})
         log_entry = log_target.parse_log(:info).second
         expect(log_entry[:free]).to eq("Returned 2 plans")
         expect(log_entry[:structured]).to eq({"count" => 2})
