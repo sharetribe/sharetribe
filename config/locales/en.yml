@@ -641,7 +641,7 @@ en:
       accepted_request: "accepted the request"
       received_payment: "accepted the request, received payment for %{sum}"
       accepted_offer: "accepted the offer"
-      rejected_request: "rejected the request"
+      rejected_request: "rejected the request, canceled the payment"
       rejected_offer: "rejected the offer"
       confirmed_request: "marked the order as completed"
       confirmed_offer: "marked the offer as completed"
