@@ -102,14 +102,6 @@ gem 'activerecord-session_store', "~> 0.1.2"
 # We should remove this gem before upgrading to Rails 5
 gem 'protected_attributes', "~> 1.1.3"
 
-# Observers should be used only in test code. Do NOT use them in production
-# code.
-#
-# Observers need to be placed in app/models and that's why they will get
-# loaded also in a non-test environment. That's also the reason why we need
-# to include the observers gem here and not in the :test group
-gem 'rails-observers', '~> 0.1.2'
-
 # Remove Emojis.
 # This will prevent MySQL from blowing up if someone's trying to insert Emojis
 # This gem was inserted to make Rails 3->4 migration path easier. However,
