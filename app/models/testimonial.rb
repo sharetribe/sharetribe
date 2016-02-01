@@ -31,7 +31,7 @@ class Testimonial < ActiveRecord::Base
 
   belongs_to :author, :class_name => "Person"
   belongs_to :receiver, :class_name => "Person"
-  belongs_to :transaction
+  belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id"
 
   validates_inclusion_of :grade, :in => 0..1, :allow_nil => false
 

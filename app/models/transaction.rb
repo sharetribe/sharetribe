@@ -115,7 +115,7 @@ class Transaction < ActiveRecord::Base
   def initialize_payment
     payment ||= community.payment_gateway.new_payment
     payment.payment_gateway ||= community.payment_gateway
-    payment.transaction = self
+    payment.tx = self
     payment.status = "pending"
     payment.payer = starter
     payment.recipient = author

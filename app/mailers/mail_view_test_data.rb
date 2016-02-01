@@ -56,7 +56,7 @@ module MailViewTestData
     )
 
     # Avoid infinite loop, set conversation here
-    @payment.transaction = transaction
+    @payment.tx = transaction
     @payment
   end
 

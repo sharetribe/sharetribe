@@ -7,7 +7,7 @@ Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"$/ do |amount, grade|
                         author: @people["kassi_testperson2"],
                         receiver: @people["kassi_testperson1"],
                         grade: grade,
-                        transaction: tr
+                        tx: tr
                       )
   end
 end

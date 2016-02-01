@@ -116,7 +116,7 @@ describe PersonMailer do
                                 listing_shape_id: 123, # not needed, but mandatory
                                 author: @test_person)
     transaction = FactoryGirl.create(:transaction, starter: @test_person2, listing: listing, transaction_transitions: [transition])
-    testimonial = FactoryGirl.create(:testimonial, :grade => 0.75, :text => "Yeah", :author => @test_person, :receiver => @test_person2, :transaction => transaction)
+    testimonial = FactoryGirl.create(:testimonial, grade: 0.75, text: "Yeah", author: @test_person, receiver: @test_person2, tx: transaction)
 
     email = PersonMailer.new_testimonial(testimonial, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?

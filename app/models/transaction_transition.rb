@@ -21,5 +21,5 @@ class TransactionTransition < ActiveRecord::Base
 
   attr_accessible :to_state, :metadata, :sort_key
 
-  belongs_to :transaction, inverse_of: :transaction_transitions, touch: true
+  belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id", inverse_of: :transaction_transitions, touch: true
 end

@@ -77,7 +77,7 @@ Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do 
       recipient = @transaction.listing.author
 
       if @transaction.payment == nil
-        payment = FactoryGirl.build(type, :transaction => @transaction, :recipient => recipient, :status => "pending", :community => @current_community)
+        payment = FactoryGirl.build(type, tx: @transaction, recipient: recipient, status: "pending", community: @current_community)
         payment.default_sum(@transaction.listing, 24)
         payment.save!
 
