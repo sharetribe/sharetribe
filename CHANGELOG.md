@@ -8,6 +8,10 @@ This file follows the best practices from [keepchangelog.com](http://keepachange
 
 ## [Unreleased]
 
+### Changed
+
+- Updated Rails to 4.1.14.1 [#1678](https://github.com/sharetribe/sharetribe/pull/1678)
+
 ### Removed
 
 - Removed environment variable `devise_allow_insecure_token_lookup`. [#1675](https://github.com/sharetribe/sharetribe/pull/1675)
