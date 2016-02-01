@@ -13,9 +13,11 @@ module ListingIndexService::Search
 
     def search(community_id:, search:, includes: nil)
 
+      search_params = format_params(search)
+
       begin
         res = @conn.get do |req|
-          req.url("/api/v1/marketplace/#{community_id}/listings", search)
+          req.url("/api/v1/marketplace/#{community_id}/listings", search_params)
           req.headers['Authorization'] = 'apikey key=asdfasdf'
         end.body
         Result::Success.new(parse_response(res["result"], includes))
@@ -25,6 +27,18 @@ module ListingIndexService::Search
     end
 
     private
+
+    def format_params(original)
+      defaults = {
+        include_closed: false
+      }
+      params = {}
+      params[:'page[number]'] = original[:page] if original[:page]
+      params[:'page[size]'] = original[:per_page] if original[:per_page]
+      params[:keywords] = original[:keywords] if original[:keywords]
+      params[:include_closed] = original[:include_closed] if original[:include_closed]
+      defaults.merge(params)
+    end
 
     def listings_from_ids(ids, includes)
       # use pluck for much faster query after updating to Rails >4.1.6
