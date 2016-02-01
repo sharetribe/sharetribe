@@ -348,7 +348,7 @@ module TransactionHelper
         t("conversations.status.waiting_for_current_user_to_deliver_listing",
           :listing_title => link_to(conversation.listing.title, conversation.listing)
         ).html_safe,
-        icon_classes: "ss-deliveryvan"
+        icon_classes: "ss-clockwise"
       )
     else
       status_info(
@@ -356,7 +356,7 @@ module TransactionHelper
           :listing_title => link_to(conversation.listing.title, conversation.listing),
           :listing_author_name => link_to(PersonViewUtils.person_display_name(conversation.author, conversation.community))
         ).html_safe,
-        icon_classes: "ss-deliveryvan"
+        icon_classes: "ss-clockwise"
       )
     end
   end
