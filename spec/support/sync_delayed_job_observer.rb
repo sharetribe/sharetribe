@@ -1,6 +1,6 @@
 require 'delayed_job'
 
-class SyncDelayedJobObserver < Delayed::Plugin
+class SyncDelayedJobObserver
 
   class << self
     attr_accessor :total_processed
