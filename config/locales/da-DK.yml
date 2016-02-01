@@ -989,7 +989,7 @@ da-DK:
       click_here_to_reply: "Klik her for at sende dit svar"
     welcome_email:
       welcome_email_subject: "Velkommen til %{service_name}"
-      welcome_to_marketplace: "Velkommen til %{service_name}! Godt at have dig ombord :)"
+      welcome_to_marketplace: "Velkommen til %{service_name}! Vi er glade for at have dig med."
       love_marketplace_crew: "Hilsen,<br /><i>Holdet bag %{service_name}</i>"
       welcome_email_footer_text: "Hvilken slags email ønsker du at modtage fra %{service_name}? %{settings_link}"
       settings_link_text: "Tjek dine indstillinger"
@@ -1214,9 +1214,9 @@ da-DK:
       search: Søg
       map: "Vis kort"
       list: "Vis liste"
-      map_button: Kortvisning
-      grid_button: Rudevisning
-      list_button: Listevisning
+      map_button: Kort
+      grid_button: Galleri
+      list_button: Liste
       all_listing_types: "Alle annonce typer"
       all_categories: "Alle kategorier"
     errors:
@@ -1387,7 +1387,7 @@ da-DK:
       you_must_log_in_to_invite_new_users: "Du skal logge ind for at invitere nye brugere til %{service_name}"
       you_must_log_in_to_send_a_comment: "Du skal logge ind for at sende en ny kommentar"
       you_must_log_in_to_send_a_message: "Du skal logge ind på %{service_name} for at sende en meddelelse til en anden bruger."
-      you_must_log_in_to_do_a_transaction: "Du er nødt til at logge ind på %{service_name} for at gennemføre en transaktion."
+      you_must_log_in_to_do_a_transaction: "Du skal logge ind på %{service_name} for at gennemføre en transaktion."
       you_must_log_in_to_view_this_content: "Du skal logge ind for at se dette indhold"
       you_must_log_in_to_view_this_page: "Du skal logge ind for at se denne side"
       you_must_log_in_to_view_your_inbox: "Du skal logge ind på %{service_name} for at få vist din indbakke."
@@ -1561,7 +1561,7 @@ da-DK:
       favors: Service
       housing: Rum
       items: Ting
-      list_view: Listevisning
+      list_view: Liste
       listings: Annonce
       map_view: "Vis kort"
       offer_something: "Spred budskabet!"
@@ -1692,7 +1692,7 @@ da-DK:
       favors: Tjenester
       housing: Rum
       items: Ting
-      list_view: Listevisning
+      list_view: Liste
       map_view: "Vis kort"
       offer_something: "Spred budskabet!"
       offer_type: Tilbudstype

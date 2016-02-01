@@ -31,21 +31,21 @@ da-DK:
       send_instructions: "Du vil modtage en mail om et par minutter med instruktioner om, hvordan du aktiverer din konto."
       confirmed: "Din konto er blevet bekræftet. Du er nu logget ind"
     registrations:
-      signed_up_but_unconfirmed: "En meddelelse med et link til bekræftelse er blevet sendt til din e-mail-adresse. Venligst åben linket for at aktivere din konto."
-      signed_up_but_inactive: "Din tilmelding er korrekt. Vi kunne desværre ikke logge dig på, fordi din konto endnu ikke er aktiveret."
+      signed_up_but_unconfirmed: "En meddelelse med et bekræftelseslink er blevet sendt til din mail. Åbn linket for at aktivere din konto."
+      signed_up_but_inactive: "Du har tilmeldt dig med succes, men vi kunne ikke logge dig på, fordi din konto endnu ikke er aktiveret."
       signed_up_but_locked: "Din tilmelding er korrekt. Vi kunne desværre ikke logge dig ind, fordi din konto er låst."
       reasons:
         inactive: Passiv
         unconfirmed: "Ikke bekræftet"
         locked: låst
-      update_needs_confirmation: "Du har opdateret din konto med succes, men vi er nødt til at bekræfte din nye e-mailadresse. Tjek venligst din e-mail og klik på linket Bekræft for at  bekræftelse din nye e-mailadresse."
+      update_needs_confirmation: "Du har opdateret din konto med succes, men vi er nødt til at bekræfte din nye e-mailadresse. Tjek din mail og klik på linket Bekræft for at bekræfte din nye e-mailadresse."
       signed_up: "Velkommen! Du er nu logget på."
       updated: "Din konto er nu opdateret."
       destroyed: "Tak for denne gang! Din konto er nu lukket. Vi håber at se dig igen snart."
     unlocks:
-      send_paranoid_instructions: "Hvis der findes på din konto, vil du modtage en e-mail med instruktioner om, hvordan at låse den op i et par minutter."
+      send_paranoid_instructions: "Hvis din konto findes, vil du om få minutter modtage en e-mail med instruktioner om genåbning af din konto."
       send_instructions: "Du vil modtage en e-mail om et par minutter med instruktioner om hvordan du kan låse din konto op."
-      unlocked: "Din konto er blevet låst op. Venligst log ind for at fortsætte."
+      unlocked: "Din konto er blevet låst op. Log ind for at fortsætte."
     omniauth_callbacks:
       success: "Succesfuld tilladelse fra %{kind} konto."
       failure: "Kunne ikke godkende dig fra %{kind} fordi \"%{reason}\"."

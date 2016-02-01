@@ -216,7 +216,7 @@ it:
         email_admins_about_new_members: ~
         google_analytics_key: ~
         twitter_handle: ~
-        update_settings: ~
+        update_settings: "Salva le impostazioni"
         automatically_confirmed: ~
         automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
@@ -267,7 +267,7 @@ it:
         google_analytics_key: ~
         google_analytics_key_info_text: ~
         google_analytics_key_info_text_with_instructions: ~
-        google_analytics_instructions_link_text: ~
+        google_analytics_instructions_link_text: "Maggiori informazioni su come connettere Google Analytics"
         save: "Salva le impostazioni"
       menu_links:
         menu_links: ~
@@ -313,7 +313,7 @@ it:
         master_merchant_id: ~
         commission_from_seller: ~
       paypal_account:
-        paypal_admin_account: "conto per il pagamento con PayPal"
+        paypal_admin_account: "Sistema dei pagamenti - PayPal"
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -416,7 +416,7 @@ it:
         create_failure: ~
       edit:
         edit_listing_shape: ~
-        update: ~
+        update: Salva
         cancel: ~
         update_success: ~
         update_failure: ~
@@ -459,24 +459,24 @@ it:
     paypal_accounts:
       marketplace_paypal_integration: "Integrazione PayPal"
       preferences_updated: "Preferenze di pagamento aggiornate"
-      marketplace_currency_used: ~
-      contact_support_link_text: ~
+      marketplace_currency_used: "Questo marketplace usa %{currency} come propria valuta. Per cambiare valuta %{contact_support_link}."
+      contact_support_link_text: "Contatta il supporto di Sharetribe"
       integration_info_text: "Il sistema di pagamento di %{service_name} è gestito da PayPal. Se vuoi consentire ai tuoi utenti di effettuare pagamenti sulla tua piattaforma, è necessario collegare il tuo conto PayPal e decidere il prezzo minimo del tuo spazio e la quota che vuoi trattenere per ogni transazione."
       paypal_account_email: "1. Collega il tuo conto PayPal"
-      link_paypal_personal_account_label: ~
+      link_paypal_personal_account_label: "Stai offrendo tu stesso prodotti o servizi?"
       paypal_account_email_completed: Completato!
-      link_paypal_personal_account: ~
-      personal_payment_preferences_link_text: ~
+      link_paypal_personal_account: "Se è così, sarà quindi necessario collegare il conto PayPal a %{personal_payment_preferences_link}."
+      personal_payment_preferences_link_text: "Il tuo account personale della piattaforma di marketplace"
       set_minimum_price_and_fee_completed: Completato!
-      read_more_about_paypal: ~
+      read_more_about_paypal: "Maggiori informazioni sul sistema di pagamenti di Sharetribe"
       set_minimum_price_and_fee: "2. Inserisci un prezzo minimo e una tariffa di transazione"
-      minimum_listing_price_label: "Prezzo minimo per lo spazio:"
+      minimum_listing_price_label: "Prezzo minimo consentito:"
       transaction_fee_label: "Tariffa di transazione:"
-      minimum_transaction_fee_label: ~
-      note_about_transaction_fee: "Nota: la quota di transazione include la percentuale di PayPal che dipende dalla valuta e dal volume delle vendite del venditore. Per questo motivo, la quota  è sempre almeno %{min_paypal_commission}. Quando la quota viene imposta da parte del venditore, PayPal detrarrà prima le sue spese , e il resto sarà trasferito al tuo conto PayPal."
+      minimum_transaction_fee_label: "Commissione minima sulle transazioni"
+      note_about_transaction_fee: "Nota: la commissione di intermediazione sulle transazioni include la percentuale trattenuta da PayPal, che dipende dalla valuta e dal volume delle vendite del venditore. Per questo motivo, la commissione di intermediazione  è sempre almeno %{min_paypal_commission}. Quando la quota viene imposta da parte del venditore, PayPal detrarrà prima le sue spese, e il resto sarà trasferito al tuo conto PayPal."
       save_settings: "Salva le impostazioni"
-      minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      minimum_listing_price_below_tx_fee: "Il prezzo minimo deve essere maggiore o uguale al valore mino imposto dalla piattaforma: %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "Il prezzo minimo deve essere maggiore o uguale al valore mino imposto dalla piattaforma: %{minimum_commission}."
     transaction_types:
       sell: ~
       rent: ~
@@ -501,7 +501,7 @@ it:
     fields_that_are_mandatory: "I campi segnalati con l'asterisco (*) sono obbligatori."
     or: o
     password: Password
-    service_name: ~
+    service_name: "%{service_name}"
     share_types:
       request: richiedi
       offer: offri
@@ -515,7 +515,7 @@ it:
       sell: vendere
       offer_to_swap: scambio
       request_to_swap: scambio
-      share_for_free: ~
+      share_for_free: "condivisione libera"
       accept_for_free: ~
     categories:
       item: ~
@@ -542,10 +542,14 @@ it:
     what_is_this: "Cos'è questo?"
     removed_user: ~
     paypal_fee_info:
-      title: ~
-      body_text: ~
-      body_with_shipping_text: ~
-      link_to_paypal_text: ~
+      title: "Informazioni sul processo di commissioni dovute a PayPal"
+      body_text: |-
+          PayPal applica una tassa di elaborazione ad ogni pagamento. Questa tassa è compresa tra il 2% e il 5% del prezzo totale di vendita, a seconda del volume di vendite mensile e del paese di residenza dell'acquirente (in Italia 3,4%+0,35€). In generale, per gli acquisti nazionali si applicano costi inferiori rispetto a quelli internazionali, e vendite mensili elevati offrono uno sconto sulla tassa di elaborazione.
+          Puoi vedere le tariffe esatte accedendo al tuo conto PayPal andando %{link_to_paypal} . Dopo ogni acquisto si otterrà una ricevuta che visualizza la quota esatta.
+      body_with_shipping_text: |-
+          PayPal applica una tassa di elaborazione ad ogni pagamento. Questa tassa è compresa tra il 2% e il 5% del prezzo totale di vendita, a seconda del volume di vendite mensile e del paese di residenza dell'acquirente (in Italia 3,4%+0,35€). In generale, per gli acquisti nazionali si applicano costi inferiori rispetto a quelli internazionali, e vendite mensili elevati offrono uno sconto sulla tassa di elaborazione.
+          Puoi vedere le tariffe esatte accedendo al tuo conto PayPal andando %{link_to_paypal} . Dopo ogni acquisto si otterrà una ricevuta che visualizza la quota esatta.
+      link_to_paypal_text: qui
   conversations:
     accept:
       details: ~
@@ -566,10 +570,10 @@ it:
       accept: ~
       decline: ~
       quantity_label: ~
-      sum_label: ~
+      sum_label: "Subtotale:"
       service_fee_label: ~
       you_will_get_label: ~
-      total_label: ~
+      total_label: "Totale:"
       total_value: ~
       paypal_fee_info: ~
       shipping_price_label: ~
@@ -611,13 +615,13 @@ it:
     message:
       accepted_request: ~
       received_payment: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
+      accepted_offer: "Offerta accettata"
+      rejected_request: "Richiesta respinta"
+      rejected_offer: "Offerta respinta"
       confirmed_request: ~
-      confirmed_offer: ~
+      confirmed_offer: "Offerta segnata come completata"
       canceled_request: ~
-      canceled_offer: ~
+      canceled_offer: "Offerta cancellata"
       paid: "pagati %{sum}"
       payment_preauthorized: ~
     new:
@@ -682,8 +686,8 @@ it:
       give_feedback: "Rilascia feedback"
       offer_accepted: accettata
       offer_rejected: rifiutata
-      offer_canceled: ~
-      offer_confirmed: ~
+      offer_canceled: Cancellato
+      offer_confirmed: completato
       offer_paid: "Pagamento riuscito"
       offer_preauthorized: "Pagamento riuscito"
       offer_waiting_for_payment: "In attesa che %{requester_name} paghi"
@@ -692,7 +696,7 @@ it:
       paid: "Pagamento riuscito"
       pending_external:
         paypal:
-          multicurrency: "Non siamo stati in grado di processare il pagamento PayPal perché il tuo conto PayPal non è stato impostato per ricevere fondi in %{currency}. Apri %{paypal_url} e accedi al tuo account per accettare o rifiutare manualmente il pagamento."
+          multicurrency: "Non siamo stati in grado di processare il pagamento PayPal perché il tuo conto PayPal non è stato impostato per ricevere fondi in %{currency}. Apri %{paypal_url} e accedi al tuo account per gestire manualmente l'accettazione o il rifiuto del pagamento."
           verify: "Non puoi accettare questa transazione in quanto il tuo conto PayPal non è stato ancora verificato. Apri %{paypal_url} per verificare il tuo conto."
           intl: "Non siamo stati in grado di processare il pagamento PayPal in quanto il tuo conto PayPal non ha abilitato un meccanismo di prelievo. Apri %{paypal_url} e accedi al tuo conto per accettare o rifiutare manualmente il pagamento."
       waiting_for_current_user_to_deliver_listing: ~
@@ -716,7 +720,7 @@ it:
         paypal:
           multicurrency: "In attesa che tu accetti il pagamento PayPal"
           intl: "In attesa che tu accetti il pagamento PayPal"
-          unknown_reason: ~
+          unknown_reason: "C'è un pagamento pendente. Entra nel tuo account PayPal per maggiori informazioni."
           verify: "In attesa che tu verifichi il tuo conto PayPal"
     status_link:
       accept_offer: "Accetta offerta"
@@ -862,9 +866,9 @@ it:
       want_to_control_emails: "Vuoi controllare da quale email ricevere %{service_name}?"
       dont_want_to_receive_these_emails: "Non vuoi ricevere queste email?"
       edit_your_email_settings_here: "Modifica qui le impostazioni della tua email"
-      message_not_displaying_correctly: ~
-      view_it_in_your_browser: ~
-      or: ~
+      message_not_displaying_correctly: "L'email non è correttamente visibile?"
+      view_it_in_your_browser: "Vedi nel tuo browser"
+      or: o
       unsubscribe_from_these_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha accettato la tua offerta %{listing}."
@@ -901,13 +905,13 @@ it:
       quantity: ~
       you_have_received_new_payment: "Hai ricevuto <b>%{payment_sum}</b> per <b>%{listing_title}</b> da %{payer_full_name}. Ecco la tua ricevuta."
     paypal_new_payment:
-      paypal_gateway_fee: ~
-      shipping_total: ~
+      paypal_gateway_fee: "Commissione di PayPal"
+      shipping_total: Spedizione
     braintree_new_payment:
       product: "Prodotto:"
       price_payer_paid: "Prezzo %{payer_full_name} pagato:"
       service_fee: ~
-      you_will_get: ~
+      you_will_get: "Totale:"
       money_will_be_transferred: "I soldi saranno trasferiti nel tuo conto quando a) %{payer_name} ha segnato la richiesta come completata or b) %{automatic_confirmation_days} giorni sono passati da quando %{payer_name} ha effettuato il pagamento."
     receipt_to_payer:
       receipt_of_payment: "Ricevuta di pagamento"
@@ -916,7 +920,7 @@ it:
       price_per_unit_type: ~
       duration: ~
       quantity: ~
-      subtotal: ~
+      subtotal: "Subtotale:"
       total: Totale
       price: Prezzo
       service_fee: Commissione
@@ -930,17 +934,17 @@ it:
       has_updated_listing_you_follow_in_kassi: "%{author} ha aggiornato l'inserzione '%{listing}' che stai seguendo su %{service_name}."
       view_changes: "Mostra le modifiche"
     community_updates:
-      added_offer: "%{name_link} ha aggiunto una inserzione"
+      added_offer: "%{name_link} ha aggiunto una nuova inserzione."
       added_request: "%{name_link} ha aggiunto una nuova inserzione"
-      added_listing: ~
-      update_mail_title: ~
-      title_link_text: ~
-      intro_paragraph: ~
+      added_listing: "%{name_link} ha aggiunto una nuova inserzione."
+      update_mail_title: "Aggiornamenti %{title_link} !"
+      title_link_text: "%{community_name}"
+      intro_paragraph: "Ecco alcune cose che sono accadute su %{community_link} nel periodo di %{time_since_last_update}"
       intro_paragraph_link_text: ~
       post_a_new_listing: "Pubblica una nuova offerta"
-      reduce_email_footer_text: ~
-      settings_link_text: ~
-      unsubscribe_link_text: ~
+      reduce_email_footer_text: "Troppe email? %{settings_link} or %{unsubscribe_link}"
+      settings_link_text: "Modifica le tue preferenze email qui"
+      unsubscribe_link_text: "Annulla sottoscrizione"
     newsletter:
       hi: "Ciao %{name},"
       newest_offers: "Quello che le persone attualmente offrono agli altri"
@@ -1003,13 +1007,13 @@ it:
     transaction_agreement:
       required_error: ~
     paypal:
-      buyer_cannot_pay_error: ~
-      pending_review_error: ~
-      seller_express_checkout_disabled: ~
+      buyer_cannot_pay_error: "Il pagamento è stato rifiutato da PayPal. Si prega di contattare il loro Servizio Clienti per maggiori informazioni: %{customer_service_link}"
+      pending_review_error: "Il pagamento è stato presentato, ma è stato contrassegnato da PayPal come 'in revisione'. Quando PayPal completarà la revisione, il pagamento verrà autorizzato automaticamente."
+      seller_express_checkout_disabled: "Il pagamento con PayPal non è attivo sul conto PayPal dell'autore dell'inserzione. Per favore contatta l'autore, e mettilo a conoscenza che c'è un problema con il suo conto PayPal. Consigliali per favore di contattare l'Assistenza clienti PayPal."
       generic_error: "Si è verificato un errore durante la procedura di pagamento. Impossibile finalizzare il pagamento di PayPal."
       cancel_error: "Si è verificato un errore durante la cancellazione. Non è stato possibile completare la cancellazione."
       accept_authorization_error: "Si è verificato un errore durante il tentativo di accettare un pagamento pre autorizzato di Paypal. Per favore, riprova nuovamente."
-      reject_authorization_error: ~
+      reject_authorization_error: "Si è verificato un errore durante il tentativo di respingere la preautorizzazione del pagamento di Paypal. Per favore, provare di nuovo."
   error_pages:
     back_to_kassi_front_page: "Indietro alla front page"
     error_404:
@@ -1053,14 +1057,14 @@ it:
       has_accepted_lend_item: "%{offerer_name} ha accettato il prestito di %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_borrow_item: "%{offerer_name} ha accettato di prendere in prestito %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_rent_out_item: "%{offerer_name} ha accettato di affittare %{listing_title} a %{requester_name} %{time_ago}."
-      has_accepted_rent_item: "%{offerer_name} ha accettato di affittare %{listing_title} a %{requester_name} %{time_ago}."
+      has_accepted_rent_item: "%{offerer_name} ha accettato di prendere in affitto %{listing_title} da %{requester_name} %{time_ago}."
       has_accepted_give_away_item: "%{offerer_name} ha accetato di cedere %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_receive_item: "%{offerer_name} ha accetato di ricevere %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_sell_item: "%{offerer_name} ha accetato di vendere %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_buy_item: "%{offerer_name} ha accetato di comprare %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_trade_item: ~
       has_accepted_sell_housing: "%{offerer_name} ha accetato di vendere %{listing_title} a %{requester_name} %{time_ago}."
-      has_accepted_buy_housing: "%{offerer_name} ha accetato di comprare %{listing_title} a %{requester_name} %{time_ago}."
+      has_accepted_buy_housing: "%{offerer_name} ha accetato di comprare %{listing_title} da %{requester_name} %{time_ago}."
       has_accepted_rent_out_housing: "%{offerer_name} ha accettato di affittare %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_rent_housing: "%{offerer_name} ha accettato di prendere in affitto %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_favor: ~
@@ -1085,7 +1089,7 @@ it:
     create_new_marketplace: "Crea un nuovo marketplace"
     contact_us: Contattaci
     profile: Profilo
-    manage_listings: ~
+    manage_listings: "Gestione annunci"
     invite: "Invita nuovi utenti"
     login: ~
     signup: Registrati
@@ -1225,7 +1229,7 @@ it:
       your_email_address: "Il tuo indirizzo email (per contattarti)"
       connect: Registrati
       invite_your_friends: "Invita i tuoi amici!"
-      invite_your_neighbors: ~
+      invite_your_neighbors: "Invita i tuoi amici !"
       invite_your_friends_description: "Più persone ci sono su %{service_name}, più è utile."
       invite_your_friends_invite_only_description: ~
       join_without_facebook: "...o altrimenti %{join_without_facebook_link}"
@@ -1414,10 +1418,10 @@ it:
       edit_listing: "Modifica l'inserzione"
       reopen_listing: "Riapri un'inserzione"
       move_to_top: "Torna all'inizio"
-      show_in_updates_email: ~
+      show_in_updates_email: "Mostra nella prossima email automatica della piattaforma"
       show_in_updates_email_loading: Caricamento...
-      show_in_updates_email_error: ~
-      show_in_updates_email_success: ~
+      show_in_updates_email_error: "Non è possibile raggiungere il server. Prova con un refresh della pagina (F5)"
+      show_in_updates_email_success: "Questa inserzione sarà mostrato nel prossimo aggiornamento automatico delle inserzioni inviato via e-mail agli utenti"
     map:
       open_in_google_maps: ~
     error:
@@ -1453,7 +1457,7 @@ it:
         googlemap_updatemap: "Mappa aggiornata"
       images:
         image: Immagine
-        best_result: ~
+        best_result: "Per un miglior risultato usa formati JPG, GIF, PNG  che siano di larghezza %{width} e altezza %{height} pixel."
         no_file_selected: "Nessun file selezionato"
         remove_image: "Rimuovi immagine"
         select_file: "Seleziona file"
@@ -1480,9 +1484,9 @@ it:
         time: "ora, giorno, mese, ..."
         long_time: "settimana, mese, ..."
         after_service_fee_you_will_get: ~
-        no_service_fee_you_will_get_paypal_text: ~
-        after_service_fee_you_will_get_paypal_text: ~
-        paypal_fee_info_link_text: ~
+        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} sarà dedotta dal prezzo."
+        after_service_fee_you_will_get_paypal_text: "Dal valore totale verrà sottratta la commissione di intermediazione di %{service_name} equivalente a %{sum_with_currency}, e la %{paypal_fee_info_link}."
+        paypal_fee_info_link_text: "commissione dovuta al sistema di pagamento PayPal"
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "Il prezzo non include l'IVA"
         delivery: ~
@@ -1612,7 +1616,7 @@ it:
       offer: Offerta
       listing_created: Creata
       open_until: "Aperto fino %{date}"
-      feedback: ~
+      feedback: Feedback
       qr_code: "codice QR"
       request: Richiesta
       rideshare_offer: "Offerta di passaggio"
@@ -1652,7 +1656,7 @@ it:
       by: "%{listing} di %{author}"
       payment: Pagamento
       exp: ~
-      you_will_be_charged: ~
+      you_will_be_charged: "Il pagamento sarà convalidato solo se %{author} accetterà il pagamento. %{author} ha tempo %{expiration_period} gironi per convalidare. Se %{author} rifiuta o non risponde il pagamento non sarà effettuato."
       day: giorno
       days: giorni
     transaction_agreement_checkbox:
@@ -1705,73 +1709,75 @@ it:
         braintree_terms_also_included: ~
         terms_link_text: ~
   paypal_accounts:
-    payout_info_title: "Informazioni sul compenso"
-    paypal_account_email_connected: "<del>Connetti un account Paypal</del> Completato!"
-    payout_info_paypal: ~
-    paypal_billing_agreement_made: "<del>Concedi a %{service_name} il permesso per applicare una commissione alla transazione</del> Completato!"
-    commission_permission_needed: ~
-    create_paypal_account_link_text: ~
+    payout_info_title: "Sistema dei pagamenti"
+    paypal_account_email_connected: "<del>Connessione del conto Paypal</del> Completata!"
+    payout_info_paypal: "%{service_name} usa PayPal come sistema di pagamento. E' richiesto un %{create_paypal_account_link} per accettare i pagamenti delle tue inserzioni, e deve essere connesso a %{service_name}."
+    paypal_billing_agreement_made: "<del>Permesso a %{service_name} di applicare una commissione alla transazione</del> Completato!"
+    commission_permission_needed: "Devi concedere il permesso a %{service_name} di caricare la propria commissione."
+    create_paypal_account_link_text: "PayPal account"
     connected_account: "Il conto PayPal '%{email}' è stato connesso con successo."
-    paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: ~
-    paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: ~
-    admin_account_not_connected: ~
-    contact_admin_link_text: ~
+    paypal_receive_funds_info_label_australia_only: "Devi abilitare il tuo conto PayPal per accettare i pagamenti. E' necessario un conto PayPal Business. L'aggiornamento ad un conto PayPal business è semplice e non costa nulla."
+    paypal_receive_funds_info_label: "Devi abilitare il tuo conto PayPal per accettare i pagamenti. E' necessario un conto PayPal Business. L'aggiornamento ad un conto PayPal business è semplice e non costa nulla."
+    paypal_receive_funds_info: "Se avviene un errore tentando di collegare il tuo Conto PayPal a %{service_name}, ciò significa che devi fare un upgrade da %{upgrade_paypal_account_link}. Questo è senza costi e facile. Se sei una persona fisica, PayPal raccomanda di usare il proprio nome e cognome per il conto Business."
+    upgrade_paypal_account_link_text: "Fai il login e clicca sull'upgrade link"
+    admin_account_not_connected: "Non è possibile utilizzare il sistema di pagamenti di %{service_name} e ricevere pagamenti, se prima non è stato settato. per favore %{contact_admin_link} per i dettagli."
+    contact_admin_link_text: "contatta l'amministratore della piattaforma di marketplace"
     you_are_ready_to_accept_payments: "Ora sei pronto per accettare i pagamenti!"
-    commission: ~
+    commission: "%{commission} %"
     new:
-      payout_info_you_need_to_connect: "Per accettare i pagamenti devi connettere il tuo conto PayPal con %{service_name}."
+      payout_info_you_need_to_connect: "Per accettare i pagamenti devi connettere il tuo conto PayPal a %{service_name}."
       payout_info_text: "Ti preghiamo di completare gli step successivi per connettere il tuo account."
-      contact_admin_link_text: ~
+      contact_admin_link_text: "Contatta l'amministratore"
       admin_account_not_connected: "Non puoi connettere il tuo conto PayPal perchè l'amministratore della piattaforma non ha terminato la configurazione di PayPal."
-      paypal_account_email: "Connetti il tuo account PayPal"
+      paypal_account_email: "Collega il tuo conto PayPal"
       paypal_account_email_placeholder: "Il tuo indirizzo email di PayPal"
       paypal_account_email_info_text: "Se non hai un account paypal, puoi crearne uno %{create_paypal_account}. Se ti viene dato errore quando connetti il tuo account, significa che devi aggiornare ad un account Business. L'aggiornamento è rapido e facile e non ti costa nulla. Se sei una persona fisica, dovresti usare il tuo nome e cognome nel campo \"ragione sociale\" quando Paypal te lo richiede. Per aggiornare il tuo account, %{upgrade_paypal_account} e trova il link per l'aggiornamento."
       create_paypal_account: "Cliccando qui"
-      upgrade_paypal_account: "accedi al tuo account Paypal"
-      paypal_account_billing_agreement: "Concedi a %{service_name} l'autorizzazione per applicare una commissione"
-      follow_steps: ~
-      connect_paypal_account_title: ~
-      connect_paypal_account_title_with_step: ~
-      connect_paypal_account_instructions: ~
-      connect_paypal_account: "Connetti il tuo account Paypal"
-      paypal_account_billing_agreement_with_step: ~
-      paypal_account_billing_agreement_info_both: ~
-      paypal_account_billing_agreement_info_fixed: ~
-      paypal_account_billing_agreement_info_relative: ~
-      paypal_account_billing_agreement_info_none: ~
-      paypal_info_link_text: ~
+      upgrade_paypal_account: "Accedi al tuo conto Paypal"
+      paypal_account_billing_agreement: "Concedi a %{service_name} l'autorizzazione ad applicare una commissione"
+      follow_steps: "Segui i passi qui sotto per iniziare a ricevere i pagamenti:"
+      connect_paypal_account_title: "Collega il tuo conto PayPal"
+      connect_paypal_account_title_with_step: "Step %{current_step}/%{total_steps}: Collega il tuo conto PayPal"
+      connect_paypal_account_instructions: "Clicca sul pulsante in basso, entra così in PayPal, e collega il conto con %{service_name}."
+      connect_paypal_account: "Collega il tuo conto Paypal"
+      paypal_account_billing_agreement_with_step: "Step %{current_step}/%{total_steps}: Concedere il permesso a caricare la commissione di intermediazione."
+      paypal_account_billing_agreement_info_both: |-
+          Dopo aver effettuato una vendita su %{service_name}, una commissione di intermediazione verrà addebitata sul conto PayPal. Il permesso di fare questo è necessario al fine di accettare pagamenti su %{service_name}. La quota non comprende %{paypal_info_link}.
+          (%{commission_from_seller} sul prezzo totale, a parte le spese di spedizione, tassa minima %{minimum_commission}).
+      paypal_account_billing_agreement_info_fixed: "Dopo aver effettuato una vendita su %{service_name}, una commissione di intermediazione %{minimum_commission} verrà addebitato sul tuo conto PayPal. E' necessario consentire che Paypal trasferisca tale somma, al fine di ottenere pagamenti su %{service_name}. La quota non include %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Dopo aver effettuato una vendita su %{service_name}, una commissione di intermediazione di %{commission_from_seller} verrà addebitata sul tuo conto PayPal. Il permesso a fare questo è necessario al fine di accettare pagamenti su %{service_name}. La quota non comprende %{paypal_info_link}."
+      paypal_account_billing_agreement_info_none: "%{service_name} attualmente non richiede costi di commissione. Nel momento in cui una commissione di intermediazione fosse abilitata, sarà necessario concedere a %{service_name} il permesso di riscuotere una commissione, al fine di consentire i pagamenti. La quota non comprende %{paypal_info_link}."
+      paypal_info_link_text: "Commissione dovuta al sistema di pagamento PayPal"
       billing_agreement_description: "Concedi a %{service_name} l'autorizzazione per applicare una commissione sulla transazione."
       billing_agreement: "Concedi l'autorizzazione"
-      permissions_not_granted: "L'autorizzazione per connettere il tuo account Paypal non è stata concessa."
+      permissions_not_granted: "L'autorizzazione per collegare il tuo account Paypal non è stata concessa."
       could_not_fetch_redirect_url: "Non è stato possibile individuare l'url di reindirizzamento per connettere Paypal."
       paypal_not_enabled: "I pagamenti di Paypal non sono stati abilitati."
-      billing_agreement_canceled: ~
-      billing_agreement_not_accepted: ~
-      billing_agreement_wrong_account: ~
+      billing_agreement_canceled: "I permessi di pagamento sono stati disabilitati."
+      billing_agreement_not_accepted: "Non hai accettato il contratto di fatturazione in PayPal."
+      billing_agreement_wrong_account: "I Conti PayPal non coincidono. Per favore usa lo stesso account di PayPal che hai collegato nel primo step."
       something_went_wrong: "Qualcosa è andato storto. Riprova. Se il problema persiste, si prega di contattare gli amministratori del sito."
-      account_not_verified: ~
-      account_restricted: ~
-    paypal_account_connected_title: ~
-    paypal_account_connected: ~
-    change_account: ~
-    missing: ~
-    from_your_payment_settings_link_text: ~
-    redirect_message: ~
-    redirect_link_text: ~
-    paypal_account_all_set_up: ~
-    can_receive_payments: ~
-    paypal_account_connected_summary: ~
-    paypal_permission_granted_summary: ~
+      account_not_verified: "Non hai verificato il tuo conto PayPal. Hai bisogno di andare a paypal.com e verificare il tuo account prima di poter continuare."
+      account_restricted: "Il tuo conto PayPal ha dei limiti impostati e non può essere collegato. Effettua il login per paypal.com per saperne di più o entrare in contatto con l'assistenza clienti PayPal per risolvere il problema."
+    paypal_account_connected_title: "Conto PayPal connesso"
+    paypal_account_connected: "L'account PayPal %{email} è stato connesso con %{service_name}"
+    change_account: "Cambia il conto PayPal"
+    missing: "Hai inserzioni attive, ma il tuo account Paypal non è impostato per ricevere i pagamenti. Collega l'account Paypal e concedi a %{service_name} il permesso di percepire la commissione dal tuo %{settings_link}. Una volta finito il procedimento sarai in gradi di ottenere le prenotazioni, ed i pagamenti da altri utenti."
+    from_your_payment_settings_link_text: "Configurazione dei pagamenti"
+    redirect_message: "Reindirizzamento a PayPal. Se non succede niente, clicca %{redirect_link}."
+    redirect_link_text: qui
+    paypal_account_all_set_up: "Hurra ! Tutto è al suo posto !"
+    can_receive_payments: "Ora puoi ricevere pagamenti per le tue inserzioni."
+    paypal_account_connected_summary: "L'account PayPal %{email} è ora connesso."
+    paypal_permission_granted_summary: "Permesso per la commissione di intermediazione concesso."
   paypal:
-    pay_with_paypal: ~
-    checkout_with_paypal: ~
+    pay_with_paypal: "Procedi con il pagamento"
+    checkout_with_paypal: "Paga con PayPal"
     cancel_succesful: "Il pagamento di PayPal è stato cancellato con successo"
     transaction:
       commission_payment_name: "Pagamento della commissione per %{listing_title}"
-      commission_payment_description: "La piattaforma %{service_name} ha preso questa commissione dalla transazione riguardante %{listing_title}"
-    wait_while_loading: ~
+      commission_payment_description: "La piattaforma %{service_name} ha preso questa commissione dalla transazione che riguarda il seguente annuncio: %{listing_title}"
+    wait_while_loading: "Per favore attendi."
     chatting_with_paypal: ~
   people:
     edit_links:
@@ -1813,7 +1819,7 @@ it:
       signup_with_email: "Iscriviti con l'indirizzo e-mail"
     not_member:
       explanation_text: "Sei all'interno della comunità %{community}. Hai provato a visionare il profilo che appartiene ad un'altra comunità di Sharetribe. Non puoi accedere al profilo attraverso la comunità %{community}."
-      read_more_about_kassi_communities: "Leggi altre informazioni sulle comunità Sharetribe"
+      read_more_about_kassi_communities: "Leggi altre informazioni sui marketplace Sharetribe"
       this_user_does_not_belong_to_this_community: "Questo utente non appartiene alla comunità %{community}"
     profile_feedback:
       grade: "grado:"
@@ -1832,7 +1838,7 @@ it:
       as_expected: "Come previsto"
       edit_profile_info: "Modifica profilo"
       exceeded_expectations: "Oltre le aspettative"
-      positive: ~
+      positive: Positivo
       hide_description: "Mostra di meno"
       less_than_expected: "Peggio del previsto"
       phone_number: "Numero di telefono:"
@@ -1903,10 +1909,12 @@ it:
       your_current_email_is: "La tua email è %{email}."
       change_email: Cambia
       confirm_your_email: "Conferma la tua email"
-      account_confirmation_instructions: ~
+      account_confirmation_instructions: "Presto riceverai un'e-mail con un link per confermare il tuo indirizzo email. Non dimenticare di controllare la cartella spam! Dopo aver confermato il tuo indirizzo, potrai unirti a %{service_name}."
       account_confirmation_instructions_title_admin: ~
       your_marketplace_has_now_been_created: ~
-      account_confirmation_instructions_admin: ~
+      account_confirmation_instructions_admin: |-
+          Presto riceverai un'e-mail con un link per confermare il tuo indirizzo email. Non dimenticare di controllare la cartella spam! Dopo aver confermato il tuo indirizzo, puoi cominciare a configurare il tuo profilo, le tue inserzioni, e le preferenze di ricezione email.
+          Nel tuo account di posta aggiungi il nostro indirizzo email
   settings:
     account:
       change: Cambia
@@ -1917,8 +1925,8 @@ it:
       email_addresses: "Indirizzi email"
       new_email: "Nuovo indirizzo email"
       delete_all_memberships: ~
-      delete_personal_information: ~
-      delete_information_others_involved: ~
+      delete_personal_information: "Se elimini l'account, i tuoi dati personali (nome, numero di telefono, indirizzo, email, foto del profilo, ecc) verranno eliminati in modo permanente e non potranno essere recuperati. Tutti gli annunci che hai creato verranno rimossi. Non sarai in grado di riattivare il tuo account."
+      delete_information_others_involved: "le informazioni dove altri partecipanti sono coinvolti (le conversazioni con altre persone, le operazioni che hai fatto, recensioni che hai dato agli altri, ecc) non verranno rimosse quando elimini il tuo account. Tuttavia, il tuo nome non sarà più visualizzato accanto a queste informazioni."
       unfinished_transactions: ~
       new_password: "Nuova password"
       save: Salva
@@ -1958,8 +1966,8 @@ it:
       email_about_new_payments: "...ricevo un nuovo pagamento"
       email_about_payment_reminders: "...ho dimenticato di pagare"
       email_about_new_listings_by_followed_people: "...qualcuno che seguo pubblica un nuovo annuncio"
-      unsubscribe_succesful: ~
-      unsubscribe_info_text: ~
+      unsubscribe_succesful: "Rimozione completa"
+      unsubscribe_info_text: "Controlla le %{settings_link} per scegliere quale tipo di email vuoi ricevere %{service_name}, o ritorna a %{homepage_link}."
       settings_link: impostazioni
       homepage_link: "Pagina iniziale"
       unsubscribe_unsuccesful: ~
@@ -2040,7 +2048,7 @@ it:
       sunday: Dom
       monday: Lun
       tuesday: Mar
-      wednesday: Mer
+      wednesday: Mercoledì
       thursday: Gio
       friday: Ven
       saturday: Sab
@@ -2103,16 +2111,16 @@ it:
       other: "%{count} giorni"
   transactions:
     initiate:
-      booked_days: ~
-      price_per_day: ~
+      booked_days: "Giorni prenotati:"
+      price_per_day: "Prezzo al giorno:"
       quantity: ~
-      subtotal: ~
+      subtotal: "Subtotale:"
       shipping-price: ~
     price_per_quantity: ~
     price: ~
     quantity: ~
     unit_price: ~
-    total: ~
+    total: "Totale:"
   unit:
     day: giorno
     days: giorni

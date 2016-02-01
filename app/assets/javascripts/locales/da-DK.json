@@ -1,8 +1,8 @@
 {
   "please_wait": "Vent venligst...",
   "validation_messages": {
-    "accept": "Billedet skal være GIF, JPG or PNG format.",
-    "creditcard": "Vælg det markerede felt, og skriv et gyldigt kreditkortnummer.",
+    "accept": "Billeder skal være af typerne GIF, JPG eller PNG.",
+    "creditcard": "Indtast et gyldigt kreditkortnummer.",
     "date": "Indtast venligst en gyldig dato.",
     "dateISO": "Indtast venligst en gyldig dato (ISO).",
     "digits": "Indtast kun cifre.",
@@ -17,9 +17,9 @@
     "rangelength": "Indtast venligst en værdi mellem {0} og {1} tegn.",
     "remote": "Ret venligst dette felt.",
     "required": "Dette felt er påkrævet.",
-    "url": "Angiv venligst en gyldig URL",
+    "url": "Indtast en gyldig URL.",
     "address_validator": "Placeringen blev ikke fundet.",
-    "money": "Du er nødt til at indsætte en gyldig pengeværdi.",
+    "money": "Du skal indtaste en gyldig pengeværdi.",
     "min_bound": "Indtast venligst en værdi mindre end eller lig med {0}.",
     "max_bound": "Indtast venligst en værdi mere end min værdi ({0})",
     "number_no_decimals": "Indtast venligst et helt tal",
