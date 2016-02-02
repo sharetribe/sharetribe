@@ -41,35 +41,6 @@ module ListingIndexService::Search
 
     private
 
-    def success_result(count, listings, includes)
-      Result::Success.new(
-        {count: count, listings: listings.map { |l| ListingIndexService::Search::Commons.listing_hash(l, includes) }})
-    end
-
-    def fetch_from_db(community_id:, search:, included_models:, includes:)
-      where_opts = HashUtils.compact(
-        {
-          community_id: community_id,
-          author_id: search[:author_id],
-          deleted: 0
-        })
-
-      query = Listing
-        .where(where_opts)
-        .includes(included_models)
-        .order("listings.sort_date DESC")
-        .paginate(per_page: search[:per_page], page: search[:page])
-
-      listings =
-        if search[:include_closed]
-          query
-        else
-          query.currently_open
-        end
-
-      success_result(listings.total_entries, listings, includes)
-    end
-
     def search_with_sphinx(community_id:, search:, included_models:, includes:)
       numeric_search_fields = search[:fields].select { |f| f[:type] == :numeric_range }
       perform_numeric_search = numeric_search_fields.present?
@@ -133,19 +104,6 @@ module ListingIndexService::Search
     def search_out_of_bounds?(per_page, page)
       pages = (SPHINX_MAX_MATCHES.to_f / per_page.to_f)
       page > pages.ceil
-    end
-
-    def needs_db_query?(search)
-      search[:author_id].present? || search[:include_closed] == true
-    end
-
-    def needs_search?(search)
-      [
-        :keywords,
-        :listing_shape_id,
-        :categories, :fields,
-        :price_cents
-      ].any? { |field| search[field].present? }
     end
 
     def selection_groups(groups)
