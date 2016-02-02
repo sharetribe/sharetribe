@@ -21,6 +21,13 @@ class Mercury::Image < ActiveRecord::Base
         :path => "images/mercury/:attachment/:id/:style/:filename",
         :url => "/system/:class/:attachment/:id/:style/:filename"
 
+  validates_attachment_content_type :image,
+                                    :content_type => ["image/jpeg",
+                                                      "image/png",
+                                                      "image/gif",
+                                                      "image/pjpeg",
+                                                      "image/x-png"]
+
   delegate :url, :to => :image
 
   def serializable_hash(options = nil)
