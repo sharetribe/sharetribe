@@ -20,7 +20,7 @@ module ListingIndexService::Search
           req.url("/api/v1/marketplace/#{community_id}/listings", search_params)
           req.headers['Authorization'] = 'apikey key=asdfasdf'
         end.body
-        Result::Success.new(parse_response(res["result"], includes))
+        Result::Success.new(parse_response(res, includes))
       rescue StandardError => e
         Result::Error.new(e)
       end
@@ -40,10 +40,12 @@ module ListingIndexService::Search
       defaults.merge(params)
     end
 
-    def listings_from_ids(ids, includes)
+    def listings_from_ids(id_obs, includes)
       # use pluck for much faster query after updating to Rails >4.1.6
       # http://collectiveidea.com/blog/archives/2015/03/05/optimizing-rails-for-memory-usage-part-3-pluck-and-database-laziness/
       # https://github.com/rails/rails/issues/17049
+
+      ids = id_obs.map { |r| r['id'] }
 
       Listing
         .where(id: ids) # use find_each for more efficient batch processing after updating to Rails 4.1
