@@ -58,7 +58,4 @@ Kassi::Application.configure do
   config.active_record.mass_assignment_sanitizer = :strict
 
   config.cache_store = :memory_store, { :namespace => "sharetribe-test"}
-
-  # For tests we want the observer that sync runs delayed jobs
-  config.active_record.observers = :sync_delayed_job_observer
 end

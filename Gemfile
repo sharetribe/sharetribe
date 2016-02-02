@@ -53,11 +53,8 @@ gem 'ts-delayed-delta', "~>2.0.2",
   :ref    => '839284f2f28b3f4caf3a3bf5ccde9a6d222c7f4d'
 gem 'possibly', '~> 0.2.0'
 
-# Can not use version 4.0.3, since it stucks the rails server loading. The issue which caused this
-# has been fixed for 4.0.4 https://github.com/collectiveidea/delayed_job/issues/697
-# However, some tests break for 4.0.4, so keeping 4.0.2 for now
-gem 'delayed_job', "~> 4.0.0", "<= 4.0.2"
-gem 'delayed_job_active_record', "4.0.3"
+gem 'delayed_job', "~> 4.1.1"
+gem 'delayed_job_active_record', "~> 4.1.0"
 
 gem 'json', "~>1.8.3"
 gem 'multi_json', "~>1.7.9" # 1.8.0 caused "invalid byte sequence in UTF-8" at heroku
@@ -103,14 +100,6 @@ gem 'activerecord-session_store', "~> 0.1.2"
 # It adds `attr_protected` and `attr_accessor` methods to models.
 # We should remove this gem before upgrading to Rails 5
 gem 'protected_attributes', "~> 1.1.3"
-
-# Observers should be used only in test code. Do NOT use them in production
-# code.
-#
-# Observers need to be placed in app/models and that's why they will get
-# loaded also in a non-test environment. That's also the reason why we need
-# to include the observers gem here and not in the :test group
-gem 'rails-observers', '~> 0.1.2'
 
 # Remove Emojis.
 # This will prevent MySQL from blowing up if someone's trying to insert Emojis

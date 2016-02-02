@@ -2,7 +2,7 @@ module PaypalService::API::Worker
 
   ProcessTokenStore = PaypalService::Store::ProcessToken
 
-  JOB_OPTIONS = { priority: 0 } # Use high priority, user is waiting
+  JOB_PRIORITY = 0 # Use high priority, user is waiting
 
   module_function
 
@@ -48,13 +48,13 @@ module PaypalService::API::Worker
   def schedule_payments_job(proc_token)
     Delayed::Job.enqueue(
       PaypalService::Jobs::ProcessPaymentsCommand.new(proc_token[:process_token]),
-      JOB_OPTIONS)
+      priority: JOB_PRIORITY)
   end
 
   def schedule_billing_agreements_job(proc_token)
     Delayed::Job.enqueue(
       PaypalService::Jobs::ProcessBillingAgreementsCommand.new(proc_token[:process_token]),
-      JOB_OPTIONS)
+      priority: JOB_PRIORITY)
   end
 
 end
