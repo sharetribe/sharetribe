@@ -668,7 +668,7 @@ it:
       message_sent_to: "Messaggio inviato a"
       send_reply: "Invia risposta"
       write_a_reply: "Scrivi una risposta:"
-      conversation_about_listing: ~
+      conversation_about_listing: "Con %{person} su%{listing}"
       conversation_with_user: ~
       conversation_with: "Conversazione con %{person}"
       last_message_at: "(ultimo messaggio %{time})"
@@ -1078,7 +1078,7 @@ it:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: About
+    about: "Informazioni di servizio"
     home: Home
     members: ~
     new_listing: "Nuova inserzione"
@@ -1242,7 +1242,7 @@ it:
     global-header:
       select_language: "Seleziona lingua"
     infos:
-      about: Info
+      about: "Informazioni di servizio"
       how_to_use: "Come funziona"
       info_about_kassi: "Informazioni su %{service_name}"
       news: News
@@ -1391,7 +1391,7 @@ it:
     settings:
       account: Account
       notifications: Notifiche
-      profile: "Informazioni sul profilo"
+      profile: "Informazioni del profilo"
       settings: Impostazioni
       payments: Pagamenti
   listings:
@@ -1428,7 +1428,7 @@ it:
       something_went_wrong: ~
     follow_links:
       follow: "Ricevi emails per ogni nuovo commento"
-      unfollow: "Non ricevi emails per ogni nuovo commento"
+      unfollow: "Non ricevere email per ogni nuovo commento"
     form:
       custom_field_partials:
         dropdown:
@@ -1485,7 +1485,7 @@ it:
         long_time: "settimana, mese, ..."
         after_service_fee_you_will_get: ~
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} sarà dedotta dal prezzo."
-        after_service_fee_you_will_get_paypal_text: "Dal valore totale verrà sottratta la commissione di intermediazione di %{service_name} equivalente a %{sum_with_currency}, e la %{paypal_fee_info_link}."
+        after_service_fee_you_will_get_paypal_text: "Dal valore totale verrà sottratta la commissione di intermediazione di %{service_name} equivalente a %{sum_with_currency}, più la %{paypal_fee_info_link}."
         paypal_fee_info_link_text: "commissione dovuta al sistema di pagamento PayPal"
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "Il prezzo non include l'IVA"
@@ -1713,13 +1713,13 @@ it:
     paypal_account_email_connected: "<del>Connessione del conto Paypal</del> Completata!"
     payout_info_paypal: "%{service_name} usa PayPal come sistema di pagamento. E' richiesto un %{create_paypal_account_link} per accettare i pagamenti delle tue inserzioni, e deve essere connesso a %{service_name}."
     paypal_billing_agreement_made: "<del>Permesso a %{service_name} di applicare una commissione alla transazione</del> Completato!"
-    commission_permission_needed: "Devi concedere il permesso a %{service_name} di caricare la propria commissione."
+    commission_permission_needed: "Devi concedere il permesso a %{service_name} di ottenere la commissione di intermediazione dai pagamenti che ricevi."
     create_paypal_account_link_text: "PayPal account"
     connected_account: "Il conto PayPal '%{email}' è stato connesso con successo."
     paypal_receive_funds_info_label_australia_only: "Devi abilitare il tuo conto PayPal per accettare i pagamenti. E' necessario un conto PayPal Business. L'aggiornamento ad un conto PayPal business è semplice e non costa nulla."
     paypal_receive_funds_info_label: "Devi abilitare il tuo conto PayPal per accettare i pagamenti. E' necessario un conto PayPal Business. L'aggiornamento ad un conto PayPal business è semplice e non costa nulla."
-    paypal_receive_funds_info: "Se avviene un errore tentando di collegare il tuo Conto PayPal a %{service_name}, ciò significa che devi fare un upgrade da %{upgrade_paypal_account_link}. Questo è senza costi e facile. Se sei una persona fisica, PayPal raccomanda di usare il proprio nome e cognome per il conto Business."
-    upgrade_paypal_account_link_text: "Fai il login e clicca sull'upgrade link"
+    paypal_receive_funds_info: "Se avviene un errore, nello STEP 1/2 qui di seguito, tentando di collegare il tuo Conto PayPal a %{service_name}, ciò significa che devi fare un aggiornamento dell'account PayPal ad un account Business a questo link: %{upgrade_paypal_account_link}. Questo è senza costi e facile. Se sei una persona fisica, PayPal raccomanda di usare il proprio nome e cognome per il conto Business."
+    upgrade_paypal_account_link_text: "Aggiorna l'account PayPal."
     admin_account_not_connected: "Non è possibile utilizzare il sistema di pagamenti di %{service_name} e ricevere pagamenti, se prima non è stato settato. per favore %{contact_admin_link} per i dettagli."
     contact_admin_link_text: "contatta l'amministratore della piattaforma di marketplace"
     you_are_ready_to_accept_payments: "Ora sei pronto per accettare i pagamenti!"
@@ -1926,7 +1926,7 @@ it:
       new_email: "Nuovo indirizzo email"
       delete_all_memberships: ~
       delete_personal_information: "Se elimini l'account, i tuoi dati personali (nome, numero di telefono, indirizzo, email, foto del profilo, ecc) verranno eliminati in modo permanente e non potranno essere recuperati. Tutti gli annunci che hai creato verranno rimossi. Non sarai in grado di riattivare il tuo account."
-      delete_information_others_involved: "le informazioni dove altri partecipanti sono coinvolti (le conversazioni con altre persone, le operazioni che hai fatto, recensioni che hai dato agli altri, ecc) non verranno rimosse quando elimini il tuo account. Tuttavia, il tuo nome non sarà più visualizzato accanto a queste informazioni."
+      delete_information_others_involved: "Le informazioni dove altri partecipanti sono coinvolti (le conversazioni con altre persone, le operazioni che hai fatto, recensioni che hai dato agli altri, ecc) non verranno rimosse quando elimini il tuo account. Tuttavia, il tuo nome non sarà più visualizzato accanto a queste informazioni."
       unfinished_transactions: ~
       new_password: "Nuova password"
       save: Salva
@@ -1947,13 +1947,13 @@ it:
         status_confirmed: Confermato
         status_pending: "In corso"
     notifications:
-      email_from_admins: ~
+      email_from_admins: "Sono disposto a ricevere aggiornamenti occasionali da parte degli amministratori."
       i_want_to_get_email_notification_when: "Voglio ricevere una notifica email quando..."
       newsletters: Newsletter
       community_updates: ~
       email_about_accept_reminders: "...Ho dimenticato di accettare un'offerta o una richiesta"
       email_about_confirm_reminders: "...mi sono dimenticato di confermare una richiesta come completa"
-      email_about_new_comments_to_own_listing: "...qualcuno commenti la mia offerta o richiesta"
+      email_about_new_comments_to_own_listing: "...qualcuno commenta la mia offerta o richiesta"
       email_about_new_messages: "...qualcuno mi invia un messaggio"
       email_about_new_received_testimonials: "...qualcuno mi offre feedback"
       email_about_testimonial_reminders: "...ho dimenticato di offrire feedback su un evento"
