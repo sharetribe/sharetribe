@@ -56,4 +56,6 @@ Kassi::Application.configure do
   config.active_record.mass_assignment_sanitizer = :strict
 
   config.cache_store = :memory_store, { :namespace => "sharetribe-test"}
+
+  config.active_support.test_order = :random
 end
