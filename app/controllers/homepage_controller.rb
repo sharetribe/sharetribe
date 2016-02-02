@@ -142,8 +142,15 @@ class HomepageController < ApplicationController
     }
 
     search_engine = feature_enabled?(:new_search) ? :zappy : :sphinx;
+    raise_errors = Rails.env.development?
 
-    ListingIndexService::API::Api.listings.search(community_id: @current_community.id, search: search, includes: includes, engine: search_engine).and_then { |res|
+    ListingIndexService::API::Api.listings.search(
+      community_id: @current_community.id,
+      search: search,
+      includes: includes,
+      engine: search_engine,
+      raise_errors: raise_errors
+      ).and_then { |res|
       Result::Success.new(
         ListingIndexViewUtils.to_struct(
         result: res,

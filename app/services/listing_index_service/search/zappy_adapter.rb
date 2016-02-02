@@ -9,13 +9,13 @@ module ListingIndexService::Search
       location: :location
     }
 
-    def initialize
+    def initialize(raise_errors:)
       @conn = Faraday.new(url: "http://127.0.0.1:8080") do |c|
          c.request  :url_encoded             # form-encode POST params
          c.response :logger                  # log requests to STDOUT
          c.response :json, :content_type => /\bjson$/
          c.adapter  Faraday.default_adapter  # make requests with Net::HTTP
-         c.use Faraday::Response::RaiseError if Rails.env.development?
+         c.use Faraday::Response::RaiseError if raise_errors
       end
     end
 
