@@ -19,6 +19,7 @@ This file follows the best practices from [keepchangelog.com](http://keepachange
 ### Security
 
 - Updated Devise gem to version 3.5 [#1675](https://github.com/sharetribe/sharetribe/pull/1675)
+- Updated Sprockets gem to version 2.12.4 [#1692](https://github.com/sharetribe/sharetribe/pull/1692)
 
 ## [5.2.0] - 2016-01-29
 
