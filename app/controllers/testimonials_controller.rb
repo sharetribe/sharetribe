@@ -79,7 +79,9 @@ class TestimonialsController < ApplicationController
       .where({
         community_id: @current_community.id,
         id: params[:message_id]
-      }).first
+      })
+      .references(:listing)
+      .first
 
     if @transaction.nil?
       flash[:error] = t("layouts.notifications.you_are_not_allowed_to_give_feedback_on_this_transaction")
