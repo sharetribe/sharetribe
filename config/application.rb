@@ -139,6 +139,9 @@ module Kassi
       Devise::Mailer.helper :email_template
     end
 
+    # Log deprecation warnings to stderr
+    config.active_support.deprecation = :stderr
+
     # Map custom errors to error pages
     config.action_dispatch.rescue_responses["PeopleController::PersonDeleted"] = :gone
     config.action_dispatch.rescue_responses["ListingsController::ListingDeleted"] = :gone
