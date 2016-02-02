@@ -15,6 +15,7 @@ module ListingIndexService::Search
          c.response :logger                  # log requests to STDOUT
          c.response :json, :content_type => /\bjson$/
          c.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+         c.use Faraday::Response::RaiseError if Rails.env.development?
       end
     end
 
