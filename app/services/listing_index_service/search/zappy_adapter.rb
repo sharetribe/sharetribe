@@ -2,6 +2,13 @@ module ListingIndexService::Search
 
   class ZappyAdapter < SearchEngineAdapter
 
+    INCLUDE_MAP = {
+      listing_images: :listing_images,
+      author: :author,
+      num_of_reviews: {author: :received_testimonials},
+      location: :location
+    }
+
     def initialize
       @conn = Faraday.new(url: "http://127.0.0.1:8080") do |c|
          c.request  :url_encoded             # form-encode POST params
@@ -12,17 +19,29 @@ module ListingIndexService::Search
     end
 
     def search(community_id:, search:, includes: nil)
-
+      included_models = includes.map { |m| INCLUDE_MAP[m] }
       search_params = format_params(search)
 
-      begin
-        res = @conn.get do |req|
-          req.url("/api/v1/marketplace/#{community_id}/listings", search_params)
-          req.headers['Authorization'] = 'apikey key=asdfasdf'
-        end.body
-        Result::Success.new(parse_response(res, includes))
-      rescue StandardError => e
-        Result::Error.new(e)
+      if needs_db_query?(search) && needs_search?(search)
+        return Result::Error.new(ArgumentError.new("Both DB query and search engine would be needed to fulfill the search"))
+      end
+
+      if needs_search?(search)
+        # TODO: is out-of-bounds check necessary here?
+        begin
+          res = @conn.get do |req|
+            req.url("/api/v1/marketplace/#{community_id}/listings", search_params)
+            req.headers['Authorization'] = 'apikey key=asdfasdf'
+          end.body
+          Result::Success.new(parse_response(res, includes))
+        rescue StandardError => e
+          Result::Error.new(e)
+        end
+      else
+        fetch_from_db(community_id: community_id,
+                      search: search,
+                      included_models: included_models,
+                      includes: includes)
       end
     end
 

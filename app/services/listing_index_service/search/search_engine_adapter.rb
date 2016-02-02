@@ -37,6 +37,8 @@ module ListingIndexService::Search
       success_result(listings.total_entries, listings, includes)
     end
 
+    # TODO: This should probably be rethought when the Indexer and the
+    # new Search API is finished and in use
     def needs_db_query?(search)
       search[:author_id].present? || search[:include_closed] == true
     end
