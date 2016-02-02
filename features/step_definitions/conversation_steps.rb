@@ -222,7 +222,7 @@ Then(/^I should see that the order is waiting for buyer confirmation$/) do
 end
 
 Then /^I should see that I should now deliver the board$/ do
-  page.should have_content(/Waiting for you to deliver (.*)/)
+  page.should have_content(/Waiting for you to fulfill the order for (.*)/)
 end
 
 Then(/^I should see that the order is confirmed/) do
