@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '2.1.2'
 
-gem 'rails', '4.0.13'
+gem 'rails', '4.1.14.1'
 
 # To use debugger
 #gem 'ruby-debug'
@@ -56,8 +56,6 @@ gem 'possibly', '~> 0.2.0'
 gem 'delayed_job', "~> 4.1.1"
 gem 'delayed_job_active_record', "~> 4.1.0"
 
-gem 'json', "~>1.8.3"
-gem 'multi_json', "~>1.7.9" # 1.8.0 caused "invalid byte sequence in UTF-8" at heroku
 gem 'web_translate_it', "~>2.1.8"
 gem 'rails-i18n', '~> 4.0.8'
 gem 'devise', "~>3.5.0"

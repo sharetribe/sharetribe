@@ -53,7 +53,7 @@ class BraintreeWebhooksController < ApplicationController
       render :nothing => true, :status => 400 and return
     end
 
-    render :text => challenge_response, :status => 200
+    render :plain => challenge_response, :status => 200
   end
 
   def hooks
