@@ -251,6 +251,11 @@ default: &default_settings
   external_plan_service_secret:
   external_plan_service_login_url:
 
+  # External search service connection
+  external_search_in_use: false
+  external_search_url:
+  external_search_apikey:
+
   # Rails config.eager_load. Eager loads classes. Should be true only for production
   eager_load: false
 

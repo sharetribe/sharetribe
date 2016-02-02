@@ -9,8 +9,11 @@ module ListingIndexService::Search
       location: :location
     }
 
+    API_KEY = APP_CONFIG.external_search_apikey
+    SEARCH_URL = APP_CONFIG.external_search_url
+
     def initialize(raise_errors:)
-      @conn = Faraday.new(url: "http://127.0.0.1:8080") do |c|
+      @conn = Faraday.new(url: SEARCH_URL) do |c|
          c.request  :url_encoded             # form-encode POST params
          c.response :logger                  # log requests to STDOUT
          c.response :json, :content_type => /\bjson$/
@@ -32,9 +35,9 @@ module ListingIndexService::Search
         begin
           res = @conn.get do |req|
             req.url("/api/v1/marketplace/#{community_id}/listings", search_params)
-            req.headers['Authorization'] = 'apikey key=asdfasdf'
-          end.body
-          Result::Success.new(parse_response(res, includes))
+            req.headers['Authorization'] = "apikey key=#{API_KEY}"
+          end
+          Result::Success.new(parse_response(res.body, includes))
         rescue StandardError => e
           Result::Error.new(e)
         end

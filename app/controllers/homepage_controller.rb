@@ -141,7 +141,7 @@ class HomepageController < ApplicationController
       page: params[:page].to_i > 0 ? params[:page].to_i : 1
     }
 
-    search_engine = feature_enabled?(:new_search) ? :zappy : :sphinx;
+    search_engine = feature_enabled?(:new_search) || APP_CONFIG.external_search_in_use ? :zappy : :sphinx;
     raise_errors = Rails.env.development?
 
     ListingIndexService::API::Api.listings.search(
