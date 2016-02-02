@@ -6,12 +6,12 @@ module UserSteps
   # Thus this helper function
   def force_override_model_id(id, model_instance, model_class, associated_model_classes=[])
     old_id = model_instance.id
-    model_class.update_all({:id => id}, {:id => old_id})
+    model_class.where(id: old_id).update_all(id: id)
 
     # Associates
     foreign_key = "#{model_class.name.downcase}_id".to_sym
     associated_model_classes.each do |associated_model_class|
-      associated_model_class.update_all({foreign_key => id}, {foreign_key => old_id})
+      associated_model_class.where(foreign_key => old_id).update_all(foreign_key => id)
     end
 
     # Reload
