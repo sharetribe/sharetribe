@@ -476,6 +476,11 @@ GEM
     unf_ext (0.0.7.1)
     warden (1.2.4)
       rack (>= 1.0)
+    web-console (2.2.1)
+      activemodel (>= 4.0)
+      binding_of_caller (>= 0.7.2)
+      railties (>= 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
     web_translate_it (2.1.8)
       multi_json
       multipart-post (~> 1.2.0)
@@ -569,6 +574,7 @@ DEPENDENCIES
   truncate_html (~> 0.9.1)
   ts-delayed-delta (~> 2.0.2)!
   uglifier (~> 2.7.2)
+  web-console (~> 2.0)
   web_translate_it (~> 2.1.8)
   will_paginate (~> 3.0.5)
   zeus (~> 0.15.4)

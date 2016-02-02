@@ -128,6 +128,7 @@ group :development do
   gem 'zeus', '~> 0.15.4', require: false
   gem 'quiet_assets', "~> 1.1.0"
   gem 'better_errors', "~> 2.1.1"
+  gem 'web-console', '~> 2.0'
 end
 
 group :test do
