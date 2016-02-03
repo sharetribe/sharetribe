@@ -17,6 +17,10 @@ This file follows the best practices from [keepchangelog.com](http://keepachange
 
 - Removed environment variable `devise_allow_insecure_token_lookup`. [#1675](https://github.com/sharetribe/sharetribe/pull/1675)
 
+### Fixed
+
+- Fixed Mercury Editor image uploader [#1694](https://github.com/sharetribe/sharetribe/pull/1694)
+
 ### Security
 
 - Updated Devise gem to version 3.5 [#1675](https://github.com/sharetribe/sharetribe/pull/1675)
