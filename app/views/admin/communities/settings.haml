@@ -34,6 +34,15 @@
           = form.check_box :require_verification_to_post_listings
           = form.label :require_verification_to_post_listings, t(".require_verification_to_post_listings"), :class => "settings-checkbox-label"
 
+    - if feature_enabled?(:location_search)
+      .row
+        .col-12
+          %h3= t("admin.communities.settings.search_preferences")
+          .checkbox-container
+            .settings-checkbox-label.label
+            - select_search_type = select_tag 'main_search', options_for_select(main_search_select_options, main_search), class: 'inline-select'
+            = t("admin.communities.settings.default_search_type", select_search_type: select_search_type).html_safe
+
     .row
       .col-12
         %h3= t(".listing_preferences")

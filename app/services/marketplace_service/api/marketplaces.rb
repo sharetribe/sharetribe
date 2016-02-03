@@ -97,8 +97,9 @@ module MarketplaceService::API
 
       Helper.create_community_customization!(community, marketplace_name, locale)
       Helper.create_category!("Default", community, locale)
-      processes = Helper.create_processes!(community.id, payment_process)
-      shape = Helper.create_listing_shape!(community, p[:marketplace_type], payment_process)
+      Helper.create_processes!(community.id, payment_process)
+      Helper.create_listing_shape!(community, p[:marketplace_type], payment_process)
+      Helper.create_configurations!(community_id: community.id, main_search: :keyword)
 
       from_model(community)
     end
@@ -243,6 +244,10 @@ module MarketplaceService::API
       def create_category!(category_name, community, locale)
         translation = CategoryTranslation.new(:locale => locale, :name => category_name)
         community.categories.create!(:url => category_name.downcase, translations: [translation])
+      end
+
+      def create_configurations!(opts)
+        MarketplaceService::Store::MarketplaceConfigurations.create(opts)
       end
     end
   end

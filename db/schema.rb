@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120112839) do
+ActiveRecord::Schema.define(version: 20160126141249) do
 
   create_table "auth_tokens", force: true do |t|
     t.string   "token"
@@ -575,6 +575,15 @@ ActiveRecord::Schema.define(version: 20160120112839) do
   add_index "locations", ["community_id"], name: "index_locations_on_community_id", using: :btree
   add_index "locations", ["listing_id"], name: "index_locations_on_listing_id", using: :btree
   add_index "locations", ["person_id"], name: "index_locations_on_person_id", using: :btree
+
+  create_table "marketplace_configurations", force: true do |t|
+    t.integer  "community_id",                     null: false
+    t.string   "main_search",  default: "keyword", null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "marketplace_configurations", ["community_id"], name: "index_marketplace_configurations_on_community_id", using: :btree
 
   create_table "marketplace_plans", force: true do |t|
     t.integer  "community_id", null: false

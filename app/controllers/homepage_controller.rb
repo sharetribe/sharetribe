@@ -68,6 +68,7 @@ class HomepageController < ApplicationController
         render nothing: true, status: 500
       }
     else
+      main_search = feature_enabled?(:location_search) ? MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:main_search] : :keyword
       search_result.on_success { |listings|
         @listings = listings
         render locals: {
@@ -77,7 +78,8 @@ class HomepageController < ApplicationController
                  selected_shape: selected_shape,
                  shape_name_map: shape_name_map,
                  testimonials_in_use: @current_community.testimonials_in_use,
-                 listing_shape_menu_enabled: listing_shape_menu_enabled }
+                 listing_shape_menu_enabled: listing_shape_menu_enabled,
+                 main_search: main_search }
       }.on_error { |e|
         flash[:error] = t("homepage.errors.search_engine_not_responding")
         @listings = Listing.none.paginate(:per_page => 1, :page => 1)
@@ -88,7 +90,8 @@ class HomepageController < ApplicationController
                  selected_shape: selected_shape,
                  shape_name_map: shape_name_map,
                  testimonials_in_use: @current_community.testimonials_in_use,
-                 listing_shape_menu_enabled: listing_shape_menu_enabled }
+                 listing_shape_menu_enabled: listing_shape_menu_enabled,
+                 main_search: main_search }
       }
     end
   end

@@ -8,12 +8,15 @@
     function initialize() {
       var input = document.getElementById('q');
       var autocomplete = new google.maps.places.Autocomplete(input);
+      autocomplete.setTypes(['geocode']);
 
       google.maps.event.addListener(autocomplete, 'place_changed', function(event){
         var place = autocomplete.getPlace();
-        if(place != null && place.name != "") {
-          console.log('name:', place.name, '\naddress: ', place.formatted_address, '\ncoordinates: ', place.geometry.location.toUrlValue());
-          document.getElementById('lc').value = place.geometry.location.toUrlValue();
+        if(place != null) {
+          if(place.geometry != null) {
+            document.getElementById('lc').value = place.geometry.location.toUrlValue();
+          }
+          // TODO: if no geometry is returned, direct user to select one of the suggestions
         }
         document.getElementById('homepage-filters').submit();
       });
