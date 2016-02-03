@@ -70,7 +70,7 @@ module ListingIndexService::Search
         .where(id: ids) # use find_each for more efficient batch processing after updating to Rails 4.1
         .order("field(listings.id, #{ids.join ','})")
         .map {
-          |l| ListingIndexService::Search::Commons.listing_hash(l, includes)
+          |l| ListingIndexService::Search::Converters.listing_hash(l, includes)
         }
     end
 

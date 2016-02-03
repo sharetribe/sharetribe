@@ -10,7 +10,7 @@ module ListingIndexService::Search
 
     def success_result(count, listings, includes)
       Result::Success.new(
-        {count: count, listings: listings.map { |l| ListingIndexService::Search::Commons.listing_hash(l, includes) }})
+        {count: count, listings: listings.map { |l| ListingIndexService::Search::Converters.listing_hash(l, includes) }})
     end
 
     def fetch_from_db(community_id:, search:, included_models:, includes:)

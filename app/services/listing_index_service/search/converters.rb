@@ -1,4 +1,4 @@
-module ListingIndexService::Search::Commons
+module ListingIndexService::Search::Converters
   module_function
 
   def listing_hash(l, includes)
