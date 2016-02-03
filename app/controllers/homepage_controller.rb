@@ -68,7 +68,7 @@ class HomepageController < ApplicationController
         render nothing: true, status: 500
       }
     else
-      main_search = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:main_search]
+      main_search = feature_enabled?(:location_search) ? MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:main_search] : :keyword
       search_result.on_success { |listings|
         @listings = listings
         render locals: {
