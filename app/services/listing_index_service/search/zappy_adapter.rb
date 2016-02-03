@@ -26,11 +26,11 @@ module ListingIndexService::Search
       included_models = includes.map { |m| INCLUDE_MAP[m] }
       search_params = format_params(search)
 
-      if needs_db_query?(search) && needs_search?(search)
+      if DatabaseSearchHelper.needs_db_query?(search) && needs_search?(search)
         return Result::Error.new(ArgumentError.new("Both DB query and search engine would be needed to fulfill the search"))
       end
 
-      if needs_search?(search)
+      if DatabaseSearchHelper.needs_search?(search)
         # TODO: is out-of-bounds check necessary here?
         begin
           res = @conn.get do |req|
@@ -42,10 +42,10 @@ module ListingIndexService::Search
           Result::Error.new(e)
         end
       else
-        fetch_from_db(community_id: community_id,
-                      search: search,
-                      included_models: included_models,
-                      includes: includes)
+        DatabaseSearchHelper.fetch_from_db(community_id: community_id,
+                                           search: search,
+                                           included_models: included_models,
+                                           includes: includes)
       end
     end
 

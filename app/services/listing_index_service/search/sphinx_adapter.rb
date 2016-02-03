@@ -18,13 +18,13 @@ module ListingIndexService::Search
       # rename listing_shape_ids to singular so that Sphinx understands it
       search = HashUtils.rename_keys({:listing_shape_ids => :listing_shape_id}, search)
 
-      if needs_db_query?(search) && needs_search?(search)
+      if DatabaseSearchHelper.needs_db_query?(search) && DatabaseSearchHelper.needs_search?(search)
         Result::Error.new(ArgumentError.new("Both DB query and search engine would be needed to fulfill the search"))
       end
 
-      if needs_search?(search)
+      if DatabaseSearchHelper.needs_search?(search)
         if search_out_of_bounds?(search[:per_page], search[:page])
-          success_result(0, [], includes)
+          DatabaseSearchHelper.success_result(0, [], includes)
         else
           search_with_sphinx(community_id: community_id,
                              search: search,
@@ -32,10 +32,10 @@ module ListingIndexService::Search
                              includes: includes)
         end
       else
-        fetch_from_db(community_id: community_id,
-                      search: search,
-                      included_models: included_models,
-                      includes: includes)
+        DatabaseSearchHelper.fetch_from_db(community_id: community_id,
+                                           search: search,
+                                           included_models: included_models,
+                                           includes: includes)
       end
     end
 
@@ -58,7 +58,7 @@ module ListingIndexService::Search
       if perform_numeric_search && numeric_search_match_listing_ids.empty?
         # No matches found with the numeric search
         # Do a short circuit and return emtpy paginated collection of listings wrapped into a success result
-        success_result(0, [], nil)
+        DatabaseSearchHelper.success_result(0, [], nil)
       else
 
         with = HashUtils.compact(
@@ -93,7 +93,7 @@ module ListingIndexService::Search
         )
 
         begin
-          success_result(models.total_entries, models, includes)
+          DatabaseSearchHelper.success_result(models.total_entries, models, includes)
         rescue ThinkingSphinx::SphinxError => e
           Result::Error.new(e)
         end
