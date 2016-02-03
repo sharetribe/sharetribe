@@ -15,17 +15,17 @@
 
 require 'spec_helper'
 
-describe CustomFieldOption do
+describe CustomFieldOption, type: :model do
   describe "validations" do
     it "should have locale and value" do
       @name = CustomFieldOptionTitle.new
-      @name.should_not be_valid
+      expect(@name).not_to be_valid
 
       @name2 = CustomFieldOptionTitle.new(:locale => "en")
-      @name2.should_not be_valid
+      expect(@name2).not_to be_valid
 
       @name2 = CustomFieldOptionTitle.new(:locale => "en", :value => "Field name")
-      @name2.should be_valid
+      expect(@name2).to be_valid
     end
   end
 end

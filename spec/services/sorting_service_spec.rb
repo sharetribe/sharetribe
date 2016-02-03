@@ -8,7 +8,7 @@ describe Admin::SortingService do
         FactoryGirl.create(:category, sort_priority: 4)
       ]
 
-      Admin::SortingService.next_sort_priority(categories).should == 5
+      expect(Admin::SortingService.next_sort_priority(categories)).to eq(5)
     end
 
     it "handles nils" do
@@ -18,11 +18,11 @@ describe Admin::SortingService do
         FactoryGirl.create(:category, sort_priority: 8)
       ]
 
-      Admin::SortingService.next_sort_priority(categories).should == 9
+      expect(Admin::SortingService.next_sort_priority(categories)).to eq(9)
     end
 
     it "handles empty array" do
-      Admin::SortingService.next_sort_priority([]).should == 1
+      expect(Admin::SortingService.next_sort_priority([])).to eq(1)
     end
 
   end

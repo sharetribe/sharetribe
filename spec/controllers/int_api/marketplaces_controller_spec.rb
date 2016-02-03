@@ -7,7 +7,7 @@ require_relative '../../services/plan_service/api/api'
 
 class TransactionMailer; end
 
-describe IntApi::MarketplacesController do
+describe IntApi::MarketplacesController, type: :controller do
 
   let(:listings_api) { ListingService::API::Api }
 
@@ -69,7 +69,7 @@ describe IntApi::MarketplacesController do
                      marketplace_name: "ImaginationTraders",
                      marketplace_type: "product"}
 
-      response.status.should == 201
+      expect(response.status).to eq(201)
 
       r = JSON.parse(response.body)
       expect(r["marketplace_url"]).to eql "http://imaginationtraders.#{APP_CONFIG.domain}?auth=#{AuthToken.last.token}"
@@ -105,7 +105,7 @@ describe IntApi::MarketplacesController do
                      marketplace_name: "ImaginationTraders",
                      marketplace_type: "product"}
 
-      response.status.should == 201
+      expect(response.status).to eq(201)
 
       r = JSON.parse(response.body)
       expect(r["marketplace_url"]).to eql "http://imaginationtraders.#{APP_CONFIG.domain}?auth=#{AuthToken.last.token}"
@@ -141,7 +141,7 @@ describe IntApi::MarketplacesController do
                      marketplace_name: "ImaginationTraders",
                      marketplace_type: "product"}
 
-      response.status.should == 201
+      expect(response.status).to eq(201)
 
       r = JSON.parse(response.body)
       expect(r["marketplace_url"]).to eql "http://imaginationtraders.#{APP_CONFIG.domain}?auth=#{AuthToken.last.token}"

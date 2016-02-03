@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "routing for people" do
+describe "routing for people", type: :routing do
 
   before(:each) do
     @community = FactoryGirl.create(:community)

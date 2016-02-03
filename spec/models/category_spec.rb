@@ -20,7 +20,7 @@
 
 require 'spec_helper'
 
-describe Category do
+describe Category, type: :model do
 
   before(:each) do
     @community = FactoryGirl.create(:community)
@@ -34,31 +34,31 @@ describe Category do
   end
 
   it "has listings?" do
-    @category.has_own_or_subcategory_listings?.should be_falsey
+    expect(@category.has_own_or_subcategory_listings?).to be_falsey
 
     @listing = FactoryGirl.create(:listing, {category: @category})
     @category.reload
 
-    @category.has_own_or_subcategory_listings?.should be_truthy
+    expect(@category.has_own_or_subcategory_listings?).to be_truthy
   end
 
   it "can not be deleted if it's the only top level category" do
-    Category.find_by_id(@category.id).should_not be_nil
+    expect(Category.find_by_id(@category.id)).not_to be_nil
 
     @category.destroy
 
-    Category.find_by_id(@category.id).should_not be_nil
+    expect(Category.find_by_id(@category.id)).not_to be_nil
   end
 
   it "removes subcategories if parent is removed" do
     @category2 = FactoryGirl.create(:category, :community => @community)
 
-    Category.find_by_id(@category.id).should_not be_nil
-    Category.find_by_id(@subcategory.id).should_not be_nil
+    expect(Category.find_by_id(@category.id)).not_to be_nil
+    expect(Category.find_by_id(@subcategory.id)).not_to be_nil
 
     @category.destroy
 
-    Category.find_by_id(@category.id).should be_nil
-    Category.find_by_id(@subcategory.id).should be_nil
+    expect(Category.find_by_id(@category.id)).to be_nil
+    expect(Category.find_by_id(@subcategory.id)).to be_nil
   end
 end

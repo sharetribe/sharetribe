@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SessionsController, "POST create" do
+describe SessionsController, "POST create", type: :controller do
 
   before(:each) do
     community1 = FactoryGirl.create(:community, :consent => "test_consent0.1", :settings => {"locales" => ["en", "fi"]}, :real_name_required => true)
@@ -18,6 +18,6 @@ describe SessionsController, "POST create" do
 
   it "redirects back to original community's domain" do
     post :create, {:person  => {:login => "testpersonusername", :password => "testi"}}
-    response.should redirect_to "http://#{@request.host}/?locale=en"
+    expect(response).to redirect_to "http://#{@request.host}/?locale=en"
   end
 end

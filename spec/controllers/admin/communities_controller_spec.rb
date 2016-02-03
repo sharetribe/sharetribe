@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Admin::CommunitiesController do
+describe Admin::CommunitiesController, type: :controller do
 
   before(:each) do
     @community = FactoryGirl.create(:community)
@@ -28,17 +28,17 @@ describe Admin::CommunitiesController do
     end
 
     context "when there is a payment gateway" do
-      before { Community.any_instance.stub(:payment_gateway).and_return(true) }
+      before { allow_any_instance_of(Community).to receive(:payment_gateway).and_return(true) }
 
       it "should allow changing testimonials_in_use" do
         update_community_with(:update_settings, testimonials_in_use: true)
       end
 
-      after { Community.any_instance.unstub(:payment_gateway) }
+      after { allow_any_instance_of(Community).to receive(:payment_gateway).and_call_original }
     end
 
     context "there is no payment gateway" do
-      before { Community.any_instance.stub(:payment_gateway).and_return(false) }
+      before { allow_any_instance_of(Community).to receive(:payment_gateway).and_return(false) }
 
       it "should not allow changing testimonials_in_use" do
         expect {
@@ -46,7 +46,7 @@ describe Admin::CommunitiesController do
         }.to raise_error ActionController::UnpermittedParameters
       end
 
-      after { Community.any_instance.unstub(:payment_gateway) }
+      after { allow_any_instance_of(Community).to receive(:payment_gateway).and_call_original }
     end
 
   end
@@ -64,7 +64,7 @@ describe Admin::CommunitiesController do
       script = "<script/>"
       put :update_look_and_feel, id: @community.id, community: { custom_head_script: script }
       @community.reload
-      @community.custom_head_script.should eql(script)
+      expect(@community.custom_head_script).to eql(script)
     end
 
   end
@@ -73,13 +73,13 @@ describe Admin::CommunitiesController do
     different_community = FactoryGirl.create(:community)
     put action, id: different_community.id, community: params
     different_community.reload
-    params.each { |key, value| different_community.send(key).should_not eql(value) }
+    params.each { |key, value| expect(different_community.send(key)).not_to eql(value) }
   end
 
   def update_community_with(action, params)
     put action, id: @community.id, community: params
     @community.reload
-    params.each { |key, value| @community.send(:[], key).should eql(value) }
+    params.each { |key, value| expect(@community.send(:[], key)).to eql(value) }
   end
 
 end

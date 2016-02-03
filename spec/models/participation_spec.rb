@@ -21,14 +21,14 @@
 
 require 'spec_helper'
 
-describe Participation do
+describe Participation, type: :model do
 
   before(:each) do
     @participation = FactoryGirl.build(:participation)
   end
 
   it "is valid with valid attributes" do
-    @participation.should be_valid
+    expect(@participation).to be_valid
   end
 
 end

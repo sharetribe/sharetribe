@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe ListingsController do
+describe ListingsController, type: :controller do
   render_views
 
   before (:each) do
@@ -146,33 +146,33 @@ describe ListingsController do
   describe "ATOM feed" do
     it "lists the most recent listings in order" do
       get :index, :format => :atom
-      response.status.should == 200
+      expect(response.status).to eq(200)
       doc = Nokogiri::XML::Document.parse(response.body)
-      doc.at('feed/logo').text.should == "https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png"
+      expect(doc.at('feed/logo').text).to eq("https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png")
 
-      doc.at("feed/title").text.should =~ /Listings in Sharetribe /
-      doc.search("feed/entry").count.should == 2
-      doc.search("feed/entry/title")[0].text.should == "Sell: hammer"
-      doc.search("feed/entry/title")[1].text.should == "Request: bike"
-      doc.search("feed/entry/published")[0].text.should > doc.search("feed/entry/published")[1].text
+      expect(doc.at("feed/title").text).to match(/Listings in Sharetribe /)
+      expect(doc.search("feed/entry").count).to eq(2)
+      expect(doc.search("feed/entry/title")[0].text).to eq("Sell: hammer")
+      expect(doc.search("feed/entry/title")[1].text).to eq("Request: bike")
+      expect(doc.search("feed/entry/published")[0].text).to be > doc.search("feed/entry/published")[1].text
       #DateTime.parse(doc.search("feed/entry/published")[1].text).should == @l1.created_at
-      doc.search("feed/entry/content")[1].text.should =~ /#{@l1.description}/
+      expect(doc.search("feed/entry/content")[1].text).to match(/#{@l1.description}/)
     end
 
     it "supports localization" do
       get :index, :community_id => @c1.id, :format => :atom, :locale => "fi"
-      response.status.should == 200
+      expect(response.status).to eq(200)
       doc = Nokogiri::XML::Document.parse(response.body)
       doc.remove_namespaces!
 
-      doc.at("feed/title").text.should =~ /Ilmoitukset Sharetribe-palvelussa/
-      doc.at("feed/entry/title").text.should == "Myydään: hammer"
-      doc.at("feed/entry/category").attribute("term").value.should == "#{@category_item.id}"
-      doc.at("feed/entry/category").attribute("label").value.should == "Tavarat"
-      doc.at("feed/entry/listing_type").attribute("term").value.should == "offer"
-      doc.at("feed/entry/listing_type").attribute("label").value.should == "Tarjous"
-      doc.at("feed/entry/share_type").attribute("term").value.should == "#{@sell_shape[:id]}"
-      doc.at("feed/entry/share_type").attribute("label").value.should == "Myydään"
+      expect(doc.at("feed/title").text).to match(/Ilmoitukset Sharetribe-palvelussa/)
+      expect(doc.at("feed/entry/title").text).to eq("Myydään: hammer")
+      expect(doc.at("feed/entry/category").attribute("term").value).to eq("#{@category_item.id}")
+      expect(doc.at("feed/entry/category").attribute("label").value).to eq("Tavarat")
+      expect(doc.at("feed/entry/listing_type").attribute("term").value).to eq("offer")
+      expect(doc.at("feed/entry/listing_type").attribute("label").value).to eq("Tarjous")
+      expect(doc.at("feed/entry/share_type").attribute("term").value).to eq("#{@sell_shape[:id]}")
+      expect(doc.at("feed/entry/share_type").attribute("label").value).to eq("Myydään")
     end
 
     # Commented out as requires sphinx and that caused some problems in test
@@ -187,10 +187,10 @@ describe ListingsController do
 
     it "escapes html tags, but adds links" do
       get :index, :community_id => @c1.id, :format => :atom
-      response.status.should == 200
+      expect(response.status).to eq(200)
       doc = Nokogiri::XML::Document.parse(response.body)
-      doc.at("feed/entry/content").text.should =~ /&lt;b&gt;shiny&lt;\/b&gt; new hammer, see details at/
-      doc.at("feed/entry/content").text.should =~ /http:\/\/en\.wikipedia\.org\/wiki\/MC_Hammer<\/a>/
+      expect(doc.at("feed/entry/content").text).to match(/&lt;b&gt;shiny&lt;\/b&gt; new hammer, see details at/)
+      expect(doc.at("feed/entry/content").text).to match(/http:\/\/en\.wikipedia\.org\/wiki\/MC_Hammer<\/a>/)
     end
 
     # TODO: fix search tests after sphinx upgraded (or changed)

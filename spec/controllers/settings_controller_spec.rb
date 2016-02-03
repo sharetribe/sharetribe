@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SettingsController do
+describe SettingsController, type: :controller do
 
   before(:each) do
     @community = FactoryGirl.create(:community)
@@ -15,36 +15,36 @@ describe SettingsController do
     it "should unsubscribe the user from the email specified in parameters" do
       sign_in_for_spec(@person)
       @person.set_default_preferences
-      @person.min_days_between_community_updates.should == 1
+      expect(@person.min_days_between_community_updates).to eq(1)
 
       get :unsubscribe, {:email_type => "community_updates", :person_id => @person.username}
       puts response.body
-      response.status.should == 200
+      expect(response.status).to eq(200)
 
       @person = Person.find(@person.id) # fetch again to refresh
-      @person.min_days_between_community_updates.should == 100000
+      expect(@person.min_days_between_community_updates).to eq(100000)
     end
 
     it "should unsubscribe with auth token" do
       t = @person.new_email_auth_token
       AuthToken.find_by_token(t)
       @person.set_default_preferences
-      @person.min_days_between_community_updates.should == 1
+      expect(@person.min_days_between_community_updates).to eq(1)
 
       get :unsubscribe, {:email_type => "community_updates", :person_id => @person.username, :auth => t}
-      response.status.should == 200
+      expect(response.status).to eq(200)
 
       @person = Person.find(@person.id) # fetch again to refresh
-      @person.min_days_between_community_updates.should == 100000
+      expect(@person.min_days_between_community_updates).to eq(100000)
     end
 
     it "should not unsubscribe if no token provided" do
       @person.set_default_preferences
-      @person.min_days_between_community_updates.should == 1
+      expect(@person.min_days_between_community_updates).to eq(1)
 
       get :unsubscribe, {:email_type => "community_updates", :person_id => @person.username}
-      response.status.should == 401
-      @person.min_days_between_community_updates.should == 1
+      expect(response.status).to eq(401)
+      expect(@person.min_days_between_community_updates).to eq(1)
     end
   end
 end

@@ -11,6 +11,6 @@
 
 require 'spec_helper'
 
-describe CategoryCustomField do
+describe CategoryCustomField, type: :model do
 
 end

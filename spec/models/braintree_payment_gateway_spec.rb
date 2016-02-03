@@ -20,7 +20,7 @@
 
 require 'spec_helper'
 
-describe BraintreePaymentGateway do
+describe BraintreePaymentGateway, type: :model do
   let(:gateway) { FactoryGirl.build(:braintree_payment_gateway) }
 
   describe "#configured?" do
@@ -33,7 +33,7 @@ describe BraintreePaymentGateway do
       gateway.braintree_private_key = nil
       gateway.braintree_client_side_encryption_key = "xxx"
 
-      gateway.configured?.should be_falsey
+      expect(gateway.configured?).to be_falsey
     end
 
     it "is configured" do
@@ -44,7 +44,7 @@ describe BraintreePaymentGateway do
       gateway.braintree_private_key = "1252384a99cdb1"
       gateway.braintree_client_side_encryption_key = "xxx"
 
-      gateway.configured?.should be_truthy
+      expect(gateway.configured?).to be_truthy
     end
   end
 end

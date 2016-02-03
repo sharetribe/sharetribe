@@ -17,17 +17,17 @@
 
 require 'spec_helper'
 
-describe CustomFieldName do
+describe CustomFieldName, type: :model do
   describe "validations" do
     it "should have locale and value" do
       @name = CustomFieldName.new
-      @name.should_not be_valid
+      expect(@name).not_to be_valid
 
       @name2 = CustomFieldName.new(:locale => "en")
-      @name2.should_not be_valid
+      expect(@name2).not_to be_valid
 
       @name2 = CustomFieldName.new(:locale => "en", :value => "Field name")
-      @name2.should be_valid
+      expect(@name2).to be_valid
     end
   end
 end

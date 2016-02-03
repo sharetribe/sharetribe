@@ -53,7 +53,7 @@
 
 require 'spec_helper'
 
-describe Person do
+describe Person, type: :model do
 
    before(:all) do
       #These will be created only once for the whole example group
@@ -61,13 +61,13 @@ describe Person do
     end
 
     it "should be valid" do
-      @test_person.class.should == Person
-      @test_person.should_not be_nil
-      @test_person.should be_valid
+      expect(@test_person.class).to eq(Person)
+      expect(@test_person).not_to be_nil
+      expect(@test_person).to be_valid
     end
 
     it "should have an id other than 0" do
-      @test_person.id.should_not == 0
+      expect(@test_person.id).not_to eq(0)
       # "Test_person.id is 0, possible reason is INT type for id in test DB."
     end
 
@@ -79,23 +79,23 @@ describe Person do
           :email => "#{username}@example.com",
           "given_name" => "Tero",
           "family_name" => "Turari"})
-        Person.find(p.id).should_not be_nil
-        p.username.should == username
+        expect(Person.find(p.id)).not_to be_nil
+        expect(p.username).to eq(username)
       end
 
       it "should not store anything to Sharetribe DB if creation failed for invalid data" do
         username = generate_random_username
-        lambda {
+        expect {
           p = nil
-          lambda {
+          expect {
             p = Person.create!({:username => username,
               :password => "testi",
               :emails => [Email.new(:address => "invalid-email")],
               "given_name" => "Tero",
               "family_name" => "Turari"})
-          }.should raise_error(ActiveRecord::RecordInvalid)
-          p.should be_nil
-        }.should_not change{Person.count}
+          }.to raise_error(ActiveRecord::RecordInvalid)
+          expect(p).to be_nil
+        }.not_to change{Person.count}
       end
     end
 
@@ -104,8 +104,8 @@ describe Person do
         @test_person.update_attributes({'given_name' => "Totti",
           'family_name' => "Tester",
           'phone_number' => "050-55555555"})
-        @test_person.family_name.should == "Tester"
-        @test_person.phone_number.should == "050-55555555"
+        expect(@test_person.family_name).to eq("Tester")
+        expect(@test_person.phone_number).to eq("050-55555555")
       end
     end
 
@@ -116,8 +116,8 @@ describe Person do
           :author => @test_person,
           :listing_shape_id => 123
         )
-        listing.title.should == "Test"
-        @test_person.listings.last.should == listing
+        expect(listing.title).to eq("Test")
+        expect(@test_person.listings.last).to eq(listing)
       end
     end
 
@@ -127,31 +127,31 @@ describe Person do
       end
 
       it "returns the name of the user" do
-        @test_person.name('first_name_with_initial').should_not be_blank
-        @test_person.name('first_name_with_initial').should == "Ripa R"
+        expect(@test_person.name('first_name_with_initial')).not_to be_blank
+        expect(@test_person.name('first_name_with_initial')).to eq("Ripa R")
       end
 
       it "returns the given or the last name of the user" do
-        @test_person.given_name.should == "Ripa"
-        @test_person.family_name.should == "Riuska"
+        expect(@test_person.given_name).to eq("Ripa")
+        expect(@test_person.family_name).to eq("Riuska")
       end
 
       it "returns the name in desired format" do
-        @test_person.name("first_name_with_initial").should == "Ripa R"
-        @test_person.name("first_name_only").should == "Ripa"
-        @test_person.name("full_name").should == "Ripa Riuska"
+        expect(@test_person.name("first_name_with_initial")).to eq("Ripa R")
+        expect(@test_person.name("first_name_only")).to eq("Ripa")
+        expect(@test_person.name("full_name")).to eq("Ripa Riuska")
       end
 
 
       describe "#given_name" do
 
         it "should return the given name" do
-          @test_person.given_name.should == "Ripa"
+          expect(@test_person.given_name).to eq("Ripa")
         end
 
         it "should return blank if given name is blank" do
           @test_person.update_attributes({'given_name' => "", 'family_name' => ""})
-          @test_person.given_name.should == ""
+          expect(@test_person.given_name).to eq("")
         end
 
       end
@@ -159,20 +159,20 @@ describe Person do
       describe "#given_name_or_username" do
 
         it "should return the given name if it exists" do
-          @test_person.given_name_or_username.should == "Ripa"
+          expect(@test_person.given_name_or_username).to eq("Ripa")
         end
 
         it "should return username if given name is blank" do
           @test_person.update_attributes({'given_name' => "", 'family_name' => ""})
-          @test_person.given_name_or_username.should == @test_person.username
+          expect(@test_person.given_name_or_username).to eq(@test_person.username)
         end
 
       end
 
       describe "devise valid_password?" do
         it "Test that the hashing works. (makes more sense to test this if ASI digest is used)" do
-          FactoryGirl.build(:person).valid_password?('testi').should be_truthy
-          FactoryGirl.build(:person).valid_password?('something_else').should_not be_truthy
+          expect(FactoryGirl.build(:person).valid_password?('testi')).to be_truthy
+          expect(FactoryGirl.build(:person).valid_password?('something_else')).not_to be_truthy
         end
       end
 
@@ -183,19 +183,19 @@ describe Person do
         conv = FactoryGirl.create(:conversation)
         conv.participants << @test_person
         conv_id = conv.id
-        Conversation.find_by_id(conv_id).should_not be_nil
-        @test_person.conversations.should include(conv)
+        expect(Conversation.find_by_id(conv_id)).not_to be_nil
+        expect(@test_person.conversations).to include(conv)
 
         tes = FactoryGirl.create(:testimonial, :author => @test_person)
         tes_id = tes.id
-        Testimonial.find_by_id(tes_id).should_not be_nil
-        @test_person.authored_testimonials.should include(tes)
+        expect(Testimonial.find_by_id(tes_id)).not_to be_nil
+        expect(@test_person.authored_testimonials).to include(tes)
 
         @test_person.destroy
 
         # check that related stuff was removed too
-        Conversation.find_by_id(conv_id).should be_nil
-        Testimonial.find_by_id(tes_id).should be_nil
+        expect(Conversation.find_by_id(conv_id)).to be_nil
+        expect(Testimonial.find_by_id(tes_id)).to be_nil
 
       end
     end
@@ -207,12 +207,12 @@ describe Person do
       end
 
       it "should return nil if none pending" do
-        @p.latest_pending_email_address().should be_nil
+        expect(@p.latest_pending_email_address()).to be_nil
       end
 
       it "should return main email if that's pending" do
         @p.emails.each { |email| email.update_attribute(:confirmed_at, nil) }
-        @p.latest_pending_email_address().should =~ /kassi_tester\d+@example.com/
+        expect(@p.latest_pending_email_address()).to match(/kassi_tester\d+@example.com/)
       end
 
       it "should pick the right email to return" do
@@ -221,7 +221,7 @@ describe Person do
         e2 = FactoryGirl.create(:email, :address => "jack@example.com", :confirmed_at => nil, :person => @p)
         # e3 = FactoryGirl.create(:email, :address => "jack@helsinki.fi", :confirmed_at => nil, :person => @p)
 
-        @p.latest_pending_email_address(c).should == "jack@example.com"
+        expect(@p.latest_pending_email_address(c)).to eq("jack@example.com")
       end
     end
 
@@ -232,8 +232,8 @@ describe Person do
     it "inherits_settings_from" do
       person.inherit_settings_from(community)
 
-      person.is_organization.should be_truthy
-      person.min_days_between_community_updates.should eql(30)
+      expect(person.is_organization).to be_truthy
+      expect(person.min_days_between_community_updates).to eql(30)
     end
 
   end

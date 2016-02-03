@@ -15,9 +15,9 @@ describe Admin::CategoryService do
     @subcategory.reload
     @subcategory2.reload
 
-    @category.custom_fields.count.should == 1
-    @subcategory.custom_fields.count.should == 1
-    @subcategory2.custom_fields.count.should == 1
+    expect(@category.custom_fields.count).to eq(1)
+    expect(@subcategory.custom_fields.count).to eq(1)
+    expect(@subcategory2.custom_fields.count).to eq(1)
   end
 
   def include_by_id?(xs, model)
@@ -27,38 +27,38 @@ describe Admin::CategoryService do
   describe "#move_custom_fields" do
 
     it "removing moves custom fields to new category" do
-      include_by_id?(@category2.custom_fields, @custom_field).should be_falsey
+      expect(include_by_id?(@category2.custom_fields, @custom_field)).to be_falsey
 
       Admin::CategoryService.move_custom_fields!(@category, @category2)
       @category2.reload
 
-      include_by_id?(@category2.custom_fields, @custom_field).should be_truthy
+      expect(include_by_id?(@category2.custom_fields, @custom_field)).to be_truthy
     end
 
     it "removing moves custom fields from subcategories to new category" do
-      include_by_id?(@category2.custom_fields, @custom_field).should be_falsey
-      include_by_id?(@category2.custom_fields, @subcustom_field).should be_falsey
+      expect(include_by_id?(@category2.custom_fields, @custom_field)).to be_falsey
+      expect(include_by_id?(@category2.custom_fields, @subcustom_field)).to be_falsey
 
       Admin::CategoryService.move_custom_fields!(@category, @category2)
       @category2.reload
 
-      include_by_id?(@category2.custom_fields, @custom_field).should be_truthy
-      include_by_id?(@category2.custom_fields, @subcustom_field).should be_truthy
+      expect(include_by_id?(@category2.custom_fields, @custom_field)).to be_truthy
+      expect(include_by_id?(@category2.custom_fields, @subcustom_field)).to be_truthy
     end
 
     it "moving custom fields does not create duplicates" do
       @custom_field.categories << @category2
 
-      include_by_id?(@category2.custom_fields, @custom_field).should be_truthy
-      include_by_id?(@category2.custom_fields, @subcustom_field).should_not be_truthy
-      @category2.custom_fields.count.should == 1
+      expect(include_by_id?(@category2.custom_fields, @custom_field)).to be_truthy
+      expect(include_by_id?(@category2.custom_fields, @subcustom_field)).not_to be_truthy
+      expect(@category2.custom_fields.count).to eq(1)
 
       Admin::CategoryService.move_custom_fields!(@category, @category2)
       @category2.reload
 
-      include_by_id?(@category2.custom_fields, @custom_field).should be_truthy
-      include_by_id?(@category2.custom_fields, @subcustom_field).should be_truthy
-      @category2.custom_fields.count.should == 2
+      expect(include_by_id?(@category2.custom_fields, @custom_field)).to be_truthy
+      expect(include_by_id?(@category2.custom_fields, @subcustom_field)).to be_truthy
+      expect(@category2.custom_fields.count).to eq(2)
     end
   end
 
@@ -102,12 +102,12 @@ describe Admin::CategoryService do
           Admin::CategoryService.merge_targets_for(@categories, c)
         end
 
-        merge_targets_for(@a ).should eql([@b,  @c1, @c2])
-        merge_targets_for(@a1).should eql([@a,  @b,  @c1, @c2])
-        merge_targets_for(@b ).should eql([@a1, @c1, @c2])
-        merge_targets_for(@c ).should eql([@a1, @b])
-        merge_targets_for(@c1).should eql([@a1, @b, @c2])
-        merge_targets_for(@c2).should eql([@a1, @b, @c1])
+        expect(merge_targets_for(@a )).to eql([@b,  @c1, @c2])
+        expect(merge_targets_for(@a1)).to eql([@a,  @b,  @c1, @c2])
+        expect(merge_targets_for(@b )).to eql([@a1, @c1, @c2])
+        expect(merge_targets_for(@c )).to eql([@a1, @b])
+        expect(merge_targets_for(@c1)).to eql([@a1, @b, @c2])
+        expect(merge_targets_for(@c2)).to eql([@a1, @b, @c1])
       end
   end
 end

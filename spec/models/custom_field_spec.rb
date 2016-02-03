@@ -22,35 +22,35 @@
 
 require 'spec_helper'
 
-describe CustomField do
+describe CustomField, type: :model do
   # These tests are testing FactoryGirl, not production code, thus,
   # these tests can be safely removed if needed
   describe "factory" do
     describe "build" do
       it "valid entity" do
         @custom_field = FactoryGirl.build(:custom_dropdown_field)
-        @custom_field.should be_valid
+        expect(@custom_field).to be_valid
       end
 
       it "sets defaults" do
         @custom_field = FactoryGirl.build(:custom_dropdown_field)
-        @custom_field.names.length.should == 1
-        @custom_field.names.first.value.should == "Test field"
+        expect(@custom_field.names.length).to eq(1)
+        expect(@custom_field.names.first.value).to eq("Test field")
       end
 
       describe "allows override defaults" do
         it "with empty value" do
           @custom_field = FactoryGirl.build(:custom_dropdown_field, names: [])
-          @custom_field.should be_valid
+          expect(@custom_field).to be_valid
           # This is not possible. If you pass empty array, then factory girl uses defaults
           # @custom_field.names.length.should == 0
         end
 
         it "with custom value" do
           @custom_field = FactoryGirl.build(:custom_dropdown_field, names: [FactoryGirl.build(:custom_field_name, value: "FactoryGirlTest")])
-          @custom_field.should be_valid
-          @custom_field.names.length.should == 1
-          @custom_field.names.first.value.should == "FactoryGirlTest"
+          expect(@custom_field).to be_valid
+          expect(@custom_field.names.length).to eq(1)
+          expect(@custom_field.names.first.value).to eq("FactoryGirlTest")
         end
       end
     end
@@ -58,27 +58,27 @@ describe CustomField do
     describe "create" do
       it "valid entity" do
         @custom_field = FactoryGirl.create(:custom_dropdown_field)
-        @custom_field.should be_valid
+        expect(@custom_field).to be_valid
       end
 
       it "doesn't override" do
         @custom_field = FactoryGirl.create(:custom_dropdown_field)
-        @custom_field.should be_valid
+        expect(@custom_field).to be_valid
       end
 
       describe "allows override defaults" do
         it "with empty value" do
           @custom_field = FactoryGirl.create(:custom_dropdown_field, names: [])
-          @custom_field.should be_valid
+          expect(@custom_field).to be_valid
           # This is not possible. If you pass empty array, then factory girl uses defaults
           # @custom_field.names.length.should == 0
         end
 
         it "with custom value" do
           @custom_field = FactoryGirl.create(:custom_dropdown_field, names: [FactoryGirl.build(:custom_field_name, value: "FactoryGirlTest")])
-          @custom_field.should be_valid
-          @custom_field.names.length.should == 1
-          @custom_field.names.first.value.should == "FactoryGirlTest"
+          expect(@custom_field).to be_valid
+          expect(@custom_field.names.length).to eq(1)
+          expect(@custom_field.names.first.value).to eq("FactoryGirlTest")
         end
       end
     end
@@ -88,17 +88,17 @@ describe CustomField do
     before(:each) do
       # Create valid CustomField entity
       @custom_field = FactoryGirl.create(:custom_dropdown_field)
-      @custom_field.should be_valid
+      expect(@custom_field).to be_valid
     end
 
     it "should have min 1 name" do
       @custom_field.names = []
-      @custom_field.should_not be_valid
+      expect(@custom_field).not_to be_valid
     end
 
     it "should have min 1 category" do
       @custom_field.category_custom_fields = []
-      @custom_field.should_not be_valid
+      expect(@custom_field).not_to be_valid
     end
   end
 end

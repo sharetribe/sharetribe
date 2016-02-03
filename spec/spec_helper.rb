@@ -53,7 +53,7 @@ prefork = lambda {
     # config.mock_with :flexmock
     # config.mock_with :rr
     config.mock_with :rspec
-    config.include Devise::TestHelpers, :type => :controller
+    config.include Devise::TestHelpers, type: :controller
     config.include SpecUtils
 
     Timecop.safe_mode = true
@@ -107,7 +107,7 @@ def create_admin_for(community)
     membership.admin = true
   end
   community.reload
-  community.members.count.should eql(members_count + 1)
-  community.admins.length.should eql(admins_length + 1)
+  expect(community.members.count).to eql(members_count + 1)
+  expect(community.admins.length).to eql(admins_length + 1)
   return person
 end

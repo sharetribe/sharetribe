@@ -20,7 +20,7 @@
 
 require 'spec_helper'
 
-describe Checkout do
+describe Checkout, type: :model do
   let(:gateway) { FactoryGirl.build(:checkout_payment_gateway) }
 
   describe "#configured?" do
@@ -30,7 +30,7 @@ describe Checkout do
       gateway.checkout_user_id = ""
       gateway.checkout_password = ""
 
-      gateway.configured?.should be_falsey
+      expect(gateway.configured?).to be_falsey
     end
 
     it "is configured if it's in testing mode" do
@@ -38,7 +38,7 @@ describe Checkout do
       gateway.checkout_user_id = ""
       gateway.checkout_password = ""
 
-      gateway.configured?.should be_truthy
+      expect(gateway.configured?).to be_truthy
     end
 
     it "production and configured" do
@@ -46,7 +46,7 @@ describe Checkout do
       gateway.checkout_user_id = "1234user"
       gateway.checkout_password = "xxxxyyyyyzzzzz"
 
-      gateway.configured?.should be_truthy
+      expect(gateway.configured?).to be_truthy
     end
   end
 end

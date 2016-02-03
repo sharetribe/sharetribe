@@ -3,7 +3,7 @@ require 'spec_helper'
 # Override the API with test API
 require_relative '../services/plan_service/api/api'
 
-describe "plan provisioning" do
+describe "plan provisioning", type: :request do
 
   let(:log_target) {
     PlanService::API::Api.log_target

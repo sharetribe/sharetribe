@@ -16,28 +16,28 @@
 
 require 'spec_helper'
 
-describe Message do
+describe Message, type: :model do
 
   before(:each) do
     @message = FactoryGirl.build(:message)
   end
 
   it "is valid with valid attributes" do
-    @message.should be_valid
+    expect(@message).to be_valid
   end
 
   it "is not valid with content" do
     @message.content = nil
-    @message.should_not be_valid
+    expect(@message).not_to be_valid
     @message.content = ""
-    @message.should_not be_valid
+    expect(@message).not_to be_valid
     @message.content = "test"
-    @message.should be_valid
+    expect(@message).to be_valid
   end
 
   it "is not valid without sender" do
     @message.sender = nil
-    @message.should_not be_valid
+    expect(@message).not_to be_valid
   end
 
 end

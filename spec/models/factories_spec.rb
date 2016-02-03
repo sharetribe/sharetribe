@@ -1,6 +1,6 @@
 # See https://github.com/thoughtbot/factory_girl/wiki/Testing-all-Factories-(with-RSpec)
 
-describe "Factory Girl" do
+describe "Factory Girl", type: :model do
 
   # List here factories that should be ignored.
   # E.g. :payment is ignored, since it's a super class and shouldn't be instantiated
