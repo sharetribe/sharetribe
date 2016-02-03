@@ -124,26 +124,6 @@ module MarketplaceService::API
       }
     end
 
-    def configurations(community_id:)
-      Maybe(MarketplaceService::Store::MarketplaceConfigurations.get(community_id: community_id))
-        .map { |configurations|
-          Result::Success.new(configurations)
-        }
-        .or_else {
-          Result::Error.new("Cannot find marketplace configurations for community id: #{community_id}")
-        }
-    end
-
-    def update_configurations(community_id:, main_search:)
-      Maybe(MarketplaceService::Store::MarketplaceConfigurations.update(community_id: community_id, main_search: main_search))
-        .map { |configurations|
-          Result::Success.new(configurations)
-        }
-        .or_else {
-          Result::Error.new("Cannot update marketplace configurations for community id: #{community_id}")
-        }
-    end
-
     # Create a Marketplace hash from Community model
     def from_model(community)
       hash = HashUtils.compact(
