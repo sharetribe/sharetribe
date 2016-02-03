@@ -52,15 +52,11 @@ module ListingIndexService::Search
     private
 
     def format_params(original)
-      defaults = {
-        include_closed: false
-      }
-      params = {}
-      params[:'page[number]'] = original[:page] if original[:page]
-      params[:'page[size]'] = original[:per_page] if original[:per_page]
-      params[:keywords] = original[:keywords] if original[:keywords]
-      params[:include_closed] = original[:include_closed] if original[:include_closed]
-      defaults.merge(params)
+      {
+       :'search-keywords' => original[:keywords],
+       :'page[number]' => original[:page],
+       :'page[size]' => original[:per_page]
+      }.compact
     end
 
     def listings_from_ids(id_obs, includes)
