@@ -99,7 +99,7 @@ module MarketplaceService::API
       Helper.create_category!("Default", community, locale)
       Helper.create_processes!(community.id, payment_process)
       Helper.create_listing_shape!(community, p[:marketplace_type], payment_process)
-      Helper.create_marketplace_configurations!(community_id: community.id, main_search: :keyword)
+      Helper.create_configurations!(community_id: community.id, main_search: :keyword)
 
       from_model(community)
     end
@@ -124,7 +124,7 @@ module MarketplaceService::API
       }
     end
 
-    def marketplace_configurations(community_id:)
+    def configurations(community_id:)
       Maybe(MarketplaceService::Store::MarketplaceConfigurations.get(community_id: community_id))
         .map { |configurations|
           Result::Success.new(configurations)
@@ -134,7 +134,7 @@ module MarketplaceService::API
         }
     end
 
-    def update_marketplace_configurations(community_id:, main_search:)
+    def update_configurations(community_id:, main_search:)
       Maybe(MarketplaceService::Store::MarketplaceConfigurations.update(community_id: community_id, main_search: main_search))
         .map { |configurations|
           Result::Success.new(configurations)
@@ -266,7 +266,7 @@ module MarketplaceService::API
         community.categories.create!(:url => category_name.downcase, translations: [translation])
       end
 
-      def create_marketplace_configurations!(opts)
+      def create_configurations!(opts)
         MarketplaceService::Store::MarketplaceConfigurations.create(opts)
       end
     end
