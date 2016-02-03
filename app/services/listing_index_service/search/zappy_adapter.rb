@@ -60,14 +60,13 @@ module ListingIndexService::Search
     end
 
     def listings_from_ids(id_obs, includes)
-      # use pluck for much faster query after updating to Rails >4.1.6
+      # TODO: use pluck instead of instantiating the ActiveRecord objects completely, for better performance
       # http://collectiveidea.com/blog/archives/2015/03/05/optimizing-rails-for-memory-usage-part-3-pluck-and-database-laziness/
-      # https://github.com/rails/rails/issues/17049
 
       ids = id_obs.map { |r| r['id'] }
 
       Listing
-        .where(id: ids) # use find_each for more efficient batch processing after updating to Rails 4.1
+        .where(id: ids)
         .order("field(listings.id, #{ids.join ','})")
         .map {
           |l| ListingIndexService::Search::Converters.listing_hash(l, includes)
