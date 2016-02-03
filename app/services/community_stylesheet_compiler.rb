@@ -17,7 +17,7 @@ module CommunityStylesheetCompiler
 
     def compile_all(delayed_opts={})
       prepare_compile_all do |community|
-        Delayed::Job.enqueue(CompileCustomStylesheetJob.new(community.id), delayed_opts)
+        Delayed::Job.enqueue(CompileCustomStylesheetJob.new(community.id), delayed_opts.dup)
       end
     end
 
