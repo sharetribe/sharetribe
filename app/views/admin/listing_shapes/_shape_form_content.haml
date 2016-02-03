@@ -71,7 +71,8 @@
     .col-12
       = hidden_field_tag("custom_units[existing][#{index}]", unit[:value])
       = label_tag("custom_units[existing][#{index}]", "#{t('admin.listing_shapes.custom_unit_form.per')} #{unit[:name][I18n.locale.to_s]}", class: "js-unit-label checkbox-row-label")
-      = link_to_function(t("admin.listing_shapes.delete_custom_unit"), "", class: "js-remove-custom-unit", data: {customUnitIndex: index})
+      %a{class: "js-remove-custom-unit listing-shape-remove-custom-unit", data: {customUnitIndex: index}}
+        = t("admin.listing_shapes.delete_custom_unit")
 
 .row
   .col-12.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link
