@@ -1717,8 +1717,10 @@ it:
     create_paypal_account_link_text: "PayPal account"
     connected_account: "Il conto PayPal '%{email}' è stato connesso con successo."
     paypal_receive_funds_info_label_australia_only: "Devi abilitare il tuo conto PayPal per accettare i pagamenti. E' necessario un conto PayPal Business. L'aggiornamento ad un conto PayPal business è semplice e non costa nulla."
-    paypal_receive_funds_info_label: "Devi abilitare il tuo conto PayPal per accettare i pagamenti. E' necessario un conto PayPal Business. L'aggiornamento ad un conto PayPal business è semplice e non costa nulla."
-    paypal_receive_funds_info: "Se avviene un errore, nello STEP 1/2 qui di seguito, tentando di collegare il tuo Conto PayPal a %{service_name}, ciò significa che devi fare un aggiornamento dell'account PayPal ad un account Business a questo link: %{upgrade_paypal_account_link}. Questo è senza costi e facile. Se sei una persona fisica, PayPal raccomanda di usare il proprio nome e cognome per il conto Business."
+    paypal_receive_funds_info_label: "E' necessario abilitare il conto PayPal per accettare i pagamenti. E' richiesto un account di tipo Business, poichè PayPal gestisce, e trasferisce le quote spettanti a ciascuno, trattenendo una sua precentuale di servizio solo tramite l'account business."
+    paypal_receive_funds_info: |-
+        Se avviene un errore, nello STEP 1/2 qui di seguito, tentando di collegare il tuo Conto PayPal a %{service_name}, ciò significa che non hai ancora aggiornato l'account PayPal ad un account Business a questo link: %{upgrade_paypal_account_link}. Questo è semplice e gratuito.
+        PayPal suggersice alle persone fisiche di usare il loro nome e congome per il conto Business, dove viene richiesta la Ragione Sociale.
     upgrade_paypal_account_link_text: "Aggiorna l'account PayPal."
     admin_account_not_connected: "Non è possibile utilizzare il sistema di pagamenti di %{service_name} e ricevere pagamenti, se prima non è stato settato. per favore %{contact_admin_link} per i dettagli."
     contact_admin_link_text: "contatta l'amministratore della piattaforma di marketplace"
@@ -1762,8 +1764,8 @@ it:
     paypal_account_connected_title: "Conto PayPal connesso"
     paypal_account_connected: "L'account PayPal %{email} è stato connesso con %{service_name}"
     change_account: "Cambia il conto PayPal"
-    missing: "Hai inserzioni attive, ma il tuo account Paypal non è impostato per ricevere i pagamenti. Collega l'account Paypal e concedi a %{service_name} il permesso di percepire la commissione dal tuo %{settings_link}. Una volta finito il procedimento sarai in gradi di ottenere le prenotazioni, ed i pagamenti da altri utenti."
-    from_your_payment_settings_link_text: "Configurazione dei pagamenti"
+    missing: "Hai inserzioni attive, ma le tue impostazioni di pagamento non sono abilitate per ricevere i pagamenti. Collega un account Paypal, tramite le tue %{settings_link} e concedi a %{service_name} il permesso di percepire la commissione sulle transazioni. Una volta finito il procedimento sarai in gradi di ottenere le prenotazioni, ed i pagamenti da altri utenti."
+    from_your_payment_settings_link_text: "Impostazioni di pagamento"
     redirect_message: "Reindirizzamento a PayPal. Se non succede niente, clicca %{redirect_link}."
     redirect_link_text: qui
     paypal_account_all_set_up: "Hurra ! Tutto è al suo posto !"
