@@ -69,7 +69,6 @@ Kassi::Application.configure do
     }
   end
 
-  config.active_support.deprecation = :stderr
 
   # Expands the lines which load the assets
   config.assets.debug = false

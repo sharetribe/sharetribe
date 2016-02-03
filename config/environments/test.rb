@@ -28,8 +28,6 @@ Kassi::Application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
-  config.active_support.deprecation = :stderr
-
   # As instructed by Devise, to make local mails work
   config.action_mailer.default_url_options = { :host => 'test.lvh.me:9887' }
 
