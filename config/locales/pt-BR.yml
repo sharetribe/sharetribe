@@ -346,9 +346,9 @@ pt-BR:
           this_field_is_required: "Este campo é obrigatório"
           this_field_is_required_checkbox: "Este campo é obrigatório (o usuário deve selecionar pelo menos uma opção)"
         search_filter:
-          search_filter: ~
-          date_cant_be_filtered: ~
-          text_cant_be_filtered: ~
+          search_filter: "Mostrar um filtro baseado neste campo na homepage"
+          date_cant_be_filtered: "Não há filtro disponível para campo de data"
+          text_cant_be_filtered: "Não há filtros para campo de texto. A busca já inclui os campos de texto."
       index:
         listing_fields: "Campos de anúncios & filtros"
         listing_fields_help: "Aqui você pode editar os campos que os usuários têm de preencher ao criar um novo anúncio. Por favor, note que alguns campos são predefinidos e não podem ser editados."
@@ -639,7 +639,7 @@ pt-BR:
       message_content_not_available: "O conteúdo da mensagem não está disponível"
     message:
       accepted_request: "aceitou o pedido"
-      received_payment: ~
+      received_payment: "O pedido foi aceitado, pagamento recebido para %{sum}"
       accepted_offer: "aceitou a oferta"
       rejected_request: "rejeitou o pedido"
       rejected_offer: "rejeitou a oferta"
@@ -1114,7 +1114,7 @@ pt-BR:
     create_new_marketplace: "Criar um novo mercado virtual"
     contact_us: Contato
     profile: Perfil
-    manage_listings: ~
+    manage_listings: "Gerenciar anúncios"
     invite: "Convidar novos membros"
     login: Entrar
     signup: "Criar conta"

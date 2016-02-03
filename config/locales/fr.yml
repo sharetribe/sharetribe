@@ -641,7 +641,7 @@ fr:
       accepted_request: "a accepté la demande"
       received_payment: "a accepté la demande, a reçu le paiement de %{sum}"
       accepted_offer: "a accepté l'offre"
-      rejected_request: "a refusé la demande"
+      rejected_request: "a refusé la demande, a annulé le paiement"
       rejected_offer: "a refusé l'offre"
       confirmed_request: "a marqué la commande comme réalisée"
       confirmed_offer: "a marqué l'offre comme réalisée"
@@ -724,8 +724,8 @@ fr:
           multicurrency: "Nous n'avons pu traiter votre paiement PayPal car votre compte PayPal n'est pas configuré pour recevoir de l'argent en %{currency}. Rendez-vous sur %{paypal_url} et connectez-vous à votre compte pour accepter ou rejeter manuellement le paiement."
           verify: "Vous ne pouvez accepter cette transaction car vous n'avez pas vérifié votre compte PayPal. Rendez-vous sur %{paypal_url} pour vérifier votre compte."
           intl: "Nous n'avons pu traiter votre paiement PayPal car votre compte PayPal ne dispose pas d'un système d'annulation. Rendez-vous sur %{paypal_url} et connectez-vous à votre compte pour accepter ou rejeter manuellement le paiement."
-      waiting_for_current_user_to_deliver_listing: "En attente de votre réalisation de %{listing_title}"
-      waiting_for_listing_author_to_deliver_listing: "En attente de %{listing_author_name} de la réalisation de %{listing_title}"
+      waiting_for_current_user_to_deliver_listing: "En attente de votre réalisation de la commande relative à %{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "En attente de %{listing_author_name} de la réalisation de la commande relative à %{listing_title}"
       request_accepted: Acceptée
       request_rejected: Refusée
       request_confirmed: Terminée
