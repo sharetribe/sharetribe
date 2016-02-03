@@ -8,6 +8,10 @@ This file follows the best practices from [keepchangelog.com](http://keepachange
 
 ## [Unreleased]
 
+### Added
+
+- Initial support for upcoming new search platform. [#1404](https://github.com/sharetribe/sharetribe/pull/1404)
+
 ## [5.2.1] - 2016-02-03
 
 ### Changed
