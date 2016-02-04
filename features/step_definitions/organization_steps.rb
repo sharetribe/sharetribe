@@ -19,11 +19,11 @@ end
 
 Then /^there should be an organization account "(.*?)"$/ do |org_username|
   o = Person.find_by_username(org_username)
-  o.is_organization.should be_truthy
+  expect(o.is_organization).to be_truthy
 end
 
 Then /^I should see flash error$/ do
-  find(".flash-error").should be_visible
+  expect(find(".flash-error")).to be_visible
 end
 
 Given /^there is an organization "(.*?)"$/ do |org_username|

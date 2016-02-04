@@ -7,7 +7,7 @@ Then /^I should not have editor open$/ do
 end
 
 Then /^I should have editor open$/ do
-  page.should have_selector("#mercury_iframe")
+  expect(page).to have_selector("#mercury_iframe")
 end
 
 When(/^I send keys "(.*?)" to editor$/) do |keys|

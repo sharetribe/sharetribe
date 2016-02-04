@@ -180,41 +180,29 @@ Then /^(?:|I )should see JSON:$/ do |expected_json|
   require 'json'
   expected = JSON.pretty_generate(JSON.parse(expected_json))
   actual   = JSON.pretty_generate(JSON.parse(response.body))
-  expected.should == actual
+  expect(expected).to eq(actual)
 end
 
 Then /^(?:|I )should see "([^"]*)"(?: within "([^"]*)")?$/ do |text, selector|
   with_scope(selector) do
-    if page.respond_to? :should
-      page.should have_content(text)
-    else
-      assert page.has_content?(text)
-    end
+    expect(page).to have_content(text)
   end
 end
 
 Then /^(?:|I )should see \/([^\/]*)\/(?: within "([^"]*)")?$/ do |regexp, selector|
   regexp = Regexp.new(regexp)
   with_scope(selector) do
-    if page.respond_to? :should
-      page.should have_xpath('//*', :text => regexp)
-    else
-      assert page.has_xpath?('//*', :text => regexp)
-    end
+    expect(page).to have_xpath('//*', :text => regexp)
   end
 end
 
 Then /^I should see "([^"]*)" in the "([^"]*)" input$/ do |content, field|
-  find_field(field).value.should == content
+  expect(find_field(field).value).to eq(content)
 end
 
 Then /^(?:|I )should not see "([^"]*)"(?: within "([^"]*)")?$/ do |text, selector|
   with_scope(selector) do
-    if page.respond_to? :should
-      page.should have_no_content(text)
-    else
-      assert page.has_no_content?(text)
-    end
+    expect(page).to have_no_content(text)
   end
 end
 
@@ -225,11 +213,7 @@ end
 Then /^(?:|I )should not see \/([^\/]*)\/(?: within "([^"]*)")?$/ do |regexp, selector|
   regexp = Regexp.new(regexp)
   with_scope(selector) do
-    if page.respond_to? :should
-      page.should have_no_xpath('//*', :text => regexp)
-    else
-      assert page.has_no_xpath?('//*', :text => regexp)
-    end
+    expect(page).to have_no_xpath('//*', :text => regexp)
   end
 end
 
@@ -237,11 +221,7 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should contain "([^"]*)"$/ do |
   with_scope(selector) do
     field = find_field(field)
     field_value = (field.tag_name == 'textarea') ? field.text : field.value
-    if field_value.respond_to? :should
-      field_value.should =~ /#{value}/
-    else
-      assert_match(/#{value}/, field_value)
-    end
+    expect(field_value).to match(/#{value}/)
   end
 end
 
@@ -249,33 +229,21 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should not contain "([^"]*)"$/ 
   with_scope(selector) do
     field = find_field(field)
     field_value = (field.tag_name == 'textarea') ? field.text : field.value
-    if field_value.respond_to? :should_not
-      field_value.should_not =~ /#{value}/
-    else
-      assert_no_match(/#{value}/, field_value)
-    end
+    expect(field_value).not_to match(/#{value}/)
   end
 end
 
 Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should be checked$/ do |label, selector|
   with_scope(selector) do
     field_checked = find_field(label)['checked']
-    if field_checked.respond_to? :should
-      field_checked.should be_truthy
-    else
-      assert field_checked
-    end
+    expect(field_checked).to be_truthy
   end
 end
 
 Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should not be checked$/ do |label, selector|
   with_scope(selector) do
     field_checked = find_field(label)['checked']
-    if field_checked.respond_to? :should
-      field_checked.should be_falsey
-    else
-      assert !field_checked
-    end
+    expect(field_checked).to be_falsey
   end
 end
 
@@ -284,10 +252,10 @@ Then /^(?:|I )should be on (URL )?(.+)$/ do |match_url, page|
 
   if match_url
     url = URI.parse(current_url)
-    url.to_s.should == page
+    expect(url.to_s).to eq(page)
   elsif current_path.respond_to? :should
     current_path = URI.parse(current_url).path
-    current_path.should == path_to(page)
+    expect(current_path).to eq(path_to(page))
   else
     assert_equal path_to(page), current_path
   end
@@ -299,11 +267,7 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   expected_params = {}
   expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = v.split(',')}
 
-  if actual_params.respond_to? :should
-    actual_params.should == expected_params
-  else
-    assert_equal expected_params, actual_params
-  end
+  expect(actual_params).to eq(expected_params)
 end
 
 # This is a workaround for PhantomJS, which doesn't (or actually WebDriver) support confirm dialogs.
@@ -320,13 +284,15 @@ When /^I confirm alert popup$/ do
 end
 
 Then /^I should see validation error$/ do
-  find("label.error").should be_visible
+  expect(find("label.error")).to be_visible
 end
 
 Then /^I should see (\d+) validation errors$/ do |errors_count|
   errors = all("label.error");
-  errors.size.should eql(errors_count.to_i)
-  all("label.error").each { |error| error.should be_visible }
+  expect(errors.size).to eql(errors_count.to_i)
+  all("label.error").each { |error|
+    expect(error).to be_visible
+  }
 end
 
 Then /^take a screenshot$/ do
@@ -347,7 +313,7 @@ end
 
 Then(/^"([^"]*)" should have CSS property "([^"]*)" with value "([^"]*)"$/) do |selector, property, value|
   actual_value = page.evaluate_script("$('#{selector}').css('#{property}')");
-  actual_value.should be_eql(value)
+  expect(actual_value).to be_eql(value)
 end
 
 When(/^I change field "([^"]*)" to "([^"]*)"$/) do |from, to|

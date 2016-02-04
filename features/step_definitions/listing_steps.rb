@@ -84,7 +84,7 @@ When /^there is one comment to the listing from "([^"]*)"$/ do |author|
 end
 
 Then /^the total number of comments should be (\d+)$/ do |no_of_comments|
-  Comment.all.count.should == no_of_comments.to_i
+  expect(Comment.all.count).to eq(no_of_comments.to_i)
 end
 
 When /^I save the listing$/ do
@@ -266,28 +266,28 @@ When(/^I (?:buy) (\d+) hours worth of those listings$/) do |hours|
 end
 
 When(/^I select category "(.*?)"$/) do |category_name|
-  page.should have_content("Select category")
+  expect(page).to have_content("Select category")
   first(".select", text: category_name).click
 end
 
 When(/^I select subcategory "(.*?)"$/) do |subcategory_name|
-  page.should have_content("Select subcategory")
+  expect(page).to have_content("Select subcategory")
   first(".select", text: subcategory_name).click
 end
 
 When(/^I select listing shape "(.*?)"$/) do |listing_shape_name|
-  page.should have_content("Select listing type")
+  expect(page).to have_content("Select listing type")
   first(".select", text: listing_shape_name).click
 end
 
 Then(/^I should see the new listing form$/) do
-  page.should have_content("Listing title")
-  page.should have_content("Detailed description")
-  page.should have_content("Image")
+  expect(page).to have_content("Listing title")
+  expect(page).to have_content("Detailed description")
+  expect(page).to have_content("Image")
 end
 
 Then(/^I should warning about missing payment details$/) do
-  page.should have_content("You need to fill in payout details before you can post a listing. Go to payment settings to fill in the details.")
+  expect(page).to have_content("You need to fill in payout details before you can post a listing. Go to payment settings to fill in the details.")
 end
 
 When(/^I make a booking request for that listing for (\d+) days$/) do |day_count|

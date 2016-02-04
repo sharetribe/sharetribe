@@ -20,7 +20,7 @@ module AdminCategorySteps
   end
 
   def should_not_find_remove_link_for_category(category_name)
-    find_category_row(category_name).should have_no_selector(DELETE_LINK_SELECTOR)
+    expect(find_category_row(category_name)).to have_no_selector(DELETE_LINK_SELECTOR)
   end
 
   def find_category_by_name(category_name)
@@ -118,7 +118,7 @@ Then /^I should not be able to remove category "(.*?)"$/ do |category_name|
 end
 
 Then /^I should be able to select new category for listing "(.*?)"$/ do |arg1|
-  find("#new_category").should be_visible
+  expect(find("#new_category")).to be_visible
 end
 
 When /^I select "(.*?)" as a new category$/ do |new_category_name|
@@ -206,7 +206,7 @@ Given(/^category "(.*?)" should have the following listing shapes:$/) do |catego
     tr.map { |tr_hash| tr_hash[:translation] }
   }
 
-  listing_shapes.uniq.sort.should == shapes.uniq.sort
+  expect(listing_shapes.uniq.sort).to eq(shapes.uniq.sort)
 end
 
 When(/^I change listing shapes of category "(.*?)" to following:$/) do |category_name, new_listing_shapes|

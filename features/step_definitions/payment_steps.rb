@@ -48,10 +48,10 @@ end
 
 Then /^"(.*?)" should have required Checkout payment details saved to my account information$/ do |username|
   p = Person.find_by_username(username)
-  p.checkout_account.merchant_id.should_not be_nil
-  p.checkout_account.merchant_id.should_not be_blank
-  p.checkout_account.merchant_key.should_not be_nil
-  p.checkout_account.merchant_key.should_not be_blank
+  expect(p.checkout_account.merchant_id).not_to be_nil
+  expect(p.checkout_account.merchant_id).not_to be_blank
+  expect(p.checkout_account.merchant_key).not_to be_nil
+  expect(p.checkout_account.merchant_key).not_to be_blank
 end
 
 When /^Braintree webhook "(.*?)" with id "(.*?)" is triggered$/ do |kind, id|
@@ -76,7 +76,7 @@ When /^Braintree webhook "(.*?)" with username "(.*?)" is triggered$/ do |kind, 
 end
 
 Given /^Braintree transaction is mocked$/ do
-  BraintreeApi.should_receive(:transaction_sale) do |community, params|
+  expect(BraintreeApi).to receive(:transaction_sale) do |community, params|
     cc = params[:credit_card]
     # Check that the value is encrypted
     expect(cc[:number]).to start_with("$bt4|javascript_1_3_10$")
@@ -88,41 +88,41 @@ Given /^Braintree transaction is mocked$/ do
 end
 
 Given /^Braintree submit to settlement is mocked$/ do
-  BraintreeApi.should_receive(:submit_to_settlement)
+  expect(BraintreeApi).to receive(:submit_to_settlement)
     .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
 end
 
 Given /^Braintree escrow release is mocked$/ do
-  BraintreeService::EscrowReleaseHelper.should_receive(:release_from_escrow).at_least(1).times.and_return(true)
+  expect(BraintreeService::EscrowReleaseHelper).to receive(:release_from_escrow).at_least(1).times.and_return(true)
 end
 
 Given /^Braintree void transaction is mocked$/ do
-  BraintreeApi.should_receive(:void_transaction).at_least(1).times
+  expect(BraintreeApi).to receive(:void_transaction).at_least(1).times
     .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
 end
 
 Given /^Braintree merchant creation is mocked$/ do
-  BraintreeApi.should_receive(:create_merchant_account) do |braintree_account, community|
-    braintree_account.first_name.should == "Joe"
-    braintree_account.last_name.should == "Bloggs"
-    braintree_account.email.should == "joe@14ladders.com"
-    braintree_account.phone.should == "5551112222"
-    braintree_account.address_street_address.should == "123 Credibility St."
-    braintree_account.address_postal_code.should == "60606"
-    braintree_account.address_locality.should == "Chicago"
-    braintree_account.address_region.should == "IL"
-    braintree_account.date_of_birth.year.should == 1980
-    braintree_account.date_of_birth.month.should == 10
-    braintree_account.date_of_birth.day.should == 9
-    braintree_account.routing_number.should == "101000187"
-    braintree_account.account_number.should == "43759348798"
-    braintree_account.person_id.should == @current_user.id
-    community.name('en').should == "Sharetribe"
+  expect(BraintreeApi).to receive(:create_merchant_account) do |braintree_account, community|
+    expect(braintree_account.first_name).to eq("Joe")
+    expect(braintree_account.last_name).to eq("Bloggs")
+    expect(braintree_account.email).to eq("joe@14ladders.com")
+    expect(braintree_account.phone).to eq("5551112222")
+    expect(braintree_account.address_street_address).to eq("123 Credibility St.")
+    expect(braintree_account.address_postal_code).to eq("60606")
+    expect(braintree_account.address_locality).to eq("Chicago")
+    expect(braintree_account.address_region).to eq("IL")
+    expect(braintree_account.date_of_birth.year).to eq(1980)
+    expect(braintree_account.date_of_birth.month).to eq(10)
+    expect(braintree_account.date_of_birth.day).to eq(9)
+    expect(braintree_account.routing_number).to eq("101000187")
+    expect(braintree_account.account_number).to eq("43759348798")
+    expect(braintree_account.person_id).to eq(@current_user.id)
+    expect(community.name('en')).to eq("Sharetribe")
   end.and_return(Braintree::SuccessfulResult.new({:merchant_account => HashClass.new({:id => @current_user.id, :status => "pending"})}))
 end
 
 Given /^Braintree merchant creation is mocked to return failure$/ do
-  BraintreeApi.should_receive(:create_merchant_account)
+  expect(BraintreeApi).to receive(:create_merchant_account)
     .and_return(Braintree::ErrorResult.new(nil, :errors => { :errors => [] } ))
 end
 
@@ -179,7 +179,7 @@ When /^I browse to Checkout account settings$/ do
 end
 
 Then /^the link to payment settings should be visible$/ do
-  find("#settings-tab-payments").should be_visible
+  expect(find("#settings-tab-payments")).to be_visible
 end
 
 When /^I follow link to payment settings$/ do
@@ -238,7 +238,7 @@ Given /^"(.*?)" does not have Checkout account$/ do |org_username|
 end
 
 Then /^I should see information about existing Checkout account$/ do
-  find("#payment-help-checkout-exists").visible?.should be_truthy
+  expect(find("#payment-help-checkout-exists").visible?).to be_truthy
   steps %Q{
     And I should not see payment setting fields
   }
@@ -252,11 +252,11 @@ Then /^I should be see that the payment was successful$/ do
 end
 
 Then /^I should see that I successfully paid (.*?)$/ do |amount|
-  page.should have_content("paid #{amount}")
+  expect(page).to have_content("paid #{amount}")
 end
 
 Then /^I should see that I successfully authorized payment (.*?)$/ do |amount|
-  page.should have_content("Payment authorized: #{amount}")
+  expect(page).to have_content("Payment authorized: #{amount}")
 end
 
 Then /^"(.*?)" should receive email about payment$/ do |receiver|
@@ -271,11 +271,11 @@ Then /^"(.*?)" should receive email about payment$/ do |receiver|
 end
 
 Then /^I should not see payment setting fields$/ do
-  page.should have_no_selector("#person-company-id")
-  page.should have_no_selector("#person-organization-address")
-  page.should have_no_selector("#person-phone-number")
-  page.should have_no_selector("#person-organization-website")
-  page.should have_no_selector("[type=submit]")
+  expect(page).to have_no_selector("#person-company-id")
+  expect(page).to have_no_selector("#person-organization-address")
+  expect(page).to have_no_selector("#person-phone-number")
+  expect(page).to have_no_selector("#person-organization-website")
+  expect(page).to have_no_selector("[type=submit]")
 end
 
 When /^I click Tilisiirto logo$/ do
@@ -291,9 +291,9 @@ Then /^I should receive an email about missing payment details$/ do
 end
 
 Then /^I should see receipt info for unit_type (.*?) with quantity (\d+) and subtotal of (.*?)$/ do |unit_type, quantity, subtotal|
-  page.should have_content("Price per #{unit_type}")
-  page.should have_content("Subtotal:")
-  page.should have_content("Total:")
+  expect(page).to have_content("Price per #{unit_type}")
+  expect(page).to have_content("Subtotal:")
+  expect(page).to have_content("Total:")
 
   expect(find(".initiate-transaction-quantity-value")).to have_content(quantity)
   expect(find(".initiate-transaction-sum-value")).to have_content(subtotal)

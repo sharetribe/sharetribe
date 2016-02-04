@@ -31,7 +31,7 @@ When(/^I change the default browse view to "(.*?)"$/) do |browse_view|
 end
 
 Then(/^I should see the browse view selected as "(.*?)"$/) do |browse_view|
-  find(".home-toolbar-button-group .selected").should have_content(browse_view)
+  expect(find(".home-toolbar-button-group .selected")).to have_content(browse_view)
 end
 
 Given(/^community "(.*?)" has name display type "(.*?)"$/) do |community, name_display_type|
@@ -46,7 +46,7 @@ When(/^I change the name display type to "(.*?)"$/) do |name_display_type|
 end
 
 Then(/^I should see that the favicon is "(.*?)"$/) do |filename|
-  page.should have_xpath("/html/head/link[contains(@href, #{filename})]", :visible => false)
+  expect(page).to have_xpath("/html/head/link[contains(@href, #{filename})]", :visible => false)
 end
 
 Then(/^I upload a new favicon$/) do

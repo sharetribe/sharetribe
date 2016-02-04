@@ -116,7 +116,7 @@ When /^there is feedback about that event from "([^"]*)" with grade "([^"]*)" an
 end
 
 Then /^I should see information about missing payment details$/ do
-  find("#conversation-payment-details-missing").should be_visible
+  expect(find("#conversation-payment-details-missing")).to be_visible
 end
 
 When(/^I skip feedback$/) do
@@ -202,7 +202,7 @@ When(/^I open message "(.*?)"$/) do |title|
 end
 
 Then(/^I should see that the request is waiting for seller acceptance$/) do
-  page.should have_content(/Waiting for (.*) to accept the request/)
+  expect(page).to have_content(/Waiting for (.*) to accept the request/)
 end
 
 def visit_transaction_of_listing(listing)
@@ -218,15 +218,15 @@ end
 
 
 Then(/^I should see that the order is waiting for buyer confirmation$/) do
-  page.should have_content(/Waiting for (.*) to mark the order completed/)
+  expect(page).to have_content(/Waiting for (.*) to mark the order completed/)
 end
 
 Then /^I should see that I should now deliver the board$/ do
-  page.should have_content(/Waiting for you to fulfill the order for (.*)/)
+  expect(page).to have_content(/Waiting for you to fulfill the order for (.*)/)
 end
 
 Then(/^I should see that the order is confirmed/) do
-  page.should have_content(/marked the order as completed/)
+  expect(page).to have_content(/marked the order as completed/)
 end
 
 When(/^I accept the "(.*?)" request for that listing for post pay$/) do |request|
@@ -244,7 +244,7 @@ Then(/^I should see that I should fill in payout details$/) do
 end
 
 Then(/^I should see that the request is waiting for buyer to pay$/) do
-  page.should have_content(/Waiting for (.*) to pay/)
+  expect(page).to have_content(/Waiting for (.*) to pay/)
 end
 
 When(/^I pay my request for that listing$/) do
@@ -266,7 +266,7 @@ When(/^I confirm the request for that listing$/) do
 end
 
 Then(/^I should see that the request was confirmed$/) do
-  page.should have_content(/Completed/)
+  expect(page).to have_content(/Completed/)
 end
 
 When(/^the seller does not respond the request within (\d+) days$/) do |days|
@@ -276,7 +276,7 @@ When(/^the seller does not respond the request within (\d+) days$/) do |days|
 end
 
 Then(/^I should see that the request was rejected$/) do
-  page.should have_content(/Rejected/)
+  expect(page).to have_content(/Rejected/)
 end
 
 
@@ -285,7 +285,7 @@ Then /^I should see that the price of a listing is "(.*?)"$/ do |price_string|
 end
 
 Then /^I should send a message to "(.*?)"$/ do |seller_name|
-  find("#new_listing_conversation").visible?.should be_truthy
+  expect(find("#new_listing_conversation").visible?).to be_truthy
   seller = Person.find_by_username(seller_name)
   expect(find("label[for=listing_conversation_content]")).to have_content("Message to #{seller.given_name}")
 end

@@ -31,17 +31,17 @@ Then(/^I should see a range from (\d+) to (\d+) with total user count of (\d+)$/
 end
 
 Then(/^I should see list of users with the following details:$/) do |table|
-  
+
   # This waits for ajax requests to complete
   expect(page).to have_selector("#admin_members_list tbody tr", :count => table.rows.count)
-  
+
   cells = all("#admin_members_list tbody tr").map do |rows|
     rows.all("td")
   end
 
   table.rows.each_with_index do |row, row_num|
     row.each_with_index do |cell, column_num|
-      cell.should == cells[row_num][column_num].text
+      expect(cell).to eq(cells[row_num][column_num].text)
     end
   end
 end
@@ -52,7 +52,7 @@ end
 
 Then(/^the first user should be "(.*?)"$/) do |full_name|
   first_row = all("#admin_members_list tbody tr").first
-  first_row.all("td").first.text.should == full_name
+  expect(first_row.all("td").first.text).to eq(full_name)
 end
 
 Given(/^only verified users can post listings in this community$/) do
@@ -61,7 +61,7 @@ end
 
 Then(/^I should see that "(.*?)" cannot post new listings$/) do |full_name|
   checkbox = find_posting_allowed_checkbox_for_person(full_name)
-  checkbox['checked'].should be_nil
+  expect(checkbox['checked']).to be_nil
 end
 
 When(/^I verify user "(.*?)" as a seller$/) do |full_name|
@@ -72,7 +72,7 @@ When(/^I verify user "(.*?)" as a seller$/) do |full_name|
 end
 
 Then(/^I should see that "(.*?)" can post new listings$/) do |full_name|
-  find_posting_allowed_checkbox_for_person(full_name)['checked'].should_not be_nil
+  expect(find_posting_allowed_checkbox_for_person(full_name)['checked']).not_to be_nil
 end
 
 When(/^I remove user "(.*?)"$/) do |full_name|
@@ -84,7 +84,7 @@ end
 
 Then(/^"(.*?)" should be banned from this community$/) do |username|
   person = Person.find_by_username(username)
-  CommunityMembership.find_by_person_id_and_community_id(person.id, @current_community.id).status.should == "banned"
+  expect(CommunityMembership.find_by_person_id_and_community_id(person.id, @current_community.id).status).to eq("banned")
 end
 
 Given(/^user "(.*?)" is banned in this community$/) do |username|
@@ -106,11 +106,11 @@ Then(/^I should be able to send a message to admin$/) do
 end
 
 Then(/^I should see that "(.*?)" has admin rights in this community$/) do |full_name|
-  find_admin_checkbox_for_person(full_name)['checked'].should_not be_nil
+  expect(find_admin_checkbox_for_person(full_name)['checked']).not_to be_nil
 end
 
 Then(/^I should see that "(.*?)" does not have admin rights in this community$/) do |full_name|
-  find_admin_checkbox_for_person(full_name)['checked'].should be_nil
+  expect(find_admin_checkbox_for_person(full_name)['checked']).to be_nil
 end
 
 When(/^I promote "(.*?)" to admin$/) do |full_name|
@@ -121,9 +121,9 @@ When(/^I promote "(.*?)" to admin$/) do |full_name|
 end
 
 Then(/^I should see that I can not remove admin rights of "(.*?)"$/) do |full_name|
-  find_admin_checkbox_for_person(full_name)['disabled'].should be_truthy
+  expect(find_admin_checkbox_for_person(full_name)['disabled']).to be_truthy
 end
 
 Then(/^I should see that I can remove admin rights of "(.*?)"$/) do |full_name|
-  find_admin_checkbox_for_person(full_name)['disabled'].should be_falsey
+  expect(find_admin_checkbox_for_person(full_name)['disabled']).to be_falsey
 end

@@ -45,7 +45,7 @@ Then /^I should see that there is no custom field "(.*?)"$/ do |field_name|
 end
 
 Then /^I should see that I do not have any custom fields$/ do
-  all(".custom-field-title").should be_empty
+  expect(all(".custom-field-title")).to be_empty
 end
 
 When /^I remove custom field "(.*?)"$/ do |title|
@@ -231,10 +231,10 @@ end
 Then /^options should be stored correctly$/ do
   @custom_field = CustomField.find(@custom_field.id)
   options = @custom_field.options.sort_by{|o| o.sort_priority}
-  options.size.should == 3
-  options[0].title.should == "House2"
-  options[1].title.should == "House3"
-  options[2].title.should == "House4"
+  expect(options.size).to eq(3)
+  expect(options[0].title).to eq("House2")
+  expect(options[1].title).to eq("House3")
+  expect(options[2].title).to eq("House4")
 end
 
 Then /^I should see "(.*?)" before "(.*?)"$/ do |arg1, arg2|
@@ -244,7 +244,7 @@ Then /^I should see "(.*?)" before "(.*?)"$/ do |arg1, arg2|
   }
 
   # http://stackoverflow.com/questions/8423576/is-it-possible-to-test-the-order-of-elements-via-rspec-capybara
-  page.body.index(arg1).should < page.body.index(arg2)
+  expect(page.body.index(arg1)).to be < page.body.index(arg2)
 end
 
 When /^I move custom field "(.*?)" up$/ do |custom_field|

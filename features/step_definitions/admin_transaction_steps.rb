@@ -89,7 +89,7 @@ Given(/^there are following transactions$/) do |table|
 end
 
 Then(/^I should see (\d+) transaction with status "(.*?)"$/) do |count, status_text|
-  page.all("td", :text => status_text).length.should eq count.to_i
+  expect(page.all("td", :text => status_text).length).to eq count.to_i
 end
 
 When(/^I sort by "(.*?)"$/) do |column|
@@ -98,22 +98,22 @@ end
 
 Then(/^I should see the transactions in ascending order by "(.*?)"$/) do |column|
   col_values = column_values(find_column_index(column))
-  col_values.should eql col_values.sort
+  expect(col_values).to eql col_values.sort
 end
 
 Then(/^I should see the transactions in descending order by "(.*?)"$/) do |column|
   col_values = column_values(find_column_index(column))
-  col_values.should eql col_values.sort.reverse
+  expect(col_values).to eql col_values.sort.reverse
 end
 
 Then(/^I should see the transactions in ascending time order by "(.*?)"$/) do |column|
   col_values = column_values(find_column_index(column))
     .map { |value| DateTime.parse(value) }
-  col_values.should eql col_values.sort
+  expect(col_values).to eql col_values.sort
 end
 
 Then(/^I should see the transactions in descending time order by "(.*?)"$/) do |column|
   col_values = column_values(find_column_index(column))
     .map { |value| DateTime.parse(value) }
-  col_values.should eql col_values.sort.reverse
+  expect(col_values).to eql col_values.sort.reverse
 end

@@ -4,7 +4,7 @@
 Given(/^I have received a weekly updates email$/) do
   create_listing(shape: all_shapes.first)
   CommunityMailer.deliver_community_updates
-  email_count.should == 1
+  expect(email_count).to eq(1)
 end
 
 Given(/^I click a link to unsubscribe$/) do
@@ -13,11 +13,11 @@ Given(/^I click a link to unsubscribe$/) do
 end
 
 Then(/^I should see that I have successfully unsubscribed$/) do
-  page.should have_content("Unsubscribe succesful")
+  expect(page).to have_content("Unsubscribe succesful")
 end
 
 Then(/^I should not receive weekly updates email anymore$/) do
   create_listing(shape: all_shapes.first)
   CommunityMailer.deliver_community_updates
-  email_count.should == 1
+  expect(email_count).to eq(1)
 end
