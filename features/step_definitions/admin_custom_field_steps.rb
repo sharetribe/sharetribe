@@ -244,7 +244,7 @@ Then /^I should see "(.*?)" before "(.*?)"$/ do |arg1, arg2|
   }
 
   # http://stackoverflow.com/questions/8423576/is-it-possible-to-test-the-order-of-elements-via-rspec-capybara
-  page.body.index(arg1).should < page.body.index(arg2)
+  expect(page.body.index(arg1)).to be < page.body.index(arg2)
 end
 
 When /^I move custom field "(.*?)" up$/ do |custom_field|
