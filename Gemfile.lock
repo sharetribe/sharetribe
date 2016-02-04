@@ -81,7 +81,8 @@ GEM
       builder (>= 2.0.0)
     builder (3.2.2)
     callsite (0.0.11)
-    capybara (2.2.1)
+    capybara (2.6.2)
+      addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
@@ -474,7 +475,7 @@ DEPENDENCIES
   aws-sdk-v1 (~> 1.64.0)
   better_errors (~> 2.1.1)
   braintree (~> 2.30.0)
-  capybara (~> 2.2.1)
+  capybara (~> 2.6.2)
   coffee-rails (~> 4.0.1)
   compass (~> 0.13.alpha)
   compass-rails (~> 2.0)
