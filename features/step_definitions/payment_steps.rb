@@ -76,7 +76,7 @@ When /^Braintree webhook "(.*?)" with username "(.*?)" is triggered$/ do |kind, 
 end
 
 Given /^Braintree transaction is mocked$/ do
-  BraintreeApi.should_receive(:transaction_sale) do |community, params|
+  expect(BraintreeApi).to receive(:transaction_sale) do |community, params|
     cc = params[:credit_card]
     # Check that the value is encrypted
     expect(cc[:number]).to start_with("$bt4|javascript_1_3_10$")
@@ -88,21 +88,21 @@ Given /^Braintree transaction is mocked$/ do
 end
 
 Given /^Braintree submit to settlement is mocked$/ do
-  BraintreeApi.should_receive(:submit_to_settlement)
+  expect(BraintreeApi).to receive(:submit_to_settlement)
     .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
 end
 
 Given /^Braintree escrow release is mocked$/ do
-  BraintreeService::EscrowReleaseHelper.should_receive(:release_from_escrow).at_least(1).times.and_return(true)
+  expect(BraintreeService::EscrowReleaseHelper).to receive(:release_from_escrow).at_least(1).times.and_return(true)
 end
 
 Given /^Braintree void transaction is mocked$/ do
-  BraintreeApi.should_receive(:void_transaction).at_least(1).times
+  expect(BraintreeApi).to receive(:void_transaction).at_least(1).times
     .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
 end
 
 Given /^Braintree merchant creation is mocked$/ do
-  BraintreeApi.should_receive(:create_merchant_account) do |braintree_account, community|
+  expect(BraintreeApi).to receive(:create_merchant_account) do |braintree_account, community|
     expect(braintree_account.first_name).to eq("Joe")
     expect(braintree_account.last_name).to eq("Bloggs")
     expect(braintree_account.email).to eq("joe@14ladders.com")
@@ -122,7 +122,7 @@ Given /^Braintree merchant creation is mocked$/ do
 end
 
 Given /^Braintree merchant creation is mocked to return failure$/ do
-  BraintreeApi.should_receive(:create_merchant_account)
+  expect(BraintreeApi).to receive(:create_merchant_account)
     .and_return(Braintree::ErrorResult.new(nil, :errors => { :errors => [] } ))
 end
 
