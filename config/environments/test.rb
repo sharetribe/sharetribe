@@ -43,7 +43,7 @@ Kassi::Application.configure do
     end
   end
 
-  Capybara.default_wait_time = 10
+  Capybara.default_max_wait_time = 10
   Capybara.ignore_hidden_elements = true
 
   ENV['RAILS_ASSET_ID'] = ""
