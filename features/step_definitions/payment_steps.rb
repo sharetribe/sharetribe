@@ -103,21 +103,21 @@ end
 
 Given /^Braintree merchant creation is mocked$/ do
   BraintreeApi.should_receive(:create_merchant_account) do |braintree_account, community|
-    braintree_account.first_name.should == "Joe"
-    braintree_account.last_name.should == "Bloggs"
-    braintree_account.email.should == "joe@14ladders.com"
-    braintree_account.phone.should == "5551112222"
-    braintree_account.address_street_address.should == "123 Credibility St."
-    braintree_account.address_postal_code.should == "60606"
-    braintree_account.address_locality.should == "Chicago"
-    braintree_account.address_region.should == "IL"
-    braintree_account.date_of_birth.year.should == 1980
-    braintree_account.date_of_birth.month.should == 10
-    braintree_account.date_of_birth.day.should == 9
-    braintree_account.routing_number.should == "101000187"
-    braintree_account.account_number.should == "43759348798"
-    braintree_account.person_id.should == @current_user.id
-    community.name('en').should == "Sharetribe"
+    expect(braintree_account.first_name).to eq("Joe")
+    expect(braintree_account.last_name).to eq("Bloggs")
+    expect(braintree_account.email).to eq("joe@14ladders.com")
+    expect(braintree_account.phone).to eq("5551112222")
+    expect(braintree_account.address_street_address).to eq("123 Credibility St.")
+    expect(braintree_account.address_postal_code).to eq("60606")
+    expect(braintree_account.address_locality).to eq("Chicago")
+    expect(braintree_account.address_region).to eq("IL")
+    expect(braintree_account.date_of_birth.year).to eq(1980)
+    expect(braintree_account.date_of_birth.month).to eq(10)
+    expect(braintree_account.date_of_birth.day).to eq(9)
+    expect(braintree_account.routing_number).to eq("101000187")
+    expect(braintree_account.account_number).to eq("43759348798")
+    expect(braintree_account.person_id).to eq(@current_user.id)
+    expect(community.name('en')).to eq("Sharetribe")
   end.and_return(Braintree::SuccessfulResult.new({:merchant_account => HashClass.new({:id => @current_user.id, :status => "pending"})}))
 end
 

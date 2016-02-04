@@ -75,10 +75,10 @@ Then /^Most recently created user should be member of "([^"]*)" community with(?
     status ||= "accepted"
 
     community = Community.where(ident: community_ident).first
-    CommunityMembership.last.community.should == community
-    CommunityMembership.last.consent.should == community.consent
-    CommunityMembership.last.status.should == status
-    CommunityMembership.last.invitation.code.should == invitation_code if invitation_code.present?
+    expect(CommunityMembership.last.community).to eq(community)
+    expect(CommunityMembership.last.consent).to eq(community.consent)
+    expect(CommunityMembership.last.status).to eq(status)
+    expect(CommunityMembership.last.invitation.code).to eq(invitation_code if invitation_code.present?)
 end
 
 Given /^given name and last name are not required in community "([^"]*)"$/ do |community|
@@ -117,7 +117,7 @@ Given /^there is an invitation for community "([^"]*)" with code "([^"]*)"(?: wi
 end
 
 Then /^Invitation with code "([^"]*)" should have (\d+) usages_left$/ do |code, usages|
-  Invitation.find_by_code(code).usages_left.should == usages.to_i
+  expect(Invitation.find_by_code(code).usages_left).to eq(usages.to_i)
 end
 
 When /^I move to community "([^"]*)"$/ do |community|

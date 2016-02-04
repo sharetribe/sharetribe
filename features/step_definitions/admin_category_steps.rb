@@ -206,7 +206,7 @@ Given(/^category "(.*?)" should have the following listing shapes:$/) do |catego
     tr.map { |tr_hash| tr_hash[:translation] }
   }
 
-  listing_shapes.uniq.sort.should == shapes.uniq.sort
+  expect(listing_shapes.uniq.sort).to eq(shapes.uniq.sort)
 end
 
 When(/^I change listing shapes of category "(.*?)" to following:$/) do |category_name, new_listing_shapes|

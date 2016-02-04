@@ -180,7 +180,7 @@ Then /^(?:|I )should see JSON:$/ do |expected_json|
   require 'json'
   expected = JSON.pretty_generate(JSON.parse(expected_json))
   actual   = JSON.pretty_generate(JSON.parse(response.body))
-  expected.should == actual
+  expect(expected).to eq(actual)
 end
 
 Then /^(?:|I )should see "([^"]*)"(?: within "([^"]*)")?$/ do |text, selector|
@@ -205,7 +205,7 @@ Then /^(?:|I )should see \/([^\/]*)\/(?: within "([^"]*)")?$/ do |regexp, select
 end
 
 Then /^I should see "([^"]*)" in the "([^"]*)" input$/ do |content, field|
-  find_field(field).value.should == content
+  expect(find_field(field).value).to eq(content)
 end
 
 Then /^(?:|I )should not see "([^"]*)"(?: within "([^"]*)")?$/ do |text, selector|
@@ -284,10 +284,10 @@ Then /^(?:|I )should be on (URL )?(.+)$/ do |match_url, page|
 
   if match_url
     url = URI.parse(current_url)
-    url.to_s.should == page
+    expect(url.to_s).to eq(page)
   elsif current_path.respond_to? :should
     current_path = URI.parse(current_url).path
-    current_path.should == path_to(page)
+    expect(current_path).to eq(path_to(page))
   else
     assert_equal path_to(page), current_path
   end
@@ -300,7 +300,7 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = v.split(',')}
 
   if actual_params.respond_to? :should
-    actual_params.should == expected_params
+    expect(actual_params).to eq(expected_params)
   else
     assert_equal expected_params, actual_params
   end

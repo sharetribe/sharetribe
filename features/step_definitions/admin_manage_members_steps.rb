@@ -31,17 +31,17 @@ Then(/^I should see a range from (\d+) to (\d+) with total user count of (\d+)$/
 end
 
 Then(/^I should see list of users with the following details:$/) do |table|
-  
+
   # This waits for ajax requests to complete
   expect(page).to have_selector("#admin_members_list tbody tr", :count => table.rows.count)
-  
+
   cells = all("#admin_members_list tbody tr").map do |rows|
     rows.all("td")
   end
 
   table.rows.each_with_index do |row, row_num|
     row.each_with_index do |cell, column_num|
-      cell.should == cells[row_num][column_num].text
+      expect(cell).to eq(cells[row_num][column_num].text)
     end
   end
 end
@@ -52,7 +52,7 @@ end
 
 Then(/^the first user should be "(.*?)"$/) do |full_name|
   first_row = all("#admin_members_list tbody tr").first
-  first_row.all("td").first.text.should == full_name
+  expect(first_row.all("td").first.text).to eq(full_name)
 end
 
 Given(/^only verified users can post listings in this community$/) do
@@ -84,7 +84,7 @@ end
 
 Then(/^"(.*?)" should be banned from this community$/) do |username|
   person = Person.find_by_username(username)
-  CommunityMembership.find_by_person_id_and_community_id(person.id, @current_community.id).status.should == "banned"
+  expect(CommunityMembership.find_by_person_id_and_community_id(person.id, @current_community.id).status).to eq("banned")
 end
 
 Given(/^user "(.*?)" is banned in this community$/) do |username|
