@@ -23,7 +23,7 @@ module EmailHelpers
 
   def user_should_have_email(person, subject)
     address = person.emails.first.address
-    find_email_with_subject(address, subject).should_not be_nil
+    expect(find_email_with_subject(address, subject)).not_to be_nil
   end
 end
 

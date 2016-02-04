@@ -13,7 +13,7 @@ module SettingsSteps
   end
 
   def should_not_find_remove_link_for(email)
-    find_row_for_email(email).should have_no_selector(DELETE_LINK_SELECTOR)
+    expect(find_row_for_email(email)).to have_no_selector(DELETE_LINK_SELECTOR)
   end
 
   def find_notification_checkbox_for_email(email)
@@ -25,7 +25,7 @@ module SettingsSteps
   end
 
   def should_not_find_resend_link_for_email(email)
-    find_row_for_email(email).should have_no_selector(RESEND_LINK_SELECTOR)
+    expect(find_row_for_email(email)).to have_no_selector(RESEND_LINK_SELECTOR)
   end
 end
 

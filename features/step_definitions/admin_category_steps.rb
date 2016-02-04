@@ -20,7 +20,7 @@ module AdminCategorySteps
   end
 
   def should_not_find_remove_link_for_category(category_name)
-    find_category_row(category_name).should have_no_selector(DELETE_LINK_SELECTOR)
+    expect(find_category_row(category_name)).to have_no_selector(DELETE_LINK_SELECTOR)
   end
 
   def find_category_by_name(category_name)
