@@ -8,6 +8,9 @@ require 'rubygems'
 require File.expand_path('../../../test/helper_modules', __FILE__)
 include TestHelpers
 
+# Require RSpec expectations, so that we can use them in Cucumber features
+require 'rspec/expectations'
+
 require 'cucumber/rails'
 require 'email_spec/cucumber'
 

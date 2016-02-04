@@ -138,7 +138,7 @@ group :test do
   gem 'capybara', "~> 2.2.1"
 
   # Updating Cucumber caused issues with RSpec::Matchers. Locking version.
-  gem 'cucumber-rails', '1.4.0', require: false # require: false is needed for cucumber-rails
+  gem 'cucumber-rails', '~> 1.4.0', require: false # require: false is needed for cucumber-rails
 
   gem 'selenium-webdriver', '~> 2.45'
 
