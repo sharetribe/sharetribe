@@ -17,6 +17,10 @@ class CustomPlan < Zeus::Rails
   end
 
   def cucumber_environment
+    require 'cucumber/rspec/disable_option_parser'
+    require 'cucumber/cli/main'
+    @cucumber_runtime = Cucumber::Runtime.new
+
     # Populate db with default data
     TestHelpers.load_default_test_data_to_db_before_suite
     TestHelpers.load_default_test_data_to_db_before_test

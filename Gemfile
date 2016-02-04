@@ -128,7 +128,7 @@ group :development do
   gem 'rb-fsevent', "~> 0.9.4", require: false
   gem 'guard-rspec', "~> 4.3.1", require: false
   gem 'annotate', "~> 2.6.5"
-  gem 'zeus', '0.15.1'
+  gem 'zeus', '~> 0.15.4', require: false
   gem 'quiet_assets', "~> 1.1.0"
   gem 'better_errors', "~> 2.1.1"
 end
