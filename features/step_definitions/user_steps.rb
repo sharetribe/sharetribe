@@ -231,7 +231,7 @@ end
 
 Then /^user "([^"]*)" (should|should not) have "([^"]*)" with value "([^"]*)"$/ do |username, verb, attribute, value|
   user = Person.find_by_username(username)
-  user.should_not be_nil
+  expect(user).not_to be_nil
   verb = verb.gsub(" ", "_")
   value = nil if value == "nil"
   user.send(attribute).send(verb) == value
@@ -241,7 +241,7 @@ Then /^user "(.*?)" should have email "(.*?)"$/ do |username, email|
   p = Person.find_by_username(username)
   e = Email.find_by_person_id_and_address(p.id, email)
 
-  e.should_not be_nil
+  expect(e).not_to be_nil
 end
 
 Then /^I should have (confirmed|unconfirmed) email "(.*?)"$/ do |conf, email|
@@ -254,14 +254,14 @@ Then /^user "(.*?)" should have (confirmed|unconfirmed) email "(.*?)"$/ do |user
   p = Person.find_by_username(username)
   e = Email.find_by_person_id_and_address(p.id, email)
 
-  e.should_not be_nil
+  expect(e).not_to be_nil
 
   if conf == "unconfirmed"
     expect(e.confirmed_at).to be_nil
   end
 
   if conf == "confirmed"
-    e.confirmed_at.should_not be_nil
+    expect(e.confirmed_at).not_to be_nil
   end
 end
 

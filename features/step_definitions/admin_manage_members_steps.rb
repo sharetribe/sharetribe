@@ -72,7 +72,7 @@ When(/^I verify user "(.*?)" as a seller$/) do |full_name|
 end
 
 Then(/^I should see that "(.*?)" can post new listings$/) do |full_name|
-  find_posting_allowed_checkbox_for_person(full_name)['checked'].should_not be_nil
+  expect(find_posting_allowed_checkbox_for_person(full_name)['checked']).not_to be_nil
 end
 
 When(/^I remove user "(.*?)"$/) do |full_name|
@@ -106,7 +106,7 @@ Then(/^I should be able to send a message to admin$/) do
 end
 
 Then(/^I should see that "(.*?)" has admin rights in this community$/) do |full_name|
-  find_admin_checkbox_for_person(full_name)['checked'].should_not be_nil
+  expect(find_admin_checkbox_for_person(full_name)['checked']).not_to be_nil
 end
 
 Then(/^I should see that "(.*?)" does not have admin rights in this community$/) do |full_name|

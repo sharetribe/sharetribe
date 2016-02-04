@@ -48,10 +48,10 @@ end
 
 Then /^"(.*?)" should have required Checkout payment details saved to my account information$/ do |username|
   p = Person.find_by_username(username)
-  p.checkout_account.merchant_id.should_not be_nil
-  p.checkout_account.merchant_id.should_not be_blank
-  p.checkout_account.merchant_key.should_not be_nil
-  p.checkout_account.merchant_key.should_not be_blank
+  expect(p.checkout_account.merchant_id).not_to be_nil
+  expect(p.checkout_account.merchant_id).not_to be_blank
+  expect(p.checkout_account.merchant_key).not_to be_nil
+  expect(p.checkout_account.merchant_key).not_to be_blank
 end
 
 When /^Braintree webhook "(.*?)" with id "(.*?)" is triggered$/ do |kind, id|

@@ -143,7 +143,7 @@ Then /^community "(.*?)" should require invite to join$/ do |community|
 end
 
 Then /^community "(.*?)" should not require invite to join$/ do |community|
-   Community.where(ident: community).first.join_with_invite_only.should_not be_truthy
+   expect(Community.where(ident: community).first.join_with_invite_only).not_to be_truthy
 end
 
 Given /^community "(.*?)" is private$/ do |community_ident|

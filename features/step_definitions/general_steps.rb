@@ -69,7 +69,7 @@ Then /^I should see the image I just uploaded$/ do
 end
 
 Then /^I should not see the image I just uploaded$/ do
-  page.should_not have_xpath("//img[contains(@src,'#{@latest_uploaded_image}')]")
+  expect(page).not_to have_xpath("//img[contains(@src,'#{@latest_uploaded_image}')]")
 end
 
 def attach_image(filename, field, selector)

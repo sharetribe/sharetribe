@@ -78,7 +78,7 @@ Then /^I should not be able to remove notifications from "(.*?)"$/ do |email|
 end
 
 When /^I set notifications for email "(.*?)"$/ do |email|
-  find_notification_checkbox_for_email(email).should_not be_checked
+  expect(find_notification_checkbox_for_email(email)).not_to be_checked
   find_notification_checkbox_for_email(email).click
   steps %Q{
     And I save email settings
@@ -94,7 +94,7 @@ Then /^I should be able to remove notifications from "(.*?)"$/ do |email|
   steps %{
     When I save email settings
   }
-  find_notification_checkbox_for_email(email).should_not be_checked
+  expect(find_notification_checkbox_for_email(email)).not_to be_checked
   steps %{
     Then I should not receive notifications for email "#{email}"
   }
