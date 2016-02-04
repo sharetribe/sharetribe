@@ -175,16 +175,6 @@ describe ListingsController, type: :controller do
       expect(doc.at("feed/entry/share_type").attribute("label").value).to eq("Myydään")
     end
 
-    # Commented out as requires sphinx and that caused some problems in test
-    # that we didn't fix now as we might soon change the search engine
-    # it "supports fliter parameters" do
-    #   get :index, :community_id => @c1.id, :format => :atom, :share_type => "request", :locale => "en"
-    #   response.status.should == 200
-    #   doc = Nokogiri::XML::Document.parse(response.body)
-    #   doc.search("feed/entry").count.should == 1
-    #   doc.at("feed/entry/title").text.should == "Buying: bike"
-    # end
-
     it "escapes html tags, but adds links" do
       get :index, :community_id => @c1.id, :format => :atom
       expect(response.status).to eq(200)
@@ -192,15 +182,5 @@ describe ListingsController, type: :controller do
       expect(doc.at("feed/entry/content").text).to match(/&lt;b&gt;shiny&lt;\/b&gt; new hammer, see details at/)
       expect(doc.at("feed/entry/content").text).to match(/http:\/\/en\.wikipedia\.org\/wiki\/MC_Hammer<\/a>/)
     end
-
-    # TODO: fix search tests after sphinx upgraded (or changed)
-    # it "supports search" do
-    #   get :index, :community_id => @c1.id, :format => :atom, :search => "hammer"
-    #   response.status.should == 200
-    #   doc = Nokogiri::XML::Document.parse(response.body)
-    #   doc.search("feed/entry").count.should == 1
-    #   doc.at("feed/entry/title").text.should == "Selling: hammer"
-    # end
-
   end
 end
