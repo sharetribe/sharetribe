@@ -185,22 +185,14 @@ end
 
 Then /^(?:|I )should see "([^"]*)"(?: within "([^"]*)")?$/ do |text, selector|
   with_scope(selector) do
-    if page.respond_to? :should
-      expect(page).to have_content(text)
-    else
-      assert page.has_content?(text)
-    end
+    expect(page).to have_content(text)
   end
 end
 
 Then /^(?:|I )should see \/([^\/]*)\/(?: within "([^"]*)")?$/ do |regexp, selector|
   regexp = Regexp.new(regexp)
   with_scope(selector) do
-    if page.respond_to? :should
-      expect(page).to have_xpath('//*', :text => regexp)
-    else
-      assert page.has_xpath?('//*', :text => regexp)
-    end
+    expect(page).to have_xpath('//*', :text => regexp)
   end
 end
 
@@ -210,11 +202,7 @@ end
 
 Then /^(?:|I )should not see "([^"]*)"(?: within "([^"]*)")?$/ do |text, selector|
   with_scope(selector) do
-    if page.respond_to? :should
-      expect(page).to have_no_content(text)
-    else
-      assert page.has_no_content?(text)
-    end
+    expect(page).to have_no_content(text)
   end
 end
 
@@ -225,11 +213,7 @@ end
 Then /^(?:|I )should not see \/([^\/]*)\/(?: within "([^"]*)")?$/ do |regexp, selector|
   regexp = Regexp.new(regexp)
   with_scope(selector) do
-    if page.respond_to? :should
-      expect(page).to have_no_xpath('//*', :text => regexp)
-    else
-      assert page.has_no_xpath?('//*', :text => regexp)
-    end
+    expect(page).to have_no_xpath('//*', :text => regexp)
   end
 end
 
@@ -237,11 +221,7 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should contain "([^"]*)"$/ do |
   with_scope(selector) do
     field = find_field(field)
     field_value = (field.tag_name == 'textarea') ? field.text : field.value
-    if field_value.respond_to? :should
-      field_value.should =~ /#{value}/
-    else
-      assert_match(/#{value}/, field_value)
-    end
+    expect(field_value).to match(/#{value}/)
   end
 end
 
@@ -249,33 +229,21 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should not contain "([^"]*)"$/ 
   with_scope(selector) do
     field = find_field(field)
     field_value = (field.tag_name == 'textarea') ? field.text : field.value
-    if field_value.respond_to? :should_not
-      field_value.should_not =~ /#{value}/
-    else
-      assert_no_match(/#{value}/, field_value)
-    end
+    expect(field_value).not_to match(/#{value}/)
   end
 end
 
 Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should be checked$/ do |label, selector|
   with_scope(selector) do
     field_checked = find_field(label)['checked']
-    if field_checked.respond_to? :should
-      expect(field_checked).to be_truthy
-    else
-      assert field_checked
-    end
+    expect(field_checked).to be_truthy
   end
 end
 
 Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should not be checked$/ do |label, selector|
   with_scope(selector) do
     field_checked = find_field(label)['checked']
-    if field_checked.respond_to? :should
-      expect(field_checked).to be_falsey
-    else
-      assert !field_checked
-    end
+    expect(field_checked).to be_falsey
   end
 end
 
@@ -299,11 +267,7 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   expected_params = {}
   expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = v.split(',')}
 
-  if actual_params.respond_to? :should
-    expect(actual_params).to eq(expected_params)
-  else
-    assert_equal expected_params, actual_params
-  end
+  expect(actual_params).to eq(expected_params)
 end
 
 # This is a workaround for PhantomJS, which doesn't (or actually WebDriver) support confirm dialogs.

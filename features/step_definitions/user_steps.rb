@@ -166,21 +166,13 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should contain the (username|em
   with_scope(selector) do
     field = find_field(field)
     field_value = (field.tag_name == 'textarea') ? field.text : field.value
-    if field_value.respond_to? :should
-      field_value.should =~ /#{@values[value]}/
-    else
-      assert_match(/#{@values[value]}/, field_value)
-    end
+    expect(field_value).to match(/#{@values[value]}/)
   end
 end
 
 Then /^(?:|I )should see the (username|email) I gave(?: within "([^"]*)")?$/ do |value, selector|
   with_scope(selector) do
-    if page.respond_to? :should
-      expect(page).to have_content(@values[value])
-    else
-      assert page.has_content?(@values[value])
-    end
+    expect(page).to have_content(@values[value])
   end
 end
 
@@ -214,19 +206,11 @@ Then /^I should see my username$/ do
     # puts "it seems there username of last created person is stored, so use that"
     username = @values["username"]
   end
-  if page.respond_to? :should
-    expect(page).to have_content(username)
-  else
-    assert page.has_content?(username)
-  end
+  expect(page).to have_content(username)
 end
 
 Then /^I should not see my username$/ do
-  if page.respond_to? :should
-    expect(page).to have_no_content(Person.order("created_at").last.username)
-  else
-    assert page.has_no_content?(Person.order("created_at").last.username)
-  end
+  expect(page).to have_no_content(Person.order("created_at").last.username)
 end
 
 Then /^user "([^"]*)" (should|should not) have "([^"]*)" with value "([^"]*)"$/ do |username, verb, attribute, value|
