@@ -1,7 +1,9 @@
 module BackgroundJobHelpers
 
   def process_jobs
-    success, failure = Delayed::Worker.new(:quiet => false).work_off
+    success, failure = Delayed::Worker.new(
+               quiet: true # you might want to change this to false for debugging
+             ).work_off
 
     if failure > 0
       raise "Delayed job failed"
