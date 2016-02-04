@@ -12,7 +12,7 @@ describe EmailService do
       e3 = email(id: 3, send_notifications: true, confirmed_at: Time.now)
       e4 = email(id: 4, send_notifications: true, confirmed_at: nil)
 
-      EmailService.emails_to_send_message([e1, e2, e3, e4]).should eql([e2, e3])
+      expect(EmailService.emails_to_send_message([e1, e2, e3, e4])).to eql([e2, e3])
     end
 
     it "returns first confirmed email if no confirmed notification email is found" do
@@ -21,7 +21,7 @@ describe EmailService do
       e3 = email(id: 3, send_notifications: false, confirmed_at: Time.now)
       e4 = email(id: 4, send_notifications: true, confirmed_at: nil)
 
-      EmailService.emails_to_send_message([e1, e2, e3, e4]).should eql([e1])
+      expect(EmailService.emails_to_send_message([e1, e2, e3, e4])).to eql([e1])
     end
 
     it "otherwise returns an empty array" do
@@ -32,7 +32,7 @@ describe EmailService do
       e3 = email(id: 3, send_notifications: true, confirmed_at: nil)
       e4 = email(id: 4, send_notifications: true, confirmed_at: nil)
 
-      EmailService.emails_to_send_message([e1, e2, e3, e4]).should eql([])
+      expect(EmailService.emails_to_send_message([e1, e2, e3, e4])).to eql([])
     end
 
   end
@@ -40,97 +40,97 @@ describe EmailService do
   describe "#emails_to_smtp_addresses" do
 
     it "returns comma-separated list of emails" do
-      EmailService.emails_to_smtp_addresses([
+      expect(EmailService.emails_to_smtp_addresses([
         email(address: "john.doe@example.com"),
         email(address: "john_d@example.com"),
         email(address: "jdoe@example.com")
-      ]).should eql "john.doe@example.com, john_d@example.com, jdoe@example.com"
+      ])).to eql "john.doe@example.com, john_d@example.com, jdoe@example.com"
     end
 
     it "returns only one email (without commas, of course)" do
-      EmailService.emails_to_smtp_addresses([
+      expect(EmailService.emails_to_smtp_addresses([
         email(address: "john.doe@example.com"),
-      ]).should eql "john.doe@example.com"
+      ])).to eql "john.doe@example.com"
     end
 
     it "returns empty string" do
-      EmailService.emails_to_smtp_addresses([]).should eql ""
+      expect(EmailService.emails_to_smtp_addresses([])).to eql ""
     end
 
   end
 
   describe "#can_delete_email" do
     it "can not delete email if email count == 1" do
-      EmailService.can_delete_email(
+      expect(EmailService.can_delete_email(
         [email(id: 1)],
         email(id: 1),
-      ).should eql({result: false, reason: :only_one})
+      )).to eql({result: false, reason: :only_one})
 
-      EmailService.can_delete_email(
+      expect(EmailService.can_delete_email(
         [email(id: 1), email(id: 2)],
         email(id: 1),
-      ).should eql({result: true})
+      )).to eql({result: true})
     end
 
     it "can not delete email if that's the only CONFIRMED email" do
-      EmailService.can_delete_email(
+      expect(EmailService.can_delete_email(
         [email(id: 1, confirmed_at: Time.now), email(id: 2, confirmed_at: nil)],
         email(id: 1),
-      ).should eql({result: false, reason: :only_confirmed})
+      )).to eql({result: false, reason: :only_confirmed})
 
-      EmailService.can_delete_email(
+      expect(EmailService.can_delete_email(
         [email(id: 1, confirmed_at: Time.now), email(id: 2, confirmed_at: Time.now)],
         email(id: 1),
-      ).should eql({result: true})
+      )).to eql({result: true})
     end
 
     it "can not delete email if that's the only notification email" do
-      EmailService.can_delete_email(
+      expect(EmailService.can_delete_email(
         [email(id: 1, send_notifications: true), email(id: 2, send_notifications: false)],
         email(id: 1),
-      ).should eql({result: false, reason: :only_notification})
+      )).to eql({result: false, reason: :only_notification})
 
-      EmailService.can_delete_email(
+      expect(EmailService.can_delete_email(
         [email(id: 1, send_notifications: true), email(id: 2, send_notifications: true)],
         email(id: 1),
-      ).should eql({result: true})
+      )).to eql({result: true})
     end
 
     it "can not delete email if that's the only CONFIRMED notification email" do
-      EmailService.can_delete_email(
+      expect(EmailService.can_delete_email(
         [
           email(id: 1, send_notifications: true, confirmed_at: Time.now),
           email(id: 2, send_notifications: false, confirmed_at: Time.now),
           email(id: 3, send_notifications: true, confirmed_at: nil)
         ],
         email(id: 1),
-      ).should eql({result: false, reason: :only_notification})
+      )).to eql({result: false, reason: :only_notification})
 
-      EmailService.can_delete_email(
+      expect(EmailService.can_delete_email(
         [
           email(id: 1, send_notifications: true, confirmed_at: Time.now),
           email(id: 2, send_notifications: false, confirmed_at: Time.now),
           email(id: 3, send_notifications: true, confirmed_at: Time.now)
         ],
         email(id: 1),
-      ).should eql({result: true})
+      )).to eql({result: true})
     end
 
     it "can not delete email if that's the only email required by community" do
-      EmailService.can_delete_email(
+      expect(EmailService.can_delete_email(
         [email(id: 1, address: "john@community.com"), email(id: 2, address: "john@gmail.com")],
         email(id: 1),
         ["community.com"],
-      ).should eql({result: false, reason: :only_allowed})
+      )).to eql({result: false, reason: :only_allowed})
 
-      EmailService.can_delete_email(
+      expect(EmailService.can_delete_email(
         [email(id: 1, address: "john@community.com"), email(id: 2, address: "john@gmail.com")],
         email(id: 2),
         ["community.com"],
-      ).should eql({result: true})
+      )).to eql({result: true})
 
       # Two allowed emails for one community
-      EmailService.can_delete_email(
+      expect(EmailService.can_delete_email(
         [
           email(id: 1, address: "john@community.com"),
           email(id: 2, address: "john@gmail.com"),
@@ -138,10 +138,10 @@ describe EmailService do
         ],
         email(id: 1),
         ["community.com"],
-      ).should eql({result: true})
+      )).to eql({result: true})
 
       # One allowed emails for two communities
-      EmailService.can_delete_email(
+      expect(EmailService.can_delete_email(
         [
           email(id: 1, address: "john@community.com"),
           email(id: 2, address: "john@gmail.com"),
@@ -149,9 +149,9 @@ describe EmailService do
         ],
         email(id: 3),
         ["community.com", "organization.com"],
-      ).should eql({result: false, reason: :only_allowed})
+      )).to eql({result: false, reason: :only_allowed})
 
-      EmailService.can_delete_email(
+      expect(EmailService.can_delete_email(
         [
           email(id: 1, address: "john@community.com"),
           email(id: 2, address: "john@gmail.com"),
@@ -160,12 +160,12 @@ describe EmailService do
         ],
         email(id: 3),
         ["community.com", "organization.com"],
-      ).should eql({result: true})
+      )).to eql({result: true})
     end
 
     it "can not delete email if that's the only CONFIRMED email required by community" do
       # Two allowed emails for one community
-      EmailService.can_delete_email(
+      expect(EmailService.can_delete_email(
         [
           email(id: 1, address: "john@community.com", confirmed_at: nil),
           email(id: 2, address: "john@gmail.com"),
@@ -173,10 +173,10 @@ describe EmailService do
         ],
         email(id: 1),
         ["community.com"],
-      ).should eql({result: false, reason: :only_allowed})
+      )).to eql({result: false, reason: :only_allowed})
 
             # Two allowed emails for one community
-      EmailService.can_delete_email(
+      expect(EmailService.can_delete_email(
         [
           email(id: 1, address: "john@community.com", confirmed_at: Time.now),
           email(id: 2, address: "john@gmail.com"),
@@ -184,7 +184,7 @@ describe EmailService do
         ],
         email(id: 1),
         ["community.com"],
-      ).should eql({result: true})
+      )).to eql({result: true})
     end
   end
 end

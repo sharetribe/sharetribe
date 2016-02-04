@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Amazon Bounces" do
+describe "Amazon Bounces", type: :request do
   before(:each) do
     @community = FactoryGirl.create(:community, :domain => "market.custom.org")
   end
@@ -40,9 +40,9 @@ describe "Amazon Bounces" do
         }
       }')
 
-      @person.min_days_between_community_updates.should be_equal 4
+      expect(@person.min_days_between_community_updates).to be_equal 4
       post "https://market.custom.org/bounces?sns_notification_token=#{APP_CONFIG.sns_notification_token}", incoming_data.to_json.to_s, { 'x-amz-sns-message-type' => 'notification'}
-      Person.find_by_id(@person.id).min_days_between_community_updates.should be_equal 100000
+      expect(Person.find_by_id(@person.id).min_days_between_community_updates).to be_equal 100000
     end
 
     it "when notificationType is Complaint" do
@@ -79,9 +79,9 @@ describe "Amazon Bounces" do
         }
       }')
 
-      @person.min_days_between_community_updates.should be_equal 4
+      expect(@person.min_days_between_community_updates).to be_equal 4
       post "https://market.custom.org/bounces?sns_notification_token=#{APP_CONFIG.sns_notification_token}", incoming_data.to_json.to_s, { 'x-amz-sns-message-type' => 'notification'}
-      Person.find_by_id(@person.id).min_days_between_community_updates.should be_equal 100000
+      expect(Person.find_by_id(@person.id).min_days_between_community_updates).to be_equal 100000
     end
 
   end

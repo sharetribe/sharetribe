@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PersonMailer do
+describe PersonMailer, type: :mailer do
 
   # Include EmailSpec stuff (https://github.com/bmabey/email-spec)
   include(EmailSpec::Helpers)
@@ -104,7 +104,7 @@ describe PersonMailer do
     assert_equal "You are ready to receive payments", email.subject
     assert_equal "You are ready to receive payments", email.subject
 
-    email.body.include?("Your payment information has been confirmed and you are now ready").should be_truthy
+    expect(email.body.include?("Your payment information has been confirmed and you are now ready")).to be_truthy
   end
 
   it "should send email about a new testimonial" do
@@ -189,18 +189,18 @@ describe PersonMailer do
 
     it "should welcome a regular member" do
       @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
-      @email.should deliver_to("update_tester@example.com")
-      @email.should have_subject("Welcome to Sharetribe")
-      @email.should have_body_text "Welcome to Sharetribe! Glad to have you on board."
-      @email.should_not have_body_text "You have now admin rights in this community."
+      expect(@email).to deliver_to("update_tester@example.com")
+      expect(@email).to have_subject("Welcome to Sharetribe")
+      expect(@email).to have_body_text "Welcome to Sharetribe! Glad to have you on board."
+      expect(@email).not_to have_body_text "You have now admin rights in this community."
     end
 
     it "should contain custom content if that is defined for the community" do
       @c1.community_customizations.first.update_attribute(:welcome_email_content, "Custom email")
       @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
-      @email.should have_body_text "Custom email"
-      @email.should_not have_body_text "Add something you could offer to others."
-      @email.should_not have_body_text "You have now admin rights in this community."
+      expect(@email).to have_body_text "Custom email"
+      expect(@email).not_to have_body_text "Add something you could offer to others."
+      expect(@email).not_to have_body_text "You have now admin rights in this community."
     end
 
   end

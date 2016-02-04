@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe EmailsController do
+describe EmailsController, type: :controller do
   describe "#destroy" do
     before(:each) do
       @community = FactoryGirl.create(:community)
@@ -18,12 +18,12 @@ describe EmailsController do
       @community.members << person
       sign_in_for_spec(person)
 
-      Email.where(person_id: person.id).count.should == 2
+      expect(Email.where(person_id: person.id).count).to eq(2)
 
       delete :destroy, {:person_id => person.id, :id => person.emails.first.id}
 
-      Email.where(person_id: person.id).count.should == 1
-      response.status.should == 302
+      expect(Email.where(person_id: person.id).count).to eq(1)
+      expect(response.status).to eq(302)
     end
 
     it "should not destroy email if that's not allowed" do
@@ -38,12 +38,12 @@ describe EmailsController do
       @community.members << person
       sign_in_for_spec(person)
 
-      Email.where(person_id: person.id).count.should == 2
+      expect(Email.where(person_id: person.id).count).to eq(2)
 
       delete :destroy, {:person_id => person.id, :id => person.emails.first.id}
 
-      Email.where(person_id: person.id).count.should == 2
-      response.status.should == 302
+      expect(Email.where(person_id: person.id).count).to eq(2)
+      expect(response.status).to eq(302)
     end
   end
 end

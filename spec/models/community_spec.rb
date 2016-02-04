@@ -103,38 +103,38 @@
 
 require 'spec_helper'
 
-describe Community do
+describe Community, type: :model do
 
   before(:each) do
     @community = FactoryGirl.build(:community)
   end
 
   it "is valid with valid attributes" do
-    @community.should be_valid
+    expect(@community).to be_valid
   end
 
   it "is not valid without proper ident" do
     @community.ident = "test_community-9"
-    @community.should be_valid
+    expect(@community).to be_valid
     @community.ident = nil
-    @community.should_not be_valid
+    expect(@community).not_to be_valid
     @community.ident = "a"
-    @community.should_not be_valid
+    expect(@community).not_to be_valid
     @community.ident = "a" * 51
-    @community.should_not be_valid
+    expect(@community).not_to be_valid
     @community.ident = "´?€"
-    @community.should_not be_valid
+    expect(@community).not_to be_valid
   end
 
   it "validates twitter handle" do
     @community.twitter_handle = "abcdefghijkl"
-    @community.should be_valid
+    expect(@community).to be_valid
     @community.twitter_handle = "abcdefghijklmnopqr"
-    @community.should_not be_valid
+    expect(@community).not_to be_valid
     @community.twitter_handle = "@abcd"
-    @community.should_not be_valid
+    expect(@community).not_to be_valid
     @community.twitter_handle = "AbCd1"
-    @community.should be_valid
+    expect(@community).to be_valid
   end
 
 
@@ -160,8 +160,8 @@ describe Community do
     it "should contain latest and picked listings" do
       listings_to_email = @community.get_new_listings_to_update_email(@p1)
 
-      listings_to_email.should include(@l1, @l2, @l4)
-      listings_to_email.should_not include(@l3)
+      expect(listings_to_email).to include(@l1, @l2, @l4)
+      expect(listings_to_email).not_to include(@l3)
     end
 
     it "should prioritize picked listings" do
@@ -176,8 +176,8 @@ describe Community do
 
       listings_to_email = @community.get_new_listings_to_update_email(@p1)
 
-      listings_to_email.should include(@l1, @l4, @l5, @l6, @l7, @l8, @l9, @l10, @l11, @l12)
-      listings_to_email.should_not include(@l2, @l3)
+      expect(listings_to_email).to include(@l1, @l4, @l5, @l6, @l7, @l8, @l9, @l10, @l11, @l12)
+      expect(listings_to_email).not_to include(@l2, @l3)
     end
     it "should order listings using updates_email_at" do
       @l5 = get_listing(13,3)
@@ -200,7 +200,7 @@ describe Community do
         end
       end
 
-      correct_order.should be_truthy
+      expect(correct_order).to be_truthy
     end
 
     it "should include just picked listings" do
@@ -217,8 +217,8 @@ describe Community do
 
       listings_to_email = @community.get_new_listings_to_update_email(@p1)
 
-      listings_to_email.should include(@l4, @l5, @l6, @l7, @l8, @l9, @l10, @l11, @l12, @l13,@l14)
-      listings_to_email.should_not include(@l1, @l2, @l3)
+      expect(listings_to_email).to include(@l4, @l5, @l6, @l7, @l8, @l9, @l10, @l11, @l12, @l13,@l14)
+      expect(listings_to_email).not_to include(@l1, @l2, @l3)
     end
   end
 end

@@ -22,14 +22,14 @@
 
 require 'spec_helper'
 
-describe CommunityMembership do
+describe CommunityMembership, type: :model do
 
   before(:each) do
     @community_membership = FactoryGirl.build(:community_membership)
   end
 
   it "is valid with valid attributes" do
-    @community_membership.should be_valid
+    expect(@community_membership).to be_valid
   end
 
 end

@@ -16,11 +16,11 @@
 
 require 'spec_helper'
 
-describe Booking do
+describe Booking, type: :model do
   describe "validations" do
     it "ensures end time is >= start time" do
       booking = FactoryGirl.build(:booking, start_on: 5.days.from_now, end_on: 2.days.from_now)
-      booking.should_not be_valid
+      expect(booking).not_to be_valid
     end
   end
 end

@@ -17,48 +17,48 @@
 
 require 'spec_helper'
 
-describe FollowerRelationship do
-  
+describe FollowerRelationship, type: :model do
+
   before(:each) do
     @follower_relationship = FactoryGirl.create(:follower_relationship)
     @person = @follower_relationship.person
     @follower = @follower_relationship.follower
   end
-  
+
   it "should include the follower in the person's follower list" do
-    @person.followers.should include @follower
+    expect(@person.followers).to include @follower
   end
-  
+
   it "should not include the person in the follower's follower list" do
-    @follower.followers.should_not include @person
+    expect(@follower.followers).not_to include @person
   end
-  
+
   it "should include the person in the follower's followed people list" do
-    @follower.followed_people.should include @person
+    expect(@follower.followed_people).to include @person
   end
-  
+
   it "should not include the follower in the person's followed people list" do
-    @person.followed_people.should_not include @follower
+    expect(@person.followed_people).not_to include @follower
   end
-  
+
   it "should not allow a duplicate follower relationship" do
     duplicate_attributes = @follower_relationship.attributes.slice(:person_id, :follower_id)
-    FollowerRelationship.new(duplicate_attributes).should_not be_valid
+    expect(FollowerRelationship.new(duplicate_attributes)).not_to be_valid
   end
-  
+
   it "should allow an inverse follower relationship" do
-    inverse_attributes = { 
-      :person_id => @follower_relationship.follower_id, 
-      :follower_id => @follower_relationship.person_id 
+    inverse_attributes = {
+      :person_id => @follower_relationship.follower_id,
+      :follower_id => @follower_relationship.person_id
     }
-    FollowerRelationship.new(inverse_attributes).should be_valid
+    expect(FollowerRelationship.new(inverse_attributes)).to be_valid
   end
-  
+
   it "should not allow a person to follow themselves" do
-    self_attributes = {  
+    self_attributes = {
       :person_id => @follower_relationship.person_id,
       :follower_id => @follower_relationship.person_id
     }
-    FollowerRelationship.new(self_attributes).should_not be_valid
+    expect(FollowerRelationship.new(self_attributes)).not_to be_valid
   end
 end

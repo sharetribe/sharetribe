@@ -22,13 +22,13 @@
 
 require 'spec_helper'
 
-describe Invitation do
+describe Invitation, type: :model do
 
   describe "#create" do
     it "generates a code automatically" do
       i = Invitation.create
-      i.code.should_not be_nil
-      i.code.length.should == 6
+      expect(i.code).not_to be_nil
+      expect(i.code.length).to eq(6)
     end
 
   end
@@ -36,20 +36,20 @@ describe Invitation do
   describe "#use" do
     it "reduces usages left by one" do
       i = FactoryGirl.create(:invitation)
-      i.usages_left.should == 1
+      expect(i.usages_left).to eq(1)
       i.save!
-      Invitation.find(i.id).usages_left.should == 1
-      i.should be_usable
+      expect(Invitation.find(i.id).usages_left).to eq(1)
+      expect(i).to be_usable
       #i.use_once!
       i.update_attribute(:usages_left, i.usages_left - 1)
-      i.usages_left.should == 0
+      expect(i.usages_left).to eq(0)
       i.save!
-      Invitation.find(i.id).usages_left.should == 0
-      i.should_not be_usable
+      expect(Invitation.find(i.id).usages_left).to eq(0)
+      expect(i).not_to be_usable
       i.usages_left = 3
       i.use_once!
-      i.usages_left.should == 2
-      i.should be_usable
+      expect(i.usages_left).to eq(2)
+      expect(i).to be_usable
 
     end
   end

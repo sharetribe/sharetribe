@@ -21,17 +21,17 @@
 
 require 'spec_helper'
 
-describe NumericFieldValue do
+describe NumericFieldValue, type: :model do
   describe "validations" do
     it "should have text value" do
       @value = NumericFieldValue.new
-      @value.should_not be_valid
+      expect(@value).not_to be_valid
 
       # Has to be number
       @value.numeric_value = 0
-      @value.should be_valid
+      expect(@value).to be_valid
       @value.numeric_value = "jee"
-      @value.should_not be_valid
+      expect(@value).not_to be_valid
     end
   end
 
@@ -66,7 +66,7 @@ describe NumericFieldValue do
         }
       end
 
-      NumericFieldValue.search_many(with_many.compact).count.should == expected_count
+      expect(NumericFieldValue.search_many(with_many.compact).count).to eq(expected_count)
     end
 
     it "searches by numeric field and value pairs" do

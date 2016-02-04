@@ -8,7 +8,7 @@ require 'spec_helper'
 # to braintree webhook URL is working ok.
 #
 
-describe "braintree webhooks" do
+describe "braintree webhooks", type: :request do
   before(:each) do
     @community = FactoryGirl.create(:community, :domain => "market.custom.org", use_domain: true)
     FactoryGirl.create(:braintree_payment_gateway, :community => @community, :type => "BraintreePaymentGateway")
@@ -17,19 +17,19 @@ describe "braintree webhooks" do
     @community.reload
 
     # Guard assert
-    @community.braintree_in_use?.should be_truthy
+    expect(@community.braintree_in_use?).to be_truthy
   end
 
   describe "#challenge" do
     it "returns 200 for challenge" do
       get "http://market.custom.org/webhooks/braintree", :community_id => @community.id
 
-      response.status.should == 200
+      expect(response.status).to eq(200)
 
       # The response format seems to be 16 random chars, pipe '|' and 40 random chars
       first_part, last_part = response.body.split("|")
-      first_part.length.should be_equal 16
-      last_part.length.should be_equal 40
+      expect(first_part.length).to be_equal 16
+      expect(last_part.length).to be_equal 40
     end
 
     it "returns 400 Bad Request if community doesn't have Braintree" do
@@ -37,11 +37,11 @@ describe "braintree webhooks" do
       @community.save!
 
       # Guard assert
-      @community.braintree_in_use?.should be_falsey
+      expect(@community.braintree_in_use?).to be_falsey
 
       get "http://market.custom.org/webhooks/braintree", :community_id => @community.id
 
-      response.status.should == 400
+      expect(response.status).to eq(400)
     end
   end
 
@@ -54,7 +54,7 @@ describe "braintree webhooks" do
         @braintree_account = FactoryGirl.create(:braintree_account, :person => @person, :status => "pending")
 
         # Guard assert
-        BraintreeAccount.find_by_person_id(@person.id).status.should == "pending"
+        expect(BraintreeAccount.find_by_person_id(@person.id).status).to eq("pending")
       end
 
       it "listens for SubMerchantAccountApproved" do
@@ -68,7 +68,7 @@ describe "braintree webhooks" do
         post "http://market.custom.org/webhooks/braintree", :bt_signature => signature, :bt_payload => payload, :community_id => @community.id
 
         # Assert
-        BraintreeAccount.find_by_person_id(@person.id).status.should == "active"
+        expect(BraintreeAccount.find_by_person_id(@person.id).status).to eq("active")
       end
     end
   end

@@ -21,23 +21,23 @@
 
 require 'spec_helper'
 
-describe DateFieldValue do
+describe DateFieldValue, type: :model do
   describe "validations" do
     it "should have date value" do
       @value = DateFieldValue.new
-      @value.should_not be_valid
+      expect(@value).not_to be_valid
     end
 
     it "should have date format value" do
       @value2 = DateFieldValue.new
       @value2.date_value = "Test"
-      @value2.should_not be_valid
-      @value2.errors.should have_key(:date_value)
+      expect(@value2).not_to be_valid
+      expect(@value2.errors).to have_key(:date_value)
 
       @value3 = DateFieldValue.new
       @value3.date_value = Time.now
-      @value3.should be_valid
-      @value3.errors.should_not have_key(:date_value)
+      expect(@value3).to be_valid
+      expect(@value3.errors).not_to have_key(:date_value)
     end
   end
 end

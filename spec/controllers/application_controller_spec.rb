@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ApplicationController do
+describe ApplicationController, type: :controller do
   controller do
     # a mock method to be able to call index without route
     def index
@@ -19,8 +19,8 @@ describe ApplicationController do
 
     it "logs the user out from Sharetribe" do
       get :index
-      session[:person_id].should be_nil
-      assigns("current_user").should be_nil
+      expect(session[:person_id]).to be_nil
+      expect(assigns("current_user")).to be_nil
     end
 
     if APP_CONFIG.login_domain
@@ -28,8 +28,8 @@ describe ApplicationController do
         @request.host = "login.lvh.me"
         request.env['HTTP_REFERER'] = 'http://test.lvh.me:9887'
         get :index
-        flash[:error].class.should == Array
-        flash[:error][0].should eq("error_with_session")
+        expect(flash[:error].class).to eq(Array)
+        expect(flash[:error][0]).to eq("error_with_session")
       end
     end
   end
@@ -49,7 +49,7 @@ describe ApplicationController do
           request.host = "login.lvh.me"
           request.env['HTTP_REFERER'] = request.env['HTTP_ORIGIN'] = ''
           get :index
-          response.should render_template("public/501.html")
+          expect(response).to render_template("public/501.html")
         end
 
         it "redirects to aalto community if longer request path (to keep legacy email links working)" do
@@ -57,7 +57,7 @@ describe ApplicationController do
           request.env['HTTP_REFERER'] = request.env['HTTP_ORIGIN'] = ''
           request.env['REQUEST_PATH'] = '/en/people/s0m3Gu1dr4nd0mn3ss/messages/received/42'
           get :index
-          response.should redirect_to("http://aalto.kassi.eu/en/people/s0m3Gu1dr4nd0mn3ss/messages/received/42")
+          expect(response).to redirect_to("http://aalto.kassi.eu/en/people/s0m3Gu1dr4nd0mn3ss/messages/received/42")
         end
 
       end
@@ -69,9 +69,9 @@ describe ApplicationController do
           request.env['HTTP_REFERER'] = 'http://test.lvh.me:9887'
           request.env['HTTP_ORIGIN'] = ''
           get :index
-          response.should redirect_to("http://test.lvh.me:9887/en")
-          flash[:error].class.should == Array
-          flash[:error][0].should eq("error_with_session")
+          expect(response).to redirect_to("http://test.lvh.me:9887/en")
+          expect(flash[:error].class).to eq(Array)
+          expect(flash[:error][0]).to eq("error_with_session")
         end
       end
     end
@@ -82,8 +82,8 @@ describe ApplicationController do
       p1 = FactoryGirl.create(:person)
       t = AuthToken.create!(:person_id => p1.id, :expires_at => 10.minutes.from_now, :token_type => "login")
       get :index, {:auth => t.token}
-      response.status.should == 302 #redirection to url withouth token in query string
-      assigns("current_user").id.should == p1.id
+      expect(response.status).to eq(302) #redirection to url withouth token in query string
+      expect(assigns("current_user").id).to eq(p1.id)
     end
 
   end
@@ -103,7 +103,7 @@ describe ApplicationController do
       c2 = FactoryGirl.create(:community, :domain => "test23.custom.org")
       request.host = "test23.lvh.me"
       get :index
-      assigns["current_community"].id.should == c1.id
+      expect(assigns["current_community"].id).to eq(c1.id)
     end
 
     it "gets the right community by full domain even when matching subdomain exists" do
@@ -111,7 +111,7 @@ describe ApplicationController do
       c2 = FactoryGirl.create(:community, :ident => "market")
       request.host = "market.custom.org"
       get :index
-      assigns["current_community"].id.should == c1.id
+      expect(assigns["current_community"].id).to eq(c1.id)
     end
 
   end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe BraintreeWebhooksController do
+describe BraintreeWebhooksController, type: :controller do
   before(:each) do
     @community = FactoryGirl.create(:community, :domain => "market.custom.org")
     FactoryGirl.create(:braintree_payment_gateway, :community => @community, :type => "BraintreePaymentGateway")
@@ -9,7 +9,7 @@ describe BraintreeWebhooksController do
     @community.reload
 
     # Guard assert
-    @community.braintree_in_use?.should be_truthy
+    expect(@community.braintree_in_use?).to be_truthy
   end
 
   describe "#hooks" do
@@ -40,7 +40,7 @@ describe BraintreeWebhooksController do
 
       post :hooks, :bt_signature => "#{signature}-invalid", :bt_payload => payload, :community_id => @community.id
 
-      response.status.should == 400
+      expect(response.status).to eq(400)
     end
 
     describe "account creation hooks" do
@@ -51,17 +51,17 @@ describe BraintreeWebhooksController do
         @braintree_account = FactoryGirl.create(:braintree_account, :person => @person, :status => "pending")
 
         # Guard assert
-        BraintreeAccount.find_by_person_id(@person.id).status.should == "pending"
+        expect(BraintreeAccount.find_by_person_id(@person.id).status).to eq("pending")
       end
 
       it "listens for SubMerchantAccountApproved" do
         @post_hook.call(Braintree::WebhookNotification::Kind::SubMerchantAccountApproved, @person.id)
-        BraintreeAccount.find_by_person_id(@person.id).status.should == "active"
+        expect(BraintreeAccount.find_by_person_id(@person.id).status).to eq("active")
       end
 
       it "listens for SubMerchantAccountDeclined" do
         @post_hook.call(Braintree::WebhookNotification::Kind::SubMerchantAccountDeclined, @person.id)
-        BraintreeAccount.find_by_person_id(@person.id).status.should == "suspended"
+        expect(BraintreeAccount.find_by_person_id(@person.id).status).to eq("suspended")
       end
     end
 
@@ -70,12 +70,12 @@ describe BraintreeWebhooksController do
         # Prepare
         @transaction = FactoryGirl.create(:transaction)
         @payment = FactoryGirl.create(:braintree_payment, status: "paid", braintree_transaction_id: "123abc", type: "BraintreePayment", tx: @transaction, sum_cents: 1000, currency: "EUR")
-        Payment.find_by_braintree_transaction_id("123abc").status.should == "paid"
+        expect(Payment.find_by_braintree_transaction_id("123abc").status).to eq("paid")
       end
 
       it "listens for TransactionDisbursed" do
         @post_hook.call(Braintree::WebhookNotification::Kind::TransactionDisbursed, @payment.braintree_transaction_id)
-        Payment.find_by_braintree_transaction_id(@payment.braintree_transaction_id).status.should == "disbursed"
+        expect(Payment.find_by_braintree_transaction_id(@payment.braintree_transaction_id).status).to eq("disbursed")
       end
     end
   end

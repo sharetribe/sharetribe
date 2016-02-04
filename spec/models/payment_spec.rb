@@ -23,7 +23,7 @@
 #  index_payments_on_payer_id         (payer_id)
 #
 
-describe Payment do
+describe Payment, type: :model do
 
   PaymentSubclass = Class.new(Payment) do
     attr_accessor :total_sum, :commission_from_seller
@@ -36,20 +36,20 @@ describe Payment do
   describe "#total_commission" do
     it "calculates service fee from price and commission percentage" do
       payment.total_sum = Money.new(10000, "EUR")
-      payment.total_commission.cents.should == 1200
+      expect(payment.total_commission.cents).to eq(1200)
 
       payment2.total_sum = Money.new(2900, "EUR")
-      payment2.total_commission.cents.should == 290
+      expect(payment2.total_commission.cents).to eq(290)
     end
   end
 
   describe "seller_gets" do
     it "calculates sellers gets" do
       payment.total_sum = Money.new(10000, "EUR")
-      payment.seller_gets.cents.should == 8800
+      expect(payment.seller_gets.cents).to eq(8800)
 
       payment2.total_sum = Money.new(2900, "EUR")
-      payment2.seller_gets.cents.should == 2610
+      expect(payment2.seller_gets.cents).to eq(2610)
     end
   end
 end
