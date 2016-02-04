@@ -1,13 +1,9 @@
 # encoding: utf-8
 
-require 'cucumber/formatter/console'
-require 'cucumber/formatter/io'
-
-
 require 'fileutils'
 require 'cucumber/formatter/console'
 require 'cucumber/formatter/io'
-require 'gherkin/formatter/escaping'
+require 'cucumber/gherkin/formatter/escaping'
 
 module Cucumber
   module Formatter
@@ -31,7 +27,7 @@ module Cucumber
       attr_reader :runtime
 
       def initialize(runtime, path_or_io, options)
-        @runtime, @io, @options = runtime, ensure_io(path_or_io, "sharetribe"), options
+        @runtime, @io, @options = runtime, ensure_io(path_or_io), options
         @exceptions = []
         @indent = 0
         @prefixes = options[:prefixes] || {}
