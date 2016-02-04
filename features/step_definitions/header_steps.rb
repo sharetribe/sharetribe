@@ -86,7 +86,7 @@ Then /^I should see "(.*?)" as logged in user$/ do |display_name|
 end
 
 Then(/^I should see my name displayed as "(.*?)"$/) do |name|
-  find("#header-user-display-name").should have_content(name)
+  expect(find("#header-user-display-name")).to have_content(name)
 end
 
 When(/^I log out$/) do
@@ -112,7 +112,7 @@ end
 
 Then(/^I should be logged in$/) do
   if page.respond_to? :should
-    page.should have_no_css("#header-login-link")
+    expect(page).to have_no_css("#header-login-link")
   else
     assert page.has_no_css?("#header-login-link")
   end
@@ -120,7 +120,7 @@ end
 
 Then(/^I should not be logged in$/) do
   if page.respond_to? :should
-    page.should have_css("#header-login-link")
+    expect(page).to have_css("#header-login-link")
   else
     assert page.has_css?("#header-login-link")
   end

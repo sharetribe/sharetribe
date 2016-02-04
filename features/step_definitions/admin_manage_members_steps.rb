@@ -61,7 +61,7 @@ end
 
 Then(/^I should see that "(.*?)" cannot post new listings$/) do |full_name|
   checkbox = find_posting_allowed_checkbox_for_person(full_name)
-  checkbox['checked'].should be_nil
+  expect(checkbox['checked']).to be_nil
 end
 
 When(/^I verify user "(.*?)" as a seller$/) do |full_name|
@@ -110,7 +110,7 @@ Then(/^I should see that "(.*?)" has admin rights in this community$/) do |full_
 end
 
 Then(/^I should see that "(.*?)" does not have admin rights in this community$/) do |full_name|
-  find_admin_checkbox_for_person(full_name)['checked'].should be_nil
+  expect(find_admin_checkbox_for_person(full_name)['checked']).to be_nil
 end
 
 When(/^I promote "(.*?)" to admin$/) do |full_name|
@@ -121,9 +121,9 @@ When(/^I promote "(.*?)" to admin$/) do |full_name|
 end
 
 Then(/^I should see that I can not remove admin rights of "(.*?)"$/) do |full_name|
-  find_admin_checkbox_for_person(full_name)['disabled'].should be_truthy
+  expect(find_admin_checkbox_for_person(full_name)['disabled']).to be_truthy
 end
 
 Then(/^I should see that I can remove admin rights of "(.*?)"$/) do |full_name|
-  find_admin_checkbox_for_person(full_name)['disabled'].should be_falsey
+  expect(find_admin_checkbox_for_person(full_name)['disabled']).to be_falsey
 end

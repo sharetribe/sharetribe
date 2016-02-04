@@ -186,7 +186,7 @@ end
 Then /^(?:|I )should see "([^"]*)"(?: within "([^"]*)")?$/ do |text, selector|
   with_scope(selector) do
     if page.respond_to? :should
-      page.should have_content(text)
+      expect(page).to have_content(text)
     else
       assert page.has_content?(text)
     end
@@ -197,7 +197,7 @@ Then /^(?:|I )should see \/([^\/]*)\/(?: within "([^"]*)")?$/ do |regexp, select
   regexp = Regexp.new(regexp)
   with_scope(selector) do
     if page.respond_to? :should
-      page.should have_xpath('//*', :text => regexp)
+      expect(page).to have_xpath('//*', :text => regexp)
     else
       assert page.has_xpath?('//*', :text => regexp)
     end
@@ -211,7 +211,7 @@ end
 Then /^(?:|I )should not see "([^"]*)"(?: within "([^"]*)")?$/ do |text, selector|
   with_scope(selector) do
     if page.respond_to? :should
-      page.should have_no_content(text)
+      expect(page).to have_no_content(text)
     else
       assert page.has_no_content?(text)
     end
@@ -226,7 +226,7 @@ Then /^(?:|I )should not see \/([^\/]*)\/(?: within "([^"]*)")?$/ do |regexp, se
   regexp = Regexp.new(regexp)
   with_scope(selector) do
     if page.respond_to? :should
-      page.should have_no_xpath('//*', :text => regexp)
+      expect(page).to have_no_xpath('//*', :text => regexp)
     else
       assert page.has_no_xpath?('//*', :text => regexp)
     end
@@ -261,7 +261,7 @@ Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should be checked$/ do |labe
   with_scope(selector) do
     field_checked = find_field(label)['checked']
     if field_checked.respond_to? :should
-      field_checked.should be_truthy
+      expect(field_checked).to be_truthy
     else
       assert field_checked
     end
@@ -272,7 +272,7 @@ Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should not be checked$/ do |
   with_scope(selector) do
     field_checked = find_field(label)['checked']
     if field_checked.respond_to? :should
-      field_checked.should be_falsey
+      expect(field_checked).to be_falsey
     else
       assert !field_checked
     end
@@ -320,13 +320,13 @@ When /^I confirm alert popup$/ do
 end
 
 Then /^I should see validation error$/ do
-  find("label.error").should be_visible
+  expect(find("label.error")).to be_visible
 end
 
 Then /^I should see (\d+) validation errors$/ do |errors_count|
   errors = all("label.error");
-  errors.size.should eql(errors_count.to_i)
-  all("label.error").each { |error| error.should be_visible }
+  expect(errors.size).to eql(errors_count.to_i)
+  expect(all("label.error").each { |error| error).to be_visible }
 end
 
 Then /^take a screenshot$/ do
@@ -347,7 +347,7 @@ end
 
 Then(/^"([^"]*)" should have CSS property "([^"]*)" with value "([^"]*)"$/) do |selector, property, value|
   actual_value = page.evaluate_script("$('#{selector}').css('#{property}')");
-  actual_value.should be_eql(value)
+  expect(actual_value).to be_eql(value)
 end
 
 When(/^I change field "([^"]*)" to "([^"]*)"$/) do |from, to|

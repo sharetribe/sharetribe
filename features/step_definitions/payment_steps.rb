@@ -179,7 +179,7 @@ When /^I browse to Checkout account settings$/ do
 end
 
 Then /^the link to payment settings should be visible$/ do
-  find("#settings-tab-payments").should be_visible
+  expect(find("#settings-tab-payments")).to be_visible
 end
 
 When /^I follow link to payment settings$/ do
@@ -238,7 +238,7 @@ Given /^"(.*?)" does not have Checkout account$/ do |org_username|
 end
 
 Then /^I should see information about existing Checkout account$/ do
-  find("#payment-help-checkout-exists").visible?.should be_truthy
+  expect(find("#payment-help-checkout-exists").visible?).to be_truthy
   steps %Q{
     And I should not see payment setting fields
   }
@@ -252,11 +252,11 @@ Then /^I should be see that the payment was successful$/ do
 end
 
 Then /^I should see that I successfully paid (.*?)$/ do |amount|
-  page.should have_content("paid #{amount}")
+  expect(page).to have_content("paid #{amount}")
 end
 
 Then /^I should see that I successfully authorized payment (.*?)$/ do |amount|
-  page.should have_content("Payment authorized: #{amount}")
+  expect(page).to have_content("Payment authorized: #{amount}")
 end
 
 Then /^"(.*?)" should receive email about payment$/ do |receiver|
@@ -271,11 +271,11 @@ Then /^"(.*?)" should receive email about payment$/ do |receiver|
 end
 
 Then /^I should not see payment setting fields$/ do
-  page.should have_no_selector("#person-company-id")
-  page.should have_no_selector("#person-organization-address")
-  page.should have_no_selector("#person-phone-number")
-  page.should have_no_selector("#person-organization-website")
-  page.should have_no_selector("[type=submit]")
+  expect(page).to have_no_selector("#person-company-id")
+  expect(page).to have_no_selector("#person-organization-address")
+  expect(page).to have_no_selector("#person-phone-number")
+  expect(page).to have_no_selector("#person-organization-website")
+  expect(page).to have_no_selector("[type=submit]")
 end
 
 When /^I click Tilisiirto logo$/ do
@@ -291,9 +291,9 @@ Then /^I should receive an email about missing payment details$/ do
 end
 
 Then /^I should see receipt info for unit_type (.*?) with quantity (\d+) and subtotal of (.*?)$/ do |unit_type, quantity, subtotal|
-  page.should have_content("Price per #{unit_type}")
-  page.should have_content("Subtotal:")
-  page.should have_content("Total:")
+  expect(page).to have_content("Price per #{unit_type}")
+  expect(page).to have_content("Subtotal:")
+  expect(page).to have_content("Total:")
 
   expect(find(".initiate-transaction-quantity-value")).to have_content(quantity)
   expect(find(".initiate-transaction-sum-value")).to have_content(subtotal)

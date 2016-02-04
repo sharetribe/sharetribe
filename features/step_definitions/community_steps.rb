@@ -139,7 +139,7 @@ Given /^show me existing community$/ do
 end
 
 Then /^community "(.*?)" should require invite to join$/ do |community|
-   Community.where(ident: community).first.join_with_invite_only.should be_truthy
+   expect(Community.where(ident: community).first.join_with_invite_only).to be_truthy
 end
 
 Then /^community "(.*?)" should not require invite to join$/ do |community|

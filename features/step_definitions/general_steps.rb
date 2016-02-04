@@ -24,7 +24,7 @@ end
 
 Then /^I should see selector "([^"]*)"(?: within "([^"]*)")?$/ do |css_selector, scope_selector|
   with_scope(scope_selector) do
-    page.should have_selector(css_selector)
+    expect(page).to have_selector(css_selector)
   end
 end
 
@@ -61,7 +61,7 @@ When /^(?:|I )attach an image with invalid extension$/ do |field, selector|
 end
 
 Then(/^I should see listing image "(.*?)"$/) do |file|
-  page.should have_xpath("//img[contains(@src,'#{file}')]")
+  expect(page).to have_xpath("//img[contains(@src,'#{file}')]")
 end
 
 Then /^I should see the image I just uploaded$/ do

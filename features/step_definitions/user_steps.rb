@@ -177,7 +177,7 @@ end
 Then /^(?:|I )should see the (username|email) I gave(?: within "([^"]*)")?$/ do |value, selector|
   with_scope(selector) do
     if page.respond_to? :should
-      page.should have_content(@values[value])
+      expect(page).to have_content(@values[value])
     else
       assert page.has_content?(@values[value])
     end
@@ -215,7 +215,7 @@ Then /^I should see my username$/ do
     username = @values["username"]
   end
   if page.respond_to? :should
-    page.should have_content(username)
+    expect(page).to have_content(username)
   else
     assert page.has_content?(username)
   end
@@ -223,7 +223,7 @@ end
 
 Then /^I should not see my username$/ do
   if page.respond_to? :should
-    page.should have_no_content(Person.order("created_at").last.username)
+    expect(page).to have_no_content(Person.order("created_at").last.username)
   else
     assert page.has_no_content?(Person.order("created_at").last.username)
   end
@@ -257,7 +257,7 @@ Then /^user "(.*?)" should have (confirmed|unconfirmed) email "(.*?)"$/ do |user
   e.should_not be_nil
 
   if conf == "unconfirmed"
-    e.confirmed_at.should be_nil
+    expect(e.confirmed_at).to be_nil
   end
 
   if conf == "confirmed"

@@ -45,7 +45,7 @@ Then /^I should see that there is no custom field "(.*?)"$/ do |field_name|
 end
 
 Then /^I should see that I do not have any custom fields$/ do
-  all(".custom-field-title").should be_empty
+  expect(all(".custom-field-title")).to be_empty
 end
 
 When /^I remove custom field "(.*?)"$/ do |title|

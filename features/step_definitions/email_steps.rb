@@ -161,15 +161,15 @@ end
 #
 
 Then /^(?:I|they) should see "([^"]*?)" in the email subject$/ do |text|
-  current_email.should have_subject(text)
+  expect(current_email).to have_subject(text)
 end
 
 Then /^(?:I|they) should see \/([^"]*?)\/ in the email subject$/ do |text|
-  current_email.should have_subject(Regexp.new(text))
+  expect(current_email).to have_subject(Regexp.new(text))
 end
 
 Then /^(?:I|they) should see "([^"]*?)" in the email body$/ do |text|
-  current_email.default_part_body.to_s.should include(text)
+  expect(current_email.default_part_body.to_s).to include(text)
 end
 
 Then /^(?:I|they) should see \/([^"]*?)\/ in the email body$/ do |text|
@@ -177,27 +177,27 @@ Then /^(?:I|they) should see \/([^"]*?)\/ in the email body$/ do |text|
 end
 
 Then /^(?:I|they) should see the email delivered from "([^"]*?)"$/ do |text|
-  current_email.should be_delivered_from(text)
+  expect(current_email).to be_delivered_from(text)
 end
 
 Then /^(?:I|they) should see "([^\"]*)" in the email "([^"]*?)" header$/ do |text, name|
-  current_email.should have_header(name, text)
+  expect(current_email).to have_header(name, text)
 end
 
 Then /^(?:I|they) should see \/([^\"]*)\/ in the email "([^"]*?)" header$/ do |text, name|
-  current_email.should have_header(name, Regexp.new(text))
+  expect(current_email).to have_header(name, Regexp.new(text))
 end
 
 Then /^I should see it is a multi\-part email$/ do
-    current_email.should be_multipart
+    expect(current_email).to be_multipart
 end
 
 Then /^(?:I|they) should see "([^"]*?)" in the email html part body$/ do |text|
-    current_email.html_part.body.to_s.should include(text)
+    expect(current_email.html_part.body.to_s).to include(text)
 end
 
 Then /^(?:I|they) should see "([^"]*?)" in the email text part body$/ do |text|
-    current_email.text_part.body.to_s.should include(text)
+    expect(current_email.text_part.body.to_s).to include(text)
 end
 
 #
@@ -221,7 +221,7 @@ Then /^there should be (an|no|\d+) attachments? of type "([^"]*?)"$/ do |amount,
 end
 
 Then /^attachment (\d+) should be of type "([^"]*?)"$/ do |index, content_type|
-  current_email_attachments[(index.to_i - 1)].content_type.should include(content_type)
+  expect(current_email_attachments[(index.to_i - 1)].content_type).to include(content_type)
 end
 
 Then /^all attachments should not be blank$/ do

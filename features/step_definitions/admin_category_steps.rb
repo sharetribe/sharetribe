@@ -118,7 +118,7 @@ Then /^I should not be able to remove category "(.*?)"$/ do |category_name|
 end
 
 Then /^I should be able to select new category for listing "(.*?)"$/ do |arg1|
-  find("#new_category").should be_visible
+  expect(find("#new_category")).to be_visible
 end
 
 When /^I select "(.*?)" as a new category$/ do |new_category_name|
