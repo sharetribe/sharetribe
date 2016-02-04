@@ -226,7 +226,7 @@ end
 
 Then /^all attachments should not be blank$/ do
   current_email_attachments.each do |attachment|
-    attachment.read.size.should_not == 0
+    expect(attachment.read.size).not_to eq(0)
   end
 end
 
