@@ -103,7 +103,7 @@ describe PaypalService::Store::ProcessToken do
         ProcessTokenStore.update_to_completed(
           process_token: "not-a-real-process-token",
           op_output: {})
-      }.to raise_error
+      }.to raise_error(ActiveRecord::RecordNotFound)
     end
 
   end

@@ -6,7 +6,7 @@ describe FormUtils do
   it "instantiates a new form from hash" do
     form = form_object.new({name: "John D.", age: 27})
     expect(form.name).to eq("John D.")
-    expect { form.age }.to raise_error
+    expect { form.age }.to raise_error(NoMethodError)
   end
 
   it "convert to hash" do

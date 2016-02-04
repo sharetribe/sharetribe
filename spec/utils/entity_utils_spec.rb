@@ -43,19 +43,19 @@ describe EntityUtils do
     # Validating
 
     expect{person_entity[{name: nil, sex: :m}]}
-        .to raise_error
+        .to raise_error(ArgumentError)
 
     expect{person_entity[{name: 12, sex: :m}]}
-        .to raise_error
+        .to raise_error(ArgumentError)
 
     expect{person_entity.call({name: "First Last", sex: :in_between})}
-        .to raise_error
+        .to raise_error(ArgumentError)
 
     expect{person_entity.call({name: "First Last", sex: :f, age: "12"})}
-        .to raise_error
+        .to raise_error(ArgumentError)
 
     expect{person_entity.call({name: "First Last", sex: :f, favorite_even_number: 3})}
-        .to raise_error
+        .to raise_error(ArgumentError)
   end
 
   it "#define_builder supports nested entities" do
@@ -71,9 +71,9 @@ describe EntityUtils do
       .not_to raise_error
 
     expect{entity.call({name: {first: 'First', middle: 'Middle'}})}
-      .to raise_error
+      .to raise_error(ArgumentError)
 
-    expect{entity.call({})}.to raise_error
+    expect{entity.call({})}.to raise_error(ArgumentError)
 
     expect{entity.call({name: "expecting entity here"})}
       .to raise_error(ArgumentError, "Value for entity 'name' must be a Hash. Was: expecting entity here (String)")
@@ -120,7 +120,7 @@ describe EntityUtils do
       .not_to raise_error
 
     expect{entity.call({name: {first: 'First', middle: 'Middle'}})}
-      .to raise_error
+      .to raise_error(ArgumentError)
   end
 
   it "#define_builder supports nested entity collections" do
@@ -136,9 +136,9 @@ describe EntityUtils do
       .not_to raise_error
 
     expect{entity.call({name: [{type: :first, value: 'First'}, {type: :second_middle, value: 'Second Middle'}]})}
-      .to raise_error
+      .to raise_error(ArgumentError)
 
-    expect{entity.call({})}.to raise_error
+    expect{entity.call({})}.to raise_error(ArgumentError)
 
     expect{entity.call({name: "expecting collection here"})}
       .to raise_error(ArgumentError, "Value for collection 'name' must be an Array. Was: expecting collection here (String)")
@@ -196,7 +196,7 @@ describe EntityUtils do
       .not_to raise_error
 
     expect{entity.call({name: [{type: :first, value: 'First'}, {type: :second_middle, value: 'Second Middle'}]})}
-      .to raise_error
+      .to raise_error(ArgumentError)
 
   end
 
@@ -263,7 +263,7 @@ describe EntityUtils do
       .to_not raise_error
 
     expect{entity.call({say_so: "It ain't so"})}
-      .to raise_error
+      .to raise_error(ArgumentError)
   end
 
   it "#define_builder :enumerable validator" do
@@ -276,7 +276,7 @@ describe EntityUtils do
       .to_not raise_error
 
     expect{entity.call({tags: 2})}
-      .to raise_error
+      .to raise_error(ArgumentError)
   end
 
   it "#define builder :range validator" do
@@ -311,7 +311,7 @@ describe EntityUtils do
     entity = EntityUtils.define_builder([:tags, :set])
 
     expect{entity.call({tags: [1, 2]})}
-      .to raise_error
+      .to raise_error(ArgumentError)
 
     expect{entity.call({tags: [1, 2].to_set})}
       .to_not raise_error

@@ -44,7 +44,7 @@ describe I18n::Backend::CommunityBackend do
   it "raises error if community is nil" do
     I18n.backend.set_community!(nil, default_locales)
     expect{ I18n.backend.store_translations(:en, {foo: "bar"}) }
-      .to raise_error
+      .to raise_error(I18n::ArgumentError, "Set community via set_community! before storing translations.")
   end
 
   it "falls back to another locale in use in case translation is not available" do
