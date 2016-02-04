@@ -290,7 +290,9 @@ end
 Then /^I should see (\d+) validation errors$/ do |errors_count|
   errors = all("label.error");
   expect(errors.size).to eql(errors_count.to_i)
-  expect(all("label.error").each { |error| error).to be_visible }
+  all("label.error").each { |error|
+    expect(error).to be_visible
+  }
 end
 
 Then /^take a screenshot$/ do

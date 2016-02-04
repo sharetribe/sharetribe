@@ -78,7 +78,7 @@ Then /^Most recently created user should be member of "([^"]*)" community with(?
     expect(CommunityMembership.last.community).to eq(community)
     expect(CommunityMembership.last.consent).to eq(community.consent)
     expect(CommunityMembership.last.status).to eq(status)
-    expect(CommunityMembership.last.invitation.code).to eq(invitation_code if invitation_code.present?)
+    expect(CommunityMembership.last.invitation.code).to eq(invitation_code) if invitation_code.present?
 end
 
 Given /^given name and last name are not required in community "([^"]*)"$/ do |community|
