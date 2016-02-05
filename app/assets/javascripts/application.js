@@ -66,6 +66,7 @@
 //= require thumbnail_stripe
 //= require listing
 //= require listing_images
+//= require location_search
 //= require datepicker
 //= require follow
 //= require paypal_account_settings

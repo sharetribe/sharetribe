@@ -12,7 +12,6 @@ module ApplicationHelper
       "grid" => "ss-thumbnails",
       "new_listing" => "ss-addfile",
       "search"  => "ss-search",
-      "globelocation" => "ss-globelocation",
       "list" => "ss-list",
       "home" => "ss-home",
       "community" =>"ss-usergroup",
@@ -166,7 +165,6 @@ module ApplicationHelper
       "new_listing" => "icon-plus-sign-alt",
 
       "search"  => "icon-search",
-      "globelocation" => "icon-globe",
       "list" => "icon-reorder",
 
       "home" => "icon-home",
