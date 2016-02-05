@@ -21,14 +21,14 @@ module MarketplaceService::Store::MarketplaceConfigurations
     Maybe(find(opts[:community_id]))
       .map { |model|
         model.update_attributes!(settings)
+        invalidate_cache(opts[:community_id])
         from_model(model)
       }
       .or_else(nil)
   end
 
   def get(community_id:)
-    Maybe(find(community_id))
-      .map { |m| from_model(m) }
+    Maybe(configurations_cache(community_id))
       .or_else(nil)
   end
 
@@ -45,5 +45,21 @@ module MarketplaceService::Store::MarketplaceConfigurations
   def find(community_id)
     MarketplaceConfigurationsModel.where(community_id: community_id).first
   end
+
+
+  def configurations_cache(community_id)
+    Rails.cache.fetch(cache_key(community_id)) do
+      from_model(find(community_id))
+    end
+  end
+
+  def cache_key(community_id)
+    "/marketplace_service/configurations/community/#{community_id}"
+  end
+
+  def invalidate_cache(community_id)
+    Rails.cache.delete(cache_key(community_id))
+  end
+
 
 end
