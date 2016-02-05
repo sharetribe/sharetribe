@@ -1,8 +1,10 @@
 module MailUtils
-  # Refactoring needed. This is an ugly method that sets
+  # Refactoring needed. This is an ugly method that sets a lot of global state
   #
-  # DEPRECATED! Do not use this anymore! See TransactionMailer.transaction_created how you can live without calling
-  # this method
+  # Avoid adding more state to instance variables. Instead, pass the data to
+  # the `render` method in `locals` hash.
+  #
+  # If the data is used in the layout, you can make an exception and set it to instance variable
   def set_up_urls(recipient, community, ref="email")
     @community = community
     @current_community = community
@@ -11,6 +13,7 @@ module MailUtils
     @url_params[:ref] = ref
     if recipient
       @recipient = recipient
+      @unsubscribe_token = AuthToken.create_unsubscribe_token(person_id: @recipient.id).token
       @url_params[:locale] = @recipient.locale
     end
   end

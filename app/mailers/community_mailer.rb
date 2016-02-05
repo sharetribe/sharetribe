@@ -36,6 +36,7 @@ class CommunityMailer < ActionMailer::Base
     @current_community = community
     @recipient = recipient
     @listings = listings
+    unsubscribe_token = AuthToken.create_unsubscribe_token(person_id: @recipient.id).token
 
     unless @recipient.member_of?(@community)
       logger.info "Trying to send community updates to a person who is not member of the given community. Skipping."
@@ -65,7 +66,7 @@ class CommunityMailer < ActionMailer::Base
                      :from => community_specific_sender(community),
                      :subject => subject,
                      :delivery_method => delivery_method) do |format|
-        format.html { render :layout => 'email_blank_layout' }
+        format.html { render layout: 'email_blank_layout', locals: { unsubscribe_token: unsubscribe_token } }
       end
     end
   end

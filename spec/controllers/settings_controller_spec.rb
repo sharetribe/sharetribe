@@ -26,8 +26,7 @@ describe SettingsController, type: :controller do
     end
 
     it "should unsubscribe with auth token" do
-      t = @person.new_email_auth_token
-      AuthToken.find_by_token(t)
+      t = AuthToken.create_unsubscribe_token(person_id: @person.id).token
       @person.set_default_preferences
       expect(@person.min_days_between_community_updates).to eq(1)
 

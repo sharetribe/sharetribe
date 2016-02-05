@@ -38,4 +38,12 @@ class AuthToken < ActiveRecord::Base
     where("expires_at < ?", 1.week.ago ).delete_all
   end
 
+  def self.create_unsubscribe_token(person_id:, expires_at: 1.week.from_now)
+    create(
+      person_id: person_id,
+      expires_at: expires_at,
+      token_type: "unsubscribe"
+    )
+  end
+
 end
