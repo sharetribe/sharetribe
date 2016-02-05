@@ -220,6 +220,10 @@ sv:
         users_can_invite_new_users: "Alla användare kan bjuda in nya användare till denna marknadsplats"
         private: "Denna marknadsplats är privat (bara registrerade medlemmar kan se innehållet)"
         require_verification_to_post_listings: "Bara användare som är verifierade av admin kan skapa nya annonser"
+        search_preferences: ~
+        default_search_type: ~
+        keyword_search: ~
+        location_search: ~
         listing_preferences: Annonsinställningar
         transaction_preferences: Transaktionsinställningar
         show_listing_publishing_date: "Visa publiceringsdatum på annonsen på annonssidan"

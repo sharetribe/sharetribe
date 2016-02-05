@@ -220,6 +220,10 @@ fr-CA:
         users_can_invite_new_users: "Tous les utilisateurs peuvent inviter des nouveaux utilisateurs dans cette place de marché"
         private: "Cette place de marché est privée (seuls les utilisateurs connectés peuvent en voir le contenu)"
         require_verification_to_post_listings: "Seuls les utilisateurs validés par un administrateur peuvent poster de nouvelles annonces"
+        search_preferences: ~
+        default_search_type: ~
+        keyword_search: ~
+        location_search: ~
         listing_preferences: "Paramètres d'annonces"
         transaction_preferences: "Paramètres de transactions"
         show_listing_publishing_date: "Afficher la date de publication de l'annonce sur la page de l'annonce"

@@ -220,6 +220,10 @@ nb:
         users_can_invite_new_users: "Alle brukere kan invitere nye brukere til denne markedsplassen"
         private: "Denne markedsplassen er privat(kun registrerte brukere kan se dets innhold)"
         require_verification_to_post_listings: "Kun brukere som er godkjent av admin kan legge ut annonser"
+        search_preferences: ~
+        default_search_type: ~
+        keyword_search: ~
+        location_search: ~
         listing_preferences: Annonseinnstillinger
         transaction_preferences: Transaksjonsinnstillinger
         show_listing_publishing_date: "Vis dato annonsen ble publisert"

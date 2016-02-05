@@ -220,6 +220,10 @@ fi:
         users_can_invite_new_users: "Käyttäjillä on oikeus kutsua muita käyttäjiä palveluun."
         private: "Yksityinen kauppapaikka (vain kirjautuneet käyttäjät näkevät sisällön)"
         require_verification_to_post_listings: "Vain ylläpitäjän erikseen hyväksymät käyttäjät voivat lisätä ilmoituksia"
+        search_preferences: ~
+        default_search_type: ~
+        keyword_search: ~
+        location_search: ~
         listing_preferences: Ilmoitusasetukset
         transaction_preferences: "Transaktioprosessin asetukset"
         show_listing_publishing_date: "Näytä ilmoituksen julkaisuajankohta ilmoituksen sivulla"

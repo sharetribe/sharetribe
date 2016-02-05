@@ -220,6 +220,10 @@ pt-BR:
         users_can_invite_new_users: "Todos os usuários podem convidar novos usuários para este mercado virtual"
         private: "Este mercado virtual é privado (apenas usuários cadastrados podem ver o conteúdo)"
         require_verification_to_post_listings: "Somente usuários verificados por administrador pode postar novos anúncios"
+        search_preferences: ~
+        default_search_type: ~
+        keyword_search: ~
+        location_search: ~
         listing_preferences: "Preferências de anúncios"
         transaction_preferences: "Transação - preferências"
         show_listing_publishing_date: "Data de publicação de exibição da lista na página de anúncio"
@@ -734,7 +738,7 @@ pt-BR:
       request_preauthorized: "Pagamento autorizado"
       skip_feedback: "Não deixar opinião"
       waiting_for_listing_author_to_accept_offer: "Aguardando %{listing_author_name} aceitar a oferta"
-      waiting_for_listing_author_to_accept_request: "Aguardando que %{listing_author_name} aceite seu pedido. Você somente será cobrado quando %{listing_author_name} aceite o pedido."
+      waiting_for_listing_author_to_accept_request: "Aguardando que %{listing_author_name} aceite seu pedido. Você somente será cobrado quando %{listing_author_name} aceitar o pedido."
       waiting_for_you_to_accept_request: "Esperando por você para aceitar o pedido"
       waiting_confirmation_from_requester: "Aguardando %{requester_name} marcar o pedido como concluido"
       waiting_confirmation_from_you: "Esperando você marcar se a solicitação foi concluída"

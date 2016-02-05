@@ -205,6 +205,10 @@ it:
         users_can_invite_new_users: ~
         private: ~
         require_verification_to_post_listings: ~
+        search_preferences: ~
+        default_search_type: ~
+        keyword_search: ~
+        location_search: ~
         listing_preferences: ~
         transaction_preferences: ~
         show_listing_publishing_date: ~
@@ -438,7 +442,7 @@ it:
       units:
         piece: ~
         hour: ~
-        day: ~
+        day: "Al giorno"
         night: ~
         week: ~
         month: ~
@@ -1404,7 +1408,7 @@ it:
       are_you_sure: ~
     comment_form:
       ask_a_question: "Lascia un commento su questo annuncio o richiedi maggiori dettagli. Tutti gli altri utenti saranno in grado di vedere il tuo commento"
-      log_in: accedi
+      log_in: accedere
       send_comment: "Invia un commento"
       to_send_a_comment: "per inviare un nuovo commento"
       write_comment: "Scrivi un nuovo commento:"
@@ -1731,7 +1735,7 @@ it:
       admin_account_not_connected: "Non puoi connettere il tuo conto PayPal perchè l'amministratore della piattaforma non ha terminato la configurazione di PayPal."
       paypal_account_email: "Collega il tuo conto PayPal"
       paypal_account_email_placeholder: "Il tuo indirizzo email di PayPal"
-      paypal_account_email_info_text: "Se non hai un account paypal, puoi crearne uno %{create_paypal_account}. Se ti viene dato errore quando connetti il tuo account, significa che devi aggiornare ad un account Business. L'aggiornamento è rapido e facile e non ti costa nulla. Se sei una persona fisica, dovresti usare il tuo nome e cognome nel campo \"ragione sociale\" quando Paypal te lo richiede. Per aggiornare il tuo account, %{upgrade_paypal_account} e trova il link per l'aggiornamento."
+      paypal_account_email_info_text: "Se non hai un account paypal, puoi crearne uno %{create_paypal_account}. Raramente, può accadere un errore quando connetti il tuo account, ciò può signficare che il tuo account PayPal è obsoleto e devi aggiornare ad un account Business: %{upgrade_paypal_account}. Ti consigliamo comunque di sentire il servizio clienti di PayPal, o di contattarci in modo da poterti aiutare."
       create_paypal_account: "Cliccando qui"
       upgrade_paypal_account: "Accedi al tuo conto Paypal"
       paypal_account_billing_agreement: "Concedi a %{service_name} l'autorizzazione ad applicare una commissione"
