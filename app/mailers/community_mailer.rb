@@ -17,7 +17,13 @@ class CommunityMailer < ActionMailer::Base
           listings_to_send = community.get_new_listings_to_update_email(person)
           unless listings_to_send.empty?
             begin
-              CommunityMailer.community_updates(person, community, listings_to_send).deliver
+              token = AuthToken.create_unsubscribe_token(person_id: person.id).token
+              CommunityMailer.community_updates(
+                recipient: person,
+                community: community,
+                listings: listings_to_send,
+                unsubscribe_token: token
+              ).deliver
             rescue => e
               # Catch the exception and continue sending emails
             puts "Error sending mail to #{person.confirmed_notification_emails} community updates: #{e.message}"
@@ -31,12 +37,11 @@ class CommunityMailer < ActionMailer::Base
     end
   end
 
-  def community_updates(recipient, community, listings)
+  def community_updates(recipient:, community:, listings:, unsubscribe_token:)
     @community = community
     @current_community = community
     @recipient = recipient
     @listings = listings
-    unsubscribe_token = AuthToken.create_unsubscribe_token(person_id: @recipient.id).token
 
     unless @recipient.member_of?(@community)
       logger.info "Trying to send community updates to a person who is not member of the given community. Skipping."
