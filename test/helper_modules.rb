@@ -164,10 +164,8 @@ module TestHelpers
   end
 
   def sign_in_for_spec(person)
-    # For some reason only sign_in (Devise) doesn't work so 2 next lines to fix that
-    #sign_in person
-    request.env['warden'].stub :authenticate! => person
-    controller.stub :current_person => person
+    allow(request.env['warden']).to receive_messages(authenticate!: person)
+    allow(controller).to receive_messages(current_person: person)
   end
 
   def find_or_build_category(category_name)

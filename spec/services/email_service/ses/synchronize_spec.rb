@@ -2,12 +2,15 @@ require 'spec_helper'
 
 Synchronize = EmailService::SES::Synchronize
 
-@id = 0
-def next_id
-  @id += 1
-end
-
 describe EmailService::SES::Synchronize do
+
+  before(:each) {
+    @id = 1
+  }
+
+  def next_id
+    @id += 1
+  end
 
   def get_type(type)
     {

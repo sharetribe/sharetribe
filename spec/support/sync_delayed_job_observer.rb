@@ -34,7 +34,9 @@ class SyncDelayedJobObserver
     end
 
     def process_queue!
-      success, failure = Delayed::Worker.new(:quiet => false).work_off
+      success, failure = Delayed::Worker.new(
+                 quiet: true # you might want to change this to false for debugging
+               ).work_off
       @total_processed = success + failure
     end
   end

@@ -5,7 +5,7 @@ echo "SUITE: ${SUITE}"
 
 if [ "$SUITE" = "rspec" ]
 then
-	bundle exec rake spec 2>&1
+	bundle exec rspec spec 2>&1
 	exit
 elif [ "$SUITE" = "rubocop" ]
 then

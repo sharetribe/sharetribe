@@ -23,7 +23,7 @@ describe Events do
     events = Events.new()
 
     expect { events.send(:doo, "payload msg") }
-      .to raise_error
+      .to raise_error(ArgumentError, "Unknown event: doo")
   end
 
 end

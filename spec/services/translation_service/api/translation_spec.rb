@@ -43,15 +43,15 @@ describe TranslationService::API::Translations do
 
 
   it "POST request with only community_id" do
-    expect { TranslationsAPI.create(@community_id) }.to raise_error
+    expect { TranslationsAPI.create(@community_id) }.to raise_error(ArgumentError)
   end
 
   it "POST request with community_id and wrong params" do
-    expect { TranslationsAPI.create(@community_id, {foo: :bar}) }.to raise_error
+    expect { TranslationsAPI.create(@community_id, {foo: :bar}) }.to raise_error(ArgumentError)
   end
 
   it "POST request with community_id and wrong structure in params" do
-    expect { TranslationsAPI.create(@community_id, [translations: [{locale: @locale_sv}] ]) }.to raise_error
+    expect { TranslationsAPI.create(@community_id, [translations: [{locale: @locale_sv}] ]) }.to raise_error(ArgumentError)
   end
 
   it "POST request with community_id and correct params" do
@@ -170,12 +170,12 @@ describe TranslationService::API::Translations do
 
   it "DELETE request with only community_id" do
     TranslationsAPI.create(@community_id, @translations_groups)
-    expect { TranslationsAPI.delete(@community_id) }.to raise_error
+    expect { TranslationsAPI.delete(@community_id) }.to raise_error(ArgumentError)
   end
 
   it "DELETE request with only community_id with wrong params" do
     TranslationsAPI.create(@community_id, @translations_groups)
-    expect { TranslationsAPI.delete(@community_id, {foo: :bar}) }.to raise_error
+    expect { TranslationsAPI.delete(@community_id, {foo: :bar}) }.to raise_error(ArgumentError)
   end
 
   it "DELETE request with only community_id with correct params" do
