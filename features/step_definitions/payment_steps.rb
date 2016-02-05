@@ -228,7 +228,7 @@ end
 
 Given /^"(.*?)" has Checkout account$/ do |org_username|
   org = Person.find_by_username(org_username)
-  checkout = CheckoutAccount.new({ merchant_key: "SAIPPUAKAUPPIAS", merchant_id: "375917", person_id: org })
+  checkout = CheckoutAccount.new({ merchant_key: "SAIPPUAKAUPPIAS", merchant_id: "375917", person_id: org.id })
   checkout.save!
 end
 
