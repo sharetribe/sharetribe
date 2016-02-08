@@ -76,7 +76,7 @@ gem 'mercury-rails',
 gem 'countries', '~> 1.2', '>= 1.2.2'
 gem 'braintree', "~> 2.30.0"
 gem "mail_view", "~> 1.0.3"
-gem 'statesman', '~> 0.5.0'
+gem 'statesman', '~> 1.3.1'
 gem "premailer", "~> 1.8.2"
 gem 'stringex', '~> 2.5.2'
 gem 'paypal-sdk-permissions', '~> 1.96.4'
