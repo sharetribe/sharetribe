@@ -218,3 +218,9 @@ span.bubble-title-link {
 .map div {
   @include box-sizing(content-box);
 }
+
+// these contain width: 50% + some padding
+.map .bubble-author,
+.map .bubble-price {
+  box-sizing: border-box;
+}
