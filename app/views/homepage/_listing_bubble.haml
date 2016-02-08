@@ -14,6 +14,9 @@
       .bubble-price{:title => price_as_text(listing) }
         - if listing.price
           = humanized_money_with_symbol(listing.price).upcase
-          - unless listing.quantity.blank?
+          - if listing.quantity.present?
             %span.bubble-price-quantity
-              = "/ #{listing.quantity}"
+              = t("listings.form.price.per") + " " + listing.quantity
+          - elsif listing.unit_type
+            %span.bubble-price-quantity
+              = price_quantity_per_unit(listing)
