@@ -28,10 +28,13 @@ describe "CommunityMailer", type: :mailer do
           :community_id => @c1.id,
           :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer")
 
+      @p1_unsubscribe_token = AuthToken.create_unsubscribe_token(person_id: @p1.id).token
+
       @email = CommunityMailer.community_updates(
-        @p1,
-        @p1.communities.first,
-        [@l2]
+        recipient: @p1,
+        community: @p1.communities.first,
+        listings: [@l2],
+        unsubscribe_token: @p1_unsubscribe_token
       )
     end
 
@@ -45,8 +48,7 @@ describe "CommunityMailer", type: :mailer do
     end
 
     it "should include valid auth_token in links" do
-      token = @p1.auth_tokens.last.token
-      expect(@email).to have_body_text("?auth=#{token}")
+      expect(@email).to have_body_text("?auth=#{@p1_unsubscribe_token}")
     end
 
     it "should contain correct service name in the link" do

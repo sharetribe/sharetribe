@@ -565,11 +565,6 @@ class Person < ActiveRecord::Base
     image_file_name.present?
   end
 
-  def new_email_auth_token
-    t = AuthToken.create(:person => self, :expires_at => 1.week.from_now, :token_type => "unsubscribe")
-    return t.token
-  end
-
   # Tell Devise that email is not required
   def email_required?
     false
