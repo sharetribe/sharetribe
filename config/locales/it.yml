@@ -222,7 +222,7 @@ it:
         twitter_handle: ~
         update_settings: "Salva le impostazioni"
         automatically_confirmed: ~
-        automatically_confirmed_no_escrow: ~
+        automatically_confirmed_no_escrow: "L'ordine sarà automaticamente segnato come completo %{days_dropdown} giorni dopo che il pagamento è stato eseguito."
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -556,8 +556,8 @@ it:
       link_to_paypal_text: qui
   conversations:
     accept:
-      details: ~
-      order_by: ~
+      details: "Dettagli dell'ordine"
+      order_by: "Richiesto da %{orderer_link}"
       respond_to_offer: "Rispondi ad una offerta"
       respond_to_request: "Rispondi ad una richiesta"
       accept_offer: "Accetta l'offerta"
@@ -571,25 +571,25 @@ it:
       you_need_to_fill_payout_details_before_accepting: "Devi completare i dettagli del pagamento prima di poter accettare e ricevere pagamenti. Vai a %{payment_settings_link} per inserire i dettagli."
       payment_settings_link: "Impostazioni dei pagamenti"
       minimum_price_error_message: "Il prezzo non può essere inferiore a %{amount}."
-      accept: ~
-      decline: ~
+      accept: Accetta
+      decline: Rifiuta
       quantity_label: ~
       sum_label: "Subtotale:"
-      service_fee_label: ~
+      service_fee_label: "Commissione di %{service_name}:"
       you_will_get_label: ~
       total_label: "Totale:"
       total_value: ~
-      paypal_fee_info: ~
+      paypal_fee_info: "* Esclusi i <a id='%{fee_info_link_id}' href='#'>costi di transazione di PayPal</a>"
       shipping_price_label: ~
     confirm:
       confirm_description: |-
-          Se la tua richiesta è stata completata, dovresti confermarla.
+          Se il tuoordine è stato completato, dovresti confermarla.
           Successivamente puoi dare il tuo feedback all'altra parte.
       cancel_description: ~
       cancel_payed_description: "Se la tua richiesta è stata accettata ma ci stai ripensando, puoi ancora cancellare la richiesta prima del pagamento."
       canceling_payed_transaction: "Cancella la transazione"
       confirm: "Segna come completato"
-      cancel: ~
+      cancel: Contesta
       continue: Continua
       give_feedback_to: "Dai il feedback a %{person_link}"
       do_not_give_feedback: "Salta il feedback"
@@ -610,7 +610,7 @@ it:
       rejected_offer: "Offerta negata."
       confirmed_request: "Richiesta completata."
       confirmed_offer: "Offerta completata."
-      canceled_request: "Richiesta cancellata."
+      canceled_request: "Ordine cancellato."
       canceled_offer: "Offerta cancellata."
       message_from: "Messaggio da %{person}"
       about_listing: "Informazioni su %{listing_title}"
@@ -618,16 +618,16 @@ it:
       message_content_not_available: ~
     message:
       accepted_request: ~
-      received_payment: ~
+      received_payment: "Richiesta accettata. Ricevuto il pagamento di %{sum}"
       accepted_offer: "Offerta accettata"
       rejected_request: "Richiesta respinta"
       rejected_offer: "Offerta respinta"
       confirmed_request: ~
       confirmed_offer: "Offerta segnata come completata"
-      canceled_request: ~
+      canceled_request: "Ordine cancellato"
       canceled_offer: "Offerta cancellata"
       paid: "pagati %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Pagamento autorizzato: %{sum}"
     new:
       offer_message_form_title: "Offri %{listing} a %{person}"
       request_message_form_title: "Richiedi %{listing} da %{person}"
@@ -654,7 +654,7 @@ it:
       item_request_message_form_title: "Offri un articolo a %{person}"
       message: Messaggio
       message_to: "Messaggio a %{author_name}"
-      optional_message_to: "messaggio opzionale per %{author_name}"
+      optional_message_to: "Messaggio opzionale per %{author_name}"
       rideshare_offer_message_form_title: "Chiedi un passaggio a %{person}"
       rideshare_request_message_form_title: "Offri un passaggio a %{person}"
       send_message: "Invia messaggio"
@@ -663,7 +663,7 @@ it:
       you_will_get_notified_of_acceptance: "Riceverai una email di notifica quando %{person} accetta o rifiuta la tua richiesta"
       you_will_get_notified: "Riceverai una email di notifica quando %{person} ti risponderà"
       title: Titolo
-      send_message_to_user: ~
+      send_message_to_user: "Scrivi un messaggio a %{person}"
       about_listing: ~
       author_has_to_accept_request: "%{author_name} deve accettare la richiesta prima che tu possa pagare"
     show:
@@ -708,15 +708,15 @@ it:
       request_accepted: accettata
       request_rejected: rifiutata
       request_confirmed: ~
-      request_canceled: ~
+      request_canceled: Cancellato
       request_paid: "Pagamento riuscito"
       request_preauthorized: "Pagamento autorizzato"
       skip_feedback: "Salta il feedback"
       waiting_for_listing_author_to_accept_offer: "In attesa che %{listing_author_name}  accetti l'offerta"
-      waiting_for_listing_author_to_accept_request: ~
+      waiting_for_listing_author_to_accept_request: "In attesa che %{listing_author_name} accetti la richiesta. Non appena %{listing_author_name} confermerà la richiesta, il pagamento sarà eseguito."
       waiting_for_you_to_accept_request: "In attesa che tu accetti la richiesta"
-      waiting_confirmation_from_requester: "In attesa che %{requester_name} segni la richiesta come completa"
-      waiting_confirmation_from_you: "In attesa che tu confermi che la richiesta è stata completata"
+      waiting_confirmation_from_requester: "In attesa che %{requester_name} segni l'ordine come completato"
+      waiting_confirmation_from_you: "In attesa che confermi l'ordine come completo"
       waiting_payment_from_requester: "In attesa che %{requester_name} paghi"
       waiting_payment_from_you: "In attesa del tuo pagamento"
       waiting_feedback_from_you: "In attesa dei tuoi feedback"
@@ -735,8 +735,8 @@ it:
       accept_preauthorized_request: "Accetta richiesta"
       reject_preauthorized_offer: "Non questa volta"
       reject_preauthorized_request: "Non questa volta"
-      confirm: ~
-      cancel: ~
+      confirm: "Segna come completato"
+      cancel: Contesta
   braintree_accounts:
     new:
       add_payout_details: ~
@@ -815,7 +815,7 @@ it:
       message: "Le tue informazioni di pagamento sono state confermate e ora sei pronto per ricevere pagamenti su %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Non hai ancora confermato o cancellato la richiesta %{request_link}. Se la richiesta è stata completata, dovresti confermarla. Successivamente puoi dare il tuo feedback a %{other_party_given_name}."
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Non hai ancora confermato o cancellato la richiesta %{request_link}. Invieremo il denaro a %{other_party_given_name} solo quando a) hai confermato che la richiesta è stata completata o b) %{days_to_automatic_confirmation} giorni passati dal pagamento. Dopo aver confermato la richiesta, puoi dare il tuo feedback a %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Non hai ancora confermato o cancellato la richiesta %{request_link}. Invieremo il denaro a %{other_party_given_name} solo quando a) hai confermato che la richiesta è stata completata o b) %{days_to_automatic_confirmation} giorni sono passati dal pagamento. Dopo aver confermato la richiesta, puoi dare il tuo feedback a %{other_party_given_name}."
       remember_to_confirm_request: "Ricordati di confermare o cancellare la richiesta"
       if_will_not_happen_you_should_cancel: "Se credi che la richiesta non venga completata per qualche ragione, puoi cancellarla %{cancel_it_link}."
       if_will_not_happen_you_should_cancel_escrow: "Se credi che la richiesta non venga completata per qualche ragione, puoi cancellarla %{cancel_it_link}. L'admin riceverà una notifica e ti contatterà per il rimborso."
@@ -835,9 +835,9 @@ it:
     transaction_confirmed:
       here_is_a_message_from: "Ecco un messaggio da %{other_party_given_name}:"
       request_marked_as_confirmed: "Richiesta completata - ricordati di dare il tuo feedback"
-      request_marked_as_canceled: "Richiesta cancellata"
+      request_marked_as_canceled: "Ordine cancellato."
       has_marked_request_as_confirmed: "%{other_party_full_name} ha segnato la richiesta per %{request} come completa. Ora puoi dare il tuo feedback a %{other_party_given_name}."
-      has_marked_request_as_canceled: "%{other_party_full_name} ha cancellato la richiesta per %{request}. Puoi ancora dare il tuo feedback a %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} ha cancellato l'ordine per %{request}. Puoi ancora dare il tuo feedback a %{other_party_given_name}."
       giving_feedback_is_good_idea: "Dare un feedback è sempre una buona idea. Se tutto è andato bene, dovresti far sapere agli altri che %{other_party_given_name} è affidabile. Se ci sono stati dei problemi, è giusto menzionarli."
       give_feedback_to: "Dai il tuo feedback a %{other_party_given_name}"
     transaction_automatically_confirmed:
@@ -863,11 +863,9 @@ it:
       or_paste_link: "Altrimenti puoi copiare il seguente link nella barra degli indirizzi del tuo browser:"
       turning_on_confirmations_in_this_community: ~
     common:
-      check_your_settings: "Controlla le tue impostazioni"
       hey: "Ciao %{name},"
       kassi_team: "Il Team %{service_name}"
       thanks: "Grazie,"
-      want_to_control_emails: "Vuoi controllare da quale email ricevere %{service_name}?"
       dont_want_to_receive_these_emails: "Non vuoi ricevere queste email?"
       edit_your_email_settings_here: "Modifica qui le impostazioni della tua email"
       message_not_displaying_correctly: "L'email non è correttamente visibile?"
@@ -913,8 +911,8 @@ it:
       shipping_total: Spedizione
     braintree_new_payment:
       product: "Prodotto:"
-      price_payer_paid: "Prezzo %{payer_full_name} pagato:"
-      service_fee: ~
+      price_payer_paid: "Prezzo pagato da %{payer_full_name}:"
+      service_fee: "Commissione di %{service_name}:"
       you_will_get: "Totale:"
       money_will_be_transferred: "I soldi saranno trasferiti nel tuo conto quando a) %{payer_name} ha segnato la richiesta come completata or b) %{automatic_confirmation_days} giorni sono passati da quando %{payer_name} ha effettuato il pagamento."
     receipt_to_payer:
@@ -922,7 +920,7 @@ it:
       you_have_made_new_payment: "Hai pagato <b>%{payment_sum}</b> per <b>%{listing_title}</b> a %{recipient_full_name}. Ecco la ricevuta del pagamento."
       product: Prodotto
       price_per_unit_type: ~
-      duration: ~
+      duration: "Periodo:"
       quantity: ~
       subtotal: "Subtotale:"
       total: Totale
@@ -961,9 +959,9 @@ it:
       remember_to_give_feedback_to: "Promemoria: ricordati di lasciare feedback a %{name}"
       you_have_not_given_feedback_yet: "NOn hai ancora lasciato feedback a %{name} per l'evento %{event}. Ricordati di lasciare il feedback su come %{given_name} ha condotto l'evento."
     transaction_preauthorized:
-      subject: ~
-      transaction_requested_by_user: ~
-      you_have_time_to_accept: ~
+      subject: "%{requester} ha richiesto ed autorizzato il pagamento per %{listing_title}"
+      transaction_requested_by_user: "%{requester} ha richiesto ed autorizzato il pagamento per %{listing_title}"
+      you_have_time_to_accept: "E' necessario che accetti o rifiuti entro %{payment_expires_in}. Se accetti entro questo tempo, il pagamento sarà eseguito. Se non accetti, la richiesta sarà automaticamente rifiutata e non riceverai il pagamento."
       click_here_to_reply: "Clicca qui per rispondere alla richiesta"
     transaction_preauthorized_reminder:
       subject: "Ricordati di accettare la richiesta di %{requester} per l'annuncio %{listing_title}"
@@ -1009,7 +1007,7 @@ it:
       you_must_explain_not_neutral_feedback: "Se vuoi dare feedback non neutrali, devi spiegarne il motivo."
       you_must_select_a_grade: "Ricordati di raccontare se la tua esperienza è stata positiva o negativa"
     transaction_agreement:
-      required_error: ~
+      required_error: "E' necessario accettare l'accordo"
     paypal:
       buyer_cannot_pay_error: "Il pagamento è stato rifiutato da PayPal. Si prega di contattare il loro Servizio Clienti per maggiori informazioni: %{customer_service_link}"
       pending_review_error: "Il pagamento è stato presentato, ma è stato contrassegnato da PayPal come 'in revisione'. Quando PayPal completarà la revisione, il pagamento verrà autorizzato automaticamente."
@@ -1348,7 +1346,7 @@ it:
       request_accepted: "Richiesta accettata"
       request_confirmed: "Richiesta completata."
       request_rejected: "Richiesta respinta"
-      request_canceled: "Richiesta cancellata"
+      request_canceled: "Ordine cancellato."
       message_sent: "Messaggio inviato"
       this_content_is_not_available_in_this_community: "Questo contenuto non è disponibile in questa comunità."
       unknown_error: "Errore sconosciuto. Usa il link Contattaci per inviarci i dettagli di quanto accaduto."
@@ -1390,7 +1388,7 @@ it:
       email_deleted: "La email %email% è stata rimossa con successo dal suo account."
       payment_details_add_successful: ~
       payment_details_add_error: ~
-      listing_author_payment_details_missing: "Ti preghiamo di contattare l'autore cliccando sul pulsante 'contatta' in basso. Devono aggiornare i dettagli di pagamento per ricevere pagamenti."
+      listing_author_payment_details_missing: "Ti preghiamo di contattare l'autore, cliccando sul pulsante 'contatta' che trovi più in basso. Deve aggiornare i dettagli di pagamento per poter ricevere pagamenti."
       stylesheet_needs_recompiling: ~
     settings:
       account: Account
@@ -1584,8 +1582,8 @@ it:
       selected_category: "Categoria: %{category}"
       selected_subcategory: "Sottocategoria: %{subcategory}"
       selected_transaction_type: "Tipo di annuncio: %{transaction_type}"
-      select_category: "Seleziona una categoria"
-      select_subcategory: "Seleziona una Categoria"
+      select_category: "Seleziona una categoria (se non c'è contattaci e faccelo sapere)"
+      select_subcategory: "Seleziona una Categoria (se non c'è contattaci e faccelo sapere)"
       select_transaction_type: "Seleziona il tipo di annuncio"
       you_need_to_fill_payout_details_before_accepting: "È necessario compilare i dettagli di pagamento prima di poter postare il tuo spazio. Vai al %{payment_settings_link} e inserisci le informazioni."
       contact_admin_link_text: ~
@@ -1594,7 +1592,7 @@ it:
       community_not_configured_for_payments_admin: ~
     quantity:
       hour: ~
-      day: ~
+      day: "Numero di giorni:"
       night: ~
       week: ~
       month: ~
@@ -1608,7 +1606,7 @@ it:
       add_profile_picture: "Aggiungi un'immagine del profilo"
       comments: "Discussione pubblica"
       contact_by_phone: "Contatta via telefono:"
-      contact: Contatto
+      contact: Contatta
       favor_offer: "Offerta di servizio"
       favor_request: "Richiesta di servizio"
       inquiry: ~
@@ -1648,7 +1646,7 @@ it:
     unit_types:
       piece: ~
       hour: ~
-      day: ~
+      day: giorno
       night: ~
       week: ~
       month: ~
@@ -1660,7 +1658,7 @@ it:
       by: "%{listing} di %{author}"
       payment: Pagamento
       exp: ~
-      you_will_be_charged: "Il pagamento sarà convalidato solo se %{author} accetterà il pagamento. %{author} ha tempo %{expiration_period} gironi per convalidare. Se %{author} rifiuta o non risponde il pagamento non sarà effettuato."
+      you_will_be_charged: "Il pagamento sarà convalidato solo se %{author} accetterà il pagamento. %{author} ha tempo %{expiration_period} giorni per convalidare. Se %{author} rifiuta o non risponde il pagamento non sarà effettuato."
       day: giorno
       days: giorni
     transaction_agreement_checkbox:
@@ -1717,11 +1715,11 @@ it:
     paypal_account_email_connected: "<del>Connessione del conto Paypal</del> Completata!"
     payout_info_paypal: "%{service_name} usa PayPal come sistema di pagamento. E' richiesto un %{create_paypal_account_link} per accettare i pagamenti delle tue inserzioni, e deve essere connesso a %{service_name}."
     paypal_billing_agreement_made: "<del>Permesso a %{service_name} di applicare una commissione alla transazione</del> Completato!"
-    commission_permission_needed: "oncedi il permesso a %{service_name} di ottenere la commissione di intermediazione dai pagamenti che ricevi."
-    create_paypal_account_link_text: "PayPal account"
+    commission_permission_needed: "E' necessario concedere a %{service_name} il permesso di ottenere la commissione sui pagamenti che ricevi."
+    create_paypal_account_link_text: "Conto PayPal"
     connected_account: "Il conto PayPal '%{email}' è stato connesso con successo."
     paypal_receive_funds_info_label_australia_only: "Devi abilitare il tuo conto PayPal per accettare i pagamenti. E' necessario un conto PayPal Business. L'aggiornamento ad un conto PayPal business è semplice e non costa nulla."
-    paypal_receive_funds_info_label: "E' necessario abilitare il conto PayPal per accettare i pagamenti."
+    paypal_receive_funds_info_label: "Raramente accade che non è possibile collegare il conto PayPal."
     paypal_receive_funds_info: "Se avviene un errore tentando di collegare il tuo Conto PayPal a %{service_name}, il tuo conto potrebbe essere obsoleto, e aver bisogno di un aggiornamento ad un Conto Premier a questo link: %{upgrade_paypal_account_link}. La cosa migliore è contattare il servizio clienti PayPal e farsi guidare."
     upgrade_paypal_account_link_text: "Aggiorna l'account PayPal."
     admin_account_not_connected: "Non è possibile utilizzare il sistema di pagamenti di %{service_name} e ricevere pagamenti, se prima non è stato settato. per favore %{contact_admin_link} per i dettagli."
@@ -2113,6 +2111,10 @@ it:
     days_since:
       one: "%{count} giorno"
       other: "%{count} giorni"
+    time_to:
+      days:
+        one: "%{count} giorno"
+        other: "%{count} giorni"
   transactions:
     initiate:
       booked_days: "Giorni prenotati:"

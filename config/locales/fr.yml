@@ -220,10 +220,10 @@ fr:
         users_can_invite_new_users: "Tous les utilisateurs peuvent inviter des nouveaux utilisateurs dans cette place de marché"
         private: "Cette place de marché est privée (seuls les utilisateurs connectés peuvent en voir le contenu)"
         require_verification_to_post_listings: "Seuls les utilisateurs validés par un administrateur peuvent poster de nouvelles annonces"
-        search_preferences: ~
-        default_search_type: ~
-        keyword_search: ~
-        location_search: ~
+        search_preferences: "Paramètres de recherche"
+        default_search_type: "Type de recherche : %{select_search_type}"
+        keyword_search: "Recherche par mots-clés"
+        location_search: "Recherche géographique"
         listing_preferences: "Paramètres d'annonces"
         transaction_preferences: "Paramètres de commandes"
         show_listing_publishing_date: "Afficher la date de publication de l'annonce sur la page de l'annonce"
@@ -888,11 +888,9 @@ fr:
       or_paste_link: "Vous pouvez également copier le lien suivant dans la barre d'adresse de votre navigateur : "
       turning_on_confirmations_in_this_community: "Nous commençons à utiliser les email de confirmation dans cette place de marché %{service_name}."
     common:
-      check_your_settings: "Vérifiez vos paramètres"
       hey: "Bonjour %{name},"
       kassi_team: "L'équipe %{service_name}"
       thanks: "Merci,"
-      want_to_control_emails: "Vous souhaitez contrôler les emails que vous recevez de %{service_name} ?"
       dont_want_to_receive_these_emails: "Souhaitez-vous recevoir ces emails ?"
       edit_your_email_settings_here: "Gérer vos paramètres d'email ici"
       message_not_displaying_correctly: "Cet email ne s'affiche pas correctement ?"
