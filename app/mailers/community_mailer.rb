@@ -10,7 +10,7 @@ class CommunityMailer < ActionMailer::Base
 
   # This task is expected to be run with daily or hourly scheduling
   # It looks through all users and send email to those who want it now
-  def deliver_community_updates
+  def self.deliver_community_updates
     Person.find_each do |person|
       if person.should_receive_community_updates_now?
         person.communities.select { |c| c.automatic_newsletters }.each do |community|
