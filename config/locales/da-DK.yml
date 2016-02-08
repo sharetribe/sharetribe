@@ -4,14 +4,14 @@ da-DK:
       edit:
         edit_listing_category: "Rediger kategori '%{category}'"
       index:
-        listing_categories: "Annonce kategorier"
+        listing_categories: Annoncekategorier
         create_a_new_category: "+ Opret en ny kategori"
         remove_category_confirmation: "Er du sikker på at du vil fjerne kategorien '%{category_name}'?"
         saving_order: "Gemmer kategori rækkefølge"
         save_order_successful: "Kategori rækkefølgen blev gemt."
         save_order_error: "Der opstod en fejl da vi forsøgte at gemme dit valg. Venligst genindlæs siden og prøv igen."
       new:
-        new_listing_category: "Ny annonce kategori"
+        new_listing_category: "Ny annoncekategori"
       form:
         category_name:
           category_title: "Kategori titel"
@@ -341,7 +341,7 @@ da-DK:
         edit_price_field: "Rediger pris felt"
         show_price_filter_homepage: "Hvis prisfilter på forsiden"
         price_min: "Minimums pris"
-        price_max: "Maximum pris"
+        price_max: Maksimalpris
       edit_location:
         edit_location_field: "Rediger placerings feltet"
         this_field_is_required: "Dette felt er påkrævet"
@@ -362,7 +362,7 @@ da-DK:
         save: Gem
         field_title: "Felt titel"
         field_type: "Felt type"
-        categories: "Annonce kategorier hvor feltet er i brug"
+        categories: "Annoncekategorier hvor feltet er i brug"
         select_all: "Vælg alle"
         clear_all: "Fravælg alle"
         options: Valg
@@ -373,7 +373,7 @@ da-DK:
         select_one: "Vælg felt type..."
         continue: Fortsæt
         minimum_value: Minimum
-        maximum_value: Maximum
+        maximum_value: Maksimum
         allow_decimals: "Tillad dicimaler"
       new:
         new_listing_field: "Nyt annonce felt"
@@ -489,7 +489,7 @@ da-DK:
           time_label: "Tid (pr. 30 minutter, pr. 2 uger, pr. år...)"
     paypal_accounts:
       marketplace_paypal_integration: Betalingsindstillinger
-      preferences_updated: "Betalings indstillinger blev opdateret"
+      preferences_updated: "Betalingsindstillinger blev opdateret"
       marketplace_currency_used: "Denne markedsplads bruger %{currency} som sin valuta. For at ændre valuta, %{contact_support_link}."
       contact_support_link_text: "kontakt Sharetribe support"
       integration_info_text: "Betalingssystemet på %{service_name} kører gennem PayPal. Hvis du vil have mulighed for at tage imod betalinger på din markedsplads, skal du tilknytte din PayPal-konto, og vælge en minimumspris pr. annonce og størrelsen på dit servicegebyr."
@@ -574,8 +574,8 @@ da-DK:
     removed_user: "Fjernet bruger"
     paypal_fee_info:
       title: "PayPal's ekspeditionsgebyr"
-      body_text: "PayPal opkræver et ekspeditionsgebyr fra alle betalinger. Dette gebyr udgør mellem 2% og 5% af den samlede salgspris, afhængigt af dit månedlige salgsomfang og købers beliggenhed (land). Generelt har indenlandske handler lavere gebyrer end internationale, og højere salgsomfang giver dig nedslag i gebyrer. Du kan se de eksakte gebyrsatser ved at logge på din PayPal-konto på %{link_to_paypal}. Efter hvert salg modtager du en kvittering, hvoraf det eksakte gebyr fremgår."
-      body_with_shipping_text: "PayPal opkræver et ekspeditionsgebyr fra alle betalinger. Dette gebyr udgør mellem 2% og 5% af den samlede salgspris, afhængigt af dit månedlige salgsomfang og købers beliggenhed (land). Generelt har indenlandske handler lavere gebyrer end internationale, og højere salgsomfang giver dig nedslag i gebyrer. Du kan se de eksakte gebyrsatser ved at logge på din PayPal-konto på %{link_to_paypal}. Efter hvert salg modtager du en kvittering, hvoraf det eksakte gebyr fremgår."
+      body_text: "PayPal opkræver et ekspeditionsgebyr fra hver betaling. Dette gebyr er mellem 2% og 5% af den samlede salgspris, afhængigt af din salgsvolumen og køberens bopælsland. Generelt har indenlandske betalinger lavere gebyrer end internationale, og jo mere du sælger, jo mindre betaler du. Du kan se de nøjagtige gebyrer ved at logge ind på din PayPal-konto %{link_to_paypal}. Efter hvert køb modtager du en kvittering hvoraf det nøjagtige gebyr fremgår."
+      body_with_shipping_text: "PayPal opkræver et ekspeditionsgebyr fra hver betaling. Dette gebyr er mellem 2% og 5% af den samlede salgspris (inklusiv forsendelse), afhængigt af din salgsvolumen og køberens bopælsland. Generelt har indenlandske betalinger lavere gebyrer end internationale, og jo mere du sælger, jo mindre betaler du. Du kan se de nøjagtige gebyrer ved at logge ind på din PayPal-konto %{link_to_paypal}. Efter hvert køb modtager du en kvittering hvoraf det nøjagtige gebyr fremgår."
       link_to_paypal_text: her
   conversations:
     accept:
@@ -732,7 +732,7 @@ da-DK:
       request_canceled: Annulleret
       request_paid: "Betaling godkendt"
       request_preauthorized: "Betaling godkendt"
-      skip_feedback: "Spring over feedback over"
+      skip_feedback: "Spring over feedback"
       waiting_for_listing_author_to_accept_offer: "Venter på at %{listing_author_name} accepterer dit tilbud"
       waiting_for_listing_author_to_accept_request: "Venter på at %{listing_author_name} accepterer din anmodning"
       waiting_for_you_to_accept_request: "Venter på at du godkender anmodningen"
@@ -815,12 +815,12 @@ da-DK:
       welcome_fb_user: "Velkommen til %{service_name}, %{name}!"
       fb_join_accept_terms: "Der er trin mere tilbage før du er tilsluttet %{service_name}: Du er nødt til at acceptere brugsvilkårene."
       join_community: "Tilslut %{service_name}"
-      you_can_join: "Du kan deltage i %{service_name} ved at acceptere vilkårene for brug og klikke på 'Deltag %{service_name}' nedenfor."
+      you_can_join: "Du kan tilmelde dig %{service_name} ved at acceptere brugsvilkårene og klikke på 'Tilmeld' nedenfor."
       you_can_join_email_confirmation: "Hvis du vil deltage %{service_name} skal du have en gyldig e-mail adresse, der ender med %{email_ending}. Du kan tilmelde dig ved at udfylde din e-mailadresse, accepterer vilkårene for brug og klikke på 'Deltag %{service_name}' nedenfor, og bekræfter din e-mail."
       you_can_join_email_confirmation_multiple_addresses: "%{service_name} har e-mail-restriktioner. Du kan kun deltage, hvis du har en tilladt e-mailadresse. Du kan tilmelde dig ved at udfylde din e-mailadresse, accepterer vilkårene for brug af %{service_name} og klikke på 'Deltag %{service_name}' nedenfor."
       you_can_join_with_invite_only: "Du skal have en invitation fra et andet medlem til at slutte %{service_name}. Hvis du har en invitation kode, kan du tilmelde dig ved at skrive koden til feltet nedenfor accepterer vilkårene for brug og klikke på 'Deltag %{service_name}' nedenfor."
-      if_want_to_view_content: "Hvis du ønsker at se indholdet i %{service_name} uden at slutte det som medlem, du har brug for"
-      log_out: "Log ud"
+      if_want_to_view_content: "Hvis du ønsker at se indholdet på %{service_name} uden at tilmelde dig, skal du"
+      log_out: "logge ud."
       join_community_button: "Tilmeld %{service_name}"
   emails:
     accept_reminder:
@@ -850,7 +850,7 @@ da-DK:
       cancel_it_link_text: "annullere dit tilbud"
     payment_settings_reminder:
       remember_to_add_payment_details: "Husk at udfylde dine betalingsoplysninger for at modtage betalinger"
-      you_have_added_listing_with_payment: "Du har oprettet en annonce %{listing_link} med betaling, men du har ikke tilføjet betalingsoplysninger. For at kunne modtage betalinger skal du tilføje betalingsoplysninger."
+      you_have_added_listing_with_payment: "Du har oprettet en annonce %{listing_link} med betaling, men du har ikke tilføjet dine betalingsoplysninger. For at kunne modtage betalinger, skal du tilføje dine betalingsoplysninger."
       please_go_to_payment_settings: "Gå venligst til %{payment_settings_link} og udfyld dine betalingsoplysninger."
       payment_settings_link: betalingsindstillinger
     transaction_confirmed:
@@ -885,7 +885,7 @@ da-DK:
       turning_on_confirmations_in_this_community: "Vi er begyndt at bruge e-mail bekræftelser i denne %{service_name} markedsplads."
     common:
       check_your_settings: "Tjek dine indstillinger"
-      hey: "Hej %{name},"
+      hey: "Hej %{name}"
       kassi_team: "%{service_name} teamet"
       thanks: "Tak,"
       want_to_control_emails: "Ønsker du at kontrollere, hvilke e-mails du modtager fra %{service_name}?"
@@ -917,7 +917,7 @@ da-DK:
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} har kommenteret på din annonce '%{listing}'."
       view_comment: "Se kommentar"
-      you_have_a_new_comment: "%{author} har kommenteret din liste på %{service_name}"
+      you_have_a_new_comment: "%{author} har kommenteret din annonce på %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} har kommenteret på en liste, du følger i %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} har kommenteret på annoncen '%{listing}' som du følger på %{service_name}."
     new_message:
@@ -1034,7 +1034,7 @@ da-DK:
     paypal:
       buyer_cannot_pay_error: "Betalingen er blevet afvist af PayPal. Kontakt venligst deres Kundeservice for yderligere information: %{customer_service_link}"
       pending_review_error: "Betalingen er sendt afsted, men PayPal har markeret den som 'behøver gennemgang'. Når gennemgangen har fundet sted, vil betalingen automatisk blive autoriseret."
-      seller_express_checkout_disabled: "PayPal Express Checkout er blevet deaktiveret for visning af leverandørens PayPal-konto. Kontakt venligst leverandøren og lad dem vide, at der er et problem med deres PayPal konto og opfordre dem til at kontakte PayPal kundeservice."
+      seller_express_checkout_disabled: "PayPal Express Checkout er blevet deaktiveret. Kontakt sælger og fortæl dem, at der er et problem med deres PayPal-konto. Opfordr dem evt. til at kontakte PayPal kundeservice."
       generic_error: "Der skete en teknisk fejl under betalingsprocessen."
       cancel_error: "Der skete en fejl. Vi kunne ikke annullere."
       accept_authorization_error: "Der skete en fejl da vi prøvede at gennemføre din PayPal betaling. Prøv venligst igen."
@@ -1103,7 +1103,7 @@ da-DK:
       offer_partitive: tilbud
       request_partitive: anmodning
   header:
-    about: Om
+    about: "Om os"
     home: Hjem
     members: Fælleskab
     new_listing: "Ny annonce"
@@ -1152,9 +1152,9 @@ da-DK:
       some_private_offers_exist: "Der er allerede <b>%{number_of_listings} tilbud </ b>,"
       some_private_requests_exist: "Der er allerede <b>%{number_of_listings} anmodninger </ b>,"
     custom_filters:
-      update_view: Opdater
+      update_view: "Opdater filter"
       min: "Min:"
-      max: "Max:"
+      max: "Maks:"
     event_feed:
       latest_events: "Hvad sker der ?"
     grid_item:
@@ -1207,7 +1207,7 @@ da-DK:
     profile_info_empty_notification:
       add_your_info: "Tilføj dine kontaktoplysninger"
       add_a_profile_picture: "Tilføj et profilbillede"
-      you_have_not_added_your_info: "Du har ikke tilføjet dine kontaktoplysninger. Venligst gøre, så andre kan komme i kontakt med dig lettere. Også tilføje et profilbillede, så det er lettere for andre at stole på dig."
+      you_have_not_added_your_info: "Du har ikke tilføjet dine kontaktoplysninger. Tilføj dine oplysninger og et profilbillede og gør det lettere for andre at stole på dig og komme i kontakt med dig."
       add_your_info_link: "Tilføj din info nu"
     recent_listing:
       please_offer: Tilbud
@@ -1221,7 +1221,7 @@ da-DK:
       map_button: Kort
       grid_button: Galleri
       list_button: Liste
-      all_listing_types: "Alle annonce typer"
+      all_listing_types: "Alle annoncetyper"
       all_categories: "Alle kategorier"
     errors:
       search_engine_not_responding: "Det er ikke muligt at søge på nuværende tidspunkt. Prøv venligst igen senere."
@@ -1411,7 +1411,7 @@ da-DK:
       email_deleted: "Email fjernet"
       payment_details_add_successful: "Du har nu tilføjet dine betalingsoplysninger"
       payment_details_add_error: "Vi kunne ikke tilføje dine betalingsoplysninger"
-      listing_author_payment_details_missing: "Annoncen er oprettet uden betalingsoplysninger så sælger kan ikke modtage penge pt. Kontakt venligt sælger for at få rettet dette."
+      listing_author_payment_details_missing: "Kontakt sælger ved at trykke på knappen \"Kontakt\" nedenfor. De skal opdatere deres betalingsoplysninger for at kunne modtage betalinger."
       stylesheet_needs_recompiling: "Stylesheet er ved at blive genoversat. Genindlæs venligst siden om lidt."
     settings:
       account: Konto
@@ -1435,13 +1435,13 @@ da-DK:
       write_comment: "Skriv en ny kommentar:"
       you_cannot_send_a_new_comment_because_listing_is_closed: "Du kan ikke skrive en kommentar, da annoncen er lukket."
       you_must: "Du skal"
-      subscribe_to_comments: "Giv mig besked når der kommer nye kommentarer og opdateringer"
+      subscribe_to_comments: "Giv mig besked om nye kommentarer og opdateringer"
     edit:
       edit_listing: "Ret annoncen"
     edit_links:
       close_listing: "Luk annoncen"
       edit_listing: "Ret annoncen"
-      reopen_listing: "Genåben annoncen"
+      reopen_listing: "Genåb annonce"
       move_to_top: "Vis på forsiden"
       show_in_updates_email: "Vis i næste automatiske nyhedsbrev"
       show_in_updates_email_loading: Venter...
@@ -1523,7 +1523,7 @@ da-DK:
         location: Sted
         origin: Oprindelse
       send_button:
-        save_listing: "Gem annoncen"
+        save_listing: "Gem annonce"
       share_type:
         select: Vælg
         borrow: lån
@@ -1543,7 +1543,7 @@ da-DK:
         comma_separate: "Adskil nøgleord med et komma."
         tags: Tags
       title:
-        listing_title: "Annonce titel"
+        listing_title: Annoncetitel
       valid_until:
         valid_until: Udløbsdato
       valid_until_radio_buttons:
@@ -1597,18 +1597,18 @@ da-DK:
     listing_actions:
       booking_from: Fra
       booking_to: Til
-      how_paypal_works: "Hvor fungere PayPal?"
+      how_paypal_works: "Sådan virker PayPal"
       payment_help: "Betalings hjælp"
     new:
       post_a_new_listing: "Opret annonce"
       listing: annonce
       selected_category: "Kategori: %{category}"
       selected_subcategory: "Underkategori: %{subcategory}"
-      selected_transaction_type: "Annonce type: %{transaction_type}"
+      selected_transaction_type: "Annoncetype: %{transaction_type}"
       select_category: "Vælg en kategori"
       select_subcategory: "Vælg underkategori"
-      select_transaction_type: "Vælg annonce type"
-      you_need_to_fill_payout_details_before_accepting: "Du skal udfylde dine betalingsoplysninger før du kan oprette en annonce. Gå til %{payment_settings_link} og udfyld dine detaljer."
+      select_transaction_type: "Vælg annoncetype"
+      you_need_to_fill_payout_details_before_accepting: "Du skal tilføje udbetalingsoplysninger, før du kan oprette en annonce. Gå til %{payment_settings_link} for at tilføje oplysningerne."
       contact_admin_link_text: "kontakt administrator"
       community_not_configured_for_payments: "%{service_name} er ikke blevet konfigureret til betalinger, så du kan ikke oprette nye annoncer endnu. Venligst %{contact_admin_link} for yderligere info."
       payment_settings_link: "betalings indstillinger"
@@ -1734,16 +1734,16 @@ da-DK:
         braintree_terms_also_included: "Bemærk: Braintree er brugt som en betalingsgateway og ved at anvende dette website godkender du også %{terms_link_text}, sammen med vores vilkår."
         terms_link_text: "Braintrees vilkår og betingelser"
   paypal_accounts:
-    payout_info_title: Betalingsoplysninger
+    payout_info_title: "Sådan modtager du betaling"
     paypal_account_email_connected: "<del>1. Tilknyt din PayPal-konto</del> Godkendt!"
-    payout_info_paypal: "%{service_name} bruger PayPal som dens betalingsudbyder. En %{create_paypal_account_link} er nødvendig for at modtage betalinger for dine annoncer, og skal tilsluttes %{service_name}."
+    payout_info_paypal: "%{service_name} anvender PayPal som betalingsudbyder. For at kunne modtage betalinger for dine annoncer, skal du tilknytte din %{create_paypal_account_link} til din %{service_name}-profil."
     paypal_billing_agreement_made: "<del>2. Tillad %{service_name} at tage et servicegebyr</del> Godkendt!"
-    commission_permission_needed: "Du er også nødt til at give %{service_name} tilladelse til at opkræve et gebyr."
-    create_paypal_account_link_text: "PayPal konto"
+    commission_permission_needed: "Du skal også give %{service_name} tilladelse til at opkræve et transaktionsgebyr."
+    create_paypal_account_link_text: PayPal-konto
     connected_account: "Din PayPal-konto '%{email}' er nu tilknyttet."
     paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: "Din PayPal konto skal være i stand til at modtage betalinger. Dette kræver en PayPal Premier eller PayPal Business konto."
-    paypal_receive_funds_info: "Hvis du ser en fejl når du forsøger at forbinde din konto til %{service_name}, opgradér din PayPal konto ved at %{upgrade_paypal_account_link}. Det er gratis og nemt. Hvis du er en privatperson, anbefaler PayPal at du anvender dit personnavn som firmanavn."
+    paypal_receive_funds_info_label: "Din PayPal-konto skal kunne modtage betalinger. Dette kræver en PayPal erhvervskonto."
+    paypal_receive_funds_info: "Hvis du ser en fejl når du forsøger at forbinde din konto til %{service_name}, skal du opgradere din PayPal-konto ved at %{upgrade_paypal_account_link}. Det er gratis og nemt. Hvis du er en privatperson, anbefaler PayPal at du anvender dit navn som firmanavn."
     upgrade_paypal_account_link_text: "logge ind og klikke på linket opgradering"
     admin_account_not_connected: "Brug af %{service_name}s betalingssystem, til brug for modtagelse af betalinger, er ikke muligt, da betalinger ikke er sat op. Venligst %{contact_admin_link} for detaljer."
     contact_admin_link_text: "kontakt markedspladsens administrator"
@@ -1751,20 +1751,20 @@ da-DK:
     commission: "%{commission}%"
     new:
       payout_info_you_need_to_connect: "For at acceptere betalinger skal du tilknytte din PayPal-konto til %{service_name}."
-      payout_info_text: "Udfør venligt disse to steps for at tilknyttet din konto."
+      payout_info_text: "Udfør disse to steps for at tilknytte din konto."
       contact_admin_link_text: "Kontakt administrator"
-      admin_account_not_connected: "%{service_name} er ikke blevet konfigureret til betalinger, så du kan ikke tilslutte din PayPal-konto endnu. %{contact_admin_link} for mere information."
+      admin_account_not_connected: "%{service_name} er ikke blevet konfigureret til betalinger, så du kan ikke tilknytte din PayPal-konto endnu. %{contact_admin_link} for mere information."
       paypal_account_email: "1. Tilknyt din PayPal-konto"
-      paypal_account_email_placeholder: "Din PayPal email adresse"
+      paypal_account_email_placeholder: "Din PayPal-email"
       paypal_account_email_info_text: "Hvis du ikke har en paypalkonto kan du nemt oprette en  %{create_paypal_account}. Hvis du får en en bedsked om fejl, når du tilslutter din PayPal-konto, er du nødt til at opgradere til en PayPal-premier-konto (for privatpersoner) eller business konto (for virksomheder) for at acceptere betalinger. Hvis du kun har en PayPal privat konto, kan du opgradere din konto, %{upgrade_paypal_account} og find opgraderingslinket."
       create_paypal_account: her
       upgrade_paypal_account: "Opgrader din konto her."
       paypal_account_billing_agreement: "2. Tillad %{service_name} at tage et servicegebyr"
       follow_steps: "Følg trinene nedenfor - og bliv i stand til at modtage betalinger:"
-      connect_paypal_account_title: "Forbind din PayPal konto"
-      connect_paypal_account_title_with_step: "Trin %{current_step}/%{total_steps}: Tilslut din PayPal konto"
-      connect_paypal_account_instructions: "Forbind din PayPal konto med %{service_name}."
-      connect_paypal_account: "Tilknyt PayPal-konto"
+      connect_paypal_account_title: "Tilknyt din PayPal-konto"
+      connect_paypal_account_title_with_step: "Trin %{current_step}/%{total_steps}: Tilknyt din PayPal-konto"
+      connect_paypal_account_instructions: "Forbind din PayPal-konto med %{service_name}."
+      connect_paypal_account: "Tilknyt din PayPal-konto"
       paypal_account_billing_agreement_with_step: "Trin %{current_step}/%{total_steps}: Giv tilladelse til at opkræve et transaktionsgebyr"
       paypal_account_billing_agreement_info_both: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr (%{commission_from_seller} af produktprisen, undtaget leveringsomkostninger, minimumsgebyr %{minimum_commission}) blive trukket fra din PayPal-konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr %{minimum_commission} af produktprisen blive trukket fra din PayPal-konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
@@ -1775,23 +1775,23 @@ da-DK:
       billing_agreement: "Tillad adgang"
       permissions_not_granted: "Tilladelsen til at tilknytte din PayPal-konto mislykkedes."
       could_not_fetch_redirect_url: "Vi kunne ikke tilknytte din PayPal-konto."
-      paypal_not_enabled: "PayPal betalinger er ikke godkendt."
+      paypal_not_enabled: "PayPal-betalinger er ikke aktiveret."
       billing_agreement_canceled: "Betalingsaftale er annulleret"
       billing_agreement_not_accepted: "Du accepterede ikke betalingsaftalen hos PayPal."
       billing_agreement_wrong_account: "PayPal-konto matchede ikke. Anvend venligst den samme PayPal-konto som du tilføjede i det første trin."
-      something_went_wrong: "Noget gik galt. Prøv venligst igen. Hvis problemer fortsætter, så kontakt os gerne."
+      something_went_wrong: "Noget gik galt. Prøv igen. Hvis problemet fortsætter, skal du kontakte os."
       account_not_verified: "Du har ikke bekræftet din PayPal-konto. Du skal gå til paypal.com og bekræfte din konto før du kan fortsætte."
-      account_restricted: "Din PayPal-konto er begrænset og kan ikke tilknyttes. Venligst log ind på paypal.com for at få yderligere information om, hvad det betyder, eller kontakt PayPal kundesupport for at få løst dette."
-    paypal_account_connected_title: "PayPal konto forbundet"
-    paypal_account_connected: "PayPal kontoen <%{email}> er tilsluttet med %{service_name}."
-    change_account: "Ret PayPal konto"
+      account_restricted: "Din PayPal-konto er begrænset, og kan ikke tilknyttes. Log ind på paypal.com for at finde ud af mere eller kontakt PayPal kundesupport for at løse problemet."
+    paypal_account_connected_title: "PayPal-konto forbundet"
+    paypal_account_connected: "PayPal-kontoen <%{email}> er blevet forbundet med %{service_name}."
+    change_account: "Ret PayPal-konto"
     missing: "Du kan modtage direkte betalinger på %{service_name} hvis du tilknytter en PayPal-konto i dine %{settings_link}."
     from_your_payment_settings_link_text: betalingsindstillinger
     redirect_message: "Omdirigere dig til PayPal. Hvis der ikke sker noget, skal du klikke %{redirect_link}."
     redirect_link_text: her
     paypal_account_all_set_up: "Hurraaa! alt er sat op!"
     can_receive_payments: "Du kan nu modtage betalinger for dine annoncer."
-    paypal_account_connected_summary: "PayPal konto %{email} forbundet med succes"
+    paypal_account_connected_summary: "PayPal-konto %{email} forbundet med succes"
     paypal_permission_granted_summary: "Tilladelse til transaktionsgebyrer bevilget"
   paypal:
     pay_with_paypal: "Fortsæt til betaling"
@@ -1844,7 +1844,7 @@ da-DK:
       OR: ELLER
       signup_with_email: "Opret med email"
     not_member:
-      explanation_text: "Du kigger i øjeblikket %{community}. Du har forsøgt at se profilen for en bruger, der er medlem af en anden markedsplads oprettet med Sharetribe platform. Du kan ikke få adgang til denne brugers profil i %{community}."
+      explanation_text: "Du browser i øjeblikket %{community}. Du forsøgte at se en bruger, der er medlem af en anden markedsplads oprettet med Sharetribe. Du kan ikke få adgang til denne brugers profil i %{community}."
       read_more_about_kassi_communities: "Læs mere om Sharetribe markedspladser"
       this_user_does_not_belong_to_this_community: "Denne bruger er ikke medlem af %{community}"
     profile_feedback:
@@ -1949,8 +1949,8 @@ da-DK:
       email_addresses: E-mailadresser
       new_email: "Ny e-mail adresse"
       delete_all_memberships: "Hvis du sletter din konto, vil du ikke være i stand til at bruge den på følgende markedspladser: %{marketplaces}."
-      delete_personal_information: "Hvis du sletter din konto, vil din personlige information (navn, telefonnummer, adresse, email, profilbillede osv.) blive slettet permanent og kan ikke blive gendannet. Alle annoncer du har oprettet vil blive slettet. Du vil ikke kunne gendanne din konto."
-      delete_information_others_involved: "Information hvor andre medlemmer er involverede (samtaler med andre, foretagne transaktioner, anmeldelser osv.) slettes ikke, når du sletter din konto. Men dit navn vil ikke længere blive vist ved siden af denne information."
+      delete_personal_information: "Hvis du sletter din konto, vil dine personlige oplysninger (navn, telefonnummer, adresse, email, profilbillede osv.) blive fjernet permanent og kan ikke gendannes. Alle dine annoncer vil blive slettet. Du kan ikke genaktivere kontoen."
+      delete_information_others_involved: "Følgende oplysninger slettes ikke, når du sletter din konto: samtaler med andre, foretagne transaktioner, anmeldelser osv. Dog vil dit navn ikke længere blive vist ved siden af disse oplysninger."
       unfinished_transactions: "Din konto kan ikke slettes fordi du har udestående transaktioner. Gennemfør venligst alle transaktioner før du sletter din konto."
       new_password: "Ny adgangskode"
       save: Gem
@@ -1971,19 +1971,19 @@ da-DK:
         status_confirmed: Bekræftet
         status_pending: Venter
     notifications:
-      email_from_admins: "Jeg vil gerne modtage nyhedsbreve på min email"
-      i_want_to_get_email_notification_when: "Jeg ønsker at få en e-mail meddelelse, når ..."
+      email_from_admins: "Send mig de seneste nyheder og opdateringer"
+      i_want_to_get_email_notification_when: "Giv mig besked når ..."
       newsletters: Nyhedsbrev
-      community_updates: Opdateringer
+      community_updates: Mailnotifikationer
       email_about_accept_reminders: "...jeg har glemt at acceptere et tilbud eller en anmodning"
       email_about_confirm_reminders: "...jeg har glemt at markere anmodningen som godkendt"
       email_about_new_comments_to_own_listing: "... nogen kommenterer mit tilbud eller anmodning"
       email_about_new_messages: "... nogen sender mig en besked"
       email_about_new_received_testimonials: "... nogen giver mig feedback"
       email_about_testimonial_reminders: "...jeg har glemt at give feedback på en begivenhed"
-      email_daily_community_updates: "Send mig en <b>daglig</b> email med opdateringer om nye annoncer"
-      email_weekly_community_updates: "Send mig en <b>ugentlig</b> email med opdateringer om nye annoncer"
-      do_not_email_community_updates: "Send ingen opdaterings emails"
+      email_daily_community_updates: "Send mig en <b>daglig</b> mail om nye annoncer"
+      email_weekly_community_updates: "Send mig en <b>ugentlig</b> mail om nye annoncer"
+      do_not_email_community_updates: "Send ingen opdateringsmails"
       email_when_conversation_accepted: "... nogen accepterer mit tilbud eller anmodning"
       email_when_conversation_rejected: "... nogen afviser mit tilbud eller anmodning"
       email_about_completed_transactions: "...nogen har markeret mit tilbud eller anmodning som godkendt"
@@ -1994,8 +1994,8 @@ da-DK:
       unsubscribe_info_text: "Du vil nu ikke længere modtage emails. Tjek dine %{settings_link} for at vælge hvilken slags emails du ønsker at modtage fra %{service_name}, eller vend tilbage til %{homepage_link}."
       settings_link: indstillinger
       homepage_link: forsiden
-      unsubscribe_unsuccesful: "Der skete en fejl, da du prøvede af afmelde nyhedsbrevet"
-      unsuccessful_unsubscribe_info_text: "Det kan være grundet at det link du klikkede på var gammelt, eller ikke virker længere. Kontakt os ved hjælp af feedback knappen til venstre så kan vi hjælpe dig med at afmelde nyhedsbrevet, eller log ind til dine email indstillinger."
+      unsubscribe_unsuccesful: "Fejl i afmelding"
+      unsuccessful_unsubscribe_info_text: "Afmeld-linket er udløbet. Log ind for at ændre dine notifikationsindstillinger."
     profile:
       about_you: "Skriv lidt om dig selv"
       city: By
@@ -2003,14 +2003,14 @@ da-DK:
       given_name: Fornavn
       first_name_with_initial: "(kun forbogstavet vil blive vist til andre brugere)"
       first_name_only: "(vises ikke til andre brugere)"
-      location_description: "Du kan angive enten din nøjagtige placering eller for eksempel kun dit postnummer. Tilføj mindst dit postnummer. Du kan også vælge et sted på kortet nedenfor."
+      location_description: "Du kan enten angive din nøjagtige placering eller for eksempel kun dit postnummer. Du kan også vælge en placering på kortet nedenfor."
       phone_number: Telefonnnummer
       profile_picture: Profilbillede
       postal_code: Postnummer
       profile_page: "på din profilside"
       profilemap: Kort
       street_address: Sted
-      these_fields_are_shown_in_your: "Disse informationer er synlige for alle %{service_name} brugere"
+      these_fields_are_shown_in_your: "Disse informationer er synlige for alle %{service_name}-brugere"
       visible_to_everybody: "Synlig for alle"
       visible_to_registered_users: "(synligt for brugere, der er logget ind)"
       default_in_listing: "(bruges kun som standard når du opretter nye annoncer)"

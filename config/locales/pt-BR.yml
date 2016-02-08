@@ -1522,7 +1522,7 @@ pt-BR:
         shipping: Envio
         shipping_price: "Taxa de envio"
         shipping_price_additional: "Itens adicionais"
-        pickup: Pegar
+        pickup: "Retirar no local"
       origin:
         location: Local
         origin: Origem
@@ -1668,8 +1668,8 @@ pt-BR:
       shipping: "Envio (+%{price})"
       shipping_no_price: Envio
       shipping_price_additional: "Envio (+ %{price}, itens adicionais: + %{shipping_price_additional})"
-      pickup: Pegar
-      pickup_no_price: Pegar
+      pickup: "Retirar no local"
+      pickup_no_price: "Retirar no local"
     unit_types:
       piece: pedaço
       hour: hora

@@ -1251,7 +1251,7 @@ it:
       info_about_kassi: "Informazioni su %{service_name}"
       news: News
       register_details: Privacy
-      terms: "Termini di utilizzo"
+      terms: "Termini e Condizioni"
     logged_in:
       admin: Amministratore
       go_to_your_profile_page: Profilo
@@ -1790,7 +1790,7 @@ it:
     help_texts:
       feedback_description_title: Feedback
       help_invitation_code_title: "Hai bisogno di un invito per partecipare"
-      terms_title: "Termini di utilizzo di %{service_name}"
+      terms_title: "Termini e Condizioni di %{service_name}"
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
@@ -1804,7 +1804,7 @@ it:
       email_not_allowed: ~
       family_name: Cognome
       given_name: Nome
-      i_accept_the: "Accetto il"
+      i_accept_the: "Accetto i"
       invalid_invitation_code: "Questo codice di invito non è valido."
       invitation_code: "Codice di invito"
       not_required: ", non richiesto"
@@ -1813,13 +1813,13 @@ it:
       password_again: "Conferma password"
       show_my_name_to_others: "Mostra il mio vero nome agli altri utenti di %{service_name}"
       sign_up: "Crea un nuovo account per %{service_name}"
-      terms: "termini di utilizzo"
+      terms: "Termini e Condizioni"
       username_is_in_use: "Questo nome utente è già in uso"
       username_is_invalid: "Nome utente non valido. I caratteri ammessi sono lettere, numeri e underscore."
       visible_only_to_you: "visibile solo a  te ed all'amministratore della comunità"
       visible_to_everybody: "visibile a tutti"
       create_account_with_facebook: "Crea un account tramite Facebook"
-      OR: ~
+      OR: O
       signup_with_email: "Iscriviti con l'indirizzo e-mail"
     not_member:
       explanation_text: "Sei all'interno della comunità %{community}. Hai provato a visionare il profilo che appartiene ad un'altra comunità di Sharetribe. Non puoi accedere al profilo attraverso la comunità %{community}."
@@ -2005,12 +2005,12 @@ it:
       without_tag: "Senza tag"
   terms:
     show:
-      accept_terms: "Accettazione Termini di Utilizzo di %{service_name}"
+      accept_terms: "Accettazione Termini e Condizioni di %{service_name}"
       here: "cliccando qui"
       i_accept_new_terms: "Accetto i nuovi termini"
       i_accept_terms: "Accetto i termini"
-      terms: "Termini di utilizzo di %{service_name}"
-      terms_have_changed: "I termini di utilizzo sono cambiati"
+      terms: "Termini e Condizioni di %{service_name}"
+      terms_have_changed: "Termini e Condizioni sono cambiati"
       you_can_view_the_new_terms: "Puoi vedere i nuovi termini"
       you_need_to_accept: "Benvenuto su %{service_name}! Questa sembra essere la prima volta che utilizzi questo servizio. Prima di iniziare devi accettare i"
       you_need_to_accept_new_terms: "%{service_name} i termini di uso sono cambiati. Devi accettare i nuovi termini per poter continuare ad utilizzare %{service_name}. I nuovi termini sono destinati a permettere la manutenzione del servizio dopo che il progetto di ricerca si è concluso."
