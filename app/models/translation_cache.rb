@@ -57,27 +57,21 @@ class TranslationCache
       }
     }
 
-    if cache_result.is_a? Hash
-      case [parent_class, attr_name]
-      when matches([is_same_or_subclass_of.call(Category), :translations])
-        # TODO Remove the `without_protection` when we remove `protected_attributes` gem
-        # and `attr_accessible` from models
-        CategoryTranslation.new(cache_result, without_protection: true)
-      when matches([is_same_or_subclass_of.call(CustomField), :names])
-        CustomFieldName.new(cache_result)
-      when matches([is_same_or_subclass_of.call(CustomFieldOption), :titles])
-        CustomFieldOptionTitle.new(cache_result)
-      when matches([is_same_or_subclass_of.call(MenuLink), :translations])
-        # TODO Remove the `without_protection` when we remove `protected_attributes` gem
-        # and `attr_accessible` from models
-        MenuLinkTranslation.new(cache_result, without_protection: true)
-      else
-        raise ArgumentError.new("Unknown parent_class '#{parent_class.name}' and attribute name '#{attr_name}' for cached translation")
-      end
+    case [parent_class, attr_name]
+    when matches([is_same_or_subclass_of.call(Category), :translations])
+      # TODO Remove the `without_protection` when we remove `protected_attributes` gem
+      # and `attr_accessible` from models
+      CategoryTranslation.new(cache_result, without_protection: true)
+    when matches([is_same_or_subclass_of.call(CustomField), :names])
+      CustomFieldName.new(cache_result)
+    when matches([is_same_or_subclass_of.call(CustomFieldOption), :titles])
+      CustomFieldOptionTitle.new(cache_result)
+    when matches([is_same_or_subclass_of.call(MenuLink), :translations])
+      # TODO Remove the `without_protection` when we remove `protected_attributes` gem
+      # and `attr_accessible` from models
+      MenuLinkTranslation.new(cache_result, without_protection: true)
     else
-      # It's model already, no need to deserialize
-      # TODO Remove this, we don't want to store models to cache
-      cache_result
+      raise ArgumentError.new("Unknown parent_class '#{parent_class.name}' and attribute name '#{attr_name}' for cached translation")
     end
   end
 
