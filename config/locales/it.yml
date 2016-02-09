@@ -2036,7 +2036,7 @@ it:
       about_listing: "Dettagli inserzione"
   date:
     formats:
-      long_with_abbr_day_name: ~
+      long_with_abbr_day_name: "%a %d %b %Y"
   datepicker:
     days:
       sunday: Domenica
