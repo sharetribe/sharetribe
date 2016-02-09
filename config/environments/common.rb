@@ -2,7 +2,8 @@ Kassi::Application.configure do
 
   Config = EntityUtils.define_builder(
     [:asset_host, :string, :optional],
-    [:eager_load, :bool, :mandatory, :str_to_bool]
+    [:eager_load, :bool, :mandatory, :str_to_bool],
+    [:serve_static_files, :bool, :optional, :str_to_bool]
   )
 
   m_config = Maybe(Config.call(APP_CONFIG.to_h))
@@ -13,5 +14,9 @@ Kassi::Application.configure do
 
   m_config[:eager_load].each { |eager_load|
     config.eager_load = eager_load
+  }
+
+  m_config[:serve_static_files].each { |serve_static_files|
+    config.serve_static_files = serve_static_files
   }
 end

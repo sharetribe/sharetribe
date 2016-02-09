@@ -37,6 +37,12 @@ default: &default_settings
   # Bucket for files users upload directly to S3. You can add an expiration policy to these files.
   s3_upload_bucket_name:
 
+  # Server assets directly from the Rails application, defaults to true
+  #
+  # Recommended setup: Set serve_static_files to true and setup CDN distribution
+  # Alternative setup: Set serve_static_files to false and setup Nginx/Apache in front of the Rails servers
+  serve_static_files: true
+
   # Your CDN distribution host name
   #
   # From Rails documations: Browsers typically open at most two simultaneous connections to a single host,
