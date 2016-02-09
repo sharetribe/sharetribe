@@ -1,3 +1,5 @@
+# DEPRECATED: Use TranslationService instead
+#
 # Simplifies access to translations that are stored in database. Implements also caching.
 #
 # Usage:
@@ -36,12 +38,45 @@ class TranslationCache
 
   def translations
     fetch_cache(cache_key) do
-      @model.send(@translation_attr_sym).to_a
-    end
+      @model.send(@translation_attr_sym).to_a.map { |model|
+        serialize(model)
+      }
+    end.map { |cache_result|
+      deserialize(cache_result, @model.class, @translation_attr_sym)
+    }
   end
 
   def cache_key
     "/#{@model.class.name}/#{@model.id}/#{@translation_attr_sym.to_s}/#{@model.updated_at}"
+  end
+
+  def deserialize(cache_result, parent_class, attr_name)
+    if cache_result.is_a? Hash
+      case [parent_class, attr_name]
+      when [Category, :translations]
+        # TODO Remove the `without_protection` when we remove `protected_attributes` gem
+        # and `attr_accessible` from models
+        CategoryTranslation.new(cache_result, without_protection: true)
+      when [CustomField, :names]
+        CustomFieldName.new(cache_result)
+      when [CustomFieldOption, :titles]
+        CustomFieldOptionTitle.new(cache_result)
+      when [MenuLink, :translations]
+        # TODO Remove the `without_protection` when we remove `protected_attributes` gem
+        # and `attr_accessible` from models
+        MenuLinkTranslation.new(cache_result, without_protection: true)
+      else
+        raise ArgumentError.new("Unknown parent_class '#{parent_class.name}' and attribute name '#{attr_name}' for cached translation")
+      end
+    else
+      # It's model already, no need to deserialize
+      # TODO Remove this, we don't want to store models to cache
+      cache_result
+    end
+  end
+
+  def serialize(model)
+    model.attributes
   end
 
 end
