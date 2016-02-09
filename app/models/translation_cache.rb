@@ -51,17 +51,23 @@ class TranslationCache
   end
 
   def deserialize(cache_result, parent_class, attr_name)
+    is_same_or_subclass_of = -> (expected) {
+      -> (actual) {
+        actual <= expected
+      }
+    }
+
     if cache_result.is_a? Hash
       case [parent_class, attr_name]
-      when [Category, :translations]
+      when matches([is_same_or_subclass_of.call(Category), :translations])
         # TODO Remove the `without_protection` when we remove `protected_attributes` gem
         # and `attr_accessible` from models
         CategoryTranslation.new(cache_result, without_protection: true)
-      when [CustomField, :names]
+      when matches([is_same_or_subclass_of.call(CustomField), :names])
         CustomFieldName.new(cache_result)
-      when [CustomFieldOption, :titles]
+      when matches([is_same_or_subclass_of.call(CustomFieldOption), :titles])
         CustomFieldOptionTitle.new(cache_result)
-      when [MenuLink, :translations]
+      when matches([is_same_or_subclass_of.call(MenuLink), :translations])
         # TODO Remove the `without_protection` when we remove `protected_attributes` gem
         # and `attr_accessible` from models
         MenuLinkTranslation.new(cache_result, without_protection: true)
