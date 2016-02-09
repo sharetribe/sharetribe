@@ -39,7 +39,7 @@ class SendPaymentReceipts < Struct.new(:transaction_id)
         []
       end
 
-    receipts.each { |receipt_mail| receipt_mail.deliver }
+    receipts.each { |receipt_mail| MailCarrier.deliver_now(receipt_mail) }
   end
 
   private

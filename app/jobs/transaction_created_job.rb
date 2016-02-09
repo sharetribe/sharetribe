@@ -12,7 +12,7 @@ class TransactionCreatedJob < Struct.new(:transaction_id, :community_id)
 
   def perform
     transaction = Transaction.find(transaction_id)
-    TransactionMailer.transaction_created(transaction).deliver
+    MailCarrier.deliver_now(TransactionMailer.transaction_created(transaction))
   end
 
 end

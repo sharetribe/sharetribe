@@ -15,7 +15,7 @@ class TransactionPreauthorizedReminderJob < Struct.new(:transaction_id)
     transaction = Transaction.find(transaction_id)
 
     if transaction.status == "preauthorized"
-      TransactionMailer.transaction_preauthorized_reminder(transaction).deliver
+      MailCarrier.deliver_now(TransactionMailer.transaction_preauthorized_reminder(transaction))
     end
   end
 end

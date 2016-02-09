@@ -16,7 +16,7 @@ class TestimonialGivenJob < Struct.new(:testimonial_id, :community_id)
     receiver = testimonial.receiver
 
     if receiver.should_receive?("email_about_new_received_testimonials")
-      PersonMailer.new_testimonial(testimonial, community).deliver
+      MailCarrier.deliver_now(PersonMailer.new_testimonial(testimonial, community))
     end
   end
 

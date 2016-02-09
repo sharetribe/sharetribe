@@ -16,11 +16,11 @@ class TestimonialReminderJob < Struct.new(:conversation_id, :recipient_id, :comm
     community = Community.find(community_id)
 
     if transaction.testimonial_from_author.nil? && !transaction.author_skipped_feedback
-      PersonMailer.send("testimonial_reminder", transaction, transaction.author, community).deliver
+      MailCarrier.deliver_now(PersonMailer.send("testimonial_reminder", transaction, transaction.author, community))
     end
 
     if transaction.testimonial_from_starter.nil? && !transaction.starter_skipped_feedback
-      PersonMailer.send("testimonial_reminder", transaction, transaction.starter, community).deliver
+      MailCarrier.deliver_now(PersonMailer.send("testimonial_reminder", transaction, transaction.starter, community))
     end
   end
 

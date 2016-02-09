@@ -173,9 +173,9 @@ class Listing < ActiveRecord::Base
     followers.each do |follower|
       unless follower.id == current_user.id
         if update
-          PersonMailer.new_update_to_followed_listing_notification(self, follower, community).deliver
+          MailCarrier.deliver_now(PersonMailer.new_update_to_followed_listing_notification(self, follower, community))
         else
-          PersonMailer.new_comment_to_followed_listing_notification(comments.last, follower, community).deliver
+          MailCarrier.deliver_now(PersonMailer.new_comment_to_followed_listing_notification(comments.last, follower, community))
         end
       end
     end

@@ -14,7 +14,7 @@ class TransactionCanceledJob < Struct.new(:conversation_id, :community_id)
     begin
       transaction = Transaction.find(conversation_id)
       community = Community.find(community_id)
-      PersonMailer.transaction_confirmed(transaction, community).deliver
+      MailCarrier.deliver_now(PersonMailer.transaction_confirmed(transaction, community))
     rescue => ex
       puts ex.message
       puts ex.backtrace.join("\n")

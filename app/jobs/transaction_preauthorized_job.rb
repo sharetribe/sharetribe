@@ -13,6 +13,6 @@ class TransactionPreauthorizedJob < Struct.new(:transaction_id)
 
   def perform
     transaction = Transaction.find(transaction_id)
-    TransactionMailer.transaction_preauthorized(transaction).deliver
+    MailCarrier.deliver_now(TransactionMailer.transaction_preauthorized(transaction))
   end
 end
