@@ -18,6 +18,7 @@ This file follows the best practices from [keepchangelog.com](http://keepachange
 
 - Updated Rails to 4.1.14.1 [#1678](https://github.com/sharetribe/sharetribe/pull/1678)
 - Always log deprecation warnings to stderr [#1693](https://github.com/sharetribe/sharetribe/pull/1693)
+- Save model attributes to cache instead of model instances [#1714](https://github.com/sharetribe/sharetribe/pull/1714)
 
 ### Removed
 
