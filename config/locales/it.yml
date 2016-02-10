@@ -703,7 +703,7 @@ it:
           multicurrency: "Non siamo stati in grado di processare il pagamento PayPal perché il tuo conto PayPal non è stato impostato per ricevere fondi in %{currency}. Apri %{paypal_url} e accedi al tuo account per gestire manualmente l'accettazione o il rifiuto del pagamento."
           verify: "Non puoi accettare questa transazione in quanto il tuo conto PayPal non è stato ancora verificato. Apri %{paypal_url} per verificare il tuo conto."
           intl: "Non siamo stati in grado di processare il pagamento PayPal in quanto il tuo conto PayPal non ha abilitato un meccanismo di prelievo. Apri %{paypal_url} e accedi al tuo conto per accettare o rifiutare manualmente il pagamento."
-      waiting_for_current_user_to_deliver_listing: ~
+      waiting_for_current_user_to_deliver_listing: "In attesa che tu esegua l'ordine ricevuto per %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: accettata
       request_rejected: rifiutata
