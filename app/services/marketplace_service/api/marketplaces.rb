@@ -92,6 +92,7 @@ module MarketplaceService::API
       locale = p[:marketplace_language].or_else("en")
       marketplace_name = p[:marketplace_name].or_else("Trial Marketplace")
       payment_process = p[:payment_process].or_else(:preauthorize)
+      distance_unit = p[:marketplace_country].map { |country| (country === "US") ? :imperial : :metric }.or_else(:metric)
 
       community = CommunityModel.create(Helper.community_params(p, marketplace_name, locale))
 
@@ -99,7 +100,11 @@ module MarketplaceService::API
       Helper.create_category!("Default", community, locale)
       Helper.create_processes!(community.id, payment_process)
       Helper.create_listing_shape!(community, p[:marketplace_type], payment_process)
-      Helper.create_configurations!(community_id: community.id, main_search: :keyword)
+      Helper.create_configurations!({
+        community_id: community.id,
+        main_search: :keyword,
+        distance_unit: distance_unit
+      })
 
       from_model(community)
     end
