@@ -148,5 +148,20 @@ module Kassi
     config.action_dispatch.rescue_responses["ApplicationController::FeatureFlagNotEnabledError"] = :not_found
 
     config.exceptions_app = self.routes
+
+    # TODO Remove this when upgrading to Rails 5 START
+    #
+    # Rails 4.2 shows a warning about errors being swallowed
+    # in transactional callbacks.
+    #
+    # This config will turn that off, so that errors will be raised.
+    # This is the desired behavior.
+    #
+    # This config will be removed from future Rails versions and
+    # `true` value will be enforced.
+    #
+    config.active_record.raise_in_transactional_callbacks = true
+    # TODO Remove this when upgrading to RAILS 5 END
+
   end
 end

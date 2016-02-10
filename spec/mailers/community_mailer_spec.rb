@@ -44,7 +44,7 @@ describe "CommunityMailer", type: :mailer do
     end
 
     it "should have correct links" do
-      expect(@email).to have_body_text(/.*<a href=\"http\:\/\/#{@c1.full_domain}\/#{@p1.locale}\/listings\/#{@l2.id}\?ref=weeklymail.*/)
+      expect(@email).to have_body_text(/.*<a target=\"_blank\" href=\"http\:\/\/#{@c1.full_domain}\/#{@p1.locale}\/listings\/#{@l2.id}\?ref=weeklymail.*/)
     end
 
     it "should include valid auth_token in links" do

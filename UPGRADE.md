@@ -15,7 +15,15 @@ RAILS_ENV=production rake sharetribe:generate_customization_stylesheets_immediat
 rake assets:precompile
 ```
 
-## Upgrade from 5.x to [Unreleased]
+## Upgrade from 5.2.x to 5.3.0
+
+This version contains some changes to the caching logic. The Rails cache needs to be cleared before upgrading.
+
+Upgrade path:
+
+1. Upgrade to version 5.2.2
+2. Clear Rails cache (run `Rails.cache.clear`)
+3. Upgrade to version 5.3.0
 
 ## Upgrade from 5.0.x or 5.1.x to 5.2.0
 
