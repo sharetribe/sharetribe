@@ -273,9 +273,13 @@ production: &production_settings
 
   eager_load: true
 
+  log_level: INFO
+
 staging:
   <<: *production_settings
   # By default staging has same settings as production, but those can be overridden here.
+
+  log_level: INFO
 
 development:
   <<: *default_settings
@@ -287,6 +291,8 @@ development:
   skip_email_confirmation: true
 
   secret_key_base: "fd1af50b59b5e27776941b3205f92aca0f704c2252225cf93e3d97ae53f4774d25736cbdb19c1580839a2f68e15009209227e966003f53932c1bcc5d65616948"
+
+  log_level: DEBUG
 
 test:
   <<: *default_settings
@@ -345,3 +351,5 @@ test:
   braintree_client_side_encryption_key: MIIBCgKCAQEArIfLwPsGtsJ5ELsvaFrdww/vEcBBiS3ViPoMg0mmV67nM3RqkFuWu7JQ1bln12PVQgyU7Bn6O7OLUjAdaO35kunmRfwLNb/SStyGfd5JIFOFP2Pu4CRnKr2tTR+OkitqXTwoa9den8RmMFJlQyadozcpWvAIGtAa21r0RWNaSoHS9gkbmhiEa/94gvxVuPlEQTrlKWHp3pnOuTwST/xEcDI73q7Ug4nVhFgtqqU0Kck6HOBnF5Gby+tIfI5blih64sxPGKVGuExopcWNos4lV7x7fKxYT07vOCeRUIFUSYhfxRs8hZ/tLfXxzNsInOnaddFJpM8Mda8jKWs+aFhPiwIDAQAB
 
   secret_key_base: "8fb582997a5e3ba2efb57c020dd01aa81647674dbb1aee6efcf30d75ec442e3a48832379e1ebaae2801782075efbf02ebed797a1df3f2b3ad87ec3faf37ccc64"
+
+  log_level: DEBUG
