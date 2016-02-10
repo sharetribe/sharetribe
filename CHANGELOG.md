@@ -8,6 +8,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ## [Unreleased]
 
+## [5.3.0] - ?
+
 ### Changed
 
 - Updated Rails to 4.2.5.1 [#1691](https://github.com/sharetribe/sharetribe/pull/1691)
@@ -87,7 +89,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v5.2.2...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v5.3.0...HEAD
+[5.2.2]: https://github.com/sharetribe/sharetribe/compare/v5.2.2...v5.3.0
 [5.2.2]: https://github.com/sharetribe/sharetribe/compare/v5.2.1...v5.2.2
 [5.2.1]: https://github.com/sharetribe/sharetribe/compare/v5.2.0...v5.2.1
 [5.2.0]: https://github.com/sharetribe/sharetribe/compare/v5.1.0...v5.2.0
