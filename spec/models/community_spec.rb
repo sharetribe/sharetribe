@@ -9,7 +9,7 @@
 #  use_domain                                 :boolean          default(FALSE), not null
 #  created_at                                 :datetime
 #  updated_at                                 :datetime
-#  settings                                   :text
+#  settings                                   :text(65535)
 #  consent                                    :string(255)
 #  transaction_agreement_in_use               :boolean          default(FALSE)
 #  email_admins_about_new_members             :boolean          default(FALSE)
@@ -18,7 +18,7 @@
 #  feedback_to_admin                          :boolean          default(TRUE)
 #  automatic_newsletters                      :boolean          default(TRUE)
 #  join_with_invite_only                      :boolean          default(FALSE)
-#  allowed_emails                             :text
+#  allowed_emails                             :text(65535)
 #  users_can_invite_new_users                 :boolean          default(TRUE)
 #  private                                    :boolean          default(FALSE)
 #  label                                      :string(255)
@@ -27,12 +27,12 @@
 #  custom_frontpage_sidebar                   :boolean          default(FALSE)
 #  event_feed_enabled                         :boolean          default(TRUE)
 #  slogan                                     :string(255)
-#  description                                :text
+#  description                                :text(65535)
 #  category                                   :string(255)      default("other")
 #  country                                    :string(255)
 #  members_count                              :integer          default(0)
 #  user_limit                                 :integer
-#  monthly_price_in_euros                     :float
+#  monthly_price_in_euros                     :float(24)
 #  logo_file_name                             :string(255)
 #  logo_content_type                          :string(255)
 #  logo_file_size                             :integer
@@ -50,7 +50,7 @@
 #  stylesheet_url                             :string(255)
 #  stylesheet_needs_recompile                 :boolean          default(FALSE)
 #  service_logo_style                         :string(255)      default("full-logo")
-#  available_currencies                       :text
+#  available_currencies                       :text(65535)
 #  facebook_connect_enabled                   :boolean          default(TRUE)
 #  vat                                        :integer
 #  commission_from_seller                     :integer
@@ -84,7 +84,7 @@
 #  favicon_updated_at                         :datetime
 #  default_min_days_between_community_updates :integer          default(7)
 #  listing_location_required                  :boolean          default(FALSE)
-#  custom_head_script                         :text
+#  custom_head_script                         :text(65535)
 #  follow_in_use                              :boolean          default(TRUE), not null
 #  logo_processing                            :boolean
 #  wide_logo_processing                       :boolean

@@ -3,7 +3,7 @@
 # Table name: paypal_ipn_messages
 #
 #  id         :integer          not null, primary key
-#  body       :text
+#  body       :text(65535)
 #  status     :string(64)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

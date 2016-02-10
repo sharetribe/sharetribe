@@ -10,7 +10,7 @@
 #  braintree_master_merchant_id         :string(255)
 #  braintree_public_key                 :string(255)
 #  braintree_private_key                :string(255)
-#  braintree_client_side_encryption_key :text
+#  braintree_client_side_encryption_key :text(65535)
 #  checkout_environment                 :string(255)
 #  checkout_user_id                     :string(255)
 #  checkout_password                    :string(255)

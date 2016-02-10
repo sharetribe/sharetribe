@@ -5,7 +5,7 @@
 #  id           :integer          not null, primary key
 #  author_id    :string(255)
 #  listing_id   :integer
-#  content      :text
+#  content      :text(65535)
 #  created_at   :datetime
 #  updated_at   :datetime
 #  community_id :integer

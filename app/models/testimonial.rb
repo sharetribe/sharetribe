@@ -3,8 +3,8 @@
 # Table name: testimonials
 #
 #  id               :integer          not null, primary key
-#  grade            :float
-#  text             :text
+#  grade            :float(24)
+#  text             :text(65535)
 #  author_id        :string(255)
 #  participation_id :integer
 #  transaction_id   :integer

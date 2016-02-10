@@ -3,8 +3,8 @@
 # Table name: locations
 #
 #  id             :integer          not null, primary key
-#  latitude       :float
-#  longitude      :float
+#  latitude       :float(24)
+#  longitude      :float(24)
 #  address        :string(255)
 #  google_address :string(255)
 #  created_at     :datetime

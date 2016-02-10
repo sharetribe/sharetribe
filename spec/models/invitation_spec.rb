@@ -11,7 +11,7 @@
 #  created_at   :datetime
 #  updated_at   :datetime
 #  inviter_id   :string(255)
-#  message      :text
+#  message      :text(65535)
 #  email        :string(255)
 #
 # Indexes

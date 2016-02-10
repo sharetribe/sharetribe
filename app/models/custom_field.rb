@@ -10,8 +10,8 @@
 #  updated_at     :datetime         not null
 #  community_id   :integer
 #  required       :boolean          default(TRUE)
-#  min            :float
-#  max            :float
+#  min            :float(24)
+#  max            :float(24)
 #  allow_decimals :boolean          default(FALSE)
 #
 # Indexes

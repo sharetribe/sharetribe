@@ -5,8 +5,8 @@
 #  id              :integer          not null, primary key
 #  custom_field_id :integer
 #  listing_id      :integer
-#  text_value      :text
-#  numeric_value   :float
+#  text_value      :text(65535)
+#  numeric_value   :float(24)
 #  date_value      :datetime
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null

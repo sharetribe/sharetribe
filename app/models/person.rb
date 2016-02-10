@@ -7,7 +7,7 @@
 #  updated_at                         :datetime
 #  is_admin                           :integer          default(0)
 #  locale                             :string(255)      default("fi")
-#  preferences                        :text
+#  preferences                        :text(65535)
 #  active_days_count                  :integer          default(0)
 #  last_page_load_date                :datetime
 #  test_group_number                  :integer          default(1)
@@ -27,7 +27,7 @@
 #  given_name                         :string(255)
 #  family_name                        :string(255)
 #  phone_number                       :string(255)
-#  description                        :text
+#  description                        :text(65535)
 #  image_file_name                    :string(255)
 #  image_content_type                 :string(255)
 #  image_file_size                    :integer
