@@ -12,4 +12,8 @@ module FeatureFlagHelper
     @feature_flags ||= fetch_feature_flags # fetch_feature_flags is defined in ApplicationController
   end
 
+  def search_engine
+    feature_enabled?(:new_search) || APP_CONFIG.external_search_in_use ? :zappy : :sphinx
+  end
+
 end

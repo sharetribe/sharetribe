@@ -49,7 +49,18 @@ class ListingsController < ApplicationController
             per_page: per_page
           }
 
-          listings = ListingIndexService::API::Api.listings.search(community_id: @current_community.id, search: search, includes: includes).and_then { |res|
+          raise_errors = Rails.env.development?
+
+          listings =
+            ListingIndexService::API::Api
+            .listings
+            .search(
+              community_id: @current_community.id,
+              search: search,
+              engine: search_engine,
+              raise_errors: raise_errors,
+              includes: includes
+            ).and_then { |res|
             Result::Success.new(
               ListingIndexViewUtils.to_struct(
               result: res,
@@ -80,14 +91,24 @@ class ListingsController < ApplicationController
               direction_map[shape[:id]] == direction
             }.map { |shape| shape[:id] }
         end
-        search_res = @current_community.private ? Result::Success.new({count: 0, listings: []}) : ListingIndexService::API::Api.listings.search(
-                     community_id: @current_community.id,
-                     search: {
-                       listing_shape_ids: params[:listing_shapes],
-                       page: page,
-                       per_page: per_page
-                     },
-                     includes: [:listing_images, :author, :location])
+        raise_errors = Rails.env.development?
+
+        search_res = if @current_community.private
+                       Result::Success.new({count: 0, listings: []})
+                     else
+                       ListingIndexService::API::Api
+                         .listings
+                         .search(
+                           community_id: @current_community.id,
+                           search: {
+                             listing_shape_ids: params[:listing_shapes],
+                             page: page,
+                             per_page: per_page
+                           },
+                           engine: search_engine,
+                           raise_errors: raise_errors,
+                           includes: [:listing_images, :author, :location])
+                     end
 
         listings = search_res.data[:listings]
 

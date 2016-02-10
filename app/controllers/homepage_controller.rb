@@ -141,10 +141,13 @@ class HomepageController < ApplicationController
       keywords: filter_params[:search],
       fields: checkboxes.concat(dropdowns).concat(numbers),
       per_page: listings_per_page,
-      page: params[:page].to_i > 0 ? params[:page].to_i : 1
+      page: Maybe(params)[:page].to_i.map { |n| n > 0 ? n : 1 }.or_else(1),
+      price_min: params[:price_min],
+      price_max: params[:price_max],
+      locale: I18n.locale,
+      include_closed: false
     }
 
-    search_engine = feature_enabled?(:new_search) || APP_CONFIG.external_search_in_use ? :zappy : :sphinx;
     raise_errors = Rails.env.development?
 
     ListingIndexService::API::Api.listings.search(
