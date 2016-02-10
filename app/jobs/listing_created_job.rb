@@ -15,7 +15,7 @@ class ListingCreatedJob < Struct.new(:listing_id, :community_id)
     community = Community.find(community_id)
     # Send reminder about missing payment information
     if MarketplaceService::Listing::Entity.send_payment_settings_reminder?(listing_id, community_id)
-      PersonMailer.payment_settings_reminder(listing, listing.author, community).deliver
+      MailCarrier.deliver_now(PersonMailer.payment_settings_reminder(listing, listing.author, community))
     end
   end
 

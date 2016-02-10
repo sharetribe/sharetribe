@@ -13,6 +13,6 @@ class TransactionConfirmedJob < Struct.new(:conversation_id, :community_id)
   def perform
     transaction = Transaction.find(conversation_id)
     community = Community.find(community_id)
-    PersonMailer.transaction_confirmed(transaction, community).deliver
+    MailCarrier.deliver_now(PersonMailer.transaction_confirmed(transaction, community))
   end
 end

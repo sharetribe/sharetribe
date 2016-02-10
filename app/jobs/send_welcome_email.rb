@@ -7,7 +7,7 @@ class SendWelcomeEmail < Struct.new(:person_id, :community_id)
     person = Person.find(person_id)
     community = Community.find(community_id)
 
-    PersonMailer.welcome_email(person, community).deliver
+    MailCarrier.deliver_now(PersonMailer.welcome_email(person, community))
   end
 
   private

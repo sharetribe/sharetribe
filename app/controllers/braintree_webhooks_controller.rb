@@ -23,7 +23,7 @@ class BraintreeWebhooksController < ApplicationController
 
         person = Person.find_by_id(person_id)
 
-        PersonMailer.braintree_account_approved(person, community).deliver
+        MailCarrier.deliver_later(PersonMailer.braintree_account_approved(person, community))
       end
 
       def sub_merchant_account_declined(notification, community)

@@ -95,7 +95,7 @@ class Conversation < ActiveRecord::Base
   def send_email_to_participants(community)
     recipients(messages.last.sender).each do |recipient|
       if recipient.should_receive?("email_about_new_messages")
-        PersonMailer.new_message_notification(messages.last, community).deliver
+        MailCarrier.deliver_now(PersonMailer.new_message_notification(messages.last, community))
       end
     end
   end
