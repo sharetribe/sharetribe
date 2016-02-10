@@ -28,7 +28,7 @@ class TranslationCache
   # A model may not have ID if it's newly created but not saved to DB
   def fetch_cache(cache_key, &block)
     if @model.id
-      from_cache = Rails.cache.fetch(cache_key) do
+      Rails.cache.fetch(cache_key) do
         block.call
       end
     else
