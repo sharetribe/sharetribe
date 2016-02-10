@@ -4,7 +4,7 @@
 #
 #  id              :integer          not null, primary key
 #  sender_id       :string(255)
-#  content         :text
+#  content         :text(65535)
 #  created_at      :datetime
 #  updated_at      :datetime
 #  conversation_id :integer

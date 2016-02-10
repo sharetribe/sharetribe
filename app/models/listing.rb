@@ -16,7 +16,7 @@
 #  last_modified                   :datetime
 #  sort_date                       :datetime
 #  listing_type_old                :string(255)
-#  description                     :text
+#  description                     :text(65535)
 #  origin                          :string(255)
 #  destination                     :string(255)
 #  valid_until                     :datetime

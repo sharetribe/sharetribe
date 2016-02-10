@@ -7,17 +7,17 @@
 #  locale                                     :string(255)
 #  name                                       :string(255)
 #  slogan                                     :string(255)
-#  description                                :text
+#  description                                :text(65535)
 #  created_at                                 :datetime         not null
 #  updated_at                                 :datetime         not null
-#  blank_slate                                :text
-#  welcome_email_content                      :text
+#  blank_slate                                :text(65535)
+#  welcome_email_content                      :text(65535)
 #  how_to_use_page_content                    :text(16777215)
 #  about_page_content                         :text(16777215)
 #  terms_page_content                         :text(16777215)
 #  privacy_page_content                       :text(16777215)
 #  storefront_label                           :string(255)
-#  signup_info_content                        :text
+#  signup_info_content                        :text(65535)
 #  private_community_homepage_content         :text(16777215)
 #  verification_to_post_listings_info_content :text(16777215)
 #  search_placeholder                         :string(255)

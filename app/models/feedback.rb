@@ -3,7 +3,7 @@
 # Table name: feedbacks
 #
 #  id           :integer          not null, primary key
-#  content      :text
+#  content      :text(65535)
 #  author_id    :string(255)
 #  url          :string(255)
 #  created_at   :datetime

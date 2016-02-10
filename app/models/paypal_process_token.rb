@@ -8,8 +8,8 @@
 #  transaction_id :integer          not null
 #  op_completed   :boolean          default(FALSE), not null
 #  op_name        :string(64)       not null
-#  op_input       :text
-#  op_output      :text
+#  op_input       :text(65535)
+#  op_output      :text(65535)
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
