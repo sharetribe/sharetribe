@@ -14,13 +14,13 @@
           .content
             = t("layouts.application.connect")
       - else
-        - if(feature_enabled?(:location_search) && main_search == :location)
+        - if(feature_enabled?(:location_search) && search_engine == :zappy && main_search == :location)
           = render :partial => "location_bar"
         - else
           = render :partial => "search_bar"
   - with_small_cover_photo do
     .browse-view-search-form
-      - if(feature_enabled?(:location_search) && main_search == :location)
+      - if(feature_enabled?(:location_search) && search_engine == :zappy && main_search == :location)
         = render :partial => "location_bar"
       - else
         = render :partial => "search_bar"
