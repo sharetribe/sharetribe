@@ -36,7 +36,18 @@ class PeopleController < Devise::RegistrationsController
     }
 
     includes = [:author, :listing_images]
-    listings = ListingIndexService::API::Api.listings.search(community_id: @current_community.id, search: search, includes: includes).and_then { |res|
+    raise_errors = Rails.env.development?
+
+    listings =
+      ListingIndexService::API::Api
+      .listings
+      .search(
+        community_id: @current_community.id,
+        search: search,
+        engine: search_engine,
+        raise_errors: raise_errors,
+        includes: includes
+      ).and_then { |res|
       Result::Success.new(
         ListingIndexViewUtils.to_struct(
         result: res,
