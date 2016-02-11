@@ -60,7 +60,7 @@ module ListingIndexService::Search
        :'filter[price_max]' => original[:price_max],
        :'filter[omit_closed]' => !original[:include_closed],
        :'filter[listings_shape_ids]' => Maybe(original[:listing_shape_ids]).join(",").or_else(nil),
-       locale: original[:locale]
+       :'search[locale]' => original[:locale]
       }.compact
     end
 
