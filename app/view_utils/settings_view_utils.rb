@@ -14,4 +14,15 @@ module SettingsViewUtils
     end
   end
 
+  def distance_unit_translation(distance_unit)
+    case distance_unit
+    when :km
+      t("admin.communities.settings.km")
+    when :miles
+      t("admin.communities.settings.miles")
+    else
+      raise("Unknown distance unit: #{distance_unit}")
+    end
+  end
+
 end

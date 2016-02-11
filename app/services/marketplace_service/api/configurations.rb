@@ -14,8 +14,8 @@ module MarketplaceService::API
         }
     end
 
-    def update(community_id:, main_search:)
-      Maybe(ConfigurationsStore.update(community_id: community_id, main_search: main_search))
+    def update(community_id:, main_search:, distance_unit:)
+      Maybe(ConfigurationsStore.update(community_id: community_id, main_search: main_search, distance_unit: distance_unit))
         .map { |configurations|
           Result::Success.new(configurations)
         }
