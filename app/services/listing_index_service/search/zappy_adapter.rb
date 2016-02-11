@@ -55,13 +55,14 @@ module ListingIndexService::Search
 
     def format_params(original)
       {
-       :'search-keywords' => original[:keywords],
+       :'search[keywords]' => original[:keywords],
        :'page[number]' => original[:page],
        :'page[size]' => original[:per_page],
        :'filter[price_min]' => original[:price_min],
        :'filter[price_max]' => original[:price_max],
        :'filter[omit_closed]' => !original[:include_closed],
        :'filter[listings_shape_ids]' => Maybe(original[:listing_shape_ids]).join(",").or_else(nil),
+       :'filter[category_ids]' => Maybe(original[:categories]).join(",").or_else(nil),
        :'search[locale]' => original[:locale]
       }.compact
     end
