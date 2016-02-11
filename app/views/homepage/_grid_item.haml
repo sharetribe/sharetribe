@@ -9,5 +9,14 @@
         .home-fluid-thumbnail-grid-author-avatar
           = link_to(person_path(id: listing.author.username)) do
             = image_tag(listing.author.avatar.thumb || missing_avatar(:thumb), :class => "home-fluid-thumbnail-grid-author-avatar-image")
-        = link_to(person_path(id: listing.author.username), :class => "home-fluid-thumbnail-grid-author-name") do
-          = PersonViewUtils::person_entity_display_name(listing.author, @current_community.name_display_type)
+
+        - distance = Maybe(listing.distance).or_else(nil)
+        - if(!show_distance || distance.blank?)
+          = link_to(person_path(id: listing.author.username), :class => "home-fluid-thumbnail-grid-author-name") do
+            = PersonViewUtils::person_entity_display_name(listing.author, @current_community.name_display_type)
+        - else
+          .home-fluid-thumbnail-grid-details
+            = link_to(person_path(id: listing.author.username), class: "home-fluid-thumbnail-grid-details-author-name") do
+              = PersonViewUtils::person_entity_display_name(listing.author, @current_community.name_display_type)
+            .home-fluid-thumbnail-grid-details-distance
+              = "#{distance.round(2)} #{listing.distance_unit}"

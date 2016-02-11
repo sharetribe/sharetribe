@@ -124,7 +124,7 @@
           - if @view_type.eql?("grid")
             %div{class: @category_menu_enabled ? "home-fluid-thumbnail-grid-narrow" : "home-fluid-thumbnail-grid-wide"}
               .home-fluid-thumbnail-grid
-                = render :partial => "grid_item", :collection => @listings, :as => :listing
+                = render :partial => "grid_item", :collection => @listings, :as => :listing, locals:{show_distance: show_distance}
           - else
             .home-listings
               = render :partial => "list_item", :collection => @listings, :as => :listing, locals:{shape_name_map: shape_name_map, testimonials_in_use: testimonials_in_use}

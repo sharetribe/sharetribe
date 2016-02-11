@@ -69,6 +69,7 @@ class HomepageController < ApplicationController
       }
     else
       main_search = (feature_enabled?(:location_search) && search_engine == :zappy) ? MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:main_search] : :keyword
+      show_distance = (feature_enabled?(:location_search) && search_engine == :zappy && main_search == :location)
       search_result.on_success { |listings|
         @listings = listings
         render locals: {
@@ -79,7 +80,8 @@ class HomepageController < ApplicationController
                  shape_name_map: shape_name_map,
                  testimonials_in_use: @current_community.testimonials_in_use,
                  listing_shape_menu_enabled: listing_shape_menu_enabled,
-                 main_search: main_search }
+                 main_search: main_search,
+                 show_distance: show_distance}
       }.on_error { |e|
         flash[:error] = t("homepage.errors.search_engine_not_responding")
         @listings = Listing.none.paginate(:per_page => 1, :page => 1)
