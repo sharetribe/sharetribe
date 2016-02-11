@@ -224,6 +224,9 @@ da-DK:
         default_search_type: ~
         keyword_search: ~
         location_search: ~
+        select_distance_unit: ~
+        km: ~
+        miles: ~
         listing_preferences: Annonceindstillinger
         transaction_preferences: "Transaktions indstillinger"
         show_listing_publishing_date: "Vis oprettelsesdato af annoncen på annonce siden"
@@ -879,8 +882,8 @@ da-DK:
     confirmation_instructions:
       confirmation_instructions_signature: "Venlig hilsen,<br/> %{service_name} Holdet"
       welcome_to_kassi: "Velkommen til %{service_name}!"
-      need_to_confirm: "Du bedes venligst bekræfte din e-mailadresse."
-      confirmation_link_text: "Bekræft min e-mail"
+      need_to_confirm: "Du skal bekræfte din email."
+      confirmation_link_text: "Bekræft min email"
       or_paste_link: "Alternativt kan du kopiere nedenstående link og åbne det i din browsers adressefelt:"
       turning_on_confirmations_in_this_community: "Vi er begyndt at bruge e-mail bekræftelser i denne %{service_name} markedsplads."
     common:
@@ -1063,7 +1066,7 @@ da-DK:
       send_feedback: Send
       your_feedback_to_admins: "Din feedback til administrator"
     send: Send
-    your_email_address: "Din email-adresse"
+    your_email_address: "Din email"
   errors:
     messages:
       invalid_date: "er ikke en gyldig dato"
@@ -1187,7 +1190,7 @@ da-DK:
       filter: Filter
       this_is_private_community: "Du skal oprette en profil før du kan se indholdet"
     invitation_form:
-      email: "E-mail-adresse (r)"
+      email: Emailadresse(r)
       message: "Skriv din invitation her:"
       send_invitation: "Send invitation"
       add_email_addresses_description: "Tilføj emailadresser på dem du ønsker at invitere i feltet nedenfor. Hvis du vil tilføje flere emailadresser, skal de adskilles med komma."
@@ -1302,7 +1305,7 @@ da-DK:
       something_went_wrong: "Noget gik galt"
       community_updated: "Informationer opdateret."
       community_update_failed: "Opdatering af informationer mislykkedes."
-      account_creation_succesful_you_still_need_to_confirm_your_email: "Din konto er oprettet. Nu skal du bekræfte din e-mailadresse."
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Din konto er blevet oprettet. Nu skal du bare bekræfte din email."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Tak for din tilmelding %{service_name}. Nu skal du bekræfte din e-mailadresse."
       comment_cannot_be_empty: "Kommentaren kan ikke være tom"
       comment_sent: "Kommentar sendt"
@@ -1349,7 +1352,7 @@ da-DK:
       error_in_payment: "Fejl i betalingen. Hvis du ikke har godkendt betalingen endnu, så prøv igen. Hvis du har betalt, så kontakt os."
       cannot_receive_payment: "Vi har ikke kunnet modtage din betaling grundet en fejl. Du bedes venligst kontakte vores kundesupport for hjælp."
       payment_waiting_for_later_accomplishment: "Når du har betalt, vil vi underrette sælger og sende dig en kvittering på købet."
-      password_recovery_sent: "Anvisninger for at ændre dit password blev sendt til din e-mail."
+      password_recovery_sent: "Vejledning til ændring af din adgangskode er blevet sendt til din mail."
       person_activated: "Bruger aktiveret"
       person_deactivated: "Bruger deaktiveret"
       person_updated_successfully: "information opdateret"
@@ -1399,7 +1402,7 @@ da-DK:
       you_must_log_in_to_change_payment_settings: "Du skal logge ind på %{service_name} for at ændre dine betalingsoplysninger"
       you_must_log_in_to_accept_or_reject: "Du skal være logget ind for at godkende eller afvise handlen"
       you_must_log_in_to_confirm_or_cancel: "Du skal være logget ind for at annullere eller godkende handlen"
-      you_need_to_confirm_your_account_first: "Du bedes venligst bekræfte din e-mailadresse."
+      you_need_to_confirm_your_account_first: "Du skal bekræfte din email."
       you_must_fill_all_the_fields: "Du skal udfylde alle felter"
       you_unfollowed_listing: "Du abonnerer ikke længere på denne liste"
       joining_community_failed: "Tilmelding mislykkedes"
@@ -1450,8 +1453,8 @@ da-DK:
     error:
       something_went_wrong: "Noget gik galt, error code: %{error_code}"
     follow_links:
-      follow: "Modtag e-mail om nye kommentarer"
-      unfollow: "Afmeld e-mails om nye kommentarer"
+      follow: "Modtag emails om nye kommentarer"
+      unfollow: "Afmeld emails om nye kommentarer"
     form:
       custom_field_partials:
         dropdown:
@@ -1815,9 +1818,9 @@ da-DK:
       inactive_description: "Denne bruger har stoppet med at bruge %{service_name}. Du kan ikke kontakte denne bruger, give feedback til dem eller kommentere deres programoversigter."
     new:
       create_new_account: "Opret konto"
-      email: Email-adresse
-      email_is_in_use: "Den e-mail, du gav, er allerede i brug."
-      email_is_in_use_or_not_allowed: "Denne e-mail er ikke tilladt, eller det er allerede i brug. Hvis du ikke kan få i, så kontakt os."
+      email: Email
+      email_is_in_use: "Email allerede i brug."
+      email_is_in_use_or_not_allowed: "Denne email er ikke tilladt, eller det er allerede registreret. Hvis du ikke kan logge ind, så kontakt os."
       email_not_allowed: ~
       email_restriction_instructions:
         one: "Du har ikke adgang til serveren %{service_name}. For at få adgang skal du bruge en %{allowed_emails} email adresse."
@@ -1907,9 +1910,9 @@ da-DK:
       search_verb: Søg
   sessions:
     new:
-      create_new_account: "Har du ikke en konto? Opret en her"
-      i_forgot_my_password: "Har du glemt dit brugernavn eller adgangskode?"
-      login: "Log på"
+      create_new_account: "Opret en ny konto"
+      i_forgot_my_password: "Glemt brugernavn eller adgangskode?"
+      login: "Log ind"
       login_to_kassi: "Log ind på %{service_name}"
       connect_your_facebook_to_kassi: "Tilknyt din Facebook konto til %{service_name}"
       facebook_account: "Facebook konto:"
@@ -1919,12 +1922,12 @@ da-DK:
       cancle_facebook_connect: "Hvis du ikke ønsker at logge ind med denne konto, kan du klikke her: %{cancel_link}."
       facebook_cancel_link_text: annuller
       log_in_with_your_facebook_account: "Log ind med Facebook"
-      or_sign_up_with_your_username: "...eller med din mail eller brugernavn:"
+      or_sign_up_with_your_username: "Eller med din email eller brugernavn:"
       we_will_not_post_without_asking_you: "Vi vil aldrig poste på din Facebookvæg uden din tilladelse."
     password_forgotten:
-      email: Mail
-      password_recovery_instructions: "Skriv din e-mailadresse for at modtage dit brugernavn og nulstille din adgangskode."
-      request_new_password: "Anmod om en ny adgangskode"
+      email: Email
+      password_recovery_instructions: "Indtast din email for at nulstille din adgangskode"
+      request_new_password: "Send ny adgangskode"
       change_your_password: "Skift din adgangskode"
     confirmation_pending:
       welcome_to_kassi: "Velkommen til %{service_name}!"
@@ -1945,7 +1948,7 @@ da-DK:
       delete_account_button: "Slet min konto permanent"
       delete_account_confirmation_popup: "Er du helt sikker på at du vil slette din konto og permanent slette alt data? Dit valg kan ikke fortrydes."
       email_addresses: E-mailadresser
-      new_email: "Ny e-mail adresse"
+      new_email: "Ny email"
       delete_all_memberships: "Hvis du sletter din konto, vil du ikke være i stand til at bruge den på følgende markedspladser: %{marketplaces}."
       delete_personal_information: "Hvis du sletter din konto, vil dine personlige oplysninger (navn, telefonnummer, adresse, email, profilbillede osv.) blive fjernet permanent og kan ikke gendannes. Alle dine annoncer vil blive slettet. Du kan ikke genaktivere kontoen."
       delete_information_others_involved: "Følgende oplysninger slettes ikke, når du sletter din konto: samtaler med andre, foretagne transaktioner, anmeldelser osv. Dog vil dit navn ikke længere blive vist ved siden af disse oplysninger."
