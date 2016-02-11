@@ -16,6 +16,8 @@ module ListingIndexService::DataTypes
     [:page, :to_integer, default: 1, gte: 1],
     [:per_page, :to_integer, :mandatory, gte: 1],
     [:keywords, :string, :optional],
+    [:latitude, :to_float, :optional],
+    [:longitude, :to_float, :optional],
     [:categories, :array, :optional],
     [:listing_shape_ids, :array, :optional],
     [:price_cents, :range, :optional],

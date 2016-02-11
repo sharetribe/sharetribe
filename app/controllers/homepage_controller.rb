@@ -146,7 +146,7 @@ class HomepageController < ApplicationController
       price_max: params[:price_max],
       locale: I18n.locale,
       include_closed: false
-    }
+    }.merge(location_search_params(params[:lc], search_engine))
 
     raise_errors = Rails.env.development?
 
@@ -235,5 +235,18 @@ class HomepageController < ApplicationController
 
   def shapes
     ListingService::API::Api.shapes
+  end
+
+  def location_search_params(latlng, search_engine_in_use)
+      if(feature_enabled?(:location_search) && latlng.present? && search_engine_in_use == :zappy)
+        coordinates = latlng.split(',')
+        if(coordinates.count == 2)
+          { latitude: coordinates[0], longitude: coordinates[1] }
+        else
+          ArgumentError.new("Format of latlng coordinate pair \"#{latlng}\" wasn't \"lat,lng\" ")
+        end
+      else
+        {}
+      end
   end
 end

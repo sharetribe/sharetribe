@@ -56,6 +56,8 @@ module ListingIndexService::Search
     def format_params(original)
       {
        :'search[keywords]' => original[:keywords],
+       :'search[lat]' => original[:latitude],
+       :'search[lng]' => original[:longitude],
        :'page[number]' => original[:page],
        :'page[size]' => original[:per_page],
        :'filter[price_min]' => original[:price_min],
