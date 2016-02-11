@@ -13,9 +13,11 @@ module ListingIndexService::Search
     SEARCH_URL = APP_CONFIG.external_search_url
 
     def initialize(raise_errors:)
+      logger = ::Logger.new(STDOUT)
+      logger.level = ::Logger::INFO # log only on INFO level so that secrets are not logged
       @conn = Faraday.new(url: SEARCH_URL) do |c|
          c.request  :url_encoded             # form-encode POST params
-         c.response :logger                  # log requests to STDOUT
+         c.response :logger, logger          # log requests to STDOUT
          c.response :json, :content_type => /\bjson$/
          c.adapter  Faraday.default_adapter  # make requests with Net::HTTP
          c.use Faraday::Response::RaiseError if raise_errors
