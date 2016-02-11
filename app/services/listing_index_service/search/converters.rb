@@ -1,7 +1,7 @@
 module ListingIndexService::Search::Converters
   module_function
 
-  def listing_hash(l, includes)
+  def listing_hash(l, includes, meta={})
     {
       id: l.id,
       title: l.title,
@@ -16,7 +16,8 @@ module ListingIndexService::Search::Converters
       quantity: l.quantity,
       shape_name_tr_key: l.shape_name_tr_key,
       listing_shape_id: l.listing_shape_id
-    }.merge(location_hash(l, includes))
+    }.merge(meta)
+      .merge(location_hash(l, includes))
       .merge(author_hash(l, includes))
       .merge(listing_images_hash(l, includes))
   end
