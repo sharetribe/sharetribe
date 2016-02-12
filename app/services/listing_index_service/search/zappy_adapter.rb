@@ -55,10 +55,16 @@ module ListingIndexService::Search
     private
 
     def format_params(original)
+      search_params =
+        if(original[:latitude].present? && original[:longitude].present?)
+          { :'search[lat]' => original[:latitude],
+            :'search[lng]' => original[:longitude]
+          }
+        else
+          { :'search[keywords]' => original[:keywords]}
+        end
+
       {
-       :'search[keywords]' => original[:keywords],
-       :'search[lat]' => original[:latitude],
-       :'search[lng]' => original[:longitude],
        :'page[number]' => original[:page],
        :'page[size]' => original[:per_page],
        :'filter[price_min]' => original[:price_min],
@@ -67,7 +73,7 @@ module ListingIndexService::Search
        :'filter[listings_shape_ids]' => Maybe(original[:listing_shape_ids]).join(",").or_else(nil),
        :'filter[category_ids]' => Maybe(original[:categories]).join(",").or_else(nil),
        :'search[locale]' => original[:locale]
-      }.compact
+      }.merge(search_params).compact
     end
 
     def listings_from_ids(id_obs, includes, distance_unit)
