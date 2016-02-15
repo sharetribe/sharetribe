@@ -24,7 +24,7 @@ Want to get in touch? Email [info@sharetribe.com](mailto:info@sharetribe.com)
 
 ## Installation
 
-Note: If you encounter problems with the installation, ask for help from the developer community in our [developer chatroom](https://www.flowdock.com/invitations/de227bdbe48d24c31a6b749933d3b4eca82e307c). When you join, please use threads. Instructions for this and other chat-related things can be found at [Flowdock's chat instructions](https://www.flowdock.com/help/chat).
+Note: ~~If you encounter problems with the installation, ask for help from the developer community in our [developer chatroom](https://www.flowdock.com/invitations/de227bdbe48d24c31a6b749933d3b4eca82e307c)~~ (Update: The developer chatroom is not in use at the moment, see [this issue](https://github.com/sharetribe/sharetribe/issues/1734)). When you join, please use threads. Instructions for this and other chat-related things can be found at [Flowdock's chat instructions](https://www.flowdock.com/help/chat).
 
 ### Requirements
 
