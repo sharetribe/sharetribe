@@ -1,0 +1,70 @@
+- frontpage_fragment_cache("list_item", listing) do
+  .browsing-list-item
+    .browsing-list-item__image-container
+      - if listing.listing_images.size > 0
+        = link_to listing_path(listing.url), :class => "browsing-list-item__image-desktop" do
+          = image_tag listing.listing_images.first[:small_3x2], {:alt => listed_listing_title(listing), :class => "home-list-image"}
+      - if listing.listing_images.size > 0
+        = link_to listing_path(listing.url), :class => "browsing-list-item__image-mobile" do
+          = image_tag listing.listing_images.first[:thumb], {:alt => listed_listing_title(listing), :class => "home-list-image"}
+    .browsing-list-item__details
+      .browsing-list-item__details-right
+        .browsing-list-item__price
+          - if listing.price
+            .browsing-list-item__price-value
+              = humanized_money_with_symbol(listing.price).upcase
+            - price_text = nil
+            - if listing.quantity.present?
+              - price_text = t("listings.form.price.per") + " " + listing.quantity
+            - elsif listing.unit_type
+              - price_text = price_quantity_per_unit(listing)
+
+            - if price_text.present?
+              .browsing-list-item__price-quantity{:title => price_text}
+                = price_text
+          - else
+            .browsing-list-item__listing-shape-value
+              = shape_name(listing)
+
+      .browse-list-item__details-container
+        %h2.browsing-list-item__title
+          = link_to listing_path(listing.url) do
+            = listing.title
+            - if @current_community.show_category_in_listing_list
+              %a.browsing-list-item__share-type-link{:href => root_path(:transaction_type => shape_name_map[listing.listing_shape_id], :view => :list)}
+                = icon_tag(listing.icon_name, ["icon-fix"])
+                = shape_name(listing)
+        - distance = Maybe(listing.distance).or_else(nil)
+        - if(show_distance && distance.present?)
+          .browsing-list-item__distance
+            - dist = number_with_delimiter(distance.round(2), locale: locale)
+            = t("homepage.list_item.distance_away", distance: dist, distance_unit: listing.distance_unit)
+
+        .browsing-list-item__author{:class => (listing.listing_images.size > 0 ? "browsing-list-item__author--with-listing-image" : "browsing-list-item__author--without-listing-image")}
+          .browsing-list-item__avatar
+            = link_to(person_path(id: listing.author.username), :class => "home-fluid-thumbnail-grid-author-avatar-image") do
+              = image_tag(missing_avatar(:thumb)) # TODO image_tag(listing.author.avatar.thumb || missing_avatar(:thumb))
+          .browsing-list-item__author-details
+            = link_to(person_path(id: listing.author.username), :class => "browsing-list-item__author-name") do
+              = PersonViewUtils::person_entity_display_name(listing.author, @current_community.name_display_type)
+            - if testimonials_in_use
+              .browsing-list-item__author-reviews
+                - if listing.author.num_of_reviews > 0
+                  = icon_tag("testimonial")
+                  = pluralize(listing.author.num_of_reviews, t("homepage.list_item.review"), t("homepage.list_item.reviews"))
+
+        .browsing-list-item__price-mobile{:class => (listing.listing_images.size > 0 ? "browsing-list-item__price-mobile--with-listing-image" : "browsing-list-item__price-mobile--without-listing-image")}
+          - if listing.price
+            .browsing-list-item__price-value-mobile
+              = humanized_money_with_symbol(listing.price).upcase
+            - price_text = nil
+            - if listing.quantity.present?
+              - price_text = t("listings.form.price.per") + " " + listing.quantity
+            - elsif listing.unit_type
+              - price_text = price_quantity_per_unit(listing)
+            - if price_text.present?
+              .browsing-list-item__price-quantity{:title => price_text}
+                = price_text
+          - else
+            %span.smaller
+              = shape_name(listing)

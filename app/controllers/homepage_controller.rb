@@ -64,8 +64,10 @@ class HomepageController < ApplicationController
 
         if @view_type == "grid" then
           render :partial => "grid_item", :collection => @listings, :as => :listing, locals: { show_distance: show_distance }
+        elsif show_distance
+          render :partial => "list_item_with_distance", :collection => @listings, :as => :listing, locals: { shape_name_map: shape_name_map, testimonials_in_use: @current_community.testimonials_in_use, show_distance: show_distance }
         else
-          render :partial => "list_item", :collection => @listings, :as => :listing, locals: { shape_name_map: shape_name_map, testimonials_in_use: @current_community.testimonials_in_use, show_distance: show_distance }
+          render :partial => "list_item", :collection => @listings, :as => :listing, locals: { shape_name_map: shape_name_map, testimonials_in_use: @current_community.testimonials_in_use }
         end
       }.on_error {
         render nothing: true, status: 500

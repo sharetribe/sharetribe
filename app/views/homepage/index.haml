@@ -127,7 +127,10 @@
                 = render :partial => "grid_item", :collection => @listings, :as => :listing, locals:{show_distance: show_distance}
           - else
             .home-listings
-              = render :partial => "list_item", :collection => @listings, :as => :listing, locals:{shape_name_map: shape_name_map, testimonials_in_use: testimonials_in_use}
+              - if (show_distance)
+                = render :partial => "list_item_with_distance", :collection => @listings, :as => :listing, locals:{shape_name_map: shape_name_map, testimonials_in_use: testimonials_in_use, show_distance: show_distance}
+              - else
+                = render :partial => "list_item", :collection => @listings, :as => :listing, locals:{shape_name_map: shape_name_map, testimonials_in_use: testimonials_in_use, show_distance: show_distance}
           .home-loading-more
             = will_paginate(@listings)
             - item_container = if @view_type.eql?("grid") then '.home-fluid-thumbnail-grid' else '.home-listings' end
