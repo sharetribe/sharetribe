@@ -683,7 +683,7 @@ da-DK:
       rideshare_request_message_form_title: "Tilbyd et lift til %{person}"
       send_message: "Send besked"
       send: Send
-      this_message_is_private: "Denne meddelelse er privat mellem dig og %{person}. %{person} vil blive underrettet af denne besked via e-mail."
+      this_message_is_private: "Denne meddelelse er privat mellem dig og %{person}. %{person} vil blive underrettet om denne besked via email."
       you_will_get_notified_of_acceptance: "Du vil modtage en email når %{person} acceptere eller afviser dit bud."
       you_will_get_notified: "Du vil modtage en email når %{person} svarer på din besked."
       title: Titel
@@ -895,7 +895,7 @@ da-DK:
       message_not_displaying_correctly: "Vises denne email ikke korrekt?"
       view_it_in_your_browser: "Vis i din browser"
       or: eller
-      unsubscribe_from_these_emails: "afmeld disse e-mails"
+      unsubscribe_from_these_emails: "afmeld disse emails"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} har accepteret dit tilbud %{listing}"
       has_accepted_your_request: "%{accepter} har accepteret din anmodning %{listing}"
@@ -978,10 +978,10 @@ da-DK:
       text_version_text: "Har du noget du kunne dele med andre, som måske ville have brug for det? Eller har du brug for noget andre muligvis har? Tilføj et tilbud eller en forespørgsel, eller tjek alt hvad andre tilbyder lige nu på %{url}"
     reset_password_instructions:
       change_my_password: "Skift min adgangskode"
-      reset_password_instructions: "<p> Du har angivet, at du har glemt enten din adgangskode eller dit brugernavn på %{service_name}.</ p> <p> Dit brugernavn er: %{username} </ p> <p> Hvis du har brug for at nulstille din adgangskode, klik på følgende link: %{password_reset_link} </ p> <br/> <p> Hvis du ikke har anmodet om dette, bedes du ignorere denne e-mail. Din adgangskode vil ikke ændre sig, medmindre du går ind på linket ovenfor og opretter en ny. </ P>"
+      reset_password_instructions: "<p>Du har angivet at du har glemt din adgangskode eller dit brugernavn på %{service_name}.</ p><p>Dit brugernavn er: %{username}</ p><p>Har du brug for at nulstille din adgangskode? Klik her: %{password_reset_link}</ p><br/><p>Hvis du ikke har anmodet om dette, skal du bare ignorere beskeden. Din adgangskode vil ikke ændre sig.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Påmindelse: Husk at give feedback til %{name}"
-      you_have_not_given_feedback_yet: "Du har endnu ikke givet feedback til %{name} om event '%{event}'. Husk at give feedback på, hvordan %{given_name} udført i begivenheden."
+      you_have_not_given_feedback_yet: "Du har endnu ikke givet %{name} feedback på '%{event}'. Husk at give %{given_name} feedback."
     transaction_preauthorized:
       subject: "%{requester} har anmodet og betalt for %{listing_title}"
       transaction_requested_by_user: "%{requester} har anmodet og betalt for \"%{listing_title}\""
@@ -1276,7 +1276,7 @@ da-DK:
       terms: Brugsvilkår
     logged_in:
       admin: Administration
-      go_to_your_profile_page: Profil
+      go_to_your_profile_page: "Min profil"
       hi: Hej
       login: "Log ind"
       logout: "Log ud"
@@ -1290,7 +1290,7 @@ da-DK:
       notifications: Notifikationer
     mobile_logged_in:
       admin: Administrator
-      go_to_your_profile_page: Profil
+      go_to_your_profile_page: "Min profil"
       hi: Hej
       login: "Log ind"
       logout: "Log ud"
@@ -1306,7 +1306,7 @@ da-DK:
       community_updated: "Informationer opdateret."
       community_update_failed: "Opdatering af informationer mislykkedes."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Din konto er blevet oprettet. Nu skal du bare bekræfte din email."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: "Tak for din tilmelding %{service_name}. Nu skal du bekræfte din e-mailadresse."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Tak for din tilmelding! Nu skal du bare bekræfte din email."
       comment_cannot_be_empty: "Kommentaren kan ikke være tom"
       comment_sent: "Kommentar sendt"
       confirmation_link_is_wrong_or_used: "Bekræftigelses linket er allerede brugt eller på anden måde brudt. Prøv at logge ind, ellers kontakt os, hvis problemet fortsætter."
@@ -1314,10 +1314,10 @@ da-DK:
       could_not_get_email_from_facebook: "Vi kunne ikke få din email fra Facebook og vi kan ikke oprette en konto uden din email."
       create_new_listing: "Opret endnu en annonce"
       create_one_here: "lave en her"
-      email_confirmation_sent_to_new_address: "E-mail bekræftelse er nu sendt til den nye adresse."
-      email_not_found: "Den e-mail du gav blev ikke fundet fra %{service_name} database."
+      email_confirmation_sent_to_new_address: "En bekræftelsesmail er nu sendt til den nye adresse."
+      email_not_found: "Emailen findes ikke i %{service_name}s database."
       error_with_session: "Fejl ved session."
-      feedback_considered_spam: "Feedback gemmes ikke, på grund af sin formatering. Prøv igen, eller bruge feedback forum."
+      feedback_considered_spam: "Feedback ikke gemt på grund af sin formatering. Prøv igen, eller brug feedback-forum."
       feedback_not_saved: "Feedback kunne ikke sendes."
       feedback_saved: "Tak for din henvendelse! Vi vil vende tilbage til dig så hurtigt som muligt."
       feedback_sent_to: "Feedback sendt til %{target_person}."
@@ -1352,7 +1352,7 @@ da-DK:
       error_in_payment: "Fejl i betalingen. Hvis du ikke har godkendt betalingen endnu, så prøv igen. Hvis du har betalt, så kontakt os."
       cannot_receive_payment: "Vi har ikke kunnet modtage din betaling grundet en fejl. Du bedes venligst kontakte vores kundesupport for hjælp."
       payment_waiting_for_later_accomplishment: "Når du har betalt, vil vi underrette sælger og sende dig en kvittering på købet."
-      password_recovery_sent: "Vejledning til ændring af din adgangskode er blevet sendt til din mail."
+      password_recovery_sent: "Vi har lige sendt en email til dig."
       person_activated: "Bruger aktiveret"
       person_deactivated: "Bruger deaktiveret"
       person_updated_successfully: "information opdateret"
@@ -1407,7 +1407,7 @@ da-DK:
       you_unfollowed_listing: "Du abonnerer ikke længere på denne liste"
       joining_community_failed: "Tilmelding mislykkedes"
       can_not_login_with_private_user: "Du kan ikke logge ind med din private brugerkonto. Log ind med organisationens konto eller opret en ny konto."
-      can_not_delete_email: "Du kan ikke fjerne denne e-mailadresse"
+      can_not_delete_email: "Du kan ikke fjerne denne email"
       user_does_not_have_email_to_delete: "Du har ikke email adressen som du prøver at fjerne"
       email_deleted: "Email fjernet"
       payment_details_add_successful: "Du har nu tilføjet dine betalingsoplysninger"
@@ -1831,7 +1831,7 @@ da-DK:
       invalid_invitation_code: "Invitationskode er ikke gyldig."
       invitation_code: Invitationskode
       not_required: ", ikke nødvendig."
-      notification_is_mandatory: "Du skal vælge mindst én e-mail adresse for at kunne modtage meddelelser. Hvis du ikke ønsker at modtage e-mails fra %{service_name}, skal du tjekke dine e-mail indstillinger for meddelelser."
+      notification_is_mandatory: "Du skal vælge mindst én email for at kunne modtage notifikationer. Hvis du ikke ønsker at modtage emails fra %{service_name}, skal du tjekke dine notifikationsindstillinger."
       organization_name: Firmanavn
       password_again: "Bekræft adgangskode"
       show_my_name_to_others: "Vis mit rigtige navn til andre %{service_name} brugere"
@@ -1947,7 +1947,7 @@ da-DK:
       delete_account: "Slet min konto"
       delete_account_button: "Slet min konto permanent"
       delete_account_confirmation_popup: "Er du helt sikker på at du vil slette din konto og permanent slette alt data? Dit valg kan ikke fortrydes."
-      email_addresses: E-mailadresser
+      email_addresses: Emails
       new_email: "Ny email"
       delete_all_memberships: "Hvis du sletter din konto, vil du ikke være i stand til at bruge den på følgende markedspladser: %{marketplaces}."
       delete_personal_information: "Hvis du sletter din konto, vil dine personlige oplysninger (navn, telefonnummer, adresse, email, profilbillede osv.) blive fjernet permanent og kan ikke gendannes. Alle dine annoncer vil blive slettet. Du kan ikke genaktivere kontoen."
@@ -1960,11 +1960,11 @@ da-DK:
       email:
         address_title: Adresse
         remove_title: Fjern
-        remove_confirmation: "Er du sikker på at du vil fjerne din e-mailadresse?"
+        remove_confirmation: "Er du sikker på at du vil fjerne denne email?"
         receive_notifications_title_desktop: "Modtag nyhedsbrev"
         receive_notifications_title_mobile: "Modtag nyhedsbrev"
         receive_notifications_new_title_mobile: "Modtag nyhedsbrev"
-        add_new_with_plus: "+ Tilføj ny e-mailadresse"
+        add_new_with_plus: "+ Tilføj ny email"
         add_new_cancel: Annuller
         confirmation_title_mobile: "Bekræftelse:"
         confirmation_title_desktop: Bekræftet

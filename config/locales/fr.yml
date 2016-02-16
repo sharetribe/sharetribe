@@ -94,7 +94,7 @@ fr:
         favicon: Favicon
         favicon_info_text: "Le favicon remplacera celui par défaut dans Sharetribe. Les dimensions doivent être de 32x32 pixels et l'image téléchargée sera redimensionnée à ces dimensions."
         community_custom_color1: "Couleur principale"
-        community_custom_color2: "Couleur secondaire"
+        community_custom_color2: "Couleur du bouton %{post_new_listing}"
         logo_instructions_text_with_dimensions: "Le logo large doit avoir des dimensions de %{width}x%{height} pixels. Il sera affiché sur les grands écrans."
         logo_icon_instructions_text_with_dimensions: "Ce logo carré sera utilisé lorsque des gens partageront votre site sur Facebook, quand ils navigueront sur votre site depuis un appareil mobile ou en tant qu'image lorsqu'ils mettront le site en favori. Les dimensions doivent être d'au moins %{width}x%{height} pixels."
         cover_photo_visibility: "La photo de couverture est affichée sur la page d'accueil aux utilisateurs non connectés."
@@ -103,7 +103,7 @@ fr:
         small_cover_photo_instructions_text_with_dimensions: "La photo sera redimensionnée en %{width}x%{height} pixels et les images trop grandes seront coupées au centre."
         main_content_width: "Lorsque vous choisissez les photos de couverture, gardez à l'esprit que la page principale a une largeur maximale de %{main_width} pixels. N'oubliez pas non plus de vérifier comment s'affiche votre photo de couverture sur des petits écrans (par exemple en réduisant la taille de la fenêtre de votre navigateur)."
         custom_color1_instructions_text: "Vous pouvez changer la couleur principale de l'interface en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier ici."
-        custom_color2_instructions_text: "Vous pouvez changer la couleur secondaire de l'interface en entrant une valeur hexadécimale."
+        custom_color2_instructions_text: "Vous pouvez changer la couleur du bouton %{post_new_listing} en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier ici."
         default_browse_view: "Vue par défaut"
         default_browse_view_instructions_text: "La vue par défaut est utilisée sur la page d'accueil pour définir comment sont affichées les annonces par défaut."
         grid: Grille
@@ -224,9 +224,9 @@ fr:
         default_search_type: "Type de recherche : %{select_search_type}"
         keyword_search: "Recherche par mots-clés"
         location_search: "Recherche géographique"
-        select_distance_unit: ~
-        km: ~
-        miles: ~
+        select_distance_unit: "Visualiser la distance %{distance_units_selector}"
+        km: km
+        miles: miles
         listing_preferences: "Paramètres d'annonces"
         transaction_preferences: "Paramètres de commandes"
         show_listing_publishing_date: "Afficher la date de publication de l'annonce sur la page de l'annonce"
@@ -1771,10 +1771,10 @@ fr:
       connect_paypal_account_instructions: "Cliquez sur le bouton ci-dessous pour vous connecter à PayPal et lier votre compte PayPal avec %{service_name}."
       connect_paypal_account: "Connecter votre compte PayPal"
       paypal_account_billing_agreement_with_step: "Etape %{current_step}/%{total_steps} : autoriser les frais de service"
-      paypal_account_billing_agreement_info_both: "Après avoir réalisé une vente sur %{service_name}, des frais (%{commission_from_seller} du montant total, hors frais de livraison, frais minimaux de %{minimum_commission}) seront prélevés sur votre compte PayPal. Vous devez autoriser ceci pour recevoir des paiements sur %{service_name}. Ces frais n'inclus pas %{paypal_info_link}."
-      paypal_account_billing_agreement_info_fixed: "Après avoir réalisé une vente sur %{service_name}, des frais de %{minimum_commission} seront prélevés sur votre compte PayPal. Vous devez autoriser ceci pour recevoir des paiements sur %{service_name}. Ces frais n'inclus pas %{paypal_info_link}."
-      paypal_account_billing_agreement_info_relative: "Après avoir réalisé une vente sur %{service_name}, des frais (%{commission_from_seller} du montant total, hors frais de livraison) seront prélevés sur votre compte PayPal. Vous devez autoriser ceci pour recevoir des paiements sur %{service_name}. Ces frais n'inclus pas %{paypal_info_link}."
-      paypal_account_billing_agreement_info_none: "%{service_name} ne prélève actuellement aucun frais de service. Si les frais de service sont activés, vous devrez autoriser %{service_name} à prélever des frais de services pour recevoir des paiements. Ces frais n'inclus pas %{paypal_info_link}."
+      paypal_account_billing_agreement_info_both: "Après avoir réalisé une vente sur %{service_name}, des frais (%{commission_from_seller} du montant total, hors frais de livraison, frais minimaux de %{minimum_commission}) seront prélevés sur votre compte PayPal. Vous devez autoriser ceci pour recevoir des paiements sur %{service_name}. Ces frais n'incluent pas %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "Après avoir réalisé une vente sur %{service_name}, des frais de %{minimum_commission} seront prélevés sur votre compte PayPal. Vous devez autoriser ceci pour recevoir des paiements sur %{service_name}. Ces frais n'incluent pas %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Après avoir réalisé une vente sur %{service_name}, des frais (%{commission_from_seller} du montant total, hors frais de livraison) seront prélevés sur votre compte PayPal. Vous devez autoriser ceci pour recevoir des paiements sur %{service_name}. Ces frais n'incluent pas %{paypal_info_link}."
+      paypal_account_billing_agreement_info_none: "%{service_name} ne prélève actuellement aucun frais de service. Si les frais de service sont activés, vous devrez autoriser %{service_name} à prélever des frais de services pour recevoir des paiements. Ces frais n'incluent pas %{paypal_info_link}."
       paypal_info_link_text: "les frais de transaction PayPal"
       billing_agreement_description: "Autoriser %{service_name} à prélever des frais de service."
       billing_agreement: Autoriser

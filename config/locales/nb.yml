@@ -129,7 +129,7 @@ nb:
         info: "Dette navnet og adressen brukes for eposter som sendes fra din markedsplass til medlemmene."
         read_more: "Les mer om utgående epostadresse."
         sender_address: "Avsender: %{sender_address}"
-        sender_address_default: "Avsender: ikke satt (bruker standardadresse %{sender_address}9"
+        sender_address_default: "Avsender: ikke satt (bruker standardadresse %{sender_address})"
         need_to_change: "Hvis du ønsker å endre epostadressen vennligst %{contact_support_link}"
         contact_support_link_text: "kontakt vår support"
         set_sender_address: "Sett avsender"
@@ -1121,7 +1121,7 @@ nb:
     create_new_marketplace: "Lag en ny markedsplass"
     contact_us: "Kontakt oss"
     profile: Profil
-    manage_listings: ~
+    manage_listings: "Administrer annonser"
     invite: "Invitér nye brukere"
     login: "Logg inn"
     signup: "Registrér deg"

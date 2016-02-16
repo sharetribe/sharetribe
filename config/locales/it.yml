@@ -209,9 +209,9 @@ it:
         default_search_type: ~
         keyword_search: ~
         location_search: ~
-        select_distance_unit: ~
-        km: ~
-        miles: ~
+        select_distance_unit: "Mostra la distanza in %{distance_units_selector}"
+        km: km
+        miles: miglia
         listing_preferences: ~
         transaction_preferences: ~
         show_listing_publishing_date: ~
@@ -528,7 +528,7 @@ it:
       item: ~
       favor: servizi
       rideshare: ~
-      housing: ~
+      housing: Spazi
       tools: Strumenti
       sports: Sport
       music: Musica
@@ -638,11 +638,11 @@ it:
       favor_request_message_form_title: "Offri aiuto a %{person}"
       housing_offer_message_form_title: "Offri spazio a %{person}"
       housing_request_message_form_title: "Richiedi spazio a %{person}"
-      item_offer_lend_message_form_title: ~
-      item_offer_sell_message_form_title: ~
+      item_offer_lend_message_form_title: "Prestito %{listing} da %{person}"
+      item_offer_sell_message_form_title: "Acquisto %{listing} da %{person}"
       item_offer_give_away_message_form_title: ~
       item_offer_trade_message_form_title: ~
-      item_offer_rent_out_message_form_title: ~
+      item_offer_rent_out_message_form_title: "Noleggiato %{listing} da %{person}"
       item_request_borrow_message_form_title: ~
       item_request_buy_message_form_title: ~
       item_request_take_for_free_message_form_title: ~
@@ -674,7 +674,7 @@ it:
       message_sent_by: "Messaggio inviato da"
       message_sent_to: "Messaggio inviato a"
       send_reply: "Invia risposta"
-      write_a_reply: "Scrivi una risposta:"
+      write_a_reply: "Scrivi un commento"
       conversation_about_listing: "Con %{person} su%{listing}"
       conversation_with_user: ~
       conversation_with: "Conversazione con %{person}"
@@ -710,7 +710,7 @@ it:
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: accettata
       request_rejected: rifiutata
-      request_confirmed: ~
+      request_confirmed: Completato
       request_canceled: Cancellato
       request_paid: "Pagamento riuscito"
       request_preauthorized: "Pagamento autorizzato"
@@ -758,15 +758,15 @@ it:
       save: ~
     show:
       payout_details: ~
-      first_name: ~
-      last_name: ~
+      first_name: Nome
+      last_name: Cognome
       email: "Indirizzo email"
-      phone: ~
+      phone: "Numero di telefono"
       address_street_address: Indirizzo
       address_postal_code: "CAP/Codice Postale"
       address_locality: Città
       address_region: Regione
-      date_of_birth: ~
+      date_of_birth: "Data di nascita"
       ssn: ~
       routing_number: ~
       account_number: ~
@@ -775,9 +775,9 @@ it:
       new_credit_card_payment: ~
       payment_receiver: ~
       cardholder_name: ~
-      credit_card_number: ~
-      cvv: ~
-      credit_card_expiration_date: ~
+      credit_card_number: "Numero di carta di credito"
+      cvv: CVV
+      credit_card_expiration_date: "Data di scadenza della carta di Credito"
       confirm_payment: ~
       exp: ~
   feedback:
@@ -1067,19 +1067,19 @@ it:
       has_accepted_receive_item: "%{offerer_name} ha accetato di ricevere %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_sell_item: "%{offerer_name} ha accetato di vendere %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_buy_item: "%{offerer_name} ha accetato di comprare %{listing_title} a %{requester_name} %{time_ago}."
-      has_accepted_trade_item: ~
+      has_accepted_trade_item: "%{offerer_name} ha accettato di scambiare %{listing_title} con %{requester_name} %{time_ago}."
       has_accepted_sell_housing: "%{offerer_name} ha accetato di vendere %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_buy_housing: "%{offerer_name} ha accetato di comprare %{listing_title} da %{requester_name} %{time_ago}."
       has_accepted_rent_out_housing: "%{offerer_name} ha accettato di affittare %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_rent_housing: "%{offerer_name} ha accettato di prendere in affitto %{listing_title} a %{requester_name} %{time_ago}."
-      has_accepted_favor: ~
+      has_accepted_favor: "%{offerer_name} ha accettato di offrire %{listing_title} a %{requester_name}%{time_ago}"
       has_accepted_rideshare: ~
     join:
       joined_kassi: ~
     login:
       logged_in_to_kassi: ~
     comment:
-      commented: ~
+      commented: "%{commenter_name} ha commentato l'annuncio %{listing_title} %{time_ago}"
       offer_partitive: ~
       request_partitive: ~
   header:
@@ -1095,10 +1095,10 @@ it:
     contact_us: Contattaci
     profile: Profilo
     manage_listings: "Gestione annunci"
-    invite: "Invita nuovi utenti"
+    invite: "Invita amici ad unirsi"
     login: ~
     signup: Registrati
-    menu: ~
+    menu: Menù
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Inoltre c'è <b>un'altra offerta</b>,  "
@@ -1136,7 +1136,7 @@ it:
       min: ~
       max: ~
     event_feed:
-      latest_events: ~
+      latest_events: "Cosa sta accadendo.."
     grid_item:
       processing_uploaded_image: "(Elaborazione immagine in corso...)"
     index:
@@ -1167,12 +1167,12 @@ it:
       no_reviews: "Nessuna recensione"
       no_image: "Nessuna immagine"
       filter: Filtri
-      this_is_private_community: ~
+      this_is_private_community: "Devi registrarti prima di poter vedere il contenuto"
     invitation_form:
       email: "Indirizzo/i email"
       message: "Un messaggio personale"
       send_invitation: "Invia un invito"
-      add_email_addresses_description: ~
+      add_email_addresses_description: "Aggiungi nel campo qui sotto, l'indirizzo email delle persone che vuoi invitare. Se vuoi inserire più indirizzi, separali con una virgola."
       add_lots_of_email_addresses: ~
       this_article_link: ~
       invitation_emails_field_placeholder: "amico1@esempio.com, amico2@esempio.com, ..."
@@ -1516,7 +1516,7 @@ it:
         rent_out: Noleggiare
         request_type: "Tipo di richiesta"
         sell: Vendere
-        share_for_free: ~
+        share_for_free: "Condiviso gratuitamente"
         accept_for_free: ~
         trade: Scambiare
       tag_list:
@@ -1571,7 +1571,7 @@ it:
       rents: Affittare
       rideshares: Passaggio
       sells: Vendere
-      share_for_frees: ~
+      share_for_frees: "Condiviso gratuitamente"
       accept_for_frees: ~
       trades: Scambiare
     listing_actions:
@@ -1692,7 +1692,7 @@ it:
     content_too_long: ~
   okl:
     member_id: "ID utente"
-    member_id_or_email: ~
+    member_id_or_email: "Numero ID o email"
   payments:
     new:
       new_payment: "Hai ricevuto un nuovo pagamento"
@@ -1725,7 +1725,7 @@ it:
     paypal_receive_funds_info_label: "Raramente accade che non è possibile collegare il conto PayPal."
     paypal_receive_funds_info: "Se avviene un errore tentando di collegare il tuo Conto PayPal a %{service_name}, il tuo conto potrebbe essere obsoleto, e aver bisogno di un aggiornamento ad un Conto Premier a questo link: %{upgrade_paypal_account_link}. La cosa migliore è contattare il servizio clienti PayPal e farsi guidare."
     upgrade_paypal_account_link_text: "Aggiorna l'account PayPal."
-    admin_account_not_connected: "Non è possibile utilizzare il sistema di pagamenti di %{service_name} e ricevere pagamenti, se prima non è stato settato. per favore %{contact_admin_link} per i dettagli."
+    admin_account_not_connected: "Non è possibile utilizzare il sistema di pagamenti di %{service_name} e ricevere pagamenti, se prima non è stato settato. Per favore %{contact_admin_link} per i dettagli."
     contact_admin_link_text: "contatta l'amministratore della piattaforma di marketplace"
     you_are_ready_to_accept_payments: "Ora sei pronto per accettare i pagamenti!"
     commission: "%{commission} %"
@@ -1783,7 +1783,7 @@ it:
       commission_payment_name: "Pagamento della commissione per %{listing_title}"
       commission_payment_description: "La piattaforma %{service_name} ha preso questa commissione dalla transazione che riguarda il seguente annuncio: %{listing_title}"
     wait_while_loading: "Per favore attendi."
-    chatting_with_paypal: ~
+    chatting_with_paypal: "Stiamo comunicando con PayPal"
   people:
     edit_links:
       activate: Attiva
@@ -1822,6 +1822,9 @@ it:
       create_account_with_facebook: "Crea un account tramite Facebook"
       OR: O
       signup_with_email: "Iscriviti con l'indirizzo e-mail"
+      email_restriction_instructions:
+        one: "L'accesso a %{service_name} è ristretto. per unirti hai bisogno di un %{allowed_emails}"
+        other: "L'accesso a %{service_name} è ristretto. Per unirti hai bisogno di un indirizzo email titolato ad un irti."
     not_member:
       explanation_text: "Sei all'interno della comunità %{community}. Hai provato a visionare il profilo che appartiene ad un'altra comunità di Sharetribe. Non puoi accedere al profilo attraverso la comunità %{community}."
       read_more_about_kassi_communities: "Leggi altre informazioni sui marketplace Sharetribe"
@@ -2031,7 +2034,7 @@ it:
       slightly_better_than_expected: "Leggermente meglio del previsto"
       slightly_less_than_expected: "Leggermente peggio del previsto"
       textual_feedback: "Come è andata?"
-      this_will_be_shown_in_profile: ~
+      this_will_be_shown_in_profile: "Il feedback che dai sarà visibile a tutti i membri nel profilo di %{person}. Questo è un'aiuto per valutare se %{person} è una persona affidabile."
       positive: Positivo
       negative: Negativo
       default_textual_feedback: "Tutto è andato a buon fine, grazie mille!"
