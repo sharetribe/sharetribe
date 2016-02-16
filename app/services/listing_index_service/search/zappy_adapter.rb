@@ -73,16 +73,19 @@ module ListingIndexService::Search
 
       ids = id_obs.map { |r| r['id'] }
 
-      Listing
-        .where(id: ids)
-        .order("field(listings.id, #{ids.join ','})")
-        .map {
-          |l| ListingIndexService::Search::Converters.listing_hash(l, includes)
-        }
+      Maybe(ids).map { |ids|
+        Listing
+          .where(id: ids)
+          .order("field(listings.id, #{ids.join ','})")
+          .map { |l|
+            ListingIndexService::Search::Converters.listing_hash(l, includes)
+          }
+      }.or_else([])
     end
 
     def parse_response(res, includes)
-      listings = res["meta"]["total"] > 0 ? listings_from_ids(res["data"], includes) : []
+      listings = listings_from_ids(res["data"], includes)
+
       {count: res["meta"]["total"],
        listings: listings}
     end
