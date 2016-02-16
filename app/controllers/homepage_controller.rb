@@ -58,7 +58,6 @@ class HomepageController < ApplicationController
 
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
-
     if request.xhr? # checks if AJAX request
       search_result.on_success { |listings|
         @listings = listings # TODO Remove

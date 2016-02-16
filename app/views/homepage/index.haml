@@ -4,6 +4,17 @@
 - content_for :coverfade_class do
   = "without-text"
 
+- content_for :extra_javascript do
+  - # maps.google can't be loaded twice
+  - if(location_search_in_use && @view_type.eql?("map"))
+    = javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places"
+    = javascript_include_tag "markerclusterer.js"
+  - elsif(location_search_in_use)
+    = javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places"
+  - elsif(@view_type.eql?("map"))
+    = javascript_include_tag "https://maps.google.com/maps/api/js"
+    = javascript_include_tag "markerclusterer.js"
+
 - content_for :title_header do
   - with_big_cover_photo do
     %h1.marketplace-lander-content-title= community_slogan.html_safe
