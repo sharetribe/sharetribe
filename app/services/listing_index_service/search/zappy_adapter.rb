@@ -39,7 +39,8 @@ module ListingIndexService::Search
             req.url("/api/v1/marketplace/#{community_id}/listings", search_params)
             req.headers['Authorization'] = "apikey key=#{API_KEY}"
           end
-          Result::Success.new(parse_response(res.body, includes))
+          distance_unit_system = MarketplaceService::API::Api.configurations.get(community_id: community_id).data[:distance_unit]
+          Result::Success.new(parse_response(res.body, includes, (distance_unit_system === :metric) ? :km : :miles))
         rescue StandardError => e
           Result::Error.new(e)
         end
@@ -54,8 +55,16 @@ module ListingIndexService::Search
     private
 
     def format_params(original)
+      search_params =
+        if(original[:latitude].present? && original[:longitude].present?)
+          { :'search[lat]' => original[:latitude],
+            :'search[lng]' => original[:longitude]
+          }
+        else
+          { :'search[keywords]' => original[:keywords]}
+        end
+
       {
-       :'search[keywords]' => original[:keywords],
        :'page[number]' => original[:page],
        :'page[size]' => original[:per_page],
        :'filter[price_min]' => original[:price_min],
@@ -64,30 +73,43 @@ module ListingIndexService::Search
        :'filter[listings_shape_ids]' => Maybe(original[:listing_shape_ids]).join(",").or_else(nil),
        :'filter[category_ids]' => Maybe(original[:categories]).join(",").or_else(nil),
        :'search[locale]' => original[:locale]
-      }.compact
+      }.merge(search_params).compact
     end
 
-    def listings_from_ids(id_obs, includes)
+    def listings_from_ids(id_obs, includes, distance_unit)
       # TODO: use pluck instead of instantiating the ActiveRecord objects completely, for better performance
       # http://collectiveidea.com/blog/archives/2015/03/05/optimizing-rails-for-memory-usage-part-3-pluck-and-database-laziness/
 
       ids = id_obs.map { |r| r['id'] }
+      data_by_id =  Hash[id_obs.map { |m| [m['id'].to_i, m] }]
 
       Maybe(ids).map { |ids|
         Listing
           .where(id: ids)
           .order("field(listings.id, #{ids.join ','})")
           .map { |l|
-            ListingIndexService::Search::Converters.listing_hash(l, includes)
+            d = data_by_id[l.id]
+            meta  = Maybe(d['meta']).or_else({})
+            distance_hash = convert_distance(meta, distance_unit)
+
+            ListingIndexService::Search::Converters.listing_hash(l, includes, distance_hash)
           }
       }.or_else([])
     end
 
-    def parse_response(res, includes)
-      listings = listings_from_ids(res["data"], includes)
+    def parse_response(res, includes, distance_unit)
+      listings = listings_from_ids(res["data"], includes, distance_unit)
 
       {count: res["meta"]["total"],
        listings: listings}
+    end
+
+    def convert_distance(meta_obj, distance_unit)
+      Maybe(meta_obj['distance'])
+        .map{ |d|
+          distance = (distance_unit == :km) ? d : (d / 1.609344)
+          { distance: distance, distance_unit: distance_unit }
+        }.or_else({})
     end
   end
 end
