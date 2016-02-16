@@ -19,5 +19,5 @@
             = link_to(person_path(id: listing.author.username), class: "home-fluid-thumbnail-grid-details-author-name") do
               = PersonViewUtils::person_entity_display_name(listing.author, @current_community.name_display_type)
             .home-fluid-thumbnail-grid-details-distance
-              - dist = number_with_delimiter(distance.round(2))
+              - dist = number_with_delimiter(distance.round(2), locale: locale)
               = "#{dist} #{listing.distance_unit}"

@@ -55,21 +55,22 @@ class HomepageController < ApplicationController
 
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
+    main_search = (feature_enabled?(:location_search) && search_engine == :zappy) ? MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:main_search] : :keyword
+    show_distance = (feature_enabled?(:location_search) && search_engine == :zappy && main_search == :location)
+
     if request.xhr? # checks if AJAX request
       search_result.on_success { |listings|
         @listings = listings # TODO Remove
 
         if @view_type == "grid" then
-          render :partial => "grid_item", :collection => @listings, :as => :listing
+          render :partial => "grid_item", :collection => @listings, :as => :listing, locals: { show_distance: show_distance }
         else
-          render :partial => "list_item", :collection => @listings, :as => :listing, locals: { shape_name_map: shape_name_map, testimonials_in_use: @current_community.testimonials_in_use }
+          render :partial => "list_item", :collection => @listings, :as => :listing, locals: { shape_name_map: shape_name_map, testimonials_in_use: @current_community.testimonials_in_use, show_distance: show_distance }
         end
       }.on_error {
         render nothing: true, status: 500
       }
     else
-      main_search = (feature_enabled?(:location_search) && search_engine == :zappy) ? MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:main_search] : :keyword
-      show_distance = (feature_enabled?(:location_search) && search_engine == :zappy && main_search == :location)
       search_result.on_success { |listings|
         @listings = listings
         render locals: {
@@ -93,7 +94,8 @@ class HomepageController < ApplicationController
                  shape_name_map: shape_name_map,
                  testimonials_in_use: @current_community.testimonials_in_use,
                  listing_shape_menu_enabled: listing_shape_menu_enabled,
-                 main_search: main_search }
+                 main_search: main_search,
+                 show_distance: show_distance }
       }
     end
   end

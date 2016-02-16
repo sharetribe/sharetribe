@@ -81,19 +81,18 @@ module ListingIndexService::Search
       # http://collectiveidea.com/blog/archives/2015/03/05/optimizing-rails-for-memory-usage-part-3-pluck-and-database-laziness/
 
       ids = id_obs.map { |r| r['id'] }
+      data_by_id =  Hash[id_obs.map { |m| [m['id'].to_i, m] }]
 
       Maybe(ids).map { |ids|
         Listing
           .where(id: ids)
           .order("field(listings.id, #{ids.join ','})")
           .map { |l|
-            meta = Maybe(id_obs.find {|r| r['id'] == l.id.to_s })
-              .map {|r|
-                meta  = Maybe(r['meta']).or_else({})
-                convert_distance(meta, distance_unit)
-              }.or_else({})
+            d = data_by_id[l.id]
+            meta  = Maybe(d['meta']).or_else({})
+            distance_hash = convert_distance(meta, distance_unit)
 
-            ListingIndexService::Search::Converters.listing_hash(l, includes, meta)
+            ListingIndexService::Search::Converters.listing_hash(l, includes, distance_hash)
           }
       }.or_else([])
     end
