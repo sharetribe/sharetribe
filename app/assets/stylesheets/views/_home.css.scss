@@ -177,7 +177,7 @@ $home-list-avatar-size: em(40);
 $home-list-avatar-size-mobile: em(30);
 $home-list-avatar-padding: lines(0.25);
 .home-list-title,
-.browsing-list-item__title {
+.browsing-list-item-title {
   margin: 0;
   padding: 0;
   font-weight: 700;
@@ -195,12 +195,12 @@ $home-list-avatar-padding: lines(0.25);
   }
 
 }
-.browsing-list-item__title {
+.browsing-list-item-title {
   padding-bottom: 0;
 }
 
 .home-share-type-link,
-.browsing-list-item__share-type-link {
+.browsing-list-item-share-type-link {
   @include share-type-link;
   // Magic number, this just looks better
   $padding-fine-tuning: 4;
@@ -221,7 +221,7 @@ $home-list-avatar-padding: lines(0.25);
 }
 
 .home-list-avatar,
-.browsing-list-item__avatar {
+.browsing-list-item-avatar {
   position: absolute;
   top: 0;
   left: 0;
@@ -252,7 +252,7 @@ $home-list-avatar-padding: lines(0.25);
 }
 
 .home-list-author-with-listing-image,
-.browsing-list-item__author--with-listing-image {
+.browsing-list-item-author-with-listing-image {
   left: 0;
 
   @include media(large-mobile) {
@@ -265,12 +265,12 @@ $home-list-avatar-padding: lines(0.25);
 }
 
 .home-list-author-without-listing-image,
-.browsing-list-item__author--without-listing-image {
+.browsing-list-item-author-without-listing-image {
   left: 0;
 }
 
 .home-list-author-details,
-.browsing-list-item__author-details {
+.browsing-list-item-author-details {
   float: left;
   margin-left: $home-list-avatar-size + (2 * $home-list-avatar-padding);
   height: 40px;
@@ -285,12 +285,12 @@ $home-list-avatar-padding: lines(0.25);
 }
 
 .home-list-author-reviews,
-.browsing-list-item__author-reviews {
+.browsing-list-item-author-reviews {
   @include small-type;
 }
 
 .home-list-price-mobile,
-.browsing-list-item__price-mobile {
+.browsing-list-item-price-mobile {
   position: absolute;
   bottom: lines(0.25, 24);
   @include media(large-mobile) {
@@ -307,12 +307,12 @@ $home-list-avatar-padding: lines(0.25);
   }
 }
 
-.browsing-list-item__price-mobile {
+.browsing-list-item-price-mobile {
   right: 0;
 }
 
 .home-list-price-value-mobile,
-.browsing-list-item__price-value-mobile {
+.browsing-list-item-price-value-mobile {
   font-size: 24px;
   & > .smaller {
     font-size: 18px;
@@ -340,26 +340,26 @@ $home-list-avatar-padding: lines(0.25);
 }
 
 .home-list-price,
-.browsing-list-item__price {
+.browsing-list-item-price {
   text-align: right;
 }
 
-.home-list-item__price-value,
-.browsing-list-item__price-value {
+.home-list-item-price-value,
+.browsing-list-item-price-value {
   font-size: em(44);
   line-height: 1;
   font-weight: 400;
 }
 
 .home-list-listing-shape-value,
-.browsing-list-item__listing-shape-value {
+.browsing-list-item-listing-shape-value {
   font-size: em(32);
   line-height: 1;
   font-weight: 400;
 }
 
 .home-list-price-quantity,
-.browsing-list-item__price-quantity {
+.browsing-list-item-price-quantity {
   @include ellipsis;
 }
 
@@ -448,7 +448,7 @@ $home-list-avatar-padding: lines(0.25);
   }
 }
 
-.browsing-list-item__image-container {
+.browsing-list-item-image-container {
   position: absolute;
   width: $home-list-image-size-mobile;
   height: $home-list-image-size-mobile;
@@ -459,21 +459,21 @@ $home-list-avatar-padding: lines(0.25);
   }
 }
 
-.browsing-list-item__image-desktop {
+.browsing-list-item-image-desktop {
   display: none;
   @include media(tablet) {
     display: block;
   }
 }
 
-.browsing-list-item__image-mobile {
+.browsing-list-item-image-mobile {
   display: block;
   @include media(tablet) {
     display: none;
   }
 }
 
-.browsing-list-item__details {
+.browsing-list-item-details {
   height: 100%;
   min-height: $home-list-image-size-mobile;
   padding-bottom: 40px;
@@ -486,7 +486,7 @@ $home-list-avatar-padding: lines(0.25);
   }
 }
 
-.browsing-list-item__details-right {
+.browsing-list-item-details-right {
   width: 142px;
   float: right;
   display: none;
@@ -496,7 +496,7 @@ $home-list-avatar-padding: lines(0.25);
   }
 }
 
-.browsing-list-item__details-container {
+.browsing-list-item-details-container {
   margin-left: $image-padding;
 
   @include media(tablet) {
@@ -504,7 +504,7 @@ $home-list-avatar-padding: lines(0.25);
   }
 }
 
-.browsing-list-item__distance {
+.browsing-list-item-distance {
   @include small-type;
 
   @include media(tablet) {
@@ -512,7 +512,7 @@ $home-list-avatar-padding: lines(0.25);
   }
 }
 
-.browsing-list-item__author {
+.browsing-list-item-author {
   vertical-align: top;
   position: absolute;
   left: 0px;
