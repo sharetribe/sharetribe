@@ -102,6 +102,14 @@
 		 */
 		this.tapTimeout = options.tapTimeout || 700;
 
+		/**
+		 * A node to exclude based on className. Alternative to manually applying needsclick.
+		 * This is a patch. https://github.com/ftlabs/fastclick/pull/347
+		 *
+		 * @type string
+		 */
+		this.excludeNode = options.excludeNode || null;
+
 		if (FastClick.notNeeded(layer)) {
 			return;
 		}
@@ -250,7 +258,9 @@
 			return true;
 		}
 
-		return (/\bneedsclick\b/).test(target.className);
+		// This is a patched version from https://github.com/ftlabs/fastclick/pull/347/files
+		// original: return (/\bneedsclick\b/).test(target.className);
+		return ((/\bneedsclick\b/).test(target.className) || (new RegExp(this.excludeNode).test(target.className)));
 	};
 
 
