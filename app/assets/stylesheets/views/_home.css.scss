@@ -518,3 +518,12 @@ $home-list-avatar-padding: lines(0.25);
   left: 0px;
   bottom: 0;
 }
+
+//////////////////////////////////////////////////
+// Fix for fastclick & google autocomplete bug  //
+// https://github.com/ftlabs/fastclick/pull/347 //
+//////////////////////////////////////////////////
+
+.pac-item span {
+  pointer-events: none;
+}
