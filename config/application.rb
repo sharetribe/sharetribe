@@ -21,6 +21,8 @@ module Kassi
 
     # Load all rack middleware files
     config.autoload_paths += %W(#{config.root}/lib/rack_middleware)
+    # Load all custom strategies
+    config.autoload_paths += %W(#{config.root}/lib/strategies)
 
     # Load models from subdirectories too
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '**/')]

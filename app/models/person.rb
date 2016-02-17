@@ -62,14 +62,15 @@ class Person < ActiveRecord::Base
 
   include ErrorsHelper
   include ApplicationHelper
+  include Devise::Models::DatabaseAuthenticatable
 
   self.primary_key = "id"
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable,
-         :omniauthable
+  devise :registerable, :recoverable,
+         :rememberable, :trackable,
+         :omniauthable, :community_authenticatable
 
   if APP_CONFIG.use_asi_encryptor
     require Rails.root.join('lib', 'devise', 'encryptors', 'asi')
@@ -194,24 +195,6 @@ class Person < ActiveRecord::Base
       emails.each do |email|
         email.update_attribute(:send_notifications, email_ids.include?(email.id.to_s))
       end
-    end
-  end
-
-  # Override Devise's authentication finder method to allow log in with username OR email
-  def self.find_for_database_authentication(warden_conditions)
-    conditions = warden_conditions.dup
-    if login = conditions.delete(:login)
-
-      matched = where(conditions).where(username: login.downcase).first
-
-      if matched
-        return matched
-      else
-        e = Email.find_by_address(login.downcase)
-        return e.person if e
-      end
-    else
-      where(conditions).first
     end
   end
 
