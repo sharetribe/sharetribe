@@ -30,8 +30,6 @@ module JWTUtils
   def decode(token, secret, claims = {})
     ensure_secret!(secret)
 
-    str_claims = HashUtils.stringify_keys(claims)
-
     decode_opts = {
       verify_expiration: true, # always verify expiration
       verify_sub: true,
@@ -39,7 +37,7 @@ module JWTUtils
     }
 
     begin
-      decoded = JWT.decode(token, secret, true, decode_opts.merge(str_claims)).first || {}
+      decoded = JWT.decode(token, secret, true, decode_opts.merge(claims)).first || {}
       success(decoded["data"])
     rescue JWT::VerificationError
       failure(:verification_error)
