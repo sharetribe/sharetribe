@@ -585,9 +585,7 @@ it:
       paypal_fee_info: "* Esclusi i <a id='%{fee_info_link_id}' href='#'>costi di transazione di PayPal</a>"
       shipping_price_label: ~
     confirm:
-      confirm_description: |-
-          Se il tuoordine è stato completato, dovresti confermarla.
-          Successivamente puoi dare il tuo feedback all'altra parte.
+      confirm_description: "Se il tuo ordine è stato completato, dovresti confermarlo. Successivamente puoi dare il tuo feedback all'altra parte."
       cancel_description: ~
       cancel_payed_description: "Se la tua richiesta è stata accettata ma ci stai ripensando, puoi ancora cancellare la richiesta prima del pagamento."
       canceling_payed_transaction: "Cancella la transazione"
@@ -625,7 +623,7 @@ it:
       accepted_offer: "Offerta accettata"
       rejected_request: "Richiesta respinta"
       rejected_offer: "Offerta respinta"
-      confirmed_request: ~
+      confirmed_request: "Ordine segnato come completo"
       confirmed_offer: "Offerta segnata come completata"
       canceled_request: "Ordine cancellato"
       canceled_offer: "Offerta cancellata"
@@ -707,7 +705,7 @@ it:
           verify: "Non puoi accettare questa transazione in quanto il tuo conto PayPal non è stato ancora verificato. Apri %{paypal_url} per verificare il tuo conto."
           intl: "Non siamo stati in grado di processare il pagamento PayPal in quanto il tuo conto PayPal non ha abilitato un meccanismo di prelievo. Apri %{paypal_url} e accedi al tuo conto per accettare o rifiutare manualmente il pagamento."
       waiting_for_current_user_to_deliver_listing: "In attesa che tu esegua l'ordine ricevuto per %{listing_title}"
-      waiting_for_listing_author_to_deliver_listing: ~
+      waiting_for_listing_author_to_deliver_listing: "In attesa che %{listing_author_name} proceda al completamento dell'ordine per %{listing_title}"
       request_accepted: accettata
       request_rejected: rifiutata
       request_confirmed: Completato
@@ -906,7 +904,7 @@ it:
       you_have_a_new_message: "Un nuovo messaggio in %{service_name} da %{sender_name}"
     new_payment:
       new_payment: "Hai ricevuto un nuovo pagamento"
-      price_per_unit_type: ~
+      price_per_unit_type: "Prezzo per %{unit_type}"
       quantity: ~
       you_have_received_new_payment: "Hai ricevuto <b>%{payment_sum}</b> per <b>%{listing_title}</b> da %{payer_full_name}. Ecco la tua ricevuta."
     paypal_new_payment:
@@ -922,7 +920,7 @@ it:
       receipt_of_payment: "Ricevuta di pagamento"
       you_have_made_new_payment: "Hai pagato <b>%{payment_sum}</b> per <b>%{listing_title}</b> a %{recipient_full_name}. Ecco la ricevuta del pagamento."
       product: Prodotto
-      price_per_unit_type: ~
+      price_per_unit_type: "Prezzo per %{unit_type}"
       duration: "Periodo:"
       quantity: ~
       subtotal: "Subtotale:"
@@ -2128,7 +2126,7 @@ it:
       quantity: ~
       subtotal: "Subtotale:"
       shipping-price: ~
-    price_per_quantity: ~
+    price_per_quantity: "Prezzo per %{unit_type}"
     price: ~
     quantity: ~
     unit_price: ~
