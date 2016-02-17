@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209183917) do
+ActiveRecord::Schema.define(version: 20160216084624) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -396,7 +396,7 @@ ActiveRecord::Schema.define(version: 20160209183917) do
     t.boolean  "send_notifications"
   end
 
-  add_index "emails", ["address"], name: "index_emails_on_address", unique: true, using: :btree
+  add_index "emails", ["address"], name: "index_emails_on_address", using: :btree
   add_index "emails", ["person_id"], name: "index_emails_on_person_id", using: :btree
 
   create_table "feature_flags", force: :cascade do |t|
@@ -896,7 +896,7 @@ ActiveRecord::Schema.define(version: 20160209183917) do
   add_index "people", ["facebook_id"], name: "index_people_on_facebook_id", unique: true, using: :btree
   add_index "people", ["id"], name: "index_people_on_id", using: :btree
   add_index "people", ["reset_password_token"], name: "index_people_on_reset_password_token", unique: true, using: :btree
-  add_index "people", ["username"], name: "index_people_on_username", unique: true, using: :btree
+  add_index "people", ["username"], name: "index_people_on_username", using: :btree
 
   create_table "prospect_emails", force: :cascade do |t|
     t.string   "email",      limit: 255
