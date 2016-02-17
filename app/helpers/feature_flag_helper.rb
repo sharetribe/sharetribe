@@ -16,4 +16,8 @@ module FeatureFlagHelper
     feature_enabled?(:new_search) || APP_CONFIG.external_search_in_use ? :zappy : :sphinx
   end
 
+  def location_search_available
+    feature_enabled?(:location_search) && search_engine == :zappy
+  end
+
 end

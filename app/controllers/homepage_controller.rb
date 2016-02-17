@@ -51,8 +51,8 @@ class HomepageController < ApplicationController
         raise ArgumentError.new("Unknown view_type #{@view_type}")
       end
 
-    main_search = (feature_enabled?(:location_search) && search_engine == :zappy) ? MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:main_search] : :keyword
-    location_search_in_use = (feature_enabled?(:location_search) && search_engine == :zappy && main_search == :location)
+    main_search = location_search_available ? MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:main_search] : :keyword
+    location_search_in_use = location_search_available && main_search == :location
 
     search_result = find_listings(params, per_page, compact_filter_params, includes.to_set)
 

@@ -181,7 +181,7 @@ class Admin::CommunitiesController < ApplicationController
     @selected_left_navi_link = "admin_settings"
 
     # When feature flag is removed, make this pretty
-    if(feature_enabled?(:location_search) && search_engine == :zappy)
+    if(location_search_available)
       marketplace_configurations = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data
 
       main_search_select_options = [:keyword, :location]
@@ -292,7 +292,7 @@ class Admin::CommunitiesController < ApplicationController
 
     maybe_update_payment_settings(@current_community.id, params[:community][:automatic_confirmation_after_days])
 
-    if(feature_enabled?(:location_search) && search_engine == :zappy)
+    if(location_search_available)
        MarketplaceService::API::Api.configurations.update({
         community_id: @current_community.id,
         main_search: params[:main_search],
