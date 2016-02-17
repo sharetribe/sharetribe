@@ -14,7 +14,7 @@
 #
 # Indexes
 #
-#  index_emails_on_address    (address) UNIQUE
+#  index_emails_on_address    (address)
 #  index_emails_on_person_id  (person_id)
 #
 
