@@ -206,7 +206,6 @@ ActiveRecord::Schema.define(version: 20160322103156) do
     t.datetime "favicon_updated_at"
     t.integer  "default_min_days_between_community_updates", limit: 4,     default: 7
     t.boolean  "listing_location_required",                                default: false
-    t.text     "custom_head_script",                         limit: 65535
     t.boolean  "follow_in_use",                                            default: true,                      null: false
     t.boolean  "logo_processing"
     t.boolean  "wide_logo_processing"
@@ -216,6 +215,7 @@ ActiveRecord::Schema.define(version: 20160322103156) do
     t.string   "dv_test_file_name",                          limit: 64
     t.string   "dv_test_file",                               limit: 64
     t.boolean  "deleted"
+    t.text     "custom_head_script",                         limit: 65535
   end
 
   add_index "communities", ["domain"], name: "index_communities_on_domain", using: :btree
@@ -397,7 +397,7 @@ ActiveRecord::Schema.define(version: 20160322103156) do
     t.boolean  "send_notifications"
   end
 
-  add_index "emails", ["address"], name: "index_emails_on_address", unique: true, using: :btree
+  add_index "emails", ["address"], name: "index_emails_on_address", using: :btree
   add_index "emails", ["person_id"], name: "index_emails_on_person_id", using: :btree
 
   create_table "feature_flags", force: :cascade do |t|
@@ -895,10 +895,10 @@ ActiveRecord::Schema.define(version: 20160322103156) do
 
   add_index "people", ["authentication_token"], name: "index_people_on_authentication_token", using: :btree
   add_index "people", ["email"], name: "index_people_on_email", unique: true, using: :btree
-  add_index "people", ["facebook_id"], name: "index_people_on_facebook_id", unique: true, using: :btree
+  add_index "people", ["facebook_id"], name: "index_people_on_facebook_id", using: :btree
   add_index "people", ["id"], name: "index_people_on_id", using: :btree
   add_index "people", ["reset_password_token"], name: "index_people_on_reset_password_token", unique: true, using: :btree
-  add_index "people", ["username"], name: "index_people_on_username", unique: true, using: :btree
+  add_index "people", ["username"], name: "index_people_on_username", using: :btree
 
   create_table "prospect_emails", force: :cascade do |t|
     t.string   "email",      limit: 255
