@@ -48,7 +48,7 @@ class TransactionsController < ApplicationController
       end
     }.on_error { |error_msg, data|
       flash[:error] = Maybe(data)[:error_tr_key].map { |tr_key| t(tr_key) }.or_else("Could not start a transaction, error message: #{error_msg}")
-      redirect_to (session[:return_to_content] || root)
+      redirect_to(session[:return_to_content] || root)
     }
   end
 
@@ -95,7 +95,7 @@ class TransactionsController < ApplicationController
       redirect_to after_create_redirect(process: process, starter_id: @current_user.id, transaction: tx[:transaction]) # add more params here when needed
     }.on_error { |error_msg, data|
       flash[:error] = Maybe(data)[:error_tr_key].map { |tr_key| t(tr_key) }.or_else("Could not start a transaction, error message: #{error_msg}")
-      redirect_to (session[:return_to_content] || root)
+      redirect_to(session[:return_to_content] || root)
     }
   end
 
@@ -133,7 +133,7 @@ class TransactionsController < ApplicationController
     conversation = transaction_conversation[:conversation]
     listing = Listing.where(id: tx[:listing_id]).first
 
-    messages_and_actions = TransactionViewUtils::merge_messages_and_transitions(
+    messages_and_actions = TransactionViewUtils.merge_messages_and_transitions(
       TransactionViewUtils.conversation_messages(conversation[:messages], @current_community.name_display_type),
       TransactionViewUtils.transition_messages(transaction_conversation, conversation, @current_community.name_display_type))
 
@@ -196,8 +196,6 @@ class TransactionsController < ApplicationController
        "layouts.notifications.you_cannot_send_message_to_yourself"
       elsif !listing_model.visible_to?(current_user, current_community)
         "layouts.notifications.you_are_not_authorized_to_view_this_content"
-      else
-        nil
       end
 
     if error
@@ -240,6 +238,7 @@ class TransactionsController < ApplicationController
       raise NotImplementedError.new("Not implemented for process #{process}")
     end
   end
+
   # Fetch all related data based on the listing_id
   #
   # Returns: Result::Success([listing_id, listing_model, author, process, gateway])
@@ -253,11 +252,11 @@ class TransactionsController < ApplicationController
           Result::Success.new(listing_id)
         end
       },
-      ->(listing_id) {
+      ->(l_id) {
         # TODO Do not use Models directly. The data should come from the APIs
-        Maybe(@current_community.listings.where(id: listing_id).first)
+        Maybe(@current_community.listings.where(id: l_id).first)
           .map     { |listing_model| Result::Success.new(listing_model) }
-          .or_else { Result::Error.new("Cannot find listing with id #{listing_id}") }
+          .or_else { Result::Error.new("Cannot find listing with id #{l_id}") }
       },
       ->(_, listing_model) {
         # TODO Do not use Models directly. The data should come from the APIs
@@ -268,7 +267,7 @@ class TransactionsController < ApplicationController
       },
       ->(*) {
         Result::Success.new(MarketplaceService::Community::Query.payment_type(@current_community.id))
-      },
+      }
     )
   end
 
@@ -329,10 +328,10 @@ class TransactionsController < ApplicationController
     quantity = Maybe(booking ? DateUtils.duration_days(booking_start, booking_end) : TransactionViewUtils.parse_quantity(params[:quantity])).or_else(1)
     total_label = t("transactions.price")
 
-    m_price_break_down = Maybe(listing_model).select { |listing_model| listing_model.price.present? }.map { |listing_model|
+    m_price_break_down = Maybe(listing_model).select { |l_model| l_model.price.present? }.map { |l_model|
       TransactionViewUtils.price_break_down_locals(
         {
-          listing_price: listing_model.price,
+          listing_price: l_model.price,
           localized_unit_type: unit_type,
           localized_selector_label: localized_selector_label,
           booking: booking,
@@ -340,8 +339,8 @@ class TransactionsController < ApplicationController
           end_on: booking_end,
           duration: duration,
           quantity: quantity,
-          subtotal: quantity != 1 ? listing_model.price * quantity : nil,
-          total: listing_model.price * quantity,
+          subtotal: quantity != 1 ? l_model.price * quantity : nil,
+          total: l_model.price * quantity,
           shipping_price: nil,
           total_label: total_label
         })

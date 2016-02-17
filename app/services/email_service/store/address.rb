@@ -41,7 +41,7 @@ module EmailService::Store::Address
       .first)
   end
 
-  def load_all(limit: limit, offset: offset)
+  def load_all(limit:, offset:)
     MarketplaceSenderEmail
       .limit(limit)
       .offset(offset)
@@ -56,7 +56,7 @@ module EmailService::Store::Address
     from_model(MarketplaceSenderEmail.create!(HashUtils.compact(address)))
   end
 
-  def set_verification_requested(community_id: community_id, id: id)
+  def set_verification_requested(community_id:, id:)
     Maybe(MarketplaceSenderEmail.where(community_id: community_id, id: id).first)
       .update_attributes(
         verification_requested_at: Time.now,
@@ -64,14 +64,14 @@ module EmailService::Store::Address
       .or_else(nil)
   end
 
-  def set_verification_status(ids: ids, status: status)
+  def set_verification_status(ids:, status:)
     if ids.present?
       MarketplaceSenderEmail.where(id: ids)
         .update_all(verification_status: status, updated_at: Time.now)
     end
   end
 
-  def touch(ids: ids)
+  def touch(ids:)
     if ids.present?
       MarketplaceSenderEmail.where(id: ids)
         .update_all(updated_at: Time.now)

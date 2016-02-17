@@ -1,6 +1,7 @@
 module TransactionService::PaypalEvents
 
   TransactionStore = TransactionService::Store::Transaction
+
   module_function
 
   # Public event API
@@ -12,7 +13,7 @@ module TransactionService::PaypalEvents
 
   def payment_updated(flow, payment)
     tx = MarketplaceService::Transaction::Query.transaction(payment[:transaction_id])
-    if (tx)
+    if tx
       case transition_type(tx, payment)
       when :initiated_to_preauthorized
         initiated_to_preauthorized(tx)
@@ -31,8 +32,6 @@ module TransactionService::PaypalEvents
         preauthorized_to_rejected(tx, payment[:payment_status])
       when :pending_ext_to_denied
         pending_ext_to_denied(tx, payment[:payment_status])
-      else
-        # No handler yet, should log but how to get a logger?
       end
     end
   end
@@ -73,7 +72,7 @@ module TransactionService::PaypalEvents
     pending_reason = payment[:pending_reason]
     tx_state = tx[:status].to_sym
 
-    transition_key, _ = first_matching_transition(TRANSITIONS, [tx_state, payment_status, pending_reason])
+    transition_key, = first_matching_transition(TRANSITIONS, [tx_state, payment_status, pending_reason])
     Maybe(transition_key).or_else(:unknown_transition)
   end
 

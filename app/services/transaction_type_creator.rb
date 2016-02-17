@@ -107,20 +107,22 @@ module TransactionTypeCreator
     # Save name & action_button_label to TranslationService
     translations = TRANSLATIONS[transaction_type_class_name]
     name_group =
-      { translations: community.locales.map { |locale|
+      {
+        translations: community.locales.map do |locale|
           {
             locale: locale,
             translation: I18n.t(translations[:translation_key], :locale => locale.to_sym)
           }
-        }
+        end
       }
     action_button_group =
-      { translations: community.locales.map { |locale|
+      {
+        translations: community.locales.map do |locale|
           {
             locale: locale,
             translation: I18n.t(translations[:action_button_translation_key], :locale => locale.to_sym)
           }
-        }
+        end
       }
     created_translations = TranslationService::API::Api.translations.create(community.id, [name_group, action_button_group])
     name_tr_key, action_button_tr_key = created_translations[:data].map { |translation| translation[:translation_key] }

@@ -266,7 +266,7 @@ module PaypalService::API
           community_id: community_id,
           person_id: person_id,
           order_permission_request_token: order_permission_request_token,
-          order_permission_onboarding_id: order_permission_onboarding_id,
+          order_permission_onboarding_id: order_permission_onboarding_id
         )
 
         # Update the 'existing' account

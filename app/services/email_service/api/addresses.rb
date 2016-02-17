@@ -116,9 +116,7 @@ module EmailService::API
     def valid_email_format?(email)
       if email
         email_regexp =
-          /\A[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]+\z/i # This is the same
-                                                            # regexp that is used
-                                                            # in Email model
+          %r{\A[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]+\z}i # Same regexp as in Email model
         email_regexp.match(email).present? ? Result::Success.new() : Result::Error.new("invalid email format")
       else
         Result::Error.new("No email address")

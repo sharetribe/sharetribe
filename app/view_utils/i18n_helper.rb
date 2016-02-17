@@ -9,8 +9,6 @@ module I18nHelper
 
     if locale && locale[:language].present? && locale[:region].present?
       "#{locale[:language].downcase}_#{locale[:region].upcase}"
-    else
-      nil
     end
   end
 

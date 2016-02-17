@@ -58,16 +58,30 @@ module MarketplaceRouter
       [:protocol, :string, :optional],
       [:route_name, :symbol, :optional],
 
-      [:status, :symbol, :mandatory],
+      [:status, :symbol, :mandatory]
     )
 
     module_function
 
-    def create_request(opts); Request.call(opts) end
-    def create_community(opts); Community.call(opts) end
-    def create_paths(opts); Paths.call(opts) end
-    def create_configs(opts); Configs.call(opts) end
-    def create_other(opts); Other.call(opts) end
+    def create_request(opts)
+      Request.call(opts)
+    end
+
+    def create_community(opts)
+      Community.call(opts)
+    end
+
+    def create_paths(opts)
+      Paths.call(opts)
+    end
+
+    def create_configs(opts)
+      Configs.call(opts)
+    end
+
+    def create_other(opts)
+      Other.call(opts)
+    end
   end
 
   module_function
@@ -85,7 +99,7 @@ module MarketplaceRouter
       other:                   DataTypes.create_other(other),
       protocol:                new_protocol,
       protocol_needs_redirect: protocol_needs_redirect,
-      is_domain_verification:  is_domain_verification,
+      is_domain_verification:  is_domain_verification
     )
 
     block.call(target) if target
@@ -140,10 +154,7 @@ module MarketplaceRouter
         # Needs protocol redirect (to https)
         # -> Redirect to https
         {url: "#{protocol}://#{request[:host]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
-      else
-        # no need to redirect
-        nil
-      end
+            end
 
     # If protocol redirect is needed, the status is always :moved_permanently
     Maybe(target)

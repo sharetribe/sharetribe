@@ -7,7 +7,7 @@ module FeatureFlagService::API
     end
 
     def enable(community_id:, features:)
-      if (features.blank?)
+      if features.blank?
         return Result::Error.new("You must specify one or more flags in #{@feature_flag_store.known_flags} to enable.")
       end
 
@@ -15,7 +15,7 @@ module FeatureFlagService::API
     end
 
     def disable(community_id:, features:)
-      if (features.blank?)
+      if features.blank?
         return Result::Error.new("You must specify one or more flags in #{@feature_flag_store.known_flags} to disable.")
       end
 

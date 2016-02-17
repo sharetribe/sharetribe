@@ -8,7 +8,7 @@ module UserService::API
       user = create_user(user_hash, community_id)
 
       # The first member will be made admin
-      MarketplaceService::API::Memberships::make_user_a_member_of_community(user[:id], community_id, invitation_id)
+      MarketplaceService::API::Memberships.make_user_a_member_of_community(user[:id], community_id, invitation_id)
 
       email = Email.find_by_person_id!(user[:id])
       community = Community.find(community_id)
@@ -106,13 +106,13 @@ module UserService::API
     def from_model(person)
       hash = HashUtils.compact(
         EntityUtils.model_to_hash(person).merge({
-          # This is a spot to modify hash contents if needed
+            # This is a spot to modify hash contents if needed
           }))
-      return UserService::API::DataTypes::create_user(hash)
+      return UserService::API::DataTypes.create_user(hash)
     end
 
     def generate_username(given_name:, family_name:)
-      base = (given_name.strip + family_name.strip[0]).to_url.gsub(/-/, "")[0...18]
+      base = (given_name.strip + family_name.strip[0]).to_url.delete('-')[0...18]
       gen_free_name(base, fetch_blacklist(base))
     end
 
@@ -122,7 +122,7 @@ module UserService::API
           .or_else(Maybe(given_name).strip.or_else("") + Maybe(family_name).strip()[0].or_else(""))
         )
         .to_url
-        .gsub(/-/, "")
+        .delete('-')
         .or_else("fb_name_missing")[0...18]
 
       gen_free_name(base, fetch_blacklist(base))

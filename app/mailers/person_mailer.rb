@@ -401,10 +401,10 @@ class PersonMailer < ActionMailer::Base
       @url_params.freeze # to avoid accidental modifications later
       @test_email = test_email
 
-      if @recipient.has_admin_rights_in?(community) && !@test_email
-        subject = t("emails.welcome_email.welcome_email_subject_for_marketplace_creator")
+      subject = if @recipient.has_admin_rights_in?(community) && !@test_email
+        t("emails.welcome_email.welcome_email_subject_for_marketplace_creator")
       else
-        subject = t("emails.welcome_email.welcome_email_subject", :community => community.full_name(recipient.locale), :person => person.given_name_or_username)
+        t("emails.welcome_email.welcome_email_subject", :community => community.full_name(recipient.locale), :person => person.given_name_or_username)
       end
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),

@@ -34,7 +34,7 @@ module TransactionService::Gateway
         create_payment_info,
         async: prefer_async)
 
-      if !result[:success]
+      unless result[:success]
         return SyncCompletion.new(result)
       end
 
@@ -56,7 +56,8 @@ module TransactionService::Gateway
           paypal_api.payments.full_capture(
             tx[:community_id],
             tx[:id],
-            DataTypes.create_payment_info({ payment_total: payment[:authorization_total] }))})
+            DataTypes.create_payment_info({ payment_total: payment[:authorization_total] }))
+        })
     end
 
     def get_payment_details(tx:)

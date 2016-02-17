@@ -1,4 +1,4 @@
-inherit_from: rubocop-todo.yml
+inherit_from: .rubocop_todo.yml
 
 # Double negation is the most convenient way in Ruby to convert any value to boolean. Allow the use of it.
 DoubleNegation:
@@ -11,3 +11,4 @@ AllCops:
   Exclude:
     - 'db/**/*'
     - 'config/**/*'
+  TargetRubyVersion: 2.1

@@ -11,12 +11,12 @@ module ListingService::API
         include_categories: include_categories
       }
 
-      validate_find_opts(find_opts, unique_result_required: false).and_then { |find_opts|
-        if find_opts[:listing_shape_id] || find_opts[:name]
-          Maybe(ShapeStore.get(find_opts)).map { |shape|
+      validate_find_opts(find_opts, unique_result_required: false).and_then { |f_opts|
+        if f_opts[:listing_shape_id] || f_opts[:name]
+          Maybe(ShapeStore.get(f_opts)).map { |shape|
             Result::Success.new(shape)
           }.or_else {
-            Result::Error.new("Cannot find listing shape for #{find_opts}")
+            Result::Error.new("Cannot find listing shape for #{f_opts}")
           }
         else
           Result::Success.new(ShapeStore.get_all(community_id: community_id, include_categories: include_categories))
@@ -38,11 +38,11 @@ module ListingService::API
         name: name
       }
 
-      validate_find_opts(find_opts, unique_result_required: true).and_then { |find_opts|
-        Maybe(ShapeStore.update(find_opts.merge(opts: opts))).map { |shape|
+      validate_find_opts(find_opts, unique_result_required: true).and_then { |f_opts|
+        Maybe(ShapeStore.update(f_opts.merge(opts: opts))).map { |shape|
           Result::Success.new(shape)
         }.or_else {
-          Result::Error.new("Cannot find listing shape for #{find_opts}")
+          Result::Error.new("Cannot find listing shape for #{f_opts}")
         }
       }
     end
@@ -54,11 +54,11 @@ module ListingService::API
         name: name
       }
 
-      validate_find_opts(find_opts, unique_result_required: true).and_then { |find_opts|
-        Maybe(ShapeStore.delete(find_opts)).map { |shape|
+      validate_find_opts(find_opts, unique_result_required: true).and_then { |f_opts|
+        Maybe(ShapeStore.delete(f_opts)).map { |shape|
           Result::Success.new(shape)
         }.or_else {
-          Result::Error.new("Cannot find listing shape for #{find_opts}")
+          Result::Error.new("Cannot find listing shape for #{f_opts}")
         }
       }
     end

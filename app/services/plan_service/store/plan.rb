@@ -16,7 +16,7 @@ module PlanService::Store::Plan
 
   NewTrialPlan = EntityUtils.define_builder(
     [:community_id, :fixnum, :mandatory],
-    [:expires_at, :time],
+    [:expires_at, :time]
   )
 
   Plan = PlanService::DataTypes::Plan

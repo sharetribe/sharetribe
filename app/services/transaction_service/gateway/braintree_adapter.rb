@@ -22,7 +22,7 @@ module TransactionService::Gateway
 
       result = BraintreeSaleService.new(payment, gateway_fields).pay(false)
 
-      if !result.success?
+      unless result.success?
         SyncCompletion.new(Result::Error.new(result.message))
       end
 
@@ -32,7 +32,7 @@ module TransactionService::Gateway
     def reject_payment(tx:, reason: nil)
       result = BraintreeService::Payments::Command.void_transaction(tx[:id], tx[:community_id])
 
-      if !result.success?
+      unless result.success?
         SyncCompletion.new(Result::Error.new(result.message))
       end
 
@@ -42,7 +42,7 @@ module TransactionService::Gateway
     def complete_preauthorization(tx:)
       result = BraintreeService::Payments::Command.submit_to_settlement(tx[:id], tx[:community_id])
 
-      if !result.success?
+      unless result.success?
         SyncCompletion.new(Result::Error.new(result.message))
       end
 

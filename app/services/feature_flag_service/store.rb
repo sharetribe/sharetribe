@@ -73,7 +73,9 @@ module FeatureFlagService::Store
       @feature_flag_store = FeatureFlag.new(additional_flags: additional_flags)
     end
 
-    def known_flags; @feature_flag_store.known_flags end
+    def known_flags
+      @feature_flag_store.known_flags
+    end
 
     def get(community_id)
       Rails.cache.fetch(cache_key(community_id)) do
