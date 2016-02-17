@@ -1179,6 +1179,7 @@ it:
     list_item:
       review: recensione
       reviews: recensioni
+      distance_away: ~
     news_item:
       show_less: "Mostra di meno"
       show_more: "Mostra di più"
@@ -1801,6 +1802,9 @@ it:
       email_is_in_use: "L'email che hai fornito è già utilizzata."
       email_is_in_use_or_not_allowed: "Questa email non è valida per accedere a questa comunità o è già in uso. Per favore utilizza un indirizzo email che è associato con questa comunità (leggi le istruzioni qui sopra). Se ancora non ti è possibile accedere, inviaci un'email."
       email_not_allowed: ~
+      email_restriction_instructions:
+        one: "L'accesso a %{service_name} è ristretto. per unirti hai bisogno di un %{allowed_emails}"
+        other: "L'accesso a %{service_name} è ristretto. Per unirti hai bisogno di un indirizzo email titolato ad un irti."
       family_name: Cognome
       given_name: Nome
       i_accept_the: "Accetto i"
@@ -1820,9 +1824,6 @@ it:
       create_account_with_facebook: "Crea un account tramite Facebook"
       OR: O
       signup_with_email: "Iscriviti con l'indirizzo e-mail"
-      email_restriction_instructions:
-        one: "L'accesso a %{service_name} è ristretto. per unirti hai bisogno di un %{allowed_emails}"
-        other: "L'accesso a %{service_name} è ristretto. Per unirti hai bisogno di un indirizzo email titolato ad un irti."
     not_member:
       explanation_text: "Sei all'interno della comunità %{community}. Hai provato a visionare il profilo che appartiene ad un'altra comunità di Sharetribe. Non puoi accedere al profilo attraverso la comunità %{community}."
       read_more_about_kassi_communities: "Leggi altre informazioni sui marketplace Sharetribe"

@@ -1206,6 +1206,7 @@ fr:
     list_item:
       review: avis
       reviews: avis
+      distance_away: "à %{distance} %{distance_unit}"
     news_item:
       show_less: Réduire
       show_more: Développer
