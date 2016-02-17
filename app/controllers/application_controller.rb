@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
     :set_homepage_path,
     :report_queue_size,
     :maintenance_warning
-  before_filter :cannot_access_without_joining, :except => [ :confirmation_pending, :check_email_availability]
+  before_filter :cannot_access_if_banned, :except => [ :confirmation_pending, :check_email_availability]
   before_filter :can_access_only_organizations_communities
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
 
@@ -205,6 +205,10 @@ class ApplicationController < ActionController::Base
   def fetch_community
     @current_community = ApplicationController.find_community(community_identifiers)
 
+    # Save current community id in request env to be used
+    # by Devise and our custom community authenticatable strategy
+    request.env[:community_id] = @current_community.id
+
     m_community = Maybe(@current_community)
     setup_logger!(marketplace_id: m_community.id.or_else(nil), marketplace_ident: m_community.ident.or_else(nil))
 
@@ -326,19 +330,12 @@ class ApplicationController < ActionController::Base
   end
 
   # Before filter to direct a logged-in non-member to join tribe form
-  def cannot_access_without_joining
-    if @current_user && ! (@current_community_membership || @current_user.is_admin?)
-
+  def cannot_access_if_banned
       # Check if banned
-      if @current_community && @current_user && @current_user.banned_at?(@current_community)
+      if @current_user && @current_user.banned_at?(@current_community)
         flash.keep
         redirect_to access_denied_tribe_memberships_path and return
       end
-
-      session[:invitation_code] = params[:code] if params[:code]
-      flash.keep
-      redirect_to new_tribe_membership_path
-    end
   end
 
   def can_access_only_organizations_communities

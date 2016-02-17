@@ -20,7 +20,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-
     session[:form_login] = params[:person][:login]
 
     # Start a session with Devise
@@ -33,8 +32,9 @@ class SessionsController < ApplicationController
     # we need to tell Devise to call the action "sessions#new"
     # in case something goes bad.
     person = authenticate_person!(:recall => "sessions#new")
-    flash[:error] = nil
     @current_user = person
+
+    flash[:error] = nil
 
     # Store Facebook ID and picture if connecting with FB
     if session["devise.facebook_data"]
@@ -49,10 +49,7 @@ class SessionsController < ApplicationController
 
     session[:form_login] = nil
 
-    unless @current_user && (!@current_user.communities.include?(@current_community) || @current_community.consent.eql?(@current_user.consent(@current_community)) || @current_user.is_admin?)
-      # Either the user has succesfully logged in, but is not found in Sharetribe DB
-      # or the user is a member of this community but the terms of use have changed.
-
+    unless terms_accepted?(@current_user, @current_community) || @current_user.is_admin?
       sign_out @current_user
       session[:temp_cookie] = "pending acceptance of new terms"
       session[:temp_person_id] =  @current_user.id
@@ -63,21 +60,15 @@ class SessionsController < ApplicationController
 
     session[:person_id] = current_person.id
 
-    if not @current_community
-      redirect_to new_tribe_path
-    elsif @current_user.communities.include?(@current_community) || @current_user.is_admin?
-      flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(@current_user.given_name_or_username, person_path(@current_user))).html_safe
-      if session[:return_to]
-        redirect_to session[:return_to]
-        session[:return_to] = nil
-      elsif session[:return_to_content]
-        redirect_to session[:return_to_content]
-        session[:return_to_content] = nil
-      else
-        redirect_to root_path
-      end
+    flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(@current_user.given_name_or_username, person_path(@current_user))).html_safe
+    if session[:return_to]
+      redirect_to session[:return_to]
+      session[:return_to] = nil
+    elsif session[:return_to_content]
+      redirect_to session[:return_to_content]
+      session[:return_to_content] = nil
     else
-      redirect_to new_tribe_membership_path
+      redirect_to root_path
     end
   end
 
@@ -156,6 +147,12 @@ class SessionsController < ApplicationController
     if @current_user.blank?
       redirect_to root
     end
+  end
+
+  private
+
+  def terms_accepted?(user, community)
+    user && community.consent.eql?(user.consent(community))
   end
 
 end
