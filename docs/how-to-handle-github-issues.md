@@ -10,7 +10,7 @@ Does the report contain enough information to reproduce the issue?
 Can you reproduce the issue?
 
 - *Yes:* Add a label **bug**.
-- *No:* Close the issue.
+- *No:* Close the issue, unless you feel this does needs further investigation. Leave the issue open and ask for further feedback from others, if so.
 
 Is there an Issue with label **more information needed** and the issue reporter hasn't answered in two weeks?
 
