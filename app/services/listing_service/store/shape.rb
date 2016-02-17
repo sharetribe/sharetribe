@@ -60,7 +60,7 @@ module ListingService::Store::Shape
 
   module_function
 
-  def get(community_id:, listing_shape_id: nil, name: nil, include_categories: )
+  def get(community_id:, listing_shape_id: nil, name: nil, include_categories:)
     shape_model = find_shape_model(
       community_id: community_id,
       listing_shape_id: listing_shape_id,
@@ -231,7 +231,7 @@ module ListingService::Store::Shape
     current_name = base_name
 
     i = 1
-    while blacklist.include?(current_name) || shapes.find { |s| s[:name] == current_name }.present? do
+    while blacklist.include?(current_name) || shapes.find { |s| s[:name] == current_name }.present?
       current_name = "#{base_name}#{i}"
       i += 1
     end

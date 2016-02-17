@@ -4,8 +4,9 @@ module TranslationServiceHelper
 
   def community_translations_for_i18n_backend(translations)
     locale_groups = translations.group_by { |tr| tr[:locale] }
-    locale_groups.map { |(locale, translations)|
-      [locale.to_sym, translations.inject({}) { |memo, tr|
+    locale_groups.map { |(locale, ts)|
+      [locale.to_sym,
+       ts.inject({}) { |memo, tr|
          memo.tap { |m| m[tr[:translation_key]] = tr[:translation] }
        }]
     }
@@ -26,10 +27,10 @@ module TranslationServiceHelper
   # }
   #
   def tr_keys_to_form_values(entity:, locales:, key_map:)
-    form_values = key_map.reduce({}) { |form_values, (tr_key_prop, form_name)|
+    form_values = key_map.reduce({}) { |f_values, (tr_key_prop, form_name)|
       tr_key = entity[tr_key_prop]
-      form_values[form_name] = tr_key_to_form_value(tr_key, locales)
-      form_values
+      f_values[form_name] = tr_key_to_form_value(tr_key, locales)
+      f_values
     }
     entity.merge(form_values)
   end
@@ -91,10 +92,10 @@ module TranslationServiceHelper
   #   }
   def tr_key_to_form_value(tr_key, locales)
     locales.reduce({}) { |memo, locale|
-      if tr_key.nil?
-        memo[locale] = ""
+      memo[locale] = if tr_key.nil?
+        ""
       else
-        memo[locale] = I18n.translate(tr_key, locale: locale)
+        I18n.translate(tr_key, locale: locale)
       end
 
       memo

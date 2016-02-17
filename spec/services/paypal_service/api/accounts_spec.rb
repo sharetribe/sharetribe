@@ -118,7 +118,7 @@ describe PaypalService::API::Accounts do
     response = @accounts.billing_agreement_create(
       community_id: @cid,
       person_id: @mid,
-      billing_agreement_request_token: token,
+      billing_agreement_request_token: token
     )
   end
 

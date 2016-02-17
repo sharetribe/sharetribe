@@ -26,7 +26,8 @@ module ListingIndexService::API
           ListingIndexResult.call(
           count: res[:count],
           listings: res[:listings].map { |search_res|
-            search_res.merge(url: "#{search_res[:id]}-#{search_res[:title].to_url}")}))
+            search_res.merge(url: "#{search_res[:id]}-#{search_res[:title].to_url}")
+          }))
       }.or_else {
         raise search_result.data if raise_errors
         log_error(search_result, community_id)

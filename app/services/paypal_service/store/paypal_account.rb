@@ -335,7 +335,7 @@ module PaypalService::Store::PaypalAccount
           else
             :not_verified
           end
-        }.or_else(:not_verified)
+          }.or_else(:not_verified)
 
         hash[:billing_agreement_state] =
           Maybe(m).billing_agreement.map { |ba|
@@ -346,7 +346,7 @@ module PaypalService::Store::PaypalAccount
           else
             :not_verified
           end
-        }.or_else(:not_verified)
+          }.or_else(:not_verified)
 
         hash[:state] = account_state(hash)
 

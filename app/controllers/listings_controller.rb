@@ -68,7 +68,7 @@ class ListingsController < ApplicationController
               page: search[:page],
               per_page: search[:per_page]
             ))
-          }.data
+            }.data
 
           render :partial => "listings/profile_listings", :locals => {person: @person, limit: per_page, listings: listings}
         else
@@ -147,13 +147,13 @@ class ListingsController < ApplicationController
   def listing_bubble_multiple
     ids = numbers_str_to_array(params[:ids])
 
-    if @current_user || !@current_community.private?
-      @listings = @current_community.listings.where(listings: {id: ids}).order("listings.created_at DESC")
+    @listings = if @current_user || !@current_community.private?
+      @current_community.listings.where(listings: {id: ids}).order("listings.created_at DESC")
     else
-      @listings = []
+      []
     end
 
-    if @listings.size > 0
+    if !@listings.empty?
       render :partial => "homepage/listing_bubble_multiple"
     else
       render :partial => "bubble_listing_not_visible"
@@ -221,7 +221,7 @@ class ListingsController < ApplicationController
 
     @listing = Listing.new
 
-    if (@current_user.location != nil)
+    if !@current_user.location.nil?
       temp = @current_user.location
       @listing.build_origin_loc(temp.attributes)
     else
@@ -234,7 +234,7 @@ class ListingsController < ApplicationController
   def edit_form_content
     return redirect_to action: :edit unless request.xhr?
 
-    if !@listing.origin_loc
+    unless @listing.origin_loc
         @listing.build_origin_loc()
     end
 
@@ -264,7 +264,7 @@ class ListingsController < ApplicationController
         listing_shape_id: shape[:id],
         transaction_process_id: shape[:transaction_process_id],
         shape_name_tr_key: shape[:name_tr_key],
-        action_button_tr_key: shape[:action_button_tr_key],
+        action_button_tr_key: shape[:action_button_tr_key]
     ).merge(unit_to_listing_opts(m_unit)).except(:unit)
 
     @listing = Listing.new(listing_params)
@@ -308,7 +308,7 @@ class ListingsController < ApplicationController
 
   def edit
     @selected_tribe_navi_tab = "home"
-    if !@listing.origin_loc
+    unless @listing.origin_loc
         @listing.build_origin_loc()
     end
 
@@ -492,8 +492,6 @@ class ListingsController < ApplicationController
         always_show_additional_shipping_price: shape[:units].length == 1 && shape[:units].first[:kind] == :quantity,
         paypal_fees_url: PaypalCountryHelper.fee_link(community_country_code)
       })
-    else
-      nil
     end
   end
 
@@ -561,10 +559,10 @@ class ListingsController < ApplicationController
     category = Category.find_by_id(params["category"])
     category_label = (category.present? ? "(" + localized_category_label(category) + ")" : "")
 
-    if ["request","offer"].include? params['share_type']
-      listing_type_label = t("listings.index.#{params['share_type']+"s"}")
+    listing_type_label = if ["request","offer"].include? params['share_type']
+      t("listings.index.#{params['share_type']+"s"}")
     else
-      listing_type_label = t("listings.index.listings")
+      t("listings.index.listings")
     end
 
     t("listings.index.feed_title",
@@ -624,10 +622,10 @@ class ListingsController < ApplicationController
 
     unless @listing.visible_to?(@current_user, @current_community) || (@current_user && @current_user.has_admin_rights_in?(@current_community))
       if @current_user
-        if @listing.closed?
-          flash[:error] = t("layouts.notifications.listing_closed")
+        flash[:error] = if @listing.closed?
+          t("layouts.notifications.listing_closed")
         else
-          flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
+          t("layouts.notifications.you_are_not_authorized_to_view_this_content")
         end
         redirect_to root and return
       else
@@ -710,7 +708,7 @@ class ListingsController < ApplicationController
   end
 
   def is_answer_value_blank(value)
-    if value.kind_of?(Hash)
+    if value.is_a?(Hash)
       value["(3i)"].blank? || value["(2i)"].blank? || value["(1i)"].blank?  # DateFieldValue check
     else
       value.blank?
@@ -744,7 +742,7 @@ class ListingsController < ApplicationController
       when "shipping_price_additional"
         hash.merge(:shipping_price_additional_cents =>  MoneyUtil.parse_str_to_subunits(v, currency))
       else
-        hash.merge( k.to_sym => v )
+        hash.merge(k.to_sym => v)
       end
     end
   end

@@ -28,7 +28,7 @@ module CategoryViewUtils
   #     "id" => "id"
   #   }
   # ]
-  def category_tree(categories: categories, shapes: shapes, locale:, all_locales:)
+  def category_tree(categories:, shapes:, locale:, all_locales:)
     categories.map { |c|
       {
         id: c[:id],

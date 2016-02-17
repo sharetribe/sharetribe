@@ -10,10 +10,10 @@ class InfosController < ApplicationController
   def how_to_use
     @selected_tribe_navi_tab = "about"
     @selected_left_navi_link = "how_to_use"
-    if @community_customization && !@community_customization.how_to_use_page_content.nil?
-      content = @community_customization.how_to_use_page_content.html_safe
+    content = if @community_customization && !@community_customization.how_to_use_page_content.nil?
+      @community_customization.how_to_use_page_content.html_safe
     else
-      content = MarketplaceService::API::Marketplaces::Helper.how_to_use_page_default_content(I18n.locale, @current_community.name(I18n.locale))
+      MarketplaceService::API::Marketplaces::Helper.how_to_use_page_default_content(I18n.locale, @current_community.name(I18n.locale))
     end
     render locals: { how_to_use_content: content }
   end

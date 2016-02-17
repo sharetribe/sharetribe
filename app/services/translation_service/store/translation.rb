@@ -131,12 +131,12 @@ module TranslationService::Store::Translation
     def get_search_hash(community_id, translation_keys, locales)
       search_hash = { community_id: community_id }
 
-      if translation_keys.present? && translation_keys.kind_of?(Array)
-        search_hash.merge!(translation_keys: translation_keys)
+      if translation_keys.present? && translation_keys.is_a?(Array)
+        search_hash[:translation_keys] = translation_keys
       end
 
-      if locales.present? && locales.kind_of?(Array)
-        search_hash.merge!(locales: locales)
+      if locales.present? && locales.is_a?(Array)
+        search_hash[:locales] = locales
       end
       search_hash
     end
@@ -180,7 +180,7 @@ module TranslationService::Store::Translation
 
       fallback = Maybe(
         translations_with_key.find { |t|
-          if fallback_locale.present? then t[:locale] == fallback_locale else false end;
+          fallback_locale.present? ? t[:locale] == fallback_locale : false
         })
         .or_else(nil)
 

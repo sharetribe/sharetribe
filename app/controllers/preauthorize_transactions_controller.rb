@@ -43,8 +43,8 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def initiate
     delivery_method = valid_delivery_method(delivery_method_str: params[:delivery],
-                                             shipping: @listing.require_shipping_address,
-                                             pickup: @listing.pickup_enabled)
+                                            shipping: @listing.require_shipping_address,
+                                            pickup: @listing.pickup_enabled)
     if(delivery_method == :errored)
       return redirect_to error_not_found_path
     end
@@ -96,8 +96,8 @@ class PreauthorizeTransactionsController < ApplicationController
       return render_error_response(request.xhr?, preauthorize_form.errors.full_messages.join(", "), action: :initiate)
     end
     delivery_method = valid_delivery_method(delivery_method_str: preauthorize_form.delivery_method,
-                                             shipping: @listing.require_shipping_address,
-                                             pickup: @listing.pickup_enabled)
+                                            shipping: @listing.require_shipping_address,
+                                            pickup: @listing.pickup_enabled)
     if(delivery_method == :errored)
       return render_error_response(request.xhr?, "Delivery method is invalid.", action: :initiate)
     end
@@ -135,8 +135,8 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def book
     delivery_method = valid_delivery_method(delivery_method_str: params[:delivery],
-                                             shipping: @listing.require_shipping_address,
-                                             pickup: @listing.pickup_enabled)
+                                            shipping: @listing.require_shipping_address,
+                                            pickup: @listing.pickup_enabled)
     if(delivery_method == :errored)
       return redirect_to error_not_found_path
     end
@@ -219,8 +219,8 @@ class PreauthorizeTransactionsController < ApplicationController
     end
 
     delivery_method = valid_delivery_method(delivery_method_str: preauthorize_form.delivery_method,
-                                             shipping: @listing.require_shipping_address,
-                                             pickup: @listing.pickup_enabled)
+                                            shipping: @listing.require_shipping_address,
+                                            pickup: @listing.pickup_enabled)
     if(delivery_method == :errored)
       return render_error_response(request.xhr?, "Delivery method is invalid.", action: :booked)
     end
@@ -371,7 +371,7 @@ class PreauthorizeTransactionsController < ApplicationController
     }.or_else(nil)
   end
 
-  def view_params(listing_id: listing_id, quantity: 1, shipping_enabled: false)
+  def view_params(listing_id:, quantity: 1, shipping_enabled: false)
     listing = ListingQuery.listing(listing_id)
     payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
@@ -389,8 +389,8 @@ class PreauthorizeTransactionsController < ApplicationController
       total_price: total_price }
   end
 
-  def render_error_response(isXhr, error_msg, redirect_params)
-    if isXhr
+  def render_error_response(is_xhr, error_msg, redirect_params)
+    if is_xhr
       render json: { error_msg: error_msg }
     else
       flash[:error] = error_msg
@@ -401,7 +401,7 @@ class PreauthorizeTransactionsController < ApplicationController
   def ensure_listing_author_is_not_current_user
     if @listing.author == @current_user
       flash[:error] = t("layouts.notifications.you_cannot_send_message_to_yourself")
-      redirect_to (session[:return_to_content] || root)
+      redirect_to(session[:return_to_content] || root)
     end
   end
 
@@ -416,7 +416,7 @@ class PreauthorizeTransactionsController < ApplicationController
   def ensure_listing_is_open
     if @listing.closed?
       flash[:error] = t("layouts.notifications.you_cannot_reply_to_a_closed_offer")
-      redirect_to (session[:return_to_content] || root)
+      redirect_to(session[:return_to_content] || root)
     end
   end
 

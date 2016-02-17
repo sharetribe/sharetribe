@@ -45,18 +45,12 @@ module MarketplaceService
       module_function
 
       def waiting_testimonial_from?(transaction, person_id)
-        if transaction[:starter_id] == person_id
-          if transaction[:starter_skipped_feedback]
-            false
-          else
-            testimonial_from(transaction, person_id).nil?
-          end
+        if transaction[:starter_id] == person_id && transaction[:starter_skipped_feedback]
+          false
+        elsif transaction[:author_skipped_feedback]
+          false
         else
-          if transaction[:author_skipped_feedback]
-            false
-          else
-            testimonial_from(transaction, person_id).nil?
-          end
+          testimonial_from(transaction, person_id).nil?
         end
       end
 
@@ -108,11 +102,11 @@ module MarketplaceService
 
       def transaction_with_conversation(transaction_model, community_id)
         transaction = Entity.transaction(transaction_model)
-        if transaction_model.conversation
-          transaction[:conversation] = ConversationEntity.conversation(transaction_model.conversation, community_id)
+        transaction[:conversation] = if transaction_model.conversation
+          ConversationEntity.conversation(transaction_model.conversation, community_id)
         else
           # placeholder for deleted conversation to keep transaction list working
-          transaction[:conversation] = ConversationEntity.deleted_conversation_placeholder
+          ConversationEntity.deleted_conversation_placeholder
         end
         transaction
       end
@@ -144,6 +138,7 @@ module MarketplaceService
         [:content, :string, :optional],
         [:commission_from_seller, :fixnum, :optional]
       )
+
       module_function
 
       def create(transaction_opts)
@@ -256,14 +251,16 @@ module MarketplaceService
           .includes(:booking)
 
         with_person = Maybe(person_id)
-          .map { |person_id|
-            [rel.where("starter_id = ? OR listings.author_id = ?", person_id, person_id)] }
+          .map { |p_id|
+            [rel.where("starter_id = ? OR listings.author_id = ?", p_id, p_id)]
+          }
           .or_else { [rel] }
           .first
 
         Maybe(with_person.first)
           .map { |tx_model|
-            Entity.transaction_with_conversation(tx_model, community_id) }
+            Entity.transaction_with_conversation(tx_model, community_id)
+          }
           .or_else(nil)
       end
 

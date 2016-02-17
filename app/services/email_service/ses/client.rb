@@ -16,10 +16,10 @@ module EmailService::SES
     def initialize(config:, stubs: nil, logger: EmailService::SES::Logger.new)
       config = DataTypes::Config.build(config)
 
-      if stubs.blank?
-        @ses = Aws::SES::Client.new(config.except(:sns_topic))
+      @ses = if stubs.blank?
+        Aws::SES::Client.new(config.except(:sns_topic))
       else
-        @ses = Aws::SES::Client.new(config.except(:sns_topic).merge(stub_responses: stubs))
+        Aws::SES::Client.new(config.except(:sns_topic).merge(stub_responses: stubs))
       end
 
       @sns_topic = config[:sns_topic]
@@ -44,7 +44,7 @@ module EmailService::SES
 
     # Request verification for the given email address. If called
     # twice with the same address resends the verification email.
-    def verify_address(email: )
+    def verify_address(email:)
       if email.blank?
         raise ArgumentError.new("Missing mandatory value for email parameter.")
       end

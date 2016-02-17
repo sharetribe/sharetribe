@@ -27,7 +27,7 @@ module PersonViewUtils
         organization_name: person.organization_name,
 
         is_deleted: person.deleted?,
-        deleted_user_text: I18n.translate("common.removed_user"),
+        deleted_user_text: I18n.translate("common.removed_user")
       )
     end
   end

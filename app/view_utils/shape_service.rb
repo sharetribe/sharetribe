@@ -23,11 +23,13 @@ class ShapeService
         locales: locales,
         key_map: KEY_MAP
       ).merge(
-        units: shape_with_process[:units].map{|u| TranslationServiceHelper.tr_keys_to_form_values(
-          entity: u,
-          locales: locales,
-          key_map: CUSTOM_UNIT_KEY_MAP
-       )}
+        units: shape_with_process[:units].map do |u|
+          TranslationServiceHelper.tr_keys_to_form_values(
+            entity: u,
+            locales: locales,
+            key_map: CUSTOM_UNIT_KEY_MAP
+          )
+        end
       )
 
       Result::Success.new(Shape.call(with_translations))

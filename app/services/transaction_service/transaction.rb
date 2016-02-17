@@ -164,7 +164,7 @@ module TransactionService::Transaction
     payment = paypal_payment_api.get_payment(transaction[:community_id], transaction[:id])[:data]
     commission_to_admin = calculate_commission_to_admin(transaction[:commission_total], payment[:payment_total], payment[:fee_total])
 
-    if (commission_to_admin.positive?)
+    if commission_to_admin.positive?
       charge_request =
         {
           transaction_id: transaction_id,
@@ -221,7 +221,7 @@ module TransactionService::Transaction
 
   def calculate_commission(item_total, commission_from_seller, minimum_commission)
     [(item_total * (commission_from_seller / 100.0) unless commission_from_seller.nil?),
-     (minimum_commission unless minimum_commission.nil? || minimum_commission.zero? ),
+     (minimum_commission unless minimum_commission.nil? || minimum_commission.zero?),
      Money.new(0, item_total.currency)]
       .compact
       .max

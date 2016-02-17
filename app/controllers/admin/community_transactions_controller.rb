@@ -120,12 +120,12 @@ class Admin::CommunityTransactionsController < ApplicationController
 
   def last_activity_for(conversation)
     last_activity_at = 0
-    if conversation[:conversation][:last_message_at].nil?
-      last_activity_at = conversation[:last_transition_at]
+    last_activity_at = if conversation[:conversation][:last_message_at].nil?
+      conversation[:last_transition_at]
     elsif conversation[:last_transition_at].nil?
-      last_activity_at = conversation[:conversation][:last_message_at]
+      conversation[:conversation][:last_message_at]
     else
-      last_activity_at = [conversation[:last_transition_at], conversation[:conversation][:last_message_at]].max
+      [conversation[:last_transition_at], conversation[:conversation][:last_message_at]].max
     end
     last_activity_at
   end

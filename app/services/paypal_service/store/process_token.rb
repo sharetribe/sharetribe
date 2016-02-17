@@ -26,7 +26,7 @@ module PaypalService::Store::ProcessToken
 
   def update_to_completed(process_token:, op_output:)
     ProcessTokenModel.where(process_token: process_token).first!
-      .update_attributes(op_completed: true, op_output: YAML::dump(op_output))
+      .update_attributes(op_completed: true, op_output: YAML.dump(op_output))
   end
 
   def get_by_transaction(community_id:, transaction_id:, op_name:)
@@ -58,7 +58,7 @@ module PaypalService::Store::ProcessToken
         ProcessTokenModel.create!(
         info.merge({
             process_token: gen_process_token_uuid,
-            op_input: YAML::dump(info[:op_input])
+            op_input: YAML.dump(info[:op_input])
           }))
       rescue ActiveRecord::RecordNotUnique
         nil
@@ -69,8 +69,8 @@ module PaypalService::Store::ProcessToken
 
   def from_model(model)
     model_hash = EntityUtils.model_to_hash(model)
-    model_hash[:op_input] = YAML::load(model_hash[:op_input]) unless model_hash[:op_input].nil?
-    model_hash[:op_output] = YAML::load(model_hash[:op_output]) unless model_hash[:op_output].nil?
+    model_hash[:op_input] = YAML.load(model_hash[:op_input]) unless model_hash[:op_input].nil?
+    model_hash[:op_output] = YAML.load(model_hash[:op_output]) unless model_hash[:op_output].nil?
 
     ProcessToken.call(model_hash)
   end

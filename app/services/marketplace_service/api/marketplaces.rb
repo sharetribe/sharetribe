@@ -92,7 +92,7 @@ module MarketplaceService::API
       locale = p[:marketplace_language].or_else("en")
       marketplace_name = p[:marketplace_name].or_else("Trial Marketplace")
       payment_process = p[:payment_process].or_else(:preauthorize)
-      distance_unit = p[:marketplace_country].map { |country| (country === "US") ? :imperial : :metric }.or_else(:metric)
+      distance_unit = p[:marketplace_country].map { |country| (country == "US") ? :imperial : :metric }.or_else(:metric)
 
       community = CommunityModel.create(Helper.community_params(p, marketplace_name, locale))
 
@@ -138,7 +138,7 @@ module MarketplaceService::API
           }))
       # remove locale from settings as it's in the root level of the hash
       hash[:settings].delete("locales")
-      return MarketplaceService::API::DataTypes::create_marketplace(hash)
+      return MarketplaceService::API::DataTypes.create_marketplace(hash)
     end
 
     module Helper
@@ -234,7 +234,7 @@ module MarketplaceService::API
         base_ident = current_ident
 
         i = 1
-        while CommunityModel.exists?(ident: current_ident) || RESERVED_DOMAINS.include?(current_ident) do
+        while CommunityModel.exists?(ident: current_ident) || RESERVED_DOMAINS.include?(current_ident)
           current_ident = "#{base_ident}#{i}"
           i += 1
         end

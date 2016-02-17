@@ -47,11 +47,11 @@ class Admin::ListingShapesController < ApplicationController
   def create
     shape = filter_uneditable_fields(FormViewLayer.params_to_shape(params), process_summary)
 
-    create_result = validate_shape(shape).and_then { |shape|
+    create_result = validate_shape(shape).and_then { |s|
       ShapeService.new(processes).create(
         community_id: @current_community.id,
         default_locale: @current_community.default_locale,
-        opts: shape
+        opts: s
       )
     }
 
@@ -68,11 +68,11 @@ class Admin::ListingShapesController < ApplicationController
   def update
     shape = filter_uneditable_fields(FormViewLayer.params_to_shape(params), process_summary)
 
-    update_result = validate_shape(shape).and_then { |shape|
+    update_result = validate_shape(shape).and_then { |s|
       ShapeService.new(processes).update(
         community_id: @current_community.id,
         name: params[:url_name],
-        opts: shape
+        opts: s
       )
     }
 
@@ -101,10 +101,10 @@ class Admin::ListingShapesController < ApplicationController
 
     distinguisable_order = old_shape_order.reduce([old_shape_order.first]) { |memo, x|
       last = memo.last
-      if x <= last
-        memo << last + 1
+      memo << if x <= last
+        last + 1
       else
-        memo << x
+        x
       end
     }
 

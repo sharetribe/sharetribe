@@ -35,8 +35,8 @@ module TransactionService::Store::TransactionProcess
 
   # private
 
-  def from_model(m)
-    Maybe(m)
+  def from_model(model)
+    Maybe(model)
       .map { |m| TransactionProcess.call(EntityUtils.model_to_hash(m)) }
       .or_else(nil)
   end
