@@ -11,13 +11,15 @@
             = image_tag(listing.author.avatar.thumb || missing_avatar(:thumb), :class => "home-fluid-thumbnail-grid-author-avatar-image")
 
         - distance = Maybe(listing.distance).or_else(nil)
+        - name = PersonViewUtils::person_entity_display_name(listing.author, @current_community.name_display_type)
         - if(!show_distance || distance.blank?)
-          = link_to(person_path(id: listing.author.username), :class => "home-fluid-thumbnail-grid-author-name") do
-            = PersonViewUtils::person_entity_display_name(listing.author, @current_community.name_display_type)
+          = link_to(person_path(id: listing.author.username), :class => "home-fluid-thumbnail-grid-author-name", title: name) do
+            = name
         - else
           .home-fluid-thumbnail-grid-details
-            = link_to(person_path(id: listing.author.username), class: "home-fluid-thumbnail-grid-details-author-name") do
-              = PersonViewUtils::person_entity_display_name(listing.author, @current_community.name_display_type)
-            .home-fluid-thumbnail-grid-details-distance
-              - dist = number_with_delimiter(distance.round(2), locale: locale)
-              = "#{dist} #{listing.distance_unit}"
+            = link_to(person_path(id: listing.author.username), class: "home-fluid-thumbnail-grid-details-author-name", title: name) do
+              = name
+            - dist = number_with_delimiter(distance.round(2), locale: locale)
+            - dist_string = "#{dist} #{listing.distance_unit}"
+            .home-fluid-thumbnail-grid-details-distance{title: dist_string}
+              = dist_string
