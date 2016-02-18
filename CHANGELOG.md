@@ -8,6 +8,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ## [Unreleased]
 
+### Security
+
+- Update JSON Web Token gem [#1723](https://github.com/sharetribe/sharetribe/pull/1723)
+
 ## [5.3.0] - 2015-02-15
 
 ### Changed
