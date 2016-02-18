@@ -11,13 +11,17 @@ window.ST = window.ST || {};
     var autocomplete = new window.google.maps.places.Autocomplete(searchInput);
     autocomplete.setTypes(['geocode']);
 
+    boundingboxInput.value = null;
+
     window.google.maps.event.addListener(autocomplete, 'place_changed', function(){
       var place = autocomplete.getPlace();
       if(place != null) {
         if(place.geometry != null) {
           coordinateInput.value = place.geometry.location.toUrlValue();
           statusInput.value = window.google.maps.places.PlacesServiceStatus.OK;
-          boundingboxInput.value = place.geometry.viewport.toUrlValue();
+          if (place.geometry.viewport) {
+            boundingboxInput.value = place.geometry.viewport.toUrlValue();
+          }
           homepageForm.submit();
         } else {
           // Let's pick first suggestion, if no geometry was returned by autocompletion
@@ -55,7 +59,9 @@ window.ST = window.ST || {};
 
           if(placeServiceStatus === serviceStatus.OK) {
             coordinateInput.value = place.geometry.location.toUrlValue();
-            boundingboxInput.value = place.geometry.viewport.toUrlValue();
+            if (place.geometry.viewport) {
+              boundingboxInput.value = place.geometry.viewport.toUrlValue();
+            }
           }
           // Save received service status for logging
           statusInput.value = placeServiceStatus;
