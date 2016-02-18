@@ -6,6 +6,7 @@ window.ST = window.ST || {};
     var searchInput = document.getElementById('q');
     var statusInput = document.getElementById('ls');
     var coordinateInput = document.getElementById('lc');
+    var boundingboxInput = document.getElementById('boundingbox');
     var homepageForm = document.getElementById('homepage-filters');
     var autocomplete = new window.google.maps.places.Autocomplete(searchInput);
     autocomplete.setTypes(['geocode']);
@@ -16,6 +17,7 @@ window.ST = window.ST || {};
         if(place.geometry != null) {
           coordinateInput.value = place.geometry.location.toUrlValue();
           statusInput.value = window.google.maps.places.PlacesServiceStatus.OK;
+          boundingboxInput.value = place.geometry.viewport.toUrlValue();
           homepageForm.submit();
         } else {
           // Let's pick first suggestion, if no geometry was returned by autocompletion
@@ -53,6 +55,7 @@ window.ST = window.ST || {};
 
           if(placeServiceStatus === serviceStatus.OK) {
             coordinateInput.value = place.geometry.location.toUrlValue();
+            boundingboxInput.value = place.geometry.viewport.toUrlValue();
           }
           // Save received service status for logging
           statusInput.value = placeServiceStatus;

@@ -130,7 +130,7 @@
       - if @listings.total_entries > 0
         - if @view_type.eql?("map")
           .home-map
-            = render :partial => "map"
+            = render :partial => "map", locals: { viewport: viewport }
         - else
           - if @view_type.eql?("grid")
             %div{class: @category_menu_enabled ? "home-fluid-thumbnail-grid-narrow" : "home-fluid-thumbnail-grid-wide"}

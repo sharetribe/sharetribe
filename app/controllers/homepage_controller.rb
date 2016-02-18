@@ -58,6 +58,15 @@ class HomepageController < ApplicationController
 
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
+    if @view_type == 'map'
+      viewport = if params[:boundingbox]
+        sw_lat, sw_lng, ne_lat, ne_lng = params[:boundingbox].split(",")
+        { sw: [sw_lat, sw_lng], ne: [ne_lat, ne_lng]}
+      else
+        Maybe(@current_community.location).map { |l| { lat: l.latitude, lon: l.longitude } }.or_else
+      end
+    end
+
     if request.xhr? # checks if AJAX request
       search_result.on_success { |listings|
         @listings = listings # TODO Remove
@@ -84,7 +93,8 @@ class HomepageController < ApplicationController
                  testimonials_in_use: @current_community.testimonials_in_use,
                  listing_shape_menu_enabled: listing_shape_menu_enabled,
                  main_search: main_search,
-                 location_search_in_use: location_search_in_use }
+                 location_search_in_use: location_search_in_use,
+                 viewport: viewport }
       }.on_error { |e|
         flash[:error] = t("homepage.errors.search_engine_not_responding")
         @listings = Listing.none.paginate(:per_page => 1, :page => 1)
@@ -97,7 +107,8 @@ class HomepageController < ApplicationController
                  testimonials_in_use: @current_community.testimonials_in_use,
                  listing_shape_menu_enabled: listing_shape_menu_enabled,
                  main_search: main_search,
-                 location_search_in_use: location_search_in_use }
+                 location_search_in_use: location_search_in_use,
+                 viewport: viewport }
       }
     end
   end
