@@ -7,6 +7,7 @@
   = text_field_tag "q", params[:q], :placeholder => (@community_customization && @community_customization.search_placeholder) || t("homepage.index.what_do_you_need")
   = hidden_field_tag 'lc', params[:lc]
   = hidden_field_tag 'ls', ''
+  = hidden_field_tag 'boundingbox', params[:boundingbox]
 
 .search-form-input
   %button.action-button#search-button{type: 'submit'}

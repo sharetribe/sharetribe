@@ -458,7 +458,7 @@ function addCommunityMarkers() {
   });
 }
 
-function initialize_listing_map(listings, community_location_lat, community_location_lon, locale_to_use, use_community_location_as_default) {
+function initialize_listing_map(listings, community_location_lat, community_location_lon, viewport, locale_to_use, use_community_location_as_default) {
   locale = locale_to_use;
   // infowindow = new google.maps.InfoWindow();
   infowindow = new InfoBubble({
@@ -491,7 +491,7 @@ function initialize_listing_map(listings, community_location_lat, community_loca
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
   var prefer_param_loc = (use_community_location_as_default === 'true');
-  addListingMarkers(listings, community_location_lat, community_location_lon, prefer_param_loc);
+  addListingMarkers(listings, viewport);
 }
 
 function setMapCenter(communityLat, communityLng, preferCommunityLocation) {
@@ -519,7 +519,7 @@ function setMapCenter(communityLat, communityLng, preferCommunityLocation) {
   }
 }
 
-function addListingMarkers(listings, community_location_lat, community_location_lon, prefer_param_loc) {
+function addListingMarkers(listings, viewport) {
   // Test requesting location data
   // Now the request_path needs to also have a query string with the wanted parameters
 
@@ -586,12 +586,15 @@ function addListingMarkers(listings, community_location_lat, community_location_
   var latitudes = _(listings).pluck("latitude").filter().map(Number).value();
   var longitudes = _(listings).pluck("longitude").filter().map(Number).value();
 
-  if(latitudes.length && longitudes.length) {
-    map.fitBounds(new google.maps.LatLngBounds(
-      new google.maps.LatLng(_.min(latitudes), _.min(longitudes)),
-      new google.maps.LatLng(_.max(latitudes), _.max(longitudes))
-    ));
-  }
+  var listingsBounds = (latitudes.length && longitudes.length) ?
+      {ne: [_.min(latitudes), _.min(longitudes)], sw: [_.max(latitudes), _.max(longitudes)]} : nil;
+
+  var boundingbox = viewport ? viewport : listingsBounds;
+
+  var bounds = new google.maps.LatLngBounds();
+  bounds.extend(new google.maps.LatLng(boundingbox.ne[0], boundingbox.ne[1]));
+  bounds.extend(new google.maps.LatLng(boundingbox.sw[0], boundingbox.sw[1]));
+  map.fitBounds(bounds);
 
   markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, showingMarker, locale, {});
 }
