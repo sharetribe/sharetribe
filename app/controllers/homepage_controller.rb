@@ -52,7 +52,7 @@ class HomepageController < ApplicationController
       end
 
     main_search = location_search_available ? MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:main_search] : :keyword
-    location_search_in_use = location_search_available && main_search == :location
+    location_search_in_use = main_search == :location
 
     search_result = find_listings(params, per_page, compact_filter_params, includes.to_set)
 
