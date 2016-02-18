@@ -586,17 +586,29 @@ function addListingMarkers(listings, viewport) {
   var latitudes = _(listings).pluck("latitude").filter().map(Number).value();
   var longitudes = _(listings).pluck("longitude").filter().map(Number).value();
 
-  var listingsBounds = (latitudes.length && longitudes.length) ?
-      {ne: [_.min(latitudes), _.min(longitudes)], sw: [_.max(latitudes), _.max(longitudes)]} : nil;
 
-  var boundingbox = viewport ? viewport : listingsBounds;
-
-  var bounds = new google.maps.LatLngBounds();
-  bounds.extend(new google.maps.LatLng(boundingbox.ne[0], boundingbox.ne[1]));
-  bounds.extend(new google.maps.LatLng(boundingbox.sw[0], boundingbox.sw[1]));
-  map.fitBounds(bounds);
+  if (viewport && viewport.boundingbox) {
+    var boundingbox = viewport.boundingbox;
+    setBounds(boundingbox);
+  } else if (viewport && viewport.center){
+    var center = viewport.center;
+    var cen = new google.maps.LatLng(center[0], center[1]);
+    map.setCenter(cen);
+  } else {
+    var listingsBounds = (latitudes.length && longitudes.length) ?
+      {sw: [_.min(latitudes), _.min(longitudes)], ne: [_.max(latitudes), _.max(longitudes)]} : nil;
+    setBounds(listingsBounds);
+  }
 
   markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, showingMarker, locale, {});
+}
+
+function setBounds(coords) {
+  var bounds = new google.maps.LatLngBounds(
+    new google.maps.LatLng(coords.sw[0], coords.sw[1]),
+    new google.maps.LatLng(coords.ne[0], coords.ne[1])
+  );
+  map.fitBounds(bounds);
 }
 
 function clearMarkers() {

@@ -59,11 +59,16 @@ class HomepageController < ApplicationController
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
     if @view_type == 'map'
-      viewport = if params[:boundingbox]
-        sw_lat, sw_lng, ne_lat, ne_lng = params[:boundingbox].split(",")
-        { sw: [sw_lat, sw_lng], ne: [ne_lat, ne_lng]}
+      coords = Maybe(params[:boundingbox]).split(',').or_else(nil)
+      viewport = if coords
+        sw_lat, sw_lng, ne_lat, ne_lng = coords
+        { boundingbox: { sw: [sw_lat, sw_lng], ne: [ne_lat, ne_lng] } }
+      elsif params[:lc]
+        { center: params[:lc].split(',') }
       else
-        Maybe(@current_community.location).map { |l| { lat: l.latitude, lon: l.longitude } }.or_else
+        Maybe(@current_community.location)
+          .map { |l| { center: [l.latitude, l.longitude] }}
+          .or_else(nil)
       end
     end
 
