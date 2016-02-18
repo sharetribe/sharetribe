@@ -34,7 +34,7 @@
           = form.check_box :require_verification_to_post_listings
           = form.label :require_verification_to_post_listings, t(".require_verification_to_post_listings"), :class => "settings-checkbox-label"
 
-    - if(feature_enabled?(:location_search) && search_engine == :zappy)
+    - if(location_search_available)
       .row
         .col-12
           %h3= t("admin.communities.settings.search_preferences")
