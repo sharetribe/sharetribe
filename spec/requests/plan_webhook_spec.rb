@@ -13,55 +13,56 @@ describe "plan provisioning", type: :request do
     log_target.clear!
   end
 
-  let(:token) {
-    # The token is result of: JWT.encode({}, "test_secret")
-    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.e30._FFJneyyiPmeCSEQdh2KPyIW84tXdjY1bhbc41LkRxw"
-  }
-
-  describe "security" do
-    it "returns 401 if token doesn't match" do
-      post "http://webhooks.sharetribe.com/webhooks/plans", {plans: []}.to_json
-      expect(response.status).to eq(401)
-
-      error_log = log_target.parse_log(:error)
-      expect(error_log)
-        .to eq([{tag: "external_plan_service", free: "Unauthorized", structured: {"error" => "token_missing", "token"=>nil}}])
-    end
-
-    it "returns 200 if authorized" do
-      post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", {plans: []}.to_json
-      expect(response.status).to eq(200)
-    end
-  end
-
-  describe "invalid JSON" do
-    it "returns 400 Bad request, if JSON is invalid" do
-      post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", "invalid JSON"
-      expect(response.status).to eq(400)
-
-      error_log = log_target.parse_log(:error)
-      expect(error_log.first[:free]).to include("Error while parsing JSON")
-    end
-  end
-
-  describe "not in use" do
-    before(:each) {
-      PlanService::API::Api.reset!
-      PlanService::API::Api.set_environment(active: false)
-    }
-
-    after(:each) {
-      PlanService::API::Api.reset!
-      PlanService::API::Api.set_environment(active: true)
-    }
-
-    it "returns 404 if external plan service is not in use" do
-      post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", {plans: []}.to_json
-      expect(response.status).to eq(404)
-    end
-  end
-
   describe "plans" do
+
+    let(:token) {
+      # The token is result of: JWT.encode({sub: :provisioning}, "test_secret")
+      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwcm92aXNpb25pbmcifQ.c2C--Jce-aYzh3xo0UlRr3yFrqFTEkYPpBWDBypQ07M"
+    }
+
+    describe "security" do
+      it "returns 401 if token doesn't match" do
+        post "http://webhooks.sharetribe.com/webhooks/plans", {plans: []}.to_json
+        expect(response.status).to eq(401)
+
+        error_log = log_target.parse_log(:error)
+        expect(error_log)
+          .to eq([{tag: "external_plan_service", free: "Unauthorized", structured: {"error" => "token_missing", "token"=>nil}}])
+      end
+
+      it "returns 200 if authorized" do
+        post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", {plans: []}.to_json
+        expect(response.status).to eq(200)
+      end
+    end
+
+    describe "invalid JSON" do
+      it "returns 400 Bad request, if JSON is invalid" do
+        post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", "invalid JSON"
+        expect(response.status).to eq(400)
+
+        error_log = log_target.parse_log(:error)
+        expect(error_log.first[:free]).to include("Error while parsing JSON")
+      end
+    end
+
+    describe "not in use" do
+      before(:each) {
+        PlanService::API::Api.reset!
+        PlanService::API::Api.set_environment(active: false)
+      }
+
+      after(:each) {
+        PlanService::API::Api.reset!
+        PlanService::API::Api.set_environment(active: true)
+      }
+
+      it "returns 404 if external plan service is not in use" do
+        post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", {plans: []}.to_json
+        expect(response.status).to eq(404)
+      end
+    end
+
 
     it "creates new plans" do
       body = '{
@@ -111,6 +112,11 @@ describe "plan provisioning", type: :request do
   end
 
   describe "trials" do
+
+    let(:token) {
+      # The token is result of: JWT.encode({sub: :trial_sync}, "test_secret")
+      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0cmlhbF9zeW5jIn0._E4PCzBCxJSlwZzFKekvkdR-gX4cuKOxrJ7x2DRfFKI"
+    }
 
     context "success" do
 
