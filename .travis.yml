@@ -8,7 +8,7 @@ cache:
   directories:
   - ~/.bundle
 rvm:
-- 2.1.2
+- 2.1.8
 env:
   matrix:
   - SUITE="rspec"

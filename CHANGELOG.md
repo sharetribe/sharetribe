@@ -8,6 +8,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ## [Unreleased]
 
+### Changed
+
+- Update Ruby to 2.1.8 [#1750](https://github.com/sharetribe/sharetribe/pull/1750)
+
 ### Security
 
 - Update JSON Web Token gem [#1723](https://github.com/sharetribe/sharetribe/pull/1723)
