@@ -15,6 +15,18 @@ RAILS_ENV=production rake sharetribe:generate_customization_stylesheets_immediat
 rake assets:precompile
 ```
 
+## Unreleased
+
+Ruby version updated from 2.1.2 to 2.1.8. The update contains only security and bug fixes.
+
+You can upgrade the your local Ruby version like this:
+```
+rvm install ruby-2.1.8
+rvm use ruby-2.1.8
+gem install bundler
+bundle install
+```
+
 ## Upgrade from 5.2.x to 5.3.0
 
 This version contains some changes to the caching logic. The Rails cache needs to be cleared before upgrading.

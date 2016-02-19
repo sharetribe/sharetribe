@@ -7,7 +7,7 @@ RUN apt-get -yqq install curl git libxml2
 RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 RUN \curl -L https://get.rvm.io | bash -s stable
 RUN /bin/bash -l -c "rvm requirements"
-RUN /bin/bash -l -c "rvm install 2.1.2"
+RUN /bin/bash -l -c "rvm install 2.1.8"
 RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
 
 # Install deps
