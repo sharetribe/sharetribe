@@ -1179,7 +1179,7 @@ it:
     list_item:
       review: recensione
       reviews: recensioni
-      distance_away: ~
+      distance_away: "%{distance} %{distance_unit} di distanza"
     news_item:
       show_less: "Mostra di meno"
       show_more: "Mostra di più"
