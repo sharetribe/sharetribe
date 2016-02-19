@@ -520,22 +520,17 @@ class Person < ActiveRecord::Base
     community.can_accept_user_based_on_email?(self)
   end
 
-  def self.find_for_facebook_oauth(facebook_data, logged_in_user=nil)
-    data = facebook_data.extra.raw_info
-
-    # find if already made facebook connection
-    if user = self.find_by_facebook_id(data.id)
-      user
-    elsif user = logged_in_user || self.find_by_email(data.email)
-      # make connection automatically based on email
-      user.update_attribute(:facebook_id, data.id)
-      if user.image_file_size.nil?
-        user.store_picture_from_facebook
-      end
-      user
-    else
-      nil
+  def update_facebook_data(facebook_id)
+    self.update_attribute(:facebook_id, facebook_id)
+    if self.image_file_size.nil?
+      self.store_picture_from_facebook
     end
+  end
+
+  def self.find_by_facebook_id_and_community(facebook_id, community_id)
+    Maybe(self.find_by(facebook_id: facebook_id))
+      .select { |person| person.communities.pluck(:id).include?(community_id)}
+      .or_else(nil)
   end
 
   # Override the default finder to find also based on additional emails
@@ -550,7 +545,6 @@ class Person < ActiveRecord::Base
     Maybe(
       Email.find_by_address_and_community_id(email_address, community_id)
     ).person.or_else(nil)
-  end
 
   def reset_password_token_if_needed
     # Devise 3.1.0 doesn't expose methods to generate reset_password_token without
