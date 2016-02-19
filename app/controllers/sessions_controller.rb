@@ -100,15 +100,22 @@ class SessionsController < ApplicationController
   end
 
   def facebook
-    @person = Person.find_for_facebook_oauth(request.env["omniauth.auth"], @current_user)
-
+    data = request.env["omniauth.auth"].extra.raw_info
     I18n.locale = URLUtils.extract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
 
-    if @person
+    person = Person.find_by_facebook_id_and_community(data.id, @current_community.id)
+
+    unless person
+      person = Maybe(Person.find_by_community_and_email(@current_community.id, data.email))
+        .each { |p| p.update_facebook_data(data.id) }
+        .or_else(nil)
+    end
+
+    if person
+      @person = person
       flash[:notice] = t("devise.omniauth_callbacks.success", :kind => "Facebook")
       sign_in_and_redirect @person, :event => :authentication
     else
-      data = request.env["omniauth.auth"].extra.raw_info
 
       if data.email.blank?
         flash[:error] = t("layouts.notifications.could_not_get_email_from_facebook")
