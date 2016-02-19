@@ -67,10 +67,10 @@ module ListingIndexService::Search
       {
        :'page[number]' => original[:page],
        :'page[size]' => original[:per_page],
-       :'filter[price_min]' => original[:price_min],
-       :'filter[price_max]' => original[:price_max],
+       :'filter[price_min]' => Maybe(original[:price_cents]).min,
+       :'filter[price_max]' => Maybe(original[:price_cents]).max,
        :'filter[omit_closed]' => !original[:include_closed],
-       :'filter[listings_shape_ids]' => Maybe(original[:listing_shape_ids]).join(",").or_else(nil),
+       :'filter[listing_shape_ids]' => Maybe(original[:listing_shape_ids]).join(",").or_else(nil),
        :'filter[category_ids]' => Maybe(original[:categories]).join(",").or_else(nil),
        :'search[locale]' => original[:locale]
       }.merge(search_params).compact
