@@ -163,5 +163,6 @@ module Kassi
     config.active_record.raise_in_transactional_callbacks = true
     # TODO Remove this when upgrading to RAILS 5 END
 
+    config.active_job.queue_adapter = :delayed_job
   end
 end
