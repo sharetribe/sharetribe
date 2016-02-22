@@ -1,6 +1,6 @@
 class CommunitiesController < ApplicationController
   skip_filter :fetch_community,
-              :cannot_access_without_joining
+              :cannot_access_if_banned
 
   before_filter :ensure_no_communities
 
