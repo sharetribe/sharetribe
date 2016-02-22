@@ -59,8 +59,15 @@ Before you get started, the following needs to be installed:
   cp config/database.example.yml config/database.yml
   ```
 
-1. Create the required databases with [these commands](https://gist.github.com/804314).
 1. Add your database configuration details to `config/database.yml`. You will probably only need to fill in the password for the database(s).
+
+1. Create the required databases
+
+  ```bash
+  rake db:create:all
+  rake db:schema:load
+  ```
+
 1. Install the required gems by running the following command in the project root directory:
 
   ```bash
