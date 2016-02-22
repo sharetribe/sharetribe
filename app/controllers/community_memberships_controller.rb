@@ -4,7 +4,7 @@ class CommunityMembershipsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_page")
   end
 
-  skip_filter :cannot_access_without_joining
+  skip_filter :cannot_access_if_banned
 
   def new
     existing_membership = @current_user.community_memberships.where(:community_id => @current_community.id).first
