@@ -99,7 +99,9 @@ class Person < ActiveRecord::Base
   has_many :messages, :foreign_key => "sender_id"
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id", :dependent => :destroy
   has_many :community_memberships, :dependent => :destroy
-  has_many :communities, -> { where("community_memberships.status = 'accepted'") }, :through => :community_memberships
+  has_many :communities,
+           -> { where("community_memberships.status = 'accepted' or community_memberships.status = 'banned'") },
+           :through => :community_memberships
   has_many :invitations, :foreign_key => "inviter_id", :dependent => :destroy
   has_many :auth_tokens, :dependent => :destroy
   has_many :follower_relationships
