@@ -53,6 +53,12 @@ Before you get started, the following needs to be installed:
   cd sharetribe
   ```
 
+1. Install the required gems by running the following command in the project root directory:
+
+  ```bash
+  bundle install
+  ```
+
 1. Create a database.yml file by copying the example database configuration:
 
   ```bash
@@ -66,12 +72,6 @@ Before you get started, the following needs to be installed:
   ```bash
   rake db:create:all
   rake db:schema:load
-  ```
-
-1. Install the required gems by running the following command in the project root directory:
-
-  ```bash
-  bundle install
   ```
 
 1. Initialize your database:
