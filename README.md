@@ -48,6 +48,11 @@ Before you get started, the following needs to be installed:
   ```
 
 1. Navigate to the Sharetribe project root directory.
+
+  ```bash
+  cd sharetribe
+  ```
+
 1. Create a database.yml file by copying the example database configuration:
 
   ```bash
