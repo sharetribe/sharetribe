@@ -27,7 +27,6 @@ class Email < ActiveRecord::Base
   belongs_to :person
 
   validates_presence_of :person
-  validates_uniqueness_of :address
   validates_length_of :address, :maximum => 255
   validates_format_of :address,
                        :with => /\A[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]+\z/i
@@ -46,14 +45,11 @@ class Email < ActiveRecord::Base
   end
 
   # Email already in use for current user or someone else
-  def self.email_available?(email)
-    !Email.find_by_address(email).present?
-  end
-
-  # Email already in use for someone else than current user
-  def self.email_available_for_user?(user, address)
-    email = Email.find_by_address(address)
-    !email.present? || email.person == user
+  def self.email_available?(email, community_id)
+    !Email
+      .joins(person: :community_memberships)
+      .where("address = ? AND community_memberships.community_id = ?", email, community_id)
+      .present?
   end
 
   def self.send_confirmation(email, community)
