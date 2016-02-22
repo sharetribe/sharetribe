@@ -92,29 +92,6 @@ Before you get started, the following needs to be installed:
   bundle exec rake ts:start
   ```
 
-1. Use [Mailcatcher](http://mailcatcher.me) to receive sent emails locally:
-    1. Install Mailcatcher:
-
-        ```bash
-        gem install mailcatcher
-        ```
-
-    1. Start it:
-
-        ```bash
-        mailcatcher
-        ```
-
-    1. Create a `config/config.yml` file and add the following lines to it:
-
-        ```yml
-        development:
-          mail_delivery_method: smtp
-          smtp_email_address: "localhost"
-          smtp_email_port: 1025
-        ```
-
-    1. Open `http://localhost:1080` in your browser
 1. Invoke the delayed job worker:
 
   ```bash
@@ -127,8 +104,34 @@ Before you get started, the following needs to be installed:
   bundle exec rails server
   ```
 
-
 Congratulations! Sharetribe should now be up and running for development purposes. Open a browser and go to the server URL (e.g. http://lvh.me:3000). Fill in the form to create a new marketplace and admin user. You should be now able to access your marketplace and modify it from the admin area.
+
+### Mailcatcher
+
+Use [Mailcatcher](http://mailcatcher.me) to receive sent emails locally:
+
+1. Install Mailcatcher:
+
+  ```bash
+  gem install mailcatcher
+  ```
+
+1. Start it:
+
+  ```bash
+  mailcatcher
+  ```
+
+1. Create a `config/config.yml` file and add the following lines to it:
+
+```yml
+development:
+  mail_delivery_method: smtp
+  smtp_email_address: "localhost"
+  smtp_email_port: 1025
+```
+
+1. Open `http://localhost:1080` in your browser
 
 ### Database migrations
 
