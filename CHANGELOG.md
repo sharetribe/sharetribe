@@ -10,7 +10,11 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Changed
 
- - Add listing id to option selections table: [#1761](https://github.com/sharetribe/sharetribe/pull/1761) and [#1762](https://github.com/sharetribe/sharetribe/pull/1762)
+- Add listing id to option selections table: [#1761](https://github.com/sharetribe/sharetribe/pull/1761) and [#1762](https://github.com/sharetribe/sharetribe/pull/1762)
+
+### Fixed
+
+- Fixed broken FontAwesome asset path [#1756](https://github.com/sharetribe/sharetribe/pull/1756)
 
 ## [5.4.0] - 2016-02-22
 
