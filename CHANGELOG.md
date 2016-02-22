@@ -8,6 +8,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ## [Unreleased]
 
+## [5.4.0] - 2016-02-22
+
 ### Changed
 
 - Update Ruby to 2.1.8 [#1750](https://github.com/sharetribe/sharetribe/pull/1750)
@@ -20,7 +22,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 - Configure Delayed Jod queue adapter for ActiveJob [#1749](https://github.com/sharetribe/sharetribe/pull/1749)
 
-## [5.3.0] - 2015-02-15
+## [5.3.0] - 2016-02-15
 
 ### Changed
 
@@ -101,7 +103,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v5.3.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v5.4.0...HEAD
+[5.4.0]: https://github.com/sharetribe/sharetribe/compare/v5.3.0...v5.4.0
 [5.3.0]: https://github.com/sharetribe/sharetribe/compare/v5.2.2...v5.3.0
 [5.2.2]: https://github.com/sharetribe/sharetribe/compare/v5.2.1...v5.2.2
 [5.2.1]: https://github.com/sharetribe/sharetribe/compare/v5.2.0...v5.2.1
