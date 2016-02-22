@@ -214,12 +214,12 @@ class ApplicationController < ActionController::Base
   # Before filter to get the current community
   def fetch_community
     @current_community = ApplicationController.find_community(community_identifiers)
+    m_community = Maybe(@current_community)
 
     # Save current community id in request env to be used
     # by Devise and our custom community authenticatable strategy
-    request.env[:community_id] = @current_community.id
+    request.env[:community_id] = m_community.id.or_else(nil)
 
-    m_community = Maybe(@current_community)
     setup_logger!(marketplace_id: m_community.id.or_else(nil), marketplace_ident: m_community.ident.or_else(nil))
 
     # Save :found or :not_found to community status
