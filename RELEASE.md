@@ -7,7 +7,9 @@ When you are ready to release a new version, follow these steps:
 2. Update [CHANGELOG.md](CHANGELOG.md)
 
   * Replace the \[Unreleased\] with the version number.
+  * Add current date to version number line.
   * Add a new \[Unreleased\] version.
+  * Add a git diff link to the end of the file, and update the `unreleased` diff link.
 
 3. Update [UPGRADE.md](UPGRADE.md)
 
