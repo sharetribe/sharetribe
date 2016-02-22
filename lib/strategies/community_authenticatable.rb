@@ -8,15 +8,16 @@ module CommunityAuthenticatable
       person = resolve_person
 
       if person && (belongs_to_current_community?(person) || person.is_admin?) &&
-        validate(person){ hashed = true; person.valid_password?(password) }
+        validate(person){ person.valid_password?(password) }
 
+        hashed = true
         remember_me(person)
         person.after_database_authentication
         success!(person)
       end
 
       mapping.to.new.password = password if !hashed && Devise.paranoid
-      fail(:not_found_in_database) unless person
+      raise(:not_found_in_database) unless person
     end
 
     private
