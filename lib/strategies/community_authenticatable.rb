@@ -7,7 +7,7 @@ module CommunityAuthenticatable
       hashed = false
       person = resolve_person
 
-      if person && (belongs_to_current_community?(person) || person.is_admin?) &&
+      if person && (belongs_to_community?(person.id, env[:community_id]) || person.is_admin?) &&
         validate(person){ person.valid_password?(password) }
 
         hashed = true
@@ -22,8 +22,8 @@ module CommunityAuthenticatable
 
     private
 
-    def belongs_to_current_community?(person)
-      person.communities.pluck(:id).include?(env[:community_id])
+    def belongs_to_community?(person_id, community_id)
+      CommunityMembership.where("person_id = ? AND community_id = ?", person_id, community_id).present?
     end
 
     def resolve_person
