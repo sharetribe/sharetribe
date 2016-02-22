@@ -67,11 +67,10 @@ Before you get started, the following needs to be installed:
 
 1. Add your database configuration details to `config/database.yml`. You will probably only need to fill in the password for the database(s).
 
-1. Create the required databases
+1. Create the database:
 
   ```bash
-  rake db:create:all
-  rake db:schema:load
+  bundle exec rake db:create
   ```
 
 1. Initialize your database:
@@ -180,7 +179,13 @@ To automatically run unit tests when code is changed, start [Guard](https://gith
 
 ### Setting up Sharetribe for production
 
-Before starting these steps, perform [steps 1-6 from above](#setting-up-the-development-environment).
+Before starting these steps, perform [steps 1-5 from above](#setting-up-the-development-environment).
+
+1. Create the database:
+
+  ```bash
+  bundle exec rake RAILS_ENV=production db:create
+  ```
 
 1. Initialize your database:
 
