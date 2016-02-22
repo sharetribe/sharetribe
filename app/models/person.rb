@@ -174,7 +174,6 @@ class Person < ActiveRecord::Base
 
   serialize :preferences
 
-#  validates_uniqueness_of :username
   validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
   validates_length_of :username, :within => 3..20
   validates_length_of :given_name, :within => 1..255, :allow_nil => true, :allow_blank => true
@@ -237,8 +236,12 @@ class Person < ActiveRecord::Base
     USERNAME_BLACKLIST
   end
 
-  def self.username_available?(username)
-     !Person.find_by_username(username).present? && !username.in?(USERNAME_BLACKLIST)
+  def self.username_available?(username, community_id)
+    !username.in?(USERNAME_BLACKLIST) &&
+    !Person
+      .joins(:community_memberships)
+      .where("username = ? AND community_memberships.community_id = ?", username, community_id)
+      .present?
    end
 
   # Deprecated: This is view logic (how to display name) and thus should not be in model layer
