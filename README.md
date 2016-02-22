@@ -181,6 +181,16 @@ To automatically run unit tests when code is changed, start [Guard](https://gith
 
 Before starting these steps, perform [steps 1-5 from above](#setting-up-the-development-environment).
 
+1. Set environment variables
+
+  Set environment variable `secret_key_base`.
+
+  To generate the new `secret_key_base` key, go rails console and type:
+
+  ```ruby
+  SecureRandom.hex(64)
+  ```
+
 1. Create the database:
 
   ```bash
@@ -209,16 +219,6 @@ Before starting these steps, perform [steps 1-5 from above](#setting-up-the-deve
 
   ```bash
   bundle exec rake assets:precompile
-  ```
-
-1. Set environment variables
-
-  Set environment variable `secret_key_base`.
-
-  To generate the new `secret_key_base` key, go rails console and type:
-
-  ```ruby
-  SecureRandom.hex(64)
   ```
 
 1. Invoke the delayed job worker:
