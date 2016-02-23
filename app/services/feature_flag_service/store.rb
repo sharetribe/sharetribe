@@ -11,6 +11,7 @@ module FeatureFlagService::Store
       :export_transactions_as_csv,
       :customer_universal_analytics,
       :youtube_embeds,
+      :new_login
     ].to_set
 
     def initialize(additional_flags:)

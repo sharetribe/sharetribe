@@ -64,25 +64,6 @@ Feature: User creates a new listing
     And I should see "This date must be between current time and 6 months from now."
     And I should see "The image file must be either in GIF, JPG or PNG format."
 
-  @move_to_subdomain2
-  @javascript
-  Scenario: User creates a listing and it is not visible in communities user joins
-    Given there are following users:
-      | person |
-      | kassi_testperson3 |
-    And there is a listing with title "Hammer" from "kassi_testperson3" with category "Items" and with listing shape "Requesting"
-    And I am on the homepage
-    Then I should see "Hammer"
-    When I move to community "test2"
-    And I am on the homepage
-    Then I should not see "Hammer"
-    And I log in as "kassi_testperson3"
-    And I check "community_membership_consent"
-    And I press "Join Sharetribe"
-    And the system processes jobs
-    And I am on the homepage
-    Then I should not see "Hammer"
-
   @javascript
   Scenario: Create a new listing successfully after going back and forth in the listing form
     Given I am logged in
