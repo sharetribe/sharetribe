@@ -21,6 +21,16 @@ Feature: User logging in and out
     Then I should see "Login failed."
     Then I should not be logged in
 
+  @subdomain2
+  Scenario: trying to log in without community membership
+    Given I am not logged in
+    And I am on the login page
+    When I fill in "main_person_login" with "kassi_testperson1"
+    And I fill in "main_person_password" with "testi"
+    And I click "#main_log_in_button"
+    Then I should see "Login failed."
+    Then I should not be logged in
+
   Scenario: logging out
     Given I am logged in
     When I log out
@@ -40,7 +50,6 @@ Feature: User logging in and out
     And I click "#main_log_in_button"
     Then I should see "Welcome, Kassi!"
     Then I should be logged in
-
 
   Scenario: User logs in with his additional email
     Given user "kassi_testperson1" has additional email "work.email@example.com"
