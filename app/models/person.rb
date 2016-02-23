@@ -507,12 +507,27 @@ class Person < ActiveRecord::Base
   end
 
   def self.find_by_facebook_id_and_community(facebook_id, community_id)
+<<<<<<< b5200372f462f0757e45a4662bfbc160b79201ea
     if FeatureFlagService::API::Api.features.enabled?(community_id: community_id, feature: :new_login).data
+=======
+    if FeatureFlag.where(community_id: community_id, feature: :new_login, enabled: true).present?
+>>>>>>> Add feature flag for community_id checks
       Maybe(self.find_by(facebook_id: facebook_id))
         .select { |person| person.communities.pluck(:id).include?(community_id)}
         .or_else(nil)
     else
       self.find_by(facebook_id: facebook_id)
+<<<<<<< b5200372f462f0757e45a4662bfbc160b79201ea
+=======
+    end
+  end
+
+  # Override the default finder to find also based on additional emails
+  def self.find_by_email(*args)
+    email = Email.find_by_address(*args)
+    if email
+      email.person
+>>>>>>> Add feature flag for community_id checks
     end
   end
 
