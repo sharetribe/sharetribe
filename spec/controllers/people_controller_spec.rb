@@ -59,21 +59,6 @@ describe PeopleController, type: :controller do
 
   end
 
-  describe "#check_email_availability_and_validity" do
-    before(:each) do
-      @request.host = "#{FactoryGirl.create(:community).ident}.lvh.me"
-    end
-
-    it "should return available for user's own adress" do
-      person = FactoryGirl.create(:person)
-      sign_in person
-
-      Email.create(:person_id => person.id, :address => "test2@example.com")
-      get :check_email_availability_and_validity,  {:person => {:email => "test2@example.com"}, :format => :json}
-      expect(response.body).to eq("true")
-    end
-  end
-
   describe "#create" do
 
     it "creates a person" do
