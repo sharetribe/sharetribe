@@ -238,11 +238,15 @@ class Person < ActiveRecord::Base
   end
 
   def self.username_available?(username, community_id)
-    !username.in?(USERNAME_BLACKLIST) &&
-    !Person
-      .joins(:community_memberships)
-      .where("username = ? AND community_memberships.community_id = ?", username, community_id)
-      .present?
+    if FeatureFlag.where(community_id: community_id, feature: :new_login, enabled: true).present?
+     !username.in?(USERNAME_BLACKLIST) &&
+     !Person
+       .joins(:community_memberships)
+       .where("username = ? AND community_memberships.community_id = ?", username, community_id)
+       .present?
+    else
+      !username.in?(USERNAME_BLACKLIST) && !Person.find_by(username: username).present?
+    end
    end
 
   # Deprecated: This is view logic (how to display name) and thus should not be in model layer
@@ -532,9 +536,13 @@ class Person < ActiveRecord::Base
   end
 
   def self.find_by_facebook_id_and_community(facebook_id, community_id)
-    Maybe(self.find_by(facebook_id: facebook_id))
-      .select { |person| person.communities.pluck(:id).include?(community_id)}
-      .or_else(nil)
+    if FeatureFlag.where(community_id: community_id, feature: :new_login, enabled: true).present?
+      Maybe(self.find_by(facebook_id: facebook_id))
+        .select { |person| person.communities.pluck(:id).include?(community_id)}
+        .or_else(nil)
+    else
+      self.find_by(facebook_id: facebook_id)
+    end
   end
 
   # Override the default finder to find also based on additional emails
