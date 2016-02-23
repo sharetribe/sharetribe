@@ -578,10 +578,10 @@ pt-BR:
     paypal_fee_info:
       title: "Taxa de processamento do pagamento do PayPal"
       body_text: |-
-          O PayPal cobra uma taxa de 4,99% + R$0,60 em cada pagamento. 
+          O PayPal cobra uma taxa de 4,99% + R$0,60 em cada pagamento.
           Você pode ver as taxas exatas, fazendo login em sua conta do PayPal clicando %{link_to_paypal}. Após cada compra você receberá um recibo exibindo a taxa exata.
       body_with_shipping_text: |-
-          O PayPal cobra uma taxa de 4,99% + R$0,60 em cada pagamento. 
+          O PayPal cobra uma taxa de 4,99% + R$0,60 em cada pagamento.
           Você pode ver as taxas exatas, fazendo login em sua conta do PayPal clicando %{link_to_paypal}. Após cada compra você receberá um recibo exibindo a taxa exata.
       link_to_paypal_text: aqui
   conversations:
@@ -1377,6 +1377,7 @@ pt-BR:
       request_rejected: "Pedido rejeitado"
       request_canceled: "Pedido cancelado"
       message_sent: "Mensagem enviada"
+      message_not_sent: "Mensagem não enviada, Tente novamente."
       this_content_is_not_available_in_this_community: "Este conteúdo não está disponível"
       unknown_error: "Erro desconhecido. Por favor use o link Fale conosco para enviar detalhes sobre o que aconteceu."
       update_error: "Ocorreu um erro ao tentar atualizar as suas informações, por favor, tente novamente"
