@@ -13,7 +13,7 @@ class ConfirmationsController < Devise::ConfirmationsController
     # Change the email address
     if email_param_present && ! @current_user.has_email?(params[:person][:email]) && @current_community
       # If user submitted the email change form, change the email before sending again.
-      if Email.email_available?(params[:person][:email])
+      if Email.email_available?(params[:person][:email], @current_community.id)
         if @current_community.email_allowed?(params[:person][:email])
           email = Email.create(:person => @current_user, :address => params[:person][:email], :send_notifications => true)
           Email.send_confirmation(email, @current_community)
