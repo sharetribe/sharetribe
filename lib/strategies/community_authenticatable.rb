@@ -17,7 +17,9 @@ module CommunityAuthenticatable
       end
 
       mapping.to.new.password = password if !hashed && Devise.paranoid
-      raise(:not_found_in_database) unless person
+      # rubocop:disable Style/SignalException
+      fail(:not_found_in_database) unless person
+      # rubocop:enable Style/SignalException
     end
 
     private
