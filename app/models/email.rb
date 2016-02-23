@@ -46,10 +46,14 @@ class Email < ActiveRecord::Base
 
   # Email already in use for current user or someone else
   def self.email_available?(email, community_id)
-    !Email
-      .joins(person: :community_memberships)
-      .where("address = ? AND community_memberships.community_id = ?", email, community_id)
-      .present?
+    if FeatureFlag.where(community_id: community_id, feature: :new_login, enabled: true).present?
+     !Email
+       .joins(person: :community_memberships)
+       .where("address = ? AND community_memberships.community_id = ?", email, community_id)
+       .present?
+    else
+      !Email.find_by(address: email)
+    end
   end
 
   def self.send_confirmation(email, community)
