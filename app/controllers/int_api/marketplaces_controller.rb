@@ -64,7 +64,7 @@ class IntApi::MarketplacesController < ApplicationController
     ProspectEmail.create(:email => params[:email])
 
     response.status = 200
-    render :json => {:email => email, :available => (Email.email_available?(email))} and return
+    render :json => {:email => email, :available => (Email.email_available?(email, nil))} and return
   end
 
   private

@@ -25,8 +25,9 @@ describe UserService::API::Users do
     end
 
     it "should fail if email is taken" do
-      u1 = create_user(PERSON_HASH)
-      expect{create_user(PERSON_HASH)}.to raise_error(ArgumentError, /Email Ray@example.com is already in use/)
+      c = FactoryGirl.create(:community)
+      u1 = create_user_with_membership(PERSON_HASH, c.id)
+      expect{create_user(PERSON_HASH, c.id)}.to raise_error(ArgumentError, /Email Ray@example.com is already in use/)
     end
 
   end
