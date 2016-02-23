@@ -5,6 +5,7 @@
 #  id                     :integer          not null, primary key
 #  custom_field_value_id  :integer
 #  custom_field_option_id :integer
+#  listing_id             :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #

@@ -656,7 +656,9 @@ class ListingsController < ApplicationController
       when :dropdown
         option_id = answer_value.to_i
         answer = DropdownFieldValue.new
-        answer.custom_field_option_selections = [CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => answer_value)]
+        answer.custom_field_option_selections = [CustomFieldOptionSelection.new(:custom_field_value => answer,
+                                                                                :custom_field_option_id => answer_value,
+                                                                                :listing_id => listing_id)]
         answer
       when :text
         answer = TextFieldValue.new
@@ -668,7 +670,9 @@ class ListingsController < ApplicationController
         answer
       when :checkbox
         answer = CheckboxFieldValue.new
-        answer.custom_field_option_selections = answer_value.map { |value| CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => value) }
+        answer.custom_field_option_selections = answer_value.map { |value|
+          CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => value, :listing_id => listing_id)
+        }
         answer
       when :date_field
         answer = DateFieldValue.new
