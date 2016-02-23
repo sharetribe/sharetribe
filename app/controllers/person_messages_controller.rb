@@ -17,7 +17,7 @@ class PersonMessagesController < ApplicationController
       Delayed::Job.enqueue(MessageSentJob.new(@conversation.messages.last.id, @current_community.id))
       redirect_to @recipient
     else
-      flash[:error] = "Sending the message failed. Please try again."
+      flash[:error] = t("layouts.notifications.message_not_sent")
       redirect_to root
     end
   end
