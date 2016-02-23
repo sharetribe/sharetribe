@@ -145,6 +145,17 @@
 
   // distance to end of the container
   var distanceToBottom = function () {
+    // This first if statement is a patch for jquery.pageless.js
+    // In our case grid container is not at the end of the page
+    // if there are too many custom filters.
+    if(settings.targetDiv != null) {
+      var elementOffset   = $(settings.targetDiv).offset().top;
+      var elementHeight   = $(settings.targetDiv).height();
+      var scrollTop       = $(window).scrollTop();
+      var viewportHeight  = window.innerHeight;
+      return (elementOffset + elementHeight - scrollTop - viewportHeight);
+    } // end of patch
+
     return (container === window)
          ? $(document).height()
          - $container.scrollTop()

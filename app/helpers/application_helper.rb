@@ -389,7 +389,7 @@ module ApplicationHelper
       :totalPages => total_pages,
       :url        => url,
       :loaderMsg  => loader_message,
-      :div1       => target_id
+      :targetDiv  => target_id # extra parameter for jquery.pageless.js patch
     }
 
     content_for :extra_javascript do
