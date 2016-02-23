@@ -225,8 +225,8 @@ da-DK:
         keyword_search: ~
         location_search: ~
         select_distance_unit: ~
-        km: ~
-        miles: ~
+        km: km
+        miles: mil
         listing_preferences: Annonceindstillinger
         transaction_preferences: "Transaktions indstillinger"
         show_listing_publishing_date: "Vis oprettelsesdato af annoncen på annonce siden"
@@ -1202,7 +1202,7 @@ da-DK:
     list_item:
       review: anmeldelse
       reviews: anmeldelser
-      distance_away: ~
+      distance_away: "%{distance} %{distance_unit} væk"
     news_item:
       show_less: "Vis mindre"
       show_more: "Vis mere"

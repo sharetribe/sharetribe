@@ -6,7 +6,7 @@ vi:
       already_confirmed: "đã được xác nhận, hãy thử đăng ký lại"
       not_locked: "không bị khoá"
       not_saved:
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+        other: "%{count} lỗi phát sinh. Không thể lưu %{resource}."
   devise:
     failure:
       already_authenticated: "Bạn đã đăng ký."
@@ -14,7 +14,7 @@ vi:
       unconfirmed: "Bạn phải xác nhận tài khoản trước khi tiếp tục."
       locked: "Tài khoản của bạn đã bị khoá."
       invalid: "Email hoặc mật khẩu không hợp lệ."
-      invalid_token: ~
+      invalid_token: "Khóa xác thực không hợp lệ."
       timeout: "Phiên đăng nhập đã hết hạn, hãy đăng nhập lại để tiếp tục."
       inactive: "Tài khoản của bạn chưa được kích hoạt."
     passwords:

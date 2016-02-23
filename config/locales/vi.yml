@@ -53,7 +53,7 @@ vi:
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
-        update_information: ~
+        update_information: "Lưu thiết lập."
         invite_people: ~
         edit_signup_info: ~
         edit_signup_info_description: ~
@@ -72,13 +72,13 @@ vi:
         transaction_agreement_description: ~
       edit_look_and_feel:
         edit_community_look_and_feel: ~
-        community_logo: ~
+        community_logo: Logo
         community_logo_icon: ~
-        community_cover_photo: ~
+        community_cover_photo: "Ảnh bìa"
         small_community_cover_photo: ~
         favicon: ~
         favicon_info_text: ~
-        community_custom_color1: ~
+        community_custom_color1: "Màu sắc chính"
         community_custom_color2: ~
         logo_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions: ~
@@ -523,12 +523,12 @@ vi:
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: "chia sẻ miễn phí"
-      accept_for_free: ~
+      accept_for_free: "Sử dụng miễn phí."
     categories:
-      item: ~
-      favor: ~
-      rideshare: ~
-      housing: ~
+      item: "Sản phẩm"
+      favor: "Dịch vụ"
+      rideshare: "Chia sẻ chuyến xe"
+      housing: "Nơi ở"
       tools: ~
       sports: ~
       music: ~
@@ -645,7 +645,7 @@ vi:
       housing_offer_sell_message_form_title: "Mua %{listing} từ %{person}"
       housing_offer_rent_out_message_form_title: "Thuê %{listing} từ %{person}"
       housing_offer_share_for_free_message_form_title: "Yêu cầu %{listing} từ %{person}"
-      housing_offer_accept_for_free_message_form_title: ~
+      housing_offer_accept_for_free_message_form_title: "Gửi %{listing} đến %{person}"
       housing_request_buy_message_form_title: "Bán %{listing} cho %{person}"
       housing_request_rent_message_form_title: "Cho %{person} thuê %{listing}"
       item_request_message_form_title: "Hỗ trợ một món đồ để"
@@ -943,7 +943,7 @@ vi:
       post_a_new_listing: "Gửi danh sách mới!"
       reduce_email_footer_text: "Quá nhiều email? %{settings_link} hoặc %{unsubscribe_link}."
       settings_link_text: "Chỉnh sửa các thiết lập email của bạn ở đây"
-      unsubscribe_link_text: ~
+      unsubscribe_link_text: "Hủy đăng ký"
     newsletter:
       hi: "Chào %{name},"
       newest_offers: "Hiện tại người nào hỗ trợ những người khác"
@@ -1079,15 +1079,15 @@ vi:
   header:
     about: "Tìm hiểu về"
     home: "Trang chủ"
-    members: ~
+    members: "Cộng đồng"
     new_listing: ~
     mobile_version: "Phiên bản di động"
     offers: "Các hỗ trợ"
     requests: "Các yêu cầu"
     search_kassi: "Tìm kiếm %{service_name}"
-    create_new_marketplace: ~
-    contact_us: ~
-    profile: ~
+    create_new_marketplace: "Tạo một chợ điện tử mới"
+    contact_us: "Liên hệ"
+    profile: "Thông tin tài khoản"
     manage_listings: ~
     invite: ~
     login: ~
@@ -1142,8 +1142,8 @@ vi:
       private_listing_notification_log_in: ~
       is: ~
       are: ~
-      what_do_you_need: ~
-      post_new_listing: ~
+      what_do_you_need: "Bạn đang tìm kiếm gì ?"
+      post_new_listing: "Đăng một sản phẩm mới"
       are_offering: "hỗ trợ"
       add_news_item: "Thêm một bài viết"
       lend_rent_help_carpool: "Bán, cho vay, giúp đỡ, chia sẻ cuốc xe"
@@ -1189,15 +1189,15 @@ vi:
       comment: "bình luận"
       comments: "bình luận"
     filters:
-      show: ~
-      search: ~
-      map: ~
-      list: ~
+      show: "Bộ lọc"
+      search: "Tìm kiếm"
+      map: "Hiện bản đồ"
+      list: "Hiện danh sách"
       map_button: ~
       grid_button: ~
       list_button: ~
-      all_listing_types: ~
-      all_categories: ~
+      all_listing_types: "Tất cả"
+      all_categories: "Tất cả các mục"
     errors:
       search_engine_not_responding: ~
   infos:
@@ -1212,12 +1212,12 @@ vi:
     admin:
       admin: "ban quản trị %{service_name}"
     no_tribe:
-      inbox: ~
-      settings: ~
+      inbox: "Hộp thư đến"
+      settings: "Cài đặt"
       feedback: ~
     application:
       join_this_community: ~
-      read_more: ~
+      read_more: "Xem thêm"
       feedback: "Thông tin phản hồi đến đội ngũ %{service_name}"
       default_feedback: "Đề nghị một đặc tính mới, thông báo lỗi, cho biết ý kiến của bạn về dịch vụ, hoặc chỉ để lại chú ý bằng cách nói xin chào!"
       feedback_forum: "diễn đàn thông tin phản hồi"
@@ -1227,10 +1227,10 @@ vi:
       send_feedback_to_admin: "Gửi ý kiến phản hồi"
       to_see_what_others_have_suggested: "để xem những gì người dùng khác đề nghị"
       your_email_address: "Địa chỉ email của bạn (không bắt buộc)"
-      connect: ~
-      invite_your_friends: ~
+      connect: "Đăng ký"
+      invite_your_friends: "Mời thêm bạn bè !"
       invite_your_neighbors: ~
-      invite_your_friends_description: ~
+      invite_your_friends_description: "Càng đông người sử dụng %{service_name} thì dịch vụ sẽ đầy đủ hơn."
       invite_your_friends_invite_only_description: ~
       join_without_facebook: ~
       join_without_facebook_link: ~
@@ -1302,7 +1302,7 @@ vi:
       inviting_new_users_is_not_allowed_in_this_community: "Không được phép mời người dùng mới trong cộng đồng %{service_name}"
       login_again: "Vui lòng đăng nhập lại."
       login_failed: "Đăng nhập thất bại. Hãy nhập chính xác thông tin."
-      account_creation_successful: ~
+      account_creation_successful: "Chào mừng %{person_name} đến với %{service_name} !"
       account_deleted: ~
       login_successful: "Chào mừng đến với %{service_name}, "
       logout_successful: "Bây giờ bạn đã đăng xuất khỏi %{service_name}. Chào mừng bạn lần nữa!"
@@ -1403,7 +1403,7 @@ vi:
       delete: ~
       are_you_sure: ~
     comment_form:
-      ask_a_question: ~
+      ask_a_question: "Hãy để lại bình luận để biết thêm chi tiết. Mọi người đều sẽ thấy bình luận của bạn."
       log_in: "đăng nhập"
       send_comment: "Gửi bình luận"
       to_send_a_comment: "để gửi bình luận mới."
@@ -1453,7 +1453,7 @@ vi:
         i_want_to_request: "Tôi cần..."
       googlemap:
         googlemap_copy: "Những Điểm Cuối Từ Bản Đồ"
-        googlemap_description: ~
+        googlemap_description: "Xem bản đồ"
         googlemap_updatemap: "Cập nhật bản đồ"
       images:
         image: Ảnh
@@ -1522,7 +1522,7 @@ vi:
       valid_until:
         valid_until: "Ngày hết hạn"
       valid_until_radio_buttons:
-        for_the_time_being: ~
+        for_the_time_being: "Không có ngày hết hạn."
       privacy:
         privacy: ~
         private: ~
@@ -1962,11 +1962,11 @@ vi:
       email_about_new_payments: ~
       email_about_payment_reminders: ~
       email_about_new_listings_by_followed_people: ~
-      unsubscribe_succesful: ~
-      unsubscribe_info_text: ~
+      unsubscribe_succesful: "Hủy đăng ký thành công."
+      unsubscribe_info_text: "Bạn sẽ không tiếp tục nhận được những thư điện tử này. Kiểm tra %{settings_link} để chọn chủ đề thư điện tử bạn muốn nhận từ %{service_name}, hoặc trờ về %{homepage_link}."
       settings_link: "thiết lập"
       homepage_link: "trang chủ"
-      unsubscribe_unsuccesful: ~
+      unsubscribe_unsuccesful: "Có lỗi phát sinh trong quá trình hủy đăng ký"
       unsuccessful_unsubscribe_info_text: ~
     profile:
       about_you: "Về bạn:"
@@ -1980,7 +1980,7 @@ vi:
       profile_picture: ~
       postal_code: "Mã bưu điện:"
       profile_page: "trong trang hồ sơ của bạn"
-      profilemap: ~
+      profilemap: "Xem bản đồ"
       street_address: "Nơi ở:"
       these_fields_are_shown_in_your: "Thông tin này được hiển thị cho tất cả các người sử dụng %{service_name}"
       visible_to_everybody: "hiển thị đối với mọi người"
@@ -2102,6 +2102,8 @@ vi:
     seconds_ago: "%{count} giây trước"
     year_ago: "%{count} năm trước"
     years_ago: "%{count} năm trước"
+    days_since:
+      other: "%{count} ngày"
   transactions:
     initiate:
       booked_days: ~

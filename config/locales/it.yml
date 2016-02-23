@@ -448,7 +448,7 @@ it:
         day: "Al giorno"
         night: ~
         week: ~
-        month: ~
+        month: "Per mese"
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: ~
@@ -461,7 +461,7 @@ it:
         per: ~
         unit_type:
           heading: ~
-          quantity_label: ~
+          quantity_label: "Quantità (per pezzo, per kg, per persona, per tour di 2 ore...)"
           time_label: ~
     paypal_accounts:
       marketplace_paypal_integration: "Integrazione PayPal"
@@ -1427,7 +1427,7 @@ it:
       show_in_updates_email_error: "Non è possibile raggiungere il server. Prova con un refresh della pagina (F5)"
       show_in_updates_email_success: "Questa inserzione sarà mostrato nel prossimo aggiornamento automatico delle inserzioni inviato via e-mail agli utenti"
     map:
-      open_in_google_maps: ~
+      open_in_google_maps: "Apri in Google Maps"
     error:
       something_went_wrong: ~
     follow_links:
@@ -1470,7 +1470,7 @@ it:
         processing: "In attesa..."
         loading_image: Caricamento...
         image_uploading_in_progress: ~
-        processing_takes_a_while: ~
+        processing_takes_a_while: "Tutte le immagine sono state caricate! Ci vorrà un po' di tempo per finire il processo, comunque puoi già l'inserzione ed uscire se lo desideri."
         this_may_take_a_while: "(potrebbe richiedere del tempo)"
         percentage_loaded: ~
         uploading_failed: "Il caricamento dell'immagine non è andato a buon fine."
@@ -1593,11 +1593,11 @@ it:
       payment_settings_link: "Impostazioni dei pagamenti"
       community_not_configured_for_payments_admin: ~
     quantity:
-      hour: ~
+      hour: "Numero di ore:"
       day: "Numero di giorni:"
       night: ~
       week: ~
-      month: ~
+      month: "Numero di mesi:"
       custom: ~
     quantity_placeholder: ~
     please_comment: Commenta
@@ -1647,11 +1647,11 @@ it:
       pickup_no_price: ~
     unit_types:
       piece: ~
-      hour: ~
+      hour: ora
       day: giorno
       night: ~
       week: ~
-      month: ~
+      month: mese
     verification_required:
       verification_required: "Richiesta verifica"
   listing_conversations:
@@ -2120,6 +2120,9 @@ it:
       days:
         one: "%{count} giorno"
         other: "%{count} giorni"
+      hours:
+        one: "%{count} ora"
+        other: "%{count} ore"
   transactions:
     initiate:
       booked_days: "Giorni prenotati:"
