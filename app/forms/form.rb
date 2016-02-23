@@ -18,7 +18,7 @@ module Form
     def validate(form)
       options[:fields].each do |f|
         email_address = form.send(f)
-        form.errors.add(f, "Email address #{email_address} is not available.") unless Email.email_available?(email_address)
+        form.errors.add(f, "Email address #{email_address} is not available.") unless Email.email_available?(email_address, nil)
       end
     end
   end
