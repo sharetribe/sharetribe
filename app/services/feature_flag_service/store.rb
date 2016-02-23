@@ -14,6 +14,7 @@ module FeatureFlagService::Store
       :only_gtm,
       :customer_universal_analytics,
       :youtube_embeds,
+      :new_login
     ].to_set
 
     def initialize(additional_flags:)
