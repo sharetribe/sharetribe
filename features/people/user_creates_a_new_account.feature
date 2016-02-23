@@ -85,6 +85,7 @@ Feature: User creates a new account
 
   @subdomain2
   Scenario: Trying to create an account with email and username that exist in another marketplace
+    Given feature flag "new_login" is enabled
     When I fill in "person[username]" with "kassi_testperson1"
     And I fill in "First name" with "Testmanno"
     And I fill in "Last name" with "Namez"
@@ -109,6 +110,7 @@ Feature: User creates a new account
     And community "test2" requires invite to join
     And I refresh the page
     And there is an invitation for community "test2" with code "GH1JX8"
+    And feature flag "new_login" is enabled
     Then I should see "The access to Sharetribe is restricted."
     When I fill in "Invitation code" with "GH1JX8"
     And I fill in "person[username]" with "kassi_testperson1"
