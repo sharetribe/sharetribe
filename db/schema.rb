@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209183917) do
+ActiveRecord::Schema.define(version: 20160223084741) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -309,6 +309,7 @@ ActiveRecord::Schema.define(version: 20160209183917) do
   create_table "custom_field_option_selections", force: :cascade do |t|
     t.integer  "custom_field_value_id",  limit: 4
     t.integer  "custom_field_option_id", limit: 4
+    t.integer  "listing_id",             limit: 4
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
   end
