@@ -47,7 +47,7 @@ Kassi::Application.routes.draw do
     get "/check_email_availability" => "marketplaces#check_email_availability"
   end
 
-  REMOVED_LOCALES = Rails.application.config.REMOVED_LOCALES.to_a
+  REMOVED_LOCALES ||= Rails.application.config.REMOVED_LOCALES.to_a
 
   locale_matcher = Regexp.new(Sharetribe::AVAILABLE_LOCALES.map { |l| l[:ident] }.concat(REMOVED_LOCALES).join("|"))
 
