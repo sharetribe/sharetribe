@@ -239,7 +239,7 @@ class Person < ActiveRecord::Base
   end
 
   def self.username_available?(username, community_id)
-    if FeatureFlag.where(community_id: community_id, feature: :new_login, enabled: true).present?
+    if FeatureFlagService::API::Api.features.enabled?(community_id: community_id, feature: :new_login).data
      !username.in?(USERNAME_BLACKLIST) &&
      !Person
        .joins(:community_memberships)
@@ -537,7 +537,7 @@ class Person < ActiveRecord::Base
   end
 
   def self.find_by_facebook_id_and_community(facebook_id, community_id)
-    if FeatureFlag.where(community_id: community_id, feature: :new_login, enabled: true).present?
+    if FeatureFlagService::API::Api.features.enabled?(community_id: community_id, feature: :new_login).data
       Maybe(self.find_by(facebook_id: facebook_id))
         .select { |person| person.communities.pluck(:id).include?(community_id)}
         .or_else(nil)
