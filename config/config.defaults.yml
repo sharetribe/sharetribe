@@ -268,6 +268,11 @@ default: &default_settings
   # Delayed job maximum run time in seconds
   delayed_job_max_run_time: 180
 
+  # Optional HTTP basic auth for the entire installation
+  use_http_auth: false
+  http_auth_username: sharetribe
+  http_auth_password: changeme
+
 production: &production_settings
   <<: *default_settings
 

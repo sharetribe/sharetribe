@@ -16,7 +16,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
 
-  before_filter :check_auth_token,
+  before_filter :check_http_auth,
+    :check_auth_token,
     :fetch_community,
     :fetch_community_plan_expiration_status,
     :perform_redirect,
@@ -468,6 +469,15 @@ class ApplicationController < ActionController::Base
 
   def fetch_translations
     WebTranslateIt.fetch_translations
+  end
+
+  def check_http_auth
+    return true unless APP_CONFIG.use_http_auth.to_s.downcase == 'true'
+    if authenticate_with_http_basic { |u, p| u == APP_CONFIG.http_auth_username && p == APP_CONFIG.http_auth_password }
+      true
+    else
+      request_http_basic_authentication
+    end
   end
 
   def check_auth_token
