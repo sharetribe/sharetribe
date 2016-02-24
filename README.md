@@ -67,7 +67,7 @@ Before you get started, the following needs to be installed:
 
 1. Add your database configuration details to `config/database.yml`. You will probably only need to fill in the password for the database(s).
 
-1. Create a config.yml file by copying the example configutions file:
+1. Create a config.yml file by copying the example configution file:
 
   ```bash
   cp config/config.example.yml config/config.yml
