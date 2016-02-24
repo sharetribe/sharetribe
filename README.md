@@ -67,6 +67,13 @@ Before you get started, the following needs to be installed:
 
 1. Add your database configuration details to `config/database.yml`. You will probably only need to fill in the password for the database(s).
 
+1. Create a config.yml file by copying the example configutions file:
+
+  ```bash
+  cp config/config.example.yml config/config.yml
+  ```
+
+
 1. Create the database:
 
   ```bash
@@ -121,7 +128,7 @@ Use [Mailcatcher](http://mailcatcher.me) to receive sent emails locally:
   mailcatcher
   ```
 
-1. Create a `config/config.yml` file and add the following lines to it:
+1. Add the following lines to `config/config.yml`:
 
 ```yml
 development:
@@ -248,7 +255,7 @@ It is not recommended to serve static assets from a Rails server in production. 
 
 ### Advanced settings
 
-Default configuration settings are stored in `config/config.default.yml`. If you need to change these, we recommend creating a `config/config.yml` file to override these values. You can also set configuration values to environment variables.
+Default configuration settings are stored in `config/config.default.yml`. If you need to change these, use the `config/config.yml` file to override the defaults. You can also set configuration values to environment variables.
 
 ### Unofficial installation instructions
 
