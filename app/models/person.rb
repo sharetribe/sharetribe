@@ -62,6 +62,8 @@ class Person < ActiveRecord::Base
 
   include ErrorsHelper
   include ApplicationHelper
+  # Allows password validation on person from
+  # CommunityAuthenticatable custom Devise strategy
   include Devise::Models::DatabaseAuthenticatable
 
   self.primary_key = "id"
@@ -545,18 +547,11 @@ class Person < ActiveRecord::Base
     end
   end
 
-  # Override the default finder to find also based on additional emails
-  def self.find_by_email(*args)
-    email = Email.find_by_address(*args)
-    if email
-      email.person
-    end
-  end
-
   def self.find_by_email_address_and_community_id(email_address, community_id)
     Maybe(
       Email.find_by_address_and_community_id(email_address, community_id)
     ).person.or_else(nil)
+  end
 
   def reset_password_token_if_needed
     # Devise 3.1.0 doesn't expose methods to generate reset_password_token without
