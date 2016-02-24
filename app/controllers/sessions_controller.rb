@@ -60,7 +60,7 @@ class SessionsController < ApplicationController
 
     session[:person_id] = current_person.id
 
-    flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(@current_user.given_name_or_username, person_path(@current_user))).html_safe
+    flash[:notice] = t("layouts.notifications.login_successful", person_name: view_context.link_to(@current_user.given_name_or_username, person_path(@current_user))).html_safe
     if session[:return_to]
       redirect_to session[:return_to]
       session[:return_to] = nil
@@ -99,15 +99,12 @@ class SessionsController < ApplicationController
     data = request.env["omniauth.auth"].extra.raw_info
     I18n.locale = URLUtils.extract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
 
-    person = Person.find_by_facebook_id_and_community(data.id, @current_community.id)
-
-    unless person
-      person = Maybe(Person.find_by_email_address_and_community_id(data.email, @current_community.id))
-        .each { |p| p.update_facebook_data(data.id) }
-        .or_else(nil)
-    end
+    person =
+      Person.find_by_facebook_id_and_community(data.id, @current_community.id) ||
+      Person.find_by_email_address_and_community_id(data.email, @current_community.id)
 
     if person
+      person.update_facebook_data(data.id) unless person.facebook_id
       @person = person
       flash[:notice] = t("devise.omniauth_callbacks.success", :kind => "Facebook")
       sign_in_and_redirect @person, :event => :authentication
