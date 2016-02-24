@@ -11,6 +11,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 ### Changed
 
 - Add listing id to option selections table: [#1761](https://github.com/sharetribe/sharetribe/pull/1761) and [#1762](https://github.com/sharetribe/sharetribe/pull/1762)
+- Support optional site-wide HTTP basic authentication: [#1766](https://github.com/sharetribe/sharetribe/pull/1766)
 
 ### Fixed
 
