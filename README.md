@@ -188,15 +188,22 @@ To automatically run unit tests when code is changed, start [Guard](https://gith
 
 Before starting these steps, perform [steps 1-5 from above](#setting-up-the-development-environment).
 
-1. Set environment variables
+1. Set `secret_key_base`
 
-  Set environment variable `secret_key_base`.
+  Generate secret key
 
-  To generate the new `secret_key_base` key, go rails console and type:
-
-  ```ruby
-  SecureRandom.hex(64)
+  ```bash
+  rake secret
   ```
+
+  Add the following lines to `config/config.yml`:
+
+  ```yml
+  production:
+    secret_key_base: # add here the generated key
+  ```
+
+  (You can also set the `secret_key_base` environment variable, if you don't want to store the secret key in a file)
 
 1. Create the database:
 
