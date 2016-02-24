@@ -329,7 +329,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Before filter to direct a logged-in non-member to join tribe form
+  # Before filter to direct a banned user to access denied page
   def cannot_access_if_banned
       # Check if banned
       if @current_user && @current_user.banned_at?(@current_community)
