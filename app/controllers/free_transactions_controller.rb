@@ -42,7 +42,7 @@ class FreeTransactionsController < ApplicationController
         })
 
       unless transaction_response[:success]
-        flash[:error] = "Sending the message failed. Please try again."
+        flash[:error] = t("layouts.notifications.message_not_sent")
         return redirect_to root
       end
 
@@ -56,7 +56,7 @@ class FreeTransactionsController < ApplicationController
       Delayed::Job.enqueue(MessageSentJob.new(transaction.conversation.messages.last.id, @current_community.id))
       redirect_to session[:return_to_content] || root
     else
-      flash[:error] = "Sending the message failed. Please try again."
+      flash[:error] = t("layouts.notifications.message_not_sent")
       redirect_to root
     end
   end
