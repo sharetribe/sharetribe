@@ -50,7 +50,7 @@ class Email < ActiveRecord::Base
 
   # Email already in use for current user or someone else
   def self.email_available?(email, community_id)
-    if FeatureFlag.where(community_id: community_id, feature: :new_login, enabled: true).present?
+    if FeatureFlagService::API::Api.features.enabled?(community_id: community_id, feature: :new_login).data
      !Email
        .joins(person: :community_memberships)
        .where("address = ? AND community_memberships.community_id = ?", email, community_id)
