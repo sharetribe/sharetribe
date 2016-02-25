@@ -37,8 +37,7 @@ module ListingIndexService::Search
             req.url("/api/v1/marketplace/#{community_id}/listings", format_params(search))
             req.headers['Authorization'] = "apikey key=#{API_KEY}"
           end
-          distance_unit_system = MarketplaceService::API::Api.configurations.get(community_id: community_id).data[:distance_unit]
-          Result::Success.new(parse_response(res.body, includes, (distance_unit_system == :metric) ? :km : :miles))
+          Result::Success.new(parse_response(res.body, includes))
         rescue StandardError => e
           Result::Error.new(e)
         end
@@ -56,7 +55,8 @@ module ListingIndexService::Search
       search_params =
         if(original[:latitude].present? && original[:longitude].present?)
           { :'search[lat]' => original[:latitude],
-            :'search[lng]' => original[:longitude]
+            :'search[lng]' => original[:longitude],
+            :'search[distance_unit]' => original[:distance_unit]
           }
         else
           { :'search[keywords]' => original[:keywords]}
@@ -85,7 +85,7 @@ module ListingIndexService::Search
       }.merge(search_params).merge(custom_fields).compact
     end
 
-    def listings_from_ids(id_obs, includes, distance_unit)
+    def listings_from_ids(id_obs, includes)
       # TODO: use pluck instead of instantiating the ActiveRecord objects completely, for better performance
       # http://collectiveidea.com/blog/archives/2015/03/05/optimizing-rails-for-memory-usage-part-3-pluck-and-database-laziness/
 
@@ -97,27 +97,29 @@ module ListingIndexService::Search
           .where(id: ids)
           .order("field(listings.id, #{ids.join ','})")
           .map { |l|
-            d = data_by_id[l.id]
-            meta  = Maybe(d['meta']).or_else({})
-            distance_hash = convert_distance(meta, distance_unit)
-
+            distance_hash = parse_distance(data_by_id[l.id])
             ListingIndexService::Search::Converters.listing_hash(l, includes, distance_hash)
           }
       }.or_else([])
     end
 
-    def parse_response(res, includes, distance_unit)
-      listings = listings_from_ids(res["data"], includes, distance_unit)
+    def parse_response(res, includes)
+      listings = listings_from_ids(res["data"], includes)
 
       {count: res["meta"]["total"],
        listings: listings}
     end
 
-    def convert_distance(meta_obj, distance_unit)
-      Maybe(meta_obj['distance'])
-        .map{ |d|
-          distance = (distance_unit == :km) ? d : (d / 1.609344)
-          { distance: distance, distance_unit: distance_unit }
+    def parse_distance(data)
+      Maybe(data['meta'])
+        .map{ |m|
+          distance = m['distance']
+          distance_unit = m['distance-unit']
+          if(distance.present? && distance_unit.present?)
+            { distance: distance, distance_unit: distance_unit }
+          else
+            {}
+          end
         }.or_else({})
     end
   end
