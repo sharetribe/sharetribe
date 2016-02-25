@@ -33,11 +33,11 @@ window.ST = window.ST || {};
     // Ensure default events don't fire without correct info
     homepageForm.addEventListener('submit', function(e) {
       // If service status is unset and there are no coordinates, do not make search submit
-      if(statusInput.value === "" && coordinateInput.value === "") {
+      if(statusInput.value === "" && coordinateInput.value === "" && searchInput.value !== "") {
         e.preventDefault();
+        // Submit will be triggered again after call to queryPredictions()
+        queryPredictions(searchInput.value, handlePredictions);
       }
-      // Submit will be triggered again after call to queryPredictions()
-      queryPredictions(searchInput.value, handlePredictions);
     });
 
 
