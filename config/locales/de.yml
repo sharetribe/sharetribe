@@ -1194,7 +1194,7 @@ de:
     list_item:
       review: Bewertung
       reviews: Bewertungen
-      distance_away: ~
+      distance_away: "%{distance}%{distance_unit} entfernt"
     news_item:
       show_less: "Weniger anzeigen"
       show_more: "Mehr anzeigen"
@@ -1365,6 +1365,7 @@ de:
       request_rejected: "Anfrage abgelehnt"
       request_canceled: "Anfrage abgebrochen"
       message_sent: "Nachricht gesendet"
+      message_not_sent: "Senden der Nachricht fehlgeschlagen. Bitte versuche es nochmal."
       this_content_is_not_available_in_this_community: "Dieser Inhalt ist nicht verfügbar."
       unknown_error: "Unbekannter Fehler. Bitte benutze den Kontakt-Link, um uns über Details zum Vorfall zu informieren."
       update_error: "Ein Fehler ist beim Aktualisieren deiner Informationen aufgetreten. Bitte versuche es erneut."

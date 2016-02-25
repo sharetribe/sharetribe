@@ -1206,7 +1206,7 @@ pt-BR:
     list_item:
       review: avaliação
       reviews: avaliações
-      distance_away: ~
+      distance_away: "%{distance} %{distance_unit} de distância"
     news_item:
       show_less: "Mostrar menos"
       show_more: Programar
@@ -1377,6 +1377,7 @@ pt-BR:
       request_rejected: "Pedido rejeitado"
       request_canceled: "Pedido cancelado"
       message_sent: "Mensagem enviada"
+      message_not_sent: ~
       this_content_is_not_available_in_this_community: "Este conteúdo não está disponível"
       unknown_error: "Erro desconhecido. Por favor use o link Fale conosco para enviar detalhes sobre o que aconteceu."
       update_error: "Ocorreu um erro ao tentar atualizar as suas informações, por favor, tente novamente"

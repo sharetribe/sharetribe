@@ -1350,6 +1350,7 @@ it:
       request_rejected: "Richiesta respinta"
       request_canceled: "Ordine cancellato."
       message_sent: "Messaggio inviato"
+      message_not_sent: "Spedizione del messaggio fallita. Riprova."
       this_content_is_not_available_in_this_community: "Questo contenuto non è disponibile in questa comunità."
       unknown_error: "Errore sconosciuto. Usa il link Contattaci per inviarci i dettagli di quanto accaduto."
       update_error: "È avvenuto un errore mentre stavi aggiornando le tue informazioni, prova nuovamente"
@@ -2117,12 +2118,12 @@ it:
       one: "%{count} giorno"
       other: "%{count} giorni"
     time_to:
-      days:
-        one: "%{count} giorno"
-        other: "%{count} giorni"
       hours:
         one: "%{count} ora"
         other: "%{count} ore"
+      days:
+        one: "%{count} giorno"
+        other: "%{count} giorni"
   transactions:
     initiate:
       booked_days: "Giorni prenotati:"
