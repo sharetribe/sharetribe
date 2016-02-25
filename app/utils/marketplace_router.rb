@@ -130,12 +130,24 @@ module MarketplaceRouter
       elsif other[:community_search_status] == :not_found && !other[:no_communities]
         # Community not found
         # -> Redirect to not found
-        paths[:community_not_found].merge(status: :found, protocol: protocol)
+        Maybe(paths[:community_not_found])[:url].map { |u|
+          URLUtils.build_url(u, {utm_source: request[:host], utm_medium: "redirect", utm_campaign: "na-auto-redirect"})
+        }.map { |u|
+          {url: u, status: :found, protocol: protocol}
+        }.or_else {
+          paths[:community_not_found].merge(status: :found, protocol: protocol)
+        }
 
       elsif community && (community[:deleted] || community[:closed])
         # Community deleted
         # -> Redirect to not found
-        paths[:community_not_found].merge(status: :moved_permanently, protocol: protocol)
+        Maybe(paths[:community_not_found])[:url].map { |u|
+          URLUtils.build_url(u, {utm_source: request[:host], utm_medium: "redirect", utm_campaign: "qc-auto-redirect"})
+        }.map { |u|
+          {url: u, status: :moved_permanently, protocol: protocol}
+        }.or_else {
+          paths[:community_not_found].merge(status: :moved_permanently, protocol: protocol)
+        }
 
       elsif community && community[:domain].present? && community[:use_domain] && request[:host] != community[:domain]
         # Community has domain ready, should use it

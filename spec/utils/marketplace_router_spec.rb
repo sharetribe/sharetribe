@@ -101,11 +101,49 @@ describe MarketplaceRouter do
                       }).to eq(route_name: :not_found, status: :moved_permanently, protocol: "https")
     end
 
+    it "adds utm_ parameters when redirecting deleted" do
+      expect_redirect(community: {
+                        deleted: true,
+                      },
+                      request: {
+                        host: "www.marketplace.com"
+                      },
+                      paths: {
+                        community_not_found: {url: "https://redirect.site.com"},
+                      }).to eq(url: "https://redirect.site.com?utm_source=www.marketplace.com&utm_medium=redirect&utm_campaign=qc-auto-redirect",
+                               protocol: "https",
+                               status: :moved_permanently)
+    end
+
+    it "adds utm_ parameters when redirecting closed" do
+      expect_redirect(community: {
+                        closed: true,
+                      },
+                      request: {
+                        host: "www.marketplace.com"
+                      },
+                      paths: {
+                        community_not_found: {url: "https://redirect.site.com"},
+                      }).to eq(url: "https://redirect.site.com?utm_source=www.marketplace.com&utm_medium=redirect&utm_campaign=qc-auto-redirect",
+                               protocol: "https",
+                               status: :moved_permanently)
+    end
+
     it "redirects to community not found if community was not found and some communities do exist" do
       expect_redirect(community: nil, other: {community_search_status: :not_found}).to eq(route_name: :not_found, status: :found, protocol: "https")
     end
 
-    it "redirects to community not found if community was not found and some communities do exist" do
+    it "adds utm_ parameters when redirecting no community found and other communties exist" do
+      expect_redirect(community: nil,
+                      request: { host: "www.wrongmarketplace.com" },
+                      other: { community_search_status: :not_found },
+                      paths: { community_not_found: { url: "https://redirect.site.com"} }
+                     ).to eq(url: "https://redirect.site.com?utm_source=www.wrongmarketplace.com&utm_medium=redirect&utm_campaign=na-auto-redirect",
+                             protocol: "https",
+                             status: :found)
+    end
+
+    it "redirects to new community page if community was not found and no communities exist" do
       expect_redirect(community: nil,
                       other: {
                         community_search_status: :not_found,
