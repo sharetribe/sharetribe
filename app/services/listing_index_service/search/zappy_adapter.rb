@@ -26,17 +26,15 @@ module ListingIndexService::Search
 
     def search(community_id:, search:, includes: nil)
       included_models = includes.map { |m| INCLUDE_MAP[m] }
-      search_params = format_params(search)
 
       if DatabaseSearchHelper.needs_db_query?(search) && DatabaseSearchHelper.needs_search?(search)
         return Result::Error.new(ArgumentError.new("Both DB query and search engine would be needed to fulfill the search"))
       end
 
       if DatabaseSearchHelper.needs_search?(search)
-        # TODO: is out-of-bounds check necessary here?
         begin
           res = @conn.get do |req|
-            req.url("/api/v1/marketplace/#{community_id}/listings", search_params)
+            req.url("/api/v1/marketplace/#{community_id}/listings", format_params(search))
             req.headers['Authorization'] = "apikey key=#{API_KEY}"
           end
           distance_unit_system = MarketplaceService::API::Api.configurations.get(community_id: community_id).data[:distance_unit]
@@ -64,6 +62,17 @@ module ListingIndexService::Search
           { :'search[keywords]' => original[:keywords]}
         end
 
+      custom_fields = Maybe(original[:fields]).map { |fields|
+        fields.select { |f| [:numeric_range, :selection_group].include?(f[:type]) }
+        fields.map { |f|
+          if f[:type]  == :numeric_range
+            [:"custom[#{f[:id]}]", "double:#{f[:value].first}:#{f[:value].last}"]
+          else
+            [:"custom[#{f[:id]}]", "opt:#{f[:operator]}:#{f[:value].join(",")}"]
+          end
+        }.to_h
+      }.or_else({})
+
       {
        :'page[number]' => original[:page],
        :'page[size]' => original[:per_page],
@@ -73,7 +82,7 @@ module ListingIndexService::Search
        :'filter[listing_shape_ids]' => Maybe(original[:listing_shape_ids]).join(",").or_else(nil),
        :'filter[category_ids]' => Maybe(original[:categories]).join(",").or_else(nil),
        :'search[locale]' => original[:locale]
-      }.merge(search_params).compact
+      }.merge(search_params).merge(custom_fields).compact
     end
 
     def listings_from_ids(id_obs, includes, distance_unit)
