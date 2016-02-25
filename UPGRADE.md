@@ -15,6 +15,18 @@ RAILS_ENV=production rake sharetribe:generate_customization_stylesheets_immediat
 rake assets:precompile
 ```
 
+## Unreleased
+
+Ruby version is updated from 2.1.8 to 2.2.4. The update should reduce memory usage and improve performance.
+
+Using [RVM](https://rvm.io/), you can upgrade your local Ruby version like this:
+```
+rvm install ruby-2.2.4
+rvm use ruby-2.2.4
+gem install bundler
+bundle install
+```
+
 ## Upgrade from 5.4.0 to 5.5.0
 
 This release removes the support for legacy hashing algorithm that was used with the legacy "ASI" service.
