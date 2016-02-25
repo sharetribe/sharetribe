@@ -89,7 +89,7 @@ module PaypalService::API
         return log_and_return(Result::Error.new("Payment is not in :completed state. State was: #{payment[:payment_status]}."))
       end
 
-      if (payment[:commission_status] != :not_charged)
+      unless ([:not_charged, :errored].include?(payment[:commission_status])
         return log_and_return(Result::Error.new("Commission already charged. Commission status was: #{payment[:commission_status]}"))
       end
 
