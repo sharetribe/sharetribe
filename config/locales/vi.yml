@@ -105,10 +105,10 @@ vi:
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
-        welcome_email_content: ~
+        welcome_email_content: "Nội dung thộng điệp chào mừng"
         welcome_email_content_description: ~
-        edit_message: ~
-        send_test_message: ~
+        edit_message: "Thay đổi thông điệp"
+        send_test_message: "Gửi thông điệp thử"
       outgoing_email:
         title: ~
         info: ~
@@ -501,7 +501,7 @@ vi:
         offer: ~
         inquiry: ~
   common:
-    edit_page: ~
+    edit_page: "Chỉnh sửa trang này"
     default_community_slogan: "Cho mượn, giúp đỡ, chia sẻ"
     default_community_description: "%{service_name} là nơi mà các thành viên trong cộng đồng của chúng ta có thể chia sẻ hàng hoá, dịch vụ, cuốc xe, và không gian. Bạn có thể cho người khác biết những gì bạn có thể hỗ trợ họ và nhận trợ giúp khi cần."
     cancel: "Hủy bỏ"
@@ -935,7 +935,7 @@ vi:
     community_updates:
       added_offer: "%{name_link} đã thêm hỗ trợ:"
       added_request: "%{name_link} đã thêm yêu cầu:"
-      added_listing: ~
+      added_listing: "%{name_link} đã đăng một tin rao mới :"
       update_mail_title: ~
       title_link_text: "%{community_name}"
       intro_paragraph: ~
@@ -1132,7 +1132,7 @@ vi:
     event_feed:
       latest_events: "Điều gì đang xảy ra"
     grid_item:
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(Đang xử lý hình ảnh tải lên...)"
     index:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: "Không có sản phẩm nào. %{add_listing_link}"
@@ -1158,9 +1158,9 @@ vi:
       requesting: cần
       tell_it_here: "Cho nó biết ở đây!"
       welcome_to_new_kassi: "Chào mừng %{service_name} mới!"
-      no_reviews: ~
-      no_image: ~
-      filter: ~
+      no_reviews: "Chưa có phản hồi"
+      no_image: "Không có hình ảnh"
+      filter: "Bộ lọc"
       this_is_private_community: ~
     invitation_form:
       email: "Địa chỉ email bạn của bạn:"
@@ -1173,8 +1173,8 @@ vi:
       invitation_message_field_placeholder: ~
       errors_in_emails: "Hãy kiểm tra lại rằng mỗi địa chỉ bạn thêm vào đều chính xác. Mỗi địa chỉ được ngăn với nhau bởi dấu phấy."
     list_item:
-      review: ~
-      reviews: ~
+      review: "Phản hồi sản phẩm"
+      reviews: "Phẩn hồi sản phẩm"
       distance_away: ~
     news_item:
       show_less: "Hiển thị ít hơn"
@@ -1193,9 +1193,9 @@ vi:
       search: "Tìm kiếm"
       map: "Hiện bản đồ"
       list: "Hiện danh sách"
-      map_button: ~
-      grid_button: ~
-      list_button: ~
+      map_button: "Bản đồ"
+      grid_button: "Hiển thị theo lưới"
+      list_button: "Hiển thị theo danh sách"
       all_listing_types: "Tất cả"
       all_categories: "Tất cả các mục"
     errors:
@@ -1240,7 +1240,7 @@ vi:
       received: "Đã nhận"
       sent: "Đã gửi"
     global-header:
-      select_language: ~
+      select_language: "Ngôn ngữ"
     infos:
       about: "Đó là gì"
       how_to_use: "Làm sao dùng"
@@ -1275,7 +1275,7 @@ vi:
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
-      test_welcome_email_delivered_to: ~
+      test_welcome_email_delivered_to: "Email thử nghiệm đã được gửi tới %{email}"
       something_went_wrong: "Có lỗi xảy ra"
       community_updated: ~
       community_update_failed: ~
@@ -1285,7 +1285,7 @@ vi:
       comment_sent: "Bình luận đã gửi"
       confirmation_link_is_wrong_or_used: "Liên kết xác nhận vừa được sử dụng hoặc bị hỏng. Thử đăng nhập lại, hoặc gửi thông tin phản hồi nếu lỗi vẫn tồn tại."
       additional_email_confirmed: "Thư điện tử bạn đã nhập bây giờ được xác nhận. Bây giờ, bạn có thể tham gia cộng đồng bằng cách nhập lại nó."
-      could_not_get_email_from_facebook: ~
+      could_not_get_email_from_facebook: "Tài khoảng Facebook không chứa địa chỉ mail. Bạn cần ít nhất 1 địa chỉ mail để tạo tài khoản trên trang này."
       create_new_listing: "Đăng một sản phẩm khác"
       create_one_here: "tạo một ở đây"
       email_confirmation_sent_to_new_address: "Bây giờ, email xác nhận được gửi đến địa chỉ mới."
@@ -1324,7 +1324,7 @@ vi:
       payment_successful: "Thanh toán thành công"
       payment_canceled: "Thanh toán bị hủy"
       error_in_payment: "Có lỗi phát sinh trong quá trình thanh toán. Nếu bạn chưa hoàn thành quá trình thanh toán, hãy thử lại, Nếu rồi, vui lòng liên hệ với chúng tôi."
-      cannot_receive_payment: ~
+      cannot_receive_payment: "Có lỗi trong quá trình chuyển tiền cho người trao đổi với bạn. Hãy liên hệ với chung tôi để biết rõ hơn."
       payment_waiting_for_later_accomplishment: "Khi bạn thanh toán tiền, chúng tôi sẽ thông báo cho người bán và gửi cho bạn biên nhận qua email."
       password_recovery_sent: "Những chỉ dẫn để thay đổi mật khẩu của bạn đã gửi đến email của bạn."
       person_activated: "Người dùng được kích hoạt"
@@ -1378,7 +1378,7 @@ vi:
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Bạn cần phải xác nhận email của bạn lần trước tiên."
-      you_must_fill_all_the_fields: ~
+      you_must_fill_all_the_fields: "Mọi thông tin đều phải được điền đầy đủ"
       you_unfollowed_listing: "Bạn đang không còn được đề cập trong danh sách này"
       joining_community_failed: "Tham gia cộng đồng này thất bại"
       can_not_login_with_private_user: ~
@@ -1576,7 +1576,7 @@ vi:
       how_paypal_works: ~
       payment_help: ~
     new:
-      post_a_new_listing: ~
+      post_a_new_listing: "Tạo tin rao mới"
       listing: "sản phẩm"
       selected_category: "Danh mục : %{category}"
       selected_subcategory: "Danh mục con : %{subcategory}"
@@ -1605,15 +1605,15 @@ vi:
       add_profile_picture: "Thêm ảnh tiểu sử"
       comments: "Thảo luận công khai"
       contact_by_phone: "Liên hệ bằng điện thoại:"
-      contact: ~
+      contact: "Liên hệ"
       favor_offer: "Dịch vụ hỗ trợ"
       favor_request: "Dịch vụ yêu cầu"
       inquiry: ~
       item_offer_trade: "Trao đổi hỗ trợ"
       item_request_trade: "Trao đổi yêu cầu"
       no_description: "Không mô tả"
-      no_image: ~
-      no_reviews: ~
+      no_image: "Không có hình ảnh"
+      no_reviews: "Chưa có phản hồi nào"
       offer: "Hỗ trợ"
       listing_created: "Được tạo"
       open_until: "Cho đến : %{date}"
@@ -1631,7 +1631,7 @@ vi:
       times: lần
       times_viewed: "đã xem"
       processing_uploaded_image: "(Đang xử lý hình ảnh tải lên...)"
-      price_excludes_vat: ~
+      price_excludes_vat: "(trước thuế Giá trị gia tăng)"
       listing_created_at: ~
       price:
         per_quantity_unit: ~
@@ -1696,12 +1696,12 @@ vi:
       payment_receiver: "Người nhận tiền :"
       sum: "Số tiền phải trả :"
     form:
-      total: ~
-      service_charge: ~
-      product: ~
-      price: ~
+      total: Tổng
+      service_charge: "Phí dịch vụ"
+      product: "Sản phẩm"
+      price: "Tổng cộng:"
       price_for: ~
-      continue_to_pay: ~
+      continue_to_pay: "Tiếp tục quá trình thanh toán"
       invoice: ~
       service_fee: ~
       you_will_get: ~
@@ -1826,7 +1826,7 @@ vi:
     profile_listings:
       show_also_closed: "Hiển thị cũng đóng"
       show_only_open: "Chỉ hiển thị mở"
-      no_image: ~
+      no_image: "Không có hình ảnh"
     show:
       contact: "Liên hệ %{person}"
       about_me: "Về tôi:"
@@ -1978,7 +1978,7 @@ vi:
       first_name_only: ~
       location_description: "Bạn có thể cung cấp vị trí chính xác của bạn hoặc chỉ mã vùng của bạn. Xin vui lòng thêm ít nhất là mã vùng của bạn. Bạn cũng có thể chọn vị trí từ bản đồ."
       phone_number: "Số điện thoại:"
-      profile_picture: ~
+      profile_picture: "Ảnh đại diện"
       postal_code: "Mã bưu điện:"
       profile_page: "trong trang hồ sơ của bạn"
       profilemap: "Xem bản đồ"
