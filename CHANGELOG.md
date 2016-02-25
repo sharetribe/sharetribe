@@ -16,6 +16,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 ### Fixed
 
 - Fixed broken FontAwesome asset path [#1756](https://github.com/sharetribe/sharetribe/pull/1756)
+- Listing author wasn't able to give feedback if the transaction starter skipped the feedback [#1767](https://github.com/sharetribe/sharetribe/pull/1767)
 
 ## [5.4.0] - 2016-02-22
 
