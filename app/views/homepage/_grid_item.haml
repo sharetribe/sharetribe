@@ -19,7 +19,8 @@
           .home-fluid-thumbnail-grid-details
             = link_to(person_path(id: listing.author.username), class: "home-fluid-thumbnail-grid-details-author-name", title: name) do
               = name
-            - dist = number_with_delimiter(distance.round(2), locale: locale)
+            - precision = (distance < 1) ? 1 : 2
+            - dist = (distance < 0.1) ? "< #{number_with_delimiter(0.1, locale: locale)}" : number_with_precision(distance, precision: precision, significant: true, locale: locale)
             - dist_string = "#{dist} #{listing.distance_unit}"
             .home-fluid-thumbnail-grid-details-distance{title: dist_string}
               = dist_string

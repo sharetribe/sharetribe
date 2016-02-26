@@ -34,9 +34,11 @@
               %a.browsing-list-item-share-type-link{ href: root_path( transaction_type: shape_name_map[listing.listing_shape_id], view: :list)}
                 = icon_tag(listing.icon_name, ["icon-fix"])
                 = shape_name(listing)
-        - if(show_distance && listing.distance.present?)
+        - distance = Maybe(listing.distance).or_else(nil)
+        - if(show_distance && distance.present?)
           .browsing-list-item-distance
-            - dist = number_with_delimiter(listing.distance.round(2), locale: locale)
+            - precision = (distance < 1) ? 1 : 2
+            - dist = (distance < 0.1) ? "< #{number_with_delimiter(0.1, locale: locale)}" : number_with_precision(distance, precision: precision, significant: true, locale: locale)
             = t("homepage.list_item.distance_away", distance: dist, distance_unit: listing.distance_unit)
 
         .browsing-list-item-author{ class: (listing.listing_images.size > 0 ? "browsing-list-item-author-with-listing-image" : "browsing-list-item-author-without-listing-image")}
