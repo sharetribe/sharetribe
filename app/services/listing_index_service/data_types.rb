@@ -18,6 +18,7 @@ module ListingIndexService::DataTypes
     [:keywords, :string, :optional],
     [:latitude, :to_float, :optional],
     [:longitude, :to_float, :optional],
+    [:distance_unit, :symbol, :optional],
     [:categories, :array, :optional],
     [:listing_shape_ids, :array, :optional],
     [:price_cents, :range, :optional],
