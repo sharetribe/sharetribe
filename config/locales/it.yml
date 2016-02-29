@@ -443,11 +443,11 @@ it:
       units_title: ~
       units_desc: ~
       units:
-        piece: ~
-        hour: ~
+        piece: "Per unità"
+        hour: All'ora
         day: "Al giorno"
-        night: ~
-        week: ~
+        night: "Per notte"
+        week: "Per settimana"
         month: "Per mese"
       can_not_find: ~
       add_custom_unit: ~
@@ -458,7 +458,7 @@ it:
         selector_label_heading: ~
         label_placeholder: ~
         selector_placeholder: ~
-        per: ~
+        per: Per
         unit_type:
           heading: ~
           quantity_label: "Quantità (per pezzo, per kg, per persona, per tour di 2 ore...)"
@@ -780,7 +780,7 @@ it:
       exp: ~
   feedback:
     feedback_subject: ~
-    feedback_body: ~
+    feedback_body: "%{author_name_and_email} ha inviato il seguente feedback da %{service_name}"
     unlogged_user: ~
     anonymous_user: ~
   preauthorize_payments:
@@ -812,7 +812,7 @@ it:
       you_have_not_yet_accepted_or_rejected_request: "Non hai ancora accettato o rifiutato la richiesta '%{title}' che hai ricevuto il %{date}"
       show_thread: "Mostra la conversazione"
     braintree_account_approved:
-      account_ready: ~
+      account_ready: "Account abilitato a ricevere pagamenti"
       message: "Le tue informazioni di pagamento sono state confermate e ora sei pronto per ricevere pagamenti su %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Non hai ancora confermato o cancellato la richiesta %{request_link}. Se la richiesta è stata completata, dovresti confermarla. Successivamente puoi dare il tuo feedback a %{other_party_given_name}."
@@ -872,7 +872,7 @@ it:
       message_not_displaying_correctly: "L'email non è correttamente visibile?"
       view_it_in_your_browser: "Vedi nel tuo browser"
       or: o
-      unsubscribe_from_these_emails: ~
+      unsubscribe_from_these_emails: "Rimuovi la sottoscrizione da queste email"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha accettato la tua offerta %{listing}."
       has_accepted_your_request: "%{accepter} ha accettato la tua richiesta %{listing}."
@@ -905,7 +905,7 @@ it:
     new_payment:
       new_payment: "Hai ricevuto un nuovo pagamento"
       price_per_unit_type: "Prezzo per %{unit_type}"
-      quantity: ~
+      quantity: "Quantità:"
       you_have_received_new_payment: "Hai ricevuto <b>%{payment_sum}</b> per <b>%{listing_title}</b> da %{payer_full_name}. Ecco la tua ricevuta."
     paypal_new_payment:
       paypal_gateway_fee: "Commissione di PayPal"
@@ -922,7 +922,7 @@ it:
       product: Prodotto
       price_per_unit_type: "Prezzo per %{unit_type}"
       duration: "Periodo:"
-      quantity: ~
+      quantity: "Quantità:"
       subtotal: "Subtotale:"
       total: Totale
       price: Prezzo
@@ -978,14 +978,14 @@ it:
       welcome_email_subject_for_marketplace_creator: ~
       welcome_to_marketplace_creator: ~
       congrats_for_creating_your_marketplace: ~
-      here_is_your_account_information: ~
-      your_email_address: ~
+      here_is_your_account_information: "Qui ci sono le informazioni del tuo account"
+      your_email_address: "Indirizzo email usato per il login:"
       your_marketplace_address: ~
       your_marketplace_admin_area: ~
       just_follow_details: ~
       we_will_guide_you_along_the_way: ~
       are_you_new_to_online_marketplaces: ~
-      have_questions: ~
+      have_questions: "Ci sono domande?"
       our_happiness_team_is_here_to_help: ~
       love: ~
       sharetribe_crew: ~
@@ -1289,7 +1289,7 @@ it:
       comment_sent: "Commento inviato"
       confirmation_link_is_wrong_or_used: "Il link di conferma è già stato utilizzato o altrimenti è compromesso. Prova ad accedere nuovamente, o inviaci un'email se il problema persiste."
       additional_email_confirmed: "L'email specificata è ora confermata."
-      could_not_get_email_from_facebook: ~
+      could_not_get_email_from_facebook: "Non è possibile ricevere l'indirizzo email da Facebook, e non è possibile creare un account senza indirizzo email."
       create_new_listing: "Crea una nuova inserzione"
       create_one_here: "creane uno qui"
       email_confirmation_sent_to_new_address: "l'email di conferma è stata inviata al nuovo indirizzo email"
@@ -1388,7 +1388,7 @@ it:
       can_not_login_with_private_user: ~
       can_not_delete_email: "Non puoi rimuovere l'indirizzo email"
       user_does_not_have_email_to_delete: "Non hai l'indirizzo email che stai cercando di rimuovere"
-      email_deleted: "La email %email% è stata rimossa con successo dal suo account."
+      email_deleted: "Email rimossa"
       payment_details_add_successful: ~
       payment_details_add_error: ~
       listing_author_payment_details_missing: "Ti preghiamo di contattare l'autore, cliccando sul pulsante 'contatta' che trovi più in basso. Deve aggiornare i dettagli di pagamento per poter ricevere pagamenti."
@@ -1596,8 +1596,8 @@ it:
     quantity:
       hour: "Numero di ore:"
       day: "Numero di giorni:"
-      night: ~
-      week: ~
+      night: "Numero di notti:"
+      week: "Numero di settimane:"
       month: "Numero di mesi:"
       custom: ~
     quantity_placeholder: ~
@@ -1651,7 +1651,7 @@ it:
       hour: ora
       day: giorno
       night: ~
-      week: ~
+      week: settimana
       month: mese
     verification_required:
       verification_required: "Richiesta verifica"
@@ -1736,7 +1736,7 @@ it:
       admin_account_not_connected: "Non puoi connettere il tuo conto PayPal perchè l'amministratore della piattaforma non ha terminato la configurazione di PayPal."
       paypal_account_email: "Collega il tuo conto PayPal"
       paypal_account_email_placeholder: "Il tuo indirizzo email di PayPal"
-      paypal_account_email_info_text: "Se non hai un account paypal, puoi crearne uno %{create_paypal_account}. Raramente, può accadere un errore quando connetti il tuo account, ciò può signficare che il tuo account PayPal è obsoleto e devi aggiornare ad un account Business: %{upgrade_paypal_account}. Ti consigliamo comunque di sentire il servizio clienti di PayPal, o di contattarci in modo da poterti aiutare."
+      paypal_account_email_info_text: "Se non hai un account Paypal, puoi crearne uno %{create_paypal_account}. Raramente, può accadere un errore quando connetti il tuo account, ciò può signficare che il tuo account PayPal è obsoleto e devi aggiornarlo ad un account Business: %{upgrade_paypal_account}. Ti consigliamo comunque di sentire il servizio clienti di PayPal, o di contattarci in modo da poterti aiutare."
       create_paypal_account: "Cliccando qui"
       upgrade_paypal_account: "Accedi al tuo conto Paypal"
       paypal_account_billing_agreement: "Concedi a %{service_name} l'autorizzazione ad applicare una commissione"
@@ -1812,7 +1812,7 @@ it:
       invalid_invitation_code: "Questo codice di invito non è valido."
       invitation_code: "Codice di invito"
       not_required: ", non richiesto"
-      notification_is_mandatory: ~
+      notification_is_mandatory: "È necessario scegliere almeno un indirizzo e-mail per ricevere le notifiche. Se non vuoi ricevere email da %{service_name}, controlla la configurazione delle notifiche."
       organization_name: "Nome attività"
       password_again: "Conferma password"
       show_my_name_to_others: "Mostra il mio vero nome agli altri utenti di %{service_name}"
@@ -1928,8 +1928,8 @@ it:
       change: Cambia
       confirm_new_password: "Conferma la nuova password"
       delete_account: "Elimina account"
-      delete_account_button: "Eliminare definitivamente il mio account"
-      delete_account_confirmation_popup: "Sei sicuro di voler eliminare il tuo account e permanentemente perdere tutte le informazioni in esso contenute? La cancellazione dell'account non può essere revocata."
+      delete_account_button: "Elimina definitivamente il mio account"
+      delete_account_confirmation_popup: "Sei sicuro di voler eliminare il tuo account e perdere in modo permanente tutte le informazioni in esso contenute? La cancellazione dell'account non è reversibile."
       email_addresses: "Indirizzi email"
       new_email: "Nuovo indirizzo email"
       delete_all_memberships: ~
@@ -1939,7 +1939,7 @@ it:
       new_password: "Nuova password"
       save: Salva
       these_fields_are_shown_only_to_you: "Lo username è mostrato nel tuo profilo a meno che non abbia fornito il tuo nome. Altre informazioni sono mostrate solo a te."
-      email_already_confirmed: ~
+      email_already_confirmed: "Il tuo indirizzo email è già confermato."
       email:
         address_title: "Indirizzo email"
         remove_title: Rimuovi

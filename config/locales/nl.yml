@@ -1654,7 +1654,7 @@ nl:
       delivery: Levering
       shipping: "Verzenden (%{price})"
       shipping_no_price: Verzenden
-      shipping_price_additional: "Verzenden (+%{price}, aanvulende item: +%{shipping_price_additional})"
+      shipping_price_additional: "Verzenden (+%{price}, aanvullende item: +%{shipping_price_additional})"
       pickup: Ophalen
       pickup_no_price: Ophalen
     unit_types:
