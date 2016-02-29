@@ -138,8 +138,19 @@ module MarketplaceRouter
           paths[:community_not_found].merge(status: :found, protocol: protocol)
         }
 
-      elsif community && (community[:deleted] || community[:closed])
+      elsif community && community[:deleted]
         # Community deleted
+        # -> Redirect to not found
+        Maybe(paths[:community_not_found])[:url].map { |u|
+          URLUtils.build_url(u, {utm_source: request[:host], utm_medium: "redirect", utm_campaign: "dl-auto-redirect"})
+        }.map { |u|
+          {url: u, status: :moved_permanently, protocol: protocol}
+        }.or_else {
+          paths[:community_not_found].merge(status: :moved_permanently, protocol: protocol)
+        }
+
+      elsif community && community[:closed]
+        # Community closed
         # -> Redirect to not found
         Maybe(paths[:community_not_found])[:url].map { |u|
           URLUtils.build_url(u, {utm_source: request[:host], utm_medium: "redirect", utm_campaign: "qc-auto-redirect"})

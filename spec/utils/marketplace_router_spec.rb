@@ -110,7 +110,7 @@ describe MarketplaceRouter do
                       },
                       paths: {
                         community_not_found: {url: "https://redirect.site.com"},
-                      }).to eq(url: "https://redirect.site.com?utm_source=www.marketplace.com&utm_medium=redirect&utm_campaign=qc-auto-redirect",
+                      }).to eq(url: "https://redirect.site.com?utm_source=www.marketplace.com&utm_medium=redirect&utm_campaign=dl-auto-redirect",
                                protocol: "https",
                                status: :moved_permanently)
     end
