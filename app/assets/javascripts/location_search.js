@@ -49,7 +49,7 @@ window.ST = window.ST || {};
     var handlePredictions = function(predictions, autocompleteServiceStatus) {
       var serviceStatus = window.google.maps.places.PlacesServiceStatus;
 
-      if(status === serviceStatus.OK) {
+      if(autocompleteServiceStatus === serviceStatus.OK) {
         var map = new window.google.maps.Map(document.createElement('div'));
         var placeService = new window.google.maps.places.PlacesService(map);
 
