@@ -63,7 +63,7 @@ class HomepageController < ApplicationController
       viewport = if coords
         sw_lat, sw_lng, ne_lat, ne_lng = coords
         { boundingbox: { sw: [sw_lat, sw_lng], ne: [ne_lat, ne_lng] } }
-      elsif params[:lc]
+      elsif params[:lc].present?
         { center: params[:lc].split(',') }
       else
         Maybe(@current_community.location)
