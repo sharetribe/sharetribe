@@ -156,7 +156,8 @@ class HomepageController < ApplicationController
     numbers = numeric_search_params.map { |numeric| numeric.merge(type: :numeric_range) }
 
     coordinates = Maybe(params[:lc]).map { search_coordinates(params[:lc]) }.or_else({})
-    distance_unit = (MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:distance_unit] == :metric) ? :km : :miles
+    location_search_in_use = location_search_available && main_search == :location
+    distance_unit = (location_search_in_use && MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:distance_unit] == :metric) ? :km : :miles
 
     search = {
       # Add listing_id
