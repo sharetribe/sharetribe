@@ -18,4 +18,9 @@ module HomepageHelper
       block.call
     end
   end
+
+  def format_distance(distance)
+    precision = (distance < 1) ? 1 : 2
+    (distance < 0.1) ? "< #{number_with_delimiter(0.1, locale: locale)}" : number_with_precision(distance, precision: precision, significant: true, locale: locale)
+  end
 end
