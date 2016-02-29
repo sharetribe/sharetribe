@@ -8,7 +8,7 @@ window.ST = window.ST || {};
     var coordinateInput = document.getElementById('lc');
     var boundingboxInput = document.getElementById('boundingbox');
     var homepageForm = document.getElementById('homepage-filters');
-    var autocomplete = new window.google.maps.places.Autocomplete(searchInput);
+    var autocomplete = new window.google.maps.places.Autocomplete(searchInput, { bounds: { north: -90, east: -180, south: 90, west: 180 } });
     autocomplete.setTypes(['geocode']);
 
     boundingboxInput.value = null;
@@ -41,6 +41,12 @@ window.ST = window.ST || {};
       }
     });
 
+    // With location search searchInput should not cause form submit
+    searchInput.addEventListener('keypress', function(e) {
+      if (e.keyCode === 13) {
+        e.preventDefault();
+      }
+    });
 
     var queryPredictions = function(inputString, callback) {
       var autocompleteService = new window.google.maps.places.AutocompleteService();
