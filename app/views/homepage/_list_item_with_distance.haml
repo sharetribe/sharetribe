@@ -37,8 +37,7 @@
         - distance = Maybe(listing.distance).or_else(nil)
         - if(show_distance && distance.present?)
           .browsing-list-item-distance
-            - precision = (distance < 1) ? 1 : 2
-            - dist = (distance < 0.1) ? "< #{number_with_delimiter(0.1, locale: locale)}" : number_with_precision(distance, precision: precision, significant: true, locale: locale)
+            - dist = format_distance(distance)
             = t("homepage.list_item.distance_away", distance: dist, distance_unit: listing.distance_unit)
 
         .browsing-list-item-author{ class: (listing.listing_images.size > 0 ? "browsing-list-item-author-with-listing-image" : "browsing-list-item-author-without-listing-image")}
