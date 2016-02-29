@@ -182,10 +182,6 @@ default: &default_settings
   # To make this work you also need config/translation.yml with wti credentials.
   update_translations_on_every_page_load: false
 
-  # If you have migrated from using ASI to use standalone Sharetribe,
-  # You should set this to true to use ASI based password encryption
-  use_asi_encryptor:
-
   # If you need for some reason change the session key used in cookies, you can do it here.
   # Normally no need to touch this.
   session_key: _sharetribe_session
@@ -304,9 +300,6 @@ test:
   # The locale should be "en" for test environment
   # even if you change it for others
   default_locale: en
-
-  # The tests currently work only with ASI encryptor
-  use_asi_encryptor: true
 
   # The domain should be set to lvh.me:9887 (which redirects to localhost)
   # to be able to run the tests with subdomains.
