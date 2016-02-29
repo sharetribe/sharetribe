@@ -24,6 +24,7 @@ window.ST = window.ST || {};
           }
           homepageForm.submit();
         } else {
+          coordinateInput.value = ""; // clear previous coordinates
           // Let's pick first suggestion, if no geometry was returned by autocompletion
           queryPredictions(place.name, handlePredictions);
         }
@@ -65,14 +66,14 @@ window.ST = window.ST || {};
           }
           // Save received service status for logging
           statusInput.value = placeServiceStatus;
+          homepageForm.submit();
 
         });
       } else {
         // Save received service status for logging
         statusInput.value = autocompleteServiceStatus;
+        homepageForm.submit();
       }
-
-      homepageForm.submit();
     };
 
 
