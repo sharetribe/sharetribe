@@ -30,7 +30,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Fixed
 
-- Configure Delayed Jod queue adapter for ActiveJob [#1749](https://github.com/sharetribe/sharetribe/pull/1749)
+- Configure Delayed Job queue adapter for ActiveJob [#1749](https://github.com/sharetribe/sharetribe/pull/1749)
 
 ## [5.3.0] - 2016-02-15
 
