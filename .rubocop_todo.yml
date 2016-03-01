@@ -14,17 +14,8 @@ Lint/AmbiguousRegexpLiteral:
 # Configuration parameters: AllowSafeAssignment.
 Lint/AssignmentInCondition:
   Exclude:
-    - 'app/controllers/community_memberships_controller.rb'
-    - 'app/controllers/confirmations_controller.rb'
     - 'app/controllers/sessions_controller.rb'
-    - 'app/models/category.rb'
-    - 'app/models/community.rb'
-    - 'app/models/custom_field.rb'
-    - 'app/models/custom_field_option.rb'
-    - 'app/models/menu_link.rb'
     - 'app/models/person.rb'
-    - 'app/services/user_service/api/auth_tokens.rb'
-    - 'features/step_definitions/wait_steps.rb'
 
 # Offense count: 12
 # Cop supports --auto-correct.

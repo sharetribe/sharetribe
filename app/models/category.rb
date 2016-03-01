@@ -52,11 +52,9 @@ class Category < ActiveRecord::Base
   def translation_attributes=(attributes)
     build_attrs = attributes.map { |locale, values| { locale: locale, values: values } }
     build_attrs.each do |translation|
-      if existing_translation = translations.find_by_locale(translation[:locale])
-        existing_translation.update_attributes(translation[:values])
-      else
-        translations.build(translation[:values].merge({:locale => translation[:locale]}))
-      end
+      Maybe(translations.find_by_locale(translation[:locale]))
+        .update_attributes(translation[:values])
+        .or_else { translations.build(translation[:values].merge({:locale => translation[:locale]})) }
     end
   end
 

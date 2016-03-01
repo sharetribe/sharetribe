@@ -47,14 +47,15 @@ class ConfirmationsController < Devise::ConfirmationsController
     end
 
     #check if this confirmation code matches to additional emails
-    if e = Email.find_by_confirmation_token(params[:confirmation_token])
-      person = e.person
-      e.confirmed_at = Time.now
-      e.confirmation_token = nil
-      e.save
+    email = Email.find_by_confirmation_token(params[:confirmation_token])
+    if email
+      person = email.person
+      email.confirmed_at = Time.now
+      email.confirmation_token = nil
+      email.save
 
       # Accept pending community membership if needed
-      if @current_community.approve_pending_membership(person, e.address)
+      if @current_community.approve_pending_membership(person, email.address)
         # If the pending membership was accepted now, it's time to send the welcome email, unless creating admin acocunt
         Delayed::Job.enqueue(SendWelcomeEmail.new(person.id, @current_community.id), priority: 5)
       end
