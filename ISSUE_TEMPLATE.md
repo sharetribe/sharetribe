@@ -18,13 +18,15 @@ _In our own words, briefly describe the issue. Please add enough details, yet be
 
 _List the actions that will reproduce the issue._
 
-##### Expected Result:
+_This is the **most important** part of the issue report. If we're not able to reproduce the issue, there's not much we can do about it. Please provide precise steps how to reproduce the issue._
 
-_What was the expected result after running the steps above?_
+1. _Step 1_
+1. _Step 2_
+1. _Step 3_
 
-##### Actual Result:
+Expected result: _What was the expected result after running the steps above?_
 
-_What was the actual result after running the steps above?_
+Actual result: _What was the actual result after running the steps above?_
 
 ##### Additional information
 
