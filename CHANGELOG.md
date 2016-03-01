@@ -18,6 +18,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Fixed broken FontAwesome asset path [#1756](https://github.com/sharetribe/sharetribe/pull/1756)
 - Listing author wasn't able to give feedback if the transaction starter skipped the feedback [#1767](https://github.com/sharetribe/sharetribe/pull/1767)
 
+### Security
+
+- Update Rails to 4.2.5.2 [#1786](https://github.com/sharetribe/sharetribe/pull/1786)
+
 ## [5.4.0] - 2016-02-22
 
 ### Changed
