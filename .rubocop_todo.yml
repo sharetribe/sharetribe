@@ -6,13 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 3
-Lint/AmbiguousOperator:
-  Exclude:
-    - 'app/services/community_stylesheet_compiler.rb'
-    - 'app/utils/array_utils.rb'
-    - 'app/utils/date_utils.rb'
-
 # Offense count: 307
 Lint/AmbiguousRegexpLiteral:
   Enabled: false
