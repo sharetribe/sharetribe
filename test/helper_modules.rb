@@ -230,8 +230,7 @@ module TestHelpers
                                  emails: [ FactoryGirl.build(:email, :address => "kassi_testperson3@example.com") ],
                                  is_admin: 0,
                                  locale: "en",
-                                 encrypted_password: "64ae669314a3fb4b514fa5607ef28d3e1c1937a486e3f04f758270913de4faf5",
-                                 password_salt: "vGpGrfvaOhp3",
+                                 encrypted_password: "$2a$10$WQHcobA3hrTdSDh1jfiMquuSZpM3rXlcMU71bhE1lejzBa3zN7yY2", #"testi"
                                  given_name: "Kassi",
                                  family_name: "Testperson1",
                                  phone_number: "0000-123456",
@@ -242,8 +241,7 @@ module TestHelpers
                                  emails: [ FactoryGirl.build(:email, :address => "kassi_testperson4@example.com") ],
                                  is_admin: false,
                                  locale: "en",
-                                 encrypted_password: "72bf5831e031cbcf2e226847677fccd6d8ec6fe0673549a60abb5fd05f726462",
-                                 password_salt: "zXklAGLwt7Cu",
+                                 encrypted_password: "$2a$10$WQHcobA3hrTdSDh1jfiMquuSZpM3rXlcMU71bhE1lejzBa3zN7yY2", #"testi"
                                  given_name: "Kassi",
                                  family_name: "Testperson2",
                                  created_at: "2012-05-04 18:17:04")

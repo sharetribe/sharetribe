@@ -15,6 +15,7 @@
 #  username                           :string(255)
 #  email                              :string(255)
 #  encrypted_password                 :string(255)      default(""), not null
+#  legacy_encrypted_password          :string(255)
 #  reset_password_token               :string(255)
 #  reset_password_sent_at             :datetime
 #  remember_created_at                :datetime
@@ -70,11 +71,6 @@ class Person < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,
          :omniauthable
-
-  if APP_CONFIG.use_asi_encryptor
-    require Rails.root.join('lib', 'devise', 'encryptors', 'asi')
-    devise :encryptable # to be able to use similar encrypt method as ASI
-  end
 
   attr_accessor :guid, :password2, :form_login,
                 :form_given_name, :form_family_name, :form_password,
@@ -632,4 +628,40 @@ class Person < ActiveRecord::Base
   def self.members_of(community)
     joins(:communities).where("communities.id" => community.id)
   end
+
+
+  # Overrides method injected from Devise::DatabaseAuthenticatable
+  # Updates password with password that has been rehashed with new algorithm.
+  # Removes legacy password and salt.
+  def valid_password?(password)
+    if self.legacy_encrypted_password.present?
+      if digest(password, self.password_salt).casecmp(self.legacy_encrypted_password)
+        self.password = password
+        self.legacy_encrypted_password = nil
+        self.password_salt = nil
+        self.save!
+        true
+      else
+        false
+      end
+    else
+      super
+    end
+  end
+
+  # Overrides method injected from Devise::DatabaseAuthenticatable
+  # Removes legacy pashsword and salt.
+  def reset_password!(*args)
+    self.legacy_encrypted_password = nil
+    self.password_salt
+    super
+  end
+
+  private
+
+  def digest(password, salt)
+    str = [password, salt].flatten.compact.join
+    ::Digest::SHA256.hexdigest(str)
+  end
+
 end
