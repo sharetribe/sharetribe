@@ -889,9 +889,12 @@ ActiveRecord::Schema.define(version: 20160408061218) do
     t.boolean  "is_organization"
     t.string   "organization_name",                  limit: 255
     t.boolean  "deleted",                                          default: false
+    t.string   "cloned_from",                        limit: 22
+    t.integer  "community_id",                       limit: 4
   end
 
   add_index "people", ["authentication_token"], name: "index_people_on_authentication_token", using: :btree
+  add_index "people", ["cloned_from"], name: "index_people_on_cloned_from", using: :btree
   add_index "people", ["email"], name: "index_people_on_email", unique: true, using: :btree
   add_index "people", ["facebook_id"], name: "index_people_on_facebook_id", using: :btree
   add_index "people", ["id"], name: "index_people_on_id", using: :btree
