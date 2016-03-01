@@ -54,7 +54,7 @@ class HomepageController < ApplicationController
     main_search = location_search_available ? MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:main_search] : :keyword
     location_search_in_use = main_search == :location
 
-    search_result = find_listings(params, per_page, compact_filter_params, includes.to_set)
+    search_result = find_listings(params, per_page, compact_filter_params, includes.to_set, location_search_in_use)
 
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
@@ -130,7 +130,7 @@ class HomepageController < ApplicationController
 
   private
 
-  def find_listings(params, listings_per_page, filter_params, includes)
+  def find_listings(params, listings_per_page, filter_params, includes, location_search_in_use)
     Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
       filter_params[:categories] = category.own_and_subcategory_ids
       @selected_category = category
@@ -156,7 +156,6 @@ class HomepageController < ApplicationController
     numbers = numeric_search_params.map { |numeric| numeric.merge(type: :numeric_range) }
 
     coordinates = Maybe(params[:lc]).map { search_coordinates(params[:lc]) }.or_else({})
-    location_search_in_use = location_search_available && main_search == :location
     distance_unit = (location_search_in_use && MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:distance_unit] == :metric) ? :km : :miles
 
     search = {
