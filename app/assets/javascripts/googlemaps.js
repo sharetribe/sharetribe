@@ -485,7 +485,7 @@ function initialize_listing_map(listings, community_location_lat, community_loca
   helsinki = new google.maps.LatLng(60.17, 24.94);
   flagMarker = new google.maps.Marker();
   var myOptions = {
-    zoom: 13,
+    zoom: 16,
     maxZoom: 17,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
