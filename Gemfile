@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '2.1.8'
 
-gem 'rails', '4.2.5.1'
+gem 'rails', '4.2.5.2'
 
 gem 'coffee-rails', "~> 4.0.1"
 gem 'uglifier', "~> 2.7.2"
