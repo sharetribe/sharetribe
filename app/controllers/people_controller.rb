@@ -301,7 +301,7 @@ class PeopleController < Devise::RegistrationsController
     end
 
     sign_out @current_user
-    report_analytics_event(['user', "deleted", "by user"]);
+    report_analytics_event('user', "deleted", "by user")
     flash[:notice] = t("layouts.notifications.account_deleted")
     redirect_to root
   end

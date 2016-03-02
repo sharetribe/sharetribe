@@ -523,7 +523,7 @@ window.ST = window.ST || {};
         // before it's called BEFORE the submitHandler
         e.stopImmediatePropagation();
       } else {
-        report_analytics_event(["listing", "created"]);
+        report_analytics_event("listing", "created");
         disable_submit_button(form_id, locale);
       }
     });
