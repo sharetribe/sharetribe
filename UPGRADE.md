@@ -15,7 +15,13 @@ RAILS_ENV=production rake sharetribe:generate_customization_stylesheets_immediat
 rake assets:precompile
 ```
 
-## Unreleased
+## Upgrade from 5.4.0 to 5.5.0
+
+This release removes the support for legacy hashing algorithm that was used with the legacy "ASI" service.
+
+If `use_asi_encryptor` was configured to `false` (default) then you can safely upgrade and roll back this release.
+
+However, if `use_asi_encryptor` was configured to `true` then you can not roll back this released without losing user authentication data. If you need to roll back, users need to request new password by clicking the "Forgot password link".
 
 ## Upgrade from 5.3.0 to 5.4.0
 
