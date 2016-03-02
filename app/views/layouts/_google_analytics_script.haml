@@ -2,15 +2,15 @@
   <script type="text/javascript">
 
   - if feature_enabled?(:universal_analytics)
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  = "var ga_key = '#{APP_CONFIG.google_analytics_key}';"
-  = "var cookie_domain = '#{PublicSuffix.parse(request.host).domain}';"
-  ga('create', ga_key, 'auto', {'legacyCookieDomain': cookie_domain, 'allowLinker': true});
-  ga('send', 'pageview');
+    = "var ga_key = '#{APP_CONFIG.google_analytics_key}';"
+    = "var cookie_domain = '#{PublicSuffix.parse(request.host).domain}';"
+    ga('create', ga_key, 'auto', {'legacyCookieDomain': cookie_domain, 'allowLinker': true});
+    ga('send', 'pageview');
   - else
     var _gaq = _gaq || [];
     = "_gaq.push(['_setAccount', '#{APP_CONFIG.google_analytics_key}']);"
@@ -58,5 +58,32 @@
       })();
 
     var secondary_analytics_in_use = true;
+
+  function report_analytics_event(category, action, opt_label) {
+  - if feature_enabled?(:universal_analytics)
+    :plain
+      if (typeof ga === 'function'){
+        ga('send', 'event', category, action, opt_label)
+      }
+  - else
+    :plain
+      var params_array = [category, action, opt_label]
+      if (typeof _gaq != 'undefined') {
+        _gaq.push(['_trackEvent'].concat(params_array));
+      }
+  - if feature_enabled?(:universal_analytics) && feature_enabled?(:customer_universal_analytics)
+    :plain
+      if (typeof ga_customer === 'function'){
+        ga_customer('send', 'event', category, action, opt_label)
+      }
+  - else
+    :plain
+      var params_array = [category, action, opt_label]
+      if (typeof _gaq != 'undefined') {
+        if (typeof secondary_analytics_in_use != 'undefined' && secondary_analytics_in_use) {
+          _gaq.push(['b._trackEvent'].concat(params_array));
+        }
+      }
+  }
 
   </script>

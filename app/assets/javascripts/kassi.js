@@ -187,15 +187,6 @@ function add_validator_methods() {
     });
 }
 
-function report_analytics_event(params_array) {
-  if (typeof _gaq != 'undefined') {
-    _gaq.push(['_trackEvent'].concat(params_array));
-    if (typeof secondary_analytics_in_use != 'undefined' && secondary_analytics_in_use) {
-      _gaq.push(['b._trackEvent'].concat(params_array));
-    }
-  }
-}
-
 // Initialize code that is needed for every view
 function initialize_defaults(locale) {
   add_validator_methods();
@@ -322,7 +313,7 @@ function initialize_send_message_form(locale) {
     },
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
-      report_analytics_event(["message", "sent"]);
+      report_analytics_event("message", "sent");
     }
   });
 }
@@ -337,7 +328,7 @@ function initialize_send_person_message_form(locale) {
     },
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
-      report_analytics_event(["message", "sent"]);
+      report_analytics_event("message", "sent");
     }
   });
 }
@@ -363,7 +354,7 @@ function initialize_listing_view(locale) {
   );
 
   $('#send_comment_button').click(function() {
-    report_analytics_event(["listing", "commented"]);
+    report_analytics_event("listing", "commented");
   });
 }
 
@@ -601,7 +592,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
     onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
-      report_analytics_event(['user', "signed up", "normal form"]);
+      report_analytics_event('user', "signed up", "normal form");
     }
   });
 }

@@ -63,7 +63,7 @@
 
   - if @analytics_event
     :javascript
-      report_analytics_event(#{@analytics_event});
+      report_analytics_event.apply(null, #{@analytics_event});
 
   :javascript
     $(function() {

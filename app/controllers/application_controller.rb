@@ -454,8 +454,8 @@ class ApplicationController < ActionController::Base
   # the reason to go via session is that the actions that cause events
   # often do a redirect.
   # This is still not fool proof as multiple redirects would lose
-  def report_analytics_event(params_array)
-    session[:analytics_event] = params_array
+  def report_analytics_event(category, action, opt_label)
+    session[:analytics_event] = [category, action, opt_label]
   end
 
   # if session has analytics event
