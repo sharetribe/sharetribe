@@ -8,6 +8,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ## [Unreleased]
 
+### Security
+
+- Redirect to HTTPS (if configured) before requesting HTTP basic authentication: [#1793](https://github.com/sharetribe/sharetribe/pull/1793)
+
 ## [5.5.0] - 2016-03-02
 
 ### Changed
