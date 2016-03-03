@@ -51,13 +51,14 @@
       ['b._trackPageLoadTime']
       );
 
-      (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
     var secondary_analytics_in_use = true;
+
+  - unless(feature_enabled?(:universal_analytics) && feature_enabled?(:customer_universal_analytics))
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 
   function report_analytics_event(category, action, opt_label) {
   - if feature_enabled?(:universal_analytics)
