@@ -471,10 +471,21 @@ class ApplicationController < ActionController::Base
     WebTranslateIt.fetch_translations
   end
 
+  def redirect_https?
+    always_use_ssl = APP_CONFIG.always_use_ssl.to_s.downcase == "true"
+    !request.ssl? && always_use_ssl
+  end
+
+  def redirect_https!
+    redirect_to protocol: "https://", status: :moved_permanently
+  end
+
   def check_http_auth
     return true unless APP_CONFIG.use_http_auth.to_s.downcase == 'true'
     if authenticate_with_http_basic { |u, p| u == APP_CONFIG.http_auth_username && p == APP_CONFIG.http_auth_password }
       true
+    elsif redirect_https?
+      redirect_https!
     else
       request_http_basic_authentication
     end
