@@ -13,7 +13,8 @@ module FeatureFlagHelper
   end
 
   def search_engine
-    feature_enabled?(:new_search) || APP_CONFIG.external_search_in_use ? :zappy : :sphinx
+    use_external_search = Maybe(APP_CONFIG).external_search_in_use.map { |v| v == true || v.to_s.downcase == "true" }.or_else(false)
+    feature_enabled?(:new_search) || use_external_search ? :zappy : :sphinx
   end
 
   def location_search_available
