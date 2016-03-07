@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-ruby '2.1.8'
+ruby '2.2.4'
 
 gem 'rails', '4.2.5.2'
 
@@ -39,7 +39,7 @@ gem 'aws-sdk', '~> 2'
 gem "will_paginate", '~>3.0.5'
 gem 'dalli', "~> 2.6.4"
 gem "memcachier", "~> 0.0.2"
-gem 'kgio', "~>2.8.0"
+gem 'kgio', "~>2.9.2"
 gem 'thinking-sphinx', '~> 3.1.1'
 gem 'flying-sphinx', "~>1.2.0"
 # Use patched v2.0.2

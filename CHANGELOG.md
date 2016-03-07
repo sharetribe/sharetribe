@@ -8,6 +8,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ## [Unreleased]
 
+### Changed
+
+- Update Ruby to 2.2.4 [#1774](https://github.com/sharetribe/sharetribe/pull/1774)
+
 ### Security
 
 - Redirect to HTTPS (if configured) before requesting HTTP basic authentication: [#1793](https://github.com/sharetribe/sharetribe/pull/1793)
