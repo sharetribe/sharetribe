@@ -631,7 +631,7 @@ vi:
       favor_offer_message_form_title: "Yêu cầu giúp đỡ từ"
       favor_request_message_form_title: "Hỗ trợ giúp đỡ để"
       housing_offer_message_form_title: "Hỗ trợ không gian để"
-      housing_request_message_form_title: "Yêu cầu không gian từ"
+      housing_request_message_form_title: "Yêu cầu không gian từ %{person}"
       item_offer_lend_message_form_title: "Mượn %{listing} từ %{person}"
       item_offer_sell_message_form_title: "Mua %{listing} từ %{person}"
       item_offer_give_away_message_form_title: "Nhận %{listing} từ %{person}"
@@ -648,12 +648,12 @@ vi:
       housing_offer_accept_for_free_message_form_title: "Gửi %{listing} đến %{person}"
       housing_request_buy_message_form_title: "Bán %{listing} cho %{person}"
       housing_request_rent_message_form_title: "Cho %{person} thuê %{listing}"
-      item_request_message_form_title: "Hỗ trợ một món đồ để"
+      item_request_message_form_title: "Hỗ trợ một món cho %{person}"
       message: "Tin nhắn"
       message_to: ~
       optional_message_to: ~
-      rideshare_offer_message_form_title: "Yêu cầu quá giang từ"
-      rideshare_request_message_form_title: "Hỗ trợ cuốc xe đến"
+      rideshare_offer_message_form_title: "Yêu cầu quá giang từ  %{person}"
+      rideshare_request_message_form_title: "Hỗ trợ cuốc xe đến %{person}"
       send_message: "Gửi thông điệp"
       send: Gửi
       this_message_is_private: "Thông điệp này riêng tư giữa bạn và %{person} . %{person} sẽ được thông báo bằng tin nhắn qua email."
@@ -682,7 +682,7 @@ vi:
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: Hủy
-      feedback_given: "Phản hồi được cho"
+      feedback_given: "Đánh giá"
       feedback_skipped: "Phản hồi bị bỏ qua"
       give_feedback: "Đưa ra phản hồi"
       offer_accepted: "Hỗ trợ được chấp nhận"
@@ -1363,7 +1363,7 @@ vi:
       you_are_already_member: "Bạn đã là một thành viên của cộng đồng %{service_name}. Chào mừng trở lại!"
       you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: "Email của bạn bây giờ được xác nhận."
-      you_must_log_in_to_give_feedback: "Bạn phải đăng nhập để đưa ra thông thin phản hồi"
+      you_must_log_in_to_give_feedback: "Bạn phải đăng nhập để đưa ra thông tin phản hồi"
       you_must_log_in_to_invite_new_users: "Bạn phải đăng nhập để mời được người dùng mới vào %{service_name}"
       you_must_log_in_to_send_a_comment: "Bạn phải đăng nhập để gửi bình luận"
       you_must_log_in_to_send_a_message: "Bạn phải đăng nhập vào %{service_name} để gửi thông điệp đến người dùng khác"

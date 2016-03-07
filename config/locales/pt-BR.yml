@@ -1377,7 +1377,7 @@ pt-BR:
       request_rejected: "Pedido rejeitado"
       request_canceled: "Pedido cancelado"
       message_sent: "Mensagem enviada"
-      message_not_sent: ~
+      message_not_sent: "O envio de mensagem falhou. Por favor tente novamente."
       this_content_is_not_available_in_this_community: "Este conteúdo não está disponível"
       unknown_error: "Erro desconhecido. Por favor use o link Fale conosco para enviar detalhes sobre o que aconteceu."
       update_error: "Ocorreu um erro ao tentar atualizar as suas informações, por favor, tente novamente"
@@ -2121,7 +2121,7 @@ pt-BR:
       december: Dez
     today: Hoje
     clear: Limpar
-    format: dd/mm/aaaa
+    format: dd/mm/yyyy
   time:
     formats:
       short: "%e. %b %Y hora %H:%M"

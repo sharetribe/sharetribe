@@ -46,8 +46,8 @@ vi:
       send_instructions: "Bạn sẽ nhận được thư chứa các chỉ dẫn mở khoá tài khoản trong ít phút nữa."
       unlocked: "Tài khoản của bạn đã mở khóa thành công. Xin vui lòng đăng nhập để tiếp tục."
     omniauth_callbacks:
-      success: "Cho phép thành công từ tài khoản %{kind}."
-      failure: "Có thể không cho phép bạn từ %{kind} vì \"%{reason} \"."
+      success: "Cấp quyền thành công từ tài khoản %{kind}."
+      failure: "Có thể không cấp quyền cho bạn từ %{kind} vì \"%{reason} \"."
     mailer:
       confirmation_instructions:
         subject: "Chỉ dẫn xác nhận"

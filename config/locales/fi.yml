@@ -21,8 +21,8 @@ fi:
         category_transaction_types:
           transaction_types: Transaktiotyypit
           transaction_types_description: "Transaktiotyypit määrittelevät, millaiset transaktiot ovat sallittuja tässä kategoriassa oleville ilmoituksille. Voit esimerkiksi määritellä, että ainoastaan myynti-ilmoitukset ovat sallittuja, tai sitten sallia myös vuokrauksen ja lainaamisen."
-          select_all: ~
-          clear_all: ~
+          select_all: "Valitse kaikki"
+          clear_all: "Poista valinta kaikista"
         buttons:
           save: Tallenna
           cancel: Peruuta
@@ -125,36 +125,36 @@ fi:
         edit_message: "Muokkaa viestiä"
         send_test_message: "Lähetä testiviesti"
       outgoing_email:
-        title: ~
-        info: ~
-        read_more: ~
-        sender_address: ~
-        sender_address_default: ~
-        need_to_change: ~
-        contact_support_link_text: ~
-        set_sender_address: ~
-        sender_name_label: ~
-        sender_name_placeholder: ~
-        sender_email_label: ~
-        sender_email_placeholder: ~
-        this_is_how_it_will_look: ~
-        send_verification_button: ~
+        title: "Lähtevän sähköpostin osoite"
+        info: "Tätä nimeä ja osoitetta käytetään automaattisissa sähköposteissa, jotka markkinapaikkasi lähettää käyttäjillesi."
+        read_more: "Lue lisää lähtevän sähköpostin osoitteesta"
+        sender_address: "Lähettäjän osoite: %{sender_address}"
+        sender_address_default: "Lähettäjän osoite: ei asetettu (käytetään oletusosoitetta %{sender_address})"
+        need_to_change: "Jos haluat muuttaa osoitetta, ole hyvä ja %{contact_support_link}."
+        contact_support_link_text: "ota yhteyttä ylläpitoomme"
+        set_sender_address: "Aseta lähettäjän osoite"
+        sender_name_label: Nimi
+        sender_name_placeholder: "Lähettäjän nimi"
+        sender_email_label: Sähköpostiosoite
+        sender_email_placeholder: sender-email@example.com
+        this_is_how_it_will_look: "Tältä osoite tulee näyttämään:"
+        send_verification_button: "Lähetä vahvistusviesti"
         successfully_saved: ~
-        status: ~
-        status_verified: ~
+        status: "Status: %{status}"
+        status_verified: "Vahvistettu - käytössä"
         status_error: ~
-        status_requested: ~
-        status_expired: ~
-        status_resent: ~
-        resend_link: ~
-        invalid_email_error: ~
-        invalid_email_domain: ~
-        invalid_email_domain_read_more_link: ~
-        unknown_error: ~
-        only_white_label_offer: ~
-        upgrade_pro_plan_link: ~
-        verification_sent_from: ~
-        follow_the_instructions: ~
+        status_requested: "Ei vahvistettu - vahvistusviesti lähetetty osoitteeseen %{email} %{time_ago}. %{resend_link}"
+        status_expired: "Sähköpostiosoitteen %{email} vahvistusviesti on vanhentunut. %{resend_link}"
+        status_resent: "Vahvistusviesti lähetetty uudestaan osoitteeseen %{email}. %{resend_link}"
+        resend_link: "Lähetä viesti uudelleen"
+        invalid_email_error: "Virheellinen sähköpostiosoite: '%{email}'"
+        invalid_email_domain: "Sähköpostioosoite '%{email}' käyttää sähköpostipalveluntarjoajaa '%{domain}'. Järjestelmämme ei tällä hetkellä tue kyseistä palveluntarjoajaa. %{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: Lisätietoja
+        unknown_error: "Jotain meni vikaan"
+        only_white_label_offer: "Tämä ominaisuus on käytössä ainoastaan Sharetriben maksullisessa versiossa. Jos haluat ottaa ominaisuuden käyttöön, sinun pitää %{upgrade_pro_plan_link}."
+        upgrade_pro_plan_link: "päivittää tilauksesi Pro-maksuvaihtoehtoomme."
+        verification_sent_from: "Vahvistusviesti lähetettiin osoitteesta %{verification_sender_name}."
+        follow_the_instructions: "Seuraa sähköpostissa annettuja ohjeita vahvistaaksesi sähköpostiosoitteesi."
       getting_started:
         getting_started: Aloitusohjeet
         welcome_to_your_marketplace: "Tervetuloa omalle markkinapaikkasivustollesi, %{name}!"
@@ -197,7 +197,7 @@ fi:
         fr-CA: "ranska (Kanada)"
         es: "espanja (Chile)"
         es-ES: espanja
-        pt-PT: ~
+        pt-PT: Portugali
         pt-BR: "portugali (Brasilia)"
         nb: norja
         sv: ruotsi
@@ -220,13 +220,13 @@ fi:
         users_can_invite_new_users: "Käyttäjillä on oikeus kutsua muita käyttäjiä palveluun."
         private: "Yksityinen kauppapaikka (vain kirjautuneet käyttäjät näkevät sisällön)"
         require_verification_to_post_listings: "Vain ylläpitäjän erikseen hyväksymät käyttäjät voivat lisätä ilmoituksia"
-        search_preferences: ~
-        default_search_type: ~
-        keyword_search: ~
-        location_search: ~
-        select_distance_unit: ~
-        km: ~
-        miles: ~
+        search_preferences: Hakuasetukset
+        default_search_type: "Haun tyyppi: %{select_search_type}"
+        keyword_search: Avainsanahaku
+        location_search: Sijaintihaku
+        select_distance_unit: "Etäisyyden yksikkö %{distance_units_selector}"
+        km: km
+        miles: mailit
         listing_preferences: Ilmoitusasetukset
         transaction_preferences: "Transaktioprosessin asetukset"
         show_listing_publishing_date: "Näytä ilmoituksen julkaisuajankohta ilmoituksen sivulla"
@@ -244,15 +244,15 @@ fi:
         automatic_newsletter_frequency: "Lähetä automaattinen uutiskirje: %{frequency_dropdown}"
         newsletter_daily: Päivittäin
         newsletter_weekly: Viikoittain
-        delete_marketplace_title: ~
-        type_marketplace_domain: ~
-        type_marketplace_domain_placeholder: ~
-        once_you_delete: ~
-        are_you_sure: ~
-        i_understand_button: ~
-        last_community_updates: ~
-        you_will_be_redirected_to: ~
-        delete_this_marketplace: ~
+        delete_marketplace_title: "Poista markkinapaikka"
+        type_marketplace_domain: "Kirjoita markkinapaikkasi verkko-osoite (%{domain}) alla olevaan tekstikenttään:"
+        type_marketplace_domain_placeholder: "Kirjoita markkinapaikkasi verkko-osoite tähän"
+        once_you_delete: "Kun olet poistanut markkinapaikkasi, sinulla ei ole enää siihen pääsyä. Ole varovainen."
+        are_you_sure: "Oletko varma?"
+        i_understand_button: "Ymmärrän että kun painan tätä nappia, markkinapaikkani poistetaan"
+        last_community_updates: "Huomaathan, että poiston jälkeen sinä ja markkinapaikkasi käyttäjät saattavat saada vielä viimeiset sivustosi lähettämät automaattiset uutiskirjeet sähköpostiinsa."
+        you_will_be_redirected_to: "Kun olet poistanut markkinapaikkasi, sinut siirretään osoitteeseen %{destination}. Sinulla ei ole enää tämän jälkeen pääsyä markkinapaikkaasi."
+        delete_this_marketplace: "Poista tämä markkinapaikka"
       manage_members:
         manage_members: "Hallitse käyttäjiä"
         email: Sähköposti
@@ -263,7 +263,7 @@ fi:
         ban_user: Poista
         saving_user_status: Tallennetaan...
         save_user_status_successful: "Tallennus onnistui"
-        export_all_as_csv: ~
+        export_all_as_csv: "Lataa tiedot CSV-tiedostona"
         save_user_status_error: "Tallennus epäonnistui. Päivitä sivu ja yritä uudelleen."
         ban_user_confirmation: "Olet poistamassa käyttäjää palvelusta ja estämästä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
         ban_me_error: "Et voi poistaa itseäsi."
@@ -302,7 +302,7 @@ fi:
         url: "Osoite (URL)"
         empty: "Sinulla ei ole lisälinkkejä valikossa"
       transactions:
-        export_all_as_csv: ~
+        export_all_as_csv: "Lataa tiedot CSV-tiedostona"
         transactions: "Näytä transaktiot"
         headers:
           conversation: Viestiketju
@@ -326,21 +326,21 @@ fi:
           pending_ext: "Odottaa maksun hyväksyntää"
         not_available: "Ei saatavilla"
       braintree_payment_gateway:
-        braintree_payment_gateway: ~
-        environment: ~
-        private_key: ~
-        public_key: ~
-        client_side_encryption_key: ~
-        merchant_id: ~
-        master_merchant_id: ~
-        commission_from_seller: ~
+        braintree_payment_gateway: "Braintree API key"
+        environment: Ympäristö
+        private_key: "Yksityinen avain"
+        public_key: "Julkinen avain"
+        client_side_encryption_key: "Asiakaspään enkryptioavain (CSE)"
+        merchant_id: "Merchant ID"
+        master_merchant_id: "Master Merchant ID"
+        commission_from_seller: "Komissioprosentti myyjältä"
       paypal_account:
         paypal_admin_account: Maksuasetukset
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
       edit_price:
-        description: ~
+        description: "Minimi- ja maksimihinta vaikuttavat ainoastaan etusivulla näytettävään hintasuodattimeen. Ne eivät aseta ala- tai ylärajaa uuden ilmoituksen hinnalle."
         edit_price_field: "Muokkaa hintakenttää"
         show_price_filter_homepage: "Näytä hintasuodatin etusivulla"
         price_min: Minimihinta
@@ -353,9 +353,9 @@ fi:
           this_field_is_required: "Tämä on pakollinen kenttä"
           this_field_is_required_checkbox: "Tämä on pakollinen kenttä (käyttäjän pitää valita ainakin yksi vaihtoehdoista)"
         search_filter:
-          search_filter: ~
-          date_cant_be_filtered: ~
-          text_cant_be_filtered: ~
+          search_filter: "Näytä tähän ilmoituskenttään liittyvä suodatin markkinapaikkasi etusivulla"
+          date_cant_be_filtered: "Päivämäärä-kentälle ei ole tarjolla suodatinta."
+          text_cant_be_filtered: "Tekstikentälle ei ole tarjolla suodatinta. Avainsanahaku hakee myös tekstikentistä."
       index:
         listing_fields: Ilmoituskentät
         listing_fields_help: "Voit muokata kenttiä, jotka käyttäjän pitää täyttää listausta luodessa. Osa kentistä on ennaltamäärättyjä eikä niitä voi muokata."
@@ -366,8 +366,8 @@ fi:
         field_title: "Kentän nimi"
         field_type: "Kentän tyyppi"
         categories: "Ilmoituskategoriat joihin kenttä liittyy"
-        select_all: ~
-        clear_all: ~
+        select_all: "Valitse kaikki"
+        clear_all: "Poista valinta kaikista"
         options: Vastausvaihtoehdot
         add_option: "+ Lisää vastausvaihtoehto"
         saving_order: "Tallennetaan kenttien järjestystä"
@@ -404,7 +404,7 @@ fi:
       configure: "Sivuston muokkaus"
       emails_title: Sähköpostit
       support: Asiakastuki
-      subscription: ~
+      subscription: Tilaus
     listing_shapes:
       index:
         listing_shapes: Tilaustavat
@@ -443,12 +443,24 @@ fi:
         update_success: "Muutokset tilaustapaan '%{shape}' on tallennettu"
         update_failure: "Tietojen tallentaminen ei onnistunut. Tapahtui virhe: %{error_msg}"
         delete: "Poista tilaustapa"
+        confirm_delete_order_type:
+          one: "Sivustollasi on %{count} ilmoitus tällä tilaustavalla. Jos poistat tilaustavan, ilmoitus suljetaan. Oletko varma että haluat poistaa tilaustavan?Sivustollasi on %{count} ilmoitusta tällä tilaustavalla. "
+          other: "Sivustollasi on %{count} ilmoitusta tällä tilaustavalla. Jos poistat tilaustavan, ilmoitukset suljetaan. Oletko varma että haluat poistaa tilaustavan?"
         can_not_delete_last: "Et voi poistaa tätä tyyppiä, koska se on ainoa tyyppi markkinapaikassasi."
         can_not_delete_only_one_in_categories: "Et voi poistaa tätä tilaustapaa, koska seuraavissa ilmoituskategorioissa ei ole käytössä muita tilaustapoja: %{categories}"
       listing_shape_name: "Tilaustavan nimi"
       listing_shape_name_placeholder: "Esimerkiksi \"Myydään\""
       action_button_label: "Tilausnapin teksti"
       action_button_placeholder: "Esimerkiksi \"Osta\""
+      open_listings_warning:
+        one: "Sivustollasi on %{count} ilmoitus tällä tilaustavalla. Jos muutat alla olevia asetuksia, olemassaoleva ilmoitus pitää vanhat asetuksensa. Voit muuttaa ilmoituksen tietoja muokkaamalla sitä käsin. Jos et halua näyttää sivustollasi ilmoitusta, jolla on vanhat asetukset, voit sulkea kyseisen ilmoituksen klikkaamalla alla olevaa nappia."
+        other: "Sivustollasi on %{count} ilmoitusta tällä tilaustavalla. Jos muutat alla olevia asetuksia, olemassaolevat ilmoitukset pitävät vanhat asetuksensa. Voit muuttaa ilmoitusten tietoja muokkaamalla niitä käsin. Jos et halua näyttää sivustollasi ilmoituksia, joilla on vanhat asetukset, voit sulkea nämä ilmoitukset klikkaamalla alla olevaa nappia."
+      close_listings_action:
+        one: "Sulje %{count} ilmoitus"
+        other: "Sulje %{count} ilmoitusta"
+      confirm_close_listings_action:
+        one: "Oletko varma että haluat sulkea %{count} ilmoituksen?"
+        other: "Oletko varma että haluat sulkea %{count} ilmoitusta?"
       successfully_closed: "Ilmoitukset suljettu onnistuneesti"
       successfully_deleted: "Tilaustapa '%{order_type}' poistettu onnistuneesti"
       pricing_and_checkout_title: "Hinta ja tilaaminen"
@@ -481,14 +493,14 @@ fi:
     paypal_accounts:
       marketplace_paypal_integration: Maksuasetukset
       preferences_updated: "Maksuasetukset päivitetty"
-      marketplace_currency_used: ~
-      contact_support_link_text: ~
+      marketplace_currency_used: "Tämä markkinapaikka on asetettu käyttämään valuuttaa %{currency}. Jos haluat vaihtaa käytössä olevaa valuuttaa, %{contact_support_link}."
+      contact_support_link_text: "ota yhteys Sharetriben ylläpitoon"
       integration_info_text: "Sharetribe-markkinapaikkojen maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun sivustosi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus sekä ilmoituksen minimihinta."
       paypal_account_email: "1. Yhdistä PayPal-tilisi"
-      link_paypal_personal_account_label: ~
+      link_paypal_personal_account_label: "Aiotko lisätä tavaroita tai palveluita tarjolle myös itse?"
       paypal_account_email_completed: Tehty!
-      link_paypal_personal_account: ~
-      personal_payment_preferences_link_text: ~
+      link_paypal_personal_account: "Jos aiot, sinun pitää yhdistää PayPal-tiliisi myös %{personal_payment_preferences_link}."
+      personal_payment_preferences_link_text: "omiin käyttäjätietoihisi"
       set_minimum_price_and_fee_completed: Tehty!
       read_more_about_paypal: "Lue lisää Sharetriben maksujärjestelmästä"
       set_minimum_price_and_fee: "2. Aseta maksutapahtuman minimikoko ja välityspalkkioprosentti"
@@ -631,10 +643,10 @@ fi:
       message_from: "Viesti käyttäjältä %{person}"
       about_listing: "Liittyy ilmoitukseen %{listing_title}"
       free_message: "Vapaa viesti"
-      message_content_not_available: ~
+      message_content_not_available: "Viestin sisältöä ei voida näyttää"
     message:
       accepted_request: "hyväksyi pyynnön"
-      received_payment: ~
+      received_payment: "hyväksyi tilauksen, otti vastaan maksun %{sum}"
       accepted_offer: "hyväksyi tarjouksen"
       rejected_request: "hylkäsi pyynnön"
       rejected_offer: "hylkäsi tarjouksen"
@@ -755,49 +767,49 @@ fi:
       cancel: Riitauta
   braintree_accounts:
     new:
-      add_payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
-      ssn: ~
-      routing_number: ~
-      account_number: ~
-      save: ~
+      add_payout_details: "Lisää maksutietosi"
+      first_name: Etunimi
+      last_name: Sukunimi
+      email: Sähköpostiosoite
+      phone: Puhelinnumero
+      address_street_address: Katuosoite
+      address_postal_code: Postinumero
+      address_locality: Kaupunki
+      address_region: Osavaltio
+      date_of_birth: Syntymäaika
+      ssn: Henkilötunnus
+      routing_number: Reititysnumero
+      account_number: Tilinumero
+      save: Tallenna
     show:
-      payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
-      ssn: ~
-      routing_number: ~
-      account_number: ~
+      payout_details: Etunimi
+      first_name: Etunimi
+      last_name: Sukunimi
+      email: Sähköpostiosoite
+      phone: Puhelinnumero
+      address_street_address: Katuosoite
+      address_postal_code: Postinumero
+      address_locality: Kaupunki
+      address_region: Osavaltio
+      date_of_birth: Syntymäaika
+      ssn: Henkilötunnus
+      routing_number: Reititysnumero
+      account_number: Tilinumero
   braintree_payments:
     edit:
-      new_credit_card_payment: ~
-      payment_receiver: ~
-      cardholder_name: ~
-      credit_card_number: ~
-      cvv: ~
-      credit_card_expiration_date: ~
-      confirm_payment: ~
-      exp: ~
+      new_credit_card_payment: "Uusi luottokorttimaksu"
+      payment_receiver: "Maksun vastaanottaja"
+      cardholder_name: "Kortinhaltijan nimi"
+      credit_card_number: "Luottokortin numero"
+      cvv: Tarkistuskoodi
+      credit_card_expiration_date: "Luottokortin viimeinen voimassaolopäivä"
+      confirm_payment: "Vahvista maksu"
+      exp: "Exp:"
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    feedback_subject: "Uusi palaute palvelusta %{service_name}"
+    feedback_body: "%{author_name_and_email} on lähettänyt seuraavan palautteen palvelusta %{service_name}"
+    unlogged_user: "Kirjautumaton käyttäjä"
+    anonymous_user: "Anonyymi käyttäjä"
   preauthorize_payments:
     edit:
       confirm_payment: "Vahvista maksu"
@@ -831,7 +843,7 @@ fi:
       message: "Maksutietosi on nyt tarkistettu ja hyväksytty. Voit tästä lähtien vastaanottaa maksuja %{service_name}-palvelussa"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Et ole vielä merkinnyt pyyntöä '%{request_link}' toteutuneeksi tai toteutumattomaksi. Jos pyyntö on toteutettu, sinun kannattaa ilmoittaa siitä, jotta voit antaa palautetta tapahtuneesta käyttäjälle %{other_party_given_name}."
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
+      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Et ole vielä merkinnyt tilausta %{request_link} toteutuneeksi tai peruuttanut sitä. Siirrämme rahat käyttäjälle %{other_party_given_name} vasta kun a) olet merkinnyt tilauksen toteutuneeksi tai b) %{days_to_automatic_confirmation} päivää on kulunut maksun suorittamisesta. Kun olet merkinnyt tilauksen toteutuneeksi, voit antaa palautetta käyttäjälle %{other_party_given_name}."
       remember_to_confirm_request: "Muista merkitä pyyntö toteutuneeksi tai toteutumattomaksi"
       if_will_not_happen_you_should_cancel: "Jos pyyntö syystä tai toisesta jää toteutumatta, voit %{cancel_it_link}."
       if_will_not_happen_you_should_cancel_escrow: ~
@@ -867,10 +879,10 @@ fi:
       give_feedback_to: "Anna palautetta käyttäjälle %{other_party_given_name}"
       show_thread: "Näytä viestiketju"
     escrow_canceled:
-      subject: ~
-      has_marked_request_as_canceled: ~
-      if_this_was_error: ~
-      please_contant_admin_link: ~
+      subject: "Maksu peruutettu"
+      has_marked_request_as_canceled: "%{other_party_full_name} on peruuttanut tilauksen '%{request}'. Tilaussummaa ei tilitetä sinulle."
+      if_this_was_error: "Jos luulet että tämä tapahtui erehdyksessä, %{please_contant_admin_link}."
+      please_contant_admin_link: "ota yhteys ylläpitoon"
     confirmation_instructions:
       confirmation_instructions_signature: "Terveisin,<br/>%{service_name}-tiimi"
       welcome_to_kassi: "Tervetuloa %{service_name}-palveluun!"
@@ -930,7 +942,7 @@ fi:
       price_payer_paid: "Ostajan maksama summa:"
       service_fee: "%{service_name} palvelumaksu:"
       you_will_get: "Loppusumma:"
-      money_will_be_transferred: ~
+      money_will_be_transferred: "Rahat siirretään tilillesi kun a) %{payer_name} on merkinnyt tilauksen toteutuneeksi tai b) %{automatic_confirmation_days} päivää on kulunut siitä kun %{payer_name} suoritti maksun."
     receipt_to_payer:
       receipt_of_payment: "Kuitti maksusta"
       you_have_made_new_payment: "Olet maksanut käyttäjälle %{recipient_full_name} <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
@@ -942,7 +954,7 @@ fi:
       total: Yhteensä
       price: Hinta
       service_fee: Palvelumaksu
-      money_will_be_transferred: ~
+      money_will_be_transferred: "Rahat siirretään käyttäjälle %{recipient_name} kun a) olet merkinnyt tilauksen toteutuneeksi tai b) maksuhetkestä on kulunut %{automatic_confirmation_days} päivää."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta %{service_name}-palvelussa"
       you_can_give_feedback_to: "Voit antaa palautetta käyttäjälle %{name} osoitteessa"
@@ -1027,7 +1039,7 @@ fi:
     paypal:
       buyer_cannot_pay_error: "PayPal hylkäsi maksuyrityksen. Ole hyvä ja ota yhteyttä PayPalin asiakastukeen: %{customer_service_link}"
       pending_review_error: "Maksu on vastaanotettu mutta PayPal merkitsi sen katselmoitavaksi. Kun PayPal on suorittanut katselmoinnin tehdään katevaraus automaattisesti."
-      seller_express_checkout_disabled: ~
+      seller_express_checkout_disabled: "Ilmoituksen jättäjän PayPal-tili ei tällä hetkellä tue Express Checkout -toimintoa. Ole yhteydessä ilmoituksen jättäjään ja kerro hänelle, että hänen PayPal-tilissään on ongelma, joka estää maksujen vastaanottamisen, ja pyydä häntä olemaan yhteydessä PayPalin asiakaspalveluun."
       generic_error: "Maksuprosessin yhteydessä tapahtui virhe. PayPal-maksu ei onnistunut."
       cancel_error: "Maksun perumisen yhteydessä tapahtui virhe."
       accept_authorization_error: "Maksun vastaanotto epäonnistui. Yritä uudelleen."
@@ -1040,15 +1052,15 @@ fi:
       page_you_requested_can_not_be_found: "Haluamaasi osoitetta ei löydy. Oletko varma, että kirjoitit osoitteen oikein?"
     error_404_title: "sivua ei löydy"
     error_410:
-      page_removed: ~
-      page_you_requested_has_been_removed: ~
-      page_removed_reason: ~
-    error_410_title: ~
+      page_removed: "Sivu poistettu"
+      page_you_requested_has_been_removed: "Sivu, jonka yritit avata, on poistettu."
+      page_removed_reason: "Tähän on muutamia mahdollisia syitä. Voi esimerkiksi olla, että käyttäjä jonka profiiliin yritit mennä on poistanut käyttäjätilinsä, tai ilmoitus jonka yritit avata on poistettu."
+    error_410_title: "sivu poistettu"
     error_500:
-      temporary_unavailable: ~
-      unable_to_process: ~
-      we_hate_this: ~
-      refer_to_error_id: ~
+      temporary_unavailable: "Markkinapaikka on tilapäisesti poissa käytöstä"
+      unable_to_process: "Palvelu ei pysty vastaanottamaan pyyntöäsi tällä hetkellä. Ole hyvä ja yritä uudestaan hetken kuluttua."
+      we_hate_this: "Olemme erittäin harmissamme siitä, että tällaista sattuu! Olemme saaneet tiedon tapahtuneesta ja olemme korjaamassa ongelmaa."
+      refer_to_error_id: "Jos haluat raportoida ongelmasta asiakaspalveluumme, muistathan liittää viestiisi virhekoodin \"%{error_id}\"."
     error_500_title: "sivun lataus ei onnistunut"
     error_description: "Virheen kuvaus"
     no_javascript:
@@ -1107,7 +1119,7 @@ fi:
     create_new_marketplace: "Luo uusi verkkotori"
     contact_us: "Ota yhteyttä"
     profile: "Oma profiili"
-    manage_listings: ~
+    manage_listings: "Hallitse ilmoituksia"
     invite: "Kutsu uusia jäseniä"
     login: "Kirjaudu sisään"
     signup: Rekisteröidy
@@ -1187,14 +1199,14 @@ fi:
       send_invitation: "Lähetä kutsu"
       add_email_addresses_description: "Lisää kutsuttavien sähköpostiosoitteet alla olevaan kenttään. Jos lisäät enemmän kuin yhden osoitteen, erota osoitteet pilkulla."
       add_lots_of_email_addresses: ~
-      this_article_link: ~
+      this_article_link: "tästä artikkelista"
       invitation_emails_field_placeholder: "kaveri1@esimerkki.fi, kaveri2@esimerkki.fi, ..."
       invitation_message_field_placeholder: "Tämä palvelu on mahtava, kannattaa ehdottomasti liittyä!"
       errors_in_emails: "Tarkista että antamasi osoitteet ovat toimivia sähköpostiosoitteita. Jos osoitteita on useampi, tarkista että ne on erotettu pilkulla."
     list_item:
       review: palaute
       reviews: palautetta
-      distance_away: ~
+      distance_away: "%{distance} %{distance_unit} päässä"
     news_item:
       show_less: "Näytä vähemmän"
       show_more: "Näytä lisää"
@@ -1316,7 +1328,7 @@ fi:
       feedback_sent_to: "Palaute lähetetty käyttäjälle %{target_person}."
       feedback_skipped: "Palaute ohitettu"
       invitation_cannot_be_sent: "Kutsua ei voitu lähettää"
-      invitation_limit_reached: ~
+      invitation_limit_reached: "Yritit lähettää liian monta kutsua. Päivittäinen raja saavutettu."
       invitation_sent: "Kutsu lähetetty"
       inviting_new_users_is_not_allowed_in_this_community: "Uusien käyttäjien kutsuminen ei ole sallittua."
       login_again: "Kirjaudu uudestaan."
@@ -1365,14 +1377,14 @@ fi:
       request_rejected: "Pyyntö hylätty"
       request_canceled: "Pyyntö peruttu"
       message_sent: "Viesti lähetetty"
-      message_not_sent: ~
+      message_not_sent: "Viestin lähetys epäonnistui. Ole hyvä ja yritä uudestaan."
       this_content_is_not_available_in_this_community: "Pyytämääsi sivua ei löydy."
       unknown_error: "Tuntematon virhe. Voit auttaa selvittämisessä lähettämällä palautetta siitä mitä tapahtui."
       update_error: "Tietojen päivitys ei onnistunut, yritä uudelleen hetken kuluttua"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Sinulla ei ole oikeuksia antaa palautetta tästä tapahtumasta"
       you_are_not_authorized_to_do_this: "Sinulla ei ole oikeuksia tähän operaatioon"
       you_are_not_authorized_to_view_this_content: "Sinulla ei ole oikeuksia tähän sisältöön"
-      listing_closed: ~
+      listing_closed: "Tämä ilmoitus on suljettu"
       send_instructions: "Saat hetken kuluttua sähköpostiisi ohjeet salasanan vaihtoon."
       you_cannot_reply_to_a_closed_offer: "Et voi vastata suljettuun tarjoukseen"
       you_cannot_send_message_to_yourself: "Et voi lähettää viestiä itsellesi"
@@ -1404,8 +1416,8 @@ fi:
       can_not_delete_email: "Et voi poistaa valitsemaasi sähköpostiosoitetta."
       user_does_not_have_email_to_delete: "Et omista sähköpostiosoitetta, jota yrität poistaa."
       email_deleted: "Sähköpostiosoite poistettu"
-      payment_details_add_successful: ~
-      payment_details_add_error: ~
+      payment_details_add_successful: "Maksutiedot lisätty onnistuneesti"
+      payment_details_add_error: "Maksutietojen lisäys epäonnistui"
       listing_author_payment_details_missing: ~
       stylesheet_needs_recompiling: "Tyylejä rakennetaan taustalla. Lataa sivu uudestaan hetken kuluttua."
     settings:
@@ -1420,8 +1432,8 @@ fi:
     comment:
       wrote: kirjoitti
       send_private_message: "Lähetä yksityisviesti käyttäjälle %{person}"
-      delete: ~
-      are_you_sure: ~
+      delete: poista
+      are_you_sure: "Haluatko varmasti poistaa kommentin?"
     comment_form:
       ask_a_question: "Kommentoi ilmoitusta tai kysy lisätietoja. Kommenttisi näkyy muille käyttäjille."
       log_in: "kirjautua sisään"
@@ -1443,7 +1455,7 @@ fi:
       show_in_updates_email_error: "Palveluun ei saatu yhteyttä. Päivitä sivu ja yritä uudestaan."
       show_in_updates_email_success: "Tämä ilmoitus näytetään seuraavassa tapahtumapäivityssähköpostissa"
     map:
-      open_in_google_maps: ~
+      open_in_google_maps: "Avaa Google Maps -palvelussa"
     error:
       something_went_wrong: "Jotain meni vikaan, virhekoodi: %{error_code}"
     follow_links:
@@ -1477,23 +1489,23 @@ fi:
         googlemap_updatemap: "Päivitä karttaa"
       images:
         image: Kuva
-        best_result: ~
+        best_result: "Parhaan lopputuloksen saat kun käytät JPG-, GIF- tai PNG-tiedostoja, joiden koko on %{width} kertaa %{height} pikseliä."
         no_file_selected: "Ei tiedostoa valittuna"
         remove_image: "Poista kuva"
         select_file: "Valitse tiedosto"
-        add_more: ~
+        add_more: "+ Lisää uusi"
         removing: Poistetaan...
         processing: Prosessoidaan...
         loading_image: Ladataan...
-        image_uploading_in_progress: ~
-        processing_takes_a_while: ~
+        image_uploading_in_progress: "Kuvan lataus käynnissä..."
+        processing_takes_a_while: "Kaikki kuvat ovat latautuneet! Niiden käsittely kestää hetken, mutta voit jo tallentaa ilmoituksen."
         this_may_take_a_while: "(tämä saattaa kestää hetken)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Kuvan lataus epäonnistui"
-        image_processing_failed: ~
+        image_processing_failed: "Kuvan käsittely epäonnistui"
         file_too_large: "Tiedosto on liian suuri"
         accepted_formats: "Kuvatiedosto on vääräntyyppinen. Sallitut tiedostomuodot: JPG, PNG ja GIF."
-        images_not_uploaded_confirm: ~
+        images_not_uploaded_confirm: "Kaikki kuvat eivät vielä ole latautuneet. Haluatko varmasti jatkaa?"
       location:
         location: Sijainti
       price:
@@ -1593,7 +1605,7 @@ fi:
       booking_from: Alkaa
       booking_to: Loppuu
       how_paypal_works: "Miten PayPal toimii"
-      payment_help: ~
+      payment_help: "Apua maksujen kanssa"
     new:
       post_a_new_listing: "Lisää uusi ilmoitus"
       listing: ilmoitus
@@ -1669,7 +1681,7 @@ fi:
       week: viikko
       month: kuukausi
     verification_required:
-      verification_required: ~
+      verification_required: "Vahvistus vaaditaan"
   listing_conversations:
     preauthorize:
       details: Erittely
@@ -1731,17 +1743,17 @@ fi:
   paypal_accounts:
     payout_info_title: "Maksujen vastaanotto"
     paypal_account_email_connected: "<del>Yhdistä Paypal-tilisi</del> Tehty!"
-    payout_info_paypal: ~
+    payout_info_paypal: "%{service_name} käyttää PayPalia maksujen välitykseen. Jotta voit ottaa vastaan maksuja, sinulla tulee olla %{create_paypal_account_link}, jonka voit yhdistää %{service_name}-palveluun."
     paypal_billing_agreement_made: "<del>Anna %{service_name}-palvelulle lupa veloittaa välityspalkkio kaupoista.</del> Tehty!"
-    commission_permission_needed: ~
-    create_paypal_account_link_text: ~
+    commission_permission_needed: "Sinun pitää myös antaa %{service_name}-palvelulle lupa veloittaa palvelumaksu jokaisesta maksutapahtumasta."
+    create_paypal_account_link_text: PayPal-tili
     connected_account: "PayPal-tili '%{email}' yhdistetty onnistuneesti."
-    paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: ~
-    paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: ~
-    admin_account_not_connected: ~
-    contact_admin_link_text: ~
+    paypal_receive_funds_info_label_australia_only: "PayPal-tilisi pitää pystyä ottamaan vastaan maksuja. Tätä varten saatat tarvita Premier- tai Business-tilin."
+    paypal_receive_funds_info_label: "PayPal-tilisi pitää pystyä ottamaan maksuja vastaan. Saatat tarvita PayPal Business -tilin."
+    paypal_receive_funds_info: "Jos näet virheviestin yrittäessäsi yhdistää PayPal-tilisi %{service_name}-palveluun, päivitä PayPal-tilisi %{upgrade_paypal_account_link}. Päivittäminen on ilmaista ja helppoa. Jos olet yksityishenkilö, PayPal suosittelee käyttämään koko nimeäsi \"Business name\" -kentässä."
+    upgrade_paypal_account_link_text: "kirjautumalla sisään ja klikkaamalla päivitä-linkkiä"
+    admin_account_not_connected: "%{service_name}-palvelun maksujärjestelmä ei ole vielä käytössä, joten et voi vielä muokata maksuasetuksiasi. Ole hyvä ja %{contact_admin_link}."
+    contact_admin_link_text: "ota yhteys ylläpitoon"
     you_are_ready_to_accept_payments: "Olet nyt valmis ottamaan rahaa vastaan."
     commission: "%{commission} %"
     new:
@@ -1755,16 +1767,16 @@ fi:
       create_paypal_account: "klikkaamalla tästä"
       upgrade_paypal_account: "kirjautumalla PayPal-tilillesi"
       paypal_account_billing_agreement: "Anna %{service_name}-palvelulle lupa veloittaa välityspalkkio kaupoista."
-      follow_steps: ~
-      connect_paypal_account_title: ~
-      connect_paypal_account_title_with_step: ~
-      connect_paypal_account_instructions: ~
+      follow_steps: "Seuraa alla olevia ohjeita, jotta voit alkaa ottaa vastaan maksuja:"
+      connect_paypal_account_title: "Yhdistä PayPal-tilisi"
+      connect_paypal_account_title_with_step: "Vaihe %{current_step}/%{total_steps}: Yhdistä PayPal-tilisi"
+      connect_paypal_account_instructions: "Klikkaa alla olevaa nappia kirjautuaksesi PayPaliin ja yhdistäksesi PayPal-tilisi %{service_name}-palveluun."
       connect_paypal_account: "Yhdistä PayPal-tili"
-      paypal_account_billing_agreement_with_step: ~
+      paypal_account_billing_agreement_with_step: "Vaihe %{current_step}/%{total_steps}: Myönnä lupa palvelumaksujen veloitukseen"
       paypal_account_billing_agreement_info_both: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{commission_from_seller} myyntihinnasta, poislukien postikulut, vähintään %{minimum_commission}). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{minimum_commission}). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{commission_from_seller} myyntihinnasta, poislukien postikulut). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä %{paypal_info_link}."
-      paypal_account_billing_agreement_info_none: ~
+      paypal_account_billing_agreement_info_none: "%{service_name}-palvelu ei tällä hetkellä veloita palvelumaksuja. Jos palvelumaksut otetaan myöhemmin käyttöön, sinun pitää myöntää %{service_name}-palvelulle lupa veloittaa palvelumaksua voidaksesi ottaa itse vastaan maksuja. Palvelumaksu ei sisällä %{paypal_info_link}."
       paypal_info_link_text: "PayPalin käsittelymaksua"
       billing_agreement_description: "Anna %{service_name}-palvelulle lupa ottaa välityspalkkio kaupoista."
       billing_agreement: "Anna lupa veloittaa välityspalkkio"
@@ -1777,17 +1789,17 @@ fi:
       something_went_wrong: "Jotain meni vikaan. Yritä uudestaan. Jos ongelma toistuu, ota yhteys ylläpitoon."
       account_not_verified: "Et ole vahvistanut PayPal-tiliäsi. Sinun on vahvistettava tilisi ennen kuin voit jatkaa."
       account_restricted: "PayPal-tiliisi on rajoitetussa tilassa eikä sitä voida yhdistää. Sinun tulee kirjautua PayPal-sivustolle selvittääksesi ongelman."
-    paypal_account_connected_title: ~
-    paypal_account_connected: ~
+    paypal_account_connected_title: "PayPal-tili yhdistetty"
+    paypal_account_connected: "PayPal-tili <%{email}> on yhdistetty %{service_name}-palveluun."
     change_account: "Vaihda tili"
     missing: "Sinulla on avoimia ilmoituksia, mutta et ole yhdistänyt PayPal-tiliäsi, joten et pysty ottamaan maksuja vastaan. Yhdistä PayPal-tilisi %{settings_link}."
     from_your_payment_settings_link_text: maksuasetuksistasi
-    redirect_message: ~
-    redirect_link_text: ~
-    paypal_account_all_set_up: ~
-    can_receive_payments: ~
-    paypal_account_connected_summary: ~
-    paypal_permission_granted_summary: ~
+    redirect_message: "Sinut ohjataan PayPaliin. Jos mitään ei tapahdu, klikkaa %{redirect_link}."
+    redirect_link_text: tästä
+    paypal_account_all_set_up: "Hienoa, yhdistäminen onnistui!"
+    can_receive_payments: "Voit nyt ottaa vastaan maksuja muilta käyttäjiltä."
+    paypal_account_connected_summary: "PayPal-tili <%{email}> yhdistetty onnistuneesti"
+    paypal_permission_granted_summary: "Lupa palvelumaksujen veloitukseen myönnetty"
   paypal:
     pay_with_paypal: "Siirry maksamaan"
     checkout_with_paypal: "Maksa PayPal-tilillä"
@@ -1825,7 +1837,7 @@ fi:
       invalid_invitation_code: "Kutsukoodi ei kelpaa."
       invitation_code: "Kutsukoodi:"
       not_required: ", ei pakollinen"
-      notification_is_mandatory: ~
+      notification_is_mandatory: "Sinun täytyy valita ainakin yksi sähköpostiosoite, johon voit vastaanottaa tiedotteita. Jos et halua, että %{service_name} lähettää sinulle lainkaan sähköpostia, tarkista sähköpostiasetuksesi."
       organization_name: "Organisaation virallinen nimi"
       password_again: "Salasana uudelleen"
       show_my_name_to_others: "Näytä oikea nimeni muille käyttäjille"
@@ -1848,7 +1860,7 @@ fi:
     profile_listings:
       show_also_closed: "Näytä myös suljetut"
       show_only_open: "Näytä vain avoimet"
-      no_image: ~
+      no_image: "Ei kuvaa"
     show:
       contact: "Lähetä yksityisviesti"
       about_me: "Tietoa minusta:"
