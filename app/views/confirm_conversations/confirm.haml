@@ -4,7 +4,6 @@
       ST.initializeRadioButtons({
         buttons: [".js-confirm-radio-button", ".js-cancel-radio-button"],
         input: ".js-confirmation-status",
-        selected: ".js-#{action_type}-radio-button",
         callback: function(selector) {
           switch(selector) {
             case ".js-confirm-radio-button":
@@ -27,12 +26,12 @@
   = form_for form, :url => confirmation_person_message_path(:person_id => @current_user.id, :id => listing_transaction[:id]), :html => { :method => "put" } do |form|
     - if can_be_confirmed
 
-      %input.js-confirmation-status{type: :hidden, name: "transaction[status]"}
+      %input.js-confirmation-status{type: :hidden, name: "transaction[status]", value: action_type == "confirm" ? "confirmed" : "canceled"}
 
-      %a.radio-button.radio-button-positive.js-confirm-radio-button{ data: { :"radio-button-value" => "confirmed" } }
+      %a.radio-button.radio-button-positive.js-confirm-radio-button{ data: { :"radio-button-value" => "confirmed" }, class: action_type == "confirm" ? "radio-button-selected" : "" }
         .radio-button-icon{class: icon_for("confirmed")}
         .radio-button-label= t("conversations.confirm.confirm")
-      %a.radio-button.radio-button-negative.js-cancel-radio-button{ data: { :"radio-button-value" => "canceled" } }
+      %a.radio-button.radio-button-negative.js-cancel-radio-button{ data: { :"radio-button-value" => "canceled" }, class: action_type == "cancel" ? "radio-button-selected" : "" }
         .radio-button-icon{class: icon_for("canceled")}
         .radio-button-label= t("conversations.confirm.cancel")
 

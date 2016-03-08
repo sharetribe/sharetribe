@@ -61,12 +61,10 @@ window.ST = window.ST || {};
 
     var buttonSelectors  = opts.buttons;
     var inputSelector    = opts.input;
-    var selectedSelector = opts.selected;
     var callback         = opts.callback || function() {};
 
     var input = $(inputSelector);
     var buttons = buttonSelectors.map(initializeButton);
-    var initiallySelected = initializeButton(selectedSelector);
 
     buttons.forEach(function(button) {
       button.element.click(function() {
@@ -74,9 +72,6 @@ window.ST = window.ST || {};
         callback(button.selector, button.element);
       });
     });
-
-    // Initial selection
-    select(initiallySelected, input, buttons);
   };
 
   exports.initializeRadioButtons = initialize;
