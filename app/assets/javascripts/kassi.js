@@ -74,21 +74,6 @@ function add_validator_methods() {
     );
 
   $.validator.
-    addMethod("required_when_not_neutral_feedback",
-      function(value, element, param) {
-        if (value == "") {
-          var radioButtonArray = new Array("1", "2", "4", "5");
-          for (var i = 0; i < radioButtonArray.length; i++) {
-            if ($('#grade-' + radioButtonArray[i]).is(':checked')) {
-              return false;
-            }
-          }
-        }
-        return true;
-       }
-    );
-
-  $.validator.
     addMethod( "positive_integer",
       function(value, element, param) {
         var n = ~~Number(value);
