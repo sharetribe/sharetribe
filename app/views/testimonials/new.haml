@@ -9,10 +9,16 @@
     = form.text_area :text, :placeholder => t(".default_textual_feedback")
     = form.label :grade, t(".grade")
     .feedback-grade
-      - Testimonial::GRADES.each do |grade|
-        %label{:for => "grade-#{grade[1][:form_value]}", :class => "radio hidden"}
-          = radio_button_tag "testimonial[grade]", grade[1][:db_value], grade[1][:default], :id => "grade-#{grade[1][:form_value]}"
-        %a.grade.hidden{:id => grade[0], :name => "grade-#{grade[1][:form_value]}"}
-          = icon_tag(grade[1][:icon], ["link-icon"])
-          .link-text{:id => "#{grade[0]}-grade-link"}= t(".#{grade[0]}")
+      %label{:for => "grade-5", :class => "radio hidden"}
+        = radio_button_tag "testimonial[grade]", 1, false, :id => "grade-5"
+      %a.grade.hidden{:id => "positive", :name => "grade-5"}
+        = icon_tag("like", ["link-icon"])
+        .link-text{:id => "positive-grade-link"}= t(".positive")
+
+      %label{:for => "grade-1", :class => "radio hidden"}
+        = radio_button_tag "testimonial[grade]", 0, false, :id => "grade-1"
+      %a.grade.hidden{:id => "negative", :name => "grade-1"}
+        = icon_tag("dislike", ["link-icon"])
+        .link-text{:id => "negative-grade-link"}= t(".negative")
+
     = form.button t(".send_feedback"), :class => "send_button", :id => "send_testimonial_button"

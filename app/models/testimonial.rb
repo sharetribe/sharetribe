@@ -21,11 +21,6 @@
 
 class Testimonial < ActiveRecord::Base
 
-  GRADES = [
-    [ "positive", { :form_value => "5", :db_value => 1, :default => false, :icon => "like" } ],
-    [ "negative", { :form_value => "1", :db_value => 0, :default => false, :icon => "dislike" } ]
-  ]
-
   belongs_to :author, :class_name => "Person"
   belongs_to :receiver, :class_name => "Person"
   belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id"
