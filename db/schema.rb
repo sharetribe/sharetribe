@@ -901,7 +901,7 @@ ActiveRecord::Schema.define(version: 20160322103156) do
   add_index "people", ["facebook_id"], name: "index_people_on_facebook_id", using: :btree
   add_index "people", ["id"], name: "index_people_on_id", using: :btree
   add_index "people", ["reset_password_token"], name: "index_people_on_reset_password_token", unique: true, using: :btree
-  add_index "people", ["username"], name: "index_people_on_username", using: :btree
+  add_index "people", ["username", "community_id"], name: "index_people_on_username_and_community_id", unique: true, using: :btree
 
   create_table "prospect_emails", force: :cascade do |t|
     t.string   "email",      limit: 255
