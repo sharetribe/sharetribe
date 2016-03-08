@@ -27,7 +27,6 @@ window.ST = window.ST || {};
    *
    * - buttonSelectors: array of button selectors
    * - inputSelector: selector for the input element
-   * - selectedSelector: (optional) selector for the initally selected button
    *
    */
 
