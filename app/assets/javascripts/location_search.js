@@ -13,6 +13,11 @@ window.ST = window.ST || {};
 
     boundingboxInput.value = null;
 
+    // report search usage: location search results fetched
+    if(coordinateInput.value !== "") {
+      window.report_analytics_event('user', "main search", "location search");
+    }
+
     window.google.maps.event.addListener(autocomplete, 'place_changed', function(){
       var place = autocomplete.getPlace();
       if(place != null) {
