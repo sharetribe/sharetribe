@@ -472,10 +472,6 @@ function update_complex_form_price_fields(commissionPercentage, serviceFeeVat) {
   $("#total").text(youWillGet.toFixed(2) + euro);
 }
 
-function initialize_confirm_transaction_form() {
-  style_action_selectors();
-}
-
 function style_action_selectors() {
   $(".conversation-action").each(function() {
     $(this).find('label').hide();

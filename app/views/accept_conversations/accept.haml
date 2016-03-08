@@ -2,6 +2,28 @@
 - content_for :javascript do
   initialize_accept_transaction_form(#{@current_community.commission_from_seller || "null"}, #{APP_CONFIG.service_fee_tax_percentage || "0"}, '#{@current_community.invoice_form_type_for(@listing_conversation.listing)}', '#edit_transaction_#{@listing_conversation.id.to_s}', #{@current_community.absolute_minimum_price(@listing_conversation.listing.currency).cents}, "#{Money::Currency.new(@listing_conversation.listing.currency).subunit_to_unit}", "#{t('conversations.accept.minimum_price_error_message', :amount => humanized_money_with_symbol(@current_community.absolute_minimum_price(@listing_conversation.listing.currency)))}");
 
+- content_for :extra_javascript do
+  :javascript
+    ST.initializeRadioButtons({
+      buttons: [".js-accept-radio-button", ".js-reject-radio-button"],
+      input: ".js-accept-status",
+      selected: ".js-#{@action}-radio-button",
+      callback: function(selector) {
+        $(".hidden-accept-form").addClass('hidden');
+        $(".conversation-price").addClass('hidden');
+        switch(selector) {
+          case ".js-accept-radio-button":
+            $(".accept-price").removeClass('hidden');
+            $(".visible-when-accept").removeClass('hidden');
+          break;
+          case ".js-reject-radio-button":
+            $(".reject-price").removeClass('hidden');
+            $(".visible-when-reject").removeClass('hidden');
+          break;
+        }
+      }
+    });
+
 - content_for :title_header do
   %h1= t("layouts.no_tribe.inbox")
 
@@ -9,13 +31,14 @@
   %h2= t("conversations.accept.respond_to_request")
   = form_for @listing_conversation, :url => acceptance_person_message_path(:person_id => @current_user.id, :id => @listing_conversation.id), :html => { :method => "put" } do |form|
 
-    .conversation-action
-      - ["accept", "reject"].each do |action|
-        %label{:for => "action-#{action}", :class => "radio hidden"}
-          = radio_button_tag "listing_conversation[status]", "#{action}ed", @action.eql?(action), :id => "action-#{action}"
-        %a.conversation-action.hidden{:id => "#{action}", :name => "#{action}-link", :class => (@action.eql?(action) ? action : "")}
-          .link-icon{:class => icon_for("#{action}ed")}
-          .link-text{:id => "#{action}-action-link"}= t("conversations.accept.#{action}_request")
+    %input.js-accept-status{type: :hidden, name: "listing_conversation[status]"}
+
+    %a.radio-button.radio-button-positive.js-accept-radio-button{ data: { :"radio-button-value" => "accepted" } }
+      .radio-button-icon{class: icon_for("accepted")}
+      .radio-button-label= t("conversations.accept.accept_request")
+    %a.radio-button.radio-button-negative.js-reject-radio-button{ data: { :"radio-button-value" => "rejected" } }
+      .radio-button-icon{class: icon_for("rejected")}
+      .radio-button-label= t("conversations.accept.reject_request")
 
     - if @payout_registration_missing
       .hidden-accept-form.visible-when-accept{:class => (@action.eql?("accept") ? "" : "hidden")}
