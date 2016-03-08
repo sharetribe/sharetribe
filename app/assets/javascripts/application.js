@@ -72,4 +72,5 @@
 //= require paypal_account_settings
 //= require transaction
 //= require listing_form
+//= require radio_buttons
 //= require_self
