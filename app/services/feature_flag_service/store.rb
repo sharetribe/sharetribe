@@ -13,6 +13,7 @@ module FeatureFlagService::Store
       :new_search,
       :only_gtm,
       :customer_universal_analytics,
+      :youtube_embeds,
     ].to_set
 
     def initialize(additional_flags:)
