@@ -368,7 +368,6 @@ function initialize_accept_transaction_form(
   minimum_price_message) {
 
   auto_resize_text_areas("text_area");
-  style_action_selectors();
 
   if (commission_percentage != null) {
     if (form_type === "simple") {
@@ -470,41 +469,6 @@ function update_complex_form_price_fields(commissionPercentage, serviceFeeVat) {
   $("#service-fee-total").text(totalFee.toFixed(2) + euro);
 
   $("#total").text(youWillGet.toFixed(2) + euro);
-}
-
-function style_action_selectors() {
-  $(".conversation-action").each(function() {
-    $(this).find('label').hide();
-    $(this).find('.conversation-action').each(
-      function() {
-        $(this).removeClass('hidden');
-        $(this).click(
-          function() {
-            var action = $(this).attr('id');
-            $(this).siblings().removeClass('accept').removeClass('reject').removeClass('confirm').removeClass('cancel');
-
-            // Show or hide description text
-            $(".confirm-description").addClass('hidden');
-            $(".cancel-description").addClass('hidden');
-            $("." + action + "-description").removeClass('hidden');
-
-            // Show or hide price field
-            $(".conversation-price").addClass('hidden');
-            $("." + action +  "-price").removeClass('hidden');
-
-            // Show or hide payout details missing information
-            $(".hidden-accept-form").addClass('hidden');
-            $(".visible-when-" + action).removeClass('hidden');
-
-            $(this).addClass(action);
-            $(".conversation-action").find('input:radio[id=' + $(this).attr('name') + ']').attr('checked', true);
-            $("#conversation_message_attributes_action").val(action);
-            $("#conversation_status").val(action + 'ed');
-          }
-        );
-      }
-    );
-  });
 }
 
 function initialize_give_feedback_form(locale, grade_error_message, text_error_message) {
