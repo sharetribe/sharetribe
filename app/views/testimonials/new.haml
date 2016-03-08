@@ -18,11 +18,11 @@
 
     %input.js-testimonial-grade{type: :hidden, name: "testimonial[grade]"}
 
-    %a.radio-button.radio-button-positive.js-positive-radio-button{ data: { :"radio-button-value" => 1 } }
+    %a#positive-grade-link.radio-button.radio-button-positive.js-positive-radio-button{ data: { :"radio-button-value" => 1 } }
       .radio-button-icon
         = icon_tag("like", ["link-icon"])
       .radio-button-label= t(".positive")
-    %a.radio-button.radio-button-negative.js-negative-radio-button{ data: { :"radio-button-value" => 0 } }
+    %a#negative-grade-link.radio-button.radio-button-negative.js-negative-radio-button{ data: { :"radio-button-value" => 0 } }
       .radio-button-icon
         = icon_tag("dislike", ["link-icon"])
       .radio-button-label= t(".negative")
