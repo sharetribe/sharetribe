@@ -6,8 +6,6 @@ Sharetribe is an open source platform to create your own peer-to-peer marketplac
 
 Would you like to set up your marketplace in one minute without touching code? [Head to Sharetribe.com](https://www.sharetribe.com).
 
-Want to get in touch? Email [info@sharetribe.com](mailto:info@sharetribe.com)
-
 ### Contents
 - [Installation](#installation)
 - [Payments](#payments)
@@ -23,8 +21,6 @@ Want to get in touch? Email [info@sharetribe.com](mailto:info@sharetribe.com)
 - [License](#mit-license)
 
 ## Installation
-
-Note: ~~If you encounter problems with the installation, ask for help from the developer community in our [developer chatroom](https://www.flowdock.com/invitations/de227bdbe48d24c31a6b749933d3b4eca82e307c)~~ (Update: The developer chatroom is not in use at the moment, see [this issue](https://github.com/sharetribe/sharetribe/issues/1734)). When you join, please use threads. Instructions for this and other chat-related things can be found at [Flowdock's chat instructions](https://www.flowdock.com/help/chat).
 
 ### Requirements
 
@@ -339,6 +335,13 @@ Browse open issues and submit new ones at http://github.com/sharetribe/sharetrib
 * [Cucumber testing Do's and Don'ts](docs/cucumber-do-dont.md)
 * [Technical roadmap](TECHNICAL_ROADMAP.md)
 * [Feature flags](docs/feature-flags.md)
+
+
+## Community forum
+
+The Sharetribe open source community forum is located at [https://www.sharetribe.com/community/](https://www.sharetribe.com/community/). 
+
+The forum is a great place to ask support and help for example with issues during the installation.
 
 
 ## MIT License
