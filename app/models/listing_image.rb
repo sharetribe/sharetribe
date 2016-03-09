@@ -104,6 +104,8 @@ class ListingImage < ActiveRecord::Base
     end
 
     geometry = Paperclip::Geometry.from_file(path_or_url)
+    geometry.auto_orient
+    geometry
   end
 
   def authorized?(user)
