@@ -11,7 +11,7 @@ nl:
   devise:
     failure:
       already_authenticated: "Je bent al ingelogd."
-      unauthenticated: "Je dient in te loggen of je in te schrijven."
+      unauthenticated: "Je dient in te loggen of je in te schrijven voordat je verder kan gaan."
       unconfirmed: "Je dient eerst je account te bevestigen."
       locked: "Je account is geblokkeerd."
       invalid: "Ongeldig e-mail of wachtwoord."
@@ -27,7 +27,7 @@ nl:
       signed_in: "Je bent succesvol ingelogd."
       signed_out: "Je bent succesvol uitgelogd."
     confirmations:
-      send_paranoid_instructions: "Indien je e-mail adres in onze database staat, ontvang je binnen enkele minuten een bericht met instructies om je wachtwoord te bevestigen."
+      send_paranoid_instructions: "Indien je e-mail adres in onze database staat, ontvang je een bericht met instructies om je wachtwoord te bevestigen."
       send_instructions: "Je ontvangt via e-mail instructies hoe je je account kunt bevestigen."
       confirmed: "Je account is bevestigd."
     registrations:
@@ -41,11 +41,11 @@ nl:
       update_needs_confirmation: "Je heb je account succesvol bijgewerkt, maar we moeten je nieuw e-mail adres verifiëren. Controleer je inbox en klik op de mail die we je gestuurd hebben om je e-mail adres te bevestigen."
       signed_up: "Welkom! Je bent succesvol inschreven."
       updated: "Je account gegevens zijn opgeslagen."
-      destroyed: "Je account is succesvol verwijderd. We hopen je snel weer terug te zien. "
+      destroyed: "Je account is succesvol verwijderd. We hopen je snel weer terug te zien!"
     unlocks:
       send_paranoid_instructions: "Als je een bestaand account hebt, ontvang je binnen enkele minuten een e-mail met instructies om je account te deblokkeren."
       send_instructions: "Je ontvangt via e-mail instructies hoe je je account kan deblokkeren."
-      unlocked: "Je account is gedeblokeerd. Je kunt nu weer inloggen."
+      unlocked: "Je account werd succesvol gedeblokeerd. Je kunt nu weer inloggen."
     omniauth_callbacks:
       success: "Succesvol geautoriseerd van %{kind} account."
       failure: "Kan je niet autoriseren van %{kind} omdat '%{reason}'."
