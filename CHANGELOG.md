@@ -12,6 +12,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 - Update Ruby to 2.2.4 [#1774](https://github.com/sharetribe/sharetribe/pull/1774)
 
+### Fixed
+
+- Wrong action was executed when radio buttons were clicked back and forth [#1802](https://github.com/sharetribe/sharetribe/pull/1802)
+
 ### Security
 
 - Redirect to HTTPS (if configured) before requesting HTTP basic authentication: [#1793](https://github.com/sharetribe/sharetribe/pull/1793)

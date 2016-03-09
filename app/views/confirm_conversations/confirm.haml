@@ -1,5 +1,23 @@
-- content_for :javascript do
-  initialize_confirm_transaction_form();
+- content_for :extra_javascript do
+  :javascript
+    (function() {
+      ST.initializeRadioButtons({
+        buttons: [".js-confirm-radio-button", ".js-cancel-radio-button"],
+        input: ".js-confirmation-status",
+        callback: function(selector) {
+          switch(selector) {
+            case ".js-confirm-radio-button":
+            $(".confirm-description").removeClass("hidden");
+            $(".cancel-description").addClass("hidden");
+            break;
+            case ".js-cancel-radio-button":
+            $(".cancel-description").removeClass("hidden");
+            $(".confirm-description").addClass("hidden");
+            break;
+          }
+        }
+      })
+    })();
 
 - content_for :title_header do
   %h1= t("layouts.no_tribe.inbox")
@@ -8,20 +26,20 @@
   = form_for form, :url => confirmation_person_message_path(:person_id => @current_user.id, :id => listing_transaction[:id]), :html => { :method => "put" } do |form|
     - if can_be_confirmed
 
-      .conversation-action
-        - ["confirm", "cancel"].each do |action|
-          %label{:for => "action-#{action}", :class => "radio hidden"}
-            = radio_button_tag "status", action, action_type.eql?(action), :id => "action-#{action}"
-          %a.conversation-action.hidden{:id => "#{action}", :name => "#{action}-link", :class => (action_type.eql?(action) ? action : "")}
-            .link-icon{:class => icon_for("#{action}ed")}
-            .link-text{:id => "#{action}-action-link"}= t("conversations.confirm.#{action}")
+      %input.js-confirmation-status{type: :hidden, name: "transaction[status]", value: action_type == "confirm" ? "confirmed" : "canceled"}
+
+      %a#confirm-action-link.radio-button-positive.js-confirm-radio-button{ data: { :"radio-button-value" => "confirmed" }, class: action_type == "confirm" ? "radio-button-selected" : "" }
+        .radio-button-icon{class: icon_for("confirmed")}
+        .radio-button-label= t("conversations.confirm.confirm")
+      %a#cancel-action-link.radio-button-negative.js-cancel-radio-button{ data: { :"radio-button-value" => "canceled" }, class: action_type == "cancel" ? "radio-button-selected" : "" }
+        .radio-button-icon{class: icon_for("canceled")}
+        .radio-button-label= t("conversations.confirm.cancel")
 
       .conversation-action-description
-        - ["confirm", "cancel"].each do |action|
-          %div{:class => "#{action}-description #{action_type.eql?(action) ? '' : 'hidden'}"}
-            = t("conversations.confirm.#{action}_description")
-
-      = form.hidden_field :status, :value => "#{action_type}ed"
+        %div{:class => "confirm-description #{action_type.eql?('confirm') ? '' : 'hidden'}"}
+          = t("conversations.confirm.confirm_description")
+        %div{:class => "cancel-description #{action_type.eql?('cancel') ? '' : 'hidden'}"}
+          = t("conversations.confirm.cancel_description")
 
     - else
 

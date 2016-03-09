@@ -1,5 +1,12 @@
 - content_for :javascript do
   initialize_give_feedback_form("#{I18n.locale}","#{t('error_messages.testimonials.you_must_select_a_grade')}","#{t('error_messages.testimonials.you_must_explain_not_neutral_feedback')}");
+
+- content_for :extra_javascript do
+  :javascript
+    ST.initializeRadioButtons({
+      buttons: [".js-positive-radio-button", ".js-negative-radio-button"],
+      input: ".js-testimonial-grade"
+    });
 .centered-section.testimonial-form
   %h2= t(".give_feedback_to", :person => transaction.other_party(@current_user).name(@current_community))
   %p= t(".this_will_be_shown_in_profile", :person => transaction.other_party(@current_user).given_name_or_username)
@@ -8,11 +15,16 @@
     = form.label :text, t('.textual_feedback')
     = form.text_area :text, :placeholder => t(".default_textual_feedback")
     = form.label :grade, t(".grade")
-    .feedback-grade
-      - Testimonial::GRADES.each do |grade|
-        %label{:for => "grade-#{grade[1][:form_value]}", :class => "radio hidden"}
-          = radio_button_tag "testimonial[grade]", grade[1][:db_value], grade[1][:default], :id => "grade-#{grade[1][:form_value]}"
-        %a.grade.hidden{:id => grade[0], :name => "grade-#{grade[1][:form_value]}"}
-          = icon_tag(grade[1][:icon], ["link-icon"])
-          .link-text{:id => "#{grade[0]}-grade-link"}= t(".#{grade[0]}")
+
+    %input.js-testimonial-grade{type: :hidden, name: "testimonial[grade]"}
+
+    %a#positive-grade-link.radio-button.radio-button-positive.js-positive-radio-button{ data: { :"radio-button-value" => 1 } }
+      .radio-button-icon
+        = icon_tag("like", ["link-icon"])
+      .radio-button-label= t(".positive")
+    %a#negative-grade-link.radio-button.radio-button-negative.js-negative-radio-button{ data: { :"radio-button-value" => 0 } }
+      .radio-button-icon
+        = icon_tag("dislike", ["link-icon"])
+      .radio-button-label= t(".negative")
+
     = form.button t(".send_feedback"), :class => "send_button", :id => "send_testimonial_button"

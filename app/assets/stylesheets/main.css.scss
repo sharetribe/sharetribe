@@ -1675,42 +1675,8 @@ input[type=text].delivery-price-field {
 
 .testimonial-form, .conversation-status-form, .payment-form {
 
-  a.grade, a.conversation-action {
-    color: $body;
-    cursor: pointer;
-    position: relative;
-    display: block;
-    width: 100%;
-    @include border-radius(em(5));
-    border: 2px solid $border;
-    &:hover { background: $highlight; }
-    margin-bottom: lines(0.25);
-    .link-icon {
-      position: absolute;
-      top: em(8);
-      left: em(12);
-    }
-    .link-text {
-      margin-left: em(40);
-      margin-right: lines(1.5);
-      padding: em(6) 0 em(10) 0;
-    }
-  }
-
   a.hidden, div.hidden {
     display: none;
-  }
-
-  a.positive, a.accept, a.confirm {
-    color: $green;
-    background: lighten($green, 40%);
-    &:hover { background: lighten($green, 40%); }
-  }
-
-  a.negative, a.reject, a.cancel {
-    color: $red;
-    background: lighten($red, 40%);
-    &:hover { background: lighten($red, 40%); }
   }
 
   span.currency-symbol {

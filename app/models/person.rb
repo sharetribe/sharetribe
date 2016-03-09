@@ -430,14 +430,6 @@ class Person < ActiveRecord::Base
     conversation.participations.where(["person_id LIKE ?", self.id]).first.update_attribute(:is_read, true)
   end
 
-  def grade_amounts
-    grade_amounts = []
-    Testimonial::GRADES.each_with_index do |grade, index|
-      grade_amounts[Testimonial::GRADES.size - 1 - index] = [grade[0], received_testimonials.where(:grade => grade[1][:db_value]).count, grade[1][:form_value]]
-    end
-    return grade_amounts
-  end
-
   def consent(community)
     community_memberships.find_by_community_id(community.id).consent
   end

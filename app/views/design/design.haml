@@ -618,7 +618,32 @@
 
         stripe.show(0);
 
+  .design-section
+    %h3.design-h3
+      = "Radio buttons"
+    .design-component
+      .design-example
+        / It's a good idea to use server rendering to render the initially selected value
+        - selected = "reject"
 
-      .design-code
-        %pre
-          :plain
+        .radio-button-value
+          %label
+            This input contains the radiobutton value
+          %input.js-radio-button-value{value: selected == "accept" ? "accept" : "reject" }
+          %br/
+          %br/
+
+        .radio-buttons
+          %a.radio-button.radio-button-positive.js-accept-radio-button{ data: { :"radio-button-value" => "accept"}, class: selected == "accept" ? "radio-button-selected" : "" }
+            .radio-button-icon{class: icon_for("accepted")}
+            .radio-button-label= t("conversations.accept.accept_request")
+          %a.radio-button.radio-button-negative.js-reject-radio-button{ data: { :"radio-button-value" => "reject"}, class: selected == "reject" ? "radio-button-selected" : "" }
+            .radio-button-icon{class: icon_for("rejected")}
+            .radio-button-label= t("conversations.accept.reject_request")
+
+        - content_for :extra_javascript do
+          :javascript
+            ST.initializeRadioButtons({
+              buttons: [".js-accept-radio-button", ".js-reject-radio-button"],
+              input: ".js-radio-button-value",
+              callback: function(sel, el) { console.log(sel, el) } });
