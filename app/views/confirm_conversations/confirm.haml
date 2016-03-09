@@ -28,10 +28,10 @@
 
       %input.js-confirmation-status{type: :hidden, name: "transaction[status]", value: action_type == "confirm" ? "confirmed" : "canceled"}
 
-      %a#confirm-action-link.radio-button.radio-button-positive.js-confirm-radio-button{ data: { :"radio-button-value" => "confirmed" }, class: action_type == "confirm" ? "radio-button-selected" : "" }
+      %a#confirm-action-link.radio-button-positive.js-confirm-radio-button{ data: { :"radio-button-value" => "confirmed" }, class: action_type == "confirm" ? "radio-button-selected" : "" }
         .radio-button-icon{class: icon_for("confirmed")}
         .radio-button-label= t("conversations.confirm.confirm")
-      %a#cancel-action-link.radio-button.radio-button-negative.js-cancel-radio-button{ data: { :"radio-button-value" => "canceled" }, class: action_type == "cancel" ? "radio-button-selected" : "" }
+      %a#cancel-action-link.radio-button-negative.js-cancel-radio-button{ data: { :"radio-button-value" => "canceled" }, class: action_type == "cancel" ? "radio-button-selected" : "" }
         .radio-button-icon{class: icon_for("canceled")}
         .radio-button-label= t("conversations.confirm.cancel")
 

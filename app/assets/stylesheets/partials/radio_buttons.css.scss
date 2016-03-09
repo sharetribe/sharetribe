@@ -24,14 +24,22 @@
   padding: em(6) 0 em(10) 0;
 }
 
-.radio-button-positive.radio-button-selected {
-  color: $green;
-  background: lighten($green, 40%);
-  &:hover { background: lighten($green, 40%); }
+.radio-button-positive {
+  @extend .radio-button;
+
+  &.radio-button-selected {
+    color: $green;
+    background: lighten($green, 40%);
+    &:hover { background: lighten($green, 40%); }
+  }
 }
 
-.radio-button-negative.radio-button-selected {
-  color: $red;
-  background: lighten($red, 40%);
-  &:hover { background: lighten($red, 40%); }
+.radio-button-negative {
+  @extend .radio-button;
+
+  &.radio-button-selected {
+    color: $red;
+    background: lighten($red, 40%);
+    &:hover { background: lighten($red, 40%); }
+  }
 }
