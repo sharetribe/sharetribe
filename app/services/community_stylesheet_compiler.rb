@@ -16,13 +16,21 @@ module CommunityStylesheetCompiler
   class << self
 
     def compile_all(delayed_opts={})
-      prepare_compile_all do |community|
-        Delayed::Job.enqueue(CompileCustomStylesheetJob.new(community.id), delayed_opts.dup)
+      communities_to_recompile.each_with_index do |community, index|
+        # Do prioritization here
+        #
+        # The first 100 communities will have time_cap 0, 100-200 1 second, 200-300 2 second, etc.
+        time_cap = (index / 100)
+
+        opts = delayed_opts.dup
+        opts[:run_at] = (opts[:run_at] + time_cap.seconds) if opts[:run_at]
+
+        Delayed::Job.enqueue(CompileCustomStylesheetJob.new(community.id), opts)
       end
     end
 
     def compile_all_immediately
-      prepare_compile_all do |community|
+      communities_to_recompile.each do |community|
         CommunityStylesheetCompiler.compile(community)
       end
     end
@@ -64,14 +72,14 @@ module CommunityStylesheetCompiler
 
     private
 
-    def prepare_compile_all(&block)
+    def communities_to_recompile
       puts "Reset all custom CSS urls"
       Community.stylesheet_needs_recompile!
 
       with_customizations_prioritized = Community.with_customizations.order("members_count DESC")
 
       puts "Generate custom CSS for #{with_customizations_prioritized.count} communities"
-      with_customizations_prioritized.each &block
+      with_customizations_prioritized
     end
 
     def use_gzip?
