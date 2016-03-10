@@ -53,6 +53,14 @@ After do |scenario|
   if(scenario.failed?)
     FileUtils.mkdir_p 'tmp/screenshots'
     save_screenshot("tmp/screenshots/#{scenario.name}.png")
+
+    # Print logs
+    puts ""
+    puts "*** Browser logs:"
+    puts ""
+    puts page.driver.browser.manage.logs.get("browser").map { |log_entry|
+      "[#{Time.at(log_entry.timestamp.to_i)}] [#{log_entry.level}] #{log_entry.message}"
+    }.join("\n")
   end
 end
 
