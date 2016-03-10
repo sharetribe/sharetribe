@@ -90,7 +90,7 @@ module Cucumber
           buffer_flush()
 
           # Print all lines that has been passed to 'puts'
-          @io.puts @delayed_messages
+          @io.puts @delayed_messages.map { |m| format_string(m, :cyan) }
           @delayed_messages = []
 
           @io.puts
