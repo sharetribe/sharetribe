@@ -1,0 +1,58 @@
+he-IL:
+  errors:
+    messages:
+      expired: "פג תוקף הבקשה, אנא שלח בקשה נוספת"
+      not_found: "לא נמצא"
+      already_confirmed: "כבר אושר, בבקשה נסה להתחבר"
+      not_locked: "לא ננעל"
+      not_saved:
+        one: "שגיאה מנעה מ‎%{resource}‎ מלהישמר"
+        other: "‎%{count}‎ שגיאות מנעו מ‎%{resource}‎ מלהישמר"
+  devise:
+    failure:
+      already_authenticated: "אתה כבר מחובר"
+      unauthenticated: "התחבר או הירשם על מנת להמשיך"
+      unconfirmed: "יש לאמת את חשבונך לפני המשך הפעילות."
+      locked: "חשבונך נעול."
+      invalid: "שם משתמש או סיסמה שגויים."
+      invalid_token: "אסימון האימות שגוי."
+      timeout: "צריך להתחבר מחדש."
+      inactive: "חשבונך לא הופעל עדיין."
+    passwords:
+      updated_not_active: "הסיסמה שונתה בהצלחה."
+      send_paranoid_instructions: "אם כתובת המייל שלך קיימת במערכת, אתה תקבל לינק לאיפוס הסיסמה לתיבת הדואר הנכנס שלך."
+      send_instructions: "בעוד מספר דקות תקבל מייל ובו הוראות על איך לאפס את סיסמתך."
+      updated: "הסיסמה שונתה בהצלחה, הינך מחובר."
+    sessions:
+      signed_in: "התחברת בהצלחה."
+      signed_out: "התנתקת בהצלחה."
+    confirmations:
+      send_paranoid_instructions: ~
+      send_instructions: ~
+      confirmed: ~
+    registrations:
+      signed_up_but_unconfirmed: ~
+      signed_up_but_inactive: ~
+      signed_up_but_locked: ~
+      reasons:
+        inactive: ~
+        unconfirmed: ~
+        locked: ~
+      update_needs_confirmation: ~
+      signed_up: ~
+      updated: ~
+      destroyed: ~
+    unlocks:
+      send_paranoid_instructions: ~
+      send_instructions: ~
+      unlocked: ~
+    omniauth_callbacks:
+      success: ~
+      failure: ~
+    mailer:
+      confirmation_instructions:
+        subject: ~
+      reset_password_instructions:
+        subject: ~
+      unlock_instructions:
+        subject: ~
