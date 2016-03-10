@@ -1,17 +1,15 @@
 - if (APP_CONFIG.use_google_analytics)
   <script type="text/javascript">
+  - if APP_CONFIG.use_google_tag_manager.to_s == "true"
+    <!-- Google Tag Manager -->
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','#{APP_CONFIG.google_tag_manager_key}');
+    <!-- End Google Tag Manager -->
 
-  - if feature_enabled?(:universal_analytics)
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    = "var ga_key = '#{APP_CONFIG.google_analytics_key}';"
-    = "var cookie_domain = '#{PublicSuffix.parse(request.host).domain}';"
-    ga('create', ga_key, 'auto', {'legacyCookieDomain': cookie_domain, 'allowLinker': true});
-    ga('send', 'pageview');
-  - else
+  - if !feature_enabled?(:only_gtm)
     var _gaq = _gaq || [];
     = "_gaq.push(['_setAccount', '#{APP_CONFIG.google_analytics_key}']);"
     = "_gaq.push(['_setDomainName', '.#{PublicSuffix.parse(request.host).domain}']);"
@@ -29,7 +27,7 @@
 
 
   - if @current_community && @current_community.google_analytics_key
-    - if feature_enabled?(:universal_analytics) && feature_enabled?(:customer_universal_analytics)
+    - if feature_enabled?(:customer_universal_analytics)
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -53,7 +51,7 @@
 
     var secondary_analytics_in_use = true;
 
-  - unless(feature_enabled?(:universal_analytics) && feature_enabled?(:customer_universal_analytics))
+  - unless(feature_enabled?(:only_gtm) && feature_enabled?(:customer_universal_analytics))
     (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
@@ -61,18 +59,23 @@
     })();
 
   function report_analytics_event(category, action, opt_label) {
-  - if feature_enabled?(:universal_analytics)
-    :plain
-      if (typeof ga === 'function'){
-        ga('send', 'event', category, action, opt_label)
-      }
-  - else
+  :plain
+    if (typeof dataLayer !== 'undefined') {
+      dataLayer.push({
+        'event' : 'GAEvent',
+        'eventCategory' : category,
+        'eventAction' : action,
+        'eventLabel' : opt_label,
+        'eventValue' : undefined
+      })
+    }
+  - if !feature_enabled?(:only_gtm)
     :plain
       var params_array = [category, action, opt_label]
       if (typeof _gaq != 'undefined') {
         _gaq.push(['_trackEvent'].concat(params_array));
       }
-  - if feature_enabled?(:universal_analytics) && feature_enabled?(:customer_universal_analytics)
+  - if feature_enabled?(:customer_universal_analytics)
     :plain
       if (typeof ga_customer === 'function'){
         ga_customer('send', 'event', category, action, opt_label)

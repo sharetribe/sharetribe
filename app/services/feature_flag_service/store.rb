@@ -11,7 +11,7 @@ module FeatureFlagService::Store
       :location_search,
       :export_transactions_as_csv,
       :new_search,
-      :universal_analytics,
+      :only_gtm,
       :customer_universal_analytics,
     ].to_set
 
