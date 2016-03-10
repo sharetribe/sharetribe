@@ -54,7 +54,12 @@ After do |scenario|
     FileUtils.mkdir_p 'tmp/screenshots'
     save_screenshot("tmp/screenshots/#{scenario.name}.png")
 
-    # Print logs
+    # Print browser logs after failing test
+    #
+    # Please note that Cabybara hijacks the `puts` method. That's why it's not sure
+    # how and when the logs are printed. Depending on the formatter the logs may
+    # be printed immediately (the defaul formatter) or not at all (pretty formatter)
+    # The "sharetribe" formatter prints these normally after a failing test, as expected.
     puts ""
     puts "*** Browser logs:"
     puts ""
