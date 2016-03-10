@@ -88,6 +88,11 @@ module Cucumber
           @io.print(format_string("✘", :failed))
           print_feature_element_name(nil, @scenario_name, @scenario_file_colon_line, nil, :failed)
           buffer_flush()
+
+          # Print all lines that has been passed to 'puts'
+          @io.puts @delayed_messages.map { |m| format_string(m, :cyan) }
+          @delayed_messages = []
+
           @io.puts
         end
       end
