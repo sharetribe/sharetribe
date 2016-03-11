@@ -381,12 +381,10 @@ class Community < ActiveRecord::Base
     ids = []
 
     attributes.each_with_index do |(id, value), i|
-      if menu_link = menu_links.find_by_id(id)
+      Maybe(menu_links.find_by(id: id)).each { |menu_link|
         menu_link.update_attributes(value.merge(sort_priority: i))
         ids << menu_link.id
-      else
-        menu_links.build(value.merge(sort_priority: i))
-      end
+      }.or_else { menu_links.build(value.merge(sort_priority: i)) }
     end
 
     links_to_destroy = menu_links.reject { |menu_link| menu_link.id.nil? || ids.include?(menu_link.id) }

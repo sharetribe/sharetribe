@@ -30,11 +30,9 @@ class CustomFieldOption < ActiveRecord::Base
 
   def title_attributes=(attributes)
     attributes.each do |locale, value|
-      if title = titles.find_by_locale(locale)
-        title.update_attribute(:value, value)
-      else
-        titles.build(:value => value, :locale => locale)
-      end
+      Maybe(titles.find_by_locale(locale))
+        .update_attribute(:value, value)
+        .or_else { titles.build(:value => value, :locale => locale) }
     end
   end
 end

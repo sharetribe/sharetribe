@@ -43,11 +43,9 @@ class CustomField < ActiveRecord::Base
   def name_attributes=(attributes)
     build_attrs = attributes.map { |locale, value| {locale: locale, value: value } }
     build_attrs.each do |name|
-      if existing_name = names.find_by_locale(name[:locale])
-        existing_name.update_attribute(:value, name[:value])
-      else
-        names.build(name)
-      end
+      Maybe(names.find_by_locale(name[:locale]))
+        .update_attribute(:value, name[:value])
+        .or_else { names.build(name) }
     end
   end
 

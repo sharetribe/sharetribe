@@ -21,11 +21,9 @@ class MenuLink < ActiveRecord::Base
 
   def translation_attributes=(attributes)
     attributes.each do |locale, value|
-      if translation = translations.find_by_locale(locale)
-        translation.update_attributes(value)
-      else
-        translation = translations.build(value.merge(locale: locale))
-      end
+      Maybe(translations.find_by_locale(locale))
+        .update_attributes(value)
+        .or_else { translations.build(value.merge(locale: locale)) }
     end
   end
 

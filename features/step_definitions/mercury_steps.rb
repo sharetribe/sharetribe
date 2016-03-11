@@ -3,7 +3,7 @@ When /^I click save on the editor$/ do
 end
 
 Then /^I should not have editor open$/ do
-  expect { !current_path.start_with? "/editor/" }.to become_true
+  expect(page).to have_no_selector("#mercury_iframe")
 end
 
 Then /^I should have editor open$/ do

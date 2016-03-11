@@ -37,7 +37,7 @@ module ArrayUtils
     result = [first].concat(rest)
 
     if block
-      result.each &block
+      result.each(&block)
     else
       result.each
     end
