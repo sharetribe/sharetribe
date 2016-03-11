@@ -17,6 +17,12 @@ rake assets:precompile
 
 ## Unreleased
 
+This release adds a new Delayed Job queue "css_compile". All CSS compilations during the deployment are added to this queue. However, CSS compilations triggered from the admin UI do NOT go into this queue, instead they are added to the "default" queue.
+
+A new worker is added to the Procfile to work for the new queue. If you're hosting in Heroku, you will see a new worker there.
+
+This change doesn't require any changes if you are compiling the stylesheets synchronously using the `rake sharetribe:generate_customization_stylesheets_immediately` command during the deployment. However, if you are compiling the stylesheets asynchronously using the `rake sharetribe:generate_customization_stylesheets` command, then you need to make sure that you have at least one worker working for the "css_compile" queue.
+
 ## Upgrade from 5.5.0 to 5.6.0
 
 Ruby version is updated from 2.1.8 to 2.2.4. The update should reduce memory usage and improve performance.

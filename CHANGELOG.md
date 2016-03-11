@@ -8,6 +8,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ## [Unreleased]
 
+### Added
+
+- Add new job queue (css_compile) for css compilations [#1815](https://github.com/sharetribe/sharetribe/pull/1815)
+
 ## [5.6.0] - 2016-03-11
 
 ### Added
