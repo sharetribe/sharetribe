@@ -64,4 +64,4 @@ When you are ready to release a new version, follow these steps:
   After you have deployed the new version you need to clear Rails cache by running to following command in your production application Rails console:
   ```
 
-8. Announce the new version at Flowdock channel.
+8. Announce the new version at the [Open Source Community Forum](https://www.sharetribe.com/community/)
