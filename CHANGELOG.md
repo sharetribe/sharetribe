@@ -8,6 +8,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ## [Unreleased]
 
+### Added
+
+- Add default queue name to jobs [#1814](https://github.com/sharetribe/sharetribe/pull/1814)
+
 ### Changed
 
 - Update Ruby to 2.2.4 [#1774](https://github.com/sharetribe/sharetribe/pull/1774)
