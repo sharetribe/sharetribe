@@ -10,8 +10,7 @@ namespace :sharetribe do
   desc "Generates customized CSS stylesheets in the background"
   task :generate_customization_stylesheets => :environment do
     # If preboot in use, give 2 minutes time to load new code
-    delayed_opts = {priority: 10, :run_at => 2.minutes.from_now }
-    CommunityStylesheetCompiler.compile_all(delayed_opts)
+    CommunityStylesheetCompiler.compile_all(run_at: 2.minutes.from_now)
   end
 
   desc "Generates customized CSS stylesheets immediately"

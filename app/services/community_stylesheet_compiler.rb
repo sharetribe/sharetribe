@@ -12,17 +12,20 @@ module CommunityStylesheetCompiler
   TARGET_DIR = "public/assets"
   VARIABLE_FILE = "mixins/default-colors.scss"
   S3_PATH = "assets/custom"
+  QUEUE_NAME = "css_compile"
 
   class << self
 
-    def compile_all(delayed_opts={})
-      prepare_compile_all do |community|
-        Delayed::Job.enqueue(CompileCustomStylesheetJob.new(community.id), delayed_opts.dup)
+    def compile_all(run_at:)
+      prepare_compile_all.each_with_index do |community, index|
+        Delayed::Job.enqueue(
+          CompileCustomStylesheetJob.new(community.id),
+          run_at: run_at, queue: QUEUE_NAME, priority: index)
       end
     end
 
     def compile_all_immediately
-      prepare_compile_all do |community|
+      prepare_compile_all.each do |community|
         CommunityStylesheetCompiler.compile(community)
       end
     end
@@ -71,7 +74,7 @@ module CommunityStylesheetCompiler
       with_customizations_prioritized = Community.with_customizations.order("members_count DESC")
 
       puts "Generate custom CSS for #{with_customizations_prioritized.count} communities"
-      with_customizations_prioritized.each &block
+      with_customizations_prioritized
     end
 
     def use_gzip?
