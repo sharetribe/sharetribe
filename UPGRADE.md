@@ -17,9 +17,12 @@ rake assets:precompile
 
 ## Unreleased
 
+## Upgrade from 5.5.0 to 5.6.0
+
 Ruby version is updated from 2.1.8 to 2.2.4. The update should reduce memory usage and improve performance.
 
 Using [RVM](https://rvm.io/), you can upgrade your local Ruby version like this:
+
 ```
 rvm install ruby-2.2.4
 rvm use ruby-2.2.4
