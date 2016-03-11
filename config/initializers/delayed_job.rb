@@ -39,4 +39,5 @@ Delayed::Worker.destroy_failed_jobs = false
 Delayed::Worker.max_attempts = 3
 Delayed::Worker.max_run_time = APP_CONFIG.delayed_job_max_run_time.to_i.seconds
 Delayed::Worker.default_priority = 5
+Delayed::Worker.default_queue_name = "default"
 Delayed::Worker.plugins << DelayedJobLoggerPlugin
