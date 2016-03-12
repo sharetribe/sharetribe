@@ -25,7 +25,7 @@ Would you like to set up your marketplace in one minute without touching code? [
 ### Requirements
 
 Before you get started, the following needs to be installed:
-  * **Ruby**. Version 2.1.8 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Ruby, [RVM](https://rvm.io//) is recommended.
+  * **Ruby**. Version 2.2.4 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Ruby, [RVM](https://rvm.io//) is recommended.
   * [**RubyGems**](http://rubygems.org/)
   * **Bundler**: `gem install bundler`
   * [**Git**](http://help.github.com/git-installation-redirect)
@@ -267,6 +267,7 @@ Use these instructions to set up and deploy Sharetribe for production in differe
 If you have installation instructions that you would like to share, don't hesitate to [contact the team](https://www.flowdock.com/invitations/de227bdbe48d24c31a6b749933d3b4eca82e307c).
 
 - [Deploying Sharetribe to Heroku](https://gist.github.com/svallory/d08e9baa88e18d691605) by [svallory](https://github.com/svallory)
+- [Deploying Sharetribe to Amazon AWS Using EC2, RDS IN FREE TIER](https://gist.github.com/pcm211/0b22c4bc3e306126f5ee) by [Vivek Bardia](https://github.com/pcm211)
 
 
 ## Payments
