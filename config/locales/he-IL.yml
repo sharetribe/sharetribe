@@ -504,22 +504,22 @@ he-IL:
     edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
-    cancel: ~
-    fields_that_are_mandatory: ~
-    or: ~
+    cancel: בטל
+    fields_that_are_mandatory: "שדות המסומנים ב (*) הם חובה."
+    or: או
     password: ~
     service_name: ~
     share_types:
       request: ~
       offer: ~
       borrow: ~
-      buy: ~
+      buy: קנייה
       give_away: ~
-      lend: ~
+      lend: השאלה
       receive: ~
-      rent: ~
+      rent: השכרה
       rent_out: ~
-      sell: ~
+      sell: מכירה
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: ~
@@ -546,7 +546,7 @@ he-IL:
       other: ~
     username: ~
     username_or_email: ~
-    what_is_this: ~
+    what_is_this: "מה זה?"
     removed_user: ~
     paypal_fee_info:
       title: ~
@@ -595,11 +595,11 @@ he-IL:
       days: ~
       price_per_day: ~
     index:
-      loading_more_messages: ~
-      message_partitive: ~
-      messages_partitive: ~
-      no_received_messages: ~
-      no_sent_messages: ~
+      loading_more_messages: "טוען הודעות נוספות"
+      message_partitive: הודעה
+      messages_partitive: הודעות
+      no_received_messages: "אין הודעות"
+      no_sent_messages: "אין הודעות יוצאות"
     conversation:
       accepted_request: ~
       accepted_offer: ~
@@ -628,10 +628,10 @@ he-IL:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: ~
-      favor_request_message_form_title: ~
-      housing_offer_message_form_title: ~
-      housing_request_message_form_title: ~
+      favor_offer_message_form_title: "בקש/י עזרה מ‎%{person}‎"
+      favor_request_message_form_title: "הצע/י עזרה ל‎%{person}‎"
+      housing_offer_message_form_title: "הצע/י מקום ל‎%{person}‎‎"
+      housing_request_message_form_title: "בקש/י מקום מ‎%{person}‎"
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -648,18 +648,18 @@ he-IL:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_request_message_form_title: ~
-      message: ~
+      item_request_message_form_title: "הצע/י פריט ל‎%{person}‎"
+      message: הודעה
       message_to: ~
       optional_message_to: ~
-      rideshare_offer_message_form_title: ~
-      rideshare_request_message_form_title: ~
+      rideshare_offer_message_form_title: "בקש/י הסעה מ‎%{person}‎"
+      rideshare_request_message_form_title: "הצע/י הסעה ל‎%{person}‎"
       send_message: ~
       send: ~
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
-      title: ~
+      title: כותרת
       send_message_to_user: ~
       about_listing: ~
       author_has_to_accept_request: ~
@@ -667,8 +667,8 @@ he-IL:
       in_response_to_listing: ~
       message_sent_by: ~
       message_sent_to: ~
-      send_reply: ~
-      write_a_reply: ~
+      send_reply: "שלח/י תגובה"
+      write_a_reply: "כתוב/כתבי תגובה:"
       conversation_about_listing: ~
       conversation_with_user: ~
       conversation_with: ~
@@ -682,11 +682,11 @@ he-IL:
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: ~
-      feedback_given: ~
-      feedback_skipped: ~
-      give_feedback: ~
-      offer_accepted: ~
-      offer_rejected: ~
+      feedback_given: "קיים משוב"
+      feedback_skipped: "לא קיים משוב"
+      give_feedback: "כתוב/כתבי המלצה או הערה"
+      offer_accepted: "התקבל בהצלחה"
+      offer_rejected: "אינו מאושר"
       offer_canceled: ~
       offer_confirmed: ~
       offer_paid: ~
@@ -702,13 +702,13 @@ he-IL:
           intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
-      request_accepted: ~
-      request_rejected: ~
+      request_accepted: "אושר בהצלחה"
+      request_rejected: "אינו מאושר"
       request_confirmed: ~
       request_canceled: ~
       request_paid: ~
       request_preauthorized: ~
-      skip_feedback: ~
+      skip_feedback: "דלג/י על המשוב"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
@@ -724,10 +724,10 @@ he-IL:
           unknown_reason: ~
           verify: ~
     status_link:
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
+      accept_offer: "קבל/י הצעה"
+      accept_request: "קבל/י בקשה"
+      reject_offer: "תודה אבל לא כרגע"
+      reject_request: "תודה אבל לא כרגע"
       accept_preauthorized_offer: ~
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
@@ -800,12 +800,12 @@ he-IL:
       join_community_button: ~
   emails:
     accept_reminder:
-      remember_to_accept_offer: ~
-      remember_to_accept_request: ~
-      you_can_accept_or_reject_offer_at: ~
-      you_can_accept_or_reject_request_at: ~
-      you_have_not_yet_accepted_or_rejected_offer: ~
-      you_have_not_yet_accepted_or_rejected_request: ~
+      remember_to_accept_offer: "זכור/זכרי לאשר או לדחות הצעה מ‎%{sender_name}‎"
+      remember_to_accept_request: "זכור/זכרי לאשר או לדחות בקשה מ‎%{sender_name}‎"
+      you_can_accept_or_reject_offer_at: "את/ה יכול/ה לאשר או לדחות את ההצעה ב"
+      you_can_accept_or_reject_request_at: "את/ה יכול/ה לאשר או לדחות את הבקשה ב"
+      you_have_not_yet_accepted_or_rejected_offer: "טרם אישרת או דחית את ההצעה ‎%{title}‎ שקיבלת ב‎%{date}‎."
+      you_have_not_yet_accepted_or_rejected_request: "טרם אישרת או דחית את הבקשה ‎%{title}‎ שקבלת ב‎%{date}‎."
       show_thread: ~
     braintree_account_approved:
       account_ready: ~
@@ -860,9 +860,9 @@ he-IL:
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
-      hey: ~
-      kassi_team: ~
-      thanks: ~
+      hey: "שלום ‎%{name}‎,"
+      kassi_team: "צוות ‎%{service_name}‎"
+      thanks: "תודה רבה,"
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
@@ -870,15 +870,15 @@ he-IL:
       or: ~
       unsubscribe_from_these_emails: ~
     conversation_status_changed:
-      has_accepted_your_offer: ~
-      has_accepted_your_request: ~
-      has_rejected_your_offer: ~
-      has_rejected_your_request: ~
+      has_accepted_your_offer: "‎%{accepter}‎ אישר/ה את ההצעה שלך ‎%{listing}‎."
+      has_accepted_your_request: "‎%{accepter}‎ אישר/ה את הבקשה שלך ‎%{listing}‎."
+      has_rejected_your_offer: "‎%{accepter}‎ לא אישר/ה את ההצעה שלך ‎%{listing}‎."
+      has_rejected_your_request: "‎%{accepter}‎ לא אישר/ה את הבקשה שלך ‎%{listing}‎."
       view_thread: ~
-      your_offer_was_accepted: ~
-      your_offer_was_rejected: ~
-      your_request_was_accepted: ~
-      your_request_was_rejected: ~
+      your_offer_was_accepted: "הצעתך אושרה"
+      your_offer_was_rejected: "הצעתך לא אושרה"
+      your_request_was_accepted: "בקשתך אושרה"
+      your_request_was_rejected: "בקשתך לא אושרה"
       you_can_now_pay_to: ~
       pay_now: ~
       remember_to_confirm: ~
@@ -891,13 +891,13 @@ he-IL:
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
-      you_have_a_new_comment: ~
+      you_have_a_new_comment: "‎%{author}‎ הגיב/ה על הרישום שלך ב‎%{service_name}‎."
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "‎%{sender}‎ שלח/ה לך הודעה ב‎%{service_name}‎."
+      you_have_a_new_message: "התקבלה הודעה חדשה ב‎%{service_name}‎ על ידי‎ ‎%{sender_name}‎"
     new_payment:
       new_payment: ~
       price_per_unit_type: ~
@@ -925,8 +925,8 @@ he-IL:
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: ~
-      you_can_give_feedback_to: ~
+      has_given_you_feedback_in_kassi: "‎%{name}‎ כתב/ה לך משוב ב‎%{service_name}‎"
+      you_can_give_feedback_to: "טרם כתבת משוב עבור ‎%{name}‎."
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
@@ -953,7 +953,7 @@ he-IL:
       change_my_password: ~
       reset_password_instructions: ~
     testimonial_reminder:
-      remember_to_give_feedback_to: ~
+      remember_to_give_feedback_to: "תזכורת: זכור/זכרי לתת משוב ל‎%{name}‎"
       you_have_not_given_feedback_yet: ~
     transaction_preauthorized:
       subject: ~

@@ -27,32 +27,32 @@ he-IL:
       signed_in: "התחברת בהצלחה."
       signed_out: "התנתקת בהצלחה."
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_paranoid_instructions: "אם כתובת המייל שלך קיים במערכת, אתה תקבל מייל עם הנחיות כיצד לאמת את החשבון שלך בעוד מספר דקות."
+      send_instructions: "בעוד מספר דקות תתקבל בתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לאמת את חשבונך."
+      confirmed: "חשבונך אומת בהצלחה. התחברת כעת."
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "הודעה עם לינק לאימות נשלחה לתיבת המייל שלך. אנא לחץ על הלינק על מנת להפעיל את חשבונך."
+      signed_up_but_inactive: "ברוך הבא! נרשמת בהצלחה לאתר, עליך לאמת את חשבונך על מנת להפעיל אותו."
+      signed_up_but_locked: "ברוך הבא! נרשמת בהצלחה לאתר, לצערנו חשבונך נעול."
       reasons:
         inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+        unconfirmed: "יש לאמת את חשבונך לפני המשך הפעילות."
+        locked: נעול
+      update_needs_confirmation: "עידכנת את חשבונך בהצלחה, אבל עלינו לאמת את כתובת האימייל החדשה שלך. אנא בדוק את תיבת המייל שלך ולחץ על הלינק לאישור הכתובת החדשה."
+      signed_up: "ברוך הבא! נרשמת בהצלחה לאתר!"
+      updated: "חשבונך עודכן בהצלחה."
+      destroyed: "להתראות! חשבונך נמחק בהצלחה. אנחנו מקווים לראותך שוב בקרוב."
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: "אם חשבונך קיים, תקבל/י דואר אלקטרוני עם הוראות כיצד לשחרר את החשבון בכמה דקות."
+      send_instructions: "בעוד מספר דקות תתקבל בתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לשחרר את חשבונך."
+      unlocked: "חשבונך שוחרר בהצלחה. אנא התחבר/י בכדי להמשיך."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "אושר בהצלחה מחשבונו של ‎%{kind}‎"
+      failure: "לא הצלחנו לאשר אותך מה‎%{kind}‎ בגלל‎%{reason}‎."
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "הנחיות לאימות"
       reset_password_instructions:
-        subject: ~
+        subject: "הנחיות לאיפוס הסיסמה"
       unlock_instructions:
-        subject: ~
+        subject: "הנחיות לביטול הנעילה"
