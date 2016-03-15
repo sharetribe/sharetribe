@@ -51,40 +51,7 @@ def deploy(params)
   puts "  migrations:  #{params[:migrations]}"
   puts "  clear cache: #{params[:clear_cache]}"
 
-  if @destination == "production"
-    puts ""
-    puts "Did you remember WTI pull? (y/n)"
-    response = STDIN.gets.strip
-    exit if response != 'y' && response != 'Y'
-  end
-
-  if params[:migrations] == false
-    puts ""
-    puts "Skipping migrations, really? (y/n)"
-    response = STDIN.gets.strip
-    exit if response != 'y' && response != 'Y'
-  end
-
-  if params[:css] == false
-    puts ""
-    puts "Skipping css compiling, really? (y/n)"
-    response = STDIN.gets.strip
-    exit if response != 'y' && response != 'Y'
-  else
-    puts ""
-    puts "Remember to add workers to compile the stylesheets!"
-    puts "Continue? (y/n)"
-    response = STDIN.gets.strip
-    exit if response != 'y' && response != 'Y'
-  end
-
-  if @destination == "production" || @destination == "preproduction"
-    puts ""
-    puts "YOU ARE GOING TO DEPLOY #{@branch} BRANCH TO #{@destination}"
-    puts "MAKE SURE THE DETAILS ARE CORRECT! Are you sure you want to continue? (y/n)"
-    response = STDIN.gets.strip
-    exit if response != 'y' && response != 'Y'
-  end
+  ask_confirmations!(@destination, @branch, params)
 
   set_app(@destination)
 
@@ -102,6 +69,42 @@ def deploy(params)
   end
   if params[:css]
     generate_custom_css
+  end
+end
+
+def ask_confirmations!(destination, branch, params)
+  if destination == "production"
+    puts ""
+    puts "Did you remember WTI pull? (y/n)"
+    response = STDIN.gets.strip
+    exit if response != 'y' && response != 'Y'
+  end
+
+  if params[:migrations] == false
+    puts ""
+    puts "Skipping migrations, really? (y/n)"
+    response = STDIN.gets.strip
+    exit if response != 'y' && response != 'Y'
+  end
+
+  if params[:css] == false
+    puts ""
+    puts "Skipping css compiling, really? (y/n)"
+  else
+    puts ""
+    puts "Remember to add workers to compile the stylesheets!"
+    puts "Continue? (y/n)"
+  end
+
+  response = STDIN.gets.strip
+  exit if response != 'y' && response != 'Y'
+
+  if destination == "production" || destination == "preproduction"
+    puts ""
+    puts "YOU ARE GOING TO DEPLOY #{branch} BRANCH TO #{destination}"
+    puts "MAKE SURE THE DETAILS ARE CORRECT! Are you sure you want to continue? (y/n)"
+    response = STDIN.gets.strip
+    exit if response != 'y' && response != 'Y'
   end
 end
 
