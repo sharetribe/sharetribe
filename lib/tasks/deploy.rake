@@ -70,9 +70,16 @@ def deploy(params)
     puts "Skipping css compiling, really? (y/n)"
     response = STDIN.gets.strip
     exit if response != 'y' && response != 'Y'
+  else
+    puts ""
+    puts "Remember to add workers to compile the stylesheets!"
+    puts "Continue? (y/n)"
+    response = STDIN.gets.strip
+    exit if response != 'y' && response != 'Y'
   end
 
   if @destination == "production" || @destination == "preproduction"
+    puts ""
     puts "YOU ARE GOING TO DEPLOY #{@branch} BRANCH TO #{@destination}"
     puts "MAKE SURE THE DETAILS ARE CORRECT! Are you sure you want to continue? (y/n)"
     response = STDIN.gets.strip
