@@ -7,8 +7,8 @@
 #  merchant_id               :string(255)      not null
 #  merchant_key              :string(255)      not null
 #  person_id                 :string(255)      not null
-#  created_at                :datetime         default(NULL), not null
-#  updated_at                :datetime         default(NULL), not null
+#  created_at                :datetime         not null
+#  updated_at                :datetime         not null
 #
 
 class CheckoutAccount < ActiveRecord::Base
