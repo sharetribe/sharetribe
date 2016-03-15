@@ -18,7 +18,7 @@ Feature: User edits his own listing
     And I log in as "kassi_testperson1"
     When I follow "Hammer"
     And I follow "Edit listing"
-    Then I should see "Listing title*"
+    Then I should see the listing form
     When the "listing_title" field should contain "Hammer"
     And the "description" field should contain "test"
     And I fill in "listing_title" with "Sledgehammer"
@@ -46,7 +46,7 @@ Feature: User edits his own listing
     And I log in as "kassi_testperson1"
     When I follow "Hammer"
     And I follow "Edit listing"
-    Then I should see "Listing title*"
+    Then I should see the listing form
     When the "listing_title" field should contain "Hammer"
     And the "description" field should contain "test"
     And I fill in "listing_title" with "Sledgehammer"
@@ -64,7 +64,7 @@ Feature: User edits his own listing
     And I am logged in as "kassi_testperson1"
     When I follow "Hammer"
     And I follow "Edit listing" within "#listing-message-links"
-    Then I should see "Listing title*"
+    Then I should see the listing form
     When I fill in "listing_title" with ""
     And I set the expiration date to 7 months from now
     And I press "Save listing"
@@ -93,7 +93,7 @@ Feature: User edits his own listing
     And "kassi_testperson2" is superadmin
     When I follow "Hammer"
     And I follow "Edit listing"
-    Then I should see "Listing title*"
+    Then I should see the listing form
     When I fill in "listing_title" with "Sledgehammer"
     And I press "Save listing"
     Then I should see "Sledgehammer" within "#listing-title"
@@ -110,7 +110,7 @@ Feature: User edits his own listing
     And "kassi_testperson2" has admin rights in community "Test"
     When I follow "Hammer"
     And I follow "Edit listing"
-    Then I should see "Listing title*"
+    Then I should see the listing form
     When I fill in "listing_title" with "Sledgehammer"
     And I press "Save listing"
     Then I should see "Sledgehammer" within "#listing-title"

@@ -306,3 +306,9 @@ def select_days_from_now(day_count)
   select_start_date(Date.today)
   select_end_date(@booking_end_date)
 end
+
+Then(/^I should see the listing form$/) do
+  # If the Listing title label is visible, we expect that the whole
+  # form is visible.
+  page.find("label", text: "Listing title*", visible: true)
+end
