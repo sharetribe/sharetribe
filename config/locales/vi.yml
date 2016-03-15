@@ -826,7 +826,7 @@ vi:
       cancel_it_link_text: "Hủy bỏ"
     payment_settings_reminder:
       remember_to_add_payment_details: "Hãy nhớ điền hoàn chỉnh thông tin chi trả của bạn để nhận được thanh toán từ khách hàng."
-      you_have_added_listing_with_payment: ~
+      you_have_added_listing_with_payment: "Bạn vừa đăng một tin rao vặt %{listing_link} kèm theo lựa chọn chia trả trược tuyến. Tuy nhiên, thông tin chi trả trong tài khoản của không đầy đủ, bạn vui lòng điền đầy đủ thông tin để nhận được chi trả từ khách hàng."
       please_go_to_payment_settings: ~
       payment_settings_link: ~
     transaction_confirmed:
@@ -1383,8 +1383,8 @@ vi:
       joining_community_failed: "Tham gia cộng đồng này thất bại"
       can_not_login_with_private_user: ~
       can_not_delete_email: ~
-      user_does_not_have_email_to_delete: ~
-      email_deleted: ~
+      user_does_not_have_email_to_delete: "Địa chỉ mail mà bạn đang xóa không tồn tại."
+      email_deleted: "Email đã được xóa."
       payment_details_add_successful: ~
       payment_details_add_error: ~
       listing_author_payment_details_missing: ~
@@ -1919,7 +1919,7 @@ vi:
       delete_account: "Xóa tài khoản"
       delete_account_button: "Xóa tài khoản của tôi"
       delete_account_confirmation_popup: ~
-      email_addresses: ~
+      email_addresses: "Địa chỉ email"
       new_email: "Địa chỉ email mới"
       delete_all_memberships: ~
       delete_personal_information: ~
@@ -1930,19 +1930,19 @@ vi:
       these_fields_are_shown_only_to_you: "Tên người dùng được hiển thị trong tiểu sử của bạn trừ khi bạn đưa ra tên của bạn. Các thông tin khác chỉ hiện thị đối với bạn."
       email_already_confirmed: ~
       email:
-        address_title: ~
-        remove_title: ~
-        remove_confirmation: ~
+        address_title: "Địa chỉ"
+        remove_title: Xóa
+        remove_confirmation: "Xác nhận xóa địa chỉ email này ?"
         receive_notifications_title_desktop: ~
         receive_notifications_title_mobile: ~
         receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
-        add_new_cancel: ~
-        confirmation_title_mobile: ~
-        confirmation_title_desktop: ~
-        confirmation_resend: ~
-        status_confirmed: ~
-        status_pending: ~
+        add_new_with_plus: "Thêm một địa chỉ email mới"
+        add_new_cancel: "Hủy bỏ"
+        confirmation_title_mobile: "Xác nhận"
+        confirmation_title_desktop: "Xác nhận"
+        confirmation_resend: "Gửi lại"
+        status_confirmed: "Đã xác thực"
+        status_pending: "Chờ xét duyệt"
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Tôi muốn nhận email thông báo khi..."
