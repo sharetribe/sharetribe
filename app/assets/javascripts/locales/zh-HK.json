@@ -1,0 +1,28 @@
+{
+  "please_wait": "請稍等...",
+  "validation_messages": {
+    "accept": "圖片必須是GIF，JPG或PNG格式。",
+    "creditcard": "請輸入有效信用卡號。",
+    "date": "請輸入一個有效日期。",
+    "dateISO": "請輸入一個有效日期（ISO)。",
+    "digits": "請只輸入數字。",
+    "email": "請輸入一個有效的電子郵件地址。",
+    "equalTo": "請再次輸入。",
+    "max": "請輸入小於或等於{0}的數值。",
+    "maxlength": "請輸入少於{0}個字符。",
+    "min": "请输入大于或等于{0}的数值。",
+    "minlength": "請至少輸入{0}個字符。",
+    "number": "請輸入一個有效數字。",
+    "range": "請輸入一個介於{0}和{1}的數值。",
+    "rangelength": "請輸入大於{0}小於{1}個字符。",
+    "remote": "請修正此處。",
+    "required": "此項必填。",
+    "url": "請輸入有效的URL。",
+    "address_validator": "沒找到您輸入的地址。",
+    "money": "您需要輸入有效的金額。",
+    "min_bound": "請輸入小於{0}的數值",
+    "max_bound": "請輸入大於{0}的數值",
+    "number_no_decimals": "請輸入一個整數",
+    "number_decimals": "請輸入一個有效的數字，小數點用(.)"
+  }
+}
