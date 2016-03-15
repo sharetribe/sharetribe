@@ -63,9 +63,6 @@ Kassi::Application.configure do
 
   # Compress JavaScript and CSS
   #
-  # Notice: To GZIP assets on production (with S3) you also need to setup
-  # ENV['ASSET_SYNC_GZIP_COMPRESSION'] = true. It will replace the
-  # uncompressed file with the compressed one
   config.assets.js_compressor = :uglifier
 
   # Don't fallback to assets pipeline
