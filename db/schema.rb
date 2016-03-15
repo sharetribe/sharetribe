@@ -894,7 +894,6 @@ ActiveRecord::Schema.define(version: 20160408061218) do
   end
 
   add_index "people", ["authentication_token"], name: "index_people_on_authentication_token", using: :btree
-  add_index "people", ["cloned_from"], name: "index_people_on_cloned_from", using: :btree
   add_index "people", ["email"], name: "index_people_on_email", unique: true, using: :btree
   add_index "people", ["facebook_id"], name: "index_people_on_facebook_id", using: :btree
   add_index "people", ["id"], name: "index_people_on_id", using: :btree
