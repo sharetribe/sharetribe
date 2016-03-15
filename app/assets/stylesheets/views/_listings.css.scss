@@ -7,6 +7,22 @@
   word-wrap: break-word;
 }
 
+.listing-description-youtube-wrapper {
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  position: relative;
+  margin-bottom:lines(1);
+}
+.listing-description-youtube-iframe {
+  width:100%;
+  height:100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 // Social buttons
 .listing-social {
   @include clearfix();

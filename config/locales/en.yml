@@ -1472,6 +1472,7 @@ en:
         repeated: "Repeated (add times and days in the field 'detailed description')"
       description:
         detailed_description: "Detailed description"
+        youtube_info: "If your description contains YouTube links, the videos will be shown below the description."
       destination:
         destination: Destination
       form_content:
@@ -1673,6 +1674,7 @@ en:
       shipping_price_additional: "Shipping (+%{price}, additional items: +%{shipping_price_additional})"
       pickup: Pickup
       pickup_no_price: Pickup
+      youtube_video_player: "YouTube video player"
     unit_types:
       piece: piece
       hour: hour
