@@ -54,7 +54,7 @@ end
 
 FactoryGirl.define do
   sequence :id do |_|
-    UUID.timestamp_create.to_s22
+    SecureRandom.urlsafe_base64
   end
 
   sequence :username do |n|

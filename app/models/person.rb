@@ -55,7 +55,6 @@
 require 'json'
 require 'rest_client'
 require "open-uri"
-require File.expand_path('../../../lib/np_guid/uuid22', __FILE__)
 
 # This class represents a person (a user of Sharetribe).
 
@@ -176,7 +175,7 @@ class Person < ActiveRecord::Base
                                       "image/pjpeg", "image/x-png"] #the two last types are sent by IE.
 
   before_validation(:on => :create) do
-    self.id = UUID.timestamp_create.to_s22
+    self.id = SecureRandom.urlsafe_base64
     set_default_preferences unless self.preferences
   end
 
