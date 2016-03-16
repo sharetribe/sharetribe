@@ -530,6 +530,8 @@ window.ST = window.ST || {};
 
     set_textarea_maxlength();
     auto_resize_text_areas("listing_description_textarea");
+
+    $(form_id).addClass("js-listing-form-ready");
   };
 
 })(window.ST);

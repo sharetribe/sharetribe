@@ -308,7 +308,5 @@ def select_days_from_now(day_count)
 end
 
 Then(/^I should see the listing form$/) do
-  # If the Listing title label is visible, we expect that the whole
-  # form is visible.
-  page.find("label", text: "Listing title*", visible: true)
+  expect(page).to have_selector("form.js-listing-form-ready")
 end
