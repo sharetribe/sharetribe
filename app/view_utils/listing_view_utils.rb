@@ -86,4 +86,14 @@ module ListingViewUtils
       raise ArgumentError.new("Delivery type not supported")
     end
   end
+
+  def youtube_video_ids(text)
+    text.scan(/https?:\/\/\S+/).map { |l| youtube_video_id(l) }.compact
+  end
+
+  def youtube_video_id(link)
+    pattern = /^.*(?:(?:youtu\.be\/|youtu.*v\/|youtu.*embed\/)|youtu.*(?:\?v=|\&v=))([^#\&\?]*).*/
+    Maybe(pattern.match(link))[1].or_else(nil)
+  end
+
 end

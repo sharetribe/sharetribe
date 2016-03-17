@@ -186,7 +186,7 @@ class ListingsController < ApplicationController
     received_positive_testimonials = TestimonialViewUtils.received_positive_testimonials_in_community(@listing.author, @current_community)
     feedback_positive_percentage = @listing.author.feedback_positive_percentage_in_community(@current_community)
 
-    youtube_link_ids = feature_enabled?(:youtube_embeds) ? youtube_video_ids(@listing.description) : []
+    youtube_link_ids = feature_enabled?(:youtube_embeds) ? ListingViewUtils.youtube_video_ids(@listing.description) : []
 
     render locals: {
              form_path: form_path,
