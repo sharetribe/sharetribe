@@ -13,7 +13,6 @@
 //= require jquery.autosize-min
 //= require jquery.lightbox_me
 //= require jquery.transit.min
-//= require jquery.placeholder
 //= require jquery.ui.widget
 //= require load-image.min.js
 //= require canvas-to-blob.min.js

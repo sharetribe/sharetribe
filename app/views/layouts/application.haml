@@ -67,8 +67,11 @@
 
   :javascript
     $(function() {
-      FastClick.attach(document.body, { excludeNode: '^pac-'} );
-      $('input, textarea').placeholder();
+      if ('touchAction' in document.body.style) {
+        document.body.style.touchAction = 'manipulation';
+      } else {
+        window.FastClick.attach(document.body, { excludeNode: '^pac-'} );
+      }
     });
 
   -# Disable animations on tests
