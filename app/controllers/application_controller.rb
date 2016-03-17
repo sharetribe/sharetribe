@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
     :fetch_community_plan_expiration_status,
     :perform_redirect,
     :fetch_logged_in_user,
+    :ensure_user_belongs_to_community,
     :save_current_host_with_port,
     :fetch_community_membership,
     :redirect_removed_locale,
@@ -169,6 +170,29 @@ class ApplicationController < ActionController::Base
     if person_signed_in?
       @current_user = current_person
       setup_logger!(user_id: @current_user.id, username: @current_user.username)
+    end
+  end
+
+  # Ensure that user belongs to community,
+  # i.e. @current_user.community_id == @current_community.id
+  #
+  # This check is in most cases useless: When user logs in we already
+  # check that the user belongs to the community she is trying to log
+  # in. However, after the user account separation migration in March
+  # 2016, there was a possibility that user had an existing session
+  # which pointed to a person_id that belonged to another
+  # community. That's why we need to check the community membership
+  # even after logging in.
+  #
+  # This extra check can be removed when we are sure that all the
+  # sessions which potentially had a person_id pointing to another
+  # community are all expired.
+  def ensure_user_belongs_to_community
+    if @current_user && @current_user.community_id != @current_community.id
+      sign_out
+      session[:person_id] = nil
+      flash[:notice] = t("layouts.notifications.automatically_logged_out_please_sign_in")
+      redirect_to root
     end
   end
 
