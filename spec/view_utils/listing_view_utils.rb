@@ -1,6 +1,6 @@
 require "spec_helper"
 
-RSpec.describe ListingsHelper, type: :helper do
+describe ListingViewUtils do
 
   VALID_URLS = [
       'http://www.youtube.com/watch?v=UffchBUUIoI',
@@ -19,10 +19,10 @@ RSpec.describe ListingsHelper, type: :helper do
 
   describe "#youtube_video_id" do
     it "returns nil for strings that doesn't contain youtube_video_id" do
-      expect(helper.youtube_video_id("youtube.com")).to eq(nil)
-      expect(helper.youtube_video_id("example.com/?v=UffchBUUIoI")).to eq(nil)
-      expect(helper.youtube_video_id("example.com/embed/UffchBUUIoI")).to eq(nil)
-      expect(helper.youtube_video_id("example.com/v/BM7FWtADD0s")).to eq(nil)
+      expect(ListingViewUtils.youtube_video_id("youtube.com")).to eq(nil)
+      expect(ListingViewUtils.youtube_video_id("example.com/?v=UffchBUUIoI")).to eq(nil)
+      expect(ListingViewUtils.youtube_video_id("example.com/embed/UffchBUUIoI")).to eq(nil)
+      expect(ListingViewUtils.youtube_video_id("example.com/v/BM7FWtADD0s")).to eq(nil)
     end
 
     it "returns an id if youtube link is given" do
@@ -34,7 +34,7 @@ RSpec.describe ListingsHelper, type: :helper do
       ]
 
       VALID_URLS.each {|url|
-        expect(VALID_RETURN_IDS).to include helper.youtube_video_id(url)
+        expect(VALID_RETURN_IDS).to include ListingViewUtils.youtube_video_id(url)
       }
     end
   end
@@ -42,13 +42,13 @@ RSpec.describe ListingsHelper, type: :helper do
   describe "#youtube_video_ids" do
     it "does not return youtube ids if there ain't any" do
       lorem = "Lorem ipsum consectetur adepisci velit"
-      expect(helper.youtube_video_ids(lorem)).to be_empty
+      expect(ListingViewUtils.youtube_video_ids(lorem)).to be_empty
 
       httpasdf = "Lorem ipsum httpasdf consectetur adepisci velit"
-      expect(helper.youtube_video_ids(httpasdf)).to be_empty
+      expect(ListingViewUtils.youtube_video_ids(httpasdf)).to be_empty
 
       vimeo = "Lorem ipsum http://vimeo.com?v=BM7FWtADD0s consectetur adepisci velit"
-      expect(helper.youtube_video_ids(vimeo)).to be_empty
+      expect(ListingViewUtils.youtube_video_ids(vimeo)).to be_empty
     end
 
     it "returns youtube ids when there are valid urls among texts" do
@@ -66,7 +66,7 @@ RSpec.describe ListingsHelper, type: :helper do
         "Kk8Mclb_LSw",
         "hpokm-pMaHg"]
 
-      expect(helper.youtube_video_ids(VALID_URLS.join(' '))).to eq(expected_ids)
+      expect(ListingViewUtils.youtube_video_ids(VALID_URLS.join(' '))).to eq(expected_ids)
     end
   end
 end
