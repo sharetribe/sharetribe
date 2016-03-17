@@ -1,6 +1,14 @@
 - if (APP_CONFIG.use_google_analytics)
   <script type="text/javascript">
   - if APP_CONFIG.use_google_tag_manager.to_s == "true"
+    var dataLayer = dataLayer || [];
+    (function(dl){
+    = "var person_emails = [#{person_emails(@current_user).map { |e| "'"+e+"'" }.join(',')}];"
+    if (person_emails) {
+    dl.push({"event": "identify", "id": person_emails});
+    }
+    })(dataLayer);
+
     <!-- Google Tag Manager -->
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

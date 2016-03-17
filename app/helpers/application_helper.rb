@@ -943,6 +943,10 @@ module ApplicationHelper
     params[:sort].eql?(column) && params[:direction].eql?("asc") ? "desc" : "asc"
   end
 
+  def person_emails(person)
+    Maybe(person).emails.or_else{[]}.map{|e| e.address}
+  end
+
   # Give an array of translation keys you need in JavaScript. The keys will be loaded and ready to be used in JS
   # with `ST.t` function
   def js_t(keys, run_js_immediately=false)
