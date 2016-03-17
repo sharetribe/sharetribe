@@ -1441,6 +1441,7 @@ hu:
         repeated: "Ismételt (az alkalmakat és a napokat a 'részletes leírás' mezőbe írja)"
       description:
         detailed_description: "Részletes leírás"
+        youtube_info: ~
       destination:
         destination: Célállomás
       form_content:
@@ -1642,6 +1643,7 @@ hu:
       shipping_price_additional: ~
       pickup: Felvétel
       pickup_no_price: Felvétel
+      youtube_video_player: ~
     unit_types:
       piece: darab
       hour: óra

@@ -1441,6 +1441,7 @@ hr:
         repeated: "Ponavlja se (dodajte vremena i dane u polje 'detaljan opis')"
       description:
         detailed_description: "Detaljni opis"
+        youtube_info: ~
       destination:
         destination: Odredište
       form_content:
@@ -1642,6 +1643,7 @@ hr:
       shipping_price_additional: ~
       pickup: ~
       pickup_no_price: ~
+      youtube_video_player: ~
     unit_types:
       piece: ~
       hour: ~

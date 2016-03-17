@@ -158,34 +158,34 @@ de:
       getting_started:
         getting_started: Kurzanleitung
         welcome_to_your_marketplace: "Willkommen auf deinem Marktplatz, %{name}!"
-        intro: ~
+        intro: "Das hier ist eine Kurzanleitung für die Einrichtung und Verwaltung Ihres Marktplatzes. Sie können die Seite hier ansehen: %{live_site_link}."
         live_site_link_text: hier
-        look_and_feel: ~
+        look_and_feel: "Bevor Sie Ihren Marktplatz veröffentlichen, wollen Sie vermutlich ein paar Sachen einrichten. Zum Beispiel: %{logo_link}, und ändern Sie das Cover-Foto sowie die Farben, so dass sie mit Ihrer Marke gut zusammenpassen."
         logo_link_text: "Füge dein Logo hinzu"
-        custom_domain: ~
-        categories_and_custom_fields: ~
-        categories_link_text: ~
-        custom_fields_link_text: ~
+        custom_domain: "Vielleicht möchten Sie auch eine benutzerdefinierte Web-Adresse hinzufügen (zum Beispiel www.ihrmarktplatz.com). Um die Domain für Ihren Marktplatz zu aktivieren müssen wir einige Sachen für Sie einrichten sowie ein SSL-Zertifikat für die Domain kaufen, um ihn sicher zu halten. Deswegen sind benutzerdefinierte Domainnamen zur Zeit nicht inklusive in unserem Trial-Plan, und Sie sollten für die Aktivierung Ihrer eigenen Domain einen Pro-Plan (oder einen höheren Plan) abonnieren. Wenn Sie eine benutzerdefinierte Domain einrichten möchten, bitte %{contact_support_link}."
+        categories_and_custom_fields: "Als Nächstes sollten Sie entscheiden was für Inhalt Leute auf Ihren Marktplatz verkaufen können. Sie können %{categories_link}, %{custom_fields_link} die das aktuelle Anzeigeformular umfasst, und bestimmen %{filters_link} aktiviert sind wenn Leute die Anzeigen durchsuchen."
+        categories_link_text: "Kategorien und Unterkategorien hinzufügen"
+        custom_fields_link_text: "die Formularfelder anpassen"
         filters_link_text: "welche Art von Filter"
         order_types: ~
         order_types_link_text: ~
-        payments: ~
-        payments_link_text: ~
-        info_texts: ~
+        payments: "Wenn Sie möchten, dass Leute durch Ihren Marktplatz bezahlen können, damit Sie einen Transaktionsgebühr von jedem Kauf abrechnen können, sollten Sie %{payments_link}."
+        payments_link_text: "eine Zahlungsart einrichten"
+        info_texts: "Vergessen Sie nicht, ihre Infoseiten und andere Texte wo Sie Ihre Benutzern über Ihren Marktplatz erzählen können, einzurichten. Sie sollten %{about_page_link} ansehen sowie Ihre %{terms_of_use_link} (wo Sie Ihre eigenen Nutzungsbedingungen hinzufügen sollten, entweder durch Anpassen der Vorlage oder Einrichtung ein ganz neues Dokuments), ihre %{privacy_policy_link}, und die %{welcome_email_link} die zu jedem neuen Benutzer geschickt wird. Es gibt auch einige %{instruction_texts_link} die sie anpassen können."
         about_page_link_text: "Über uns"
         terms_of_use_link_text: Nutzungsbedingungen
         privacy_policy_link_text: Datenschutzbestimmungen
         welcome_email_link_text: Begrüßungs-E-Mail
         instruction_texts_link_text: "Andere Anleitungstexte"
-        social_media: ~
-        facebook_link_text: ~
+        social_media: "Sie können Ihre Gemeinschaft durch Social Media aufbauen. Sie können %{facebook_link} um die Anmeldung für Leute zu vereinfachen, und %{twitter_link} um virale Sichtbarkeit durch Tweets über deinen Marktplatz zu erhalten."
+        facebook_link_text: "ihre benutzerdefinierte Facebook-App verbinden"
         twitter_link_text: "füge deinen Twitter-Account hinzu"
-        analytics: ~
+        analytics: "%{analytics_link} ist auch eine gute Idee. Dadurch ist es einfacher für Sie die Aktivität Ihres Marktplatzes zu betrachten, wie viele Besucher Sie haben, und so weiter."
         analytics_link_text: "Verknüpfe einen Google Analytics Account"
-        settings: ~
+        settings: "Es gibt viele andere Einstellungen mit denen Sie herumspielen können. Zum Beispiel können Sie Ihren Marktplatz so einrichten, dass neue Kunden nur durch Einladung von anderen Kunden ein Konto einrichten können. Sie können Ihren Marktplatz auch privat machen damit nur die angemeldeten Kunden können den Inhalt ansehen. %{settings_link}"
         settings_link_text: "Hier siehst du deine Marktplatz-Einstellungen"
-        final_words: ~
-        invite_link_text: ~
+        final_words: "Das war's! Wenn alles bereit ist, können Sie %{invite_link}. Sie können %{view_users_link} alle registrierte Benutzerkonten ansehen, und %{view_transactions_link} können Sie ihre Käufe ansehen. Sie können auch einfach die Anzeigen verwalten: gehen Sie einfach auf die Seite der Anzeige und Sie sehen sofort die Administrator-Links mit denen Sie die Anzeige modifizieren oder kündigen können. Wenn Sie Hilfe brauchen, %{contact_support_link} - wir sind hier für Sie!"
+        invite_link_text: "Benutzer zu ihrem Marktplatz einladen"
         view_users_link_text: hier
         view_transactions_link_text: hier
         contact_support_link_text: "Kontaktiere unseren Support"
@@ -274,13 +274,13 @@ de:
         twitter_handle_info_text_with_instructions: ~
         twitter_instructions_link_text: Weiterlesen
         twitter_handle_placeholder: Benutzername
-        invalid_twitter_handle: ~
+        invalid_twitter_handle: "Ihr Twitter-Nutzername sollte höchstens 15 alphanumerische (Buchstaben A-Z und Nummern 0-9) Zeichen lang sein."
         facebook_connect: Facebook
-        facebook_connect_info_text: ~
+        facebook_connect_info_text: "Um die Facebook-Authentifizierung zu aktivieren, bitte erstellen Sie einen App für Ihren Marktplatz auf dem <a href='https://developers.facebook.com/'>Facebook Entwicklerpanel</a>. Fügen Sie die generierte ID und den Geheimschlüssel der App hier ein."
         facebook_connect_info_text_with_instructions: ~
         facebook_instructions_link_text: ~
         facebook_connect_id: "Facebook Client-ID"
-        invalid_facebook_connect_id: ~
+        invalid_facebook_connect_id: "Die Client-ID sollte nur aus Nummern bestehen."
         facebook_connect_secret: "Facebook Client-Geheimnis"
         invalid_facebook_connect_secret: ~
         save: "Einstellungen speichern"
@@ -483,7 +483,7 @@ de:
       preferences_updated: "Zahlungseinstellungen aktualisiert"
       marketplace_currency_used: "Dieser Marktplatz nutzt %{currency} als Währung. Um die Währungseinstellung zu ändern, %{contact_support_link}"
       contact_support_link_text: "kontaktiere den Sharetribe Support"
-      integration_info_text: ~
+      integration_info_text: "Bezahlungen auf Sharetribe sind durch PayPal durchgeleitet. Um deinen Kunden die Bezahlung auf Ihrem Marktplatz zu ermöglichen müssen Sie Ihr PayPal-Konto verbinden. Nachdem Sie Ihr PayPal-Konto verbunden haben, können Sie den Mindestbetrag eines Kaufs einrichten sowie eine mögliche Vermittlungsgebühr."
       paypal_account_email: "1. Verbinde dein PayPal Konto"
       link_paypal_personal_account_label: "Verkaufst Du selbst Produkte?"
       paypal_account_email_completed: Abgeschlossen!
@@ -495,7 +495,7 @@ de:
       minimum_listing_price_label: "Minimaler Listing Preis:"
       transaction_fee_label: "Transaktionsgebühr:"
       minimum_transaction_fee_label: ~
-      note_about_transaction_fee: ~
+      note_about_transaction_fee: "Hinweis: Die Gebühren von PayPal gehören zu der Transaktionsgebühr, und sind abhängig von der Währung des Marktplatzes und dem Umsatzvolumen des Verkäufers. Auf diesen Grund ist der Mindestgebühr %{min_paypal_commission}. Sobald die Gebühren von dem Verkäufer genommen werden wird PayPal seine Gebühren zuerst abrechnen, und der Restbetrag wird danach auf Ihr Paypal-Konto eingezählt."
       save_settings: "Einstellungen speichern"
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
@@ -1460,6 +1460,7 @@ de:
         repeated: "Wiederholt (ergänze Uhrzeiten und Tage im 'Beschreibungs-Feld')"
       description:
         detailed_description: "Ausführliche Beschreibung"
+        youtube_info: ~
       destination:
         destination: Ziel
       form_content:
@@ -1661,6 +1662,7 @@ de:
       shipping_price_additional: "Versand (%{price}, weitere Artikel: + %{shipping_price_additional})"
       pickup: Abholung/Übergabe
       pickup_no_price: Abholung/Übergabe
+      youtube_video_player: ~
     unit_types:
       piece: Stück
       hour: Stunde

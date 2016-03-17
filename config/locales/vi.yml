@@ -55,7 +55,7 @@ vi:
         edit_private_community_homepage_content_description: ~
         update_information: "Lưu thiết lập."
         invite_people: ~
-        edit_signup_info: ~
+        edit_signup_info: "Thông tin đăng ký"
         edit_signup_info_description: ~
         edit_info: ~
         see_how_it_looks_like: ~
@@ -737,25 +737,25 @@ vi:
   braintree_accounts:
     new:
       add_payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
+      first_name: Tên
+      last_name: Họ
+      email: "Địa chỉ email"
+      phone: "Số điện thoại"
+      address_street_address: "Địa chỉ"
+      address_postal_code: "Mã bưu chính"
+      address_locality: "Thành phố"
+      address_region: Bang
+      date_of_birth: "Ngày sinh"
       ssn: ~
       routing_number: ~
       account_number: ~
-      save: ~
+      save: Lưu
     show:
       payout_details: ~
       first_name: ~
       last_name: ~
       email: ~
-      phone: ~
+      phone: "Số điện thoại"
       address_street_address: ~
       address_postal_code: ~
       address_locality: ~
@@ -769,7 +769,7 @@ vi:
       new_credit_card_payment: ~
       payment_receiver: ~
       cardholder_name: ~
-      credit_card_number: ~
+      credit_card_number: "Mã số thẻ tín dụng"
       cvv: ~
       credit_card_expiration_date: ~
       confirm_payment: ~
@@ -828,7 +828,7 @@ vi:
       remember_to_add_payment_details: "Hãy nhớ điền hoàn chỉnh thông tin chi trả của bạn để nhận được thanh toán từ khách hàng."
       you_have_added_listing_with_payment: "Bạn vừa đăng một tin rao vặt %{listing_link} kèm theo lựa chọn chia trả trược tuyến. Tuy nhiên, thông tin chi trả trong tài khoản của không đầy đủ, bạn vui lòng điền đầy đủ thông tin để nhận được chi trả từ khách hàng."
       please_go_to_payment_settings: ~
-      payment_settings_link: ~
+      payment_settings_link: "Phương thức thanh toán"
     transaction_confirmed:
       here_is_a_message_from: "Bạn vừa nhận được tin nhắn từ %{other_party_given_name} :"
       request_marked_as_confirmed: ~
@@ -907,7 +907,7 @@ vi:
       paypal_gateway_fee: ~
       shipping_total: ~
     braintree_new_payment:
-      product: ~
+      product: "Sản phẩm"
       price_payer_paid: ~
       service_fee: ~
       you_will_get: ~
@@ -920,9 +920,9 @@ vi:
       duration: ~
       quantity: ~
       subtotal: ~
-      total: ~
+      total: "Tổng cộng"
       price: ~
-      service_fee: ~
+      service_fee: "Phí dịch vụ"
       money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} đã gửi bạn thông tin phản hồi tại %{service_name}"
@@ -1089,7 +1089,7 @@ vi:
     contact_us: "Liên hệ"
     profile: "Thông tin tài khoản"
     manage_listings: ~
-    invite: ~
+    invite: "Mời bạn bè"
     login: ~
     signup: ~
     menu: ~
@@ -1441,6 +1441,7 @@ vi:
         repeated: "Đã lặp lại (thêm thời gian và ngày trong trường 'mô tả chi tiết')"
       description:
         detailed_description: "Mô tả chi tiết"
+        youtube_info: ~
       destination:
         destination: Đích
       form_content:
@@ -1642,6 +1643,7 @@ vi:
       shipping_price_additional: ~
       pickup: ~
       pickup_no_price: ~
+      youtube_video_player: ~
     unit_types:
       piece: ~
       hour: ~

@@ -1445,6 +1445,7 @@ it:
         repeated: "Ripetuto (aggiungi orari e giorni nel campo 'descrizione dettagliata')"
       description:
         detailed_description: "Descrizione dettagliata"
+        youtube_info: "Se la tua descrizione contiene dei link di YouTube, i video saranno mostrati sopra la descrizione."
       destination:
         destination: Destinazione
       form_content:
@@ -1646,6 +1647,7 @@ it:
       shipping_price_additional: ~
       pickup: ~
       pickup_no_price: ~
+      youtube_video_player: "YouTube video player"
     unit_types:
       piece: ~
       hour: ora

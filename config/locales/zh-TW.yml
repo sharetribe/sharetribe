@@ -1461,6 +1461,7 @@ zh-TW:
         repeated: 重复的（在字段“详细描述”中添加次数和天数）
       description:
         detailed_description: 详细描述
+        youtube_info: ~
       destination:
         destination: 目的地
       form_content:
@@ -1662,6 +1663,7 @@ zh-TW:
       shipping_price_additional: "运费(+%{price}, 附件的费用: +%{shipping_price_additional})"
       pickup: 自取
       pickup_no_price: 自提
+      youtube_video_player: ~
     unit_types:
       piece: 个
       hour: 小时

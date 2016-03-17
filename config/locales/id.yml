@@ -1443,6 +1443,7 @@ id:
         repeated: ~
       description:
         detailed_description: "Deskripsi detil"
+        youtube_info: ~
       destination:
         destination: Tujuan
       form_content:
@@ -1644,6 +1645,7 @@ id:
       shipping_price_additional: ~
       pickup: ~
       pickup_no_price: ~
+      youtube_video_player: ~
     unit_types:
       piece: ~
       hour: ~

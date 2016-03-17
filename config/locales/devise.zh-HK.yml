@@ -1,55 +1,57 @@
 zh-HK:
   errors:
     messages:
-      expired: ~
-      not_found: ~
-      already_confirmed: ~
-      not_locked: ~
+      expired: 已過期，請重新申請
+      not_found: 找不到結果
+      already_confirmed: "已經確認,請重新登入"
+      not_locked: 未鎖定
+      not_saved:
+        other: "有%{count}個錯誤導致此%{resource}保存失敗："
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
-      unconfirmed: ~
-      locked: ~
-      invalid: ~
-      invalid_token: ~
-      timeout: ~
-      inactive: ~
+      already_authenticated: 你已登入了。
+      unauthenticated: 繼續瀏覽前請註册或登入帳戶
+      unconfirmed: 繼續瀏覽前請先確認你的帳戶
+      locked: 你的帳戶暫時停止使用
+      invalid: 電郵或密碼錯誤
+      invalid_token: 認証無效
+      timeout: 登錄已超時，請重新登入
+      inactive: 您的帳戶還沒有被啟動
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: ~
+      updated_not_active: 您的密碼已修改成功。
+      send_paranoid_instructions: 如果您的電郵帳戶存在我們數據庫記錄中，您將收到一封重置密碼的郵件
+      send_instructions: 幾分鐘後，您將收到重置密碼的電子郵件。
+      updated: 您的密碼已成功修改，您現在已登入。
     sessions:
-      signed_in: ~
-      signed_out: ~
+      signed_in: 登入成功
+      signed_out: 登出成功
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_paranoid_instructions: 如果您的電郵帳戶存在我們數據庫記錄中，您將會在幾分鐘內收到一封確認帳戶的郵件。
+      send_instructions: 幾分鐘內，您將收到確認帳號的電子郵件。
+      confirmed: 成功確認帳戶
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: 帳號確認郵件已經發送到您的電郵信箱。請打開該連結來啟動您的帳號
+      signed_up_but_inactive: 雖然您已註冊成功，但因為您的帳號還未認証，所以您暫時無法登入。
+      signed_up_but_locked: 雖然您已註冊成功，但因為您的帳號已被暫時停止使用，所以您暫時無法登入。
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+        inactive: 未啟動
+        unconfirmed: 未確認
+        locked: 鎖上
+      update_needs_confirmation: 帳戶資料更新成功，但我們需要驗證您的新電郵地址。請檢查您的電子郵箱，點擊確認連結來確認您的新電子郵件地址。
+      signed_up: 歡迎您！你已註冊成功。
+      updated: 帳戶資料更新成功。
+      destroyed: 再見！您Jerseypapa的帳戶已成功取消。我們希望可以很快再見到您.
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: 如果您的電郵帳戶存在我們數據庫記錄中，您將收到一封有關解鎖帳戶的電郵。
+      send_instructions: 幾分鐘後，您將收到一封有關解鎖帳戶的電郵.
+      unlocked: 您的帳戶已成功解鎖，請重新登入以便繼續使用本網.
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "成功地從%{kind}獲得授權。"
+      failure: "因為%{reason}，所以您無法從%{kind}獲得授權。"
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: 確認步驟說明
       reset_password_instructions:
-        subject: ~
+        subject: 重設密碼說明
       unlock_instructions:
-        subject: ~
+        subject: 解鎖步驟說明

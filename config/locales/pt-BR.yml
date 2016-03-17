@@ -1472,6 +1472,7 @@ pt-BR:
         repeated: "Periódico (precisar datas no descritivo detalhado)"
       description:
         detailed_description: "Descrição detalhada"
+        youtube_info: "Se a sua descrição contiver links para o YouTube os vídeos serão mostrados abaixo da descrição."
       destination:
         destination: Destino
       form_content:
@@ -1673,6 +1674,7 @@ pt-BR:
       shipping_price_additional: "Envio (+ %{price}, itens adicionais: + %{shipping_price_additional})"
       pickup: "Retirar no local"
       pickup_no_price: "Retirar no local"
+      youtube_video_player: "Vídeo player do YouTube"
     unit_types:
       piece: pedaço
       hour: hora

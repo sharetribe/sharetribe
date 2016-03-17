@@ -1468,6 +1468,7 @@ da-DK:
         repeated: "Gentagen (tilføj tidspunkter og dage i feltet 'detaljeret beskrivelse)"
       description:
         detailed_description: "Detaljeret beskrivelse"
+        youtube_info: ~
       destination:
         destination: destiantion
       form_content:
@@ -1669,6 +1670,7 @@ da-DK:
       shipping_price_additional: "Forsendelse (+%{price}, yderligere emner: +%{shipping_price_additional})"
       pickup: Afhentning
       pickup_no_price: Afhentning
+      youtube_video_player: ~
     unit_types:
       piece: enhed
       hour: time

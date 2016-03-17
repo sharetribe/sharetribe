@@ -1441,6 +1441,7 @@ is:
         repeated: ~
       description:
         detailed_description: "Nákvæm lýsing"
+        youtube_info: ~
       destination:
         destination: Áfangastaður
       form_content:
@@ -1642,6 +1643,7 @@ is:
       shipping_price_additional: ~
       pickup: ~
       pickup_no_price: ~
+      youtube_video_player: ~
     unit_types:
       piece: ~
       hour: ~

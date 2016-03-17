@@ -1455,6 +1455,7 @@ ja:
         repeated: 繰り返し（「詳しい説明」の項目で時間と曜日を追加してください）
       description:
         detailed_description: 詳細
+        youtube_info: ~
       destination:
         destination: 行き先
       form_content:
@@ -1656,6 +1657,7 @@ ja:
       shipping_price_additional: "送料 (+%{price}, 追加の注文: +%{shipping_price_additional})"
       pickup: "引き取り（%{price}）"
       pickup_no_price: 選んだもの
+      youtube_video_player: ~
     unit_types:
       piece: 枚数
       hour: 時間

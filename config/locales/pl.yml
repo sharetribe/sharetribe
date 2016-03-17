@@ -1441,6 +1441,7 @@ pl:
         repeated: ~
       description:
         detailed_description: "Szczegółowy opis"
+        youtube_info: ~
       destination:
         destination: ~
       form_content:
@@ -1642,6 +1643,7 @@ pl:
       shipping_price_additional: ~
       pickup: ~
       pickup_no_price: ~
+      youtube_video_player: ~
     unit_types:
       piece: ~
       hour: ~

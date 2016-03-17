@@ -1481,6 +1481,7 @@ cs:
         repeated: "Opětovně (zadejte časy a dny do pole \"podrobný popis\")"
       description:
         detailed_description: "Detailní popis"
+        youtube_info: ~
       destination:
         destination: "Místo určení"
       form_content:
@@ -1682,6 +1683,7 @@ cs:
       shipping_price_additional: "Poplatek za dopravu (+%{price}, dodatečné položky: +%{shipping_price_additional})"
       pickup: Vyzvednout
       pickup_no_price: Vyzvednout
+      youtube_video_player: ~
     unit_types:
       piece: kus
       hour: hodina

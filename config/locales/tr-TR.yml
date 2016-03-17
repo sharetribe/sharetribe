@@ -1457,6 +1457,7 @@ tr-TR:
         repeated: "(süre ve zaman bilgilerini 'ayrıntılı açıklama' kısmına gir) Tekrarlandı"
       description:
         detailed_description: "Ayrıntılı bilgi"
+        youtube_info: ~
       destination:
         destination: Hedef
       form_content:
@@ -1658,6 +1659,7 @@ tr-TR:
       shipping_price_additional: ~
       pickup: "Elden teslim alma"
       pickup_no_price: "Elden teslim alma"
+      youtube_video_player: ~
     unit_types:
       piece: "adet başına"
       hour: saatlik

@@ -1474,6 +1474,7 @@ nb:
         repeated: "Gjentatt (skriv tidspunkt og dager i feltet 'detaljert beskrivelse')"
       description:
         detailed_description: "Detaljert beskrivelse"
+        youtube_info: ~
       destination:
         destination: Destinasjon
       form_content:
@@ -1675,6 +1676,7 @@ nb:
       shipping_price_additional: "Frakt (+%{price}, tilleggsprodukter: +%{shipping_price_additional})"
       pickup: Henting
       pickup_no_price: Henting
+      youtube_video_player: ~
     unit_types:
       piece: stykk
       hour: time

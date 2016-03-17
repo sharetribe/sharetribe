@@ -1460,6 +1460,7 @@ fr-CA:
         repeated: "Récurrent (préciser les dates dans 'description détaillée')"
       description:
         detailed_description: "Description détaillée"
+        youtube_info: ~
       destination:
         destination: "Lieu d'arrivée"
       form_content:
@@ -1661,6 +1662,7 @@ fr-CA:
       shipping_price_additional: ~
       pickup: Retrait
       pickup_no_price: ~
+      youtube_video_player: ~
     unit_types:
       piece: ~
       hour: ~

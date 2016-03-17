@@ -1474,6 +1474,7 @@ sv:
         repeated: "Upprepa (lägg in tider och dagar i fältet \"detaljerad beskrivning\")"
       description:
         detailed_description: "Detaljerad beskrivning"
+        youtube_info: ~
       destination:
         destination: Destination
       form_content:
@@ -1675,6 +1676,7 @@ sv:
       shipping_price_additional: "Frakt (+%{price}, övriga poster: +%{shipping_price_additional})"
       pickup: Hämtas
       pickup_no_price: Hämtning
+      youtube_video_player: ~
     unit_types:
       piece: styck
       hour: timme

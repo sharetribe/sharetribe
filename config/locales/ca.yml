@@ -1443,6 +1443,7 @@ ca:
         repeated: "Repetit (afegir temps i dies en el camp \"descripció detallada\")"
       description:
         detailed_description: "Descripció detallada"
+        youtube_info: ~
       destination:
         destination: Destí
       form_content:
@@ -1644,6 +1645,7 @@ ca:
       shipping_price_additional: ~
       pickup: ~
       pickup_no_price: ~
+      youtube_video_player: ~
     unit_types:
       piece: ~
       hour: ~

@@ -157,9 +157,9 @@ zh-HK:
         payments: ~
         payments_link_text: ~
         info_texts: ~
-        about_page_link_text: ~
-        terms_of_use_link_text: ~
-        privacy_policy_link_text: ~
+        about_page_link_text: 關於
+        terms_of_use_link_text: 服務條款
+        privacy_policy_link_text: 隱私權政策
         welcome_email_link_text: ~
         instruction_texts_link_text: ~
         social_media: ~
@@ -471,10 +471,10 @@ zh-HK:
       integration_info_text: ~
       paypal_account_email: ~
       link_paypal_personal_account_label: ~
-      paypal_account_email_completed: ~
+      paypal_account_email_completed: 完成
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
-      set_minimum_price_and_fee_completed: ~
+      set_minimum_price_and_fee_completed: 完成
       read_more_about_paypal: ~
       set_minimum_price_and_fee: ~
       minimum_listing_price_label: ~
@@ -504,22 +504,22 @@ zh-HK:
     edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
-    cancel: ~
-    fields_that_are_mandatory: ~
-    or: ~
+    cancel: 取消
+    fields_that_are_mandatory: 標有星號（*）的為必填項。
+    or: 或
     password: ~
     service_name: ~
     share_types:
       request: ~
       offer: ~
-      borrow: ~
-      buy: ~
-      give_away: ~
-      lend: ~
-      receive: ~
-      rent: ~
-      rent_out: ~
-      sell: ~
+      borrow: 借入
+      buy: 購買
+      give_away: 贈送
+      lend: 出借
+      receive: 免費
+      rent: 出租
+      rent_out: 出租
+      sell: 出售
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: ~
@@ -546,7 +546,7 @@ zh-HK:
       other: ~
     username: ~
     username_or_email: ~
-    what_is_this: ~
+    what_is_this: 這是什麼？
     removed_user: ~
     paypal_fee_info:
       title: ~
@@ -595,11 +595,11 @@ zh-HK:
       days: ~
       price_per_day: ~
     index:
-      loading_more_messages: ~
-      message_partitive: ~
-      messages_partitive: ~
-      no_received_messages: ~
-      no_sent_messages: ~
+      loading_more_messages: 載入更多訊息
+      message_partitive: 訊息
+      messages_partitive: 訊息
+      no_received_messages: 沒有新訊息
+      no_sent_messages: 沒有已發送的訊息
     conversation:
       accepted_request: ~
       accepted_offer: ~
@@ -628,10 +628,10 @@ zh-HK:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: ~
-      favor_request_message_form_title: ~
-      housing_offer_message_form_title: ~
-      housing_request_message_form_title: ~
+      favor_offer_message_form_title: "向%{person}請求協助"
+      favor_request_message_form_title: "向%{person}提供幫助"
+      housing_offer_message_form_title: "向%{person}提供地方"
+      housing_request_message_form_title: "向%{person}請求地方"
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -648,18 +648,18 @@ zh-HK:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_request_message_form_title: ~
-      message: ~
+      item_request_message_form_title: "向%{person}提供一件物品"
+      message: 訊息
       message_to: ~
       optional_message_to: ~
-      rideshare_offer_message_form_title: ~
-      rideshare_request_message_form_title: ~
+      rideshare_offer_message_form_title: "想要搭%{person}的一程車"
+      rideshare_request_message_form_title: "向%{person}提供一程車"
       send_message: ~
       send: ~
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
-      title: ~
+      title: 標題
       send_message_to_user: ~
       about_listing: ~
       author_has_to_accept_request: ~
@@ -667,8 +667,8 @@ zh-HK:
       in_response_to_listing: ~
       message_sent_by: ~
       message_sent_to: ~
-      send_reply: ~
-      write_a_reply: ~
+      send_reply: 傳送回覆
+      write_a_reply: 回覆
       conversation_about_listing: ~
       conversation_with_user: ~
       conversation_with: ~
@@ -682,11 +682,11 @@ zh-HK:
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: ~
-      feedback_given: ~
-      feedback_skipped: ~
-      give_feedback: ~
-      offer_accepted: ~
-      offer_rejected: ~
+      feedback_given: 評價已發送
+      feedback_skipped: 已跳過評價
+      give_feedback: 給予評價
+      offer_accepted: 接受
+      offer_rejected: 被拒絕
       offer_canceled: ~
       offer_confirmed: ~
       offer_paid: ~
@@ -702,13 +702,13 @@ zh-HK:
           intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
-      request_accepted: ~
-      request_rejected: ~
+      request_accepted: 接受
+      request_rejected: 被拒絕
       request_confirmed: ~
       request_canceled: ~
       request_paid: ~
       request_preauthorized: ~
-      skip_feedback: ~
+      skip_feedback: 跳過評價
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
@@ -724,10 +724,10 @@ zh-HK:
           unknown_reason: ~
           verify: ~
     status_link:
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
+      accept_offer: 接受議價
+      accept_request: 接受請求
+      reject_offer: 這次不行
+      reject_request: 這次不行
       accept_preauthorized_offer: ~
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
@@ -800,12 +800,12 @@ zh-HK:
       join_community_button: ~
   emails:
     accept_reminder:
-      remember_to_accept_offer: ~
-      remember_to_accept_request: ~
-      you_can_accept_or_reject_offer_at: ~
-      you_can_accept_or_reject_request_at: ~
-      you_have_not_yet_accepted_or_rejected_offer: ~
-      you_have_not_yet_accepted_or_rejected_request: ~
+      remember_to_accept_offer: "請記得接受或拒絕來自%{sender_name}提供的出價"
+      remember_to_accept_request: "請記得接受或拒絕來自%{sender_name}的請求"
+      you_can_accept_or_reject_offer_at: 你可在此接受或拒絕此議價
+      you_can_accept_or_reject_request_at: 你可在此接受或拒絕此要求
+      you_have_not_yet_accepted_or_rejected_offer: "你尚未接受或拒絕你在%{date}收到的%{title}"
+      you_have_not_yet_accepted_or_rejected_request: "你尚未接受或拒絕你在%{date}收到的%{title}"
       show_thread: ~
     braintree_account_approved:
       account_ready: ~
@@ -860,9 +860,9 @@ zh-HK:
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
-      hey: ~
-      kassi_team: ~
-      thanks: ~
+      hey: "你好 %{name},"
+      kassi_team: "%{service_name} 團隊"
+      thanks: 謝謝！
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
@@ -870,15 +870,15 @@ zh-HK:
       or: ~
       unsubscribe_from_these_emails: ~
     conversation_status_changed:
-      has_accepted_your_offer: ~
-      has_accepted_your_request: ~
-      has_rejected_your_offer: ~
-      has_rejected_your_request: ~
+      has_accepted_your_offer: "%{accepter} 已經接受了你的%{listing}"
+      has_accepted_your_request: "%{accepter}已經接受了你的%{listing}"
+      has_rejected_your_offer: "%{accepter} 已經拒絕了你的%{listing}"
+      has_rejected_your_request: "%{accepter} 已經拒絕了你的%{listing}"
       view_thread: ~
-      your_offer_was_accepted: ~
-      your_offer_was_rejected: ~
-      your_request_was_accepted: ~
-      your_request_was_rejected: ~
+      your_offer_was_accepted: 你的議價已被接受
+      your_offer_was_rejected: 你的議價已被拒絕
+      your_request_was_accepted: 你的請求已被接受
+      your_request_was_rejected: 你的請求已被拒絕
       you_can_now_pay_to: ~
       pay_now: ~
       remember_to_confirm: ~
@@ -891,13 +891,13 @@ zh-HK:
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
-      you_have_a_new_comment: ~
+      you_have_a_new_comment: "%{author} 在%{service_name}的項目留言"
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} 在%{service_name} 傳送了訊息給你"
+      you_have_a_new_message: "在%{service_name}收到來自%{sender_name}的新訊息"
     new_payment:
       new_payment: ~
       price_per_unit_type: ~
@@ -1441,6 +1441,7 @@ zh-HK:
         repeated: ~
       description:
         detailed_description: ~
+        youtube_info: ~
       destination:
         destination: ~
       form_content:
@@ -1642,6 +1643,7 @@ zh-HK:
       shipping_price_additional: ~
       pickup: ~
       pickup_no_price: ~
+      youtube_video_player: ~
     unit_types:
       piece: ~
       hour: ~
