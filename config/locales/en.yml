@@ -1424,6 +1424,7 @@ en:
         zero: "The website will now go offline for maintenance"
         one: "The website will be offline for maintenance in %{count} minute"
         other: "The website will be offline for maintenance in %{count} minutes"
+      automatically_logged_out_please_sign_in: "You have been automatically logged out. Please sign in again."
     settings:
       account: Account
       notifications: Notifications
