@@ -21,6 +21,11 @@ then
   PHANTOMJS=true bundle exec cucumber -ptravis features/listings/user_edits_his_own_listing.feature 2>&1
   PHANTOMJS=true bundle exec cucumber -ptravis features/listings/user_edits_his_own_listing.feature 2>&1
   PHANTOMJS=true bundle exec cucumber -ptravis features/listings/user_edits_his_own_listing.feature 2>&1
+  PHANTOMJS=true bundle exec cucumber -ptravis features/listings/user_edits_his_own_listing.feature 2>&1
+  PHANTOMJS=true bundle exec cucumber -ptravis features/listings/user_edits_his_own_listing.feature 2>&1
+  PHANTOMJS=true bundle exec cucumber -ptravis features/listings/user_edits_his_own_listing.feature 2>&1
+  PHANTOMJS=true bundle exec cucumber -ptravis features/listings/user_edits_his_own_listing.feature 2>&1
+  PHANTOMJS=true bundle exec cucumber -ptravis features/listings/user_edits_his_own_listing.feature 2>&1
   exit
 elif [ "$SUITE" = "jshint" ]
 then
