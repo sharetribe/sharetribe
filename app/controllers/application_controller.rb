@@ -191,9 +191,6 @@ class ApplicationController < ActionController::Base
   # community are all expired.
   def ensure_user_belongs_to_community
     if @current_user && @current_user.community_id != @current_community.id
-      sign_out
-      session[:person_id] = nil
-      flash[:notice] = t("layouts.notifications.automatically_logged_out_please_sign_in")
 
       logger.info(
         "Automatically logged out user that doesn't belong to community",
@@ -202,6 +199,10 @@ class ApplicationController < ActionController::Base
         current_community_id: @current_community.id,
         current_user_community_id: @current_user.community_id
       )
+
+      sign_out
+      session[:person_id] = nil
+      flash[:notice] = t("layouts.notifications.automatically_logged_out_please_sign_in")
 
       redirect_to root
     end
