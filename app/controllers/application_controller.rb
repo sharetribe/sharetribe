@@ -192,6 +192,15 @@ class ApplicationController < ActionController::Base
       sign_out
       session[:person_id] = nil
       flash[:notice] = t("layouts.notifications.automatically_logged_out_please_sign_in")
+
+      logger.info(
+        "Automatically logged out user that doesn't belong to community",
+        :autologout,
+        current_user_id: @current_user.id,
+        current_community_id: @current_community.id,
+        current_user_community_id: @current_user.community_id
+      )
+
       redirect_to root
     end
   end
