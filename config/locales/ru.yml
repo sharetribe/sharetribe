@@ -1466,6 +1466,7 @@ ru:
         repeated: "Повторяющееся событие (добавьте время и даты в поле «подробное описание»)"
       description:
         detailed_description: "Подробное описание"
+        youtube_info: ~
       destination:
         destination: "Пункт назначения"
       form_content:
@@ -1667,6 +1668,7 @@ ru:
       shipping_price_additional: "Доставка (+%{price}, дополнительно: +%{shipping_price_additional}"
       pickup: "Самостоятельное получение"
       pickup_no_price: "Самостоятельное получение"
+      youtube_video_player: ~
     unit_types:
       piece: шт.
       hour: час

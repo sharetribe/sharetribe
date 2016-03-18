@@ -1460,7 +1460,7 @@ de:
         repeated: "Wiederholt (ergänze Uhrzeiten und Tage im 'Beschreibungs-Feld')"
       description:
         detailed_description: "Ausführliche Beschreibung"
-        youtube_info: ~
+        youtube_info: "Wenn Deine Beschreibung YouTube Links enthält, werden die Videos unterhalb der Beschreibung angezeigt."
       destination:
         destination: Ziel
       form_content:
@@ -1662,7 +1662,7 @@ de:
       shipping_price_additional: "Versand (%{price}, weitere Artikel: + %{shipping_price_additional})"
       pickup: Abholung/Übergabe
       pickup_no_price: Abholung/Übergabe
-      youtube_video_player: ~
+      youtube_video_player: "YouTube Video Player"
     unit_types:
       piece: Stück
       hour: Stunde

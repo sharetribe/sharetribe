@@ -1472,6 +1472,7 @@ fi:
         repeated: "Toistuva (kerro ajat ja päivät kohdassa 'tarkempi kuvaus')"
       description:
         detailed_description: "Tarkempi kuvaus"
+        youtube_info: ~
       destination:
         destination: Määränpää
       form_content:
@@ -1673,6 +1674,7 @@ fi:
       shipping_price_additional: "Postikulut (+%{price}, lisätuotteet: +%{shipping_price_additional})"
       pickup: Nouto
       pickup_no_price: Nouto
+      youtube_video_player: ~
     unit_types:
       piece: kappale
       hour: tunti

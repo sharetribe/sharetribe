@@ -272,7 +272,7 @@ fr:
         twitter_handle: "Nom Twitter"
         twitter_handle_info_text: "Nom Twitter du compte de votre place de marché (si vous en avez un). Il sera mentionné lorsque des utilisateurs utiliseront le bouton de partage Twitter sur les pages d'annonces."
         twitter_handle_info_text_with_instructions: "Nom Twitter du compte de votre place de marché (si vous en avez un). Il sera mentionné lorsque des utilisateurs utiliseront le bouton de partage Twitter sur les pages d'annonces. %{instructions_link}."
-        twitter_instructions_link_text: "En savoir plus."
+        twitter_instructions_link_text: "En savoir plus"
         twitter_handle_placeholder: nomtwitter
         invalid_twitter_handle: "Le nom Twitter ne peut contenir qu'au maximum 15 caractères alpha-numériques (lettres A-Z et chiffre 0-9)."
         facebook_connect: Facebook
@@ -1472,6 +1472,7 @@ fr:
         repeated: "Récurrent (préciser les dates dans 'description détaillée')"
       description:
         detailed_description: "Description détaillée"
+        youtube_info: "Si votre description contient des liens YouTube, les vidéos seront affichées sous la description."
       destination:
         destination: "Lieu d'arrivée"
       form_content:
@@ -1673,6 +1674,7 @@ fr:
       shipping_price_additional: "Livraison (+%{price}, éléments supplémentaires: +%{shipping_price_additional})"
       pickup: Retrait
       pickup_no_price: Retrait
+      youtube_video_player: "lecteur vidéo YouTube"
     unit_types:
       piece: unité
       hour: heure

@@ -1456,6 +1456,7 @@ nl:
         repeated: "Herhaald (voeg aantal keren en dagen toe in veld 'gedetailleerd omschrijving')"
       description:
         detailed_description: Omschrijving
+        youtube_info: ~
       destination:
         destination: Bestemming
       form_content:
@@ -1657,6 +1658,7 @@ nl:
       shipping_price_additional: "Verzenden (+%{price}, aanvullende item: +%{shipping_price_additional})"
       pickup: Ophalen
       pickup_no_price: Ophalen
+      youtube_video_player: ~
     unit_types:
       piece: stuk
       hour: uur

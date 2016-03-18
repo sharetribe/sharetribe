@@ -1441,6 +1441,7 @@ el:
         repeated: "Επαναλαμβανόμενο - προσθέστε λεπτομέρειες στην περιγραφή"
       description:
         detailed_description: Περιγραφή
+        youtube_info: ~
       destination:
         destination: Προορισμός
       form_content:
@@ -1642,6 +1643,7 @@ el:
       shipping_price_additional: ~
       pickup: ~
       pickup_no_price: ~
+      youtube_video_player: ~
     unit_types:
       piece: ~
       hour: ~

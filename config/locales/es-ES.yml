@@ -1474,6 +1474,7 @@ es-ES:
         repeated: "Repetido (agregar tiempos y días en el campo \"descripción detallada')"
       description:
         detailed_description: "Descripción detallada"
+        youtube_info: ~
       destination:
         destination: Destino
       form_content:
@@ -1675,6 +1676,7 @@ es-ES:
       shipping_price_additional: "Envío (+%{price}, productos adicionales: +%{shipping_price_additional})"
       pickup: Recoger
       pickup_no_price: Recoger
+      youtube_video_player: ~
     unit_types:
       piece: pieza
       hour: hora
