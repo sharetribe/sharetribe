@@ -1,3 +1,46 @@
+require 'devise/strategies/database_authenticatable'
+
+module Devise
+  module Strategies
+    class DatabaseAuthenticatable
+      def authenticate!
+        hashed = false
+        person = resolve_person
+
+        if person && (belongs_to_community?(person.id, env[:community_id]) || person.is_admin?) &&
+          validate(person){ person.valid_password?(password) }
+
+          hashed = true
+          remember_me(person)
+          person.after_database_authentication
+          success!(person)
+        end
+
+        mapping.to.new.password = password if !hashed && Devise.paranoid
+        # rubocop:disable Style/SignalException
+        fail(:not_found_in_database) unless person
+        # rubocop:enable Style/SignalException
+      end
+
+      private
+
+      def belongs_to_community?(person_id, community_id)
+        CommunityMembership.where("person_id = ? AND community_id = ?", person_id, community_id).present?
+      end
+
+      def resolve_person
+        if password.present?
+          find_by_username_or_email(authentication_hash[:login].downcase)
+        end
+      end
+
+      def find_by_username_or_email(login)
+        Person.find_by(username: login) || Maybe(Email.find_by(address: login)).person.or_else(nil)
+      end
+    end
+  end
+end
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|

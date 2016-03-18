@@ -62,17 +62,14 @@ class Person < ActiveRecord::Base
 
   include ErrorsHelper
   include ApplicationHelper
-  # Allows password validation on person from
-  # CommunityAuthenticatable custom Devise strategy
-  include Devise::Models::DatabaseAuthenticatable
 
   self.primary_key = "id"
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
-  devise :registerable, :recoverable,
-         :rememberable, :trackable,
-         :omniauthable, :community_authenticatable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable,
+         :omniauthable
 
   attr_accessor :guid, :password2, :form_login,
                 :form_given_name, :form_family_name, :form_password,
