@@ -1,14 +1,25 @@
 require 'devise/strategies/database_authenticatable'
 
+# Monkey-patch the DatabaseAuthenticatable.
+#
+# The default DatabaseAuthenticatable takes only into account the user
+# login + password. We need to take into account also the community.
+#
+# Because the authentication strategy is tigthly coupled to the Person model, it's
+# actually a more practical solution to just monkey-patch the strategy instead of
+# creating a new strategy.
+#
 module Devise
   module Strategies
     class DatabaseAuthenticatable
       def authenticate!
         hashed = false
-        person = resolve_person
+        person = DatabaseAuthenticatableHelpers.resolve_person(
+          authentication_hash[:login], password)
 
-        if person && (belongs_to_community?(person.id, env[:community_id]) || person.is_admin?) &&
-          validate(person){ person.valid_password?(password) }
+        if person &&
+           DatabaseAuthenticatableHelpers.authorized?(person, env[:community_id]) &&
+           validate(person){ person.valid_password?(password) }
 
           hashed = true
           remember_me(person)
@@ -21,23 +32,31 @@ module Devise
         fail(:not_found_in_database) unless person
         # rubocop:enable Style/SignalException
       end
-
-      private
-
-      def belongs_to_community?(person_id, community_id)
-        CommunityMembership.where("person_id = ? AND community_id = ?", person_id, community_id).present?
-      end
-
-      def resolve_person
-        if password.present?
-          find_by_username_or_email(authentication_hash[:login].downcase)
-        end
-      end
-
-      def find_by_username_or_email(login)
-        Person.find_by(username: login) || Maybe(Email.find_by(address: login)).person.or_else(nil)
-      end
     end
+  end
+end
+
+# Helpers for the monkey-patched DatabaseAuthenticatable
+module DatabaseAuthenticatableHelpers
+
+  module_function
+
+  def resolve_person(login, password)
+    if password.present?
+      find_by_username_or_email(login.downcase)
+    end
+  end
+
+  def find_by_username_or_email(login)
+    Person.find_by(username: login) || Maybe(Email.find_by(address: login)).person.or_else(nil)
+  end
+
+  def authorized?(person, community_id)
+    belongs_to_community?(person, community_id) || person.is_admin?
+  end
+
+  def belongs_to_community?(person, community_id)
+    person.community_memberships.where(community_id: community_id).present?
   end
 end
 
