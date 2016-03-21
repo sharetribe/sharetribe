@@ -273,6 +273,15 @@ default: &default_settings
   http_auth_username: sharetribe
   http_auth_password: changeme
 
+  # When is the next maintenance happening?
+  #
+  # Format: Time object or any string that can be parsed with Time.parse
+  #
+  # Example:
+  # "2016-03-21 13:30:24 +0200"
+  #
+  next_maintenance_at:
+
 production: &production_settings
   <<: *default_settings
 

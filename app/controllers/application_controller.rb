@@ -32,7 +32,8 @@ class ApplicationController < ActionController::Base
     :fetch_community_admin_status,
     :warn_about_missing_payment_info,
     :set_homepage_path,
-    :report_queue_size
+    :report_queue_size,
+    :maintenance_warning
   before_filter :cannot_access_without_joining, :except => [ :confirmation_pending, :check_email_availability]
   before_filter :can_access_only_organizations_communities
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
@@ -398,6 +399,12 @@ class ApplicationController < ActionController::Base
 
   def report_queue_size
     MonitoringService::Monitoring.report_queue_size
+  end
+
+  def maintenance_warning
+    now = Time.now
+    @show_maintenance_warning = NextMaintenance.show_warning?(15.minutes, now)
+    @minutes_to_maintenance = NextMaintenance.minutes_to(now)
   end
 
   private
