@@ -9,7 +9,6 @@ module FeatureFlagService::Store
 
     FLAGS = [
       :export_transactions_as_csv,
-      :only_gtm,
       :customer_universal_analytics,
       :youtube_embeds,
     ].to_set
