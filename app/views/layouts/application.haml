@@ -64,6 +64,9 @@
   - if @analytics_event
     :javascript
       report_analytics_event.apply(null, #{@analytics_event});
+  - if @gtm_datalayer
+    :javascript
+      gtm_datalayer_push(#{@gtm_datalayer.to_json});
 
   :javascript
     $(function() {

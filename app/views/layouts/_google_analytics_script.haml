@@ -66,17 +66,21 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 
+  :plain
+    function gtm_datalayer_push(data){
+      var dataLayer = dataLayer || [];
+      dataLayer.push(data)
+    }
+
   function report_analytics_event(category, action, opt_label) {
   :plain
-    if (typeof dataLayer !== 'undefined') {
-      dataLayer.push({
-        'event' : 'GAEvent',
-        'eventCategory' : category,
-        'eventAction' : action,
-        'eventLabel' : opt_label,
-        'eventValue' : undefined
-      })
-    }
+    gtm_datalayer_push({
+      'event' : 'GAEvent',
+      'eventCategory' : category,
+      'eventAction' : action,
+      'eventLabel' : opt_label,
+      'eventValue' : undefined
+    });
   - if !feature_enabled?(:only_gtm)
     :plain
       var params_array = [category, action, opt_label]

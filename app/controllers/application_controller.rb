@@ -43,6 +43,7 @@ class ApplicationController < ActionController::Base
 
   #this shuold be last
   before_filter :push_reported_analytics_event_to_js
+  before_filter :push_reported_gtm_data_to_js
 
   rescue_from RestClient::Unauthorized, :with => :session_unauthorized
 
@@ -465,12 +466,25 @@ class ApplicationController < ActionController::Base
     session[:analytics_event] = [category, action, opt_label]
   end
 
+  # Does a push to Google Tag Manager on next page load
+  # same disclaimers as before apply
+  def report_to_gtm(map)
+    session[:gtm_datalayer] = map
+  end
+
   # if session has analytics event
   # report that and clean session
   def push_reported_analytics_event_to_js
     if session[:analytics_event]
       @analytics_event = session[:analytics_event]
       session.delete(:analytics_event)
+    end
+  end
+
+  def push_reported_gtm_data_to_js
+    if session[:gtm_datalayer]
+      @gtm_datalayer = session[:gtm_datalayer]
+      session.delete(:gtm_datalayer)
     end
   end
 
