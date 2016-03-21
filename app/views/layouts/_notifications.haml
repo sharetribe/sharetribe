@@ -1,3 +1,11 @@
+
+- if @show_maintenance_warning
+  .flash-notifications
+    .flash-notification{:class => "flash-error"}
+      .flash-icon{:class => "ss-alert"}
+      .flash-text
+        = t("layouts.notifications.maintenance_mode", count: @minutes_to_maintenance)
+
 - { :notice => "ss-check", :warning => "ss-info", :error => "ss-alert" }.each do |announcement, icon_class|
   - if flash[announcement]
     .flash-notifications

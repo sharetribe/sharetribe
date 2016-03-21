@@ -1420,6 +1420,10 @@ en:
       payment_details_add_error: "Could not add payment details"
       listing_author_payment_details_missing: "Please contact the author by pressing the 'Contact' button below. They need to update their payment details to receive payments."
       stylesheet_needs_recompiling: "Stylesheet is recompiling. Please, reload the page after a while."
+      maintenance_mode:
+        zero: "The system is going to maintenance mode now!"
+        one: "The system is going to maintenance mode in %{count} minute"
+        other: "The system is going to maintenance mode in %{count} minutes"
     settings:
       account: Account
       notifications: Notifications
