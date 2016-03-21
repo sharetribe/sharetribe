@@ -22,31 +22,31 @@ module TransactionService::Gateway
 
       result = BraintreeSaleService.new(payment, gateway_fields).pay(false)
 
-      unless result.success?
+      if result.success?
+        SyncCompletion.new(Result::Success.new({result: true}))
+      else
         SyncCompletion.new(Result::Error.new(result.message))
       end
-
-      SyncCompletion.new(Result::Success.new({result: true}))
     end
 
     def reject_payment(tx:, reason: nil)
       result = BraintreeService::Payments::Command.void_transaction(tx[:id], tx[:community_id])
 
-      unless result.success?
+      if result.success?
+        SyncCompletion.new(Result::Success.new({result: true}))
+      else
         SyncCompletion.new(Result::Error.new(result.message))
       end
-
-      SyncCompletion.new(Result::Success.new({result: true}))
     end
 
     def complete_preauthorization(tx:)
       result = BraintreeService::Payments::Command.submit_to_settlement(tx[:id], tx[:community_id])
 
-      unless result.success?
+      if result.success?
+        SyncCompletion.new(Result::Success.new({result: true}))
+      else
         SyncCompletion.new(Result::Error.new(result.message))
       end
-
-      SyncCompletion.new(Result::Success.new({result: true}))
     end
 
     def get_payment_details(tx:)
