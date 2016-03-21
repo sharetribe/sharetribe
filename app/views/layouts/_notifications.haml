@@ -1,8 +1,8 @@
 
 - if @show_maintenance_warning
   .flash-notifications
-    .flash-notification{:class => "flash-error"}
-      .flash-icon{:class => "ss-alert"}
+    .flash-notification{:class => "flash-warning"}
+      .flash-icon{:class => "ss-info"}
       .flash-text
         = t("layouts.notifications.maintenance_mode", count: @minutes_to_maintenance)
 
