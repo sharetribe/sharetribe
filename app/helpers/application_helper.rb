@@ -1,4 +1,5 @@
 # encoding: utf-8
+# rubocop:disable Metrics/ModuleLength
 module ApplicationHelper
 
   ICON_PACK = APP_CONFIG.icon_pack || "font-awesome"
@@ -581,7 +582,7 @@ module ApplicationHelper
     }
   end
 
-  # rubocop:disable all
+  # rubocop:disable Metrics/MethodLength
   # Admin view left hand navigation content
   def admin_links_for(community)
     links = [
@@ -750,7 +751,7 @@ module ApplicationHelper
 
     links
   end
-  # rubocop:enable all
+  # rubocop:enable Metrics/MethodLength
 
   # Settings view left hand navigation content
   def settings_links_for(person, community=nil)
