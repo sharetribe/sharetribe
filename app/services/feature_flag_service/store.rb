@@ -8,9 +8,7 @@ module FeatureFlagService::Store
       [:features, :mandatory, :set])
 
     FLAGS = [
-      :location_search,
       :export_transactions_as_csv,
-      :new_search,
       :only_gtm,
       :customer_universal_analytics,
       :youtube_embeds,

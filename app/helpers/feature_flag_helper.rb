@@ -14,11 +14,11 @@ module FeatureFlagHelper
 
   def search_engine
     use_external_search = Maybe(APP_CONFIG).external_search_in_use.map { |v| v == true || v.to_s.casecmp("true") == 0 }.or_else(false)
-    feature_enabled?(:new_search) || use_external_search ? :zappy : :sphinx
+    use_external_search ? :zappy : :sphinx
   end
 
   def location_search_available
-    feature_enabled?(:location_search) && search_engine == :zappy
+    search_engine == :zappy
   end
 
 end
