@@ -17,6 +17,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 - Errors from Braintree API were ignored [#1832](https://github.com/sharetribe/sharetribe/pull/1832) by [@priviterag](https://github.com/priviterag)
 
+### Security
+
+- Updated Paperclip gem [#1836](https://github.com/sharetribe/sharetribe/pull/1836)
+
 ## [5.6.0] - 2016-03-11
 
 ### Added
