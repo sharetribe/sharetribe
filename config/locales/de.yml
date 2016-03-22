@@ -1934,8 +1934,8 @@ de:
       confirm_your_email: "Bestätige deine E-Mail"
       account_confirmation_instructions: "Du wirst in Kürze eine E-Mail mit einem Link erhalten, den Du anklicken musst, um die angegebene E-Mail-Adresse zu bestätigen. Nach der Bestätigung Deiner E-Mail ist die Registrierung bei %{service_name} abgeschlossen."
       account_confirmation_instructions_title_admin: "Willkommen auf Deinem Marktplatz!"
-      your_marketplace_has_now_been_created: ~
-      account_confirmation_instructions_admin: ~
+      your_marketplace_has_now_been_created: "Dein Marktplatz wurde jetzt erstellt. Das war ja einfach, nicht wahr? Nur noch einen Schritt bevor Du Dich anmelden kannst: Du solltest Deine E-Mail-Adresse verifizieren."
+      account_confirmation_instructions_admin: "Du wirst gleich eine E-Mail empfangen, die einen Link für die Verifizierung deiner E-Mail-Adresse enthält. Vergiss nicht, Dein Spam-Ordner zu kontrollieren! Nachdem Du Deine E-Mail-Adresse verifiziert hast, kannst Du mit der Einrichtung deines Marktplatzes anfangen."
   settings:
     account:
       change: Ändern
@@ -2109,7 +2109,7 @@ de:
       december: Dez
     today: Heute
     clear: Löschen
-    format: dd.mm.yyyy
+    format: dd/mm/yyyy
   time:
     formats:
       short: "%e %b %Y at %H:%M"

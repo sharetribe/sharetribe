@@ -1100,29 +1100,29 @@ he-IL:
       additionally_some_private_offers_exist: ~
       additionally_some_private_requests_exist: ~
     blank_slate:
-      add_first: ~
-      but_that_is_visible_only_to_registered_members: ~
-      but_those_are_visible_only_to_registered_members: ~
-      create_new_account_for_yourself: ~
-      examples_of_what_you_could_offer_to_others: ~
-      examples_of_what_you_could_request_to_others: ~
-      favor_offer_list: ~
-      favor_request_list: ~
-      favors_to_offer: ~
-      favors_to_request: ~
+      add_first: "באפשרותך להוסיף אחד!"
+      but_that_is_visible_only_to_registered_members: "אפשרות זו זמינה רק עבור משתמשים רשומים."
+      but_those_are_visible_only_to_registered_members: "אפשרויות אלה זמינות רק עבור משתמשים רשומים."
+      create_new_account_for_yourself: "יצירת חשבון חדש"
+      examples_of_what_you_could_offer_to_others: "מה תוכל/י להציע למקבלי השירות"
+      examples_of_what_you_could_request_to_others: "מה תוכל/י לבקש ממקבלי השירות"
+      favor_offer_list: "סיוע ממוחשב, תיקון בגדים, אפייה, תיקון אופניים"
+      favor_request_list: "שמרטפות, שיעורי פסנתר, טיול עם כלבים, כיסוח דשא"
+      favors_to_offer: "עזרה: "
+      favors_to_request: "עזרה: "
       item_offer_list: "כלים, ציוד ספורט, תחפושות, ציוד מחנאות"
       item_request_list: "כלים, ציוד ספורט, תחפושות, ציוד מחנאות"
-      items_to_offer: ~
-      items_to_request: ~
+      items_to_offer: "פריטים שלך הניתנים להשאלה: "
+      items_to_request: "פריטים הניתנים להשאלה מאדם אחר: "
       log_in: התחבר!
-      no_offers_visible_unless_logged_in: ~
-      no_open_offers_currently: ~
-      no_open_requests_currently: ~
-      no_requests_visible_unless_logged_in: ~
+      no_offers_visible_unless_logged_in: "עליך להתחבר בכדי שהשירות יהיה זמין."
+      no_open_offers_currently: "אין כל הצעה של פריט או שירות."
+      no_open_requests_currently: "אין כל בקשה של פריט או שירות."
+      no_requests_visible_unless_logged_in: "עליך להתחבר בכדי שהשירות יהיה זמין."
       one_private_offer_exists: ~
       one_private_request_exists: ~
       ride_offer: ~
-      ride_request: ~
+      ride_request: "הסעה לעבודה"
       some_private_offers_exist: ~
       some_private_requests_exist: ~
     custom_filters:
@@ -1144,19 +1144,19 @@ he-IL:
       are: ~
       what_do_you_need: ~
       post_new_listing: ~
-      are_offering: ~
+      are_offering: הצעה
       add_news_item: ~
-      lend_rent_help_carpool: ~
-      loading_more_content: ~
-      more_events: "ארועים נוספים..."
+      lend_rent_help_carpool: "למכור, להשאיל, לעזור ולשתף נסיעות"
+      loading_more_content: "טוען מידע נוסף"
+      more_events: "פוסטים נוספים..."
       news: חדשות
       no_news: ~
       more_news: ~
-      or: ~
-      or_see_what_the_others: ~
-      recent_events: ~
-      requesting: ~
-      tell_it_here: "ספר לחברים שלך!"
+      or: ו
+      or_see_what_the_others: "... או ראה אחרים"
+      recent_events: "פוסטים אחרונים"
+      requesting: דרושים
+      tell_it_here: "ספר על זה כאן!"
       welcome_to_new_kassi: "ברוכים הבאים ל‎%{service_name}‎!"
       no_reviews: ~
       no_image: ~
@@ -1185,7 +1185,7 @@ he-IL:
       you_have_not_added_your_info: ~
       add_your_info_link: ~
     recent_listing:
-      please_offer: ~
+      please_offer: הצעה
       comment: ~
       comments: ~
     filters:
@@ -1263,13 +1263,13 @@ he-IL:
     logged_in_notifications_icon:
       notifications: התראות
     mobile_logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
+      admin: "מנהל מערכת"
+      go_to_your_profile_page: "פרופיל משתמש"
+      hi: היי
       login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
+      logout: התנתק
+      notifications: התראות
+      requests: "בקשות חברות"
       settings: ~
       sign_up: הרשמה
     notifications:
@@ -1281,37 +1281,37 @@ he-IL:
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
-      comment_cannot_be_empty: ~
+      comment_cannot_be_empty: "לא ניתן להעלות תגובה ריקה"
       comment_sent: "תגובה נשלחה"
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
       create_new_listing: ~
-      create_one_here: ~
+      create_one_here: "צור אחד כאן"
       email_confirmation_sent_to_new_address: ~
-      email_not_found: ~
-      error_with_session: ~
-      feedback_considered_spam: ~
-      feedback_not_saved: ~
-      feedback_saved: ~
-      feedback_sent_to: ~
-      feedback_skipped: ~
+      email_not_found: "כתובת הדואר האלקטרוני שהכנסת לא נמצאה במאגר של ‎%{service_name}‎."
+      error_with_session: "שגיאה בפעולה זו."
+      feedback_considered_spam: "המשוב לא נשמר בשל בעיות בפורמט שלו. נסה שוב או קבל עזרה בפורום המשובים."
+      feedback_not_saved: "משוב לא נשלח."
+      feedback_saved: "תודה רבה עבור המשוב! אשוב אליך בהקדם."
+      feedback_sent_to: "משוב נשלח ל‎%{target_person}‎."
+      feedback_skipped: "לא נכתב משוב"
       invitation_cannot_be_sent: ~
       invitation_limit_reached: ~
       invitation_sent: ~
       inviting_new_users_is_not_allowed_in_this_community: ~
-      login_again: ~
-      login_failed: ~
+      login_again: "אנא התחבר שוב."
+      login_failed: "התחברות נכשלה. אנא בדוק שוב את הזנת הנתונים."
       account_creation_successful: ~
       account_deleted: ~
-      login_successful: ~
+      login_successful: "ברוכים הבאים, ‎%{person_name}‎!"
       logout_successful: ~
       news_item_created: ~
       news_item_creation_failed: ~
       news_item_update_failed: ~
       news_item_updated: ~
       news_item_deleted: ~
-      offer_accepted: ~
+      offer_accepted: "הצעה אושרה"
       offer_confirmed: ~
       offer_closed: ~
       listing_created_successfully: ~

@@ -1078,8 +1078,8 @@ it:
       logged_in_to_kassi: ~
     comment:
       commented: "%{commenter_name} ha commentato l'annuncio %{listing_title} %{time_ago}"
-      offer_partitive: ~
-      request_partitive: ~
+      offer_partitive: offerta
+      request_partitive: richiesta
   header:
     about: "Informazioni di servizio"
     home: Home
@@ -1365,22 +1365,22 @@ it:
       you_have_already_given_feedback_about_this_event: "Hai già fornito feedback su questo evento"
       you_are_now_member: ~
       you_are_already_member: ~
-      you_must_log_in_to_create_new_listing: ~
+      you_must_log_in_to_create_new_listing: "Devi fare il login in %{service_name} per creare una nuova offerta. Se non hai un account puoi %{sign_up_link}."
       additional_email_confirmed_dashboard: "Ora la tua email è confermata."
       you_must_log_in_to_give_feedback: "Devi accedere prima di fornire feedback"
-      you_must_log_in_to_invite_new_users: ~
+      you_must_log_in_to_invite_new_users: "Devi effettuare il login per invitare nuovi utenti in %{service_name}"
       you_must_log_in_to_send_a_comment: "Devi accedere prima di inviare un nuovo commento"
       you_must_log_in_to_send_a_message: "Devi accedere a %{service_name} prima di inviare un messaggio ad un altro utente."
-      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_do_a_transaction: "Devi fare il login in %{service_name} per fare transazioni."
       you_must_log_in_to_view_this_content: "Devi accedere prima di vedere questo contenuto"
-      you_must_log_in_to_view_this_page: ~
-      you_must_log_in_to_view_your_inbox: "Devi accedere a %{service_name} prima di vedere la tua inbox."
-      you_must_log_in_to_view_your_settings: "Devi accedere a %{service_name}prima di vedere le tue impostazioni."
-      you_must_log_in_to_add_news_item: ~
-      you_must_log_in_to_change_profile_settings: ~
-      you_must_log_in_to_change_payment_settings: ~
-      you_must_log_in_to_accept_or_reject: ~
-      you_must_log_in_to_confirm_or_cancel: ~
+      you_must_log_in_to_view_this_page: "Devi fare il login per vedere questa pagina."
+      you_must_log_in_to_view_your_inbox: "Devi accedere a %{service_name} prima di poter vedere i messaggi."
+      you_must_log_in_to_view_your_settings: "Devi accedere a %{service_name} prima di vedere le tue impostazioni."
+      you_must_log_in_to_add_news_item: "Devi effettuare il login in %{service_name} per aggiungere nuovi articoli."
+      you_must_log_in_to_change_profile_settings: "Devi fare il login in %{service_name} per cambiare le impostazioni del profilo."
+      you_must_log_in_to_change_payment_settings: "Devi fare il login in %{service_name} per cambiare le impostazioni di pagamento."
+      you_must_log_in_to_accept_or_reject: "Devi fare il login per accettare o rifiutare la transazione."
+      you_must_log_in_to_confirm_or_cancel: "Devi fare il login per cancellare o confermare la transazione."
       you_need_to_confirm_your_account_first: "Devi prima confermare la tua email."
       you_must_fill_all_the_fields: "Devi completare tutti i campi"
       you_unfollowed_listing: "Non stai più seguendo questa inserzione"
@@ -1579,7 +1579,7 @@ it:
       booking_from: Da
       booking_to: A
       how_paypal_works: "Come funziona PayPal"
-      payment_help: ~
+      payment_help: "Aiuto per i pagamenti con PayPal"
     new:
       post_a_new_listing: "Pubblica una nuova offerta"
       listing: inserzione

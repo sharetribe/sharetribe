@@ -925,8 +925,8 @@ zh-HK:
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: ~
-      you_can_give_feedback_to: ~
+      has_given_you_feedback_in_kassi: "%{name}已在%{service_name}對您作出評價。"
+      you_can_give_feedback_to: "您還未對%{name}作出評價。"
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
@@ -953,8 +953,8 @@ zh-HK:
       change_my_password: ~
       reset_password_instructions: ~
     testimonial_reminder:
-      remember_to_give_feedback_to: ~
-      you_have_not_given_feedback_yet: ~
+      remember_to_give_feedback_to: "提示：請不要忘記對%{name}作出評價。"
+      you_have_not_given_feedback_yet: "你尚未就%{event}對%{name}作出評價。請不要忘記對%{given_name}在該活動的表現作出評價。"
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -995,14 +995,14 @@ zh-HK:
       view_listing: ~
   error_messages:
     listings:
-      departure_time: ~
-      share_type: ~
-      valid_until: ~
+      departure_time: 出發日期必須定於現在時間至一年後之間。
+      share_type: 您必須選擇一項。
+      valid_until: 此日期須為現在時間至六個月後之間。
       price: ~
       minimum_price: ~
     testimonials:
-      you_must_explain_not_neutral_feedback: ~
-      you_must_select_a_grade: ~
+      you_must_explain_not_neutral_feedback: 如果您想要提出非中立評價，您必須解釋原因。
+      you_must_select_a_grade: 請不要忘記就您該次的經驗評價為正面或負面。
     transaction_agreement:
       required_error: ~
     paypal:
@@ -1014,12 +1014,12 @@ zh-HK:
       accept_authorization_error: ~
       reject_authorization_error: ~
   error_pages:
-    back_to_kassi_front_page: ~
+    back_to_kassi_front_page: 返回到主頁
     error_404:
-      if_you_believe: ~
-      page_can_not_be_found: ~
-      page_you_requested_can_not_be_found: ~
-    error_404_title: ~
+      if_you_believe: 假如你相信該地址為正確和有效的，請替我們把錯處指出，以便我們找出造成錯誤的地址，與及知道在頁面該顯示的正確資料。
+      page_can_not_be_found: 找不到頁面！
+      page_you_requested_can_not_be_found: 找不到你所尋求的頁面，請確認輸入地址沒有出錯。
+    error_404_title: 找不到頁面
     error_410:
       page_removed: ~
       page_you_requested_has_been_removed: ~
@@ -1030,16 +1030,16 @@ zh-HK:
       unable_to_process: ~
       we_hate_this: ~
       refer_to_error_id: ~
-    error_500_title: ~
-    error_description: ~
+    error_500_title: 頁面加載失敗
+    error_description: 錯誤描述
     no_javascript:
-      javascript_is_disabled_in_your_browser: ~
-      kassi_does_not_currently_work_without_javascript: ~
+      javascript_is_disabled_in_your_browser: 你的瀏覽器已禁示使用Javascript
+      kassi_does_not_currently_work_without_javascript: "抱歉，%{service_name}目前不能在沒有javascript下提供服務。請在瀏覽器首選中打開javascript，然後刷新頁面。"
       contact_us: ~
-      send_feedback: ~
-      your_feedback_to_admins: ~
-    send: ~
-    your_email_address: ~
+      send_feedback: 發出評價
+      your_feedback_to_admins: 您對管理員的評價
+    send: 傳送
+    your_email_address: 您的電郵地址
   errors:
     messages:
       invalid_date: ~
@@ -1077,14 +1077,14 @@ zh-HK:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: ~
-    home: ~
+    about: 關於
+    home: 主頁
     members: ~
     new_listing: ~
-    mobile_version: ~
-    offers: ~
-    requests: ~
-    search_kassi: ~
+    mobile_version: 行動裝置版本
+    offers: 放售
+    requests: 要求
+    search_kassi: "搜尋%{service_name}"
     create_new_marketplace: ~
     contact_us: ~
     profile: ~
@@ -1095,17 +1095,17 @@ zh-HK:
     menu: ~
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: ~
-      additionally_one_private_request_exists: ~
-      additionally_some_private_offers_exist: ~
-      additionally_some_private_requests_exist: ~
+      additionally_one_private_offer_exists: 除此以外，還有<b>另一個放售貨品</b>
+      additionally_one_private_request_exists: 除此以外，還有<b>另一個貨品要求</b>
+      additionally_some_private_offers_exist: "除此以外，還有<b>另外%{number_of_listings}個貨品放售</b>"
+      additionally_some_private_requests_exist: "除此以外，還有<b>另外%{number_of_listings}個貨品要求</b>"
     blank_slate:
-      add_first: ~
-      but_that_is_visible_only_to_registered_members: ~
-      but_those_are_visible_only_to_registered_members: ~
-      create_new_account_for_yourself: ~
-      examples_of_what_you_could_offer_to_others: ~
-      examples_of_what_you_could_request_to_others: ~
+      add_first: 請增加一個！
+      but_that_is_visible_only_to_registered_members: 但只有註冊用戶才能夠查看。
+      but_those_are_visible_only_to_registered_members: 但這些只有註冊用戶才能夠查看。
+      create_new_account_for_yourself: 註冊新用戶
+      examples_of_what_you_could_offer_to_others: 您有什麼能夠提供予其他用戶
+      examples_of_what_you_could_request_to_others: 您有什麼想向其他用戶要求
       favor_offer_list: ~
       favor_request_list: ~
       favors_to_offer: ~
