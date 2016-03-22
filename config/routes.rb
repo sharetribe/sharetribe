@@ -114,10 +114,15 @@ Kassi::Application.routes.draw do
 
     namespace :admin do
 
+      # Payments
       get  "/paypal_preferences"                      => "paypal_preferences#index"
       post "/paypal_preferences/preferences_update"   => "paypal_preferences#preferences_update"
       get  "/paypal_preferences/account_create"       => "paypal_preferences#account_create"
       get  "/paypal_preferences/permissions_verified" => "paypal_preferences#permissions_verified"
+
+      # Settings
+      get   "/settings" => "communities#settings",        as: :settings
+      patch "/settings" => "communities#update_settings", as: :update_settings
 
       resources :communities do
         member do
@@ -132,7 +137,6 @@ Kassi::Application.routes.draw do
           post :resend_verification_email
           get :edit_text_instructions
           get :test_welcome_email
-          get :settings
           get :payment_gateways
           put :payment_gateways, to: 'communities#update_payment_gateway'
           post :payment_gateways, to: 'communities#create_payment_gateway'
@@ -142,8 +146,14 @@ Kassi::Application.routes.draw do
           put :analytics, to: 'communities#update_analytics'
           get :menu_links
           put :menu_links, to: 'communities#update_menu_links'
-          put :update_settings
           delete :delete_marketplace
+
+          # DEPRECATED (2016-03-22)
+          # These routes are not in use anymore, don't use them
+          # See the above :admin_settings routes, outside of :communities resource
+          get :settings,       to: redirect("/admin/settings")
+          put :update_settings # PUT request, no redirect
+
         end
         resources :transactions, controller: :community_transactions, only: :index
         resources :emails
@@ -160,7 +170,7 @@ Kassi::Application.routes.draw do
 
           # DEPRECATED (2015-11-16)
           # Do not add new routes here.
-          # See the above :paypal_preferences resource, outside of communities resource
+          # See the above :paypal_preferences routes, outside of communities resource
 
           member do
             get :index,                to: redirect("/admin/paypal_preferences")

@@ -7,7 +7,7 @@
 = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
 .left-navi-section
-  = form_for @current_community, :url => update_settings_admin_community_path(@current_community), :method => :put do |form|
+  = form_for @current_community, url: admin_update_settings_path, method: :patch do |form|
     %h2= t(".settings")
 
     - Maybe(@current_community).payment_gateway.each do
