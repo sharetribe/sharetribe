@@ -199,7 +199,7 @@ es-ES:
         fr-CA: "Francés (Canadá)"
         es: "Español (Chile)"
         es-ES: Español
-        pt-PT: ~
+        pt-PT: Portugués
         pt-BR: Portugués
         nb: "Noruego Bokmål"
         sv: Sueco
@@ -222,13 +222,13 @@ es-ES:
         users_can_invite_new_users: "Todos los usuarios pueden invitar nuevos usuarios a este marketplace."
         private: "Este marketplace es privado (sólo los usuarios registrados pueden ver su contenido)."
         require_verification_to_post_listings: "Sólo los usuarios que han sido verificados por el administrador pueden publicar nuevos anuncios"
-        search_preferences: ~
-        default_search_type: ~
-        keyword_search: ~
-        location_search: ~
-        select_distance_unit: ~
-        km: ~
-        miles: ~
+        search_preferences: "Preferencias de búsqueda"
+        default_search_type: "Tipo de búsqueda: %{select_search_type}"
+        keyword_search: "Búsqueda por palabras clave"
+        location_search: "Búsqueda por ubicación"
+        select_distance_unit: "Mostrar distancia en %{distance_units_selector}"
+        km: km
+        miles: millas
         listing_preferences: "Preferencias de los anuncios"
         transaction_preferences: "Preferencias de transacciones"
         show_listing_publishing_date: "Mostrar fecha de publicación del anuncio en la lista de resultados"
@@ -357,9 +357,9 @@ es-ES:
           this_field_is_required: "Campo obligatorio"
           this_field_is_required_checkbox: "El campo es obligatorio (selecciona una opción)"
         search_filter:
-          search_filter: ~
-          date_cant_be_filtered: ~
-          text_cant_be_filtered: ~
+          search_filter: "Crear un filtro basado en este campo en la página de inicio"
+          date_cant_be_filtered: "No hay filtros disponibles para el campo de fecha."
+          text_cant_be_filtered: "No hay filtros disponibles para el campo de texto. La barra de búsqueda principal busca en los campos de texto."
       index:
         listing_fields: "Campos & Filtros de los anuncios"
         listing_fields_help: "Aquí puedes elegir los campos que los usuarios han de completar al publicar un nuevo anuncio. Por favor, recuerda que los campos son predefinidos y no pueden ser editados."
@@ -408,7 +408,7 @@ es-ES:
       configure: Configuración
       emails_title: Emails
       support: Soporte
-      subscription: ~
+      subscription: Subscripción
     listing_shapes:
       index:
         listing_shapes: "Tipos de Orden"
@@ -643,10 +643,10 @@ es-ES:
       message_from: "Mensaje de %{person}"
       about_listing: "sobre el anuncio %{listing_title}"
       free_message: "Mensaje gratuito"
-      message_content_not_available: ~
+      message_content_not_available: "Contenido del mensaje no disponible"
     message:
       accepted_request: "aceptó la solicitud"
-      received_payment: ~
+      received_payment: "solicitud aceptada, pago por la cantidad de %{sum} recibido"
       accepted_offer: "aceptó la oferta"
       rejected_request: "rechazó el pedido"
       rejected_offer: "rechazó la oferta"
@@ -757,8 +757,8 @@ es-ES:
     status_link:
       accept_offer: "Aceptar oferta"
       accept_request: "Aceptar solicitud"
-      reject_offer: "Rechazar oferta"
-      reject_request: "Rechazar solicitud"
+      reject_offer: "No en este momento"
+      reject_request: "No en este momento"
       accept_preauthorized_offer: "Aceptar oferta"
       accept_preauthorized_request: "Aceptar solicitud"
       reject_preauthorized_offer: "Rechazar oferta"
@@ -1041,7 +1041,7 @@ es-ES:
     paypal:
       buyer_cannot_pay_error: "El pago fue rechazado por PayPal. Por favor contacta al servicio al cliente de PayPal para más información: %{customer_service_link}"
       pending_review_error: "El pago se realizó pero fue marcado por PayPal como 'pendiente de revisión'. Cuando PayPal complete esta revisión, el pago será autorizado automáticamente."
-      seller_express_checkout_disabled: ~
+      seller_express_checkout_disabled: "El servicio de Express Checkout de PayPal ha sido inhabilitado para la cuenta de PayPal del autor del anuncio. Por favor contacta al autor del anuncio para avisarle que hay un problema con su cuenta de PayPal y recomendarle que contacte al servicio al cliente de PayPal."
       generic_error: "Ha ocurrido un error durante el proceso de pago. No se pudo finalizar el pago a través de PayPal."
       cancel_error: "Ha ocurrido un error durante la cancelación. No se ha podido finalizar la cancelación"
       accept_authorization_error: "Ha ocurrido un error mientras intentábamos aceptar el pago preautorizado con PayPal. Por favor, inténtalo de nuevo."
@@ -1050,8 +1050,8 @@ es-ES:
     back_to_kassi_front_page: "Volver a la página principal de %{service_name}"
     error_404:
       if_you_believe: "Si crees que la dirección es correcta y debería funcionar, entonces por favor ayúdanos a encontrar el error haciéndonos saber qué dirección ocasionó el error y qué debería aparecer en la página, a través del siguiente formulario."
-      page_can_not_be_found: "La página no puede ser encontrada!"
-      page_you_requested_can_not_be_found: "La página solicitada no puede encontrarse. Está seguro de que escribió correctamente la dirección?"
+      page_can_not_be_found: "Página no encontrada!"
+      page_you_requested_can_not_be_found: "La página solicitada no existe. Estás seguro que la dirección es correcta?"
     error_404_title: "Página no encontrada"
     error_410:
       page_removed: "Página eliminada"
@@ -1208,7 +1208,7 @@ es-ES:
     list_item:
       review: opinión
       reviews: opiniones
-      distance_away: ~
+      distance_away: "A %{distance} %{distance_unit} de distancia"
     news_item:
       show_less: "Menos de"
       show_more: "Más de"
@@ -1379,7 +1379,7 @@ es-ES:
       request_rejected: "Solicitud rechazada"
       request_canceled: "Solicitud cancelada"
       message_sent: "Mensaje enviado"
-      message_not_sent: ~
+      message_not_sent: "El mensaje no pudo ser enviado. Por favor intenta nuevamente."
       this_content_is_not_available_in_this_community: "Este contenido no está disponible en esta comunidad."
       unknown_error: "Error desconocido. Por favor utiliza el link de sugerencias para darnos detalles de lo sucedido."
       update_error: "Un error ha ocurrido mientras se actualizaba la información, por favor inténtalo de nuevo."
@@ -1422,6 +1422,10 @@ es-ES:
       payment_details_add_error: "No se han podido añadir tus datos de pago"
       listing_author_payment_details_missing: "El autor del anuncio no ha añadido sus datos de pago por lo que no puede recibir pagos todavía. Por favor contacta con él."
       stylesheet_needs_recompiling: "La hoja de estilos se está recompilando. Por favor, vuelva a cargar la página en unos instantes."
+      maintenance_mode:
+        zero: "La página estará fuera de servicio por mantenimiento"
+        one: "La página estará fuera de servicio por mantenimiento en %{count} minuto"
+        other: "La página estará fuera de servicio por mantenimiento en %{count} minutos"
     settings:
       account: Cuenta
       notifications: Notificaciones
@@ -1474,7 +1478,7 @@ es-ES:
         repeated: "Repetido (agregar tiempos y días en el campo \"descripción detallada')"
       description:
         detailed_description: "Descripción detallada"
-        youtube_info: ~
+        youtube_info: "Si la descripción del anuncio contiene links de Youtube, los videos se muestran bajo la descripción."
       destination:
         destination: Destino
       form_content:
@@ -1505,7 +1509,7 @@ es-ES:
         this_may_take_a_while: "(puede que tarde un poco...)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Ha habido un error al subir la imagen"
-        image_processing_failed: ~
+        image_processing_failed: "El procesamiento de la imagen falló"
         file_too_large: "El archivo es demasiado grande"
         accepted_formats: "El archivo de imagen debe estar en formato GIF, JPG o PNG."
         images_not_uploaded_confirm: ~
@@ -1676,7 +1680,7 @@ es-ES:
       shipping_price_additional: "Envío (+%{price}, productos adicionales: +%{shipping_price_additional})"
       pickup: Recoger
       pickup_no_price: Recoger
-      youtube_video_player: ~
+      youtube_video_player: "Reproductor de video Youtube"
     unit_types:
       piece: pieza
       hour: hora
@@ -2012,7 +2016,7 @@ es-ES:
       settings_link: opciones
       homepage_link: "página de inicio"
       unsubscribe_unsuccesful: "Error en la cancelación de la suscripción"
-      unsuccessful_unsubscribe_info_text: "La razón puede ser que el enlace para cancelar la suscripción en el que hiciste clic era viejo o estaba roto. Contáctanos a través del botón de feedback en la izquierda y cancelaramos la suscripción por ti, o inicia sesión para cambiar la configuración de tu email."
+      unsuccessful_unsubscribe_info_text: "El enlace para cancelar la suscripción ha expirado. Es necesario iniciar sesión para cambiar la configuración de subscripción de su cuenta de correo electrónico."
     profile:
       about_you: "Sobre tí"
       city: "Ciudad:"

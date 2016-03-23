@@ -1420,6 +1420,10 @@ pt-BR:
       payment_details_add_error: "Não foi possível adicionar detalhes de pagamento"
       listing_author_payment_details_missing: "Por favor entre em contato com o anunciante pressionando o botão \"Contato\" abaixo. Ele precisa atualizar suas informações para receber pagamentos."
       stylesheet_needs_recompiling: "A página de estilos está recompilando. Por favor, recarregue a página depois de um tempo."
+      maintenance_mode:
+        zero: "O site sairá do ar agora para manutenção"
+        one: "O site sairá do ar para manutenção em %{count} minuto"
+        other: "O site sairá do ar para manutenção em %{count} minutos"
     settings:
       account: Conta
       notifications: Notificações

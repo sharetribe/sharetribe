@@ -549,7 +549,7 @@ it:
     what_is_this: "Cos'è questo?"
     removed_user: ~
     paypal_fee_info:
-      title: "Informazioni sul processo di commissioni dovute a PayPal"
+      title: "Informazioni sulle commissioni dovute a PayPal"
       body_text: |-
           PayPal applica una tassa di elaborazione ad ogni pagamento. Questa tassa è compresa tra il 2% e il 5% del prezzo totale di vendita, a seconda del volume di vendite mensile e del paese di residenza dell'acquirente (in Italia 3,4%+0,35€). In generale, per gli acquisti nazionali si applicano costi inferiori rispetto a quelli internazionali, e vendite mensili elevati offrono uno sconto sulla tassa di elaborazione.
           Puoi vedere le tariffe esatte accedendo al tuo conto PayPal andando %{link_to_paypal} . Dopo ogni acquisto si otterrà una ricevuta che visualizza la quota esatta.
@@ -1164,7 +1164,7 @@ it:
       welcome_to_new_kassi: "Benvenuto sul nuovo %{service_name}!"
       no_reviews: "Nessuna recensione"
       no_image: "Nessuna immagine"
-      filter: Filtri
+      filter: "Filtra categorie"
       this_is_private_community: "Devi registrarti prima di poter vedere il contenuto"
     invitation_form:
       email: "Indirizzo/i email"
@@ -1248,7 +1248,7 @@ it:
     infos:
       about: "Informazioni di servizio"
       how_to_use: "Come funziona"
-      info_about_kassi: "Informazioni su %{service_name}"
+      info_about_kassi: "Informazioni riferite a %{service_name}"
       news: News
       register_details: Privacy
       terms: "Termini e Condizioni"
@@ -1393,6 +1393,10 @@ it:
       payment_details_add_error: ~
       listing_author_payment_details_missing: "Ti preghiamo di contattare l'autore, cliccando sul pulsante 'contatta' che trovi più in basso. Deve aggiornare i dettagli di pagamento per poter ricevere pagamenti."
       stylesheet_needs_recompiling: ~
+      maintenance_mode:
+        zero: "Il sito web sarà messo ora offline per manutenzione."
+        one: "Il sito web sarà offline per manutenzione per %{count} minuto."
+        other: "Il sito web sarà offline per %{count} minuti."
     settings:
       account: Account
       notifications: Notifiche
@@ -1432,7 +1436,7 @@ it:
     error:
       something_went_wrong: ~
     follow_links:
-      follow: "Ricevi emails per ogni nuovo commento"
+      follow: "Ricevi email per ogni nuovo commento"
       unfollow: "Non ricevere email per ogni nuovo commento"
     form:
       custom_field_partials:

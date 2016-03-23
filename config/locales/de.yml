@@ -20,7 +20,7 @@ de:
           no_parent: "Keine Oberkategorie"
         category_transaction_types:
           transaction_types: Transaktionsarten
-          transaction_types_description: "Transaktionsarten bestimmen, welche Art von Transaktionen mit Einträgen in dieser Kategorie erlaubt sind. Zum Beispiel ob nur der Verkauf erlaubt ist oder Miete und verschenken ebenfalls."
+          transaction_types_description: "Auftragsarten bestimmen, welche Art von Aufträgen mit Einträgen in dieser Kategorie erlaubt sind. Zum Beispiel ob nur der Verkauf erlaubt ist oder das Vermieten und Verschenken ebenfalls."
           select_all: "Alle auswählen"
           clear_all: "Alle löschen"
         buttons:
@@ -54,10 +54,10 @@ de:
         community_details: Community-Angaben
         community_look_and_feel: Design
         edit_community: "Bearbeite die Community-Details für %{community_name}"
-        enabled_languages: ~
-        enabled_languages_description: ~
-        default_language: ~
-        language_selection_disabled: ~
+        enabled_languages: "Aktivierte Sprachen"
+        enabled_languages_description: "Die Sprachen, die die Nutzer wählen können. Die erste wird als Standard verwendet."
+        default_language: Standardsprache
+        language_selection_disabled: "Die Sprachauswahl für Deinen Marktplatz ist deaktiviert, weil Du die folgenden nicht unterstützten Sprachen verwendest: %{languages}. Bitte kontaktiere den Kundendienst von Sharetribe wenn Du Deine Spracheinstellungen ändern möchtest."
         community_name: "Community Name"
         edit_community_name_description: "Der Name deiner Community. Dieser wird allen Nutzern in E-Mails und an verschiedenen anderen Stellen angezeigt."
         community_slogan: "Community Slogan"
@@ -84,7 +84,7 @@ de:
         transaction_agreement_checkbox_header: "Allgemeine Geschäftsbedingungen Label"
         transaction_agreement_checkbox_label_description: "Dieser Text wird neben einer Checkbox beim Checkout angezeigt. Der Nutzer muss mit einem Haken in der Checkbox zustimmen, um die Transaktion abzuschließen. Ein Beispiel wäre etwa \"Mit Klicken dieser Box akzeptiere ich die Vereinbarung.\""
         transaction_agreement_text_header: "Allgemeine Geschäftsbedingungen"
-        transaction_agreement_description: "Dies ist der Inhalt der allgemeinen Geschäftsbedingungen (AGBs), die der Anwender akzeptieren muss. Der Inhalt der AGBs wird angezeigt, wenn der Benutzer den %{read_more} Link neben dem Label der Allgemeinen Geschäftsbedingungen klickt."
+        transaction_agreement_description: "Dies ist der Inhalt der allgemeinen Geschäftsbedingungen (AGBs), die der Anwender akzeptieren muss. Der Inhalt der AGBs wird angezeigt, wenn der Benutzer den \"%{read_more}\" -Link neben dem Label der Allgemeinen Geschäftsbedingungen klickt."
       edit_look_and_feel:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" der Community %{community_name}"
         community_logo: Logo
@@ -97,7 +97,7 @@ de:
         community_custom_color2: "Zweite Farbe"
         logo_instructions_text_with_dimensions: "Die Größe des Logos sollte %{width}x%{height}px betragen."
         logo_icon_instructions_text_with_dimensions: "Die Größe des Icon-Logos sollte %{width}x%{height}px betragen."
-        cover_photo_visibility: "Das Titelbild wird nicht angemeldeten Benutzern auf der Startseite angezeigt."
+        cover_photo_visibility: "Das Titelbild wird den nicht angemeldeten Benutzern auf der Startseite angezeigt."
         cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Das kleine Titelfoto wird nicht angemeldeten Benutzern auf allen Seiten angezeigt, außer auf der Startseite."
         small_cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt."
@@ -158,49 +158,49 @@ de:
       getting_started:
         getting_started: Kurzanleitung
         welcome_to_your_marketplace: "Willkommen auf deinem Marktplatz, %{name}!"
-        intro: "Das hier ist eine Kurzanleitung für die Einrichtung und Verwaltung Ihres Marktplatzes. Sie können die Seite hier ansehen: %{live_site_link}."
+        intro: "Dies ist eine Kurzanleitung für die Einrichtung und Verwaltung Deines Marktplatzes. Du kannst die Live Seite %{live_site_link} ansehen."
         live_site_link_text: hier
-        look_and_feel: "Bevor Sie Ihren Marktplatz veröffentlichen, wollen Sie vermutlich ein paar Sachen einrichten. Zum Beispiel: %{logo_link}, und ändern Sie das Cover-Foto sowie die Farben, so dass sie mit Ihrer Marke gut zusammenpassen."
-        logo_link_text: "Füge dein Logo hinzu"
-        custom_domain: "Vielleicht möchten Sie auch eine benutzerdefinierte Web-Adresse hinzufügen (zum Beispiel www.ihrmarktplatz.com). Um die Domain für Ihren Marktplatz zu aktivieren müssen wir einige Sachen für Sie einrichten sowie ein SSL-Zertifikat für die Domain kaufen, um ihn sicher zu halten. Deswegen sind benutzerdefinierte Domainnamen zur Zeit nicht inklusive in unserem Trial-Plan, und Sie sollten für die Aktivierung Ihrer eigenen Domain einen Pro-Plan (oder einen höheren Plan) abonnieren. Wenn Sie eine benutzerdefinierte Domain einrichten möchten, bitte %{contact_support_link}."
-        categories_and_custom_fields: "Als Nächstes sollten Sie entscheiden was für Inhalt Leute auf Ihren Marktplatz verkaufen können. Sie können %{categories_link}, %{custom_fields_link} die das aktuelle Anzeigeformular umfasst, und bestimmen %{filters_link} aktiviert sind wenn Leute die Anzeigen durchsuchen."
+        look_and_feel: "Bevor Du Deinen Marktplatz veröffentlichst, willst Du vermutlich ein paar Sachen einrichten. Zum Beispiel kannst Du %{logo_link}, und das Cover-Foto sowie die Farben ändern, so dass sie mit dem Aussehen Deiner Marke gut zusammenpassen."
+        logo_link_text: "dein Logo hinzufügen"
+        custom_domain: "Vielleicht möchtest Du auch eine benutzerdefinierte Web-Adresse hinzufügen (zum Beispiel www.deinmarktplatz.com). Um die Domain für Deinen Marktplatz zu aktivieren müssen wir einige Sachen für Dich einrichten sowie ein SSL-Zertifikat für die Domain kaufen, um sie zu sichern. Deswegen sind benutzerdefinierte Domainnamen zur Zeit nicht inklusive in unserem Trial-Plan, und Du solltest für die Aktivierung Deiner eigenen Domain einen Pro-, Growth- oder Scale-Plan abonnieren. Wenn Du eine benutzerdefinierte Domain einrichten möchtest, bitte %{contact_support_link}."
+        categories_and_custom_fields: "Als Nächstes solltest Du entscheiden was für Inhalt Leute auf Deinem Marktplatz verkaufen können. Du kannst %{categories_link}, %{custom_fields_link} die das aktuelle Anzeigeformular umfasst, und bestimmen %{filters_link} aktiviert sind wenn Leute die Anzeigen durchblättern."
         categories_link_text: "Kategorien und Unterkategorien hinzufügen"
         custom_fields_link_text: "die Formularfelder anpassen"
         filters_link_text: "welche Art von Filter"
-        order_types: ~
-        order_types_link_text: ~
-        payments: "Wenn Sie möchten, dass Leute durch Ihren Marktplatz bezahlen können, damit Sie einen Transaktionsgebühr von jedem Kauf abrechnen können, sollten Sie %{payments_link}."
+        order_types: "Du kannst auch den Auftragsprozess auf deinem Marktplatz konfigurieren. Werden deine Nutzer Sachen verkaufen, verleihen, oder kostenlos schenken? Wenn sie etwas verleihen, dauert der Leihvertrag in der Regel einige Stunden, Tage, oder Wochen? Dies kannst Du auf %{order_types_link} ansehen."
+        order_types_link_text: Auftragsprozesseinstellungen
+        payments: "Wenn Du möchtest, dass Leute durch Deinen Marktplatz bezahlen können, damit Du einen Transaktionsgebühr von jedem Kauf abrechnen kannst, solltest Du %{payments_link}."
         payments_link_text: "eine Zahlungsart einrichten"
-        info_texts: "Vergessen Sie nicht, ihre Infoseiten und andere Texte wo Sie Ihre Benutzern über Ihren Marktplatz erzählen können, einzurichten. Sie sollten %{about_page_link} ansehen sowie Ihre %{terms_of_use_link} (wo Sie Ihre eigenen Nutzungsbedingungen hinzufügen sollten, entweder durch Anpassen der Vorlage oder Einrichtung ein ganz neues Dokuments), ihre %{privacy_policy_link}, und die %{welcome_email_link} die zu jedem neuen Benutzer geschickt wird. Es gibt auch einige %{instruction_texts_link} die sie anpassen können."
+        info_texts: "Vergiss nicht die Infoseiten und andere Texte, wo Du Deinen Benutzern über Ihren Marktplatz erzählen kannst, einzurichten. Du solltest %{about_page_link} ansehen sowie Deine %{terms_of_use_link} (wo Du Deine eigenen Nutzungsbedingungen hinzufügen solltest, entweder durch Anpassen der Vorlage oder Einrichtung eines ganz neuen Dokuments), Deine %{privacy_policy_link}, und die %{welcome_email_link} die zu jedem neuen Benutzer geschickt wird. Es gibt auch einige %{instruction_texts_link} die sie anpassen können."
         about_page_link_text: "Über uns"
         terms_of_use_link_text: Nutzungsbedingungen
         privacy_policy_link_text: Datenschutzbestimmungen
         welcome_email_link_text: Begrüßungs-E-Mail
-        instruction_texts_link_text: "Andere Anleitungstexte"
-        social_media: "Sie können Ihre Gemeinschaft durch Social Media aufbauen. Sie können %{facebook_link} um die Anmeldung für Leute zu vereinfachen, und %{twitter_link} um virale Sichtbarkeit durch Tweets über deinen Marktplatz zu erhalten."
-        facebook_link_text: "ihre benutzerdefinierte Facebook-App verbinden"
-        twitter_link_text: "füge deinen Twitter-Account hinzu"
-        analytics: "%{analytics_link} ist auch eine gute Idee. Dadurch ist es einfacher für Sie die Aktivität Ihres Marktplatzes zu betrachten, wie viele Besucher Sie haben, und so weiter."
-        analytics_link_text: "Verknüpfe einen Google Analytics Account"
-        settings: "Es gibt viele andere Einstellungen mit denen Sie herumspielen können. Zum Beispiel können Sie Ihren Marktplatz so einrichten, dass neue Kunden nur durch Einladung von anderen Kunden ein Konto einrichten können. Sie können Ihren Marktplatz auch privat machen damit nur die angemeldeten Kunden können den Inhalt ansehen. %{settings_link}"
-        settings_link_text: "Hier siehst du deine Marktplatz-Einstellungen"
-        final_words: "Das war's! Wenn alles bereit ist, können Sie %{invite_link}. Sie können %{view_users_link} alle registrierte Benutzerkonten ansehen, und %{view_transactions_link} können Sie ihre Käufe ansehen. Sie können auch einfach die Anzeigen verwalten: gehen Sie einfach auf die Seite der Anzeige und Sie sehen sofort die Administrator-Links mit denen Sie die Anzeige modifizieren oder kündigen können. Wenn Sie Hilfe brauchen, %{contact_support_link} - wir sind hier für Sie!"
-        invite_link_text: "Benutzer zu ihrem Marktplatz einladen"
+        instruction_texts_link_text: "anderen Anleitungstexte"
+        social_media: "Du kannst Deine Community durch Social Media aufbauen. Du kannst %{facebook_link} um die Anmeldung für Deine Nutzer zu vereinfachen, und %{twitter_link} um virale Sichtbarkeit durch Tweets über Deinen Marktplatz zu erhalten."
+        facebook_link_text: "Deine benutzerdefinierte Facebook-App verbinden"
+        twitter_link_text: "Dein Twitter-Konto hinzufügen"
+        analytics: "%{analytics_link} ist auch eine gute Idee. Dadurch ist es einfacher für Dich die Aktivität Deines Marktplatzes zu betrachten, wie viele Besucher Du bekommst, und so weiter."
+        analytics_link_text: "Das Verknüpfen eines Google Analytics Kontos"
+        settings: "Es gibt viele andere Einstellungen mit denen Du herumspielen kannst. Zum Beispiel kannst Du Deinen Marktplatz so einrichten, dass neue Kunden nur durch eine Einladung von einem bevorstehenden Kunden ein Konto einrichten können. Du kannst Deinen Marktplatz auch privat machen damit nur die angemeldeten Kunden den Inhalt ansehen können. %{settings_link}"
+        settings_link_text: "Hier siehst Du Deine Marktplatz-Einstellungen"
+        final_words: "Das war's! Wenn alles bereit ist, kannst Du %{invite_link}. Du kannst %{view_users_link} alle registrierte Benutzerkonten ansehen, und %{view_transactions_link} kannst Du ihre Käufe ansehen. Du kannst auch einfach die Anzeigen verwalten: gehe einfach auf die Seite der Anzeige und da siehst Du sofort die Administrator-Links mit denen Du die Anzeige modifizieren oder kündigen kannst. Wenn Du Hilfe brauchst, %{contact_support_link} - wir sind da für Dich!"
+        invite_link_text: "Benutzer zu Deinem Marktplatz einladen"
         view_users_link_text: hier
         view_transactions_link_text: hier
         contact_support_link_text: "Kontaktiere unseren Support"
       available_languages:
-        en: ~
+        en: Englisch
         en-AU: "Englisch (Australien)"
         en-GB: "Englisch (Großbritannien)"
-        fr: ~
+        fr: Französisch
         fr-CA: "Französisch (Canada)"
         es: "Spanisch (Chile)"
-        es-ES: ~
+        es-ES: Spanisch
         pt-PT: ~
-        pt-BR: ~
-        nb: ~
-        sv: ~
+        pt-BR: "Portugiesisch (Brasilien)"
+        nb: "Norwegisch Bokmål"
+        sv: Schwedisch
         da-DK: Dänisch
         fi: Finisch
         ru: Russisch
@@ -220,13 +220,13 @@ de:
         users_can_invite_new_users: "Alle Mitglieder können neue Benutzer zu dieser Community einladen"
         private: "Diese Community ist privat (nur registrierte Benutzer können den Inhalt sehen)"
         require_verification_to_post_listings: "Nur von Administratoren verifizierte Benutzer können neue Einträge veröffentlichen"
-        search_preferences: ~
-        default_search_type: ~
-        keyword_search: ~
-        location_search: ~
-        select_distance_unit: ~
-        km: ~
-        miles: ~
+        search_preferences: Einstellungen
+        default_search_type: "Suchtyp: %{select_search_type}"
+        keyword_search: Schlagwortsuche
+        location_search: Umgebungssuche
+        select_distance_unit: "Zeige die Entfernung im %{distance_units_selector}"
+        km: km
+        miles: Meilen
         listing_preferences: Eintragseinstellungen
         transaction_preferences: Transaktionspräferenzen
         show_listing_publishing_date: "Datum der Veröffentlichung des Eintrags auf der Artikelseite darstellen"
@@ -240,7 +240,7 @@ de:
         twitter_handle: "Twittername (wird mit dem Tweet-Button auf der Angebotsseite verwendet)"
         update_settings: "Einstellungen speichern"
         automatically_confirmed: "Die Transaktion wird %{days_dropdown} Tage nach Bezahlung automatisch als vollständig gekennzeichnet. Sollte Treuhand verwendet worden sein, wird dann das Geld an den Leistungserbringer freigegeben."
-        automatically_confirmed_no_escrow: ~
+        automatically_confirmed_no_escrow: "Der Auftrag wird automatisch als \"vollendet\" %{days_dropdown} Tage nach der Bezahlung markiert."
         automatic_newsletter_frequency: "Newsletter automatisch verschicken: %{frequency_dropdown}"
         newsletter_daily: Täglich
         newsletter_weekly: Wöchentlich
@@ -271,18 +271,18 @@ de:
         social_media: "Social media"
         twitter_handle: Twittername
         twitter_handle_info_text: "Der Twitter Nutzername Deines Marktplatzes (wenn Du einen hast). Er wird genannt, wenn jemand den Tweet Button in einem Angebot nutzt."
-        twitter_handle_info_text_with_instructions: ~
+        twitter_handle_info_text_with_instructions: "Der Twitter Nutzername deines Marktplatzes (wenn Du einen hast). Er wird genannt, wenn jemand den Tweet Button auf einer Eintrag-Seite klickt. %{instructions_link}."
         twitter_instructions_link_text: Weiterlesen
         twitter_handle_placeholder: Benutzername
         invalid_twitter_handle: "Ihr Twitter-Nutzername sollte höchstens 15 alphanumerische (Buchstaben A-Z und Nummern 0-9) Zeichen lang sein."
         facebook_connect: Facebook
         facebook_connect_info_text: "Um die Facebook-Authentifizierung zu aktivieren, bitte erstellen Sie einen App für Ihren Marktplatz auf dem <a href='https://developers.facebook.com/'>Facebook Entwicklerpanel</a>. Fügen Sie die generierte ID und den Geheimschlüssel der App hier ein."
-        facebook_connect_info_text_with_instructions: ~
-        facebook_instructions_link_text: ~
+        facebook_connect_info_text_with_instructions: "Um die Facebook-Anmeldung zu aktivieren, bitte erstelle einen App für Deinen Marktplatz auf dem <a href='https://developers.facebook.com/'>Facebook Entwicklerpanel</a>. Füge die generierte ID und den Geheimschlüssel der App hier ein.%{instructions_link}"
+        facebook_instructions_link_text: "Siehe die Anleitung für die Einrichtung von Facebook Connect."
         facebook_connect_id: "Facebook Client-ID"
         invalid_facebook_connect_id: "Die Client-ID sollte nur aus Nummern bestehen."
         facebook_connect_secret: "Facebook Client-Geheimnis"
-        invalid_facebook_connect_secret: ~
+        invalid_facebook_connect_secret: "Der App-Secret sollte nur aus Nummern und Buchstaben a-f bestehen."
         save: "Einstellungen speichern"
       analytics:
         analytics: Analytics
@@ -306,12 +306,12 @@ de:
         transactions: "Transaktionen anzeigen"
         headers:
           conversation: Unterhaltungsverlauf
-          listing: Listing
+          listing: Eintrag
           status: Status
           sum: Summe
           started: Gestartet
           last_activity: "Letzte Aktivität"
-          initiated_by: Initiator
+          initiated_by: Starter
           other_party: "Anderer Beteiligter"
         status:
           free: ~
@@ -330,7 +330,7 @@ de:
         environment: Umgebung
         private_key: "Private Key"
         public_key: "Public Key"
-        client_side_encryption_key: ~
+        client_side_encryption_key: "Client-Side Encryption (CSE) -Verschlüsselungsschlüssel"
         merchant_id: "Händler ID"
         master_merchant_id: ~
         commission_from_seller: "Provisionsprozentsatz vom Anbieter"
@@ -407,17 +407,17 @@ de:
       subscription: Abonnement
     listing_shapes:
       index:
-        listing_shapes: ~
-        description: ~
+        listing_shapes: Auftragsarten
+        description: "Auftragsarten bestimmen wie der Auftragsprozess auf deiner Seite funktioniert. Du kannst bestimmen ob deine Nutzer vermieten oder verkaufen, oder nur einfach Einträge veröffentlichen und danach frei kommunizieren können."
         read_more_about_order_types: "Lies mehr über Auftragsarten"
         add_new_shape: "Füge neue Auftragsart hinzu: "
         select_template: "Template wählen ..."
         all_categories: "Alle Kategorien"
         no_categories: "Keine Kategorien"
-        category_count: ~
+        category_count: "%{category_count} Categories"
         header:
-          listing_shape_name: ~
-          listing_shape_categories: ~
+          listing_shape_name: "Name der Auftragsart"
+          listing_shape_categories: "Kategorien wo es verwendet wird"
         order:
           saving_order: Speicherreihenfolge
           save_order_successful: "Erfolgreich gespeicherte Bestellung"
@@ -437,53 +437,59 @@ de:
         create_success: "Neuer Auftragsart %{shape} erstellt"
         create_failure: "Neue Auftragsart konnte nicht erstellt werden. Fehler: %{error_msg}"
       edit:
-        edit_listing_shape: ~
+        edit_listing_shape: "Auftragsart \"%{shape}\" bearbeiten"
         update: Speichern
         cancel: Abbrechen
-        update_success: ~
-        update_failure: ~
+        update_success: "Veränderungen zu der Auftragsart \"%{shape}\" wurden gespeichert"
+        update_failure: "Veränderungen konnten nicht gespeichert werden. Fehler: %{error_msg}"
         delete: "Auftragsart löschen"
         can_not_delete_last: "Du kannst diesen Auftragstyp nicht löschen weil er der einzige auf Deinem Marktplatz ist."
         can_not_delete_only_one_in_categories: "Du kannst diesen Auftragstyp nicht löschen weil er in folgenden Kategorien der einzig verfügbare Auftragstyp ist: %{categories}"
-      listing_shape_name: ~
-      listing_shape_name_placeholder: ~
-      action_button_label: ~
-      action_button_placeholder: ~
+        confirm_delete_order_type:
+          one: "Es gibt %{count} Eintrag mit dieser Auftragsart. Wenn Du die Auftragsart löschest, wird der Eintrag gekündigt. Bist Du sicher, dass Du die Auftragsart löschen willst? "
+          other: "Es gibt %{count} Einträge mit dieser Auftragsart. Wenn du die Auftragsart löschst, werden die Einträge gekündigt. Bist Du sicher, dass Du die Auftragsart löschen willst?"
+      listing_shape_name: Name
+      listing_shape_name_placeholder: "Zum Beispiel Verkaufen"
+      action_button_label: "Kennzeichnung der Checkout-Taste"
+      action_button_placeholder: "Zum Beispiel Kaufen"
       successfully_closed: "Inserate erfolgreich geschlossen."
       successfully_deleted: "Auftragsart '%{order_type}' erfolgreich gelöscht"
       pricing_and_checkout_title: "Preise & Kasse"
       online_payments_label: "Verwende Online-Zahlungssystem"
-      shipping_label: ~
+      shipping_label: "Den Verkäufern erlauben, Versandkosten festzulegen"
       price_label: "Preisfeld anzeigen"
-      units_title: ~
-      units_desc: ~
+      units_title: Preiseinheiten
+      units_desc: "Wenn Du Preiseinheiten aktiviert hast, wird der Eintagspreis als \"Preis pro Preiseinheit\" angezeigt. Beispiel: \"39 € pro Stunde\"."
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
-      can_not_find: ~
+        piece: "Pro Stück"
+        hour: "Pro Stunde"
+        day: "Pro Tag"
+        night: "Pro Nacht"
+        week: "Pro Woche"
+        month: "Pro Monat"
+      can_not_find: "Kann die Auftragsart mit dieser ID nicht finden: %{id}"
       add_custom_unit: "+ Füge eine angepasste Preis Einheit hinzu"
       delete_custom_unit: löschen
       custom_unit_form:
         title: "Neue Preis Einheit"
         label_heading: Label
-        selector_label_heading: ~
-        label_placeholder: ~
-        selector_placeholder: ~
-        per: ~
+        selector_label_heading: Wählschalter-Kennzeichnung
+        label_placeholder: "Zum Beispiel \"kg\", \"30 Minuten\", \"Person\", \"Klasse\""
+        selector_placeholder: "Zum Beispiel \"Menge der Leute\", \"Menge in kg\""
+        per: Pro
         unit_type:
-          heading: ~
-          quantity_label: ~
-          time_label: ~
+          heading: Einheitstyp
+          quantity_label: "Menge (pro Stück, pro kg, pro Person, pro 2-Stunden Reise)"
+          time_label: "Zeit (pro 30 Minuten, pro 2 Wochen, pro Jahr...)"
+      open_listings_warning:
+        one: "Es gibt %{count} offenen Eintrag mit dieser Auftragsart. Wenn Du die Einstellungen unten änderst, wird dieser Eintrag die alten Einstellungen behalten. Der Eintrag kann manuell zu den neuen Einstellungen bearbeitet werden. Wenn Du keine Einträge mit den alten Einstellungen auf der Website sichtbar haben möchtest, kannst Du diese kündigen, indem Du auf die Taste unterhalb klickst."
+        other: "Es gibt %{count} offene Einträge mit dieser Auftragsart. Wenn Du die Einstellungen unten änderst, werden diese Einträge die alten Einstellungen behalten. Die Einträge können manuell zu den neuen Einstellungen bearbeitet werden. Wenn Du keine Einträge mit den alten Einstellungen auf der Website sichtbar haben möchtest, kannst Du diese kündigen, indem Du auf die Taste unterhalb klickst."
     paypal_accounts:
       marketplace_paypal_integration: Zahlungseinstellungen
       preferences_updated: "Zahlungseinstellungen aktualisiert"
       marketplace_currency_used: "Dieser Marktplatz nutzt %{currency} als Währung. Um die Währungseinstellung zu ändern, %{contact_support_link}"
       contact_support_link_text: "kontaktiere den Sharetribe Support"
-      integration_info_text: "Bezahlungen auf Sharetribe sind durch PayPal durchgeleitet. Um deinen Kunden die Bezahlung auf Ihrem Marktplatz zu ermöglichen müssen Sie Ihr PayPal-Konto verbinden. Nachdem Sie Ihr PayPal-Konto verbunden haben, können Sie den Mindestbetrag eines Kaufs einrichten sowie eine mögliche Vermittlungsgebühr."
+      integration_info_text: "Bezahlungen auf Sharetribe sind durch PayPal durchgeleitet. Um deinen Kunden die Bezahlung auf Ihrem Marktplatz zu ermöglichen müssen Sie Ihr PayPal-Konto verbinden. Nachdem Sie Ihr PayPal-Konto verbunden haben, können Sie den Mindestbetrag einer Transaktion einrichten sowie eine mögliche Vermittlungsgebühr."
       paypal_account_email: "1. Verbinde dein PayPal Konto"
       link_paypal_personal_account_label: "Verkaufst Du selbst Produkte?"
       paypal_account_email_completed: Abgeschlossen!
@@ -492,13 +498,13 @@ de:
       set_minimum_price_and_fee_completed: Abgeschlossen!
       read_more_about_paypal: "Mehr über das Shartetribe Zahlungssystem hier lesen."
       set_minimum_price_and_fee: "2. Setze Mindestpreis und Transaktionsgebühr fest"
-      minimum_listing_price_label: "Minimaler Listing Preis:"
+      minimum_listing_price_label: "Der Mindestbetrag einer Transaktion:"
       transaction_fee_label: "Transaktionsgebühr:"
-      minimum_transaction_fee_label: ~
+      minimum_transaction_fee_label: "Mindestgebühr für die Transaktion:"
       note_about_transaction_fee: "Hinweis: Die Gebühren von PayPal gehören zu der Transaktionsgebühr, und sind abhängig von der Währung des Marktplatzes und dem Umsatzvolumen des Verkäufers. Auf diesen Grund ist der Mindestgebühr %{min_paypal_commission}. Sobald die Gebühren von dem Verkäufer genommen werden wird PayPal seine Gebühren zuerst abrechnen, und der Restbetrag wird danach auf Ihr Paypal-Konto eingezählt."
       save_settings: "Einstellungen speichern"
-      minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      minimum_listing_price_below_tx_fee: "Der Mindestbetrag einer Transaktion muss größer oder gleich Mindestgebühr für die Transaktion sein: %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "Die Mindestmenge der Transaktion muss größer als die Mindestprovision %{minimum_commission} sein."
     transaction_types:
       sell: Verkaufen
       rent: Vermieten
@@ -999,7 +1005,7 @@ de:
       your_marketplace_admin_area: "Der Admin-Bereich deines Marktplatzes:"
       just_follow_details: "Folge einfach diesen Links und du wirst mehr Information darüber erhalten, wie du den Aufbau deines Marktplatzes startest!"
       we_will_guide_you_along_the_way: "Wir werden dich den Weg entlang führen."
-      are_you_new_to_online_marketplaces: ~
+      are_you_new_to_online_marketplaces: "Brauchst Du Hilfe bei deinem Marktplatz? Keine Sorge, wir sind da für Dich! Wir werden Dir einige E-Mails schicken, die Dir bei Sharetribe und der Einrichtung eines erfolgreichen Markplatzes helfen werden. Wir schicken Dir Folge 1 gleich. Leider sind diese E-Mails noch nicht übersetzt, und werden auf Englisch sein."
       have_questions: "Hast du Fragen?"
       our_happiness_team_is_here_to_help: "Unser Team ist da um dich glücklich zu machen! Entweder du findest hier Hilfe %{knowledge_base_link} oder wende Dich an den Support %{admin_panel_link}."
       love: "Herzliche Grüße,"
@@ -1185,8 +1191,8 @@ de:
       email: E-Mail-Adresse(n)
       message: "Eine persönliche Nachricht"
       send_invitation: "Einladung senden"
-      add_email_addresses_description: "Füge die E-Mail-Adressen der Leute, die du einladen möchtest, in das obere Feld ein. Wenn du mehrere E-Mail-Adressen hinzufügst, unterteile sie mit einem Komma."
-      add_lots_of_email_addresses: "Wenn du sehr viele Einladungen verschicken möchtest, solltest du lieber ein Email-Tool verwenden. Lies %{this_article_link}, um mehr über geeignete Email-Dienste zu erfahren."
+      add_email_addresses_description: "Füge die E-Mail-Adressen der Leute, die Du einladen möchtest, in das obere Feld ein. Wenn Du mehrere E-Mail-Adressen hinzufügst, unterteile sie mit einem Komma."
+      add_lots_of_email_addresses: "Wenn Du sehr viele Einladungen verschicken möchtest, solltest Du lieber ein Email-Tool verwenden. Lies %{this_article_link}, um mehr über geeignete Email-Dienste zu erfahren."
       this_article_link: "diesen Artikel"
       invitation_emails_field_placeholder: "freund1@beispiel.com, freund2@beispiel.com, ..."
       invitation_message_field_placeholder: "Ich bin dieser tollen Community beigetreten. Das solltest du auch tun!"
@@ -1408,6 +1414,10 @@ de:
       payment_details_add_error: "Zahlungsdetails konnten nicht hinzugefügt werden"
       listing_author_payment_details_missing: "Leider kann dieser Anbieter keine Zahlungen empfangen, da er seine Zahlungsdaten noch angeben muss. Bitte kontaktiere ihn über das Kontakt Feld unten."
       stylesheet_needs_recompiling: "Die Stylesheets werden neu kompiliert. Bitte lade die Seite nach einer Weile neu."
+      maintenance_mode:
+        zero: "Die Webseite geht nun offline für Wartungsarbeiten."
+        one: "Die Webseite geht offline für Wartungsarbeiten in %{count} Minute."
+        other: "Die Webseite geht offline für Wartungsarbeiten in %{count} Minuten."
     settings:
       account: Konto
       notifications: Benachrichtigungen
@@ -2173,7 +2183,7 @@ de:
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: "Kein %{model} gefunden"
+        zero: "Keine %{model} gefunden"
         one: "%{model} wird angezeigt"
         other: "%{count} %{model} werden angezeigt"
       single_page_html:
