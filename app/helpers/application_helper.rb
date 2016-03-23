@@ -1,4 +1,5 @@
 # encoding: utf-8
+# rubocop:disable Metrics/ModuleLength
 module ApplicationHelper
 
   ICON_PACK = APP_CONFIG.icon_pack || "font-awesome"
@@ -581,7 +582,7 @@ module ApplicationHelper
     }
   end
 
-  # rubocop:disable all
+  # rubocop:disable Metrics/MethodLength
   # Admin view left hand navigation content
   def admin_links_for(community)
     links = [
@@ -750,7 +751,7 @@ module ApplicationHelper
 
     links
   end
-  # rubocop:enable all
+  # rubocop:enable Metrics/MethodLength
 
   # Settings view left hand navigation content
   def settings_links_for(person, community=nil)
@@ -941,6 +942,10 @@ module ApplicationHelper
 
   def sort_link_direction(column)
     params[:sort].eql?(column) && params[:direction].eql?("asc") ? "desc" : "asc"
+  end
+
+  def person_emails(person)
+    Maybe(person).emails.or_else{[]}.map{|e| e.address}
   end
 
   # Give an array of translation keys you need in JavaScript. The keys will be loaded and ready to be used in JS

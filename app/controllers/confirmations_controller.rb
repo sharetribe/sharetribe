@@ -61,6 +61,7 @@ class ConfirmationsController < Devise::ConfirmationsController
       flash[:notice] = t("layouts.notifications.additional_email_confirmed")
 
       if @current_user && @current_user.has_admin_rights_in?(@current_community) #admins
+        report_to_gtm({event: "admin_email_confirmed"})
         redirect_to getting_started_admin_community_path(:id => @current_community.id) and return
       elsif @current_user # normal logged in user
         redirect_to root and return
