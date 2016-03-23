@@ -90,14 +90,17 @@ def ask_confirmations!(destination, branch, params)
   if params[:css] == false
     puts ""
     puts "Skipping css compiling, really? (y/n)"
+
+    response = STDIN.gets.strip
+    exit if response != 'y' && response != 'Y'
   elsif params[:css] == true
     puts ""
     puts "Remember to add workers to compile the stylesheets!"
     puts "Continue? (y/n)"
-  end
 
-  response = STDIN.gets.strip
-  exit if response != 'y' && response != 'Y'
+    response = STDIN.gets.strip
+    exit if response != 'y' && response != 'Y'
+  end
 
   if destination == "production" || destination == "preproduction"
     puts ""
