@@ -4,6 +4,8 @@ Upgrade notes will be documented in this file.
 
 ## General update instructions
 
+First things first, take a backup of your database before updating.
+
 When updating, always run the following commands to update gem set, database structure and recompile custom stylesheet:
 
 ```bash
