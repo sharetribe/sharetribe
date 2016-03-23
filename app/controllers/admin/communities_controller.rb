@@ -302,7 +302,7 @@ class Admin::CommunitiesController < ApplicationController
 
     update(@current_community,
             settings_params,
-            settings_admin_community_path(@current_community),
+            admin_settings_path,
             :settings)
   end
 

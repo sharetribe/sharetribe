@@ -21,7 +21,7 @@
 - facebook_link = link_to t("admin.communities.getting_started.facebook_link_text"), social_media_admin_community_path(@current_community)
 - twitter_link = link_to t("admin.communities.getting_started.twitter_link_text"), social_media_admin_community_path(@current_community)
 - analytics_link = link_to t("admin.communities.getting_started.analytics_link_text"), analytics_admin_community_path(@current_community)
-- settings_link = link_to t("admin.communities.getting_started.settings_link_text"), settings_admin_community_path(@current_community)
+- settings_link = link_to t("admin.communities.getting_started.settings_link_text"), admin_settings_path()
 - invite_link = link_to t("admin.communities.getting_started.invite_link_text"), new_invitation_path
 - view_users_link = link_to t("admin.communities.getting_started.view_users_link_text"), admin_community_community_memberships_path(@current_community, sort: "join_date", direction: "desc")
 - view_transactions_link = link_to t("admin.communities.getting_started.view_transactions_link_text"), admin_community_transactions_path(@current_community, sort: "last_activity", direction: "desc")
