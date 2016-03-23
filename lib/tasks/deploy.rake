@@ -90,7 +90,7 @@ def ask_confirmations!(destination, branch, params)
   if params[:css] == false
     puts ""
     puts "Skipping css compiling, really? (y/n)"
-  else
+  elsif params[:css] == true
     puts ""
     puts "Remember to add workers to compile the stylesheets!"
     puts "Continue? (y/n)"
