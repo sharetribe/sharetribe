@@ -17,6 +17,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 - Marketplace ID is removed from the Admin Settings URL [#1839](https://github.com/sharetribe/sharetribe/pull/1839)
 
+### Removed
+
+- Delete duplicated memberships from the database [#1838](https://github.com/sharetribe/sharetribe/pull/1838)
+
 ### Fixed
 
 - Errors from Braintree API were ignored [#1832](https://github.com/sharetribe/sharetribe/pull/1832) by [@priviterag](https://github.com/priviterag)
