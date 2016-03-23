@@ -14,8 +14,8 @@ class UpdatePaypalPaymentsBasedOnClonedFrom < ActiveRecord::Migration
       UPDATE paypal_payments AS pp, people AS p
       SET pp.merchant_id = p.cloned_from
       WHERE
-        pp.person_id = p.id AND
-        p.cloned_form IS NOT NULL
+        pp.merchant_id = p.id AND
+        p.cloned_from IS NOT NULL
       ")
   end
 end
