@@ -267,6 +267,7 @@ Use these instructions to set up and deploy Sharetribe for production in differe
 If you have installation instructions that you would like to share, don't hesitate to [contact the team](https://www.flowdock.com/invitations/de227bdbe48d24c31a6b749933d3b4eca82e307c).
 
 - [Deploying Sharetribe to Heroku](https://gist.github.com/svallory/d08e9baa88e18d691605) by [svallory](https://github.com/svallory)
+- [Deploying Sharetribe to AWS Free Tier in Development Config](https://gist.github.com/pcm211/10950bf5447a51fdcd1c) by [Vivek Bardia](https://github.com/pcm211)
 
 
 ## Payments
