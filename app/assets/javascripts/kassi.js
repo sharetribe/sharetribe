@@ -187,6 +187,25 @@ function initialize_defaults(locale) {
   });
 }
 
+function report_analytics_event(category, action, opt_label) {
+  if (typeof gtm_datalayer_push === 'function') {
+    gtm_datalayer_push({
+      'event' : 'GAEvent',
+      'eventCategory' : category,
+      'eventAction' : action,
+      'eventLabel' : opt_label,
+      'eventValue' : undefined
+    });
+  }
+  var params_array = [category, action, opt_label];
+  if (typeof _gaq !== 'undefined' && Array.isArray(_gaq)) {
+    _gaq.push(['_trackEvent'].concat(params_array));
+  }
+  if (typeof customer_report_event === 'function') {
+    customer_report_event(category, action, opt_label);
+  }
+}
+
 function initialize_network_defaults(required_message, email_message) {
   enableSamePageScroll();
 }
