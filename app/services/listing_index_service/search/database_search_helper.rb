@@ -12,7 +12,8 @@ module ListingIndexService::Search::DatabaseSearchHelper
       {
         community_id: community_id,
         author_id: search[:author_id],
-        deleted: 0
+        deleted: 0,
+        listing_shape_id: Maybe(search[:listing_shape_ids]).or_else(nil)
       })
 
     query = Listing
