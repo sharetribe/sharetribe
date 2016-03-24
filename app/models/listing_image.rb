@@ -108,10 +108,6 @@ class ListingImage < ActiveRecord::Base
     geometry
   end
 
-  def authorized?(user)
-    author == user || (listing && listing.author == user)
-  end
-
   def correct_size?(aspect_ratio)
     ListingImage.correct_size? self.width, self.height, aspect_ratio
   end
