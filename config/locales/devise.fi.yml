@@ -45,7 +45,7 @@ fi:
     unlocks:
       send_paranoid_instructions: "Olemme lähettäneet sähköpostiisi ohjeet käyttäjätilisi lukituksen poistamiseksi, mikäli antamasi sähköpostiosoite löytyy tietokannastamme."
       send_instructions: "Saat hetken kuluttua sähköpostiisi ohjeet tunnuksesi lukituksen poistoon."
-      unlocked: "Tunnuksesi on nyt avattu. Olet kirjautuneena sisälle."
+      unlocked: "Tunnuksesi on nyt avattu. Ole hyvä ja kirjaudu sisään jatkaaksesi."
     omniauth_callbacks:
       success: "%{kind}-kirjautumien onnistui."
       failure: "Kirjautuminen %{kind}-tunnuksella epäonnistui, syynä \"%{reason}\"."

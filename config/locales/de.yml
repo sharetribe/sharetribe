@@ -197,7 +197,7 @@ de:
         fr-CA: "Französisch (Canada)"
         es: "Spanisch (Chile)"
         es-ES: Spanisch
-        pt-PT: ~
+        pt-PT: Portugiesisch
         pt-BR: "Portugiesisch (Brasilien)"
         nb: "Norwegisch Bokmål"
         sv: Schwedisch
@@ -244,14 +244,14 @@ de:
         automatic_newsletter_frequency: "Newsletter automatisch verschicken: %{frequency_dropdown}"
         newsletter_daily: Täglich
         newsletter_weekly: Wöchentlich
-        delete_marketplace_title: ~
-        type_marketplace_domain: ~
-        type_marketplace_domain_placeholder: ~
-        once_you_delete: ~
+        delete_marketplace_title: "Diesen Marktplatz löschen"
+        type_marketplace_domain: "Schreibe den Marktplatz-Domainname (%{domain}) in das Textfeld unten:"
+        type_marketplace_domain_placeholder: "Schreibe den Name deiner Marktplatz-Domain hier"
+        once_you_delete: "Vorsicht - sobald Du den Marktplatz löschst, kannst Du auf ihn nicht mehr zugreifen. Sei vorsichtig."
         are_you_sure: "Bist du sicher?"
-        i_understand_button: ~
-        last_community_updates: ~
-        you_will_be_redirected_to: ~
+        i_understand_button: "Ich verstehe, dass durch Klicken dieser Taste mein Marktplatz gelöscht wird"
+        last_community_updates: "Bitte achte darauf, dass Du und die Nutzer Deines Marktplatzes können noch die letzten Update-E-Mails von deinem Marktplatz empfangen."
+        you_will_be_redirected_to: "Nachdem Du Deinen Marktplatz gelöscht hast wirst Du zu %{destination} umgeleitet. Du hast dann keinen Zugriff mehr zu Deinem Marktplatz."
         delete_this_marketplace: "Diesen Marktplatz löschen"
       manage_members:
         manage_members: "Benutzer verwalten"
@@ -332,7 +332,7 @@ de:
         public_key: "Public Key"
         client_side_encryption_key: "Client-Side Encryption (CSE) -Verschlüsselungsschlüssel"
         merchant_id: "Händler ID"
-        master_merchant_id: ~
+        master_merchant_id: "Master Merchant ID"
         commission_from_seller: "Provisionsprozentsatz vom Anbieter"
       paypal_account:
         paypal_admin_account: Zahlungen
@@ -484,6 +484,12 @@ de:
       open_listings_warning:
         one: "Es gibt %{count} offenen Eintrag mit dieser Auftragsart. Wenn Du die Einstellungen unten änderst, wird dieser Eintrag die alten Einstellungen behalten. Der Eintrag kann manuell zu den neuen Einstellungen bearbeitet werden. Wenn Du keine Einträge mit den alten Einstellungen auf der Website sichtbar haben möchtest, kannst Du diese kündigen, indem Du auf die Taste unterhalb klickst."
         other: "Es gibt %{count} offene Einträge mit dieser Auftragsart. Wenn Du die Einstellungen unten änderst, werden diese Einträge die alten Einstellungen behalten. Die Einträge können manuell zu den neuen Einstellungen bearbeitet werden. Wenn Du keine Einträge mit den alten Einstellungen auf der Website sichtbar haben möchtest, kannst Du diese kündigen, indem Du auf die Taste unterhalb klickst."
+      close_listings_action:
+        one: "%{count} Eintrag schließen"
+        other: "%{count} Einträge schließen"
+      confirm_close_listings_action:
+        one: "Bist Du sicher, dass Du %{count} Eintrag schließen willst?"
+        other: "Bist Du sicher, dass Du %{count} Einträge schließen willst?"
     paypal_accounts:
       marketplace_paypal_integration: Zahlungseinstellungen
       preferences_updated: "Zahlungseinstellungen aktualisiert"
@@ -637,7 +643,7 @@ de:
       message_from: "Nachricht von %{person}"
       about_listing: "In Bezug auf %{listing_title}"
       free_message: Nachricht
-      message_content_not_available: ~
+      message_content_not_available: "Nachrichteninhalt nicht verfügbar"
     message:
       accepted_request: "Anfrage akzeptiert"
       received_payment: "Hat die Anfrage angenommen und eine Zahlung in Höhe von %{sum} erhalten."
@@ -798,7 +804,7 @@ de:
       cvv: "Prüfnummer der Kreditkarte"
       credit_card_expiration_date: "Ablaufdatum der Kreditkarte"
       confirm_payment: "Zahlung bestätigen"
-      exp: ~
+      exp: "Ablauf:"
   feedback:
     feedback_subject: "Neue Nachricht von %{service_name}"
     feedback_body: "%{author_name_and_email} hat Dir die folgende Nachricht auf %{service_name} gesendet"
@@ -1033,7 +1039,7 @@ de:
     paypal:
       buyer_cannot_pay_error: "Die Bezahlung wurde von Paypal abgelehnt. Bitte kontaktiere den Kundenservice für mehr Informationen: %{customer_service_link}"
       pending_review_error: "Die Zahlung wurde eingereicht, wurde aber von PayPal als \"erfordert Bewertung' gekennzeichnet. Wenn PayPal die Überprüfung abgeschlossen hat, wird die Zahlung automatisch genehmigt werden."
-      seller_express_checkout_disabled: ~
+      seller_express_checkout_disabled: "PayPal Express-Checkout ist für das Paypal-Konto des Eintraginhabers deaktiviert. Bitte kontaktiere den Inhaber und lass ihn/sie wissen, dass es ein Problem mit seinem/ihrem Paypal-Konto gibt, und empfehle ihn/sie, den PayPal-Kundendienst zu kontaktieren."
       generic_error: "Während des Zahlungsvorgangs ist ein Fehler aufgetreten. Die PayPal Zahlung konnte nicht abgeschlossen werden."
       cancel_error: "Während der Stornierung ist ein Fehler aufgetreten. Der Abbruch konnte nicht abgeschlossen werden."
       accept_authorization_error: "Bei dem Versuch, eine vorab autorisierte PayPal-Zahlung zu akzeptieren, ist ein Fehler aufgetreten. Bitte versuche es erneut."
@@ -2065,7 +2071,7 @@ de:
       about_listing: "über den Eintrag"
   date:
     formats:
-      long_with_abbr_day_name: ~
+      long_with_abbr_day_name: "%a, %d %b, %Y"
   datepicker:
     days:
       sunday: Sonntag

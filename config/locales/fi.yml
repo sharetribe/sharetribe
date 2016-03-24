@@ -1420,6 +1420,10 @@ fi:
       payment_details_add_error: "Maksutietojen lisäys epäonnistui"
       listing_author_payment_details_missing: ~
       stylesheet_needs_recompiling: "Tyylejä rakennetaan taustalla. Lataa sivu uudestaan hetken kuluttua."
+      maintenance_mode:
+        zero: "Sivusto menee nyt offline-tilaan huoltoa varten"
+        one: "Sivusto menee %{count} minuutin kuluttua offline-tilaan huoltoa varten"
+        other: "Sivusto menee %{count} minuutin kuluttua offline-tilaan huoltoa varten"
     settings:
       account: "Tilin tiedot"
       notifications: Tiedotteet
@@ -1472,7 +1476,7 @@ fi:
         repeated: "Toistuva (kerro ajat ja päivät kohdassa 'tarkempi kuvaus')"
       description:
         detailed_description: "Tarkempi kuvaus"
-        youtube_info: ~
+        youtube_info: "Jos kuvauksesi sisältää YouTube-linkkejä, videot näytetään kuvauksen alla."
       destination:
         destination: Määränpää
       form_content:
@@ -1674,7 +1678,7 @@ fi:
       shipping_price_additional: "Postikulut (+%{price}, lisätuotteet: +%{shipping_price_additional})"
       pickup: Nouto
       pickup_no_price: Nouto
-      youtube_video_player: ~
+      youtube_video_player: "YouTube -videosoitin"
     unit_types:
       piece: kappale
       hour: tunti
