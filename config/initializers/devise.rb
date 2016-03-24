@@ -15,12 +15,9 @@ module Devise
       def authenticate!
         hashed = false
         person = DatabaseAuthenticatableHelpers.resolve_person(
-          authentication_hash[:login], password)
+          authentication_hash[:login], password, env[:community_id])
 
-        if person &&
-           DatabaseAuthenticatableHelpers.authorized?(person, env[:community_id]) &&
-           validate(person){ person.valid_password?(password) }
-
+        if person && validate(person) { person.valid_password?(password) }
           hashed = true
           remember_me(person)
           person.after_database_authentication
@@ -41,22 +38,28 @@ module DatabaseAuthenticatableHelpers
 
   module_function
 
-  def resolve_person(login, password)
+  def resolve_person(login, password, community_id)
     if password.present?
-      find_by_username_or_email(login.downcase)
+      find_by_username_or_email(login.downcase, community_id)
     end
   end
 
-  def find_by_username_or_email(login)
-    Person.find_by(username: login) || Maybe(Email.find_by(address: login)).person.or_else(nil)
+  # private
+
+  def find_by_username_or_email(login, community_id)
+    find_by_username(login, community_id) || find_by_email(login, community_id)
   end
 
-  def authorized?(person, community_id)
-    belongs_to_community?(person, community_id) || person.is_admin?
+  def find_by_username(login, community_id)
+    Person
+      .joins(:community_memberships)
+      .find_by(username: login, community_memberships: { community_id: community_id })
   end
 
-  def belongs_to_community?(person, community_id)
-    person.community_memberships.where(community_id: community_id).present?
+  def find_by_email(login, community_id)
+    Person
+      .joins(:emails, :community_memberships)
+      .find_by(emails: { address: login}, community_memberships: { community_id: community_id })
   end
 end
 
