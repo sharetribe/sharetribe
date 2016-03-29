@@ -6,7 +6,7 @@ id:
       already_confirmed: "sudah terkonfirmasi, silakan masuk kembali"
       not_locked: "tidak tertutup"
       not_saved:
-        other: "%{count} error membuat %{resource} gagal untuk disimpan:"
+        other: "%{count} kesalahan membuat %{resource} gagal untuk disimpan:"
   devise:
     failure:
       already_authenticated: "Anda sudah masuk"

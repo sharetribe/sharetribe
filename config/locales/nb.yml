@@ -60,10 +60,10 @@ nb:
         language_selection_disabled: "Språkvalg er deaktivert på din markedsplass fordi du bruker følgende uoffisielle språk: %{languages}. Vennligst kontakt Sharetribe kundeservice hvis du vil endre dine språkvalg."
         community_name: "Navn markedsplass"
         edit_community_name_description: "Navnet på din markedsplass er vist til brukere i epost og forskjellige andre steder."
-        community_slogan: "slogan markedsplass"
-        edit_community_slogan_description: "Dette vises på din forside for brukere på din markedsplass osm ikke er logget inn. %{see_how_it_looks_like}"
+        community_slogan: "Slogan markedsplass"
+        edit_community_slogan_description: "Dette vises på din forside for brukere på din markedsplass som ikke er logget inn. %{see_how_it_looks_like}"
         community_description: "Beskrivelse markedsplass"
-        edit_community_description_description: "Dette vises på din forside for brukere på din markedsplass osm ikke er logget inn. %{see_how_it_looks_like}"
+        edit_community_description_description: "Dette vises på din forside for brukere på din markedsplass som ikke er logget inn. %{see_how_it_looks_like}"
         community_search_placeholder: "Søk hjelpe tekst"
         edit_community_search_placeholder_description: "Dette vises på forsiden som forklaringstekst i søkefeltet. %{see_how_it_looks_like}."
         private_community_homepage_content: "Privat markedsplassinhold"
@@ -353,7 +353,7 @@ nb:
           this_field_is_required: "Dette feltet er påkrevd"
           this_field_is_required_checkbox: "Dette feltet er påkrevd(bruker må velge minst ett valg)"
         search_filter:
-          search_filter: ~
+          search_filter: "Vis et filter på forsiden basert på dette feltet"
           date_cant_be_filtered: ~
           text_cant_be_filtered: ~
       index:
@@ -893,7 +893,7 @@ nb:
       or_paste_link: "Alternativt kan du kopiere lenken under til nettleseren din:"
       turning_on_confirmations_in_this_community: "Vi benytter nå e-postbekreftelse på %{service_name}."
     common:
-      hey: "Hei %{name},"
+      hey: "Hei %{name}!"
       kassi_team: "Vennlig hilsen %{service_name}"
       thanks: "Takk,"
       dont_want_to_receive_these_emails: "Ønsker du ikke å motta e-poster?"
@@ -1751,11 +1751,11 @@ nb:
     paypal_billing_agreement_made: "2. <del>Tillat %{service_name} å ta betalt for sine tjenester</del> Fullført!"
     commission_permission_needed: "Du vil også måtte gi %{service_name} tillatelse til å belaste en transaksjonskostnad."
     create_paypal_account_link_text: PayPal-konto
-    connected_account: "PayPal-konto '%{email}' tilkoblet."
+    connected_account: "PayPal-kontoen '%{email}' er riktig tilkoblet."
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: "Din PayPal-konto må konfigureres til å ta imot betalinger. Du må opprette en Bedriftskonto."
-    paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: ~
+    paypal_receive_funds_info: "Hvis du ser en feilmelding når du prøver å koble PayPal-kontoen din til %{service_name}, må du %{upgrade_paypal_account_link}. Det er gratis og enkelt. Hvis du er en privatperson, anbefaler PayPal at du bruker navnet ditt som bedriftsnavn."
+    upgrade_paypal_account_link_text: "logge inn og klikke på oppgradér-linken"
     admin_account_not_connected: ~
     contact_admin_link_text: ~
     you_are_ready_to_accept_payments: "Du er klar til å motta betaling!"
@@ -1771,10 +1771,10 @@ nb:
       create_paypal_account: "klikke her"
       upgrade_paypal_account: "logge inn på din PayPal-konto"
       paypal_account_billing_agreement: "2. Tillat %{service_name} å ta et transaksjonsgebyr"
-      follow_steps: ~
+      follow_steps: "Følg stegene under for å begynne å motta betalinger:"
       connect_paypal_account_title: ~
       connect_paypal_account_title_with_step: "Steg %{current_step}/%{total_steps}: Koble til din PayPal-konto"
-      connect_paypal_account_instructions: ~
+      connect_paypal_account_instructions: "Klikk på knappen under for å logge inn på PayPal og koble PayPal-kontoen din til %{service_name}."
       connect_paypal_account: "1. Koble til PayPal-konto"
       paypal_account_billing_agreement_with_step: "Steg %{current_step}/%{total_steps}: Gi tillatelse til å belaste transaksjonsgebyr"
       paypal_account_billing_agreement_info_both: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad (%{commission_from_seller} av totalsum, minus frakt, minimumkostnad %{minimum_commission}) bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."
@@ -1802,8 +1802,8 @@ nb:
     redirect_link_text: her
     paypal_account_all_set_up: "Perfekt, nå er alt klart!"
     can_receive_payments: "Du kan nå motta betalinger for dine annonser."
-    paypal_account_connected_summary: ~
-    paypal_permission_granted_summary: ~
+    paypal_account_connected_summary: "PayPal-kontoen <%{email}> er riktig tilkoblet"
+    paypal_permission_granted_summary: "Tillatelse er gitt for å trekke betalingsgebyr"
   paypal:
     pay_with_paypal: "Gå til betaling"
     checkout_with_paypal: "Betal med PayPal"
@@ -1982,7 +1982,7 @@ nb:
         status_confirmed: Bekreftet
         status_pending: Venter
     notifications:
-      email_from_admins: "Jeg ønsker å få gjevnlige oppdatering fra siden"
+      email_from_admins: "Jeg ønsker å få jevnlige oppdatering fra siden"
       i_want_to_get_email_notification_when: "Jeg ønsker å motta en e-post når..."
       newsletters: Nyhetsbrev
       community_updates: "Oppdateringer på e-post"
