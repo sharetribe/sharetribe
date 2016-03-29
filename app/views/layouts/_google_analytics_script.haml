@@ -3,17 +3,6 @@
   - if APP_CONFIG.use_google_tag_manager.to_s == "true"
     = render partial: "analytics/google_tag_manager"
 
-  = render partial: "analytics/legacy_google_analytics"
-
   - if @current_community && @current_community.google_analytics_key
     = render partial: "analytics/customer_analytics"
-
-  - # when legacy analytics is no longer in use, the GA snippet can be moved to customer analytics haml
-  :plain
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
   </script>
