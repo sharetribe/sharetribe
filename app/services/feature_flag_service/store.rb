@@ -10,7 +10,6 @@ module FeatureFlagService::Store
     FLAGS = [
       :export_transactions_as_csv,
       :customer_universal_analytics,
-      :youtube_embeds,
     ].to_set
 
     def initialize(additional_flags:)
