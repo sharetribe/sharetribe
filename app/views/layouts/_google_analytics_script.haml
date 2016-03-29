@@ -1,14 +1,14 @@
-- if (APP_CONFIG.use_google_analytics)
-  <script>
-  - if APP_CONFIG.use_google_tag_manager.to_s == "true"
-    = render partial: "analytics/google_tag_manager"
+<script>
+- if APP_CONFIG.use_google_tag_manager.to_s == "true"
+  = render partial: "analytics/google_tag_manager"
 
+- if APP_CONFIG.use_google_analytics.to_s == "true"
   = render partial: "analytics/legacy_google_analytics"
 
-  - if @current_community && @current_community.google_analytics_key
-    = render partial: "analytics/customer_analytics"
+- if @current_community && @current_community.google_analytics_key
+  = render partial: "analytics/customer_analytics"
 
-  - # when legacy analytics is no longer in use, the GA snippet can be moved to customer analytics haml
+- if APP_CONFIG.use_google_analytics.to_s == "true" || (@current_community && @current_community.google_analytics_key)
   :plain
     (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -16,4 +16,4 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 
-  </script>
+</script>
