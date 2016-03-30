@@ -49,8 +49,6 @@
   - else
     = content_for(:page_content)
 
-  = render :partial => "layouts/google_analytics_script"
-
   -# Most of the JavaScript should be for performance reasons at the end of the body
 
   -# load Facebook SDK for the whole page
@@ -66,7 +64,9 @@
       report_analytics_event.apply(null, #{@analytics_event});
   - if @gtm_datalayer
     :javascript
-      gtm_datalayer_push(#{@gtm_datalayer.to_json});
+      if(window.ST != null && typeof window.ST.gtmPush === 'function') {
+        window.ST.gtmPush(#{@gtm_datalayer.to_json});
+      }
 
   :javascript
     $(function() {

@@ -5,6 +5,12 @@
     if (person_emails.length) {
       dl.push({"event": "identify", "id": person_emails});
     }
+
+    dl.push({
+      event: 'feature flags',
+      featureFlags: #{feature_flags.to_json.html_safe}
+    });
+
   })(dataLayer);
 
   <!-- Google Tag Manager -->
@@ -15,7 +21,8 @@
   })(window,document,'script','dataLayer','#{APP_CONFIG.google_tag_manager_key}');
   <!-- End Google Tag Manager -->
 
-  var gtm_datalayer_push = function(data){
+  window.ST = window.ST || {};
+  window.ST.gtmPush = function(data){
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push(data);
   };
