@@ -626,7 +626,7 @@ class Person < ActiveRecord::Base
   # Removes legacy password and salt.
   def valid_password?(password)
     if self.legacy_encrypted_password.present?
-      if digest(password, self.password_salt).casecmp(self.legacy_encrypted_password)
+      if digest(password, self.password_salt).casecmp(self.legacy_encrypted_password) == 0
         self.password = password
         self.legacy_encrypted_password = nil
         self.password_salt = nil
