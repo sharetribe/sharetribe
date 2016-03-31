@@ -167,5 +167,9 @@ module Kassi
     # TODO Remove this when upgrading to RAILS 5 END
 
     config.active_job.queue_adapter = :delayed_job
+
+    # TODO remove deprecation warnings when removing legacy analytics
+    ActiveSupport::Deprecation.warn("Support for Kissmetrics is deprecated, please use Google Tag Manager instead") if APP_CONFIG.use_kissmetrics
+    ActiveSupport::Deprecation.warn("Support for Google Analytics is deprecated, please use Google Tag Manager instead") if APP_CONFIG.use_google_analytics
   end
 end

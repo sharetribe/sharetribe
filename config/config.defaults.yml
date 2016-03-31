@@ -143,16 +143,20 @@ default: &default_settings
   grid_listings_limit: 24
   map_listings_limit: 150
 
+  # DEPRECATED, use Google Tag Manager instead
   # Google Analytics can be used to track traffic on the site
   # If set to true you need to obtain your own API key for analytics
   # and enter it below
   use_google_analytics: false
   google_analytics_key: "enter_your_key_here"
 
-  # You can also use Google Tag Manager
+  # Google Tag Manager can be used to track traffic on the site
+  # If set to true you need to obtain your own container key
+  # and enter it below
   use_google_tag_manager: false
   google_tag_manager_key: "enter_your_key_here"
 
+  # DEPRECATED, use Google Tag Manager instead
   # KISS metrics can be used to track many events on the site
   use_kissmetrics: false
   kissmetrics_url: '//doug1izaerwt3.cloudfront.net/INSERT_YOUR_API_KEY_HERE.1.js'
