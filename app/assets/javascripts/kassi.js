@@ -201,8 +201,8 @@ function report_analytics_event(category, action, opt_label) {
   if (typeof _gaq !== 'undefined' && Array.isArray(_gaq)) {
     _gaq.push(['_trackEvent'].concat(params_array));
   }
-  if (typeof customer_report_event === 'function') {
-    customer_report_event(category, action, opt_label);
+  if (typeof ST.customer_report_event === 'function') {
+    ST.customer_report_event(category, action, opt_label);
   }
 }
 

@@ -1,17 +1,23 @@
 :plain
+  window.ST = window.ST || {};
+
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga_customer');
+  })(window,document,'script','//www.google-analytics.com/analytics.js','gaCustomer');
 
-  var community_ga_key = "#{@current_community.google_analytics_key}"
-  var community_cookie_domain = "#{PublicSuffix.parse(request.host).domain}"
-  ga_customer('create', community_ga_key, 'auto', {'legacyCookieDomain': community_cookie_domain,   'allowLinker': true});
-  ga_customer('send', 'pageview');
-  var secondary_analytics_in_use = true;
+  (function(){
+    var communityGaKey = "#{@current_community.google_analytics_key}";
+    var communityCookieDomain = "#{PublicSuffix.parse(request.host).domain}";
 
-  var customer_report_event = function(category, action, opt_label) {
-    if (typeof ga_customer === 'function'){
-      ga_customer('send', 'event', category, action, opt_label);
+    gaCustomer('create', communityGaKey, 'auto', {'legacyCookieDomain': communityCookieDomain, 'allowLinker': true});
+    gaCustomer('send', 'pageview');
+  })();
+
+  ST.secondaryAnalyticsInUse = true;
+
+  ST.customerReportEvent = function(category, action, opt_label) {
+    if (typeof gaCustomer === 'function'){
+      gaCustomer('send', 'event', category, action, opt_label);
     }
   };
