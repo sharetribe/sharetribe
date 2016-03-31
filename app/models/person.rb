@@ -113,7 +113,7 @@ class Person < ActiveRecord::Base
   end
 
   def self.find(username_or_id)
-    by_username = self.find_by_username(username_or_id)
+    by_username = self.find_by(username: username_or_id)
 
     if by_username.nil?
       # Couldn't find by username, trying to find by id
