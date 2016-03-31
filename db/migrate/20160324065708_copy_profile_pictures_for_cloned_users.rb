@@ -21,5 +21,17 @@ class CopyProfilePicturesForClonedUsers < ActiveRecord::Migration
   end
 
   def down
+    cloned_users = Person.where("cloned_from IS NOT NULL")
+
+    progress = ProgressReporter.new(cloned_users.count, 100)
+
+    cloned_users.each { |cloned_user|
+      cloned_user.image.destroy
+      cloned_user.save!
+
+      # Print progress
+      progress.next
+      print_dot
+    }
   end
 end
