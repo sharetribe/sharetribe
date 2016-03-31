@@ -62,11 +62,12 @@ describe PeopleController, type: :controller do
   describe "#create" do
 
     it "creates a person" do
-      @request.host = "#{FactoryGirl.create(:community).ident}.lvh.me"
+      community = FactoryGirl.create(:community)
+      @request.host = "#{community.ident}.lvh.me"
       person_count = Person.count
       username = generate_random_username
       post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test"}
-      expect(Person.find_by_username(username)).not_to be_nil
+      expect(Person.find_by_username_and_community_id(username, community.id)).not_to be_nil
       expect(Person.count).to eq(person_count + 1)
     end
 
@@ -79,7 +80,7 @@ describe PeopleController, type: :controller do
 
       post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}}
 
-      expect(Person.find_by_username(username)).to be_nil
+      expect(Person.find_by_username_and_community_id(username, community.id)).to be_nil
       expect(flash[:error].to_s).to include("This email is not allowed")
     end
   end

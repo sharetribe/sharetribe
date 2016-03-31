@@ -32,13 +32,13 @@ end
 
 Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
   username = person || "kassi_testperson1"
-  person = Person.find_by_username(username)
+  person = Person.find_by(username: username)
   login_user_without_browser(person.username)
 end
 
 Given /^I am logged in as organization(?: "([^"]*)")?$/ do |org_username|
   username = org_username || "company"
-  person = Person.find_by_username(username) || FactoryGirl.create(:person, :username => username, :is_organization => true)
+  person = Person.find_by(username: username) || FactoryGirl.create(:person, :username => username, :is_organization => true)
   login_as(person, :scope => :person)
   visit root_path(:locale => :en)
   @logged_in_user = person
@@ -73,7 +73,7 @@ Given /^my phone number in my profile is "([^"]*)"$/ do |phone_number|
 end
 
 Given /^user "(.*?)" has additional email "(.*?)"$/ do |username, email|
-  Email.create(:person => Person.find_by_username(username), :address => email, :confirmed_at => Time.now)
+  Email.create(:person => Person.find_by(username: username), :address => email, :confirmed_at => Time.now)
 end
 
 Given /^there will be and error in my Facebook login$/ do
@@ -112,7 +112,7 @@ Given /^there are following users:$/ do |person_table|
       username: hash['person'],
     }).merge(hash.except('person', 'membership_created_at'))
 
-    @hash_person, @hash_session = Person.find_by_username(username) || FactoryGirl.create(:person, person_opts)
+    @hash_person, @hash_session = Person.find_by(username: username) || FactoryGirl.create(:person, person_opts)
     @hash_person.save!
 
     @hash_person = force_override_model_id(id, @hash_person, Person, [Email]) if id
@@ -177,25 +177,25 @@ Then /^(?:|I )should see the (username|email) I gave(?: within "([^"]*)")?$/ do 
 end
 
 Given /^"([^"]*)" is superadmin$/ do |username|
-  user = Person.find_by_username(username)
+  user = Person.find_by(username: username)
   user.update_attribute(:is_admin, true)
 end
 
 Given /^user "([^"]*)" is member of community "([^"]*)"$/ do |username, community|
-  user = Person.find_by_username(username)
+  user = Person.find_by(username: username)
   community = Community.where(ident: community).first
   cm = CommunityMembership.find_by_person_id_and_community_id(user.id, community.id)
   CommunityMembership.create(:person_id => user.id, :community_id => community.id) unless cm
 end
 
 Given /^"([^"]*)" has admin rights in community "([^"]*)"$/ do |username, community|
-  user = Person.find_by_username(username)
+  user = Person.find_by(username: username)
   community = Community.where(ident: community).first
   CommunityMembership.find_by_person_id_and_community_id(user.id, community.id).update_attribute(:admin, true)
 end
 
 Given /^"([^"]*)" does not have admin rights in community "([^"]*)"$/ do |username, community|
-  user = Person.find_by_username(username)
+  user = Person.find_by(username: username)
   community = Community.where(ident: community).first
   CommunityMembership.find_by_person_id_and_community_id(user.id, community.id).update_attribute(:admin, false)
 end
@@ -214,7 +214,7 @@ Then /^I should not see my username$/ do
 end
 
 Then /^user "([^"]*)" (should|should not) have "([^"]*)" with value "([^"]*)"$/ do |username, verb, attribute, value|
-  user = Person.find_by_username(username)
+  user = Person.find_by(username: username)
   expect(user).not_to be_nil
   verb = verb.gsub(" ", "_")
   value = nil if value == "nil"
@@ -222,7 +222,7 @@ Then /^user "([^"]*)" (should|should not) have "([^"]*)" with value "([^"]*)"$/ 
 end
 
 Then /^user "(.*?)" should have email "(.*?)"$/ do |username, email|
-  p = Person.find_by_username(username)
+  p = Person.find_by(username: username)
   e = Email.find_by_person_id_and_address(p.id, email)
 
   expect(e).not_to be_nil
@@ -235,7 +235,7 @@ Then /^I should have (confirmed|unconfirmed) email "(.*?)"$/ do |conf, email|
 end
 
 Then /^user "(.*?)" should have (confirmed|unconfirmed) email "(.*?)"$/ do |username, conf, email|
-  p = Person.find_by_username(username)
+  p = Person.find_by(username: username)
   e = Email.find_by_person_id_and_address(p.id, email)
 
   expect(e).not_to be_nil
@@ -250,7 +250,7 @@ Then /^user "(.*?)" should have (confirmed|unconfirmed) email "(.*?)"$/ do |user
 end
 
 When /^"(.*?)" is authorized to post a new listing$/ do |username|
-  person = Person.find_by_username(username)
+  person = Person.find_by_username_and_community_id(username, @current_community.id)
   community_membership = CommunityMembership.find_by_person_id_and_community_id(person.id, @current_community.id)
   community_membership.update_attribute(:can_post_listings, true)
 end
@@ -262,13 +262,13 @@ Given(/^I have just received community updates email$/) do
 end
 
 Given(/^"(.*?)" follows "(.*?)"$/) do |follower, person|
-  person = Person.find_by_username(person)
-  follower = Person.find_by_username(follower)
+  person = Person.find_by(username: person)
+  follower = Person.find_by(username: follower)
   person.followers << follower unless follower.follows? person
 end
 
 Given(/^"(.*?)" follows everyone$/) do |person|
-  person = Person.find_by_username(person)
+  person = Person.find_by(username: person)
   person.followed_people = Person.all - [ person ]
 end
 

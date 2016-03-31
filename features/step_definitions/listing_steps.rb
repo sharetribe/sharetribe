@@ -2,7 +2,7 @@ Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with cate
   opts = Hash.new
   opts[:title] = title
   opts[:category] = find_category_by_name(category_name) if category_name
-  opts[:author] = Person.find_by_username(author) if author
+  opts[:author] = Person.find_by(username: author) if author
 
   shape =
     if shape_name

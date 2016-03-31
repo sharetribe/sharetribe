@@ -19,21 +19,21 @@ World(PaymentSteps)
 Given /^there are following Braintree accounts:$/ do |bt_accounts|
   # Create new accounts
   bt_accounts.hashes.each do |hash|
-    person = Person.find_by_username(hash[:person])
-    community = Community.where(ident: hash[:community]).first
+    community = Community.find_by(ident: hash[:community])
+    person = Person.find_by_username_and_community_id(hash[:person], community.id)
     attributes_to_update = hash.except('person', 'community')
     @account = create_braintree_account(person, community, attributes_to_update)
   end
 end
 
 Given(/^"(.*?)" has an? (active) Braintree account$/) do |username, status|
-  person = Person.find_by_username(username)
+  person = Person.find_by_username_and_community_id(username, @current_community.id)
   @account = create_braintree_account(person, @current_community)
 end
 
 Given /^there is a payment for that request from "(.*?)" with price "(.*?)"$/ do |payer_username, price|
   listing = @transaction.listing
-  payer = Person.find_by_username(payer_username)
+  payer = Person.find_by_username_and_community_id(payer_username, @current_community.id)
   @payment = FactoryGirl.create(:braintree_payment, payer: payer, recipient: listing.author, community: @current_community, sum_cents: price.to_i * 100, tx: @transaction)
 end
 
@@ -47,7 +47,7 @@ Given(/^"(.*?)" has paid for that listing$/) do |username|
 end
 
 Then /^"(.*?)" should have required Checkout payment details saved to my account information$/ do |username|
-  p = Person.find_by_username(username)
+  p = Person.find_by_username_and_community_id(username, @current_community.id)
   expect(p.checkout_account.merchant_id).not_to be_nil
   expect(p.checkout_account.merchant_id).not_to be_blank
   expect(p.checkout_account.merchant_key).not_to be_nil
@@ -65,8 +65,8 @@ When /^Braintree webhook "(.*?)" with id "(.*?)" is triggered$/ do |kind, id|
 end
 
 When /^Braintree webhook "(.*?)" with username "(.*?)" is triggered$/ do |kind, username|
-  person = Person.find_by_username(username)
-  community = Community.where(ident: "test").first # Hard-coded default test community
+  community = Community.find_by(ident: "test") # Hard-coded default test community
+  person = Person.find_by_username_and_community_id(username, community.id)
   signature, payload = BraintreeApi.webhook_testing_sample_notification(
     community, kind, person.id
   )
@@ -227,13 +227,13 @@ When /^I fill the payment details form with invalid information$/ do
 end
 
 Given /^"(.*?)" has Checkout account$/ do |org_username|
-  org = Person.find_by_username(org_username)
+  org = Person.find_by(username: org_username)
   checkout = CheckoutAccount.new({ merchant_key: "SAIPPUAKAUPPIAS", merchant_id: "375917", person_id: org.id })
   checkout.save!
 end
 
 Given /^"(.*?)" does not have Checkout account$/ do |org_username|
-  org = Person.find_by_username(org_username)
+  org = Person.find_by(username: org_username)
   org.checkout_account.destroy if org.checkout_account.present?
 end
 
@@ -260,7 +260,7 @@ Then /^I should see that I successfully authorized payment (.*?)$/ do |amount|
 end
 
 Then /^"(.*?)" should receive email about payment$/ do |receiver|
-  email = Person.find_by_username(receiver).confirmed_notification_emails.first.address
+  email = Person.find_by(username: receiver).confirmed_notification_emails.first.address
   steps %Q{
     When the system processes jobs
   }

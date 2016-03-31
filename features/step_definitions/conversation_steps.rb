@@ -286,7 +286,7 @@ end
 
 Then /^I should send a message to "(.*?)"$/ do |seller_name|
   expect(find("#new_listing_conversation").visible?).to be_truthy
-  seller = Person.find_by_username(seller_name)
+  seller = Person.find_by(username: seller_name)
   expect(find("label[for=listing_conversation_content]")).to have_content("Message to #{seller.given_name}")
 end
 

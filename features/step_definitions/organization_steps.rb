@@ -18,7 +18,7 @@ Given /^I signup as an organization "(.*?)" with name "(.*?)"$/ do |org_username
 end
 
 Then /^there should be an organization account "(.*?)"$/ do |org_username|
-  o = Person.find_by_username(org_username)
+  o = Person.find_by(username: org_username)
   expect(o.is_organization).to be_truthy
 end
 
@@ -31,7 +31,7 @@ Given /^there is an organization "(.*?)"$/ do |org_username|
 end
 
 Given /^"(.*?)" is not an organization$/ do |username|
-  user = Person.find_by_username(username)
+  user = Person.find_by(username: username)
   user.is_organization = false
   user.save!
 end

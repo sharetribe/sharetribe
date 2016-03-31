@@ -63,7 +63,7 @@ end
 
 Given /^"(.*?)" is a member of community "(.*?)"$/ do |username, community_name|
   community = Community.where(ident: community_name).first
-  person = Person.find_by_username!(username)
+  person = Person.find_by!(username: username)
   membership = FactoryGirl.create(:community_membership, :person => person, :community => community)
   membership.save!
 end
