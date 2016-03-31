@@ -451,7 +451,7 @@ it:
         month: "Per mese"
       can_not_find: ~
       add_custom_unit: ~
-      delete_custom_unit: ~
+      delete_custom_unit: Elimina
       custom_unit_form:
         title: ~
         label_heading: ~
@@ -525,9 +525,9 @@ it:
       share_for_free: "condivisione libera"
       accept_for_free: ~
     categories:
-      item: ~
+      item: Categorie
       favor: Servizi
-      rideshare: ~
+      rideshare: Rideshare
       housing: Spazi
       tools: Strumenti
       sports: Sport
@@ -547,7 +547,7 @@ it:
     username: "Nome utente"
     username_or_email: "Email o nome utente"
     what_is_this: "Cos'è questo?"
-    removed_user: ~
+    removed_user: "Utente rimosso"
     paypal_fee_info:
       title: "Informazioni sulle commissioni dovute a PayPal"
       body_text: |-
@@ -576,14 +576,14 @@ it:
       minimum_price_error_message: "Il prezzo non può essere inferiore a %{amount}."
       accept: Accetta
       decline: Rifiuta
-      quantity_label: ~
+      quantity_label: "Quantità:"
       sum_label: "Subtotale:"
       service_fee_label: "Commissione di %{service_name}:"
       you_will_get_label: ~
       total_label: "Totale:"
       total_value: ~
       paypal_fee_info: "* Esclusi i <a id='%{fee_info_link_id}' href='#'>costi di transazione di PayPal</a>"
-      shipping_price_label: ~
+      shipping_price_label: "Spedizione:"
     confirm:
       confirm_description: "Se il tuo ordine è stato completato, dovresti confermarlo. Successivamente puoi dare il tuo feedback all'altra parte."
       cancel_description: ~
@@ -779,10 +779,10 @@ it:
       confirm_payment: "Conferma pagamento"
       exp: ~
   feedback:
-    feedback_subject: ~
+    feedback_subject: "Nuovo feedback da %{service_name}"
     feedback_body: "%{author_name_and_email} ha inviato il seguente feedback da %{service_name}"
-    unlogged_user: ~
-    anonymous_user: ~
+    unlogged_user: "Utente non loggato"
+    anonymous_user: "Utente anonimo"
   preauthorize_payments:
     edit:
       confirm_payment: "Conferma il pagamento"
@@ -790,7 +790,7 @@ it:
     access_denied:
       access_denied: "Accesso negato"
       you_are_banned_in_this_community: ~
-      contact_page_link: ~
+      contact_page_link: feedback
     new:
       welcome_fb_user: "Benvenuto su %{service_name}, %{name}!"
       fb_join_accept_terms: ~
@@ -909,7 +909,7 @@ it:
       you_have_received_new_payment: "Hai ricevuto <b>%{payment_sum}</b> per <b>%{listing_title}</b> da %{payer_full_name}. Ecco la tua ricevuta."
     paypal_new_payment:
       paypal_gateway_fee: "Commissione di PayPal"
-      shipping_total: Spedizione
+      shipping_total: "Spedizione:"
     braintree_new_payment:
       product: "Prodotto:"
       price_payer_paid: "Prezzo pagato da %{payer_full_name}:"
@@ -1025,15 +1025,15 @@ it:
       page_you_requested_can_not_be_found: "La pagina richiesta non è stata trovata. Sei sicuro che hai digitato l'indirizzo correttamente?"
     error_404_title: "pagina non trovata"
     error_410:
-      page_removed: ~
-      page_you_requested_has_been_removed: ~
-      page_removed_reason: ~
-    error_410_title: ~
+      page_removed: "Pagina rimossa"
+      page_you_requested_has_been_removed: "La pagina richiesta è stata rimossa."
+      page_removed_reason: "Ci sono alcune possibili ragioni per questo. Per esempio, un utente può aver rimosso il suo account o l'inserzione è stata rimossa."
+    error_410_title: "pagina rimossa"
     error_500:
       temporary_unavailable: "Temporaneamente non disponibile. Riprova più tardi."
       unable_to_process: "Per favore prova più tardi."
-      we_hate_this: ~
-      refer_to_error_id: ~
+      we_hate_this: "Ci dispiace per questo. Siamo stati informati della situazione e stiamo lavorando alla soluzione del problema."
+      refer_to_error_id: "Se vuoi contattarci riguardo a questo problema, per favore aggiungi l' ID %{error_id} nel tuo messaggio."
     error_500_title: "errore caricamento pagina"
     error_description: "Descrizione dell'errore"
     no_javascript:
@@ -1054,7 +1054,7 @@ it:
       on_or_before: "deve essere durante o prima di %{restriction}"
       after: "deve essere dopo %{restriction}"
       on_or_after: "deve essere durante o dopo %{restriction}"
-      positive_number: ~
+      positive_number: "Inserisci un numero"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} ha accettato il prestito di %{listing_title} a %{requester_name} %{time_ago}."
@@ -1094,7 +1094,7 @@ it:
     profile: Profilo
     manage_listings: "Gestione annunci"
     invite: "Invita amici ad unirsi"
-    login: ~
+    login: ""
     signup: Registrati
     menu: Menù
   homepage:
@@ -1138,7 +1138,7 @@ it:
     grid_item:
       processing_uploaded_image: "(Elaborazione immagine in corso...)"
     index:
-      no_listings_with_your_search_criteria: "Non abbiamo trovato nessun risultato che corrisponde ai tuoi criteri di ricerca"
+      no_listings_with_your_search_criteria: "Nessun risultato. Pazienza, forse ancora nessuno nell'area ha creato un inserzione adatta a questa categoria. Prova a cercare con altri termini."
       no_listings_notification: "No inserzioni. %{add_listing_link}."
       add_listing_link_text: "Aggiungi il tuo spazio"
       open_listing: "inserzione aperta"
@@ -1175,7 +1175,7 @@ it:
       this_article_link: ~
       invitation_emails_field_placeholder: "amico1@esempio.com, amico2@esempio.com, ..."
       invitation_message_field_placeholder: "Mi sono unito a questo fantastico marketplace. Dovresti farlo pure tu!"
-      errors_in_emails: "Controlla che siano email alide, separate da virgola."
+      errors_in_emails: "Controlla che siano email valide. Se aggiungi più indirizzi, assicurati di separarli con una virgola."
     list_item:
       review: recensione
       reviews: recensioni
@@ -1201,7 +1201,7 @@ it:
       grid_button: Griglia
       list_button: Lista
       all_listing_types: "Tutti i tipi di annuncio"
-      all_categories: "Tutte le categorie"
+      all_categories: "Scegli tra le categorie"
     errors:
       search_engine_not_responding: ~
   infos:
@@ -1301,7 +1301,7 @@ it:
       feedback_sent_to: "Feedback inviato a %{target_person}."
       feedback_skipped: "Feedback saltato"
       invitation_cannot_be_sent: "L'invito non può essere inviato"
-      invitation_limit_reached: ~
+      invitation_limit_reached: "Stai inviando troppi inviti. Hai raggiunto il limite giornaliero."
       invitation_sent: "Invito inviato con successo"
       inviting_new_users_is_not_allowed_in_this_community: "Non è permesso invitare altri membri"
       login_again: "Effettua di nuovo l'accesso."
@@ -1357,7 +1357,7 @@ it:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Non sei autorizzato a fornire feedback su questo evento"
       you_are_not_authorized_to_do_this: "Non sei autorizzato a proseguire con questa operazione"
       you_are_not_authorized_to_view_this_content: "Non sei autorizzato a vedere questo commento"
-      listing_closed: ~
+      listing_closed: "Questa inserzione è stata chiusa."
       send_instructions: "Entro qualche minuto riceverai un messaggio email con le istruzioni per reimpostare la tua password."
       you_cannot_reply_to_a_closed_offer: "Non puoi rispondere ad un'offerta chiusa"
       you_cannot_send_message_to_yourself: "Non puoi inviare un messaggio a te stesso"
@@ -1409,8 +1409,8 @@ it:
     comment:
       wrote: scritto
       send_private_message: "Invia un messaggio privato a %{person}"
-      delete: ~
-      are_you_sure: ~
+      delete: Cancella
+      are_you_sure: "Vuoi cancellare questo commento?"
     comment_form:
       ask_a_question: "Lascia un commento su questo annuncio o richiedi maggiori dettagli. Tutti gli altri utenti saranno in grado di vedere il tuo commento"
       log_in: accedere
@@ -1434,7 +1434,7 @@ it:
     map:
       open_in_google_maps: "Apri in Google Maps"
     error:
-      something_went_wrong: ~
+      something_went_wrong: "Qualcosa è andato storto. Codice errore: %{error_code}"
     follow_links:
       follow: "Ricevi email per ogni nuovo commento"
       unfollow: "Non ricevere email per ogni nuovo commento"
@@ -1471,11 +1471,11 @@ it:
         no_file_selected: "Nessun file selezionato"
         remove_image: "Rimuovi immagine"
         select_file: "Seleziona file"
-        add_more: ~
+        add_more: "+ Aggiungi altro"
         removing: "In rimozione..."
         processing: "In attesa..."
         loading_image: Caricamento...
-        image_uploading_in_progress: ~
+        image_uploading_in_progress: "Caricamento immagine..."
         processing_takes_a_while: "Tutte le immagine sono state caricate! Ci vorrà un po' di tempo per finire il processo, comunque puoi già l'inserzione ed uscire se lo desideri."
         this_may_take_a_while: "(potrebbe richiedere del tempo)"
         percentage_loaded: ~
@@ -1483,7 +1483,7 @@ it:
         image_processing_failed: ~
         file_too_large: "L'immagine è troppo grande"
         accepted_formats: "Il file immagine deve essere nel formato GIF, JPG o PNG."
-        images_not_uploaded_confirm: ~
+        images_not_uploaded_confirm: "Non tutte le immagini sono state caricate. Vuoi continuare?"
       location:
         location: Località
       price:
@@ -1499,11 +1499,11 @@ it:
         paypal_fee_info_link_text: "commissione dovuta al sistema di pagamento PayPal"
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "Il prezzo non include l'IVA"
-        delivery: ~
-        shipping: ~
+        delivery: "Metodo di consegna"
+        shipping: Spedizione
         shipping_price: ~
         shipping_price_additional: ~
-        pickup: ~
+        pickup: Ritiro
       origin:
         location: Località
         origin: Origine
@@ -1594,7 +1594,7 @@ it:
       select_subcategory: "Seleziona una Categoria (se non c'è contattaci e faccelo sapere)"
       select_transaction_type: "Seleziona il tipo di annuncio"
       you_need_to_fill_payout_details_before_accepting: "È necessario compilare i dettagli di pagamento prima di poter postare il tuo spazio. Vai al %{payment_settings_link} e inserisci le informazioni."
-      contact_admin_link_text: ~
+      contact_admin_link_text: "Contatta l'amministratore"
       community_not_configured_for_payments: ~
       payment_settings_link: "Impostazioni dei pagamenti"
       community_not_configured_for_payments_admin: ~
@@ -1604,7 +1604,7 @@ it:
       night: "Numero di notti:"
       week: "Numero di settimane:"
       month: "Numero di mesi:"
-      custom: ~
+      custom: "Quantità:"
     quantity_placeholder: ~
     please_comment: Commenta
     reply_link:
@@ -1645,18 +1645,18 @@ it:
       price:
         per_quantity_unit: "per %{quantity_unit}"
         per_day: "al giorno"
-      delivery: ~
-      shipping: ~
-      shipping_no_price: ~
-      shipping_price_additional: ~
-      pickup: ~
-      pickup_no_price: ~
+      delivery: "Metodo di consegna"
+      shipping: "Spedizione (+%{price})"
+      shipping_no_price: Spedizione
+      shipping_price_additional: "Spedizione (+%{price}, additional items: +%{shipping_price_additional})"
+      pickup: Ritiro
+      pickup_no_price: Ritiro
       youtube_video_player: "YouTube video player"
     unit_types:
       piece: ~
       hour: ora
       day: giorno
-      night: ~
+      night: notte
       week: settimana
       month: mese
     verification_required:
@@ -1666,7 +1666,7 @@ it:
       details: Dettagli
       by: "%{listing} di %{author}"
       payment: Pagamento
-      exp: ~
+      exp: "Scadenza:"
       you_will_be_charged: "Il pagamento sarà convalidato solo se %{author} accetterà il pagamento. %{author} ha tempo %{expiration_period} giorni per convalidare. Se %{author} rifiuta o non risponde il pagamento non sarà effettuato."
       day: giorno
       days: giorni
@@ -1695,7 +1695,7 @@ it:
       you_have_something_others_do_not: "Hai qualcosa da offrire?"
     please_comment: Commenta
   mercury:
-    content_too_long: ~
+    content_too_long: "Inserito contenuto troppo lungo."
   okl:
     member_id: "ID utente"
     member_id_or_email: "Numero ID o email"
@@ -1752,9 +1752,7 @@ it:
       connect_paypal_account_instructions: "Clicca sul pulsante in basso, entra così in PayPal, e collega il conto con %{service_name}."
       connect_paypal_account: "Collega il tuo conto Paypal"
       paypal_account_billing_agreement_with_step: "Step %{current_step}/%{total_steps}: Concedere il permesso a caricare la commissione di intermediazione."
-      paypal_account_billing_agreement_info_both: |-
-          Dopo aver effettuato una vendita su %{service_name}, una commissione di intermediazione verrà addebitata sul conto PayPal. Il permesso di fare questo è necessario al fine di accettare pagamenti su %{service_name}. La quota non comprende %{paypal_info_link}.
-          (%{commission_from_seller} sul prezzo totale, a parte le spese di spedizione, tassa minima %{minimum_commission}).
+      paypal_account_billing_agreement_info_both: "Dopo aver effettuato una vendita su %{service_name}, una commissione di servizio, (%{commission_from_seller} sul prezzo totale, a parte le eventuali spese di spedizione, con un minimo di %{minimum_commission}) verrà addebitata sul tuo conto PayPal. Il permesso di fare questo è necessario al fine di accettare pagamenti su %{service_name}. La commissione di servizio non comprende %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Dopo aver effettuato una vendita su %{service_name}, una commissione di intermediazione %{minimum_commission} verrà addebitato sul tuo conto PayPal. E' necessario consentire che Paypal trasferisca tale somma, al fine di ottenere pagamenti su %{service_name}. La quota non include %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Dopo aver effettuato una vendita su %{service_name}, una commissione di intermediazione di %{commission_from_seller} verrà addebitata sul tuo conto PayPal. Il permesso a fare questo è necessario al fine di accettare pagamenti su %{service_name}. La quota non comprende %{paypal_info_link}."
       paypal_account_billing_agreement_info_none: "%{service_name} attualmente non richiede costi di commissione. Nel momento in cui una commissione di intermediazione fosse abilitata, sarà necessario concedere a %{service_name} il permesso di riscuotere una commissione, al fine di consentire i pagamenti. La quota non comprende %{paypal_info_link}."
@@ -1765,7 +1763,7 @@ it:
       could_not_fetch_redirect_url: "Non è stato possibile individuare l'url di reindirizzamento per connettere Paypal."
       paypal_not_enabled: "I pagamenti di Paypal non sono stati abilitati."
       billing_agreement_canceled: "I permessi di pagamento sono stati disabilitati."
-      billing_agreement_not_accepted: "Non hai accettato il contratto di fatturazione in PayPal."
+      billing_agreement_not_accepted: "Non hai accettato l'accordo in PayPal."
       billing_agreement_wrong_account: "I Conti PayPal non coincidono. Per favore usa lo stesso account di PayPal che hai collegato nel primo step."
       something_went_wrong: "Qualcosa è andato storto. Riprova. Se il problema persiste, si prega di contattare gli amministratori del sito."
       account_not_verified: "Non hai verificato il tuo conto PayPal. Hai bisogno di andare a paypal.com e verificare il tuo account prima di poter continuare."
@@ -1903,7 +1901,7 @@ it:
       login_to_kassi: "Accedi a %{service_name}"
       connect_your_facebook_to_kassi: "Collega il tuo account Facebook a %{service_name}"
       facebook_account: "Account Facebook:"
-      log_in_to_link_account: ~
+      log_in_to_link_account: "Se hai già un account in %{service_name}, fai il login con il tuo account di Facebook."
       you_can_also_create_new_account: "Se non hai un account su %{service_name}, %{accont_creation_link} per crearne uno con il tuo login Facebook."
       account_creation_link_text: "clicca qui"
       cancle_facebook_connect: "Se non vuoi collegare questo account, puoi %{cancel_link}"
@@ -1938,10 +1936,10 @@ it:
       delete_account_confirmation_popup: "Sei sicuro di voler eliminare il tuo account e perdere in modo permanente tutte le informazioni in esso contenute? La cancellazione dell'account non è reversibile."
       email_addresses: "Indirizzi email"
       new_email: "Nuovo indirizzo email"
-      delete_all_memberships: ~
+      delete_all_memberships: "Se elimini il tuo account, non sarai più in grado di utilizzare i seguenti marketplace: %{marketplaces}."
       delete_personal_information: "Se elimini l'account, i tuoi dati personali (nome, numero di telefono, indirizzo, email, foto del profilo, ecc) verranno eliminati in modo permanente e non potranno essere recuperati. Tutti gli annunci che hai creato verranno rimossi. Non sarai in grado di riattivare il tuo account."
       delete_information_others_involved: "Le informazioni dove altri partecipanti sono coinvolti (le conversazioni con altre persone, le operazioni che hai fatto, recensioni che hai dato agli altri, ecc) non verranno rimosse quando elimini il tuo account. Tuttavia, il tuo nome non sarà più visualizzato accanto a queste informazioni."
-      unfinished_transactions: ~
+      unfinished_transactions: "Il tuo account non può essere camcellato, perchè hai delle transazioni in sospeso. Per favore completa prima le transazioni."
       new_password: "Nuova password"
       save: Salva
       these_fields_are_shown_only_to_you: "Lo username è mostrato nel tuo profilo a meno che non abbia fornito il tuo nome. Altre informazioni sono mostrate solo a te."
@@ -2136,7 +2134,7 @@ it:
       price_per_day: "Prezzo al giorno:"
       quantity: ~
       subtotal: "Subtotale:"
-      shipping-price: ~
+      shipping-price: "Spedizione:"
     price_per_quantity: "Prezzo per %{unit_type}"
     price: ~
     quantity: ~
