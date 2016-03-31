@@ -188,8 +188,8 @@ function initialize_defaults(locale) {
 }
 
 function report_analytics_event(category, action, opt_label) {
-  if (typeof gtm_datalayer_push === 'function') {
-    gtm_datalayer_push({
+  if (window.ST != null && typeof window.ST.gtmPush === 'function') {
+    window.ST.gtmPush({
       'event' : 'GAEvent',
       'eventCategory' : category,
       'eventAction' : action,
