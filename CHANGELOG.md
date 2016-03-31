@@ -18,6 +18,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 - Marketplace ID is removed from the Admin Settings URL [#1839](https://github.com/sharetribe/sharetribe/pull/1839)
 
+### Deprecated
+
+- Google Analytics and Kissmetrics tracking snippets are deprecated in favor of Google Tag Manager [#1857](https://github.com/sharetribe/sharetribe/pull/1857)
+
 ### Removed
 
 - Delete duplicated memberships from the database [#1838](https://github.com/sharetribe/sharetribe/pull/1838)
