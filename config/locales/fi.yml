@@ -19,8 +19,8 @@ fi:
           category_parent: Yläkategoria
           no_parent: "Ei yläkategoriaa"
         category_transaction_types:
-          transaction_types: Transaktiotyypit
-          transaction_types_description: "Transaktiotyypit määrittelevät, millaiset transaktiot ovat sallittuja tässä kategoriassa oleville ilmoituksille. Voit esimerkiksi määritellä, että ainoastaan myynti-ilmoitukset ovat sallittuja, tai sitten sallia myös vuokrauksen ja lainaamisen."
+          transaction_types: Tilaustyypit
+          transaction_types_description: "Tilaustyypit määrittelevät, millaiset tilaukset ovat sallittuja tässä kategoriassa oleville ilmoituksille. Voit esimerkiksi määritellä, että ainoastaan myynti-ilmoitukset ovat sallittuja, tai sallia myös vuokrauksen ja lainaamisen."
           select_all: "Valitse kaikki"
           clear_all: "Poista valinta kaikista"
         buttons:
@@ -79,8 +79,8 @@ fi:
         verification_to_post_listings_info_content_default: "Sinun pitää saada hyväksyntä ylläpitäjiltä, ennen kuin voit lisätä uuden ilmoituksen. %{contact_admin_link} saadaksesi hyväksynnän."
         contact_admin_link_text: "Ota yhteyttä ylläpitoon"
         save: Tallenna
-        transaction_agreement: Transaktiosopimus
-        transaction_agreement_checkbox: "Käyttäjien pitää hyväksyä sopimus ennen transaktion aloittamista"
+        transaction_agreement: Tilaussopimus
+        transaction_agreement_checkbox: "Käyttäjien pitää hyväksyä sopimus ennen kuin he voivat tehdä tilauksia"
         transaction_agreement_checkbox_header: Sopimuslinkkiteksti
         transaction_agreement_checkbox_label_description: "Tämä on ohjeteksti valintaruudulle, joka käyttäjän pitää valita sopimuksen hyväksymiseksi."
         transaction_agreement_text_header: Sopimusteksti
@@ -160,7 +160,7 @@ fi:
         welcome_to_your_marketplace: "Tervetuloa omalle markkinapaikkasivustollesi, %{name}!"
         intro: "Tämän ohjeen avulla sivustosi muokkaus ja hallinta onnistuu vaivatta. Varsinaisen sivustosi näet %{live_site_link}."
         live_site_link_text: tästä
-        look_and_feel: "Ennen kuin avaat sivustosi kaikelle kansalle, kannattaa tehdä muutamia muutoksia. Voit esimerkiksi %{logo_link} ja vaihtaa sivuston kansikuvan ja värimaailman mieleisiksisi."
+        look_and_feel: "Ennen kuin avaat sivustosi käyttäjillesi, kannattaa tehdä muutamia muutoksia. Voit esimerkiksi %{logo_link} ja vaihtaa sivuston kansikuvan ja värimaailman mieleisiksisi."
         logo_link_text: "lisätä oman logosi"
         custom_domain: "Saatat myös haluta vaihtaa sivustolle mieleisesi verkko-osoitteen (esimerkiksi www.omamarkkinapaikka.fi). Tällaisen osoitteen käyttöönotto vaatii muutamia toimenpiteitä meidän puoleltamme (meidän pitää muun muassa ostaa osoitteelle SSL-sertifikaatti sivustosi tietoturvan varmistamiseksi). Tästä syystä oman verkko-osoitteen asettaminen ei ole käytössä ilmaisessa kokeiluversiossa, vaan se on saatavilla ainoastaan maksullisissa versioissamme Pro-versiosta alkaen. Jos haluat ottaa oman verkko-osoitteen käyttöön, %{contact_support_link}."
         categories_and_custom_fields: "Seuraavaksi voit määritellä, millaista sisältöä käyttäjäsi pystyvät sivustollesi lisäämään. Voit lisätä %{categories_link}, %{custom_fields_link} sekä päättää, millaisten hakusuodattimien avulla %{filters_link} käyttäjäsi pystyvät ilmoituksia etsimään."
@@ -171,20 +171,20 @@ fi:
         order_types_link_text: tilaustavat-sivulla
         payments: "Jos haluat tarjota käyttäjillesi mahdollisuuden maksaa ostoksistaan suoraan markkinapaikkasi maksujärjestelmän kautta, jolloin voit itse ottaa provision kustakin myyntitapahtumasta, sinun on syytä %{payments_link}."
         payments_link_text: "muokata maksuasetuksiasi"
-        info_texts: "Muista myös muokata infosivuja ja muita ohjetekstejä, joiden avulla voit antaa käyttäjillesi lisätietoa sivustosi toiminnasta. Tarkista esimerkiksi %{about_page_link}, %{terms_of_use_link} (sinun kannattaa määritellä itse - voit käyttää apuna valmista pohjaamme), %{privacy_policy_link} (tämäkin sinun on syytä määritellä itse - tälle sivulle voit laittaa esimerkiksi rekisteriselosteeseen vaadittavat tiedot), sekä %{welcome_email_link} joka lähetetään kaikille uusille käyttäjille. Muut ohjetekstit löydät %{instruction_texts_link}."
+        info_texts: "Muista myös muokata infosivuja ja muita ohjetekstejä, joiden avulla voit antaa käyttäjillesi lisätietoa sivustosi toiminnasta. Tarkista esimerkiksi %{about_page_link}, %{terms_of_use_link} (sinun kannattaa määritellä nämä itse - voit käyttää apuna valmista pohjaamme), %{privacy_policy_link} (tämäkin sinun on syytä määritellä itse - tälle sivulle voit laittaa esimerkiksi rekisteriselosteeseen vaadittavat tiedot), sekä %{welcome_email_link} joka lähetetään kaikille uusille käyttäjille. Muut ohjetekstit löydät %{instruction_texts_link}."
         about_page_link_text: tietoa-sivu
         terms_of_use_link_text: "sivustosi käyttöehdot"
-        privacy_policy_link_text: "dokumentti yksityisyydensuojasta"
+        privacy_policy_link_text: tietosuojakäytäntö
         welcome_email_link_text: tervetulosähköposti
         instruction_texts_link_text: täältä
-        social_media: "Sosiaalisen median hyödyntäminen on hyvä tapa yhteisöllisyyden lisäämiseen. Voit %{facebook_link}, jotta käyttäjäsi voivat kirjautua sivustollesi Facebook-tunnuksillaan, sekä %{twitter_link} saadaksesi lisää näkyvyytta, kun käyttäjäsi twiittaavat luomistaan ilmoituksista."
+        social_media: "Sosiaalisen median hyödyntäminen on hyvä tapa yhteisöllisyyden lisäämiseen. Voit %{facebook_link}, jotta käyttäjäsi voivat kirjautua sivustollesi Facebook-tunnuksillaan, sekä %{twitter_link} saadaksesi lisää näkyvyyttä, kun käyttäjäsi twiittaavat luomistaan ilmoituksista."
         facebook_link_text: "yhdistää oman Facebook-applikaatiosi"
         twitter_link_text: "lisätä Twitter-tilisi"
         analytics: "Kannatta myös %{analytics_link}"
         analytics_link_text: "yhdistää Google Analytics -tili markkinapaikkaasi, jotta näet helpommin, mitä sivustollasi tapahtuu, kuinka paljon sivustolla on kävijöitä ja niin edelleen."
         settings: "Tarjolla on myös paljon muita asetuksia. Voit esimerkiksi vaatia kaikilta käyttäjiltä kutsun, ennen kuin he pääsevät liittymään sivustollesi, ja tehdä sivustostasi ei-julkisen, jolloin ainoastaan kirjautuneet käyttäjät näkevät sivuston sisällöt. %{settings_link}."
         settings_link_text: "Muuta sivustosi asetuksia täältä"
-        final_words: "Siinä kaikki! Kun kaikki on valmiina julkaisua varten, voit %{invite_link} sivustollesi. %{view_users_link} näet kaikki sivustolle liittyneet käyttäjät, ja %{view_transactions_link} puolestaan kaikki toteutuneet maksutapahtumat. Pystyt myös muokkaamaan käyttäjien lisäämiä ilmoituksia: kun menet yksittäisen ilmoituksen sivulle, näet siellä muokkausnapit ilmoituksen muokkausta ja sulkemista varten. Jos tarvitset lisäohjeita, %{contact_support_link} - olemme täällä sinua varten!"
+        final_words: "Siinä kaikki! Kun kaikki on valmiina julkaisua varten, voit %{invite_link} sivustollesi. %{view_users_link} näet kaikki sivustolle liittyneet käyttäjät, ja %{view_transactions_link} puolestaan kaikki toteutuneet maksutapahtumat. Pystyt myös muokkaamaan käyttäjien lisäämiä ilmoituksia: kun menet yksittäisen ilmoituksen sivulle, näet siellä muokkausnapit ilmoituksen muokkausta ja sulkemista varten. Jos tarvitset lisäohjeita, %{contact_support_link} - autamme mielellämme!"
         invite_link_text: "kutsua käyttäjiä"
         view_users_link_text: "Tältä sivulta"
         view_transactions_link_text: täältä
@@ -228,7 +228,7 @@ fi:
         km: km
         miles: mailit
         listing_preferences: Ilmoitusasetukset
-        transaction_preferences: "Transaktioprosessin asetukset"
+        transaction_preferences: "Tilausprosessin asetukset"
         show_listing_publishing_date: "Näytä ilmoituksen julkaisuajankohta ilmoituksen sivulla"
         show_category_in_listing_list: "Näytä ilmoituskategoria listanäkymässä"
         hide_expiration_date: "Älä vaadi viimeisen voimassaolopäivän valintaa ilmoituksen lisäyksen yhteydessä"
@@ -239,8 +239,8 @@ fi:
         google_analytics_key: "Google Analytics tracking ID (classic account)"
         twitter_handle: "Twitter-tili (käytetään ilmoitussivulla olevan twitter-napin yhteydessä)"
         update_settings: Tallenna
-        automatically_confirmed: "Transaktio merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää. Jos käytössä on escrow-järjestelmä, rahat tilitetään tässä vaiheessa maksun saajalle."
-        automatically_confirmed_no_escrow: "Transaktio merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää"
+        automatically_confirmed: "Tilaus merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää. Jos käytössä on escrow-järjestelmä, rahat tilitetään tässä vaiheessa maksun saajalle."
+        automatically_confirmed_no_escrow: "Tilaus merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää"
         automatic_newsletter_frequency: "Lähetä automaattinen uutiskirje: %{frequency_dropdown}"
         newsletter_daily: Päivittäin
         newsletter_weekly: Viikoittain
@@ -303,7 +303,7 @@ fi:
         empty: "Sinulla ei ole lisälinkkejä valikossa"
       transactions:
         export_all_as_csv: "Lataa tiedot CSV-tiedostona"
-        transactions: "Näytä transaktiot"
+        transactions: "Näytä tilaukset"
         headers:
           conversation: Viestiketju
           listing: Ilmoitus
@@ -400,7 +400,7 @@ fi:
         email_sent: "Viesti lähetetty."
     left_hand_navigation:
       general: Yleistä
-      users_and_transactions: "Käyttäjät ja transaktiot"
+      users_and_transactions: "Käyttäjät ja tilaukset"
       configure: "Sivuston muokkaus"
       emails_title: Sähköpostit
       support: Asiakastuki
@@ -659,10 +659,10 @@ fi:
     new:
       offer_message_form_title: "Tarjoa %{listing} käyttäjälle %{person}"
       request_message_form_title: "Pyydä %{listing} käyttäjältä %{person}"
-      favor_offer_message_form_title: "Pyydä palvelusta käyttäjältä"
-      favor_request_message_form_title: "Tarjoa palvelus käyttäjälle"
-      housing_offer_message_form_title: "Vastaa käyttäjälle"
-      housing_request_message_form_title: "Vastaa käyttäjälle"
+      favor_offer_message_form_title: "Pyydä palvelusta käyttäjältä %{person}"
+      favor_request_message_form_title: "Tarjoa palvelus käyttäjälle %{person}"
+      housing_offer_message_form_title: "Tarjoa tilaa käyttäjälle %{person}"
+      housing_request_message_form_title: "Pyydä tilaa käyttäjältä %{person}"
       item_offer_lend_message_form_title: "Lainaa %{listing} käyttäjältä %{person}"
       item_offer_sell_message_form_title: "Osta %{listing} käyttäjältä %{person}"
       item_offer_give_away_message_form_title: "Pyydä %{listing} käyttäjältä %{person}"
@@ -679,12 +679,12 @@ fi:
       housing_offer_accept_for_free_message_form_title: "Tarjoa tilaa %{listing} käyttäjälle %{person}"
       housing_request_buy_message_form_title: "Myy %{listing} käyttäjälle %{person}"
       housing_request_rent_message_form_title: "Anna vuokralle %{listing} käyttäjälle %{person}"
-      item_request_message_form_title: "Tarjoa tavara käyttäjälle"
+      item_request_message_form_title: "Tarjoa tavara käyttäjälle %{person}"
       message: Viesti
       message_to: "Viesti käyttäjälle %{author_name}"
       optional_message_to: "Valinnainen viesti käyttäjälle %{author_name}"
-      rideshare_offer_message_form_title: "Pyydä kyytiä käyttäjältä"
-      rideshare_request_message_form_title: "Tarjoa kyyti käyttäjälle"
+      rideshare_offer_message_form_title: "Pyydä kyytiä käyttäjältä %{person}"
+      rideshare_request_message_form_title: "Tarjoa kyyti käyttäjälle %{person}"
       send_message: "Lähetä viesti"
       send: Lähetä
       this_message_is_private: "Tämä viesti on yksityinen sinun ja käyttäjän %{person} välillä. %{person} saa tiedon lähettämästäsi viestistä sähköpostilla."
@@ -957,7 +957,7 @@ fi:
       money_will_be_transferred: "Rahat siirretään käyttäjälle %{recipient_name} kun a) olet merkinnyt tilauksen toteutuneeksi tai b) maksuhetkestä on kulunut %{automatic_confirmation_days} päivää."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta %{service_name}-palvelussa"
-      you_can_give_feedback_to: "Voit antaa palautetta käyttäjälle %{name} osoitteessa"
+      you_can_give_feedback_to: "Et ole vielä antanut palautetta käyttäjälle %{name}."
       view_feedback: "Näytä palaute"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Seuraamasi ilmoitus on päivittynyt"
@@ -987,15 +987,15 @@ fi:
       remember_to_give_feedback_to: "Muistutus: muistathan antaa palautetta käyttäjälle %{name}"
       you_have_not_given_feedback_yet: "Et ole vielä antanut palautetta käyttäjälle %{name} liittyen tapahtumaan '%{event}'"
     transaction_preauthorized:
-      subject: ~
-      transaction_requested_by_user: ~
+      subject: "%{requester} on tehnyt katevarauksen ja pyynnön tuotteesta %{listing_title}"
+      transaction_requested_by_user: "%{requester} on tehnyt katevarauksen ja pyynnön tuotteesta \"%{listing_title}\""
       you_have_time_to_accept: "Sinun pitää hyväksyä tilaus viimeistään %{payment_expires_in}. Jos hyväksyt tilauksen ennen määräaikaa, maksu veloitetaan ostajalta. Muussa tapauksessa tilaus hylätään automaattisesti eikä maksua veloiteta."
-      click_here_to_reply: ~
+      click_here_to_reply: "Klikkaa tästä vastaaksesi pyyntöön"
     transaction_preauthorized_reminder:
       subject: "Muista hyväksyä ilmoitukseen %{listing_title} liittyvä tilaus käyttäjältä %{requester}"
-      remember_to_accept: ~
-      one_day_left: ~
-      click_here_to_reply: ~
+      remember_to_accept: "Muista hyväksyä pyyntö käyttäjältä %{requester} koskien tilausta \"%{listing_title}\". %{requester} on jo maksanut tilauksen. Sinun pitää hyväksyä tilaus saadaksesi maksun tilillesi."
+      one_day_left: "Mikäli et hyväksy pyyntöä yhden päivän sisällä, pyyntö hylätään automaattisesti etkä saa maksua tilillesi."
+      click_here_to_reply: "Klikkaa tästä vastataksesi pyyntöön"
     welcome_email:
       welcome_email_subject: "Tervetuloa %{community}-palveluun"
       welcome_to_marketplace: "Tervetuloa %{service_name}-palvelun jäseneksi! Mukavaa kun liityit."
@@ -1146,10 +1146,10 @@ fi:
       items_to_offer: "Lainatavaroita: "
       items_to_request: "Lainatavaroita: "
       log_in: "kirjaudu sisään!"
-      no_offers_visible_unless_logged_in: "Ei yhtään tarjottua palvelusta, tavaraa tai kyytiä näkyvissä kirjautumattomille käyttäjille."
+      no_offers_visible_unless_logged_in: "Ei yhtään tarjottua palvelusta, tavaraa tai kyytiä näkyvissä käyttäjille jotka eivät ole kirjautuneena sisään."
       no_open_offers_currently: "Ei yhtään tarjottua palvelusta, tavaraa tai kyytiä avoinna."
       no_open_requests_currently: "Ei yhtään tavara-, palvelus- tai kyytipyyntöä avoinna."
-      no_requests_visible_unless_logged_in: "Ei yhtään palvelus-, tavara- tai kyytipyyntöä näkyvissä kirjautumattomille käyttäjille."
+      no_requests_visible_unless_logged_in: "Ei yhtään palvelus-, tavara- tai kyytipyyntöä näkyvissä käyttäjille jotka eivät ole kirjautuneena sisään."
       one_private_offer_exists: "Palvelussa on jo <b>yksi tarjous</b>,"
       one_private_request_exists: "Palvelussa on jo <b>yksi pyyntö</b>,"
       ride_offer: "Kyyditystä lasten harrastuksiin"
@@ -1198,7 +1198,7 @@ fi:
       message: "Viesti kutsuttavalle"
       send_invitation: "Lähetä kutsu"
       add_email_addresses_description: "Lisää kutsuttavien sähköpostiosoitteet alla olevaan kenttään. Jos lisäät enemmän kuin yhden osoitteen, erota osoitteet pilkulla."
-      add_lots_of_email_addresses: ~
+      add_lots_of_email_addresses: "Vinkki sivuston ylläpitäjille: Jos suunnittelet lähettäväsi useita kutsuja, suosittelemme käyttämään erillistä sähköpostien lähetyspalvelua. Katso %{this_article_link} lisätietoa löytääksesi itsellesi sopivan työkalun."
       this_article_link: "tästä artikkelista"
       invitation_emails_field_placeholder: "kaveri1@esimerkki.fi, kaveri2@esimerkki.fi, ..."
       invitation_message_field_placeholder: "Tämä palvelu on mahtava, kannattaa ehdottomasti liittyä!"
@@ -1241,7 +1241,7 @@ fi:
       default_content: "Tällä sivulla kerrotaan, miten %{marketplace_name}-palvelu toimii."
   layouts:
     admin:
-      admin: Ylläpitonäkymä
+      admin: "%{service_name} ylläpitonäkymä"
     no_tribe:
       inbox: Postilaatikko
       settings: Asetukset
@@ -1249,15 +1249,15 @@ fi:
     application:
       join_this_community: Liity
       read_more: "Lue lisää"
-      feedback: "Palaute ylläpidolle"
-      default_feedback: "Tee kehitysehdotus, ilmoita virheestä, kerro mielipiteesi palvelusta tai ota yhteyttä muuten vain!"
+      feedback: "Mitä haluaisit kertoa meille?"
+      default_feedback: "Tee kehitysehdotus, ilmoita virheestä tai epäilyttävästä sisällöstä, kerro mielipiteesi palvelusta %{service_name} tai ota yhteyttä muuten vain!"
       feedback_forum: "palautefoorumiltamme,"
       feedback_handle: Palaute
-      give_feedback: "Anna palautetta %{service_name}-palvelusta"
+      give_feedback: "Ota yhteyttä"
       or_check_our: "...tai tarkista"
       send_feedback_to_admin: "Lähetä palaute ylläpidolle"
       to_see_what_others_have_suggested: "mitä muut ovat sanoneet."
-      your_email_address: "Sähköpostiosoitteesi (vapaaehtoinen)"
+      your_email_address: "Sähköpostiosoitteesi (yhteydenottoa varten)"
       connect: Liity
       invite_your_friends: "Kutsu kaverisi!"
       invite_your_neighbors: "Kutsu naapurisi!"
@@ -1394,20 +1394,20 @@ fi:
       you_are_already_member: "Olet jo tämän sivuston jäsen. Tervetuloa takaisin!"
       you_must_log_in_to_create_new_listing: "Sinun pitää kirjautua sisään %{service_name}-palveluun, jotta voisit luoda uuden tarjouksen. Jos sinulla ei ole vielä tunnusta, voit %{sign_up_link}."
       additional_email_confirmed_dashboard: "Sähköpostiosoitteesi on nyt vahvistettu."
-      you_must_log_in_to_give_feedback: "Sinun on kirjauduttava sisään jotta voisit antaa palautetta"
+      you_must_log_in_to_give_feedback: "Sinun on kirjauduttava sisään antaaksesi palautetta"
       you_must_log_in_to_invite_new_users: "Sinun on kirjauduttava sisään jotta voisit kutsua uusia käyttäjiä"
-      you_must_log_in_to_send_a_comment: "Sinun pitää kirjautua sisään jotta voisit kirjoittaa uuden kommentin"
-      you_must_log_in_to_send_a_message: "Sinun pitää kirjautua sisään %{service_name}-palveluun, jotta voisit lähettää viestin toiselle käyttäjälle."
+      you_must_log_in_to_send_a_comment: "Sinun pitää kirjautua sisään kirjoittaaksesi uuden kommentin"
+      you_must_log_in_to_send_a_message: "Sinun pitää kirjautua sisään %{service_name}-palveluun lähettääksesi viestin toiselle käyttäjälle."
       you_must_log_in_to_do_a_transaction: "Sinun pitää kirjautua sisään %{service_name}-palveluun, jotta voit suorittaa maksun."
       you_must_log_in_to_view_this_content: "Pyytämäsi sisältö on näkyvissä ainoastaan kirjautuneille käyttäjille"
       you_must_log_in_to_view_this_page: "Sinun pitää kirjautua sivun nähdäksesi pyytämäsi sivun"
-      you_must_log_in_to_view_your_inbox: "Sinun pitää kirjautua sisään %{service_name}-palveluun, jotta voit nähdä uusimmat viestisi."
-      you_must_log_in_to_view_your_settings: "Sinun pitää kirjautua sisään %{service_name}-palveluun, jotta voit nähdä asetuksesi."
+      you_must_log_in_to_view_your_inbox: "Sinun pitää kirjautua sisään %{service_name}-palveluun nähdäksesi uusimmat viestisi."
+      you_must_log_in_to_view_your_settings: "Sinun pitää kirjautua sisään %{service_name}-palveluun nähdäksesi asetuksesi."
       you_must_log_in_to_add_news_item: "Sinun pitää kirjautua sisään %{service_name}-palveluun, jotta voisit luoda uuden uutisen."
       you_must_log_in_to_change_profile_settings: "Sinun pitää kirjautua sisään %{service_name}-palveluun, jotta voit muuttaa profiiliasetuksia."
       you_must_log_in_to_change_payment_settings: ~
-      you_must_log_in_to_accept_or_reject: ~
-      you_must_log_in_to_confirm_or_cancel: ~
+      you_must_log_in_to_accept_or_reject: "Sinun täytyy kirjautua sisään hyväksyäksesi tai hylätäksesi tilauksen"
+      you_must_log_in_to_confirm_or_cancel: "Sinun täytyy kirjautua sisään peruuttaaksesi tai vahvistaaksesi tilauksen"
       you_need_to_confirm_your_account_first: "Sinun täytyy varmistaa sähköpostiosoitteesi ennen kuin voit jatkaa."
       you_must_fill_all_the_fields: "Kaikki kentät täytyy täyttää"
       you_unfollowed_listing: "Ilmoituksen seuraaminen lopetettu"
@@ -1694,7 +1694,7 @@ fi:
       by: "%{listing} käyttäjältä %{author}"
       payment: maksu
       exp: "Erääntyy:"
-      you_will_be_charged: "Maksu veloitetaan mikäli myyjä %{author} hyväksyy oston. Myyjän täytyy hyväksyä maksu %{expiration_period} päivän kuluessa. Sinua ei veloiteta, jos %{author} ei hyväksy ostoa tai ei vastaa ostopyyntöön."
+      you_will_be_charged: "Maksu veloitetaan vain mikäli myyjä %{author} hyväksyy oston. Myyjän täytyy hyväksyä maksu %{expiration_period} päivän kuluessa. Sinua ei veloiteta, jos %{author} ei hyväksy ostoa tai ei vastaa ostopyyntöön."
       day: päivä
       days: päivää
     transaction_agreement_checkbox:
@@ -1963,8 +1963,8 @@ fi:
       new_email: "Uusi sähköpostiosoite"
       delete_all_memberships: "Jos poistat käyttäjätunnuksesi, et pysty enää käyttämään sitä seuraavissa markkinapaikkoissa: %{marketplaces}."
       delete_personal_information: "Jos poistat käyttäjätunnuksesi, kaikki henkilokohtaiset tietosi (nimi, puhelinnumero, osoite, sähköpostiosoite, profiilikuva, jne.) poistetaan pysyvästi. Tietojen palauttaminen ei ole mahdollista. Kaikki ilmoituksesi poistetaan. Et voi aktivoida tunnustasi uudelleen poiston jälkeen."
-      delete_information_others_involved: "Tapahtumat, joissa mukana on ollut muita osapuolia (esimerkiksi keskustelut, transaktiot, antamasi palautteet, jne.) eivät poistu tunnustesi poiston yhteydessä. Nimeäsi ei kuitenkaan enää näytetä näiden tapahtumien yhteydessä."
-      unfinished_transactions: "Et voi poistaa tunnustasi, koska sinulla on keskeneräisiä transaktioita. Päätä transaktiot ennen tunnuksen poistoa."
+      delete_information_others_involved: "Tapahtumat, joissa mukana on ollut muita osapuolia (esimerkiksi keskustelut, tilaukset, antamasi palautteet, jne.) eivät poistu tunnustesi poiston yhteydessä. Nimeäsi ei kuitenkaan enää näytetä näiden tapahtumien yhteydessä."
+      unfinished_transactions: "Et voi poistaa tunnustasi, koska sinulla on keskeneräisiä tilauksia. Päätä tilaukset ennen tunnuksen poistoa."
       new_password: "Uusi salasana"
       save: Tallenna
       these_fields_are_shown_only_to_you: "Käyttäjätunnus näytetään profiilissasi, jos et ole syöttänyt nimeäsi. Muut tiedot näytetään vain sinulle."
@@ -2182,10 +2182,9 @@ fi:
         few: käyttäjää
         other: käyttäjää
       listing_conversation:
-        zero: transaktiota
-        one: transaktio
-        few: transaktiota
-        other: transaktiota
+        zero: tilausta
+        one: tilaus
+        other: tilausta
     previous_label: "&#8592; Edellinen"
     next_label: "Seuraava &#8594;"
     page_gap: "&hellip;"
