@@ -33,6 +33,9 @@ module Kassi
     config.autoload_paths += Dir[Rails.root.join('app', 'forms')]
     config.autoload_paths += Dir[Rails.root.join('app', 'validators')]
 
+    # Load also Jobs that are used by migrations
+    config.autoload_paths += Dir[Rails.root.join('db', 'migrate_jobs', '**/')]
+
     # Enable the asset pipeline
     config.assets.enabled = true
 
