@@ -443,15 +443,24 @@ de:
         update_success: "Veränderungen zu der Auftragsart \"%{shape}\" wurden gespeichert"
         update_failure: "Veränderungen konnten nicht gespeichert werden. Fehler: %{error_msg}"
         delete: "Auftragsart löschen"
-        can_not_delete_last: "Du kannst diesen Auftragstyp nicht löschen weil er der einzige auf Deinem Marktplatz ist."
-        can_not_delete_only_one_in_categories: "Du kannst diesen Auftragstyp nicht löschen weil er in folgenden Kategorien der einzig verfügbare Auftragstyp ist: %{categories}"
         confirm_delete_order_type:
           one: "Es gibt %{count} Eintrag mit dieser Auftragsart. Wenn Du die Auftragsart löschest, wird der Eintrag gekündigt. Bist Du sicher, dass Du die Auftragsart löschen willst? "
           other: "Es gibt %{count} Einträge mit dieser Auftragsart. Wenn du die Auftragsart löschst, werden die Einträge gekündigt. Bist Du sicher, dass Du die Auftragsart löschen willst?"
+        can_not_delete_last: "Du kannst diesen Auftragstyp nicht löschen weil er der einzige auf Deinem Marktplatz ist."
+        can_not_delete_only_one_in_categories: "Du kannst diesen Auftragstyp nicht löschen weil er in folgenden Kategorien der einzig verfügbare Auftragstyp ist: %{categories}"
       listing_shape_name: Name
       listing_shape_name_placeholder: "Zum Beispiel Verkaufen"
       action_button_label: "Kennzeichnung der Checkout-Taste"
       action_button_placeholder: "Zum Beispiel Kaufen"
+      open_listings_warning:
+        one: "Es gibt %{count} offenen Eintrag mit dieser Auftragsart. Wenn Du die Einstellungen unten änderst, wird dieser Eintrag die alten Einstellungen behalten. Der Eintrag kann manuell zu den neuen Einstellungen bearbeitet werden. Wenn Du keine Einträge mit den alten Einstellungen auf der Website sichtbar haben möchtest, kannst Du diese kündigen, indem Du auf die Taste unterhalb klickst."
+        other: "Es gibt %{count} offene Einträge mit dieser Auftragsart. Wenn Du die Einstellungen unten änderst, werden diese Einträge die alten Einstellungen behalten. Die Einträge können manuell zu den neuen Einstellungen bearbeitet werden. Wenn Du keine Einträge mit den alten Einstellungen auf der Website sichtbar haben möchtest, kannst Du diese kündigen, indem Du auf die Taste unterhalb klickst."
+      close_listings_action:
+        one: "%{count} Eintrag schließen"
+        other: "%{count} Einträge schließen"
+      confirm_close_listings_action:
+        one: "Bist Du sicher, dass Du %{count} Eintrag schließen willst?"
+        other: "Bist Du sicher, dass Du %{count} Einträge schließen willst?"
       successfully_closed: "Inserate erfolgreich geschlossen."
       successfully_deleted: "Auftragsart '%{order_type}' erfolgreich gelöscht"
       pricing_and_checkout_title: "Preise & Kasse"
@@ -481,15 +490,6 @@ de:
           heading: Einheitstyp
           quantity_label: "Menge (pro Stück, pro kg, pro Person, pro 2-Stunden Reise)"
           time_label: "Zeit (pro 30 Minuten, pro 2 Wochen, pro Jahr...)"
-      open_listings_warning:
-        one: "Es gibt %{count} offenen Eintrag mit dieser Auftragsart. Wenn Du die Einstellungen unten änderst, wird dieser Eintrag die alten Einstellungen behalten. Der Eintrag kann manuell zu den neuen Einstellungen bearbeitet werden. Wenn Du keine Einträge mit den alten Einstellungen auf der Website sichtbar haben möchtest, kannst Du diese kündigen, indem Du auf die Taste unterhalb klickst."
-        other: "Es gibt %{count} offene Einträge mit dieser Auftragsart. Wenn Du die Einstellungen unten änderst, werden diese Einträge die alten Einstellungen behalten. Die Einträge können manuell zu den neuen Einstellungen bearbeitet werden. Wenn Du keine Einträge mit den alten Einstellungen auf der Website sichtbar haben möchtest, kannst Du diese kündigen, indem Du auf die Taste unterhalb klickst."
-      close_listings_action:
-        one: "%{count} Eintrag schließen"
-        other: "%{count} Einträge schließen"
-      confirm_close_listings_action:
-        one: "Bist Du sicher, dass Du %{count} Eintrag schließen willst?"
-        other: "Bist Du sicher, dass Du %{count} Einträge schließen willst?"
     paypal_accounts:
       marketplace_paypal_integration: Zahlungseinstellungen
       preferences_updated: "Zahlungseinstellungen aktualisiert"
