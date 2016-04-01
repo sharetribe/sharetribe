@@ -266,6 +266,9 @@ default: &default_settings
   external_search_url:
   external_search_apikey:
 
+  # Perform Thinking Sphinx incremental indexing delayed jobs
+  use_thinking_sphinx_indexing: true
+
   # Rails config.eager_load. Eager loads classes. Should be true only for production
   eager_load: false
 
