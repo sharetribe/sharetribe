@@ -22,7 +22,6 @@ class ApplicationController < ActionController::Base
     :fetch_community_plan_expiration_status,
     :perform_redirect,
     :fetch_logged_in_user,
-    :ensure_user_belongs_to_community,
     :save_current_host_with_port,
     :fetch_community_membership,
     :redirect_removed_locale,
@@ -36,6 +35,7 @@ class ApplicationController < ActionController::Base
     :report_queue_size,
     :maintenance_warning
   before_filter :cannot_access_if_banned, :except => [ :confirmation_pending, :check_email_availability]
+  before_filter :ensure_user_belongs_to_community, except: [ :confirmation_pending, :check_email_availability]
   before_filter :can_access_only_organizations_communities
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
 
@@ -190,7 +190,7 @@ class ApplicationController < ActionController::Base
   # sessions which potentially had a person_id pointing to another
   # community are all expired.
   def ensure_user_belongs_to_community
-    if @current_user && @current_user.community_id != @current_community.id
+    if @current_user && @current_user.communities.include?(@current_community)
 
       logger.info(
         "Automatically logged out user that doesn't belong to community",
