@@ -306,7 +306,3 @@ def select_days_from_now(day_count)
   select_start_date(Date.today)
   select_end_date(@booking_end_date)
 end
-
-Then(/^I should see the listing form$/) do
-  expect(page).to have_selector("form.js-listing-form-ready")
-end
