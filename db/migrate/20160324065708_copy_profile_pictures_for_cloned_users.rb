@@ -1,37 +1,18 @@
-require File.expand_path('../../migrate_helpers/logging_helpers', __FILE__)
-
 class CopyProfilePicturesForClonedUsers < ActiveRecord::Migration
-  include LoggingHelper
+
+  class Person < ActiveRecord::Base
+  end
 
   def up
-    cloned_users = Person.where("cloned_from IS NOT NULL")
-
-    progress = ProgressReporter.new(cloned_users.count, 100)
-
-    cloned_users.each { |cloned_user|
-      cloned_from_user = Person.find_by(id: cloned_user.cloned_from)
-
-      cloned_user.image = cloned_from_user.image
-      cloned_user.save!
-
-      # Print progress
-      progress.next
-      print_dot
+    Person.where("cloned_from IS NOT NULL").pluck(:id).each { |person_id|
+      Delayed::Job.enqueue(CopyProfilePictureJob.new(person_id), priority: 10)
     }
   end
 
   def down
-    cloned_users = Person.where("cloned_from IS NOT NULL")
-
-    progress = ProgressReporter.new(cloned_users.count, 100)
-
-    cloned_users.each { |cloned_user|
-      cloned_user.image.destroy
-      cloned_user.save!
-
-      # Print progress
-      progress.next
-      print_dot
-    }
+    # Don't delete the cloned images.
+    # The problem is that we can't know whether the current image is a cloned image
+    # or actually an image that the user uploaded there after the up migration
+    # was run
   end
 end
