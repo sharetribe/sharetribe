@@ -259,9 +259,9 @@ It is not recommended to serve static assets from a Rails server in production. 
 
 #### Setting up S3
 
-If you want to use s3 to host your images, you need to do a bit more configuration.
+If you want to use S3 to host your images, you need to do a bit more configuration.
 
-1. Create a IAM role which has full s3 access.  Save the aws access and secret keys.
+1. Create a IAM role which has full S3 access.  Save the AWS access and secret keys.
 
 1. In the S3 console, create two buckets, one for upload and one for permanent storage.  For example `your-sharetribe-images` and `your-sharetribe-images-tmp`.
 
@@ -282,10 +282,7 @@ Here's a sample CORS configuration that allows anyone to post to your bucket.  N
     <CORSRule>
         <AllowedOrigin>*</AllowedOrigin>
         <AllowedMethod>GET</AllowedMethod>
-        <AllowedMethod>PUT</AllowedMethod>
         <AllowedMethod>POST</AllowedMethod>
-        <AllowedMethod>DELETE</AllowedMethod>
-        <AllowedMethod>HEAD</AllowedMethod>
         <MaxAgeSeconds>3000</MaxAgeSeconds>
         <AllowedHeader>*</AllowedHeader>
     </CORSRule>
@@ -295,7 +292,7 @@ Here's a sample CORS configuration that allows anyone to post to your bucket.  N
 ##### Troubleshooting S3 Setup
 
 * if you are having trouble uploading, look at the request using browser devtools and see what error statuses and messages are being sent.
-* double check that your aws keys are being correctly set.
+* double check that your AWS keys are being correctly set.
 * if you can upload images successfully, but the images aren't processed, make sure that the delayed-job worker is running.
 
 ### Advanced settings
