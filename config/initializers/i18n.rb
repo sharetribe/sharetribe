@@ -1,8 +1,8 @@
 I18n.backend.class.send(:include, I18n::Backend::Fallbacks)
 
 Sharetribe::AVAILABLE_LOCALES
-  .select { |(_, _, _, _, fallback)| fallback.present? }
-  .each { |(_, identifier, _, _, fallback)| I18n.fallbacks.map(identifier => fallback) }
+  .select { |locale| locale[:fallback].present? }
+  .each { |locale| I18n.fallbacks.map(locale[:ident] => locale[:fallback]) }
 
 module I18n
   def self.with_locale(locale, &block)

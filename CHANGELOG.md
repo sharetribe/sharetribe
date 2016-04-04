@@ -29,6 +29,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 ### Fixed
 
 - Errors from Braintree API were ignored [#1832](https://github.com/sharetribe/sharetribe/pull/1832) by [@priviterag](https://github.com/priviterag)
+- Fallback language handling was broken [#1869](https://github.com/sharetribe/sharetribe/pull/1869)
 
 ### Security
 
