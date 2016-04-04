@@ -3,17 +3,31 @@ class ListingImagesController < ApplicationController
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_filter :verify_authenticity_token, :only => [:destroy]
 
-  before_filter :fetch_image, :only => [:destroy]
-  before_filter :"listing_image_authorized?", :only => [:destroy]
-
-  before_filter :"listing_authorized?", :only => [:add_from_file]
+  before_filter :"ensure_authorized_to_add!", :only => [:add_from_file, :add_from_url]
 
   def destroy
-    @listing_image_id = @listing_image.id.to_s
-    if @listing_image.destroy
-      render nothing: true, status: 204
+    image = ListingImage.find_by_id(params[:id])
+
+    if image.nil?
+      render nothing: true, status: 404
+    elsif !authorized_to_destroy?(image)
+      render nothing: true, status: 401
     else
-      render json: {:errors => listing_image.errors.full_messages}, status: 400
+      image_destroyed = image.destroy
+
+      if image_destroyed
+        render nothing: true, status: 204
+      else
+        error_messages = image.errors.full_messages
+
+        render json: {errors: listing_image.errors.full_messages}, status: 500
+
+        logger.error("Failed to destroy listing image",
+                     :image_destroy_failed,
+                     listing_image_id: image.id,
+                     params: params,
+                     errors: error_messages)
+      end
     end
   end
 
@@ -87,20 +101,39 @@ class ListingImagesController < ApplicationController
     end
   end
 
-  def fetch_image
-    @listing_image = ListingImage.find_by_id(params[:id])
-  end
-
-  def listing_image_authorized?
-    @listing_image.authorized?(@current_user)
-  end
-
-  def listing_authorized?
-    listing = Listing.find_by_id(params[:listing_id])
-    if listing.nil?
-      true
+  def authorized_to_destroy?(image)
+    if image.listing.present?
+      # Listing is present: We are deleting image from saved listing
+      image.listing.author == @current_user || @current_user.has_admin_rights_in?(@current_community)
     else
-      listing.author == @current_user
+      # Listing is not present: We are deleting image from a new unsaved listing
+      image.author == @current_user
+    end
+  end
+
+  def ensure_authorized_to_add!
+    listing_id = params[:listing_id]
+
+    status =
+      if listing_id.nil?
+        :authorized
+      else
+        listing = @current_community.listings.find_by(id: listing_id)
+
+        if listing.nil?
+          :not_found
+        elsif listing.author == @current_user || @current_user.has_admin_rights_in?(@current_community)
+          :authorized
+        else
+          :unauthorized
+        end
+      end
+
+    case status
+    when :not_found
+      render nothing: true, status: :not_found
+    when :unauthorized
+      render nothing: true, status: :unauthorized
     end
   end
 end
