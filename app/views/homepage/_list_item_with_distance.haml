@@ -42,10 +42,10 @@
 
         .browsing-list-item-author{ class: (listing.listing_images.size > 0 ? "browsing-list-item-author-with-listing-image" : "browsing-list-item-author-without-listing-image")}
           .browsing-list-item-avatar
-            = link_to(person_path(id: listing.author.username), class: "home-fluid-thumbnail-grid-author-avatar-image") do
+             link_to(person_path(username: listing.author.username), class: "home-fluid-thumbnail-grid-author-avatar-image") do
               = image_tag(listing.author.avatar.thumb || missing_avatar(:thumb))
           .browsing-list-item-author-details
-            = link_to(person_path(id: listing.author.username), class: "browsing-list-item-author-name") do
+            = link_to(person_path(username: listing.author.username), class: "browsing-list-item-author-name") do
               = PersonViewUtils::person_entity_display_name(listing.author, @current_community.name_display_type)
             - if testimonials_in_use
               .browsing-list-item-author-reviews
