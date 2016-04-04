@@ -300,8 +300,6 @@ Kassi::Application.routes.draw do
           get :check_email_availability
           get :check_email_availability_and_validity
           get :check_invitation_code
-          get :not_member
-          get :cancel
           get :create_facebook_based
         end
       end

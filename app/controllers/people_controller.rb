@@ -350,11 +350,6 @@ class PeopleController < Devise::RegistrationsController
     params[:closed] && params[:closed].eql?("true")
   end
 
-  # Showed when somebody tries to view a profile of
-  # a person that is not a member of that community
-  def not_member
-  end
-
   def activate
     change_active_status("activated")
   end
