@@ -630,34 +630,9 @@ it:
       paid: "pagati %{sum}"
       payment_preauthorized: "Pagamento autorizzato: %{sum}"
     new:
-      offer_message_form_title: "Offri %{listing} a %{person}"
-      request_message_form_title: "Richiedi %{listing} da %{person}"
-      favor_offer_message_form_title: "Chiedi aiuto a %{person}"
-      favor_request_message_form_title: "Offri aiuto a %{person}"
-      housing_offer_message_form_title: "Offri spazio a %{person}"
-      housing_request_message_form_title: "Richiedi spazio a %{person}"
-      item_offer_lend_message_form_title: "Prestito %{listing} da %{person}"
-      item_offer_sell_message_form_title: "Acquisto %{listing} da %{person}"
-      item_offer_give_away_message_form_title: ~
-      item_offer_trade_message_form_title: ~
-      item_offer_rent_out_message_form_title: "Noleggiato %{listing} da %{person}"
-      item_request_borrow_message_form_title: ~
-      item_request_buy_message_form_title: ~
-      item_request_take_for_free_message_form_title: ~
-      item_request_trade_message_form_title: ~
-      item_request_rent_message_form_title: "Noleggio o affitto %{listing} a %{person}"
-      housing_offer_sell_message_form_title: ~
-      housing_offer_rent_out_message_form_title: "Preso a noleggio o affittato %{listing} da %{person}"
-      housing_offer_share_for_free_message_form_title: "Richiesta %{listing} da %{person}"
-      housing_offer_accept_for_free_message_form_title: ~
-      housing_request_buy_message_form_title: ~
-      housing_request_rent_message_form_title: "Noleggio/affitto %{listing} a %{person}"
-      item_request_message_form_title: "Offri un articolo a %{person}"
       message: Messaggio
       message_to: "Messaggio a %{author_name}"
       optional_message_to: "Messaggio opzionale per %{author_name}"
-      rideshare_offer_message_form_title: "Chiedi un passaggio a %{person}"
-      rideshare_request_message_form_title: "Offri un passaggio a %{person}"
       send_message: "Invia messaggio"
       send: Invia
       this_message_is_private: "Questo è messaggio privato fra te e %{person}. %{person} riceverà un messaggio di notifica via email"
@@ -1147,7 +1122,7 @@ it:
       is: è
       are: ~
       what_do_you_need: "Di cosa hai bisogno?"
-      post_new_listing: "Pubblica una nuova offerta"
+      post_new_listing: "Pubblica una nuova inserzione"
       are_offering: offerta
       add_news_item: "Aggiungi un articolo"
       lend_rent_help_carpool: "Vendere, prestare, aiutare, condividere passaggi"
@@ -1164,7 +1139,7 @@ it:
       welcome_to_new_kassi: "Benvenuto sul nuovo %{service_name}!"
       no_reviews: "Nessuna recensione"
       no_image: "Nessuna immagine"
-      filter: "Filtra categorie"
+      filter: "Filtro di ricerca"
       this_is_private_community: "Devi registrarti prima di poter vedere il contenuto"
     invitation_form:
       email: "Indirizzo/i email"
@@ -1200,7 +1175,7 @@ it:
       map_button: Mappa
       grid_button: Griglia
       list_button: Lista
-      all_listing_types: "Tutti i tipi di annuncio"
+      all_listing_types: "Tipo di annuncio"
       all_categories: "Scegli tra le categorie"
     errors:
       search_engine_not_responding: ~

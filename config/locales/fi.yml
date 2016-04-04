@@ -530,7 +530,7 @@ fi:
   common:
     edit_page: "Muokkaa sivua"
     default_community_slogan: "Lainaa, myy, auta, jaa"
-    default_community_description: "%{service_name} on kauppapaikka, jossa palvelun käyttäjät voivat myydä tai vuokrata tavaroita, palveluita tai tiloja."
+    default_community_description: "Tämä on kauppapaikka, jossa palvelun käyttäjät voivat myydä, vaihtaa tai vuokrata tavaroita, palveluita tai tiloja."
     cancel: Peruuta
     fields_that_are_mandatory: "Tähdellä (*) merkityt tiedot ovat pakollisia."
     or: tai
@@ -657,34 +657,9 @@ fi:
       paid: "maksoi %{sum}"
       payment_preauthorized: "Katevaraus tehty: %{sum}"
     new:
-      offer_message_form_title: "Tarjoa %{listing} käyttäjälle %{person}"
-      request_message_form_title: "Pyydä %{listing} käyttäjältä %{person}"
-      favor_offer_message_form_title: "Pyydä palvelusta käyttäjältä %{person}"
-      favor_request_message_form_title: "Tarjoa palvelus käyttäjälle %{person}"
-      housing_offer_message_form_title: "Tarjoa tilaa käyttäjälle %{person}"
-      housing_request_message_form_title: "Pyydä tilaa käyttäjältä %{person}"
-      item_offer_lend_message_form_title: "Lainaa %{listing} käyttäjältä %{person}"
-      item_offer_sell_message_form_title: "Osta %{listing} käyttäjältä %{person}"
-      item_offer_give_away_message_form_title: "Pyydä %{listing} käyttäjältä %{person}"
-      item_offer_trade_message_form_title: "Vaihda %{listing} käyttäjän %{person} kanssa"
-      item_offer_rent_out_message_form_title: "Vuokraa %{listing} käyttäjältä %{person}"
-      item_request_borrow_message_form_title: "Lainaa %{listing} käyttäjälle %{person}"
-      item_request_buy_message_form_title: "Myy %{listing} käyttäjälle %{person}"
-      item_request_take_for_free_message_form_title: "Anna %{listing} käyttäjälle %{person}"
-      item_request_trade_message_form_title: "Vaihda %{listing} käyttäjän %{person} kanssa"
-      item_request_rent_message_form_title: "Vuokraa %{listing} käyttäjälle %{person}"
-      housing_offer_sell_message_form_title: "Osta %{listing} käyttäjältä %{person}"
-      housing_offer_rent_out_message_form_title: "Vuokraa %{listing} käyttäjältä %{person}"
-      housing_offer_share_for_free_message_form_title: "Pyydä käyttöoikeutta tilaan %{listing} käyttäjältä %{person}"
-      housing_offer_accept_for_free_message_form_title: "Tarjoa tilaa %{listing} käyttäjälle %{person}"
-      housing_request_buy_message_form_title: "Myy %{listing} käyttäjälle %{person}"
-      housing_request_rent_message_form_title: "Anna vuokralle %{listing} käyttäjälle %{person}"
-      item_request_message_form_title: "Tarjoa tavara käyttäjälle %{person}"
       message: Viesti
       message_to: "Viesti käyttäjälle %{author_name}"
       optional_message_to: "Valinnainen viesti käyttäjälle %{author_name}"
-      rideshare_offer_message_form_title: "Pyydä kyytiä käyttäjältä %{person}"
-      rideshare_request_message_form_title: "Tarjoa kyyti käyttäjälle %{person}"
       send_message: "Lähetä viesti"
       send: Lähetä
       this_message_is_private: "Tämä viesti on yksityinen sinun ja käyttäjän %{person} välillä. %{person} saa tiedon lähettämästäsi viestistä sähköpostilla."
@@ -821,7 +796,7 @@ fi:
     new:
       welcome_fb_user: "Tervetuloa, %{name}!"
       fb_join_accept_terms: "Liittyäksesi sinun tulee vielä hyväksyä palvelun käyttöehdot."
-      join_community: "Liittyminen '%{service_name}'-palveluun"
+      join_community: "Liittyminen %{service_name}-palveluun"
       you_can_join: "Voit liittyä hyväksymällä palvelun käyttöehdot ja klikkaamalla alareunasta 'Liity palveluun' -nappia."
       you_can_join_email_confirmation: "Jotta voisit liittyä tähän palveluun, sinulla pitää olla voimassaoleva sähköpostiosoite, jonka pääte on %{email_ending}. Voit liittyä palveluun täyttämällä alla olevaan kenttään sähköpostiosoitteesi, hyväksymällä palvelun käyttöehdot, klikkaamalla alareunasta 'Liity palveluun' -nappia ja klikkaamalla saapuvassa sähköpostissa olevaa vahvistuslinkkiä."
       you_can_join_email_confirmation_multiple_addresses: "Tähän palveluun liittyminen on rajattua. Liittyäksesi sinulla pitää olla sallittu sähköpostiosoite. Voit liittyä palveluun täyttämällä alla olevaan kenttään sähköpostiosoitteesi, hyväksymällä palvelun käyttöehdot ja klikkaamalla alareunasta 'Liity palveluun' -nappia."
@@ -886,7 +861,7 @@ fi:
     confirmation_instructions:
       confirmation_instructions_signature: "Terveisin,<br/>%{service_name}-tiimi"
       welcome_to_kassi: "Tervetuloa %{service_name}-palveluun!"
-      need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla alla olevaa linkkiä"
+      need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi."
       confirmation_link_text: "Vahvista sähköpostini"
       or_paste_link: "Vaihtoehtoisesti voit kopioida seuraavan linkin selaimesi osoitepalkkiin:"
       turning_on_confirmations_in_this_community: "Otamme käyttöön sähköpostivarmistukset %{service_name}-palvelussa."
@@ -1310,7 +1285,7 @@ fi:
       something_went_wrong: "Jotain meni vikaan"
       community_updated: "Tiedot päivitetty."
       community_update_failed: "Tietojen päivittäminen epäonnistui."
-      account_creation_succesful_you_still_need_to_confirm_your_email: "Käyttäjätunnus luotu. Seuraavaksi sinun pitää vielä varmistaa sähköpostiosoitteesi."
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Käyttäjätunnus luotu. Seuraavaksi sinun pitää vielä vahvistaa sähköpostiosoitteesi."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Palveluun liittyminen onnistui. Seuraavaksi sinun pitää vielä varmistaa sähköpostiosoitteesi."
       comment_cannot_be_empty: "Et voi lähettää tyhjää kommenttia"
       comment_sent: "Kommentti lähetetty"
@@ -1400,7 +1375,7 @@ fi:
       you_must_log_in_to_send_a_message: "Sinun pitää kirjautua sisään %{service_name}-palveluun lähettääksesi viestin toiselle käyttäjälle."
       you_must_log_in_to_do_a_transaction: "Sinun pitää kirjautua sisään %{service_name}-palveluun, jotta voit suorittaa maksun."
       you_must_log_in_to_view_this_content: "Pyytämäsi sisältö on näkyvissä ainoastaan kirjautuneille käyttäjille"
-      you_must_log_in_to_view_this_page: "Sinun pitää kirjautua sivun nähdäksesi pyytämäsi sivun"
+      you_must_log_in_to_view_this_page: "Sinun pitää kirjautua sisään nähdäksesi pyytämäsi sivun"
       you_must_log_in_to_view_your_inbox: "Sinun pitää kirjautua sisään %{service_name}-palveluun nähdäksesi uusimmat viestisi."
       you_must_log_in_to_view_your_settings: "Sinun pitää kirjautua sisään %{service_name}-palveluun nähdäksesi asetuksesi."
       you_must_log_in_to_add_news_item: "Sinun pitää kirjautua sisään %{service_name}-palveluun, jotta voisit luoda uuden uutisen."
@@ -1408,7 +1383,7 @@ fi:
       you_must_log_in_to_change_payment_settings: ~
       you_must_log_in_to_accept_or_reject: "Sinun täytyy kirjautua sisään hyväksyäksesi tai hylätäksesi tilauksen"
       you_must_log_in_to_confirm_or_cancel: "Sinun täytyy kirjautua sisään peruuttaaksesi tai vahvistaaksesi tilauksen"
-      you_need_to_confirm_your_account_first: "Sinun täytyy varmistaa sähköpostiosoitteesi ennen kuin voit jatkaa."
+      you_need_to_confirm_your_account_first: "Sinun täytyy vahvistaa sähköpostiosoitteesi ennen kuin voit jatkaa."
       you_must_fill_all_the_fields: "Kaikki kentät täytyy täyttää"
       you_unfollowed_listing: "Ilmoituksen seuraaminen lopetettu"
       joining_community_failed: "Liittyminen epäonnistui"
@@ -1653,7 +1628,7 @@ fi:
       offer: Tarjous
       listing_created: Luotu
       open_until: "Avoinna %{date} asti"
-      feedback: "Palaute:"
+      feedback: Palaute
       qr_code: "QR koodi"
       request: Pyyntö
       rideshare_offer: Kyytitarjous
@@ -1833,7 +1808,7 @@ fi:
       email: Sähköpostiosoite
       email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
       email_is_in_use_or_not_allowed: "Antamasi osoite ei kelpaa (tai se on jo käytössä). Jos et pääse sisään, ole yhteydessä ylläpitoon."
-      email_not_allowed: "Antamasi osoite ei kelpaa. Jos et pääse sisään, lähetä palautetta ylälaidan valikon kautta."
+      email_not_allowed: "Antamasi sähköpostiosoite ei kelpaa palvelussa %{service_name}. Ole hyvä ja anna sallittu osoite. Jos et pääse sisään, lähetä palautetta ylälaidan valikon kautta."
       email_restriction_instructions:
         one: "%{service_name}-palveluun liittyminen on rajattua. Liittyäksesi tarvitset '%{allowed_emails}'-sähköpostiosoitteen."
         other: "%{service_name}-palveluun liittyminen on rajattua. Liittyäksesi tarvitset sellaisen organisaation sähköpostiosoitteen, jolle on myönnetty mahdollisuus liittyä tähän palveluun."
@@ -1841,7 +1816,7 @@ fi:
       given_name: Etunimi
       i_accept_the: Hyväksyn
       invalid_invitation_code: "Kutsukoodi ei kelpaa."
-      invitation_code: "Kutsukoodi:"
+      invitation_code: Kutsukoodi
       not_required: ", ei pakollinen"
       notification_is_mandatory: "Sinun täytyy valita ainakin yksi sähköpostiosoite, johon voit vastaanottaa tiedotteita. Jos et halua, että %{service_name} lähettää sinulle lainkaan sähköpostia, tarkista sähköpostiasetuksesi."
       organization_name: "Organisaation virallinen nimi"
@@ -1858,7 +1833,7 @@ fi:
       signup_with_email: "Rekisteröidy sähköpostiosoitteellasi"
     not_member:
       explanation_text: "Käyttäjätunnus on varattu, mutta käyttäjä ei ole vielä %{service_name}-palvelun jäsen."
-      read_more_about_kassi_communities: "Lue lisää %{service_name}-palvelusta"
+      read_more_about_kassi_communities: "Lue lisää Sharetribe-markkinapaikoista"
       this_user_does_not_belong_to_this_community: "Tämä käyttäjä ei ole %{service_name}-palvelun jäsen"
     profile_feedback:
       grade: "arvio:"
@@ -1934,7 +1909,7 @@ fi:
       cancle_facebook_connect: "Jos et halua yhdistää tätä tunnusta, voit %{cancel_link}."
       facebook_cancel_link_text: "perua yhdistämisen"
       log_in_with_your_facebook_account: "Kirjaudu Facebook-tililläsi"
-      or_sign_up_with_your_username: "...tai sitten käyttäjätunnuksellasi ja salasanallasi:"
+      or_sign_up_with_your_username: "...tai käyttäjätunnuksellasi ja salasanallasi:"
       we_will_not_post_without_asking_you: "Emme koskaan postaa puolestasi Facebookiin kysymättä ensin sinulta."
     password_forgotten:
       email: Sähköposti
@@ -1946,9 +1921,9 @@ fi:
       check_your_email: "Tarkista sähköpostilaatikkosi (tarvittaessa myös roskapostikansio)"
       resend_confirmation_instructions: "Lähetä uusi varmistussähköposti"
       your_current_email_is: "Nykyinen osoitteesi: <strong>%{email}</strong>"
-      change_email: Vaihda?
+      change_email: Vaihda
       confirm_your_email: "Vahvista sähköpostiosoitteesi"
-      account_confirmation_instructions: "Saat pian sähköpostin, jossa on linkki, jota sinun on klikattava varmistaaksesi sähköpostiosoitteesi. Varmistuksen jälkeen voit liittyä palveluun."
+      account_confirmation_instructions: "Saat pian sähköpostin, jossa on linkki, jota sinun on klikattava vahvistaaksesi sähköpostiosoitteesi. Vahvistuksen jälkeen voit liittyä palveluun %{service_name}."
       account_confirmation_instructions_title_admin: "Tervetuloa markkinapaikkasivustollesi!"
       your_marketplace_has_now_been_created: "Sivustosi on nyt luotu. Se oli helppoa, eikö vain? Jäljellä on enää yksi vaihe, ennen kuin pääset katsomaan, miltä sivustosi näyttää: sinun pitää varmistaa sähköpostiosoitteesi."
       account_confirmation_instructions_admin: "Saat pian sähköpostiisi linkin, jota sinun tulee klikata varmistaaksesi sähköpostiosoitteesi. Tämän jälkeen voit aloittaa sivustosi muokkaamisen."

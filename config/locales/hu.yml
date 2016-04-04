@@ -626,34 +626,9 @@ hu:
       paid: ~
       payment_preauthorized: ~
     new:
-      offer_message_form_title: "Ajánlat %{listing} %{person}nak"
-      request_message_form_title: "Ajánlatkérés %{listing} %{person}tól"
-      favor_offer_message_form_title: "Segítséget kérek tőle: %{person}"
-      favor_request_message_form_title: "Segítek neki: %{person}"
-      housing_offer_message_form_title: "Helyet kínálok neki: %{person}"
-      housing_request_message_form_title: "Helyet kérek tőle: %{person}"
-      item_offer_lend_message_form_title: "kölcsön:  %{listing}  %{person}"
-      item_offer_sell_message_form_title: "vásárlás:  %{listing}  %{person}"
-      item_offer_give_away_message_form_title: "Kap:  %{listing} %{person}"
-      item_offer_trade_message_form_title: "Csere: %{listing} %{person}"
-      item_offer_rent_out_message_form_title: "Bérlet: %{listing}  %{person}"
-      item_request_borrow_message_form_title: "Kölcsönöz: %{listing} %{person}"
-      item_request_buy_message_form_title: "Elad: %{listing} %{person}"
-      item_request_take_for_free_message_form_title: "Odaad:  %{listing} %{person}"
-      item_request_trade_message_form_title: "Csere: %{listing} %{person}"
-      item_request_rent_message_form_title: ~
-      housing_offer_sell_message_form_title: ~
-      housing_offer_rent_out_message_form_title: "Bérbevétel %{listing} tőle %{person}"
-      housing_offer_share_for_free_message_form_title: ~
-      housing_offer_accept_for_free_message_form_title: ~
-      housing_request_buy_message_form_title: ~
-      housing_request_rent_message_form_title: ~
-      item_request_message_form_title: "Egy tétel ajánlása neki: %{person}"
       message: Üzenet
       message_to: "Üzenet neki: %{author_name}"
       optional_message_to: ~
-      rideshare_offer_message_form_title: "Fuvart kérni tőle: %{person}"
-      rideshare_request_message_form_title: "Fuvart ajánlani neki: %{person}"
       send_message: "Küldjön üzenetet"
       send: Elküld
       this_message_is_private: ~

@@ -220,11 +220,11 @@ nb:
         users_can_invite_new_users: "Alle brukere kan invitere nye brukere til denne markedsplassen"
         private: "Denne markedsplassen er privat(kun registrerte brukere kan se dets innhold)"
         require_verification_to_post_listings: "Kun brukere som er godkjent av admin kan legge ut annonser"
-        search_preferences: ~
-        default_search_type: ~
-        keyword_search: ~
-        location_search: ~
-        select_distance_unit: ~
+        search_preferences: Søkeinnstillinger
+        default_search_type: "Søketype: %{select_search_type}"
+        keyword_search: Nøkkelord-søk
+        location_search: Stedsnavn-søk
+        select_distance_unit: "Vis avstand i %{distance_units_selector}"
         km: ~
         miles: ~
         listing_preferences: Annonseinnstillinger
@@ -354,7 +354,7 @@ nb:
           this_field_is_required_checkbox: "Dette feltet er påkrevd(bruker må velge minst ett valg)"
         search_filter:
           search_filter: "Vis et filter på forsiden basert på dette feltet"
-          date_cant_be_filtered: ~
+          date_cant_be_filtered: "Filter for dato-felt er ikke tilgjengelig."
           text_cant_be_filtered: ~
       index:
         listing_fields: "Annonse felt & filter"
@@ -655,34 +655,9 @@ nb:
       paid: "betalte %{sum}"
       payment_preauthorized: "Autorisert betaling: %{sum}"
     new:
-      offer_message_form_title: "tilby%{listing}til%{person}"
-      request_message_form_title: "forespør%{listing}fra%{person}"
-      favor_offer_message_form_title: "Be om hjelp fra %{person}"
-      favor_request_message_form_title: "Tilby hjelp til %{person}"
-      housing_offer_message_form_title: "Tilby plass til %{person}"
-      housing_request_message_form_title: "Be om plass hos %{person}"
-      item_offer_lend_message_form_title: "Låne %{listing} fra%{person}"
-      item_offer_sell_message_form_title: "Kjøp%{listing} fra %{person}"
-      item_offer_give_away_message_form_title: "Få %{listing} fra %{person}"
-      item_offer_trade_message_form_title: "Bytt  %{listing} med %{person}"
-      item_offer_rent_out_message_form_title: "Lei %{listing} fra %{person}"
-      item_request_borrow_message_form_title: "Lån %{listing} til %{person}"
-      item_request_buy_message_form_title: "Selg%{listing} til %{person}"
-      item_request_take_for_free_message_form_title: "Gi bort %{listing} til %{person}"
-      item_request_trade_message_form_title: "Bytt%{listing} med %{person}"
-      item_request_rent_message_form_title: "Lei ut %{listing} til %{person}"
-      housing_offer_sell_message_form_title: "Kjøp  %{listing} fra %{person}"
-      housing_offer_rent_out_message_form_title: "Lei %{listing} fra %{person}"
-      housing_offer_share_for_free_message_form_title: "Forespør %{listing} fra %{person}"
-      housing_offer_accept_for_free_message_form_title: "Tilby%{listing} til %{person}"
-      housing_request_buy_message_form_title: "Selg%{listing} til %{person}"
-      housing_request_rent_message_form_title: "Lei ut %{listing} til %{person}"
-      item_request_message_form_title: "Tilby en ting til %{person}"
       message: Melding
       message_to: "Melding til %{author_name}"
       optional_message_to: "Valgfri melding til %{author_name}"
-      rideshare_offer_message_form_title: "Be om en tur med %{person}"
-      rideshare_request_message_form_title: "Tilby en tur til %{person}"
       send_message: "Send melding"
       send: Send
       this_message_is_private: "Denne meldingen er privat mellom deg og %{person}.%{person} vil motta en e-post vedrørende denne meldingen."
@@ -1474,7 +1449,7 @@ nb:
         repeated: "Gjentatt (skriv tidspunkt og dager i feltet 'detaljert beskrivelse')"
       description:
         detailed_description: "Detaljert beskrivelse"
-        youtube_info: ~
+        youtube_info: "Hvis beskrivelsen din inneholder en eller flere linker til YouTube-videoer, vil videoene vises under beskrivelsen."
       destination:
         destination: Destinasjon
       form_content:
@@ -1793,8 +1768,8 @@ nb:
       something_went_wrong: "Noe gikk galt. Vennligst prøv igjen. Dersom problemet fortsetter, vennligst kontakt administrator."
       account_not_verified: "Du har ikke verifisert din PayPal-konto. Du må gå til paypal.com og verifisere kontoen før du kan fortsette."
       account_restricted: "Din PayPal-konto er begrenset og kan ikke bli koblet til. Vennligst logg på paypal.com for å finne ut mer hva dette betyr og ta kontakt med PayPal-support for å løse saken."
-    paypal_account_connected_title: ~
-    paypal_account_connected: ~
+    paypal_account_connected_title: "PayPal-konto tilkoblet"
+    paypal_account_connected: "PayPal-kontoen %{email} har blitt koblet til %{service_name}"
     change_account: "Endre konto"
     missing: "Du har åpne annonser men har ikke koblet til en PayPal-konto så du vil ikke kunne motta betalinger. Vennligst koble til din PayPal-konto i dine %{settings_link}."
     from_your_payment_settings_link_text: betalingsinnstillinger
