@@ -13,7 +13,7 @@ module LoginHelpers
 
     # Warning! This sets @current_user even if the login fails.
     # This should be fixed.
-    @current_user = Person.find_by_username(username)
+    @current_user = Person.find_by(username: username)
   end
 
   def logout()
@@ -27,7 +27,7 @@ module LoginHelpers
 
   # No browser interaction
   def login_user_without_browser(username)
-    person = Person.find_by_username(username)
+    person = Person.find_by(username: username)
     login_as(person, :scope => :person)
     visit root_path(:locale => :en)
     @logged_in_user = person

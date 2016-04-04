@@ -26,13 +26,13 @@
 Given /^there are following emails:$/ do |emails_table|
   # Clean up old emails first
   emails_table.hashes.each do |hash|
-    person = Person.find_by_username(hash[:person])
+    person = Person.find_by(username: hash[:person])
     person.emails.each { |email| email.destroy }
   end
 
   # Create new emails
   emails_table.hashes.each do |hash|
-    person = Person.find_by_username(hash[:person])
+    person = Person.find_by(username: hash[:person])
     @hash_email = FactoryGirl.create(:email, :person => person)
 
     attributes_to_update = hash.except('person')

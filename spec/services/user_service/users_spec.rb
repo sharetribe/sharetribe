@@ -20,7 +20,7 @@ describe UserService::API::Users do
     it "should create a user" do
       u = create_user(PERSON_HASH)
       expect(u[:given_name]).to eql "Raymond"
-      expect(Person.find_by_username("raymondx").family_name).to eql "Xperiment"
+      expect(Person.find_by(username: "raymondx").family_name).to eql "Xperiment"
       expect(u[:locale]).to eql "fr"
     end
 

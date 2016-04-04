@@ -127,6 +127,13 @@ class Person < ActiveRecord::Base
     end
   end
 
+  def self.find_by_username_and_community_id(username, community_id)
+    Person
+      .joins(:community_memberships)
+      .where(username: username, community_memberships: { community_id: community_id })
+      .first
+  end
+
   DEFAULT_TIME_FOR_COMMUNITY_UPDATES = 7.days
 
   # These are the email notifications, excluding newsletters settings

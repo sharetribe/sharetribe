@@ -1,20 +1,15 @@
 module AdminTransactionSteps
 
-  def do_with_person(username)
-    Maybe(username)
-      .select { |uname| uname != "nil" }
-      .map { |uname| Person.find_by_username(uname) }
-      .each { |person| yield person }
-  end
-
   def build_transaction(transaction_data)
     last_message = eval(transaction_data[:latest_activity].gsub(' ', '.'))
 
     message = FactoryGirl.build(:message, created_at: last_message)
     conversation = FactoryGirl.build(:conversation, created_at: last_message, messages: [message])
 
-    author = Person.find_by_username(transaction_data[:other_party])
-    starter = Person.find_by_username(transaction_data[:starter])
+    community = Community.find_by(ident: transaction_data[:community_ident])
+
+    author = Person.find_by_username_and_community_id(transaction_data[:other_party], community.id)
+    starter = Person.find_by_username_and_community_id(transaction_data[:starter], community.id)
 
     # TODO This is almost copy-paste from conversation_steps
     conversation.participations.build({
@@ -31,7 +26,7 @@ module AdminTransactionSteps
 
     transaction_opts = {
       created_at: eval(transaction_data[:started_at].gsub(' ', '.')),
-      community: Community.first
+      community: community
     }
     sum = transaction_data[:sum].to_i * 100 unless transaction_data[:sum].empty?
 
