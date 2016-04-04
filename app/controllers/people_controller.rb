@@ -19,7 +19,7 @@ class PeopleController < Devise::RegistrationsController
   helper_method :show_closed?
 
   def show
-    @person = Person.find_by(username: params[:username])
+    @person = Person.find_by_username_and_community_id!(params[:username], @current_community.id)
     raise PersonDeleted if @person.deleted?
     PersonViewUtils.ensure_person_belongs_to_community!(@person, @current_community)
 
