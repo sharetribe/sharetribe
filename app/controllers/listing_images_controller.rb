@@ -13,7 +13,9 @@ class ListingImagesController < ApplicationController
     elsif !authorized_to_destroy?(image)
       render nothing: true, status: 401
     else
-      if image.destroy
+      image_destroyed = image.destroy
+
+      if image_destroyed
         render nothing: true, status: 204
       else
         error_messages = image.errors.full_messages
