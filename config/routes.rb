@@ -294,7 +294,7 @@ Kassi::Application.routes.draw do
 
       resources :people, param: :username, :path => "", :only => :show, :constraints => { :username => /[_a-z0-9]{3,20}/ }
 
-      resources :people, param: :username, :constraints => { :username => /[_a-z0-9]{3,20}/ } do
+      resources :people, except: [:show] do
         collection do
           get :check_username_availability
           get :check_email_availability
@@ -306,7 +306,7 @@ Kassi::Application.routes.draw do
         end
       end
 
-      resources :people, :path => "" do
+      resources :people, except: [:show], :path => "" do
         member do
           put :activate
           put :deactivate
