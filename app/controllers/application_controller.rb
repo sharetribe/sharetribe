@@ -180,18 +180,6 @@ class ApplicationController < ActionController::Base
     redirect_to login_path and return
   end
 
-  # A before filter for views that only authorized users can access
-  def ensure_authorized(error_message)
-    if logged_in?
-      @person = Person.find(params[:person_id] || params[:id])
-      return if current_user?(@person)
-    end
-
-    # This is reached only if not authorized
-    flash[:error] = error_message
-    redirect_to root and return
-  end
-
   def logged_in?
     @current_user.present?
   end

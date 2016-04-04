@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_update_profile_info_form("#{I18n.locale}","#{@person.id.to_s}", #{@current_community.real_name_required?});
+  initialize_update_profile_info_form("#{I18n.locale}","#{@current_user.id.to_s}", #{@current_community.real_name_required?});
 
 - content_for :extra_javascript do
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
@@ -12,10 +12,10 @@
 #person_settings_form.left-navi-section.settings-section
   %p
     = t("settings.profile.these_fields_are_shown_in_your")
-    = link_to(t("settings.profile.profile_page"), @person) + "."
+    = link_to(t("settings.profile.profile_page"), @current_user) + "."
 
-  = form_for @person do |form|
-    - unless @person.is_organization
+  = form_for @current_user do |form|
+    - unless @current_user.is_organization
       = form.label :given_name, t("settings.profile.given_name")
       = form.text_field :given_name, :class => "text_field", :maxlength => "30"
       .inline-label-container
@@ -56,8 +56,8 @@
     = form.label :description, t("settings.profile.about_you"), :class => "input"
     = form.text_area :description, :class => "update_profile_description_text_area"
     = form.fields_for :location do |loc|
-      = loc.hidden_field :address, :value => @person.location.address
-      = loc.hidden_field :google_address, :value => @person.location.google_address
-      = loc.hidden_field :latitude, :value => @person.location.latitude
-      = loc.hidden_field :longitude, :value => @person.location.longitude
+      = loc.hidden_field :address, :value => @current_user.location.address
+      = loc.hidden_field :google_address, :value => @current_user.location.google_address
+      = loc.hidden_field :latitude, :value => @current_user.location.latitude
+      = loc.hidden_field :longitude, :value => @current_user.location.longitude
     = form.button t("settings.save_information"), :class => "send_button"

@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_update_notification_settings_form("#{I18n.locale}","#{@person.id.to_s}");
+  initialize_update_notification_settings_form("#{I18n.locale}","#{@current_user.id.to_s}");
 
 - content_for :title_header do
   %h1= t("layouts.no_tribe.settings")
@@ -7,7 +7,7 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user, @current_community) }
 
 #person_settings_form.left-navi-section.settings-section.notification-settings
-  = form_for @person do |form|
+  = form_for @current_user do |form|
 
     %h2= t(".community_updates")
     = render :partial => "community_updates_radiobutton", :collection => [["email_daily_community_updates", 1], ["email_weekly_community_updates", 7], ["do_not_email_community_updates", 100000]], :as => :options
