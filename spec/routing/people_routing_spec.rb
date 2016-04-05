@@ -14,7 +14,7 @@ describe "routing for people", type: :routing do
         {
           :controller => "people",
           :action => "show",
-          :id => @person.username
+          :username => @person.username
         }
       )
     )

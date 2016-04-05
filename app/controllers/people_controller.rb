@@ -19,9 +19,8 @@ class PeopleController < Devise::RegistrationsController
   helper_method :show_closed?
 
   def show
-    @person = Person.find(params[:person_id] || params[:id])
+    @person = Person.find_by_username_and_community_id!(params[:username], @current_community.id)
     raise PersonDeleted if @person.deleted?
-    PersonViewUtils.ensure_person_belongs_to_community!(@person, @current_community)
 
     redirect_to root and return if @current_community.private? && !@current_user
     @selected_tribe_navi_tab = "members"
@@ -348,11 +347,6 @@ class PeopleController < Devise::RegistrationsController
 
   def show_closed?
     params[:closed] && params[:closed].eql?("true")
-  end
-
-  # Showed when somebody tries to view a profile of
-  # a person that is not a member of that community
-  def not_member
   end
 
   def activate

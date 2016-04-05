@@ -9,7 +9,7 @@
 
 #new_message_form.centered-section
 
-  - author_link = link_to(author[:display_name], person_path(id: author[:username]))
+  - author_link = link_to(author[:display_name], person_path(username: author[:username]))
 
   .preauthorize-section
     %h2.preauthorize-details-title

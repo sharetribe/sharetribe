@@ -47,7 +47,7 @@ class ConversationsController < ApplicationController
 
   def person_entity_with_url(person_entity)
     person_entity.merge({
-                          url: person_path(id: person_entity[:username]),
+                          url: person_path(username: person_entity[:username]),
                           display_name: PersonViewUtils.person_entity_display_name(person_entity, @current_community.name_display_type)
                         })
   end

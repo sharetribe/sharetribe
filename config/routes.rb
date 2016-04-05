@@ -292,21 +292,19 @@ Kassi::Application.routes.draw do
       get "/signup" => "people#new", :as => :sign_up
       get '/people/auth/:provider/setup' => 'sessions#facebook_setup' #needed for devise setup phase hook to work
 
-      resources :people, :path => "", :only => :show, :constraints => { :id => /[_a-z0-9]+/ }
+      resources :people, param: :username, :path => "", :only => :show, :constraints => { :username => /[_a-z0-9]{3,20}/ }
 
-      resources :people, :constraints => { :id => /[_a-z0-9]+/ } do
+      resources :people, except: [:show] do
         collection do
           get :check_username_availability
           get :check_email_availability
           get :check_email_availability_and_validity
           get :check_invitation_code
-          get :not_member
-          get :cancel
           get :create_facebook_based
         end
       end
 
-      resources :people, :path => "" do
+      resources :people, except: [:show], :path => "" do
         member do
           put :activate
           put :deactivate
@@ -399,7 +397,9 @@ Kassi::Application.routes.draw do
     end
   end
 
-  get "(/:locale)/people/:person_id(*path)" => redirect(id_to_username), :constraints => { :locale => locale_matcher, :person_id => /[a-zA-Z0-9_-]{20,}/ }
+  get "(/:locale)/people/:person_id(*path)" => redirect(id_to_username), :constraints => { :locale => locale_matcher, :person_id => /[a-zA-Z0-9_-]{22}/ }
+
+  get "(/:locale)/:person_id(*path)" => redirect(id_to_username), :constraints => { :locale => locale_matcher, :person_id => /[a-zA-Z0-9_-]{22}/ }
 
   #keep this matcher last
   #catches all non matched routes, shows 404 and logs more reasonably than the alternative RoutingError + stacktrace
