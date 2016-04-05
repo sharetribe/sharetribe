@@ -45,10 +45,6 @@ class Email < ActiveRecord::Base
     self.save
   end
 
-  def self.confirmed?(email)
-    Email.find_by_address(email).confirmed_at.present?
-  end
-
   # Email already in use for current user or someone else
   def self.email_available?(email)
     !Email.find_by_address(email).present?
@@ -62,5 +58,12 @@ class Email < ActiveRecord::Base
 
   def self.send_confirmation(email, community)
     MailCarrier.deliver_later(PersonMailer.email_confirmation(email, community))
+  end
+
+  def self.find_by_address_and_community_id(address, community_id)
+    Email
+      .joins("INNER JOIN community_memberships ON community_memberships.person_id = emails.person_id")
+      .where(address: address, community_memberships: { community_id: community_id })
+      .first
   end
 end
