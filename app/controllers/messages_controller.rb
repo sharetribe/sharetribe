@@ -6,6 +6,8 @@ class MessagesController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_send_a_message")
   end
 
+  ensure_can_access_person :person_id
+
   def create
     unless is_participant?(@current_user, params[:message][:conversation_id])
       flash[:error] = t("layouts.notifications.you_are_not_authorized_to_do_this")

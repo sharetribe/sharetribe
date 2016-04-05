@@ -4,6 +4,8 @@ class SettingsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_settings")
   end
 
+  ensure_can_access_person :person_id, except: [:unsubscribe]
+
   def show
     flash.now[:notice] = t("settings.profile.image_is_processing") if @current_user.image.processing?
     @selected_left_navi_link = "profile"

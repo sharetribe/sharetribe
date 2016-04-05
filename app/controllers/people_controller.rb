@@ -4,6 +4,8 @@ class PeopleController < Devise::RegistrationsController
   skip_before_filter :verify_authenticity_token, :only => [:creates]
   skip_before_filter :require_no_authentication, :only => [:new]
 
+  ensure_can_access_person :id, only: [:update, :destroy]
+
   before_filter :ensure_is_admin, :only => [ :activate, :deactivate ]
 
   skip_filter :check_email_confirmation, :only => [ :update]

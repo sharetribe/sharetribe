@@ -188,12 +188,32 @@ class ApplicationController < ActionController::Base
     @current_user && @current_user.id.eql?(person.id)
   end
 
+  # See self.ensure_can_access_person if you want to use this as a filter
   def ensure_can_access_person(param_name)
     username = params[param_name]
     unless @current_user && @current_user.username == username
       flash[:error] = t("layouts.notifications.you_are_not_authorized_to_do_this")
       redirect_to root
     end
+  end
+
+  # Given a `param_name`, this before filter checks that the current_user is allowed
+  # to access the user whose username is params[param_name].
+  #
+  # Usage:
+  #
+  # If there's a URL /john_doe/settings, and the `param_name` for the
+  # username is `person_username`:
+  #
+  # class YourController < ApplicationController
+  #   ensure_can_access_person :person_username, only: [:update, :edit]
+  #   ...
+  # end
+  #
+  def self.ensure_can_access_person(param_name, opts = {})
+    before_filter(opts) {
+      ensure_can_access_person(param_name)
+    }
   end
 
   # Saves current path so that the user can be
