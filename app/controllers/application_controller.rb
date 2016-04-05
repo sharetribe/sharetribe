@@ -188,6 +188,14 @@ class ApplicationController < ActionController::Base
     @current_user && @current_user.id.eql?(person.id)
   end
 
+  def ensure_can_access_person(param_name)
+    username = params[param_name]
+    unless @current_user && @current_user.username == username
+      flash[:error] = t("layouts.notifications.you_are_not_authorized_to_do_this")
+      redirect_to root
+    end
+  end
+
   # Saves current path so that the user can be
   # redirected back to that path when needed.
   def save_current_path
