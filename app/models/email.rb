@@ -63,7 +63,6 @@ class Email < ActiveRecord::Base
   def self.find_by_address_and_community_id(address, community_id)
     Email
       .joins("INNER JOIN community_memberships ON community_memberships.person_id = emails.person_id")
-      .where(address: address, community_memberships: { community_id: community_id })
-      .first
+      .find_by(address: address, community_memberships: { community_id: community_id })
   end
 end
