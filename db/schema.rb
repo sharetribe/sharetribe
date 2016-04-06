@@ -397,6 +397,7 @@ ActiveRecord::Schema.define(version: 20160420100304) do
     t.boolean  "send_notifications"
   end
 
+  add_index "emails", ["address", "community_id"], name: "index_emails_on_address_and_community_id", unique: true, using: :btree
   add_index "emails", ["address"], name: "index_emails_on_address", using: :btree
   add_index "emails", ["community_id"], name: "index_emails_on_community_id", using: :btree
   add_index "emails", ["person_id"], name: "index_emails_on_person_id", using: :btree
@@ -905,14 +906,13 @@ ActiveRecord::Schema.define(version: 20160420100304) do
     t.string   "organization_name",                  limit: 255
     t.boolean  "deleted",                                          default: false
     t.string   "cloned_from",                        limit: 22
-    t.integer  "community_id",                       limit: 4
   end
 
   add_index "people", ["authentication_token"], name: "index_people_on_authentication_token", using: :btree
   add_index "people", ["community_id"], name: "index_people_on_community_id", using: :btree
   add_index "people", ["cloned_from"], name: "index_people_on_cloned_from", using: :btree
   add_index "people", ["email"], name: "index_people_on_email", unique: true, using: :btree
-  add_index "people", ["facebook_id"], name: "index_people_on_facebook_id", using: :btree
+  add_index "people", ["facebook_id", "community_id"], name: "index_people_on_facebook_id_and_community_id", unique: true, using: :btree
   add_index "people", ["id"], name: "index_people_on_id", using: :btree
   add_index "people", ["reset_password_token"], name: "index_people_on_reset_password_token", unique: true, using: :btree
   add_index "people", ["username"], name: "index_people_on_username", using: :btree

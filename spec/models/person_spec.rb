@@ -42,7 +42,6 @@
 #  organization_name                  :string(255)
 #  deleted                            :boolean          default(FALSE)
 #  cloned_from                        :string(22)
-#  community_id                       :integer
 #
 # Indexes
 #

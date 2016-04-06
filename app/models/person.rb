@@ -42,7 +42,6 @@
 #  organization_name                  :string(255)
 #  deleted                            :boolean          default(FALSE)
 #  cloned_from                        :string(22)
-#  community_id                       :integer
 #
 # Indexes
 #
@@ -53,6 +52,8 @@
 #  index_people_on_id                    (id)
 #  index_people_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_people_on_username              (username)
+#  index_people_on_facebook_id_and_community_id  (facebook_id,community_id) UNIQUE
+#  index_people_on_username_and_community_id     (username,community_id) UNIQUE
 #
 
 require 'json'
