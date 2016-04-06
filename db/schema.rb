@@ -387,6 +387,7 @@ ActiveRecord::Schema.define(version: 20160408061218) do
 
   create_table "emails", force: :cascade do |t|
     t.string   "person_id",            limit: 255
+    t.integer  "community_id",         limit: 4
     t.string   "address",              limit: 255
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -396,6 +397,7 @@ ActiveRecord::Schema.define(version: 20160408061218) do
     t.boolean  "send_notifications"
   end
 
+  add_index "emails", ["address", "community_id"], name: "index_emails_on_address_and_community_id", unique: true, using: :btree
   add_index "emails", ["address"], name: "index_emails_on_address", using: :btree
   add_index "emails", ["person_id"], name: "index_emails_on_person_id", using: :btree
 
@@ -852,6 +854,7 @@ ActiveRecord::Schema.define(version: 20160408061218) do
 
   create_table "people", id: false, force: :cascade do |t|
     t.string   "id",                                 limit: 22,                    null: false
+    t.integer  "community_id",                       limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "is_admin",                           limit: 4,     default: 0
@@ -890,12 +893,11 @@ ActiveRecord::Schema.define(version: 20160408061218) do
     t.string   "organization_name",                  limit: 255
     t.boolean  "deleted",                                          default: false
     t.string   "cloned_from",                        limit: 22
-    t.integer  "community_id",                       limit: 4
   end
 
   add_index "people", ["authentication_token"], name: "index_people_on_authentication_token", using: :btree
   add_index "people", ["email"], name: "index_people_on_email", unique: true, using: :btree
-  add_index "people", ["facebook_id"], name: "index_people_on_facebook_id", using: :btree
+  add_index "people", ["facebook_id", "community_id"], name: "index_people_on_facebook_id_and_community_id", unique: true, using: :btree
   add_index "people", ["id"], name: "index_people_on_id", using: :btree
   add_index "people", ["reset_password_token"], name: "index_people_on_reset_password_token", unique: true, using: :btree
   add_index "people", ["username"], name: "index_people_on_username", using: :btree
