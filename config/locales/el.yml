@@ -626,34 +626,9 @@ el:
       paid: "πλήρωσε %{sum}"
       payment_preauthorized: ~
     new:
-      offer_message_form_title: "Πρόσφερε %{listing} στον/στην %{person}"
-      request_message_form_title: "Ζήτα %{listing} από τον/την %{person}"
-      favor_offer_message_form_title: "Ζήτα μια χάρη από τον/την"
-      favor_request_message_form_title: "Κάνε μια χάρη στον/στην"
-      housing_offer_message_form_title: "Απάντησε στον/στην"
-      housing_request_message_form_title: "Απάντησε στον/στην"
-      item_offer_lend_message_form_title: "Δανείσου το %{listing} από τον/την %{person}."
-      item_offer_sell_message_form_title: "Αγόρασε το %{listing} από τον/την %{person}"
-      item_offer_give_away_message_form_title: "Πάρε το %{listing} από τον/την %{person}"
-      item_offer_trade_message_form_title: "Αντάλλαξε το %{listing} με τον/την %{person}"
-      item_offer_rent_out_message_form_title: "Νοίκιασε το %{listing} από τον/την%{person}"
-      item_request_borrow_message_form_title: "Δάνεισε το %{listing} στον/στην %{person}"
-      item_request_buy_message_form_title: "Πούλησε %{listing} στο χρήστη %{person}"
-      item_request_take_for_free_message_form_title: "Δώσε το %{listing} στον/στην %{person}"
-      item_request_trade_message_form_title: "Αντάλλαξε το %{listing} με τον/την %{person}"
-      item_request_rent_message_form_title: "Νοίκιασε το %{listing} στον/στην %{person}"
-      housing_offer_sell_message_form_title: "Αγόρασε το %{listing} από τον/την %{person}"
-      housing_offer_rent_out_message_form_title: "Νοίκιασε το %{listing} από τον/την %{person}"
-      housing_offer_share_for_free_message_form_title: "Ζήτα το %{listing} από τον/την %{person}"
-      housing_offer_accept_for_free_message_form_title: "Πρόσφερε το %{listing} στον/στην %{person}"
-      housing_request_buy_message_form_title: "Πούλησε %{listing} στο χρήστη %{person}"
-      housing_request_rent_message_form_title: "Νοίκιασε το %{listing} στον/στην %{person}"
-      item_request_message_form_title: "Πρόσφερε ένα αντικείμενο στον/στην"
       message: Μήνυμα
       message_to: ~
       optional_message_to: ~
-      rideshare_offer_message_form_title: "Κάνε οτοστόπ στον/στην"
-      rideshare_request_message_form_title: "Ταξίδεψε μαζί με τον/την"
       send_message: Αποστολή
       send: Αποστολή
       this_message_is_private: "Αυτό το μήνυμα είναι προσωπικό, μεταξύ εσένα και του χρήστη %{person}. Ο/η %{person} θα ειδοποιηθεί γι' αυτό το μήνυμα με email."

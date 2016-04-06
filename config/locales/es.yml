@@ -626,34 +626,9 @@ es:
       paid: "%{sum} pagado"
       payment_preauthorized: ~
     new:
-      offer_message_form_title: "Ofertar %{listing} a %{person}"
-      request_message_form_title: "La solicitud %{listing} de %{person}"
-      favor_offer_message_form_title: "Pide ayuda de"
-      favor_request_message_form_title: "Ofrécele ayuda a"
-      housing_offer_message_form_title: "Responder a"
-      housing_request_message_form_title: "Responder a"
-      item_offer_lend_message_form_title: "Pedir prestado %{listing} a %{person}"
-      item_offer_sell_message_form_title: "Comprar %{listing} a %{person}"
-      item_offer_give_away_message_form_title: "Obtener %{listing} de %{person}"
-      item_offer_trade_message_form_title: "Trocar %{listing} con %{person}"
-      item_offer_rent_out_message_form_title: "Arrendar %{listing} de %{person}"
-      item_request_borrow_message_form_title: "Prestar %{listing} a %{person}"
-      item_request_buy_message_form_title: "Vender %{listing} a %{person}"
-      item_request_take_for_free_message_form_title: "Darlo %{listing} a %{person}"
-      item_request_trade_message_form_title: "Trocar %{listing} de %{person}"
-      item_request_rent_message_form_title: "Arrendar %{listing} a %{person}"
-      housing_offer_sell_message_form_title: "Comprar %{listing} de %{person}"
-      housing_offer_rent_out_message_form_title: "Arrendar %{listing} de %{person}"
-      housing_offer_share_for_free_message_form_title: "Solicitar %{listing} a %{person}"
-      housing_offer_accept_for_free_message_form_title: "Ofertar %{listing} a %{person}"
-      housing_request_buy_message_form_title: "Vender %{listing} a %{person}"
-      housing_request_rent_message_form_title: "Arrendar %{listing} a %{person}"
-      item_request_message_form_title: "Ofrécele un artículo a"
       message: Mensaje
       message_to: ~
       optional_message_to: ~
-      rideshare_offer_message_form_title: "Solicítale un traslado a"
-      rideshare_request_message_form_title: "Ofrécele un traslado a"
       send_message: "Enviar mensaje"
       send: Enviar
       this_message_is_private: "Este mensaje es privado entre tú y %{person}."
@@ -1201,7 +1176,7 @@ es:
       map: "Mostrar mapa"
       list: "Mostrar lista"
       map_button: Mapa
-      grid_button: "Vista en matriz"
+      grid_button: Matriz
       list_button: Lista
       all_listing_types: "Todos los tipos de listado"
       all_categories: "Todas las categorías"
