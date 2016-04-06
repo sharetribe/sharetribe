@@ -31,8 +31,9 @@ module MarketplaceService
       module_function
 
       def unsubscribe_email_from_community_updates(email_address)
-        person = Maybe(Email.find_by_address(email_address)).person.or_else(nil)
-        Helper.unsubscribe_from_community_updates(person)
+        Email.where(address: email_address).map(&:person).each { |person|
+          Helper.unsubscribe_from_community_updates(person)
+        }
       end
 
       def unsubscribe_person_from_community_updates(person_id)

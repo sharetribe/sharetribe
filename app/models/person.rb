@@ -564,6 +564,12 @@ class Person < ActiveRecord::Base
     end
   end
 
+  def self.find_by_email_address_and_community_id(email_address, community_id)
+    Maybe(
+      Email.find_by_address_and_community_id(email_address, community_id)
+    ).person.or_else(nil)
+  end
+
   def reset_password_token_if_needed
     # Devise 3.1.0 doesn't expose methods to generate reset_password_token without
     # sending the email, so this code is copy-pasted from Recoverable module

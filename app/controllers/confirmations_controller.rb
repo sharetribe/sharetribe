@@ -31,7 +31,7 @@ class ConfirmationsController < Devise::ConfirmationsController
 
     # Resend confirmation
     if email_param_present
-      email = Email.find_by_address(params[:person][:email])
+      email = Email.find_by_address_and_community_id(params[:person][:email], @current_community.id)
       Email.send_confirmation(email, @current_community)
       flash[:notice] = t("sessions.confirmation_pending.check_your_email")
       redirect_to :controller => "sessions", :action => "confirmation_pending" and return

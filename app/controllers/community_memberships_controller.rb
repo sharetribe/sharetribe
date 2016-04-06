@@ -62,7 +62,7 @@ class CommunityMembershipsController < ApplicationController
 
         # no confirmed allowed email found. Check if there is unconfirmed or should we add one.
         if @current_user.has_email?(params[:community_membership][:email])
-          e = Email.find_by_address(params[:community_membership][:email])
+          e = Email.find_by_address_and_community_id(params[:community_membership][:email], @current_community.id)
         elsif
           e = Email.create(:person => @current_user, :address => params[:community_membership][:email])
         end
@@ -74,7 +74,7 @@ class CommunityMembershipsController < ApplicationController
       # we need to resend the confirmation email and update membership status to "pending_email_confirmation"
       elsif @current_user.community_memberships.size > 0
         Maybe(@current_user.latest_pending_email_address(@current_community)).map { |email_address|
-          Email.send_confirmation(Email.find_by_address(email_address), @current_community)
+          Email.send_confirmation(Email.find_by_address_and_community_id(email_address, @current_community.id), @current_community)
         }
       end
 
