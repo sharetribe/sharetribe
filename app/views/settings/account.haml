@@ -13,11 +13,11 @@
     .account-settings-text
       %b
         = username_label + ":"
-      = @person.username
+      = @current_user.username
 
   -# Email
   .account-settings-row
-    = form_for @person, :html => {:id => 'email_form'} do |form|
+    = form_for @current_user, :html => {:id => 'email_form'} do |form|
       .ss-mail.account-settings-icon
       .account-settings-text#account_email_content
         .account-settings-title
@@ -37,16 +37,16 @@
             %b
               = t(".email.confirmation_title_desktop")
         .account-settings-email-content-rows#account-settings-email-content-rows
-          - @person.emails.each_with_index do |email, index|
+          - @current_user.emails.each_with_index do |email, index|
             - unless email.new_record?
               .account-settings-email-row{:class => ((index % 2 == 0) ? "account-settings-email-row-highlight" : "")}
                 .account-settings-email-row-address
                   = email.address
                 .account-settings-email-row-delete
-                  - can_delete = @person.can_delete_email(email)
+                  - can_delete = @current_user.can_delete_email(email)
                   - disabled_class = can_delete ? "" : "disabled"
                   - if can_delete
-                    = link_to person_email_path(@person.id, email.id), :method => :delete, :data => {:confirm => t(".email.remove_confirmation")}, :class => "account-settings-email-row-delete-link" do
+                    = link_to person_email_path(@current_user.id, email.id), :method => :delete, :data => {:confirm => t(".email.remove_confirmation")}, :class => "account-settings-email-row-delete-link" do
                       .settings-email-mobile-label-container
                         .visible-desktop.settings-email-mobile-label
                           = icon_tag("cross", ["account-settings-email-row-delete-cross", disabled_class])
@@ -108,7 +108,7 @@
       = "********"
       = link_to t(".change"), "#", :id => "account_password_link", :class => "change-link"
     #account_password_form.password-form
-      = form_for @person, :html => {:id => 'password_form'} do |form|
+      = form_for @current_user, :html => {:id => 'password_form'} do |form|
         = form.password_field :password, :class => :text_field_account, :maxlength => "255", :placeholder => t(".new_password")
         = form.password_field :password2, :class => :text_field_account, :maxlength => "255", :placeholder => t(".confirm_new_password")
         = form.button t(".save"), :class => "send_button_account", :id => "password_submit"
@@ -128,7 +128,7 @@
     %p
       = t("settings.account.delete_information_others_involved")
 
-    = form_tag url_for(:controller => :people, :action => :destroy, :id => @current_user.id), :method => :delete do
+    = form_tag url_for(:controller => :people, :action => :destroy, :id => @current_user.username), :method => :delete do
       = button_tag t('.delete_account_button'), :class => (has_unfinished ? 'disabled-button' : ''), :disabled => has_unfinished, :id => "delete_account_button", :data => {:confirm => t('.delete_account_confirmation_popup')}
 
     - if has_unfinished

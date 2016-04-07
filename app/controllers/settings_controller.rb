@@ -4,9 +4,7 @@ class SettingsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_settings")
   end
 
-  before_filter :except => :unsubscribe do |controller|
-    controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
-  end
+  ensure_can_access_person :person_id, except: [:unsubscribe]
 
   def show
     flash.now[:notice] = t("settings.profile.image_is_processing") if @current_user.image.processing?
@@ -16,8 +14,8 @@ class SettingsController < ApplicationController
 
   def account
     @selected_left_navi_link = "account"
-    @person.emails.build
-    marketplaces = @person.community_memberships
+    @current_user.emails.build
+    marketplaces = @current_user.community_memberships
                    .map { |m| Maybe(m.community).name(I18n.locale).or_else(nil) }
                    .compact
     has_unfinished = TransactionService::Transaction.has_unfinished_transactions(@current_user.id)
@@ -57,9 +55,9 @@ class SettingsController < ApplicationController
   private
 
   def add_location_to_person
-    unless @person.location
-      @person.build_location(:address => @person.street_address)
-      @person.location.search_and_fill_latlng
+    unless @current_user.location
+      @current_user.build_location(:address => @current_user.street_address)
+      @current_user.location.search_and_fill_latlng
     end
   end
 

@@ -180,24 +180,40 @@ class ApplicationController < ActionController::Base
     redirect_to login_path and return
   end
 
-  # A before filter for views that only authorized users can access
-  def ensure_authorized(error_message)
-    if logged_in?
-      @person = Person.find(params[:person_id] || params[:id])
-      return if current_user?(@person)
-    end
-
-    # This is reached only if not authorized
-    flash[:error] = error_message
-    redirect_to root and return
-  end
-
   def logged_in?
     @current_user.present?
   end
 
   def current_user?(person)
     @current_user && @current_user.id.eql?(person.id)
+  end
+
+  # See self.ensure_can_access_person if you want to use this as a filter
+  def ensure_can_access_person(param_name)
+    username = params[param_name]
+    unless @current_user && @current_user.username == username
+      flash[:error] = t("layouts.notifications.you_are_not_authorized_to_do_this")
+      redirect_to root
+    end
+  end
+
+  # Given a `param_name`, this before filter checks that the current_user is allowed
+  # to access the user whose username is params[param_name].
+  #
+  # Usage:
+  #
+  # If there's a URL /john_doe/settings, and the `param_name` for the
+  # username is `person_username`:
+  #
+  # class YourController < ApplicationController
+  #   ensure_can_access_person :person_username, only: [:update, :edit]
+  #   ...
+  # end
+  #
+  def self.ensure_can_access_person(param_name, opts = {})
+    before_filter(opts) {
+      ensure_can_access_person(param_name)
+    }
   end
 
   # Saves current path so that the user can be
