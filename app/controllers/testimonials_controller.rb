@@ -11,15 +11,15 @@ class TestimonialsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:skip]
 
   def index
-    @person = Person.find(params[:person_id] || params[:id])
-    PersonViewUtils.ensure_person_belongs_to_community!(@person, @current_community)
+    username = params[:person_id]
+    target_user = Person.find_by_username_and_community_id!(username, @current_community.id)
 
     if request.xhr?
-      @testimonials = TestimonialViewUtils.received_testimonials_in_community(@person, @current_community).paginate(:per_page => params[:per_page], :page => params[:page])
+      @testimonials = TestimonialViewUtils.received_testimonials_in_community(target_user, @current_community).paginate(:per_page => params[:per_page], :page => params[:page])
       limit = params[:per_page].to_i
       render :partial => "people/testimonials", :locals => {:received_testimonials => @testimonials, :limit => limit}
     else
-      redirect_to person_path(@person)
+      redirect_to person_path(target_user)
     end
   end
 
