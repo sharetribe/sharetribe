@@ -608,7 +608,7 @@ nb:
       paypal_fee_info: "* ekskludert <a id='%{fee_info_link_id}' href='#'>PayPals transaksjonskostnad</a>"
       shipping_price_label: "Frakt:"
     confirm:
-      confirm_description: "Dersom din forespørsel er utført må du bekrefte den som utført. Du kan så gi vurdering av den andre parten."
+      confirm_description: "Dersom din forespørsel er utført, må du bekrefte den som utført. Du kan så gi vurdering av den andre parten."
       cancel_description: |-
           Dersom din forespørsel ikke ble møtt, kan du merke den som "ikke hendt".
           Du kan likevel gi vurdering av den andre og beskrive hva som skjedde.
@@ -644,7 +644,7 @@ nb:
       message_content_not_available: ~
     message:
       accepted_request: "godtok forespørselen"
-      received_payment: ~
+      received_payment: "godtok forespørselen og har mottatt betaling på %{sum}"
       accepted_offer: "Tilbud godtatt"
       rejected_request: "avslå forespørselen"
       rejected_offer: "avslå tilbudet"

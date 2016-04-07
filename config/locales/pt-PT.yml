@@ -499,7 +499,7 @@ pt-PT:
         rent: ~
         request: ~
         offer: ~
-        inquiry: ~
+        inquiry: Contacto
   common:
     edit_page: ~
     default_community_slogan: ~
@@ -1010,7 +1010,7 @@ pt-PT:
     no_javascript:
       javascript_is_disabled_in_your_browser: ~
       kassi_does_not_currently_work_without_javascript: ~
-      contact_us: ~
+      contact_us: Contactenos
       send_feedback: ~
       your_feedback_to_admins: ~
     send: ~
@@ -1061,9 +1061,9 @@ pt-PT:
     requests: ~
     search_kassi: ~
     create_new_marketplace: ~
-    contact_us: ~
+    contact_us: Contactenos
     profile: ~
-    manage_listings: ~
+    manage_listings: "Gerir anúncios"
     invite: ~
     login: ~
     signup: ~
@@ -1189,15 +1189,15 @@ pt-PT:
     no_tribe:
       inbox: ~
       settings: ~
-      feedback: ~
+      feedback: Contactenos
     application:
       join_this_community: ~
       read_more: ~
-      feedback: ~
-      default_feedback: ~
+      feedback: "O que você gostaria de nos dizer?"
+      default_feedback: "Encontrou algum problema com %{service_name}* ? Tem alguma sugestão para melhorar o serviço? Notou algum conteúdo suspeito? Ou quer apenas partilhar ou discutir alguma ideia? Escreva aqui a sua mensagem!"
       feedback_forum: ~
       feedback_handle: ~
-      give_feedback: ~
+      give_feedback: Contactenos
       or_check_our: ~
       send_feedback_to_admin: ~
       to_see_what_others_have_suggested: ~
@@ -1581,7 +1581,7 @@ pt-PT:
       add_profile_picture: ~
       comments: ~
       contact_by_phone: ~
-      contact: ~
+      contact: Contacto
       favor_offer: ~
       favor_request: ~
       inquiry: ~
@@ -1842,7 +1842,7 @@ pt-PT:
       they_follow_plural: ~
       they_follow_singular: ~
       show_all_followed_people: ~
-      no_followed_people: ~
+      no_followed_people: "Nenhuma pessoa a ser seguida"
     follow_button:
       following: ~
       follow: ~
@@ -1893,7 +1893,7 @@ pt-PT:
     account:
       change: ~
       confirm_new_password: ~
-      delete_account: ~
+      delete_account: "Apagar conta"
       delete_account_button: ~
       delete_account_confirmation_popup: ~
       email_addresses: ~
