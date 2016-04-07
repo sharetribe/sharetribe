@@ -1831,10 +1831,6 @@ en:
       create_account_with_facebook: "Sign up with Facebook"
       OR: OR
       signup_with_email: "Sign up with email"
-    not_member:
-      explanation_text: "You are currently browsing %{community}. You tried to view the profile of a user that is a member of another marketplace created with the Sharetribe platform. You cannot access this user's profile in %{community}."
-      read_more_about_kassi_communities: "Read more about Sharetribe marketplaces"
-      this_user_does_not_belong_to_this_community: "This user is not a member of %{community}."
     profile_feedback:
       grade: "grade:"
       and_gave_following_feedback: "and gave the following feedback"

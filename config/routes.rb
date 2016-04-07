@@ -215,7 +215,6 @@ Kassi::Application.routes.draw do
     resources :homepage do
       collection do
         get :sign_in
-        get :not_member
         post :join
       end
     end
