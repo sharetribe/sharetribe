@@ -8,13 +8,8 @@ class PeopleController < Devise::RegistrationsController
     controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
   end
 
-  before_filter :ensure_is_admin, :only => [ :activate, :deactivate ]
-
   skip_filter :check_email_confirmation, :only => [ :update]
   skip_filter :cannot_access_without_joining, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
-
-  # Skip auth token check as current jQuery doesn't provide it automatically
-  skip_before_filter :verify_authenticity_token, :only => [:activate, :deactivate]
 
   helper_method :show_closed?
 
@@ -349,14 +344,6 @@ class PeopleController < Devise::RegistrationsController
     params[:closed] && params[:closed].eql?("true")
   end
 
-  def activate
-    change_active_status("activated")
-  end
-
-  def deactivate
-    change_active_status("deactivated")
-  end
-
   private
 
   # Create a new person by params and current community
@@ -389,22 +376,6 @@ class PeopleController < Devise::RegistrationsController
 
     respond_to do |format|
       format.json { render :json => available }
-    end
-  end
-
-  def change_active_status(status)
-    @person = Person.find(params[:id])
-    #@person.update_attribute(:active, 0)
-    @person.update_attribute(:active, (status.eql?("activated") ? true : false))
-    @person.listings.update_all(:open => false) if status.eql?("deactivated")
-    flash[:notice] = t("layouts.notifications.person_#{status}")
-    respond_to do |format|
-      format.html {
-        redirect_to @person
-      }
-      format.js {
-        render :layout => false
-      }
     end
   end
 

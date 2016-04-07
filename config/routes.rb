@@ -305,10 +305,6 @@ Kassi::Application.routes.draw do
       end
 
       resources :people, except: [:show], :path => "" do
-        member do
-          put :activate
-          put :deactivate
-        end
         resources :listings do
           member do
             put :close

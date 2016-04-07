@@ -11,7 +11,6 @@
 #  active_days_count                  :integer          default(0)
 #  last_page_load_date                :datetime
 #  test_group_number                  :integer          default(1)
-#  active                             :boolean          default(TRUE)
 #  username                           :string(255)
 #  email                              :string(255)
 #  encrypted_password                 :string(255)      default(""), not null
@@ -474,9 +473,9 @@ class Person < ActiveRecord::Base
     confirmed_email = !confirmed_notification_emails.empty?
     if email_type == "community_updates"
       # this is handled outside prefenrences so answer separately
-      return active && confirmed_email && min_days_between_community_updates < 100000
+      return confirmed_email && min_days_between_community_updates < 100000
     end
-    active && confirmed_email && preferences && preferences[email_type]
+    confirmed_email && preferences && preferences[email_type]
   end
 
   def profile_info_empty?
