@@ -4,9 +4,8 @@ class PeopleController < Devise::RegistrationsController
   skip_before_filter :verify_authenticity_token, :only => [:creates]
   skip_before_filter :require_no_authentication, :only => [:new]
 
-  before_filter :only => [ :update, :destroy ] do |controller|
-    controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
-  end
+  before_filter EnsureCanAccessPerson.new(
+    :id, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), only: [:update, :destroy]
 
   before_filter :ensure_is_admin, :only => [ :activate, :deactivate ]
 
@@ -204,11 +203,12 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def update
+    target_user = Person.find_by_username_and_community_id(params[:id], @current_community.id)
     # If setting new location, delete old one first
     if params[:person] && params[:person][:location] && (params[:person][:location][:address].empty? || params[:person][:street_address].blank?)
       params[:person].delete("location")
-      if @person.location
-        @person.location.delete
+      if target_user.location
+        target_user.location.delete
       end
     end
 
@@ -218,7 +218,7 @@ class PeopleController < Devise::RegistrationsController
       redirect_to :back and return
     end
 
-    @person.set_emails_that_receive_notifications(params[:person][:send_notifications])
+    target_user.set_emails_that_receive_notifications(params[:person][:send_notifications])
 
     begin
       person_params = params.require(:person).permit(
@@ -255,26 +255,26 @@ class PeopleController < Devise::RegistrationsController
         person_params[:location] = loc.merge(location_type: :person)
       }
 
-      if @person.update_attributes(person_params)
+      if target_user.update_attributes(person_params)
         if params[:person][:password]
           #if password changed Devise needs a new sign in.
-          sign_in @person, :bypass => true
+          sign_in target_user, :bypass => true
         end
 
         if params[:person][:email_attributes] && params[:person][:email_attributes][:address]
           # A new email was added, send confirmation email to the latest address
-          Email.send_confirmation(@person.emails.last, @current_community)
+          Email.send_confirmation(target_user.emails.last, @current_community)
         end
 
         flash[:notice] = t("layouts.notifications.person_updated_successfully")
 
         # Send new confirmation email, if was changing for that
         if params["request_new_email_confirmation"]
-            @person.send_confirmation_instructions(request.host_with_port, @current_community)
+            target_user.send_confirmation_instructions(request.host_with_port, @current_community)
             flash[:notice] = t("layouts.notifications.email_confirmation_sent_to_new_address")
         end
       else
-        flash[:error] = t("layouts.notifications.#{@person.errors.first}")
+        flash[:error] = t("layouts.notifications.#{target_user.errors.first}")
       end
     rescue RestClient::RequestFailed => e
       flash[:error] = t("layouts.notifications.update_error")
@@ -284,22 +284,23 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def destroy
-    has_unfinished = TransactionService::Transaction.has_unfinished_transactions(@current_user.id)
+    target_user = Person.find_by_username_and_community_id(params[:id], @current_community.id)
+    has_unfinished = TransactionService::Transaction.has_unfinished_transactions(target_user.id)
     return redirect_to root if has_unfinished
 
-    communities = @current_user.community_memberships.map(&:community_id)
+    communities = target_user.community_memberships.map(&:community_id)
 
     # Do all delete operations in transaction. Rollback if any of them fails
     ActiveRecord::Base.transaction do
-      UserService::API::Users.delete_user(@current_user.id)
-      MarketplaceService::Listing::Command.delete_listings(@current_user.id)
+      UserService::API::Users.delete_user(target_user.id)
+      MarketplaceService::Listing::Command.delete_listings(target_user.id)
 
       communities.each { |community_id|
-        PaypalService::API::Api.accounts.delete(community_id: @current_community.id, person_id: @current_user.id)
+        PaypalService::API::Api.accounts.delete(community_id: @current_community.id, person_id: target_user.id)
       }
     end
 
-    sign_out @current_user
+    sign_out target_user
     report_analytics_event('user', "deleted", "by user")
     flash[:notice] = t("layouts.notifications.account_deleted")
     redirect_to root
