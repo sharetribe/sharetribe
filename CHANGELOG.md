@@ -35,6 +35,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 - Updated Paperclip gem [#1836](https://github.com/sharetribe/sharetribe/pull/1836)
 - Unauthorized users were able to upload new listing images [#1866](https://github.com/sharetribe/sharetribe/pull/1866)
+- Change session expiration time from one year to one month [#1877](https://github.com/sharetribe/sharetribe/pull/1877)
 
 ## [5.6.0] - 2016-03-11
 
