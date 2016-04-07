@@ -182,7 +182,6 @@ Kassi::Application.routes.draw do
       end
       resources :custom_fields do
         collection do
-          get :add_option
           get :edit_price
           get :edit_location
           post :order
