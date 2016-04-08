@@ -36,6 +36,8 @@ class InvitationsController < ApplicationController
 
       if invitation.save
         Delayed::Job.enqueue(InvitationCreatedJob.new(invitation.id, @current_community.id))
+        Admin::OnboardingWizard.new(@current_community.id)
+          .update_from_event(:invitation_created, invitation)
       else
         sending_problems = true
       end

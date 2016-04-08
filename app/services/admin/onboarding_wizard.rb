@@ -8,7 +8,12 @@ module Admin
     ].to_set
 
     EVENT_TYPES = [
-      :community_customizations_updated, :community_updated
+      :community_customizations_updated,
+      :community_updated,
+      :custom_field_created,
+      :paypal_preferences_updated,
+      :listing_created,
+      :invitation_created
     ].to_set
 
     SetupStatus = EntityUtils.define_builder(
@@ -73,17 +78,41 @@ module Admin
       end
     end
 
-    def filter_created
+    def custom_field_created(setup_status, custom_field)
+      if !setup_status[:filter] &&
+         Maybe(custom_field).search_filter.or_else(false)
+        :filter
+      end
     end
 
-    def paypal_connected
+    def paypal_preferences_updated(setup_status, community)
+      # This event handler is an unfortunate exception as it's not a
+      # pure function of input values. The reason is that PaypalHelper
+      # already encapsulates the logic to check if a community is
+      # ready for payments so repeating it here would be both waste
+      # and also dangerous as PaypalHelper logic is used in all other
+      # places.
+      if !setup_status[:paypal] &&
+         community &&
+         PaypalHelper.community_ready_for_payments?(community.id)
+        :paypal
+      end
     end
 
-    def listing_created
+    def listing_created(setup_status, listing)
+      if !setup_status[:listing] &&
+         listing
+        :listing
+      end
     end
 
-    def invitation_created
+    def invitation_created(setup_status, invitation)
+      if !setup_status[:invitation] &&
+         invitation
+        :invitation
+      end
     end
+
 
     def load_setup_status(community_id)
       m = Maybe(MarketplaceSetupSteps.find_by(community_id: community_id))

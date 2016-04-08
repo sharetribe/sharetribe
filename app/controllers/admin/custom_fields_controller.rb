@@ -114,6 +114,8 @@ class Admin::CustomFieldsController < ApplicationController
 
     success = if valid_categories?(@current_community, params[:custom_field][:category_attributes])
       @custom_field.save
+      Admin::OnboardingWizard.new(@current_community.id)
+        .update_from_event(:custom_field_created, @custom_field)
     end
 
     if success

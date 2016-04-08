@@ -84,6 +84,8 @@ class Admin::PaypalPreferencesController < ApplicationController
                               minimum_price_cents: paypal_prefs_form.minimum_listing_price.cents,
                               minimum_transaction_fee_cents: paypal_prefs_form.minimum_transaction_fee.cents})
 
+      Admin::OnboardingWizard.new(@current_community.id)
+        .update_from_event(:paypal_preferences_updated, @current_community)
       flash[:notice] = t("admin.paypal_accounts.preferences_updated")
     else
       flash[:error] = paypal_prefs_form.errors.full_messages.join(", ")
