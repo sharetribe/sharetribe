@@ -43,3 +43,12 @@ coverage/
 .idea/
 *.sock
 .vagrant
+
+# React on Rails
+npm-debug.log
+node_modules
+client/node_modules
+
+# Generated js bundles
+/app/assets/webpack/*
+
