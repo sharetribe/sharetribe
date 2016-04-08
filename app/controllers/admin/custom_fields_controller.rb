@@ -112,13 +112,17 @@ class Admin::CustomFieldsController < ApplicationController
     @custom_field = params[:field_type].constantize.new(custom_field_entity) #before filter checks valid field types and prevents code injection
     @custom_field.community = @current_community
 
-    success = if valid_categories?(@current_community, params[:custom_field][:category_attributes])
-      @custom_field.save
-      Admin::OnboardingWizard.new(@current_community.id)
-        .update_from_event(:custom_field_created, @custom_field)
-    end
+    success =
+      if valid_categories?(@current_community, params[:custom_field][:category_attributes])
+        @custom_field.save
+      else
+        false
+      end
 
     if success
+      Admin::OnboardingWizard.new(@current_community.id)
+        .update_from_event(:custom_field_created, @custom_field)
+
       redirect_to admin_custom_fields_path
     else
       flash[:error] = "Listing field saving failed"
