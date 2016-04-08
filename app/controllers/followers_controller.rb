@@ -5,24 +5,22 @@ class FollowersController < ApplicationController
   end
 
   def create
-    @person = Person.find(params[:person_id] || params[:id])
-    PersonViewUtils.ensure_person_belongs_to_community!(@person, @current_community)
+    target_user = Person.find_by_username_and_community_id!(params[:person_id], @current_community.id)
 
-    @person.followers << @current_user
+    target_user.followers << @current_user
     respond_to do |format|
       format.html { redirect_to :back }
-      format.js { render :partial => "people/follow_button", :locals => { :person => @person } }
+      format.js { render :partial => "people/follow_button", :locals => { :person => target_user } }
     end
   end
 
   def destroy
-    @person = Person.find(params[:person_id] || params[:id])
-    PersonViewUtils.ensure_person_belongs_to_community!(@person, @current_community)
+    target_user = Person.find_by_username_and_community_id!(params[:person_id], @current_community.id)
 
-    @person.followers.delete(@current_user)
+    target_user.followers.delete(@current_user)
     respond_to do |format|
       format.html { redirect_to :back }
-      format.js { render :partial => "people/follow_button", :locals => { :person => @person } }
+      format.js { render :partial => "people/follow_button", :locals => { :person => target_user } }
     end
   end
 
