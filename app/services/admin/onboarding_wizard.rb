@@ -39,8 +39,7 @@ module Admin
     # arguments. If the event leads to a state change apply it and
     # return true. Otherwise return false.
     def update_from_event(event_type, *args)
-      setup_status = to_setup_status(load_setup_steps(@community_id))
-      completed_status = process_event(event_type, setup_status, args)
+      completed_status = process_event(event_type, setup_status(), args)
 
       if completed_status
         update_completed(@community_id, completed_status)
@@ -55,7 +54,7 @@ module Admin
 
     def process_event(event_type, setup_status, args)
       unless EVENT_TYPES.include?(event_type)
-        raise ArgumentError.new("Unkown event type: #{event_type}")
+        raise ArgumentError.new("Unknown event type: #{event_type}")
       end
 
       # Dispatch to event handler method of same name as event_type
@@ -150,7 +149,7 @@ module Admin
 
     def update_completed(community_id, status)
       unless KNOWN_STATUSES.include?(status)
-        raise ArgumentError.new("Unkown status: #{status}")
+        raise ArgumentError.new("Unknown status: #{status}")
       end
 
       m = load_setup_steps(community_id)

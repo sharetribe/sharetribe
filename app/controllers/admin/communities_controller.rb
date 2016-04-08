@@ -232,7 +232,7 @@ class Admin::CommunitiesController < ApplicationController
            community_params.merge(stylesheet_needs_recompile: regenerate_css?(params, @current_community)),
            edit_look_and_feel_admin_community_path(@current_community),
            :edit_look_and_feel) { |community|
-      Delayed::Job.enqueue(CompileCustomStylesheetJob.new(@current_community.id), priority: 3)
+      Delayed::Job.enqueue(CompileCustomStylesheetJob.new(community.id), priority: 3)
       Admin::OnboardingWizard.new(community.id)
         .update_from_event(:community_updated, community)
     }
