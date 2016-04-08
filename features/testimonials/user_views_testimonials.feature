@@ -45,7 +45,7 @@ Feature: User views testimonials
 
     And I am logged in as "kassi_testperson1"
 
-    When I go to the testimonials page of "kassi_testperson3"
+    When I go to the profile page of "kassi_testperson3"
     Then I should see "received review"
     And I should see "67%" within "#people-testimonials"
     And I should see "Well done"
