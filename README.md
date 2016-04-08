@@ -28,6 +28,7 @@ Before you get started, the following needs to be installed:
   * **Ruby**. Version 2.2.4 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Ruby, [RVM](https://rvm.io//) is recommended.
   * [**RubyGems**](http://rubygems.org/)
   * **Bundler**: `gem install bundler`
+  * **Node**. Version 5.10 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Node, consider using [n](https://github.com/tj/n) or [nvm](https://github.com/creationix/nvm).
   * [**Git**](http://help.github.com/git-installation-redirect)
   * **A database**. Only MySQL has been tested, so we give no guarantees that other databases (e.g. PostgreSQL) work. You can install MySQL Community Server two ways:
     1. If you are on a Mac, use homebrew: `brew install mysql` (*highly* recommended). Also consider installing the [MySQL Preference Pane](https://dev.mysql.com/doc/refman/5.1/en/osx-installation-prefpane.html) to control MySQL startup and shutdown. It is packaged with the MySQL downloadable installer, but can be easily installed as a stand-alone.
@@ -53,6 +54,11 @@ Before you get started, the following needs to be installed:
 
   ```bash
   bundle install
+  ```
+
+1. Install node modules
+  ```bash
+  npm install
   ```
 
 1. Create a database.yml file by copying the example database configuration:
@@ -100,11 +106,26 @@ Before you get started, the following needs to be installed:
   bundle exec rake jobs:work
   ```
 
-1. In a new console, open the project root folder and start the server. The simplest way is to use the included Webrick server:
+
+1. Starting the development server in a new console (open the project root folder)
+Some components are created with React and they need to be build with foreman
+
+  1. Hot Reloading of Rails Assets
 
   ```bash
-  bundle exec rails server
+  foreman start -f Procfile.hot
   ```
+
+  1. Static Loading of Rails Assets
+  ```bash
+  foreman start -f Procfile.static
+  ```
+
+  1. Creating Assets for Tests
+  ```bash
+  foreman start -f Procfile.spec
+  ```
+
 
 Congratulations! Sharetribe should now be up and running for development purposes. Open a browser and go to the server URL (e.g. http://lvh.me:3000). Fill in the form to create a new marketplace and admin user. You should be now able to access your marketplace and modify it from the admin area.
 
@@ -299,6 +320,8 @@ Here's a sample CORS configuration that allows anyone to post to your bucket.  N
 
 Default configuration settings are stored in `config/config.default.yml`. If you need to change these, use the `config/config.yml` file to override the defaults. You can also set configuration values to environment variables.
 
+React components can be created using hot module replacement HMR technique behind /styleguide path in local development environment. Webpack is used to bundle React components for deployments and hot loading. Related webpack configs can be found from folder sharetribe/client/
+
 ### Unofficial installation instructions
 
 Use these instructions to set up and deploy Sharetribe for production in different environments. They have been put together by the developer community, and are not officially maintained by the Sharetribe core team. The instructions might be somewhat out of date.
@@ -325,7 +348,7 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
-See the document [How Sharetribe applies Semantic Versioning](docs/semantic-versioning.md) to read more how Semantic Versioning is applied in practice. 
+See the document [How Sharetribe applies Semantic Versioning](docs/semantic-versioning.md) to read more how Semantic Versioning is applied in practice.
 
 ## Changes
 
@@ -378,7 +401,7 @@ Browse open issues and submit new ones at http://github.com/sharetribe/sharetrib
 
 ## Community forum
 
-The Sharetribe open source community forum is located at [https://www.sharetribe.com/community/](https://www.sharetribe.com/community/). 
+The Sharetribe open source community forum is located at [https://www.sharetribe.com/community/](https://www.sharetribe.com/community/).
 
 The forum is a great place to ask support and help for example with issues during the installation.
 
