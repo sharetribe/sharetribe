@@ -175,8 +175,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Ensure that user belongs to community,
-  # i.e. @current_user.community_id == @current_community.id
+  # Ensure that user belongs to community
   #
   # This check is in most cases useless: When user logs in we already
   # check that the user belongs to the community she is trying to log
@@ -190,14 +189,14 @@ class ApplicationController < ActionController::Base
   # sessions which potentially had a person_id pointing to another
   # community are all expired.
   def ensure_user_belongs_to_community
-    if @current_user && @current_user.communities.include?(@current_community)
+    if @current_user && !@current_user.communities.include?(@current_community)
 
       logger.info(
         "Automatically logged out user that doesn't belong to community",
         :autologout,
         current_user_id: @current_user.id,
         current_community_id: @current_community.id,
-        current_user_community_id: @current_user.community_id
+        current_user_community_ids: @current_user.communities.map(&:id)
       )
 
       sign_out
