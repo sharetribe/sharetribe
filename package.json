@@ -3,5 +3,12 @@
   "license": "MIT",
   "engines": {
     "node": "5.10"
+  },
+  "scripts": {
+    "postinstall": "cd client && npm install",
+    "clean": "rm -f app/assets/webpack/*"
+  },
+  "devDependencies": {
+    "phantomjs": "2.1.7"
   }
 }
