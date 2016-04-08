@@ -840,7 +840,7 @@ nb:
       request_marked_as_confirmed: "Forespørsel gjennomført - husk å gi vurdering"
       request_marked_as_canceled: "Forespørsel avbrutt."
       has_marked_request_as_confirmed: "%{other_party_full_name} har merket forespørselen vedrørende %{request} som fullført. Du kan nå gi vurdering av %{other_party_given_name}"
-      has_marked_request_as_canceled: "%{other_party_full_name} har avbrutt forespørselen om '%{request}'. Du kan fremdeles gi vurdering av %{other_party_given_name}"
+      has_marked_request_as_canceled: "%{other_party_full_name} har avbrutt forespørselen om '%{request}'. Du kan fremdeles gi vurdering av %{other_party_given_name}."
       giving_feedback_is_good_idea: "Å gi vurdering er alltid en god idé. Dersom alt gikk fint, bør du la andre få vite at %{other_party_given_name} er til å stole på. Dersom det oppstod problemer er det fint å nevne det også."
       give_feedback_to: "Gi vurdering av %{other_party_given_name}"
     transaction_automatically_confirmed:
