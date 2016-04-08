@@ -2,14 +2,7 @@ class Styleguide::PagesController < ApplicationController
   include ReactOnRails::Controller
   layout "styleguide"
 
-  before_action do
-    session[:something_useful] = "REALLY USEFUL"
-  end
-
   before_action :data
-
-  before_action :initialize_shared_store, only: [:client_side_hello_world_shared_store_controller,
-                                                 :server_side_hello_world_shared_store_controller]
 
   rescue_from ReactOnRails::PrerenderError do |err|
     Rails.logger.error(err.message)
