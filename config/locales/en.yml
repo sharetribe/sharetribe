@@ -491,6 +491,10 @@ en:
           heading: "Unit type"
           quantity_label: "Quantity (per piece, per kg, per person, per 2 hour tour...)"
           time_label: "Time (per 30 minutes, per 2 weeks, per year...)"
+    onboarding:
+      topbar:
+        progress_label: "Marketplace progress"
+        next_step: "Next"
     paypal_accounts:
       marketplace_paypal_integration: "Payment preferences"
       preferences_updated: "Payment preferences updated"

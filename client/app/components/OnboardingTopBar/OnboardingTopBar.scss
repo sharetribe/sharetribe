@@ -1,0 +1,60 @@
+.topbarContainer {
+  width: 100%;
+  max-width: 120em;
+  color: white;
+  padding-top: 1.2em;
+  padding-bottom: 1.2em;
+  background-image: -moz-linear-gradient( 180deg, rgb(89,179,162) 0%, rgb(89,165,179) 100%);
+  background-image: -webkit-linear-gradient( 180deg, rgb(89,179,162) 0%, rgb(89,165,179) 100%);
+  background-image: -ms-linear-gradient( 180deg, rgb(89,179,162) 0%, rgb(89,165,179) 100%);
+  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.06);
+}
+
+.topbar {
+  max-width: 63em;
+  margin: 0 auto;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  //@include media(tablet) {
+  //  padding-left: lines(0.5);
+  //  padding-right: lines(0.5);
+  //}
+  position: relative;
+}
+
+.progressLabel {
+  display: inline-block;
+  font-weight: bold;
+  font-family: sans-serif;
+  vertical-align: text-bottom;
+}
+
+.progressBar {
+  background-color: rgb(184, 234, 225);
+  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.06);
+  height: 100%;
+  border-radius: 0.5em;
+  transition: width 2s;
+}
+
+.progressBarBackground {
+  display: inline-block;
+  margin-left: 5em;
+  background-color: #4c988a;
+  box-shadow: inset 0px 3px 8px 0px rgba(0, 0, 0, 0.17);
+  width: 25em;
+  height: 1em;
+  position: relative;
+  border-radius: 0.5em;
+}
+
+.nextLabel {
+  display: inline-block;
+  position: absolute;
+  right: 0.75em;
+  a {
+    text-decoration: underline;
+    color: white;
+    font-weight: bold;
+  }
+}
