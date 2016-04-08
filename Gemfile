@@ -129,7 +129,7 @@ end
 
 group :development do
   gem 'rb-fsevent', "~> 0.9.4", require: false
-  gem 'guard-rspec', "~> 4.3.1", require: false
+  gem 'guard-rspec', "~> 4.6.5", require: false
   gem 'annotate', "~> 2.6.5"
   gem 'zeus', '~> 0.15.4', require: false
   gem 'quiet_assets', "~> 1.1.0"
@@ -155,10 +155,8 @@ group :test do
 end
 
 group :development, :test do
-  gem 'pry', '~> 0.9.12.6'
-  gem 'pry-rails', '~> 0.3.2'
-  gem 'pry-nav', '~> 0.2.3'
-  gem 'pry-stack_explorer', '~> 0.4.9.1'
+  gem 'pry-byebug'
+  gem 'awesome_rails_console', '~> 0.4.0'
 end
 
 
