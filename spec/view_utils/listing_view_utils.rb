@@ -18,7 +18,8 @@ describe ListingViewUtils do
   ]
 
   describe "#youtube_video_id" do
-    it "returns nil for strings that doesn't contain youtube_video_id" do
+    it "returns nil for parameter that isn't string or doesn't contain youtube_video_id" do
+      expect(ListingViewUtils.youtube_video_id(nil)).to eq(nil)
       expect(ListingViewUtils.youtube_video_id("youtube.com")).to eq(nil)
       expect(ListingViewUtils.youtube_video_id("example.com/?v=UffchBUUIoI")).to eq(nil)
       expect(ListingViewUtils.youtube_video_id("example.com/embed/UffchBUUIoI")).to eq(nil)
@@ -41,6 +42,8 @@ describe ListingViewUtils do
 
   describe "#youtube_video_ids" do
     it "does not return youtube ids if there ain't any" do
+      expect(ListingViewUtils.youtube_video_ids(nil)).to be_empty
+
       lorem = "Lorem ipsum consectetur adepisci velit"
       expect(ListingViewUtils.youtube_video_ids(lorem)).to be_empty
 
