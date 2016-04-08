@@ -1829,10 +1829,6 @@ sv:
       create_account_with_facebook: "Registrera dig med Facebook"
       OR: ELLER
       signup_with_email: "Registrering med e-post"
-    not_member:
-      explanation_text: "Du surfar just nu på %{community}. Du försökte se profilen på en användare som är medlem av en annan marknadsplats skapad av Sharetribe. Du kan inte se användarens profil på denna %{community}."
-      read_more_about_kassi_communities: "Läs mer om Sharetribe marknadsplatser."
-      this_user_does_not_belong_to_this_community: "Denna användare är inte en medlem av %{community}."
     profile_feedback:
       grade: "betyg:"
       and_gave_following_feedback: "och gav följande feedback"

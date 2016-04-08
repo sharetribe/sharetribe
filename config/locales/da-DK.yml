@@ -1823,10 +1823,6 @@ da-DK:
       create_account_with_facebook: "Opret med Facebook"
       OR: ELLER
       signup_with_email: "Opret med email"
-    not_member:
-      explanation_text: "Du browser i øjeblikket %{community}. Du forsøgte at se en bruger, der er medlem af en anden markedsplads oprettet med Sharetribe. Du kan ikke få adgang til denne brugers profil i %{community}."
-      read_more_about_kassi_communities: "Læs mere om Sharetribe markedspladser"
-      this_user_does_not_belong_to_this_community: "Denne bruger er ikke medlem af %{community}"
     profile_feedback:
       grade: "klasse:"
       and_gave_following_feedback: "og gav følgende feedback"

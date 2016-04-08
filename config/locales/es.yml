@@ -1803,10 +1803,6 @@ es:
       create_account_with_facebook: "Crear una cuenta con Facebook"
       OR: ~
       signup_with_email: ~
-    not_member:
-      explanation_text: "Actualmente perteneces a la comunidad %{community}. Intentaste ver el perfil de un usuario que pertenece a otra comunidad Sharetribe. No puedes acceder a ese perfil a través de la comunidad %{community}."
-      read_more_about_kassi_communities: "Lee más sobre las comunidades de %{service_name}"
-      this_user_does_not_belong_to_this_community: "El usuario no pertenece a la comunidad %{community}"
     profile_feedback:
       grade: "puntaje:"
       and_gave_following_feedback: "Feedbacks dados"

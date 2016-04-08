@@ -1809,10 +1809,6 @@ ja:
       create_account_with_facebook: "Facebook IDで会員登録"
       OR: それとも
       signup_with_email: メールアドレスで新規登録する
-    not_member:
-      explanation_text: "現在あなたは%{community}を閲覧中です。他のSharetribeのプラットフォームで制作されたマーケットプレイスのユーザのプロフィールを閲覧を試みました。%{community}内のこのユーザへのアクセスは出来ません。"
-      read_more_about_kassi_communities: Sharetribeマーケットプレイスについてもっと読む
-      this_user_does_not_belong_to_this_community: "このユーザは%{community}のメンバーではありません。"
     profile_feedback:
       grade: 評価：
       and_gave_following_feedback: 次のレビューを書く

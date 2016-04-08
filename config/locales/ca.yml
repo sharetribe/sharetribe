@@ -1795,10 +1795,6 @@ ca:
       create_account_with_facebook: ~
       OR: ~
       signup_with_email: ~
-    not_member:
-      explanation_text: "Actualment pertanys a la comunitat %{community}. Has intentat veure el perfil d'un usuari que pertany a una altra comunitat. De moment Kassi no permet que puguis ingressar en diverses comunitats simultàniament. Estem treballant en una opció que permeti accedir a més d'una comunitat al mateix temps. Aviat estarà disponible!"
-      read_more_about_kassi_communities: "Llegir més sobre les comunitats Kassi"
-      this_user_does_not_belong_to_this_community: "L'usuari no pertany a la comunitat %{community}"
     profile_feedback:
       grade: "puntuació:"
       and_gave_following_feedback: ~

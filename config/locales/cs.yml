@@ -1837,10 +1837,6 @@ cs:
       create_account_with_facebook: "Přihlásit se přes Facebook"
       OR: NEBO
       signup_with_email: "Zaregistrovat se přes e-mail"
-    not_member:
-      explanation_text: "Právě si prohlížíte %{community}. Pokusili jste se zobrazit profil uživatele, který je uživatelem jiného tržiště vytvořeného přes platformu Sharetribe. Nemůžete získat přístup k tomuto profilu uživatele v %{community}."
-      read_more_about_kassi_communities: "Přečtěte si více o Sharetribe tržišti."
-      this_user_does_not_belong_to_this_community: "Tento uživatel není členem %{community}."
     profile_feedback:
       grade: "známka:"
       and_gave_following_feedback: "a byla poskytnuta následující zpětná vazba"

@@ -113,7 +113,7 @@ ru:
         small_cover_photo_instructions_text_with_dimensions: "Фото будут изменено до размера %{width}x%{height} пикселей а более большие изображения будут обрезаны до среднего размера."
         main_content_width: "Выбирая обложку с фото примите во внимание что основной контент на странице %{main_width} пикселей шире. Не забудь также проверить как ваша обложка с фото выглядит на более маленьких экранах."
         custom_color1_instructions_text: "Вы можете изменить основной цвет интерфейса, введя его значение. Сайт <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> поможет выбрать и скопировать подходящий цвет."
-        custom_color2_instructions_text: "Вы можете изменить второй цвет интерфейса для пользователей введя цветовое значение."
+        custom_color2_instructions_text: ~
         default_browse_view: "Стандартный вид"
         default_browse_view_instructions_text: "Стандартный вид используется на главной странице чтобы установить отображение предложений по умолчанию"
         grid: Сетка
@@ -1823,10 +1823,6 @@ ru:
       create_account_with_facebook: "Создать учётную запись с помощью Facebook"
       OR: или
       signup_with_email: "Зарегистрируйтесь с email"
-    not_member:
-      explanation_text: "В настоящее время вы просматриваете %{community}. Вы хотите просмотреть профиль пользователя, который принадлежит к другому сообществу. Вы не имеете возможность получить доступ к профилю пользователя в %{community}."
-      read_more_about_kassi_communities: "Узнайте больше о сообществах"
-      this_user_does_not_belong_to_this_community: "Этот пользователь не принадлежит к сообществу %{community}"
     profile_feedback:
       grade: "Оценка:"
       and_gave_following_feedback: "и оставил отзыв"

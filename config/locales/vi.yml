@@ -1793,10 +1793,6 @@ vi:
       create_account_with_facebook: "Đăng nhập bằng Facebook"
       OR: ~
       signup_with_email: ~
-    not_member:
-      explanation_text: "Hiện tại bạn đang ở trong cộng đồng %{community}. Bạn thử xem thông tin người dùng của cộng đồng khác. Hiện tại %{service_name} không hỗ trợ cho đa cộng đồng, do đó bạn không thể truy cập hồ sơ này thông qua cộng đồng %{community}. Chúng tôi đang thực hiện tính năng cho phép một chọn lựa thuộc về nhiều hơn một cộng đồng cùng một lúc. Tính năng này sẽ được thêm dịch vụ sau này."
-      read_more_about_kassi_communities: "Tìm hiểu thêm về cộng đồng %{service_name}"
-      this_user_does_not_belong_to_this_community: "Người dùng này không thuộc về cộng đồng %{community}"
     profile_feedback:
       grade: "xếp loại:"
       and_gave_following_feedback: "và đã cung cấp thông tin phản hồi sau"

@@ -1793,10 +1793,6 @@ pt-PT:
       create_account_with_facebook: ~
       OR: ~
       signup_with_email: ~
-    not_member:
-      explanation_text: "Você está atualmente navegando na %{community}. Você tentou ver o perfil de um membro que pertence a outro mercado virtual criado com a plataforma Sharetribe. Você não pode acessar este perfil de utilizador na %{community}."
-      read_more_about_kassi_communities: ~
-      this_user_does_not_belong_to_this_community: "Este utilizador não pertence a %{community}."
     profile_feedback:
       grade: ~
       and_gave_following_feedback: ~

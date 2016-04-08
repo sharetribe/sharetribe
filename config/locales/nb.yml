@@ -1829,10 +1829,6 @@ nb:
       create_account_with_facebook: "Logg inn med Facebook"
       OR: ELLER
       signup_with_email: "Registrer deg med e-post"
-    not_member:
-      explanation_text: "Du besøker for øyebliket %{community}. Du forsøkte å vise profilen til en bruker som tilhører en annen markedsplass. Du kan ikke vise denne personens profil på %{community}."
-      read_more_about_kassi_communities: "Les mer om Sharetribes markedsplasser"
-      this_user_does_not_belong_to_this_community: "Denne brukeren er ikke medlem av %{community}."
     profile_feedback:
       grade: "karakter:"
       and_gave_following_feedback: "og gav følgende tilbakemelding"

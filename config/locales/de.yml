@@ -1831,10 +1831,6 @@ de:
       create_account_with_facebook: "Lege einen Account mit Facebook an"
       OR: ODER
       signup_with_email: "Registriere Dich mit Deiner E-Mail-Adresse"
-    not_member:
-      explanation_text: "Du befindest dich derzeit bei %{community}. Du hast versucht, das Profil eines Benutzers aus einer anderen Community anzuzeigen. Du kannst dieses Profil nicht über %{community} direkt einsehen."
-      read_more_about_kassi_communities: "Lies mehr über Sharetribe-Communities"
-      this_user_does_not_belong_to_this_community: "Dieser Benutzer gehört nicht zu %{community}"
     profile_feedback:
       grade: "Note:"
       and_gave_following_feedback: "und gab das folgende Feedback"

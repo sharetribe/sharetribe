@@ -103,7 +103,7 @@ es-ES:
         small_cover_photo_instructions_text_with_dimensions: "La imagen será redimensionada a %{width}x%{height} pixels. Las imágenes más grandes serán recortadas en el centro."
         main_content_width: "Al escoger las fotos de portada ten presente que el contenido principal de la página es de máximo %{main_width} px de ancho. Recuerda también revisar cómo se ve tu foto de portada en otros dispositivos con pantallas más pequeñas (e.g. puedes utilizar una ventana de navegación más estrecha para comprobarlo)."
         custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad introduciendo un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
-        custom_color2_instructions_text: "Puedes cambiar el segundo color de la interfaz de usuario ingresando un valor hexadecimal"
+        custom_color2_instructions_text: "Puedes cambiar el color del botón de %{post_new_listing} con un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
         default_browse_view: "Vista por defecto del buscador"
         default_browse_view_instructions_text: "La vista por defecto del buscador se usa en la página principal para elegir cómo se muestran los resultados por defecto."
         grid: Cuadrícula
@@ -1309,7 +1309,7 @@ es-ES:
       invitation_sent: "Invitación enviada satisfactoriamente"
       inviting_new_users_is_not_allowed_in_this_community: "Invitar a nuevos usuarios no está permitido en ésta comunidad de %{service_name}"
       login_again: "Por favor, vuelve a iniciar sesión"
-      login_failed: "Falló el inicio de sesión. Por favor ingresa correctamente las credenciales."
+      login_failed: "Falló el inicio de sesión. Por favor ingresa las credenciales correctamente."
       account_creation_successful: "Bienvenido a %{service_name}, %{person_name}!"
       account_deleted: "Tu cuenta ha sido eliminada."
       login_successful: "Bienvenido, %{person_name}!"
@@ -1839,10 +1839,6 @@ es-ES:
       create_account_with_facebook: "Crea una cuenta con Facebook"
       OR: O
       signup_with_email: "Regístrate con tu correo electrónico"
-    not_member:
-      explanation_text: "Actualmente perteneces a la comunidad %{community}. Intentaste ver el perfil de un usuario que pertenece a otra comunidad Sharetribe. No puedes acceder a ese perfil a través de la comunidad %{community}."
-      read_more_about_kassi_communities: "Lee más sobre las comunidades de %{service_name}"
-      this_user_does_not_belong_to_this_community: "El usuario no pertenece a la comunidad de %{community}"
     profile_feedback:
       grade: "puntaje:"
       and_gave_following_feedback: "y dio los siguientes comentarios"

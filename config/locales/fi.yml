@@ -103,7 +103,7 @@ fi:
         small_cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
         main_content_width: "Valitessasi kansikuvia, huomaathan että sivuston sisällön leveys on korkeintaa %{main_width} pikseliä. Muistathan katsoa myös miltä kansikuvasi näyttää pienemmillä näytöillä."
         custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
-        custom_color2_instructions_text: "Tästä voit vaihtaa käyttöliittymän toisen värin."
+        custom_color2_instructions_text: ~
         default_browse_view: "Oletusarvo listausten näyttämiselle"
         default_browse_view_instructions_text: "Tätä arvoa käytetään oletuksena etusivun listauksen näyttötavalle."
         grid: Ruudukko
@@ -1831,10 +1831,6 @@ fi:
       create_account_with_facebook: "Rekisteröidy Facebook-tunnuksesi avulla"
       OR: TAI
       signup_with_email: "Rekisteröidy sähköpostiosoitteellasi"
-    not_member:
-      explanation_text: "Käyttäjätunnus on varattu, mutta käyttäjä ei ole vielä %{service_name}-palvelun jäsen."
-      read_more_about_kassi_communities: "Lue lisää Sharetribe-markkinapaikoista"
-      this_user_does_not_belong_to_this_community: "Tämä käyttäjä ei ole %{service_name}-palvelun jäsen"
     profile_feedback:
       grade: "arvio:"
       and_gave_following_feedback: "ja antoi seuraavan palautteen"

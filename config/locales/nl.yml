@@ -103,7 +103,7 @@ nl:
         small_cover_photo_instructions_text_with_dimensions: "De afbeelding wordt verkleind tot %{width}x%{height} pixels. Grotere afbeeldingen worden in twee gesplitst."
         main_content_width: "Hou er bij het kiezen van een cover afbeelding rekening mee dat de hoofdpagina maximaal %{main_width} pixels is. Vergeet ook niet na te gaan hoe je cover afbeelding eruit ziet op kleinere schermen (b.v. door een smal browser scherm te gebruiken)."
         custom_color1_instructions_text: "Je kan de hoofdkleur van de intercace wijzigen door een zgn. hex kleur waarde in te geven. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> kan je helpen deze kleur te kiezen en de bijbehorende code hier te kopiëren."
-        custom_color2_instructions_text: "Je kan de tweede kleur van de gebruikersinterface wijzigen door een hex kleurenwaarde op te geven."
+        custom_color2_instructions_text: ~
         default_browse_view: "Standaard browse overzicht"
         default_browse_view_instructions_text: "Standaard browse overzicht is gebruikt op de homepagina om te bepalen hoe de lijsten standaard weergegeven worden."
         grid: Raster
@@ -1811,10 +1811,6 @@ nl:
       create_account_with_facebook: "Maak een account met Facebook"
       OR: OF
       signup_with_email: "Meld je aan met je e-mail adres"
-    not_member:
-      explanation_text: "Je bent momenteel in de %{community} marktplaats. Je hebt geprobeerd om het profiel te zien van een gebruiker uit een andere marktplaats die gemaakt is met het Sharetribe platform. Je kan geen toegang krijgen tot het profiel van deze gebruiker vanuit %{community}."
-      read_more_about_kassi_communities: "Lees meer over de Sharetribe marktplaatsen"
-      this_user_does_not_belong_to_this_community: "Deze gebruiker is geen lid van de %{community} marktplaats."
     profile_feedback:
       grade: "cijfer:"
       and_gave_following_feedback: "en gaf de volgende feedback"
