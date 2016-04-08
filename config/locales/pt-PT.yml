@@ -40,36 +40,36 @@ pt-PT:
         community_look_and_feel: ~
         edit_community: ~
         enabled_languages: ~
-        enabled_languages_description: ~
+        enabled_languages_description: "O conjunto de idiomas disponíveis para os utilizadores. O primeiro é utilizado como padrão."
         default_language: ~
         language_selection_disabled: ~
         community_name: ~
-        edit_community_name_description: ~
+        edit_community_name_description: "O nome do seu mercado virtual. Será mostrado a utilizadores e em vários outros locais."
         community_slogan: ~
-        edit_community_slogan_description: ~
+        edit_community_slogan_description: "Isso é mostrado na página inicial do mercado virtual para os utilizadores que não estejam cadastrados. %{see_how_it_looks_like}."
         community_description: ~
-        edit_community_description_description: ~
+        edit_community_description_description: "Isso é mostrado na página inicial do mercado virtual para os utilizadores que não estejam cadastrados. %{see_how_it_looks_like}."
         community_search_placeholder: ~
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
-        edit_private_community_homepage_content_description: ~
+        edit_private_community_homepage_content_description: "Este conteúdo é mostrado para utilizadores não cadastrados na página inicial dos mercados virtuais privados. Aqui você pode descrever o seu mercado virtual e o processo para se juntar a ele. Você também pode adicionar imagens, vídeos e conteúdo HTML aqui. %{see_how_it_looks_like}."
         update_information: ~
-        invite_people: ~
+        invite_people: "Convide novos utilizadores"
         edit_signup_info: ~
-        edit_signup_info_description: ~
+        edit_signup_info_description: "Este é um texto de informação que pode ser mostrado para os utilizadores na página de inscrição. Lá você pode dar aos utilizadores instruções para se inscrever, informações como onde conseguir um convite, etc. Por padrão não há instruções."
         edit_info: ~
         see_how_it_looks_like: ~
-        verification_to_post_listings_info_content: ~
-        verification_to_post_listings_info_content_description: ~
+        verification_to_post_listings_info_content: "Informações de texto para utilizadores não verificados"
+        verification_to_post_listings_info_content_description: "Este mercado exige que as pessoas sejam verificadas manualmente por administrador antes de postar anúncios. Aqui você pode definir o texto padrão que é mostrado para os utilizadores não-verificados quando tentar postar um novo anúncio."
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: ~
         save: ~
         transaction_agreement: ~
-        transaction_agreement_checkbox: ~
+        transaction_agreement_checkbox: "Exigir que os utilizadores aceitem um acordo antes da transação"
         transaction_agreement_checkbox_header: ~
-        transaction_agreement_checkbox_label_description: ~
+        transaction_agreement_checkbox_label_description: "Este texto será exibido próximo à caixa de seleção no formulário de finalização da compra. O utilizador precisa marcar a caixa para prosseguir com a transação. Uma legenda de exemplo seria algo como \"Ao clicar nesta caixa aceito o contrato.\""
         transaction_agreement_text_header: ~
-        transaction_agreement_description: ~
+        transaction_agreement_description: "Este é o conteúdo do acordo vigente que o utilizador deve aceitar. O conteúdo do mesmo é exibido quando o utilizador clica no link \"%{read_more}\" ao lado da legenda do acordo."
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
@@ -80,22 +80,22 @@ pt-PT:
         favicon_info_text: ~
         community_custom_color1: ~
         community_custom_color2: ~
-        logo_instructions_text_with_dimensions: ~
+        logo_instructions_text_with_dimensions: "Área de Trabalho tamanho do logotipo deve ser %{width}x%{height} px. Ele será exibido para os utilizadores com telas maiores."
         logo_icon_instructions_text_with_dimensions: ~
-        cover_photo_visibility: ~
+        cover_photo_visibility: "Foto da capa apresentada na página inicial para utilizadores não conectados."
         cover_photo_instructions_text_with_dimensions: ~
-        small_cover_photo_visibility: ~
+        small_cover_photo_visibility: "Foto pequena da capa mostrado para utilizadores não conectados."
         small_cover_photo_instructions_text_with_dimensions: ~
         main_content_width: ~
-        custom_color1_instructions_text: ~
+        custom_color1_instructions_text: "Você pode mudar a cor principal da interface de utilizador desta comunidade, inserindo um valor de cor hex. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\"> ColorPicker.com </a> pode ajudar você a escolher a cor e copie o código aqui."
         custom_color2_instructions_text: ~
         default_browse_view: ~
         default_browse_view_instructions_text: ~
-        grid: ~
+        grid: Grelha
         list: ~
         map: ~
-        name_display_type: ~
-        name_display_type_instructions_text: ~
+        name_display_type: "Tipo de exibição do nome utilizador."
+        name_display_type_instructions_text: "Escolha como o nome de cada utilizador será mostrado no site"
         full_name: ~
         first_name_with_initial: ~
         first_name_only: ~
@@ -111,7 +111,7 @@ pt-PT:
         send_test_message: ~
       outgoing_email:
         title: ~
-        info: ~
+        info: "Este nome e endereço é usado para os e-mails enviados para os utilizadores pelo seu marketplace."
         read_more: ~
         sender_address: ~
         sender_address_default: ~
@@ -152,11 +152,11 @@ pt-PT:
         categories_link_text: ~
         custom_fields_link_text: ~
         filters_link_text: ~
-        order_types: ~
+        order_types: "Você também pode configurar como as transações funcionam no seu marketplace. Seus utilizadores vendem, alugam ou doam produtos? Eles oferecem alugueis por hora, dia ou semana? Essas coisas podem ser configuradas em %{order_types_link}."
         order_types_link_text: ~
         payments: ~
         payments_link_text: ~
-        info_texts: ~
+        info_texts: "Não se esqueça de personalizar as páginas de informações e outros textos em que você possa informar a seus utilizadores sobre o seu mercado virtual. Bons lugares para verificar são a sua página %{about_page_link}, seus %{terms_of_use_link} (você deve adicionar seus próprios termos de uso aqui, seja modificando o modelo atual ou criando completamente um novo documento), sua %{privacy_policy_link}, e o  %{welcome_email_link} que é enviado para cada novo utilizador. Há também alguns outros %{instruction_texts_link} que você pode configurar."
         about_page_link_text: ~
         terms_of_use_link_text: ~
         privacy_policy_link_text: ~
@@ -167,10 +167,10 @@ pt-PT:
         twitter_link_text: ~
         analytics: ~
         analytics_link_text: ~
-        settings: ~
+        settings: "Há um monte de outras configurações que você pode alterar. Por exemplo, você pode exigir que todos tenham um convite de outros utilizadores antes que eles possam se juntar e fazer o seu mercado virtual privado, portanto, apenas os utilizadores que estão cadastrados, podem ver o conteúdo. %{settings_link}."
         settings_link_text: ~
-        final_words: ~
-        invite_link_text: ~
+        final_words: "É só isso! Se tudo estiver pronto, você pode começar %{invite_link} para o seu mercado virtual. Você pode ver todos os utilizadores que se juntaram %{view_users_link}, e todas as operações que foram concluídas %{view_transactions_link}. Você também pode facilmente gerenciar os anúncios: basta ir até a página de anúncios e você verá os links de administração para edição e  encerramento lá. Se você precisar de alguma ajuda, você pode %{contact_support_link} - nós estamos aqui para você!"
+        invite_link_text: "Convidar outros utilizadores"
         view_users_link_text: ~
         view_transactions_link_text: ~
         contact_support_link_text: ~
@@ -199,12 +199,12 @@ pt-PT:
       settings:
         settings: ~
         general: ~
-        users_can_review_each_other_after_transaction: ~
+        users_can_review_each_other_after_transaction: "Os utilizadores podem avaliar um ao outro após a completar a transação."
         access: ~
-        join_with_invite_only: ~
-        users_can_invite_new_users: ~
-        private: ~
-        require_verification_to_post_listings: ~
+        join_with_invite_only: "Novos utilizadores só podem se cadastrar neste mercado virtual com o convite de outro utilizador"
+        users_can_invite_new_users: "Todos os utilizadores podem convidar novos utilizadores para este mercado virtual"
+        private: "Este mercado virtual é privado (apenas utilizadores cadastrados podem ver o conteúdo)"
+        require_verification_to_post_listings: "Somente utilizadores verificados por administrador pode postar novos anúncios"
         search_preferences: ~
         default_search_type: ~
         keyword_search: ~
@@ -217,10 +217,10 @@ pt-PT:
         show_listing_publishing_date: ~
         show_category_in_listing_list: ~
         hide_expiration_date: ~
-        listing_comments_in_use: ~
+        listing_comments_in_use: "Permitir aos utilizadores comentarem nos anúncios (visível a todos os outros utilizadores)"
         email_preferences: ~
-        automatic_newsletters: ~
-        email_admins_about_new_members: ~
+        automatic_newsletters: "Enviar automáticamente boletins diários / semanais para todos os utilizadores (a menos que optar por sair)"
+        email_admins_about_new_members: "Envie um e-mail sempre para adminstrador quando um novo utilizador se cadastrar"
         google_analytics_key: ~
         twitter_handle: ~
         update_settings: ~
@@ -235,30 +235,30 @@ pt-PT:
         once_you_delete: ~
         are_you_sure: ~
         i_understand_button: ~
-        last_community_updates: ~
+        last_community_updates: "Por favor note que após a exclusão, você e os utilizadores do seu marketplace podem ainda receber alguns e-mails do marketplace."
         you_will_be_redirected_to: ~
         delete_this_marketplace: ~
       manage_members:
-        manage_members: ~
+        manage_members: "Gerenciar utilizadores"
         email: ~
         name: ~
         join_date: ~
         admin: ~
         posting_allowed: ~
-        ban_user: ~
+        ban_user: "Banir utilizador"
         saving_user_status: ~
         save_user_status_successful: ~
         export_all_as_csv: ~
         save_user_status_error: ~
-        ban_user_confirmation: ~
+        ban_user_confirmation: "Isso remove o utilizador do mercado virtual e o impede de acessar o site novamente com esta conta. Tem certeza de que deseja continuar?"
         ban_me_error: ~
       social_media:
         social_media: ~
         twitter_handle: ~
-        twitter_handle_info_text: ~
-        twitter_handle_info_text_with_instructions: ~
+        twitter_handle_info_text: "Nome de utilizador da conta do Twitter do seu marketplace (se você tiver uma). Será mencionado quando as pessoas usarem o botão tweet na página do anúncio."
+        twitter_handle_info_text_with_instructions: "Nome de utilizador da conta de Twitter de seu mercado virtual (se você tiver um). Ele será mencionado quando as pessoas usarem o botão 'tweet' na página de anúncios. %{instructions_link}."
         twitter_instructions_link_text: ~
-        twitter_handle_placeholder: ~
+        twitter_handle_placeholder: "nome de utilizador"
         invalid_twitter_handle: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
@@ -336,14 +336,14 @@ pt-PT:
       form:
         field_required:
           this_field_is_required: ~
-          this_field_is_required_checkbox: ~
+          this_field_is_required_checkbox: "Este campo é obrigatório (o utilizador deve selecionar pelo menos uma opção)"
         search_filter:
           search_filter: ~
           date_cant_be_filtered: ~
           text_cant_be_filtered: ~
       index:
         listing_fields: ~
-        listing_fields_help: ~
+        listing_fields_help: "Aqui você pode editar os campos que os utilizadores têm de preencher ao criar um novo anúncio. Por favor, note que alguns campos são predefinidos e não podem ser editados."
         add_new_field: ~
         remove_field_confirmation: ~
         cancel: ~
@@ -373,19 +373,19 @@ pt-PT:
         date: ~
     emails:
       new:
-        send_email_to_members: ~
-        send_email_to_members_title: ~
+        send_email_to_members: "Envie e-mail aos utilizadores"
+        send_email_to_members_title: "Enviar e-mail para todos os utilizadores"
         email_subject: ~
         email_content: ~
-        email_content_placeholder: ~
+        email_content_placeholder: "O que você gostaria de dizer aos utilizadores?"
         email_language: ~
         any_language: ~
         send_email: ~
-        message_will_be_sent_only_to_people_with_this_language: ~
+        message_will_be_sent_only_to_people_with_this_language: "Nota: o e-mail será enviado apenas aos utilizadores que utilizam a %{service_name} no idioma que você escolheu."
         email_sent: ~
     left_hand_navigation:
       general: ~
-      users_and_transactions: ~
+      users_and_transactions: "Utilizadores & transações"
       configure: ~
       emails_title: ~
       support: ~
@@ -393,7 +393,7 @@ pt-PT:
     listing_shapes:
       index:
         listing_shapes: ~
-        description: ~
+        description: "O tipo da ordem define a forma como a ordem é processada no seu site. Você pode decidir se seus utilizador poderão alugar ou vender ou talvez apenas criar anúncios e se comunicar através de mensagens gratuitas."
         read_more_about_order_types: ~
         add_new_shape: ~
         select_template: ~
@@ -468,7 +468,7 @@ pt-PT:
       preferences_updated: ~
       marketplace_currency_used: ~
       contact_support_link_text: ~
-      integration_info_text: ~
+      integration_info_text: "O sistema de pagamento de Sharetribe é gerenciado pelo PayPal. Se você quiser permitir que os seus utilizadores façam pagamentos através de seu mercado virtual, você deve se conectar a sua conta PayPal e decidir o tamanho mínimo da transação e a taxa que você quer ganhar de cada transação."
       paypal_account_email: ~
       link_paypal_personal_account_label: ~
       paypal_account_email_completed: ~
@@ -544,10 +544,10 @@ pt-PT:
       garden: ~
       travel: ~
       other: ~
-    username: ~
-    username_or_email: ~
+    username: Utilizador
+    username_or_email: "E-mail ou nome de utilizador"
     what_is_this: ~
-    removed_user: ~
+    removed_user: "Utilizador removido"
     paypal_fee_info:
       title: ~
       body_text: ~
@@ -752,8 +752,8 @@ pt-PT:
   feedback:
     feedback_subject: ~
     feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    unlogged_user: "Utilizador desconectado"
+    anonymous_user: "Utilizador anônimo"
   preauthorize_payments:
     edit:
       confirm_payment: ~
@@ -915,7 +915,7 @@ pt-PT:
       title_link_text: ~
       intro_paragraph: ~
       intro_paragraph_link_text: ~
-      post_a_new_listing: ~
+      post_a_new_listing: "Publicar anúncio!"
       reduce_email_footer_text: ~
       settings_link_text: ~
       unsubscribe_link_text: ~
@@ -926,7 +926,7 @@ pt-PT:
       text_version_text: ~
     reset_password_instructions:
       change_my_password: ~
-      reset_password_instructions: ~
+      reset_password_instructions: "<p>Você informou que esqueceu sua senha ou nome de utilizador no serviço %{service_name}.</p><p>Seu nome de utilizador é: %{username}</p><p>Se você precisa redefinir sua senha, clique no link seguinte: %{password_reset_link}</p><br/><p>Se você não fez essa solicitação, por favor ignore este e-mail. Sua senha não mudará até que acesse o link acima e crie uma nova.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: ~
       you_have_not_given_feedback_yet: ~
@@ -998,7 +998,7 @@ pt-PT:
     error_410:
       page_removed: ~
       page_you_requested_has_been_removed: ~
-      page_removed_reason: ~
+      page_removed_reason: "Há algumas razões possíveis para isso. Por exemplo, um utilizador pode ter removido a sua conta ou um anúncio pode ter sido removido."
     error_410_title: ~
     error_500:
       temporary_unavailable: ~
@@ -1076,8 +1076,8 @@ pt-PT:
       additionally_some_private_requests_exist: ~
     blank_slate:
       add_first: ~
-      but_that_is_visible_only_to_registered_members: ~
-      but_those_are_visible_only_to_registered_members: ~
+      but_that_is_visible_only_to_registered_members: "mas isso é visível apenas por utilizadores registrados."
+      but_those_are_visible_only_to_registered_members: "mas isso é visível apenas por utilizadores registrados."
       create_new_account_for_yourself: ~
       examples_of_what_you_could_offer_to_others: ~
       examples_of_what_you_could_request_to_others: ~
@@ -1090,10 +1090,10 @@ pt-PT:
       items_to_offer: ~
       items_to_request: ~
       log_in: ~
-      no_offers_visible_unless_logged_in: ~
+      no_offers_visible_unless_logged_in: "Nenhuma oferta de itens, serviços ou caronas compartilhadas visíveis para utilizadores não logados."
       no_open_offers_currently: ~
       no_open_requests_currently: ~
-      no_requests_visible_unless_logged_in: ~
+      no_requests_visible_unless_logged_in: "Nenhuma solicitação de itens, serviços ou caronas compartilhadas visíveis para utilizadores não logados."
       one_private_offer_exists: ~
       one_private_request_exists: ~
       ride_offer: ~
@@ -1118,7 +1118,7 @@ pt-PT:
       is: ~
       are: ~
       what_do_you_need: ~
-      post_new_listing: ~
+      post_new_listing: "Publicar anúncio"
       are_offering: ~
       add_news_item: ~
       lend_rent_help_carpool: ~
@@ -1169,7 +1169,7 @@ pt-PT:
       map: ~
       list: ~
       map_button: ~
-      grid_button: ~
+      grid_button: Grelha
       list_button: ~
       all_listing_types: ~
       all_categories: ~
@@ -1200,7 +1200,7 @@ pt-PT:
       give_feedback: Contactenos
       or_check_our: ~
       send_feedback_to_admin: ~
-      to_see_what_others_have_suggested: ~
+      to_see_what_others_have_suggested: "para ver o que outros utilizadores sugeriram, e votar para novas idéias."
       your_email_address: ~
       connect: ~
       invite_your_friends: ~
@@ -1274,7 +1274,7 @@ pt-PT:
       invitation_cannot_be_sent: ~
       invitation_limit_reached: ~
       invitation_sent: ~
-      inviting_new_users_is_not_allowed_in_this_community: ~
+      inviting_new_users_is_not_allowed_in_this_community: "Não é permitido convidar novos utilizadores."
       login_again: ~
       login_failed: ~
       account_creation_successful: ~
@@ -1302,8 +1302,8 @@ pt-PT:
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: ~
-      person_activated: ~
-      person_deactivated: ~
+      person_activated: "Utilizador ativado"
+      person_deactivated: "Utilizador desativado"
       person_updated_successfully: ~
       poll_answered: ~
       poll_could_not_be_answered: ~
@@ -1339,9 +1339,9 @@ pt-PT:
       you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: ~
       you_must_log_in_to_give_feedback: ~
-      you_must_log_in_to_invite_new_users: ~
+      you_must_log_in_to_invite_new_users: "Você deve se conectar para convidar novos utilizadores a %{service_name}"
       you_must_log_in_to_send_a_comment: ~
-      you_must_log_in_to_send_a_message: ~
+      you_must_log_in_to_send_a_message: "Você deve fazer entrar no %{service_name} para enviar uma mensagem para outro utilizador."
       you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: ~
       you_must_log_in_to_view_this_page: ~
@@ -1379,7 +1379,7 @@ pt-PT:
       delete: ~
       are_you_sure: ~
     comment_form:
-      ask_a_question: ~
+      ask_a_question: "Comente o anúncio ou peça mais detalhes. Todos os outros utilizadores serão capazes de ver o seu comentário."
       log_in: ~
       send_comment: ~
       to_send_a_comment: ~
@@ -1397,7 +1397,7 @@ pt-PT:
       show_in_updates_email: ~
       show_in_updates_email_loading: ~
       show_in_updates_email_error: ~
-      show_in_updates_email_success: ~
+      show_in_updates_email_success: "Este anúncio será mostrado na próxima atualização automática de e-mail enviado aos utilizadores"
     map:
       open_in_google_maps: ~
     error:
@@ -1502,8 +1502,8 @@ pt-PT:
         for_the_time_being: ~
       privacy:
         privacy: ~
-        private: ~
-        public: ~
+        private: "Privativo (visível unicamente pelos utilizadores conectados)"
+        public: "Público (visível também pelos utilizadores não conectados)"
     help_texts:
       help_share_type_title: ~
       help_tags_title: ~
@@ -1552,7 +1552,7 @@ pt-PT:
       how_paypal_works: ~
       payment_help: ~
     new:
-      post_a_new_listing: ~
+      post_a_new_listing: "Publicar anúncio"
       listing: ~
       selected_category: ~
       selected_subcategory: ~
@@ -1665,7 +1665,7 @@ pt-PT:
     content_too_long: ~
   okl:
     member_id: ~
-    member_id_or_email: ~
+    member_id_or_email: "Nome de utilizador ou e-mail"
   payments:
     new:
       new_payment: ~
@@ -1766,8 +1766,8 @@ pt-PT:
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
-      this_person_is_not_active_in_kassi: ~
-      inactive_description: ~
+      this_person_is_not_active_in_kassi: "Esse utilizador está inativo no %{service_name}"
+      inactive_description: "Esse utilizador parou de usar %{service_name}. Você pode não pode entrar em contato, nem avaliar, nem comentar seus anúncios."
     new:
       create_new_account: ~
       email: ~
@@ -1786,17 +1786,17 @@ pt-PT:
       show_my_name_to_others: ~
       sign_up: ~
       terms: ~
-      username_is_in_use: ~
-      username_is_invalid: ~
+      username_is_in_use: "Este nome de utilizador já está em uso."
+      username_is_invalid: "Nome de utilizador é inválido. Os caracteres permitidos são letras, números e sublinhado."
       visible_only_to_you: ~
       visible_to_everybody: ~
       create_account_with_facebook: ~
       OR: ~
       signup_with_email: ~
     not_member:
-      explanation_text: ~
+      explanation_text: "Você está atualmente navegando na %{community}. Você tentou ver o perfil de um membro que pertence a outro mercado virtual criado com a plataforma Sharetribe. Você não pode acessar este perfil de utilizador na %{community}."
       read_more_about_kassi_communities: ~
-      this_user_does_not_belong_to_this_community: ~
+      this_user_does_not_belong_to_this_community: "Este utilizador não pertence a %{community}."
     profile_feedback:
       grade: ~
       and_gave_following_feedback: ~
@@ -1860,7 +1860,7 @@ pt-PT:
   sessions:
     new:
       create_new_account: ~
-      i_forgot_my_password: ~
+      i_forgot_my_password: "Esqueci meu utilizador ou a minha senha"
       login: ~
       login_to_kassi: ~
       connect_your_facebook_to_kassi: ~
@@ -1870,12 +1870,12 @@ pt-PT:
       account_creation_link_text: ~
       cancle_facebook_connect: ~
       facebook_cancel_link_text: ~
-      log_in_with_your_facebook_account: ~
-      or_sign_up_with_your_username: ~
+      log_in_with_your_facebook_account: "Iniciar sessão com o Facebook"
+      or_sign_up_with_your_username: "...ou com seu nome de utilizador ou e-mail"
       we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: ~
-      password_recovery_instructions: ~
+      password_recovery_instructions: "Digite o seu endereço de e-mail e receberá o seu nome de utilizador e instruções sobre como alterar sua senha."
       request_new_password: ~
       change_your_password: ~
     confirmation_pending:
@@ -1895,7 +1895,7 @@ pt-PT:
       confirm_new_password: ~
       delete_account: "Apagar conta"
       delete_account_button: ~
-      delete_account_confirmation_popup: ~
+      delete_account_confirmation_popup: "Você tem certeza que realmente quer apagar sua conta de utilizador e perder permanentemente todos os dados relacionados à ela? A exclusão da conta não pode ser revertida."
       email_addresses: ~
       new_email: ~
       delete_all_memberships: ~
@@ -1904,7 +1904,7 @@ pt-PT:
       unfinished_transactions: ~
       new_password: ~
       save: ~
-      these_fields_are_shown_only_to_you: ~
+      these_fields_are_shown_only_to_you: "Seu nome de utilizador é mostrado no seu perfil a menos que você tenha dado o seu nome. Outras informações só é mostrado a você."
       email_already_confirmed: ~
       email:
         address_title: ~
@@ -1951,8 +1951,8 @@ pt-PT:
       city: ~
       family_name: ~
       given_name: ~
-      first_name_with_initial: ~
-      first_name_only: ~
+      first_name_with_initial: "(apenas a primeira letra mostrada para outros utilizadores)"
+      first_name_only: "(não será mostrado a outros utilizadores)"
       location_description: ~
       phone_number: ~
       profile_picture: ~
@@ -1960,11 +1960,11 @@ pt-PT:
       profile_page: ~
       profilemap: ~
       street_address: ~
-      these_fields_are_shown_in_your: ~
+      these_fields_are_shown_in_your: "Esta informação pode ser vista por todos os utilizadores %{service_name}"
       visible_to_everybody: ~
-      visible_to_registered_users: ~
+      visible_to_registered_users: "(visível para os utilizadores que tenham logado)"
       default_in_listing: ~
-      invisible: ~
+      invisible: "(não será mostrado a outros utilizadores)"
       image_is_processing: ~
     save_information: ~
   shipping_address:
@@ -2000,7 +2000,7 @@ pt-PT:
       slightly_better_than_expected: ~
       slightly_less_than_expected: ~
       textual_feedback: ~
-      this_will_be_shown_in_profile: ~
+      this_will_be_shown_in_profile: "A sua opinião será visível pelos outros utilizadores no perfil do %{person}. Isso ajuda os outros membros a saber se %{person} é uma pessoa de confiança."
       positive: ~
       negative: ~
       default_textual_feedback: ~
@@ -2096,6 +2096,11 @@ pt-PT:
     day: ~
     days: ~
   will_paginate:
+    models:
+      person:
+        zero: utilizador
+        one: utilizador
+        other: utilizadores
     previous_label: ~
     next_label: ~
     page_gap: ~
