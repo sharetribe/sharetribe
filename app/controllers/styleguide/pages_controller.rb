@@ -1,6 +1,6 @@
 class Styleguide::PagesController < ApplicationController
   include ReactOnRails::Controller
-  layout "helloworld"
+  layout "styleguide"
 
   before_action do
     session[:something_useful] = "REALLY USEFUL"
