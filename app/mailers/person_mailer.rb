@@ -339,7 +339,7 @@ class PersonMailer < ActionMailer::Base
   end
 
   def mail_feedback_to(community, platform_admin_email)
-    if community.feedback_to_admin? && community.admin_emails.any?
+    if community.admin_emails.any?
       community.admin_emails.join(",")
     else
       platform_admin_email

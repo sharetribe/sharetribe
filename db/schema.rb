@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407132641) do
+ActiveRecord::Schema.define(version: 20160408061218) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -137,7 +137,6 @@ ActiveRecord::Schema.define(version: 20160407132641) do
     t.boolean  "email_admins_about_new_members",                           default: false
     t.boolean  "use_fb_like",                                              default: false
     t.boolean  "real_name_required",                                       default: true
-    t.boolean  "feedback_to_admin",                                        default: true
     t.boolean  "automatic_newsletters",                                    default: true
     t.boolean  "join_with_invite_only",                                    default: false
     t.text     "allowed_emails",                             limit: 65535
