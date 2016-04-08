@@ -5,6 +5,13 @@
 @import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
 @import "mixins/all";
+//TODO
+// If we were importing bootstrap, we'd have this generated.
+// @import 'vendor-bundle'
+@import 'app-bundle';
+// Non-webpack assets
+// @import 'application_non_webpack';
+
 
 /**
   This file is deprecated: Put your SCSS to views/ and partials/
