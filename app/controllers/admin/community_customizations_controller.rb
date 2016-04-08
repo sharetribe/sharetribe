@@ -20,7 +20,9 @@ class Admin::CommunityCustomizationsController < ApplicationController
   end
 
   def update_details
-    updates_successful = @current_community.locales.map do |locale|
+    update_results = []
+
+    customizations = @current_community.locales.map do |locale|
       permitted_params = [
         :name,
         :slogan,
@@ -32,7 +34,8 @@ class Admin::CommunityCustomizationsController < ApplicationController
       params.require(:community_customizations).require(locale).permit(*permitted_params)
       locale_params = params[:community_customizations][locale]
       customizations = find_or_initialize_customizations_for_locale(locale)
-      customizations.update_attributes(locale_params)
+      update_results.push(customizations.update_attributes(locale_params))
+      customizations
     end
 
     process_locales = unofficial_locales.blank?
@@ -47,9 +50,11 @@ class Admin::CommunityCustomizationsController < ApplicationController
     end
 
     transaction_agreement_checked = Maybe(params)[:community][:transaction_agreement_checkbox].is_some?
-    community_update_successful = @current_community.update_attributes(transaction_agreement_in_use: transaction_agreement_checked)
+    update_results.push(@current_community.update_attributes(transaction_agreement_in_use: transaction_agreement_checked))
 
-    if updates_successful.all? && community_update_successful && (!process_locales || enabled_locales_valid)
+    if update_results.all? && (!process_locales || enabled_locales_valid)
+      Admin::OnboardingWizard.new(@current_community.id)
+        .update_from_event(:community_customizations_updated, customizations)
       flash[:notice] = t("layouts.notifications.community_updated")
     else
       flash[:error] = t("layouts.notifications.community_update_failed")
