@@ -4,10 +4,12 @@ import ReactOnRails from 'react-on-rails';
 import ReduxApp from './ExampleReduxApp';
 
 import OnboardingGuideApp from './OnboardingGuideApp';
+import OnboardingTopBar from '../components/OnboardingTopBar/OnboardingTopBar';
 
 ReactOnRails.register({
   ReduxApp,
   OnboardingGuideApp,
+  OnboardingTopBar,
 });
 
 ReactOnRails.registerStore({
