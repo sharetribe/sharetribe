@@ -49,10 +49,6 @@ class SessionsController < ApplicationController
 
     session[:form_login] = nil
 
-    if @current_user
-      @current_user.update_attribute(:active, true) unless @current_user.active?
-    end
-
     unless @current_user && (!@current_user.communities.include?(@current_community) || @current_community.consent.eql?(@current_user.consent(@current_community)) || @current_user.is_admin?)
       # Either the user has succesfully logged in, but is not found in Sharetribe DB
       # or the user is a member of this community but the terms of use have changed.

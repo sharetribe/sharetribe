@@ -11,7 +11,6 @@
 #  active_days_count                  :integer          default(0)
 #  last_page_load_date                :datetime
 #  test_group_number                  :integer          default(1)
-#  active                             :boolean          default(TRUE)
 #  username                           :string(255)
 #  email                              :string(255)
 #  encrypted_password                 :string(255)      default(""), not null
