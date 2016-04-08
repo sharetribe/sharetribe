@@ -26,19 +26,20 @@ module Admin
       [:invitation, :bool, :mandatory])
 
     def initialize(community_id)
+      raise ArgumentError("Missing mandatory community_id") unless community_id
       @community_id = community_id
     end
 
     # Get the status as a SetupStatus hash
     def setup_status
-      load_setup_status(@community_id)
+      to_setup_status(load_setup_steps(@community_id))
     end
 
     # Imperative shell. Process the given event_type with *args
     # arguments. If the event leads to a state change apply it and
     # return true. Otherwise return false.
     def update_from_event(event_type, *args)
-      setup_status = load_setup_status(@community_id)
+      setup_status = to_setup_status(load_setup_steps(@community_id))
       completed_status = process_event(event_type, setup_status, args)
 
       if completed_status
@@ -61,7 +62,9 @@ module Admin
       method(event_type).call(setup_status, *args)
     end
 
+
     # Update events
+    #
 
     def community_customizations_updated(setup_status, community_customizations)
       if !setup_status[:slogan_and_description] &&
@@ -114,11 +117,35 @@ module Admin
     end
 
 
-    def load_setup_status(community_id)
-      m = Maybe(MarketplaceSetupSteps.find_by(community_id: community_id))
-          .or_else { MarketplaceSetupSteps.new(community_id: community_id) }
+    # Helpers and setup logic
+    #
 
-      to_setup_status(m)
+    def load_setup_steps(community_id)
+      Maybe(MarketplaceSetupSteps.find_by(community_id: community_id))
+        .or_else { init_setup_steps(community_id) }
+    end
+
+    def init_setup_steps(community_id)
+      community = Community.find(community_id)
+      community_customizations = CommunityCustomization.where(community_id: community.id)
+      custom_field = CustomField.find_by(community_id: community.id)
+      listing = Listing.find_by(community_id: community.id)
+      invitation = Invitation.find_by(community_id: community.id)
+
+      m = MarketplaceSetupSteps.find_or_create_by(community_id: community_id)
+      setup_status = to_setup_status(m)
+
+      updates = [
+        community_customizations_updated(setup_status, community_customizations),
+        community_updated(setup_status, community),
+        custom_field_created(setup_status, custom_field),
+        paypal_preferences_updated(setup_status, community),
+        listing_created(setup_status, listing),
+        invitation_created(setup_status, invitation)
+      ].compact.map { |status| [status, true] }.to_h
+
+      m.update_attributes(updates)
+      m
     end
 
     def update_completed(community_id, status)
@@ -126,12 +153,12 @@ module Admin
         raise ArgumentError.new("Unkown status: #{status}")
       end
 
-      m = MarketplaceSetupSteps.find_or_create_by(community_id: community_id)
+      m = load_setup_steps(community_id)
       m.update(status => true)
     end
 
     def to_setup_status(model)
       SetupStatus.call(EntityUtils.model_to_hash(model))
-   end
+    end
   end
 end
