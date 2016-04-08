@@ -160,7 +160,7 @@ describe PersonMailer, type: :mailer do
 
   it "should send email to community admins of new feedback if that setting is on" do
     @feedback = FactoryGirl.create(:feedback)
-    @community = FactoryGirl.create(:community, :feedback_to_admin => 1)
+    @community = FactoryGirl.create(:community)
     m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id, :status => "accepted")
     m.update_attribute(:admin, true)
     email = MailCarrier.deliver_now(PersonMailer.new_feedback(@feedback, @community))
