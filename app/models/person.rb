@@ -111,21 +111,6 @@ class Person < ActiveRecord::Base
     username
   end
 
-  def self.find(username_or_id)
-    by_username = self.find_by(username: username_or_id)
-
-    if by_username.nil?
-      # Couldn't find by username, trying to find by id
-      super(username_or_id)
-    else
-      # Found it by username
-      logger = SharetribeLogger.new(:person)
-      logger.warn("Used Person.find with username. This is deprecated and support for finding by username will be removed from this method.", :find_by_username, caller: caller)
-
-      by_username
-    end
-  end
-
   def self.find_by_username_and_community_id(username, community_id)
     Person
       .joins(:community_memberships)
