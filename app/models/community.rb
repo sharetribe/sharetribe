@@ -240,8 +240,7 @@ class Community < ActiveRecord::Base
                     },
                     :default_style => :favicon,
                     :convert_options => {
-                      :favicon => "-depth 32",
-                      :favicon => "-strip"
+                      :favicon => "-depth 32 -strip",
                     },
                     :default_url => ActionController::Base.helpers.asset_path("favicon.ico")
 
