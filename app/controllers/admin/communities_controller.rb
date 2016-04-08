@@ -231,8 +231,10 @@ class Admin::CommunitiesController < ApplicationController
     update(@current_community,
            community_params.merge(stylesheet_needs_recompile: regenerate_css?(params, @current_community)),
            edit_look_and_feel_admin_community_path(@current_community),
-           :edit_look_and_feel) {
-      Delayed::Job.enqueue(CompileCustomStylesheetJob.new(@current_community.id), priority: 3)
+           :edit_look_and_feel) { |community|
+      Delayed::Job.enqueue(CompileCustomStylesheetJob.new(community.id), priority: 3)
+      Admin::OnboardingWizard.new(community.id)
+        .update_from_event(:community_updated, community)
     }
   end
 
@@ -343,7 +345,7 @@ class Admin::CommunitiesController < ApplicationController
   def update(model, params, path, action, &block)
     if model.update_attributes(params)
       flash[:notice] = t("layouts.notifications.community_updated")
-      yield if block_given? #on success, call optional block
+      block.call(model) if block_given? #on success, call optional block
       redirect_to path
     else
       flash.now[:error] = t("layouts.notifications.community_update_failed")

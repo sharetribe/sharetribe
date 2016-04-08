@@ -609,6 +609,18 @@ ActiveRecord::Schema.define(version: 20160408061218) do
 
   add_index "marketplace_sender_emails", ["community_id"], name: "index_marketplace_sender_emails_on_community_id", using: :btree
 
+  create_table "marketplace_setup_steps", force: :cascade do |t|
+    t.integer "community_id",           limit: 4,                 null: false
+    t.boolean "slogan_and_description",           default: false, null: false
+    t.boolean "cover_photo",                      default: false, null: false
+    t.boolean "filter",                           default: false, null: false
+    t.boolean "paypal",                           default: false, null: false
+    t.boolean "listing",                          default: false, null: false
+    t.boolean "invitation",                       default: false, null: false
+  end
+
+  add_index "marketplace_setup_steps", ["community_id"], name: "index_marketplace_setup_steps_on_community_id", unique: true, using: :btree
+
   create_table "marketplace_trials", force: :cascade do |t|
     t.integer  "community_id", limit: 4, null: false
     t.datetime "expires_at"
