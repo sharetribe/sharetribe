@@ -4,63 +4,60 @@ class SettingsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_settings")
   end
 
-  before_filter :except => :unsubscribe do |controller|
-    controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
-  end
+  before_filter EnsureCanAccessPerson.new(:person_id, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), except: :unsubscribe
 
   def show
-    flash.now[:notice] = t("settings.profile.image_is_processing") if @current_user.image.processing?
+    target_user = Person.find_by_username_and_community_id(params[:person_id], @current_community.id)
+    add_location_to_person!(target_user)
+    flash.now[:notice] = t("settings.profile.image_is_processing") if target_user.image.processing?
     @selected_left_navi_link = "profile"
-    add_location_to_person
+    render locals: {target_user: target_user}
   end
 
   def account
+    target_user = Person.find_by_username_and_community_id(params[:person_id], @current_community.id)
     @selected_left_navi_link = "account"
-    @person.emails.build
-    marketplaces = @person.community_memberships
+    target_user.emails.build
+    marketplaces = target_user.community_memberships
                    .map { |m| Maybe(m.community).name(I18n.locale).or_else(nil) }
                    .compact
-    has_unfinished = TransactionService::Transaction.has_unfinished_transactions(@current_user.id)
+    has_unfinished = TransactionService::Transaction.has_unfinished_transactions(target_user.id)
 
-    render locals: {marketplaces: marketplaces, has_unfinished: has_unfinished}
+    render locals: {marketplaces: marketplaces, has_unfinished: has_unfinished, target_user: target_user}
   end
 
   def notifications
+    target_user = Person.find_by_username_and_community_id(params[:person_id], @current_community.id)
     @selected_left_navi_link = "notifications"
-  end
-
-  def payments
-    @selected_left_navi_link = "payments"
+    render locals: {target_user: target_user}
   end
 
   def unsubscribe
-    @person_to_unsubscribe = find_person_to_unsubscribe(@current_user, params[:auth])
+    target_user = find_person_to_unsubscribe(@current_user, params[:auth])
 
-    if @person_to_unsubscribe && @person_to_unsubscribe.username == params[:person_id] && params[:email_type].present?
+    if target_user && target_user.username == params[:person_id] && params[:email_type].present?
       if params[:email_type] == "community_updates"
-        MarketplaceService::Person::Command.unsubscribe_person_from_community_updates(@person_to_unsubscribe.id)
+        MarketplaceService::Person::Command.unsubscribe_person_from_community_updates(target_user.id)
       elsif [Person::EMAIL_NOTIFICATION_TYPES, Person::EMAIL_NEWSLETTER_TYPES].flatten.include?(params[:email_type])
-        @person_to_unsubscribe.preferences[params[:email_type]] = false
-        @person_to_unsubscribe.save!
+        target_user.preferences[params[:email_type]] = false
+        target_user.save!
       else
-        @unsubscribe_successful = false
-        render :unsubscribe, :status => :bad_request and return
+        render :unsubscribe, :status => :bad_request, locals: {target_user: target_user, unsubscribe_successful: false} and return
       end
-      @unsubscribe_successful = true
-      render :unsubscribe
+      render :unsubscribe, locals: {target_user: target_user, unsubscribe_successful: true}
     else
-      @unsubscribe_successful = false
-      render :unsubscribe, :status => :unauthorized
+      render :unsubscribe, :status => :unauthorized, locals: {target_user: target_user, unsubscribe_successful: false}
     end
   end
 
   private
 
-  def add_location_to_person
-    unless @person.location
-      @person.build_location(:address => @person.street_address)
-      @person.location.search_and_fill_latlng
+  def add_location_to_person!(person)
+    unless person.location
+      person.build_location(:address => person.street_address)
+      person.location.search_and_fill_latlng
     end
+    person
   end
 
   def find_person_to_unsubscribe(current_user, auth_token)

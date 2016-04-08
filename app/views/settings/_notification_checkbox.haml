@@ -1,3 +1,3 @@
 .checkbox-container
-  = check_box_tag "person[preferences][#{notification_type}]", "true", @person.preferences[notification_type] ? true : false, :id => notification_type
+  = check_box_tag "person[preferences][#{notification_type}]", "true", target_user.preferences[notification_type] ? true : false, :id => notification_type
   = label_tag notification_type, t("settings.notifications.#{notification_type}")

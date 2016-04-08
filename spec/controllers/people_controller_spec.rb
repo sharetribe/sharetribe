@@ -92,16 +92,17 @@ describe PeopleController, type: :controller do
       @person = FactoryGirl.create(:person)
       @community.members << @person
       @id = @person.id
-      expect(Person.find_by_id(@id)).not_to be_nil
+      @username = @person.username
+      expect(Person.find_by_username_and_community_id(@username, @community.id)).not_to be_nil
     end
 
     it "deletes the person" do
       sign_in_for_spec(@person)
 
-      delete :destroy, {:person_id => @id}
+      delete :destroy, {:id => @username}
       expect(response.status).to eq(302)
 
-      expect(Person.find_by_id(@id).deleted?).to eql(true)
+      expect(Person.find_by_username_and_community_id(@username, @community.id).deleted?).to eql(true)
     end
 
     it "doesn't delete if not logged in as target person" do
@@ -109,10 +110,10 @@ describe PeopleController, type: :controller do
       @community.members << b
       sign_in_for_spec(b)
 
-      delete :destroy, {:person_id => @id}
+      delete :destroy, {:id => @username}
       expect(response.status).to eq(302)
 
-      expect(Person.find_by_id(@id)).not_to be_nil
+      expect(Person.find_by_username_and_community_id(@username, @community.id)).not_to be_nil
     end
 
   end
