@@ -111,6 +111,8 @@ gem 'demoji', "~> 0.0.5"
 gem 'faraday', '~> 0.9.1'
 gem 'faraday_middleware', '~> 0.10.0'
 
+gem "react_on_rails", "~> 5"
+
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
   gem 'rails_12factor', '~> 0.0.3'
@@ -157,4 +159,16 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3.2'
   gem 'pry-nav', '~> 0.2.3'
   gem 'pry-stack_explorer', '~> 0.4.9.1'
+end
+
+
+gem 'therubyracer', platforms: :ruby
+
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+if ENV["DISABLE_TURBOLINKS"].nil? || ENV["DISABLE_TURBOLINKS"].strip.empty?
+  if ENV["ENABLE_TURBOLINKS_5"].nil? || ENV["ENABLE_TURBOLINKS_5"].strip.empty?
+    gem 'turbolinks', '2.5.3'
+  else
+    gem 'turbolinks', '~> 5.0.0.beta'
+  end
 end
