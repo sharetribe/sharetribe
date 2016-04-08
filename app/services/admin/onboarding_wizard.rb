@@ -66,7 +66,11 @@ module Admin
       end
     end
 
-    def community_updated
+    def community_updated(setup_status, community)
+      if !setup_status[:cover_photo] &&
+         Maybe(community).map { |c| c.cover_photo_file_name.present? }.or_else(false)
+        :cover_photo
+      end
     end
 
     def filter_created
