@@ -20,4 +20,8 @@ then
   phantomjs --webdriver=8910 &
   PHANTOMJS=true bundle exec cucumber -ptravis 2>&1
   exit
+elif [ "$SUITE" = "eslint" ]
+then
+  npm run lint 2>&1
+  exit
 fi
