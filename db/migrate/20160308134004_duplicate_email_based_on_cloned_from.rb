@@ -1,23 +1,14 @@
 class DuplicateEmailBasedOnClonedFrom < ActiveRecord::Migration
   def up
-    ActiveRecord::Base.transaction do
-      cloned_people = select_all("
-        SELECT id, cloned_from FROM people WHERE cloned_from IS NOT NULL
-      ").to_ary
-
-      cloned_people.each do |p|
-        execute("
-          INSERT INTO
-          emails
-           (person_id, address, confirmed_at, confirmation_sent_at,
-            confirmation_token, created_at, updated_at, send_notifications)
-          (SELECT
-            #{quote(p['id'])}, address, confirmed_at, confirmation_sent_at,
-            confirmation_token, created_at, #{quote(DateTime.now.to_s(:db))}, send_notifications
-          FROM emails WHERE person_id = #{quote(p['cloned_from'])})
-          ")
-      end
-    end
+    execute("
+      INSERT INTO emails
+        (person_id, community_id, address, confirmed_at, confirmation_sent_at, confirmation_token, created_at, updated_at, send_notifications)
+        (SELECT cloned_people.id, cloned_people.community_id, e.address, e.confirmed_at,
+          e.confirmation_sent_at, e.confirmation_token, e.created_at, e.updated_at, e.send_notifications
+          FROM emails AS e
+          LEFT JOIN people AS cloned_people ON cloned_people.cloned_from = e.person_id
+          WHERE cloned_people.cloned_from IS NOT NULL)
+    ")
   end
 
   def down
