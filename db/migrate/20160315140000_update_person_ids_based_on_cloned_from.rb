@@ -74,17 +74,19 @@ class UpdatePersonIdsBasedOnClonedFrom < ActiveRecord::Migration
   end
 
   def migrate_person!(table:, column:, community_join_table: nil, community_join_table_fk: nil)
-    execute(construct_up_sql(
-              table: table,
-              column: column,
-              community_join_table: community_join_table,
-              community_join_table_fk: community_join_table_fk))
+    name = "Migrate '#{table}.#{column}'"
+    exec_update(construct_up_sql(
+                  table: table,
+                  column: column,
+                  community_join_table: community_join_table,
+                  community_join_table_fk: community_join_table_fk), name, [])
   end
 
   def rollback_person!(table:, column:)
-    execute(construct_down_sql(
-              table: table,
-              column: column))
+    name = "Rollback '#{table}.#{column}'"
+    exec_update(construct_down_sql(
+                  table: table,
+                  column: column), name, [])
   end
 
   ### Construct SQL
