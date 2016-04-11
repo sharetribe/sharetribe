@@ -15,7 +15,7 @@ module.exports = {
       'es5-shim/es5-sham',
     ],
 
-    // This will contain the app entry points defined by webpack.hot.config and webpack.rails.config
+    // This will contain the app entry points
     app: [
       './app/startup/clientRegistration',
     ],
