@@ -1010,7 +1010,7 @@ pt-PT:
     no_javascript:
       javascript_is_disabled_in_your_browser: ~
       kassi_does_not_currently_work_without_javascript: ~
-      contact_us: Contactenos
+      contact_us: Contacte-nos
       send_feedback: ~
       your_feedback_to_admins: ~
     send: ~
@@ -1061,7 +1061,7 @@ pt-PT:
     requests: ~
     search_kassi: ~
     create_new_marketplace: ~
-    contact_us: Contactenos
+    contact_us: Contacte-nos
     profile: ~
     manage_listings: "Gerir anúncios"
     invite: ~
@@ -1189,7 +1189,7 @@ pt-PT:
     no_tribe:
       inbox: ~
       settings: ~
-      feedback: Contactenos
+      feedback: Contacte-nos
     application:
       join_this_community: ~
       read_more: ~
@@ -1197,11 +1197,11 @@ pt-PT:
       default_feedback: "Encontrou algum problema com %{service_name}* ? Tem alguma sugestão para melhorar o serviço? Notou algum conteúdo suspeito? Ou quer apenas partilhar ou discutir alguma ideia? Escreva aqui a sua mensagem!"
       feedback_forum: ~
       feedback_handle: ~
-      give_feedback: Contactenos
+      give_feedback: Contacte-nos
       or_check_our: ~
       send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "para ver o que outros utilizadores sugeriram, e votar para novas idéias."
-      your_email_address: ~
+      your_email_address: "Seu e-mail (para entrar em contacto)"
       connect: ~
       invite_your_friends: ~
       invite_your_neighbors: ~
@@ -1336,7 +1336,7 @@ pt-PT:
       you_have_already_given_feedback_about_this_event: ~
       you_are_now_member: ~
       you_are_already_member: ~
-      you_must_log_in_to_create_new_listing: ~
+      you_must_log_in_to_create_new_listing: "Você deve iniciar sessão em %{service_name} para criar um novo anúncio. Se você não tem uma conta, você pode %{sign_up_link}."
       additional_email_confirmed_dashboard: ~
       you_must_log_in_to_give_feedback: ~
       you_must_log_in_to_invite_new_users: "Você deve se conectar para convidar novos utilizadores a %{service_name}"
@@ -1561,7 +1561,7 @@ pt-PT:
       select_subcategory: ~
       select_transaction_type: ~
       you_need_to_fill_payout_details_before_accepting: ~
-      contact_admin_link_text: ~
+      contact_admin_link_text: "contacte o administrador"
       community_not_configured_for_payments: ~
       payment_settings_link: ~
       community_not_configured_for_payments_admin: ~
@@ -1767,7 +1767,7 @@ pt-PT:
       invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: "Esse utilizador está inativo no %{service_name}"
-      inactive_description: "Esse utilizador parou de usar %{service_name}. Você pode não pode entrar em contato, nem avaliar, nem comentar seus anúncios."
+      inactive_description: "Esse utilizador parou de usar %{service_name}. Você pode não pode entrar em contacto, nem avaliar, nem comentar seus anúncios."
     new:
       create_new_account: ~
       email: ~
@@ -1790,9 +1790,9 @@ pt-PT:
       username_is_invalid: "Nome de utilizador é inválido. Os caracteres permitidos são letras, números e sublinhado."
       visible_only_to_you: ~
       visible_to_everybody: ~
-      create_account_with_facebook: ~
+      create_account_with_facebook: "Registe-se com seu Facebook"
       OR: ~
-      signup_with_email: ~
+      signup_with_email: "Registe-se com seu e-mail"
     profile_feedback:
       grade: ~
       and_gave_following_feedback: ~
@@ -1801,7 +1801,7 @@ pt-PT:
       show_only_open: ~
       no_image: ~
     show:
-      contact: ~
+      contact: "Contacte %{person}"
       about_me: ~
       add_description: ~
       add_location: ~
