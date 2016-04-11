@@ -14,7 +14,6 @@ env:
   - SUITE="rspec"
   - SUITE="rubocop"
   - SUITE="cucumber"
-  - SUITE="jshint"
   global:
     - BUNDLE_ARCHIVE="travis-bundle-cache"
     - AWS_S3_REGION="us-east-1"

@@ -31,14 +31,3 @@ In addition to running all the spec tests with rake spec you can also run a sing
 To speed up tests, you can use guard. It watches the file system and runs tests automatically when files change:
 
 Run `guard` and start coding. Saving a file triggers the change.
-
-## JavaScript unit testing (Mocha)
-
-We are using [Mocha](http://visionmedia.github.io/mocha/) test framework for JavaScript unit testing. The tests can be run on browser or from command-line
-
-### Run Mocha tests on browser
-
-1. Start Rails server
-2. Go to `http://localhost:3000/test/`
-
-When running on development mode, make sure you DO NOT have a file `public/assets/application.js`. If you do, delete it. This way Rails will use asset pipeline instead of precompiled file.
