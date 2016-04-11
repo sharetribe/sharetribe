@@ -7,20 +7,12 @@
 //
 // To understand which one is used, see app/views/layouts/application.html.erb
 
-// These assets are located in app/assets/webpack directory
-// Its is CRITICAL for Turbolinks 2.x that webpack/vendor-bundle must be BEFORE turbolinks
-// since it is exposing jQuery and jQuery-ujs
-
 // NOTE: See config/initializers/assets.rb for some critical configuration regarding sprockets.
 // Basically, in HOT mode, we do not include this file for
 // Rails.application.config.assets.precompile
 //= require vendor-bundle
 //= require app-bundle
-
-// Non-webpack assets include turbolinks and these are loaded in the "hot" mode as well.
-//= require application_non_webpack
-// TODO clean this part ^
-
+//= require application_hot
 
 // This is a manifest file that'll be compiled into including all the files listed below.
 // Add new JavaScript/Coffee code in separate files in this directory and they'll automatically

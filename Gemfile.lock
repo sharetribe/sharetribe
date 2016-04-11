@@ -495,8 +495,6 @@ GEM
     timecop (0.6.3)
     trollop (2.1.2)
     truncate_html (0.9.3)
-    turbolinks (2.5.3)
-      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.2)
@@ -609,7 +607,6 @@ DEPENDENCIES
   timecop (~> 0.6.3)
   truncate_html (~> 0.9.1)
   ts-delayed-delta (~> 2.0.2)!
-  turbolinks (= 2.5.3)
   uglifier (~> 2.7.2)
   web-console (~> 2.0)
   web_translate_it (~> 2.1.8)

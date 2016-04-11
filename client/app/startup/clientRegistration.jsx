@@ -12,10 +12,6 @@ import PureComponent from '../components/PureComponent';
 
 import SharedReduxStore from '../stores/SharedReduxStore'
 
-ReactOnRails.setOptions({
-  traceTurbolinks: true
-});
-
 ReactOnRails.register({
   HelloWorld,
   HelloWorldWithLogAndThrow,

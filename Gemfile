@@ -161,12 +161,3 @@ end
 
 
 gem 'therubyracer', platforms: :ruby
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-if ENV["DISABLE_TURBOLINKS"].nil? || ENV["DISABLE_TURBOLINKS"].strip.empty?
-  if ENV["ENABLE_TURBOLINKS_5"].nil? || ENV["ENABLE_TURBOLINKS_5"].strip.empty?
-    gem 'turbolinks', '2.5.3'
-  else
-    gem 'turbolinks', '~> 5.0.0.beta'
-  end
-end
