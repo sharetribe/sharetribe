@@ -198,7 +198,7 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def update
-    target_user = Person.find_by_username_and_community_id(params[:id], @current_community.id)
+    target_user = Person.find_by_username_and_community_id!(params[:id], @current_community.id)
     # If setting new location, delete old one first
     if params[:person] && params[:person][:location] && (params[:person][:location][:address].empty? || params[:person][:street_address].blank?)
       params[:person].delete("location")
@@ -279,7 +279,7 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def destroy
-    target_user = Person.find_by_username_and_community_id(params[:id], @current_community.id)
+    target_user = Person.find_by_username_and_community_id!(params[:id], @current_community.id)
     has_unfinished = TransactionService::Transaction.has_unfinished_transactions(target_user.id)
     return redirect_to root if has_unfinished
 
