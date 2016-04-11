@@ -18,10 +18,6 @@ then
   phantomjs --webdriver=8910 &
   PHANTOMJS=true bundle exec cucumber -ptravis 2>&1
   exit
-elif [ "$SUITE" = "jshint" ]
-then
-  grunt jshint 2>&1
-  exit
 else
   echo -e "Error: SUITE is illegal or not set\n"
   exit 1
