@@ -126,8 +126,6 @@ group :development, :staging do
 end
 
 group :development do
-  gem 'guard-livereload', "~> 1.4.0", require: false
-  gem 'rack-livereload', "~> 0.3.15"
   gem 'rb-fsevent', "~> 0.9.4", require: false
   gem 'guard-rspec', "~> 4.3.1", require: false
   gem 'annotate', "~> 2.6.5"

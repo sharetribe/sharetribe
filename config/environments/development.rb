@@ -77,7 +77,4 @@ Kassi::Application.configure do
   config.active_record.mass_assignment_sanitizer = :strict
 
   config.cache_store = :memory_store, { :namespace => "sharetribe-dev"}
-
-  # Automatically inject JavaScript needed for LiveReload
-  config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
 end
