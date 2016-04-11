@@ -8,7 +8,7 @@ class PeopleController < Devise::RegistrationsController
     :id, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), only: [:update, :destroy]
 
   skip_filter :check_email_confirmation, :only => [ :update]
-  skip_filter :cannot_access_without_joining, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
+  skip_filter :cannot_access_if_banned, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
 
   helper_method :show_closed?
 
@@ -105,7 +105,7 @@ class PeopleController < Devise::RegistrationsController
     end
 
     # Check that email is not taken
-    unless Email.email_available?(params[:person][:email])
+    unless Email.email_available?(params[:person][:email], @current_community.id)
       flash[:error] = t("people.new.email_is_in_use")
       redirect_to error_redirect_path and return
     end
@@ -303,7 +303,7 @@ class PeopleController < Devise::RegistrationsController
 
   def check_username_availability
     respond_to do |format|
-      format.json { render :json => Person.username_available?(params[:person][:username]) }
+      format.json { render :json => Person.username_available?(params[:person][:username], @current_community.id) }
     end
   end
 
@@ -321,7 +321,7 @@ class PeopleController < Devise::RegistrationsController
 
     if available
       # Then check if it's already in use
-      email_availability(email, true)
+      email_availability(email, @current_community.id)
     else #respond false
       respond_to do |format|
         format.json { render :json => available }
@@ -332,7 +332,7 @@ class PeopleController < Devise::RegistrationsController
   # this checks that email is not already in use for anyone (including current user)
   def check_email_availability
     email = params[:person] && params[:person][:email_attributes] && params[:person][:email_attributes][:address]
-    email_availability(email, false)
+    email_availability(email, @current_community.id)
   end
 
   def check_invitation_code
@@ -372,8 +372,8 @@ class PeopleController < Devise::RegistrationsController
     [person, email]
   end
 
-  def email_availability(email, own_email_allowed)
-    available = own_email_allowed ? Email.email_available_for_user?(@current_user, email) : Email.email_available?(email)
+  def email_availability(email, community_id)
+    available = Email.email_available?(email, community_id)
 
     respond_to do |format|
       format.json { render :json => available }

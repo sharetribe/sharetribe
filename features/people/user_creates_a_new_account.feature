@@ -84,8 +84,47 @@ Feature: User creates a new account
     And I should see "The email you entered is now confirmed"
 
   @subdomain2
-  Scenario: Seeing info of community's email restriction
+  Scenario: Trying to create an account with email and username that exist in another marketplace
+    Given feature flag "new_login" is enabled
+    When I fill in "person[username]" with "kassi_testperson1"
+    And I fill in "First name" with "Testmanno"
+    And I fill in "Last name" with "Namez"
+    And I fill in "person_password1" with "test"
+    And I fill in "Confirm password" with "test"
+    And I fill in "Email address" with "kassi_testperson3@example.com"
+    And I check "person_terms"
+    And I press "Create account"
+    And wait for 1 seconds
+    Then "kassi_testperson3@example.com" should receive 1 email
+    When I open the email
+    And I click the first link in the email
+    And wait for 1 seconds
+    Then "kassi_testperson3@example.com" should have 2 emails
+    And I should see "The email you entered is now confirmed"
+
+  @subdomain2
+  Scenario: Trying to create an account in an invitation-only marketplace with email and username that exist in another marketplace
+    Given there are following users:
+      | person |
+      | kassi_testperson3 |
+    And community "test2" requires invite to join
+    And I refresh the page
+    And there is an invitation for community "test2" with code "GH1JX8"
+    And feature flag "new_login" is enabled
     Then I should see "The access to Sharetribe is restricted."
-
-
-
+    When I fill in "Invitation code" with "GH1JX8"
+    And I fill in "person[username]" with "kassi_testperson1"
+    And I fill in "First name" with "Testmanno"
+    And I fill in "Last name" with "Namez"
+    And I fill in "person_password1" with "test"
+    And I fill in "Confirm password" with "test"
+    And I fill in "Email address" with "kassi_testperson3@example.com"
+    And I check "person_terms"
+    And I press "Create account"
+    And wait for 1 seconds
+    Then "kassi_testperson3@example.com" should receive 1 email
+    When I open the email
+    And I click the first link in the email
+    And wait for 1 seconds
+    Then "kassi_testperson3@example.com" should have 2 emails
+    And I should see "The email you entered is now confirmed"

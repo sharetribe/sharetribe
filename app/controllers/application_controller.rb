@@ -34,7 +34,8 @@ class ApplicationController < ActionController::Base
     :set_homepage_path,
     :report_queue_size,
     :maintenance_warning
-  before_filter :cannot_access_without_joining, :except => [ :confirmation_pending, :check_email_availability]
+  before_filter :cannot_access_if_banned, :except => [ :confirmation_pending, :check_email_availability]
+  before_filter :ensure_user_belongs_to_community, except: [ :confirmation_pending, :check_email_availability]
   before_filter :can_access_only_organizations_communities
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
 
@@ -174,6 +175,38 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Ensure that user belongs to community
+  #
+  # This check is in most cases useless: When user logs in we already
+  # check that the user belongs to the community she is trying to log
+  # in. However, after the user account separation migration in March
+  # 2016, there was a possibility that user had an existing session
+  # which pointed to a person_id that belonged to another
+  # community. That's why we need to check the community membership
+  # even after logging in.
+  #
+  # This extra check can be removed when we are sure that all the
+  # sessions which potentially had a person_id pointing to another
+  # community are all expired.
+  def ensure_user_belongs_to_community
+    if @current_user && !@current_user.communities.include?(@current_community)
+
+      logger.info(
+        "Automatically logged out user that doesn't belong to community",
+        :autologout,
+        current_user_id: @current_user.id,
+        current_community_id: @current_community.id,
+        current_user_community_ids: @current_user.communities.map(&:id)
+      )
+
+      sign_out
+      session[:person_id] = nil
+      flash[:notice] = t("layouts.notifications.automatically_logged_out_please_sign_in")
+
+      redirect_to root
+    end
+  end
+
   # A before filter for views that only users that are logged in can access
   def ensure_logged_in(warning_message)
     return if logged_in?
@@ -204,8 +237,12 @@ class ApplicationController < ActionController::Base
   # Before filter to get the current community
   def fetch_community
     @current_community = ApplicationController.find_community(community_identifiers)
-
     m_community = Maybe(@current_community)
+
+    # Save current community id in request env to be used
+    # by Devise and our custom community authenticatable strategy
+    request.env[:community_id] = m_community.id.or_else(nil)
+
     setup_logger!(marketplace_id: m_community.id.or_else(nil), marketplace_ident: m_community.ident.or_else(nil))
 
     # Save :found or :not_found to community status
@@ -325,20 +362,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Before filter to direct a logged-in non-member to join tribe form
-  def cannot_access_without_joining
-    if @current_user && ! (@current_community_membership || @current_user.is_admin?)
-
+  # Before filter to direct a banned user to access denied page
+  def cannot_access_if_banned
       # Check if banned
-      if @current_community && @current_user && @current_user.banned_at?(@current_community)
+      if @current_user && @current_user.banned_at?(@current_community)
         flash.keep
         redirect_to access_denied_tribe_memberships_path and return
       end
-
-      session[:invitation_code] = params[:code] if params[:code]
-      flash.keep
-      redirect_to new_tribe_membership_path
-    end
   end
 
   def can_access_only_organizations_communities

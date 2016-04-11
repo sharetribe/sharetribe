@@ -28,7 +28,7 @@ module UserService::API
     #
     # Create a new user by opts and optional current community
     def create_user(opts, community_id = nil)
-      raise ArgumentError.new("Email #{opts[:email]} is already in use.") unless Email.email_available?(opts[:email])
+      raise ArgumentError.new("Email #{opts[:email]} is already in use.") unless Email.email_available?(opts[:email], community_id)
 
       username = generate_username(given_name: opts[:given_name], family_name: opts[:family_name])
       locale = opts[:locale] || APP_CONFIG.default_locale # don't access config like this, require to be passed in in ctor

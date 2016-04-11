@@ -4,6 +4,7 @@
 #
 #  id                   :integer          not null, primary key
 #  person_id            :string(255)
+#  community_id         :integer
 #  address              :string(255)
 #  confirmed_at         :datetime
 #  confirmation_sent_at :datetime
@@ -14,7 +15,7 @@
 #
 # Indexes
 #
-#  index_emails_on_address    (address) UNIQUE
+#  index_emails_on_address    (address)
 #  index_emails_on_person_id  (person_id)
 #
 
@@ -27,7 +28,6 @@ class Email < ActiveRecord::Base
   belongs_to :person
 
   validates_presence_of :person
-  validates_uniqueness_of :address
   validates_length_of :address, :maximum => 255
   validates_format_of :address,
                        :with => /\A[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]+\z/i
@@ -46,14 +46,15 @@ class Email < ActiveRecord::Base
   end
 
   # Email already in use for current user or someone else
-  def self.email_available?(email)
-    !Email.find_by_address(email).present?
-  end
-
-  # Email already in use for someone else than current user
-  def self.email_available_for_user?(user, address)
-    email = Email.find_by_address(address)
-    !email.present? || email.person == user
+  def self.email_available?(email, community_id)
+    if FeatureFlagService::API::Api.features.enabled?(community_id: community_id, feature: :new_login).data
+     !Email
+       .joins(person: :community_memberships)
+       .where("address = ? AND community_memberships.community_id = ?", email, community_id)
+       .present?
+    else
+      !Email.find_by(address: email)
+    end
   end
 
   def self.send_confirmation(email, community)

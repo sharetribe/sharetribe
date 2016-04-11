@@ -182,18 +182,5 @@ describe IntApi::MarketplacesController, type: :controller do
       expect(ProspectEmail.last.email).to eql "something.not.used@example.com"
     end
 
-    it "should return correct availability info when email is not available" do
-
-      FactoryGirl.create(:email, :address => "occupied@email.com")
-      get :check_email_availability, {:email => "occupied@email.com"}
-
-      expect(response.status).to eql 200
-      r = JSON.parse(response.body)
-      expect(r["email"]).to eql "occupied@email.com"
-      expect(r["available"]).to eql false
-
-      expect(ProspectEmail.last.email).to eql "occupied@email.com"
-    end
-
   end
 end
