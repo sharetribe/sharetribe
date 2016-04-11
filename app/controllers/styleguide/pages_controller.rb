@@ -7,7 +7,7 @@ class Styleguide::PagesController < ApplicationController
   rescue_from ReactOnRails::PrerenderError do |err|
     Rails.logger.error(err.message)
     Rails.logger.error(err.backtrace.join("\n"))
-    redirect_to client_side_hello_world_path,
+    redirect_to styleguide_path,
                 flash: { error: "Error prerendering in react_on_rails. See server logs." }
   end
 
@@ -19,7 +19,11 @@ class Styleguide::PagesController < ApplicationController
 
   def data
     # This is the props used by the React component.
-    @app_props_server_render = {}
+    @app_props_server_render = {
+      helloReduxData: {
+        name: "Re Dux"
+      }
+    }
 
   end
 end

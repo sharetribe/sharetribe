@@ -2,7 +2,11 @@
 import ReactOnRails from 'react-on-rails';
 
 
+// Example of React + Redux
+import ReduxApp from './ExampleServerReduxApp';
+
 ReactOnRails.register({
+  ReduxApp,
 });
 
 ReactOnRails.registerStore({

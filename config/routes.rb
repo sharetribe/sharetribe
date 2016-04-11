@@ -21,6 +21,7 @@ Kassi::Application.routes.draw do
   if Rails.env.development?
     namespace :styleguide do
       get "" => "pages#index"
+      get "example_server_side_redux_app" => "pages#example_server_side_redux_app"
     end
   end
 
