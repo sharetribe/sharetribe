@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407103437) do
+ActiveRecord::Schema.define(version: 20160408061218) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -137,7 +137,6 @@ ActiveRecord::Schema.define(version: 20160407103437) do
     t.boolean  "email_admins_about_new_members",                           default: false
     t.boolean  "use_fb_like",                                              default: false
     t.boolean  "real_name_required",                                       default: true
-    t.boolean  "feedback_to_admin",                                        default: true
     t.boolean  "automatic_newsletters",                                    default: true
     t.boolean  "join_with_invite_only",                                    default: false
     t.text     "allowed_emails",                             limit: 65535
@@ -206,7 +205,6 @@ ActiveRecord::Schema.define(version: 20160407103437) do
     t.datetime "favicon_updated_at"
     t.integer  "default_min_days_between_community_updates", limit: 4,     default: 7
     t.boolean  "listing_location_required",                                default: false
-    t.text     "custom_head_script",                         limit: 65535
     t.boolean  "follow_in_use",                                            default: true,                      null: false
     t.boolean  "logo_processing"
     t.boolean  "wide_logo_processing"
@@ -216,6 +214,7 @@ ActiveRecord::Schema.define(version: 20160407103437) do
     t.string   "dv_test_file_name",                          limit: 64
     t.string   "dv_test_file",                               limit: 64
     t.boolean  "deleted"
+    t.text     "custom_head_script",                         limit: 65535
   end
 
   add_index "communities", ["domain"], name: "index_communities_on_domain", using: :btree
@@ -247,8 +246,8 @@ ActiveRecord::Schema.define(version: 20160407103437) do
   add_index "community_customizations", ["community_id"], name: "index_community_customizations_on_community_id", using: :btree
 
   create_table "community_memberships", force: :cascade do |t|
-    t.string   "person_id",           limit: 255
-    t.integer  "community_id",        limit: 4
+    t.string   "person_id",           limit: 255,                      null: false
+    t.integer  "community_id",        limit: 4,                        null: false
     t.boolean  "admin",                           default: false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -260,7 +259,7 @@ ActiveRecord::Schema.define(version: 20160407103437) do
   end
 
   add_index "community_memberships", ["community_id"], name: "index_community_memberships_on_community_id", using: :btree
-  add_index "community_memberships", ["person_id", "community_id"], name: "memberships", using: :btree
+  add_index "community_memberships", ["person_id", "community_id"], name: "memberships", unique: true, using: :btree
 
   create_table "community_translations", force: :cascade do |t|
     t.integer  "community_id",    limit: 4,     null: false
@@ -388,6 +387,7 @@ ActiveRecord::Schema.define(version: 20160407103437) do
 
   create_table "emails", force: :cascade do |t|
     t.string   "person_id",            limit: 255
+    t.integer  "community_id",         limit: 4
     t.string   "address",              limit: 255
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -397,6 +397,7 @@ ActiveRecord::Schema.define(version: 20160407103437) do
     t.boolean  "send_notifications"
   end
 
+  add_index "emails", ["address", "community_id"], name: "index_emails_on_address_and_community_id", unique: true, using: :btree
   add_index "emails", ["address"], name: "index_emails_on_address", using: :btree
   add_index "emails", ["person_id"], name: "index_emails_on_person_id", using: :btree
 
@@ -609,18 +610,6 @@ ActiveRecord::Schema.define(version: 20160407103437) do
   end
 
   add_index "marketplace_sender_emails", ["community_id"], name: "index_marketplace_sender_emails_on_community_id", using: :btree
-
-  create_table "marketplace_setup_steps", force: :cascade do |t|
-    t.integer "community_id",           limit: 4,                 null: false
-    t.boolean "slogan_and_description",           default: false, null: false
-    t.boolean "cover_photo",                      default: false, null: false
-    t.boolean "filter",                           default: false, null: false
-    t.boolean "paypal",                           default: false, null: false
-    t.boolean "listing",                          default: false, null: false
-    t.boolean "invitation",                       default: false, null: false
-  end
-
-  add_index "marketplace_setup_steps", ["community_id"], name: "index_marketplace_setup_steps_on_community_id", unique: true, using: :btree
 
   create_table "marketplace_trials", force: :cascade do |t|
     t.integer  "community_id", limit: 4, null: false
@@ -874,7 +863,6 @@ ActiveRecord::Schema.define(version: 20160407103437) do
     t.integer  "active_days_count",                  limit: 4,     default: 0
     t.datetime "last_page_load_date"
     t.integer  "test_group_number",                  limit: 4,     default: 1
-    t.boolean  "active",                                           default: true
     t.string   "username",                           limit: 255
     t.string   "email",                              limit: 255
     t.string   "encrypted_password",                 limit: 255,   default: "",    null: false
@@ -908,9 +896,8 @@ ActiveRecord::Schema.define(version: 20160407103437) do
   end
 
   add_index "people", ["authentication_token"], name: "index_people_on_authentication_token", using: :btree
-  add_index "people", ["cloned_from"], name: "index_people_on_cloned_from", using: :btree
   add_index "people", ["email"], name: "index_people_on_email", unique: true, using: :btree
-  add_index "people", ["facebook_id"], name: "index_people_on_facebook_id", using: :btree
+  add_index "people", ["facebook_id", "community_id"], name: "index_people_on_facebook_id_and_community_id", unique: true, using: :btree
   add_index "people", ["id"], name: "index_people_on_id", using: :btree
   add_index "people", ["reset_password_token"], name: "index_people_on_reset_password_token", unique: true, using: :btree
   add_index "people", ["username"], name: "index_people_on_username", using: :btree
