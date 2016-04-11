@@ -4,7 +4,6 @@
 #
 #  id                   :integer          not null, primary key
 #  person_id            :string(255)
-#  community_id         :integer
 #  address              :string(255)
 #  confirmed_at         :datetime
 #  confirmation_sent_at :datetime
@@ -15,9 +14,8 @@
 #
 # Indexes
 #
-#  index_emails_on_address                   (address)
-#  index_emails_on_address_and_community_id  (address,community_id) UNIQUE
-#  index_emails_on_person_id                 (person_id)
+#  index_emails_on_address    (address)
+#  index_emails_on_person_id  (person_id)
 #
 
 require 'spec_helper'

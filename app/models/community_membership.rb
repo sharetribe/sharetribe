@@ -3,8 +3,8 @@
 # Table name: community_memberships
 #
 #  id                  :integer          not null, primary key
-#  person_id           :string(255)      not null
-#  community_id        :integer          not null
+#  person_id           :string(255)
+#  community_id        :integer
 #  admin               :boolean          default(FALSE)
 #  created_at          :datetime
 #  updated_at          :datetime
@@ -17,7 +17,7 @@
 # Indexes
 #
 #  index_community_memberships_on_community_id  (community_id)
-#  memberships                                  (person_id,community_id) UNIQUE
+#  memberships                                  (person_id,community_id)
 #
 
 class CommunityMembership < ActiveRecord::Base

@@ -4,7 +4,6 @@
 #
 #  id                   :integer          not null, primary key
 #  person_id            :string(255)
-#  community_id         :integer
 #  address              :string(255)
 #  confirmed_at         :datetime
 #  confirmation_sent_at :datetime
