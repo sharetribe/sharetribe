@@ -2,7 +2,35 @@ class DuplicatePeopleByCommunityMembership < ActiveRecord::Migration
   def up
     ActiveRecord::Base.transaction do
       people = select_all("
-                 SELECT p.id AS id, count(cm.person_id) AS cnt
+                 SELECT
+                   p.id AS id,
+                   count(cm.person_id) AS cnt,
+                   p.created_at,
+                   p.updated_at,
+                   p.is_admin,
+                   p.locale,
+                   p.preferences,
+                   p.active_days_count,
+                   p.last_page_load_date,
+                   p.test_group_number,
+                   p.username,
+                   p.encrypted_password,
+                   p.remember_created_at,
+                   p.sign_in_count,
+                   p.current_sign_in_at,
+                   p.last_sign_in_at,
+                   p.password_salt,
+                   p.given_name,
+                   p.family_name,
+                   p.phone_number,
+                   p.description,
+                   p.facebook_id,
+                   p.authentication_token,
+                   p.community_updates_last_sent_at,
+                   p.min_days_between_community_updates,
+                   p.is_organization,
+                   p.organization_name,
+                   p.deleted
                  FROM people AS p
                  LEFT OUTER JOIN community_memberships AS cm
                  ON p.id = cm.person_id
@@ -10,9 +38,9 @@ class DuplicatePeopleByCommunityMembership < ActiveRecord::Migration
                  HAVING cnt > 1
                ")
 
-      people.each do |p|
-        duplicate_person(p['id'], p['cnt'] - 1)
-      end
+      people.each_slice(1000) { |batch|
+        execute(insert_clones_query(batch))
+      }
     end
   end
 
@@ -25,15 +53,76 @@ class DuplicatePeopleByCommunityMembership < ActiveRecord::Migration
 
   private
 
-  def duplicate_person(cloned_from, count)
-    count.times {
-      insert_person(cloned_from)
+  def value_with_null(value)
+    if value
+      value
+    else
+      "NULL"
+    end
+  end
+
+  def quote_with_null(value)
+    if value
+      quote(value)
+    else
+      "NULL"
+    end
+  end
+
+  def date_to_s_with_null(date)
+    if date
+      quote(date.to_s(:db))
+    else
+      "NULL"
+    end
+  end
+
+  def clone_values(people)
+    people.reduce([]) { |clones, p|
+      count = p['cnt'] - 1
+      count.times {
+        clones.push(
+          "( #{quote_with_null(SecureRandom.urlsafe_base64)},
+             #{date_to_s_with_null(p['created_at'])},
+             #{date_to_s_with_null(p['updated_at'])},
+             #{value_with_null(p['is_admin'])},
+             #{quote_with_null(p['locale'])},
+             #{quote_with_null(p['preferences'])},
+             #{value_with_null(p['active_days_count'])},
+             #{date_to_s_with_null(p['last_page_load_date'])},
+             #{value_with_null(p['test_group_number'])},
+             #{quote_with_null(p['username'])},
+             #{quote_with_null(p['encrypted_password'])},
+             #{value_with_null(p['remember_created_at'])},
+             #{value_with_null(p['sign_in_count'])},
+             #{date_to_s_with_null(p['current_sign_in_at'])},
+             #{date_to_s_with_null(p['last_sign_in_at'])},
+             #{quote_with_null(p['password_salt'])},
+             #{quote_with_null(p['given_name'])},
+             #{quote_with_null(p['family_name'])},
+             #{quote_with_null(p['phone_number'])},
+             #{quote_with_null(p['description'])},
+             NULL,
+             NULL,
+             NULL,
+             NULL,
+             NULL,
+             #{quote_with_null(p['facebook_id'])},
+             #{quote_with_null(p['authentication_token'])},
+             #{date_to_s_with_null(p['community_updates_last_sent_at'])},
+             #{value_with_null(p['min_days_between_community_updates'])},
+             #{quote_with_null(p['is_organization'])},
+             #{quote_with_null(p['organization_name'])},
+             #{value_with_null(p['deleted'])},
+             #{quote_with_null(p['id'])})
+      ")
+      }
+      clones
     }
   end
 
-  def insert_person(cloned_from)
-    execute("
-      INSERT INTO people (
+  def insert_clones_query(people)
+    "INSERT INTO people (
         id,
         created_at,
         updated_at,
@@ -67,42 +156,7 @@ class DuplicatePeopleByCommunityMembership < ActiveRecord::Migration
         organization_name,
         deleted,
         cloned_from)
-        (SELECT
-          #{quote(SecureRandom.urlsafe_base64)},
-          created_at,
-          updated_at,
-          is_admin,
-          locale,
-          preferences,
-          active_days_count,
-          last_page_load_date,
-          test_group_number,
-          username,
-          encrypted_password,
-          remember_created_at,
-          sign_in_count,
-          current_sign_in_at,
-          last_sign_in_at,
-          password_salt,
-          given_name,
-          family_name,
-          phone_number,
-          description,
-          NULL,
-          NULL,
-          NULL,
-          NULL,
-          NULL,
-          facebook_id,
-          authentication_token,
-          community_updates_last_sent_at,
-          min_days_between_community_updates,
-          is_organization,
-          organization_name,
-          deleted,
-          #{quote(cloned_from)}
-      FROM people
-      WHERE id = #{quote(cloned_from)})
-    ")
+      VALUES #{clone_values(people).join(", ")}
+    "
   end
 end
