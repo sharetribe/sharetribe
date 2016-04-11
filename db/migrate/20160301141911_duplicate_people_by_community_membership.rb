@@ -1,42 +1,49 @@
+# coding: utf-8
 class DuplicatePeopleByCommunityMembership < ActiveRecord::Migration
   def up
     ActiveRecord::Base.transaction do
-      people = select_all("
-                 SELECT
-                   p.id AS id,
-                   count(cm.person_id) AS cnt,
-                   p.created_at,
-                   p.updated_at,
-                   p.is_admin,
-                   p.locale,
-                   p.preferences,
-                   p.active_days_count,
-                   p.last_page_load_date,
-                   p.test_group_number,
-                   p.username,
-                   p.encrypted_password,
-                   p.remember_created_at,
-                   p.sign_in_count,
-                   p.current_sign_in_at,
-                   p.last_sign_in_at,
-                   p.password_salt,
-                   p.given_name,
-                   p.family_name,
-                   p.phone_number,
-                   p.description,
-                   p.facebook_id,
-                   p.authentication_token,
-                   p.community_updates_last_sent_at,
-                   p.min_days_between_community_updates,
-                   p.is_organization,
-                   p.organization_name,
-                   p.deleted
-                 FROM people AS p
-                 LEFT OUTER JOIN community_memberships AS cm
-                 ON p.id = cm.person_id
-                 GROUP BY p.id
-                 HAVING cnt > 1
-               ")
+      select_all(
+        [
+          "SELECT",
+            "p.id,",
+            "cm.community_id",
+            "p.created_at,",
+            "p.updated_at,",
+            "p.is_admin,",
+            "p.locale,",
+            "p.preferences,",
+            "p.active_days_count,",
+            "p.last_page_load_date,",
+            "p.test_group_number,",
+            "p.username,",
+            "p.encrypted_password,",
+            "p.remember_created_at,",
+            "p.sign_in_count,",
+            "p.current_sign_in_at,",
+            "p.last_sign_in_at,",
+            "p.password_salt,",
+            "p.given_name,",
+            "p.family_name,",
+            "p.phone_number,",
+            "p.description,",
+            "p.facebook_id,",
+            "p.authentication_token,",
+            "p.community_updates_last_sent_at,",
+            "p.min_days_between_community_updates,",
+            "p.is_organization,",
+            "p.organization_name,",
+            "p.deleted"
+          "FROM people p",
+          "LEFT JOIN community_memberships AS cm ON cm.person_id = p.id ",
+          "WHERE cm.person_id IN (",
+            "SELECT p.id",
+            "FROM people AS p",
+            "LEFT OUTER JOIN community_memberships AS cm ON p.id = cm.person_id",
+            "GROUP BY p.id",
+            "HAVING count(cm.person_id) > 1)"
+        ].join(" ")).group_by { |p| p['id'] }.
+
+        ### TÄHÄN JÄI
 
       people.each_slice(1000) { |batch|
         execute(insert_clones_query(batch))
