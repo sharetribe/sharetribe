@@ -1,30 +1,18 @@
 {
-  "name": "react-webpack-rails-tutorial",
-  "version": "1.1.0",
-  "description": "Built using the react_on_rails generator.",
+  "repository": "sharetribe/sharetribe",
+  "license": "MIT",
   "engines": {
-    "node": "5.0.0",
-    "npm": "3.5.0"
+    "node": "5.10"
   },
-  "author": "",
-  "license": "ISC",
-
-  "main": "js/app.js",
   "scripts": {
-    "lint": "npm run eslint --silent && npm run jscs --silent",
-    "eslint": "eslint --ext .js,.jsx .",
-    "jscs": "jscs --verbose .",
-    "jscs:fix": "jscs --verbose -x . --silent",
+    "lint": "eslint --ext .js,.jsx .",
     "build:test": "webpack --config webpack.client.js && webpack --config webpack.server.js",
     "test": "npm run build:test && rspec",
     "build:production:client": "NODE_ENV=production webpack --config webpack.client.rails.build.config.js",
     "build:production:server": "NODE_ENV=production webpack --config webpack.server.rails.build.config.js",
-    "build:client": "webpack --config webpack.client.rails.build.config.js",
     "build:dev:client": "webpack -w --config webpack.client.rails.build.config.js",
     "build:dev:server": "webpack -w --config webpack.server.rails.build.config.js",
-    "build:server": "webpack --config webpack.server.rails.build.config.js",
-    "hot-assets": "babel-node server-rails-hot.js",
-    "install-react-on-rails": "npm install 'react-on-rails'"
+    "hot-assets": "babel-node server-rails-hot.js"
   },
   "dependencies": {
     "autoprefixer": "^6.3.5",
@@ -70,7 +58,6 @@
     "eslint": "^2.6.0",
     "eslint-config-shakacode": "^4.0.0",
     "eslint-plugin-react": "^4.2.3",
-    "jscs": "^2.11.0",
     "react-transform-hmr": "^1.0.4",
     "webpack-dev-server": "^1.14.1"
   },

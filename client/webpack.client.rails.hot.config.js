@@ -1,13 +1,6 @@
-// Run with Rails server like this:
-// rails s
-// cd client && babel-node server-rails-hot.js
-// Note that Foreman (Procfile.dev) has also been configured to take care of this.
-
 const path = require('path');
 const webpack = require('webpack');
-
 const config = require('./webpack.client.base.config');
-
 const hotRailsPort = process.env.HOT_RAILS_PORT || 3500;
 
 config.entry.app.push(

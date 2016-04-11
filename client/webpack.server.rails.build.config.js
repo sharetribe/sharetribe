@@ -1,20 +1,13 @@
-// Common webpack configuration for server bundle
-
 const webpack = require('webpack');
 const path = require('path');
-
 const devBuild = process.env.NODE_ENV !== 'production';
 const nodeEnv = devBuild ? 'development' : 'production';
 
 module.exports = {
-
-  // the project dir
   context: __dirname,
   entry: [
     'babel-polyfill',
-    // dummy version:
     './app/startup/serverRegistration',
-    //'./app/bundles/HelloWorld/startup/serverRegistration',
   ],
   output: {
     filename: 'server-bundle.js',
@@ -23,10 +16,7 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {
-      // dummy version originally:
-      // no idea what that libs folder is.
       libs: path.join(process.cwd(), 'app', 'libs'),
-      // previous generator line: lib: path.join(process.cwd(), 'app', 'lib'),
     },
   },
   plugins: [

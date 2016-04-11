@@ -1,12 +1,6 @@
-// Run like this:
-// cd client && npm run build:client
-// Note that Foreman (Procfile.dev) has also been configured to take care of this.
-
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
 const config = require('./webpack.client.base.config');
-
 const devBuild = process.env.NODE_ENV !== 'production';
 
 config.output = {

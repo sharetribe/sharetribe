@@ -1,35 +1,22 @@
 {
   "repository": "sharetribe/sharetribe",
   "license": "MIT",
-  "main": "server.js",
   "engines": {
     "node": "5.10"
   },
   "scripts": {
-
     "postinstall": "(cd client && npm install)",
-    "gulp": "cd client && npm run gulp",
     "test": "npm run build:test && npm run lint && rspec",
     "lint": "cd client && npm run lint",
-    "install-react-on-rails": "cd client && npm run install-react-on-rails",
-    "build:clean": "rm app/assets/webpack/* || true",
+    "build:clean": "rm -f app/assets/webpack/*",
     "build:production:client": "(cd client && npm run build:production:client --silent)",
     "build:production:server": "(cd client && npm run build:production:server --silent)",
-    "build:client": "(cd client && npm run build:client --silent)",
-    "build:server": "(cd client && npm run build:server --silent)",
     "build:dev:client": "(cd client && npm run build:dev:client --silent)",
     "build:dev:server": "(cd client && npm run build:dev:server --silent)",
     "hot-assets": "(cd client && npm run hot-assets)"
   },
   "devDependencies": {
     "expect.js": "~0.2.0",
-    "grunt": "~0.4.2",
-    "grunt-contrib-connect": "~0.6.0",
-    "grunt-contrib-jshint": "~0.8.0",
-    "grunt-contrib-qunit": "~0.3.0",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-mocha": "~0.4.9",
-
     "babel-eslint": "^5.0.0-beta6",
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^3.1.0",

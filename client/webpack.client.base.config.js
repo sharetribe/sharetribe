@@ -1,16 +1,10 @@
-
-// Common client-side webpack configuration used by webpack.hot.config and webpack.rails.config.
-
 const webpack = require('webpack');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
-
 const devBuild = process.env.NODE_ENV !== 'production';
 const nodeEnv = devBuild ? 'development' : 'production';
 
 module.exports = {
-
-  // the project dir
   context: __dirname,
   entry: {
 
@@ -23,15 +17,12 @@ module.exports = {
 
     // This will contain the app entry points defined by webpack.hot.config and webpack.rails.config
     app: [
-      // dummy version:
       './app/startup/clientRegistration',
-      //'./app/bundles/HelloWorld/startup/clientRegistration'
     ],
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {
-      //previous generator-test line: lib: path.join(process.cwd(), 'app', 'lib'),
       libs: path.join(process.cwd(), 'app', 'libs'),
       react: path.resolve('./node_modules/react'),
       'react-dom': path.resolve('./node_modules/react-dom'),
