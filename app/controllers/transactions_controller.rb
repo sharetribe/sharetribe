@@ -151,7 +151,7 @@ class TransactionsController < ApplicationController
       transaction: tx,
       listing: listing,
       transaction_model: tx_model,
-      conversation_other_party: person_entity_with_url(conversation[:other_person]),
+      conversation_other_party: person_entity_with_url(other_party(conversation)),
       is_author: is_author,
       role: role,
       message_form: MessageForm.new({sender_id: @current_user.id, conversation_id: conversation[:id]}),
@@ -187,6 +187,14 @@ class TransactionsController < ApplicationController
   end
 
   private
+
+  def other_party(conversation)
+    if @current_user.id == conversation[:other_person][:id]
+      conversation[:starter_person]
+    else
+      conversation[:other_person]
+    end
+  end
 
   def ensure_can_start_transactions(listing_model:, current_user:, current_community:)
     error =
