@@ -1,9 +1,9 @@
-class AddClonedFromAndIndeciesForMigrations < ActiveRecord::Migration
+class AddClonedFromAndIndicesForMigrations < ActiveRecord::Migration
   def change
     # Add column
     add_column :people, :cloned_from, :string, { limit: 22 }
 
-    # Add indecies
+    # Add indices
     add_index :people, :cloned_from
     add_index :comments, :author_id
     add_index :comments, :community_id
