@@ -9,8 +9,8 @@ class UpdateFollowerRelationshipsBasedOnClonedFrom < ActiveRecord::Migration
                                     (SELECT DISTINCT cloned_from FROM people
                                     WHERE cloned_from IS NOT NULL); ").to_ary
 
-      insert_values = Array.new
-      delete_ids = Array.new
+      insert_values = []
+      delete_ids = []
 
       relationships.each { |r|
         people = expand_person(r['person_id'])
@@ -37,7 +37,7 @@ class UpdateFollowerRelationshipsBasedOnClonedFrom < ActiveRecord::Migration
         end
       }
       insert_values.each_slice(1000) { |batch|
-        execute(create_insert_statement(batch, false))
+        execute(create_insert_statement(batch, ignore: false))
       }
       delete_ids.each_slice(1000) { |batch|
         execute(create_delete_statement(batch))
@@ -69,7 +69,7 @@ class UpdateFollowerRelationshipsBasedOnClonedFrom < ActiveRecord::Migration
         delete_ids = new_relationships.map{ |v| quote(v['fr_id']) }
 
         insert_values.each_slice(1000) { |batch|
-          execute(create_insert_statement(batch, true))
+          execute(create_insert_statement(batch, ignore: true))
         }
         delete_ids.each_slice(1000) { |batch|
           execute(create_delete_statement(batch))
@@ -88,8 +88,9 @@ class UpdateFollowerRelationshipsBasedOnClonedFrom < ActiveRecord::Migration
     "(#{quote(person_id)}, #{quote(follower_id)}, #{quote(created_at.to_s(:db))}, #{quote(updated_at.to_s(:db))})"
   end
 
-  def create_insert_statement(insert_values, ignore)
-    "INSERT#{ignore ? " IGNORE " : " "}INTO follower_relationships (person_id, follower_id, created_at, updated_at)
+  def create_insert_statement(insert_values, opts = {})
+    "INSERT#{opts[:ignore] ? " IGNORE " : " "}INTO follower_relationships
+     (person_id, follower_id, created_at, updated_at)
      VALUES #{insert_values.join(", ")}"
   end
 
