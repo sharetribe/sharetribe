@@ -44,7 +44,7 @@ class DuplicatePeopleByCommunityMembership < ActiveRecord::Migration
         ].join(" ")
       ).group_by { |p|
         p['id']
-     }.flat_map { |_, people|
+      }.flat_map { |_, people|
         people.drop(1) # drop the first one (that's the original)
       }.each_slice(1000) { |batch|
         execute(insert_clones_query(batch))
