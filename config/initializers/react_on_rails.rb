@@ -1,12 +1,12 @@
-module RenderingExtension
-  # Return a Hash that contains custom values from the view context that will get passed to
-  # all calls to react_component and redux_store for rendering
-  def self.custom_context(view_context)
-    {
-      somethingUseful: view_context.session[:something_useful]
-    }
-  end
-end
+# module RenderingExtension
+#   # Return a Hash that contains custom values from the view context that will get passed to
+#   # all calls to react_component and redux_store for rendering
+#   def self.custom_context(view_context)
+#     {
+#       somethingUseful: view_context.session[:something_useful]
+#     }
+#   end
+# end
 
 ReactOnRails.configure do |config|
   # Directory where your generated assets go. All generated assets must go to the same directory.
@@ -55,5 +55,5 @@ ReactOnRails.configure do |config|
 
   # This allows you to add additional values to the Rails Context. Implement one static method
   # called `custom_context(view_context)` and return a Hash.
-  config.rendering_extension = RenderingExtension
+  # config.rendering_extension = RenderingExtension
 end
