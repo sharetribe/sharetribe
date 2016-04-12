@@ -1,5 +1,5 @@
 // Top level component for client side.
-// Compare this to the ./ServerApp.jsx file which is used for server side rendering.
+// NOTE: it's possible to do different apps for rendering client vs server side
 // NOTE: these are basically the same, but they are shown here
 
 
