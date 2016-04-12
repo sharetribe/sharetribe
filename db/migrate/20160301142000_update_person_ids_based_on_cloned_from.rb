@@ -18,7 +18,7 @@ class UpdatePersonIdsBasedOnClonedFrom < ActiveRecord::Migration
       migrate_person!(table: "testimonials",          column: "author_id",   community_join_table: "transactions",  community_join_table_fk: "transaction_id")
       migrate_person!(table: "testimonials",          column: "receiver_id", community_join_table: "transactions",  community_join_table_fk: "transaction_id")
       migrate_person!(table: "payments",              column: "payer_id")
-      migrate_person!(table: "payments",              column: "payer_id")
+      migrate_person!(table: "payments",              column: "recipient_id")
       migrate_person!(table: "braintree_accounts",    column: "person_id")
       migrate_person!(table: "paypal_payments",       column: "merchant_id")
       migrate_person!(table: "paypal_tokens",         column: "merchant_id")
@@ -47,7 +47,7 @@ class UpdatePersonIdsBasedOnClonedFrom < ActiveRecord::Migration
       rollback_person!(table: "testimonials",          column: "author_id")
       rollback_person!(table: "testimonials",          column: "receiver_id")
       rollback_person!(table: "payments",              column: "payer_id")
-      rollback_person!(table: "payments",              column: "payer_id")
+      rollback_person!(table: "payments",              column: "recipient_id")
       rollback_person!(table: "braintree_accounts",    column: "person_id")
       rollback_person!(table: "paypal_payments",       column: "merchant_id")
       rollback_person!(table: "paypal_tokens",         column: "merchant_id")
@@ -65,6 +65,13 @@ class UpdatePersonIdsBasedOnClonedFrom < ActiveRecord::Migration
     add_index :transactions, :starter_id
     add_index :transactions, :listing_author_id
     add_index :messages, :sender_id
+    add_index :feedbacks, :author_id
+    add_index :listings, :author_id
+    add_index :listing_images, :author_id
+    add_index :payments, :recipient_id
+    add_index :braintree_accounts, :person_id
+    add_index :paypal_payments, :merchant_id
+    add_index :paypal_tokens, :merchant_id
   end
 
   def cleanup!
@@ -73,6 +80,13 @@ class UpdatePersonIdsBasedOnClonedFrom < ActiveRecord::Migration
     remove_index :transactions, :starter_id
     remove_index :transactions, :listing_author_id
     remove_index :messages, :sender_id
+    remove_index :feedbacks, :author_id
+    remove_index :listings, :author_id
+    remove_index :listing_images, :author_id
+    remove_index :payments, :recipient_id
+    remove_index :braintree_accounts, :person_id
+    remove_index :paypal_payments, :merchant_id
+    remove_index :paypal_tokens, :merchant_id
   end
 
   def migrate_person!(table:, column:, community_join_table: nil, community_join_table_fk: nil)
