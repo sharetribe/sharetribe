@@ -15,9 +15,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
-    alias: {
-      libs: path.join(process.cwd(), 'app', 'libs'),
-    },
   },
   plugins: [
     new webpack.DefinePlugin({
