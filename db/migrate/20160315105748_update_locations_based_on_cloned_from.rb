@@ -1,32 +1,13 @@
 class UpdateLocationsBasedOnClonedFrom < ActiveRecord::Migration
   def up
-    ActiveRecord::Base.transaction do
-      cloned_people = select_all("
-        SELECT id, cloned_from
-        FROM people
-        WHERE cloned_from IS NOT NULL AND
-        cloned_from IN (
-          SELECT DISTINCT person_id
-          FROM locations
-          WHERE location_type = 'person'
-        )
-      ").to_ary
-
-      cloned_people.each do |p|
-        execute("
-          INSERT INTO
-          locations
-           (latitude, longitude, address, google_address,
-            created_at, updated_at, listing_id, person_id,
-            location_type, community_id)
-          (SELECT
-            latitude, longitude, address, google_address,
-            created_at, #{quote(DateTime.now.to_s(:db))}, listing_id,
-            #{quote(p['id'])}, location_type, community_id
-          FROM locations WHERE person_id = #{quote(p['cloned_from'])})
-          ")
-      end
-    end
+    execute("
+      INSERT INTO locations
+        (latitude, longitude, address, google_address, created_at, updated_at, person_id)
+        (SELECT l.latitude, l.longitude, l.address, l.google_address, l.created_at, l.updated_at, cloned_people.id, 'person'
+         FROM locations as l
+         LEFT JOIN people AS cloned_people ON cloned_people.cloned_from = l.person_id          WHERE l.location_type = 'person'
+           AND cloned_people.cloned_from IS NOT NULL)
+      ")
   end
 
   def down
