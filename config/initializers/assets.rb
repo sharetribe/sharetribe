@@ -19,7 +19,7 @@ Rails.application.config.assets.precompile << "server-bundle.js"
 
 Rails.application.config.assets.precompile +=
   if ENV["REACT_ON_RAILS_ENV"] == "HOT"
-    ["application_hot.js", "application_hot.css"]
+    ["application_hot.css"]
   else
     ["application.js", "application.css"]
   end
