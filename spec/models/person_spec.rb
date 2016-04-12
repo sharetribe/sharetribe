@@ -46,6 +46,7 @@
 # Indexes
 #
 #  index_people_on_authentication_token          (authentication_token)
+#  index_people_on_community_id                  (community_id)
 #  index_people_on_email                         (email) UNIQUE
 #  index_people_on_facebook_id_and_community_id  (facebook_id,community_id) UNIQUE
 #  index_people_on_id                            (id)
