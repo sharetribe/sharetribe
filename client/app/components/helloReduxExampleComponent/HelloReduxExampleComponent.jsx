@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import RailsContext from '../RailsContext';
 import css from './styles.scss';
 
 // Super simple example of the simplest possible React component
@@ -31,6 +30,8 @@ export default class HelloReduxExampleComponent extends React.Component {
     const {data, railsContext} = this.props;
     const {name} = data;
 
+    // railsContext
+    console.log('railsContext is: ', railsContext);
     // If this creates an alert, we have a problem!
     // see file node_package/src/scriptSanitizedVal.js for the fix to this prior issue.
     console.log('This is a script:"</div>"</script> <script>alert(\'WTF1\')</script>');
@@ -53,9 +54,6 @@ export default class HelloReduxExampleComponent extends React.Component {
             onChange={this.handleChange}
           />
         </p>
-        <br />
-        <h3>Context given by Rails:</h3>
-        <RailsContext {...{railsContext}} />
       </div>
     );
   }
