@@ -42,7 +42,7 @@ export default class HelloReduxExampleComponent extends React.Component {
 
     return (
       <div>
-        <h3>
+        <h3 className={css.brightColor}>
           Redux Hello, {name}!
         </h3>
         <p>
