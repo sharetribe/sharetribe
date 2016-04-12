@@ -13,10 +13,6 @@ class Styleguide::PagesController < ApplicationController
 
   private
 
-  def initialize_shared_store
-    redux_store("SharedReduxStore", props: @app_props_server_render)
-  end
-
   def data
     # This is the props used by the React component.
     @app_props_server_render = {
