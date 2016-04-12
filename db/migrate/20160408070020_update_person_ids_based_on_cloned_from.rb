@@ -1,7 +1,6 @@
 class UpdatePersonIdsBasedOnClonedFrom < ActiveRecord::Migration
   def up
     run_migration_tests!
-    prepare!
 
     ActiveRecord::Base.transaction do
       migrate_person!(table: "community_memberships", column: "person_id")
@@ -24,13 +23,10 @@ class UpdatePersonIdsBasedOnClonedFrom < ActiveRecord::Migration
       migrate_person!(table: "paypal_tokens",         column: "merchant_id")
       migrate_person!(table: "listing_followers",     column: "person_id",   community_join_table: "listings",      community_join_table_fk: "listing_id")
     end
-
-    cleanup!
   end
 
   def down
     run_migration_tests!
-    prepare!
 
     ActiveRecord::Base.transaction do
       rollback_person!(table: "community_memberships", column: "person_id")
@@ -53,41 +49,9 @@ class UpdatePersonIdsBasedOnClonedFrom < ActiveRecord::Migration
       rollback_person!(table: "paypal_tokens",         column: "merchant_id")
       rollback_person!(table: "listing_followers",     column: "person_id")
     end
-
-    cleanup!
   end
 
   private
-
-  def prepare!
-    add_index :comments, :author_id
-    add_index :comments, :community_id
-    add_index :transactions, :starter_id
-    add_index :transactions, :listing_author_id
-    add_index :messages, :sender_id
-    add_index :feedbacks, :author_id
-    add_index :listings, :author_id
-    add_index :listing_images, :author_id
-    add_index :payments, :recipient_id
-    add_index :braintree_accounts, :person_id
-    add_index :paypal_payments, :merchant_id
-    add_index :paypal_tokens, :merchant_id
-  end
-
-  def cleanup!
-    remove_index :comments, :author_id
-    remove_index :comments, :community_id
-    remove_index :transactions, :starter_id
-    remove_index :transactions, :listing_author_id
-    remove_index :messages, :sender_id
-    remove_index :feedbacks, :author_id
-    remove_index :listings, :author_id
-    remove_index :listing_images, :author_id
-    remove_index :payments, :recipient_id
-    remove_index :braintree_accounts, :person_id
-    remove_index :paypal_payments, :merchant_id
-    remove_index :paypal_tokens, :merchant_id
-  end
 
   def migrate_person!(table:, column:, community_join_table: nil, community_join_table_fk: nil)
     name = "Migrate '#{table}.#{column}'"
