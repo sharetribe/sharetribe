@@ -7,9 +7,8 @@ class AddCommunityIdValuesToPeople < ActiveRecord::Migration
     ")
   end
   def down
-    execute("
-      UPDATE people
-      SET community_id = NULL
-   ")
+    # Do nothing.
+    # Some of the rows in the people table already contained
+    # the community_id and we don't want to clear those
   end
 end
