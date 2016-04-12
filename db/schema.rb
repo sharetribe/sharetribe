@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160420100304) do
+=======
+ActiveRecord::Schema.define(version: 20160408070120) do
+>>>>>>> Add missing indexies and move indecies to own migrations (#1910)
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
