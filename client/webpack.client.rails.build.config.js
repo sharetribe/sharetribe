@@ -8,8 +8,6 @@ config.output = {
   path: '../app/assets/webpack',
 };
 
-// See webpack.common.config for adding modules common to both the webpack dev server and rails
-
 config.module.loaders.push(
   {
     test: /\.jsx?$/,
