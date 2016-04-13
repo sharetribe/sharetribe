@@ -1,101 +1,69 @@
 class UpdateFollowerRelationshipsBasedOnClonedFrom < ActiveRecord::Migration
   def up
+    add_column :follower_relationships, :needs_to_be_deleted, :boolean, default: true
     ActiveRecord::Base.transaction do
-      relationships = select_all("SELECT * FROM follower_relationships
-                                  WHERE follower_id IN
-                                    (SELECT DISTINCT cloned_from FROM people
-                                    WHERE cloned_from IS NOT NULL)
-                                  OR person_id IN
-                                    (SELECT DISTINCT cloned_from FROM people
-                                    WHERE cloned_from IS NOT NULL); ").to_ary
-
-      insert_values = []
-      delete_ids = []
-
-      relationships.each { |r|
-        people = expand_person(r['person_id'])
-        followers = expand_person(r['follower_id'])
-
-        delete =
-          people.inject(true) { |del, person|
-            follower = followers.find { |f| f['community_id'] == person['community_id'] }
-
-            if follower
-              if person['id'] == r['person_id'] && follower['id'] == r['follower_id']
-                false
-              else
-                insert_values.push(create_insert_values(person['id'], follower['id'], r['created_at'], DateTime.now))
-                true
-              end
-            else
-              del
-            end
-        }
-
-        if delete
-          delete_ids.push(r['id'])
-        end
-      }
-      insert_values.each_slice(1000) { |batch|
-        execute(create_insert_statement(batch, ignore: false))
-      }
-      delete_ids.each_slice(1000) { |batch|
-        execute(create_delete_statement(batch))
-      }
+      execute("
+        INSERT INTO follower_relationships
+          (person_id, follower_id, created_at, updated_at, needs_to_be_deleted)
+          (SELECT person.id, follower.id, fr.created_at, fr.updated_at, #{false}
+            FROM follower_relationships AS fr
+            LEFT JOIN people as person
+            ON person.id = fr.person_id OR person.cloned_from = fr.person_id
+            LEFT JOIN people as follower
+            ON follower.id = fr.follower_id OR follower.cloned_from = fr.follower_id
+            WHERE person.community_id = follower.community_id)
+          ON DUPLICATE KEY UPDATE needs_to_be_deleted = false
+      ")
+      execute("
+        DELETE FROM follower_relationships
+        WHERE needs_to_be_deleted = true
+      ")
     end
+    remove_column :follower_relationships, :needs_to_be_deleted
   end
 
   def down
     ActiveRecord::Base.transaction do
-      # Remove new additions
-      new_relationships =
-        select_all("SELECT fr.id AS fr_id, fr.created_at AS fr_created_at,
-                       p.id AS person_id, p.cloned_from AS person_cloned_from,
-                       f.id AS follower_id, f.cloned_from AS follower_cloned_from
-                       FROM follower_relationships AS fr
-                       LEFT JOIN people AS p ON fr.person_id = p.id
-                       LEFT JOIN people AS f ON fr.follower_id = f.id
-                       WHERE
-                         p.cloned_from IS NOT NULL OR
-                         f.cloned_from IS NOT NULL
-                      ").to_ary
-
-      if new_relationships.present?
-        insert_values = new_relationships.map { |r|
-          p_id = r['person_cloned_from'] || r['person_id']
-          f_id = r['follower_cloned_from'] || r['follower_id']
-          create_insert_values(p_id, f_id, r['fr_created_at'], DateTime.now)
-        }
-        delete_ids = new_relationships.map{ |v| quote(v['fr_id']) }
-
-        insert_values.each_slice(1000) { |batch|
-          execute(create_insert_statement(batch, ignore: true))
-        }
-        delete_ids.each_slice(1000) { |batch|
-          execute(create_delete_statement(batch))
-        }
-      end
+      execute("
+        INSERT IGNORE INTO follower_relationships
+          (person_id, follower_id, created_at, updated_at)
+          SELECT person.cloned_from, follower.cloned_from, fr.created_at, fr.updated_at
+            FROM follower_relationships AS fr
+            LEFT JOIN people AS person ON fr.person_id = person.id
+            LEFT JOIN people AS follower ON fr.follower_id = follower.id
+            WHERE
+              person.cloned_from IS NOT NULL AND
+              follower.cloned_from IS NOT NULL
+          UNION ALL
+          SELECT person.id, follower.cloned_from, fr.created_at, fr.updated_at
+            FROM follower_relationships AS fr
+            LEFT JOIN people AS person ON fr.person_id = person.id
+            LEFT JOIN people AS follower ON fr.follower_id = follower.id
+            WHERE
+              person.cloned_from IS NULL AND
+              follower.cloned_from IS NOT NULL
+          UNION ALL
+            SELECT person.cloned_from, follower.id, fr.created_at, fr.updated_at
+            FROM follower_relationships AS fr
+            LEFT JOIN people AS person ON fr.person_id = person.id
+            LEFT JOIN people AS follower ON fr.follower_id = follower.id
+            WHERE
+              person.cloned_from IS NOT NULL AND
+              follower.cloned_from IS NULL
+      ")
+      execute("
+        DELETE fr
+          FROM follower_relationships AS fr
+          LEFT JOIN people AS person
+          ON person.id = fr.person_id
+          LEFT JOIN people AS follower
+          ON follower.id = fr.follower_id
+          WHERE
+            person.cloned_from IS NOT NULL OR
+            follower.cloned_from IS NOT NULL
+      ")
     end
   end
-
-  def expand_person(person_id)
-    select_all("SELECT id, community_id FROM people
-                WHERE id = #{quote(person_id)} OR
-                cloned_from = #{quote(person_id)}").to_ary
-  end
-
-  def create_insert_values(person_id, follower_id, created_at, updated_at)
-    "(#{quote(person_id)}, #{quote(follower_id)}, #{quote(created_at.to_s(:db))}, #{quote(updated_at.to_s(:db))})"
-  end
-
-  def create_insert_statement(insert_values, opts = {})
-    "INSERT#{opts[:ignore] ? " IGNORE " : " "}INTO follower_relationships
-     (person_id, follower_id, created_at, updated_at)
-     VALUES #{insert_values.join(", ")}"
-  end
-
-  def create_delete_statement(ids)
-    "DELETE FROM follower_relationships
-     WHERE id IN (#{ids.join(", ")})"
-  end
 end
+
+
