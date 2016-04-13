@@ -45,7 +45,7 @@ coverage/
 .vagrant
 
 # React on Rails
-npm-debug.log
+npm-debug.log*
 node_modules
 client/node_modules
 
