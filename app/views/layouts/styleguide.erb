@@ -17,8 +17,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% icon_types = { :notice => "ss-check", :warning => "ss-info", :error => "ss-alert" } %>
 <% flash.each do |key, value| %>
-  <%= content_tag :div, value, class: "flash #{key}" %>
+  <div class="flash-notifications">
+    <div class="flash-notification <%= 'flash-'+ key.to_s %>">
+      <div class="flash-icon <%= icon_types[key] %>"></div>
+      <div class="flash-text"><%= value %></div>
+    </div>
+  </div>
 <% end %>
 
 <%= yield %>
