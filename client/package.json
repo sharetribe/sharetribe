@@ -6,8 +6,6 @@
   },
   "scripts": {
     "lint": "eslint --ext .js,.jsx .",
-    "build:test": "webpack --config webpack.client.js && webpack --config webpack.server.js",
-    "test": "npm run build:test && rspec",
     "build:production:client": "NODE_ENV=production webpack --config webpack.client.rails.build.config.js",
     "build:production:server": "NODE_ENV=production webpack --config webpack.server.rails.build.config.js",
     "build:dev:client": "webpack -w --config webpack.client.rails.build.config.js",
