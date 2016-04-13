@@ -5,14 +5,7 @@
     "node": "5.10"
   },
   "scripts": {
-    "postinstall": "(cd client && npm install)",
-    "test": "npm run build:test && npm run lint && rspec",
-    "lint": "cd client && npm run lint",
-    "build:clean": "rm -f app/assets/webpack/*",
-    "build:production:client": "(cd client && npm run build:production:client --silent)",
-    "build:production:server": "(cd client && npm run build:production:server --silent)",
-    "build:dev:client": "(cd client && npm run build:dev:client --silent)",
-    "build:dev:server": "(cd client && npm run build:dev:server --silent)",
-    "hot-assets": "(cd client && npm run hot-assets)"
+    "postinstall": "cd client && npm install",
+    "clean": "rm -f app/assets/webpack/*"
   }
 }

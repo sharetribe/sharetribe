@@ -22,6 +22,6 @@ then
   exit
 elif [ "$SUITE" = "eslint" ]
 then
-  npm run lint 2>&1
+  cd client && npm run lint 2>&1
   exit
 fi
