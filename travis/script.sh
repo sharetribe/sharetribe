@@ -27,7 +27,9 @@ then
   exit
 elif [ "$SUITE" = "eslint" ]
 then
+  echo "Node.js version:"
   node --version
+  echo "NPM version:"
   npm --version
   cd client && npm run lint 2>&1
   exit
