@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import css from './styles.scss';
 
 // Super simple example of the simplest possible React component
@@ -27,8 +27,8 @@ export default class HelloReduxExampleComponent extends React.Component {
   }
 
   render() {
-    const {data, railsContext} = this.props;
-    const {name} = data;
+    const { data, railsContext } = this.props;
+    const { name } = data;
 
     // railsContext
     console.log('railsContext is: ', railsContext);

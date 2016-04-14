@@ -6,16 +6,13 @@ import HelloReduxExampleComponent from './HelloReduxExampleComponent';
 
 import * as helloReduxActions from '../../actions/helloReduxActions';
 
-const HelloReduxContainer = ({ actions, data, railsContext }) => {
-  return (
-    <HelloReduxExampleComponent {...{actions, data, railsContext}} />
-  );
-}
+const HelloReduxContainer = ({ actions, data, railsContext }) =>
+  <HelloReduxExampleComponent { ...{ actions, data, railsContext } } />;
 
 HelloReduxContainer.propTypes = {
   actions: PropTypes.object.isRequired,
   data: PropTypes.object.isRequired,
-  railsContext: PropTypes.object.isRequired
+  railsContext: PropTypes.object.isRequired,
 };
 
 
