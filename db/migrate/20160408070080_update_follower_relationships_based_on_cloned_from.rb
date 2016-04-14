@@ -24,6 +24,19 @@ class UpdateFollowerRelationshipsBasedOnClonedFrom < ActiveRecord::Migration
 
   def down
     ActiveRecord::Base.transaction do
+
+      # New relationships created in the migration are converted
+      # into old ones by replacing the cloned person IDs with
+      # original ones. Cloned person IDs in relationships are
+      # discovered in 3 steps:
+      #
+      # 1. relationships where both person_id and follower_id are from cloned users
+      # 2. relationships where person_id is from an original user and follower_id is from a cloned one
+      # 3. relationships where person_id is from a cloned user and follower_id is from an original one
+      #
+      # Once the old relationships are restored relationships with
+      # cloned people can be removed.
+
       execute("
         INSERT IGNORE INTO follower_relationships
           (person_id, follower_id, created_at, updated_at)
