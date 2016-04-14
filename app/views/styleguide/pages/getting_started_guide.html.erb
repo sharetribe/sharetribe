@@ -1,0 +1,9 @@
+<%= render "header" %>
+
+<%= react_component("OnboardingGuideApp", props: @app_props_server_render, prerender: true, raise_on_prerender_error: true, trace: true) %>
+<br/>
+
+<h1>Onboarding Wizard Guide component</h1>
+<p>
+  This component shows the current status of onboarding process and gives more information about those steps
+</p>
