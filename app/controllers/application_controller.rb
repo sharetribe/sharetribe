@@ -35,6 +35,7 @@ class ApplicationController < ActionController::Base
     :report_queue_size,
     :maintenance_warning
   before_filter :cannot_access_if_banned, :except => [ :confirmation_pending, :check_email_availability]
+  before_filter :cannot_access_without_confirmation, :except => [ :confirmation_pending, :check_email_availability]
   before_filter :ensure_user_belongs_to_community, except: [ :confirmation_pending, :check_email_availability]
   before_filter :can_access_only_organizations_communities
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
@@ -364,11 +365,30 @@ class ApplicationController < ActionController::Base
 
   # Before filter to direct a banned user to access denied page
   def cannot_access_if_banned
-      # Check if banned
-      if @current_user && @current_user.banned_at?(@current_community)
-        flash.keep
-        redirect_to access_denied_tribe_memberships_path and return
+    # Check if banned
+    if @current_user && @current_user.banned_at?(@current_community)
+      flash.keep
+      redirect_to access_denied_tribe_memberships_path and return
+    end
+  end
+
+  def cannot_access_without_confirmation
+    if @current_user && !@current_community_memberships
+      existing_membership = @current_user.community_memberships.where(community_id: @current_community.id).first
+
+      if existing_membership && existing_membership.pending_email_confirmation?
+
+        # Check if requirements are already filled, but the membership just hasn't been updated yet
+        # (This might happen if unexpected error happens during page load and it shouldn't leave people in loop of of
+        # having email confirmed but not the membership)
+        if @current_user.has_valid_email_for_community?(@current_community)
+          @current_community.approve_pending_membership(@current_user)
+          redirect_to root and return
+        end
+
+        redirect_to confirmation_pending_path
       end
+    end
   end
 
   def can_access_only_organizations_communities
