@@ -9,6 +9,7 @@ class PeopleController < Devise::RegistrationsController
 
   skip_filter :check_email_confirmation, :only => [ :update]
   skip_filter :cannot_access_if_banned, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
+  skip_filter :cannot_access_without_confirmation, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
 
   helper_method :show_closed?
 

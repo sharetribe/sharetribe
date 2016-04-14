@@ -2,6 +2,7 @@ class FeedbacksController < ApplicationController
 
   skip_filter :check_email_confirmation
   skip_filter :cannot_access_if_banned
+  skip_filter :cannot_access_without_confirmation
 
   FeedbackForm = FormUtils.define_form("Feedback",
                                        :content,
