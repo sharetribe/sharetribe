@@ -3,6 +3,7 @@ require 'rest_client'
 class SessionsController < ApplicationController
 
   skip_filter :cannot_access_if_banned, :only => [ :destroy, :confirmation_pending ]
+  skip_filter :cannot_access_without_confirmation, :only => [ :destroy, :confirmation_pending ]
 
   # For security purposes, Devise just authenticates an user
   # from the params hash if we explicitly allow it to. That's

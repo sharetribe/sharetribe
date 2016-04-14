@@ -1,6 +1,7 @@
 class FeedbacksController < ApplicationController
 
   skip_filter :cannot_access_if_banned
+  skip_filter :cannot_access_without_confirmation
 
   FeedbackForm = FormUtils.define_form("Feedback",
                                        :content,
