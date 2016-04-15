@@ -18,6 +18,7 @@ then
     echo "PhantomJS version:"
     phantomjs --version
     echo "Running client and server builds"
+    npm rebuild
     npm run clean
     (cd client && npm run build:client && npm run build:server)
     phantomjs --webdriver=8910 &
