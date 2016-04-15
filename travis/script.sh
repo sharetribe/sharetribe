@@ -17,7 +17,7 @@ elif [ "$SUITE" = "cucumber" ]
 then
   echo "PhantomJS version:"
   phantomjs --version
-  foreman start -f Procfile.spec &
+  bundle exec foreman start -f Procfile.spec &
   phantomjs --webdriver=8910 &
   PHANTOMJS=true bundle exec cucumber -ptravis 2>&1
   exit
