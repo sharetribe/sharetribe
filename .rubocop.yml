@@ -11,6 +11,8 @@ AllCops:
   Exclude:
     - 'db/**/*'
     - 'config/**/*'
+    - 'node_modules/**/*'
+    - 'client/node_modules/**/*'
   TargetRubyVersion: 2.1
 
 Style/RegexpLiteral:
