@@ -7,6 +7,8 @@ sudo: false
 cache:
   directories:
   - ~/.bundle
+  - node_modules
+  - client/node_modules
 rvm:
 - 2.2.4
 env:
