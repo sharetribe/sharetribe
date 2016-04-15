@@ -11,14 +11,13 @@
 }
 
 .topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   max-width: 63em;
   margin: 0 auto;
   padding-left: 0.75em;
   padding-right: 0.75em;
-  //@include media(tablet) {
-  //  padding-left: lines(0.5);
-  //  padding-right: lines(0.5);
-  //}
   position: relative;
 }
 
@@ -26,12 +25,14 @@
   display: inline-block;
   font-weight: 600;
   font-family: sans-serif;
-  vertical-align: text-bottom;
   font-size: 16px;
+  flex-shrink: 0;
+  margin-right: 0.5em;
 }
 
 .progressLabelPercentage {
   font-size: 21px;
+  margin-left: 0.3em;
 }
 
 .progressBar {
@@ -43,21 +44,24 @@
 }
 
 .progressBarBackground {
+  @media (max-width: 600px) {
+    display: none;
+  }
   display: inline-block;
-  margin-left: 5em;
   background-color: #4c988a;
   box-shadow: inset 0px 3px 8px 0px rgba(0, 0, 0, 0.17);
-  width: 25em;
   height: 1em;
   position: relative;
   border-radius: 0.5em;
+  flex-grow: 1;
+  margin-left: 1.5em;
+  margin-right: 2.8em;
 }
 
 .nextContainer {
   display: inline-block;
-  position: absolute;
-  top: -10px;
-  right: 0.75em;
+  margin-left: 0.5em;
+  flex-shrink: 0;
 }
 
 .nextLabel {
@@ -71,7 +75,7 @@
   padding: 10px 15px;
   border: 1px solid rgba(255,255,255,0.5);
   border-radius: 5px;
-  text-decoration: underline;
+  text-decoration: none;
   color: white;
   &:hover {
     color: white;
