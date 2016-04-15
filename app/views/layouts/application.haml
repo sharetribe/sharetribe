@@ -6,6 +6,9 @@
     .noscript-padding
       -# Noscript content will be positioned here
 
+  - if @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
+    - with_feature(:onboarding_redesign_v1) do
+      = react_component("OnboardingTopBar", props: {translations: t('admin.onboarding.topbar'), status: @onboarding_status}, prerender: true)
   = render :partial => 'layouts/global_header'
 
   - if display_expiration_notice?
