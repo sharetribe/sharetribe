@@ -1,21 +1,8 @@
 #!/bin/bash
 
+set -e
+
 echo "Running install"
 echo "SUITE: ${SUITE}"
 
-if [ "$SUITE" = "rspec" ]
-then
-	bundle install --without development --path=~/.bundle
-	exit
-elif [ "$SUITE" = "rubocop" ]
-then
-  bundle install --without development --path=~/.bundle
-  exit
-elif [ "$SUITE" = "cucumber" ]
-then
-	bundle install --without development --path=~/.bundle
-	exit
-else
-	echo -e "Error: SUITE is illegal or not set\n"
-	exit 1
-fi
+bundle install --without development --path=~/.bundle

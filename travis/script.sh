@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 echo "Running script"
 echo "SUITE: ${SUITE}"
 
@@ -18,7 +20,4 @@ then
   phantomjs --webdriver=8910 &
   PHANTOMJS=true bundle exec cucumber -ptravis 2>&1
   exit
-else
-  echo -e "Error: SUITE is illegal or not set\n"
-  exit 1
 fi
