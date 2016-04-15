@@ -57,8 +57,13 @@ const OnboardingTopBar = (props) => {
   function nextElement() {
     if (next()) {
       return (
-        <div className={css.nextLabel}>
-          {t('next_step')}: <a href={next().link}>{next().title}</a>
+        <div className={css.nextContainer}>
+          <div className={css.nextLabel}>
+            {t('next_step')}:
+          </div>
+          <a href={next().link} className={css.nextButton}>
+            <span>{next().title}</span>
+          </a>
         </div>
       );
     }
@@ -69,7 +74,7 @@ const OnboardingTopBar = (props) => {
     <div className={css.topbarContainer}>
       <div className={css.topbar}>
         <div className={css.progressLabel}>
-          {t('progress_label')} - {progress().toPrecision(2)} %
+          {t('progress_label')}: <span className={css.progressLabelPercentage}>{progress().toPrecision(2)} %</span>
         </div>
         <div className={css.progressBarBackground}>
           <div className={css.progressBar} style={{ width: `${progress()}%` }} />

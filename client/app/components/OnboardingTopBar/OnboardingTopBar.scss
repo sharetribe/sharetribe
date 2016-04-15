@@ -24,9 +24,14 @@
 
 .progressLabel {
   display: inline-block;
-  font-weight: bold;
+  font-weight: 600;
   font-family: sans-serif;
   vertical-align: text-bottom;
+  font-size: 16px;
+}
+
+.progressLabelPercentage {
+  font-size: 21px;
 }
 
 .progressBar {
@@ -48,13 +53,28 @@
   border-radius: 0.5em;
 }
 
-.nextLabel {
+.nextContainer {
   display: inline-block;
   position: absolute;
+  top: -10px;
   right: 0.75em;
-  a {
-    text-decoration: underline;
+}
+
+.nextLabel {
+  display: inline-block;
+  margin-right: 0.7em;
+}
+
+.nextButton {
+  display: inline-block;
+  font-weight: 600;
+  padding: 10px 15px;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 5px;
+  text-decoration: underline;
+  color: white;
+  &:hover {
     color: white;
-    font-weight: bold;
+    border: 1px solid rgba(255,255,255,1);
   }
 }
