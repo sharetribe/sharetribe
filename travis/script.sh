@@ -17,13 +17,15 @@ elif [ "$SUITE" = "cucumber" ]
 then
     echo "PhantomJS version:"
     phantomjs --version
+    echo "NPM PhantomJS version:"
+    node_modules/.bin/phantomjs --version
     echo "Running client and server builds"
     echo "Running npm rebuild node-sass"
     (cd client && npm rebuild node-sass)
     echo "Running npm run clean"
     npm run clean
     (cd client && npm run build:client && npm run build:server)
-    phantomjs --webdriver=8910 &
+    node_nodules/.bin/phantomjs --webdriver=8910 &
     PHANTOMJS=true bundle exec cucumber -ptravis 2>&1
     exit
 elif [ "$SUITE" = "eslint" ]
