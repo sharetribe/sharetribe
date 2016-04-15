@@ -19,7 +19,7 @@ then
     phantomjs --version
     echo "Running client and server builds"
     echo "Running npm rebuild node-sass"
-    npm rebuild node-sass
+    (cd client && npm rebuild node-sass)
     echo "Running npm run clean"
     npm run clean
     (cd client && npm run build:client && npm run build:server)
