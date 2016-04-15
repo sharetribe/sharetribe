@@ -11,32 +11,32 @@ class OnboardingTopBar extends React.Component {
   next() {
     if (!this.props.status.slogan_and_description) {
       return {
-        title: 'Add Slogan & Description',
+        title: this.t('add_slogan'),
         link: this.props.guide_root + '/slogan_and_description',
       };
     } else if (!this.props.status.cover_photo) {
       return {
-        title: 'Upload cover photo',
+        title: this.t('add_cover'),
         link: this.props.guide_root + '/cover_photo',
       };
     } else if (!this.props.status.filter) {
       return {
-        title: 'Add Fields & Filters',
+        title: this.t('add_filters'),
         link: this.props.guide_root + '/filter',
       };
     } else if (!this.props.status.paypal) {
       return {
-        title: 'Accept payments',
+        title: this.t('add_payments'),
         link: this.props.guide_root + '/paypal',
       };
     } else if (!this.props.status.listing) {
       return {
-        title: 'Add a listing',
+        title: this.t('add_listing'),
         link: this.props.guide_root + '/listing',
       };
     } else if (!this.props.status.invitation) {
       return {
-        title: 'Invite users',
+        title: this.t('invite_users'),
         link: this.props.guide_root + '/invitation',
       };
     }
