@@ -18,7 +18,8 @@ then
     echo "PhantomJS version:"
     phantomjs --version
     echo "Running client and server builds"
-    (cd client && npm run build:dev:client && npm run build:dev:server)
+    npm run clean
+    (cd client && npm run build:client && npm run build:server)
     phantomjs --webdriver=8910 &
     PHANTOMJS=true bundle exec cucumber -ptravis 2>&1
     exit
