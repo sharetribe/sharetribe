@@ -12,32 +12,32 @@ class OnboardingTopBar extends React.Component {
     if (!this.props.status.slogan_and_description) {
       return {
         title: 'Add Slogan & Description',
-        link: '/admin/effe',
+        link: this.props.guide_root + '/slogan_and_description',
       };
     } else if (!this.props.status.cover_photo) {
       return {
         title: 'Upload cover photo',
-        link: '/admin/effe',
+        link: this.props.guide_root + '/cover_photo',
       };
     } else if (!this.props.status.filter) {
       return {
         title: 'Add Fields & Filters',
-        link: '/admin/effe',
+        link: this.props.guide_root + '/filter',
       };
     } else if (!this.props.status.paypal) {
       return {
         title: 'Accept payments',
-        link: '/admin/effe',
+        link: this.props.guide_root + '/paypal',
       };
     } else if (!this.props.status.listing) {
       return {
         title: 'Add a listing',
-        link: '/admin/effe',
+        link: this.props.guide_root + '/listing',
       };
     } else if (!this.props.status.invitation) {
       return {
         title: 'Invite users',
-        link: '/admin/effe',
+        link: this.props.guide_root + '/invitation',
       };
     }
     return null;
@@ -92,6 +92,7 @@ class OnboardingTopBar extends React.Component {
 OnboardingTopBar.propTypes = {
   translations: PropTypes.object,
   status: PropTypes.object,
+  guide_root: PropTypes.string,
 };
 
 export default OnboardingTopBar;
