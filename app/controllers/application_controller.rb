@@ -36,6 +36,7 @@ class ApplicationController < ActionController::Base
     :maintenance_warning
   before_filter :cannot_access_if_banned, :except => [ :confirmation_pending, :check_email_availability]
   before_filter :cannot_access_without_confirmation, :except => [ :confirmation_pending, :check_email_availability]
+  before_filter :ensure_consent_given, except: [:confirmation_pending, :check_email_availability]
   before_filter :ensure_user_belongs_to_community, except: [ :confirmation_pending, :check_email_availability]
   before_filter :can_access_only_organizations_communities
 
@@ -172,6 +173,22 @@ class ApplicationController < ActionController::Base
     if person_signed_in?
       @current_user = current_person
       setup_logger!(user_id: @current_user.id, username: @current_user.username)
+    end
+  end
+
+  # Ensure that user accepts terms of community and has a valid email
+  #
+  # When user is created through Facebook, terms are not yet accepted
+  # and email address might not be validated if addresses are limited
+  # for current community. This filter ensures that user takes these
+  # actions.
+  def ensure_consent_given
+    return unless @current_user
+
+    current_membership = @current_user.community_memberships.find_by(community_id: @current_community.id)
+
+    if current_membership && current_membership.pending_consent?
+      redirect_to controller: :community_memberships, action: :new
     end
   end
 

@@ -6,6 +6,7 @@ class CommunityMembershipsController < ApplicationController
 
   skip_filter :cannot_access_if_banned
   skip_filter :cannot_access_without_confirmation
+  skip_filter :ensure_consent_given
   skip_filter :ensure_user_belongs_to_community
 
   def new
