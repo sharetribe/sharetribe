@@ -1,7 +1,8 @@
 class CommunitiesController < ApplicationController
   skip_filter :fetch_community,
               :cannot_access_if_banned,
-              :cannot_access_without_confirmation
+              :cannot_access_without_confirmation,
+              :ensure_user_belongs_to_community
 
   before_filter :ensure_no_communities
 

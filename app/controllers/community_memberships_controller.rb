@@ -6,6 +6,7 @@ class CommunityMembershipsController < ApplicationController
 
   skip_filter :cannot_access_if_banned
   skip_filter :cannot_access_without_confirmation
+  skip_filter :ensure_user_belongs_to_community
 
   def new
     existing_membership = @current_user.community_memberships.where(:community_id => @current_community.id).first
