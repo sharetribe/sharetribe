@@ -1,5 +1,4 @@
 # encoding: utf-8
-# rubocop:disable Metrics/ModuleLength
 module ApplicationHelper
 
   ICON_PACK = APP_CONFIG.icon_pack || "font-awesome"
@@ -942,10 +941,6 @@ module ApplicationHelper
 
   def sort_link_direction(column)
     params[:sort].eql?(column) && params[:direction].eql?("asc") ? "desc" : "asc"
-  end
-
-  def person_emails(person)
-    Maybe(person).emails.or_else{[]}.map{|e| e.address}
   end
 
   # Give an array of translation keys you need in JavaScript. The keys will be loaded and ready to be used in JS
