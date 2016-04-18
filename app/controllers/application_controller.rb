@@ -36,7 +36,6 @@ class ApplicationController < ActionController::Base
     :maintenance_warning
   before_filter :cannot_access_without_joining, :except => [ :confirmation_pending, :check_email_availability]
   before_filter :can_access_only_organizations_communities
-  before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
 
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
   before_filter :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
@@ -348,15 +347,6 @@ class ApplicationController < ActionController::Base
       sign_out @current_user
       flash[:warning] = t("layouts.notifications.can_not_login_with_private_user")
       redirect_to login_path
-    end
-  end
-
-  def check_email_confirmation
-    # If confirmation is required, but not done, redirect to confirmation pending announcement page
-    # (but allow confirmation to come through)
-    if @current_community && @current_user && @current_user.pending_email_confirmation_to_join?(@current_community_membership)
-      flash[:warning] = t("layouts.notifications.you_need_to_confirm_your_account_first")
-      redirect_to :controller => "sessions", :action => "confirmation_pending" unless params[:controller] == 'devise/confirmations'
     end
   end
 

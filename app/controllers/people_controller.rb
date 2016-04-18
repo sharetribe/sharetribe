@@ -7,7 +7,6 @@ class PeopleController < Devise::RegistrationsController
   before_filter EnsureCanAccessPerson.new(
     :id, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), only: [:update, :destroy]
 
-  skip_filter :check_email_confirmation, :only => [ :update]
   skip_filter :cannot_access_without_joining, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
 
   helper_method :show_closed?

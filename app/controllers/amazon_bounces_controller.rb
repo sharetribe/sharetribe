@@ -1,6 +1,6 @@
 class AmazonBouncesController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :notification
-  skip_filter :fetch_community, :check_email_confirmation
+  skip_filter :fetch_community
 
   before_filter :check_sns_token
 

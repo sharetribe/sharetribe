@@ -1,7 +1,6 @@
 class DomainValidationController < ApplicationController
 
   skip_before_filter :verify_authenticity_token, :fetch_logged_in_user, :fetch_community_membership
-  skip_filter :check_email_confirmation
 
   def index
     if params[:dv_file] == @current_community.dv_test_file_name
