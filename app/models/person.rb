@@ -518,16 +518,6 @@ class Person < ActiveRecord::Base
     end
   end
 
-  def self.find_by_facebook_id_and_community(facebook_id, community_id)
-    if FeatureFlagService::API::Api.features.enabled?(community_id: community_id, feature: :new_login).data
-      Maybe(self.find_by(facebook_id: facebook_id))
-        .select { |person| person.communities.pluck(:id).include?(community_id)}
-        .or_else(nil)
-    else
-      self.find_by(facebook_id: facebook_id)
-    end
-  end
-
   def self.find_by_email_address_and_community_id(email_address, community_id)
     Maybe(
       Email.find_by_address_and_community_id(email_address, community_id)
