@@ -3,6 +3,7 @@
 # Table name: people
 #
 #  id                                 :string(22)       not null, primary key
+#  community_id                       :integer
 #  created_at                         :datetime
 #  updated_at                         :datetime
 #  is_admin                           :integer          default(0)
@@ -44,6 +45,7 @@
 # Indexes
 #
 #  index_people_on_authentication_token  (authentication_token)
+#  index_people_on_community_id          (community_id)
 #  index_people_on_email                 (email) UNIQUE
 #  index_people_on_facebook_id           (facebook_id)
 #  index_people_on_id                    (id)

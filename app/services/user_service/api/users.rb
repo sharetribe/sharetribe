@@ -39,9 +39,10 @@ module UserService::API
         password: opts[:password],
         username: username,
         locale: locale,
-        test_group_number: 1 + rand(4))
+        test_group_number: 1 + rand(4),
+        current_community: community_id)
 
-      email = Email.new(person: person, address: opts[:email].downcase, send_notifications: true)
+      email = Email.new(person: person, address: opts[:email].downcase, send_notifications: true, community_id: community_id)
 
       person.emails << email
       person.inherit_settings_from(Community.find(community_id)) if community_id
