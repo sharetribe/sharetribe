@@ -904,13 +904,13 @@ pt-BR:
       new_payment: "Você recebeu um novo pagamento"
       price_per_unit_type: "Preço por %{unit_type}"
       quantity: "Quantidade:"
-      you_have_received_new_payment: "Você foi pago <b>%{payment_sum}</b> por <b>%{listing_title}</b> pelo %{payer_full_name}. Veja o recibo."
+      you_have_received_new_payment: "Você recebeu <b>%{payment_sum}</b> por <b>%{listing_title}</b> de %{payer_full_name}. Veja o recibo."
     paypal_new_payment:
       paypal_gateway_fee: "Taxa do PayPal:"
       shipping_total: "Envio:"
     braintree_new_payment:
       product: "Produto:"
-      price_payer_paid: "Preço pago pelo %{payer_full_name} :"
+      price_payer_paid: "Preço pago por %{payer_full_name} :"
       service_fee: "Comissão de %{service_name} :"
       you_will_get: "Total:"
       money_will_be_transferred: "O dinheiro será transferido para sua conta quando a) %{payer_name} marcar a solicitação como concluída ou b) %{automatic_confirmation_days} dias se passarem desde que %{payer_name} efetuou o pagamento."
