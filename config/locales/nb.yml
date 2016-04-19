@@ -103,7 +103,7 @@ nb:
         small_cover_photo_instructions_text_with_dimensions: "Bildet vil bli endret i størrelse til %{width}x%{height} piksler og høyere bilder vil bli kuttet i midten."
         main_content_width: "Vær obs på at hovedinnholdet på siden er %{main_width} piksler bred på det meste når du velger forsidebilde. Husk også å sjekke hvordan forsidebildet ser ut på mindre skjermer (for eksempel ved å endre størrelsen på nettleservinduet)."
         custom_color1_instructions_text: "Du kan endre hovedfargen på brukergrensesnittet ved å skrive inn en hex-kode. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> kan hjelpe deg med å finne en farge og kopiere koden hit."
-        custom_color2_instructions_text: ~
+        custom_color2_instructions_text: "Du kan endre fargen på %{post_new_listing}-knappen ved å oppgi en fargekode med heksadesimaler.. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\">ColorPicker.com</a> kan hjelpe deg å velge farge, og fargekoden du får, kan du lime inn her."
         default_browse_view: Standardvisning
         default_browse_view_instructions_text: "Standardvisning er brukt på forsiden for å velge hvordan annonser vises som standard."
         grid: Rutenett
@@ -197,7 +197,7 @@ nb:
         fr-CA: "Fransk (Canada)"
         es: "Spansk (Chile)"
         es-ES: Spansk
-        pt-PT: ~
+        pt-PT: Portugisisk
         pt-BR: Portugisisk
         nb: Norsk
         sv: Svensk
@@ -225,8 +225,8 @@ nb:
         keyword_search: Nøkkelord-søk
         location_search: Stedsnavn-søk
         select_distance_unit: "Vis avstand i %{distance_units_selector}"
-        km: ~
-        miles: ~
+        km: km
+        miles: miles
         listing_preferences: Annonseinnstillinger
         transaction_preferences: Transaksjonsinnstillinger
         show_listing_publishing_date: "Vis dato annonsen ble publisert"
@@ -340,7 +340,7 @@ nb:
       edit:
         edit_listing_field: "Rediger annonse felt'%{field_name}'"
       edit_price:
-        description: ~
+        description: "Minimums- og maksimumsprisen påvirker kun filteret. De angir ikke en grense for selve annonseprisen."
         edit_price_field: "Rediger pris felt"
         show_price_filter_homepage: "Vis pris filter på hjemmeside"
         price_min: "Minimums pris"
@@ -355,7 +355,7 @@ nb:
         search_filter:
           search_filter: "Vis et filter på forsiden basert på dette feltet"
           date_cant_be_filtered: "Filter for dato-felt er ikke tilgjengelig."
-          text_cant_be_filtered: ~
+          text_cant_be_filtered: "Det er ikke noe filter for tekstfelt. Søk fra hovedsøkefeltet viser treff fra tekstfeltene."
       index:
         listing_fields: "Annonse felt & filter"
         listing_fields_help: "Her kan du endre feltene brukere må fylle inn når de oppretter en annonse. Noen av feltene er predefinerte og kan ikke endres."
@@ -404,7 +404,7 @@ nb:
       configure: Innstillinger
       emails_title: E-poster
       support: Support
-      subscription: ~
+      subscription: Påmelding
     listing_shapes:
       index:
         listing_shapes: Annonsetype
@@ -493,14 +493,14 @@ nb:
     paypal_accounts:
       marketplace_paypal_integration: Betalingsinnstillinger
       preferences_updated: "Betalingsinnstillinger oppdatert"
-      marketplace_currency_used: ~
-      contact_support_link_text: ~
+      marketplace_currency_used: "Denne markedsplassen bruker %{currency} som valuta. For å endre valuta, %{contact_support_link}."
+      contact_support_link_text: "kontakt Sharetribes support"
       integration_info_text: "Betalingssystemet i Sharetribe er laget av PayPal. Hvis du vil gjøre det mulig for brukere å ta betalt i din markedsplass må du koble til din PayPal-konto og velge minimumsstørrelse på transaksjonene samt din tjenestekostnad for hver transaksjon."
       paypal_account_email: "Koble til din PayPal konto"
-      link_paypal_personal_account_label: ~
+      link_paypal_personal_account_label: "Selger du selv produkter eller tjenester?"
       paypal_account_email_completed: fullført!
-      link_paypal_personal_account: ~
-      personal_payment_preferences_link_text: ~
+      link_paypal_personal_account: "I så tilfelle må du koble din PayPal-konto til %{personal_payment_preferences_link}."
+      personal_payment_preferences_link_text: "din personlige markedsplass-konto"
       set_minimum_price_and_fee_completed: fullført!
       read_more_about_paypal: "Les mer om Sharetribe`s betalingssystem"
       set_minimum_price_and_fee: "2. Sett minimums pris & transaksjonsgebyr"
@@ -594,7 +594,7 @@ nb:
       update_later: "La annonsen være åpen"
       optional_message: "Valgfri melding"
       price_to_pay: "Total pris"
-      you_need_to_fill_payout_details_before_accepting: "Du må fylle ut utbetalings detaljer før du kan akseptere forespørselen og motta betaling. Gå til %{payment_settings_link} for å fylle ut."
+      you_need_to_fill_payout_details_before_accepting: "Du må fylle ut utbetalingsdetaljer før du kan akseptere forespørselen og motta betaling. Gå til %{payment_settings_link} for å fylle ut."
       payment_settings_link: "Innstillinger betaling"
       minimum_price_error_message: "Prisen kan ikke være lavere enn %{amount}"
       accept: Godta
@@ -641,7 +641,7 @@ nb:
       message_from: "Melding fra %{person}"
       about_listing: "Vedrørende annonse %{listing_title}"
       free_message: "Gratis melding"
-      message_content_not_available: ~
+      message_content_not_available: "Meldingsinnhold ikke tilgjengelig"
     message:
       accepted_request: "godtok forespørselen"
       received_payment: "godtok forespørselen og har mottatt betaling på %{sum}"
@@ -740,7 +740,7 @@ nb:
       cancel: Tvist
   braintree_accounts:
     new:
-      add_payout_details: "Legg til dine utbetalings detaljer."
+      add_payout_details: "Legg til dine utbetalingsdetaljer."
       first_name: Fornavn
       last_name: Etternavn
       email: E-post
@@ -755,7 +755,7 @@ nb:
       account_number: Kontonummer
       save: Lagre
     show:
-      payout_details: "Dine utbetalings detaljer"
+      payout_details: "Dine utbetalingsdetaljer"
       first_name: Fornavn
       last_name: Etternavn
       email: E-post
@@ -813,7 +813,7 @@ nb:
       show_thread: "Vis samtale"
     braintree_account_approved:
       account_ready: "Du kan nå motta betalinger"
-      message: "Dine betalingsdetaljer er nå bekreftet og du er nå klar til å motta betalinger på %{service_name}"
+      message: "Dine utbetalingsdetaljer er nå bekreftet, og du er nå klar til å motta betalinger på %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Du har fremdeles ikke bekreftet eller avslått følgende forespørsel %{request_link}. Dersom forespørsel er gjennomført, må du bekrefte dette. Du kan nå gi vurdering av %{other_party_given_name}"
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Du har fremdeles ikke bekreftet eller avslått følgende forespørsel %{request_link}. Vi overfører pengene til %{other_party_given_name} kun når du a) har merket forespørsel som gjennomført eller b) det har gått %{days_to_automatic_confirmation} dager siden du betalte. Etter at du har merket forespørsel som gjennomført kan du gi vurdering av %{other_party_given_name}"
@@ -832,7 +832,7 @@ nb:
       cancel_it_link_text: Avbryt
     payment_settings_reminder:
       remember_to_add_payment_details: "Husk å legge til din betalingsinformasjon slik at du kan motta betalinger."
-      you_have_added_listing_with_payment: "Du har lagt til annonsen %{listing_link} med betaling. Du har ikke enda lagt til dine betalingsdetaljer. For å kunne motta betaling må du legge til din betalingsinformasjon."
+      you_have_added_listing_with_payment: "Du har lagt til annonsen %{listing_link} med betaling, men du har ikke lagt til dine utbetalingsdetaljer enda. For å kunne motta betaling, må du legge til din utbetalingsinformasjon."
       please_go_to_payment_settings: "Vennligst gå til %{payment_settings_link} og fyll inn nødvendig betalingsinformasjon."
       payment_settings_link: betalingsinnstillinger
     transaction_confirmed:
@@ -1016,7 +1016,7 @@ nb:
     paypal:
       buyer_cannot_pay_error: "Betalingen ble avslått av PayPal. Vennligst kontakt PayPal Kundeservice for mer informasjon: %{customer_service_link}"
       pending_review_error: "Betalingen ble sendt men ble flagget av PayPal som \"må sjekkes\". Når PayPal får sjekket betalingen vil den automatisk bli godkjent."
-      seller_express_checkout_disabled: ~
+      seller_express_checkout_disabled: "PayPal Express Checkout har blitt deaktivert for annonseeierens PayPal-konto. Vennligst kontakt annonseeieren og gi beskjed om at det er et problem med PayPal-kontoen deres. Råd dem til å kontakte PayPals kundeservice."
       generic_error: "En feil oppstod i betalingsprosessen. Din PayPal-betaling kunne ikke gjennomføres."
       cancel_error: "En feil oppstod ved kansrelering. Kunne ikke sluttføre kansrelering."
       accept_authorization_error: "En feil oppstod med PayPal-betalingen. Vennligst prøv igjen."
@@ -1183,7 +1183,7 @@ nb:
     list_item:
       review: vurdering
       reviews: vurderinger
-      distance_away: ~
+      distance_away: "%{distance} %{distance_unit} unna"
     news_item:
       show_less: "Vis færre"
       show_more: "Vis flere"
@@ -1354,7 +1354,7 @@ nb:
       request_rejected: "Forespørsel avvist"
       request_canceled: "Forespørsel avbrutt."
       message_sent: "Melding sendt"
-      message_not_sent: ~
+      message_not_sent: "Sending av melding mislyktes. Vennligst prøv igjen."
       this_content_is_not_available_in_this_community: "Dette innholdet er ikke tilgjengelig."
       unknown_error: "Ukjent feil. Vennligst gå til kontakt oss og send oss en melding om hva som skjedde."
       update_error: "Feil ved oppdatering av din informasjon, vennligst prøv på nytt"
@@ -1397,6 +1397,10 @@ nb:
       payment_details_add_error: "Kunne ikke legge til betalings detaljer"
       listing_author_payment_details_missing: "Annonseeier har ikke lagt til betalingsinformasjon og kan derfor ikke motta betaling akkurat nå. Vennligst ta kontakt med annonseeier."
       stylesheet_needs_recompiling: "Side genereres på nytt. Vennligst last siden på nytt etter en liten stund."
+      maintenance_mode:
+        zero: "Nettstedet vil nå gå offline for vedlikehold"
+        one: "Nettstedet vil være offline i %{count} minutt"
+        other: "Nettstedet vil være offline i %{count} minutter"
     settings:
       account: Brukerkonto
       notifications: Varslinger
@@ -1471,7 +1475,7 @@ nb:
         no_file_selected: "Ingen fil er valgt"
         remove_image: "Fjern bilde"
         select_file: "Velg fil"
-        add_more: ~
+        add_more: "+ Legg til flere"
         removing: Fjern...
         processing: Arbeider...
         loading_image: "Laster opp..."
@@ -1480,7 +1484,7 @@ nb:
         this_may_take_a_while: "(dette kan ta en stund)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Bildeopplasting feilet"
-        image_processing_failed: ~
+        image_processing_failed: "Bildebehandling msilyktes"
         file_too_large: "Filen er for stor"
         accepted_formats: "Bilde-filen må enten være GIF, JPG or PNG."
         images_not_uploaded_confirm: "Alle bildene er ikke lastet opp end. Er du sikker på at du vil gå videre?"
@@ -1593,11 +1597,11 @@ nb:
       select_category: "Velg kategori"
       select_subcategory: "Velg underkategori"
       select_transaction_type: "Velg annonse type"
-      you_need_to_fill_payout_details_before_accepting: "Du må fylle ut utbetalings detaljer før du kan poste en annonse. Gå til %{payment_settings_link} for å fylle ut."
+      you_need_to_fill_payout_details_before_accepting: "Du må fylle ut utbetalingsdetaljer før du kan poste en annonse. Gå til %{payment_settings_link} for å fylle ut."
       contact_admin_link_text: "kontakt administrator"
       community_not_configured_for_payments: "%{service_name} har ikke blitt konfigurert for betalinger så du kan ikke opprette annonser enda. Vennligst %{contact_admin_link} for mer detaljer."
       payment_settings_link: "Innstillinger betaling"
-      community_not_configured_for_payments_admin: "%{service_name} har ikke blitt konfigurert for betalinger så du kan ikke opprette annonser enda. Gå til %{payment_settings_link} for å fylle inn betalingsdetaljer."
+      community_not_configured_for_payments_admin: "%{service_name} har ikke blitt konfigurert for betalinger, så du kan ikke opprette annonser enda. Gå til %{payment_settings_link} for å fylle inn utbetalingsdetaljer."
     quantity:
       hour: "Antall timer:"
       day: "Antall dager:"
@@ -1651,7 +1655,7 @@ nb:
       shipping_price_additional: "Frakt (+%{price}, tilleggsprodukter: +%{shipping_price_additional})"
       pickup: Henting
       pickup_no_price: Henting
-      youtube_video_player: ~
+      youtube_video_player: YouTube-videospiller
     unit_types:
       piece: stykk
       hour: time
@@ -1727,12 +1731,12 @@ nb:
     commission_permission_needed: "Du vil også måtte gi %{service_name} tillatelse til å belaste en transaksjonskostnad."
     create_paypal_account_link_text: PayPal-konto
     connected_account: "PayPal-kontoen '%{email}' er riktig tilkoblet."
-    paypal_receive_funds_info_label_australia_only: ~
+    paypal_receive_funds_info_label_australia_only: "Din PayPal-konto må kunne ta imot betalinger. Dette kan kreve en Premiums- eller Bedriftskonto."
     paypal_receive_funds_info_label: "Din PayPal-konto må konfigureres til å ta imot betalinger. Du må opprette en Bedriftskonto."
     paypal_receive_funds_info: "Hvis du ser en feilmelding når du prøver å koble PayPal-kontoen din til %{service_name}, må du %{upgrade_paypal_account_link}. Det er gratis og enkelt. Hvis du er en privatperson, anbefaler PayPal at du bruker navnet ditt som bedriftsnavn."
     upgrade_paypal_account_link_text: "logge inn og klikke på oppgradér-linken"
-    admin_account_not_connected: ~
-    contact_admin_link_text: ~
+    admin_account_not_connected: "Det er ikke mulig å bruke %{service_name} sin betalingsløsning, siden den ikke har blitt satt opp. Vennligst %{contact_admin_link} for detaljer."
+    contact_admin_link_text: "kontakt markedsplassens administrator"
     you_are_ready_to_accept_payments: "Du er klar til å motta betaling!"
     commission: "%{commission} %"
     new:
@@ -1747,7 +1751,7 @@ nb:
       upgrade_paypal_account: "logge inn på din PayPal-konto"
       paypal_account_billing_agreement: "2. Tillat %{service_name} å ta et transaksjonsgebyr"
       follow_steps: "Følg stegene under for å begynne å motta betalinger:"
-      connect_paypal_account_title: ~
+      connect_paypal_account_title: "Koble til din PayPal-konto"
       connect_paypal_account_title_with_step: "Steg %{current_step}/%{total_steps}: Koble til din PayPal-konto"
       connect_paypal_account_instructions: "Klikk på knappen under for å logge inn på PayPal og koble PayPal-kontoen din til %{service_name}."
       connect_paypal_account: "1. Koble til PayPal-konto"
@@ -1755,7 +1759,7 @@ nb:
       paypal_account_billing_agreement_info_both: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad (%{commission_from_seller} av totalsum, minus frakt, minimumkostnad %{minimum_commission}) bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad på %{minimum_commission} bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad (%{commission_from_seller} av totalsum, minus frakt) bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."
-      paypal_account_billing_agreement_info_none: ~
+      paypal_account_billing_agreement_info_none: "%{service_name} tar for tiden ikke noe administrasjonsgebyr. Hvis det senere blir satt et administrasjonsgebyr, vil du måtte gi %{service_name} tillatelse til å trekke et administrasjonsgebyr for å kunne motta betalinger. Administrasjonsgebyret inkluderer ikke %{paypal_info_link}."
       paypal_info_link_text: "PayPal transaksjonskostnad"
       billing_agreement_description: "Gi %{service_name} tilgang til å ta betalt for sine tjenester."
       billing_agreement: "Gi tillatelse"

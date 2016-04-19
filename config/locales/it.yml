@@ -1424,7 +1424,7 @@ it:
         repeated: "Ripetuto (aggiungi orari e giorni nel campo 'descrizione dettagliata')"
       description:
         detailed_description: "Descrizione dettagliata"
-        youtube_info: "Se la tua descrizione contiene dei link di YouTube, i video saranno mostrati sopra la descrizione."
+        youtube_info: "Se la tua descrizione contiene dei link di YouTube, i video saranno mostrati in fondo alla descrizione."
       destination:
         destination: Destinazione
       form_content:
@@ -1974,10 +1974,10 @@ it:
       visible_to_registered_users: "Visibile agli utenti che hanno effettuato l'accesso"
       default_in_listing: "(usato solo come impostazione di base quando crei un nuovo annuncio)"
       invisible: "(non visibile ad altri utenti)"
-      image_is_processing: ~
+      image_is_processing: "L'immagine di profilo è pronta. Per favore, ricarica tra un po' di tempo la pagina."
     save_information: "Salva le informazioni"
   shipping_address:
-    shipping_address: ~
+    shipping_address: "Indirizzo di consegna"
   tag_cloud:
     tag_used:
       with_tag: "Con tag"
@@ -2103,13 +2103,13 @@ it:
     initiate:
       booked_days: "Giorni prenotati:"
       price_per_day: "Prezzo al giorno:"
-      quantity: ~
+      quantity: "Quantità:"
       subtotal: "Subtotale:"
       shipping-price: "Spedizione:"
     price_per_quantity: "Prezzo per %{unit_type}"
-    price: ~
-    quantity: ~
-    unit_price: ~
+    price: "Prezzo:"
+    quantity: "Quantità: %{quantity}"
+    unit_price: "Unità di conto: %{unit_price}"
     total: "Totale:"
   unit:
     day: giorno

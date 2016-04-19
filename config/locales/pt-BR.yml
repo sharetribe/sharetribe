@@ -577,12 +577,8 @@ pt-BR:
     removed_user: "Usuário removido"
     paypal_fee_info:
       title: "Taxa de processamento do pagamento do PayPal"
-      body_text: |-
-          O PayPal cobra uma taxa de 4,99% + R$0,60 em cada pagamento. 
-          Você pode ver as taxas exatas, fazendo login em sua conta do PayPal clicando %{link_to_paypal}. Após cada compra você receberá um recibo exibindo a taxa exata.
-      body_with_shipping_text: |-
-          O PayPal cobra uma taxa de 4,99% + R$0,60 em cada pagamento. 
-          Você pode ver as taxas exatas, fazendo login em sua conta do PayPal clicando %{link_to_paypal}. Após cada compra você receberá um recibo exibindo a taxa exata.
+      body_text: ~
+      body_with_shipping_text: ~
       link_to_paypal_text: aqui
   conversations:
     accept:
@@ -616,7 +612,7 @@ pt-BR:
       cancel_description: "Se o seu pedido não foi efetuado, você pode marcá-lo como \"não efetuado\". Você ainda pode dar um feedback para a outra parte e descrever o que aconteceu."
       cancel_payed_description: "Se o seu pedido foi aceito, mas você está tendo dúvidas, você ainda pode cancelar o pedido antes do pagamento."
       canceling_payed_transaction: "Cancelar transação"
-      confirm: "marca concluida"
+      confirm: "Marca concluida"
       cancel: "Não aconteceu"
       continue: Continua
       give_feedback_to: "Dar feedback a %{person_link}"
@@ -632,7 +628,7 @@ pt-BR:
       no_received_messages: "Nenhuma mensagem recebida"
       no_sent_messages: "Nenhuma mensagem enviada"
     conversation:
-      accepted_request: "Pedido aceito."
+      accepted_request: "Pedido aceite."
       accepted_offer: "Oferta aceita."
       rejected_request: "Pedido rejeitado."
       rejected_offer: "Oferta rejeitada."
@@ -646,7 +642,7 @@ pt-BR:
       message_content_not_available: "O conteúdo da mensagem não está disponível"
     message:
       accepted_request: "aceitou o pedido"
-      received_payment: "O pedido foi aceitado, pagamento recebido para %{sum}"
+      received_payment: "O pedido foi aceitade, pagamento recebido para %{sum}"
       accepted_offer: "aceitou a oferta"
       rejected_request: "rejeitou o pedido"
       rejected_offer: "rejeitou a oferta"
@@ -738,7 +734,7 @@ pt-BR:
       accept_preauthorized_request: "Aceitar o pedido"
       reject_preauthorized_offer: "Não agora"
       reject_preauthorized_request: "Não desta vez"
-      confirm: "marca completada"
+      confirm: "Marca concluida"
       cancel: "Não aconteceu"
   braintree_accounts:
     new:
@@ -975,7 +971,7 @@ pt-BR:
       welcome_email_subject: "Seja bem-vindo ao %{service_name}"
       welcome_to_marketplace: "Seja bem-vindo ao %{service_name}! Ficamos felizes em tê-lo a bordo."
       love_marketplace_crew: "Com carinho,<br/><i>Equipe %{service_name}</i>"
-      welcome_email_footer_text: "Que tipo de e-mails que você quer receber da %{service_name}? %{settings_link}"
+      welcome_email_footer_text: "Que tipo de e-mails quer receber de %{service_name}? %{settings_link}"
       settings_link_text: "Verifique suas configurações"
       welcome_email_subject_for_marketplace_creator: "Bem-vindo(a) à Sharetribe"
       welcome_to_marketplace_creator: "Bem-vindo(a) à Sharetribe, %{name}!"
@@ -1347,7 +1343,7 @@ pt-BR:
       registration_considered_spam: "Registro não funcionou, por favor, envie um feedback a partir do menu de cabeçalho e mencionar \"erro email2\"."
       reply_cannot_be_empty: "Você não pode enviar uma mensagem vazia"
       reply_sent: "Resposta enviada com sucesso!"
-      request_accepted: "Pedido aceito"
+      request_accepted: "Pedido aceite"
       request_confirmed: "Pedido concluído"
       request_rejected: "Pedido rejeitado"
       request_canceled: "Pedido cancelado"
@@ -1583,7 +1579,7 @@ pt-BR:
       trades: Troca
     listing_actions:
       booking_from: De
-      booking_to: Para
+      booking_to: Até
       how_paypal_works: "Como o Paypal Trabalha"
       payment_help: "Ajuda com o pagamento"
     new:
@@ -2036,7 +2032,7 @@ pt-BR:
       slightly_better_than_expected: "Ligeiramente melhor do que o esperado"
       slightly_less_than_expected: "Um pouco pior do que o esperado"
       textual_feedback: "Como foi sua experiência?"
-      this_will_be_shown_in_profile: "A sua opinião será visível pelos outros usuários no perfil do %{person}. Isso ajuda os outros membros a saber se %{person} é uma pessoa de confiança."
+      this_will_be_shown_in_profile: "A sua opinião será visível pelos outros usuários no perfil de %{person}. Isso ajuda os outros membros a saber se %{person} é uma pessoa de confiança."
       positive: Positivo
       negative: Negativo
       default_textual_feedback: "Tudo correu bem, muito obrigado!"

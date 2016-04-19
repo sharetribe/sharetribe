@@ -581,11 +581,11 @@ pt-PT:
       paypal_fee_info: ~
       shipping_price_label: ~
     confirm:
-      confirm_description: ~
+      confirm_description: "Se o seu pedido foi realizado, você deve confirmá-lo como concluído"
       cancel_description: ~
       cancel_payed_description: ~
       canceling_payed_transaction: ~
-      confirm: ~
+      confirm: Concluído
       cancel: ~
       continue: ~
       give_feedback_to: ~
@@ -601,7 +601,7 @@ pt-PT:
       no_received_messages: ~
       no_sent_messages: ~
     conversation:
-      accepted_request: ~
+      accepted_request: ""
       accepted_offer: ~
       rejected_request: ~
       rejected_offer: ~
@@ -615,7 +615,7 @@ pt-PT:
       message_content_not_available: ~
     message:
       accepted_request: ~
-      received_payment: ~
+      received_payment: ""
       accepted_offer: ~
       rejected_request: ~
       rejected_offer: ~
@@ -707,7 +707,7 @@ pt-PT:
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
       reject_preauthorized_request: ~
-      confirm: ~
+      confirm: Concluído
       cancel: ~
   braintree_accounts:
     new:
@@ -843,7 +843,7 @@ pt-PT:
       message_not_displaying_correctly: ~
       view_it_in_your_browser: ~
       or: ~
-      unsubscribe_from_these_emails: ~
+      unsubscribe_from_these_emails: "cancele a recepção destes emails"
     conversation_status_changed:
       has_accepted_your_offer: ~
       has_accepted_your_request: ~
@@ -871,7 +871,7 @@ pt-PT:
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
-      has_sent_you_a_message_in_kassi: ~
+      has_sent_you_a_message_in_kassi: "%{sender} enviou-lhe uma mensagem no %{service_name}."
       you_have_a_new_message: ~
     new_payment:
       new_payment: ~
@@ -944,8 +944,8 @@ pt-PT:
       welcome_email_subject: ~
       welcome_to_marketplace: ~
       love_marketplace_crew: ~
-      welcome_email_footer_text: ~
-      settings_link_text: ~
+      welcome_email_footer_text: ""
+      settings_link_text: "Verifique as suas configurações"
       welcome_email_subject_for_marketplace_creator: ~
       welcome_to_marketplace_creator: ~
       congrats_for_creating_your_marketplace: ~
@@ -1287,7 +1287,7 @@ pt-PT:
       news_item_updated: ~
       news_item_deleted: ~
       offer_accepted: ~
-      offer_confirmed: ~
+      offer_confirmed: "Pedido realizado"
       offer_closed: ~
       listing_created_successfully: ~
       offer_rejected: ~
@@ -1316,7 +1316,7 @@ pt-PT:
       registration_considered_spam: ~
       reply_cannot_be_empty: ~
       reply_sent: ~
-      request_accepted: ~
+      request_accepted: ""
       request_confirmed: ~
       request_rejected: ~
       request_canceled: ~
@@ -1548,7 +1548,7 @@ pt-PT:
       trades: ~
     listing_actions:
       booking_from: ~
-      booking_to: ~
+      booking_to: ""
       how_paypal_works: ~
       payment_help: ~
     new:
@@ -1996,7 +1996,7 @@ pt-PT:
       slightly_better_than_expected: ~
       slightly_less_than_expected: ~
       textual_feedback: ~
-      this_will_be_shown_in_profile: "A sua opinião será visível pelos outros utilizadores no perfil do %{person}. Isso ajuda os outros membros a saber se %{person} é uma pessoa de confiança."
+      this_will_be_shown_in_profile: "A sua opinião será visível pelos outros utilizadores no perfil de %{person}. Isso ajuda os outros membros a saber se %{person} é uma pessoa de confiança."
       positive: ~
       negative: ~
       default_textual_feedback: ~

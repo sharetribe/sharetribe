@@ -159,7 +159,7 @@ zh-HK:
         info_texts: ~
         about_page_link_text: 關於
         terms_of_use_link_text: 服務條款
-        privacy_policy_link_text: 隱私權政策
+        privacy_policy_link_text: 隱私權條款
         welcome_email_link_text: ~
         instruction_texts_link_text: ~
         social_media: ~
@@ -1093,13 +1093,13 @@ zh-HK:
       no_offers_visible_unless_logged_in: 沒有對遊客公開的售賣品及服務。
       no_open_offers_currently: 目前沒有公開的售賣品及服務。
       no_open_requests_currently: 目前沒有公開的要求。
-      no_requests_visible_unless_logged_in: ~
-      one_private_offer_exists: ~
-      one_private_request_exists: ~
+      no_requests_visible_unless_logged_in: 沒有對遊客公開的信息。
+      one_private_offer_exists: "已經有<b>一個供應</b>,"
+      one_private_request_exists: "己經有<b>一個徵求</b>,"
       ride_offer: ~
       ride_request: ~
-      some_private_offers_exist: ~
-      some_private_requests_exist: ~
+      some_private_offers_exist: "已經有<b>%{number_of_listings}個供應</b>,"
+      some_private_requests_exist: "已經有<b>%{number_of_listings}個徵求</b>,"
     custom_filters:
       update_view: ~
       min: ~
@@ -1119,20 +1119,20 @@ zh-HK:
       are: ~
       what_do_you_need: ~
       post_new_listing: ~
-      are_offering: ~
+      are_offering: 貨品
       add_news_item: ~
       lend_rent_help_carpool: ~
-      loading_more_content: ~
-      more_events: ~
-      news: ~
+      loading_more_content: 正在加載更多內容
+      more_events: 更多事件..
+      news: 新聞
       no_news: ~
       more_news: ~
-      or: ~
-      or_see_what_the_others: ~
-      recent_events: ~
-      requesting: ~
-      tell_it_here: ~
-      welcome_to_new_kassi: ~
+      or: 及
+      or_see_what_the_others: "...或者看看其他的"
+      recent_events: 最近的事項
+      requesting: 需要
+      tell_it_here: 在這裡發表吧!
+      welcome_to_new_kassi: "歡迎來到新的%{service_name}!"
       no_reviews: ~
       no_image: ~
       filter: ~
@@ -1160,7 +1160,7 @@ zh-HK:
       you_have_not_added_your_info: ~
       add_your_info_link: ~
     recent_listing:
-      please_offer: ~
+      please_offer: 貨品
       comment: ~
       comments: ~
     filters:
@@ -1185,7 +1185,7 @@ zh-HK:
       default_content: ~
   layouts:
     admin:
-      admin: ~
+      admin: "%{service_name}管理員版面"
     no_tribe:
       inbox: ~
       settings: ~
@@ -1193,15 +1193,15 @@ zh-HK:
     application:
       join_this_community: ~
       read_more: ~
-      feedback: ~
-      default_feedback: ~
+      feedback: 您有什麼想要發表?
+      default_feedback: "你在使用%{service_name}時遇上困難? 對服務表現有意見發表? 發現可疑的內容? 或只是有一些想法想要跟我們討論? 歡迎告訴我們！"
       feedback_forum: ~
       feedback_handle: ~
-      give_feedback: ~
-      or_check_our: ~
-      send_feedback_to_admin: ~
+      give_feedback: 聯絡我們
+      or_check_our: ". 或者查看我們的"
+      send_feedback_to_admin: 發出評價
       to_see_what_others_have_suggested: ~
-      your_email_address: ~
+      your_email_address: "您的電郵地址 (用作聯絡閣下)"
       connect: ~
       invite_your_friends: ~
       invite_your_neighbors: ~
@@ -1210,43 +1210,43 @@ zh-HK:
       join_without_facebook: ~
       join_without_facebook_link: ~
     conversations:
-      messages: ~
-      notifications: ~
-      received: ~
-      sent: ~
+      messages: 私訊
+      notifications: 通知
+      received: 已接收
+      sent: 已送出
     global-header:
       select_language: ~
     infos:
-      about: ~
-      how_to_use: ~
-      info_about_kassi: ~
+      about: 關於
+      how_to_use: 如何使用
+      info_about_kassi: "有關%{service_name}的資訊"
       news: ~
-      register_details: ~
-      terms: ~
+      register_details: 私隱
+      terms: 使用條款
     logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
-      settings: ~
-      sign_up: ~
+      admin: 管理員
+      go_to_your_profile_page: 個人專頁
+      hi: 您好
+      login: 登入
+      logout: 登出
+      notifications: 通知
+      requests: 好友請求
+      settings: 設定
+      sign_up: 創建帳號
     logged_in_messages_icon:
-      messages: ~
+      messages: 私訊
     logged_in_notifications_icon:
-      notifications: ~
+      notifications: 通知
     mobile_logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
+      admin: 管理員
+      go_to_your_profile_page: 個人專頁
+      hi: 您好
+      login: 登入
+      logout: 登出
+      notifications: 通知
+      requests: 好友請求
       settings: ~
-      sign_up: ~
+      sign_up: 註冊
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
@@ -1256,13 +1256,13 @@ zh-HK:
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
-      comment_cannot_be_empty: ~
-      comment_sent: ~
+      comment_cannot_be_empty: 留言不能為空白
+      comment_sent: 已送出留言
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
       create_new_listing: ~
-      create_one_here: ~
+      create_one_here: 在這裡建立一個
       email_confirmation_sent_to_new_address: ~
       email_not_found: ~
       error_with_session: ~
@@ -1279,21 +1279,21 @@ zh-HK:
       login_failed: ~
       account_creation_successful: ~
       account_deleted: ~
-      login_successful: ~
-      logout_successful: ~
+      login_successful: "歡迎您,%{person_name}！"
+      logout_successful: "您已退出了%{service_name}，歡迎電次使用我們的服務！"
       news_item_created: ~
       news_item_creation_failed: ~
       news_item_update_failed: ~
       news_item_updated: ~
       news_item_deleted: ~
-      offer_accepted: ~
+      offer_accepted: 已接受貨品
       offer_confirmed: ~
-      offer_closed: ~
+      offer_closed: 貨品停止供應
       listing_created_successfully: ~
-      offer_rejected: ~
+      offer_rejected: 貨品被拒絕
       offer_canceled: ~
       listing_updated_successfully: ~
-      only_kassi_administrators_can_access_this_area: ~
+      only_kassi_administrators_can_access_this_area: "只有%{service_name}管理員能夠進入這個區域"
       only_listing_author_can_close_a_listing: ~
       only_listing_author_can_edit_a_listing: ~
       payment_successful: ~
@@ -1312,7 +1312,7 @@ zh-HK:
       poll_update_failed: ~
       poll_updated: ~
       poll_deleted: ~
-      read_more: ~
+      read_more: 閱讀更多！
       registration_considered_spam: ~
       reply_cannot_be_empty: ~
       reply_sent: ~
@@ -1365,10 +1365,10 @@ zh-HK:
       listing_author_payment_details_missing: ~
       stylesheet_needs_recompiling: ~
     settings:
-      account: ~
-      notifications: ~
-      profile: ~
-      settings: ~
+      account: 帳戶
+      notifications: 通知
+      profile: 個人資料
+      settings: 設定
       payments: ~
   listings:
     bubble_listing_not_visible:
@@ -1380,12 +1380,12 @@ zh-HK:
       are_you_sure: ~
     comment_form:
       ask_a_question: ~
-      log_in: ~
-      send_comment: ~
-      to_send_a_comment: ~
-      write_comment: ~
+      log_in: 登入
+      send_comment: 發出留言
+      to_send_a_comment: 發出一個新留言
+      write_comment: 填寫一個新的留言
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
-      you_must: ~
+      you_must: 您必需要
       subscribe_to_comments: ~
     edit:
       edit_listing: ~
@@ -1410,12 +1410,12 @@ zh-HK:
         dropdown:
           select_one___: ~
       departure_time:
-        at: ~
+        at: 於
         departure_time: ~
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: ~
+        detailed_description: 詳細資料
         youtube_info: ~
       destination:
         destination: ~
