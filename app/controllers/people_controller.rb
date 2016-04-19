@@ -175,11 +175,12 @@ class PeopleController < Devise::RegistrationsController
       :facebook_id => session["devise.facebook_data"]["id"],
       :locale => I18n.locale,
       :test_group_number => 1 + rand(4),
-      :password => Devise.friendly_token[0,20]
+      :password => Devise.friendly_token[0,20],
+      community_id: @current_community.id
     }
     @person = Person.create!(person_hash)
     # We trust that Facebook has already confirmed these and save the user few clicks
-    Email.create!(:address => session["devise.facebook_data"]["email"], :send_notifications => true, :person => @person, :confirmed_at => Time.now)
+    Email.create!(:address => session["devise.facebook_data"]["email"], :send_notifications => true, :person => @person, :confirmed_at => Time.now, community_id: @current_community.id)
 
     @person.set_default_preferences
 
@@ -351,8 +352,9 @@ class PeopleController < Devise::RegistrationsController
 
     params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
     params[:person][:test_group_number] = 1 + rand(4)
+    params[:person][:community_id] = current_community.id
 
-    email = Email.new(:person => person, :address => params[:person][:email].downcase, :send_notifications => true)
+    email = Email.new(:person => person, :address => params[:person][:email].downcase, :send_notifications => true, community_id: current_community.id)
     params["person"].delete(:email)
 
     person = build_devise_resource_from_person(params[:person])
