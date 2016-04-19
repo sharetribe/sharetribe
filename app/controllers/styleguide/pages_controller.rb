@@ -16,9 +16,6 @@ class Styleguide::PagesController < ApplicationController
   def data
     # This is the props used by the React component.
     @app_props_server_render = {
-      helloReduxData: {
-        name: "Re Dux"
-      }
     }
 
   end
