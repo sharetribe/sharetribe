@@ -18,7 +18,8 @@ describe UserService::API::Users do
   describe "#create_user" do
 
     it "should create a user" do
-      u = create_user(PERSON_HASH)
+      c = FactoryGirl.create(:community)
+      u = create_user(PERSON_HASH, c.id)
       expect(u[:given_name]).to eql "Raymond"
       expect(Person.find_by(username: "raymondx").family_name).to eql "Xperiment"
       expect(u[:locale]).to eql "fr"

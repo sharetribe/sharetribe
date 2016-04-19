@@ -27,7 +27,7 @@ module UserService::API
     # The challenge for that is the devise connections
     #
     # Create a new user by opts and optional current community
-    def create_user(opts, community_id = nil)
+    def create_user(opts, community_id)
       raise ArgumentError.new("Email #{opts[:email]} is already in use.") unless Email.email_available?(opts[:email], community_id)
 
       username = generate_username(given_name: opts[:given_name], family_name: opts[:family_name])
@@ -40,7 +40,7 @@ module UserService::API
         username: username,
         locale: locale,
         test_group_number: 1 + rand(4),
-        current_community: community_id)
+        community_id: community_id)
 
       email = Email.new(person: person, address: opts[:email].downcase, send_notifications: true, community_id: community_id)
 
