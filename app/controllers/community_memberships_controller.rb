@@ -25,8 +25,10 @@ class CommunityMembershipsController < ApplicationController
 
   def create
     # if there already exists one, modify that
-    existing = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
-    @community_membership = existing || CommunityMembership.new(params[:community_membership].merge({status: "pending_email_confirmation"}))
+    @community_membership = CommunityMembership.where(person_id: @current_user.id, community_id: @current_community.id).first_or_create
+    request_params = params[:community_membership] || {}
+    @community_membership.update_attributes(request_params
+      .merge({consent: @current_community.consent, status: "pending_email_confirmation"}))
 
     # if invitation code is stored in session, use it here
     params[:invitation_code] ||= session[:invitation_code]
