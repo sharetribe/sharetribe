@@ -107,25 +107,13 @@ Before you get started, the following needs to be installed:
   ```
 
 
-1. Starting the development server in a new console (open the project root folder)
-Some components are created with React and they need to be build with foreman
-
-  1. Hot Reloading of Rails Assets
-
-  ```bash
-  foreman start -f Procfile.hot
-  ```
+1. Start the development server in a new console (open the project root folder)
+Some components are created with React and they need to be build with foreman. Standard Rails way of starting server (```rails server```) is no longer available.
 
   1. Static Loading of Rails Assets
   ```bash
   foreman start -f Procfile.static
   ```
-
-  1. Creating Assets for Tests
-  ```bash
-  foreman start -f Procfile.spec
-  ```
-
 
 Congratulations! Sharetribe should now be up and running for development purposes. Open a browser and go to the server URL (e.g. http://lvh.me:3000). Fill in the form to create a new marketplace and admin user. You should be now able to access your marketplace and modify it from the admin area.
 
@@ -321,6 +309,13 @@ Here's a sample CORS configuration that allows anyone to post to your bucket.  N
 Default configuration settings are stored in `config/config.default.yml`. If you need to change these, use the `config/config.yml` file to override the defaults. You can also set configuration values to environment variables.
 
 React components can be created using hot module replacement HMR technique behind /styleguide path in local development environment. Webpack is used to bundle React components for deployments and hot loading. Related webpack configs can be found from folder sharetribe/client/
+
+##### Hot Reloading of Rails Assets
+Hot loading environment can be started using _Procfile.hot_:
+```bash
+foreman start -f Procfile.hot
+```
+
 
 ### Unofficial installation instructions
 

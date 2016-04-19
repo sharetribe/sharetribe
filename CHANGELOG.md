@@ -13,10 +13,12 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Add a new job queue (css_compile) for css compilations [#1815](https://github.com/sharetribe/sharetribe/pull/1815)
 - Add a warning message which will be shown 15 minutes before the next scheduled maintenance [#1835](https://github.com/sharetribe/sharetribe/pull/1835)
 - Expose used feature flags to Google Tag Manager [#1856](https://github.com/sharetribe/sharetribe/pull/1856)
+- React on Rails development environment [#1918](https://github.com/sharetribe/sharetribe/pull/1918).
 
 ### Changed
 
 - Marketplace ID is removed from the Admin Settings URL [#1839](https://github.com/sharetribe/sharetribe/pull/1839)
+- Local development server needs to be started with foreman. [check instruction](./client/README.md) This change is related to React on Rails environment [#1918](https://github.com/sharetribe/sharetribe/pull/1918).
 
 ### Deprecated
 

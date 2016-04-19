@@ -1,4 +1,4 @@
-Please see parent directory README.md.
+Please see parent directory [README.md](../README.md).
 
 Building options
 ==========================

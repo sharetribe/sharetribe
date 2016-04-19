@@ -111,7 +111,7 @@ gem 'demoji', "~> 0.0.5"
 gem 'faraday', '~> 0.9.1'
 gem 'faraday_middleware', '~> 0.10.0'
 
-gem "react_on_rails", "~> 5"
+gem "react_on_rails", "~> 5.1.1"
 
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
@@ -160,4 +160,4 @@ group :development, :test do
 end
 
 
-gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', '~> 0.12.2', platforms: :ruby
