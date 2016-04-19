@@ -1,9 +1,9 @@
 :plain
   var dataLayer = dataLayer || [];
   (function(dl){
-    var person_emails = #{person_emails(@current_user).to_json.html_safe};
-    if (person_emails.length) {
-      dl.push({"event": "identify", "id": person_emails});
+    var marketplaceId = #{Maybe(@current_community).id.or_else};
+    if (marketplaceId) {
+      dl.push({"event": "identify", "id": "mp-"+marketplaceId+"-admin" });
     }
 
     dl.push({

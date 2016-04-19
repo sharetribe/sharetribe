@@ -51,7 +51,7 @@ class IntApi::MarketplacesController < ApplicationController
 
     # TODO handle error cases with proper response
 
-    render status: 201, json: {"marketplace_url" => url}
+    render status: 201, json: {"marketplace_url" => url, "marketplace_id" => marketplace[:id]}
   end
 
   # This could be more logical in different controller, but as implementing
