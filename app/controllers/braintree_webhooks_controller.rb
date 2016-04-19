@@ -1,7 +1,6 @@
 class BraintreeWebhooksController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
-  skip_filter :check_email_confirmation
 
   before_filter do
     unless @current_community.braintree_in_use?

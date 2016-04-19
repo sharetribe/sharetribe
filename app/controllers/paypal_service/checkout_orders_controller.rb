@@ -1,6 +1,5 @@
 class PaypalService::CheckoutOrdersController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  skip_filter :check_email_confirmation
 
   before_filter do
     unless PaypalHelper.community_ready_for_payments?(@current_community.id)
