@@ -53,11 +53,12 @@ class CommunityMembershipsController < ApplicationController
       if @current_community.allowed_emails.present?
 
         # no confirmed allowed email found. Check if there is unconfirmed or should we add one.
-        if @current_user.has_email?(params[:community_membership][:email])
-          e = Email.find_by_address_and_community_id(params[:community_membership][:email], @current_community.id)
-        elsif
-          e = Email.create(:person => @current_user, :address => params[:community_membership][:email])
-        end
+        e =
+          if @current_user.has_email?(params[:community_membership][:email])
+            Email.find_by_address_and_community_id(params[:community_membership][:email], @current_community.id)
+          elsif
+            Email.create(:person => @current_user, :address => params[:community_membership][:email], community_id: @current_community.id)
+          end
 
         # Send confirmation and make membership pending
         Email.send_confirmation(e, @current_community)

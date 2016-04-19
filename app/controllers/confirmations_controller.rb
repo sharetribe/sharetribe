@@ -18,7 +18,7 @@ class ConfirmationsController < Devise::ConfirmationsController
       # If user submitted the email change form, change the email before sending again.
       if Email.email_available?(params[:person][:email], @current_community.id)
         if @current_community.email_allowed?(params[:person][:email])
-          email = Email.create(:person => @current_user, :address => params[:person][:email], :send_notifications => true)
+          email = Email.create(:person => @current_user, :address => params[:person][:email], :send_notifications => true, community_id: @current_community.id)
           Email.send_confirmation(email, @current_community)
           flash[:notice] = t("sessions.confirmation_pending.check_your_email")
           redirect_to :controller => "sessions", :action => "confirmation_pending" and return
