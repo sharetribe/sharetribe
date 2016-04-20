@@ -1,3 +1,68 @@
+require 'devise/strategies/database_authenticatable'
+
+# Monkey-patch the DatabaseAuthenticatable.
+#
+# The default DatabaseAuthenticatable takes only into account the user
+# login + password. We need to take into account also the community.
+#
+# Because the authentication strategy is tigthly coupled to the Person model, it's
+# actually a more practical solution to just monkey-patch the strategy instead of
+# creating a new strategy.
+#
+module Devise
+  module Strategies
+    class DatabaseAuthenticatable
+      def authenticate!
+        hashed = false
+        person = DatabaseAuthenticatableHelpers.resolve_person(
+          authentication_hash[:login], password, env[:community_id])
+
+        if person && validate(person) { person.valid_password?(password) }
+          hashed = true
+          remember_me(person)
+          person.after_database_authentication
+          success!(person)
+        end
+
+        mapping.to.new.password = password if !hashed && Devise.paranoid
+        # rubocop:disable Style/SignalException
+        fail(:not_found_in_database) unless person
+        # rubocop:enable Style/SignalException
+      end
+    end
+  end
+end
+
+# Helpers for the monkey-patched DatabaseAuthenticatable
+module DatabaseAuthenticatableHelpers
+
+  module_function
+
+  def resolve_person(login, password, community_id)
+    if password.present?
+      find_by_username_or_email(login.downcase, community_id)
+    end
+  end
+
+  # private
+
+  def find_by_username_or_email(login, community_id)
+    find_by_username(login, community_id) || find_by_email(login, community_id)
+  end
+
+  def find_by_username(login, community_id)
+    Person
+      .joins(:community_memberships)
+      .find_by(username: login, community_memberships: { community_id: community_id })
+  end
+
+  def find_by_email(login, community_id)
+    Person
+      .joins(:emails, :community_memberships)
+      .find_by(emails: { address: login}, community_memberships: { community_id: community_id })
+  end
+end
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|

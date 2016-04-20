@@ -3,6 +3,7 @@
 # Table name: people
 #
 #  id                                 :string(22)       not null, primary key
+#  community_id                       :integer
 #  created_at                         :datetime
 #  updated_at                         :datetime
 #  is_admin                           :integer          default(0)
@@ -44,11 +45,12 @@
 # Indexes
 #
 #  index_people_on_authentication_token  (authentication_token)
+#  index_people_on_community_id          (community_id)
 #  index_people_on_email                 (email) UNIQUE
-#  index_people_on_facebook_id           (facebook_id) UNIQUE
+#  index_people_on_facebook_id           (facebook_id)
 #  index_people_on_id                    (id)
 #  index_people_on_reset_password_token  (reset_password_token) UNIQUE
-#  index_people_on_username              (username) UNIQUE
+#  index_people_on_username              (username)
 #
 
 require 'json'
@@ -158,7 +160,6 @@ class Person < ActiveRecord::Base
 
   serialize :preferences
 
-#  validates_uniqueness_of :username
   validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
   validates_length_of :username, :within => 3..20
   validates_length_of :given_name, :within => 1..255, :allow_nil => true, :allow_blank => true
@@ -204,24 +205,6 @@ class Person < ActiveRecord::Base
     end
   end
 
-  # Override Devise's authentication finder method to allow log in with username OR email
-  def self.find_for_database_authentication(warden_conditions)
-    conditions = warden_conditions.dup
-    if login = conditions.delete(:login)
-
-      matched = where(conditions).where(username: login.downcase).first
-
-      if matched
-        return matched
-      else
-        e = Email.find_by_address(login.downcase)
-        return e.person if e
-      end
-    else
-      where(conditions).first
-    end
-  end
-
   def community_email_type_is_correct
     if ["university", "community"].include? community_category
       email_ending = email.split('@')[1]
@@ -239,8 +222,16 @@ class Person < ActiveRecord::Base
     USERNAME_BLACKLIST
   end
 
-  def self.username_available?(username)
-     !Person.find_by_username(username).present? && !username.in?(USERNAME_BLACKLIST)
+  def self.username_available?(username, community_id)
+    if FeatureFlagService::API::Api.features.enabled?(community_id: community_id, feature: :new_login).data
+     !username.in?(USERNAME_BLACKLIST) &&
+     !Person
+       .joins(:community_memberships)
+       .where("username = ? AND community_memberships.community_id = ?", username, community_id)
+       .present?
+    else
+      !username.in?(USERNAME_BLACKLIST) && !Person.find_by(username: username).present?
+    end
    end
 
   # Deprecated: This is view logic (how to display name) and thus should not be in model layer
@@ -522,29 +513,10 @@ class Person < ActiveRecord::Base
     community.can_accept_user_based_on_email?(self)
   end
 
-  def self.find_for_facebook_oauth(facebook_data, logged_in_user=nil)
-    data = facebook_data.extra.raw_info
-
-    # find if already made facebook connection
-    if user = self.find_by_facebook_id(data.id)
-      user
-    elsif user = logged_in_user || self.find_by_email(data.email)
-      # make connection automatically based on email
-      user.update_attribute(:facebook_id, data.id)
-      if user.image_file_size.nil?
-        user.store_picture_from_facebook
-      end
-      user
-    else
-      nil
-    end
-  end
-
-  # Override the default finder to find also based on additional emails
-  def self.find_by_email(*args)
-    email = Email.find_by_address(*args)
-    if email
-      email.person
+  def update_facebook_data(facebook_id)
+    self.update_attribute(:facebook_id, facebook_id)
+    if self.image_file_size.nil?
+      self.store_picture_from_facebook
     end
   end
 

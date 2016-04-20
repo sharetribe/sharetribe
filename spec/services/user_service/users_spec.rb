@@ -18,15 +18,17 @@ describe UserService::API::Users do
   describe "#create_user" do
 
     it "should create a user" do
-      u = create_user(PERSON_HASH)
+      c = FactoryGirl.create(:community)
+      u = create_user(PERSON_HASH, c.id)
       expect(u[:given_name]).to eql "Raymond"
       expect(Person.find_by(username: "raymondx").family_name).to eql "Xperiment"
       expect(u[:locale]).to eql "fr"
     end
 
     it "should fail if email is taken" do
-      u1 = create_user(PERSON_HASH)
-      expect{create_user(PERSON_HASH)}.to raise_error(ArgumentError, /Email Ray@example.com is already in use/)
+      c = FactoryGirl.create(:community)
+      u1 = create_user_with_membership(PERSON_HASH, c.id)
+      expect{create_user(PERSON_HASH, c.id)}.to raise_error(ArgumentError, /Email Ray@example.com is already in use/)
     end
 
   end

@@ -34,7 +34,10 @@ class ApplicationController < ActionController::Base
     :set_homepage_path,
     :report_queue_size,
     :maintenance_warning
-  before_filter :cannot_access_without_joining, :except => [ :confirmation_pending, :check_email_availability]
+  before_filter :cannot_access_if_banned, :except => [ :confirmation_pending, :check_email_availability]
+  before_filter :cannot_access_without_confirmation, :except => [ :confirmation_pending, :check_email_availability]
+  before_filter :ensure_consent_given, except: [:confirmation_pending, :check_email_availability]
+  before_filter :ensure_user_belongs_to_community, except: [ :confirmation_pending, :check_email_availability]
   before_filter :can_access_only_organizations_communities
 
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
@@ -173,6 +176,54 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Ensure that user accepts terms of community and has a valid email
+  #
+  # When user is created through Facebook, terms are not yet accepted
+  # and email address might not be validated if addresses are limited
+  # for current community. This filter ensures that user takes these
+  # actions.
+  def ensure_consent_given
+    return unless @current_user
+
+    current_membership = @current_user.community_memberships.find_by(community_id: @current_community.id)
+
+    if current_membership && current_membership.pending_consent?
+      redirect_to controller: :community_memberships, action: :new
+    end
+  end
+
+  # Ensure that user belongs to community
+  #
+  # This check is in most cases useless: When user logs in we already
+  # check that the user belongs to the community she is trying to log
+  # in. However, after the user account separation migration in March
+  # 2016, there was a possibility that user had an existing session
+  # which pointed to a person_id that belonged to another
+  # community. That's why we need to check the community membership
+  # even after logging in.
+  #
+  # This extra check can be removed when we are sure that all the
+  # sessions which potentially had a person_id pointing to another
+  # community are all expired.
+  def ensure_user_belongs_to_community
+    if @current_user && !@current_user.communities.include?(@current_community)
+
+      logger.info(
+        "Automatically logged out user that doesn't belong to community",
+        :autologout,
+        current_user_id: @current_user.id,
+        current_community_id: @current_community.id,
+        current_user_community_ids: @current_user.communities.map(&:id)
+      )
+
+      sign_out
+      session[:person_id] = nil
+      flash[:notice] = t("layouts.notifications.automatically_logged_out_please_sign_in")
+
+      redirect_to root
+    end
+  end
+
   # A before filter for views that only users that are logged in can access
   def ensure_logged_in(warning_message)
     return if logged_in?
@@ -203,8 +254,12 @@ class ApplicationController < ActionController::Base
   # Before filter to get the current community
   def fetch_community
     @current_community = ApplicationController.find_community(community_identifiers)
-
     m_community = Maybe(@current_community)
+
+    # Save current community id in request env to be used
+    # by Devise and our custom community authenticatable strategy
+    request.env[:community_id] = m_community.id.or_else(nil)
+
     setup_logger!(marketplace_id: m_community.id.or_else(nil), marketplace_ident: m_community.ident.or_else(nil))
 
     # Save :found or :not_found to community status
@@ -324,19 +379,31 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Before filter to direct a logged-in non-member to join tribe form
-  def cannot_access_without_joining
-    if @current_user && ! (@current_community_membership || @current_user.is_admin?)
-
-      # Check if banned
-      if @current_community && @current_user && @current_user.banned_at?(@current_community)
-        flash.keep
-        redirect_to access_denied_tribe_memberships_path and return
-      end
-
-      session[:invitation_code] = params[:code] if params[:code]
+  # Before filter to direct a banned user to access denied page
+  def cannot_access_if_banned
+    # Check if banned
+    if @current_user && @current_user.banned_at?(@current_community)
       flash.keep
-      redirect_to new_tribe_membership_path
+      redirect_to access_denied_tribe_memberships_path and return
+    end
+  end
+
+  def cannot_access_without_confirmation
+    if @current_user && !@current_community_memberships
+      existing_membership = @current_user.community_memberships.where(community_id: @current_community.id).first
+
+      if existing_membership && existing_membership.pending_email_confirmation?
+
+        # Check if requirements are already filled, but the membership just hasn't been updated yet
+        # (This might happen if unexpected error happens during page load and it shouldn't leave people in loop of of
+        # having email confirmed but not the membership)
+        if @current_user.has_valid_email_for_community?(@current_community)
+          @current_community.approve_pending_membership(@current_user)
+          redirect_to root and return
+        end
+
+        redirect_to confirmation_pending_path
+      end
     end
   end
 

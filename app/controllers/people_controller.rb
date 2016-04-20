@@ -7,7 +7,10 @@ class PeopleController < Devise::RegistrationsController
   before_filter EnsureCanAccessPerson.new(
     :id, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), only: [:update, :destroy]
 
-  skip_filter :cannot_access_without_joining, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
+  skip_filter :cannot_access_if_banned, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
+  skip_filter :cannot_access_without_confirmation, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
+  skip_filter :ensure_consent_given, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
+  skip_filter :ensure_user_belongs_to_community, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
 
   helper_method :show_closed?
 
@@ -104,7 +107,7 @@ class PeopleController < Devise::RegistrationsController
     end
 
     # Check that email is not taken
-    unless Email.email_available?(params[:person][:email])
+    unless Email.email_available?(params[:person][:email], @current_community.id)
       flash[:error] = t("people.new.email_is_in_use")
       redirect_to error_redirect_path and return
     end
@@ -172,11 +175,12 @@ class PeopleController < Devise::RegistrationsController
       :facebook_id => session["devise.facebook_data"]["id"],
       :locale => I18n.locale,
       :test_group_number => 1 + rand(4),
-      :password => Devise.friendly_token[0,20]
+      :password => Devise.friendly_token[0,20],
+      community_id: @current_community.id
     }
     @person = Person.create!(person_hash)
     # We trust that Facebook has already confirmed these and save the user few clicks
-    Email.create!(:address => session["devise.facebook_data"]["email"], :send_notifications => true, :person => @person, :confirmed_at => Time.now)
+    Email.create!(:address => session["devise.facebook_data"]["email"], :send_notifications => true, :person => @person, :confirmed_at => Time.now, community_id: @current_community.id)
 
     @person.set_default_preferences
 
@@ -186,12 +190,8 @@ class PeopleController < Devise::RegistrationsController
     sign_in(resource_name, @person)
     flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(@person.given_name_or_username, person_path(@person))).html_safe
 
-    # We can create a membership for the user if there are no restrictions
-    # - not an Invite only community
-    # - has same terms of use
-    # - if there's email limitation the user has suitable email in FB
-    # But as this is bit complicated, for now
-    # we don't create the community membership yet, because we can use the already existing checks for invitations and email types.
+    CommunityMembership.create(person: @person, community: @current_community, status: "pending_consent")
+
     session[:fb_join] = "pending_analytics"
     redirect_to :controller => :community_memberships, :action => :new
   end
@@ -302,7 +302,7 @@ class PeopleController < Devise::RegistrationsController
 
   def check_username_availability
     respond_to do |format|
-      format.json { render :json => Person.username_available?(params[:person][:username]) }
+      format.json { render :json => Person.username_available?(params[:person][:username], @current_community.id) }
     end
   end
 
@@ -320,7 +320,7 @@ class PeopleController < Devise::RegistrationsController
 
     if available
       # Then check if it's already in use
-      email_availability(email, true)
+      email_availability(email, @current_community.id)
     else #respond false
       respond_to do |format|
         format.json { render :json => available }
@@ -331,7 +331,7 @@ class PeopleController < Devise::RegistrationsController
   # this checks that email is not already in use for anyone (including current user)
   def check_email_availability
     email = params[:person] && params[:person][:email_attributes] && params[:person][:email_attributes][:address]
-    email_availability(email, false)
+    email_availability(email, @current_community.id)
   end
 
   def check_invitation_code
@@ -352,8 +352,9 @@ class PeopleController < Devise::RegistrationsController
 
     params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
     params[:person][:test_group_number] = 1 + rand(4)
+    params[:person][:community_id] = current_community.id
 
-    email = Email.new(:person => person, :address => params[:person][:email].downcase, :send_notifications => true)
+    email = Email.new(:person => person, :address => params[:person][:email].downcase, :send_notifications => true, community_id: current_community.id)
     params["person"].delete(:email)
 
     person = build_devise_resource_from_person(params[:person])
@@ -371,8 +372,8 @@ class PeopleController < Devise::RegistrationsController
     [person, email]
   end
 
-  def email_availability(email, own_email_allowed)
-    available = own_email_allowed ? Email.email_available_for_user?(@current_user, email) : Email.email_available?(email)
+  def email_availability(email, community_id)
+    available = Email.email_available?(email, community_id)
 
     respond_to do |format|
       format.json { render :json => available }

@@ -2,7 +2,10 @@ require 'rest_client'
 
 class SessionsController < ApplicationController
 
-  skip_filter :cannot_access_without_joining, :only => [ :destroy, :confirmation_pending ]
+  skip_filter :cannot_access_if_banned, :only => [ :destroy, :confirmation_pending ]
+  skip_filter :cannot_access_without_confirmation, :only => [ :destroy, :confirmation_pending ]
+  skip_filter :ensure_consent_given, only: [ :destroy, :confirmation_pending ]
+  skip_filter :ensure_user_belongs_to_community, :only => [ :destroy, :confirmation_pending ]
 
   # For security purposes, Devise just authenticates an user
   # from the params hash if we explicitly allow it to. That's
@@ -19,7 +22,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-
     session[:form_login] = params[:person][:login]
 
     # Start a session with Devise
@@ -32,8 +34,9 @@ class SessionsController < ApplicationController
     # we need to tell Devise to call the action "sessions#new"
     # in case something goes bad.
     person = authenticate_person!(:recall => "sessions#new")
-    flash[:error] = nil
     @current_user = person
+
+    flash[:error] = nil
 
     # Store Facebook ID and picture if connecting with FB
     if session["devise.facebook_data"]
@@ -48,10 +51,7 @@ class SessionsController < ApplicationController
 
     session[:form_login] = nil
 
-    unless @current_user && (!@current_user.communities.include?(@current_community) || @current_community.consent.eql?(@current_user.consent(@current_community)) || @current_user.is_admin?)
-      # Either the user has succesfully logged in, but is not found in Sharetribe DB
-      # or the user is a member of this community but the terms of use have changed.
-
+    unless terms_accepted?(@current_user, @current_community) || @current_user.is_admin?
       sign_out @current_user
       session[:temp_cookie] = "pending acceptance of new terms"
       session[:temp_person_id] =  @current_user.id
@@ -62,21 +62,15 @@ class SessionsController < ApplicationController
 
     session[:person_id] = current_person.id
 
-    if not @current_community
-      redirect_to new_tribe_path
-    elsif @current_user.communities.include?(@current_community) || @current_user.is_admin?
-      flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(@current_user.given_name_or_username, person_path(@current_user))).html_safe
-      if session[:return_to]
-        redirect_to session[:return_to]
-        session[:return_to] = nil
-      elsif session[:return_to_content]
-        redirect_to session[:return_to_content]
-        session[:return_to_content] = nil
-      else
-        redirect_to root_path
-      end
+    flash[:notice] = t("layouts.notifications.login_successful", person_name: view_context.link_to(@current_user.given_name_or_username, person_path(@current_user))).html_safe
+    if session[:return_to]
+      redirect_to session[:return_to]
+      session[:return_to] = nil
+    elsif session[:return_to_content]
+      redirect_to session[:return_to_content]
+      session[:return_to_content] = nil
     else
-      redirect_to new_tribe_membership_path
+      redirect_to root_path
     end
   end
 
@@ -104,29 +98,47 @@ class SessionsController < ApplicationController
   end
 
   def facebook
-    @person = Person.find_for_facebook_oauth(request.env["omniauth.auth"], @current_user)
-
+    data = request.env["omniauth.auth"].extra.raw_info
     I18n.locale = URLUtils.extract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
 
-    if @person
+    persons = Person
+              .includes(:emails, :community_memberships)
+              .references(:emails)
+              .where(["people.facebook_id = ? OR emails.address = ?", data.id, data.email]).uniq
+
+    people_in_this_community = persons.select { |p| p.community_memberships.map(&:community_id).include?(@current_community.id) }
+    person_by_fb_id = people_in_this_community.find { |p| p.facebook_id == data.id }
+    person_by_email = people_in_this_community.find { |p| p.emails.any? { |e| e.address == data.email && e.confirmed_at.present? } }
+
+    person = person_by_fb_id || person_by_email
+
+    if person
+      person.update_facebook_data(data.id)
       flash[:notice] = t("devise.omniauth_callbacks.success", :kind => "Facebook")
-      sign_in_and_redirect @person, :event => :authentication
+      sign_in_and_redirect person, :event => :authentication
     else
-      data = request.env["omniauth.auth"].extra.raw_info
+      # TODO: Remove also the surrounding if check when removing the feature check
+      # Afterwards, only the logic for creating user is needed
+      # rubocop:disable Style/IfInsideElse
+      if feature_enabled?(:new_login) || persons.empty?
+        if data.email.blank?
+          flash[:error] = t("layouts.notifications.could_not_get_email_from_facebook")
+          redirect_to sign_up_path and return
+        end
 
-      if data.email.blank?
-        flash[:error] = t("layouts.notifications.could_not_get_email_from_facebook")
-        redirect_to sign_up_path and return
+        facebook_data = {"email" => data.email,
+                         "given_name" => data.first_name,
+                         "family_name" => data.last_name,
+                         "username" => data.username,
+                         "id"  => data.id}
+
+        session["devise.facebook_data"] = facebook_data
+        redirect_to :action => :create_facebook_based, :controller => :people
+      else
+        flash[:error] = "Cannot create a new user, user already exists with Facebook account."
+        redirect_to sign_up_path
       end
-
-      facebook_data = {"email" => data.email,
-                       "given_name" => data.first_name,
-                       "family_name" => data.last_name,
-                       "username" => data.username,
-                       "id"  => data.id}
-
-      session["devise.facebook_data"] = facebook_data
-      redirect_to :action => :create_facebook_based, :controller => :people
+      # rubocop:enable StyleIfInsideElse
     end
   end
 
@@ -155,6 +167,12 @@ class SessionsController < ApplicationController
     if @current_user.blank?
       redirect_to root
     end
+  end
+
+  private
+
+  def terms_accepted?(user, community)
+    user && community.consent.eql?(user.consent(community))
   end
 
 end

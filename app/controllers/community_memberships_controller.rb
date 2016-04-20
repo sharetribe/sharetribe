@@ -4,7 +4,10 @@ class CommunityMembershipsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_page")
   end
 
-  skip_filter :cannot_access_without_joining
+  skip_filter :cannot_access_if_banned
+  skip_filter :cannot_access_without_confirmation
+  skip_filter :ensure_consent_given
+  skip_filter :ensure_user_belongs_to_community
 
   def new
     existing_membership = @current_user.community_memberships.where(:community_id => @current_community.id).first
@@ -12,16 +15,6 @@ class CommunityMembershipsController < ApplicationController
     if existing_membership && existing_membership.accepted?
       flash[:notice] = t("layouts.notifications.you_are_already_member")
       redirect_to root and return
-    elsif existing_membership && existing_membership.pending_email_confirmation?
-      # Check if requirements are already filled, but the membership just hasn't been updated yet
-      # (This might happen if unexpected error happens during page load and it shouldn't leave people in loop of of
-      # having email confirmed but not the membership)
-      if @current_user.has_valid_email_for_community?(@current_community)
-        @current_community.approve_pending_membership(@current_user)
-        redirect_to root and return
-      end
-
-      redirect_to confirmation_pending_path and return
     elsif existing_membership && existing_membership.banned?
       redirect_to access_denied_tribe_memberships_path and return
     end
@@ -32,8 +25,10 @@ class CommunityMembershipsController < ApplicationController
 
   def create
     # if there already exists one, modify that
-    existing = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
-    @community_membership = existing || CommunityMembership.new(params[:community_membership].merge({status: "pending_email_confirmation"}))
+    @community_membership = CommunityMembership.where(person_id: @current_user.id, community_id: @current_community.id).first_or_create
+    request_params = params[:community_membership] || {}
+    @community_membership.update_attributes(request_params
+      .merge({consent: @current_community.consent, status: "pending_email_confirmation"}))
 
     # if invitation code is stored in session, use it here
     params[:invitation_code] ||= session[:invitation_code]
@@ -60,11 +55,12 @@ class CommunityMembershipsController < ApplicationController
       if @current_community.allowed_emails.present?
 
         # no confirmed allowed email found. Check if there is unconfirmed or should we add one.
-        if @current_user.has_email?(params[:community_membership][:email])
-          e = Email.find_by_address_and_community_id(params[:community_membership][:email], @current_community.id)
-        elsif
-          e = Email.create(:person => @current_user, :address => params[:community_membership][:email])
-        end
+        e =
+          if @current_user.has_email?(params[:community_membership][:email])
+            Email.find_by_address_and_community_id(params[:community_membership][:email], @current_community.id)
+          elsif
+            Email.create(:person => @current_user, :address => params[:community_membership][:email], community_id: @current_community.id)
+          end
 
         # Send confirmation and make membership pending
         Email.send_confirmation(e, @current_community)

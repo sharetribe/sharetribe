@@ -19,11 +19,19 @@ describe PeopleController, type: :controller do
 
   describe "#check_email_availability" do
     before(:each) do
-      @request.host = "#{FactoryGirl.create(:community).ident}.lvh.me"
+      @community = FactoryGirl.create(:community)
+      @request.host = "#{@community.ident}.lvh.me"
     end
 
     it "should return unavailable if email is in use" do
       person = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "test@example.com")])
+      FactoryGirl.create(:community_membership,
+                         community: @community,
+                         person: person,
+                         admin: 0,
+                         consent: "test_consent0.1",
+                         last_page_load_date: DateTime.now,
+                         status: "accepted")
 
       get :check_email_availability,  {:person => {:email_attributes => {:address => "test@example.com"} }, :format => :json}
       expect(response.body).to eq("false")
@@ -35,6 +43,13 @@ describe PeopleController, type: :controller do
 
     it "should return NOT available for user's own adress" do
       person = FactoryGirl.create(:person)
+      FactoryGirl.create(:community_membership,
+                         community: @community,
+                         person: person,
+                         admin: 0,
+                         consent: "test_consent0.1",
+                         last_page_load_date: DateTime.now,
+                         status: "accepted")
       sign_in person
 
       Email.create(:person_id => person.id, :address => "test2@example.com")
@@ -42,21 +57,6 @@ describe PeopleController, type: :controller do
       expect(response.body).to eq("false")
     end
 
-  end
-
-  describe "#check_email_availability_and_validity" do
-    before(:each) do
-      @request.host = "#{FactoryGirl.create(:community).ident}.lvh.me"
-    end
-
-    it "should return available for user's own adress" do
-      person = FactoryGirl.create(:person)
-      sign_in person
-
-      Email.create(:person_id => person.id, :address => "test2@example.com")
-      get :check_email_availability_and_validity,  {:person => {:email => "test2@example.com"}, :format => :json}
-      expect(response.body).to eq("true")
-    end
   end
 
   describe "#create" do

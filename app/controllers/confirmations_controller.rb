@@ -1,6 +1,9 @@
 class ConfirmationsController < Devise::ConfirmationsController
 
-  skip_filter :cannot_access_without_joining
+  skip_filter :cannot_access_if_banned,
+              :cannot_access_without_confirmation,
+              :ensure_consent_given,
+              :ensure_user_belongs_to_community
 
   # This is directly copied from Devise::ConfirmationsController
   # to be able to handle better the situations of resending confirmation and
@@ -13,9 +16,9 @@ class ConfirmationsController < Devise::ConfirmationsController
     # Change the email address
     if email_param_present && ! @current_user.has_email?(params[:person][:email]) && @current_community
       # If user submitted the email change form, change the email before sending again.
-      if Email.email_available?(params[:person][:email])
+      if Email.email_available?(params[:person][:email], @current_community.id)
         if @current_community.email_allowed?(params[:person][:email])
-          email = Email.create(:person => @current_user, :address => params[:person][:email], :send_notifications => true)
+          email = Email.create(:person => @current_user, :address => params[:person][:email], :send_notifications => true, community_id: @current_community.id)
           Email.send_confirmation(email, @current_community)
           flash[:notice] = t("sessions.confirmation_pending.check_your_email")
           redirect_to :controller => "sessions", :action => "confirmation_pending" and return

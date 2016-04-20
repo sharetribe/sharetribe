@@ -25,5 +25,13 @@ module FeatureFlagService::API
     def get(community_id:)
       Result::Success.new(@feature_flag_store.get(community_id))
     end
+
+    def enabled?(community_id:, feature:)
+      if community_id
+        Result::Success.new(@feature_flag_store.get(community_id)[:features].include?(feature))
+      else
+        Result::Success.new(false)
+      end
+    end
   end
 end
