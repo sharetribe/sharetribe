@@ -223,16 +223,12 @@ class Person < ActiveRecord::Base
   end
 
   def self.username_available?(username, community_id)
-    if FeatureFlagService::API::Api.features.enabled?(community_id: community_id, feature: :new_login).data
-     !username.in?(USERNAME_BLACKLIST) &&
-     !Person
-       .joins(:community_memberships)
-       .where("username = :username AND (is_admin = '1' OR community_memberships.community_id = :cid)", username: username, cid: community_id)
-       .present?
-    else
-      !username.in?(USERNAME_BLACKLIST) && !Person.find_by(username: username).present?
-    end
-   end
+    !username.in?(USERNAME_BLACKLIST) &&
+      !Person
+        .joins(:community_memberships)
+        .where("username = :username AND (is_admin = '1' OR community_memberships.community_id = :cid)", username: username, cid: community_id)
+        .present?
+  end
 
   # Deprecated: This is view logic (how to display name) and thus should not be in model layer
   # Consider using PersonViewUtils

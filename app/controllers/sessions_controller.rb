@@ -116,29 +116,18 @@ class SessionsController < ApplicationController
       person.update_facebook_data(data.id)
       flash[:notice] = t("devise.omniauth_callbacks.success", :kind => "Facebook")
       sign_in_and_redirect person, :event => :authentication
+    elsif data.email.blank?
+      flash[:error] = t("layouts.notifications.could_not_get_email_from_facebook")
+      redirect_to sign_up_path and return
     else
-      # TODO: Remove also the surrounding if check when removing the feature check
-      # Afterwards, only the logic for creating user is needed
-      # rubocop:disable Style/IfInsideElse
-      if feature_enabled?(:new_login) || persons.empty?
-        if data.email.blank?
-          flash[:error] = t("layouts.notifications.could_not_get_email_from_facebook")
-          redirect_to sign_up_path and return
-        end
+      facebook_data = {"email" => data.email,
+                       "given_name" => data.first_name,
+                       "family_name" => data.last_name,
+                       "username" => data.username,
+                       "id"  => data.id}
 
-        facebook_data = {"email" => data.email,
-                         "given_name" => data.first_name,
-                         "family_name" => data.last_name,
-                         "username" => data.username,
-                         "id"  => data.id}
-
-        session["devise.facebook_data"] = facebook_data
-        redirect_to :action => :create_facebook_based, :controller => :people
-      else
-        flash[:error] = "Cannot create a new user, user already exists with Facebook account."
-        redirect_to sign_up_path
-      end
-      # rubocop:enable StyleIfInsideElse
+      session["devise.facebook_data"] = facebook_data
+      redirect_to :action => :create_facebook_based, :controller => :people
     end
   end
 

@@ -64,7 +64,12 @@ class IntApi::MarketplacesController < ApplicationController
     ProspectEmail.create(:email => params[:email])
 
     response.status = 200
-    render :json => {:email => email, :available => (Email.email_available?(email, nil))} and return
+
+    # TODO Remove response body
+    #
+    # Now that the email is always available there's no need for response body
+    #
+    render :json => {:email => email, :available => true} and return
   end
 
   private
