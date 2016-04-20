@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408070005) do
+ActiveRecord::Schema.define(version: 20160420100304) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -205,6 +205,7 @@ ActiveRecord::Schema.define(version: 20160408070005) do
     t.datetime "favicon_updated_at"
     t.integer  "default_min_days_between_community_updates", limit: 4,     default: 7
     t.boolean  "listing_location_required",                                default: false
+    t.text     "custom_head_script",                         limit: 65535
     t.boolean  "follow_in_use",                                            default: true,                      null: false
     t.boolean  "logo_processing"
     t.boolean  "wide_logo_processing"
@@ -214,7 +215,6 @@ ActiveRecord::Schema.define(version: 20160408070005) do
     t.string   "dv_test_file_name",                          limit: 64
     t.string   "dv_test_file",                               limit: 64
     t.boolean  "deleted"
-    t.text     "custom_head_script",                         limit: 65535
   end
 
   add_index "communities", ["domain"], name: "index_communities_on_domain", using: :btree
@@ -354,7 +354,7 @@ ActiveRecord::Schema.define(version: 20160408070005) do
   create_table "custom_fields", force: :cascade do |t|
     t.string   "type",           limit: 255
     t.integer  "sort_priority",  limit: 4
-    t.boolean  "search_filter",              default: false, null: false
+    t.boolean  "search_filter",              default: true,  null: false
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
     t.integer  "community_id",   limit: 4
