@@ -51,7 +51,7 @@ class SessionsController < ApplicationController
 
     session[:form_login] = nil
 
-    unless terms_accepted?(@current_user, @current_community) || @current_user.is_admin?
+    unless @current_user.is_admin? || terms_accepted?(@current_user, @current_community)
       sign_out @current_user
       session[:temp_cookie] = "pending acceptance of new terms"
       session[:temp_person_id] =  @current_user.id
