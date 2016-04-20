@@ -1401,6 +1401,7 @@ nb:
         zero: "Nettstedet vil nå gå offline for vedlikehold"
         one: "Nettstedet vil være offline i %{count} minutt"
         other: "Nettstedet vil være offline i %{count} minutter"
+      automatically_logged_out_please_sign_in: ~
     settings:
       account: Brukerkonto
       notifications: Varslinger
