@@ -227,7 +227,7 @@ class Person < ActiveRecord::Base
      !username.in?(USERNAME_BLACKLIST) &&
      !Person
        .joins(:community_memberships)
-       .where("username = ? AND community_memberships.community_id = ?", username, community_id)
+       .where("username = :username AND (is_admin = '1' OR community_memberships.community_id = :cid)", username: username, cid: community_id)
        .present?
     else
       !username.in?(USERNAME_BLACKLIST) && !Person.find_by(username: username).present?
