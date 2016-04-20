@@ -103,7 +103,7 @@ da-DK:
         small_cover_photo_instructions_text_with_dimensions: "Billedet vil blive skaleret til %{width}x%{height}px og større billede vil blive beskåret i midten."
         main_content_width: "Når du vælger et coverbillede, så læg mærke til at siden hovedindhold er %{main_width} pixels bredde ved største skærm. Husk at tjekke om coverbilledet sær normalt ud på mindre skærme (f.eks ved at gøre browser vinduet mindre)."
         custom_color1_instructions_text: "Du kan ændre brugerfladens primære farve ved at indtaste en hex-farvekode. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> kan hjælpe dig med at vælge en farve og bagefter kan du kopiere farvekoden hertil."
-        custom_color2_instructions_text: ~
+        custom_color2_instructions_text: "Du kan ændre farven på %{post_new_listing} knappen ved at indtaste en hex farve værdi. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\"> ColorPicker.com </a> kan hjælpe dig med at vælge farven og kopier koden hertil."
         default_browse_view: "Standard visning"
         default_browse_view_instructions_text: "Standard visningen er brugt på forsiden, og er den måde annoncerne bliver præsenteret på."
         grid: Rude
@@ -197,7 +197,7 @@ da-DK:
         fr-CA: "Fransk (Canada)"
         es: "Spansk (Chile)"
         es-ES: Spansk
-        pt-PT: ~
+        pt-PT: Portugisisk
         pt-BR: Portugisisk
         nb: "Norsk Bokmål"
         sv: Svensk
@@ -220,11 +220,11 @@ da-DK:
         users_can_invite_new_users: "Alle brugere kan invitere nye brugere til denne markedsplads"
         private: "Denne markedsplads er privat (kun registrerede brugere kan se indhold)"
         require_verification_to_post_listings: "Kun brugere godkendt af administratoren kan oprette nye annoncer"
-        search_preferences: ~
-        default_search_type: ~
-        keyword_search: ~
-        location_search: ~
-        select_distance_unit: ~
+        search_preferences: "Søge præferencer"
+        default_search_type: "Søgetype: %{select_search_type}"
+        keyword_search: "Nøgleord søgning"
+        location_search: "Lokations søgning"
+        select_distance_unit: "Vis afstend i %{distance_units_selector}"
         km: km
         miles: mil
         listing_preferences: Annonceindstillinger
@@ -353,9 +353,9 @@ da-DK:
           this_field_is_required: "Dette felt er påkrævet."
           this_field_is_required_checkbox: "Dette felt er påkrævet (Bruger skal minimum vælge en)"
         search_filter:
-          search_filter: ~
-          date_cant_be_filtered: ~
-          text_cant_be_filtered: ~
+          search_filter: "Vise et filter baseret på dette felt på hjemmesiden"
+          date_cant_be_filtered: "Der er ingen filter til rådighed for datofeltet."
+          text_cant_be_filtered: "Der er ingen filter for tekst felt. Hoved tekst søgningen søger fra tekstfelter."
       index:
         listing_fields: Annoncefiltrering
         listing_fields_help: "Her kan du ændre de felter som brugere skal udfylde når de skal oprette en annonce på din markedsplads. Du skal være opmærksom på at nogle felter ikke kan ændres."
@@ -405,7 +405,7 @@ da-DK:
       emails_title: Emails
       support: support
       subscription: Abonnement
-      preview: ~
+      preview: "Vis eksempel på min hjemmeside"
     listing_shapes:
       index:
         listing_shapes: "Ordre typer"
@@ -640,10 +640,10 @@ da-DK:
       message_from: "Besked fra %{person}"
       about_listing: "Omhandlende annoncen: %{listing_title}"
       free_message: "Fri tråd"
-      message_content_not_available: ~
+      message_content_not_available: "Besked indhold er ikke tilgængelig"
     message:
       accepted_request: "accepter anmodningen"
-      received_payment: ~
+      received_payment: "accepteret anmodningen, modtaget betaling for %{sum}"
       accepted_offer: "accepter tilbudet"
       rejected_request: "afvis anmodningen"
       rejected_offer: "afvis tilbudet"
@@ -1349,7 +1349,7 @@ da-DK:
       request_rejected: "Anmodning afslået"
       request_canceled: "Anmodning annulleret"
       message_sent: "Besked sendt"
-      message_not_sent: ~
+      message_not_sent: "Det mislykkedes at afsende meddelelsen. Prøv venligst igen."
       this_content_is_not_available_in_this_community: "Dette indhold er ikke tilgængeligt."
       unknown_error: "Ukendt fejl. Brug venligst linket Kontakt os for at sende oplysninger om, hvad der skete."
       update_error: "Der opstod en fejl under forsøg på at opdatere dine oplysninger, kan du prøve igen"
@@ -1392,7 +1392,11 @@ da-DK:
       payment_details_add_error: "Vi kunne ikke tilføje dine betalingsoplysninger"
       listing_author_payment_details_missing: "Kontakt sælger ved at trykke på knappen \"Kontakt\" nedenfor. De skal opdatere deres betalingsoplysninger for at kunne modtage betalinger."
       stylesheet_needs_recompiling: "Stylesheet er ved at blive genoversat. Genindlæs venligst siden om lidt."
-      automatically_logged_out_please_sign_in: ~
+      automatically_logged_out_please_sign_in: "Du er blevet automatisk logget ud. Log venligst ind igen."
+      maintenance_mode:
+        zero: "Dette website vil nu være offline for vedligeholdelse"
+        one: "Dette website vil være offline for vedligeholdelse i %{count} minut"
+        other: "Dette website vil være offline for vedligeholdelse i %{count} minutter"
     settings:
       account: Konto
       notifications: Notifikationer
@@ -1445,7 +1449,7 @@ da-DK:
         repeated: "Gentagen (tilføj tidspunkter og dage i feltet 'detaljeret beskrivelse)"
       description:
         detailed_description: "Detaljeret beskrivelse"
-        youtube_info: ~
+        youtube_info: "Hvis din beskrivelse indeholder YouTube links, vil videoerne blive vist under beskrivelsen."
       destination:
         destination: destiantion
       form_content:
@@ -1476,7 +1480,7 @@ da-DK:
         this_may_take_a_while: "(dette kan tage et øjeblik)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Billedeupload fejlede"
-        image_processing_failed: ~
+        image_processing_failed: "Billedbehandling mislykkedes"
         file_too_large: "Filen er for stor"
         accepted_formats: "Billedet skal være i GIF, JPG eller PNG format."
         images_not_uploaded_confirm: "Alle billeder er ikke uploadet endnu. Ønsker du virkelig at fortsætte?"
@@ -1647,7 +1651,7 @@ da-DK:
       shipping_price_additional: "Forsendelse (+%{price}, yderligere emner: +%{shipping_price_additional})"
       pickup: Afhentning
       pickup_no_price: Afhentning
-      youtube_video_player: ~
+      youtube_video_player: "YouTube video afspiller"
     unit_types:
       piece: enhed
       hour: time
@@ -1723,7 +1727,7 @@ da-DK:
     commission_permission_needed: "Du skal også give %{service_name} tilladelse til at opkræve et transaktionsgebyr."
     create_paypal_account_link_text: PayPal-konto
     connected_account: "Din PayPal-konto '%{email}' er nu tilknyttet."
-    paypal_receive_funds_info_label_australia_only: ~
+    paypal_receive_funds_info_label_australia_only: "Din PayPal-konto skal være i stand til at modtage betalinger. Dette kan kræve en Premier- eller Business-konto."
     paypal_receive_funds_info_label: "Din PayPal-konto skal kunne modtage betalinger. Dette kræver en PayPal erhvervskonto."
     paypal_receive_funds_info: "Hvis du ser en fejl når du forsøger at forbinde din konto til %{service_name}, skal du opgradere din PayPal-konto ved at %{upgrade_paypal_account_link}. Det er gratis og nemt. Hvis du er en privatperson, anbefaler PayPal at du anvender dit navn som firmanavn."
     upgrade_paypal_account_link_text: "logge ind og klikke på linket opgradering"

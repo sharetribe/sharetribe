@@ -1373,7 +1373,7 @@ it:
         zero: "Il sito web sarà messo ora offline per manutenzione."
         one: "Il sito web sarà offline per manutenzione per %{count} minuto."
         other: "Il sito web sarà offline per %{count} minuti."
-      automatically_logged_out_please_sign_in: ~
+      automatically_logged_out_please_sign_in: "Log out automatico. Per favore effettua nuovamente il login."
     settings:
       account: Account
       notifications: Notifiche

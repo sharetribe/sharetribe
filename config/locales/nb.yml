@@ -405,7 +405,7 @@ nb:
       emails_title: E-poster
       support: Support
       subscription: Påmelding
-      preview: ~
+      preview: "Forhåndsvis mitt nettsted"
     listing_shapes:
       index:
         listing_shapes: Annonsetype
@@ -1402,7 +1402,7 @@ nb:
         zero: "Nettstedet vil nå gå offline for vedlikehold"
         one: "Nettstedet vil være offline i %{count} minutt"
         other: "Nettstedet vil være offline i %{count} minutter"
-      automatically_logged_out_please_sign_in: ~
+      automatically_logged_out_please_sign_in: "Du har blitt logget ut automatisk. Vennligst logg inn igjen."
     settings:
       account: Brukerkonto
       notifications: Varslinger

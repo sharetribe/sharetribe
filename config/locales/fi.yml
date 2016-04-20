@@ -405,6 +405,7 @@ fi:
       emails_title: Sähköpostit
       support: Asiakastuki
       subscription: Tilaus
+      preview: ~
     listing_shapes:
       index:
         listing_shapes: Tilaustavat
@@ -1399,6 +1400,7 @@ fi:
         zero: "Sivusto menee nyt offline-tilaan huoltoa varten"
         one: "Sivusto menee %{count} minuutin kuluttua offline-tilaan huoltoa varten"
         other: "Sivusto menee %{count} minuutin kuluttua offline-tilaan huoltoa varten"
+      automatically_logged_out_please_sign_in: ~
     settings:
       account: "Tilin tiedot"
       notifications: Tiedotteet
