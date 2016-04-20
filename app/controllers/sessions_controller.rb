@@ -106,7 +106,7 @@ class SessionsController < ApplicationController
               .references(:emails)
               .where(["people.facebook_id = ? OR emails.address = ?", data.id, data.email]).uniq
 
-    people_in_this_community = persons.select { |p| p.community_memberships.map(&:community_id).include?(@current_community.id) }
+    people_in_this_community = persons.select { |p| p.is_admin? || p.community_memberships.map(&:community_id).include?(@current_community.id) }
     person_by_fb_id = people_in_this_community.find { |p| p.facebook_id == data.id }
     person_by_email = people_in_this_community.find { |p| p.emails.any? { |e| e.address == data.email && e.confirmed_at.present? } }
 
