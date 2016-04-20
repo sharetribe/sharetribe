@@ -47,19 +47,11 @@ module DatabaseAuthenticatableHelpers
   # private
 
   def find_by_username_or_email(login, community_id)
-    find_by_username(login, community_id) || find_by_email(login, community_id)
-  end
-
-  def find_by_username(login, community_id)
     Person
-      .joins(:community_memberships)
-      .find_by(username: login, community_memberships: { community_id: community_id })
-  end
-
-  def find_by_email(login, community_id)
-    Person
-      .joins(:emails, :community_memberships)
-      .find_by(emails: { address: login}, community_memberships: { community_id: community_id })
+      .joins(:community_memberships, :emails)
+      .where(["(people.is_admin = '1' OR community_memberships.community_id = ?) AND (people.username = ? OR emails.address = ?)",
+              community_id, login, login])
+      .first
   end
 end
 
