@@ -88,7 +88,7 @@ class Admin::PaypalPreferencesController < ApplicationController
       state_changed = Admin::OnboardingWizard.new(@current_community.id)
         .update_from_event(:paypal_preferences_updated, @current_community)
       if state_changed
-        report_to_gtm({event: "onboarding_paypal_connected"})
+        report_to_gtm({event: "km_record", km_event: "Onboarding paypal connected"})
       end
 
       flash[:notice] = t("admin.paypal_accounts.preferences_updated")

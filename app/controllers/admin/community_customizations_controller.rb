@@ -58,7 +58,7 @@ class Admin::CommunityCustomizationsController < ApplicationController
       state_changed = Admin::OnboardingWizard.new(@current_community.id)
         .update_from_event(:community_customizations_updated, customizations)
       if state_changed
-        report_to_gtm({event: "onboarding_slogan_and_description_created"})
+        report_to_gtm({event: "km_record", km_event: "Onboarding slogan/description created"})
       end
 
       flash[:notice] = t("layouts.notifications.community_updated")

@@ -305,10 +305,10 @@ class ListingsController < ApplicationController
         ).html_safe
 
         # Onboarding wizard step recording
-        stateh_changed = Admin::OnboardingWizard.new(@current_community.id)
+        state_changed = Admin::OnboardingWizard.new(@current_community.id)
           .update_from_event(:listing_created, @listing)
         if state_changed
-          report_to_gtm({event: "onboarding_listing_created"})
+          report_to_gtm({event: "km_record", km_event: "Onboarding listing created"})
         end
 
         redirect_to @listing, status: 303 and return
