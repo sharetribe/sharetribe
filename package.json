@@ -8,8 +8,5 @@
     "postinstall": "cd client && npm install",
     "clean": "rm -f app/assets/webpack/*"
   },
-  "cacheDirectories": ["node_modules", "client/node_modules"],
-  "devDependencies": {
-    "phantomjs": "2.1.7"
-  }
+  "cacheDirectories": ["node_modules", "client/node_modules"]
 }
