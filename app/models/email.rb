@@ -15,7 +15,6 @@
 #
 # Indexes
 #
-#  index_emails_on_community_id  (community_id)
 #  index_emails_on_address                   (address)
 #  index_emails_on_address_and_community_id  (address,community_id) UNIQUE
 #  index_emails_on_community_id              (community_id)
