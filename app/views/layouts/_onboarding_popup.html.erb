@@ -1,0 +1,16 @@
+<% content_for :javascript do %>
+  $('#<%= id %>').lightbox_me({ centered: true, zIndex: 1000000 });
+<% end %>
+<img src=<%= image %> class="onboarding-popup__image" />
+<div class="onboarding-popup__title">
+  <%= title %>
+</div>
+<div class="onboarding-popup__body">
+  <%= body.html_safe %>
+</div>
+<a class="onboarding-popup__action" href="<%= action_link%>">
+  <%= action_label %>
+</a>
+<a class="onboarding-popup__skip">
+  I'll do it later, thanks
+</a>

@@ -1,0 +1,49 @@
+#onboarding-popup {
+  max-width: 500px;
+  width: 90%;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.onboarding-popup__image {
+  margin-top: 2em;
+}
+
+.onboarding-popup__title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #171717;
+  line-height: 30px;
+  margin-top: 1em;
+}
+
+.onboarding-popup__body {
+  font-size: 16px;
+  font-weight: normal;
+  color: #3c3c3c;
+  line-height: 24px;
+  max-width: 550px;
+  width: 90%;
+  margin: 1em auto;
+}
+
+.onboarding-popup__action {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #59b3a2;
+  padding: 10px 30px;
+  color: white;
+  border-radius: 5px;
+  margin-top: 1em;
+}
+
+.onboarding-popup__skip {
+  display: block;
+  font-size: 13px;
+  font-weight: regular;
+  color: #808080;
+  line-height: 21px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}

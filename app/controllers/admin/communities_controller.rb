@@ -239,6 +239,7 @@ class Admin::CommunitiesController < ApplicationController
         .update_from_event(:community_updated, community)
       if state_changed
         report_to_gtm({event: "km_record", km_event: "Onboarding cover photo uploaded"})
+        flash[:onboarding_popup] = :update_look_and_feel
       end
     }
   end
