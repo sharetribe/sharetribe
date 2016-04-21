@@ -36,8 +36,13 @@ class InvitationsController < ApplicationController
 
       if invitation.save
         Delayed::Job.enqueue(InvitationCreatedJob.new(invitation.id, @current_community.id))
-        Admin::OnboardingWizard.new(@current_community.id)
+
+        # Onboarding wizard step recording
+        state_changed = Admin::OnboardingWizard.new(@current_community.id)
           .update_from_event(:invitation_created, invitation)
+        if state_changed
+          report_to_gtm({event: "onboarding_invitation_created"})
+        end
       else
         sending_problems = true
       end

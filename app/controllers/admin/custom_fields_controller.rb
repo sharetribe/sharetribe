@@ -120,8 +120,12 @@ class Admin::CustomFieldsController < ApplicationController
       end
 
     if success
-      Admin::OnboardingWizard.new(@current_community.id)
+      # Onboarding wizard step recording
+      state_changed = Admin::OnboardingWizard.new(@current_community.id)
         .update_from_event(:custom_field_created, @custom_field)
+      if state_changed
+        report_to_gtm({event: "onboarding_filter_created"})
+      end
 
       redirect_to admin_custom_fields_path
     else
