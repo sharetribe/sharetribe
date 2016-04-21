@@ -249,16 +249,22 @@ class PeopleController < Devise::RegistrationsController
         person_params[:location] = loc.merge(location_type: :person)
       }
 
-      if target_user.update_attributes(person_params)
+      m_email_address = Maybe(person_params)[:email_attributes][:address]
+      m_email_address.each { |new_email_address|
+        # This only builds the emails, they will be saved when `update_attributes` is called
+        target_user.emails.build(address: new_email_address, community_id: @current_community.id)
+      }
+
+      if target_user.update_attributes(person_params.except(:email_attributes))
         if params[:person][:password]
           #if password changed Devise needs a new sign in.
           sign_in target_user, :bypass => true
         end
 
-        if params[:person][:email_attributes] && params[:person][:email_attributes][:address]
+        m_email_address.each {
           # A new email was added, send confirmation email to the latest address
           Email.send_confirmation(target_user.emails.last, @current_community)
-        end
+        }
 
         flash[:notice] = t("layouts.notifications.person_updated_successfully")
 
