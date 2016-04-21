@@ -45,3 +45,13 @@ Response 200 Ok, body:
 }
 ```
 
+## POST /int_api/prospect_emails
+
+Request body:
+
+```ruby
+{ email: "eddie.ejemplo@example.com"
+}
+```
+
+Response 200 OK, empty body

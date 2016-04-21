@@ -54,8 +54,9 @@ class IntApi::MarketplacesController < ApplicationController
     render status: 201, json: {"marketplace_url" => url, "marketplace_id" => marketplace[:id]}
   end
 
-  # This could be more logical in different controller, but as implementing
-  # at this point only tiny int-api with 2 methods, using one controller
+  # TODO Remove this resource once the
+  # marketings site starts using the
+  # create_prospect_email resource
   def check_email_availability
     email = params[:email]
     render :json => ["email parameter missing"], :status => 400 and return if email.blank?
@@ -65,11 +66,16 @@ class IntApi::MarketplacesController < ApplicationController
 
     response.status = 200
 
-    # TODO Remove response body
-    #
-    # Now that the email is always available there's no need for response body
-    #
     render :json => {:email => email, :available => true} and return
+  end
+
+  def create_prospect_email
+    email = params[:email]
+    render json: [ "Email missing from payload" ], :status => 400 and return if email.blank?
+
+    ProspectEmail.create(:email => email)
+
+    head 200, content_type: "application/json"
   end
 
   private
