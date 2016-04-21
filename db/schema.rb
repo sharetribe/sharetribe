@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420100304) do
+ActiveRecord::Schema.define(version: 20160420200110) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -399,7 +399,6 @@ ActiveRecord::Schema.define(version: 20160420100304) do
 
   add_index "emails", ["address", "community_id"], name: "index_emails_on_address_and_community_id", unique: true, using: :btree
   add_index "emails", ["address"], name: "index_emails_on_address", using: :btree
-  add_index "emails", ["community_id"], name: "index_emails_on_community_id", using: :btree
   add_index "emails", ["person_id"], name: "index_emails_on_person_id", using: :btree
 
   create_table "feature_flags", force: :cascade do |t|
