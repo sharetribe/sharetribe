@@ -11,20 +11,42 @@ class PersonMessagesController < ApplicationController
   end
 
   def create
-    @conversation = new_conversation
-    if @conversation.save
+    validate(params).and_then { |params|
+      save_conversation(params)
+    }.on_success { |conversation|
       flash[:notice] = t("layouts.notifications.message_sent")
-      Delayed::Job.enqueue(MessageSentJob.new(@conversation.messages.last.id, @current_community.id))
+      Delayed::Job.enqueue(MessageSentJob.new(conversation.messages.last.id, @current_community.id))
       redirect_to @recipient
-    else
+    }.on_error {
       flash[:error] = t("layouts.notifications.message_not_sent")
       redirect_to root
-    end
+    }
   end
 
   private
 
-  def new_conversation
+  def validate(params)
+    content_present = Maybe(params)[:conversation][:message_attributes][:content]
+                      .map(&:present?)
+                      .or_else(false)
+
+    if content_present
+      Result::Success.new(params)
+    else
+      Result::Error.new("Message content was empty")
+    end
+  end
+
+  def save_conversation(params)
+    conversation = new_conversation(params)
+    if conversation.save
+      Result::Success.new(conversation)
+    else
+      Result::Error.new("Message saving failed")
+    end
+  end
+
+  def new_conversation(params)
     conversation_params = params.require(:conversation).permit(
       message_attributes: :content
     )
