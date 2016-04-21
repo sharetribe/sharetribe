@@ -53,8 +53,14 @@ class Admin::CommunityCustomizationsController < ApplicationController
     update_results.push(@current_community.update_attributes(transaction_agreement_in_use: transaction_agreement_checked))
 
     if update_results.all? && (!process_locales || enabled_locales_valid)
-      Admin::OnboardingWizard.new(@current_community.id)
+
+      # Onboarding wizard step recording
+      state_changed = Admin::OnboardingWizard.new(@current_community.id)
         .update_from_event(:community_customizations_updated, customizations)
+      if state_changed
+        report_to_gtm({event: "km_record", km_event: "Onboarding slogan/description created"})
+      end
+
       flash[:notice] = t("layouts.notifications.community_updated")
     else
       flash[:error] = t("layouts.notifications.community_update_failed")

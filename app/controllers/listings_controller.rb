@@ -303,8 +303,14 @@ class ListingsController < ApplicationController
           "layouts.notifications.listing_created_successfully",
           :new_listing_link => view_context.link_to(t("layouts.notifications.create_new_listing"),new_listing_path)
         ).html_safe
-        Admin::OnboardingWizard.new(@current_community.id)
+
+        # Onboarding wizard step recording
+        state_changed = Admin::OnboardingWizard.new(@current_community.id)
           .update_from_event(:listing_created, @listing)
+        if state_changed
+          report_to_gtm({event: "km_record", km_event: "Onboarding listing created"})
+        end
+
         redirect_to @listing, status: 303 and return
       else
         logger.error("Errors in creating listing: #{@listing.errors.full_messages.inspect}")

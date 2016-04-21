@@ -233,8 +233,13 @@ class Admin::CommunitiesController < ApplicationController
            edit_look_and_feel_admin_community_path(@current_community),
            :edit_look_and_feel) { |community|
       Delayed::Job.enqueue(CompileCustomStylesheetJob.new(community.id), priority: 3)
-      Admin::OnboardingWizard.new(community.id)
+
+      # Onboarding wizard step recording
+      state_changed = Admin::OnboardingWizard.new(community.id)
         .update_from_event(:community_updated, community)
+      if state_changed
+        report_to_gtm({event: "km_record", km_event: "Onboarding cover photo uploaded"})
+      end
     }
   end
 
