@@ -24,27 +24,6 @@ Response 201 Created, body:
 }
 ```
 
-
-
-## GET /int_api/check_email_availability
-
-Temporary side effect is that the asked email is
-
-Request body:
-
-```ruby
-{ email: "eddie.ejemplo@example.com"
-}
-```
-
-Response 200 Ok, body:
-
-```ruby
-{ email: "eddie.ejemplo@example.com",
-  available: false
-}
-```
-
 ## POST /int_api/prospect_emails
 
 Request body:

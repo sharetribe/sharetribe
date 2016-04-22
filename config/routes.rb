@@ -44,7 +44,6 @@ Kassi::Application.routes.draw do
   # Internal API
   namespace :int_api do
     post "/create_trial_marketplace" => "marketplaces#create"
-    get "/check_email_availability" => "marketplaces#check_email_availability"
     post "/prospect_emails" => "marketplaces#create_prospect_email"
   end
 

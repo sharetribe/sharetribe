@@ -169,20 +169,6 @@ describe IntApi::MarketplacesController, type: :controller do
 
   end
 
-  describe "#check_email_availability" do
-    it "should return correct availability info when email is available" do
-      get :check_email_availability, {:email => "something.not.used@example.com" }
-
-      expect(response.status).to eql 200
-      r = JSON.parse(response.body)
-
-      expect(r["email"]).to eql "something.not.used@example.com"
-      expect(r["available"]).to eql true
-
-      expect(ProspectEmail.last.email).to eql "something.not.used@example.com"
-    end
-  end
-
   describe "#create_prospect_email" do
     it "should add given email as prospect email" do
       post :create_prospect_email, {:email => "something.not.used@example.com" }

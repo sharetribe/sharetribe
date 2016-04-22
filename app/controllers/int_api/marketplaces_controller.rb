@@ -54,21 +54,6 @@ class IntApi::MarketplacesController < ApplicationController
     render status: 201, json: {"marketplace_url" => url, "marketplace_id" => marketplace[:id]}
   end
 
-  # TODO Remove this resource once the
-  # marketings site starts using the
-  # create_prospect_email resource
-  def check_email_availability
-    email = params[:email]
-    render :json => ["email parameter missing"], :status => 400 and return if email.blank?
-
-    # When email availability has been asked, store that email to DB
-    ProspectEmail.create(:email => params[:email])
-
-    response.status = 200
-
-    render :json => {:email => email, :available => true} and return
-  end
-
   def create_prospect_email
     email = params[:email]
     render json: [ "Email missing from payload" ], :status => 400 and return if email.blank?
