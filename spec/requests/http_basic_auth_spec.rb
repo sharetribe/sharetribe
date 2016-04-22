@@ -34,6 +34,11 @@ describe "HTTP basic auth", type: :request do
     expect(response.status).to eq(200)
   end
 
+  it "is bypassed for internal API" do
+    post "/int_api/prospect_emails", email: "test123@example.com"
+    expect(response.status).to eq(200)
+  end
+
   it "is not required when disabled" do
     APP_CONFIG.use_http_auth = false
     get "/"
