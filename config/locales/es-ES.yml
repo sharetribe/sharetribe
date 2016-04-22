@@ -409,6 +409,7 @@ es-ES:
       emails_title: Emails
       support: Soporte
       subscription: Subscripción
+      preview: "Vista Previa"
     listing_shapes:
       index:
         listing_shapes: "Tipos de Orden"
@@ -1401,6 +1402,7 @@ es-ES:
         zero: "La página estará fuera de servicio por mantenimiento"
         one: "La página estará fuera de servicio por mantenimiento en %{count} minuto"
         other: "La página estará fuera de servicio por mantenimiento en %{count} minutos"
+      automatically_logged_out_please_sign_in: "Por favor, inicia sesión de nuevo, ya que tu sesión ha caducado."
     settings:
       account: Cuenta
       notifications: Notificaciones

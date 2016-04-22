@@ -405,6 +405,7 @@ fr:
       emails_title: Emails
       support: Support
       subscription: Abonnement
+      preview: "Prévisualiser le site"
     listing_shapes:
       index:
         listing_shapes: "Types de transaction"
@@ -1399,6 +1400,7 @@ fr:
         zero: "Le site va maintenant être rendu inaccessible pour maintenance"
         one: "Le site sera inaccessible pour maintenance dans %{count} minute"
         other: "Le site sera inaccessible pour maintenance dans %{count} minutes"
+      automatically_logged_out_please_sign_in: "Vous avez été déconnecté automatiquement. Veuillez vous connecter de nouveau."
     settings:
       account: Compte
       notifications: Notifications
