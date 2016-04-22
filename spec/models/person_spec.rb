@@ -3,7 +3,7 @@
 # Table name: people
 #
 #  id                                 :string(22)       not null, primary key
-#  community_id                       :integer
+#  community_id                       :integer          not null
 #  created_at                         :datetime
 #  updated_at                         :datetime
 #  is_admin                           :integer          default(0)
@@ -12,7 +12,7 @@
 #  active_days_count                  :integer          default(0)
 #  last_page_load_date                :datetime
 #  test_group_number                  :integer          default(1)
-#  username                           :string(255)
+#  username                           :string(255)      not null
 #  email                              :string(255)
 #  encrypted_password                 :string(255)      default(""), not null
 #  legacy_encrypted_password          :string(255)
@@ -45,13 +45,15 @@
 #
 # Indexes
 #
-#  index_people_on_authentication_token  (authentication_token)
-#  index_people_on_community_id          (community_id)
-#  index_people_on_email                 (email) UNIQUE
-#  index_people_on_facebook_id           (facebook_id)
-#  index_people_on_id                    (id)
-#  index_people_on_reset_password_token  (reset_password_token) UNIQUE
-#  index_people_on_username              (username)
+#  index_people_on_authentication_token          (authentication_token)
+#  index_people_on_community_id                  (community_id)
+#  index_people_on_email                         (email) UNIQUE
+#  index_people_on_facebook_id                   (facebook_id)
+#  index_people_on_facebook_id_and_community_id  (facebook_id,community_id) UNIQUE
+#  index_people_on_id                            (id)
+#  index_people_on_reset_password_token          (reset_password_token) UNIQUE
+#  index_people_on_username                      (username)
+#  index_people_on_username_and_community_id     (username,community_id) UNIQUE
 #
 
 require 'spec_helper'
