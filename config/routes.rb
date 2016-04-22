@@ -17,14 +17,6 @@ Kassi::Application.routes.draw do
 
   get "/design" => "design#design"
 
-  # styleguide is for testing react components with hot loading
-  if Rails.env.development?
-    namespace :styleguide do
-      get "" => "pages#index"
-      get "example_server_side_redux_app" => "pages#example_server_side_redux_app"
-    end
-  end
-
   # config/routes.rb
   if Rails.env.development?
     mount MailPreview => 'mail_view'
