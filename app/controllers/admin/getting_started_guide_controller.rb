@@ -56,7 +56,8 @@ class Admin::GettingStartedGuideController < ApplicationController
     { onboardingGuidePage: {
         path: sub_path,
         onboarding_data: onboarding_data,
-        name: PersonViewUtils.person_display_name(@current_user, @current_community)
+        name: PersonViewUtils.person_display_name(@current_user, @current_community),
+        translations: I18n.t('admin.onboarding.guide')
       }
     }
   end
