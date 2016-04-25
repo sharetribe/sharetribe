@@ -10,6 +10,7 @@ When updating, always run the following commands to update gem set, database str
 
 ```bash
 bundle install
+npm install
 RAILS_ENV=production rake db:migrate
 RAILS_ENV=production rake sharetribe:generate_customization_stylesheets_immediately
 
@@ -24,6 +25,14 @@ This release adds a new Delayed Job queue "css_compile". All CSS compilations du
 A new worker is added to the Procfile to work for the new queue. If you're hosting in Heroku, you will see a new worker there.
 
 This change doesn't require any changes if you are compiling the stylesheets synchronously using the `rake sharetribe:generate_customization_stylesheets_immediately` command during the deployment. However, if you are compiling the stylesheets asynchronously using the `rake sharetribe:generate_customization_stylesheets` command, then you need to make sure that you have at least one worker working for the "css_compile" queue.
+
+
+React on Rails build environment is added with this change. This means that build environment needs to have node set up. With Heroku this can be set with ```heroku buildpacks:add --index 1 heroku/nodejs```. For other environments - see [npm instructions](https://docs.npmjs.com/getting-started/installing-node), [nvm](https://github.com/creationix/nvm), or [n](https://github.com/tj/n). In addition, production environments should have ```NODE_ENV=production`` set.
+
+After bundle install, you should also install npm packages:
+```bash
+npm install
+```
 
 ## Upgrade from 5.5.0 to 5.6.0
 

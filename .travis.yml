@@ -7,6 +7,8 @@ sudo: false
 cache:
   directories:
   - ~/.bundle
+  - node_modules
+  - client/node_modules
 rvm:
 - 2.2.4
 env:
@@ -14,6 +16,7 @@ env:
   - SUITE="rspec"
   - SUITE="rubocop"
   - SUITE="cucumber"
+  - SUITE="eslint"
   global:
     - BUNDLE_ARCHIVE="travis-bundle-cache"
     - AWS_S3_REGION="us-east-1"

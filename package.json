@@ -3,5 +3,10 @@
   "license": "MIT",
   "engines": {
     "node": "5.10"
-  }
+  },
+  "scripts": {
+    "postinstall": "cd client && npm install",
+    "clean": "rm -f app/assets/webpack/*"
+  },
+  "cacheDirectories": ["node_modules", "client/node_modules"]
 }
