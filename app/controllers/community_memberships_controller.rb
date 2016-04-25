@@ -58,7 +58,7 @@ class CommunityMembershipsController < ApplicationController
         e =
           if @current_user.has_email?(params[:community_membership][:email])
             Email.find_by_address_and_community_id(params[:community_membership][:email], @current_community.id)
-          elsif
+          else
             Email.create(:person => @current_user, :address => params[:community_membership][:email], community_id: @current_community.id)
           end
 
