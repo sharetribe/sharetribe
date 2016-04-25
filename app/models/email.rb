@@ -49,9 +49,10 @@ class Email < ActiveRecord::Base
   # Email already in use for current user or someone else
   def self.email_available?(email, community_id)
    !Email
-     .joins(person: :community_memberships)
-     .where("address = ? AND community_memberships.community_id = ?", email, community_id)
-     .present?
+      .joins("LEFT OUTER JOIN people ON emails.person_id = people.id")
+      .joins("LEFT OUTER JOIN community_memberships ON community_memberships.person_id = people.id")
+      .where("emails.address = :email AND (people.is_admin = '1' OR community_memberships.community_id = :cid)", email: email, cid: community_id)
+      .present?
   end
 
   def self.send_confirmation(email, community)
