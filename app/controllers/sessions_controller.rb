@@ -86,7 +86,13 @@ class SessionsController < ApplicationController
   end
 
   def request_new_password
-    if person = Person.find_by_email_address_and_community_id(params[:email], @current_community.id)
+    person =
+      Person
+      .joins("LEFT OUTER JOIN emails ON emails.person_id = people.id")
+      .joins("LEFT OUTER JOIN community_memberships ON community_memberships.person_id = people.id")
+      .where("emails.address = :email AND (people.is_admin = '1' OR community_memberships.community_id = :cid)", email: params[:email], cid: @current_community.id)
+      .first
+    if person
       token = person.reset_password_token_if_needed
       MailCarrier.deliver_later(PersonMailer.reset_password_instructions(person, params[:email], token, @current_community))
       flash[:notice] = t("layouts.notifications.password_recovery_sent")
