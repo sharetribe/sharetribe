@@ -102,19 +102,12 @@ module UserService::API
       end
     end
 
-    # Privates
-
     def from_model(person)
       hash = HashUtils.compact(
         EntityUtils.model_to_hash(person).merge({
             # This is a spot to modify hash contents if needed
           }))
       return UserService::API::DataTypes.create_user(hash)
-    end
-
-    def generate_username(given_name:, family_name:)
-      base = (given_name.strip + family_name.strip[0]).to_url.delete('-')[0...18]
-      gen_free_name(base, fetch_blacklist(base))
     end
 
     def username_from_fb_data(username:, given_name:, family_name:)
@@ -129,11 +122,19 @@ module UserService::API
       gen_free_name(base, fetch_blacklist(base))
     end
 
+    # private
+
+    def generate_username(given_name:, family_name:)
+      base = (given_name.strip + family_name.strip[0]).to_url.delete('-')[0...18]
+      gen_free_name(base, fetch_blacklist(base))
+    end
+    private_class_method :generate_username
 
     def fetch_blacklist(base)
       taken = Person.where("username LIKE :prefix", prefix: "#{base}%").pluck(:username)
       Person.username_blacklist.concat(taken)
     end
+    private_class_method :fetch_blacklist
 
     def gen_free_name(base, blacklist)
       (1..100000).reduce([base, ""]) do |(base_name, postfix), next_postfix|
@@ -141,7 +142,6 @@ module UserService::API
         [base_name, next_postfix.to_s]
       end
     end
-
+    private_class_method :gen_free_name
   end
-
 end
