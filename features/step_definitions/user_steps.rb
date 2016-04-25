@@ -65,7 +65,7 @@ Given /^my phone number in my profile is "([^"]*)"$/ do |phone_number|
 end
 
 Given /^user "(.*?)" has additional email "(.*?)"$/ do |username, email|
-  Email.create(:person => Person.find_by(username: username), :address => email, :confirmed_at => Time.now)
+  Email.create(:person => Person.find_by(username: username), :address => email, :confirmed_at => Time.now, community_id: @current_community.id)
 end
 
 Given /^there will be and error in my Facebook login$/ do
@@ -90,6 +90,8 @@ end
 Given /^there are following users:$/ do |person_table|
   @people = {}
   person_table.hashes.each do |hash|
+    community = Community.first
+
     defaults = {
       password: "testi",
       given_name: "Test",
@@ -105,20 +107,26 @@ Given /^there are following users:$/ do |person_table|
     }).merge(hash.except('person', 'membership_created_at'))
 
     @hash_person, @hash_session = Person.find_by(username: username) || FactoryGirl.create(:person, person_opts)
+    @hash_person.community_id = community.id
     @hash_person.save!
 
     @hash_person = force_override_model_id(id, @hash_person, Person, [Email]) if id
 
     if hash['email'] then
-      @hash_person.emails = [Email.create(:address => hash['email'], :send_notifications => true, :person => @hash_person, :confirmed_at => DateTime.now)]
+      @hash_person.emails = [Email.create(
+                              address: hash['email'],
+                              send_notifications: true,
+                              person: @hash_person,
+                              confirmed_at: DateTime.now,
+                              community_id: community.id)]
       @hash_person.save!
     end
 
     @hash_person.update_attributes({:preferences => { "email_about_new_comments_to_own_listing" => "true", "email_about_new_messages" => "true" }})
-    cm = CommunityMembership.find_by_person_id_and_community_id(@hash_person.id, Community.first.id) ||
-         CommunityMembership.create(:community_id => Community.first.id,
+    cm = CommunityMembership.find_by_person_id_and_community_id(@hash_person.id, community.id) ||
+         CommunityMembership.create(:community_id => community.id,
                                     :person_id => @hash_person.id,
-                                    :consent => Community.first.consent,
+                                    :consent => community.consent,
                                     :status => "accepted")
     cm.update_attribute(:created_at, membership_created_at) if membership_created_at && !membership_created_at.empty?
 

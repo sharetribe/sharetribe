@@ -83,6 +83,7 @@ FactoryGirl.define do
   factory :person, aliases: [:author, :receiver, :recipient, :payer, :sender, :follower] do
     id
     is_admin 0
+    community_id 1
     locale "en"
     test_group_number 4
     given_name "Proto"
@@ -216,6 +217,7 @@ FactoryGirl.define do
 
   factory :email do
     build_association(:person)
+    community_id 1
     address { generate(:email_address) }
     confirmed_at Time.now
     send_notifications true

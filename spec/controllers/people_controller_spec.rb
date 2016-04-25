@@ -24,7 +24,8 @@ describe PeopleController, type: :controller do
     end
 
     it "should return unavailable if email is in use" do
-      person = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "test@example.com")])
+      person = FactoryGirl.create(:person, community_id: @community.id, :emails => [
+                                    FactoryGirl.create(:email, community_id: @community.id, :address => "test@example.com")])
       FactoryGirl.create(:community_membership,
                          community: @community,
                          person: person,
@@ -36,13 +37,13 @@ describe PeopleController, type: :controller do
       get :check_email_availability,  {:person => {:email_attributes => {:address => "test@example.com"} }, :format => :json}
       expect(response.body).to eq("false")
 
-      Email.create(:person_id => person.id, :address => "test2@example.com")
-      get :check_email_availability,  {:person => {:email_attributes => {:address => "test2@example.com"} }, :format => :json}
+      Email.create(:person_id => person.id, community_id: @community.id, :address => "test2@example.com")
+      get :check_email_availability, {:person => {:email_attributes => {:address => "test2@example.com"} }, :format => :json}
       expect(response.body).to eq("false")
     end
 
     it "should return NOT available for user's own adress" do
-      person = FactoryGirl.create(:person)
+      person = FactoryGirl.create(:person, community_id: @community.id)
       FactoryGirl.create(:community_membership,
                          community: @community,
                          person: person,
@@ -52,7 +53,7 @@ describe PeopleController, type: :controller do
                          status: "accepted")
       sign_in person
 
-      Email.create(:person_id => person.id, :address => "test2@example.com")
+      Email.create(:person_id => person.id, community_id: @community.id, :address => "test2@example.com")
       get :check_email_availability,  {:person => {:email_attributes => {:address => "test2@example.com"} }, :format => :json}
       expect(response.body).to eq("false")
     end
