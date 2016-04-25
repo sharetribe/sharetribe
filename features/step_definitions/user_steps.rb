@@ -65,7 +65,7 @@ Given /^my phone number in my profile is "([^"]*)"$/ do |phone_number|
 end
 
 Given /^user "(.*?)" has additional email "(.*?)"$/ do |username, email|
-  Email.create(:person => Person.find_by(username: username), :address => email, :confirmed_at => Time.now)
+  Email.create(:person => Person.find_by(username: username), :address => email, :confirmed_at => Time.now, community_id: @current_community.id)
 end
 
 Given /^there will be and error in my Facebook login$/ do
