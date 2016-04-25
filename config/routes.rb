@@ -22,6 +22,7 @@ Kassi::Application.routes.draw do
     namespace :styleguide do
       get "" => "pages#index"
       get "example_server_side_redux_app" => "pages#example_server_side_redux_app"
+      get "getting_started_guide(/*all)" => "pages#getting_started_guide#index", as: :getting_started_guide
     end
   end
 

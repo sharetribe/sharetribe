@@ -1,0 +1,5 @@
+<%= render "header" %>
+
+<div class="styleguide-container">
+  <%= react_component("OnboardingGuideApp", props: @app_props_server_render, prerender: true, raise_on_prerender_error: true, trace: true) %>
+</div>
