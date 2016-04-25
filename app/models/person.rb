@@ -634,14 +634,6 @@ class Person < ActiveRecord::Base
     super
   end
 
-  # Overrides method injected from Devise::DatabaseAuthenticatable
-  # Removes legacy pashsword and salt.
-  def reset_password!(*args)
-    self.legacy_encrypted_password = nil
-    self.password_salt
-    super
-  end
-
   private
 
   def digest(password, salt)
