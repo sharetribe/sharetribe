@@ -1,6 +1,12 @@
 import React, { PropTypes } from 'react';
 
 import GuideStatusPage from './GuideStatusPage';
+import GuideSloganAndDescriptionPage from './GuideSloganAndDescriptionPage';
+import GuideCoverPhotoPage from './GuideCoverPhotoPage';
+import GuideFilterPage from './GuideFilterPage';
+import GuidePaypalPage from './GuidePaypalPage';
+import GuideListingPage from './GuideListingPage';
+import GuideInvitationPage from './GuideInvitationPage';
 
 export default class OnboardingGuide extends React.Component {
 
@@ -65,6 +71,48 @@ const selectChild = function selectChild(data, nextStep) {
   const commonTranslations = { back_to_todo: translations.back_to_todo };
 
   switch (path) {
+    case '/slogan_and_description':
+      return { Page: GuideSloganAndDescriptionPage,
+                pageData,
+                translations: Object.assign({},
+                  commonTranslations,
+                  translations.slogan_and_description),
+             };
+    case '/cover_photo':
+      return { Page: GuideCoverPhotoPage,
+                pageData,
+                translations: Object.assign({},
+                  commonTranslations,
+                  translations.cover_photo),
+             };
+    case '/filter':
+      return { Page: GuideFilterPage,
+                pageData,
+                translations: Object.assign({},
+                  commonTranslations,
+                  translations.filter),
+             };
+    case '/paypal':
+      return { Page: GuidePaypalPage,
+                pageData,
+                translations: Object.assign({},
+                  commonTranslations,
+                  translations.paypal),
+             };
+    case '/listing':
+      return { Page: GuideListingPage,
+                pageData,
+                translations: Object.assign({},
+                  commonTranslations,
+                  translations.listing),
+             };
+    case '/invitation':
+      return { Page: GuideInvitationPage,
+                pageData,
+                translations: Object.assign({},
+                  commonTranslations,
+                  translations.invitation),
+             };
     default:
       return { Page: GuideStatusPage,
                 onboarding_data,

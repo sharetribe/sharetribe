@@ -83,3 +83,56 @@ $widthRestrictionPercentage: 90%;
     color: $colorButtonText;
   }
 }
+
+/* Common elements for step related pages */
+.backLink {
+  font-size: $fontSizeSmall;
+  font-weight: 600;
+  color: $colorActionText;
+  margin-bottom: $verticalSpaceTextSmall;
+  display: inline-block;
+  &:hover {
+    color: $colorActionTextHover;
+  }
+}
+
+.infoTextContainer {
+  position: relative;
+  color: $colorInfoText;
+  font-size: $fontSizeInfo;
+  line-height: $lineHeightInfo;
+  margin-top: $verticalSpaceTextInfo;
+  max-width: $widthRestriction;
+  width: widthRestrictionPercentage;
+
+  .infoTextIcon {
+    position: absolute;
+    width: 0.75em;
+    margin-top: 1px;
+  }
+
+  .infoTextContent {
+    padding-left: 1.5em;
+  }
+}
+
+.sloganImageContainer {
+  margin: $verticalSpaceElement 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  padding: 46.72% 0 0 0; /* 46.72% = 100 / (w / h) = 100 / (732 / 342) */
+}
+
+.sloganImage {
+  background-size: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
