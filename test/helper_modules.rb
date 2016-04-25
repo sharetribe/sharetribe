@@ -226,8 +226,10 @@ module TestHelpers
     community3 = Community.where(ident: "test3").first
 
     person1 = FactoryGirl.create(:person,
+                                 community_id: community1.id,
                                  username: "kassi_testperson1",
-                                 emails: [ FactoryGirl.build(:email, :address => "kassi_testperson3@example.com") ],
+                                 emails: [
+                                   FactoryGirl.build(:email, community_id: community1.id, :address => "kassi_testperson3@example.com") ],
                                  is_admin: 0,
                                  locale: "en",
                                  encrypted_password: "$2a$10$WQHcobA3hrTdSDh1jfiMquuSZpM3rXlcMU71bhE1lejzBa3zN7yY2", #"testi"
@@ -237,8 +239,10 @@ module TestHelpers
                                  created_at: "2012-05-04 18:17:04")
 
     person2 = FactoryGirl.create(:person,
+                                 community_id: community2.id,
                                  username: "kassi_testperson2",
-                                 emails: [ FactoryGirl.build(:email, :address => "kassi_testperson4@example.com") ],
+                                 emails: [
+                                   FactoryGirl.build(:email, community_id: community2.id, :address => "kassi_testperson4@example.com") ],
                                  is_admin: false,
                                  locale: "en",
                                  encrypted_password: "$2a$10$WQHcobA3hrTdSDh1jfiMquuSZpM3rXlcMU71bhE1lejzBa3zN7yY2", #"testi"
@@ -257,13 +261,6 @@ module TestHelpers
                       :community=> community1,
                       :admin => 0,
                       :consent => "test_consent0.1",
-                      :last_page_load_date => DateTime.now,
-                      :status => "accepted")
-
-    FactoryGirl.create(:community_membership, :person => person2,
-                      :community => community2,
-                      :admin => 0,
-                      :consent => "KASSI_FI1.0",
                       :last_page_load_date => DateTime.now,
                       :status => "accepted")
 

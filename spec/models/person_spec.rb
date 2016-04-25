@@ -62,7 +62,7 @@ describe Person, type: :model do
 
    before(:all) do
       #These will be created only once for the whole example group
-      @test_person = FactoryGirl.build(:person)
+      @test_person = FactoryGirl.create(:person)
     end
 
     it "should be valid" do
@@ -80,6 +80,7 @@ describe Person, type: :model do
       it "should create a person in Sharetribe DB" do
         username = generate_random_username
         p = Person.create!({:username => username,
+          community_id: 1,
           :password => "testi",
           :email => "#{username}@example.com",
           "given_name" => "Tero",
@@ -94,6 +95,7 @@ describe Person, type: :model do
           p = nil
           expect {
             p = Person.create!({:username => username,
+              community_id: 1,
               :password => "testi",
               :emails => [Email.new(:address => "invalid-email")],
               "given_name" => "Tero",

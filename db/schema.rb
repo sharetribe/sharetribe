@@ -397,6 +397,7 @@ ActiveRecord::Schema.define(version: 20160422123211) do
     t.boolean  "send_notifications"
   end
 
+  add_index "emails", ["address", "community_id"], name: "index_emails_on_address_and_community_id", unique: true, using: :btree
   add_index "emails", ["address"], name: "index_emails_on_address", using: :btree
   add_index "emails", ["community_id"], name: "index_emails_on_community_id", using: :btree
   add_index "emails", ["person_id"], name: "index_emails_on_person_id", using: :btree

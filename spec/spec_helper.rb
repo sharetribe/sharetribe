@@ -100,7 +100,7 @@ else
 end
 
 def create_admin_for(community)
-  person = FactoryGirl.create(:person)
+  person = FactoryGirl.create(:person, community_id: community.id)
   members_count = community.community_memberships.count
   admins_length = community.admins.length
   membership = CommunityMembership.create(community: community, person: person) do |membership|
