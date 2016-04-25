@@ -18,12 +18,9 @@ class SettingsController < ApplicationController
     target_user = Person.find_by_username_and_community_id!(params[:person_id], @current_community.id)
     @selected_left_navi_link = "account"
     target_user.emails.build
-    marketplaces = target_user.community_memberships
-                   .map { |m| Maybe(m.community).name(I18n.locale).or_else(nil) }
-                   .compact
     has_unfinished = TransactionService::Transaction.has_unfinished_transactions(target_user.id)
 
-    render locals: {marketplaces: marketplaces, has_unfinished: has_unfinished, target_user: target_user}
+    render locals: {has_unfinished: has_unfinished, target_user: target_user}
   end
 
   def notifications
