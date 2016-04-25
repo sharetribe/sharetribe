@@ -111,6 +111,8 @@ gem 'demoji', "~> 0.0.5"
 gem 'faraday', '~> 0.9.1'
 gem 'faraday_middleware', '~> 0.10.0'
 
+gem "react_on_rails", "~> 5.1.1"
+
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
   gem 'rails_12factor', '~> 0.0.3'
@@ -127,7 +129,7 @@ end
 
 group :development do
   gem 'rb-fsevent', "~> 0.9.4", require: false
-  gem 'guard-rspec', "~> 4.3.1", require: false
+  gem 'guard-rspec', "~> 4.6.5", require: false
   gem 'annotate', "~> 2.6.5"
   gem 'zeus', '~> 0.15.4', require: false
   gem 'quiet_assets', "~> 1.1.0"
@@ -153,8 +155,9 @@ group :test do
 end
 
 group :development, :test do
-  gem 'pry', '~> 0.9.12.6'
-  gem 'pry-rails', '~> 0.3.2'
-  gem 'pry-nav', '~> 0.2.3'
-  gem 'pry-stack_explorer', '~> 0.4.9.1'
+  gem 'pry-byebug'
+  gem 'awesome_rails_console', '~> 0.4.0'
 end
+
+
+gem 'therubyracer', '~> 0.12.2', platforms: :ruby
