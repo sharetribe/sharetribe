@@ -22,7 +22,7 @@ OnbardingGuideContainer.propTypes = {
     onboarding_data: PropTypes.objectOf(PropTypes.shape({
       infoImage: PropTypes.string.isRequired,
       link: PropTypes.string.isRequired,
-      status: PropTypes.bool.isRequired,
+      complete: PropTypes.bool.isRequired,
     }).isRequired).isRequired,
   }).isRequired,
 };

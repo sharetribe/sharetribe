@@ -1,0 +1,85 @@
+$widthRestriction: 550px;
+$widthRestrictionPercentage: 90%;
+
+.title {
+  font-size: $fontSizeTitle;
+  font-weight: 600;
+  color: $colorTitle;
+  line-height: $lineHeightTitle;
+}
+.description {
+  font-size: $fontSize;
+  font-weight: 400;
+  color: $color;
+  line-height: $lineHeight;
+  max-width: $widthRestriction;
+  width: $widthRestrictionPercentage;
+  margin-bottom: $verticalSpaceText;
+}
+
+.sectionSeparator {
+  margin: $verticalSpaceElementBig 0;
+  height: 1px;
+  border-bottom: solid 1px rgba(0,0,0,0.1);
+}
+
+/* GuideStatusPage */
+.stepList {
+  padding-left: 0;
+  margin-bottom: $verticalSpaceText;
+}
+
+.stepListItem, .stepListItemDone {
+  list-style: none;
+}
+
+.stepListCheckbox {
+  background-image: url('../../assets/images/iconSquare@2x.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position-y: 1px;
+  display: inline-block;
+  width: $fontSize;
+  height: $fontSize;
+  margin-right: 0.5em;
+}
+.stepListItemDone .stepListCheckbox {
+  background-image: url('../../assets/images/iconSquareChecked@2x.png');
+  @extend .stepListCheckbox;
+}
+
+.stepListLink {
+  font-size: $fontSizeBig;
+  font-weight: 600;
+  color: $colorActionText;
+  line-height: $lineHeightBig;
+
+  &:hover {
+    color: $colorActionTextHover;
+  }
+}
+.stepListItemDone .stepListLink {
+  text-decoration: line-through;
+  color: $colorCompleted;
+  &:hover {
+    color: $colorCompletedHover;
+  }
+}
+
+.nextButton {
+  display: inline-block;
+  margin: $verticalSpaceElement 0;
+  border: 0;
+  border-radius: 5px;
+  font-size: $fontSize;
+  font-weight: 600;
+  text-decoration: none;
+  color: $colorButtonText;
+  background-color: $colorButton;
+  padding: $paddingButtonVertical $paddingButtonHorizontal;
+
+  &:hover {
+    background-color: $colorButtonHover;
+    color: $colorButtonText;
+  }
+}

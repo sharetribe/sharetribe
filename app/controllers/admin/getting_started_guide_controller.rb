@@ -47,15 +47,14 @@ class Admin::GettingStartedGuideController < ApplicationController
       }
     }
 
-    onboarding_data = links_to_rails_routes.map { |k, v|
-      v[:status] = onboarding_status[k]
-      { k => v }
-    }.reduce(:merge)
+    sorted_steps = OnboardingViewUtils.sorted_steps(onboarding_status)
+      .map { |step| step.merge(links_to_rails_routes[step[:step]])}
+      .inject({}) { |r, i| r[i[:step]] = i.except(:step); r }
 
     # This is the props used by the React component.
     { onboardingGuidePage: {
         path: sub_path,
-        onboarding_data: onboarding_data,
+        onboarding_data: sorted_steps,
         name: PersonViewUtils.person_display_name(@current_user, @current_community),
         translations: I18n.t('admin.onboarding.guide')
       }
