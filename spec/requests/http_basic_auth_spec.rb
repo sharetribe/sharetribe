@@ -30,11 +30,6 @@ describe "HTTP basic auth", type: :request do
   end
 
   it "is bypassed for internal API" do
-    get "/int_api/check_email_availability", email: "test123@example.com"
-    expect(response.status).to eq(200)
-  end
-
-  it "is bypassed for internal API" do
     post "/int_api/prospect_emails", email: "test123@example.com"
     expect(response.status).to eq(200)
   end
