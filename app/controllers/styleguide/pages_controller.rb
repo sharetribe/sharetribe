@@ -78,5 +78,21 @@ class Styleguide::PagesController < ApplicationController
       }
     }
 
+    @topbar_props = {
+      translations: {
+        progress_label: "Marketplace progress",
+        next_step: "Next",
+        slogan_and_description: "Add Slogan / Description",
+        cover_photo: "Upload cover photo",
+        filter: "Add Fields / Filters",
+        paypal: "Accept payments",
+        listing: "Add a listing",
+        invitation: "Invite users"
+      },
+      progress: 83,
+      nextStep: 'paypal',
+      guideRoot: "/fi/admin/communities/501/getting_started_guide"
+    }
+
   end
 end

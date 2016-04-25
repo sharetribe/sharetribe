@@ -1,13 +1,18 @@
+$topbarShadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.06);
+$gradientStart: rgb(89,179,162);
+$gradientEnd: rgb(89,165,179);
+
 .topbarContainer {
   width: 100%;
   max-width: 120em;
   color: white;
   padding-top: 1.2em;
   padding-bottom: 1.2em;
-  background-image: -moz-linear-gradient( 180deg, rgb(89,179,162) 0%, rgb(89,165,179) 100%);
-  background-image: -webkit-linear-gradient( 180deg, rgb(89,179,162) 0%, rgb(89,165,179) 100%);
-  background-image: -ms-linear-gradient( 180deg, rgb(89,179,162) 0%, rgb(89,165,179) 100%);
-  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.06);
+  // todo: remove when we get postcss running
+  background-image: -moz-linear-gradient( 180deg, $gradientStart 0%, $gradientEnd 100%);
+  background-image: -webkit-linear-gradient( 180deg, $gradientStart 0%, $gradientEnd 100%);
+  background-image: -ms-linear-gradient( 180deg, $gradientStart 0%, $gradientEnd 100%);
+  box-shadow: $topbarShadow;
 }
 
 .topbar {
@@ -37,7 +42,7 @@
 
 .progressBar {
   background-color: rgb(184, 234, 225);
-  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.06);
+  box-shadow: $topbarShadow;
   height: 100%;
   border-radius: 0.5em;
   transition: width 2s;
@@ -48,7 +53,7 @@
     display: none;
   }
   display: inline-block;
-  background-color: #4c988a;
+  background-color: rgb(76, 152, 138);
   box-shadow: inset 0px 3px 8px 0px rgba(0, 0, 0, 0.17);
   height: 1em;
   position: relative;
@@ -72,7 +77,7 @@
 .nextButton {
   display: inline-block;
   font-weight: 600;
-  padding: 10px 15px;
+  padding: 0.6em 1em;
   border: 1px solid rgba(255,255,255,0.5);
   border-radius: 5px;
   text-decoration: none;

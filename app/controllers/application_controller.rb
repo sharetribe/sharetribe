@@ -43,9 +43,6 @@ class ApplicationController < ActionController::Base
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
   before_filter :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
 
-  # Onboarding wizard top bar
-  before_filter :get_onboarding_status
-
   #this shuold be last
   before_filter :push_reported_analytics_event_to_js
   before_filter :push_reported_gtm_data_to_js
@@ -455,13 +452,6 @@ class ApplicationController < ActionController::Base
     @minutes_to_maintenance = NextMaintenance.minutes_to(now)
   end
 
-  def get_onboarding_status
-    if @is_current_community_admin
-      #TODO: maybe not with global variable?
-      @onboarding_status = Admin::OnboardingWizard.new(@current_community).setup_status
-    end
-  end
-
   private
 
   # Override basic instrumentation and provide additional info for lograge to consume
@@ -611,6 +601,19 @@ class ApplicationController < ActionController::Base
   def setup_logger!(metadata)
     logger.add_metadata(metadata)
   end
+
+  def onboarding_topbar_props
+    community_id = @current_community.id
+    onboarding_status = Admin::OnboardingWizard.new(community_id).setup_status
+    {
+      translations: t('admin.onboarding.topbar'),
+      guideRoot: getting_started_guide_admin_community_path(id: @current_community.id),
+      progress: OnboardingViewUtils.progress(onboarding_status),
+      nextStep: OnboardingViewUtils.next_incomplete_step(onboarding_status)
+    }
+  end
+
+  helper_method :onboarding_topbar_props
 
   # Fetch temporary flags from params and session
   def self.fetch_temp_flags(is_admin, params, session)

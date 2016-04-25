@@ -1,69 +1,28 @@
 import React, { PropTypes } from 'react';
+import { translate } from '../../utils/i18n';
 
 import css from './OnboardingTopBar.scss';
 
+function next(nextStep, guideRoot, t) {
+  return nextStep ? {
+    title: t(nextStep),
+    link: `${guideRoot}/${nextStep}`,
+  } : null;
+}
+
 class OnboardingTopBar extends React.Component {
 
-  t(translationKey) {
-    return this.props.translations[translationKey];
-  }
-
-  next() {
-    if (!this.props.status.slogan_and_description) {
-      return {
-        title: this.t('add_slogan'),
-        link: this.props.guide_root + '/slogan_and_description',
-      };
-    } else if (!this.props.status.cover_photo) {
-      return {
-        title: this.t('add_cover'),
-        link: this.props.guide_root + '/cover_photo',
-      };
-    } else if (!this.props.status.filter) {
-      return {
-        title: this.t('add_filters'),
-        link: this.props.guide_root + '/filter',
-      };
-    } else if (!this.props.status.paypal) {
-      return {
-        title: this.t('add_payments'),
-        link: this.props.guide_root + '/paypal',
-      };
-    } else if (!this.props.status.listing) {
-      return {
-        title: this.t('add_listing'),
-        link: this.props.guide_root + '/listing',
-      };
-    } else if (!this.props.status.invitation) {
-      return {
-        title: this.t('invite_users'),
-        link: this.props.guide_root + '/invitation',
-      };
-    }
-    return null;
-  }
-
-  progress() {
-    const steps = Object.keys(this.props.status).filter((entry) =>
-      ['slogan_and_description',
-       'cover_photo',
-       'filter',
-       'paypal',
-       'listing',
-       'invitation'].includes(entry)).map((key) => [key, this.props.status[key]]);
-    const completed = steps.filter((entry) => entry[1]);
-    return 100 * completed.length / steps.length;
-  }
-
   nextElement() {
-    if (this.next()) {
+    const t = translate(this.props.translations);
+    const nextStep = next(this.props.nextStep, this.props.guideRoot, t);
+    if (nextStep) {
       return (
         <div className={css.nextContainer}>
           <div className={css.nextLabel}>
-            {this.t('next_step')}:
+            {t('next_step')}:
           </div>
-          <a href={this.next().link} className={css.nextButton}>
-            <span>{this.next().title}</span>
+          <a href={nextStep.link} className={css.nextButton}>
+            <span>{nextStep.title}</span>
           </a>
         </div>
       );
@@ -72,15 +31,17 @@ class OnboardingTopBar extends React.Component {
   }
 
   render() {
+    const t = translate(this.props.translations);
+    const currentProgress = this.props.progress;
     return (
       <div className={css.topbarContainer}>
         <div className={css.topbar}>
           <div className={css.progressLabel}>
-            {this.t('progress_label')}:
-            <span className={css.progressLabelPercentage}>{this.progress().toPrecision(2)} %</span>
+            {t('progress_label')}:
+            <span className={css.progressLabelPercentage}>{currentProgress.toPrecision(2)} %</span>
           </div>
           <div className={css.progressBarBackground}>
-            <div className={css.progressBar} style={{ width: `${this.progress()}%` }} />
+            <div className={css.progressBar} style={{ width: `${currentProgress}%` }} />
           </div>
           {this.nextElement()}
         </div>
@@ -90,9 +51,10 @@ class OnboardingTopBar extends React.Component {
 }
 
 OnboardingTopBar.propTypes = {
-  translations: PropTypes.object,
-  status: PropTypes.object,
-  guide_root: PropTypes.string,
+  translations: PropTypes.objectOf(PropTypes.string).isRequired,
+  guideRoot: PropTypes.string.isRequired,
+  progress: PropTypes.number.isRequired,
+  nextStep: PropTypes.string.isRequired,
 };
 
 export default OnboardingTopBar;

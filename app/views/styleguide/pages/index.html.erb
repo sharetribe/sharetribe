@@ -4,14 +4,4 @@
 <!-- Add new components here. -->
 <!-- You should create individual styleguide pages for them too. -->
 <br/>
-<%= react_component("OnboardingTopBar", props: {
-  translations: {"progress_label": "Marketplace progress","next_step": "Next"},
-  status: {
-    "community_id": 501,
-    "slogan_and_description": true,
-    "cover_photo": true,
-    "filter": true,
-    "paypal": false,
-    "listing": true,
-    "invitation": true}
-  }, prerender: false) %>
+<%= react_component("OnboardingTopBar", props: @topbar_props, prerender: false, raise_on_prerender_error: false) %>

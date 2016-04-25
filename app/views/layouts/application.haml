@@ -8,7 +8,7 @@
 
   - if @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
     - with_feature(:onboarding_redesign_v1) do
-      - props = {translations: t('admin.onboarding.topbar'), status: @onboarding_status, guide_root: getting_started_guide_admin_community_path(id: @current_community.id)}
+      - props = onboarding_topbar_props
       - cache ['v1', 'onboarding_topbar', props] do
         = react_component("OnboardingTopBar", props: props, prerender: true)
   = render :partial => 'layouts/global_header'
