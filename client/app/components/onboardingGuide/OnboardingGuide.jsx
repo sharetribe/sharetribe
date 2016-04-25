@@ -28,10 +28,27 @@ export default class OnboardingGuide extends React.Component {
     }).isRequired,
   };
 
+  componentDidMount() {
+    window.addEventListener('popstate', this.handlePopstate);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('popstate', this.handlePopstate);
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    // Back button clicks should not be saved with history.pushState
+    if (nextProps.data.pathHistoryForward) {
+      const path = nextProps.data.path;
+      this.setPushState({ path }, path, path);
+    }
+  }
 
   constructor(props, context) {
     super(props, context);
 
+    this.setPushState = this.setPushState.bind(this);
+    this.handlePopstate = this.handlePopstate.bind(this);
     this.handlePageChange = this.handlePageChange.bind(this);
 
     const paths = getPaths(props, 'getting_started_guide');
@@ -43,6 +60,35 @@ export default class OnboardingGuide extends React.Component {
       translate(this.props.data.translations.next_step),
       this.initialPath);
 
+    // Add current path to window.history. Initially it contains null as a state
+    this.setPushState(
+      { path: this.componentSubPath },
+      this.componentSubPath,
+      this.componentSubPath);
+  }
+
+  setPushState(state, title, path) {
+    // React has an internal variable 'canUseDOM', which we emulate here.
+    const canUseDOM = !!(typeof window !== 'undefined' &&
+                          window.document &&
+                          window.document.createElement);
+    const canUsePushState = !!(typeof history !== 'undefined' &&
+                                history.pushState);
+
+    if (canUseDOM && canUsePushState) {
+      window.history.pushState(state, title, `${this.initialPath}${path}`);
+    }
+  }
+
+  handlePopstate(event) {
+    if (event.state != null && event.state.path != null) {
+      this.props.actions.updateGuidePage(event.state.path, false);
+    } else if (event.state == null && typeof this.props.data.pathHistoryForward !== 'undefined') {
+      // null state means that page component's root path is reached and
+      // previous page is actually on Rails side - i.e. one step further
+      // Safari fix: if pathHistoryForward is not defined, its initial page load
+      window.history.back();
+    }
   }
 
   handlePageChange(path) {
