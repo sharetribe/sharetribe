@@ -1216,39 +1216,6 @@ $noscript-height: lines(4);
     }
   }
 
-  .trustcloud {
-    display: block;
-    width: 100%;
-    height: lines(8);
-    margin-top: lines(0.5);
-
-    small {
-      display: inline;
-      margin-left: lines(0.5);
-    }
-
-    @include media(tablet) {
-      margin-top: 0;
-      margin-bottom: lines(2);
-      position: absolute;
-      right: lines(0); top: lines(19.5);
-      width: lines(12);
-      height: lines(10);
-    }
-  }
-
-  .trustcard-upper {
-    @include media(tablet) {
-      right: lines(0); top: lines(17.5);
-    }
-  }
-
-  .trustcard-lower {
-    @include media(tablet) {
-      right: lines(0); top: lines(28.5);
-    }
-  }
-
   .action-link {
     display: block;
     width: 100%;
