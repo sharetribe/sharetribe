@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import _ from 'lodash';
 
 import GuideStatusPage from './GuideStatusPage';
 import GuideSloganAndDescriptionPage from './GuideSloganAndDescriptionPage';
@@ -21,7 +22,7 @@ export default class OnboardingGuide extends React.Component {
       name: PropTypes.string.isRequired,
       translations: PropTypes.object.isRequired,
       onboarding_data: PropTypes.objectOf(PropTypes.shape({
-        infoImage: PropTypes.string.isRequired,
+        info_image: PropTypes.string.isRequired,
         link: PropTypes.string.isRequired,
         complete: PropTypes.bool.isRequired,
       }).isRequired).isRequired,
@@ -113,7 +114,9 @@ export default class OnboardingGuide extends React.Component {
 // Returns object (including child component) based on props.data & nextStep
 const selectChild = function selectChild(data, nextStep) {
   const { path, onboarding_data, translations } = data;
-  const pageData = (path.length > 0) ? onboarding_data[path.substring(1)] : {};
+  const pageData = (path.length > 0) ?
+    _.find(onboarding_data, (data) => data.sub_path === path.substring(1)) :
+    {};
   const commonTranslations = { back_to_todo: translations.back_to_todo };
 
   switch (path) {
@@ -185,7 +188,7 @@ const nextStep = function nextStep(data, translateFunc, initialPath) {
     if (!data[step].complete) {
       return {
         title: translateFunc(step),
-        link: step,
+        link: data[step].sub_path,
       };
     }
   }

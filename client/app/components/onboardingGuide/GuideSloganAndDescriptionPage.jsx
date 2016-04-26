@@ -23,7 +23,7 @@ const GuideSloganAndDescriptionPage = (props) => {
       </p>
 
       <div className={scss.sloganImageContainer} >
-        <img src={props.pageData.infoImage}
+        <img src={props.pageData.info_image}
           className={scss.sloganImage}
           alt={props.t('info_image_alt')}
         />

@@ -11,7 +11,7 @@ const GuideStatusPage = (props) => {
   // TODO: interpolating translation strings needs more thinking
   const title = props.nextStep ?
     props.t('title').replace(/\%\{(\w+)\}/g, props.name) :
-    props.t('title_done');
+    props.t('titleDone');
 
 
   const todoDescPartial = (
@@ -54,8 +54,8 @@ const GuideStatusPage = (props) => {
           return (
             <li className={stepListItem} key={key} >
               <a className={scss.stepListLink}
-                onClick={(e) => handleClick(e, `/${key}`)}
-                href={`${props.initialPath}/${key}`}
+                onClick={(e) => handleClick(e, `/${onboardingData[key].sub_path}`)}
+                href={`${props.initialPath}/${onboardingData[key].sub_path}`}
               >
                 <span className={scss.stepListCheckbox}></span>
                 {props.t(key)}
@@ -88,7 +88,7 @@ GuideStatusPage.propTypes = {
     PropTypes.bool.isRequired,
   ]).isRequired,
   onboarding_data: PropTypes.objectOf(PropTypes.shape({
-    infoImage: PropTypes.string,
+    info_image: PropTypes.string,
     link: PropTypes.string,
     complete: PropTypes.bool.isRequired,
   })).isRequired,

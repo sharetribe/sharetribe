@@ -23,7 +23,7 @@ const GuideCoverPhotoPage = (props) => {
       </p>
 
       <div className={scss.sloganImageContainer} >
-        <img src={props.pageData.infoImage}
+        <img src={props.pageData.info_image}
           className={scss.sloganImage}
           alt={props.t('info_image_alt')}
         />
@@ -55,7 +55,7 @@ GuideCoverPhotoPage.propTypes = {
   t: PropTypes.func.isRequired,
   pageData: PropTypes.shape({
     link: PropTypes.string.isRequired,
-    infoImage: PropTypes.string.isRequired,
+    info_image: PropTypes.string.isRequired,
   }).isRequired,
 };
 

@@ -20,7 +20,7 @@ OnbardingGuideContainer.propTypes = {
     name: PropTypes.string.isRequired,
     translations: PropTypes.object.isRequired,
     onboarding_data: PropTypes.objectOf(PropTypes.shape({
-      infoImage: PropTypes.string.isRequired,
+      info_image: PropTypes.string.isRequired,
       link: PropTypes.string.isRequired,
       complete: PropTypes.bool.isRequired,
     }).isRequired).isRequired,
@@ -29,7 +29,7 @@ OnbardingGuideContainer.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    data: state.onboardingGuidePage,
+    data: state.onboarding_guide_page,
     railsContext: state.railsContext,
   };
 }

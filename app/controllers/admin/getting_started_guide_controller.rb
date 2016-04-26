@@ -20,39 +20,44 @@ class Admin::GettingStartedGuideController < ApplicationController
     sub_path = has_sub_path ? path_parts[1] : "";
 
     onboarding_status = Admin::OnboardingWizard.new(@current_community.id).setup_status
-    links_to_rails_routes = {
+    links = {
       slogan_and_description: {
+        sub_path: 'slogan_and_description',
         link: edit_details_admin_community_path(@current_community),
-        infoImage: view_context.image_path('onboardingImagePlaceholder.jpg')
+        info_image: view_context.image_path('onboardingImagePlaceholder.jpg')
       },
       cover_photo: {
+        sub_path: 'cover_photo',
         link: edit_look_and_feel_admin_community_path(@current_community),
-        infoImage: view_context.image_path('onboardingImagePlaceholder.jpg')
+        info_image: view_context.image_path('onboardingImagePlaceholder.jpg')
       },
       filter: {
+        sub_path: 'filter',
         link: admin_custom_fields_path,
-        infoImage: view_context.image_path('onboardingImagePlaceholder.jpg')
+        info_image: view_context.image_path('onboardingImagePlaceholder.jpg')
       },
       paypal: {
+        sub_path: 'paypal',
         link: admin_paypal_preferences_path,
-        infoImage: view_context.image_path('onboardingImagePlaceholder.jpg')
+        info_image: view_context.image_path('onboardingImagePlaceholder.jpg')
       },
       listing: {
+        sub_path: 'listing',
         link: new_listing_path,
-        infoImage: view_context.image_path('onboardingImagePlaceholder.jpg')
+        info_image: view_context.image_path('onboardingImagePlaceholder.jpg')
       },
       invitation: {
+        sub_path: 'invitation',
         link: new_invitation_path,
-        infoImage: view_context.image_path('onboardingImagePlaceholder.jpg')
+        info_image: view_context.image_path('onboardingImagePlaceholder.jpg')
       }
     }
 
-    sorted_steps = OnboardingViewUtils.sorted_steps(onboarding_status)
-      .map { |step| step.merge(links_to_rails_routes[step[:step]])}
+    sorted_steps = OnboardingViewUtils.sorted_steps_with_includes(onboarding_status, links)
       .inject({}) { |r, i| r[i[:step]] = i.except(:step); r }
 
     # This is the props used by the React component.
-    { onboardingGuidePage: {
+    { onboarding_guide_page: {
         path: sub_path,
         onboarding_data: sorted_steps,
         name: PersonViewUtils.person_display_name(@current_user, @current_community),

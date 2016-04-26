@@ -5,5 +5,5 @@ import onboardingGuideReducer from './OnboardingGuideReducer';
 // The `import * as reducers` does not work for a directory, but only with a single file
 export default {
   railsContext: railsContextReducer,
-  onboardingGuidePage: onboardingGuideReducer,
+  onboarding_guide_page: onboardingGuideReducer,
 };
