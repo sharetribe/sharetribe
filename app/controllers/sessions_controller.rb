@@ -115,6 +115,7 @@ class SessionsController < ApplicationController
     people_in_this_community = persons.select { |p| p.is_admin? || p.community_memberships.map(&:community_id).include?(@current_community.id) }
     person_by_fb_id = people_in_this_community.find { |p| p.facebook_id == data.id }
     person_by_email = people_in_this_community.find { |p| p.emails.any? { |e| e.address == data.email && e.confirmed_at.present? } }
+    email_unconfirmed = people_in_this_community.flat_map(&:emails).find { |e| e.address == data.email && e.confirmed_at.blank? }.present?
 
     person = person_by_fb_id || person_by_email
 
@@ -125,6 +126,9 @@ class SessionsController < ApplicationController
     elsif data.email.blank?
       flash[:error] = t("layouts.notifications.could_not_get_email_from_facebook")
       redirect_to sign_up_path and return
+    elsif email_unconfirmed
+      flash[:error] = t("layouts.notifications.facebook_email_unconfirmed", email: data.email)
+      redirect_to login_path and return
     else
       facebook_data = {"email" => data.email,
                        "given_name" => data.first_name,
