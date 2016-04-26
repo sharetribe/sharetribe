@@ -8,7 +8,8 @@ module FeatureFlagService::Store
       [:features, :mandatory, :set])
 
     FLAGS = [
-      :export_transactions_as_csv
+      :export_transactions_as_csv,
+      :onboarding_redesign_v1
     ].to_set
 
     def initialize(additional_flags:)
