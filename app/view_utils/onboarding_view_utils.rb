@@ -38,4 +38,18 @@ module OnboardingViewUtils
     CELEBRATIONS[next_step]
   end
 
+  def popup_locals(show_popup, setup_status)
+    if show_popup
+      next_step = next_incomplete_step(setup_status)
+
+      {show_onboarding_popup: true,
+       popup_title_key: "admin.onboarding.popup.#{next_step}.title",
+       popup_body_key: "admin.onboarding.popup.#{next_step}.body",
+       popup_button_key: "admin.onboarding.popup.#{next_step}.button",
+       popup_image: celebration_image(next_step)}
+    else
+      {show_onboarding_popup: false}
+    end
+  end
+
 end

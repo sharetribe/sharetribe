@@ -16,20 +16,11 @@ class Admin::CommunitiesController < ApplicationController
     @community = @current_community
     flash.now[:notice] = t("layouts.notifications.stylesheet_needs_recompiling") if @community.stylesheet_needs_recompile?
 
-    if flash[:show_onboarding_popup]
-      next_step = OnboardingViewUtils.next_incomplete_step(
-        Admin::OnboardingWizard.new(@current_community.id).setup_status)
+    onboarding_popup_locals = OnboardingViewUtils.popup_locals(
+      flash[:show_onboarding_popup],
+      Admin::OnboardingWizard.new(@current_community.id).setup_status)
 
-      render "edit_look_and_feel", locals: {
-               show_onboarding_popup: true,
-               popup_title: t("admin.onboarding.popup.#{next_step}.title"),
-               popup_body: t("admin.onboarding.popup.#{next_step}.body"),
-               popup_button: t("admin.onboarding.popup.#{next_step}.button"),
-               popup_image: OnboardingViewUtils.celebration_image(next_step)
-             }
-    else
-      render "edit_look_and_feel", locals: { show_onboarding_popup: false }
-    end
+    render "edit_look_and_feel", locals: onboarding_popup_locals
   end
 
   def edit_text_instructions
