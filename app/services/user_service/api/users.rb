@@ -30,7 +30,7 @@ module UserService::API
     def create_user(opts, community_id)
       raise ArgumentError.new("Email #{opts[:email]} is already in use.") unless Email.email_available?(opts[:email], community_id)
 
-      username = generate_username(given_name: opts[:given_name], family_name: opts[:family_name])
+      username = generate_username(opts[:given_name], opts[:family_name], community_id)
       locale = opts[:locale] || APP_CONFIG.default_locale # don't access config like this, require to be passed in in ctor
 
       person = Person.new(
@@ -110,7 +110,7 @@ module UserService::API
       return UserService::API::DataTypes.create_user(hash)
     end
 
-    def username_from_fb_data(username:, given_name:, family_name:)
+    def username_from_fb_data(username:, given_name:, family_name:, community_id:)
       base = Maybe(
           Maybe(username)
           .or_else(Maybe(given_name).strip.or_else("") + Maybe(family_name).strip()[0].or_else(""))
@@ -119,26 +119,33 @@ module UserService::API
         .delete('-')
         .or_else("fb_name_missing")[0...18]
 
-      gen_free_name(base, fetch_blacklist(base))
+      generate_username_from_base(base, community_id)
     end
 
     # private
 
-    def generate_username(given_name:, family_name:)
+    def generate_username(given_name, family_name, community_id)
       base = (given_name.strip + family_name.strip[0]).to_url.delete('-')[0...18]
-      gen_free_name(base, fetch_blacklist(base))
+      generate_username_from_base(base, community_id)
     end
     private_class_method :generate_username
 
-    def fetch_blacklist(base)
-      taken = Person.where("username LIKE :prefix", prefix: "#{base}%").pluck(:username)
-      Person.username_blacklist.concat(taken)
+    def generate_username_from_base(base, community_id)
+      taken = fetch_taken_usernames(base, community_id)
+      reserved = Person.username_blacklist.concat(taken)
+      gen_free_name(base, reserved)
     end
-    private_class_method :fetch_blacklist
+    private_class_method :generate_username_from_base
 
-    def gen_free_name(base, blacklist)
+    def fetch_taken_usernames(base, community_id)
+      Person.where("username LIKE :prefix AND community_id = :community_id",
+                   prefix: "#{base}%", community_id: community_id).pluck(:username)
+    end
+    private_class_method :fetch_taken_usernames
+
+    def gen_free_name(base, reserved)
       (1..100000).reduce([base, ""]) do |(base_name, postfix), next_postfix|
-        return (base_name + postfix) unless blacklist.include?(base_name + postfix) || (base_name + postfix).length < 3
+        return (base_name + postfix) unless reserved.include?(base_name + postfix) || (base_name + postfix).length < 3
         [base_name, next_postfix.to_s]
       end
     end
