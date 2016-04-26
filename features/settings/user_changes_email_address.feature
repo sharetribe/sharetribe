@@ -4,21 +4,19 @@ Feature: User changes email address
   I want to be able to change my email address
 
   Background:
-    Given there are following users:
-      | person      |
-      | sharetribe1 |
+    Given there are following communities:
+      | community             | allowed_emails |
+      | testcommunity         | @example.com   |
+    And there are following users:
+      | person      | community     |
+      | sharetribe1 | testcommunity |
     And there are following emails:
       | person      | address                 | send_notifications | confirmed_at        |
       | sharetribe1 | sharetribe@example.com  | false              | 2013-11-14 20:02:23 |
       | sharetribe1 | sharetribe2@example.com | true               | 2013-11-14 20:02:23 |
       | sharetribe1 | sharetribe@gmail.com    | false              | 2013-11-14 20:02:23 |
       | sharetribe1 | sharetribe@yahoo.com    | false              | nil                 |
-    And there are following communities:
-      | community             | allowed_emails |
-      | testcommunity         | @example.com   |
-      | anothertestcommunity  | @gmail.com     |
-    And "sharetribe1" is a member of community "testcommunity"
-    And "sharetribe1" is a member of community "anothertestcommunity"
+    When I move to community "testcommunity"
     And I am logged in as "sharetribe1"
     And I am on the account settings page
 
@@ -33,7 +31,6 @@ Feature: User changes email address
   Scenario: User removes an email
     Given I will confirm all following confirmation dialogs in this page if I am running PhantomJS
     Then I should not be able to remove email "sharetribe2@example.com"
-    Then I should not be able to remove email "sharetribe@gmail.com"
     When I remove email "sharetribe@example.com"
     Then I should not have email "sharetribe@example.com"
 

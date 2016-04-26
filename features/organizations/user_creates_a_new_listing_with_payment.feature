@@ -1,8 +1,7 @@
 Feature: User creates a new listing with payments
 
   Background:
-    Given there is an organization "company"
-    And "company" is a member of community "test"
+    Given there is an organization "company" in community "test"
     And community "test" has payments in use via Checkout
     And I am logged in as "company"
 
