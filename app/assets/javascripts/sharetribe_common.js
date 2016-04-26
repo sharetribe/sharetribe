@@ -4,8 +4,8 @@ function initialize_confirmation_pending_form(locale, email_in_use_message) {
     $("html, body").animate({ scrollTop: $(document).height() }, 1000);
     $('input.email').focus();
   });
-  var form_id = "#change_mistyped_email_form";
-  $(form_id).validate({
+  var change_form_id = "#change_mistyped_email_form";
+  $(change_form_id).validate({
      errorPlacement: function(error, element) {
        error.insertAfter(element);
      },
@@ -17,8 +17,12 @@ function initialize_confirmation_pending_form(locale, email_in_use_message) {
      },
      onkeyup: false, //Only do validations when form focus changes to avoid exessive calls
      submitHandler: function(form) {
-       disable_and_submit(form_id, form, "false", locale);
+       disable_and_submit(change_form_id, form, "false", locale);
      }
+  });
+  var resend_form_id = "#resend_email_confirmation";
+  $(resend_form_id).submit(function(e) {
+    disable_submit_button(resend_form_id, locale);
   });
 }
 
