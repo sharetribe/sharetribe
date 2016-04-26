@@ -194,19 +194,25 @@ class ListingsController < ApplicationController
 
     youtube_link_ids = ListingViewUtils.youtube_video_ids(@listing.description)
 
-    render locals: {
-             form_path: form_path,
-             payment_gateway: payment_gateway,
-             # TODO I guess we should not need to know the process in order to show the listing
-             process: process,
-             delivery_opts: delivery_opts,
-             listing_unit_type: @listing.unit_type,
-             country_code: community_country_code,
-             received_testimonials: received_testimonials,
-             received_positive_testimonials: received_positive_testimonials,
-             feedback_positive_percentage: feedback_positive_percentage,
-             youtube_link_ids: youtube_link_ids
-           }
+    onboarding_popup_locals = OnboardingViewUtils.popup_locals(
+      flash[:show_onboarding_popup],
+      Admin::OnboardingWizard.new(@current_community.id).setup_status)
+
+    view_locals = {
+      form_path: form_path,
+      payment_gateway: payment_gateway,
+      # TODO I guess we should not need to know the process in order to show the listing
+      process: process,
+      delivery_opts: delivery_opts,
+      listing_unit_type: @listing.unit_type,
+      country_code: community_country_code,
+      received_testimonials: received_testimonials,
+      received_positive_testimonials: received_positive_testimonials,
+      feedback_positive_percentage: feedback_positive_percentage,
+      youtube_link_ids: youtube_link_ids
+    }
+
+    render(locals: onboarding_popup_locals.merge(view_locals))
   end
 
   def new
@@ -309,6 +315,10 @@ class ListingsController < ApplicationController
           .update_from_event(:listing_created, @listing)
         if state_changed
           report_to_gtm({event: "km_record", km_event: "Onboarding listing created"})
+
+          with_feature(:onboarding_redesign_v1) do
+            flash[:show_onboarding_popup] = true
+          end
         end
 
         redirect_to @listing, status: 303 and return

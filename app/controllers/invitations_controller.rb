@@ -10,7 +10,17 @@ class InvitationsController < ApplicationController
     @selected_tribe_navi_tab = "members"
     @invitation = Invitation.new
     invitation_limit = @current_community.join_with_invite_only ? Invitation.invite_only_invitation_limit : Invitation.invitation_limit
-    render locals: { invitation_limit: invitation_limit, has_admin_rights: @current_user.has_admin_rights_in?(@current_community) }
+
+    onboarding_popup_locals = OnboardingViewUtils.popup_locals(
+      flash[:show_onboarding_popup],
+      Admin::OnboardingWizard.new(@current_community.id).setup_status)
+
+    view_locals = {
+      invitation_limit: invitation_limit,
+      has_admin_rights: @current_user.has_admin_rights_in?(@current_community)
+    }
+
+    render locals: onboarding_popup_locals.merge(view_locals)
   end
 
   def create
@@ -42,6 +52,10 @@ class InvitationsController < ApplicationController
           .update_from_event(:invitation_created, invitation)
         if state_changed
           report_to_gtm({event: "km_record", km_event: "Onboarding invitation created"})
+
+          with_feature(:onboarding_redesign_v1) do
+            flash[:show_onboarding_popup] = true
+          end
         end
       else
         sending_problems = true
