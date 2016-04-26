@@ -119,10 +119,11 @@ describe Listing, type: :model do
   describe "#visible_to?" do
     let(:community) { FactoryGirl.create(:community, private: true) }
     let(:community2) { FactoryGirl.create(:community) }
-    let(:person) { FactoryGirl.create(:person, communities: [community, community2]) }
+    let(:person) { FactoryGirl.create(:person, communities: [community]) }
     let(:listing) { FactoryGirl.create(:listing, community_id: community.id, listing_shape_id: 123) }
 
     it "is not visible, if the listing doesn't belong to the given community" do
+      expect(listing.visible_to?(person, community)).to be_truthy
       expect(listing.visible_to?(person, community2)).to be_falsey
     end
 

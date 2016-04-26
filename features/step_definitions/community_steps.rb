@@ -61,13 +61,6 @@ Given /^the terms of community "([^"]*)" are changed to "([^"]*)"$/ do |communit
   Community.where(ident: community).first.update_attribute(:consent, terms)
 end
 
-Given /^"(.*?)" is a member of community "(.*?)"$/ do |username, community_name|
-  community = Community.where(ident: community_name).first
-  person = Person.find_by!(username: username)
-  membership = FactoryGirl.create(:community_membership, :person => person, :community => community)
-  membership.save!
-end
-
 Then /^Most recently created user should be member of "([^"]*)" community with(?: status "(.*?)" and)? its latest consent accepted(?: with invitation code "([^"]*)")?$/ do |community_ident, status, invitation_code|
     # Person.last seemed to return unreliable results for some reason
     # (kassi_testperson1 instead of the actual newest person, so changed

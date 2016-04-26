@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160422123211) do
+ActiveRecord::Schema.define(version: 20160425144703) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -246,7 +246,7 @@ ActiveRecord::Schema.define(version: 20160422123211) do
   add_index "community_customizations", ["community_id"], name: "index_community_customizations_on_community_id", using: :btree
 
   create_table "community_memberships", force: :cascade do |t|
-    t.string   "person_id",           limit: 255,                      null: false
+    t.string   "person_id",           limit: 255, default: "",         null: false
     t.integer  "community_id",        limit: 4,                        null: false
     t.boolean  "admin",                           default: false
     t.datetime "created_at"
@@ -259,7 +259,7 @@ ActiveRecord::Schema.define(version: 20160422123211) do
   end
 
   add_index "community_memberships", ["community_id"], name: "index_community_memberships_on_community_id", using: :btree
-  add_index "community_memberships", ["person_id", "community_id"], name: "memberships", unique: true, using: :btree
+  add_index "community_memberships", ["person_id"], name: "index_community_memberships_on_person_id", unique: true, using: :btree
 
   create_table "community_translations", force: :cascade do |t|
     t.integer  "community_id",    limit: 4,     null: false

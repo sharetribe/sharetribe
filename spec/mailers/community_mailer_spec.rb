@@ -69,7 +69,6 @@ describe "CommunityMailer", type: :mailer do
       @p1.communities << @c1
       @p2 = FactoryGirl.create(:person)
       @p2.communities << @c1
-      @p2.communities << @c2
 
       @l1 = FactoryGirl.create(:listing,
           :title => "bike",
@@ -106,14 +105,13 @@ describe "CommunityMailer", type: :mailer do
       CommunityMailer.deliver_community_updates
       expect(include_all?(ActionMailer::Base.deliveries[0].to, @p2.confirmed_notification_email_addresses) || include_all?(ActionMailer::Base.deliveries[0].to, @p4.confirmed_notification_email_addresses)).to be_truthy
       expect(include_all?(ActionMailer::Base.deliveries[1].to, @p2.confirmed_notification_email_addresses) || include_all?(ActionMailer::Base.deliveries[1].to, @p4.confirmed_notification_email_addresses)).to be_truthy
-      expect(include_all?(ActionMailer::Base.deliveries[2].to, @p2.confirmed_notification_email_addresses) || include_all?(ActionMailer::Base.deliveries[2].to, @p4.confirmed_notification_email_addresses)).to be_truthy
-      expect(ActionMailer::Base.deliveries.size).to eq(3)
+      expect(ActionMailer::Base.deliveries.size).to eq(2)
     end
 
     it "should contain specific time information" do
       @p1.update_attribute(:community_updates_last_sent_at, 1.day.ago)
       CommunityMailer.deliver_community_updates
-      expect(ActionMailer::Base.deliveries.size).to eq(4)
+      expect(ActionMailer::Base.deliveries.size).to eq(3)
       email = find_email_body_for(@p1.emails.first)
       expect(email.body.include?("during the past 1 day")).to be_truthy
       email = find_email_body_for(@p2.emails.first)
@@ -127,10 +125,9 @@ describe "CommunityMailer", type: :mailer do
       @p5.communities << @c1
       @p5.update_attribute(:community_updates_last_sent_at, nil)
       CommunityMailer.deliver_community_updates
-      expect(ActionMailer::Base.deliveries.size).to eq(4)
+      expect(ActionMailer::Base.deliveries.size).to eq(3)
       email = find_email_body_for(@p5.emails.first)
       expect(email).not_to be_nil
-      #ActionMailer::Base.deliveries[3].to.include?(@p5.email).should be_truthy
       expect(email.body.include?("during the past 7 days")).to be_truthy
     end
 

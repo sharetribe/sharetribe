@@ -90,7 +90,7 @@ end
 Given /^there are following users:$/ do |person_table|
   @people = {}
   person_table.hashes.each do |hash|
-    community = Community.first
+    community = Community.find_by(ident: hash['community']) || Community.first
 
     defaults = {
       password: "testi",
@@ -104,7 +104,7 @@ Given /^there are following users:$/ do |person_table|
 
     person_opts = defaults.merge({
       username: hash['person'],
-    }).merge(hash.except('person', 'membership_created_at'))
+    }).merge(hash.except('person', 'membership_created_at', 'community'))
 
     @hash_person, @hash_session = Person.find_by(username: username) || FactoryGirl.create(:person, person_opts)
     @hash_person.community_id = community.id
@@ -130,7 +130,7 @@ Given /^there are following users:$/ do |person_table|
                                     :status => "accepted")
     cm.update_attribute(:created_at, membership_created_at) if membership_created_at && !membership_created_at.empty?
 
-    attributes_to_update = hash.except('person','person_id', 'locale', 'membership_created_at')
+    attributes_to_update = hash.except('person','person_id', 'locale', 'membership_created_at', 'community')
     @hash_person.update_attributes(attributes_to_update) unless attributes_to_update.empty?
     @hash_person.set_default_preferences
     if hash['locale']
@@ -179,13 +179,6 @@ end
 Given /^"([^"]*)" is superadmin$/ do |username|
   user = Person.find_by(username: username)
   user.update_attribute(:is_admin, true)
-end
-
-Given /^user "([^"]*)" is member of community "([^"]*)"$/ do |username, community|
-  user = Person.find_by(username: username)
-  community = Community.where(ident: community).first
-  cm = CommunityMembership.find_by_person_id_and_community_id(user.id, community.id)
-  CommunityMembership.create(:person_id => user.id, :community_id => community.id) unless cm
 end
 
 Given /^"([^"]*)" has admin rights in community "([^"]*)"$/ do |username, community|

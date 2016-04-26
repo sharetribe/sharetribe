@@ -26,8 +26,10 @@ Then /^I should see flash error$/ do
   expect(find(".flash-error")).to be_visible
 end
 
-Given /^there is an organization "(.*?)"$/ do |org_username|
-  FactoryGirl.create(:person, :username => org_username, :is_organization => true)
+Given /^there is an organization "(.*?)" in community "(.*?)"$/ do |org_username, community|
+  c = Community.find_by!(ident: community)
+  p = FactoryGirl.create(:person, :username => org_username, :is_organization => true, community_id: c.id)
+  FactoryGirl.create(:community_membership, person: p, community: c)
 end
 
 Given /^"(.*?)" is not an organization$/ do |username|
