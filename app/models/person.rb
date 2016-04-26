@@ -112,6 +112,10 @@ class Person < ActiveRecord::Base
 
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
 
+  deprecate communities: "Use community instead.",
+            community_memberships: "Use community_membership instead.",
+            deprecator: MethodDeprecator.new
+
   def to_param
     username
   end
