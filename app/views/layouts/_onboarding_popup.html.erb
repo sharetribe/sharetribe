@@ -1,5 +1,5 @@
 <% content_for :javascript do %>
-  $('#<%= id %>').lightbox_me({ centered: true, zIndex: 1000000 });
+  window.ST.onboarding_popup = $('#<%= id %>').lightbox_me({ centered: true, zIndex: 1000000 });
 <% end %>
 <img src=<%= image %> class="onboarding-popup__image" />
 <h2 class="onboarding-popup__title">
@@ -11,6 +11,6 @@
 <a class="onboarding-popup__action" href="<%= action_link%>">
   <%= action_label %>
 </a>
-<a class="onboarding-popup__skip" href="#">
+<a class="onboarding-popup__skip" href="#" onClick="window.ST.onboarding_popup.trigger('close');">
   I'll do it later, thanks
 </a>
