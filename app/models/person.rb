@@ -103,6 +103,8 @@ class Person < ActiveRecord::Base
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id", :dependent => :destroy
   has_many :community_memberships, :dependent => :destroy
   has_many :communities, -> { where("community_memberships.status = 'accepted'") }, :through => :community_memberships
+  has_one  :community_membership, :dependent => :destroy
+  has_one  :accepted_community, -> { where("community_memberships.status= 'accepted'") }, through: :community_membership, source: :community
   has_many :invitations, :foreign_key => "inviter_id", :dependent => :destroy
   has_many :auth_tokens, :dependent => :destroy
   has_many :follower_relationships
@@ -112,7 +114,7 @@ class Person < ActiveRecord::Base
 
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
 
-  deprecate communities: "Use community instead.",
+  deprecate communities: "Use accepted_community instead.",
             community_memberships: "Use community_membership instead.",
             deprecator: MethodDeprecator.new
 
