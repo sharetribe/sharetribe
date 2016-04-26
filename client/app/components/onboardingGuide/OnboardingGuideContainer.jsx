@@ -18,6 +18,7 @@ OnbardingGuideContainer.propTypes = {
   data: PropTypes.shape({
     path: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    info_icon: PropTypes.string.isRequired,
     translations: PropTypes.object.isRequired,
     onboarding_data: PropTypes.objectOf(PropTypes.shape({
       info_image: PropTypes.string.isRequired,

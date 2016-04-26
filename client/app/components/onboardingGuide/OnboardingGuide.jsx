@@ -20,6 +20,7 @@ export default class OnboardingGuide extends React.Component {
       path: PropTypes.string.isRequired,
       pathHistoryForward: PropTypes.bool,
       name: PropTypes.string.isRequired,
+      info_icon: PropTypes.string.isRequired,
       translations: PropTypes.object.isRequired,
       onboarding_data: PropTypes.objectOf(PropTypes.shape({
         info_image: PropTypes.string.isRequired,
@@ -103,6 +104,7 @@ export default class OnboardingGuide extends React.Component {
         changePage={this.handlePageChange}
         initialPath={this.initialPath}
         name={this.props.data.name}
+        infoIcon={this.props.data.info_icon}
         t={translate(translations)}
         {...opts}
       />
@@ -115,7 +117,7 @@ export default class OnboardingGuide extends React.Component {
 const selectChild = function selectChild(data, nextStep) {
   const { path, onboarding_data, translations } = data;
   const pageData = (path.length > 0) ?
-    _.find(onboarding_data, (data) => data.sub_path === path.substring(1)) :
+    _.find(onboarding_data, (pd) => pd.sub_path === path.substring(1)) :
     {};
   const commonTranslations = { back_to_todo: translations.back_to_todo };
 

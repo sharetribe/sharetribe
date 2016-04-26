@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import scss from './styles.scss';
+import css from './styles.scss';
 
 const GuideStatusPage = (props) => {
   const handleClick = function handleClick(e, path) {
@@ -16,17 +16,17 @@ const GuideStatusPage = (props) => {
 
   const todoDescPartial = (
     <div>
-      <p className={scss.description} >
+      <p className={css.description} >
         {props.t('description_p1')}
       </p>
-      <p className={scss.description} >
+      <p className={css.description} >
         {props.t('description_p2')}
       </p>
     </div>
     );
 
   const doneDescPartial = (
-    <p className={scss.description}
+    <p className={css.description}
       dangerouslySetInnerHTML={{ __html: props.t('congratulation') }}
     ></p>
     );
@@ -34,30 +34,30 @@ const GuideStatusPage = (props) => {
   const description = props.nextStep ? todoDescPartial : doneDescPartial;
   return (
     <div className="container">
-      <h2 className={scss.title} >{title}</h2>
+      <h2 className={css.title} >{title}</h2>
 
       {description}
 
-      <hr className={scss.sectionSeparator} />
+      <hr className={css.sectionSeparator} />
 
-      <ul className={scss.stepList} >
-        <li className={scss.stepListItemDone}>
-          <span className={scss.stepListLink}>
-            <span className={scss.stepListCheckbox}></span>
+      <ul className={css.stepList} >
+        <li className={css.stepListItemDone}>
+          <span className={css.stepListLink}>
+            <span className={css.stepListCheckbox}></span>
             Create marketplace
           </span>
         </li>
         {Object.keys(onboardingData).map((key) => {
           const stepListItem = onboardingData[key].complete ?
-            scss.stepListItemDone :
-            scss.stepListItem;
+            css.stepListItemDone :
+            css.stepListItem;
           return (
             <li className={stepListItem} key={key} >
-              <a className={scss.stepListLink}
+              <a className={css.stepListLink}
                 onClick={(e) => handleClick(e, `/${onboardingData[key].sub_path}`)}
                 href={`${props.initialPath}/${onboardingData[key].sub_path}`}
               >
-                <span className={scss.stepListCheckbox}></span>
+                <span className={css.stepListCheckbox}></span>
                 {props.t(key)}
               </a>
             </li>
@@ -67,7 +67,7 @@ const GuideStatusPage = (props) => {
       {props.nextStep ?
         <a onClick={(e) => handleClick(e, `/${props.nextStep.link}`)}
           href={`${props.initialPath}/${props.nextStep.link}`}
-          className={scss.nextButton}
+          className={css.nextButton}
         >
           {props.nextStep.title}
         </a>
@@ -80,6 +80,7 @@ GuideStatusPage.propTypes = {
   changePage: PropTypes.func.isRequired,
   initialPath: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  infoIcon: PropTypes.string.isRequired,
   nextStep: React.PropTypes.oneOfType([
     PropTypes.shape({
       title: PropTypes.string.isRequired,

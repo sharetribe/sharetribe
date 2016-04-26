@@ -25,7 +25,7 @@ ReactOnRails.configure do |config|
   # Below options can be overriden by passing options to the react_on_rails
   # `render_component` view helper method.
   ################################################################################
-  config.prerender = false # default is false
+  config.prerender = true # default is false
   config.trace = Rails.env.development? # default is true for development, off otherwise
 
   ################################################################################
@@ -36,7 +36,7 @@ ReactOnRails.configure do |config|
 
   config.logging_on_server = true # Default is true. Logs server rendering messags to Rails.logger.info
 
-  config.raise_on_prerender_error = false # change to true to raise exception on server if the JS code throws
+  config.raise_on_prerender_error = true # change to true to raise exception on server if the JS code throws
 
   # Server rendering only (not for render_component helper)
   # You can configure your pool of JS virtual machines and specify where it should load code:

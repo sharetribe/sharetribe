@@ -1,59 +1,54 @@
 import React, { PropTypes } from 'react';
-import scss from './styles.scss';
+import css from './styles.scss';
 
-const GuidePaypalPage = (props) => {
-  const handleClick = function (e, path) {
-    e.preventDefault();
-    props.changePage(path);
-  };
+import GuideBackToTodoLink from './GuideBackToTodoLink';
 
-  return (
-    <div className="container">
-      <a className={scss.backLink}
-        onClick={(e) => handleClick(e, '')}
-        href={props.initialPath}
-      >
-        ‹ {props.t('back_to_todo')}
-      </a>
+const GuidePaypalPage = (props) => (
+  <div className="container">
+    <GuideBackToTodoLink
+      changePage={props.changePage}
+      initialPath={props.initialPath}
+      t={props.t}
+    />
 
-      <h2 className={scss.title} >{props.t('title')}</h2>
+    <h2 className={css.title} >{props.t('title')}</h2>
 
-      <p className={scss.description} >
-        {props.t('description_p1')}
-      </p>
-      <p className={scss.description}>
-        {props.t('description_p2')}
-      </p>
+    <p className={css.description} >
+      {props.t('description_p1')}
+    </p>
+    <p className={css.description}>
+      {props.t('description_p2')}
+    </p>
 
-      <div className={scss.sloganImageContainer}>
-        <img src={props.pageData.info_image}
-          className={scss.sloganImage}
-          alt={props.t('info_image_alt')}
-        />
-      </div>
-
-      <div className={scss.infoTextContainer} >
-        <div className={scss.infoTextIcon} >
-          <i className="ss-info"></i>
-        </div>
-        <div className={scss.infoTextContent} >
-          {props.t('advice')}
-        </div>
-      </div>
-
-      <a href={props.pageData.link}
-        className={scss.nextButton}
-      >
-        {props.t('setup_payments')}
-      </a>
+    <div className={css.sloganImageContainer}>
+      <img src={props.pageData.info_image}
+        className={css.sloganImage}
+        alt={props.t('info_image_alt')}
+      />
     </div>
-  );
-};
+
+    <div className={css.infoTextContainer} >
+      <div className={css.infoTextIcon}
+        dangerouslySetInnerHTML={{ __html: props.infoIcon }}
+      ></div>
+      <div className={css.infoTextContent} >
+        {props.t('advice')}
+      </div>
+    </div>
+
+    <a href={props.pageData.link}
+      className={css.nextButton}
+    >
+      {props.t('setup_payments')}
+    </a>
+  </div>
+);
 
 GuidePaypalPage.propTypes = {
   changePage: PropTypes.func.isRequired,
   initialPath: PropTypes.string.isRequired,
   t: PropTypes.func.isRequired,
+  infoIcon: PropTypes.string.isRequired,
   pageData: PropTypes.shape({
     link: PropTypes.string.isRequired,
     info_image: PropTypes.string.isRequired,
