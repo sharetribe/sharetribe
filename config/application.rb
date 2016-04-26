@@ -12,6 +12,9 @@ require File.expand_path('../available_locales', __FILE__)
 # Load the logger
 require File.expand_path('../../lib/sharetribe_logger', __FILE__)
 
+# Load the deprecator
+require File.expand_path('../../lib/method_deprecator', __FILE__)
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
