@@ -14,7 +14,7 @@ class CommunityMembershipsController < ApplicationController
   Form = EntityUtils.define_builder(
     [:invitation_code, :string],
     [:email, :string],
-    [:consent]
+    [:consent, one_of: [nil, "on"]]
   )
 
   def pending_consent
@@ -26,13 +26,24 @@ class CommunityMembershipsController < ApplicationController
     values = Form.call(form_params)
 
     invitation_check = ->() {
-      check_invitation(invitation_code: values[:invitation_code], community: @current_community)
+      if @current_community.join_with_invite_only?
+        validate_invitation_code(invitation_code: values[:invitation_code],
+                                 community: @current_community)
+      else
+        Result::Success.new()
+      end
     }
     email_check = ->(_) {
-      check_allowed_email(address: values[:email], community: @current_community, user: @current_user)
+      if @current_user.has_valid_email_for_community?(@current_community)
+        Result::Success.new()
+      else
+        validate_email(address: values[:email],
+                       community: @current_community,
+                       user: @current_user)
+      end
     }
     terms_check = ->(_, _) {
-      check_terms(consent: values[:consent], community: @current_community)
+      validate_terms(consent: values[:consent], community: @current_community)
     }
 
     check_result = Result.all(invitation_check, email_check, terms_check)
@@ -91,6 +102,23 @@ class CommunityMembershipsController < ApplicationController
     }
   end
 
+  def check_email_availability_and_validity
+    values = Form.call(params[:form])
+    validation_result = validate_email(address: values[:email],
+                                       user: @current_user,
+                                       community: @current_community)
+
+    render json: validation_result.success
+  end
+
+  def check_invitation_code
+    values = Form.call(params[:form])
+    validation_result = validate_invitation_code(invitation_code: values[:invitation_code],
+                                                 community: @current_community)
+
+    render json: validation_result.success
+  end
+
   private
 
   def render_pending_consent_form(form_values = {})
@@ -106,19 +134,7 @@ class CommunityMembershipsController < ApplicationController
            }
   end
 
-  def check_invitation(invitation_code:, community:)
-    return Result::Success.new() unless community.join_with_invite_only?
-
-    if !Invitation.code_usable?(invitation_code, community)
-      Result::Error.new("Invitation code is not usable", reason: :invitation_code_invalid_or_used, invitation_code: invitation_code)
-    else
-      Result::Success.new(invitation_code.upcase)
-    end
-  end
-
-  def check_allowed_email(address:, community:, user:)
-    return Result::Success.new() if user.has_valid_email_for_community?(community)
-
+  def validate_email(address:, community:, user:)
     if !community.email_allowed?(address)
       Result::Error.new("Email is not allowed", reason: :email_not_allowed, email: address)
     elsif !Email.email_available?(address, community.id)
@@ -128,7 +144,15 @@ class CommunityMembershipsController < ApplicationController
     end
   end
 
-  def check_terms(consent:, community:)
+  def validate_invitation_code(invitation_code:, community:)
+    if !Invitation.code_usable?(invitation_code, community)
+      Result::Error.new("Invitation code is not usable", reason: :invitation_code_invalid_or_used, invitation_code: invitation_code)
+    else
+      Result::Success.new(invitation_code.upcase)
+    end
+  end
+
+  def validate_terms(consent:, community:)
     if consent == "on"
       Result::Success.new(community.consent)
     else
@@ -140,10 +164,11 @@ class CommunityMembershipsController < ApplicationController
     make_admin = community.members.count == 0 # First member is the admin
 
     update_successful = ActiveRecord::Base.transaction do
-      Email.create(person_id: user.id, address: email_address, community_id: community.id)
+      if email_address.present?
+        Email.create(person_id: user.id, address: email_address, community_id: community.id)
+      end
 
       m_invitation = Maybe(invitation_code).map { |code| Invitation.find_by(code: code) }
-
       m_invitation.each { |invitation|
         invitation.use_once!
       }

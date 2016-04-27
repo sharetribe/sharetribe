@@ -234,6 +234,8 @@ Kassi::Application.routes.draw do
         get :pending_consent
         post :consent_given
         get :access_denied
+        get :check_email_availability_and_validity
+        get :check_invitation_code
       end
     end
     resources :listings do

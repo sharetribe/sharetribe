@@ -917,7 +917,7 @@ function initialize_admin_category_form_view(locale, form_id) {
 
 }
 
-function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {
+function initialize_pending_consent_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {
   $('#help_invitation_code_link').click(function(link) {
     $('#help_invitation_code').lightbox_me({centered: true, zIndex: 1000000 });
   });
@@ -925,23 +925,23 @@ function initialize_new_community_membership_form(email_invalid_message, invitat
     link.preventDefault();
     $('#terms').lightbox_me({ centered: true, zIndex: 1000000 });
   });
-  $('#new_community_membership').validate({
+  $('#pending_consent_form').validate({
     errorPlacement: function(error, element) {
-      if (element.attr("name") == "community_membership[consent]") {
+      if (element.attr("name") == "form[consent]") {
         error.appendTo(element.parent().parent());
       } else {
         error.insertAfter(element);
       }
     },
     rules: {
-      "community_membership[email]": {required: true, email: true, remote: "/people/check_email_availability_and_validity"},
-      "community_membership[consent]": {required: true},
-      "invitation_code": {required: invitation_required, remote: "/people/check_invitation_code"}
+      "form[email]": {required: true, email: true, remote: "/community_memberships/check_email_availability_and_validity"},
+      "form[consent]": {required: true},
+      "form[invitation_code]": {required: invitation_required, remote: "/community_memberships/check_invitation_code"}
     },
     messages: {
-      "community_membership[email]": { remote: email_invalid_message },
-      "invitation_code": { remote: invalid_invitation_code_message }
-    },
+      "form[email]": { remote: email_invalid_message },
+      "form[invitation_code]": { remote: invalid_invitation_code_message }
+    }
   });
 }
 
