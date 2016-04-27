@@ -442,8 +442,8 @@ class Person < ActiveRecord::Base
     conversation.participations.where(["person_id LIKE ?", self.id]).first.update_attribute(:is_read, true)
   end
 
-  def consent(community)
-    community_memberships.find_by_community_id(community.id).consent
+  def consent
+    community_membership.consent
   end
 
   def is_marketplace_admin?
