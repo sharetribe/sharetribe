@@ -49,7 +49,7 @@ class Admin::GettingStartedGuideController < ApplicationController
       invitation: {
         sub_path: 'invitation',
         link: new_invitation_path,
-        info_image: view_context.image_path('onboarding/step5_screenshot_share@2x.png')
+        info_image: view_context.image_path('onboarding/step7_screenshot_share@2x.png')
       }
     }
 
