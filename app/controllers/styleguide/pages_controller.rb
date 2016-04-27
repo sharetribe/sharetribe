@@ -47,7 +47,8 @@ class Styleguide::PagesController < ApplicationController
       },
       paypal: {
         sub_path: 'paypal',
-        link: admin_paypal_preferences_path
+        link: admin_paypal_preferences_path,
+        info_image: view_context.image_path('onboarding/step5_screenshot_paypal@2x.png')
       },
       listing: {
         sub_path: 'listing',
@@ -56,7 +57,8 @@ class Styleguide::PagesController < ApplicationController
       },
       invitation: {
         sub_path: 'invitation',
-        link: new_invitation_path
+        link: new_invitation_path,
+        info_image: view_context.image_path('onboarding/step5_screenshot_share@2x.png')
       }
     }
 
