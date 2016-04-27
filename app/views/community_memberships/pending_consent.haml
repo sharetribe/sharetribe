@@ -26,7 +26,7 @@
     = t('community_memberships.new.if_want_to_view_content')
     = link_to(t('community_memberships.new.log_out'), logout_path) + "."
 
-  = form_tag({controller: :community_memberships, action: :consent_given}, {id: "pending_consent_form"}) do
+  = form_tag consent_given_path, id: "pending_consent_form" do
 
     - if invite_only
       - if values[:invitation_code].present?
