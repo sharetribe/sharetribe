@@ -23,7 +23,7 @@ class EmailsController < ApplicationController
     email = Email.find_by_id_and_person_id(email_id, @current_user.id)
 
     if !email.nil? then
-      list_of_allowed_emails = @current_user.communities.collect(&:allowed_emails)
+      list_of_allowed_emails = @current_user.accepted_community.allowed_emails
       can_delete = EmailService.can_delete_email(@current_user.emails, email, list_of_allowed_emails)
       if can_delete[:result] == true then
         # Deleting email

@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 def email(h)
   defaults = {confirmed_at: Time.now, send_notifications: true}
   HashClass.new(defaults.merge(h))
@@ -120,13 +122,13 @@ describe EmailService do
       expect(EmailService.can_delete_email(
         [email(id: 1, address: "john@community.com"), email(id: 2, address: "john@gmail.com")],
         email(id: 1),
-        ["community.com"],
+        "community.com",
       )).to eql({result: false, reason: :only_allowed})
 
       expect(EmailService.can_delete_email(
         [email(id: 1, address: "john@community.com"), email(id: 2, address: "john@gmail.com")],
         email(id: 2),
-        ["community.com"],
+        "community.com",
       )).to eql({result: true})
 
       # Two allowed emails for one community
@@ -137,10 +139,10 @@ describe EmailService do
           email(id: 3, address: "john@my.community.com")
         ],
         email(id: 1),
-        ["community.com"],
+        "community.com",
       )).to eql({result: true})
 
-      # One allowed emails for two communities
+      # Multiple allowed emails for community
       expect(EmailService.can_delete_email(
         [
           email(id: 1, address: "john@community.com"),
@@ -148,19 +150,18 @@ describe EmailService do
           email(id: 3, address: "john@organization.com")
         ],
         email(id: 3),
-        ["community.com", "organization.com"],
-      )).to eql({result: false, reason: :only_allowed})
+        "community.com, organization.com",
+      )).to eql({result: true})
 
+      # Multiple allowed emails for community, but only one inculed in person
       expect(EmailService.can_delete_email(
         [
           email(id: 1, address: "john@community.com"),
           email(id: 2, address: "john@gmail.com"),
-          email(id: 3, address: "john@organization.com"),
-          email(id: 3, address: "john@my.organization.com")
         ],
-        email(id: 3),
-        ["community.com", "organization.com"],
-      )).to eql({result: true})
+        email(id: 1),
+        "community.com, organization.com",
+      )).to eql({result: false, reason: :only_allowed})
     end
 
     it "can not delete email if that's the only CONFIRMED email required by community" do
@@ -171,8 +172,8 @@ describe EmailService do
           email(id: 2, address: "john@gmail.com"),
           email(id: 3, address: "john@my.community.com")
         ],
-        email(id: 1),
-        ["community.com"],
+        email(id: 3),
+        "community.com",
       )).to eql({result: false, reason: :only_allowed})
 
             # Two allowed emails for one community
@@ -183,7 +184,7 @@ describe EmailService do
           email(id: 3, address: "john@my.community.com", confirmed_at: Time.now)
         ],
         email(id: 1),
-        ["community.com"],
+        "community.com",
       )).to eql({result: true})
     end
   end
