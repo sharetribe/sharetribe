@@ -8,7 +8,12 @@ class Admin::CommunitiesController < ApplicationController
   def getting_started
     @selected_left_navi_link = "getting_started"
     @community = @current_community
-    render locals: {paypal_enabled: PaypalHelper.paypal_active?(@current_community.id)}
+
+    if(feature_enabled?(:onboarding_redesign_v1))
+      redirect_to getting_started_guide_admin_community_path
+    else
+      render locals: {paypal_enabled: PaypalHelper.paypal_active?(@current_community.id)}
+    end
   end
 
   def edit_look_and_feel

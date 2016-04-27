@@ -1,14 +1,15 @@
-class Styleguide::PagesController < ApplicationController
-  include ReactOnRails::Controller
-  layout "styleguide"
+class Admin::GettingStartedGuideController < ApplicationController
 
-  before_action :data
+  before_filter :ensure_is_admin
 
   rescue_from ReactOnRails::PrerenderError do |err|
     Rails.logger.error(err.message)
     Rails.logger.error(err.backtrace.join("\n"))
-    redirect_to styleguide_path,
-                flash: { error: "Error prerendering in react_on_rails. See server logs." }
+    redirect_to root_path, flash: { error: I18n.t('error_messages.onboarding.server_rendering') }
+  end
+
+  def index
+    render locals: { props: data }
   end
 
   private
@@ -18,17 +19,7 @@ class Styleguide::PagesController < ApplicationController
     has_sub_path = (path_parts.count == 2 && path_parts[1] != "/")
     sub_path = has_sub_path ? path_parts[1] : ""
 
-    # Admin::OnboardingWizard.new(@current_community).setup_status
-    onboarding_status = {
-      community_id: 1,
-      slogan_and_description: true,
-      cover_photo: false,
-      filter: true,
-      paypal: false,
-      listing: true,
-      invitation: true
-    }
-
+    onboarding_status = Admin::OnboardingWizard.new(@current_community.id).setup_status
     links = {
       slogan_and_description: {
         sub_path: 'slogan_and_description',
@@ -66,8 +57,7 @@ class Styleguide::PagesController < ApplicationController
       }
 
     # This is the props used by the React component.
-    @app_props_server_render = {
-      onboarding_guide_page: {
+    { onboarding_guide_page: {
         path: sub_path,
         onboarding_data: sorted_steps,
         name: PersonViewUtils.person_display_name(@current_user, @current_community),
@@ -75,6 +65,5 @@ class Styleguide::PagesController < ApplicationController
         translations: I18n.t('admin.onboarding.guide')
       }
     }
-
   end
 end

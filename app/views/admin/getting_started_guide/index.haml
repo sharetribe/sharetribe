@@ -1,0 +1,13 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.getting_started.getting_started")
+
+%article.page-content
+  .row
+    .col-3
+      = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+    .col-9
+      - cache ['v1', 'onboarding_guide', props] do
+        = react_component("OnboardingGuideApp", props: props)

@@ -2,4 +2,33 @@
 // so we can use them in style loader and CSS Modules via sass-resources-loader
 // It will be used in SASS components imported as CSS Modules
 
-$bright-color: red;
+$fontSizeSmall: 0.875rem;
+$fontSize: 1rem;
+$fontSizeBig: 1.125rem;
+$fontSizeTitle: 1.375rem;
+$fontSizeInfo: 0.8125rem;
+
+$lineHeight: 1.5rem;
+$lineHeightBig: 2.25rem;
+$lineHeightTitle: 1.875rem;
+$lineHeightInfo: 1.38462rem;
+
+$color: #3c3c3c;
+$colorTitle: #171717;
+$colorActionText: #4d998b;
+$colorActionTextHover: #348072;
+$colorCompleted: #646464;
+$colorCompletedHover: #4b4b4b;
+$colorInfoText: gray;
+$colorButtonText: white;
+$colorButton: #59b3a2;
+$colorButtonHover: #4d998b;
+
+$paddingButtonVertical: 0.626em;
+$paddingButtonHorizontal: 1.875em;
+
+$verticalSpaceText: 0.75em;
+$verticalSpaceTextSmall: 0.625em;
+$verticalSpaceTextInfo: 0.375em;
+$verticalSpaceElement: 2em;
+$verticalSpaceElementBig: 2.5em;

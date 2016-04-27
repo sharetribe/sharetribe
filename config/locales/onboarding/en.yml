@@ -1,6 +1,65 @@
 en:
   admin:
     onboarding:
+      guide:
+        cover_photo:
+          title: "Step 3: Add a cover photo"
+          description: "A good cover photo can make the difference between new visitors joining or leaving your marketplace. Add your own to make people join!"
+          info_image_alt: "A screenshot of homepage with big cover photo"
+          add_your_own: "Add cover photo"
+          advice: "Check out <a href=\"http://support.sharetribe.com/knowledgebase/articles/744438\" alt=\"How to get good-looking cover photos, logos, favicon, profiles and listing pictures?\">this article</a> on where to find good looking images, that are free to use. <br/>Remember: the photo will be resized to 1920x450 pixel size and taller images will be cut in the middle."
+        filter:
+          title: "Step 4: Add listing fields & filters"
+          description_p1: "Filters help your visitors find what they are looking for. For example, if your marketplace is about clothes, you probably want to create a filter for brands."
+          description_p2: "You can create your own filters by adding listing fields."
+          info_image_alt: "A screenshot from fields and filters page"
+          add_fields_and_filters: "Add fields & filters"
+          advice: "Filters are very handy, but you can also have too many, making it difficult for customers to find something. Keep in mind that every filter is an additional field for your suppliers to fill in."
+        invitation:
+          title: "Step 7: inviting users"
+          description: "Happy with your marketplace look and functions? Maybe one last preview? If you're ready, let's start inviting users!"
+          info_image_alt: "A screenshot from invite users page"
+          invite_users: "Invite users"
+          advice: "Invite your friends first and start gathering feedback."
+        listing:
+          title: "Step 6: Add your first listing"
+          description: "Listings are what marketplaces are all about, but your marketplace is looking very empty now. To get an idea of how a listing looks, and what it takes to post one, create one yourself."
+          info_image_alt: "A screenshot from Post a new listing page"
+          post_your_first_listing: "Post your first listing"
+          advice: "Removing a listing is easy: simply click on the listing and choose <i>Close listing</i>."
+        next_step:
+          slogan_and_description: "Add slogan & description"
+          cover_photo: "Add cover photo"
+          filter: "Add fields & filters"
+          paypal: "Setup payments"
+          listing: "Post your first listing"
+          invitation: "Invite users"
+        paypal:
+          title: "Step 5: Start accepting payments"
+          description_p1: "For you to receive transaction fees, and for your users to receive payments, you need to \"Enable Payments\" by connecting your PayPal account. Once connected, you need to choose a commission fee."
+          description_p2: ""
+          info_image_alt: "A screenshot from payments page"
+          setup_payments: "Set up payments"
+          advice: "To disable payments, read <a href=\"http://support.sharetribe.com/knowledgebase/articles/470085\" alt=\"How to disable payments or add free listings to your marketplace\">this article</<a>"
+        slogan_and_description:
+          title: "Step 2: Slogan & Description"
+          description: "The slogan & description help new visitors understand what your marketplace is about, so it is important that you write your own."
+          info_image_alt: "A screenshot of homepage showing slogan and description."
+          add_your_own: "Add slogan & description"
+          advice: "Use the description to be very clear about what your visitors can find here. The following format works well for a start: The best place to [rent/sell/swap/share] [products/services/goods]. Simply choose the parts in between [ ] that suit your marketplace."
+        status_page:
+          title: "Welcome to your marketplace, %{name}"
+          title_done: "All done!"
+          description_p1: "To get your marketplace up and running, there are a few essential steps you need to take, listed below."
+          description_p2: "Once finished, your marketplace is ready to receive its first visitors!"
+          congratulation: "Fantastic! You did it! Your marketplace is now up and running. However, this is just the start! You should continously update, improve and promote your marketplace. For some ideas on what to do next, check out the <a href=\"https://www.sharetribe.com/academy/\" target=\"_blank\">Marketplace academy</a>."
+          slogan_and_description: "Add slogan & description"
+          cover_photo: "Upload cover photo"
+          filter: "Create a filter"
+          paypal: "Connect PayPal"
+          listing: "Post a listing"
+          invitation: "Invite users"
+        back_to_todo: "Back to to-do list"
       popup:
         slogan_and_description:
           title: "Woohoo, task completed!"
