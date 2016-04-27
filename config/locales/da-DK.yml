@@ -997,6 +997,8 @@ da-DK:
       you_are_receiving_this_because: "Du har modtaget denne mail, fordi du følger %{author_name}."
       view_listing: "Vis annonce"
   error_messages:
+    onboarding:
+      server_rendering: ~
     listings:
       departure_time: "Afgang tid skal være mellem aktuelle klokkeslæt og et år fra nu."
       share_type: "Du skal vælge mindst en."

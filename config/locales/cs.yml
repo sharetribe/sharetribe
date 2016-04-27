@@ -1010,6 +1010,8 @@ cs:
       you_are_receiving_this_because: "Obdrželi jste toto upozornění, protože sledujete uživatele %{author_name}."
       view_listing: "Zobrazit inzerát"
   error_messages:
+    onboarding:
+      server_rendering: ~
     listings:
       departure_time: "Čas odjezdu musí být mezi aktuálním časem a do jednoho roku ode dneška."
       share_type: "Musíte zvolit právě jednu variantu."

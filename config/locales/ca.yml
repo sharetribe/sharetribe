@@ -972,6 +972,8 @@ ca:
       you_are_receiving_this_because: ~
       view_listing: ~
   error_messages:
+    onboarding:
+      server_rendering: ~
     listings:
       departure_time: "L'hora de sortida ha desituar-se entre la data actual i un any a contar des d'avui."
       share_type: "Has de seleccionar almenys una de les caselles anteriors."
