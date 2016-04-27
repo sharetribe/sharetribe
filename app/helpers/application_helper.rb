@@ -704,10 +704,6 @@ module ApplicationHelper
     params[:sort].eql?(column) && params[:direction].eql?("asc") ? "desc" : "asc"
   end
 
-  def onboarding_status
-    Admin::OnboardingWizard.new(@current_community.id).setup_status
-  end
-
   # Give an array of translation keys you need in JavaScript. The keys will be loaded and ready to be used in JS
   # with `ST.t` function
   def js_t(keys, run_js_immediately=false)
