@@ -69,7 +69,9 @@ module OnboardingViewUtils
   end
 
   def progress(setup_status)
-    100 * (1 - (incomplete_steps(setup_status).count / STEPS.count.to_f))
+    total_steps = STEPS.count + 1
+    completed_steps = total_steps - incomplete_steps(setup_status).count
+    100 * (completed_steps/total_steps.to_f)
   end
 
 end
