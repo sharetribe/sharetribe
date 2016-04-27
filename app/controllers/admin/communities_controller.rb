@@ -15,6 +15,12 @@ class Admin::CommunitiesController < ApplicationController
     @selected_left_navi_link = "tribe_look_and_feel"
     @community = @current_community
     flash.now[:notice] = t("layouts.notifications.stylesheet_needs_recompiling") if @community.stylesheet_needs_recompile?
+
+    onboarding_popup_locals = OnboardingViewUtils.popup_locals(
+      flash[:show_onboarding_popup],
+      Admin::OnboardingWizard.new(@current_community.id).setup_status)
+
+    render "edit_look_and_feel", locals: onboarding_popup_locals
   end
 
   def edit_text_instructions
@@ -239,6 +245,10 @@ class Admin::CommunitiesController < ApplicationController
         .update_from_event(:community_updated, community)
       if state_changed
         report_to_gtm({event: "km_record", km_event: "Onboarding cover photo uploaded"})
+
+        with_feature(:onboarding_redesign_v1) do
+          flash[:show_onboarding_popup] = true
+        end
       end
     }
   end

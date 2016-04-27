@@ -1,0 +1,51 @@
+#onboarding-popup {
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
+
+.onboarding-popup__image {
+  margin-top: 2em;
+  width: 50%;
+  height: 50%;
+}
+
+.onboarding-popup__title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #171717;
+  line-height: 30px;
+  margin-top: 1em;
+}
+
+.onboarding-popup__body {
+  font-size: 16px;
+  color: #3c3c3c;
+  line-height: 24px;
+  width: 90%;
+  margin: 1em auto;
+}
+
+.onboarding-popup__action {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #59b3a2;
+  padding: 10px 30px;
+  color: white;
+  border-radius: 5px;
+  margin-top: 1em;
+
+  &:hover {
+    background-color: #4d998b;
+    color: white;
+  }
+}
+
+.onboarding-popup__skip {
+  display: block;
+  font-size: 13px;
+  color: #808080;
+  line-height: 21px;
+  margin: 1em 0;
+}

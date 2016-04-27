@@ -53,20 +53,26 @@ class Admin::PaypalPreferencesController < ApplicationController
 
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 
-    render("index", locals: {
-        paypal_account_email: paypal_account[:email].or_else(nil),
-        order_permission_action: admin_paypal_preferences_account_create_path(),
-        paypal_account_form: PaypalAccountForm.new,
-        paypal_prefs_valid: paypal_prefs_form.valid?,
-        paypal_prefs_form: paypal_prefs_form,
-        paypal_prefs_form_action: admin_paypal_preferences_preferences_update_path(),
-        min_commission: minimum_commission,
-        min_commission_percentage: MIN_COMMISSION_PERCENTAGE,
-        max_commission_percentage: MAX_COMMISSION_PERCENTAGE,
-        currency: currency,
-        display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
-        knowledge_base_url: APP_CONFIG.knowledge_base_url
-      })
+    onboarding_popup_locals = OnboardingViewUtils.popup_locals(
+      flash[:show_onboarding_popup],
+      Admin::OnboardingWizard.new(@current_community.id).setup_status)
+
+    view_locals = {
+      paypal_account_email: paypal_account[:email].or_else(nil),
+      order_permission_action: admin_paypal_preferences_account_create_path(),
+      paypal_account_form: PaypalAccountForm.new,
+      paypal_prefs_valid: paypal_prefs_form.valid?,
+      paypal_prefs_form: paypal_prefs_form,
+      paypal_prefs_form_action: admin_paypal_preferences_preferences_update_path(),
+      min_commission: minimum_commission,
+      min_commission_percentage: MIN_COMMISSION_PERCENTAGE,
+      max_commission_percentage: MAX_COMMISSION_PERCENTAGE,
+      currency: currency,
+      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
+      knowledge_base_url: APP_CONFIG.knowledge_base_url
+    }
+
+    render("index", locals: onboarding_popup_locals.merge(view_locals))
   end
 
   def preferences_update
@@ -89,6 +95,10 @@ class Admin::PaypalPreferencesController < ApplicationController
         .update_from_event(:paypal_preferences_updated, @current_community)
       if state_changed
         report_to_gtm({event: "km_record", km_event: "Onboarding paypal connected"})
+
+        with_feature(:onboarding_redesign_v1) do
+          flash[:show_onboarding_popup] = true
+        end
       end
 
       flash[:notice] = t("admin.paypal_accounts.preferences_updated")

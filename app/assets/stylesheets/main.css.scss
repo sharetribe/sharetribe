@@ -588,7 +588,7 @@ label.error {
   width: 100%;
   background: $background;
   padding: lines(1);
-  @include border-radius(em(5));
+  border-radius: 10px;
 
   h2 {
     margin-bottom: lines(0.25);
@@ -630,26 +630,23 @@ label.error {
 }
 
 a.lightbox-x {
-  border: em(2) solid $background;
   width: lines(1.25);
   height: lines(1.25);
-  padding: em(1) em(4);
+  padding: 15px 30px 30px 15px;
   position: absolute;
-  right: lines(-0.5);
-  top: lines(-0.5);
+  right: 0;
+  top: 0;
+  color: #aaacad;
+
   &:hover {
-    background: $body;
+    color: #919294;
   }
 
-  @include border-radius(50%);
-  background: $emphasis;
-  border: em(3) solid $background;
-  color: $background;
   @include media(tablet) {
     width: lines(1.5);
     height: lines(1.5);
+    padding: 25px 45px 45px 25px;
     @include big-type;
-    padding: em(7);
   }
 }
 
@@ -1213,39 +1210,6 @@ $noscript-height: lines(4);
       right: lines(0); top: lines(17.5);
       width: lines(12);
       height: lines(10);
-    }
-  }
-
-  .trustcloud {
-    display: block;
-    width: 100%;
-    height: lines(8);
-    margin-top: lines(0.5);
-
-    small {
-      display: inline;
-      margin-left: lines(0.5);
-    }
-
-    @include media(tablet) {
-      margin-top: 0;
-      margin-bottom: lines(2);
-      position: absolute;
-      right: lines(0); top: lines(19.5);
-      width: lines(12);
-      height: lines(10);
-    }
-  }
-
-  .trustcard-upper {
-    @include media(tablet) {
-      right: lines(0); top: lines(17.5);
-    }
-  }
-
-  .trustcard-lower {
-    @include media(tablet) {
-      right: lines(0); top: lines(28.5);
     }
   }
 

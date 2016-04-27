@@ -1,0 +1,16 @@
+<% content_for :javascript do %>
+  window.ST.onboarding_popup = $('#<%= id %>').lightbox_me({ centered: true, zIndex: 1000000 });
+<% end %>
+<img src=<%= image %> class="onboarding-popup__image" />
+<h2 class="onboarding-popup__title">
+  <%= title %>
+</h2>
+<div class="onboarding-popup__body">
+  <%= body.html_safe %>
+</div>
+<a class="onboarding-popup__action" href="<%= action_link%>">
+  <%= action_label %>
+</a>
+<a class="onboarding-popup__skip" href="#" onClick="window.ST.onboarding_popup.trigger('close');">
+  <%= t("admin.onboarding.popup.button_later") %>
+</a>

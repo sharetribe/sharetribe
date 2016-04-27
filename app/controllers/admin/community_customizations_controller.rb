@@ -14,9 +14,14 @@ class Admin::CommunityCustomizationsController < ApplicationController
       .maybe
       .map { |data| has_preauthorize_process?(data) }
       .or_else(nil).tap { |p| raise ArgumentError.new("Cannot find transaction process: #{opts}") if p.nil? }
-    render locals: {
+
+    onboarding_popup_locals = OnboardingViewUtils.popup_locals(
+      flash[:show_onboarding_popup],
+      Admin::OnboardingWizard.new(@current_community.id).setup_status)
+
+    render locals: onboarding_popup_locals.merge({
       locale_selection_locals: { all_locales: all_locales, enabled_locale_keys: enabled_locale_keys, unofficial_locales: unofficial_locales }
-    }
+    })
   end
 
   def update_details
@@ -59,6 +64,10 @@ class Admin::CommunityCustomizationsController < ApplicationController
         .update_from_event(:community_customizations_updated, customizations)
       if state_changed
         report_to_gtm({event: "km_record", km_event: "Onboarding slogan/description created"})
+
+        with_feature(:onboarding_redesign_v1) do
+          flash[:show_onboarding_popup] = true
+        end
       end
 
       flash[:notice] = t("layouts.notifications.community_updated")

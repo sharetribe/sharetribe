@@ -82,7 +82,12 @@ class Admin::CustomFieldsController < ApplicationController
     shapes = listings_api.shapes.get(community_id: @community.id).data
     price_in_use = shapes.any? { |s| s[:price_enabled] }
 
-    render locals: { show_price_filter: price_in_use }
+    onboarding_popup_locals = OnboardingViewUtils.popup_locals(
+      flash[:show_onboarding_popup],
+      Admin::OnboardingWizard.new(@current_community.id).setup_status)
+
+    render locals: onboarding_popup_locals.merge(
+             { show_price_filter: price_in_use })
   end
 
   def new
@@ -125,6 +130,10 @@ class Admin::CustomFieldsController < ApplicationController
         .update_from_event(:custom_field_created, @custom_field)
       if state_changed
         report_to_gtm({event: "km_record", km_event: "Onboarding filter created"})
+
+        with_feature(:onboarding_redesign_v1) do
+          flash[:show_onboarding_popup] = true
+        end
       end
 
       redirect_to admin_custom_fields_path

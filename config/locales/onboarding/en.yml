@@ -1,0 +1,33 @@
+en:
+  admin:
+    onboarding:
+      popup:
+        slogan_and_description:
+          title: "Woohoo, task completed!"
+          body: "Fantastic! Up next: the Slogan and Description help new visitors understand what your marketplace is about, so it is important that you write your own!"
+          button: "Write your own!"
+        cover_photo:
+          title: "Woohoo, task completed!"
+          body: "Well done, let's keep going! A good cover photo can make the difference between people visiting or leaving. Add your own next!"
+          button: "Upload cover photo"
+        filter:
+          title: "Looking good!"
+          body: "Now let's focus on some functionality. Filters help your users find what they are looking for. Add a custom filter yourself, specific to your marketplace."
+          button: "Add fields & fiters"
+        paypal:
+          title: "Well done! "
+          body: "Next, start accepting payments! To receive transaction fees and for your users to receive payments, you need to connect your Paypal account. Once connected, you need to choose a minimum transaction size and a commission fee."
+          button: "Setup payments"
+        listing:
+          title: "Good job!"
+          body: "Now, let's post a listing! Listings are what marketplaces are all about, but your marketplace is looking very empty now."
+          button: "Post your first listing"
+        invitation:
+          title: "...and now the final step - share it!"
+          body: "Happy with your marketplace? Then let's start inviting users!"
+          button: "Invite users"
+        all_done:
+          title: "Brilliant, you made it!"
+          body: "Fantastic! You did it! Your marketplace is now up and running. However, this is just the start! You should continously update, improve and promote your marketplace. For some ideas on what to do next, check out <a href='https://www.sharetribe.com/academy/' target='_blank'>the Marketplace academy</a>."
+          button: "Woohoo, I did it!"
+        button_later: "I'll do it later, thanks"

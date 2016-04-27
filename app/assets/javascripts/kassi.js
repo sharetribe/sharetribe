@@ -702,7 +702,6 @@ function initialize_profile_view(profile_id) {
     $('#profile_description_preview').show();
     $('#profile_description_full').hide();
   });
-  $('#trustcloud_description_link').click(function() { $('#trustcloud_description').lightbox_me({centered: true}); });
 }
 
 function initialize_homepage() {
