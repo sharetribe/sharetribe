@@ -38,7 +38,7 @@ class IntApi::MarketplacesController < ApplicationController
         active: true)
     end
 
-    user = UserService::API::Users.create_user_with_membership({
+    user = UserService::API::Users.create_user({
         given_name: params[:admin_first_name],
         family_name: params[:admin_last_name],
         email: params[:admin_email],

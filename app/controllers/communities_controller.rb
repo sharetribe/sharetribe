@@ -28,7 +28,7 @@ class CommunitiesController < ApplicationController
         .merge(payment_process: :none)
       )
 
-      user = UserService::API::Users.create_user_with_membership({
+      user = UserService::API::Users.create_user({
         given_name: form_hash[:admin_first_name],
         family_name: form_hash[:admin_last_name],
         email: form_hash[:admin_email],

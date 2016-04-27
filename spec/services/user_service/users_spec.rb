@@ -17,6 +17,13 @@ describe UserService::API::Users do
 
   describe "#create_user" do
 
+    before { ActionMailer::Base.deliveries = [] }
+
+    before (:each) do
+      expect(ActionMailer::Base.deliveries).to be_empty
+      @community = FactoryGirl.create(:community)
+    end
+
     it "should create a user" do
       c = FactoryGirl.create(:community)
       u = create_user(PERSON_HASH, c.id)
@@ -27,23 +34,12 @@ describe UserService::API::Users do
 
     it "should fail if email is taken" do
       c = FactoryGirl.create(:community)
-      u1 = create_user_with_membership(PERSON_HASH, c.id)
+      u1 = create_user(PERSON_HASH, c.id)
       expect{create_user(PERSON_HASH, c.id)}.to raise_error(ArgumentError, /Email Ray@example.com is already in use/)
     end
 
-  end
-
-  describe "#create_user_with_membership" do
-
-    before { ActionMailer::Base.deliveries = [] }
-
-    before (:each) do
-      expect(ActionMailer::Base.deliveries).to be_empty
-      @community = FactoryGirl.create(:community)
-    end
-
     it "should send the confirmation email" do
-      u = create_user_with_membership(PERSON_HASH.merge({:locale => "en"}), @community.id)
+      u = create_user(PERSON_HASH.merge({:locale => "en"}), @community.id)
       expect(ActionMailer::Base.deliveries).not_to be_empty
 
       email = ActionMailer::Base.deliveries.first
@@ -54,13 +50,12 @@ describe UserService::API::Users do
     end
 
     it "should send the confirmation email in right language" do
-      u = create_user_with_membership(PERSON_HASH.merge({:locale => "fr"}), @community.id)
+      u = create_user(PERSON_HASH.merge({:locale => "fr"}), @community.id)
       expect(ActionMailer::Base.deliveries).not_to be_empty
 
       email = ActionMailer::Base.deliveries.first
       expect(email).to have_subject "Instructions de confirmation"
     end
-
   end
 
   describe "#delete_user" do

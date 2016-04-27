@@ -3,9 +3,32 @@ module UserService::API
 
     module_function
 
-    def create_user_with_membership(user_hash, community_id, invitation_id = nil)
+    # TODO make people controller use this method too
+    # The challenge for that is the devise connections
+    def create_user(user_hash, community_id, invitation_id = nil)
 
-      user = create_user(user_hash, community_id)
+      raise ArgumentError.new("Email #{user_hash[:email]} is already in use.") unless Email.email_available?(user_hash[:email], community_id)
+
+      username = generate_username(user_hash[:given_name], user_hash[:family_name], community_id)
+      locale = user_hash[:locale] || APP_CONFIG.default_locale # don't access config like this, require to be passed in in ctor
+
+      person = Person.new(
+        given_name: user_hash[:given_name],
+        family_name: user_hash[:family_name],
+        password: user_hash[:password],
+        username: username,
+        locale: locale,
+        test_group_number: 1 + rand(4),
+        community_id: community_id)
+
+      email = Email.new(person: person, address: user_hash[:email].downcase, send_notifications: true, community_id: community_id)
+
+      person.emails << email
+      person.inherit_settings_from(Community.find(community_id)) if community_id
+      person.save!
+      person.set_default_preferences
+
+      user = from_model(person)
 
       # The first member will be made admin
       MarketplaceService::API::Memberships.make_user_a_member_of_community(user[:id], community_id, invitation_id)
@@ -21,35 +44,6 @@ module UserService::API
       end
 
       return user
-    end
-
-    # TODO make people controller use this method too
-    # The challenge for that is the devise connections
-    #
-    # Create a new user by opts and optional current community
-    def create_user(opts, community_id)
-      raise ArgumentError.new("Email #{opts[:email]} is already in use.") unless Email.email_available?(opts[:email], community_id)
-
-      username = generate_username(opts[:given_name], opts[:family_name], community_id)
-      locale = opts[:locale] || APP_CONFIG.default_locale # don't access config like this, require to be passed in in ctor
-
-      person = Person.new(
-        given_name: opts[:given_name],
-        family_name: opts[:family_name],
-        password: opts[:password],
-        username: username,
-        locale: locale,
-        test_group_number: 1 + rand(4),
-        community_id: community_id)
-
-      email = Email.new(person: person, address: opts[:email].downcase, send_notifications: true, community_id: community_id)
-
-      person.emails << email
-      person.inherit_settings_from(Community.find(community_id)) if community_id
-      person.save!
-      person.set_default_preferences
-
-      return from_model(person)
     end
 
     def delete_user(id)
