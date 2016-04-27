@@ -17,6 +17,7 @@
     "start-phantomjs": "phantomjs --webdriver=8910"
   },
   "dependencies": {
+    "autoprefixer": "6.3.6",
     "babel": "6.5.2",
     "babel-cli": "6.7.7",
     "babel-core": "6.7.7",
@@ -36,6 +37,7 @@
     "lodash": "4.11.1",
     "node-libs-browser": "1.0.0",
     "node-sass": "3.5.1",
+    "postcss-loader": "0.8.2",
     "react": "15.0.1",
     "react-dom": "15.0.1",
     "react-on-rails": "5.2.0",

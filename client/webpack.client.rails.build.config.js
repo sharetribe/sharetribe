@@ -18,7 +18,8 @@ config.module.loaders.push(
     test: /\.css$/,
     loader: ExtractTextPlugin.extract(
       'style',
-      'css?minimize&modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]'
+      'css?minimize&modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]' +
+      '!postcss'
     ),
   },
   {
@@ -26,6 +27,7 @@ config.module.loaders.push(
     loader: ExtractTextPlugin.extract(
       'style',
       'css?minimize&modules&importLoaders=3&localIdentName=[name]__[local]__[hash:base64:5]' +
+      '!postcss' +
       '!sass' +
       '!sass-resources'
     ),
