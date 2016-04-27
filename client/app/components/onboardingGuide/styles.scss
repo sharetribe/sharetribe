@@ -123,7 +123,11 @@ $widthRestrictionPercentage: 90%;
   height: auto;
   position: relative;
   overflow: hidden;
-  padding: 46.72% 0 0 0; /* 46.72% = 100 / (w / h) = 100 / (732 / 342) */
+  padding: 40.30% 0 0 0; /* 40.30% = 100 / (w / h) = 100 / (732 / 295) */
+}
+.sloganImageContainerBig {
+  @extend .sloganImageContainer;
+  padding: 73.68% 0 0 0; /* 73.68% = 100 / (w / h) = 100 / (722 / 532) */
 }
 
 .sloganImage {

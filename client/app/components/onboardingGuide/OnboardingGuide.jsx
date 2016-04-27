@@ -23,7 +23,7 @@ export default class OnboardingGuide extends React.Component {
       info_icon: PropTypes.string.isRequired,
       translations: PropTypes.object.isRequired,
       onboarding_data: PropTypes.objectOf(PropTypes.shape({
-        info_image: PropTypes.string.isRequired,
+        info_image: PropTypes.string,
         link: PropTypes.string.isRequired,
         complete: PropTypes.bool.isRequired,
       }).isRequired).isRequired,

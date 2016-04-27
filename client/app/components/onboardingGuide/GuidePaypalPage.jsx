@@ -20,12 +20,14 @@ const GuidePaypalPage = (props) => (
       {props.t('description_p2')}
     </p>
 
-    <div className={css.sloganImageContainer}>
-      <img src={props.pageData.info_image}
-        className={css.sloganImage}
-        alt={props.t('info_image_alt')}
-      />
-    </div>
+    {props.pageData.info_image ?
+      <div className={css.sloganImageContainer}>
+        <img src={props.pageData.info_image}
+          className={css.sloganImage}
+          alt={props.t('info_image_alt')}
+        />
+      </div>
+      : null}
 
     <div className={css.infoTextContainer} >
       <div className={css.infoTextIcon}
@@ -51,7 +53,7 @@ GuidePaypalPage.propTypes = {
   infoIcon: PropTypes.string.isRequired,
   pageData: PropTypes.shape({
     link: PropTypes.string.isRequired,
-    info_image: PropTypes.string.isRequired,
+    info_image: PropTypes.string,
   }).isRequired,
 };
 

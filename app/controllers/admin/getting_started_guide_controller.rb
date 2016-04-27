@@ -24,32 +24,30 @@ class Admin::GettingStartedGuideController < ApplicationController
       slogan_and_description: {
         sub_path: 'slogan_and_description',
         link: edit_details_admin_community_path(@current_community),
-        info_image: view_context.image_path('onboardingImagePlaceholder.jpg')
+        info_image: view_context.image_path('onboarding/step2_sloganDescription.jpg')
       },
       cover_photo: {
         sub_path: 'cover_photo',
         link: edit_look_and_feel_admin_community_path(@current_community),
-        info_image: view_context.image_path('onboardingImagePlaceholder.jpg')
+        info_image: view_context.image_path('onboarding/step3_coverPhoto.jpg')
       },
       filter: {
         sub_path: 'filter',
         link: admin_custom_fields_path,
-        info_image: view_context.image_path('onboardingImagePlaceholder.jpg')
+        info_image: view_context.image_path('onboarding/step4_fieldsFilters.jpg')
       },
       paypal: {
         sub_path: 'paypal',
-        link: admin_paypal_preferences_path,
-        info_image: view_context.image_path('onboardingImagePlaceholder.jpg')
+        link: admin_paypal_preferences_path
       },
       listing: {
         sub_path: 'listing',
         link: new_listing_path,
-        info_image: view_context.image_path('onboardingImagePlaceholder.jpg')
+        info_image: view_context.image_path('onboarding/step6_addListing.jpg')
       },
       invitation: {
         sub_path: 'invitation',
-        link: new_invitation_path,
-        info_image: view_context.image_path('onboardingImagePlaceholder.jpg')
+        link: new_invitation_path
       }
     }
 
