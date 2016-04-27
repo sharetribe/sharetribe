@@ -1227,7 +1227,7 @@ es-ES:
     application:
       join_this_community: "Únete a la comunidad"
       read_more: "Lee más"
-      feedback: "Sugerencia al equipo de %{service_name}"
+      feedback: "Qué sugerencia te gustaría hacernos?"
       default_feedback: "Tienes algún problema con %{service_name}? Tienes sugerencias o comentarios que nos ayuden a mejorar el servicio? Quieres reportar contenidos o usuarios sospechosos o que violan los Términos de Uso de %{service_name}? O simplemente hay algo que quieres discutir con nosotros? Contáctanos!"
       feedback_forum: "Foro de sugerencias"
       feedback_handle: "Sugerencia o comentario"
@@ -1376,12 +1376,12 @@ es-ES:
       you_must_log_in_to_give_feedback: "Debes iniciar sesión para dar una sugerencia"
       you_must_log_in_to_invite_new_users: "Debes iniciar sesión para invitar a nuevos usuarios a %{service_name}"
       you_must_log_in_to_send_a_comment: "Debes iniciar sesión para enviar un nuevo comentario"
-      you_must_log_in_to_send_a_message: "Debes iniciar tu sesión en %{service_name} o crear una nueva cuenta gratuita para enviar un mensaje a otro usuario."
+      you_must_log_in_to_send_a_message: "Debes iniciar sesión en %{service_name} para enviar un mensaje a otro usuario."
       you_must_log_in_to_do_a_transaction: "Debes iniciar sesión en %{service_name} para realizar una transacción."
       you_must_log_in_to_view_this_content: "Debes iniciar sesión para ver este contenido"
       you_must_log_in_to_view_this_page: "Tienes que iniciar sesión para ver esta página"
       you_must_log_in_to_view_your_inbox: "Debes iniciar sesión en %{service_name} para revisar tu bandeja de entrada."
-      you_must_log_in_to_view_your_settings: "Debes registrarte en %{service_name} para ver tu configuración."
+      you_must_log_in_to_view_your_settings: "Debes iniciar sesión en %{service_name} para ver tu configuración."
       you_must_log_in_to_add_news_item: "Debes iniciar sesión en %{service_name} para añadir un nuevo artículo"
       you_must_log_in_to_change_profile_settings: "Debes entrar en tu cuenta de %{service_name} para cambiar los datos de tu perfil."
       you_must_log_in_to_change_payment_settings: "Debes entrar en %{service_name} para modificar la configuración de tus pagos"
@@ -1420,7 +1420,7 @@ es-ES:
       are_you_sure: "Estás seguro de que deseas borrar el comentario?"
     comment_form:
       ask_a_question: "Escribe un comentario o pregunta para solicitar más detalles sobre el anuncio. Todos los demás usuarios podrán verlo."
-      log_in: entrar
+      log_in: "iniciar sesión"
       send_comment: "Enviar comentario"
       to_send_a_comment: "para publicar un nuevo comentario."
       write_comment: "Escribir un nuevo comentario:"
@@ -1461,7 +1461,7 @@ es-ES:
         destination: Destino
       form_content:
         favor: "un servicio"
-        housing: Alojamiento
+        housing: "Espacio disponible"
         item: "un elemento"
         offer_something: "Ofrecer algo"
         request_something: "Pedir algo"
@@ -1518,19 +1518,19 @@ es-ES:
         save_listing: "Guardar anuncio"
       share_type:
         select: Seleccionar
-        borrow: Prestar
+        borrow: "Tomar Prestado"
         buy: Comprar
         give_away: Regalar
         lend: Prestar
         offer_type: "Tipo de oferta"
         receive: "Tomar gratis"
-        rent: Alquiler
+        rent: Alquilar
         rent_out: Alquilar
         request_type: "Tipo de solicitud"
         sell: Vender
         share_for_free: "Compartir gratuitamente"
         accept_for_free: "Aceptando gratis"
-        trade: Intercambio
+        trade: Intercambiar
       tag_list:
         comma_separate: "(separado por comas)"
         tags: Etiquetas
