@@ -9,8 +9,9 @@
   - if @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
     - with_feature(:onboarding_redesign_v1) do
       - props = onboarding_topbar_props
-      - cache ['v1', 'onboarding_topbar', props] do
-        = react_component("OnboardingTopBar", props: props, prerender: true)
+      - unless props[:nextStep] == :all_done
+        - cache ['v1', 'onboarding_topbar', props] do
+          = react_component("OnboardingTopBar", props: props, prerender: true)
   = render :partial => 'layouts/global_header'
 
   - if display_expiration_notice?
