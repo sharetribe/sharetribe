@@ -227,8 +227,12 @@ Kassi::Application.routes.draw do
         post :join
       end
     end
+
+    # TODO Change to not restful resource
     resources :community_memberships, :as => :tribe_memberships do
       collection do
+        get :pending_consent
+        post :consent_given
         get :access_denied
       end
     end

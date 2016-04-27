@@ -193,7 +193,7 @@ class PeopleController < Devise::RegistrationsController
     CommunityMembership.create(person: @person, community: @current_community, status: "pending_consent")
 
     session[:fb_join] = "pending_analytics"
-    redirect_to :controller => :community_memberships, :action => :new
+    redirect_to :controller => :community_memberships, :action => :pending_consent
   end
 
   def update

@@ -186,7 +186,7 @@ class ApplicationController < ActionController::Base
     return unless @current_user
 
     if @current_user.community_membership.pending_consent?
-      redirect_to controller: :community_memberships, action: :new
+      redirect_to controller: :community_memberships, action: :pending_consent
     end
   end
 
