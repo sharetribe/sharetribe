@@ -9,7 +9,7 @@ class CommunityMembershipsController < ApplicationController
   skip_filter :ensure_consent_given
   skip_filter :ensure_user_belongs_to_community
 
-  before_filter :ensure_pending_consent
+  before_filter :ensure_pending_consent, only: [:pending_consent, :consent_given]
 
   Form = EntityUtils.define_builder(
     [:invitation_code, :string],
