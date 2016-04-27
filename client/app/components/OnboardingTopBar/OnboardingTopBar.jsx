@@ -14,7 +14,7 @@ class OnboardingTopBar extends React.Component {
 
   nextElement() {
     const t = translate(this.props.translations);
-    const nextStep = next(this.props.nextStep, this.props.guideRoot, t);
+    const nextStep = next(this.props.next_step, this.props.guide_root, t);
     if (nextStep) {
       return (
         <div className={css.nextContainer}>
@@ -52,9 +52,9 @@ class OnboardingTopBar extends React.Component {
 
 OnboardingTopBar.propTypes = {
   translations: PropTypes.objectOf(PropTypes.string).isRequired,
-  guideRoot: PropTypes.string.isRequired,
+  guide_root: PropTypes.string.isRequired,
   progress: PropTypes.number.isRequired,
-  nextStep: PropTypes.string.isRequired,
+  next_step: PropTypes.string.isRequired,
 };
 
 export default OnboardingTopBar;

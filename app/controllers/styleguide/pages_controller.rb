@@ -90,8 +90,8 @@ class Styleguide::PagesController < ApplicationController
         invitation: "Invite users"
       },
       progress: 83,
-      nextStep: 'paypal',
-      guideRoot: "/fi/admin/communities/501/getting_started_guide"
+      next_step: 'paypal',
+      guide_root: "/fi/admin/communities/501/getting_started_guide"
     }
 
   end

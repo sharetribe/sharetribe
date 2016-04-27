@@ -607,9 +607,9 @@ class ApplicationController < ActionController::Base
     onboarding_status = Admin::OnboardingWizard.new(community_id).setup_status
     {
       translations: t('admin.onboarding.topbar'),
-      guideRoot: getting_started_guide_admin_community_path(id: @current_community.id),
+      guide_root: getting_started_guide_admin_community_path(id: @current_community.id),
       progress: OnboardingViewUtils.progress(onboarding_status),
-      nextStep: OnboardingViewUtils.next_incomplete_step(onboarding_status)
+      next_step: OnboardingViewUtils.next_incomplete_step(onboarding_status)
     }
   end
 
