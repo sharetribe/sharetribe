@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { translate } from '../../utils/i18n';
+import { translate } from '../../utils/i18nUtils';
 
 import css from './OnboardingTopBar.scss';
 
