@@ -30,9 +30,9 @@ const GuideListingPage = (props) => (
       <div className={css.infoTextIcon}
         dangerouslySetInnerHTML={{ __html: props.infoIcon }}
       ></div>
-      <div className={css.infoTextContent} >
-        {props.t('advice')}
-      </div>
+      <div className={css.infoTextContent}
+        dangerouslySetInnerHTML={{ __html: props.t('advice') }}
+      ></div>
     </div>
 
     <a href={props.pageData.link}
