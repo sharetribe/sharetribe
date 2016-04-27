@@ -10,8 +10,8 @@ const GuideStatusPage = (props) => {
   const onboardingData = props.onboarding_data;
   // TODO: interpolating translation strings needs more thinking
   const title = props.nextStep ?
-    props.t('title').replace(/\%\{(\w+)\}/g, props.name) :
-    props.t('titleDone');
+    props.t('title').replace(/%\{(\w+)\}/g, props.name) :
+    props.t('title_done');
 
 
   const todoDescPartial = (

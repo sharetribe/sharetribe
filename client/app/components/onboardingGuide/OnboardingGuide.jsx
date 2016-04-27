@@ -9,6 +9,99 @@ import GuidePaypalPage from './GuidePaypalPage';
 import GuideListingPage from './GuideListingPage';
 import GuideInvitationPage from './GuideInvitationPage';
 
+
+// Select child component (page/view) to be rendered
+// Returns object (including child component) based on props.data & nextStep
+const selectChild = function selectChild(data, nextStep) {
+  const { path, onboarding_data, translations } = data;
+  const pageData = (path.length > 0) ?
+    _.find(onboarding_data, (pd) => pd.sub_path === path.substring(1)) :
+    {};
+  const commonTranslations = { back_to_todo: translations.back_to_todo };
+
+  switch (path) {
+    case '/slogan_and_description':
+      return { Page: GuideSloganAndDescriptionPage,
+                pageData,
+                translations: Object.assign({},
+                  commonTranslations,
+                  translations.slogan_and_description),
+             };
+    case '/cover_photo':
+      return { Page: GuideCoverPhotoPage,
+                pageData,
+                translations: Object.assign({},
+                  commonTranslations,
+                  translations.cover_photo),
+             };
+    case '/filter':
+      return { Page: GuideFilterPage,
+                pageData,
+                translations: Object.assign({},
+                  commonTranslations,
+                  translations.filter),
+             };
+    case '/paypal':
+      return { Page: GuidePaypalPage,
+                pageData,
+                translations: Object.assign({},
+                  commonTranslations,
+                  translations.paypal),
+             };
+    case '/listing':
+      return { Page: GuideListingPage,
+                pageData,
+                translations: Object.assign({},
+                  commonTranslations,
+                  translations.listing),
+             };
+    case '/invitation':
+      return { Page: GuideInvitationPage,
+                pageData,
+                translations: Object.assign({},
+                  commonTranslations,
+                  translations.invitation),
+             };
+    default:
+      return { Page: GuideStatusPage,
+                onboarding_data,
+                translations: Object.assign({},
+                  commonTranslations,
+                  translations.status_page),
+                nextStep,
+             };
+  }
+};
+
+// Get curried function translate page related translations
+const translate = function translate(translations) {
+  return function curriedTranslate(translationKey) {
+    return translations[translationKey];
+  };
+};
+
+// Get link and title of next recommended onboarding step
+const nextStep = function nextStep(data, translateFunc, initialPath) {
+  const keys = Object.keys(data);
+  for (let i = 0; i < keys.length; i++) {
+    const step = keys[i];
+    if (!data[step].complete) {
+      return {
+        title: translateFunc(step),
+        link: data[step].sub_path,
+      };
+    }
+  }
+  return false;
+};
+
+// getPaths: initial path containing given pathFragment & relative (deeper) path
+const getPaths = function getPaths(props, pathFragment) {
+  const pathParts = props.railsContext.location.split(pathFragment);
+  const initialPath = pathParts[0] + pathFragment;
+  return { initialPath, componentSubPath: pathParts[1] };
+};
+
 export default class OnboardingGuide extends React.Component {
 
   static propTypes = {
@@ -111,95 +204,3 @@ export default class OnboardingGuide extends React.Component {
     );
   }
 }
-
-// Select child component (page/view) to be rendered
-// Returns object (including child component) based on props.data & nextStep
-const selectChild = function selectChild(data, nextStep) {
-  const { path, onboarding_data, translations } = data;
-  const pageData = (path.length > 0) ?
-    _.find(onboarding_data, (pd) => pd.sub_path === path.substring(1)) :
-    {};
-  const commonTranslations = { back_to_todo: translations.back_to_todo };
-
-  switch (path) {
-    case '/slogan_and_description':
-      return { Page: GuideSloganAndDescriptionPage,
-                pageData,
-                translations: Object.assign({},
-                  commonTranslations,
-                  translations.slogan_and_description),
-             };
-    case '/cover_photo':
-      return { Page: GuideCoverPhotoPage,
-                pageData,
-                translations: Object.assign({},
-                  commonTranslations,
-                  translations.cover_photo),
-             };
-    case '/filter':
-      return { Page: GuideFilterPage,
-                pageData,
-                translations: Object.assign({},
-                  commonTranslations,
-                  translations.filter),
-             };
-    case '/paypal':
-      return { Page: GuidePaypalPage,
-                pageData,
-                translations: Object.assign({},
-                  commonTranslations,
-                  translations.paypal),
-             };
-    case '/listing':
-      return { Page: GuideListingPage,
-                pageData,
-                translations: Object.assign({},
-                  commonTranslations,
-                  translations.listing),
-             };
-    case '/invitation':
-      return { Page: GuideInvitationPage,
-                pageData,
-                translations: Object.assign({},
-                  commonTranslations,
-                  translations.invitation),
-             };
-    default:
-      return { Page: GuideStatusPage,
-                onboarding_data,
-                translations: Object.assign({},
-                  commonTranslations,
-                  translations.status_page),
-                nextStep,
-             };
-  }
-};
-
-// Get curried function translate page related translations
-const translate = function translate(translations) {
-  return function curriedTranslate(translationKey) {
-    return translations[translationKey];
-  };
-};
-
-// Get link and title of next recommended onboarding step
-const nextStep = function nextStep(data, translateFunc, initialPath) {
-  const keys = Object.keys(data);
-  for (let i = 0; i < keys.length; i++) {
-    const step = keys[i];
-    if (!data[step].complete) {
-      return {
-        title: translateFunc(step),
-        link: data[step].sub_path,
-      };
-    }
-  }
-  return false;
-};
-
-// getPaths: initial path containing given pathFragment & relative (deeper) path
-const getPaths = function getPaths(props, pathFragment) {
-  const pathParts = props.railsContext.location.split(pathFragment);
-  const initialPath = pathParts[0] + pathFragment;
-  return { initialPath, componentSubPath: pathParts[1] };
-};

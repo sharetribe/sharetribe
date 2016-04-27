@@ -17,7 +17,7 @@ class Admin::GettingStartedGuideController < ApplicationController
   def data
     path_parts = request.env['PATH_INFO'].split("/getting_started_guide")
     has_sub_path = (path_parts.count == 2 && path_parts[1] != "/")
-    sub_path = has_sub_path ? path_parts[1] : "";
+    sub_path = has_sub_path ? path_parts[1] : ""
 
     onboarding_status = Admin::OnboardingWizard.new(@current_community.id).setup_status
     links = {
@@ -52,7 +52,9 @@ class Admin::GettingStartedGuideController < ApplicationController
     }
 
     sorted_steps = OnboardingViewUtils.sorted_steps_with_includes(onboarding_status, links)
-      .inject({}) { |r, i| r[i[:step]] = i.except(:step); r }
+      .each_with_object({}) { |value, hash|
+        hash[value[:step]] = value.except(:step)
+      }
 
     # This is the props used by the React component.
     { onboarding_guide_page: {
