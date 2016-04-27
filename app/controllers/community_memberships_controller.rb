@@ -55,7 +55,7 @@ class CommunityMembershipsController < ApplicationController
                          consent: consent,
                          community: @current_community,
                          user: @current_user)
-    }.on_success { |_|
+    }.on_success {
 
       # Cleanup session
       session[:fb_join] = nil
@@ -93,7 +93,7 @@ class CommunityMembershipsController < ApplicationController
 
       when :update_failed
         flash[:error] = t("layouts.notifications.joining_community_failed")
-        logger.info("Membership update failed", :membership_update_failed, errors: @community_membership.errors.full_messages)
+        logger.info("Membership update failed", :membership_update_failed, data)
         render_pending_consent_form(values)
 
       else
@@ -163,30 +163,30 @@ class CommunityMembershipsController < ApplicationController
   def update_membership!(membership:, invitation_code:, email_address:, consent:, user:, community:)
     make_admin = community.members.count == 0 # First member is the admin
 
-    update_successful = ActiveRecord::Base.transaction do
-      if email_address.present?
-        Email.create(person_id: user.id, address: email_address, community_id: community.id)
+    begin
+      ActiveRecord::Base.transaction do
+        if email_address.present?
+          Email.create!(person_id: user.id, address: email_address, community_id: community.id)
+        end
+
+        m_invitation = Maybe(invitation_code).map { |code| Invitation.find_by(code: code) }
+        m_invitation.each { |invitation|
+          invitation.use_once!
+        }
+
+        attrs = {
+          consent: consent,
+          invitation: m_invitation.or_else(nil),
+          status: "accepted"
+        }
+
+        attrs[:admin] = true if make_admin
+
+        membership.update_attributes!(attrs)
       end
 
-      m_invitation = Maybe(invitation_code).map { |code| Invitation.find_by(code: code) }
-      m_invitation.each { |invitation|
-        invitation.use_once!
-      }
-
-      attrs = {
-        consent: consent,
-        invitation: m_invitation.or_else(nil),
-        status: "accepted"
-      }
-
-      attrs[:admin] = true if make_admin
-
-      membership.update_attributes(attrs)
-    end
-
-    if update_successful
       Result::Success.new(membership)
-    else
+    rescue
       Result::Error.new("Updating membership failed", reason: :update_failed, errors: membership.errors.full_messages)
     end
   end
