@@ -30,11 +30,9 @@ class ConfirmationsController < Devise::ConfirmationsController
         flash[:error] = t("people.new.email_is_in_use")
         redirect_to :controller => "sessions", :action => "confirmation_pending" and return
       end
-    end
-
-    # Resend confirmation
-    if email_param_present
-      email = Email.find_by_address_and_community_id(params[:person][:email], @current_community.id)
+    else
+      email_to_confirm = @current_user.latest_pending_email_address(@current_community)
+      email = Email.find_by_address_and_community_id(email_to_confirm, @current_community.id)
       Email.send_confirmation(email, @current_community)
       flash[:notice] = t("sessions.confirmation_pending.check_your_email")
       redirect_to :controller => "sessions", :action => "confirmation_pending" and return
