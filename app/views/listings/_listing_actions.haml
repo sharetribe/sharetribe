@@ -1,5 +1,5 @@
 - is_author = current_user?(@listing.author)
-- is_marketplace_admin = Maybe(@current_user).has_admin_rights_in?(@current_community).or_else(false)
+- is_marketplace_admin = Maybe(@current_user).has_admin_rights?.or_else(false)
 - is_authorized = is_author || is_marketplace_admin
 
 - if @listing.closed?

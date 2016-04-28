@@ -185,9 +185,7 @@ class ApplicationController < ActionController::Base
   def ensure_consent_given
     return unless @current_user
 
-    current_membership = @current_user.community_memberships.find_by(community_id: @current_community.id)
-
-    if current_membership && current_membership.pending_consent?
+    if @current_user.community_membership.pending_consent?
       redirect_to controller: :community_memberships, action: :new
     end
   end
@@ -206,7 +204,9 @@ class ApplicationController < ActionController::Base
   # sessions which potentially had a person_id pointing to another
   # community are all expired.
   def ensure_user_belongs_to_community
-    if @current_user && !@current_user.is_admin? && !@current_user.communities.include?(@current_community)
+    return unless @current_user
+
+    if !@current_user.is_admin? && @current_user.accepted_community != @current_community
 
       logger.info(
         "Automatically logged out user that doesn't belong to community",
@@ -382,28 +382,25 @@ class ApplicationController < ActionController::Base
   # Before filter to direct a banned user to access denied page
   def cannot_access_if_banned
     # Check if banned
-    if @current_user && @current_user.banned_at?(@current_community)
+    if @current_user && @current_user.banned?
       flash.keep
       redirect_to access_denied_tribe_memberships_path and return
     end
   end
 
   def cannot_access_without_confirmation
-    if @current_user && !@current_community_memberships
-      existing_membership = @current_user.community_memberships.where(community_id: @current_community.id).first
-
-      if existing_membership && existing_membership.pending_email_confirmation?
-
-        # Check if requirements are already filled, but the membership just hasn't been updated yet
-        # (This might happen if unexpected error happens during page load and it shouldn't leave people in loop of of
-        # having email confirmed but not the membership)
-        if @current_user.has_valid_email_for_community?(@current_community)
-          @current_community.approve_pending_membership(@current_user)
-          redirect_to root and return
-        end
-
-        redirect_to confirmation_pending_path
+    if @current_user && @current_user.community_membership.pending_email_confirmation?
+      # Check if requirements are already filled, but the membership just hasn't been updated yet
+      # (This might happen if unexpected error happens during page load and it shouldn't leave people in loop of of
+      # having email confirmed but not the membership)
+      #
+      # TODO Remove this. Find the issue that causes this and fix it, don't fix the symptoms.
+      if @current_user.has_valid_email_for_community?(@current_community)
+        @current_community.approve_pending_membership(@current_user)
+        redirect_to root and return
       end
+
+      redirect_to confirmation_pending_path
     end
   end
 
@@ -426,7 +423,7 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_community_admin_status
-    @is_current_community_admin = @current_user && @current_user.has_admin_rights_in?(@current_community)
+    @is_current_community_admin = @current_user && @current_user.has_admin_rights?
   end
 
   def fetch_community_plan_expiration_status

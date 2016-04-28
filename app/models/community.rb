@@ -337,7 +337,7 @@ class Community < ActiveRecord::Base
   end
 
   def allows_user_to_send_invitations?(user)
-    (users_can_invite_new_users && user.member_of?(self)) || user.has_admin_rights_in?(self)
+    (users_can_invite_new_users && user.member_of?(self)) || user.has_admin_rights?
   end
 
   def has_customizations?

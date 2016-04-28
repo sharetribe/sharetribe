@@ -446,13 +446,12 @@ class Person < ActiveRecord::Base
     community_memberships.find_by_community_id(community.id).consent
   end
 
-  def is_admin_of?(community)
-    community_membership = community_memberships.find_by_community_id(community.id)
-    community_membership && community_membership.admin?
+  def is_marketplace_admin?
+    community_membership.admin?
   end
 
-  def has_admin_rights_in?(community)
-    is_admin? || is_admin_of?(community)
+  def has_admin_rights?
+    is_admin? || is_marketplace_admin?
   end
 
   def should_receive?(email_type)
@@ -477,9 +476,8 @@ class Person < ActiveRecord::Base
     #CommunityMembership.find_by_person_id_and_community_id(id, community.id).can_post_listings
   end
 
-  def banned_at?(community)
-    memberships = self.community_memberships.find_by_community_id(community.id)
-    !memberships.nil? && memberships.banned?
+  def banned?
+    community_membership.banned?
   end
 
   def has_email?(address)

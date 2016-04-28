@@ -580,7 +580,7 @@ module ApplicationHelper
 
   def display_expiration_notice?
     ext_service_active = PlanService::API::Api.plans.active?
-    is_admin = Maybe(@current_user).has_admin_rights_in?(@current_community).or_else(false)
+    is_admin = Maybe(@current_user).has_admin_rights?.or_else(false)
     is_expired = Maybe(@current_plan)[:expired].or_else(false)
 
     ext_service_active && is_admin && is_expired
@@ -666,7 +666,7 @@ module ApplicationHelper
   end
 
   def with_invite_link(&block)
-    if @current_user && (@current_user.has_admin_rights_in?(@current_community) || @current_community.users_can_invite_new_users)
+    if @current_user && (@current_user.has_admin_rights? || @current_community.users_can_invite_new_users)
       block.call()
     end
   end

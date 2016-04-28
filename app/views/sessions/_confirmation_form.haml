@@ -3,7 +3,7 @@
 
 - email_to_confirm = @current_user.latest_pending_email_address(@current_community)
 
-- if @current_user.has_admin_rights_in?(@current_community)
+- if @current_user.has_admin_rights?
   %h2= t("sessions.confirmation_pending.account_confirmation_instructions_title_admin")
   %p= t("sessions.confirmation_pending.your_marketplace_has_now_been_created")
   %p= t("sessions.confirmation_pending.account_confirmation_instructions_admin")
