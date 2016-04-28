@@ -69,7 +69,7 @@ module OnboardingViewUtils
   end
 
   def progress(setup_status)
-    total_steps = STEPS.count + 1
+    total_steps = STEPS.count + 1 # We always have step 1 "Create marketplace" completed
     completed_steps = total_steps - incomplete_steps(setup_status).count
     100 * (completed_steps/total_steps.to_f)
   end
