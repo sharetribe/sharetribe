@@ -155,7 +155,7 @@ class PeopleController < Devise::RegistrationsController
       Email.send_confirmation(email, @current_community)
 
       flash[:notice] = t("layouts.notifications.account_creation_succesful_you_still_need_to_confirm_your_email")
-      redirect_to :controller => "sessions", :action => "confirmation_pending"
+      redirect_to confirmation_pending_path
     end
   end
 
