@@ -9,7 +9,14 @@ class CommunityMembershipsController < ApplicationController
   skip_filter :ensure_consent_given
   skip_filter :ensure_user_belongs_to_community
 
-  before_filter :ensure_pending_consent, only: [:pending_consent, :give_consent]
+  before_filter :ensure_membership_found
+  before_filter :ensure_membership_is_not_accepted
+  before_filter only: [:pending_consent, :give_consent] {
+    ensure_membership_status("pending_consent")
+  }
+  before_filter only: [:confirmation_pending] {
+    ensure_membership_status("pending_email_confirmation")
+  }
 
   Form = EntityUtils.define_builder(
     [:invitation_code, :string],
@@ -102,6 +109,11 @@ class CommunityMembershipsController < ApplicationController
     }
   end
 
+  def confirmation_pending
+  end
+
+  # Ajax end-points for front-end validation
+
   def check_email_availability_and_validity
     values = Form.call(params[:form])
     validation_result = validate_email(address: values[:email],
@@ -117,6 +129,10 @@ class CommunityMembershipsController < ApplicationController
                                                  community: @current_community)
 
     render json: validation_result.success
+  end
+
+  def access_denied
+    # Nothing here, just render the access_denied.haml
   end
 
   private
@@ -191,17 +207,6 @@ class CommunityMembershipsController < ApplicationController
     end
   end
 
-  def ensure_pending_consent
-    if membership.nil?
-      report_missing_membership(@current_user, @current_community)
-    elsif membership.accepted?
-      flash[:notice] = t("layouts.notifications.you_are_already_member")
-      redirect_to root
-    elsif !membership.pending_consent?
-      redirect_to root
-    end
-  end
-
   def report_missing_membership(user, community)
     ArgumentError.new("User doesn't have membership. Don't know how to continue. person_id: #{user.id}, community_id: #{community.id}")
   end
@@ -210,7 +215,24 @@ class CommunityMembershipsController < ApplicationController
     @membership ||= @current_user.community_membership
   end
 
-  def access_denied
-    # Nothing here, just render the access_denied.haml
+  # Filters
+
+  def ensure_membership_found
+    report_missing_membership(@current_user, @current_community) if membership.nil?
+  end
+
+  def ensure_membership_is_not_accepted
+    if membership.accepted?
+      flash[:notice] = t("layouts.notifications.you_are_already_member")
+      redirect_to root
+    end
+  end
+
+  def ensure_membership_status(status)
+    raise ArgumentError.new("Unknown state #{status}") unless CommunityMembership::VALID_STATUSES.include?(status)
+
+    if membership.status != status
+      redirect_to root
+    end
   end
 end
