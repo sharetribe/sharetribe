@@ -237,7 +237,6 @@ Kassi::Application.routes.draw do
       end
     end
 
-    # TODO Change to not restful resource
     resources :listings do
       member do
         post :follow

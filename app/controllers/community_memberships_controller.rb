@@ -193,7 +193,7 @@ class CommunityMembershipsController < ApplicationController
 
   def ensure_pending_consent
     if membership.nil?
-      report_missing_membership(@current_user, @current_community) if membership.nil?
+      report_missing_membership(@current_user, @current_community)
     elsif membership.accepted?
       flash[:notice] = t("layouts.notifications.you_are_already_member")
       redirect_to root
