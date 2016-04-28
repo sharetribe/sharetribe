@@ -473,11 +473,6 @@ class Person < ActiveRecord::Base
     community.members.include?(self)
   end
 
-  def can_post_listings_at?(community)
-    self.community_memberships.where(:community_id => community.id).first.can_post_listings
-    #CommunityMembership.find_by_person_id_and_community_id(id, community.id).can_post_listings
-  end
-
   def banned?
     community_membership.banned?
   end
