@@ -6,7 +6,7 @@
     .noscript-padding
       -# Noscript content will be positioned here
 
-  - if @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
+  - if @current_user && @current_community && @current_user.has_admin_rights?
     - with_feature(:onboarding_redesign_v1) do
       - props = onboarding_topbar_props
       - unless props[:next_step] == :all_done
