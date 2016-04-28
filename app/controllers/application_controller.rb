@@ -204,7 +204,9 @@ class ApplicationController < ActionController::Base
   # sessions which potentially had a person_id pointing to another
   # community are all expired.
   def ensure_user_belongs_to_community
-    if @current_user && !@current_user.is_admin? && !@current_user.communities.include?(@current_community)
+    return unless @current_user
+
+    if !@current_user.is_admin? && @current_user.accepted_community != @current_community
 
       logger.info(
         "Automatically logged out user that doesn't belong to community",
