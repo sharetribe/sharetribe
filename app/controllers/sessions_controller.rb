@@ -171,7 +171,7 @@ class SessionsController < ApplicationController
   private
 
   def terms_accepted?(user, community)
-    user && community.consent.eql?(user.consent(community))
+    user && community.consent.eql?(user.consent)
   end
 
 end

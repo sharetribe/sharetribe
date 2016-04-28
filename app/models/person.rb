@@ -403,7 +403,9 @@ class Person < ActiveRecord::Base
   end
 
   def can_delete_email(email)
-    EmailService.can_delete_email(self.emails, email, self.communities.collect(&:allowed_emails))[:result]
+    EmailService.can_delete_email(self.emails,
+                                  email,
+                                  self.accepted_community.allowed_emails)[:result]
   end
 
   # Returns true if the person has global admin rights in Sharetribe.
@@ -442,8 +444,8 @@ class Person < ActiveRecord::Base
     conversation.participations.where(["person_id LIKE ?", self.id]).first.update_attribute(:is_read, true)
   end
 
-  def consent(community)
-    community_memberships.find_by_community_id(community.id).consent
+  def consent
+    community_membership.consent
   end
 
   def is_marketplace_admin?
@@ -469,11 +471,6 @@ class Person < ActiveRecord::Base
 
   def member_of?(community)
     community.members.include?(self)
-  end
-
-  def can_post_listings_at?(community)
-    self.community_memberships.where(:community_id => community.id).first.can_post_listings
-    #CommunityMembership.find_by_person_id_and_community_id(id, community.id).can_post_listings
   end
 
   def banned?

@@ -24,7 +24,7 @@ class EmailService
   # Give user's `all_emails` and list of list of `allowed_emails` and the
   # `email` that will be removed. Return hash with true/false and a
   # reason
-  def self.can_delete_email(all_emails, email, allowed_emails=[])
+  def self.can_delete_email(all_emails, email, allowed_emails="")
     if all_emails.count < 2 then
       return {result: false, reason: :only_one}
 
@@ -46,29 +46,12 @@ class EmailService
     email.confirmed_at && self.confirmed_emails(all_emails).count == 1
   end
 
-  def self.is_only_allowed_email?(all_emails, list_of_allowed_emails, email)
-    critical_email_ids = list_of_allowed_emails.collect do |allowed_emails|
-      ok_emails = all_emails.select do |email|
-        self.email_allowed(email, allowed_emails)
-      end
-
-      # Can be critical for two reasons:
-      # - Only email passing the email restriction
-      # - Only CONFIRMED email passing the email restriction
-      critical_email_id = if ok_emails.count == 1
-        ok_emails.first.id
-      else
-        confirmed_ok_emails = ok_emails.select { |ok_email| ok_email.confirmed_at }
-        if confirmed_ok_emails.count == 1
-          ok_emails.first.id
-        end
-      end
-
-      # Return the id or nil
-      critical_email_id
+  def self.is_only_allowed_email?(all_emails, allowed_emails, email)
+    ok_emails = all_emails.select do |e|
+      self.email_allowed(e, allowed_emails)
     end
 
-    critical_email_ids.include?(email.id)
+    only_allowed?(ok_emails, email) || only_allowed_and_confirmed?(ok_emails, email)
   end
 
   def self.notification_emails(all_emails)
@@ -116,5 +99,17 @@ class EmailService
   def self.email_allowed(email, allowed_emails)
     self.email_address_allowed?(email.address, allowed_emails)
   end
+
+
+  def self.only_allowed?(ok_emails, email)
+    ok_emails.count == 1 && ok_emails.first.id == email.id
+  end
+  private_class_method :only_allowed?
+
+  def self.only_allowed_and_confirmed?(ok_emails, email)
+    confirmed_ok_emails = ok_emails.select { |ok_email| ok_email.confirmed_at }
+    confirmed_ok_emails.count == 1 && confirmed_ok_emails.first.id == email.id
+  end
+  private_class_method :only_allowed_and_confirmed?
 
 end
