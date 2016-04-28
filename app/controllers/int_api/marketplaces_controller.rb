@@ -73,7 +73,7 @@ class IntApi::MarketplacesController < ApplicationController
   end
 
   def assign_onboarding_feature_flag(community_id:)
-    if(rand(2) == 1)
+    if(rand < 0.5)
       FeatureFlagService::API::Api.features.enable(community_id: community_id, features: [:onboarding_redesign_v1])
     end
   end
