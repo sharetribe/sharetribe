@@ -48,9 +48,8 @@ module DatabaseAuthenticatableHelpers
 
   def find_by_username_or_email(login, community_id)
     Person
-      .joins("LEFT OUTER JOIN community_memberships ON community_memberships.person_id = people.id")
       .joins("LEFT OUTER JOIN emails ON emails.person_id = people.id")
-      .where("(people.is_admin = '1' OR community_memberships.community_id = :cid) AND (people.username = :login OR emails.address = :login)",
+      .where("(people.is_admin = '1' OR people.community_id = :cid) AND (people.username = :login OR emails.address = :login)",
              cid: community_id, login: login)
       .first
   end

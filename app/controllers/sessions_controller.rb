@@ -89,8 +89,7 @@ class SessionsController < ApplicationController
     person =
       Person
       .joins("LEFT OUTER JOIN emails ON emails.person_id = people.id")
-      .joins("LEFT OUTER JOIN community_memberships ON community_memberships.person_id = people.id")
-      .where("emails.address = :email AND (people.is_admin = '1' OR community_memberships.community_id = :cid)", email: params[:email], cid: @current_community.id)
+      .where("emails.address = :email AND (people.is_admin = '1' OR people.community_id = :cid)", email: params[:email], cid: @current_community.id)
       .first
     if person
       token = person.reset_password_token_if_needed
