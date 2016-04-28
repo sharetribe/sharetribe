@@ -426,7 +426,7 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_community_admin_status
-    @is_current_community_admin = @current_user && @current_user.has_admin_rights_in?(@current_community)
+    @is_current_community_admin = @current_user && @current_user.has_admin_rights?
   end
 
   def fetch_community_plan_expiration_status

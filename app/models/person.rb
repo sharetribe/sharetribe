@@ -446,13 +446,12 @@ class Person < ActiveRecord::Base
     community_memberships.find_by_community_id(community.id).consent
   end
 
-  def is_admin_of?(community)
-    community_membership = community_memberships.find_by_community_id(community.id)
-    community_membership && community_membership.admin?
+  def is_marketplace_admin?
+    community_membership.admin?
   end
 
-  def has_admin_rights_in?(community)
-    is_admin? || is_admin_of?(community)
+  def has_admin_rights?
+    is_admin? || is_marketplace_admin?
   end
 
   def should_receive?(email_type)
