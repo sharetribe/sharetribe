@@ -774,6 +774,11 @@ zh-HK:
       if_want_to_view_content: ~
       log_out: ~
       join_community_button: ~
+    give_consent:
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: ~
+      email_not_available: ~
+      consent_not_given: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "請記得接受或拒絕來自%{sender_name}提供的出價"

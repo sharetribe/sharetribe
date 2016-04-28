@@ -788,6 +788,11 @@ ja:
       if_want_to_view_content: "サイトに参加せずに%{service_name}のメンバーページを見たいなら、あなたは"
       log_out: ログアウト
       join_community_button: "%{service_name}に参加する"
+    give_consent:
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: ~
+      email_not_available: ~
+      consent_not_given: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "%{sender_name}さんからのオファーの申し込みを受け入れるか、却下するのを忘れないでください"

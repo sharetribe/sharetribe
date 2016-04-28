@@ -778,6 +778,11 @@ it:
       if_want_to_view_content: ~
       log_out: ~
       join_community_button: ~
+    give_consent:
+      invitation_code_invalid_or_used: "Il codice di invito non è valido oppure è già stato usato."
+      email_not_allowed: "Email non permessa per questa community."
+      email_not_available: "L'email non era disponibile"
+      consent_not_given: "Termini non accettati"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Ricorda di accettare o rifiutare un'offerta da %{sender_name}"

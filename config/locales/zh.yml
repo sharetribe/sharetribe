@@ -794,6 +794,11 @@ zh:
       if_want_to_view_content: "如果你想查看%{service_name}的内容而不加入为成员你需要"
       log_out: 退出
       join_community_button: "加入%{service_name}"
+    give_consent:
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: ~
+      email_not_available: ~
+      consent_not_given: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "请记得接受或拒绝来自%{sender_name}提供的宝贝"

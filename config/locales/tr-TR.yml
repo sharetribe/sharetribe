@@ -790,6 +790,11 @@ tr-TR:
       if_want_to_view_content: "Üye olamadan %{service_name} pazar yerine ait içeriği görüntülemek için,"
       log_out: "oturumu kapat"
       join_community_button: "%{service_name} pazar yerine katıl"
+    give_consent:
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: ~
+      email_not_available: ~
+      consent_not_given: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "%{sender_name}'in teklifini kabul veya reddetmeyi hatırla"

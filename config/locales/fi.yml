@@ -805,6 +805,11 @@ fi:
       if_want_to_view_content: "Jos haluat nähdä mitä palvelussa tapahtuu liittymättä siihen sinun täytyy"
       log_out: "kirjautua ulos"
       join_community_button: "Liity palveluun"
+    give_consent:
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: ~
+      email_not_available: ~
+      consent_not_given: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "Muistutus: hyväksy/hylkää käyttäjän %{sender_name} tarjous"

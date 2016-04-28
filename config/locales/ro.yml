@@ -774,6 +774,11 @@ ro:
       if_want_to_view_content: ~
       log_out: ~
       join_community_button: ~
+    give_consent:
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: ~
+      email_not_available: ~
+      consent_not_given: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "Nu uita sa accepti sau sa respingi oferta de la %{sender_name}"

@@ -801,6 +801,11 @@ da-DK:
       if_want_to_view_content: "Hvis du ønsker at se indholdet på %{service_name} uden at tilmelde dig, skal du"
       log_out: "logge ud."
       join_community_button: "Tilmeld %{service_name}"
+    give_consent:
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: ~
+      email_not_available: ~
+      consent_not_given: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "Husk at acceptere eller afvise et tilbud fra %{sender_name}"

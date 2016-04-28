@@ -805,6 +805,11 @@ de:
       if_want_to_view_content: "Wenn du den Inhalt dieser Community ansehen möchtest, ohne beitreten zu wollen, musst du dich"
       log_out: abmelden
       join_community_button: "Community beitreten"
+    give_consent:
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: ~
+      email_not_available: ~
+      consent_not_given: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "Denke daran, das Angebot von %{sender_name} anzunehmen oder es abzulehnen"

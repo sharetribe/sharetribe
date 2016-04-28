@@ -803,6 +803,11 @@ nb:
       if_want_to_view_content: "Dersom du ønsker å se innhold på %{service_name} uten å være medlem må du"
       log_out: "logg ut"
       join_community_button: "Bli medlem av %{service_name}"
+    give_consent:
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: ~
+      email_not_available: ~
+      consent_not_given: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "Husk å godta eller avslå tilbudet fra %{sender_name}"

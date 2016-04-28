@@ -789,6 +789,11 @@ nl:
       if_want_to_view_content: "Als je de inhoud van %{service_name} wil zien zonder je aan te sluiten als lid moet je"
       log_out: "Log uit"
       join_community_button: "Aansluiten bij %{service_name}"
+    give_consent:
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: ~
+      email_not_available: ~
+      consent_not_given: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "Vergeet niet om het aanbod van %{sender_name} te accepteren of te weigeren"

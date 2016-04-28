@@ -793,6 +793,11 @@ fr-CA:
       if_want_to_view_content: "Pour voir le contenu de %{service_name} sans la rejoindre en tant que membre, vous devez"
       log_out: "vous déconnecter"
       join_community_button: "Rejoindre %{service_name}"
+    give_consent:
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: ~
+      email_not_available: ~
+      consent_not_given: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "N'oubliez pas d'accepter ou de refuser l'offre de %{sender_name}"

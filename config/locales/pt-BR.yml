@@ -801,6 +801,11 @@ pt-BR:
       if_want_to_view_content: "Se você quiser ver o conteúdo do %{service_name} sem se registrar como membro você deve"
       log_out: sair
       join_community_button: "Entrar em %{service_name}"
+    give_consent:
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: ~
+      email_not_available: ~
+      consent_not_given: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "Lembrar de aceitar ou rejeitar uma oferta de %{sender_name}"

@@ -805,6 +805,11 @@ sv:
       if_want_to_view_content: "Om du vill se detta innehåll på %{service_name} utan att bli medlem så måste du"
       log_out: "logga ut"
       join_community_button: "Gå med %{service_name}"
+    give_consent:
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: ~
+      email_not_available: ~
+      consent_not_given: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "Kom ihåg att anta eller avslå ett erbjudande från %{sender_name}"

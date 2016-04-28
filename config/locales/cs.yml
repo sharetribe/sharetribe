@@ -814,6 +814,11 @@ cs:
       if_want_to_view_content: "Pokud chcete zobrazit obsah v %{service_name} v případě, že jste se nepřihlásili jako člen, musíte"
       log_out: "se zaregistrovat"
       join_community_button: "Připojit se k %{service_name}"
+    give_consent:
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: ~
+      email_not_available: ~
+      consent_not_given: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "Nezapomeňte přijmout nebo odmítnout nabídku od uživatele %{sender_name}"

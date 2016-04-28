@@ -774,6 +774,11 @@ vi:
       if_want_to_view_content: "Nếu bạn muốn để xem nội dung trong cộng đồng này mà không gia nhập, bạn cần phải"
       log_out: "đăng xuất"
       join_community_button: "Tham gia cộng đồng"
+    give_consent:
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: ~
+      email_not_available: ~
+      consent_not_given: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "Hãy nhớ chấp nhận hoặc từ chối hỗ trợ"
