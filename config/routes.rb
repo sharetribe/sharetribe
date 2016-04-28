@@ -114,7 +114,7 @@ Kassi::Application.routes.draw do
     # community membership related actions
 
     get  '/community_memberships/pending_consent' => 'community_memberships#pending_consent', as: :pending_consent
-    post '/community_memberships/consent_given'   => 'community_memberships#consent_given', as: :consent_given
+    post '/community_memberships/give_consent'    => 'community_memberships#give_consent', as: :give_consent
     get  '/community_memberships/access_denied'   => 'community_memberships#access_denied', as: :access_denied
 
     get  '/community_memberships/check_email_availability_and_validity' => 'community_memberships#check_email_availability_and_validity'

@@ -9,7 +9,7 @@ class CommunityMembershipsController < ApplicationController
   skip_filter :ensure_consent_given
   skip_filter :ensure_user_belongs_to_community
 
-  before_filter :ensure_pending_consent, only: [:pending_consent, :consent_given]
+  before_filter :ensure_pending_consent, only: [:pending_consent, :give_consent]
 
   Form = EntityUtils.define_builder(
     [:invitation_code, :string],
@@ -21,7 +21,7 @@ class CommunityMembershipsController < ApplicationController
     render_pending_consent_form(invitation_code: session[:invitation_code])
   end
 
-  def consent_given
+  def give_consent
     form_params = params[:form] || {}
     values = Form.call(form_params)
 
@@ -72,22 +72,22 @@ class CommunityMembershipsController < ApplicationController
       case data[:reason]
 
       when :invitation_code_invalid_or_used
-        flash[:error] = t("community_memberships.consent_given.invitation_code_invalid_or_used")
+        flash[:error] = t("community_memberships.give_consent.invitation_code_invalid_or_used")
         logger.info("Invitation code was invalid or used", :membership_email_not_allowed, data)
         render_pending_consent_form(values.except(:invitation_code))
 
       when :email_not_allowed
-        flash[:error] = t("community_memberships.consent_given.email_not_allowed")
+        flash[:error] = t("community_memberships.give_consent.email_not_allowed")
         logger.info("Email is not allowed", :membership_email_not_allowed, data)
         render_pending_consent_form(values.except(:email))
 
       when :email_not_available
-        flash[:error] = t("community_memberships.consent_given.email_not_available")
+        flash[:error] = t("community_memberships.give_consent.email_not_available")
         logger.info("Email is not available", :membership_email_not_available, data)
         render_pending_consent_form(values.except(:email))
 
       when :consent_not_given
-        flash[:error] = t("community_memberships.consent_given.consent_not_given")
+        flash[:error] = t("community_memberships.give_consent.consent_not_given")
         logger.info("Terms were not accepted", :membership_consent_not_given, data)
         render_pending_consent_form(values.except(:consent))
 
