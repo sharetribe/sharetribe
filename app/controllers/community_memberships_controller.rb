@@ -207,9 +207,7 @@ class CommunityMembershipsController < ApplicationController
   end
 
   def membership
-    # TODO This should be changed to @current_user.community_membership when the relation is
-    # changed to has_one instead of has_many
-    @membership ||= @current_user.community_memberships.find_by(community_id: @current_community.id)
+    @membership ||= @current_user.community_membership
   end
 
   def access_denied
