@@ -995,6 +995,8 @@ ru:
       you_are_receiving_this_because: "Вы получили это уведомление так как вы подписаны на %{author_name}."
       view_listing: "Просмотр предложения"
   error_messages:
+    onboarding:
+      server_rendering: ~
     listings:
       departure_time: "Дата выезда должна быть в интервале от сегодняшней даты плюс один год."
       share_type: "Вы должны выбрать как минимум один из пунктов."

@@ -1001,6 +1001,8 @@ fr:
       you_are_receiving_this_because: "Vous recevez cette notification car vous suivez %{author_name}."
       view_listing: "Voir l'annonce"
   error_messages:
+    onboarding:
+      server_rendering: "Le chargement du guide de démarrage a échoué. Nous en avons été prévenus et nous sommes en train de résoudre cela !"
     listings:
       departure_time: "L'heure de départ doit être comprise entre l'heure actuelle et dans un an."
       share_type: "Vous devez cocher au moins une des cases ci-dessus."
