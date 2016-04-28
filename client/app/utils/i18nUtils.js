@@ -1,7 +1,7 @@
 function translate(translations) {
-  return function(translationKey) {
+  return function translateKey(translationKey) {
     return translations[translationKey];
-  }
+  };
 }
 
 export { translate };

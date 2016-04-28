@@ -44,7 +44,7 @@ config.module.loaders.push(
     loaders: [
       'style',
       'css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]',
-      'postcss'
+      'postcss',
     ],
   },
   {
