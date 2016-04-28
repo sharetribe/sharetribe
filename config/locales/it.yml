@@ -974,6 +974,8 @@ it:
       you_are_receiving_this_because: "Hai ricevuto una notifica perchè segui %{author_name}."
       view_listing: "Mostra annuncio"
   error_messages:
+    onboarding:
+      server_rendering: ~
     listings:
       departure_time: "L'orario di partenza deve essere compreso tra l'orario attuale e un anno da adesso."
       share_type: "Devi selezionarne uno."

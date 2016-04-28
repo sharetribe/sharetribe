@@ -997,6 +997,8 @@ pt-BR:
       you_are_receiving_this_because: "Você recebeu esta notificação porque você segue %{author_name}."
       view_listing: "Ver anúncio"
   error_messages:
+    onboarding:
+      server_rendering: ~
     listings:
       departure_time: "Hora de partida deve estar entre a hora atual e um ano a frente a contar de agora."
       share_type: "Você precisa selecionar um."

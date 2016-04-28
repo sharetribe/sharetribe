@@ -970,6 +970,8 @@ ro:
       you_are_receiving_this_because: ~
       view_listing: ~
   error_messages:
+    onboarding:
+      server_rendering: ~
     listings:
       departure_time: "Timpul de plecare trebuie sa fie intre timpul actual si un an de acum incolo."
       share_type: "Trebuie sa faci o selectie."

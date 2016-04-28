@@ -1003,6 +1003,8 @@ nb:
       you_are_receiving_this_because: "Du mottok denne varslingen fordi du følger %{author_name}"
       view_listing: "Se annonse"
   error_messages:
+    onboarding:
+      server_rendering: ~
     listings:
       departure_time: "Avreisetidspunkt må være mellom nå og ett år frem i tid."
       share_type: "Du må velge én."

@@ -1001,6 +1001,8 @@ fi:
       you_are_receiving_this_because: "Sait tämän viestin, koska seuraat käyttäjää %{author_name}."
       view_listing: "Näytä ilmoitus"
   error_messages:
+    onboarding:
+      server_rendering: ~
     listings:
       departure_time: "Lähtöaika ei voi olla aikaisempi kuin nykyhetki eikä yli vuoden päässä nykyhetkestä."
       share_type: "Valitse yksi vaihtoehdoista."
