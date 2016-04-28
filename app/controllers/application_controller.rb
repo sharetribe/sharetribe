@@ -389,21 +389,18 @@ class ApplicationController < ActionController::Base
   end
 
   def cannot_access_without_confirmation
-    if @current_user && !@current_community_memberships
-      existing_membership = @current_user.community_memberships.where(community_id: @current_community.id).first
-
-      if existing_membership && existing_membership.pending_email_confirmation?
-
-        # Check if requirements are already filled, but the membership just hasn't been updated yet
-        # (This might happen if unexpected error happens during page load and it shouldn't leave people in loop of of
-        # having email confirmed but not the membership)
-        if @current_user.has_valid_email_for_community?(@current_community)
-          @current_community.approve_pending_membership(@current_user)
-          redirect_to root and return
-        end
-
-        redirect_to confirmation_pending_path
+    if @current_user && @current_user.community_membership.pending_email_confirmation?
+      # Check if requirements are already filled, but the membership just hasn't been updated yet
+      # (This might happen if unexpected error happens during page load and it shouldn't leave people in loop of of
+      # having email confirmed but not the membership)
+      #
+      # TODO Remove this. Find the issue that causes this and fix it, don't fix the symptoms.
+      if @current_user.has_valid_email_for_community?(@current_community)
+        @current_community.approve_pending_membership(@current_user)
+        redirect_to root and return
       end
+
+      redirect_to confirmation_pending_path
     end
   end
 
