@@ -382,7 +382,7 @@ class ApplicationController < ActionController::Base
   # Before filter to direct a banned user to access denied page
   def cannot_access_if_banned
     # Check if banned
-    if @current_user && @current_user.banned_at?(@current_community)
+    if @current_user && @current_user.banned?
       flash.keep
       redirect_to access_denied_tribe_memberships_path and return
     end

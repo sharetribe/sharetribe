@@ -476,9 +476,8 @@ class Person < ActiveRecord::Base
     #CommunityMembership.find_by_person_id_and_community_id(id, community.id).can_post_listings
   end
 
-  def banned_at?(community)
-    memberships = self.community_memberships.find_by_community_id(community.id)
-    !memberships.nil? && memberships.banned?
+  def banned?
+    community_membership.banned?
   end
 
   def has_email?(address)
