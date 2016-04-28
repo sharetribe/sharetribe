@@ -18,15 +18,18 @@ module OnboardingViewUtils
 
   module_function
 
-  def next_incomplete_step(setup_status)
-    incomplete_steps = setup_status.reduce(Set.new) do |incomplete, (step, status)|
+  def incomplete_steps(setup_status)
+    setup_status.reduce(Set.new) do |incomplete, (step, status)|
       if !status
         incomplete.add(step)
       else
         incomplete
       end
     end
+  end
 
+  def next_incomplete_step(setup_status)
+    incomplete_steps = incomplete_steps(setup_status)
     STEPS.find { |s| incomplete_steps.include?(s) } || :all_done
   end
 
@@ -63,6 +66,12 @@ module OnboardingViewUtils
     else
       {show_onboarding_popup: false}
     end
+  end
+
+  def progress(setup_status)
+    total_steps = STEPS.count + 1 # We always have step 1 "Create marketplace" completed
+    completed_steps = total_steps - incomplete_steps(setup_status).count
+    100 * (completed_steps/total_steps.to_f)
   end
 
 end

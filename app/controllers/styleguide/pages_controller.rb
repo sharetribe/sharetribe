@@ -71,11 +71,28 @@ class Styleguide::PagesController < ApplicationController
     @app_props_server_render = {
       onboarding_guide_page: {
         path: sub_path,
+        original_path: request.env['PATH_INFO'],
         onboarding_data: sorted_steps,
         name: PersonViewUtils.person_display_name(@current_user, @current_community),
         info_icon: icon_tag("information"),
         translations: I18n.t('admin.onboarding.guide')
       }
+    }
+
+    @topbar_props = {
+      translations: {
+        progress_label: "Marketplace progress",
+        next_step: "Next",
+        slogan_and_description: "Add Slogan / Description",
+        cover_photo: "Upload cover photo",
+        filter: "Add Fields / Filters",
+        paypal: "Accept payments",
+        listing: "Add a listing",
+        invitation: "Invite users"
+      },
+      progress: 83,
+      next_step: 'paypal',
+      guide_root: "/fi/admin/communities/501/getting_started_guide"
     }
 
   end

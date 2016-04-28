@@ -602,6 +602,19 @@ class ApplicationController < ActionController::Base
     logger.add_metadata(metadata)
   end
 
+  def onboarding_topbar_props
+    community_id = @current_community.id
+    onboarding_status = Admin::OnboardingWizard.new(community_id).setup_status
+    {
+      translations: t('admin.onboarding.topbar'),
+      guide_root: getting_started_guide_admin_community_path(id: @current_community.id),
+      progress: OnboardingViewUtils.progress(onboarding_status),
+      next_step: OnboardingViewUtils.next_incomplete_step(onboarding_status)
+    }
+  end
+
+  helper_method :onboarding_topbar_props
+
   # Fetch temporary flags from params and session
   def self.fetch_temp_flags(is_admin, params, session)
     return Set.new unless is_admin
