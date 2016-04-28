@@ -9,41 +9,48 @@ module UserService::API
 
       raise ArgumentError.new("Email #{user_hash[:email]} is already in use.") unless Email.email_available?(user_hash[:email], community_id)
 
-      username = generate_username(user_hash[:given_name], user_hash[:family_name], community_id)
-      locale = user_hash[:locale] || APP_CONFIG.default_locale # don't access config like this, require to be passed in in ctor
+      begin
+        username = generate_username(user_hash[:given_name], user_hash[:family_name], community_id)
+        locale = user_hash[:locale] || APP_CONFIG.default_locale # don't access config like this, require to be passed in in ctor
 
-      person = Person.new(
-        given_name: user_hash[:given_name],
-        family_name: user_hash[:family_name],
-        password: user_hash[:password],
-        username: username,
-        locale: locale,
-        test_group_number: 1 + rand(4),
-        community_id: community_id)
+        person = Person.new(
+          given_name: user_hash[:given_name],
+          family_name: user_hash[:family_name],
+          password: user_hash[:password],
+          username: username,
+          locale: locale,
+          test_group_number: 1 + rand(4),
+          community_id: community_id)
 
-      email = Email.new(person: person, address: user_hash[:email].downcase, send_notifications: true, community_id: community_id)
+        email = Email.new(person: person, address: user_hash[:email].downcase, send_notifications: true, community_id: community_id)
 
-      person.emails << email
-      person.inherit_settings_from(Community.find(community_id)) if community_id
-      person.save!
-      person.set_default_preferences
+        person.emails << email
+        person.inherit_settings_from(Community.find(community_id)) if community_id
 
-      user = from_model(person)
+        ActiveRecord::Base.transaction do
+          person.save!
+          person.set_default_preferences
 
-      # The first member will be made admin
-      MarketplaceService::API::Memberships.make_user_a_member_of_community(user[:id], community_id, invitation_id)
+          user = from_model(person)
 
-      email = Email.find_by_person_id!(user[:id])
-      community = Community.find(community_id)
+          # The first member will be made admin
+          MarketplaceService::API::Memberships.make_user_a_member_of_community(user[:id], community_id, invitation_id)
 
-      # send email confirmation (unless disabled for testing environment)
-      if APP_CONFIG.skip_email_confirmation
-        email.confirm!
-      else
-        Email.send_confirmation(email, community)
+          email = Email.find_by_person_id!(user[:id])
+          community = Community.find(community_id)
+
+          # send email confirmation (unless disabled for testing environment)
+          if APP_CONFIG.skip_email_confirmation
+            email.confirm!
+          else
+            Email.send_confirmation(email, community)
+          end
+
+          Result::Success.new(user)
+        end
+      rescue
+        Result::Error.new("Failed to create a new user")
       end
-
-      return user
     end
 
     def delete_user(id)

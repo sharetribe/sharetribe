@@ -34,7 +34,7 @@ class CommunitiesController < ApplicationController
         email: form_hash[:admin_email],
         password: form_hash[:admin_password],
         locale: form_hash[:marketplace_language]},
-        marketplace[:id])
+        marketplace[:id]).data
 
       auth_token = UserService::API::AuthTokens.create_login_token(user[:id])
       url = URLUtils.append_query_param(marketplace[:url], "auth", auth_token[:token])

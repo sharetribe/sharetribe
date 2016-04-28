@@ -26,7 +26,7 @@ describe UserService::API::Users do
 
     it "should create a user" do
       c = FactoryGirl.create(:community)
-      u = create_user(PERSON_HASH, c.id)
+      u = create_user(PERSON_HASH, c.id).data
       expect(u[:given_name]).to eql "Raymond"
       expect(Person.find_by(username: "raymondx").family_name).to eql "Xperiment"
       expect(u[:locale]).to eql "fr"
@@ -34,12 +34,12 @@ describe UserService::API::Users do
 
     it "should fail if email is taken" do
       c = FactoryGirl.create(:community)
-      u1 = create_user(PERSON_HASH, c.id)
+      create_user(PERSON_HASH, c.id)
       expect{create_user(PERSON_HASH, c.id)}.to raise_error(ArgumentError, /Email Ray@example.com is already in use/)
     end
 
     it "should send the confirmation email" do
-      u = create_user(PERSON_HASH.merge({:locale => "en"}), @community.id)
+      create_user(PERSON_HASH.merge({:locale => "en"}), @community.id)
       expect(ActionMailer::Base.deliveries).not_to be_empty
 
       email = ActionMailer::Base.deliveries.first
@@ -50,7 +50,7 @@ describe UserService::API::Users do
     end
 
     it "should send the confirmation email in right language" do
-      u = create_user(PERSON_HASH.merge({:locale => "fr"}), @community.id)
+      create_user(PERSON_HASH.merge({:locale => "fr"}), @community.id)
       expect(ActionMailer::Base.deliveries).not_to be_empty
 
       email = ActionMailer::Base.deliveries.first

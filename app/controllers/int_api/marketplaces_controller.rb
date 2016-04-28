@@ -44,7 +44,7 @@ class IntApi::MarketplacesController < ApplicationController
         email: params[:admin_email],
         password: params[:admin_password],
         locale: params[:marketplace_language]},
-      marketplace[:id])
+        marketplace[:id]).data
 
     auth_token = UserService::API::AuthTokens.create_login_token(user[:id])
     url = URLUtils.append_query_param(marketplace[:url], "auth", auth_token[:token])
