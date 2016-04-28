@@ -185,9 +185,7 @@ class ApplicationController < ActionController::Base
   def ensure_consent_given
     return unless @current_user
 
-    current_membership = @current_user.community_memberships.find_by(community_id: @current_community.id)
-
-    if current_membership && current_membership.pending_consent?
+    if @current_user.community_membership.pending_consent?
       redirect_to controller: :community_memberships, action: :new
     end
   end
