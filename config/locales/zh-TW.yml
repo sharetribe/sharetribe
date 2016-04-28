@@ -990,6 +990,8 @@ zh-TW:
       you_are_receiving_this_because: "你收到这个通知是由于你关注了%{author_name}。"
       view_listing: 查看发布的信息
   error_messages:
+    onboarding:
+      server_rendering: ~
     listings:
       departure_time: 出发时间必需是现在起一年之内。
       share_type: 你必须从中选择一项

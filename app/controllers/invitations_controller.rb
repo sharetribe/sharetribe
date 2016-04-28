@@ -13,11 +13,12 @@ class InvitationsController < ApplicationController
 
     onboarding_popup_locals = OnboardingViewUtils.popup_locals(
       flash[:show_onboarding_popup],
+      getting_started_guide_admin_community_path(@current_community),
       Admin::OnboardingWizard.new(@current_community.id).setup_status)
 
     view_locals = {
       invitation_limit: invitation_limit,
-      has_admin_rights: @current_user.has_admin_rights_in?(@current_community)
+      has_admin_rights: @current_user.has_admin_rights?
     }
 
     render locals: onboarding_popup_locals.merge(view_locals)

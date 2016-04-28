@@ -97,7 +97,7 @@ const nextStep = function nextStep(data, translateFunc, initialPath) {
 
 // getPaths: initial path containing given pathFragment & relative (deeper) path
 const getPaths = function getPaths(props, pathFragment) {
-  const pathParts = props.railsContext.location.split(pathFragment);
+  const pathParts = props.data.original_path.split(pathFragment);
   const initialPath = pathParts[0] + pathFragment;
   return { initialPath, componentSubPath: pathParts[1] };
 };
@@ -111,6 +111,7 @@ export default class OnboardingGuide extends React.Component {
     railsContext: PropTypes.object.isRequired,
     data: PropTypes.shape({
       path: PropTypes.string.isRequired,
+      original_path: PropTypes.string.isRequired,
       pathHistoryForward: PropTypes.bool,
       name: PropTypes.string.isRequired,
       info_icon: PropTypes.string.isRequired,

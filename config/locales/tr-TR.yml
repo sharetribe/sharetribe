@@ -986,6 +986,8 @@ tr-TR:
       you_are_receiving_this_because: "Bu bildiriyi %{author_name}'i takip ettiğiniz için aldınız."
       view_listing: "Listelemeyi görüntüle"
   error_messages:
+    onboarding:
+      server_rendering: ~
     listings:
       departure_time: "Hareket saati şimdiyle bir yıl sonra arasında olmalıdır."
       share_type: "Bir tanesini seçmeniz gerekmektedir."

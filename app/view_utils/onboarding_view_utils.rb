@@ -18,15 +18,18 @@ module OnboardingViewUtils
 
   module_function
 
-  def next_incomplete_step(setup_status)
-    incomplete_steps = setup_status.reduce(Set.new) do |incomplete, (step, status)|
+  def incomplete_steps(setup_status)
+    setup_status.reduce(Set.new) do |incomplete, (step, status)|
       if !status
         incomplete.add(step)
       else
         incomplete
       end
     end
+  end
 
+  def next_incomplete_step(setup_status)
+    incomplete_steps = incomplete_steps(setup_status)
     STEPS.find { |s| incomplete_steps.include?(s) } || :all_done
   end
 
@@ -42,7 +45,15 @@ module OnboardingViewUtils
     CELEBRATIONS[next_step]
   end
 
-  def popup_locals(show_popup, setup_status)
+  def guide_link(guide_base_path, step)
+    if step == :all_done
+      guide_base_path
+    else
+      "#{guide_base_path}/#{step}"
+    end
+  end
+
+  def popup_locals(show_popup, guide_base_path, setup_status)
     if show_popup
       next_step = next_incomplete_step(setup_status)
 
@@ -50,10 +61,17 @@ module OnboardingViewUtils
        popup_title_key: "admin.onboarding.popup.#{next_step}.title",
        popup_body_key: "admin.onboarding.popup.#{next_step}.body",
        popup_button_key: "admin.onboarding.popup.#{next_step}.button",
-       popup_image: celebration_image(next_step)}
+       popup_image: celebration_image(next_step),
+       popup_action_link: guide_link(guide_base_path, next_step)}
     else
       {show_onboarding_popup: false}
     end
+  end
+
+  def progress(setup_status)
+    total_steps = STEPS.count + 1 # We always have step 1 "Create marketplace" completed
+    completed_steps = total_steps - incomplete_steps(setup_status).count
+    100 * (completed_steps/total_steps.to_f)
   end
 
 end

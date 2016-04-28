@@ -1003,6 +1003,8 @@ sv:
       you_are_receiving_this_because: "Du har fått ett meddelande eftersom du följer %{author_name}."
       view_listing: "Visa annons"
   error_messages:
+    onboarding:
+      server_rendering: ~
     listings:
       departure_time: "Avgångstid måste vara mellan nuvarande tid och ett år från nu."
       share_type: "Du måste välja en:"

@@ -984,6 +984,8 @@ ja:
       you_are_receiving_this_because: "あなたが%{author_name}さんをフォローしているので、このお知らせを送らせていただいております。"
       view_listing: リストを閲覧する
   error_messages:
+    onboarding:
+      server_rendering: ~
     listings:
       departure_time: 出発時間は、現在から１年後の間にしてください。
       share_type: どれか選択してください。

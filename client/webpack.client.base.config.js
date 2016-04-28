@@ -3,6 +3,7 @@ Promise.polyfill();
 
 const webpack = require('webpack');
 const path = require('path');
+const autoprefixer = require('autoprefixer');
 const devBuild = process.env.NODE_ENV !== 'production';
 const nodeEnv = devBuild ? 'development' : 'production';
 
@@ -57,6 +58,8 @@ module.exports = {
       { test: /\.(jpe?g|png|gif|svg|ico)$/, loader: 'url?limit=10000' },
     ],
   },
+
+  postcss: [autoprefixer],
 
   // Place here all SASS files with variables, mixins etc.
   // And sass-resources-loader will load them in every CSS Module (SASS file) for you

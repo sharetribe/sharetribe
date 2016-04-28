@@ -1001,6 +1001,8 @@ de:
       you_are_receiving_this_because: "Du hast diese Benachrichtigung erhalten, weil du %{author_name} folgst."
       view_listing: "Eintrag ansehen"
   error_messages:
+    onboarding:
+      server_rendering: ~
     listings:
       departure_time: "Die Abfahrtzeit muss zwischen der aktuellen Zeit und einem Jahr liegen."
       share_type: "Du musst etwas auswählen."

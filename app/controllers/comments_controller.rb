@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    if current_user?(@comment.author) || @current_user.has_admin_rights_in?(@current_community)
+    if current_user?(@comment.author) || @current_user.has_admin_rights?
       @comment.destroy
       respond_to do |format|
         format.html { redirect_to listing_path(params[:listing_id]) }
@@ -41,7 +41,7 @@ class CommentsController < ApplicationController
       community_id: @current_community.id
     )
 
-    unless @comment.listing.visible_to?(@current_user, @current_community) || @current_user.has_admin_rights_in?(@current_community)
+    unless @comment.listing.visible_to?(@current_user, @current_community) || @current_user.has_admin_rights?
       flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
       redirect_to root and return
     end

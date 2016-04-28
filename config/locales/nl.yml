@@ -985,6 +985,8 @@ nl:
       you_are_receiving_this_because: "Je krijgt dit bericht omdat je %{author_name} volgt."
       view_listing: "Bekijk item"
   error_messages:
+    onboarding:
+      server_rendering: ~
     listings:
       departure_time: "Vertrektijd moet plaatsvinden in het komende jaar."
       share_type: "Selecteer er minimaal 1."

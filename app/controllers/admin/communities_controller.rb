@@ -23,6 +23,7 @@ class Admin::CommunitiesController < ApplicationController
 
     onboarding_popup_locals = OnboardingViewUtils.popup_locals(
       flash[:show_onboarding_popup],
+      getting_started_guide_admin_community_path(@current_community),
       Admin::OnboardingWizard.new(@current_community.id).setup_status)
 
     render "edit_look_and_feel", locals: onboarding_popup_locals

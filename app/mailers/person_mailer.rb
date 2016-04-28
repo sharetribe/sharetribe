@@ -401,7 +401,7 @@ class PersonMailer < ActionMailer::Base
       @url_params.freeze # to avoid accidental modifications later
       @test_email = test_email
 
-      subject = if @recipient.has_admin_rights_in?(community) && !@test_email
+      subject = if @recipient.has_admin_rights? && !@test_email
         t("emails.welcome_email.welcome_email_subject_for_marketplace_creator")
       else
         t("emails.welcome_email.welcome_email_subject", :community => community.full_name(recipient.locale), :person => person.given_name_or_username)

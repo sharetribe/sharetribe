@@ -4,7 +4,7 @@ module Mercury
     def can_edit?
       @current_user = current_person
       @current_community = ApplicationController.find_community(community_identifiers)
-      @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
+      @current_user && @current_community && @current_user.has_admin_rights?
     end
 
     def community_identifiers

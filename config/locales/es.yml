@@ -977,6 +977,8 @@ es:
       you_are_receiving_this_because: ~
       view_listing: ~
   error_messages:
+    onboarding:
+      server_rendering: ~
     listings:
       departure_time: "La hora de salida debe estar entre la fecha actual y un año a partir de ahora."
       share_type: "Deber de seleccionar al menos uno de los recuadros anteriores."

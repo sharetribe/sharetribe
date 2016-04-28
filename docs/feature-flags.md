@@ -32,5 +32,5 @@ Feature flags can be toggled in two ways:
 1. Query params
 If you're logged in as superadmin, you can append `?enable_feature=<your_flag>` to enable the feature for current session
 
-1. Database
-Database table `feature_flags` contains any feature flags enabled per community
+1. Console
+Run this in Rails console: `FeatureFlagService::API::Api.features.enable(community_id: <community_id>, features: [:<your_flag>])`

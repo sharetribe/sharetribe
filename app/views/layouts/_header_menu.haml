@@ -27,7 +27,7 @@
         = icon_tag("redirect", ["icon-with-text"])
         = menu_link.title(I18n.locale)
 
-  - if @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
+  - if @current_user && @current_community && @current_user.has_admin_rights?
     = link_to edit_details_admin_community_path(@current_community) do
       = icon_tag("admin", ["icon-with-text"])
       = t("layouts.logged_in.admin")

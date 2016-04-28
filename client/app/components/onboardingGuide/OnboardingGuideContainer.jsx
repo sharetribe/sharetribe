@@ -17,6 +17,7 @@ OnbardingGuideContainer.propTypes = {
   railsContext: PropTypes.object.isRequired,
   data: PropTypes.shape({
     path: PropTypes.string.isRequired,
+    original_path: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     info_icon: PropTypes.string.isRequired,
     translations: PropTypes.object.isRequired,
