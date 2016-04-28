@@ -7,10 +7,16 @@ class PeopleController < Devise::RegistrationsController
   before_filter EnsureCanAccessPerson.new(
     :id, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), only: [:update, :destroy]
 
-  skip_filter :cannot_access_if_banned, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
-  skip_filter :cannot_access_without_confirmation, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
-  skip_filter :ensure_consent_given, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
-  skip_filter :ensure_user_belongs_to_community, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
+  LOOSER_ACCESS_CONTROL = [
+    :check_email_availability,
+    :check_email_availability_and_validity,
+    :check_invitation_code
+  ]
+
+  skip_filter :cannot_access_if_banned,            only: LOOSER_ACCESS_CONTROL
+  skip_filter :cannot_access_without_confirmation, only: LOOSER_ACCESS_CONTROL
+  skip_filter :ensure_consent_given,               only: LOOSER_ACCESS_CONTROL
+  skip_filter :ensure_user_belongs_to_community,   only: LOOSER_ACCESS_CONTROL
 
   helper_method :show_closed?
 

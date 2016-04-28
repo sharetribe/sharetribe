@@ -33,12 +33,12 @@ class ApplicationController < ActionController::Base
     :warn_about_missing_payment_info,
     :set_homepage_path,
     :report_queue_size,
-    :maintenance_warning
-  before_filter :cannot_access_if_banned, :except => [ :confirmation_pending, :check_email_availability]
-  before_filter :cannot_access_without_confirmation, :except => [ :confirmation_pending, :check_email_availability]
-  before_filter :ensure_consent_given, except: [:confirmation_pending, :check_email_availability]
-  before_filter :ensure_user_belongs_to_community, except: [ :confirmation_pending, :check_email_availability]
-  before_filter :can_access_only_organizations_communities
+    :maintenance_warning,
+    :cannot_access_if_banned,
+    :cannot_access_without_confirmation,
+    :ensure_consent_given,
+    :ensure_user_belongs_to_community,
+    :can_access_only_organizations_communities
 
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
   before_filter :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
