@@ -61,6 +61,7 @@ class Admin::GettingStartedGuideController < ApplicationController
     # This is the props used by the React component.
     { onboarding_guide_page: {
         path: sub_path,
+        original_path: request.env['PATH_INFO'],
         onboarding_data: sorted_steps,
         name: PersonViewUtils.person_display_name(@current_user, @current_community),
         info_icon: icon_tag("information"),
