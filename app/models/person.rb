@@ -101,6 +101,7 @@ class Person < ActiveRecord::Base
   has_many :received_negative_testimonials, -> { where("grade IN (0.0,0.25)").order("id DESC") }, :class_name => "Testimonial", :foreign_key => "receiver_id"
   has_many :messages, :foreign_key => "sender_id"
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id", :dependent => :destroy
+  belongs_to :community
   has_many :community_memberships, :dependent => :destroy
   has_many :communities, -> { where("community_memberships.status = 'accepted'") }, :through => :community_memberships
   has_one  :community_membership, :dependent => :destroy
