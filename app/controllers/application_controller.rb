@@ -186,7 +186,7 @@ class ApplicationController < ActionController::Base
     return unless @current_user
 
     if @current_user.community_membership.pending_consent?
-      redirect_to controller: :community_memberships, action: :new
+      redirect_to pending_consent_path
     end
   end
 
@@ -384,7 +384,7 @@ class ApplicationController < ActionController::Base
     # Check if banned
     if @current_user && @current_user.banned?
       flash.keep
-      redirect_to access_denied_tribe_memberships_path and return
+      redirect_to access_denied_path and return
     end
   end
 

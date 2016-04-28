@@ -66,9 +66,4 @@ class CommunityMembership < ActiveRecord::Base
   def banned?
     status == "banned"
   end
-
-  def current_terms_accepted?
-    consent.present? && consent == community.consent
-  end
-
 end

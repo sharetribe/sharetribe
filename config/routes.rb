@@ -111,6 +111,15 @@ Kassi::Application.routes.draw do
     post '/:person_id/settings/payments/braintree/create' => 'braintree_accounts#create', :as => :create_braintree_settings_payment
     get '/:person_id/settings/payments/paypal_account' => 'paypal_accounts#index', :as => :paypal_account_settings_payment
 
+    # community membership related actions
+
+    get  '/community_memberships/pending_consent' => 'community_memberships#pending_consent', as: :pending_consent
+    post '/community_memberships/give_consent'    => 'community_memberships#give_consent', as: :give_consent
+    get  '/community_memberships/access_denied'   => 'community_memberships#access_denied', as: :access_denied
+
+    get  '/community_memberships/check_email_availability_and_validity' => 'community_memberships#check_email_availability_and_validity'
+    get  '/community_memberships/check_invitation_code'                 => 'community_memberships#check_invitation_code'
+
     namespace :paypal_service do
       resources :checkout_orders do
         collection do
@@ -227,11 +236,7 @@ Kassi::Application.routes.draw do
         post :join
       end
     end
-    resources :community_memberships, :as => :tribe_memberships do
-      collection do
-        get :access_denied
-      end
-    end
+
     resources :listings do
       member do
         post :follow

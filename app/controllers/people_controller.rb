@@ -193,7 +193,7 @@ class PeopleController < Devise::RegistrationsController
     CommunityMembership.create(person: @person, community: @current_community, status: "pending_consent")
 
     session[:fb_join] = "pending_analytics"
-    redirect_to :controller => :community_memberships, :action => :new
+    redirect_to pending_consent_path
   end
 
   def update
@@ -312,32 +312,23 @@ class PeopleController < Devise::RegistrationsController
     end
   end
 
-  #This checks also that email is allowed for this community
   def check_email_availability_and_validity
-    # this can be asked from community_membership page or new user page
-    email = params[:person] && params[:person][:email] ? params[:person][:email] : params[:community_membership][:email]
+    email = params[:person][:email]
 
-    available = true
+    allowed_and_available = @current_community.email_allowed?(email) && Email.email_available?(email, @current_community.id)
 
-    #first check if the community allows this email
-    if @current_community.allowed_emails.present?
-      available = @current_community.email_allowed?(email)
-    end
-
-    if available
-      # Then check if it's already in use
-      email_availability(email, @current_community.id)
-    else #respond false
-      respond_to do |format|
-        format.json { render :json => available }
-      end
+    respond_to do |format|
+      format.json { render json: allowed_and_available }
     end
   end
 
   # this checks that email is not already in use for anyone (including current user)
   def check_email_availability
     email = params[:person] && params[:person][:email_attributes] && params[:person][:email_attributes][:address]
-    email_availability(email, @current_community.id)
+
+    respond_to do |format|
+      format.json { render json: Email.email_available?(email, @current_community.id) }
+    end
   end
 
   def check_invitation_code
@@ -379,11 +370,6 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def email_availability(email, community_id)
-    available = Email.email_available?(email, community_id)
-
-    respond_to do |format|
-      format.json { render :json => available }
-    end
   end
 
   # Filters out those followed_people that are not members of the community

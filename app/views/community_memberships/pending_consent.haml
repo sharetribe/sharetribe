@@ -1,0 +1,50 @@
+- content_for :javascript do
+  initialize_pending_consent_form("#{t("people.new.email_is_in_use_or_not_allowed")}",#{invite_only}, "#{t("people.new.invalid_invitation_code")}");
+
+- content_for :title_header do
+  %h1= t('community_memberships.new.join_community', community: @current_community.name(I18n.locale))
+
+- if session[:fb_join] == "pending_analytics"
+  - content_for :javascript do
+    report_analytics_event('user', "signed up", "facebook");
+  - session[:fb_join] = "analytics_reported"
+
+.centered-section
+  %p
+    - if invite_only && values[:invitation_code].blank?
+      = t('community_memberships.new.you_can_join_with_invite_only')
+    - elsif !has_valid_email_for_community
+      - if allowed_emails.size > 1
+        = t('community_memberships.new.you_can_join_email_confirmation_multiple_addresses', email_endings: allowed_emails.join(", "))
+      - else
+        = t('community_memberships.new.you_can_join_email_confirmation', email_ending: allowed_emails.first)
+    - else
+      = t('community_memberships.new.welcome_fb_user', name: @current_user.given_name_or_username)
+      = t('community_memberships.new.fb_join_accept_terms')
+
+  %p
+    = t('community_memberships.new.if_want_to_view_content')
+    = link_to(t('community_memberships.new.log_out'), logout_path) + "."
+
+  = form_tag give_consent_path, id: "pending_consent_form" do
+
+    - if invite_only
+      - if values[:invitation_code].present?
+        = hidden_field_tag "form[invitation_code]", values[:invitation_code]
+      - else
+        = label_tag "form[invitation_code", t('people.new.invitation_code'), class: "inline"
+        = link_to t('common.what_is_this'), "#", tabindex: "-1", id: "help_invitation_code_link", class: "label-info"
+        = text_field_tag "form[invitation_code]", values[:invitation_code], class: :text_field, maxlength: "20"
+
+    - if !has_valid_email_for_community
+      = label_tag "form[email]", t('people.new.email'), class: "before_description"
+      = text_field_tag "form[email]", values[:email], class: :text_field, maxlenght: "255"
+
+    .outer-checkbox-container
+      .checkbox-container
+        = check_box_tag "form[consent]", "on", values[:consent] == "on", id: "community_membership_consent"
+        = label_tag "form[consent]", t('people.new.i_accept_the'), class: "checkbox"
+        = link_to t("people.new.terms"), "#", tabindex: "-1", id: "terms_link", class: "form"
+    = button_tag(t('community_memberships.new.join_community_button'), class: "send_button")
+
+= render partial: "people/help_texts", collection: ["terms", "help_invitation_code"], as: :field
