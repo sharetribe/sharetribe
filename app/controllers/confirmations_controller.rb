@@ -20,24 +20,21 @@ class ConfirmationsController < Devise::ConfirmationsController
         if @current_community.email_allowed?(params[:person][:email])
           email = Email.create(:person => @current_user, :address => params[:person][:email], :send_notifications => true, community_id: @current_community.id)
           Email.send_confirmation(email, @current_community)
-          flash[:notice] = t("sessions.confirmation_pending.check_your_email")
-          redirect_to :controller => "sessions", :action => "confirmation_pending" and return
+
+          render json: { status: :ok }, status: :ok
         else
-          flash[:error] = t("people.new.email_not_allowed")
-          redirect_to :controller => "sessions", :action => "confirmation_pending" and return
+          render json: { status: :email_not_allowed }, status: :forbidden
         end
       else
-        flash[:error] = t("people.new.email_is_in_use")
-        redirect_to :controller => "sessions", :action => "confirmation_pending" and return
+        render json: { status: :email_in_use }, status: :forbidden
       end
     else
       email_to_confirm = @current_user.latest_pending_email_address(@current_community)
       email = Email.find_by_address_and_community_id(email_to_confirm, @current_community.id)
       Email.send_confirmation(email, @current_community)
-      flash[:notice] = t("sessions.confirmation_pending.check_your_email")
-      redirect_to :controller => "sessions", :action => "confirmation_pending" and return
-    end
 
+      render json: { status: :ok }, status: :ok
+    end
   end
 
   # GET /resource/confirmation?confirmation_token=abcdef
@@ -48,7 +45,9 @@ class ConfirmationsController < Devise::ConfirmationsController
     end
 
     #check if this confirmation code matches to additional emails
-    if e = Email.find_by_confirmation_token(params[:confirmation_token])
+    e = Email.find_by_confirmation_token(params[:confirmation_token])
+
+    if e.present?
       person = e.person
       e.confirmed_at = Time.now
       e.confirmation_token = nil
@@ -73,7 +72,7 @@ class ConfirmationsController < Devise::ConfirmationsController
 
     flash[:error] = t("layouts.notifications.confirmation_link_is_wrong_or_used")
     if @current_user
-      redirect_to :controller => "sessions", :action => "confirmation_pending"
+      redirect_to confirmation_pending_path
     else
       redirect_to :root
     end
