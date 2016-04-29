@@ -12,28 +12,30 @@ class CommunityMailer < ActionMailer::Base
   # It looks through all users and send email to those who want it now
   def self.deliver_community_updates
     Person.find_each do |person|
-      if person.should_receive_community_updates_now?
-        person.communities.select { |c| c.automatic_newsletters }.each do |community|
-          listings_to_send = community.get_new_listings_to_update_email(person)
-          next if listings_to_send.empty?
-          begin
-            token = AuthToken.create_unsubscribe_token(person_id: person.id).token
-            MailCarrier.deliver_now(
-              CommunityMailer.community_updates(
-                recipient: person,
-                community: community,
-                listings: listings_to_send,
-                unsubscribe_token: token
-              ))
-          rescue => e
-          # Catch the exception and continue sending emails
-          puts "Error sending mail to #{person.confirmed_notification_emails} community updates: #{e.message}"
-          ApplicationHelper.send_error_notification("Error sending mail to #{person.confirmed_notification_emails} community updates: #{e.message}", e.class)
-          end
-        end
-        # After sending updates for all communities that had something new, update the time of last sent updates to Time.now.
-        person.update_attribute(:community_updates_last_sent_at, Time.now)
+      next unless person.should_receive_community_updates_now?
+
+      community = person.accepted_community
+      next unless community
+
+      listings_to_send = community.get_new_listings_to_update_email(person) if community.automatic_newsletters
+      next if listings_to_send.blank?
+
+      begin
+        token = AuthToken.create_unsubscribe_token(person_id: person.id).token
+        MailCarrier.deliver_now(
+          CommunityMailer.community_updates(
+          recipient: person,
+          community: community,
+          listings: listings_to_send,
+          unsubscribe_token: token
+        ))
+      rescue => e
+        # Catch the exception and continue sending emails
+        puts "Error sending mail to #{person.confirmed_notification_emails} community updates: #{e.message}"
+        ApplicationHelper.send_error_notification("Error sending mail to #{person.confirmed_notification_emails} community updates: #{e.message}", e.class)
       end
+      # After sending updates for all communities that had something new, update the time of last sent updates to Time.now.
+      person.update_attribute(:community_updates_last_sent_at, Time.now)
     end
   end
 
