@@ -239,10 +239,10 @@ module TestHelpers
                                  created_at: "2012-05-04 18:17:04")
 
     person2 = FactoryGirl.create(:person,
-                                 community_id: community2.id,
+                                 community_id: community1.id,
                                  username: "kassi_testperson2",
                                  emails: [
-                                   FactoryGirl.build(:email, community_id: community2.id, :address => "kassi_testperson4@example.com") ],
+                                   FactoryGirl.build(:email, community_id: community1.id, :address => "kassi_testperson4@example.com") ],
                                  is_admin: false,
                                  locale: "en",
                                  encrypted_password: "$2a$10$WQHcobA3hrTdSDh1jfiMquuSZpM3rXlcMU71bhE1lejzBa3zN7yY2", #"testi"
