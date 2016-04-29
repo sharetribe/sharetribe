@@ -618,10 +618,15 @@ class ApplicationController < ActionController::Base
   end
 
   def display_onboarding_topbar?
-    @current_user &&
-      @current_community &&
-      @current_user.has_admin_rights? &&
-      !@current_user.community_membership.pending_email_confirmation?
+    # Don't show if user is not logged in
+    return false unless @current_user
+
+    # Show for super admins
+    return true if @current_user.is_admin?
+
+    # Show for admins if their status is accepted
+    @current_user.is_marketplace_admin? &&
+      @current_user.community_membership.accepted?
   end
 
   helper_method :display_onboarding_topbar?
