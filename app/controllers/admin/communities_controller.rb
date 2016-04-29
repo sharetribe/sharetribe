@@ -10,7 +10,7 @@ class Admin::CommunitiesController < ApplicationController
     @community = @current_community
 
     if(feature_enabled?(:onboarding_redesign_v1))
-      redirect_to getting_started_guide_admin_community_path
+      redirect_to getting_started_guide_admin_community_path(@current_community)
     else
       render locals: {paypal_enabled: PaypalHelper.paypal_active?(@current_community.id)}
     end
