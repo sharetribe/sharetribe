@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 class TransactionMailer; end
 
 describe UserService::API::Users do
@@ -75,7 +77,7 @@ describe UserService::API::Users do
       expect(new_user.given_name).not_to be_nil
       expect(new_user.family_name).not_to be_nil
       expect(new_user.emails).not_to be_empty
-      expect(new_user.community_memberships).not_to be_empty
+      expect(new_user.community_membership).not_to be_nil
       expect(new_user.braintree_account).not_to be_nil
       expect(new_user.checkout_account).not_to be_nil
       expect(new_user.auth_tokens).not_to be_nil
@@ -91,7 +93,7 @@ describe UserService::API::Users do
       expect(deleted_user.given_name).to be_nil
       expect(deleted_user.family_name).to be_nil
       expect(deleted_user.emails).to be_empty
-      expect(deleted_user.community_memberships.map(&:status).all? { |status| status == "deleted_user" }).to eq(true)
+      expect(deleted_user.community_membership.status).to eq("deleted_user")
       expect(deleted_user.braintree_account).to be_nil
       expect(deleted_user.checkout_account).to be_nil
       expect(deleted_user.auth_tokens).to be_empty
