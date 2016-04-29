@@ -21,23 +21,20 @@ class ConfirmationsController < Devise::ConfirmationsController
           email = Email.create(:person => @current_user, :address => params[:person][:email], :send_notifications => true, community_id: @current_community.id)
           Email.send_confirmation(email, @current_community)
           flash[:notice] = t("sessions.confirmation_pending.check_your_email")
-          redirect_to :controller => "sessions", :action => "confirmation_pending" and return
         else
           flash[:error] = t("people.new.email_not_allowed")
-          redirect_to :controller => "sessions", :action => "confirmation_pending" and return
         end
       else
         flash[:error] = t("people.new.email_is_in_use")
-        redirect_to :controller => "sessions", :action => "confirmation_pending" and return
       end
     else
       email_to_confirm = @current_user.latest_pending_email_address(@current_community)
       email = Email.find_by_address_and_community_id(email_to_confirm, @current_community.id)
       Email.send_confirmation(email, @current_community)
       flash[:notice] = t("sessions.confirmation_pending.check_your_email")
-      redirect_to :controller => "sessions", :action => "confirmation_pending" and return
     end
 
+    redirect_to confirmation_pending_path
   end
 
   # GET /resource/confirmation?confirmation_token=abcdef
