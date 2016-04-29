@@ -44,7 +44,7 @@ const GuideStatusPage = (props) => {
         <li className={css.stepListItemDone}>
           <span className={css.stepListLink}>
             <span className={css.stepListCheckbox}></span>
-            Create marketplace
+            Create your marketplace
           </span>
         </li>
         {Object.keys(onboardingData).map((key) => {
