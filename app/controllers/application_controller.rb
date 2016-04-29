@@ -602,6 +602,15 @@ class ApplicationController < ActionController::Base
     logger.add_metadata(metadata)
   end
 
+  def display_onboarding_topbar?
+    @current_user &&
+      @current_community &&
+      @current_user.has_admin_rights? &&
+      !@current_user.community_membership.pending_email_confirmation?
+  end
+
+  helper_method :display_onboarding_topbar?
+
   def onboarding_topbar_props
     community_id = @current_community.id
     onboarding_status = Admin::OnboardingWizard.new(community_id).setup_status
