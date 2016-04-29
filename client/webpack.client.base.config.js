@@ -59,7 +59,9 @@ module.exports = {
     ],
   },
 
-  postcss: [autoprefixer],
+  postcss: [
+    autoprefixer({ browsers: ['last 2 versions', 'not ie < 11', 'not ie_mob < 11', 'ie >= 11'] }),
+  ],
 
   // Place here all SASS files with variables, mixins etc.
   // And sass-resources-loader will load them in every CSS Module (SASS file) for you

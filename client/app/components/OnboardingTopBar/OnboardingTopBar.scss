@@ -7,7 +7,7 @@ $gradientEnd: rgb(89,165,179);
   color: white;
   padding-top: 1.2em;
   padding-bottom: 1.2em;
-  background-image: linear-gradient( 180deg, $gradientStart 0%, $gradientEnd 100%);
+  background-image: linear-gradient( 90deg, $gradientStart 0%, $gradientEnd 100%);
   box-shadow: $topbarShadow;
 }
 
