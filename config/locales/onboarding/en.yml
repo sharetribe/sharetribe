@@ -7,7 +7,7 @@ en:
           description: "A good cover photo can make the difference between a new visitor joining or leaving your marketplace."
           info_image_alt: "A screenshot of homepage with big cover photo"
           add_your_own: "Add cover photo"
-          advice: "Check out <a href=\"http://support.sharetribe.com/knowledgebase/articles/744438\" alt=\"How to get good-looking cover photos, logos, favicon, profiles and listing pictures?\">our guide</a> on where to find good-looking images that are free to use. <br/>Note: the photo will be resized to 1920x450 pixels. The top and bottom sections of images that are taller will be cropped."
+          advice: "Check out <a href=\"http://support.sharetribe.com/knowledgebase/articles/744438\" target=\"_blank\" alt=\"How to get good-looking cover photos, logos, favicon, profiles and listing pictures?\">our guide</a> on where to find good-looking images that are free to use. <br/>Note: the photo will be resized to 1920x450 pixels. The top and bottom sections of images that are taller will be cropped."
         filter:
           title: "Step 4: Add listing fields & filters"
           description_p1: "Filters help your visitors find what they are looking for. For example, if clothes are sold on your marketplace, you probably want to create a filter for sizes."
@@ -40,7 +40,7 @@ en:
           description_p2: ""
           info_image_alt: "A screenshot from payments page"
           setup_payments: "Set up payments"
-          advice: "To disable payments, read <a href=\"http://support.sharetribe.com/knowledgebase/articles/470085\" alt=\"How to disable payments or add free listings to your marketplace\">this article</<a>."
+          advice: "To disable payments, read <a href=\"http://support.sharetribe.com/knowledgebase/articles/470085\" target=\"_blank\" alt=\"How to disable payments or add free listings to your marketplace\">this article</<a>."
         slogan_and_description:
           title: "Step 2: Slogan & Description"
           description: "The slogan & description help new visitors understand what your marketplace is about. It's the first thing they notice when they enter your site, so try to make it descriptive but succinct."
@@ -53,6 +53,7 @@ en:
           description_p1: "To get your marketplace up and running, there are a few essential steps you need to take, as listed below."
           description_p2: "Once finished, your marketplace will be ready to receive its first visitors!"
           congratulation: "Fantastic! You did it! Your marketplace is now up and running. However, this is just the start. You should continously update, improve and promote your marketplace. For some ideas on what to do next, check out the <a href=\"https://www.sharetribe.com/academy/\" target=\"_blank\">Marketplace academy</a>."
+          create_your_marketplace: "Create your marketplace"
           slogan_and_description: "Add a slogan & description"
           cover_photo: "Upload a cover photo"
           filter: "Add fields & filters"
@@ -87,7 +88,7 @@ en:
           button: "Invite users"
         all_done:
           title: "Brilliant, you made it!"
-          body: "Fantastic! You did it! Your marketplace is now up and running. However, this is just the start! You should continously update, improve and promote your marketplace. For some ideas on what to do next, check out <a href='https://www.sharetribe.com/academy/' target='_blank'>the Marketplace academy</a>."
+          body: "Fantastic! You did it! Your marketplace is now up and running. However, this is just the start! You should continously update, improve and promote your marketplace. For some ideas on what to do next, check out <a href=\"https://www.sharetribe.com/academy/\" target=\"_blank\" alt=\"the Marketplace academy\">the Marketplace academy</a>."
           button: "Woohoo, I did it!"
         button_later: "I'll do it later, thanks"
       topbar:
