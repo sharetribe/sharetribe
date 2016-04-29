@@ -70,7 +70,7 @@ class ConfirmationsController < Devise::ConfirmationsController
 
     flash[:error] = t("layouts.notifications.confirmation_link_is_wrong_or_used")
     if @current_user
-      redirect_to :controller => "sessions", :action => "confirmation_pending"
+      redirect_to confirmation_pending_path
     else
       redirect_to :root
     end
