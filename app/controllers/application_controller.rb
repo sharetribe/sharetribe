@@ -183,7 +183,11 @@ class ApplicationController < ActionController::Base
   # for current community. This filter ensures that user takes these
   # actions.
   def ensure_consent_given
+    # Not logged in
     return unless @current_user
+
+    # Admin can access
+    return if @current_user.is_admin?
 
     if @current_user.community_membership.pending_consent?
       redirect_to pending_consent_path
@@ -379,17 +383,28 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Before filter to direct a banned user to access denied page
   def cannot_access_if_banned
+    # Not logged in
+    return unless @current_user
+
+    # Admin can access
+    return if @current_user.is_admin?
+
     # Check if banned
-    if @current_user && @current_user.banned?
+    if @current_user.banned?
       flash.keep
-      redirect_to access_denied_path and return
+      redirect_to access_denied_path
     end
   end
 
   def cannot_access_without_confirmation
-    if @current_user && @current_user.community_membership.pending_email_confirmation?
+    # Not logged in
+    return unless @current_user
+
+    # Admin can access
+    return if @current_user.is_admin?
+
+    if @current_user.community_membership.pending_email_confirmation?
       # Check if requirements are already filled, but the membership just hasn't been updated yet
       # (This might happen if unexpected error happens during page load and it shouldn't leave people in loop of of
       # having email confirmed but not the membership)
