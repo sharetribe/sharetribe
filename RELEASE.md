@@ -42,7 +42,7 @@ When you are ready to release a new version, follow these steps:
   **Describe this release:**
 
   ```markdown
-  <copy the content from the [CHANGELOG.md](UPGRADE.md)>
+  <copy the content from the [CHANGELOG.md](CHANGELOG.md)>
   <copy the content from the [UPGRADE.md](UPGRADE.md)>
   ```
 
