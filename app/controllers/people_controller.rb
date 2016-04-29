@@ -171,7 +171,8 @@ class PeopleController < Devise::RegistrationsController
     username = UserService::API::Users.username_from_fb_data(
       username: session["devise.facebook_data"]["username"],
       given_name: session["devise.facebook_data"]["given_name"],
-      family_name: session["devise.facebook_data"]["family_name"])
+      family_name: session["devise.facebook_data"]["family_name"],
+      community_id: @current_community.id)
 
     person_hash = {
       :username => username,

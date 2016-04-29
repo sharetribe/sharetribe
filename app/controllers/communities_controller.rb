@@ -28,13 +28,13 @@ class CommunitiesController < ApplicationController
         .merge(payment_process: :none)
       )
 
-      user = UserService::API::Users.create_user_with_membership({
+      user = UserService::API::Users.create_user({
         given_name: form_hash[:admin_first_name],
         family_name: form_hash[:admin_last_name],
         email: form_hash[:admin_email],
         password: form_hash[:admin_password],
         locale: form_hash[:marketplace_language]},
-        marketplace[:id])
+        marketplace[:id]).data
 
       auth_token = UserService::API::AuthTokens.create_login_token(user[:id])
       url = URLUtils.append_query_param(marketplace[:url], "auth", auth_token[:token])
