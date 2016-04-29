@@ -12,7 +12,7 @@ class TestimonialsController < ApplicationController
 
   def index
     username = params[:person_id]
-    target_user = Person.find_by_username_and_community_id!(username, @current_community.id)
+    target_user = Person.find_by!(username: username, community_id: @current_community.id)
 
     if request.xhr?
       @testimonials = TestimonialViewUtils.received_testimonials_in_community(target_user, @current_community).paginate(:per_page => params[:per_page], :page => params[:page])

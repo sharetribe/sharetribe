@@ -243,7 +243,7 @@ Then /^user "(.*?)" should have (confirmed|unconfirmed) email "(.*?)"$/ do |user
 end
 
 When /^"(.*?)" is authorized to post a new listing$/ do |username|
-  person = Person.find_by_username_and_community_id(username, @current_community.id)
+  person = Person.find_by(username: username, community_id: @current_community.id)
   community_membership = CommunityMembership.find_by_person_id_and_community_id(person.id, @current_community.id)
   community_membership.update_attribute(:can_post_listings, true)
 end

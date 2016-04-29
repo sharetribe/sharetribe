@@ -8,8 +8,8 @@ module AdminTransactionSteps
 
     community = Community.find_by(ident: transaction_data[:community_ident])
 
-    author = Person.find_by_username_and_community_id(transaction_data[:other_party], community.id)
-    starter = Person.find_by_username_and_community_id(transaction_data[:starter], community.id)
+    author = Person.find_by(username: transaction_data[:other_party], community_id: community.id)
+    starter = Person.find_by(username: transaction_data[:starter], community_id: community.id)
 
     # TODO This is almost copy-paste from conversation_steps
     conversation.participations.build({

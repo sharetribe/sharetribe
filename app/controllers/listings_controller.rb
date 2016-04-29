@@ -42,7 +42,7 @@ class ListingsController < ApplicationController
         username = params[:person_id]
 
         if request.xhr? && username # AJAX request to load on person's listings for profile view
-          @person = Person.find_by_username_and_community_id!(username, @current_community.id)
+          @person = Person.find_by!(username: username, community_id: @current_community.id)
 
           # Returns the listings for one person formatted for profile page view
           per_page = params[:per_page] || 1000 # the point is to show all here by default
