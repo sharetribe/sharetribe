@@ -806,10 +806,10 @@ fr:
       log_out: "vous déconnecter"
       join_community_button: "Rejoindre %{service_name}"
     give_consent:
-      invitation_code_invalid_or_used: ~
-      email_not_allowed: ~
-      email_not_available: ~
-      consent_not_given: ~
+      invitation_code_invalid_or_used: "Le code d'invitation était invalide ou déjà utilisé"
+      email_not_allowed: "Cet email n'est pas autorisé dans cette place de marché"
+      email_not_available: "Cet email n'est pas disponible"
+      consent_not_given: "Les conditions d'utilisations n'ont pas été acceptés"
   emails:
     accept_reminder:
       remember_to_accept_offer: "N'oubliez pas d'accepter ou de refuser l'offre de %{sender_name}"
@@ -1300,7 +1300,7 @@ fr:
       confirmation_link_is_wrong_or_used: "Le lien de confirmation a déjà été utilisé ou est erroné. Essayez de vous connecter ou contactez-nous si le problème persiste."
       additional_email_confirmed: "Votre adresse email est désormais confirmée."
       could_not_get_email_from_facebook: "Impossible de récupérer l'adresse email depuis Facebook et impossible de créer un compte sans adresse email."
-      facebook_email_unconfirmed: "L'adresse email '%{email}' de votre compte Facebook est déjà utilisée mais n'est pas encore confirmée. Veuillez confirmer cette adresse email avant de vous connecter avec Facebook."
+      facebook_email_unconfirmed: "L'adresse email '%{email}' liée à votre compte Facebook est déjà utilisée mais n'a pas encore été confirmée. Veuillez confirmer cette adresse email avant de vous connecter avec Facebook."
       create_new_listing: "Créer une autre annonce"
       create_one_here: "en créer un ici"
       email_confirmation_sent_to_new_address: "Un email de confirmation est envoyé à la nouvelle adresse."
@@ -1644,9 +1644,6 @@ fr:
       rideshare_offer: "Offre de covoiturage"
       rideshare_request: "Demande de covoiturage "
       send_private_message: "Envoyer un message"
-      share_types: "Types de partage"
-      share_types_offer: "Type d'offre"
-      share_types_request: "Type de demande"
       tags: Tags
       time: fois
       times: fois
