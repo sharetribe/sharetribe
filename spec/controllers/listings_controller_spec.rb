@@ -49,7 +49,7 @@ describe ListingsController, type: :controller do
     @c2 = FactoryGirl.create(:community)
 
     @p1 = FactoryGirl.create(:person)
-    @p1.communities << @c1
+    @p1.accepted_community = @c1
 
     @category_item      = FactoryGirl.create(:category, :community => @c1)
     @category_item.translations << FactoryGirl.create(:category_translation, :name => "Tavarat", :locale => "fi", :category => @category_item)
