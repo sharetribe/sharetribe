@@ -792,8 +792,8 @@ en:
   community_memberships:
     access_denied:
       access_denied: "Access denied"
-      you_are_banned_in_this_community: "The administrator has prevented you from accessing %{service_name}. If you want to contact the admin, you can send %{link_to_contact_page}."
-      contact_page_link: feedback
+      you_are_banned_in_this_community: "The administrator has prevented you from accessing %{service_name}. If you want to contact the admin, you can %{link_to_contact_page}."
+      contact_page_link: contact them
     new:
       welcome_fb_user: "Welcome to %{service_name}, %{name}!"
       fb_join_accept_terms: "There's one more step to join %{service_name}: you need to accept the terms of use."
@@ -806,10 +806,10 @@ en:
       log_out: "log out"
       join_community_button: "Join %{service_name}"
     give_consent:
-      invitation_code_invalid_or_used: "Invitation code was invalid or used"
-      email_not_allowed: "Email was not allowed for this community"
-      email_not_available: "Email was not available"
-      consent_not_given: "Terms were not accepted"
+      invitation_code_invalid_or_used: "The invitation code was invalid or already used."
+      email_not_allowed: "This email is not allowed in %{service_name}."
+      email_not_available: "The email you gave is already in use."
+      consent_not_given: "The terms were not accepted."
   emails:
     accept_reminder:
       remember_to_accept_offer: "Remember to accept or reject an offer from %{sender_name}"
@@ -1353,7 +1353,7 @@ en:
       poll_updated: "Poll updated"
       poll_deleted: "Poll removed"
       read_more: "Read more!"
-      registration_considered_spam: "Registration did not work, please send feedback from header menu and mention \"email2 error\"."
+      registration_considered_spam: "Registration did not work, please contact us from header menu and mention \"email2 error\"."
       reply_cannot_be_empty: "You can't send an empty message"
       reply_sent: "Reply sent successfully"
       request_accepted: "Request accepted"
@@ -1815,7 +1815,7 @@ en:
       email: "Email address"
       email_is_in_use: "The email you gave is already in use."
       email_is_in_use_or_not_allowed: "This email is not allowed or it is already in use. If you can't get in, contact us."
-      email_not_allowed: "This email is not allowed in %{service_name}. Please use an email address that is allowed. If you still cannot get in, send us feedback."
+      email_not_allowed: "This email is not allowed in %{service_name}. Please use an email address that is allowed. If you still cannot get in, contact us."
       email_restriction_instructions:
         one: "The access to %{service_name} is restricted. To join you need a '%{allowed_emails}' email address."
         other: "The access to %{service_name} is restricted. You need an email address that proves that you are entitled to join."
