@@ -19,7 +19,7 @@ describe "CommunityMailer", type: :mailer do
       @c1.community_customizations.first.update_attribute(:name, "MarketTestPlace")
 
       @p1 = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "update_tester@example.com") ])
-      @p1.communities << @c1
+      @p1.accepted_community = @c1
       @l2 = FactoryGirl.create(:listing,
           :title => "hammer",
           :created_at => 2.days.ago,
@@ -32,7 +32,7 @@ describe "CommunityMailer", type: :mailer do
 
       @email = CommunityMailer.community_updates(
         recipient: @p1,
-        community: @p1.communities.first,
+        community: @p1.accepted_community,
         listings: [@l2],
         unsubscribe_token: @p1_unsubscribe_token
       )
@@ -66,9 +66,9 @@ describe "CommunityMailer", type: :mailer do
       @c1 = FactoryGirl.create(:community)
       @c2 = FactoryGirl.create(:community)
       @p1 = FactoryGirl.create(:person)
-      @p1.communities << @c1
+      @p1.accepted_community = @c1
       @p2 = FactoryGirl.create(:person)
-      @p2.communities << @c1
+      @p2.accepted_community = @c1
 
       @l1 = FactoryGirl.create(:listing,
           :title => "bike",
@@ -86,9 +86,9 @@ describe "CommunityMailer", type: :mailer do
           :author => @p2)
 
       @p3 = FactoryGirl.create(:person)
-      @p3.communities << @c1
+      @p3.accepted_community = @c1
       @p4 = FactoryGirl.create(:person)
-      @p4.communities << @c1
+      @p4.accepted_community = @c1
 
       @p1.update_attribute(:community_updates_last_sent_at, 8.hours.ago)
       @p2.update_attribute(:community_updates_last_sent_at, 14.days.ago)
@@ -122,7 +122,7 @@ describe "CommunityMailer", type: :mailer do
 
     it "should send with default 7 days to those with nil as last time sent" do
       @p5 = FactoryGirl.create(:person)
-      @p5.communities << @c1
+      @p5.accepted_community = @c1
       @p5.update_attribute(:community_updates_last_sent_at, nil)
       CommunityMailer.deliver_community_updates
       expect(ActionMailer::Base.deliveries.size).to eq(3)
