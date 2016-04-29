@@ -52,14 +52,12 @@
     "webpack": "1.13.0"
   },
   "devDependencies": {
-    "babel-eslint": "6.0.3",
+    "babel-eslint": "6.0.4",
     "babel-plugin-react-transform": "2.0.2",
     "body-parser": "1.15.0",
-    "eslint": "2.8.0",
-    "eslint-config-airbnb": "7.0.0",
+    "eslint": "2.9.0",
     "eslint-plugin-babel": "3.2.0",
-    "eslint-plugin-react": "4.3.0",
-    "eslint-plugin-jsx-a11y": "0.6.2",
+    "eslint-plugin-react": "5.0.1",
     "phantomjs-prebuilt": "2.1.7",
     "react-transform-hmr": "1.0.4",
     "webpack-dev-server": "1.14.1"
