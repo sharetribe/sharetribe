@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 const Promise = require('es6-promise');
 Promise.polyfill();
 

@@ -81,7 +81,7 @@ const translate = function translate(translations) {
 };
 
 // Get link and title of next recommended onboarding step
-const nextStep = function nextStep(data, translateFunc, initialPath) {
+const nextStep = function nextStep(data, translateFunc) {
   const keys = Object.keys(data);
   for (let i = 0; i < keys.length; i++) {
     const step = keys[i];
@@ -108,7 +108,7 @@ export default class OnboardingGuide extends React.Component {
     actions: PropTypes.shape({
       updateGuidePage: PropTypes.func.isRequired,
     }).isRequired,
-    railsContext: PropTypes.object.isRequired,
+    railsContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
     data: PropTypes.shape({
       path: PropTypes.string.isRequired,
       original_path: PropTypes.string.isRequired,
@@ -124,22 +124,6 @@ export default class OnboardingGuide extends React.Component {
     }).isRequired,
   };
 
-  componentDidMount() {
-    window.addEventListener('popstate', this.handlePopstate);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('popstate', this.handlePopstate);
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    // Back button clicks should not be saved with history.pushState
-    if (nextProps.data.pathHistoryForward) {
-      const path = nextProps.data.path;
-      this.setPushState({ path }, path, path);
-    }
-  }
-
   constructor(props, context) {
     super(props, context);
 
@@ -153,14 +137,29 @@ export default class OnboardingGuide extends React.Component {
 
     // Figure out the next step. I.e. what is the action we recommend for admins
     this.nextStep = nextStep(this.props.data.onboarding_data,
-      translate(this.props.data.translations.next_step),
-      this.initialPath);
+                             translate(this.props.data.translations.next_step));
 
     // Add current path to window.history. Initially it contains null as a state
     this.setPushState(
       { path: this.componentSubPath },
       this.componentSubPath,
       this.componentSubPath);
+  }
+
+  componentDidMount() {
+    window.addEventListener('popstate', this.handlePopstate);
+  }
+
+  componentWillUpdate(nextProps) {
+    // Back button clicks should not be saved with history.pushState
+    if (nextProps.data.pathHistoryForward) {
+      const path = nextProps.data.path;
+      this.setPushState({ path }, path, path);
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('popstate', this.handlePopstate);
   }
 
   setPushState(state, title, path) {
