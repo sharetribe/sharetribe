@@ -804,10 +804,10 @@ nb:
       log_out: "logg ut"
       join_community_button: "Bli medlem av %{service_name}"
     give_consent:
-      invitation_code_invalid_or_used: ~
-      email_not_allowed: ~
-      email_not_available: ~
-      consent_not_given: ~
+      invitation_code_invalid_or_used: "Invitasjonskoden er ugyldig eller allerede brukt."
+      email_not_allowed: "Denne e-posten er ikke godkjent på %{service_name}."
+      email_not_available: "E-posten du oppga er allerede i bruk."
+      consent_not_given: "Vilkårene ble ikke akseptert."
   emails:
     accept_reminder:
       remember_to_accept_offer: "Husk å godta eller avslå tilbudet fra %{sender_name}"
@@ -1009,7 +1009,7 @@ nb:
       view_listing: "Se annonse"
   error_messages:
     onboarding:
-      server_rendering: ~
+      server_rendering: "Oppstartsveiledningen kunne ikke lastes! Vi har blitt informert om situasjonen og jobber med en fiks!"
     listings:
       departure_time: "Avreisetidspunkt må være mellom nå og ett år frem i tid."
       share_type: "Du må velge én."
@@ -1302,7 +1302,7 @@ nb:
       confirmation_link_is_wrong_or_used: "Bekreftelseslenken er allerede brukt eller ikke riktig. Forsøk å logge inn, eller send oss tilbakemelding hvis det fortsatt er et problem."
       additional_email_confirmed: "E-posten du benyttet er bekreftet."
       could_not_get_email_from_facebook: "Kunne ikke hente e-post fra Facebook og kan ikke opprette konto uten e-post."
-      facebook_email_unconfirmed: ~
+      facebook_email_unconfirmed: "E-postadressen '%{email}' , som er assosiert med din Facebook-konto, er allerede brukt, men den har ikke blitt bekreftet enda. Vennligst bekreft e-postadressen før du logger inn med Facebook."
       create_new_listing: "Opprett en annen annonse"
       create_one_here: "opprette en her"
       email_confirmation_sent_to_new_address: "E-postbekreftelse er nå sendt til den nye adressen."

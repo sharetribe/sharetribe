@@ -1203,12 +1203,12 @@ zh-HK:
       read_more: ~
       feedback: 您有什麼想要發表?
       default_feedback: "你在使用%{service_name}時遇上困難? 對服務表現有意見發表? 發現可疑的內容? 或只是有一些想法想要跟我們討論? 歡迎告訴我們！"
-      feedback_forum: ~
-      feedback_handle: ~
+      feedback_forum: 反饋論壇
+      feedback_handle: 回應
       give_feedback: 聯絡我們
       or_check_our: ". 或者查看我們的"
       send_feedback_to_admin: 發出評價
-      to_see_what_others_have_suggested: ~
+      to_see_what_others_have_suggested: 觀看其它用戶的提議，並投選合適的提議。
       your_email_address: "您的電郵地址 (用作聯絡閣下)"
       connect: ~
       invite_your_friends: ~
@@ -1273,19 +1273,19 @@ zh-HK:
       create_new_listing: ~
       create_one_here: 在這裡建立一個
       email_confirmation_sent_to_new_address: ~
-      email_not_found: ~
-      error_with_session: ~
-      feedback_considered_spam: ~
-      feedback_not_saved: ~
-      feedback_saved: ~
-      feedback_sent_to: ~
-      feedback_skipped: ~
+      email_not_found: "無法在%{service_name}中找到你所提供的電郵。"
+      error_with_session: 內容錯誤
+      feedback_considered_spam: 由於格式錯誤，無法提出回應。請重試或使用反饋論壇。
+      feedback_not_saved: 未能發出回應。
+      feedback_saved: 感謝你的回應！我們會盡快給予回覆。
+      feedback_sent_to: "回應已發送至%{target_person}。"
+      feedback_skipped: 跳過回應
       invitation_cannot_be_sent: ~
       invitation_limit_reached: ~
       invitation_sent: ~
       inviting_new_users_is_not_allowed_in_this_community: ~
-      login_again: ~
-      login_failed: ~
+      login_again: 請重新登入。
+      login_failed: 登入失敗。請輸入正確的用戶名稱及密碼。
       account_creation_successful: ~
       account_deleted: ~
       login_successful: "歡迎您,%{person_name}！"
@@ -1303,17 +1303,17 @@ zh-HK:
       offer_canceled: ~
       listing_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: "只有%{service_name}管理員能夠進入這個區域"
-      only_listing_author_can_close_a_listing: ~
-      only_listing_author_can_edit_a_listing: ~
+      only_listing_author_can_close_a_listing: 僅作者能關閉發佈的訊息
+      only_listing_author_can_edit_a_listing: 僅作者能編輯發佈的訊息
       payment_successful: ~
       payment_canceled: ~
       error_in_payment: ~
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
-      password_recovery_sent: ~
+      password_recovery_sent: 更改密碼的說明已發送至你的電郵。
       person_activated: ~
       person_deactivated: ~
-      person_updated_successfully: ~
+      person_updated_successfully: 已更新訊息
       poll_answered: ~
       poll_could_not_be_answered: ~
       poll_created: ~
@@ -1323,39 +1323,39 @@ zh-HK:
       poll_deleted: ~
       read_more: 閱讀更多！
       registration_considered_spam: ~
-      reply_cannot_be_empty: ~
-      reply_sent: ~
-      request_accepted: ~
+      reply_cannot_be_empty: 不能發送空白的訊息
+      reply_sent: 你的回覆發送成功
+      request_accepted: 你的請求已被接受
       request_confirmed: ~
-      request_rejected: ~
+      request_rejected: 你的請求已被拒絕
       request_canceled: ~
       message_sent: ~
       message_not_sent: ~
       this_content_is_not_available_in_this_community: ~
-      unknown_error: ~
-      update_error: ~
-      you_are_not_allowed_to_give_feedback_on_this_transaction: ~
-      you_are_not_authorized_to_do_this: ~
-      you_are_not_authorized_to_view_this_content: ~
+      unknown_error: 發生未知錯誤。請透過”聯繫我們“向我們報告問題。
+      update_error: 更新訊息時發生錯誤，請重試
+      you_are_not_allowed_to_give_feedback_on_this_transaction: 你沒有發表回應的權限
+      you_are_not_authorized_to_do_this: 你沒有進行此操作的權限
+      you_are_not_authorized_to_view_this_content: 你沒有查看此內容的權限
       listing_closed: ~
       send_instructions: ~
-      you_cannot_reply_to_a_closed_offer: ~
+      you_cannot_reply_to_a_closed_offer: 你不能對已關閉的交易進行回覆
       you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
-      you_have_already_given_feedback_about_this_event: ~
+      you_have_already_given_feedback_about_this_event: 你已經對此事件發表回應
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: ~
-      you_must_log_in_to_give_feedback: ~
+      you_must_log_in_to_give_feedback: 你必需登入以發表回應
       you_must_log_in_to_invite_new_users: ~
-      you_must_log_in_to_send_a_comment: ~
-      you_must_log_in_to_send_a_message: ~
+      you_must_log_in_to_send_a_comment: 你必需登入以發表新的評論
+      you_must_log_in_to_send_a_message: "你必需登入%{service_name}以向其它用戶發送訊息。"
       you_must_log_in_to_do_a_transaction: ~
-      you_must_log_in_to_view_this_content: ~
+      you_must_log_in_to_view_this_content: 你必需登入以查看內容
       you_must_log_in_to_view_this_page: ~
-      you_must_log_in_to_view_your_inbox: ~
-      you_must_log_in_to_view_your_settings: ~
+      you_must_log_in_to_view_your_inbox: "你必需登入%{service_name}以查看你的收件箱。"
+      you_must_log_in_to_view_your_settings: "你必需登入%{service_name}以查看你的設定。"
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
@@ -1421,33 +1421,33 @@ zh-HK:
           select_one___: ~
       departure_time:
         at: 於
-        departure_time: ~
+        departure_time: 離開時間
       departure_time_radio_buttons:
         repeated: ~
       description:
         detailed_description: 詳細資料
         youtube_info: ~
       destination:
-        destination: ~
+        destination: 目的地
       form_content:
-        favor: ~
-        housing: ~
-        item: ~
-        offer_something: ~
-        request_something: ~
+        favor: 幫助
+        housing: 空間
+        item: 物品
+        offer_something: 提出交易
+        request_something: 提出要求
         rideshare: ~
         i_want_to_offer: ~
         i_want_to_request: ~
       googlemap:
         googlemap_copy: ~
-        googlemap_description: ~
+        googlemap_description: 地圖註解
         googlemap_updatemap: ~
       images:
-        image: ~
+        image: 圖像
         best_result: ~
-        no_file_selected: ~
-        remove_image: ~
-        select_file: ~
+        no_file_selected: 未選擇任何檔案
+        remove_image: 移除圖像
+        select_file: 選擇檔案
         add_more: ~
         removing: ~
         processing: ~
@@ -1462,7 +1462,7 @@ zh-HK:
         accepted_formats: ~
         images_not_uploaded_confirm: ~
       location:
-        location: ~
+        location: 地點
       price:
         price: ~
         per: ~
@@ -1482,80 +1482,80 @@ zh-HK:
         shipping_price_additional: ~
         pickup: ~
       origin:
-        location: ~
-        origin: ~
+        location: 地點
+        origin: 來源
       send_button:
         save_listing: ~
       share_type:
         select: ~
-        borrow: ~
-        buy: ~
-        give_away: ~
-        lend: ~
-        offer_type: ~
-        receive: ~
-        rent: ~
-        rent_out: ~
-        request_type: ~
-        sell: ~
+        borrow: 借入
+        buy: 購買
+        give_away: 贈送
+        lend: 出借
+        offer_type: 交易類別
+        receive: 免費獲得
+        rent: 出租
+        rent_out: 出租
+        request_type: 請求類別
+        sell: 出售
         share_for_free: ~
         accept_for_free: ~
-        trade: ~
+        trade: 交換
       tag_list:
-        comma_separate: ~
-        tags: ~
+        comma_separate: (分隔)
+        tags: 標籤
       title:
         listing_title: ~
       valid_until:
-        valid_until: ~
+        valid_until: 有效日期
       valid_until_radio_buttons:
-        for_the_time_being: ~
+        for_the_time_being: 目前為止
       privacy:
         privacy: ~
         private: ~
         public: ~
     help_texts:
-      help_share_type_title: ~
-      help_tags_title: ~
-      help_valid_until_title: ~
+      help_share_type_title: 交易或請求的類別
+      help_tags_title: 標籤
+      help_valid_until_title: 有效日期
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
+      all_categories: 全部類別
+      all_offer_types: 全部交易類別
+      all_request_types: 全部請求類別
+      category: 類別
+      did_not_found_what_you_were_looking_for: 找不到你需要的東西嗎?
+      favors: 服務
+      housing: 空間
+      items: 物品
+      list_view: 清單檢視
       listings: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
+      map_view: 地圖註解
+      offer_something: 讓其它人知道吧！
+      offer_type: 交易類別
+      offers: 交易
+      request_something: 提出你的請求！
+      request_type: 請求類別
+      requests: 請求
+      rideshare: 順風車
+      search_verb: 搜尋
+      you_have_something_others_do_not: 想提出交易？
       feed_title: ~
     left_panel_link:
-      borrows: ~
-      buys: ~
-      favors: ~
-      give_aways: ~
-      housings: ~
-      items: ~
-      lends: ~
-      receives: ~
-      rent_outs: ~
-      rents: ~
+      borrows: 信入
+      buys: 購買
+      favors: 服務
+      give_aways: 贈送
+      housings: 空間
+      items: 物品
+      lends: 出借
+      receives: 免費
+      rent_outs: 出租
+      rents: 出租
       rideshares: ~
-      sells: ~
+      sells: 出售
       share_for_frees: ~
       accept_for_frees: ~
-      trades: ~
+      trades: 交換
     listing_actions:
       booking_from: ~
       booking_to: ~
@@ -1583,36 +1583,36 @@ zh-HK:
       month: ~
       custom: ~
     quantity_placeholder: ~
-    please_comment: ~
+    please_comment: 評論
     reply_link:
       listing_closed: ~
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
-      comments: ~
+      comments: 公開討論
       contact_by_phone: ~
       contact: ~
-      favor_offer: ~
-      favor_request: ~
+      favor_offer: 提供服務
+      favor_request: 請求服務
       inquiry: ~
       item_offer_trade: ~
       item_request_trade: ~
-      no_description: ~
+      no_description: 沒有對此訊息的描述
       no_image: ~
       no_reviews: ~
-      offer: ~
+      offer: 交易
       listing_created: ~
       open_until: ~
       feedback: ~
       qr_code: ~
-      request: ~
+      request: 請求
       rideshare_offer: ~
       rideshare_request: ~
       send_private_message: ~
-      tags: ~
-      time: ~
-      times: ~
-      times_viewed: ~
+      tags: 標籤
+      time: 時間
+      times: 次數
+      times_viewed: 已瀏覽
       processing_uploaded_image: ~
       price_excludes_vat: ~
       listing_created_at: ~
@@ -1648,26 +1648,26 @@ zh-HK:
       read_more: ~
   mapview:
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
+      all_categories: 全部類別
+      all_offer_types: 全部交易類別
+      all_request_types: 全部請求類別
+      category: 類別
+      did_not_found_what_you_were_looking_for: 找不到你需要的東西嗎?
+      favors: 服務
+      housing: 空間
+      items: 物品
+      list_view: 清單檢視
+      map_view: 地圖註解
+      offer_something: 讓其它人知道吧！
+      offer_type: 交易類別
+      offers: 交易
+      request_something: 提出你的請求！
+      request_type: 請求類別
+      requests: 請求
       rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
-    please_comment: ~
+      search_verb: 搜尋
+      you_have_something_others_do_not: 想提出交易？
+    please_comment: 評論
   mercury:
     content_too_long: ~
   okl:
@@ -1767,66 +1767,66 @@ zh-HK:
       activate: ~
       deactivate: ~
     help_texts:
-      feedback_description_title: ~
+      feedback_description_title: 回應
       help_invitation_code_title: ~
-      terms_title: ~
+      terms_title: "%{service_name}的使用條款"
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
     new:
-      create_new_account: ~
-      email: ~
-      email_is_in_use: ~
+      create_new_account: 建立帳戶
+      email: 電郵地址
+      email_is_in_use: 你所提供的電郵已被使用。
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
-      family_name: ~
-      given_name: ~
-      i_accept_the: ~
+      family_name: 姓
+      given_name: 名
+      i_accept_the: 我接受
       invalid_invitation_code: ~
       invitation_code: ~
-      not_required: ~
+      not_required: 不需要
       notification_is_mandatory: ~
       organization_name: ~
-      password_again: ~
+      password_again: 確認密碼
       show_my_name_to_others: ~
-      sign_up: ~
-      terms: ~
-      username_is_in_use: ~
-      username_is_invalid: ~
-      visible_only_to_you: ~
-      visible_to_everybody: ~
+      sign_up: "建立一個新的%{service_name}帳戶"
+      terms: 使用條款
+      username_is_in_use: 此用戶名稱已被使用。
+      username_is_invalid: 用戶名稱格式不正確。請使用字母，數字及底線。
+      visible_only_to_you: 僅你和管理員可見
+      visible_to_everybody: 所有人皆可見
       create_account_with_facebook: ~
       OR: ~
       signup_with_email: ~
     profile_feedback:
-      grade: ~
+      grade: 評分：
       and_gave_following_feedback: ~
     profile_listings:
-      show_also_closed: ~
-      show_only_open: ~
+      show_also_closed: 顯示已關閉的
+      show_only_open: 只顯示開放的
       no_image: ~
     show:
       contact: ~
-      about_me: ~
+      about_me: "關於我:"
       add_description: ~
       add_location: ~
       add_phone_number: ~
-      address: ~
-      as_expected: ~
-      edit_profile_info: ~
-      exceeded_expectations: ~
+      address: "位置:"
+      as_expected: 合乎期望
+      edit_profile_info: 編輯個人檔案
+      exceeded_expectations: 超出預期
       positive: ~
-      hide_description: ~
-      less_than_expected: ~
-      phone_number: ~
-      show_all_feedback: ~
-      show_all_testimonials: ~
-      show_full_description: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      what_are_these: ~
+      hide_description: 隱藏描述
+      less_than_expected: 不合乎期望
+      phone_number: "電話號碼:"
+      show_all_feedback: 顯示所有回應
+      show_all_testimonials: 顯示所有回應
+      show_full_description: 顯示更多
+      slightly_better_than_expected: 超出預期
+      slightly_less_than_expected: 不合乎期望
+      what_are_these: 這些是甚麼?
       review: ~
       reviews: ~
       listing: ~
@@ -1852,20 +1852,20 @@ zh-HK:
       unfollow: ~
   search:
     show:
-      all_results: ~
-      loading_more_search_results: ~
-      offers: ~
-      requests: ~
-      search: ~
-      search_results: ~
-      search_returned_no_results: ~
-      search_verb: ~
+      all_results: 所有結果
+      loading_more_search_results: 載入更多搜尋結果
+      offers: 交易
+      requests: 請求
+      search: 搜尋
+      search_results: 搜尋結果
+      search_returned_no_results: 沒有發現符合要求的結果。
+      search_verb: 搜尋
   sessions:
     new:
-      create_new_account: ~
-      i_forgot_my_password: ~
-      login: ~
-      login_to_kassi: ~
+      create_new_account: 註冊新用戶
+      i_forgot_my_password: 忘記用戶名稱或密碼
+      login: 登入
+      login_to_kassi: "登入至%{service_name}"
       connect_your_facebook_to_kassi: ~
       facebook_account: ~
       log_in_to_link_account: ~
@@ -1877,9 +1877,9 @@ zh-HK:
       or_sign_up_with_your_username: ~
       we_will_not_post_without_asking_you: ~
     password_forgotten:
-      email: ~
-      password_recovery_instructions: ~
-      request_new_password: ~
+      email: 電郵
+      password_recovery_instructions: 請輸入註冊時的電郵地址，你會收到你的用戶名稱及重設密碼的指示。
+      request_new_password: 請輸入新的密碼
       change_your_password: ~
     confirmation_pending:
       welcome_to_kassi: ~
@@ -1894,19 +1894,19 @@ zh-HK:
       account_confirmation_instructions_admin: ~
   settings:
     account:
-      change: ~
-      confirm_new_password: ~
+      change: 更改
+      confirm_new_password: 確認新密碼
       delete_account: ~
       delete_account_button: ~
       delete_account_confirmation_popup: ~
       email_addresses: ~
-      new_email: ~
+      new_email: 新的電郵地址
       delete_personal_information: ~
       delete_information_others_involved: ~
       unfinished_transactions: ~
-      new_password: ~
-      save: ~
-      these_fields_are_shown_only_to_you: ~
+      new_password: 新密碼
+      save: 儲存
+      these_fields_are_shown_only_to_you: 除非你已提供姓名，否則用戶名稱將會被顯示在個人檔案頁面中。其他資料只有你才能閱覽。
       email_already_confirmed: ~
       email:
         address_title: ~
@@ -1927,16 +1927,16 @@ zh-HK:
       i_want_to_get_email_notification_when: ~
       newsletters: ~
       community_updates: ~
-      email_about_accept_reminders: ~
+      email_about_accept_reminders: "... 我忘記接受一個交易或請求"
       email_about_confirm_reminders: ~
-      email_about_new_comments_to_own_listing: ~
-      email_about_new_messages: ~
-      email_about_new_received_testimonials: ~
-      email_about_testimonial_reminders: ~
+      email_about_new_comments_to_own_listing: "... 有人評論了我的交易或請求"
+      email_about_new_messages: "... 有人發送了一則信息給我"
+      email_about_new_received_testimonials: "... 有人發送了一個回應給我"
+      email_about_testimonial_reminders: "... 我忘記回應一個活動"
       email_daily_community_updates: ~
       email_weekly_community_updates: ~
       do_not_email_community_updates: ~
-      email_when_conversation_accepted: ~
+      email_when_conversation_accepted: "... 有人接受了我的交易或請求"
       email_when_conversation_rejected: ~
       email_about_completed_transactions: ~
       email_about_new_payments: ~

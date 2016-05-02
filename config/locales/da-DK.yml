@@ -802,10 +802,10 @@ da-DK:
       log_out: "logge ud."
       join_community_button: "Tilmeld %{service_name}"
     give_consent:
-      invitation_code_invalid_or_used: ~
-      email_not_allowed: ~
-      email_not_available: ~
-      consent_not_given: ~
+      invitation_code_invalid_or_used: "Invitationskoden var ugyldig eller allerede brugt."
+      email_not_allowed: "Denne e-mail er ikke tilladt i %{service_name}"
+      email_not_available: "Den e-mail du gav er allerede i brug."
+      consent_not_given: "Vilkårene blev ikke accepteret."
   emails:
     accept_reminder:
       remember_to_accept_offer: "Husk at acceptere eller afvise et tilbud fra %{sender_name}"

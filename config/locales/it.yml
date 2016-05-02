@@ -780,8 +780,8 @@ it:
       join_community_button: ~
     give_consent:
       invitation_code_invalid_or_used: "Il codice di invito non è valido oppure è già stato usato."
-      email_not_allowed: "Email non permessa per questa community."
-      email_not_available: "L'email non era disponibile"
+      email_not_allowed: "Questa email non è permessa in %{service_name}."
+      email_not_available: "L'email che hai inserito è già in uso"
       consent_not_given: "Termini non accettati"
   emails:
     accept_reminder:
