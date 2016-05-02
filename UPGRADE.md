@@ -40,7 +40,7 @@ This release adds a new Delayed Job queue "css_compile". All CSS compilations du
 
 A new worker is added to the Procfile to work for the new queue. If you're hosting in Heroku, you will see a new worker there.
 
-This change doesn't require any changes if you are compiling the stylesheets synchronously using the `rake sharetribe:generate_customization_stylesheets_immediately` command during the deployment. However, if you are compiling the stylesheets asynchronously using the `rake sharetribe:generate_customization_stylesheets` command, then you need to make sure that you have at least one worker working for the "css_compile" queue.
+This change doesn't require any changes, if you are compiling the stylesheets synchronously using the `rake sharetribe:generate_customization_stylesheets_immediately` command during the deployment. However, if you are compiling the stylesheets asynchronously using the `rake sharetribe:generate_customization_stylesheets` command, then you need to make sure that you have at least one worker working for the "css_compile" queue.
 
 ### React on Rails build environment
 
@@ -58,7 +58,7 @@ You can ignore this section if you are running only one marketplace in your Shar
 
 This release removes the ability for one user to belong to multiple marketplaces. From now on one user belongs to one and only one marketplace.
 
-Because of that this release contains quite a few migrations which will duplicate existing user accounts if they belong to multiple communities. For example, if one user belongs to three communities, two new users will be created so that each user belongs to only one community.
+Because of that, this release contains quite a few migrations which will duplicate existing user accounts, if they belong to multiple communities. For example, if one user belongs to three communities, two new users will be created so that each user belongs to only one community.
 
 The migrations are not safe to run while the application is running, so we recommend you to put the application on [maintenance mode](#maintenance-mode) while running the migrations. Also, as always, remember to take database backup before migrating.
 
