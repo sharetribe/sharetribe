@@ -792,8 +792,8 @@ fr:
   community_memberships:
     access_denied:
       access_denied: "Accès refusé"
-      you_are_banned_in_this_community: "L'administrateur vous a interdit de rejoindre %{service_name}. Si vous voulez contacter l'administrateur, vous pouvez lui envoyer un %{link_to_contact_page}"
-      contact_page_link: feedback
+      you_are_banned_in_this_community: "L'administrateur vous a interdit de rejoindre %{service_name}. Si vous voulez contacter les administrateurs, vous pouvez %{link_to_contact_page}"
+      contact_page_link: "les contacter"
     new:
       welcome_fb_user: "Bienvenue sur %{service_name}, %{name} !"
       fb_join_accept_terms: "Il ne reste plus qu'une étape avant de rejoindre %{service_name} : vous devez accepter les conditions d'utilisation."
@@ -806,10 +806,10 @@ fr:
       log_out: "vous déconnecter"
       join_community_button: "Rejoindre %{service_name}"
     give_consent:
-      invitation_code_invalid_or_used: "Le code d'invitation était invalide ou déjà utilisé"
-      email_not_allowed: "Cet email n'est pas autorisé dans cette place de marché"
-      email_not_available: "Cet email n'est pas disponible"
-      consent_not_given: "Les conditions d'utilisations n'ont pas été acceptés"
+      invitation_code_invalid_or_used: "Le code d'invitation était invalide ou déjà utilisé."
+      email_not_allowed: "Cet email n'est pas autorisé sur %{service_name}."
+      email_not_available: "L'adresse email que vous avez saisi est déjà utilisée."
+      consent_not_given: "Les conditions d'utilisations n'ont pas été acceptées."
   emails:
     accept_reminder:
       remember_to_accept_offer: "N'oubliez pas d'accepter ou de refuser l'offre de %{sender_name}"
@@ -1353,7 +1353,7 @@ fr:
       poll_updated: "Sondage mis à jour"
       poll_deleted: "Sondage supprimé"
       read_more: "Lire la suite !"
-      registration_considered_spam: "L'inscription n'a pas fonctionné. Envoyez nous un feedback (en nous contactant via le menu en haut) en précisant le message \"email2 error\"."
+      registration_considered_spam: "L'inscription n'a pas fonctionné, veuillez nous contacter depuis le menu en précisant le message \"email2 error\"."
       reply_cannot_be_empty: "Vous ne pouvez pas envoyer un message vide"
       reply_sent: "Message envoyé avec succès"
       request_accepted: "Demande acceptée"
@@ -1815,7 +1815,7 @@ fr:
       email: "Adresse email"
       email_is_in_use: "L'adresse email que vous avez saisi est déjà utilisée."
       email_is_in_use_or_not_allowed: "Cette adresse email n'est pas autorisée ou est déjà utilisée. Si vous n'arrivez pas à vous connecter, contactez-nous."
-      email_not_allowed: "Cette adresse email n'est pas autorisée sur %{service_name}. Veuillez utiliser une adresse autorisée. Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
+      email_not_allowed: "Cette email n'est pas autorisé sur %{service_name}. Veuillez utiliser une adresse autorisée. Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
       email_restriction_instructions:
         one: "L'accès à %{service_name} est limité. Pour en être membre, vous devez avoir une adresse email du type %{allowed_emails}."
         other: "L'accès à %{service_name} est limité. Pour en être membre, vous devez avoir une adresse email autorisée."
@@ -1925,11 +1925,11 @@ fr:
       resend_confirmation_instructions: "Renvoyer les instructions de confirmation"
       your_current_email_is: "Votre email est : %{email}."
       change_email: Modifier
-      confirm_your_email: "Veuillez confirmer votre adresse email"
+      confirm_your_email: "Veuillez confirmer votre email"
       account_confirmation_instructions: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer votre adresse email. N'oubliez pas de vérifier votre dossier \"Spam\" ou \"Indésirables\" ! Dès que vous l'aurez confirmée, vous pourrez rejoindre %{service_name}."
       account_confirmation_instructions_title_admin: "Bienvenue sur votre place de marché !"
       your_marketplace_has_now_been_created: "Votre place de marché a été créée. C'était simple, non ? Il ne reste qu'une étape pour que vous puissiez y accéder : vous devez confirmer votre adresse email."
-      account_confirmation_instructions_admin: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer l'adresse email que vous avez saisie. N'oubliez pas de vérifier votre dossier \"Spam\" ou \"Indésirables\" ! Après cette confirmation vous pourrez commencer à configurer votre place de marché."
+      account_confirmation_instructions_admin: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer l'adresse email que vous avez saisie. N'oubliez pas de vérifier votre dossier \"Spam\" ou \"Indésirables\" ! En cliquant sur ce lien vous pourrez commencer à configurer votre place de marché."
   settings:
     account:
       change: Changer

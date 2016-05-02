@@ -745,7 +745,7 @@ es-ES:
     new:
       add_payout_details: "Añade tus detalles de pago"
       first_name: Nombre
-      last_name: Apellidos
+      last_name: Apellido
       email: "Dirección de email"
       phone: Teléfono
       address_street_address: Dirección
@@ -760,7 +760,7 @@ es-ES:
     show:
       payout_details: "Datos para realizar pagos"
       first_name: Nombre
-      last_name: Apellidos
+      last_name: Apellido
       email: "Dirección de email"
       phone: Teléfono
       address_street_address: Dirección
@@ -1753,7 +1753,7 @@ es-ES:
       admin_account_not_connected: "No puedes conectar tu cuenta de PayPal porque el administrador del marketplace no ha finalizado las configuraciones necesarias para usar PayPal."
       paypal_account_email: "Conecta tu cuenta de Paypal"
       paypal_account_email_placeholder: "Tu dirección de email en Paypal"
-      paypal_account_email_info_text: "Si no tiene suna cuenta PayPal, puedes crear una yendo a %{create_paypal_account}. Si el sistema arroja un error al conectar tu cuenta, necesitas actualizar tu cuenta a una cuenta empresarial (business). Actualizar es fácil y rápido y no te costará nada.  Si eres una persona natural (un indviduo), deberás poner tu nombre y apellido en el campo del \"nombre de la empresa\" cuando PayPal te lo solicite.  Para actualizar tu cuenta, %{upgrade_paypal_account} y busca el enlace de actualización."
+      paypal_account_email_info_text: "Si no tiene suna cuenta PayPal, puedes crear una yendo a %{create_paypal_account}. Si el sistema arroja un error al conectar tu cuenta, necesitas actualizar tu cuenta a una cuenta empresarial -business-. Actualizar es fácil y rápido y no te costará nada. Si eres una persona natural -un indviduo- , deberás poner tu nombre y apellido en el campo del \"nombre de la empresa\" cuando PayPal te lo solicite. Para actualizar tu cuenta, %{upgrade_paypal_account} y busca el enlace de actualización."
       create_paypal_account: aquí
       upgrade_paypal_account: "Actualiza tu cuenta aquí."
       paypal_account_billing_agreement: "Concede permisos a %{service_name} para cargar la comisión por transferencia"
@@ -1827,7 +1827,7 @@ es-ES:
       email_restriction_instructions:
         one: "Esta comunidad es sólo para %{community_name}. Para unirte necesitas una dirección de email %{allowed_emails}."
         other: "Esta comunidad es sólo para %{community_name}. Para unirte necesitas un email que tenga una de los siguientes direcciones: %{allowed_emails}."
-      family_name: "Apellido:"
+      family_name: Apellido
       given_name: "Nombre:"
       i_accept_the: "Acepto los"
       invalid_invitation_code: "El código de invitación no es válido."
@@ -1952,7 +1952,7 @@ es-ES:
       unfinished_transactions: "Tu cuenta no puede ser eliminada porque tienes transacciones en marcha. Por favor, completa todas las transacciones antes de eliminar tu cuenta."
       new_password: "Nueva contraseña"
       save: Guardar
-      these_fields_are_shown_only_to_you: "El nombre del usuario se muestra en tu perfil a menos que hayas dado tu nombre. Cualquier otra información sólo está disponible para ti."
+      these_fields_are_shown_only_to_you: "El nombre del usuario se muestra en tu perfil a menos que hayas proporcionado tu nombre. Cualquier otra información sólo está disponible para ti."
       email_already_confirmed: "Tu dirección de correo electrónico ya se ha confirmado."
       email:
         address_title: Dirección
@@ -1975,7 +1975,7 @@ es-ES:
       community_updates: "Actualizaciones de la comunidad"
       email_about_accept_reminders: "...He olvidado aceptar una oferta o solicitud"
       email_about_confirm_reminders: "...Olvidé confirmar una solicitud como completada"
-      email_about_new_comments_to_own_listing: ".. .alguien comenta mi oferta o solicitud"
+      email_about_new_comments_to_own_listing: ".. .alguien hace un comentario en mi oferta o solicitud"
       email_about_new_messages: ".. .alguien me envía un mensaje"
       email_about_new_received_testimonials: ".. .alguien me da sugerencias"
       email_about_testimonial_reminders: "...He olvidado hacer una sugerencia o dar información sobre un evento"
@@ -1997,7 +1997,7 @@ es-ES:
     profile:
       about_you: "Sobre tí"
       city: "Ciudad:"
-      family_name: "Apellido:"
+      family_name: Apellido
       given_name: "Nombre:"
       first_name_with_initial: "(Sólo se mostrará tu inicial al resto de usuarios)"
       first_name_only: "(no se mostrará a otros usuarios)"
@@ -2007,7 +2007,7 @@ es-ES:
       postal_code: "Código postal:"
       profile_page: "en su página de perfil"
       profilemap: "Vista de mapa"
-      street_address: "Ubicación:"
+      street_address: Ubicación
       these_fields_are_shown_in_your: "Esta información se encuentra disponible para todos los usuarios de %{service_name}"
       visible_to_everybody: "visible para todo el mundo"
       visible_to_registered_users: "visible a los usuarios que han iniciado sesión"
