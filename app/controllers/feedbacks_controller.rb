@@ -20,12 +20,13 @@ class FeedbacksController < ApplicationController
 
   def create
     feedback_form = FeedbackForm.new(params[:feedback])
-    return if ensure_not_spam!(params[:feedback], feedback_form)
 
     unless feedback_form.valid?
-      flash[:error] = t("layouts.notifications.feedback_not_saved") # feedback_form.errors.full_messages.join(", ")
+      flash[:error] = t("layouts.notifications.feedback_not_saved")
       return render_form(feedback_form)
     end
+
+    return if ensure_not_spam!(params[:feedback], feedback_form)
 
     author_id = Maybe(@current_user).id.or_else("Anonymous")
     email = current_user_email || feedback_form.email
