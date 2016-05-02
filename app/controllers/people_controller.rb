@@ -89,7 +89,7 @@ class PeopleController < Devise::RegistrationsController
     domain = @current_community ? @current_community.full_url : "#{request.protocol}#{request.host_with_port}"
     error_redirect_path = domain + sign_up_path
 
-    if params[:person][:input_again].present? # Honey pot for spammerbots
+    if params[:person].blank? || params[:person][:input_again].present? # Honey pot for spammerbots
       flash[:error] = t("layouts.notifications.registration_considered_spam")
       ApplicationHelper.send_error_notification("Registration Honey Pot is hit.", "Honey pot")
       redirect_to error_redirect_path and return
