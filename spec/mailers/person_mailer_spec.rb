@@ -184,11 +184,11 @@ describe PersonMailer, type: :mailer do
       @c1 = FactoryGirl.create(:community)
       @p1 = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "update_tester@example.com") ])
 
-      @p1.communities << @c1
+      @p1.accepted_community = @c1
     end
 
     it "should welcome a regular member" do
-      @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
+      @email = PersonMailer.welcome_email(@p1, @p1.accepted_community)
       expect(@email).to deliver_to("update_tester@example.com")
       expect(@email).to have_subject("Welcome to Sharetribe")
       expect(@email).to have_body_text "Welcome to Sharetribe! Glad to have you on board."
@@ -197,7 +197,7 @@ describe PersonMailer, type: :mailer do
 
     it "should contain custom content if that is defined for the community" do
       @c1.community_customizations.first.update_attribute(:welcome_email_content, "Custom email")
-      @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
+      @email = PersonMailer.welcome_email(@p1, @p1.accepted_community)
       expect(@email).to have_body_text "Custom email"
       expect(@email).not_to have_body_text "Add something you could offer to others."
       expect(@email).not_to have_body_text "You have now admin rights in this community."

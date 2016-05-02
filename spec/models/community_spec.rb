@@ -149,7 +149,7 @@ describe Community, type: :model do
 
     before(:each) do
       @p1 = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "update_tester@example.com") ])
-      @p1.communities << @community
+      @p1.accepted_community = @community
       @l1 = get_listing(2,2)
       @l2 = get_listing(3,3)
       @l3 = get_listing(12,12)
