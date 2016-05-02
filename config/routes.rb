@@ -142,10 +142,11 @@ Kassi::Application.routes.draw do
       get   "/settings" => "communities#settings",        as: :settings
       patch "/settings" => "communities#update_settings", as: :update_settings
 
+      get "getting_started_guide(/*all)" => "getting_started_guide#index", as: :getting_started_guide
+
       resources :communities do
         member do
           get :getting_started, to: 'communities#getting_started'
-          get "getting_started_guide(/*all)" => "getting_started_guide#index", as: :getting_started_guide
           get :edit_details, to: 'community_customizations#edit_details'
           put :update_details, to: 'community_customizations#update_details'
           get :edit_look_and_feel
@@ -172,6 +173,10 @@ Kassi::Application.routes.draw do
           # See the above :admin_settings routes, outside of :communities resource
           get :settings,       to: redirect("/admin/settings")
           put :update_settings # PUT request, no redirect
+          get "getting_started_guide(/*all)", to: redirect {|p, req|
+            sub_path = p[:all] == "" ? "" : "/#{p[:all]}"
+            "#{p[:locale]}/admin/getting_started_guide#{sub_path}"
+          }
 
         end
         resources :transactions, controller: :community_transactions, only: :index

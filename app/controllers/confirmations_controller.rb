@@ -61,7 +61,7 @@ class ConfirmationsController < Devise::ConfirmationsController
       if @current_user && @current_user.has_admin_rights?
         report_to_gtm({event: "admin_email_confirmed"})
         if feature_enabled?(:onboarding_redesign_v1)
-          redirect_to getting_started_guide_admin_community_path(id: @current_community.id) and return
+          redirect_to admin_getting_started_guide_path and return
         else
           redirect_to getting_started_admin_community_path(id: @current_community.id) and return
         end
