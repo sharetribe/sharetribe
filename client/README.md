@@ -8,7 +8,7 @@ Building options
   foreman start -f Procfile.hot
   ```
     > Currently runs all webpack configs options:
-    > - webpack.client.rails.build.config.js => .js & .css files to be imported in application.js & applicatio.css on Rails side
+    > - webpack.client.rails.build.config.js => .js & .css files to be imported in application.js & application.css on Rails side
     > - webpack.server.rails.build.config.js => server-bundle.js to be used if 'prerender: true'
     > - webpack.client.rails.hot.config.js   => HMR server setup
 
@@ -17,7 +17,7 @@ Building options
   foreman start -f Procfile.static
   ```
   > Currently runs build configs options
-  > - webpack.client.rails.build.config.js => .js & .css files to be imported in application.js & applicatio.css on Rails side
+  > - webpack.client.rails.build.config.js => .js & .css files to be imported in application.js & application.css on Rails side
   > - webpack.server.rails.build.config.js => server-bundle.js to be used if 'prerender: true'
 
 
@@ -26,9 +26,10 @@ Building options
   foreman start -f Procfile.spec
   ```
   > Currently runs build configs options
-  > - webpack.client.rails.build.config.js => .js & .css files to be imported in application.js & applicatio.css on Rails side
+  > - webpack.client.rails.build.config.js => .js & .css files to be imported in application.js & application.css on Rails side
   > - webpack.server.rails.build.config.js => server-bundle.js to be used if 'prerender: true'
 
+If you need to debug the Rails parts of Sharetribe with [Pry](https://github.com/pry/pry), it's not possible with Foreman due to a [known compatibility issue](https://github.com/ddollar/foreman/pull/536). In this case we recommend running Rails with old-fashioned `rails server` and React builds with Foreman in a separate terminal. That way your `binding.pry` calls open nicely in the same window with the Rails process. Procfiles `Procfile.client-static` and `Procfile.client-hot` are configured for that, respective descriptions above apply.
 
 
 Developing new components

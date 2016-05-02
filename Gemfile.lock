@@ -84,10 +84,6 @@ GEM
     arel (6.0.3)
     ast (2.2.0)
     awesome_print (1.6.1)
-    awesome_rails_console (0.4.0)
-      awesome_print
-      pry-rails
-      railties
     aws-sdk (2.2.15)
       aws-sdk-resources (= 2.2.15)
     aws-sdk-core (2.2.15)
@@ -348,8 +344,6 @@ GEM
     pry-byebug (3.3.0)
       byebug (~> 8.0)
       pry (~> 0.10)
-    pry-rails (0.3.4)
-      pry (>= 0.9.10)
     public_suffix (1.5.3)
     pusher-client (0.6.2)
       json
@@ -517,7 +511,7 @@ DEPENDENCIES
   activerecord-session_store (~> 0.1.2)
   airbrake (~> 4.1.0)
   annotate (~> 2.6.5)
-  awesome_rails_console (~> 0.4.0)
+  awesome_print (~> 1.6.1)
   aws-sdk (~> 2)
   aws-sdk-v1 (~> 1.64.0)
   better_errors (~> 2.1.1)

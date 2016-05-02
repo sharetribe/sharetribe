@@ -20,7 +20,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 ### Changed
 
 - Marketplace ID is removed from the Admin Settings URL [#1839](https://github.com/sharetribe/sharetribe/pull/1839)
-- Local development server needs to be started with `foreman`. [Check instruction](./client/README.md). This change is related to React on Rails environment [#1918](https://github.com/sharetribe/sharetribe/pull/1918).
+- The application now depends on React components, which need to be built to run Sharetribe. [Instructions here](./client/README.md). This change is related to React on Rails environment [#1918](https://github.com/sharetribe/sharetribe/pull/1918).
 
 ### Deprecated
 

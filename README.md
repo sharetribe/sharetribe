@@ -108,12 +108,30 @@ Before you get started, the following needs to be installed:
 
 
 1. Start the development server in a new console (open the project root folder)
-Some components are created with React and they need to be build with foreman. Standard Rails way of starting server (```rails server```) is no longer available.
+Some components are created with React (see [documentation](https://github.com/sharetribe/sharetribe/blob/master/client/README.md)) and they need to be built with Webpack. We have [Foreman](http://theforeman.org/) Procfiles that can be used to run both Rails and Webpack:
 
-  1. Static Loading of Rails Assets
+  1. React component static build
   ```bash
   foreman start -f Procfile.static
   ```
+
+  1. React component & style hot loading (only in `/styleguide/`)
+  ```bash
+  foreman start -f Procfile.hot
+  ```
+
+1. If you need to debug the Rails parts of Sharetribe with [Pry](https://github.com/pry/pry), it's not possible with Foreman due to a [known compatibility issue](https://github.com/ddollar/foreman/pull/536). In this case we recommend running Rails with old-fashioned `rails server` and React builds with Foreman in a separate terminal. That way your `binding.pry` calls open nicely in the same window with the Rails process.
+
+  1. React component static build, React client only
+  ```bash
+  foreman start -f Procfile.client-static
+  ```
+
+  1. React component & style hot loading (only in `/styleguide/`), React client only
+  ```bash
+  foreman start -f Procfile.client-hot
+  ```
+
 
 Congratulations! Sharetribe should now be up and running for development purposes. Open a browser and go to the server URL (e.g. http://lvh.me:3000). Fill in the form to create a new marketplace and admin user. You should be now able to access your marketplace and modify it from the admin area.
 
