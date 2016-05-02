@@ -223,8 +223,7 @@ class Person < ActiveRecord::Base
   def self.username_available?(username, community_id)
     !username.in?(USERNAME_BLACKLIST) &&
       !Person
-        .joins("LEFT OUTER JOIN community_memberships ON community_memberships.person_id = people.id")
-        .where("username = :username AND (is_admin = '1' OR community_memberships.community_id = :cid)", username: username, cid: community_id)
+        .where("username = :username AND (is_admin = '1' OR community_id = :cid)", username: username, cid: community_id)
         .present?
   end
 
