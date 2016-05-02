@@ -15,6 +15,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Expose used feature flags to Google Tag Manager [#1856](https://github.com/sharetribe/sharetribe/pull/1856)
 - React on Rails development environment [#1918](https://github.com/sharetribe/sharetribe/pull/1918).
 - Add ability to create a new account with username or email which is already in use in another marketplace [#1753](https://github.com/sharetribe/sharetribe/pull/1753) [#1939](https://github.com/sharetribe/sharetribe/pull/1939)
+- Prevents cookies from leaking to subdomains, fixes [#1992](https://github.com/sharetribe/sharetribe/issues/1192), adds a new configuration key: `cookie_session_key` [#1966](https://github.com/sharetribe/sharetribe/pull/1996)
 
 ### Changed
 
