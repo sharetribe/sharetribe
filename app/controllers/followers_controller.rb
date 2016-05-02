@@ -5,7 +5,7 @@ class FollowersController < ApplicationController
   end
 
   def create
-    target_user = Person.find_by_username_and_community_id!(params[:person_id], @current_community.id)
+    target_user = Person.find_by!(username: params[:person_id], community_id: @current_community.id)
 
     target_user.followers << @current_user
     respond_to do |format|
@@ -15,7 +15,7 @@ class FollowersController < ApplicationController
   end
 
   def destroy
-    target_user = Person.find_by_username_and_community_id!(params[:person_id], @current_community.id)
+    target_user = Person.find_by!(username: params[:person_id], community_id: @current_community.id)
 
     target_user.followers.delete(@current_user)
     respond_to do |format|

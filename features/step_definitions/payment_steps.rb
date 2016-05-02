@@ -20,20 +20,20 @@ Given /^there are following Braintree accounts:$/ do |bt_accounts|
   # Create new accounts
   bt_accounts.hashes.each do |hash|
     community = Community.find_by(ident: hash[:community])
-    person = Person.find_by_username_and_community_id(hash[:person], community.id)
+    person = Person.find_by(username: hash[:person], community_id: community.id)
     attributes_to_update = hash.except('person', 'community')
     @account = create_braintree_account(person, community, attributes_to_update)
   end
 end
 
 Given(/^"(.*?)" has an? (active) Braintree account$/) do |username, status|
-  person = Person.find_by_username_and_community_id(username, @current_community.id)
+  person = Person.find_by!(username: username, community_id: @current_community.id)
   @account = create_braintree_account(person, @current_community)
 end
 
 Given /^there is a payment for that request from "(.*?)" with price "(.*?)"$/ do |payer_username, price|
   listing = @transaction.listing
-  payer = Person.find_by_username_and_community_id(payer_username, @current_community.id)
+  payer = Person.find_by(username: payer_username, community_id: @current_community.id)
   @payment = FactoryGirl.create(:braintree_payment, payer: payer, recipient: listing.author, community: @current_community, sum_cents: price.to_i * 100, tx: @transaction)
 end
 
@@ -47,7 +47,7 @@ Given(/^"(.*?)" has paid for that listing$/) do |username|
 end
 
 Then /^"(.*?)" should have required Checkout payment details saved to my account information$/ do |username|
-  p = Person.find_by_username_and_community_id(username, @current_community.id)
+  p = Person.find_by(username: username, community_id: @current_community.id)
   expect(p.checkout_account.merchant_id).not_to be_nil
   expect(p.checkout_account.merchant_id).not_to be_blank
   expect(p.checkout_account.merchant_key).not_to be_nil
@@ -66,7 +66,7 @@ end
 
 When /^Braintree webhook "(.*?)" with username "(.*?)" is triggered$/ do |kind, username|
   community = Community.find_by(ident: "test") # Hard-coded default test community
-  person = Person.find_by_username_and_community_id(username, community.id)
+  person = Person.find_by(username: username, community_id: community.id)
   signature, payload = BraintreeApi.webhook_testing_sample_notification(
     community, kind, person.id
   )

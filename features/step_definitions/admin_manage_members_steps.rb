@@ -83,7 +83,7 @@ When(/^I remove user "(.*?)"$/) do |full_name|
 end
 
 Then(/^"(.*?)" should be banned from this community$/) do |username|
-  person = Person.find_by_username_and_community_id(username, @current_community.id)
+  person = Person.find_by(username: username, community_id: @current_community.id)
   expect(CommunityMembership.find_by_person_id_and_community_id(person.id, @current_community.id).status).to eq("banned")
 end
 

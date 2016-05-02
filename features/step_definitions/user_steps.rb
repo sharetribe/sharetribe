@@ -142,7 +142,11 @@ Given /^there are following users:$/ do |person_table|
 end
 
 Given(/^there are (\d+) users with name prefix "([^"]*)" "([^"]*)"$/) do |user_count, given_name, family_name_prefix|
-  FactoryGirl.create_list(:person, user_count.to_i, :given_name => given_name, :family_name => "#{family_name_prefix} #{user_count}", :communities => [@current_community])
+  FactoryGirl.create_list(:person, user_count.to_i,
+                          given_name: given_name,
+                          family_name: "#{family_name_prefix} #{user_count}",
+                          community_id: @current_community.id,
+                          communities: [@current_community])
 end
 
 # Filling in with random strings
@@ -243,7 +247,7 @@ Then /^user "(.*?)" should have (confirmed|unconfirmed) email "(.*?)"$/ do |user
 end
 
 When /^"(.*?)" is authorized to post a new listing$/ do |username|
-  person = Person.find_by_username_and_community_id(username, @current_community.id)
+  person = Person.find_by(username: username, community_id: @current_community.id)
   community_membership = CommunityMembership.find_by_person_id_and_community_id(person.id, @current_community.id)
   community_membership.update_attribute(:can_post_listings, true)
 end

@@ -68,7 +68,7 @@ describe PeopleController, type: :controller do
       person_count = Person.count
       username = generate_random_username
       post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test"}
-      expect(Person.find_by_username_and_community_id(username, community.id)).not_to be_nil
+      expect(Person.find_by(username: username, community_id: community.id)).not_to be_nil
       expect(Person.count).to eq(person_count + 1)
     end
 
@@ -81,7 +81,7 @@ describe PeopleController, type: :controller do
 
       post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}}
 
-      expect(Person.find_by_username_and_community_id(username, community.id)).to be_nil
+      expect(Person.find_by(username: username, community_id: community.id)).to be_nil
       expect(flash[:error].to_s).to include("This email is not allowed")
     end
   end
@@ -90,11 +90,11 @@ describe PeopleController, type: :controller do
     before(:each) do
       @community = FactoryGirl.create(:community)
       @request.host = "#{@community.ident}.lvh.me"
-      @person = FactoryGirl.create(:person)
+      @person = FactoryGirl.create(:person, community_id: @community.id)
       @community.members << @person
       @id = @person.id
       @username = @person.username
-      expect(Person.find_by_username_and_community_id(@username, @community.id)).not_to be_nil
+      expect(Person.find_by(username: @username, community_id: @community.id)).not_to be_nil
     end
 
     it "deletes the person" do
@@ -103,7 +103,7 @@ describe PeopleController, type: :controller do
       delete :destroy, {:id => @username}
       expect(response.status).to eq(302)
 
-      expect(Person.find_by_username_and_community_id(@username, @community.id).deleted?).to eql(true)
+      expect(Person.find_by(username: @username, community_id: @community.id).deleted?).to eql(true)
     end
 
     it "doesn't delete if not logged in as target person" do
@@ -114,7 +114,7 @@ describe PeopleController, type: :controller do
       delete :destroy, {:id => @username}
       expect(response.status).to eq(302)
 
-      expect(Person.find_by_username_and_community_id(@username, @community.id)).not_to be_nil
+      expect(Person.find_by(username: @username, community_id: @community.id)).not_to be_nil
     end
 
   end
