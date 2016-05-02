@@ -193,6 +193,7 @@ default: &default_settings
   # If you need for some reason change the session key used in cookies, you can do it here.
   # Normally no need to touch this.
   session_key: _sharetribe_session
+  cookie_session_key: _st_session
 
   # Global Service name
   # If you want to call this service with different name on this server, you can specify it here
