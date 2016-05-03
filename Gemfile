@@ -135,6 +135,7 @@ group :development do
   gem 'quiet_assets', "~> 1.1.0"
   gem 'better_errors', "~> 2.1.1"
   gem 'web-console', '~> 2.0'
+  gem 'awesome_print', '~> 1.6.1'
 end
 
 group :test do
@@ -156,7 +157,6 @@ end
 
 group :development, :test do
   gem 'pry-byebug'
-  gem 'awesome_rails_console', '~> 0.4.0'
 end
 
 

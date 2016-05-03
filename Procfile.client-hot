@@ -1,0 +1,8 @@
+# Run the hot reload server for client development
+hot-assets: cd client && HOT_RAILS_PORT=3500 npm run hot-assets
+
+# Build client assets, watching for changes.
+rails-client-assets: cd client && npm run build:dev:client
+
+# Keep the JS fresh for server rendering. Remove if not server rendering
+rails-server-assets: cd client && npm run build:dev:server
