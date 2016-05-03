@@ -18,21 +18,49 @@ RAILS_ENV=production rake sharetribe:generate_customization_stylesheets_immediat
 rake assets:precompile
 ```
 
+### Maintenance mode
+
+Some version updates may require you to put your application on maintenance mode.
+
+To show a warning message to your application users you can set the time of the next maintenance mode to `next_maintenance_at` environment variable. This will show a warning to all users 15 minutes before the maintenance.
+
+To enable the warning in Heroku:
+
+```bash
+heroku config:set next_maintenance_at="2016-04-29 17:15:00 +0000" --app=<your app name>
+```
+
+See instructions how to set application in [maintenance mode in Heroku](https://devcenter.heroku.com/articles/maintenance-mode).
+
 ## Unreleased
+
+### Separate CSS compilation workers
 
 This release adds a new Delayed Job queue "css_compile". All CSS compilations during the deployment are added to this queue. However, CSS compilations triggered from the admin UI do NOT go into this queue, instead they are added to the "default" queue.
 
 A new worker is added to the Procfile to work for the new queue. If you're hosting in Heroku, you will see a new worker there.
 
-This change doesn't require any changes if you are compiling the stylesheets synchronously using the `rake sharetribe:generate_customization_stylesheets_immediately` command during the deployment. However, if you are compiling the stylesheets asynchronously using the `rake sharetribe:generate_customization_stylesheets` command, then you need to make sure that you have at least one worker working for the "css_compile" queue.
+This change doesn't require any changes, if you are compiling the stylesheets synchronously using the `rake sharetribe:generate_customization_stylesheets_immediately` command during the deployment. However, if you are compiling the stylesheets asynchronously using the `rake sharetribe:generate_customization_stylesheets` command, then you need to make sure that you have at least one worker working for the "css_compile" queue.
 
+### React on Rails build environment
 
-React on Rails build environment is added with this change. This means that build environment needs to have node set up. With Heroku this can be set with ```heroku buildpacks:add --index 1 heroku/nodejs```. For other environments - see [npm instructions](https://docs.npmjs.com/getting-started/installing-node), [nvm](https://github.com/creationix/nvm), or [n](https://github.com/tj/n). In addition, production environments should have ```NODE_ENV=production`` set.
+React on Rails build environment is added in this release. This means that build environment needs to have `node` set up. With Heroku this can be set with `heroku buildpacks:add --index 1 heroku/nodejs`. For other environments - see [npm instructions](https://docs.npmjs.com/getting-started/installing-node), [nvm](https://github.com/creationix/nvm), or [n](https://github.com/tj/n). In addition, production environments should have `NODE_ENV=production` set.
 
-After bundle install, you should also install npm packages:
+After bundle install, you should also install `npm` packages:
+
 ```bash
 npm install
 ```
+
+### User account migrations
+
+This doesn't apply to OS version as it doesn't officially support running multiple marketplaces in one Sharetribe instance.
+
+This release removes the ability for one user to belong to multiple marketplaces. From now on one user belongs to one and only one marketplace.
+
+Because of that, this release contains quite a few migrations which will duplicate existing user accounts, if they belong to multiple communities. For example, if one user belongs to three communities, two new users will be created so that each user belongs to only one community.
+
+The migrations are not safe to run while the application is running, so we recommend you to put the application on [maintenance mode](#maintenance-mode) while running the migrations. Also, as always, remember to take database backup before migrating.
 
 ## Upgrade from 5.5.0 to 5.6.0
 

@@ -14,11 +14,12 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Add a warning message which will be shown 15 minutes before the next scheduled maintenance [#1835](https://github.com/sharetribe/sharetribe/pull/1835)
 - Expose used feature flags to Google Tag Manager [#1856](https://github.com/sharetribe/sharetribe/pull/1856)
 - React on Rails development environment [#1918](https://github.com/sharetribe/sharetribe/pull/1918).
+- Add ability to create a new account with username or email which is already in use in another marketplace [#1753](https://github.com/sharetribe/sharetribe/pull/1753) [#1939](https://github.com/sharetribe/sharetribe/pull/1939)
 
 ### Changed
 
 - Marketplace ID is removed from the Admin Settings URL [#1839](https://github.com/sharetribe/sharetribe/pull/1839)
-- Local development server needs to be started with foreman. [check instruction](./client/README.md) This change is related to React on Rails environment [#1918](https://github.com/sharetribe/sharetribe/pull/1918).
+- Local development server needs to be started with `foreman`. [Check instruction](./client/README.md). This change is related to React on Rails environment [#1918](https://github.com/sharetribe/sharetribe/pull/1918).
 
 ### Deprecated
 
@@ -27,11 +28,14 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 ### Removed
 
 - Delete duplicated memberships from the database [#1838](https://github.com/sharetribe/sharetribe/pull/1838)
+- Remove ability to join other marketplaces with an existing account [#1753](https://github.com/sharetribe/sharetribe/pull/1753) [#1939](https://github.com/sharetribe/sharetribe/pull/1939)
 
 ### Fixed
 
 - Errors from Braintree API were ignored [#1832](https://github.com/sharetribe/sharetribe/pull/1832) by [@priviterag](https://github.com/priviterag)
 - Fallback language handling was broken [#1869](https://github.com/sharetribe/sharetribe/pull/1869)
+- Confirmation pending page redirects to homepage if the account is already confirmed [#1976](https://github.com/sharetribe/sharetribe/pull/1976)
+- Fix bug: "Resend confirmation instructions" button didn't resend the confirmation email [#1963](https://github.com/sharetribe/sharetribe/pull/1963)
 
 ### Security
 
