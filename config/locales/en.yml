@@ -793,7 +793,7 @@ en:
     access_denied:
       access_denied: "Access denied"
       you_are_banned_in_this_community: "The administrator has prevented you from accessing %{service_name}. If you want to contact the admin, you can %{link_to_contact_page}."
-      contact_page_link: contact them
+      contact_page_link: "contact them"
     new:
       welcome_fb_user: "Welcome to %{service_name}, %{name}!"
       fb_join_accept_terms: "There's one more step to join %{service_name}: you need to accept the terms of use."
