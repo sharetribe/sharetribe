@@ -12,7 +12,8 @@
       - unless props[:next_step] == :all_done
         - cache ['v1', 'onboarding_topbar', props] do
           = react_component("OnboardingTopBar", props: props, prerender: true)
-  = render :partial => 'layouts/global_header'
+
+  = render partial: 'layouts/global_header', locals: header_props()
 
   - if display_expiration_notice?
     = render partial: "layouts/expiration_notice",

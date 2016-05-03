@@ -644,6 +644,40 @@ class ApplicationController < ActionController::Base
 
   helper_method :onboarding_topbar_props
 
+  def header_props
+    user = Maybe(@current_user).map { |u|
+      {
+        unread_count: MarketplaceService::Inbox::Query.notification_count(u.id, @current_community.id),
+        avatar_url: u.image.present? ? u.image.url(:thumb) : view_context.image_path("profile_image/thumb/missing.png"),
+        current_user_name: u.name(@current_community),
+        inbox_path: person_inbox_path(u),
+        profile_path: person_path(u),
+        manage_listings_path: person_path(u, show_closed: true),
+        settings_path: person_settings_path(u),
+        logout_path: logout_path
+      }
+    }.or_else({})
+
+    {
+      logged_in: @current_user.present?,
+      homepage_path: @homepage_path,
+      return_after_locale_change: @return_to,
+      current_locale_name: get_full_locale_name(I18n.locale),
+      sign_up_path: sign_up_path,
+      login_path: login_path,
+      new_listing_path: new_listing_path,
+      available_locales: available_locales,
+    }.merge(user)
+  end
+
+  helper_method :header_props
+
+  # TODO Can we remove this?
+  def get_full_locale_name(locale)
+    Maybe(Sharetribe::AVAILABLE_LOCALES.find { |l| l[:ident] == locale.to_s })[:name].or_else(locale).to_s
+  end
+
+
   # Fetch temporary flags from params and session
   def self.fetch_temp_flags(is_admin, params, session)
     return Set.new unless is_admin

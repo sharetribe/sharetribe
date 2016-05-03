@@ -167,10 +167,6 @@ module ApplicationHelper
     locales.map { |loc| [loc[:name], loc[:ident]] }
   end
 
-  def get_full_locale_name(locale)
-    Maybe(Sharetribe::AVAILABLE_LOCALES.find { |l| l[:ident] == locale.to_s })[:name].or_else(locale)
-  end
-
   def self.send_error_notification(message, error_class="Special Error", parameters={})
     if APP_CONFIG.use_airbrake
       Airbrake.notify(
@@ -657,12 +653,6 @@ module ApplicationHelper
   # Return a link to the listing author
   def author_link(listing)
     link_to(listing.author.name(@current_community), listing.author, {:title => listing.author.name(@current_community)})
-  end
-
-  def with_available_locales(&block)
-    if available_locales.size > 1
-      block.call(available_locales)
-    end
   end
 
   def with_invite_link(&block)
