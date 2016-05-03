@@ -62,6 +62,10 @@ Because of that, this release contains quite a few migrations which will duplica
 
 The migrations are not safe to run while the application is running, so we recommend you to put the application on [maintenance mode](#maintenance-mode) while running the migrations. Also, as always, remember to take database backup before migrating.
 
+### Session separation
+
+This release separates cookies by subdomain so that foo.sharetribe.com and bar.sharetribe.com have now separate session cookies. In order to migrate old sessions as smoothly as possible a new configuration option `cookie_session_key` has been added to `config.defaults.yml`. If you want to use custom session key, this variable must be set as an environment variable before deployment. Otherwise, session cookies might overlap and cause issues with log in.
+
 ## Upgrade from 5.5.0 to 5.6.0
 
 Ruby version is updated from 2.1.8 to 2.2.4. The update should reduce memory usage and improve performance.
