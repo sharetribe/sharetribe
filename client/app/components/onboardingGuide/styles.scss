@@ -85,6 +85,7 @@ $widthRestrictionPercentage: 90%;
 }
 .nextButtonGhost {
   @extend .nextButton;
+  margin-right: 0;
   border: 1px solid $colorButton;
   background-color: transparent;
   color: $colorButton;
@@ -92,6 +93,12 @@ $widthRestrictionPercentage: 90%;
     border: 1px solid $colorButtonGhost;
     background-color: transparent;
     color: $colorButtonGhost;
+  }
+}
+.buttonSeparator {
+  margin-right: $gutter;
+  @media (max-width: 600px) {
+    display: none;
   }
 }
 
