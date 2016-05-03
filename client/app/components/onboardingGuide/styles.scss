@@ -68,8 +68,8 @@ $widthRestrictionPercentage: 90%;
 
 .nextButton {
   display: inline-block;
-  margin: $verticalSpaceElement 0;
-  border: 0;
+  margin: $verticalSpaceElement $gutter 0 0;
+  border: 1px;
   border-radius: 5px;
   font-size: $fontSize;
   font-weight: 600;
@@ -81,6 +81,17 @@ $widthRestrictionPercentage: 90%;
   &:hover {
     background-color: $colorButtonHover;
     color: $colorButtonText;
+  }
+}
+.nextButtonGhost {
+  @extend .nextButton;
+  border: 1px solid $colorButton;
+  background-color: transparent;
+  color: $colorButton;
+  &:hover {
+    border: 1px solid $colorButtonGhost;
+    background-color: transparent;
+    color: $colorButtonGhost;
   }
 }
 
