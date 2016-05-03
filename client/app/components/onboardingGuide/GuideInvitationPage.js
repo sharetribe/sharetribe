@@ -33,7 +33,7 @@ const GuideInvitationPage = (props) => {
       }),
     ]),
 
-    a({ className: css.nextButton, href: pageData.link }, t('invite_users')),
+    a({ className: css.nextButton, href: pageData.cta }, t('invite_users')),
   ]);
 };
 
@@ -43,7 +43,7 @@ GuideInvitationPage.propTypes = {
   t: PropTypes.func.isRequired,
   infoIcon: PropTypes.string.isRequired,
   pageData: PropTypes.shape({
-    link: PropTypes.string.isRequired,
+    cta: PropTypes.string.isRequired,
     info_image: PropTypes.string,
   }).isRequired,
 };
