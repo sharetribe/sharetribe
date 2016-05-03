@@ -173,10 +173,13 @@ Kassi::Application.routes.draw do
           # See the above :admin_settings routes, outside of :communities resource
           get :settings,       to: redirect("/admin/settings")
           put :update_settings # PUT request, no redirect
-          get "getting_started_guide(/*all)", to: redirect {|p, req|
-            sub_path = p[:all] == "" ? "" : "/#{p[:all]}"
-            "#{p[:locale]}/admin/getting_started_guide#{sub_path}"
-          }
+          get "getting_started_guide",                        to: redirect("/admin/getting_started_guide")
+          get "getting_started_guide/slogan_and_description", to: redirect("/admin/getting_started_guide/slogan_and_description")
+          get "getting_started_guide/cover_photo",            to: redirect("/admin/getting_started_guide/cover_photo")
+          get "getting_started_guide/filter",                 to: redirect("/admin/getting_started_guide/filter")
+          get "getting_started_guide/paypal",                 to: redirect("/admin/getting_started_guide/paypal")
+          get "getting_started_guide/listing",                to: redirect("/admin/getting_started_guide/listing")
+          get "getting_started_guide/invitation",             to: redirect("/admin/getting_started_guide/invitation")
 
         end
         resources :transactions, controller: :community_transactions, only: :index
