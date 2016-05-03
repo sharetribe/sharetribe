@@ -24,5 +24,9 @@
   window.ST = window.ST || {};
   window.ST.gtmPush = function(data){
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(data);
+    if (Array.isArray(data)) {
+      Array.prototype.push.apply(window.dataLayer, data);
+    } else {
+      window.dataLayer.push(data);
+    }
   };

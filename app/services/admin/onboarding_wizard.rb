@@ -13,7 +13,8 @@ module Admin
       :custom_field_created,
       :paypal_preferences_updated,
       :listing_created,
-      :invitation_created
+      :invitation_created,
+      :listing_shape_updated
     ].to_set
 
     SetupStatus = EntityUtils.define_builder(
@@ -112,6 +113,13 @@ module Admin
       if !setup_status[:invitation] &&
          invitation
         :invitation
+      end
+    end
+
+    def listing_shape_updated(setup_status, listing_shape)
+      if !setup_status[:paypal] && listing_shape && listing_shape.data &&
+        !listing_shape.data[:price_enabled]
+        :paypal
       end
     end
 

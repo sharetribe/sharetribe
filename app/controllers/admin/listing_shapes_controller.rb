@@ -78,6 +78,18 @@ class Admin::ListingShapesController < ApplicationController
 
     if update_result.success
       flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: pick_translation(shape[:name]))
+
+      # Onboarding wizard step recording
+      state_changed = Admin::OnboardingWizard.new(@current_community.id)
+        .update_from_event(:listing_shape_updated, update_result)
+      if state_changed
+        report_to_gtm([{event: "km_record", km_event: "Onboarding payments setup"},
+                       {event: "km_record", km_event: "Onboarding payment disabled"}])
+
+        with_feature(:onboarding_redesign_v1) do
+          flash[:show_onboarding_popup] = true
+        end
+      end
       return redirect_to admin_listing_shapes_path
     else
       flash.now[:error] = t("admin.listing_shapes.edit.update_failure", error_msg: update_result.error_msg)
