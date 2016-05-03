@@ -1,47 +1,35 @@
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
+import r, { div, h2, p, img, a } from 'r-dom';
 import css from './styles.scss';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
 
-const GuideSloganAndDescriptionPage = (props) => (
-  <div className="container">
-    <GuideBackToTodoLink
-      changePage={props.changePage}
-      initialPath={props.initialPath}
-      t={props.t}
-    />
+const GuideSloganAndDescriptionPage = (props) => {
+  const { changePage, initialPath, t, infoIcon, pageData } = props;
 
-    <h2 className={css.title} >{props.t('title')}</h2>
+  return div({ className: 'container' }, [
+    r(GuideBackToTodoLink, { changePage, initialPath, t }),
+    h2({ className: css.title }, t('title')),
+    p({ className: css.description }, t('description')),
 
-    <p className={css.description} >
-      {props.t('description')}
-    </p>
+    pageData.info_image ?
+      div({ className: css.sloganImageContainer }, [
+        img({
+          className: css.sloganImage,
+          src: props.pageData.info_image,
+          alt: t('info_image_alt'),
+        }),
+      ]) :
+      null,
 
-    {props.pageData.info_image ?
-      <div className={css.sloganImageContainer} >
-        <img src={props.pageData.info_image}
-          className={css.sloganImage}
-          alt={props.t('info_image_alt')}
-        />
-      </div> :
-      null}
+    div({ className: css.infoTextContainer }, [
+      div({ className: css.infoTextIcon, dangerouslySetInnerHTML: { __html: infoIcon } }),
+      div({ className: css.infoTextContent, dangerouslySetInnerHTML: { __html: t('advice') } }),
+    ]),
 
-    <div className={css.infoTextContainer} >
-      <div className={css.infoTextIcon}
-        dangerouslySetInnerHTML={{ __html: props.infoIcon }} // eslint-disable-line react/no-danger
-      ></div>
-      <div className={css.infoTextContent}
-        dangerouslySetInnerHTML={{ __html: props.t('advice') }} // eslint-disable-line react/no-danger
-      ></div>
-    </div>
-
-    <a href={props.pageData.link}
-      className={css.nextButton}
-    >
-      {props.t('add_your_own')}
-    </a>
-  </div>
-);
+    a({ className: css.nextButton, href: pageData.link }, t('add_your_own')),
+  ]);
+};
 
 GuideSloganAndDescriptionPage.propTypes = {
   changePage: PropTypes.func.isRequired,

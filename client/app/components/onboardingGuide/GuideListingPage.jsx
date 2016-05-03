@@ -1,47 +1,41 @@
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
+import r, { div, h2, p, img, a } from 'r-dom';
 import css from './styles.scss';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
 
-const GuideListingPage = (props) => (
-  <div className="container">
-    <GuideBackToTodoLink
-      changePage={props.changePage}
-      initialPath={props.initialPath}
-      t={props.t}
-    />
+const GuideListingPage = (props) => {
+  const { changePage, initialPath, t, pageData, infoIcon } = props;
 
-    <h2 className={css.title} >{props.t('title')}</h2>
+  return div({ className: 'container' }, [
+    r(GuideBackToTodoLink, { changePage, initialPath, t }),
+    h2({ className: css.title }, t('title')),
+    p({ className: css.description }, t('description')),
 
-    <p className={css.description} >
-      {props.t('description')}
-    </p>
+    pageData.info_image ?
+      div({ className: css.sloganImageContainerBig }, [
+        img({
+          className: css.sloganImage,
+          src: pageData.info_image,
+          alt: t('info_image_alt'),
+        }),
+      ]) :
+      null,
 
-    {props.pageData.info_image ?
-      <div className={css.sloganImageContainerBig} >
-        <img src={props.pageData.info_image}
-          className={css.sloganImage}
-          alt={props.t('info_image_alt')}
-        />
-      </div> :
-      null}
+    div({ className: css.infoTextContainer }, [
+      div({
+        className: css.infoTextIcon,
+        dangerouslySetInnerHTML: { __html: infoIcon }, // eslint-disable-line react/no-danger
+      }),
+      div({
+        className: css.infoTextContent,
+        dangerouslySetInnerHTML: { __html: t('advice') }, // eslint-disable-line react/no-danger
+      }),
+    ]),
 
-    <div className={css.infoTextContainer} >
-      <div className={css.infoTextIcon}
-        dangerouslySetInnerHTML={{ __html: props.infoIcon }} // eslint-disable-line react/no-danger
-      ></div>
-      <div className={css.infoTextContent}
-        dangerouslySetInnerHTML={{ __html: props.t('advice') }} // eslint-disable-line react/no-danger
-      ></div>
-    </div>
-
-    <a href={props.pageData.link}
-      className={css.nextButton}
-    >
-      {props.t('post_your_first_listing')}
-    </a>
-  </div>
-);
+    a({ className: css.nextButton, href: pageData.link }, t('post_your_first_listing')),
+  ]);
+};
 
 GuideListingPage.propTypes = {
   changePage: PropTypes.func.isRequired,

@@ -1,4 +1,4 @@
-import React from 'react';
+import r from 'r-dom';
 import { combineReducers, applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import middleware from 'redux-thunk';
@@ -9,18 +9,13 @@ import composeInitialState from '../store/composeInitialState';
 
 import OnboardingGuideContainer from '../components/onboardingGuide/OnboardingGuideContainer';
 
-/* eslint-disable react/display-name */
 export default (props, railsContext) => {
   const combinedReducer = combineReducers(reducers);
   const combinedProps = composeInitialState(props, railsContext);
 
   const store = applyMiddleware(middleware)(createStore)(combinedReducer, combinedProps);
 
-  return (
-    <Provider store={store}>
-      <OnboardingGuideContainer />
-    </Provider>
-  );
+  return r(Provider, { store }, [
+    r(OnboardingGuideContainer),
+  ]);
 };
-
-/* eslint-enable react/display-name */

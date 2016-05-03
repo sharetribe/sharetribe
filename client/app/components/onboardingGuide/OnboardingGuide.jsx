@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import r from 'r-dom';
 import _ from 'lodash';
 
 import GuideStatusPage from './GuideStatusPage';
@@ -172,16 +173,14 @@ class OnboardingGuide extends React.Component {
 
   render() {
     const { Page, translations, ...opts } = selectChild(this.props.data, this.nextStep);
-    return (
-      <Page
-        changePage={this.handlePageChange}
-        initialPath={this.initialPath}
-        name={this.props.data.name}
-        infoIcon={this.props.data.info_icon}
-        t={translate(translations)}
-        {...opts}
-      />
-    );
+    return r(Page, {
+      changePage: this.handlePageChange,
+      initialPath: this.initialPath,
+      name: this.props.data.name,
+      infoIcon: this.props.data.info_icon,
+      t: translate(translations),
+      ...opts,
+    });
   }
 }
 

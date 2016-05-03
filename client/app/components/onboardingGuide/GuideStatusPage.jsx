@@ -1,4 +1,6 @@
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
+import { div, p, h2, hr, ul, li, span, a } from 'r-dom';
+
 import css from './styles.scss';
 
 const GuideStatusPage = (props) => {
@@ -14,67 +16,55 @@ const GuideStatusPage = (props) => {
     props.t('title').replace(/%\{(\w+)\}/g, props.name) :
     props.t('title_done');
 
+  const todoDescPartial = div([
+    p({ className: css.description }, props.t('description_p1')),
+    p({ className: css.description }, props.t('description_p2')),
+  ]);
 
-  const todoDescPartial = (
-    <div>
-      <p className={css.description} >
-        {props.t('description_p1')}
-      </p>
-      <p className={css.description} >
-        {props.t('description_p2')}
-      </p>
-    </div>
-    );
-
-  const doneDescPartial = (
-    <p className={css.description}
-      dangerouslySetInnerHTML={{ __html: props.t('congratulation') }} // eslint-disable-line react/no-danger
-    ></p>
-    );
+  const doneDescPartial = p({
+    className: css.description,
+    dangerouslySetInnerHTML: { __html: props.t('congratulation') }, // eslint-disable-line react/no-danger
+  });
 
   const description = props.nextStep ? todoDescPartial : doneDescPartial;
-  return (
-    <div className="container">
-      <h2 className={css.title} >{title}</h2>
 
-      {description}
+  return div({ className: 'container' }, [
+    h2({ className: css.title }, title),
+    description,
+    hr({ className: css.sectionSeparator }),
 
-      <hr className={css.sectionSeparator} />
+    ul({ className: css.stepList }, [
+      li({ className: css.stepListItemDone }, [
+        span({ className: css.stepListLink }, [
+          span({ className: css.stepListCheckbox }),
+          props.t('create_your_marketplace'),
+        ]),
+      ]),
+    ].concat(Object.keys(onboardingData).map((key) => {
+      const stepListItem = onboardingData[key].complete ?
+              css.stepListItemDone :
+              css.stepListItem;
 
-      <ul className={css.stepList} >
-        <li className={css.stepListItemDone}>
-          <span className={css.stepListLink}>
-            <span className={css.stepListCheckbox}></span>
-            {props.t('create_your_marketplace')}
-          </span>
-        </li>
-        {Object.keys(onboardingData).map((key) => {
-          const stepListItem = onboardingData[key].complete ?
-            css.stepListItemDone :
-            css.stepListItem;
-          return (
-            <li className={stepListItem} key={key} >
-              <a className={css.stepListLink}
-                onClick={(e) => handleClick(e, `/${onboardingData[key].sub_path}`)}
-                href={`${props.initialPath}/${onboardingData[key].sub_path}`}
-              >
-                <span className={css.stepListCheckbox}></span>
-                {props.t(key)}
-              </a>
-            </li>
-            );
-        })}
-      </ul>
-      {props.nextStep ?
-        <a onClick={(e) => handleClick(e, `/${props.nextStep.link}`)}
-          href={`${props.initialPath}/${props.nextStep.link}`}
-          className={css.nextButton}
-        >
-          {props.nextStep.title}
-       </a> :
-       null}
-    </div>
-  );
+      return li({ className: stepListItem, key }, [
+        a({
+          className: css.stepListLink,
+          onClick: (e) => handleClick(e, `/${onboardingData[key].sub_path}`),
+          href: `${props.initialPath}/${onboardingData[key].sub_path}`,
+        }, [
+          span({ className: css.stepListCheckbox }),
+          props.t(key),
+        ]),
+      ]);
+    }))),
+
+    props.nextStep ?
+      a({
+        className: css.nextButton,
+        href: `${props.initialPath}/${props.nextStep.link}`,
+        onClick: (e) => handleClick(e, `/${props.nextStep.link}`),
+      }, props.nextStep.title) :
+      null,
+  ]);
 };
 
 GuideStatusPage.propTypes = {
@@ -82,7 +72,7 @@ GuideStatusPage.propTypes = {
   initialPath: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   infoIcon: PropTypes.string.isRequired,
-  nextStep: React.PropTypes.oneOfType([
+  nextStep: PropTypes.oneOfType([
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       link: PropTypes.string.isRequired,
