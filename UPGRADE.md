@@ -54,7 +54,7 @@ npm install
 
 ### User account migrations
 
-You can ignore this section if you are running only one marketplace in your Sharetribe instance.
+This doesn't apply to OS version as it doesn't officially support running multiple marketplaces in one Sharetribe instance.
 
 This release removes the ability for one user to belong to multiple marketplaces. From now on one user belongs to one and only one marketplace.
 
