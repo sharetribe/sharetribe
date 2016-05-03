@@ -34,7 +34,10 @@ const GuidePaypalPage = (props) => {
       }),
     ]),
 
-    a({ className: css.nextButton, href: pageData.cta }, t('setup_payments')),
+    div(null, [
+      a({ className: css.nextButton, href: pageData.cta }, t('setup_payments')),
+      a({ className: css.nextButtonGhost, href: pageData.alternative_cta }, t('disable_payments')),
+    ]),
   ]);
 };
 
@@ -45,6 +48,7 @@ GuidePaypalPage.propTypes = {
   infoIcon: PropTypes.string.isRequired,
   pageData: PropTypes.shape({
     cta: PropTypes.string.isRequired,
+    alternative_cta: PropTypes.string.isRequired,
     info_image: PropTypes.string,
   }).isRequired,
 };

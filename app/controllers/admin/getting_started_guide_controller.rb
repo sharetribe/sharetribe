@@ -39,6 +39,7 @@ class Admin::GettingStartedGuideController < ApplicationController
       paypal: {
         sub_path: 'paypal',
         cta: admin_paypal_preferences_path,
+        alternative_cta: admin_listing_shapes_path,
         info_image: view_context.image_path('onboarding/step5_screenshot_paypal@2x.png')
       },
       listing: {
