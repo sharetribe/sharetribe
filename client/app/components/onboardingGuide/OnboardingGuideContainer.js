@@ -24,7 +24,7 @@ OnbardingGuideContainer.propTypes = {
     translations: PropTypes.object.isRequired,
     onboarding_data: PropTypes.objectOf(PropTypes.shape({
       info_image: PropTypes.string,
-      link: PropTypes.string.isRequired,
+      cta: PropTypes.string.isRequired,
       complete: PropTypes.bool.isRequired,
     }).isRequired).isRequired,
   }).isRequired,

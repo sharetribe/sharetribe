@@ -33,7 +33,7 @@ const GuideCoverPhotoPage = (props) => {
       }),
     ]),
 
-    a({ className: css.nextButton, href: pageData.link }, t('add_your_own')),
+    a({ className: css.nextButton, href: pageData.cta }, t('add_your_own')),
   ]);
 };
 
@@ -43,7 +43,7 @@ GuideCoverPhotoPage.propTypes = {
   t: PropTypes.func.isRequired,
   infoIcon: PropTypes.string.isRequired,
   pageData: PropTypes.shape({
-    link: PropTypes.string.isRequired,
+    cta: PropTypes.string.isRequired,
     info_image: PropTypes.string,
   }).isRequired,
 };
