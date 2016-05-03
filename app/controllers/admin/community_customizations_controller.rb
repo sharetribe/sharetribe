@@ -17,7 +17,7 @@ class Admin::CommunityCustomizationsController < ApplicationController
 
     onboarding_popup_locals = OnboardingViewUtils.popup_locals(
       flash[:show_onboarding_popup],
-      getting_started_guide_admin_community_path(@current_community),
+      admin_getting_started_guide_path,
       Admin::OnboardingWizard.new(@current_community.id).setup_status)
 
     render locals: onboarding_popup_locals.merge({
