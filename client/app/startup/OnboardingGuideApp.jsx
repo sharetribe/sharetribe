@@ -9,6 +9,7 @@ import composeInitialState from '../store/composeInitialState';
 
 import OnboardingGuideContainer from '../components/onboardingGuide/OnboardingGuideContainer';
 
+/* eslint-disable react/display-name */
 export default (props, railsContext) => {
   const combinedReducer = combineReducers(reducers);
   const combinedProps = composeInitialState(props, railsContext);
@@ -21,3 +22,5 @@ export default (props, railsContext) => {
     </Provider>
   );
 };
+
+/* eslint-enable react/display-name */

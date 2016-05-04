@@ -14,7 +14,7 @@ OnbardingGuideContainer.propTypes = {
   actions: PropTypes.shape({
     updateGuidePage: PropTypes.func.isRequired,
   }).isRequired,
-  railsContext: PropTypes.object.isRequired,
+  railsContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   data: PropTypes.shape({
     path: PropTypes.string.isRequired,
     original_path: PropTypes.string.isRequired,

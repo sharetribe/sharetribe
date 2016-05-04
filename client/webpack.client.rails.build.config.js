@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = require('./webpack.client.base.config');

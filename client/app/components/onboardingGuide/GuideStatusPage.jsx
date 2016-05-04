@@ -8,6 +8,7 @@ const GuideStatusPage = (props) => {
   };
 
   const onboardingData = props.onboarding_data;
+
   // TODO: interpolating translation strings needs more thinking
   const title = props.nextStep ?
     props.t('title').replace(/%\{(\w+)\}/g, props.name) :
@@ -27,7 +28,7 @@ const GuideStatusPage = (props) => {
 
   const doneDescPartial = (
     <p className={css.description}
-      dangerouslySetInnerHTML={{ __html: props.t('congratulation') }}
+      dangerouslySetInnerHTML={{ __html: props.t('congratulation') }} // eslint-disable-line react/no-danger
     ></p>
     );
 
@@ -70,8 +71,8 @@ const GuideStatusPage = (props) => {
           className={css.nextButton}
         >
           {props.nextStep.title}
-        </a>
-        : null}
+       </a> :
+       null}
     </div>
   );
 };

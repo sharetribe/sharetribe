@@ -23,15 +23,15 @@ const GuideInvitationPage = (props) => (
           className={css.sloganImage}
           alt={props.t('info_image_alt')}
         />
-      </div>
-      : null}
+      </div> :
+      null}
 
     <div className={css.infoTextContainer} >
       <div className={css.infoTextIcon}
-        dangerouslySetInnerHTML={{ __html: props.infoIcon }}
+        dangerouslySetInnerHTML={{ __html: props.infoIcon }} // eslint-disable-line react/no-danger
       ></div>
       <div className={css.infoTextContent}
-        dangerouslySetInnerHTML={{ __html: props.t('advice') }}
+        dangerouslySetInnerHTML={{ __html: props.t('advice') }} // eslint-disable-line react/no-danger
       ></div>
     </div>
 
