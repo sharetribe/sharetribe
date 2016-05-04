@@ -102,27 +102,7 @@ const getPaths = function getPaths(props, pathFragment) {
   return { initialPath, componentSubPath: pathParts[1] };
 };
 
-export default class OnboardingGuide extends React.Component {
-
-  static propTypes = {
-    actions: PropTypes.shape({
-      updateGuidePage: PropTypes.func.isRequired,
-    }).isRequired,
-    railsContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-    data: PropTypes.shape({
-      path: PropTypes.string.isRequired,
-      original_path: PropTypes.string.isRequired,
-      pathHistoryForward: PropTypes.bool,
-      name: PropTypes.string.isRequired,
-      info_icon: PropTypes.string.isRequired,
-      translations: PropTypes.object.isRequired,
-      onboarding_data: PropTypes.objectOf(PropTypes.shape({
-        info_image: PropTypes.string,
-        link: PropTypes.string.isRequired,
-        complete: PropTypes.bool.isRequired,
-      }).isRequired).isRequired,
-    }).isRequired,
-  };
+class OnboardingGuide extends React.Component {
 
   constructor(props, context) {
     super(props, context);
@@ -204,3 +184,25 @@ export default class OnboardingGuide extends React.Component {
     );
   }
 }
+
+OnboardingGuide.propTypes = {
+  actions: PropTypes.shape({
+    updateGuidePage: PropTypes.func.isRequired,
+  }).isRequired,
+  railsContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  data: PropTypes.shape({
+    path: PropTypes.string.isRequired,
+    original_path: PropTypes.string.isRequired,
+    pathHistoryForward: PropTypes.bool,
+    name: PropTypes.string.isRequired,
+    info_icon: PropTypes.string.isRequired,
+    translations: PropTypes.object.isRequired,
+    onboarding_data: PropTypes.objectOf(PropTypes.shape({
+      info_image: PropTypes.string,
+      link: PropTypes.string.isRequired,
+      complete: PropTypes.bool.isRequired,
+    }).isRequired).isRequired,
+  }).isRequired,
+};
+
+export default OnboardingGuide;
