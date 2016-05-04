@@ -3,12 +3,12 @@ import { translate } from '../../utils/i18nUtils';
 
 import css from './OnboardingTopBar.scss';
 
-function next(nextStep, guideRoot, t) {
+const next = function next(nextStep, guideRoot, t) {
   return t(nextStep) ? {
     title: t(nextStep),
     link: `${guideRoot}/${nextStep}`,
   } : null;
-}
+};
 
 class OnboardingTopBar extends React.Component {
 
@@ -36,10 +36,10 @@ class OnboardingTopBar extends React.Component {
     return (
       <div className={css.topbarContainer}>
         <div className={css.topbar}>
-          <div className={css.progressLabel}>
+          <a className={css.progressLabel} href={this.props.guide_root}>
             {t('progress_label')}:
             <span className={css.progressLabelPercentage}>{Math.floor(currentProgress)} %</span>
-          </div>
+          </a>
           <div className={css.progressBarBackground}>
             <div className={css.progressBar} style={{ width: `${currentProgress}%` }} />
           </div>
