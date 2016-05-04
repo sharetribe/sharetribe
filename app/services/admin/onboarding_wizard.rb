@@ -117,8 +117,8 @@ module Admin
     end
 
     def listing_shape_updated(setup_status, listing_shape)
-      if !setup_status[:paypal] && listing_shape && listing_shape.data &&
-        !listing_shape.data[:price_enabled]
+      if !setup_status[:paypal] && listing_shape &&
+         !listing_shape[:price_enabled]
         :paypal
       end
     end
