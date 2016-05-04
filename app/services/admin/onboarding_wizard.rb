@@ -81,8 +81,7 @@ module Admin
     end
 
     def custom_field_created(setup_status, custom_field)
-      if !setup_status[:filter] &&
-         Maybe(custom_field).search_filter.or_else(false)
+      unless setup_status[:filter]
         :filter
       end
     end
