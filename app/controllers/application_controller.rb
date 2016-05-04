@@ -667,6 +667,17 @@ class ApplicationController < ActionController::Base
       login_path: login_path,
       new_listing_path: new_listing_path,
       available_locales: available_locales,
+      icons: pick_icons(
+        APP_CONFIG.icon_pack,
+        [
+          "dropdown",
+          "mail",
+          "user",
+          "list",
+          "settings",
+          "logout",
+          "rows"
+        ])
     }.merge(user)
   end
 

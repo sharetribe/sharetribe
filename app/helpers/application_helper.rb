@@ -4,8 +4,7 @@ module ApplicationHelper
   ICON_PACK = APP_CONFIG.icon_pack || "font-awesome"
 
   def icon_tag(icon_name, additional_classes=[])
-    classes_string = [icon_class(icon_name)].concat(additional_classes).join(" ")
-    return "<i class=\"#{classes_string}\"></i>".html_safe
+    icon_class_tag(icon_class(icon_name), additional_classes)
   end
 
   def icon_class(icon_name)
@@ -18,6 +17,19 @@ module ApplicationHelper
 
   def self.icon_specified?(icon_name)
     ICON_MAP[ICON_PACK][icon_name].present?
+  end
+
+  def pick_icons(icon_pack, icons)
+    ICON_MAP[icon_pack].slice(*icons)
+  end
+
+  def icon_class_tag(icon_class, additional_classes = [])
+    classes_string = [icon_class].concat(additional_classes).join(" ")
+    "<i class=\"#{classes_string}\"></i>".html_safe
+  end
+
+  def icon_map_tag(icon_map, icon_name, additional_classes = [])
+    icon_class_tag(icon_map[icon_name], additional_classes)
   end
 
   # Removes whitespaces from HAML expressions
