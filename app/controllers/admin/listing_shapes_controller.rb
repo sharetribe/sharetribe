@@ -12,6 +12,11 @@ class Admin::ListingShapesController < ApplicationController
     category_count = @current_community.categories.count
     template_label_key_list = ListingShapeTemplates.new(process_summary).label_key_list
 
+    onboarding_popup_locals = OnboardingViewUtils.popup_locals(
+      flash[:show_onboarding_popup],
+      getting_started_guide_admin_community_path(@current_community),
+      Admin::OnboardingWizard.new(@current_community.id).setup_status)
+
     render("index",
            locals: {
              selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
@@ -19,7 +24,8 @@ class Admin::ListingShapesController < ApplicationController
              display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
              knowledge_base_url: APP_CONFIG.knowledge_base_url,
              category_count: category_count,
-             listing_shapes: all_shapes(community_id: @current_community.id, include_categories: true)})
+             listing_shapes: all_shapes(community_id: @current_community.id, include_categories: true)
+             }.merge(onboarding_popup_locals))
   end
 
   def new
@@ -78,6 +84,18 @@ class Admin::ListingShapesController < ApplicationController
 
     if update_result.success
       flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: pick_translation(shape[:name]))
+
+      # Onboarding wizard step recording
+      state_changed = Admin::OnboardingWizard.new(@current_community.id)
+        .update_from_event(:listing_shape_updated, update_result.data)
+      if state_changed
+        report_to_gtm([{event: "km_record", km_event: "Onboarding payments setup"},
+                       {event: "km_record", km_event: "Onboarding payment disabled"}])
+
+        with_feature(:onboarding_redesign_v1) do
+          flash[:show_onboarding_popup] = true
+        end
+      end
       return redirect_to admin_listing_shapes_path
     else
       flash.now[:error] = t("admin.listing_shapes.edit.update_failure", error_msg: update_result.error_msg)
