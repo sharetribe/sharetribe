@@ -5,7 +5,7 @@
     "node": "5.10"
   },
   "scripts": {
-    "lint": "eslint --ext .js,.jsx .",
+    "lint": "eslint .",
     "build:client": "webpack --config webpack.client.rails.build.config.js",
     "build:server": "webpack --config webpack.server.rails.build.config.js",
     "build:production:client": "NODE_ENV=production webpack --config webpack.client.rails.build.config.js",

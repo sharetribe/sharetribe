@@ -14,7 +14,6 @@ module.exports = {
     ecmaVersion: 6,
     sourceType: 'module',
     impliedStrict: true,
-    jsx: true,
     experimentalObjectRestSpread: true,
   },
   plugins: [
@@ -139,7 +138,6 @@ module.exports = {
         const: 2,
       }
     }],
-    'jsx-quotes': 2,
     'key-spacing': 2,
     'keyword-spacing': 2,
     'linebreak-style': 2,

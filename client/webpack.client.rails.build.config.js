@@ -12,7 +12,7 @@ config.output = {
 
 config.module.loaders.push(
   {
-    test: /\.jsx?$/,
+    test: /\.js$/,
     loader: 'babel-loader',
     exclude: /node_modules/,
   },
