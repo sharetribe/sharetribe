@@ -82,7 +82,7 @@ module Admin
     end
 
     def custom_field_created(setup_status, custom_field)
-      unless setup_status[:filter]
+      if !setup_status[:filter] && custom_field.present?
         :filter
       end
     end
