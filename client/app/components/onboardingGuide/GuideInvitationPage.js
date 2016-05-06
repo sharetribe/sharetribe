@@ -10,7 +10,10 @@ const GuideInvitationPage = (props) => {
   return div({ className: 'container' }, [
     r(GuideBackToTodoLink, { changePage, initialPath, t }),
     h2({ className: css.title }, t('title')),
-    p({ className: css.description }, t('description')),
+    p({
+      className: css.description,
+      dangerouslySetInnerHTML: { __html: t('description') }, // eslint-disable-line react/no-danger }
+    }),
 
     pageData.info_image ?
       div({ className: css.sloganImageContainer }, [
