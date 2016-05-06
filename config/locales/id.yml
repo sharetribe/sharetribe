@@ -1090,7 +1090,7 @@ id:
       examples_of_what_you_could_offer_to_others: "Apa yang Anda bisa tawarkan kepada pengguna lain"
       examples_of_what_you_could_request_to_others: "Apa yang Anda minta dari pengguna lain"
       favor_offer_list: ~
-      favor_request_list: ~
+      favor_request_list: "merawat anak, les piano, mengajak anjing berjalan-jalan, memotong rumput"
       favors_to_offer: "Bantuan: "
       favors_to_request: "Bantuan: "
       item_offer_list: ~
@@ -1502,7 +1502,7 @@ id:
         sell: Menjual
         share_for_free: ~
         accept_for_free: ~
-        trade: ~
+        trade: menukar
       tag_list:
         comma_separate: "(pisahkan dengan tanda koma)"
         tags: Tag
@@ -1796,39 +1796,39 @@ id:
       sign_up: "Buat akun %{service_name} baru"
       terms: "ketentuan penggunaan"
       username_is_in_use: "Username sudah digunakan."
-      username_is_invalid: ~
-      visible_only_to_you: ~
-      visible_to_everybody: ~
+      username_is_invalid: "Nama pengguna ini tidak valid. Hanya huruf, angka dan underscore yang diizinkan."
+      visible_only_to_you: "Hanya terlihat oleh Anda dan marketplace admin"
+      visible_to_everybody: "terlihat kepada semua orang"
       create_account_with_facebook: ~
       OR: ~
       signup_with_email: ~
     profile_feedback:
-      grade: ~
+      grade: "tingkat:"
       and_gave_following_feedback: ~
     profile_listings:
-      show_also_closed: ~
-      show_only_open: ~
+      show_also_closed: "tunjukan yang tertutup juga"
+      show_only_open: "tunjukan hanya yang terbuka"
       no_image: ~
     show:
       contact: ~
-      about_me: ~
+      about_me: "mengenai saya:"
       add_description: ~
       add_location: ~
       add_phone_number: ~
-      address: ~
-      as_expected: ~
-      edit_profile_info: ~
-      exceeded_expectations: ~
+      address: "lokasi:"
+      as_expected: "seperti yang diharapkan"
+      edit_profile_info: "sunting profil"
+      exceeded_expectations: "melebihi harapan"
       positive: ~
-      hide_description: ~
-      less_than_expected: ~
-      phone_number: ~
-      show_all_feedback: ~
-      show_all_testimonials: ~
-      show_full_description: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      what_are_these: ~
+      hide_description: "tunjukkan lebih sedikit"
+      less_than_expected: "lebih jelek dari yang diharapkan"
+      phone_number: "nomor telepon"
+      show_all_feedback: "tunjukkan semua feedback"
+      show_all_testimonials: "tunjukkan semua feedback"
+      show_full_description: selengkapnya
+      slightly_better_than_expected: "melebihi harapan"
+      slightly_less_than_expected: "lebih jelek dari yang diharapkan"
+      what_are_these: "apa ini?"
       review: ~
       reviews: ~
       listing: ~
@@ -1854,7 +1854,7 @@ id:
       unfollow: ~
   search:
     show:
-      all_results: ~
+      all_results: "semua hasil"
       loading_more_search_results: ~
       offers: ~
       requests: ~
