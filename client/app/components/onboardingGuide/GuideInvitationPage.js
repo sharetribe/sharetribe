@@ -10,7 +10,10 @@ const GuideInvitationPage = (props) => {
   return div({ className: 'container' }, [
     r(GuideBackToTodoLink, { changePage, initialPath, t }),
     h2({ className: css.title }, t('title')),
-    p({ className: css.description }, t('description')),
+    p({
+      className: css.description,
+      dangerouslySetInnerHTML: { __html: t('description') }, // eslint-disable-line react/no-danger }
+    }),
 
     pageData.info_image ?
       div({ className: css.sloganImageContainer }, [
@@ -33,7 +36,7 @@ const GuideInvitationPage = (props) => {
       }),
     ]),
 
-    a({ className: css.nextButton, href: pageData.link }, t('invite_users')),
+    a({ className: css.nextButton, href: pageData.cta }, t('invite_users')),
   ]);
 };
 
@@ -43,7 +46,7 @@ GuideInvitationPage.propTypes = {
   t: PropTypes.func.isRequired,
   infoIcon: PropTypes.string.isRequired,
   pageData: PropTypes.shape({
-    link: PropTypes.string.isRequired,
+    cta: PropTypes.string.isRequired,
     info_image: PropTypes.string,
   }).isRequired,
 };

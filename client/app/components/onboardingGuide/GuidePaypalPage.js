@@ -1,5 +1,5 @@
 import { PropTypes } from 'react';
-import r, { div, h2, p, img, a } from 'r-dom';
+import r, { div, h2, p, img, a, span } from 'r-dom';
 import css from './styles.scss';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
@@ -34,7 +34,11 @@ const GuidePaypalPage = (props) => {
       }),
     ]),
 
-    a({ className: css.nextButton, href: pageData.link }, t('setup_payments')),
+    div(null, [
+      a({ className: css.nextButton, href: pageData.cta }, t('setup_payments')),
+      span({ className: css.buttonSeparator }, t('cta_separator')),
+      a({ className: css.nextButtonGhost, href: pageData.alternative_cta }, t('disable_payments')),
+    ]),
   ]);
 };
 
@@ -44,7 +48,8 @@ GuidePaypalPage.propTypes = {
   t: PropTypes.func.isRequired,
   infoIcon: PropTypes.string.isRequired,
   pageData: PropTypes.shape({
-    link: PropTypes.string.isRequired,
+    cta: PropTypes.string.isRequired,
+    alternative_cta: PropTypes.string.isRequired,
     info_image: PropTypes.string,
   }).isRequired,
 };

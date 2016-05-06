@@ -16,7 +16,7 @@ en:
           advice: "Filters are very handy, but <a target=\"_blank\" href=\"https://www.sharetribe.com/academy/how-to-help-your-customers-find-the-right-product-or-service/\">you shouldn't add too many</a>. Customers will be overwhelmed by having too many filters, and each filter is an additional field for your suppliers to fill in."
         invitation:
           title: "Step 7: Inviting users"
-          description: "Happy with what marketplace looks like and how it works? Maybe one last preview? If you're ready, let's start inviting users!"
+          description: "Happy with what marketplace looks like and how it works? Maybe <a href='/?big_cover_photo=true' alt='Check preview' target='_blank'>one last preview</a>? If you're ready, let's start inviting users!"
           info_image_alt: "Users illustration"
           invite_users: "Invite users"
           advice: "Invite your friends first and gather feedback from them."
@@ -38,7 +38,9 @@ en:
           description_p1: "If you want to allow your providers to accept online payments, you need to connect your PayPal account (you will receive a fee from each transaction). Once connected, you need to choose a minimum transaction size and your transaction fee."
           description_p2: "Alternatively, you can disable online payments for now."
           info_image_alt: "A screenshot from payments page"
+          disable_payments: "Disable payments"
           setup_payments: "Set up payments"
+          cta_separator: "or"
           advice: "To disable payments, read <a href=\"http://support.sharetribe.com/knowledgebase/articles/470085\" target=\"_blank\" alt=\"How to disable payments or add free listings to your marketplace\">this article</<a>."
         slogan_and_description:
           title: "Step 2: Slogan & Description"
