@@ -1,5 +1,5 @@
 import { PropTypes } from 'react';
-import r, { div, h2, p, img, a, span} from 'r-dom';
+import r, { div, h2, p, img, a, span } from 'r-dom';
 import css from './styles.scss';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
@@ -36,7 +36,7 @@ const GuidePaypalPage = (props) => {
 
     div(null, [
       a({ className: css.nextButton, href: pageData.cta }, t('setup_payments')),
-      span({ className: css.buttonSeparator}, t('cta_separator')),
+      span({ className: css.buttonSeparator }, t('cta_separator')),
       a({ className: css.nextButtonGhost, href: pageData.alternative_cta }, t('disable_payments')),
     ]),
   ]);
