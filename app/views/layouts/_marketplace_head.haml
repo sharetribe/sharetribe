@@ -61,6 +61,12 @@
   %meta{ :property => "fb:app_id", :content => "#{@current_community.facebook_connect_id}" }
 
 / CSS
+- if APP_CONFIG.icon_pack == "font-awesome"
+  = stylesheet_link_tag "font-awesome.min"
+- else
+  = stylesheet_link_tag APP_CONFIG.ss_social_location
+  = stylesheet_link_tag APP_CONFIG.ss_pika_location
+
 - with_stylesheet_url(@current_community) do |stylesheet_url|
   = stylesheet_link_tag stylesheet_url
 
