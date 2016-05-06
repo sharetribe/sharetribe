@@ -19,6 +19,9 @@ class Admin::GettingStartedGuideController < ApplicationController
     has_sub_path = (path_parts.count == 2 && path_parts[1] != "/")
     sub_path = has_sub_path ? path_parts[1] : ""
 
+    listing_shape = ListingShape.where(community_id: @current_community.id).first
+    alternative_cta = edit_admin_listing_shape_path(listing_shape[:name])
+
     onboarding_status = Admin::OnboardingWizard.new(@current_community.id).setup_status
     links = {
       slogan_and_description: {
@@ -39,7 +42,7 @@ class Admin::GettingStartedGuideController < ApplicationController
       paypal: {
         sub_path: 'paypal',
         cta: admin_paypal_preferences_path,
-        alternative_cta: admin_listing_shapes_path,
+        alternative_cta: alternative_cta,
         info_image: view_context.image_path('onboarding/step5_screenshot_paypal@2x.png')
       },
       listing: {
