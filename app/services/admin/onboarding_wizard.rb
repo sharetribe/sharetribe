@@ -115,13 +115,12 @@ module Admin
       end
     end
 
-    def listing_shape_updated(setup_status, listing_shape)
-      if !setup_status[:paypal] && listing_shape &&
-         !listing_shape[:price_enabled]
+    def listing_shape_updated(setup_status, listing_shapes)
+      if !setup_status[:paypal] && listing_shapes.present? &&
+         listing_shapes.any? {|shape| !shape[:price_enabled] }
         :paypal
       end
     end
-
 
     # Helpers and setup logic
     #
@@ -137,6 +136,7 @@ module Admin
       custom_field = CustomField.find_by(community_id: community.id)
       listing = Listing.find_by(community_id: community.id)
       invitation = Invitation.find_by(community_id: community.id)
+      listing_shapes = ListingShape.where(community_id: community.id)
 
       m = MarketplaceSetupSteps.find_or_create_by(community_id: community_id)
       setup_status = to_setup_status(m)
@@ -147,7 +147,8 @@ module Admin
         custom_field_created(setup_status, custom_field),
         paypal_preferences_updated(setup_status, community),
         listing_created(setup_status, listing),
-        invitation_created(setup_status, invitation)
+        invitation_created(setup_status, invitation),
+        listing_shape_updated(setup_status, listing_shapes)
       ].compact.map { |status| [status, true] }.to_h
 
       m.update_attributes(updates)

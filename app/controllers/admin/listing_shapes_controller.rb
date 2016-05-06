@@ -87,7 +87,7 @@ class Admin::ListingShapesController < ApplicationController
 
       # Onboarding wizard step recording
       state_changed = Admin::OnboardingWizard.new(@current_community.id)
-        .update_from_event(:listing_shape_updated, update_result.data)
+        .update_from_event(:listing_shape_updated, [update_result.data])
       if state_changed
         report_to_gtm([{event: "km_record", km_event: "Onboarding payments setup"},
                        {event: "km_record", km_event: "Onboarding payment disabled"}])
