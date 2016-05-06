@@ -8,6 +8,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ## [Unreleased]
 
+## [5.7.0] - 2016-05-11
+
 ### Added
 
 - Add a new job queue (css_compile) for css compilations [#1815](https://github.com/sharetribe/sharetribe/pull/1815)
@@ -176,7 +178,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v5.6.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v5.7.0...HEAD
+[5.7.0]: https://github.com/sharetribe/sharetribe/compare/v5.6.0...v5.7.0
 [5.6.0]: https://github.com/sharetribe/sharetribe/compare/v5.5.0...v5.6.0
 [5.5.0]: https://github.com/sharetribe/sharetribe/compare/v5.4.0...v5.5.0
 [5.4.0]: https://github.com/sharetribe/sharetribe/compare/v5.3.0...v5.4.0

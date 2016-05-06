@@ -34,6 +34,8 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 ## Unreleased
 
+## Upgrade from 5.6.0 to 5.7.0
+
 ### Separate CSS compilation workers
 
 This release adds a new Delayed Job queue "css_compile". All CSS compilations during the deployment are added to this queue. However, CSS compilations triggered from the admin UI do NOT go into this queue, instead they are added to the "default" queue.
