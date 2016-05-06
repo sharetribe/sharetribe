@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import r from 'r-dom';
 import _ from 'lodash';
 
 import GuideStatusPage from './GuideStatusPage';
@@ -81,7 +82,7 @@ const translate = function translate(translations) {
 };
 
 // Get link and title of next recommended onboarding step
-const nextStep = function nextStep(data, translateFunc, initialPath) {
+const nextStep = function nextStep(data, translateFunc) {
   const keys = Object.keys(data);
   for (let i = 0; i < keys.length; i++) {
     const step = keys[i];
@@ -102,43 +103,7 @@ const getPaths = function getPaths(props, pathFragment) {
   return { initialPath, componentSubPath: pathParts[1] };
 };
 
-export default class OnboardingGuide extends React.Component {
-
-  static propTypes = {
-    actions: PropTypes.shape({
-      updateGuidePage: PropTypes.func.isRequired,
-    }).isRequired,
-    railsContext: PropTypes.object.isRequired,
-    data: PropTypes.shape({
-      path: PropTypes.string.isRequired,
-      original_path: PropTypes.string.isRequired,
-      pathHistoryForward: PropTypes.bool,
-      name: PropTypes.string.isRequired,
-      info_icon: PropTypes.string.isRequired,
-      translations: PropTypes.object.isRequired,
-      onboarding_data: PropTypes.objectOf(PropTypes.shape({
-        info_image: PropTypes.string,
-        link: PropTypes.string.isRequired,
-        complete: PropTypes.bool.isRequired,
-      }).isRequired).isRequired,
-    }).isRequired,
-  };
-
-  componentDidMount() {
-    window.addEventListener('popstate', this.handlePopstate);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('popstate', this.handlePopstate);
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    // Back button clicks should not be saved with history.pushState
-    if (nextProps.data.pathHistoryForward) {
-      const path = nextProps.data.path;
-      this.setPushState({ path }, path, path);
-    }
-  }
+class OnboardingGuide extends React.Component {
 
   constructor(props, context) {
     super(props, context);
@@ -153,14 +118,29 @@ export default class OnboardingGuide extends React.Component {
 
     // Figure out the next step. I.e. what is the action we recommend for admins
     this.nextStep = nextStep(this.props.data.onboarding_data,
-      translate(this.props.data.translations.next_step),
-      this.initialPath);
+                             translate(this.props.data.translations.next_step));
 
     // Add current path to window.history. Initially it contains null as a state
     this.setPushState(
       { path: this.componentSubPath },
       this.componentSubPath,
       this.componentSubPath);
+  }
+
+  componentDidMount() {
+    window.addEventListener('popstate', this.handlePopstate);
+  }
+
+  componentWillUpdate(nextProps) {
+    // Back button clicks should not be saved with history.pushState
+    if (nextProps.data.pathHistoryForward) {
+      const path = nextProps.data.path;
+      this.setPushState({ path }, path, path);
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('popstate', this.handlePopstate);
   }
 
   setPushState(state, title, path) {
@@ -193,15 +173,36 @@ export default class OnboardingGuide extends React.Component {
 
   render() {
     const { Page, translations, ...opts } = selectChild(this.props.data, this.nextStep);
-    return (
-      <Page
-        changePage={this.handlePageChange}
-        initialPath={this.initialPath}
-        name={this.props.data.name}
-        infoIcon={this.props.data.info_icon}
-        t={translate(translations)}
-        {...opts}
-      />
-    );
+    return r(Page, {
+      changePage: this.handlePageChange,
+      initialPath: this.initialPath,
+      name: this.props.data.name,
+      infoIcon: this.props.data.info_icon,
+      t: translate(translations),
+      ...opts,
+    });
   }
 }
+
+OnboardingGuide.propTypes = {
+  actions: PropTypes.shape({
+    updateGuidePage: PropTypes.func.isRequired,
+  }).isRequired,
+  railsContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  data: PropTypes.shape({
+    path: PropTypes.string.isRequired,
+    original_path: PropTypes.string.isRequired,
+    pathHistoryForward: PropTypes.bool,
+    name: PropTypes.string.isRequired,
+    info_icon: PropTypes.string.isRequired,
+    translations: PropTypes.object.isRequired,
+    onboarding_data: PropTypes.objectOf(PropTypes.shape({
+      info_image: PropTypes.string,
+      cta: PropTypes.string.isRequired,
+      alternative_cta: PropTypes.string,
+      complete: PropTypes.bool.isRequired,
+    }).isRequired).isRequired,
+  }).isRequired,
+};
+
+export default OnboardingGuide;

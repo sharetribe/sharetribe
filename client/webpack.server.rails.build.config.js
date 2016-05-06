@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 const Promise = require('es6-promise');
 Promise.polyfill();
 
@@ -16,7 +18,7 @@ module.exports = {
     path: '../app/assets/webpack',
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js'],
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -27,7 +29,7 @@ module.exports = {
   ],
   module: {
     loaders: [
-      { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       {
         test: /\.css$/,
         loaders: [

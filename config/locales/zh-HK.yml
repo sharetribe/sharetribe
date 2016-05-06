@@ -19,8 +19,8 @@ zh-HK:
           category_parent: ~
           no_parent: ~
         category_transaction_types:
-          transaction_types: ~
-          transaction_types_description: ~
+          transaction_types: 交易類別
+          transaction_types_description: 交易類別決定了在該類別中的發佈的信息的訂購流程。例如是否只能出售，或者允許出租以及免費贈送。
           select_all: ~
           clear_all: ~
         buttons:
@@ -105,10 +105,10 @@ zh-HK:
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
-        welcome_email_content: ~
-        welcome_email_content_description: ~
-        edit_message: ~
-        send_test_message: ~
+        welcome_email_content: 歡迎電郵內容
+        welcome_email_content_description: "每個新用戶加入時將會收到以下的訊息。你可以自行編輯這訊息。通過點擊“%{send_test_message_link}”你可以發送一條預覽信息到你的電子郵件地址，來看看它在郵件客戶端中的將如何被顯示。"
+        edit_message: 編輯訊息
+        send_test_message: 發送測試通知
       outgoing_email:
         title: ~
         info: ~
@@ -142,7 +142,7 @@ zh-HK:
         follow_the_instructions: ~
       getting_started:
         getting_started: ~
-        welcome_to_your_marketplace: ~
+        welcome_to_your_marketplace: "歡迎你，%{name}！"
         intro: ~
         live_site_link_text: ~
         look_and_feel: ~
@@ -156,11 +156,11 @@ zh-HK:
         order_types_link_text: ~
         payments: ~
         payments_link_text: ~
-        info_texts: ~
+        info_texts: "不要忘記通過定制信息頁面和其他文本來告訴你的用戶關於你的集市。有一些不錯的地方可以參考：你的%{about_page_link}，你的%{terms_of_use_link}（你應該增加你自己的條款，或者編輯當前模板，或者創建一個全新文檔），你的%{privacy_policy_link}，以及發送給每個新用戶的%{welcome_email_link}。這兒還有一些你可以配置的%{instruction_texts_link}。"
         about_page_link_text: 關於
         terms_of_use_link_text: 服務條款
         privacy_policy_link_text: 隱私權條款
-        welcome_email_link_text: ~
+        welcome_email_link_text: 歡迎電郵
         instruction_texts_link_text: ~
         social_media: ~
         facebook_link_text: ~
@@ -199,7 +199,7 @@ zh-HK:
       settings:
         settings: ~
         general: ~
-        users_can_review_each_other_after_transaction: ~
+        users_can_review_each_other_after_transaction: 用戶可以在交易結束後相互評論
         access: ~
         join_with_invite_only: ~
         users_can_invite_new_users: ~
@@ -213,7 +213,7 @@ zh-HK:
         km: ~
         miles: ~
         listing_preferences: ~
-        transaction_preferences: ~
+        transaction_preferences: 交易偏好
         show_listing_publishing_date: ~
         show_category_in_listing_list: ~
         hide_expiration_date: ~
@@ -277,36 +277,36 @@ zh-HK:
         google_analytics_instructions_link_text: ~
         save: ~
       menu_links:
-        menu_links: ~
-        save: ~
-        add_menu_link: ~
-        title_placeholder: ~
+        menu_links: 目錄連結
+        save: 保存設定
+        add_menu_link: 新增連結到功能目錄
+        title_placeholder: 連結名稱
         url_placeholder: ~
-        title: ~
-        language: ~
-        url: ~
-        empty: ~
+        title: 標題
+        language: 語言
+        url: URL
+        empty: 你沒有其它目錄連結
       transactions:
         export_all_as_csv: ~
-        transactions: ~
+        transactions: 查閱交易記錄
         headers:
-          conversation: ~
-          listing: ~
-          status: ~
-          sum: ~
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
+          conversation: 對話
+          listing: 訊息
+          status: 狀態
+          sum: 總數
+          started: 已開始
+          last_activity: 最近的活動
+          initiated_by: 發起人
+          other_party: 其他參與者
         status:
-          free: ~
-          pending: ~
-          preauthorized: ~
-          accepted: ~
-          rejected: ~
-          paid: ~
-          confirmed: ~
-          canceled: ~
+          free: 對話
+          pending: 等待中
+          preauthorized: 已預先授權
+          accepted: 已接受
+          rejected: 被拒絕
+          paid: 已支付
+          confirmed: 已確認
+          canceled: 已取消
           initiated: ~
           pending_ext: ~
         not_available: ~
@@ -486,21 +486,21 @@ zh-HK:
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
     transaction_types:
-      sell: ~
-      rent: ~
-      give: ~
-      lend: ~
-      swap: ~
-      service: ~
-      request: ~
-      inquiry: ~
-      share_for_free: ~
+      sell: 出售
+      rent: 出租
+      give: 贈送
+      lend: 出借
+      swap: 交換
+      service: 提出交易
+      request: 請求
+      inquiry: 公告
+      share_for_free: 免費分享
       default_action_button_labels:
-        sell: ~
-        rent: ~
-        request: ~
-        offer: ~
-        inquiry: ~
+        sell: 購買
+        rent: 出租
+        request: 交易
+        offer: 請求
+        inquiry: 聯絡資訊
   common:
     edit_page: ~
     default_community_slogan: ~
@@ -585,7 +585,7 @@ zh-HK:
       confirm_description: ~
       cancel_description: ~
       cancel_payed_description: ~
-      canceling_payed_transaction: ~
+      canceling_payed_transaction: 取消交易
       confirm: ~
       cancel: ~
       continue: ~
@@ -632,7 +632,7 @@ zh-HK:
       optional_message_to: ~
       send_message: ~
       send: ~
-      this_message_is_private: ~
+      this_message_is_private: "此為你和%{person}之間的私密訊息。%{person}將收到郵件通知。"
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
       title: 標題
@@ -657,7 +657,7 @@ zh-HK:
       payment_errored: ~
       payment_errored_starter: ~
       payment_errored_author: ~
-      cancel_payed_transaction: ~
+      cancel_payed_transaction: 取消
       feedback_given: 評價已發送
       feedback_skipped: 已跳過評價
       give_feedback: 給予評價
@@ -764,7 +764,7 @@ zh-HK:
       you_are_banned_in_this_community: ~
       contact_page_link: ~
     new:
-      welcome_fb_user: ~
+      welcome_fb_user: "%{name}，歡迎來到%{service_name}！"
       fb_join_accept_terms: ~
       join_community: ~
       you_can_join: ~
@@ -811,16 +811,16 @@ zh-HK:
       please_go_to_payment_settings: ~
       payment_settings_link: ~
     transaction_confirmed:
-      here_is_a_message_from: ~
-      request_marked_as_confirmed: ~
-      request_marked_as_canceled: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
-      giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      here_is_a_message_from: "這裡有一個%{other_party_given_name}給你的訊息:"
+      request_marked_as_confirmed: 請求已完成——請不要忘記給予回應
+      request_marked_as_canceled: 取消請求
+      has_marked_request_as_confirmed: "%{other_party_full_name}已經把「%{request}」標示作已完成。現在你可以向%{other_party_given_name}作出回應。"
+      has_marked_request_as_canceled: "%{other_party_full_name}已經把「%{request}」取消。你仍可以向%{other_party_given_name}作出回應。"
+      giving_feedback_is_good_idea: "你可以給予回應。你應該讓其他人知道你與%{other_party_given_name}的交易愉快。如果有任何問題，你也可以在評論中提及。"
+      give_feedback_to: "向%{other_party_given_name}作出回應"
     transaction_automatically_confirmed:
-      subject: ~
-      we_have_marked_request_as_confirmed: ~
+      subject: 交易自動完成——不要忘記給予回應
+      we_have_marked_request_as_confirmed: "我們已經把「%{request}」標示作已完成。此交易已自動完成，因為在請求被接受後%{days_passed}天已經過去。"
     booking_transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
@@ -830,14 +830,14 @@ zh-HK:
       show_thread: ~
     escrow_canceled:
       subject: ~
-      has_marked_request_as_canceled: ~
+      has_marked_request_as_canceled: "%{other_party_full_name}已把「%{request}」取消。你將不能從此交易中收取任何款項。"
       if_this_was_error: ~
       please_contant_admin_link: ~
     confirmation_instructions:
-      confirmation_instructions_signature: ~
-      welcome_to_kassi: ~
-      need_to_confirm: ~
-      confirmation_link_text: ~
+      confirmation_instructions_signature: "%{service_name}團隊向你致以問候。"
+      welcome_to_kassi: "歡迎來到%{service_name}！"
+      need_to_confirm: 請確認你的電郵地址。
+      confirmation_link_text: 確認我的電郵
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
@@ -864,16 +864,16 @@ zh-HK:
       pay_now: ~
       remember_to_confirm: ~
     invitation_to_kassi:
-      hi: ~
-      you_have_been_invited_to_kassi: ~
-      here_is_a_message_from: ~
+      hi: 你好！
+      you_have_been_invited_to_kassi: "%{inviter}邀請你使用%{service_name}。"
+      here_is_a_message_from: "這是來自%{inviter}的訊息"
       join_now: ~
       invitation_code: ~
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
       you_have_a_new_comment: "%{author} 在%{service_name}的項目留言"
-      listing_you_follow_has_a_new_comment: ~
+      listing_you_follow_has_a_new_comment: "%{author}在你關注的%{service_name}中發表了一則留言。"
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
@@ -910,7 +910,7 @@ zh-HK:
       you_can_give_feedback_to: "您還未對%{name}作出評價。"
       view_feedback: ~
     new_update_to_listing:
-      listing_you_follow_has_been_updated: ~
+      listing_you_follow_has_been_updated: 你所關注的訊息已更新
       has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
@@ -926,10 +926,10 @@ zh-HK:
       settings_link_text: ~
       unsubscribe_link_text: ~
     newsletter:
-      hi: ~
-      newest_offers: ~
-      newest_requests: ~
-      text_version_text: ~
+      hi: "%{name}, 你好!"
+      newest_offers: 大家最近提出的交易
+      newest_requests: 大家最近發出的請求
+      text_version_text: "你可以分享一些其他人可能需要的東西嗎？或者別人擁有一些你可能需要的東西？請點擊%{url}提出一個交易或者查看其他人當前提供的或者請求的東西。"
     reset_password_instructions:
       change_my_password: ~
       reset_password_instructions: ~
@@ -937,38 +937,38 @@ zh-HK:
       remember_to_give_feedback_to: "提示：請不要忘記對%{name}作出評價。"
       you_have_not_given_feedback_yet: "你尚未就%{event}對%{name}作出評價。請不要忘記對%{given_name}在該活動的表現作出評價。"
     transaction_preauthorized:
-      subject: ~
-      transaction_requested_by_user: ~
+      subject: "%{requester}已請求及授權為%{listing_title}付款。"
+      transaction_requested_by_user: "%{requester}已請求及授權為「%{listing_title}」付款。"
       you_have_time_to_accept: ~
-      click_here_to_reply: ~
+      click_here_to_reply: 按此以回應請求
     transaction_preauthorized_reminder:
-      subject: ~
-      remember_to_accept: ~
-      one_day_left: ~
-      click_here_to_reply: ~
+      subject: "不要忘記接受來自%{requester}有關%{listing_title}的請求"
+      remember_to_accept: "不要忘記接受來自%{requester}有關%{listing_title}的請求。%{requester}已為此請求付款。你需要接受請求以收取款項。"
+      one_day_left: 如果你不能在一天內接受請求，這請求將會被自動取消，你亦不會收到款項。
+      click_here_to_reply: 按此以回應請求
     welcome_email:
-      welcome_email_subject: ~
-      welcome_to_marketplace: ~
-      love_marketplace_crew: ~
-      welcome_email_footer_text: ~
-      settings_link_text: ~
-      welcome_email_subject_for_marketplace_creator: ~
-      welcome_to_marketplace_creator: ~
-      congrats_for_creating_your_marketplace: ~
-      here_is_your_account_information: ~
-      your_email_address: ~
-      your_marketplace_address: ~
-      your_marketplace_admin_area: ~
-      just_follow_details: ~
-      we_will_guide_you_along_the_way: ~
-      are_you_new_to_online_marketplaces: ~
-      have_questions: ~
-      our_happiness_team_is_here_to_help: ~
-      love: ~
-      sharetribe_crew: ~
-      knowledge_base_link_text: ~
-      contact_support_link_text: ~
-      admin_panel_link_text: ~
+      welcome_email_subject: "歡迎來到%{service_name}！"
+      welcome_to_marketplace: "歡迎來到%{service_name}！恭喜你成功註冊。"
+      love_marketplace_crew: "親愛的%{service_name}團隊敬上"
+      welcome_email_footer_text: "你希望從%{service_name}接收到哪種類型的電郵？%{settings_link}"
+      settings_link_text: 查看你的設定
+      welcome_email_subject_for_marketplace_creator: 歡迎來到Sharetribe！
+      welcome_to_marketplace_creator: "歡迎來到Sharetribe，%{name}！"
+      congrats_for_creating_your_marketplace: 恭喜你成功創建你的市集！很簡單，對嗎？
+      here_is_your_account_information: 這是你的的帳戶訊息。
+      your_email_address: 你用以登入的電郵地址：
+      your_marketplace_address: 你的市集地址：
+      your_marketplace_admin_area: 你的市集管理後台：
+      just_follow_details: 以下的連結將告訴你如何開始你的市集！
+      we_will_guide_you_along_the_way: 我們將一路伴隨。
+      are_you_new_to_online_marketplaces: 你的市集需要協助嗎？沒有問題！我們將發送一系列的電郵來幫助你處理Sharetribe及建立你的市集。我們即將發送第一部份的內容給你。
+      have_questions: 有任何問題嗎？
+      our_happiness_team_is_here_to_help: "我們的團隊會為你提供協助！請按%{knowledge_base_link}或透過%{admin_panel_link}聯絡我們。"
+      love: 親愛的，
+      sharetribe_crew: Sharetribe全體人員
+      knowledge_base_link_text: 請查閱我們的資料庫
+      contact_support_link_text: 聯絡我們的支援人員
+      admin_panel_link_text: 管理員控制版面
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -1062,20 +1062,20 @@ zh-HK:
   header:
     about: 關於
     home: 主頁
-    members: ~
-    new_listing: ~
+    members: 社群
+    new_listing: 發佈新訊息
     mobile_version: 行動裝置版本
     offers: 放售
     requests: 要求
     search_kassi: "搜尋%{service_name}"
     create_new_marketplace: ~
-    contact_us: ~
-    profile: ~
-    manage_listings: ~
-    invite: ~
-    login: ~
-    signup: ~
-    menu: ~
+    contact_us: 聯繫我們
+    profile: 個人檔案
+    manage_listings: 管理訊息列表
+    invite: 邀請新朋友
+    login: 登入
+    signup: 註冊
+    menu: 功能目錄
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: 除此以外，還有<b>另一個放售貨品</b>
@@ -1146,9 +1146,9 @@ zh-HK:
       filter: ~
       this_is_private_community: ~
     invitation_form:
-      email: ~
-      message: ~
-      send_invitation: ~
+      email: 電郵地址
+      message: 一個私人訊息
+      send_invitation: 發送邀請
       add_email_addresses_description: ~
       add_lots_of_email_addresses: ~
       this_article_link: ~
@@ -1163,10 +1163,10 @@ zh-HK:
       show_less: ~
       show_more: ~
     profile_info_empty_notification:
-      add_your_info: ~
+      add_your_info: 加入你的聯絡資訊
       add_a_profile_picture: ~
-      you_have_not_added_your_info: ~
-      add_your_info_link: ~
+      you_have_not_added_your_info: 你尚未添加你的聯絡方式。請添加聯絡方式以方便他人聯繫你。同時請添加個人資料照片從而得到其他人的關注。
+      add_your_info_link: 加入你的個人資訊
     recent_listing:
       please_offer: 貨品
       comment: ~
@@ -1223,7 +1223,7 @@ zh-HK:
       received: 已接收
       sent: 已送出
     global-header:
-      select_language: ~
+      select_language: 選擇語言
     infos:
       about: 關於
       how_to_use: 如何使用
@@ -1253,20 +1253,20 @@ zh-HK:
       logout: 登出
       notifications: 通知
       requests: 好友請求
-      settings: ~
+      settings: 設定
       sign_up: 註冊
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
-      test_welcome_email_delivered_to: ~
+      test_welcome_email_delivered_to: "測試郵件已發送到%{email}。"
       something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
-      account_creation_succesful_you_still_need_to_confirm_your_email: ~
+      account_creation_succesful_you_still_need_to_confirm_your_email: 成功建立賬號。下一步，請確認你的電郵地址。
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       comment_cannot_be_empty: 留言不能為空白
       comment_sent: 已送出留言
-      confirmation_link_is_wrong_or_used: ~
+      confirmation_link_is_wrong_or_used: 確認鏈接已被使用或失效。請嘗試登錄，如果問題依然存在請向我們發送回應。
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
       facebook_email_unconfirmed: ~
@@ -1280,13 +1280,13 @@ zh-HK:
       feedback_saved: 感謝你的回應！我們會盡快給予回覆。
       feedback_sent_to: "回應已發送至%{target_person}。"
       feedback_skipped: 跳過回應
-      invitation_cannot_be_sent: ~
+      invitation_cannot_be_sent: 未發出邀請
       invitation_limit_reached: ~
-      invitation_sent: ~
-      inviting_new_users_is_not_allowed_in_this_community: ~
+      invitation_sent: 已成功發出邀請
+      inviting_new_users_is_not_allowed_in_this_community: 不允許邀請新用戶
       login_again: 請重新登入。
       login_failed: 登入失敗。請輸入正確的用戶名稱及密碼。
-      account_creation_successful: ~
+      account_creation_successful: "%{person_name}，歡迎來到%{service_name}！"
       account_deleted: ~
       login_successful: "歡迎您,%{person_name}！"
       logout_successful: "您已退出了%{service_name}，歡迎電次使用我們的服務！"
@@ -1311,8 +1311,8 @@ zh-HK:
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: 更改密碼的說明已發送至你的電郵。
-      person_activated: ~
-      person_deactivated: ~
+      person_activated: 你的帳號已經啟用
+      person_deactivated: 你的帳號已被停用
       person_updated_successfully: 已更新訊息
       poll_answered: ~
       poll_could_not_be_answered: ~
@@ -1322,7 +1322,7 @@ zh-HK:
       poll_updated: ~
       poll_deleted: ~
       read_more: 閱讀更多！
-      registration_considered_spam: ~
+      registration_considered_spam: "不能註冊，請透過最上方的功能目錄來聯絡我們，並請輸入\"email2 error\"。"
       reply_cannot_be_empty: 不能發送空白的訊息
       reply_sent: 你的回覆發送成功
       request_accepted: 你的請求已被接受
@@ -1331,7 +1331,7 @@ zh-HK:
       request_canceled: ~
       message_sent: ~
       message_not_sent: ~
-      this_content_is_not_available_in_this_community: ~
+      this_content_is_not_available_in_this_community: 不存在此內容。
       unknown_error: 發生未知錯誤。請透過”聯繫我們“向我們報告問題。
       update_error: 更新訊息時發生錯誤，請重試
       you_are_not_allowed_to_give_feedback_on_this_transaction: 你沒有發表回應的權限
@@ -1343,12 +1343,12 @@ zh-HK:
       you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: 你已經對此事件發表回應
-      you_are_now_member: ~
-      you_are_already_member: ~
+      you_are_now_member: "歡迎來到%{service_name}！"
+      you_are_already_member: "你已經成為%{service_name}的會員了。歡迎回來！"
       you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: ~
       you_must_log_in_to_give_feedback: 你必需登入以發表回應
-      you_must_log_in_to_invite_new_users: ~
+      you_must_log_in_to_invite_new_users: "你必須先登入才能邀請新用戶到%{service_name}"
       you_must_log_in_to_send_a_comment: 你必需登入以發表新的評論
       you_must_log_in_to_send_a_message: "你必需登入%{service_name}以向其它用戶發送訊息。"
       you_must_log_in_to_do_a_transaction: ~
@@ -1359,11 +1359,11 @@ zh-HK:
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
-      you_must_log_in_to_accept_or_reject: ~
-      you_must_log_in_to_confirm_or_cancel: ~
-      you_need_to_confirm_your_account_first: ~
+      you_must_log_in_to_accept_or_reject: 你必須登入以接受或拒絕此交易
+      you_must_log_in_to_confirm_or_cancel: 你必須登入以取消或確認此交易
+      you_need_to_confirm_your_account_first: 請確認你的電郵地址。
       you_must_fill_all_the_fields: ~
-      you_unfollowed_listing: ~
+      you_unfollowed_listing: 你不再關注這則訊息
       joining_community_failed: ~
       can_not_login_with_private_user: ~
       can_not_delete_email: ~
@@ -1382,7 +1382,7 @@ zh-HK:
       payments: ~
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: ~
+      listing_not_visible: 你無權查閱此訊息。
     comment:
       wrote: ~
       send_private_message: ~
@@ -1396,7 +1396,7 @@ zh-HK:
       write_comment: 填寫一個新的留言
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
       you_must: 您必需要
-      subscribe_to_comments: ~
+      subscribe_to_comments: 若有新的評論或更新，請通知我
     edit:
       edit_listing: ~
     edit_links:
@@ -1413,8 +1413,8 @@ zh-HK:
     error:
       something_went_wrong: ~
     follow_links:
-      follow: ~
-      unfollow: ~
+      follow: 接收關於新評論的電郵
+      unfollow: 不要接收關於新評論的電郵
     form:
       custom_field_partials:
         dropdown:
@@ -1423,7 +1423,7 @@ zh-HK:
         at: 於
         departure_time: 離開時間
       departure_time_radio_buttons:
-        repeated: ~
+        repeated: "重複輸入 (請在「詳細描述」中加入時間及日子)"
       description:
         detailed_description: 詳細資料
         youtube_info: ~
@@ -1566,10 +1566,10 @@ zh-HK:
       listing: ~
       selected_category: ~
       selected_subcategory: ~
-      selected_transaction_type: ~
+      selected_transaction_type: "顯示類型：%{transaction_type}"
       select_category: ~
       select_subcategory: ~
-      select_transaction_type: ~
+      select_transaction_type: 選擇交易類別
       you_need_to_fill_payout_details_before_accepting: ~
       contact_admin_link_text: ~
       community_not_configured_for_payments: ~
@@ -1641,7 +1641,7 @@ zh-HK:
       by: ~
       payment: ~
       exp: ~
-      you_will_be_charged: ~
+      you_will_be_charged: "只有%{author}接受了交易後你才會被支取費用。%{author}需要於%{expiration_period}內接受交易。若%{author}拒絕或沒有回應，這並不會產生任何費用。"
       day: ~
       days: ~
     transaction_agreement_checkbox:
@@ -1764,33 +1764,33 @@ zh-HK:
     chatting_with_paypal: ~
   people:
     edit_links:
-      activate: ~
-      deactivate: ~
+      activate: 啟動
+      deactivate: 關閉
     help_texts:
       feedback_description_title: 回應
-      help_invitation_code_title: ~
+      help_invitation_code_title: 你需要被邀請才能加入
       terms_title: "%{service_name}的使用條款"
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
-      this_person_is_not_active_in_kassi: ~
-      inactive_description: ~
+      this_person_is_not_active_in_kassi: "此用戶已不再存在於%{service_name}"
+      inactive_description: "該用戶已停用%{service_name}。你不能聯絡此用戶、給予回應或者評價他們的發佈的訊息。"
     new:
       create_new_account: 建立帳戶
       email: 電郵地址
       email_is_in_use: 你所提供的電郵已被使用。
-      email_is_in_use_or_not_allowed: ~
+      email_is_in_use_or_not_allowed: 此電郵地址不允許使用或已被註冊。如果你無法註冊，請聯絡我們。
       email_not_allowed: ~
       family_name: 姓
       given_name: 名
       i_accept_the: 我接受
-      invalid_invitation_code: ~
-      invitation_code: ~
+      invalid_invitation_code: 此邀請碼無效。
+      invitation_code: 邀請碼
       not_required: 不需要
       notification_is_mandatory: ~
       organization_name: ~
       password_again: 確認密碼
-      show_my_name_to_others: ~
+      show_my_name_to_others: "向其它%{service_name}用戶顯示我的真實姓名"
       sign_up: "建立一個新的%{service_name}帳戶"
       terms: 使用條款
       username_is_in_use: 此用戶名稱已被使用。
@@ -1882,14 +1882,14 @@ zh-HK:
       request_new_password: 請輸入新的密碼
       change_your_password: ~
     confirmation_pending:
-      welcome_to_kassi: ~
-      check_your_email: ~
-      resend_confirmation_instructions: ~
+      welcome_to_kassi: "歡迎來到%{service_name}！"
+      check_your_email: 查看你的收件箱
+      resend_confirmation_instructions: 再次傳送確認訊息
       your_current_email_is: ~
       change_email: ~
       confirm_your_email: ~
       account_confirmation_instructions: ~
-      account_confirmation_instructions_title_admin: ~
+      account_confirmation_instructions_title_admin: 歡迎來到你的集市！
       your_marketplace_has_now_been_created: ~
       account_confirmation_instructions_admin: ~
   settings:
@@ -1924,8 +1924,8 @@ zh-HK:
         status_pending: ~
     notifications:
       email_from_admins: ~
-      i_want_to_get_email_notification_when: ~
-      newsletters: ~
+      i_want_to_get_email_notification_when: 當...的時候請寄給我一封電郵通知
+      newsletters: 電子通訊
       community_updates: ~
       email_about_accept_reminders: "... 我忘記接受一個交易或請求"
       email_about_confirm_reminders: ~
@@ -1937,8 +1937,8 @@ zh-HK:
       email_weekly_community_updates: ~
       do_not_email_community_updates: ~
       email_when_conversation_accepted: "... 有人接受了我的交易或請求"
-      email_when_conversation_rejected: ~
-      email_about_completed_transactions: ~
+      email_when_conversation_rejected: "... 有人拒絕了我的交易或請求"
+      email_about_completed_transactions: "... 有人將交易標示作已完成"
       email_about_new_payments: ~
       email_about_payment_reminders: ~
       email_about_new_listings_by_followed_people: ~
@@ -1949,59 +1949,59 @@ zh-HK:
       unsubscribe_unsuccesful: ~
       unsuccessful_unsubscribe_info_text: ~
     profile:
-      about_you: ~
-      city: ~
-      family_name: ~
-      given_name: ~
+      about_you: 關於你
+      city: 城市
+      family_name: 姓
+      given_name: 名
       first_name_with_initial: ~
       first_name_only: ~
       location_description: ~
-      phone_number: ~
+      phone_number: 電話號碼
       profile_picture: ~
-      postal_code: ~
-      profile_page: ~
-      profilemap: ~
-      street_address: ~
-      these_fields_are_shown_in_your: ~
-      visible_to_everybody: ~
-      visible_to_registered_users: ~
+      postal_code: 郵遞區號
+      profile_page: 點擊查看你的個人信息版面
+      profilemap: 地圖註解
+      street_address: 位置
+      these_fields_are_shown_in_your: "這信息開放給所有%{service_name}用戶"
+      visible_to_everybody: 所有人皆可見
+      visible_to_registered_users: (只開放給已登入之用戶)
       default_in_listing: ~
       invisible: ~
       image_is_processing: ~
-    save_information: ~
+    save_information: 保存信息
   shipping_address:
     shipping_address: ~
   tag_cloud:
     tag_used:
-      with_tag: ~
-      without_tag: ~
+      with_tag: 有標籤
+      without_tag: 沒有標籤
   terms:
     show:
-      accept_terms: ~
-      here: ~
-      i_accept_new_terms: ~
-      i_accept_terms: ~
-      terms: ~
-      terms_have_changed: ~
-      you_can_view_the_new_terms: ~
-      you_need_to_accept: ~
-      you_need_to_accept_new_terms: ~
+      accept_terms: "接受%{service_name}的使用條款"
+      here: 請按這裡
+      i_accept_new_terms: 我接受新的條款
+      i_accept_terms: 我接受條款
+      terms: "%{service_name}的使用條款"
+      terms_have_changed: 使用條款已更變
+      you_can_view_the_new_terms: 你可以查看新的條款
+      you_need_to_accept: "歡迎來到%{service_name}！這是你第一次使用此服務。在開始前你必須接受"
+      you_need_to_accept_new_terms: "%{service_name}的使用條款已更變。你必須接受新條款以繼續使用%{service_name}。新條款在研究項目結束後仍繼續保持服務。"
   testimonials:
     index:
-      all_testimonials: ~
-      feedback_altogether: ~
-      loading_more_testimonials: ~
-      no_testimonials: ~
+      all_testimonials: 所有回應
+      feedback_altogether: 回覆全部
+      loading_more_testimonials: 載入更多評價
+      no_testimonials: 沒有收到回覆
     new:
-      as_expected: ~
-      exceeded_expectations: ~
-      give_feedback_to: ~
-      grade: ~
-      less_than_expected: ~
-      send_feedback: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      textual_feedback: ~
+      as_expected: 符合期望
+      exceeded_expectations: 比預期的好
+      give_feedback_to: "回應%{person}"
+      grade: 你整體的感覺如何?
+      less_than_expected: 不合乎期望
+      send_feedback: 發出評價
+      slightly_better_than_expected: 比預期稍好
+      slightly_less_than_expected: 比預期稍差
+      textual_feedback: 事情進展如何？
       this_will_be_shown_in_profile: ~
       positive: ~
       negative: ~
@@ -2071,17 +2071,17 @@ zh-HK:
       shorter: ~
       short_date: ~
   timestamps:
-    day_ago: ~
-    days_ago: ~
-    hour_ago: ~
-    hours_ago: ~
-    minute_ago: ~
-    minutes_ago: ~
-    month_ago: ~
-    months_ago: ~
-    seconds_ago: ~
-    year_ago: ~
-    years_ago: ~
+    day_ago: "%{count} 天前"
+    days_ago: "%{count} 天前"
+    hour_ago: "%{count} 小時前"
+    hours_ago: "%{count} 小時前"
+    minute_ago: "%{count} 分鐘前"
+    minutes_ago: "%{count} 分鐘前"
+    month_ago: "%{count} 月前"
+    months_ago: "%{count} 月前"
+    seconds_ago: "%{count} 秒前"
+    year_ago: "%{count} 年前"
+    years_ago: "%{count} 年前"
   transactions:
     initiate:
       booked_days: ~

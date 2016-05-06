@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = require('./webpack.client.base.config');
@@ -10,7 +12,7 @@ config.output = {
 
 config.module.loaders.push(
   {
-    test: /\.jsx?$/,
+    test: /\.js$/,
     loader: 'babel-loader',
     exclude: /node_modules/,
   },

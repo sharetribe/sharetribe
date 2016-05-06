@@ -10,7 +10,7 @@ class Admin::CommunitiesController < ApplicationController
     @community = @current_community
 
     if(feature_enabled?(:onboarding_redesign_v1))
-      redirect_to getting_started_guide_admin_community_path(id: @current_community.id)
+      redirect_to admin_getting_started_guide_path
     else
       render locals: {paypal_enabled: PaypalHelper.paypal_active?(@current_community.id)}
     end
@@ -23,7 +23,7 @@ class Admin::CommunitiesController < ApplicationController
 
     onboarding_popup_locals = OnboardingViewUtils.popup_locals(
       flash[:show_onboarding_popup],
-      getting_started_guide_admin_community_path(@current_community),
+      admin_getting_started_guide_path,
       Admin::OnboardingWizard.new(@current_community.id).setup_status)
 
     render "edit_look_and_feel", locals: onboarding_popup_locals

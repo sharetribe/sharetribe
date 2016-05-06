@@ -39,7 +39,7 @@ You need to register new React components (e.g. "ExampleApp") for react_on_rails
 ```js
 ReactOnRails.register({ ExampleApp });
 ```
-Add it to _sharetribe/client/app/startup/clientRegistration.jsx_ and _serverRegistration.jsx_. Read more from [react_on_rails repository](https://github.com/shakacode/react_on_rails) and check [their example app](https://github.com/shakacode/react_on_rails/tree/master/spec/dummy).
+Add it to _sharetribe/client/app/startup/clientRegistration.js_ and _serverRegistration.js_. Read more from [react_on_rails repository](https://github.com/shakacode/react_on_rails) and check [their example app](https://github.com/shakacode/react_on_rails/tree/master/spec/dummy).
 
 New React components can be included to HAML and ERB files with '_react_component_':
 ```erb

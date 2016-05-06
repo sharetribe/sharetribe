@@ -10,11 +10,11 @@ id:
   devise:
     failure:
       already_authenticated: "Anda sudah masuk"
-      unauthenticated: "Anda harus catat masuk atau mendaftar sebelum melanjutkan."
+      unauthenticated: "Anda harus masuk atau mendaftar sebelum melanjutkan."
       unconfirmed: "Anda harus mengkonfirmasi akun anda sebelum melanjutkan."
       locked: "Akun anda terkunci."
       invalid: "Email atau kata sandi yang anda masukkan salah."
-      invalid_token: "Kode otentikasi Salah."
+      invalid_token: "Kode autentikasi Salah."
       timeout: "Sesi Anda telah berakhir. Silahkan patat masuk lagi untuk melanjutkan."
       inactive: "Akun Anda belum diaktifkan."
     passwords:

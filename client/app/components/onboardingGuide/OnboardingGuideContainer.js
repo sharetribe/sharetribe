@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
+import r from 'r-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -7,14 +8,14 @@ import OnboardingGuide from './OnboardingGuide';
 import * as OnboardingGuideActions from '../../actions/OnboardingGuideActions';
 
 const OnbardingGuideContainer = ({ actions, data, railsContext }) =>
-  (<OnboardingGuide {...{ actions, data, railsContext }} />);
+        r(OnboardingGuide, { actions, data, railsContext });
 
 
 OnbardingGuideContainer.propTypes = {
   actions: PropTypes.shape({
     updateGuidePage: PropTypes.func.isRequired,
   }).isRequired,
-  railsContext: PropTypes.object.isRequired,
+  railsContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   data: PropTypes.shape({
     path: PropTypes.string.isRequired,
     original_path: PropTypes.string.isRequired,
@@ -23,7 +24,8 @@ OnbardingGuideContainer.propTypes = {
     translations: PropTypes.object.isRequired,
     onboarding_data: PropTypes.objectOf(PropTypes.shape({
       info_image: PropTypes.string,
-      link: PropTypes.string.isRequired,
+      cta: PropTypes.string.isRequired,
+      alternative_cta: PropTypes.string,
       complete: PropTypes.bool.isRequired,
     }).isRequired).isRequired,
   }).isRequired,
