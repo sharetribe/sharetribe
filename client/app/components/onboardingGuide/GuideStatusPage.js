@@ -21,10 +21,20 @@ const GuideStatusPage = (props) => {
     p({ className: css.description }, props.t('description_p2')),
   ]);
 
-  const doneDescPartial = p({
-    className: css.description,
-    dangerouslySetInnerHTML: { __html: props.t('congratulation') }, // eslint-disable-line react/no-danger
-  });
+  const doneDescPartial = div([
+    p({
+      className: css.description,
+      dangerouslySetInnerHTML: { __html: props.t('congratulation_p1') }, // eslint-disable-line react/no-danger
+    }),
+    p({
+      className: css.description,
+      dangerouslySetInnerHTML: { __html: props.t('congratulation_p2') }, // eslint-disable-line react/no-danger
+    }),
+    p({
+      className: css.description,
+      dangerouslySetInnerHTML: { __html: props.t('congratulation_p3') }, // eslint-disable-line react/no-danger
+    }),
+  ]);
 
   const description = props.nextStep ? todoDescPartial : doneDescPartial;
 
