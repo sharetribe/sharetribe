@@ -10,8 +10,9 @@ const GuideFilterPage = (props) => {
   return div({ className: 'container' }, [
     r(GuideBackToTodoLink, { changePage, initialPath, t }),
     h2({ className: css.title }, t('title')),
-    p({ className: css.description }, t('description_p1')),
-    p({ className: css.description }, t('description_p2')),
+    p({ className: css.description,
+      dangerouslySetInnerHTML: { __html: props.t('description') }, // eslint-disable-line react/no-danger
+     }),
 
     pageData.info_image ?
       div({ className: css.sloganImageContainerBig }, [
