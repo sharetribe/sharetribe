@@ -19,8 +19,9 @@ class Admin::GettingStartedGuideController < ApplicationController
     has_sub_path = (path_parts.count == 2 && path_parts[1] != "/")
     sub_path = has_sub_path ? path_parts[1] : ""
 
-    listing_shape = ListingShape.where(community_id: @current_community.id).first
-    alternative_cta = edit_admin_listing_shape_path(listing_shape[:name])
+    alternative_cta = Maybe(ListingService::API::Api.shapes.get(community_id: @current_community.id)[:data].first)
+      .map { |ls| edit_admin_listing_shape_path(ls[:name]) }
+      .or_else { admin_listing_shapes_path }
 
     onboarding_status = Admin::OnboardingWizard.new(@current_community.id).setup_status
     links = {
