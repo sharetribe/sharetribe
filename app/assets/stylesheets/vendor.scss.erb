@@ -1,0 +1,13 @@
+// Vendor
+//= require jquery.nouislider
+//= require jquery.fileupload
+//= require datepicker3
+//= require selectize
+
+// Fonts
+<% if APP_CONFIG.icon_pack == "font-awesome" %>
+  @import 'font-awesome.min';
+<% else %>
+  @import '<%= APP_CONFIG.ss_social_location%>';
+  @import '<%= APP_CONFIG.ss_pika_location %>';
+<% end %>
