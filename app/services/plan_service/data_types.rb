@@ -9,6 +9,7 @@ module PlanService::DataTypes
     [:id, :fixnum, :optional], # For OS, the plan is not actually in DB. Thus, optional.
     [:community_id, :fixnum, :mandatory],
     [:plan_level, :fixnum, :mandatory],
+    [:features, :array, :optional],
     [:expires_at, :time, :optional],
     [:created_at, :time, :mandatory],
     [:updated_at, :time, :mandatory],
@@ -18,6 +19,7 @@ module PlanService::DataTypes
     [:marketplace_plan_id, :fixnum, :mandatory],
     [:marketplace_id, :fixnum, :mandatory],
     [:plan_level, :fixnum, :mandatory],
+    [:features, :array, :optional],
     [:expires_at, :time, :optional],
     [:created_at, :time, :mandatory],
     [:updated_at, :time, :mandatory],
