@@ -677,7 +677,14 @@ class ApplicationController < ActionController::Base
           "list",
           "settings",
           "logout",
-          "rows"
+          "rows",
+          "home",
+          "new_listing",
+          "information",
+          "feedback",
+          "invite",
+          "redirect",
+          "admin"
         ])
     }
 
