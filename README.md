@@ -56,6 +56,18 @@ Before you get started, the following needs to be installed:
   bundle install
   ```
 
+  **Note:** [`libv8`might fail to build with Clang 7.3](https://github.com/cowboyd/libv8/pull/207), in that case you can try installing V8 manually:
+
+  ```bash
+  brew tap homebrew/versions
+  brew install v8-315
+
+  gem install libv8 -v '3.16.14.13' -- --with-system-v8
+  gem install therubyracer -- --with-v8-dir=/usr/local/opt/v8-315
+
+  bundle install
+  ```
+
 1. Install node modules
   ```bash
   npm install
