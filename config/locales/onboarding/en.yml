@@ -41,10 +41,10 @@ en:
           disable_payments: "Disable payments"
           setup_payments: "Set up payments"
           cta_separator: "or"
-          advice: "To disable payments, read <a href=\"http://support.sharetribe.com/knowledgebase/articles/470085\" target=\"_blank\" alt=\"How to disable payments or add free listings to your marketplace\">this article</<a>."
+          advice: "You can read more about disabling payments from <a href=\"http://support.sharetribe.com/knowledgebase/articles/470085\" target=\"_blank\" alt=\"How to disable payments or add free listings to your marketplace\">this article</<a>."
         slogan_and_description:
           title: "Step 2: Slogan & Description"
-          description: "The slogan & description help new visitors understand what your marketplace is about. It's the first thing they notice when they enter your site, so try to make it descriptive but succinct."
+          description: "The slogan & description help new visitors understand what your marketplace is about. They are the first thing your users notice when they enter your site, so try to make them descriptive but succinct."
           info_image_alt: "A screenshot of homepage showing slogan and description."
           add_your_own: "Add slogan & description"
           advice: "Use the slogan to tell quickly what your marketplace is about. <i>\"Buy food from locals\"</i> or <i>\"Get guitar lessons from a pro\"</i> are good examples. In the description text you can then expand on your main value proposition. <i>\"FoodMarket is the easiest way to order produce directly from local providers\"</i> or <i>\"GuitarPro is the best place to compare music teachers\"</i> are good examples."
@@ -53,7 +53,7 @@ en:
           title_done: "All done!"
           description_p1: "To get your marketplace up and running, there are a few essential steps you need to take, as listed below."
           description_p2: "Once finished, your marketplace will be ready to receive its first visitors!"
-          congratulation_p1: "You did it! Your marketplace is now up and running. However, this is just the beginning. You've only seen a fraction of the customization options that Sharetribe offers. To read more about how to customize your marketplace further, check out <a href='http://support.sharetribe.com/knowledgebase' alt='knowledge base' target='_blank'>our knowledge base</a>."
+          congratulation_p1: "You did it! Your marketplace is now up and running. However, this is just the beginning. You've only seen a fraction of the customization options that Sharetribe offers. To read more about how to customize your marketplace further, check out <a href='http://support.sharetribe.com/knowledgebase/articles/892140-what-to-do-after-the-basic-setup-of-your-marketpla' alt='knowledge base' target='_blank'>our knowledge base</a>."
           congratulation_p2: "If you wish to learn more about how to build your marketplace business, we recommend our <a href='https://www.sharetribe.com/academy/guide/' alt='link to marketplace academy' target='_blank'>practical guide for building an online marketplace business</a>."
           congratulation_p3: "If you have any questions, don't hesitate to <a data-uv-trigger='contact' href='mailto:support@sharetribe.com' title='Support'>contact our support</a>, we're always happy to help!"
           create_your_marketplace: "Create your marketplace"
@@ -79,7 +79,7 @@ en:
           button: "Add fields & filters"
         paypal:
           title: "Well done! "
-          body: "Next, set up your marketplace for online payments! To allow your providers to accept payments, you need to connect your Paypal account. Alternative, you can disable online payments for now."
+          body: "Next, set up your marketplace for online payments! To allow your providers to accept payments, you need to connect your PayPal account. Alternative, you can disable online payments for now."
           button: "Set up payments"
         listing:
           title: "Good job!"
@@ -91,8 +91,8 @@ en:
           button: "Invite users"
         all_done:
           title: "Brilliant, you made it!"
-          body: "Fantastic! You did it! Your marketplace is now up and running. However, this is just the start! You should continously update, improve and promote your marketplace. For some ideas on what to do next, check out <a href=\"https://www.sharetribe.com/academy/\" target=\"_blank\" alt=\"the Marketplace academy\">the Marketplace academy</a>."
-          button: "Woohoo, I did it!"
+          body: "Fantastic, you did it! Your marketplace is now up and running. However, this is just the beginning. We're here to help you on every step of your journey."
+          button: "See what to do next"
         button_later: "I'll do it later, thanks"
       topbar:
         progress_label: "Marketplace progress"

@@ -29,6 +29,10 @@ class Styleguide::PagesController < ApplicationController
       invitation: true
     }
 
+    alternative_cta = Maybe(ListingService::API::Api.shapes.get(community_id: @current_community.id)[:data].first)
+      .map { |ls| edit_admin_listing_shape_path(ls[:name]) }
+      .or_else { admin_listing_shapes_path }
+
     links = {
       slogan_and_description: {
         sub_path: 'slogan_and_description',
@@ -48,7 +52,7 @@ class Styleguide::PagesController < ApplicationController
       paypal: {
         sub_path: 'paypal',
         cta: admin_paypal_preferences_path,
-        alternative_cta: admin_listing_shapes_path,
+        alternative_cta: alternative_cta,
         info_image: view_context.image_path('onboarding/step5_screenshot_paypal@2x.png')
       },
       listing: {

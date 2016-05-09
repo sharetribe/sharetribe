@@ -117,7 +117,11 @@ module Admin
 
     def listing_shape_updated(setup_status, listing_shapes)
       if !setup_status[:paypal] && listing_shapes.present? &&
-         listing_shapes.any? {|shape| !shape[:price_enabled] }
+        listing_shapes.any? {|shape|
+          Maybe(TransactionProcess.where(id: shape[:transaction_process_id]).first)
+            .map { |p| p[:process] == "none" }
+            .or_else(false)
+        }
         :paypal
       end
     end
