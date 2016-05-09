@@ -55,7 +55,7 @@ es:
         edit_private_community_homepage_content_description: ~
         update_information: "Actualizar información"
         invite_people: "Invita a más personas a esta comunidad"
-        edit_signup_info: ~
+        edit_signup_info: "Información de registro"
         edit_signup_info_description: ~
         edit_info: ~
         see_how_it_looks_like: ~
@@ -88,7 +88,7 @@ es:
         small_cover_photo_instructions_text_with_dimensions: ~
         main_content_width: ~
         custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad ingresando un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
-        custom_color2_instructions_text: ~
+        custom_color2_instructions_text: "Puedes cambiar el color del botón de %{post_new_listing} con un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
         default_browse_view: ~
         default_browse_view_instructions_text: ~
         grid: ~
@@ -107,8 +107,8 @@ es:
       edit_welcome_email:
         welcome_email_content: "Contenido del email de bienvenida."
         welcome_email_content_description: "Este mensaje será enviado a todos los miembros nuevos cuando ellos se unen a la comunidad. Puede modificar el contenido para adaptar a su comunidad. Haciendo click en '%{send_test_message_link}' puede ver cómo queda el mensaje en tu email."
-        edit_message: ~
-        send_test_message: ~
+        edit_message: "Editar mensaje"
+        send_test_message: "Enviar mensaje de prueba"
       outgoing_email:
         title: ~
         info: ~
@@ -568,8 +568,8 @@ es:
       update_later: ~
       optional_message: "Mensaje opcional"
       price_to_pay: "Total precio por pagar"
-      you_need_to_fill_payout_details_before_accepting: ~
-      payment_settings_link: ~
+      you_need_to_fill_payout_details_before_accepting: "Tienes que completar los datos de pago antes de poder aceptar la solicitud y recibir el pago. Ve a %{payment_settings_link} para añadir toda la información."
+      payment_settings_link: "Configuración de la forma de pago"
       minimum_price_error_message: ~
       accept: ~
       decline: ~
@@ -712,20 +712,20 @@ es:
       cancel: "No se llevó a cabo."
   braintree_accounts:
     new:
-      add_payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
-      ssn: ~
-      routing_number: ~
-      account_number: ~
-      save: ~
+      add_payout_details: "Añade los detalles de pago"
+      first_name: Nombre
+      last_name: Apellido
+      email: "Dirección de correo electrónico"
+      phone: Teléfono
+      address_street_address: Dirección
+      address_postal_code: "Código postal"
+      address_locality: Ciudad
+      address_region: Estado
+      date_of_birth: "Fecha de nacimiento"
+      ssn: "Número de Seguro Social"
+      routing_number: "Routing number del banco"
+      account_number: "Número de cuenta"
+      save: Guardar
     show:
       payout_details: ~
       first_name: ~
@@ -789,8 +789,8 @@ es:
       you_have_not_yet_accepted_or_rejected_request: "Aún no has aceptado o rechazado la solicitud '%{title}' que recibiste el %{date}."
       show_thread: "Mostrar conversación"
     braintree_account_approved:
-      account_ready: ~
-      message: ~
+      account_ready: "Ya estás listo para recibir pagos"
+      message: "Tus detalles de pago han sido confirmados y ya puedes recibir pagos a través de %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: |-
           Aún no ha confirmado ni cancelado la solicitud
@@ -811,10 +811,10 @@ es:
       if_will_not_happen_you_should_cancel: "Si piensas que esta solicitud no será completada por una u otra razón, aún puedes %{cancel_it_link}"
       cancel_it_link_text: Cancelar
     payment_settings_reminder:
-      remember_to_add_payment_details: ~
-      you_have_added_listing_with_payment: ~
+      remember_to_add_payment_details: "Recuerda agregar los detalles de pago para poder recibir pagos"
+      you_have_added_listing_with_payment: "Has añadido un nuevo anuncio %{listing_link} con pago, pero aún no has añadido tus detalles de pago. Recuerda que debes introducir y configurar tus datos de pago para poder recibir pagos de otros usuarios."
       please_go_to_payment_settings: ~
-      payment_settings_link: ~
+      payment_settings_link: "Configuración de la forma de pago"
     transaction_confirmed:
       here_is_a_message_from: "Mensaje de %{other_party_given_name}:"
       request_marked_as_confirmed: "Solicitud completada. Recuerde dar feedback"
@@ -1149,7 +1149,7 @@ es:
       tell_it_here: "Dilo aquí!"
       welcome_to_new_kassi: "Bienvenido al nuevo %{service_name}!"
       no_reviews: "Sin feedbacks"
-      no_image: ~
+      no_image: "Sin imagen"
       filter: Filtro
       this_is_private_community: ~
     invitation_form:
@@ -1230,7 +1230,7 @@ es:
       received: Recibido
       sent: Enviado
     global-header:
-      select_language: ~
+      select_language: "Seleccionar idioma"
     infos:
       about: "Acerca de"
       how_to_use: "Cómo usar"
@@ -1265,7 +1265,7 @@ es:
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
-      test_welcome_email_delivered_to: ~
+      test_welcome_email_delivered_to: "Un mensaje de prueba ha sido enviado a %{email}"
       something_went_wrong: "Algo esta mal"
       community_updated: "Información de la tribu actualizada."
       community_update_failed: "Actualización fallida de la información de la tribu."
@@ -1315,7 +1315,7 @@ es:
       payment_successful: "Pago exitoso"
       payment_canceled: "Pago cancelado."
       error_in_payment: "Ha habido un error en el pago. Si no completaste el proceso todavía, prueba de nuevo. Si ya lo completaste, por favor, contáctanos."
-      cannot_receive_payment: ~
+      cannot_receive_payment: "Este usuario no puede recibir pagos debido a un error. Por favor contacta a los administradores para esclarecer la situación."
       payment_waiting_for_later_accomplishment: "Cuando has sido pagado, notificaremos al vendedor y tu recibirás el comprabante por email"
       password_recovery_sent: "Las instrucciones para modificar tu contraseña han sido enviadas a tu correo electrónico."
       person_activated: "Usuario activado"
@@ -1369,13 +1369,13 @@ es:
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Deberás confirmar tu cuenta primero."
-      you_must_fill_all_the_fields: ~
+      you_must_fill_all_the_fields: "Debes llenar todos los campos"
       you_unfollowed_listing: "Ya no estás siguiendo este anuncio"
       joining_community_failed: "Error al unirte a esta comunidad"
       can_not_login_with_private_user: ~
       can_not_delete_email: ~
-      user_does_not_have_email_to_delete: ~
-      email_deleted: ~
+      user_does_not_have_email_to_delete: "La dirección de correo electrónico que quieres eliminar no existe"
+      email_deleted: "Dirección de correo electrónico eliminada"
       payment_details_add_successful: ~
       payment_details_add_error: ~
       listing_author_payment_details_missing: ~
@@ -1386,7 +1386,7 @@ es:
       notifications: Notificaciones
       profile: "Información de perfil"
       settings: Opciones
-      payments: ~
+      payments: Pagos
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "No estás autorizado para ver este anuncio."
@@ -1621,7 +1621,7 @@ es:
       times: veces
       times_viewed: Visto
       processing_uploaded_image: "(Procesando imagen...)"
-      price_excludes_vat: ~
+      price_excludes_vat: "(No incluye IVA)"
       listing_created_at: "Publicación creada"
       price:
         per_quantity_unit: ~
@@ -1687,18 +1687,18 @@ es:
       payment_receiver: "Receptor del pago"
       sum: "Monto a pagar"
     form:
-      total: ~
-      service_charge: ~
+      total: Total
+      service_charge: "Cargo por el servicio"
       product: ~
       price: ~
       price_for: ~
-      continue_to_pay: ~
+      continue_to_pay: Continuar
       invoice: ~
       service_fee: ~
       you_will_get: ~
     braintree:
       terms:
-        braintree_terms_also_included: ~
+        braintree_terms_also_included: "NOTA: Braintree es un servicio de transferencia de pagos y al utilizarlo aceptas sus términos y condiciones de uso %{terms_link_text}, además de los términos que aparecen más abajo."
         terms_link_text: ~
   paypal_accounts:
     payout_info_title: ~
@@ -1816,7 +1816,7 @@ es:
     profile_listings:
       show_also_closed: "Mostrar los cerrados"
       show_only_open: "Mostrar los abiertos"
-      no_image: ~
+      no_image: "Sin imagen"
     show:
       contact: "Contactar a %{person}"
       about_me: "Acerca de mí:"
@@ -1909,7 +1909,7 @@ es:
       delete_account: "Borrar cuenta"
       delete_account_button: "Eliminar mi cuenta"
       delete_account_confirmation_popup: "¿Estás seguro de que quieres eliminar tu cuenta de usuario y perder todos los datos asociados a ella de forma permanente? Si lo haces, no podrás volver atrás."
-      email_addresses: ~
+      email_addresses: "Direcciónes de correo electrónico"
       new_email: "Nieva Dirección de Correo Electrónico"
       delete_personal_information: ~
       delete_information_others_involved: ~
@@ -1919,19 +1919,19 @@ es:
       these_fields_are_shown_only_to_you: "El nombre del usuario se muestra en tu perfil a menos que hayas dado tu nombre. Cualquier otra información sólo está disponible para ti."
       email_already_confirmed: ~
       email:
-        address_title: ~
-        remove_title: ~
-        remove_confirmation: ~
+        address_title: Dirección
+        remove_title: Eliminar
+        remove_confirmation: "Estas seguro de que quieres eliminar esta dirección de correo electrónico?"
         receive_notifications_title_desktop: "Recibir notificaciones"
         receive_notifications_title_mobile: "Recibir notificaciones"
         receive_notifications_new_title_mobile: "Recibir notificaciones"
         add_new_with_plus: "+Agregar nuevo correo electrónico"
-        add_new_cancel: ~
+        add_new_cancel: Cancelar
         confirmation_title_mobile: Confirmado
         confirmation_title_desktop: Confirmado
         confirmation_resend: Reenviar
-        status_confirmed: ~
-        status_pending: ~
+        status_confirmed: Confirmada
+        status_pending: Pendiente
     notifications:
       email_from_admins: "Quiero recibir ocacionalmente actualizaciones del administrator."
       i_want_to_get_email_notification_when: "Quiero recibir una notificación por correo electrónico cuando..."
@@ -1967,7 +1967,7 @@ es:
       first_name_only: ~
       location_description: "Puedes dar tu ubicación exacta o sólo tu código postal. Por favor añade al menos tu código postal. También puedes elegir una localización desde el mapa."
       phone_number: "Número de teléfono:"
-      profile_picture: ~
+      profile_picture: "Foto de perfil"
       postal_code: "Código postal:"
       profile_page: "en tu página de perfil"
       profilemap: "Vista en mapa"

@@ -753,7 +753,7 @@ es-ES:
       address_locality: Ciudad
       address_region: Estado
       date_of_birth: "Fecha de nacimiento"
-      ssn: SSN
+      ssn: "Número de Seguro Social"
       routing_number: "Routing number del banco"
       account_number: "Número de cuenta"
       save: Guardar
@@ -1400,7 +1400,7 @@ es-ES:
       joining_community_failed: "Error al unirte a esta comunidad"
       can_not_login_with_private_user: "No puedes registrarte con tu cuenta personal. Regístrate con la cuenta de tu organización o crea una cuenta nueva."
       can_not_delete_email: "No puedes borrar tu dirección de email"
-      user_does_not_have_email_to_delete: "La dirección de email que estás intentando borrar no es correcta"
+      user_does_not_have_email_to_delete: "La dirección de correo electrónico que quieres eliminar no existe"
       email_deleted: "Email eliminado"
       payment_details_add_successful: "Datos de pago añadidos correctamente"
       payment_details_add_error: "No se han podido añadir tus datos de pago"
@@ -1728,7 +1728,7 @@ es-ES:
       you_will_get: "Recibirás:"
     braintree:
       terms:
-        braintree_terms_also_included: "NOTA: Braintree es un servicio de pasarela de pagos y al utilizarlo aceptas sus términos y condiciones de uso %{terms_link_text}, además de los términos que aparecen más abajo."
+        braintree_terms_also_included: "NOTA: Braintree es un servicio de transferencia de pagos y al utilizarlo aceptas sus términos y condiciones de uso %{terms_link_text}, además de los términos que aparecen más abajo."
         terms_link_text: "Términos de uso de Braintree"
   paypal_accounts:
     payout_info_title: "Información de pago"
