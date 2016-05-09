@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   include ApplicationHelper
+  include IconHelper
   include FeatureFlagHelper
   include DefaultURLOptions
   protect_from_forgery
@@ -658,7 +659,7 @@ class ApplicationController < ActionController::Base
       }
     }.or_else({})
 
-    {
+    common = {
       logged_in: @current_user.present?,
       homepage_path: @homepage_path,
       return_after_locale_change: @return_to,
@@ -678,12 +679,13 @@ class ApplicationController < ActionController::Base
           "logout",
           "rows"
         ])
-    }.merge(user)
+    }
+
+    common.merge(user)
   end
 
   helper_method :header_props
 
-  # TODO Can we remove this?
   def get_full_locale_name(locale)
     Maybe(Sharetribe::AVAILABLE_LOCALES.find { |l| l[:ident] == locale.to_s })[:name].or_else(locale).to_s
   end
