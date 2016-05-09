@@ -42,6 +42,19 @@ A new worker is added to the Procfile to work for the new queue. If you're hosti
 
 This change doesn't require any changes, if you are compiling the stylesheets synchronously using the `rake sharetribe:generate_customization_stylesheets_immediately` command during the deployment. However, if you are compiling the stylesheets asynchronously using the `rake sharetribe:generate_customization_stylesheets` command, then you need to make sure that you have at least one worker working for the "css_compile" queue.
 
+### Ruby version 2.2.4 -> 2.3.1
+
+Ruby version is updated from 2.2.4 to 2.3.1. The update should bring performance improvements.
+
+Using [RVM](https://rvm.io/), you can upgrade your local Ruby version like this:
+
+```
+rvm install ruby-2.3.1
+rvm use ruby-2.3.1
+gem install bundler
+bundle install
+```
+
 ### React on Rails build environment
 
 React on Rails build environment is added in this release. This means that build environment needs to have `node` set up. With Heroku this can be set with `heroku buildpacks:add --index 1 heroku/nodejs`. For other environments - see [npm instructions](https://docs.npmjs.com/getting-started/installing-node), [nvm](https://github.com/creationix/nvm), or [n](https://github.com/tj/n). In addition, production environments should have `NODE_ENV=production` set.

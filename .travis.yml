@@ -10,7 +10,7 @@ cache:
   - node_modules
   - client/node_modules
 rvm:
-- 2.2.4
+- 2.3.1
 env:
   matrix:
   - SUITE="rspec"

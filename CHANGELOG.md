@@ -21,6 +21,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 - Marketplace ID is removed from the Admin Settings URL [#1839](https://github.com/sharetribe/sharetribe/pull/1839)
 - The application now depends on React components, which need to be built to run Sharetribe. [Instructions here](./client/README.md). This change is related to React on Rails environment [#1918](https://github.com/sharetribe/sharetribe/pull/1918).
+- Update Ruby to 2.3.1 [#2020](https://github.com/sharetribe/sharetribe/pull/2020)
 
 ### Deprecated
 
