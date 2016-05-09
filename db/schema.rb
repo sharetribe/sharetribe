@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427113446) do
+ActiveRecord::Schema.define(version: 20160509111922) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -590,11 +590,12 @@ ActiveRecord::Schema.define(version: 20160427113446) do
   add_index "marketplace_configurations", ["community_id"], name: "index_marketplace_configurations_on_community_id", using: :btree
 
   create_table "marketplace_plans", force: :cascade do |t|
-    t.integer  "community_id", limit: 4, null: false
+    t.integer  "community_id", limit: 4,     null: false
     t.integer  "plan_level",   limit: 4
+    t.text     "features",     limit: 65535
     t.datetime "expires_at"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "marketplace_plans", ["community_id"], name: "index_marketplace_plans_on_community_id", using: :btree
