@@ -9,6 +9,14 @@
                               hot: 'application_hot',
                               media: 'all') %>
 
+
+  <!-- Initialize global I18n variable and load translations there -->
+  <script>
+    window.I18n = {};
+  </script>
+
+  <%= javascript_include_tag "i18n/#{I18n.locale}" %>
+
   <!-- This is to load the hot assets. -->
   <% domain = APP_CONFIG.domain.split(':').first %>
   <%= env_javascript_include_tag(hot: ["http://#{domain}:3500/vendor-bundle.js",

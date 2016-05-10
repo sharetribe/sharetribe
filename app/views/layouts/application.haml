@@ -61,6 +61,12 @@
   -# load Facebook SDK for the whole page
   = render :partial => "layouts/facebook_sdk"
 
+  -# Initialize global I18n variable and load translations there
+  :javascript
+    window.I18n = {};
+
+  = javascript_include_tag "i18n/#{I18n.locale}"
+
   = javascript_include_tag 'application'
 
   :javascript

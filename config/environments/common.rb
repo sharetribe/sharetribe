@@ -12,7 +12,8 @@ Kassi::Application.configure do
     [:asset_host, :string, :optional],
     [:eager_load, :bool, :mandatory, :str_to_bool],
     [:serve_static_files, :bool, :optional, :str_to_bool],
-    [:log_level, transform_with: str_to_lowercase_sym, one_of: [:debug, :info, :warn, :error]]
+    [:log_level, transform_with: str_to_lowercase_sym, one_of: [:debug, :info, :warn, :error]],
+    [:use_i18n_js_middleware, :bool, :optional, :str_to_bool],
   )
 
   m_config = Maybe(Config.call(APP_CONFIG.to_h))
@@ -31,5 +32,9 @@ Kassi::Application.configure do
 
   m_config[:log_level].each { |log_level|
     config.log_level = log_level
+  }
+
+  m_config[:use_i18n_js_middleware].each { |use_middleware|
+    config.middleware.use I18n::JS::Middleware if use_middleware
   }
 end

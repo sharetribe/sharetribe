@@ -113,6 +113,15 @@ gem 'faraday_middleware', '~> 0.10.0'
 
 gem "react_on_rails", "~> 5.1.1"
 
+# Use latest from master
+#
+# The latest master is needed because it contains the I18n.extend configuration
+# See: https://github.com/fnando/i18n-js/pull/397
+gem "i18n-js",
+    git: "git://github.com/fnando/i18n-js.git",
+    branch: "master",
+    ref: "2ca6d31365bb41db21e373d126cac00d38d15144"
+
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
   gem 'rails_12factor', '~> 0.0.3'

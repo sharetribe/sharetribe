@@ -2,7 +2,7 @@
 import ReactOnRails from 'react-on-rails';
 
 import OnboardingGuideApp from './OnboardingGuideApp';
-import OnboardingTopBar from '../components/OnboardingTopBar/OnboardingTopBar';
+import OnboardingTopBar from './OnboardingTopBarApp';
 
 ReactOnRails.register({
   OnboardingGuideApp,
