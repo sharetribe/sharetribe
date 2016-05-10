@@ -570,7 +570,7 @@ es:
       price_to_pay: "Total precio por pagar"
       you_need_to_fill_payout_details_before_accepting: "Tienes que completar los datos de pago antes de poder aceptar la solicitud y recibir el pago. Ve a %{payment_settings_link} para añadir toda la información."
       payment_settings_link: "Configuración de la forma de pago"
-      minimum_price_error_message: ~
+      minimum_price_error_message: "El precio no puede ser menor a %{amount}"
       accept: ~
       decline: ~
       quantity_label: ~
@@ -727,27 +727,27 @@ es:
       account_number: "Número de cuenta"
       save: Guardar
     show:
-      payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
-      ssn: ~
-      routing_number: ~
-      account_number: ~
+      payout_details: "Datos para realizar pagos"
+      first_name: Nombre
+      last_name: Apellidos
+      email: "Correo Electrónico"
+      phone: Teléfono
+      address_street_address: Dirección
+      address_postal_code: "Código postal"
+      address_locality: Ciudad
+      address_region: Estado
+      date_of_birth: "Fecha de nacimiento"
+      ssn: "Número de Seguro Social"
+      routing_number: "Routing number del banco"
+      account_number: "Número de cuenta"
   braintree_payments:
     edit:
-      new_credit_card_payment: ~
+      new_credit_card_payment: "Nuevo pago con tarjeta de crédito"
       payment_receiver: ~
-      cardholder_name: ~
-      credit_card_number: ~
-      cvv: ~
-      credit_card_expiration_date: ~
+      cardholder_name: "Titula de la Tarjeta"
+      credit_card_number: "Número de la Tarjeta de Crédito"
+      cvv: "Código de seguridad"
+      credit_card_expiration_date: "Fecha de caducidad"
       confirm_payment: ~
       exp: ~
   feedback:
@@ -893,22 +893,22 @@ es:
       paypal_gateway_fee: ~
       shipping_total: ~
     braintree_new_payment:
-      product: ~
+      product: "Producto:"
       price_payer_paid: "Precio que %{payer_full_name} pagó"
-      service_fee: ~
+      service_fee: "Comisión de servicio de %{service_name}:"
       you_will_get: ~
       money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: "Recibo del pago realizado."
       you_have_made_new_payment: "Le has pagado <b>%{payment_sum}</b> a  %{recipient_full_name}  por <b>%{listing_title}</b>. Aquí está el comprobante."
-      product: ~
+      product: Producto
       price_per_unit_type: ~
       duration: ~
       quantity: ~
       subtotal: ~
-      total: ~
+      total: Total
       price: Precio
-      service_fee: ~
+      service_fee: "Comisión de servicio"
       money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te ha dado un feedback en %{service_name}"
@@ -1376,8 +1376,8 @@ es:
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: "La dirección de correo electrónico que quieres eliminar no existe"
       email_deleted: "Dirección de correo electrónico eliminada"
-      payment_details_add_successful: ~
-      payment_details_add_error: ~
+      payment_details_add_successful: "Se han añadido los datos de pago exitosamente"
+      payment_details_add_error: "No se han podido añadir los datos de pago"
       listing_author_payment_details_missing: ~
       stylesheet_needs_recompiling: ~
       automatically_logged_out_please_sign_in: ~
@@ -1693,13 +1693,13 @@ es:
       price: ~
       price_for: ~
       continue_to_pay: Continuar
-      invoice: ~
-      service_fee: ~
-      you_will_get: ~
+      invoice: Factura
+      service_fee: "Comisión de servicio de %{service_name}:"
+      you_will_get: "Recibirás:"
     braintree:
       terms:
         braintree_terms_also_included: "NOTA: Braintree es un servicio de transferencia de pagos y al utilizarlo aceptas sus términos y condiciones de uso %{terms_link_text}, además de los términos que aparecen más abajo."
-        terms_link_text: ~
+        terms_link_text: "Términos de uso de Braintree"
   paypal_accounts:
     payout_info_title: ~
     paypal_account_email_connected: ~
