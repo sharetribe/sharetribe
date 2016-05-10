@@ -7,26 +7,23 @@
     .header-right.visible-tablet
       #header-menu-desktop-anchor.header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu', 'toggle-position' => 'absolute'}}
 
-    - Maybe(@current_user).each do |user|
-      - conversations = @current_community.conversations.for_person(user)
-      - unread_count = MarketplaceService::Inbox::Query.notification_count(user.id, @current_community.id)
-
+    - if logged_in
       .header-right
-        = render :partial => "layouts/header_anchors", locals: {user: user}
-        = render :partial => "layouts/header_user_menu", locals: {unread_count: unread_count, user: user}
+        = render :partial => "layouts/header_anchors", locals: {avatar_url: avatar_url, current_user_name: current_user_name, icons: icons}
+        = render :partial => "layouts/header_user_menu", locals: {unread_count: unread_count, inbox_path: inbox_path, profile_path: profile_path, manage_listings_path: manage_listings_path, settings_path: settings_path, logout_path: logout_path, icons: icons}
 
-      = render :partial => "layouts/header_right_visible_tablet", locals: {unread_count: unread_count, user: user}
+      = render :partial => "layouts/header_right_visible_tablet", locals: {unread_count: unread_count, inbox_path: inbox_path, icons: icons}
 
-    - with_available_locales do |locales|
+    - Maybe(available_locales).each do |locales|
       .header-right.visible-desktop
         #header-locales-menu.toggle.header-hover{data: {toggle: '#header-locales-toggle-menu', 'toggle-position' => 'absolute'}}
           %span.header-text-link
-            = get_full_locale_name(I18n.locale).to_s
-            = icon_tag("dropdown", ["icon-dropdown"])
+            = current_locale_name
+            = icon_map_tag(icons, "dropdown", ["icon-dropdown"])
         #header-locales-toggle-menu.toggle-menu.header-toggle-menu-language.hidden
-          = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array
+          = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array, locals: {return_after_locale_change: return_after_locale_change}
 
-    - unless @current_user
+    - unless logged_in
       .header-right
         = link_to sign_up_path, class: "header-text-link header-hover" do
           = t("header.signup")
@@ -37,17 +34,17 @@
     .header-left.hidden-tablet
       .header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu', 'toggle-position' => 'absolute'}}
         #header-menu-mobile-anchor.header-menu-toggle-container.toggle-header-container
-          = icon_tag("rows", ["header-menu-icon"])
+          = icon_map_tag(icons, "rows", ["header-menu-icon"])
           %span.visible-tablet-inline
             = t("header.menu")
 
-    = render :partial => "layouts/header_menu"
+    = render :partial => "layouts/header_menu", locals: { return_after_locale_change: return_after_locale_change, available_locales: available_locales, icons: icons}
 
     -#
       If necessary, the buttons will overlap with the logo. Buttons should be on top, that's
       keep the logo here after buttons
     .header-left.header-logo-container
-      = link_to @homepage_path, :class => "header-logo", :id => "header-logo" do
+      = link_to homepage_path, :class => "header-logo", :id => "header-logo" do
         %i.header-wide-logo.visible-tablet
           -# Logo is here, it's a CSS background
         %i.header-square-logo.hidden-tablet

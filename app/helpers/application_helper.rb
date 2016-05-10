@@ -1,25 +1,6 @@
 # encoding: utf-8
 module ApplicationHelper
 
-  ICON_PACK = APP_CONFIG.icon_pack || "font-awesome"
-
-  def icon_tag(icon_name, additional_classes=[])
-    classes_string = [icon_class(icon_name)].concat(additional_classes).join(" ")
-    return "<i class=\"#{classes_string}\"></i>".html_safe
-  end
-
-  def icon_class(icon_name)
-    icon = ICON_MAP[ICON_PACK][icon_name]
-    if icon.nil?
-      icon = (ICON_PACK == "font-awesome" ? "icon-circle-blank" : "ss-record")
-    end
-    return icon
-  end
-
-  def self.icon_specified?(icon_name)
-    ICON_MAP[ICON_PACK][icon_name].present?
-  end
-
   # Removes whitespaces from HAML expressions
   # if you add two elements on two lines; the white space creates a space between the elements (in some browsers)
   def one_line_for_html_safe_content(&block)
@@ -165,10 +146,6 @@ module ApplicationHelper
       end
 
     locales.map { |loc| [loc[:name], loc[:ident]] }
-  end
-
-  def get_full_locale_name(locale)
-    Maybe(Sharetribe::AVAILABLE_LOCALES.find { |l| l[:ident] == locale.to_s })[:name].or_else(locale)
   end
 
   def self.send_error_notification(message, error_class="Special Error", parameters={})
@@ -657,12 +634,6 @@ module ApplicationHelper
   # Return a link to the listing author
   def author_link(listing)
     link_to(listing.author.name(@current_community), listing.author, {:title => listing.author.name(@current_community)})
-  end
-
-  def with_available_locales(&block)
-    if available_locales.size > 1
-      block.call(available_locales)
-    end
   end
 
   def with_invite_link(&block)

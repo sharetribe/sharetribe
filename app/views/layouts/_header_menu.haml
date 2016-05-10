@@ -1,40 +1,40 @@
 #header-menu-toggle-menu.toggle-menu.header-toggle-menu-menu.hidden
 
   = link_to "/" do
-    = icon_tag("home", ["icon-with-text"])
+    = icon_map_tag(icons, "home", ["icon-with-text"])
     = t("header.home")
 
   = link_to new_listing_path, :class => "hidden-tablet" do
-    = icon_tag("new_listing", ["icon-with-text"])
+    = icon_map_tag(icons, "new_listing", ["icon-with-text"])
     = t("homepage.index.post_new_listing")
 
   = link_to about_infos_path do
-    = icon_tag("information", ["icon-with-text"])
+    = icon_map_tag(icons, "information", ["icon-with-text"])
     = t("header.about")
 
   = link_to new_user_feedback_path do
-    = icon_tag("feedback", ["icon-with-text"])
+    = icon_map_tag(icons, "feedback", ["icon-with-text"])
     = t("header.contact_us")
 
   - with_invite_link do
     = link_to new_invitation_path do
-      = icon_tag("invite", ["icon-with-text"])
+      = icon_map_tag(icons, "invite", ["icon-with-text"])
       = t("header.invite")
 
   - Maybe(@current_community).menu_links.each do |menu_links|
     - menu_links.each do |menu_link|
       = link_to menu_link.url(I18n.locale), :target => "_blank" do
-        = icon_tag("redirect", ["icon-with-text"])
+        = icon_map_tag(icons, "redirect", ["icon-with-text"])
         = menu_link.title(I18n.locale)
 
   - if @current_user && @current_community && @current_user.has_admin_rights?
     = link_to edit_details_admin_community_path(@current_community) do
-      = icon_tag("admin", ["icon-with-text"])
+      = icon_map_tag(icons, "admin", ["icon-with-text"])
       = t("layouts.logged_in.admin")
 
   .hidden-desktop
-    - with_available_locales do |locales|
+    - Maybe(available_locales).each do |locales|
       .toggle-menu-title
         = t("layouts.global-header.select_language")
 
-      = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array
+      = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array, locals: { return_after_locale_change: return_after_locale_change }
