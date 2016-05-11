@@ -17,7 +17,7 @@
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 
-import webpackConfig from './webpack.client.rails.hot.config';
+import webpackConfig from './webpack.hot.config';
 
 const DEFAULT_PORT = 3500;
 
