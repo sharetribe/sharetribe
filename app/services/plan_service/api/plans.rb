@@ -40,8 +40,9 @@ module PlanService::API
     def create_initial_trial(community_id:, plan:)
       Result::Success.new(
         with_statuses(
-          PlanStore.create_trial(community_id: community_id, plan: plan)))
-
+          PlanStore.create_trial(
+            community_id: community_id,
+            plan: plan.merge(features: ["deletable"])))) # add default features for trial
     end
 
     def get_current(community_id:)
