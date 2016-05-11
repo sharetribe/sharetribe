@@ -14,14 +14,14 @@
 
       = render :partial => "layouts/header_right_visible_tablet", locals: {unread_count: unread_count, inbox_path: inbox_path, icons: icons}
 
-    - Maybe(available_locales).each do |locales|
+    - if available_locales.size > 1
       .header-right.visible-desktop
         #header-locales-menu.toggle.header-hover{data: {toggle: '#header-locales-toggle-menu', 'toggle-position' => 'absolute'}}
           %span.header-text-link
             = current_locale_name
             = icon_map_tag(icons, "dropdown", ["icon-dropdown"])
         #header-locales-toggle-menu.toggle-menu.header-toggle-menu-language.hidden
-          = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array, locals: {return_after_locale_change: return_after_locale_change}
+          = render :partial => "layouts/locale_select", :collection => available_locales, :as => :loc_array, locals: {return_after_locale_change: return_after_locale_change}
 
     - unless logged_in
       .header-right
