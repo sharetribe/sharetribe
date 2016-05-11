@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510134131) do
+ActiveRecord::Schema.define(version: 20160511130006) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -593,6 +593,7 @@ ActiveRecord::Schema.define(version: 20160510134131) do
     t.integer  "community_id", limit: 4,     null: false
     t.integer  "plan_level",   limit: 4
     t.text     "features",     limit: 65535
+    t.integer  "member_limit", limit: 4
     t.datetime "expires_at"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
