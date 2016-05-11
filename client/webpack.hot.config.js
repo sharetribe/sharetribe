@@ -45,19 +45,9 @@ config.module.loaders.push(
   {
     test: /\.css$/,
     loaders: [
-      'style',
-      'css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]',
-      'postcss',
-    ],
-  },
-  {
-    test: /\.scss$/,
-    loaders: [
-      'style',
-      'css?modules&importLoaders=3&localIdentName=[name]__[local]__[hash:base64:5]',
-      'postcss',
-      'sass',
-      'sass-resources',
+      'style-loader?sourceMap',
+      'css-loader?modules&sourceMap&-url&localIdentName=[name]__[local]__[hash:base64:5]',
+      'postcss-loader',
     ],
   }
 );

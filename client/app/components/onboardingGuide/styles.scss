@@ -1,21 +1,21 @@
 .title {
-  font-size: $fontSizeTitle;
+  font-size: var(--fontSizeTitle);
   font-weight: 600;
-  color: $colorTitle;
-  line-height: $lineHeightTitle;
+  color: var(--colorTitle);
+  line-height: var(--lineHeightTitle);
 }
 .description {
-  font-size: $fontSize;
+  font-size: var(--fontSize);
   font-weight: 400;
-  color: $color;
-  line-height: $lineHeight;
-  max-width: $widthRestriction;
-  width: $widthRestrictionPercentage;
-  margin-bottom: $verticalSpaceText;
+  color: var(--color);
+  line-height: var(--lineHeight);
+  max-width: var(--widthRestriction);
+  width: var(--widthRestrictionPercentage);
+  margin-bottom: var(--verticalSpaceText);
 }
 
 .sectionSeparator {
-  margin: $verticalSpaceElementBig 0;
+  margin: var(--verticalSpaceElementBig) 0;
   height: 1px;
   border-bottom: solid 1px rgba(0,0,0,0.1);
 }
@@ -23,7 +23,7 @@
 /* GuideStatusPage */
 .stepList {
   padding-left: 0;
-  margin-bottom: $verticalSpaceText;
+  margin-bottom: var(--verticalSpaceText);
 }
 
 .stepListItem, .stepListItemDone {
@@ -36,64 +36,51 @@
   background-size: 100%;
   background-position-y: 1px;
   display: inline-block;
-  width: $fontSize;
-  height: $fontSize;
+  width: var(--fontSize);
+  height: var(--fontSize);
   margin-right: 0.5em;
 }
 .stepListItemDone .stepListCheckbox {
+  @mixin guideStepListCheckbox;
   background-image: url('../../assets/images/iconSquareChecked@2x.png');
-  @extend .stepListCheckbox;
 }
 
 .stepListLink {
-  font-size: $fontSizeBig;
+  font-size: var(--fontSizeBig);
   font-weight: 600;
-  color: $colorActionText;
-  line-height: $lineHeightBig;
+  color: var(--colorActionText);
+  line-height: var(--lineHeightBig);
 
   &:hover {
-    color: $colorActionTextHover;
+    color: var(--colorActionTextHover);
   }
 }
 .stepListItemDone .stepListLink {
   text-decoration: line-through;
-  color: $colorCompleted;
+  color: var(--colorCompleted);
   &:hover {
-    color: $colorCompletedHover;
+    color: var(--colorCompletedHover);
   }
 }
 
 .nextButton {
-  display: inline-block;
-  margin: $verticalSpaceElement $gutter 0 0;
-  border: 1px;
-  border-radius: 5px;
-  font-size: $fontSize;
-  font-weight: 600;
-  text-decoration: none;
-  color: $colorButtonText;
-  background-color: $colorButton;
-  padding: $paddingButtonVertical $paddingButtonHorizontal;
-
-  &:hover {
-    background-color: $colorButtonHover;
-    color: $colorButtonText;
-  }
+  @mixin guideNextButton;
 }
+
 .nextButtonGhost {
-  @extend .nextButton;
+  @mixin guideNextButton;
   margin-right: 0;
-  border: 1px solid $colorButton;
+  border: 1px solid var(--colorButton);
   background-color: transparent;
-  color: $colorButton;
+  color: var(--colorButton);
   &:hover {
-    border: 1px solid $colorButtonGhost;
+    border: 1px solid var(--colorButtonGhost);
     background-color: transparent;
-    color: $colorButtonGhost;
+    color: var(--colorButtonGhost);
   }
 }
 .buttonSeparator {
-  margin-right: $gutter;
+  margin-right: var(--gutter);
   @media (max-width: 600px) {
     display: none;
   }
@@ -101,24 +88,24 @@
 
 /* Common elements for step related pages */
 .backLink {
-  font-size: $fontSizeSmall;
+  font-size: var(--fontSizeSmall);
   font-weight: 600;
-  color: $colorActionText;
-  margin-bottom: $verticalSpaceTextSmall;
+  color: var(--colorActionText);
+  margin-bottom: var(--verticalSpaceTextSmall);
   display: inline-block;
   &:hover {
-    color: $colorActionTextHover;
+    color: var(--colorActionTextHover);
   }
 }
 
 .infoTextContainer {
   position: relative;
-  color: $colorInfoText;
-  font-size: $fontSizeInfo;
-  line-height: $lineHeightInfo;
-  margin-top: $verticalSpaceTextInfo;
-  max-width: $widthRestriction;
-  width: widthRestrictionPercentage;
+  color: var(--colorInfoText);
+  font-size: var(--fontSizeInfo);
+  line-height: var(--lineHeightInfo);
+  margin-top: var(--verticalSpaceTextInfo);
+  max-width: var(--widthRestriction);
+  width: var(--widthRestrictionPercentage);
 
   .infoTextIcon {
     position: absolute;
@@ -132,16 +119,10 @@
 }
 
 .sloganImageContainer {
-  margin: $verticalSpaceElement 0;
-  display: block;
-  width: 100%;
-  height: auto;
-  position: relative;
-  overflow: hidden;
-  padding: 40.30% 0 0 0; /* 40.30% = 100 / (w / h) = 100 / (732 / 295) */
+  @mixin guideSloganImageContainer;
 }
 .sloganImageContainerBig {
-  @extend .sloganImageContainer;
+  @mixin guideSloganImageContainer;
   padding: 73.68% 0 0 0; /* 73.68% = 100 / (w / h) = 100 / (722 / 532) */
 }
 

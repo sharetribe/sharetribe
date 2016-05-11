@@ -3,8 +3,8 @@
   color: white;
   padding-top: 1.2em;
   padding-bottom: 1.2em;
-  background-image: linear-gradient( 90deg, $gradientStart 0%, $gradientEnd 100%);
-  box-shadow: $topbarShadow;
+  background-image: linear-gradient(90deg, var(--gradientStart) 0%, var(--gradientEnd) 100%);
+  box-shadow: var(--topbarShadow);
 }
 
 .topbar {
@@ -38,7 +38,7 @@
 
 .progressBar {
   background-color: rgb(184, 234, 225);
-  box-shadow: $topbarShadow;
+  box-shadow: var(--topbarShadow);
   height: 100%;
   border-radius: 0.5em;
   transition: width 2s;

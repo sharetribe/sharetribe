@@ -3,8 +3,14 @@
 const Promise = require('es6-promise');
 Promise.polyfill();
 
+const path = require('path');
 const webpack = require('webpack');
+const cssnext = require('postcss-cssnext');
 const autoprefixer = require('autoprefixer');
+const mixins = require('postcss-mixins');
+const customProperties = require('postcss-custom-properties');
+const cssVariables = require('./app/assets/styles/variables');
+
 const devBuild = process.env.NODE_ENV !== 'production';
 const nodeEnv = devBuild ? 'development' : 'production';
 
@@ -57,15 +63,10 @@ module.exports = {
       { test: /\.(jpe?g|png|gif|svg|ico)$/, loader: 'url?limit=10000' },
     ],
   },
-
   postcss: [
+    mixins({ mixinsFiles: path.join(__dirname, 'app/assets/styles/mixins.css') }),
+    customProperties({ variables: cssVariables }),
+    cssnext(),
     autoprefixer({ browsers: ['last 2 versions', 'not ie < 11', 'not ie_mob < 11', 'ie >= 11'] }),
   ],
-
-  // Place here all SASS files with variables, mixins etc.
-  // And sass-resources-loader will load them in every CSS Module (SASS file) for you
-  // (so don't need to @import them explicitly)
-  // https://github.com/shakacode/sass-resources-loader
-  sassResources: ['./app/assets/styles/app-variables.scss'],
-
 };
