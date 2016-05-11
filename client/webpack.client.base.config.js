@@ -4,7 +4,6 @@ const Promise = require('es6-promise');
 Promise.polyfill();
 
 const webpack = require('webpack');
-const path = require('path');
 const autoprefixer = require('autoprefixer');
 const devBuild = process.env.NODE_ENV !== 'production';
 const nodeEnv = devBuild ? 'development' : 'production';
@@ -27,10 +26,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js'],
-    alias: {
-      react: path.resolve('./node_modules/react'),
-      'react-dom': path.resolve('./node_modules/react-dom'),
-    },
   },
   plugins: [
     new webpack.IgnorePlugin(/i18n\/all.js/),
