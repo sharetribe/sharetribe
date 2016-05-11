@@ -192,6 +192,29 @@ $elementSpacing: lines(0.5);
   margin-left: lines(0.5);
 }
 
+.header-wide-logo-text,
+.header-square-logo-text {
+  margin-top: 0.625rem;
+  margin-bottom: 0.625rem;
+  line-height: 2.5rem;
+  height: 2.5rem;
+  font-size: em(28);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.header-wide-logo-text {
+  @include ellipsis;
+  width: rem(150);
+  height: rem(40);
+}
+
+.header-square-logo-text {
+  width: rem(40);
+  height: rem(40);
+}
+
 .header-wide-logo {
   background-image: url(image-path($wide-logo-lowres-url));
 

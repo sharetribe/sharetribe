@@ -34,6 +34,10 @@ $line-height: 24;
   @return ($pixels / $context-font-size) * 1em;
 }
 
+@function rem($pixels, $context-font-size: $font-size) {
+  @return ($pixels / $context-font-size) * 1rem;
+}
+
 @function lines($lines, $context-font-size: $font-size,  $context-line-height: $line-height) {
   @return $lines * ($context-line-height / $context-font-size) * 1em;
 }

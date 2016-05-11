@@ -45,7 +45,15 @@
       keep the logo here after buttons
     .header-left.header-logo-container
       = link_to homepage_path, :class => "header-logo", :id => "header-logo" do
-        %i.header-wide-logo.visible-tablet
-          -# Logo is here, it's a CSS background
-        %i.header-square-logo.hidden-tablet
-          -# Logo is here, it's a CSS background
+        - if @current_community.logo.present?
+          %i.header-square-logo.hidden-tablet
+            -# Logo is here, it's a CSS background
+        - else
+          %span.header-square-logo-text.hidden-tablet
+            = @current_community.name(I18n.locale)[0]
+        - if @current_community.wide_logo.present?
+          %i.header-wide-logo.visible-tablet
+            -# Logo is here, it's a CSS background
+        - else
+          %span.header-wide-logo-text.visible-tablet
+            = @current_community.name(I18n.locale)
