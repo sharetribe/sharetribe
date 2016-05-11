@@ -34,6 +34,7 @@ describe PlanService::API::Plans do
                                               plan_level: 0,
                                               features: ["deletable"],
                                               expires_at: expires_at,
+                                              member_limit: 300,
                                               created_at: Time.now,
                                               updated_at: Time.now,
                                               expired: false,
