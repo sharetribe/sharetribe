@@ -33,8 +33,8 @@
       = t("layouts.logged_in.admin")
 
   .hidden-desktop
-    - Maybe(available_locales).each do |locales|
+    - if available_locales.size > 1
       .toggle-menu-title
         = t("layouts.global-header.select_language")
 
-      = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array, locals: { return_after_locale_change: return_after_locale_change }
+      = render :partial => "layouts/locale_select", :collection => available_locales, :as => :loc_array, locals: { return_after_locale_change: return_after_locale_change }
