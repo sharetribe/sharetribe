@@ -21,6 +21,7 @@ module PlanService::Store::Plan
   NewTrialPlan = EntityUtils.define_builder(
     [:community_id, :fixnum, :mandatory],
     [:features, :array, :optional],
+    [:member_limit, :fixnum, :optional],
     [:expires_at, :time],
   )
 

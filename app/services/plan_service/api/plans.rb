@@ -42,7 +42,9 @@ module PlanService::API
         with_statuses(
           PlanStore.create_trial(
             community_id: community_id,
-            plan: plan.merge(features: ["deletable"])))) # add default features for trial
+            plan: plan.merge(
+              features: ["deletable"],
+              member_limit: 300)))) # add default features for trial
     end
 
     def get_current(community_id:)
