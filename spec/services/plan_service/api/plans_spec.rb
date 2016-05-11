@@ -32,6 +32,7 @@ describe PlanService::API::Plans do
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               plan_level: 0,
+                                              features: ["deletable"],
                                               expires_at: expires_at,
                                               created_at: Time.now,
                                               updated_at: Time.now,

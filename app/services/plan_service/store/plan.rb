@@ -2,6 +2,7 @@ module PlanService::Store::Plan
 
   class TrialModel < ActiveRecord::Base
     self.table_name = :marketplace_trials
+    serialize :features, Array
   end
 
   class PlanModel < ActiveRecord::Base
@@ -18,7 +19,8 @@ module PlanService::Store::Plan
 
   NewTrialPlan = EntityUtils.define_builder(
     [:community_id, :fixnum, :mandatory],
-    [:expires_at, :time]
+    [:features, :array, :optional],
+    [:expires_at, :time],
   )
 
   Plan = PlanService::DataTypes::Plan
