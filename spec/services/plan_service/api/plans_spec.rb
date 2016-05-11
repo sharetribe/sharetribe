@@ -50,6 +50,7 @@ describe PlanService::API::Plans do
               community_id: 123, plan: {
                 plan_level: PlanService::Levels::SCALE,
                 features: ["whitelabel", "admin_email"],
+                member_limit: 100000,
                 expires_at: expires_at,
               })
 
@@ -61,6 +62,7 @@ describe PlanService::API::Plans do
                                               community_id: 123,
                                               plan_level: 4,
                                               features: ["whitelabel", "admin_email"],
+                                              member_limit: 100000,
                                               expires_at: expires_at,
                                               created_at: Time.now,
                                               updated_at: Time.now,
@@ -74,7 +76,8 @@ describe PlanService::API::Plans do
           Timecop.freeze(Time.now.change(usec: 0)) {
             plans_api.create(
               community_id: 123, plan: {
-                plan_level: PlanService::Levels::PRO
+                plan_level: PlanService::Levels::PRO,
+                member_limit: 1000,
               })
 
             res = plans_api.get_current(community_id: 123)
@@ -84,6 +87,7 @@ describe PlanService::API::Plans do
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               plan_level: 2,
+                                              member_limit: 1000,
                                               expires_at: nil,
                                               created_at: Time.now,
                                               updated_at: Time.now,

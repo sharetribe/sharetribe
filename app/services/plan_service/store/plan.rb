@@ -14,6 +14,7 @@ module PlanService::Store::Plan
     [:community_id, :fixnum, :mandatory],
     [:plan_level, :fixnum, :mandatory],
     [:features, :array, :optional],
+    [:member_limit, :fixnum, :optional],
     [:expires_at, :time, :optional], # Passing nil means that the plan never expires
   )
 
