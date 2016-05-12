@@ -193,8 +193,7 @@ function MarkerClusterer(map, opt_markers, markerContents, infowindow, showingMa
  * @private
  */
 MarkerClusterer.prototype.MARKER_CLUSTER_IMAGE_PATH_ =
-    '//google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/' +
-    'images/m1';
+  "<%= asset_path 'map_icons/m1.png' %>".replace(/\.png$/, '');
 
 /**
  * The marker cluster image path.
