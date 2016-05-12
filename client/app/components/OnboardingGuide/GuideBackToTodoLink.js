@@ -1,6 +1,6 @@
 import { PropTypes } from 'react';
 import { a } from 'r-dom';
-import css from './styles.scss';
+import css from './OnboardingGuide.css';
 import { t } from '../../utils/i18n';
 
 const GuideBackToTodoLink = (props) => {

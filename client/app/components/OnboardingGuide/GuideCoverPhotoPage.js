@@ -1,6 +1,6 @@
 import { PropTypes } from 'react';
 import r, { div, h2, p, img, a, br } from 'r-dom';
-import css from './styles.scss';
+import css from './OnboardingGuide.css';
 import { t } from '../../utils/i18n';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
