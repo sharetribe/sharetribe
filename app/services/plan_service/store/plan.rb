@@ -15,14 +15,14 @@ module PlanService::Store::Plan
     [:plan_level, :fixnum, :mandatory],
     [:features, :array, :optional],
     [:member_limit, :fixnum, :optional],
-    [:expires_at, :time, :optional], # Passing nil means that the plan never expires
+    [:expires_at, :time, :optional] # Passing nil means that the plan never expires
   )
 
   NewTrialPlan = EntityUtils.define_builder(
     [:community_id, :fixnum, :mandatory],
     [:features, :array, :optional],
     [:member_limit, :fixnum, :optional],
-    [:expires_at, :time],
+    [:expires_at, :time]
   )
 
   Plan = PlanService::DataTypes::Plan
