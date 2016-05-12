@@ -3,7 +3,7 @@
 const path = require('path');
 
 // symlinked to .storybook/, hence the weird path
-const config = require('./webpack.client.base.config');
+const config = require('../webpack.client.base.config');
 
 delete config.plugins;
 
