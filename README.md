@@ -127,7 +127,7 @@ Some components are created with React (see [documentation](https://github.com/s
   foreman start -f Procfile.static
   ```
 
-  1. React component & style hot loading (only in `/styleguide/`)
+  1. React component & hot loading styleguide (http://localhost:9001/)
   ```bash
   foreman start -f Procfile.hot
   ```
@@ -139,7 +139,7 @@ Some components are created with React (see [documentation](https://github.com/s
   foreman start -f Procfile.client-static
   ```
 
-  1. React component & style hot loading (only in `/styleguide/`), React client only
+  1. React component & hot loading styleguide (http://localhost:9001/), React client only
   ```bash
   foreman start -f Procfile.client-hot
   ```
@@ -338,14 +338,7 @@ Here's a sample CORS configuration that allows anyone to post to your bucket.  N
 
 Default configuration settings are stored in `config/config.default.yml`. If you need to change these, use the `config/config.yml` file to override the defaults. You can also set configuration values to environment variables.
 
-React components can be created using hot module replacement HMR technique behind /styleguide path in local development environment. Webpack is used to bundle React components for deployments and hot loading. Related webpack configs can be found from folder sharetribe/client/
-
-##### Hot Reloading of Rails Assets
-Hot loading environment can be started using _Procfile.hot_:
-```bash
-foreman start -f Procfile.hot
-```
-
+React components can be created using hot module replacement HMR technique in Styleguide (http://localhost:9001/) path in local development environment. Webpack is used to bundle React components for deployments and hot loading. Related webpack configs can be found from folder sharetribe/client/
 
 ### Unofficial installation instructions
 
