@@ -1,25 +1,54 @@
 import { Component, PropTypes } from 'react';
-import { translate } from '../../utils/i18nUtils';
 import { div, span, a } from 'r-dom';
+import { t } from '../../utils/i18n';
 
 import css from './OnboardingTopBar.scss';
 
-const next = function next(nextStep, guideRoot, t) {
-  return t(nextStep) ? {
-    title: t(nextStep),
-    link: `${guideRoot}/${nextStep}`,
-  } : null;
+const next = function next(nextStep, guideRoot) {
+  switch (nextStep) {
+    case 'slogan_and_description':
+      return {
+        title: t('admin.onboarding.topbar.slogan_and_description'),
+        link: `${guideRoot}/${nextStep}`,
+      };
+    case 'cover_photo':
+      return {
+        title: t('admin.onboarding.topbar.cover_photo'),
+        link: `${guideRoot}/${nextStep}`,
+      };
+    case 'filter':
+      return {
+        title: t('admin.onboarding.topbar.filter'),
+        link: `${guideRoot}/${nextStep}`,
+      };
+    case 'paypal':
+      return {
+        title: t('admin.onboarding.topbar.paypal'),
+        link: `${guideRoot}/${nextStep}`,
+      };
+    case 'listing':
+      return {
+        title: t('admin.onboarding.topbar.listing'),
+        link: `${guideRoot}/${nextStep}`,
+      };
+    case 'invitation':
+      return {
+        title: t('admin.onboarding.topbar.invitation'),
+        link: `${guideRoot}/${nextStep}`,
+      };
+    default:
+      return null;
+  }
 };
 
 class OnboardingTopBar extends Component {
 
   nextElement() {
-    const t = translate(this.props.translations);
-    const nextStep = next(this.props.next_step, this.props.guide_root, t);
+    const nextStep = next(this.props.next_step, this.props.guide_root);
     if (nextStep) {
       return (
         div({ className: css.nextContainer }, [
-          div({ className: css.nextLabel }, t('next_step')),
+          div({ className: css.nextLabel }, t('admin.onboarding.topbar.next_step')),
           a({ href: nextStep.link, className: css.nextButton }, [
             span(nextStep.title),
           ]),
@@ -30,12 +59,11 @@ class OnboardingTopBar extends Component {
   }
 
   render() {
-    const t = translate(this.props.translations);
     const currentProgress = this.props.progress;
     return div({ className: css.topbarContainer }, [
       div({ className: css.topbar }, [
         a({ className: css.progressLabel, href: this.props.guide_root }, [
-          t('progress_label'),
+          t('admin.onboarding.topbar.progress_label'),
           span({ className: css.progressLabelPercentage },
                `${Math.floor(currentProgress)} %`),
         ]),
@@ -49,7 +77,6 @@ class OnboardingTopBar extends Component {
 }
 
 OnboardingTopBar.propTypes = {
-  translations: PropTypes.objectOf(PropTypes.string).isRequired,
   guide_root: PropTypes.string.isRequired,
   progress: PropTypes.number.isRequired,
   next_step: PropTypes.string.isRequired,

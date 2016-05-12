@@ -291,6 +291,11 @@ default: &default_settings
   #
   next_maintenance_at:
 
+  # Use I18n::JS::Middleware to compile the translation bundle for
+  # client-side JS code during the request. Should be true for
+  # development and false otherwise.
+  use_i18n_js_middleware: false
+
 production: &production_settings
   <<: *default_settings
 
@@ -316,6 +321,8 @@ development:
   secret_key_base: "fd1af50b59b5e27776941b3205f92aca0f704c2252225cf93e3d97ae53f4774d25736cbdb19c1580839a2f68e15009209227e966003f53932c1bcc5d65616948"
 
   log_level: DEBUG
+
+  use_i18n_js_middleware: true
 
 test:
   <<: *default_settings

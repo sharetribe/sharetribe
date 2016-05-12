@@ -1,0 +1,37 @@
+# Configure translations that are passed to JavaScript
+
+# Don't export the i18n.js file.
+# We get that file via webpack and npm
+export_i18n_js: false
+
+# By default the exported files contains call to I18n.extend.
+# We don't want to call that because in our case I18n is not library
+# is not yet available when we are loading the translations.
+js_extend: false
+
+translations:
+
+  # Bundles per language
+  #
+  # Per language bundles are used in frontend because we don't
+  # want to send too big language bundles over the wire
+  #
+  # Use a custom namespace that uses either global (in node) or window (in browser)
+
+  - file: "app/assets/javascripts/i18n/%{locale}.js"
+    only: ["*.web", "*.admin.onboarding"]
+    namespace: "(typeof(window) === 'undefined' ? global : window).I18n"
+    pretty_print: true # can be turned on for debugging
+
+  # Bundle for all languages
+  #
+  # This bundle is used for server rendering. We can bundle
+  # all languages in on file because we don't need to care
+  # about the filesize
+  #
+  # Use a custom namespace that uses either global (in node) or window (in browser)
+
+  - file: "client/app/i18n/all.js"
+    only: ["*.web", "*.admin.onboarding"]
+    namespace: "(typeof(window) === 'undefined' ? global : window).I18n"
+    pretty_print: false # can be turned on for debugging

@@ -29,7 +29,11 @@ module.exports = {
   ],
   module: {
     loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: [/node_modules/, /i18n\/all.js/],
+      },
       {
         test: /\.css$/,
         loaders: [

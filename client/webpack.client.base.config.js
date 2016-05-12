@@ -33,6 +33,8 @@ module.exports = {
     },
   },
   plugins: [
+    new webpack.IgnorePlugin(/i18n\/all.js/),
+
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(nodeEnv),
