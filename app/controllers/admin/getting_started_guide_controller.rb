@@ -60,8 +60,8 @@ class Admin::GettingStartedGuideController < ApplicationController
 
     sorted_steps = OnboardingViewUtils.sorted_steps_with_includes(onboarding_status, links)
       .each_with_object({}) { |value, hash|
-        hash[value[:step]] = value.except(:step)
-      }
+        hash[value[:step]] = value
+    }
 
     # This is the props used by the React component.
     { onboarding_guide_page: {

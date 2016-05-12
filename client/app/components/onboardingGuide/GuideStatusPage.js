@@ -1,5 +1,6 @@
 import { PropTypes } from 'react';
 import { div, p, h2, hr, ul, li, span, a } from 'r-dom';
+import { t } from '../../utils/i18n';
 
 import css from './styles.scss';
 
@@ -13,26 +14,26 @@ const GuideStatusPage = (props) => {
 
   // TODO: interpolating translation strings needs more thinking
   const title = props.nextStep ?
-    props.t('title').replace(/%\{(\w+)\}/g, props.name) :
-    props.t('title_done');
+    t('title').replace(/%\{(\w+)\}/g, props.name) :
+    t('title_done');
 
   const todoDescPartial = div([
-    p({ className: css.description }, props.t('description_p1')),
-    p({ className: css.description }, props.t('description_p2')),
+    p({ className: css.description }, t('description_p1')),
+    p({ className: css.description }, t('description_p2')),
   ]);
 
   const doneDescPartial = div([
     p({
       className: css.description,
-      dangerouslySetInnerHTML: { __html: props.t('congratulation_p1') }, // eslint-disable-line react/no-danger
+      dangerouslySetInnerHTML: { __html: t('congratulation_p1') }, // eslint-disable-line react/no-danger
     }),
     p({
       className: css.description,
-      dangerouslySetInnerHTML: { __html: props.t('congratulation_p2') }, // eslint-disable-line react/no-danger
+      dangerouslySetInnerHTML: { __html: t('congratulation_p2') }, // eslint-disable-line react/no-danger
     }),
     p({
       className: css.description,
-      dangerouslySetInnerHTML: { __html: props.t('congratulation_p3') }, // eslint-disable-line react/no-danger
+      dangerouslySetInnerHTML: { __html: t('congratulation_p3') }, // eslint-disable-line react/no-danger
     }),
   ]);
 
@@ -47,7 +48,7 @@ const GuideStatusPage = (props) => {
       li({ className: css.stepListItemDone }, [
         span({ className: css.stepListLink }, [
           span({ className: css.stepListCheckbox }),
-          props.t('create_your_marketplace'),
+          t('create_your_marketplace'),
         ]),
       ]),
     ].concat(Object.keys(onboardingData).map((key) => {
@@ -62,7 +63,7 @@ const GuideStatusPage = (props) => {
           href: `${props.initialPath}/${onboardingData[key].sub_path}`,
         }, [
           span({ className: css.stepListCheckbox }),
-          props.t(key),
+          t(key),
         ]),
       ]);
     }))),
@@ -94,7 +95,6 @@ GuideStatusPage.propTypes = {
     cta: PropTypes.string,
     complete: PropTypes.bool.isRequired,
   })).isRequired,
-  t: PropTypes.func.isRequired,
 };
 
 export default GuideStatusPage;
