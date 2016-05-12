@@ -1781,6 +1781,8 @@ zh-HK:
       email_is_in_use: 你所提供的電郵已被使用。
       email_is_in_use_or_not_allowed: 此電郵地址不允許使用或已被註冊。如果你無法註冊，請聯絡我們。
       email_not_allowed: "這電郵地址不被允許於%{service_name}中使用。請使用一個允許的電郵地址。若你預到什麼問題，請聯繫我們。"
+      email_restriction_instructions:
+        other: "你已被限制加入%{service_name}。你需要一個有效的電郵地址以加入我們。"
       family_name: 姓
       given_name: 名
       i_accept_the: 我接受
@@ -1800,8 +1802,6 @@ zh-HK:
       create_account_with_facebook: ~
       OR: ~
       signup_with_email: ~
-      email_restriction_instructions:
-        other: "你已被限制加入%{service_name}。你需要一個有效的電郵地址以加入我們。"
     profile_feedback:
       grade: 評分：
       and_gave_following_feedback: ~
@@ -1945,7 +1945,7 @@ zh-HK:
       email_about_payment_reminders: ~
       email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: ~
-      unsubscribe_info_text: "你將不再接受到這些電郵。請查看你的%{settings_link}以選取你想從%{service_name}得到的電郵通知類型，或者回到%{homepage_link}。"
+      unsubscribe_info_text: "你將不再接收到這些電郵。請查看你的%{settings_link}以選取你想從%{service_name}得到的電郵通知類型，或者回到%{homepage_link}。"
       settings_link: ~
       homepage_link: ~
       unsubscribe_unsuccesful: ~
