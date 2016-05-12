@@ -8,7 +8,7 @@ import middleware from 'redux-thunk';
 import reducers from '../reducers/reducersIndex';
 import composeInitialState from '../store/composeInitialState';
 
-import OnboardingGuideContainer from '../components/onboardingGuide/OnboardingGuideContainer';
+import OnboardingGuideContainer from '../components/OnboardingGuide/OnboardingGuideContainer';
 
 export default (props, railsContext) => {
   initializeI18n(railsContext, process.env.NODE_ENV);
