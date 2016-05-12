@@ -10,9 +10,12 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ## [5.7.1] - 2016-05-12
 
-### Added
+### Fixed
 
 - Fix missing map icon [#2032](https://github.com/sharetribe/sharetribe/pull/2032)
+
+### Added
+
 - Add instructions for handling libv8 installation problems [#2023](https://github.com/sharetribe/sharetribe/pull/2023)
 
 ## [5.7.0] - 2016-05-11
