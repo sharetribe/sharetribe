@@ -2,35 +2,33 @@
 
 const path = require('path');
 
-const config = {
-  module: {
-    loaders: [
-      {
-        test: /\.css$/,
-        loaders: [
-          'style',
-          'css',
-          'postcss',
-        ],
-        include: path.resolve(__dirname, '../'),
-      },
-      {
-        test: /\.scss$/,
-        loader:
-          'style' +
-          '!css?modules' +
-          '!postcss' +
-          '!sass' +
-          '!sass-resources',
-        include: path.resolve(__dirname, '../'),
-      },
-      { test: /\.(jpe?g|png|gif|svg|ico)$/, loader: 'url?limit=10000' },
-    ],
-  },
-  sassResources: ['./app/assets/styles/app-variables.scss'],
-};
+const config = require('../webpack.client.base.config');
 
-console.log('Webpack dev build for Rails'); // eslint-disable-line no-console
+delete config.plugins;
+
+config.module.loaders.push(
+  {
+    test: /\.css$/,
+    loaders: [
+      'style',
+      'css',
+      'postcss',
+    ],
+    include: path.resolve(__dirname, '../'),
+  },
+  {
+    test: /\.scss$/,
+    loader:
+      'style' +
+      '!css?modules' +
+      '!postcss' +
+      '!sass' +
+      '!sass-resources',
+    include: path.resolve(__dirname, '../'),
+  },
+  { test: /\.(jpe?g|png|gif|svg|ico)$/, loader: 'url?limit=10000' }
+);
+
 config.devtool = 'eval-source-map';
 
 module.exports = config;
