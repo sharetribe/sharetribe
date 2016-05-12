@@ -1,5 +1,5 @@
 import { storiesOf } from '@kadira/storybook';
-import r from 'r-dom';
+import withProps from '../Styleguide/withProps';
 
 import OnboardingTopBar from './OnboardingTopBar';
 
@@ -21,15 +21,15 @@ const defaultProps = {
 
 storiesOf('Onboarding top bar')
   .add('Not started', () => (
-    r(OnboardingTopBar, Object.assign({}, defaultProps, {
+    withProps(OnboardingTopBar, Object.assign({}, defaultProps, {
       progress: 0,
       next_step: 'slogan_and_description',
     }))))
   .add('In progress', () => (
-    r(OnboardingTopBar, defaultProps)
+    withProps(OnboardingTopBar, defaultProps)
     ))
   .add('Complete', () => (
-    r(OnboardingTopBar, Object.assign({}, defaultProps, {
+    withProps(OnboardingTopBar, Object.assign({}, defaultProps, {
       progress: 100,
       next_step: 'all_done',
     }))));
