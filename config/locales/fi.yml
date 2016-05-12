@@ -20,7 +20,7 @@ fi:
           no_parent: "Ei yläkategoriaa"
         category_transaction_types:
           transaction_types: Tilaustyypit
-          transaction_types_description: "Tilaustyypit määrittelevät, millaiset tilaukset ovat sallittuja tässä kategoriassa oleville ilmoituksille. Voit esimerkiksi määritellä, että ainoastaan myynti-ilmoitukset ovat sallittuja, tai sallia myös vuokrauksen ja lainaamisen."
+          transaction_types_description: "Tilaustyypit määrittelevät, millaiset tilaukset ovat sallittuja tässä kategoriassa oleville ilmoituksille. Voit esimerkiksi määritellä, että ainoastaan myynti-ilmoitukset ovat sallittuja, tai sallia myös vuokrauksen, ilmaiseksi antamisen sekä lainaamisen."
           select_all: "Valitse kaikki"
           clear_all: "Poista valinta kaikista"
         buttons:
@@ -95,13 +95,13 @@ fi:
         favicon_info_text: "Ladattu kuva korvaa oletuksena käytettävän Sharetriben logon. Faviconin koon tulee olla 32x32 pikseliä. Ladattu kuva muunnetaan tähän kokoon."
         community_custom_color1: Pääväri
         community_custom_color2: "Toinen väri"
-        logo_instructions_text_with_dimensions: "Peruslogon koon tulee olla %{width}x%{height} pikseliä."
+        logo_instructions_text_with_dimensions: "Peruslogon koon tulee olla %{width}x%{height} pikseliä. Se näytetään käyttäjille, jotka katsovat sivua suuremmalta näytöltä."
         logo_icon_instructions_text_with_dimensions: "Tämä neliönmuotoinen logo näytetään, kun käyttäjät jakavat sivustosi Facebookissa, vierailevat sivustollasi mobiililaitteellaan tai lisäävät sivustosi kirjanmerkiksi mobiililaitteensa aloitusnäytölle. Tämän logon koon tulee olla (vähintään) %{width}x%{height} pikseliä."
         cover_photo_visibility: "Kansikuva näytetään etusivulla kirjautumattomille käyttäjille."
         cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Matala kansikuva näytetään kaikilla sivuilla paitsi etusivulla kirjautumattomille käyttäjille."
         small_cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
-        main_content_width: "Valitessasi kansikuvia, huomaathan että sivuston sisällön leveys on korkeintaa %{main_width} pikseliä. Muistathan katsoa myös miltä kansikuvasi näyttää pienemmillä näytöillä."
+        main_content_width: "Valitessasi kansikuvia, huomaathan että sivuston sisällön leveys on korkeintaan %{main_width} pikseliä. Muistathan katsoa myös miltä kansikuvasi näyttää pienemmillä näytöillä, esimerkiksi muuttamalla selainikkunasi kokoa."
         custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
         custom_color2_instructions_text: ~
         default_browse_view: "Oletusarvo listausten näyttämiselle"
@@ -177,7 +177,7 @@ fi:
         privacy_policy_link_text: tietosuojakäytäntö
         welcome_email_link_text: tervetulosähköposti
         instruction_texts_link_text: täältä
-        social_media: "Sosiaalisen median hyödyntäminen on hyvä tapa yhteisöllisyyden lisäämiseen. Voit %{facebook_link}, jotta käyttäjäsi voivat kirjautua sivustollesi Facebook-tunnuksillaan, sekä %{twitter_link} saadaksesi lisää näkyvyyttä, kun käyttäjäsi twiittaavat luomistaan ilmoituksista."
+        social_media: "Sosiaalisen median hyödyntäminen on hyvä tapa yhteisösi kasvattamiseen. Voit %{facebook_link}, jotta käyttäjäsi voivat kirjautua sivustollesi Facebook-tunnuksillaan, sekä %{twitter_link} saadaksesi lisää näkyvyyttä, kun käyttäjäsi twiittaavat luomistaan ilmoituksista."
         facebook_link_text: "yhdistää oman Facebook-applikaatiosi"
         twitter_link_text: "lisätä Twitter-tilisi"
         analytics: "Kannatta myös %{analytics_link}"
@@ -217,7 +217,7 @@ fi:
         users_can_review_each_other_after_transaction: "Käyttäjät voivat antaa palautetta toisilleen"
         access: Pääsyoikeudet
         join_with_invite_only: "Käyttäjät voivat liittyä palveluun ainoastaan saatuaan kutsun toiselta käyttäjältä"
-        users_can_invite_new_users: "Käyttäjillä on oikeus kutsua muita käyttäjiä palveluun."
+        users_can_invite_new_users: "Kaikilla käyttäjillä on oikeus kutsua muita käyttäjiä palveluun"
         private: "Yksityinen kauppapaikka (vain kirjautuneet käyttäjät näkevät sisällön)"
         require_verification_to_post_listings: "Vain ylläpitäjän erikseen hyväksymät käyttäjät voivat lisätä ilmoituksia"
         search_preferences: Hakuasetukset
@@ -228,7 +228,7 @@ fi:
         km: km
         miles: mailit
         listing_preferences: Ilmoitusasetukset
-        transaction_preferences: "Tilausprosessin asetukset"
+        transaction_preferences: Tilausasetukset
         show_listing_publishing_date: "Näytä ilmoituksen julkaisuajankohta ilmoituksen sivulla"
         show_category_in_listing_list: "Näytä ilmoituskategoria listanäkymässä"
         hide_expiration_date: "Älä vaadi viimeisen voimassaolopäivän valintaa ilmoituksen lisäyksen yhteydessä"
@@ -823,7 +823,7 @@ fi:
       account_ready: "Voit nyt vastaanottaa maksuja"
       message: "Maksutietosi on nyt tarkistettu ja hyväksytty. Voit tästä lähtien vastaanottaa maksuja %{service_name}-palvelussa"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Et ole vielä merkinnyt pyyntöä '%{request_link}' toteutuneeksi tai toteutumattomaksi. Jos pyyntö on toteutettu, sinun kannattaa ilmoittaa siitä, jotta voit antaa palautetta tapahtuneesta käyttäjälle %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Et ole vielä merkinnyt pyyntöä '%{request_link}' toteutuneeksi tai toteutumattomaksi. Jos pyyntö on toteutettu, sinun kannattaa ilmoittaa siitä. Tämän jälkeen voit antaa palautetta tapahtuneesta käyttäjälle %{other_party_given_name}."
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Et ole vielä merkinnyt tilausta %{request_link} toteutuneeksi tai peruuttanut sitä. Siirrämme rahat käyttäjälle %{other_party_given_name} vasta kun a) olet merkinnyt tilauksen toteutuneeksi tai b) %{days_to_automatic_confirmation} päivää on kulunut maksun suorittamisesta. Kun olet merkinnyt tilauksen toteutuneeksi, voit antaa palautetta käyttäjälle %{other_party_given_name}."
       remember_to_confirm_request: "Muista merkitä pyyntö toteutuneeksi tai toteutumattomaksi"
       if_will_not_happen_you_should_cancel: "Jos pyyntö syystä tai toisesta jää toteutumatta, voit %{cancel_it_link}."
@@ -878,7 +878,7 @@ fi:
       dont_want_to_receive_these_emails: "Etkö halua saada jatkossa näitä viestejä?"
       edit_your_email_settings_here: "Muokkaa sähköpostiasetuksiasi tästä"
       message_not_displaying_correctly: "Eikö tämä viesti näy oikein sähköpostissa?"
-      view_it_in_your_browser: "Katso verkkoselaimellasi"
+      view_it_in_your_browser: "Katso internet-selaimellasi"
       or: tai
       unsubscribe_from_these_emails: "lopeta tällaisten viestien vastaanotto kokonaan"
     conversation_status_changed:
@@ -1389,7 +1389,7 @@ fi:
       you_must_log_in_to_view_your_settings: "Sinun pitää kirjautua sisään %{service_name}-palveluun nähdäksesi asetuksesi."
       you_must_log_in_to_add_news_item: "Sinun pitää kirjautua sisään %{service_name}-palveluun, jotta voisit luoda uuden uutisen."
       you_must_log_in_to_change_profile_settings: "Sinun pitää kirjautua sisään %{service_name}-palveluun, jotta voit muuttaa profiiliasetuksia."
-      you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_change_payment_settings: "Sinun tulee kirjautua %{service_name}-palveluun muuttaaksesi maksuasetuksiasi."
       you_must_log_in_to_accept_or_reject: "Sinun täytyy kirjautua sisään hyväksyäksesi tai hylätäksesi tilauksen"
       you_must_log_in_to_confirm_or_cancel: "Sinun täytyy kirjautua sisään peruuttaaksesi tai vahvistaaksesi tilauksen"
       you_need_to_confirm_your_account_first: "Sinun täytyy vahvistaa sähköpostiosoitteesi ennen kuin voit jatkaa."
@@ -1926,7 +1926,7 @@ fi:
       your_current_email_is: "Nykyinen osoitteesi: <strong>%{email}</strong>"
       change_email: Vaihda
       confirm_your_email: "Vahvista sähköpostiosoitteesi"
-      account_confirmation_instructions: "Saat pian sähköpostin, jossa on linkki, jota sinun on klikattava vahvistaaksesi sähköpostiosoitteesi. Vahvistuksen jälkeen voit liittyä palveluun %{service_name}."
+      account_confirmation_instructions: "Saat pian sähköpostin, jossa on linkki, jota sinun on klikattava vahvistaaksesi sähköpostiosoitteesi. Jos et löydä viestiä, muista tarkistaa roskapostikansiosi! Vahvistuksen jälkeen voit liittyä palveluun %{service_name}."
       account_confirmation_instructions_title_admin: "Tervetuloa markkinapaikkasivustollesi!"
       your_marketplace_has_now_been_created: "Sivustosi on nyt luotu. Se oli helppoa, eikö vain? Jäljellä on enää yksi vaihe, ennen kuin pääset katsomaan, miltä sivustosi näyttää: sinun pitää varmistaa sähköpostiosoitteesi."
       account_confirmation_instructions_admin: "Saat pian sähköpostiisi linkin, jota sinun tulee klikata varmistaaksesi sähköpostiosoitteesi. Tämän jälkeen voit aloittaa sivustosi muokkaamisen."
