@@ -3,7 +3,7 @@ import r, { div } from 'r-dom';
 import { storiesOf } from '@kadira/storybook';
 import _ from 'lodash';
 
-import css from './ColorsAndTypography.scss';
+import css from './ColorsAndTypography.css';
 
 const colors = {
   $color: '#3c3c3c',
