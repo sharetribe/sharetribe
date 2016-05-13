@@ -2,7 +2,6 @@ module PlanService::Store::Plan
 
   class TrialModel < ActiveRecord::Base
     self.table_name = :marketplace_trials
-    store :features, coder: JSON
   end
 
   class PlanModel < ActiveRecord::Base
@@ -20,7 +19,6 @@ module PlanService::Store::Plan
 
   NewTrialPlan = EntityUtils.define_builder(
     [:community_id, :fixnum, :mandatory],
-    [:features, :hash, :mandatory],
     [:expires_at, :time]
   )
 
@@ -88,7 +86,8 @@ module PlanService::Store::Plan
     Maybe(model).map { |m|
       Plan.call(EntityUtils.model_to_hash(m).merge(
         plan_level: 0,
-        member_limit: 300))
+        member_limit: 300,
+        features: { deletable: true }))
     }.or_else(nil)
   end
 
