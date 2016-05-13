@@ -1,5 +1,6 @@
 import { PropTypes } from 'react';
 import { div, p, h2, hr, ul, li, span, a } from 'r-dom';
+import { t } from '../../utils/i18n';
 
 import css from './styles.scss';
 
@@ -11,29 +12,38 @@ const GuideStatusPage = (props) => {
 
   const onboardingData = props.onboarding_data;
 
-  // TODO: interpolating translation strings needs more thinking
   const title = props.nextStep ?
-    props.t('title').replace(/%\{(\w+)\}/g, props.name) :
-    props.t('title_done');
+        t('web.admin.onboarding.guide.status_page.title', {name : props.name}) :
+        t('web.admin.onboarding.guide.status_page.title_done');
 
   const todoDescPartial = div([
-    p({ className: css.description }, props.t('description_p1')),
-    p({ className: css.description }, props.t('description_p2')),
+    p({ className: css.description }, t('web.admin.onboarding.guide.status_page.description_p1')),
+    p({ className: css.description }, t('web.admin.onboarding.guide.status_page.description_p2')),
   ]);
 
   const doneDescPartial = div([
     p({
       className: css.description,
-      dangerouslySetInnerHTML: { __html: props.t('congratulation_p1') }, // eslint-disable-line react/no-danger
-    }),
-    p({
-      className: css.description,
-      dangerouslySetInnerHTML: { __html: props.t('congratulation_p2') }, // eslint-disable-line react/no-danger
-    }),
-    p({
-      className: css.description,
-      dangerouslySetInnerHTML: { __html: props.t('congratulation_p3') }, // eslint-disable-line react/no-danger
-    }),
+    }, t('web.admin.onboarding.guide.status_page.congratulation_p1.content',
+         {knowledge_base_link: a(
+           { href: 'http://support.sharetribe.com/knowledgebase/articles/892140-what-to-do-after-the-basic-setup-of-your-marketpla',
+             target: '_blank',
+             alt: t('web.admin.onboarding.guide.status_page.congratulation_p1.knowledge_base_alt'),
+           })})),
+    p({ className: css.description }, t('web.admin.onboarding.guide.status_page.congratulation_p2.content',
+                                        { marketplace_guide_link: a(
+                                          { href: "https://www.sharetribe.com/academy/guide/",
+                                            target: "_blank",
+                                            alt: t('web.admin.onboarding.guide.status_page.congratulation_p2.marketplace_guide_alt')
+                                          }, t('web.admin.onboarding.guide.status_page.congratulation_p2.marketplace_guide_link'))
+                                        })),
+    p({ className: css.description }, t('web.admin.onboarding.guide.status_page.congratulation_p3.content',
+         { contact_support_link: a(
+           { 'data-uv-trigger': 'contact',
+             href: 'mailto:support@sharetribe.com',
+             title: t('web.admin.onboarding.guide.status_page.congratulation_p3.contact_support_title')},
+           t('web.admin.onboarding.guide.status_page.congratulation_p3.contact_support_link')
+         )})),
   ]);
 
   const description = props.nextStep ? todoDescPartial : doneDescPartial;
@@ -47,7 +57,7 @@ const GuideStatusPage = (props) => {
       li({ className: css.stepListItemDone }, [
         span({ className: css.stepListLink }, [
           span({ className: css.stepListCheckbox }),
-          props.t('create_your_marketplace'),
+          t('web.admin.onboarding.guide.status_page.create_your_marketplace'),
         ]),
       ]),
     ].concat(onboardingData.map((step) => {
@@ -56,6 +66,15 @@ const GuideStatusPage = (props) => {
               css.stepListItemDone :
               css.stepListItem;
 
+      const titles = {
+        slogan_and_description: "web.admin.onboarding.guide.status_page.slogan_and_description",
+        cover_photo: "web.admin.onboarding.guide.status_page.cover_photo",
+        filter: "web.admin.onboarding.guide.status_page.filter",
+        paypal: "web.admin.onboarding.guide.status_page.paypal",
+        listing: "web.admin.onboarding.guide.status_page.listing",
+        invitation: "web.admin.onboarding.guide.status_page.invitation",
+      };
+
       return li({ className: stepListItem, key }, [
         a({
           className: css.stepListLink,
@@ -63,7 +82,7 @@ const GuideStatusPage = (props) => {
           href: `${props.initialPath}/${step.sub_path}`,
         }, [
           span({ className: css.stepListCheckbox }),
-          props.t(key),
+          t(titles[key]),
         ]),
       ]);
     }))),
@@ -85,13 +104,10 @@ GuideStatusPage.propTypes = {
   initialPath: string.isRequired,
   name: string.isRequired,
   infoIcon: string.isRequired,
-  nextStep: oneOf([
-    shape({
+  nextStep: shape({
       title: string.isRequired,
       link: string.isRequired,
     }),
-    bool.isRequired,
-  ]).isRequired,
   onboarding_data: arrayOf(shape({
     step: oneOf([
       'slogan_and_description',
@@ -106,7 +122,6 @@ GuideStatusPage.propTypes = {
     cta: string,
     complete: bool.isRequired,
   })).isRequired,
-  t: func.isRequired,
 };
 
 export default GuideStatusPage;

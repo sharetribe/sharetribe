@@ -8,32 +8,32 @@ const next = function next(nextStep, guideRoot) {
   switch (nextStep) {
     case 'slogan_and_description':
       return {
-        title: t('admin.onboarding.topbar.slogan_and_description'),
+        title: t('web.admin.onboarding.topbar.slogan_and_description'),
         link: `${guideRoot}/${nextStep}`,
       };
     case 'cover_photo':
       return {
-        title: t('admin.onboarding.topbar.cover_photo'),
+        title: t('web.admin.onboarding.topbar.cover_photo'),
         link: `${guideRoot}/${nextStep}`,
       };
     case 'filter':
       return {
-        title: t('admin.onboarding.topbar.filter'),
+        title: t('web.admin.onboarding.topbar.filter'),
         link: `${guideRoot}/${nextStep}`,
       };
     case 'paypal':
       return {
-        title: t('admin.onboarding.topbar.paypal'),
+        title: t('web.admin.onboarding.topbar.paypal'),
         link: `${guideRoot}/${nextStep}`,
       };
     case 'listing':
       return {
-        title: t('admin.onboarding.topbar.listing'),
+        title: t('web.admin.onboarding.topbar.listing'),
         link: `${guideRoot}/${nextStep}`,
       };
     case 'invitation':
       return {
-        title: t('admin.onboarding.topbar.invitation'),
+        title: t('web.admin.onboarding.topbar.invitation'),
         link: `${guideRoot}/${nextStep}`,
       };
     default:
@@ -48,7 +48,7 @@ class OnboardingTopBar extends Component {
     if (nextStep) {
       return (
         div({ className: css.nextContainer }, [
-          div({ className: css.nextLabel }, t('admin.onboarding.topbar.next_step')),
+          div({ className: css.nextLabel }, t('web.admin.onboarding.topbar.next_step')),
           a({ href: nextStep.link, className: css.nextButton }, [
             span(nextStep.title),
           ]),
@@ -63,7 +63,7 @@ class OnboardingTopBar extends Component {
     return div({ className: css.topbarContainer }, [
       div({ className: css.topbar }, [
         a({ className: css.progressLabel, href: this.props.guide_root }, [
-          t('admin.onboarding.topbar.progress_label'),
+          t('web.admin.onboarding.topbar.progress_label'),
           span({ className: css.progressLabelPercentage },
                `${Math.floor(currentProgress)} %`),
         ]),

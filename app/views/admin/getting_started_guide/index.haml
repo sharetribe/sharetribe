@@ -10,4 +10,4 @@
       = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
     .col-9
       - cache ['v1', 'onboarding_guide', props] do
-        = react_component("OnboardingGuideApp", props: props)
+        = react_component("OnboardingGuideApp", props: props, prerender: false)

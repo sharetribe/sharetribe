@@ -9,86 +9,52 @@ import GuideFilterPage from './GuideFilterPage';
 import GuidePaypalPage from './GuidePaypalPage';
 import GuideListingPage from './GuideListingPage';
 import GuideInvitationPage from './GuideInvitationPage';
+import { t } from '../../utils/i18n';
 
-const { shape, string, arrayOf, bool, oneOf } = PropTypes;
+const { shape, string, arrayOf, bool, oneOf, func, object } = PropTypes;
 
 // Select child component (page/view) to be rendered
 // Returns object (including child component) based on props.data & nextStep
 const selectChild = function selectChild(data, nextStep) {
-  const { path, onboarding_data, translations } = data;
+  const { path, onboarding_data } = data;
   const pageData = (path.length > 0) ?
     _.find(onboarding_data, (pd) => pd.sub_path === path.substring(1)) :
     {};
-  const commonTranslations = { back_to_todo: translations.back_to_todo };
 
   switch (path) {
     case '/slogan_and_description':
-      return { Page: GuideSloganAndDescriptionPage,
-                pageData,
-                translations: Object.assign({},
-                  commonTranslations,
-                  translations.slogan_and_description),
-             };
+      return { Page: GuideSloganAndDescriptionPage, pageData };
     case '/cover_photo':
-      return { Page: GuideCoverPhotoPage,
-                pageData,
-                translations: Object.assign({},
-                  commonTranslations,
-                  translations.cover_photo),
-             };
+      return { Page: GuideCoverPhotoPage, pageData };
     case '/filter':
-      return { Page: GuideFilterPage,
-                pageData,
-                translations: Object.assign({},
-                  commonTranslations,
-                  translations.filter),
-             };
+      return { Page: GuideFilterPage, pageData };
     case '/paypal':
-      return { Page: GuidePaypalPage,
-                pageData,
-                translations: Object.assign({},
-                  commonTranslations,
-                  translations.paypal),
-             };
+      return { Page: GuidePaypalPage, pageData };
     case '/listing':
-      return { Page: GuideListingPage,
-                pageData,
-                translations: Object.assign({},
-                  commonTranslations,
-                  translations.listing),
-             };
+      return { Page: GuideListingPage, pageData };
     case '/invitation':
-      return { Page: GuideInvitationPage,
-                pageData,
-                translations: Object.assign({},
-                  commonTranslations,
-                  translations.invitation),
-             };
+      return { Page: GuideInvitationPage, pageData };
     default:
-      return { Page: GuideStatusPage,
-                onboarding_data,
-                translations: Object.assign({},
-                  commonTranslations,
-                  translations.status_page),
-                nextStep,
-             };
+      return { Page: GuideStatusPage, onboarding_data, nextStep };
   }
 };
 
-// Get curried function translate page related translations
-const translate = function translate(translations) {
-  return function curriedTranslate(translationKey) {
-    return translations[translationKey];
-  };
-};
-
 // Get link and title of next recommended onboarding step
-const nextStep = function nextStep(data, translateFunc) {
+const nextStep = function nextStep(data) {
   const nextStepData = data.find((step) => !step.complete);
+
+  const titles = {
+    slogan_and_description: "web.admin.onboarding.guide.next_step.slogan_and_description",
+    cover_photo: "web.admin.onboarding.guide.next_step.cover_photo",
+    filter: "web.admin.onboarding.guide.next_step.filter",
+    paypal: "web.admin.onboarding.guide.next_step.paypal",
+    listing: "web.admin.onboarding.guide.next_step.listing",
+    invitation: "web.admin.onboarding.guide.next_step.invitation",
+  };
 
   if (nextStepData) {
     return {
-      title: translateFunc(nextStepData.step),
+      title: t(titles[nextStepData.step]),
       link: nextStepData.sub_path,
     };
   } else {
@@ -117,8 +83,7 @@ class OnboardingGuide extends React.Component {
     this.componentSubPath = paths.componentSubPath;
 
     // Figure out the next step. I.e. what is the action we recommend for admins
-    this.nextStep = nextStep(this.props.data.onboarding_data,
-                             translate(this.props.data.translations.next_step));
+    this.nextStep = nextStep(this.props.data.onboarding_data);
 
     // Add current path to window.history. Initially it contains null as a state
     this.setPushState(
@@ -172,30 +137,28 @@ class OnboardingGuide extends React.Component {
   }
 
   render() {
-    const { Page, translations, ...opts } = selectChild(this.props.data, this.nextStep);
+    const { Page, ...opts } = selectChild(this.props.data, this.nextStep);
     return r(Page, {
       changePage: this.handlePageChange,
       initialPath: this.initialPath,
       name: this.props.data.name,
       infoIcon: this.props.data.info_icon,
-      t: translate(translations),
       ...opts,
     });
   }
 }
 
 OnboardingGuide.propTypes = {
-  actions: PropTypes.shape({
-    updateGuidePage: PropTypes.func.isRequired,
+  actions: shape({
+    updateGuidePage: func.isRequired,
   }).isRequired,
-  railsContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  data: PropTypes.shape({
-    path: PropTypes.string.isRequired,
-    original_path: PropTypes.string.isRequired,
-    pathHistoryForward: PropTypes.bool,
-    name: PropTypes.string.isRequired,
-    info_icon: PropTypes.string.isRequired,
-    translations: PropTypes.object.isRequired,
+  railsContext: object.isRequired, // eslint-disable-line react/forbid-prop-types
+  data: shape({
+    path: string.isRequired,
+    original_path: string.isRequired,
+    pathHistoryForward: bool,
+    name: string.isRequired,
+    info_icon: string.isRequired,
     onboarding_data: arrayOf(
       shape({
         step: oneOf([
