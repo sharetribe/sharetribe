@@ -10,6 +10,7 @@ import GuidePaypalPage from './GuidePaypalPage';
 import GuideListingPage from './GuideListingPage';
 import GuideInvitationPage from './GuideInvitationPage';
 
+const { shape, string, arrayOf, bool, oneOf } = PropTypes;
 
 // Select child component (page/view) to be rendered
 // Returns object (including child component) based on props.data & nextStep
@@ -83,17 +84,16 @@ const translate = function translate(translations) {
 
 // Get link and title of next recommended onboarding step
 const nextStep = function nextStep(data, translateFunc) {
-  const keys = Object.keys(data);
-  for (let i = 0; i < keys.length; i++) {
-    const step = keys[i];
-    if (!data[step].complete) {
-      return {
-        title: translateFunc(step),
-        link: data[step].sub_path,
-      };
-    }
+  const nextStepData = data.find((step) => !step.complete);
+
+  if (nextStepData) {
+    return {
+      title: translateFunc(nextStepData.step),
+      link: nextStepData.sub_path,
+    };
+  } else {
+    return null;
   }
-  return false;
 };
 
 // getPaths: initial path containing given pathFragment & relative (deeper) path
@@ -196,12 +196,23 @@ OnboardingGuide.propTypes = {
     name: PropTypes.string.isRequired,
     info_icon: PropTypes.string.isRequired,
     translations: PropTypes.object.isRequired,
-    onboarding_data: PropTypes.objectOf(PropTypes.shape({
-      info_image: PropTypes.string,
-      cta: PropTypes.string.isRequired,
-      alternative_cta: PropTypes.string,
-      complete: PropTypes.bool.isRequired,
-    }).isRequired).isRequired,
+    onboarding_data: arrayOf(
+      shape({
+        step: oneOf([
+          'slogan_and_description',
+          'cover_photo',
+          'filter',
+          'paypal',
+          'listing',
+          'invitation',
+          'all_done',
+        ]).isRequired,
+        info_image: string,
+        cta: string.isRequired,
+        alternative_cta: string,
+        complete: bool.isRequired,
+      }).isRequired
+    ).isRequired,
   }).isRequired,
 };
 

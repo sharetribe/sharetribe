@@ -10,25 +10,11 @@ import * as OnboardingGuideActions from '../../actions/OnboardingGuideActions';
 const OnbardingGuideContainer = ({ actions, data, railsContext }) =>
         r(OnboardingGuide, { actions, data, railsContext });
 
-
 OnbardingGuideContainer.propTypes = {
   actions: PropTypes.shape({
     updateGuidePage: PropTypes.func.isRequired,
   }).isRequired,
   railsContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  data: PropTypes.shape({
-    path: PropTypes.string.isRequired,
-    original_path: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    info_icon: PropTypes.string.isRequired,
-    translations: PropTypes.object.isRequired,
-    onboarding_data: PropTypes.objectOf(PropTypes.shape({
-      info_image: PropTypes.string,
-      cta: PropTypes.string.isRequired,
-      alternative_cta: PropTypes.string,
-      complete: PropTypes.bool.isRequired,
-    }).isRequired).isRequired,
-  }).isRequired,
 };
 
 function mapStateToProps(state) {
