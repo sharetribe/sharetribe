@@ -78,24 +78,35 @@ const GuideStatusPage = (props) => {
   ]);
 };
 
+const { func, string, oneOf, shape, arrayOf, bool } = PropTypes;
+
 GuideStatusPage.propTypes = {
-  changePage: PropTypes.func.isRequired,
-  initialPath: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  infoIcon: PropTypes.string.isRequired,
-  nextStep: PropTypes.oneOfType([
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
+  changePage: func.isRequired,
+  initialPath: string.isRequired,
+  name: string.isRequired,
+  infoIcon: string.isRequired,
+  nextStep: oneOf([
+    shape({
+      title: string.isRequired,
+      link: string.isRequired,
     }),
-    PropTypes.bool.isRequired,
+    bool.isRequired,
   ]).isRequired,
-  onboarding_data: PropTypes.arrayOf(PropTypes.shape({
-    info_image: PropTypes.string,
-    cta: PropTypes.string,
-    complete: PropTypes.bool.isRequired,
+  onboarding_data: arrayOf(shape({
+    step: oneOf([
+      'slogan_and_description',
+      'cover_photo',
+      'filter',
+      'paypal',
+      'listing',
+      'invitation',
+      'all_done',
+    ]),
+    info_image: string,
+    cta: string,
+    complete: bool.isRequired,
   })).isRequired,
-  t: PropTypes.func.isRequired,
+  t: func.isRequired,
 };
 
 export default GuideStatusPage;
