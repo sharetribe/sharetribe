@@ -14,7 +14,8 @@
     "build:dev:server": "webpack -w --config webpack.server.rails.build.config.js",
     "hot-assets": "babel-node server-rails-hot.js",
     "print-phantomjs-version": "phantomjs --version",
-    "start-phantomjs": "phantomjs --webdriver=8910"
+    "start-phantomjs": "phantomjs --webdriver=8910",
+    "styleguide": "start-storybook -p 9001"
   },
   "dependencies": {
     "autoprefixer": "6.3.6",
@@ -54,6 +55,7 @@
     "i18n-js": "http://github.com/fnando/i18n-js/archive/v3.0.0.rc12.tar.gz"
   },
   "devDependencies": {
+    "@kadira/storybook": "1.25.0",
     "babel-eslint": "6.0.4",
     "babel-plugin-react-transform": "2.0.2",
     "body-parser": "1.15.1",

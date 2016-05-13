@@ -2,7 +2,7 @@ Please see parent directory [README.md](../README.md).
 
 Building options
 ==========================
-  1. Hot Reloading of Rails Assets
+  1. Rails & React with hot reloading styleguide
 
   ```bash
   foreman start -f Procfile.hot
@@ -10,9 +10,9 @@ Building options
     > Currently runs all webpack configs options:
     > - webpack.client.rails.build.config.js => .js & .css files to be imported in application.js & application.css on Rails side
     > - webpack.server.rails.build.config.js => server-bundle.js to be used if 'prerender: true'
-    > - webpack.client.rails.hot.config.js   => HMR server setup
+    > - webpack.storybook.config.js => Hot reloading styleguide setup
 
-  1. Static Loading of Rails Assets
+  1. Rails & React
   ```bash
   foreman start -f Procfile.static
   ```
@@ -53,8 +53,7 @@ _webpack.client.rails.build.config.js_ defines how component specific styles are
 We are using [CSS Modules](https://github.com/css-modules/css-modules) and preprocessors like SASS-loader and [PostCSS](https://github.com/postcss/postcss) loader.
 **N.B. we are likely to remove SASS loader quite soon and configure PostCSS better.**
 
-Hot loading works in dev environment (see http://your-marketplace-ident.lvh.me:3000/styleguide), so you should add your components to styleguide too (folder: _sharetribe/app/views/styleguide/_).
-Webpack hot loading server is configured by _webpack.client.rails.hot.config.js_ and _server-rails-hot.js_.
+We use [React Storybook](https://github.com/kadirahq/react-storybook) for a hot reloading component development environment, in `http://localhost:9001/`. See [instructions for writing stories](https://github.com/kadirahq/react-storybook#writing-stories), for example story see [OnboardingTopBar.story.js](app/components/OnboardingTopBar/OnboardingTopBar.story.js).
 
 ESLint
 ==========================
