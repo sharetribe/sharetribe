@@ -10,7 +10,7 @@ import GuidePaypalPage from './GuidePaypalPage';
 import GuideListingPage from './GuideListingPage';
 import GuideInvitationPage from './GuideInvitationPage';
 
-const { shape, func, object, string, objectOf, arrayOf, bool, oneOf } = PropTypes;
+const { shape, string, arrayOf, bool, oneOf } = PropTypes;
 
 // Select child component (page/view) to be rendered
 // Returns object (including child component) based on props.data & nextStep
@@ -84,9 +84,7 @@ const translate = function translate(translations) {
 
 // Get link and title of next recommended onboarding step
 const nextStep = function nextStep(data, translateFunc) {
-  const nextStepData = data.find(function(step) {
-    return !step.complete;
-  });
+  const nextStepData = data.find((step) => !step.complete);
 
   if (nextStepData) {
     return {
