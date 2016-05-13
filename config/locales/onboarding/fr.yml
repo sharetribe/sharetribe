@@ -30,7 +30,7 @@ en:
           slogan_and_description: "Écrire un slogan et une description"
           cover_photo: "Télécharger une photo de couverture"
           filter: "Ajouter des champs et des filtres"
-          paypal: "Configurer le système de paiement"
+          paypal: "Configurer les paiements"
           listing: "Déposer votre première annonce"
           invitation: "Inviter des utilisateurs"
         paypal:
@@ -38,8 +38,8 @@ en:
           description_p1: "Si vous voulez permettre à vos utilisateurs de recevoir des paiements, vous devez connecter votre compte PayPal (vous recevrez une commission sur chaque transaction). Une fois connecté, vous devrez choisir un montant minimal de transaction et vos frais de service."
           description_p2: "Si vous préférez, vous pouvez désactiver le système de paiement pour le moment."
           info_image_alt: "Une copie d'écran de la page de configuration des paiements"
-          disable_payments: "Désactiver le système de paiement"
-          setup_payments: "Configurer le système de paiement"
+          disable_payments: "Désactiver les paiements"
+          setup_payments: "Configurer les paiements"
           cta_separator: "ou"
           advice: "Vous pouvez en apprendre plus sur la désactivation du système de paiement dans <a href=\"http://support.sharetribe.com/knowledgebase/articles/470085\" target=\"_blank\" alt=\"How to disable payments or add free listings to your marketplace\">cet article</<a>."
         slogan_and_description:
@@ -60,7 +60,7 @@ en:
           slogan_and_description: "Écrire un slogan et une description"
           cover_photo: "Télécharger une photo de couverture"
           filter: "Ajouter des champs et des filtres"
-          paypal: "Configurer le système de paiement"
+          paypal: "Configurer les paiements"
           listing: "Déposer une annonce"
           invitation: "Inviter des utilisateurs"
         back_to_todo: "Revenir à la liste des étapes à compléter"
@@ -80,7 +80,7 @@ en:
         paypal:
           title: "Parfait !"
           body: "Ensuite, vous pouvez configurer le système de paiement ! Pour permettre à vos utilisateurs de recevoir des paiements, vous devez connecter votre compte PayPal. Si vous préférez, vous pouvez désactiver le système de paiement pour le moment."
-          button: "Configurer le système de paiement"
+          button: "Configurer les paiements"
         listing:
           title: "Super travail !"
           body: "L'essentiel de votre place de marché a été configuré mais le site est encore un peu vide. C'est le moment d'ajouter votre premier produit ou service en postant une nouvelle annonce."
@@ -100,6 +100,6 @@ en:
         slogan_and_description: "Écrire un slogan et une description"
         cover_photo: "Télécharger une photo de couverture"
         filter: "Ajouter des champs et des filtres"
-        paypal: "Configurer le système de paiement"
+        paypal: "Configurer les paiements"
         listing: "Déposer une annonce"
         invitation: "Inviter des utilisateurs"
