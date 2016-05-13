@@ -10,23 +10,24 @@ import * as OnboardingGuideActions from '../../actions/OnboardingGuideActions';
 const OnbardingGuideContainer = ({ actions, data, railsContext }) =>
         r(OnboardingGuide, { actions, data, railsContext });
 
+const { shape, func, object, string, objectOf, arrayOf, bool } = PropTypes;
 
 OnbardingGuideContainer.propTypes = {
-  actions: PropTypes.shape({
-    updateGuidePage: PropTypes.func.isRequired,
+  actions: shape({
+    updateGuidePage: func.isRequired,
   }).isRequired,
-  railsContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  data: PropTypes.shape({
-    path: PropTypes.string.isRequired,
-    original_path: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    info_icon: PropTypes.string.isRequired,
-    translations: PropTypes.object.isRequired,
-    onboarding_data: PropTypes.objectOf(PropTypes.shape({
-      info_image: PropTypes.string,
-      cta: PropTypes.string.isRequired,
-      alternative_cta: PropTypes.string,
-      complete: PropTypes.bool.isRequired,
+  railsContext: object.isRequired, // eslint-disable-line react/forbid-prop-types
+  data: shape({
+    path: string.isRequired,
+    original_path: string.isRequired,
+    name: string.isRequired,
+    info_icon: string.isRequired,
+    translations: object.isRequired,
+    onboarding_data: objectOf(shape({
+      info_image: string,
+      cta: string.isRequired,
+      alternative_cta: string,
+      complete: bool.isRequired,
     }).isRequired).isRequired,
   }).isRequired,
 };
