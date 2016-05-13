@@ -2,25 +2,25 @@ module PlanService::Store::Plan
 
   class TrialModel < ActiveRecord::Base
     self.table_name = :marketplace_trials
-    serialize :features, Array
+    store :features, coder: JSON
   end
 
   class PlanModel < ActiveRecord::Base
     self.table_name = :marketplace_plans
-    serialize :features, Array
+    store :features, coder: JSON
   end
 
   NewPlan = EntityUtils.define_builder(
     [:community_id, :fixnum, :mandatory],
     [:plan_level, :fixnum, :mandatory],
-    [:features, :array, :optional],
+    [:features, :hash, :mandatory],
     [:member_limit, :fixnum, :optional],
     [:expires_at, :time, :optional] # Passing nil means that the plan never expires
   )
 
   NewTrialPlan = EntityUtils.define_builder(
     [:community_id, :fixnum, :mandatory],
-    [:features, :array, :optional],
+    [:features, :hash, :mandatory],
     [:member_limit, :fixnum, :optional],
     [:expires_at, :time]
   )

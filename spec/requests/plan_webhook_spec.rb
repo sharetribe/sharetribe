@@ -69,11 +69,17 @@ describe "plan provisioning", type: :request do
         "plans": [
           {
             "marketplace_id": 1234,
-            "plan_level": 2
+            "plan_level": 2,
+            "features": {
+              "whitelabel": true
+            }
           },
           {
             "marketplace_id": 5555,
             "plan_level": 5,
+            "features": {
+              "admin_email": true
+            },
             "expires_at": "2015-10-15 15:00:00"
           }
         ]
@@ -83,18 +89,20 @@ describe "plan provisioning", type: :request do
 
       plan1234 = PlanService::API::Api.plans.get_current(community_id: 1234).data
 
-      expect(plan1234.slice(:community_id, :plan_level, :expires_at)).to eq({
+      expect(plan1234.slice(:community_id, :plan_level, :features, :expires_at)).to eq({
                                community_id: 1234,
                                plan_level: 2,
+                               features: { "whitelabel" => true },
                                expires_at: nil
                              })
 
       plan5555 = PlanService::API::Api.plans.get_current(community_id: 5555)
                  .data
 
-      expect(plan5555.slice(:community_id, :plan_level, :expires_at)).to eq({
+      expect(plan5555.slice(:community_id, :plan_level, :features, :expires_at)).to eq({
                                community_id: 5555,
                                plan_level: 5,
+                               features: { "admin_email" => true },
                                expires_at: Time.utc(2015, 10, 15, 15, 0, 0)
                              })
 
@@ -149,7 +157,7 @@ describe "plan provisioning", type: :request do
                                   marketplace_plan_id: id222,
                                   marketplace_id: 222,
                                   plan_level: 0,
-                                  features: ["deletable"],
+                                  features: { deletable: true },
                                   member_limit: 300,
                                   created_at: Time.utc(2015, 10, 15).in_time_zone,
                                   updated_at: Time.utc(2015, 10, 15).in_time_zone,
@@ -159,7 +167,7 @@ describe "plan provisioning", type: :request do
                                   marketplace_plan_id: id333,
                                   marketplace_id: 333,
                                   plan_level: 0,
-                                  features: ["deletable"],
+                                  features: { deletable: true },
                                   member_limit: 300,
                                   created_at: Time.utc(2015, 11, 15).in_time_zone,
                                   updated_at: Time.utc(2015, 11, 15).in_time_zone,
@@ -204,7 +212,7 @@ describe "plan provisioning", type: :request do
                                   marketplace_plan_id: id111,
                                   marketplace_id: 111,
                                   plan_level: 0,
-                                  features: ["deletable"],
+                                  features: { deletable: true },
                                   member_limit: 300,
                                   created_at: Time.utc(2015, 9, 15).in_time_zone,
                                   updated_at: Time.utc(2015, 9, 15).in_time_zone,
@@ -225,7 +233,7 @@ describe "plan provisioning", type: :request do
                                   marketplace_plan_id: id222,
                                   marketplace_id: 222,
                                   plan_level: 0,
-                                  features: ["deletable"],
+                                  features: { deletable: true },
                                   member_limit: 300,
                                   created_at: Time.utc(2015, 10, 15).in_time_zone,
                                   updated_at: Time.utc(2015, 10, 15).in_time_zone,
@@ -236,7 +244,7 @@ describe "plan provisioning", type: :request do
                                   marketplace_id: 333,
                                   plan_level: 0,
                                   member_limit: 300,
-                                  features: ["deletable"],
+                                  features: { deletable: true },
                                   created_at: Time.utc(2015, 11, 15).in_time_zone,
                                   updated_at: Time.utc(2015, 11, 15).in_time_zone,
                                   expires_at: nil,
