@@ -21,7 +21,6 @@ module PlanService::Store::Plan
   NewTrialPlan = EntityUtils.define_builder(
     [:community_id, :fixnum, :mandatory],
     [:features, :hash, :mandatory],
-    [:member_limit, :fixnum, :optional],
     [:expires_at, :time]
   )
 
@@ -87,7 +86,9 @@ module PlanService::Store::Plan
 
   def from_trial_model(model)
     Maybe(model).map { |m|
-      Plan.call(EntityUtils.model_to_hash(m).merge(plan_level: 0))
+      Plan.call(EntityUtils.model_to_hash(m).merge(
+        plan_level: 0,
+        member_limit: 300))
     }.or_else(nil)
   end
 
