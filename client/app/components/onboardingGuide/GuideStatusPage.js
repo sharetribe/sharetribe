@@ -50,16 +50,17 @@ const GuideStatusPage = (props) => {
           props.t('create_your_marketplace'),
         ]),
       ]),
-    ].concat(Object.keys(onboardingData).map((key) => {
-      const stepListItem = onboardingData[key].complete ?
+    ].concat(onboardingData.map((step) => {
+      const key = step.step;
+      const stepListItem = step.complete ?
               css.stepListItemDone :
               css.stepListItem;
 
       return li({ className: stepListItem, key }, [
         a({
           className: css.stepListLink,
-          onClick: (e) => handleClick(e, `/${onboardingData[key].sub_path}`),
-          href: `${props.initialPath}/${onboardingData[key].sub_path}`,
+          onClick: (e) => handleClick(e, `/${step.sub_path}`),
+          href: `${props.initialPath}/${step.sub_path}`,
         }, [
           span({ className: css.stepListCheckbox }),
           props.t(key),
@@ -89,7 +90,7 @@ GuideStatusPage.propTypes = {
     }),
     PropTypes.bool.isRequired,
   ]).isRequired,
-  onboarding_data: PropTypes.objectOf(PropTypes.shape({
+  onboarding_data: PropTypes.arrayOf(PropTypes.shape({
     info_image: PropTypes.string,
     cta: PropTypes.string,
     complete: PropTypes.bool.isRequired,
