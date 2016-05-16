@@ -8,15 +8,6 @@ import GuideBackToTodoLink from './GuideBackToTodoLink';
 const GuideCoverPhotoPage = (props) => {
   const { changePage, initialPath, pageData, infoIcon } = props;
 
-  const val = t('web.admin.onboarding.guide.cover_photo.advice.content1',
-            {link: a({
-              href: 'http://support.sharetribe.com/knowledgebase/articles/744438',
-              target: '_blank',
-              alt: t('web.admin.onboarding.guide.cover_photo.advice.alt'),
-            }, t('web.admin.onboarding.guide.cover_photo.advice.link'))});
-
-  console.log(val);
-
   return div({ className: 'container' }, [
     r(GuideBackToTodoLink, { changePage, initialPath }),
     h2({ className: css.title }, t('web.admin.onboarding.guide.cover_photo.title')),
@@ -42,14 +33,14 @@ const GuideCoverPhotoPage = (props) => {
       }, [
         span(
           t('web.admin.onboarding.guide.cover_photo.advice.content1',
-            {link: a({
+            { link: a({
               href: 'http://support.sharetribe.com/knowledgebase/articles/744438',
               target: '_blank',
               alt: t('web.admin.onboarding.guide.cover_photo.advice.alt'),
-            }, t('web.admin.onboarding.guide.cover_photo.advice.link'))})),
+            }, t('web.admin.onboarding.guide.cover_photo.advice.link')) })),
         br(),
         span(
-          t('web.admin.onboarding.guide.cover_photo.advice.content2', {width: 1920, height: 450})
+          t('web.admin.onboarding.guide.cover_photo.advice.content2', { width: 1920, height: 450 })
         ),
       ]),
     ]),

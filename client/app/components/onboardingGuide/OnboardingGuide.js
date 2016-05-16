@@ -44,12 +44,12 @@ const nextStep = function nextStep(data) {
   const nextStepData = data.find((step) => !step.complete);
 
   const titles = {
-    slogan_and_description: "web.admin.onboarding.guide.next_step.slogan_and_description",
-    cover_photo: "web.admin.onboarding.guide.next_step.cover_photo",
-    filter: "web.admin.onboarding.guide.next_step.filter",
-    paypal: "web.admin.onboarding.guide.next_step.paypal",
-    listing: "web.admin.onboarding.guide.next_step.listing",
-    invitation: "web.admin.onboarding.guide.next_step.invitation",
+    slogan_and_description: 'web.admin.onboarding.guide.next_step.slogan_and_description',
+    cover_photo: 'web.admin.onboarding.guide.next_step.cover_photo',
+    filter: 'web.admin.onboarding.guide.next_step.filter',
+    paypal: 'web.admin.onboarding.guide.next_step.paypal',
+    listing: 'web.admin.onboarding.guide.next_step.listing',
+    invitation: 'web.admin.onboarding.guide.next_step.invitation',
   };
 
   if (nextStepData) {

@@ -12,11 +12,11 @@ const GuideInvitationPage = (props) => {
     r(GuideBackToTodoLink, { changePage, initialPath }),
     h2({ className: css.title }, t('web.admin.onboarding.guide.invitation.title')),
     p({ className: css.description }, t('web.admin.onboarding.guide.invitation.description.content', {
-        preview_link: a({
-          href: '/?big_cover_photo=true',
-          alt: t('web.admin.onboarding.guide.invitation.description.preview_link_alt'),
-          target: '_blank'},
-                        t('web.admin.onboarding.guide.invitation.description.preview_link'))})),
+      preview_link: a({
+        href: '/?big_cover_photo=true',
+        alt: t('web.admin.onboarding.guide.invitation.description.preview_link_alt'),
+        target: '_blank',
+      }, t('web.admin.onboarding.guide.invitation.description.preview_link')) })),
 
     pageData.info_image ?
       div({ className: css.sloganImageContainer }, [

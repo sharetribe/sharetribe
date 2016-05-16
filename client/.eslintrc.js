@@ -23,6 +23,11 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    commonjs: true
+  },
+  globals: {
+    // Webpack plugin adds `process` global
+    process: false
   },
   rules: {
     // See http://eslint.org/docs/rules/ for documentation for

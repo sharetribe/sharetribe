@@ -30,7 +30,7 @@ const GuideListingPage = (props) => {
         dangerouslySetInnerHTML: { __html: infoIcon }, // eslint-disable-line react/no-danger
       }),
       div({ className: css.infoTextContent },
-          t('web.admin.onboarding.guide.listing.advice.content', {close_listing: i(t('web.admin.onboarding.guide.listing.advice.close_listing'))})),
+          t('web.admin.onboarding.guide.listing.advice.content', { close_listing: i(t('web.admin.onboarding.guide.listing.advice.close_listing')) })),
     ]),
 
     a({ className: css.nextButton, href: pageData.cta }, t('web.admin.onboarding.guide.listing.post_your_first_listing')),

@@ -29,13 +29,14 @@ const GuidePaypalPage = (props) => {
         className: css.infoTextIcon,
         dangerouslySetInnerHTML: { __html: infoIcon }, // eslint-disable-line react/no-danger
       }),
-      div({ className: css.infoTextContent }, t('web.admin.onboarding.guide.paypal.advice.content',
-                                                { disable_payments_link: a(
-                                                  { href: 'http://support.sharetribe.com/knowledgebase/articles/470085',
-                                                    target: '_blank',
-                                                    alt: t('web.admin.onboarding.guide.paypal.advice.disable_payments_alt')
-                                                  },
-                                                  t('web.admin.onboarding.guide.paypal.advice.disable_payments_link')) }))
+      div({ className: css.infoTextContent }, t('web.admin.onboarding.guide.paypal.advice.content', {
+        disable_payments_link: a(
+          { href: 'http://support.sharetribe.com/knowledgebase/articles/470085',
+            target: '_blank',
+            alt: t('web.admin.onboarding.guide.paypal.advice.disable_payments_alt'),
+          },
+          t('web.admin.onboarding.guide.paypal.advice.disable_payments_link')),
+      })),
     ]),
 
     div(null, [

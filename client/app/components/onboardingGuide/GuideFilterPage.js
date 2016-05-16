@@ -12,10 +12,10 @@ const GuideFilterPage = (props) => {
     r(GuideBackToTodoLink, { changePage, initialPath }),
     h2({ className: css.title }, t('web.admin.onboarding.guide.filter.title')),
     p({ className: css.description }, [
-        span(
-          t('web.admin.onboarding.guide.filter.description.content',
-            {display_on_homepage: i(t('web.admin.onboarding.guide.filter.description.display_on_homepage'))}))
-      ]),
+      span(
+        t('web.admin.onboarding.guide.filter.description.content',
+          { display_on_homepage: i(t('web.admin.onboarding.guide.filter.description.display_on_homepage')) })),
+    ]),
 
     pageData.info_image ?
       div({ className: css.sloganImageContainerBig }, [
@@ -34,12 +34,12 @@ const GuideFilterPage = (props) => {
       }),
       div({
         className: css.infoTextContent }, [
-        span(t('web.admin.onboarding.guide.filter.advice.content',
-               {not_too_many_link: a({
+          span(t('web.admin.onboarding.guide.filter.advice.content',
+               { not_too_many_link: a({
                  target: '_blank',
                  href: 'https://www.sharetribe.com/academy/how-to-help-your-customers-find-the-right-product-or-service',
-               }, t('web.admin.onboarding.guide.filter.advice.not_too_many_link'))}))
-      ]),
+               }, t('web.admin.onboarding.guide.filter.advice.not_too_many_link')) })),
+        ]),
     ]),
 
     a({ className: css.nextButton, href: pageData.cta }, t('web.admin.onboarding.guide.filter.add_fields_and_filters')),
