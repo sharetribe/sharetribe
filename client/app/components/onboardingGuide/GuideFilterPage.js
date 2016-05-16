@@ -1,5 +1,5 @@
 import { PropTypes } from 'react';
-import r, { div, h2, p, img, a, span, i } from 'r-dom';
+import r, { div, h2, p, img, a, i } from 'r-dom';
 import css from './styles.scss';
 import { t } from '../../utils/i18n';
 
@@ -12,9 +12,8 @@ const GuideFilterPage = (props) => {
     r(GuideBackToTodoLink, { changePage, initialPath }),
     h2({ className: css.title }, t('web.admin.onboarding.guide.filter.title')),
     p({ className: css.description }, [
-      span(
-        t('web.admin.onboarding.guide.filter.description.content',
-          { display_on_homepage: i(t('web.admin.onboarding.guide.filter.description.display_on_homepage')) })),
+      t('web.admin.onboarding.guide.filter.description.content',
+          { display_on_homepage: i(t('web.admin.onboarding.guide.filter.description.display_on_homepage')) }),
     ]),
 
     pageData.info_image ?
@@ -34,11 +33,11 @@ const GuideFilterPage = (props) => {
       }),
       div({
         className: css.infoTextContent }, [
-          span(t('web.admin.onboarding.guide.filter.advice.content',
-               { not_too_many_link: a({
-                 target: '_blank',
-                 href: 'https://www.sharetribe.com/academy/how-to-help-your-customers-find-the-right-product-or-service',
-               }, t('web.admin.onboarding.guide.filter.advice.not_too_many_link')) })),
+          t('web.admin.onboarding.guide.filter.advice.content',
+            { not_too_many_link: a({
+              target: '_blank',
+              href: 'https://www.sharetribe.com/academy/how-to-help-your-customers-find-the-right-product-or-service',
+            }, t('web.admin.onboarding.guide.filter.advice.not_too_many_link')) }),
         ]),
     ]),
 
