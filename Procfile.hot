@@ -1,6 +1,6 @@
 # Procfile for development with hot reloading of JavaScript and CSS
 
-rails: rails s -b 0.0.0.0
+rails: script/wait_for_server_js.sh && rails s -b 0.0.0.0
 
 # Run the React Storybook for client development
 storybook: cd client && npm run styleguide
