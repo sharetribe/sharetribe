@@ -488,18 +488,14 @@ zh-TW:
       marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: Sharetribe的支付系统由PayPal提供支持。如果你想使用你的用户名在你的集市上付款，你必须连接你的PayPal帐号及决定最小交易规模以及对每个交易收取的费用。
-      paypal_account_email: "1. 连接你的PayPal帐号"
       link_paypal_personal_account_label: ~
-      paypal_account_email_completed: 已完成！
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
-      set_minimum_price_and_fee_completed: 已完成！
       read_more_about_paypal: 了解更多关于Sharetribe的支付系统
-      set_minimum_price_and_fee: "2. 设置最低价格和交易费用"
+      set_minimum_price_and_fee: 设置最低价格和交易费用
       minimum_listing_price_label: 最小交易规模：
       transaction_fee_label: 交易费用：
       minimum_transaction_fee_label: 最低交易费用：
-      note_about_transaction_fee: "注意：交易费用包括PayPal的费用都依赖于你的货币种类和卖家的销售量。因此，费用至少是%{min_paypal_commission}。当费用从卖家收取时，PayPal会先取费用，然后剩余的费用将被汇入你的PayPal帐号。"
       save_settings: 保存设置
       minimum_listing_price_below_tx_fee: "最少的交易额至少等于最低交易费用%{minimum_transaction_fee}。"
       minimum_listing_price_below_min: "最少的交易额必须高于最低佣金%{minimum_commission}。"

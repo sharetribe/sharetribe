@@ -485,18 +485,14 @@ fr-CA:
       marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: "Le système de paiement de Sharetribe est propulsé par PayPal. Si vous souhaitez permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal et choisir un montant minimum pour les transactions ainsi que la commission que vous souhaitez prélever sur chaque transaction."
-      paypal_account_email: "1. Connecter votre compte PayPal"
       link_paypal_personal_account_label: ~
-      paypal_account_email_completed: "Terminé !"
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
-      set_minimum_price_and_fee_completed: "Terminé !"
       read_more_about_paypal: "En savoir plus sur le système de paiement avec Sharetribe."
-      set_minimum_price_and_fee: "2. Définir un montant minimum et la commission"
+      set_minimum_price_and_fee: "Définir un montant minimum et la commission"
       minimum_listing_price_label: "Montant minimum : "
       transaction_fee_label: "Commission : "
       minimum_transaction_fee_label: "Frais minimaux de transaction : "
-      note_about_transaction_fee: "Note : la commission inclut les frais PayPal qui dépendent de la monnaie et du volume des ventes du vendeur. Pour cette raison, la commission est d'au minimum %{min_paypal_commission}. Lorsque la commission est facturée au vendeur, PayPal prélève d'abord ses frais puis le restant est viré sur votre propre compte PayPal."
       save_settings: "Sauvegarder les paramètres"
       minimum_listing_price_below_tx_fee: "doit être au moins égal aux frais minimaux de transaction %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "doit être supérieur à la commission minimale %{minimum_commission}."

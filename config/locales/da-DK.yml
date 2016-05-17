@@ -497,18 +497,14 @@ da-DK:
       marketplace_currency_used: "Denne markedsplads bruger %{currency} som sin valuta. For at ændre valuta, %{contact_support_link}."
       contact_support_link_text: "kontakt Sharetribe support"
       integration_info_text: "Betalingssystemet på %{service_name} kører gennem PayPal. Hvis du vil have mulighed for at tage imod betalinger på din markedsplads, skal du tilknytte din PayPal-konto, og vælge en minimumspris pr. annonce og størrelsen på dit servicegebyr."
-      paypal_account_email: "1. Tilknyt din PayPal-konto"
       link_paypal_personal_account_label: "Sælger du selv produkter?"
-      paypal_account_email_completed: Gennemført!
       link_paypal_personal_account: "Hvis ja, vil du også være nødt til at tilslutte din PayPal konto til %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "din personlige markedsplads konto"
-      set_minimum_price_and_fee_completed: Gennemført!
       read_more_about_paypal: "Læs mere om Sharetribe's betalingssystem"
-      set_minimum_price_and_fee: "2. Vælg en minimumspris og servicegebyr"
+      set_minimum_price_and_fee: "Vælg en minimumspris og servicegebyr"
       minimum_listing_price_label: "Minimums pris:"
       transaction_fee_label: "Servicegebyr:"
       minimum_transaction_fee_label: "Mindste transaktionsafgift:"
-      note_about_transaction_fee: "Note: the transaction fee includes PayPal's fees that depend on your currency and the sales volume of the seller. For this reason, the fee is always at least %{min_paypal_commission}. When the fee is charged from the seller, PayPal will take its fees first, and the remainder will be moved to your PayPal account."
       save_settings: Gem
       minimum_listing_price_below_tx_fee: "skal mindst være det samme som mindste transaktionsafgift %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "skal være større end mindste provision %{minimum_commission}."

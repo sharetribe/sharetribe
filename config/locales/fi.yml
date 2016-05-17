@@ -71,7 +71,7 @@ fi:
         update_information: Tallenna
         invite_people: "Kutsu uusia käyttäjiä"
         edit_signup_info: Liittymisohjeet
-        edit_signup_info_description: "Tähän voit lisätä ohjeita siihen, miten palveluun liitytään. Ohjeet näytetään käyttäjille, kun he ovat liittymässä palveluun. Oletuksena ohjekenttä on tyhjä."
+        edit_signup_info_description: "Tähän voit lisätä ohjeita koskien esimerkiksi palveluun liittymistä tai sitä, mistä käyttäjät voivat hakea kutsua palveluun. Nämä ohjeet näytetään käyttäjille liittymissivulla, kun he ovat liittymässä palveluun. Oletuksena ohjekenttä on tyhjä."
         edit_info: "Muokkaa tietoja"
         see_how_it_looks_like: Näytä
         verification_to_post_listings_info_content: "Ohjeteksti vahvistamattomille käyttäjille"
@@ -102,8 +102,8 @@ fi:
         small_cover_photo_visibility: "Matala kansikuva näytetään kaikilla sivuilla paitsi etusivulla kirjautumattomille käyttäjille."
         small_cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
         main_content_width: "Valitessasi kansikuvia, huomaathan että sivuston sisällön leveys on korkeintaan %{main_width} pikseliä. Muistathan katsoa myös miltä kansikuvasi näyttää pienemmillä näytöillä, esimerkiksi muuttamalla selainikkunasi kokoa."
-        custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
-        custom_color2_instructions_text: ~
+        custom_color1_instructions_text: "Tästä voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
+        custom_color2_instructions_text: "Tästä voit vaihtaa %{post_new_listing} -napin värin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
         default_browse_view: "Oletusarvo listausten näyttämiselle"
         default_browse_view_instructions_text: "Tätä arvoa käytetään oletuksena etusivun listauksen näyttötavalle."
         grid: Ruudukko
@@ -121,7 +121,7 @@ fi:
         edit_text_instructions: Ohjetekstit
       edit_welcome_email:
         welcome_email_content: "Tervetulosähköpostin sisältö"
-        welcome_email_content_description: "Alla oleva viesti lähetetään automaattisesti kaikille uusille käyttäjille näiden liittyessä. Voit muokata viestin sisältöä vastaamaan sivustosi kuvausta. Klikkaamalla '%{send_test_message_link}' -linkkiä voit lähettää viestin omaan sähköpostiosoitteeseesi."
+        welcome_email_content_description: "Alla oleva viesti lähetetään automaattisesti kaikille uusille käyttäjille näiden liittyessä. Voit muokata viestin sisältöä vastaamaan sivustosi kuvausta. Klikkaamalla '%{send_test_message_link}' -linkkiä voit lähettää viestin omaan sähköpostiosoitteeseesi nähdäksesi miltä se näyttää."
         edit_message: "Muokkaa viestiä"
         send_test_message: "Lähetä testiviesti"
       outgoing_email:
@@ -139,10 +139,10 @@ fi:
         sender_email_placeholder: sender-email@example.com
         this_is_how_it_will_look: "Tältä osoite tulee näyttämään:"
         send_verification_button: "Lähetä vahvistusviesti"
-        successfully_saved: ~
+        successfully_saved: "Lähettäjän osoite tallennettu onnistuneesti. Saat pian vahvistussähköpostin."
         status: "Status: %{status}"
         status_verified: "Vahvistettu - käytössä"
-        status_error: ~
+        status_error: "Tapahtui virhe. Ole hyvä ja päivitä sivu."
         status_requested: "Ei vahvistettu - vahvistusviesti lähetetty osoitteeseen %{email} %{time_ago}. %{resend_link}"
         status_expired: "Sähköpostiosoitteen %{email} vahvistusviesti on vanhentunut. %{resend_link}"
         status_resent: "Vahvistusviesti lähetetty uudestaan osoitteeseen %{email}. %{resend_link}"
@@ -168,7 +168,7 @@ fi:
         custom_fields_link_text: "muokata ilmoituskenttiä"
         filters_link_text: hakusuodattimien
         order_types: "Voit myös vaikuttaa siihen, miten tilaaminen ja käyttäjien välinen viestintä tapahtuu sivustollasi. Myyvätkö käyttäjäsi tavaroita vai palveluita, vaiko kenties vuokraavat tiloja tai antavat tavaroita pois ilmaiseksi? Näitä asioita voit muokata %{order_types_link}."
-        order_types_link_text: tilaustavat-sivulla
+        order_types_link_text: tilaustyypit-sivulla
         payments: "Jos haluat tarjota käyttäjillesi mahdollisuuden maksaa ostoksistaan suoraan markkinapaikkasi maksujärjestelmän kautta, jolloin voit itse ottaa provision kustakin myyntitapahtumasta, sinun on syytä %{payments_link}."
         payments_link_text: "muokata maksuasetuksiasi"
         info_texts: "Muista myös muokata infosivuja ja muita ohjetekstejä, joiden avulla voit antaa käyttäjillesi lisätietoa sivustosi toiminnasta. Tarkista esimerkiksi %{about_page_link}, %{terms_of_use_link} (sinun kannattaa määritellä nämä itse - voit käyttää apuna valmista pohjaamme), %{privacy_policy_link} (tämäkin sinun on syytä määritellä itse - tälle sivulle voit laittaa esimerkiksi rekisteriselosteeseen vaadittavat tiedot), sekä %{welcome_email_link} joka lähetetään kaikille uusille käyttäjille. Muut ohjetekstit löydät %{instruction_texts_link}."
@@ -180,9 +180,9 @@ fi:
         social_media: "Sosiaalisen median hyödyntäminen on hyvä tapa yhteisösi kasvattamiseen. Voit %{facebook_link}, jotta käyttäjäsi voivat kirjautua sivustollesi Facebook-tunnuksillaan, sekä %{twitter_link} saadaksesi lisää näkyvyyttä, kun käyttäjäsi twiittaavat luomistaan ilmoituksista."
         facebook_link_text: "yhdistää oman Facebook-applikaatiosi"
         twitter_link_text: "lisätä Twitter-tilisi"
-        analytics: "Kannatta myös %{analytics_link}"
-        analytics_link_text: "yhdistää Google Analytics -tili markkinapaikkaasi, jotta näet helpommin, mitä sivustollasi tapahtuu, kuinka paljon sivustolla on kävijöitä ja niin edelleen."
-        settings: "Tarjolla on myös paljon muita asetuksia. Voit esimerkiksi vaatia kaikilta käyttäjiltä kutsun, ennen kuin he pääsevät liittymään sivustollesi, ja tehdä sivustostasi ei-julkisen, jolloin ainoastaan kirjautuneet käyttäjät näkevät sivuston sisällöt. %{settings_link}."
+        analytics: "Sinun kannattaa myös %{analytics_link}, jotta näet helpommin, mitä sivustollasi tapahtuu, kuinka paljon sivustolla on kävijöitä ja niin edelleen."
+        analytics_link_text: "yhdistää Google Analytics -tili markkinapaikkaasi"
+        settings: "Tarjolla on myös paljon muita asetuksia. Voit esimerkiksi vaatia kaikilta käyttäjiltä kutsun, ennen kuin he pääsevät liittymään sivustollesi, ja tehdä sivustostasi ei-julkisen, jolloin ainoastaan kirjautuneet käyttäjät näkevät sivustosi sisällön. %{settings_link}."
         settings_link_text: "Muuta sivustosi asetuksia täältä"
         final_words: "Siinä kaikki! Kun kaikki on valmiina julkaisua varten, voit %{invite_link} sivustollesi. %{view_users_link} näet kaikki sivustolle liittyneet käyttäjät, ja %{view_transactions_link} puolestaan kaikki toteutuneet maksutapahtumat. Pystyt myös muokkaamaan käyttäjien lisäämiä ilmoituksia: kun menet yksittäisen ilmoituksen sivulle, näet siellä muokkausnapit ilmoituksen muokkausta ja sulkemista varten. Jos tarvitset lisäohjeita, %{contact_support_link} - autamme mielellämme!"
         invite_link_text: "kutsua käyttäjiä"
@@ -230,7 +230,7 @@ fi:
         listing_preferences: Ilmoitusasetukset
         transaction_preferences: Tilausasetukset
         show_listing_publishing_date: "Näytä ilmoituksen julkaisuajankohta ilmoituksen sivulla"
-        show_category_in_listing_list: "Näytä ilmoituskategoria listanäkymässä"
+        show_category_in_listing_list: "Näytä tilaustyyppi listanäkymässä"
         hide_expiration_date: "Älä vaadi viimeisen voimassaolopäivän valintaa ilmoituksen lisäyksen yhteydessä"
         listing_comments_in_use: "Käyttäjät voivat kommentoida ilmoituksia (kommentit näkyvät muille käyttäjille)"
         email_preferences: Sähköpostiasetukset
@@ -405,11 +405,11 @@ fi:
       emails_title: Sähköpostit
       support: Asiakastuki
       subscription: Tilaus
-      preview: ~
+      preview: "Esikatsele sivustoa"
     listing_shapes:
       index:
-        listing_shapes: Tilaustavat
-        description: "Tilaustavat määrittelevät, kuinka tilaaminen ja käyttäjien välinen viestintä toimii sivustollasi. Voit päättää, voivatko käyttäjäsi esimerkiksi myydä tai vuokrata asioita toisiltaan, tai kenties antaa tavaroita pois ilmaiseksi."
+        listing_shapes: Tilaustyypit
+        description: "Tilaustyypit määrittelevät, kuinka tilaaminen ja käyttäjien välinen viestintä toimii sivustollasi. Voit päättää, voivatko käyttäjäsi esimerkiksi myydä tai vuokrata asioita toisiltaan, tai kenties antaa tavaroita pois ilmaiseksi."
         read_more_about_order_types: "Lue lisää tilaustavoista"
         add_new_shape: "Lisää uusi tilaustapa: "
         select_template: "Valitse malli..."
@@ -417,11 +417,11 @@ fi:
         no_categories: "Ei kategorioita"
         category_count: "%{category_count} kategoriaa"
         header:
-          listing_shape_name: "Tilaustavan nimi"
-          listing_shape_categories: ~
+          listing_shape_name: "Tilaustyypin nimi"
+          listing_shape_categories: "Tilaustapaa käyttävät kategoriat"
         order:
           saving_order: "Tallennetaan tilaustapojen järjestystä"
-          save_order_successful: ~
+          save_order_successful: "Tilaustapojen järjestyksen muutos onnistui"
           save_order_error: "Järjestystä tallentaessa tapahtui virhe. Päivitä sivu ja yritä uudelleen."
       templates:
         selling_products: "Myydään tuotteita"
@@ -429,14 +429,14 @@ fi:
         offering_services: "Tarjotaan palveluita"
         giving_things_away: "Annetaan ilmaiseksi"
         requesting: Tarvitaan
-        announcement: ~
+        announcement: "Ilmoitusten jättäminen"
         custom: Muu
       new:
         create_listing_shape: "Luo tilaustapa"
         create: "Luo tilaustapa"
         cancel: Peruuta
         create_success: "Uusi tilaustapa '%{shape}' luotiin onnistuneesti"
-        create_failure: "Tilaustavan luonti ei onnistunut. Virhe: %{error_msg}"
+        create_failure: "Tilaustyypin luonti ei onnistunut. Virhe: %{error_msg}"
       edit:
         edit_listing_shape: "Muokkaa tilaustapaa '%{shape}'"
         update: Tallenna
@@ -445,17 +445,17 @@ fi:
         update_failure: "Tietojen tallentaminen ei onnistunut. Tapahtui virhe: %{error_msg}"
         delete: "Poista tilaustapa"
         confirm_delete_order_type:
-          one: "Sivustollasi on %{count} ilmoitus tällä tilaustavalla. Jos poistat tilaustavan, ilmoitus suljetaan. Oletko varma että haluat poistaa tilaustavan?Sivustollasi on %{count} ilmoitusta tällä tilaustavalla. "
-          other: "Sivustollasi on %{count} ilmoitusta tällä tilaustavalla. Jos poistat tilaustavan, ilmoitukset suljetaan. Oletko varma että haluat poistaa tilaustavan?"
+          one: "Sivustollasi on %{count} ilmoitus tällä tilaustyypillä. Jos poistat tilaustyypin, ilmoitus suljetaan. Oletko varma että haluat poistaa tilaustyypin?"
+          other: "Sivustollasi on %{count} ilmoitusta tällä tilaustyypillä. Jos poistat tilaustyypin, ilmoitukset suljetaan. Oletko varma että haluat poistaa tilaustyypin?"
         can_not_delete_last: "Et voi poistaa tätä tyyppiä, koska se on ainoa tyyppi markkinapaikassasi."
         can_not_delete_only_one_in_categories: "Et voi poistaa tätä tilaustapaa, koska seuraavissa ilmoituskategorioissa ei ole käytössä muita tilaustapoja: %{categories}"
-      listing_shape_name: "Tilaustavan nimi"
+      listing_shape_name: "Tilaustyypin nimi"
       listing_shape_name_placeholder: "Esimerkiksi \"Myydään\""
       action_button_label: "Tilausnapin teksti"
       action_button_placeholder: "Esimerkiksi \"Osta\""
       open_listings_warning:
-        one: "Sivustollasi on %{count} ilmoitus tällä tilaustavalla. Jos muutat alla olevia asetuksia, olemassaoleva ilmoitus pitää vanhat asetuksensa. Voit muuttaa ilmoituksen tietoja muokkaamalla sitä käsin. Jos et halua näyttää sivustollasi ilmoitusta, jolla on vanhat asetukset, voit sulkea kyseisen ilmoituksen klikkaamalla alla olevaa nappia."
-        other: "Sivustollasi on %{count} ilmoitusta tällä tilaustavalla. Jos muutat alla olevia asetuksia, olemassaolevat ilmoitukset pitävät vanhat asetuksensa. Voit muuttaa ilmoitusten tietoja muokkaamalla niitä käsin. Jos et halua näyttää sivustollasi ilmoituksia, joilla on vanhat asetukset, voit sulkea nämä ilmoitukset klikkaamalla alla olevaa nappia."
+        one: "Sivustollasi on %{count} ilmoitus tällä tilaustyypillä. Jos muutat alla olevia asetuksia, olemassaoleva ilmoitus pitää vanhat asetuksensa. Voit muuttaa ilmoituksen tietoja muokkaamalla sitä käsin. Jos et halua näyttää sivustollasi ilmoitusta, jolla on vanhat asetukset, voit sulkea kyseisen ilmoituksen klikkaamalla alla olevaa nappia."
+        other: "Sivustollasi on %{count} ilmoitusta tällä tilaustyypillä. Jos muutat alla olevia asetuksia, olemassaolevat ilmoitukset pitävät vanhat asetuksensa. Voit muuttaa ilmoitusten tietoja muokkaamalla niitä käsin. Jos et halua näyttää sivustollasi ilmoituksia, joilla on vanhat asetukset, voit sulkea nämä ilmoitukset klikkaamalla alla olevaa nappia."
       close_listings_action:
         one: "Sulje %{count} ilmoitus"
         other: "Sulje %{count} ilmoitusta"
@@ -465,9 +465,9 @@ fi:
       successfully_closed: "Ilmoitukset suljettu onnistuneesti"
       successfully_deleted: "Tilaustapa '%{order_type}' poistettu onnistuneesti"
       pricing_and_checkout_title: "Hinta ja tilaaminen"
-      online_payments_label: ~
+      online_payments_label: "Anna myyjien vastaanottaa PayPal-maksuja"
       shipping_label: "Salli myyjien määritellä toimitusmaksu"
-      price_label: ~
+      price_label: "Anna myyjien määritellä ilmoituksille hinta"
       units_title: "Hinnan yksiköt"
       units_desc: "Jos olet ottanut hinnan yksiköt käyttöön, ilmoitushinta näytetään muodossa \"hinta per yksikkö\". Esimerkki: \"39€ per tunti\"."
       units:
@@ -497,20 +497,16 @@ fi:
       marketplace_currency_used: "Tämä markkinapaikka on asetettu käyttämään valuuttaa %{currency}. Jos haluat vaihtaa käytössä olevaa valuuttaa, %{contact_support_link}."
       contact_support_link_text: "ota yhteys Sharetriben ylläpitoon"
       integration_info_text: "Sharetribe-markkinapaikkojen maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun sivustosi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus sekä ilmoituksen minimihinta."
-      paypal_account_email: "1. Yhdistä PayPal-tilisi"
       link_paypal_personal_account_label: "Aiotko lisätä tavaroita tai palveluita tarjolle myös itse?"
-      paypal_account_email_completed: Tehty!
       link_paypal_personal_account: "Jos aiot, sinun pitää yhdistää PayPal-tiliisi myös %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "omiin käyttäjätietoihisi"
-      set_minimum_price_and_fee_completed: Tehty!
       read_more_about_paypal: "Lue lisää Sharetriben maksujärjestelmästä"
-      set_minimum_price_and_fee: "2. Aseta maksutapahtuman minimikoko ja välityspalkkioprosentti"
+      set_minimum_price_and_fee: "Aseta maksutapahtuman minimikoko ja välityspalkkioprosentti"
       minimum_listing_price_label: "Maksutapahtuman minimikoko:"
       transaction_fee_label: "Välityspalkkioprosentti:"
       minimum_transaction_fee_label: "Minimipalkkio:"
-      note_about_transaction_fee: "Huom! Välityspalkkioon sisältyy PayPal-palvelun palvelumaksu, jonka suuruus riippuu valuutasta ja myyjän myyntimääristä. Tästä syystä välityspalkkio on vähintään %{min_paypal_commission}. PayPal-palvelun palvelumaksu vähennetään välityspalkkiosta automaattisesti, minkä jälkeen loppuosa välityspalkkiosta siirretään sinun PayPal-tilillesi."
       save_settings: "Tallenna asetukset"
-      minimum_listing_price_below_tx_fee: "Maksutapahtuman minimikoon tulee olla vähintään minimipalkkio %{minimum_transaction_fee}."
+      minimum_listing_price_below_tx_fee: "Maksutapahtuman minimikoon tulee olla vähintään minimipalkkio, eli %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "Maksutapahtuman minimikoon tulee olla suurempi kuin %{minimum_commission}."
     transaction_types:
       sell: Myydään
@@ -649,7 +645,7 @@ fi:
       accepted_request: "hyväksyi pyynnön"
       received_payment: "hyväksyi tilauksen, otti vastaan maksun %{sum}"
       accepted_offer: "hyväksyi tarjouksen"
-      rejected_request: "hylkäsi pyynnön"
+      rejected_request: "hylkäsi pyynnön, perui maksun"
       rejected_offer: "hylkäsi tarjouksen"
       confirmed_request: "merkitsi pyynnön toteutuneeksi"
       confirmed_offer: "merkitsi tarjouksen toteutuneeksi"
@@ -717,7 +713,7 @@ fi:
       request_preauthorized: "Katevaraus tehty"
       skip_feedback: "Ohita palaute"
       waiting_for_listing_author_to_accept_offer: "Odottaa että %{listing_author_name} hyväksyy tarjouksen"
-      waiting_for_listing_author_to_accept_request: "Odottaa että %{listing_author_name} hyväksyy pyynnön"
+      waiting_for_listing_author_to_accept_request: "Odottaa että %{listing_author_name} hyväksyy pyynnön. Maksu veloitetaan sinulta heti kun %{listing_author_name} hyväksyy pyynnön."
       waiting_for_you_to_accept_request: "Odottaa että hyväksyt pyynnön"
       waiting_confirmation_from_requester: "Odottaa että %{requester_name} merkitsee pyynnön toteutetuksi"
       waiting_confirmation_from_you: "Odottaa että merkitset pyynnön toteutetuksi"
@@ -728,7 +724,7 @@ fi:
         paypal:
           multicurrency: "Odottaa että hyväksyt PayPal-maksun"
           intl: "Odottaa että hyväksyt PayPal-maksun"
-          unknown_reason: "Maksu odottaa. Voit kirjautua Paypal-tilillesi nähdäksesi lisätietoja"
+          unknown_reason: "Maksu odottaa. Voit kirjautua Paypal-tilillesi nähdäksesi lisätietoja."
           verify: "Odottaa että vahvistat PayPal-tilisi"
     status_link:
       accept_offer: "Hyväksy tarjous"
@@ -806,10 +802,10 @@ fi:
       log_out: "kirjautua ulos"
       join_community_button: "Liity palveluun"
     give_consent:
-      invitation_code_invalid_or_used: ~
-      email_not_allowed: ~
-      email_not_available: ~
-      consent_not_given: ~
+      invitation_code_invalid_or_used: "Kutsukoodi on virheellinen tai se on jo käytetty."
+      email_not_allowed: "Tämä sähköpostiosoite ei ole sallittu %{service_name}-palvelussa."
+      email_not_available: "Antamasi sähköpostiosoite on jo käytössä."
+      consent_not_given: "Et hyväksynyt ehtoja."
   emails:
     accept_reminder:
       remember_to_accept_offer: "Muistutus: hyväksy/hylkää käyttäjän %{sender_name} tarjous"
@@ -827,14 +823,14 @@ fi:
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Et ole vielä merkinnyt tilausta %{request_link} toteutuneeksi tai peruuttanut sitä. Siirrämme rahat käyttäjälle %{other_party_given_name} vasta kun a) olet merkinnyt tilauksen toteutuneeksi tai b) %{days_to_automatic_confirmation} päivää on kulunut maksun suorittamisesta. Kun olet merkinnyt tilauksen toteutuneeksi, voit antaa palautetta käyttäjälle %{other_party_given_name}."
       remember_to_confirm_request: "Muista merkitä pyyntö toteutuneeksi tai toteutumattomaksi"
       if_will_not_happen_you_should_cancel: "Jos pyyntö syystä tai toisesta jää toteutumatta, voit %{cancel_it_link}."
-      if_will_not_happen_you_should_cancel_escrow: ~
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
+      if_will_not_happen_you_should_cancel_escrow: "Jos uskot että tämä tilaus jää toteutumatta syystä tai toisesta, voit %{cancel_it_link}. Tämä lähettää ylläpitäjälle viestin, ja hän on sinuun yhteydessä rahojen palautukseen liittyen."
+      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "Jos uskot että tämä tilaus jää toteutumatta syystä tai toisesta, sinulla on %{days_to_cancel} päivää aikaa %{cancel_it_link}. Tämä lähettää ylläpitäjälle viestin, ja hän on sinuun yhteydessä rahojen palautukseen liittyen."
       cancel_it_link_text: "peruuttaa sen"
       automatic_confirmation: "Jos et merkkaa pyyntöä toteutuneeksi tai peruuta sitä %{days_to_automatic_confirmation} päivän kuluttua sen hyväksymisestä, merkkaamme sen automaattisesti toteutuneeksi."
     payment_reminder:
       remember_to_pay: "Maksumuistutus: %{listing_title}"
       you_have_not_yet_paid: "Et ole vielä suorittanut maksua liittyen ilmoitukseen %{listing_title}. Muista maksaa sovittu summa käyttäjälle %{other_party_name}."
-      if_will_not_happen_you_should_cancel: "Voit myös halutessasi vielä %{cancel_it_link}."
+      if_will_not_happen_you_should_cancel: "Mikäli uskot että pyyntö ei kuitenkaan syystä tai toisesta toteudu, voit myös halutessasi vielä %{cancel_it_link}."
       cancel_it_link_text: "peruuttaa tapahtuman"
     payment_settings_reminder:
       remember_to_add_payment_details: "Muistutus: Käy lisäämässä maksutietosi"
@@ -1007,7 +1003,7 @@ fi:
       view_listing: "Näytä ilmoitus"
   error_messages:
     onboarding:
-      server_rendering: ~
+      server_rendering: "Aloitusopasta ei voitu ladata. Tieto virheestä on lähetetty meille ja korjaamme sen mahdollisimman pian."
     listings:
       departure_time: "Lähtöaika ei voi olla aikaisempi kuin nykyhetki eikä yli vuoden päässä nykyhetkestä."
       share_type: "Valitse yksi vaihtoehdoista."
@@ -1300,7 +1296,7 @@ fi:
       confirmation_link_is_wrong_or_used: "Vahvistuslinkki on jo käytetty tai siinä on jokin vika. Yritä kirjautua sisään tai lähetä palautetta jos ongelma ei ratkea."
       additional_email_confirmed: "Antamasi sähköpostiosoite on nyt vahvistettu."
       could_not_get_email_from_facebook: "Ei saatu sähköpostiosoitetta Facebookista, eikä uuden tunnuksen luonti onnistu ilman sitä."
-      facebook_email_unconfirmed: ~
+      facebook_email_unconfirmed: "Sähköpostiosoite '%{email}' joka on yhdistetty Facebook-tiliisi on jo käytössä, mutta sitä ei ole vahvistettu. Ole hyvä ja vahvista sähköpostiosoitteesi päästäksesi kirjautumaan Facebookin avulla."
       create_new_listing: "Lisää uusi ilmoitus"
       create_one_here: "luoda uuden"
       email_confirmation_sent_to_new_address: "Sähköpostivarmistus lähetetty uuteen osoitteeseen."
@@ -1402,13 +1398,13 @@ fi:
       email_deleted: "Sähköpostiosoite poistettu"
       payment_details_add_successful: "Maksutiedot lisätty onnistuneesti"
       payment_details_add_error: "Maksutietojen lisäys epäonnistui"
-      listing_author_payment_details_missing: ~
+      listing_author_payment_details_missing: "Ole hyvä ja ota yhteyttä ilmoituksen tekijään painamalla alla olevaa nappia. Heidän tulee päivittää maksutietonsa pystyäkseen vastaanottamaan maksuja."
       stylesheet_needs_recompiling: "Tyylejä rakennetaan taustalla. Lataa sivu uudestaan hetken kuluttua."
       maintenance_mode:
         zero: "Sivusto menee nyt offline-tilaan huoltoa varten"
         one: "Sivusto menee %{count} minuutin kuluttua offline-tilaan huoltoa varten"
         other: "Sivusto menee %{count} minuutin kuluttua offline-tilaan huoltoa varten"
-      automatically_logged_out_please_sign_in: ~
+      automatically_logged_out_please_sign_in: "Sinut kirjattiin ulos automaattisesti. Kirjaudu uudelleen sisään."
     settings:
       account: "Tilin tiedot"
       notifications: Tiedotteet
@@ -1511,7 +1507,7 @@ fi:
         paypal_fee_info_link_text: "PayPalin käsittelymaksu"
         after_service_fee_you_will_get_vat: "%{service_name} palvelumaksun ja maksujärjestelmän käsittelymaksun jälkeen sinä saat noin %{sum_with_currency} (ALV 0%)"
         price_excludes_vat: "Merkitse tähän alv 0 -hinta."
-        delivery: Kuljetus
+        delivery: Kuljetustapa
         shipping: Postitus
         shipping_price: "Postituksen hinta"
         shipping_price_additional: Lisätuotteet
@@ -1654,7 +1650,7 @@ fi:
       price:
         per_quantity_unit: "per %{quantity_unit}"
         per_day: "per päivä"
-      delivery: Kuljetus
+      delivery: Kuljetustapa
       shipping: "Postikulut (+%{price})"
       shipping_no_price: Postikulut
       shipping_price_additional: "Postikulut (+%{price}, lisätuotteet: +%{shipping_price_additional})"
@@ -1742,13 +1738,13 @@ fi:
     upgrade_paypal_account_link_text: "kirjautumalla sisään ja klikkaamalla päivitä-linkkiä"
     admin_account_not_connected: "%{service_name}-palvelun maksujärjestelmä ei ole vielä käytössä, joten et voi vielä muokata maksuasetuksiasi. Ole hyvä ja %{contact_admin_link}."
     contact_admin_link_text: "ota yhteys ylläpitoon"
-    you_are_ready_to_accept_payments: "Olet nyt valmis ottamaan rahaa vastaan."
+    you_are_ready_to_accept_payments: "Olet nyt valmis ottamaan maksuja vastaan!"
     commission: "%{commission} %"
     new:
       payout_info_you_need_to_connect: "Vastaanottaaksesi maksuja sinun täytyy yhdistää PayPal-tilisi %{service_name}-palveluun."
-      payout_info_text: ~
+      payout_info_text: "Ole hyvä ja tee seuraavat asiat yhdistääksesi tilisi."
       contact_admin_link_text: "lähetä viesti ylläpitäjälle"
-      admin_account_not_connected: "Et voi yhdistää PayPal-tiliäsi palveluun, koska %{service_name} ylläpitäjä ei ole suorittanut PayPal-asennusta loppuun."
+      admin_account_not_connected: "Et voi yhdistää PayPal-tiliäsi palveluun, koska %{service_name} ylläpitäjä ei ole suorittanut PayPal-asennusta loppuun. %{contact_admin_link} kysyäksesi lisätietoja."
       paypal_account_email: "Yhdistä PayPal-tilisi"
       paypal_account_email_placeholder: "PayPal-tilisi sähköpostiosoite"
       paypal_account_email_info_text: "Jos sinulla ei ole PayPal-tiliä, voit luoda uuden tilin %{create_paypal_account}. Jos saat virheviestin yrittäessäsi yhdistää PayPal-tilisi, sinun pitää päivittää tilisi business-tiliksi. Päivittäminen on helppoa ja nopeaa eikä maksa sinulle mitään. Jos olet yksityishenkilö, voit lisätä etu- ja sukunimesi \"business name\"-kenttään PayPalin kysyessä sitä. Päivittäminen onnistuu %{upgrade_paypal_account} ja etsimällä linkin \"Upgrade to business account\"."
@@ -1759,7 +1755,7 @@ fi:
       connect_paypal_account_title: "Yhdistä PayPal-tilisi"
       connect_paypal_account_title_with_step: "Vaihe %{current_step}/%{total_steps}: Yhdistä PayPal-tilisi"
       connect_paypal_account_instructions: "Klikkaa alla olevaa nappia kirjautuaksesi PayPaliin ja yhdistäksesi PayPal-tilisi %{service_name}-palveluun."
-      connect_paypal_account: "Yhdistä PayPal-tili"
+      connect_paypal_account: "Yhdistä PayPal-tilisi"
       paypal_account_billing_agreement_with_step: "Vaihe %{current_step}/%{total_steps}: Myönnä lupa palvelumaksujen veloitukseen"
       paypal_account_billing_agreement_info_both: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{commission_from_seller} myyntihinnasta, poislukien postikulut, vähintään %{minimum_commission}). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{minimum_commission}). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä %{paypal_info_link}."
@@ -1770,13 +1766,13 @@ fi:
       billing_agreement: "Anna lupa veloittaa välityspalkkio"
       permissions_not_granted: "Lupaa PayPal-tilin yhdistämiseen ei annettu."
       could_not_fetch_redirect_url: "Uudelleenohjaus PayPal-tiliin ei onnistunut."
-      paypal_not_enabled: "PayPal maksut eivät ole käytössä."
+      paypal_not_enabled: "PayPal-maksut eivät ole käytössä."
       billing_agreement_canceled: "Laskutussopimus jäi kesken."
       billing_agreement_not_accepted: "Et hyväksynyt laskutussopimusta PayPal-sivustolla."
       billing_agreement_wrong_account: "PayPal käyttäjätilit eivät täsmää. Käytä samaa käyttäjitiliä, jonka yhdistit ensimmäisessä vaiheessa."
       something_went_wrong: "Jotain meni vikaan. Yritä uudestaan. Jos ongelma toistuu, ota yhteys ylläpitoon."
-      account_not_verified: "Et ole vahvistanut PayPal-tiliäsi. Sinun on vahvistettava tilisi ennen kuin voit jatkaa."
-      account_restricted: "PayPal-tiliisi on rajoitetussa tilassa eikä sitä voida yhdistää. Sinun tulee kirjautua PayPal-sivustolle selvittääksesi ongelman."
+      account_not_verified: "Et ole vahvistanut PayPal-tiliäsi. Sinun on vahvistettava tilisi paypal.com -sivustolta ennen kuin voit jatkaa."
+      account_restricted: "PayPal-tiliisi on rajoitetussa tilassa eikä sitä voida yhdistää. Sinun tulee kirjautua PayPal-sivustolle tai ottaa yhteyttä PayPalin tukeen selvittääksesi ongelman."
     paypal_account_connected_title: "PayPal-tili yhdistetty"
     paypal_account_connected: "PayPal-tili <%{email}> on yhdistetty %{service_name}-palveluun."
     change_account: "Vaihda tili"
@@ -1928,8 +1924,8 @@ fi:
       confirm_your_email: "Vahvista sähköpostiosoitteesi"
       account_confirmation_instructions: "Saat pian sähköpostin, jossa on linkki, jota sinun on klikattava vahvistaaksesi sähköpostiosoitteesi. Jos et löydä viestiä, muista tarkistaa roskapostikansiosi! Vahvistuksen jälkeen voit liittyä palveluun %{service_name}."
       account_confirmation_instructions_title_admin: "Tervetuloa markkinapaikkasivustollesi!"
-      your_marketplace_has_now_been_created: "Sivustosi on nyt luotu. Se oli helppoa, eikö vain? Jäljellä on enää yksi vaihe, ennen kuin pääset katsomaan, miltä sivustosi näyttää: sinun pitää varmistaa sähköpostiosoitteesi."
-      account_confirmation_instructions_admin: "Saat pian sähköpostiisi linkin, jota sinun tulee klikata varmistaaksesi sähköpostiosoitteesi. Tämän jälkeen voit aloittaa sivustosi muokkaamisen."
+      your_marketplace_has_now_been_created: "Sivustosi on nyt luotu. Se oli helppoa, eikö vain? Jäljellä on enää yksi vaihe, ennen kuin pääset katsomaan, miltä sivustosi näyttää: sinun pitää vahvistaa sähköpostiosoitteesi."
+      account_confirmation_instructions_admin: "Saat pian sähköpostiisi linkin, jota sinun tulee klikata varmistaaksesi sähköpostiosoitteesi. Mikäli et löydä viestiä, muista tarkistaa roskapostikansiosi! Tämän jälkeen voit aloittaa sivustosi muokkaamisen."
   settings:
     account:
       change: Vaihda
@@ -1985,7 +1981,7 @@ fi:
       settings_link: asetuksesi
       homepage_link: etusivulle
       unsubscribe_unsuccesful: "Sähköpostin poiskytkentä epäonnistui"
-      unsuccessful_unsubscribe_info_text: "Linkki, jota klikkasit saattaa olla vanhentunut, tai kyse voi olla ohjelmistovirheestä. Laita palautetta ylälaidan valikosta, niin voimme poistaa sinut postilistalta, tai kirjaudu sisään, niin voit itse vaihtaa sähköpostiasetuksesi."
+      unsuccessful_unsubscribe_info_text: "Linkki, jota klikkasit on ilmeisesti vanhentunut. Lähetä meille palautetta ylälaidan valikosta, niin voimme poistaa sinut postilistalta, tai kirjaudu sisään, niin voit itse vaihtaa sähköpostiasetuksesi."
     profile:
       about_you: "Tietoa sinusta"
       city: Kaupunki

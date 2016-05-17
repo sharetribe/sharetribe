@@ -497,18 +497,14 @@ sv:
       marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: "Betalningssystemet på %{service_name} drivs av PayPal. Om du vill aktivera så att dina användare kan göra betalningar på din marknadsplats så måste du koppla ditt PayPal-konto och välja minsta annonspriset och avgiften som du ska ta i provision från varje transaktion."
-      paypal_account_email: "1. Koppla ditt PayPal konto"
       link_paypal_personal_account_label: ~
-      paypal_account_email_completed: Klart!
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
-      set_minimum_price_and_fee_completed: Klart!
       read_more_about_paypal: "Läs mer om Sharetribes betalningssystem"
-      set_minimum_price_and_fee: "2. Ställ in lägsta pris och transaktionskonstnad"
+      set_minimum_price_and_fee: "Ställ in lägsta pris och transaktionskonstnad"
       minimum_listing_price_label: "Lägsta annonspris:"
       transaction_fee_label: "Transaktionsavgift:"
       minimum_transaction_fee_label: "Lägsta transaktionskostnad:"
-      note_about_transaction_fee: "Notera: i transaktionsavgiften ingår PayPals avgifter som beror på din valuta och försäljningsvolymen på säljaren. Av denna anledning är avgiften alltid minst %{min_paypal_commission}. När avgiften tas ut från säljaren, kommer PayPal att ta sina arvoden först, och resten kommer att flyttas till ditt PayPal-konto."
       save_settings: "Spara inställningar"
       minimum_listing_price_below_tx_fee: "Minsta transaktionsstorlek måste minst vara samma som minsta transaktionsavgift %{minimum_transaction_fee}"
       minimum_listing_price_below_min: "Minsta transaktionsstorlek måste vara större än minsta provision %{minimum_commission}."

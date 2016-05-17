@@ -495,18 +495,14 @@ ru:
       marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: "Система платежей Sharetribe функционирует на основе PayPal. Если вы желаете разрешить вашим пользователям осуществлять платежи в вашем проекте, вы обязаны подключить ваш аккаунт PayPal и определить минимальный размер транзакции и комиссию которую вы желаете установить от каждой транзакции."
-      paypal_account_email: "1. Подключите ваш PayPal аккаунт"
       link_paypal_personal_account_label: ~
-      paypal_account_email_completed: Завершено!
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
-      set_minimum_price_and_fee_completed: Завершено!
       read_more_about_paypal: "Узнать больше о системе платежей Sharetribe"
-      set_minimum_price_and_fee: "2. Установите минимальную цену и комиссию за платеж"
+      set_minimum_price_and_fee: "Установите минимальную цену и комиссию за платеж"
       minimum_listing_price_label: "Минимальный размер транзакции:"
       transaction_fee_label: "Комиссия за транзакцию:"
       minimum_transaction_fee_label: "Минимальная комиссия за платеж:"
-      note_about_transaction_fee: "Примечание: Комиссия за транзакцию включает комиссию PayPal которая зависит от вашей валюты и объема продаж данного продавца. По этой причине, комиссия всегда как минимум %{min_paypal_commission}. Когда комиссия удерживается с продавца, PayPal сначала удерживает свою комиссию, и далее сумма поступает на ваш PayPal аккаунт."
       save_settings: "Сохранить настройки"
       minimum_listing_price_below_tx_fee: "должно быть не менее чем минимальная комиссия за транзакцию %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "должно быть больше чем минимальная комиссия %{minimum_commission}."

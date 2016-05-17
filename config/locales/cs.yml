@@ -506,18 +506,14 @@ cs:
       marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: "Platební systém Sharetribe funguje díky PayPal. Pokud chcete uživatelům umožnit, aby prováděli platby přes Vaše tržiště, musíte se připojit ke svému PayPal účtu a zadat minimální velikost transakce a poplatek z každé provedené transakce."
-      paypal_account_email: "1. Připojit se k PayPal účtu"
       link_paypal_personal_account_label: ~
-      paypal_account_email_completed: Hotovo!
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
-      set_minimum_price_and_fee_completed: Hotovo!
       read_more_about_paypal: "Přečtěte si více o Sharetribe platebním systému"
-      set_minimum_price_and_fee: "2. Nastavit minimální cenu & transakční poplatek"
+      set_minimum_price_and_fee: "Nastavit minimální cenu & transakční poplatek"
       minimum_listing_price_label: "Minimální částka transakce:"
       transaction_fee_label: "Transakční poplatek:"
       minimum_transaction_fee_label: "Minimální transakční poplatek:"
-      note_about_transaction_fee: "Poznámka: poplatek transakce zahrnuje poplatky PayPal, které závisí na Vaší měně a na objemu prodeje prodávajícího. Z tohoto důvodu je poplatek vždy alespoň %{min_paypal_commission}. Pokud je poplatek účtován od prodávajícího, nejdříve si PayPal strhne své poplatky a zbytek bude převeden na Váš PayPal účet."
       save_settings: "Uložit nastavení"
       minimum_listing_price_below_tx_fee: "Minimální velikost transakce musí být alespoň stejná částka jako minimální transakční poplatek %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "Minimální velikost transakce musí být větší než minimální přirážka %{minimum_commission}."

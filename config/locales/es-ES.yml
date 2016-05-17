@@ -501,18 +501,14 @@ es-ES:
       marketplace_currency_used: "Este marketplace usa %{currency} como su moneda. Para cambiar de moneda, %{contact_support_link}."
       contact_support_link_text: "Contactar al soporte de Sharetribe"
       integration_info_text: "El sistema de pago de %{service_name} se basa en PayPal. Si quieres permitir a tus usuarios hacer pagos a través del marketplace, debes conectar tu cuenta de PayPal y decidir el precio mínimo para cada anuncio así como la comisión por transacción que quieres recibir."
-      paypal_account_email: "Conecta tu cuenta de PayPal"
       link_paypal_personal_account_label: "Venderá productos usted mismo?"
-      paypal_account_email_completed: ¡Completado!
       link_paypal_personal_account: "Si es así, también necesitará conectar su cuenta PayPal en %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "su cuenta personal del marketplace"
-      set_minimum_price_and_fee_completed: ¡Completado!
       read_more_about_paypal: "Leer más sobre el sistema de pagos de Sharetribe."
       set_minimum_price_and_fee: "Configura un precio mínimo y una comisión por transacción"
       minimum_listing_price_label: "Precio mínimo para anuncio:"
       transaction_fee_label: "Comisión por transacción:"
       minimum_transaction_fee_label: "Fee mínimo por transacción"
-      note_about_transaction_fee: "Nota: la comisión por transacción incluye las tasas de PayPal que dependen de tu moneda y del volumen de ventas del vendedor. Por esta razón, la comisión siempre es al menos %{min_paypal_commission}. Cuando se carga la comisión al vendedor, Paypal cobra su comisión primero y el resto del dinero se moverá a tu cuenta de PayPal."
       save_settings: "Guardar configuración"
       minimum_listing_price_below_tx_fee: "Tiene que ser al menos igual al fee mínimo por transacción %{minimum_transaction_fee}"
       minimum_listing_price_below_min: "Debe ser superior a la comisión mínima %{minimum_commission}"

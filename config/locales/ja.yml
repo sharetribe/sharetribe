@@ -480,18 +480,14 @@ ja:
       marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: Sharetribeのお支払いシステムはPayPalを導入しています。あなたのマーケットプレイスで、お支払いが発生するようなサービスをご検討の場合は、PayPalと連携させる必要がございます。最小価格を設定し、取引毎にいただく手数料を設定します。
-      paypal_account_email: "1. PayPalアカウントに接続する"
       link_paypal_personal_account_label: ~
-      paypal_account_email_completed: 完了しました！
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
-      set_minimum_price_and_fee_completed: 完了しました！
       read_more_about_paypal: Sharetribeのお支払い方法にについてさらに読む
       set_minimum_price_and_fee: 最低価格とお支払い手数料の設定
       minimum_listing_price_label: 最低価格：
       transaction_fee_label: 課金手数料：
       minimum_transaction_fee_label: 最小ご利用手数料額
-      note_about_transaction_fee: "注意： 取引手数料は、PayPal利用手数料も含まれています。それは、通貨や価格のボリュームにより異なります。そのため、手数料は少なくても%{min_paypal_commission}に設定しています。PayPalははじめにその手数料を差し引いてからの金額が、あなたのPayPalアカウントに送金されます。"
       save_settings: 設定を保存する
       minimum_listing_price_below_tx_fee: "最小でも、%{minimum_transaction_fee}と同じ値にしてください。"
       minimum_listing_price_below_min: "最小手数料は、%{minimum_commission}より大きい値にしてください。"

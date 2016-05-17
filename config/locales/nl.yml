@@ -485,18 +485,14 @@ nl:
       marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: "Het betaalsysteem van Sharetribe is PayPal. Als je gebruikers de mogelijkheid wil geven om betalingen te doen via je marktplaats, moet je je PayPal account linken en bepalen wat de minimale marge is die je wil maken op elke transactie."
-      paypal_account_email: "1. Koppel je PayPal account"
       link_paypal_personal_account_label: ~
-      paypal_account_email_completed: Uitgevoerd!
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
-      set_minimum_price_and_fee_completed: Uitgevoerd!
       read_more_about_paypal: "Lees meer over Sharetribe's betalingssysteem"
-      set_minimum_price_and_fee: "2. Bepaal de minimale prijs en commissie"
+      set_minimum_price_and_fee: "Bepaal de minimale prijs en commissie"
       minimum_listing_price_label: "Minimale transactie prijs:"
       transaction_fee_label: "Transactiekosten:"
       minimum_transaction_fee_label: "Minimale transactie kosten:"
-      note_about_transaction_fee: "Opmerking: de transactiekosten omvatten de kosten voor PayPal en zijn afhankelijk van je munteenheid en het verkoopvolume van de verkoper. Hierdoor zijn de minimale kosten %{min_paypal_commission}. Wanneer de kosten worden doorgerekend aan de verkoper zal PayPal eerst haar deel nemen en wat er overblijft wordt overgemaakt naar jouw PayPal account."
       save_settings: "Instellingen opslaan"
       minimum_listing_price_below_tx_fee: "moet op zijn minst gelijk zijn aan de minimale transactie kosten %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "moet groter zijn dan de minimale commissie %{minimum_commission}."
