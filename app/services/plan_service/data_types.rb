@@ -25,9 +25,6 @@ module PlanService::DataTypes
   ExternalPlan = EntityUtils.define_builder(
     [:marketplace_plan_id, :fixnum, :mandatory],
     [:marketplace_id, :fixnum, :mandatory],
-    [:plan_level, :fixnum, :mandatory],
-    [:features, :hash, :mandatory],
-    [:member_limit, :fixnum, :optional],
     [:expires_at, :time, :optional],
     [:created_at, :time, :mandatory],
     [:updated_at, :time, :mandatory],
