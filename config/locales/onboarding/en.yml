@@ -95,36 +95,6 @@ en:
             listing: "Post a listing"
             invitation: "Invite users"
           back_to_todo: "Back to to-do list"
-        popup:
-          slogan_and_description:
-            title: "Woohoo, task completed!"
-            body: "Fantastic! Up next: the slogan and description are the best way to tell new visitors understand what your marketplace is about."
-            button: "Write your own!"
-          cover_photo:
-            title: "Woohoo, task completed!"
-            body: "Well done, let's keep going! A good cover photo has a huge impact on the initial impression left on new visitors. It's time to add yours!"
-            button: "Upload a cover photo"
-          filter:
-            title: "Looking good!"
-            body: "Now let's focus on some functionality. Listing fields and filters give structure to your marketplace and help your customers find what they are looking for."
-            button: "Add fields & filters"
-          paypal:
-            title: "Well done! "
-            body: "Next, set up your marketplace for online payments! To allow your providers to accept payments, you need to connect your PayPal account. Alternative, you can disable online payments for now."
-            button: "Set up payments"
-          listing:
-            title: "Good job!"
-            body: "The basics of your marketplace have now been set up, but the site is quite empty. It's time to add the first product or service by posting a new listing."
-            button: "Post your first listing"
-          invitation:
-            title: "...and now the final step - share your marketplace!"
-            body: "Happy with your marketplace? Then let's start inviting users!"
-            button: "Invite users"
-          all_done:
-            title: "Brilliant, you made it!"
-            body: "Fantastic, you did it! Your marketplace is now up and running. However, this is just the beginning. We're here to help you on every step of your journey."
-            button: "See what to do next"
-          button_later: "I'll do it later, thanks"
         topbar:
           progress_label: "Marketplace progress"
           next_step: "Next"
@@ -134,3 +104,35 @@ en:
           paypal: "Accept payments"
           listing: "Post a listing"
           invitation: "Invite users"
+  admin:
+    onboarding:
+      popup:
+        slogan_and_description:
+          title: "Woohoo, task completed!"
+          body: "Fantastic! Up next: the slogan and description are the best way to tell new visitors understand what your marketplace is about."
+          button: "Write your own!"
+        cover_photo:
+          title: "Woohoo, task completed!"
+          body: "Well done, let's keep going! A good cover photo has a huge impact on the initial impression left on new visitors. It's time to add yours!"
+          button: "Upload a cover photo"
+        filter:
+          title: "Looking good!"
+          body: "Now let's focus on some functionality. Listing fields and filters give structure to your marketplace and help your customers find what they are looking for."
+          button: "Add fields & filters"
+        paypal:
+          title: "Well done! "
+          body: "Next, set up your marketplace for online payments! To allow your providers to accept payments, you need to connect your PayPal account. Alternative, you can disable online payments for now."
+          button: "Set up payments"
+        listing:
+          title: "Good job!"
+          body: "The basics of your marketplace have now been set up, but the site is quite empty. It's time to add the first product or service by posting a new listing."
+          button: "Post your first listing"
+        invitation:
+          title: "...and now the final step - share your marketplace!"
+          body: "Happy with your marketplace? Then let's start inviting users!"
+          button: "Invite users"
+        all_done:
+          title: "Brilliant, you made it!"
+          body: "Fantastic, you did it! Your marketplace is now up and running. However, this is just the beginning. We're here to help you on every step of your journey."
+          button: "See what to do next"
+        button_later: "I'll do it later, thanks"
