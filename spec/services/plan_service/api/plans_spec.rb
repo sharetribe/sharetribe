@@ -32,7 +32,7 @@ describe PlanService::API::Plans do
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               plan_level: 0,
-                                              features: {deletable: true},
+                                              features: { deletable: true, admin_email: false, whitelabel: false },
                                               expires_at: expires_at,
                                               member_limit: 300,
                                               created_at: Time.now,
@@ -62,7 +62,7 @@ describe PlanService::API::Plans do
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               plan_level: 4,
-                                              features: { whitelabel: true, admin_email: true },
+                                              features: { deletable: false, admin_email: true, whitelabel: true },
                                               member_limit: 100000,
                                               expires_at: expires_at,
                                               created_at: Time.now,
@@ -89,7 +89,7 @@ describe PlanService::API::Plans do
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               plan_level: 2,
-                                              features: { whitelabel: true, admin_email: true },
+                                              features: { deletable: false, admin_email: true, whitelabel: true },
                                               member_limit: 1000,
                                               expires_at: nil,
                                               created_at: Time.now,
@@ -166,7 +166,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 5,
-            features: { whitelabel: true, admin_email: true },
+            features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: nil, # plan never expires
           }).data
 
@@ -177,7 +177,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 5,
-            features: { whitelabel: true, admin_email: true },
+            features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: 1.month.from_now,
           }).data
 
@@ -188,7 +188,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 5,
-            features: { whitelabel: true, admin_email: true },
+            features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: 1.month.ago,
           }).data
 
@@ -201,7 +201,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 2,
-            features: { whitelabel: true, admin_email: true },
+            features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: nil, # plan never expires
           }).data
 
@@ -213,7 +213,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 0,
-            features: { deletable: true },
+            features: { deletable: true, admin_email: false, whitelabel: false },
             expires_at: Time.now - 1.day,
           }).data
 
@@ -225,7 +225,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 2,
-            features: { whitelabel: true, admin_email: true },
+            features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: Time.now - 1.day
           }).data
 
@@ -237,7 +237,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 5,
-            features: { whitelabel: true, admin_email: true },
+            features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: nil
           }).data
 

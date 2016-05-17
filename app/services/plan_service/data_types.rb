@@ -1,4 +1,10 @@
 module PlanService::DataTypes
+  Features = EntityUtils.define_builder(
+    [:deletable, :bool, default: false],
+    [:admin_email, :bool, default: false],
+    [:whitelabel, :bool, default: false]
+  )
+
   Configuration = EntityUtils.define_builder(
     [:active, :str_to_bool, :to_bool, :mandatory],
     [:jwt_secret, :string, :optional], # Not needed if not in use
@@ -9,7 +15,7 @@ module PlanService::DataTypes
     [:id, :fixnum, :optional], # For OS, the plan is not actually in DB. Thus, optional.
     [:community_id, :fixnum, :mandatory],
     [:plan_level, :fixnum, :mandatory],
-    [:features, :hash, :mandatory],
+    [:features, entity: Features],
     [:member_limit, :fixnum, :optional],
     [:expires_at, :time, :optional],
     [:created_at, :time, :mandatory],
