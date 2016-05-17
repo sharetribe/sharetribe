@@ -17,9 +17,4 @@ Rails.application.config.assets.paths << Rails.root.join("app", "assets", "webpa
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.precompile << "server-bundle.js"
 
-Rails.application.config.assets.precompile +=
-  if ENV["REACT_ON_RAILS_ENV"] == "HOT"
-    ["application_hot.css"]
-  else
-    ["application.js", "application.css"]
-  end
+Rails.application.config.assets.precompile += ["application.js", "application.css"]
