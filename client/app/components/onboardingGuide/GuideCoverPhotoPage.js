@@ -35,6 +35,7 @@ const GuideCoverPhotoPage = (props) => {
           { link: a({
             href: 'http://support.sharetribe.com/knowledgebase/articles/744438',
             target: '_blank',
+            rel: 'noreferrer',
             alt: t('web.admin.onboarding.guide.cover_photo.advice.alt'),
           }, t('web.admin.onboarding.guide.cover_photo.advice.link')) }),
         br(),

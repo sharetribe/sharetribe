@@ -36,6 +36,7 @@ const GuideFilterPage = (props) => {
           t('web.admin.onboarding.guide.filter.advice.content',
             { not_too_many_link: a({
               target: '_blank',
+              rel: 'noreferrer',
               href: 'https://www.sharetribe.com/academy/how-to-help-your-customers-find-the-right-product-or-service',
             }, t('web.admin.onboarding.guide.filter.advice.not_too_many_link')) }),
         ]),

@@ -15,6 +15,7 @@ const GuideInvitationPage = (props) => {
       preview_link: a({
         href: '/?big_cover_photo=true',
         alt: t('web.admin.onboarding.guide.invitation.description.preview_link_alt'),
+        rel: 'noreferrer',
         target: '_blank',
       }, t('web.admin.onboarding.guide.invitation.description.preview_link')) })),
 

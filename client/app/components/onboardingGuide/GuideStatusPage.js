@@ -27,6 +27,7 @@ const GuideStatusPage = (props) => {
         { knowledge_base_link: a(
           { href: 'http://support.sharetribe.com/knowledgebase/articles/892140-what-to-do-after-the-basic-setup-of-your-marketpla',
             target: '_blank',
+            rel: 'noreferrer',
             alt: t('web.admin.onboarding.guide.status_page.congratulation_p1.knowledge_base_alt'),
           }),
         })),
@@ -35,6 +36,7 @@ const GuideStatusPage = (props) => {
         { marketplace_guide_link: a(
           { href: 'https://www.sharetribe.com/academy/guide/',
             target: '_blank',
+            rel: 'noreferrer',
             alt: t('web.admin.onboarding.guide.status_page.congratulation_p2.marketplace_guide_alt'),
           },
           t('web.admin.onboarding.guide.status_page.congratulation_p2.marketplace_guide_link')),

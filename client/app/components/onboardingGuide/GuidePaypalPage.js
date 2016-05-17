@@ -33,6 +33,7 @@ const GuidePaypalPage = (props) => {
         disable_payments_link: a(
           { href: 'http://support.sharetribe.com/knowledgebase/articles/470085',
             target: '_blank',
+            rel: 'noreferrer',
             alt: t('web.admin.onboarding.guide.paypal.advice.disable_payments_alt'),
           },
           t('web.admin.onboarding.guide.paypal.advice.disable_payments_link')),
