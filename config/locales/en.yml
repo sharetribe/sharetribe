@@ -497,18 +497,14 @@ en:
       marketplace_currency_used: "This marketplace uses %{currency} as its currency. To change the currency, %{contact_support_link}."
       contact_support_link_text: "contact Sharetribe support"
       integration_info_text: "Sharetribe payments are powered by PayPal. To allow your users to pay using your marketplace, you must connect your PayPal account. Once you have connected your PayPal account, you can choose a minimum transaction size and a possible commission fee."
-      paypal_account_email: "1. Connect your PayPal account"
       link_paypal_personal_account_label: "Are you providing products or services yourself?"
-      paypal_account_email_completed: Completed!
       link_paypal_personal_account: "If so, you will also need to connect your PayPal account to %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "your personal marketplace account"
-      set_minimum_price_and_fee_completed: Completed!
       read_more_about_paypal: "Read more about Sharetribe's payment system"
       set_minimum_price_and_fee: "Set a minimum price & transaction fee"
       minimum_listing_price_label: "Minimum transaction size:"
       transaction_fee_label: "Transaction fee:"
       minimum_transaction_fee_label: "Minimum transaction fee:"
-      note_about_transaction_fee: "Note: the transaction fee includes PayPal's fees, which depend on your currency and the sales volume of the seller. For this reason, the fee is always at least %{min_paypal_commission}. When the fee is charged from the seller, PayPal will take its fees first, and the remainder will be moved to your PayPal account."
       save_settings: "Save settings"
       minimum_listing_price_below_tx_fee: "The minimum transaction size has to be greater than or equal to the minimum transaction fee: %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "The minimum transaction size has to be greater than the minimum commission %{minimum_commission}."
