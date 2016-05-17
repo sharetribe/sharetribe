@@ -26,7 +26,8 @@ module.exports = {
     commonjs: true
   },
   globals: {
-    // Webpack plugin adds `process` global
+    // `process` global is added by Webpack plugin.
+    // Tell the existence of `process` to ESLint
     process: false
   },
   rules: {
