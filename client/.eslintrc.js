@@ -24,6 +24,11 @@ module.exports = {
     browser: true,
     es6: true,
   },
+  globals: {
+    // `process` global is added by Webpack plugin.
+    // Tell the existence of `process` to ESLint
+    process: false
+  },
   rules: {
     // See http://eslint.org/docs/rules/ for documentation for
     // specific rules and their options.

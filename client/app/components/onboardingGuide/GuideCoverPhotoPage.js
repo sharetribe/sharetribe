@@ -1,23 +1,27 @@
 import { PropTypes } from 'react';
-import r, { div, h2, p, img, a } from 'r-dom';
+import r, { div, h2, p, img, a, br } from 'r-dom';
 import css from './styles.scss';
+import { t } from '../../utils/i18n';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
 
+const COVER_PHOTO_WIDTH = 1920;
+const COVER_PHOTO_HEIGHT = 450;
+
 const GuideCoverPhotoPage = (props) => {
-  const { changePage, initialPath, t, pageData, infoIcon } = props;
+  const { changePage, initialPath, pageData, infoIcon } = props;
 
   return div({ className: 'container' }, [
-    r(GuideBackToTodoLink, { changePage, initialPath, t }),
-    h2({ className: css.title }, t('title')),
-    p({ className: css.description }, t('description')),
+    r(GuideBackToTodoLink, { changePage, initialPath }),
+    h2({ className: css.title }, t('web.admin.onboarding.guide.cover_photo.title')),
+    p({ className: css.description }, t('web.admin.onboarding.guide.cover_photo.description')),
 
     pageData.info_image ?
       div({ className: css.sloganImageContainer }, [
         img({
           className: css.sloganImage,
           src: pageData.info_image,
-          alt: t('info_image_alt'),
+          alt: t('web.admin.onboarding.guide.cover_photo.info_image_alt'),
         }),
       ]) :
       null,
@@ -29,18 +33,26 @@ const GuideCoverPhotoPage = (props) => {
       }),
       div({
         className: css.infoTextContent,
-        dangerouslySetInnerHTML: { __html: t('advice') }, // eslint-disable-line react/no-danger
-      }),
+      }, [
+        t('web.admin.onboarding.guide.cover_photo.advice.content1',
+          { link: a({
+            href: 'http://support.sharetribe.com/knowledgebase/articles/744438',
+            target: '_blank',
+            rel: 'noreferrer',
+            alt: t('web.admin.onboarding.guide.cover_photo.advice.alt'),
+          }, t('web.admin.onboarding.guide.cover_photo.advice.link')) }),
+        br(),
+        t('web.admin.onboarding.guide.cover_photo.advice.content2', { width: COVER_PHOTO_WIDTH, height: COVER_PHOTO_HEIGHT }),
+      ]),
     ]),
 
-    a({ className: css.nextButton, href: pageData.cta }, t('add_your_own')),
+    a({ className: css.nextButton, href: pageData.cta }, t('web.admin.onboarding.guide.cover_photo.add_your_own')),
   ]);
 };
 
 GuideCoverPhotoPage.propTypes = {
   changePage: PropTypes.func.isRequired,
   initialPath: PropTypes.string.isRequired,
-  t: PropTypes.func.isRequired,
   infoIcon: PropTypes.string.isRequired,
   pageData: PropTypes.shape({
     cta: PropTypes.string.isRequired,

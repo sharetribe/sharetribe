@@ -6,7 +6,7 @@ _The mechanism described in this document **does not work with marketplace speci
 
 ## Usage
 
-In the React component, you need to import `t` function from the `i18n` module. After that you can use all the translation keys from the `en.js.*` scope:
+In the React component, you need to import `t` function from the `i18n` module. After that you can use all the translation keys from the `en.web.*` scope:
 
 ```js
 // MyReactComponent.js
@@ -15,12 +15,12 @@ import { t } from '../../utils/i18n';
 
 class MyReactComponent extends Component {
   render() {
-    return span({className: "hello-world"}, t("js.hello_world"))
+    return span({className: "hello-world"}, t("web.hello_world"))
   }
 }
 ```
 
-The example above assumed that there's a `js.hello_world` key in the translation YML file, e.g.:
+The example above assumed that there's a `web.hello_world` key in the translation YML file, e.g.:
 
 ```yml
 

@@ -1,3 +1,5 @@
+/* eslint-env commonjs */
+
 // This file has three tasks:
 //
 // 1. Initialize global.I18n if we are in server environment
@@ -21,7 +23,7 @@ if (isServer()) {
 
   // Initialize global.I18n
   // In browser we initialize this in a script-tag manually
-  global.I18n = {}; // eslint-disable-line no-undef
+  global.I18n = {};
 
   // Load the translation bundle in the global.I18n variable.
   // In browser the bundle is loaded in a separate script-tag.
@@ -29,7 +31,7 @@ if (isServer()) {
   try {
     // The translation bundle will be loaded to the global I18n
     // variable. Initialize the variable here.
-    require('../i18n/all.js'); // eslint-disable-line no-undef
+    require('../i18n/all.js');
   } catch (e) {
     console.warn("Can't load language bundle all.js"); // eslint-disable-line no-console
   }
@@ -40,7 +42,13 @@ if (isServer()) {
 // be initialized before loading the i18n-js library, so that the
 // library can use the existing I18n object
 
-const I18n = require('i18n-js'); // eslint-disable-line no-undef
+const I18n = require('i18n-js');
+
+function initialize(railsContext) {
+  I18n.locale = railsContext.i18nLocale;
+  I18n.defaultLocale = railsContext.i18nDefaultLocale;
+  I18n.interpolationMode = 'split';
+}
 
 // Bind functions to I18n
 const translate = bind(I18n.translate, I18n);
@@ -50,4 +58,4 @@ const t = bind(I18n.t, I18n);
 const l = bind(I18n.l, I18n);
 const p = bind(I18n.p, I18n);
 
-export { I18n, translate, localize, pluralize, t, l, p };
+export { initialize, translate, localize, pluralize, t, l, p };

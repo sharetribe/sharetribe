@@ -19,7 +19,7 @@ translations:
   # Use a custom namespace that uses either global (in node) or window (in browser)
 
   - file: "app/assets/javascripts/i18n/%{locale}.js"
-    only: ["*.web", "*.admin.onboarding"]
+    only: ["*.web"]
     namespace: "(typeof(window) === 'undefined' ? global : window).I18n"
     pretty_print: true # can be turned on for debugging
 
@@ -32,6 +32,6 @@ translations:
   # Use a custom namespace that uses either global (in node) or window (in browser)
 
   - file: "client/app/i18n/all.js"
-    only: ["*.web", "*.admin.onboarding"]
+    only: ["*.web"]
     namespace: "(typeof(window) === 'undefined' ? global : window).I18n"
     pretty_print: false # can be turned on for debugging

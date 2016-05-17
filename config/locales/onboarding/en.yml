@@ -1,105 +1,136 @@
 en:
-  admin:
-    onboarding:
-      guide:
-        cover_photo:
-          title: "Step 3: Add a cover photo"
-          description: "A good cover photo can make the difference between a new visitor joining or leaving your marketplace."
-          info_image_alt: "A screenshot of homepage with big cover photo"
-          add_your_own: "Add cover photo"
-          advice: "Check out <a href=\"http://support.sharetribe.com/knowledgebase/articles/744438\" target=\"_blank\" alt=\"How to get good-looking cover photos, logos, favicon, profiles and listing pictures?\">our guide</a> on where to find good-looking images that are free to use. <br/>Note: the photo will be resized to 1920x450 pixels. The top and bottom sections of images that are taller will be cropped."
-        filter:
-          title: "Step 4: Add listing fields & filters"
-          description: "Listing fields determine the structure of your marketplace. For example, if you are building a marketplace for selling used shoes, you probably want to add a field for shoe size. The seller will then need to add the size of their shoes when creating a new shoe listing. If you wish to allow your customers to filter listings based on shoe size, you can check the box <i>Display a filter based on this field on the homepage</i> when creating the field."
-          info_image_alt: "A screenshot from fields and filters page"
-          add_fields_and_filters: "Add fields & filters"
-          advice: "Filters are very handy, but <a target=\"_blank\" href=\"https://www.sharetribe.com/academy/how-to-help-your-customers-find-the-right-product-or-service/\">you shouldn't add too many</a>. Customers will be overwhelmed by having too many filters, and each filter is an additional field for your suppliers to fill in."
-        invitation:
-          title: "Step 7: Inviting users"
-          description: "Happy with what marketplace looks like and how it works? Maybe <a href='/?big_cover_photo=true' alt='Check preview' target='_blank'>one last preview</a>? If you're ready, let's start inviting users!"
-          info_image_alt: "Users illustration"
-          invite_users: "Invite users"
-          advice: "Invite your friends first and gather feedback from them."
-        listing:
-          title: "Step 6: Add your first listing"
-          description: "Listings are the content of your marketplace: the products or services your providers are offering. To make your marketplace look less empty and test how the process of creating a new listing works, add one yourself!"
-          info_image_alt: "A screenshot from Post a new listing page"
-          post_your_first_listing: "Post your first listing"
-          advice: "Removing a listing is easy: simply click on the listing and choose <i>Close listing</i>."
-        next_step:
-          slogan_and_description: "Add a slogan & description"
-          cover_photo: "Add a cover photo"
-          filter: "Add fields & filters"
-          paypal: "Accept payments"
-          listing: "Post your first listing"
-          invitation: "Invite users"
-        paypal:
-          title: "Step 5: Set up online payments"
-          description_p1: "If you want to allow your providers to accept online payments, you need to connect your PayPal account (you will receive a fee from each transaction). Once connected, you need to choose a minimum transaction size and your transaction fee."
-          description_p2: "Alternatively, you can disable online payments for now."
-          info_image_alt: "A screenshot from payments page"
-          disable_payments: "Disable payments"
-          setup_payments: "Set up payments"
-          cta_separator: "or"
-          advice: "You can read more about disabling payments from <a href=\"http://support.sharetribe.com/knowledgebase/articles/470085\" target=\"_blank\" alt=\"How to disable payments or add free listings to your marketplace\">this article</<a>."
-        slogan_and_description:
-          title: "Step 2: Slogan & Description"
-          description: "The slogan & description help new visitors understand what your marketplace is about. They are the first thing your users notice when they enter your site, so try to make them descriptive but succinct."
-          info_image_alt: "A screenshot of homepage showing slogan and description."
-          add_your_own: "Add slogan & description"
-          advice: "Use the slogan to tell quickly what your marketplace is about. <i>\"Buy food from locals\"</i> or <i>\"Get guitar lessons from a pro\"</i> are good examples. In the description text you can then expand on your main value proposition. <i>\"FoodMarket is the easiest way to order produce directly from local providers\"</i> or <i>\"GuitarPro is the best place to compare music teachers\"</i> are good examples."
-        status_page:
-          title: "Welcome to your marketplace, %{name}"
-          title_done: "All done!"
-          description_p1: "To get your marketplace up and running, there are a few essential steps you need to take, as listed below."
-          description_p2: "Once finished, your marketplace will be ready to receive its first visitors!"
-          congratulation_p1: "You did it! Your marketplace is now up and running. However, this is just the beginning. You've only seen a fraction of the customization options that Sharetribe offers. To read more about how to customize your marketplace further, check out <a href='http://support.sharetribe.com/knowledgebase/articles/892140-what-to-do-after-the-basic-setup-of-your-marketpla' alt='knowledge base' target='_blank'>our knowledge base</a>."
-          congratulation_p2: "If you wish to learn more about how to build your marketplace business, we recommend our <a href='https://www.sharetribe.com/academy/guide/' alt='link to marketplace academy' target='_blank'>practical guide for building an online marketplace business</a>."
-          congratulation_p3: "If you have any questions, don't hesitate to <a data-uv-trigger='contact' href='mailto:support@sharetribe.com' title='Support'>contact our support</a>, we're always happy to help!"
-          create_your_marketplace: "Create your marketplace"
+  web:
+    admin:
+      onboarding:
+        guide:
+          cover_photo:
+            title: "Step 3: Add a cover photo"
+            description: "A good cover photo can make the difference between a new visitor joining or leaving your marketplace."
+            info_image_alt: "A screenshot of homepage with big cover photo"
+            add_your_own: "Add cover photo"
+            advice:
+              content1: "Check out %{link} on where to find good-looking images that are free to use."
+              content2: "Note: the photo will be resized to %{width}x%{height} pixels. The top and bottom sections of images that are taller will be cropped."
+              link: "our guide"
+              alt: "How to get good-looking cover photos, logos, favicon, profiles and listing pictures?"
+          filter:
+            title: "Step 4: Add listing fields & filters"
+            description:
+              content: "Listing fields determine the structure of your marketplace. For example, if you are building a marketplace for selling used shoes, you probably want to add a field for shoe size. The seller will then need to add the size of their shoes when creating a new shoe listing. If you wish to allow your customers to filter listings based on shoe size, you can check the box %{display_on_homepage} when creating the field."
+              display_on_homepage: "Display a filter based on this field on the homepage"
+            info_image_alt: "A screenshot from fields and filters page"
+            add_fields_and_filters: "Add fields & filters"
+            advice:
+              content: "Filters are very handy, but %{not_too_many_link}. Customers will be overwhelmed by having too many filters, and each filter is an additional field for your suppliers to fill in."
+              not_too_many_link: "you shouldn't add too many"
+          invitation:
+            title: "Step 7: Inviting users"
+            description:
+              content: "Happy with what marketplace looks like and how it works? Maybe %{preview_link}? If you're ready, let's start inviting users!"
+              preview_link: "one last preview"
+              preview_link_alt: "Check preview"
+            info_image_alt: "Users illustration"
+            invite_users: "Invite users"
+            advice: "Invite your friends first and gather feedback from them."
+          listing:
+            title: "Step 6: Add your first listing"
+            description: "Listings are the content of your marketplace: the products or services your providers are offering. To make your marketplace look less empty and test how the process of creating a new listing works, add one yourself!"
+            info_image_alt: "A screenshot from Post a new listing page"
+            post_your_first_listing: "Post your first listing"
+            advice:
+              content: "Removing a listing is easy: simply click on the listing and choose %{close_listing}."
+              close_listing: "Close listing"
+          next_step:
+            slogan_and_description: "Add a slogan & description"
+            cover_photo: "Add a cover photo"
+            filter: "Add fields & filters"
+            paypal: "Accept payments"
+            listing: "Post your first listing"
+            invitation: "Invite users"
+          paypal:
+            title: "Step 5: Set up online payments"
+            description_p1: "If you want to allow your providers to accept online payments, you need to connect your PayPal account (you will receive a fee from each transaction). Once connected, you need to choose a minimum transaction size and your transaction fee."
+            description_p2: "Alternatively, you can disable online payments for now."
+            info_image_alt: "A screenshot from payments page"
+            disable_payments: "Disable payments"
+            setup_payments: "Set up payments"
+            cta_separator: "or"
+            advice:
+              content: "You can read more about disabling payments from %{disable_payments_link}."
+              disable_payments_link: "this article"
+              disable_payments_alt: "How to disable payments or add free listings to your marketplace"
+          slogan_and_description:
+            title: "Step 2: Slogan & Description"
+            description: "The slogan & description help new visitors understand what your marketplace is about. They are the first thing your users notice when they enter your site, so try to make them descriptive but succinct."
+            info_image_alt: "A screenshot of homepage showing slogan and description."
+            add_your_own: "Add slogan & description"
+            advice:
+              content: "Use the slogan to tell quickly what your marketplace is about. %{food_from_locals_slogan} or %{guitar_lessons_slogan} are good examples. In the description text you can then expand on your main value proposition. %{food_from_locals_description} or %{guitar_lessons_description} are good examples."
+              food_from_locals_slogan: "\"Buy food from locals\""
+              guitar_lessons_slogan: "\"Get guitar lessons from a pro\""
+              food_from_locals_description: "\"FoodMarket is the easiest way to order produce directly from local providers\""
+              guitar_lessons_description: "\"GuitarPro is the best place to compare music teachers\""
+          status_page:
+            title: "Welcome to your marketplace, %{name}"
+            title_done: "All done!"
+            description_p1: "To get your marketplace up and running, there are a few essential steps you need to take, as listed below."
+            description_p2: "Once finished, your marketplace will be ready to receive its first visitors!"
+            congratulation_p1:
+              content: "You did it! Your marketplace is now up and running. However, this is just the beginning. You've only seen a fraction of the customization options that Sharetribe offers. To read more about how to customize your marketplace further, check out %{knowledge_base_link}."
+              knowledge_base_link: "our knowledge base"
+              knowledge_base_alt: "knowledge base"
+            congratulation_p2:
+              content: "If you wish to learn more about how to build your marketplace business, we recommend our %{marketplace_guide_link}."
+              marketplace_guide_link: "practical guide for building an online marketplace business"
+              marketplace_guide_alt: "link to marketplace academy"
+            congratulation_p3:
+              content: "If you have any questions, don't hesitate to %{contact_support_link}, we're always happy to help!"
+              contact_support_link: "contact our support"
+              contact_support_title: "Support"
+            create_your_marketplace: "Create your marketplace"
+            slogan_and_description: "Add a slogan & description"
+            cover_photo: "Upload a cover photo"
+            filter: "Add fields & filters"
+            paypal: "Set up online payments"
+            listing: "Post a listing"
+            invitation: "Invite users"
+          back_to_todo: "Back to to-do list"
+        popup:
+          slogan_and_description:
+            title: "Woohoo, task completed!"
+            body: "Fantastic! Up next: the slogan and description are the best way to tell new visitors understand what your marketplace is about."
+            button: "Write your own!"
+          cover_photo:
+            title: "Woohoo, task completed!"
+            body: "Well done, let's keep going! A good cover photo has a huge impact on the initial impression left on new visitors. It's time to add yours!"
+            button: "Upload a cover photo"
+          filter:
+            title: "Looking good!"
+            body: "Now let's focus on some functionality. Listing fields and filters give structure to your marketplace and help your customers find what they are looking for."
+            button: "Add fields & filters"
+          paypal:
+            title: "Well done! "
+            body: "Next, set up your marketplace for online payments! To allow your providers to accept payments, you need to connect your PayPal account. Alternative, you can disable online payments for now."
+            button: "Set up payments"
+          listing:
+            title: "Good job!"
+            body: "The basics of your marketplace have now been set up, but the site is quite empty. It's time to add the first product or service by posting a new listing."
+            button: "Post your first listing"
+          invitation:
+            title: "...and now the final step - share your marketplace!"
+            body: "Happy with your marketplace? Then let's start inviting users!"
+            button: "Invite users"
+          all_done:
+            title: "Brilliant, you made it!"
+            body: "Fantastic, you did it! Your marketplace is now up and running. However, this is just the beginning. We're here to help you on every step of your journey."
+            button: "See what to do next"
+          button_later: "I'll do it later, thanks"
+        topbar:
+          progress_label: "Marketplace progress"
+          next_step: "Next"
           slogan_and_description: "Add a slogan & description"
           cover_photo: "Upload a cover photo"
           filter: "Add fields & filters"
-          paypal: "Set up online payments"
+          paypal: "Accept payments"
           listing: "Post a listing"
           invitation: "Invite users"
-        back_to_todo: "Back to to-do list"
-      popup:
-        slogan_and_description:
-          title: "Woohoo, task completed!"
-          body: "Fantastic! Up next: the slogan and description are the best way to tell new visitors understand what your marketplace is about."
-          button: "Write your own!"
-        cover_photo:
-          title: "Woohoo, task completed!"
-          body: "Well done, let's keep going! A good cover photo has a huge impact on the initial impression left on new visitors. It's time to add yours!"
-          button: "Upload a cover photo"
-        filter:
-          title: "Looking good!"
-          body: "Now let's focus on some functionality. Listing fields and filters give structure to your marketplace and help your customers find what they are looking for."
-          button: "Add fields & filters"
-        paypal:
-          title: "Well done! "
-          body: "Next, set up your marketplace for online payments! To allow your providers to accept payments, you need to connect your PayPal account. Alternative, you can disable online payments for now."
-          button: "Set up payments"
-        listing:
-          title: "Good job!"
-          body: "The basics of your marketplace have now been set up, but the site is quite empty. It's time to add the first product or service by posting a new listing."
-          button: "Post your first listing"
-        invitation:
-          title: "...and now the final step - share your marketplace!"
-          body: "Happy with your marketplace? Then let's start inviting users!"
-          button: "Invite users"
-        all_done:
-          title: "Brilliant, you made it!"
-          body: "Fantastic, you did it! Your marketplace is now up and running. However, this is just the beginning. We're here to help you on every step of your journey."
-          button: "See what to do next"
-        button_later: "I'll do it later, thanks"
-      topbar:
-        progress_label: "Marketplace progress"
-        next_step: "Next"
-        slogan_and_description: "Add a slogan & description"
-        cover_photo: "Upload a cover photo"
-        filter: "Add fields & filters"
-        paypal: "Accept payments"
-        listing: "Post a listing"
-        invitation: "Invite users"

@@ -1,6 +1,7 @@
 import { PropTypes } from 'react';
 import { a } from 'r-dom';
 import css from './styles.scss';
+import { t } from '../../utils/i18n';
 
 const GuideBackToTodoLink = (props) => {
   const handleClick = function handleClick(e, path) {
@@ -12,13 +13,12 @@ const GuideBackToTodoLink = (props) => {
     className: css.backLink,
     onClick: (e) => handleClick(e, ''),
     href: props.initialPath,
-  }, `‹ ${props.t('back_to_todo')}`);
+  }, `‹ ${t('web.admin.onboarding.guide.back_to_todo')}`);
 };
 
 GuideBackToTodoLink.propTypes = {
   changePage: PropTypes.func.isRequired,
   initialPath: PropTypes.string.isRequired,
-  t: PropTypes.func.isRequired,
 };
 
 export default GuideBackToTodoLink;
