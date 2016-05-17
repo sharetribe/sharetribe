@@ -1,3 +1,5 @@
+/* eslint-env commonjs */
+
 // This file has three tasks:
 //
 // 1. Initialize global.I18n if we are in server environment

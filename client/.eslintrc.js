@@ -23,7 +23,6 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    commonjs: true
   },
   globals: {
     // `process` global is added by Webpack plugin.
