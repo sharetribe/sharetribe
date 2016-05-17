@@ -5,6 +5,9 @@ import { t } from '../../utils/i18n';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
 
+const COVER_PHOTO_WIDTH = 1920;
+const COVER_PHOTO_HEIGHT = 450;
+
 const GuideCoverPhotoPage = (props) => {
   const { changePage, initialPath, pageData, infoIcon } = props;
 
@@ -39,7 +42,7 @@ const GuideCoverPhotoPage = (props) => {
             alt: t('web.admin.onboarding.guide.cover_photo.advice.alt'),
           }, t('web.admin.onboarding.guide.cover_photo.advice.link')) }),
         br(),
-        t('web.admin.onboarding.guide.cover_photo.advice.content2', { width: 1920, height: 450 }),
+        t('web.admin.onboarding.guide.cover_photo.advice.content2', { width: COVER_PHOTO_WIDTH, height: COVER_PHOTO_HEIGHT }),
       ]),
     ]),
 
