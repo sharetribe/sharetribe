@@ -63,4 +63,4 @@ It also includes many eslint defaults that the AirBnb eslint does not include.
 
 You can run the linting with:
 
-    npm run eslint
+    npm run lint
