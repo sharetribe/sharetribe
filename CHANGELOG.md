@@ -8,6 +8,9 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ## [Unreleased]
 
+### Fixed
+- Fix some React dependency issues caused startup timing/ordering [#2046](https://github.com/sharetribe/sharetribe/pull/2046) and [#2053](https://github.com/sharetribe/sharetribe/pull/2053)
+
 ## [5.7.1] - 2016-05-12
 
 ### Fixed
@@ -17,6 +20,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 ### Added
 
 - Add instructions for handling libv8 installation problems [#2023](https://github.com/sharetribe/sharetribe/pull/2023)
+- Add [React Storybook](https://github.com/kadirahq/react-storybook) styleguide for React component development [#2030](https://github.com/sharetribe/sharetribe/pull/2030)
 
 ## [5.7.0] - 2016-05-11
 
