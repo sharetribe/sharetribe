@@ -10,7 +10,7 @@
     - with_feature(:onboarding_redesign_v1) do
       - props = onboarding_topbar_props
       - unless props[:next_step] == :all_done
-        - cache ['v1', 'onboarding_topbar', props] do
+        - react_component_cache("onboarding_topbar", props) do
           = react_component("OnboardingTopBar", props: props, prerender: true)
 
   = render partial: 'layouts/global_header', locals: header_props()

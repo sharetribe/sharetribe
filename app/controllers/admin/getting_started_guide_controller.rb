@@ -67,7 +67,6 @@ class Admin::GettingStartedGuideController < ApplicationController
         onboarding_data: sorted_steps,
         name: PersonViewUtils.person_display_name(@current_user, @current_community),
         info_icon: icon_tag("information"),
-        translations: I18n.t('admin.onboarding.guide')
       }
     }
   end

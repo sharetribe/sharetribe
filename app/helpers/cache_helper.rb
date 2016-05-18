@@ -73,6 +73,46 @@ module CacheHelper
     cache([type, listings_i18n_digest, @current_community, listing, listing.author, MoneyRails::Configuration.no_cents_if_whole], :expires_in => FRAGMENT_CACHE_EXPIRE_TIME, &block)
   end
 
+  # Cache helper for React components
+  #
+  # The cache key is generated from these values:
+  #
+  # - component name
+  # - props
+  # - locale
+  # - bundle file name (fingerprinted in production)
+  #
+  # All the dynamic values (like current locale) that are not passed
+  # to the component via props (but via railsContext for example)
+  # should be included in the list of values that is used to generate
+  # the cache key.
+  #
+  # Please note that if you turn on caching in development but do not run
+  # assets:precompile, the cache will not be invalidated because the server bundle
+  # filename doesn't change.
+  #
+  def react_component_cache(name, props, extra_keys = [], &block)
+    if controller.perform_caching && !digest_assets
+      Rails.logger.warn(
+        "'perform_caching' is turned on but the assets do not have digest. " \
+        "react_component_cache will not be invalidated correctly")
+    end
+
+    locale = I18n.locale
+    bundle_file = asset_path(ReactOnRails.configuration.server_bundle_js_file)
+
+    keys = [
+      'react_component_cache',
+      name,
+      props,
+      locale,
+      bundle_file
+    ]
+
+    # We can skip the digest because we don't care if the .haml template changes.
+    cache(keys + extra_keys, {skip_digest: true}, &block)
+  end
+
   private
 
   def self.update_time_based_cache_key(key)
