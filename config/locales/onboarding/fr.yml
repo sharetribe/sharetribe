@@ -1,0 +1,138 @@
+fr:
+  web:
+    admin:
+      onboarding:
+        guide:
+          cover_photo:
+            title: "Étape 3 : télécharger une photo de couverture"
+            description: "Une belle photo de couverture peut faire la différence lorsqu'un nouveau visiteur hésite entre s'inscrire ou non à votre place de marché."
+            info_image_alt: "Copie d'écran d'une page d'accueil avec une photo de couverture"
+            add_your_own: "Télécharger une photo de couverture"
+            advice:
+              content1: "Jetez un oeil à %{link} pour trouver de superbes images libres de droits."
+              content2: "Note : la photo sera redimensionnée en %{width}x%{height} pixels. Si elle est trop grande, les parties hautes et basses de l'image seront coupées."
+              link: "notre guide"
+              alt: "Comment obtenir de belles photos de couvertures, des logos, des favicon, des images de profil et d'annonces?"
+          filter:
+            title: "Étape 4 : ajouter des champs d'annonces et des filtres"
+            description:
+              content: "Les champs d'annonces structurent votre place de marché. Par exemple, si vous créez une place de marché pour vendre des chaussures d'occasion, vous devriez probablement ajouter un champ pour la pointure. Le vendeur devra alors préciser la taille de ses chaussures lors du dépôt d'une nouvelle annonce. Si vous souhaitez permettre à vos utilisateurs de filtrer les annonces par pointure, vous pouvez cocher la case %{display_on_homepage} lors de la création du champ."
+              display_on_homepage: "Afficher un filtre basé sur ce champ sur la page d'accueil"
+            info_image_alt: "Copie d'écrance de la page des champs d'annonces et filtres"
+            add_fields_and_filters: "Ajouter des champs et des filtres"
+            advice:
+              content: "Les filtres sont particulièrement utiles, mais %{not_too_many_link}. Les utilisateurs seront perdus s'il y a trop de filtres et chaque filtre est un champ supplémentaire à remplir pour vos vendeurs."
+              not_too_many_link: "vous devriez éviter d'en ajouter trop"
+          invitation:
+            title: "Étape 7 : inviter des utilisateurs"
+            description:
+              content: "Satisfait du rendu et fonctionnement de votre place de marché ? Peut-être %{preview_link} ? Si tout est prêt, commencez à inviter des utilisateurs !"
+              preview_link: "un dernier coup d'oeil"
+              preview_link_alt: "Prévisualiser"
+            info_image_alt: "Image d'utilisateurs"
+            invite_users: "Inviter des utilisateurs"
+            advice: "Commencer par inviter vos amis et recueillez leurs avis."
+          listing:
+            title: "Étape 6 : déposer votre première annonce"
+            description: "Les annonces sont le coeur de votre place de marché : ce sont les produits ou services que vos utilisateurs proposent. Pour rendre votre place de marché un peu moins vide et voir comment fonctionne l'ajout d'une annonce, déposez en une vous même !"
+            info_image_alt: "Copie d'écran de la page de dépôt d'une nouvelle annonce"
+            post_your_first_listing: "Déposer votre première annonce"
+            advice:
+              content: "Supprimer une annonce est tout aussi simple : ouvrez l'annonce et choisissez %{close_listing}."
+              close_listing: "Clore l'annonce"
+          next_step:
+            slogan_and_description: "Écrire un slogan et une description"
+            cover_photo: "Télécharger une photo de couverture"
+            filter: "Ajouter des champs et des filtres"
+            paypal: "Configurer les paiements"
+            listing: "Déposer votre première annonce"
+            invitation: "Inviter des utilisateurs"
+          paypal:
+            title: "Étape 5 : configurer le système de paiement"
+            description_p1: "Si vous voulez permettre à vos utilisateurs de recevoir des paiements, vous devez connecter votre compte PayPal (vous recevrez une commission sur chaque transaction). Une fois connecté, vous devrez choisir un montant minimal de transaction et vos frais de service."
+            description_p2: "Si vous préférez, vous pouvez désactiver le système de paiement pour le moment."
+            info_image_alt: "Une copie d'écran de la page de configuration des paiements"
+            disable_payments: "Désactiver les paiements"
+            setup_payments: "Configurer les paiements"
+            cta_separator: "ou"
+            advice:
+              content: "Vous pouvez en apprendre plus sur la désactivation du système de paiement dans %{disable_payments_link}."
+              disable_payments_link: "cet article"
+              disable_payments_alt: "How to disable payments or add free listings to your marketplace"
+          slogan_and_description:
+            title: "Étape 2 : écrire un slogan et une description"
+            description: "Le slogan et la description aident les nouveaux visiteurs à comprendre ce qu'est votre place de marché. C'est la première chose que verront vos utilisateurs en arrivant sur votre site, donc essayez de les rendre clairs et percutants."
+            info_image_alt: "Copie d'écran mettant en évidence le slogan et la description d'une page d'accueil."
+            add_your_own: "Écrire un slogan et une description"
+            advice:
+              content: "Utilisez le slogan pour expliquer rapidement ce que propose votre place de marché. %{food_from_locals_slogan} ou %{guitar_lessons_slogan} sont de bons exemples. Dans le texte de description vous pouvez détailler les principaux avantages. %{food_from_locals_description} ou %{guitar_lessons_description} fonctionnent plutôt bien."
+              food_from_locals_slogan: "\"Achetez des repas auprès de particuliers\""
+              guitar_lessons_slogan: "\"Apprenez la guitare avec un pro\""
+              food_from_locals_description: "\"FoodMarket est la solution la plus simple pour commander des repas préparés par vos voisins\""
+              guitar_lessons_description: "\"GuitarePro est le meilleur site pour comparer et trouver un professeur de guitare\""
+          status_page:
+            title: "Bienvenue dans votre place de marché, %{name}"
+            title_done: "Terminé !"
+            description_p1: "Pour bien démarrer votre place de marché, il y a quelques étapes importantes à suivre, détaillées ci-dessous."
+            description_p2: "Une fois celles-ci complétées, votre place de marché sera prête à recevoir ses premiers visiteurs !"
+            congratulation_p1:
+              content: "Vous avez réussi ! Votre place de marché est lancée. Mais ce n'est que le commencement. Vous n'avez aperçu qu'une petite partie des possibilités de personnalisation offertes par Sharetribe. Pour en apprendre plus sur comment configurer votre place de marché, parcourez %{knowledge_base_link}."
+              knowledge_base_link: "notre base de connaissance"
+              knowledge_base_alt: "knowledge base"
+            congratulation_p2:
+              content: "Si vous souhaitez apprendre comment faire de votre place de marché une réussite, nous recommandons notre %{marketplace_guide_link} (en anglais)."
+              marketplace_guide_link: "guide pratique pour créer une place de marché"
+              marketplace_guide_alt: "link to marketplace academy"
+            congratulation_p3:
+              content: "Si vous avez la moindre questions, n'hésitez pas à %{contact_support_link}, nous serons ravis de vous aider !"
+              contact_support_link: "contacter notre support"
+              contact_support_title: "Support"
+            create_your_marketplace: "Créer votre place de marché"
+            slogan_and_description: "Écrire un slogan et une description"
+            cover_photo: "Télécharger une photo de couverture"
+            filter: "Ajouter des champs et des filtres"
+            paypal: "Configurer les paiements"
+            listing: "Déposer une annonce"
+            invitation: "Inviter des utilisateurs"
+          back_to_todo: "Revenir à la liste des étapes à compléter"
+        topbar:
+          progress_label: "Avancement"
+          next_step: "Prochaine étape"
+          slogan_and_description: "Écrire un slogan et une description"
+          cover_photo: "Télécharger une photo de couverture"
+          filter: "Ajouter des champs et des filtres"
+          paypal: "Configurer les paiements"
+          listing: "Déposer une annonce"
+          invitation: "Inviter des utilisateurs"
+  admin:
+    onboarding:
+      popup:
+        slogan_and_description:
+          title: "Bravo, étape réussie !"
+          body: "Fantastique ! Et maintenant : écrire un slogan et une description est le meilleur moyen d'expliquer à vos nouveaux visiteurs ce qu'est votre place de marché."
+          button: "Écrivez les vôtres !"
+        cover_photo:
+          title: "Félicitations, étape complétée !"
+          body: "Bravo, continuons ! Une jolie photo de couverture fera forte impression sur vos nouveaux visiteurs. C'est le moment d'ajouter la vôtre !"
+          button: "Télécharger une photo de couverture"
+        filter:
+          title: "Magnifique !"
+          body: "Maintenant concentrons nous sur une autre fonctionnalité. Les champs d'annonces et les filtres structurent votre place de marché et aident vos utilisateurs à trouver ce qu'ils cherchent."
+          button: "Ajouter des champs et des filtres"
+        paypal:
+          title: "Parfait !"
+          body: "Ensuite, vous pouvez configurer le système de paiement ! Pour permettre à vos utilisateurs de recevoir des paiements, vous devez connecter votre compte PayPal. Si vous préférez, vous pouvez désactiver le système de paiement pour le moment."
+          button: "Configurer les paiements"
+        listing:
+          title: "Super travail !"
+          body: "L'essentiel de votre place de marché a été configuré mais le site est encore un peu vide. C'est le moment d'ajouter votre premier produit ou service en postant une nouvelle annonce."
+          button: "Déposer votre première annonce"
+        invitation:
+          title: "...et maintenant la dernière étape : partager votre place de marché !"
+          body: "Satisfait de votre place de marché ? Alors commencez à inviter des utilisateurs !"
+          button: "Inviter des utilisateurs"
+        all_done:
+          title: "Excellent, vous avez réussi !"
+          body: "Félicitations ! Votre place de marche est maintenant bien lancée. Mais ce n'est que le début. Nous sommes là pour vous aider tout au long de votre projet."
+          button: "Voir quoi faire ensuite"
+        button_later: "Non merci, je le ferai plus tard"
