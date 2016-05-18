@@ -1198,14 +1198,14 @@ pt-PT:
       join_this_community: ~
       read_more: ~
       feedback: "O que você gostaria de nos dizer?"
-      default_feedback: "Encontrou algum problema com %{service_name}* ? Tem alguma sugestão para melhorar o serviço? Notou algum conteúdo suspeito? Ou quer apenas partilhar ou discutir alguma ideia? Escreva aqui a sua mensagem!"
+      default_feedback: "Encontrou algum problema com %{service_name}? Tem alguma sugestão para melhorar o serviço? Notou algum conteúdo suspeito? Ou quer apenas partilhar ou discutir alguma ideia? Escreva aqui a sua mensagem!"
       feedback_forum: ~
       feedback_handle: ~
       give_feedback: Contacte-nos
       or_check_our: ~
       send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "para ver o que outros utilizadores sugeriram, e votar para novas idéias."
-      your_email_address: "Seu e-mail (para entrar em contacto)"
+      your_email_address: "O seu e-mail (para entrar em contacto)"
       connect: ~
       invite_your_friends: ~
       invite_your_neighbors: ~
@@ -1258,7 +1258,7 @@ pt-PT:
       something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
-      account_creation_succesful_you_still_need_to_confirm_your_email: ~
+      account_creation_succesful_you_still_need_to_confirm_your_email: "A sua conta foi criada com sucesso. Agora precisa de confirmar o seu endereço de e-mail."
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       comment_cannot_be_empty: ~
       comment_sent: ~
@@ -1281,11 +1281,11 @@ pt-PT:
       invitation_sent: ~
       inviting_new_users_is_not_allowed_in_this_community: "Não é permitido convidar novos utilizadores."
       login_again: ~
-      login_failed: ~
+      login_failed: "Falha no acesso à sua conta. Por favor entre com os dados correctos."
       account_creation_successful: ~
       account_deleted: ~
       login_successful: ~
-      logout_successful: ~
+      logout_successful: "Você abandonou a sessão de %{service_name}. Vemo-nos em breve!"
       news_item_created: ~
       news_item_creation_failed: ~
       news_item_update_failed: ~
@@ -1553,8 +1553,8 @@ pt-PT:
       accept_for_frees: ~
       trades: ~
     listing_actions:
-      booking_from: ~
-      booking_to: ""
+      booking_from: De
+      booking_to: Até
       how_paypal_works: ~
       payment_help: ~
     new:
@@ -1764,7 +1764,7 @@ pt-PT:
       deactivate: ~
     help_texts:
       feedback_description_title: ~
-      help_invitation_code_title: ~
+      help_invitation_code_title: "Você precisa de um convite para se juntar a nós"
       terms_title: ~
       invite_only_help_text: ~
       invite_only_help_text_title: ~
@@ -1881,10 +1881,10 @@ pt-PT:
       welcome_to_kassi: ~
       check_your_email: ~
       resend_confirmation_instructions: ~
-      your_current_email_is: ~
+      your_current_email_is: "O seu e-mail é %{email}"
       change_email: ~
       confirm_your_email: ~
-      account_confirmation_instructions: ~
+      account_confirmation_instructions: "Receberá um e-mail com um link para confirmar o endereço de e-mail indicado. Após confirmação do e-mail poderá entrar no %{service_name}."
       account_confirmation_instructions_title_admin: ~
       your_marketplace_has_now_been_created: ~
       account_confirmation_instructions_admin: ~
