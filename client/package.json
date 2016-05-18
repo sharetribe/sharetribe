@@ -5,7 +5,9 @@
     "node": "5.10"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "npm run eslint && npm run stylelint",
+    "eslint": "eslint .",
+    "stylelint": "stylelint **/*.css",
     "build:client": "webpack --config webpack.client.config.js",
     "build:server": "webpack --config webpack.server.config.js",
     "build:production:client": "NODE_ENV=production webpack --config webpack.client.config.js",
@@ -64,6 +66,8 @@
     "eslint-plugin-react": "5.1.1",
     "phantomjs-prebuilt": "2.1.7",
     "react-transform-hmr": "1.0.4",
+    "stylelint": "6.3.3",
+    "stylelint-config-standard": "7.0.0",
     "webpack-dev-server": "1.14.1"
   },
   "browser": {
