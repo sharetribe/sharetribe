@@ -37,22 +37,10 @@ module.exports = {
       {
         test: /\.css$/,
         loaders: [
-          'css/locals?modules&importLoaders=0&localIdentName=[name]__[local]__[hash:base64:5]',
-          'postcss',
-        ],
-      },
-      {
-        test: /\.scss$/,
-        loaders: [
-          'css/locals?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]',
-          'postcss',
-          'sass',
-          'sass-resources',
+          'css-loader/locals?modules&importLoaders=0&localIdentName=[name]__[local]__[hash:base64:5]',
+          'postcss-loader',
         ],
       },
     ],
   },
-
-  sassResources: ['./app/assets/styles/app-variables.scss'],
-
 };

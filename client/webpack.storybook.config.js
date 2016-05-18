@@ -11,20 +11,10 @@ config.module.loaders.push(
   {
     test: /\.css$/,
     loaders: [
-      'style',
-      'css',
-      'postcss',
+      'style-loader?sourceMap',
+      'css-loader?modules&sourceMap&-url&localIdentName=[name]__[local]__[hash:base64:5]',
+      'postcss-loader',
     ],
-    include: path.resolve(__dirname, '../'),
-  },
-  {
-    test: /\.scss$/,
-    loader:
-      'style' +
-      '!css?modules' +
-      '!postcss' +
-      '!sass' +
-      '!sass-resources',
     include: path.resolve(__dirname, '../'),
   },
   { test: /\.(jpe?g|png|gif|svg|ico)$/, loader: 'url?limit=10000' }

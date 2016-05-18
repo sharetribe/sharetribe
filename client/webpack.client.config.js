@@ -19,19 +19,10 @@ config.module.loaders.push(
   {
     test: /\.css$/,
     loader: ExtractTextPlugin.extract(
-      'style',
-      'css?minimize&modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]' +
-      '!postcss'
-    ),
-  },
-  {
-    test: /\.scss$/,
-    loader: ExtractTextPlugin.extract(
-      'style',
-      'css?minimize&modules&importLoaders=3&localIdentName=[name]__[local]__[hash:base64:5]' +
-      '!postcss' +
-      '!sass' +
-      '!sass-resources'
+      'style-loader',
+      'css-loader?modules&localIdentName=[name]__[local]__[hash:base64:5]' + // eslint-disable-line prefer-template
+        (devBuild ? '' : '&minimize') +
+        '!postcss-loader'
     ),
   },
   {
