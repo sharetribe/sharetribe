@@ -92,6 +92,12 @@ module CacheHelper
   # filename doesn't change.
   #
   def react_component_cache(name, props, extra_keys = [], &block)
+    if controller.perform_caching && !digest_assets
+      Rails.logger.warn(
+        "'perform_caching' is turned on but the assets do not have digest. " +
+        "react_component_cache will not be invalidated correctly")
+    end
+
     locale = I18n.locale
     bundle_file = asset_path(ReactOnRails.configuration.server_bundle_js_file)
 
@@ -103,7 +109,8 @@ module CacheHelper
       bundle_file
     ]
 
-    cache(keys + extra_keys, &block)
+    # We can skip the digest because we don't care if the .haml template changes.
+    cache(keys + extra_keys, {skip_digest: true}, &block)
   end
 
   private
