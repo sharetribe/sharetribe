@@ -6,7 +6,6 @@ Promise.polyfill();
 const path = require('path');
 const webpack = require('webpack');
 const cssnext = require('postcss-cssnext');
-const autoprefixer = require('autoprefixer');
 const mixins = require('postcss-mixins');
 const customProperties = require('postcss-custom-properties');
 const cssVariables = require('./app/assets/styles/variables');
@@ -66,7 +65,6 @@ module.exports = {
   postcss: [
     mixins({ mixinsFiles: path.join(__dirname, 'app/assets/styles/mixins.css') }),
     customProperties({ variables: cssVariables }),
-    cssnext(),
-    autoprefixer({ browsers: ['last 2 versions', 'not ie < 11', 'not ie_mob < 11', 'ie >= 11'] }),
+    cssnext({ browsers: ['last 2 versions', 'not ie < 11', 'not ie_mob < 11', 'ie >= 11'] }),
   ],
 };
