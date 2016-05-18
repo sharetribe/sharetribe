@@ -3,15 +3,14 @@ import r, { div } from 'r-dom';
 import { storiesOf } from '@kadira/storybook';
 import _ from 'lodash';
 
+import cssVariables from '../../assets/styles/variables';
 import css from './ColorsAndTypography.css';
 
-const colors = {
-  $color: '#3c3c3c',
-  $colorButton: '#59b3a2',
-  $colorButtonText: 'white',
-  $colorInfoText: 'gray',
-  $colorTitle: '#171717',
-};
+const colors = _.chain(cssVariables)
+        .toPairs()
+        .filter(([name]) => name.startsWith('--color'))
+        .fromPairs()
+        .value();
 
 class Colors extends Component {
   colorSwatch(color, title) {
