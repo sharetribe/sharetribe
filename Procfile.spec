@@ -6,4 +6,4 @@
 rails-client-assets: cd client && npm run build:dev:client
 
 # Build server assets, watching for changes. Remove if not server rendering.
-rails-server-assets: cd client && npm run build:dev:server
+rails-server-assets: script/export_translations.sh && cd client && npm run build:dev:server

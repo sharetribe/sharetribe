@@ -13,6 +13,7 @@
 // The i18n-js library is able to read the language bundle from that global
 //
 
+import { span } from 'r-dom';
 import { bind } from 'lodash';
 
 function isServer() {
@@ -43,14 +44,18 @@ if (isServer()) {
 // library can use the existing I18n object
 const I18n = require('i18n-js');
 
+function missingTranslationMessage(scope) {
+  return `[missing "${scope}" translation]`;
+}
+
 function initialize(railsContext, env) {
   I18n.locale = railsContext.i18nLocale;
   I18n.defaultLocale = railsContext.i18nDefaultLocale;
   I18n.interpolationMode = 'split';
 
   if (env === 'development') {
-    I18n.missingTranslation = function throwMissingTranslation(scope) {
-      throw new Error(`Missing translation: ${scope}`);
+    I18n.missingTranslation = function displayMissingTranslation(scope) {
+      return span({className: "missing-translation", style: {backgroundColor: "red !important"}}, missingTranslationMessage(scope));
     };
   } else {
     I18n.missingTranslation = function guessMissingTranslation(scope) {
