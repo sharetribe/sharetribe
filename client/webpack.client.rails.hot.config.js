@@ -5,6 +5,7 @@ Promise.polyfill();
 
 const path = require('path');
 const webpack = require('webpack');
+const postcssImagePath = require('./plugins/postcss-image-path');
 const config = require('./webpack.client.base.config');
 const DEFAULT_PORT = 3500;
 const hotRailsPort = process.env.HOT_RAILS_PORT || DEFAULT_PORT;
@@ -61,6 +62,8 @@ config.module.loaders.push(
     ],
   }
 );
+
+config.postcss.push(postcssImagePath({helper : 'image-path', assetPath: '/app/assets/images/'}));
 
 config.plugins.push(
   new webpack.HotModuleReplacementPlugin(),
