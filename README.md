@@ -112,14 +112,7 @@ Before you get started, the following needs to be installed:
   bundle exec rake ts:start
   ```
 
-1. Invoke the delayed job worker:
-
-  ```bash
-  bundle exec rake jobs:work
-  ```
-
-
-1. Start the development server in a new console (open the project root folder)
+1. Start the development server:
 Some components are created with React (see [documentation](https://github.com/sharetribe/sharetribe/blob/master/client/README.md)) and they need to be built with Webpack. We have [Foreman](http://theforeman.org/) Procfiles that can be used to run both Rails and Webpack:
 
   1. React component static build
@@ -142,6 +135,12 @@ Some components are created with React (see [documentation](https://github.com/s
   1. React component & hot loading styleguide (http://localhost:9001/), React client only
   ```bash
   foreman start -f Procfile.client-hot
+  ```
+
+1. Invoke the delayed job worker in a new console (open the project root folder):
+
+  ```bash
+  bundle exec rake jobs:work
   ```
 
 
