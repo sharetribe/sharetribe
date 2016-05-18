@@ -32,7 +32,9 @@ describe PlanService::API::Plans do
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               plan_level: 0,
+                                              features: { deletable: true, admin_email: false, whitelabel: false },
                                               expires_at: expires_at,
+                                              member_limit: 300,
                                               created_at: Time.now,
                                               updated_at: Time.now,
                                               expired: false,
@@ -48,6 +50,8 @@ describe PlanService::API::Plans do
             plans_api.create(
               community_id: 123, plan: {
                 plan_level: PlanService::Levels::SCALE,
+                features: { whitelabel: true, admin_email: true },
+                member_limit: 100000,
                 expires_at: expires_at,
               })
 
@@ -58,6 +62,8 @@ describe PlanService::API::Plans do
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               plan_level: 4,
+                                              features: { deletable: false, admin_email: true, whitelabel: true },
+                                              member_limit: 100000,
                                               expires_at: expires_at,
                                               created_at: Time.now,
                                               updated_at: Time.now,
@@ -71,7 +77,9 @@ describe PlanService::API::Plans do
           Timecop.freeze(Time.now.change(usec: 0)) {
             plans_api.create(
               community_id: 123, plan: {
-                plan_level: PlanService::Levels::PRO
+                plan_level: PlanService::Levels::PRO,
+                features: { whitelabel: true, admin_email: true },
+                member_limit: 1000,
               })
 
             res = plans_api.get_current(community_id: 123)
@@ -81,6 +89,8 @@ describe PlanService::API::Plans do
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               plan_level: 2,
+                                              features: { deletable: false, admin_email: true, whitelabel: true },
+                                              member_limit: 1000,
                                               expires_at: nil,
                                               created_at: Time.now,
                                               updated_at: Time.now,
@@ -101,6 +111,15 @@ describe PlanService::API::Plans do
         it "returns error if plan can not be found" do
           res = plans_api.get_current(community_id: 123)
           expect(res.success).to eq(false)
+        end
+
+        it "raises error if features is missing"do
+          expect { plans_api.create(
+            community_id: 123,
+            plan: {
+              plan_level: PlanService::Levels::PRO,
+              member_limit: 1000,
+            }) }.to raise_error(ArgumentError)
         end
       end
     end
@@ -147,6 +166,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 5,
+            features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: nil, # plan never expires
           }).data
 
@@ -157,6 +177,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 5,
+            features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: 1.month.from_now,
           }).data
 
@@ -167,6 +188,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 5,
+            features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: 1.month.ago,
           }).data
 
@@ -179,6 +201,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 2,
+            features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: nil, # plan never expires
           }).data
 
@@ -190,6 +213,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 0,
+            features: { deletable: true, admin_email: false, whitelabel: false },
             expires_at: Time.now - 1.day,
           }).data
 
@@ -201,6 +225,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 2,
+            features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: Time.now - 1.day
           }).data
 
@@ -212,6 +237,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 5,
+            features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: nil
           }).data
 

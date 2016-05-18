@@ -6,12 +6,15 @@ module PlanService::Store::Plan
 
   class PlanModel < ActiveRecord::Base
     self.table_name = :marketplace_plans
+    store :features, coder: JSON
   end
 
   NewPlan = EntityUtils.define_builder(
     [:community_id, :fixnum, :mandatory],
     [:plan_level, :fixnum, :mandatory],
-    [:expires_at, :time, :optional], # Passing nil means that the plan never expires
+    [:features, :hash, :mandatory],
+    [:member_limit, :fixnum, :optional],
+    [:expires_at, :time, :optional] # Passing nil means that the plan never expires
   )
 
   NewTrialPlan = EntityUtils.define_builder(
@@ -81,7 +84,10 @@ module PlanService::Store::Plan
 
   def from_trial_model(model)
     Maybe(model).map { |m|
-      Plan.call(EntityUtils.model_to_hash(m).merge(plan_level: 0))
+      Plan.call(EntityUtils.model_to_hash(m).merge(
+        plan_level: 0,
+        member_limit: 300,
+        features: { deletable: true }))
     }.or_else(nil)
   end
 

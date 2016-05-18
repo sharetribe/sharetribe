@@ -41,7 +41,6 @@ module PlanService::API
       Result::Success.new(
         with_statuses(
           PlanStore.create_trial(community_id: community_id, plan: plan)))
-
     end
 
     def get_current(community_id:)
