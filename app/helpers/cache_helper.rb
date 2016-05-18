@@ -94,7 +94,7 @@ module CacheHelper
   def react_component_cache(name, props, extra_keys = [], &block)
     if controller.perform_caching && !digest_assets
       Rails.logger.warn(
-        "'perform_caching' is turned on but the assets do not have digest. " +
+        "'perform_caching' is turned on but the assets do not have digest. " \
         "react_component_cache will not be invalidated correctly")
     end
 
