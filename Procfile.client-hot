@@ -5,4 +5,4 @@ storybook: cd client && npm run styleguide
 rails-client-assets: cd client && npm run build:dev:client
 
 # Keep the JS fresh for server rendering. Remove if not server rendering
-rails-server-assets: cd client && npm run build:dev:server
+rails-server-assets: script/export_translations.sh && cd client && npm run build:dev:server
