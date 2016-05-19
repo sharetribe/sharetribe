@@ -15,7 +15,7 @@ import { t } from '../../utils/i18n';
 
 class MyReactComponent extends Component {
   render() {
-    return span({className: "hello-world"}, t("web.hello_world"))
+    return span({className: 'hello-world'}, t('web.hello_world'))
   }
 }
 ```
@@ -46,8 +46,8 @@ fr:
 
 ```javascript
 # JS
-I18n.locale = "fr";
-I18n.t("hello_world") // => "Hello world!"
+I18n.locale = 'fr';
+I18n.t('hello_world') // => 'Hello world!'
 ```
 
 ### Interpolation
@@ -62,7 +62,7 @@ en:
 
 ```javascript
 # JS
-I18n.t("click_here", {this_link: a({href: "http://example.com", alt: t("this_link_alt")}, t("this_link"))})
+I18n.t('click_here', { this_link: a({ href: 'http://example.com', alt: t('this_link_alt') }, t('this_link')) })
 ```
 
 ### Missing translations
@@ -70,13 +70,13 @@ I18n.t("click_here", {this_link: a({href: "http://example.com", alt: t("this_lin
 In **development** mode a missing translation message is shown with an easy to notice red background
 
 ```javascript
-I18n.t("missing_key"); // span({className: "missing-translation", style: {backgroundColor: "red !important"}}, "[missing 'missing_key' translation]";
+I18n.t('missing_key'); // span({ className: 'missing-translation', style: { backgroundColor: 'red !important' } }, "[missing 'missing_key' translation]";
 ```
 
 In **production** mode we try to "guess" the translation from the key:
 
 ```javascript
-I18n.translate("this_key_is_missing"); // => "This key is missing"
+I18n.translate('this_key_is_missing'); // => 'This key is missing'
 ```
 
 ### Pluralization, date/time localization, number localization etc.
@@ -89,19 +89,19 @@ Make sure that you always **type the translation key in its full form.**
 
 ```javascript
 // BAD!
-t("listing_field." + type);
+t('listing_field.' + type);
 
 // Good
-t("listing_field.dropdown");
+t('listing_field.dropdown');
 ```
 
 Sometimes it is convenient to use dynamic keys. In this case, make sure that the full form is written somewhere near (i.e. in the same file at least) the `t` function call:
 
 ```javascript
 const listing_field = {
-  title: "Brand",
-  type: "dropdown",
-  options: ["Nike", "Adidas", "Puma"],
+  title: 'Brand',
+  type: 'dropdown',
+  options: ['Nike', 'Adidas', 'Puma'],
 };
 
 // BAD!
@@ -110,9 +110,9 @@ t(listing_field.type);
 // Good
 
 const types = {
-  checkbox: "listing_field.checkbox"
-  dropdown: "listing_field.dropdown",
-  number: "listing_field.number",
+  checkbox: 'listing_field.checkbox'
+  dropdown: 'listing_field.dropdown',
+  number: 'listing_field.number',
 }
 
 t(types[listing_field.type]);
@@ -162,3 +162,58 @@ When doing server-side rendering, the `client/i18n/all.js` file is bundled to th
 ### Server rendered translations are out-of-date
 
 Run `rake i18n:js:export`, wait until new `server-bundle.js` is compiled and refresh the browser.
+
+### React error: 'Warning: Each child in an array or iterator should have a unique "key" prop.'
+
+tl;dr: Wrap the `t` function in a `span`.
+
+Longer explanation:
+
+The interpolation mode `split` returns an `array` if interpolation is used. If the value for the interpolation is a React element, React expectes that element to have a `key` property, because it's inside an array. For example:
+
+```javascript
+// yml
+web:
+  sharetribe: "Sharetribe"
+  click_here: "Click %{here} to read more about Sharetribe"
+  here: "here"
+
+// javascript
+// BAD!
+
+div([
+  h1(t('web.sharetribe')),
+  t('web.click_here', {here: a({ href: 'https://www.sharetribe.com' }, t('web.here'))}),
+])
+
+// result after translations:
+//
+// div([
+//   h1('Sharetribe'),
+//   ['Click ', a({ href: 'https://www.sharetribe.com' }, 'here'), ' to read more about Sharetribe']
+// ])
+//
+// => this will show a warning
+```
+
+You can add a `key` property to the `a` element to fix the warning, but if you don't want to come up with random keys, you can just wrap the translation in a span:
+
+```javascript
+// javascript
+// Good!
+
+div([
+  h1(t('web.sharetribe')),
+  span(
+    t('web.click_here', { here: a({ href: 'https://www.sharetribe.com' }, t('web.here'))}),
+
+])
+
+// result after translations:
+//
+// div([
+//   h1('Sharetribe'),
+//   span(['Click ', a({ href: 'https://www.sharetribe.com' }, 'here'), ' to read more about Sharetribe'])])
+//
+// => no warning! \o/
+```
