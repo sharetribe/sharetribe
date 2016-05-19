@@ -1,0 +1,8 @@
+%tr
+  %td{:style => "text-align: left;width:100%;max-width:602px;padding-top: 15px; color: gray; font-size: 0.8125em; text-align: center;"}
+    - sharetribe_link = link_to("Sharetribe", link_to_sharetribe)
+    = t("emails.branding.powered_by", sharetribe_link: sharetribe_link).html_safe
+%tr
+  %td{:style => "text-align: left;width:100%;max-width:602px;padding-bottom: 15px; color: gray; font-size: 0.8125em; text-align: center;"}
+    - learn_more = link_to(t("emails.branding.learn_more"), link_to_sharetribe)
+    = t("emails.branding.create_own", learn_more: learn_more).html_safe

@@ -364,6 +364,7 @@ class PersonMailer < ActionMailer::Base
     @resource = email.person
     @confirmation_token = email.confirmation_token
     @host = community.full_domain
+    @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]
     with_locale(email.person.locale, community.locales.map(&:to_sym) ,community.id) do
       email.update_attribute(:confirmation_sent_at, Time.now)
       premailer_mail(:to => email.address,
@@ -400,6 +401,7 @@ class PersonMailer < ActionMailer::Base
       @url_params[:ref] = "welcome_email"
       @url_params.freeze # to avoid accidental modifications later
       @test_email = test_email
+      @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]
 
       subject = if @recipient.has_admin_rights? && !@test_email
         t("emails.welcome_email.welcome_email_subject_for_marketplace_creator")

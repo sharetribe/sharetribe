@@ -11,6 +11,7 @@ module MailUtils
     @url_params = {}
     @url_params[:host] = community.full_domain
     @url_params[:ref] = ref
+    @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]
     if recipient
       @recipient = recipient
       @unsubscribe_token = AuthToken.create_unsubscribe_token(person_id: @recipient.id).token
