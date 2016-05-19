@@ -59,7 +59,7 @@ es-ES:
         default_language: "Idioma predeterminado"
         language_selection_disabled: "La selección de idioma está deshabilitada para tu marketplace porque estás usando los siguientes idiomas no oficiales: %{languages}. Por favor contacta al equipo de soporte de Sharetribe si quieres modificar tus ajustes de idiomas."
         community_name: "Nombre de la tribu:"
-        edit_community_name_description: "El nombre de tu marketplace. Este se muestra en emails y en varios lugares"
+        edit_community_name_description: "El nombre de tu comunidad. Este se muestra en correos electrónicos y en varios otros lugares."
         community_slogan: "Eslogan de la tribu:"
         edit_community_slogan_description: "Se muestra en la página de inicio del marketplace a usuarios que no hayan inicado sesión. %{see_how_it_looks_like}."
         community_description: "Descripción:"
@@ -67,7 +67,7 @@ es-ES:
         community_search_placeholder: Ayuda
         edit_community_search_placeholder_description: "Esto se muestra en la página inicial del marketplace como texto de marcador en la barra de búsqueda. %{see_how_it_looks_like}."
         private_community_homepage_content: "Contenido de la página de inicio del marketplace privado"
-        edit_private_community_homepage_content_description: "Este contenido se muestra en la página de inicio de los marketplaces privados a los usuarios que no se han registrado. Aquí puedes describir tu marketplace y el proceso para registrarse. También puedes añadir imágenes, videos y contenido HTML aquí. %{see_how_it_looks_like}."
+        edit_private_community_homepage_content_description: "Este contenido se muestra en la página de inicio de las comunidades privadas a los usuarios que no se han registrado. Aquí puedes describir tu comunidad y el proceso para registrarse. También puedes añadir imágenes, videos y contenido HTML aquí. %{see_how_it_looks_like}."
         update_information: "Guardar configuración"
         invite_people: "Invita nuevos usuarios"
         edit_signup_info: "Información de registro"
@@ -121,7 +121,7 @@ es-ES:
         edit_text_instructions: "Textos de instrucción"
       edit_welcome_email:
         welcome_email_content: "Contenido del email de bienvenida."
-        welcome_email_content_description: "El mensaje de abajo se enviará a todos los usuarios nuevos cuando se registren. Puedes personalizar el mensaje para que se ajuste a tu marketplace.  Haciendo clic en '%{send_test_message_link}' podrás enviar un mensaje de prueba a tu correo electrónico, para que veas cómo se ve en la bandeja de entrada de un proveedor de correo."
+        welcome_email_content_description: "El mensaje de abajo se enviará a todos los nuevos usuarios cuando se registren. Puedes personalizar el mensaje para que se ajuste a tu comunidad.  Haciendo clic en '%{send_test_message_link}' podrás enviar un mensaje de prueba a tu correo electrónico, para que veas cómo se muesta en la bandeja de entrada."
         edit_message: "Editar mensaje"
         send_test_message: "Enviar mensaje de prueba"
       outgoing_email:
@@ -157,7 +157,7 @@ es-ES:
         follow_the_instructions: "Por favor sigue las instrucciones que te enviamos en el e-mail para verificar tu dirección."
       getting_started:
         getting_started: "Guía para comenzar"
-        welcome_to_your_marketplace: "Bienvenido a tu marketplace, %{name}!"
+        welcome_to_your_marketplace: "Bienvenido a tu comunidad, %{name}!"
         intro: "Esta es una guía rápida para configurar y gestionar tu marketplace. Puedes ver el sitio en vivo %{live_site_link}."
         live_site_link_text: aquí
         look_and_feel: "Antes de lanzar tu sitio al público, probablemente querrás configurar algunas cosas. Por ejemplo, tu logo (%{logo_link}) y cambiar la foto de portada y los colores para ajustarse a la identidad visual de tu marca."
@@ -272,7 +272,7 @@ es-ES:
       social_media:
         social_media: "Social media"
         twitter_handle: Twitter
-        twitter_handle_info_text: "El nombre de usuario de tu cuenta de Twitter en tu marketplace (si es que tienes uno). Será mencionado cuando alguien publique su anuncio en Twitter."
+        twitter_handle_info_text: "El nombre de usuario de la cuenta de Twitter de tu comunidad (si es que tienes uno). Será mencionado cuando alguien publique su anuncio en Twitter."
         twitter_handle_info_text_with_instructions: "El nombre de usuario de tu cuenta de Twitter en tu marketplace (si es que tienes uno). Será mencionado cuando alguien use el botón para twittear desde la página del anuncio. %{instructions_link}"
         twitter_instructions_link_text: "Leer más"
         twitter_handle_placeholder: Usuario
@@ -1296,7 +1296,7 @@ es-ES:
       comment_cannot_be_empty: "El comentario no puede estar vacío."
       comment_sent: "Comentario enviado"
       confirmation_link_is_wrong_or_used: "El link de confirmación ya ha sido usado o se ha roto el enlace. Intenta iniciar sesión o contáctanos si el problema persiste."
-      additional_email_confirmed: "El email que introdujiste ya está confirmado."
+      additional_email_confirmed: "El correo electrónico que nos proporcionaste ya ha sido confirmado."
       could_not_get_email_from_facebook: "No pudimos acceder a tu dirección de email en Facebook. Sin una dirección de correo electrónico válida no podemos crearte una cuenta en nuestro servicio."
       facebook_email_unconfirmed: ~
       create_new_listing: "Crear otro anuncio"
@@ -1931,7 +1931,7 @@ es-ES:
       change_email: Cambiar
       confirm_your_email: "Confirma tu e-mail"
       account_confirmation_instructions: "Pronto recibirás un e-mail con un link en el cual deberás hacer clic para validar tu cuenta y activarla. Una vez lo hayas hecho, podrás comenzar a usar %{service_name}."
-      account_confirmation_instructions_title_admin: "¡Bienvenido a tu marketplace!"
+      account_confirmation_instructions_title_admin: "¡Bienvenido a tu comunidad!"
       your_marketplace_has_now_been_created: "Tu marketplace ha sido creado. ¿Ha sido fácil, verdad? Sólo hay un paso más antes de que puedas entrar a tu sitio web: Debes confirmar tu dirección de email."
       account_confirmation_instructions_admin: "En breve recibirás un email con un enlace en el que que deberás hacer clic para  confirmar la dirección de email que has usado para registrarte."
   settings:

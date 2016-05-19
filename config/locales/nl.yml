@@ -103,7 +103,7 @@ nl:
         small_cover_photo_instructions_text_with_dimensions: "De afbeelding wordt verkleind tot %{width}x%{height} pixels. Grotere afbeeldingen worden in twee gesplitst."
         main_content_width: "Hou er bij het kiezen van een cover afbeelding rekening mee dat de hoofdpagina maximaal %{main_width} pixels is. Vergeet ook niet na te gaan hoe je cover afbeelding eruit ziet op kleinere schermen (b.v. door een smal browser scherm te gebruiken)."
         custom_color1_instructions_text: "Je kan de hoofdkleur van de intercace wijzigen door een zgn. hex kleur waarde in te geven. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> kan je helpen deze kleur te kiezen en de bijbehorende code hier te kopiëren."
-        custom_color2_instructions_text: ~
+        custom_color2_instructions_text: "Je kunt de kleur van de %{post_new_listing} button veranderen door een hex kleur code in te vullen. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\">ColorPicker.com</a> kan je helpen de kleur en de hex code te vinden."
         default_browse_view: "Standaard browse overzicht"
         default_browse_view_instructions_text: "Standaard browse overzicht is gebruikt op de homepagina om te bepalen hoe de lijsten standaard weergegeven worden."
         grid: Raster
@@ -353,7 +353,7 @@ nl:
           this_field_is_required: "This veld is verplicht"
           this_field_is_required_checkbox: "Dit veld is verplicht (gebruiker moet minstens één optie kiezen)"
         search_filter:
-          search_filter: ~
+          search_filter: "Toon een filter gebaseerd op dit veld, op de home pagina."
           date_cant_be_filtered: ~
           text_cant_be_filtered: ~
       index:
