@@ -1,6 +1,7 @@
 import { Component, PropTypes } from 'react';
 import { div, span, a } from 'r-dom';
 import { t } from '../../utils/i18n';
+import { Routes } from '../../utils/routes';
 
 import css from './OnboardingTopBar.css';
 
@@ -44,7 +45,7 @@ const next = function next(nextStep, guideRoot) {
 class OnboardingTopBar extends Component {
 
   nextElement() {
-    const nextStep = next(this.props.next_step, this.props.guide_root);
+    const nextStep = next(this.props.next_step, Routes.admin_getting_started_guide_path());
     if (nextStep) {
       return (
         div({ className: css.nextContainer }, [
@@ -62,7 +63,7 @@ class OnboardingTopBar extends Component {
     const currentProgress = this.props.progress;
     return div({ className: css.topbarContainer }, [
       div({ className: css.topbar }, [
-        a({ className: css.progressLabel, href: this.props.guide_root }, [
+        a({ className: css.progressLabel, href: Routes.admin_getting_started_guide_path() }, [
           t('web.admin.onboarding.topbar.progress_label'),
           span({ className: css.progressLabelPercentage },
                `${Math.floor(currentProgress)} %`),
@@ -77,7 +78,6 @@ class OnboardingTopBar extends Component {
 }
 
 OnboardingTopBar.propTypes = {
-  guide_root: PropTypes.string.isRequired,
   progress: PropTypes.number.isRequired,
   next_step: PropTypes.string.isRequired,
 };
