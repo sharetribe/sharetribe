@@ -5,7 +5,7 @@ module MailUtils
   # the `render` method in `locals` hash.
   #
   # If the data is used in the layout, you can make an exception and set it to instance variable
-  def set_up_urls(recipient, community, ref="email")
+  def set_up_layout_variables(recipient, community, ref="email")
     @community = community
     @current_community = community
     @url_params = {}
