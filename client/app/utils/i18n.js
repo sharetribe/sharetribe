@@ -55,7 +55,7 @@ function initialize(railsContext, env) {
 
   if (env === 'development') {
     I18n.missingTranslation = function displayMissingTranslation(scope) {
-      return span({className: "missing-translation", style: {backgroundColor: "red !important"}}, missingTranslationMessage(scope));
+      return span({ className: 'missing-translation', style: { backgroundColor: 'red !important' } }, missingTranslationMessage(scope));
     };
   } else {
     I18n.missingTranslation = function guessMissingTranslation(scope) {
