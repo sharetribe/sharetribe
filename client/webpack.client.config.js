@@ -8,6 +8,7 @@ const devBuild = process.env.NODE_ENV !== 'production';
 config.output = {
   filename: '[name]-bundle.js',
   path: '../app/assets/webpack',
+  publicPath: '/assets/',
 };
 
 config.module.loaders.push(

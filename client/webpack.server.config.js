@@ -16,6 +16,7 @@ module.exports = {
   output: {
     filename: 'server-bundle.js',
     path: '../app/assets/webpack',
+    publicPath: '/assets/',
   },
   resolve: {
     extensions: ['', '.js'],
