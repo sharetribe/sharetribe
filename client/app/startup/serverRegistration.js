@@ -3,10 +3,12 @@ import ReactOnRails from 'react-on-rails';
 
 import OnboardingGuideApp from './OnboardingGuideApp';
 import OnboardingTopBar from './OnboardingTopBarApp';
+import TopbarApp from './TopbarApp';
 
 ReactOnRails.register({
   OnboardingGuideApp,
   OnboardingTopBar,
+  TopbarApp,
 });
 
 ReactOnRails.registerStore({
