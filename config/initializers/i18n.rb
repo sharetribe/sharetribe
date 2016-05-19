@@ -1,5 +1,7 @@
 I18n.backend.class.send(:include, I18n::Backend::Fallbacks)
 
+I18n.available_locales = Sharetribe::AVAILABLE_LOCALES.map { |locale| locale[:ident] }
+
 Sharetribe::AVAILABLE_LOCALES
   .select { |locale| locale[:fallback].present? }
   .each { |locale| I18n.fallbacks.map(locale[:ident] => locale[:fallback]) }

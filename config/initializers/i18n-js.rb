@@ -7,23 +7,23 @@
 module I18n
   module JS
 
-    def self.translations
-      all_translations = {}
-      selected_backends = []
+    def self.selected_backends
       current_backend = ::I18n.backend
 
       case current_backend
       when I18n::Backend::Chain
-        current_backend.backends.each do |backend_in_chain|
-          if backend_in_chain.respond_to?(:translations, true)
-            selected_backends << backend_in_chain
-          end
+        current_backend.backends.select do |backend_in_chain|
+          backend_in_chain.respond_to?(:translations, true)
         end
       else
         if current_backend.respond_to?(:translations, true)
-          selected_backends = [current_backend]
+          [current_backend]
         end
       end
+    end
+
+    def self.translations
+      all_translations = {}
 
       selected_backends.each do |selected_backend|
         selected_backend.instance_eval do
@@ -38,5 +38,16 @@ module I18n
       all_translations
     end
 
+    class FallbackLocales
+      def using_i18n_fallbacks_module?
+        I18n::JS.selected_backends.any? do |backend|
+          backend.class.included_modules.include?(I18n::Backend::Fallbacks)
+        end
+      end
+
+      def ensure_valid_locales!(locales)
+        locales.delete_if { |locale| !::I18n.available_locales.include?(locale) }
+      end
+    end
   end
 end
