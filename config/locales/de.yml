@@ -314,7 +314,7 @@ de:
           initiated_by: Starter
           other_party: "Anderer Beteiligter"
         status:
-          free: ~
+          free: Unterhaltung
           pending: Ausstehend
           preauthorized: Vorauthorisiert
           accepted: Akzeptiert
@@ -351,7 +351,7 @@ de:
       form:
         field_required:
           this_field_is_required: "Dieses Feld ist erforderlich"
-          this_field_is_required_checkbox: ~
+          this_field_is_required_checkbox: "Dieses Feld ist erforderlich beim Erstellen eines neuen Eintrags (der Nutzer muss zumindest eine Alternative wählen)"
         search_filter:
           search_filter: "Als Filter auf der Homepage anzeigen"
           date_cant_be_filtered: "Es ist kein Filter für das Datum verfügbar"
@@ -1438,7 +1438,7 @@ de:
       show_in_updates_email: "In der nächsten automatischen E-Mail anzeigen"
       show_in_updates_email_loading: Lädt...
       show_in_updates_email_error: "Der Server konnte nicht erreicht werden. Lade die Seite neu und versuche es erneut."
-      show_in_updates_email_success: ~
+      show_in_updates_email_success: "Dieser Eintrag wird auf der nächsten automatischen Update-E-Mail den Nutzern angezeigt"
     map:
       open_in_google_maps: "In Google Maps öffnen"
     error:
@@ -1505,7 +1505,7 @@ de:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} wird vom Preis abgezogen."
         after_service_fee_you_will_get_paypal_text: "%{service_name} Gebühr %{sum_with_currency} und %{paypal_fee_info_link} wird vom Preis abgezogen."
         paypal_fee_info_link_text: PayPal-Zahlungsbearbeitungsgebühr
-        after_service_fee_you_will_get_vat: ~
+        after_service_fee_you_will_get_vat: "Nach Gebühren von %{service_name} und PayPal erhaltest du etwa %{sum_with_currency} (MwSt. 0%)"
         price_excludes_vat: "Dieser Preis beinhaltet keine Steuer."
         delivery: Lieferart
         shipping: Versand

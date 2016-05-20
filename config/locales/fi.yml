@@ -71,7 +71,7 @@ fi:
         update_information: Tallenna
         invite_people: "Kutsu uusia käyttäjiä"
         edit_signup_info: Liittymisohjeet
-        edit_signup_info_description: "Tähän voit lisätä ohjeita koskien esimerkiksi palveluun liittymistä tai sitä, mistä käyttäjät voivat hakea kutsua palveluun. Nämä ohjeet näytetään käyttäjille liittymissivulla, kun he ovat liittymässä palveluun. Oletuksena ohjekenttä on tyhjä."
+        edit_signup_info_description: "Nämä ohjeet näytetään käyttäjille liittymissivulla, kun he ovat liittymässä palveluun. Tähän voit lisätä ohjeita koskien esimerkiksi palveluun liittymistä tai sitä, mistä käyttäjät voivat hakea kutsua palveluun. Oletuksena ohjekenttä on tyhjä."
         edit_info: "Muokkaa tietoja"
         see_how_it_looks_like: Näytä
         verification_to_post_listings_info_content: "Ohjeteksti vahvistamattomille käyttäjille"
@@ -94,7 +94,7 @@ fi:
         favicon: Favicon
         favicon_info_text: "Ladattu kuva korvaa oletuksena käytettävän Sharetriben logon. Faviconin koon tulee olla 32x32 pikseliä. Ladattu kuva muunnetaan tähän kokoon."
         community_custom_color1: Pääväri
-        community_custom_color2: "Toinen väri"
+        community_custom_color2: "%{post_new_listing} -napin väri"
         logo_instructions_text_with_dimensions: "Peruslogon koon tulee olla %{width}x%{height} pikseliä. Se näytetään käyttäjille, jotka katsovat sivua suuremmalta näytöltä."
         logo_icon_instructions_text_with_dimensions: "Tämä neliönmuotoinen logo näytetään, kun käyttäjät jakavat sivustosi Facebookissa, vierailevat sivustollasi mobiililaitteellaan tai lisäävät sivustosi kirjanmerkiksi mobiililaitteensa aloitusnäytölle. Tämän logon koon tulee olla (vähintään) %{width}x%{height} pikseliä."
         cover_photo_visibility: "Kansikuva näytetään etusivulla kirjautumattomille käyttäjille."
@@ -277,7 +277,7 @@ fi:
         invalid_twitter_handle: "Twitter-tilin tunnus voi olla enintään 15 merkkiä pitkä sekä sisältää vain kirjaimia (A-Z) ja numeroita (0-9)."
         facebook_connect: Facebook
         facebook_connect_info_text: "Luo omalle kauppapaikallesi sovellus  <a href='https://developers.facebook.com/'>Facebookin kehittäjäsivustolla</a> ja lisää luodun sovelluksen tunnukset tähän. Tämä mahdollistaa sivustolle kirjautumisen Facebookin kautta."
-        facebook_connect_info_text_with_instructions: "Luo omalle kauppapaikallesi sovellus  <a href='https://developers.facebook.com/'>Facebookin kehittäjäsivustolla</a> ja lisää luodun sovelluksen tunnukset tähän. Tämä mahdollistaa sivustolle kirjautumisen Facebookin kautta. %{instructions_link}"
+        facebook_connect_info_text_with_instructions: "Jos haluat ottaa Facebook-kirjautumisen käyttöön, luo omalle kauppapaikallesi sovellus  <a href='https://developers.facebook.com/'>Facebookin kehittäjäsivustolla</a> ja lisää luodun sovelluksen tunnukset tähän. %{instructions_link}"
         facebook_instructions_link_text: "Lue ohjeet Facebook-sovelluksen luontiin."
         facebook_connect_id: "Facebook - sovellustunnus"
         invalid_facebook_connect_id: "Sovellustunnus voi sisältää vain numeroita."
@@ -409,7 +409,7 @@ fi:
     listing_shapes:
       index:
         listing_shapes: Tilaustyypit
-        description: "Tilaustyypit määrittelevät, kuinka tilaaminen ja käyttäjien välinen viestintä toimii sivustollasi. Voit päättää, voivatko käyttäjäsi esimerkiksi myydä tai vuokrata asioita toisiltaan, tai kenties antaa tavaroita pois ilmaiseksi."
+        description: "Tilaustyypit määrittelevät, kuinka tilaaminen ja käyttäjien välinen viestintä toimii sivustollasi. Voit päättää, voivatko käyttäjäsi esimerkiksi myydä tai vuokrata asioita toisiltaan, tai kenties vain jättää ilmoituksia ja antaa tavaroita pois ilmaiseksi."
         read_more_about_order_types: "Lue lisää tilaustavoista"
         add_new_shape: "Lisää uusi tilaustapa: "
         select_template: "Valitse malli..."
@@ -418,10 +418,10 @@ fi:
         category_count: "%{category_count} kategoriaa"
         header:
           listing_shape_name: "Tilaustyypin nimi"
-          listing_shape_categories: "Tilaustapaa käyttävät kategoriat"
+          listing_shape_categories: "Tilaustyyppiä käyttävät kategoriat"
         order:
           saving_order: "Tallennetaan tilaustapojen järjestystä"
-          save_order_successful: "Tilaustapojen järjestyksen muutos onnistui"
+          save_order_successful: "Tilaustyyppien järjestyksen muutos onnistui"
           save_order_error: "Järjestystä tallentaessa tapahtui virhe. Päivitä sivu ja yritä uudelleen."
       templates:
         selling_products: "Myydään tuotteita"
@@ -507,7 +507,7 @@ fi:
       minimum_transaction_fee_label: "Minimipalkkio:"
       save_settings: "Tallenna asetukset"
       minimum_listing_price_below_tx_fee: "Maksutapahtuman minimikoon tulee olla vähintään minimipalkkio, eli %{minimum_transaction_fee}."
-      minimum_listing_price_below_min: "Maksutapahtuman minimikoon tulee olla suurempi kuin %{minimum_commission}."
+      minimum_listing_price_below_min: "Maksutapahtuman minimikoon tulee olla suurempi kuin minimipalkkion, eli %{minimum_commission}."
     transaction_types:
       sell: Myydään
       rent: "Annetaan vuokralle"
@@ -704,7 +704,7 @@ fi:
           verify: "PayPal-maksua ei voitu suorittaa, koska et ole vahvistanut PayPal-tiliäsi. Mene osoitteeseen %{paypal_url} ja vahvista tilisi."
           intl: "PayPal-maksua ei voitu suorittaa, koska et ole lisännyt PayPal-tiliisi tapaa nostaa rahaa tililtä. Mene osoitteeseen %{paypal_url} ja kirjaudu sisään hyväksyäsi tai hylätäksesi maksun."
       waiting_for_current_user_to_deliver_listing: "Odottaa että %{listing_title} on toimitettu"
-      waiting_for_listing_author_to_deliver_listing: "Odottaa että %{listing_title} on toimitettu"
+      waiting_for_listing_author_to_deliver_listing: "Odottaa että %{listing_author_name} on toimittanut tilauksen %{listing_title}"
       request_accepted: "Pyyntö hyväksytty"
       request_rejected: "Pyyntö hylätty"
       request_confirmed: "Pyyntö toteutunut"
@@ -1235,7 +1235,7 @@ fi:
       give_feedback: "Ota yhteyttä"
       or_check_our: "...tai tarkista"
       send_feedback_to_admin: "Lähetä palaute ylläpidolle"
-      to_see_what_others_have_suggested: "mitä muut ovat sanoneet."
+      to_see_what_others_have_suggested: "mitä muut ovat ehdottaneet, ja antaaksesi eri ehdotuksille äänesi."
       your_email_address: "Sähköpostiosoitteesi (yhteydenottoa varten)"
       connect: Liity
       invite_your_friends: "Kutsu kaverisi!"
@@ -1296,7 +1296,7 @@ fi:
       confirmation_link_is_wrong_or_used: "Vahvistuslinkki on jo käytetty tai siinä on jokin vika. Yritä kirjautua sisään tai lähetä palautetta jos ongelma ei ratkea."
       additional_email_confirmed: "Antamasi sähköpostiosoite on nyt vahvistettu."
       could_not_get_email_from_facebook: "Ei saatu sähköpostiosoitetta Facebookista, eikä uuden tunnuksen luonti onnistu ilman sitä."
-      facebook_email_unconfirmed: "Sähköpostiosoite '%{email}' joka on yhdistetty Facebook-tiliisi on jo käytössä, mutta sitä ei ole vahvistettu. Ole hyvä ja vahvista sähköpostiosoitteesi päästäksesi kirjautumaan Facebookin avulla."
+      facebook_email_unconfirmed: "Sähköpostiosoite '%{email}', joka on yhdistetty Facebook-tiliisi, on jo käytössä, mutta sitä ei ole vahvistettu. Ole hyvä ja vahvista sähköpostiosoitteesi päästäksesi kirjautumaan Facebookin avulla."
       create_new_listing: "Lisää uusi ilmoitus"
       create_one_here: "luoda uuden"
       email_confirmation_sent_to_new_address: "Sähköpostivarmistus lähetetty uuteen osoitteeseen."
@@ -1392,7 +1392,7 @@ fi:
       you_must_fill_all_the_fields: "Kaikki kentät täytyy täyttää"
       you_unfollowed_listing: "Ilmoituksen seuraaminen lopetettu"
       joining_community_failed: "Liittyminen epäonnistui"
-      can_not_login_with_private_user: "Et voi kirjautua tähän yksityishenkilön tunnuksilla. Kirjaudu organisaatiotunnuksella tai luo uusi tunnus."
+      can_not_login_with_private_user: "Et voi kirjautua sisään yksityishenkilön tunnuksilla. Kirjaudu organisaatiotunnuksella tai luo uusi tunnus."
       can_not_delete_email: "Et voi poistaa valitsemaasi sähköpostiosoitetta."
       user_does_not_have_email_to_delete: "Et omista sähköpostiosoitetta, jota yrität poistaa."
       email_deleted: "Sähköpostiosoite poistettu"
@@ -1767,15 +1767,15 @@ fi:
       permissions_not_granted: "Lupaa PayPal-tilin yhdistämiseen ei annettu."
       could_not_fetch_redirect_url: "Uudelleenohjaus PayPal-tiliin ei onnistunut."
       paypal_not_enabled: "PayPal-maksut eivät ole käytössä."
-      billing_agreement_canceled: "Laskutussopimus jäi kesken."
+      billing_agreement_canceled: "Laskutussopimus jäi kesken"
       billing_agreement_not_accepted: "Et hyväksynyt laskutussopimusta PayPal-sivustolla."
       billing_agreement_wrong_account: "PayPal käyttäjätilit eivät täsmää. Käytä samaa käyttäjitiliä, jonka yhdistit ensimmäisessä vaiheessa."
       something_went_wrong: "Jotain meni vikaan. Yritä uudestaan. Jos ongelma toistuu, ota yhteys ylläpitoon."
       account_not_verified: "Et ole vahvistanut PayPal-tiliäsi. Sinun on vahvistettava tilisi paypal.com -sivustolta ennen kuin voit jatkaa."
-      account_restricted: "PayPal-tiliisi on rajoitetussa tilassa eikä sitä voida yhdistää. Sinun tulee kirjautua PayPal-sivustolle tai ottaa yhteyttä PayPalin tukeen selvittääksesi ongelman."
+      account_restricted: "PayPal-tilisi on rajoitetussa tilassa eikä sitä voida yhdistää. Sinun tulee kirjautua paypal.com -sivustolle tai ottaa yhteyttä PayPalin tukeen selvittääksesi ongelman."
     paypal_account_connected_title: "PayPal-tili yhdistetty"
     paypal_account_connected: "PayPal-tili <%{email}> on yhdistetty %{service_name}-palveluun."
-    change_account: "Vaihda tili"
+    change_account: "Vaihda PayPal-tiliä"
     missing: "Sinulla on avoimia ilmoituksia, mutta et ole yhdistänyt PayPal-tiliäsi, joten et pysty ottamaan maksuja vastaan. Yhdistä PayPal-tilisi %{settings_link}."
     from_your_payment_settings_link_text: maksuasetuksistasi
     redirect_message: "Sinut ohjataan PayPaliin. Jos mitään ei tapahdu, klikkaa %{redirect_link}."
@@ -1981,7 +1981,7 @@ fi:
       settings_link: asetuksesi
       homepage_link: etusivulle
       unsubscribe_unsuccesful: "Sähköpostin poiskytkentä epäonnistui"
-      unsuccessful_unsubscribe_info_text: "Linkki, jota klikkasit on ilmeisesti vanhentunut. Lähetä meille palautetta ylälaidan valikosta, niin voimme poistaa sinut postilistalta, tai kirjaudu sisään, niin voit itse vaihtaa sähköpostiasetuksesi."
+      unsuccessful_unsubscribe_info_text: "Linkki, jota klikkasit on ilmeisesti vanhentunut. Kirjaudu sisään, niin voit itse vaihtaa sähköpostiasetuksesi."
     profile:
       about_you: "Tietoa sinusta"
       city: Kaupunki
