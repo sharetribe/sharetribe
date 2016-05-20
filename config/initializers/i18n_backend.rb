@@ -2,7 +2,11 @@ module I18n
   module Backend
 
     # A simple and minimal wrapper to KeyValue store, that allows
-    # storing per community translations
+    # storing per community translations.
+    #
+    # Does NOT include the default Fallbacks module but instead
+    # implements its own fallback logic in `lookup`, which doesn't
+    # rely on the fallback mapping.
     #
     # Usage:
     #
@@ -12,7 +16,6 @@ module I18n
     # `instance` method returns the singleton instance
     #
     class CommunityBackend < KeyValue
-      include Fallbacks
 
       class << self
         attr_accessor(:translation_service_backend_instance)
