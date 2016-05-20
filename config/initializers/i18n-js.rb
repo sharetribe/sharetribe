@@ -35,7 +35,7 @@ module I18n
         all_translations.deep_merge!(selected_backend.send(:translations))
       end
 
-      all_translations
+      all_translations.slice(*::I18n.available_locales)
     end
 
     class FallbackLocales
