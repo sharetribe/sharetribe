@@ -50,10 +50,6 @@ module I18n
           backend.class.included_modules.include?(I18n::Backend::Fallbacks)
         end
       end
-
-      def ensure_valid_locales!(locales)
-        locales.delete_if { |locale| !::I18n.available_locales.include?(locale) }
-      end
     end
   end
 end
