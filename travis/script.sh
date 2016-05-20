@@ -31,7 +31,7 @@ then
     (cd client && npm run start-phantomjs) &
     PHANTOMJS=true bundle exec cucumber -ptravis 2>&1
     exit
-elif [ "$SUITE" = "eslint" ]
+elif [ "$SUITE" = "lint" ]
 then
     cd client && npm run lint 2>&1
     exit

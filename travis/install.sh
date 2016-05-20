@@ -13,7 +13,7 @@ case "$SUITE" in
 esac
 
 case "$SUITE" in
-    cucumber|eslint)
+    cucumber|lint)
         echo "Installing and selecting Node.js version with nvm for suite: $SUITE"
         # shellcheck source=/dev/null
         . "$HOME/.nvm/nvm.sh"

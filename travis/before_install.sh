@@ -6,7 +6,7 @@ echo "Running before_install"
 
 # Assert that the given SUITE is a known one
 case "$SUITE" in
-    rspec|rubocop|cucumber|eslint)
+    rspec|rubocop|cucumber|lint)
         echo "SUITE: ${SUITE}"
         ;;
     *)
