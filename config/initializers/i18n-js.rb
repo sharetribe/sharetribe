@@ -7,6 +7,12 @@
 module I18n
   module JS
 
+    # Returns a list of backends that are in use and respond to `translations`
+    # method.
+    #
+    # In practice, the SimpleBackend is the only backend that responds to
+    # the `translations` method.
+    #
     def self.selected_backends
       current_backend = ::I18n.backend
 
