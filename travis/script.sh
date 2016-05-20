@@ -5,6 +5,14 @@ set -e
 echo "Running script"
 echo "SUITE: ${SUITE}"
 
+# Somehow Travis uses a different version of Node.js even after
+# running install.sh if we don't set up nvm again here.
+
+# shellcheck source=/dev/null
+. "$HOME/.nvm/nvm.sh"
+nvm install
+nvm use
+
 if [ "$SUITE" = "rspec" ]
 then
     bundle exec rspec spec 2>&1

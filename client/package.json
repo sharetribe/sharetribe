@@ -2,7 +2,7 @@
   "repository": "sharetribe/sharetribe",
   "license": "MIT",
   "engines": {
-    "node": "5.10"
+    "node": "6.1"
   },
   "scripts": {
     "lint": "npm run eslint && npm run stylelint",

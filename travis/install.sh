@@ -19,6 +19,7 @@ case "$SUITE" in
         . "$HOME/.nvm/nvm.sh"
         nvm install
         nvm use
+        nvm alias default "$(cat .nvmrc)"
 
         echo "Node.js version:"
         node --version
