@@ -293,8 +293,13 @@ default: &default_settings
 
   # Use I18n::JS::Middleware to compile the translation bundle for
   # client-side JS code during the request. Should be true for
-  # development and false otherwise.
+  # development and false for other environments.
   use_i18n_js_middleware: false
+
+  # Use JsRoutes::Middleware to compile the routes bundle for
+  # client-side JS code during the request. Should be true for
+  # development and false for other environments.
+  use_js_routes_middleware: false
 
 production: &production_settings
   <<: *default_settings
@@ -323,6 +328,8 @@ development:
   log_level: DEBUG
 
   use_i18n_js_middleware: true
+
+  use_js_routes_middleware: true
 
 test:
   <<: *default_settings
