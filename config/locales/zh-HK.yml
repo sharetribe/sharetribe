@@ -82,9 +82,9 @@ zh-HK:
         transaction_agreement_description: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "修改市集%{community_name}的外觀"
-        community_logo: ~
+        community_logo: 卓面標示
         community_logo_icon: ~
-        community_cover_photo: ~
+        community_cover_photo: 封面照片
         small_community_cover_photo: ~
         favicon: ~
         favicon_info_text: ~
@@ -207,13 +207,13 @@ zh-HK:
         ja: ~
         it: ~
       settings:
-        settings: ~
-        general: ~
+        settings: 設定
+        general: 普通
         users_can_review_each_other_after_transaction: 用戶可以在交易結束後相互評論
-        access: ~
-        join_with_invite_only: ~
-        users_can_invite_new_users: ~
-        private: ~
+        access: 訪問偏好
+        join_with_invite_only: 用戶只能通過其他用戶的邀請才能加入這個集市
+        users_can_invite_new_users: 所有用戶都可以邀請新用戶來到這個網站
+        private: 這個集市是私人的（只有注冊用戶可以看到內容）
         require_verification_to_post_listings: 只有經管理員驗證的用戶才可以發佈新的訊息
         search_preferences: ~
         default_search_type: ~
@@ -222,7 +222,7 @@ zh-HK:
         select_distance_unit: ~
         km: ~
         miles: ~
-        listing_preferences: ~
+        listing_preferences: 信息展示頁面偏好設置
         transaction_preferences: 交易偏好
         show_listing_publishing_date: ~
         show_category_in_listing_list: 在信息列表中顯示信息類型
@@ -1371,7 +1371,7 @@ zh-HK:
       you_must_log_in_to_view_your_inbox: "你必需登入%{service_name}以查看你的收件箱。"
       you_must_log_in_to_view_your_settings: "你必需登入%{service_name}以查看你的設定。"
       you_must_log_in_to_add_news_item: "你必須登入%{service_name}以建立新信息。"
-      you_must_log_in_to_change_profile_settings: ~
+      you_must_log_in_to_change_profile_settings: "你必須登入%{service_name}以修改個人設定"
       you_must_log_in_to_change_payment_settings: "你必須登錄至%{service_name}來修改付款設置"
       you_must_log_in_to_accept_or_reject: 你必須登入以接受或拒絕此交易
       you_must_log_in_to_confirm_or_cancel: 你必須登入以取消或確認此交易
@@ -1491,7 +1491,7 @@ zh-HK:
         after_service_fee_you_will_get_vat: "在支付%{service_name}和付款處理費用之後你將得到大概%{sum_with_currency}（消費稅：0%）"
         price_excludes_vat: 此價格不包含增值税。
         delivery: 配送方式
-        shipping: 配送
+        shipping: 郵寄
         shipping_price: 運費
         shipping_price_additional: 附加物品
         pickup: 自取
@@ -1634,9 +1634,9 @@ zh-HK:
         per_quantity_unit: "每%{quantity_unit}"
         per_day: 每天
       delivery: 配送方式
-      shipping: "配送 (+%{price})"
-      shipping_no_price: 配送
-      shipping_price_additional: "配送（+%{price}）, 附加物品: +%{shipping_price_additional}"
+      shipping: "郵寄 (+%{price})"
+      shipping_no_price: 郵寄
+      shipping_price_additional: "郵寄（+%{price}）, 附加物品: +%{shipping_price_additional}"
       pickup: 自取
       pickup_no_price: 自取
       youtube_video_player: YouTube播放器
@@ -1913,8 +1913,8 @@ zh-HK:
       change: 更改
       confirm_new_password: 確認新密碼
       delete_account: 刪除帳號
-      delete_account_button: ~
-      delete_account_confirmation_popup: ~
+      delete_account_button: 永久删除我的帳戶
+      delete_account_confirmation_popup: 你確認要永久刪除你的帳戶及其相關數據？刪除了的帳號將無法恢復。
       email_addresses: 電郵地址
       new_email: 新的電郵地址
       delete_personal_information: 如果你刪除你的帳號，你的個人信息（姓名，電話號碼，地址，電郵，個人資料圖片等等）都將被永久刪除且不能恢復。所有你發表的訊息將被刪除。你將不能重新啓動你的帳號。
@@ -1973,7 +1973,7 @@ zh-HK:
       first_name_only: ~
       location_description: 您可以選擇提供你的確實地址，或只提供您的郵政編號。請至少提供您的郵政編號。您也可以通過以下地圖選擇一個地點。
       phone_number: 電話號碼
-      profile_picture: ~
+      profile_picture: 個人頭像
       postal_code: 郵遞區號
       profile_page: 點擊查看你的個人信息版面
       profilemap: 地圖註解
