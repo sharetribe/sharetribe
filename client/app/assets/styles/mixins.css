@@ -1,5 +1,5 @@
 @define-mixin guideStepListCheckbox {
-  background-image: url(../../assets/images/iconSquare@2x.png);
+  background-image: url('../../assets/images/iconSquare@2x.png');
   background-repeat: no-repeat;
   background-size: 100%;
   background-position-y: 1px;
@@ -34,5 +34,5 @@
   height: auto;
   position: relative;
   overflow: hidden;
-  padding: 40.30% 0 0 0; /* 40.30% = 100 / (w / h) = 100 / (732 / 295) */
+  padding: 40.3% 0 0 0; /* 40.30% = 100 / (w / h) = 100 / (732 / 295) */
 }

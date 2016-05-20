@@ -50,7 +50,7 @@
   }
   display: inline-block;
   background-color: rgb(76, 152, 138);
-  box-shadow: inset 0px 3px 8px 0px rgba(0, 0, 0, 0.17);
+  box-shadow: inset 0 3px 8px 0 rgba(0, 0, 0, 0.17);
   height: 1em;
   position: relative;
   border-radius: 0.5em;
@@ -74,12 +74,12 @@
   display: inline-block;
   font-weight: 600;
   padding: 0.6em 1em;
-  border: 1px solid rgba(255,255,255,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   text-decoration: none;
   color: white;
   &:hover {
     color: white;
-    border: 1px solid rgba(255,255,255,1);
+    border: 1px solid rgba(255, 255, 255, 1);
   }
 }

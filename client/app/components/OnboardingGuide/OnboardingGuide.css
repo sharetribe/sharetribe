@@ -4,6 +4,7 @@
   color: var(--colorTitle);
   line-height: var(--lineHeightTitle);
 }
+
 .description {
   font-size: var(--fontSize);
   font-weight: 400;
@@ -17,7 +18,7 @@
 .sectionSeparator {
   margin: var(--verticalSpaceElementBig) 0;
   height: 1px;
-  border-bottom: solid 1px rgba(0,0,0,0.1);
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
 }
 
 /* GuideStatusPage */
@@ -26,7 +27,8 @@
   margin-bottom: var(--verticalSpaceText);
 }
 
-.stepListItem, .stepListItemDone {
+.stepListItem,
+.stepListItemDone {
   list-style: none;
 }
 
@@ -40,6 +42,7 @@
   height: var(--fontSize);
   margin-right: 0.5em;
 }
+
 .stepListItemDone .stepListCheckbox {
   @mixin guideStepListCheckbox;
   background-image: url('../../assets/images/iconSquareChecked@2x.png');
@@ -55,6 +58,7 @@
     color: var(--colorActionTextHover);
   }
 }
+
 .stepListItemDone .stepListLink {
   text-decoration: line-through;
   color: var(--colorCompleted);
@@ -79,8 +83,10 @@
     color: var(--colorButtonGhost);
   }
 }
+
 .buttonSeparator {
   margin-right: var(--gutter);
+
   @media (max-width: 600px) {
     display: none;
   }
@@ -121,6 +127,7 @@
 .sloganImageContainer {
   @mixin guideSloganImageContainer;
 }
+
 .sloganImageContainerBig {
   @mixin guideSloganImageContainer;
   padding: 73.68% 0 0 0; /* 73.68% = 100 / (w / h) = 100 / (722 / 532) */
