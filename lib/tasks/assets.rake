@@ -5,21 +5,10 @@
 Rake::Task["assets:precompile"]
   .clear_prerequisites
   .enhance([
-             "routes:js:export",
+             "js:routes",
              "i18n:js:export",
              "assets:compile_environment"
            ])
-
-namespace :routes do
-  namespace :js do
-    task export: :environment do
-      routes_js_path = "client/app/routes/routes.js"
-      puts "Exporting routes to #{routes_js_path} ..."
-      JsRoutes.generate!(Rails.root.join(routes_js_path))
-      puts "Exporting routes done."
-    end
-  end
-end
 
 namespace :assets do
   # In this task, set prerequisites for the assets:precompile task
