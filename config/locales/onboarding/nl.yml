@@ -1,0 +1,138 @@
+nl:
+  web:
+    admin:
+      onboarding:
+        guide:
+          cover_photo:
+            title: "Stap 3: Voeg een cover afbeelding toe"
+            description: "Een goede cover afbeelding maakt het verschil tussen een nieuwe bezoeker die lid wordt en een nieuwe bezoeker die vertrekt."
+            info_image_alt: "Een screenshot van een pagina met een cover afbeelding"
+            add_your_own: "Voeg cover afbeelding toe"
+            advice:
+              content1: "Lees %{link} over waar je goede foto's kunt vinden die je gratis kunt gebruiken."
+              content2: "Let op: de afbeelding zal worden aangepast naar %{width}x%{height} pixels. Van te grote afbeeldingen zal de boven- en onderkant worden afgesneden."
+              link: "onze gids"
+              alt: "How to get good-looking cover photos, logos, favicon, profiles and listing pictures?"
+          filter:
+            title: "Stap 4: Voeg item velden en filters toe"
+            description:
+              content: "Item velden bepalen de structuur van je marktplaats. Bijvoorbeeld, als je een marktplaats bouwt voor tweedehands schoenen, dan wil je waarschijnlijk wel een filter voor schoenmaat toevoegen. De verkoper zal dan de schoenmaat moeten toevoegen als deze een paar schoenen te koop aanbiedt. Als je de kopers het aanbod op schoenmaat wil laten filteren, tik dan de box %{display_on_homepage} aan, wanneer je het veld creëert."
+              display_on_homepage: "Toon een filter gebaseerd op dit veld, op de home pagina"
+            info_image_alt: "Een screenshot van een pagina met item velden en filters"
+            add_fields_and_filters: "Voeg item velden en filters toe"
+            advice:
+              content: "Filter zijn er handig, maar %{not_too_many_link}. Teveel filters zullen je klanten overwelmen, en elk filter vereist een extra veld voor je leveranciers om in te vullen."
+              not_too_many_link: "voeg er niet teveel toe"
+          invitation:
+            title: "Stap 7: Gebruikers uitnodigen"
+            description:
+              content: "Tevreden met hoe je marktplaats werkt en eruit ziet? Misschien %{preview_link}? Als je klaar bent, nodig dan wat gebruikers uit!"
+              preview_link: "nog een laatste blik"
+              preview_link_alt: "Check preview"
+            info_image_alt: "Illustratie van gebruikers"
+            invite_users: "Nodig gebruikers uit"
+            advice: "Nodig eerst vrienden uit en verzamel feedback van hen."
+          listing:
+            title: "Stap 6: Voeg een item toe"
+            description: "Items zijn de inhoud van je marktplaats: de producten of services die je leveranciers aanbieden. Om je marktplaats er een beetje voller uit te laten zien, en om te testen hoe het proces om een item toe te voegen precies verloopt, voeg dan nu zelf een item toe."
+            info_image_alt: "Een screenshot van een item toevoegen"
+            post_your_first_listing: "Voeg je eerste item toe"
+            advice:
+              content: "Een item verwijderen is makkelijk. Klik op het item en kies %{close_listing}."
+              close_listing: "Sluit Item"
+          next_step:
+            slogan_and_description: "Schrijf een slogan en beschrijving"
+            cover_photo: "Voeg een cover afbeelding toe"
+            filter: "Voeg velden en filters toe"
+            paypal: "Accepteer betalingen"
+            listing: "Voeg je eerste item toe"
+            invitation: "Nodig gebruikers uit"
+          paypal:
+            title: "Stap 5: Accepteer betalingen"
+            description_p1: "Als je je leveranciers online betalingen wilt laten ontvangen (en jijzelf commissie van iedere transactie wilt ontvangen), dan dien je je PayPal account te koppelen. Eenmaal gekoppeld, dien je een minimale transactie prijs en een commissie kiezen."
+            description_p2: "Je kunt ook kiezen om online betalingen voorlopig uit te schakelen."
+            info_image_alt: "Een screenshot van de betalingen-pagina"
+            disable_payments: "Schakel betalingen uit"
+            setup_payments: "Accepteer betalingen"
+            cta_separator: "of"
+            advice:
+              content: "Meer over het uitschakelen van betalingen in %{disable_payments_link}."
+              disable_payments_link: "dit artikel"
+              disable_payments_alt: "How to disable payments or add free listings to your marketplace"
+          slogan_and_description:
+            title: "Stap 2: Slogan & beschrijving"
+            description: "De slogan & beschrijving helpen nieuwe bezoekers te begrijpen wat je marktplaats te bieden heeft. Dit zijn de eerste dingen die bezoekers zien als ze je site bezoeken, dus hou het kort en bondig."
+            info_image_alt: "Een screenshot van een home pagina met een slogan en beschrijving."
+            add_your_own: "Voeg slogan & beschrijving toe"
+            advice:
+              content: "Gebruik de slogan om te vertellen wat je marktplaats te bieden heeft. %{food_from_locals_slogan} of %{guitar_lessons_slogan} zijn goede voorbeelden. In de beschrijving kun je dan iets verder uitleggen over het unieke voordeel van jouw marktplaats voor de klant. %{food_from_locals_description} of %{guitar_lessons_description} zijn goede voorbeelden."
+              food_from_locals_slogan: "\"Eet lokaal\""
+              guitar_lessons_slogan: "\"Krijg gitaarles van een pro\""
+              food_from_locals_description: "\"Foodmarket is de simpelste manier om direct etenswaren te bestellen bij lokale leveranciers.\""
+              guitar_lessons_description: "\"GuitarPro is de beste plek om muziekleraren te vergelijken\""
+          status_page:
+            title: "Welkom op jouw marktplaats, %{name}"
+            title_done: "Klaar!"
+            description_p1: "Om je marktplaats van de grond te krijgen, zijn hieronder er een aantal stappen die je moet nemen."
+            description_p2: "Eenmaal klaar, dan is je marktplaats gereed voor de eerste bezoekers."
+            congratulation_p1:
+              content: "Het is je gelukt! Je marktplaats is nu van de grond. Dit is echter nog het begin. Je hebt slechts een fractie van de maatwerk opties gezien, dat Sharetribe te bieden heeft. Om te leren hoe je jouw marktplaats verder kan inrichten naar je eigen wensen, lees dan %{knowledge_base_link}."
+              knowledge_base_link: "onze knowledge base"
+              knowledge_base_alt: "knowledge base"
+            congratulation_p2:
+              content: "Als je meer wilt leren over hoe je je marktplaats bedrijf opbouwt, raden we je onze %{marketplace_guide_link} aan."
+              marketplace_guide_link: "practical guide for building an online marketplace business"
+              marketplace_guide_alt: "link to marketplace academy"
+            congratulation_p3:
+              content: "Als je nog vraag hebt, neem dan contact op met %{contact_support_link}, we staan altijd klaar om te helpen."
+              contact_support_link: "onze support"
+              contact_support_title: "Support"
+            create_your_marketplace: "Creëer je marktplaats"
+            slogan_and_description: "Voeg een slogan en beschrijving toe"
+            cover_photo: "Upload een cover afbeelding"
+            filter: "Voeg velden & filters toe"
+            paypal: "Stel online betalingen in"
+            listing: "Voeg een item toe"
+            invitation: "Nodig gebruikers uit"
+          back_to_todo: "Terug naar de takenlijst"
+        topbar:
+          progress_label: "Marktplaats voortgang"
+          next_step: "Volgende"
+          slogan_and_description: "Slogan & beschrijving"
+          cover_photo: "Cover afbeelding"
+          filter: "Velden & filters"
+          paypal: "Betalingen in- of uitschakelen"
+          listing: "Voeg een item toe"
+          invitation: "Nodig gebruikers uit"
+  admin:
+    onboarding:
+      popup:
+        slogan_and_description:
+          title: "Woehoe, taak volbracht!"
+          body: "Geweldig! Volgende: de slogan en beschrijving zijn de beste manier om nieuwe gebruikers duidelijk te maken wat je marktplaats te bieden heeft."
+          button: "Schrijf de jouwe!"
+        cover_photo:
+          title: "Top, taak volbracht!"
+          body: "Op naar de volgende: een goede cover photo heeft een enorme invloed op de indruk die een nieuwe bezoeker krijgt. Voeg zelf een goede afbeelding toe!"
+          button: "Upload een afbeelding"
+        filter:
+          title: "Ziet er goed uit!"
+          body: "Nu gaan we aan de functionaliteit werken. Item velden en filters geven structuur aan je marktplaats en helpen je bezoekers te vinden waar zij voor komen."
+          button: "Voeg velden & filters toe"
+        paypal:
+          title: "Super, goed bezig! "
+          body: "Hierna: de betalingen van je marktplaats in- of uitschakelen. Om leveranciers online betalingen te laten ontvangen, koppel dan je PayPal account. Je kunt betalingen ook voorlopig uitschakelen."
+          button: "Betalingen instellen"
+        listing:
+          title: "Goed gedaan!"
+          body: "De basis van je marktplaats is nu gereed, maar het is nog een beetje leeg. Tijd om een eerste product of service aan te bieden door een item te plaatsen"
+          button: "Plaats een eerste item"
+        invitation:
+          title: "...en nu de laatste stap: deel je marktplaats!"
+          body: "Blij met je marktplaats? Laten we wat gebruikers uitnodigen!"
+          button: "Nodig gebruikers uit"
+        all_done:
+          title: "Briljant, het is je gelukt!"
+          body: "Fantastisch gedaan! Je marktplaats is van de grond! Dit is nog maar het begin: wij staan voor je klaar om je op iedere stap van dit avontuur te helpen!"
+          button: "Wat nu te doen?"
+        button_later: "Ik doe dit later."
