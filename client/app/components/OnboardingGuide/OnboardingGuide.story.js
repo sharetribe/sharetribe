@@ -50,7 +50,7 @@ const onboardingData = [
   },
 ];
 const statusPageProps = {
-  changePage: function() { console.log('asdf')},
+  changePage: function(path) { action("sub page")(path)},
   initialPath: '/en/admin/getting_started_guide',
   name: 'John Doe',
   infoIcon: '<i class="ss-info"></i>',
@@ -62,7 +62,7 @@ const statusPageProps = {
 };
 
 const sloganAndDescriptionProps = {
-  changePage: function() { console.log('asdf')},
+  changePage: function(path) { action("back")(path)},
   infoIcon: '<i class="ss-info"></i>',
   initialPath: '/en/admin/getting_started_guide',
   name: 'John Doe',
@@ -75,7 +75,7 @@ const sloganAndDescriptionProps = {
 };
 
 const coverPhotoProps = {
-  changePage: function() { console.log('asdf')},
+  changePage: function(path) { action("back")(path)},
   infoIcon: '<i class="ss-info"></i>',
   initialPath: '/en/admin/getting_started_guide',
   name: 'John Doe',
@@ -88,7 +88,7 @@ const coverPhotoProps = {
 };
 
 const filterProps = {
-  changePage: function() { console.log('asdf')},
+  changePage: function(path) { action("back")(path)},
   infoIcon: '<i class="ss-info"></i>',
   initialPath: '/en/admin/getting_started_guide',
   name: 'John Doe',
@@ -101,7 +101,7 @@ const filterProps = {
 };
 
 const paypalProps = {
-  changePage: function() { console.log('asdf')},
+  changePage: function(path) { action("back")(path)},
   infoIcon: '<i class="ss-info"></i>',
   initialPath: '/en/admin/getting_started_guide',
   name: 'John Doe',
@@ -115,7 +115,7 @@ const paypalProps = {
 };
 
 const listingProps = {
-  changePage: function() { console.log('asdf')},
+  changePage: function(path) { action("back")(path)},
   infoIcon: '<i class="ss-info"></i>',
   initialPath: '/en/admin/getting_started_guide',
   name: 'John Doe',
@@ -127,7 +127,7 @@ const listingProps = {
   },
 };
 const invitationProps = {
-  changePage: function() { console.log('asdf')},
+  changePage: function(path) { action("back")(path)},
   infoIcon: '<i class="ss-info"></i>',
   initialPath: '/en/admin/getting_started_guide',
   name: 'John Doe',
@@ -143,9 +143,6 @@ const onboardingDataCompleted = onboardingData
   .map( d => {
     return Object.assign({}, d, {complete: true});
   });
-
-console.log('statusPageProps', statusPageProps);
-console.log('statusPageCompletedProps', onboardingDataCompleted);
 
 // Column max-width is 732px in admin panel
 storiesOf('Onboarding guide')
