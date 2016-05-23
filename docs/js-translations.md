@@ -6,7 +6,7 @@ _The mechanism described in this document **does not work with marketplace speci
 
 ## Usage
 
-In the React component, you need to import `t` function from the `i18n` module. After that you can use all the translation keys from the `en.web.*` scope:
+In the React component, you need to import `t` function from the `utils/i18n` module. After that you can use all the translation keys from the `en.web.*` scope:
 
 ```js
 // MyReactComponent.js
