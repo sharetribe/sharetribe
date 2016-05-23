@@ -5,6 +5,7 @@ import css from './OnboardingGuide.css';
 import { t } from '../../utils/i18n';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
+import infoImage from './images/step6_addListing.jpg';
 
 const GuideListingPage = (props) => {
   const { changePage, initialPath, pageData, infoIcon } = props;
@@ -14,15 +15,13 @@ const GuideListingPage = (props) => {
     h2({ className: css.title }, t('web.admin.onboarding.guide.listing.title')),
     p({ className: css.description }, t('web.admin.onboarding.guide.listing.description')),
 
-    pageData.info_image ?
-      div({ className: css.sloganImageContainerBig }, [
-        img({
-          className: css.sloganImage,
-          src: pageData.info_image,
-          alt: t('web.admin.onboarding.guide.listing.info_image_alt'),
-        }),
-      ]) :
-      null,
+    div({ className: css.sloganImageContainerBig }, [
+      img({
+        className: css.sloganImage,
+        src: infoImage,
+        alt: t('web.admin.onboarding.guide.listing.info_image_alt'),
+      }),
+    ]),
 
     div({ className: css.infoTextContainer }, [
       div({
@@ -43,7 +42,6 @@ GuideListingPage.propTypes = {
   infoIcon: PropTypes.string.isRequired,
   pageData: PropTypes.shape({
     cta: PropTypes.string.isRequired,
-    info_image: PropTypes.string,
   }).isRequired,
 };
 
