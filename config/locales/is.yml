@@ -1765,34 +1765,34 @@ is:
     help_texts:
       feedback_description_title: Umsögn
       help_invitation_code_title: ~
-      terms_title: ~
+      terms_title: "Notendaskilmálar %{service_name}"
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
     new:
-      create_new_account: ~
-      email: ~
-      email_is_in_use: ~
+      create_new_account: "Búa til aðgang"
+      email: Netfang
+      email_is_in_use: "Netfangið er nú þegar í notkun"
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
-      family_name: ~
-      given_name: ~
-      i_accept_the: ~
+      family_name: Eftirnafn
+      given_name: Fornafn
+      i_accept_the: "Ég samþykki"
       invalid_invitation_code: ~
       invitation_code: ~
-      not_required: ~
+      not_required: ", ekki nauðsynlegt"
       notification_is_mandatory: ~
       organization_name: ~
-      password_again: ~
+      password_again: "Staðfestu lykilorð"
       show_my_name_to_others: ~
-      sign_up: ~
-      terms: ~
-      username_is_in_use: ~
-      username_is_invalid: ~
-      visible_only_to_you: ~
-      visible_to_everybody: ~
+      sign_up: "Nýskráning %{service_name}"
+      terms: notendaskilmálar
+      username_is_in_use: "Notendanafn er nú þegar í notkun."
+      username_is_invalid: "Notendanafn er ógilt. Aðeins eru leyfðir stafir, tölur og undirskor."
+      visible_only_to_you: "sjáanlegt aðeins hjá þér og stjórnanda síðunnar"
+      visible_to_everybody: "sýnilegt fyrir öllum"
       create_account_with_facebook: ~
       OR: ~
       signup_with_email: ~
@@ -1800,16 +1800,16 @@ is:
       grade: ~
       and_gave_following_feedback: ~
     profile_listings:
-      show_also_closed: ~
-      show_only_open: ~
+      show_also_closed: "Einnig að sýna lokað"
+      show_only_open: "Aðeins að sýna opið"
       no_image: ~
     show:
       contact: ~
-      about_me: ~
+      about_me: "Um mig:"
       add_description: ~
       add_location: ~
       add_phone_number: ~
-      address: ~
+      address: "Staðsetning:"
       as_expected: ~
       edit_profile_info: ~
       exceeded_expectations: ~
@@ -1860,8 +1860,8 @@ is:
     new:
       create_new_account: ~
       i_forgot_my_password: ~
-      login: ~
-      login_to_kassi: ~
+      login: "Skrá inn"
+      login_to_kassi: "Skrá inn hjá %{service_name}"
       connect_your_facebook_to_kassi: ~
       facebook_account: ~
       log_in_to_link_account: ~
@@ -1873,7 +1873,7 @@ is:
       or_sign_up_with_your_username: ~
       we_will_not_post_without_asking_you: ~
     password_forgotten:
-      email: ~
+      email: Netfang
       password_recovery_instructions: ~
       request_new_password: ~
       change_your_password: ~
