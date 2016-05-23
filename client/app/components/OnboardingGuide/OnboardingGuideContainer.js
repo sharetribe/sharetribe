@@ -17,15 +17,15 @@ OnbardingGuideContainer.propTypes = {
   railsContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
-function mapStateToProps(state) {
+const mapStateToProps = function mapStateToProps(state) {
   return {
     data: state.onboarding_guide_page,
     railsContext: state.railsContext,
   };
-}
+};
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return { actions: bindActionCreators(OnboardingGuideActions, dispatch) };
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(OnbardingGuideContainer);

@@ -5,10 +5,14 @@ var mime = require('mime');
 var path = require('path');
 
 module.exports = function (content) {
-  this.cacheable && this.cacheable();
+  if (typeof this.cacheable === 'function') {
+    this.cacheable();
+  }
+
   if (!this.emitFile) {
     throw new Error('emitFile is required from module system');
   }
+
   var query = loaderUtils.parseQuery(this.query);
   var url = loaderUtils.interpolateName(this, query.name || '[hash].[ext]', {
     context: query.context || this.options.context,
@@ -18,7 +22,7 @@ module.exports = function (content) {
 
   // url-loader functionality
   var limit = (this.options && this.options.url && this.options.url.dataUrlLimit) || 0;
-  var mimetype = query.mimetype || query.minetype || mime.lookup(this.resourcePath);
+  var mimetype = query.mimetype || mime.lookup(this.resourcePath);
   if (query.limit) {
     limit = parseInt(query.limit, 10);
   }
