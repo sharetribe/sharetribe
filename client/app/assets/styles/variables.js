@@ -43,4 +43,7 @@ module.exports = {
 
   '--widthRestriction': '550px',
   '--widthRestrictionPercentage': '90%',
+
+  '--topbarHeight': '80px',
+  '--topbarLogoHeight': '40px',
 };

@@ -1,7 +1,7 @@
 .topbar {
   display: flex;
   flex-direction: row;
-  height: 80px;
+  height: var(--topbarHeight);
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
@@ -10,5 +10,5 @@
 }
 
 .topbarLogo {
-  height: 40px;
+  height: var(--topbarLogoHeight);
 }

@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, PropTypes } from 'react';
 import r, { div } from 'r-dom';
 
 import css from './Topbar.css';
@@ -12,5 +12,9 @@ class Topbar extends Component {
     ]);
   }
 }
+
+Topbar.propTypes = {
+  logo: PropTypes.shape(Logo.propTypes).isRequired,
+};
 
 export default Topbar;
