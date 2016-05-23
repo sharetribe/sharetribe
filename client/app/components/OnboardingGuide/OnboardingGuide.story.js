@@ -139,7 +139,7 @@ const invitationProps = {
   },
 };
 
-const onboardingDataCompleted = Object.assign([], onboardingData)
+const onboardingDataCompleted = onboardingData
   .map( d => {
     return Object.assign({}, d, {complete: true});
   });
