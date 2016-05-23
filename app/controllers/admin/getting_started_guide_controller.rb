@@ -15,10 +15,6 @@ class Admin::GettingStartedGuideController < ApplicationController
   private
 
   def data
-    path_parts = request.env['PATH_INFO'].split("/getting_started_guide")
-    has_sub_path = (path_parts.count == 2 && path_parts[1] != "/")
-    sub_path = has_sub_path ? path_parts[1] : ""
-
     alternative_cta = Maybe(ListingService::API::Api.shapes.get(community_id: @current_community.id)[:data].first)
       .map { |ls| edit_admin_listing_shape_path(ls[:name]) }
       .or_else { admin_listing_shapes_path }
@@ -56,8 +52,6 @@ class Admin::GettingStartedGuideController < ApplicationController
 
     # This is the props used by the React component.
     { onboarding_guide_page: {
-        path: sub_path,
-        original_path: request.env['PATH_INFO'],
         onboarding_data: sorted_steps,
         name: PersonViewUtils.person_display_name(@current_user, @current_community),
         info_icon: icon_tag("information"),

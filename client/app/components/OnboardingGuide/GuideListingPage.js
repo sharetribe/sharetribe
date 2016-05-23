@@ -8,10 +8,10 @@ import GuideBackToTodoLink from './GuideBackToTodoLink';
 import infoImage from './images/step6_addListing.jpg';
 
 const GuideListingPage = (props) => {
-  const { changePage, initialPath, pageData, infoIcon } = props;
+  const { changePage, pageData, infoIcon } = props;
 
   return div({ className: 'container' }, [
-    r(GuideBackToTodoLink, { changePage, initialPath }),
+    r(GuideBackToTodoLink, { changePage }),
     h2({ className: css.title }, t('web.admin.onboarding.guide.listing.title')),
     p({ className: css.description }, t('web.admin.onboarding.guide.listing.description')),
 
@@ -38,7 +38,6 @@ const GuideListingPage = (props) => {
 
 GuideListingPage.propTypes = {
   changePage: PropTypes.func.isRequired,
-  initialPath: PropTypes.string.isRequired,
   infoIcon: PropTypes.string.isRequired,
   pageData: PropTypes.shape({
     cta: PropTypes.string.isRequired,

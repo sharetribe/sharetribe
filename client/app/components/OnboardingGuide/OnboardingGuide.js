@@ -10,6 +10,7 @@ import GuidePaypalPage from './GuidePaypalPage';
 import GuideListingPage from './GuideListingPage';
 import GuideInvitationPage from './GuideInvitationPage';
 import { t } from '../../utils/i18n';
+import { Routes } from '../../utils/routes';
 
 const { shape, string, arrayOf, bool, oneOf, func, object } = PropTypes;
 
@@ -17,22 +18,20 @@ const { shape, string, arrayOf, bool, oneOf, func, object } = PropTypes;
 // Returns object (including child component) based on props.data & nextStep
 const selectChild = function selectChild(data, nextStep) {
   const { path, onboarding_data } = data;
-  const pageData = (path.length > 0) ?
-    _.find(onboarding_data, (pd) => pd.sub_path === path.substring(1)) :
-    {};
+  const pageData = _.find(onboarding_data, (pd) => pd.sub_path === path) || {};
 
   switch (path) {
-    case '/slogan_and_description':
+    case 'slogan_and_description':
       return { Page: GuideSloganAndDescriptionPage, pageData };
-    case '/cover_photo':
+    case 'cover_photo':
       return { Page: GuideCoverPhotoPage, pageData };
-    case '/filter':
+    case 'filter':
       return { Page: GuideFilterPage, pageData };
-    case '/paypal':
+    case 'paypal':
       return { Page: GuidePaypalPage, pageData };
-    case '/listing':
+    case 'listing':
       return { Page: GuideListingPage, pageData };
-    case '/invitation':
+    case 'invitation':
       return { Page: GuideInvitationPage, pageData };
     default:
       return { Page: GuideStatusPage, onboarding_data, nextStep };
@@ -62,12 +61,7 @@ const nextStep = function nextStep(data) {
   }
 };
 
-// getPaths: initial path containing given pathFragment & relative (deeper) path
-const getPaths = function getPaths(props, pathFragment) {
-  const pathParts = props.data.original_path.split(pathFragment);
-  const initialPath = pathParts[0] + pathFragment;
-  return { initialPath, componentSubPath: pathParts[1] };
-};
+const guideRoot = Routes.admin_getting_started_guide_path();
 
 class OnboardingGuide extends React.Component {
 
@@ -78,18 +72,17 @@ class OnboardingGuide extends React.Component {
     this.handlePopstate = this.handlePopstate.bind(this);
     this.handlePageChange = this.handlePageChange.bind(this);
 
-    const paths = getPaths(props, 'getting_started_guide');
-    this.initialPath = paths.initialPath;
-    this.componentSubPath = paths.componentSubPath;
-
     // Figure out the next step. I.e. what is the action we recommend for admins
     this.nextStep = nextStep(this.props.data.onboarding_data);
 
     // Add current path to window.history. Initially it contains null as a state
+    const componentSubPath = this.props.railsContext.pathname.replace(guideRoot, "");
     this.setPushState(
-      { path: this.componentSubPath },
-      this.componentSubPath,
-      this.componentSubPath);
+      { path: componentSubPath },
+      componentSubPath,
+      componentSubPath);
+
+    this.props.data.path = componentSubPath;
   }
 
   componentDidMount() {
@@ -117,7 +110,7 @@ class OnboardingGuide extends React.Component {
                                 history.pushState);
 
     if (canUseDOM && canUsePushState) {
-      window.history.pushState(state, title, `${this.initialPath}${path}`);
+      window.history.pushState(state, title, `${guideRoot}${path}`);
     }
   }
 
@@ -140,7 +133,6 @@ class OnboardingGuide extends React.Component {
     const { Page, ...opts } = selectChild(this.props.data, this.nextStep);
     return r(Page, {
       changePage: this.handlePageChange,
-      initialPath: this.initialPath,
       name: this.props.data.name,
       infoIcon: this.props.data.info_icon,
       ...opts,
@@ -154,8 +146,6 @@ OnboardingGuide.propTypes = {
   }).isRequired,
   railsContext: object.isRequired, // eslint-disable-line react/forbid-prop-types
   data: shape({
-    path: string.isRequired,
-    original_path: string.isRequired,
     pathHistoryForward: bool,
     name: string.isRequired,
     info_icon: string.isRequired,

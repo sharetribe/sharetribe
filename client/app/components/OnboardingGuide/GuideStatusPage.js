@@ -1,8 +1,11 @@
 import { PropTypes } from 'react';
 import { div, p, h2, hr, ul, li, span, a } from 'r-dom';
 import { t } from '../../utils/i18n';
+import { Routes } from '../../utils/routes';
 
 import css from './OnboardingGuide.css';
+
+const guideRoot = Routes.admin_getting_started_guide_path();
 
 const GuideStatusPage = (props) => {
   const handleClick = function handleClick(e, path) {
@@ -84,8 +87,8 @@ const GuideStatusPage = (props) => {
       return li({ className: stepListItem, key }, [
         a({
           className: css.stepListLink,
-          onClick: (e) => handleClick(e, `/${step.sub_path}`),
-          href: `${props.initialPath}/${step.sub_path}`,
+          onClick: (e) => handleClick(e, `${step.sub_path}`),
+          href: `${guideRoot}${step.sub_path}`,
         }, [
           span({ className: css.stepListCheckbox }),
           t(titles[key]),
@@ -96,8 +99,8 @@ const GuideStatusPage = (props) => {
     props.nextStep ?
       a({
         className: css.nextButton,
-        href: `${props.initialPath}/${props.nextStep.link}`,
-        onClick: (e) => handleClick(e, `/${props.nextStep.link}`),
+        href: `${guideRoot}${props.nextStep.link}`,
+        onClick: (e) => handleClick(e, `${props.nextStep.link}`),
       }, props.nextStep.title) :
       null,
   ]);
@@ -107,7 +110,6 @@ const { func, string, oneOf, shape, arrayOf, bool } = PropTypes;
 
 GuideStatusPage.propTypes = {
   changePage: func.isRequired,
-  initialPath: string.isRequired,
   name: string.isRequired,
   infoIcon: string.isRequired,
   nextStep: shape({

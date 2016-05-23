@@ -10,10 +10,10 @@ const COVER_PHOTO_WIDTH = 1920;
 const COVER_PHOTO_HEIGHT = 450;
 
 const GuideCoverPhotoPage = (props) => {
-  const { changePage, initialPath, pageData, infoIcon } = props;
+  const { changePage, pageData, infoIcon } = props;
 
   return div({ className: 'container' }, [
-    r(GuideBackToTodoLink, { changePage, initialPath }),
+    r(GuideBackToTodoLink, { changePage }),
     h2({ className: css.title }, t('web.admin.onboarding.guide.cover_photo.title')),
     p({ className: css.description }, t('web.admin.onboarding.guide.cover_photo.description')),
 
@@ -52,7 +52,6 @@ const GuideCoverPhotoPage = (props) => {
 
 GuideCoverPhotoPage.propTypes = {
   changePage: PropTypes.func.isRequired,
-  initialPath: PropTypes.string.isRequired,
   infoIcon: PropTypes.string.isRequired,
   pageData: PropTypes.shape({
     cta: PropTypes.string.isRequired,
