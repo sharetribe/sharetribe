@@ -1,0 +1,14 @@
+.topbar {
+  display: flex;
+  flex-direction: row;
+  height: var(--topbarHeight);
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--colorBackground);
+  border-bottom: 1px solid rgba(0, 0, 50, 0.1);
+}
+
+.topbarLogo {
+  height: var(--topbarLogoHeight);
+}
