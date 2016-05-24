@@ -1225,6 +1225,10 @@ en:
   layouts:
     admin:
       admin: "%{service_name} admin panel"
+    branding:
+      powered_by: "%{service_name} is powered by the %{sharetribe_link} marketplace platform."
+      create_own: "Want to create your own online marketplace website like %{service_name}? %{learn_more}"
+      learn_more: "Learn more."
     no_tribe:
       inbox: Inbox
       settings: Settings

@@ -625,6 +625,11 @@ class ApplicationController < ActionController::Base
     logger.add_metadata(metadata)
   end
 
+  def display_branding_info?
+    !PlanService::API::Api.plans.get_current(community_id: @current_community.id).data[:features][:whitelabel]
+  end
+  helper_method :display_branding_info?
+
   def display_onboarding_topbar?
     # Don't show if user is not logged in
     return false unless @current_user
