@@ -1,5 +1,5 @@
 import { PropTypes } from 'react';
-import r, { div, h2, p, img, a, br } from 'r-dom';
+import r, { div, h2, p, img, a, br, span } from 'r-dom';
 import css from './OnboardingGuide.css';
 import { t } from '../../utils/i18n';
 
@@ -34,13 +34,15 @@ const GuideCoverPhotoPage = (props) => {
       div({
         className: css.infoTextContent,
       }, [
-        t('web.admin.onboarding.guide.cover_photo.advice.content1',
-          { link: a({
-            href: 'http://support.sharetribe.com/knowledgebase/articles/744438',
-            target: '_blank',
-            rel: 'noreferrer',
-            alt: t('web.admin.onboarding.guide.cover_photo.advice.alt'),
-          }, t('web.admin.onboarding.guide.cover_photo.advice.link')) }),
+        span(
+          t('web.admin.onboarding.guide.cover_photo.advice.content1',
+            { link: a({
+              href: 'http://support.sharetribe.com/knowledgebase/articles/744438',
+              target: '_blank',
+              rel: 'noreferrer',
+              alt: t('web.admin.onboarding.guide.cover_photo.advice.alt'),
+            }, t('web.admin.onboarding.guide.cover_photo.advice.link')) }))
+        ,
         br(),
         t('web.admin.onboarding.guide.cover_photo.advice.content2', { width: COVER_PHOTO_WIDTH, height: COVER_PHOTO_HEIGHT }),
       ]),
