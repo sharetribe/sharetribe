@@ -15,9 +15,7 @@ class Admin::GettingStartedGuideController < ApplicationController
   private
 
   def data
-    alternative_cta = Maybe(ListingService::API::Api.shapes.get(community_id: @current_community.id)[:data].first)
-      .map { |ls| edit_admin_listing_shape_path(ls[:name]) }
-      .or_else { admin_listing_shapes_path }
+    listing_shape_name = ListingService::API::Api.shapes.get(community_id: @current_community.id).data.first[:name]
 
     onboarding_status = Admin::OnboardingWizard.new(@current_community.id).setup_status
     links = {
@@ -31,20 +29,18 @@ class Admin::GettingStartedGuideController < ApplicationController
       },
       filter: {
         sub_path: 'filter',
-        cta: admin_custom_fields_path,
       },
       paypal: {
         sub_path: 'paypal',
-        cta: admin_paypal_preferences_path,
-        alternative_cta: alternative_cta,
+        additional_info: {
+          listing_shape_name: listing_shape_name
+        }
       },
       listing: {
         sub_path: 'listing',
-        cta: new_listing_path,
       },
       invitation: {
         sub_path: 'invitation',
-        cta: new_invitation_path,
       }
     }
 

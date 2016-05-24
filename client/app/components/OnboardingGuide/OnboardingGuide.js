@@ -161,8 +161,8 @@ OnboardingGuide.propTypes = {
           'all_done',
         ]).isRequired,
         cta: string.isRequired,
-        alternative_cta: string,
         complete: bool.isRequired,
+        additional_info: object
       }).isRequired
     ).isRequired,
   }).isRequired,

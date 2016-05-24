@@ -2,6 +2,7 @@ import { PropTypes } from 'react';
 import r, { div, h2, p, img, a, span } from 'r-dom';
 import css from './OnboardingGuide.css';
 import { t } from '../../utils/i18n';
+import { Routes } from '../../utils/routes';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
 import infoImage from './images/step5_screenshot_paypal@2x.png';
@@ -40,19 +41,24 @@ const GuidePaypalPage = (props) => {
     ]),
 
     div(null, [
-      a({ className: css.nextButton, href: pageData.cta }, t('web.admin.onboarding.guide.paypal.setup_payments')),
+      a({ className: css.nextButton, href: Routes.admin_paypal_preferences_path() }, t('web.admin.onboarding.guide.paypal.setup_payments')),
       span({ className: css.buttonSeparator }, t('web.admin.onboarding.guide.paypal.cta_separator')),
-      a({ className: css.nextButtonGhost, href: pageData.alternative_cta }, t('web.admin.onboarding.guide.paypal.disable_payments')),
+      a({ className: css.nextButtonGhost, href: Routes.edit_admin_listing_shape_path(pageData.additional_info.listing_shape_name) }, t('web.admin.onboarding.guide.paypal.disable_payments')),
     ]),
   ]);
 };
 
+const { func, string, shape } = PropTypes;
+
 GuidePaypalPage.propTypes = {
   changePage: PropTypes.func.isRequired,
   infoIcon: PropTypes.string.isRequired,
-  pageData: PropTypes.shape({
-    cta: PropTypes.string.isRequired,
-    alternative_cta: PropTypes.string.isRequired,
+  changePage: func.isRequired,
+  infoIcon: string.isRequired,
+  pageData: shape({
+    additional_info: shape({
+      listing_shape_name: string,
+    }).isRequired
   }).isRequired,
 };
 
