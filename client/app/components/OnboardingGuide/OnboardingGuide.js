@@ -76,7 +76,7 @@ class OnboardingGuide extends React.Component {
     this.nextStep = nextStep(this.props.data.onboarding_data);
 
     // Add current path to window.history. Initially it contains null as a state
-    const componentSubPath = this.props.railsContext.pathname.replace(guideRoot, "");
+    const componentSubPath = this.props.railsContext.pathname.replace(guideRoot, '');
     this.setPushState(
       { path: componentSubPath },
       componentSubPath,
