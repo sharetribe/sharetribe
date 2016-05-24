@@ -20,6 +20,16 @@ module.exports = function (content) {
     regExp: query.regExp
   });
 
+  var resolveAssetHost = function resolveAssetHost(assetHost) {
+    // asset_host can point to several asset servers at CDN
+    // they are numbered from 0 to 3
+    if (assetHost.indexOf('%d') > 0) {
+      var random0to3 = Math.floor(Math.random() * 4);
+      return assetHost.replace('%d', random0to3);
+    }
+    return assetHost;
+  };
+
   // url-loader functionality
   var limit = (this.options && this.options.url && this.options.url.dataUrlLimit) || 0;
   var mimetype = query.mimetype || mime.lookup(this.resourcePath);
@@ -50,7 +60,7 @@ module.exports = function (content) {
         });
       }
     });
-    return 'module.exports = ' + JSON.stringify('//' + query.asset_host + '/webpack/' + url) + ';';
+    return 'module.exports = ' + JSON.stringify('//' + resolveAssetHost(query.asset_host) + '/webpack/' + url) + ';';
   }
 
   // Emit file if images are big and no asset_host (CDN) is given.
