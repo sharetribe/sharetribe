@@ -27,19 +27,13 @@ module PlanService::API
       @log_target ||= build_log_target
     end
 
-    def self.reset!
-      @plans = nil
-      @logger = nil
-      @log_target = nil
-    end
-
     def self.environment()
       @env || default_test_environment
     end
 
     def self.default_test_environment()
       {
-        active: true,
+        active: false,
         jwt_secret: "test_secret",
         external_plan_service_login_url: "http://external.plan.service.com",
       }
