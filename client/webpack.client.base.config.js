@@ -12,7 +12,6 @@ const cssVariables = require('./app/assets/styles/variables');
 
 const devBuild = process.env.NODE_ENV !== 'production';
 const nodeEnv = devBuild ? 'development' : 'production';
-const assetHost = typeof process.env.asset_host === 'string' ? `&asset_host=${process.env.asset_host}` : '';
 
 module.exports = {
   context: __dirname,
@@ -60,7 +59,7 @@ module.exports = {
     loaders: [
       { test: /\.(woff2?|svg)$/, loader: 'url?limit=10000' },
       { test: /\.(ttf|eot)$/, loader: 'file' },
-      { test: /\.(jpe?g|png|gif|svg|ico)$/, loader: `customfile-loader?limit=10000&name=[name]-[hash].[ext]${assetHost}` },
+      { test: /\.(jpe?g|png|gif|svg|ico)$/, loader: 'url?limit=10000' },
     ],
   },
   postcss: [

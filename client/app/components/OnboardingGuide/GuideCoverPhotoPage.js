@@ -4,7 +4,6 @@ import css from './OnboardingGuide.css';
 import { t } from '../../utils/i18n';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
-import infoImage from './images/step3_coverPhoto.jpg';
 
 const COVER_PHOTO_WIDTH = 1920;
 const COVER_PHOTO_HEIGHT = 450;
@@ -17,13 +16,15 @@ const GuideCoverPhotoPage = (props) => {
     h2({ className: css.title }, t('web.admin.onboarding.guide.cover_photo.title')),
     p({ className: css.description }, t('web.admin.onboarding.guide.cover_photo.description')),
 
-    div({ className: css.sloganImageContainer }, [
-      img({
-        className: css.sloganImage,
-        src: infoImage,
-        alt: t('web.admin.onboarding.guide.cover_photo.info_image_alt'),
-      }),
-    ]),
+    pageData.info_image ?
+      div({ className: css.sloganImageContainer }, [
+        img({
+          className: css.sloganImage,
+          src: pageData.info_image,
+          alt: t('web.admin.onboarding.guide.cover_photo.info_image_alt'),
+        }),
+      ]) :
+      null,
 
     div({ className: css.infoTextContainer }, [
       div({
@@ -40,7 +41,8 @@ const GuideCoverPhotoPage = (props) => {
               target: '_blank',
               rel: 'noreferrer',
               alt: t('web.admin.onboarding.guide.cover_photo.advice.alt'),
-            }, t('web.admin.onboarding.guide.cover_photo.advice.link')) })),
+            }, t('web.admin.onboarding.guide.cover_photo.advice.link')) }))
+        ,
         br(),
         t('web.admin.onboarding.guide.cover_photo.advice.content2', { width: COVER_PHOTO_WIDTH, height: COVER_PHOTO_HEIGHT }),
       ]),
@@ -56,6 +58,7 @@ GuideCoverPhotoPage.propTypes = {
   infoIcon: PropTypes.string.isRequired,
   pageData: PropTypes.shape({
     cta: PropTypes.string.isRequired,
+    info_image: PropTypes.string,
   }).isRequired,
 };
 

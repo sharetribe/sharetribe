@@ -170,6 +170,7 @@ OnboardingGuide.propTypes = {
           'invitation',
           'all_done',
         ]).isRequired,
+        info_image: string,
         cta: string.isRequired,
         alternative_cta: string,
         complete: bool.isRequired,
