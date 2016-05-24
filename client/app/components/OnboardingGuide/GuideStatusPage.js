@@ -124,7 +124,6 @@ GuideStatusPage.propTypes = {
       'invitation',
       'all_done',
     ]),
-    info_image: string,
     cta: string,
     complete: bool.isRequired,
   })).isRequired,
