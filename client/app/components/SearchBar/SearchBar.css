@@ -1,0 +1,153 @@
+.root {
+  display: inline-flex;
+  width: 28.3em;
+  position: relative;
+  padding-left: var(--SearchBar_sidePadding);
+
+  &:hover .focusContainer::before {
+    border-color: var(--SearchBar_borderColorActive);
+  }
+
+  /* When any child element of this form has focus, hilight the whole
+     form using a pseudo element. See: http://stackoverflow.com/a/11167056 */
+  & > *:focus ~ .focusContainer::before {
+    border-color: var(--SearchBar_borderColorActive);
+  }
+}
+
+/* Since we cannot apply focus styles straight to the form when
+   anything within it has focus, we have to create a special container
+   for the focus styles to cover the whole form area. */
+.focusContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid var(--SearchBar_borderColor);
+  border-radius: 10em; /* Big enough to be fully rounded */
+  z-index: var(--SearchBar_focusContainerZIndex); /* Required to allow mouse event to the inputs/buttons. */
+  transition: border-color 0.1s ease-in;
+}
+
+.keywordInput,
+.locationInput {
+  margin: var(--SearchBar_textPadding) 0 var(--SearchBar_textPadding) 0;
+  padding: 0;
+  line-height: var(--SearchBar_lineHeight);
+  border: none;
+  color: var(--SearchBar_textColor);
+  transition: color 0.1s ease-in;
+  font-weight: var(--SearchBar_inputFontWeight);
+  z-index: var(--SearchBar_childZIndex);
+
+  -webkit-font-smoothing: antialiased;
+
+  &::placeholder {
+    color: var(--SearchBar_textColor);
+    transition: color 0.1s ease-in;
+  }
+
+  @nest .root:hover & {
+    color: var(--SearchBar_textColorActive);
+
+    &::placeholder {
+      color: var(--SearchBar_textColorActive);
+    }
+
+    &:focus {
+      /* focus color should override the active color */
+      color: var(--SearchBar_textColorFocus);
+    }
+  }
+
+  &:focus {
+    outline: none;
+    color: var(--SearchBar_textColorFocus);
+
+    /* Trigger focus styles for the search icon SVG when these inputs have focus. */
+    & ~ .searchButton svg {
+      stroke: var(--SearchBar_iconColorActive);
+    }
+  }
+}
+
+.keywordInput {
+  width: var(--SearchBar_keywordInputWidth);
+  padding-right: calc(2 * var(--SearchBar_textPadding));
+  transition: width 0.25s ease-out;
+
+  &:focus {
+    width: var(--SearchBar_keywordInputFocusWidth);
+
+    & ~ .locationInput {
+      width: calc(100% - var(--SearchBar_keywordInputFocusWidth));
+    }
+  }
+}
+
+.locationInput {
+  width: calc(100% - var(--SearchBar_keywordInputWidth));
+}
+
+input:only-of-type {
+  width: 100%;
+  padding: 0;
+  margin-right: var(--SearchBar_inputButtonMargin);
+
+  &:focus {
+    width: 100%;
+  }
+}
+
+/* Additional separating styles are added only when the two inputs are
+   next to each other. */
+.keywordInput + .locationInput {
+  border-left: 1px solid var(--SearchBar_borderColor);
+  padding-left: calc(2 * var(--SearchBar_textPadding));
+  margin-right: var(--SearchBar_inputButtonMargin);
+}
+
+.searchButton {
+  /* Position absolutely instead of in the flexbox to avoid animation jank. */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0 var(--SearchBar_sidePadding);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: var(--SearchBar_childZIndex);
+
+  & svg {
+    line-height: 1;
+    width: 1em;
+    height: 1em;
+    stroke: var(--SearchBar_iconColor);
+    transition: stroke 0.1s ease-in;
+
+    @nest .root:hover & {
+      stroke: var(--SearchBar_iconColorActive);
+
+      &:hover {
+        stroke: var(--SearchBar_iconColorFocus);
+      }
+    }
+  }
+
+  @nest .root:hover &:hover svg {
+    stroke: var(--SearchBar_iconColorFocus);
+  }
+
+  &:focus {
+    outline: none;
+
+    & svg {
+      stroke: var(--SearchBar_iconColorFocus);
+      outline: 1px solid var(--SearchBar_borderColor);
+    }
+  }
+}

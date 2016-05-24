@@ -46,4 +46,26 @@ module.exports = {
 
   '--topbarHeight': '80px',
   '--topbarLogoHeight': '40px',
+  '--topbarFontFamily': "'Proxima Nova Soft', Helvetica, sans",
+  '--topbarFontSize': '14px',
+
+  // SearchBar
+  '--SearchBar_width': '24em',
+  '--SearchBar_borderColor': 'rgba(169, 172, 176, 0.5)',
+  '--SearchBar_borderColorActive': 'rgb(122, 125, 128)',
+  '--SearchBar_textColor': 'rgb(122, 125, 128)',
+  '--SearchBar_textColorActive': 'rgb(82, 89, 97)',
+  '--SearchBar_textColorFocus': 'rgb(28, 30, 33)',
+  '--SearchBar_iconColor': 'rgb(122, 125, 128)',
+  '--SearchBar_iconColorActive': 'rgb(82, 89, 97)',
+  '--SearchBar_iconColorFocus': 'rgb(28, 30, 33)',
+  '--SearchBar_lineHeight': '1.8',
+  '--SearchBar_textPadding': '0.7em',
+  '--SearchBar_sidePadding': '1.4em',
+  '--SearchBar_inputButtonMargin': '3.8em',
+  '--SearchBar_inputFontWeight': '500',
+  '--SearchBar_keywordInputWidth': '63%',
+  '--SearchBar_keywordInputFocusWidth': '78%',
+  '--SearchBar_focusContainerZIndex': '0',
+  '--SearchBar_childZIndex': '1',
 };

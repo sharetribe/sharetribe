@@ -7,6 +7,37 @@
   align-items: center;
   background: var(--colorBackground);
   border-bottom: 1px solid rgba(0, 0, 50, 0.1);
+
+  /* Base styles */
+  box-sizing: border-box;
+
+  & input[type='search'] {
+    -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+    }
+  }
+
+  & form,
+  & input,
+  & button,
+  & svg {
+    box-sizing: border-box;
+    font-family: var(--topbarFontFamily);
+    font-size: var(--topbarFontSize);
+  }
+
+  & button {
+    line-height: 1;
+
+    &:hover {
+      background: none;
+    }
+  }
 }
 
 .topbarLogo {
