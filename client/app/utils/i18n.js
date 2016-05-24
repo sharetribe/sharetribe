@@ -16,9 +16,9 @@
 import { span } from 'r-dom';
 import { bind } from 'lodash';
 
-const isServer = function isServer() {
+function isServer() {
   return typeof window === 'undefined';
-};
+}
 
 if (isServer()) {
 
@@ -44,11 +44,11 @@ if (isServer()) {
 // library can use the existing I18n object
 const I18n = require('i18n-js');
 
-const missingTranslationMessage = function missingTranslationMessage(scope) {
+function missingTranslationMessage(scope) {
   return `[missing "${scope}" translation]`;
-};
+}
 
-const initialize = function initialize(railsContext, env) {
+function initialize(railsContext, env) {
   I18n.locale = railsContext.i18nLocale;
   I18n.defaultLocale = railsContext.i18nDefaultLocale;
   I18n.interpolationMode = 'split';
@@ -75,7 +75,7 @@ const initialize = function initialize(railsContext, env) {
       return (this.missingTranslationPrefix.length > 0 ? this.missingTranslationPrefix : '') + uppercasedGuess;
     };
   }
-};
+}
 
 // Bind functions to I18n
 const translate = bind(I18n.translate, I18n);

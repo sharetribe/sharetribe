@@ -6,7 +6,6 @@ Promise.polyfill();
 const webpack = require('webpack');
 const devBuild = process.env.NODE_ENV !== 'production';
 const nodeEnv = devBuild ? 'development' : 'production';
-const assetHost = typeof process.env.asset_host === 'string' ? `&asset_host=${process.env.asset_host}` : '';
 
 module.exports = {
   context: __dirname,
@@ -17,7 +16,6 @@ module.exports = {
   output: {
     filename: 'server-bundle.js',
     path: '../app/assets/webpack',
-    publicPath: '/assets/',
   },
   resolve: {
     extensions: ['', '.js'],
@@ -42,10 +40,6 @@ module.exports = {
           'css-loader/locals?modules&importLoaders=0&localIdentName=[name]__[local]__[hash:base64:5]',
           'postcss-loader',
         ],
-      },
-      {
-        test: /\.(jpe?g|png|gif|svg|ico)$/,
-        loader: `customfile-loader?limit=10000&name=[name]-[hash].[ext]${assetHost}`,
       },
     ],
   },

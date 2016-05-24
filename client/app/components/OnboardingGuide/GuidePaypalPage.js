@@ -4,7 +4,6 @@ import css from './OnboardingGuide.css';
 import { t } from '../../utils/i18n';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
-import infoImage from './images/step5_screenshot_paypal@2x.png';
 
 const GuidePaypalPage = (props) => {
   const { changePage, initialPath, pageData, infoIcon } = props;
@@ -15,13 +14,15 @@ const GuidePaypalPage = (props) => {
     p({ className: css.description }, t('web.admin.onboarding.guide.paypal.description_p1')),
     p({ className: css.description }, t('web.admin.onboarding.guide.paypal.description_p2')),
 
-    div({ className: css.sloganImageContainer }, [
-      img({
-        className: css.sloganImage,
-        src: infoImage,
-        alt: t('web.admin.onboarding.guide.paypal.info_image_alt'),
-      }),
-    ]),
+    pageData.info_image ?
+      div({ className: css.sloganImageContainer }, [
+        img({
+          className: css.sloganImage,
+          src: pageData.info_image,
+          alt: t('web.admin.onboarding.guide.paypal.info_image_alt'),
+        }),
+      ]) :
+      null,
 
     div({ className: css.infoTextContainer }, [
       div({
@@ -54,6 +55,7 @@ GuidePaypalPage.propTypes = {
   pageData: PropTypes.shape({
     cta: PropTypes.string.isRequired,
     alternative_cta: PropTypes.string.isRequired,
+    info_image: PropTypes.string,
   }).isRequired,
 };
 
