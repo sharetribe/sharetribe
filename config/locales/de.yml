@@ -405,7 +405,7 @@ de:
       emails_title: E-Mails
       support: Support
       subscription: Abonnement
-      preview: "Vorschau meiner Seite anzeigen"
+      preview: "Seitenvorschau anzeigen"
     listing_shapes:
       index:
         listing_shapes: Auftragsarten
@@ -421,8 +421,8 @@ de:
           listing_shape_categories: "Kategorien wo es verwendet wird"
         order:
           saving_order: Speicherreihenfolge
-          save_order_successful: "Erfolgreich gespeicherte Bestellung"
-          save_order_error: "Beim Speichern der Bestellung ist ein Fehler aufgetreten. Bitte aktualisiere die Seite und versuche es erneut."
+          save_order_successful: "Reihenfolge der Auftragsarten erfolgreich gespeichert"
+          save_order_error: "Beim Speichern der Reihenfolge ist ein Fehler aufgetreten. Bitte aktualisiere die Seite und versuche es erneut."
       templates:
         selling_products: "Verkauf von Produkten"
         renting_products: "Vermietung von Produkten"
@@ -465,9 +465,9 @@ de:
       successfully_closed: "Inserate erfolgreich geschlossen."
       successfully_deleted: "Auftragsart '%{order_type}' erfolgreich gelöscht"
       pricing_and_checkout_title: "Preise & Kasse"
-      online_payments_label: "Verwende Online-Zahlungssystem"
+      online_payments_label: "Erlaube den Verkäufern, Online-Zahlungen entgegenzunehmen"
       shipping_label: "Den Verkäufern erlauben, Versandkosten festzulegen"
-      price_label: "Preisfeld anzeigen"
+      price_label: "Erlaube den Verkäufern, ein Preis für ihre Einträge festzustellen"
       units_title: Preiseinheiten
       units_desc: "Wenn Du Preiseinheiten aktiviert hast, wird der Eintagspreis als \"Preis pro Preiseinheit\" angezeigt. Beispiel: \"39 € pro Stunde\"."
       units:
@@ -497,7 +497,7 @@ de:
       marketplace_currency_used: "Dieser Marktplatz nutzt %{currency} als Währung. Um die Währungseinstellung zu ändern, %{contact_support_link}"
       contact_support_link_text: "kontaktiere den Sharetribe Support"
       integration_info_text: "Bezahlungen auf Sharetribe sind durch PayPal durchgeleitet. Um deinen Kunden die Bezahlung auf Ihrem Marktplatz zu ermöglichen müssen Sie Ihr PayPal-Konto verbinden. Nachdem Sie Ihr PayPal-Konto verbunden haben, können Sie den Mindestbetrag einer Transaktion einrichten sowie eine mögliche Vermittlungsgebühr."
-      link_paypal_personal_account_label: "Verkaufst Du selbst Produkte?"
+      link_paypal_personal_account_label: "Bietest du selbst Produkte oder Dienstleistungen an?"
       link_paypal_personal_account: "Wenn ja, dann musst Du auch Dein PayPal Konto mit %{personal_payment_preferences_link} verbinden."
       personal_payment_preferences_link_text: "Deinem Konto"
       read_more_about_paypal: "Mehr über das Shartetribe Zahlungssystem hier lesen."
@@ -1378,7 +1378,7 @@ de:
       you_must_log_in_to_invite_new_users: "Du musst dich anmelden, um neue Benutzer zu %{service_name} einzuladen"
       you_must_log_in_to_send_a_comment: "Du musst dich anmelden, um einen neuen Kommentar abzugeben"
       you_must_log_in_to_send_a_message: "Du musst dich bei %{service_name} anmelden, um eine Nachricht an einen anderen Benutzer zu senden."
-      you_must_log_in_to_do_a_transaction: "Du musst Dich bei %{service_name} anmelden, um eine Transaktion durchzuführen."
+      you_must_log_in_to_do_a_transaction: "Du musst dich bei %{service_name} anmelden, um eine Transaktion durchzuführen."
       you_must_log_in_to_view_this_content: "Du musst dich anmelden, um diesen Inhalt sehen zu können"
       you_must_log_in_to_view_this_page: "Du musst dich anmelden, um diese Seite sehen zu können"
       you_must_log_in_to_view_your_inbox: "Du musst dich bei %{service_name} anmelden, um deinen Posteingang sehen zu können."
@@ -1404,7 +1404,7 @@ de:
         zero: "Die Webseite geht nun offline für Wartungsarbeiten."
         one: "Die Webseite geht offline für Wartungsarbeiten in %{count} Minute."
         other: "Die Webseite geht offline für Wartungsarbeiten in %{count} Minuten."
-      automatically_logged_out_please_sign_in: "Du wurdest automatisch ausgeloggt. Bitte melde Dich erneut an."
+      automatically_logged_out_please_sign_in: "Du wurdest automatisch ausgeloggt. Bitte melde dich erneut an."
     settings:
       account: Konto
       notifications: Benachrichtigungen
@@ -1475,7 +1475,7 @@ de:
         googlemap_updatemap: "Karte aktualisieren"
       images:
         image: Bild
-        best_result: "Für eine optimale Darstellung lade Bilder im JPEG, GIF oder PNG Format mit des Maßen %{width}x%{height} Pixel hoch"
+        best_result: "Für eine optimale Darstellung lade Bilder im JPEG, GIF oder PNG Format mit den Maßen %{width}x%{height} Pixel hoch"
         no_file_selected: "Keine Datei ausgewählt"
         remove_image: "Bild entfernen"
         select_file: "Datei wählen"
@@ -1484,14 +1484,14 @@ de:
         processing: "Wird bearbeitet..."
         loading_image: Lädt...
         image_uploading_in_progress: "Bilder werden hochgeladen..."
-        processing_takes_a_while: "Alle Bilder wurden erfolgreich hochgeladen! Es dauert nun ein wenig, bis die Bilder verarbeitet sind, aber das Sichern des Eintrags und Weiterarbeiten ist problemlos möglich."
+        processing_takes_a_while: "Alle Bilder wurden erfolgreich hochgeladen! Es dauert nun ein wenig, bis die Bilder verarbeitet sind, aber du kannst schon den Eintrag speichern und weiterarbeiten."
         this_may_take_a_while: "(dies kann eine Weile dauern)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Bild hochladen fehlgeschlagen"
         image_processing_failed: "Bildverarbeitung fehlgeschlagen"
         file_too_large: "Die Datei ist zu groß"
         accepted_formats: "Die Bilddatei muss entweder im GIF-, JPG- oder PNG-Format vorliegen."
-        images_not_uploaded_confirm: "Es sind noch nicht alle Bilder hochgeladen. Möchtest Du wirklich fortfahren?"
+        images_not_uploaded_confirm: "Es sind noch nicht alle Bilder hochgeladen. Möchtest du wirklich fortfahren?"
       location:
         location: Standort
       price:
@@ -1771,12 +1771,12 @@ de:
       billing_agreement_not_accepted: "Du hast die Zahlungsvereinbarung von PayPal nicht akzeptiert."
       billing_agreement_wrong_account: "Die PayPal-Konten stimmen nicht überein. Bitte benutze das gleiche PayPal-Konto, das Du im ersten Schritt verbunden hast."
       something_went_wrong: "Da lief was falsch. Bitte versuche es erneut. Wenn das Problem weiterhin besteht, kontaktiere bitte den Website-Administrator."
-      account_not_verified: "Du hast Dein PayPal-Konto nicht verifiziert. Du musst Dein Konto bei paypal.com überprüfen und betätigen, bevor Du fortfahren kannst."
+      account_not_verified: "Du hast dein PayPal-Konto nicht verifiziert. Du musst dein Konto bei paypal.com überprüfen und bestätigen, bevor du fortfahren kannst."
       account_restricted: "Dein PayPal-Konto ist eingeschränkt und kann nicht verbunden werden. Bitte melde dich bei paypal.com an, um mehr darüber zu erfahren, was das bedeutet oder nimm Kontakt mit dem PayPal Kundendienstauf, um das Problem zu lösen."
     paypal_account_connected_title: "PayPal Konto verbunden"
     paypal_account_connected: "Das PayPal Konto <%{email}> wurde mit %{service_name} verbunden."
-    change_account: "Konto ändern"
-    missing: "Du hast offene Angebote, aber weil du dein PayPal-Konto nicht eingebunden hast, kannst du keine Zahlungen erhalten. Bitte verknüpfe Dein PayPal Konto in deinen %{settings_link}"
+    change_account: "PayPal-Konto ändern"
+    missing: "Du hast offene Angebote, aber weil du dein PayPal-Konto nicht verbunden hast, kannst du keine Zahlungen erhalten. Bitte verknüpfe dein PayPal Konto in deinen %{settings_link} und gewähre %{service_name} die Erlaubnis, eine Transaktionsgebühr zu berechnen."
     from_your_payment_settings_link_text: Zahlungseinstellungen
     redirect_message: "Weiterleitung zu Paypal. Wenn nichts passiert, bitte diesen Link anklicken: %{redirect_link}"
     redirect_link_text: hier
