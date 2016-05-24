@@ -5,8 +5,8 @@ module.exports = {
     'shorthand-property-no-redundant-values': null,
 
     // Single quotes everywhere
-    'font-family-name-quotes': 'single-where-recommended',
-    'function-url-quotes': 'single',
+    'font-family-name-quotes': 'always-where-recommended',
+    'function-url-quotes': 'always',
     'string-quotes': 'single',
 
     // Disallow using vendor prefixes to let Autoprefixer handle them
