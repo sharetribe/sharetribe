@@ -1,3 +1,4 @@
+/* eslint-disable */
 var Promise = require('bluebird');
 var fse = Promise.promisifyAll(require('fs-extra'));
 var loaderUtils = require('loader-utils');

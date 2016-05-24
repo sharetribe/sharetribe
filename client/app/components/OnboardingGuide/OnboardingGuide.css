@@ -113,11 +113,13 @@
   max-width: var(--widthRestriction);
   width: var(--widthRestrictionPercentage);
 }
+
 .infoTextIcon {
   position: absolute;
   width: 0.75em;
   margin-top: 1px;
 }
+
 .infoTextContent {
   padding-left: 1.5em;
 }

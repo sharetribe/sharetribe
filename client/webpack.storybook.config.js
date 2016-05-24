@@ -19,7 +19,7 @@ config.module.loaders.push(
   }
 );
 config.output = {};
-config.output.publicPath =  '/static/';
+config.output.publicPath = '/static/';
 
 config.devtool = 'eval-source-map';
 
