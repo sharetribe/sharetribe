@@ -16,7 +16,8 @@
     "build:dev:server": "webpack -w --config webpack.server.config.js",
     "print-phantomjs-version": "phantomjs --version",
     "start-phantomjs": "phantomjs --webdriver=8910",
-    "styleguide": "start-storybook -p 9001"
+    "styleguide": "start-storybook -p 9001",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "dependencies": {
     "babel": "6.5.2",
@@ -59,6 +60,7 @@
   },
   "devDependencies": {
     "@kadira/storybook": "1.27.0",
+    "@kadira/storybook-deployer": "github:mporkola/storybook-deployer",
     "babel-eslint": "6.0.4",
     "babel-plugin-react-transform": "2.0.2",
     "body-parser": "1.15.1",

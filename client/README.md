@@ -54,6 +54,13 @@ For stylesheets, we are using [CSS Modules](https://github.com/css-modules/css-m
 
 We use [React Storybook](https://github.com/kadirahq/react-storybook) for a hot reloading component development environment, in `http://localhost:9001/`. See [instructions for writing stories](https://github.com/kadirahq/react-storybook#writing-stories), for example story see [OnboardingTopBar.story.js](app/components/OnboardingTopBar/OnboardingTopBar.story.js).
 
+Publishing styleguide for preview
+---------------------------------
+
+Styleguide can be published as a static build, to be used for e.g. reviews by other team members. Running `npm run deploy-storybook` in `client` directory publishes styleguide from your branch to `https://sharetribe.github.io/sharetribe/[BRANCH_NAME]/`.
+
+We're using a [custom fork](https://github.com/mporkola/storybook-deployer) of [Storybook deployer](https://github.com/kadirahq/storybook-deployer), modified to output different branches to different directories. The goal is to get it merged upstream, but it still requires some work.
+
 Linting JavaScript and CSS files
 ================================
 
