@@ -60,7 +60,7 @@ module.exports = {
     loaders: [
       { test: /\.(woff2?|svg)$/, loader: 'url?limit=10000' },
       { test: /\.(ttf|eot)$/, loader: 'file' },
-      { test: /\.(jpe?g|png|gif|svg|ico)$/, loader: `customfile-loader?limit=10000&name=[hash]_[name].[ext]${assetHost}` },
+      { test: /\.(jpe?g|png|gif|svg|ico)$/, loader: `customfile-loader?limit=10000&name=[name]-[hash].[ext]${assetHost}` },
     ],
   },
   postcss: [
