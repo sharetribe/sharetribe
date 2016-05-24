@@ -32,6 +32,12 @@ then
     echo "Running npm run clean"
     npm run clean
 
+    echo "Build translation bundle"
+    script/export_translations.sh
+
+    echo "Build routes bundle"
+    script/export_routes_js.sh
+
     echo "Running client and server builds"
     (cd client && npm run build:client && npm run build:server)
 
