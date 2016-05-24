@@ -2,6 +2,7 @@ import { PropTypes } from 'react';
 import r, { div, h2, p, img, a, br, span } from 'r-dom';
 import css from './OnboardingGuide.css';
 import { t } from '../../utils/i18n';
+import { Routes } from '../../utils/routes';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
 import infoImage from './images/step3_coverPhoto.jpg';
@@ -46,16 +47,13 @@ const GuideCoverPhotoPage = (props) => {
       ]),
     ]),
 
-    a({ className: css.nextButton, href: pageData.cta }, t('web.admin.onboarding.guide.cover_photo.add_your_own')),
+    a({ className: css.nextButton, href: Routes.admin_look_and_feel_edit_path() }, t('web.admin.onboarding.guide.cover_photo.add_your_own')),
   ]);
 };
 
 GuideCoverPhotoPage.propTypes = {
   changePage: PropTypes.func.isRequired,
   infoIcon: PropTypes.string.isRequired,
-  pageData: PropTypes.shape({
-    cta: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default GuideCoverPhotoPage;

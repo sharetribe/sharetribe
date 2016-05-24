@@ -4,9 +4,10 @@ import css from './OnboardingGuide.css';
 import { t } from '../../utils/i18n';
 import { Routes } from '../../utils/routes';
 
-const guideRoot = Routes.admin_getting_started_guide_path();
-
 const GuideBackToTodoLink = (props) => {
+
+  const guideRoot = Routes.admin_getting_started_guide_path();
+
   const handleClick = function handleClick(e, path) {
     e.preventDefault();
     props.changePage(path);

@@ -21,11 +21,9 @@ class Admin::GettingStartedGuideController < ApplicationController
     links = {
       slogan_and_description: {
         sub_path: 'slogan_and_description',
-        cta: admin_details_edit_path,
       },
       cover_photo: {
         sub_path: 'cover_photo',
-        cta: admin_look_and_feel_edit_path,
       },
       filter: {
         sub_path: 'filter',

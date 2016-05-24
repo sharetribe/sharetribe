@@ -34,6 +34,39 @@ Routes.person_path({username: "johndoe", show_closed: true})
 rake assets:clobber
 ```
 
+### Gotchas
+
+The locale for the `Routes` module is not yet set when the component file is evaluated:
+
+```js
+// BAD!
+
+// MyComponent.js
+import { Routes } from '../../utils/routes';
+
+const guideRoot = Routes.admin_getting_started_guide_path();
+
+class MyComponent extends React.Component {
+  render() {
+    return a(href: guideRoot) // Returns URL, WITHOUT locale!
+  }
+}
+```
+
+```js
+// Good!
+
+// MyComponent.js
+import { Routes } from '../../utils/routes';
+
+class MyComponent extends React.Component {
+  render() {
+    const guideRoot = Routes.admin_getting_started_guide_path();
+    return a(href: guideRoot) // Returns URL, with locale, as expected.
+  }
+}
+```
+
 ## Implementation details
 
 The route bundling is powered by [js-routes](https://github.com/railsware/js-routes) gem. The gem provides two important utilities:

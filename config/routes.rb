@@ -134,7 +134,8 @@ Kassi::Application.routes.draw do
       patch "/settings" => "communities#update_settings", as: :update_settings
 
       # Guide
-      get "getting_started_guide(/*all)" => "getting_started_guide#index", as: :getting_started_guide
+      get "getting_started_guide"        => "getting_started_guide#index", as: :getting_started_guide
+      get "getting_started_guide(/*all)" => "getting_started_guide#index"
 
       # Details and look 'n feel
       get   "/look_and_feel/edit" => "communities#edit_look_and_feel",          as: :look_and_feel_edit

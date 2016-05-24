@@ -61,8 +61,6 @@ const nextStep = function nextStep(data) {
   }
 };
 
-const guideRoot = Routes.admin_getting_started_guide_path();
-
 class OnboardingGuide extends React.Component {
 
   constructor(props, context) {
@@ -76,7 +74,8 @@ class OnboardingGuide extends React.Component {
     this.nextStep = nextStep(this.props.data.onboarding_data);
 
     // Add current path to window.history. Initially it contains null as a state
-    const componentSubPath = this.props.railsContext.pathname.replace(guideRoot, '');
+    const guideRoot = Routes.admin_getting_started_guide_path();
+    const componentSubPath = this.props.railsContext.pathname.split(`${guideRoot}/`)[1] || null;
     this.setPushState(
       { path: componentSubPath },
       componentSubPath,
@@ -110,7 +109,8 @@ class OnboardingGuide extends React.Component {
                                 history.pushState);
 
     if (canUseDOM && canUsePushState) {
-      window.history.pushState(state, title, `${guideRoot}${path}`);
+      const guideRoot = Routes.admin_getting_started_guide_path();
+      window.history.pushState(state, title, _.compact([guideRoot, path]).join('/'));
     }
   }
 
@@ -160,7 +160,6 @@ OnboardingGuide.propTypes = {
           'invitation',
           'all_done',
         ]).isRequired,
-        cta: string.isRequired,
         complete: bool.isRequired,
         additional_info: object
       }).isRequired

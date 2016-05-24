@@ -5,9 +5,10 @@ import { Routes } from '../../utils/routes';
 
 import css from './OnboardingGuide.css';
 
-const guideRoot = Routes.admin_getting_started_guide_path();
-
 const GuideStatusPage = (props) => {
+
+  const guideRoot = Routes.admin_getting_started_guide_path();
+
   const handleClick = function handleClick(e, path) {
     e.preventDefault();
     props.changePage(path);
@@ -88,7 +89,7 @@ const GuideStatusPage = (props) => {
         a({
           className: css.stepListLink,
           onClick: (e) => handleClick(e, `${step.sub_path}`),
-          href: `${guideRoot}${step.sub_path}`,
+          href: [guideRoot, step.sub_path].join('/'),
         }, [
           span({ className: css.stepListCheckbox }),
           t(titles[key]),
@@ -99,7 +100,7 @@ const GuideStatusPage = (props) => {
     props.nextStep ?
       a({
         className: css.nextButton,
-        href: `${guideRoot}${props.nextStep.link}`,
+        href: [guideRoot, props.nextStep.link].join('/'),
         onClick: (e) => handleClick(e, `${props.nextStep.link}`),
       }, props.nextStep.title) :
       null,
@@ -126,7 +127,6 @@ GuideStatusPage.propTypes = {
       'invitation',
       'all_done',
     ]),
-    cta: string,
     complete: bool.isRequired,
   })).isRequired,
 };

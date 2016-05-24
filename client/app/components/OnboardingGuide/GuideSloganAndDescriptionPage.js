@@ -2,6 +2,7 @@ import { PropTypes } from 'react';
 import r, { div, h2, p, img, a, i } from 'r-dom';
 import css from './OnboardingGuide.css';
 import { t } from '../../utils/i18n';
+import { Routes } from '../../utils/routes';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
 import infoImage from './images/step2_sloganDescription.jpg';
@@ -34,16 +35,13 @@ const GuideSloganAndDescriptionPage = (props) => {
             })),
     ]),
 
-    a({ className: css.nextButton, href: pageData.cta }, t('web.admin.onboarding.guide.slogan_and_description.add_your_own')),
+    a({ className: css.nextButton, href: Routes.admin_details_edit_path() }, t('web.admin.onboarding.guide.slogan_and_description.add_your_own')),
   ]);
 };
 
 GuideSloganAndDescriptionPage.propTypes = {
   changePage: PropTypes.func.isRequired,
   infoIcon: PropTypes.string.isRequired,
-  pageData: PropTypes.shape({
-    cta: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default GuideSloganAndDescriptionPage;
