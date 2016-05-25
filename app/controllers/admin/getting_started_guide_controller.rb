@@ -27,12 +27,12 @@ class Admin::GettingStartedGuideController < ApplicationController
     links = {
       slogan_and_description: {
         sub_path: 'slogan_and_description',
-        cta: edit_details_admin_community_path(@current_community),
+        cta: admin_details_edit_path,
         info_image: view_context.image_path('onboarding/step2_sloganDescription.jpg')
       },
       cover_photo: {
         sub_path: 'cover_photo',
-        cta: edit_look_and_feel_admin_community_path(@current_community),
+        cta: admin_look_and_feel_edit_path,
         info_image: view_context.image_path('onboarding/step3_coverPhoto.jpg')
       },
       filter: {

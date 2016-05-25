@@ -151,7 +151,7 @@ class Admin::CommunitiesController < ApplicationController
   # This is currently only for superadmins, quick and hack solution
   def payment_gateways
     # Redirect if payment gateway in use but it's not braintree
-    redirect_to edit_details_admin_community_path(@current_community) if @current_community.payment_gateway && !@current_community.braintree_in_use?
+    redirect_to admin_details_edit_path if @current_community.payment_gateway && !@current_community.braintree_in_use?
 
     @selected_left_navi_link = "payment_gateways"
     @community = @current_community
@@ -162,7 +162,7 @@ class Admin::CommunitiesController < ApplicationController
 
   def update_payment_gateway
     # Redirect if payment gateway in use but it's not braintree
-    redirect_to edit_details_admin_community_path(@current_community) if @current_community.payment_gateway && !@current_community.braintree_in_use?
+    redirect_to admin_details_edit_path if @current_community.payment_gateway && !@current_community.braintree_in_use?
 
     braintree_params = params[:payment_gateway]
     community_params = params.require(:community).permit(:commission_from_seller)
@@ -242,7 +242,7 @@ class Admin::CommunitiesController < ApplicationController
 
     update(@current_community,
            community_params.merge(stylesheet_needs_recompile: regenerate_css?(params, @current_community)),
-           edit_look_and_feel_admin_community_path(@current_community),
+           admin_look_and_feel_edit_path,
            :edit_look_and_feel) { |community|
       Delayed::Job.enqueue(CompileCustomStylesheetJob.new(community.id), priority: 3)
 

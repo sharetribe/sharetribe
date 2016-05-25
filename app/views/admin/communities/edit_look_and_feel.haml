@@ -14,7 +14,7 @@
 
 #new_news_item_form.left-navi-section
   %h2= t(".edit_community_look_and_feel", :community_name => @community.name(I18n.locale))
-  = form_for @community, :url => edit_look_and_feel_admin_community_path(@community), :method => :put do |form|
+  = form_for @community, :url => admin_look_and_feel_path, method: :patch do |form|
     .row
       .col-12
         = form.label :wide_logo, t(".community_logo"), :class => "input"
