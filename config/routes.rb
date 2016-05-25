@@ -146,10 +146,10 @@ Kassi::Application.routes.draw do
       get "getting_started_guide(/*all)" => "getting_started_guide#index", as: :getting_started_guide
 
       # Details and look 'n feel
-      get   "/look_and_feel/edit" => "communities#edit_look_and_feel"
-      patch "/look_and_feel"      => "communities#update_look_and_feel"
-      get   "/details/edit"       => "community_customizations#edit_details"
-      patch "/details"            => "community_customizations#update_details"
+      get   "/look_and_feel/edit" => "communities#edit_look_and_feel",          as: :look_and_feel_edit
+      patch "/look_and_feel"      => "communities#update_look_and_feel",        as: :look_and_feel
+      get   "/details/edit"       => "community_customizations#edit_details",   as: :details_edit
+      patch "/details"            => "community_customizations#update_details", as: :details
 
       resources :communities do
         member do
