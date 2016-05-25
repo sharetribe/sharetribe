@@ -6,7 +6,7 @@
 
 -# Links for the description
 - live_site_link = link_to t("admin.communities.getting_started.live_site_link_text"), "/"
-- logo_link = link_to t("admin.communities.getting_started.logo_link_text"), edit_look_and_feel_admin_community_path(@current_community)
+- logo_link = link_to t("admin.communities.getting_started.logo_link_text"), admin_look_and_feel_edit_path
 - contact_support_link = link_to t("admin.communities.getting_started.contact_support_link_text"), "mailto:#{APP_CONFIG.support_email}", "data-uv-trigger" => "contact"
 - categories_link = link_to t("admin.communities.getting_started.categories_link_text"), admin_categories_path
 - custom_fields_link = link_to t("admin.communities.getting_started.custom_fields_link_text"), admin_custom_fields_path

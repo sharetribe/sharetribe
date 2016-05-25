@@ -142,15 +142,18 @@ Kassi::Application.routes.draw do
       get   "/settings" => "communities#settings",        as: :settings
       patch "/settings" => "communities#update_settings", as: :update_settings
 
+      # Guide
       get "getting_started_guide(/*all)" => "getting_started_guide#index", as: :getting_started_guide
+
+      # Details and look 'n feel
+      get   "/look_and_feel/edit" => "communities#edit_look_and_feel",          as: :look_and_feel_edit
+      patch "/look_and_feel"      => "communities#update_look_and_feel",        as: :look_and_feel
+      get   "/details/edit"       => "community_customizations#edit_details",   as: :details_edit
+      patch "/details"            => "community_customizations#update_details", as: :details
 
       resources :communities do
         member do
           get :getting_started, to: 'communities#getting_started'
-          get :edit_details, to: 'community_customizations#edit_details'
-          put :update_details, to: 'community_customizations#update_details'
-          get :edit_look_and_feel
-          put :edit_look_and_feel, to: 'communities#update_look_and_feel'
           get :edit_welcome_email
           post :create_sender_address
           get :check_email_status
@@ -167,6 +170,14 @@ Kassi::Application.routes.draw do
           get :menu_links
           put :menu_links, to: 'communities#update_menu_links'
           delete :delete_marketplace
+
+          # DEPRECATED (2016-03-22)
+          # These routes are not in use anymore, don't use them
+          # See new routes above, outside of communities resource
+          get :edit_details,       to: redirect("/admin/details/edit")
+          put :update_details,     to: "community_customizations#update_details" # PUT request, no redirect
+          get :edit_look_and_feel, to: redirect("/admin/look_and_feel/edit")
+          put :edit_look_and_feel, to: "community_customizations#update_look_and_feel" # PUT request, no redirect
 
           # DEPRECATED (2016-03-22)
           # These routes are not in use anymore, don't use them
