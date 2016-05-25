@@ -1,6 +1,6 @@
 import { Component, PropTypes } from 'react';
 import { div, span, a } from 'r-dom';
-import { t } from '../../utils/i18n';
+import { t } from '../../../utils/i18n';
 
 import css from './OnboardingTopBar.css';
 

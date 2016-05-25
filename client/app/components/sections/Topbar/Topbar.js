@@ -3,8 +3,8 @@ import r, { div } from 'r-dom';
 
 import css from './Topbar.css';
 
-import Logo from './Logo';
-import SearchBar from '../SearchBar/SearchBar';
+import Logo from '../../elements/Logo/Logo';
+import SearchBar from '../../composites/SearchBar/SearchBar';
 
 class Topbar extends Component {
   render() {

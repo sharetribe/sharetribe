@@ -1,8 +1,7 @@
 import { PropTypes } from 'react';
 import r, { div, h2, p, img, a, i } from 'r-dom';
 import css from './OnboardingGuide.css';
-import { t } from '../../utils/i18n';
-
+import { t } from '../../../utils/i18n';
 import GuideBackToTodoLink from './GuideBackToTodoLink';
 import infoImage from './images/step6_addListing.jpg';
 

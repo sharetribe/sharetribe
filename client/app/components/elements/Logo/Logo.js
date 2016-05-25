@@ -1,7 +1,7 @@
 import { Component, PropTypes } from 'react';
 import r, { a } from 'r-dom';
 import classNames from 'classnames';
-import { className } from '../../utils/PropTypes';
+import { className } from '../../../utils/PropTypes';
 
 import css from './Logo.css';
 

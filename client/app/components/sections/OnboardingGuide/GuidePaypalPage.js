@@ -1,7 +1,7 @@
 import { PropTypes } from 'react';
 import r, { div, h2, p, img, a, span } from 'r-dom';
 import css from './OnboardingGuide.css';
-import { t } from '../../utils/i18n';
+import { t } from '../../../utils/i18n';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
 import infoImage from './images/step5_screenshot_paypal@2x.png';

@@ -10,7 +10,7 @@ import GuidePaypalPage from './GuidePaypalPage';
 import GuideListingPage from './GuideListingPage';
 import GuideInvitationPage from './GuideInvitationPage';
 
-import { routes, railsContext } from '../../utils/PropTypes';
+import { routes, railsContext } from '../../../utils/PropTypes';
 
 // Select child component (page/view) to be rendered
 // Returns object (including child component) based on props.data
