@@ -4,6 +4,7 @@ import css from './OnboardingGuide.css';
 import { t } from '../../utils/i18n';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
+import infoImage from './images/step2_sloganDescription.jpg';
 
 const GuideSloganAndDescriptionPage = (props) => {
   const { changePage, initialPath, infoIcon, pageData } = props;
@@ -13,15 +14,13 @@ const GuideSloganAndDescriptionPage = (props) => {
     h2({ className: css.title }, t('web.admin.onboarding.guide.slogan_and_description.title')),
     p({ className: css.description }, t('web.admin.onboarding.guide.slogan_and_description.description')),
 
-    pageData.info_image ?
-      div({ className: css.sloganImageContainer }, [
-        img({
-          className: css.sloganImage,
-          src: props.pageData.info_image,
-          alt: t('web.admin.onboarding.guide.slogan_and_description.info_image_alt'),
-        }),
-      ]) :
-      null,
+    div({ className: css.sloganImageContainer }, [
+      img({
+        className: css.sloganImage,
+        src: infoImage,
+        alt: t('web.admin.onboarding.guide.slogan_and_description.info_image_alt'),
+      }),
+    ]),
 
     div({ className: css.infoTextContainer }, [
       div({ className: css.infoTextIcon, dangerouslySetInnerHTML: { __html: infoIcon } }),
@@ -45,7 +44,6 @@ GuideSloganAndDescriptionPage.propTypes = {
   infoIcon: PropTypes.string.isRequired,
   pageData: PropTypes.shape({
     cta: PropTypes.string.isRequired,
-    info_image: PropTypes.string,
   }).isRequired,
 };
 

@@ -4,6 +4,7 @@ import css from './OnboardingGuide.css';
 import { t } from '../../utils/i18n';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
+import infoImage from './images/step4_fieldsFilters.jpg';
 
 const GuideFilterPage = (props) => {
   const { changePage, initialPath, pageData, infoIcon } = props;
@@ -16,15 +17,13 @@ const GuideFilterPage = (props) => {
           { display_on_homepage: i(t('web.admin.onboarding.guide.filter.description.display_on_homepage')) }),
     ]),
 
-    pageData.info_image ?
-      div({ className: css.sloganImageContainerBig }, [
-        img({
-          className: css.sloganImage,
-          src: pageData.info_image,
-          alt: t('web.admin.onboarding.guide.filter.info_image_alt'),
-        }),
-      ]) :
-      null,
+    div({ className: css.sloganImageContainerBig }, [
+      img({
+        className: css.sloganImage,
+        src: infoImage,
+        alt: t('web.admin.onboarding.guide.filter.info_image_alt'),
+      }),
+    ]),
 
     div({ className: css.infoTextContainer }, [
       div({
@@ -52,7 +51,6 @@ GuideFilterPage.propTypes = {
   infoIcon: PropTypes.string.isRequired,
   pageData: PropTypes.shape({
     cta: PropTypes.string.isRequired,
-    info_image: PropTypes.string,
   }).isRequired,
 };
 

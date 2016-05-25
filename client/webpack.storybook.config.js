@@ -12,13 +12,14 @@ config.module.loaders.push(
     test: /\.css$/,
     loaders: [
       'style-loader?sourceMap',
-      'css-loader?modules&sourceMap&-url&localIdentName=[name]__[local]__[hash:base64:5]',
+      'css-loader?modules&sourceMap&localIdentName=[name]__[local]__[hash:base64:5]',
       'postcss-loader',
     ],
     include: path.resolve(__dirname, '../'),
-  },
-  { test: /\.(jpe?g|png|gif|svg|ico)$/, loader: 'url?limit=10000' }
+  }
 );
+config.output = {};
+config.output.publicPath = '/static/';
 
 config.devtool = 'eval-source-map';
 

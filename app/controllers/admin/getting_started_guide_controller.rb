@@ -28,33 +28,27 @@ class Admin::GettingStartedGuideController < ApplicationController
       slogan_and_description: {
         sub_path: 'slogan_and_description',
         cta: admin_details_edit_path,
-        info_image: view_context.image_path('onboarding/step2_sloganDescription.jpg')
       },
       cover_photo: {
         sub_path: 'cover_photo',
         cta: admin_look_and_feel_edit_path,
-        info_image: view_context.image_path('onboarding/step3_coverPhoto.jpg')
       },
       filter: {
         sub_path: 'filter',
         cta: admin_custom_fields_path,
-        info_image: view_context.image_path('onboarding/step4_fieldsFilters.jpg')
       },
       paypal: {
         sub_path: 'paypal',
         cta: admin_paypal_preferences_path,
         alternative_cta: alternative_cta,
-        info_image: view_context.image_path('onboarding/step5_screenshot_paypal@2x.png')
       },
       listing: {
         sub_path: 'listing',
         cta: new_listing_path,
-        info_image: view_context.image_path('onboarding/step6_addListing.jpg')
       },
       invitation: {
         sub_path: 'invitation',
         cta: new_invitation_path,
-        info_image: view_context.image_path('onboarding/step7_screenshot_share@2x.png')
       }
     }
 
