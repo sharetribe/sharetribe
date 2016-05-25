@@ -4,6 +4,7 @@ import css from './OnboardingGuide.css';
 import { t } from '../../utils/i18n';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
+import infoImage from './images/step7_screenshot_share@2x.png';
 
 const GuideInvitationPage = (props) => {
   const { changePage, initialPath, pageData, infoIcon } = props;
@@ -19,15 +20,13 @@ const GuideInvitationPage = (props) => {
         target: '_blank',
       }, t('web.admin.onboarding.guide.invitation.description.preview_link')) })),
 
-    pageData.info_image ?
-      div({ className: css.sloganImageContainer }, [
-        img({
-          className: css.sloganImage,
-          src: pageData.info_image,
-          alt: t('web.admin.onboarding.guide.invitation.info_image_alt'),
-        }),
-      ]) :
-      null,
+    div({ className: css.sloganImageContainer }, [
+      img({
+        className: css.sloganImage,
+        src: infoImage,
+        alt: t('web.admin.onboarding.guide.invitation.info_image_alt'),
+      }),
+    ]),
 
     div({ className: css.infoTextContainer }, [
       div({
@@ -47,7 +46,6 @@ GuideInvitationPage.propTypes = {
   infoIcon: PropTypes.string.isRequired,
   pageData: PropTypes.shape({
     cta: PropTypes.string.isRequired,
-    info_image: PropTypes.string,
   }).isRequired,
 };
 

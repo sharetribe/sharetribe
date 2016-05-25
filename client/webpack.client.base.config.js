@@ -13,6 +13,10 @@ const cssVariables = require('./app/assets/styles/variables');
 const devBuild = process.env.NODE_ENV !== 'production';
 const nodeEnv = devBuild ? 'development' : 'production';
 
+const { replacePercentChar } = require('./webpackConfigUtil');
+const assetHostEnv = typeof process.env.asset_host === 'string' ? `&asset_host=${process.env.asset_host}` : '';
+const assetHost = replacePercentChar(assetHostEnv);
+
 module.exports = {
   context: __dirname,
   entry: {
@@ -59,7 +63,7 @@ module.exports = {
     loaders: [
       { test: /\.(woff2?|svg)$/, loader: 'url?limit=10000' },
       { test: /\.(ttf|eot)$/, loader: 'file' },
-      { test: /\.(jpe?g|png|gif|svg|ico)$/, loader: 'url?limit=10000' },
+      { test: /\.(jpe?g|png|gif|svg|ico)$/, loader: `customfile-loader?limit=10000&name=[name]-[hash].[ext]${assetHost}` },
     ],
   },
   postcss: [
