@@ -41,8 +41,7 @@ const GuideCoverPhotoPage = (props) => {
               target: '_blank',
               rel: 'noreferrer',
               alt: t('web.admin.onboarding.guide.cover_photo.advice.alt'),
-            }, t('web.admin.onboarding.guide.cover_photo.advice.link')) }))
-        ,
+            }, t('web.admin.onboarding.guide.cover_photo.advice.link')) })),
         br(),
         t('web.admin.onboarding.guide.cover_photo.advice.content2', { width: COVER_PHOTO_WIDTH, height: COVER_PHOTO_HEIGHT }),
       ]),

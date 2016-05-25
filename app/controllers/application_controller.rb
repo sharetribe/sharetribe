@@ -471,6 +471,10 @@ class ApplicationController < ActionController::Base
     @minutes_to_maintenance = NextMaintenance.minutes_to(now)
   end
 
+  def current_community_id
+    Maybe(@current_community).id.or_else(nil)
+  end
+
   private
 
   # Override basic instrumentation and provide additional info for lograge to consume

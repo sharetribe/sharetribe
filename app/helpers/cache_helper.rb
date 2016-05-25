@@ -100,13 +100,15 @@ module CacheHelper
 
     locale = I18n.locale
     bundle_file = asset_path(ReactOnRails.configuration.server_bundle_js_file)
+    rails_context_extension = RailsContextExtension.custom_context(self)
 
     keys = [
       'react_component_cache',
       name,
       props,
       locale,
-      bundle_file
+      bundle_file,
+      rails_context_extension
     ]
 
     # We can skip the digest because we don't care if the .haml template changes.
