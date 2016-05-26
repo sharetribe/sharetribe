@@ -12,8 +12,6 @@ const nextPageName = function nextPageName(data) {
 
 const GuideStatusPage = (props) => {
 
-  const guideRoot = Routes.admin_getting_started_guide_path();
-
   const handleClick = function handleClick(e, page, path) {
     e.preventDefault();
     props.changePage(page, path);
@@ -132,7 +130,7 @@ const GuideStatusPage = (props) => {
       a({
         className: css.nextButton,
         href: links[nextPage].path,
-        onClick: (e) => handleClick(e, nextPage, links[nextPage].path ),
+        onClick: (e) => handleClick(e, nextPage, links[nextPage].path),
       }, t(links[nextPage].next_link_title)) :
       null,
   ]);

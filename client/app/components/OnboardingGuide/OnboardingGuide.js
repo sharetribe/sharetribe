@@ -9,8 +9,6 @@ import GuideFilterPage from './GuideFilterPage';
 import GuidePaypalPage from './GuidePaypalPage';
 import GuideListingPage from './GuideListingPage';
 import GuideInvitationPage from './GuideInvitationPage';
-import { t } from '../../utils/i18n';
-import { Routes } from '../../utils/routes';
 
 const { shape, string, arrayOf, bool, oneOf, func, object } = PropTypes;
 
@@ -62,7 +60,7 @@ class OnboardingGuide extends React.Component {
 
     // Add current path to window.history. Initially it contains null as a state
     const path = this.props.railsContext.pathname;
-    setPushState({ path: path }, path, path);
+    setPushState({ path }, path, path);
   }
 
   componentDidMount() {
