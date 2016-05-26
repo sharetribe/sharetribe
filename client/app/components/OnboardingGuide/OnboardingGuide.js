@@ -15,8 +15,8 @@ import { Routes } from '../../utils/routes';
 const { shape, string, arrayOf, bool, oneOf, func, object } = PropTypes;
 
 // Select child component (page/view) to be rendered
-// Returns object (including child component) based on props.data & nextStep
-const selectChild = function selectChild(data, nextStep) {
+// Returns object (including child component) based on props.data
+const selectChild = function selectChild(data) {
   const { page, onboarding_data } = data;
   const pageData = _.find(onboarding_data, (pd) => pd.step === page) || {};
 
@@ -34,30 +34,7 @@ const selectChild = function selectChild(data, nextStep) {
     case 'invitation':
       return { Page: GuideInvitationPage, pageData };
     default:
-      return { Page: GuideStatusPage, onboarding_data, nextStep };
-  }
-};
-
-// Get link and title of next recommended onboarding step
-const nextStep = function nextStep(data) {
-  const nextStepData = data.find((step) => !step.complete);
-
-  const titles = {
-    slogan_and_description: 'web.admin.onboarding.guide.next_step.slogan_and_description',
-    cover_photo: 'web.admin.onboarding.guide.next_step.cover_photo',
-    filter: 'web.admin.onboarding.guide.next_step.filter',
-    paypal: 'web.admin.onboarding.guide.next_step.paypal',
-    listing: 'web.admin.onboarding.guide.next_step.listing',
-    invitation: 'web.admin.onboarding.guide.next_step.invitation',
-  };
-
-  if (nextStepData) {
-    return {
-      title: t(titles[nextStepData.step]),
-      page: nextStepData.step,
-    };
-  } else {
-    return null;
+      return { Page: GuideStatusPage, onboarding_data };
   }
 };
 
@@ -82,9 +59,6 @@ class OnboardingGuide extends React.Component {
 
     this.handlePopstate = this.handlePopstate.bind(this);
     this.handlePageChange = this.handlePageChange.bind(this);
-
-    // Figure out the next step. I.e. what is the action we recommend for admins
-    this.nextStep = nextStep(this.props.data.onboarding_data);
 
     // Add current path to window.history. Initially it contains null as a state
     const path = this.props.railsContext.pathname;
@@ -123,7 +97,7 @@ class OnboardingGuide extends React.Component {
   }
 
   render() {
-    const { Page, ...opts } = selectChild(this.props.data, this.nextStep);
+    const { Page, ...opts } = selectChild(this.props.data);
     return r(Page, {
       changePage: this.handlePageChange,
       name: this.props.data.name,
