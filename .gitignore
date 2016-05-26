@@ -59,3 +59,6 @@ client/node_modules
 !/client/app/i18n/.keep
 /client/app/routes/*
 !/client/app/routes/.keep
+
+# Generated assets
+/public/webpack/*

@@ -40,35 +40,39 @@ module.exports = function (content) {
 
   if (limit <= 0 || content.length < limit) {
     return 'module.exports = ' + JSON.stringify('data:' + (mimetype ? mimetype + ';' : '') + 'base64,' + content.toString('base64'));
-  } else if (query.asset_host) {
-
-    // Copy asset to production folder
-    var assetFromPath = this.resourcePath;
-    var assetToPath = path.resolve(
-      process.cwd(),
-      '..',
-      'public/webpack/',
-      url
-    );
-
-    fse.exists(assetToPath, function (exists) {
-      if (!exists) {
-        fse.copy(assetFromPath, assetToPath, function (err) {
-          if (err) {
-            return console.error(err);
-          }
-          console.log('Asset ["' + path.basename(assetFromPath) + '"] is copied to ' + assetToPath);
-        });
-      }
-    });
-    return 'module.exports = ' + JSON.stringify('//' + resolveAssetHost(query.asset_host) + '/webpack/' + url) + ';';
   }
 
-  // Emit file if images are big and no asset_host (CDN) is given.
-  this.emitFile(url, content);
+  // Copy asset to production folder
+  var assetFromPath = this.resourcePath;
+  var assetToPath = path.resolve(
+    process.cwd(),
+    '..',
+    'public/webpack/',
+    url
+  );
+
+  fse.exists(assetToPath, function (exists) {
+    if (!exists) {
+      fse.copy(assetFromPath, assetToPath, function (err) {
+        if (err) {
+          return console.error(err);
+        }
+        console.log('Asset ["' + path.basename(assetFromPath) + '"] is copied to ' + assetToPath);
+      });
+    }
+  });
+
+  if (query.asset_host) {
+    return 'module.exports = ' + JSON.stringify('//' + resolveAssetHost(query.asset_host) + '/webpack/' + url) + ';';
+  } else if(query.hotMode){
+    // Emit file if images are big and Rails is not responsible for serving assets.
+    this.emitFile(url, content);
+    // publicPath is set in webpack config files. With Rails, assets are served from /assets/
+    return 'module.exports = __webpack_public_path__ + ' + JSON.stringify(url) + ';';
+  }
 
   // publicPath is set in webpack config files. With Rails, assets are served from /assets/
-  return 'module.exports = __webpack_public_path__ + ' + JSON.stringify(url) + ';';
+  return 'module.exports =  ' + JSON.stringify('/webpack/' + url) + ';';
 };
 
 module.exports.raw = true;
