@@ -6,7 +6,7 @@ rails: script/wait_for_server_js.sh && rails s -b 0.0.0.0
 storybook: cd client && npm run styleguide
 
 # Build client assets, watching for changes.
-rails-client-assets: script/wait_for_routes_js.sh && cd client && npm run build:dev:client
+rails-client-assets: script/export_routes_js.sh && cd client && npm run build:dev:client
 
 # Keep the JS fresh for server rendering. Remove if not server rendering
 rails-server-assets: script/export_translations.sh && script/wait_for_routes_js.sh && cd client && npm run build:dev:server
