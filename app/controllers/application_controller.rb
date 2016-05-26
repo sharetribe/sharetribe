@@ -626,7 +626,7 @@ class ApplicationController < ActionController::Base
   end
 
   def display_branding_info?
-    !PlanService::API::Api.plans.get_current(community_id: @current_community.id).data[:features][:whitelabel]
+    !params[:controller].starts_with?("admin") && !@current_plan[:features][:whitelabel]
   end
   helper_method :display_branding_info?
 
