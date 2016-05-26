@@ -42,31 +42,15 @@ class Admin::GettingStartedGuideController < ApplicationController
     listing_shape_name = ListingService::API::Api.shapes.get(community_id: @current_community.id).data.first[:name]
 
     onboarding_status = Admin::OnboardingWizard.new(@current_community.id).setup_status
-    links = {
-      slogan_and_description: {
-        sub_path: 'slogan_and_description',
-      },
-      cover_photo: {
-        sub_path: 'cover_photo',
-      },
-      filter: {
-        sub_path: 'filter',
-      },
+    additional_info = {
       paypal: {
-        sub_path: 'paypal',
         additional_info: {
           listing_shape_name: listing_shape_name
         }
       },
-      listing: {
-        sub_path: 'listing',
-      },
-      invitation: {
-        sub_path: 'invitation',
-      }
     }
 
-    sorted_steps = OnboardingViewUtils.sorted_steps_with_includes(onboarding_status, links)
+    sorted_steps = OnboardingViewUtils.sorted_steps_with_includes(onboarding_status, additional_info)
 
     # This is the props used by the React component.
     { onboarding_guide_page: {
