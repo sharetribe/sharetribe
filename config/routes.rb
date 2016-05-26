@@ -134,8 +134,13 @@ Kassi::Application.routes.draw do
       patch "/settings" => "communities#update_settings", as: :update_settings
 
       # Guide
-      get "getting_started_guide"        => "getting_started_guide#index", as: :getting_started_guide
-      get "getting_started_guide(/*all)" => "getting_started_guide#index"
+      get "getting_started_guide"                        => "getting_started_guide#index", as: :getting_started_guide
+      get "getting_started_guide/slogan_and_description" => "getting_started_guide#index", as: :getting_started_guide_slogan_and_description
+      get "getting_started_guide/cover_photo"            => "getting_started_guide#index", as: :getting_started_guide_cover_photo
+      get "getting_started_guide/filter"                 => "getting_started_guide#index", as: :getting_started_guide_filter
+      get "getting_started_guide/paypal"                 => "getting_started_guide#index", as: :getting_started_guide_paypal
+      get "getting_started_guide/listing"                => "getting_started_guide#index", as: :getting_started_guide_listing
+      get "getting_started_guide/invitation"             => "getting_started_guide#index", as: :getting_started_guide_invitation
 
       # Details and look 'n feel
       get   "/look_and_feel/edit" => "communities#edit_look_and_feel",          as: :look_and_feel_edit
