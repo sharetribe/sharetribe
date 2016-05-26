@@ -10,7 +10,6 @@ const GuideStatusPage = (props) => {
   const guideRoot = Routes.admin_getting_started_guide_path();
 
   const handleClick = function handleClick(e, page, path) {
-    debugger;
     e.preventDefault();
     props.changePage(page, path);
   };

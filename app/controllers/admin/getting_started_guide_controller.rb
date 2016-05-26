@@ -9,12 +9,36 @@ class Admin::GettingStartedGuideController < ApplicationController
   end
 
   def index
-    render locals: { props: data }
+    render :index, locals: { props: data(:status) }
+  end
+
+  def slogan_and_description
+    render :index, locals: { props: data(:slogan_and_description) }
+  end
+
+  def cover_photo
+    render :index, locals: { props: data(:cover_photo) }
+  end
+
+  def filter
+    render :index, locals: { props: data(:filter) }
+  end
+
+  def paypal
+    render :index, locals: { props: data(:paypal) }
+  end
+
+  def listing
+    render :index, locals: { props: data(:listing) }
+  end
+
+  def invitation
+    render :index, locals: { props: data(:invitation) }
   end
 
   private
 
-  def data
+  def data(page)
     listing_shape_name = ListingService::API::Api.shapes.get(community_id: @current_community.id).data.first[:name]
 
     onboarding_status = Admin::OnboardingWizard.new(@current_community.id).setup_status
@@ -46,6 +70,7 @@ class Admin::GettingStartedGuideController < ApplicationController
 
     # This is the props used by the React component.
     { onboarding_guide_page: {
+        page: page,
         onboarding_data: sorted_steps,
         name: PersonViewUtils.person_display_name(@current_user, @current_community),
         info_icon: icon_tag("information"),
