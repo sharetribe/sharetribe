@@ -61,12 +61,25 @@ const nextStep = function nextStep(data) {
   }
 };
 
+function setPushState(state, title, path) {
+  // React has an internal variable 'canUseDOM', which we emulate here.
+  const canUseDOM = !!(typeof window !== 'undefined' &&
+                        window.document &&
+                        window.document.createElement);
+  const canUsePushState = !!(typeof history !== 'undefined' &&
+                              history.pushState);
+
+  if (canUseDOM && canUsePushState) {
+    const guideRoot = Routes.admin_getting_started_guide_path();
+    window.history.pushState(state, title, _.compact([guideRoot, path]).join(''));
+  }
+}
+
 class OnboardingGuide extends React.Component {
 
   constructor(props, context) {
     super(props, context);
 
-    this.setPushState = this.setPushState.bind(this);
     this.handlePopstate = this.handlePopstate.bind(this);
     this.handlePageChange = this.handlePageChange.bind(this);
 
@@ -76,7 +89,7 @@ class OnboardingGuide extends React.Component {
     // Add current path to window.history. Initially it contains null as a state
     const guideRoot = Routes.admin_getting_started_guide_path();
     const componentSubPath = this.props.railsContext.pathname.split(`${guideRoot}/`)[1] || null;
-    this.setPushState(
+    setPushState(
       { path: componentSubPath },
       componentSubPath,
       componentSubPath);
@@ -92,26 +105,12 @@ class OnboardingGuide extends React.Component {
     // Back button clicks should not be saved with history.pushState
     if (nextProps.data.pathHistoryForward) {
       const path = nextProps.data.path;
-      this.setPushState({ path }, path, path);
+      setPushState({ path }, path, path);
     }
   }
 
   componentWillUnmount() {
     window.removeEventListener('popstate', this.handlePopstate);
-  }
-
-  setPushState(state, title, path) {
-    // React has an internal variable 'canUseDOM', which we emulate here.
-    const canUseDOM = !!(typeof window !== 'undefined' &&
-                          window.document &&
-                          window.document.createElement);
-    const canUsePushState = !!(typeof history !== 'undefined' &&
-                                history.pushState);
-
-    if (canUseDOM && canUsePushState) {
-      const guideRoot = Routes.admin_getting_started_guide_path();
-      window.history.pushState(state, title, _.compact([guideRoot, path]).join(''));
-    }
   }
 
   handlePopstate(event) {
