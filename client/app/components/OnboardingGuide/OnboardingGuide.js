@@ -17,21 +17,21 @@ const { shape, string, arrayOf, bool, oneOf, func, object } = PropTypes;
 // Select child component (page/view) to be rendered
 // Returns object (including child component) based on props.data & nextStep
 const selectChild = function selectChild(data, nextStep) {
-  const { path, onboarding_data } = data;
-  const pageData = _.find(onboarding_data, (pd) => `/${pd.sub_path}` === path) || {};
+  const { page, onboarding_data } = data;
+  const pageData = _.find(onboarding_data, (pd) => pd.step === page) || {};
 
-  switch (path) {
-    case '/slogan_and_description':
+  switch (page) {
+    case 'slogan_and_description':
       return { Page: GuideSloganAndDescriptionPage, pageData };
-    case '/cover_photo':
+    case 'cover_photo':
       return { Page: GuideCoverPhotoPage, pageData };
-    case '/filter':
+    case 'filter':
       return { Page: GuideFilterPage, pageData };
-    case '/paypal':
+    case 'paypal':
       return { Page: GuidePaypalPage, pageData };
-    case '/listing':
+    case 'listing':
       return { Page: GuideListingPage, pageData };
-    case '/invitation':
+    case 'invitation':
       return { Page: GuideInvitationPage, pageData };
     default:
       return { Page: GuideStatusPage, onboarding_data, nextStep };
@@ -54,7 +54,7 @@ const nextStep = function nextStep(data) {
   if (nextStepData) {
     return {
       title: t(titles[nextStepData.step]),
-      link: nextStepData.sub_path,
+      page: nextStepData.step,
     };
   } else {
     return null;
@@ -62,6 +62,7 @@ const nextStep = function nextStep(data) {
 };
 
 function setPushState(state, title, path) {
+
   // React has an internal variable 'canUseDOM', which we emulate here.
   const canUseDOM = !!(typeof window !== 'undefined' &&
                         window.document &&
@@ -70,8 +71,7 @@ function setPushState(state, title, path) {
                               history.pushState);
 
   if (canUseDOM && canUsePushState) {
-    const guideRoot = Routes.admin_getting_started_guide_path();
-    window.history.pushState(state, title, _.compact([guideRoot, path]).join(''));
+    window.history.pushState(state, title, path);
   }
 }
 
@@ -87,14 +87,8 @@ class OnboardingGuide extends React.Component {
     this.nextStep = nextStep(this.props.data.onboarding_data);
 
     // Add current path to window.history. Initially it contains null as a state
-    const guideRoot = Routes.admin_getting_started_guide_path();
-    const componentSubPath = this.props.railsContext.pathname.split(`${guideRoot}/`)[1] || null;
-    setPushState(
-      { path: componentSubPath },
-      componentSubPath,
-      componentSubPath);
-
-    this.props.data.path = componentSubPath;
+    const path = this.props.railsContext.pathname;
+    setPushState({ path: path }, path, path);
   }
 
   componentDidMount() {
@@ -124,8 +118,8 @@ class OnboardingGuide extends React.Component {
     }
   }
 
-  handlePageChange(path) {
-    this.props.actions.updateGuidePage(path, true);
+  handlePageChange(page, path) {
+    this.props.actions.updateGuidePage(page, path, true);
   }
 
   render() {

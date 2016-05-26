@@ -8,14 +8,14 @@ const GuideBackToTodoLink = (props) => {
 
   const guideRoot = Routes.admin_getting_started_guide_path();
 
-  const handleClick = function handleClick(e, path) {
+  const handleClick = function handleClick(e, page, path) {
     e.preventDefault();
-    props.changePage(path);
+    props.changePage(page, path);
   };
 
   return a({
     className: css.backLink,
-    onClick: (e) => handleClick(e, ''),
+    onClick: (e) => handleClick(e, null, guideRoot),
     href: guideRoot,
   }, `‹ ${t('web.admin.onboarding.guide.back_to_todo')}`);
 };
