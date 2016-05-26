@@ -51,14 +51,12 @@ const GuidePaypalPage = (props) => {
 const { func, string, shape } = PropTypes;
 
 GuidePaypalPage.propTypes = {
-  changePage: PropTypes.func.isRequired,
-  infoIcon: PropTypes.string.isRequired,
   changePage: func.isRequired,
   infoIcon: string.isRequired,
   pageData: shape({
     additional_info: shape({
       listing_shape_name: string,
-    }).isRequired
+    }).isRequired,
   }).isRequired,
 };
 

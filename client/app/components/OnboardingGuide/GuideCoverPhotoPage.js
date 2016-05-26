@@ -11,7 +11,7 @@ const COVER_PHOTO_WIDTH = 1920;
 const COVER_PHOTO_HEIGHT = 450;
 
 const GuideCoverPhotoPage = (props) => {
-  const { changePage, pageData, infoIcon } = props;
+  const { changePage, infoIcon } = props;
 
   return div({ className: 'container' }, [
     r(GuideBackToTodoLink, { changePage }),

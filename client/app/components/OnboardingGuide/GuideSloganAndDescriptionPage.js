@@ -8,7 +8,7 @@ import GuideBackToTodoLink from './GuideBackToTodoLink';
 import infoImage from './images/step2_sloganDescription.jpg';
 
 const GuideSloganAndDescriptionPage = (props) => {
-  const { changePage, infoIcon, pageData } = props;
+  const { changePage, infoIcon } = props;
 
   return div({ className: 'container' }, [
     r(GuideBackToTodoLink, { changePage }),
