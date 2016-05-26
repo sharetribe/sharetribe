@@ -361,7 +361,7 @@ es-ES:
           date_cant_be_filtered: "No hay filtros disponibles para el campo de fecha."
           text_cant_be_filtered: "No hay filtros disponibles para el campo de texto. La barra de búsqueda principal busca en los campos de texto."
       index:
-        listing_fields: "Campos & Filtros de los anuncios"
+        listing_fields: "Campos & filtros de los anuncios"
         listing_fields_help: "Aquí puedes elegir los campos que los usuarios han de completar al publicar un nuevo anuncio. Por favor, recuerda que los campos son predefinidos y no pueden ser editados."
         add_new_field: "Añadir un campo nuevo:"
         remove_field_confirmation: "¿Seguro que quieres eliminar el campo %{field_name} ?"
@@ -793,19 +793,19 @@ es-ES:
     new:
       welcome_fb_user: "Bienvenido a %{service_name}, %{name}!"
       fb_join_accept_terms: "Hay un paso más antes de unirte a esta comunidad: necesitas aceptar los términos de uso."
-      join_community: "Únete a la comunidad de '%{community}'"
-      you_can_join: "Puedes unirte a esta comunidad aceptando los términos de uso y haciendo click en \"Únete a la comunidad\" más abajo."
+      join_community: "Únete a %{service_name}"
+      you_can_join: "Puedes unirte a %{service_name} aceptando los términos de uso y haciendo click en 'Únete a %{service_name}', más abajo."
       you_can_join_email_confirmation: "Para unirte a %{service_name} necesitas tener una dirección de email válida que termine en %{email_ending}. Puedes unirte introduciendo tu dirección de correo electrónico, aceptando los términos y haciendo clic en 'Unirse a %{service_name}' abajo, y confirmando tu email."
       you_can_join_email_confirmation_multiple_addresses: "Para unirte a esta comunidad necesitas una dirección válida de e-mail que termine con uno de los siguientes formatos: %{email_endings}. Puedes unirte completando el campo con tu dirección e-mail, aceptando los términos de uso de esta comunidad y haciendo click en \"Únete a la comunidad\" más abajo."
       you_can_join_with_invite_only: "Tienes que tener una invitación de otro usuario para unirte a esta comunidad. Si tienes un código de invitación, puedes unirte a esta comunidad escribiendo el código en el campo de más abajo , aceptando los términos de uso de esta comunidad y haciendo click en \"Únete a la comunidad\" más abajo."
       if_want_to_view_content: "Si quieres ver el contenido de esta comunidad sin unirte a ella, necesitas"
       log_out: "cerrar sesión"
-      join_community_button: "Unirse a la comunidad"
+      join_community_button: "Unirse a %{service_name}"
     give_consent:
-      invitation_code_invalid_or_used: ~
-      email_not_allowed: ~
-      email_not_available: ~
-      consent_not_given: ~
+      invitation_code_invalid_or_used: "Esté código no es válido o ya ha sido usado."
+      email_not_allowed: "Este correo electrónico no está permitido en %{service_name}."
+      email_not_available: "El correo electrónico proporcionado, ya está siendo usado."
+      consent_not_given: "Los términos no han sido aceptados."
   emails:
     accept_reminder:
       remember_to_accept_offer: "Recuerda aceptar o rechazar una oferta de %{sender_name}"
@@ -892,7 +892,7 @@ es-ES:
       remember_to_confirm: "Cuando la solicitud esté completa, recuerda marcarla como Completada. Si todavía no lo está, dispones de %{days_to_automatic_confirmation} días para cancelarla o será marcada como Completada automáticamente."
     invitation_to_kassi:
       hi: Hola!
-      you_have_been_invited_to_kassi: "%{inviter} te ha invitado a utilizar el servicio web de %{community}"
+      you_have_been_invited_to_kassi: "%{inviter} te ha invitado a %{service_name}."
       here_is_a_message_from: "Tienes un mensaje personal de %{inviter}:"
       join_now: "Unirse ahora"
       invitation_code: "Código de invitación: %{code}"
@@ -1175,8 +1175,8 @@ es-ES:
       filter: Filtrar
       this_is_private_community: "Debes crear una cuenta para poder ver todo el contenido."
     invitation_form:
-      email: "Dirección de correo electrónico de tu amigo:"
-      message: "Un mensaje personal:"
+      email: "Dirección(es) de correo electrónico:"
+      message: "Mensaje personalizado:"
       send_invitation: "Enviar invitación"
       add_email_addresses_description: "Añade el/los email/s de tu/s amigo/s en el campo más abajo. Si quieres añadir más de una dirección email, sepáralas con una coma."
       add_lots_of_email_addresses: "Si planeas enviar muchas invitaciones, deberías considerar utilizar una herramienta de envíos (emailing). Lee %{this_article_link} para encontrar recursos sobre servicios de emailing que se adapten a tus necesidades."
@@ -1189,8 +1189,8 @@ es-ES:
       reviews: opiniones
       distance_away: "A %{distance} %{distance_unit} de distancia"
     news_item:
-      show_less: "Menos de"
-      show_more: "Más de"
+      show_less: "Mostrar menos"
+      show_more: "Mostrar más"
     profile_info_empty_notification:
       add_your_info: "Agregar su información de contacto"
       add_a_profile_picture: "Añade una foto de perfil"
@@ -1298,7 +1298,7 @@ es-ES:
       confirmation_link_is_wrong_or_used: "El link de confirmación ya ha sido usado o se ha roto el enlace. Intenta iniciar sesión o contáctanos si el problema persiste."
       additional_email_confirmed: "El correo electrónico que nos proporcionaste ya ha sido confirmado."
       could_not_get_email_from_facebook: "No pudimos acceder a tu dirección de email en Facebook. Sin una dirección de correo electrónico válida no podemos crearte una cuenta en nuestro servicio."
-      facebook_email_unconfirmed: ~
+      facebook_email_unconfirmed: "El correo electrónico %{email} asociado con tu cuenta de Facebook ya ha sido registrado pero no ha sido confirmado. Por favor confirma la cuenta de correo antes de iniciar sesión con Facebook."
       create_new_listing: "Crear otro anuncio"
       create_one_here: "crear una aquí"
       email_confirmation_sent_to_new_address: "El e-mail de confirmación ya fue enviado a la nueva dirección."
@@ -1312,7 +1312,7 @@ es-ES:
       invitation_cannot_be_sent: "No se pudo enviar la invitación"
       invitation_limit_reached: "Trataste de enviar muchas invitaciones. Has alcanzado el límite diario."
       invitation_sent: "Invitación enviada satisfactoriamente"
-      inviting_new_users_is_not_allowed_in_this_community: "Invitar a nuevos usuarios no está permitido en ésta comunidad de %{service_name}"
+      inviting_new_users_is_not_allowed_in_this_community: "Invitar a nuevos usuarios no está permitido."
       login_again: "Por favor, vuelve a iniciar sesión"
       login_failed: "Falló el inicio de sesión. Por favor ingresa las credenciales correctamente."
       account_creation_successful: "Bienvenido a %{service_name}, %{person_name}!"
@@ -1320,7 +1320,7 @@ es-ES:
       login_successful: "Bienvenido, %{person_name}!"
       logout_successful: "Has cerrado la sesión. Gracias por utilizar %{service_name}. Hasta pronto!"
       news_item_created: "Artículo creado"
-      news_item_creation_failed: "Error en el artículo creado"
+      news_item_creation_failed: "Error en la creación del artículo"
       news_item_update_failed: "Error en la actualización del artículo"
       news_item_updated: "Artículo actualizado"
       news_item_deleted: "Artículo eliminado"
@@ -1344,7 +1344,7 @@ es-ES:
       person_deactivated: "Usuario desactivado"
       person_updated_successfully: "Información actualizada"
       poll_answered: "Encuesta contestada"
-      poll_could_not_be_answered: "La encuesta no pudo ser contestada"
+      poll_could_not_be_answered: "La encuesta no ha podido ser contestada"
       poll_created: "Encuesta creada"
       poll_creation_failed: "Error en la creación de la encuesta"
       poll_update_failed: "Error en la actualización de la encuesta"
@@ -1382,7 +1382,7 @@ es-ES:
       you_must_log_in_to_send_a_message: "Debes iniciar sesión en %{service_name} para enviar un mensaje a otro usuario."
       you_must_log_in_to_do_a_transaction: "Debes iniciar sesión en %{service_name} para realizar una transacción."
       you_must_log_in_to_view_this_content: "Debes iniciar sesión para ver este contenido"
-      you_must_log_in_to_view_this_page: "Tienes que iniciar sesión para ver esta página"
+      you_must_log_in_to_view_this_page: "Debes iniciar sesión para ver esta página"
       you_must_log_in_to_view_your_inbox: "Debes iniciar sesión en %{service_name} para revisar tu bandeja de entrada."
       you_must_log_in_to_view_your_settings: "Debes iniciar sesión en %{service_name} para ver tu configuración."
       you_must_log_in_to_add_news_item: "Debes iniciar sesión en %{service_name} para añadir un nuevo artículo"
@@ -1446,8 +1446,8 @@ es-ES:
     error:
       something_went_wrong: "Algo salió mal. Código de error: %{error_code}"
     follow_links:
-      follow: "Seguir este anuncio"
-      unfollow: "Dejar de seguir este anuncio"
+      follow: "Recibir correos cuando haya nuevos comentarios"
+      unfollow: "Dejar de recibir correos cuando haya nuevos comentarios"
     form:
       custom_field_partials:
         dropdown:
@@ -1477,7 +1477,7 @@ es-ES:
         googlemap_updatemap: "Actualizar mapa"
       images:
         image: Imagen
-        best_result: ~
+        best_result: "Para mejores resultados, utiliza imágenes JPG, GIF o PNG que sean de %{width} por %{height} pixeles"
         no_file_selected: "No hay archivos seleccionados"
         remove_image: "Quitar imagen"
         select_file: "Elegir Archivo"
@@ -1485,15 +1485,15 @@ es-ES:
         removing: Eliminando...
         processing: Procesando...
         loading_image: Cargando...
-        image_uploading_in_progress: ~
-        processing_takes_a_while: ~
+        image_uploading_in_progress: "Cargando la imagen..."
+        processing_takes_a_while: "Todas las imágenes han sido cargadas. Procesarlas puede tomar más tiempo, pero está bien salvar el anuncio y seguir adelante."
         this_may_take_a_while: "(puede que tarde un poco...)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Ha habido un error al subir la imagen"
         image_processing_failed: "El procesamiento de la imagen falló"
         file_too_large: "El archivo es demasiado grande"
         accepted_formats: "El archivo de imagen debe estar en formato GIF, JPG o PNG."
-        images_not_uploaded_confirm: ~
+        images_not_uploaded_confirm: "No todas las imágenes han sido cargadas. Estás seguro de que deseas continuar?"
       location:
         location: "Ubicación (Calle, Código postal, Ciudad...)"
       price:
@@ -1852,7 +1852,7 @@ es-ES:
     show:
       contact: "Contactar a %{person}"
       about_me: "Acerca de mí:"
-      add_description: "Di algo sobre ti"
+      add_description: "Comparte algo acerca ti"
       add_location: "Agregar ubicación"
       add_phone_number: "Agregar número de teléfono"
       address: "Ubicación:"
