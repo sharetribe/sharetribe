@@ -58,23 +58,32 @@ const GuideStatusPage = (props) => {
 
   const description = props.nextStep ? todoDescPartial : doneDescPartial;
 
-  const titles = {
-    slogan_and_description: 'web.admin.onboarding.guide.status_page.slogan_and_description',
-    cover_photo: 'web.admin.onboarding.guide.status_page.cover_photo',
-    filter: 'web.admin.onboarding.guide.status_page.filter',
-    paypal: 'web.admin.onboarding.guide.status_page.paypal',
-    listing: 'web.admin.onboarding.guide.status_page.listing',
-    invitation: 'web.admin.onboarding.guide.status_page.invitation',
+  const links = {
+    slogan_and_description: {
+      title: 'web.admin.onboarding.guide.status_page.slogan_and_description',
+      path: Routes.admin_getting_started_guide_slogan_and_description_path(),
+    },
+    cover_photo: {
+      title: 'web.admin.onboarding.guide.status_page.cover_photo',
+      path: Routes.admin_getting_started_guide_cover_photo_path(),
+    },
+    filter: {
+      title: 'web.admin.onboarding.guide.status_page.filter',
+      path: Routes.admin_getting_started_guide_filter_path(),
+    },
+    paypal: {
+      title: 'web.admin.onboarding.guide.status_page.paypal',
+      path: Routes.admin_getting_started_guide_paypal_path(),
+    },
+    listing: {
+      title: 'web.admin.onboarding.guide.status_page.listing',
+      path: Routes.admin_getting_started_guide_listing_path(),
+    },
+    invitation: {
+      title: 'web.admin.onboarding.guide.status_page.invitation',
+      path: Routes.admin_getting_started_guide_invitation_path(),
+    },
   };
-
-  const paths = {
-    slogan_and_description: Routes.admin_getting_started_guide_slogan_and_description_path(),
-    cover_photo: Routes.admin_getting_started_guide_cover_photo_path(),
-    filter: Routes.admin_getting_started_guide_filter_path(),
-    paypal: Routes.admin_getting_started_guide_paypal_path(),
-    listing: Routes.admin_getting_started_guide_listing_path(),
-    invitation: Routes.admin_getting_started_guide_invitation_path(),
-  }
 
   return div({ className: 'container' }, [
     h2({ className: css.title }, title),
@@ -97,11 +106,11 @@ const GuideStatusPage = (props) => {
       return li({ className: stepListItem, page }, [
         a({
           className: css.stepListLink,
-          onClick: (e) => handleClick(e, page, paths[page]),
-          href: paths[page],
+          onClick: (e) => handleClick(e, page, links[page].path),
+          href: links[page].path,
         }, [
           span({ className: css.stepListCheckbox }),
-          t(titles[page]),
+          t(links[page].title),
         ]),
       ]);
     }))),
@@ -109,8 +118,8 @@ const GuideStatusPage = (props) => {
     props.nextStep ?
       a({
         className: css.nextButton,
-        href: paths[props.nextStep.page],
-        onClick: (e) => handleClick(e, props.nextStep.page, paths[props.nextStep.page] ),
+        href: links[props.nextStep.page].path,
+        onClick: (e) => handleClick(e, props.nextStep.page, links[props.nextStep.page].path ),
       }, props.nextStep.title) :
       null,
   ]);
