@@ -88,8 +88,8 @@ const GuideStatusPage = (props) => {
       return li({ className: stepListItem, key }, [
         a({
           className: css.stepListLink,
-          onClick: (e) => handleClick(e, `${step.sub_path}`),
-          href: [guideRoot, step.sub_path].join('/'),
+          onClick: (e) => handleClick(e, `/${step.sub_path}`),
+          href: `${guideRoot}/${step.sub_path}`,
         }, [
           span({ className: css.stepListCheckbox }),
           t(titles[key]),
@@ -100,8 +100,8 @@ const GuideStatusPage = (props) => {
     props.nextStep ?
       a({
         className: css.nextButton,
-        href: [guideRoot, props.nextStep.link].join('/'),
-        onClick: (e) => handleClick(e, `${props.nextStep.link}`),
+        href: `${guideRoot}/${props.nextStep.link}`,
+        onClick: (e) => handleClick(e, `/${props.nextStep.link}`),
       }, props.nextStep.title) :
       null,
   ]);

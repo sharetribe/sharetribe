@@ -18,20 +18,20 @@ const { shape, string, arrayOf, bool, oneOf, func, object } = PropTypes;
 // Returns object (including child component) based on props.data & nextStep
 const selectChild = function selectChild(data, nextStep) {
   const { path, onboarding_data } = data;
-  const pageData = _.find(onboarding_data, (pd) => pd.sub_path === path) || {};
+  const pageData = _.find(onboarding_data, (pd) => `/${pd.sub_path}` === path) || {};
 
   switch (path) {
-    case 'slogan_and_description':
+    case '/slogan_and_description':
       return { Page: GuideSloganAndDescriptionPage, pageData };
-    case 'cover_photo':
+    case '/cover_photo':
       return { Page: GuideCoverPhotoPage, pageData };
-    case 'filter':
+    case '/filter':
       return { Page: GuideFilterPage, pageData };
-    case 'paypal':
+    case '/paypal':
       return { Page: GuidePaypalPage, pageData };
-    case 'listing':
+    case '/listing':
       return { Page: GuideListingPage, pageData };
-    case 'invitation':
+    case '/invitation':
       return { Page: GuideInvitationPage, pageData };
     default:
       return { Page: GuideStatusPage, onboarding_data, nextStep };
@@ -110,7 +110,7 @@ class OnboardingGuide extends React.Component {
 
     if (canUseDOM && canUsePushState) {
       const guideRoot = Routes.admin_getting_started_guide_path();
-      window.history.pushState(state, title, _.compact([guideRoot, path]).join('/'));
+      window.history.pushState(state, title, _.compact([guideRoot, path]).join(''));
     }
   }
 
