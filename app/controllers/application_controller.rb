@@ -170,7 +170,18 @@ class ApplicationController < ActionController::Base
 
   #Creates a URL for root path (i18n breaks root_path helper)
   def root
+    ActiveSupport::Deprecation.warn("root method is deprecated. Use either browse_path or landing_page_path, depending what you want")
     "#{request.protocol}#{request.host_with_port}/#{params[:locale]}"
+  end
+
+  def root_path(*)
+    ActiveSupport::Deprecation.warn("root_path method is deprecated. Use either browse_path or landing_page_path, depending what you want")
+    super
+  end
+
+  def root_url(*)
+    ActiveSupport::Deprecation.warn("root_url method is deprecated. Use either browse_url or landing_page_url, depending what you want")
+    super
   end
 
   def fetch_logged_in_user
