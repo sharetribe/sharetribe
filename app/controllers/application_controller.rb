@@ -170,17 +170,17 @@ class ApplicationController < ActionController::Base
 
   #Creates a URL for root path (i18n breaks root_path helper)
   def root
-    ActiveSupport::Deprecation.warn("root method is deprecated. Use either browse_path or landing_page_path, depending what you want")
+    ActiveSupport::Deprecation.warn("root method is deprecated. Use either search_path or landing_page_path, depending what you want")
     "#{request.protocol}#{request.host_with_port}/#{params[:locale]}"
   end
 
   def root_path(*)
-    ActiveSupport::Deprecation.warn("root_path method is deprecated. Use either browse_path or landing_page_path, depending what you want")
+    ActiveSupport::Deprecation.warn("root_path method is deprecated. Use either search_path or landing_page_path, depending what you want")
     super
   end
 
   def root_url(*)
-    ActiveSupport::Deprecation.warn("root_url method is deprecated. Use either browse_url or landing_page_url, depending what you want")
+    ActiveSupport::Deprecation.warn("root_url method is deprecated. Use either search_url or landing_page_url, depending what you want")
     super
   end
 
@@ -749,14 +749,5 @@ class ApplicationController < ActionController::Base
   def show_landing_page?
     # Add some logic here. Maybe feature flag check?
     true
-  end
-
-  def path_to_browse
-    if show_landing_page?
-      browse_path
-    else
-      # Pass nil locale so that the route is '/' instead of '/?locale=en'
-      root_path(locale: nil)
-    end
   end
 end
