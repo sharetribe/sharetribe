@@ -56,7 +56,8 @@
     "url-loader": "0.5.7",
     "webpack": "1.13.1",
     "i18n-js": "http://github.com/sharetribe/i18n-js/archive/interpolation-mode.tar.gz",
-    "customfile-loader": "./customloaders/customfileloader"
+    "customfile-loader": "./customloaders/customfileloader",
+    "raw-loader": "0.5.1"
   },
   "devDependencies": {
     "@kadira/storybook": "1.27.0",
