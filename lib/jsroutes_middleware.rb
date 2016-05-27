@@ -100,12 +100,12 @@ class JsRoutes
       valid_cache = []
       new_cache = {}
 
-      valid_cache.push cache_path.exist?
-      valid_cache.push @route_files.uniq.size == cache.size
+      valid_cache.push(cache_path.exist?)
+      valid_cache.push(@route_files.uniq.size == cache.size)
 
       @route_files.each do |path|
         changed_at = File.mtime(path).to_i
-        valid_cache.push changed_at == cache[path]
+        valid_cache.push(changed_at == cache[path])
         new_cache[path] = changed_at
       end
 
