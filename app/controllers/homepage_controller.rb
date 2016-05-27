@@ -173,6 +173,7 @@ class HomepageController < ApplicationController
       page: Maybe(params)[:page].to_i.map { |n| n > 0 ? n : 1 }.or_else(1),
       price_min: params[:price_min],
       price_max: params[:price_max],
+      distance_max: params[:distance_max],
       sort: params[:sort],
       locale: I18n.locale,
       include_closed: false
