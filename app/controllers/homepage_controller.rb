@@ -137,7 +137,7 @@ class HomepageController < ApplicationController
       @selected_category = category
     end
 
-    filter_params[:search] = params[:q] if params[:q]
+    filter_params[:search] = params[:q] if params[:q] && !location_search_in_use
     filter_params[:custom_dropdown_field_options] = HomepageController.dropdown_field_options_for_search(params)
     filter_params[:custom_checkbox_field_options] = HomepageController.checkbox_field_options_for_search(params)
 
