@@ -8,8 +8,8 @@ try {
   console.warn('Can not load route bundle routes.js'); // eslint-disable-line no-console
 }
 
-function initialize(railsContext) {
-  Routes.options.default_url_options.locale = railsContext.i18nLocale;
+function initialize(i18nLocale) {
+  Routes.options.default_url_options.locale = i18nLocale;
 }
 
 export { Routes, initialize };
