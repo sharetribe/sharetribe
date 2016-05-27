@@ -53,6 +53,8 @@ class HomepageController < ApplicationController
     main_search = location_search_available ? MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:main_search] : :keyword
     location_search_in_use = main_search == :location
 
+    params[:sort] = :distance if @view_type == "map" # change to bounding box when implemented
+
     search_result = find_listings(params, per_page, compact_filter_params, includes.to_set, location_search_in_use)
 
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
@@ -171,6 +173,7 @@ class HomepageController < ApplicationController
       page: Maybe(params)[:page].to_i.map { |n| n > 0 ? n : 1 }.or_else(1),
       price_min: params[:price_min],
       price_max: params[:price_max],
+      sort: params[:sort],
       locale: I18n.locale,
       include_closed: false
     }

@@ -82,6 +82,7 @@ module ListingIndexService::Search
        :'filter[listing_shape_ids]' => Maybe(original[:listing_shape_ids]).join(",").or_else(nil),
        :'filter[category_ids]' => Maybe(original[:categories]).join(",").or_else(nil),
        :'search[locale]' => original[:locale]
+       :sort => original[:sort]
       }.merge(search_params).merge(custom_fields).compact
     end
 
