@@ -7,6 +7,23 @@ class HomepageController < ApplicationController
   VIEW_TYPES = ["grid", "list", "map"]
 
   def index
+    if show_landing_page?
+      landing_page()
+    else
+      browse()
+    end
+  end
+
+  def landing_page
+    render :landing_page,
+           layout: false,
+           locals: {
+             title: "Landing page",
+             body: "Body test"
+           }
+  end
+
+  def browse
     @homepage = true
 
     @view_type = HomepageController.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
@@ -88,7 +105,7 @@ class HomepageController < ApplicationController
     else
       search_result.on_success { |listings|
         @listings = listings
-        render locals: {
+        render :index, locals: {
                  shapes: all_shapes,
                  filters: filters,
                  show_price_filter: show_price_filter,
@@ -102,7 +119,7 @@ class HomepageController < ApplicationController
       }.on_error { |e|
         flash[:error] = t("homepage.errors.search_engine_not_responding")
         @listings = Listing.none.paginate(:per_page => 1, :page => 1)
-        render status: 500, locals: {
+        render :index, status: 500, locals: {
                  shapes: all_shapes,
                  filters: filters,
                  show_price_filter: show_price_filter,
@@ -271,5 +288,9 @@ class HomepageController < ApplicationController
     else
       ArgumentError.new("Format of latlng coordinate pair \"#{latlng}\" wasn't \"lat,lng\" ")
     end
+  end
+
+  def show_landing_page?
+    true
   end
 end

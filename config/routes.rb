@@ -120,6 +120,10 @@ Kassi::Application.routes.draw do
     get  '/community_memberships/check_email_availability_and_validity' => 'community_memberships#check_email_availability_and_validity'
     get  '/community_memberships/check_invitation_code'                 => 'community_memberships#check_invitation_code'
 
+    # browse view
+
+    get '/browse' => 'homepage#browse', as: :browse
+
     namespace :paypal_service do
       resources :checkout_orders do
         collection do
