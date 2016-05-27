@@ -3,6 +3,7 @@ module.exports = {
   rules: {
     // stylelint-config-standard overrides
     'shorthand-property-no-redundant-values': null,
+    'selector-pseudo-class-no-unknown': [true, { ignorePseudoClasses: ['global'] }],
 
     // Single quotes everywhere
     'font-family-name-quotes': 'always-where-recommended',
