@@ -141,13 +141,13 @@ class ApplicationController < ActionController::Base
         # Take the locale from URL param, and keep it in the URL if the locale
         # differs from community default
         if params[:locale] != @current_community.default_locale.to_s
-          homepage_with_locale_path
+          root_with_locale_path
         else
-          homepage_without_locale_path(locale: nil)
+          root_path(locale: nil)
         end
 
       else
-        homepage_without_locale_path(locale: nil)
+        root_path(locale: nil)
       end
   end
 
