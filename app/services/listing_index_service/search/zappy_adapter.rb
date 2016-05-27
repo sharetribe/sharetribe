@@ -52,14 +52,12 @@ module ListingIndexService::Search
     private
 
     def format_params(original)
-      search_params =
+      location_params =
         if(original[:latitude].present? && original[:longitude].present?)
           { :'search[lat]' => original[:latitude],
             :'search[lng]' => original[:longitude],
             :'search[distance_unit]' => original[:distance_unit]
           }
-        else
-          { :'search[keywords]' => original[:keywords]}
         end
 
       custom_fields = Maybe(original[:fields]).map { |fields|
@@ -74,6 +72,7 @@ module ListingIndexService::Search
       }.or_else({})
 
       {
+       :'search[keywords]' => original[:keywords],
        :'page[number]' => original[:page],
        :'page[size]' => original[:per_page],
        :'filter[price_min]' => Maybe(original[:price_cents]).map{ |p| p.min }.or_else(nil),
@@ -81,11 +80,10 @@ module ListingIndexService::Search
        :'filter[omit_closed]' => !original[:include_closed],
        :'filter[listing_shape_ids]' => Maybe(original[:listing_shape_ids]).join(",").or_else(nil),
        :'filter[category_ids]' => Maybe(original[:categories]).join(",").or_else(nil),
-       :'search[locale]' => original[:locale]
        :'search[locale]' => original[:locale],
        :'filter[distance_max]' => original[:distance_max],
        :sort => original[:sort]
-      }.merge(search_params).merge(custom_fields).compact
+      }.merge(location_params).merge(custom_fields).compact
     end
 
     def listings_from_ids(id_obs, includes)
