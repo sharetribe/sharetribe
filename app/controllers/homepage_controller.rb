@@ -7,11 +7,12 @@ class HomepageController < ApplicationController
   VIEW_TYPES = ["grid", "list", "map"]
 
   def index
-    ActiveSupport::Deprecation.warn("homepage#index is deprecated")
+    ActiveSupport::Deprecation.warn("homepage#index is deprecated. Redirecting to ")
     redirect_to :search
   end
 
   def search
+    binding.pry
     @homepage = true
 
     @view_type = HomepageController.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
