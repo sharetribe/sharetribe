@@ -289,8 +289,4 @@ class HomepageController < ApplicationController
       ArgumentError.new("Format of latlng coordinate pair \"#{latlng}\" wasn't \"lat,lng\" ")
     end
   end
-
-  def show_landing_page?
-    true
-  end
 end

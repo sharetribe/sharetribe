@@ -734,4 +734,18 @@ class ApplicationController < ActionController::Base
   def render_not_found!(msg = "Not found")
     raise ActionController::RoutingError.new(msg)
   end
+
+  def show_landing_page?
+    # Add some logic here. Maybe feature flag check?
+    true
+  end
+
+  def path_to_browse
+    if show_landing_page?
+      browse_path
+    else
+      # Pass nil locale so that the route is '/' instead of '/?locale=en'
+      root_path(locale: nil)
+    end
+  end
 end
