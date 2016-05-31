@@ -159,6 +159,8 @@ class HomepageController < ApplicationController
     coordinates = Maybe(params[:lc]).map { search_coordinates(params[:lc]) }.or_else({})
     distance_unit = (location_search_in_use && MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:distance_unit] == :metric) ? :km : :miles
 
+    distance_max = [5, params[:distance_max]].max if params[:distance_max].present?
+
     search = {
       # Add listing_id
       categories: filter_params[:categories],
@@ -173,7 +175,7 @@ class HomepageController < ApplicationController
       page: Maybe(params)[:page].to_i.map { |n| n > 0 ? n : 1 }.or_else(1),
       price_min: params[:price_min],
       price_max: params[:price_max],
-      distance_max: params[:distance_max],
+      distance_max: distance_max,
       sort: params[:sort],
       locale: I18n.locale,
       include_closed: false

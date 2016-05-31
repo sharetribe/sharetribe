@@ -7,11 +7,37 @@ window.ST = window.ST || {};
     var statusInput = document.getElementById('ls');
     var coordinateInput = document.getElementById('lc');
     var boundingboxInput = document.getElementById('boundingbox');
+    var maxDistanceInput = document.getElementById('distance_max');
     var homepageForm = document.getElementById('homepage-filters');
     var autocomplete = new window.google.maps.places.Autocomplete(searchInput, { bounds: { north: -90, east: -180, south: 90, west: 180 } });
     autocomplete.setTypes(['geocode']);
 
     boundingboxInput.value = null;
+
+    function toRadians(degrees) {
+      return degrees * (3.1415/180);
+    }
+
+    function computeScale(a, b) {
+      var R = 6371; // Earth's radius in km
+
+      var lat1 = a.lat();
+      var lat2 = b.lat();
+      var lon1 = a.lng();
+      var lon2 = b.lng();
+      var φ1 = toRadians(lat1);
+      var φ2 = toRadians(lat1);
+      var Δφ = toRadians(lat2-lat1);
+      var Δλ = toRadians(lon2-lon1);
+
+      var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+              Math.cos(φ1) * Math.cos(φ2) *
+              Math.sin(Δλ/2) * Math.sin(Δλ/2);
+      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+      var d = R * c;
+      return d/2;
+    };
 
     window.google.maps.event.addListener(autocomplete, 'place_changed', function(){
       var place = autocomplete.getPlace();
@@ -20,7 +46,9 @@ window.ST = window.ST || {};
           coordinateInput.value = place.geometry.location.toUrlValue();
           statusInput.value = window.google.maps.places.PlacesServiceStatus.OK;
           if (place.geometry.viewport) {
+            var boundingboxRadius = computeScale(place.geometry.viewport.getNorthEast(), place.geometry.viewport.getSouthWest());
             boundingboxInput.value = place.geometry.viewport.toUrlValue();
+            maxDistanceInput.value = boundingboxRadius;
           }
           homepageForm.submit();
         } else {
