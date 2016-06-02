@@ -1629,6 +1629,13 @@ input[type=text].delivery-price-field {
     padding-top: lines(0.25);
     padding-bottom: lines(0.25);
   }
+
+  // Pushes content after about-section (mainly branding footer) down,
+  // so that it doesn't overlap in any case with the left hand
+  // navigation
+  @include media(tablet){
+    min-height: 250px;
+  }
 }
 
 /*

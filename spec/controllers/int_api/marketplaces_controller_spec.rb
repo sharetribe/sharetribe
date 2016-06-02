@@ -9,6 +9,16 @@ class TransactionMailer; end
 
 describe IntApi::MarketplacesController, type: :controller do
 
+  before(:each) do
+    PlanService::API::Api.reset!
+    PlanService::API::Api.set_environment({active: true})
+  end
+
+  after(:each) do
+    PlanService::API::Api.reset!
+    PlanService::API::Api.set_environment({active: false})
+  end
+
   let(:listings_api) { ListingService::API::Api }
 
   def expect_trial_plan(cid)

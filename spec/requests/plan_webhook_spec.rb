@@ -13,12 +13,22 @@ describe "plan provisioning", type: :request do
     log_target.clear!
   end
 
-  describe "plans" do
+  describe "plans service in use" do
 
     let(:token) {
       # The token is result of: JWT.encode({sub: :provisioning}, "test_secret")
       "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwcm92aXNpb25pbmcifQ.c2C--Jce-aYzh3xo0UlRr3yFrqFTEkYPpBWDBypQ07M"
     }
+
+    before(:each) do
+      PlanService::API::Api.reset!
+      PlanService::API::Api.set_environment(active: true)
+    end
+
+    after(:each) do
+      PlanService::API::Api.reset!
+      PlanService::API::Api.set_environment(active: false)
+    end
 
     describe "security" do
       it "returns 401 if token doesn't match" do
@@ -46,26 +56,9 @@ describe "plan provisioning", type: :request do
       end
     end
 
-    describe "not in use" do
-      before(:each) {
-        PlanService::API::Api.reset!
-        PlanService::API::Api.set_environment(active: false)
-      }
-
-      after(:each) {
-        PlanService::API::Api.reset!
-        PlanService::API::Api.set_environment(active: true)
-      }
-
-      it "returns 404 if external plan service is not in use" do
-        post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", {plans: []}.to_json
-        expect(response.status).to eq(404)
-      end
-    end
-
-
-    it "creates new plans" do
-      body = '{
+    describe "plan creation" do
+      it "creates new plans" do
+        body = '{
         "plans": [
           {
             "marketplace_id": 1234,
@@ -85,37 +78,60 @@ describe "plan provisioning", type: :request do
         ]
       }'
 
-      post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", body
+        post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", body
 
-      plan1234 = PlanService::API::Api.plans.get_current(community_id: 1234).data
+        plan1234 = PlanService::API::Api.plans.get_current(community_id: 1234).data
 
-      expect(plan1234.slice(:community_id, :plan_level, :features, :expires_at)).to eq({
+        expect(plan1234.slice(:community_id, :plan_level, :features, :expires_at)).to eq({
                                community_id: 1234,
                                plan_level: 2,
                                features: { deletable: false, admin_email: false, whitelabel: true },
                                expires_at: nil
                              })
 
-      plan5555 = PlanService::API::Api.plans.get_current(community_id: 5555)
-                 .data
+        plan5555 = PlanService::API::Api.plans.get_current(community_id: 5555)
+                   .data
 
-      expect(plan5555.slice(:community_id, :plan_level, :features, :expires_at)).to eq({
+        expect(plan5555.slice(:community_id, :plan_level, :features, :expires_at)).to eq({
                                community_id: 5555,
                                plan_level: 5,
                                features: { deletable: false, admin_email: true, whitelabel: false },
                                expires_at: Time.utc(2015, 10, 15, 15, 0, 0)
                              })
 
-      expect(response.status).to eq(200)
-      expect(JSONUtils.symbolize_keys(JSON.parse(response.body))[:plans].map { |plan| plan[:marketplace_plan_id] })
-              .to eq([plan1234[:id], plan5555[:id]])
+        expect(response.status).to eq(200)
+        expect(JSONUtils.symbolize_keys(JSON.parse(response.body))[:plans].map { |plan| plan[:marketplace_plan_id] })
+          .to eq([plan1234[:id], plan5555[:id]])
 
-      expect(log_target.parse_log(:info).map { |entry| entry[:free] })
-        .to eq([
+        expect(log_target.parse_log(:info).map { |entry| entry[:free] })
+          .to eq([
                  "Received plan notification",
                  "Parsed plan notification",
                  "Created new plans based on the notification"
-               ])
+                 ])
+      end
+    end
+  end
+
+  describe "plans service not in use" do
+    before(:each) {
+      PlanService::API::Api.reset!
+      PlanService::API::Api.set_environment(active: false)
+    }
+
+    after(:each) {
+      PlanService::API::Api.reset!
+      PlanService::API::Api.set_environment(active: true)
+    }
+
+    let(:token) {
+      # The token is result of: JWT.encode({sub: :trial_sync}, "test_secret")
+      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0cmlhbF9zeW5jIn0._E4PCzBCxJSlwZzFKekvkdR-gX4cuKOxrJ7x2DRfFKI"
+    }
+
+    it "returns 404 if external plan service is not in use" do
+      post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", {plans: []}.to_json
+      expect(response.status).to eq(404)
     end
   end
 
@@ -125,6 +141,16 @@ describe "plan provisioning", type: :request do
       # The token is result of: JWT.encode({sub: :trial_sync}, "test_secret")
       "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0cmlhbF9zeW5jIn0._E4PCzBCxJSlwZzFKekvkdR-gX4cuKOxrJ7x2DRfFKI"
     }
+
+    before(:each) do
+      PlanService::API::Api.reset!
+      PlanService::API::Api.set_environment(active: true)
+    end
+
+    after(:each) do
+      PlanService::API::Api.reset!
+      PlanService::API::Api.set_environment(active: false)
+    end
 
     context "success" do
 
