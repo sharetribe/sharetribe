@@ -52,7 +52,7 @@ GuideFilterPage.propTypes = {
   infoIcon: string.isRequired,
   routes: shape({
     admin_custom_fields_path: func.isRequired,
-  }).isRequired
+  }).isRequired,
 };
 
 export default GuideFilterPage;

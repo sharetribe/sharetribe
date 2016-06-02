@@ -44,7 +44,7 @@ const next = function next(nextStep, guideRoot) {
 class OnboardingTopBar extends Component {
 
   nextElement() {
-    const nextStep = next(this.props.next_step, routes.admin_getting_started_guide_path());
+    const nextStep = next(this.props.next_step, this.props.routes.admin_getting_started_guide_path());
     if (nextStep) {
       return (
         div({ className: css.nextContainer }, [
@@ -62,7 +62,7 @@ class OnboardingTopBar extends Component {
     const currentProgress = this.props.progress;
     return div({ className: css.topbarContainer }, [
       div({ className: css.topbar }, [
-        a({ className: css.progressLabel, href: routes.admin_getting_started_guide_path() }, [
+        a({ className: css.progressLabel, href: this.props.routes.admin_getting_started_guide_path() }, [
           t('web.admin.onboarding.topbar.progress_label'),
           span({ className: css.progressLabelPercentage },
                `${Math.floor(currentProgress)} %`),
@@ -83,7 +83,7 @@ OnboardingTopBar.propTypes = {
   next_step: string.isRequired,
   routes: shape({
     admin_getting_started_guide_path: func.isRequired,
-  })
+  }).isRequired,
 };
 
 export default OnboardingTopBar;

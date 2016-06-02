@@ -10,8 +10,6 @@ import GuidePaypalPage from './GuidePaypalPage';
 import GuideListingPage from './GuideListingPage';
 import GuideInvitationPage from './GuideInvitationPage';
 
-const { shape, string, arrayOf, bool, oneOf, func, object } = PropTypes;
-
 // Select child component (page/view) to be rendered
 // Returns object (including child component) based on props.data
 const selectChild = function selectChild(data) {
@@ -36,7 +34,7 @@ const selectChild = function selectChild(data) {
   }
 };
 
-function setPushState(state, title, path) {
+const setPushState = function setPushState(state, title, path) {
 
   // React has an internal variable 'canUseDOM', which we emulate here.
   const canUseDOM = !!(typeof window !== 'undefined' &&
@@ -48,7 +46,7 @@ function setPushState(state, title, path) {
   if (canUseDOM && canUsePushState) {
     window.history.pushState(state, title, path);
   }
-}
+};
 
 class OnboardingGuide extends React.Component {
 
@@ -106,12 +104,14 @@ class OnboardingGuide extends React.Component {
   }
 }
 
+const { shape, string, arrayOf, bool, oneOf, func, object } = PropTypes;
+
 OnboardingGuide.propTypes = {
   actions: shape({
     updateGuidePage: func.isRequired,
   }).isRequired,
   railsContext: object.isRequired, // eslint-disable-line react/forbid-prop-types
-  routes: object.isRequired,
+  routes: object.isRequired, // eslint-disable-line react/forbid-prop-types
   data: shape({
     pathHistoryForward: bool,
     name: string.isRequired,

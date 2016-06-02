@@ -9,9 +9,9 @@ import GuideFilterPage from './GuideFilterPage';
 import GuidePaypalPage from './GuidePaypalPage';
 import GuideListingPage from './GuideListingPage';
 import GuideInvitationPage from './GuideInvitationPage';
-import { _all as allRoutes } from '../../utils/routes';
+import { all as allRoutes } from '../../utils/routes';
 
-const routes = allRoutes({locale: "en"});
+const routes = allRoutes({ locale: 'en' });
 
 const onboardingData = [
   {
@@ -67,7 +67,7 @@ const statusPageProps = {
     link: 'cover_photo',
   },
   onboarding_data: onboardingData,
-  routes
+  routes,
 };
 
 const sloganAndDescriptionProps = {
@@ -134,7 +134,7 @@ const paypalProps = {
     sub_path: 'paypal',
     additional_info: {
       listing_shape_name: 'sell',
-    }
+    },
   },
 };
 

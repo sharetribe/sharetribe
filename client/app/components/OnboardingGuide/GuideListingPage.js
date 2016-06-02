@@ -38,8 +38,8 @@ const GuideListingPage = (props) => {
 const { func, string, shape } = PropTypes;
 
 GuideListingPage.propTypes = {
-  changePage: PropTypes.func.isRequired,
-  infoIcon: PropTypes.string.isRequired,
+  changePage: func.isRequired,
+  infoIcon: string.isRequired,
   routes: shape({
     new_listing_path: func.isRequired,
   }),

@@ -41,11 +41,11 @@ const GuideSloganAndDescriptionPage = (props) => {
 const { func, string, shape } = PropTypes;
 
 GuideSloganAndDescriptionPage.propTypes = {
-  changePage: PropTypes.func.isRequired,
-  infoIcon: PropTypes.string.isRequired,
+  changePage: func.isRequired,
+  infoIcon: string.isRequired,
   routes: shape({
-    admin_details_edit_path: func.isRequired
-  }).isRequired
+    admin_details_edit_path: func.isRequired,
+  }).isRequired,
 };
 
 export default GuideSloganAndDescriptionPage;

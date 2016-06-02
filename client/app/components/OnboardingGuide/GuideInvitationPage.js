@@ -47,7 +47,7 @@ GuideInvitationPage.propTypes = {
   infoIcon: string.isRequired,
   routes: shape({
     new_invitation_path: func.isRequired,
-  }).isRequired
+  }).isRequired,
 };
 
 export default GuideInvitationPage;

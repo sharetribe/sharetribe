@@ -56,8 +56,8 @@ GuideCoverPhotoPage.propTypes = {
   changePage: func.isRequired,
   infoIcon: string.isRequired,
   routes: shape({
-    admin_look_and_feel_edit_path: func.isRequired
-  }).isRequired
+    admin_look_and_feel_edit_path: func.isRequired,
+  }).isRequired,
 };
 
 export default GuideCoverPhotoPage;

@@ -1,5 +1,4 @@
 import { initialize as initializeI18n } from './i18n';
-import { subset } from './routes';
 
 // This function is a single point where application initialization
 // should happen. Initialization can be for example setting the app

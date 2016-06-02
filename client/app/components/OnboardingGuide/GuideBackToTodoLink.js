@@ -24,8 +24,8 @@ const { func, shape } = PropTypes;
 GuideBackToTodoLink.propTypes = {
   changePage: PropTypes.func.isRequired,
   routes: shape({
-    admin_getting_started_guide_path: func.isRequired
-  }).isRequired
+    admin_getting_started_guide_path: func.isRequired,
+  }).isRequired,
 };
 
 export default GuideBackToTodoLink;

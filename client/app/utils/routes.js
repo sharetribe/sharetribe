@@ -17,62 +17,82 @@ try {
  * addDefaultOpts([1, 2, 3, {format: "json"}], {locale: "en"}) => [1, 2, 3, {format: "json", locale: "en"}]
  * addDefaultOpts([1, 2, 3, {locale: "fr"}], {locale: "en"}) => [1, 2, 3, {locale: "fr"}]
  */
-function addDefaultOpts(args, defaultOpts) {
-  args = _.toArray(args);
-  const last = _.last(args);
+const addDefaultOpts = function addDefaultOpts(args, defaultOpts) {
+  const argsArray = _.toArray(args);
+  const last = _.last(argsArray);
 
   if (last && _.isObject(last)) {
-    return _.initial(args).concat([_.assign({}, defaultOpts, last)]);
+    return _.initial(argsArray).concat([_.assign({}, defaultOpts, last)]);
   } else {
-    return args.concat([defaultOpts]);
+    return argsArray.concat([defaultOpts]);
   }
-}
+};
 
-function routeNameToPathFnName(routeName) {
+const didYouMean = function didYouMean(routeName) {
+  if (_.endsWith(routeName, '_path') && Routes[routeName]) {
+    return `Did you mean '${routeName.replace(/_path$/, '')}'?`;
+  } else {
+    return null;
+  }
+};
+
+const routeNameToPathHelperName = function routeNameToPathHelperName(routeName) {
   return `${routeName}_path`;
-}
+};
 
-function createSubset(fnNames, defaultOpts) {
-  return fnNames.reduce(function(routeObject, fnName) {
-    const pathFn = Routes[fnName];
+const wrapWithDefaultOpts = function wrapWithDefaultOpts(pathFns, defaultOpts) {
+  return pathFns.reduce((routeObject, { pathHelperName, pathHelper }) => {
+    const withDefaultOptsFn = function withDefaultOpts(...args) {
+      return pathHelper(...addDefaultOpts(args, defaultOpts));
+    };
 
-    if (pathFn) {
-      const withDefaultOptsFn = function withDefaultOpts() {
-        return pathFn.apply(null, addDefaultOpts(arguments, defaultOpts));
-      };
+    // Copy the toString function.
+    // It contains the path spec, which might be useful
+    // For example:
+    // single_conversation_path.toString => (/:locale)/:person_id/messages/:conversation_type/:id(.:format)
+    withDefaultOptsFn.toString = pathHelper.toString;
 
-      // Copy the toString function.
-      // It contains the path spec, which might be useful
-      // For example:
-      // single_conversation_path.toString => (/:locale)/:person_id/messages/:conversation_type/:id(.:format)
-      withDefaultOptsFn.toString = pathFn.toString;
-
-      routeObject[fnName] = withDefaultOptsFn;
-      return routeObject;
-    } else {
-      throw new Error(`Couldn't find named route: '${fnName}'`);
-    }
+    routeObject[pathHelperName] = withDefaultOptsFn; // eslint-disable-line no-param-reassign
+    return routeObject;
   }, {});
-}
+};
+
+//
+// Public API
+//
 
 /**
  * Creates a subset of all routes.
  *
  * You can pass also `defaultOpts` object, for example for "locale"
  */
-function subset(routesSubset, defaultOpts = {}) {
-  return createSubset(routesSubset.map(pathNameToPathFnName), defaultOpts);
-}
+const subset = function subset(routesSubset, defaultOpts = {}) {
+  const pathHelpers = routesSubset.map((routeName) => {
+    const pathHelperName = routeNameToPathHelperName(routeName);
+    const pathHelper = Routes[pathHelperName];
+
+    if (pathHelper) {
+      return { pathHelperName, pathHelper };
+    } else {
+      throw new Error(_.compact([`Couldn't find named route: '${routeName}'.`, didYouMean(routeName)]).join(' '));
+    }
+  });
+
+  return wrapWithDefaultOpts(pathHelpers, defaultOpts);
+};
 
 /**
  * Returns all routes. Use this ONLY in styleguide or in tests.
  */
-function _all(defaultOpts) {
-  const allRoutes = _.keys(Routes).filter(function(key) {
-    return _.endsWith(key, '_path');
+const all = function all(defaultOpts) {
+  const pathHelperNames = _.keys(Routes).filter((key) => _.endsWith(key, '_path'));
+
+  const pathFns = pathHelperNames.map((pathHelperName) => {
+    const pathHelper = Routes[pathHelperName];
+    return { pathHelperName, pathHelper };
   });
 
-  return createSubset(allRoutes, defaultOpts);
-}
+  return wrapWithDefaultOpts(pathFns, defaultOpts);
+};
 
-export { subset, _all };
+export { subset, all };
