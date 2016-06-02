@@ -13,6 +13,9 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Fix some React dependency issues caused startup timing/ordering [#2046](https://github.com/sharetribe/sharetribe/pull/2046) and [#2053](https://github.com/sharetribe/sharetribe/pull/2053)
 - Fix issue that caused Google Maps Geocoder to return wrong location if the listing address contained an ampersand (&) [#2075](https://github.com/sharetribe/sharetribe/pull/2075)
 
+### Added
+- Add whitelabel_branding based on features [#2052](https://github.com/sharetribe/sharetribe/pull/2052)
+
 ## [5.7.1] - 2016-05-12
 
 ### Fixed
