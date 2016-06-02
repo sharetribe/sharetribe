@@ -244,7 +244,7 @@ pt-PT:
         name: ~
         join_date: ~
         admin: ~
-        posting_allowed: ~
+        posting_allowed: "Publicação permitida"
         ban_user: "Banir utilizador"
         saving_user_status: ~
         save_user_status_successful: ~
@@ -922,7 +922,7 @@ pt-PT:
       settings_link_text: ~
       unsubscribe_link_text: ~
     newsletter:
-      hi: ~
+      hi: "Olá %{name},"
       newest_offers: ~
       newest_requests: ~
       text_version_text: ~
