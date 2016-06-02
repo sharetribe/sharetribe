@@ -4,19 +4,31 @@ _This document description how to use routes in the client-side JavaScript code.
 
 ## Usage
 
-In the React component, you need to import `Routes` from `utils/routes` module. After that you can use all the named routes that you would use in the Rails-side:
+In the top-level React component, you need to import `subset` function from `utils/routes` module and call that function with the named routes you want to use. After that, you need to pass the newly created route subset object to the children, if they need routes. Note that you can pass default options to the `subset` function.
 
 ```js
-// MyReactComponent.js
+// App.js
+import { subset } from '../utils/routes';
 
-import { Routes } from '../../utils/routes';
+export default (props, railsContext) => {
+  const routes = subset([
+    'homepage_path'
+  ], {locale: "en"})
 
-class MyReactComponent extends Component {
+  return r(MyComponent, { routes });
+};
+```
+
+In the component, you then use the routes subset to create the routes you want:
+
+// MyComponent.js
+
+class MyComponent extends React.Component {
   render() {
-    return a({href: Routes.admin_getitng_started_guide_path()}, t("web.getting_started_link"))
+    return a(href: this.props.root.homepage_path())
   }
 }
-```
+
 
 ## Parameters
 
@@ -32,39 +44,6 @@ Routes.person_path({username: "johndoe", show_closed: true})
 
 ```bash
 rake assets:clobber
-```
-
-### Gotchas
-
-The locale for the `Routes` module is not yet set when the component file is evaluated:
-
-```js
-// BAD!
-
-// MyComponent.js
-import { Routes } from '../../utils/routes';
-
-const guideRoot = Routes.admin_getting_started_guide_path();
-
-class MyComponent extends React.Component {
-  render() {
-    return a(href: guideRoot) // Returns URL, WITHOUT locale!
-  }
-}
-```
-
-```js
-// Good!
-
-// MyComponent.js
-import { Routes } from '../../utils/routes';
-
-class MyComponent extends React.Component {
-  render() {
-    const guideRoot = Routes.admin_getting_started_guide_path();
-    return a(href: guideRoot) // Returns URL, with locale, as expected.
-  }
-}
 ```
 
 ## Implementation details
