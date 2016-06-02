@@ -1,7 +1,6 @@
 import { PropTypes } from 'react';
 import { div, p, h2, hr, ul, li, span, a } from 'r-dom';
 import { t } from '../../utils/i18n';
-import { Routes } from '../../utils/routes';
 
 import css from './OnboardingGuide.css';
 
@@ -63,36 +62,38 @@ const GuideStatusPage = (props) => {
 
   const description = props.nextPage ? todoDescPartial : doneDescPartial;
 
+  const { routes } = props;
+
   const links = {
     slogan_and_description: {
       link_title: 'web.admin.onboarding.guide.status_page.slogan_and_description',
       next_link_title: 'web.admin.onboarding.guide.next_step.slogan_and_description',
-      path: Routes.admin_getting_started_guide_slogan_and_description_path(),
+      path: routes.admin_getting_started_guide_slogan_and_description_path(),
     },
     cover_photo: {
       link_title: 'web.admin.onboarding.guide.status_page.cover_photo',
       next_link_title: 'web.admin.onboarding.guide.next_step.cover_photo',
-      path: Routes.admin_getting_started_guide_cover_photo_path(),
+      path: routes.admin_getting_started_guide_cover_photo_path(),
     },
     filter: {
       link_title: 'web.admin.onboarding.guide.status_page.filter',
       next_link_title: 'web.admin.onboarding.guide.next_step.filter',
-      path: Routes.admin_getting_started_guide_filter_path(),
+      path: routes.admin_getting_started_guide_filter_path(),
     },
     paypal: {
       link_title: 'web.admin.onboarding.guide.status_page.paypal',
       next_link_title: 'web.admin.onboarding.guide.next_step.paypal',
-      path: Routes.admin_getting_started_guide_paypal_path(),
+      path: routes.admin_getting_started_guide_paypal_path(),
     },
     listing: {
       link_title: 'web.admin.onboarding.guide.status_page.listing',
       next_link_title: 'web.admin.onboarding.guide.next_step.listing',
-      path: Routes.admin_getting_started_guide_listing_path(),
+      path: routes.admin_getting_started_guide_listing_path(),
     },
     invitation: {
       link_title: 'web.admin.onboarding.guide.status_page.invitation',
       next_link_title: 'web.admin.onboarding.guide.next_step.invitation',
-      path: Routes.admin_getting_started_guide_invitation_path(),
+      path: routes.admin_getting_started_guide_invitation_path(),
     },
   };
 
@@ -142,6 +143,14 @@ GuideStatusPage.propTypes = {
   changePage: func.isRequired,
   name: string.isRequired,
   infoIcon: string.isRequired,
+  routes: shape({
+    admin_getting_started_guide_slogan_and_description_path: func.isRequired,
+    admin_getting_started_guide_cover_photo_path: func.isRequired,
+    admin_getting_started_guide_filter_path: func.isRequired,
+    admin_getting_started_guide_paypal_path: func.isRequired,
+    admin_getting_started_guide_listing_path: func.isRequired,
+    admin_getting_started_guide_invitation_path: func.isRequired,
+  }).isRequired,
   onboarding_data: arrayOf(shape({
     step: oneOf([
       'slogan_and_description',

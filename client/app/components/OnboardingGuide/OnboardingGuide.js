@@ -100,6 +100,7 @@ class OnboardingGuide extends React.Component {
       changePage: this.handlePageChange,
       name: this.props.data.name,
       infoIcon: this.props.data.info_icon,
+      routes: this.props.routes,
       ...opts,
     });
   }
@@ -110,6 +111,7 @@ OnboardingGuide.propTypes = {
     updateGuidePage: func.isRequired,
   }).isRequired,
   railsContext: object.isRequired, // eslint-disable-line react/forbid-prop-types
+  routes: object.isRequired,
   data: shape({
     pathHistoryForward: bool,
     name: string.isRequired,

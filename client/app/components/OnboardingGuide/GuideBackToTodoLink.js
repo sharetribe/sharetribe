@@ -2,11 +2,10 @@ import { PropTypes } from 'react';
 import { a } from 'r-dom';
 import css from './OnboardingGuide.css';
 import { t } from '../../utils/i18n';
-import { Routes } from '../../utils/routes';
 
 const GuideBackToTodoLink = (props) => {
 
-  const guideRoot = Routes.admin_getting_started_guide_path();
+  const guideRoot = props.routes.admin_getting_started_guide_path();
 
   const handleClick = function handleClick(e, page, path) {
     e.preventDefault();
@@ -20,8 +19,13 @@ const GuideBackToTodoLink = (props) => {
   }, `‹ ${t('web.admin.onboarding.guide.back_to_todo')}`);
 };
 
+const { func, shape } = PropTypes;
+
 GuideBackToTodoLink.propTypes = {
   changePage: PropTypes.func.isRequired,
+  routes: shape({
+    admin_getting_started_guide_path: func.isRequired
+  }).isRequired
 };
 
 export default GuideBackToTodoLink;

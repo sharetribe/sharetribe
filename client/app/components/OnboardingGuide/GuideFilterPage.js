@@ -2,16 +2,15 @@ import { PropTypes } from 'react';
 import r, { div, h2, p, img, a, i } from 'r-dom';
 import css from './OnboardingGuide.css';
 import { t } from '../../utils/i18n';
-import { Routes } from '../../utils/routes';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
 import infoImage from './images/step4_fieldsFilters.jpg';
 
 const GuideFilterPage = (props) => {
-  const { changePage, infoIcon } = props;
+  const { changePage, infoIcon, routes } = props;
 
   return div({ className: 'container' }, [
-    r(GuideBackToTodoLink, { changePage }),
+    r(GuideBackToTodoLink, { changePage, routes }),
     h2({ className: css.title }, t('web.admin.onboarding.guide.filter.title')),
     p({ className: css.description }, [
       t('web.admin.onboarding.guide.filter.description.content',
@@ -42,13 +41,18 @@ const GuideFilterPage = (props) => {
         ]),
     ]),
 
-    a({ className: css.nextButton, href: Routes.admin_custom_fields_path() }, t('web.admin.onboarding.guide.filter.add_fields_and_filters')),
+    a({ className: css.nextButton, href: routes.admin_custom_fields_path() }, t('web.admin.onboarding.guide.filter.add_fields_and_filters')),
   ]);
 };
 
+const { func, string, shape } = PropTypes;
+
 GuideFilterPage.propTypes = {
-  changePage: PropTypes.func.isRequired,
-  infoIcon: PropTypes.string.isRequired,
+  changePage: func.isRequired,
+  infoIcon: string.isRequired,
+  routes: shape({
+    admin_custom_fields_path: func.isRequired,
+  }).isRequired
 };
 
 export default GuideFilterPage;

@@ -2,16 +2,15 @@ import { PropTypes } from 'react';
 import r, { div, h2, p, img, a, span } from 'r-dom';
 import css from './OnboardingGuide.css';
 import { t } from '../../utils/i18n';
-import { Routes } from '../../utils/routes';
 
 import GuideBackToTodoLink from './GuideBackToTodoLink';
 import infoImage from './images/step5_screenshot_paypal@2x.png';
 
 const GuidePaypalPage = (props) => {
-  const { changePage, pageData, infoIcon } = props;
+  const { changePage, pageData, infoIcon, routes } = props;
 
   return div({ className: 'container' }, [
-    r(GuideBackToTodoLink, { changePage }),
+    r(GuideBackToTodoLink, { changePage, routes }),
     h2({ className: css.title }, t('web.admin.onboarding.guide.paypal.title')),
     p({ className: css.description }, t('web.admin.onboarding.guide.paypal.description_p1')),
     p({ className: css.description }, t('web.admin.onboarding.guide.paypal.description_p2')),
@@ -41,9 +40,9 @@ const GuidePaypalPage = (props) => {
     ]),
 
     div(null, [
-      a({ className: css.nextButton, href: Routes.admin_paypal_preferences_path() }, t('web.admin.onboarding.guide.paypal.setup_payments')),
+      a({ className: css.nextButton, href: routes.admin_paypal_preferences_path() }, t('web.admin.onboarding.guide.paypal.setup_payments')),
       span({ className: css.buttonSeparator }, t('web.admin.onboarding.guide.paypal.cta_separator')),
-      a({ className: css.nextButtonGhost, href: Routes.edit_admin_listing_shape_path(pageData.additional_info.listing_shape_name) }, t('web.admin.onboarding.guide.paypal.disable_payments')),
+      a({ className: css.nextButtonGhost, href: routes.edit_admin_listing_shape_path(pageData.additional_info.listing_shape_name) }, t('web.admin.onboarding.guide.paypal.disable_payments')),
     ]),
   ]);
 };
@@ -53,6 +52,9 @@ const { func, string, shape } = PropTypes;
 GuidePaypalPage.propTypes = {
   changePage: func.isRequired,
   infoIcon: string.isRequired,
+  routes: shape({
+    edit_admin_listing_shape_path: func.isRequired,
+  }),
   pageData: shape({
     additional_info: shape({
       listing_shape_name: string,
