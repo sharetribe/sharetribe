@@ -12,8 +12,8 @@ import { subset } from '../utils/routes';
 
 export default (props, railsContext) => {
   const routes = subset([
-    'homepage_path'
-  ], {locale: "en"})
+    'homepage',
+  ], { locale: "en" })
 
   return r(MyComponent, { routes });
 };
