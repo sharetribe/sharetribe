@@ -10,6 +10,8 @@ import GuidePaypalPage from './GuidePaypalPage';
 import GuideListingPage from './GuideListingPage';
 import GuideInvitationPage from './GuideInvitationPage';
 
+import { routes, railsContext } from '../../utils/PropTypes';
+
 // Select child component (page/view) to be rendered
 // Returns object (including child component) based on props.data
 const selectChild = function selectChild(data) {
@@ -110,8 +112,8 @@ OnboardingGuide.propTypes = {
   actions: shape({
     updateGuidePage: func.isRequired,
   }).isRequired,
-  railsContext: object.isRequired, // eslint-disable-line react/forbid-prop-types
-  routes: object.isRequired, // eslint-disable-line react/forbid-prop-types
+  railsContext,
+  routes,
   data: shape({
     pathHistoryForward: bool,
     name: string.isRequired,

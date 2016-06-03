@@ -1,7 +1,7 @@
 import r from 'r-dom';
 import { combineReducers, applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { initializeEnvironment } from '../utils/initialize-env';
+import { initialize as initializeI18n } from '../utils/i18n';
 import { subset } from '../utils/routes';
 import middleware from 'redux-thunk';
 
@@ -11,7 +11,7 @@ import reducers from '../reducers/reducersIndex';
 import OnboardingGuideContainer from '../components/OnboardingGuide/OnboardingGuideContainer';
 
 export default (props, railsContext) => {
-  initializeEnvironment(railsContext, process.env.NODE_ENV);
+  initializeI18n(railsContext.i18nLocale, railsContext.i18nDefaultLocale, process.env.NODE_ENV);
 
   const routes = subset([
     'admin_getting_started_guide',
