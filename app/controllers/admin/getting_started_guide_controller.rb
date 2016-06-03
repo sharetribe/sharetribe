@@ -9,36 +9,36 @@ class Admin::GettingStartedGuideController < ApplicationController
   end
 
   def index
-    render :index, locals: { props: data(:status) }
+    render :index, locals: { props: data(page: :status) }
   end
 
   def slogan_and_description
-    render :index, locals: { props: data(:slogan_and_description) }
+    render :index, locals: { props: data(page: :slogan_and_description) }
   end
 
   def cover_photo
-    render :index, locals: { props: data(:cover_photo) }
+    render :index, locals: { props: data(page: :cover_photo) }
   end
 
   def filter
-    render :index, locals: { props: data(:filter) }
+    render :index, locals: { props: data(page: :filter) }
   end
 
   def paypal
-    render :index, locals: { props: data(:paypal) }
+    render :index, locals: { props: data(page: :paypal) }
   end
 
   def listing
-    render :index, locals: { props: data(:listing) }
+    render :index, locals: { props: data(page: :listing) }
   end
 
   def invitation
-    render :index, locals: { props: data(:invitation) }
+    render :index, locals: { props: data(page: :invitation) }
   end
 
   private
 
-  def data(page)
+  def data(page:)
     listing_shape_name = ListingService::API::Api.shapes.get(community_id: @current_community.id).data.first[:name]
 
     onboarding_status = Admin::OnboardingWizard.new(@current_community.id).setup_status
