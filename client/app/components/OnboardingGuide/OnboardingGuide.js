@@ -60,7 +60,8 @@ class OnboardingGuide extends React.Component {
 
     // Add current path to window.history. Initially it contains null as a state
     const path = this.props.railsContext.pathname;
-    setPushState({ path }, path, path);
+    const page = this.props.data.page;
+    setPushState({ path, page }, path, path);
   }
 
   componentDidMount() {
@@ -71,7 +72,8 @@ class OnboardingGuide extends React.Component {
     // Back button clicks should not be saved with history.pushState
     if (nextProps.data.pathHistoryForward) {
       const path = nextProps.data.path;
-      setPushState({ path }, path, path);
+      const page = nextProps.data.page;
+      setPushState({ path, page }, path, path);
     }
   }
 
@@ -81,7 +83,7 @@ class OnboardingGuide extends React.Component {
 
   handlePopstate(event) {
     if (event.state != null && event.state.path != null) {
-      this.props.actions.updateGuidePage(event.state.path, false);
+      this.props.actions.updateGuidePage(event.state.page, event.state.path, false);
     } else if (event.state == null && typeof this.props.data.pathHistoryForward !== 'undefined') {
       // null state means that page component's root path is reached and
       // previous page is actually on Rails side - i.e. one step further
@@ -115,6 +117,7 @@ OnboardingGuide.propTypes = {
   railsContext,
   routes,
   data: shape({
+    page: string.isRequired,
     pathHistoryForward: bool,
     name: string.isRequired,
     info_icon: string.isRequired,
