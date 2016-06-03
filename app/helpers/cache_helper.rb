@@ -75,40 +75,55 @@ module CacheHelper
 
   # Cache helper for React components
   #
-  # The cache key is generated from these values:
+  # Params:
   #
-  # - component name
-  # - props
-  # - locale
-  # - bundle file name (fingerprinted in production)
+  # - `name`: the name of the component (string)
+  # - `props`: props (hash)
+  # - `rails_context_keys`: list of values in railsContext that should
+  #                         invalidate the cache
+  # - `extra_keys`: anything extra that should invalidate the cache
   #
-  # All the dynamic values (like current locale) that are not passed
-  # to the component via props (but via railsContext for example)
-  # should be included in the list of values that is used to generate
-  # the cache key.
+  # Note about `rails_context_keys`: In order to properly invalidate
+  # the cache, you need to list here all keys in the railsContext hash
+  # that should invalidate the cache. You don't need to include keys
+  # if they don't affect to the server rendered output of the
+  # component.
   #
   # Please note that if you turn on caching in development but do not run
   # assets:precompile, the cache will not be invalidated because the server bundle
   # filename doesn't change.
   #
-  def react_component_cache(name, props, extra_keys = [], &block)
+  def react_component_cache(name:, props:, rails_context_keys: [], extra_keys: [], &block)
     if controller.perform_caching && !digest_assets
       Rails.logger.warn(
         "'perform_caching' is turned on but the assets do not have digest. " \
         "react_component_cache will not be invalidated correctly")
     end
 
-    locale = I18n.locale
     bundle_file = asset_path(ReactOnRails.configuration.server_bundle_js_file)
+
+    default_rails_context_keys = [
+      :i18nLocale,
+      :i18nDefaultLocale
+    ]
+
+    # Pick the rails context values that will affect to the rendering of
+    # this particular component
+    rails_context_subset = rails_context(server_side: false)
+                           .slice(*(rails_context_keys + default_rails_context_keys))
+
+    # All values in rails context extension will invalidate the
+    # cache, if the values change
     rails_context_extension = RailsContextExtension.custom_context(self)
 
     keys = [
-      'react_component_cache',
+      'react_component_cache_v2',
       name,
       props,
       locale,
       bundle_file,
-      rails_context_extension
+      rails_context_extension,
+      rails_context_subset
     ]
 
     # We can skip the digest because we don't care if the .haml template changes.
