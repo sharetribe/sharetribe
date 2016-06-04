@@ -22,7 +22,7 @@
                             = render :partial => "admin/communities/default_welcome_email"
                       %td{:width => "7.5%"}
               - if @show_branding_info
-                = render :partial => "non_whitelabel_branding", locals: {link_to_sharetribe: "https://www.sharetribe.com/?utm_source=#{@current_community.ident}.sharetribe.com&utm_medium=email&utm_campaign=nowl-emails-welcome"}
+                = render :partial => "layouts/email_non_whitelabel_branding", locals: {link_to_sharetribe: "https://www.sharetribe.com/?utm_source=#{@current_community.ident}.sharetribe.com&utm_medium=email&utm_campaign=nowl-emails-welcome"}
             - unless @recipient.has_admin_rights? && !@test_email
               %tr
                 %td{:style => "text-align: center;width:100%;max-width:602px;padding: 0 45px;"}
