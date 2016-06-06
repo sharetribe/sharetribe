@@ -2,7 +2,7 @@ window.ST = window.ST || {};
 
 (function(module) {
 
-  module.initializeLocationSearch = function() {
+  module.initializeLocationSearch = function(minimumDistanceMax) {
     var searchInput = document.getElementById('q');
     var statusInput = document.getElementById('ls');
     var coordinateInput = document.getElementById('lc');
@@ -23,12 +23,12 @@ window.ST = window.ST || {};
 
       var lat1 = a.lat();
       var lat2 = b.lat();
-      var lon1 = a.lng();
-      var lon2 = b.lng();
+      var lng1 = a.lng();
+      var lng2 = b.lng();
       var φ1 = toRadians(lat1);
-      var φ2 = toRadians(lat1);
+      var φ2 = toRadians(lat2);
       var Δφ = toRadians(lat2-lat1);
-      var Δλ = toRadians(lon2-lon1);
+      var Δλ = toRadians(lng2-lng1);
 
       var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
               Math.cos(φ1) * Math.cos(φ2) *
@@ -39,17 +39,23 @@ window.ST = window.ST || {};
       return d/2;
     };
 
+    function updateViewportData(viewport) {
+      if (viewport) {
+        var boundingboxRadius = computeScale(viewport.getNorthEast(), viewport.getSouthWest());
+        maxDistanceInput.value = boundingboxRadius;
+        boundingboxInput.value = viewport.toUrlValue();
+      } else {
+        maxDistanceInput.value = minimumDistanceMax;
+      }
+    }
+
     window.google.maps.event.addListener(autocomplete, 'place_changed', function(){
       var place = autocomplete.getPlace();
       if(place != null) {
         if(place.geometry != null) {
           coordinateInput.value = place.geometry.location.toUrlValue();
           statusInput.value = window.google.maps.places.PlacesServiceStatus.OK;
-          if (place.geometry.viewport) {
-            var boundingboxRadius = computeScale(place.geometry.viewport.getNorthEast(), place.geometry.viewport.getSouthWest());
-            boundingboxInput.value = place.geometry.viewport.toUrlValue();
-            maxDistanceInput.value = boundingboxRadius;
-          }
+          updateViewportData(place.geometry.viewport);
           homepageForm.submit();
         } else {
           coordinateInput.value = ""; // clear previous coordinates
@@ -94,9 +100,7 @@ window.ST = window.ST || {};
 
           if(placeServiceStatus === serviceStatus.OK) {
             coordinateInput.value = place.geometry.location.toUrlValue();
-            if (place.geometry.viewport) {
-              boundingboxInput.value = place.geometry.viewport.toUrlValue();
-            }
+            updateViewportData(place.geometry.viewport);
           }
           // Save received service status for logging
           statusInput.value = placeServiceStatus;

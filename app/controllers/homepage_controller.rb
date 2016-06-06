@@ -99,6 +99,7 @@ class HomepageController < ApplicationController
                  listing_shape_menu_enabled: listing_shape_menu_enabled,
                  main_search: main_search,
                  location_search_in_use: location_search_in_use,
+                 minimum_distance_max: APP_MINIMUM_DISTANCE_MAX,
                  viewport: viewport }
       }.on_error { |e|
         flash[:error] = t("homepage.errors.search_engine_not_responding")
@@ -113,6 +114,7 @@ class HomepageController < ApplicationController
                  listing_shape_menu_enabled: listing_shape_menu_enabled,
                  main_search: main_search,
                  location_search_in_use: location_search_in_use,
+                 minimum_distance_max: APP_MINIMUM_DISTANCE_MAX,
                  viewport: viewport }
       }
     end
