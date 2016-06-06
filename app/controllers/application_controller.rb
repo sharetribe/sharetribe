@@ -128,26 +128,26 @@ class ApplicationController < ActionController::Base
     present = ->(x) { x.present? }
 
     @homepage_path =
-      case [@current_community, @current_user, params[:locale]]
-      when matches([nil, __, __])
+      case [@current_community, @current_user, params[:locale], landing_page_in_use?]
+      when matches([nil, __, __, __])
         # FIXME We still have controllers that inherit application controller even though
         # they do not have @current_community
         #
         # Return nil, do nothing, but don't break
         nil
-
-      when matches([present, nil, present])
+      when matches([present, nil, present, true])
         # We don't have @current_user.
-        # Take the locale from URL param, and keep it in the URL if the locale
+        # Take current locale, and keep it in the URL if the locale
         # differs from community default
-        if params[:locale] != @current_community.default_locale.to_s
-          homepage_with_locale_path
+        if I18n.locale != @current_community.default_locale.to_s
+          landing_page_with_locale_path(locale: I18n.locale)
         else
-          homepage_without_locale_path(locale: nil)
+          landing_page_without_locale_path(locale: nil)
         end
-
+      when matches([present, present, __, true])
+        landing_page_without_locale_path(locale: nil)
       else
-        homepage_without_locale_path(locale: nil)
+        search_path(locale: @current_community.default_locale.to_s)
       end
   end
 
@@ -170,7 +170,22 @@ class ApplicationController < ActionController::Base
 
   #Creates a URL for root path (i18n breaks root_path helper)
   def root
+    ActiveSupport::Deprecation.warn("root method is deprecated. Use either search_path or landing_page_path, depending what you want")
     "#{request.protocol}#{request.host_with_port}/#{params[:locale]}"
+  end
+
+  def root_path(*)
+    ActiveSupport::Deprecation.warn("root_path method is deprecated. Use either search_path or landing_page_path, depending what you want")
+    super
+  end
+
+  def root_url(*)
+    ActiveSupport::Deprecation.warn("root_url method is deprecated. Use either search_url or landing_page_url, depending what you want")
+    super
+  end
+
+  def landing_page_in_use?
+    false # TODO Add proper logic
   end
 
   def fetch_logged_in_user
