@@ -30,9 +30,9 @@ class MyComponent extends React.Component {
 }
 
 
-## Parameters
+## Arguments
 
-You can give parameters to the route helper function as you would do in Rails:
+You can give arguments to the route helper function as you would do in Rails:
 
 ```js
 Routes.person_path({username: "johndoe", show_closed: true})

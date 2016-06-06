@@ -13,18 +13,18 @@ try {
 /**
  * Examples:
  *
- * addDefaultOpts([1, 2, 3], {}) => [1, 2, 3, {}]
- * addDefaultOpts([1, 2, 3, {format: "json"}], {locale: "en"}) => [1, 2, 3, {format: "json", locale: "en"}]
- * addDefaultOpts([1, 2, 3, {locale: "fr"}], {locale: "en"}) => [1, 2, 3, {locale: "fr"}]
+ * addDefaultArgs([1, 2, 3], {}) => [1, 2, 3, {}]
+ * addDefaultArgs([1, 2, 3, {format: "json"}], {locale: "en"}) => [1, 2, 3, {format: "json", locale: "en"}]
+ * addDefaultArgs([1, 2, 3, {locale: "fr"}], {locale: "en"}) => [1, 2, 3, {locale: "fr"}]
  */
-const addDefaultOpts = function addDefaultOpts(args, defaultOpts) {
+const addDefaultArgs = function addDefaultArgs(args, defaultArgs) {
   const argsArray = _.toArray(args);
   const last = _.last(argsArray);
 
   if (last && _.isObject(last)) {
-    return _.initial(argsArray).concat([_.assign({}, defaultOpts, last)]);
+    return _.initial(argsArray).concat([_.assign({}, defaultArgs, last)]);
   } else {
-    return argsArray.concat([defaultOpts]);
+    return argsArray.concat([defaultArgs]);
   }
 };
 
@@ -40,19 +40,19 @@ const routeNameToPathHelperName = function routeNameToPathHelperName(routeName) 
   return `${routeName}_path`;
 };
 
-const wrapWithDefaultOpts = function wrapWithDefaultOpts(pathFns, defaultOpts) {
+const wrapWithDefaultArgs = function wrapWithDefaultArgs(pathFns, defaultArgs) {
   return pathFns.reduce((routeObject, { pathHelperName, pathHelper }) => {
-    const withDefaultOptsFn = function withDefaultOpts(...args) {
-      return pathHelper(...addDefaultOpts(args, defaultOpts));
+    const withDefaultArgsFn = function withDefaultArgs(...args) {
+      return pathHelper(...addDefaultArgs(args, defaultArgs));
     };
 
     // Copy the toString function.
     // It contains the path spec, which might be useful
     // For example:
     // single_conversation_path.toString => (/:locale)/:person_id/messages/:conversation_type/:id(.:format)
-    withDefaultOptsFn.toString = pathHelper.toString;
+    withDefaultArgsFn.toString = pathHelper.toString;
 
-    routeObject[pathHelperName] = withDefaultOptsFn; // eslint-disable-line no-param-reassign
+    routeObject[pathHelperName] = withDefaultArgsFn; // eslint-disable-line no-param-reassign
     return routeObject;
   }, {});
 };
@@ -64,9 +64,9 @@ const wrapWithDefaultOpts = function wrapWithDefaultOpts(pathFns, defaultOpts) {
 /**
  * Creates a subset of all routes.
  *
- * You can pass also `defaultOpts` object, for example for "locale"
+ * You can pass also `defaultArgs` object, for example for "locale"
  */
-const subset = function subset(routesSubset, defaultOpts = {}) {
+const subset = function subset(routesSubset, defaultArgs = {}) {
   const pathHelpers = routesSubset.map((routeName) => {
     const pathHelperName = routeNameToPathHelperName(routeName);
     const pathHelper = Routes[pathHelperName];
@@ -78,13 +78,15 @@ const subset = function subset(routesSubset, defaultOpts = {}) {
     }
   });
 
-  return wrapWithDefaultOpts(pathHelpers, defaultOpts);
+  return wrapWithDefaultArgs(pathHelpers, defaultArgs);
 };
 
 /**
- * Returns all routes. Use this ONLY in styleguide or in tests.
+ * Returns all routes.
+ *
+ * ** Use this ONLY in styleguide or in tests. **
  */
-const all = function all(defaultOpts) {
+const all = function all(defaultArgs) {
   const pathHelperNames = _.keys(Routes).filter((key) => _.endsWith(key, '_path'));
 
   const pathFns = pathHelperNames.map((pathHelperName) => {
@@ -92,7 +94,7 @@ const all = function all(defaultOpts) {
     return { pathHelperName, pathHelper };
   });
 
-  return wrapWithDefaultOpts(pathFns, defaultOpts);
+  return wrapWithDefaultArgs(pathFns, defaultArgs);
 };
 
 export { subset, all };
