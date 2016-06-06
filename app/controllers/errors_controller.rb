@@ -35,12 +35,7 @@ class ErrorsController < ActionController::Base
   private
 
   def current_community
-    @current_community ||= ApplicationController.find_community(community_identifiers)
-  end
-
-  def community_identifiers
-    app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
-    ApplicationController.parse_community_identifiers_from_host(request.host, app_domain)
+    @current_community ||= CurrentMarketplaceResolver.resolve_from_host(request.host, URLUtils.strip_port_from_host(APP_CONFIG.domain))
   end
 
   def title(status)

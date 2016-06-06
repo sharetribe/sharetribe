@@ -77,7 +77,7 @@ class BraintreeWebhooksController < ApplicationController
 
   # This method overrides the default behaviour defined in ApplicationController
   # Instead of taking the ident/domain from the URL host part, take it from the community_id parameter
-  def community_identifiers
-    {id: params[:community_id]}
+  def resolve_community
+    CurrentMarketplaceResolver.resolve_from_id(params[:community_id])
   end
 end
