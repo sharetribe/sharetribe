@@ -151,8 +151,8 @@ de:
         invalid_email_domain: "Die \"%{email}\" Email Adresse nutzt einen nicht unterstützten Email Provider: \"%{domain}\". %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Lies den Artikel in der Wissensdatenbank für mehr Informationen."
         unknown_error: "Da ist etwas schief gelaufen"
-        only_white_label_offer: "Diese Funktion ist Teil des Sharetribe White-Label Angebotes. Um sie zu nutzen, solltest Du %{upgrade_pro_plan_link}."
-        upgrade_pro_plan_link: "Erweitere auf unseren Pro Plan oder höher"
+        white_label_offer: "Lege Deine eigene E-Mail-Adresse als Absender fest und entferne das Sharetribe Branding von ausgehenden E-Mail-Nachrichten durch %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "Upgrade auf unseren Pro Plan oder höher"
         verification_sent_from: "Die Verifizierungsmail wurde gesendet von %{verification_sender_name}."
         follow_the_instructions: "Bitte folge den Anweisungen in der Email, um Deine Adresse zu verifizieren."
       getting_started:
@@ -815,6 +815,10 @@ de:
       you_have_not_yet_accepted_or_rejected_offer: "Du hast das Angebot %{title}, dass du am %{date} erhalten hast, noch nicht akzeptiert oder abgelehnt."
       you_have_not_yet_accepted_or_rejected_request: "Du hast die Anfrage %{title}, die du am %{date} erhalten hast, noch nicht akzeptiert oder abgelehnt."
       show_thread: "Konversation anzeigen"
+    branding:
+      powered_by: "%{service_name} wird von %{sharetribe_link} Marktplatz Plattform betrieben."
+      create_own: "Willst Du Deinen eigenen Online-Marktplatz-Website wie %{service_name} erstellen? %{learn_more}."
+      learn_more: "Erfahre mehr"
     braintree_account_approved:
       account_ready: "Du kannst nun Zahlungen erhalten"
       message: "Deine Zahlungsinformationen wurden bestätigt. Du kannst jetzt auf %{service_name} Zahlungen erhalten."
@@ -956,7 +960,7 @@ de:
       hi: "Hallo %{name}"
       newest_offers: "Was Leute derzeit anderen anbieten"
       newest_requests: "Was Leute derzeit benötigen"
-      text_version_text: "Könntest Du etwas teilen, das andere möglicherweise brauchen? Oder benötigst Du etwas, das andere vielleicht haben? Füge ein Angebot oder eine Anfrage hinzu oder sieh nach, was andere anbieten oder benötigen bei %{url}"
+      text_version_text: "Könntest du etwas teilen, das andere möglicherweise brauchen? Oder benötigst du etwas, das andere vielleicht haben? Füge ein Angebot oder eine Anfrage hinzu oder sieh nach, was andere anbieten oder benötigen bei %{url}"
     reset_password_instructions:
       change_my_password: "Mein Passwort ändern"
       reset_password_instructions: "<p>Du hast angegeben, dein Passwort oder den Benutzernamen im %{service_name} Dienst vergessen zu haben.</p><p>Dein Benutzername ist: %{username}</p><p>Um dein Passwort zurückzusetzen, klicke auf den folgenden Link: %{password_reset_link}</p><br/><p> Falls du das Zurücksetzen des Passworts nicht angefordert hast, ignoriere diese E-Mail. Dein Passwort wird nicht zurückgesetzt, solange du den oberen Link nicht anklickst und ein neues Passwort erstellst.</p>"
@@ -1221,6 +1225,10 @@ de:
   layouts:
     admin:
       admin: "%{service_name} Verwaltung"
+    branding:
+      powered_by: "%{service_name} wird von %{sharetribe_link} Marktplatz Plattform betrieben."
+      create_own: "Willst Du Deinen eigenen Online-Marktplatz-Website wie %{service_name} erstellen? %{learn_more}."
+      learn_more: "Erfahre mehr"
     no_tribe:
       inbox: Posteingang
       settings: Einstellungen
@@ -1312,7 +1320,7 @@ de:
       invitation_sent: "Einladung erfolgreich gesendet"
       inviting_new_users_is_not_allowed_in_this_community: "Neue Benutzer einzuladen, ist nicht gestattet."
       login_again: "Bitte melde Dich erneut an."
-      login_failed: "Anmeldung fehlgeschlagen. Bitte gib korrekte Anmeldedaten ein."
+      login_failed: "Anmeldung fehlgeschlagen. Bitte gib die korrekten Anmeldedaten ein."
       account_creation_successful: "Willkommen bei %{service_name}, %{person_name}!"
       account_deleted: "Dein Konto wurde nun gelöscht."
       login_successful: "Willkommen, %{person_name}!"
@@ -1805,7 +1813,7 @@ de:
       invite_only_help_text_title: "Nur Stamm einladen"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Der Benutzer ist nicht mehr aktiv in %{service_name}"
-      inactive_description: "Der Benutzer hat aufgehört, %{service_name} zu verwenden. Du kannst diesen Benutzer weder kontaktieren, noch kannst Du ihn bewerten oder Kommentare hinterlassen."
+      inactive_description: "Der Benutzer hat aufgehört, %{service_name} zu verwenden. Du kannst diesen Benutzer weder kontaktieren, noch kannst du ihn bewerten oder Kommentare hinterlassen."
     new:
       create_new_account: "Konto erstellen"
       email: E-Mail-Adresse

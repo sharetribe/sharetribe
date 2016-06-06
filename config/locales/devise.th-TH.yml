@@ -1,55 +1,55 @@
 th-TH:
   errors:
     messages:
-      expired: ~
-      not_found: ~
-      already_confirmed: ~
+      expired: "หมดอายุแล้ว กรุณาขอใหม่"
+      not_found: ไม่พบข้อมูล
+      already_confirmed: "ได้รับการยืนยันแล้ว โปรดดำเนินการเข้าสู่ระบบ"
       not_locked: ~
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
-      unconfirmed: ~
-      locked: ~
+      already_authenticated: คุณเข้าสู่ระบบแล้ว
+      unauthenticated: คุณต้องเข้าสู่ระบบหรือสมัครใช้งานก่อนดำเนินการต่อ
+      unconfirmed: คุณต้องยืนยันบัญชีของคุณก่อนดำเนินการต่อ
+      locked: บัญชีของคุณถูกล็อค
       invalid: อีเมล์หรือรหัสผ่านไม่ถูกต้อง
-      invalid_token: ~
-      timeout: ~
-      inactive: ~
+      invalid_token: การพิสูจน์ผู้ใช้งานไม่ถูกต้อง
+      timeout: "คุณใช้งานเกินระยะเวลาที่กำหนด โปรดเข้าสู่ระบบอีกครั้งเพื่อดำเนินการต่อ"
+      inactive: บัญชีของคุณยังไม่ได้ยืนยันการเปิดใช้งาน
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: ~
+      updated_not_active: รหัสผ่านของคุณถูกเปลี่ยนเรียบร้อยแล้ว
+      send_paranoid_instructions: "ถ้าอีเมล์ของคุณมีอยู่ในฐานข้อมูลเรา คุณจะได้รับลิงค์สำหรับเปลี่ยนแปลงรหัสผ่านทางอีเมล์ของคุณ"
+      send_instructions: คุณจะได้รับอีเมล์พร้อมคำแนะนำในการแก้ไขรหัสผ่านของคุณในอีกไม่กี่นาทีนี้
+      updated: "รหัสผ่านของคุณถูกเปลี่ยนเรียบร้อยแล้ว ตอนนี้คุณลงชื่อเข้าระบบแล้ว"
     sessions:
       signed_in: ลงชื่อเข้าระบบเรียบร้อยแล้ว
-      signed_out: ~
+      signed_out: ออกจากระบบเรียบร้อยแล้ว
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_paranoid_instructions: "ถ้าอีเมล์ของคุณมีอยู่ในฐานข้อมูลเรา คุณจะได้รับอีเมล์พร้อมคำแนะนำในการยืนยันบัญชีของคุณในภายหลัง"
+      send_instructions: คุณจะได้รับอีเมล์พร้อมคำแนะนำในการยืนยันบัญชีของคุณในอีกไม่กี่นาทีนี้
+      confirmed: บัญชีของคุณได้รับการยืนยันเรียบร้อยแล้ว
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "ข้อความพร้อมลิงค์เพื่อดำเนินการยืนยันได้ถูกส่งไปยังอีเมล์ของคุณ โปรดดำเนินการยืนยันการเปิดใช้งานบัญชีของคุณ"
+      signed_up_but_inactive: "คุณได้ลงทะเบียนเข้าระบบเรียบร้อยแล้ว อย่างไรก็ตามเราไม่สามารถให้คุณเข้าใช้งานได้ เนื่องจากบัญชีของคุณยังไม่ได้ยืนยันการเปิดใช้งาน"
+      signed_up_but_locked: "คุณได้ลงทะเบียนเข้าระบบเรียบร้อยแล้ว อย่างไรก็ตามเราไม่สามารถให้คุณเข้าใช้งานได้ เนื่องจากบัญชีของคุณถูกล็อค"
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+        inactive: ไม่มีการใช้งาน
+        unconfirmed: ไม่ได้รับการยืนยัน
+        locked: ถูกล็อค
+      update_needs_confirmation: "คุณได้ดำเนินการปรับปรุงข้อมูลบัญชีของคุณเรียบร้อยแล้ว แต่เราต้องทำการตรวจสอบที่อยู่อีเมล์ใหม่ของคุณ โปรดตรวจสอบอีเมล์ของคุณ และคลิกลิงค์เพื่อทำการยืนยันที่อยู่อีเมล์ใหม่ของคุณ"
+      signed_up: "ยินดีต้อนรับ! คุณได้ลงชื่อเข้าระบบเรียบร้อยแล้ว"
+      updated: คุณได้ดำเนินการปรับปรุงข้อมูลบัญชีของคุณเรียบร้อยแล้ว
+      destroyed: "ลาก่อน! บัญชีของคุณถูกยกเลิกเรียบร้อยแล้ว ทางเราหวังว่าจะได้พบคุณอีกครั้งเร็วๆ นี้"
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: "ถ้าบัญชีของคุณยังอยู่ คุณจะได้รับอีเมล์พร้อมคำแนะนำเกี่ยวกับการปลดล็อคในอีกไม่กี่นาทีนี้"
+      send_instructions: คุณจะได้รับอีเมลพร้อมคำแนะนำเกี่ยวกับวิธีการปลดล็อคบัญชีของคุณในอีกไม่กี่นาทีนี้
+      unlocked: "บัญชีของคุณถูกปลดล็อคเรียบร้อยแล้ว โปรดเข้าสู่ระบบเพื่อใช้งานต่อไป"
     omniauth_callbacks:
       success: ~
       failure: ~
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: คำแนะนำในการยืนยัน
       reset_password_instructions:
-        subject: ~
+        subject: คำแนะนำในการรีเซ็ตรหัสผ่าน
       unlock_instructions:
-        subject: ~
+        subject: คำแนะนำในการปลดล็อค

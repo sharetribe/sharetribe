@@ -151,8 +151,8 @@ nb:
         invalid_email_domain: "Epostadressen '%{email}' bruker en epostleverandør vi ikke støtter: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Les mer i denne artikkelen."
         unknown_error: "Noe gikk galt"
-        only_white_label_offer: "Denne funksjonen er en del av Sharetribe white-label. For å aktivere dette må du %{upgrade_pro_plan_link}."
-        upgrade_pro_plan_link: "oppgradere til vår Pro-pakke eller høyere nivå."
+        white_label_offer: ~
+        upgrade_plan_link: ~
         verification_sent_from: "Bekreftelses-eposten ble sendt fra %{verification_sender_name}."
         follow_the_instructions: "Følg instruksjonen i eposten for å bekrefte din adresse."
       getting_started:
@@ -813,6 +813,10 @@ nb:
       you_have_not_yet_accepted_or_rejected_offer: "Du har ennå ikke godtatt eller avslått tilbudet %{title} du mottok %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Du har ennå ikke godtatt eller avslått forespørselen %{title} du mottok %{date}."
       show_thread: "Vis samtale"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     braintree_account_approved:
       account_ready: "Du kan nå motta betalinger"
       message: "Dine utbetalingsdetaljer er nå bekreftet, og du er nå klar til å motta betalinger på %{service_name}."
@@ -1223,6 +1227,10 @@ nb:
   layouts:
     admin:
       admin: "%{service_name} administrasjonspanel"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     no_tribe:
       inbox: Innboks
       settings: Innstillinger

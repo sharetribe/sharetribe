@@ -136,8 +136,8 @@ id:
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: ~
-        only_white_label_offer: ~
-        upgrade_pro_plan_link: ~
+        white_label_offer: ~
+        upgrade_plan_link: ~
         verification_sent_from: ~
         follow_the_instructions: ~
       getting_started:
@@ -784,6 +784,10 @@ id:
       you_have_not_yet_accepted_or_rejected_offer: "Anda belum menerima atau menolak penawaran %{title} yang Anda terima pada %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Anda belum menerima atau menolak permintaan %{title} yang Anda terima pada %{date}."
       show_thread: ~
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     braintree_account_approved:
       account_ready: ~
       message: ~
@@ -1190,6 +1194,10 @@ id:
   layouts:
     admin:
       admin: "%{service_name} admin panel"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     no_tribe:
       inbox: ~
       settings: ~

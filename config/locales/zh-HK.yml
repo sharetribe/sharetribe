@@ -146,8 +146,8 @@ zh-HK:
         invalid_email_domain: "電郵地址%{email}來自不被支持的電郵提供商：‘%{domain}’。%{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: 通過資料庫的文章獲得更多訊息。
         unknown_error: 發生問題了
-        only_white_label_offer: "這個功能屬於Sharetribe的自由品牌功能。要想啟用該功能，你應該%{upgrade_pro_plan_link}"
-        upgrade_pro_plan_link: 升級到我們的專業版
+        white_label_offer: ~
+        upgrade_plan_link: ~
         verification_sent_from: "此驗証電郵是由%{verification_sender_name}發出。"
         follow_the_instructions: 請按電郵中的說明來驗證你的電郵地址。
       getting_started:
@@ -802,6 +802,10 @@ zh-HK:
       you_have_not_yet_accepted_or_rejected_offer: "你尚未接受或拒絕你在%{date}收到的%{title}"
       you_have_not_yet_accepted_or_rejected_request: "你尚未接受或拒絕你在%{date}收到的%{title}"
       show_thread: 顯示對話
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     braintree_account_approved:
       account_ready: 你已經可以接收付款了
       message: "你的付款資訊已被確認，現在你可以在%{service_name}接收付款了。"
@@ -1208,6 +1212,10 @@ zh-HK:
   layouts:
     admin:
       admin: "%{service_name}管理員版面"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     no_tribe:
       inbox: 收件箱
       settings: 設定

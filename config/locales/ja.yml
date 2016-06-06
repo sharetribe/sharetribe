@@ -146,8 +146,8 @@ ja:
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: ~
-        only_white_label_offer: ~
-        upgrade_pro_plan_link: ~
+        white_label_offer: ~
+        upgrade_plan_link: ~
         verification_sent_from: ~
         follow_the_instructions: ~
       getting_started:
@@ -798,6 +798,10 @@ ja:
       you_have_not_yet_accepted_or_rejected_offer: "%{date}に%{title}のオファーがありました。これに対し、受諾するか却下するかをまだしていません。"
       you_have_not_yet_accepted_or_rejected_request: "%{date}に%{title}のリクエストがありました。これに対し、受諾するか却下するかをまだしていません。"
       show_thread: 会話を表示
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     braintree_account_approved:
       account_ready: お支払い受け取りの準備が整いました
       message: "お支払いに関する情報が承認されました。%{service_name}で、お支払い受け取りの準備が整いました。"
@@ -1204,6 +1208,10 @@ ja:
   layouts:
     admin:
       admin: "%{service_name}のサイト管理パネル"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     no_tribe:
       inbox: 受信メール
       settings: 設定

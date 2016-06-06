@@ -151,8 +151,8 @@ pt-BR:
         invalid_email_domain: "O endereço de e-mail '%{email}' usa um provedor de e-mail não suportado: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Para maiores informações leia o artigo na base de conhecimento"
         unknown_error: "Algo deu errado"
-        only_white_label_offer: "Esta função é parte da Sharetribe white-label offer. Para habilitar esta função você deve %{upgrade_pro_plan_link}."
-        upgrade_pro_plan_link: "Faça upgrade para nosso plano Pro ou superior"
+        white_label_offer: ~
+        upgrade_plan_link: ~
         verification_sent_from: "O e-mail de verificação foi enviado por %{verification_sender_name}."
         follow_the_instructions: "Por favor siga as instruções para confirmar seu e-mail."
       getting_started:
@@ -811,6 +811,10 @@ pt-BR:
       you_have_not_yet_accepted_or_rejected_offer: "Você ainda não aceitou nem rejeitou a oferta %{title} que recebeu em %{date}"
       you_have_not_yet_accepted_or_rejected_request: "Você ainda não aceitou nem rejeitou a requisição %{title} que recebeu em %{date}"
       show_thread: "Ver a conversa"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     braintree_account_approved:
       account_ready: "Você já pode receber pagamentos"
       message: "Suas informações de pagamento foram confirmadas e agora você está pronto para receber pagamentos em %{service_name}."
@@ -1217,6 +1221,10 @@ pt-BR:
   layouts:
     admin:
       admin: "Painel de administração do %{service_name}"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     no_tribe:
       inbox: "caixa de entrada"
       settings: Configurações

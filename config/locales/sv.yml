@@ -151,8 +151,8 @@ sv:
         invalid_email_domain: "E-postadressen %{email} använder en otillåten e-postleverantör: %{domain}. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Vänligen läs kunskapsbasartikeln för mer information."
         unknown_error: "Någonting gick fel"
-        only_white_label_offer: "Denna funktion är en del av Sharetribe white-label. För att aktivera denna funktion så behöver du %{upgrade_pro_plan_link}."
-        upgrade_pro_plan_link: "uppgradera till Pro planen eller högre"
+        white_label_offer: ~
+        upgrade_plan_link: ~
         verification_sent_from: "Verifikationsmailet skickades från %{verification_sender_name}."
         follow_the_instructions: "Vänligen följ instruktionerna i mailet för att verifiera din adress."
       getting_started:
@@ -815,6 +815,10 @@ sv:
       you_have_not_yet_accepted_or_rejected_offer: "Du har inte antagit eller avslagit erbjudandet om '%{title}' som du tog emot den %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Du har inte antagit eller avslagit förfrågan om '%{title}' som du tog emot den %{date}."
       show_thread: "Visa konversation"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     braintree_account_approved:
       account_ready: "Du är redo för att ta emot betalningar"
       message: "Din betalningsinformation har blivit godkänd och du är nu redo att ta emot betalningar på %{service_name}."
@@ -1223,6 +1227,10 @@ sv:
   layouts:
     admin:
       admin: "%{service_name} admin panel"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     no_tribe:
       inbox: Inkorg
       settings: Inställningar

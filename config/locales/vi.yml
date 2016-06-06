@@ -136,8 +136,8 @@ vi:
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: ~
-        only_white_label_offer: ~
-        upgrade_pro_plan_link: ~
+        white_label_offer: ~
+        upgrade_plan_link: ~
         verification_sent_from: ~
         follow_the_instructions: ~
       getting_started:
@@ -784,6 +784,10 @@ vi:
       you_have_not_yet_accepted_or_rejected_offer: "Bạn chưa chấp nhận hoặc từ chối hỗ trợ '%{title}' bạn đã nhận vào ngày %{date}"
       you_have_not_yet_accepted_or_rejected_request: "Bạn chưa chấp nhận hoặc từ chối yêu câu '%{title}' bạn đã nhận được vào ngày %{date}"
       show_thread: "Hiện cuộc trò chuyện"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     braintree_account_approved:
       account_ready: ~
       message: ~
@@ -1190,6 +1194,10 @@ vi:
   layouts:
     admin:
       admin: "ban quản trị %{service_name}"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     no_tribe:
       inbox: "Hộp thư đến"
       settings: "Cài đặt"
