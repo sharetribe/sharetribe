@@ -2,6 +2,9 @@
 
 %body
 
+  -# Render railsContext here before any react component gets rendered
+  = prepend_render_rails_context("")
+
   %noscript
     .noscript-padding
       -# Noscript content will be positioned here
@@ -10,7 +13,7 @@
     - with_feature(:onboarding_redesign_v1) do
       - props = onboarding_topbar_props
       - unless props[:next_step] == :all_done
-        - react_component_cache("onboarding_topbar", props) do
+        - react_component_cache(name: "onboarding_topbar", props: props) do
           = react_component("OnboardingTopBar", props: props, prerender: true)
 
   = render partial: 'layouts/global_header', locals: header_props()
