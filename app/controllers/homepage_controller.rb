@@ -5,6 +5,7 @@ class HomepageController < ApplicationController
 
   APP_DEFAULT_VIEW_TYPE = "grid"
   VIEW_TYPES = ["grid", "list", "map"]
+  APP_MINIMUM_DISTANCE_MAX = 5
 
   def index
     @homepage = true
@@ -52,8 +53,6 @@ class HomepageController < ApplicationController
 
     main_search = location_search_available ? MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:main_search] : :keyword
     location_search_in_use = main_search == :location
-
-    params[:sort] = :distance if @view_type == "map" # change to bounding box when implemented
 
     search_result = find_listings(params, per_page, compact_filter_params, includes.to_set, location_search_in_use)
 
@@ -156,10 +155,14 @@ class HomepageController < ApplicationController
     dropdowns = filter_params[:custom_dropdown_field_options].map { |dropdown_field| dropdown_field.merge(type: :selection_group, operator: :or) }
     numbers = numeric_search_params.map { |numeric| numeric.merge(type: :numeric_range) }
 
-    coordinates = Maybe(params[:lc]).map { search_coordinates(params[:lc]) }.or_else({})
     distance_unit = (location_search_in_use && MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:distance_unit] == :metric) ? :km : :miles
-
-    distance_max = [5, params[:distance_max]].max if params[:distance_max].present?
+    location_search_params = location_search_params(
+      params[:lc],
+      distance_unit,
+      Maybe(params[:distance_max])
+        .map { |d| [APP_MINIMUM_DISTANCE_MAX, d.to_f].max }
+        .or_else(nil)
+    )
 
     search = {
       # Add listing_id
@@ -167,19 +170,15 @@ class HomepageController < ApplicationController
       listing_shape_ids: Array(filter_params[:listing_shape]),
       price_cents: filter_params[:price_cents],
       keywords: filter_params[:search],
-      latitude: coordinates[:latitude],
-      longitude: coordinates[:longitude],
-      distance_unit: distance_unit,
       fields: checkboxes.concat(dropdowns).concat(numbers),
       per_page: listings_per_page,
       page: Maybe(params)[:page].to_i.map { |n| n > 0 ? n : 1 }.or_else(1),
       price_min: params[:price_min],
       price_max: params[:price_max],
-      distance_max: distance_max,
-      sort: params[:sort],
+      sort: nil,
       locale: I18n.locale,
       include_closed: false
-    }
+    }.merge(location_search_params)
 
     raise_errors = Rails.env.development?
 
@@ -276,6 +275,23 @@ class HomepageController < ApplicationController
       return { latitude: lat, longitude: lng }
     else
       ArgumentError.new("Format of latlng coordinate pair \"#{latlng}\" wasn't \"lat,lng\" ")
+    end
+  end
+
+  def location_search_params(latlng, distance_unit, distance_max)
+    # Current map doesn't react to zoom & panning, so we fetch all the results as before.
+    if @view_type != 'map'
+      Maybe(latlng)
+        .map {
+          search_coordinates(latlng).merge({
+            distance_unit: distance_unit,
+            distance_max: distance_max,
+            sort: :distance
+          })
+        }
+        .or_else({})
+    else
+      {}
     end
   end
 end
