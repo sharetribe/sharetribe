@@ -56,7 +56,8 @@ module ListingIndexService::Search
         if(original[:latitude].present? && original[:longitude].present?)
           { :'search[lat]' => original[:latitude],
             :'search[lng]' => original[:longitude],
-            :'search[distance_unit]' => original[:distance_unit]
+            :'search[distance_unit]' => original[:distance_unit],
+            :'filter[distance_max]' => original[:distance_max]
           }
         end
 
@@ -81,7 +82,6 @@ module ListingIndexService::Search
        :'filter[listing_shape_ids]' => Maybe(original[:listing_shape_ids]).join(",").or_else(nil),
        :'filter[category_ids]' => Maybe(original[:categories]).join(",").or_else(nil),
        :'search[locale]' => original[:locale],
-       :'filter[distance_max]' => original[:distance_max],
        :sort => original[:sort]
       }.merge(location_params).merge(custom_fields).compact
     end
