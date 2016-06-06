@@ -7,10 +7,10 @@ import GuideBackToTodoLink from './GuideBackToTodoLink';
 import infoImage from './images/step2_sloganDescription.jpg';
 
 const GuideSloganAndDescriptionPage = (props) => {
-  const { changePage, initialPath, infoIcon, pageData } = props;
+  const { changePage, infoIcon, routes } = props;
 
   return div({ className: 'container' }, [
-    r(GuideBackToTodoLink, { changePage, initialPath }),
+    r(GuideBackToTodoLink, { changePage, routes }),
     h2({ className: css.title }, t('web.admin.onboarding.guide.slogan_and_description.title')),
     p({ className: css.description }, t('web.admin.onboarding.guide.slogan_and_description.description')),
 
@@ -34,16 +34,17 @@ const GuideSloganAndDescriptionPage = (props) => {
             })),
     ]),
 
-    a({ className: css.nextButton, href: pageData.cta }, t('web.admin.onboarding.guide.slogan_and_description.add_your_own')),
+    a({ className: css.nextButton, href: routes.admin_details_edit_path() }, t('web.admin.onboarding.guide.slogan_and_description.add_your_own')),
   ]);
 };
 
+const { func, string, shape } = PropTypes;
+
 GuideSloganAndDescriptionPage.propTypes = {
-  changePage: PropTypes.func.isRequired,
-  initialPath: PropTypes.string.isRequired,
-  infoIcon: PropTypes.string.isRequired,
-  pageData: PropTypes.shape({
-    cta: PropTypes.string.isRequired,
+  changePage: func.isRequired,
+  infoIcon: string.isRequired,
+  routes: shape({
+    admin_details_edit_path: func.isRequired,
   }).isRequired,
 };
 

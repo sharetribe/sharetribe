@@ -7,10 +7,10 @@ import GuideBackToTodoLink from './GuideBackToTodoLink';
 import infoImage from './images/step4_fieldsFilters.jpg';
 
 const GuideFilterPage = (props) => {
-  const { changePage, initialPath, pageData, infoIcon } = props;
+  const { changePage, infoIcon, routes } = props;
 
   return div({ className: 'container' }, [
-    r(GuideBackToTodoLink, { changePage, initialPath }),
+    r(GuideBackToTodoLink, { changePage, routes }),
     h2({ className: css.title }, t('web.admin.onboarding.guide.filter.title')),
     p({ className: css.description }, [
       t('web.admin.onboarding.guide.filter.description.content',
@@ -41,16 +41,17 @@ const GuideFilterPage = (props) => {
         ]),
     ]),
 
-    a({ className: css.nextButton, href: pageData.cta }, t('web.admin.onboarding.guide.filter.add_fields_and_filters')),
+    a({ className: css.nextButton, href: routes.admin_custom_fields_path() }, t('web.admin.onboarding.guide.filter.add_fields_and_filters')),
   ]);
 };
 
+const { func, string, shape } = PropTypes;
+
 GuideFilterPage.propTypes = {
-  changePage: PropTypes.func.isRequired,
-  initialPath: PropTypes.string.isRequired,
-  infoIcon: PropTypes.string.isRequired,
-  pageData: PropTypes.shape({
-    cta: PropTypes.string.isRequired,
+  changePage: func.isRequired,
+  infoIcon: string.isRequired,
+  routes: shape({
+    admin_custom_fields_path: func.isRequired,
   }).isRequired,
 };
 

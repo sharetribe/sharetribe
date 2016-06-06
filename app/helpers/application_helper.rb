@@ -319,7 +319,7 @@ module ApplicationHelper
         :topic => :general,
         :text => t("admin.communities.getting_started.getting_started"),
         :icon_class => icon_class("openbook"),
-        :path => getting_started_admin_community_path(@current_community),
+        :path => admin_getting_started_guide_path,
         :name => "getting_started"
       },
       {

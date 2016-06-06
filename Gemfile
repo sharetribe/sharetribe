@@ -170,3 +170,4 @@ end
 
 
 gem 'therubyracer', '~> 0.12.2', platforms: :ruby
+gem 'js-routes', '~> 1.2.5'

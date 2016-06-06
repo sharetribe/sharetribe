@@ -9,51 +9,43 @@ import GuideFilterPage from './GuideFilterPage';
 import GuidePaypalPage from './GuidePaypalPage';
 import GuideListingPage from './GuideListingPage';
 import GuideInvitationPage from './GuideInvitationPage';
+import { all as allRoutes } from '../../utils/routes';
+
+const routes = allRoutes({ locale: 'en' });
 
 const onboardingData = [
   {
-    cta: '/en/admin/communities/1/edit_details',
     complete: false,
     step: 'slogan_and_description',
-    sub_path: 'slogan_and_description',
   },
   {
-    cta: '/en/admin/communities/1/edit_look_and_feel',
     complete: false,
     step: 'cover_photo',
-    sub_path: 'cover_photo',
   },
   {
-    cta: '/en/admin/custom_fields',
     complete: false,
     step: 'filter',
-    sub_path: 'filter',
   },
   {
-    cta: '/en/admin/paypal_preferences',
-    alternative_cta: '/en/admin/listing_shapes/sell/edit',
+    additional_info: {
+      listing_shape_name: 'sell',
+    },
     complete: false,
     step: 'paypal',
-    sub_path: 'paypal',
   },
   {
-    cta: '/en/listings/new',
     complete: false,
     step: 'listing',
-    sub_path: 'listing',
   },
   {
-    cta: '/en/invitations/new',
     complete: false,
     step: 'invitation',
-    sub_path: 'invitation',
   },
 ];
 const statusPageProps = {
   changePage: function changePage(path) {
     action('sub page')(path);
   },
-  initialPath: '/en/admin/getting_started_guide',
   name: 'John Doe',
   infoIcon: '<i class="ss-info"></i>',
   nextStep: {
@@ -61,6 +53,7 @@ const statusPageProps = {
     link: 'cover_photo',
   },
   onboarding_data: onboardingData,
+  routes,
 };
 
 const sloganAndDescriptionProps = {
@@ -68,13 +61,11 @@ const sloganAndDescriptionProps = {
     action('back')(path);
   },
   infoIcon: '<i class="ss-info"></i>',
-  initialPath: '/en/admin/getting_started_guide',
   name: 'John Doe',
+  routes,
   pageData: {
     complete: true,
-    cta: '/en/admin/communities/1/edit_details',
     step: 'slogan_and_description',
-    sub_path: 'slogan_and_description',
   },
 };
 
@@ -83,13 +74,11 @@ const coverPhotoProps = {
     action('back')(path);
   },
   infoIcon: '<i class="ss-info"></i>',
-  initialPath: '/en/admin/getting_started_guide',
   name: 'John Doe',
+  routes,
   pageData: {
     complete: true,
-    cta: '/en/admin/communities/1/edit_look_and_feel',
     step: 'cover_photo',
-    sub_path: 'cover_photo',
   },
 };
 
@@ -98,13 +87,11 @@ const filterProps = {
     action('back')(path);
   },
   infoIcon: '<i class="ss-info"></i>',
-  initialPath: '/en/admin/getting_started_guide',
   name: 'John Doe',
+  routes,
   pageData: {
     complete: true,
-    cta: '/en/admin/custom_fields',
     step: 'filter',
-    sub_path: 'filter',
   },
 };
 
@@ -113,14 +100,14 @@ const paypalProps = {
     action('back')(path);
   },
   infoIcon: '<i class="ss-info"></i>',
-  initialPath: '/en/admin/getting_started_guide',
   name: 'John Doe',
+  routes,
   pageData: {
     complete: true,
-    cta: '/en/admin/paypal_preferences',
-    alternative_cta: '/en/admin/listing_shapes/sell/edit',
     step: 'paypal',
-    sub_path: 'paypal',
+    additional_info: {
+      listing_shape_name: 'sell',
+    },
   },
 };
 
@@ -129,13 +116,11 @@ const listingProps = {
     action('back')(path);
   },
   infoIcon: '<i class="ss-info"></i>',
-  initialPath: '/en/admin/getting_started_guide',
   name: 'John Doe',
+  routes,
   pageData: {
     complete: true,
-    cta: '/en/listings/new',
     step: 'listing',
-    sub_path: 'listing',
   },
 };
 const invitationProps = {
@@ -143,13 +128,11 @@ const invitationProps = {
     action('back')(path);
   },
   infoIcon: '<i class="ss-info"></i>',
-  initialPath: '/en/admin/getting_started_guide',
   name: 'John Doe',
+  routes,
   pageData: {
     complete: true,
-    cta: '/en/invitations/new',
     step: 'invitation',
-    sub_path: 'invitation',
   },
 };
 

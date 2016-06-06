@@ -648,7 +648,6 @@ class ApplicationController < ActionController::Base
     community_id = @current_community.id
     onboarding_status = Admin::OnboardingWizard.new(community_id).setup_status
     {
-      guide_root: admin_getting_started_guide_path,
       progress: OnboardingViewUtils.progress(onboarding_status),
       next_step: OnboardingViewUtils.next_incomplete_step(onboarding_status)
     }

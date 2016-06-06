@@ -9,55 +9,52 @@ class Admin::GettingStartedGuideController < ApplicationController
   end
 
   def index
-    render locals: { props: data }
+    render :index, locals: { props: data(page: :status) }
+  end
+
+  def slogan_and_description
+    render :index, locals: { props: data(page: :slogan_and_description) }
+  end
+
+  def cover_photo
+    render :index, locals: { props: data(page: :cover_photo) }
+  end
+
+  def filter
+    render :index, locals: { props: data(page: :filter) }
+  end
+
+  def paypal
+    render :index, locals: { props: data(page: :paypal) }
+  end
+
+  def listing
+    render :index, locals: { props: data(page: :listing) }
+  end
+
+  def invitation
+    render :index, locals: { props: data(page: :invitation) }
   end
 
   private
 
-  def data
-    path_parts = request.env['PATH_INFO'].split("/getting_started_guide")
-    has_sub_path = (path_parts.count == 2 && path_parts[1] != "/")
-    sub_path = has_sub_path ? path_parts[1] : ""
-
-    alternative_cta = Maybe(ListingService::API::Api.shapes.get(community_id: @current_community.id)[:data].first)
-      .map { |ls| edit_admin_listing_shape_path(ls[:name]) }
-      .or_else { admin_listing_shapes_path }
+  def data(page:)
+    listing_shape_name = ListingService::API::Api.shapes.get(community_id: @current_community.id).data.first[:name]
 
     onboarding_status = Admin::OnboardingWizard.new(@current_community.id).setup_status
-    links = {
-      slogan_and_description: {
-        sub_path: 'slogan_and_description',
-        cta: admin_details_edit_path,
-      },
-      cover_photo: {
-        sub_path: 'cover_photo',
-        cta: admin_look_and_feel_edit_path,
-      },
-      filter: {
-        sub_path: 'filter',
-        cta: admin_custom_fields_path,
-      },
+    additional_info = {
       paypal: {
-        sub_path: 'paypal',
-        cta: admin_paypal_preferences_path,
-        alternative_cta: alternative_cta,
+        additional_info: {
+          listing_shape_name: listing_shape_name
+        }
       },
-      listing: {
-        sub_path: 'listing',
-        cta: new_listing_path,
-      },
-      invitation: {
-        sub_path: 'invitation',
-        cta: new_invitation_path,
-      }
     }
 
-    sorted_steps = OnboardingViewUtils.sorted_steps_with_includes(onboarding_status, links)
+    sorted_steps = OnboardingViewUtils.sorted_steps_with_includes(onboarding_status, additional_info)
 
     # This is the props used by the React component.
     { onboarding_guide_page: {
-        path: sub_path,
-        original_path: request.env['PATH_INFO'],
+        page: page,
         onboarding_data: sorted_steps,
         name: PersonViewUtils.person_display_name(@current_user, @current_community),
         info_icon: icon_tag("information"),

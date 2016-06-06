@@ -48,9 +48,9 @@ const missingTranslationMessage = function missingTranslationMessage(scope) {
   return `[missing "${scope}" translation]`;
 };
 
-const initialize = function initialize(railsContext, env) {
-  I18n.locale = railsContext.i18nLocale;
-  I18n.defaultLocale = railsContext.i18nDefaultLocale;
+const initialize = function initialize(i18nLocale, i18nDefaultLocale, env) {
+  I18n.locale = i18nLocale;
+  I18n.defaultLocale = i18nDefaultLocale;
   I18n.interpolationMode = 'split';
 
   if (env === 'development') {

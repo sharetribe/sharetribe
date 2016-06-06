@@ -10,10 +10,10 @@ const COVER_PHOTO_WIDTH = 1920;
 const COVER_PHOTO_HEIGHT = 450;
 
 const GuideCoverPhotoPage = (props) => {
-  const { changePage, initialPath, pageData, infoIcon } = props;
+  const { changePage, infoIcon, routes } = props;
 
   return div({ className: 'container' }, [
-    r(GuideBackToTodoLink, { changePage, initialPath }),
+    r(GuideBackToTodoLink, { changePage, routes }),
     h2({ className: css.title }, t('web.admin.onboarding.guide.cover_photo.title')),
     p({ className: css.description }, t('web.admin.onboarding.guide.cover_photo.description')),
 
@@ -46,16 +46,17 @@ const GuideCoverPhotoPage = (props) => {
       ]),
     ]),
 
-    a({ className: css.nextButton, href: pageData.cta }, t('web.admin.onboarding.guide.cover_photo.add_your_own')),
+    a({ className: css.nextButton, href: routes.admin_look_and_feel_edit_path() }, t('web.admin.onboarding.guide.cover_photo.add_your_own')),
   ]);
 };
 
+const { func, string, shape } = PropTypes;
+
 GuideCoverPhotoPage.propTypes = {
-  changePage: PropTypes.func.isRequired,
-  initialPath: PropTypes.string.isRequired,
-  infoIcon: PropTypes.string.isRequired,
-  pageData: PropTypes.shape({
-    cta: PropTypes.string.isRequired,
+  changePage: func.isRequired,
+  infoIcon: string.isRequired,
+  routes: shape({
+    admin_look_and_feel_edit_path: func.isRequired,
   }).isRequired,
 };
 

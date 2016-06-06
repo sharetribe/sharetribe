@@ -4,15 +4,23 @@ import { t } from '../../utils/i18n';
 
 import css from './OnboardingGuide.css';
 
+// Get link and title of next recommended onboarding step
+const nextPageName = function nextPageName(data) {
+  return (data.find((step) => !step.complete) || {}).step;
+};
+
 const GuideStatusPage = (props) => {
-  const handleClick = function handleClick(e, path) {
+
+  const handleClick = function handleClick(e, page, path) {
     e.preventDefault();
-    props.changePage(path);
+    props.changePage(page, path);
   };
 
   const onboardingData = props.onboarding_data;
 
-  const title = props.nextStep ?
+  const nextPage = nextPageName(onboardingData);
+
+  const title = nextPage ?
         t('web.admin.onboarding.guide.status_page.title', { name: props.name }) :
         t('web.admin.onboarding.guide.status_page.title_done');
 
@@ -52,7 +60,42 @@ const GuideStatusPage = (props) => {
          })),
   ]);
 
-  const description = props.nextStep ? todoDescPartial : doneDescPartial;
+  const description = props.nextPage ? todoDescPartial : doneDescPartial;
+
+  const { routes } = props;
+
+  const links = {
+    slogan_and_description: {
+      link_title: 'web.admin.onboarding.guide.status_page.slogan_and_description',
+      next_link_title: 'web.admin.onboarding.guide.next_step.slogan_and_description',
+      path: routes.admin_getting_started_guide_slogan_and_description_path(),
+    },
+    cover_photo: {
+      link_title: 'web.admin.onboarding.guide.status_page.cover_photo',
+      next_link_title: 'web.admin.onboarding.guide.next_step.cover_photo',
+      path: routes.admin_getting_started_guide_cover_photo_path(),
+    },
+    filter: {
+      link_title: 'web.admin.onboarding.guide.status_page.filter',
+      next_link_title: 'web.admin.onboarding.guide.next_step.filter',
+      path: routes.admin_getting_started_guide_filter_path(),
+    },
+    paypal: {
+      link_title: 'web.admin.onboarding.guide.status_page.paypal',
+      next_link_title: 'web.admin.onboarding.guide.next_step.paypal',
+      path: routes.admin_getting_started_guide_paypal_path(),
+    },
+    listing: {
+      link_title: 'web.admin.onboarding.guide.status_page.listing',
+      next_link_title: 'web.admin.onboarding.guide.next_step.listing',
+      path: routes.admin_getting_started_guide_listing_path(),
+    },
+    invitation: {
+      link_title: 'web.admin.onboarding.guide.status_page.invitation',
+      next_link_title: 'web.admin.onboarding.guide.next_step.invitation',
+      path: routes.admin_getting_started_guide_invitation_path(),
+    },
+  };
 
   return div({ className: 'container' }, [
     h2({ className: css.title }, title),
@@ -67,38 +110,29 @@ const GuideStatusPage = (props) => {
         ]),
       ]),
     ].concat(onboardingData.map((step) => {
-      const key = step.step;
+      const page = step.step;
       const stepListItem = step.complete ?
               css.stepListItemDone :
               css.stepListItem;
 
-      const titles = {
-        slogan_and_description: 'web.admin.onboarding.guide.status_page.slogan_and_description',
-        cover_photo: 'web.admin.onboarding.guide.status_page.cover_photo',
-        filter: 'web.admin.onboarding.guide.status_page.filter',
-        paypal: 'web.admin.onboarding.guide.status_page.paypal',
-        listing: 'web.admin.onboarding.guide.status_page.listing',
-        invitation: 'web.admin.onboarding.guide.status_page.invitation',
-      };
-
-      return li({ className: stepListItem, key }, [
+      return li({ className: stepListItem, page }, [
         a({
           className: css.stepListLink,
-          onClick: (e) => handleClick(e, `/${step.sub_path}`),
-          href: `${props.initialPath}/${step.sub_path}`,
+          onClick: (e) => handleClick(e, page, links[page].path),
+          href: links[page].path,
         }, [
           span({ className: css.stepListCheckbox }),
-          t(titles[key]),
+          t(links[page].link_title),
         ]),
       ]);
     }))),
 
-    props.nextStep ?
+    nextPage ?
       a({
         className: css.nextButton,
-        href: `${props.initialPath}/${props.nextStep.link}`,
-        onClick: (e) => handleClick(e, `/${props.nextStep.link}`),
-      }, props.nextStep.title) :
+        href: links[nextPage].path,
+        onClick: (e) => handleClick(e, nextPage, links[nextPage].path),
+      }, t(links[nextPage].next_link_title)) :
       null,
   ]);
 };
@@ -107,13 +141,16 @@ const { func, string, oneOf, shape, arrayOf, bool } = PropTypes;
 
 GuideStatusPage.propTypes = {
   changePage: func.isRequired,
-  initialPath: string.isRequired,
   name: string.isRequired,
   infoIcon: string.isRequired,
-  nextStep: shape({
-    title: string.isRequired,
-    link: string.isRequired,
-  }),
+  routes: shape({
+    admin_getting_started_guide_slogan_and_description_path: func.isRequired,
+    admin_getting_started_guide_cover_photo_path: func.isRequired,
+    admin_getting_started_guide_filter_path: func.isRequired,
+    admin_getting_started_guide_paypal_path: func.isRequired,
+    admin_getting_started_guide_listing_path: func.isRequired,
+    admin_getting_started_guide_invitation_path: func.isRequired,
+  }).isRequired,
   onboarding_data: arrayOf(shape({
     step: oneOf([
       'slogan_and_description',
@@ -124,7 +161,6 @@ GuideStatusPage.propTypes = {
       'invitation',
       'all_done',
     ]),
-    cta: string,
     complete: bool.isRequired,
   })).isRequired,
 };

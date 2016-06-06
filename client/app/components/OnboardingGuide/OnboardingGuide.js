@@ -9,64 +9,45 @@ import GuideFilterPage from './GuideFilterPage';
 import GuidePaypalPage from './GuidePaypalPage';
 import GuideListingPage from './GuideListingPage';
 import GuideInvitationPage from './GuideInvitationPage';
-import { t } from '../../utils/i18n';
 
-const { shape, string, arrayOf, bool, oneOf, func, object } = PropTypes;
+import { routes, railsContext } from '../../utils/PropTypes';
 
 // Select child component (page/view) to be rendered
-// Returns object (including child component) based on props.data & nextStep
-const selectChild = function selectChild(data, nextStep) {
-  const { path, onboarding_data } = data;
-  const pageData = (path.length > 0) ?
-    _.find(onboarding_data, (pd) => pd.sub_path === path.substring(1)) :
-    {};
+// Returns object (including child component) based on props.data
+const selectChild = function selectChild(data) {
+  const { page, onboarding_data } = data;
+  const pageData = _.find(onboarding_data, (pd) => pd.step === page) || {};
 
-  switch (path) {
-    case '/slogan_and_description':
+  switch (page) {
+    case 'slogan_and_description':
       return { Page: GuideSloganAndDescriptionPage, pageData };
-    case '/cover_photo':
+    case 'cover_photo':
       return { Page: GuideCoverPhotoPage, pageData };
-    case '/filter':
+    case 'filter':
       return { Page: GuideFilterPage, pageData };
-    case '/paypal':
+    case 'paypal':
       return { Page: GuidePaypalPage, pageData };
-    case '/listing':
+    case 'listing':
       return { Page: GuideListingPage, pageData };
-    case '/invitation':
+    case 'invitation':
       return { Page: GuideInvitationPage, pageData };
     default:
-      return { Page: GuideStatusPage, onboarding_data, nextStep };
+      return { Page: GuideStatusPage, onboarding_data };
   }
 };
 
-// Get link and title of next recommended onboarding step
-const nextStep = function nextStep(data) {
-  const nextStepData = data.find((step) => !step.complete);
+const setPushState = function setPushState(state, title, path) {
 
-  const titles = {
-    slogan_and_description: 'web.admin.onboarding.guide.next_step.slogan_and_description',
-    cover_photo: 'web.admin.onboarding.guide.next_step.cover_photo',
-    filter: 'web.admin.onboarding.guide.next_step.filter',
-    paypal: 'web.admin.onboarding.guide.next_step.paypal',
-    listing: 'web.admin.onboarding.guide.next_step.listing',
-    invitation: 'web.admin.onboarding.guide.next_step.invitation',
-  };
+  // React has an internal variable 'canUseDOM', which we emulate here.
+  const canUseDOM = !!(typeof window !== 'undefined' &&
+                        window.document &&
+                        window.document.createElement);
+  const canUsePushState = !!(typeof history !== 'undefined' &&
+                              history.pushState);
 
-  if (nextStepData) {
-    return {
-      title: t(titles[nextStepData.step]),
-      link: nextStepData.sub_path,
-    };
-  } else {
-    return null;
+  if (canUseDOM && canUsePushState) {
+    window.history.pushState(state, title, path);
   }
-};
-
-// getPaths: initial path containing given pathFragment & relative (deeper) path
-const getPaths = function getPaths(props, pathFragment) {
-  const pathParts = props.data.original_path.split(pathFragment);
-  const initialPath = pathParts[0] + pathFragment;
-  return { initialPath, componentSubPath: pathParts[1] };
 };
 
 class OnboardingGuide extends React.Component {
@@ -74,22 +55,13 @@ class OnboardingGuide extends React.Component {
   constructor(props, context) {
     super(props, context);
 
-    this.setPushState = this.setPushState.bind(this);
     this.handlePopstate = this.handlePopstate.bind(this);
     this.handlePageChange = this.handlePageChange.bind(this);
 
-    const paths = getPaths(props, 'getting_started_guide');
-    this.initialPath = paths.initialPath;
-    this.componentSubPath = paths.componentSubPath;
-
-    // Figure out the next step. I.e. what is the action we recommend for admins
-    this.nextStep = nextStep(this.props.data.onboarding_data);
-
     // Add current path to window.history. Initially it contains null as a state
-    this.setPushState(
-      { path: this.componentSubPath },
-      this.componentSubPath,
-      this.componentSubPath);
+    const path = this.props.railsContext.pathname;
+    const page = this.props.data.page;
+    setPushState({ path, page }, path, path);
   }
 
   componentDidMount() {
@@ -100,7 +72,8 @@ class OnboardingGuide extends React.Component {
     // Back button clicks should not be saved with history.pushState
     if (nextProps.data.pathHistoryForward) {
       const path = nextProps.data.path;
-      this.setPushState({ path }, path, path);
+      const page = nextProps.data.page;
+      setPushState({ path, page }, path, path);
     }
   }
 
@@ -108,22 +81,9 @@ class OnboardingGuide extends React.Component {
     window.removeEventListener('popstate', this.handlePopstate);
   }
 
-  setPushState(state, title, path) {
-    // React has an internal variable 'canUseDOM', which we emulate here.
-    const canUseDOM = !!(typeof window !== 'undefined' &&
-                          window.document &&
-                          window.document.createElement);
-    const canUsePushState = !!(typeof history !== 'undefined' &&
-                                history.pushState);
-
-    if (canUseDOM && canUsePushState) {
-      window.history.pushState(state, title, `${this.initialPath}${path}`);
-    }
-  }
-
   handlePopstate(event) {
     if (event.state != null && event.state.path != null) {
-      this.props.actions.updateGuidePage(event.state.path, false);
+      this.props.actions.updateGuidePage(event.state.page, event.state.path, false);
     } else if (event.state == null && typeof this.props.data.pathHistoryForward !== 'undefined') {
       // null state means that page component's root path is reached and
       // previous page is actually on Rails side - i.e. one step further
@@ -132,30 +92,32 @@ class OnboardingGuide extends React.Component {
     }
   }
 
-  handlePageChange(path) {
-    this.props.actions.updateGuidePage(path, true);
+  handlePageChange(page, path) {
+    this.props.actions.updateGuidePage(page, path, true);
   }
 
   render() {
-    const { Page, ...opts } = selectChild(this.props.data, this.nextStep);
+    const { Page, ...opts } = selectChild(this.props.data);
     return r(Page, {
       changePage: this.handlePageChange,
-      initialPath: this.initialPath,
       name: this.props.data.name,
       infoIcon: this.props.data.info_icon,
+      routes: this.props.routes,
       ...opts,
     });
   }
 }
 
+const { shape, string, arrayOf, bool, oneOf, func, object } = PropTypes;
+
 OnboardingGuide.propTypes = {
   actions: shape({
     updateGuidePage: func.isRequired,
   }).isRequired,
-  railsContext: object.isRequired, // eslint-disable-line react/forbid-prop-types
+  railsContext,
+  routes,
   data: shape({
-    path: string.isRequired,
-    original_path: string.isRequired,
+    page: string.isRequired,
     pathHistoryForward: bool,
     name: string.isRequired,
     info_icon: string.isRequired,
@@ -170,9 +132,8 @@ OnboardingGuide.propTypes = {
           'invitation',
           'all_done',
         ]).isRequired,
-        cta: string.isRequired,
-        alternative_cta: string,
         complete: bool.isRequired,
+        additional_info: object,
       }).isRequired
     ).isRequired,
   }).isRequired,
