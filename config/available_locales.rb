@@ -53,6 +53,7 @@ module Sharetribe
     {ident: "mn", name: "Mongolian", language: "mn", reqion: "MN", fallback: nil}, # Mongolian
     {ident: "zh-TW", name: "繁體中文(台灣)", language: "zh", region: "TW", fallback: "zh"}, # Chinese (Taiwan)
     {ident: "zh-HK", name: "繁體中文(香港澳門)", language: "zh", region: "HK", fallback: "zh-TW"}, # Chinese (Hong Kong)
+    {ident: "ka", name: "ქართული", language: "ka", region: "GE", fallback: nil}, # Georgian
   ]
 
   AVAILABLE_LOCALES = SUPPORTED_LOCALES + UNSUPPORTED_LOCALES
