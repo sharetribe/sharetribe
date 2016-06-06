@@ -15,7 +15,7 @@ module Devise
       def authenticate!
         hashed = false
         person = DatabaseAuthenticatableHelpers.resolve_person(
-          authentication_hash[:login], password, env[:community_id])
+          authentication_hash[:login], password, Maybe(env["marketplace"].id).or_else(nil))
 
         if person && validate(person) { person.valid_password?(password) }
           hashed = true

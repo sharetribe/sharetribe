@@ -15,6 +15,8 @@ require File.expand_path('../../lib/sharetribe_logger', __FILE__)
 # Load the deprecator
 require File.expand_path('../../lib/method_deprecator', __FILE__)
 
+require File.expand_path('../../lib/rack_middleware/current_marketplace', __FILE__)
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -186,5 +188,7 @@ module Kassi
     # TODO remove deprecation warnings when removing legacy analytics
     ActiveSupport::Deprecation.warn("Support for Kissmetrics is deprecated, please use Google Tag Manager instead") if APP_CONFIG.use_kissmetrics.to_s == "true"
     ActiveSupport::Deprecation.warn("Support for Google Analytics is deprecated, please use Google Tag Manager instead") if APP_CONFIG.use_google_analytics.to_s == "true"
+
+    config.middleware.use CurrentMarketplace
   end
 end

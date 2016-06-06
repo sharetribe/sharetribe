@@ -141,13 +141,13 @@ class ApplicationController < ActionController::Base
         # Take the locale from URL param, and keep it in the URL if the locale
         # differs from community default
         if params[:locale] != @current_community.default_locale.to_s
-          homepage_with_locale_path
+          root_with_locale_path
         else
-          homepage_without_locale_path(locale: nil)
+          root_path(locale: nil)
         end
 
       else
-        homepage_without_locale_path(locale: nil)
+        root_path(locale: nil)
       end
   end
 
@@ -170,7 +170,18 @@ class ApplicationController < ActionController::Base
 
   #Creates a URL for root path (i18n breaks root_path helper)
   def root
+    ActiveSupport::Deprecation.warn("root method is deprecated. Use either search_path or landing_page_path, depending what you want")
     "#{request.protocol}#{request.host_with_port}/#{params[:locale]}"
+  end
+
+  def root_path(*)
+    ActiveSupport::Deprecation.warn("root_path method is deprecated. Use either search_path or landing_page_path, depending what you want")
+    super
+  end
+
+  def root_url(*)
+    ActiveSupport::Deprecation.warn("root_url method is deprecated. Use either search_url or landing_page_url, depending what you want")
+    super
   end
 
   def fetch_logged_in_user
@@ -259,16 +270,14 @@ class ApplicationController < ActionController::Base
     @current_host_with_port = request.host_with_port
   end
 
+  def self.find_community_by_identifiers(req)
+    find_community(community_identifiers(req))
+  end
+
   # Before filter to get the current community
-  def fetch_community
-    @current_community = ApplicationController.find_community(community_identifiers)
-    m_community = Maybe(@current_community)
-
-    # Save current community id in request env to be used
-    # by Devise and our custom community authenticatable strategy
-    request.env[:community_id] = m_community.id.or_else(nil)
-
-    setup_logger!(marketplace_id: m_community.id.or_else(nil), marketplace_ident: m_community.ident.or_else(nil))
+  # previously: fetch_community
+  def set_current_community
+    @current_community = request.env["marketplace"]
 
     # Save :found or :not_found to community status
     # This is needed because we need to distinguish to cases
@@ -277,6 +286,11 @@ class ApplicationController < ActionController::Base
     # 1. Community is nil because it was not found
     # 2. Community is nil beucase fetch_community filter was skipped
     @community_search_status = @current_community ? :found : :not_found
+  end
+
+  def set_community_to_logger
+    m_community = Maybe(@current_community)
+    setup_logger!(marketplace_id: m_community.id.or_else(nil), marketplace_ident: m_community.ident.or_else(nil))
   end
 
   def community_search_status
@@ -336,9 +350,9 @@ class ApplicationController < ActionController::Base
   # This method can and should be overriden by controllers that use other than default method
   # to identify the community.
   #
-  def community_identifiers
+  def self.community_identifiers(req)
     app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
-    ApplicationController.parse_community_identifiers_from_host(request.host, app_domain)
+    parse_community_identifiers_from_host(req.host, app_domain)
   end
 
   def request_hash
@@ -737,5 +751,10 @@ class ApplicationController < ActionController::Base
 
   def render_not_found!(msg = "Not found")
     raise ActionController::RoutingError.new(msg)
+  end
+
+  def show_landing_page?
+    # Add some logic here. Maybe feature flag check?
+    true
   end
 end

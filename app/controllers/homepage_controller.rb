@@ -7,6 +7,12 @@ class HomepageController < ApplicationController
   VIEW_TYPES = ["grid", "list", "map"]
 
   def index
+    ActiveSupport::Deprecation.warn("homepage#index is deprecated. Redirecting to ")
+    redirect_to :search
+  end
+
+  def search
+    binding.pry
     @homepage = true
 
     @view_type = HomepageController.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
@@ -88,7 +94,7 @@ class HomepageController < ApplicationController
     else
       search_result.on_success { |listings|
         @listings = listings
-        render locals: {
+        render :index, locals: {
                  shapes: all_shapes,
                  filters: filters,
                  show_price_filter: show_price_filter,
@@ -102,7 +108,7 @@ class HomepageController < ApplicationController
       }.on_error { |e|
         flash[:error] = t("homepage.errors.search_engine_not_responding")
         @listings = Listing.none.paginate(:per_page => 1, :page => 1)
-        render status: 500, locals: {
+        render :index, status: 500, locals: {
                  shapes: all_shapes,
                  filters: filters,
                  show_price_filter: show_price_filter,
