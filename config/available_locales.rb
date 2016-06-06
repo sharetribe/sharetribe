@@ -47,7 +47,7 @@ module Sharetribe
     {ident: "sw", name: "Kiswahili", language: "sw", region: "KE", fallback: nil}, # Swahili (Kenya)
     {ident: "vi", name: "Tiếng Việt", language: "vi", region: "VN", fallback: nil}, # Vietnamese (Vietnam)
     {ident: "hu", name: "Magyar", language: "hu", region: "HU", fallback: nil}, # Hungarian
-    {ident: "cs", name: "Čeština", language: "cs", region: "CS", fallback: nil}, # Czech
+    {ident: "cs", name: "Čeština", language: "cs", region: "CZ", fallback: nil}, # Czech
     {ident: "th-TH", name: "Thai", language: "th", region: "TH", fallback: nil}, # Thai (Thailand)
     {ident: "bg", name: "български", language: "bg", reqion: "BG", fallback: nil}, # Bulgarian
     {ident: "mn", name: "Mongolian", language: "mn", reqion: "MN", fallback: nil}, # Mongolian
