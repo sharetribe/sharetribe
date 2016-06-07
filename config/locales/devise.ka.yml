@@ -2,27 +2,29 @@ ka:
   errors:
     messages:
       expired: ~
-      not_found: ~
+      not_found: "ვერ მოიძებნა"
       already_confirmed: ~
       not_locked: ~
+      not_saved:
+        other: "%{count} შეცდომის გამო ვერ მოხდა %{resource} ის შენახვა"
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
-      unconfirmed: ~
-      locked: ~
-      invalid: ~
+      already_authenticated: "თქვენ უკვე შესული ხართ სისტემაში"
+      unauthenticated: "შეიყვანეთ მონაცემები ან გაიარეთ რეგისტრაცია"
+      unconfirmed: "გაგრძელებამდე თქვენ უნდა დაადასტუროთ თქვენი ანგარიში."
+      locked: "თქვენი ანგარიში ჩაკეტილია."
+      invalid: "იმეილი არასწორია ან პაროლი შეცდომით იქნა შეყვანილი"
       invalid_token: ~
-      timeout: ~
-      inactive: ~
+      timeout: "გთხოვთ, შეხვიდეთ კიდევ ერთხელ, რადგანაც თქვენი სესიის დრო ამოიწურა."
+      inactive: "თქვენი ანგარიში ჯერ არ გააქტიურებულა."
     passwords:
       updated_not_active: ~
       send_paranoid_instructions: ~
       send_instructions: ~
       updated: ~
     sessions:
-      signed_in: ~
-      signed_out: ~
+      signed_in: "შესვლა წარამტებულია."
+      signed_out: "წარმატებით გამოხვედით"
     confirmations:
       send_paranoid_instructions: ~
       send_instructions: ~

@@ -151,8 +151,8 @@ nl:
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: ~
-        only_white_label_offer: ~
-        upgrade_pro_plan_link: ~
+        white_label_offer: ~
+        upgrade_plan_link: ~
         verification_sent_from: ~
         follow_the_instructions: ~
       getting_started:
@@ -799,6 +799,10 @@ nl:
       you_have_not_yet_accepted_or_rejected_offer: "U heeft het aanbod %{title} dat u %{date} heeft ontvangen nog niet geaccepteerd of geweigerd."
       you_have_not_yet_accepted_or_rejected_request: "U heeft het verzoek %{title} dat u %{date} heeft ontvangen nog niet geaccepteerd of geweigerd."
       show_thread: "Toon conversatie"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     braintree_account_approved:
       account_ready: "U kunt nu betalingen ontvangen"
       message: "Uw betalingsinformatie is goedgekeurd en u kunt nu betalingen ontvangen op %{service_name}."
@@ -1205,6 +1209,10 @@ nl:
   layouts:
     admin:
       admin: "%{service_name} dashboard beheerder"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     no_tribe:
       inbox: Inbox
       settings: Instellingen

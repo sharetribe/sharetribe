@@ -20,16 +20,16 @@ es-ES:
       inactive: "Tu cuenta aún no ha sido activada."
     passwords:
       updated_not_active: "Tu contraseña ha sido cambiada exitosamente."
-      send_paranoid_instructions: "Si tu email ya existe en nuestra base de datos, recibirás un enlace para recuperar tu contraseña en tu correo"
+      send_paranoid_instructions: "Si tu correo está en nuestra base de datos, recibirás un enlace para recuperar tu contraseña en tu correo"
       send_instructions: "Recibirás un correo electrónico con instrucciones para cambiar tu contraseña en poco minutos."
       updated: "Tu contraseña ha sido cambiada con éxito. Ahora estás conectado."
     sessions:
       signed_in: "Te has conectado correctamente."
       signed_out: "Has cerrado sesión correctamente."
     confirmations:
-      send_paranoid_instructions: "Si tu email ya existe en nuestra base de datos, recibirás un email con instrucciones para confirmar tu cuenta en pocos minutos."
-      send_instructions: "Recibirás un email con instrucciones para confirmar tu cuenta en pocos minutos."
-      confirmed: "Tu cuenta ha sido confirmada. Ya has accedido a tu cuenta."
+      send_paranoid_instructions: "Si tu correo está en nuestra base de datos, recibirás un email con instrucciones para confirmar tu cuenta en pocos minutos."
+      send_instructions: "Recibirás un correo electrónico con instrucciones para confirmar tu cuenta en pocos minutos."
+      confirmed: "Tu cuenta ha sido confirmada exitosamente."
     registrations:
       signed_up_but_unconfirmed: "Un mensaje con un enlace de confirmación ha sido enviado a tu correo electrónico. Por favor abre el enlace para activar tu cuenta."
       signed_up_but_inactive: "Te has registrado exitosamente. Sin embargo, no puedes iniciar sesión porque tu cuenta todavía no ha sido activada."

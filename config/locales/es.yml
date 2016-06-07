@@ -136,8 +136,8 @@ es:
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: ~
-        only_white_label_offer: ~
-        upgrade_pro_plan_link: ~
+        white_label_offer: ~
+        upgrade_plan_link: ~
         verification_sent_from: ~
         follow_the_instructions: ~
       getting_started:
@@ -784,6 +784,10 @@ es:
       you_have_not_yet_accepted_or_rejected_offer: "Aún no has aceptado o rechazado la oferta '%{title}' que recibiste el %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Aún no has aceptado o rechazado la solicitud '%{title}' que recibiste el %{date}."
       show_thread: "Mostrar conversación"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     braintree_account_approved:
       account_ready: "Ya estás listo para recibir pagos"
       message: "Tus detalles de pago han sido confirmados y ya puedes recibir pagos a través de %{service_name}."
@@ -1197,6 +1201,10 @@ es:
   layouts:
     admin:
       admin: "Panel de administración de %{service_name}"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     no_tribe:
       inbox: "Buzón de entrada"
       settings: Configuración

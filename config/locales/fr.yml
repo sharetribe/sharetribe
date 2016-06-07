@@ -151,8 +151,8 @@ fr:
         invalid_email_domain: "L'adresse email '%{email}' utilise le fournisseur '%{domain}' non supporté. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Lisez l'article dans la base de connaissances pour en savoir plus."
         unknown_error: "Quelque chose s'est mal passé."
-        only_white_label_offer: "Cette fonctionnalité fait partie de l'offre marque blanche de Sharetribe. Pour activer cette fonctionnalité vous devriez %{upgrade_pro_plan_link}."
-        upgrade_pro_plan_link: "passer à notre offre Pro ou supérieure"
+        white_label_offer: "Configurez votre propre adresse email comme expéditeur et supprimez toute mention de Sharetribe dans les messages envoyés en %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "vous abonnant à notre offre Pro ou supérieure"
         verification_sent_from: "L'email de vérification a été envoyé par %{verification_sender_name}."
         follow_the_instructions: "Veuillez suivre les instructions dans cet email pour vérifier votre adresse."
       getting_started:
@@ -815,6 +815,10 @@ fr:
       you_have_not_yet_accepted_or_rejected_offer: "Vous n'avez pas encore accepté ou refusé l'offre %{title} reçue %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Vous n'avez pas encore accepté ou refusé la demande %{title} reçue %{date}."
       show_thread: "Voir la conversation"
+    branding:
+      powered_by: "%{service_name} est propulsé par la plate-forme de places de marché %{sharetribe_link}."
+      create_own: "Voulez-vous créer votre propre place de marché en ligne, comme %{service_name} ? %{learn_more}."
+      learn_more: "Découvrez-en plus"
     braintree_account_approved:
       account_ready: "Vous êtes prêt à recevoir des paiements"
       message: "Vos informations de paiement ont été confirmées et vous êtes maintenant prêt à recevoir des paiements sur %{service_name}."
@@ -1221,6 +1225,10 @@ fr:
   layouts:
     admin:
       admin: "Panneau d'administration %{service_name}"
+    branding:
+      powered_by: "%{service_name} est propulsé par la plate-forme de places de marché %{sharetribe_link}."
+      create_own: "Voulez-vous créer votre propre place de marché en ligne, comme %{service_name} ? %{learn_more}."
+      learn_more: "Découvrez-en plus"
     no_tribe:
       inbox: "Boîte de réception"
       settings: Paramètres

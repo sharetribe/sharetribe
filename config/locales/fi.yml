@@ -151,8 +151,8 @@ fi:
         invalid_email_domain: "Sähköpostioosoite '%{email}' käyttää sähköpostipalveluntarjoajaa '%{domain}'. Järjestelmämme ei tällä hetkellä tue kyseistä palveluntarjoajaa. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: Lisätietoja
         unknown_error: "Jotain meni vikaan"
-        only_white_label_offer: "Tämä ominaisuus on käytössä ainoastaan Sharetriben maksullisessa versiossa. Jos haluat ottaa ominaisuuden käyttöön, sinun pitää %{upgrade_pro_plan_link}."
-        upgrade_pro_plan_link: "päivittää tilauksesi Pro-maksuvaihtoehtoomme."
+        white_label_offer: ~
+        upgrade_plan_link: ~
         verification_sent_from: "Vahvistusviesti lähetettiin osoitteesta %{verification_sender_name}."
         follow_the_instructions: "Seuraa sähköpostissa annettuja ohjeita vahvistaaksesi sähköpostiosoitteesi."
       getting_started:
@@ -815,6 +815,10 @@ fi:
       you_have_not_yet_accepted_or_rejected_offer: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi tarjousta %{title}."
       you_have_not_yet_accepted_or_rejected_request: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi pyyntöä %{title}."
       show_thread: "Näytä viestiketju"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     braintree_account_approved:
       account_ready: "Voit nyt vastaanottaa maksuja"
       message: "Maksutietosi on nyt tarkistettu ja hyväksytty. Voit tästä lähtien vastaanottaa maksuja %{service_name}-palvelussa"
@@ -966,7 +970,7 @@ fi:
     transaction_preauthorized:
       subject: "%{requester} on tehnyt katevarauksen ja pyynnön tuotteesta %{listing_title}"
       transaction_requested_by_user: "%{requester} on tehnyt katevarauksen ja pyynnön tuotteesta \"%{listing_title}\""
-      you_have_time_to_accept: "Sinun pitää hyväksyä tilaus viimeistään %{payment_expires_in}. Jos hyväksyt tilauksen ennen määräaikaa, maksu veloitetaan ostajalta. Muussa tapauksessa tilaus hylätään automaattisesti eikä maksua veloiteta."
+      you_have_time_to_accept: "Sinun pitää hyväksyä tilaus viimeistään %{payment_expires_in} sisällä. Jos hyväksyt tilauksen ennen määräaikaa, maksu veloitetaan ostajalta. Muussa tapauksessa tilaus hylätään automaattisesti eikä maksua veloiteta."
       click_here_to_reply: "Klikkaa tästä vastaaksesi pyyntöön"
     transaction_preauthorized_reminder:
       subject: "Muista hyväksyä ilmoitukseen %{listing_title} liittyvä tilaus käyttäjältä %{requester}"
@@ -1221,6 +1225,10 @@ fi:
   layouts:
     admin:
       admin: "%{service_name} ylläpitonäkymä"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     no_tribe:
       inbox: Postilaatikko
       settings: Asetukset
@@ -1810,7 +1818,7 @@ fi:
       create_new_account: "Luo tunnus"
       email: Sähköpostiosoite
       email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
-      email_is_in_use_or_not_allowed: "Antamasi osoite ei kelpaa (tai se on jo käytössä). Jos et pääse sisään, ole yhteydessä ylläpitoon."
+      email_is_in_use_or_not_allowed: "Antamasi osoite ei ole sallittu tässä palvelussa, tai se on jo käytössä. Jos et pääse sisään, ole yhteydessä ylläpitoon."
       email_not_allowed: "Antamasi sähköpostiosoite ei kelpaa palvelussa %{service_name}. Ole hyvä ja anna sallittu osoite. Jos et pääse sisään, lähetä palautetta ylälaidan valikon kautta."
       email_restriction_instructions:
         one: "%{service_name}-palveluun liittyminen on rajattua. Liittyäksesi tarvitset '%{allowed_emails}'-sähköpostiosoitteen."

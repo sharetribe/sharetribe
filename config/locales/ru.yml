@@ -161,8 +161,8 @@ ru:
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: ~
-        only_white_label_offer: ~
-        upgrade_pro_plan_link: ~
+        white_label_offer: ~
+        upgrade_plan_link: ~
         verification_sent_from: ~
         follow_the_instructions: ~
       getting_started:
@@ -809,6 +809,10 @@ ru:
       you_have_not_yet_accepted_or_rejected_offer: "Вы всё ещё не приняли решение по предложению '%{title}', полученному вами %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Вы всё ещё не приняли решение по запросу '%{title}', полученному вами %{date}."
       show_thread: "Показать диалог"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     braintree_account_approved:
       account_ready: "Вы готовы получать платежи"
       message: "Ваши платежные реквизиты были подтверждены и вы готовы к получения платежей в %{service_name}."
@@ -1215,6 +1219,10 @@ ru:
   layouts:
     admin:
       admin: "Администрирование %{service_name}"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     no_tribe:
       inbox: Входящие
       settings: Настройки
