@@ -10,6 +10,14 @@ class LandingPageController < ActionController::Metal
   include ActionController::Redirecting
   include Rails.application.routes.url_helpers
 
+  # Needed for rendering
+  #
+  # See Rendering Helpers: http://api.rubyonrails.org/classes/ActionController/Metal.html
+  #
+  include AbstractController::Rendering
+  include ActionView::Layouts
+  append_view_path "#{Rails.root}/app/views"
+
   def index
     app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
     marketplace = CurrentMarketplaceResolver.resolve_from_host(request.host, app_domain)
@@ -25,10 +33,10 @@ class LandingPageController < ActionController::Metal
   private
 
   def landing_page(marketplace)
-    self.response_body = "Hello #{marketplace&.name("en")}!"
+    render :landing_page
   end
 
   def landing_page_in_use?
-    false # Add proper logic
+    true # Add proper logic
   end
 end
