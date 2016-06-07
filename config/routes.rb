@@ -54,6 +54,12 @@ Kassi::Application.routes.draw do
   get '/' => 'homepage#index', as: :homepage_without_locale
   root :to => 'homepage#index'
 
+  # Work in progress:
+  # Uncomment these and comment the three homepage routes above to test the landing page
+  # get '/:locale/' => 'landing_page#index', :constraints => { :locale => locale_matcher }
+  # get '/' => 'landing_page#index'
+  # root :to => 'landing_page#index'
+
   # error handling: 3$: http://blog.plataformatec.com.br/2012/01/my-five-favorite-hidden-features-in-rails-3-2/
   get '/500' => 'errors#server_error'
   get '/404' => 'errors#not_found', :as => :error_not_found
