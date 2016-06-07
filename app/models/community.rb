@@ -587,29 +587,6 @@ class Community < ActiveRecord::Base
     favicon.processing?
   end
 
-  # Finds a community by the given identifier(s)
-  #
-  # Communities have 3 values that can used individually to
-  # uniquely identify a community.
-  #
-  # Those are (in the order of priority):
-  #
-  # - id
-  # - ident
-  # - domain
-  #
-  def self.find_by_identifier(identifiers)
-    priority = [:id, :ident, :domain]
-
-    identifier_to_use = priority.find { |identifier| identifiers[identifier].present? }
-
-    if identifier_to_use.nil?
-      nil
-    else
-      Community.where({ identifier_to_use => identifiers[identifier_to_use]}).first
-    end
-  end
-
   private
 
   def initialize_settings

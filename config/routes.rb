@@ -50,9 +50,14 @@ Kassi::Application.routes.draw do
   locale_matcher = Regexp.new(Sharetribe::AVAILABLE_LOCALES.map { |l| l[:ident] }.concat(Sharetribe::REMOVED_LOCALES.to_a).join("|"))
 
   # Inside this constraits are the routes that are used when request has subdomain other than www
-  get '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }, as: :homepage_with_locale
-  get '/' => 'homepage#index', as: :homepage_without_locale
-  root :to => 'homepage#index'
+  get '/:locale/' => 'landing_page#index', :constraints => { :locale => locale_matcher }, as: :landing_page_with_locale
+  get '/' => 'landing_page#index', as: :landing_page_without_locale
+  root :to => 'landing_page#index'
+
+  # TODO
+  # get '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }, as: :homepage_with_locale
+  # get '/' => 'homepage#index', as: :homepage_without_locale
+  # root :to => 'homepage#index'
 
   # error handling: 3$: http://blog.plataformatec.com.br/2012/01/my-five-favorite-hidden-features-in-rails-3-2/
   get '/500' => 'errors#server_error'
@@ -68,6 +73,8 @@ Kassi::Application.routes.draw do
 
   # Adds locale to every url right after the root path
   scope "(/:locale)", :constraints => { :locale => locale_matcher } do
+
+    get "/search" => "homepage#index", as: :search
 
     put '/mercury_update' => "mercury_update#update", :as => :mercury_update
 
