@@ -158,7 +158,7 @@ class HomepageController < ApplicationController
     numbers = numeric_search_params.map { |numeric| numeric.merge(type: :numeric_range) }
 
     distance_unit = (location_search_in_use && MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:distance_unit] == :metric) ? :km : :miles
-    location_search_params = location_search_params(
+    location_search_hash = location_search_params(
       params[:lc],
       distance_unit,
       Maybe(params[:distance_max])
@@ -180,7 +180,7 @@ class HomepageController < ApplicationController
       sort: nil,
       locale: I18n.locale,
       include_closed: false
-    }.merge(location_search_params)
+    }.merge(location_search_hash)
 
     raise_errors = Rails.env.development?
 

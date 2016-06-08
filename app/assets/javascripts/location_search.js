@@ -15,7 +15,7 @@ window.ST = window.ST || {};
     boundingboxInput.value = null;
 
     function toRadians(degrees) {
-      return degrees * (3.1415/180);
+      return degrees * (Math.PI/180);
     }
 
     function computeScale(a, b) {
@@ -25,16 +25,19 @@ window.ST = window.ST || {};
       var lat2 = b.lat();
       var lng1 = a.lng();
       var lng2 = b.lng();
-      var φ1 = toRadians(lat1);
-      var φ2 = toRadians(lat2);
-      var Δφ = toRadians(lat2-lat1);
-      var Δλ = toRadians(lng2-lng1);
+      var lat1InRadians = toRadians(lat1);
+      var lat2InRadians = toRadians(lat2);
+      var latDiffInRadians = toRadians(lat2-lat1);
+      var lngDiffInRadians = toRadians(lng2-lng1);
 
-      var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-              Math.cos(φ1) * Math.cos(φ2) *
-              Math.sin(Δλ/2) * Math.sin(Δλ/2);
+      // The haversine formula
+      // 'a' is the square of half the chord length between the points
+      var a = Math.sin(latDiffInRadians/2) * Math.sin(latDiffInRadians/2) +
+              Math.cos(lat1InRadians) * Math.cos(lat2InRadians) *
+              Math.sin(lngDiffInRadians/2) * Math.sin(lngDiffInRadians/2);
+      // the angular distance in radians
       var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-
+      // distance between coordinates
       var d = R * c;
       return d/2;
     };
