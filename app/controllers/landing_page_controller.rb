@@ -44,12 +44,6 @@ class LandingPageController < ActionController::Metal
         value
       end
     end
-
-    def map_values(h, &block)
-      h.map { |k, v|
-        [k, block.call(v)]
-      }.to_h
-    end
   end
 
   # Needed for rendering
