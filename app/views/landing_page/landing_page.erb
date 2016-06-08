@@ -231,28 +231,28 @@
 
 </head>
 
-<% sections.reject { |section| section[:disabled] }.each do |section| %>
+<% sections.reject { |section| section["disabled"] }.each do |section| %>
 
-  <% s = section[:section] %>
+  <% s = section["section"] %>
 
-  <% case s[:kind] %>
-  <% when :hero # Hero section %>
+  <% case s["kind"] %>
+  <% when "hero" # Hero section %>
 
-    <section class="hero__section" style="background: url('<%= s[:background_image] %>')">
+    <section class="hero__section" style="background: url('<%= s["background_image"] %>')">
       <div class="hero__content">
         <div>
-          <h1 class="hero__title"><%= s[:title] %></h1>
-          <h3 class="hero__subtitle"><%= s[:subtitle] %></h3>
+          <h1 class="hero__title"><%= s["title"] %></h1>
+          <h3 class="hero__subtitle"><%= s["subtitle"] %></h3>
         </div>
 
         <div class="hero__search-bar">
-          <input type="search" class="hero__search-input" placeholder="<%= s[:search_placeholder] %>"/>
-          <button class="hero__search-button"><%= s[:search_button] %></button>
+          <input type="search" class="hero__search-input" placeholder="<%= s["search_placeholder"] %>"/>
+          <button class="hero__search-button"><%= s["search_button"] %></button>
         </div>
       </div>
     </section>
 
-  <% end # case section[:type] %>
+  <% end # case section["type"] %>
 
 <% end # sections.each %>
 

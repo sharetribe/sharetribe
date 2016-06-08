@@ -2,7 +2,7 @@ class LandingPageController < ActionController::Metal
 
   class Denormalizer
 
-    def initialize(root: :composition, hooks: {})
+    def initialize(root: "composition", hooks: {})
       @root = root
       @hooks = hooks
     end
@@ -25,8 +25,8 @@ class LandingPageController < ActionController::Metal
     def walk(obj, normalized_data)
       case obj
       when Hash
-        type = obj[:type]
-        id = obj[:id]
+        type = obj["type"]
+        id = obj["id"]
 
         if type.nil?
           # Not a link
@@ -71,7 +71,7 @@ class LandingPageController < ActionController::Metal
   def landing_page
     denormalizer = Denormalizer.new(
       hooks: {
-        assets: method(:append_asset_dir)
+        "assets" => method(:append_asset_dir)
       })
 
     render :landing_page, locals: { sections: denormalizer.to_tree(data) }
@@ -83,35 +83,35 @@ class LandingPageController < ActionController::Metal
 
   def data
     {
-      settings: {
-        marketplace_id: 1234,
-        locale: "en",
-        sitename: "turbobikes"
+      "settings" => {
+        "marketplace_id" => 9999,
+        "locale" => "en",
+        "sitename" => "turbobikes"
       },
 
-      sections: {
-        myhero1: {
-          kind: :hero,
-          title: "Sell your turbobike",
-          subtitle: "The best place to rent your turbojopo",
-          background_image: {type: :assets, id: :myheroimage},
-          search_placeholder: "What kind of turbojopo are you looking for?",
-          search_button: "Search",
+      "sections" => {
+        "myhero1" => {
+          "kind" => "hero",
+          "title" => "Sell your turbobike",
+          "subtitle" => "The best place to rent your turbojopo",
+          "background_image" => {"type" => "assets", "id" => "myheroimage"},
+          "search_placeholder" => "What kind of turbojopo are you looking for?",
+          "search_button" => "Search",
         },
-        thecategories: {type: :categories, slogan: "blaablaa", category_ids: [123, 432, 131]},
+        "thecategories" => {"type" => "categories", "slogan" => "blaablaa", "category_ids" => [123, 432, 131]},
       },
 
-      composition: [
-        { section: {type: :sections, id: :myhero1},
-          disabled: false},
-        { section: {type: :sections, id: :myhero1},
-          disabled: false},
-        { section: {type: :sections, id: :myhero1},
-          disabled: true},
+      "composition" => [
+        { "section" => {"type" => "sections", "id" => "myhero1"},
+          "disabled" => false},
+        { "section" => {"type" => "sections", "id" => "myhero1"},
+          "disabled" => false},
+        { "section" => {"type" => "sections", "id" => "myhero1"},
+          "disabled" => true},
       ],
 
-      assets: {
-        myheroimage: "hero.png",
+      "assets" => {
+        "myheroimage" => "hero.png",
       }
     }
   end
