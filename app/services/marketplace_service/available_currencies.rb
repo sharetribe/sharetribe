@@ -33,7 +33,6 @@ module MarketplaceService::AvailableCurrencies
       "LI" => "CHF",
       "TW" => "TWD",
       "TH" => "THB",
-      "TR" => "TRY",
       "AL" => "EUR",
       "AD" => "EUR",
       "AT" => "EUR",
