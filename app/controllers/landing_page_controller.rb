@@ -2,9 +2,9 @@ class LandingPageController < ActionController::Metal
 
   class Denormalizer
 
-    def initialize(root: "composition", hooks: {})
+    def initialize(root: "composition", link_resolvers: {})
       @root = root
-      @hooks = hooks
+      @link_resolvers = link_resolvers
     end
 
     def to_tree(normalized_data)
@@ -24,7 +24,7 @@ class LandingPageController < ActionController::Metal
               raise ArgumentError.new("Invalid link: #{v.inspect} has a 'type' key but no 'id'")
             else
               # Is a link
-              hook(type, normalized_data[type][id])
+              resolve_link(type, id, normalized_data)
             end
 
           [k, new_v]
@@ -71,11 +71,11 @@ class LandingPageController < ActionController::Metal
 
     private
 
-    def hook(type, value)
-      if @hooks[type].respond_to? :call
-        @hooks[type].call(value)
+    def resolve_link(type, id, normalized_data)
+      if @link_resolvers[type].respond_to? :call
+        @link_resolvers[type].call(type, id, normalized_data)
       else
-        value
+        normalized_data[type][id]
       end
     end
   end
@@ -96,8 +96,10 @@ class LandingPageController < ActionController::Metal
 
   def landing_page
     denormalizer = Denormalizer.new(
-      hooks: {
-        "assets" => method(:append_asset_dir)
+      link_resolvers: {
+        "assets" => ->(type, id, normalized_data) {
+          append_asset_dir(normalized_data[type][id])
+        }
       })
 
     render :landing_page, locals: { sections: denormalizer.to_tree(data) }
