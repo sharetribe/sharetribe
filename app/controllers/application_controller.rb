@@ -259,9 +259,16 @@ class ApplicationController < ActionController::Base
     @current_host_with_port = request.host_with_port
   end
 
+  # This can be overriden by controllers, if they have
+  # another strategy for resolving the community
+  def resolve_community
+    app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
+    CurrentMarketplaceResolver.resolve_from_host(request.host, app_domain)
+  end
+
   # Before filter to get the current community
   def fetch_community
-    @current_community = ApplicationController.find_community(community_identifiers)
+    @current_community = resolve_community()
     m_community = Maybe(@current_community)
 
     # Save current community id in request env to be used
@@ -325,22 +332,6 @@ class ApplicationController < ActionController::Base
     }
   end
 
-  # Returns a hash that contains identifiers which can be used to
-  # fetch the right community:
-  #
-  # {id: 123,
-  #  ident: "marketplace",
-  #  domain: "www.marketplace.com"
-  # }
-  #
-  # This method can and should be overriden by controllers that use other than default method
-  # to identify the community.
-  #
-  def community_identifiers
-    app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
-    ApplicationController.parse_community_identifiers_from_host(request.host, app_domain)
-  end
-
   def request_hash
     @request_hash ||= {
       host: request.host,
@@ -349,32 +340,6 @@ class ApplicationController < ActionController::Base
       port_string: request.port_string,
       headers: request.headers
     }
-  end
-
-  def self.parse_community_identifiers_from_host(host, app_domain)
-    app_domain_regexp = Regexp.escape(app_domain)
-    ident_with_www = /^www\.(.+)\.#{app_domain}$/.match(host)
-    ident_without_www = /^(.+)\.#{app_domain}$/.match(host)
-
-    if ident_with_www
-      {ident: ident_with_www[1]}
-    elsif ident_without_www
-      {ident: ident_without_www[1]}
-    else
-      {domain: host}
-    end
-  end
-
-  def self.find_community(identifiers)
-    by_identifier = Community.find_by_identifier(identifiers)
-
-    if by_identifier
-      by_identifier
-    elsif Community.count == 1
-      Community.first
-    else
-      nil
-    end
   end
 
   def fetch_community_membership
