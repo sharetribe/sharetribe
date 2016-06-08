@@ -1,0 +1,259 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Custom Landing Page</title>
+
+  <!-- SEO Meta -->
+  <!--
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  -->
+
+  <style type="text/css">
+   /* http://meyerweb.com/eric/tools/css/reset/
+      v2.0 | 20110126
+      License: none (public domain)
+    */
+
+   html, body, div, span, applet, object, iframe,
+   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+   a, abbr, acronym, address, big, cite, code,
+   del, dfn, em, img, ins, kbd, q, s, samp,
+   small, strike, strong, sub, sup, tt, var,
+   b, u, i, center,
+   dl, dt, dd, ol, ul, li,
+   fieldset, form, label, legend,
+   table, caption, tbody, tfoot, thead, tr, th, td,
+   article, aside, canvas, details, embed,
+   figure, figcaption, footer, header, hgroup,
+   menu, nav, output, ruby, section, summary,
+   time, mark, audio, video {
+     margin: 0;
+     padding: 0;
+     border: 0;
+     font-size: 100%;
+     font: inherit;
+     vertical-align: baseline;
+   }
+   /* HTML5 display-role reset for older browsers */
+   article, aside, details, figcaption, figure,
+   footer, header, hgroup, menu, nav, section {
+     display: block;
+   }
+   body {
+     line-height: 1;
+   }
+   ol, ul {
+     list-style: none;
+   }
+   blockquote, q {
+     quotes: none;
+   }
+   blockquote:before, blockquote:after,
+   q:before, q:after {
+     content: '';
+     content: none;
+   }
+   table {
+     border-collapse: collapse;
+     border-spacing: 0;
+   }
+
+   /* Own resets */
+   input[type=search] {
+     -webkit-appearance:none;
+   }
+  </style>
+
+  <style type="text/css">
+   /* apply a natural box layout model to all elements, but allowing components to change */
+   html {
+     box-sizing: border-box;
+   }
+   *, *:before, *:after {
+     box-sizing: inherit;
+   }
+
+   html {
+     font-size: 62.5%; /* 10px: Makes it convinient to use REMs, e.g. 1.4rem = 14px; */
+   }
+
+   body {
+     margin: 0;
+     padding: 0;
+   }
+
+   /* ************************************************************************************ */
+   /* Fonts                                                                                */
+   /* ************************************************************************************ */
+
+   /**
+    * The fonts included are copyrighted by the vendor listed below.
+    *
+    * Vendor:      Mark Simonson Studio
+    * License URL: https://www.fontspring.com/licenses/mark-simonson-studio/webfont
+    *
+    *
+    */
+
+   @font-face {
+       font-family: 'proxima_nova_softbold';
+       src: url('landing_page/fonts/proximanovasoft-bold-webfont.eot');
+       src: url('landing_page/fonts/proximanovasoft-bold-webfont.eot?#iefix') format('embedded-opentype'),
+            url('landing_page/fonts/proximanovasoft-bold-webfont.woff2') format('woff2'),
+            url('landing_page/fonts/proximanovasoft-bold-webfont.woff') format('woff'),
+            url('landing_page/fonts/proximanovasoft-bold-webfont.ttf') format('truetype'),
+            url('landing_page/fonts/proximanovasoft-bold-webfont.svg#proxima_nova_softbold') format('svg');
+       font-weight: normal;
+       font-style: normal;
+   }
+
+   @font-face {
+       font-family: 'proxima_nova_softmedium';
+       src: url('landing_page/fonts/proximanovasoft-medium-webfont.eot');
+       src: url('landing_page/fonts/proximanovasoft-medium-webfont.eot?#iefix') format('embedded-opentype'),
+            url('landing_page/fonts/proximanovasoft-medium-webfont.woff2') format('woff2'),
+            url('landing_page/fonts/proximanovasoft-medium-webfont.woff') format('woff'),
+            url('landing_page/fonts/proximanovasoft-medium-webfont.ttf') format('truetype'),
+            url('landing_page/fonts/proximanovasoft-medium-webfont.svg#proxima_nova_softmedium') format('svg');
+       font-weight: normal;
+       font-style: normal;
+   }
+
+   @font-face {
+       font-family: 'proxima_nova_softregular';
+       src: url('landing_page/fonts/proximanovasoft-regular-webfont.eot');
+       src: url('landing_page/fonts/proximanovasoft-regular-webfont.eot?#iefix') format('embedded-opentype'),
+            url('landing_page/fonts/proximanovasoft-regular-webfont.woff2') format('woff2'),
+            url('landing_page/fonts/proximanovasoft-regular-webfont.woff') format('woff'),
+            url('landing_page/fonts/proximanovasoft-regular-webfont.ttf') format('truetype'),
+            url('landing_page/fonts/proximanovasoft-regular-webfont.svg#proxima_nova_softregular') format('svg');
+       font-weight: normal;
+       font-style: normal;
+   }
+
+   @font-face {
+       font-family: 'proxima_nova_softsemibold';
+       src: url('landing_page/fonts/proximanovasoft-semibold-webfont.eot');
+       src: url('landing_page/fonts/proximanovasoft-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+            url('landing_page/fonts/proximanovasoft-semibold-webfont.woff2') format('woff2'),
+            url('landing_page/fonts/proximanovasoft-semibold-webfont.woff') format('woff'),
+            url('landing_page/fonts/proximanovasoft-semibold-webfont.ttf') format('truetype'),
+            url('landing_page/fonts/proximanovasoft-semibold-webfont.svg#proxima_nova_softsemibold') format('svg');
+       font-weight: normal;
+       font-style: normal;
+   }
+
+   /* ************************************************************************************ */
+   /* Hero section                                                                         */
+   /* ************************************************************************************ */
+   .hero__section {
+     min-height: 800px;
+     display: flex;
+     align-items: center;
+   }
+
+   .hero__title {
+     /* Your marketplace tit: */
+     font-family: ProximaNovaSoft-Regular;
+     font-size: 6.4rem;
+     color: #FFFFFF;
+     letter-spacing: -1.5px;
+     line-height: 76px;
+     text-align: center;
+     margin-bottom: 30px;
+   }
+
+   .hero__subtitle {
+     /* Paragraph. Etiam por: */
+     font-family: ProximaNovaSoft-Medium;
+     font-size: 24px;
+     font-size: 2.4rem;
+     color: #FFFFFF;
+     letter-spacing: 0px;
+     line-height: 32px;
+     text-align: center;
+     margin-bottom: 50px;
+   }
+
+   .hero__content {
+     max-width: 1024px;
+     margin: 0 auto;
+     padding: 1.6rem;
+   }
+
+   .hero__search-bar {
+     display: flex;
+   }
+
+   .hero__search-input {
+     margin: 0;
+     border: 0;
+     line-height: 5.0rem;
+     border-top-left-radius: 2.0rem;
+     border-bottom-left-radius: 2.0rem;
+     padding: 0 2rem;
+     width: 100%;
+
+     /* This is your search : */
+     font-family: ProximaNovaSoft-Medium;
+     font-size: 18px;
+     letter-spacing: 0px;
+   }
+   .hero__search-input:focus {
+     outline: none;
+   }
+
+   .hero__search-button {
+     border: 0;
+     padding: 0;
+
+     padding: 0 3rem;
+
+     line-height: 5.0rem;
+     border-top-right-radius: 2.0rem;
+     border-bottom-right-radius: 2.0rem;
+
+     /* Rectangle 69: */
+     background: #347F9D;
+
+     /* Search: */
+     font-family: ProximaNovaSoft-Medium;
+     font-size: 18px;
+     color: #FFFFFF;
+     letter-spacing: 0px;
+   }
+
+  </style>
+
+</head>
+
+<% sections.reject { |section| section["disabled"] }.each do |section| %>
+
+  <% s = section["section"] %>
+
+  <% case s["kind"] %>
+  <% when "hero" # Hero section %>
+
+    <section class="hero__section" style="background: url('<%= s["background_image"] %>')">
+      <div class="hero__content">
+        <div>
+          <h1 class="hero__title"><%= s["title"] %></h1>
+          <h3 class="hero__subtitle"><%= s["subtitle"] %></h3>
+        </div>
+
+        <div class="hero__search-bar">
+          <input type="search" class="hero__search-input" placeholder="<%= s["search_placeholder"] %>"/>
+          <button class="hero__search-button"><%= s["search_button"] %></button>
+        </div>
+      </div>
+    </section>
+
+  <% end # case section["type"] %>
+
+<% end # sections.each %>
+
+</html>
