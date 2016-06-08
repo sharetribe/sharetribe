@@ -9,7 +9,30 @@ class LandingPageController < ActionController::Metal
 
     def to_tree(normalized_data)
       root = normalized_data[@root]
-      walk(root, normalized_data)
+
+      HashUtils.deep_map(root) { |k, v|
+        case v
+        when Hash
+          type = v["type"]
+          id = v["id"]
+
+          new_v =
+            if type.nil?
+              # Not a link
+              v
+            elsif id.nil?
+              # Looks like link, but no ID. That's an error.
+              raise ArgumentError.new("Invalid link: #{v.inspect} has a 'type' key but no 'id'")
+            else
+              # Is a link
+              hook(type, normalized_data[type][id])
+            end
+
+          [k, new_v]
+        else
+          [k, v]
+        end
+      }
     end
 
     private
@@ -19,31 +42,6 @@ class LandingPageController < ActionController::Metal
         @hooks[type].call(value)
       else
         value
-      end
-    end
-
-    def walk(obj, normalized_data)
-      case obj
-      when Hash
-        type = obj["type"]
-        id = obj["id"]
-
-        if type.nil?
-          # Not a link
-          map_values(obj) { |val|
-            walk(val, normalized_data)
-          }
-        elsif id.nil?
-          # Looks like link, but no ID. That's an error.
-          raise ArgumentError.new("Invalid link: #{obj.inspect} has a 'type' key but no 'id'")
-        else
-          # Is a link
-          walk(hook(type, normalized_data[type][id]), normalized_data)
-        end
-      when Array
-        obj.map { |x| walk(x, normalized_data) }
-      else
-        obj
       end
     end
 

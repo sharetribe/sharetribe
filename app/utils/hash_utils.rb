@@ -144,4 +144,39 @@ module HashUtils
 
     acc.call(nil, h)
   end
+
+  # Recursively walks through nested hash and performs `map` operation.
+  #
+  # The tree is traversed in pre-order manner.
+  #
+  # In each node, calls the block with two arguments: key and value.
+  # The block needs to return a tuple of [key, value].
+  #
+  # Example (double all values):
+  #
+  # deep_map(a: { b: { c: 1}, d: [{ e: 1, f: 2 }]}) { |k, v|
+  #   [k, v * 2]
+  # }
+  #
+  #
+  # Example (stringify keys):
+  #
+  # deep_map(a: 1, b: 2) { |k, v|
+  #   [k.to_s, v]
+  # }
+  #
+  # Unlike Ruby's Hash#map, this method returns a Hash, not an Array.
+  #
+  def deep_map(obj, &block)
+    case obj
+    when Hash
+      obj.map { |k, v|
+        deep_map(block.call(k, v), &block)
+      }.to_h
+    when Array
+      obj.map { |x| deep_map(x, &block) }
+    else
+      obj
+    end
+  end
 end

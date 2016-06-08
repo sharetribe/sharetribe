@@ -104,4 +104,48 @@ describe HashUtils do
         .to raise_error(ArgumentError, "Key must be a Symbol and must not contain dot (.). Was: 'a.b', (Symbol)")
     end
   end
+
+  describe "#deep_map" do
+    let(:h) {
+      {
+        a: {
+          b: {
+            c: 1
+          },
+          d: [
+            {
+              e: 2,
+              f: 3
+            }
+          ]
+        }
+      }
+    }
+
+    it "performs deep map to the hash" do
+      double = HashUtils.deep_map(h) { |k, v|
+        case v
+        when Numeric
+          [k, v * 2]
+        else
+          [k, v]
+        end
+      }
+      expect(double).to eq({a: {b: {c: 2}, d: [{e: 4, f: 6}]}})
+
+      string_keys = HashUtils.deep_map(h) { |k, v| [k.to_s, v] }
+      expect(string_keys).to eq({"a" => {"b" => {"c" => 1}, "d" => [{"e" => 2, "f" => 3}]}})
+    end
+
+    it "performs the operation in pre-order manner" do
+      order = []
+
+      HashUtils.deep_map(h) { |k, v|
+        order << k
+        [k, v]
+      }
+
+      expect(order).to eq([:a, :b, :c, :d, :e, :f])
+    end
+  end
 end
