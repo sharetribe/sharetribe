@@ -506,11 +506,11 @@ es-ES:
       personal_payment_preferences_link_text: "su cuenta personal del marketplace"
       read_more_about_paypal: "Leer más sobre el sistema de pagos de Sharetribe."
       set_minimum_price_and_fee: "Configura un precio mínimo y una comisión por transacción"
-      minimum_listing_price_label: "Precio mínimo para anuncio:"
+      minimum_listing_price_label: "Precio mínimo por transacción:"
       transaction_fee_label: "Comisión por transacción:"
-      minimum_transaction_fee_label: "Fee mínimo por transacción"
+      minimum_transaction_fee_label: "Cuota mínima por transacción"
       save_settings: "Guardar configuración"
-      minimum_listing_price_below_tx_fee: "Tiene que ser al menos igual al fee mínimo por transacción %{minimum_transaction_fee}"
+      minimum_listing_price_below_tx_fee: "Tiene que ser al menos igual a la cuota mínima por transacción %{minimum_transaction_fee}"
       minimum_listing_price_below_min: "Debe ser superior a la comisión mínima %{minimum_commission}"
     transaction_types:
       sell: Venta
@@ -1439,7 +1439,7 @@ es-ES:
     edit:
       edit_listing: "Editar anuncio"
     edit_links:
-      close_listing: "Desactivar anuncio"
+      close_listing: "Cerrar anuncio"
       edit_listing: "Editar anuncio"
       reopen_listing: "Reactivar anuncio"
       move_to_top: "Mover a la parte superior de la página principal"
@@ -1726,12 +1726,12 @@ es-ES:
       price_for: "Precio de %{payer_given_name}:"
       continue_to_pay: "Continuar con el pago"
       invoice: Factura
-      service_fee: "Comisión de servicio de %{service_name}:"
+      service_fee: "Cuota de servicio de %{service_name}:"
       you_will_get: "Recibirás:"
     braintree:
       terms:
-        braintree_terms_also_included: "NOTA: Braintree es un servicio de transferencia de pagos y al utilizarlo aceptas sus términos y condiciones de uso %{terms_link_text}, además de los términos que aparecen más abajo."
-        terms_link_text: "Términos de uso de Braintree"
+        braintree_terms_also_included: "NOTA: Braintree es un servicio de transferencia de pagos y al utilizarlo aceptas los %{terms_link_text}, además de los términos que aparecen más abajo."
+        terms_link_text: "los términos y condiciones de uso de Braintree"
   paypal_accounts:
     payout_info_title: "Información de pago"
     paypal_account_email_connected: "<del>Conectar cuenta PayPal</del> Completado!"
@@ -1987,7 +1987,7 @@ es-ES:
       email_when_conversation_accepted: ".. .alguien acepta mi oferta o solicitud"
       email_when_conversation_rejected: ".. .alguien rechaza mi oferta o solicitud"
       email_about_completed_transactions: "...alguien marca mi solicitud como completada"
-      email_about_new_payments: "...Recibo un nuevo pago"
+      email_about_new_payments: "...Recibiendo un nuevo pago"
       email_about_payment_reminders: "...Olvidé pagar"
       email_about_new_listings_by_followed_people: "...alguien a quien sigo publica un nuevo anuncio"
       unsubscribe_succesful: "Suscripción cancelada exitosamente"
