@@ -5,12 +5,18 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = require('./webpack.client.base.config');
 const devBuild = process.env.NODE_ENV !== 'production';
 
+const { replacePercentChar } = require('./webpackConfigUtil');
+const assetHostEnv = typeof process.env.asset_host === 'string' ? `&asset_host=${process.env.asset_host}` : '';
+const assetHost = replacePercentChar(assetHostEnv);
+
 config.output = {
   filename: '[name]-bundle.js',
   path: '../app/assets/webpack',
   publicPath: '/assets/',
 };
 
+config.module = config.module || {};
+config.module.loaders = config.module.loaders || [];
 config.module.loaders.push(
   {
     test: /\.js$/,
@@ -29,6 +35,18 @@ config.module.loaders.push(
   {
     test: require.resolve('react'),
     loader: 'imports?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham',
+  },
+  {
+    test: /\.(woff2?|svg)$/,
+    loader: 'url?limit=10000',
+  },
+  {
+    test: /\.(ttf|eot)$/,
+    loader: 'file',
+  },
+  {
+    test: /\.(jpe?g|png|gif|svg|ico)$/,
+    loader: `customfile-loader?limit=10000&name=[name]-[hash].[ext]${assetHost}`,
   }
 );
 
