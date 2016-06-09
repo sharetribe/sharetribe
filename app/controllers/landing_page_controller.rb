@@ -69,6 +69,10 @@ class LandingPageController < ActionController::Metal
       end
     end
 
+    def self.find_link(type, id, normalized_data)
+      normalized_data[type].find { |item| item["id"] == id }
+    end
+
     private
 
     def resolve_link(type, id, normalized_data)
@@ -77,10 +81,6 @@ class LandingPageController < ActionController::Metal
       else
         self.class.find_link(type, id, normalized_data)
       end
-    end
-
-    def self.find_link(type, id, normalized_data)
-      normalized_data[type].find { |item| item["id"] == id }
     end
   end
 
