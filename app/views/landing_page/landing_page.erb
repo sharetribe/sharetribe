@@ -238,7 +238,7 @@
   <% case s["kind"] %>
   <% when "hero" # Hero section %>
 
-    <section class="hero__section" style="background: url('<%= s["background_image"] %>')">
+    <section class="hero__section" style="background: url('<%= s["background_image"]["src"] %>')">
       <div class="hero__content">
         <div>
           <h1 class="hero__title"><%= s["title"] %></h1>
