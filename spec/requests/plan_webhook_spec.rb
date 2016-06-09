@@ -62,7 +62,6 @@ describe "plan provisioning", type: :request do
         "plans": [
           {
             "marketplace_id": 1234,
-            "plan_level": 2,
             "features": {
               "whitelabel": true
             },
@@ -70,7 +69,6 @@ describe "plan provisioning", type: :request do
           },
           {
             "marketplace_id": 5555,
-            "plan_level": 5,
             "features": {
               "admin_email": true
             },
@@ -84,9 +82,8 @@ describe "plan provisioning", type: :request do
 
         plan1234 = PlanService::API::Api.plans.get_current(community_id: 1234).data
 
-        expect(plan1234.slice(:community_id, :plan_level, :features, :expires_at, :status)).to eq({
+        expect(plan1234.slice(:community_id, :features, :expires_at, :status)).to eq({
                                community_id: 1234,
-                               plan_level: 2,
                                status: :active,
                                features: { deletable: false, admin_email: false, whitelabel: true },
                                expires_at: nil
@@ -95,9 +92,8 @@ describe "plan provisioning", type: :request do
         plan5555 = PlanService::API::Api.plans.get_current(community_id: 5555)
                    .data
 
-        expect(plan5555.slice(:community_id, :plan_level, :features, :expires_at, :status)).to eq({
+        expect(plan5555.slice(:community_id, :features, :expires_at, :status)).to eq({
                                community_id: 5555,
-                               plan_level: 5,
                                status: :hold,
                                features: { deletable: false, admin_email: true, whitelabel: false },
                                expires_at: Time.utc(2015, 10, 15, 15, 0, 0)
@@ -164,15 +160,15 @@ describe "plan provisioning", type: :request do
         id333 = nil
 
         Timecop.freeze(Time.utc(2015, 9, 15)) {
-          id111 = PlanService::API::Api.plans.create_initial_trial(community_id: 111, plan: {plan_level: 0}).data[:id]
+          id111 = PlanService::API::Api.plans.create_initial_trial(community_id: 111).data[:id]
         }
 
         Timecop.freeze(Time.utc(2015, 10, 15)) {
-          id222 = PlanService::API::Api.plans.create_initial_trial(community_id: 222, plan: {plan_level: 0}).data[:id]
+          id222 = PlanService::API::Api.plans.create_initial_trial(community_id: 222).data[:id]
         }
 
         Timecop.freeze(Time.utc(2015, 11, 15)) {
-          id333 = PlanService::API::Api.plans.create_initial_trial(community_id: 333, plan: {plan_level: 0}).data[:id]
+          id333 = PlanService::API::Api.plans.create_initial_trial(community_id: 333).data[:id]
         }
 
         after = Time.utc(2015, 10, 1).to_i
@@ -186,7 +182,6 @@ describe "plan provisioning", type: :request do
                                 {
                                   marketplace_plan_id: id222,
                                   marketplace_id: 222,
-                                  plan_level: 0,
                                   status: :trial,
                                   features: { deletable: true, admin_email: false, whitelabel: false },
                                   member_limit: 300,
@@ -197,7 +192,6 @@ describe "plan provisioning", type: :request do
                                 {
                                   marketplace_plan_id: id333,
                                   marketplace_id: 333,
-                                  plan_level: 0,
                                   status: :trial,
                                   features: { deletable: true, admin_email: false, whitelabel: false },
                                   member_limit: 300,
@@ -222,15 +216,15 @@ describe "plan provisioning", type: :request do
         id333 = nil
 
         Timecop.freeze(Time.utc(2015, 9, 15)) {
-          id111 = PlanService::API::Api.plans.create_initial_trial(community_id: 111, plan: {plan_level: 0}).data[:id]
+          id111 = PlanService::API::Api.plans.create_initial_trial(community_id: 111).data[:id]
         }
 
         Timecop.freeze(Time.utc(2015, 10, 15)) {
-          id222 = PlanService::API::Api.plans.create_initial_trial(community_id: 222, plan: {plan_level: 0}).data[:id]
+          id222 = PlanService::API::Api.plans.create_initial_trial(community_id: 222).data[:id]
         }
 
         Timecop.freeze(Time.utc(2015, 11, 15)) {
-          id333 = PlanService::API::Api.plans.create_initial_trial(community_id: 333, plan: {plan_level: 0}).data[:id]
+          id333 = PlanService::API::Api.plans.create_initial_trial(community_id: 333).data[:id]
         }
 
         after = Time.utc(2015, 9, 1).to_i
@@ -243,7 +237,6 @@ describe "plan provisioning", type: :request do
                                 {
                                   marketplace_plan_id: id111,
                                   marketplace_id: 111,
-                                  plan_level: 0,
                                   status: :trial,
                                   features: { deletable: true, admin_email: false, whitelabel: false },
                                   member_limit: 300,
@@ -265,7 +258,6 @@ describe "plan provisioning", type: :request do
                                 {
                                   marketplace_plan_id: id222,
                                   marketplace_id: 222,
-                                  plan_level: 0,
                                   status: :trial,
                                   features: { deletable: true, admin_email: false, whitelabel: false },
                                   member_limit: 300,
@@ -276,7 +268,6 @@ describe "plan provisioning", type: :request do
                                 {
                                   marketplace_plan_id: id333,
                                   marketplace_id: 333,
-                                  plan_level: 0,
                                   status: :trial,
                                   member_limit: 300,
                                   features: { deletable: true, admin_email: false, whitelabel: false },

@@ -37,7 +37,7 @@ module PlanService::API
     # All plans should come from the external plan service and that's
     # why this function is deprecated
     #
-    def create_initial_trial(community_id:, plan:)
+    def create_initial_trial(community_id:, plan: {})
       Result::Success.new(
         with_statuses(
           PlanStore.create_trial(community_id: community_id, plan: plan)))

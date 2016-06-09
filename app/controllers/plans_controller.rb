@@ -6,7 +6,6 @@ class PlansController < ApplicationController
 
   NewPlanRequest = EntityUtils.define_builder(
     [:marketplace_id, :fixnum, :mandatory],
-    [:plan_level, :fixnum, :mandatory],
     [:features, :hash, :mandatory],
     [:status, :to_symbol, one_of: [:trial, :active, :hold]],
     [:expires_at, :utc_str_to_time, :optional],
@@ -21,7 +20,6 @@ class PlansController < ApplicationController
   NewPlanResponse = EntityUtils.define_builder(
     [:marketplace_plan_id, :fixnum, :mandatory],
     [:marketplace_id, :fixnum, :mandatory],
-    [:plan_level, :fixnum, :mandatory],
     [:features, :hash, :mandatory],
     [:expires_at, :time, :optional],
     [:created_at, :time, :mandatory],
