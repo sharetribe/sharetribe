@@ -68,4 +68,5 @@ module.exports = {
   '--SearchBar_keywordInputFocusWidth': '78%',
   '--SearchBar_focusContainerZIndex': '0',
   '--SearchBar_childZIndex': '1',
+  '--SearchBar_searchButtonLineHeight': '44px',
 };
