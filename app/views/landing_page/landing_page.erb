@@ -255,8 +255,7 @@
           <h3 class="hero__subtitle"><%= s["subtitle"] %></h3>
         </div>
 
-        <div class="hero__search-bar">
-
+        <form method="get" class="hero__search-bar" action="<%= paths[:search_path] %>">
           <div class="hero__search-icon">
             <svg width="22px" height="22px" viewBox="27 19 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <g id="icon_search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(38.000000, 30.000000) scale(-1, 1) translate(-38.000000, -30.000000) translate(28.000000, 20.000000)" stroke-linecap="round" stroke-linejoin="round">
@@ -265,9 +264,9 @@
               </g>
             </svg>
           </div>
-          <input type="search" class="hero__search-input" placeholder="<%= s["search_placeholder"] %>"/>
-          <button class="hero__search-button"><%= s["search_button"] %></button>
-        </div>
+            <input type="search" name="q" class="hero__search-input" placeholder="<%= s["search_placeholder"] %>"/>
+            <button type="submit" class="hero__search-button"><%= s["search_button"] %></button>
+        </form>
       </div>
     </section>
 
