@@ -24,7 +24,6 @@ module.exports = {
 
     'selector-no-id': true,
     'selector-no-qualifying-type': [true, { ignore: ['attribute'] }],
-    'selector-no-universal': true,
 
     // Allow only camelCased class selectors that can be used without
     // quoting within JavaScript with CSS modules
