@@ -34,7 +34,7 @@ UserVoice.push(['identify', {
    id:           '<%= @current_community.id %>',
    name:         '<%= @current_community.full_url %>',
    created_at:   '<%= @current_community.created_at.to_time.to_i %>',
-   plan:         '<%= @current_plan[:plan_level] %>'
+   plan:         '<%= @current_plan[:status] %>'
   }
 }]);
 
