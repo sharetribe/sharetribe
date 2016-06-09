@@ -540,6 +540,7 @@
      width: 100%;
      min-height: 80vh;
      background-size: cover;
+     background-position: center;
      display: flex;
      align-items: center;
      box-shadow: inset 0 0 0 40vh rgba(0, 0, 0, 0.5);
@@ -553,27 +554,31 @@
      /* Your marketplace tit: */
      font-family: ProximaNovaSoft-Regular;
      color: #FFFFFF;
-     margin-bottom: 30px;
 
      /* (max-width: 767px) and (orientation: portrait) */
      font-size: 36px;
      letter-spacing: -1.23px;
      line-height: 42px;
+     margin-bottom: 24px;
    }
 
-   @media (min-width: 1025px) {
-     .hero__title {
-       font-size: 64px;
-       letter-spacing: -1.5px;
-       line-height: 76px;
-     }
-   }
-
+   /* tablet 768 */
    @media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
      .hero__title {
        font-size: 62px;
        letter-spacing: -1.23px;
        line-height: 68px;
+       margin-bottom: 28px;
+     }
+   }
+
+   /* desktop 1366 */
+   @media (min-width: 1025px) {
+     .hero__title {
+       font-size: 64px;
+       letter-spacing: -1.5px;
+       line-height: 76px;
+       margin-bottom: 28px;
      }
    }
 
@@ -581,7 +586,6 @@
      /* Paragraph. Etiam por: */
      font-family: ProximaNovaSoft-Medium;
      color: #FFFFFF;
-     margin-bottom: 50px;
      letter-spacing: 0px;
 
      /* mobile 375 */
@@ -589,6 +593,7 @@
      /* Paragraph. Etiam por: */
      font-size: 18px;
      line-height: 24px;
+     margin-bottom: 36px;
    }
 
    /* tablet 768 */
@@ -596,6 +601,7 @@
      .hero__subtitle {
        font-size: 21px;
        line-height: 32px;
+       margin-bottom: 48px;
      }
    }
 
@@ -604,6 +610,7 @@
      .hero__subtitle {
        font-size: 24px;
        line-height: 32px;
+       margin-bottom: 48px;
      }
    }
 
