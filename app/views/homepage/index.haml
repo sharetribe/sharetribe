@@ -26,13 +26,13 @@
             = t("layouts.application.connect")
       - else
         - if(location_search_in_use)
-          = render partial: "location_bar", locals: {minimum_distance_max: minimum_distance_max}
+          = render partial: "location_bar"
         - else
           = render partial: "search_bar"
   - with_small_cover_photo do
     .browse-view-search-form
       - if(location_search_in_use)
-        = render partial: "location_bar", locals: {minimum_distance_max: minimum_distance_max}
+        = render partial: "location_bar"
       - else
         = render partial: "search_bar"
 

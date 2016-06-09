@@ -99,7 +99,6 @@ class HomepageController < ApplicationController
                  listing_shape_menu_enabled: listing_shape_menu_enabled,
                  main_search: main_search,
                  location_search_in_use: location_search_in_use,
-                 minimum_distance_max: APP_MINIMUM_DISTANCE_MAX,
                  viewport: viewport }
       }.on_error { |e|
         flash[:error] = t("homepage.errors.search_engine_not_responding")
@@ -114,7 +113,6 @@ class HomepageController < ApplicationController
                  listing_shape_menu_enabled: listing_shape_menu_enabled,
                  main_search: main_search,
                  location_search_in_use: location_search_in_use,
-                 minimum_distance_max: APP_MINIMUM_DISTANCE_MAX,
                  viewport: viewport }
       }
     end
@@ -165,6 +163,7 @@ class HomepageController < ApplicationController
         .map { |d| [APP_MINIMUM_DISTANCE_MAX, d.to_f].max }
         .or_else(nil)
     )
+    search_extra = location_search_hash.blank? ? { sort: nil } : location_search_hash
 
     search = {
       # Add listing_id
@@ -177,10 +176,9 @@ class HomepageController < ApplicationController
       page: Maybe(params)[:page].to_i.map { |n| n > 0 ? n : 1 }.or_else(1),
       price_min: params[:price_min],
       price_max: params[:price_max],
-      sort: nil,
       locale: I18n.locale,
       include_closed: false
-    }.merge(location_search_hash)
+    }.merge(search_extra)
 
     raise_errors = Rails.env.development?
 

@@ -59,6 +59,8 @@ module ListingIndexService::Search
             :'search[distance_unit]' => original[:distance_unit],
             :'filter[distance_max]' => original[:distance_max]
           }
+        else
+          {}
         end
 
       custom_fields = Maybe(original[:fields]).map { |fields|

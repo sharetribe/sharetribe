@@ -2,7 +2,7 @@ window.ST = window.ST || {};
 
 (function(module) {
 
-  module.initializeLocationSearch = function(minimumDistanceMax) {
+  module.initializeLocationSearch = function() {
     var searchInput = document.getElementById('q');
     var statusInput = document.getElementById('ls');
     var coordinateInput = document.getElementById('lc');
@@ -48,7 +48,7 @@ window.ST = window.ST || {};
         maxDistanceInput.value = boundingboxRadius;
         boundingboxInput.value = viewport.toUrlValue();
       } else {
-        maxDistanceInput.value = minimumDistanceMax;
+        maxDistanceInput.value = null;
       }
     }
 
