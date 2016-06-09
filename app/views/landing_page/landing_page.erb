@@ -468,6 +468,10 @@
      -webkit-appearance: none;
    }
 
+   a {
+     text-decoration: none;
+   }
+
    /* ************************************************************************************ */
    /* Fonts                                                                                */
    /* ************************************************************************************ */
@@ -541,11 +545,14 @@
      box-shadow: inset 0 0 0 40vh rgba(0, 0, 0, 0.5);
    }
 
+   .hero__content-container {
+     text-align: center;
+   }
+
    .hero__title {
      /* Your marketplace tit: */
      font-family: ProximaNovaSoft-Regular;
      color: #FFFFFF;
-     text-align: center;
      margin-bottom: 30px;
 
      /* (max-width: 767px) and (orientation: portrait) */
@@ -574,7 +581,6 @@
      /* Paragraph. Etiam por: */
      font-family: ProximaNovaSoft-Medium;
      color: #FFFFFF;
-     text-align: center;
      margin-bottom: 50px;
      letter-spacing: 0px;
 
@@ -679,7 +685,6 @@
      border-top-right-radius: 29.5px;
      border-bottom-right-radius: 29.5px;
 
-     /* Rectangle 69: */
      background: #347F9D;
 
      /* Search: */
@@ -744,6 +749,44 @@
      }
    }
 
+   .hero__signup-button {
+     color: #FFFFFF;
+
+     background: #347F9D;
+     border-radius: 100px;
+     font-family: ProximaNovaSoft-Bold;
+
+     /* mobile 375 */
+     /* (max-width: 767px) and (orientation: portrait) */
+     font-size: 18px;
+     letter-spacing: 0px;
+
+     padding-top: 17px
+     padding-bottom: 19px;
+     padding: 17px 36px 19px 36px;
+   }
+
+
+   /* tablet 768 */
+   @media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
+     .hero__signup-button {
+       font-size: 21px;
+       letter-spacing: 0px;
+
+       padding: 21px 63px;
+     }
+   }
+
+   /* desktop 1366 */
+   @media (min-width: 1025px) {
+     .hero__signup-button {
+       font-size: 21px;
+       letter-spacing: 0px;
+
+       padding: 21px 63px;
+     }
+   }
+
   </style>
 
 </head>
@@ -757,23 +800,32 @@
 
     <section class="hero__section" style="background-image: url('<%= s["background_image"]["src"] %>')">
       <div class="hero__content">
-        <div>
+        <div class="hero__content-container">
           <h1 class="hero__title"><%= s["title"] %></h1>
           <h3 class="hero__subtitle"><%= s["subtitle"] %></h3>
-        </div>
 
-        <form method="get" class="hero__search-bar" action="<%= paths[:search_path] %>">
-          <div class="hero__search-icon">
-            <svg width="22px" height="22px" viewBox="27 19 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <g id="icon_search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(38.000000, 30.000000) scale(-1, 1) translate(-38.000000, -30.000000) translate(28.000000, 20.000000)" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14.6666667,14.6666667 L19.3254458,19.3254458" id="line" stroke="#525961" stroke-width="2"></path>
-                <circle id="Oval" stroke="#525961" stroke-width="2" cx="8" cy="8" r="8"></circle>
-              </g>
-            </svg>
-          </div>
-            <input type="search" name="q" class="hero__search-input" placeholder="<%= s["search_placeholder"] %>"/>
-            <button type="submit" class="hero__search-button"><%= s["search_button"] %></button>
-        </form>
+          <% case s["variation"] %>
+          <% when "keyword_search" %>
+
+            <form method="get" class="hero__search-bar" action="<%= paths[:search_path] %>">
+              <div class="hero__search-icon">
+                <svg width="22px" height="22px" viewBox="27 19 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <g id="icon_search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(38.000000, 30.000000) scale(-1, 1) translate(-38.000000, -30.000000) translate(28.000000, 20.000000)" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14.6666667,14.6666667 L19.3254458,19.3254458" id="line" stroke="#525961" stroke-width="2"></path>
+                    <circle id="Oval" stroke="#525961" stroke-width="2" cx="8" cy="8" r="8"></circle>
+                  </g>
+                </svg>
+              </div>
+              <input type="search" name="q" class="hero__search-input" placeholder="<%= s["search_placeholder"] %>"/>
+              <button type="submit" class="hero__search-button"><%= s["search_button"] %></button>
+            </form>
+
+          <% when "private" %>
+
+            <a class="hero__signup-button" href="<%= paths[:signup_path] %>"><%= s["signup_button"] %></a>
+
+          <% end %>
+        </div>
       </div>
     </section>
 
