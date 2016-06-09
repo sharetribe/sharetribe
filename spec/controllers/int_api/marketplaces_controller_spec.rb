@@ -24,7 +24,6 @@ describe IntApi::MarketplacesController, type: :controller do
   def expect_trial_plan(cid)
     # Create trial plan
     plan = PlanService::API::Api.plans.get_current(community_id: cid).data
-    expect(plan[:plan_level]).to eq(0)
     expect(plan[:expires_at]).not_to eq(nil)
   end
 

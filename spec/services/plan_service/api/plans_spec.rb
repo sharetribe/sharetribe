@@ -22,7 +22,6 @@ describe PlanService::API::Plans do
 
             plans_api.create_initial_trial(
               community_id: 123, plan: {
-                plan_level: PlanService::Levels::FREE,
                 status: :trial,
                 expires_at: expires_at,
               })
@@ -33,7 +32,6 @@ describe PlanService::API::Plans do
             expect(res.data[:id]).to be_a(Fixnum)
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
-                                              plan_level: 0,
                                               status: :trial,
                                               features: { deletable: true, admin_email: false, whitelabel: false },
                                               expires_at: expires_at,
@@ -52,7 +50,6 @@ describe PlanService::API::Plans do
 
             plans_api.create(
               community_id: 123, plan: {
-                plan_level: PlanService::Levels::SCALE,
                 status: :active,
                 features: { whitelabel: true, admin_email: true },
                 member_limit: 100000,
@@ -65,7 +62,6 @@ describe PlanService::API::Plans do
             expect(res.data[:id]).to be_a(Fixnum)
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
-                                              plan_level: 4,
                                               status: :active,
                                               features: { deletable: false, admin_email: true, whitelabel: true },
                                               member_limit: 100000,
@@ -82,7 +78,6 @@ describe PlanService::API::Plans do
           Timecop.freeze(Time.now.change(usec: 0)) {
             plans_api.create(
               community_id: 123, plan: {
-                plan_level: PlanService::Levels::PRO,
                 status: :active,
                 features: { whitelabel: true, admin_email: true },
                 member_limit: 1000,
@@ -94,7 +89,6 @@ describe PlanService::API::Plans do
             expect(res.data[:id]).to be_a(Fixnum)
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
-                                              plan_level: 2,
                                               status: :active,
                                               features: { deletable: false, admin_email: true, whitelabel: true },
                                               member_limit: 1000,
@@ -124,7 +118,6 @@ describe PlanService::API::Plans do
           expect { plans_api.create(
             community_id: 123,
             plan: {
-              plan_level: PlanService::Levels::PRO,
               status: :active,
               member_limit: 1000,
             }) }.to raise_error(ArgumentError)
@@ -134,7 +127,6 @@ describe PlanService::API::Plans do
           expect { plans_api.create(
             community_id: 123,
             plan: {
-              plan_level: PlanService::Levels::PRO,
               features: {whitelabel: :true},
               member_limit: 1000,
             }) }.to raise_error(ArgumentError)
@@ -183,7 +175,6 @@ describe PlanService::API::Plans do
       it "returns false if plan never expires" do
         plan = plans_api.create(
           community_id: 111, plan: {
-            plan_level: 5,
             status: :hold,
             features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: nil, # plan never expires
@@ -195,7 +186,6 @@ describe PlanService::API::Plans do
       it "returns false if plan has not yet expired" do
         plan = plans_api.create(
           community_id: 111, plan: {
-            plan_level: 5,
             status: :hold,
             features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: 1.month.from_now,
@@ -207,7 +197,6 @@ describe PlanService::API::Plans do
       it "returns true if plan has expired" do
         plan = plans_api.create(
           community_id: 111, plan: {
-            plan_level: 5,
             status: :hold,
             features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: 1.month.ago,
@@ -221,7 +210,6 @@ describe PlanService::API::Plans do
       it "returns false, if plan has not expired" do
         plan = plans_api.create(
           community_id: 111, plan: {
-            plan_level: 2,
             status: :active,
             features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: nil, # plan never expires
@@ -234,7 +222,6 @@ describe PlanService::API::Plans do
       it "returns false, if trial plan" do
         plan = plans_api.create(
           community_id: 111, plan: {
-            plan_level: 0,
             status: :trial,
             features: { deletable: true, admin_email: false, whitelabel: false },
             expires_at: Time.now - 1.day,
@@ -247,7 +234,6 @@ describe PlanService::API::Plans do
       it "returns true, if non-trial plan has expired" do
         plan = plans_api.create(
           community_id: 111, plan: {
-            plan_level: 2,
             status: :active,
             features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: Time.now - 1.day
@@ -260,7 +246,6 @@ describe PlanService::API::Plans do
       it "returns true, for hold plan" do
         plan = plans_api.create(
           community_id: 111, plan: {
-            plan_level: 5,
             status: :hold,
             features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: nil
@@ -282,18 +267,14 @@ describe PlanService::API::Plans do
 
     it "does not creates a new initial trial" do
       res = plans_api.create_initial_trial(
-        community_id: 123, plan: {
-          plan_level: PlanService::Levels::FREE,
-        })
+        community_id: 123)
 
       expect(res.success).to eq(false)
     end
 
     it "does not creates a new plan" do
       res = plans_api.create(
-        community_id: 123, plan: {
-          plan_level: PlanService::Levels::SCALE,
-        })
+        community_id: 123, plan: {})
 
       expect(res.success).to eq(false)
     end
@@ -302,7 +283,6 @@ describe PlanService::API::Plans do
       res = plans_api.get_current(community_id: 123)
       expect(res.success).to eq(true)
       expect(res.data).to include(
-                       plan_level: 99999,
                        community_id: 123,
                        expires_at: nil,
                        expired: false
