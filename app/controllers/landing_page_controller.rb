@@ -75,8 +75,12 @@ class LandingPageController < ActionController::Metal
       if @link_resolvers[type].respond_to? :call
         @link_resolvers[type].call(type, id, normalized_data)
       else
-        normalized_data[type][id]
+        self.class.find_link(type, id, normalized_data)
       end
+    end
+
+    def self.find_link(type, id, normalized_data)
+      normalized_data[type].find { |item| item["id"] == id }
     end
   end
 
@@ -98,7 +102,8 @@ class LandingPageController < ActionController::Metal
     denormalizer = Denormalizer.new(
       link_resolvers: {
         "assets" => ->(type, id, normalized_data) {
-          append_asset_dir(normalized_data[type][id])
+          asset = Denormalizer.find_link(type, id, normalized_data)
+          asset.merge("src" => append_asset_dir(asset["src"]))
         }
       })
 
@@ -117,8 +122,9 @@ class LandingPageController < ActionController::Metal
         "sitename" => "turbobikes"
       },
 
-      "sections" => {
-        "myhero1" => {
+      "sections" => [
+        {
+          "id" => "myhero1",
           "kind" => "hero",
           "title" => "Sell your turbobike",
           "subtitle" => "The best place to rent your turbojopo",
@@ -126,8 +132,14 @@ class LandingPageController < ActionController::Metal
           "search_placeholder" => "What kind of turbojopo are you looking for?",
           "search_button" => "Search",
         },
-        "thecategories" => {"type" => "categories", "slogan" => "blaablaa", "category_ids" => [123, 432, 131]},
-      },
+
+        {
+          "id" => "thecategories",
+          "type" => "categories",
+          "slogan" => "blaablaa",
+          "category_ids" => [123, 432, 131]
+        },
+      ],
 
       "composition" => [
         { "section" => {"type" => "sections", "id" => "myhero1"},
@@ -138,9 +150,12 @@ class LandingPageController < ActionController::Metal
           "disabled" => true},
       ],
 
-      "assets" => {
-        "myheroimage" => "hero.png",
-      }
+      "assets" => [
+        {
+          "id" => "myheroimage",
+          "src" => "hero.png",
+        }
+      ]
     }
   end
 end
