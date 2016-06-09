@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Custom Landing Page</title>
 
@@ -13,6 +14,21 @@
   -->
 
   <style type="text/css">
+
+   /* ************************************************************************************ */
+   /* Border-box                                                                           */
+   /* ************************************************************************************ */
+   html {
+     box-sizing: border-box;
+   }
+   *, *:before, *:after {
+     box-sizing: inherit;
+   }
+
+   /* ************************************************************************************ */
+   /* Normalize                                                                            */
+   /* ************************************************************************************ */
+
    /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 
    /**
@@ -443,6 +459,15 @@
      font-weight: normal;
    }
 
+   /* Turn off iOS border radius */
+   input {
+     border-radius: 0;
+   }
+
+   [type="search"] {
+     -webkit-appearance: none;
+   }
+
    /* ************************************************************************************ */
    /* Fonts                                                                                */
    /* ************************************************************************************ */
@@ -457,7 +482,7 @@
     */
 
    @font-face {
-       font-family: 'proxima_nova_softbold';
+       font-family: 'ProximaNovaSoft-Bold';
        src: url('landing_page/fonts/proximanovasoft-bold-webfont.eot');
        src: url('landing_page/fonts/proximanovasoft-bold-webfont.eot?#iefix') format('embedded-opentype'),
             url('landing_page/fonts/proximanovasoft-bold-webfont.woff2') format('woff2'),
@@ -469,7 +494,7 @@
    }
 
    @font-face {
-       font-family: 'proxima_nova_softmedium';
+       font-family: 'ProximaNovaSoft-Medium';
        src: url('landing_page/fonts/proximanovasoft-medium-webfont.eot');
        src: url('landing_page/fonts/proximanovasoft-medium-webfont.eot?#iefix') format('embedded-opentype'),
             url('landing_page/fonts/proximanovasoft-medium-webfont.woff2') format('woff2'),
@@ -481,7 +506,7 @@
    }
 
    @font-face {
-       font-family: 'proxima_nova_softregular';
+       font-family: 'ProximaNovaSoft-Regular';
        src: url('landing_page/fonts/proximanovasoft-regular-webfont.eot');
        src: url('landing_page/fonts/proximanovasoft-regular-webfont.eot?#iefix') format('embedded-opentype'),
             url('landing_page/fonts/proximanovasoft-regular-webfont.woff2') format('woff2'),
@@ -493,7 +518,7 @@
    }
 
    @font-face {
-       font-family: 'proxima_nova_softsemibold';
+       font-family: 'ProximaNovaSoft-Semibold';
        src: url('landing_page/fonts/proximanovasoft-semibold-webfont.eot');
        src: url('landing_page/fonts/proximanovasoft-semibold-webfont.eot?#iefix') format('embedded-opentype'),
             url('landing_page/fonts/proximanovasoft-semibold-webfont.woff2') format('woff2'),
@@ -519,24 +544,61 @@
    .hero__title {
      /* Your marketplace tit: */
      font-family: ProximaNovaSoft-Regular;
-     font-size: 64px;
      color: #FFFFFF;
-     letter-spacing: -1.5px;
-     line-height: 76px;
      text-align: center;
      margin-bottom: 30px;
+
+     /* (max-width: 767px) and (orientation: portrait) */
+     font-size: 36px;
+     letter-spacing: -1.23px;
+     line-height: 42px;
+   }
+
+   @media (min-width: 1025px) {
+     .hero__title {
+       font-size: 64px;
+       letter-spacing: -1.5px;
+       line-height: 76px;
+     }
+   }
+
+   @media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
+     .hero__title {
+       font-size: 62px;
+       letter-spacing: -1.23px;
+       line-height: 68px;
+     }
    }
 
    .hero__subtitle {
      /* Paragraph. Etiam por: */
      font-family: ProximaNovaSoft-Medium;
-     font-size: 24px;
-     font-size: 24px;
      color: #FFFFFF;
-     letter-spacing: 0px;
-     line-height: 32px;
      text-align: center;
      margin-bottom: 50px;
+     letter-spacing: 0px;
+
+     /* mobile 375 */
+     /* (max-width: 767px) and (orientation: portrait) */
+     /* Paragraph. Etiam por: */
+     font-size: 18px;
+     line-height: 24px;
+   }
+
+   /* tablet 768 */
+   @media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
+     .hero__subtitle {
+       font-size: 21px;
+       line-height: 32px;
+     }
+   }
+
+   /* desktop 1366 */
+   @media (min-width: 1025px) {
+     .hero__subtitle {
+       font-size: 24px;
+       line-height: 32px;
+     }
    }
 
    .hero__content {
@@ -548,12 +610,30 @@
 
    .hero__search-bar {
      display: flex;
+
+     /* mobile 375 */
+     /* (max-width: 767px) and (orientation: portrait) */
+     flex-direction: row-reverse;
+   }
+
+   /* tablet 768 */
+   @media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
+     .hero__search-bar {
+       flex-direction: row;
+     }
+   }
+
+   /* desktop 1366 */
+   @media (min-width: 1025px) {
+     .hero__search-bar {
+       flex-direction: row;
+     }
    }
 
    .hero__search-input {
      margin: 0;
      border: 0;
-     line-height: 60px;
+     line-height: 32px;
      padding: 0 18px;
      width: 100%;
      color: #525961;
@@ -562,9 +642,31 @@
      font-family: ProximaNovaSoft-Medium;
      font-size: 18px;
      letter-spacing: 0px;
+
+     /* mobile 375 */
+     /* (max-width: 767px) and (orientation: portrait) */
+     border-top-left-radius: 29.5px;
+     border-bottom-left-radius: 29.5px;
    }
+
    .hero__search-input:focus {
      outline: none;
+   }
+
+   /* tablet 768 */
+   @media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
+     .hero__search-input {
+       border-top-left-radius: inherit;
+       border-bottom-left-radius: inherit;
+     }
+   }
+
+   /* desktop 1366 */
+   @media (min-width: 1025px) {
+     .hero__search-input {
+       border-top-left-radius: inherit;
+       border-bottom-left-radius: inherit;
+     }
    }
 
    .hero__search-button {
@@ -585,13 +687,61 @@
      font-size: 18px;
      color: #FFFFFF;
      letter-spacing: 0px;
+
+     /* mobile 375 */
+     /* (max-width: 767px) and (orientation: portrait) */
+     display: none;
+   }
+
+   /* tablet 768 */
+   @media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
+     .hero__search-button {
+       display: block;
+     }
+   }
+
+   /* desktop 1366 */
+   @media (min-width: 1025px) {
+     .hero__search-button {
+       display: block;
+     }
    }
 
    .hero__search-icon {
-     padding: 20px 0px 20px 28px;
+     padding-top: 20px;
+     padding-bottom: 20px;
      background: #FFF;
-     border-top-left-radius: 29.5px;
-     border-bottom-left-radius: 29.5px;
+
+     /* mobile 375 */
+     /* (max-width: 767px) and (orientation: portrait) */
+     border-top-right-radius: 29.5px;
+     border-bottom-right-radius: 29.5px;
+     padding-right: 28px;
+     padding-left: 0px;
+   }
+
+   /* tablet 768 */
+   @media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
+     .hero__search-icon {
+       border-top-left-radius: 29.5px;
+       border-bottom-left-radius: 29.5px;
+       border-top-right-radius: inherit;
+       border-bottom-right-radius: inherit;
+       padding-left: 28px;
+       padding-right: 0px;
+     }
+   }
+
+   /* desktop 1366 */
+   @media (min-width: 1025px) {
+     .hero__search-icon {
+       border-top-left-radius: 29.5px;
+       border-bottom-left-radius: 29.5px;
+       border-top-right-radius: inherit;
+       border-bottom-right-radius: inherit;
+       padding-left: 28px;
+       padding-right: 0px;
+     }
    }
 
   </style>
