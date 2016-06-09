@@ -452,6 +452,26 @@ ActiveRecord::Schema.define(version: 20160614071055) do
   add_index "invitations", ["code"], name: "index_invitations_on_code", using: :btree
   add_index "invitations", ["inviter_id"], name: "index_invitations_on_inviter_id", using: :btree
 
+  create_table "landing_page_versions", force: :cascade do |t|
+    t.integer  "community_id", limit: 4,        null: false
+    t.integer  "version",      limit: 4,        null: false
+    t.datetime "released"
+    t.text     "content",      limit: 16777215, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "landing_page_versions", ["community_id", "version"], name: "index_landing_page_versions_on_community_id_and_version", unique: true, using: :btree
+
+  create_table "landing_pages", force: :cascade do |t|
+    t.integer  "community_id",     limit: 4,                 null: false
+    t.boolean  "enabled",                    default: false, null: false
+    t.integer  "released_version", limit: 4
+    t.datetime "updated_at"
+  end
+
+  add_index "landing_pages", ["community_id"], name: "index_landing_pages_on_community_id", unique: true, using: :btree
+
   create_table "listing_followers", id: false, force: :cascade do |t|
     t.string  "person_id",  limit: 255
     t.integer "listing_id", limit: 4
@@ -630,7 +650,7 @@ ActiveRecord::Schema.define(version: 20160614071055) do
   add_index "marketplace_setup_steps", ["community_id"], name: "index_marketplace_setup_steps_on_community_id", unique: true, using: :btree
 
   create_table "marketplace_trials", force: :cascade do |t|
-    t.integer  "community_id", limit: 4,     null: false
+    t.integer  "community_id", limit: 4, null: false
     t.datetime "expires_at"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
