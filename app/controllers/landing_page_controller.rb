@@ -135,7 +135,7 @@ class LandingPageController < ActionController::Metal
 
         {
           "id" => "thecategories",
-          "type" => "categories",
+          "kind" => "categories",
           "slogan" => "blaablaa",
           "category_ids" => [123, 432, 131]
         },
