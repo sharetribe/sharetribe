@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160608130531) do
+ActiveRecord::Schema.define(version: 20160609070256) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
