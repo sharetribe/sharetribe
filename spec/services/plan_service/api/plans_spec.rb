@@ -1,3 +1,4 @@
+require 'spec_helper'
 # Override the API with test API
 require_relative './api'
 
@@ -22,6 +23,7 @@ describe PlanService::API::Plans do
             plans_api.create_initial_trial(
               community_id: 123, plan: {
                 plan_level: PlanService::Levels::FREE,
+                status: :trial,
                 expires_at: expires_at,
               })
 
@@ -32,6 +34,7 @@ describe PlanService::API::Plans do
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               plan_level: 0,
+                                              status: :trial,
                                               features: { deletable: true, admin_email: false, whitelabel: false },
                                               expires_at: expires_at,
                                               member_limit: 300,
@@ -50,6 +53,7 @@ describe PlanService::API::Plans do
             plans_api.create(
               community_id: 123, plan: {
                 plan_level: PlanService::Levels::SCALE,
+                status: :active,
                 features: { whitelabel: true, admin_email: true },
                 member_limit: 100000,
                 expires_at: expires_at,
@@ -62,6 +66,7 @@ describe PlanService::API::Plans do
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               plan_level: 4,
+                                              status: :active,
                                               features: { deletable: false, admin_email: true, whitelabel: true },
                                               member_limit: 100000,
                                               expires_at: expires_at,
@@ -78,6 +83,7 @@ describe PlanService::API::Plans do
             plans_api.create(
               community_id: 123, plan: {
                 plan_level: PlanService::Levels::PRO,
+                status: :active,
                 features: { whitelabel: true, admin_email: true },
                 member_limit: 1000,
               })
@@ -89,6 +95,7 @@ describe PlanService::API::Plans do
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               plan_level: 2,
+                                              status: :active,
                                               features: { deletable: false, admin_email: true, whitelabel: true },
                                               member_limit: 1000,
                                               expires_at: nil,
@@ -118,6 +125,17 @@ describe PlanService::API::Plans do
             community_id: 123,
             plan: {
               plan_level: PlanService::Levels::PRO,
+              status: :active,
+              member_limit: 1000,
+            }) }.to raise_error(ArgumentError)
+        end
+
+        it "raises error if status is missing"do
+          expect { plans_api.create(
+            community_id: 123,
+            plan: {
+              plan_level: PlanService::Levels::PRO,
+              features: {whitelabel: :true},
               member_limit: 1000,
             }) }.to raise_error(ArgumentError)
         end
@@ -166,6 +184,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 5,
+            status: :hold,
             features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: nil, # plan never expires
           }).data
@@ -177,6 +196,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 5,
+            status: :hold,
             features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: 1.month.from_now,
           }).data
@@ -188,6 +208,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 5,
+            status: :hold,
             features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: 1.month.ago,
           }).data
@@ -201,6 +222,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 2,
+            status: :active,
             features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: nil, # plan never expires
           }).data
@@ -213,6 +235,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 0,
+            status: :trial,
             features: { deletable: true, admin_email: false, whitelabel: false },
             expires_at: Time.now - 1.day,
           }).data
@@ -225,6 +248,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 2,
+            status: :active,
             features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: Time.now - 1.day
           }).data
@@ -237,6 +261,7 @@ describe PlanService::API::Plans do
         plan = plans_api.create(
           community_id: 111, plan: {
             plan_level: 5,
+            status: :hold,
             features: { deletable: false, admin_email: true, whitelabel: true },
             expires_at: nil
           }).data
