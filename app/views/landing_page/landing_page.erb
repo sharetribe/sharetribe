@@ -151,7 +151,9 @@
    /* Hero section                                                                         */
    /* ************************************************************************************ */
    .hero__section {
-     min-height: 800px;
+     width: 100%;
+     min-height: 80vh;
+     background-size: cover;
      display: flex;
      align-items: center;
    }
@@ -180,9 +182,10 @@
    }
 
    .hero__content {
-     max-width: 1024px;
+     max-width: 1366px;
      margin: 0 auto;
      padding: 1.6rem;
+     margin-top: -4.44vh; /* -50px, when content height is 900px, 80vh */
    }
 
    .hero__search-bar {
@@ -238,7 +241,7 @@
   <% case s["kind"] %>
   <% when "hero" # Hero section %>
 
-    <section class="hero__section" style="background: url('<%= s["background_image"]["src"] %>')">
+    <section class="hero__section" style="background-image: url('<%= s["background_image"]["src"] %>')">
       <div class="hero__content">
         <div>
           <h1 class="hero__title"><%= s["title"] %></h1>
