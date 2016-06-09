@@ -543,11 +543,25 @@
      background-position: center;
      display: flex;
      align-items: center;
-     box-shadow: inset 0 0 0 40vh rgba(0, 0, 0, 0.5);
+     box-shadow: inset 0 0 0 999999px rgba(0, 0, 0, 0.5); /* is there any cleaner way? */
    }
 
    .hero__content-container {
      text-align: center;
+   }
+
+   /* tablet 768 */
+   @media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
+     .hero__content-container {
+       max-width: 561px;
+     }
+   }
+
+   /* desktop 1366 */
+   @media (min-width: 1025px) {
+     .hero__content-container {
+       max-width: 871px;
+     }
    }
 
    .hero__title {
@@ -617,12 +631,15 @@
    .hero__content {
      max-width: 1366px;
      margin: 0 auto;
-     padding: 16px;
+     padding: 24px;
      margin-top: -4.44vh; /* -50px, when content height is 900px, 80vh */
    }
 
    .hero__search-bar {
+     max-width: 532px;
      display: flex;
+     margin: 0 auto;
+     padding: 0 12px;
 
      /* mobile 375 */
      /* (max-width: 767px) and (orientation: portrait) */
@@ -644,22 +661,21 @@
    }
 
    .hero__search-input {
+     font-family: ProximaNovaSoft-Medium;
      margin: 0;
      border: 0;
-     line-height: 32px;
-     padding: 0 18px;
      width: 100%;
      color: #525961;
-
-     /* This is your search : */
-     font-family: ProximaNovaSoft-Medium;
-     font-size: 18px;
-     letter-spacing: 0px;
 
      /* mobile 375 */
      /* (max-width: 767px) and (orientation: portrait) */
      border-top-left-radius: 29.5px;
      border-bottom-left-radius: 29.5px;
+
+     font-size: 16px;
+     letter-spacing: 0px;
+     line-height: 32px;
+     padding: 7px 12px 9px 24px;
    }
 
    .hero__search-input:focus {
@@ -671,6 +687,12 @@
      .hero__search-input {
        border-top-left-radius: inherit;
        border-bottom-left-radius: inherit;
+
+       font-size: 18px;
+       letter-spacing: 0px;
+       line-height: 32px;
+
+       padding: 13px 24px 15px 12px;
      }
    }
 
@@ -679,6 +701,12 @@
      .hero__search-input {
        border-top-left-radius: inherit;
        border-bottom-left-radius: inherit;
+
+       font-size: 18px;
+       letter-spacing: 0px;
+       line-height: 32px;
+
+       padding: 13px 24px 15px 18px;
      }
    }
 
@@ -719,17 +747,38 @@
      }
    }
 
+   .hero__search-icon-svg {
+     display: block;
+     /* mobile 375 */
+     /* (max-width: 767px) and (orientation: portrait) */
+     width: 18px;
+     height: 18px;
+   }
+
+   /* tablet 768 */
+   @media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
+     .hero__search-icon-svg {
+       width: 22px;
+       height: 22px;
+     }
+   }
+
+   /* desktop 1366 */
+   @media (min-width: 1025px) {
+     .hero__search-icon-svg {
+       width: 22px;
+       height: 22px;
+     }
+   }
+
    .hero__search-icon {
-     padding-top: 20px;
-     padding-bottom: 20px;
      background: #FFF;
 
      /* mobile 375 */
      /* (max-width: 767px) and (orientation: portrait) */
      border-top-right-radius: 29.5px;
      border-bottom-right-radius: 29.5px;
-     padding-right: 28px;
-     padding-left: 0px;
+     padding: 15px 24px 15px 0px;
    }
 
    /* tablet 768 */
@@ -739,8 +788,7 @@
        border-bottom-left-radius: 29.5px;
        border-top-right-radius: inherit;
        border-bottom-right-radius: inherit;
-       padding-left: 28px;
-       padding-right: 0px;
+       padding: 19px 0px 19px 24px;
      }
    }
 
@@ -751,8 +799,7 @@
        border-bottom-left-radius: 29.5px;
        border-top-right-radius: inherit;
        border-bottom-right-radius: inherit;
-       padding-left: 28px;
-       padding-right: 0px;
+       padding: 19px 0px 19px 28px;
      }
    }
 
@@ -816,7 +863,8 @@
 
             <form method="get" class="hero__search-bar" action="<%= paths[:search_path] %>">
               <div class="hero__search-icon">
-                <svg width="22px" height="22px" viewBox="27 19 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                <svg class="hero__search-icon-svg" viewBox="27 19 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                   <g id="icon_search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(38.000000, 30.000000) scale(-1, 1) translate(-38.000000, -30.000000) translate(28.000000, 20.000000)" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M14.6666667,14.6666667 L19.3254458,19.3254458" id="line" stroke="#525961" stroke-width="2"></path>
                     <circle id="Oval" stroke="#525961" stroke-width="2" cx="8" cy="8" r="8"></circle>
