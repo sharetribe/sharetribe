@@ -60,6 +60,8 @@ Kassi::Application.routes.draw do
   # get '/' => 'landing_page#index'
   # root :to => 'landing_page#index'
 
+  get '/_lp_preview' => 'landing_page#preview'
+
   # error handling: 3$: http://blog.plataformatec.com.br/2012/01/my-five-favorite-hidden-features-in-rails-3-2/
   get '/500' => 'errors#server_error'
   get '/404' => 'errors#not_found', :as => :error_not_found

@@ -8,17 +8,21 @@ class RobotsGenerator
     begin
 
       if Rails.env.production?
-        body = File.read Rails.root.join('config', 'robots.txt')
+        body = robots_txt_content
       else
         body = "User-agent: *\nDisallow: /"
       end
 
       # Adding cache control here seemed to cause strange errors in production env
       headers = {"Content-Type" => "text/plain" }
-      
+
       return [200, headers, [body]]
     rescue Errno::ENOENT
       return [404, {}, ['# A robots.txt is not configured']]
     end
+  end
+
+  def self.robots_txt_content
+    @_robots_txt_content ||= File.read Rails.root.join('config', 'robots.txt')
   end
 end
