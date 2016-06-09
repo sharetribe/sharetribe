@@ -196,11 +196,10 @@
    .hero__search-input {
      margin: 0;
      border: 0;
-     line-height: 5.0rem;
-     border-top-left-radius: 2.0rem;
-     border-bottom-left-radius: 2.0rem;
-     padding: 0 2rem;
+     line-height: 60px;
+     padding: 0 18px;
      width: 100%;
+     color: #525961;
 
      /* This is your search : */
      font-family: ProximaNovaSoft-Medium;
@@ -215,11 +214,11 @@
      border: 0;
      padding: 0;
 
-     padding: 0 3rem;
+     padding: 14px 28px;
 
-     line-height: 5.0rem;
-     border-top-right-radius: 2.0rem;
-     border-bottom-right-radius: 2.0rem;
+     line-height: 32px;
+     border-top-right-radius: 29.5px;
+     border-bottom-right-radius: 29.5px;
 
      /* Rectangle 69: */
      background: #347F9D;
@@ -229,6 +228,13 @@
      font-size: 18px;
      color: #FFFFFF;
      letter-spacing: 0px;
+   }
+
+   .hero__search-icon {
+     padding: 20px 0px 20px 28px;
+     background: #FFF;
+     border-top-left-radius: 29.5px;
+     border-bottom-left-radius: 29.5px;
    }
 
   </style>
@@ -250,6 +256,15 @@
         </div>
 
         <div class="hero__search-bar">
+
+          <div class="hero__search-icon">
+            <svg width="22px" height="22px" viewBox="27 19 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g id="icon_search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(38.000000, 30.000000) scale(-1, 1) translate(-38.000000, -30.000000) translate(28.000000, 20.000000)" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.6666667,14.6666667 L19.3254458,19.3254458" id="line" stroke="#525961" stroke-width="2"></path>
+                <circle id="Oval" stroke="#525961" stroke-width="2" cx="8" cy="8" r="8"></circle>
+              </g>
+            </svg>
+          </div>
           <input type="search" class="hero__search-input" placeholder="<%= s["search_placeholder"] %>"/>
           <button class="hero__search-button"><%= s["search_button"] %></button>
         </div>
