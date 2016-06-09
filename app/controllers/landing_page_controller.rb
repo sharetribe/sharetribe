@@ -107,7 +107,11 @@ class LandingPageController < ActionController::Metal
         }
       })
 
-    render :landing_page, locals: { sections: denormalizer.to_tree(data) }
+    paths = {
+      search_path: "/search/"# FIXME. Remove hardcoded URL. Add search path here when we get one
+    }
+
+    render :landing_page, locals: { sections: denormalizer.to_tree(data), paths: paths }
   end
 
   def append_asset_dir(file)
