@@ -8,6 +8,7 @@ class PlansController < ApplicationController
     [:marketplace_id, :fixnum, :mandatory],
     [:plan_level, :fixnum, :mandatory],
     [:features, :hash, :mandatory],
+    [:status, :to_symbol, one_of: [:trial, :active, :hold]],
     [:expires_at, :utc_str_to_time, :optional],
   )
 
