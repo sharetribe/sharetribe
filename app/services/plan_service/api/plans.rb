@@ -108,10 +108,10 @@ module PlanService::API
     # - Expired non-trial plan
     def plan_closed?(plan)
       Maybe(plan).map { |p|
-        if p[:plan_level] == 5
+        if p[:status] == :hold
           true
         else
-          plan_expired?(p) && p[:plan_level] > 0
+          plan_expired?(p) && p[:status] == :active
         end
       }.or_else(false)
     end
