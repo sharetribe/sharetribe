@@ -153,7 +153,7 @@ class LandingPageController < ActionController::Metal
       "assets" => [
         {
           "id" => "myheroimage",
-          "src" => "hero.png",
+          "src" => "hero.jpg",
         }
       ]
     }
