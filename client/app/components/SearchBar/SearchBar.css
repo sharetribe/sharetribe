@@ -44,6 +44,16 @@
 
   -webkit-font-smoothing: antialiased;
 
+  &:only-of-type {
+    width: 100%;
+    padding: 0;
+    margin-right: var(--SearchBar_inputButtonMargin);
+
+    &:focus {
+      width: 100%;
+    }
+  }
+
   &::placeholder {
     color: var(--SearchBar_textColor);
     transition: color 0.1s ease-in;
@@ -89,16 +99,6 @@
 
 .locationInput {
   width: calc(100% - var(--SearchBar_keywordInputWidth));
-}
-
-input:only-of-type {
-  width: 100%;
-  padding: 0;
-  margin-right: var(--SearchBar_inputButtonMargin);
-
-  &:focus {
-    width: 100%;
-  }
 }
 
 /* Additional separating styles are added only when the two inputs are
