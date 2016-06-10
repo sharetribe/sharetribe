@@ -95,6 +95,9 @@ class LandingPageController < ActionController::Metal
   # Include route helpers
   include Rails.application.routes.url_helpers
 
+  # Adds helper_method
+  include ActionController::Helpers
+
   def index
     landing_page
   end
@@ -177,4 +180,12 @@ class LandingPageController < ActionController::Metal
       ]
     }
   end
+
+
+  def inline_landing_page_styles
+    Rails.application.assets.find_asset("landing_page/styles.scss").to_s
+  end
+
+  helper_method :inline_landing_page_styles
+
 end
