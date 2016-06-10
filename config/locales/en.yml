@@ -1443,7 +1443,7 @@ en:
       edit_listing: "Edit listing"
       reopen_listing: "Reopen listing"
       move_to_top: "Move to top of homepage"
-      show_in_updates_email: "Show in the next automatic email"
+      show_in_updates_email: "Show in the next newsletter"
       show_in_updates_email_loading: Loading...
       show_in_updates_email_error: "Couldn't reach server. Try again after page refresh."
       show_in_updates_email_success: "This listing will be shown in the next automatic update email sent to the users"
@@ -1965,19 +1965,19 @@ en:
         status_confirmed: Confirmed
         status_pending: Pending
     notifications:
-      email_from_admins: "I'm willing to receive occasional updates from the administrator(s)."
+      email_from_admins: "I'm willing to receive occasional emails from the administrators"
       i_want_to_get_email_notification_when: "I want to get an email notification when..."
-      newsletters: Newsletters
-      community_updates: "Update emails"
+      newsletters: "Emails from administrators"
+      community_updates: "Newsletters"
       email_about_accept_reminders: "...I have forgotten to accept an offer or a request"
       email_about_confirm_reminders: "...I have forgotten to confirm an order as completed"
       email_about_new_comments_to_own_listing: "...someone comments on my offer or request"
       email_about_new_messages: "...someone sends me a message"
       email_about_new_received_testimonials: "...someone gives me feedback"
       email_about_testimonial_reminders: "...I have forgotten to give feedback on an event"
-      email_daily_community_updates: "Send me an update email <b>daily</b> if there are new listings"
-      email_weekly_community_updates: "Send me an update email <b>weekly</b> if there are new listings"
-      do_not_email_community_updates: "Don't send me update emails"
+      email_daily_community_updates: "Send me a <b>daily</b> newsletter if there are new listings"
+      email_weekly_community_updates: "Send me a <b>weekly</b> newsletter if there are new listings"
+      do_not_email_community_updates: "Don't send me newsletters"
       email_when_conversation_accepted: "...someone accepts my offer or request"
       email_when_conversation_rejected: "...someone rejects my offer or request"
       email_about_completed_transactions: "...someone marks my order as completed"

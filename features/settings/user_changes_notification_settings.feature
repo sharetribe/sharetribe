@@ -13,14 +13,14 @@ Feature: User changes notification settings
     And I follow "notifications_left_navi_link"
     And the "...someone comments on my offer or request" checkbox should be checked
     And the "...someone sends me a message" checkbox should be checked
-    And the "Send me an update email daily if there are new listings" checkbox should be checked
+    And the "Send me a daily newsletter if there are new listings" checkbox should be checked
     And I uncheck "...someone comments on my offer or request"
     And I choose "do_not_email_community_updates"
     And I press "Save information"
     Then I should see "Information updated"
     And the "...someone comments on my offer or request" checkbox should not be checked
-    And the "Send me an update email daily if there are new listings" checkbox should not be checked
-    And the "Don't send me update emails" checkbox should be checked
+    And the "Send me a daily newsletter if there are new listings" checkbox should not be checked
+    And the "Don't send me newsletters" checkbox should be checked
     And the "...someone sends me a message" checkbox should be checked
 
 
