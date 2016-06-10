@@ -105,24 +105,25 @@ class LandingPageController < ActionController::Metal
   private
 
   def landing_page
-    denormalizer = Denormalizer.new(
-      link_resolvers: {
-        "assets" => ->(type, id, normalized_data) {
-          asset = Denormalizer.find_link(type, id, normalized_data)
-          asset.merge("src" => append_asset_dir(asset["src"]))
-        }
-      })
+    denormalizer = Denormalizer.new()
 
+    # Application paths
     paths = {
       search_path: "/search/", # FIXME. Remove hardcoded URL. Add search path here when we get one
       signup_path: sign_up_path
     }
 
-    render :landing_page, locals: { sections: denormalizer.to_tree(data), paths: paths }
-  end
+    # Environment specific paths
+    environment = {
+      font_path: "/landing_page/fonts",
+      user_image_path: "/landing_page"
+    }
 
-  def append_asset_dir(file)
-    ["landing_page", file].join("/")
+    render :landing_page, locals: {
+             sections: denormalizer.to_tree(data),
+             paths: paths,
+             environment: environment
+           }
   end
 
   def data
