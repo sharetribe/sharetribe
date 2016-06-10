@@ -513,7 +513,7 @@ ka:
       buy: ყიდვა
       give_away: ~
       lend: ~
-      receive: ~
+      receive: "უფასოდ აღება."
       rent: ქირაობა
       rent_out: ~
       sell: გაყიდვა
@@ -592,7 +592,7 @@ ka:
       days: ~
       price_per_day: ~
     index:
-      loading_more_messages: ~
+      loading_more_messages: "შეტყობინებები მეტი იტვირთება"
       message_partitive: შეტყობინება
       messages_partitive: შეტყობინებები
       no_received_messages: "არ არი შეტყობინებები"
@@ -654,9 +654,9 @@ ka:
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: ~
-      feedback_given: ~
-      feedback_skipped: ~
-      give_feedback: ~
+      feedback_given: "შეფასება გაკეთებულია"
+      feedback_skipped: "შეფასება გამოტოვებულია"
+      give_feedback: "შეფასების მიცემა"
       offer_accepted: დადასტურებულია
       offer_rejected: უარყოფილია
       offer_canceled: ~
@@ -680,7 +680,7 @@ ka:
       request_canceled: ~
       request_paid: ~
       request_preauthorized: ~
-      skip_feedback: ~
+      skip_feedback: "შეფასების გამოტოვება"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
@@ -696,10 +696,10 @@ ka:
           unknown_reason: ~
           verify: ~
     status_link:
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
+      accept_offer: "შემოთვაზების მიღება"
+      accept_request: "მოთხოვნის მიღება"
+      reject_offer: "ამჯერად არა"
+      reject_request: "ამჯერად არა"
       accept_preauthorized_offer: ~
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
@@ -779,8 +779,8 @@ ka:
     accept_reminder:
       remember_to_accept_offer: ~
       remember_to_accept_request: ~
-      you_can_accept_or_reject_offer_at: ~
-      you_can_accept_or_reject_request_at: ~
+      you_can_accept_or_reject_offer_at: "თქვენ შეგიძლიათ დაეთანხმოთ ან უარყოთ შემოთავაზება"
+      you_can_accept_or_reject_request_at: "თქვენ შეგიძლიათ დაეთანხმოთ ან უარყოთ მოთხოვნა"
       you_have_not_yet_accepted_or_rejected_offer: ~
       you_have_not_yet_accepted_or_rejected_request: ~
       show_thread: ~
@@ -841,9 +841,9 @@ ka:
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
-      hey: ~
-      kassi_team: ~
-      thanks: ~
+      hey: "გამარჯობა %{name},"
+      kassi_team: "%{service_name}  გუნდი"
+      thanks: "მადლობა,"
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
@@ -851,15 +851,15 @@ ka:
       or: ~
       unsubscribe_from_these_emails: ~
     conversation_status_changed:
-      has_accepted_your_offer: ~
-      has_accepted_your_request: ~
-      has_rejected_your_offer: ~
-      has_rejected_your_request: ~
+      has_accepted_your_offer: "%{accepter} დაეთანხმა თქვენ შემოთავაზებას %{listing}."
+      has_accepted_your_request: "%{accepter} დაეთანხმა თქვენ მოთხოვნას %{listing}."
+      has_rejected_your_offer: "%{accepter} უარყო თქვენი შემოთავაზება %{listing}."
+      has_rejected_your_request: "%{accepter} უარყო თქვენი მოთხოვნა %{listing}."
       view_thread: ~
-      your_offer_was_accepted: ~
-      your_offer_was_rejected: ~
-      your_request_was_accepted: ~
-      your_request_was_rejected: ~
+      your_offer_was_accepted: "თქვენი შეთავაზება დადასტურდა"
+      your_offer_was_rejected: "თქვენი შეთავაზება უარყოფილია"
+      your_request_was_accepted: "თქვენი მოთხოვნა დადასტურდა"
+      your_request_was_rejected: "თქვენი მოთხოვნა უარყოფილია"
       you_can_now_pay_to: ~
       pay_now: ~
       remember_to_confirm: ~
@@ -906,8 +906,8 @@ ka:
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: ~
-      you_can_give_feedback_to: ~
+      has_given_you_feedback_in_kassi: "%{name} მოგცათ შეფასება %{service_name}ში"
+      you_can_give_feedback_to: "თქვენ ჯერ არ მიგიციათ შეფასება %{name}სთვის."
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
@@ -934,7 +934,7 @@ ka:
       change_my_password: ~
       reset_password_instructions: ~
     testimonial_reminder:
-      remember_to_give_feedback_to: ~
+      remember_to_give_feedback_to: "შეხსენება: გახსოვდეთ შეფასების მიცემა %{name}სთვის"
       you_have_not_given_feedback_yet: ~
     transaction_preauthorized:
       subject: ~
@@ -979,8 +979,8 @@ ka:
       server_rendering: ~
     listings:
       departure_time: ~
-      share_type: ~
-      valid_until: ~
+      share_type: "თქვენ უნდა აირჩიოთ ერთი. "
+      valid_until: "არჩეული თარიღი უნდა იყოს დღევანდელი დღესა და დღეიდან 6 თვის ვადას შორის"
       price: ~
       minimum_price: ~
     testimonials:
@@ -1000,9 +1000,9 @@ ka:
     back_to_kassi_front_page: ~
     error_404:
       if_you_believe: ~
-      page_can_not_be_found: ~
+      page_can_not_be_found: "გვერდი არ არის ნაპოვნი"
       page_you_requested_can_not_be_found: ~
-    error_404_title: ~
+    error_404_title: "გვერდი არ არის ნაპოვნი"
     error_410:
       page_removed: ~
       page_you_requested_has_been_removed: ~
@@ -1013,16 +1013,16 @@ ka:
       unable_to_process: ~
       we_hate_this: ~
       refer_to_error_id: ~
-    error_500_title: ~
-    error_description: ~
+    error_500_title: "გვერდის ჩატვირთვა ვერ მოხერხდა"
+    error_description: "შეცდომის აღწერილობა"
     no_javascript:
-      javascript_is_disabled_in_your_browser: ~
+      javascript_is_disabled_in_your_browser: "Javascript გამორთულია თქვენ ბრაუზერზე"
       kassi_does_not_currently_work_without_javascript: ~
       contact_us: ~
-      send_feedback: ~
-      your_feedback_to_admins: ~
-    send: ~
-    your_email_address: ~
+      send_feedback: "შეფასების გაგზავნა"
+      your_feedback_to_admins: "თქვენი შეფასება ადმინიტრატორებს"
+    send: გაგზავნა
+    your_email_address: "თქვენი ელ. ფოსტა"
   errors:
     messages:
       invalid_date: ~
@@ -1060,14 +1060,14 @@ ka:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: ~
-    home: ~
+    about: შესახებ
+    home: მთავარი
     members: ~
     new_listing: ~
-    mobile_version: ~
-    offers: ~
-    requests: ~
-    search_kassi: ~
+    mobile_version: "მობილური ვერსია"
+    offers: შეთავაზებები
+    requests: მოთხოვნები
+    search_kassi: "ძებნა %{service_name}"
     create_new_marketplace: ~
     contact_us: ~
     profile: ~
@@ -1083,9 +1083,9 @@ ka:
       additionally_some_private_offers_exist: ~
       additionally_some_private_requests_exist: ~
     blank_slate:
-      add_first: ~
-      but_that_is_visible_only_to_registered_members: ~
-      but_those_are_visible_only_to_registered_members: ~
+      add_first: "ერთის დამატება! "
+      but_that_is_visible_only_to_registered_members: "მაგრამ ამის ნახვა, მხოლოდ დარეგისტრირებულ წევრებს შეუძლიათ"
+      but_those_are_visible_only_to_registered_members: "მაგრამ ამათი ნახვა, მხოლოდ დარეგისტრირებულ წევრებს შეუძლიათ"
       create_new_account_for_yourself: ~
       examples_of_what_you_could_offer_to_others: ~
       examples_of_what_you_could_request_to_others: ~
