@@ -61,11 +61,11 @@ es-ES:
         community_name: "Nombre de la comunidad:"
         edit_community_name_description: "El nombre de tu comunidad. Este se muestra en correos electrónicos y en varios otros lugares."
         community_slogan: "Eslogan de la comunidad:"
-        edit_community_slogan_description: "Se muestra en la página de inicio del marketplace a usuarios que no hayan inicado sesión. %{see_how_it_looks_like}."
+        edit_community_slogan_description: "Se muestra en la página de inicio de la comunidad a los usuarios que no han iniciado sesión. %{see_how_it_looks_like}."
         community_description: "Descripción de la comunidad:"
-        edit_community_description_description: "Esto se muestra en la página de inicio del marketplace para los usuarios que no han iniciado sesión. %{see_how_it_looks_like}."
+        edit_community_description_description: "Se muestra en la página de inicio para los usuarios que no han iniciado sesión. %{see_how_it_looks_like}."
         community_search_placeholder: Ayuda
-        edit_community_search_placeholder_description: "Esto se muestra en la página inicial del marketplace como texto de marcador en la barra de búsqueda. %{see_how_it_looks_like}."
+        edit_community_search_placeholder_description: "Esto se muestra en la página inicial de tu comunidad como texto de marcador en la barra de búsqueda. %{see_how_it_looks_like}."
         private_community_homepage_content: "Contenido de la página de inicio del marketplace privado"
         edit_private_community_homepage_content_description: "Este contenido se muestra en la página de inicio de las comunidades privadas a los usuarios que no se han registrado. Aquí puedes describir tu comunidad y el proceso para registrarse. Aquí también puedes añadir imágenes, videos y contenido HTML. %{see_how_it_looks_like}."
         update_information: "Guardar configuración"
@@ -87,17 +87,17 @@ es-ES:
         transaction_agreement_description: "Este el contenido del texto del acuerdo que los usuarios han de aceptar. El texto del presente acuerdo se mostrará cuando los usuarios hagan clic en el enlace %{read_more} ."
       edit_look_and_feel:
         edit_community_look_and_feel: "Edita la apariencia de %{community_name}"
-        community_logo: Logotipo
-        community_logo_icon: "Logo para Redes Sociales y dispositivos móviles"
+        community_logo: "Logo de escritorio"
+        community_logo_icon: "Logo para sedes sociales y dispositivos móviles"
         community_cover_photo: "Foto de portada"
         small_community_cover_photo: "Imagen de cabecera pequeña"
         favicon: Favicon
-        favicon_info_text: "El Favicon reemplazará el logo por defecto de Sharetribe. Las dimensiones deberían ser de 32x32 pixels y la imagen que subas se recortará a ese tamaño."
+        favicon_info_text: "El Favicon reemplazará el logo predeterminado de Sharetribe. Las dimensiones deberían ser de 32x32 pixels y la imagen que subas se recortará a ese tamaño."
         community_custom_color1: "Color principal"
         community_custom_color2: "Color del botón: %{post_new_listing}"
-        logo_instructions_text_with_dimensions: "El logosímbolo en versión de escritorio debe tener una resolución de %{width}x%{height} píxeles. Se mostrará a los usuarios que tienen pantallas más grandes."
-        logo_icon_instructions_text_with_dimensions: "Este logosímbolo cuadrado se mostrará cuando las personas compartan tu sitio en Facebook, cuando vean tu sitio desde un dispositivo móvil o cuando guarden un acceso directo a tu sitio en sus dispositivos móviles. Las dimensiones deben ser (al menos) %{width}x%{height}px."
-        cover_photo_visibility: "La imagen de cabecera se muestra en la home a usuarios que todavía no han iniciado sesión."
+        logo_instructions_text_with_dimensions: "El logo de escritorio debe tener una resolución de %{width}x%{height} pixeles. Se mostrará a los usuarios con pantallas más grandes."
+        logo_icon_instructions_text_with_dimensions: "Este logo cuadrado se mostrará cuando las personas compartan tu sitio en Facebook, cuando vean tu sitio desde un dispositivo móvil o cuando guarden un acceso directo a tu sitio en sus dispositivos móviles. Las dimensiones deben ser (al menos) %{width}x%{height}px."
+        cover_photo_visibility: "La foto de portada se muestra en la home a usuarios que todavía no han iniciado sesión."
         cover_photo_instructions_text_with_dimensions: "La foto se redimensionará a un tamaño de %{width}x%{height}px y las imágenes más altas se cortarán en el medio. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "La foto de portada pequeña se muestra en todas las páginas excepto en la de inicio para los usuarios que no han iniciado sesión."
         small_cover_photo_instructions_text_with_dimensions: "La imagen será redimensionada a %{width}x%{height} pixels. Las imágenes más grandes serán recortadas en el centro."
@@ -142,7 +142,7 @@ es-ES:
         successfully_saved: "Dirección de remitente guardada correctamente. El e-mail de verificación se enviará pronto."
         status: "Estado: %{status}"
         status_verified: "Verificado - En uso"
-        status_error: "Ocurrió un error. Por favor refresca la página e intenta de nuevo."
+        status_error: "Ocurrió un error. Por favor actualiza la página."
         status_requested: "Sin verificar - El e-mail de verificación se envió a %{email} %{time_ago}. %{resend_link}"
         status_expired: "La verificación del e-mail %{email} expiró. %{resend_link}"
         status_resent: "E-mail de verificación reenviado a %{email}. %{resend_link}"
@@ -160,8 +160,8 @@ es-ES:
         welcome_to_your_marketplace: "Bienvenido a tu comunidad, %{name}!"
         intro: "Esta es una guía rápida para configurar y gestionar tu marketplace. Puedes ver el sitio en vivo %{live_site_link}."
         live_site_link_text: aquí
-        look_and_feel: "Antes de lanzar tu sitio al público, probablemente querrás configurar algunas cosas. Por ejemplo, tu logo (%{logo_link}) y cambiar la foto de portada y los colores para ajustarse a la identidad visual de tu marca."
-        logo_link_text: "añadir logo"
+        look_and_feel: "Antes de lanzar tu sitio al público, probablemente querrás configurar algunas cosas. Por ejemplo, quizá quieras %{logo_link} y cambiar la foto de portada y los colores para ajustarse a la identidad visual de tu marca."
+        logo_link_text: "añadir tu logo"
         custom_domain: "También puedes agregar un dominio personalizado (por ejemplo: www.tumarketplace.com). Esta configuración requiere algunos ajustes manuales por nuestra parte, y también deberemos comprar un certificado SSL para el dominio para mantener tu sitio seguro. Por esta razón, los dominios personalizados no están disponibles en las pruebas gratis en este momento. Necesitarás actualizar a nuestro plan Pro o uno superior para tener un dominio personalizado. Si quieres tener un dominio personalizado, por favor %{contact_support_link}."
         categories_and_custom_fields: "El siguiente paso es elegir qué tipo de contenido podrán publicar los usuarios de tu web. Puedes %{categories_link}, %{custom_fields_link} en los anuncios, y decidir qué %{filters_link} estarán disponibles durante una búsqueda."
         categories_link_text: "añadir categorías y subcategorías"
@@ -177,12 +177,12 @@ es-ES:
         privacy_policy_link_text: "política de privacidad"
         welcome_email_link_text: "email de bienvenida"
         instruction_texts_link_text: "Otros textos con instrucciones"
-        social_media: "Es recomendable utilizar Social media para hacer crecer tu comunidad. Puedes %{facebook_link} para hacer más fácil que los usuarios se registren en tu marketplace y además puedes %{twitter_link} para conseguir que tu contenido tenga un mayor alcance."
-        facebook_link_text: "integrar tu propia Facebook app"
+        social_media: "Es recomendable utilizar redes sociales para hacer crecer tu comunidad. Puedes %{facebook_link} para hacer más fácil que los usuarios se registren en tu comunidad y además puedes %{twitter_link} para conseguir que tu contenido tenga un mayor alcance."
+        facebook_link_text: "conectar tu Facebook app personalizada"
         twitter_link_text: "añadir tu cuenta de Twitter"
         analytics: "También es una buena idea %{analytics_link}. De esta manera, podrás ver lo que pasa en tu marketplace, cuántos visitantes tienes, y demás"
         analytics_link_text: "conectar tu cuenta de Google Analytics"
-        settings: "Hay otras opciones de configuración que puedes utilizar. Por ejemplo, puedes requerir que todos los usuarios sean invitados por otros usuarios antes de que puedan unirse a tu marketplace; o puedes hacerlo privado, para que únicamente los usuarios que hayan iniciado sesión puedan ver el contenido. %{settings_link}."
+        settings: "Hay otras opciones de configuración que puedes utilizar. Por ejemplo, puedes requerir que todos los usuarios sean invitados por otros usuarios antes de que puedan unirse a tu comunidad; o puedes hacerla privada, para que únicamente los usuarios que hayan iniciado sesión puedan ver el contenido. %{settings_link}."
         settings_link_text: "Ver la configuración de tu Marketplace aquí"
         final_words: |-
             Eso es todo! Si ya tienes todo listo, puedes empezar %{invite_link} a tu marketplace. Puedes ver todos los usuarios que se han registrado %{view_users_link}, y todas las transacciones que han completado %{view_transactions_link}. También podrás gestionar las publicaciones fácilmente: simplemente ve a la página de la publicación y allí verás los links de administrador de 'editar' y 'cerrar'. 
@@ -200,7 +200,7 @@ es-ES:
         es: "Español (Chile)"
         es-ES: Español
         pt-PT: Portugués
-        pt-BR: Portugués
+        pt-BR: "Portugués (Brasil)"
         nb: "Noruego Bokmål"
         sv: Sueco
         da-DK: Danés
@@ -216,7 +216,7 @@ es-ES:
       settings:
         settings: Configuración
         general: General
-        users_can_review_each_other_after_transaction: "Los usuarios pueden escribir valoraciones de cada uno cuando hayan realizado una transacción"
+        users_can_review_each_other_after_transaction: "Los usuarios pueden dar retroalimentación a la otra parte cuando hayan realizado una transacción"
         access: "Preferencias de acceso"
         join_with_invite_only: "Los usuarios sólo pueden unirse a este marketplace con una invitación de otro usuario."
         users_can_invite_new_users: "Todos los usuarios pueden invitar nuevos usuarios a este marketplace."
@@ -278,10 +278,8 @@ es-ES:
         twitter_handle_placeholder: Usuario
         invalid_twitter_handle: "Twitter handle debe tener un máximo de 15 caracteres alfanuméricos (letras de la A-Z y números del 0-9)."
         facebook_connect: Facebook
-        facebook_connect_info_text: |-
-            Para que el login a través de Facebook funcione, debes crear una aplicación para tu marketplace en la <a href='https://developers.facebook.com/'>Pagina de desarrolladores de Facebook</a>. 
-            Añade el ID y secret key que se haya generado aquí.
-        facebook_connect_info_text_with_instructions: "Para habilitar el inicio de sesión de Facebook, crea una aplicación para tu marketplace en <a href='https://developers.facebook.com/'>Facebook para desarrolladores</a>. Añade entonces el ID y la clave secreta de la aplicación que se han generado aquí %{instructions_link}."
+        facebook_connect_info_text: "Para que la conexión a través de Facebook funcione, debes crear una aplicación para tu comunidad en la <a href='https://developers.facebook.com/'>Pagina de desarrolladores de Facebook</a>. Añade el ID y la clave secreta que se haya generado aquí."
+        facebook_connect_info_text_with_instructions: "Para habilitar la conexión con Facebook, crea una aplicación para tu comunidad en <a href='https://developers.facebook.com/'>Facebook para desarrolladores</a>. Añade entonces el ID y la clave secreta de la aplicación que se han generado aquí. %{instructions_link}"
         facebook_instructions_link_text: "Ver instrucciones para configurar la conexión con Facebook."
         facebook_connect_id: "ID de cliente de Facebook"
         invalid_facebook_connect_id: "La ID de cliente debe incluir sólo números"
@@ -362,7 +360,7 @@ es-ES:
           text_cant_be_filtered: "No hay filtros disponibles para el campo de texto. La barra de búsqueda principal busca en los campos de texto."
       index:
         listing_fields: "Campos & filtros de los anuncios"
-        listing_fields_help: "Aquí puedes elegir los campos que los usuarios han de completar al publicar un nuevo anuncio. Por favor, recuerda que los campos son predefinidos y no pueden ser editados."
+        listing_fields_help: "Aquí puedes editar y añadir los campos que los usuarios han de completar al publicar un nuevo anuncio. Por favor, recuerda que algunos campos están predeterminados y no pueden ser editados."
         add_new_field: "Añadir un campo nuevo:"
         remove_field_confirmation: "¿Seguro que quieres eliminar el campo %{field_name} ?"
         cancel: Cancelar
@@ -426,14 +424,14 @@ es-ES:
         order:
           saving_order: "Guardando pedido"
           save_order_successful: "Pedido guardado correctamente"
-          save_order_error: "Un error ha ocurrido mientras se guardaba el pedido. Por favor refresque la página y vuelva a intentarlo"
+          save_order_error: "Un error ha ocurrido mientras se guardaba el pedido. Por favor, actualice la página y vuelva a intentarlo."
       templates:
         selling_products: "Productos en venta"
         renting_products: "Productos en alquiler"
         offering_services: "Oferta de servicios"
         giving_things_away: "Productos regalados"
         requesting: Solicitando
-        announcement: Anuncio
+        announcement: "Publicar anuncio"
         custom: "A medida"
       new:
         create_listing_shape: "Crear tipo de pedido"
@@ -469,9 +467,9 @@ es-ES:
       successfully_closed: "Anuncios cerrados correctamente"
       successfully_deleted: "Pedido tipo '%{order_type}' borrado correctamente"
       pricing_and_checkout_title: "Precio & pago y envío"
-      online_payments_label: "Utilizar el sistema de pago Online"
+      online_payments_label: "Permitir a los usuarios aceptar pagos en linea"
       shipping_label: "Permitir que los vendedores establezcan un costo de envío"
-      price_label: "Mostrar el campo de precio"
+      price_label: "Permitir a los usuarios añadir precio a sus anuncios"
       units_title: "Unidades de precio"
       units_desc: "Si habilita las unidades de precio, el precio del anuncio se mostrará como \"precio por unidad de precio\". Por ejemplo: \"$39 por hora\"."
       units:
@@ -500,8 +498,8 @@ es-ES:
       preferences_updated: "Preferencias de pago actualizadas"
       marketplace_currency_used: "Este marketplace usa %{currency} como su moneda. Para cambiar de moneda, %{contact_support_link}."
       contact_support_link_text: "Contactar al soporte de Sharetribe"
-      integration_info_text: "El sistema de pago de %{service_name} se basa en PayPal. Si quieres permitir a tus usuarios hacer pagos a través del marketplace, debes conectar tu cuenta de PayPal y decidir el precio mínimo para cada anuncio así como la comisión por transacción que quieres recibir."
-      link_paypal_personal_account_label: "Venderá productos usted mismo?"
+      integration_info_text: "El sistema de pagos de Sharetribe se basa en PayPal. Si quieres permitir a tus usuarios hacer pagos a través de tu comunidad, debes conectar tu cuenta de PayPal. Después de esto, puedes decidir el precio mínimo para las transacciones, así como la comisión y/o cuota por transacción que quieres recibir."
+      link_paypal_personal_account_label: "Venderás productos u ofrecerás productos en tu comunidad?"
       link_paypal_personal_account: "Si es así, también necesitará conectar su cuenta PayPal en %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "su cuenta personal del marketplace"
       read_more_about_paypal: "Leer más sobre el sistema de pagos de Sharetribe."
@@ -511,7 +509,7 @@ es-ES:
       minimum_transaction_fee_label: "Cuota mínima por transacción"
       save_settings: "Guardar configuración"
       minimum_listing_price_below_tx_fee: "Tiene que ser al menos igual a la cuota mínima por transacción %{minimum_transaction_fee}"
-      minimum_listing_price_below_min: "Debe ser superior a la comisión mínima %{minimum_commission}"
+      minimum_listing_price_below_min: "El precio mínimo de transacción debe ser superior a la comisión mínima %{minimum_commission}"
     transaction_types:
       sell: Venta
       rent: Alquilando
@@ -596,7 +594,7 @@ es-ES:
       optional_message: "Mensaje opcional"
       price_to_pay: "Precio total que pagarás"
       you_need_to_fill_payout_details_before_accepting: "Tienes que completar los datos de pago antes de poder aceptar la solicitud y recibir el pago. Ve a %{payment_settings_link} para añadir toda la información."
-      payment_settings_link: "Opciones de pago"
+      payment_settings_link: "configuración de pagos"
       minimum_price_error_message: "El precio no puede ser menor de %{amount}."
       accept: Aceptar
       decline: Declinar
@@ -700,11 +698,11 @@ es-ES:
       paid: "Pago realizado con éxito"
       pending_external:
         paypal:
-          multicurrency: "No hemos podido procesar el pago a través de PayPal porque tu cuenta en PayPal no está configurada para recibir dinero en %{currency}. Ve a %{paypal_url} y conéctate a tu cuenta para aceptar o rechazar el pago manualmente."
+          multicurrency: "No hemos podido procesar el pago a través de PayPal porque tu cuenta en PayPal no está configurada para recibir dinero en %{currency}. Ve a %{paypal_url} y accede a tu cuenta para aceptar o rechazar el pago manualmente."
           verify: "No puedes aceptar esta transacción porque no has verificado tu cuenta en PayPal. Ve a %{paypal_url} y verifica tu cuenta."
-          intl: "No hemos podido procesar el pago en PayPal porque tu cuenta no tiene configurado ningún método para sacar el dinero. Ve a %{paypal_url} y conéctate a tu cuenta para aceptar o rechazar el pago manualmente."
+          intl: "No hemos podido procesar el pago en PayPal porque tu cuenta no tiene configurado ningún método para sacar el dinero. Ve a %{paypal_url} y accede a tu cuenta para aceptar o rechazar el pago manualmente."
       waiting_for_current_user_to_deliver_listing: "Esperando a que proceses la orden de %{listing_title}"
-      waiting_for_listing_author_to_deliver_listing: "Esperando a que %{listing_author_name} procese %{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "Esperando a que %{listing_author_name} complete la transacción de %{listing_title}"
       request_accepted: "Solicitud aceptada"
       request_rejected: "Solicitud rechazada"
       request_confirmed: Completada
@@ -713,9 +711,9 @@ es-ES:
       request_preauthorized: "Pago autorizado"
       skip_feedback: "Omitir retroalimentación"
       waiting_for_listing_author_to_accept_offer: "Esperando que %{listing_author_name} acepte la oferta"
-      waiting_for_listing_author_to_accept_request: "Esperando que %{listing_author_name} acepte el pedido"
+      waiting_for_listing_author_to_accept_request: "Esperando a que %{listing_author_name} acepte la solicitud. Tan pronto como %{listing_author_name} acepte, el monto será cargado a tu cuenta."
       waiting_for_you_to_accept_request: "Esperando a que aceptes la solicitud"
-      waiting_confirmation_from_requester: "Esperando que %{requester_name} marque la solicitud como completada"
+      waiting_confirmation_from_requester: "Esperando que %{requester_name} marque la transacción como completada"
       waiting_confirmation_from_you: "Esperando a que marques la transacción como completada"
       waiting_payment_from_requester: "Esperando que %{requester_name} realice el pago"
       waiting_payment_from_you: "Esperando a que realices el pago"
@@ -817,13 +815,13 @@ es-ES:
       show_thread: "Ver conversación"
     branding:
       powered_by: "%{service_name} es posible gracias a la plataforma de comunidades de %{sharetribe_link}."
-      create_own: "¿Quieres crear tu propia comunidad en linea como %{service_name}? %{learn_more}"
-      learn_more: "Más información."
+      create_own: "¿Quieres crear tu propia comunidad en linea como %{service_name}? %{learn_more}."
+      learn_more: "Entérate cómo"
     braintree_account_approved:
       account_ready: "Ya puedes recibir pagos"
       message: "Tus detalles de pago han sido confirmados y ya puedes recibir pagos a través de %{service_name}."
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Aún no has confirmado o cancelado la solicitud %{request_link}. Si la solicitud se completó, deberías confirmarlo. Después de eso podrás dar tu feedback o comentarios sobre %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Aún no has confirmado o cancelado la solicitud %{request_link}. Si la solicitud se completó, deberías confirmarlo. Después de eso podrás dar retroalimentación a %{other_party_given_name}."
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Todavía no has confirmado o cancelado la solicitud %{request_link}. El dinero será transferido a %{other_party_given_name} sólo si: a) Has marcado la solicitud como completada o, b) %{days_to_automatic_confirmation} días han pasado desde que pagaste. Una vez confirmes que la solicitud ha sido completada, podrás escribir una valoración sobre %{other_party_given_name}."
       remember_to_confirm_request: "Recuerda confirmar o cancelar una solicitud"
       if_will_not_happen_you_should_cancel: "Si crees que por alguna razón esta solicitud no se va a completar, puedes %{cancel_it_link}."
@@ -839,8 +837,8 @@ es-ES:
     payment_settings_reminder:
       remember_to_add_payment_details: "Recuerda añadir todos tus datos para recibir pagos."
       you_have_added_listing_with_payment: "Has añadido un nuevo anuncio %{listing_link} con pago, pero aún no has añadido tus detalles de pago. Recuerda que debes introducir y configurar tus datos de pago para poder recibir pagos de otros usuarios."
-      please_go_to_payment_settings: "Por favor ve a %{payment_settings_link} y completa toda la información de pago."
-      payment_settings_link: "Opciones de pago"
+      please_go_to_payment_settings: "Por favor ve a la %{payment_settings_link} y completa toda la información de pago."
+      payment_settings_link: "configuración de pagos"
     transaction_confirmed:
       here_is_a_message_from: "Aquí tienes un mensaje de %{other_party_given_name}:"
       request_marked_as_confirmed: "Solicitud completada - Recuerda dejar retroalimentación"
@@ -851,7 +849,7 @@ es-ES:
       give_feedback_to: "Dar retroalimentación a %{other_party_given_name}"
     transaction_automatically_confirmed:
       subject: "Solicitud completada automáticamente - Recuerda dar retroalimentación"
-      we_have_marked_request_as_confirmed: "Hemos marcado tu solicitud sobre '%{request}' como Completada de forma automática ya que han pasado %{days_passed} días desde que fue aceptada."
+      we_have_marked_request_as_confirmed: "Hemos marcado tu solicitud sobre '%{request}' como completada de forma automática ya que han pasado %{days_passed} días desde que fue aceptada."
     booking_transaction_automatically_confirmed:
       subject: "Transacción completada automáticamente - Recuerda dar retroalimentación"
       we_have_marked_request_as_confirmed: "Hemos marcado tu transacción sobre '%{request}' como completada de forma automática ya que ha pasado 1 día desde que se acabó el periodo de la reservación."
@@ -869,7 +867,7 @@ es-ES:
       welcome_to_kassi: "Bienvenido a %{service_name}!"
       need_to_confirm: "Debes confirmar tu cuenta de correo electrónico."
       confirmation_link_text: "Confirmar mi dirección de correo electrónico"
-      or_paste_link: "Si no funciona, puedes copiar el siguiente enlace y pegarlo directamente en la barra de tu navegador web."
+      or_paste_link: "Si lo prefieres, puedes copiar el siguiente enlace y pegarlo directamente en la barra de tu navegador:"
       turning_on_confirmations_in_this_community: "Hemos comenzado a utilizar e-mails de confirmación en la comunidad %{service_name}."
     common:
       hey: "Hola %{name},"
@@ -893,7 +891,7 @@ es-ES:
       your_request_was_rejected: "Tu solicitud fue rechazada"
       you_can_now_pay_to: "Ya puedes pagar el monto solicitado a %{payment_receiver}."
       pay_now: "Pagar ahora"
-      remember_to_confirm: "Cuando la solicitud esté completa, recuerda marcarla como Completada. Si todavía no lo está, dispones de %{days_to_automatic_confirmation} días para cancelarla o será marcada como Completada automáticamente."
+      remember_to_confirm: "Cuando la transacción sea completada, recuerda marcarla como completada. Si la transacción no es completada, dispones de %{days_to_automatic_confirmation} días para cancelarla o será marcada como completada automáticamente."
     invitation_to_kassi:
       hi: Hola!
       you_have_been_invited_to_kassi: "%{inviter} te ha invitado a %{service_name}."
@@ -987,7 +985,7 @@ es-ES:
       welcome_to_marketplace_creator: "¡Bienvenido a Sharetribe, %{name}!"
       congrats_for_creating_your_marketplace: "¡Enhorabuena! Ya has creado tu marketplace, ha sido fácil ¿verdad?"
       here_is_your_account_information: "Aquí está la información de tu cuenta."
-      your_email_address: "La dirección de email con la que te has registrado:"
+      your_email_address: "La dirección de correo electrónico con la que te has registrado:"
       your_marketplace_address: "La dirección de tu marketplace:"
       your_marketplace_admin_area: "El área de administración de tu marketplace"
       just_follow_details: "Sólo necesitas seguir los enlaces siguientes para obtener más información sobre cómo empezar a construir tu marketplace."
@@ -1024,9 +1022,9 @@ es-ES:
       pending_review_error: "El pago se realizó pero fue marcado por PayPal como 'pendiente de revisión'. Cuando PayPal complete esta revisión, el pago será autorizado automáticamente."
       seller_express_checkout_disabled: "El servicio de Express Checkout de PayPal ha sido inhabilitado para la cuenta de PayPal del autor del anuncio. Por favor contacta al autor del anuncio para avisarle que hay un problema con su cuenta de PayPal y recomendarle que contacte al servicio al cliente de PayPal."
       generic_error: "Ha ocurrido un error durante el proceso de pago. No se pudo finalizar el pago a través de PayPal."
-      cancel_error: "Ha ocurrido un error durante la cancelación. No se ha podido finalizar la cancelación"
-      accept_authorization_error: "Ha ocurrido un error mientras intentábamos aceptar el pago preautorizado con PayPal. Por favor, inténtalo de nuevo."
-      reject_authorization_error: "Ha ocurrido un error cuando intentábamos rechazar el pago preautorizado de PayPal. Por favor, inténtalo de nuevo."
+      cancel_error: "Ha ocurrido un error durante la cancelación. No se ha podido finalizar la cancelación."
+      accept_authorization_error: "Ha ocurrido un error al intentar aceptar el pago preautorizado con PayPal. Por favor, inténtalo de nuevo."
+      reject_authorization_error: "Ha ocurrido un error al rechazar el pago pre-autorizado de PayPal. Por favor, inténtalo de nuevo."
   error_pages:
     back_to_kassi_front_page: "Volver a la página principal de %{service_name}"
     error_404:
@@ -1148,7 +1146,7 @@ es-ES:
     grid_item:
       processing_uploaded_image: "(Procesando imagen...)"
     index:
-      no_listings_with_your_search_criteria: "No encontramos resultados para tus criterios de búsqueda. Intenta de nuevo"
+      no_listings_with_your_search_criteria: "No encontramos resultados para los criterios de tu búsqueda. Intenta modificar la búsqueda."
       no_listings_notification: "No hay anuncios. %{add_listing_link}."
       add_listing_link_text: "Publicar anuncio"
       open_listing: "publicación abierta"
@@ -1181,7 +1179,7 @@ es-ES:
       message: "Mensaje personalizado:"
       send_invitation: "Enviar invitación"
       add_email_addresses_description: "Añade el/los correo/s de tu/s amigo/s en el campo más abajo. Si quieres añadir más de una dirección email, sepáralas con una coma."
-      add_lots_of_email_addresses: "Si planeas enviar muchas invitaciones, deberías considerar utilizar una herramienta de envíos (emailing). Lee %{this_article_link} para encontrar recursos sobre servicios de emailing que se adapten a tus necesidades."
+      add_lots_of_email_addresses: "He aquí un consejo para administradores: si planeas enviar muchas invitaciones, deberías considerar usar una herramienta para enviar correos electrónicos. Lee %{this_article_link} para encontrar recursos sobre servicios de envío de correo electrónico que se adapten a tus necesidades."
       this_article_link: "este artículo"
       invitation_emails_field_placeholder: "amigo1@ejemplo.com, amigo2@ejemplo.com, ..."
       invitation_message_field_placeholder: "Me uní a este fantástica comunidad. Deberías hacer lo mismo!"
@@ -1227,8 +1225,8 @@ es-ES:
       admin: "Panel de administración de %{service_name}"
     branding:
       powered_by: "%{service_name} es posible gracias a la plataforma de comunidades de %{sharetribe_link}."
-      create_own: "¿Quieres crear tu propia comunidad en linea como %{service_name}? %{learn_more}"
-      learn_more: "Más información."
+      create_own: "¿Quieres crear tu propia comunidad en linea como %{service_name}? %{learn_more}."
+      learn_more: "Entérate cómo"
     no_tribe:
       inbox: "Buzón de entrada"
       settings: Configuración
@@ -1392,8 +1390,8 @@ es-ES:
       you_must_log_in_to_view_your_inbox: "Debes iniciar sesión en %{service_name} para revisar tu bandeja de entrada."
       you_must_log_in_to_view_your_settings: "Debes iniciar sesión en %{service_name} para ver tu configuración."
       you_must_log_in_to_add_news_item: "Debes iniciar sesión en %{service_name} para añadir un nuevo artículo"
-      you_must_log_in_to_change_profile_settings: "Debes entrar en tu cuenta de %{service_name} para cambiar los datos de tu perfil."
-      you_must_log_in_to_change_payment_settings: "Debes entrar en %{service_name} para modificar la configuración de tus pagos"
+      you_must_log_in_to_change_profile_settings: "Debes entrar en tu cuenta de %{service_name} para modificar la configuración de tu perfil."
+      you_must_log_in_to_change_payment_settings: "Debes entrar a %{service_name} para modificar la configuración de pagos"
       you_must_log_in_to_accept_or_reject: "Debes entrar en tu cuenta para aceptar o rechazar la solicitud"
       you_must_log_in_to_confirm_or_cancel: "Debes entrar en tu cuenta para cancelar o confirmar la solicitud"
       you_need_to_confirm_your_account_first: "Debes confirmar tu correo electrónico primero."
@@ -1406,7 +1404,7 @@ es-ES:
       email_deleted: "Email eliminado"
       payment_details_add_successful: "Datos de pago añadidos correctamente"
       payment_details_add_error: "No se han podido añadir tus datos de pago"
-      listing_author_payment_details_missing: "El autor del anuncio no ha añadido sus datos de pago por lo que no puede recibir pagos todavía. Por favor contacta con él."
+      listing_author_payment_details_missing: "Por favor contacta con al autor del anuncio por medio del botón de 'Contactar'. Necesita actualizar sus datos de pago para poder recibir pagos en linea."
       stylesheet_needs_recompiling: "La hoja de estilos se está recompilando. Por favor, vuelva a cargar la página en unos instantes."
       maintenance_mode:
         zero: "La página estará fuera de servicio por mantenimiento"
@@ -1609,11 +1607,11 @@ es-ES:
       select_category: "Seleccionar categoría"
       select_subcategory: "Selecciona una subcategoría"
       select_transaction_type: "Seleccionar tipo de anuncio"
-      you_need_to_fill_payout_details_before_accepting: "Debes completar tus datos de pago antes de publicar un anuncio. Ve a %{payment_settings_link} para completar toda la información."
+      you_need_to_fill_payout_details_before_accepting: "Debes completar tus datos de pago antes de publicar un anuncio. Ve a la %{payment_settings_link} para proporcionar los detalles necesarios."
       contact_admin_link_text: "contactar con el administrador"
       community_not_configured_for_payments: "%{service_name} no se ha configurado para los pagos, por lo que aún no puedes publicar nuevos anuncios. Por favor %{contact_admin_link} para más detalles."
-      payment_settings_link: "Configuración de los pagos"
-      community_not_configured_for_payments_admin: "%{service_name} no se ha configurado para los pagos, por lo que aún no puedes publicar nuevos anuncios. Ve a %{payment_settings_link} para rellenar los detalles del pago."
+      payment_settings_link: "configuración de pagos"
+      community_not_configured_for_payments_admin: "%{service_name} no se ha configurado para pagos, por lo que aún no puedes publicar nuevos anuncios. Ve a la %{payment_settings_link} para proporcionar los detalles necesarios."
     quantity:
       hour: "Número de horas:"
       day: "Número de días:"
@@ -1630,7 +1628,7 @@ es-ES:
       add_profile_picture: "Añada una foto de perfil"
       comments: Comentarios
       contact_by_phone: "Contactar por teléfono:"
-      contact: Contacto
+      contact: Contactar
       favor_offer: "Oferta de servicios"
       favor_request: "Solicitud de servicio"
       inquiry: Anuncio
@@ -1733,7 +1731,7 @@ es-ES:
         braintree_terms_also_included: "NOTA: Braintree es un servicio de transferencia de pagos y al utilizarlo aceptas los %{terms_link_text}, además de los términos que aparecen más abajo."
         terms_link_text: "los términos y condiciones de uso de Braintree"
   paypal_accounts:
-    payout_info_title: "Información de pago"
+    payout_info_title: "Recibo de fondos"
     paypal_account_email_connected: "<del>Conectar cuenta PayPal</del> Completado!"
     payout_info_paypal: "%{service_name} usa PayPal como su proveedor de pagos. %{create_paypal_account_link} y conectarla a %{service_name} es necesario para aceptar pagos por sus ofertas."
     paypal_billing_agreement_made: "<del>Otorgar permiso a %{service_name} para cobrar la comisión de servicio</del> Completado!"
@@ -1750,7 +1748,7 @@ es-ES:
     commission: "%{commission} %"
     new:
       payout_info_you_need_to_connect: "Para aceptar pagos necesitar conectar tu cuenta de PayPal con %{service_name}."
-      payout_info_text: "Por favor, completa estos dos pasos para conectar tu cuenta."
+      payout_info_text: "Por favor, completa estos pasos para conectar tu cuenta."
       contact_admin_link_text: "contactar al administrador"
       admin_account_not_connected: "No puedes conectar tu cuenta de PayPal porque el administrador de %{service_name} no ha finalizado las configuraciones necesarias. Por favor, %{contact_admin_link} para más detalles."
       paypal_account_email: "Conecta tu cuenta de PayPal"
@@ -1758,24 +1756,18 @@ es-ES:
       paypal_account_email_info_text: "Si no tiene suna cuenta PayPal, puedes crear una yendo a %{create_paypal_account}. Si el sistema arroja un error al conectar tu cuenta, necesitas actualizar tu cuenta a una cuenta empresarial -business-. Actualizar es fácil y rápido y no te costará nada. Si eres una persona natural -un indviduo- , deberás poner tu nombre y apellido en el campo del \"nombre de la empresa\" cuando PayPal te lo solicite. Para actualizar tu cuenta, %{upgrade_paypal_account} y busca el enlace de actualización."
       create_paypal_account: "haciendo click aquí"
       upgrade_paypal_account: "Inicia sesión en PayPal"
-      paypal_account_billing_agreement: "Concede permisos a %{service_name} para cargar la comisión por transferencia"
+      paypal_account_billing_agreement: "Concede permisos a %{service_name} para cargar comisión por transferencias"
       follow_steps: "sigue los pasos siguientes para empezar a recibir fondos:"
       connect_paypal_account_title: "Conecta tu cuenta de Paypal"
       connect_paypal_account_title_with_step: "Paso %{current_step}/%{total_steps}: Conecta tu cuenta de PayPal"
       connect_paypal_account_instructions: "Haz clic en el botón de abajo para iniciar sesión en tu cuenta de PayPal y conectarla con %{service_name}."
       connect_paypal_account: "Conecta tu cuenta de PayPal"
       paypal_account_billing_agreement_with_step: "Paso %{current_step}/%{total_steps}: otorga permiso para cobrar la comisión de transacción."
-      paypal_account_billing_agreement_info_both: |-
-          Después de realizar una venta en %{service_name}, se le cobrará de su cuenta de PayPal la tarifa de servicio (%{commission_from_seller} del precio total del ítem, excluyendo los costos de envío, tarifa mínima de %{minimum_commission}).
-          Para poder aceptar pagos en %{service_name} debe aceptar y dar permiso a %{service_name} para que cobre esta tarifa de servicio.  La tarifa de servicio excluye %{paypal_info_link}.
-      paypal_account_billing_agreement_info_fixed: |-
-          Después de realizar una venta en %{service_name}, se le cobrará de su cuenta de PayPal una tarifa de servicio de %{minimum_commission}.
-          Para poder aceptar pagos en %{service_name} debe aceptar y dar permiso a %{service_name} para que cobre esta tarifa de servicio.  La tarifa de servicio excluye %{paypal_info_link}. 
-      paypal_account_billing_agreement_info_relative: |-
-          Después de realizar una venta en %{service_name}, se le cobrará de su cuenta de PayPal la tarifa de servicio (%{commission_from_seller} del precio total del ítem, excluyendo los costos de envío).
-          Para poder aceptar pagos en %{service_name} debe aceptar y dar permiso a %{service_name} para que cobre esta tarifa de servicio.  La tarifa de servicio excluye %{paypal_info_link}.
+      paypal_account_billing_agreement_info_both: "Después de realizar una venta en %{service_name}, se te cobrará una tarifa de servicio de tu cuenta de PayPal (%{commission_from_seller} del precio total del ítem, excluyendo los costos de envío, tarifa mínima de %{minimum_commission}). Para poder aceptar pagos en linea debe aceptar y dar permiso a %{service_name} para que cobre esta tarifa.  La tarifa de servicio no incluye %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "Después de realizar una venta en %{service_name}, se te cobrará una tarifa de servicio de tu cuenta de PayPal de %{minimum_commission}. Para poder aceptar pagos en linea debes dar permiso a %{service_name} para que cobre esta tarifa.  La tarifa de servicio no incluye %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Después de realizar una venta en %{service_name}, se te cobrará una tarifa de servicio de tu cuenta de PayPal (%{commission_from_seller} del precio total del ítem, excluyendo los costos de envío). Para poder aceptar pagos en linea debes dar permiso a %{service_name} para que cobre esta tarifa.  La tarifa de servicio no incluye %{paypal_info_link}."
       paypal_account_billing_agreement_info_none: "Actualmente %{service_name} no cobra una comisión de servicio. Si el administrador habilita la comisión de servicio, para poder aceptar pagos en este marketplace tendrás que otorgar permiso a %{service_name} para que cobre una comisión de servicio.  Esta comisión no incluye %{paypal_info_link}."
-      paypal_info_link_text: "Comisión de procesamiento de pago de PayPal"
+      paypal_info_link_text: "comisión de procesamiento de pago de PayPal"
       billing_agreement_description: "Concede permisos a %{service_name} para cargar una comisión por transferencia."
       billing_agreement: "Concede permiso"
       permissions_not_granted: "El permiso para conectar la cuenta de Paypal no ha sido concedido."
@@ -1786,12 +1778,12 @@ es-ES:
       billing_agreement_wrong_account: "Las cuentas de Paypal no coinciden. Por favor, usa la misma cuenta de Paypal con la que te has conectado en el primer paso."
       something_went_wrong: "Ocurrió algún error. Por favor, intenta de nuevo. Si el problema persiste, ponte en contacto con el administrador del sitio."
       account_not_verified: "No has verificado tu cuenta de PayPal. Necesitas ir a paypal.com y verificar tu cuenta antes de continuar."
-      account_restricted: "Tu cuenta de Paypal está restringida y no se puede conectar. Por favor inicia sesión en paypal.com para más información de lo que esto significa o ponte en contacto con Atención al Cliente de Paypal para resolver este problema."
+      account_restricted: "Tu cuenta de Paypal está restringida y no es posible conectarla. Por favor inicia sesión en paypal.com para obtener más información o contacta al servicio de atención al cliente de PayPal para resolver este problema."
     paypal_account_connected_title: "Cuenta PayPal conectada"
     paypal_account_connected: "La cuenta PayPal <%{email}> se ha conectado con %{service_name}."
-    change_account: "Cambiar cuenta"
-    missing: "Tienes publicaciones abiertas, pero no has conectado tu cuenta de Paypal, por lo que no podrás recibir pagos. Por favor conecta tu cuenta de Paypal en tu %{settings_link}."
-    from_your_payment_settings_link_text: "Configuración de los pagos"
+    change_account: "Cambiar cuenta de PayPal"
+    missing: "Tienes publicaciones abiertas, pero no has configurado tu cuenta de Paypal para recibir pagos. Conecta tu cuenta de Paypal en tu %{settings_link} y concede permiso a %{service_name} a cargar una cuota por transacción."
+    from_your_payment_settings_link_text: "configuración de pagos"
     redirect_message: "Redirigiendo a PayPal. Si no sucede nada, haz clic %{redirect_link}."
     redirect_link_text: aquí
     paypal_account_all_set_up: "Muy bien! todo está listo!"
@@ -1938,7 +1930,7 @@ es-ES:
       confirm_your_email: "Confirma tu correo electrónico"
       account_confirmation_instructions: "Pronto recibirás un correo electrónico con un link para confirmar tu cuenta de correo. No olvides checar tu folder de correo no deseado! Una vez lo hayas hecho, podrás comenzar a usar %{service_name}."
       account_confirmation_instructions_title_admin: "¡Bienvenido a tu comunidad!"
-      your_marketplace_has_now_been_created: "Tu marketplace ha sido creado. ¿Ha sido fácil, verdad? Sólo hay un paso más antes de que puedas entrar a tu sitio web: Debes confirmar tu dirección de email."
+      your_marketplace_has_now_been_created: "Tu comunidad ha sido creada. ¿Ha sido fácil, verdad? Sólo hay un paso más antes de que puedas entrar a tu sitio: Debes confirmar tu dirección de correo electrónico."
       account_confirmation_instructions_admin: "Pronto recibirás un correo electrónico con un enlace para confirmar tu cuenta de correo. No olvides checar tu carpeta de correo no deseado! Una vez hayas confirmado tu cuenta, podrás comenzar a configurar tu comunidad."
   settings:
     account:
@@ -1946,7 +1938,7 @@ es-ES:
       confirm_new_password: "Confirmar nueva contraseña"
       delete_account: "Eliminar cuenta"
       delete_account_button: "Eliminar mi cuenta de forma permanente."
-      delete_account_confirmation_popup: "¿Estás seguro de que quieres eliminar tu cuenta de forma permanente? Si lo haces, ya no podrás volver atrás."
+      delete_account_confirmation_popup: "¿Estás seguro de querer eliminar tu cuenta de forma permanente? También eliminaras toda la información relacionada con tu cuenta. Si lo haces, ya no podrás volver atrás."
       email_addresses: "Direcciones de email"
       new_email: "Nieva Dirección de Correo Electrónico"
       delete_personal_information: "Si eliminas tu cuenta, tu información personal (nombre, número de teléfono, dirección, email, imagen de perfil, etc.) se eliminará permanentemente y no podrá ser recuperada. Todas las publicaciones que has creado se eliminarán del portal. No serás capaz de reactivar tu cuenta."

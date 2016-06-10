@@ -1,10 +1,10 @@
 ka:
   errors:
     messages:
-      expired: ~
+      expired: "ვადა გაუვიდა, გთხოვთ მოითხოვოთ ახალი"
       not_found: "ვერ მოიძებნა"
-      already_confirmed: ~
-      not_locked: ~
+      already_confirmed: "უკვე დადასტურდა, გთხოვთ ცადოთ სისტემაში შესვლა"
+      not_locked: "არ იყო დაბლოკილი"
       not_saved:
         other: "%{count} შეცდომის გამო ვერ მოხდა %{resource} ის შენახვა"
   devise:
@@ -18,33 +18,33 @@ ka:
       timeout: "გთხოვთ, შეხვიდეთ კიდევ ერთხელ, რადგანაც თქვენი სესიის დრო ამოიწურა."
       inactive: "თქვენი ანგარიში ჯერ არ გააქტიურებულა."
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: ~
+      updated_not_active: "პაროლი წარმატებით შეიცვალა."
+      send_paranoid_instructions: "თუ თქვენი ელ. ფოსტა არსებობს მონაცემთა ბაზაში, თქვენ მიიღებთ პაროლის გასაახლებელ ლინკს თქვენ ელ. ფოსტაზე"
+      send_instructions: "თქვენ ელ. ფოსტაზე რამოდენიმე წუთში მიიღებთ ინსტრუქციას, თუ როგორ უნდა შეცვალოთ პაროლი"
+      updated: "პაროლი წარმატებით შეიცვალა. თქვენ ახლა სისტემაში იმყოფებით."
     sessions:
       signed_in: "შესვლა წარამტებულია."
       signed_out: "წარმატებით გამოხვედით"
     confirmations:
       send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_instructions: "თქვენ რამდენიმე წუთში მიიღებთ ინსტრუქციას ელ. ფოსტაზე იმის შესახებ, თუ როგორ უნდა დაადასტუროთ თქვენი ანგარიში"
+      confirmed: "თქვენი ანგარიში წარამტებით დადასტურდა."
     registrations:
       signed_up_but_unconfirmed: ~
       signed_up_but_inactive: ~
       signed_up_but_locked: ~
       reasons:
         inactive: ~
-        unconfirmed: ~
-        locked: ~
+        unconfirmed: დაუდასტურებელია
+        locked: დაბლოკილია
       update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+      signed_up: "მოგესალმებით! თქვენ წარმატებით დარეგისტრირდით."
+      updated: "თქვენი ანგარიში წარმატებით განახლდა."
+      destroyed: "ნახვამდის! ანგარიში წარმატებით გაუქმდა. ვიმედოვნებთ რომ მალე კვლავ გნახავთ."
     unlocks:
       send_paranoid_instructions: ~
       send_instructions: ~
-      unlocked: ~
+      unlocked: "თქვენი ანგარიში წარმატებით განიბლოკა. გთხოვთ შედით სისტემაში რომ გააგრძელოთ. "
     omniauth_callbacks:
       success: ~
       failure: ~

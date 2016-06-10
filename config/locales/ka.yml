@@ -501,22 +501,22 @@ ka:
     edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
-    cancel: ~
-    fields_that_are_mandatory: ~
-    or: ~
+    cancel: გაუქმება
+    fields_that_are_mandatory: "ველები მონიშნული (*)-ით აუცილებლად უნდა შეავსოთ."
+    or: ან
     password: ~
     service_name: ~
     share_types:
       request: ~
       offer: ~
-      borrow: ~
-      buy: ~
+      borrow: სესხება
+      buy: ყიდვა
       give_away: ~
       lend: ~
       receive: ~
-      rent: ~
+      rent: ქირაობა
       rent_out: ~
-      sell: ~
+      sell: გაყიდვა
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: ~
@@ -543,7 +543,7 @@ ka:
       other: ~
     username: ~
     username_or_email: ~
-    what_is_this: ~
+    what_is_this: "ეს რა არის?"
     removed_user: ~
     paypal_fee_info:
       title: ~
@@ -593,10 +593,10 @@ ka:
       price_per_day: ~
     index:
       loading_more_messages: ~
-      message_partitive: ~
-      messages_partitive: ~
-      no_received_messages: ~
-      no_sent_messages: ~
+      message_partitive: შეტყობინება
+      messages_partitive: შეტყობინებები
+      no_received_messages: "არ არი შეტყობინებები"
+      no_sent_messages: "არ არის გაგზავნილი შეტყობინებები"
     conversation:
       accepted_request: ~
       accepted_offer: ~
@@ -623,7 +623,7 @@ ka:
       paid: ~
       payment_preauthorized: ~
     new:
-      message: ~
+      message: შეტყობინება
       message_to: ~
       optional_message_to: ~
       send_message: ~
@@ -631,7 +631,7 @@ ka:
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
-      title: ~
+      title: დასახელება
       send_message_to_user: ~
       about_listing: ~
       author_has_to_accept_request: ~
@@ -639,8 +639,8 @@ ka:
       in_response_to_listing: ~
       message_sent_by: ~
       message_sent_to: ~
-      send_reply: ~
-      write_a_reply: ~
+      send_reply: "გააგზავნეთ პასუხი"
+      write_a_reply: "პასუხის დაწერა:"
       conversation_about_listing: ~
       conversation_with_user: ~
       conversation_with: ~
@@ -657,8 +657,8 @@ ka:
       feedback_given: ~
       feedback_skipped: ~
       give_feedback: ~
-      offer_accepted: ~
-      offer_rejected: ~
+      offer_accepted: დადასტურებულია
+      offer_rejected: უარყოფილია
       offer_canceled: ~
       offer_confirmed: ~
       offer_paid: ~
@@ -674,8 +674,8 @@ ka:
           intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
-      request_accepted: ~
-      request_rejected: ~
+      request_accepted: დადასტურებულია
+      request_rejected: უარყოფილია
       request_confirmed: ~
       request_canceled: ~
       request_paid: ~
