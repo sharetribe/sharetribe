@@ -47,8 +47,12 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpe?g|png|gif|svg|ico)$/,
+        test: /\.(jpe?g|png|gif|ico)$/,
         loader: `customfile-loader?limit=10000&name=[name]-[hash].[ext]${assetHost}`,
+      },
+      {
+        test: /\.svg$/,
+        loader: 'raw-loader',
       },
     ],
   },

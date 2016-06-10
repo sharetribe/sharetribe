@@ -3,10 +3,11 @@ module.exports = {
   rules: {
     // stylelint-config-standard overrides
     'shorthand-property-no-redundant-values': null,
+    'selector-pseudo-class-no-unknown': [true, { ignorePseudoClasses: ['global'] }],
 
     // Single quotes everywhere
-    'font-family-name-quotes': 'single-where-recommended',
-    'function-url-quotes': 'single',
+    'font-family-name-quotes': 'always-where-recommended',
+    'function-url-quotes': 'always',
     'string-quotes': 'single',
 
     // Disallow using vendor prefixes to let Autoprefixer handle them
@@ -23,7 +24,6 @@ module.exports = {
 
     'selector-no-id': true,
     'selector-no-qualifying-type': [true, { ignore: ['attribute'] }],
-    'selector-no-universal': true,
 
     // Allow only camelCased class selectors that can be used without
     // quoting within JavaScript with CSS modules

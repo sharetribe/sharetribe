@@ -37,7 +37,7 @@ config.module.loaders.push(
     loader: 'imports?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham',
   },
   {
-    test: /\.(woff2?|svg)$/,
+    test: /\.(woff2?)$/,
     loader: 'url?limit=10000',
   },
   {
@@ -45,8 +45,12 @@ config.module.loaders.push(
     loader: 'file',
   },
   {
-    test: /\.(jpe?g|png|gif|svg|ico)$/,
+    test: /\.(jpe?g|png|gif|ico)$/,
     loader: `customfile-loader?limit=10000&name=[name]-[hash].[ext]${assetHost}`,
+  },
+  {
+    test: /\.svg$/,
+    loader: 'raw-loader',
   }
 );
 
