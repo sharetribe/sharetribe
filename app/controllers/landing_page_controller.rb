@@ -102,12 +102,12 @@ class LandingPageController < ActionController::Metal
   include ActionController::Helpers
 
   def index
-    version = clp_version(community_id())
+    version = clp_version(community_id(request))
     # TODO Ideally we would do the caching based upon just clp_version
     # and avoid loading and parsing the (potentially) big structure
     # JSON.
     begin
-      structure = load_structure(community_id(), version)
+      structure = load_structure(community_id(request), version)
       render_landing_page(structure)
     rescue LandingPageContentNotFound
       render_not_found()
@@ -117,7 +117,7 @@ class LandingPageController < ActionController::Metal
   def preview
     preview_version = parse_int(params[:preview_version])
     begin
-      structure = load_structure(community_id(), preview_version)
+      structure = load_structure(community_id(request), preview_version)
 
       # Tell robots to not index and to not follow any links
       headers["X-Robots-Tag"] = "none"
@@ -192,9 +192,14 @@ class LandingPageController < ActionController::Metal
     JSON.parse(content)
   end
 
-  def community_id
+  def community_id(request)
     # TODO - This will come from request.env where the to-be-implemented middleware will put the data
-    501
+    ident = request.host.split(".").first
+    if ident == "aalto"
+      501
+    elsif ident == "oin"
+      11
+    end
   end
 
   def render_landing_page(structure)
