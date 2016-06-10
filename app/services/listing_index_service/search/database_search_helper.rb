@@ -41,8 +41,13 @@ module ListingIndexService::Search::DatabaseSearchHelper
   def needs_search?(search)
     [
       :keywords,
+      :latitude,
+      :longitude,
+      :distance_max,
+      :sort,
       :listing_shape_id,
-      :categories, :fields,
+      :categories,
+      :fields,
       :price_cents
     ].any? { |field| search[field].present? }
   end
