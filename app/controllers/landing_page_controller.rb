@@ -105,26 +105,40 @@ class LandingPageController < ActionController::Metal
   private
 
   def landing_page
-    denormalizer = Denormalizer.new()
-
-    # Application paths
-    paths = {
-      search_path: "/search/", # FIXME. Remove hardcoded URL. Add search path here when we get one
-      signup_path: sign_up_path
-    }
-
-    # Environment specific paths
-    environment = {
-      font_path: "/landing_page/fonts",
-      user_image_path: "/landing_page"
-    }
-
     render :landing_page, locals: {
+             font_path: "/landing_page/fonts",
              styles: landing_page_styles,
              sections: denormalizer.to_tree(data),
-             paths: paths,
-             environment: environment
            }
+  end
+
+  def denormalizer
+    # Application paths
+    paths = {
+      "search_path" => "/search/", # FIXME. Remove hardcoded URL. Add search path here when we get one
+      "signup_path" => sign_up_path
+    }
+
+    Denormalizer.new(
+      link_resolvers: {
+        "path" => ->(type, id, normalized_data) {
+          path = paths[id]
+
+          if path.nil?
+            raise ArgumentError.new("Couldn't find path '#{id}'")
+          else
+            path
+          end
+        },
+        "assets" => ->(type, id, normalized_data) {
+          append_asset_path(Denormalizer.find_link(type, id, normalized_data))
+        }
+      }
+    )
+  end
+
+  def append_asset_path(asset)
+    asset.merge("src" => ["landing_page", asset["src"]].join("/"))
   end
 
   def data
@@ -143,7 +157,8 @@ class LandingPageController < ActionController::Metal
           "title" => "Your marketplace title goes here and it looks tasty",
           "subtitle" => "Paragraph. Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam.",
           "background_image" => {"type" => "assets", "id" => "myheroimage"},
-          "signup_button" => "Sign up"
+          "signup_button" => "Sign up",
+          "signup_path" => {"type" => "path", "id" => "signup_path"}
         },
 
         {
@@ -155,6 +170,7 @@ class LandingPageController < ActionController::Metal
           "background_image" => {"type" => "assets", "id" => "myheroimage"},
           "search_placeholder" => "What kind of turbojopo are you looking for?",
           "search_button" => "Search",
+          "search_path" => {"type" => "path", "id" => "search_path"}
         },
 
         {

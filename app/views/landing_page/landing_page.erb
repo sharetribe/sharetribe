@@ -25,48 +25,48 @@
 
    @font-face {
      font-family: 'ProximaNovaSoft-Bold';
-     src: url('<%= environment[:font_path] %>/proximanovasoft-bold-webfont.eot');
-     src: url('<%= environment[:font_path] %>/proximanovasoft-bold-webfont.eot?#iefix') format('embedded-opentype'),
-     url('<%= environment[:font_path] %>/proximanovasoft-bold-webfont.woff2') format('woff2'),
-     url('<%= environment[:font_path] %>/proximanovasoft-bold-webfont.woff') format('woff'),
-     url('<%= environment[:font_path] %>/proximanovasoft-bold-webfont.ttf') format('truetype'),
-     url('<%= environment[:font_path] %>/proximanovasoft-bold-webfont.svg#proxima_nova_softbold') format('svg');
+     src: url('<%= font_path %>/proximanovasoft-bold-webfont.eot');
+     src: url('<%= font_path %>/proximanovasoft-bold-webfont.eot?#iefix') format('embedded-opentype'),
+     url('<%= font_path %>/proximanovasoft-bold-webfont.woff2') format('woff2'),
+     url('<%= font_path %>/proximanovasoft-bold-webfont.woff') format('woff'),
+     url('<%= font_path %>/proximanovasoft-bold-webfont.ttf') format('truetype'),
+     url('<%= font_path %>/proximanovasoft-bold-webfont.svg#proxima_nova_softbold') format('svg');
      font-weight: normal;
      font-style: normal;
    }
 
    @font-face {
      font-family: 'ProximaNovaSoft-Medium';
-     src: url('<%= environment[:font_path] %>/proximanovasoft-medium-webfont.eot');
-     src: url('<%= environment[:font_path] %>/proximanovasoft-medium-webfont.eot?#iefix') format('embedded-opentype'),
-     url('<%= environment[:font_path] %>/proximanovasoft-medium-webfont.woff2') format('woff2'),
-     url('<%= environment[:font_path] %>/proximanovasoft-medium-webfont.woff') format('woff'),
-     url('<%= environment[:font_path] %>/proximanovasoft-medium-webfont.ttf') format('truetype'),
-     url('<%= environment[:font_path] %>/proximanovasoft-medium-webfont.svg#proxima_nova_softmedium') format('svg');
+     src: url('<%= font_path %>/proximanovasoft-medium-webfont.eot');
+     src: url('<%= font_path %>/proximanovasoft-medium-webfont.eot?#iefix') format('embedded-opentype'),
+     url('<%= font_path %>/proximanovasoft-medium-webfont.woff2') format('woff2'),
+     url('<%= font_path %>/proximanovasoft-medium-webfont.woff') format('woff'),
+     url('<%= font_path %>/proximanovasoft-medium-webfont.ttf') format('truetype'),
+     url('<%= font_path %>/proximanovasoft-medium-webfont.svg#proxima_nova_softmedium') format('svg');
      font-weight: normal;
      font-style: normal;
    }
 
    @font-face {
      font-family: 'ProximaNovaSoft-Regular';
-     src: url('<%= environment[:font_path] %>/proximanovasoft-regular-webfont.eot');
-     src: url('<%= environment[:font_path] %>/proximanovasoft-regular-webfont.eot?#iefix') format('embedded-opentype'),
-     url('<%= environment[:font_path] %>/proximanovasoft-regular-webfont.woff2') format('woff2'),
-     url('<%= environment[:font_path] %>/proximanovasoft-regular-webfont.woff') format('woff'),
-     url('<%= environment[:font_path] %>/proximanovasoft-regular-webfont.ttf') format('truetype'),
-     url('<%= environment[:font_path] %>/proximanovasoft-regular-webfont.svg#proxima_nova_softregular') format('svg');
+     src: url('<%= font_path %>/proximanovasoft-regular-webfont.eot');
+     src: url('<%= font_path %>/proximanovasoft-regular-webfont.eot?#iefix') format('embedded-opentype'),
+     url('<%= font_path %>/proximanovasoft-regular-webfont.woff2') format('woff2'),
+     url('<%= font_path %>/proximanovasoft-regular-webfont.woff') format('woff'),
+     url('<%= font_path %>/proximanovasoft-regular-webfont.ttf') format('truetype'),
+     url('<%= font_path %>/proximanovasoft-regular-webfont.svg#proxima_nova_softregular') format('svg');
      font-weight: normal;
      font-style: normal;
    }
 
    @font-face {
      font-family: 'ProximaNovaSoft-Semibold';
-     src: url('<%= environment[:font_path] %>/proximanovasoft-semibold-webfont.eot');
-     src: url('<%= environment[:font_path] %>/proximanovasoft-semibold-webfont.eot?#iefix') format('embedded-opentype'),
-     url('<%= environment[:font_path] %>/proximanovasoft-semibold-webfont.woff2') format('woff2'),
-     url('<%= environment[:font_path] %>/proximanovasoft-semibold-webfont.woff') format('woff'),
-     url('<%= environment[:font_path] %>/proximanovasoft-semibold-webfont.ttf') format('truetype'),
-     url('<%= environment[:font_path] %>/proximanovasoft-semibold-webfont.svg#proxima_nova_softsemibold') format('svg');
+     src: url('<%= font_path %>/proximanovasoft-semibold-webfont.eot');
+     src: url('<%= font_path %>/proximanovasoft-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+     url('<%= font_path %>/proximanovasoft-semibold-webfont.woff2') format('woff2'),
+     url('<%= font_path %>/proximanovasoft-semibold-webfont.woff') format('woff'),
+     url('<%= font_path %>/proximanovasoft-semibold-webfont.ttf') format('truetype'),
+     url('<%= font_path %>/proximanovasoft-semibold-webfont.svg#proxima_nova_softsemibold') format('svg');
      font-weight: normal;
      font-style: normal;
    }
@@ -85,7 +85,7 @@
   <% case s["kind"] %>
   <% when "hero" # Hero section %>
 
-    <section class="hero__section" style="background-image: url('<%= [environment[:user_image_path], s["background_image"]["src"]].join('/') %>')">
+    <section class="hero__section" style="background-image: url('<%= s["background_image"]["src"] %>')">
       <div class="hero__content">
         <div class="hero__content-container">
           <h1 class="hero__title"><%= s["title"] %></h1>
@@ -94,7 +94,7 @@
           <% case s["variation"] %>
           <% when "keyword_search" %>
 
-            <form method="get" class="hero__search-bar" action="<%= paths[:search_path] %>">
+            <form method="get" class="hero__search-bar" action="<%= s["search_path"] %>">
               <div class="hero__search-icon">
 
                 <svg class="hero__search-icon-svg" viewBox="27 19 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -110,7 +110,7 @@
 
           <% when "private" %>
 
-            <a class="hero__signup-button" href="<%= paths[:signup_path] %>"><%= s["signup_button"] %></a>
+            <a class="hero__signup-button" href="<%= s["signup_path"] %>"><%= s["signup_button"] %></a>
 
           <% end %>
         </div>
