@@ -120,6 +120,7 @@ class LandingPageController < ActionController::Metal
     }
 
     render :landing_page, locals: {
+             styles: landing_page_styles,
              sections: denormalizer.to_tree(data),
              paths: paths,
              environment: environment
@@ -183,10 +184,7 @@ class LandingPageController < ActionController::Metal
   end
 
 
-  def inline_landing_page_styles
+  def landing_page_styles
     Rails.application.assets.find_asset("landing_page/styles.scss").to_s
   end
-
-  helper_method :inline_landing_page_styles
-
 end
