@@ -1,6 +1,9 @@
+@import "../mixins/all";
+
 /* ************************************************************************************ */
 /* Hero section                                                                         */
 /* ************************************************************************************ */
+
 .hero__section {
   width: 100%;
   min-height: 80vh;
@@ -13,47 +16,36 @@
 
 .hero__content-container {
   text-align: center;
-}
 
-/* tablet 768 */
-@media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
-  .hero__content-container {
+  @media #{$tablet} {
     max-width: 561px;
   }
-}
 
-/* desktop 1366 */
-@media (min-width: 1025px) {
-  .hero__content-container {
+  @media #{$desktop} {
     max-width: 871px;
   }
 }
+
 
 .hero__title {
   /* Your marketplace tit: */
   font-family: ProximaNovaSoft-Regular;
   color: #FFFFFF;
 
-  /* (max-width: 767px) and (orientation: portrait) */
+  /* mobile */
   font-size: 36px;
   letter-spacing: -1.23px;
   line-height: 42px;
   margin-bottom: 24px;
-}
 
-/* tablet 768 */
-@media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
-  .hero__title {
+  @media #{$tablet} {
     font-size: 62px;
     letter-spacing: -1.23px;
     line-height: 68px;
     margin-bottom: 28px;
   }
-}
 
-/* desktop 1366 */
-@media (min-width: 1025px) {
-  .hero__title {
+  @media #{$desktop} {
     font-size: 64px;
     letter-spacing: -1.5px;
     line-height: 76px;
@@ -67,26 +59,18 @@
   color: #FFFFFF;
   letter-spacing: 0px;
 
-  /* mobile 375 */
-  /* (max-width: 767px) and (orientation: portrait) */
-  /* Paragraph. Etiam por: */
+  /* mobile */
   font-size: 18px;
   line-height: 24px;
   margin-bottom: 36px;
-}
 
-/* tablet 768 */
-@media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
-  .hero__subtitle {
+  @media #{$tablet} {
     font-size: 21px;
     line-height: 32px;
     margin-bottom: 48px;
   }
-}
 
-/* desktop 1366 */
-@media (min-width: 1025px) {
-  .hero__subtitle {
+  @media #{$desktop} {
     font-size: 24px;
     line-height: 32px;
     margin-bottom: 48px;
@@ -106,21 +90,14 @@
   margin: 0 auto;
   padding: 0 12px;
 
-  /* mobile 375 */
-  /* (max-width: 767px) and (orientation: portrait) */
+  /* mobile */
   flex-direction: row-reverse;
-}
 
-/* tablet 768 */
-@media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
-  .hero__search-bar {
+  @media #{$tablet} {
     flex-direction: row;
   }
-}
 
-/* desktop 1366 */
-@media (min-width: 1025px) {
-  .hero__search-bar {
+  @media #{$desktop} {
     flex-direction: row;
   }
 }
@@ -132,8 +109,11 @@
   width: 100%;
   color: #525961;
 
-  /* mobile 375 */
-  /* (max-width: 767px) and (orientation: portrait) */
+  &:focus {
+    outline: none;
+  }
+
+  /* mobile */
   border-top-left-radius: 29.5px;
   border-bottom-left-radius: 29.5px;
 
@@ -141,15 +121,8 @@
   letter-spacing: 0px;
   line-height: 32px;
   padding: 8px 12px 8px 24px;
-}
 
-.hero__search-input:focus {
-  outline: none;
-}
-
-/* tablet 768 */
-@media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
-  .hero__search-input {
+  @media #{$tablet} {
     border-top-left-radius: inherit;
     border-bottom-left-radius: inherit;
 
@@ -159,11 +132,8 @@
 
     padding: 14px 24px 14px 12px;
   }
-}
 
-/* desktop 1366 */
-@media (min-width: 1025px) {
-  .hero__search-input {
+  @media #{$desktop} {
     border-top-left-radius: inherit;
     border-bottom-left-radius: inherit;
 
@@ -173,6 +143,7 @@
 
     padding: 14px 24px 14px 18px;
   }
+
 }
 
 .hero__search-button {
@@ -193,73 +164,54 @@
   color: #FFFFFF;
   letter-spacing: 0px;
 
-  /* mobile 375 */
-  /* (max-width: 767px) and (orientation: portrait) */
+  /* mobile */
   display: none;
-}
 
-/* tablet 768 */
-@media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
-  .hero__search-button {
+  @media #{$tablet} {
     display: block;
   }
-}
 
-/* desktop 1366 */
-@media (min-width: 1025px) {
-  .hero__search-button {
+  @media #{$desktop} {
     display: block;
   }
 }
 
 .hero__search-icon-svg {
   display: block;
-  /* mobile 375 */
-  /* (max-width: 767px) and (orientation: portrait) */
+
+  /* mobile */
   width: 18px;
   height: 18px;
-}
 
-/* tablet 768 */
-@media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
-  .hero__search-icon-svg {
+  @media #{$tablet} {
+    width: 22px;
+    height: 22px;
+  }
+
+  @media #{$desktop} {
     width: 22px;
     height: 22px;
   }
 }
 
-/* desktop 1366 */
-@media (min-width: 1025px) {
-  .hero__search-icon-svg {
-    width: 22px;
-    height: 22px;
-  }
-}
 
 .hero__search-icon {
   background: #FFF;
 
-  /* mobile 375 */
-  /* (max-width: 767px) and (orientation: portrait) */
+  /* mobile */
   border-top-right-radius: 29.5px;
   border-bottom-right-radius: 29.5px;
   padding: 15px 24px 15px 0px;
-}
 
-/* tablet 768 */
-@media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
-  .hero__search-icon {
+  @media #{$tablet} {
     border-top-left-radius: 29.5px;
     border-bottom-left-radius: 29.5px;
     border-top-right-radius: inherit;
     border-bottom-right-radius: inherit;
     padding: 19px 0px 19px 24px;
   }
-}
 
-/* desktop 1366 */
-@media (min-width: 1025px) {
-  .hero__search-icon {
+  @media #{$desktop} {
     border-top-left-radius: 29.5px;
     border-bottom-left-radius: 29.5px;
     border-top-right-radius: inherit;
@@ -275,28 +227,20 @@
   border-radius: 100px;
   font-family: ProximaNovaSoft-Bold;
 
-  /* mobile 375 */
-  /* (max-width: 767px) and (orientation: portrait) */
+  /* mobile */
   font-size: 18px;
   letter-spacing: 0px;
 
   padding: 18px 36px;
-}
 
-
-/* tablet 768 */
-@media (min-width: 768px) and (max-width: 1024px), (min-width: 401px) and (max-width: 767px) and (orientation: landscape) {
-  .hero__signup-button {
+  @media #{$tablet} {
     font-size: 21px;
     letter-spacing: 0px;
 
     padding: 21px 63px;
   }
-}
 
-/* desktop 1366 */
-@media (min-width: 1025px) {
-  .hero__signup-button {
+  @media #{$desktop} {
     font-size: 21px;
     letter-spacing: 0px;
 
