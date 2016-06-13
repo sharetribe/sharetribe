@@ -92,6 +92,12 @@ class LandingPageController < ActionController::Metal
   include ActionView::Layouts
   append_view_path "#{Rails.root}/app/views"
 
+  # Include route helpers
+  include Rails.application.routes.url_helpers
+
+  # Adds helper_method
+  include ActionController::Helpers
+
   def index
     landing_page
   end
@@ -99,19 +105,41 @@ class LandingPageController < ActionController::Metal
   private
 
   def landing_page
-    denormalizer = Denormalizer.new(
-      link_resolvers: {
-        "assets" => ->(type, id, normalized_data) {
-          asset = Denormalizer.find_link(type, id, normalized_data)
-          asset.merge("src" => append_asset_dir(asset["src"]))
-        }
-      })
-
-    render :landing_page, locals: { sections: denormalizer.to_tree(data) }
+    render :landing_page, locals: {
+             font_path: "/landing_page/fonts",
+             styles: landing_page_styles,
+             location_search_js: location_search_js,
+             sections: denormalizer.to_tree(data),
+           }
   end
 
-  def append_asset_dir(file)
-    ["landing_page", file].join("/")
+  def denormalizer
+    # Application paths
+    paths = {
+      "search_path" => "/search/", # FIXME. Remove hardcoded URL. Add search path here when we get one
+      "signup_path" => sign_up_path
+    }
+
+    Denormalizer.new(
+      link_resolvers: {
+        "path" => ->(type, id, normalized_data) {
+          path = paths[id]
+
+          if path.nil?
+            raise ArgumentError.new("Couldn't find path '#{id}'")
+          else
+            path
+          end
+        },
+        "assets" => ->(type, id, normalized_data) {
+          append_asset_path(Denormalizer.find_link(type, id, normalized_data))
+        }
+      }
+    )
+  end
+
+  def append_asset_path(asset)
+    asset.merge("src" => ["landing_page", asset["src"]].join("/"))
   end
 
   def data
@@ -124,13 +152,26 @@ class LandingPageController < ActionController::Metal
 
       "sections" => [
         {
+          "id" => "private_hero",
+          "kind" => "hero",
+          "variation" => "private",
+          "title" => "Your marketplace title goes here and it looks tasty",
+          "subtitle" => "Paragraph. Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam.",
+          "background_image" => {"type" => "assets", "id" => "myheroimage"},
+          "signup_button" => "Sign up",
+          "signup_path" => {"type" => "path", "id" => "signup_path"}
+        },
+
+        {
           "id" => "myhero1",
           "kind" => "hero",
-          "title" => "Sell your turbobike",
-          "subtitle" => "The best place to rent your turbojopo",
+          "variation" => "location_search",
+          "title" => "Your marketplace title goes here and it looks tasty",
+          "subtitle" => "Paragraph. Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam.",
           "background_image" => {"type" => "assets", "id" => "myheroimage"},
           "search_placeholder" => "What kind of turbojopo are you looking for?",
           "search_button" => "Search",
+          "search_path" => {"type" => "path", "id" => "search_path"}
         },
 
         {
@@ -142,7 +183,7 @@ class LandingPageController < ActionController::Metal
       ],
 
       "composition" => [
-        { "section" => {"type" => "sections", "id" => "myhero1"},
+        { "section" => {"type" => "sections", "id" => "private_hero"},
           "disabled" => false},
         { "section" => {"type" => "sections", "id" => "myhero1"},
           "disabled" => false},
@@ -153,9 +194,18 @@ class LandingPageController < ActionController::Metal
       "assets" => [
         {
           "id" => "myheroimage",
-          "src" => "hero.png",
+          "src" => "hero.jpg",
         }
       ]
     }
+  end
+
+
+  def landing_page_styles
+    Rails.application.assets.find_asset("landing_page/styles.scss").to_s
+  end
+
+  def location_search_js
+    Rails.application.assets.find_asset("location_search.js").to_s
   end
 end
