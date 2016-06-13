@@ -108,6 +108,7 @@ class LandingPageController < ActionController::Metal
     render :landing_page, locals: {
              font_path: "/landing_page/fonts",
              styles: landing_page_styles,
+             location_search_js: location_search_js,
              sections: denormalizer.to_tree(data),
            }
   end
@@ -202,5 +203,9 @@ class LandingPageController < ActionController::Metal
 
   def landing_page_styles
     Rails.application.assets.find_asset("landing_page/styles.scss").to_s
+  end
+
+  def location_search_js
+    Rails.application.assets.find_asset("location_search.js").to_s
   end
 end

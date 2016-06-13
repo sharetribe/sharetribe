@@ -1,14 +1,14 @@
-window.ST = window.ST || {};
+window.ST = window.ST || {};
 
 (function(module) {
 
-  module.initializeLocationSearch = function() {
+  module.initializeLocationSearch = function initializeLocationSearch(formId) {
     var searchInput = document.getElementById('q');
     var statusInput = document.getElementById('ls');
     var coordinateInput = document.getElementById('lc');
     var boundingboxInput = document.getElementById('boundingbox');
     var maxDistanceInput = document.getElementById('distance_max');
-    var homepageForm = document.getElementById('homepage-filters');
+    var form = document.getElementById(formId);
     var autocomplete = new window.google.maps.places.Autocomplete(searchInput, { bounds: { north: -90, east: -180, south: 90, west: 180 } });
     autocomplete.setTypes(['geocode']);
 
@@ -59,7 +59,7 @@ window.ST = window.ST || {};
           coordinateInput.value = place.geometry.location.toUrlValue();
           statusInput.value = window.google.maps.places.PlacesServiceStatus.OK;
           updateViewportData(place.geometry.viewport);
-          homepageForm.submit();
+          form.submit();
         } else {
           coordinateInput.value = ""; // clear previous coordinates
           // Let's pick first suggestion, if no geometry was returned by autocompletion
@@ -69,7 +69,7 @@ window.ST = window.ST || {};
     });
 
     // Ensure default events don't fire without correct info
-    homepageForm.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function(e) {
       // If service status is unset and there are no coordinates, do not make search submit
       if(statusInput.value === "" && coordinateInput.value === "" && searchInput.value !== "") {
         e.preventDefault();
@@ -107,16 +107,14 @@ window.ST = window.ST || {};
           }
           // Save received service status for logging
           statusInput.value = placeServiceStatus;
-          homepageForm.submit();
+          form.submit();
 
         });
       } else {
         // Save received service status for logging
         statusInput.value = autocompleteServiceStatus;
-        homepageForm.submit();
+        form.submit();
       }
     };
-
-
   };
 })(window.ST);
