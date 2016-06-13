@@ -777,12 +777,12 @@ ka:
       consent_not_given: ~
   emails:
     accept_reminder:
-      remember_to_accept_offer: ~
-      remember_to_accept_request: ~
+      remember_to_accept_offer: "გახსოვდეთ რომ დაადატუროთ ან უარყოთ შემოთავაზება %{sender_name}-დან"
+      remember_to_accept_request: "გახსოვდეთ, რომ გაადასტუროთ ან უარყოთ მოთხოვნა %{sender_name}-დან"
       you_can_accept_or_reject_offer_at: "თქვენ შეგიძლიათ დაეთანხმოთ ან უარყოთ შემოთავაზება"
       you_can_accept_or_reject_request_at: "თქვენ შეგიძლიათ დაეთანხმოთ ან უარყოთ მოთხოვნა"
-      you_have_not_yet_accepted_or_rejected_offer: ~
-      you_have_not_yet_accepted_or_rejected_request: ~
+      you_have_not_yet_accepted_or_rejected_offer: "თქვენ არც დაგიდასტურებიათ და არც უარი გითქვამთ შეთავაზებაზე %{title} რომელიც მიიღეთ %{date}"
+      you_have_not_yet_accepted_or_rejected_request: "თქვენ არც დაგიდასტურებიათ და არც უარი გითქვამთ მოთხოვნაზე %{title}, რომელიც მიიღეთ %{date}"
       show_thread: ~
     branding:
       powered_by: ~
@@ -997,7 +997,7 @@ ka:
       accept_authorization_error: ~
       reject_authorization_error: ~
   error_pages:
-    back_to_kassi_front_page: ~
+    back_to_kassi_front_page: "მთავარ გვერდზე დაბრუნება"
     error_404:
       if_you_believe: ~
       page_can_not_be_found: "გვერდი არ არის ნაპოვნი"
@@ -1086,18 +1086,18 @@ ka:
       add_first: "ერთის დამატება! "
       but_that_is_visible_only_to_registered_members: "მაგრამ ამის ნახვა, მხოლოდ დარეგისტრირებულ წევრებს შეუძლიათ"
       but_those_are_visible_only_to_registered_members: "მაგრამ ამათი ნახვა, მხოლოდ დარეგისტრირებულ წევრებს შეუძლიათ"
-      create_new_account_for_yourself: ~
-      examples_of_what_you_could_offer_to_others: ~
-      examples_of_what_you_could_request_to_others: ~
-      favor_offer_list: ~
+      create_new_account_for_yourself: "შექმენით ახალი ანგარიში"
+      examples_of_what_you_could_offer_to_others: "რას შეგიძლიათ სხვებს შეთავაზოთ"
+      examples_of_what_you_could_request_to_others: "რა შეგიძლიათ მოითხოვოთ სხვებისგან"
+      favor_offer_list: "კომპიუტერული დახმარება, ტანსაცმელი განახლება, ველოსიპეტის შეკეთება"
       favor_request_list: ~
-      favors_to_offer: ~
-      favors_to_request: ~
-      item_offer_list: ~
-      item_request_list: ~
+      favors_to_offer: "დახმარება:"
+      favors_to_request: დახმარება
+      item_offer_list: "ინსტრუმენტები, სპორტული აღჭურვილობა, კოსტიუმები, კარვების აღჭურვილობა"
+      item_request_list: "ინსტრუმენტები, სპორტული აღჭურვილობა, კოსტიუმები, კარვების აღჭურვილობა"
       items_to_offer: ~
       items_to_request: ~
-      log_in: ~
+      log_in: "სისტემაში შესვლა!"
       no_offers_visible_unless_logged_in: ~
       no_open_offers_currently: ~
       no_open_requests_currently: ~
@@ -1106,8 +1106,8 @@ ka:
       one_private_request_exists: ~
       ride_offer: ~
       ride_request: ~
-      some_private_offers_exist: ~
-      some_private_requests_exist: ~
+      some_private_offers_exist: "უკვე არსებობს %{number_of_listings} შეთავაზებები"
+      some_private_requests_exist: "უკვე არსებობს %{number_of_listings} მოთხოვნები"
     custom_filters:
       update_view: ~
       min: ~
@@ -1127,17 +1127,17 @@ ka:
       are: ~
       what_do_you_need: ~
       post_new_listing: ~
-      are_offering: ~
+      are_offering: შეთავაზება
       add_news_item: ~
       lend_rent_help_carpool: ~
       loading_more_content: ~
-      more_events: ~
-      news: ~
+      more_events: "მეტი ღონისძიებები..."
+      news: სიახლეები
       no_news: ~
       more_news: ~
-      or: ~
+      or: და
       or_see_what_the_others: ~
-      recent_events: ~
+      recent_events: "ახლანდენი ღონისძიებები"
       requesting: ~
       tell_it_here: ~
       welcome_to_new_kassi: ~
@@ -1168,7 +1168,7 @@ ka:
       you_have_not_added_your_info: ~
       add_your_info_link: ~
     recent_listing:
-      please_offer: ~
+      please_offer: შეთავაზება
       comment: ~
       comments: ~
     filters:
@@ -1207,11 +1207,11 @@ ka:
       read_more: ~
       feedback: ~
       default_feedback: ~
-      feedback_forum: ~
-      feedback_handle: ~
-      give_feedback: ~
-      or_check_our: ~
-      send_feedback_to_admin: ~
+      feedback_forum: "შეფასების ფორუმი"
+      feedback_handle: შეფასება
+      give_feedback: კონტაქტი
+      or_check_our: ".. ან შეამოწმეთ ჩვენი"
+      send_feedback_to_admin: "შეფასების გაგზავნა"
       to_see_what_others_have_suggested: ~
       your_email_address: ~
       connect: ~
@@ -1222,43 +1222,43 @@ ka:
       join_without_facebook: ~
       join_without_facebook_link: ~
     conversations:
-      messages: ~
-      notifications: ~
-      received: ~
-      sent: ~
+      messages: წერილები
+      notifications: შეტყობინებები
+      received: მიღებული
+      sent: გაგზავნილი
     global-header:
       select_language: ~
     infos:
-      about: ~
-      how_to_use: ~
-      info_about_kassi: ~
+      about: შესახებ
+      how_to_use: "როგორ მუშაობს"
+      info_about_kassi: "ინფორმაცია %{service_name} შესახებ"
       news: ~
-      register_details: ~
-      terms: ~
+      register_details: კონფიდენციალურობა
+      terms: "მოხმარების პირობები"
     logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
-      settings: ~
-      sign_up: ~
+      admin: ადმინი
+      go_to_your_profile_page: პროფილი
+      hi: გამარჯობა
+      login: შესვლა
+      logout: გამოსვლა
+      notifications: შეტყობინებები
+      requests: "მეგობრობის მოთხოვნა"
+      settings: პარამეტრები
+      sign_up: "ანგარიშის შექმნა"
     logged_in_messages_icon:
-      messages: ~
+      messages: წერილები
     logged_in_notifications_icon:
-      notifications: ~
+      notifications: შეტყობინებები
     mobile_logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
+      admin: ადმინი
+      go_to_your_profile_page: პროფილი
+      hi: გამარჯობა
+      login: შესვლა
+      logout: გამოსვლა
+      notifications: შეტყობინებები
+      requests: "მეგრობობის მოთხოვნა"
       settings: ~
-      sign_up: ~
+      sign_up: დარეგისტრირება
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
@@ -1268,8 +1268,8 @@ ka:
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
-      comment_cannot_be_empty: ~
-      comment_sent: ~
+      comment_cannot_be_empty: "კომენტარი არ შეიძლება იყოს ცარიელი"
+      comment_sent: "კომენტარი გაგზავნილია"
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
@@ -1283,27 +1283,27 @@ ka:
       feedback_not_saved: ~
       feedback_saved: ~
       feedback_sent_to: ~
-      feedback_skipped: ~
+      feedback_skipped: "შეფასება გამოტოვებულია"
       invitation_cannot_be_sent: ~
       invitation_limit_reached: ~
       invitation_sent: ~
       inviting_new_users_is_not_allowed_in_this_community: ~
-      login_again: ~
+      login_again: "გთხოვთ შეხვიდეთ კიდევ ერთხელ"
       login_failed: ~
       account_creation_successful: ~
       account_deleted: ~
-      login_successful: ~
+      login_successful: "მოგესალმებით %{person_name}!"
       logout_successful: ~
       news_item_created: ~
       news_item_creation_failed: ~
       news_item_update_failed: ~
       news_item_updated: ~
       news_item_deleted: ~
-      offer_accepted: ~
+      offer_accepted: "შეთავაზება დადასტურებულია"
       offer_confirmed: ~
-      offer_closed: ~
+      offer_closed: "შეთავაზება დახურულია"
       listing_created_successfully: ~
-      offer_rejected: ~
+      offer_rejected: "შეთავაზება უარყოფილია"
       offer_canceled: ~
       listing_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: ~
@@ -1325,13 +1325,13 @@ ka:
       poll_update_failed: ~
       poll_updated: ~
       poll_deleted: ~
-      read_more: ~
+      read_more: "წაიკითხეთ მეტი!"
       registration_considered_spam: ~
-      reply_cannot_be_empty: ~
-      reply_sent: ~
-      request_accepted: ~
+      reply_cannot_be_empty: "თქვენ არ შეგიძლიათ ცარიელი წერილის გაგზავნა"
+      reply_sent: "პასუხი წარმატებით გაიგზავნა"
+      request_accepted: "მოთხოვნა დადასტურებულია"
       request_confirmed: ~
-      request_rejected: ~
+      request_rejected: "მოთხოვნა უარყოფილია"
       request_canceled: ~
       message_sent: ~
       message_not_sent: ~

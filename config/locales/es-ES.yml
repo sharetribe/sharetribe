@@ -183,7 +183,7 @@ es-ES:
         analytics: "También es una buena idea %{analytics_link}. De esta manera, podrás ver lo que pasa en tu marketplace, cuántos visitantes tienes, y demás"
         analytics_link_text: "conectar tu cuenta de Google Analytics"
         settings: "Hay otras opciones de configuración que puedes utilizar. Por ejemplo, puedes requerir que todos los usuarios sean invitados por otros usuarios antes de que puedan unirse a tu comunidad; o puedes hacerla privada, para que únicamente los usuarios que hayan iniciado sesión puedan ver el contenido. %{settings_link}."
-        settings_link_text: "Ver la configuración de tu Marketplace aquí"
+        settings_link_text: "Ver la configuración de tu comunidad aquí"
         final_words: |-
             Eso es todo! Si ya tienes todo listo, puedes empezar %{invite_link} a tu marketplace. Puedes ver todos los usuarios que se han registrado %{view_users_link}, y todas las transacciones que han completado %{view_transactions_link}. También podrás gestionar las publicaciones fácilmente: simplemente ve a la página de la publicación y allí verás los links de administrador de 'editar' y 'cerrar'. 
             Si necesitas ayuda, puedes %{contact_support_link} - Estamos aquí para ayudarte!
@@ -390,15 +390,15 @@ es-ES:
         date: Fecha
     emails:
       new:
-        send_email_to_members: "Enviar email a los usuarios"
-        send_email_to_members_title: "Enviar email a todos los usuarios"
-        email_subject: "Asunto del mensaje"
-        email_content: "Contenido del mensaje"
-        email_content_placeholder: "Qué quieres decirle a tus usuarios?"
-        email_language: "Idioma de los receptores de los mensajes"
+        send_email_to_members: "Enviar correo electrónico a los usuarios"
+        send_email_to_members_title: "Enviar correo electrónico a todos los usuarios"
+        email_subject: Asunto
+        email_content: Contenido
+        email_content_placeholder: "¿Qué quieres decirle a tus usuarios?"
+        email_language: "Idioma de los usuarios que recibirán el correo"
         any_language: "Cualquier idioma"
-        send_email: "Enviar el mensaje"
-        message_will_be_sent_only_to_people_with_this_language: "Nota: el email sólo va a ser enviado a los usuarios que están usando %{service_name} en el idioma que escojas."
+        send_email: Enviar
+        message_will_be_sent_only_to_people_with_this_language: "Nota: el correo sólo va a ser enviado a los usuarios que están usando %{service_name} en el idioma que escojas."
         email_sent: "Mensaje enviado."
     left_hand_navigation:
       general: General
@@ -528,24 +528,24 @@ es-ES:
         inquiry: Contactar
   common:
     edit_page: "Editar la página"
-    default_community_slogan: "Marketplace comunitario"
-    default_community_description: "Este es un lugar para vender, alquilar, intercambiar y compartir bienes y servicios con los otros miembros del marketplace."
+    default_community_slogan: "Comunidad de mercado colaborativo"
+    default_community_description: "Este es un lugar para vender, alquilar, intercambiar y compartir bienes y servicios con los otros miembros de la comunidad."
     cancel: Cancelar
     fields_that_are_mandatory: "Los campos marcados con (*) son obligatorios."
     or: o
     password: Contraseña
     service_name: "%{service_name}"
     share_types:
-      request: Pedir
-      offer: Ofrecer
-      borrow: "Pidiendo prestado"
+      request: solicitar
+      offer: ofrecer
+      borrow: "pidiendo prestado"
       buy: comprando
       give_away: donando
       lend: prestando
       receive: regalar
       rent: Alquiler
-      rent_out: Alquilando
-      sell: Vendiendo
+      rent_out: alquilando
+      sell: vendiendo
       offer_to_swap: intercambio
       request_to_swap: intercambio
       share_for_free: "compartido gratuitamente"
@@ -571,7 +571,7 @@ es-ES:
       travel: Viajes
       other: Otras
     username: "Nombre de usuario"
-    username_or_email: "Email o nombre de usuario"
+    username_or_email: "Correo electrónico o nombre de usuario"
     what_is_this: "¿Qué es esto?"
     removed_user: "Usuario eliminado"
     paypal_fee_info:
@@ -593,7 +593,7 @@ es-ES:
       update_later: "Dejar el anuncio abierto"
       optional_message: "Mensaje opcional"
       price_to_pay: "Precio total que pagarás"
-      you_need_to_fill_payout_details_before_accepting: "Tienes que completar los datos de pago antes de poder aceptar la solicitud y recibir el pago. Ve a %{payment_settings_link} para añadir toda la información."
+      you_need_to_fill_payout_details_before_accepting: "Tienes que completar los datos de pago antes de poder aceptar la solicitud y recibir el pago. Ve a la %{payment_settings_link} para añadir toda la información."
       payment_settings_link: "configuración de pagos"
       minimum_price_error_message: "El precio no puede ser menor de %{amount}."
       accept: Aceptar
@@ -901,8 +901,8 @@ es-ES:
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} ha comentado tu anuncio '%{listing}'."
       view_comment: "Ver comentario"
-      you_have_a_new_comment: "%{author} ha comentado tu publicación en %{service_name}"
-      listing_you_follow_has_a_new_comment: "%{author} ha hecho un comentario en una publicación que tú sigues en %{service_name}"
+      you_have_a_new_comment: "%{author} ha comentado tu anuncio en %{service_name}"
+      listing_you_follow_has_a_new_comment: "%{author} ha hecho un comentario en un anuncio que tú sigues en %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} ha comentado en el anuncio '%{listing}' que estás siguiendo en %{service_name}."
     new_message:
       view_message: "Ver mensaje"
@@ -943,16 +943,16 @@ es-ES:
       has_updated_listing_you_follow_in_kassi: "%{author} ha actualizado el anuncio '%{listing}' que estás siguiendo en %{service_name}."
       view_changes: "Ver cambios"
     community_updates:
-      added_offer: "%{name_link} añadir un anuncio:"
+      added_offer: "%{name_link} añadió un anuncio:"
       added_request: "%{name_link} añadió un anuncio:"
       added_listing: "%{name_link} ha añadido un anuncio:"
-      update_mail_title: "Actualización de %{title_link}"
+      update_mail_title: "Novedades de %{title_link}"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Aquí están algunas de las novedades que han ocurrido en %{community_link} durante los últimos %{time_since_last_update}."
+      intro_paragraph: "Aquí están algunas de los eventos que han ocurrido en %{community_link} durante los últimos %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Publica un nuevo anuncio"
       reduce_email_footer_text: "¿Demasiados correos? %{settings_link} o %{unsubscribe_link}."
-      settings_link_text: "Edita tu configuración de correo electrónico aquí"
+      settings_link_text: "Edita la configuración de tu correo electrónico aquí"
       unsubscribe_link_text: "cancela tu suscripción"
     newsletter:
       hi: "Hola %{name},"
@@ -979,7 +979,7 @@ es-ES:
       welcome_email_subject: "Ya formas parte de %{service_name}"
       welcome_to_marketplace: "¡Bienvenido a %{service_name}! Nos encanta que estés con nosotros."
       love_marketplace_crew: "Un saludo del equipo de <br /><i>%{service_name} </i>"
-      welcome_email_footer_text: "Qué clase de emails deseas recibir de %{service_name}? %{settings_link}"
+      welcome_email_footer_text: "¿Qué clase de correos deseas recibir de %{service_name}? %{settings_link}"
       settings_link_text: "Revisa tu configuración"
       welcome_email_subject_for_marketplace_creator: "Bienvenido a Sharetribe"
       welcome_to_marketplace_creator: "¡Bienvenido a Sharetribe, %{name}!"
@@ -1009,7 +1009,7 @@ es-ES:
     listings:
       departure_time: "La hora de salida debe encontrarse entre la fecha actual y un año a partir de ahora."
       share_type: "Debes seleccionar al menos una opción."
-      valid_until: "Esta fecha debe encontrarse entre la fecha actual y 6 meses desde ahora."
+      valid_until: "Esta fecha debe encontrarse entre la fecha actual y 6 meses de ahora."
       price: "El precio debe ser un número entero."
       minimum_price: "El precio mínimo es %{minimum_price} %{currency}."
     testimonials:
@@ -1040,13 +1040,13 @@ es-ES:
     error_500:
       temporary_unavailable: "Marketplace temporalmente fuera de servicio"
       unable_to_process: "Nuestro servicio no puede procesar tu solicitud en éste momento. Por favor, inténtalo de nuevo más tarde."
-      we_hate_this: "No nos gusta cuando pasa ésto... Nuestro equipo está trabajando para arreglar el problema lo antes posible."
+      we_hate_this: "¡No nos gusta cuando esto pasa! Nuestro equipo está trabajando para arreglar el problema lo antes posible."
       refer_to_error_id: "Si quieres contactar con nuestro equipo de soporte, por favor, indica la ID del error: \"%{error_id}\" en el mensaje."
     error_500_title: "Falló la carga de la página"
     error_description: "Descripción del error"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript está desactivado en tu buscador"
-      kassi_does_not_currently_work_without_javascript: "Desafortunadamente, en la actualidad %{service_name} no funciona sin javascript. Intenta activar javascript en las preferencias de tu buscador y vuelve a cargar la página. Si deseas utilizar %{service_name} sin javascript, por favor envíanos una sugerencia utilizando el formulario que aparece a continuación."
+      kassi_does_not_currently_work_without_javascript: "%{service_name} no funciona adecuadamente sin javascript. Intenta activar javascript en las preferencias de tu navegador y vuelve a cargar la página."
       contact_us: contáctanos
       send_feedback: "Enviar comentarios"
       your_feedback_to_admins: "Envía tus comentarios al administrador"
@@ -1070,7 +1070,7 @@ es-ES:
       has_accepted_rent_out_item: "%{offerer_name} acordó alquilar %{listing_title} de %{requester_name} %{time_ago}."
       has_accepted_rent_item: "%{offerer_name} acordó en alquilar %{listing_title} de %{requester_name} %{time_ago}."
       has_accepted_give_away_item: "%{offerer_name} aceptó dar %{listing_title} a %{requester_name} %{time_ago}."
-      has_accepted_receive_item: "%{offerer_name} aceptó recibir %{listing_title} a %{requester_name} %{time_ago}."
+      has_accepted_receive_item: "%{offerer_name} aceptó recibir %{listing_title} de %{requester_name} %{time_ago}."
       has_accepted_sell_item: "%{offerer_name} aceptó vender %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_buy_item: "%{offerer_name} aceptó vender %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_trade_item: "%{offerer_name} aceptó intercambiar %{listing_title} con %{requester_name} %{time_ago}."
@@ -1079,7 +1079,7 @@ es-ES:
       has_accepted_rent_out_housing: "%{offerer_name} acordó en alquilar %{listing_title} de %{requester_name} %{time_ago}."
       has_accepted_rent_housing: "%{offerer_name} acordó alquilar %{listing_title} con %{requester_name} %{time_ago}."
       has_accepted_favor: "%{offerer_name} aceptó ofrecer %{listing_title} a %{requester_name} %{time_ago}."
-      has_accepted_rideshare: "%{offerer_name} aceptó compartir un desplazamiento %{listing_title} con %{requester_name} %{time_ago}."
+      has_accepted_rideshare: "%{offerer_name} aceptó hacer un viaje compartido %{listing_title} con %{requester_name} %{time_ago}."
     join:
       joined_kassi: "%{name} se unió a %{service_name} %{time_ago}."
     login:
@@ -1107,8 +1107,8 @@ es-ES:
     menu: Menú
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: "Adicionalmente hay <b>otra oferta</b>,"
-      additionally_one_private_request_exists: "Adicionalmente existe <b>otra solicitiud</b>,"
+      additionally_one_private_offer_exists: "Adicionalmente  hay <b>otra oferta</b>,"
+      additionally_one_private_request_exists: "Adicionalmente  existe <b>otra solicitud</b>,"
       additionally_some_private_offers_exist: "Adicionalmente existen <b> otras %{number_of_listings} ofertas</b>,"
       additionally_some_private_requests_exist: "Adicionalmente existen otras <b>%{number_of_listings} solicitudes</b>,"
     blank_slate:
@@ -1128,8 +1128,8 @@ es-ES:
       items_to_request: "Cosas para prestar: "
       log_in: "Inicia sesión!"
       no_offers_visible_unless_logged_in: "Las ofertas de artículos, servicios o traslados compartidos no son visibles para usuarios no registrados."
-      no_open_offers_currently: "No hay abiertas ofertas de productos, servicios o traslados compartidos."
-      no_open_requests_currently: "No hay abiertas solicitudes de productos, servicios o traslados compartidos."
+      no_open_offers_currently: "No hay ofertas abiertas de productos, servicios o traslados compartidos."
+      no_open_requests_currently: "No hay solicitudes abiertas de productos, servicios o traslados compartidos."
       no_requests_visible_unless_logged_in: "Las solicitudes de artículos, servicios o traslados compartidos no son visibles para usuarios no registrados."
       one_private_offer_exists: "Ya hay <b>una oferta</b>,"
       one_private_request_exists: "Ya existe <b>una solicitud</b>,"
@@ -1144,7 +1144,7 @@ es-ES:
     event_feed:
       latest_events: "Qué está pasando"
     grid_item:
-      processing_uploaded_image: "(Procesando imagen...)"
+      processing_uploaded_image: "(Procesando la imagen...)"
     index:
       no_listings_with_your_search_criteria: "No encontramos resultados para los criterios de tu búsqueda. Intenta modificar la búsqueda."
       no_listings_notification: "No hay anuncios. %{add_listing_link}."
@@ -1158,7 +1158,7 @@ es-ES:
       post_new_listing: "Publicar anuncio"
       are_offering: oferta
       add_news_item: "Añadir un artículo"
-      lend_rent_help_carpool: "Vende, presta o ayuda a otros! Comparte trayectos!"
+      lend_rent_help_carpool: "Vende, presta, ayuda a otros o comparte trayectos"
       loading_more_content: "Cargando más contenidos"
       more_events: "Más eventos..."
       news: Noticias
@@ -1241,8 +1241,8 @@ es-ES:
       give_feedback: Contáctanos
       or_check_our: "...o revisa nuestro"
       send_feedback_to_admin: "Enviar sugerencia"
-      to_see_what_others_have_suggested: "Ver lo que otros usuarios han sugerido, y vota por las ideas publicadas"
-      your_email_address: "Tu dirección de email (para contactarte)"
+      to_see_what_others_have_suggested: "para ver lo que otros usuarios han sugerido, y vota por las ideas publicadas."
+      your_email_address: "Tu dirección de correo electrónico (para contactarte)"
       connect: Regístrate
       invite_your_friends: "Invita amigos!"
       invite_your_neighbors: "¡Invita a tus vecinos!"
@@ -1343,7 +1343,7 @@ es-ES:
       error_in_payment: "Ha habido un error en el pago. Si no completaste el proceso todavía, prueba de nuevo. Si ya lo completaste, por favor, contáctanos."
       cannot_receive_payment: "Hay algún error que está provocando que la otra persona no pueda recibir el pago. Por favor, contacta con los administradores para aclarar el motivo."
       payment_waiting_for_later_accomplishment: "Cuando hayas pagado, se lo notificaremos al vendedor y recibirás un recibo por correo electrónico"
-      password_recovery_sent: "Las instrucciones para modificar su contraseña han sido enviadas a tu correo electrónico."
+      password_recovery_sent: "Instrucciones para cambiar tu contraseña han sido enviadas a tu correo electrónico."
       person_activated: "Usuario activado"
       person_deactivated: "Usuario desactivado"
       person_updated_successfully: "Información actualizada"
@@ -1441,7 +1441,7 @@ es-ES:
       edit_listing: "Editar anuncio"
       reopen_listing: "Reactivar anuncio"
       move_to_top: "Mover a la parte superior de la página principal"
-      show_in_updates_email: "Mostrar en la próxima actualización automática de la comunidad."
+      show_in_updates_email: "Mostrar en el próximo correo de actualizaciones de la comunidad."
       show_in_updates_email_loading: Cargando...
       show_in_updates_email_error: "No se ha podido conectar con el servidor. Por favor, actualiza la página y vuelve a intentarlo."
       show_in_updates_email_success: "Este producto será mostrado en la próxima actualización de envío de e-mails a los usuarios"
@@ -1455,7 +1455,7 @@ es-ES:
     form:
       custom_field_partials:
         dropdown:
-          select_one___: "Selecciona uno"
+          select_one___: "Selecciona uno..."
       departure_time:
         at: "a las"
         departure_time: "Hora de salida"
@@ -1468,7 +1468,7 @@ es-ES:
         destination: Destino
       form_content:
         favor: "un servicio"
-        housing: "Espacio disponible"
+        housing: "espacio disponible"
         item: "un elemento"
         offer_something: "Ofrecer algo"
         request_something: "Pedir algo"
@@ -1499,7 +1499,7 @@ es-ES:
         accepted_formats: "La imagen debe estar en formato GIF, JPG o PNG."
         images_not_uploaded_confirm: "No todas las imágenes han sido cargadas. Estás seguro de que deseas continuar?"
       location:
-        location: "Ubicación (Calle, Código postal, Ciudad...)"
+        location: Ubicación
       price:
         price: Precio
         per: por
@@ -1519,7 +1519,7 @@ es-ES:
         shipping_price_additional: "Productos adicionales"
         pickup: Recoger
       origin:
-        location: "Ubicación (Calle, Código postal, Ciudad...)"
+        location: Ubicación
         origin: Origen
       send_button:
         save_listing: "Guardar anuncio"
@@ -1634,7 +1634,7 @@ es-ES:
       inquiry: Anuncio
       item_offer_trade: "Oferta de intercambio"
       item_request_trade: "Solicitud de intercambio"
-      no_description: "Esta publicación no tiene una descripción"
+      no_description: "Este anuncio no tiene una descripción"
       no_image: "Sin imagen"
       no_reviews: "No ha recibido opiniones"
       offer: Oferta
@@ -1650,7 +1650,7 @@ es-ES:
       time: Hora
       times: veces
       times_viewed: Visto
-      processing_uploaded_image: "(Procesando la imagen subida...)"
+      processing_uploaded_image: "(Procesando la imagen...)"
       price_excludes_vat: "(Impuestos no incluídos)"
       listing_created_at: "Anuncio creado el"
       price:
@@ -1963,28 +1963,28 @@ es-ES:
         status_confirmed: Confirmado
         status_pending: Pendiente
     notifications:
-      email_from_admins: "Quiero recibir actualizaciones del administrador de forma ocasional."
+      email_from_admins: "Quiero recibir correos de los administradores de forma ocasional."
       i_want_to_get_email_notification_when: "Quiero recibir una notificación por correo electrónico cuando..."
-      newsletters: Boletines
+      newsletters: "Correos de los administradores"
       community_updates: "Actualizaciones de la comunidad"
-      email_about_accept_reminders: "...He olvidado aceptar una oferta o solicitud"
-      email_about_confirm_reminders: "...Olvidé confirmar una solicitud como completada"
-      email_about_new_comments_to_own_listing: ".. .alguien hace un comentario en mi oferta o solicitud"
-      email_about_new_messages: ".. .alguien me envía un mensaje"
-      email_about_new_received_testimonials: ".. .alguien me dado retroalimentación"
-      email_about_testimonial_reminders: "...He olvidado dar retroalimentación sobre un evento"
-      email_daily_community_updates: "Envíame un correo de actualización <b>diariamente</b> si hay nuevas publicaciones"
-      email_weekly_community_updates: "Envíame un correo de actualización <b>semanalmente</b> si hay nuevas publicaciones"
-      do_not_email_community_updates: "No enviarme correos de actualización"
-      email_when_conversation_accepted: ".. .alguien acepta mi oferta o solicitud"
-      email_when_conversation_rejected: ".. .alguien rechaza mi oferta o solicitud"
+      email_about_accept_reminders: "...he olvidado aceptar una oferta o solicitud"
+      email_about_confirm_reminders: "...olvidé confirmar una solicitud como completada"
+      email_about_new_comments_to_own_listing: "...alguien hace un comentario en mi oferta o solicitud"
+      email_about_new_messages: "...alguien me envía un mensaje"
+      email_about_new_received_testimonials: "...alguien me dado retroalimentación"
+      email_about_testimonial_reminders: "...he olvidado dar retroalimentación sobre un evento"
+      email_daily_community_updates: "Envíame un correo de actualizaciones <b>diariamente</b> si hay nuevas publicaciones"
+      email_weekly_community_updates: "Envíame un correo de actualizaciones <b>semanalmente</b> si hay nuevas publicaciones"
+      do_not_email_community_updates: "No enviarme correos de actualizaciones"
+      email_when_conversation_accepted: "...alguien acepta mi oferta o solicitud"
+      email_when_conversation_rejected: "...alguien rechaza mi oferta o solicitud"
       email_about_completed_transactions: "...alguien marca mi solicitud como completada"
-      email_about_new_payments: "...Recibiendo un nuevo pago"
-      email_about_payment_reminders: "...Olvidé pagar"
+      email_about_new_payments: "...recibo un nuevo pago"
+      email_about_payment_reminders: "...olvidé pagar"
       email_about_new_listings_by_followed_people: "...alguien a quien sigo publica un nuevo anuncio"
       unsubscribe_succesful: "Suscripción cancelada exitosamente"
-      unsubscribe_info_text: "Dejarás de recibir estos emails. Revisa tu %{settings_link} para elegir qué clase de emails quieres recibir de %{service_name}, o regresa a %{homepage_link}."
-      settings_link: opciones
+      unsubscribe_info_text: "Dejarás de recibir estos correos. Revisa tus %{settings_link} para elegir qué clase de correos quieres recibir de %{service_name}, o regresa a la %{homepage_link}."
+      settings_link: configuraciones
       homepage_link: "página de inicio"
       unsubscribe_unsuccesful: "Error al cancelar la suscripción"
       unsuccessful_unsubscribe_info_text: "El enlace para cancelar la suscripción ha expirado. Es necesario iniciar sesión para cambiar la configuración de subscripción de su cuenta de correo electrónico."
@@ -2018,7 +2018,7 @@ es-ES:
   terms:
     show:
       accept_terms: "Aceptar los términos de uso de %{service_name}"
-      here: "Click aquí"
+      here: "haciendo click aquí"
       i_accept_new_terms: "Acepto los nuevos términos"
       i_accept_terms: "Acepto los términos"
       terms: "Términos de uso de %{service_name}"

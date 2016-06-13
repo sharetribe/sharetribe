@@ -8,11 +8,11 @@
     "digits": "Por favor ingresa sólo dígitos.",
     "email": "Por favor introduce una dirección de correo electrónico válida.",
     "equalTo": "Por favor introduce el mismo valor nuevamente.",
-    "max": "Por favor introduce un valor inferior o igual a {0} .",
-    "maxlength": "Por favor introduce no más de {0} caracteres.",
-    "min": "Por favor introduce un valor mayor o igual a {0} .",
-    "minlength": "Por favor introduce al menos {0} caracteres.",
-    "number": "Por favor introduce un número válido.",
+    "max": "Por favor proporciona un valor inferior o igual a {0} .",
+    "maxlength": "Por favor no introduzcas más de {0} caracteres.",
+    "min": "Por favor proporciona un valor mayor o igual a {0} .",
+    "minlength": "Por favor proporciona al menos {0} caracteres.",
+    "number": "Por favor proporciona un número válido.",
     "range": "Por favor ingresa un valor entre {0} y {1} .",
     "rangelength": "Por favor introduce un valor entre {0} y {1} caracteres de longitud.",
     "remote": "Por favor arregla este campo.",
@@ -22,7 +22,7 @@
     "money": "Debes ingresar un valor monetario válido.",
     "min_bound": "Por favor ingresa un valor menor que el valor máximo ({0})",
     "max_bound": "Por favor ingresa un valor mayor que el valor mínimo ({0})",
-    "number_no_decimals": "Por favor ingresa un número entero",
-    "number_decimals": "Por favor ingresa un número válido con punto (.) o coma (,) como separador de decimales"
+    "number_no_decimals": "Por favor ingresa un número sin decimales",
+    "number_decimals": "Por favor ingresa un número válido, puedes usar punto (.) o coma (,) como separador de decimales"
   }
 }
