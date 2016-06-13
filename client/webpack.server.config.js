@@ -14,7 +14,7 @@ const assetHost = replacePercentChar(assetHostEnv);
 module.exports = {
   context: __dirname,
   entry: [
-    'babel-polyfill',
+    'es6-object-assign',
     './app/startup/serverRegistration',
   ],
   output: {
