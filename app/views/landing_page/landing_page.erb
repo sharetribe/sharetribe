@@ -87,7 +87,9 @@
   <% case s["kind"] %>
   <% when "hero" # Hero section %>
 
-    <section class="hero__section" style="background-image: url('<%= s["background_image"]["src"] %>')">
+    <% section_id = "hero__#{s['id']}" %>
+
+    <section id="<%= section_id %>" class="hero__section" style="background-image: url('<%= s["background_image"]["src"] %>')">
       <div class="hero__content">
         <div class="hero__content-container">
           <h1 class="hero__title"><%= s["title"] %></h1>
@@ -97,7 +99,7 @@
           <% when "keyword_search", "location_search" %>
 
             <div class="hero__search-bar-padding">
-              <form method="get" id="hero__search-form" class="hero__search-bar" action="<%= s["search_path"] %>">
+              <form method="get" id="<%= section_id %>__search-form" class="hero__search-bar" action="<%= s["search_path"] %>">
                 <div class="hero__search-icon">
 
                   <svg class="hero__search-icon-svg" viewBox="27 19 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -107,14 +109,28 @@
                     </g>
                   </svg>
                 </div>
-                <input type="search" id="q" name="q" class="hero__search-input" placeholder="<%= s["search_placeholder"] %>"/>
+                <input type="search" name="q" class="hero__search-input" placeholder="<%= s["search_placeholder"] %>"/>
                 <button type="submit" class="hero__search-button"><%= s["search_button"] %></button>
                 <% if s["variation"] == "location_search" %>
-                  <input type="hidden" id="ls" name="ls" />
-                  <input type="hidden" id="lc" name="lc" />
-                  <input type="hidden" id="boundingbox" name="boundingbox" />
-                  <input type="hidden" id="distance_max" name="distance_max" />
+                  <input type="hidden" name="ls" />
+                  <input type="hidden" name="lc" />
+                  <input type="hidden" name="boundingbox" />
+                  <input type="hidden" name="distance_max" />
+
+                  <% content_for :location_search_js do %>
+                    <script>
+                     window.ST.initializeLocationSearch({
+                       form: '#<%= section_id %>__search-form',
+                       search: '#<%= section_id %>__search-form [name=q]',
+                       status: '#<%= section_id %>__search-form [name=ls]',
+                       coordinate: '#<%= section_id %>__search-form [name=lc]',
+                       boundingbox: '#<%= section_id %>__search-form [name=boundingbox]',
+                       maxDistance: '#<%= section_id %>__search-form [name=distance_max]'
+                     })
+                    </script>
+                  <% end %>
                 <% end %>
+
               </form>
             </div>
 
@@ -142,9 +158,8 @@
       <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
       <script>
        <%= location_search_js.html_safe %>
-       window.ST.initializeLocationSearch("hero__search-form")
       </script>
-
+       <%= yield :location_search_js %>
     <% end %>
   <% end %>
 <% end %>

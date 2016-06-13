@@ -2,13 +2,13 @@ window.ST = window.ST || {};
 
 (function(module) {
 
-  module.initializeLocationSearch = function initializeLocationSearch(formId) {
-    var searchInput = document.getElementById('q');
-    var statusInput = document.getElementById('ls');
-    var coordinateInput = document.getElementById('lc');
-    var boundingboxInput = document.getElementById('boundingbox');
-    var maxDistanceInput = document.getElementById('distance_max');
-    var form = document.getElementById(formId);
+  module.initializeLocationSearch = function initializeLocationSearch(selectors) {
+    var searchInput = document.querySelector(selectors.search);
+    var statusInput = document.querySelector(selectors.status);
+    var coordinateInput = document.querySelector(selectors.coordinate);
+    var boundingboxInput = document.querySelector(selectors.boundingbox);
+    var maxDistanceInput = document.querySelector(selectors.maxDistance);
+    var form = document.querySelector(selectors.form);
     var autocomplete = new window.google.maps.places.Autocomplete(searchInput, { bounds: { north: -90, east: -180, south: 90, west: 180 } });
     autocomplete.setTypes(['geocode']);
 
