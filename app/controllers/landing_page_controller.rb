@@ -92,6 +92,9 @@ class LandingPageController < ActionController::Metal
   include ActionView::Layouts
   append_view_path "#{Rails.root}/app/views"
 
+  # Include route helpers
+  include Rails.application.routes.url_helpers
+
   def index
     landing_page
   end
@@ -107,7 +110,12 @@ class LandingPageController < ActionController::Metal
         }
       })
 
-    render :landing_page, locals: { sections: denormalizer.to_tree(data) }
+    paths = {
+      search_path: "/search/", # FIXME. Remove hardcoded URL. Add search path here when we get one
+      signup_path: sign_up_path
+    }
+
+    render :landing_page, locals: { sections: denormalizer.to_tree(data), paths: paths }
   end
 
   def append_asset_dir(file)
@@ -124,10 +132,21 @@ class LandingPageController < ActionController::Metal
 
       "sections" => [
         {
+          "id" => "private_hero",
+          "kind" => "hero",
+          "variation" => "private",
+          "title" => "Your marketplace title goes here and it looks tasty",
+          "subtitle" => "Paragraph. Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam.",
+          "background_image" => {"type" => "assets", "id" => "myheroimage"},
+          "signup_button" => "Sign up"
+        },
+
+        {
           "id" => "myhero1",
           "kind" => "hero",
-          "title" => "Sell your turbobike",
-          "subtitle" => "The best place to rent your turbojopo",
+          "variation" => "keyword_search",
+          "title" => "Your marketplace title goes here and it looks tasty",
+          "subtitle" => "Paragraph. Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam.",
           "background_image" => {"type" => "assets", "id" => "myheroimage"},
           "search_placeholder" => "What kind of turbojopo are you looking for?",
           "search_button" => "Search",
@@ -142,10 +161,10 @@ class LandingPageController < ActionController::Metal
       ],
 
       "composition" => [
-        { "section" => {"type" => "sections", "id" => "myhero1"},
+        { "section" => {"type" => "sections", "id" => "private_hero"},
           "disabled" => false},
         { "section" => {"type" => "sections", "id" => "myhero1"},
-          "disabled" => false},
+          "disabled" => true},
         { "section" => {"type" => "sections", "id" => "myhero1"},
           "disabled" => true},
       ],
@@ -153,7 +172,7 @@ class LandingPageController < ActionController::Metal
       "assets" => [
         {
           "id" => "myheroimage",
-          "src" => "hero.png",
+          "src" => "hero.jpg",
         }
       ]
     }
