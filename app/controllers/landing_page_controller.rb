@@ -131,6 +131,12 @@ class LandingPageController < ActionController::Metal
             path
           end
         },
+        "marketplace_color" => ->(type, id, normalized_data) {
+          case id
+          when "primary_color"
+            {"id" => "primary_color", "value" => "#347F9D"}
+          end
+        },
         "assets" => ->(type, id, normalized_data) {
           append_asset_path(Denormalizer.find_link(type, id, normalized_data))
         }
@@ -175,6 +181,26 @@ class LandingPageController < ActionController::Metal
         },
 
         {
+          "id" => "footer",
+          "kind" => "footer",
+          "theme" => "dark",
+          "social_media_icon_color" => {"type" => "marketplace_color", "id" => "primary_color"},
+          "links" => [
+            {"label" => "About", "url" => "/about"},
+            {"label" => "How it works", "url" => "https://www.google.com"},
+            {"label" => "Blog", "url" => "/about"},
+            {"label" => "Contact", "url" => "https://www.google.com"},
+            {"label" => "FAQ", "url" => "/about"},
+          ],
+          "social" => [
+            {"service" => "facebook", "url" => "https://www.facebook.com"},
+            {"service" => "twitter", "url" => "https://www.twitter.com"},
+            {"service" => "instagram", "url" => "https://www.instagram.com"},
+          ],
+          "copyright" => "Copyright Marketplace Ltd 2016"
+        },
+
+        {
           "id" => "thecategories",
           "kind" => "categories",
           "slogan" => "blaablaa",
@@ -185,8 +211,10 @@ class LandingPageController < ActionController::Metal
       "composition" => [
         { "section" => {"type" => "sections", "id" => "private_hero"},
           "disabled" => false},
-        { "section" => {"type" => "sections", "id" => "myhero1"},
+        { "section" => {"type" => "sections", "id" => "footer"},
           "disabled" => false},
+        { "section" => {"type" => "sections", "id" => "myhero1"},
+          "disabled" => true},
         { "section" => {"type" => "sections", "id" => "myhero1"},
           "disabled" => true},
       ],
