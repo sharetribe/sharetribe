@@ -84,14 +84,25 @@
   margin-top: -4.44vh; /* -50px, when content height is 900px, 80vh */
 }
 
+// Add small extra padding for the search bar
+.hero__search-bar-padding {
+  padding: 0 12px;
+}
+
 .hero__search-bar {
+  margin: 0 auto;
   max-width: 532px;
   display: flex;
-  margin: 0 auto;
-  padding: 0 12px;
+  background-color: #FFF;
+
+  // Add border-radius and overflow: hidden
+  // so that border of the children are also rounded
+  border-radius: 29.5px;
+  overflow: hidden;
 
   /* mobile */
   flex-direction: row-reverse;
+  padding: 0px 0px 0px 24px;
 
   @media #{$tablet} {
     flex-direction: row;
@@ -113,19 +124,12 @@
     outline: none;
   }
 
-  /* mobile */
-  border-top-left-radius: 29.5px;
-  border-bottom-left-radius: 29.5px;
-
   font-size: 16px;
   letter-spacing: 0px;
   line-height: 32px;
-  padding: 8px 12px 8px 24px;
+  padding: 8px 12px 8px 0px;
 
   @media #{$tablet} {
-    border-top-left-radius: inherit;
-    border-bottom-left-radius: inherit;
-
     font-size: 18px;
     letter-spacing: 0px;
     line-height: 32px;
@@ -134,9 +138,6 @@
   }
 
   @media #{$desktop} {
-    border-top-left-radius: inherit;
-    border-bottom-left-radius: inherit;
-
     font-size: 18px;
     letter-spacing: 0px;
     line-height: 32px;
@@ -153,8 +154,6 @@
   padding: 14px 28px;
 
   line-height: 32px;
-  border-top-right-radius: 29.5px;
-  border-bottom-right-radius: 29.5px;
 
   background: #347F9D;
 
@@ -199,24 +198,14 @@
   background: #FFF;
 
   /* mobile */
-  border-top-right-radius: 29.5px;
-  border-bottom-right-radius: 29.5px;
   padding: 15px 24px 15px 0px;
 
   @media #{$tablet} {
-    border-top-left-radius: 29.5px;
-    border-bottom-left-radius: 29.5px;
-    border-top-right-radius: inherit;
-    border-bottom-right-radius: inherit;
-    padding: 19px 0px 19px 24px;
+    padding: 19px 0px;
   }
 
   @media #{$desktop} {
-    border-top-left-radius: 29.5px;
-    border-bottom-left-radius: 29.5px;
-    border-top-right-radius: inherit;
-    border-bottom-right-radius: inherit;
-    padding: 19px 0px 19px 28px;
+    padding: 19px 0px;
   }
 }
 

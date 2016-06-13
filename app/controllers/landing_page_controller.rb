@@ -164,7 +164,7 @@ class LandingPageController < ActionController::Metal
         {
           "id" => "myhero1",
           "kind" => "hero",
-          "variation" => "keyword_search",
+          "variation" => "location_search",
           "title" => "Your marketplace title goes here and it looks tasty",
           "subtitle" => "Paragraph. Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam.",
           "background_image" => {"type" => "assets", "id" => "myheroimage"},
@@ -185,7 +185,7 @@ class LandingPageController < ActionController::Metal
         { "section" => {"type" => "sections", "id" => "private_hero"},
           "disabled" => false},
         { "section" => {"type" => "sections", "id" => "myhero1"},
-          "disabled" => true},
+          "disabled" => false},
         { "section" => {"type" => "sections", "id" => "myhero1"},
           "disabled" => true},
       ],

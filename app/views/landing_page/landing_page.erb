@@ -78,7 +78,9 @@
 
 </head>
 
-<% sections.reject { |section| section["disabled"] }.each do |section| %>
+<% enabled_sections = sections.reject { |section| section["disabled"] } %>
+
+<% enabled_sections.each do |section| %>
 
   <% s = section["section"] %>
 
@@ -92,21 +94,23 @@
           <h3 class="hero__subtitle"><%= s["subtitle"] %></h3>
 
           <% case s["variation"] %>
-          <% when "keyword_search" %>
+          <% when "keyword_search", "location_search" %>
 
-            <form method="get" class="hero__search-bar" action="<%= s["search_path"] %>">
-              <div class="hero__search-icon">
+            <div class="hero__search-bar-padding">
+              <form method="get" class="hero__search-bar" action="<%= s["search_path"] %>">
+                <div class="hero__search-icon">
 
-                <svg class="hero__search-icon-svg" viewBox="27 19 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <g id="icon_search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(38.000000, 30.000000) scale(-1, 1) translate(-38.000000, -30.000000) translate(28.000000, 20.000000)" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M14.6666667,14.6666667 L19.3254458,19.3254458" id="line" stroke="#525961" stroke-width="2"></path>
-                    <circle id="Oval" stroke="#525961" stroke-width="2" cx="8" cy="8" r="8"></circle>
-                  </g>
-                </svg>
-              </div>
-              <input type="search" name="q" class="hero__search-input" placeholder="<%= s["search_placeholder"] %>"/>
-              <button type="submit" class="hero__search-button"><%= s["search_button"] %></button>
-            </form>
+                  <svg class="hero__search-icon-svg" viewBox="27 19 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="icon_search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(38.000000, 30.000000) scale(-1, 1) translate(-38.000000, -30.000000) translate(28.000000, 20.000000)" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14.6666667,14.6666667 L19.3254458,19.3254458" id="line" stroke="#525961" stroke-width="2"></path>
+                      <circle id="Oval" stroke="#525961" stroke-width="2" cx="8" cy="8" r="8"></circle>
+                    </g>
+                  </svg>
+                </div>
+                <input type="search" id="q" name="q" class="hero__search-input" placeholder="<%= s["search_placeholder"] %>"/>
+                <button type="submit" class="hero__search-button"><%= s["search_button"] %></button>
+              </form>
+            </div>
 
           <% when "private" %>
 
@@ -119,6 +123,25 @@
 
   <% end # case section["type"] %>
 
-<% end # sections.each %>
+<% end # enabled_sections#each %>
+
+
+<% enabled_sections.each do |section| %>
+
+  <% s = section["section"] %>
+
+  <% case s["kind"] %>
+  <% when "hero" # Hero section %>
+    <% if s["variation"] == "location_search" %>
+      <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+      <script>
+       var bounds = { north: -90, east: -180, south: 90, west: 180 };
+       var q = document.getElementById("q")
+         var autocomplete = new window.google.maps.places.Autocomplete(q, { bounds: bounds });
+       autocomplete.setTypes(['geocode']);
+      </script>
+    <% end %>
+  <% end %>
+<% end %>
 
 </html>
