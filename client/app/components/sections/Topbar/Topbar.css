@@ -50,3 +50,10 @@
 .topbarLogo {
   height: var(--Topbar_logoHeight);
 }
+
+.topbarAvatar {
+  height: var(--Topbar_avatarSize);
+  margin: var(--Topbar_avatarMargin);
+  font-family: var(--Topbar_fontFamily);
+  font-size: var(--Topbar_fontSize);
+}

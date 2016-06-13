@@ -1,0 +1,11 @@
+.avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.avatarImage {
+  border-radius: 50%;
+  height: 100%;
+}

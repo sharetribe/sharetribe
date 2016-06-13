@@ -5,6 +5,13 @@ import css from './Topbar.css';
 
 import Logo from '../../elements/Logo/Logo';
 import SearchBar from '../../composites/SearchBar/SearchBar';
+import Avatar from '../../composites/Avatar/Avatar';
+
+const avatarProps = (avatar, railsContext) => {
+  // TODO: rethink with actual railscontext
+  const color = railsContext && railsContext.marketplace_color1 ? railsContext.marketplace_color1 : '#050';
+  return { ...avatar, customColor: color };
+};
 
 class Topbar extends Component {
   render() {
@@ -21,6 +28,7 @@ class Topbar extends Component {
           },
         }) :
         null,
+      r(Avatar, { ...avatarProps(this.props.avatar, this.props.railsContext), classSet: css.topbarAvatar }),
     ]);
   }
 }
@@ -32,6 +40,8 @@ Topbar.propTypes = {
     keyword_placeholder: PropTypes.string,
     location_placeholder: PropTypes.string,
   }).isRequired,
+  avatar: PropTypes.shape(Avatar.propTypes),
+  railsContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
 export default Topbar;

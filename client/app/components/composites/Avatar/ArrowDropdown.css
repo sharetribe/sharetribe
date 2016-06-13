@@ -1,0 +1,63 @@
+.arrowDropdown {
+}
+
+.rootArrow {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--ProfileDropdown_borderColor);
+}
+
+.box {
+  position: absolute;
+  border: 1px solid var(--ProfileDropdown_borderColor);
+  right: 18px; /* we need a var here, whatever our generic margin is*/
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  /* Notifications_box: */
+  background: #FFFFFF;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.10);
+  border-radius: 3px;
+}
+
+.profileActions {
+  display: flex;
+}
+
+.profileAction {
+  width: 7.5rem;
+  height: 7.5rem;
+  border-right: 1px solid var(--ProfileDropdown_borderColor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.profileAction:hover {
+  background-color: rgb(249, 249, 249);
+}
+
+.profileAction:last-of-type {
+  border-right: 0;
+}
+
+.profileActionLabel {
+}
+
+.logoutArea {
+  border-top: 1px solid var(--ProfileDropdown_borderColor);
+  padding: 0.6rem 1rem;
+}
+
+.adminLink {
+  display: inline-block;
+}
+
+.logoutLink {
+  display: inline-block;
+  float: right;
+}
