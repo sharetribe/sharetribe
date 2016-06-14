@@ -1,7 +1,6 @@
 class LandingPageController < ActionController::Metal
 
-  class LandingPageConfigurationError < StandardError; end
-  class LandingPageContentNotFound < StandardError; end
+  LandingPageStore = CustomLandingPage::LandingPageStore
 
   # Needed for rendering
   #
@@ -18,14 +17,18 @@ class LandingPageController < ActionController::Metal
   include ActionController::Helpers
 
   def index
-    version = clp_version(community_id(request))
+    version = LandingPageStore.released_version(community_id(request))
     # TODO Ideally we would do the caching based upon just clp_version
     # and avoid loading and parsing the (potentially) big structure
     # JSON.
     begin
-      structure = load_structure(community_id(request), version)
+      structure = LandingPageStore.load_structure(community_id(request), version)
+
+      # Uncomment for dev purposes
+      # structure = JSON.parse(data_str)
+
       render_landing_page(structure)
-    rescue LandingPageContentNotFound
+    rescue CustomLandingPage::LandingPageContentNotFound
       render_not_found()
     end
   end
@@ -33,12 +36,12 @@ class LandingPageController < ActionController::Metal
   def preview
     preview_version = parse_int(params[:preview_version])
     begin
-      structure = load_structure(community_id(request), preview_version)
+      structure = LandingPageStore.load_structure(community_id(request), preview_version)
 
       # Tell robots to not index and to not follow any links
       headers["X-Robots-Tag"] = "none"
       render_landing_page(structure)
-    rescue LandingPageContentNotFound
+    rescue CustomLandingPage::LandingPageContentNotFound
       render_not_found()
     end
   end
@@ -79,33 +82,6 @@ class LandingPageController < ActionController::Metal
     Integer(int_str_or_nil || "")
   rescue ArgumentError
     nil
-  end
-
-  def clp_version(cid)
-    enabled, released_version = LandingPage.where(community_id: cid)
-                               .pluck(:enabled, :released_version)
-                               .first
-    if !enabled
-      raise LandingPageConfigurationError.new("Landing page not enabled. community_id: #{cid}.")
-    elsif released_version.nil?
-      raise LandingPageConfigurationError.new("Landing page version not specified.")
-    end
-
-    released_version
-  end
-
-  def load_structure(cid, version)
-    content = LandingPageVersion.where(community_id: cid, version: version)
-              .pluck(:content)
-              .first
-    if content.blank?
-      raise LandingPageContentNotFound.new("Content missing. community_id: #{cid}, version: #{version}.")
-    end
-
-    # For dev purposes uncomment to easily test data modifications without DB
-    # content = data_str
-
-    JSON.parse(content)
   end
 
   def community_id(request)
