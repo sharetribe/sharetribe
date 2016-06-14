@@ -3,14 +3,8 @@ module Mercury
 
     def can_edit?
       @current_user = current_person
-      @current_community = ApplicationController.find_community(community_identifiers)
+      @current_community = CurrentMarketplaceResolver.resolve_from_host(request.host, URLUtils.strip_port_from_host(APP_CONFIG.domain))
       @current_user && @current_community && @current_user.has_admin_rights?
     end
-
-    def community_identifiers
-      app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
-      ApplicationController.parse_community_identifiers_from_host(request.host, app_domain)
-    end
-
   end
 end
