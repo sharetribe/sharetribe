@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609070256) do
+ActiveRecord::Schema.define(version: 20160614071055) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20160609070256) do
     t.string   "paypal_username_to",   limit: 255, null: false
     t.string   "request_token",        limit: 255, null: false
   end
+
+  add_index "billing_agreements", ["paypal_account_id"], name: "index_billing_agreements_on_paypal_account_id", using: :btree
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "transaction_id", limit: 4
@@ -687,6 +689,8 @@ ActiveRecord::Schema.define(version: 20160609070256) do
     t.string   "onboarding_id",       limit: 36
     t.boolean  "permissions_granted"
   end
+
+  add_index "order_permissions", ["paypal_account_id"], name: "index_order_permissions_on_paypal_account_id", using: :btree
 
   create_table "participations", force: :cascade do |t|
     t.string   "person_id",        limit: 255
