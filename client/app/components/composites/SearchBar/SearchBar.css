@@ -24,7 +24,7 @@
   /* stylelint-enable selector-class-pattern */
 }
 
-.root {
+.form {
   display: inline-flex;
   width: 28.3em;
   position: relative;
@@ -85,7 +85,7 @@
     transition: color 0.1s ease-in;
   }
 
-  @nest .root:hover & {
+  @nest .form:hover & {
     color: var(--SearchBar_textColorActive);
 
     &::placeholder {
@@ -157,7 +157,7 @@
     stroke: var(--SearchBar_iconColor);
     transition: stroke 0.1s ease-in;
 
-    @nest .root:hover & {
+    @nest .form:hover & {
       stroke: var(--SearchBar_iconColorActive);
 
       &:hover {
@@ -166,7 +166,7 @@
     }
   }
 
-  @nest .root:hover &:hover svg {
+  @nest .form:hover &:hover svg {
     stroke: var(--SearchBar_iconColorFocus);
   }
 

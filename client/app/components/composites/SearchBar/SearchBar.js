@@ -180,7 +180,7 @@ class SearchBar extends Component {
     const hasLocationInput = mode === SEARCH_MODE_LOCATION || mode === SEARCH_MODE_KEYWORD_AND_LOCATION;
 
     return form({
-      classSet: { [css.root]: true },
+      classSet: { [css.form]: true },
       onSubmit: (e) => {
         e.preventDefault();
         this.handleSubmit();
