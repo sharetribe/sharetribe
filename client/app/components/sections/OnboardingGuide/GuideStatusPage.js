@@ -33,7 +33,7 @@ const GuideStatusPage = (props) => {
     p({ className: css.description },
       t('web.admin.onboarding.guide.status_page.congratulation_p1.content',
         { knowledge_base_link: a(
-          { href: 'http://support.sharetribe.com/knowledgebase/articles/892140-what-to-do-after-the-basic-setup-of-your-marketpla',
+          { href: 'http://support.sharetribe.com/knowledgebase/articles/892140',
             target: '_blank',
             rel: 'noreferrer',
             alt: t('web.admin.onboarding.guide.status_page.congratulation_p1.knowledge_base_alt'),
