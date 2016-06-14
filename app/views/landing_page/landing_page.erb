@@ -83,139 +83,17 @@
 <% enabled_sections.each do |section| %>
 
   <% s = section["section"] %>
+  <% section_id = "#{s['kind']}__#{s['id']}" %>
 
   <% case s["kind"] %>
-  <% when "hero" # Hero section %>
-
-    <% section_id = "hero__#{s['id']}" %>
-
-    <section id="<%= section_id %>" class="hero__section" style="background-image: url('<%= s["background_image"]["src"] %>')">
-      <div class="hero__content">
-        <div class="hero__content-container">
-          <h1 class="hero__title"><%= s["title"] %></h1>
-          <h3 class="hero__subtitle"><%= s["subtitle"] %></h3>
-
-          <% case s["variation"] %>
-          <% when "keyword_search", "location_search" %>
-
-            <div class="hero__search-bar-padding">
-              <form method="get" id="<%= section_id %>__search-form" class="hero__search-bar" action="<%= s["search_path"] %>">
-                <div class="hero__search-icon">
-
-                  <svg class="hero__search-icon-svg" viewBox="27 19 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g id="icon_search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(38.000000, 30.000000) scale(-1, 1) translate(-38.000000, -30.000000) translate(28.000000, 20.000000)" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M14.6666667,14.6666667 L19.3254458,19.3254458" id="line" stroke="#525961" stroke-width="2"></path>
-                      <circle id="Oval" stroke="#525961" stroke-width="2" cx="8" cy="8" r="8"></circle>
-                    </g>
-                  </svg>
-                </div>
-                <input type="search" name="q" class="hero__search-input" placeholder="<%= s["search_placeholder"] %>"/>
-                <button type="submit" class="hero__search-button"><%= s["search_button"] %></button>
-                <% if s["variation"] == "location_search" %>
-                  <input type="hidden" name="ls" />
-                  <input type="hidden" name="lc" />
-                  <input type="hidden" name="boundingbox" />
-                  <input type="hidden" name="distance_max" />
-
-                  <% content_for :location_search_js do %>
-                    <script>
-                     window.ST.initializeLocationSearch({
-                       form: '#<%= section_id %>__search-form',
-                       search: '#<%= section_id %>__search-form [name=q]',
-                       status: '#<%= section_id %>__search-form [name=ls]',
-                       coordinate: '#<%= section_id %>__search-form [name=lc]',
-                       boundingbox: '#<%= section_id %>__search-form [name=boundingbox]',
-                       maxDistance: '#<%= section_id %>__search-form [name=distance_max]'
-                     })
-                    </script>
-                  <% end %>
-                <% end %>
-
-              </form>
-            </div>
-
-          <% when "private" %>
-
-            <a class="hero__signup-button" href="<%= s["signup_path"] %>"><%= s["signup_button"] %></a>
-
-          <% end %>
-        </div>
-      </div>
-    </section>
-
+  <% when "hero" %>
+  <%= render partial: "hero", locals: {section_id: section_id, s: s} %>
   <% when "footer" %>
-    <footer class="footer__container--<%= s['theme'] %>">
-      <div class="footer__content">
-        <div class="footer__links-container">
-          <% if s['links'].length > 0 %>
-            <ul class="footer__link-list">
-              <% s['links'].each do |link| %>
-                <li class="footer__link-list-item"><a class="footer__link" href="<%= link['url'] %>"><%= link["label"] %></a></li>
-              <% end %>
-            </ul>
-          <% end %>
-
-          <% if s["social"].length > 0 %>
-
-          <div class="footer__social-media">
-
-            <% svg_color = s["theme"] == "dark" ? "#FFFFFF" : s["social_media_icon_color"]["value"] %>
-
-            <% s["social"].each do |social| %>
-
-            <a href="<%= social['url'] %>" target="_blank" rel="noreferrer">
-
-              <% case social["service"] %>
-              <% when "facebook" %>
-
-              <svg class="footer__facebook-icon" viewBox="0 0 12 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path d="M7.78896556,22 L7.78896556,11.9648254 L11.3270218,11.9648254 L11.8567155,8.05386965 L7.78896556,8.05386965 L7.78896556,5.55689722 C7.78896556,4.42458426 8.11918279,3.65297638 9.8247272,3.65297638 L12,3.65200544 L12,0.15408855 C11.623687,0.106512375 10.3324948,0 8.83030221,0 C5.69405446,0 3.54703063,1.82255587 3.54703063,5.16968541 L3.54703063,8.05386965 L0,8.05386965 L0,11.9648254 L3.54703063,11.9648254 L3.54703063,22 L7.78896556,22 Z" id="Facebook" stroke="none" fill="<%= svg_color %>" fill-rule="evenodd"></path>
-              </svg>
-
-              <% when "twitter" %>
-
-              <svg class="footer__twitter-icon" viewBox="48 2 21 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path d="M68.4207941,2.33276729 C67.5875898,2.8529685 66.6669159,3.23129666 65.6828825,3.43372529 C64.8990201,2.55134408 63.778736,2 62.5384615,2 C60.1610819,2 58.2317037,4.03466726 58.2317037,6.54397488 C58.2317037,6.90038768 58.2687101,7.24584281 58.3427229,7.57861011 C54.7620751,7.38886931 51.5879369,5.58200634 49.4617521,2.829323 C49.0905668,3.50293166 48.8786212,4.28438691 48.8786212,5.11659351 C48.8786212,6.69219186 49.6389341,8.08323988 50.7956639,8.89814488 C50.0902998,8.87622953 49.4247457,8.66976387 48.8427362,8.33180609 L48.8427362,8.38717119 C48.8427362,10.5896639 50.3280378,12.427093 52.3005901,12.8429079 C51.9394975,12.9496011 51.5582196,13.003236 51.165167,13.003236 C50.8876191,13.003236 50.6167997,12.9755535 50.3543908,12.9224953 C50.9027581,14.7270514 52.4929111,16.0413957 54.3785545,16.0765756 C52.9044669,17.2957611 51.0457373,18.022428 49.0277681,18.022428 C48.6801324,18.022428 48.3364216,18.0016661 48,17.9601423 C49.9063893,19.2473807 52.1721891,20 54.6045177,20 C62.530051,20 66.8626011,13.0770562 66.8626011,7.07167345 C66.8626011,6.87385858 66.8592369,6.67662042 66.8519478,6.48284259 C67.6935626,5.84210695 68.424719,5.04219666 69,4.13097946 C68.228473,4.49200602 67.3975115,4.7365352 66.5261795,4.84611195 C67.4160147,4.28438691 68.0989507,3.39393163 68.4207941,2.33276729" id="Twitter" stroke="none" fill="<%= svg_color %>" fill-rule="evenodd"></path>
-              </svg>
-
-              <% when "instagram" %>
-
-              <svg class="footer__instagram-icon" viewBox="105 1 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path d="M124.384938,1 L107.615062,1 C106.170717,1 105,2.16771677 105,3.60906091 L105,20.3909391 C105,21.8316832 106.170717,23 107.615062,23 L124.384938,23 C125.829283,23 127,21.8316832 127,20.3909391 L127,3.60906091 C127,2.16771677 125.829283,1 124.384938,1 L124.384938,1 Z M120.812781,4.43714371 C120.812781,4.05790579 121.120612,3.75007501 121.49985,3.75007501 L123.562256,3.75007501 C123.942094,3.75007501 124.249925,4.05790579 124.249925,4.43714371 L124.249925,6.50015002 C124.249925,6.87938794 123.942094,7.18721872 123.562256,7.18721872 L121.49985,7.18721872 C121.120612,7.18721872 120.812781,6.87938794 120.812781,6.50015002 L120.812781,4.43714371 L120.812781,4.43714371 Z M116.025503,7.80468047 C118.362136,7.80468047 120.256526,9.69486949 120.256526,12.0255026 C120.256526,14.3567357 118.362136,16.2463246 116.025503,16.2463246 C113.689469,16.2463246 111.79508,14.3567357 111.79508,12.0255026 C111.79508,9.69486949 113.689469,7.80468047 116.025503,7.80468047 L116.025503,7.80468047 Z M124.937594,20.249925 C124.937594,20.6291629 124.629763,20.9375938 124.249925,20.9375938 L107.750075,20.9375938 C107.370237,20.9375938 107.062406,20.6291629 107.062406,20.249925 L107.062406,9.93729373 L109.812481,9.93729373 C109.454245,10.4527453 109.333033,11.4146415 109.333033,12.0255026 C109.333033,15.7068707 112.335734,18.7023702 116.025503,18.7023702 C119.715872,18.7023702 122.718572,15.7068707 122.718572,12.0255026 C122.718572,11.4146415 122.631563,10.4677468 122.187519,9.93729373 L124.937594,9.93729373 L124.937594,20.249925 L124.937594,20.249925 Z" id="Instagram" stroke="none" fill="<%= svg_color %>" fill-rule="evenodd"></path>
-              </svg>
-              <% end # case %>
-            </a>
-
-            <% end # each %>
-
-          </div>
-          <% end %>
-        </div>
-        <hr class="footer__separator" />
-        <div class="footer__copyrights">
-          <%= s['copyright'] %>
-        </div>
-      </div>
-    </footer>
+  <%= render partial: "footer", locals: {section_id: section_id, s: s} %>
   <% end %>
 
 <% end # enabled_sections#each %>
 
-
-<% enabled_sections.each do |section| %>
-
-  <% s = section["section"] %>
-
-  <% case s["kind"] %>
-  <% when "hero" # Hero section %>
-    <% if s["variation"] == "location_search" %>
-      <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-      <script>
-       <%= location_search_js.html_safe %>
-      </script>
-       <%= yield :location_search_js %>
-    <% end %>
-  <% end %>
-<% end %>
+<%= yield :javascript %>
 
 </html>

@@ -24,9 +24,6 @@ class LandingPageController < ActionController::Metal
     begin
       structure = LandingPageStore.load_structure(community_id(request), version)
 
-      # Uncomment for dev purposes
-      # structure = JSON.parse(data_str)
-
       render_landing_page(structure)
     rescue CustomLandingPage::LandingPageContentNotFound
       render_not_found()
@@ -36,7 +33,10 @@ class LandingPageController < ActionController::Metal
   def preview
     preview_version = parse_int(params[:preview_version])
     begin
-      structure = LandingPageStore.load_structure(community_id(request), preview_version)
+      # structure = LandingPageStore.load_structure(community_id(request), preview_version)
+
+      # Uncomment for dev purposes
+      structure = JSON.parse(data_str)
 
       # Tell robots to not index and to not follow any links
       headers["X-Robots-Tag"] = "none"
@@ -69,6 +69,12 @@ class LandingPageController < ActionController::Metal
           case id
           when "primary_color"
             {"id" => "primary_color", "value" => "#347F9D"}
+          end
+        },
+        "inline_js" => -> (type, id, normalized_data) {
+          case id
+          when "location_search_js"
+            {"id" => "location_search_js", "value" => location_search_js.html_safe}
           end
         },
         "assets" => ->(type, id, normalized_data) {
@@ -131,7 +137,6 @@ class LandingPageController < ActionController::Metal
       "signup_button": "Sign up",
       "signup_path": {"type": "path", "id": "signup_path"}
     },
-
     {
       "id": "myhero1",
       "kind": "hero",
@@ -141,7 +146,8 @@ class LandingPageController < ActionController::Metal
       "background_image": {"type": "assets", "id": "myheroimage"},
       "search_placeholder": "What kind of turbojopo are you looking for?",
       "search_button": "Search",
-      "search_path": {"type": "path", "id": "search_path"}
+      "search_path": {"type": "path", "id": "search_path"},
+      "location_search_js": {"type": "inline_js", "id": "location_search_js"}
     },
 
     {
@@ -178,7 +184,7 @@ class LandingPageController < ActionController::Metal
     { "section": {"type": "sections", "id": "footer"},
       "disabled": false},
     { "section": {"type": "sections", "id": "myhero1"},
-      "disabled": true},
+      "disabled": false},
     { "section": {"type": "sections", "id": "myhero1"},
       "disabled": true}
   ],
