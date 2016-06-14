@@ -1,6 +1,6 @@
 import { div } from 'r-dom';
 import { storiesOf, action } from '@kadira/storybook';
-import withProps from '../Styleguide/withProps';
+import withProps from '../../Styleguide/withProps';
 
 import GuideStatusPage from './GuideStatusPage';
 import GuideSloganAndDescriptionPage from './GuideSloganAndDescriptionPage';
@@ -9,7 +9,7 @@ import GuideFilterPage from './GuideFilterPage';
 import GuidePaypalPage from './GuidePaypalPage';
 import GuideListingPage from './GuideListingPage';
 import GuideInvitationPage from './GuideInvitationPage';
-import { all as allRoutes } from '../../utils/routes';
+import { all as allRoutes } from '../../../utils/routes';
 
 const routes = allRoutes({ locale: 'en' });
 

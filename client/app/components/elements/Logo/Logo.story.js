@@ -1,5 +1,5 @@
 import { storiesOf } from '@kadira/storybook';
-import withProps from '../Styleguide/withProps';
+import withProps from '../../Styleguide/withProps';
 import r from 'r-dom';
 
 import Logo from './Logo';

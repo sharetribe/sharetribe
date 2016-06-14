@@ -1,6 +1,6 @@
 import { PropTypes } from 'react';
 import { div, p, h2, hr, ul, li, span, a } from 'r-dom';
-import { t } from '../../utils/i18n';
+import { t } from '../../../utils/i18n';
 
 import css from './OnboardingGuide.css';
 

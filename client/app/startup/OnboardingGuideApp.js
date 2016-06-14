@@ -8,7 +8,7 @@ import middleware from 'redux-thunk';
 // Uses the index
 import reducers from '../reducers/reducersIndex';
 
-import OnboardingGuideContainer from '../components/OnboardingGuide/OnboardingGuideContainer';
+import OnboardingGuideContainer from '../components/sections/OnboardingGuide/OnboardingGuideContainer';
 
 export default (props, railsContext) => {
   initializeI18n(railsContext.i18nLocale, railsContext.i18nDefaultLocale, process.env.NODE_ENV);

@@ -35,6 +35,14 @@ If you need to debug the Rails parts of Sharetribe with [Pry](https://github.com
 Developing new components
 ==========================
 
+Components are separated based on [Atomic design](http://bradfrost.com/blog/post/atomic-web-design/): _elements_ (aka atoms), _composites_ (aka molecules), and _sections_ (aka organisms).
+- **Elements** are React components which are basic visual elements. For example: avatar image.
+- **Composites** are combined elements. E.g. ProfileCard combining Avatar and Name atoms could be a composte.
+- **Sections** are higher level composites. They are responsible for page sections like html5 tags do. (Think about ```<header>```, ```<footer>```, ```<main>```, ```<aside>```, and ```<section>```)
+
+Later we might add template & page levels too.
+
+
 You need to register new React components (e.g. "ExampleApp") for react_on_rails gem to recognize it.
 ```js
 ReactOnRails.register({ ExampleApp });

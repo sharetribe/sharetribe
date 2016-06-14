@@ -1,6 +1,6 @@
 import r from 'r-dom';
 import { initialize as initializeI18n } from '../utils/i18n';
-import OnboardingTopBar from '../components/OnboardingTopBar/OnboardingTopBar';
+import OnboardingTopBar from '../components/sections/OnboardingTopBar/OnboardingTopBar';
 import { subset } from '../utils/routes';
 
 export default (props, railsContext) => {
