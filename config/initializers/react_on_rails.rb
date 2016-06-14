@@ -3,8 +3,8 @@ module RailsContextExtension
   # all calls to react_component and redux_store for rendering
   def self.custom_context(view_context)
     {
-      marketplaceId: view_context.controller.current_community_id
-    }
+      marketplaceId: view_context.controller.current_community_id,
+    }.merge(view_context.controller.current_community_custom_colors)
   end
 end
 

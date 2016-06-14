@@ -1,3 +1,6 @@
+# Yes, we know this is too long class
+# rubocop:disable ClassLength
+
 require 'will_paginate/array'
 
 class ApplicationController < ActionController::Base
@@ -435,6 +438,17 @@ class ApplicationController < ActionController::Base
 
   def current_community_id
     Maybe(@current_community).id.or_else(nil)
+  end
+
+  def current_community_custom_colors
+    Maybe(@current_community)
+      .map { |c|
+        {
+          marketplace_color1: c.custom_color1 || '#a64c5d',
+          marketplace_color2: c.custom_color2 || '#00a26c'
+        }
+      }
+      .or_else({})
   end
 
   private
