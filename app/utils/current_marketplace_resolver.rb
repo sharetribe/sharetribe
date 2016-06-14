@@ -5,7 +5,12 @@ module CurrentMarketplaceResolver
   def resolve_from_host(host, app_domain)
     sole_community_or do
       ident = ident_from_host(host, app_domain)
-      Community.find_by(ident: ident) || Community.find_by(domain: host)
+
+      if ident.present?
+        Community.find_by(ident: ident)
+      else
+        Community.find_by(domain: host)
+      end
     end
   end
 
