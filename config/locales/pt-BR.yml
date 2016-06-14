@@ -57,7 +57,7 @@ pt-BR:
         enabled_languages: "Idiomas habilitados"
         enabled_languages_description: "O conjunto de idiomas disponíveis para os usuários. O primeiro é utilizado como padrão."
         default_language: "Idioma padrão"
-        language_selection_disabled: "A escolha de idioma não está habilitada para o seu marketplace porque você está usando os seguintes idiomas não oficias: %{languages}. Por favor entre em contato com o suporte da Sharetribe para modificar sua configuração de idioma."
+        language_selection_disabled: "A escolha de idioma não está habilitada para o seu mercado virtual porque você está usando os seguintes idiomas não oficias: %{languages}. Por favor entre em contato com o suporte da Sharetribe para modificar sua configuração de idioma."
         community_name: "Nome do Mercado Virtual"
         edit_community_name_description: "O nome do seu mercado virtual. Será mostrado a usuários e em vários outros locais."
         community_slogan: "Slogan do Mercado Virtual"
@@ -126,7 +126,7 @@ pt-BR:
         send_test_message: "Enviar mensagem de teste"
       outgoing_email:
         title: "E-mail do remetente"
-        info: "Este nome e endereço é usado para os e-mails enviados para os usuários pelo seu marketplace."
+        info: "Este nome e endereço é usado para os e-mails enviados para os usuários pelo seu mercado virtual."
         read_more: "Saiba mais sobre endereços de e-mail de de saída"
         sender_address: "Endereço do remetente: %{sender_address}"
         sender_address_default: "Endereço do remetente: não foi definido (usando endereço default %{sender_address})"
@@ -151,8 +151,8 @@ pt-BR:
         invalid_email_domain: "O endereço de e-mail '%{email}' usa um provedor de e-mail não suportado: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Para maiores informações leia o artigo na base de conhecimento"
         unknown_error: "Algo deu errado"
-        white_label_offer: ~
-        upgrade_plan_link: ~
+        white_label_offer: "Defina o seu próprio endereço de e-mail como o remetente e remova todos os e-mails da Sharetribe enviados pelo %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "atualizar para o nosso plano Pro ou superior"
         verification_sent_from: "O e-mail de verificação foi enviado por %{verification_sender_name}."
         follow_the_instructions: "Por favor siga as instruções para confirmar seu e-mail."
       getting_started:
@@ -167,7 +167,7 @@ pt-BR:
         categories_link_text: "adicionar categorias e subcategorias"
         custom_fields_link_text: "configurar os campos do formulário"
         filters_link_text: "que tipo de filtros"
-        order_types: "Você também pode configurar como as transações funcionam no seu marketplace. Seus usuários vendem, alugam ou doam produtos? Eles oferecem alugueis por hora, dia ou semana? Essas coisas podem ser configuradas em %{order_types_link}."
+        order_types: "Você também pode configurar como as transações funcionam no seu mercado virtual. Seus usuários vendem, alugam ou doam produtos? Eles oferecem alugueis por hora, dia ou semana? Essas coisas podem ser configuradas em %{order_types_link}."
         order_types_link_text: "visão do tipo de pedido"
         payments: "Se você quer que as pessoas sejam capazes de pagar suas compras através do seu mercado virtual, de modo que você possa cobrar uma taxa por cada transação, você deve %{payments_link}."
         payments_link_text: "configurar um método de pagamento"
@@ -220,10 +220,10 @@ pt-BR:
         users_can_invite_new_users: "Todos os usuários podem convidar novos usuários para este mercado virtual"
         private: "Este mercado virtual é privado (apenas usuários cadastrados podem ver o conteúdo)"
         require_verification_to_post_listings: "Somente usuários verificados por administrador pode postar novos anúncios"
-        search_preferences: ~
-        default_search_type: ~
-        keyword_search: ~
-        location_search: ~
+        search_preferences: "Preferências de Busca"
+        default_search_type: "Tipo de Busca: %{select_search_type}"
+        keyword_search: "Palavra-Chave da Busca"
+        location_search: "Localização da Busca"
         select_distance_unit: "Mostrar a distância em %{distance_units_selector}"
         km: km
         miles: milhas
@@ -252,7 +252,7 @@ pt-BR:
         i_understand_button: "Compreendo que após clicar neste botão meu marketplace será excluído"
         last_community_updates: "Por favor note que após a exclusão, você e os usuários do seu marketplace podem ainda receber alguns e-mails do marketplace."
         you_will_be_redirected_to: "Após excluir seu marketplace você será redirecionado para %{destination}. Você não poderá acessar seu marketplace novamente."
-        delete_this_marketplace: "Exclua este marketplace"
+        delete_this_marketplace: "Exclua este mercado virtual"
       manage_members:
         manage_members: "Gerenciar usuários"
         email: E-mail
@@ -270,7 +270,7 @@ pt-BR:
       social_media:
         social_media: "Mídia social"
         twitter_handle: "Nome Twitter"
-        twitter_handle_info_text: "Nome de usuário da conta do Twitter do seu marketplace (se você tiver uma). Será mencionado quando as pessoas usarem o botão tweet na página do anúncio."
+        twitter_handle_info_text: "Nome de usuário da conta do Twitter do seu mercado virtual (se você tiver uma). Será mencionado quando as pessoas usarem o botão tweet na página do anúncio."
         twitter_handle_info_text_with_instructions: "Nome de usuário da conta de Twitter de seu mercado virtual (se você tiver um). Ele será mencionado quando as pessoas usarem o botão 'tweet' na página de anúncios. %{instructions_link}."
         twitter_instructions_link_text: "Leia mais"
         twitter_handle_placeholder: "nome de usuário"
@@ -405,7 +405,7 @@ pt-BR:
       emails_title: E-mails
       support: Suporte
       subscription: Assinatura
-      preview: ~
+      preview: "Visualização do site"
     listing_shapes:
       index:
         listing_shapes: "Pedidos por tipos"
@@ -447,7 +447,7 @@ pt-BR:
         confirm_delete_order_type:
           one: "Existe %{count} anúncio com esse tipo de ordem. Se você excluir este tipo de ordem o anúncio será encerrados. Você tem certeza que deseja excluir esse tipo de ordem?"
           other: "Existem %{count} anúncios com esse tipo de ordem. Se você excluir este tipo de ordem os anúncios serão encerrados. Você tem certeza que deseja excluir esse tipo de ordem?"
-        can_not_delete_last: "Você não poder apagar este tipo de ordem porque ele é o único definido no seu marketplace."
+        can_not_delete_last: "Você não poder apagar este tipo de ordem porque ele é o único definido no seu mercado virtual."
         can_not_delete_only_one_in_categories: "Você não poder apagar este tipo de ordem porque ele é o único tipo usado nas categorias:%{categories}"
       listing_shape_name: Nome
       listing_shape_name_placeholder: "P.ex. Vender"
@@ -499,7 +499,7 @@ pt-BR:
       integration_info_text: "O sistema de pagamento de Sharetribe é gerenciado pelo PayPal. Se você quiser permitir que os seus usuários façam pagamentos através de seu mercado virtual, você deve se conectar a sua conta PayPal e decidir o tamanho mínimo da transação e a taxa que você quer ganhar de cada transação."
       link_paypal_personal_account_label: "Você também vende produtos?"
       link_paypal_personal_account: "Se vender, você precisa conectar sua conta PayPal a %{personal_payment_preferences_link}."
-      personal_payment_preferences_link_text: "Sua conta pessoal no mercado"
+      personal_payment_preferences_link_text: "Sua conta pessoal no mercado virtual"
       read_more_about_paypal: "Leia mais sobre o sistema de pagamento do Sharetribe"
       set_minimum_price_and_fee: "Definir preço mínimo e taxa de transação"
       minimum_listing_price_label: "Preço mínimo de anúncio:"
@@ -574,8 +574,12 @@ pt-BR:
     removed_user: "Usuário removido"
     paypal_fee_info:
       title: "Taxa de processamento do pagamento do PayPal"
-      body_text: ~
-      body_with_shipping_text: ~
+      body_text: |-
+          O PayPal cobra uma taxa de processamento de cada pagamento. Esta taxa situa-se entre 2% e 5 % do preço total de vendas, dependendo do seu volume de vendas mensal e do país de residência do comprador. Em geral, as compras nacionais têm taxas mais baixas do que as compras internacionais, e as vendas mensais mais elevadas pode beneficiar você com um desconto nestas taxas.
+          Você pode ver as taxas exatas fazendo login em sua conta do PayPal e indo para %{link_to_paypal}. Após cada compra você receberá um recibo exibindo a taxa exata.
+      body_with_shipping_text: |-
+          O PayPal cobra uma taxa de processamento de cada pagamento. Esta taxa situa-se entre 2% e 5 % do preço total de vendas (incluindo o frete), dependendo do seu volume de vendas mensal e do país de residência do comprador. Em geral, as compras nacionais têm taxas mais baixas do que as compras internacionais, e as vendas mensais mais elevadas pode beneficiar você com um desconto nestas taxas.
+          Você pode ver as taxas exatas fazendo login em sua conta do PayPal e indo para %{link_to_paypal}. Após cada compra você receberá um recibo exibindo a taxa exata.
       link_to_paypal_text: aqui
   conversations:
     accept:
@@ -798,10 +802,10 @@ pt-BR:
       log_out: sair
       join_community_button: "Entrar em %{service_name}"
     give_consent:
-      invitation_code_invalid_or_used: ~
-      email_not_allowed: ~
-      email_not_available: ~
-      consent_not_given: ~
+      invitation_code_invalid_or_used: "O código de convite é inválido ou já foi utilizado."
+      email_not_allowed: "Este e-mail não é permitido em %{service_name}."
+      email_not_available: "O e-mail que você forneceu já está em uso."
+      consent_not_given: "Os termos não foram aceitos."
   emails:
     accept_reminder:
       remember_to_accept_offer: "Lembrar de aceitar ou rejeitar uma oferta de %{sender_name}"
@@ -812,9 +816,9 @@ pt-BR:
       you_have_not_yet_accepted_or_rejected_request: "Você ainda não aceitou nem rejeitou a requisição %{title} que recebeu em %{date}"
       show_thread: "Ver a conversa"
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} é desenvolvido por %{sharetribe_link} plataforma de mercado virtual."
+      create_own: "Quer criar o seu próprio mercado virtual como o %{service_name}? %{learn_more}."
+      learn_more: "Saiba mais"
     braintree_account_approved:
       account_ready: "Você já pode receber pagamentos"
       message: "Suas informações de pagamento foram confirmadas e agora você está pronto para receber pagamentos em %{service_name}."
@@ -941,15 +945,15 @@ pt-BR:
       has_updated_listing_you_follow_in_kassi: "%{author} atualizou o anúncio '%{listing}' você está seguindo em %{service_name}."
       view_changes: "Ver alterações"
     community_updates:
-      added_offer: "%{name_link} adicionou um anúncio :"
+      added_offer: "%{name_link} adicionou um anúncio:"
       added_request: "%{name_link} adicionou um anúncio :\n"
       added_listing: "%{name_link} adicionou um anúncio:"
-      update_mail_title: "%{title_link} Novidades"
+      update_mail_title: "%{title_link} atualização"
       title_link_text: "%{community_name}"
       intro_paragraph: "Veja algumas coisas que aconteceram no %{community_link} desde %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Postar um novo anúncio!"
-      reduce_email_footer_text: "E-mails demais ? %{settings_link} ou %{unsubscribe_link}"
+      reduce_email_footer_text: "E-mails demais? %{settings_link} ou %{unsubscribe_link}"
       settings_link_text: "Edite suas configurações de e-mail aqui"
       unsubscribe_link_text: "Cancelar inscrição"
     newsletter:
@@ -1003,7 +1007,7 @@ pt-BR:
       view_listing: "Ver anúncio"
   error_messages:
     onboarding:
-      server_rendering: ~
+      server_rendering: "Guia de introdução falhou ao carregar. Fomos informados sobre a situação e iremos corrigir isso."
     listings:
       departure_time: "Hora de partida deve estar entre a hora atual e um ano a frente a contar de agora."
       share_type: "Você precisa selecionar um."
@@ -1222,9 +1226,9 @@ pt-BR:
     admin:
       admin: "Painel de administração do %{service_name}"
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} é desenvolvido por %{sharetribe_link} plataforma de mercado virtual."
+      create_own: "Quer criar o seu próprio mercado virtual como o %{service_name}? %{learn_more}."
+      learn_more: "Saiba mais"
     no_tribe:
       inbox: "caixa de entrada"
       settings: Configurações
@@ -1408,7 +1412,7 @@ pt-BR:
         zero: "O site sairá do ar agora para manutenção"
         one: "O site sairá do ar para manutenção em %{count} minuto"
         other: "O site sairá do ar para manutenção em %{count} minutos"
-      automatically_logged_out_please_sign_in: ~
+      automatically_logged_out_please_sign_in: "Você foi desconectado automaticamente. Por favor faça o login novamente."
     settings:
       account: Conta
       notifications: Notificações
@@ -1743,7 +1747,7 @@ pt-BR:
     paypal_receive_funds_info: "Se você receber um erro quando tentar conectar sua conta com o %{service_name}, faça um upgrade da sua conta PayPal clicando em %{upgrade_paypal_account_link}. É fácil e rápido. Se você for pessoa física o PayPal recomenda que você use seu nome como nome da companhia."
     upgrade_paypal_account_link_text: "entrando e clicando no link de upgrade"
     admin_account_not_connected: "Não é possível receber pagamentos pelo %{service_name}  porque o sistema ainda não foi configurado. Por favor %{contact_admin_link} para mais informações."
-    contact_admin_link_text: "Entre em contato com o administrador do mercado"
+    contact_admin_link_text: "Entre em contato com o administrador do mercado virtual"
     you_are_ready_to_accept_payments: "Você está pronto para aceitar pagamentos!"
     commission: "%{commission} %"
     new:
@@ -1931,7 +1935,7 @@ pt-BR:
       account_confirmation_instructions: "Você receberá um e-mail com um link para confirmar o endereço de e-mail informado. Após a confirmação do e-mail você poderá entrar no %{service_name}."
       account_confirmation_instructions_title_admin: "Bem-vindo(a) ao seu mercado virtual!"
       your_marketplace_has_now_been_created: "Seu site de mercado virtual já foi criado. Isso foi fácil, não foi? Há apenas mais um passo para que possa acessar seu site: você precisa confirmar o seu endereço de e-mail."
-      account_confirmation_instructions_admin: "Em breve você receberá um e-mail com um link que deve ser clicado para confirmar o endereço de e-mail informado. Após a confirmação do seu e-mail, você pode começar a configurar o seu mercado."
+      account_confirmation_instructions_admin: "Em breve você receberá um e-mail com um link que deve ser clicado para confirmar o endereço de e-mail informado. Após a confirmação do seu e-mail, você pode começar a configurar o seu mercado virtual."
   settings:
     account:
       change: Alterar
@@ -1983,11 +1987,11 @@ pt-BR:
       email_about_payment_reminders: "...esquecer de efetuar um pagamento"
       email_about_new_listings_by_followed_people: "...alguém que eu siga publique uma mensagem"
       unsubscribe_succesful: "Subscrição bem sucedida"
-      unsubscribe_info_text: "Você não vai mais receber esses emails. Verifique seu %{settings_link} para escolher qual tipo de e-mails você deseja receber de %{service_name}, ou voltar para %{homepage_link}."
+      unsubscribe_info_text: "Você não vai mais receber esses e-mails. Verifique seu %{settings_link} para escolher qual tipo de e-mails você deseja receber de %{service_name}, ou voltar para %{homepage_link}."
       settings_link: configurações
       homepage_link: "home page"
       unsubscribe_unsuccesful: "Erro no cancelamento da inscrição"
-      unsuccessful_unsubscribe_info_text: "A razão talvez que o link de cancelamento em que você clicou é antigo. Contate-nos através do botão de 'feedback' à esquerda para nós podermos cancelar sua conta, ou então se conecte para alterar as suas configurações de e-mail."
+      unsuccessful_unsubscribe_info_text: "O link para o cancelamento expirou. Realize o login da sua conta para modificar a suas configurações de inscrição do e-mail."
     profile:
       about_you: "Sobre você"
       city: Cidade
