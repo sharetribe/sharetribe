@@ -1,15 +1,25 @@
+@custom-media --Topbar_medium (min-width: 40rem);
+
 .topbar {
   display: flex;
   flex-direction: row;
-  height: var(--topbarHeight);
+  height: var(--Topbar_mobileHeight);
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
   background: var(--colorBackground);
   border-bottom: 1px solid rgba(0, 0, 50, 0.1);
 
+  @media (--Topbar_medium) {
+    height: var(--Topbar_height);
+  }
+
   /* Base styles */
   box-sizing: border-box;
+
+  & * {
+    box-sizing: border-box;
+  }
 
   & input[type='search'] {
     -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
@@ -26,18 +36,17 @@
   & input,
   & button,
   & svg {
-    box-sizing: border-box;
-    font-family: var(--topbarFontFamily);
-    font-size: var(--topbarFontSize);
+    font-family: var(--Topbar_fontFamily);
   }
+  & input {
+    font-size: var(--Topbar_inputFontSizeMobile);
 
-  & button {
-    &:hover {
-      background: none;
+    @media (--Topbar_medium) {
+      font-size: var(--Topbar_fontSize);
     }
   }
 }
 
 .topbarLogo {
-  height: var(--topbarLogoHeight);
+  height: var(--Topbar_logoHeight);
 }
