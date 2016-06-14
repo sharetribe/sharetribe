@@ -27,10 +27,6 @@
               <input type="hidden" name="distance_max" />
 
               <% content_for :javascript do %>
-                <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-                <script>
-                  <%= s["location_search_js"]["value"] %>
-                </script>
                 <script>
                  window.ST.initializeLocationSearch({
                    form: '#<%= section_id %>__search-form',
