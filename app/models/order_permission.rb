@@ -13,6 +13,10 @@
 #  onboarding_id       :string(36)
 #  permissions_granted :boolean
 #
+# Indexes
+#
+#  index_order_permissions_on_paypal_account_id  (paypal_account_id)
+#
 
 class OrderPermission < ActiveRecord::Base
   attr_accessible(

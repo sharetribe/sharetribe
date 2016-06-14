@@ -10,6 +10,10 @@
 #  paypal_username_to   :string(255)      not null
 #  request_token        :string(255)      not null
 #
+# Indexes
+#
+#  index_billing_agreements_on_paypal_account_id  (paypal_account_id)
+#
 
 class BillingAgreement < ActiveRecord::Base
   attr_accessible :paypal_account, :request_token, :billing_agreement_id, :paypal_username_to
