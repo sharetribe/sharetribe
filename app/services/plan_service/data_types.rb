@@ -14,8 +14,8 @@ module PlanService::DataTypes
   Plan = EntityUtils.define_builder(
     [:id, :fixnum, :optional], # For OS, the plan is not actually in DB. Thus, optional.
     [:community_id, :fixnum, :mandatory],
-    [:plan_level, :fixnum, :mandatory],
     [:features, entity: Features],
+    [:status, :to_symbol, one_of: [:trial, :hold, :active]],
     [:member_limit, :fixnum, :optional],
     [:expires_at, :time, :optional],
     [:created_at, :time, :mandatory],
@@ -28,6 +28,7 @@ module PlanService::DataTypes
     [:expires_at, :time, :optional],
     [:created_at, :time, :mandatory],
     [:updated_at, :time, :mandatory],
+    [:status, :to_symbol, one_of: [:trial, :hold, :active]]
   )
 
   LoginLinkMarketplaceData = EntityUtils.define_builder(

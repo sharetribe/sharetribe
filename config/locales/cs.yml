@@ -107,7 +107,7 @@ cs:
         small_cover_photo_visibility: "Malá úvodní fotka se zobrazí nepřihlášeným uživatelům na všech stránkách kromě domovské stránky."
         small_cover_photo_instructions_text_with_dimensions: "Fotografie bude přizpůsobena velikosti %{width}x%{height} pixelů a větší obrázky budou ořezány."
         main_content_width: "Při výběru úvodních fotek vezměte na vědomí, že rozlišení hlavní stránky je maximálně %{main_width} pixelů na šířku. Nezapomeňte také zkontrolovat, jak bude Vaše úvodní fotografie vypadat na menších obrazovkách. (např. použitím užších oken vyhledávačů)."
-        custom_color1_instructions_text: "Můžete změnit základní barvu uživatelského rozhraní zadáním hodnoty hexa barvy.  Na <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> si můžete vybrat barvu a následně sem bude zkopírován kód barvy."
+        custom_color1_instructions_text: "Můžete změnit základní barvu uživatelského rozhraní zadáním hodnoty hexa barvy. Na <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> si můžete vybrat barvu a následně sem bude zkopírován kód barvy."
         custom_color2_instructions_text: ~
         default_browse_view: "Výchozí zobrazení prohlížeče"
         default_browse_view_instructions_text: "Výchozí zobrazení prohlížeče se používá na domovské stránce k nastavení, jak mají být inzeráty zobrazeny ve výchozím nastavení."
@@ -156,8 +156,8 @@ cs:
         invalid_email_domain: "E-mailová adresa %{email} využívá nepodporovaného poskytovatele e-mailu: \"%{domain}\". %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Přečtěte si následující článek pro více informací."
         unknown_error: "Něco se nezdařilo"
-        only_white_label_offer: "Tato funkce je součástí nabídky Sharetribe white-label. Chcete-li povolit tuto funkci, měli byste %{upgrade_pro_plan_link}."
-        upgrade_pro_plan_link: "upgradovat na Pro plan nebo vyšší verzi"
+        white_label_offer: ~
+        upgrade_plan_link: ~
         verification_sent_from: "Ověřovací e-mail byl odeslán z %{verification_sender_name}."
         follow_the_instructions: "Prosíme, postupujte dle pokynů v e-mailu pro ověření Vaší adresy."
       getting_started:
@@ -824,6 +824,10 @@ cs:
       you_have_not_yet_accepted_or_rejected_offer: "Ještě jste nepřijali nebo neodmítli nabídku %{title}, kterou jste obdrželi %{date}"
       you_have_not_yet_accepted_or_rejected_request: "Ještě jste nepřijali nebo neodmítli nabídku %{title}, kterou jste obdrželi %{date}"
       show_thread: "Zobrazit konverzaci"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     braintree_account_approved:
       account_ready: "Již můžete přijímat platby"
       message: "Vaše platební údaje byly potvrzeny a už můžete přijímat platby v %{service_name}."
@@ -1230,6 +1234,10 @@ cs:
   layouts:
     admin:
       admin: "Pomozte nám rozšířit %{service_name}"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     no_tribe:
       inbox: "Doručená pošta"
       settings: Nastavení

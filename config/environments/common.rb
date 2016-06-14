@@ -1,3 +1,5 @@
+require_relative '../../lib/jsroutes_middleware.rb'
+
 Kassi::Application.configure do
 
   str_to_lowercase_sym = ->(v) {
@@ -14,6 +16,7 @@ Kassi::Application.configure do
     [:serve_static_files, :bool, :optional, :str_to_bool],
     [:log_level, transform_with: str_to_lowercase_sym, one_of: [:debug, :info, :warn, :error]],
     [:use_i18n_js_middleware, :bool, :optional, :str_to_bool],
+    [:use_js_routes_middleware, :bool, :optional, :str_to_bool],
   )
 
   m_config = Maybe(Config.call(APP_CONFIG.to_h))
@@ -36,5 +39,9 @@ Kassi::Application.configure do
 
   m_config[:use_i18n_js_middleware].each { |use_middleware|
     config.middleware.use I18n::JS::Middleware if use_middleware
+  }
+
+  m_config[:use_js_routes_middleware].each { |use_middleware|
+    config.middleware.use JsRoutes::Middleware if use_middleware
   }
 end

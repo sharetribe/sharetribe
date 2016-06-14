@@ -326,7 +326,7 @@ class Admin::ListingShapesController < ApplicationController
     gw = PaymentGateway.where(community_id: @current_community.id).first
     if !@current_user.is_admin? && gw
       flash[:error] = "Not available for your payment gateway: #{gw.type}"
-      redirect_to edit_details_admin_community_path(@current_community.id)
+      redirect_to admin_details_edit_path
     end
   end
 

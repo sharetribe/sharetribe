@@ -97,7 +97,7 @@ tr-TR:
         small_cover_photo_visibility: "Küçük kapak fotoğrafı ana sayfadaki giriş yapmamış kullanıcılar hariç bütün sayfalarda gösterilir."
         small_cover_photo_instructions_text_with_dimensions: "Görsel %{width}x%{height} piksel boyutlarında küçültülecek ve uzun görseller ortadan kesilecektir."
         main_content_width: "Kapak fotoğrafı seçerken, ana sayfa içeriğinin azami %{main_width} piksel olduğunu unutmayın. Aynı zamanda kapak fotoğrafınızın küçük ekranlarda nasıl görüntülendiğini kontrol edin (örneğin; dar bir tarayıcı penceresi)."
-        custom_color1_instructions_text: "Kullanıcı arayüzünün ana rengini onaltılık renk değeri girerek değiştirebilirsiniz. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> rengi seçip kodu buraya yapıştırmanıza yardım edecektir."
+        custom_color1_instructions_text: "Kullanıcı arayüzünün ana rengini onaltılık renk değeri girerek değiştirebilirsiniz. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> rengi seçip kodu buraya yapıştırmanıza yardım edecektir."
         custom_color2_instructions_text: ~
         default_browse_view: "Default tarayıcı görünümü"
         default_browse_view_instructions_text: "Default tarayıcı görünümü ana sayfada listelemelerin default olarak nasıl görüntülendiğini görmek için kullanılır."
@@ -146,8 +146,8 @@ tr-TR:
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: ~
-        only_white_label_offer: ~
-        upgrade_pro_plan_link: ~
+        white_label_offer: ~
+        upgrade_plan_link: ~
         verification_sent_from: ~
         follow_the_instructions: ~
       getting_started:
@@ -800,6 +800,10 @@ tr-TR:
       you_have_not_yet_accepted_or_rejected_offer: "%{date} tarihinde aldığınız %{title} teklifini henüz kabul veya reddetmediniz."
       you_have_not_yet_accepted_or_rejected_request: "%{date}tarihinde aldığınız %{title} talebini henüz kabul veya reddetmediniz."
       show_thread: "Konuşmayı göster"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     braintree_account_approved:
       account_ready: "Ödeme almaya hazırsınız"
       message: "Ödeme bilgileriniz doğrulandı ve artık %{service_name}'de ödeme almaya hazırsınız."
@@ -1206,6 +1210,10 @@ tr-TR:
   layouts:
     admin:
       admin: "%{service_name} yönetici paneli"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     no_tribe:
       inbox: "Gelen Kutusu"
       settings: Ayarlar

@@ -47,12 +47,13 @@ module Sharetribe
     {ident: "sw", name: "Kiswahili", language: "sw", region: "KE", fallback: nil}, # Swahili (Kenya)
     {ident: "vi", name: "Tiếng Việt", language: "vi", region: "VN", fallback: nil}, # Vietnamese (Vietnam)
     {ident: "hu", name: "Magyar", language: "hu", region: "HU", fallback: nil}, # Hungarian
-    {ident: "cs", name: "Čeština", language: "cs", region: "CS", fallback: nil}, # Czech
+    {ident: "cs", name: "Čeština", language: "cs", region: "CZ", fallback: nil}, # Czech
     {ident: "th-TH", name: "Thai", language: "th", region: "TH", fallback: nil}, # Thai (Thailand)
     {ident: "bg", name: "български", language: "bg", reqion: "BG", fallback: nil}, # Bulgarian
     {ident: "mn", name: "Mongolian", language: "mn", reqion: "MN", fallback: nil}, # Mongolian
     {ident: "zh-TW", name: "繁體中文(台灣)", language: "zh", region: "TW", fallback: "zh"}, # Chinese (Taiwan)
     {ident: "zh-HK", name: "繁體中文(香港澳門)", language: "zh", region: "HK", fallback: "zh-TW"}, # Chinese (Hong Kong)
+    {ident: "ka", name: "ქართული", language: "ka", region: "GE", fallback: nil}, # Georgian
   ]
 
   AVAILABLE_LOCALES = SUPPORTED_LOCALES + UNSUPPORTED_LOCALES

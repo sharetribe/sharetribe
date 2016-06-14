@@ -1,0 +1,6 @@
+- sharetribe_link = link_to("Sharetribe", link_to_sharetribe)
+- learn_more = link_to(t("layouts.branding.learn_more"), link_to_sharetribe)
+.branding-container
+  .branding-content
+    %p= t("layouts.branding.powered_by", sharetribe_link: sharetribe_link, learn_more: learn_more).html_safe
+    %p= t("layouts.branding.create_own", learn_more: learn_more).html_safe

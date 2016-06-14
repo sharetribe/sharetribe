@@ -149,7 +149,7 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_loc
 
 function update_map(field) {
   if (geocoder) {
-    geocoder.geocode({'address':field.value},
+    geocoder.geocode({'address':field.value.replace("&", "")},
       function(response,info) {
         if (info == google.maps.GeocoderStatus.OK){
           marker.setVisible(true);

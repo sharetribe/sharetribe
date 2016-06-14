@@ -1,6 +1,6 @@
 - content_for :extra_javascript do
   :javascript
-    window.ST.initializeLocationSearch();
+    window.ST.initializeLocationSearch({form: '#homepage-filters', search: '#q', status: '#ls', coordinate: '#lc', boundingbox: '#boundingbox', maxDistance: '#distance_max'});
 
 
 .search-form-input.search-form-text-field.location-search-wrapper
@@ -8,6 +8,7 @@
   = hidden_field_tag 'lc', params[:lc]
   = hidden_field_tag 'ls', ''
   = hidden_field_tag 'boundingbox', params[:boundingbox]
+  = hidden_field_tag 'distance_max', ''
 
 .search-form-input
   %button.action-button#search-button{type: 'submit'}

@@ -102,8 +102,8 @@ nl:
         small_cover_photo_visibility: "Kleine cover afbeeldingen worden op alle pagina's getoond behalve op de homepagina voor gebruikers die niet ingelogd zijn."
         small_cover_photo_instructions_text_with_dimensions: "De afbeelding wordt verkleind tot %{width}x%{height} pixels. Grotere afbeeldingen worden in twee gesplitst."
         main_content_width: "Hou er bij het kiezen van een cover afbeelding rekening mee dat de hoofdpagina maximaal %{main_width} pixels is. Vergeet ook niet na te gaan hoe je cover afbeelding eruit ziet op kleinere schermen (b.v. door een smal browser scherm te gebruiken)."
-        custom_color1_instructions_text: "Je kan de hoofdkleur van de intercace wijzigen door een zgn. hex kleur waarde in te geven. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> kan je helpen deze kleur te kiezen en de bijbehorende code hier te kopiëren."
-        custom_color2_instructions_text: ~
+        custom_color1_instructions_text: "Je kan de hoofdkleur van de intercace wijzigen door een zgn. hex kleur waarde in te geven. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kan je helpen deze kleur te kiezen en de bijbehorende code hier te kopiëren."
+        custom_color2_instructions_text: "Je kunt de kleur van de %{post_new_listing} button veranderen door een hex kleur code in te vullen. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kan je helpen de kleur en de hex code te vinden."
         default_browse_view: "Standaard browse overzicht"
         default_browse_view_instructions_text: "Standaard browse overzicht is gebruikt op de homepagina om te bepalen hoe de lijsten standaard weergegeven worden."
         grid: Raster
@@ -151,8 +151,8 @@ nl:
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: ~
-        only_white_label_offer: ~
-        upgrade_pro_plan_link: ~
+        white_label_offer: ~
+        upgrade_plan_link: ~
         verification_sent_from: ~
         follow_the_instructions: ~
       getting_started:
@@ -353,7 +353,7 @@ nl:
           this_field_is_required: "This veld is verplicht"
           this_field_is_required_checkbox: "Dit veld is verplicht (gebruiker moet minstens één optie kiezen)"
         search_filter:
-          search_filter: ~
+          search_filter: "Toon een filter gebaseerd op dit veld, op de home pagina."
           date_cant_be_filtered: ~
           text_cant_be_filtered: ~
       index:
@@ -799,6 +799,10 @@ nl:
       you_have_not_yet_accepted_or_rejected_offer: "U heeft het aanbod %{title} dat u %{date} heeft ontvangen nog niet geaccepteerd of geweigerd."
       you_have_not_yet_accepted_or_rejected_request: "U heeft het verzoek %{title} dat u %{date} heeft ontvangen nog niet geaccepteerd of geweigerd."
       show_thread: "Toon conversatie"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     braintree_account_approved:
       account_ready: "U kunt nu betalingen ontvangen"
       message: "Uw betalingsinformatie is goedgekeurd en u kunt nu betalingen ontvangen op %{service_name}."
@@ -1205,6 +1209,10 @@ nl:
   layouts:
     admin:
       admin: "%{service_name} dashboard beheerder"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     no_tribe:
       inbox: Inbox
       settings: Instellingen

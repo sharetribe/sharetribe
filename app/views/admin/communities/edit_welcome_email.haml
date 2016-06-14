@@ -13,6 +13,16 @@
     = t("admin.left_hand_navigation.emails_title")
 
 .left-navi-section
+  - if show_branding_info || !can_set_sender_address
+    .row
+      .col-12
+
+        .alert-box-warning
+          %p
+            %span.alert-box-icon<>
+              = icon_tag("alert", ["icon-fix"])
+            %span<
+              = t("admin.communities.outgoing_email.white_label_offer", upgrade_pro_plan_link: link_to(t("admin.communities.outgoing_email.upgrade_plan_link"), admin_plan_path)).html_safe
 
   .row
     .col-12
@@ -108,17 +118,6 @@
       .col-12
         %h3= t("admin.communities.outgoing_email.set_sender_address")
 
-    - unless can_set_sender_address
-      .row
-        .col-12
-
-          .alert-box-warning
-            %p
-              %span.alert-box-icon<>
-                = icon_tag("alert", ["icon-fix"])
-              %span<
-                = t("admin.communities.outgoing_email.only_white_label_offer", upgrade_pro_plan_link: link_to(t("admin.communities.outgoing_email.upgrade_pro_plan_link"), admin_plan_path)).html_safe
-
     - disabled_attr = can_set_sender_address ? nil : :disabled
     - disabled_class = can_set_sender_address ? "" : "sender-address-disabled"
 
@@ -158,3 +157,10 @@
         = @community_customization.welcome_email_content.html_safe
       - else
         = render :partial => "admin/communities/default_welcome_email"
+    -if show_branding_info
+      - sharetribe_link = link_to("Sharetribe", link_to_sharetribe)
+      - learn_more = link_to(t("layouts.branding.learn_more"), link_to_sharetribe)
+      .info-text-container
+        =t("layouts.branding.powered_by", sharetribe_link: sharetribe_link).html_safe
+        =t("layouts.branding.create_own", learn_more: learn_more).html_safe
+

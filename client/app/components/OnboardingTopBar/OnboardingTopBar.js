@@ -2,39 +2,39 @@ import { Component, PropTypes } from 'react';
 import { div, span, a } from 'r-dom';
 import { t } from '../../utils/i18n';
 
-import css from './OnboardingTopBar.scss';
+import css from './OnboardingTopBar.css';
 
-const next = function next(nextStep, guideRoot) {
+const next = function next(nextStep, routes) {
   switch (nextStep) {
     case 'slogan_and_description':
       return {
         title: t('web.admin.onboarding.topbar.slogan_and_description'),
-        link: `${guideRoot}/${nextStep}`,
+        link: routes.admin_getting_started_guide_slogan_and_description_path(),
       };
     case 'cover_photo':
       return {
         title: t('web.admin.onboarding.topbar.cover_photo'),
-        link: `${guideRoot}/${nextStep}`,
+        link: routes.admin_getting_started_guide_cover_photo_path(),
       };
     case 'filter':
       return {
         title: t('web.admin.onboarding.topbar.filter'),
-        link: `${guideRoot}/${nextStep}`,
+        link: routes.admin_getting_started_guide_filter_path(),
       };
     case 'paypal':
       return {
         title: t('web.admin.onboarding.topbar.paypal'),
-        link: `${guideRoot}/${nextStep}`,
+        link: routes.admin_getting_started_guide_paypal_path(),
       };
     case 'listing':
       return {
         title: t('web.admin.onboarding.topbar.listing'),
-        link: `${guideRoot}/${nextStep}`,
+        link: routes.admin_getting_started_guide_listing_path(),
       };
     case 'invitation':
       return {
         title: t('web.admin.onboarding.topbar.invitation'),
-        link: `${guideRoot}/${nextStep}`,
+        link: routes.admin_getting_started_guide_invitation_path(),
       };
     default:
       return null;
@@ -44,7 +44,7 @@ const next = function next(nextStep, guideRoot) {
 class OnboardingTopBar extends Component {
 
   nextElement() {
-    const nextStep = next(this.props.next_step, this.props.guide_root);
+    const nextStep = next(this.props.next_step, this.props.routes);
     if (nextStep) {
       return (
         div({ className: css.nextContainer }, [
@@ -62,7 +62,7 @@ class OnboardingTopBar extends Component {
     const currentProgress = this.props.progress;
     return div({ className: css.topbarContainer }, [
       div({ className: css.topbar }, [
-        a({ className: css.progressLabel, href: this.props.guide_root }, [
+        a({ className: css.progressLabel, href: this.props.routes.admin_getting_started_guide_path() }, [
           t('web.admin.onboarding.topbar.progress_label'),
           span({ className: css.progressLabelPercentage },
                `${Math.floor(currentProgress)} %`),
@@ -76,10 +76,20 @@ class OnboardingTopBar extends Component {
   }
 }
 
+const { number, string, shape, func } = PropTypes;
+
 OnboardingTopBar.propTypes = {
-  guide_root: PropTypes.string.isRequired,
-  progress: PropTypes.number.isRequired,
-  next_step: PropTypes.string.isRequired,
+  progress: number.isRequired,
+  next_step: string.isRequired,
+  routes: shape({
+    admin_getting_started_guide_path: func.isRequired,
+    admin_getting_started_guide_slogan_and_description_path: func.isRequired,
+    admin_getting_started_guide_cover_photo_path: func.isRequired,
+    admin_getting_started_guide_filter_path: func.isRequired,
+    admin_getting_started_guide_paypal_path: func.isRequired,
+    admin_getting_started_guide_listing_path: func.isRequired,
+    admin_getting_started_guide_invitation_path: func.isRequired,
+  }).isRequired,
 };
 
 export default OnboardingTopBar;

@@ -5,6 +5,14 @@ set -e
 echo "Running script"
 echo "SUITE: ${SUITE}"
 
+# Somehow Travis uses a different version of Node.js even after
+# running install.sh if we don't set up nvm again here.
+
+# shellcheck source=/dev/null
+. "$HOME/.nvm/nvm.sh"
+nvm install
+nvm use
+
 if [ "$SUITE" = "rspec" ]
 then
     bundle exec rspec spec 2>&1
@@ -24,6 +32,12 @@ then
     echo "Running npm run clean"
     npm run clean
 
+    echo "Build translation bundle"
+    script/export_translations.sh
+
+    echo "Build routes bundle"
+    script/export_routes_js.sh
+
     echo "Running client and server builds"
     (cd client && npm run build:client && npm run build:server)
 
@@ -31,7 +45,7 @@ then
     (cd client && npm run start-phantomjs) &
     PHANTOMJS=true bundle exec cucumber -ptravis 2>&1
     exit
-elif [ "$SUITE" = "eslint" ]
+elif [ "$SUITE" = "lint" ]
 then
     cd client && npm run lint 2>&1
     exit

@@ -87,8 +87,8 @@ es:
         small_cover_photo_visibility: ~
         small_cover_photo_instructions_text_with_dimensions: ~
         main_content_width: ~
-        custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad ingresando un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
-        custom_color2_instructions_text: "Puedes cambiar el color del botón de %{post_new_listing} con un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
+        custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad ingresando un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
+        custom_color2_instructions_text: "Puedes cambiar el color del botón de %{post_new_listing} con un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
         default_browse_view: ~
         default_browse_view_instructions_text: ~
         grid: ~
@@ -136,8 +136,8 @@ es:
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: ~
-        only_white_label_offer: ~
-        upgrade_pro_plan_link: ~
+        white_label_offer: ~
+        upgrade_plan_link: ~
         verification_sent_from: ~
         follow_the_instructions: ~
       getting_started:
@@ -784,6 +784,10 @@ es:
       you_have_not_yet_accepted_or_rejected_offer: "Aún no has aceptado o rechazado la oferta '%{title}' que recibiste el %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Aún no has aceptado o rechazado la solicitud '%{title}' que recibiste el %{date}."
       show_thread: "Mostrar conversación"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     braintree_account_approved:
       account_ready: "Ya estás listo para recibir pagos"
       message: "Tus detalles de pago han sido confirmados y ya puedes recibir pagos a través de %{service_name}."
@@ -1197,6 +1201,10 @@ es:
   layouts:
     admin:
       admin: "Panel de administración de %{service_name}"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     no_tribe:
       inbox: "Buzón de entrada"
       settings: Configuración

@@ -2,6 +2,7 @@ class ListingImagesController < ApplicationController
 
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_filter :verify_authenticity_token, :only => [:destroy]
+  skip_before_filter :warn_about_missing_payment_info
 
   before_filter :"ensure_authorized_to_add!", :only => [:add_from_file, :add_from_url]
 

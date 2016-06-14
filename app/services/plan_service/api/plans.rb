@@ -37,7 +37,7 @@ module PlanService::API
     # All plans should come from the external plan service and that's
     # why this function is deprecated
     #
-    def create_initial_trial(community_id:, plan:)
+    def create_initial_trial(community_id:, plan: {})
       Result::Success.new(
         with_statuses(
           PlanStore.create_trial(community_id: community_id, plan: plan)))
@@ -108,10 +108,10 @@ module PlanService::API
     # - Expired non-trial plan
     def plan_closed?(plan)
       Maybe(plan).map { |p|
-        if p[:plan_level] == 5
+        if p[:status] == :hold
           true
         else
-          plan_expired?(p) && p[:plan_level] > 0
+          plan_expired?(p) && p[:status] == :active
         end
       }.or_else(false)
     end

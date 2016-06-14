@@ -9,12 +9,21 @@ class TransactionMailer; end
 
 describe IntApi::MarketplacesController, type: :controller do
 
+  before(:each) do
+    PlanService::API::Api.reset!
+    PlanService::API::Api.set_environment({active: true})
+  end
+
+  after(:each) do
+    PlanService::API::Api.reset!
+    PlanService::API::Api.set_environment({active: false})
+  end
+
   let(:listings_api) { ListingService::API::Api }
 
   def expect_trial_plan(cid)
     # Create trial plan
     plan = PlanService::API::Api.plans.get_current(community_id: cid).data
-    expect(plan[:plan_level]).to eq(0)
     expect(plan[:expires_at]).not_to eq(nil)
   end
 

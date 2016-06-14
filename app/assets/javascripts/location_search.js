@@ -1,17 +1,56 @@
-window.ST = window.ST || {};
+window.ST = window.ST || {};
 
 (function(module) {
 
-  module.initializeLocationSearch = function() {
-    var searchInput = document.getElementById('q');
-    var statusInput = document.getElementById('ls');
-    var coordinateInput = document.getElementById('lc');
-    var boundingboxInput = document.getElementById('boundingbox');
-    var homepageForm = document.getElementById('homepage-filters');
+  module.initializeLocationSearch = function initializeLocationSearch(selectors) {
+    var searchInput = document.querySelector(selectors.search);
+    var statusInput = document.querySelector(selectors.status);
+    var coordinateInput = document.querySelector(selectors.coordinate);
+    var boundingboxInput = document.querySelector(selectors.boundingbox);
+    var maxDistanceInput = document.querySelector(selectors.maxDistance);
+    var form = document.querySelector(selectors.form);
     var autocomplete = new window.google.maps.places.Autocomplete(searchInput, { bounds: { north: -90, east: -180, south: 90, west: 180 } });
     autocomplete.setTypes(['geocode']);
 
     boundingboxInput.value = null;
+
+    function toRadians(degrees) {
+      return degrees * (Math.PI/180);
+    }
+
+    function computeScale(a, b) {
+      var R = 6371; // Earth's radius in km
+
+      var lat1 = a.lat();
+      var lat2 = b.lat();
+      var lng1 = a.lng();
+      var lng2 = b.lng();
+      var lat1InRadians = toRadians(lat1);
+      var lat2InRadians = toRadians(lat2);
+      var latDiffInRadians = toRadians(lat2-lat1);
+      var lngDiffInRadians = toRadians(lng2-lng1);
+
+      // The haversine formula
+      // 'a' is the square of half the chord length between the points
+      var a = Math.sin(latDiffInRadians/2) * Math.sin(latDiffInRadians/2) +
+              Math.cos(lat1InRadians) * Math.cos(lat2InRadians) *
+              Math.sin(lngDiffInRadians/2) * Math.sin(lngDiffInRadians/2);
+      // the angular distance in radians
+      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+      // distance between coordinates
+      var d = R * c;
+      return d/2;
+    };
+
+    function updateViewportData(viewport) {
+      if (viewport) {
+        var boundingboxRadius = computeScale(viewport.getNorthEast(), viewport.getSouthWest());
+        maxDistanceInput.value = boundingboxRadius;
+        boundingboxInput.value = viewport.toUrlValue();
+      } else {
+        maxDistanceInput.value = null;
+      }
+    }
 
     window.google.maps.event.addListener(autocomplete, 'place_changed', function(){
       var place = autocomplete.getPlace();
@@ -19,10 +58,8 @@ window.ST = window.ST || {};
         if(place.geometry != null) {
           coordinateInput.value = place.geometry.location.toUrlValue();
           statusInput.value = window.google.maps.places.PlacesServiceStatus.OK;
-          if (place.geometry.viewport) {
-            boundingboxInput.value = place.geometry.viewport.toUrlValue();
-          }
-          homepageForm.submit();
+          updateViewportData(place.geometry.viewport);
+          form.submit();
         } else {
           coordinateInput.value = ""; // clear previous coordinates
           // Let's pick first suggestion, if no geometry was returned by autocompletion
@@ -32,7 +69,7 @@ window.ST = window.ST || {};
     });
 
     // Ensure default events don't fire without correct info
-    homepageForm.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function(e) {
       // If service status is unset and there are no coordinates, do not make search submit
       if(statusInput.value === "" && coordinateInput.value === "" && searchInput.value !== "") {
         e.preventDefault();
@@ -66,22 +103,18 @@ window.ST = window.ST || {};
 
           if(placeServiceStatus === serviceStatus.OK) {
             coordinateInput.value = place.geometry.location.toUrlValue();
-            if (place.geometry.viewport) {
-              boundingboxInput.value = place.geometry.viewport.toUrlValue();
-            }
+            updateViewportData(place.geometry.viewport);
           }
           // Save received service status for logging
           statusInput.value = placeServiceStatus;
-          homepageForm.submit();
+          form.submit();
 
         });
       } else {
         // Save received service status for logging
         statusInput.value = autocompleteServiceStatus;
-        homepageForm.submit();
+        form.submit();
       }
     };
-
-
   };
 })(window.ST);

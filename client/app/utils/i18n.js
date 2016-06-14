@@ -13,11 +13,12 @@
 // The i18n-js library is able to read the language bundle from that global
 //
 
+import { span } from 'r-dom';
 import { bind } from 'lodash';
 
-function isServer() {
+const isServer = function isServer() {
   return typeof window === 'undefined';
-}
+};
 
 if (isServer()) {
 
@@ -41,14 +42,40 @@ if (isServer()) {
 // translations from the global.I18n variable. This variable needs to
 // be initialized before loading the i18n-js library, so that the
 // library can use the existing I18n object
-
 const I18n = require('i18n-js');
 
-function initialize(railsContext) {
-  I18n.locale = railsContext.i18nLocale;
-  I18n.defaultLocale = railsContext.i18nDefaultLocale;
+const missingTranslationMessage = function missingTranslationMessage(scope) {
+  return `[missing "${scope}" translation]`;
+};
+
+const initialize = function initialize(i18nLocale, i18nDefaultLocale, env) {
+  I18n.locale = i18nLocale;
+  I18n.defaultLocale = i18nDefaultLocale;
   I18n.interpolationMode = 'split';
-}
+
+  if (env === 'development') {
+    I18n.missingTranslation = function displayMissingTranslation(scope) {
+      return span({ className: 'missing-translation', style: { backgroundColor: 'red !important' } }, missingTranslationMessage(scope));
+    };
+  } else {
+    I18n.missingTranslation = function guessMissingTranslation(scope) {
+      // This is a sligthly modified guess function. Original:
+      // https://github.com/fnando/i18n-js/blob/2ca6d31365bb41db21e373d126cac00d38d15144/app/assets/javascripts/i18n.js#L536
+
+      // Get only the last portion of the scope
+      const s = scope.split('.').slice(-1)[0];
+
+      // Replace underscore with space && camelcase with space and lowercase letter
+      const guess = s
+              .replace(/_/g, ' ')
+              .replace(/([a-z])([A-Z])/g, (match, p1, p2) => `${p1} ${p2.toLowerCase()}`);
+
+      const uppercasedGuess = guess[0].toUpperCase() + guess.substr(1);
+
+      return (this.missingTranslationPrefix.length > 0 ? this.missingTranslationPrefix : '') + uppercasedGuess;
+    };
+  }
+};
 
 // Bind functions to I18n
 const translate = bind(I18n.translate, I18n);

@@ -2,6 +2,9 @@
 
 %body
 
+  -# Render railsContext here before any react component gets rendered
+  = prepend_render_rails_context("")
+
   %noscript
     .noscript-padding
       -# Noscript content will be positioned here
@@ -10,7 +13,7 @@
     - with_feature(:onboarding_redesign_v1) do
       - props = onboarding_topbar_props
       - unless props[:next_step] == :all_done
-        - react_component_cache("onboarding_topbar", props) do
+        - react_component_cache(name: "onboarding_topbar", props: props) do
           = react_component("OnboardingTopBar", props: props, prerender: true)
 
   = render partial: 'layouts/global_header', locals: header_props()
@@ -40,7 +43,8 @@
       .wrapper
         = render :partial => "layouts/notifications"
         = yield
-
+        - if display_branding_info?
+          = render partial: "layouts/non_whitelabel_branding", locals: {link_to_sharetribe: "https://www.sharetribe.com/?utm_source=#{@current_community.ident}.sharetribe.com&utm_medium=referral&utm_campaign=nowl-footer"}
   -#
     This is not pretty, but works.
     On homepage, we want to wrap the whole page content (search bar and the "real" content) to a form, so that
@@ -48,7 +52,7 @@
 
   - if params[:controller] == "homepage" && params[:action] == "index"
     %form{method: "get", id: "homepage-filters"}
-      - params.except("action", "controller", "q", "lc", "ls", "view", "utf8", "boundingbox").each do |param, value|
+      - params.except("action", "controller", "q", "lc", "ls", "view", "utf8", "boundingbox", "distance_max").each do |param, value|
         - unless param.match(/^filter_option/) || param.match(/^checkbox_filter_option/) || param.match(/^nf_/) || param.match(/^price_/)
           = hidden_field_tag param, value
       = hidden_field_tag "view", @view_type
@@ -103,3 +107,5 @@
     $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
 
   = render :partial => "layouts/noscript"
+
+

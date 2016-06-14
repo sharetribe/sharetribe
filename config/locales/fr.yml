@@ -102,8 +102,8 @@ fr:
         small_cover_photo_visibility: "La photo de couverture réduite est affichée sur toute les pages excepté sur la page d'accueil pour les visiteurs non connectés."
         small_cover_photo_instructions_text_with_dimensions: "La photo sera redimensionnée en %{width}x%{height} pixels et les images trop grandes seront coupées au centre."
         main_content_width: "Lorsque vous choisissez les photos de couverture, gardez à l'esprit que la page principale a une largeur maximale de %{main_width} pixels. N'oubliez pas non plus de vérifier comment s'affiche votre photo de couverture sur des petits écrans (par exemple en réduisant la taille de la fenêtre de votre navigateur)."
-        custom_color1_instructions_text: "Vous pouvez changer la couleur principale de l'interface en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier ici."
-        custom_color2_instructions_text: "Vous pouvez changer la couleur du bouton %{post_new_listing} en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier ici."
+        custom_color1_instructions_text: "Vous pouvez changer la couleur principale de l'interface en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier ici."
+        custom_color2_instructions_text: "Vous pouvez changer la couleur du bouton %{post_new_listing} en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier ici."
         default_browse_view: "Vue par défaut"
         default_browse_view_instructions_text: "La vue par défaut est utilisée sur la page d'accueil pour définir comment sont affichées les annonces par défaut."
         grid: Grille
@@ -151,8 +151,8 @@ fr:
         invalid_email_domain: "L'adresse email '%{email}' utilise le fournisseur '%{domain}' non supporté. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Lisez l'article dans la base de connaissances pour en savoir plus."
         unknown_error: "Quelque chose s'est mal passé."
-        only_white_label_offer: "Cette fonctionnalité fait partie de l'offre marque blanche de Sharetribe. Pour activer cette fonctionnalité vous devriez %{upgrade_pro_plan_link}."
-        upgrade_pro_plan_link: "passer à notre offre Pro ou supérieure"
+        white_label_offer: "Configurez votre propre adresse email comme expéditeur et supprimez toute mention de Sharetribe dans les messages envoyés en %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "vous abonnant à notre offre Pro ou supérieure"
         verification_sent_from: "L'email de vérification a été envoyé par %{verification_sender_name}."
         follow_the_instructions: "Veuillez suivre les instructions dans cet email pour vérifier votre adresse."
       getting_started:
@@ -815,6 +815,10 @@ fr:
       you_have_not_yet_accepted_or_rejected_offer: "Vous n'avez pas encore accepté ou refusé l'offre %{title} reçue %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Vous n'avez pas encore accepté ou refusé la demande %{title} reçue %{date}."
       show_thread: "Voir la conversation"
+    branding:
+      powered_by: "%{service_name} est propulsé par la plate-forme de places de marché %{sharetribe_link}."
+      create_own: "Voulez-vous créer votre propre place de marché en ligne, comme %{service_name} ? %{learn_more}."
+      learn_more: "Découvrez-en plus"
     braintree_account_approved:
       account_ready: "Vous êtes prêt à recevoir des paiements"
       message: "Vos informations de paiement ont été confirmées et vous êtes maintenant prêt à recevoir des paiements sur %{service_name}."
@@ -1221,6 +1225,10 @@ fr:
   layouts:
     admin:
       admin: "Panneau d'administration %{service_name}"
+    branding:
+      powered_by: "%{service_name} est propulsé par la plate-forme de places de marché %{sharetribe_link}."
+      create_own: "Voulez-vous créer votre propre place de marché en ligne, comme %{service_name} ? %{learn_more}."
+      learn_more: "Découvrez-en plus"
     no_tribe:
       inbox: "Boîte de réception"
       settings: Paramètres
@@ -1435,7 +1443,7 @@ fr:
       edit_listing: "Editer l'annonce"
       reopen_listing: "Ré-ouvrir l'annonce"
       move_to_top: "Remonter en tête de liste"
-      show_in_updates_email: "Afficher dans le prochain email d'actualité"
+      show_in_updates_email: "Afficher dans la prochaine newsletter"
       show_in_updates_email_loading: Chargement...
       show_in_updates_email_error: "Impossible de se connecter au serveur. Veuillez essayer de nouveau après avoir rafraîchi la page."
       show_in_updates_email_success: "Cette annonce sera diffusée dans le prochain email d'actualité, automatiquement envoyée aux utilisateurs"
@@ -1957,19 +1965,19 @@ fr:
         status_confirmed: Confirmé
         status_pending: "En attente"
     notifications:
-      email_from_admins: "J'accepte de recevoir des informations occasionnelles des administrateurs"
+      email_from_admins: "J'accepte de recevoir occasionnellement des messages des administrateurs"
       i_want_to_get_email_notification_when: "Je souhaite recevoir un email de notification lorsque..."
-      newsletters: "Bulletins d'information"
-      community_updates: "Emails d'actualité"
+      newsletters: "Emails de la part des administrateurs"
+      community_updates: Newsletters
       email_about_accept_reminders: "...j'ai oublié d'accepter une offre ou une demande"
       email_about_confirm_reminders: "...j'ai oublié de confirmer une commande comme réalisée"
       email_about_new_comments_to_own_listing: "...quelqu'un dépose un commentaire sur une de mes offres ou de mes demandes"
       email_about_new_messages: "...quelqu'un m'envoie un message"
       email_about_new_received_testimonials: "...quelqu'un me donne un avis"
       email_about_testimonial_reminders: "...j'ai oublié de donner mon avis sur un événement"
-      email_daily_community_updates: "Envoyez moi un email <b>chaque jour</b> s'il y a des nouvelles annonces"
-      email_weekly_community_updates: "Envoyez moi un email <b>chaque semaine</b> s'il y a des nouvelles annonces"
-      do_not_email_community_updates: "Ne m'envoyez pas d'emails de mise à jour"
+      email_daily_community_updates: "Recevoir un email <b>chaque jour</b> s'il y a des nouvelles annonces"
+      email_weekly_community_updates: "Recevoir un email <b>chaque semaine</b> s'il y a des nouvelles annonces"
+      do_not_email_community_updates: "Ne pas recevoir d'emails même s'il y a de nouvelles annonces"
       email_when_conversation_accepted: "...quelqu'un accepte une de mes offres ou de mes demandes"
       email_when_conversation_rejected: "...quelqu'un refuse une de mes offres ou de mes demandes"
       email_about_completed_transactions: "...quelqu'un marque ma commande comme réalisée"

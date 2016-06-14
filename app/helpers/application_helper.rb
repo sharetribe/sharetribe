@@ -319,7 +319,7 @@ module ApplicationHelper
         :topic => :general,
         :text => t("admin.communities.getting_started.getting_started"),
         :icon_class => icon_class("openbook"),
-        :path => getting_started_admin_community_path(@current_community),
+        :path => admin_getting_started_guide_path,
         :name => "getting_started"
       },
       {
@@ -383,14 +383,14 @@ module ApplicationHelper
         :topic => :configure,
         :text => t("admin.communities.edit_details.community_details"),
         :icon_class => "ss-page",
-        :path => edit_details_admin_community_path(@current_community),
+        :path => admin_details_edit_path,
         :name => "tribe_details"
       },
       {
         :topic => :configure,
         :text => t("admin.communities.edit_details.community_look_and_feel"),
         :icon_class => "ss-paintroller",
-        :path => edit_look_and_feel_admin_community_path(@current_community),
+        :path => admin_look_and_feel_edit_path,
         :name => "tribe_look_and_feel"
       },
       {

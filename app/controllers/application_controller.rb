@@ -471,6 +471,10 @@ class ApplicationController < ActionController::Base
     @minutes_to_maintenance = NextMaintenance.minutes_to(now)
   end
 
+  def current_community_id
+    Maybe(@current_community).id.or_else(nil)
+  end
+
   private
 
   # Override basic instrumentation and provide additional info for lograge to consume
@@ -621,6 +625,11 @@ class ApplicationController < ActionController::Base
     logger.add_metadata(metadata)
   end
 
+  def display_branding_info?
+    !params[:controller].starts_with?("admin") && !@current_plan[:features][:whitelabel]
+  end
+  helper_method :display_branding_info?
+
   def display_onboarding_topbar?
     # Don't show if user is not logged in
     return false unless @current_user
@@ -639,7 +648,6 @@ class ApplicationController < ActionController::Base
     community_id = @current_community.id
     onboarding_status = Admin::OnboardingWizard.new(community_id).setup_status
     {
-      guide_root: admin_getting_started_guide_path,
       progress: OnboardingViewUtils.progress(onboarding_status),
       next_step: OnboardingViewUtils.next_incomplete_step(onboarding_status)
     }

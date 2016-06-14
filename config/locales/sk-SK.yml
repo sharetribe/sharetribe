@@ -136,8 +136,8 @@ sk-SK:
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: ~
-        only_white_label_offer: ~
-        upgrade_pro_plan_link: ~
+        white_label_offer: ~
+        upgrade_plan_link: ~
         verification_sent_from: ~
         follow_the_instructions: ~
       getting_started:
@@ -784,6 +784,10 @@ sk-SK:
       you_have_not_yet_accepted_or_rejected_offer: "Ešte nie je prijatá alebo odmietnutá ponuka %{title}, ktorú ste dostali %{date}"
       you_have_not_yet_accepted_or_rejected_request: "Ešte nie je prijatá alebo odmietnutá žiadosť %{title}, ktorú ste dostali %{date}"
       show_thread: ~
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     braintree_account_approved:
       account_ready: ~
       message: ~
@@ -1190,6 +1194,10 @@ sk-SK:
   layouts:
     admin:
       admin: "%{service_name} panel administrátora"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     no_tribe:
       inbox: ~
       settings: ~

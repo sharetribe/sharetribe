@@ -1,0 +1,145 @@
+.title {
+  font-size: var(--fontSizeTitle);
+  font-weight: 600;
+  color: var(--colorTitle);
+  line-height: var(--lineHeightTitle);
+}
+
+.description {
+  font-size: var(--fontSize);
+  font-weight: 400;
+  color: var(--color);
+  line-height: var(--lineHeight);
+  max-width: var(--widthRestriction);
+  width: var(--widthRestrictionPercentage);
+  margin-bottom: var(--verticalSpaceText);
+}
+
+.sectionSeparator {
+  margin: var(--verticalSpaceElementBig) 0;
+  height: 1px;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+/* GuideStatusPage */
+.stepList {
+  padding-left: 0;
+  margin-bottom: var(--verticalSpaceText);
+}
+
+.stepListItem,
+.stepListItemDone {
+  list-style: none;
+}
+
+.stepListCheckbox {
+  background-image: url('./images/iconSquare@2x.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position-y: 1px;
+  display: inline-block;
+  width: var(--fontSize);
+  height: var(--fontSize);
+  margin-right: 0.5em;
+}
+
+.stepListItemDone .stepListCheckbox {
+  @mixin guideStepListCheckbox;
+  background-image: url('./images/iconSquareChecked@2x.png');
+}
+
+.stepListLink {
+  font-size: var(--fontSizeBig);
+  font-weight: 600;
+  color: var(--colorActionText);
+  line-height: var(--lineHeightBig);
+
+  &:hover {
+    color: var(--colorActionTextHover);
+  }
+}
+
+.stepListItemDone .stepListLink {
+  text-decoration: line-through;
+  color: var(--colorCompleted);
+  &:hover {
+    color: var(--colorCompletedHover);
+  }
+}
+
+.nextButton {
+  @mixin guideNextButton;
+}
+
+.nextButtonGhost {
+  @mixin guideNextButton;
+  margin-right: 0;
+  border: 1px solid var(--colorButton);
+  background-color: transparent;
+  color: var(--colorButton);
+  &:hover {
+    border: 1px solid var(--colorButtonGhost);
+    background-color: transparent;
+    color: var(--colorButtonGhost);
+  }
+}
+
+.buttonSeparator {
+  margin-right: var(--gutter);
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+
+/* Common elements for step related pages */
+.backLink {
+  font-size: var(--fontSizeSmall);
+  font-weight: 600;
+  color: var(--colorActionText);
+  margin-bottom: var(--verticalSpaceTextSmall);
+  display: inline-block;
+  &:hover {
+    color: var(--colorActionTextHover);
+  }
+}
+
+.infoTextContainer {
+  position: relative;
+  color: var(--colorInfoText);
+  font-size: var(--fontSizeInfo);
+  line-height: var(--lineHeightInfo);
+  margin-top: var(--verticalSpaceTextInfo);
+  max-width: var(--widthRestriction);
+  width: var(--widthRestrictionPercentage);
+}
+
+.infoTextIcon {
+  position: absolute;
+  width: 0.75em;
+  margin-top: 1px;
+}
+
+.infoTextContent {
+  padding-left: 1.5em;
+}
+
+.sloganImageContainer {
+  @mixin guideSloganImageContainer;
+}
+
+.sloganImageContainerBig {
+  @mixin guideSloganImageContainer;
+  padding: 73.68% 0 0 0; /* 73.68% = 100 / (w / h) = 100 / (722 / 532) */
+}
+
+.sloganImage {
+  background-size: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

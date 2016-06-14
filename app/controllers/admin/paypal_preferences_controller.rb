@@ -166,7 +166,7 @@ class Admin::PaypalPreferencesController < ApplicationController
   def ensure_paypal_provisioned
     unless PaypalHelper.paypal_provisioned?(@current_community.id)
       flash[:error] = t("paypal_accounts.new.paypal_not_enabled")
-      redirect_to edit_details_admin_community_path(@current_community)
+      redirect_to admin_details_edit_path
     end
   end
 

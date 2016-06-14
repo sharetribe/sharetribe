@@ -38,7 +38,7 @@ module OnboardingViewUtils
   end
 
   def sorted_steps_with_includes(setup_status, includes = {})
-    STEPS.map { |s| {step: s, complete: setup_status[s]}.merge(includes[s]) }
+    STEPS.map { |s| {step: s, complete: setup_status[s]}.merge(includes[s] || {}) }
   end
 
   def celebration_image(next_step)

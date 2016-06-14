@@ -102,7 +102,7 @@ pt-BR:
         small_cover_photo_visibility: "Foto pequena da capa mostrado para usuários não conectados."
         small_cover_photo_instructions_text_with_dimensions: "A foto será redimensionada para %{width} x %{height} pixel e imagens mais altas serão cortadas no meio."
         main_content_width: "Ao escolher fotos de capa, por favor, note que o conteúdo principal da página é %{main_width} pixels de largura, no máximo. Lembre-se de verificar também como a sua foto da capa parece nas telas menores (por exemplo, usando uma janela do navegador mais estreita)."
-        custom_color1_instructions_text: "Você pode mudar a cor principal da interface de usuário desta comunidade, inserindo um valor de cor hex. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\"> ColorPicker.com </a> pode ajudar você a escolher a cor e copie o código aqui."
+        custom_color1_instructions_text: "Você pode mudar a cor principal da interface de usuário desta comunidade, inserindo um valor de cor hex. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\"> ColorPicker.com </a> pode ajudar você a escolher a cor e copie o código aqui."
         custom_color2_instructions_text: ~
         default_browse_view: "Visualização navegação padrão"
         default_browse_view_instructions_text: "Visualização de navegação padrão é usado na página inicial para definir a forma como os anúncios são exibidos por padrão."
@@ -151,8 +151,8 @@ pt-BR:
         invalid_email_domain: "O endereço de e-mail '%{email}' usa um provedor de e-mail não suportado: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Para maiores informações leia o artigo na base de conhecimento"
         unknown_error: "Algo deu errado"
-        only_white_label_offer: "Esta função é parte da Sharetribe white-label offer. Para habilitar esta função você deve %{upgrade_pro_plan_link}."
-        upgrade_pro_plan_link: "Faça upgrade para nosso plano Pro ou superior"
+        white_label_offer: ~
+        upgrade_plan_link: ~
         verification_sent_from: "O e-mail de verificação foi enviado por %{verification_sender_name}."
         follow_the_instructions: "Por favor siga as instruções para confirmar seu e-mail."
       getting_started:
@@ -793,7 +793,7 @@ pt-BR:
       you_can_join: "Para participar de %{service_name} você deve aceitar os termos de uso e clicar em 'Entrar em %{service_name}' abaixo."
       you_can_join_email_confirmation: "Para participar %{service_name}, você precisa ter um endereço de e-mail válido, que termina com %{email_ending}. Você pode participar através do preenchimento de seu endereço de e-mail, aceitando os termos de uso dessa comunidade e clicando em 'Participar da %{service_name}' abaixo, e confirmar seu e-mail."
       you_can_join_email_confirmation_multiple_addresses: "%{service_name} tem restrições de e-mail. Você só pode entrar se você tiver um endereço de e-mail de uma organização que o administrador deste site tem efetuado permissão. Você pode participar através do preenchimento de seu endereço de e-mail, aceitando os termos de uso %{service_name} e clicando em 'Participar da %{service_name}' abaixo."
-      you_can_join_with_invite_only: "Você tem que ter um convite de outro membro para participar desta comunidade. Se você tem um código de convite, você pode participar desta comunidade, digitando o código no campo abaixo, aceitando os termos de uso dessa comunidade e clicando em \"Aderir à comunidade 'abaixo."
+      you_can_join_with_invite_only: "Você tem que ter um convite de outro membro para participar em %{service_name}. Se você tem um código de convite, você pode participar desta comunidade, digitando o código no campo abaixo, aceitando os termos de uso dessa comunidade e clicando em 'Entrar em %{service_name}' abaixo."
       if_want_to_view_content: "Se você quiser ver o conteúdo do %{service_name} sem se registrar como membro você deve"
       log_out: sair
       join_community_button: "Entrar em %{service_name}"
@@ -811,6 +811,10 @@ pt-BR:
       you_have_not_yet_accepted_or_rejected_offer: "Você ainda não aceitou nem rejeitou a oferta %{title} que recebeu em %{date}"
       you_have_not_yet_accepted_or_rejected_request: "Você ainda não aceitou nem rejeitou a requisição %{title} que recebeu em %{date}"
       show_thread: "Ver a conversa"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     braintree_account_approved:
       account_ready: "Você já pode receber pagamentos"
       message: "Suas informações de pagamento foram confirmadas e agora você está pronto para receber pagamentos em %{service_name}."
@@ -864,7 +868,7 @@ pt-BR:
       or_paste_link: "Alternativamente, você pode copiar o seguinte link para a barra de endereços do seu navegador:"
       turning_on_confirmations_in_this_community: "Nós utilizamos um e-mail de confirmação nesse mercado virtual da %{service_name}."
     common:
-      hey: "Olá %{name}"
+      hey: "Oi %{name}"
       kassi_team: "Equipe %{service_name}"
       thanks: "Obrigado,"
       dont_want_to_receive_these_emails: "Você deseja receber e-mails?"
@@ -1217,6 +1221,10 @@ pt-BR:
   layouts:
     admin:
       admin: "Painel de administração do %{service_name}"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     no_tribe:
       inbox: "caixa de entrada"
       settings: Configurações

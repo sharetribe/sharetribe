@@ -3,9 +3,13 @@
 const Promise = require('es6-promise');
 Promise.polyfill();
 
-const webpack = require('webpack');
 const path = require('path');
-const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
+const cssnext = require('postcss-cssnext');
+const mixins = require('postcss-mixins');
+const customProperties = require('postcss-custom-properties');
+const cssVariables = require('./app/assets/styles/variables');
+
 const devBuild = process.env.NODE_ENV !== 'production';
 const nodeEnv = devBuild ? 'development' : 'production';
 
@@ -27,10 +31,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js'],
-    alias: {
-      react: path.resolve('./node_modules/react'),
-      'react-dom': path.resolve('./node_modules/react-dom'),
-    },
   },
   plugins: [
     new webpack.IgnorePlugin(/i18n\/all.js/),
@@ -55,22 +55,9 @@ module.exports = {
       minChunks: Infinity,
     }),
   ],
-  module: {
-    loaders: [
-      { test: /\.(woff2?|svg)$/, loader: 'url?limit=10000' },
-      { test: /\.(ttf|eot)$/, loader: 'file' },
-      { test: /\.(jpe?g|png|gif|svg|ico)$/, loader: 'url?limit=10000' },
-    ],
-  },
-
   postcss: [
-    autoprefixer({ browsers: ['last 2 versions', 'not ie < 11', 'not ie_mob < 11', 'ie >= 11'] }),
+    mixins({ mixinsFiles: path.join(__dirname, 'app/assets/styles/mixins.css') }),
+    customProperties({ variables: cssVariables }),
+    cssnext({ browsers: ['last 2 versions', 'not ie < 11', 'not ie_mob < 11', 'ie >= 11'] }),
   ],
-
-  // Place here all SASS files with variables, mixins etc.
-  // And sass-resources-loader will load them in every CSS Module (SASS file) for you
-  // (so don't need to @import them explicitly)
-  // https://github.com/shakacode/sass-resources-loader
-  sassResources: ['./app/assets/styles/app-variables.scss'],
-
 };

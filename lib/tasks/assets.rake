@@ -4,7 +4,11 @@
 # This is the secret sauce for how a Heroku deployment knows to create the webpack generated JavaScript files.
 Rake::Task["assets:precompile"]
   .clear_prerequisites
-  .enhance(["i18n:js:export", "assets:compile_environment"])
+  .enhance([
+             "js:routes",
+             "i18n:js:export",
+             "assets:compile_environment"
+           ])
 
 namespace :assets do
   # In this task, set prerequisites for the assets:precompile task
@@ -27,5 +31,8 @@ namespace :assets do
     # Remove compiled language bundles
     rm_r Dir.glob(Rails.root.join("app/assets/javascripts/i18n/*"))
     rm_r Dir.glob(Rails.root.join("client/app/i18n/*"))
+
+    # Remove routes
+    rm_r Dir.glob(Rails.root.join("client/app/routes/*"))
   end
 end

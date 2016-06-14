@@ -76,7 +76,7 @@ class Admin::CommunityCustomizationsController < ApplicationController
       flash[:error] = t("layouts.notifications.community_update_failed")
     end
 
-    redirect_to edit_details_admin_community_path(@current_community)
+    redirect_to admin_details_edit_path
   end
 
   private

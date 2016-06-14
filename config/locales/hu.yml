@@ -136,8 +136,8 @@ hu:
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: "Hiba történt"
-        only_white_label_offer: ~
-        upgrade_pro_plan_link: ~
+        white_label_offer: ~
+        upgrade_plan_link: ~
         verification_sent_from: ~
         follow_the_instructions: ~
       getting_started:
@@ -784,6 +784,10 @@ hu:
       you_have_not_yet_accepted_or_rejected_offer: "Még nem történt meg a %{date}-i %{title} ajánlat elfogadása vagy elutasítása."
       you_have_not_yet_accepted_or_rejected_request: "Még nem történt meg a %{date}-i %{title} ajánlatkérés elfogadása vagy elutasítása."
       show_thread: "Beszélgetések megmutatása"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     braintree_account_approved:
       account_ready: "Ön kész fizetések fogadására"
       message: ~
@@ -1190,6 +1194,10 @@ hu:
   layouts:
     admin:
       admin: ~
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
     no_tribe:
       inbox: Bejövő
       settings: Beállítások

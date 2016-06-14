@@ -60,6 +60,8 @@ class Admin::CommunitiesController < ApplicationController
              can_set_sender_address: can_set_sender_address(@current_plan),
              knowledge_base_url: APP_CONFIG.knowledge_base_url,
              ses_in_use: ses_in_use,
+             show_branding_info: !PlanService::API::Api.plans.get_current(community_id: @current_community.id).data[:features][:whitelabel],
+             link_to_sharetribe: "https://www.sharetribe.com/?utm_source=#{@current_community.ident}.sharetribe.com&utm_medium=referral&utm_campaign=nowl-admin-panel"
            }
   end
 
@@ -151,7 +153,7 @@ class Admin::CommunitiesController < ApplicationController
   # This is currently only for superadmins, quick and hack solution
   def payment_gateways
     # Redirect if payment gateway in use but it's not braintree
-    redirect_to edit_details_admin_community_path(@current_community) if @current_community.payment_gateway && !@current_community.braintree_in_use?
+    redirect_to admin_details_edit_path if @current_community.payment_gateway && !@current_community.braintree_in_use?
 
     @selected_left_navi_link = "payment_gateways"
     @community = @current_community
@@ -162,7 +164,7 @@ class Admin::CommunitiesController < ApplicationController
 
   def update_payment_gateway
     # Redirect if payment gateway in use but it's not braintree
-    redirect_to edit_details_admin_community_path(@current_community) if @current_community.payment_gateway && !@current_community.braintree_in_use?
+    redirect_to admin_details_edit_path if @current_community.payment_gateway && !@current_community.braintree_in_use?
 
     braintree_params = params[:payment_gateway]
     community_params = params.require(:community).permit(:commission_from_seller)
@@ -242,7 +244,7 @@ class Admin::CommunitiesController < ApplicationController
 
     update(@current_community,
            community_params.merge(stylesheet_needs_recompile: regenerate_css?(params, @current_community)),
-           edit_look_and_feel_admin_community_path(@current_community),
+           admin_look_and_feel_edit_path,
            :edit_look_and_feel) { |community|
       Delayed::Job.enqueue(CompileCustomStylesheetJob.new(community.id), priority: 3)
 
@@ -404,11 +406,11 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def can_delete_marketplace?(community_id)
-    PlanService::API::Api.plans.get_current(community_id: community_id).data[:plan_level] == PlanUtils::FREE
+    PlanService::API::Api.plans.get_current(community_id: community_id).data[:features][:deletable]
   end
 
   def can_set_sender_address(plan)
-    PlanUtils.valid_plan_at_least?(plan, PlanUtils::PRO)
+    plan[:features][:admin_email]
   end
 
   def ensure_white_label_plan

@@ -52,7 +52,7 @@ class TransactionMailer < ActionMailer::Base
     @community = transaction.community
 
     recipient = transaction.author
-    set_up_urls(recipient, transaction.community)
+    set_up_layout_variables(recipient, transaction.community)
     with_locale(recipient.locale, transaction.community.locales.map(&:to_sym), transaction.community.id) do
 
       payment_type = MarketplaceService::Community::Query.payment_type(@community.id)
@@ -85,7 +85,7 @@ class TransactionMailer < ActionMailer::Base
     @community = transaction.community
 
     recipient = transaction.author
-    set_up_urls(recipient, transaction.community)
+    set_up_layout_variables(recipient, transaction.community)
     with_locale(recipient.locale, transaction.community.locales.map(&:to_sym), transaction.community.id) do
 
       premailer_mail(
@@ -258,6 +258,7 @@ class TransactionMailer < ActionMailer::Base
     @current_community = community
     @recipient = recipient
     @url_params = build_url_params(community, recipient)
+    @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]
   end
 
   def mail_params(recipient, community, subject)

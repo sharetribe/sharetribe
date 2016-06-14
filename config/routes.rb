@@ -17,15 +17,6 @@ Kassi::Application.routes.draw do
 
   get "/design" => "design#design"
 
-  # styleguide is for testing react components with hot loading
-  if Rails.env.development?
-    namespace :styleguide do
-      get "" => "pages#index"
-      get "example_server_side_redux_app" => "pages#example_server_side_redux_app"
-      get "getting_started_guide(/*all)" => "pages#getting_started_guide#index", as: :getting_started_guide
-    end
-  end
-
   # config/routes.rb
   if Rails.env.development?
     mount MailPreview => 'mail_view'
@@ -62,6 +53,12 @@ Kassi::Application.routes.draw do
   get '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }, as: :homepage_with_locale
   get '/' => 'homepage#index', as: :homepage_without_locale
   root :to => 'homepage#index'
+
+  # Work in progress:
+  # Uncomment these and comment the three homepage routes above to test the landing page
+  # get '/:locale/' => 'landing_page#index', :constraints => { :locale => locale_matcher }
+  # get '/' => 'landing_page#index'
+  # root :to => 'landing_page#index'
 
   # error handling: 3$: http://blog.plataformatec.com.br/2012/01/my-five-favorite-hidden-features-in-rails-3-2/
   get '/500' => 'errors#server_error'
@@ -142,15 +139,24 @@ Kassi::Application.routes.draw do
       get   "/settings" => "communities#settings",        as: :settings
       patch "/settings" => "communities#update_settings", as: :update_settings
 
-      get "getting_started_guide(/*all)" => "getting_started_guide#index", as: :getting_started_guide
+      # Guide
+      get "getting_started_guide"                        => "getting_started_guide#index",                  as: :getting_started_guide
+      get "getting_started_guide/slogan_and_description" => "getting_started_guide#slogan_and_description", as: :getting_started_guide_slogan_and_description
+      get "getting_started_guide/cover_photo"            => "getting_started_guide#cover_photo",            as: :getting_started_guide_cover_photo
+      get "getting_started_guide/filter"                 => "getting_started_guide#filter",                 as: :getting_started_guide_filter
+      get "getting_started_guide/paypal"                 => "getting_started_guide#paypal",                 as: :getting_started_guide_paypal
+      get "getting_started_guide/listing"                => "getting_started_guide#listing",                as: :getting_started_guide_listing
+      get "getting_started_guide/invitation"             => "getting_started_guide#invitation",             as: :getting_started_guide_invitation
+
+      # Details and look 'n feel
+      get   "/look_and_feel/edit" => "communities#edit_look_and_feel",          as: :look_and_feel_edit
+      patch "/look_and_feel"      => "communities#update_look_and_feel",        as: :look_and_feel
+      get   "/details/edit"       => "community_customizations#edit_details",   as: :details_edit
+      patch "/details"            => "community_customizations#update_details", as: :details
 
       resources :communities do
         member do
           get :getting_started, to: 'communities#getting_started'
-          get :edit_details, to: 'community_customizations#edit_details'
-          put :update_details, to: 'community_customizations#update_details'
-          get :edit_look_and_feel
-          put :edit_look_and_feel, to: 'communities#update_look_and_feel'
           get :edit_welcome_email
           post :create_sender_address
           get :check_email_status
@@ -167,6 +173,14 @@ Kassi::Application.routes.draw do
           get :menu_links
           put :menu_links, to: 'communities#update_menu_links'
           delete :delete_marketplace
+
+          # DEPRECATED (2016-03-22)
+          # These routes are not in use anymore, don't use them
+          # See new routes above, outside of communities resource
+          get :edit_details,       to: redirect("/admin/details/edit")
+          put :update_details,     to: "community_customizations#update_details" # PUT request, no redirect
+          get :edit_look_and_feel, to: redirect("/admin/look_and_feel/edit")
+          put :edit_look_and_feel, to: "community_customizations#update_look_and_feel" # PUT request, no redirect
 
           # DEPRECATED (2016-03-22)
           # These routes are not in use anymore, don't use them

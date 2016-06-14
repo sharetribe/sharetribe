@@ -24,7 +24,7 @@ module PlanService::API
       Result::Success.new(
         Plan.call(
         community_id: community_id,
-        plan_level: PlanService::Levels::OS,
+        status: :active,
         features: { deletable: true, admin_email: true, whitelabel: true },
         expires_at: nil,
         created_at: Time.now,

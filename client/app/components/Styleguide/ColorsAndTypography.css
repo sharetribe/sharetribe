@@ -1,0 +1,24 @@
+.section {
+  margin-bottom: 2em;
+}
+
+.sectionHead {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.5em;
+}
+
+.colorSwatch {
+  margin: 1em;
+  height: 4em;
+  position: relative;
+  box-shadow: 0 0 2px black;
+}
+
+.colorCode {
+  margin: 0 auto;
+  padding: 1.2em 0;
+  color: white;
+  text-shadow: 0 0 2px black;
+  text-align: center;
+}

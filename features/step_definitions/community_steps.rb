@@ -293,23 +293,6 @@ Given(/^this community has price filter enabled with min value (\d+) and max val
   @current_community.save!
 end
 
-Given /^current community has (free|starter|basic|growth|scale) plan$/ do |plan|
-  case plan
-  when "free"
-    plan_level = 0
-  when "starter"
-    plan_level = 1
-  when "basic"
-    plan_level = 2
-  when "growth"
-    plan_level = 3
-  when "scale"
-    plan_level = 4
-  end
-  # N.B. community_plans are changed manually atm.
-  MarketplaceService::API::Marketplaces.Helper.create_community_plan(@current_community, {plan_level: plan_level})
-end
-
 When /^community updates get delivered$/ do
   CommunityMailer.deliver_community_updates
 end

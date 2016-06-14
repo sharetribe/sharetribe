@@ -1,5 +1,68 @@
+# Add fallbacks module to the current backend (which in this point is Simple backend)
 I18n.backend.class.send(:include, I18n::Backend::Fallbacks)
 
+# Configure the available locales
+I18n.available_locales = Sharetribe::AVAILABLE_LOCALES.map { |locale| locale[:ident] }
+
+# Implement a custom Tag implementation.
+#
+# The default I18n::Locale::Tag::Simple implementation splits the locale by dashes
+# and returns an array. For example:
+#
+# I18n.fallbacks["da-DK"] #=> [:"da-DK", :da, :en]
+#
+# This is a problem for us, because we have manually defined what locales are available.
+# We do have "da-DK" locale, but we don't have "da" locale.
+#
+# The I18n::Locale::Tag::DefinedFallbacksOnly is a slightly modified version of Simple
+# implementation. The only difference is that the `to_a` method returns the current
+# tag only (in an array) without splitting it:
+#
+# I18n::Locale::Tag.implementation = I18n::Locale::Tag::DefinedFallbacksOnly
+# I18n.fallbacks["da-DK"] #=> [:"da-DK", :en]
+#
+# Read more:
+#
+# - The Simple implementation: https://github.com/svenfuchs/i18n/blob/aee7b3f6072fba3f54798a280bd6007536b039cd/lib/i18n/locale/tag/simple.rb
+# - RFC 4646 standard compliance: https://github.com/svenfuchs/i18n/wiki/Fallbacks#rfc-4646-standard-compliance
+#
+module I18n
+  module Locale
+    module Tag
+      class DefinedFallbacksOnly
+        class << self
+          def tag(tag)
+            new(tag)
+          end
+        end
+
+        include Parents
+
+        attr_reader :tag
+
+        def initialize(*tag)
+          @tag = tag.join('-').to_sym
+        end
+
+        def to_sym
+          tag
+        end
+
+        def to_s
+          tag.to_s
+        end
+
+        def to_a
+          [tag.to_s]
+        end
+      end
+    end
+  end
+end
+
+I18n::Locale::Tag.implementation = I18n::Locale::Tag::DefinedFallbacksOnly
+
+# Set the fallback mapping
 Sharetribe::AVAILABLE_LOCALES
   .select { |locale| locale[:fallback].present? }
   .each { |locale| I18n.fallbacks.map(locale[:ident] => locale[:fallback]) }

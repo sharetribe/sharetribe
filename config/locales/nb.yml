@@ -102,8 +102,8 @@ nb:
         small_cover_photo_visibility: "Mindre forsidebilde vises på alle sider bortsett fra forsiden for brukere som ikke er logget inn."
         small_cover_photo_instructions_text_with_dimensions: "Bildet vil bli endret i størrelse til %{width}x%{height} piksler og høyere bilder vil bli kuttet i midten."
         main_content_width: "Vær obs på at hovedinnholdet på siden er %{main_width} piksler bred på det meste når du velger forsidebilde. Husk også å sjekke hvordan forsidebildet ser ut på mindre skjermer (for eksempel ved å endre størrelsen på nettleservinduet)."
-        custom_color1_instructions_text: "Du kan endre hovedfargen på brukergrensesnittet ved å skrive inn en hex-kode. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> kan hjelpe deg med å finne en farge og kopiere koden hit."
-        custom_color2_instructions_text: "Du kan endre fargen på %{post_new_listing}-knappen ved å oppgi en fargekode med heksadesimaler.. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\">ColorPicker.com</a> kan hjelpe deg å velge farge, og fargekoden du får, kan du lime inn her."
+        custom_color1_instructions_text: "Du kan endre hovedfargen på brukergrensesnittet ved å skrive inn en hex-kode. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kan hjelpe deg med å finne en farge og kopiere koden hit."
+        custom_color2_instructions_text: "Du kan endre fargen på %{post_new_listing}-knappen ved å oppgi en fargekode med heksadesimaler.. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kan hjelpe deg å velge farge, og fargekoden du får, kan du lime inn her."
         default_browse_view: Standardvisning
         default_browse_view_instructions_text: "Standardvisning er brukt på forsiden for å velge hvordan annonser vises som standard."
         grid: Rutenett
@@ -151,8 +151,8 @@ nb:
         invalid_email_domain: "Epostadressen '%{email}' bruker en epostleverandør vi ikke støtter: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Les mer i denne artikkelen."
         unknown_error: "Noe gikk galt"
-        only_white_label_offer: "Denne funksjonen er en del av Sharetribe white-label. For å aktivere dette må du %{upgrade_pro_plan_link}."
-        upgrade_pro_plan_link: "oppgradere til vår Pro-pakke eller høyere nivå."
+        white_label_offer: "Bruk din egen e-postadresse som avsender og fjern Sharetribes merkenavn fra utgående e-poster ved å %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "oppgraderer til vår Pro-plan eller høyere"
         verification_sent_from: "Bekreftelses-eposten ble sendt fra %{verification_sender_name}."
         follow_the_instructions: "Følg instruksjonen i eposten for å bekrefte din adresse."
       getting_started:
@@ -813,6 +813,10 @@ nb:
       you_have_not_yet_accepted_or_rejected_offer: "Du har ennå ikke godtatt eller avslått tilbudet %{title} du mottok %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Du har ennå ikke godtatt eller avslått forespørselen %{title} du mottok %{date}."
       show_thread: "Vis samtale"
+    branding:
+      powered_by: "%{service_name} er drevet av markedsplass-plattformen %{sharetribe_link}."
+      create_own: "Vil du lage din egen digitale markedsplass, slik som %{service_name}? %{learn_more}."
+      learn_more: "Les mer"
     braintree_account_approved:
       account_ready: "Du kan nå motta betalinger"
       message: "Dine utbetalingsdetaljer er nå bekreftet, og du er nå klar til å motta betalinger på %{service_name}."
@@ -1223,6 +1227,10 @@ nb:
   layouts:
     admin:
       admin: "%{service_name} administrasjonspanel"
+    branding:
+      powered_by: "%{service_name} er drevet av markedsplass-plattformen %{sharetribe_link}."
+      create_own: "Vil du lage din egen digitale markedsplass, slik som %{service_name}? %{learn_more}."
+      learn_more: "Les mer"
     no_tribe:
       inbox: Innboks
       settings: Innstillinger

@@ -11,7 +11,7 @@ module PlanService::Store::Plan
 
   NewPlan = EntityUtils.define_builder(
     [:community_id, :fixnum, :mandatory],
-    [:plan_level, :fixnum, :mandatory],
+    [:status, :to_symbol, one_of: [:trial, :hold, :active]],
     [:features, :hash, :mandatory],
     [:member_limit, :fixnum, :optional],
     [:expires_at, :time, :optional] # Passing nil means that the plan never expires
@@ -75,7 +75,6 @@ module PlanService::Store::Plan
     from_trial_model(plan_model)
   end
 
-
   def from_model(model)
     Maybe(model).map { |m|
       Plan.call(EntityUtils.model_to_hash(m))
@@ -85,8 +84,8 @@ module PlanService::Store::Plan
   def from_trial_model(model)
     Maybe(model).map { |m|
       Plan.call(EntityUtils.model_to_hash(m).merge(
-        plan_level: 0,
         member_limit: 300,
+        status: :trial,
         features: { deletable: true }))
     }.or_else(nil)
   end
