@@ -65,16 +65,10 @@ class LandingPageController < ActionController::Metal
             path
           end
         },
-        "marketplace_color" => ->(type, id, normalized_data) {
+        "marketplace_data" => ->(type, id, normalized_data) {
           case id
           when "primary_color"
             {"id" => "primary_color", "value" => "#347F9D"}
-          end
-        },
-        "inline_js" => -> (type, id, normalized_data) {
-          case id
-          when "location_search_js"
-            {"id" => "location_search_js", "value" => location_search_js.html_safe}
           end
         },
         "assets" => ->(type, id, normalized_data) {
@@ -104,7 +98,9 @@ class LandingPageController < ActionController::Metal
     render :landing_page,
            locals: { font_path: "/landing_page/fonts",
                      styles: landing_page_styles,
-                     location_search_js: location_search_js,
+                     javascripts: {
+                       location_search: location_search_js
+                     },
                      sections: denormalizer.to_tree(structure) }
   end
 
@@ -146,15 +142,13 @@ class LandingPageController < ActionController::Metal
       "background_image": {"type": "assets", "id": "myheroimage"},
       "search_placeholder": "What kind of turbojopo are you looking for?",
       "search_button": "Search",
-      "search_path": {"type": "path", "id": "search_path"},
-      "location_search_js": {"type": "inline_js", "id": "location_search_js"}
+      "search_path": {"type": "path", "id": "search_path"}
     },
-
     {
       "id": "footer",
       "kind": "footer",
       "theme": "dark",
-      "social_media_icon_color": {"type": "marketplace_color", "id": "primary_color"},
+      "social_media_icon_color": {"type": "marketplace_data", "id": "primary_color"},
       "links": [
         {"label": "About", "url": "/about"},
         {"label": "How it works", "url": "https://www.google.com"},
@@ -204,6 +198,6 @@ JSON
   end
 
   def location_search_js
-    Rails.application.assets.find_asset("location_search.js").to_s
+    Rails.application.assets.find_asset("location_search.js").to_s.html_safe
   end
 end

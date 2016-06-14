@@ -87,12 +87,23 @@
 
   <% case s["kind"] %>
   <% when "hero" %>
-  <%= render partial: "hero", locals: {section_id: section_id, s: s} %>
+    <%= render partial: "hero", locals: {section_id: section_id, s: s} %>
   <% when "footer" %>
-  <%= render partial: "footer", locals: {section_id: section_id, s: s} %>
+    <%= render partial: "footer", locals: {section_id: section_id, s: s} %>
   <% end %>
 
 <% end # enabled_sections#each %>
+
+<% # Add javascript libraries %>
+
+<% if enabled_sections.map { |s| s.values_at("kind", "variation").include?(["hero", "location_search"]) } %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <script>
+    <%= javascripts[:location_search] %>
+  </script>
+<% end %>
+
+<% # Add javascript from sections %>
 
 <%= yield :javascript %>
 
