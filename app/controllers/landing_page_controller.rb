@@ -62,7 +62,7 @@ class LandingPageController < ActionController::Metal
           if path.nil?
             raise ArgumentError.new("Couldn't find path '#{id}'")
           else
-            path
+            {"id" => id, "path" => path}
           end
         },
         "marketplace_data" => ->(type, id, normalized_data) {
