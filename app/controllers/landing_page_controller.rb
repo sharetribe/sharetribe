@@ -17,30 +17,34 @@ class LandingPageController < ActionController::Metal
   include ActionController::Helpers
 
   def index
-    version = LandingPageStore.released_version(community_id(request))
+    cid = community_id(request)
+    version = LandingPageStore.released_version(cid)
+
     # TODO Ideally we would do the caching based upon just clp_version
     # and avoid loading and parsing the (potentially) big structure
     # JSON.
     begin
-      structure = LandingPageStore.load_structure(community_id(request), version)
+      structure = LandingPageStore.load_structure(cid, version)
 
-      render_landing_page(structure)
+      render_landing_page(cid, structure)
     rescue CustomLandingPage::LandingPageContentNotFound
       render_not_found()
     end
   end
 
   def preview
+    cid = community_id(request)
     preview_version = parse_int(params[:preview_version])
+
     begin
-      structure = LandingPageStore.load_structure(community_id(request), preview_version)
+      structure = LandingPageStore.load_structure(cid, preview_version)
 
       # Uncomment for dev purposes
       # structure = JSON.parse(data_str)
 
       # Tell robots to not index and to not follow any links
       headers["X-Robots-Tag"] = "none"
-      render_landing_page(structure)
+      render_landing_page(cid, structure)
     rescue CustomLandingPage::LandingPageContentNotFound
       render_not_found()
     end
@@ -49,31 +53,16 @@ class LandingPageController < ActionController::Metal
 
   private
 
-  def denormalizer
+  def denormalizer(cid, locale)
     # Application paths
-    paths = { "search_path" => "/search/", # FIXME. Remove hardcoded URL. Add search path here when we get one
+    paths = { "search_path" => "/", # FIXME. Remove hardcoded URL. Add search path here when we get one
               "signup_path" => sign_up_path }
 
     CustomLandingPage::Denormalizer.new(
       link_resolvers: {
-        "path" => ->(type, id, normalized_data) {
-          path = paths[id]
-
-          if path.nil?
-            raise ArgumentError.new("Couldn't find path '#{id}'")
-          else
-            {"id" => id, "path" => path}
-          end
-        },
-        "marketplace_data" => ->(type, id, normalized_data) {
-          case id
-          when "primary_color"
-            {"id" => "primary_color", "value" => "#347F9D"}
-          end
-        },
-        "assets" => ->(type, id, normalized_data) {
-          append_asset_path(CustomLandingPage::Denormalizer.find_link(type, id, normalized_data))
-        }
+        "path" => CustomLandingPage::LinkResolver::PathResolver.new(paths),
+        "marketplace_data" => CustomLandingPage::LinkResolver::MarketplaceDataResolver.new(marketplace_data(cid, locale)),
+        "assets" => CustomLandingPage::LinkResolver::AssetResolver.new,
       }
     )
   end
@@ -94,14 +83,16 @@ class LandingPageController < ActionController::Metal
     end
   end
 
-  def render_landing_page(structure)
+  def render_landing_page(cid, structure)
+    locale = structure["settings"].values_at("locale")
+
     render :landing_page,
            locals: { font_path: "/landing_page/fonts",
                      styles: landing_page_styles,
                      javascripts: {
                        location_search: location_search_js
                      },
-                     sections: denormalizer.to_tree(structure) }
+                     sections: denormalizer(cid, locale).to_tree(structure) }
   end
 
   def render_not_found(msg = "Not found")
@@ -109,8 +100,20 @@ class LandingPageController < ActionController::Metal
     self.response_body = msg
   end
 
-  def append_asset_path(asset)
-    asset.merge("src" => ["landing_page", asset["src"]].join("/"))
+  def marketplace_data(cid, locale)
+    primary_color = Community.where(id: cid)
+                    .pluck(:custom_color1)
+                    .first
+
+    name, slogan, description = CommunityCustomization
+                                .where(community_id: cid, locale: locale)
+                                .pluck(:name, :slogan, :description)
+                                .first
+
+    { "primary_color" => primary_color.present? ? "#" + primary_color : nil,
+      "name" => name,
+      "slogan" => slogan,
+      "description" => description }
   end
 
   def data_str
