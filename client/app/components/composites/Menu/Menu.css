@@ -1,0 +1,52 @@
+.menu {
+  font-family: var(--topbarFontFamily); /* should come from topbar */
+  font-size: var(--Menu_fontSize);
+
+  & :focus {
+    outline: none;
+  }
+}
+
+.menuLabel {
+  display: inline-block;
+  font-size: var(--Menu_fontSizeBig);
+  padding: 28px 24px;
+  white-space: nowrap;
+}
+
+.menuLabelIcon {
+  margin-right: 10px;
+}
+
+
+.menuContent {
+  background-color: var(--Menu_colorBackground);
+  border: 1px solid var(--Menu_borderColor);
+  border-radius: 3px;
+  position: absolute;
+}
+
+.menuContentArrowTop,
+.menuContentArrowBelow {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.menuContentArrowTop {
+  border-color: transparent;
+  border-bottom-color: var(--Menu_colorBackground);
+  border-width: 9px;
+  margin-left: -9px;
+}
+.menuContentArrowBelow {
+  border-color: transparent;
+  border-bottom-color: var(--Menu_borderColor);
+  border-width: 11px;
+  margin-left: -11px;
+}
