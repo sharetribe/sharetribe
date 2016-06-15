@@ -1,10 +1,10 @@
 <section id="<%= section_id %>" class="hero__section" style="background-image: url('<%= s["background_image"]["src"] %>')">
   <div class="hero__content">
     <div class="hero__content-container">
-      <h1 class="hero__title"><%= s["title"] %></h1>
-      <h3 class="hero__subtitle"><%= s["subtitle"] %></h3>
+      <h1 class="hero__title"><%= s["title"]["value"] %></h1>
+      <h3 class="hero__subtitle"><%= s["subtitle"]["value"] %></h3>
 
-      <% case s["variation"] %>
+      <% case s["variation"]["value"] %>
       <% when "keyword_search", "location_search" %>
 
         <div class="hero__search-bar-padding">
@@ -18,9 +18,9 @@
                 </g>
               </svg>
             </div>
-            <input type="search" name="q" class="hero__search-input" placeholder="<%= s["search_placeholder"] %>"/>
-            <button type="submit" class="hero__search-button"><%= s["search_button"] %></button>
-            <% if s["variation"] == "location_search" %>
+            <input type="search" name="q" class="hero__search-input" placeholder="<%= s["search_placeholder"]["value"] %>"/>
+            <button type="submit" class="hero__search-button"><%= s["search_button"]["value"] %></button>
+            <% if s["variation"]["value"] == "location_search" %>
               <input type="hidden" name="ls" />
               <input type="hidden" name="lc" />
               <input type="hidden" name="boundingbox" />

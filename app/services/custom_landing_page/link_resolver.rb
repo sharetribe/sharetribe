@@ -52,5 +52,29 @@ module CustomLandingPage
         asset.merge("src" => ["landing_page", asset["src"]].join("/"))
       end
     end
+
+    class TranslationResolver
+      def initialize(locale)
+        @_locale = locale
+      end
+
+      def call(type, id, _)
+        translation_keys = {
+          "search_button" => "admin.categories.index.listing_categories"
+        }
+
+        key = translation_keys[id]
+
+        raise LinkResolvingError.new("Couldn't find translation key for '#{id}'.") if key.nil?
+
+        value = I18n.translate(key, locale: @_locale)
+
+        if value.nil?
+          raise LinkResolvingError.new("Unknown translation for key '#{key}' and locale '#{locale}'.")
+        else
+          { "id" => id, "type" => type, "value" => value }
+        end
+      end
+    end
   end
 end

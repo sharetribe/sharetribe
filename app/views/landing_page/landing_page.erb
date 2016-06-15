@@ -96,7 +96,7 @@
 
 <% # Add javascript libraries %>
 
-<% if enabled_sections.map { |s| s.values_at("kind", "variation").include?(["hero", "location_search"]) } %>
+<% if enabled_sections.any? { |s| s["section"]["kind"] == "hero" && s["section"]["variation"]["value"] == "location_search" } %>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
   <script>
     <%= javascripts[:location_search] %>
