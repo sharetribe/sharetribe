@@ -85,11 +85,9 @@ describe ApplicationController, type: :controller do
       expect(response.status).to eq(302) #redirection to url withouth token in query string
       expect(assigns("current_user").id).to eq(p1.id)
     end
-
   end
 
   describe "#fetch_community" do
-
     controller do
       def index
         # do nothing as we are testing the filters here only
@@ -97,23 +95,6 @@ describe ApplicationController, type: :controller do
         render :json => "test_result".to_json
       end
     end
-
-    it "gets the right community by subdomain" do
-      c1 = FactoryGirl.create(:community, :ident => "test23")
-      c2 = FactoryGirl.create(:community, :domain => "test23.custom.org")
-      request.host = "test23.lvh.me"
-      get :index
-      expect(assigns["current_community"].id).to eq(c1.id)
-    end
-
-    it "gets the right community by full domain even when matching subdomain exists" do
-      c1 = FactoryGirl.create(:community, :domain => "market.custom.org")
-      c2 = FactoryGirl.create(:community, :ident => "market")
-      request.host = "market.custom.org"
-      get :index
-      expect(assigns["current_community"].id).to eq(c1.id)
-    end
-
   end
 
   describe "ApplicationController.fetch_temp_flags" do
