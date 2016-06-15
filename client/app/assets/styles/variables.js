@@ -4,8 +4,9 @@ const fontSizeBig = '16px';
 const textColor = 'rgb(82, 89, 97)';
 const textColorFocus = 'rgb(28, 30, 33)';
 const backgroundLightColor = 'white';
-const paddingTopbarVertical = '0.8125em';
-const paddingTopbarHorizontal = '1.5em';
+const backgroundLightColorHover = 'rgba(169, 172, 176, 0.07)';
+const paddingTopbarVertical = '0.92857em';
+const paddingTopbarHorizontal = '1.7142857em';
 
 const topbarBorderColor = 'rgba(169, 172, 176, 0.5)';
 const bodyPadding = '18px';
@@ -135,14 +136,15 @@ module.exports = {
   '--ProfileDropdown_rightOffset': bodyPadding,
 
   '--MenuItem_borderColor': topbarBorderColor,
+  '--MenuItem_backgroundColorHover': backgroundLightColorHover,
   '--MenuItem_paddingTopbarVertical': paddingTopbarVertical,
   '--MenuItem_paddingTopbarHorizontal': paddingTopbarHorizontal,
   '--MenuItem_textColor': textColor,
-  '--MenuItem_textColorFocus': textColorFocus,
+  '--MenuItem_textColorFocus': '#000',
   '--MenuItem_letterSpacing': '0.09px',
   '--Menu_fontSize': fontSize,
-  '--Menu_fontSizeBig': fontSizeBig,
   '--Menu_colorBackground': backgroundLightColor,
   '--Menu_borderColor': topbarBorderColor,
+  '--Menu_boxShadow': '0px 2px 4px 0px rgba(0, 0, 0, 0.1)',
   '--Menu_iconPadding': '0.7em',
 };

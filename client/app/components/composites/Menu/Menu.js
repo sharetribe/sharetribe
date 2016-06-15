@@ -78,15 +78,14 @@ class Menu extends Component {
     }, 1);
   }
 
-
   render() {
     const requestedLabel = MENULABEL_MAP[this.props.menuLabelType];
     const LabelComponent = requestedLabel != null ? requestedLabel : null;
 
     return div({
       className: `menu ${css.menu}`,
-      onKeyDown: this.handleKeys,
       onBlur: this.handleBlur,
+      tabIndex: '0',
     }, [
       r(LabelComponent,
         {

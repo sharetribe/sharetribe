@@ -74,16 +74,13 @@ class MenuContent extends Component {
   }
 
   render() {
-    const visibility = this.props.isOpen ? 'visible' : 'hidden';
-    const handleKeys = this.handleKeys;
-
     return (
       div(
         {
           tabIndex: '-1',
-          style: { visibility, top: `${this.props.contentPos}px` },
+          style: { top: `${this.props.contentPos}px` },
           className: `menu__content ${css.menuContent}`,
-          onKeyDown: handleKeys,
+          onKeyDown: this.handleKeys,
           ref: (c) => {
             this.menuContent = c;
           },

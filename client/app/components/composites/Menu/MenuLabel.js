@@ -42,7 +42,7 @@ class MenuLabel extends Component {
         onKeyUp: this.handleKeyUp,
         onKeyDown: this.handleKeyDown,
         onBlur: this.handleBlur,
-        tabIndex: '0',
+        tabIndex: '-1',
       }, [
         span({
           className: css.menuLabelIcon,

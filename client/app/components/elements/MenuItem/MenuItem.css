@@ -17,7 +17,8 @@
 
   &:focus,
   &:hover {
-    color: red; /*var(--MenuItem_textColorFocus);*/
+    color: var(--MenuItem_textColorFocus);
+    background-color: var(--MenuItem_backgroundColorHover);
   }
 }
 

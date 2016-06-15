@@ -2,30 +2,41 @@
   font-family: var(--topbarFontFamily); /* should come from topbar */
   font-size: var(--Menu_fontSize);
 
+  &:focus,
   & :focus {
     outline: none;
   }
+
+  &:focus .menuContent,
+  &:hover .menuContent {
+    outline: none;
+    display: block;
+  }
+
 }
 
 .menuLabel {
   display: inline-block;
-  font-size: var(--Menu_fontSizeBig);
+  font-size: var(--Menu_fontSize);
   padding: 28px 24px;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .menuLabelIcon {
   margin-right: var(--Menu_iconPadding);
 }
 .menuLabelDropdownIcon {
-  margin-left: calc(var(--Menu_fontSize) / 2);
+  margin-left: 0.2857em;
 }
 
 .menuContent {
+  display: none;
   background-color: var(--Menu_colorBackground);
   border: 1px solid var(--Menu_borderColor);
   border-radius: 3px;
   position: absolute;
+  box-shadow: var(--Menu_boxShadow);
 }
 
 .menuContentArrowTop,

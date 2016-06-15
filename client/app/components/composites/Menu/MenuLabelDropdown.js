@@ -43,7 +43,7 @@ class MenuLabelDropdown extends Component {
         onKeyUp: this.handleKeyUp,
         onKeyDown: this.handleKeyDown,
         onBlur: this.handleBlur,
-        tabIndex: '0',
+        tabIndex: '-1',
       }, [
         this.props.name,
         span({
