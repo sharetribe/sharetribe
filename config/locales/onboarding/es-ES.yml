@@ -21,7 +21,7 @@ es-ES:
             info_image_alt: "Una imagen de pantalla de la página con filtros"
             add_fields_and_filters: "Añade campos & filtros"
             advice:
-              content: "Los filtros son muy útiles para los usuarios, pero %{not_too_many_link}. Los usuarios pueden sentirse abrumados si hay demasiados filtros y cada filtro es un campo adicional que se debe llenar al crear un anuncio."
+              content: "Los filtros son muy útiles para los usuarios, pero %{not_too_many_link}. Los usuarios pueden sentirse abrumados si hay demasiados filtros, además, cada filtro es un campo adicional que se debe llenar al crear un anuncio."
               not_too_many_link: "evita usar demasiados"
           invitation:
             title: "Paso 7: Invita usuarios"
@@ -65,7 +65,7 @@ es-ES:
             info_image_alt: "Una imagen de pantalla que muestra la página con la descripción y el eslogan."
             add_your_own: "Añade la descripción y el eslogan"
             advice:
-              content: "Utiliza el eslogan para explicar rápidamente de qué trata tu comunidad. %{food_from_locals_slogan} o %{guitar_lessons_slogan} son buenos ejemplos. Con la descripción puedes detallar un poco más las ventajas principales de tu comunidad. %{food_from_locals_description} or %{guitar_lessons_description} are good examples."
+              content: "Utiliza el eslogan para explicar rápidamente de qué trata tu comunidad. %{food_from_locals_slogan} o %{guitar_lessons_slogan} son buenos ejemplos. Con la descripción puedes detallar un poco más las ventajas principales de tu comunidad. %{food_from_locals_description} o %{guitar_lessons_description} son buenos ejemplos relacionados a los eslogans anteriores."
               food_from_locals_slogan: "\"Compra comida local de gente local\""
               guitar_lessons_slogan: "\"Aprende guitarra con un profesional\""
               food_from_locals_description: "\"FoodMarket es la forma más sencilla de ordenar productos directamente de los productores locales\""
@@ -73,8 +73,8 @@ es-ES:
           status_page:
             title: "Bienvenido a tu comunidad, %{name}"
             title_done: "Todo listo!"
-            description_p1: "Para tener tu comunidad lista y en funcionamiento, hay algunos pasos que debes de seguir, que se enlistan más abajo."
-            description_p2: "Una vez completados, tu comunidad estará lista para recibir a sus primeros visitantes!"
+            description_p1: "Para tener tu comunidad lista y en funcionamiento, debes de seguir los pasos que se enlistan más abajo."
+            description_p2: "Una vez completados estos pasos, tu comunidad estará lista para recibir a sus primeros visitantes!"
             congratulation_p1:
               content: "Lo has conseguido! Tu comunidad esta lista y en funcionamiento. Sin embargo, este es solo el inicio. Sólo has visto una pequeña parte de las posibilidades de personalización que Sharetribe ofrece. Para aprender más acerca de como configurar tu comunidad, checa %{knowledge_base_link}."
               knowledge_base_link: "nuestra base de conocimiento"
@@ -94,7 +94,7 @@ es-ES:
             paypal: "Configura los pagos en linea"
             listing: "Publica un anuncio"
             invitation: "Invita usuarios"
-          back_to_todo: "Regresar a la lista de los pasos a completar"
+          back_to_todo: "Regresar a la lista de pasos a completar"
         topbar:
           progress_label: "Progreso"
           next_step: "Siguiente"
@@ -117,15 +117,15 @@ es-ES:
           button: "Añade una foto de portada"
         filter:
           title: "Excelente!"
-          body: "Ahora hay que enfocarnos un poco en la funcionalidad. os campos en los anuncios y los filtros le dan estructura a tu comunidad y ayudan a los usuarios a encontrar lo que estan buscando."
+          body: "Ahora hay que enfocarnos un poco en la funcionalidad. Los campos en los anuncios y los filtros le dan estructura a tu comunidad y ayudan a los usuarios a encontrar lo que estan buscando."
           button: "Añade campos en los anuncios y filtros"
         paypal:
           title: "Perfecto!"
-          body: "Hay que seguir con la configuración para pagos en linea dentro de tu comunidad! Para permitir que tus usuarios accepten pagos en linea, debes conectar tu cuenta de PayPal. Si lo prefieres, puedes desactivar el sistema de pagos en linea por el momento."
+          body: "Hay que seguir con la configuración de pagos en linea dentro de tu comunidad! Para permitir que tus usuarios accepten pagos en linea, debes conectar tu cuenta de PayPal. Si lo prefieres, puedes desactivar el sistema de pagos en linea por el momento."
           button: "Configurar pagos en linea"
         listing:
           title: "Buen trabajo!"
-          body: "Las configuraciones básicas de tu comunidad están listas, pero el sitio se ve un poco vacio. Es momento de añadir el primer producto o servicio: hay que publicar un anuncio."
+          body: "Las configuraciones básicas de tu comunidad están listas, pero el sitio se ve un poco vacío. Es momento de añadir el primer producto o servicio: hay que publicar un anuncio."
           button: "Publica tu primer anuncio"
         invitation:
           title: "...y ahora el paso final - comparte tu comunidad!"
