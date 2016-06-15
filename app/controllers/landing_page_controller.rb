@@ -178,7 +178,7 @@ class LandingPageController < ActionController::Metal
     {
       "id": "info5",
       "kind": "info",
-      "variation": "two_column",
+      "variation": "three_columns",
       "title": "Section title goes here",
       "icons": true,
       "buttons": true,

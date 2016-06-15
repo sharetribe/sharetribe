@@ -23,11 +23,23 @@
 }
 
 .info__content {
-  margin: 0 $dimension-mobile-margin;
-
   text-align: center;
-
   margin-top: -4.44vh; /* -50px, when content height is 900px, 80vh */
+
+  @media #{$tablet} {
+    margin: 0 auto;
+  }
+
+  @media #{$desktop} {
+    margin: 0 auto;
+  }
+}
+
+.info__content--one-column {
+  @extend .info__content;
+
+  // mobile
+  margin: 0 $dimension-mobile-margin;
 
   @media #{$tablet} {
     margin: 0 auto;
@@ -37,6 +49,26 @@
   @media #{$desktop} {
     margin: 0 auto;
     max-width: 808px;
+  }
+}
+
+$content-padding: 36px;
+
+.info__content--two-columns,
+.info__content--three-columns{
+  @extend .info__content;
+
+  // mobile
+  margin: 0 $dimension-mobile-margin-big;
+
+  @media #{$tablet} {
+    margin: 0 auto;
+    max-width: $content-padding + 1120px + $content-padding;
+  }
+
+  @media #{$desktop} {
+    margin: 0 auto;
+    max-width: $content-padding + 1120px + $content-padding;
   }
 }
 
@@ -87,5 +119,100 @@
 }
 
 .info__button {
+  color: inherit;
   @extend .landing-page__button;
+}
+
+.info__columns {
+  display: flex;
+  flex-direction: column;
+
+  @media #{$tablet} {
+    flex-direction: row;
+  }
+
+  @media #{$desktop} {
+    flex-direction: row;
+  }
+}
+
+.info__columns--three-columns {
+  @extend .info__columns;
+
+  padding: 0px 36px;
+}
+
+.info__column {
+  width: 100%;
+  margin: 0px 0px 76px 0px;
+
+  @media #{$tablet} {
+    margin: 0px;
+    max-width: 340px;
+    margin-right: 36px;
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+
+  @media #{$desktop} {
+    margin: 0px;
+    max-width: 340px;
+    margin-right: 50px;
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
+
+.info__column-title {
+  color: #525961;
+  font-family: ProximaNovaSoft-Medium;
+
+  // mobile
+  margin: 0px 0px 14px 0px;
+
+  @media #{$tablet} {
+    font-size: 24px;
+    letter-spacing: -0.46px;
+    line-height: 28px;
+
+    margin: 0px 0px 14px 0px;
+  }
+
+  @media #{$desktop} {
+    font-size: 28px;
+    letter-spacing: -0.54px;
+    line-height: 28px;
+
+    margin: 0px 0px 28px 0px;
+  }
+}
+
+.info__column-paragraph {
+  font-family: ProximaNovaSoft-Regular;
+  color: #525961;
+
+  // mobile
+  font-size: 16px;
+  letter-spacing: 0px;
+  line-height: 22px;
+
+  margin-bottom: 36px;
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
+
+  @media #{$tablet} {
+    font-size: 16px;
+    letter-spacing: 0px;
+    line-height: 22px;
+  }
+
+  @media #{$desktop} {
+    font-size: 18px;
+    letter-spacing: 0px;
+    line-height: 26px;
+  }
 }

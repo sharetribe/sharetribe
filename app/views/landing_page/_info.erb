@@ -1,17 +1,23 @@
 <%
+  variation_modifiers = {
+    "one_column"    => "one-column",
+    "two_columns"   => "two-columns",
+    "three_columns" => "three-columns"
+  }
+
   background_enabled     = !s["background_image"].nil?
   background_image_style = background_enabled ? "url('#{s["background_image"]["src"]}')" : "none"
   section_style_modifier = background_enabled ? "background" : "blank"
   button_enabled         = !s["button"].nil?
+  variation_modifier     = variation_modifiers[s["variation"]]
 %>
 
 <section id="<%= section_id %>" class="info__section--<%= section_style_modifier %>" style="background-image: <%= background_image_style %>">
-  <div class="info__content">
-    <h1 class="info__title"><%= s["title"] %></h1>
-
+  <div class="info__content--<%= variation_modifier %>">
     <% case s["variation"] %>
-
     <% when "one_column" %>
+      <h1 class="info__title"><%= s["title"] %></h1>
+
       <p class="info__paragraph"><%= s["paragraph"] %></p>
 
       <% if button_enabled %>
@@ -23,7 +29,16 @@
         <% end %>
       <% end %>
 
-    <% when "two_column" %>
+    <% when "three_columns" %>
+
+      <div class="info__columns--<%= variation_modifier %>">
+        <% s["columns"].each do |c| %>
+          <div class="info__column">
+            <h2 class="info__column-title"><%= c["title"] %></h2>
+            <p class="info__column-paragraph"><%= c["paragraph"] %></p>
+          </div>
+        <% end %>
+      </div>
 
     <% end %>
   </div>
