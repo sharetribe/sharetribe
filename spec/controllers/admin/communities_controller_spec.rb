@@ -5,6 +5,7 @@ describe Admin::CommunitiesController, type: :controller do
   before(:each) do
     @community = FactoryGirl.create(:community)
     @request.host = "#{@community.ident}.lvh.me"
+    @request.env[:current_marketplace] = @community
     sign_in_for_spec(create_admin_for(@community))
   end
 

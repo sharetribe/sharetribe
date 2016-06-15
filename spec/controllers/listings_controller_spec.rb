@@ -141,6 +141,7 @@ describe ListingsController, type: :controller do
     @l4.update_attribute(:valid_until, 2.days.ago)
 
     @request.host = "#{@c1.ident}.lvh.me"
+    @request.env[:current_marketplace] = @c1
   end
 
   describe "ATOM feed" do

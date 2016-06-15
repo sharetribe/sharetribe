@@ -5,6 +5,7 @@ describe EmailsController, type: :controller do
     before(:each) do
       @community = FactoryGirl.create(:community)
       @request.host = "#{@community.ident}.lvh.me"
+      @request.env[:current_marketplace] = @community
     end
 
     it "should destroy email" do

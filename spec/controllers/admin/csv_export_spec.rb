@@ -4,6 +4,7 @@ describe Admin::CommunityMembershipsController, type: :controller do
   before(:each) do
     @community = FactoryGirl.create(:community)
     @request.host = "#{@community.ident}.lvh.me"
+    @request.env[:current_marketplace] = @community
     @person = create_admin_for(@community)
     @other_email = FactoryGirl.create(:email, person: @person)
     sign_in_for_spec(@person)
@@ -44,6 +45,7 @@ describe Admin::CommunityTransactionsController, type: :controller do
     @listing = FactoryGirl.create(:listing, community_id: @community.id, transaction_process_id: 123, author: @person)
     sign_in_for_spec(@person)
     @request.host = "#{@community.ident}.lvh.me"
+    @request.env[:current_marketplace] = @community
     @transaction = FactoryGirl.create(:transaction, starter: @person, listing: @listing, community: @community)
 
     FeatureFlagService::API::Api.features.enable(community_id: @community.id, features: [:export_transactions_as_csv])

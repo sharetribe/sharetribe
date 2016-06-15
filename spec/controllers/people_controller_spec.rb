@@ -8,7 +8,9 @@ describe PeopleController, type: :controller do
 
   describe "#check_email_availability" do
     before(:each) do
-      @request.host = "#{FactoryGirl.create(:community).ident}.lvh.me"
+      community = FactoryGirl.create(:community)
+      @request.host = "#{community.ident}.lvh.me"
+      @request.env[:current_marketplace] = community
     end
 
     it "should return available if email not in use" do
@@ -21,6 +23,7 @@ describe PeopleController, type: :controller do
     before(:each) do
       @community = FactoryGirl.create(:community)
       @request.host = "#{@community.ident}.lvh.me"
+      @request.env[:current_marketplace] = @community
     end
 
     it "should return unavailable if email is in use" do
@@ -65,6 +68,7 @@ describe PeopleController, type: :controller do
     it "creates a person" do
       community = FactoryGirl.create(:community)
       @request.host = "#{community.ident}.lvh.me"
+      @request.env[:current_marketplace] = community
       person_count = Person.count
       username = generate_random_username
       post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test"}
@@ -78,6 +82,7 @@ describe PeopleController, type: :controller do
       community = FactoryGirl.build(:community, :allowed_emails => "@examplecompany.co")
       community.save
       @request.host = "#{community.ident}.lvh.me"
+      @request.env[:current_marketplace] = community
 
       post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}}
 
@@ -90,6 +95,7 @@ describe PeopleController, type: :controller do
     before(:each) do
       @community = FactoryGirl.create(:community)
       @request.host = "#{@community.ident}.lvh.me"
+      @request.env[:current_marketplace] = @community
       @person = FactoryGirl.create(:person, community_id: @community.id)
       @community.members << @person
       @id = @person.id
