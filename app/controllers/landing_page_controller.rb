@@ -33,10 +33,10 @@ class LandingPageController < ActionController::Metal
   def preview
     preview_version = parse_int(params[:preview_version])
     begin
-      # structure = LandingPageStore.load_structure(community_id(request), preview_version)
+      structure = LandingPageStore.load_structure(community_id(request), preview_version)
 
       # Uncomment for dev purposes
-      structure = JSON.parse(data_str)
+      # structure = JSON.parse(data_str)
 
       # Tell robots to not index and to not follow any links
       headers["X-Robots-Tag"] = "none"
