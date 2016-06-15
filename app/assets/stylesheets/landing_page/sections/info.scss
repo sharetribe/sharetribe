@@ -11,37 +11,69 @@
 }
 
 .info__content {
-  margin: 0 auto;
+  margin: 0 $dimension-mobile-margin;
 
   text-align: center;
 
   margin-top: -4.44vh; /* -50px, when content height is 900px, 80vh */
 
   @media #{$tablet} {
+    margin: 0 auto;
     max-width: 561px;
   }
 
   @media #{$desktop} {
+    margin: 0 auto;
     max-width: 808px;
   }
 }
 
 .info__title {
   font-family: ProximaNovaSoft-Regular;
-  font-size: 46px;
   color: #FFFFFF;
-  letter-spacing: -0.88px;
-  line-height: 56px;
-  margin-bottom: 24px;
+
+  // mobile
+  margin-bottom: 18px;
+  font-size: 26px;
+  letter-spacing: -0.5px;
+
+  @media #{$tablet} {
+    margin-bottom: 24px;
+    font-size: 36px;
+    letter-spacing: -0.69px;
+    line-height: 56px;
+  }
+
+  @media #{$desktop} {
+    margin-bottom: 24px;
+    font-size: 46px;
+    letter-spacing: -0.88px;
+  }
 }
 
 .info__paragraph {
   font-family: ProximaNovaSoft-Regular;
-  font-size: 21px;
   color: #FFFFFF;
+
+  // mobile
+  margin: 18px 0 36px 0;
+  font-size: 16px;
   letter-spacing: 0px;
-  line-height: 32px;
-  margin: 24px 0px 48px 0px;
+  line-height: 24px;
+
+  @media #{$tablet} {
+    margin: 24px 0 48px 0;
+    font-size: 18px;
+    letter-spacing: 0px;
+    line-height: 26px;
+  }
+
+  @media #{$desktop} {
+    margin: 24px 0 48px 0;
+    font-size: 21px;
+    letter-spacing: 0px;
+    line-height: 32px;
+  }
 }
 
 .info__button {

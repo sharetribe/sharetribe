@@ -17,7 +17,7 @@
 .hero__content {
   max-width: 1366px;
   margin: 0 auto;
-  padding: 24px;
+  padding: $dimension-mobile-margin;
   margin-top: -4.44vh; /* -50px, when content height is 900px, 80vh */
 }
 
