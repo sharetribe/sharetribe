@@ -9,6 +9,7 @@ initializeI18n('en', 'en', process.env.NODE_ENV);
 const loadStories = function loadStories() {
   require('../app/components/Styleguide/ColorsAndTypography.js');
   require('../app/components/elements/Logo/Logo.story.js');
+  require('../app/components/elements/MenuItem/MenuItem.story.js');
   require('../app/components/sections/Topbar/Topbar.story.js');
   require('../app/components/sections/OnboardingTopbar/OnboardingTopbar.story.js');
   require('../app/components/sections/OnboardingGuide/OnboardingGuide.story.js');

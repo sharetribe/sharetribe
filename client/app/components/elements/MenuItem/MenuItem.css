@@ -1,0 +1,30 @@
+.menuitem {
+  position: relative;
+  min-width: 144px;
+  list-style: none;
+  border-bottom: 1px solid var(--MenuItem_borderColor);
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+.menuitemLink {
+  display: inline-block;
+  padding: var(--MenuItem_paddingTopbarVertical) var(--MenuItem_paddingTopbarHorizontal);
+  color: var(--MenuItem_textColor);
+  width: 100%;
+  letter-spacing: var(--MenuItem_letterSpacing);
+
+  &:focus,
+  &:hover {
+    color: red; /*var(--MenuItem_textColorFocus);*/
+  }
+}
+
+.activeIndicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.5rem;
+  height: 100%;
+}
