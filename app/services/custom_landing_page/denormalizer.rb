@@ -68,7 +68,7 @@ module CustomLandingPage
       end
     end
 
-    def self.find_link(type, id, normalized_data)
+    def find_link(type, id, normalized_data)
       normalized_data[type].find { |item| item["id"] == id }
     end
 
@@ -78,7 +78,7 @@ module CustomLandingPage
       if @link_resolvers[type].respond_to? :call
         @link_resolvers[type].call(type, id, normalized_data)
       else
-        self.class.find_link(type, id, normalized_data)
+        find_link(type, id, normalized_data)
       end
     end
   end

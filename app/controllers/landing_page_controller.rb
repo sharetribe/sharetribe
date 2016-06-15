@@ -54,26 +54,13 @@ class LandingPageController < ActionController::Metal
     paths = { "search_path" => "/search/", # FIXME. Remove hardcoded URL. Add search path here when we get one
               "signup_path" => sign_up_path }
 
+    marketplace_data = { "primary_color" => "#F47F9D" }
+
     CustomLandingPage::Denormalizer.new(
       link_resolvers: {
-        "path" => ->(type, id, normalized_data) {
-          path = paths[id]
-
-          if path.nil?
-            raise ArgumentError.new("Couldn't find path '#{id}'")
-          else
-            {"id" => id, "path" => path}
-          end
-        },
-        "marketplace_data" => ->(type, id, normalized_data) {
-          case id
-          when "primary_color"
-            {"id" => "primary_color", "value" => "#347F9D"}
-          end
-        },
-        "assets" => ->(type, id, normalized_data) {
-          append_asset_path(CustomLandingPage::Denormalizer.find_link(type, id, normalized_data))
-        }
+        "path" => CustomLandingPage::LinkResolver::PathResolver.new(paths),
+        "marketplace_data" => CustomLandingPage::LinkResolver::MarketplaceDataResolver.new(marketplace_data),
+        "assets" => CustomLandingPage::LinkResolver::AssetResolver.new,
       }
     )
   end
@@ -107,10 +94,6 @@ class LandingPageController < ActionController::Metal
   def render_not_found(msg = "Not found")
     self.status = 404
     self.response_body = msg
-  end
-
-  def append_asset_path(asset)
-    asset.merge("src" => ["landing_page", asset["src"]].join("/"))
   end
 
   def data_str
