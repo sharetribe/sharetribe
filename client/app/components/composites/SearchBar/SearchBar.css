@@ -1,3 +1,29 @@
+/* The Google Maps Places Autocomplete dropdown box is added in the
+   end of the document body, and we must scope the global style
+   overrides within a class generated from the SearchBar component.
+
+   Classes available for customization can be seen at:
+
+   https://developers.google.com/maps/documentation/javascript/places-autocomplete#style_autocomplete
+*/
+.topLevelBody {
+  /* stylelint-disable selector-class-pattern */
+  & :global(.pac-container[style]) {
+    /* Generated autocompletion has inline styles, thus the ugly override.
+       See: https://css-tricks.com/override-inline-styles-with-css/ */
+    width: 20em !important;
+    margin-top: 10px;
+  }
+
+  & :global(.pac-item) {
+    line-height: 40px;
+  }
+  & :global(.pac-icon) {
+    margin-top: 10px;
+  }
+  /* stylelint-enable selector-class-pattern */
+}
+
 .root {
   display: inline-flex;
   width: 28.3em;
