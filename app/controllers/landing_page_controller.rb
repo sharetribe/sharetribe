@@ -24,9 +24,6 @@ class LandingPageController < ActionController::Metal
     begin
       structure = LandingPageStore.load_structure(community_id(request), version)
 
-      # Uncomment for dev purposes
-      # structure = JSON.parse(data_str)
-
       render_landing_page(structure)
     rescue CustomLandingPage::LandingPageContentNotFound
       render_not_found()
@@ -37,6 +34,9 @@ class LandingPageController < ActionController::Metal
     preview_version = parse_int(params[:preview_version])
     begin
       structure = LandingPageStore.load_structure(community_id(request), preview_version)
+
+      # Uncomment for dev purposes
+      # structure = JSON.parse(data_str)
 
       # Tell robots to not index and to not follow any links
       headers["X-Robots-Tag"] = "none"
@@ -62,10 +62,10 @@ class LandingPageController < ActionController::Metal
           if path.nil?
             raise ArgumentError.new("Couldn't find path '#{id}'")
           else
-            path
+            {"id" => id, "path" => path}
           end
         },
-        "marketplace_color" => ->(type, id, normalized_data) {
+        "marketplace_data" => ->(type, id, normalized_data) {
           case id
           when "primary_color"
             {"id" => "primary_color", "value" => "#347F9D"}
@@ -98,7 +98,9 @@ class LandingPageController < ActionController::Metal
     render :landing_page,
            locals: { font_path: "/landing_page/fonts",
                      styles: landing_page_styles,
-                     location_search_js: location_search_js,
+                     javascripts: {
+                       location_search: location_search_js
+                     },
                      sections: denormalizer.to_tree(structure) }
   end
 
@@ -131,7 +133,6 @@ class LandingPageController < ActionController::Metal
       "signup_button": "Sign up",
       "signup_path": {"type": "path", "id": "signup_path"}
     },
-
     {
       "id": "myhero1",
       "kind": "hero",
@@ -143,12 +144,11 @@ class LandingPageController < ActionController::Metal
       "search_button": "Search",
       "search_path": {"type": "path", "id": "search_path"}
     },
-
     {
       "id": "footer",
       "kind": "footer",
       "theme": "dark",
-      "social_media_icon_color": {"type": "marketplace_color", "id": "primary_color"},
+      "social_media_icon_color": {"type": "marketplace_data", "id": "primary_color"},
       "links": [
         {"label": "About", "url": "/about"},
         {"label": "How it works", "url": "https://www.google.com"},
@@ -178,7 +178,7 @@ class LandingPageController < ActionController::Metal
     { "section": {"type": "sections", "id": "footer"},
       "disabled": false},
     { "section": {"type": "sections", "id": "myhero1"},
-      "disabled": true},
+      "disabled": false},
     { "section": {"type": "sections", "id": "myhero1"},
       "disabled": true}
   ],
@@ -198,6 +198,6 @@ JSON
   end
 
   def location_search_js
-    Rails.application.assets.find_asset("location_search.js").to_s
+    Rails.application.assets.find_asset("location_search.js").to_s.html_safe
   end
 end
