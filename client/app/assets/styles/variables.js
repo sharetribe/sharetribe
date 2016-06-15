@@ -90,8 +90,8 @@ module.exports = {
 
    // Must be at least 16px to avoid iOS from zooming in when focusing
    // on an input.
-  '--Topbar_inputFontSizeMobile': '16px',
-  '--Topbar_fontSize': '14px',
+  '--Topbar_inputFontSizeMobile': fontSizeBig,
+  '--Topbar_fontSize': fontSize,
 
   '--Topbar_avatarSize': '44px',
   '--Topbar_avatarPadding': '18px 24px',

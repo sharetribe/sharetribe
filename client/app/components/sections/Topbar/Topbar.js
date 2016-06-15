@@ -5,6 +5,7 @@ import css from './Topbar.css';
 
 import Logo from '../../elements/Logo/Logo';
 import SearchBar from '../../composites/SearchBar/SearchBar';
+import Menu from '../../composites/Menu/Menu';
 import AvatarDropdown from '../../composites/AvatarDropdown/AvatarDropdown';
 
 const avatarDropdownProps = (avatarDropdown) => {
@@ -37,6 +38,12 @@ class Topbar extends Component {
           classSet: css.topbarAvatarDropdown,
         }) :
         null,
+      this.props.menu ?
+        r(Menu, Object.assign({}, this.props.menu, { key: 'menu' })) :
+        null,
+      this.props.languageMenu ?
+        r(Menu, Object.assign({}, this.props.languageMenu, { key: 'languageMenu' })) :
+        null,
     ]);
   }
 }
@@ -48,8 +55,10 @@ Topbar.propTypes = {
     keyword_placeholder: PropTypes.string,
     location_placeholder: PropTypes.string,
     onSubmit: PropTypes.func.isRequired,
-  }).isRequired,
+  }),
   avatarDropdown: PropTypes.shape(AvatarDropdown.propTypes),
+  menu: PropTypes.shape(Menu.propTypes),
+  languageMenu: PropTypes.shape(Menu.propTypes),
 };
 
 export default Topbar;
