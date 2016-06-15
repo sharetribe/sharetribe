@@ -1,6 +1,32 @@
 /* eslint-env node */
 
 module.exports = {
+
+  /*
+   By default content based media queries should be used for
+   responsiveness. However, some designs are based on certain fixed
+   breakpoints.
+
+   These breakpoints should not be used straight from variables. Use
+   them with the custom media queries defined in media-queries.js.
+
+   Example:
+
+   .container {
+     font-size: 2rem;
+
+     @media (--medium-viewport) {
+       font-size: 1.6rem;
+     }
+
+     @media (--large-viewport) {
+       font-size: 1.4rem;
+     }
+   }
+   */
+  '--breakpointMedium': '601px',
+  '--breakpointLarge': '1024px',
+
   '--fontSizeSmall': '0.875rem',
   '--fontSize': '1rem',
   '--fontSizeBig': '1.125rem',
