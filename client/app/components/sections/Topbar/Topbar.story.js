@@ -80,7 +80,7 @@ storiesOf('Top bar')
         location_placeholder: 'Location',
       },
     })))
-    .add('Menu', () => (
+    .add('Menu on About page', () => (
       r(storify(
         r(Topbar, {
           logo: {
@@ -131,7 +131,7 @@ storiesOf('Top bar')
             isOpen: false,
             name: 'En',
             identifier: 'LanguageMenu',
-            menuLabelType: 'menu',
+            menuLabelType: 'dropdown',
             content: [
               {
                 type: 'menuitem',

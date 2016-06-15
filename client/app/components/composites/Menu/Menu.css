@@ -15,9 +15,11 @@
 }
 
 .menuLabelIcon {
-  margin-right: 10px;
+  margin-right: var(--Menu_iconPadding);
 }
-
+.menuLabelDropdownIcon {
+  margin-left: calc(var(--Menu_fontSize) / 2);
+}
 
 .menuContent {
   background-color: var(--Menu_colorBackground);

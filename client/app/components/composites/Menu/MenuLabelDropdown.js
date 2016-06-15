@@ -1,9 +1,10 @@
 import { Component, PropTypes } from 'react';
 import { div, span } from 'r-dom';
 import css from './Menu.css';
-import hamburgerIcon from './images/hamburgerIcon.svg';
+import openIcon from './images/dropdownTriangleOpen.svg';
+import closedIcon from './images/dropdownTriangleClosed.svg';
 
-class MenuLabel extends Component {
+class MenuLabelDropdown extends Component {
 
   constructor(props, context) {
     super(props, context);
@@ -44,13 +45,15 @@ class MenuLabel extends Component {
         onBlur: this.handleBlur,
         tabIndex: '0',
       }, [
+        this.props.name,
         span({
-          className: css.menuLabelIcon,
+          className: css.menuLabelDropdownIcon,
           dangerouslySetInnerHTML: {
-            __html: hamburgerIcon,
+            __html: this.props.isOpen ?
+              openIcon :
+              closedIcon,
           },
         }),
-        this.props.name,
       ])
     );
   }
@@ -58,11 +61,11 @@ class MenuLabel extends Component {
 
 const { bool, func, string } = PropTypes;
 
-MenuLabel.propTypes = {
+MenuLabelDropdown.propTypes = {
   onToggleActive: func.isRequired,
-  isOpen: bool,
+  isOpen: bool.isRequired,
   hasFocus: bool.isRequired,
   name: string.isRequired,
 };
 
-export default MenuLabel;
+export default MenuLabelDropdown;

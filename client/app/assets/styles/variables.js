@@ -144,4 +144,5 @@ module.exports = {
   '--Menu_fontSizeBig': fontSizeBig,
   '--Menu_colorBackground': backgroundLightColor,
   '--Menu_borderColor': topbarBorderColor,
+  '--Menu_iconPadding': '0.7em',
 };

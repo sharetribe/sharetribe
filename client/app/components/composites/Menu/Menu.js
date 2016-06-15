@@ -4,13 +4,14 @@ import r, { div } from 'r-dom';
 import _ from 'lodash';
 
 import MenuLabel from './MenuLabel';
+import MenuLabelDropdown from './MenuLabelDropdown';
 import MenuContent from './MenuContent';
 import css from './Menu.css';
 
 const MENUCONTENT_OVERLAP = 5;
 const MENULABEL_MAP = {
   menu: MenuLabel,
-  dropdown: MenuLabel,
+  dropdown: MenuLabelDropdown,
 };
 
 class Menu extends Component {
@@ -91,6 +92,7 @@ class Menu extends Component {
         {
           key: `${this.props.identifier}_menulabel`,
           hasFocus: this.state.labelGetsFocus,
+          isOpen: this.state.isOpen,
           onToggleActive: this.onContentToggle,
           name: this.props.name,
           ref: (c) => {
