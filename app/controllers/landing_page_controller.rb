@@ -55,7 +55,7 @@ class LandingPageController < ActionController::Metal
 
   def denormalizer(cid, locale)
     # Application paths
-    paths = { "search_path" => "/search/", # FIXME. Remove hardcoded URL. Add search path here when we get one
+    paths = { "search_path" => "/", # FIXME. Remove hardcoded URL. Add search path here when we get one
               "signup_path" => sign_up_path }
 
     CustomLandingPage::Denormalizer.new(
@@ -110,7 +110,7 @@ class LandingPageController < ActionController::Metal
                                 .pluck(:name, :slogan, :description)
                                 .first
 
-    { "primary_color" => primary_color ? "#" + primary_color : nil,
+    { "primary_color" => primary_color.present? ? "#" + primary_color : nil,
       "name" => name,
       "slogan" => slogan,
       "description" => description }

@@ -25,13 +25,12 @@ module CustomLandingPage
       end
 
       def call(type, id, _)
-        value = @_data[id]
-
-        if value.nil?
+        unless @_data.key?(id)
           raise LinkResolvingError.new("Unknown marketplace data value '#{id}'.")
-        else
-          { "id" => id, "type" => type, "value" => value }
         end
+
+        value = @_data[id]
+        { "id" => id, "type" => type, "value" => value }
       end
     end
 
