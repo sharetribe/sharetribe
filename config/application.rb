@@ -78,6 +78,9 @@ module Kassi
     # Handle cookies with old key
     config.middleware.insert_before ActionDispatch::Cookies, "CustomCookieRenamer"
 
+    # Resolve current marketplace and append it to env
+    config.middleware.use "CurrentMarketplaceAppender"
+
     # Map of removed locales and their fallbacks
     config.REMOVED_LOCALE_FALLBACKS = Sharetribe::REMOVED_LOCALE_FALLBACKS
 

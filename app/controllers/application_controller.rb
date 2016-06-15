@@ -262,8 +262,7 @@ class ApplicationController < ActionController::Base
   # This can be overriden by controllers, if they have
   # another strategy for resolving the community
   def resolve_community
-    app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
-    CurrentMarketplaceResolver.resolve_from_host(request.host, app_domain)
+    request.env[:current_marketplace]
   end
 
   # Before filter to get the current community

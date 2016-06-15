@@ -18,6 +18,7 @@ describe Admin::CustomFieldsController, type: :controller do
       @another_community = FactoryGirl.create(:community)
 
       @request.host = "#{@community.ident}.lvh.me"
+      @request.env[:current_marketplace] = @community
 
       @person = create_admin_for(@community)
       sign_in_for_spec(@person)

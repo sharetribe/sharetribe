@@ -27,6 +27,7 @@ describe SessionsController, "POST create", type: :controller do
                         status: "accepted" )
 
     @request.host = "#{community1.ident}.lvh.me"
+    @request.env[:current_marketplace] = community1
   end
 
   it "redirects back to original community's domain" do

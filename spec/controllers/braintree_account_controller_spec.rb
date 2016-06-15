@@ -7,6 +7,7 @@ describe BraintreeAccountsController, type: :controller do
       FactoryGirl.create(:braintree_payment_gateway, :community => @community)
 
       @request.host = "#{@community.ident}.lvh.me"
+      @request.env[:current_marketplace] = @community
       @person = FactoryGirl.create(:person)
       @community.members << @person
       sign_in_for_spec(@person)
