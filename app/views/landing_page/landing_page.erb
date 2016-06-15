@@ -17,6 +17,8 @@
       <%= render partial: "hero", locals: {section_id: section_id, s: s} %>
     <% when "footer" %>
       <%= render partial: "footer", locals: {section_id: section_id, s: s} %>
+    <% when "info" %>
+      <%= render partial: "info", locals: {section_id: section_id, s: s} %>
     <% end %>
 
   <% end # sections#each %>
@@ -104,6 +106,7 @@
   </style>
 
 </head>
+<body>
 
 <%= yield :sections %>
 
@@ -120,4 +123,5 @@
 
 <%= yield :javascript %>
 
+</body>
 </html>
