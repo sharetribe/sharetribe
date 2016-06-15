@@ -1,7 +1,30 @@
-<section id="<%= section_id %>" class="info__section" style="background-image: url('<%= s["background_image"]["src"] %>')">
+<%
+  background_enabled     = !s["background_image"].nil?
+  background_image_style = background_enabled ? "url('#{s["background_image"]["src"]}')" : "none"
+  section_style_modifier = background_enabled ? "background" : "blank"
+  button_enabled         = !s["button"].nil?
+%>
+
+<section id="<%= section_id %>" class="info__section--<%= section_style_modifier %>" style="background-image: <%= background_image_style %>">
   <div class="info__content">
     <h1 class="info__title"><%= s["title"] %></h1>
-    <p class="info__paragraph"><%= s["paragraph"] %></p>
-    <a class="info__button" href="<%= s["button_path"]["path"] %>" style="background-color: <%= s["button_color"]["value"] %>"><%= s["button_title"] %></a>
+
+    <% case s["variation"] %>
+
+    <% when "one_column" %>
+      <p class="info__paragraph"><%= s["paragraph"] %></p>
+
+      <% if button_enabled %>
+        <% b = s["button"] %>
+        <% if background_enabled %>
+          <a class="info__button" href="<%= b["path"]["path"] %>" style="background-color: <%= b["color"]["value"] %>"><%= b["title"] %></a>
+        <% else %>
+          <a class="info__button" href="<%= b["path"]["path"] %>" style="color: <%= b["color"]["value"] %>; border-color: <%= b["color"]["value"] %>"><%= b["title"] %></a>
+        <% end %>
+      <% end %>
+
+    <% when "two_column" %>
+
+    <% end %>
   </div>
 </section>

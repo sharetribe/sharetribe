@@ -20,7 +20,7 @@ You may want to override following properties:
 
   border-radius: 1000px; // Is there cleaner way to do this?
 
-  border-size: $button-border-size;
+  border-width: $button-border-size;
   border-style: solid;
   border-color: transparent;
 }

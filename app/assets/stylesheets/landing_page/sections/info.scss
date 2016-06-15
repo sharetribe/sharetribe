@@ -2,12 +2,24 @@
 
 .info__section {
   width: 100%;
-  min-height: 80vh;
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
+}
+
+.info__section--background {
+  @extend .info__section;
+
+  color: #FFFFFF;
+  min-height: 80vh;
   box-shadow: inset 0 0 0 999999px rgba(0, 0, 0, 0.65); /* is there any cleaner way? */
+}
+
+.info__section--blank {
+  @extend .info__section;
+  color: #525961;
+  padding: 96px 0 96px 0px;
 }
 
 .info__content {
@@ -30,7 +42,6 @@
 
 .info__title {
   font-family: ProximaNovaSoft-Regular;
-  color: #FFFFFF;
 
   // mobile
   margin-bottom: 18px;
@@ -53,7 +64,6 @@
 
 .info__paragraph {
   font-family: ProximaNovaSoft-Regular;
-  color: #FFFFFF;
 
   // mobile
   margin: 18px 0 36px 0;
@@ -78,5 +88,4 @@
 
 .info__button {
   @extend .landing-page__button;
-  color: #FFF;
 }
