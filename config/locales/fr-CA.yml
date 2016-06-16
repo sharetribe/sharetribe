@@ -1210,6 +1210,10 @@ fr-CA:
     how_to_use:
       default_title: "Comment ça marche"
       default_content: "Ici vous pouvez trouver des informations sur le fonctionnement de %{marketplace_name}."
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
   layouts:
     admin:
       admin: "Panneau d'administration %{service_name}"

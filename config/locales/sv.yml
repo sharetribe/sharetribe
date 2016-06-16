@@ -1224,6 +1224,10 @@ sv:
     how_to_use:
       default_title: "Hur det fungerar"
       default_content: "Här hittar du information om hur %{marketplace_name} fungerar."
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
   layouts:
     admin:
       admin: "%{service_name} admin panel"

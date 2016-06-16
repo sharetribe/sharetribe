@@ -1216,6 +1216,10 @@ ru:
     how_to_use:
       default_title: "Как это работает"
       default_content: "Здесь вы можете информацию о %{marketplace_name}."
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
   layouts:
     admin:
       admin: "Администрирование %{service_name}"

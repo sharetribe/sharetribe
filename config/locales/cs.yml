@@ -1231,6 +1231,10 @@ cs:
     how_to_use:
       default_title: "Jak to funguje?"
       default_content: "Zde můžete najít více informací o tom, jak %{marketplace_name} funguje."
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
   layouts:
     admin:
       admin: "Pomozte nám rozšířit %{service_name}"

@@ -1206,6 +1206,10 @@ nl:
     how_to_use:
       default_title: "Hoe het werkt"
       default_content: "Hier kun je informatie vinden over hoe %{marketplace_name} werkt."
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
   layouts:
     admin:
       admin: "%{service_name} dashboard beheerder"

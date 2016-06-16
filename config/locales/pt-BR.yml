@@ -198,7 +198,7 @@ pt-BR:
         es: "Espanhol (Chile)"
         es-ES: Espanhol
         pt-PT: Português
-        pt-BR: Português
+        pt-BR: "Português (Brasil)"
         nb: Norueguês
         sv: Sueco
         da-DK: Dinamarquês
@@ -643,7 +643,7 @@ pt-BR:
       message_content_not_available: "O conteúdo da mensagem não está disponível"
     message:
       accepted_request: "aceitou o pedido"
-      received_payment: "O pedido foi aceitade, pagamento recebido para %{sum}"
+      received_payment: "O pedido foi aceite, pagamento recebido para %{sum}"
       accepted_offer: "aceitou a oferta"
       rejected_request: "rejeitou o pedido"
       rejected_offer: "rejeitou a oferta"
@@ -1222,6 +1222,10 @@ pt-BR:
     how_to_use:
       default_title: "Como funciona"
       default_content: "Aqui você pode encontrar informações sobre como %{marketplace_name} funciona."
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
   layouts:
     admin:
       admin: "Painel de administração do %{service_name}"

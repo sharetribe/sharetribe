@@ -1211,6 +1211,10 @@ zh:
     how_to_use:
       default_title: 它是如何工作的
       default_content: "你可以在这里找到%{marketplace_name}如何工作的信息。"
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
   layouts:
     admin:
       admin: "%{service_name}控制面板"

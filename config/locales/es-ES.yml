@@ -66,7 +66,7 @@ es-ES:
         edit_community_description_description: "Se muestra en la página de inicio para los usuarios que no han iniciado sesión. %{see_how_it_looks_like}."
         community_search_placeholder: Ayuda
         edit_community_search_placeholder_description: "Esto se muestra en la página inicial de tu comunidad como texto de marcador en la barra de búsqueda. %{see_how_it_looks_like}."
-        private_community_homepage_content: "Contenido de la página de inicio del marketplace privado"
+        private_community_homepage_content: "Contenido de la página de inicio de la comunidad privada"
         edit_private_community_homepage_content_description: "Este contenido se muestra en la página de inicio de las comunidades privadas a los usuarios que no se han registrado. Aquí puedes describir tu comunidad y el proceso para registrarse. Aquí también puedes añadir imágenes, videos y contenido HTML. %{see_how_it_looks_like}."
         update_information: "Guardar configuración"
         invite_people: "Invita nuevos usuarios"
@@ -218,8 +218,8 @@ es-ES:
         general: General
         users_can_review_each_other_after_transaction: "Los usuarios pueden dar retroalimentación a la otra parte cuando hayan realizado una transacción"
         access: "Preferencias de acceso"
-        join_with_invite_only: "Los usuarios sólo pueden unirse a este marketplace con una invitación de otro usuario."
-        users_can_invite_new_users: "Todos los usuarios pueden invitar nuevos usuarios a este marketplace."
+        join_with_invite_only: "Los usuarios sólo pueden unirse a esta comunidad con una invitación de otro usuario."
+        users_can_invite_new_users: "Todos los usuarios pueden invitar nuevos usuarios a esta comunidad."
         private: "Este marketplace es privado (sólo los usuarios registrados pueden ver su contenido)."
         require_verification_to_post_listings: "Sólo los usuarios que han sido verificados por el administrador pueden publicar nuevos anuncios"
         search_preferences: "Preferencias de búsqueda"
@@ -1215,11 +1215,15 @@ es-ES:
   infos:
     about:
       default_about_text_title: "Qué es Sharetribe?"
-      default_about_text: "Este marketplace es impulsado por la plataforma Sharetribe. Con Sharetribe puedes crear fácilmente tu propio marketplace en línea. Es gratis y sólo toma un minuto. %{click_here_link} para ver cómo!"
+      default_about_text: "Esta comunidad de mercado colaborativo fue creada con la plataforma Sharetribe. Con Sharetribe puedes crear fácilmente tu propia comunidad en línea. Es gratis y sólo toma un minuto. %{click_here_link} para ver cómo!"
       click_here_link_text: "Clic aquí"
     how_to_use:
       default_title: "Cómo funciona"
       default_content: "Aquí puedes encontrar información sobre cómo funciona %{marketplace_name}."
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
   layouts:
     admin:
       admin: "Panel de administración de %{service_name}"

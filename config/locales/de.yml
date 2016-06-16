@@ -1222,6 +1222,10 @@ de:
     how_to_use:
       default_title: "So funktioniert's"
       default_content: "Hier findest du Informationen darüber, wie %{marketplace_name} funktioniert."
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
   layouts:
     admin:
       admin: "%{service_name} Verwaltung"

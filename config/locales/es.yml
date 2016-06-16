@@ -1198,6 +1198,10 @@ es:
     how_to_use:
       default_title: ~
       default_content: ~
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
   layouts:
     admin:
       admin: "Panel de administración de %{service_name}"

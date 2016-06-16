@@ -198,7 +198,7 @@ da-DK:
         es: "Spansk (Chile)"
         es-ES: Spansk
         pt-PT: Portugisisk
-        pt-BR: Portugisisk
+        pt-BR: "Portugisisk (Brazil)"
         nb: "Norsk Bokmål"
         sv: Svensk
         da-DK: Dansk
@@ -1218,6 +1218,10 @@ da-DK:
     how_to_use:
       default_title: "Sådan virker det"
       default_content: "Her kan du finde information om hvordan %{marketplace_name} fungerer."
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
   layouts:
     admin:
       admin: "%{service_name} administrator panel"

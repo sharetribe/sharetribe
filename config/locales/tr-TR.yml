@@ -1207,6 +1207,10 @@ tr-TR:
     how_to_use:
       default_title: "Nasıl çalışır"
       default_content: "%{marketplace_name}'in nasıl çalıştığı hakkında bilgileri burada bulabilirsiniz."
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
   layouts:
     admin:
       admin: "%{service_name} yönetici paneli"

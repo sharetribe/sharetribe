@@ -1222,6 +1222,10 @@ fi:
     how_to_use:
       default_title: "Miten palvelu toimii"
       default_content: "Tällä sivulla kerrotaan, miten %{marketplace_name}-palvelu toimii."
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
   layouts:
     admin:
       admin: "%{service_name} ylläpitonäkymä"

@@ -1195,6 +1195,10 @@ it:
     how_to_use:
       default_title: "F.A.Q. Domande frequenti"
       default_content: ~
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
   layouts:
     admin:
       admin: "%{service_name} pannello dell'amministratore."

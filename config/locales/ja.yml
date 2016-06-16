@@ -1205,6 +1205,10 @@ ja:
     how_to_use:
       default_title: ご利用ガイド
       default_content: "ここで、%{marketplace_name}の概要を説明できます。"
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
   layouts:
     admin:
       admin: "%{service_name}のサイト管理パネル"

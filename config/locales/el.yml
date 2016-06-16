@@ -1191,6 +1191,10 @@ el:
     how_to_use:
       default_title: ~
       default_content: ~
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
   layouts:
     admin:
       admin: "Διαχείριση του %{service_name}"
