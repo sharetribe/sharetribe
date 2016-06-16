@@ -90,25 +90,30 @@
 }
 
 .hero__search-bar {
+  display: flex;
   margin: 0 auto;
   max-width: 532px;
+}
+
+.hero__search-input-container {
   display: flex;
+  width: 100%;
   background-color: #FFF;
 
-  // Add border-radius and overflow: hidden
-  // so that border of the children are also rounded
   border-radius: 29.5px;
-  overflow: hidden;
+  overflow: hidden; // add overflow hidden so that children's borders are also rounded
 
   /* mobile */
   flex-direction: row-reverse;
   padding: 0px 0px 0px 24px;
 
   @media #{$tablet} {
+    border-radius: 29.5px 0px 0px 29.5px;
     flex-direction: row;
   }
 
   @media #{$desktop} {
+    border-radius: 29.5px 0px 0px 29.5px;
     flex-direction: row;
   }
 }
@@ -150,6 +155,7 @@
 .hero__search-button {
   border: 0;
   padding: 0;
+  border-radius: 0px 29.5px 29.5px 0px;
 
   padding: 14px 28px;
 
@@ -157,7 +163,6 @@
 
   background: #347F9D;
 
-  /* Search: */
   font-family: ProximaNovaSoft-Medium;
   font-size: 18px;
   color: #FFFFFF;
