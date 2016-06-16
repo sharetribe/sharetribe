@@ -8,14 +8,7 @@ class MenuItem extends Component {
   constructor(props, context) {
     super(props, context);
     this.activeColor = this.props.activeColor || '#a64c5d';
-
-    this.handleHover = this.handleHover.bind(this);
   }
-
-  handleHover() {
-    this.props.hoverFocus(this.props.index);
-  }
-
 
   render() {
     return div({ className: css.menuitem }, [
@@ -30,7 +23,6 @@ class MenuItem extends Component {
           className: `menuitem ${css.menuitemLink}`,
           href: this.props.href,
           tabIndex: '-1',
-          onMouseOver: this.handleHover,
         },
         this.props.content),
     ]);
@@ -43,7 +35,6 @@ MenuItem.propTypes = {
   active: bool.isRequired,
   activeColor: string.isRequired,
   content: string.isRequired,
-  hoverFocus: func.isRequired,
   href: string.isRequired,
   index: number.isRequired,
   type: string.isRequired,

@@ -3,9 +3,6 @@ import { storiesOf } from '@kadira/storybook';
 import { storify, defaultRailsContext } from '../../Styleguide/withProps';
 
 import Menu from './Menu';
-import MenuItem from '../../elements/MenuItem/MenuItem';
-import MenuLabel from './MenuLabel';
-import MenuContent from './MenuContent';
 
 const containerStyle = { style: { minWidth: '100px', background: 'white' } };
 
@@ -14,7 +11,6 @@ storiesOf('Menu')
       r(storify(
         r(Menu, Object.assign({},
           {
-            isOpen: false,
             name: 'Menu',
             identifier: 'Menu',
             menuLabelType: 'menu',

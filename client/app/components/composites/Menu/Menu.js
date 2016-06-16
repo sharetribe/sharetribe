@@ -8,6 +8,8 @@ import MenuLabelDropdown from './MenuLabelDropdown';
 import MenuContent from './MenuContent';
 import css from './Menu.css';
 
+const INITIAL_MENUCONTENT_POSITION = 75;
+const INITIAL_ARROW_POSITION = 75;
 const MENUCONTENT_OVERLAP = 5;
 const MENULABEL_MAP = {
   menu: MenuLabel,
@@ -20,62 +22,30 @@ class Menu extends Component {
     super(props, context);
 
     _.bindAll(this, [
-      'onContentToggle',
-      'afterContentToggle',
-      'closeMenu',
-      'handleBlur',
+      'handleMouseOver',
+      'calculateDropdownPosition',
     ]);
 
     this.state = {
-      isOpen: this.props.isOpen,
-      labelGetsFocus: false,
-      contentPos: 80,
-      arrowPosition: 50,
+      contentPosition: INITIAL_MENUCONTENT_POSITION,
+      arrowPosition: INITIAL_ARROW_POSITION,
     };
   }
 
-  componentDidMount() {
+  handleMouseOver() {
+    if (this.state.contentPosition === INITIAL_MENUCONTENT_POSITION) {
+      this.calculateDropdownPosition();
+    }
+  }
+
+  calculateDropdownPosition() {
     const menuLabel = ReactDOM.findDOMNode(this.menuLabel);
     const verticalPos = menuLabel.offsetTop + menuLabel.offsetHeight - MENUCONTENT_OVERLAP;
 
     this.setState({ // eslint-disable-line react/no-did-mount-set-state, react/no-set-state
-      contentPos: verticalPos,
+      contentPosition: verticalPos,
       arrowPosition: menuLabel.offsetWidth / 2, // eslint-disable-line no-magic-numbers
     });
-  }
-
-  // When content dropdown has been closed, label should have focus
-  componentDidUpdate() {
-    const menuInDom = ReactDOM.findDOMNode(this);
-    if (menuInDom.contains(document.activeElement) && this.state.labelGetsFocus) {
-      ReactDOM.findDOMNode(this.menuLabel).focus();
-    }
-  }
-
-  onContentToggle() {
-    this.setState({ isOpen: !this.state.isOpen }, this.afterContentToggle); // eslint-disable-line react/no-set-state
-  }
-
-  afterContentToggle() {
-    if (this.state.isOpen) {
-      this.menuContent.focusToMenuItem(0);
-    }
-  }
-
-  closeMenu() {
-    this.setState({ isOpen: false, labelGetsFocus: true }); // eslint-disable-line react/no-set-state
-  }
-
-  handleBlur() {
-    const that = this;
-
-    // Give next element a tick to take the focus
-    setTimeout(() => {
-      const menuInDom = ReactDOM.findDOMNode(this);
-      if (!menuInDom.contains(document.activeElement) && that.state.isOpen) {
-        that.closeMenu();
-      }
-    }, 1);
   }
 
   render() {
@@ -85,14 +55,12 @@ class Menu extends Component {
     return div({
       className: `menu ${css.menu}`,
       onBlur: this.handleBlur,
+      onMouseOver: this.handleMouseOver,
       tabIndex: '0',
     }, [
       r(LabelComponent,
         {
           key: `${this.props.identifier}_menulabel`,
-          hasFocus: this.state.labelGetsFocus,
-          isOpen: this.state.isOpen,
-          onToggleActive: this.onContentToggle,
           name: this.props.name,
           extraClasses: this.props.extraClasses,
           ref: (c) => {
@@ -103,10 +71,8 @@ class Menu extends Component {
       r(MenuContent,
         {
           key: `${this.props.identifier}_menucontent`,
-          isOpen: this.state.isOpen,
-          onCloseMenu: this.closeMenu,
           content: this.props.content,
-          contentPos: this.state.contentPos,
+          contentPosition: this.state.contentPosition,
           arrowPosition: this.state.arrowPosition,
           ref: (c) => {
             this.menuContent = c;
@@ -118,7 +84,6 @@ class Menu extends Component {
 }
 
 Menu.propTypes = {
-  isOpen: PropTypes.bool,
   name: PropTypes.string.isRequired,
   extraClasses: PropTypes.string,
   identifier: PropTypes.string.isRequired,

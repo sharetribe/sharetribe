@@ -5,44 +5,11 @@ import hamburgerIcon from './images/hamburgerIcon.svg';
 
 class MenuLabel extends Component {
 
-  constructor(props, context) {
-    super(props, context);
-
-    this.toggleActive = this.toggleActive.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleKeyUp = this.handleKeyUp.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-  }
-
-  toggleActive() {
-    this.props.onToggleActive();
-  }
-
-  handleKeyUp(e) {
-    if (e.key === ' ') {
-      this.toggleActive();
-    }
-  }
-
-  handleKeyDown(e) {
-    if (e.key === 'Enter') {
-      this.toggleActive();
-    }
-  }
-
-  handleClick() {
-    this.toggleActive();
-  }
-
   render() {
     const extraClasses = this.props.extraClasses ? this.props.extraClasses : '';
     return (
       div({
         className: `menu__label ${css.menuLabel} ${extraClasses}`,
-        onClick: this.handleClick,
-        onKeyUp: this.handleKeyUp,
-        onKeyDown: this.handleKeyDown,
-        onBlur: this.handleBlur,
         tabIndex: '-1',
       }, [
         span({
@@ -57,14 +24,9 @@ class MenuLabel extends Component {
   }
 }
 
-const { bool, func, string } = PropTypes;
-
 MenuLabel.propTypes = {
-  onToggleActive: func.isRequired,
-  isOpen: bool,
-  hasFocus: bool.isRequired,
-  name: string.isRequired,
-  extraClasses: string,
+  name: PropTypes.string.isRequired,
+  extraClasses: PropTypes.string,
 };
 
 export default MenuLabel;

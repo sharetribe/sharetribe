@@ -7,12 +7,10 @@
     outline: none;
   }
 
-  &:focus .menuContent,
   &:hover .menuContent {
     outline: none;
     display: block;
   }
-
 }
 
 .menuLabel {
@@ -28,6 +26,22 @@
 }
 .menuLabelDropdownIcon {
   margin-left: 0.2857em;
+}
+
+.menuLabelDropdownIconOpen {
+  composes: menuLabelDropdownIcon;
+  display: none;
+}
+.menu:hover .menuLabelDropdownIconOpen {
+  display: inline-block;
+}
+
+.menuLabelDropdownIconClosed {
+  composes: menuLabelDropdownIcon;
+  display: inline-block;
+}
+.menu:hover .menuLabelDropdownIconClosed {
+  display: none;
 }
 
 .menuContent {
