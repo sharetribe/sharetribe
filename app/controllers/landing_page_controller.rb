@@ -1,6 +1,6 @@
 class LandingPageController < ActionController::Metal
 
-  LandingPageStore = CustomLandingPage::LandingPageStore
+  CLP = CustomLandingPage
 
   # Needed for rendering
   #
@@ -18,16 +18,16 @@ class LandingPageController < ActionController::Metal
 
   def index
     cid = community_id(request)
-    version = LandingPageStore.released_version(cid)
+    version = CLP::LandingPageStore.released_version(cid)
 
     # TODO Ideally we would do the caching based upon just clp_version
     # and avoid loading and parsing the (potentially) big structure
     # JSON.
     begin
-      structure = LandingPageStore.load_structure(cid, version)
+      structure = CLP::LandingPageStore.load_structure(cid, version)
 
       render_landing_page(cid, structure)
-    rescue CustomLandingPage::LandingPageContentNotFound
+    rescue CLP::LandingPageContentNotFound
       render_not_found()
     end
   end
@@ -37,7 +37,7 @@ class LandingPageController < ActionController::Metal
     preview_version = parse_int(params[:preview_version])
 
     begin
-      structure = LandingPageStore.load_structure(cid, preview_version)
+      structure = CLP::LandingPageStore.load_structure(cid, preview_version)
 
       # Uncomment for dev purposes
       # structure = JSON.parse(data_str)
@@ -45,7 +45,7 @@ class LandingPageController < ActionController::Metal
       # Tell robots to not index and to not follow any links
       headers["X-Robots-Tag"] = "none"
       render_landing_page(cid, structure)
-    rescue CustomLandingPage::LandingPageContentNotFound
+    rescue CLP::LandingPageContentNotFound
       render_not_found()
     end
   end
@@ -58,12 +58,14 @@ class LandingPageController < ActionController::Metal
     paths = { "search_path" => "/", # FIXME. Remove hardcoded URL. Add search path here when we get one
               "signup_path" => sign_up_path }
 
-    CustomLandingPage::Denormalizer.new(
+    marketplace_data = CLP::MarketplaceDataStore.marketplace_data(cid, locale)
+
+    CLP::Denormalizer.new(
       link_resolvers: {
-        "path" => CustomLandingPage::LinkResolver::PathResolver.new(paths),
-        "marketplace_data" => CustomLandingPage::LinkResolver::MarketplaceDataResolver.new(marketplace_data(cid, locale)),
-        "assets" => CustomLandingPage::LinkResolver::AssetResolver.new(APP_CONFIG[:clp_asset_host], sitename),
-        "translation" => CustomLandingPage::LinkResolver::TranslationResolver.new(locale)
+        "path" => CLP::LinkResolver::PathResolver.new(paths),
+        "marketplace_data" => CLP::LinkResolver::MarketplaceDataResolver.new(marketplace_data),
+        "assets" => CLP::LinkResolver::AssetResolver.new(APP_CONFIG[:clp_asset_host], sitename),
+        "translation" => CLP::LinkResolver::TranslationResolver.new(locale)
       }
     )
   end
@@ -97,42 +99,6 @@ class LandingPageController < ActionController::Metal
   def render_not_found(msg = "Not found")
     self.status = 404
     self.response_body = msg
-  end
-
-  def marketplace_data(cid, locale)
-    primary_color, private = Community.where(id: cid)
-                             .pluck(:custom_color1, :private)
-                             .first
-
-    name,
-    slogan,
-    description,
-    search_placeholder = CommunityCustomization
-                         .where(community_id: cid, locale: locale)
-                         .pluck(:name, :slogan, :description, :search_placeholder)
-                         .first
-
-    main_search = MarketplaceConfigurations
-                  .where(community_id: cid)
-                  .pluck(:main_search)
-                  .first
-
-    search_type =
-      if private
-        "private"
-      elsif main_search == "location"
-        "location_search"
-      else
-        "keyword_search"
-      end
-
-    { "primary_color" => primary_color.present? ? "#" + primary_color : nil,
-      "name" => name,
-      "slogan" => slogan,
-      "description" => description,
-      "search_type" => search_type,
-      "search_placeholder" => search_placeholder
-    }
   end
 
   def data_str
