@@ -1,7 +1,5 @@
 import { Component, PropTypes } from 'react';
 import r, { div } from 'r-dom';
-import classNames from 'classnames';
-import { className } from '../../../utils/PropTypes';
 
 import css from './ArrowDropdown.css';
 import inboxEmptyIcon from './images/inboxEmptyIcon.svg';
@@ -10,7 +8,7 @@ import settingsIcon from './images/settingsIcon.svg';
 
 class ProfileActionCard extends Component {
   render() {
-    return div({ className: css.profileAction }, [
+    return div({ className: css.profileAction, onClick: this.props.action }, [
       div({ className: css.profileActionIcon, dangerouslySetInnerHTML: { __html: this.props.icon } }),
       div({ className: css.profileActionLabel }, this.props.label),
     ]);
@@ -26,7 +24,7 @@ ProfileActionCard.propTypes = {
 class ArrowDropdown extends Component {
   render() {
     return div({
-      className: classNames(this.props.className, css.arrowDropdown),
+      className: css.arrowDropdown,
     }, [
       div({ className: css.rootArrow }),
       div({ className: css.box }, [
@@ -36,8 +34,15 @@ class ArrowDropdown extends Component {
           r(ProfileActionCard, { label: 'Settings', icon: settingsIcon, action: this.props.actions.settingsAction }),
         ]),
         div({ className: css.logoutArea }, [
-          div({ className: css.adminLink, style: { color: this.props.customColor } }, 'Admin dashboard'),
-          div({ className: css.logoutLink }, 'Logout'),
+          div({
+            className: css.adminLink,
+            style: { color: this.props.customColor },
+            onClick: this.props.actions.adminDashboardAction,
+          }, 'Admin dashboard'),
+          div({
+            className: css.logoutLink,
+            onClick: this.props.actions.logoutAction,
+          }, 'Logout'),
         ]),
       ]),
     ]);
@@ -45,11 +50,12 @@ class ArrowDropdown extends Component {
 }
 
 ArrowDropdown.propTypes = {
-  className,
   actions: PropTypes.shape({
     inboxAction: PropTypes.func,
     profileAction: PropTypes.func,
     settingsAction: PropTypes.func,
+    adminDashboardAction: PropTypes.func,
+    logoutAction: PropTypes.func,
   }),
   customColor: PropTypes.string.isRequired,
 };

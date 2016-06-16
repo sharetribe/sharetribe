@@ -56,9 +56,11 @@
 
 .adminLink {
   display: inline-block;
+  cursor: pointer;
 }
 
 .logoutLink {
   display: inline-block;
   float: right;
+  cursor: pointer;
 }

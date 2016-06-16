@@ -19,7 +19,11 @@ const baseProps = {
       action('clicked avatar');
     },
     actions: {
-      inboxAction: () => console.log('clicked inbox'),
+      inboxAction: action('clicked inbox'),
+      profileAction: action('clicked profile'),
+      settingsAction: action('clicked settings'),
+      adminDashboardAction: action('clicked admin dashboard'),
+      logoutAction: action('clicked logout'),
     },
   },
 };
