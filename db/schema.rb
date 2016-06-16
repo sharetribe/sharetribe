@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614071055) do
+ActiveRecord::Schema.define(version: 20160615145518) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -130,30 +130,30 @@ ActiveRecord::Schema.define(version: 20160614071055) do
   create_table "communities", force: :cascade do |t|
     t.string   "ident",                                      limit: 255
     t.string   "domain",                                     limit: 255
-    t.boolean  "use_domain",                                               default: false,                     null: false
+    t.boolean  "use_domain",                                                  default: false,                     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "settings",                                   limit: 65535
     t.string   "consent",                                    limit: 255
-    t.boolean  "transaction_agreement_in_use",                             default: false
-    t.boolean  "email_admins_about_new_members",                           default: false
-    t.boolean  "use_fb_like",                                              default: false
-    t.boolean  "real_name_required",                                       default: true
-    t.boolean  "automatic_newsletters",                                    default: true
-    t.boolean  "join_with_invite_only",                                    default: false
-    t.text     "allowed_emails",                             limit: 65535
-    t.boolean  "users_can_invite_new_users",                               default: true
-    t.boolean  "private",                                                  default: false
+    t.boolean  "transaction_agreement_in_use",                                default: false
+    t.boolean  "email_admins_about_new_members",                              default: false
+    t.boolean  "use_fb_like",                                                 default: false
+    t.boolean  "real_name_required",                                          default: true
+    t.boolean  "automatic_newsletters",                                       default: true
+    t.boolean  "join_with_invite_only",                                       default: false
+    t.text     "allowed_emails",                             limit: 16777215
+    t.boolean  "users_can_invite_new_users",                                  default: true
+    t.boolean  "private",                                                     default: false
     t.string   "label",                                      limit: 255
-    t.boolean  "show_date_in_listings_list",                               default: false
-    t.boolean  "all_users_can_add_news",                                   default: true
-    t.boolean  "custom_frontpage_sidebar",                                 default: false
-    t.boolean  "event_feed_enabled",                                       default: true
+    t.boolean  "show_date_in_listings_list",                                  default: false
+    t.boolean  "all_users_can_add_news",                                      default: true
+    t.boolean  "custom_frontpage_sidebar",                                    default: false
+    t.boolean  "event_feed_enabled",                                          default: true
     t.string   "slogan",                                     limit: 255
     t.text     "description",                                limit: 65535
-    t.string   "category",                                   limit: 255,   default: "other"
+    t.string   "category",                                   limit: 255,      default: "other"
     t.string   "country",                                    limit: 255
-    t.integer  "members_count",                              limit: 4,     default: 0
+    t.integer  "members_count",                              limit: 4,        default: 0
     t.integer  "user_limit",                                 limit: 4
     t.float    "monthly_price_in_euros",                     limit: 24
     t.string   "logo_file_name",                             limit: 255
@@ -171,44 +171,44 @@ ActiveRecord::Schema.define(version: 20160614071055) do
     t.string   "custom_color1",                              limit: 255
     t.string   "custom_color2",                              limit: 255
     t.string   "stylesheet_url",                             limit: 255
-    t.boolean  "stylesheet_needs_recompile",                               default: false
-    t.string   "service_logo_style",                         limit: 255,   default: "full-logo"
+    t.boolean  "stylesheet_needs_recompile",                                  default: false
+    t.string   "service_logo_style",                         limit: 255,      default: "full-logo"
     t.text     "available_currencies",                       limit: 65535
-    t.boolean  "facebook_connect_enabled",                                 default: true
+    t.boolean  "facebook_connect_enabled",                                    default: true
     t.integer  "vat",                                        limit: 4
     t.integer  "commission_from_seller",                     limit: 4
     t.integer  "minimum_price_cents",                        limit: 4
-    t.boolean  "testimonials_in_use",                                      default: true
-    t.boolean  "hide_expiration_date",                                     default: false
+    t.boolean  "testimonials_in_use",                                         default: true
+    t.boolean  "hide_expiration_date",                                        default: false
     t.string   "facebook_connect_id",                        limit: 255
     t.string   "facebook_connect_secret",                    limit: 255
     t.string   "google_analytics_key",                       limit: 255
-    t.string   "name_display_type",                          limit: 255,   default: "first_name_with_initial"
+    t.string   "name_display_type",                          limit: 255,      default: "first_name_with_initial"
     t.string   "twitter_handle",                             limit: 255
-    t.boolean  "use_community_location_as_default",                        default: false
+    t.boolean  "use_community_location_as_default",                           default: false
     t.string   "preproduction_stylesheet_url",               limit: 255
-    t.boolean  "show_category_in_listing_list",                            default: false
-    t.string   "default_browse_view",                        limit: 255,   default: "grid"
+    t.boolean  "show_category_in_listing_list",                               default: false
+    t.string   "default_browse_view",                        limit: 255,      default: "grid"
     t.string   "wide_logo_file_name",                        limit: 255
     t.string   "wide_logo_content_type",                     limit: 255
     t.integer  "wide_logo_file_size",                        limit: 4
     t.datetime "wide_logo_updated_at"
     t.boolean  "only_organizations"
-    t.boolean  "listing_comments_in_use",                                  default: false
-    t.boolean  "show_listing_publishing_date",                             default: false
-    t.boolean  "require_verification_to_post_listings",                    default: false
-    t.boolean  "show_price_filter",                                        default: false
-    t.integer  "price_filter_min",                           limit: 4,     default: 0
-    t.integer  "price_filter_max",                           limit: 4,     default: 100000
-    t.integer  "automatic_confirmation_after_days",          limit: 4,     default: 14
+    t.boolean  "listing_comments_in_use",                                     default: false
+    t.boolean  "show_listing_publishing_date",                                default: false
+    t.boolean  "require_verification_to_post_listings",                       default: false
+    t.boolean  "show_price_filter",                                           default: false
+    t.integer  "price_filter_min",                           limit: 4,        default: 0
+    t.integer  "price_filter_max",                           limit: 4,        default: 100000
+    t.integer  "automatic_confirmation_after_days",          limit: 4,        default: 14
     t.string   "favicon_file_name",                          limit: 255
     t.string   "favicon_content_type",                       limit: 255
     t.integer  "favicon_file_size",                          limit: 4
     t.datetime "favicon_updated_at"
-    t.integer  "default_min_days_between_community_updates", limit: 4,     default: 7
-    t.boolean  "listing_location_required",                                default: false
+    t.integer  "default_min_days_between_community_updates", limit: 4,        default: 7
+    t.boolean  "listing_location_required",                                   default: false
     t.text     "custom_head_script",                         limit: 65535
-    t.boolean  "follow_in_use",                                            default: true,                      null: false
+    t.boolean  "follow_in_use",                                               default: true,                      null: false
     t.boolean  "logo_processing"
     t.boolean  "wide_logo_processing"
     t.boolean  "cover_photo_processing"

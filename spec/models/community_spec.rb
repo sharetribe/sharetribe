@@ -17,7 +17,7 @@
 #  real_name_required                         :boolean          default(TRUE)
 #  automatic_newsletters                      :boolean          default(TRUE)
 #  join_with_invite_only                      :boolean          default(FALSE)
-#  allowed_emails                             :text(65535)
+#  allowed_emails                             :text(16777215)
 #  users_can_invite_new_users                 :boolean          default(TRUE)
 #  private                                    :boolean          default(FALSE)
 #  label                                      :string(255)
