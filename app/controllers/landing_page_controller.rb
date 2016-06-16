@@ -53,7 +53,7 @@ class LandingPageController < ActionController::Metal
 
   private
 
-  def denormalizer(cid, locale)
+  def denormalizer(cid, locale, sitename)
     # Application paths
     paths = { "search_path" => "/", # FIXME. Remove hardcoded URL. Add search path here when we get one
               "signup_path" => sign_up_path }
@@ -62,7 +62,7 @@ class LandingPageController < ActionController::Metal
       link_resolvers: {
         "path" => CustomLandingPage::LinkResolver::PathResolver.new(paths),
         "marketplace_data" => CustomLandingPage::LinkResolver::MarketplaceDataResolver.new(marketplace_data(cid, locale)),
-        "assets" => CustomLandingPage::LinkResolver::AssetResolver.new,
+        "assets" => CustomLandingPage::LinkResolver::AssetResolver.new(APP_CONFIG[:clp_asset_host], sitename),
         "translation" => CustomLandingPage::LinkResolver::TranslationResolver.new(locale)
       }
     )
@@ -86,6 +86,7 @@ class LandingPageController < ActionController::Metal
 
   def render_landing_page(cid, structure)
     locale = structure["settings"]["locale"]
+    sitename = structure["settings"]["sitename"]
 
     render :landing_page,
            locals: { font_path: "/landing_page/fonts",
@@ -93,7 +94,7 @@ class LandingPageController < ActionController::Metal
                      javascripts: {
                        location_search: location_search_js
                      },
-                     sections: denormalizer(cid, locale).to_tree(structure) }
+                     sections: denormalizer(cid, locale, sitename).to_tree(structure) }
   end
 
   def render_not_found(msg = "Not found")
