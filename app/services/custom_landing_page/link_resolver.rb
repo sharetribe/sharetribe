@@ -35,6 +35,15 @@ module CustomLandingPage
     end
 
     class AssetResolver
+      def initialize(asset_host, sitename)
+        unless sitename.present?
+          raise CustomLandingPage::LandingPageConfigurationError.new("Missing sitename.")
+        end
+
+        @_asset_host = asset_host
+        @_sitename = sitename
+      end
+
       def call(type, id, normalized_data)
         asset = normalized_data[type].find { |item| item["id"] == id }
 
@@ -49,7 +58,12 @@ module CustomLandingPage
       private
 
       def append_asset_path(asset)
-        asset.merge("src" => ["landing_page", asset["src"]].join("/"))
+        if @_asset_host.present?
+          asset.merge("src" => [@_asset_host, @_sitename, asset["src"]].join("/"))
+        else
+          # If asset_host is not configured serve assets locally
+          asset.merge("src" => ["landing_page", asset["src"]].join("/"))
+        end
       end
     end
 
