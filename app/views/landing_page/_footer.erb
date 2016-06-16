@@ -4,7 +4,7 @@
       <% if s['links'].length > 0 %>
         <ul class="footer__link-list">
           <% s['links'].each do |link| %>
-            <li class="footer__link-list-item"><a class="footer__link" href="<%= link['url'] %>"><%= link["label"] %></a></li>
+            <li class="footer__link-list-item"><a class="footer__link" href="<%= link['href']['path'] %>"><%= link["label"] %></a></li>
           <% end %>
         </ul>
       <% end %>

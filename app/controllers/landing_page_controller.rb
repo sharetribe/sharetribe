@@ -55,8 +55,11 @@ class LandingPageController < ActionController::Metal
 
   def denormalizer(cid, locale, sitename)
     # Application paths
-    paths = { "search_path" => "/", # FIXME. Remove hardcoded URL. Add search path here when we get one
-              "signup_path" => sign_up_path }
+    paths = { "search" => "/", # FIXME. Remove hardcoded URL. Add search path here when we get one
+              "signup" => sign_up_path,
+              "about" => about_infos_path,
+              "contact_us" => new_user_feedback_path
+            }
 
     marketplace_data = CLP::MarketplaceDataStore.marketplace_data(cid, locale)
 
@@ -115,9 +118,9 @@ class LandingPageController < ActionController::Metal
       "subtitle": {"type": "marketplace_data", "id": "description"},
       "background_image": {"type": "assets", "id": "myheroimage"},
       "search_button": {"type": "translation", "id": "search_button"},
-      "search_path": {"type": "path", "id": "search_path"},
+      "search_path": {"type": "path", "id": "search"},
       "search_placeholder": {"type": "marketplace_data", "id": "search_placeholder"},
-      "signup_path": {"type": "path", "id": "signup_path"},
+      "signup_path": {"type": "path", "id": "signup"},
       "signup_button": {"type": "translation", "id": "signup_button"},
       "search_button_color": {"type": "marketplace_data", "id": "primary_color"},
       "signup_button_color": {"type": "marketplace_data", "id": "primary_color"}
@@ -128,11 +131,8 @@ class LandingPageController < ActionController::Metal
       "theme": "dark",
       "social_media_icon_color": {"type": "marketplace_data", "id": "primary_color"},
       "links": [
-        {"label": "About", "url": "/about"},
-        {"label": "How it works", "url": "https://www.google.com"},
-        {"label": "Blog", "url": "/about"},
-        {"label": "Contact", "url": "https://www.google.com"},
-        {"label": "FAQ", "url": "/about"}
+        {"label": "About", "href": {"type": "path", "id": "about"}},
+        {"label": "Contact us", "href": {"type": "path", "id": "contact_us"}}
       ],
       "social": [
         {"service": "facebook", "url": "https://www.facebook.com"},
