@@ -75,12 +75,9 @@ class LandingPageController < ActionController::Metal
   end
 
   def community_id(request)
-    # TODO - This will come from request.env where the to-be-implemented middleware will put the data
-    ident = request.host.split(".").first
-    if ident == "aalto"
-      501
-    elsif ident == "oin"
-      11
+    c = request.env[:current_marketplace]
+    if c
+      c.id
     end
   end
 
