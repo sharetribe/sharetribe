@@ -21,7 +21,7 @@
               </div>
               <input type="search" name="q" class="hero__search-input" placeholder="<%= s["search_placeholder"]["value"] %>"/>
             </div>
-            <button type="submit" class="hero__search-button"><%= s["search_button"]["value"] %></button>
+            <button type="submit" class="hero__search-button" style="background-color: <%= s["search_button_color"]["value"] %>"><%= s["search_button"]["value"] %></button>
             <% if s["variation"]["value"] == "location_search" %>
               <input type="hidden" name="ls" />
               <input type="hidden" name="lc" />
@@ -47,7 +47,7 @@
 
       <% when "private" %>
 
-        <a class="hero__signup-button" href="<%= s["signup_path"]["path"] %>"><%= s["signup_button"]["value"] %></a>
+        <a class="hero__signup-button" href="<%= s["signup_path"]["path"] %>" style="background-color: <%= s["signup_button_color"]["value"] %>"><%= s["signup_button"]["value"] %></a>
 
       <% end %>
     </div>

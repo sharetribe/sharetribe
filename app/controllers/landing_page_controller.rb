@@ -158,7 +158,9 @@ class LandingPageController < ActionController::Metal
       "search_path": {"type": "path", "id": "search_path"},
       "search_placeholder": {"type": "marketplace_data", "id": "search_placeholder"},
       "signup_path": {"type": "path", "id": "signup_path"},
-      "signup_button": {"type": "translation", "id": "signup_button"}
+      "signup_button": {"type": "translation", "id": "signup_button"},
+      "search_button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "signup_button_color": {"type": "marketplace_data", "id": "primary_color"}
     },
     {
       "id": "footer",
