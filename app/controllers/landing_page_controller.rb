@@ -132,7 +132,8 @@ class LandingPageController < ActionController::Metal
       "social_media_icon_color": {"type": "marketplace_data", "id": "primary_color"},
       "links": [
         {"label": "About", "href": {"type": "path", "id": "about"}},
-        {"label": "Contact us", "href": {"type": "path", "id": "contact_us"}}
+        {"label": "Contact us", "href": {"type": "path", "id": "contact_us"}},
+        {"label": "Sharetribe", "href": {"path": "https://www.sharetribe.com"}}
       ],
       "social": [
         {"service": "facebook", "url": "https://www.facebook.com"},
