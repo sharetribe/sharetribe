@@ -13,7 +13,13 @@ AllCops:
     - 'config/**/*'
     - 'node_modules/**/*'
     - 'client/node_modules/**/*'
-  TargetRubyVersion: 2.1
+  TargetRubyVersion: 2.3
 
 Style/RegexpLiteral:
+  Enabled: false
+
+# This is enabled by default for Ruby 2.3. It's a good thing to do and
+# should be enabled later but requires going through quite a bit of
+# code.
+Style/FrozenStringLiteralComment:
   Enabled: false

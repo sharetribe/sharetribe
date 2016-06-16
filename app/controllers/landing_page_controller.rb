@@ -77,15 +77,11 @@ class LandingPageController < ActionController::Metal
   end
 
   def community_id(request)
-    c = request.env[:current_marketplace]
-    if c
-      c.id
-    end
+    request.env[:current_marketplace]&.id
   end
 
   def render_landing_page(cid, structure)
-    locale = structure["settings"]["locale"]
-    sitename = structure["settings"]["sitename"]
+    locale, sitename = structure["settings"].values_at("locale", "sitename")
 
     render :landing_page,
            locals: { font_path: "/landing_page/fonts",
