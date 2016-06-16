@@ -60,7 +60,8 @@ module CustomLandingPage
 
       def call(type, id, _)
         translation_keys = {
-          "search_button" => "landing_page.hero.search"
+          "search_button" => "landing_page.hero.search",
+          "signup_button" => "landing_page.hero.signup",
         }
 
         key = translation_keys[id]

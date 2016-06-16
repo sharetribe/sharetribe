@@ -156,7 +156,9 @@ class LandingPageController < ActionController::Metal
       "background_image": {"type": "assets", "id": "myheroimage"},
       "search_button": {"type": "translation", "id": "search_button"},
       "search_path": {"type": "path", "id": "search_path"},
-      "search_placeholder": {"type": "marketplace_data", "id": "search_placeholder"}
+      "search_placeholder": {"type": "marketplace_data", "id": "search_placeholder"},
+      "signup_path": {"type": "path", "id": "signup_path"},
+      "signup_button": {"type": "translation", "id": "signup_button"}
     },
     {
       "id": "footer",
