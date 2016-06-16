@@ -5,10 +5,15 @@ import { className } from '../../../utils/PropTypes';
 
 import css from './Logo.css';
 
-const logoContent = function logoContent(image, text) {
+const logoContent = function logoContent(image, imageHighRes, text) {
   let content = null;
   if (image) {
-    content = r.img({ src: image, alt: text, className: css.logoImage });
+    content = r.img({
+      src: image,
+      srcSet: `${imageHighRes} 2x`,
+      alt: text,
+      className: css.logoImage,
+    });
   } else {
     content = r.span({ className: css.logoText }, text);
   }
@@ -20,13 +25,14 @@ class Logo extends Component {
     return a({
       className: classNames(this.props.className, css.logo),
       href: this.props.href,
-    }, logoContent(this.props.image, this.props.text));
+    }, logoContent(this.props.image, this.props.image_highres, this.props.text));
   }
 }
 
 Logo.propTypes = {
   href: PropTypes.string.isRequired,
   image: PropTypes.string,
+  image_highres: PropTypes.string,
   text: PropTypes.string.isRequired,
   className,
 };

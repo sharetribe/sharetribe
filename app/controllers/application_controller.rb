@@ -634,7 +634,9 @@ class ApplicationController < ActionController::Base
     {
       logo: {
         href: '/',
-        text: 'Lorem ipsum'
+        text: @current_community.name(I18n.locale),
+        image: @current_community.wide_logo.present? ? @current_community.wide_logo.url(:header) : nil,
+        image_highres: @current_community.wide_logo.present? ? @current_community.wide_logo.url(:header_highres) : nil
       },
       search_mode: 'keyword-and-location',
       search_keyword_placeholder: 'Search...',
