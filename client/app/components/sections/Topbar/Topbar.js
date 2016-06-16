@@ -42,7 +42,10 @@ class Topbar extends Component {
         r(Menu, Object.assign({}, this.props.menu, { key: 'menu' })) :
         null,
       this.props.languageMenu ?
-        r(Menu, Object.assign({}, this.props.languageMenu, { key: 'languageMenu' })) :
+        r(Menu, Object.assign({}, this.props.languageMenu, {
+          key: 'languageMenu',
+          extraClasses: css.topbarLanguageMenuLabel,
+        })) :
         null,
     ]);
   }

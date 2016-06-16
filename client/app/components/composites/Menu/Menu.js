@@ -94,6 +94,7 @@ class Menu extends Component {
           isOpen: this.state.isOpen,
           onToggleActive: this.onContentToggle,
           name: this.props.name,
+          extraClasses: this.props.extraClasses,
           ref: (c) => {
             this.menuLabel = c;
           },
@@ -119,6 +120,7 @@ class Menu extends Component {
 Menu.propTypes = {
   isOpen: PropTypes.bool,
   name: PropTypes.string.isRequired,
+  extraClasses: PropTypes.string,
   identifier: PropTypes.string.isRequired,
   menuLabelType: PropTypes.string,
   content: PropTypes.arrayOf(

@@ -1,4 +1,5 @@
 /* eslint-env node */
+const fontSizeSmall = '13px';
 const fontSize = '14px';
 const fontSizeBig = '16px';
 const textColor = 'rgb(82, 89, 97)';
@@ -143,6 +144,7 @@ module.exports = {
   '--MenuItem_textColorFocus': '#000',
   '--MenuItem_letterSpacing': '0.09px',
   '--Menu_fontSize': fontSize,
+  '--Menu_fontSizeSmall': fontSizeSmall,
   '--Menu_colorBackground': backgroundLightColor,
   '--Menu_borderColor': topbarBorderColor,
   '--Menu_boxShadow': '0px 2px 4px 0px rgba(0, 0, 0, 0.1)',
