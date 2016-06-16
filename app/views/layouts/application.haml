@@ -16,6 +16,12 @@
         - react_component_cache(name: "onboarding_topbar", props: props) do
           = react_component("OnboardingTopBar", props: props, prerender: true)
 
+  - if feature_enabled?(:topbar_v1)
+    - props = topbar_props
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places"
+    = react_component("TopbarApp", props: props, prerender: true)
+  - # this will be an alternative old header
+  - # but for the sake of developing we include them both for a short while
   = render partial: 'layouts/global_header', locals: header_props()
 
   - if display_expiration_notice?

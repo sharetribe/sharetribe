@@ -630,6 +630,20 @@ class ApplicationController < ActionController::Base
 
   helper_method :onboarding_topbar_props
 
+  def topbar_props
+    {
+      logo: {
+        href: '/',
+        text: 'Lorem ipsum'
+      },
+      search_mode: 'keyword-and-location',
+      search_keyword_placeholder: 'Search...',
+      search_location_placeholder: 'Location'
+    }
+  end
+
+  helper_method :topbar_props
+
   def header_props
     user = Maybe(@current_user).map { |u|
       {
