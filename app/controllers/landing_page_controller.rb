@@ -63,6 +63,7 @@ class LandingPageController < ActionController::Metal
         "path" => CustomLandingPage::LinkResolver::PathResolver.new(paths),
         "marketplace_data" => CustomLandingPage::LinkResolver::MarketplaceDataResolver.new(marketplace_data(cid, locale)),
         "assets" => CustomLandingPage::LinkResolver::AssetResolver.new,
+        "translation" => CustomLandingPage::LinkResolver::TranslationResolver.new(locale)
       }
     )
   end
@@ -84,7 +85,7 @@ class LandingPageController < ActionController::Metal
   end
 
   def render_landing_page(cid, structure)
-    locale = structure["settings"].values_at("locale")
+    locale = structure["settings"]["locale"]
 
     render :landing_page,
            locals: { font_path: "/landing_page/fonts",
@@ -101,19 +102,39 @@ class LandingPageController < ActionController::Metal
   end
 
   def marketplace_data(cid, locale)
-    primary_color = Community.where(id: cid)
-                    .pluck(:custom_color1)
-                    .first
+    primary_color, private = Community.where(id: cid)
+                             .pluck(:custom_color1, :private)
+                             .first
 
-    name, slogan, description = CommunityCustomization
-                                .where(community_id: cid, locale: locale)
-                                .pluck(:name, :slogan, :description)
-                                .first
+    name,
+    slogan,
+    description,
+    search_placeholder = CommunityCustomization
+                         .where(community_id: cid, locale: locale)
+                         .pluck(:name, :slogan, :description, :search_placeholder)
+                         .first
+
+    main_search = MarketplaceConfigurations
+                  .where(community_id: cid)
+                  .pluck(:main_search)
+                  .first
+
+    search_type =
+      if private
+        "private"
+      elsif main_search == "location"
+        "location_search"
+      else
+        "keyword_search"
+      end
 
     { "primary_color" => primary_color.present? ? "#" + primary_color : nil,
       "name" => name,
       "slogan" => slogan,
-      "description" => description }
+      "description" => description,
+      "search_type" => search_type,
+      "search_placeholder" => search_placeholder
+    }
   end
 
   def data_str
@@ -127,25 +148,17 @@ class LandingPageController < ActionController::Metal
 
   "sections": [
     {
-      "id": "private_hero",
-      "kind": "hero",
-      "variation": "private",
-      "title": "Your marketplace title goes here and it looks tasty",
-      "subtitle": "Paragraph. Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam.",
-      "background_image": {"type": "assets", "id": "myheroimage"},
-      "signup_button": "Sign up",
-      "signup_path": {"type": "path", "id": "signup_path"}
-    },
-    {
       "id": "myhero1",
       "kind": "hero",
-      "variation": "location_search",
-      "title": "Your marketplace title goes here and it looks tasty",
-      "subtitle": "Paragraph. Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam.",
+      "variation": {"type": "marketplace_data", "id": "search_type"},
+      "title": {"type": "marketplace_data", "id": "slogan"},
+      "subtitle": {"type": "marketplace_data", "id": "description"},
       "background_image": {"type": "assets", "id": "myheroimage"},
-      "search_placeholder": "What kind of turbojopo are you looking for?",
-      "search_button": "Search",
-      "search_path": {"type": "path", "id": "search_path"}
+      "search_button": {"type": "translation", "id": "search_button"},
+      "search_path": {"type": "path", "id": "search_path"},
+      "search_placeholder": {"type": "marketplace_data", "id": "search_placeholder"},
+      "signup_path": {"type": "path", "id": "signup_path"},
+      "signup_button": {"type": "translation", "id": "signup_button"}
     },
     {
       "id": "footer",
@@ -176,8 +189,6 @@ class LandingPageController < ActionController::Metal
   ],
 
   "composition": [
-    { "section": {"type": "sections", "id": "private_hero"},
-      "disabled": false},
     { "section": {"type": "sections", "id": "footer"},
       "disabled": false},
     { "section": {"type": "sections", "id": "myhero1"},
