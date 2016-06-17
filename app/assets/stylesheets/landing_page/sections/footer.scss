@@ -2,12 +2,10 @@
 
 .footer__container--dark {
   background-color: #525961;
-  color: #FFF;
 }
 
 .footer__container--light {
   background-color: #FFFFFF;
-  color: #7A7D80;
 }
 
 .footer__content {
@@ -74,6 +72,22 @@ $footer__link-margin-tablet: 16px;
   display: inline-block;
   font-family: ProximaNovaSoft-Medium;
   color: inherit;
+
+  .footer__container--dark & {
+    color: #FFFFFF;
+
+    &:hover {
+      color: #D9D9D9;
+    }
+  }
+
+  .footer__container--light & {
+    color: #7A7D80;
+
+    &:hover {
+      color: #555759;
+    }
+  }
 
   // mobile
   font-size: 13px;
@@ -160,6 +174,7 @@ $footer__social-media-margin: 18px;
 }
 
 .footer__social-media-icon {
+  // The color is defined in footer.erb partial
   margin: 0 $footer__social-media-margin;
   margin-bottom: 12px;
 
@@ -169,22 +184,16 @@ $footer__social-media-margin: 18px;
 }
 
 .footer__facebook-icon {
-  @extend .footer__social-media-icon;
-
   width: 12px;
   height: 22px;
 }
 
 .footer__twitter-icon {
-  @extend .footer__social-media-icon;
-
   width: 21px;
   height: 18px;
 }
 
 .footer__instagram-icon {
-  @extend .footer__social-media-icon;
-
   width: 22px;
   height: 22px;
 }
