@@ -630,6 +630,24 @@ class ApplicationController < ActionController::Base
 
   helper_method :onboarding_topbar_props
 
+  def topbar_props
+    {
+      logo: {
+        href: '/',
+        text: @current_community.name(I18n.locale),
+        image: @current_community.wide_logo.present? ? @current_community.wide_logo.url(:header) : nil,
+        image_highres: @current_community.wide_logo.present? ? @current_community.wide_logo.url(:header_highres) : nil
+      },
+      search: {
+        mode: 'keyword-and-location',
+        keyword_placeholder: (@community_customization && @community_customization.search_placeholder) || t("web.topbar.search_placeholder"),
+        location_placeholder: 'Location'
+      }
+    }
+  end
+
+  helper_method :topbar_props
+
   def header_props
     user = Maybe(@current_user).map { |u|
       {
