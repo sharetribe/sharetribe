@@ -295,7 +295,8 @@
   cursor: pointer;
   z-index: var(--SearchBar_childZIndex);
 
-  &:hover {
+  &:hover,
+  &:active {
     background-color: var(--SearchBar_mobileButtonBackgroundColor);
   }
 
@@ -325,7 +326,8 @@
       }
     }
 
-    &:hover {
+    &:hover,
+    &:active {
       background-color: transparent;
     }
   }
@@ -373,7 +375,8 @@
   stroke: #000;
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:active {
     background-color: transparent;
   }
 
