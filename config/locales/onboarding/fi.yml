@@ -16,7 +16,7 @@ fi:
           filter:
             title: "Vaihe 4: Lisää ilmoituskenttiä sekä suodattimia"
             description:
-              content: "Ilmoituskentät määrittelevät markkinapaikkasi rakenteen. Voit esimerkiksi lisätä kentän kengänkoolle, jos markkinapaikkasi keskittyy käytettyjen kenkien myymiseen. Tämän jälkeen myyjien tulee lisätä kengän koko kun he lisäävät uuden kengänmyynti-ilmoituksen. Mikäli haluat sallia käyttäjäsi suodattavan ilmoituksia kengänkoon perusteella, voit laittaa raksin ruutuun \"%{display_on_homepage}\"."
+              content: "Ilmoituskentät määrittelevät markkinapaikkasi rakenteen. Voit esimerkiksi lisätä kentän kengänkoolle, jos markkinapaikkasi keskittyy käytettyjen kenkien myymiseen. Tämän jälkeen myyjien tulee lisätä myymiensä kenkien koko kun he lisäävät uuden kengänmyynti-ilmoituksen. Mikäli haluat sallia käyttäjäsi suodattavan ilmoituksia kengänkoon perusteella, voit laittaa raksin ruutuun \"%{display_on_homepage}\"."
               display_on_homepage: "Näytä tähän ilmoituskenttään liittyvä suodatin markkinapaikkasi etusivulla"
             info_image_alt: "Kuvankaappaus ilmoituskenttä- ja suodatinsivulta"
             add_fields_and_filters: "Lisää ilmoituskenttiä ja suodattimia"
@@ -34,7 +34,7 @@ fi:
             advice: "Kutsu ensin ystäväsi, ja pyydä heiltä palautetta."
           listing:
             title: "Vaihe 6: Lisää ensimmäinen ilmoituksesi"
-            description: "Ilmoitukset ovat markkinapaikkasi sisältö: tuotteet tai palvelut, joita kauppiaasi tarjoavat. Saadaksesi markkinapaikkasi näyttämään hieman eläväisemmältä ja nähdäksesi miten uusia ilmoituksia lisätään, kokeile sitä itse!"
+            description: "Ilmoitukset ovat markkinapaikkasi sisältö: tuotteet tai palvelut, joita kauppiaasi tarjoavat. Saadaksesi markkinapaikkasi näyttämään hieman värikkäämmältä ja nähdäksesi miten uusia ilmoituksia lisätään, lisää itse yksi ilmoitus!"
             info_image_alt: "Kuvankaappaus sivulta, josta voi lisätä uuden ilmoituksen"
             post_your_first_listing: "Lisää ensimmäinen ilmoituksesi"
             advice:
@@ -76,7 +76,7 @@ fi:
             description_p1: "Saadaksesi markkinapaikkasi valmiiksi sinun tulee tehdä muutama tärkeä toimenpide, jotka on listattu alla."
             description_p2: "Kun olet valmis, markkinapaikkasi on valmiina ensimmäisille käyttäjilleen!"
             congratulation_p1:
-              content: "Hienoa, sait homman tehtyä! Markkinapaikkasi on nyt verkossa. Tämä on kuitenkin vasta alkua. Olet nähnyt vasta pienen osan Sharetriben tarjoamista kustomointivaihtoehdoista. Lukeaksesi lisää markkinapaikkasi kustomoinnista, tutki %{knowledge_base_link}."
+              content: "Hienoa! Markkinapaikkasi on nyt verkossa. Tämä on kuitenkin vasta alkua. Olet nähnyt vasta pienen osan Sharetriben tarjoamista kustomointivaihtoehdoista. Lukeaksesi lisää markkinapaikkasi kustomoinnista, tutki %{knowledge_base_link}."
               knowledge_base_link: "tietopankkiamme (knowledge base)"
               knowledge_base_alt: "knowledge base"
             congratulation_p2:
@@ -133,6 +133,6 @@ fi:
           button: "Kutsu käyttäjiä"
         all_done:
           title: "Loistavaa, olet valmis!"
-          body: "Mahtavaa, sait tehtävät suoritettua! Markkinapaikkasi on nyt verkossa. Tämä on kuitenkin vasta alkua. Olemme valmiita auttamaan sinua joka askeleella!"
+          body: "Mahtavaa, sait tehtävät suoritettua! Markkinapaikkasi on nyt verkossa. Tämä on kuitenkin vasta alkua. Olemme valmiita auttamaan sinua aina, kun tarvitset apua!"
           button: "Katso mitä tehdä seuraavaksi"
         button_later: "Kiitos, teen tämän myöhemmin"
