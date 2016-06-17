@@ -10,6 +10,7 @@ storiesOf('Top bar')
         href: 'http://example.com',
         text: 'Bikerrrs',
         image: 'https://s3.amazonaws.com/sharetribe-manual-assets/styleguide/bikerrrs-logo.png',
+        image_highres: 'https://s3.amazonaws.com/sharetribe-manual-assets/styleguide/bikerrrs-logo.png',
       },
     })))
   .add('Picture logo 2', () => (
@@ -18,6 +19,7 @@ storiesOf('Top bar')
         href: 'http://example.com',
         text: 'Placeholder marketplace',
         image: 'http://placehold.it/350x150',
+        image_highres: 'https://s3.amazonaws.com/sharetribe-manual-assets/styleguide/bikerrrs-logo.png',
       },
     })))
   .add('Short text logo', () => (
@@ -40,6 +42,7 @@ storiesOf('Top bar')
         href: 'http://example.com',
         text: 'Bikerrrs',
         image: 'https://s3.amazonaws.com/sharetribe-manual-assets/styleguide/bikerrrs-logo.png',
+        image_highres: 'https://s3.amazonaws.com/sharetribe-manual-assets/styleguide/bikerrrs-logo.png',
       },
       search_mode: 'keyword',
       search_keyword_placeholder: 'Search...',
@@ -51,6 +54,7 @@ storiesOf('Top bar')
         href: 'http://example.com',
         text: 'Bikerrrs',
         image: 'https://s3.amazonaws.com/sharetribe-manual-assets/styleguide/bikerrrs-logo.png',
+        image_highres: 'https://s3.amazonaws.com/sharetribe-manual-assets/styleguide/bikerrrs-logo.png',
       },
       search_mode: 'location',
       search_keyword_placeholder: 'Search...',
@@ -62,6 +66,7 @@ storiesOf('Top bar')
         href: 'http://example.com',
         text: 'Bikerrrs',
         image: 'https://s3.amazonaws.com/sharetribe-manual-assets/styleguide/bikerrrs-logo.png',
+        image_highres: 'https://s3.amazonaws.com/sharetribe-manual-assets/styleguide/bikerrrs-logo.png',
       },
       search_mode: 'keyword-and-location',
       search_keyword_placeholder: 'Search...',
