@@ -151,8 +151,8 @@ da-DK:
         invalid_email_domain: "E-mail-adressen '%{email}' bruger en ikke-understøttet udbyder: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Læs vidensbaseartiklen for yderligere information."
         unknown_error: "Noget gik galt"
-        white_label_offer: ~
-        upgrade_plan_link: ~
+        white_label_offer: "Indstil din egen e-mail-adresse som afsender, og fjern alt Sharetribe branding fra udgående e-mails ved %{upgrade_pro_plan_link}"
+        upgrade_plan_link: "opgradering til vores Pro plan eller højere"
         verification_sent_from: "Bekræftelsesmailen blev sendt fra %{verification_sender_name}"
         follow_the_instructions: "Følg instruktionerne i e-mailen for at bekræfte din adresse."
       getting_started:
@@ -812,9 +812,9 @@ da-DK:
       you_have_not_yet_accepted_or_rejected_request: "Du har endnu ikke accepteret eller afvist anmodningen %{title} du har modtaget %{date}."
       show_thread: "Vis samtalen"
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} er drevet af %{sharetribe_link}"
+      create_own: "Vil du oprette din egen online markedsplads hjemmeside som %{learn_more} %{service_name}"
+      learn_more: "Lær mere"
     braintree_account_approved:
       account_ready: "Du er klar til at modtage betalinger"
       message: "Dine betalingsinformationer er blevet godkendt og du er nu klar til at modtage betalinger på %{service_name}."
@@ -1220,15 +1220,15 @@ da-DK:
       default_content: "Her kan du finde information om hvordan %{marketplace_name} fungerer."
   landing_page:
     hero:
-      search: ~
-      signup: ~
+      search: Søg
+      signup: Tilmeld
   layouts:
     admin:
       admin: "%{service_name} administrator panel"
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} er drevet af %{sharetribe_link}"
+      create_own: "Vil du oprette din egen online markedsplads hjemmeside som %{learn_more} %{service_name}"
+      learn_more: "Lær mere"
     no_tribe:
       inbox: Indbakke
       settings: Indstillinger

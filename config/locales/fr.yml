@@ -1098,7 +1098,7 @@ fr:
     mobile_version: "Version mobile"
     offers: Offres
     requests: Demandes
-    search_kassi: "Chercher sur %{service_name}"
+    search_kassi: "Rechercher sur %{service_name}"
     create_new_marketplace: "Créer une nouvelle place de marché"
     contact_us: "Nous contacter"
     profile: Profil
@@ -1204,7 +1204,7 @@ fr:
       comments: commentaires
     filters:
       show: "Filtrer : "
-      search: Chercher
+      search: Rechercher
       map: "Voir sur la carte"
       list: "Voir la liste"
       map_button: Carte
@@ -1224,7 +1224,7 @@ fr:
       default_content: "Ici vous pouvez trouver des informations sur le fonctionnement de %{marketplace_name}."
   landing_page:
     hero:
-      search: ~
+      search: Rechercher
       signup: S'inscrire
   layouts:
     admin:
@@ -1580,7 +1580,7 @@ fr:
       request_type: "Type de demande"
       requests: Demandes
       rideshare: Covoiturage
-      search_verb: Chercher
+      search_verb: Rechercher
       you_have_something_others_do_not: "Vous avez quelque chose à offrir ?"
       feed_title: "%{listing_type} sur %{service_name} %{optional_category}"
     left_panel_link:
@@ -1708,7 +1708,7 @@ fr:
       request_type: "Type de demande"
       requests: Demandes
       rideshare: Covoiturage
-      search_verb: Chercher
+      search_verb: Rechercher
       you_have_something_others_do_not: "Vous avez quelque chose à offrir ?"
     please_comment: Commentaire
   mercury:
@@ -1905,7 +1905,7 @@ fr:
       search: Recherche
       search_results: "Résultats de recherche"
       search_returned_no_results: "Pas de résultats à votre recherche."
-      search_verb: Chercher
+      search_verb: Rechercher
   sessions:
     new:
       create_new_account: "Créer un nouveau compte"

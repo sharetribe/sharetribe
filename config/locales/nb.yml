@@ -1226,8 +1226,8 @@ nb:
       default_content: "Her kan du finne mer informasjon om hvordan %{marketplace_name} virker."
   landing_page:
     hero:
-      search: ~
-      signup: ~
+      search: Søk
+      signup: "Registrer deg"
   layouts:
     admin:
       admin: "%{service_name} administrasjonspanel"
