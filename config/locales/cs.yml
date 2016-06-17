@@ -2170,6 +2170,9 @@ cs:
   unit:
     day: den
     days: dny
+  web:
+    topbar:
+      search_placeholder: ~
   will_paginate:
     models:
       person:

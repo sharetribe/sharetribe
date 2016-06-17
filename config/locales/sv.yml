@@ -2157,6 +2157,9 @@ sv:
   unit:
     day: dag
     days: dagar
+  web:
+    topbar:
+      search_placeholder: ~
   will_paginate:
     models:
       person:

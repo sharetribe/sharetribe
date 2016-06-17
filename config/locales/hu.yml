@@ -2116,6 +2116,9 @@ hu:
   unit:
     day: nap
     days: napok
+  web:
+    topbar:
+      search_placeholder: ~
   will_paginate:
     models:
       person:

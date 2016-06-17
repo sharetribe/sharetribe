@@ -2159,6 +2159,9 @@ fi:
   unit:
     day: päivä
     days: päivää
+  web:
+    topbar:
+      search_placeholder: ~
   will_paginate:
     models:
       person:

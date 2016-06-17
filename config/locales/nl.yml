@@ -2126,6 +2126,9 @@ nl:
   unit:
     day: dag
     days: dagen
+  web:
+    topbar:
+      search_placeholder: ~
   will_paginate:
     models:
       person:

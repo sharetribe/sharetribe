@@ -2130,6 +2130,9 @@ fr-CA:
   unit:
     day: jour
     days: jours
+  web:
+    topbar:
+      search_placeholder: ~
   will_paginate:
     models:
       person:
