@@ -1,0 +1,138 @@
+fi:
+  web:
+    admin:
+      onboarding:
+        guide:
+          cover_photo:
+            title: "Vaihe 3: Lisää kansikuva"
+            description: "Kansikuvasi laatu voi vaikuttaa ratkaisevasti siihen, liittyvätkö vierailijat markkinapaikallesi vai eivät."
+            info_image_alt: "Kuvakaappaus sivulta jossa on suuri kansikuva"
+            add_your_own: "Lisää kansikuva"
+            advice:
+              content1: "Katso %{link} mistä voit löytää hienoja kuvia, joita saat käyttää vapaasti."
+              content2: "Huomio: Kuva muokataan vastaamaan kokoa %{width}x%{height} pikseliä. Tätä korkeampien kuvien ylä- ja alaosat leikkaantuvat pois."
+              link: "oppaastamme"
+              alt: "Mistä saan hienoja kansikuvia, logoja, faviconeja, profiili- ja ilmoituskuvia?"
+          filter:
+            title: "Vaihe 4: Lisää ilmoituskenttiä sekä suodattimia"
+            description:
+              content: "Ilmoituskentät määrittelevät markkinapaikkasi rakenteen. Voit esimerkiksi lisätä kentän kengänkoolle, jos markkinapaikkasi keskittyy käytettyjen kenkien myymiseen. Tämän jälkeen myyjien tulee lisätä myymiensä kenkien koko kun he lisäävät uuden kengänmyynti-ilmoituksen. Mikäli haluat sallia käyttäjäsi suodattavan ilmoituksia kengänkoon perusteella, voit laittaa raksin ruutuun \"%{display_on_homepage}\"."
+              display_on_homepage: "Näytä tähän ilmoituskenttään liittyvä suodatin markkinapaikkasi etusivulla"
+            info_image_alt: "Kuvankaappaus ilmoituskenttä- ja suodatinsivulta"
+            add_fields_and_filters: "Lisää ilmoituskenttiä ja suodattimia"
+            advice:
+              content: "Suodattimet ovat toisaalta käteviä, mutta %{not_too_many_link}. Asiakkaat voivat turhautua liian suuresta suodatinmäärästä, ja jokainen suodatin on yksi lisäkenttä jonka myyjäsi joutuvat täyttämään."
+              not_too_many_link: "sinun ei kannata lisätä niitä liikaa"
+          invitation:
+            title: "Vaihe 7: Käyttäjien kutsuminen"
+            description:
+              content: "Oletko tyytyväinen markkinapaikkasi ulkonäköön ja toiminnallisuuteen? Ehkä %{preview_link}? Mikäli olet valmis, aletaan kutsumaan uusia käyttäjiä!"
+              preview_link: "haluat vilkaista sitä vielä kerran"
+              preview_link_alt: "Esikatselu"
+            info_image_alt: "Hahmotelma käyttäjäruudusta"
+            invite_users: "Kutsu käyttäjiä"
+            advice: "Kutsu ensin ystäväsi, ja pyydä heiltä palautetta."
+          listing:
+            title: "Vaihe 6: Lisää ensimmäinen ilmoituksesi"
+            description: "Ilmoitukset ovat markkinapaikkasi sisältö: tuotteet tai palvelut, joita kauppiaasi tarjoavat. Saadaksesi markkinapaikkasi näyttämään hieman värikkäämmältä ja nähdäksesi miten uusia ilmoituksia lisätään, lisää itse yksi ilmoitus!"
+            info_image_alt: "Kuvankaappaus sivulta, josta voi lisätä uuden ilmoituksen"
+            post_your_first_listing: "Lisää ensimmäinen ilmoituksesi"
+            advice:
+              content: "Ilmoituksen poistaminen on helppoa: voit yksinkertaisesti valita ilmoituksen ja klikata \"%{close_listing}\"."
+              close_listing: "Sulje ilmoitus"
+          next_step:
+            slogan_and_description: "Lisää slogan & kuvaus"
+            cover_photo: "Lisää kansikuva"
+            filter: "Lisää ilmoituskenttiä ja suodattimia"
+            paypal: "Hyväksy maksuja"
+            listing: "Lisää ensimmäinen ilmoituksesi"
+            invitation: "Kutsu käyttäjiä"
+          paypal:
+            title: "Vaihe 5: Aktivoi maksujärjestelmä"
+            description_p1: "Mikäli haluat antaa myyjiesi vastaanottaa maksuja verkossa, sinun tulee yhdistää PayPal-tilisi. Saat välityspalkkion jokaisesta kaupasta. Kun olet yhdistänyt tilisi, sinun tulee määritellä maksutapahtuman minimikoko sekä välityspalkkiosi."
+            description_p2: "Vaihtoehtoisesti voit kytkeä maksut toistaiseksi pois päältä."
+            info_image_alt: "Kuvankaappaus maksusivulta"
+            disable_payments: "Kytke maksujärjestelmä pois päältä"
+            setup_payments: "Aktivoi maksujärjestelmä"
+            cta_separator: "tai"
+            advice:
+              content: "Voit lukea lisää maksujärjestelmän kytkemisestä pois päältä %{disable_payments_link}."
+              disable_payments_link: "tästä ohjeesta"
+              disable_payments_alt: "Miten kytken maksujärjestelmän pois päältä tai sallin ilmaisia ilmoituksia markkinapaikallani"
+          slogan_and_description:
+            title: "Vaihe 2: Lisää slogan & kuvaus"
+            description: "Slogan sekä kuvaus auttavat uusia vierailijoita saamaan ensivaikutelman siitä, mitä markkinapaikkasi tarjoaa. Ne ovat ensimmäiset asiat, jotka vieraat huomaavat sivullasi, joten pyri tekemään niistä hyvin kuvaavat, mutta silti lyhyet ja ytimekkäät."
+            info_image_alt: "Kuvankaappaus sivulta jolla on slogan sekä kuvaus"
+            add_your_own: "Lisää slogan ja kuvaus"
+            advice:
+              content: "Käytä slogania kertoaksesi nopeasti, mitä markkinapaikkasi tarjoaa. %{food_from_locals_slogan} ja %{guitar_lessons_slogan} ovat hyviä esimerkkejä. Kuvaustekstissä voit sitten kertoa laajemmin toiminta-alueestasi. %{food_from_locals_description} ja %{guitar_lessons_description} ovat hyviä esimerkkejä."
+              food_from_locals_slogan: "\"Osta ruokatarvikkeita paikallisilta asukkailta\""
+              guitar_lessons_slogan: "\"Kitaraoppitunteja ammattilaisilta\""
+              food_from_locals_description: "\"Ruokamarkkinat on helpoin tapa tilata ruokatarvikkeita suoraan paikallisilta valmistajilta\""
+              guitar_lessons_description: "\"Kitarakaverit on paras paikka, jossa voit verrata eri musiikinopettajia\""
+          status_page:
+            title: "Tervetuloa markkinapaikallesi, %{name}"
+            title_done: "Valmista tuli!"
+            description_p1: "Saadaksesi markkinapaikkasi valmiiksi sinun tulee tehdä muutama tärkeä toimenpide, jotka on listattu alla."
+            description_p2: "Kun olet valmis, markkinapaikkasi on valmiina ensimmäisille käyttäjilleen!"
+            congratulation_p1:
+              content: "Hienoa! Markkinapaikkasi on nyt verkossa. Tämä on kuitenkin vasta alkua. Olet nähnyt vasta pienen osan Sharetriben tarjoamista kustomointivaihtoehdoista. Lukeaksesi lisää markkinapaikkasi kustomoinnista, tutki %{knowledge_base_link}."
+              knowledge_base_link: "tietopankkiamme (knowledge base)"
+              knowledge_base_alt: "knowledge base"
+            congratulation_p2:
+              content: "Mikäli haluat oppia lisää markkinapaikan ylläpitämisestä, suosittelemme että luet %{marketplace_guide_link}."
+              marketplace_guide_link: "käytännönläheisen oppaamme verkkomarkkinapaikan rakentamisesta ja ylläpidosta"
+              marketplace_guide_alt: "linkki marketplace academyyn"
+            congratulation_p3:
+              content: "Jos sinulla on kysymyksiä, älä epäröi %{contact_support_link}, autamme aina mielellämme!"
+              contact_support_link: "ottaa yhteyttä asiakastukeemme"
+              contact_support_title: "asiakaspalvelu"
+            create_your_marketplace: "Luo markkinapaikkasi"
+            slogan_and_description: "Lisää slogan & kuvaus"
+            cover_photo: "Lataa kansikuva"
+            filter: "Lisää ilmoituskenttiä ja suodattimia"
+            paypal: "Aktivoi maksujärjestelmä"
+            listing: "Lisää ilmoitus"
+            invitation: "Kutsu käyttäjiä"
+          back_to_todo: "Takaisin to-do -listaan"
+        topbar:
+          progress_label: "Markkinapaikan valmiusaste"
+          next_step: "Seuraavaksi"
+          slogan_and_description: "Lisää slogan ja kuvaus"
+          cover_photo: "Lataa kansikuva"
+          filter: "Lisää ilmoituskenttiä ja suodattimia"
+          paypal: "Aktivoi maksujärjestelmä"
+          listing: "Lisää ilmoitus"
+          invitation: "Kutsu käyttäjiä"
+  admin:
+    onboarding:
+      popup:
+        slogan_and_description:
+          title: "Jes, tehtävä suoritettu!"
+          body: "Loistavaa! Seuraavaksi: slogan ja kuvaus ovat paras tapa kertoa käyttäjillesi mitä markkinapaikkasi tarjoaa."
+          button: "Kirjoita omasi!"
+        cover_photo:
+          title: "Jes, tehtävä suoritettu!"
+          body: "Hienoa, jatketaan! Hyvällä kansikuvalla on huomattava vaikutus markkinapaikkasi kävijöiden ensivaikutelmaan sivustasi. On aika lisätä oma kansikuvasi!"
+          button: "Lisää kansikuva"
+        filter:
+          title: "Hyvältä näyttää!"
+          body: "Nyt voimmekin keskittyä toiminnallisuuteen. Ilmoituskentät ja suodattimet määrittelevät markkinapaikkasi rakenteen ja auttavat asiakkaitasi löytämään tarvitsemansa tuotteet."
+          button: "Lisää ilmoituskenttiä & suodattimia"
+        paypal:
+          title: "Hyvää työtä!"
+          body: "Seuraavaksi voit aktivoida maksujärjestelmän markkinapaikallasi! Antaaksesi myyjien vastaanottaa maksuja, sinun tulee yhdistää PayPal-tilisi. Vaihtoehtoisesti voit kytkeä maksut toistaiseksi pois päältä."
+          button: "Aktivoi maksujärjestelmä"
+        listing:
+          title: "Hienosti tehty!"
+          body: "Markkinapaikkasi perusasetukset ovat nyt säädetty, mutta sivusto näyttää aika tyhjältä. On aika lisätä ensimmäinen tuote tai tarjottu palvelu lisäämällä uusi ilmoitus."
+          button: "Lisää ensimmäinen ilmoituksesi"
+        invitation:
+          title: "...ja nyt viimeinen askel - julkista markkinapaikkasi!"
+          body: "Oletko tyytyväinen markkinapaikkaasi? Siinä tapauksessa voimme alkaa kutsua sinne käyttäjiä!"
+          button: "Kutsu käyttäjiä"
+        all_done:
+          title: "Loistavaa, olet valmis!"
+          body: "Mahtavaa, sait tehtävät suoritettua! Markkinapaikkasi on nyt verkossa. Tämä on kuitenkin vasta alkua. Olemme valmiita auttamaan sinua aina, kun tarvitset apua!"
+          button: "Katso mitä tehdä seuraavaksi"
+        button_later: "Kiitos, teen tämän myöhemmin"
