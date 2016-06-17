@@ -638,9 +638,11 @@ class ApplicationController < ActionController::Base
         image: @current_community.wide_logo.present? ? @current_community.wide_logo.url(:header) : nil,
         image_highres: @current_community.wide_logo.present? ? @current_community.wide_logo.url(:header_highres) : nil
       },
-      search_mode: 'keyword-and-location',
-      search_keyword_placeholder: 'Search...',
-      search_location_placeholder: 'Location'
+      search: {
+        mode: 'keyword-and-location',
+        keyword_placeholder: (@community_customization && @community_customization.search_placeholder) || t("web.topbar.search_placeholder"),
+        location_placeholder: 'Location'
+      }
     }
   end
 

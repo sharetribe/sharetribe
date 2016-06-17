@@ -6,18 +6,17 @@ import { className } from '../../../utils/PropTypes';
 import css from './Logo.css';
 
 const logoContent = function logoContent(image, imageHighRes, text) {
-  let content = null;
+  const higherRes = imageHighRes != null ? { srcSet: `${imageHighRes} 2x` } : null;
+
   if (image) {
-    content = r.img({
+    return r.img(Object.assign({}, {
       src: image,
-      srcSet: `${imageHighRes} 2x`,
       alt: text,
       className: css.logoImage,
-    });
-  } else {
-    content = r.span({ className: css.logoText }, text);
+    },
+    higherRes));
   }
-  return content;
+  return r.span({ className: css.logoText }, text);
 };
 
 class Logo extends Component {
