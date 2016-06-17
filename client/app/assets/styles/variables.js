@@ -85,7 +85,7 @@ module.exports = {
   '--Topbar_inputFontSizeMobile': '16px',
   '--Topbar_fontSize': '14px',
   '--Topbar_avatarSize': '44px',
-  '--Topbar_avatarMargin': '18px 24px',
+  '--Topbar_avatarPadding': '18px 24px',
 
   // SearchBar
   '--SearchBar_width': '396px',

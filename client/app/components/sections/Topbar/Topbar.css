@@ -53,7 +53,8 @@
 
 .topbarAvatar {
   height: var(--Topbar_avatarSize);
-  margin: var(--Topbar_avatarMargin);
+  padding: var(--Topbar_avatarPadding);
   font-family: var(--Topbar_fontFamily);
   font-size: var(--Topbar_fontSize);
+  align-self: flex-start;
 }

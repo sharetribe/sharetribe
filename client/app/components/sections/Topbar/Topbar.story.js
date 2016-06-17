@@ -27,6 +27,7 @@ const baseProps = {
       adminDashboardAction: action('clicked admin dashboard'),
       logoutAction: action('clicked logout'),
     },
+    imageHeight: '44px',
   },
 };
 

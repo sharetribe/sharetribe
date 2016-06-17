@@ -47,6 +47,7 @@ class Avatar extends Component {
         onClick: this.props.onClick,
         src: this.props.image,
         className: css.avatarImage,
+        style: { height: this.props.imageHeight ? this.props.imageHeight : '100%' },
       }),
       this.state.menuOpen ?
         r(ArrowDropdown, {
@@ -62,6 +63,7 @@ class Avatar extends Component {
 Avatar.propTypes = {
   image: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  imageHeight: PropTypes.number,
   ...ArrowDropdown.propTypes,
   className,
 };
