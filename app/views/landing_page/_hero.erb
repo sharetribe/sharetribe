@@ -1,4 +1,21 @@
-<section id="<%= section_id %>" class="hero__section" style="background-image: url('<%= s["background_image"]["src"] %>')">
+<% content_for :hero_css do %>
+  .hero__section {
+    background-image: url('<%= s["background_image"]["src"] %>');
+  }
+
+  .hero__search-button,
+  .hero__signup-button
+  {
+    background-color: <%= s["search_button_color"]["value"] %>;
+  }
+
+  .hero__search-button:hover,
+  .hero__signup-button:hover {
+    background-color: <%= s["search_button_color_hover"]["value"] %>;
+  }
+<% end %>
+
+<section id="<%= section_id %>" class="hero__section">
   <div class="hero__content">
     <div class="hero__content-container">
       <h1 class="hero__title"><%= s["title"]["value"] %></h1>
@@ -21,7 +38,7 @@
               </div>
               <input type="search" name="q" class="hero__search-input" placeholder="<%= s["search_placeholder"]["value"] %>"/>
             </div>
-            <button type="submit" class="hero__search-button" style="background-color: <%= s["search_button_color"]["value"] %>"><%= s["search_button"]["value"] %></button>
+            <button type="submit" class="hero__search-button"><%= s["search_button"]["value"] %></button>
             <% if s["variation"]["value"] == "location_search" %>
               <input type="hidden" name="ls" />
               <input type="hidden" name="lc" />
@@ -47,7 +64,7 @@
 
       <% when "private" %>
 
-        <a class="hero__signup-button" href="<%= s["signup_path"]["path"] %>" style="background-color: <%= s["signup_button_color"]["value"] %>"><%= s["signup_button"]["value"] %></a>
+        <a class="hero__signup-button" href="<%= s["signup_path"]["path"] %>"><%= s["signup_button"]["value"] %></a>
 
       <% end %>
     </div>

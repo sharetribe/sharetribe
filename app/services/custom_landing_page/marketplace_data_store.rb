@@ -31,6 +31,7 @@ module CustomLandingPage
         end
 
       { "primary_color" => primary_color.present? ? "#" + primary_color : nil,
+        "primary_color_darken" => primary_color.present? ? "#" + ColorUtils.darken(primary_color, 15) : nil,
         "name" => name,
         "slogan" => slogan,
         "description" => description,
