@@ -124,13 +124,16 @@ class LandingPageController < ActionController::Metal
       "signup_path": {"type": "path", "id": "signup"},
       "signup_button": {"type": "translation", "id": "signup_button"},
       "search_button_color": {"type": "marketplace_data", "id": "primary_color"},
-      "signup_button_color": {"type": "marketplace_data", "id": "primary_color"}
+      "search_button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "signup_button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "signup_button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
     },
     {
       "id": "footer",
       "kind": "footer",
-      "theme": "dark",
+      "theme": "light",
       "social_media_icon_color": {"type": "marketplace_data", "id": "primary_color"},
+      "social_media_icon_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "links": [
         {"label": "About", "href": {"type": "path", "id": "about"}},
         {"label": "Contact us", "href": {"type": "path", "id": "contact_us"}},
@@ -153,9 +156,9 @@ class LandingPageController < ActionController::Metal
   ],
 
   "composition": [
-    { "section": {"type": "sections", "id": "footer"},
-      "disabled": false},
     { "section": {"type": "sections", "id": "myhero1"},
+      "disabled": false},
+    { "section": {"type": "sections", "id": "footer"},
       "disabled": false},
     { "section": {"type": "sections", "id": "myhero1"},
       "disabled": true}

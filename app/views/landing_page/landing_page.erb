@@ -1,5 +1,29 @@
 <!doctype html>
 
+<%
+  # We need to render and capture the sections already here, before the <head> element
+  # because we want to add the section specific styles to the <head> element.
+  # If we'd render the sections after the <head> elements, the section specific
+  # styles would be empty
+%>
+<% enabled_sections = sections.reject { |section| section["disabled"] } %>
+
+<% content_for :sections do %>
+  <% enabled_sections.each do |section| %>
+
+    <% s = section["section"] %>
+    <% section_id = "#{s['kind']}__#{s['id']}" %>
+
+    <% case s["kind"] %>
+    <% when "hero" %>
+      <%= render partial: "hero", locals: {section_id: section_id, s: s} %>
+    <% when "footer" %>
+      <%= render partial: "footer", locals: {section_id: section_id, s: s} %>
+    <% end %>
+
+  <% end # enabled_sections#each %>
+<% end # capture %>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -73,26 +97,17 @@
   </style>
 
   <style type="text/css">
+    <% # Basic styling %>
     <%= styles %>
+
+    <% # Styles from section partials. E.g. styles that need marketplace color %>
+    <%= yield :hero_css %>
+    <%= yield :footer_css %>
   </style>
 
 </head>
 
-<% enabled_sections = sections.reject { |section| section["disabled"] } %>
-
-<% enabled_sections.each do |section| %>
-
-  <% s = section["section"] %>
-  <% section_id = "#{s['kind']}__#{s['id']}" %>
-
-  <% case s["kind"] %>
-  <% when "hero" %>
-    <%= render partial: "hero", locals: {section_id: section_id, s: s} %>
-  <% when "footer" %>
-    <%= render partial: "footer", locals: {section_id: section_id, s: s} %>
-  <% end %>
-
-<% end # enabled_sections#each %>
+<%= yield :sections %>
 
 <% # Add javascript libraries %>
 

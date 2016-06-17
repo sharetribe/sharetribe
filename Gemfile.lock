@@ -137,6 +137,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    color (1.8)
     compass (0.13.alpha.0)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
@@ -531,6 +532,7 @@ DEPENDENCIES
   braintree (~> 2.30.0)
   capybara (~> 2.6.2)
   coffee-rails (~> 4.0.1)
+  color (~> 1.8)
   compass (~> 0.13.alpha)
   compass-rails (~> 2.0)
   connection_pool (~> 0.9.3)
