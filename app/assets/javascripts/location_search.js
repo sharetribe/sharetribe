@@ -12,7 +12,13 @@ window.ST = window.ST || {};
     var autocomplete = new window.google.maps.places.Autocomplete(searchInput, { bounds: { north: -90, east: -180, south: 90, west: 180 } });
     autocomplete.setTypes(['geocode']);
 
-    boundingboxInput.value = null;
+    // The values of these fields are defined based on the value of searchInput
+    function clearHiddenInputs() {
+      statusInput.value = null;
+      coordinateInput.value = null;
+      boundingboxInput.value = null;
+      maxDistanceInput.value = null;
+    }
 
     function toRadians(degrees) {
       return degrees * (Math.PI/180);
@@ -75,6 +81,8 @@ window.ST = window.ST || {};
         e.preventDefault();
         // Submit will be triggered again after call to queryPredictions()
         queryPredictions(searchInput.value, handlePredictions);
+      } else if (searchInput.value === "") {
+        clearHiddenInputs();
       }
     });
 
