@@ -54,6 +54,8 @@ class LandingPageController < ActionController::Metal
   private
 
   def denormalizer(cid, locale, sitename)
+    return @_denormalizer if @_denormalizer
+
     # Application paths
     paths = { "search" => "/", # FIXME. Remove hardcoded URL. Add search path here when we get one
               "signup" => sign_up_path,
@@ -63,7 +65,7 @@ class LandingPageController < ActionController::Metal
 
     marketplace_data = CLP::MarketplaceDataStore.marketplace_data(cid, locale)
 
-    CLP::Denormalizer.new(
+    @_denormalizer = CLP::Denormalizer.new(
       link_resolvers: {
         "path" => CLP::LinkResolver::PathResolver.new(paths),
         "marketplace_data" => CLP::LinkResolver::MarketplaceDataResolver.new(marketplace_data),
@@ -71,6 +73,8 @@ class LandingPageController < ActionController::Metal
         "translation" => CLP::LinkResolver::TranslationResolver.new(locale)
       }
     )
+
+    @_denormalizer
   end
 
   def parse_int(int_str_or_nil)
@@ -93,7 +97,8 @@ class LandingPageController < ActionController::Metal
                      javascripts: {
                        location_search: location_search_js
                      },
-                     sections: denormalizer(cid, locale, sitename).to_tree(structure) }
+                     settings: denormalizer(cid, locale, sitename).to_tree(structure, root: "settings"),
+                     sections: denormalizer(cid, locale, sitename).to_tree(structure, root: "composition") }
   end
 
   def render_not_found(msg = "Not found")
@@ -107,7 +112,8 @@ class LandingPageController < ActionController::Metal
   "settings": {
     "marketplace_id": 9999,
     "locale": "en",
-    "sitename": "turbobikes"
+    "sitename": "turbobikes",
+    "marketplace_name": {"type": "marketplace_data", "id": "name"}
   },
 
   "sections": [

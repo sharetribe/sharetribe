@@ -1,13 +1,12 @@
 module CustomLandingPage
   class Denormalizer
 
-    def initialize(root: "composition", link_resolvers: {})
-      @root = root
+    def initialize(link_resolvers: {})
       @link_resolvers = link_resolvers
     end
 
-    def to_tree(normalized_data)
-      root = normalized_data[@root]
+    def to_tree(normalized_data, root:)
+      root = normalized_data[root]
 
       deep_map(root) { |k, v|
         case v
