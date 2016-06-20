@@ -18,6 +18,8 @@ module CustomLandingPage
                            .pluck(:name, :slogan, :description, :search_placeholder)
                            .first
 
+      search_placeholder ||= I18n.t("landing_page.hero.search_placeholder", locale: locale)
+
       main_search = MarketplaceConfigurations
                     .where(community_id: cid)
                     .pluck(:main_search)
