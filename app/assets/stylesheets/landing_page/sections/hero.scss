@@ -9,8 +9,8 @@
   min-height: 80vh;
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: center;
+  @include prefix-val(display, flex);
+  @include prefix-prop(align-items, center);
   box-shadow: inset 0 0 0 999999px rgba(0, 0, 0, 0.5); /* is there any cleaner way? */
 }
 
@@ -90,13 +90,13 @@
 }
 
 .hero__search-bar {
-  display: flex;
+  @include prefix-val(display, flex);
   margin: 0 auto;
   max-width: 532px;
 }
 
 .hero__search-input-container {
-  display: flex;
+  @include prefix-val(display, flex);
   width: 100%;
   background-color: #FFF;
 
@@ -104,17 +104,17 @@
   overflow: hidden; // add overflow hidden so that children's borders are also rounded
 
   /* mobile */
-  flex-direction: row-reverse;
+  @include prefix-prop(flex-direction, row-reverse);
   padding: 0px 0px 0px 24px;
 
   @media #{$tablet} {
     border-radius: 29.5px 0px 0px 29.5px;
-    flex-direction: row;
+    @include prefix-prop(flex-direction, row);
   }
 
   @media #{$desktop} {
     border-radius: 29.5px 0px 0px 29.5px;
-    flex-direction: row;
+    @include prefix-prop(flex-direction, row);
   }
 }
 

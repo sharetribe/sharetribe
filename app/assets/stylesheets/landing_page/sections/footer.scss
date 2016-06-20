@@ -12,9 +12,9 @@
   min-height: 279px;
   margin: 0 auto;
 
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  @include prefix-val(display, flex);
+  @include prefix-prop(justify-content, center);
+  @include prefix-prop(flex-direction, column);
 
   padding: 36px;
 
@@ -29,10 +29,11 @@
 }
 
 .footer__links-container {
-  display: flex;
-  justify-content: space-between;
+  @include prefix-val(display, flex);
+  @include prefix-prop(justify-content, space-between);
+  @include prefix-prop(flex-direction, column-reverse);
+
   margin-bottom: 18px;
-  flex-direction: column-reverse;
 
   @media #{$tablet}  {
     margin-bottom: 18px;
@@ -40,7 +41,7 @@
 
   @media #{$desktop} {
     margin-bottom: 48px;
-    flex-direction: row;
+    @include prefix-prop(flex-direction, row);
     max-width: 1140px + (2 * 24px);
   }
 }

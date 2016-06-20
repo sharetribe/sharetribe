@@ -1,0 +1,24 @@
+/// Mixin to prefix a property
+/// @author Hugo Giraudel
+/// @param {String} $property - Property name
+/// @param {*} $value - Property value
+@mixin prefix-prop($property, $value) {
+  $prefixes: webkit moz ms o;
+
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+
+  // Output standard non-prefixed declaration
+  #{$property}: $value;
+}
+
+@mixin prefix-val($property, $value) {
+  $prefixes: webkit moz ms o;
+  @each $prefix in $prefixes {
+    #{$property}: #{'-' + $prefix + '-' + $value};
+  }
+
+  // Output standard non-prefixed declaration
+  #{$property}: $value;
+}
