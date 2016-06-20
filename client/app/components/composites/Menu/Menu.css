@@ -1,6 +1,7 @@
 .menu {
   font-family: var(--topbarFontFamily); /* should come from topbar */
   font-size: var(--Menu_fontSize);
+  flex-grow: 1;
 
   &:focus,
   & :focus {
@@ -16,9 +17,13 @@
 .menuLabel {
   display: inline-block;
   font-size: var(--Menu_fontSize);
-  padding: 28px 24px;
+  padding: 18px 24px;
   white-space: nowrap;
   cursor: pointer;
+
+  &:first-letter {
+    text-transform:capitalize;
+  }
 }
 
 .menuLabelIcon {
@@ -46,6 +51,7 @@
 
 .menuContent {
   display: none;
+  z-index: 1;
   background-color: var(--Menu_colorBackground);
   border: 1px solid var(--Menu_borderColor);
   border-radius: 3px;

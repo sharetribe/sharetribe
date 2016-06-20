@@ -26,7 +26,6 @@ class MenuContent extends Component {
       div(
         {
           tabIndex: '-1',
-          style: { top: `${this.props.contentPosition}px` },
           className: `menu__content ${css.menuContent}`,
           ref: (c) => {
             this.menuContent = c;
@@ -64,7 +63,6 @@ MenuContent.propTypes = {
       type: string.isRequired,
     })
   ).isRequired,
-  contentPosition: number.isRequired,
   arrowPosition: number.isRequired,
 };
 
