@@ -82,81 +82,60 @@ storiesOf('Top bar')
     })))
     .add('Menu on About page', () => (
       r(storify(
-        r(Topbar, {
+        r(Topbar, Object.assign({}, {
           logo: {
             href: 'http://example.com',
             text: 'Bikerrrs',
             image: 'https://s3.amazonaws.com/sharetribe-manual-assets/styleguide/bikerrrs-logo.png',
+            image_highres: 'https://s3.amazonaws.com/sharetribe-manual-assets/styleguide/bikerrrs-logo.png',
           },
           search_mode: 'keyword-and-location',
           search_keyword_placeholder: 'Search...',
           search_location_placeholder: 'Location',
           menu: {
-            isOpen: false,
-            name: 'Menu',
-            identifier: 'Menu',
-            menuLabelType: 'menu',
-            content: [
+            links: [
               {
-                type: 'menuitem',
-                href: 'http://example.com#about',
-                content: 'About',
-                active: true,
-                activeColor: '#43A5CC',
+                link: 'http://example.com#about',
+                title: 'About',
               },
               {
-                type: 'menuitem',
-                href: 'http://example.com#link',
-                content: 'Link',
-                active: false,
-                activeColor: '#43A5CC',
+                link: 'http://example.com#link',
+                title: 'Link',
               },
               {
-                type: 'menuitem',
-                href: 'http://example.com#link2',
-                content: 'Link2',
-                active: false,
-                activeColor: '#43A5CC',
+                link: 'http://example.com#link2',
+                title: 'Link2',
               },
               {
-                type: 'menuitem',
-                href: 'http://example.com#longlink',
-                content: 'Lorem ipsum dolor sit amet consectetur adepisci velit',
-                active: false,
-                activeColor: '#43A5CC',
+                link: 'http://example.com#longlink',
+                title: 'Lorem ipsum dolor sit amet consectetur adepisci velit',
               },
             ],
           },
-          languageMenu: {
-            isOpen: false,
-            name: 'En',
-            identifier: 'LanguageMenu',
-            menuLabelType: 'dropdown',
-            content: [
+          locales: {
+            current_locale: 'en',
+            current_locale_ident: 'en',
+            available_locales: [
               {
-                type: 'menuitem',
-                href: 'http://example.com#en',
-                content: 'English',
-                active: true,
-                activeColor: '#43A5CC',
+                change_locale_uri: 'http://example.com#en',
+                locale_name: 'English',
+                locale_ident: 'en',
               },
               {
-                type: 'menuitem',
-                href: 'http://example.com#fi',
-                content: 'Finnish',
-                active: false,
-                activeColor: '#43A5CC',
+                change_locale_uri: 'http://example.com#fi',
+                locale_name: 'Suomi',
+                locale_ident: 'fi',
               },
               {
-                type: 'menuitem',
-                href: 'http://example.com#fr',
-                content: 'French',
-                active: false,
-                activeColor: '#43A5CC',
+                change_locale_uri: 'http://example.com#fr',
+                locale_name: 'French',
+                locale_ident: 'fr',
               },
             ],
           },
-        }),
+        }, {
+          railsContext: defaultRailsContext,
+        })),
         containerStyle
       ))
   ));

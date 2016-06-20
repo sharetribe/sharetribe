@@ -633,6 +633,37 @@ class ApplicationController < ActionController::Base
         keyword_placeholder: (@community_customization && @community_customization.search_placeholder) || t("web.topbar.search_placeholder"),
         location_placeholder: 'Location'
       },
+      menu: {
+        links: [
+            {
+              link: about_infos_path,
+              title: t("header.about")
+            },
+            {
+              link: new_user_feedback_path,
+              title: t("header.contact_us"),
+            }
+          ].concat(@current_community.menu_links.map { |menu_link|
+          {
+            link: menu_link.url(I18n.locale),
+            title: menu_link.title(I18n.locale)
+          }
+        }),
+      },
+      locales: {
+        current_locale_ident: @current_user.locale.to_s,
+        current_locale: Maybe(Sharetribe::AVAILABLE_LOCALES.find { |l| l[:ident] == @current_user.to_s })[:language].or_else(locale).to_s,
+        available_locales: available_locales.map { |locale|
+          {
+            locale_name: locale[0],
+            locale_ident: locale[1],
+            change_locale_uri: change_locale_path({
+              locale: "#{locale[1]}",
+              redirect_uri: "#{@return_to}"
+            })
+          }
+        },
+      },
       avatarDropdown: {
         customColor: current_community_custom_colors[:marketplace_color1],
         avatar: {
