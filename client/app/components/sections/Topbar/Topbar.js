@@ -22,10 +22,7 @@ class Topbar extends Component {
           mode: this.props.search.mode,
           keywordPlaceholder: this.props.search.keyword_placeholder,
           locationPlaceholder: this.props.search.location_placeholder,
-          onSubmit: (data) => {
-            // TODO: submit with actual data
-            console.log(data); // eslint-disable-line no-console
-          },
+          onSubmit: this.props.search.onSubmit,
         }) :
         null,
       r(Avatar, { ...avatarProps(this.props.avatar, this.props.railsContext), classSet: css.topbarAvatar }),
@@ -39,6 +36,7 @@ Topbar.propTypes = {
     mode: PropTypes.string,
     keyword_placeholder: PropTypes.string,
     location_placeholder: PropTypes.string,
+    onSubmit: PropTypes.func.isRequired,
   }).isRequired,
   avatar: PropTypes.shape(Avatar.propTypes),
   railsContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types

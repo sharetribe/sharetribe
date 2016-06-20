@@ -31,10 +31,10 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-}
 
-.profileAction:hover {
-  background-color: rgb(249, 249, 249);
+  &:hover {
+    background-color: rgb(249, 249, 249);
+  }
 }
 
 .profileAction:last-of-type {

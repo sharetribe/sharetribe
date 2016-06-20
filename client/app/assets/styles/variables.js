@@ -1,6 +1,7 @@
 /* eslint-env node */
 
 const topbarBorderColor = 'rgba(169, 172, 176, 0.5)';
+const bodyPadding = '1.3em';
 
 module.exports = {
 

@@ -51,12 +51,12 @@ class ArrowDropdown extends Component {
 
 ArrowDropdown.propTypes = {
   actions: PropTypes.shape({
-    inboxAction: PropTypes.func,
-    profileAction: PropTypes.func,
-    settingsAction: PropTypes.func,
-    adminDashboardAction: PropTypes.func,
-    logoutAction: PropTypes.func,
-  }),
+    inboxAction: PropTypes.func.isRequired,
+    profileAction: PropTypes.func.isRequired,
+    settingsAction: PropTypes.func.isRequired,
+    adminDashboardAction: PropTypes.func.isRequired,
+    logoutAction: PropTypes.func.isRequired,
+  }).isRequired,
   customColor: PropTypes.string.isRequired,
 };
 
