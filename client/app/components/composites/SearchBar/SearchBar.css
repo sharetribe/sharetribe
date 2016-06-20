@@ -168,6 +168,8 @@
     background-color: var(--SearchBar_mobileBackgroundColor);
   }
 
+  /* When there is only a single search input, disable width changes and
+     extra spacings. */
   &:only-of-type {
     width: 100%;
     padding: 0;
@@ -250,6 +252,8 @@
       }
     }
 
+    /* Focusing on the keyword input puts the location input under the
+       search button with a shadow effect on the button. */
     & ~ .searchButton {
       box-shadow: -10px 0 20px -5px #000;
 
