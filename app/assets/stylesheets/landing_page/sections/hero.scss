@@ -169,6 +169,8 @@
 
   outline: none;
 
+  @include enable-flex-shrink-fix;
+
   /* mobile */
   display: none;
 
@@ -205,6 +207,8 @@
 
 
 .hero__search-icon {
+  @include enable-flex-shrink-fix;
+
   background: #FFF;
 
   /* mobile */
