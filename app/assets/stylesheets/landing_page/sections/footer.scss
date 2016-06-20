@@ -28,19 +28,27 @@
   }
 }
 
+$footer__clickarea-y-padding-desktop: 16px;
+$footer__clickarea-y-padding-tablet: 12px;
+$footer__clickarea-y-padding-mobile: 12px;
+
 .footer__links-container {
   @include prefix-val(display, flex);
   @include prefix-prop(justify-content, space-between);
   @include prefix-prop(flex-direction, column-reverse);
 
-  margin-bottom: 18px;
+  /* mobile */
+  @include prefix-prop(align-items, center);
+  margin-bottom: 24px - $footer__clickarea-y-padding-mobile;
 
   @media #{$tablet}  {
-    margin-bottom: 18px;
+    @include prefix-prop(align-items, center);
+    margin-bottom: 30px - $footer__clickarea-y-padding-tablet;
   }
 
   @media #{$desktop} {
-    margin-bottom: 48px;
+    @include prefix-prop(align-items, baseline);
+    margin-bottom: 48px - $footer__clickarea-y-padding-desktop;
     @include prefix-prop(flex-direction, row);
     max-width: 1140px + (2 * 24px);
   }
@@ -95,26 +103,25 @@ $footer__link-margin-tablet: 16px;
     }
   }
 
+  margin: 0;
+
   // mobile
   font-size: 13px;
   letter-spacing: 0px;
-
-  margin: 0 $footer__link-margin-mobile;
-  margin-bottom: 12px;
+  padding: $footer__clickarea-y-padding-mobile $footer__link-margin-mobile;
 
   @media #{$tablet} {
     font-size: 16px;
     letter-spacing: 0px;
 
-    margin: 0px $footer__link-margin-tablet;
-    margin-bottom: 12px;
+    padding: $footer__clickarea-y-padding-tablet $footer__link-margin-tablet;
   }
 
   @media #{$desktop} {
     font-size: 16px;
     letter-spacing: 0px;
 
-    margin: 0px $footer__link-margin-tablet;
+    padding: $footer__clickarea-y-padding-desktop $footer__link-margin-tablet;
   }
 }
 
@@ -179,14 +186,8 @@ $footer__social-media-margin: 18px;
   }
 }
 
-.footer__social-media-icon {
-  // The color is defined in footer.erb partial
-  margin: 0 $footer__social-media-margin;
-  margin-bottom: 12px;
-
-  @media #{$desktop} {
-    margin-bottom: 0;
-  }
+.footer__social-media-link {
+  padding: $footer__clickarea-y-padding-desktop $footer__social-media-margin;
 }
 
 .footer__facebook-icon {

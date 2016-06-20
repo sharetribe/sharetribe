@@ -1,14 +1,14 @@
 <% content_for :footer_css, flush: true do %>
-  .footer__container--dark .footer__social-media-icon {
+  .footer__container--dark .footer__social-media-link > svg {
     fill: #FFFFFF;
   }
-  .footer__container--dark .footer__social-media-icon:hover {
+  .footer__container--dark .footer__social-media-link:hover > svg {
     fill: #D9D9D9;
   }
-  .footer__container--light .footer__social-media-icon {
+  .footer__container--light .footer__social-media-link > svg {
     fill: <%= s['social_media_icon_color']['value'] %>;
   }
-  .footer__container--light .footer__social-media-icon:hover {
+  .footer__container--light .footer__social-media-link:hover > svg {
     fill: <%= s['social_media_icon_color_hover']['value'] %>;
   }
 <% end %>
@@ -33,7 +33,7 @@
 
           <% s["social"].each do |social| %>
 
-            <a href="<%= social['url'] %>" target="_blank" rel="noreferrer">
+            <a class="footer__social-media-link" href="<%= social['url'] %>" target="_blank" rel="noreferrer">
 
               <% case social["service"] %>
               <% when "facebook" %>
