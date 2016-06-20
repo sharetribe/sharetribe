@@ -102,7 +102,7 @@
     width: var(--SearchBar_width);
     padding-left: var(--SearchBar_sidePadding);
     top: 0;
-    font-size: 14px;
+    font-size: var(--baseFontSize);
   }
 
   &:hover .focusContainer::before {
