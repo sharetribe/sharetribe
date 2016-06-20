@@ -61,7 +61,7 @@ class SearchBar extends Component {
 
     this.state = {
       selectedPlace: null,
-      mobileMenu: false,
+      mobileMenuOpen: false,
     };
   }
   componentDidMount() {
@@ -96,14 +96,14 @@ class SearchBar extends Component {
     }
   }
   handleResize() {
-    this.setState({ mobileMenu: false });
+    this.setState({ mobileMenuOpen: false });
   }
   handleSubmit() {
     if (!this.keywordInput && !this.locationInput) {
       throw new Error('No input refs saved to submit SearchBar form');
     }
 
-    this.setState({ mobileMenu: false });
+    this.setState({ mobileMenuOpen: false });
 
     const keywordValueStr = this.keywordInput ? this.keywordInput.value.trim() : '';
     const locationValueStr = this.locationInput ? this.locationInput.value.trim() : '';
@@ -195,19 +195,19 @@ class SearchBar extends Component {
     // Maps Places Autocomplete .pac-container is within the body
     // element.
     if (typeof document === 'object' && document.body) {
-      document.body.classList.toggle(css.mobileMenuOpen, this.state.mobileMenu);
+      document.body.classList.toggle(css.mobileMenuOpen, this.state.mobileMenuOpen);
     }
 
     return div({
       className: css.root,
       classSet: {
         [css.root]: true,
-        [css.mobileMenuOpen]: this.state.mobileMenu,
+        [css.mobileMenuOpen]: this.state.mobileMenuOpen,
       },
     }, [
       button({
         className: css.mobileToggle,
-        onClick: () => this.setState({ mobileMenu: !this.state.mobileMenu }),
+        onClick: () => this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen }),
         dangerouslySetInnerHTML: { __html: icon },
       }),
       form({
