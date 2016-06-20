@@ -121,6 +121,16 @@ $content-padding: 36px;
 .info__button {
   color: inherit;
   @extend .landing-page__button;
+
+  // Colors are set in the layout to match marketplace colors
+
+  &:hover {
+    color: #FFF;
+  }
+}
+
+.info__button--ghost {
+  @extend .info__button;
 }
 
 .info__columns {

@@ -144,7 +144,8 @@ class LandingPageController < ActionController::Metal
       "button": {
         "title": "Section link",
         "path": {"path": "https://google.com"},
-        "color": {"type": "marketplace_data", "id": "primary_color"}
+        "color": {"type": "marketplace_data", "id": "primary_color"},
+        "color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
       },
       "background_image": {"type": "assets", "id": "myinfoimage"}
     },
@@ -165,7 +166,8 @@ class LandingPageController < ActionController::Metal
       "button": {
         "title": "Section link",
         "path": {"path": "https://google.com"},
-        "color": {"type": "marketplace_data", "id": "primary_color"}
+        "color": {"type": "marketplace_data", "id": "primary_color"},
+        "color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
       }
     },
     {
@@ -189,7 +191,8 @@ class LandingPageController < ActionController::Metal
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
           "button_title": "Section link",
           "button_path": {"path": "https://google.com"},
-          "button_color": {"type": "marketplace_data", "id": "primary_color"}
+          "button_color": {"type": "marketplace_data", "id": "primary_color"},
+          "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
         },
         {
           "icon": "piggybank",
@@ -197,7 +200,8 @@ class LandingPageController < ActionController::Metal
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
           "button_title": "Section link",
           "button_path": {"path": "https://google.com"},
-          "button_color": {"type": "marketplace_data", "id": "primary_color"}
+          "button_color": {"type": "marketplace_data", "id": "primary_color"},
+          "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
         },
         {
           "icon": "globe",
@@ -205,7 +209,8 @@ class LandingPageController < ActionController::Metal
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
           "button_title": "Section link",
           "button_path": {"path": "https://google.com"},
-          "button_color": {"type": "marketplace_data", "id": "primary_color"}
+          "button_color": {"type": "marketplace_data", "id": "primary_color"},
+          "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
         }
       ]
     },

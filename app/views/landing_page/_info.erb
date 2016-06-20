@@ -12,6 +12,25 @@
   variation_modifier     = variation_modifiers[s["variation"]]
 %>
 
+<% content_for :info_css, flush: true do %>
+  <% if button_enabled %>
+    .info__button {
+      background-color: <%= s["button"]["color"]["value"] %>;
+    }
+
+    .info__button--ghost {
+      color: <%= s["button"]["color"]["value"] %>;
+      border-color: <%= s["button"]["color"]["value"] %>;
+    }
+
+    .info__button--ghost:hover,
+    .info__button:hover {
+      background-color: <%= s["button"]["color_hover"]["value"] %>;
+      border-color: <%= s["button"]["color_hover"]["value"] %>;
+    }
+  <% end %>
+<% end %>
+
 <section id="<%= section_id %>" class="info__section--<%= section_style_modifier %>" style="background-image: <%= background_image_style %>">
   <div class="info__content--<%= variation_modifier %>">
     <% case s["variation"] %>
@@ -21,12 +40,8 @@
       <p class="info__paragraph"><%= s["paragraph"] %></p>
 
       <% if button_enabled %>
-        <% b = s["button"] %>
-        <% if background_enabled %>
-          <a class="info__button" href="<%= b["path"]["path"] %>" style="background-color: <%= b["color"]["value"] %>"><%= b["title"] %></a>
-        <% else %>
-          <a class="info__button" href="<%= b["path"]["path"] %>" style="color: <%= b["color"]["value"] %>; border-color: <%= b["color"]["value"] %>"><%= b["title"] %></a>
-        <% end %>
+        <% modifier = background_enabled ? "" : "--ghost" %>
+        <a class="info__button<%= modifier %>" href="<%= s["button"]["path"]["path"] %>"><%= s["button"]["title"] %></a>
       <% end %>
 
     <% when "three_columns" %>
