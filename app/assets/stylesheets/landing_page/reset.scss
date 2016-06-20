@@ -26,9 +26,3 @@ a {
 hr {
   margin: 0;
 }
-
-* {
-  // See https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored
-  @include prefix-prop(flex-shrink, 0);
-  @include prefix-prop(flex-basis, auto);
-}
