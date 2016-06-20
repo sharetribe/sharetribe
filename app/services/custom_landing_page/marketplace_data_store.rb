@@ -1,6 +1,8 @@
 module CustomLandingPage
   module MarketplaceDataStore
 
+    DEFAULT_COLOR = "A64C5D";
+
     module_function
 
     def marketplace_data(cid, locale)
@@ -30,8 +32,10 @@ module CustomLandingPage
           "keyword_search"
         end
 
-      { "primary_color" => primary_color.present? ? "#" + primary_color : nil,
-        "primary_color_darken" => primary_color.present? ? "#" + ColorUtils.darken(primary_color, 15) : nil,
+      color = primary_color.present? ? primary_color : DEFAULT_COLOR
+
+      { "primary_color" => "##{color}",
+        "primary_color_darken" => "##{ColorUtils.darken(color, 15)}",
         "name" => name,
         "slogan" => slogan,
         "description" => description,
