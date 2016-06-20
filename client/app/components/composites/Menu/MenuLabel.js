@@ -10,7 +10,6 @@ class MenuLabel extends Component {
     return (
       div({
         className: `menu__label ${css.menuLabel} ${extraClasses}`,
-        tabIndex: '-1',
       }, [
         span({
           className: css.menuLabelIcon,

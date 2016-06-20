@@ -25,7 +25,6 @@ class MenuContent extends Component {
     return (
       div(
         {
-          tabIndex: '-1',
           className: `menu__content ${css.menuContent}`,
           ref: (c) => {
             this.menuContent = c;

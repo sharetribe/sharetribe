@@ -1,7 +1,6 @@
 import { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import r, { div } from 'r-dom';
-import _ from 'lodash';
 
 import MenuLabel from './MenuLabel';
 import MenuLabelDropdown from './MenuLabelDropdown';
@@ -45,7 +44,6 @@ class Menu extends Component {
       className: `menu ${css.menu}`,
       onBlur: this.handleBlur,
       onMouseOver: this.handleMouseOver,
-      tabIndex: '0',
     }, [
       r(LabelComponent,
         {

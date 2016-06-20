@@ -11,7 +11,6 @@ class MenuLabelDropdown extends Component {
     return (
       div({
         className: `menu__label ${css.menuLabel} ${extraClasses}`,
-        tabIndex: '-1',
       }, [
         this.props.name,
         span({

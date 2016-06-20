@@ -3,11 +3,6 @@
   font-size: var(--Menu_fontSize);
   flex-grow: 1;
 
-  &:focus,
-  & :focus {
-    outline: none;
-  }
-
   &:hover .menuContent {
     outline: none;
     display: block;
