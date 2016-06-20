@@ -159,9 +159,8 @@ class HomepageController < ApplicationController
     location_search_hash = location_search_params(
       params[:lc],
       distance_unit,
-      Maybe(params[:distance_max])
-        .map { |d| [APP_MINIMUM_DISTANCE_MAX, d.to_f].max }
-        .or_else(nil)
+      params[:distance_max],
+      APP_MINIMUM_DISTANCE_MAX
     )
     search_extra = location_search_hash.blank? ? { sort: nil } : location_search_hash
 
@@ -278,14 +277,14 @@ class HomepageController < ApplicationController
     end
   end
 
-  def location_search_params(latlng, distance_unit, distance_max)
+  def location_search_params(latlng, distance_unit, distance_max, minimum_distance_max)
     # Current map doesn't react to zoom & panning, so we fetch all the results as before.
     if @view_type != 'map'
       Maybe(latlng)
         .map {
           search_coordinates(latlng).merge({
             distance_unit: distance_unit,
-            distance_max: distance_max,
+            distance_max: [minimum_distance_max, distance_max.to_f].max,
             sort: :distance
           })
         }
