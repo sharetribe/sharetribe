@@ -179,6 +179,10 @@
   @media #{$desktop} {
     display: block;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .hero__search-icon-svg {
