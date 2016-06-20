@@ -175,7 +175,7 @@ JSON
   end
 
   def landing_page_styles
-    Rails.application.assets.find_asset("landing_page/styles.scss").to_s
+    Rails.application.assets.find_asset("landing_page/styles.scss").to_s.html_safe
   end
 
   def location_search_js
