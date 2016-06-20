@@ -53,9 +53,7 @@ class LandingPageController < ActionController::Metal
 
   private
 
-  def denormalizer(cid, locale, sitename)
-    return @_denormalizer if @_denormalizer
-
+  def build_denormalizer(cid, locale, sitename)
     # Application paths
     paths = { "search" => "/", # FIXME. Remove hardcoded URL. Add search path here when we get one
               "signup" => sign_up_path,
@@ -65,7 +63,7 @@ class LandingPageController < ActionController::Metal
 
     marketplace_data = CLP::MarketplaceDataStore.marketplace_data(cid, locale)
 
-    @_denormalizer = CLP::Denormalizer.new(
+    CLP::Denormalizer.new(
       link_resolvers: {
         "path" => CLP::LinkResolver::PathResolver.new(paths),
         "marketplace_data" => CLP::LinkResolver::MarketplaceDataResolver.new(marketplace_data),
@@ -73,8 +71,6 @@ class LandingPageController < ActionController::Metal
         "translation" => CLP::LinkResolver::TranslationResolver.new(locale)
       }
     )
-
-    @_denormalizer
   end
 
   def parse_int(int_str_or_nil)
@@ -91,14 +87,16 @@ class LandingPageController < ActionController::Metal
     locale, sitename = structure["settings"].values_at("locale", "sitename")
     font_path = APP_CONFIG[:font_proximanovasoft_url].present? ? APP_CONFIG[:font_proximanovasoft_url] : "/landing_page/fonts"
 
+    denormalizer = build_denormalizer(cid, locale, sitename)
+
     render :landing_page,
            locals: { font_path: font_path,
                      styles: landing_page_styles,
                      javascripts: {
                        location_search: location_search_js
                      },
-                     settings: denormalizer(cid, locale, sitename).to_tree(structure, root: "settings"),
-                     sections: denormalizer(cid, locale, sitename).to_tree(structure, root: "composition") }
+                     page: denormalizer.to_tree(structure, root: "page"),
+                     sections: denormalizer.to_tree(structure, root: "composition") }
   end
 
   def render_not_found(msg = "Not found")
@@ -112,8 +110,11 @@ class LandingPageController < ActionController::Metal
   "settings": {
     "marketplace_id": 9999,
     "locale": "en",
-    "sitename": "turbobikes",
-    "marketplace_name": {"type": "marketplace_data", "id": "name"}
+    "sitename": "turbobikes"
+  },
+
+  "page": {
+    "title": {"type": "marketplace_data", "id": "name"}
   },
 
   "sections": [
