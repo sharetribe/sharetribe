@@ -133,7 +133,7 @@
 
   @media (--SearchBar_medium) {
     display: block;
-    border-radius: 10em; /* Big enough to be fully rounded */
+    border-radius: calc(var(--SearchBar_height) / 2);
   }
 }
 
