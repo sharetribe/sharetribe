@@ -46,6 +46,11 @@
   }
 }
 
+.footer__links-container--no-social {
+  @extend .footer__links-container;
+  @include prefix-prop(justify-content, center);
+}
+
 $footer__link-margin-mobile: 12px;
 $footer__link-margin-tablet: 16px;
 

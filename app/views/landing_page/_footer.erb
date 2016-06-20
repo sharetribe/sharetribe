@@ -15,7 +15,10 @@
 
 <footer id="<%= section_id %>" class="footer__container--<%= s['theme'] %>">
   <div class="footer__content">
-    <div class="footer__links-container">
+
+    <% container_modifier = s["social"].length == 0 ? "--no-social" : "" %>
+
+    <div class="footer__links-container<%= container_modifier %>">
       <% if s['links'].length > 0 %>
         <ul class="footer__link-list">
           <% s['links'].each do |link| %>
