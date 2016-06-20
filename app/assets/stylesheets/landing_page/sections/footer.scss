@@ -54,7 +54,7 @@ $footer__clickarea-y-padding-mobile: 12px;
   }
 }
 
-.footer__links-container--no-social {
+.footer__links-container--center {
   @extend .footer__links-container;
   @include prefix-prop(justify-content, center);
 }

@@ -13,13 +13,17 @@
   }
 <% end %>
 
+<%
+  has_links = s["links"].present?
+  has_social = s["social"].present?
+  container_modifier = has_links && has_social ? "" : "--center"
+%>
+
 <footer id="<%= section_id %>" class="footer__container--<%= s['theme'] %>">
   <div class="footer__content">
 
-    <% container_modifier = s["social"].length == 0 ? "--no-social" : "" %>
-
     <div class="footer__links-container<%= container_modifier %>">
-      <% if s['links'].length > 0 %>
+      <% if has_links %>
         <ul class="footer__link-list">
           <% s['links'].each do |link| %>
             <li class="footer__link-list-item"><a class="footer__link" href="<%= link['href']['path'] %>"><%= link["label"] %></a></li>
@@ -27,7 +31,7 @@
         </ul>
       <% end %>
 
-      <% if s["social"].length > 0 %>
+      <% if has_social %>
 
         <div class="footer__social-media">
 
