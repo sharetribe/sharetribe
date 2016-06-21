@@ -24,7 +24,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
 
     if !proc_status[:success]
       flash[:error] = t("error_messages.paypal.generic_error")
-      return redirect_to root
+      return redirect_to search_path
     end
 
     render "paypal_service/success", layout: false, locals: {
@@ -78,7 +78,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
     pp_result = paypal_payments_service.request_cancel(@current_community.id, params[:token])
     if(!pp_result[:success])
       flash[:error] = t("error_messages.paypal.cancel_error")
-      return redirect_to root
+      return redirect_to search_path
     end
 
     flash[:notice] = t("paypal.cancel_succesful")

@@ -77,7 +77,7 @@ class InvitationsController < ApplicationController
   def users_can_invite_new_users
     unless @current_community.allows_user_to_send_invitations?(@current_user)
       flash[:error] = t("layouts.notifications.inviting_new_users_is_not_allowed_in_this_community")
-      redirect_to root and return
+      redirect_to search_path and return
     end
   end
 

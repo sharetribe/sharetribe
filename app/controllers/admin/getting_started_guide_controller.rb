@@ -5,7 +5,7 @@ class Admin::GettingStartedGuideController < ApplicationController
   rescue_from ReactOnRails::PrerenderError do |err|
     Rails.logger.error(err.message)
     Rails.logger.error(err.backtrace.join("\n"))
-    redirect_to root_path, flash: { error: I18n.t('error_messages.onboarding.server_rendering') }
+    redirect_to search_path, flash: { error: I18n.t('error_messages.onboarding.server_rendering') }
   end
 
   def index

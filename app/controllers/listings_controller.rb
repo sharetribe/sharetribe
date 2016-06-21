@@ -78,7 +78,7 @@ class ListingsController < ApplicationController
 
           render :partial => "listings/profile_listings", :locals => {person: @person, limit: per_page, listings: listings}
         else
-          redirect_to root
+          redirect_to search_path
         end
       end
 
@@ -655,7 +655,7 @@ class ListingsController < ApplicationController
         else
           t("layouts.notifications.you_are_not_authorized_to_view_this_content")
         end
-        redirect_to root and return
+        redirect_to search_path and return
       else
         session[:return_to] = request.fullpath
         flash[:warning] = t("layouts.notifications.you_must_log_in_to_view_this_content")

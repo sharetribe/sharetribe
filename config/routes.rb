@@ -74,8 +74,6 @@ Kassi::Application.routes.draw do
   get '/:locale/s', to: redirect('/%{locale}', status: 307), constraints: { locale: locale_matcher }
   get '/s', to: redirect('/', status: 307)
 
-  root :to => 'homepage#index'
-
   get '/_lp_preview' => 'landing_page#preview'
 
   # error handling: 3$: http://blog.plataformatec.com.br/2012/01/my-five-favorite-hidden-features-in-rails-3-2/

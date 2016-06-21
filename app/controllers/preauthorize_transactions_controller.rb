@@ -401,7 +401,7 @@ class PreauthorizeTransactionsController < ApplicationController
   def ensure_listing_author_is_not_current_user
     if @listing.author == @current_user
       flash[:error] = t("layouts.notifications.you_cannot_send_message_to_yourself")
-      redirect_to(session[:return_to_content] || root)
+      redirect_to(session[:return_to_content] || search_path)
     end
   end
 
@@ -409,14 +409,14 @@ class PreauthorizeTransactionsController < ApplicationController
   def ensure_authorized_to_reply
     unless @listing.visible_to?(@current_user, @current_community)
       flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
-      redirect_to root and return
+      redirect_to search_path and return
     end
   end
 
   def ensure_listing_is_open
     if @listing.closed?
       flash[:error] = t("layouts.notifications.you_cannot_reply_to_a_closed_offer")
-      redirect_to(session[:return_to_content] || root)
+      redirect_to(session[:return_to_content] || search_path)
     end
   end
 
