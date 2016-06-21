@@ -29,7 +29,7 @@
       <% when "keyword_search", "location_search" %>
 
         <div class="hero__search-bar-padding">
-          <form method="get" id="<%= section_id %>__search-form" class="hero__search-bar" action="<%= s["search_path"]["path"] %>">
+          <form method="get" id="<%= section_id %>__search-form" class="hero__search-bar" action="<%= s["search_path"]["value"] %>">
             <div class="hero__search-input-container">
               <div class="hero__search-icon">
 
@@ -68,7 +68,7 @@
 
       <% when "private" %>
 
-        <a class="hero__signup-button" href="<%= s["signup_path"]["path"] %>"><%= s["signup_button"]["value"] %></a>
+        <a class="hero__signup-button" href="<%= s["signup_path"]["value"] %>"><%= s["signup_button"]["value"] %></a>
 
       <% end %>
     </div>
