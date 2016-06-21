@@ -149,4 +149,5 @@ module.exports = {
   '--Menu_borderColor': topbarBorderColor,
   '--Menu_boxShadow': '0px 2px 4px 0px rgba(0, 0, 0, 0.1)',
   '--Menu_iconPadding': '0.7em',
+  '--Menu_zIndex': '1',
 };
