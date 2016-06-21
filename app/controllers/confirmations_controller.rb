@@ -66,7 +66,7 @@ class ConfirmationsController < Devise::ConfirmationsController
           redirect_to getting_started_admin_community_path(id: @current_community.id) and return
         end
       elsif @current_user # normal logged in user
-        redirect_to root and return
+        redirect_to search_path and return
       else # no logged in session
         redirect_to login_path and return
       end
@@ -76,7 +76,7 @@ class ConfirmationsController < Devise::ConfirmationsController
     if @current_user
       redirect_to confirmation_pending_path
     else
-      redirect_to :root
+      redirect_to search_path
     end
   end
 

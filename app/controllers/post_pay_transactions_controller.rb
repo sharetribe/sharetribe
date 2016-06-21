@@ -46,7 +46,7 @@ class PostPayTransactionsController < ApplicationController
 
       unless transaction_response[:success]
         flash[:error] = "Sending the message failed. Please try again."
-        return redirect_to root
+        return redirect_to search_path
       end
 
       transaction_id = transaction_response[:data][:transaction][:id]
@@ -62,10 +62,10 @@ class PostPayTransactionsController < ApplicationController
           :priority => 9, :run_at => send_interval.days.from_now)
       end
 
-      redirect_to session[:return_to_content] || root
+      redirect_to session[:return_to_content] || search_path
     else
       flash[:error] = "Sending the message failed. Please try again."
-      redirect_to root
+      redirect_to search_path
     end
   end
 
@@ -74,7 +74,7 @@ class PostPayTransactionsController < ApplicationController
   def ensure_listing_author_is_not_current_user
     if @listing.author == @current_user
       flash[:error] = t("layouts.notifications.you_cannot_send_message_to_yourself")
-      redirect_to (session[:return_to_content] || root)
+      redirect_to (session[:return_to_content] || search_path)
     end
   end
 
@@ -82,14 +82,14 @@ class PostPayTransactionsController < ApplicationController
   def ensure_authorized_to_reply
     unless @listing.visible_to?(@current_user, @current_community)
       flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
-      redirect_to root and return
+      redirect_to search_path and return
     end
   end
 
   def ensure_listing_is_open
     if @listing.closed?
       flash[:error] = t("layouts.notifications.you_cannot_reply_to_a_closed_offer")
-      redirect_to (session[:return_to_content] || root)
+      redirect_to (session[:return_to_content] || search_path)
     end
   end
 
@@ -105,7 +105,7 @@ class PostPayTransactionsController < ApplicationController
     Maybe(@current_community).payment_gateway.each do |gateway|
       unless gateway.can_receive_payments?(@listing.author)
         flash[:error] = t("layouts.notifications.listing_author_payment_details_missing")
-        redirect_to (session[:return_to_content] || root)
+        redirect_to (session[:return_to_content] || search_path)
       end
     end
   end

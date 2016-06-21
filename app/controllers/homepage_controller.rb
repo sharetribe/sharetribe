@@ -9,7 +9,7 @@ class HomepageController < ApplicationController
 
 
   def index
-    redirect_to root and return if no_current_user_in_private_clp_enabled_marketplace?
+    redirect_to landing_page_path and return if no_current_user_in_private_clp_enabled_marketplace?
 
     @homepage = true
 

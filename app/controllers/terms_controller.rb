@@ -3,7 +3,7 @@ class TermsController < ApplicationController
   layout :choose_layout
 
   def show
-    redirect_to root_path and return unless session[:temp_cookie]
+    redirect_to search_path and return unless session[:temp_cookie]
     @current_community = Community.find(session[:temp_community_id])
     @current_user = nil
   end
@@ -35,7 +35,7 @@ class TermsController < ApplicationController
     session[:temp_community_id] = nil
     session[:consent_changed] = nil
     flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(@current_user.given_name_or_username, person_path(@current_user))).html_safe
-    redirect_to (session[:return_to] || root)
+    redirect_to (session[:return_to] || search_path)
   end
 
   private
