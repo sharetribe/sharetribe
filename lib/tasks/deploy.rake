@@ -136,8 +136,8 @@ def abort_if_css_modifications
 end
 
 def local_css_modifications?
-  diff = `git diff --shortstat #{@branch}..#{@destination}/master app/assets/stylesheets`
-  !diff.empty?
+  diff = `git diff --name-only #{@branch}..#{@destination}/master -- app/assets/stylesheets`
+  !diff.lines.reject{ |l| /^app\/assets\/stylesheets\/landing_page/.match(l) }.empty?
 end
 
 # Fixes error: Your Ruby version is 1.9.3, but your Gemfile specified 2.1.1
