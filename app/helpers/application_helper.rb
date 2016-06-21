@@ -698,6 +698,20 @@ module ApplicationHelper
     end
   end
 
+  def search_url(opts = {})
+    case [CustomLandingPage::LandingPageStore.enabled?(@current_community.id),
+          opts[:locale].present?]
+    when matches([true, true])
+      search_with_locale_url(opts)
+    when matches([true, false])
+      search_without_locale_url(opts.merge(locale: nil))
+    when matches([false, true])
+      homepage_with_locale_url(opts)
+    when matches([false, false])
+      homepage_without_locale_url(opts.merge(locale: nil))
+    end
+  end
+
   def landing_page_path
     non_default_locale = ->(locale) { locale != @current_community.default_locale.to_s}
     not_present = ->(x) { !x.present? }
