@@ -49,6 +49,9 @@ module TopbarHelper
 
     links.concat(user_links)
 
+    location_search_available = true # TODO: fix
+    main_search = location_search_available ? MarketplaceService::API::Api.configurations.get(community_id: community.id).data[:main_search] : :keyword
+
     {
       logo: {
         href: PathHelpers.landing_page_path(
@@ -62,10 +65,13 @@ module TopbarHelper
         image_highres: community.wide_logo.present? ? community.stable_image_url(:wide_logo, :header_highres) : nil
       },
       search: {
-        mode: 'keyword-and-location',
-        keyword_placeholder: search_placeholder || I18n.t("web.topbar.search_placeholder"),
-        location_placeholder: 'Location'
+        mode: main_search.to_s,
+
+        # TODO: figure where to get these
+        # keyword_query: params[:q],
+        # location_query: params[:lq]
       },
+      search_path: '/', # TODO: fix
       menu: {
         links: links,
         limit_priority_links: Maybe(MarketplaceService::API::Api.configurations.get(community_id: community.id).data)[:limit_priority_links].or_else(nil)

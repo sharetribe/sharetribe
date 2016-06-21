@@ -2,6 +2,9 @@
 
 import { Component, PropTypes } from 'react';
 import { form, input, button, span, div } from 'r-dom';
+import * as placesUtils from '../../../utils/places';
+import { brightness } from '../../../utils/colors';
+import * as variables from '../../../assets/styles/variables';
 
 import css from './SearchBar.css';
 import icon from './images/search-icon.svg';
@@ -14,42 +17,6 @@ const SEARCH_MODES = [
   SEARCH_MODE_LOCATION,
   SEARCH_MODE_KEYWORD_AND_LOCATION,
 ];
-
-const coordinates = (place) => {
-  if (place && place.geometry) {
-    return place.geometry.location.toUrlValue();
-  }
-  return null;
-};
-
-const getDetails = (placeId) => new Promise((resolve, reject) => {
-  const serviceStatus = window.google.maps.places.PlacesServiceStatus;
-  const el = document.createElement('div');
-  const service = new window.google.maps.places.PlacesService(el);
-
-  service.getDetails({ placeId }, (place, status) => {
-    if (status !== serviceStatus.OK) {
-      reject(new Error(`Could not get details for place id "${placeId}"`));
-    } else {
-      resolve(place);
-    }
-  });
-});
-
-const getPrediction = (location) => new Promise((resolve, reject) => {
-  const serviceStatus = window.google.maps.places.PlacesServiceStatus;
-  const service = new window.google.maps.places.AutocompleteService();
-
-  service.getPlacePredictions({ input: location }, (predictions, status) => {
-    if (status !== serviceStatus.OK) {
-      reject(new Error(`Prediction service status not OK: ${status}`));
-    } else if (predictions.length === 0) {
-      reject(new Error(`No predictions found for location "${location}"`));
-    } else {
-      resolve(getDetails(predictions[0].place_id));
-    }
-  });
-});
 
 class SearchBar extends Component {
   constructor(props) {
@@ -77,7 +44,10 @@ class SearchBar extends Component {
     this.placeChangedListener = window.google.maps.event.addListener(
       autocomplete,
       'place_changed',
-      () => this.setState({ selectedPlace: autocomplete.getPlace() })
+      () => {
+        this.setState({ selectedPlace: autocomplete.getPlace() });
+        this.handleSubmit();
+      }
     );
   }
   componentWillUnmount() {
@@ -118,56 +88,60 @@ class SearchBar extends Component {
     if (!this.locationInput) {
       // Only keyword input, submitting current input value
       onSubmit({
-        keyword: keywordValueStr,
-        location: null,
-        coordinates: null,
+        keywordQuery: keywordValueStr,
+        locationQuery: null,
+        place: null,
       });
       return;
     }
 
     const keywordValue = this.keywordInput ? this.keywordInput.value : null;
-    const coords = coordinates(this.state.selectedPlace);
 
-    if (coords) {
+    if (this.state.selectedPlace) {
       // Place already selected, submitting selected value
       onSubmit({
-        keyword: keywordValue,
-        location: locationValueStr,
-        coordinates: coords,
+        keywordQuery: keywordValue,
+        locationQuery: locationValueStr,
+        place: this.state.selectedPlace,
       });
     } else if (locationValueStr) {
       // Predict location from the typed value
-      getPrediction(locationValueStr)
+      placesUtils.getPrediction(locationValueStr)
         .then((place) => {
-          const predictedCoords = coordinates(place);
-          if (!predictedCoords) {
-            throw new Error(`Could not get coordinates from place predicted from location "${locationValueStr}"`);
-          }
           onSubmit({
-            keyword: keywordValue,
-            location: locationValueStr,
-            coordinates: predictedCoords,
+            keywordQuery: keywordValue,
+            locationQuery: locationValueStr,
+            place,
           });
         })
         .catch((e) => {
           console.error('failed to predict location:', e); // eslint-disable-line no-console
+          onSubmit({
+            keywordQuery: keywordValue,
+            locationQuery: locationValueStr,
+            place: null,
+          });
         });
     } else if (this.keywordInput) {
       // Only keyword value present, submit that
       onSubmit({
-        keyword: keywordValue,
-        location: '',
-        coords: null,
+        keywordQuery: keywordValue,
+        locationQuery: '',
+        place: null,
       });
     }
   }
   render() {
-    const { mode, keywordPlaceholder, locationPlaceholder } = this.props;
+    const { mode, keywordPlaceholder, locationPlaceholder, keywordQuery, locationQuery, customColor } = this.props;
+
+    const bgColor = customColor || variables['--SearchBar_mobileBackgroundColor'];
+    const bgColorDarkened = brightness(bgColor, 80);
 
     const keywordInput = input({
       type: 'search',
       className: css.keywordInput,
       placeholder: keywordPlaceholder,
+      defaultValue: keywordQuery,
       ref: (c) => {
         this.keywordInput = c;
       },
@@ -176,6 +150,7 @@ class SearchBar extends Component {
       type: 'search',
       className: css.locationInput,
       placeholder: locationPlaceholder,
+      defaultValue: locationQuery,
       autoComplete: 'off',
 
       // When the user edits the selected location value, the fetched
@@ -208,13 +183,25 @@ class SearchBar extends Component {
       button({
         className: css.mobileToggle,
         onClick: () => this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen }),
-        dangerouslySetInnerHTML: { __html: icon },
-      }),
+      }, [
+        div({
+          dangerouslySetInnerHTML: { __html: icon },
+        }),
+        span({
+          className: css.mobileToggleArrow,
+          style: {
+            borderBottomColor: this.state.mobileMenuOpen ? bgColor : 'transparent',
+          },
+        }),
+      ]),
       form({
         classSet: { [css.form]: true },
         onSubmit: (e) => {
           e.preventDefault();
           this.handleSubmit();
+        },
+        style: {
+          backgroundColor: this.state.mobileMenuOpen ? bgColor : 'transparent',
         },
       }, [
         hasKeywordInput ? keywordInput : null,
@@ -223,6 +210,9 @@ class SearchBar extends Component {
           type: 'submit',
           className: css.searchButton,
           dangerouslySetInnerHTML: { __html: icon },
+          style: {
+            backgroundColor: this.state.mobileMenuOpen ? bgColorDarkened : 'transparent',
+          },
         }),
         span({ className: css.focusContainer }),
       ]),
@@ -234,7 +224,10 @@ SearchBar.propTypes = {
   mode: PropTypes.oneOf(SEARCH_MODES).isRequired,
   keywordPlaceholder: PropTypes.string.isRequired,
   locationPlaceholder: PropTypes.string.isRequired,
+  keywordQuery: PropTypes.string,
+  locationQuery: PropTypes.string,
   onSubmit: PropTypes.func.isRequired,
+  customColor: PropTypes.string,
 };
 
 export default SearchBar;
