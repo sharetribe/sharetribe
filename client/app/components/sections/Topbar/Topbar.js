@@ -25,7 +25,12 @@ class Topbar extends Component {
           onSubmit: this.props.search.onSubmit,
         }) :
         null,
-      r(AvatarDropdown, { ...avatarDropdownProps(this.props.avatarDropdown, this.props.railsContext), classSet: css.topbarAvatarDropdown }),
+      this.props.avatarDropdown ?
+        r(AvatarDropdown, {
+          ...avatarDropdownProps(this.props.avatarDropdown, this.props.railsContext),
+          classSet: css.topbarAvatarDropdown,
+        }) :
+        null,
     ]);
   }
 }

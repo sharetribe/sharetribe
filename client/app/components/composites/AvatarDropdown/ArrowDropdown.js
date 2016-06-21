@@ -16,9 +16,9 @@ class ProfileActionCard extends Component {
 }
 
 ProfileActionCard.propTypes = {
-  icon: PropTypes.string,
-  label: PropTypes.string,
-  action: PropTypes.func,
+  icon: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  action: PropTypes.func.isRequired,
 };
 
 class ArrowDropdown extends Component {
