@@ -150,4 +150,6 @@ module.exports = {
   '--Menu_boxShadow': '0px 2px 4px 0px rgba(0, 0, 0, 0.1)',
   '--Menu_iconPadding': '0.7em',
   '--Menu_zIndex': '1',
+  '--Menu_labelPaddingVertical': '1.28571429rem',
+  '--Menu_labelPaddingHorizontal': '1.7142857rem',
 };
