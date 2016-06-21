@@ -53,7 +53,7 @@ class LandingPageController < ActionController::Metal
 
   private
 
-  def denormalizer(cid, locale, sitename)
+  def build_denormalizer(cid, locale, sitename)
     # Application paths
     paths = { "search" => "/", # FIXME. Remove hardcoded URL. Add search path here when we get one
               "signup" => sign_up_path,
@@ -87,13 +87,16 @@ class LandingPageController < ActionController::Metal
     locale, sitename = structure["settings"].values_at("locale", "sitename")
     font_path = APP_CONFIG[:font_proximanovasoft_url].present? ? APP_CONFIG[:font_proximanovasoft_url] : "/landing_page/fonts"
 
+    denormalizer = build_denormalizer(cid, locale, sitename)
+
     render :landing_page,
            locals: { font_path: font_path,
                      styles: landing_page_styles,
                      javascripts: {
                        location_search: location_search_js
                      },
-                     sections: denormalizer(cid, locale, sitename).to_tree(structure) }
+                     page: denormalizer.to_tree(structure, root: "page"),
+                     sections: denormalizer.to_tree(structure, root: "composition") }
   end
 
   def render_not_found(msg = "Not found")
@@ -108,6 +111,10 @@ class LandingPageController < ActionController::Metal
     "marketplace_id": 9999,
     "locale": "en",
     "sitename": "turbobikes"
+  },
+
+  "page": {
+    "title": {"type": "marketplace_data", "id": "name"}
   },
 
   "sections": [
@@ -175,7 +182,7 @@ JSON
   end
 
   def landing_page_styles
-    Rails.application.assets.find_asset("landing_page/styles.scss").to_s
+    Rails.application.assets.find_asset("landing_page/styles.scss").to_s.html_safe
   end
 
   def location_search_js

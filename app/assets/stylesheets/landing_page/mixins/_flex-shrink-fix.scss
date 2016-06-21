@@ -1,0 +1,10 @@
+// See https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored
+
+@mixin enable-flex-shrink-fix {
+  @include prefix-prop(flex-shrink, 0);
+}
+
+
+@mixin disable-flex-shrink-fix {
+  @include prefix-prop(flex-shrink, 1);
+}
