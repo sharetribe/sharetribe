@@ -1,5 +1,5 @@
-import r, { div } from 'r-dom';
-import React, { Component } from 'react';
+import r, { div, strong, pre } from 'r-dom';
+import { Component } from 'react';
 import css from './ColorsAndTypography.css';
 
 const defaultRailsContext = {
@@ -38,17 +38,17 @@ const storify = (ComposedComponent, containerStyle) => (
   class EnhancedComponent extends Component {
     render() {
       return (
-        React.DOM.div(null, [
-          React.DOM.div(
+        div(null, [
+          div(
             { className: css.componentWrapper, key: 'componentWrapper' },
-            React.DOM.div(
+            div(
               containerStyle,
               ComposedComponent
             ),
           ),
 
-          React.DOM.strong({ className: css.propsTitle, key: 'proprsTitle' }, 'Props:'),
-          React.DOM.pre({
+          strong({ className: css.propsTitle, key: 'proprsTitle' }, 'Props:'),
+          pre({
             className: css.propsWrapper,
             key: 'propsWrapper',
           },
