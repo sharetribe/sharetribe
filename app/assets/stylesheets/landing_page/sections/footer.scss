@@ -190,6 +190,11 @@ $footer__social-media-margin: 18px;
   padding: $footer__clickarea-y-padding-desktop $footer__social-media-margin;
 }
 
+
+.footer__social-media-link:hover > svg {
+  @include hover-transition;
+}
+
 .footer__facebook-icon {
   width: 12px;
   height: 22px;

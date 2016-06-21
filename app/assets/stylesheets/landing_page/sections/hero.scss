@@ -175,6 +175,10 @@
 
   @include enable-flex-shrink-fix;
 
+  &:hover {
+    @include hover-transition;
+  }
+
   /* mobile */
   display: none;
 
@@ -238,6 +242,14 @@
   letter-spacing: 0px;
 
   padding: 18px 36px;
+
+  // Hover color is used to indicate tab focus.
+  // The hover color is set in the layout
+  outline: none;
+
+  &:hover {
+    @include hover-transition;
+  }
 
   @media #{$tablet} {
     font-size: 21px;
