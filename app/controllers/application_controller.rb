@@ -621,6 +621,37 @@ class ApplicationController < ActionController::Base
   helper_method :onboarding_topbar_props
 
   def topbar_props
+
+    links = [
+      {
+        link: root_path,
+        title: t("header.home")
+      },
+      {
+        link: about_infos_path,
+        title: t("header.about")
+      },
+      {
+        link: new_user_feedback_path,
+        title: t("header.contact_us"),
+      }
+    ]
+    with_invite_link do
+      links << {
+        link: new_invitation_path,
+        title: t("header.invite"),
+      }
+    end
+    links.concat(Maybe(@current_community.menu_links)
+      .map { |menu_links|
+        menu_links.map { |menu_link|
+          {
+            link: menu_link.url(I18n.locale),
+            title: menu_link.title(I18n.locale)
+          }
+        }
+      }.or_else([]))
+
     {
       logo: {
         href: '/',
@@ -634,21 +665,7 @@ class ApplicationController < ActionController::Base
         location_placeholder: 'Location'
       },
       menu: {
-        links: [
-            {
-              link: about_infos_path,
-              title: t("header.about")
-            },
-            {
-              link: new_user_feedback_path,
-              title: t("header.contact_us"),
-            }
-          ].concat(@current_community.menu_links.map { |menu_link|
-          {
-            link: menu_link.url(I18n.locale),
-            title: menu_link.title(I18n.locale)
-          }
-        }),
+        links: links,
       },
       locales: {
         current_locale_ident: Maybe(@current_user).map { |user| user.locale }.or_else(@current_community.default_locale).to_s,
