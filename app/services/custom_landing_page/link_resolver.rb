@@ -14,7 +14,7 @@ module CustomLandingPage
         if path.nil?
           raise LinkResolvingError.new("Couldn't find path '#{id}'.")
         else
-          { "id" => id, "type" => type, "path" => path }
+          { "id" => id, "type" => type, "value" => path }
         end
       end
     end

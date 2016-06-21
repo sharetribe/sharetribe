@@ -163,12 +163,8 @@ class LandingPageController < ActionController::Metal
   ],
 
   "composition": [
-    { "section": {"type": "sections", "id": "myhero1"},
-      "disabled": false},
-    { "section": {"type": "sections", "id": "footer"},
-      "disabled": false},
-    { "section": {"type": "sections", "id": "myhero1"},
-      "disabled": true}
+    { "section": {"type": "sections", "id": "myhero1"}},
+    { "section": {"type": "sections", "id": "footer"}}
   ],
 
   "assets": [
