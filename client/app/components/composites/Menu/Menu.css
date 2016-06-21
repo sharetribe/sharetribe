@@ -1,5 +1,5 @@
 .menu {
-  font-family: var(--topbarFontFamily); /* should come from topbar */
+  font-family: var(--Topbar_fontFamily); /* should come from topbar */
   font-size: var(--Menu_fontSize);
   flex-grow: 1;
 
