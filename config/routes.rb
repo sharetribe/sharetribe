@@ -50,20 +50,20 @@ Kassi::Application.routes.draw do
   locale_matcher = Regexp.new(Sharetribe::AVAILABLE_LOCALES.map { |l| l[:ident] }.concat(Sharetribe::REMOVED_LOCALES.to_a).join("|"))
 
   # Conditional routes for custom landing pages
-  get '/:locale/' => 'landing_page#index', constraints: ->(request) {
+  get '/:locale/' => 'landing_page#index', as: :landing_page_with_locale, constraints: ->(request) {
     locale_matcher.match(request.params["locale"]) &&
       CustomLandingPage::LandingPageStore.enabled?(request.env[:current_marketplace]&.id)
   }
-  get '/' => 'landing_page#index', constraints: ->(request) {
+  get '/' => 'landing_page#index', as: :landing_page_without_locale, constraints: ->(request) {
     CustomLandingPage::LandingPageStore.enabled?(request.env[:current_marketplace]&.id)
   }
 
   # Conditional routes for search view if landing page is enabled
-  get '/:locale/s' => 'homepage#index', constraints: ->(request) {
+  get '/:locale/s' => 'homepage#index', as: :search_with_locale, constraints: ->(request) {
     locale_matcher.match(request.params["locale"]) &&
       CustomLandingPage::LandingPageStore.enabled?(request.env[:current_marketplace]&.id)
   }
-  get '/s' => 'homepage#index', constraints: ->(request) {
+  get '/s' => 'homepage#index', as: :search_without_locale, constraints: ->(request) {
     CustomLandingPage::LandingPageStore.enabled?(request.env[:current_marketplace]&.id)
   }
 
