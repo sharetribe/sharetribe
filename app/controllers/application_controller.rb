@@ -444,8 +444,8 @@ class ApplicationController < ActionController::Base
     Maybe(@current_community)
       .map { |c|
         {
-          marketplace_color1: c.custom_color1 || '#a64c5d',
-          marketplace_color2: c.custom_color2 || '#00a26c'
+          marketplace_color1: "##{c.custom_color1}" || '#a64c5d',
+          marketplace_color2: "##{c.custom_color2}" || '#00a26c'
         }
       }
       .or_else({})
