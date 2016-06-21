@@ -1,7 +1,7 @@
 /* eslint-env node */
 
 const topbarBorderColor = 'rgba(169, 172, 176, 0.5)';
-const bodyPadding = '1.3em';
+const bodyPadding = '18px';
 
 module.exports = {
 
@@ -120,6 +120,8 @@ module.exports = {
   '--SearchBar_iconTopMarginFix': '4px',
 
   // ProfileDropdown
+  '--ProfileDropdown_border': `1px solid ${topbarBorderColor}`,
   '--ProfileDropdown_borderColor': topbarBorderColor,
-
+  '--ProfileDropdown_zIndex': 1,
+  '--ProfileDropdown_rightOffset': bodyPadding,
 };

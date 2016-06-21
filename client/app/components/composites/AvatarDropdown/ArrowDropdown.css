@@ -8,14 +8,14 @@
 
 .box {
   position: absolute;
-  border: 1px solid var(--ProfileDropdown_borderColor);
-  right: 18px; /* we need a var here, whatever our generic margin is */
+  border: var(--ProfileDropdown_border);
+  right: var(--ProfileDropdown_rightOffset);
   display: flex;
   flex-direction: column;
   background-color: white;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   border-radius: 3px;
-  z-index: 10;
+  z-index: var(--ProfileDropdown_zIndex);
 }
 
 .profileActions {
@@ -23,9 +23,9 @@
 }
 
 .profileAction {
-  width: 7.5rem;
-  height: 7.5rem;
-  border-right: 1px solid var(--ProfileDropdown_borderColor);
+  width: 8.6em;
+  height: 8.6em;
+  border-right: var(--ProfileDropdown_border);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,8 +42,8 @@
 }
 
 .logoutArea {
-  border-top: 1px solid var(--ProfileDropdown_borderColor);
-  padding: 0.6rem 1rem;
+  border-top: var(--ProfileDropdown_border);
+  padding: 0.69em 1.15em;
 }
 
 .adminLink {
