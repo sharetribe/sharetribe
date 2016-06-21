@@ -127,6 +127,8 @@
   color: #525961;
 
   &:focus {
+    // The input element has already the blinking cursor
+    // indicating that the element is selected
     outline: none;
   }
 
@@ -167,6 +169,8 @@
   color: #FFFFFF;
   letter-spacing: 0px;
 
+  // Hover color is used to indicate tab focus.
+  // The hover color is set in the layout
   outline: none;
 
   @include enable-flex-shrink-fix;

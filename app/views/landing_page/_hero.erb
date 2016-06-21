@@ -4,13 +4,17 @@
   }
 
   .hero__search-button,
-  .hero__signup-button
+  .hero__search-button:active,
+  .hero__signup-button,
+  .hero__signup-button:active
   {
     background-color: <%= s["search_button_color"]["value"] %>;
   }
 
   .hero__search-button:hover,
-  .hero__signup-button:hover {
+  .hero__search-button:focus,
+  .hero__signup-button:hover,
+  .hero__signup-button:focus {
     background-color: <%= s["search_button_color_hover"]["value"] %>;
   }
 <% end %>
