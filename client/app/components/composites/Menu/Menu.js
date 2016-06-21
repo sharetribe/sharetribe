@@ -13,13 +13,18 @@ const MENULABEL_MAP = {
   dropdown: MenuLabelDropdown,
 };
 
+const isTouch = !!(typeof window !== 'undefined' && (('ontouchstart' in window) || window.navigator.msMaxTouchPoints > 0));
+
 class Menu extends Component {
 
   constructor(props, context) {
     super(props, context);
 
+    this.handleClick = this.handleClick.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
     this.calculateDropdownPosition = this.calculateDropdownPosition.bind(this);
     this.state = {
+      isOpen: false,
       arrowPosition: INITIAL_ARROW_POSITION,
     };
   }
@@ -36,14 +41,27 @@ class Menu extends Component {
     });
   }
 
+  handleClick() {
+    if (isTouch) {
+      this.setState({ isOpen: !this.state.isOpen });// eslint-disable-line react/no-set-state
+    }
+  }
+
+  handleBlur() {
+    this.setState({ isOpen: false });// eslint-disable-line react/no-set-state
+  }
+
   render() {
     const requestedLabel = MENULABEL_MAP[this.props.menuLabelType];
     const LabelComponent = requestedLabel != null ? requestedLabel : null;
+    const touchClass = isTouch ? '' : css.touchless;
+    const openClass = this.state.isOpen ? css.openMenu : '';
 
     return div({
-      className: `menu ${css.menu}`,
+      className: `menu ${css.menu} ${touchClass} ${openClass}`,
+      onClick: this.handleClick,
       onBlur: this.handleBlur,
-      onMouseOver: this.handleMouseOver,
+      tabIndex: 0,
     }, [
       r(LabelComponent,
         {

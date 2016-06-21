@@ -2,20 +2,33 @@
   font-family: var(--Topbar_fontFamily); /* should come from topbar */
   font-size: var(--Menu_fontSize);
   flex-grow: 1;
+  cursor: pointer;
 
-  &:hover .menuLabel {
+  &:focus,
+  & :focus {
+    outline: none;
     color: var(--Menu_textColorFocus);
   }
-  &:hover .menuLabelIcon g {
-    fill: var(--Menu_textColorFocus);
-  }
-  &:hover .menuLabelDropdownIcon path {
-    fill: var(--Menu_textColorFocus);
+
+  &:focus,
+  &.openMenu,
+  &.touchless:hover {
+
+    .menuLabel {
+      color: var(--Menu_textColorFocus);
+    }
+
+    .menuLabelIcon g,
+    .menuLabelDropdownIcon path {
+      fill: var(--Menu_textColorFocus);
+    }
   }
 
-  &:hover .menuContent {
-    outline: none;
-    display: block;
+  &.openMenu,
+  &.touchless:hover {
+    .menuContent {
+      display: block;
+    }
   }
 }
 
@@ -24,7 +37,6 @@
   font-size: var(--Menu_fontSize);
   padding: var(--Menu_labelPaddingVertical) var(--Menu_labelPaddingHorizontal);
   white-space: nowrap;
-  cursor: pointer;
   color: var(--Menu_textColor);
 
   &:first-letter {
@@ -43,7 +55,8 @@
   composes: menuLabelDropdownIcon;
   display: none;
 }
-.menu:hover .menuLabelDropdownIconOpen {
+.menu.openMenu .menuLabelDropdownIconOpen,
+.menu.touchless:hover .menuLabelDropdownIconOpen {
   display: inline-block;
 }
 
@@ -51,7 +64,8 @@
   composes: menuLabelDropdownIcon;
   display: inline-block;
 }
-.menu:hover .menuLabelDropdownIconClosed {
+.menu.openMenu .menuLabelDropdownIconClosed,
+.menu.touchless:hover .menuLabelDropdownIconClosed {
   display: none;
 }
 
