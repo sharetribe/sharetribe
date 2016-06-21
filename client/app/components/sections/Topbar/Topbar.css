@@ -51,8 +51,7 @@
   height: var(--Topbar_logoHeight);
 }
 
-.topbarAvatar {
-  height: var(--Topbar_avatarSize);
+.topbarAvatarDropdown {
   padding: var(--Topbar_avatarPadding);
   font-family: var(--Topbar_fontFamily);
   font-size: var(--Topbar_fontSize);

@@ -5,12 +5,12 @@ import css from './Topbar.css';
 
 import Logo from '../../elements/Logo/Logo';
 import SearchBar from '../../composites/SearchBar/SearchBar';
-import Avatar from '../../composites/Avatar/Avatar';
+import AvatarDropdown from '../../composites/AvatarDropdown/AvatarDropdown';
 
-const avatarProps = (avatar, railsContext) => {
+const avatarDropdownProps = (avatarDropdown, railsContext) => {
   // TODO: rethink with actual railscontext
   const color = railsContext && railsContext.marketplace_color1 ? railsContext.marketplace_color1 : '#050';
-  return { ...avatar, customColor: color };
+  return { ...avatarDropdown, customColor: color };
 };
 
 class Topbar extends Component {
@@ -25,7 +25,7 @@ class Topbar extends Component {
           onSubmit: this.props.search.onSubmit,
         }) :
         null,
-      r(Avatar, { ...avatarProps(this.props.avatar, this.props.railsContext), classSet: css.topbarAvatar }),
+      r(AvatarDropdown, { ...avatarDropdownProps(this.props.avatarDropdown, this.props.railsContext), classSet: css.topbarAvatarDropdown }),
     ]);
   }
 }
@@ -38,7 +38,7 @@ Topbar.propTypes = {
     location_placeholder: PropTypes.string,
     onSubmit: PropTypes.func.isRequired,
   }).isRequired,
-  avatar: PropTypes.shape(Avatar.propTypes),
+  avatarDropdown: PropTypes.shape(AvatarDropdown.propTypes),
   railsContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 

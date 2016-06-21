@@ -16,11 +16,8 @@ const baseProps = {
     location_placeholder: 'Location',
     onSubmit: action('submitting search'),
   },
-  avatar: {
-    image: 'https://www.gravatar.com/avatar/d0865b2133d55fd507639a0fd1692b9a',
-    onClick: () => {
-      action('clicked avatar');
-    },
+  avatarDropdown: {
+    customColor: '#EE4',
     actions: {
       inboxAction: action('clicked inbox'),
       profileAction: action('clicked profile'),
@@ -28,7 +25,13 @@ const baseProps = {
       adminDashboardAction: action('clicked admin dashboard'),
       logoutAction: action('clicked logout'),
     },
-    imageHeight: '44px',
+    avatar: {
+      imageHeight: '44px',
+      image: 'https://www.gravatar.com/avatar/d0865b2133d55fd507639a0fd1692b9a',
+      onClick: () => {
+        action('clicked avatar');
+      },
+    },
   },
 };
 

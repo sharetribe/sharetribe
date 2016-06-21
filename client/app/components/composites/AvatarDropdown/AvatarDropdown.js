@@ -1,13 +1,14 @@
 import { Component, PropTypes } from 'react';
-import r, { div, img } from 'r-dom';
+import r, { div } from 'r-dom';
 import _ from 'lodash';
 import classNames from 'classnames';
 import { className } from '../../../utils/PropTypes';
 import ArrowDropdown from './ArrowDropdown';
+import Avatar from '../../elements/Avatar/Avatar';
 
-import css from './Avatar.css';
+import css from './AvatarDropdown.css';
 
-class Avatar extends Component {
+class AvatarDropdown extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -41,14 +42,9 @@ class Avatar extends Component {
     return div({
       onMouseOver: this.handleHover,
       onMouseOut: this.handleHover,
-      className: classNames(this.props.className, css.avatar),
+      className: classNames(this.props.className, css.avatarDropdown),
     }, [
-      img({
-        onClick: this.props.onClick,
-        src: this.props.image,
-        className: css.avatarImage,
-        style: { height: this.props.imageHeight ? this.props.imageHeight : '100%' },
-      }),
+      r(Avatar, this.props.avatar),
       this.state.menuOpen ?
         r(ArrowDropdown, {
           customColor: this.props.customColor,
@@ -60,12 +56,10 @@ class Avatar extends Component {
   }
 }
 
-Avatar.propTypes = {
-  image: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  imageHeight: PropTypes.number,
+AvatarDropdown.propTypes = {
+  avatar: PropTypes.shape(Avatar.propTypes).isRequired,
   ...ArrowDropdown.propTypes,
   className,
 };
 
-export default Avatar;
+export default AvatarDropdown;
