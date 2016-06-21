@@ -675,6 +675,23 @@ module ApplicationHelper
     params[:sort].eql?(column) && params[:direction].eql?("asc") ? "desc" : "asc"
   end
 
+  def search_path(opts = {})
+    o = opts.dup
+    o.delete("controller")
+    o.delete("action")
+
+    case [CustomLandingPage::LandingPageStore.enabled?(@current_community&.id), params[:locale].present?]
+    when matches([true, true])
+      search_with_locale_path(o)
+    when matches([true, false])
+      search_without_locale_path(o)
+    when matches([false, true])
+      homepage_with_locale_path(o)
+    when matches([false, false])
+      homepage_without_locale_path(o)
+    end
+  end
+
   # Give an array of translation keys you need in JavaScript. The keys will be loaded and ready to be used in JS
   # with `ST.t` function
   def js_t(keys, run_js_immediately=false)
