@@ -89,9 +89,11 @@ storiesOf('Top bar')
             image: 'https://s3.amazonaws.com/sharetribe-manual-assets/styleguide/bikerrrs-logo.png',
             image_highres: 'https://s3.amazonaws.com/sharetribe-manual-assets/styleguide/bikerrrs-logo.png',
           },
-          search_mode: 'keyword-and-location',
-          search_keyword_placeholder: 'Search...',
-          search_location_placeholder: 'Location',
+          search: {
+            mode: 'keyword-and-location',
+            keyword_placeholder: 'Search...',
+            location_placeholder: 'Location',
+          },
           menu: {
             links: [
               {
