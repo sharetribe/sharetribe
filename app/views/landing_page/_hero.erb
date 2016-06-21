@@ -19,11 +19,18 @@
   }
 <% end %>
 
+<%
+# Add non-breaking space to prevent widows
+subtitle_splitted = s["subtitle"]["value"].split(" ")
+last_three = subtitle_splitted.pop(3)
+subtitle = (subtitle_splitted + [last_three.join("&nbsp;")]).join(" ").html_safe
+%>
+
 <section id="<%= section_id %>" class="hero__section">
   <div class="hero__content">
     <div class="hero__content-container">
       <h1 class="hero__title"><%= s["title"]["value"] %></h1>
-      <h3 class="hero__subtitle"><%= s["subtitle"]["value"] %></h3>
+      <h3 class="hero__subtitle"><%= subtitle %></h3>
 
       <% case s["variation"]["value"] %>
       <% when "keyword_search", "location_search" %>
