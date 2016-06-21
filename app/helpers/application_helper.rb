@@ -698,6 +698,20 @@ module ApplicationHelper
     end
   end
 
+  def landing_page_path
+    non_default_locale = ->(locale) { locale != @current_community.default_locale.to_s}
+    not_present = ->(x) { !x.present? }
+
+    case [CustomLandingPage::LandingPageStore.enabled?(@current_community.id), @current_user, params[:locale]]
+    when matches([true, __, __])
+      landing_page_without_locale_path(locale: nil)
+    when matches([false, not_present, non_default_locale])
+      homepage_with_locale_path
+    else
+      homepage_without_locale_path(locale: nil)
+    end
+  end
+
   # Give an array of translation keys you need in JavaScript. The keys will be loaded and ready to be used in JS
   # with `ST.t` function
   def js_t(keys, run_js_immediately=false)
