@@ -1,0 +1,7 @@
+<%=
+  # Add non-breaking space to prevent widows
+  splitted = text.split(" ")
+  last_two = splitted.pop(2)
+
+  (splitted + ["<span style=\"white-space: nowrap\">#{last_two.join(" ")}</span>"]).join(" ").html_safe
+%>

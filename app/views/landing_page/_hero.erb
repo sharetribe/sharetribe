@@ -23,7 +23,7 @@
   <div class="hero__content">
     <div class="hero__content-container">
       <h1 class="hero__title"><%= s["title"]["value"] %></h1>
-      <h3 class="hero__subtitle"><%= s["subtitle"]["value"] %></h3>
+      <h3 class="hero__subtitle"><%= render partial: "prevent_widows", locals: { text: s["subtitle"]["value"]} %></h3>
 
       <% case s["variation"]["value"] %>
       <% when "keyword_search", "location_search" %>
