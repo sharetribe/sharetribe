@@ -31,7 +31,7 @@ Topbar.propTypes = {
     mode: PropTypes.string,
     keyword_placeholder: PropTypes.string,
     location_placeholder: PropTypes.string,
-  }),
+  }).isRequired,
 };
 
 export default Topbar;

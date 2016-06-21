@@ -27,6 +27,9 @@ module.exports = {
   '--breakpointMedium': '601px',
   '--breakpointLarge': '1024px',
 
+  '--baseFontSize': '14px',
+  '--baseFontSizeMobile': '17px',
+
   '--fontSizeSmall': '0.875rem',
   '--fontSize': '1rem',
   '--fontSizeBig': '1.125rem',
@@ -70,13 +73,20 @@ module.exports = {
   '--widthRestriction': '550px',
   '--widthRestrictionPercentage': '90%',
 
-  '--topbarHeight': '80px',
-  '--topbarLogoHeight': '40px',
-  '--topbarFontFamily': "'Proxima Nova Soft', Helvetica, sans",
-  '--topbarFontSize': '14px',
+  '--Topbar_height': '80px',
+  '--Topbar_mobileHeight': '50px',
+  '--Topbar_logoHeight': '40px',
+  '--Topbar_fontFamily': "'Proxima Nova Soft', Helvetica, sans",
+
+   // Must be at least 16px to avoid iOS from zooming in when focusing
+   // on an input.
+  '--Topbar_inputFontSizeMobile': '16px',
+  '--Topbar_fontSize': '14px',
 
   // SearchBar
-  '--SearchBar_width': '24em',
+  '--SearchBar_width': '396px',
+  '--SearchBar_mobileHeight': '50px',
+  '--SearchBar_height': '44px',
   '--SearchBar_borderColor': 'rgba(169, 172, 176, 0.5)',
   '--SearchBar_borderColorActive': 'rgb(122, 125, 128)',
   '--SearchBar_textColor': 'rgb(122, 125, 128)',
@@ -85,14 +95,22 @@ module.exports = {
   '--SearchBar_iconColor': 'rgb(122, 125, 128)',
   '--SearchBar_iconColorActive': 'rgb(82, 89, 97)',
   '--SearchBar_iconColorFocus': 'rgb(28, 30, 33)',
-  '--SearchBar_lineHeight': '1.8',
-  '--SearchBar_textPadding': '0.7em',
-  '--SearchBar_sidePadding': '1.4em',
-  '--SearchBar_inputButtonMargin': '3.8em',
+  '--SearchBar_textPaddingMobile': '0.63em',
+  '--SearchBar_textPadding': '0.715em',
+  '--SearchBar_sidePaddingMobile': '1.13em',
+  '--SearchBar_sidePadding': '1.715em',
   '--SearchBar_inputFontWeight': '500',
   '--SearchBar_keywordInputWidth': '63%',
   '--SearchBar_keywordInputFocusWidth': '78%',
+  '--SearchBar_formZIndex': '1',
   '--SearchBar_focusContainerZIndex': '0',
   '--SearchBar_childZIndex': '1',
-  '--SearchBar_searchButtonLineHeight': '44px',
+  '--SearchBar_mobileTextColor': '#fff',
+  '--SearchBar_mobileInputBorderColor': 'rgba(255, 255, 255, 0.3)',
+  '--SearchBar_mobilePlaceholderColor': '#FCFCFC',
+  '--SearchBar_mobileBackgroundColor': '#34495e',
+  '--SearchBar_mobileButtonBackgroundColor': '#2C3e50',
+  '--SearchBar_mobileTriangleSize': '8px',
+  '--SearchBar_iconSize': '16px',
+  '--SearchBar_iconTopMarginFix': '4px',
 };
