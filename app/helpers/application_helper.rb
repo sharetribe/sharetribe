@@ -680,7 +680,7 @@ module ApplicationHelper
     o.delete("controller")
     o.delete("action")
 
-    case [CustomLandingPage::LandingPageStore.enabled?(@current_community&.id), params[:locale].present?]
+    case [CustomLandingPage::LandingPageStore.enabled?(@current_community.id), params[:locale].present?]
     when matches([true, true])
       search_with_locale_path(o)
     when matches([true, false])

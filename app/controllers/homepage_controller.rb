@@ -7,10 +7,9 @@ class HomepageController < ApplicationController
   VIEW_TYPES = ["grid", "list", "map"]
   APP_MINIMUM_DISTANCE_MAX = 5
 
+
   def index
-    redirect_to root and return if CustomLandingPage::LandingPageStore.enabled?(@current_community.id) &&
-                                   @current_community.private &&
-                                   !@current_user
+    redirect_to root and return if no_current_user_in_private_clp_enabled_marketplace?
 
     @homepage = true
 
@@ -297,4 +296,11 @@ class HomepageController < ApplicationController
       {}
     end
   end
+
+  def no_current_user_in_private_clp_enabled_marketplace?
+    CustomLandingPage::LandingPageStore.enabled?(@current_community.id) &&
+      @current_community.private &&
+      !@current_user
+  end
+
 end
