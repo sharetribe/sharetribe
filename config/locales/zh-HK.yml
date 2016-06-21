@@ -535,8 +535,8 @@ zh-HK:
       rent: 出租
       rent_out: 出租
       sell: 出售
-      offer_to_swap: ~
-      request_to_swap: ~
+      offer_to_swap: 交換
+      request_to_swap: 交換
       share_for_free: 免費共享
       accept_for_free: 想要免費使用
     categories:
@@ -544,9 +544,9 @@ zh-HK:
       favor: 服務
       rideshare: ~
       housing: ~
-      tools: ~
-      sports: ~
-      music: ~
+      tools: 工具
+      sports: 运动
+      music: 音樂
       books: ~
       games: ~
       furniture: ~
@@ -1213,6 +1213,7 @@ zh-HK:
     hero:
       search: ~
       signup: ~
+      search_placeholder: ~
   layouts:
     admin:
       admin: "%{service_name}管理員版面"

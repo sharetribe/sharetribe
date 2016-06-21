@@ -1199,6 +1199,7 @@ it:
     hero:
       search: ~
       signup: ~
+      search_placeholder: "Che cosa stai cercando?"
   layouts:
     admin:
       admin: "%{service_name} pannello dell'amministratore."

@@ -788,15 +788,15 @@ da-DK:
       contact_page_link: feedback
     new:
       welcome_fb_user: "Velkommen til %{service_name}, %{name}!"
-      fb_join_accept_terms: "Der er trin mere tilbage før du er tilsluttet %{service_name}: Du er nødt til at acceptere brugsvilkårene."
-      join_community: "Tilslut %{service_name}"
+      fb_join_accept_terms: "Der er ét step mere, før du kan joine %{service_name}: du skal acceptere brugsvilkårene."
+      join_community: "Join %{service_name}"
       you_can_join: "Du kan tilmelde dig %{service_name} ved at acceptere brugsvilkårene og klikke på 'Tilmeld' nedenfor."
       you_can_join_email_confirmation: "Hvis du vil deltage %{service_name} skal du have en gyldig e-mail adresse, der ender med %{email_ending}. Du kan tilmelde dig ved at udfylde din e-mailadresse, accepterer vilkårene for brug og klikke på 'Deltag %{service_name}' nedenfor, og bekræfter din e-mail."
       you_can_join_email_confirmation_multiple_addresses: "%{service_name} har e-mail-restriktioner. Du kan kun deltage, hvis du har en tilladt e-mailadresse. Du kan tilmelde dig ved at udfylde din e-mailadresse, accepterer vilkårene for brug af %{service_name} og klikke på 'Deltag %{service_name}' nedenfor."
       you_can_join_with_invite_only: "Du skal have en invitation fra et andet medlem til at slutte %{service_name}. Hvis du har en invitation kode, kan du tilmelde dig ved at skrive koden til feltet nedenfor accepterer vilkårene for brug og klikke på 'Deltag %{service_name}' nedenfor."
       if_want_to_view_content: "Hvis du ønsker at se indholdet på %{service_name} uden at tilmelde dig, skal du"
       log_out: "logge ud."
-      join_community_button: "Tilmeld %{service_name}"
+      join_community_button: "Join %{service_name}"
     give_consent:
       invitation_code_invalid_or_used: "Invitationskoden var ugyldig eller allerede brugt."
       email_not_allowed: "Denne e-mail er ikke tilladt i %{service_name}"
@@ -1079,7 +1079,7 @@ da-DK:
       has_accepted_favor: "%{offerer_name} indvilligede i at tilbyde %{listing_title} til %{requester_name}%{time_ago}."
       has_accepted_rideshare: "%{offerer_name} indvilligede i at dele et lift %{listing_title} med %{requester_name}%{time_ago}."
     join:
-      joined_kassi: "%{name} tilsluttede %{service_name}%{time_ago}."
+      joined_kassi: "%{name} joinede %{service_name}%{time_ago}."
     login:
       logged_in_to_kassi: "%{name} loggede ind til %{service_name}%{time_ago}."
     comment:
@@ -1171,7 +1171,7 @@ da-DK:
       no_reviews: "Ingen anmeldelser"
       no_image: "Intet billede"
       filter: Filter
-      this_is_private_community: "Du skal oprette en profil før du kan se indholdet"
+      this_is_private_community: "Du skal tilmelde dig, før du kan se indholdet."
     invitation_form:
       email: Emailadresse(r)
       message: "Skriv din invitation her:"
@@ -1180,7 +1180,7 @@ da-DK:
       add_lots_of_email_addresses: "Hvis du planlægger at sende mange invitationer, skal du bruge et e-mail værktøj. Tjek %{this_article_link} for at finde informationer omkring egnede e-mail tjenester."
       this_article_link: "denne artikel"
       invitation_emails_field_placeholder: "email1@example.com, email2@example.com, ..."
-      invitation_message_field_placeholder: "Hej. Jeg er stødt på denne fantastiske markedsplads - og synes at du også skal have muligheden!"
+      invitation_message_field_placeholder: "Jeg har lige joinet denne fantastiske markedsplads. Det bør du også! :)"
       errors_in_emails: "Tjek at den email du har indtastet er korrekt. Hvis du har indtastet flere emails, så tjek om du har opdelt dem med komma."
     list_item:
       review: anmeldelse
@@ -1222,6 +1222,7 @@ da-DK:
     hero:
       search: Søg
       signup: Tilmeld
+      search_placeholder: ~
   layouts:
     admin:
       admin: "%{service_name} administrator panel"
@@ -1244,12 +1245,12 @@ da-DK:
       or_check_our: "...eller tjek vores"
       send_feedback_to_admin: Send
       to_see_what_others_have_suggested: "at se, hvad andre brugere har foreslået, og stemme for de idéer der."
-      your_email_address: "Din email adresse (for at kontakte dig)"
+      your_email_address: "Din email (for at kontakte dig)"
       connect: "Opret profil﻿"
       invite_your_friends: "Send invitation!"
       invite_your_neighbors: "Inviter andre!"
       invite_your_friends_description: "Desto flere mennesker der er i %{service_name}, desto mere anvendeligt bliver det."
-      invite_your_friends_invite_only_description: "Folk kan ikke tilslutte sig %{service_name} uden invitation."
+      invite_your_friends_invite_only_description: "Folk kan ikke tilmelde sig %{service_name} uden en invitation."
       join_without_facebook: "...eller alternativt %{join_without_facebook_link}"
       join_without_facebook_link: "Opret profil﻿uden at bruge Facebook"
     conversations:
@@ -1306,7 +1307,7 @@ da-DK:
       could_not_get_email_from_facebook: "Vi kunne ikke få din email fra Facebook og vi kan ikke oprette en konto uden din email."
       facebook_email_unconfirmed: "E-mail adressen '%{email}' på din Facebook konto er allerede blevet taget, men er ikke bekræftet. Bekræft venligst e-mail adressen før log ind med Facebook."
       create_new_listing: "Opret endnu en annonce"
-      create_one_here: "lave en her"
+      create_one_here: "oprette en her"
       email_confirmation_sent_to_new_address: "En bekræftelsesmail er nu sendt til den nye adresse."
       email_not_found: "Emailen findes ikke i %{service_name}s database."
       error_with_session: "Fejl ved session."
@@ -1323,8 +1324,8 @@ da-DK:
       login_failed: "Login mislykkedes. Indtast korrekte legitimationsoplysninger."
       account_creation_successful: "Velkommen til %{service_name}, %{person_name}!"
       account_deleted: "Din konto er nu slettet."
-      login_successful: "Velkommen, %{person_name}"
-      logout_successful: "Du er nu logget ud af %{service_name}. På gensyn!"
+      login_successful: "Velkommen, %{person_name}!"
+      logout_successful: "Du er nu logget af %{service_name}. På gensyn!"
       news_item_created: "Artikel oprettet"
       news_item_creation_failed: "Artikel skabelse mislykkedes"
       news_item_update_failed: "Artikel opdatering mislykkedes"
@@ -1345,10 +1346,10 @@ da-DK:
       error_in_payment: "Fejl i betalingen. Hvis du ikke har godkendt betalingen endnu, så prøv igen. Hvis du har betalt, så kontakt os."
       cannot_receive_payment: "Vi har ikke kunnet modtage din betaling grundet en fejl. Du bedes venligst kontakte vores kundesupport for hjælp."
       payment_waiting_for_later_accomplishment: "Når du har betalt, vil vi underrette sælger og sende dig en kvittering på købet."
-      password_recovery_sent: "Vi har lige sendt en email til dig."
+      password_recovery_sent: "Vi har lige sendt en mail til dig."
       person_activated: "Bruger aktiveret"
       person_deactivated: "Bruger deaktiveret"
-      person_updated_successfully: "information opdateret"
+      person_updated_successfully: "Oplysninger opdateret."
       poll_answered: "Afstemning besvaret"
       poll_could_not_be_answered: "Afstemning kunne ikke besvares"
       poll_created: "Afstemning oprettet"
@@ -1373,7 +1374,7 @@ da-DK:
       you_are_not_authorized_to_do_this: "Du er ikke autoriseret til at gøre dette"
       you_are_not_authorized_to_view_this_content: "Du er ikke autoriseret til at se dette indhold"
       listing_closed: "Denne annonce er blevet lukket"
-      send_instructions: "Du vil modtage en e-mail med instruktioner om, hvordan du kan nulstille din adgangskode om et øjeblik."
+      send_instructions: "Om få minutter vil du modtage en mail vedrørende nulstilling af din adgangskode."
       you_cannot_reply_to_a_closed_offer: "Du kan ikke svare på en lukket tilbud"
       you_cannot_send_message_to_yourself: "Du kan ikke sende en besked til dig selv"
       you_followed_listing: "Du følger nu denne liste"
@@ -1920,7 +1921,7 @@ da-DK:
       we_will_not_post_without_asking_you: "Vi vil aldrig poste på din Facebookvæg uden din tilladelse."
     password_forgotten:
       email: Email
-      password_recovery_instructions: "Indtast din email for at nulstille din adgangskode"
+      password_recovery_instructions: "Indtast din email for at nulstille din adgangskode."
       request_new_password: "Send ny adgangskode"
       change_your_password: "Skift din adgangskode"
     confirmation_pending:
