@@ -72,7 +72,7 @@ class PeopleController < Devise::RegistrationsController
 
   def new
     @selected_tribe_navi_tab = "members"
-    redirect_to seach_path if logged_in?
+    redirect_to search_path if logged_in?
     session[:invitation_code] = params[:code] if params[:code]
 
     @person = if params[:person] then
