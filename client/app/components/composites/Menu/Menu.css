@@ -3,6 +3,16 @@
   font-size: var(--Menu_fontSize);
   flex-grow: 1;
 
+  &:hover .menuLabel {
+    color: var(--Menu_textColorFocus);
+  }
+  &:hover .menuLabelIcon g {
+    fill: var(--Menu_textColorFocus);
+  }
+  &:hover .menuLabelDropdownIcon path {
+    fill: var(--Menu_textColorFocus);
+  }
+
   &:hover .menuContent {
     outline: none;
     display: block;
@@ -15,6 +25,7 @@
   padding: var(--Menu_labelPaddingVertical) var(--Menu_labelPaddingHorizontal);
   white-space: nowrap;
   cursor: pointer;
+  color: var(--Menu_textColor);
 
   &:first-letter {
     text-transform:capitalize;
@@ -69,12 +80,12 @@
 .menuContentArrowTop {
   border-color: transparent;
   border-bottom-color: var(--Menu_colorBackground);
-  border-width: 9px;
-  margin-left: -9px;
+  border-width: 7px;
+  margin-left: -7px;
 }
 .menuContentArrowBelow {
   border-color: transparent;
   border-bottom-color: var(--Menu_borderColor);
-  border-width: 11px;
-  margin-left: -11px;
+  border-width: 9px;
+  margin-left: -9px;
 }

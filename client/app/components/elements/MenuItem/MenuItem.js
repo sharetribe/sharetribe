@@ -22,14 +22,13 @@ class MenuItem extends Component {
         {
           className: `menuitem ${css.menuitemLink}`,
           href: this.props.href,
-          tabIndex: '-1',
         },
         this.props.content),
     ]);
   }
 }
 
-const { bool, func, number, string } = PropTypes;
+const { bool, number, string } = PropTypes;
 
 MenuItem.propTypes = {
   active: bool.isRequired,

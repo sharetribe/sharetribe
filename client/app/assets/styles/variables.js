@@ -3,7 +3,7 @@ const fontSizeSmall = '13px';
 const fontSize = '14px';
 const fontSizeBig = '16px';
 const textColor = 'rgb(82, 89, 97)';
-const textColorFocus = 'rgb(28, 30, 33)';
+const textColorFocus = 'rgb(0, 0, 0)';
 const backgroundLightColor = 'white';
 const backgroundLightColorHover = 'rgba(169, 172, 176, 0.07)';
 const paddingTopbarVertical = '0.92857em';
@@ -141,10 +141,13 @@ module.exports = {
   '--MenuItem_paddingTopbarVertical': paddingTopbarVertical,
   '--MenuItem_paddingTopbarHorizontal': paddingTopbarHorizontal,
   '--MenuItem_textColor': textColor,
-  '--MenuItem_textColorFocus': '#000',
+  '--MenuItem_textColorFocus': textColorFocus,
   '--MenuItem_letterSpacing': '0.09px',
+
   '--Menu_fontSize': fontSize,
   '--Menu_fontSizeSmall': fontSizeSmall,
+  '--Menu_textColor': textColor,
+  '--Menu_textColorFocus': textColorFocus,
   '--Menu_colorBackground': backgroundLightColor,
   '--Menu_borderColor': topbarBorderColor,
   '--Menu_boxShadow': '0px 2px 4px 0px rgba(0, 0, 0, 0.1)',
