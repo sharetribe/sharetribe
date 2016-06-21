@@ -48,17 +48,35 @@
     }
   }
 
+  & .topbarMenu {
+    display: none;
+  }
+
+  & .topbarMobileMenu {
+    display: block;
+  }
+
+  @media (--large-viewport) {
+    & .topbarMenu {
+      display: block;
+    }
+
+    & .topbarMobileMenu {
+      display: none;
+    }
+  }
+
   & .topbarLanguageMenuLabel {
     font-size: var(--Menu_fontSizeSmall);
   }
 
   & > * {
     margin-right: var(--Topbar_itemSpacing);
+
     &:last-child {
       margin-right: 0;
     }
   }
-
 }
 
 .topbarSpacer {
@@ -68,6 +86,10 @@
     flex-grow: 30;
     display: block;
   }
+}
+
+.topbarMobileMenu {
+  font-size: var(--Topbar_fontSizeMobile);
 }
 
 .topbarLogo {

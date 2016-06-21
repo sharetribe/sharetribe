@@ -1,31 +1,33 @@
 import { Component, PropTypes } from 'react';
 import { div, span } from 'r-dom';
-import css from './Menu.css';
+import css from './MenuMobile.css';
 import hamburgerIcon from './images/hamburgerIcon.svg';
 
-class MenuLabel extends Component {
+class MenuLabelMobile extends Component {
 
   render() {
     const extraClasses = this.props.extraClasses ? this.props.extraClasses : '';
     return (
       div({
-        className: `MenuLabel ${css.menuLabel} ${extraClasses}`,
+        className: `MenuLabelMobile ${css.menuLabelMobile} ${extraClasses}`,
+        onClick: this.props.handleClick,
       }, [
         span({
-          className: css.menuLabelIcon,
+          className: css.menuLabelMobileIcon,
+          title: this.props.name,
           dangerouslySetInnerHTML: {
             __html: hamburgerIcon,
           },
         }),
-        this.props.name,
       ])
     );
   }
 }
 
-MenuLabel.propTypes = {
+MenuLabelMobile.propTypes = {
   name: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
   extraClasses: PropTypes.string,
 };
 
-export default MenuLabel;
+export default MenuLabelMobile;

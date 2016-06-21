@@ -5,6 +5,7 @@ module RailsContextExtension
     community = view_context.request.env[:current_marketplace]
     {
       marketplaceId: community&.id,
+      loggedInUsername: Maybe(view_context.controller.current_user).username.or_else(nil)
     }.merge(CommonStylesHelper.marketplace_colors(community))
   end
 end

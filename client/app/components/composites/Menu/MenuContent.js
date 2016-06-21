@@ -14,8 +14,7 @@ class MenuContent extends Component {
     if (data.type === 'menuitem') {
       return Object.assign({},
         { ContentComponent: MenuItem },
-        { props: Object.assign({}, data, { index }),
-        }
+        { props: Object.assign({}, data, { index }) }
       );
     }
     return null;
@@ -25,7 +24,7 @@ class MenuContent extends Component {
     return (
       div(
         {
-          className: `menu__content ${css.menuContent}`,
+          className: `MenuContent ${css.menuContent}`,
           ref: (c) => {
             this.menuContent = c;
           },

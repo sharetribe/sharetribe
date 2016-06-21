@@ -7,7 +7,7 @@ import MenuLabelDropdown from './MenuLabelDropdown';
 import MenuContent from './MenuContent';
 import css from './Menu.css';
 
-const INITIAL_ARROW_POSITION = 50;
+const INITIAL_ARROW_POSITION = 25;
 const MENULABEL_MAP = {
   menu: MenuLabel,
   dropdown: MenuLabelDropdown,
@@ -37,7 +37,7 @@ class Menu extends Component {
     const menuLabel = ReactDOM.findDOMNode(this.menuLabel);
 
     this.setState({ // eslint-disable-line react/no-did-mount-set-state, react/no-set-state
-      arrowPosition: menuLabel.offsetWidth / 2, // eslint-disable-line no-magic-numbers
+      arrowPosition: menuLabel.offsetWidth > (INITIAL_ARROW_POSITION * 2) ? menuLabel.offsetWidth / 2 : INITIAL_ARROW_POSITION, // eslint-disable-line no-magic-numbers
     });
   }
 
@@ -56,9 +56,10 @@ class Menu extends Component {
     const LabelComponent = requestedLabel != null ? requestedLabel : null;
     const touchClass = isTouch ? '' : css.touchless;
     const openClass = this.state.isOpen ? css.openMenu : '';
+    const extraClasses = this.props.extraClasses ? this.props.extraClasses : '';
 
     return div({
-      className: `menu ${css.menu} ${touchClass} ${openClass}`,
+      className: `Menu ${css.menu} ${extraClasses} ${touchClass} ${openClass}`,
       onClick: this.handleClick,
       onBlur: this.handleBlur,
       tabIndex: 0,
@@ -67,7 +68,7 @@ class Menu extends Component {
         {
           key: `${this.props.identifier}_menulabel`,
           name: this.props.name,
-          extraClasses: this.props.extraClasses,
+          extraClasses: this.props.extraClassesLabel,
           ref: (c) => {
             this.menuLabel = c;
           },
@@ -90,6 +91,7 @@ class Menu extends Component {
 Menu.propTypes = {
   name: PropTypes.string.isRequired,
   extraClasses: PropTypes.string,
+  extraClassesLabel: PropTypes.string,
   identifier: PropTypes.string.isRequired,
   menuLabelType: PropTypes.string,
   content: PropTypes.arrayOf(
