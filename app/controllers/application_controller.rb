@@ -170,6 +170,7 @@ class ApplicationController < ActionController::Base
 
   #Creates a URL for root path (i18n breaks root_path helper)
   def root
+    ActiveSupport::Deprecation.warn("Call to root is deprecated and will be removed in the future. Use search_path or landing_page_path instead.")
     "#{request.protocol}#{request.host_with_port}/#{params[:locale]}"
   end
 
