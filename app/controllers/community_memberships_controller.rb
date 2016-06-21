@@ -72,7 +72,7 @@ class CommunityMembershipsController < ApplicationController
       Delayed::Job.enqueue(SendWelcomeEmail.new(@current_user.id, @current_community.id), priority: 5)
 
       flash[:notice] = t("layouts.notifications.you_are_now_member")
-      redirect_to root
+      redirect_to search_path
 
     }.on_error { |msg, data|
 
@@ -224,7 +224,7 @@ class CommunityMembershipsController < ApplicationController
   def ensure_membership_is_not_accepted
     if membership.accepted?
       flash[:notice] = t("layouts.notifications.you_are_already_member")
-      redirect_to root
+      redirect_to search_path
     end
   end
 
@@ -232,7 +232,7 @@ class CommunityMembershipsController < ApplicationController
     raise ArgumentError.new("Unknown state #{status}") unless CommunityMembership::VALID_STATUSES.include?(status)
 
     if membership.status != status
-      redirect_to root
+      redirect_to search_path
     end
   end
 end

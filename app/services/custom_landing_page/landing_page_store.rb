@@ -29,5 +29,13 @@ module CustomLandingPage
 
       JSON.parse(content)
     end
+
+    def enabled?(cid)
+      enabled, released_version = LandingPage
+                                  .where(community_id: cid)
+                                  .pluck(:enabled, :released_version)
+                                  .first
+      !!(enabled && released_version)
+    end
   end
 end

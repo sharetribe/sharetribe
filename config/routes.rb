@@ -49,16 +49,30 @@ Kassi::Application.routes.draw do
 
   locale_matcher = Regexp.new(Sharetribe::AVAILABLE_LOCALES.map { |l| l[:ident] }.concat(Sharetribe::REMOVED_LOCALES.to_a).join("|"))
 
+  # Conditional routes for custom landing pages
+  get '/:locale/' => 'landing_page#index', as: :landing_page_with_locale, constraints: ->(request) {
+    locale_matcher.match(request.params["locale"]) &&
+      CustomLandingPage::LandingPageStore.enabled?(request.env[:current_marketplace]&.id)
+  }
+  get '/' => 'landing_page#index', as: :landing_page_without_locale, constraints: ->(request) {
+    CustomLandingPage::LandingPageStore.enabled?(request.env[:current_marketplace]&.id)
+  }
+
+  # Conditional routes for search view if landing page is enabled
+  get '/:locale/s' => 'homepage#index', as: :search_with_locale, constraints: ->(request) {
+    locale_matcher.match(request.params["locale"]) &&
+      CustomLandingPage::LandingPageStore.enabled?(request.env[:current_marketplace]&.id)
+  }
+  get '/s' => 'homepage#index', as: :search_without_locale, constraints: ->(request) {
+    CustomLandingPage::LandingPageStore.enabled?(request.env[:current_marketplace]&.id)
+  }
+
+  # Default routes for homepage, these are matched if custom landing page is not in use
   # Inside this constraits are the routes that are used when request has subdomain other than www
   get '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }, as: :homepage_with_locale
   get '/' => 'homepage#index', as: :homepage_without_locale
-  root :to => 'homepage#index'
-
-  # Work in progress:
-  # Uncomment these and comment the three homepage routes above to test the landing page
-  # get '/:locale/' => 'landing_page#index', :constraints => { :locale => locale_matcher }
-  # get '/' => 'landing_page#index'
-  # root :to => 'landing_page#index'
+  get '/:locale/s', to: redirect('/%{locale}', status: 307), constraints: { locale: locale_matcher }
+  get '/s', to: redirect('/', status: 307)
 
   get '/_lp_preview' => 'landing_page#preview'
 

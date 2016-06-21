@@ -170,6 +170,7 @@ class ApplicationController < ActionController::Base
 
   #Creates a URL for root path (i18n breaks root_path helper)
   def root
+    ActiveSupport::Deprecation.warn("Call to root is deprecated and will be removed in the future. Use search_path or landing_page_path instead.")
     "#{request.protocol}#{request.host_with_port}/#{params[:locale]}"
   end
 
@@ -228,7 +229,7 @@ class ApplicationController < ActionController::Base
       session[:person_id] = nil
       flash[:notice] = t("layouts.notifications.automatically_logged_out_please_sign_in")
 
-      redirect_to root
+      redirect_to search_path
     end
   end
 
@@ -380,7 +381,7 @@ class ApplicationController < ActionController::Base
       # TODO Remove this. Find the issue that causes this and fix it, don't fix the symptoms.
       if @current_user.has_valid_email_for_community?(@current_community)
         @current_community.approve_pending_membership(@current_user)
-        redirect_to root and return
+        redirect_to search_path and return
       end
 
       redirect_to confirmation_pending_path
@@ -471,7 +472,7 @@ class ApplicationController < ActionController::Base
     clear_user_session
     flash[:error] = t("layouts.notifications.error_with_session")
     ApplicationHelper.send_error_notification("ASI session was unauthorized. This may be normal, if session just expired, but if this occurs frequently something is wrong.", "ASI session error", params)
-    redirect_to root_path and return
+    redirect_to search_path and return
   end
 
   def clear_user_session
@@ -489,14 +490,14 @@ class ApplicationController < ActionController::Base
   def ensure_is_admin
     unless @is_current_community_admin
       flash[:error] = t("layouts.notifications.only_kassi_administrators_can_access_this_area")
-      redirect_to root and return
+      redirect_to search_path and return
     end
   end
 
   def ensure_is_superadmin
     unless Maybe(@current_user).is_admin?.or_else(false)
       flash[:error] = t("layouts.notifications.only_kassi_administrators_can_access_this_area")
-      redirect_to root and return
+      redirect_to search_path and return
     end
   end
 
@@ -534,21 +535,10 @@ class ApplicationController < ActionController::Base
     WebTranslateIt.fetch_translations
   end
 
-  def redirect_https?
-    always_use_ssl = APP_CONFIG.always_use_ssl.to_s.downcase == "true"
-    !request.ssl? && always_use_ssl
-  end
-
-  def redirect_https!
-    redirect_to protocol: "https://", status: :moved_permanently
-  end
-
   def check_http_auth
     return true unless APP_CONFIG.use_http_auth.to_s.downcase == 'true'
     if authenticate_with_http_basic { |u, p| u == APP_CONFIG.http_auth_username && p == APP_CONFIG.http_auth_password }
       true
-    elsif redirect_https?
-      redirect_https!
     else
       request_http_basic_authentication
     end

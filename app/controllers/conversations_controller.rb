@@ -17,7 +17,7 @@ class ConversationsController < ApplicationController
 
     if conversation.blank?
       flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
-      return redirect_to root
+      return redirect_to search_path
     end
 
     transaction = Transaction.find_by_conversation_id(conversation[:id])

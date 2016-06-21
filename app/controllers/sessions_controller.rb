@@ -70,7 +70,7 @@ class SessionsController < ApplicationController
       redirect_to session[:return_to_content]
       session[:return_to_content] = nil
     else
-      redirect_to root_path
+      redirect_to search_path
     end
   end
 
@@ -78,7 +78,7 @@ class SessionsController < ApplicationController
     sign_out
     session[:person_id] = nil
     flash[:notice] = t("layouts.notifications.logout_successful")
-    redirect_to root
+    redirect_to landing_page_path
   end
 
   def index
@@ -157,7 +157,7 @@ class SessionsController < ApplicationController
     error_message = params[:error_reason] || "login error"
     kind = env["omniauth.error.strategy"].name.to_s || "Facebook"
     flash[:error] = t("devise.omniauth_callbacks.failure",:kind => kind.humanize, :reason => error_message.humanize)
-    redirect_to root
+    redirect_to search_path
   end
 
   private

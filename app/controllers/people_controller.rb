@@ -24,7 +24,7 @@ class PeopleController < Devise::RegistrationsController
     @person = Person.find_by!(username: params[:username], community_id: @current_community.id)
     raise PersonDeleted if @person.deleted?
 
-    redirect_to root and return if @current_community.private? && !@current_user
+    redirect_to landing_page_path and return if @current_community.private? && !@current_user
     @selected_tribe_navi_tab = "members"
     @community_membership = CommunityMembership.find_by_person_id_and_community_id_and_status(@person.id, @current_community.id, "accepted")
 
@@ -72,7 +72,7 @@ class PeopleController < Devise::RegistrationsController
 
   def new
     @selected_tribe_navi_tab = "members"
-    redirect_to root if logged_in?
+    redirect_to seach_path if logged_in?
     session[:invitation_code] = params[:code] if params[:code]
 
     @person = if params[:person] then
@@ -150,7 +150,7 @@ class PeopleController < Devise::RegistrationsController
     if APP_CONFIG.skip_email_confirmation
       email.confirm!
 
-      redirect_to root
+      redirect_to search_path
     else
       Email.send_confirmation(email, @current_community)
 
@@ -293,7 +293,7 @@ class PeopleController < Devise::RegistrationsController
     target_user = Person.find_by!(username: params[:id], community_id: @current_community.id)
 
     has_unfinished = TransactionService::Transaction.has_unfinished_transactions(target_user.id)
-    return redirect_to root if has_unfinished
+    return redirect_to search_path if has_unfinished
 
     # Do all delete operations in transaction. Rollback if any of them fails
     ActiveRecord::Base.transaction do
@@ -306,7 +306,7 @@ class PeopleController < Devise::RegistrationsController
     sign_out target_user
     report_analytics_event('user', "deleted", "by user")
     flash[:notice] = t("layouts.notifications.account_deleted")
-    redirect_to root
+    redirect_to search_path
   end
 
   def check_username_availability

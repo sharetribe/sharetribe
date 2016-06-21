@@ -19,7 +19,7 @@ class PersonMessagesController < ApplicationController
       redirect_to @recipient
     }.on_error {
       flash[:error] = t("layouts.notifications.message_not_sent")
-      redirect_to root
+      redirect_to search_path
     }
   end
 
@@ -63,7 +63,7 @@ class PersonMessagesController < ApplicationController
     @recipient = Person.find_by!(username: username, community_id: @current_community.id)
     if @current_user == @recipient
       flash[:error] = t("layouts.notifications.you_cannot_send_message_to_yourself")
-      redirect_to root
+      redirect_to search_path
     end
   end
 end

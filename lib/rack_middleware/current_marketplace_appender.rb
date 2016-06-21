@@ -1,3 +1,6 @@
+# Appends current marketplace info to env.
+#
+# Note: Is safe to run, even if there's no current_marketplace
 class CurrentMarketplaceAppender
   def initialize(app)
     @app = app

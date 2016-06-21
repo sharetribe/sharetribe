@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
   def create
     unless is_participant?(@current_user, params[:message][:conversation_id])
       flash[:error] = t("layouts.notifications.you_are_not_authorized_to_do_this")
-      return redirect_to root
+      return redirect_to search_path
     end
 
     message_params = params.require(:message).permit(

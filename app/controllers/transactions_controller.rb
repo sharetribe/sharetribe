@@ -126,7 +126,7 @@ class TransactionsController < ApplicationController
 
     unless tx.present? && transaction_conversation.present?
       flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
-      return redirect_to root
+      return redirect_to search_path
     end
 
     tx_model = Transaction.where(id: tx[:id]).first

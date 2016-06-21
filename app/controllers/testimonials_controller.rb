@@ -85,7 +85,7 @@ class TestimonialsController < ApplicationController
 
     if @transaction.nil?
       flash[:error] = t("layouts.notifications.you_are_not_allowed_to_give_feedback_on_this_transaction")
-      redirect_to root and return
+      redirect_to search_path and return
     end
   end
 
@@ -95,7 +95,7 @@ class TestimonialsController < ApplicationController
 
     unless waiting
       flash[:error] = t("layouts.notifications.you_have_already_given_feedback_about_this_event")
-      redirect_to root and return
+      redirect_to search_path and return
     end
   end
 
