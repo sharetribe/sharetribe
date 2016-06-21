@@ -11,67 +11,13 @@
   & :global(.pac-container[style]) {
     /* Generated autocompletion has inline styles, thus the ugly override.
        See: https://css-tricks.com/override-inline-styles-with-css/ */
-    width: 20em !important;
-    margin-top: 10px;
-  }
-
-  & :global(.pac-item) {
-    line-height: 40px;
-  }
-  & :global(.pac-icon) {
-    margin-top: 10px;
+    min-width: 15em !important;
   }
   /* stylelint-enable selector-class-pattern */
 }
 
 /* Used in JavaScript to toggle the mobile menu. */
-.mobileMenuOpen {
-  @media (--small-and-medium-viewport) {
-    /* stylelint-disable selector-class-pattern */
-
-    & :global(.pac-container[style]) {
-      max-width: 70% !important;
-      background-color: var(--SearchBar_mobileBackgroundColor);
-      border-top: none !important;
-      margin-top: 1px;
-    }
-
-    & :global(.pac-item) {
-      border-color: var(--SearchBar_mobileInputBorderColor);
-
-      &:hover {
-        background-color: var(--SearchBar_mobileBackgroundColor);
-      }
-
-      &:first-of-type {
-        border-top: none;
-      }
-    }
-
-    & :global(.pac-item-selected) {
-      background-color: var(--SearchBar_mobileBackgroundColor);
-    }
-
-    & :global(.pac-item-query) {
-      color: var(--SearchBar_mobilePlaceholderColor);
-    }
-
-    & :global(.pac-matched) {
-      font-weight: normal;
-      text-decoration: underline;
-    }
-
-    & :global(.pac-logo)::after {
-      background-image: url('https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-non-white3.png');
-    }
-
-    & :global(.pac-logo.hdpi)::after {
-      background-image: url('https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-non-white3_hdpi.png');
-    }
-
-    /* stylelint-enable selector-class-pattern */
-  }
-}
+.mobileMenuOpen {} /* stylelint-disable-line block-no-empty */
 
 .root {} /* stylelint-disable-line block-no-empty */
 
@@ -89,7 +35,6 @@
 
   @nest .mobileMenuOpen & {
     display: flex;
-    background-color: var(--SearchBar_mobileBackgroundColor);
   }
 
   @media (--large-viewport) {
@@ -148,6 +93,7 @@
   z-index: var(--SearchBar_childZIndex);
   flex-grow: 1;
   transition: flex-grow 0.25s ease-out, width 0.25s ease-out, color 0.1s ease-in;
+  background-color: transparent;
 
   -webkit-font-smoothing: antialiased;
 
@@ -159,10 +105,6 @@
     @media (--large-viewport) {
       flex-grow: 1;
     }
-  }
-
-  @nest .mobileMenuOpen & {
-    background-color: var(--SearchBar_mobileBackgroundColor);
   }
 
   /* When there is only a single search input, disable width changes and
@@ -333,20 +275,6 @@
     }
   }
 
-  /* CSS triangle pointing to the search icon above */
-  &::before {
-    content: '';
-    position: absolute;
-    top: calc(-2 * var(--SearchBar_mobileTriangleSize));
-    right: calc(var(--SearchBar_mobileHeight) / 2 - var(--SearchBar_mobileTriangleSize));
-    border: var(--SearchBar_mobileTriangleSize) solid transparent;
-    border-bottom-color: var(--SearchBar_mobileButtonBackgroundColor);
-
-    @media (--large-viewport) {
-      display: none;
-    }
-  }
-
   & svg {
     position: absolute;
     top: calc(var(--SearchBar_mobileHeight) / 2 - var(--SearchBar_iconSize) / 2);
@@ -366,6 +294,7 @@
 }
 
 .mobileToggle {
+  position: relative;
   display: inline-block;
   margin: 0;
   padding: 0;
@@ -389,5 +318,29 @@
 
   @media (--large-viewport) {
     display: none;
+  }
+
+}
+
+/* CSS triangle pointing to the search toggle icon */
+.mobileToggleArrow {
+  display: none;
+  position: absolute;
+  bottom: -1px;
+  right: calc(var(--SearchBar_mobileHeight) / 2 - var(--SearchBar_mobileTriangleSize));
+  border: var(--SearchBar_mobileTriangleSize) solid transparent;
+
+  /* We must adjust the brightness here to match either the input
+     background or the submit button background when the toggle
+     position changes in the breakpoint. This cannot be done in JS by
+     switching the color since the breakpoints are unknown there. */
+  filter: brightness(80%);
+
+  @media (--medium-viewport) {
+    filter: brightness(100%);
+  }
+
+  @nest .mobileMenuOpen & {
+    display: block;
   }
 }
