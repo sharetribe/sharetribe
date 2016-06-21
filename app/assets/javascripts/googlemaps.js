@@ -596,7 +596,7 @@ function addListingMarkers(listings, viewport) {
     map.setCenter(cen);
   } else {
     var listingsBounds = (latitudes.length && longitudes.length) ?
-      {sw: [_.min(latitudes), _.min(longitudes)], ne: [_.max(latitudes), _.max(longitudes)]} : nil;
+      {sw: [_.min(latitudes), _.min(longitudes)], ne: [_.max(latitudes), _.max(longitudes)]} : null;
     setBounds(listingsBounds);
   }
 
