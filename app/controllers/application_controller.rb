@@ -651,7 +651,7 @@ class ApplicationController < ActionController::Base
         }),
       },
       locales: {
-        current_locale_ident: @current_user.locale.to_s,
+        current_locale_ident: Maybe(@current_user).map { |user| user.locale }.or_else(@current_community.default_locale).to_s,
         current_locale: Maybe(Sharetribe::AVAILABLE_LOCALES.find { |l| l[:ident] == @current_user.to_s })[:language].or_else(locale).to_s,
         available_locales: available_locales.map { |locale|
           {
