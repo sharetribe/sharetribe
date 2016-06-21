@@ -1,7 +1,7 @@
 module CustomLandingPage
   module MarketplaceDataStore
 
-    DEFAULT_COLOR = "A64C5D";
+    DEFAULT_COLOR = "A64C5D"
 
     module_function
 
