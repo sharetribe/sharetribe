@@ -6,10 +6,8 @@
   # If we'd render the sections after the <head> elements, the section specific
   # styles would be empty
 %>
-<% enabled_sections = sections.reject { |section| section["disabled"] } %>
-
 <% content_for :sections do %>
-  <% enabled_sections.each do |section| %>
+  <% sections.each do |section| %>
 
     <% s = section["section"] %>
     <% section_id = "#{s['kind']}__#{s['id']}" %>
@@ -21,7 +19,7 @@
       <%= render partial: "footer", locals: {section_id: section_id, s: s} %>
     <% end %>
 
-  <% end # enabled_sections#each %>
+  <% end # sections#each %>
 <% end # capture %>
 
 <html lang="en">
@@ -111,7 +109,7 @@
 
 <% # Add javascript libraries %>
 
-<% if enabled_sections.any? { |s| s["section"]["kind"] == "hero" && s["section"]["variation"]["value"] == "location_search" } %>
+<% if sections.any? { |s| s["section"]["kind"] == "hero" && s["section"]["variation"]["value"] == "location_search" } %>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
   <script>
     <%= javascripts[:location_search] %>
