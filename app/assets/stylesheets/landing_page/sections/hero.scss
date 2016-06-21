@@ -175,6 +175,10 @@
 
   @include enable-flex-shrink-fix;
 
+  &:hover {
+    @include hover-transition;
+  }
+
   /* mobile */
   display: none;
 

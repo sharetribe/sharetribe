@@ -1,0 +1,19 @@
+/*
+ * This is the transition that should be used with link and button hovers.
+ *
+ * Usage:
+ *
+ * .my-button:hover {
+ *   @include hover-transition
+ * }
+ *
+ * To specify which property should be animated, use:
+ *
+ * .my-button:hover {
+ *   @include hover-transition(background-color)
+ * }
+ *
+ */
+@mixin hover-transition($transition-prop: all) {
+  @include prefix-prop(transition, $transition-prop 0.1s ease-in);
+}
