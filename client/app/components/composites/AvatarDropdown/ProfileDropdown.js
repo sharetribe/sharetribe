@@ -1,7 +1,7 @@
 import { Component, PropTypes } from 'react';
 import r, { div } from 'r-dom';
 
-import css from './ArrowDropdown.css';
+import css from './ProfileDropdown.css';
 import inboxEmptyIcon from './images/inboxEmptyIcon.svg';
 import profileIcon from './images/profileIcon.svg';
 import settingsIcon from './images/settingsIcon.svg';
@@ -21,10 +21,10 @@ ProfileActionCard.propTypes = {
   action: PropTypes.func.isRequired,
 };
 
-class ArrowDropdown extends Component {
+class ProfileDropdown extends Component {
   render() {
     return div({
-      className: css.arrowDropdown,
+      className: css.profileDropdown,
     }, [
       div({ className: css.rootArrow }),
       div({ className: css.box }, [
@@ -49,7 +49,7 @@ class ArrowDropdown extends Component {
   }
 }
 
-ArrowDropdown.propTypes = {
+ProfileDropdown.propTypes = {
   actions: PropTypes.shape({
     inboxAction: PropTypes.func.isRequired,
     profileAction: PropTypes.func.isRequired,
@@ -60,4 +60,4 @@ ArrowDropdown.propTypes = {
   customColor: PropTypes.string.isRequired,
 };
 
-export default ArrowDropdown;
+export default ProfileDropdown;

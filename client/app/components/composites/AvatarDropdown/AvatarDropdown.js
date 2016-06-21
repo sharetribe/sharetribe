@@ -3,7 +3,7 @@ import r, { div } from 'r-dom';
 import _ from 'lodash';
 import classNames from 'classnames';
 import { className } from '../../../utils/PropTypes';
-import ArrowDropdown from './ArrowDropdown';
+import ProfileDropdown from './ProfileDropdown';
 import Avatar from '../../elements/Avatar/Avatar';
 
 import css from './AvatarDropdown.css';
@@ -46,7 +46,7 @@ class AvatarDropdown extends Component {
     }, [
       r(Avatar, this.props.avatar),
       this.state.menuOpen ?
-        r(ArrowDropdown, {
+        r(ProfileDropdown, {
           customColor: this.props.customColor,
           actions: this.props.actions,
           onMouseOver: this.handleHover,
@@ -58,7 +58,7 @@ class AvatarDropdown extends Component {
 
 AvatarDropdown.propTypes = {
   avatar: PropTypes.shape(Avatar.propTypes).isRequired,
-  ...ArrowDropdown.propTypes,
+  ...ProfileDropdown.propTypes,
   className,
 };
 
