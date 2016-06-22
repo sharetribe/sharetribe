@@ -47,6 +47,9 @@ Kassi::Application.routes.draw do
     post "/prospect_emails" => "marketplaces#create_prospect_email"
   end
 
+  # UI API, i.e. internal endpoints for dynamic UI that doesn't belong to under any specific controller
+  get "/ui_api/topbar_props" => "topbar_api#props"
+
   # Keep before /:locale/ routes, because there is locale 'vi', which matches '_lp_preview'
   # and regexp anchors are not allowed in routing requirements.
   get '/_lp_preview' => 'landing_page#preview'
