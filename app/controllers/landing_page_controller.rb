@@ -22,6 +22,8 @@ class LandingPageController < ActionController::Metal
   CACHE_TIME = APP_CONFIG[:clp_cache_time].to_i.seconds
   CACHE_HEADER = "X-CLP-Cache"
 
+  FONT_PATH = APP_CONFIG[:font_proximanovasoft_url].present? ? APP_CONFIG[:font_proximanovasoft_url] : "/landing_page/fonts"
+
   def index
     cid = community_id(request)
     default_locale = community_default_locale(request)
@@ -187,8 +189,16 @@ class LandingPageController < ActionController::Metal
     nil
   end
 
+  def community(request)
+    request.env[:current_marketplace]
+  end
+
+  def community_customization(request, locale)
+    community(request).community_customizations.where(locale: locale).first
+  end
+
   def community_id(request)
-    request.env[:current_marketplace]&.id
+    community(request)&.id
   end
 
   def community_default_locale(request)
@@ -200,7 +210,9 @@ class LandingPageController < ActionController::Metal
 
     initialize_i18n!(community_id, locale)
 
-    font_path = APP_CONFIG[:font_proximanovasoft_url].present? ? APP_CONFIG[:font_proximanovasoft_url] : "/landing_page/fonts"
+    props = topbar_props(community(request),
+                         community_customization(request, locale),
+                         request.fullpath)
 
     denormalizer = build_denormalizer(
       cid: community_id,
@@ -210,18 +222,27 @@ class LandingPageController < ActionController::Metal
     )
 
     render_to_string :landing_page,
-           locals: { font_path: font_path,
+           locals: { font_path: FONT_PATH,
                      styles: landing_page_styles,
                      javascripts: {
                        location_search: location_search_js
                      },
                      page: denormalizer.to_tree(structure, root: "page"),
-                     sections: denormalizer.to_tree(structure, root: "composition") }
+                     sections: denormalizer.to_tree(structure, root: "composition"),
+                     topbar_props: props }
   end
 
   def render_not_found(msg = "Not found")
     self.status = 404
     self.response_body = msg
+  end
+
+  def topbar_props(community, community_customization, request_path)
+    TopbarHelper.topbar_props(
+      community: community,
+      path_after_locale_change: request_path.gsub(/^\/en/, "").gsub(/^\//, ""),
+      search_placeholder: community_customization&.search_placeholder,
+      locale_param: params[:locale])
   end
 
   # rubocop:disable Metrics/MethodLength
