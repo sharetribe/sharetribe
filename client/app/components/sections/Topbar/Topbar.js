@@ -7,10 +7,16 @@ import Logo from '../../elements/Logo/Logo';
 import SearchBar from '../../composites/SearchBar/SearchBar';
 import AvatarDropdown from '../../composites/AvatarDropdown/AvatarDropdown';
 
-const avatarDropdownProps = (avatarDropdown, railsContext) => {
-  // TODO: rethink with actual railscontext
-  const color = railsContext && railsContext.marketplace_color1 ? railsContext.marketplace_color1 : '#050';
-  return { ...avatarDropdown, customColor: color };
+const avatarDropdownProps = (avatarDropdown) => {
+  // TODO: color from railscontext
+  const actions = {
+    inboxAction: () => false,
+    profileAction: () => false,
+    settingsAction: () => false,
+    adminDashboardAction: () => false,
+    logoutAction: () => false,
+  };
+  return { actions, ...avatarDropdown };
 };
 
 class Topbar extends Component {
@@ -27,7 +33,7 @@ class Topbar extends Component {
         null,
       this.props.avatarDropdown ?
         r(AvatarDropdown, {
-          ...avatarDropdownProps(this.props.avatarDropdown, this.props.railsContext),
+          ...avatarDropdownProps(this.props.avatarDropdown),
           classSet: css.topbarAvatarDropdown,
         }) :
         null,
@@ -44,7 +50,6 @@ Topbar.propTypes = {
     onSubmit: PropTypes.func.isRequired,
   }).isRequired,
   avatarDropdown: PropTypes.shape(AvatarDropdown.propTypes),
-  railsContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
 export default Topbar;
