@@ -27,40 +27,44 @@ const LABEL_TYPE_DROPDOWN = 'dropdown';
 
 class Topbar extends Component {
   render() {
-    const menuProps = Object.assign({}, this.props.menu, {
-      key: 'menu',
-      name: t('web.topbar.menu'),
-      identifier: 'Menu',
-      menuLabelType: LABEL_TYPE_MENU,
-      content: this.props.menu.links.map((l) => (
-        {
-          active: l.link === this.props.railsContext.location,
-          activeColor: this.props.railsContext.marketplace_color1,
-          content: l.title,
-          href: l.link,
-          type: 'menuitem',
-        }
-      )),
-    });
+    const menuProps = this.props.menu ?
+      Object.assign({}, this.props.menu, {
+        key: 'menu',
+        name: t('web.topbar.menu'),
+        identifier: 'Menu',
+        menuLabelType: LABEL_TYPE_MENU,
+        content: this.props.menu.links.map((l) => (
+          {
+            active: l.link === this.props.railsContext.location,
+            activeColor: this.props.railsContext.marketplace_color1,
+            content: l.title,
+            href: l.link,
+            type: 'menuitem',
+          }
+        )),
+      }) :
+      {};
 
-    const available_locales = this.props.locales.available_locales;
+    const available_locales = this.props.locales ? this.props.locales.available_locales : null;
     const hasMultipleLanguages = available_locales && available_locales.length > 1;
-    const languageMenuProps = Object.assign({}, {
-      key: 'languageMenu',
-      name: this.props.locales.current_locale,
-      identifier: 'LanguageMenu',
-      menuLabelType: LABEL_TYPE_DROPDOWN,
-      extraClasses: css.topbarLanguageMenuLabel,
-      content: this.props.locales.available_locales.map((v) => (
-        {
-          active: v.locale_ident === this.props.locales.current_locale_ident,
-          activeColor: this.props.railsContext.marketplace_color1,
-          content: v.locale_name,
-          href: v.change_locale_uri,
-          type: 'menuitem',
-        }
-      )),
-    });
+    const languageMenuProps = hasMultipleLanguages ?
+      Object.assign({}, {
+        key: 'languageMenu',
+        name: this.props.locales.current_locale,
+        identifier: 'LanguageMenu',
+        menuLabelType: LABEL_TYPE_DROPDOWN,
+        extraClasses: css.topbarLanguageMenuLabel,
+        content: this.props.locales.available_locales.map((v) => (
+          {
+            active: v.locale_ident === this.props.locales.current_locale_ident,
+            activeColor: this.props.railsContext.marketplace_color1,
+            content: v.locale_name,
+            href: v.change_locale_uri,
+            type: 'menuitem',
+          }
+        )),
+      }) :
+      {};
 
     return div({ className: css.topbar }, [
       r(Logo, { ...this.props.logo, classSet: css.topbarLogo }),
@@ -100,7 +104,7 @@ Topbar.propTypes = {
     })),
   }),
   locales: PropTypes.shape({
-    current_locale: PropTypes.string.isRequir,
+    current_locale: PropTypes.string.isRequired,
     current_locale_ident: PropTypes.string.isRequired,
     available_locales: PropTypes.arrayOf(PropTypes.shape({
       locale_name: PropTypes.string.isRequired,

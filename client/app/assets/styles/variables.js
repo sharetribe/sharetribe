@@ -2,6 +2,7 @@
 const fontSizeSmall = '13px';
 const fontSize = '14px';
 const fontSizeBig = '16px';
+const fontSizeMobile = '17px';
 const textColor = 'rgb(82, 89, 97)';
 const textColorFocus = 'rgb(0, 0, 0)';
 const backgroundLightColor = 'white';
@@ -39,8 +40,8 @@ module.exports = {
   '--breakpointMedium': '601px',
   '--breakpointLarge': '1024px',
 
-  '--baseFontSize': '14px',
-  '--baseFontSizeMobile': '17px',
+  '--baseFontSize': fontSize,
+  '--baseFontSizeMobile': fontSizeMobile,
 
   '--fontSizeSmall': '0.875rem',
   '--fontSize': '1rem',
@@ -153,6 +154,8 @@ module.exports = {
   '--Menu_boxShadow': '0px 2px 4px 0px rgba(0, 0, 0, 0.1)',
   '--Menu_iconPadding': '0.7em',
   '--Menu_zIndex': '1',
-  '--Menu_labelPaddingVertical': '1.28571429rem',
-  '--Menu_labelPaddingHorizontal': '1.7142857rem',
+
+  // topbar can't control base font-size.
+  '--Menu_labelPaddingVertical': '1.28571429em',
+  '--Menu_labelPaddingHorizontal': '1.714285em',
 };

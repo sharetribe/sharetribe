@@ -14,19 +14,19 @@
   &.openMenu,
   &.touchless:hover {
 
-    .menuLabel {
+    & .menuLabel {
       color: var(--Menu_textColorFocus);
     }
 
-    .menuLabelIcon g,
-    .menuLabelDropdownIcon path {
+    & .menuLabelIcon g,
+    & .menuLabelDropdownIcon path {
       fill: var(--Menu_textColorFocus);
     }
   }
 
   &.openMenu,
   &.touchless:hover {
-    .menuContent {
+    & .menuContent {
       display: block;
     }
   }

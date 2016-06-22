@@ -624,7 +624,7 @@ class ApplicationController < ActionController::Base
 
     links = [
       {
-        link: root_path,
+        link: root,
         title: t("header.home")
       },
       {
