@@ -37,10 +37,10 @@ class LandingPageController < ActionController::Metal
     preview_version = parse_int(params[:preview_version])
 
     begin
-      # structure = CLP::LandingPageStore.load_structure(cid, preview_version)
+      structure = CLP::LandingPageStore.load_structure(cid, preview_version)
 
       # Uncomment for dev purposes
-      structure = JSON.parse(data_str)
+      # structure = JSON.parse(data_str)
 
       # Tell robots to not index and to not follow any links
       headers["X-Robots-Tag"] = "none"
@@ -139,7 +139,7 @@ class LandingPageController < ActionController::Metal
       "id": "info1_v1",
       "kind": "info",
       "variation": "single_column",
-      "title": "Section title goes here",
+      "title": "Section title goes here [Info #1 - V1]",
       "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero.",
 
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
@@ -152,7 +152,7 @@ class LandingPageController < ActionController::Metal
       "id": "info1_v2",
       "kind": "info",
       "variation": "single_column",
-      "title": "Section title goes here",
+      "title": "Section title goes here [Info #1 - V2]",
       "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero.",
       "background_image": {"type": "assets", "id": "myinfoimage2"}
     },
@@ -160,7 +160,7 @@ class LandingPageController < ActionController::Metal
       "id": "info1_v3",
       "kind": "info",
       "variation": "single_column",
-      "title": "Section title goes here",
+      "title": "Section title goes here [Info #1 - V3]",
       "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero.",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
@@ -171,14 +171,14 @@ class LandingPageController < ActionController::Metal
       "id": "info1_v4",
       "kind": "info",
       "variation": "single_column",
-      "title": "Section title goes here",
+      "title": "Section title goes here [Info #1 - V4]",
       "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero."
     },
     {
       "id": "info2_v1",
       "kind": "info",
       "variation": "multi_column",
-      "title": "Section title goes here",
+      "title": "Section title goes here [Info #2 - V1]",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "icon_color": {"type": "marketplace_data", "id": "primary_color"},
@@ -210,7 +210,7 @@ class LandingPageController < ActionController::Metal
       "id": "info2_v2",
       "kind": "info",
       "variation": "multi_column",
-      "title": "Section title goes here",
+      "title": "Section title goes here [Info #2 - V2]",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "icon_color": {"type": "marketplace_data", "id": "primary_color"},
@@ -239,7 +239,7 @@ class LandingPageController < ActionController::Metal
       "id": "info2_v3",
       "kind": "info",
       "variation": "multi_column",
-      "title": "Section title goes here",
+      "title": "Section title goes here [Info #2 - V3]",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "icon_color": {"type": "marketplace_data", "id": "primary_color"},
@@ -265,7 +265,7 @@ class LandingPageController < ActionController::Metal
       "id": "info2_v4",
       "kind": "info",
       "variation": "multi_column",
-      "title": "Section title goes here",
+      "title": "Section title goes here [Info #2 - V4]",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "icon_color": {"type": "marketplace_data", "id": "primary_color"},
@@ -288,7 +288,7 @@ class LandingPageController < ActionController::Metal
       "id": "info3_v1",
       "kind": "info",
       "variation": "multi_column",
-      "title": "Section title goes here",
+      "title": "Section title goes here [Info #3 - V1]",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "icon_color": {"type": "marketplace_data", "id": "primary_color"},
@@ -313,7 +313,7 @@ class LandingPageController < ActionController::Metal
       "id": "info3_v2",
       "kind": "info",
       "variation": "multi_column",
-      "title": "Section title goes here",
+      "title": "Section title goes here [Info #3 - V2]",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "icon_color": {"type": "marketplace_data", "id": "primary_color"},
@@ -336,7 +336,7 @@ class LandingPageController < ActionController::Metal
       "id": "info3_v3",
       "kind": "info",
       "variation": "multi_column",
-      "title": "Section title goes here",
+      "title": "Section title goes here [Info #3 - V3]",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "icon_color": {"type": "marketplace_data", "id": "primary_color"},
@@ -357,7 +357,7 @@ class LandingPageController < ActionController::Metal
       "id": "info3_v4",
       "kind": "info",
       "variation": "multi_column",
-      "title": "Section title goes here",
+      "title": "Section title goes here [Info #3 - V4]",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "icon_color": {"type": "marketplace_data", "id": "primary_color"},
