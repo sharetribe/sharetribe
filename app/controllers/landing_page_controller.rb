@@ -144,10 +144,8 @@ class LandingPageController < ActionController::Metal
 
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "button": {
-        "title": "Section link",
-        "path": {"path": "https://google.com"}
-      },
+      "button_title": "Section link",
+      "button_path": {"path": "https://google.com"},
       "background_image": {"type": "assets", "id": "myinfoimage"}
     },
     {
@@ -166,10 +164,8 @@ class LandingPageController < ActionController::Metal
       "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero.",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "button": {
-        "title": "Section link",
-        "path": {"path": "https://google.com"}
-      }
+      "button_title": "Section link",
+      "button_path": {"path": "https://google.com"}
     },
     {
       "id": "info4",

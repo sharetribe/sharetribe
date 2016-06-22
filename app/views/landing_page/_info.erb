@@ -45,9 +45,9 @@
 
       <p class="info__paragraph"><%= s["paragraph"] %></p>
 
-      <% if s["button"] %>
+      <% if s["button_title"] %>
         <% button_modifier = background_enabled ? "" : "--ghost" %>
-        <a class="info__button<%= button_modifier %> <%= section_id %>__info__button<%= button_modifier %>" href="<%= s["button"]["path"]["path"] %>"><%= s["button"]["title"] %></a>
+        <a class="info__button<%= button_modifier %> <%= section_id %>__info__button<%= button_modifier %>" href="<%= s["button_path"]["path"] %>"><%= s["button_title"] %></a>
       <% end %>
 
     <% when "multi_column" %>
