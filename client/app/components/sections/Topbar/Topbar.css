@@ -45,6 +45,12 @@
       font-size: var(--Topbar_fontSize);
     }
   }
+
+
+  & .topbarLanguageMenuLabel {
+    font-size: var(--Menu_fontSizeSmall);
+  }
+
 }
 
 .topbarLogo {

@@ -5,5 +5,6 @@ import Topbar from '../components/sections/Topbar/Topbar';
 export default (props, railsContext) => {
   initializeI18n(railsContext.i18nLocale, railsContext.i18nDefaultLocale, process.env.NODE_ENV);
 
-  return r(Topbar, props);
+  const combinedProps = Object.assign({}, props, { railsContext });
+  return r(Topbar, combinedProps);
 };

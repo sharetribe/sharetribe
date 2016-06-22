@@ -444,8 +444,8 @@ class ApplicationController < ActionController::Base
     Maybe(@current_community)
       .map { |c|
         {
-          marketplace_color1: c.custom_color1 || '#a64c5d',
-          marketplace_color2: c.custom_color2 || '#00a26c'
+          marketplace_color1: "##{c.custom_color1}" || '#a64c5d',
+          marketplace_color2: "##{c.custom_color2}" || '#00a26c'
         }
       }
       .or_else({})
@@ -621,6 +621,37 @@ class ApplicationController < ActionController::Base
   helper_method :onboarding_topbar_props
 
   def topbar_props
+
+    links = [
+      {
+        link: root,
+        title: t("header.home")
+      },
+      {
+        link: about_infos_path,
+        title: t("header.about")
+      },
+      {
+        link: new_user_feedback_path,
+        title: t("header.contact_us"),
+      }
+    ]
+    with_invite_link do
+      links << {
+        link: new_invitation_path,
+        title: t("header.invite"),
+      }
+    end
+    links.concat(Maybe(@current_community.menu_links)
+      .map { |menu_links|
+        menu_links.map { |menu_link|
+          {
+            link: menu_link.url(I18n.locale),
+            title: menu_link.title(I18n.locale)
+          }
+        }
+      }.or_else([]))
+
     {
       logo: {
         href: '/',
@@ -632,6 +663,23 @@ class ApplicationController < ActionController::Base
         mode: 'keyword-and-location',
         keyword_placeholder: (@community_customization && @community_customization.search_placeholder) || t("web.topbar.search_placeholder"),
         location_placeholder: 'Location'
+      },
+      menu: {
+        links: links,
+      },
+      locales: {
+        current_locale_ident: Maybe(@current_user).map { |user| user.locale }.or_else(@current_community.default_locale).to_s,
+        current_locale: Maybe(Sharetribe::AVAILABLE_LOCALES.find { |l| l[:ident] == @current_user.to_s })[:language].or_else(locale).to_s,
+        available_locales: available_locales.map { |locale|
+          {
+            locale_name: locale[0],
+            locale_ident: locale[1],
+            change_locale_uri: change_locale_path({
+              locale: "#{locale[1]}",
+              redirect_uri: "#{@return_to}"
+            })
+          }
+        },
       },
       avatarDropdown: {
         customColor: current_community_custom_colors[:marketplace_color1],

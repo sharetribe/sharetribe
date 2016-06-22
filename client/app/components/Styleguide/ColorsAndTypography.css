@@ -22,3 +22,24 @@
   text-shadow: 0 0 2px black;
   text-align: center;
 }
+
+
+/* component Wrappers */
+.componentWrapper {
+  padding: 1em;
+  background-color: #e2e2e2
+}
+
+.propsTitle {
+  margin-top: 2em;
+  display: block;
+}
+
+.propsWrapper {
+  margin: 1em 0 0 0;
+  background: lightGrey;
+  padding: 1em;
+  display: inline-block;
+  height: 258px;
+  overflow-y: scroll;
+}

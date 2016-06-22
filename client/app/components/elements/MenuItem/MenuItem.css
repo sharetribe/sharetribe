@@ -1,0 +1,31 @@
+.menuitem {
+  position: relative;
+  min-width: 144px;
+  list-style: none;
+  border-bottom: 1px solid var(--MenuItem_borderColor);
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+.menuitemLink {
+  display: inline-block;
+  padding: var(--MenuItem_paddingTopbarVertical) var(--MenuItem_paddingTopbarHorizontal);
+  color: var(--MenuItem_textColor);
+  width: 100%;
+  letter-spacing: var(--MenuItem_letterSpacing);
+
+  &:focus,
+  &:hover {
+    color: var(--MenuItem_textColorFocus);
+    background-color: var(--MenuItem_backgroundColorHover);
+  }
+}
+
+.activeIndicator {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 0.5em; /* topbar can't trust root font-size due to old design */
+  height: 100%;
+}

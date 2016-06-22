@@ -1,4 +1,14 @@
 /* eslint-env node */
+const fontSizeSmall = '13px';
+const fontSize = '14px';
+const fontSizeBig = '16px';
+const fontSizeMobile = '17px';
+const textColor = 'rgb(82, 89, 97)';
+const textColorFocus = 'rgb(0, 0, 0)';
+const backgroundLightColor = 'white';
+const backgroundLightColorHover = 'rgba(169, 172, 176, 0.07)';
+const paddingTopbarVertical = '0.92857em';
+const paddingTopbarHorizontal = '1.7142857em';
 
 const topbarBorderColor = 'rgba(169, 172, 176, 0.5)';
 const bodyPadding = '18px';
@@ -30,8 +40,8 @@ module.exports = {
   '--breakpointMedium': '601px',
   '--breakpointLarge': '1024px',
 
-  '--baseFontSize': '14px',
-  '--baseFontSizeMobile': '17px',
+  '--baseFontSize': fontSize,
+  '--baseFontSizeMobile': fontSizeMobile,
 
   '--fontSizeSmall': '0.875rem',
   '--fontSize': '1rem',
@@ -45,7 +55,7 @@ module.exports = {
   '--lineHeightTitle': '1.875rem',
   '--lineHeightInfo': '1.38462rem',
 
-  '--colorBackground': 'white',
+  '--colorBackground': backgroundLightColor,
   '--color': '#3c3c3c',
   '--colorTitle': '#171717',
   '--colorActionText': '#4d998b',
@@ -83,8 +93,8 @@ module.exports = {
 
    // Must be at least 16px to avoid iOS from zooming in when focusing
    // on an input.
-  '--Topbar_inputFontSizeMobile': '16px',
-  '--Topbar_fontSize': '14px',
+  '--Topbar_inputFontSizeMobile': fontSizeBig,
+  '--Topbar_fontSize': fontSize,
 
   '--Topbar_avatarSize': '44px',
   '--Topbar_avatarPadding': '18px 24px',
@@ -126,4 +136,26 @@ module.exports = {
   '--ProfileDropdown_borderColor': topbarBorderColor,
   '--ProfileDropdown_zIndex': 1,
   '--ProfileDropdown_rightOffset': bodyPadding,
+
+  '--MenuItem_borderColor': topbarBorderColor,
+  '--MenuItem_backgroundColorHover': backgroundLightColorHover,
+  '--MenuItem_paddingTopbarVertical': paddingTopbarVertical,
+  '--MenuItem_paddingTopbarHorizontal': paddingTopbarHorizontal,
+  '--MenuItem_textColor': textColor,
+  '--MenuItem_textColorFocus': textColorFocus,
+  '--MenuItem_letterSpacing': '0.09px',
+
+  '--Menu_fontSize': fontSize,
+  '--Menu_fontSizeSmall': fontSizeSmall,
+  '--Menu_textColor': textColor,
+  '--Menu_textColorFocus': textColorFocus,
+  '--Menu_colorBackground': backgroundLightColor,
+  '--Menu_borderColor': topbarBorderColor,
+  '--Menu_boxShadow': '0px 2px 4px 0px rgba(0, 0, 0, 0.1)',
+  '--Menu_iconPadding': '0.7em',
+  '--Menu_zIndex': '1',
+
+  // topbar can't control base font-size.
+  '--Menu_labelPaddingVertical': '1.28571429em',
+  '--Menu_labelPaddingHorizontal': '1.714285em',
 };
