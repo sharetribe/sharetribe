@@ -204,7 +204,7 @@ $content-padding: 36px;
   }
 }
 
-.info__column--two-column {
+.info__column--two-columns {
   @extend .info__column;
 
   @media #{$tablet} {
