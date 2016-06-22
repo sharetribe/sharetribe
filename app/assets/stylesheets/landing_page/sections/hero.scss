@@ -6,12 +6,18 @@
 
 .hero__section {
   width: 100%;
-  min-height: 80vh;
+  @include viewport-unit(min-height, 80vh);
   background-size: cover;
   background-position: center;
   @include prefix-val(display, flex);
   @include prefix-prop(align-items, center);
   box-shadow: inset 0 0 0 999999px rgba(0, 0, 0, 0.5); /* is there any cleaner way? */
+}
+
+.hero__content {
+  margin: 0 auto;
+  padding: $dimension-mobile-margin;
+  @include viewport-unit(margin-top, -4.44vh); /* -50px, when content height is 900px, 80vh */
 }
 
 .hero__content-container {
@@ -75,13 +81,6 @@
     line-height: 32px;
     margin-bottom: 48px;
   }
-}
-
-.hero__content {
-  max-width: 1366px;
-  margin: 0 auto;
-  padding: 24px;
-  margin-top: -4.44vh; /* -50px, when content height is 900px, 80vh */
 }
 
 // Add small extra padding for the search bar

@@ -1,0 +1,31 @@
+
+/*
+Generic landing page button
+
+You may want to override following properties:
+
+- background-color
+- border-color
+- height
+
+*/
+.landing-page__button {
+  $button-border-size: 2px;
+
+  font-family: ProximaNovaSoft-Bold;
+  font-size: 16px;
+  letter-spacing: 0px;
+  padding: (16px - $button-border-size) (32px - $button-border-size);
+  display: inline-block;
+
+  border-radius: 1000px; // High enough number to get fully rounded corners
+
+  border-width: $button-border-size;
+  border-style: solid;
+  border-color: transparent;
+
+  &:hover {
+    @include hover-transition;
+    color: #FFF;
+  }
+}

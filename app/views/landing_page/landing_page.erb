@@ -17,6 +17,8 @@
       <%= render partial: "hero", locals: {section_id: section_id, s: s} %>
     <% when "footer" %>
       <%= render partial: "footer", locals: {section_id: section_id, s: s} %>
+    <% when "info" %>
+      <%= render partial: "info", locals: {section_id: section_id, s: s} %>
     <% end %>
 
   <% end # sections#each %>
@@ -101,9 +103,11 @@
     <% # Styles from section partials. E.g. styles that need marketplace color %>
     <%= yield :hero_css %>
     <%= yield :footer_css %>
+    <%= yield :info_css %>
   </style>
 
 </head>
+<body>
 
 <%= yield :sections %>
 
@@ -120,4 +124,5 @@
 
 <%= yield :javascript %>
 
+</body>
 </html>
