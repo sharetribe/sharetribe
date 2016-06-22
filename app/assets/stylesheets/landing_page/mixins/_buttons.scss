@@ -18,7 +18,7 @@ You may want to override following properties:
   padding: (16px - $button-border-size) (32px - $button-border-size);
   display: inline-block;
 
-  border-radius: 1000px; // Is there cleaner way to do this?
+  border-radius: 1000px; // High enough number to get fully rounded corners
 
   border-width: $button-border-size;
   border-style: solid;
