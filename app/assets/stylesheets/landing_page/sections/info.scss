@@ -76,21 +76,47 @@ $content-padding: 36px;
   font-family: ProximaNovaSoft-Regular;
 
   // mobile
-  margin-bottom: 18px;
   font-size: 26px;
   letter-spacing: -0.5px;
 
   @media #{$tablet} {
-    margin-bottom: 24px;
     font-size: 36px;
     letter-spacing: -0.69px;
     line-height: 56px;
   }
 
   @media #{$desktop} {
-    margin-bottom: 24px;
     font-size: 46px;
     letter-spacing: -0.88px;
+  }
+}
+
+.info__title--one-column {
+  @extend .info__title;
+  // mobile
+  margin-bottom: 18px;
+
+  @media #{$tablet} {
+    margin-bottom: 24px;
+  }
+
+  @media #{$desktop} {
+    margin-bottom: 24px;
+  }
+}
+
+.info__title--three-columns {
+  @extend .info__title;
+
+  // mobile
+  margin-bottom: 36px;
+
+  @media #{$tablet} {
+    margin-bottom: 36px;
+  }
+
+  @media #{$desktop} {
+    margin-bottom: 48px;
   }
 }
 

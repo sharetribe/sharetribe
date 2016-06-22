@@ -33,9 +33,9 @@
 
 <section id="<%= section_id %>" class="info__section--<%= section_style_modifier %>" style="background-image: <%= background_image_style %>">
   <div class="info__content--<%= variation_modifier %>">
+    <h1 class="info__title--<%= variation_modifier %>"><%= s["title"] %></h1>
     <% case s["variation"] %>
     <% when "one_column" %>
-      <h1 class="info__title"><%= s["title"] %></h1>
 
       <p class="info__paragraph"><%= s["paragraph"] %></p>
 
