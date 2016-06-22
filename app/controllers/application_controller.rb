@@ -632,6 +632,13 @@ class ApplicationController < ActionController::Base
         mode: 'keyword-and-location',
         keyword_placeholder: (@community_customization && @community_customization.search_placeholder) || t("web.topbar.search_placeholder"),
         location_placeholder: 'Location'
+      },
+      avatarDropdown: {
+        customColor: current_community_custom_colors[:marketplace_color1],
+        avatar: {
+          imageHeight: '44px',
+          image: Maybe(@current_user).image.url(:thumb).or_else(view_context.image_path("profile_image/thumb/missing.png")),
+        }
       }
     }
   end

@@ -1,0 +1,17 @@
+.avatarDropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  & .avatarProfileDropdown {
+    display: none;
+  }
+
+  &.openDropdown,
+  &.touchless:hover {
+    & .avatarProfileDropdown {
+      display: block;
+    }
+  }
+}

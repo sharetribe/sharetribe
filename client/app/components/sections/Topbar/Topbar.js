@@ -5,6 +5,19 @@ import css from './Topbar.css';
 
 import Logo from '../../elements/Logo/Logo';
 import SearchBar from '../../composites/SearchBar/SearchBar';
+import AvatarDropdown from '../../composites/AvatarDropdown/AvatarDropdown';
+
+const avatarDropdownProps = (avatarDropdown) => {
+  // TODO: color from railscontext
+  const actions = {
+    inboxAction: () => false,
+    profileAction: () => false,
+    settingsAction: () => false,
+    adminDashboardAction: () => false,
+    logoutAction: () => false,
+  };
+  return { actions, ...avatarDropdown };
+};
 
 class Topbar extends Component {
   render() {
@@ -15,10 +28,13 @@ class Topbar extends Component {
           mode: this.props.search.mode,
           keywordPlaceholder: this.props.search.keyword_placeholder,
           locationPlaceholder: this.props.search.location_placeholder,
-          onSubmit: (data) => {
-            // TODO: submit with actual data
-            console.log(data); // eslint-disable-line no-console
-          },
+          onSubmit: this.props.search.onSubmit,
+        }) :
+        null,
+      this.props.avatarDropdown ?
+        r(AvatarDropdown, {
+          ...avatarDropdownProps(this.props.avatarDropdown),
+          classSet: css.topbarAvatarDropdown,
         }) :
         null,
     ]);
@@ -31,7 +47,9 @@ Topbar.propTypes = {
     mode: PropTypes.string,
     keyword_placeholder: PropTypes.string,
     location_placeholder: PropTypes.string,
+    onSubmit: PropTypes.func.isRequired,
   }).isRequired,
+  avatarDropdown: PropTypes.shape(AvatarDropdown.propTypes),
 };
 
 export default Topbar;

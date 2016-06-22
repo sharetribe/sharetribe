@@ -1,5 +1,8 @@
 /* eslint-env node */
 
+const topbarBorderColor = 'rgba(169, 172, 176, 0.5)';
+const bodyPadding = '18px';
+
 module.exports = {
 
   /*
@@ -83,11 +86,15 @@ module.exports = {
   '--Topbar_inputFontSizeMobile': '16px',
   '--Topbar_fontSize': '14px',
 
+  '--Topbar_avatarSize': '44px',
+  '--Topbar_avatarPadding': '18px 24px',
+  '--Topbar_avatarMobilePadding': '3px 8px',
+
   // SearchBar
   '--SearchBar_width': '396px',
   '--SearchBar_mobileHeight': '50px',
   '--SearchBar_height': '44px',
-  '--SearchBar_borderColor': 'rgba(169, 172, 176, 0.5)',
+  '--SearchBar_borderColor': topbarBorderColor,
   '--SearchBar_borderColorActive': 'rgb(122, 125, 128)',
   '--SearchBar_textColor': 'rgb(122, 125, 128)',
   '--SearchBar_textColorActive': 'rgb(82, 89, 97)',
@@ -113,4 +120,10 @@ module.exports = {
   '--SearchBar_mobileTriangleSize': '8px',
   '--SearchBar_iconSize': '16px',
   '--SearchBar_iconTopMarginFix': '4px',
+
+  // ProfileDropdown
+  '--ProfileDropdown_border': `1px solid ${topbarBorderColor}`,
+  '--ProfileDropdown_borderColor': topbarBorderColor,
+  '--ProfileDropdown_zIndex': 1,
+  '--ProfileDropdown_rightOffset': bodyPadding,
 };

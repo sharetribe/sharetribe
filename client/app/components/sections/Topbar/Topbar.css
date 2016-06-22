@@ -50,3 +50,16 @@
 .topbarLogo {
   height: var(--Topbar_logoHeight);
 }
+
+.topbarAvatarDropdown {
+  padding: var(--Topbar_avatarMobilePadding);
+  font-family: var(--Topbar_fontFamily);
+  font-size: var(--Topbar_fontSize);
+  align-self: flex-start;
+  display: none;
+
+  @media (--Topbar_medium) {
+    display: block;
+    padding: var(--Topbar_avatarPadding);
+  }
+}

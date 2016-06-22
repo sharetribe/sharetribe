@@ -1,0 +1,57 @@
+.rootArrow {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--ProfileDropdown_borderColor);
+}
+
+.box {
+  position: absolute;
+  border: var(--ProfileDropdown_border);
+  right: var(--ProfileDropdown_rightOffset);
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  z-index: var(--ProfileDropdown_zIndex);
+}
+
+.profileActions {
+  display: flex;
+}
+
+.profileAction {
+  width: 8.6em;
+  height: 8.6em;
+  border-right: var(--ProfileDropdown_border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(249, 249, 249);
+  }
+}
+
+.profileAction:last-of-type {
+  border-right: 0;
+}
+
+.logoutArea {
+  border-top: var(--ProfileDropdown_border);
+  padding: 0.69em 1.15em;
+}
+
+.adminLink {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.logoutLink {
+  float: right;
+  cursor: pointer;
+}
