@@ -1,10 +1,12 @@
 import { Component, PropTypes } from 'react';
 import r, { div } from 'r-dom';
+import classNames from 'classnames';
 
 import css from './ProfileDropdown.css';
 import inboxEmptyIcon from './images/inboxEmptyIcon.svg';
 import profileIcon from './images/profileIcon.svg';
 import settingsIcon from './images/settingsIcon.svg';
+import { className } from '../../../utils/PropTypes';
 
 class ProfileActionCard extends Component {
   render() {
@@ -24,7 +26,7 @@ ProfileActionCard.propTypes = {
 class ProfileDropdown extends Component {
   render() {
     return div({
-      className: css.profileDropdown,
+      className: classNames(css.profileDropdown, this.props.className),
     }, [
       div({ className: css.rootArrow }),
       div({ className: css.box }, [
@@ -58,6 +60,7 @@ ProfileDropdown.propTypes = {
     logoutAction: PropTypes.func.isRequired,
   }).isRequired,
   customColor: PropTypes.string.isRequired,
+  className,
 };
 
 export default ProfileDropdown;
