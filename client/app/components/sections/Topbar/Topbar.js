@@ -76,14 +76,14 @@ class Topbar extends Component {
           onSubmit: this.props.search.onSubmit,
         }) :
         null,
+      this.props.menu ? r(Menu, menuProps) : null,
+      hasMultipleLanguages ? r(Menu, languageMenuProps) : null,
       this.props.avatarDropdown ?
         r(AvatarDropdown, {
           ...avatarDropdownProps(this.props.avatarDropdown),
           classSet: css.topbarAvatarDropdown,
         }) :
         null,
-      this.props.menu ? r(Menu, menuProps) : null,
-      hasMultipleLanguages ? r(Menu, languageMenuProps) : null,
     ]);
   }
 }
