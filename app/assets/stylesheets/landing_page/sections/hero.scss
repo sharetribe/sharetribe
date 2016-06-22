@@ -6,7 +6,7 @@
 
 .hero__section {
   width: 100%;
-  min-height: 80vh;
+  @include viewport-unit(min-height, 80vh);
   background-size: cover;
   background-position: center;
   @include prefix-val(display, flex);
@@ -18,7 +18,7 @@
   max-width: 1366px;
   margin: 0 auto;
   padding: $dimension-mobile-margin;
-  margin-top: -4.44vh; /* -50px, when content height is 900px, 80vh */
+  @include viewport-unit(margin-top, -4.44vh); /* -50px, when content height is 900px, 80vh */
 }
 
 .hero__content-container {
