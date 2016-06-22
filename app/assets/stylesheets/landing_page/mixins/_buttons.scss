@@ -23,4 +23,9 @@ You may want to override following properties:
   border-width: $button-border-size;
   border-style: solid;
   border-color: transparent;
+
+  &:hover {
+    @include hover-transition;
+    color: #FFF;
+  }
 }

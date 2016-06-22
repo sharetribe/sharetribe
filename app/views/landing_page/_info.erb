@@ -8,12 +8,12 @@
   background_enabled     = !s["background_image"].nil?
   background_image_style = background_enabled ? "url('#{s["background_image"]["src"]}')" : "none"
   section_style_modifier = background_enabled ? "background" : "blank"
-  button_enabled         = !s["button"].nil?
+  one_column_button_enabled         = !s["button"].nil?
   variation_modifier     = variation_modifiers[s["variation"]]
 %>
 
 <% content_for :info_css, flush: true do %>
-  <% if button_enabled %>
+  <% if one_column_button_enabled %>
     .info__button {
       background-color: <%= s["button"]["color"]["value"] %>;
     }
@@ -39,7 +39,7 @@
 
       <p class="info__paragraph"><%= s["paragraph"] %></p>
 
-      <% if button_enabled %>
+      <% if one_column_button_enabled %>
         <% modifier = background_enabled ? "" : "--ghost" %>
         <a class="info__button<%= modifier %>" href="<%= s["button"]["path"]["path"] %>"><%= s["button"]["title"] %></a>
       <% end %>
