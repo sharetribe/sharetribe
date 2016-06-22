@@ -46,7 +46,7 @@ ka:
       send_instructions: "თქვენი ანგარიშის განბლოკვის ინსტრუქციას მიიღებთ ელ. ფოსტაზე რამოდენიმე წუთში."
       unlocked: "თქვენი ანგარიში წარმატებით განიბლოკა. გთხოვთ შედით სისტემაში რომ გააგრძელოთ. "
     omniauth_callbacks:
-      success: ~
+      success: "წარმატებით მოხდა ავტორიზაცია %{kind} ანგარიშიდან."
       failure: ~
     mailer:
       confirmation_instructions:

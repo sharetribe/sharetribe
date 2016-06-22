@@ -1226,6 +1226,7 @@ fr:
     hero:
       search: Rechercher
       signup: S'inscrire
+      search_placeholder: "Que recherchez-vous ?"
   layouts:
     admin:
       admin: "Panneau d'administration %{service_name}"
@@ -2161,7 +2162,7 @@ fr:
     days: jours
   web:
     topbar:
-      search_placeholder: ~
+      search_placeholder: Rechercher...
   will_paginate:
     models:
       person:
