@@ -49,11 +49,11 @@
         <a class="info__button<%= modifier %>" href="<%= s["button"]["path"]["path"] %>"><%= s["button"]["title"] %></a>
       <% end %>
 
-    <% when "three_columns" %>
+    <% when "three_columns", "two_columns" %>
 
       <div class="info__columns--<%= variation_modifier %>">
         <% s["columns"].each do |c| %>
-          <div class="info__column">
+          <div class="info__column--<%= variation_modifier %>">
             <% if c["icon"] %>
               <div class="info__column-icon">
                 <%= render partial: "icon", locals: { icon: c["icon"] } %>

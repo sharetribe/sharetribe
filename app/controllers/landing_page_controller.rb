@@ -216,6 +216,34 @@ class LandingPageController < ActionController::Metal
       ]
     },
     {
+      "id": "info6",
+      "kind": "info",
+      "variation": "two_columns",
+      "title": "Section title goes here",
+      "columns": [
+        {
+          "icon": "quill",
+          "icon_stroke": {"type": "marketplace_data", "id": "primary_color"},
+          "title": "Our mission",
+          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
+          "button_title": "Section link",
+          "button_path": {"path": "https://google.com"},
+          "button_color": {"type": "marketplace_data", "id": "primary_color"},
+          "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
+        },
+        {
+          "icon": "piggy-bank",
+          "icon_stroke": {"type": "marketplace_data", "id": "primary_color"},
+          "title": "Our mission",
+          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
+          "button_title": "Section link",
+          "button_path": {"path": "https://google.com"},
+          "button_color": {"type": "marketplace_data", "id": "primary_color"},
+          "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
+        }
+      ]
+    },
+    {
       "id": "footer",
       "kind": "footer",
       "theme": "light",
@@ -244,6 +272,7 @@ class LandingPageController < ActionController::Metal
 
   "composition": [
     { "section": {"type": "sections", "id": "myhero1"}},
+    { "section": {"type": "sections", "id": "info6"}},
     { "section": {"type": "sections", "id": "info"}},
     { "section": {"type": "sections", "id": "info2"}},
     { "section": {"type": "sections", "id": "info3"}},
