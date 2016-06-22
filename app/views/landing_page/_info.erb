@@ -28,6 +28,11 @@
       background-color: <%= s["button"]["color_hover"]["value"] %>;
       border-color: <%= s["button"]["color_hover"]["value"] %>;
     }
+
+    .info__column-icon > svg > g {
+      stroke: <%= s["button"]["color_hover"]["value"] %>;
+    }
+
   <% end %>
 <% end %>
 
@@ -51,7 +56,7 @@
           <div class="info__column">
             <% if c["icon"] %>
               <div class="info__column-icon">
-                <%= render partial: "icon", locals: { icon: c["icon"], stroke: c["icon_stroke"]["value"] } %>
+                <%= render partial: "icon", locals: { icon: c["icon"] } %>
               </div>
             <% end %>
             <h2 class="info__column-title"><%= c["title"] %></h2>

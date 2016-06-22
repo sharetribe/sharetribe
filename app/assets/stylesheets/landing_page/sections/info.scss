@@ -196,7 +196,24 @@ $content-padding: 36px;
 }
 
 .info__column-icon {
+  /* The SVG icon height may vary. This container is always 60x60 to make things aligned */
+
+  display: inline-block;
   margin-bottom: 24px;
+
+  // mobile
+  height: 48px;
+  width: 48px;
+
+  @media #{$tablet} {
+    height: 48px;
+    width: 48px;
+  }
+
+  @media #{$desktop} {
+    height: 60px;
+    width: 60px;
+  }
 }
 
 .info__column-title {
