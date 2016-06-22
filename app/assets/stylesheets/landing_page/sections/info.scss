@@ -4,8 +4,8 @@
   width: 100%;
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: center;
+  @include prefix-val(display, flex);
+  @include prefix-prop(align-items, center);
 }
 
 .info__section--background {
@@ -153,15 +153,15 @@ $content-padding: 36px;
 }
 
 .info__columns {
-  display: flex;
-  flex-direction: column;
+  @include prefix-val(display, flex);
+  @include prefix-prop(flex-direction, column);
 
   @media #{$tablet} {
-    flex-direction: row;
+    @include prefix-prop(flex-direction, row);
   }
 
   @media #{$desktop} {
-    flex-direction: row;
+    @include prefix-prop(flex-direction, row);
   }
 }
 
