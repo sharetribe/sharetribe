@@ -38,6 +38,8 @@ const baseProps = {
 storiesOf('Top bar')
   .add('Basic state', () => (
     withProps(Topbar, baseProps)))
+  .add('Empty state', () => (
+    withProps(Topbar, { logo: baseProps.logo })))
   .add('Text logo', () => (
     withProps(Topbar, { ...baseProps, logo: {
       href: 'http://example.com',

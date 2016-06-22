@@ -36,7 +36,7 @@ class Topbar extends Component {
           ...avatarDropdownProps(this.props.avatarDropdown),
           classSet: css.topbarAvatarDropdown,
         }) :
-        null,
+        div({ className: css.topbarAvatarDropdownPlaceholder }),
     ]);
   }
 }

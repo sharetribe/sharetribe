@@ -63,3 +63,14 @@
     padding: var(--Topbar_avatarPadding);
   }
 }
+
+.topbarAvatarDropdownPlaceholder {
+  margin: var(--Topbar_avatarMobilePadding);
+  width: var(--Topbar_avatarSize);
+  height: var(--Topbar_avatarSize);
+  display: none;
+
+  @media (--Topbar_medium) {
+    margin: var(--Topbar_avatarPadding);
+  }
+}
