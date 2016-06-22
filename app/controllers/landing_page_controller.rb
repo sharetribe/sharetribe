@@ -182,11 +182,10 @@ class LandingPageController < ActionController::Metal
       "kind": "info",
       "variation": "three_columns",
       "title": "Section title goes here",
-      "icons": true,
-      "buttons": true,
       "columns": [
         {
-          "icon": "feather",
+          "icon": "quill",
+          "icon_stroke": {"type": "marketplace_data", "id": "primary_color"},
           "title": "Our mission",
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
           "button_title": "Section link",
@@ -195,7 +194,8 @@ class LandingPageController < ActionController::Metal
           "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
         },
         {
-          "icon": "piggybank",
+          "icon": "piggy-bank",
+          "icon_stroke": {"type": "marketplace_data", "id": "primary_color"},
           "title": "Our mission",
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
           "button_title": "Section link",
@@ -204,7 +204,8 @@ class LandingPageController < ActionController::Metal
           "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
         },
         {
-          "icon": "globe",
+          "icon": "globe-1",
+          "icon_stroke": {"type": "marketplace_data", "id": "primary_color"},
           "title": "Our mission",
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
           "button_title": "Section link",

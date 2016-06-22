@@ -49,8 +49,17 @@
       <div class="info__columns--<%= variation_modifier %>">
         <% s["columns"].each do |c| %>
           <div class="info__column">
+            <% if c["icon"] %>
+              <div class="info__column-icon">
+                <%= render partial: "icon", locals: { icon: c["icon"], stroke: c["icon_stroke"]["value"] } %>
+              </div>
+            <% end %>
             <h2 class="info__column-title"><%= c["title"] %></h2>
             <p class="info__column-paragraph"><%= c["paragraph"] %></p>
+
+            <% if c["button_title"] %>
+              <a class="info__button--ghost" href="<%= c['button_path']['path'] %>"><%= c["button_title"]%></a>
+            <% end %>
           </div>
         <% end %>
       </div>
