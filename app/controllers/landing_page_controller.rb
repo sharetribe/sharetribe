@@ -9,6 +9,7 @@ class LandingPageController < ActionController::Metal
   # See Rendering Helpers: http://api.rubyonrails.org/classes/ActionController/Metal.html
   #
   include AbstractController::Rendering
+  include ActionController::ConditionalGet
   include ActionView::Layouts
   append_view_path "#{Rails.root}/app/views"
 
@@ -18,21 +19,50 @@ class LandingPageController < ActionController::Metal
   # Adds helper_method
   include ActionController::Helpers
 
+  CACHE_TIME = APP_CONFIG[:clp_cache_time].to_i.seconds
+  CACHE_HEADER = "X-CLP-Cache"
+
   def index
     cid = community_id(request)
     version = CLP::LandingPageStore.released_version(cid)
 
-    # TODO Ideally we would do the caching based upon just clp_version
-    # and avoid loading and parsing the (potentially) big structure
-    # JSON.
     begin
-      structure = CLP::LandingPageStore.load_structure(cid, version)
+      content = nil
+      cache_meta = fetch_cache_meta(cid, version)
+      cache_hit = true
 
-      # We know for sure that landing page is enabled
-      # Otherwise an exception would have been thrown
-      lp_enabled = true
+      if cache_meta.nil?
+        cache_hit = false
+        content = build_html(cid, version)
+        cache_meta = build_cache_meta(content)
 
-      render_landing_page(cid, structure, lp_enabled)
+        # write metadata first, so that it expires first
+        write_cache_meta!(cid, version, cache_meta, CACHE_TIME)
+        # cache html longer than metadata, but keyed by content (digest)
+        write_cached_content!(cid, version, content, cache_meta[:digest], CACHE_TIME + 10.seconds)
+      end
+
+      if stale?(etag: cache_meta[:digest],
+                last_modified: cache_meta[:last_modified],
+                template: false,
+                public: true)
+
+        content = fetch_cached_content(cid, version, cache_meta[:digest])
+        if content.nil?
+          # This should not happen since html is cached longer than metadata
+          cache_hit = false
+          content = build_html(cid, version)
+        end
+
+        self.status = 200
+        self.response_body = content
+      end
+      # There's an implicit else here because stale? has the
+      # side-effect of setting response to HEAD 304 if we have a match
+      # for conditional get.
+
+      headers[CACHE_HEADER] = cache_hit ? "1" : "0"
+      expires_in(CACHE_TIME, public: true)
     rescue CLP::LandingPageContentNotFound
       render_not_found()
     end
@@ -52,7 +82,9 @@ class LandingPageController < ActionController::Metal
 
       # Tell robots to not index and to not follow any links
       headers["X-Robots-Tag"] = "none"
-      render_landing_page(cid, structure, lp_enabled)
+
+      self.status = 200
+      self.response_body = render_landing_page(cid, structure, lp_enabled)
     rescue CLP::LandingPageContentNotFound
       render_not_found()
     end
@@ -61,15 +93,39 @@ class LandingPageController < ActionController::Metal
 
   private
 
-  def build_denormalizer(cid:, locale:, sitename:, lp_enabled:)
+  def build_html(community_id, version)
+    structure = CLP::LandingPageStore.load_structure(community_id, version)
+    render_landing_page(community_id, structure, true)
+  end
 
+  def build_cache_meta(content)
+    {last_modified: Time.now(), digest: Digest::MD5.hexdigest(content)}
+  end
+
+  def fetch_cache_meta(community_id, version)
+    Rails.cache.read("clp/#{community_id}/#{version}")
+  end
+
+  def write_cache_meta!(community_id, version, cache_meta, cache_time)
+    Rails.cache.write("clp/#{community_id}/#{version}", cache_meta, expires_in: cache_time)
+  end
+
+  def fetch_cached_content(community_id, version, digest)
+    Rails.cache.read("clp/#{community_id}/#{version}/#{digest}")
+  end
+
+  def write_cached_content!(community_id, version, content, digest, cache_time)
+    Rails.cache.write("clp/#{community_id}/#{version}/#{digest}", content, expires_in: cache_time)
+  end
+
+
+  def build_denormalizer(cid:, locale:, sitename:, lp_enabled:)
     path_to_search =
       if lp_enabled
         search_with_locale_path(locale: locale)
       else
         homepage_without_locale_path(locale: nil)
       end
-
     # Application paths
     paths = { "search" => path_to_search,
               "signup" => sign_up_path,
@@ -111,7 +167,7 @@ class LandingPageController < ActionController::Metal
       lp_enabled: lp_enabled
     )
 
-    render :landing_page,
+    render_to_string :landing_page,
            locals: { font_path: font_path,
                      styles: landing_page_styles,
                      javascripts: {
