@@ -1,61 +1,71 @@
 <%
   variation_modifiers = {
-    "one_column"    => "one-column",
-    "two_columns"   => "two-columns",
-    "three_columns" => "three-columns"
+    "single_column" => "single-column",
+    "multi_column"  => "multi-column",
   }
 
   background_enabled     = !s["background_image"].nil?
   background_image_style = background_enabled ? "url('#{s["background_image"]["src"]}')" : "none"
   section_style_modifier = background_enabled ? "background" : "blank"
-  one_column_button_enabled         = !s["button"].nil?
   variation_modifier     = variation_modifiers[s["variation"]]
 %>
 
-<% content_for :info_css, flush: true do %>
-  <% if one_column_button_enabled %>
-    .info__button {
-      background-color: <%= s["button"]["color"]["value"] %>;
-    }
+<% content_for :info_css do %>
+    <% if s["button_color"] %>
+      .<%= section_id %>__info__button {
+        background-color: <%= s["button_color"]["value"] %>;
+      }
 
-    .info__button--ghost {
-      color: <%= s["button"]["color"]["value"] %>;
-      border-color: <%= s["button"]["color"]["value"] %>;
-    }
+      .<%= section_id %>__info__button--ghost {
+        color: <%= s["button_color"]["value"] %>;
+        border-color: <%= s["button_color"]["value"] %>;
+      }
+    <% end %>
 
-    .info__button--ghost:hover,
-    .info__button:hover {
-      background-color: <%= s["button"]["color_hover"]["value"] %>;
-      border-color: <%= s["button"]["color_hover"]["value"] %>;
-    }
+    <% if s["button_color_hover"] %>
+      .<%= section_id %>__info__button--ghost:hover,
+      .<%= section_id %>__info__button:hover {
+        background-color: <%= s["button_color_hover"]["value"] %>;
+        border-color: <%= s["button_color_hover"]["value"] %>;
+      }
+    <% end %>
 
-    .info__column-icon > svg > g {
-      stroke: <%= s["button"]["color_hover"]["value"] %>;
-    }
-
-  <% end %>
+    <% if s["variation"] == "multi_column" && s["icon_color"] %>
+      .<%= section_id %>__info__column-icon > svg > g {
+        stroke: <%= s["icon_color"]["value"] %>;
+      }
+    <% end %>
 <% end %>
 
 <section id="<%= section_id %>" class="info__section--<%= section_style_modifier %>" style="background-image: <%= background_image_style %>">
   <div class="info__content--<%= variation_modifier %>">
     <h1 class="info__title--<%= variation_modifier %>"><%= s["title"] %></h1>
     <% case s["variation"] %>
-    <% when "one_column" %>
+    <% when "single_column" %>
 
       <p class="info__paragraph"><%= s["paragraph"] %></p>
 
-      <% if one_column_button_enabled %>
-        <% modifier = background_enabled ? "" : "--ghost" %>
-        <a class="info__button<%= modifier %>" href="<%= s["button"]["path"]["path"] %>"><%= s["button"]["title"] %></a>
+      <% if s["button"] %>
+        <% button_modifier = background_enabled ? "" : "--ghost" %>
+        <a class="info__button<%= button_modifier %> <%= section_id %>__info__button<%= button_modifier %>" href="<%= s["button"]["path"]["path"] %>"><%= s["button"]["title"] %></a>
       <% end %>
 
-    <% when "three_columns", "two_columns" %>
+    <% when "multi_column" %>
 
-      <div class="info__columns--<%= variation_modifier %>">
+      <%
+        multi_column_modifiers = {
+          2 => "two-columns",
+          3 => "three-columns"
+        }
+
+        multi_column_modifier = multi_column_modifiers[s["columns"].length]
+      %>
+
+      <div class="info__columns">
         <% s["columns"].each do |c| %>
-          <div class="info__column--<%= variation_modifier %>">
+          <div class="info__column--<%= multi_column_modifier %>">
             <% if c["icon"] %>
-              <div class="info__column-icon">
+              <div class="info__column-icon <%= section_id %>__info__column-icon">
                 <%= render partial: "icon", locals: { icon: c["icon"] } %>
               </div>
             <% end %>
@@ -63,7 +73,7 @@
             <p class="info__column-paragraph"><%= c["paragraph"] %></p>
 
             <% if c["button_title"] %>
-              <a class="info__button--ghost" href="<%= c['button_path']['path'] %>"><%= c["button_title"]%></a>
+              <a class="info__button--ghost <%= section_id %>__info__button--ghost" href="<%= c['button_path']['path'] %>"><%= c["button_title"]%></a>
             <% end %>
           </div>
         <% end %>

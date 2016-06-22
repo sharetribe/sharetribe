@@ -138,21 +138,22 @@ class LandingPageController < ActionController::Metal
     {
       "id": "info",
       "kind": "info",
-      "variation": "one_column",
+      "variation": "single_column",
       "title": "Section title goes here",
       "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero.",
+
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "button": {
         "title": "Section link",
-        "path": {"path": "https://google.com"},
-        "color": {"type": "marketplace_data", "id": "primary_color"},
-        "color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
+        "path": {"path": "https://google.com"}
       },
       "background_image": {"type": "assets", "id": "myinfoimage"}
     },
     {
       "id": "info2",
       "kind": "info",
-      "variation": "one_column",
+      "variation": "single_column",
       "title": "Section title goes here",
       "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero.",
       "background_image": {"type": "assets", "id": "myinfoimage2"}
@@ -160,86 +161,77 @@ class LandingPageController < ActionController::Metal
     {
       "id": "info3",
       "kind": "info",
-      "variation": "one_column",
+      "variation": "single_column",
       "title": "Section title goes here",
       "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero.",
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "button": {
         "title": "Section link",
-        "path": {"path": "https://google.com"},
-        "color": {"type": "marketplace_data", "id": "primary_color"},
-        "color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
+        "path": {"path": "https://google.com"}
       }
     },
     {
       "id": "info4",
       "kind": "info",
-      "variation": "one_column",
+      "variation": "single_column",
       "title": "Section title goes here",
       "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero."
     },
     {
       "id": "info5",
       "kind": "info",
-      "variation": "three_columns",
+      "variation": "multi_column",
       "title": "Section title goes here",
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "icon_color": {"type": "marketplace_data", "id": "primary_color"},
       "columns": [
         {
           "icon": "quill",
-          "icon_stroke": {"type": "marketplace_data", "id": "primary_color"},
           "title": "Our mission",
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
           "button_title": "Section link",
-          "button_path": {"path": "https://google.com"},
-          "button_color": {"type": "marketplace_data", "id": "primary_color"},
-          "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
+          "button_path": {"path": "https://google.com"}
         },
         {
           "icon": "piggy-bank",
-          "icon_stroke": {"type": "marketplace_data", "id": "primary_color"},
           "title": "Our mission",
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
           "button_title": "Section link",
-          "button_path": {"path": "https://google.com"},
-          "button_color": {"type": "marketplace_data", "id": "primary_color"},
-          "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
+          "button_path": {"path": "https://google.com"}
         },
         {
           "icon": "globe-1",
-          "icon_stroke": {"type": "marketplace_data", "id": "primary_color"},
           "title": "Our mission",
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
           "button_title": "Section link",
-          "button_path": {"path": "https://google.com"},
-          "button_color": {"type": "marketplace_data", "id": "primary_color"},
-          "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
+          "button_path": {"path": "https://google.com"}
         }
       ]
     },
     {
       "id": "info6",
       "kind": "info",
-      "variation": "two_columns",
+      "variation": "multi_column",
       "title": "Section title goes here",
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "icon_color": {"type": "marketplace_data", "id": "primary_color"},
       "columns": [
         {
           "icon": "quill",
-          "icon_stroke": {"type": "marketplace_data", "id": "primary_color"},
           "title": "Our mission",
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
           "button_title": "Section link",
-          "button_path": {"path": "https://google.com"},
-          "button_color": {"type": "marketplace_data", "id": "primary_color"},
-          "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
+          "button_path": {"path": "https://google.com"}
         },
         {
           "icon": "piggy-bank",
-          "icon_stroke": {"type": "marketplace_data", "id": "primary_color"},
           "title": "Our mission",
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
           "button_title": "Section link",
-          "button_path": {"path": "https://google.com"},
-          "button_color": {"type": "marketplace_data", "id": "primary_color"},
-          "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
+          "button_path": {"path": "https://google.com"}
         }
       ]
     },
