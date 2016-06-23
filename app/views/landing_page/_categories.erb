@@ -1,0 +1,95 @@
+<% content_for :categories_css do %>
+  <% if s["button_color"] %>
+
+    .<%= section_id %>__categories__button--ghost {
+      color: <%= s["button_color"]["value"] %>;
+      border-color: <%= s["button_color"]["value"] %>;
+    }
+  <% end %>
+
+  <% if s["button_color_hover"] %>
+    .<%= section_id %>__categories__button--ghost:hover {
+      background-color: <%= s["button_color_hover"]["value"] %>;
+      border-color: <%= s["button_color_hover"]["value"] %>;
+    }
+  <% end %>
+
+  <% if s["button_color_hover"] %>
+    .<%= section_id %>__col-content:hover {
+      box-shadow: inset 0 0 0 999999px rgba(52, 127, 157, 0.9); /* big enough number to cover the whole area */
+    }
+  <% end %>
+
+<% end %>
+
+<section id="<%= section_id %>" class="categories__section">
+  <div class="categories__content">
+    <h1 class="categories__title"><%= s["title"] %></h1>
+    <p class="categories__paragraph"><%= s["paragraph"] %></p>
+
+    <div class="categories__categories">
+      <div class="categories__row--top-7">
+        <div class="categories__col--2-4"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+        <div class="categories__col--1-4"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+        <div class="categories__col--1-4"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+      </div>
+
+      <div class="categories__row--bottom-7">
+        <div class="categories__col--1-4"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+        <div class="categories__col--1-4"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+        <div class="categories__col--1-4"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+        <div class="categories__col--1-4"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+      </div>
+    </div>
+
+    <div class="categories__categories">
+      <div class="categories__row--top-6">
+        <div class="categories__col--1-3"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+        <div class="categories__col--1-3"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+        <div class="categories__col--1-3"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+      </div>
+
+      <div class="categories__row--bottom-6">
+        <div class="categories__col--1-3"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+        <div class="categories__col--1-3"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+        <div class="categories__col--1-3"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+      </div>
+
+    </div>
+
+    <div class="categories__categories">
+      <div class="categories__row--top-5">
+        <div class="categories__col--2-3"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+        <div class="categories__col--1-3"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+      </div>
+
+      <div class="categories__row--bottom-5">
+        <div class="categories__col--1-3"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+        <div class="categories__col--1-3"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+        <div class="categories__col--1-3"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+      </div>
+
+    </div>
+
+    <div class="categories__categories">
+      <div class="categories__row--4">
+        <div class="categories__col--1-4"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+        <div class="categories__col--1-4"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+        <div class="categories__col--1-4"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+        <div class="categories__col--1-4"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+      </div>
+    </div>
+
+    <div class="categories__categories">
+      <div class="categories__row--3">
+        <div class="categories__col--1-3"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+        <div class="categories__col--1-3"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+        <div class="categories__col--1-3"><a href="#"><div class="<%= section_id %>__col-content col-content"><h3 class="categories__category-title">Title</h3></div></a></div>
+      </div>
+    </div>
+
+    <% if s["button_title"] %>
+      <a class="<%= section_id%>__categories__button--ghost categories__button--ghost" href="<%= s['button_path']['value'] %>"><%= s["button_title"]%></a>
+    <% end %>
+  </div>
+</section>

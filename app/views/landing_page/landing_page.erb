@@ -19,6 +19,8 @@
       <%= render partial: "footer", locals: {section_id: section_id, s: s} %>
     <% when "info" %>
       <%= render partial: "info", locals: {section_id: section_id, s: s} %>
+    <% when "categories" %>
+      <%= render partial: "categories", locals: {section_id: section_id, s: s} %>
     <% end %>
 
   <% end # sections#each %>
@@ -104,6 +106,7 @@
     <%= yield :hero_css %>
     <%= yield :footer_css %>
     <%= yield :info_css %>
+    <%= yield :categories_css %>
   </style>
 
 </head>
