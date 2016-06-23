@@ -2,11 +2,11 @@ module TopbarHelper
 
   module_function
 
-  def topbar_props(community:, user: nil, community_locales:, path_after_locale_change:)
+  def topbar_props(community:, user: nil, community_locales:, path_after_locale_change:, locale_param: nil)
 
     links = [
       {
-        link: "/", # FIXME
+        link: PathHelpers.landing_page_path(community, user, locale_param),
         title: I18n.t("header.home")
       },
       {
@@ -38,7 +38,7 @@ module TopbarHelper
 
     {
       logo: {
-        href: '/',
+        href: PathHelpers.landing_page_path(community, user, locale_param),
         text: community.name(I18n.locale),
         image: community.wide_logo.present? ? community.wide_logo.url(:header) : nil,
         image_highres: community.wide_logo.present? ? community.wide_logo.url(:header_highres) : nil

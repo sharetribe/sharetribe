@@ -610,7 +610,8 @@ class ApplicationController < ActionController::Base
       community: @current_community,
       user: @current_user,
       community_locales: available_locales(),
-      path_after_locale_change: @return_to)
+      path_after_locale_change: @return_to,
+      locale_param: params[:locale])
   end
 
   helper_method :topbar_props
