@@ -9,6 +9,7 @@ import Logo from '../../elements/Logo/Logo';
 import SearchBar from '../../composites/SearchBar/SearchBar';
 import Menu from '../../composites/Menu/Menu';
 import AvatarDropdown from '../../composites/AvatarDropdown/AvatarDropdown';
+import AddNewListingButton from '../../elements/AddNewListingButton/AddNewListingButton';
 
 const avatarDropdownProps = (avatarDropdown) => {
   // TODO: color from railscontext
@@ -84,6 +85,11 @@ class Topbar extends Component {
           classSet: css.topbarAvatarDropdown,
         }) :
         div({ className: css.topbarAvatarDropdownPlaceholder }),
+      this.props.newListingButton ?
+
+        // TODO: get route from routes prop when that is merged
+        r(AddNewListingButton, { ...this.props.newListingButton, url: '#' }) :
+        null,
     ]);
   }
 }
@@ -111,6 +117,10 @@ Topbar.propTypes = {
       locale_ident: PropTypes.string.isRequired,
       change_locale_uri: PropTypes.string.isRequired,
     })),
+  }),
+  newListingButton: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    customColor: PropTypes.string,
   }),
   railsContext,
 };

@@ -58,6 +58,10 @@ module TopbarHelper
           imageHeight: '44px',
           image: Maybe(user).image.url(:thumb).or_else(missing_profile_image_path()),
         }
+      },
+      newListingButton: {
+        text: I18n.t("homepage.index.post_new_listing"),
+        customColor: CommonStylesHelper.marketplace_colors(community)[:marketplace_color1]
       }
     }
   end
