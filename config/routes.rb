@@ -47,6 +47,10 @@ Kassi::Application.routes.draw do
     post "/prospect_emails" => "marketplaces#create_prospect_email"
   end
 
+  # Keep before /:locale/ routes, because there is locale 'vi', which matches '_lp_preview'
+  # and regexp anchors are not allowed in routing requirements.
+  get '/_lp_preview' => 'landing_page#preview'
+
   locale_matcher = Regexp.new(Sharetribe::AVAILABLE_LOCALES.map { |l| l[:ident] }.concat(Sharetribe::REMOVED_LOCALES.to_a).join("|"))
 
   # Conditional routes for custom landing pages
@@ -73,8 +77,6 @@ Kassi::Application.routes.draw do
   get '/' => 'homepage#index', as: :homepage_without_locale
   get '/:locale/s', to: redirect('/%{locale}', status: 307), constraints: { locale: locale_matcher }
   get '/s', to: redirect('/', status: 307)
-
-  get '/_lp_preview' => 'landing_page#preview'
 
   # error handling: 3$: http://blog.plataformatec.com.br/2012/01/my-five-favorite-hidden-features-in-rails-3-2/
   get '/500' => 'errors#server_error'
