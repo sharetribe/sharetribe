@@ -19,7 +19,7 @@
 .info__section--blank {
   @extend .info__section;
   color: #525961;
-  padding: 96px 0 96px 0px;
+  padding: $dimension-section-margin 0;
 }
 
 .info__content {

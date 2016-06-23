@@ -177,6 +177,26 @@ class LandingPageController < ActionController::Metal
           "path": {"value": "https://google.com"}
         },
         {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        },
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        },
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        },
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        },
+        {
           "title": "Parts",
           "background_image": {"type": "assets", "id": "myheroimage"},
           "path": {"value": "https://google.com"}

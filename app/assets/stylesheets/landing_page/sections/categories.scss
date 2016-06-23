@@ -27,10 +27,7 @@ $categories__mobile-gutter: 12px;
   @include prefix-val(display, flex);
   @include prefix-prop(align-items, center);
 
-  @include viewport-unit(min-height, 80vh);
-
-  // TODO This could be added to variable
-  padding: 96px 0 96px 0px;
+  padding: $dimension-section-margin 0px;
 }
 
 .categories__content {
@@ -108,7 +105,7 @@ $categories__mobile-gutter: 12px;
   }
 
   @media #{$desktop} {
-    padding: 0px 0px 60px 0px;
+    padding: 0px (60px - $categories__desktop-gutter / 2) 60px (60px - $categories__desktop-gutter / 2);
   }
 }
 
