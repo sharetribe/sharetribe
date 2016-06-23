@@ -668,7 +668,7 @@ module ApplicationHelper
   end
 
   def show_big_cover_photo?
-    @homepage && (!@current_user || params[:big_cover_photo])
+    @homepage && ((!@current_user && !CustomLandingPage::LandingPageStore.enabled?(@current_community.id)) || params[:big_cover_photo])
   end
 
   def sort_link_direction(column)
