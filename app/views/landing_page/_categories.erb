@@ -15,7 +15,7 @@
   <% end %>
 
   <% if s["button_color_hover"] %>
-    .<%= section_id %>__col-content:hover {
+    .<%= section_id %>__categories__category-content:hover {
       box-shadow: inset 0 0 0 999999px rgba(<%= s["category_color_hover"]["value"].join(",") %>, 0.9); /* big enough number to cover the whole area */
     }
   <% end %>
@@ -32,7 +32,7 @@
       <% s["categories"].each do |c| %>
         <div class="categories__category--<%= num_of_categories %>">
           <a href="<%= c["path"]["value"] %>">
-            <div class="<%= section_id %>__col-content col-content">
+            <div class="<%= section_id %>__categories__category-content categories__category-content" style="background-image: url(<%= c["background_image"]["src"] %>)">
               <h3 class="categories__category-title"><%= c["title"]["value"] %></h3>
             </div>
           </a>
