@@ -157,7 +157,7 @@ class LandingPageController < ActionController::Metal
       "signup_button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
     },
     {
-      "id": "categories",
+      "id": "categories7",
       "kind": "categories",
       "title": "Section title goes here",
       "paragraph": "Section paragraph goes here",
@@ -199,6 +199,148 @@ class LandingPageController < ActionController::Metal
         },
         {
           "title": "Parts",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        }
+      ]
+    },
+    {
+      "id": "categories6",
+      "kind": "categories",
+      "title": "Section title goes here",
+      "paragraph": "Section paragraph goes here",
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "button_title": "Section link",
+      "button_path": {"value": "https://google.com"},
+      "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
+      "categories": [
+        {
+          "title": "Mountain bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        },
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        },
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        },
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        },
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        },
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        }
+      ]
+    },
+    {
+      "id": "categories5",
+      "kind": "categories",
+      "title": "Section title goes here",
+      "paragraph": "Section paragraph goes here",
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "button_title": "Section link",
+      "button_path": {"value": "https://google.com"},
+      "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
+      "categories": [
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        },
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        },
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        },
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        },
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        }
+      ]
+    },
+    {
+      "id": "categories4",
+      "kind": "categories",
+      "title": "Section title goes here",
+      "paragraph": "Section paragraph goes here",
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "button_title": "Section link",
+      "button_path": {"value": "https://google.com"},
+      "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
+      "categories": [
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        },
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        },
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        },
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        }
+      ]
+    },
+    {
+      "id": "categories3",
+      "kind": "categories",
+      "title": "Section title goes here",
+      "paragraph": "Section paragraph goes here",
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "button_title": "Section link",
+      "button_path": {"value": "https://google.com"},
+      "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
+      "categories": [
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        },
+        {
+          "title": "City bikes",
+          "background_image": {"type": "assets", "id": "myheroimage"},
+          "path": {"value": "https://google.com"}
+        },
+        {
+          "title": "City bikes",
           "background_image": {"type": "assets", "id": "myheroimage"},
           "path": {"value": "https://google.com"}
         }
@@ -470,7 +612,11 @@ class LandingPageController < ActionController::Metal
 
   "composition": [
     { "section": {"type": "sections", "id": "myhero1"}},
-    { "section": {"type": "sections", "id": "categories"}},
+    { "section": {"type": "sections", "id": "categories7"}},
+    { "section": {"type": "sections", "id": "categories6"}},
+    { "section": {"type": "sections", "id": "categories5"}},
+    { "section": {"type": "sections", "id": "categories4"}},
+    { "section": {"type": "sections", "id": "categories3"}},
     { "section": {"type": "sections", "id": "info1_v1"}},
     { "section": {"type": "sections", "id": "info1_v2"}},
     { "section": {"type": "sections", "id": "info1_v3"}},
