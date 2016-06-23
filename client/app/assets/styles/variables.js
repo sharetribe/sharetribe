@@ -11,6 +11,7 @@ const paddingTopbarVertical = '0.92857em';
 const paddingTopbarHorizontal = '1.7142857em';
 
 const topbarBorderColor = 'rgba(169, 172, 176, 0.5)';
+const topbarItemHeight = '44px';
 const bodyPadding = '18px';
 
 module.exports = {
@@ -96,14 +97,14 @@ module.exports = {
   '--Topbar_inputFontSizeMobile': fontSizeBig,
   '--Topbar_fontSize': fontSize,
 
-  '--Topbar_avatarSize': '44px',
+  '--Topbar_avatarSize': topbarItemHeight,
   '--Topbar_avatarPadding': '18px 24px',
   '--Topbar_avatarMobilePadding': '3px 8px',
 
   // SearchBar
   '--SearchBar_width': '396px',
   '--SearchBar_mobileHeight': '50px',
-  '--SearchBar_height': '44px',
+  '--SearchBar_height': topbarItemHeight,
   '--SearchBar_borderColor': topbarBorderColor,
   '--SearchBar_borderColorActive': 'rgb(122, 125, 128)',
   '--SearchBar_textColor': 'rgb(122, 125, 128)',
@@ -158,4 +159,10 @@ module.exports = {
   // topbar can't control base font-size.
   '--Menu_labelPaddingVertical': '1.28571429em',
   '--Menu_labelPaddingHorizontal': '1.714285em',
+
+  '--AddNewListingButton_height': topbarItemHeight,
+  '--AddNewListingButton_defaultColor': '#43A5CC',
+  '--AddNewListingButton_textColor': '#fff',
+  '--AddNewListingButton_maxTextWidth': '15em',
+  '--AddNewListingButton_textPadding': '1.5em',
 };
