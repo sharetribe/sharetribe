@@ -436,21 +436,6 @@ class ApplicationController < ActionController::Base
     @minutes_to_maintenance = NextMaintenance.minutes_to(now)
   end
 
-  def current_community_id
-    Maybe(@current_community).id.or_else(nil)
-  end
-
-  def current_community_custom_colors
-    Maybe(@current_community)
-      .map { |c|
-        {
-          marketplace_color1: "##{c.custom_color1}" || '#a64c5d',
-          marketplace_color2: "##{c.custom_color2}" || '#00a26c'
-        }
-      }
-      .or_else({})
-  end
-
   private
 
   # Override basic instrumentation and provide additional info for lograge to consume
@@ -621,74 +606,11 @@ class ApplicationController < ActionController::Base
   helper_method :onboarding_topbar_props
 
   def topbar_props
-
-    links = [
-      {
-        link: root,
-        title: t("header.home")
-      },
-      {
-        link: about_infos_path,
-        title: t("header.about")
-      },
-      {
-        link: new_user_feedback_path,
-        title: t("header.contact_us"),
-      }
-    ]
-    with_invite_link do
-      links << {
-        link: new_invitation_path,
-        title: t("header.invite"),
-      }
-    end
-    links.concat(Maybe(@current_community.menu_links)
-      .map { |menu_links|
-        menu_links.map { |menu_link|
-          {
-            link: menu_link.url(I18n.locale),
-            title: menu_link.title(I18n.locale)
-          }
-        }
-      }.or_else([]))
-
-    {
-      logo: {
-        href: '/',
-        text: @current_community.name(I18n.locale),
-        image: @current_community.wide_logo.present? ? @current_community.wide_logo.url(:header) : nil,
-        image_highres: @current_community.wide_logo.present? ? @current_community.wide_logo.url(:header_highres) : nil
-      },
-      search: {
-        mode: 'keyword-and-location',
-        keyword_placeholder: (@community_customization && @community_customization.search_placeholder) || t("web.topbar.search_placeholder"),
-        location_placeholder: 'Location'
-      },
-      menu: {
-        links: links,
-      },
-      locales: {
-        current_locale_ident: Maybe(@current_user).map { |user| user.locale }.or_else(@current_community.default_locale).to_s,
-        current_locale: Maybe(Sharetribe::AVAILABLE_LOCALES.find { |l| l[:ident] == @current_user.to_s })[:language].or_else(locale).to_s,
-        available_locales: available_locales.map { |locale|
-          {
-            locale_name: locale[0],
-            locale_ident: locale[1],
-            change_locale_uri: change_locale_path({
-              locale: "#{locale[1]}",
-              redirect_uri: "#{@return_to}"
-            })
-          }
-        },
-      },
-      avatarDropdown: {
-        customColor: current_community_custom_colors[:marketplace_color1],
-        avatar: {
-          imageHeight: '44px',
-          image: Maybe(@current_user).image.url(:thumb).or_else(view_context.image_path("profile_image/thumb/missing.png")),
-        }
-      }
-    }
+    TopbarHelper.topbar_props(
+      community: @current_community,
+      user: @current_user,
+      community_locales: available_locales(),
+      path_after_locale_change: @return_to)
   end
 
   helper_method :topbar_props
