@@ -1,13 +1,14 @@
 import { Component, PropTypes } from 'react';
 import { div, a, span } from 'r-dom';
 
+import styleVariables from '../../../assets/styles/variables';
 import css from './MenuItem.css';
 
 class MenuItem extends Component {
 
   constructor(props, context) {
     super(props, context);
-    this.activeColor = this.props.activeColor || '#a64c5d';
+    this.activeColor = this.props.activeColor || styleVariables['--customColorFallback'];
   }
 
   render() {

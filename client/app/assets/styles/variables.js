@@ -3,13 +3,16 @@ const fontSizeSmall = '13px';
 const fontSize = '14px';
 const fontSizeBig = '16px';
 const fontSizeMobile = '17px';
+
 const textColor = 'rgb(82, 89, 97)';
 const textColorFocus = 'rgb(0, 0, 0)';
 const backgroundLightColor = 'white';
 const backgroundLightColorHover = 'rgba(169, 172, 176, 0.07)';
+const customColorFallback = '#a64c5d';
+const customColor2Fallback = '#00a26c';
+
 const paddingTopbarVertical = '0.92857em';
 const paddingTopbarHorizontal = '1.7142857em';
-
 const topbarBorderColor = 'rgba(169, 172, 176, 0.5)';
 const topbarItemHeight = '44px';
 const bodyPadding = '24px';
@@ -68,6 +71,9 @@ module.exports = {
   '--colorButton': '#59b3a2',
   '--colorButtonHover': '#4d998b',
   '--colorButtonGhost': '#26806F',
+
+  '--customColorFallback': customColorFallback,
+  '--customColor2Fallback': customColor2Fallback,
 
   '--paddingButtonVertical': '0.626em',
   '--paddingButtonHorizontal': '1.875em',
