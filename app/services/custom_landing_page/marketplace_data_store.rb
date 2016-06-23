@@ -35,9 +35,10 @@ module CustomLandingPage
         end
 
       color = primary_color.present? ? primary_color : DEFAULT_COLOR
+      color_darken = ColorUtils.darken(color, 15)
 
-      { "primary_color" => "##{color}",
-        "primary_color_darken" => "##{ColorUtils.darken(color, 15)}",
+      { "primary_color" => ColorUtils.css_to_rgb_array(color),
+        "primary_color_darken" => ColorUtils.css_to_rgb_array(color_darken),
         "name" => name,
         "slogan" => slogan,
         "description" => description,

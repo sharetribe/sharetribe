@@ -6,10 +6,10 @@
     fill: #D9D9D9;
   }
   .footer__container--light .footer__social-media-link > svg {
-    fill: <%= s['social_media_icon_color']['value'] %>;
+    fill: rgb(<%= s['social_media_icon_color']['value'].join(",") %>);
   }
   .footer__container--light .footer__social-media-link:hover > svg {
-    fill: <%= s['social_media_icon_color_hover']['value'] %>;
+    fill: rgb(<%= s['social_media_icon_color_hover']['value'].join(",") %>);
   }
 <% end %>
 

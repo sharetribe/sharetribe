@@ -13,26 +13,26 @@
 <% content_for :info_css do %>
     <% if s["button_color"] %>
       .<%= section_id %>__info__button {
-        background-color: <%= s["button_color"]["value"] %>;
+        background-color: rgb(<%= s["button_color"]["value"].join(",") %>);
       }
 
       .<%= section_id %>__info__button--ghost {
-        color: <%= s["button_color"]["value"] %>;
-        border-color: <%= s["button_color"]["value"] %>;
+        color: rgb(<%= s["button_color"]["value"].join(",") %>);
+        border-color: rgb(<%= s["button_color"]["value"].join(",") %>);
       }
     <% end %>
 
     <% if s["button_color_hover"] %>
       .<%= section_id %>__info__button--ghost:hover,
       .<%= section_id %>__info__button:hover {
-        background-color: <%= s["button_color_hover"]["value"] %>;
-        border-color: <%= s["button_color_hover"]["value"] %>;
+        background-color: rgb(<%= s["button_color_hover"]["value"].join(",") %>);
+        border-color: rgb(<%= s["button_color_hover"]["value"].join(",") %>);
       }
     <% end %>
 
     <% if s["variation"] == "multi_column" && s["icon_color"] %>
       .<%= section_id %>__info__column-icon > svg > g {
-        stroke: <%= s["icon_color"]["value"] %>;
+        stroke: rgb(<%= s["icon_color"]["value"].join(",") %>);
       }
     <% end %>
 <% end %>

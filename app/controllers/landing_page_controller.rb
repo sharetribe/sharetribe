@@ -165,6 +165,7 @@ class LandingPageController < ActionController::Metal
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "button_title": "Section link",
       "button_path": {"value": "https://google.com"},
+      "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
       "categories": [
         {
           "title": "Mountain bikes",

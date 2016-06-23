@@ -2,21 +2,21 @@
   <% if s["button_color"] %>
 
     .<%= section_id %>__categories__button--ghost {
-      color: <%= s["button_color"]["value"] %>;
-      border-color: <%= s["button_color"]["value"] %>;
+      color: rgb(<%= s["button_color"]["value"].join(",") %>);
+      border-color: rgb(<%= s["button_color"]["value"].join(",") %>);
     }
   <% end %>
 
   <% if s["button_color_hover"] %>
     .<%= section_id %>__categories__button--ghost:hover {
-      background-color: <%= s["button_color_hover"]["value"] %>;
-      border-color: <%= s["button_color_hover"]["value"] %>;
+      background-color: rgb(<%= s["button_color_hover"]["value"].join(",") %>);
+      border-color: rgb(<%= s["button_color_hover"]["value"].join(",") %>);
     }
   <% end %>
 
   <% if s["button_color_hover"] %>
     .<%= section_id %>__col-content:hover {
-      box-shadow: inset 0 0 0 999999px rgba(52, 127, 157, 0.9); /* big enough number to cover the whole area */
+      box-shadow: inset 0 0 0 999999px rgba(<%= s["category_color_hover"]["value"].join(",") %>, 0.9); /* big enough number to cover the whole area */
     }
   <% end %>
 
