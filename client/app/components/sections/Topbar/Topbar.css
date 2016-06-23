@@ -1,4 +1,5 @@
-@custom-media --Topbar_medium (min-width: 40rem);
+@custom-media --Topbar_small (min-width: 30rem);
+@custom-media --Topbar_medium (min-width: 50rem);
 
 .topbar {
   display: flex;
@@ -58,8 +59,11 @@
   align-self: flex-start;
   display: none;
 
-  @media (--Topbar_medium) {
+  @media (--Topbar_small) {
     display: block;
+  }
+
+  @media (--Topbar_medium) {
     padding: var(--Topbar_avatarPadding);
   }
 }
@@ -69,6 +73,10 @@
   width: var(--Topbar_avatarSize);
   height: var(--Topbar_avatarSize);
   display: none;
+
+  @media (--Topbar_small) {
+    display: block;
+  }
 
   @media (--Topbar_medium) {
     margin: var(--Topbar_avatarPadding);
