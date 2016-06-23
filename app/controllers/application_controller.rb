@@ -1,6 +1,3 @@
-# Yes, we know this is too long class
-# rubocop:disable ClassLength
-
 require 'will_paginate/array'
 
 class ApplicationController < ActionController::Base

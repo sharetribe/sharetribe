@@ -104,6 +104,7 @@ class LandingPageController < ActionController::Metal
     self.response_body = msg
   end
 
+  # rubocop:disable Metrics/MethodLength
   def data_str
     <<JSON
 {
