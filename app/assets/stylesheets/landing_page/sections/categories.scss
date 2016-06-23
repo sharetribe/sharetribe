@@ -28,6 +28,9 @@ $categories__mobile-gutter: 12px;
   @include prefix-prop(align-items, center);
 
   @include viewport-unit(min-height, 80vh);
+
+  // TODO This could be added to variable
+  padding: 96px 0 96px 0px;
 }
 
 .categories__content {
@@ -298,17 +301,24 @@ $categories__mobile-gutter: 12px;
 
 .categories__category--3 {
   @extend .categories__category;
-  width: (100% / 3);
 
   // mobile
   @include category-mobile-style(3);
 
   @media #{$tablet} {
-    height: $categories__tablet-height-3;
+    // category-mobile-style uses :first-child so we need to override it
+    &, &:first-child {
+      width: (100% / 3);
+      height: $categories__tablet-height-3;
+    }
   }
 
   @media #{$desktop} {
-    height: $categories__desktop-height-3;
+    // category-mobile-style uses :first-child so we need to override it
+    &, &:first-child {
+      width: (100% / 3);
+      height: $categories__desktop-height-3;
+    }
   }
 }
 
@@ -335,11 +345,17 @@ $categories__mobile-gutter: 12px;
   color: #FFF;
   margin: 0 auto;
   font-family: ProximaNovaSoft-Semibold;
+  letter-spacing: 0px;
+  line-height: 22px;
+
+  font-size: 16px;
+
+  @media #{$tablet} {
+    font-size: 16px;
+  }
 
   @media #{$desktop} {
     font-size: 18px;
-    letter-spacing: 0px;
-    line-height: 22px;
   }
 
 }
