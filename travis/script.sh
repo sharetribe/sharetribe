@@ -19,6 +19,7 @@ then
     exit
 elif [ "$SUITE" = "rubocop" ]
 then
+    bundle exec rubocop -V
     bundle exec rubocop -R 2>&1
     exit
 elif [ "$SUITE" = "cucumber" ]

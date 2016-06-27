@@ -1,5 +1,4 @@
 # rubocop:disable ClassLength
-# rubocop:disable Metrics/MethodLength
 
 class LandingPageController < ActionController::Metal
 
@@ -693,6 +692,7 @@ class LandingPageController < ActionController::Metal
 }
 JSON
   end
+  # rubocop:enable Metrics/MethodLength
 
   def landing_page_styles
     Rails.application.assets.find_asset("landing_page/styles.scss").to_s.html_safe
