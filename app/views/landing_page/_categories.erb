@@ -31,9 +31,9 @@
       <% num_of_categories = s["categories"].length %>
       <% s["categories"].each do |c| %>
         <div class="categories__category--<%= num_of_categories %>">
-          <a href="<%= c["path"]["value"] %>">
+          <a href="<%= c["category"]["path"] %>">
             <div class="<%= section_id %>__categories__category-content categories__category-content" style="background-image: url(<%= c["background_image"]["src"] %>)">
-              <h3 class="categories__category-title"><%= c["title"]["value"] %></h3>
+              <h3 class="categories__category-title"><%= c["category"]["title"] %></h3>
             </div>
           </a>
         </div>
