@@ -1224,9 +1224,9 @@ pt-BR:
       default_content: "Aqui você pode encontrar informações sobre como %{marketplace_name} funciona."
   landing_page:
     hero:
-      search: ~
-      signup: ~
-      search_placeholder: ~
+      search: Busca
+      signup: "Criar conta"
+      search_placeholder: "O que você está procurando?"
   layouts:
     admin:
       admin: "Painel de administração do %{service_name}"
@@ -1256,7 +1256,7 @@ pt-BR:
       invite_your_friends_description: "Quanto mais pessoas no %{service_name}, mais o serviço é útil e eficaz."
       invite_your_friends_invite_only_description: "As pessoas não podem entrar no %{service_name} a não ser que sejam convidados"
       join_without_facebook: "...ou %{join_without_facebook_link}"
-      join_without_facebook_link: "inscreva-se sem Facebook"
+      join_without_facebook_link: "registre-se sem Facebook"
     conversations:
       messages: Mensagens
       notifications: Notificações
@@ -2164,8 +2164,8 @@ pt-BR:
     days: dias
   web:
     topbar:
-      menu: ~
-      search_placeholder: ~
+      menu: Menu
+      search_placeholder: Busca...
   will_paginate:
     models:
       person:
