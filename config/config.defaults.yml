@@ -304,6 +304,9 @@ default: &default_settings
   # Custom landing page asset host, e.g. https://s3.amazonaws.com/my-bucket/sites
   clp_asset_host:
 
+  # Default caching time for custom landing pages in seconds
+  clp_cache_time: 900
+
   # Root url for hosted proximanovasoft font files
   font_proximanovasoft_url:
 
