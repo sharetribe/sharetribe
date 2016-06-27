@@ -118,7 +118,7 @@ class LandingPageController < ActionController::Metal
     Rails.cache.write("clp/#{community_id}/#{version}/#{digest}", content, expires_in: cache_time)
   end
 
-  def path_to_search(lp_enabled:, params: {})
+  def path_to_search(lp_enabled:, locale:, params: {})
     if lp_enabled
       search_with_locale_path({locale: locale}.merge(params))
     else
@@ -129,7 +129,7 @@ class LandingPageController < ActionController::Metal
   def build_denormalizer(cid:, locale:, sitename:, lp_enabled:)
 
     # Application paths
-    paths = { "search" => path_to_search(lp_enabled: true),
+    paths = { "search" => path_to_search(lp_enabled: true, locale: locale),
               "signup" => sign_up_path,
               "about" => about_infos_path,
               "contact_us" => new_user_feedback_path,
@@ -139,7 +139,7 @@ class LandingPageController < ActionController::Metal
     marketplace_data = CLP::MarketplaceDataStore.marketplace_data(cid, locale)
 
     build_category_path = ->(category_name_param) {
-      path_to_search(lp_enabled: lp_enabled, params: {category: category_name_param})
+      path_to_search(lp_enabled: lp_enabled, locale: locale, params: {category: category_name_param})
     }
 
     CLP::Denormalizer.new(
