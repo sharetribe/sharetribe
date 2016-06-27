@@ -13,6 +13,12 @@
       border-color: rgb(<%= s["button_color_hover"]["value"].join(",") %>);
     }
   <% end %>
+
+  <% if s["price_color"] %>
+    .<%= section_id %>__listings__price-container {
+      color: rgb(<%= s["price_color"]["value"].join(",") %>);
+    }
+  <% end %>
 <% end %>
 
 <section id="<%= section_id %>" class="listings__section">
@@ -21,8 +27,27 @@
     <p class="listings__paragraph"><%= s["paragraph"] %></p>
 
     <div class="listings__listings">
-      <% s["listings"].each do |l| %>
-        <%= l["value"]["title"] %>
+      <% s["listings"].each do |listing| %>
+        <% l = listing["value"] %>
+        <div class="listings__listing">
+          <div class="listings__listing-content">
+            <div class="listings__listing-image" style="background-image: url(<%= l["listing_image"] %>)"></div>
+            <h3 class="listings__listing-title"><%= l["title"] %></h3>
+            <div class="listings__listing-info">
+              <div class="<%= section_id%>__listings__price-container listings__price-container">
+                <span class="listings__price-amount"><%= l["currency_symbol"] %><%= l["price_cents"] %></span>
+
+                <% if l["price_unit"] %>
+                  <span class="listings__price-unit">/ <%= l["price_unit"] %></span>
+                <% end %>
+              </div>
+              <div class="listings__author-container">
+                <div class="listings__author-avatar" style="background-image: url(<%= l["author_avatar"] %>)"></div>
+                <span class="listings__author-name"><%= l["author_name"] %></span>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
 

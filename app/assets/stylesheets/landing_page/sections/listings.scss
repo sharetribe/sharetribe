@@ -1,5 +1,7 @@
 @import "../mixins/all";
 
+$listings__desktop-gutter: 24px;
+
 .listings__section {
   color: $typography__main-color;
 
@@ -22,7 +24,7 @@
   }
 
   @media #{$desktop} {
-    max-width: 1114px;
+    max-width: 1114px + $listings__desktop-gutter;
   }
 }
 
@@ -32,4 +34,125 @@
 
 .listings__paragraph {
   @include typography__section-paragraph;
+}
+
+.listings__listings {
+  @include prefix-val(display, flex);
+
+  // mobile
+
+  @media #{$tablet} {
+  }
+
+  @media #{$desktop} {
+    padding: 0px (60px - $listings__desktop-gutter / 2) 60px (60px - $listings__desktop-gutter / 2);
+  }
+}
+
+.listings__listing {
+  width: (100% / 3);
+
+  @media #{$desktop} {
+    padding: $listings__desktop-gutter / 2;
+  }
+}
+
+.listings__listing-content {
+  background-color: #FFF;
+  width: 100%;
+  height: 100%;
+
+  border-radius: $dimension-card-border-radius;
+  overflow: hidden;
+
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.10);
+}
+
+.listings__listing-image {
+  // width + padding-bottom makes a responsive square
+  width: 100%;
+  padding-bottom: 100%;
+
+  background-size: cover;
+  background-position: center;
+}
+
+.listings__button--ghost {
+  @extend .landing-page__button;
+}
+
+.listings__listing-title {
+  text-align: left;
+  margin: 18px 24px;
+  padding: 0;
+
+  font-family: ProximaNovaSoft-Medium;
+
+  @media #{$desktop} {
+    font-size: 18px;
+    letter-spacing: 0px;
+    line-height: 26px;
+  }
+}
+
+.listings__listing-info {
+  margin: 18px 24px;
+  @include prefix-val(display, flex);
+  @include prefix-prop(align-items, center);
+  @include prefix-prop(flex-direction, row);
+  @include prefix-prop(justify-content, space-between);
+}
+
+.listings__price-container {
+  text-align: left;
+}
+
+.listings__price-amount {
+  font-family: ProximaNovaSoft-Medium;
+
+  @media #{$desktop} {
+    font-size: 20px;
+    letter-spacing: 0px;
+  }
+}
+
+.listings__price-unit {
+  font-family: ProximaNovaSoft-Medium;
+
+  @media #{$desktop} {
+    font-size: 14px;
+    letter-spacing: 0px;
+  }
+}
+
+.listings__author-container {
+  @include prefix-val(display, flex);
+  @include prefix-prop(align-items, center);
+  @include prefix-prop(flex-direction, row);
+}
+
+
+.listings__author-avatar {
+  border-radius: 100%;
+
+  background-size: cover;
+  background-position: center;
+
+  @media #{$desktop} {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.listings__author-name {
+  font-family: ProximaNovaSoft-Medium;
+  color: #7A7D80;
+
+  margin-left: 8px;
+
+  @media #{$desktop} {
+    font-size: 12px;
+    letter-spacing: 0px;
+    line-height: 25px;
+  }
 }
