@@ -1,3 +1,6 @@
+# rubocop:disable ClassLength
+# rubocop:disable Metrics/MethodLength
+
 class LandingPageController < ActionController::Metal
 
   CLP = CustomLandingPage
