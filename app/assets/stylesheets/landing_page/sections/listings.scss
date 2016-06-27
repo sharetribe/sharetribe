@@ -1,0 +1,35 @@
+@import "../mixins/all";
+
+.listings__section {
+  color: $typography__main-color;
+
+  width: 100%;
+  @include prefix-val(display, flex);
+  @include prefix-prop(align-items, center);
+
+  padding: $dimension-section-margin 0px;
+}
+
+.listings__content {
+  margin: 0 auto;
+  text-align: center;
+
+  // mobile
+  width: 100%;
+
+  @media #{$tablet} {
+    width: 100%;
+  }
+
+  @media #{$desktop} {
+    max-width: 1114px;
+  }
+}
+
+.listings__title {
+  @include typography__section-title;
+}
+
+.listings__paragraph {
+  @include typography__section-paragraph;
+}

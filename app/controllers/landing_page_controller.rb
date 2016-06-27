@@ -250,6 +250,48 @@ class LandingPageController < ActionController::Metal
       "signup_button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
     },
     {
+      "id": "listings",
+      "kind": "listings",
+      "title": "Section title goes here",
+      "paragraph": "Section paragraph goes here",
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "button_title": "Section link",
+      "button_path": {"value": "https://google.com"},
+      "listings": [
+        {
+          "value": {
+            "title": "Pelago San Sebastian, in very good condition in Kallio" },
+            "price_cents": 3900,
+            "price_unit": "day",
+            "currency_symbol": "$",
+            "author_name": "Mikko P.",
+            "author_avatar": "https://c5.staticflickr.com/1/727/20082134084_88e9691b84_h.jpg",
+            "listing_image": "https://c4.staticflickr.com/2/1501/26646827091_e8a73c0c6c_h.jpg"
+        },
+        {
+          "value": {
+            "title": "Pelago San Sebastian, in very good condition in Kallio" },
+            "price_cents": 3900,
+            "price_unit": "day",
+            "currency_symbol": "$",
+            "author_name": "Mikko P.",
+            "author_avatar": "https://c5.staticflickr.com/1/727/20082134084_88e9691b84_h.jpg",
+            "listing_image": "https://c4.staticflickr.com/2/1501/26646827091_e8a73c0c6c_h.jpg"
+        },
+        {
+          "value": {
+            "title": "Pelago San Sebastian, in very good condition in Kallio" },
+            "price_cents": 3900,
+            "price_unit": "day",
+            "currency_symbol": "$",
+            "author_name": "Mikko P.",
+            "author_avatar": "https://c5.staticflickr.com/1/727/20082134084_88e9691b84_h.jpg",
+            "listing_image": "https://c4.staticflickr.com/2/1501/26646827091_e8a73c0c6c_h.jpg"
+        }
+      ]
+    },
+    {
       "id": "categories7",
       "kind": "categories",
       "title": "Section title goes here",
@@ -755,6 +797,7 @@ class LandingPageController < ActionController::Metal
 
   "composition": [
     { "section": {"type": "sections", "id": "myhero1"}},
+    { "section": {"type": "sections", "id": "listings"}},
     { "section": {"type": "sections", "id": "categories7"}},
     { "section": {"type": "sections", "id": "categories6"}},
     { "section": {"type": "sections", "id": "categories5"}},

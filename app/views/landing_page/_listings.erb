@@ -1,0 +1,33 @@
+<% content_for :listings_css do %>
+
+  <% if s["button_color"] %>
+    .<%= section_id %>__listings__button--ghost {
+      color: rgb(<%= s["button_color"]["value"].join(",") %>);
+      border-color: rgb(<%= s["button_color"]["value"].join(",") %>);
+    }
+  <% end %>
+
+  <% if s["button_color_hover"] %>
+    .<%= section_id %>__listings__button--ghost:hover {
+      background-color: rgb(<%= s["button_color_hover"]["value"].join(",") %>);
+      border-color: rgb(<%= s["button_color_hover"]["value"].join(",") %>);
+    }
+  <% end %>
+<% end %>
+
+<section id="<%= section_id %>" class="listings__section">
+  <div class="listings__content">
+    <h1 class="listings__title"><%= s["title"] %></h1>
+    <p class="listings__paragraph"><%= s["paragraph"] %></p>
+
+    <div class="listings__listings">
+      <% s["listings"].each do |l| %>
+        <%= l["value"]["title"] %>
+      <% end %>
+    </div>
+
+    <% if s["button_title"] %>
+      <a class="<%= section_id%>__listings__button--ghost listings__button--ghost" href="<%= s['button_path']['value'] %>"><%= s["button_title"]%></a>
+    <% end %>
+  </div>
+</section>
