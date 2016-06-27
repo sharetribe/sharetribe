@@ -1,6 +1,7 @@
 @import "../mixins/all";
 
 $listings__desktop-gutter: 24px;
+$listings__tablet-gutter: 16px;
 
 .listings__section {
   color: $typography__main-color;
@@ -38,22 +39,42 @@ $listings__desktop-gutter: 24px;
 
 .listings__listings {
   @include prefix-val(display, flex);
+  @include prefix-prop(flex-direction, column);
 
   // mobile
+  padding: 0px $dimension-mobile-margin;
+  margin-bottom: 36px;
 
   @media #{$tablet} {
+    @include prefix-prop(flex-direction, row);
+    margin: 0;
+    padding: 0px (48px - $listings__tablet-gutter / 2) 48px (48px - $listings__tablet-gutter / 2);
   }
 
   @media #{$desktop} {
+    @include prefix-prop(flex-direction, row);
+    margin: 0;
     padding: 0px (60px - $listings__desktop-gutter / 2) 60px (60px - $listings__desktop-gutter / 2);
   }
 }
 
 .listings__listing {
-  width: (100% / 3);
+  margin: 0 auto;
+  width: 100%;
+  max-width: 327px;
+
+  margin-bottom: 24px;
+
+  @media #{$tablet} {
+    margin: 0;
+    padding: $listings__tablet-gutter / 2;
+    width: (100% / 3);
+  }
 
   @media #{$desktop} {
+    margin: 0;
     padding: $listings__desktop-gutter / 2;
+    width: (100% / 3);
   }
 }
 
@@ -87,6 +108,17 @@ $listings__desktop-gutter: 24px;
   padding: 0;
 
   font-family: ProximaNovaSoft-Medium;
+
+  // mobile
+  font-size: 16px;
+  letter-spacing: 0px;
+  line-height: 21px;
+
+  @media #{$tablet} {
+    font-size: 16px;
+    letter-spacing: 0px;
+    line-height: 21px;
+  }
 
   @media #{$desktop} {
     font-size: 18px;
@@ -138,10 +170,8 @@ $listings__desktop-gutter: 24px;
   background-size: cover;
   background-position: center;
 
-  @media #{$desktop} {
-    width: 24px;
-    height: 24px;
-  }
+  width: 24px;
+  height: 24px;
 }
 
 .listings__author-name {
@@ -150,9 +180,7 @@ $listings__desktop-gutter: 24px;
 
   margin-left: 8px;
 
-  @media #{$desktop} {
-    font-size: 12px;
-    letter-spacing: 0px;
-    line-height: 25px;
-  }
+  font-size: 12px;
+  letter-spacing: 0px;
+  line-height: 25px;
 }
