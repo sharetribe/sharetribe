@@ -676,54 +676,15 @@ module ApplicationHelper
   end
 
   def search_path(opts = {})
-    o = opts.dup.to_hash
-    o.delete("controller")
-    o.delete("action")
-    o.delete("locale")
-
-    non_default_locale = ->(locale) { locale != @current_community.default_locale.to_s}
-    not_present = ->(x) { !x.present? }
-
-    case [CustomLandingPage::LandingPageStore.enabled?(@current_community.id),
-          @current_user,
-          params[:locale]]
-    when matches([true, not_present, non_default_locale])
-      search_with_locale_path(o)
-    when matches([true, __, __])
-      search_without_locale_path(o.merge(locale: nil))
-    when matches([false, not_present, non_default_locale])
-      homepage_with_locale_path(o)
-    when matches([false, __, __])
-      homepage_without_locale_path(o.merge(locale: nil))
-    end
+    PathHelpers.search_path(@current_community, @current_user, params[:locale], opts)
   end
 
   def search_url(opts = {})
-    case [CustomLandingPage::LandingPageStore.enabled?(@current_community.id),
-          opts[:locale].present?]
-    when matches([true, true])
-      search_with_locale_url(opts)
-    when matches([true, false])
-      search_without_locale_url(opts.merge(locale: nil))
-    when matches([false, true])
-      homepage_with_locale_url(opts)
-    when matches([false, false])
-      homepage_without_locale_url(opts.merge(locale: nil))
-    end
+    PathHelpers.search_url(@current_community, opts)
   end
 
   def landing_page_path
-    non_default_locale = ->(locale) { locale != @current_community.default_locale.to_s}
-    not_present = ->(x) { !x.present? }
-
-    case [CustomLandingPage::LandingPageStore.enabled?(@current_community.id), @current_user, params[:locale]]
-    when matches([true, __, __])
-      landing_page_without_locale_path(locale: nil)
-    when matches([false, not_present, non_default_locale])
-      homepage_with_locale_path
-    else
-      homepage_without_locale_path(locale: nil)
-    end
+    PathHelpers.landing_page_path(@current_community, @current_user, params[:locale])
   end
 
   # Give an array of translation keys you need in JavaScript. The keys will be loaded and ready to be used in JS

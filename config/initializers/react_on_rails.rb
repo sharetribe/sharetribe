@@ -2,9 +2,10 @@ module RailsContextExtension
   # Return a Hash that contains custom values from the view context that will get passed to
   # all calls to react_component and redux_store for rendering
   def self.custom_context(view_context)
+    community = view_context.request.env[:current_marketplace]
     {
-      marketplaceId: view_context.controller.current_community_id,
-    }.merge(view_context.controller.current_community_custom_colors)
+      marketplaceId: community&.id,
+    }.merge(CommonStylesHelper.marketplace_colors(community))
   end
 end
 
