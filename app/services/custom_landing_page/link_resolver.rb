@@ -105,12 +105,7 @@ module CustomLandingPage
             "title" => c.display_name(@_locale),
             "path" => @_build_category_path.call(c.url)
           }
-        }.or_else {
-          {
-            "title" => "N/A",
-            "path" => nil
-          }
-        }
+        }.or_else(nil)
       end
 
       def categories
