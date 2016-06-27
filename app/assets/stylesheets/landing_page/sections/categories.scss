@@ -37,10 +37,6 @@ $categories__mobile-gutter: 12px;
   // mobile
   width: 100%;
 
-  @media #{$tablet} {
-    width: 100%;
-  }
-
   @media #{$desktop} {
     max-width: 1114px + $categories__desktop-gutter;
   }
@@ -344,10 +340,6 @@ $categories__mobile-gutter: 12px;
   line-height: 22px;
 
   font-size: 16px;
-
-  @media #{$tablet} {
-    font-size: 16px;
-  }
 
   @media #{$desktop} {
     font-size: 18px;
