@@ -5,7 +5,7 @@
     });
 
 - content_for :extra_javascript do
-  = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{@current_community.google_maps_key}&sensor=true"
+  = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{@current_community.google_maps_key}"
 
 - content_for :title_header do
   %h1= t("listings.new.post_a_new_listing")
