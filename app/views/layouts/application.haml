@@ -18,7 +18,9 @@
 
   - if feature_enabled?(:topbar_v1)
     - props = topbar_props
-    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{@current_community.google_maps_key}&libraries=places"
+    - maps_key = @current_community.google_maps_key
+    - key_param = maps_key ? "&key=#{maps_key}" : ""
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places#{key_param}"
     = react_component("TopbarApp", props: props, prerender: true)
   - # this will be an alternative old header
   - # but for the sake of developing we include them both for a short while

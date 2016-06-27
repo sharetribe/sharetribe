@@ -2,7 +2,9 @@
   initialize_update_profile_info_form("#{I18n.locale}","#{target_user.id.to_s}", #{@current_community.real_name_required?});
 
 - content_for :extra_javascript do
-  = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{@current_community.google_maps_key}"
+  - maps_key = @current_community.google_maps_key
+  - key_param = maps_key ? "?key=#{maps_key}" : ""
+  = javascript_include_tag "https://maps.googleapis.com/maps/api/js#{key_param}"
 
 - content_for :title_header do
   %h1= t("layouts.no_tribe.settings")

@@ -6,13 +6,15 @@
 
 - content_for :extra_javascript do
   - # maps.google can't be loaded twice
+  - maps_key = @current_community.google_maps_key
+  - key_param = maps_key ? "&key=#{maps_key}" : ""
   - if(location_search_in_use && @view_type.eql?("map"))
-    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{@current_community.google_maps_key}&libraries=places" unless feature_enabled?(:topbar_v1)
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places#{key_param}" unless feature_enabled?(:topbar_v1)
     = javascript_include_tag "markerclusterer.js"
   - elsif(location_search_in_use)
-    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{@current_community.google_maps_key}&libraries=places" unless feature_enabled?(:topbar_v1)
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places#{key_param}" unless feature_enabled?(:topbar_v1)
   - elsif(@view_type.eql?("map"))
-    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{@current_community.google_maps_key}&libraries=places"
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places#{key_param}"
     = javascript_include_tag "markerclusterer.js"
 
 - content_for :title_header do
