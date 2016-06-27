@@ -55,6 +55,7 @@
 
 .topbarLogo {
   height: var(--Topbar_logoHeight);
+  max-width: var(--Topbar_textLogoMaxWidth);
 }
 
 .topbarAvatarDropdown {

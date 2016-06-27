@@ -15,4 +15,7 @@
   text-transform: uppercase;
   font-weight: 800;
   width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

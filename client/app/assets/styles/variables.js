@@ -90,6 +90,7 @@ module.exports = {
   '--Topbar_height': '80px',
   '--Topbar_mobileHeight': '50px',
   '--Topbar_logoHeight': '40px',
+  '--Topbar_textLogoMaxWidth': '20em',
   '--Topbar_fontFamily': "'Proxima Nova Soft', Helvetica, sans",
 
    // Must be at least 16px to avoid iOS from zooming in when focusing
