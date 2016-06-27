@@ -28,14 +28,14 @@
 
     <div class="listings__listings">
       <% s["listings"].each do |listing| %>
-        <% l = listing["value"] %>
+        <% l = listing["listing"] %>
         <div class="listings__listing">
           <div class="listings__listing-content">
             <div class="listings__listing-image" style="background-image: url(<%= l["listing_image"] %>)"></div>
             <h3 class="listings__listing-title"><%= l["title"] %></h3>
             <div class="listings__listing-info">
               <div class="<%= section_id%>__listings__price-container listings__price-container">
-                <span class="listings__price-amount"><%= l["currency_symbol"] %><%= l["price_cents"] %></span>
+                <span class="listings__price-amount"><%= l["price"] %></span>
 
                 <% if l["price_unit"] %>
                   <span class="listings__price-unit">/ <%= l["price_unit"] %></span>

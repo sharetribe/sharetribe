@@ -83,6 +83,10 @@ $listings__tablet-gutter: 16px;
   width: 100%;
   height: 100%;
 
+  @include prefix-val(display, flex);
+  @include prefix-prop(justify-content, space-between);
+  @include prefix-prop(flex-direction, column);
+
   border-radius: $dimension-card-border-radius;
   overflow: hidden;
 

@@ -112,5 +112,39 @@ module CustomLandingPage
         @_categories ||= Category.where(community_id: @_cid).to_a
       end
     end
+
+    class ListingResolver
+      def initialize(cid, locale, name_display_type, build_listing_path)
+        @_cid = cid
+        @_locale = locale
+        @_name_display_type = name_display_type
+        @_build_listing_path = build_listing_path
+      end
+
+      def call(type, id, _)
+        listing = Listing.includes(:author).find_by(community_id: @_cid, id: id)
+
+        Maybe(listing).map { |l|
+          {
+            "title" => l.title,
+            "price" => l.price.format(no_cents_if_whole: true),
+            "price_unit" => Maybe(l.unit_type).map { |unit_type| ListingViewUtils.translate_unit(unit_type, l.unit_tr_key) }.or_else(nil),
+            "author_name" => PersonViewUtils.display_name(
+              first_name: l.author.given_name,
+              last_name: l.author.family_name,
+              username: l.author.username,
+              name_display_type: @_name_display_type,
+              is_organization: nil,
+              organization_name: nil,
+              is_deleted: l.author.deleted?,
+              deleted_user_text: I18n.translate("common.removed_user")
+            ),
+            "author_avatar" => l.author.image.present? ? l.author.image.url(:thumb) : nil,
+            "listing_image" => Maybe(l.listing_images.first).map { |img| img.image.url(:big) }.or_else(nil)
+          }
+        }.or_else(nil)
+      end
+
+    end
   end
 end

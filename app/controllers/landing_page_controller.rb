@@ -110,6 +110,25 @@ class LandingPageController < ActionController::Metal
 
   private
 
+  def initialize_i18n!(cid, locale)
+    # This logic is very similar to what we have in ApplicationController
+
+    community_backend = I18n::Backend::CommunityBackend.instance
+
+    # Load translations from TranslationService
+    if cid
+      community_backend.set_community!(cid, [locale].map(&:to_sym))
+      community_translations = TranslationService::API::Api.translations.get(cid)[:data]
+      TranslationServiceHelper.community_translations_for_i18n_backend(community_translations).each { |locale, data|
+        # Store community translations to I18n backend.
+        #
+        # Since the data in data hash is already flatten, we don't want to
+        # escape the separators (. dots) in the key
+        community_backend.store_translations(locale, data, escape: false)
+      }
+    end
+  end
+
   def build_html(community_id:, default_locale:, locale_param:, version:)
     structure = CLP::LandingPageStore.load_structure(community_id, version)
     render_landing_page(
@@ -161,9 +180,14 @@ class LandingPageController < ActionController::Metal
             }
 
     marketplace_data = CLP::MarketplaceDataStore.marketplace_data(cid, locale)
+    name_display_type = marketplace_data["name_display_type"]
 
     build_category_path = ->(category_name_param) {
       search_path.call(category: category_name_param)
+    }
+
+    build_listing_path = ->(listing_id) {
+      "#"
     }
 
     CLP::Denormalizer.new(
@@ -172,7 +196,8 @@ class LandingPageController < ActionController::Metal
         "marketplace_data" => CLP::LinkResolver::MarketplaceDataResolver.new(marketplace_data),
         "assets" => CLP::LinkResolver::AssetResolver.new(APP_CONFIG[:clp_asset_host], sitename),
         "translation" => CLP::LinkResolver::TranslationResolver.new(locale),
-        "category" => CLP::LinkResolver::CategoryResolver.new(cid, locale, build_category_path)
+        "category" => CLP::LinkResolver::CategoryResolver.new(cid, locale, build_category_path),
+        "listing" => CLP::LinkResolver::ListingResolver.new(cid, locale, name_display_type, build_listing_path)
       }
     )
   end
@@ -193,6 +218,9 @@ class LandingPageController < ActionController::Metal
 
   def render_landing_page(community_id:, default_locale:, locale_param:, structure:)
     locale, sitename = structure["settings"].values_at("locale", "sitename")
+
+    initialize_i18n!(cid, locale)
+
     font_path = APP_CONFIG[:font_proximanovasoft_url].present? ? APP_CONFIG[:font_proximanovasoft_url] : "/landing_page/fonts"
 
     denormalizer = build_denormalizer(
@@ -261,7 +289,10 @@ class LandingPageController < ActionController::Metal
       "price_color": {"type": "marketplace_data", "id": "primary_color"},
       "listings": [
         {
-          "value": {
+          "listing": { "type": "listing", "id": "1" }
+        },
+        {
+          "listing": {
             "title": "Pelago San Sebastian, in very good condition in Kallio",
             "price_cents": 3900,
             "price_unit": "day",
@@ -272,18 +303,7 @@ class LandingPageController < ActionController::Metal
           }
         },
         {
-          "value": {
-            "title": "Pelago San Sebastian, in very good condition in Kallio",
-            "price_cents": 3900,
-            "price_unit": "day",
-            "currency_symbol": "$",
-            "author_name": "Mikko P.",
-            "author_avatar": "https://c5.staticflickr.com/1/727/20082134084_88e9691b84_h.jpg",
-            "listing_image": "https://c4.staticflickr.com/2/1501/26646827091_e8a73c0c6c_h.jpg"
-          }
-        },
-        {
-          "value": {
+          "listing": {
             "title": "Pelago San Sebastian, in very good condition in Kallio",
             "price_cents": 3900,
             "price_unit": "day",
