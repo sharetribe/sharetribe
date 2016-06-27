@@ -1,2 +1,25 @@
 $dimension-mobile-margin: 24px;
 $dimension-mobile-margin-big: 36px;
+
+// Top/bottom margin for sections such as info, categories, listings etc.
+$dimension-section-margin: 96px;
+
+/*
+
+Divides given total area according to golden ratio:
+
+   numerator
+  -----------  =  1.6180...
+  denominator
+
+*/
+
+$dimension-golden-ratio: 1.61803398875;
+
+@mixin golden-ratio-numerator($prop, $total) {
+  #{$prop}: $total / $dimension-golden-ratio;
+}
+
+@mixin golden-ratio-denominator($prop, $total) {
+  #{$prop}: $total - ($total / $dimension-golden-ratio);
+}

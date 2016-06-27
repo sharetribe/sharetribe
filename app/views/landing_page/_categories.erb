@@ -1,0 +1,47 @@
+<% content_for :categories_css do %>
+  <% if s["button_color"] %>
+
+    .<%= section_id %>__categories__button--ghost {
+      color: rgb(<%= s["button_color"]["value"].join(",") %>);
+      border-color: rgb(<%= s["button_color"]["value"].join(",") %>);
+    }
+  <% end %>
+
+  <% if s["button_color_hover"] %>
+    .<%= section_id %>__categories__button--ghost:hover {
+      background-color: rgb(<%= s["button_color_hover"]["value"].join(",") %>);
+      border-color: rgb(<%= s["button_color_hover"]["value"].join(",") %>);
+    }
+  <% end %>
+
+  <% if s["button_color_hover"] %>
+    .<%= section_id %>__categories__category-content:hover {
+      box-shadow: inset 0 0 0 999999px rgba(<%= s["category_color_hover"]["value"].join(",") %>, 0.9); /* big enough number to cover the whole area */
+    }
+  <% end %>
+
+<% end %>
+
+<section id="<%= section_id %>" class="categories__section">
+  <div class="categories__content">
+    <h1 class="categories__title"><%= s["title"] %></h1>
+    <p class="categories__paragraph"><%= s["paragraph"] %></p>
+
+    <div class="categories__categories">
+      <% num_of_categories = s["categories"].length %>
+      <% s["categories"].each do |c| %>
+        <div class="categories__category--<%= num_of_categories %>">
+          <a href="<%= c["category"]["path"] %>">
+            <div class="<%= section_id %>__categories__category-content categories__category-content" style="background-image: url(<%= c["background_image"]["src"] %>)">
+              <h3 class="categories__category-title"><%= c["category"]["title"] %></h3>
+            </div>
+          </a>
+        </div>
+      <% end %>
+    </div>
+
+    <% if s["button_title"] %>
+      <a class="<%= section_id%>__categories__button--ghost categories__button--ghost" href="<%= s['button_path']['value'] %>"><%= s["button_title"]%></a>
+    <% end %>
+  </div>
+</section>

@@ -14,6 +14,11 @@ module ColorUtils
     hsl.to_rgb.hex.upcase
   end
 
+  def css_to_rgb_array(css)
+    color = Color::RGB.by_css(css)
+    [color.red.to_i, color.green.to_i, color.blue.to_i]
+  end
+
   def normalize_percentage(percentage)
     percentage.to_f / 100.to_f
   end

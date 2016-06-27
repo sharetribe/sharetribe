@@ -1,3 +1,5 @@
+# rubocop:disable ClassLength
+
 class LandingPageController < ActionController::Metal
 
   CLP = CustomLandingPage
@@ -26,7 +28,11 @@ class LandingPageController < ActionController::Metal
     begin
       structure = CLP::LandingPageStore.load_structure(cid, version)
 
-      render_landing_page(cid, structure)
+      # We know for sure that landing page is enabled
+      # Otherwise an exception would have been thrown
+      lp_enabled = true
+
+      render_landing_page(cid, structure, lp_enabled)
     rescue CLP::LandingPageContentNotFound
       render_not_found()
     end
@@ -38,13 +44,15 @@ class LandingPageController < ActionController::Metal
 
     begin
       structure = CLP::LandingPageStore.load_structure(cid, preview_version)
+      lp_enabled = CLP::LandingPageStore.enabled?(cid)
 
       # Uncomment for dev purposes
       # structure = JSON.parse(data_str)
+      # lp_enabled = true
 
       # Tell robots to not index and to not follow any links
       headers["X-Robots-Tag"] = "none"
-      render_landing_page(cid, structure)
+      render_landing_page(cid, structure, lp_enabled)
     rescue CLP::LandingPageContentNotFound
       render_not_found()
     end
@@ -53,12 +61,21 @@ class LandingPageController < ActionController::Metal
 
   private
 
-  def build_denormalizer(cid, locale, sitename)
+  def build_denormalizer(cid:, locale:, sitename:, lp_enabled:)
+
+    path_to_search =
+      if lp_enabled
+        search_with_locale_path(locale: locale)
+      else
+        homepage_without_locale_path(locale: nil)
+      end
+
     # Application paths
-    paths = { "search" => "/", # FIXME. Remove hardcoded URL. Add search path here when we get one
+    paths = { "search" => path_to_search,
               "signup" => sign_up_path,
               "about" => about_infos_path,
-              "contact_us" => new_user_feedback_path
+              "contact_us" => new_user_feedback_path,
+              "post_a_new_listing" => new_listing_path
             }
 
     marketplace_data = CLP::MarketplaceDataStore.marketplace_data(cid, locale)
@@ -83,11 +100,16 @@ class LandingPageController < ActionController::Metal
     request.env[:current_marketplace]&.id
   end
 
-  def render_landing_page(cid, structure)
+  def render_landing_page(cid, structure, lp_enabled)
     locale, sitename = structure["settings"].values_at("locale", "sitename")
     font_path = APP_CONFIG[:font_proximanovasoft_url].present? ? APP_CONFIG[:font_proximanovasoft_url] : "/landing_page/fonts"
 
-    denormalizer = build_denormalizer(cid, locale, sitename)
+    denormalizer = build_denormalizer(
+      cid: cid,
+      locale: locale,
+      sitename: sitename,
+      lp_enabled: lp_enabled
+    )
 
     render :landing_page,
            locals: { font_path: font_path,
@@ -137,6 +159,246 @@ class LandingPageController < ActionController::Metal
       "signup_button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
     },
     {
+      "id": "categories7",
+      "kind": "categories",
+      "title": "Section title goes here",
+      "paragraph": "Section paragraph goes here",
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "button_title": "Section link",
+      "button_path": {"value": "https://google.com"},
+      "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
+      "categories": [
+        {
+          "category": {
+            "title": "Mountain bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "Parts",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        }
+      ]
+    },
+    {
+      "id": "categories6",
+      "kind": "categories",
+      "title": "Section title goes here",
+      "paragraph": "Section paragraph goes here",
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "button_title": "Section link",
+      "button_path": {"value": "https://google.com"},
+      "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
+      "categories": [
+        {
+          "category": {
+            "title": "Mountain bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        }
+      ]
+    },
+    {
+      "id": "categories5",
+      "kind": "categories",
+      "title": "Section title goes here",
+      "paragraph": "Section paragraph goes here",
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "button_title": "Section link",
+      "button_path": {"value": "https://google.com"},
+      "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
+      "categories": [
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        }
+      ]
+    },
+    {
+      "id": "categories4",
+      "kind": "categories",
+      "title": "Section title goes here",
+      "paragraph": "Section paragraph goes here",
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "button_title": "Section link",
+      "button_path": {"value": "https://google.com"},
+      "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
+      "categories": [
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        }
+      ]
+    },
+    {
+      "id": "categories3",
+      "kind": "categories",
+      "title": "Section title goes here",
+      "paragraph": "Section paragraph goes here",
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "button_title": "Section link",
+      "button_path": {"value": "https://google.com"},
+      "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
+      "categories": [
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        },
+        {
+          "category": {
+            "title": "City bikes",
+            "path": "https://google.com"
+          },
+          "background_image": {"type": "assets", "id": "myheroimage"}
+        }
+      ]
+    },
+    {
       "id": "info1_v1",
       "kind": "info",
       "variation": "single_column",
@@ -146,7 +408,7 @@ class LandingPageController < ActionController::Metal
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "button_title": "Section link",
-      "button_path": {"value": "https://google.com"},
+      "button_path": {"type": "path", "id": "post_a_new_listing"},
       "background_image": {"type": "assets", "id": "myinfoimage"}
     },
     {
@@ -402,6 +664,11 @@ class LandingPageController < ActionController::Metal
 
   "composition": [
     { "section": {"type": "sections", "id": "myhero1"}},
+    { "section": {"type": "sections", "id": "categories7"}},
+    { "section": {"type": "sections", "id": "categories6"}},
+    { "section": {"type": "sections", "id": "categories5"}},
+    { "section": {"type": "sections", "id": "categories4"}},
+    { "section": {"type": "sections", "id": "categories3"}},
     { "section": {"type": "sections", "id": "info1_v1"}},
     { "section": {"type": "sections", "id": "info1_v2"}},
     { "section": {"type": "sections", "id": "info1_v3"}},
@@ -425,6 +692,7 @@ class LandingPageController < ActionController::Metal
 }
 JSON
   end
+  # rubocop:enable Metrics/MethodLength
 
   def landing_page_styles
     Rails.application.assets.find_asset("landing_page/styles.scss").to_s.html_safe
