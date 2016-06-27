@@ -451,6 +451,10 @@ class ApplicationController < ActionController::Base
       .or_else({})
   end
 
+  def topbar_properties
+    render json: topbar_props
+  end
+
   private
 
   # Override basic instrumentation and provide additional info for lograge to consume
