@@ -61,9 +61,12 @@ class LandingPageController < ActionController::Metal
 
   def build_denormalizer(cid:, locale:, sitename:, lp_enabled:)
 
-    path_to_search = lp_enabled ?
-                       search_with_locale_path(locale: locale) :
-                       homepage_without_locale_path(locale: nil)
+    path_to_search =
+      if lp_enabled
+        search_with_locale_path(locale: locale)
+      else
+        homepage_without_locale_path(locale: nil)
+      end
 
     # Application paths
     paths = { "search" => path_to_search,
