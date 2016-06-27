@@ -59,6 +59,7 @@
 #  facebook_connect_id                        :string(255)
 #  facebook_connect_secret                    :string(255)
 #  google_analytics_key                       :string(255)
+#  google_maps_key                            :string(64)
 #  name_display_type                          :string(255)      default("first_name_with_initial")
 #  twitter_handle                             :string(255)
 #  use_community_location_as_default          :boolean          default(FALSE)

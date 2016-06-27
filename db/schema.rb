@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615145518) do
+ActiveRecord::Schema.define(version: 20160627063918) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -183,6 +183,7 @@ ActiveRecord::Schema.define(version: 20160615145518) do
     t.string   "facebook_connect_id",                        limit: 255
     t.string   "facebook_connect_secret",                    limit: 255
     t.string   "google_analytics_key",                       limit: 255
+    t.string   "google_maps_key",                            limit: 64
     t.string   "name_display_type",                          limit: 255,      default: "first_name_with_initial"
     t.string   "twitter_handle",                             limit: 255
     t.boolean  "use_community_location_as_default",                           default: false
