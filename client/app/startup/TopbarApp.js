@@ -4,7 +4,11 @@ import Topbar from '../components/sections/Topbar/Topbar';
 import { subset } from '../utils/routes';
 
 export default (props, railsContext) => {
-  initializeI18n(railsContext.i18nLocale, railsContext.i18nDefaultLocale, process.env.NODE_ENV);
+  if (props.i18n) {
+    initializeI18n(props.i18n.locale, props.i18n.defaultLocale, process.env.NODE_ENV);
+  } else {
+    initializeI18n(railsContext.i18nLocale, railsContext.i18nDefaultLocale, process.env.NODE_ENV);
+  }
 
   const routes = subset([
     'new_listing',
