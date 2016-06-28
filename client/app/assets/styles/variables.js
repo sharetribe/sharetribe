@@ -1,4 +1,5 @@
 /* eslint-env node */
+const fontSizeSmaller = '12px';
 const fontSizeSmall = '13px';
 const fontSize = '14px';
 const fontSizeBig = '16px';
@@ -11,11 +12,14 @@ const backgroundLightColorHover = 'rgba(169, 172, 176, 0.07)';
 const customColorFallback = '#a64c5d';
 const customColor2Fallback = '#00a26c';
 
-const paddingTopbarVertical = '0.92857em';
-const paddingTopbarHorizontal = '1.7142857em';
 const topbarBorderColor = 'rgba(169, 172, 176, 0.5)';
 const topbarItemHeight = '44px';
 const bodyPadding = '24px';
+
+const pxToEms = function pxToEms(px, againstFontSize) {
+  const emValue = px / againstFontSize;
+  return `${emValue}em`;
+};
 
 module.exports = {
 
@@ -105,6 +109,7 @@ module.exports = {
    // on an input.
   '--Topbar_inputFontSizeMobile': fontSizeBig,
   '--Topbar_fontSize': fontSize,
+  '--Topbar_fontSizeMobile': fontSizeMobile,
 
   '--Topbar_avatarSize': topbarItemHeight,
   '--Topbar_avatarPadding': '18px 0',
@@ -149,10 +154,14 @@ module.exports = {
 
   '--MenuItem_borderColor': topbarBorderColor,
   '--MenuItem_backgroundColorHover': backgroundLightColorHover,
-  '--MenuItem_paddingTopbarVertical': paddingTopbarVertical,
-  '--MenuItem_paddingTopbarHorizontal': paddingTopbarHorizontal,
+  '--MenuItem_paddingTopbarVertical': pxToEms(13, 14), // eslint-disable-line no-magic-numbers
+  '--MenuItem_paddingTopbarHorizontal': pxToEms(24, 14), // eslint-disable-line no-magic-numbers
+  '--MenuItem_paddingOffScreenVertical': pxToEms(10, 17), // eslint-disable-line no-magic-numbers
+  '--MenuItem_paddingOffScreenHorizontal': pxToEms(24, 17), // eslint-disable-line no-magic-numbers
   '--MenuItem_textColor': textColor,
   '--MenuItem_textColorFocus': textColorFocus,
+  '--MenuItem_textColorDefault': customColorFallback,
+  '--MenuItem_textColorSelected': '#4a4a4a',
   '--MenuItem_letterSpacing': '0.09px',
 
   '--Menu_fontSize': fontSize,
@@ -168,6 +177,11 @@ module.exports = {
   // topbar can't control base font-size.
   '--Menu_labelPaddingVertical': '1.28571429em',
   '--Menu_labelPaddingHorizontal': '1.714285em',
+
+  '--MenuSection_titleColor': 'rgba(153, 153, 153, 0.5)',
+  '--MenuSection_fontSizeTitle': fontSizeSmaller,
+  '--MenuSection_paddingOffScreenVertical': pxToEms(10, 12), // eslint-disable-line no-magic-numbers
+  '--MenuSection_paddingOffScreenHorizontal': pxToEms(24, 12), // eslint-disable-line no-magic-numbers
 
   '--AddNewListingButton_height': topbarItemHeight,
   '--AddNewListingButton_defaultColor': '#43A5CC',

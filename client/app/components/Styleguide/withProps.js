@@ -10,7 +10,7 @@ const defaultRailsContext = {
   i18nLocale: 'en',
   location: '/',
   marketplaceId: 1,
-  marketplace_color1: '#a64c5d',
+  marketplace_color1: '#ee4',
   marketplace_color2: '#00a26c',
   pathname: '/',
   port: 3000,
@@ -37,24 +37,18 @@ const withProps = function withProps(component, props) {
 const storify = (ComposedComponent, containerStyle) => (
   class EnhancedComponent extends Component {
     render() {
-      return (
-        div(null, [
-          div(
-            { className: css.componentWrapper, key: 'componentWrapper' },
-            div(
-              containerStyle,
-              ComposedComponent
-            ),
-          ),
+      return div(null, [
+        div({ className: css.componentWrapper, key: 'componentWrapper' }, [
+          div(containerStyle, ComposedComponent),
+        ]),
 
-          strong({ className: css.propsTitle, key: 'proprsTitle' }, 'Props:'),
-          pre({
-            className: css.propsWrapper,
-            key: 'propsWrapper',
-          },
-          JSON.stringify({ props: ComposedComponent.props }, null, '  ')),
-        ])
-      );
+        strong({ className: css.propsTitle, key: 'proprsTitle' }, 'Props:'),
+        pre({
+          className: css.propsWrapper,
+          key: 'propsWrapper',
+        },
+        JSON.stringify({ props: ComposedComponent.props }, null, '  ')),
+      ]);
     }
   }
 );

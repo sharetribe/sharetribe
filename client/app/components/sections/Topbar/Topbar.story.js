@@ -4,11 +4,11 @@ import { storify, defaultRailsContext } from '../../Styleguide/withProps';
 
 import Topbar from './Topbar';
 
-const marketplaceColor = '#EE4';
 const containerStyle = { style: { minWidth: '600px', background: 'white' } };
 
 const baseProps = {
   railsContext: defaultRailsContext,
+  routes: {},
   logo: {
     href: 'http://example.com',
     text: 'Bikerrrs',
@@ -80,7 +80,6 @@ const baseProps = {
   },
   newListingButton: {
     text: 'Post a new listing',
-    customColor: marketplaceColor,
   },
 };
 
