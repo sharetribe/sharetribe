@@ -6,7 +6,12 @@ module TopbarHelper
 
     links = [
       {
-        link: PathHelpers.landing_page_path(community, user, locale_param),
+        link: PathHelpers.landing_page_path(
+          community_id: community.id,
+          user: user,
+          default_locale: community.default_locale,
+          locale_param: locale_param
+        ),
         title: I18n.t("header.home")
       },
       {
@@ -38,7 +43,12 @@ module TopbarHelper
 
     {
       logo: {
-        href: PathHelpers.landing_page_path(community, user, locale_param),
+        href: PathHelpers.landing_page_path(
+          community_id: community,
+          default_locale: community.default_locale,
+          user: user,
+          locale_param: locale_param
+        ),
         text: community.name(I18n.locale),
         image: community.wide_logo.present? ? community.wide_logo.url(:header) : nil,
         image_highres: community.wide_logo.present? ? community.wide_logo.url(:header_highres) : nil
