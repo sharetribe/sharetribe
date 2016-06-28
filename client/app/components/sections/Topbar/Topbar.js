@@ -74,11 +74,10 @@ const profileLinks = function profileLinks(username, router, marketplaceContext)
 };
 
 const DEFAULT_RAILS_CONTEXT = {
-  marketplace_color1: '#a64c5d',
-  marketplace_color2: '#00a26c',
+  marketplace_color1: styleVariables['--customColorFallback'],
+  marketplace_color2: styleVariables['--customColor2Fallback'],
   location: typeof window !== 'undefined' ? window.location.pathname : '/',
 };
-
 
 class Topbar extends Component {
   render() {
