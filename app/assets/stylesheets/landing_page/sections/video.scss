@@ -1,0 +1,65 @@
+@import "../mixins/all";
+
+.video__youtube-player-mask {
+  width: 100%;
+  overflow: hidden;
+
+  @include prefix-prop(transition, all 2000ms ease-in-out);
+
+  @include prefix-val(display, flex);
+  @include prefix-prop(flex-direction, column);
+  @include prefix-prop(align-items, center);
+  @include prefix-prop(justify-content, center);
+
+  @media #{$desktop} {
+    max-height: 75vh;
+  }
+}
+
+.video__youtube-player-container {
+  position: relative;
+  overflow: hidden;
+  @include prefix-val(display, flex);
+  @include prefix-prop(align-items, center);
+}
+
+.video__youtube-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video__youtube-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  @include prefix-prop(transition, background-color 800ms ease-in-out);
+
+  display: none;
+
+  @media #{$desktop} {
+    @include prefix-val(display, flex);
+    @include prefix-prop(flex-direction, column);
+    @include prefix-prop(align-items, center);
+    @include prefix-prop(justify-content, center);
+  }
+}
+
+.video__youtube-watch-video-text {
+  font-family: ProximaNovaSoft-Semibold;
+  font-size: 12px;
+  color: #FFFFFF;
+  letter-spacing: 3px;
+  line-height: 12px;
+
+  text-transform: uppercase;
+
+  margin-top: 24px;
+}

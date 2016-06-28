@@ -379,6 +379,14 @@ class LandingPageController < ActionController::Metal
       ]
     },
     {
+      "id": "video2",
+      "kind": "video",
+      "variation": "youtube",
+      "youtube_video_id": "UffchBUUIoI",
+      "width": "1280",
+      "height": "720"
+    },
+    {
       "id": "categories7",
       "kind": "categories",
       "title": "Section title goes here",
@@ -889,6 +897,7 @@ class LandingPageController < ActionController::Metal
   "composition": [
     { "section": {"type": "sections", "id": "myhero1"}},
     { "section": {"type": "sections", "id": "listings"}},
+    { "section": {"type": "sections", "id": "video2"}},
     { "section": {"type": "sections", "id": "categories7"}},
     { "section": {"type": "sections", "id": "categories6"}},
     { "section": {"type": "sections", "id": "categories5"}},
