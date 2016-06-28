@@ -12,7 +12,7 @@ const paddingTopbarHorizontal = '1.7142857em';
 
 const topbarBorderColor = 'rgba(169, 172, 176, 0.5)';
 const topbarItemHeight = '44px';
-const bodyPadding = '18px';
+const bodyPadding = '24px';
 
 module.exports = {
 
@@ -89,6 +89,8 @@ module.exports = {
 
   '--Topbar_height': '80px',
   '--Topbar_mobileHeight': '50px',
+  '--Topbar_padding': `0 ${bodyPadding}`,
+  '--Topbar_itemSpacing': '24px',
   '--Topbar_logoHeight': '40px',
   '--Topbar_textLogoMaxWidth': '20em',
   '--Topbar_fontFamily': "'Proxima Nova Soft', Helvetica, sans",
@@ -99,8 +101,8 @@ module.exports = {
   '--Topbar_fontSize': fontSize,
 
   '--Topbar_avatarSize': topbarItemHeight,
-  '--Topbar_avatarPadding': '18px 24px',
-  '--Topbar_avatarMobilePadding': '3px 8px',
+  '--Topbar_avatarPadding': '18px 0',
+  '--Topbar_avatarMobilePadding': '3px 0',
 
   // SearchBar
   '--SearchBar_width': '396px',

@@ -35,7 +35,7 @@
 .menuLabel {
   display: inline-block;
   font-size: var(--Menu_fontSize);
-  padding: var(--Menu_labelPaddingVertical) var(--Menu_labelPaddingHorizontal);
+  padding: var(--Menu_labelPaddingVertical) 0;
   white-space: nowrap;
   color: var(--Menu_textColor);
 
