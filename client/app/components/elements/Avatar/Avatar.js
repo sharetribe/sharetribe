@@ -19,7 +19,7 @@ class Avatar extends Component {
 Avatar.propTypes = {
   image: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  imageHeight: PropTypes.number,
+  imageHeight: PropTypes.string,
   className,
 };
 

@@ -28,6 +28,8 @@ const avatarDropdownProps = (avatarDropdown, customColor) => {
 const LABEL_TYPE_MENU = 'menu';
 const LABEL_TYPE_DROPDOWN = 'dropdown';
 
+const SEARCH_ENABLED = false;
+
 const profileLinks = function profileLinks(username, router, marketplaceContext) {
   if (username) {
     return [
@@ -71,15 +73,16 @@ const profileLinks = function profileLinks(username, router, marketplaceContext)
   return [];
 };
 
+const DEFAULT_RAILS_CONTEXT = {
+  marketplace_color1: '#a64c5d',
+  marketplace_color2: '#00a26c',
+  location: typeof window !== 'undefined' ? window.location.pathname : '/',
+};
+
 
 class Topbar extends Component {
   render() {
-    const marketplaceContext = this.props.railsContext ?
-      this.props.railsContext :
-      { marketplace_color1: '#a64c5d',
-        marketplace_color2: '#00a26c',
-        location: typeof window !== 'undefined' ? window.location.pathname : '/',
-      };
+    const marketplaceContext = this.props.railsContext || DEFAULT_RAILS_CONTEXT;
 
     const menuProps = this.props.menu ?
       Object.assign({}, this.props.menu, {
@@ -122,7 +125,7 @@ class Topbar extends Component {
       }) :
       {};
 
-    const username = this.props.railsContext.loggedInUsername ? this.props.railsContext.loggedInUsername : null;
+    const username = marketplaceContext.loggedInUsername || null;
     const mobileMenuProps = Object.assign({}, this.props.menu, {
       key: 'mobilemenu',
       name: t('web.topbar.menu'),
@@ -144,16 +147,21 @@ class Topbar extends Component {
       userLinks: profileLinks(username, this.props.routes, marketplaceContext),
     });
 
+    const newListingRoute = this.props.routes && this.props.routes.new_listing_path ?
+            this.props.routes.new_listing_path() :
+            '#';
 
     return div({ className: css.topbar }, [
       this.props.menu ? r(MenuMobile, mobileMenuProps) : null,
       r(Logo, { ...this.props.logo, classSet: css.topbarLogo }),
-      this.props.search ?
+      SEARCH_ENABLED && this.props.search ?
         r(SearchBar, {
           mode: this.props.search.mode,
           keywordPlaceholder: this.props.search.keyword_placeholder,
           locationPlaceholder: this.props.search.location_placeholder,
-          onSubmit: this.props.search.onSubmit,
+          onSubmit: this.props.search.onSubmit || (() => {
+            console.log('submit search'); // eslint-disable-line no-console
+          }),
         }) :
         null,
       this.props.menu ? r(Menu, menuProps) : null,
@@ -161,45 +169,44 @@ class Topbar extends Component {
       hasMultipleLanguages ? r(Menu, languageMenuProps) : null,
       this.props.avatarDropdown ?
         r(AvatarDropdown, {
-          ...avatarDropdownProps(this.props.avatarDropdown, this.props.railsContext.marketplace_color1),
+          ...avatarDropdownProps(this.props.avatarDropdown, marketplaceContext.marketplace_color1),
           classSet: css.topbarAvatarDropdown,
         }) :
         div({ className: css.topbarAvatarDropdownPlaceholder }),
       this.props.newListingButton ?
-        r(AddNewListingButton, { ...this.props.newListingButton, url: this.props.routes.new_listing_path() }) :
+        r(AddNewListingButton, {
+          ...this.props.newListingButton,
+          url: newListingRoute,
+          customColor: marketplaceContext.marketplace_color1,
+        }) :
         null,
     ]);
   }
 }
 
+const { string, object, shape, arrayOf } = PropTypes;
+
+/* eslint-disable react/forbid-prop-types */
 Topbar.propTypes = {
-  logo: PropTypes.shape(Logo.propTypes).isRequired,
-  search: PropTypes.shape({
-    mode: PropTypes.string,
-    keyword_placeholder: PropTypes.string,
-    location_placeholder: PropTypes.string,
-    onSubmit: PropTypes.func.isRequired,
-  }),
-  avatarDropdown: PropTypes.shape(AvatarDropdown.propTypes),
-  menu: PropTypes.shape({
-    links: PropTypes.arrayOf(PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
+  logo: object.isRequired,
+  search: object,
+  avatarDropdown: object,
+  menu: shape({
+    links: arrayOf(shape({
+      title: string.isRequired,
+      link: string.isRequired,
     })),
   }),
   locales: PropTypes.shape({
-    current_locale: PropTypes.string.isRequired,
-    current_locale_ident: PropTypes.string.isRequired,
-    available_locales: PropTypes.arrayOf(PropTypes.shape({
-      locale_name: PropTypes.string.isRequired,
-      locale_ident: PropTypes.string.isRequired,
-      change_locale_uri: PropTypes.string.isRequired,
+    current_locale: string.isRequired,
+    current_locale_ident: string.isRequired,
+    available_locales: arrayOf(shape({
+      locale_name: string.isRequired,
+      locale_ident: string.isRequired,
+      change_locale_uri: string.isRequired,
     })),
   }),
-  newListingButton: PropTypes.shape({
-    text: PropTypes.string.isRequired,
-    customColor: PropTypes.string,
-  }),
+  newListingButton: object,
   routes,
   railsContext,
 };
