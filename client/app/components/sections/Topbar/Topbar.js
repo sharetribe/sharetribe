@@ -150,6 +150,7 @@ class Topbar extends Component {
     return div({ className: css.topbar }, [
       this.props.menu ? r(MenuMobile, { ...mobileMenuProps, className: css.topbarMobileMenu }) : null,
       r(Logo, { ...this.props.logo, classSet: css.topbarLogo }),
+      div({ className: css.topbarMediumSpacer }),
       SEARCH_ENABLED && this.props.search ?
         r(SearchBar, {
           mode: this.props.search.mode,

@@ -101,6 +101,7 @@ module.exports = {
   '--Topbar_mobileHeight': '50px',
   '--Topbar_padding': `0 ${bodyPadding}`,
   '--Topbar_itemSpacing': '24px',
+  '--Topbar_mobileItemSpacing': '18px',
   '--Topbar_logoHeight': '40px',
   '--Topbar_textLogoMaxWidth': '20em',
   '--Topbar_fontFamily': "'Proxima Nova Soft', Helvetica, sans",
@@ -176,7 +177,9 @@ module.exports = {
 
   // topbar can't control base font-size.
   '--Menu_labelPaddingVertical': '1.28571429em',
-  '--Menu_labelPaddingHorizontal': '1.714285em',
+  '--Menu_labelPaddingHorizontal': pxToEms(24, 14),
+  '--Menu_mobileLabelPaddingVertical': pxToEms(24, 17),
+  '--Menu_mobileLabelPaddingHorizontal': pxToEms(18, 17),
 
   '--MenuSection_titleColor': 'rgba(153, 153, 153, 0.5)',
   '--MenuSection_fontSizeTitle': fontSizeSmaller,

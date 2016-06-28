@@ -1,5 +1,5 @@
-@custom-media --SearchBar_small (max-width: 40rem);
-@custom-media --SearchBar_medium (min-width: 40rem);
+@custom-media --SearchBar_small (max-width: 62rem);
+@custom-media --SearchBar_medium (min-width: 62rem);
 
 /* The Google Maps Places Autocomplete dropdown box is added in the
    end of the document body, and we must scope the global style

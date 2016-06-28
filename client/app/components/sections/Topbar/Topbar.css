@@ -1,5 +1,5 @@
 @custom-media --Topbar_small (min-width: 30rem);
-@custom-media --Topbar_medium (min-width: 50rem);
+@custom-media --Topbar_medium (min-width: 62em);
 
 .topbar {
   display: flex;
@@ -56,7 +56,7 @@
     display: block;
   }
 
-  @media (--large-viewport) {
+  @media (--Topbar_medium) {
     & .topbarMenu {
       display: block;
     }
@@ -71,7 +71,13 @@
   }
 
   & > * {
-    margin-right: var(--Topbar_itemSpacing);
+    @media (--Topbar_small) {
+      margin-right: var(--Topbar_mobileItemSpacing);
+    }
+
+    @media (--Topbar_medium) {
+      margin-right: var(--Topbar_itemSpacing);
+    }
 
     &:last-child {
       margin-right: 0;
@@ -81,6 +87,7 @@
 
 .topbarSpacer {
   display: none;
+  margin: 0;
 
   @media (--Topbar_medium) {
     flex-grow: 30;
@@ -88,8 +95,22 @@
   }
 }
 
+.topbarMediumSpacer {
+  display: none;
+
+  @media (--Topbar_small) {
+    display: block;
+    flex-grow: 30;
+  }
+
+  @media (--Topbar_medium) {
+    display: none;
+  }
+}
+
 .topbarMobileMenu {
   font-size: var(--Topbar_fontSizeMobile);
+  margin-right: 0;
 }
 
 .topbarLogo {
