@@ -1,4 +1,4 @@
-@custom-media --Topbar_small (min-width: 30rem);
+@custom-media --Topbar_small (min-width: 38em);
 @custom-media --Topbar_medium (min-width: 62em);
 
 .topbar {
@@ -83,6 +83,22 @@
       margin-right: 0;
     }
   }
+
+  & > .topbarAvatarDropdown {
+    padding: var(--Topbar_avatarMobilePadding);
+    font-family: var(--Topbar_fontFamily);
+    font-size: var(--Topbar_fontSize);
+    align-self: flex-start;
+    display: none;
+
+    @media (--Topbar_small) {
+      display: flex;
+    }
+
+    @media (--Topbar_medium) {
+      padding: var(--Topbar_avatarPadding);
+    }
+  }
 }
 
 .topbarSpacer {
@@ -118,22 +134,6 @@
   max-width: var(--Topbar_textLogoMaxWidth);
 }
 
-.topbarAvatarDropdown {
-  padding: var(--Topbar_avatarMobilePadding);
-  font-family: var(--Topbar_fontFamily);
-  font-size: var(--Topbar_fontSize);
-  align-self: flex-start;
-  display: none;
-
-  @media (--Topbar_small) {
-    display: block;
-  }
-
-  @media (--Topbar_medium) {
-    padding: var(--Topbar_avatarPadding);
-  }
-}
-
 .topbarAvatarDropdownPlaceholder {
   margin: var(--Topbar_avatarMobilePadding);
   width: var(--Topbar_avatarSize);
@@ -141,10 +141,18 @@
   display: none;
 
   @media (--Topbar_small) {
-    display: block;
+    display: initial;
   }
 
   @media (--Topbar_medium) {
     margin: var(--Topbar_avatarPadding);
+  }
+}
+
+.topbarListingButton {
+  display: none;
+
+  @media (--Topbar_small) {
+    display: block;
   }
 }
