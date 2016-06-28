@@ -1,0 +1,74 @@
+/* TODO: unify with Topbar breakpoints */
+@custom-media --AddNewListingButton_tablet (min-width: 40rem);
+
+.button {
+  position: relative;
+  display: inline-block;
+  font-family: var(--Topbar_fontFamily);
+  font-weight: 600;
+  letter-spacing: 0.35px;
+  border-radius: calc(var(--AddNewListingButton_height) / 2);
+  overflow: hidden;
+
+  &:hover .backgroundContainer {
+    filter: brightness(80%);
+  }
+
+  &:active .backgroundContainer {
+    filter: brightness(70%);
+    box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.backgroundContainer {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: calc(var(--AddNewListingButton_height) / 2);
+  transition: filter 100ms ease-in;
+
+  @media (--AddNewListingButton_tablet) {
+    display: block;
+  }
+}
+
+.mobile,
+.desktop {
+  position: relative;
+  padding: 0 var(--AddNewListingButton_textPadding);
+  height: var(--AddNewListingButton_height);
+  line-height: calc(var(--AddNewListingButton_height) - 1px);
+  max-width: var(--AddNewListingButton_maxTextWidth);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobile {
+  display: block;
+  transition: filter 100ms ease-in;
+
+  &:hover {
+    filter: brightness(80%);
+  }
+
+  &:active {
+    filter: brightness(70%);
+  }
+
+  @media (--AddNewListingButton_tablet) {
+    display: none;
+  }
+}
+
+.desktop {
+  display: none;
+  color: var(--AddNewListingButton_textColor);
+
+  @media (--AddNewListingButton_tablet) {
+    display: block;
+  }
+}

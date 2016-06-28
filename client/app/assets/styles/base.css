@@ -2,7 +2,10 @@ html {
   box-sizing: border-box;
   font-size: 14px;
 }
-*, *:before, *:after {
+
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
