@@ -1600,7 +1600,7 @@ da-DK:
       booking_from: Fra
       booking_to: Til
       how_paypal_works: "Sådan virker PayPal"
-      payment_help: "Betalings hjælp"
+      payment_help: Betalingshjælp
     new:
       post_a_new_listing: "Opret annonce"
       listing: annonce
@@ -1681,7 +1681,7 @@ da-DK:
       by: "%{listing} af %{author}"
       payment: Betaling
       exp: "Udløbsdato:"
-      you_will_be_charged: "Du vil kun blive opkrævet betaling hvis %{author} accepterer transaktionen. %{author} er nødt til at acceptere transaktionen inden %{expiration_period} dage. I tilfælde af at %{author} afviser transaktionen eller ikke svarer, vil du ikke blive opkrævet betaling."
+      you_will_be_charged: "Ordren er først gennemført, når %{author} godkender ordren. Hvis %{author} afviser eller ikke godkender ordren inden for %{expiration_period} dage, bliver der ikke trukket noget beløb."
       day: dag
       days: dage
     transaction_agreement_checkbox:
@@ -1785,7 +1785,7 @@ da-DK:
     paypal_account_connected_title: "PayPal-konto forbundet"
     paypal_account_connected: "PayPal-kontoen <%{email}> er blevet forbundet med %{service_name}."
     change_account: "Ret PayPal-konto"
-    missing: "Du kan modtage direkte betalinger på %{service_name} hvis du tilknytter en PayPal-konto i dine %{settings_link}."
+    missing: "Du kan modtage direkte betalinger på %{service_name}, hvis du tilknytter din PayPal-konto i %{settings_link}."
     from_your_payment_settings_link_text: betalingsindstillinger
     redirect_message: "Omdirigere dig til PayPal. Hvis der ikke sker noget, skal du klikke %{redirect_link}."
     redirect_link_text: her
@@ -1987,7 +1987,7 @@ da-DK:
       email_about_new_listings_by_followed_people: "...en som jeg følger har oprettet en ny annonce"
       unsubscribe_succesful: "Du er nu afmeldt"
       unsubscribe_info_text: "Du vil nu ikke længere modtage emails. Tjek dine %{settings_link} for at vælge hvilken slags emails du ønsker at modtage fra %{service_name}, eller vend tilbage til %{homepage_link}."
-      settings_link: indstillinger
+      settings_link: Indstillinger
       homepage_link: forsiden
       unsubscribe_unsuccesful: "Fejl i afmelding"
       unsuccessful_unsubscribe_info_text: "Afmeld-linket er udløbet. Log ind for at ændre dine notifikationsindstillinger."
