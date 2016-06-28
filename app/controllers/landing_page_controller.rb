@@ -118,16 +118,18 @@ class LandingPageController < ActionController::Metal
     Rails.cache.write("clp/#{community_id}/#{version}/#{digest}", content, expires_in: cache_time)
   end
 
+  def path_to_search(lp_enabled:, locale:, params: {})
+    if lp_enabled
+      search_with_locale_path({locale: locale}.merge(params))
+    else
+      homepage_without_locale_path({locale: nil}.merge(params))
+    end
+  end
 
   def build_denormalizer(cid:, locale:, sitename:, lp_enabled:)
-    path_to_search =
-      if lp_enabled
-        search_with_locale_path(locale: locale)
-      else
-        homepage_without_locale_path(locale: nil)
-      end
+
     # Application paths
-    paths = { "search" => path_to_search,
+    paths = { "search" => path_to_search(lp_enabled: true, locale: locale),
               "signup" => sign_up_path,
               "about" => about_infos_path,
               "contact_us" => new_user_feedback_path,
@@ -136,12 +138,17 @@ class LandingPageController < ActionController::Metal
 
     marketplace_data = CLP::MarketplaceDataStore.marketplace_data(cid, locale)
 
+    build_category_path = ->(category_name_param) {
+      path_to_search(lp_enabled: lp_enabled, locale: locale, params: {category: category_name_param})
+    }
+
     CLP::Denormalizer.new(
       link_resolvers: {
         "path" => CLP::LinkResolver::PathResolver.new(paths),
         "marketplace_data" => CLP::LinkResolver::MarketplaceDataResolver.new(marketplace_data),
         "assets" => CLP::LinkResolver::AssetResolver.new(APP_CONFIG[:clp_asset_host], sitename),
-        "translation" => CLP::LinkResolver::TranslationResolver.new(locale)
+        "translation" => CLP::LinkResolver::TranslationResolver.new(locale),
+        "category" => CLP::LinkResolver::CategoryResolver.new(cid, locale, build_category_path)
       }
     )
   end
