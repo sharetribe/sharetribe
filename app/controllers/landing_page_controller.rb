@@ -95,7 +95,7 @@ class LandingPageController < ActionController::Metal
 
   def build_html(community_id, default_locale, version)
     structure = CLP::LandingPageStore.load_structure(community_id, version)
-    render_landing_page(community_id, default_locale, structure, true)
+    render_landing_page(community_id, default_locale, structure)
   end
 
   def build_cache_meta(content)
@@ -119,14 +119,19 @@ class LandingPageController < ActionController::Metal
   end
 
   def build_denormalizer(cid:, default_locale:, locale:, sitename:)
+    search_path = ->(opts = {}) {
+      PathHelpers.search_path(
+        community_id: cid,
+        user: nil,
+        locale_param: locale,
+        default_locale: default_locale,
+        opts: opts
+      )
+    }
 
     # Application paths
-    paths = { "search" => PathHelpers.search_path(
-                community_id: cid,
-                user: nil,
-                locale_param: locale,
-                default_locale: default_locale
-              ),
+    paths = { "search" => search_path.call(),
+              "all_categories" => search_path.call(category: "all"),
               "signup" => sign_up_path,
               "about" => about_infos_path,
               "contact_us" => new_user_feedback_path,
@@ -136,13 +141,7 @@ class LandingPageController < ActionController::Metal
     marketplace_data = CLP::MarketplaceDataStore.marketplace_data(cid, locale)
 
     build_category_path = ->(category_name_param) {
-      PathHelpers.search_path(
-        community_id: cid,
-        user: nil,
-        locale_param: locale,
-        default_locale: default_locale,
-        opts: {category: category_name_param}
-      )
+      search_path.call(category: category_name_param)
     }
 
     CLP::Denormalizer.new(
@@ -235,8 +234,8 @@ class LandingPageController < ActionController::Metal
       "paragraph": "Section paragraph goes here",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "button_title": "Section link",
-      "button_path": {"value": "https://google.com"},
+      "button_title": "All categories",
+      "button_path": {"type": "path", "id": "all_categories"},
       "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
       "categories": [
         {
@@ -248,8 +247,8 @@ class LandingPageController < ActionController::Metal
         },
         {
           "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
+            "type": "category",
+            "id": 1
           },
           "background_image": {"type": "assets", "id": "myheroimage"}
         },
@@ -297,8 +296,8 @@ class LandingPageController < ActionController::Metal
       "paragraph": "Section paragraph goes here",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "button_title": "Section link",
-      "button_path": {"value": "https://google.com"},
+      "button_title": "All categories",
+      "button_path": {"type": "path", "id": "all_categories"},
       "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
       "categories": [
         {
@@ -352,8 +351,8 @@ class LandingPageController < ActionController::Metal
       "paragraph": "Section paragraph goes here",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "button_title": "Section link",
-      "button_path": {"value": "https://google.com"},
+      "button_title": "All categories",
+      "button_path": {"type": "path", "id": "all_categories"},
       "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
       "categories": [
         {
@@ -400,8 +399,8 @@ class LandingPageController < ActionController::Metal
       "paragraph": "Section paragraph goes here",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "button_title": "Section link",
-      "button_path": {"value": "https://google.com"},
+      "button_title": "All categories",
+      "button_path": {"type": "path", "id": "all_categories"},
       "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
       "categories": [
         {
@@ -441,8 +440,8 @@ class LandingPageController < ActionController::Metal
       "paragraph": "Section paragraph goes here",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "button_title": "Section link",
-      "button_path": {"value": "https://google.com"},
+      "button_title": "All categories",
+      "button_path": {"type": "path", "id": "all_categories"},
       "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
       "categories": [
         {
