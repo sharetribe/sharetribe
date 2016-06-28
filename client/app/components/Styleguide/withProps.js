@@ -10,7 +10,7 @@ const defaultRailsContext = {
   i18nLocale: 'en',
   location: '/',
   marketplaceId: 1,
-  marketplace_color1: '#a64c5d',
+  marketplace_color1: '#ee4',
   marketplace_color2: '#00a26c',
   pathname: '/',
   port: 3000,
