@@ -8,7 +8,7 @@ module TopbarHelper
       {
         link: PathHelpers.landing_page_path(
           community_id: community.id,
-          user: user,
+          logged_in: user.present?,
           default_locale: community.default_locale,
           locale_param: locale_param
         ),
@@ -46,7 +46,7 @@ module TopbarHelper
         href: PathHelpers.landing_page_path(
           community_id: community.id,
           default_locale: community.default_locale,
-          user: user,
+          logged_in: user.present?,
           locale_param: locale_param
         ),
         text: community.name(I18n.locale),

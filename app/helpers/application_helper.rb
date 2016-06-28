@@ -678,7 +678,7 @@ module ApplicationHelper
   def search_path(opts = {})
     PathHelpers.search_path(
       community_id: @current_community.id,
-      user: @current_user,
+      logged_in: @current_user.present?,
       locale_param: params[:locale],
       default_locale: @current_community.default_locale,
       opts: opts)
@@ -693,7 +693,7 @@ module ApplicationHelper
   def landing_page_path
     PathHelpers.landing_page_path(
       community_id: @current_community.id,
-      user: @current_user,
+      logged_in: @current_user.present?,
       default_locale: @current_community.default_locale,
       locale_param: params[:locale])
   end

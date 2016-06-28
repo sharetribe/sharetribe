@@ -2,7 +2,7 @@ module PathHelpers
 
   module_function
 
-  def search_path(community_id:, user:, locale_param:, default_locale:, opts: {})
+  def search_path(community_id:, logged_in:, locale_param:, default_locale:, opts: {})
 
     o = opts.dup.to_hash
     o.delete("controller")
@@ -13,13 +13,13 @@ module PathHelpers
     not_present = ->(x) { !x.present? }
 
     case [CustomLandingPage::LandingPageStore.enabled?(community_id),
-          user,
+          logged_in,
           locale_param]
-    when matches([true, not_present, non_default_locale])
+    when matches([true, false, non_default_locale])
       paths.search_with_locale_path(o.merge(locale: locale_param))
     when matches([true, __, __])
       paths.search_without_locale_path(o.merge(locale: nil))
-    when matches([false, not_present, non_default_locale])
+    when matches([false, false, non_default_locale])
       paths.homepage_with_locale_path(o.merge(locale: locale_param))
     when matches([false, __, __])
       paths.homepage_without_locale_path(o.merge(locale: nil))
@@ -40,16 +40,15 @@ module PathHelpers
     end
   end
 
-  def landing_page_path(community_id:, user:, locale_param:, default_locale:)
+  def landing_page_path(community_id:, logged_in:, locale_param:, default_locale:)
     non_default_locale = ->(locale) { locale && locale != default_locale.to_s}
-    not_present = ->(x) { !x.present? }
 
-    case [CustomLandingPage::LandingPageStore.enabled?(community_id), user, locale_param]
-    when matches([true, not_present, non_default_locale])
+    case [CustomLandingPage::LandingPageStore.enabled?(community_id), logged_in, locale_param]
+    when matches([true, false, non_default_locale])
       paths.landing_page_with_locale_path(locale: locale_param)
     when matches([true, __, __])
       paths.landing_page_without_locale_path(locale: nil)
-    when matches([false, not_present, non_default_locale])
+    when matches([false, false, non_default_locale])
       paths.homepage_with_locale_path(locale: locale_param)
     else
       paths.homepage_without_locale_path(locale: nil)

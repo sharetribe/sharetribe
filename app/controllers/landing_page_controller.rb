@@ -144,7 +144,7 @@ class LandingPageController < ActionController::Metal
     search_path = ->(opts = {}) {
       PathHelpers.search_path(
         community_id: cid,
-        user: nil,
+        logged_in: false,
         locale_param: locale_param,
         default_locale: default_locale,
         opts: opts
