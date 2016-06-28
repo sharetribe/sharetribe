@@ -35,6 +35,10 @@
 
   <title><%= page["title"]["value"] %></title>
 
+  <script>
+    window.I18n = {};
+    <%= javascripts[:translations] %>
+  </script>
   <%= javascript_include_tag 'application' %>
   <%= stylesheet_link_tag 'app-bundle' %>
 

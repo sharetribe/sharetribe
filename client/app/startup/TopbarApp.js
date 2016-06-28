@@ -4,11 +4,10 @@ import Topbar from '../components/sections/Topbar/Topbar';
 import { subset } from '../utils/routes';
 
 export default (props, railsContext) => {
-  if (props.i18n) {
-    initializeI18n(props.i18n.locale, props.i18n.defaultLocale, process.env.NODE_ENV);
-  } else {
-    initializeI18n(railsContext.i18nLocale, railsContext.i18nDefaultLocale, process.env.NODE_ENV);
-  }
+  const locale = props.i18n ? props.i18n.locale : railsContext.i18nLocale;
+  const defaultLocale = props.i18n ? props.i18n.defaultLocale : railsContext.i18nDefaultLocale;
+
+  initializeI18n(locale, defaultLocale, process.env.NODE_ENV);
 
   const routes = subset([
     'new_listing',
@@ -16,7 +15,7 @@ export default (props, railsContext) => {
     'person',
     'person_settings',
     'logout',
-  ], { locale: railsContext.i18nLocale });
+  ], { locale });
 
   const combinedProps = Object.assign({}, props, { railsContext, routes });
   return r(Topbar, combinedProps);

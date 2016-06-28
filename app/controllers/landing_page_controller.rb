@@ -225,7 +225,8 @@ class LandingPageController < ActionController::Metal
            locals: { font_path: FONT_PATH,
                      styles: landing_page_styles,
                      javascripts: {
-                       location_search: location_search_js
+                       location_search: location_search_js,
+                       translations: js_translations(locale)
                      },
                      page: denormalizer.to_tree(structure, root: "page"),
                      sections: denormalizer.to_tree(structure, root: "composition"),
@@ -853,5 +854,9 @@ JSON
 
   def location_search_js
     Rails.application.assets.find_asset("location_search.js").to_s.html_safe
+  end
+
+  def js_translations(locale)
+    Rails.application.assets.find_asset("i18n/#{locale}.js").to_s.html_safe
   end
 end
