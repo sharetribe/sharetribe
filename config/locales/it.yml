@@ -2133,6 +2133,12 @@ it:
     topbar:
       menu: Menù
       search_placeholder: Cerca...
+      user: ~
+      inbox: ~
+      profile: ~
+      manage_listings: ~
+      settings: ~
+      logout: ~
   will_paginate:
     models:
       listing_conversation:

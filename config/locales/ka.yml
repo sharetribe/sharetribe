@@ -30,10 +30,6 @@ ka:
         remove_category: "გააუქმე კატეგორია"
         remove_category_name: "გააუქმე %{category_name} კატეგორია"
         warning_remove_effects: "გაფრთხილება! კატეგორიის %{category_name} წაშლას ექნება შემდეგი შედეგები:"
-        select_new_category: "მონიშნე ახალი კატეგორია სადაც ქვემოთ ჩამოთვლილი ნივთები გადავლენ:"
-        buttons:
-          remove: წაშლა
-          cancel: გაუქმება
         warning_listing_will_be_moved:
           other: "ამ კატეგორიაში არის %{count} ჩამონათვალი. ის გადავა მონიშნულ კატეგორიაში."
         warning_custom_field_will_be_moved:
@@ -44,6 +40,10 @@ ka:
           other: "აქ არის %{count} ჩამონათვალი ამ კატეგორიაში და ქვე კატეგორიაში. ისინი გადავლენ მონიშნულ კატეგორიაში."
         warning_with_subcategories_custom_field_will_be_moved:
           other: "აქ არის %{count} ინდივიდუალური ველი ამ კატეგორიაში და ქვეკატეგორიაში. ისინი გადავლენ მონიშნულ კატეგორიაში."
+        select_new_category: "მონიშნე ახალი კატეგორია სადაც ქვემოთ ჩამოთვლილი ნივთები გადავლენ:"
+        buttons:
+          remove: წაშლა
+          cancel: გაუქმება
     communities:
       edit_details:
         community_details: "ძირითადი დეტალები"
@@ -439,14 +439,20 @@ ka:
         update_success: "შეკვეთის ტიპში ცვლილებები %{shape} დამახსოვრდა"
         update_failure: "ვერ მოხერხდება ცვლილებების დამახსოვრება: შეცდომა %{error_msg}"
         delete: "წაშალეთ შეკვეთის ტიპი"
-        can_not_delete_last: "თქვენ არ შეგიძლიათ ამ შეკვეთის ტიპის გაუქმება, რადგან ეს ერთადერთია თქვენ ბაზარზე."
-        can_not_delete_only_one_in_categories: "თქვენ შეკვეთის ტიპის წაშლა არ შეგიძლიათ, რადგან არნიშნულ კატეგორიაში ეს ერთადერთია, რომელიც გამოყენებაშია: %{categories}"
         confirm_delete_order_type:
           other: "აქ არის %{count} ჩამონათვლები ამ შეკვეთის ტიპით. თუ თქვენ წაშლით შეკვეთის ტიპს, ეს ჩამონათვლები დაიხურება. დარწმუნებული ხარ რომ გსურთ შეკვეთის ტიპის წაშლა?"
+        can_not_delete_last: "თქვენ არ შეგიძლიათ ამ შეკვეთის ტიპის გაუქმება, რადგან ეს ერთადერთია თქვენ ბაზარზე."
+        can_not_delete_only_one_in_categories: "თქვენ შეკვეთის ტიპის წაშლა არ შეგიძლიათ, რადგან არნიშნულ კატეგორიაში ეს ერთადერთია, რომელიც გამოყენებაშია: %{categories}"
       listing_shape_name: სახელი
       listing_shape_name_placeholder: "მაგ. გაყიდვა"
       action_button_label: "გადახდის ღილაკის იარლიყი"
       action_button_placeholder: "მაგ. ყიდვა"
+      open_listings_warning:
+        other: "არ არის %{count} ღია ჩამონათვლები ამ შეკვეთის ტიპით. თუ თქვენ შეცვლით ქვემოთ ჩამოთვლილი პარამეტრებიდან ნებისმიერს, ეს ჩამონათვლები შეინარჩუნებს ძველ პარამეტრებს. ეს ჩამონათვლები შეიცვლება ახალი პარმეტრებით თუ მათ სათითაოდ ხელით შეცვლით. თუ არ გსურთ რომ გქონდეთ რომელიმე ჩამონათვალი ხილული თქვენ გვერდზე ძველი პარამეტრებით, თქვენ შეგიძლიათ დახუროთ ისინი ქვემოთ ღილაკზე დაწერით."
+      close_listings_action:
+        other: "დახურე %{count} ჩამონათვალი"
+      confirm_close_listings_action:
+        other: "დარწმუნებული ხარ რომ გსურს %{count} ჩამონათვლების დახურვა?"
       successfully_closed: "წარმატებით დაიხურა ჩამონათვალი"
       successfully_deleted: "წარმატებით წაიშალა შეკვეთის ტიპი %{order_type}"
       pricing_and_checkout_title: "ფასი & გადახდა"
@@ -476,12 +482,6 @@ ka:
           heading: "ერთეულის ტიპი"
           quantity_label: "რაოდენობა (ყოველ ცალზე, კგ-ზე, ადამიანზე, 2 საათიან ტურზე)"
           time_label: "დრო (ყოველ 30 წუთში, 2 კვირაში, წელიწადში...)"
-      close_listings_action:
-        other: "დახურე %{count} ჩამონათვალი"
-      confirm_close_listings_action:
-        other: "დარწმუნებული ხარ რომ გსურს %{count} ჩამონათვლების დახურვა?"
-      open_listings_warning:
-        other: "არ არის %{count} ღია ჩამონათვლები ამ შეკვეთის ტიპით. თუ თქვენ შეცვლით ქვემოთ ჩამოთვლილი პარამეტრებიდან ნებისმიერს, ეს ჩამონათვლები შეინარჩუნებს ძველ პარამეტრებს. ეს ჩამონათვლები შეიცვლება ახალი პარმეტრებით თუ მათ სათითაოდ ხელით შეცვლით. თუ არ გსურთ რომ გქონდეთ რომელიმე ჩამონათვალი ხილული თქვენ გვერდზე ძველი პარამეტრებით, თქვენ შეგიძლიათ დახუროთ ისინი ქვემოთ ღილაკზე დაწერით."
     paypal_accounts:
       marketplace_paypal_integration: "გადახდის პარამეტრები"
       preferences_updated: "გადახდის პარამეტრებ განახლებულია"
@@ -1402,10 +1402,10 @@ ka:
       payment_details_add_error: "ვერ დაემატა გადახდის დეტალები"
       listing_author_payment_details_missing: "გთხოვთ დაუკავშირდით ავტორს, \"კონტაქტი\"-ს ღილაკზე ხელის დაჭერით. მათ უნდა განაახლონ თავისი გადახდის დეტალები რომ მიიღონ გადახდა."
       stylesheet_needs_recompiling: "Stylesheet კომპლექტირდება. გთხოვთ გადატვირთოთ გვერდი ცოტა ხანში."
-      automatically_logged_out_please_sign_in: "თქვენ ავტომატურად გამოხვედით სისტემიდან. გთხოვთ შედით თავიდან."
       maintenance_mode:
         zero: "საიტი იქნება გამორთული შეკეთებისთვის "
         other: "საიტი იქნება გამორთული შეკეთებისთვის %{count} წუთში"
+      automatically_logged_out_please_sign_in: "თქვენ ავტომატურად გამოხვედით სისტემიდან. გთხოვთ შედით თავიდან."
     settings:
       account: ანგარიში
       notifications: შეტყობინებები
@@ -1813,6 +1813,8 @@ ka:
       email_is_in_use: "თქვენ მიერ მითითებული ელ. ფოსტა უკვე გამოიყენება"
       email_is_in_use_or_not_allowed: "ელ ფოსტა არ დაიშვება ან უკვე გამოყენებულია. თუ ვერ შეხვალთ დაგვიკავშირდით."
       email_not_allowed: "ეს ელ. ფოსტა არ დაიშვება %{service_name}-ში. გთხოვთ გამოიყენეთ ელ. ფოსტა რომელიც დაშვებულია. თუ ისევ ვერ შედიხართ დაგვიკავშირდით."
+      email_restriction_instructions:
+        other: "%{service_name}-ზე შესვლა არძალულია. დასარეგისტრირებლად გჭირდებათ %{allowed_emails} ელ. ფოსტა."
       family_name: გვარი
       given_name: სახელი
       i_accept_the: ვეთანხმები
@@ -1832,8 +1834,6 @@ ka:
       create_account_with_facebook: "დარეგისტრირდი Facebook-ის დახმარებით"
       OR: ან
       signup_with_email: "დარეგისტრირდი ელ. ფოსტით"
-      email_restriction_instructions:
-        other: "%{service_name}-ზე შესვლა არძალულია. დასარეგისტრირებლად გჭირდებათ %{allowed_emails} ელ. ფოსტა."
     profile_feedback:
       grade: "შეფასება:"
       and_gave_following_feedback: "და მისცა შემდეგი შეფასება"
@@ -2146,6 +2146,12 @@ ka:
     topbar:
       menu: მენიუ
       search_placeholder: ძებნა...
+      user: ~
+      inbox: ~
+      profile: ~
+      manage_listings: ~
+      settings: ~
+      logout: ~
   will_paginate:
     models:
       person:
@@ -2158,11 +2164,11 @@ ka:
     next_label: "შემდეგი &#8594"
     page_gap: "&hellip"
     page_entries_info:
-      multi_page: "%{model}-ის ჩვენება %{from}-დან - %{to}-მდე %{count}-ის ჯამის"
-      multi_page_html: "%{model}-ის ჩვენება <b>%{from}-დან ;-&nbsp; %{to}-მდე</b> <b>%{count}</b>-ის ჯამის"
       single_page:
-        other: "ყველა %{count}%{model} ჩვენება"
         zero: "%{model} არ არის ნაპოვნი"
+        other: "ყველა %{count}%{model} ჩვენება"
       single_page_html:
         zero: "%{model} არ არის ნაპოვნი"
         other: "%{model}-ის ჩვენება <b>all&nbsp;%{count}</b>"
+      multi_page: "%{model}-ის ჩვენება %{from}-დან - %{to}-მდე %{count}-ის ჯამის"
+      multi_page_html: "%{model}-ის ჩვენება <b>%{from}-დან ;-&nbsp; %{to}-მდე</b> <b>%{count}</b>-ის ჯამის"
