@@ -1,17 +1,17 @@
 import { PropTypes } from 'react';
 import { a, span } from 'r-dom';
+import classNames from 'classnames';
+
+import { className as classNameProp } from '../../../utils/PropTypes';
 
 import * as variables from '../../../assets/styles/variables';
 import css from './AddNewListingButton.css';
 
-export default function AddNewListingButton({ text, url, customColor }) {
+export default function AddNewListingButton({ text, url, customColor, className }) {
   const buttonText = `+ ${text}`;
   const color = customColor || variables['--AddNewListingButton_defaultColor'];
   return a({
-    className: 'AddNewListingButton',
-    classSet: {
-      [css.button]: true,
-    },
+    className: classNames(className, 'AddNewListingButton', css.button),
     href: url,
     title: text,
   }, [
@@ -45,4 +45,5 @@ AddNewListingButton.propTypes = {
 
   // Marketplace color or default color
   customColor: PropTypes.string,
+  className: classNameProp,
 };

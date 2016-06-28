@@ -1,6 +1,9 @@
 import { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import r, { div } from 'r-dom';
+import classNames from 'classnames';
+
+import { className } from '../../../utils/PropTypes';
 
 import MenuLabel from './MenuLabel';
 import MenuLabelDropdown from './MenuLabelDropdown';
@@ -56,10 +59,9 @@ class Menu extends Component {
     const LabelComponent = requestedLabel != null ? requestedLabel : null;
     const touchClass = isTouch ? '' : css.touchless;
     const openClass = this.state.isOpen ? css.openMenu : '';
-    const extraClasses = this.props.extraClasses ? this.props.extraClasses : '';
 
     return div({
-      className: `Menu ${css.menu} ${extraClasses} ${touchClass} ${openClass}`,
+      className: classNames(this.props.className, 'Menu', css.menu, touchClass, openClass),
       onClick: this.handleClick,
       onBlur: this.handleBlur,
       tabIndex: 0,
@@ -90,7 +92,6 @@ class Menu extends Component {
 
 Menu.propTypes = {
   name: PropTypes.string.isRequired,
-  extraClasses: PropTypes.string,
   extraClassesLabel: PropTypes.string,
   identifier: PropTypes.string.isRequired,
   menuLabelType: PropTypes.string,
@@ -103,6 +104,7 @@ Menu.propTypes = {
       type: PropTypes.string.isRequired,
     })
   ).isRequired,
+  className,
 };
 
 export default Menu;

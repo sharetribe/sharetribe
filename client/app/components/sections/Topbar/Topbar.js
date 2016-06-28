@@ -89,7 +89,6 @@ class Topbar extends Component {
         name: t('web.topbar.menu'),
         identifier: 'Menu',
         menuLabelType: LABEL_TYPE_MENU,
-        extraClasses: `${css.topbarMenu}`,
         content: this.props.menu.links.map((l) => (
           {
             active: l.link === marketplaceContext.location,
@@ -110,7 +109,6 @@ class Topbar extends Component {
         name: this.props.locales.current_locale,
         identifier: 'LanguageMenu',
         menuLabelType: LABEL_TYPE_DROPDOWN,
-        extraClasses: `${css.topbarMenu}`,
         extraClassesLabel: `${css.topbarLanguageMenuLabel}`,
         content: this.props.locales.available_locales.map((v) => (
           {
@@ -130,7 +128,6 @@ class Topbar extends Component {
       name: t('web.topbar.menu'),
       identifier: 'Menu',
       menuLabelType: LABEL_TYPE_MENU,
-      extraClasses: `${css.topbarMobileMenu}`,
       color: marketplaceContext.marketplace_color1,
       menuLinksTitle: t('web.topbar.menu'),
       menuLinks: this.props.menu.links.map((l) => (
@@ -151,7 +148,7 @@ class Topbar extends Component {
             '#';
 
     return div({ className: css.topbar }, [
-      this.props.menu ? r(MenuMobile, mobileMenuProps) : null,
+      this.props.menu ? r(MenuMobile, { ...mobileMenuProps, className: css.topbarMobileMenu }) : null,
       r(Logo, { ...this.props.logo, classSet: css.topbarLogo }),
       SEARCH_ENABLED && this.props.search ?
         r(SearchBar, {
@@ -163,9 +160,9 @@ class Topbar extends Component {
           }),
         }) :
         null,
-      this.props.menu ? r(Menu, menuProps) : null,
+      this.props.menu ? r(Menu, { ...menuProps, className: css.topbarMenu }) : null,
       div({ className: css.topbarSpacer }),
-      hasMultipleLanguages ? r(Menu, languageMenuProps) : null,
+      hasMultipleLanguages ? r(Menu, { ...languageMenuProps, className: css.topbarMenu }) : null,
       this.props.avatarDropdown ?
         r(AvatarDropdown, {
           ...avatarDropdownProps(this.props.avatarDropdown, marketplaceContext.marketplace_color1),
@@ -175,6 +172,7 @@ class Topbar extends Component {
       this.props.newListingButton ?
         r(AddNewListingButton, {
           ...this.props.newListingButton,
+          className: css.topbarListingButton,
           url: newListingRoute,
           customColor: marketplaceContext.marketplace_color1,
         }) :

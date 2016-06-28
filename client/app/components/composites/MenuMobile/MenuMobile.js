@@ -1,5 +1,8 @@
 import { Component, PropTypes } from 'react';
 import r, { div } from 'r-dom';
+import classNames from 'classnames';
+
+import { className } from '../../../utils/PropTypes';
 
 import css from './MenuMobile.css';
 import OffScreenMenu from './OffScreenMenu';
@@ -36,7 +39,7 @@ class MenuMobile extends Component {
     const extraClasses = this.props.extraClasses ? this.props.extraClasses : '';
 
     return div({
-      className: `MenuMobile ${css.menuMobile} ${extraClasses} ${openClass}`,
+      className: classNames(this.props.className, 'MenuMobile', css.menuMobile, extraClasses, openClass),
       onBlur: this.handleBlur,
       tabIndex: 0,
     }, [
@@ -87,6 +90,7 @@ MenuMobile.propTypes = {
       type: PropTypes.string.isRequired,
     })
   ),
+  className,
 };
 
 export default MenuMobile;
