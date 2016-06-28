@@ -26,19 +26,25 @@ class LandingPageController < ActionController::Metal
     cid = community_id(request)
     default_locale = community_default_locale(request)
     version = CLP::LandingPageStore.released_version(cid)
+    locale_param = params[:locale]
 
     begin
       content = nil
-      cache_meta = fetch_cache_meta(cid, version)
+      cache_meta = fetch_cache_meta(cid, locale_param, version)
       cache_hit = true
 
       if cache_meta.nil?
         cache_hit = false
-        content = build_html(cid, default_locale, version)
+        content = build_html(
+          community_id: cid,
+          default_locale: default_locale,
+          locale_param: locale_param,
+          version: version
+        )
         cache_meta = build_cache_meta(content)
 
         # write metadata first, so that it expires first
-        write_cache_meta!(cid, version, cache_meta, CACHE_TIME)
+        write_cache_meta!(cid, version, locale_param, cache_meta, CACHE_TIME)
         # cache html longer than metadata, but keyed by content (digest)
         write_cached_content!(cid, version, content, cache_meta[:digest], CACHE_TIME + 10.seconds)
       end
@@ -52,7 +58,12 @@ class LandingPageController < ActionController::Metal
         if content.nil?
           # This should not happen since html is cached longer than metadata
           cache_hit = false
-          content = build_html(cid, default_locale, version)
+          content = build_html(
+            community_id: cid,
+            default_locale: default_locale,
+            locale_param: locale_param,
+            version: version
+          )
         end
 
         self.status = 200
@@ -73,6 +84,7 @@ class LandingPageController < ActionController::Metal
     cid = community_id(request)
     default_locale = community_default_locale(request)
     preview_version = parse_int(params[:preview_version])
+    locale_param = params[:locale]
 
     begin
       structure = CLP::LandingPageStore.load_structure(cid, preview_version)
@@ -84,7 +96,12 @@ class LandingPageController < ActionController::Metal
       headers["X-Robots-Tag"] = "none"
 
       self.status = 200
-      self.response_body = render_landing_page(cid, default_locale, structure)
+      self.response_body = render_landing_page(
+        community_id: cid,
+        default_locale: default_locale,
+        locale_param: locale_param,
+        structure: structure
+      )
     rescue CLP::LandingPageContentNotFound
       render_not_found()
     end
@@ -93,21 +110,26 @@ class LandingPageController < ActionController::Metal
 
   private
 
-  def build_html(community_id, default_locale, version)
+  def build_html(community_id:, default_locale:, locale_param:, version:)
     structure = CLP::LandingPageStore.load_structure(community_id, version)
-    render_landing_page(community_id, default_locale, structure)
+    render_landing_page(
+      community_id: community_id,
+      default_locale: default_locale,
+      structure: structure,
+      locale_param: locale_param
+    )
   end
 
   def build_cache_meta(content)
     {last_modified: Time.now(), digest: Digest::MD5.hexdigest(content)}
   end
 
-  def fetch_cache_meta(community_id, version)
-    Rails.cache.read("clp/#{community_id}/#{version}")
+  def fetch_cache_meta(community_id, version, locale)
+    Rails.cache.read("clp/#{community_id}/#{version}/#{locale}")
   end
 
-  def write_cache_meta!(community_id, version, cache_meta, cache_time)
-    Rails.cache.write("clp/#{community_id}/#{version}", cache_meta, expires_in: cache_time)
+  def write_cache_meta!(community_id, version, locale, cache_meta, cache_time)
+    Rails.cache.write("clp/#{community_id}/#{version}/#{locale}", cache_meta, expires_in: cache_time)
   end
 
   def fetch_cached_content(community_id, version, digest)
@@ -118,12 +140,12 @@ class LandingPageController < ActionController::Metal
     Rails.cache.write("clp/#{community_id}/#{version}/#{digest}", content, expires_in: cache_time)
   end
 
-  def build_denormalizer(cid:, default_locale:, locale:, sitename:)
+  def build_denormalizer(cid:, default_locale:, locale_param:, sitename:)
     search_path = ->(opts = {}) {
       PathHelpers.search_path(
         community_id: cid,
         user: nil,
-        locale_param: locale,
+        locale_param: locale_param,
         default_locale: default_locale,
         opts: opts
       )
@@ -132,10 +154,10 @@ class LandingPageController < ActionController::Metal
     # Application paths
     paths = { "search" => search_path.call(),
               "all_categories" => search_path.call(category: "all"),
-              "signup" => sign_up_path,
-              "about" => about_infos_path,
-              "contact_us" => new_user_feedback_path,
-              "post_a_new_listing" => new_listing_path
+              "signup" => sign_up_path(locale: locale_param),
+              "about" => about_infos_path(locale: locale_param),
+              "contact_us" => new_user_feedback_path(locale: locale_param),
+              "post_a_new_listing" => new_listing_path(locale: locale_param)
             }
 
     marketplace_data = CLP::MarketplaceDataStore.marketplace_data(cid, locale)
@@ -169,13 +191,13 @@ class LandingPageController < ActionController::Metal
     request.env[:current_marketplace]&.default_locale
   end
 
-  def render_landing_page(cid, default_locale, structure)
+  def render_landing_page(community_id:, default_locale:, locale_param:, structure:)
     locale, sitename = structure["settings"].values_at("locale", "sitename")
     font_path = APP_CONFIG[:font_proximanovasoft_url].present? ? APP_CONFIG[:font_proximanovasoft_url] : "/landing_page/fonts"
 
     denormalizer = build_denormalizer(
-      cid: cid,
-      locale: locale,
+      cid: community_id,
+      locale_param: locale_param,
       default_locale: default_locale,
       sitename: sitename
     )

@@ -45,6 +45,8 @@ module PathHelpers
     not_present = ->(x) { !x.present? }
 
     case [CustomLandingPage::LandingPageStore.enabled?(community_id), user, locale_param]
+    when matches([true, not_present, non_default_locale])
+      paths.landing_page_with_locale_path(locale: locale_param)
     when matches([true, __, __])
       paths.landing_page_without_locale_path(locale: nil)
     when matches([false, not_present, non_default_locale])
