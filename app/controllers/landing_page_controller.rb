@@ -30,7 +30,7 @@ class LandingPageController < ActionController::Metal
 
     begin
       content = nil
-      cache_meta = fetch_cache_meta(cid, locale_param, version)
+      cache_meta = fetch_cache_meta(cid, version, locale_param)
       cache_hit = true
 
       if cache_meta.nil?
