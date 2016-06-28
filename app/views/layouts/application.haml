@@ -32,12 +32,12 @@
 
   - content_for(:page_content) do
     %section.marketplace-lander
-      - with_big_cover_photo do
+      - if @big_cover_photo
         .coverimage
           %figure.marketplace-cover.fluidratio
             .lander-content.marketplace-lander-content
               = yield :title_header
-      - with_small_cover_photo do
+      - else
         .coverimage
           %figure.marketplace-cover-small.fluidratio
           .coverimage-fade{:class => yield(:coverfade_class)}
