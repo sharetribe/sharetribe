@@ -160,7 +160,7 @@ module.exports = {
   '--MenuItem_paddingOffScreenHorizontal': pxToEms(24, 17), // eslint-disable-line no-magic-numbers
   '--MenuItem_textColor': textColor,
   '--MenuItem_textColorFocus': textColorFocus,
-  '--MenuItem_textColorDefault': '#a64c5d',
+  '--MenuItem_textColorDefault': customColorFallback,
   '--MenuItem_textColorSelected': '#4a4a4a',
   '--MenuItem_letterSpacing': '0.09px',
 
