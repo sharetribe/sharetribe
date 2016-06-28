@@ -78,6 +78,7 @@ class Topbar extends Component {
         }) :
         null,
       this.props.menu ? r(Menu, menuProps) : null,
+      div({ className: css.topbarSpacer }),
       hasMultipleLanguages ? r(Menu, languageMenuProps) : null,
       this.props.avatarDropdown ?
         r(AvatarDropdown, {

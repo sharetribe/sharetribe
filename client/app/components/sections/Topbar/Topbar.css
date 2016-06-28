@@ -13,6 +13,7 @@
 
   @media (--Topbar_medium) {
     height: var(--Topbar_height);
+    padding: var(--Topbar_padding);
   }
 
   /* Base styles */
@@ -51,10 +52,27 @@
     font-size: var(--Menu_fontSizeSmall);
   }
 
+  & > * {
+    margin-right: var(--Topbar_itemSpacing);
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+}
+
+.topbarSpacer {
+  display: none;
+
+  @media (--Topbar_medium) {
+    flex-grow: 30;
+    display: block;
+  }
 }
 
 .topbarLogo {
   height: var(--Topbar_logoHeight);
+  max-width: var(--Topbar_textLogoMaxWidth);
 }
 
 .topbarAvatarDropdown {
