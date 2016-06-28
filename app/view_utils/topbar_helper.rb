@@ -44,7 +44,7 @@ module TopbarHelper
     {
       logo: {
         href: PathHelpers.landing_page_path(
-          community_id: community,
+          community_id: community.id,
           default_locale: community.default_locale,
           user: user,
           locale_param: locale_param
