@@ -4,6 +4,7 @@ import r, { div } from 'r-dom';
 import { t } from '../../../utils/i18n';
 import { railsContext } from '../../../utils/PropTypes';
 import css from './Topbar.css';
+import styleVariables from '../../../assets/styles/variables';
 
 import Logo from '../../elements/Logo/Logo';
 import SearchBar from '../../composites/SearchBar/SearchBar';
@@ -11,8 +12,8 @@ import Menu from '../../composites/Menu/Menu';
 import AvatarDropdown from '../../composites/AvatarDropdown/AvatarDropdown';
 import AddNewListingButton from '../../elements/AddNewListingButton/AddNewListingButton';
 
-const avatarDropdownProps = (avatarDropdown) => {
-  // TODO: color from railscontext
+const avatarDropdownProps = (avatarDropdown, customColor) => {
+  const color = customColor || styleVariables['--customColorFallback'];
   const actions = {
     inboxAction: () => false,
     profileAction: () => false,
@@ -20,7 +21,7 @@ const avatarDropdownProps = (avatarDropdown) => {
     adminDashboardAction: () => false,
     logoutAction: () => false,
   };
-  return { actions, ...avatarDropdown };
+  return { actions, customColor: color, ...avatarDropdown };
 };
 
 const LABEL_TYPE_MENU = 'menu';
@@ -82,7 +83,7 @@ class Topbar extends Component {
       hasMultipleLanguages ? r(Menu, languageMenuProps) : null,
       this.props.avatarDropdown ?
         r(AvatarDropdown, {
-          ...avatarDropdownProps(this.props.avatarDropdown),
+          ...avatarDropdownProps(this.props.avatarDropdown, this.props.railsContext.marketplace_color1),
           classSet: css.topbarAvatarDropdown,
         }) :
         div({ className: css.topbarAvatarDropdownPlaceholder }),

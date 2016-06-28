@@ -63,7 +63,6 @@ const baseProps = {
     ],
   },
   avatarDropdown: {
-    customColor: marketplaceColor,
     actions: {
       inboxAction: action('clicked inbox'),
       profileAction: action('clicked profile'),
