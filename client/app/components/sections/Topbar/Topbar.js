@@ -166,9 +166,7 @@ class Topbar extends Component {
         }) :
         div({ className: css.topbarAvatarDropdownPlaceholder }),
       this.props.newListingButton ?
-
-        // TODO: get route from routes prop when that is merged
-        r(AddNewListingButton, { ...this.props.newListingButton, url: '#' }) :
+        r(AddNewListingButton, { ...this.props.newListingButton, url: this.props.routes.new_listing_path() }) :
         null,
     ]);
   }
