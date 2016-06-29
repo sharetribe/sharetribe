@@ -2,7 +2,7 @@ import { Component, PropTypes } from 'react';
 import r, { div } from 'r-dom';
 
 import { t } from '../../../utils/i18n';
-import { routes } from '../../../utils/PropTypes';
+import { routes, marketplaceContext } from '../../../utils/PropTypes';
 import css from './Topbar.css';
 import styleVariables from '../../../assets/styles/variables';
 
@@ -73,18 +73,15 @@ const profileLinks = function profileLinks(username, router, location, customCol
   return [];
 };
 
-const DEFAULT_RAILS_CONTEXT = {
+const DEFAULT_CONTEXT = {
   marketplace_color1: styleVariables['--customColorFallback'],
   marketplace_color2: styleVariables['--customColor2Fallback'],
-  location: typeof window !== 'undefined' ? window.location.pathname : '/',
+  loggedInUsername: null,
 };
 
 class Topbar extends Component {
   render() {
-    const marketplaceContext = { ...DEFAULT_RAILS_CONTEXT, ...this.props.railsContext };
-    const currentLocation = marketplaceContext.location;
-    const customColor = marketplaceContext.marketplace_color1;
-    const loggedInUsername = marketplaceContext.loggedInUsername;
+    const { location, marketplace_color1, loggedInUsername } = { ...DEFAULT_CONTEXT, ...this.props.marketplaceContext };
 
     const menuProps = this.props.menu ?
       Object.assign({}, this.props.menu, {
@@ -94,8 +91,8 @@ class Topbar extends Component {
         menuLabelType: LABEL_TYPE_MENU,
         content: this.props.menu.links.map((l) => (
           {
-            active: l.link === currentLocation,
-            activeColor: customColor,
+            active: l.link === location,
+            activeColor: marketplace_color1,
             content: l.title,
             href: l.link,
             type: 'menuitem',
@@ -116,7 +113,7 @@ class Topbar extends Component {
         content: this.props.locales.available_locales.map((v) => (
           {
             active: v.locale_ident === this.props.locales.current_locale_ident,
-            activeColor: customColor,
+            activeColor: marketplace_color1,
             content: v.locale_name,
             href: v.change_locale_uri,
             type: 'menuitem',
@@ -125,27 +122,28 @@ class Topbar extends Component {
       }) :
       {};
 
-    const username = loggedInUsername || null;
-    const mobileMenuProps = Object.assign({}, this.props.menu, {
-      key: 'mobilemenu',
-      name: t('web.topbar.menu'),
-      identifier: 'Menu',
-      menuLabelType: LABEL_TYPE_MENU,
-      color: marketplaceContext.marketplace_color1,
-      extraClasses: `${css.topbarMobileMenu}`,
-      menuLinksTitle: t('web.topbar.menu'),
-      menuLinks: this.props.menu.links.map((l) => (
-        {
-          active: l.link === currentLocation,
-          activeColor: customColor,
-          content: l.title,
-          href: l.link,
-          type: 'menuitem',
-        }
-      )),
-      userLinksTitle: t('web.topbar.user'),
-      userLinks: profileLinks(username, this.props.routes, currentLocation, customColor),
-    });
+    const mobileMenuProps = this.props.menu ?
+      Object.assign({}, this.props.menu, {
+        key: 'mobilemenu',
+        name: t('web.topbar.menu'),
+        identifier: 'Menu',
+        menuLabelType: LABEL_TYPE_MENU,
+        color: marketplace_color1,
+        extraClasses: `${css.topbarMobileMenu}`,
+        menuLinksTitle: t('web.topbar.menu'),
+        menuLinks: this.props.menu.links.map((l) => (
+          {
+            active: l.link === location,
+            activeColor: marketplace_color1,
+            content: l.title,
+            href: l.link,
+            type: 'menuitem',
+          }
+        )),
+        userLinksTitle: t('web.topbar.user'),
+        userLinks: profileLinks(loggedInUsername, this.props.routes, location, marketplace_color1),
+      }) :
+      {};
 
     const newListingRoute = this.props.routes && this.props.routes.new_listing_path ?
             this.props.routes.new_listing_path() :
@@ -170,7 +168,7 @@ class Topbar extends Component {
       hasMultipleLanguages ? r(Menu, { ...languageMenuProps, className: css.topbarMenu }) : null,
       this.props.avatarDropdown ?
         r(AvatarDropdown, {
-          ...avatarDropdownProps(this.props.avatarDropdown, customColor),
+          ...avatarDropdownProps(this.props.avatarDropdown, marketplace_color1),
           classSet: css.topbarAvatarDropdown,
         }) :
         div({ className: css.topbarAvatarDropdownPlaceholder }),
@@ -179,7 +177,7 @@ class Topbar extends Component {
           ...this.props.newListingButton,
           className: css.topbarListingButton,
           url: newListingRoute,
-          customColor,
+          customColor: marketplace_color1,
         }) :
         null,
     ]);
@@ -210,7 +208,7 @@ Topbar.propTypes = {
   }),
   newListingButton: object,
   routes,
-  railsContext: object,
+  marketplaceContext,
 };
 
 export default Topbar;

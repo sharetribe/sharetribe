@@ -3,20 +3,14 @@ import { Component } from 'react';
 import css from './ColorsAndTypography.css';
 
 const defaultRailsContext = {
-  host: 'test.lvh.me',
-  href: 'http://test.lvh.me:3000/',
-  httpAcceptLanguage: 'en-US,en;q=0.8,fi;q=0.6',
-  i18nDefaultLocale: 'en',
   i18nLocale: 'en',
+  i18nDefaultLocale: 'en',
   location: '/',
+  pathname: '/',
   marketplaceId: 1,
+
   marketplace_color1: '#ee4',
   marketplace_color2: '#00a26c',
-  pathname: '/',
-  port: 3000,
-  scheme: 'http',
-  search: null,
-  serverSide: false,
 };
 
 const withProps = function withProps(component, props) {

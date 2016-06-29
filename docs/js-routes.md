@@ -10,7 +10,7 @@ In the top-level React component, you need to import `subset` function from `uti
 // App.js
 import { subset } from '../utils/routes';
 
-export default (props, railsContext) => {
+export default (props, marketplaceContext) => {
   const routes = subset([
     'homepage',
   ], { locale: "en" })

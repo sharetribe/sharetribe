@@ -10,8 +10,8 @@ import reducers from '../reducers/reducersIndex';
 
 import OnboardingGuideContainer from '../components/sections/OnboardingGuide/OnboardingGuideContainer';
 
-export default (props, railsContext) => {
-  initializeI18n(railsContext.i18nLocale, railsContext.i18nDefaultLocale, process.env.NODE_ENV);
+export default (props, marketplaceContext) => {
+  initializeI18n(marketplaceContext.i18nLocale, marketplaceContext.i18nDefaultLocale, process.env.NODE_ENV);
 
   const routes = subset([
     'admin_getting_started_guide',
@@ -28,10 +28,10 @@ export default (props, railsContext) => {
     'edit_admin_listing_shape',
     'new_invitation',
     'new_listing',
-  ], { locale: railsContext.i18nLocale });
+  ], { locale: marketplaceContext.i18nLocale });
 
   const combinedReducer = combineReducers(reducers);
-  const combinedProps = Object.assign({}, props, { railsContext, routes });
+  const combinedProps = Object.assign({}, props, { routes });
 
   const store = applyMiddleware(middleware)(createStore)(combinedReducer, combinedProps);
 

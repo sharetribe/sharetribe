@@ -9,18 +9,26 @@ const className = oneOfType([
 
 const routes = object.isRequired;
 
-const railsContext = shape({
-  host: string.isRequired,
-  href: string.isRequired,
-  httpAcceptLanguage: string.isRequired,
-  i18nDefaultLocale: string.isRequired,
+const marketplaceContext = shape({
+
+  // Required props
   i18nLocale: string.isRequired,
+  i18nDefaultLocale: string.isRequired,
   location: string.isRequired,
-  marketplaceId: number.isRequired,
   pathname: string.isRequired,
+  marketplaceId: number.isRequired,
+
+  // Optional props
+  marketplace_color1: string,
+  marketplace_color2: string,
+  loggedInUsername: string,
+  host: string,
+  href: string,
+  httpAcceptLanguage: string,
   port: number,
   scheme: string,
-  serverSide: bool.isRequired,
+  serverSide: bool,
+
 }).isRequired;
 
-export { className, routes, railsContext };
+export { className, routes, marketplaceContext };
