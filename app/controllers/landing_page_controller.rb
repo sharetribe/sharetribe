@@ -288,6 +288,7 @@ class LandingPageController < ActionController::Metal
       "button_path": {"value": "https://google.com"},
       "price_color": {"type": "marketplace_data", "id": "primary_color"},
       "no_listing_image_background_color": {"type": "marketplace_data", "id": "primary_color"},
+      "author_name_color_hover": {"type": "marketplace_data", "id": "primary_color"},
       "listings": [
         {
           "listing": { "type": "listing", "id": 1 }
@@ -303,7 +304,7 @@ class LandingPageController < ActionController::Metal
             "price_unit": "day",
             "author_avatar": "https://c5.staticflickr.com/1/727/20082134084_88e9691b84_h.jpg",
             "listing_image": "https://c4.staticflickr.com/2/1501/26646827091_e8a73c0c6c_h.jpg",
-            "path": "http://www.google.com"
+            "listing_path": "http://www.google.com"
           }
         }
       ]

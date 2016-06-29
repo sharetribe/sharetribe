@@ -25,6 +25,12 @@
       background-color: rgba(<%= s["no_listing_image_background_color"]["value"].join(",") %>, 0.2);
     }
   <% end %>
+
+  <% if s["author_name_color_hover"] %>
+    .<%= section_id %>__listings__author-link:hover .listings__author-name {
+      color: rgb(<%= s["price_color"]["value"].join(",") %>);
+    }
+  <% end %>
 <% end %>
 
 <section id="<%= section_id %>" class="listings__section">
@@ -37,7 +43,7 @@
         <% l = listing["listing"] %>
         <div class="listings__listing">
           <div class="listings__listing-content">
-            <a href="<%= l["path"] %>">
+            <a href="<%= l["listing_path"] %>">
               <% if l["listing_image"].present? %>
                 <div class="listings__listing-image" style="background-image: url(<%= l["listing_image"] %>)"></div>
               <% else %>
@@ -58,16 +64,18 @@
                   <span class="listings__price-unit">/ <%= l["price_unit"] %></span>
                 <% end %>
               </div>
-              <div class="listings__author-container">
-                <div class="listings__author-avatar-container">
-                  <% if l["author_avatar"] %>
-                    <div class="listings__author-avatar" style="background-image: url(<%= l["author_avatar"] %>)"></div>
-                  <% else %>
-                    <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><path d="M3.445 5.212c0-.096.007-.19.012-.284.397.118.836.19 1.25.19 1.008 0 2.11-.46 2.785-1.108.602.796 1.31 1.174 2.202 1.174.193 0 .397-.022.61-.057l.002.085c0 2.336-1.538 4.236-3.43 4.236-1.892 0-3.43-1.9-3.43-4.236zM6.877.977c1.595 0 2.936 1.354 3.317 3.18-1.02.186-1.632-.148-2.244-1.223l-.44-.774-.412.79c-.324.624-1.464 1.192-2.39 1.192-.363 0-.772-.07-1.11-.186.436-1.724 1.74-2.98 3.28-2.98zm2.627 10.298v-1.89c1.074-.952 1.774-2.466 1.774-4.173C11.278 2.338 9.304 0 6.878 0c-2.43 0-4.404 2.338-4.404 5.212 0 1.66.66 3.14 1.686 4.094v1.974L0 13.046l.378.9 4.754-2.018V9.996c.535.275 1.125.43 1.745.43.585 0 1.144-.14 1.655-.387v1.894L13.637 14l.363-.906-4.496-1.82z" fill="#919599" fill-rule="evenodd"/></svg>
-                  <% end %>
+              <a class="<%= section_id%>__listings__author-link" href="<%= l["author_path"] %>">
+                <div class="listings__author-container">
+                  <div class="listings__author-avatar-container">
+                    <% if l["author_avatar"] %>
+                      <div class="listings__author-avatar" style="background-image: url(<%= l["author_avatar"] %>)"></div>
+                    <% else %>
+                      <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><path d="M3.445 5.212c0-.096.007-.19.012-.284.397.118.836.19 1.25.19 1.008 0 2.11-.46 2.785-1.108.602.796 1.31 1.174 2.202 1.174.193 0 .397-.022.61-.057l.002.085c0 2.336-1.538 4.236-3.43 4.236-1.892 0-3.43-1.9-3.43-4.236zM6.877.977c1.595 0 2.936 1.354 3.317 3.18-1.02.186-1.632-.148-2.244-1.223l-.44-.774-.412.79c-.324.624-1.464 1.192-2.39 1.192-.363 0-.772-.07-1.11-.186.436-1.724 1.74-2.98 3.28-2.98zm2.627 10.298v-1.89c1.074-.952 1.774-2.466 1.774-4.173C11.278 2.338 9.304 0 6.878 0c-2.43 0-4.404 2.338-4.404 5.212 0 1.66.66 3.14 1.686 4.094v1.974L0 13.046l.378.9 4.754-2.018V9.996c.535.275 1.125.43 1.745.43.585 0 1.144-.14 1.655-.387v1.894L13.637 14l.363-.906-4.496-1.82z" fill="#919599" fill-rule="evenodd"/></svg>
+                    <% end %>
+                  </div>
+                  <span class="listings__author-name"><%= l["author_name"] %></span>
                 </div>
-                <span class="listings__author-name"><%= l["author_name"] %></span>
-              </div>
+              </a>
             </div>
           </div>
         </div>

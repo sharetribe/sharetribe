@@ -152,17 +152,23 @@ module CustomLandingPage
             ),
             "author_avatar" => author_avatar,
             "listing_image" => listing_image,
-            "path" => listing_path(l.id, @_locale)
+            "listing_path" => listing_path(l.id, @_locale),
+            "author_path" => author_path(l.author.username, @_locale)
           }
 
         }.or_else(nil)
+      end
+
+      private
+
+      def author_path(username, locale)
+        paths.person_path(username: username, locale: locale)
       end
 
       def listing_path(listing_id, locale)
         paths.listing_path(id: listing_id, locale: locale)
       end
 
-      private
 
       def paths
         Rails.application.routes.url_helpers

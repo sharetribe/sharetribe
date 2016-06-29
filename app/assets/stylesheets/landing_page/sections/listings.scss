@@ -243,11 +243,14 @@ $listings__tablet-gutter: 16px;
 
 .listings__author-name {
   font-family: ProximaNovaSoft-Medium;
-  color: #7A7D80;
 
   margin-left: 8px;
 
   font-size: 12px;
   letter-spacing: 0px;
   line-height: 25px;
+
+  // override default link color
+  // hover color is set in the template
+  color: #7A7D80;
 }
