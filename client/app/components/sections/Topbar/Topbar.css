@@ -1,6 +1,3 @@
-@custom-media --Topbar_small (min-width: 38em);
-@custom-media --Topbar_medium (min-width: 62em);
-
 .topbar {
   display: flex;
   flex-direction: row;
@@ -11,7 +8,7 @@
   background: var(--colorBackground);
   border-bottom: 1px solid rgba(0, 0, 50, 0.1);
 
-  @media (--Topbar_medium) {
+  @media (--large-viewport) {
     height: var(--Topbar_height);
     padding: var(--Topbar_padding);
   }
@@ -43,7 +40,7 @@
   & input {
     font-size: var(--Topbar_inputFontSizeMobile);
 
-    @media (--Topbar_medium) {
+    @media (--large-viewport) {
       font-size: var(--Topbar_fontSize);
     }
   }
@@ -56,7 +53,7 @@
     display: block;
   }
 
-  @media (--Topbar_medium) {
+  @media (--large-viewport) {
     & .topbarMenu {
       display: block;
     }
@@ -71,11 +68,11 @@
   }
 
   & > * {
-    @media (--Topbar_small) {
+    @media (--medium-viewport) {
       margin-right: var(--Topbar_mobileItemSpacing);
     }
 
-    @media (--Topbar_medium) {
+    @media (--large-viewport) {
       margin-right: var(--Topbar_itemSpacing);
     }
 
@@ -91,11 +88,11 @@
     align-self: flex-start;
     display: none;
 
-    @media (--Topbar_small) {
+    @media (--medium-viewport) {
       display: flex;
     }
 
-    @media (--Topbar_medium) {
+    @media (--large-viewport) {
       padding: var(--Topbar_avatarPadding);
     }
   }
@@ -105,7 +102,7 @@
   display: none;
   margin: 0;
 
-  @media (--Topbar_medium) {
+  @media (--large-viewport) {
     flex-grow: 30;
     display: block;
   }
@@ -114,12 +111,12 @@
 .topbarMediumSpacer {
   display: none;
 
-  @media (--Topbar_small) {
+  @media (--medium-viewport) {
     display: block;
     flex-grow: 30;
   }
 
-  @media (--Topbar_medium) {
+  @media (--large-viewport) {
     display: none;
   }
 }
@@ -140,11 +137,11 @@
   height: var(--Topbar_avatarSize);
   display: none;
 
-  @media (--Topbar_small) {
+  @media (--medium-viewport) {
     display: initial;
   }
 
-  @media (--Topbar_medium) {
+  @media (--large-viewport) {
     margin: var(--Topbar_avatarPadding);
   }
 }
@@ -152,7 +149,7 @@
 .topbarListingButton {
   display: none;
 
-  @media (--Topbar_small) {
+  @media (--medium-viewport) {
     display: block;
   }
 }

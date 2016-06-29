@@ -45,8 +45,8 @@ module.exports = {
      }
    }
    */
-  '--breakpointMedium': '601px',
-  '--breakpointLarge': '1024px',
+  '--breakpointMedium': 580,
+  '--breakpointLarge': 992,
 
   '--baseFontSize': fontSize,
   '--baseFontSizeMobile': fontSizeMobile,
