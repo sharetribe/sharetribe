@@ -95,7 +95,7 @@ $listings__tablet-gutter: 16px;
   &:hover {
     transform: scale(1.011);
     box-shadow: 0 0 50px 0 rgba(0,0,0,0.1);
-    transition: all 50ms ease-in-out;
+    @include prefix-prop(transition, all 50ms ease-in-out);
   }
 }
 
