@@ -50,7 +50,7 @@
                 <div class="<%= section_id %>__listings__listing-image--empty listings__listing-image--empty">
                   <div class="listings__no-listing-image-svg-container">
                     <svg class="listings__no-listing-image-svg" width="60" height="59" viewBox="269 433 60 59" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path id="a" d="M0 59h60V0H0z"/><g transform="translate(269 433)" fill="none" fill-rule="evenodd"><path stroke-width="2" stroke-linejoin="round" d="M17 12L30 1l13 11z"/><mask id="b" fill="#fff"><use xlink:href="#a"/></mask><path fill="none" stroke-width="2" mask="url(#b)" d="M1 58h58V12H1z"/><path fill="none" stroke-width="2" mask="url(#b)" d="M7 52h46V18H7z"/><path d="M24.997 39.545L26.04 38.5c.947-.945 2.23-1.477 3.567-1.477h.867c1.337 0 2.62.532 3.566 1.478l1.044 1.045" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" mask="url(#b)"/><path class="listings__no-listing-image-svg--eyes" d="M26.998 29.98c-.696 0-1.26.563-1.26 1.26 0 .696.564 1.26 1.26 1.26.696 0 1.26-.564 1.26-1.26 0-.697-.564-1.26-1.26-1.26M33.002 29.98c-.696 0-1.26.563-1.26 1.26 0 .696.564 1.26 1.26 1.26.696 0 1.26-.564 1.26-1.26 0-.697-.564-1.26-1.26-1.26" mask="url(#b)"/></g></svg>
-                    <span class="listings__no-listing-image-text">No picture</span>
+                    <span class="listings__no-listing-image-text"><%= s["no_listing_image_text"]["value"] %></span>
                   </div>
                 </div>
               <% end %>

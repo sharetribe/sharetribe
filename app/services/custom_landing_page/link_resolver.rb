@@ -76,6 +76,7 @@ module CustomLandingPage
         translation_keys = {
           "search_button" => "landing_page.hero.search",
           "signup_button" => "landing_page.hero.signup",
+          "no_listing_image" => "landing_page.listings.no_listing_image"
         }
 
         key = translation_keys[id]

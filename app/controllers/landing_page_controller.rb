@@ -269,6 +269,7 @@ class LandingPageController < ActionController::Metal
       "button_path": {"value": "https://google.com"},
       "price_color": {"type": "marketplace_data", "id": "primary_color"},
       "no_listing_image_background_color": {"type": "marketplace_data", "id": "primary_color"},
+      "no_listing_image_text": {"type": "translation", "id": "no_listing_image"},
       "author_name_color_hover": {"type": "marketplace_data", "id": "primary_color"},
       "listings": [
         {
