@@ -829,7 +829,8 @@ class LandingPageController < ActionController::Metal
       "social": [
         {"service": "facebook", "url": "https://www.facebook.com"},
         {"service": "twitter", "url": "https://www.twitter.com"},
-        {"service": "instagram", "url": "https://www.instagram.com"}
+        {"service": "instagram", "url": "https://www.instagram.com"},
+        {"service": "youtube", "url": "https://www.youtube.com/channel/UCtefWVq2uu4pHXaIsHlBFnw"}
       ],
       "copyright": "Copyright Marketplace Ltd 2016"
     },
