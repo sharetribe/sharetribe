@@ -21,6 +21,9 @@ class LandingPageController < ActionController::Metal
 
   CACHE_TIME = APP_CONFIG[:clp_cache_time].to_i.seconds
   CACHE_HEADER = "X-CLP-Cache"
+  FEATURE_FLAG = :landingpage_topbar
+
+  FONT_PATH = APP_CONFIG[:font_proximanovasoft_url].present? ? APP_CONFIG[:font_proximanovasoft_url] : "/landing_page/fonts"
 
   def index
     cid = community_id(request)
@@ -187,8 +190,16 @@ class LandingPageController < ActionController::Metal
     nil
   end
 
+  def community(request)
+    request.env[:current_marketplace]
+  end
+
+  def community_customization(request, locale)
+    community(request).community_customizations.where(locale: locale).first
+  end
+
   def community_id(request)
-    request.env[:current_marketplace]&.id
+    community(request)&.id
   end
 
   def community_default_locale(request)
@@ -196,11 +207,17 @@ class LandingPageController < ActionController::Metal
   end
 
   def render_landing_page(community_id:, default_locale:, locale_param:, structure:)
-    locale, sitename = structure["settings"].values_at("locale", "sitename")
+    landing_page_locale, sitename = structure["settings"].values_at("locale", "sitename")
+    topbar_locale = locale_param.present? ? locale_param : default_locale
 
     initialize_i18n!(community_id, locale)
 
-    font_path = APP_CONFIG[:font_proximanovasoft_url].present? ? APP_CONFIG[:font_proximanovasoft_url] : "/landing_page/fonts"
+    props = topbar_props(community(request),
+                         community_customization(request, landing_page_locale),
+                         request.fullpath,
+                         locale_param,
+                         topbar_locale)
+    topbar_enabled = fetch_topbar_enabled(community_id)
 
     denormalizer = build_denormalizer(
       cid: community_id,
@@ -210,18 +227,50 @@ class LandingPageController < ActionController::Metal
     )
 
     render_to_string :landing_page,
-           locals: { font_path: font_path,
+           locals: { font_path: FONT_PATH,
                      styles: landing_page_styles,
                      javascripts: {
-                       location_search: location_search_js
+                       location_search: location_search_js,
+                       translations: js_translations(topbar_locale)
                      },
                      page: denormalizer.to_tree(structure, root: "page"),
-                     sections: denormalizer.to_tree(structure, root: "composition") }
+                     sections: denormalizer.to_tree(structure, root: "composition"),
+                     topbar_props: props,
+                     topbar_enabled: topbar_enabled }
   end
 
   def render_not_found(msg = "Not found")
     self.status = 404
     self.response_body = msg
+  end
+
+  def topbar_props(community, community_customization, request_path, locale_param, topbar_locale)
+    # TopbarHelper pulls current lang from I18n
+    I18n.locale = topbar_locale
+
+    path =
+      if locale_param.present?
+        request_path.gsub(/^\/#{locale_param}/, "").gsub(/^\//, "")
+      else
+        request_path.gsub(/^\//, "")
+      end
+
+    TopbarHelper.topbar_props(
+      community: community,
+      path_after_locale_change: path,
+      search_placeholder: community_customization&.search_placeholder,
+      locale_param: locale_param)
+  end
+
+  def fetch_topbar_enabled(community_id)
+    flags_res = FeatureFlagService::API::Api.features.get(community_id: community_id)
+    if flags_res.success
+      flags_res.maybe
+        .map { |flags| flags[:features].include?(FEATURE_FLAG) }
+        .or_else(false)
+    else
+      false
+    end
   end
 
   # rubocop:disable Metrics/MethodLength
@@ -832,5 +881,9 @@ JSON
 
   def location_search_js
     Rails.application.assets.find_asset("location_search.js").to_s.html_safe
+  end
+
+  def js_translations(topbar_locale)
+    Rails.application.assets.find_asset("i18n/#{topbar_locale}.js").to_s.html_safe
   end
 end

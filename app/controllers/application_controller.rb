@@ -593,9 +593,9 @@ class ApplicationController < ActionController::Base
   def topbar_props
     TopbarHelper.topbar_props(
       community: @current_community,
-      user: @current_user,
-      community_locales: available_locales(),
       path_after_locale_change: @return_to,
+      user: @current_user,
+      search_placeholder: @community_customization&.search_placeholder,
       locale_param: params[:locale])
   end
 

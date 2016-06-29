@@ -35,6 +35,8 @@
 
   <title><%= page["title"]["value"] %></title>
 
+  <%= stylesheet_link_tag 'app-bundle' %>
+
   <!-- SEO Meta -->
   <!--
   <meta name="description" content="The HTML5 Herald">
@@ -115,20 +117,38 @@
 </head>
 <body>
 
-<%= yield :sections %>
+  <% if topbar_enabled %>
+  <div id="topbar-placeholder" class="topbar-placeholder"> </div>
+  <% end %>
 
-<% # Add javascript libraries %>
+  <%= yield :sections %>
 
-<% if sections.any? { |s| s["section"]["kind"] == "hero" && s["section"]["variation"]["value"] == "location_search" } %>
+  <% # Add javascript libraries %>
+
+  <% if sections.any? { |s| s["section"]["kind"] == "hero" && s["section"]["variation"]["value"] == "location_search" } %>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
   <script>
     <%= javascripts[:location_search] %>
   </script>
-<% end %>
+  <% end %>
 
-<% # Add javascript from sections %>
+  <% # Add javascript from sections %>
 
-<%= yield :javascript %>
+  <%= yield :javascript %>
+
+  <% if topbar_enabled %>
+  <script>
+    window.I18n = {};
+    <%= javascripts[:translations] %>
+  </script>
+
+  <%= javascript_include_tag 'application' %>
+
+  <script>
+    props = <%= topbar_props.to_json.html_safe %>
+    ReactDOM.render(React.createElement(window.ReactOnRails.getComponent('TopbarApp').component, props), document.getElementById('topbar-placeholder'));
+  </script>
+  <% end %>
 
 </body>
 </html>

@@ -2,7 +2,7 @@ module TopbarHelper
 
   module_function
 
-  def topbar_props(community:, user: nil, community_locales:, path_after_locale_change:, locale_param: nil)
+  def topbar_props(community:, path_after_locale_change:, user: nil, search_placeholder: nil, locale_param: nil)
 
     links = [
       {
@@ -55,13 +55,13 @@ module TopbarHelper
       },
       search: {
         mode: 'keyword-and-location',
-        keyword_placeholder: (@community_customization && @community_customization.search_placeholder) || I18n.t("web.topbar.search_placeholder"),
+        keyword_placeholder: search_placeholder || I18n.t("web.topbar.search_placeholder"),
         location_placeholder: 'Location'
       },
       menu: {
         links: links,
       },
-      locales: locale_props(I18n.locale, community_locales, path_after_locale_change),
+      locales: locale_props(community, I18n.locale, path_after_locale_change),
       avatarDropdown: {
         customColor: CommonStylesHelper.marketplace_colors(community)[:marketplace_color1],
         avatar: {
@@ -72,23 +72,29 @@ module TopbarHelper
       newListingButton: {
         text: I18n.t("homepage.index.post_new_listing"),
         customColor: CommonStylesHelper.marketplace_colors(community)[:marketplace_color1]
+      },
+      i18n: {
+        locale: I18n.locale,
+        defaultLocale: I18n.default_locale
       }
     }
   end
 
 
-  def locale_props(current_locale, community_locales, path_after_locale_change)
-    {
-      current_locale_ident: I18n.locale,
-      current_locale: Maybe(Sharetribe::AVAILABLE_LOCALES.find { |l| l[:ident] == current_locale.to_s })[:language].or_else(current_locale).to_s,
-      available_locales: community_locales.map { |locale|
-        {
-          locale_name: locale[0],
-          locale_ident: locale[1],
-          change_locale_uri: paths.change_locale_path({locale: locale[1], redirect_uri: path_after_locale_change})
-        }
-      },
+  def locale_props(community, current_locale, path_after_locale_change)
+    community_locales = community.locales.map { |loc_ident|
+      Sharetribe::AVAILABLE_LOCALES.find { |app_loc| app_loc[:ident] == loc_ident }
+    }.compact.map { |loc|
+      {
+        locale_name: loc[:name],
+        locale_ident: loc[:ident],
+        change_locale_uri: paths.change_locale_path({locale: loc[:ident], redirect_uri: path_after_locale_change})
+      }
     }
+
+    { current_locale_ident: I18n.locale,
+      current_locale: Maybe(Sharetribe::AVAILABLE_LOCALES.find { |l| l[:ident] == current_locale.to_s })[:language].or_else(current_locale).to_s,
+      available_locales: community_locales }
   end
 
   def missing_profile_image_path

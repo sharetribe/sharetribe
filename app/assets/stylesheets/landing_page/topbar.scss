@@ -1,0 +1,14 @@
+@import "mixins/all";
+
+.topbar-placeholder {
+  height: 50px;
+
+  @media #{$topbar_tablet} {
+    height: 50px;
+  }
+
+  @media #{$topbar_desktop} {
+    height: 80px;
+  }
+}
+
