@@ -93,13 +93,51 @@ $listings__tablet-gutter: 16px;
   box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.10);
 }
 
-.listings__listing-image {
+.listings__listing-image-container {
   // width + padding-bottom makes a responsive square
   width: 100%;
   padding-bottom: 100%;
+}
+
+.listings__listing-image {
+  @extend .listings__listing-image-container;
 
   background-size: cover;
   background-position: center;
+}
+
+.listings__listing-image--empty {
+  @extend .listings__listing-image-container;
+  position: relative;
+
+  // background color added in the template
+}
+
+.listings__no-listing-image-svg-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  @include prefix-val(display, flex);
+  @include prefix-prop(align-items, center);
+  @include prefix-prop(justify-content, center);
+  @include prefix-prop(flex-direction, column);
+}
+
+.listings__no-listing-image-svg {
+  stroke: $typography__main-color;
+}
+
+.listings__no-listing-image-svg--eyes {
+  fill: $typography__main-color;
+}
+
+.listings__no-listing-image-text {
+  font-size: 14px;
+  margin-top: 8px;
+  font-family: ProximaNovaSoft-Semibold;
 }
 
 .listings__button--ghost {
