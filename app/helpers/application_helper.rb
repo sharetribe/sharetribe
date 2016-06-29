@@ -657,20 +657,6 @@ module ApplicationHelper
     block.call(stylesheet_url)
   end
 
-  # Render block only if big cover photo should be shown
-  def with_big_cover_photo(&block)
-    block.call if show_big_cover_photo?
-  end
-
-  # Render block only if small cover photo should be shown
-  def with_small_cover_photo(&block)
-    block.call unless show_big_cover_photo?
-  end
-
-  def show_big_cover_photo?
-    @homepage && ((!@current_user && !CustomLandingPage::LandingPageStore.enabled?(@current_community.id)) || params[:big_cover_photo])
-  end
-
   def sort_link_direction(column)
     params[:sort].eql?(column) && params[:direction].eql?("asc") ? "desc" : "asc"
   end

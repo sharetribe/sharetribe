@@ -18,7 +18,7 @@
     = javascript_include_tag "markerclusterer.js"
 
 - content_for :title_header do
-  - with_big_cover_photo do
+  - if @big_cover_photo
     %h1.marketplace-lander-content-title= community_slogan.html_safe
     %p= community_description.html_safe
     .search-form
@@ -31,14 +31,14 @@
           = render partial: "location_bar"
         - else
           = render partial: "search_bar"
-  - with_small_cover_photo do
+  - else
     .browse-view-search-form
       - if(location_search_in_use)
         = render partial: "location_bar"
       - else
         = render partial: "search_bar"
 
-- if @current_community.private? && show_big_cover_photo?
+- if @current_community.private? && @big_cover_photo
   - if @community_customization && @community_customization.private_community_homepage_content
     .community-customization-wrapper
       = @community_customization.private_community_homepage_content.html_safe
