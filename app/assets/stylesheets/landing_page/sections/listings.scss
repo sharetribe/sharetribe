@@ -205,15 +205,31 @@ $listings__tablet-gutter: 16px;
   @include prefix-prop(flex-direction, row);
 }
 
-
-.listings__author-avatar {
+.listings__author-avatar-container {
   border-radius: 100%;
-
-  background-size: cover;
-  background-position: center;
-
   width: 24px;
   height: 24px;
+
+  // Rounded borders for child elements
+  overflow: hidden;
+
+  // Align the SVG
+  @include prefix-val(display, flex);
+  @include prefix-prop(align-items, center);
+  @include prefix-prop(justify-content, center);
+
+  background-color: #D8D8D8;
+}
+
+.listings__author-avatar {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.listings__author-avatar-empty {
+  background-color: red;
 }
 
 .listings__author-name {
