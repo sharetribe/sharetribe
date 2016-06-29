@@ -19,7 +19,7 @@
 
 .menuLabelMobile {
   display: inline-block;
-  padding: var(--Menu_labelPaddingVertical) var(--Menu_labelPaddingHorizontal);
+  padding: var(--Menu_mobileLabelPaddingVertical) var(--Menu_mobileLabelPaddingHorizontal);
   cursor: pointer;
 }
 

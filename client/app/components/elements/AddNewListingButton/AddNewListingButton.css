@@ -1,6 +1,3 @@
-/* TODO: unify with Topbar breakpoints */
-@custom-media --AddNewListingButton_tablet (min-width: 40rem);
-
 .button {
   position: relative;
   display: inline-block;
@@ -30,7 +27,7 @@
   border-radius: calc(var(--AddNewListingButton_height) / 2);
   transition: filter 100ms ease-in;
 
-  @media (--AddNewListingButton_tablet) {
+  @media (--medium-viewport) {
     display: block;
   }
 }
@@ -59,7 +56,7 @@
     filter: brightness(70%);
   }
 
-  @media (--AddNewListingButton_tablet) {
+  @media (--medium-viewport) {
     display: none;
   }
 }
@@ -68,7 +65,7 @@
   display: none;
   color: var(--AddNewListingButton_textColor);
 
-  @media (--AddNewListingButton_tablet) {
+  @media (--medium-viewport) {
     display: block;
   }
 }

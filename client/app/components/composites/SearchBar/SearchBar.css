@@ -1,6 +1,3 @@
-@custom-media --SearchBar_small (max-width: 40rem);
-@custom-media --SearchBar_medium (min-width: 40rem);
-
 /* The Google Maps Places Autocomplete dropdown box is added in the
    end of the document body, and we must scope the global style
    overrides within a class generated from the SearchBar component.
@@ -29,7 +26,7 @@
 
 /* Used in JavaScript to toggle the mobile menu. */
 .mobileMenuOpen {
-  @media (--SearchBar_small) {
+  @media (--small-and-medium-viewport) {
     /* stylelint-disable selector-class-pattern */
 
     & :global(.pac-container[style]) {
@@ -95,7 +92,7 @@
     background-color: var(--SearchBar_mobileBackgroundColor);
   }
 
-  @media (--SearchBar_medium) {
+  @media (--large-viewport) {
     display: inline-flex;
     position: relative;
     height: var(--SearchBar_height);
@@ -131,7 +128,7 @@
   z-index: var(--SearchBar_focusContainerZIndex); /* Required to allow mouse event to the inputs/buttons. */
   transition: border-color 0.1s ease-in;
 
-  @media (--SearchBar_medium) {
+  @media (--large-viewport) {
     display: block;
     border-radius: calc(var(--SearchBar_height) / 2);
   }
@@ -159,7 +156,7 @@
     flex-grow: 9;
     border-color: var(--SearchBar_mobileTextColor);
 
-    @media (--SearchBar_medium) {
+    @media (--large-viewport) {
       flex-grow: 1;
     }
   }
@@ -175,7 +172,7 @@
     padding: 0;
     margin-right: calc(var(--SearchBar_mobileHeight) + var(--SearchBar_sidePaddingMobile));
 
-    @media (--SearchBar_medium) {
+    @media (--large-viewport) {
       margin-right: var(--SearchBar_height);
 
       &:focus {
@@ -196,7 +193,7 @@
     color: var(--SearchBar_mobilePlaceholderColor);
   }
 
-  @media (--SearchBar_medium) {
+  @media (--large-viewport) {
     color: var(--SearchBar_textColor);
     margin: var(--SearchBar_textPadding) 0;
     border: none;
@@ -234,20 +231,20 @@
 .keywordInput {
   margin-right: calc(var(--SearchBar_sidePaddingMobile) / 2);
 
-  @media (--SearchBar_medium) {
+  @media (--large-viewport) {
     width: var(--SearchBar_keywordInputWidth);
     margin-right: var(--SearchBar_sidePadding);
   }
 
   &:focus {
-    @media (--SearchBar_medium) {
+    @media (--large-viewport) {
       width: var(--SearchBar_keywordInputFocusWidth);
     }
 
     & ~ .locationInput {
       margin-right: var(--SearchBar_mobileHeight);
 
-      @media (--SearchBar_medium) {
+      @media (--large-viewport) {
         width: calc(100% - var(--SearchBar_keywordInputFocusWidth));
       }
     }
@@ -257,7 +254,7 @@
     & ~ .searchButton {
       box-shadow: -10px 0 20px -5px #000;
 
-      @media (--SearchBar_medium) {
+      @media (--large-viewport) {
         box-shadow: none;
       }
     }
@@ -265,7 +262,7 @@
 }
 
 .locationInput {
-  @media (--SearchBar_medium) {
+  @media (--large-viewport) {
     width: calc(100% - var(--SearchBar_keywordInputWidth));
   }
 }
@@ -276,7 +273,7 @@
   margin-left: calc(var(--SearchBar_sidePaddingMobile) / 2);
   margin-right: calc(var(--SearchBar_mobileHeight) + var(--SearchBar_sidePaddingMobile));
 
-  @media (--SearchBar_medium) {
+  @media (--large-viewport) {
     border-left: 1px solid var(--SearchBar_borderColor);
     padding-left: var(--SearchBar_sidePadding);
     margin-left: 0;
@@ -304,7 +301,7 @@
     background-color: var(--SearchBar_mobileButtonBackgroundColor);
   }
 
-  @media (--SearchBar_medium) {
+  @media (--large-viewport) {
     width: var(--SearchBar_height);
     height: var(--SearchBar_height);
     background-color: transparent;
@@ -345,7 +342,7 @@
     border: var(--SearchBar_mobileTriangleSize) solid transparent;
     border-bottom-color: var(--SearchBar_mobileButtonBackgroundColor);
 
-    @media (--SearchBar_medium) {
+    @media (--large-viewport) {
       display: none;
     }
   }
@@ -360,7 +357,7 @@
     stroke: var(--SearchBar_mobileTextColor);
     transition: stroke 0.1s ease-in;
 
-    @media (--SearchBar_medium) {
+    @media (--large-viewport) {
       stroke: var(--SearchBar_iconColor);
       top: calc(var(--SearchBar_height) / 2 - var(--SearchBar_iconSize) / 2);
       left: calc(var(--SearchBar_height) / 2 - var(--SearchBar_iconSize) / 2);
@@ -390,7 +387,7 @@
     margin-top: var(--SearchBar_iconTopMarginFix);
   }
 
-  @media (--SearchBar_medium) {
+  @media (--large-viewport) {
     display: none;
   }
 }
