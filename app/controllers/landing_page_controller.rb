@@ -228,6 +228,8 @@ class LandingPageController < ActionController::Metal
     marketplace_context = marketplace_context(community_id, topbar_locale, request)
     topbar_enabled = fetch_topbar_enabled(community_id)
 
+    google_maps_key = community(request).google_maps_key
+
     denormalizer = build_denormalizer(
       cid: community_id,
       locale_param: locale_param,
@@ -248,6 +250,7 @@ class LandingPageController < ActionController::Metal
                      topbar_props_path: ui_api_topbar_props_path(locale: topbar_locale),
                      marketplace_context: marketplace_context,
                      topbar_enabled: topbar_enabled,
+                     google_maps_key: google_maps_key,
                      community_context: community_context(request)
                    }
   end
