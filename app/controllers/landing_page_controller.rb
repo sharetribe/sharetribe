@@ -186,10 +186,6 @@ class LandingPageController < ActionController::Metal
       search_path.call(category: category_name_param)
     }
 
-    build_listing_path = ->(listing_id) {
-      "#"
-    }
-
     CLP::Denormalizer.new(
       link_resolvers: {
         "path" => CLP::LinkResolver::PathResolver.new(paths),
@@ -197,7 +193,7 @@ class LandingPageController < ActionController::Metal
         "assets" => CLP::LinkResolver::AssetResolver.new(APP_CONFIG[:clp_asset_host], sitename),
         "translation" => CLP::LinkResolver::TranslationResolver.new(locale),
         "category" => CLP::LinkResolver::CategoryResolver.new(cid, locale, build_category_path),
-        "listing" => CLP::LinkResolver::ListingResolver.new(cid, locale, name_display_type, build_listing_path)
+        "listing" => CLP::LinkResolver::ListingResolver.new(cid, locale, name_display_type)
       }
     )
   end

@@ -114,11 +114,10 @@ module CustomLandingPage
     end
 
     class ListingResolver
-      def initialize(cid, locale, name_display_type, build_listing_path)
+      def initialize(cid, locale, name_display_type)
         @_cid = cid
         @_locale = locale
         @_name_display_type = name_display_type
-        @_build_listing_path = build_listing_path
       end
 
       def call(type, id, _)
