@@ -2,7 +2,11 @@ import { Component, PropTypes } from 'react';
 import r, { div } from 'r-dom';
 
 import { t } from '../../../utils/i18n';
+<<<<<<< 5d72eda3236c9a701bce6ac436339e811de38022
 import { routes, marketplaceContext } from '../../../utils/PropTypes';
+=======
+import { routes as routesProp, railsContext } from '../../../utils/PropTypes';
+>>>>>>> Avatar dropdown links
 import css from './Topbar.css';
 import styleVariables from '../../../assets/styles/variables';
 
@@ -13,7 +17,23 @@ import MenuMobile from '../../composites/MenuMobile/MenuMobile';
 import AvatarDropdown from '../../composites/AvatarDropdown/AvatarDropdown';
 import AddNewListingButton from '../../elements/AddNewListingButton/AddNewListingButton';
 
-const avatarDropdownProps = (avatarDropdown, customColor) => {
+const linkAction = (target) =>
+  function openLink() {
+    window.location.href = target;
+  };
+
+const profileDropdownActions = function profileDropdownActions(routes, username) {
+  return username ?
+  {
+    inboxAction: linkAction(routes.person_inbox_path(username)),
+    profileAction: linkAction(routes.person_path(username)),
+    settingsAction: linkAction(routes.person_settings_path(username)),
+    adminDashboardAction: linkAction(routes.admin_path()),
+    logoutAction: linkAction(routes.logout_path()),
+  } : null;
+};
+
+const avatarDropdownProps = (avatarDropdown, customColor, username, routes) => {
   const color = customColor || styleVariables['--customColorFallback'];
   const actions = {
     inboxAction: () => false,
@@ -21,6 +41,7 @@ const avatarDropdownProps = (avatarDropdown, customColor) => {
     settingsAction: () => false,
     adminDashboardAction: () => false,
     logoutAction: () => false,
+    ...profileDropdownActions(routes, username),
   };
   return { actions, customColor: color, ...avatarDropdown };
 };
@@ -168,7 +189,7 @@ class Topbar extends Component {
       hasMultipleLanguages ? r(Menu, { ...languageMenuProps, className: css.topbarMenu }) : null,
       this.props.avatarDropdown ?
         r(AvatarDropdown, {
-          ...avatarDropdownProps(this.props.avatarDropdown, marketplace_color1),
+          ...avatarDropdownProps(this.props.avatarDropdown, marketplace_color1, username, this.props.routes),
           classSet: css.topbarAvatarDropdown,
         }) :
         div({ className: css.topbarAvatarDropdownPlaceholder }),
@@ -207,7 +228,7 @@ Topbar.propTypes = {
     })),
   }),
   newListingButton: object,
-  routes,
+  routes: routesProp,
   marketplaceContext,
 };
 
