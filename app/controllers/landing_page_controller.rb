@@ -164,7 +164,10 @@ class LandingPageController < ActionController::Metal
               "signup" => sign_up_path(locale: locale_param),
               "about" => about_infos_path(locale: locale_param),
               "contact_us" => new_user_feedback_path(locale: locale_param),
-              "post_a_new_listing" => new_listing_path(locale: locale_param)
+              "post_a_new_listing" => new_listing_path(locale: locale_param),
+              "how_to_use" => how_to_use_infos_path(locale: locale_param),
+              "terms" => terms_infos_path(locale: locale_param),
+              "privacy" => privacy_infos_path(locale: locale_param)
             }
 
     marketplace_data = CLP::MarketplaceDataStore.marketplace_data(cid, locale)
@@ -818,12 +821,15 @@ class LandingPageController < ActionController::Metal
     {
       "id": "footer",
       "kind": "footer",
-      "theme": "dark",
+      "theme": "light",
       "social_media_icon_color": {"type": "marketplace_data", "id": "primary_color"},
       "social_media_icon_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "links": [
         {"label": "About", "href": {"type": "path", "id": "about"}},
         {"label": "Contact us", "href": {"type": "path", "id": "contact_us"}},
+        {"label": "How to use?", "href": {"type": "path", "id": "how_to_use"}},
+        {"label": "Terms", "href": {"type": "path", "id": "terms"}},
+        {"label": "Privary", "href": {"type": "path", "id": "privacy"}},
         {"label": "Sharetribe", "href": {"value": "https://www.sharetribe.com"}}
       ],
       "social": [
