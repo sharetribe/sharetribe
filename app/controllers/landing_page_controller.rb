@@ -167,9 +167,7 @@ class LandingPageController < ActionController::Metal
     marketplace_data = CLP::MarketplaceDataStore.marketplace_data(cid, locale)
     name_display_type = marketplace_data["name_display_type"]
 
-    build_category_path = ->(category_name_param) {
-      search_path.call(category: category_name_param)
-    }
+    category_data = CLP::CategoryStore.categories(cid, locale, search_path)
 
     CLP::Denormalizer.new(
       link_resolvers: {
@@ -177,7 +175,7 @@ class LandingPageController < ActionController::Metal
         "marketplace_data" => CLP::LinkResolver::MarketplaceDataResolver.new(marketplace_data),
         "assets" => CLP::LinkResolver::AssetResolver.new(APP_CONFIG[:clp_asset_host], sitename),
         "translation" => CLP::LinkResolver::TranslationResolver.new(locale),
-        "category" => CLP::LinkResolver::CategoryResolver.new(cid, locale, build_category_path),
+        "category" => CLP::LinkResolver::CategoryResolver.new(category_data),
         "listing" => CLP::LinkResolver::ListingResolver.new(cid, locale, name_display_type)
       }
     )

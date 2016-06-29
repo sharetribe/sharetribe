@@ -94,23 +94,16 @@ module CustomLandingPage
     end
 
     class CategoryResolver
-      def initialize(cid, locale, build_category_path)
-        @_cid = cid
-        @_locale = locale
-        @_build_category_path = build_category_path
+      def initialize(data)
+        @_data = data
       end
 
       def call(type, id, _)
-        Maybe(categories.find { |c| c.id == id }).map { |c|
-          {
-            "title" => c.display_name(@_locale),
-            "path" => @_build_category_path.call(c.url)
-          }
-        }.or_else(nil)
-      end
+        unless @_data.key?(id)
+          raise LinkResolvingError.new("Unknown category id '#{id}'.")
+        end
 
-      def categories
-        @_categories ||= Category.where(community_id: @_cid).to_a
+        @_data[id].merge("id" => id, "type" => type)
       end
     end
 
