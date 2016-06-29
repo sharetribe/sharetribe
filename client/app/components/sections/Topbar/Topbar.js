@@ -2,7 +2,7 @@ import { Component, PropTypes } from 'react';
 import r, { div } from 'r-dom';
 
 import { t } from '../../../utils/i18n';
-import { routes, railsContext } from '../../../utils/PropTypes';
+import { routes } from '../../../utils/PropTypes';
 import css from './Topbar.css';
 import styleVariables from '../../../assets/styles/variables';
 
@@ -30,40 +30,40 @@ const LABEL_TYPE_DROPDOWN = 'dropdown';
 
 const SEARCH_ENABLED = false;
 
-const profileLinks = function profileLinks(username, router, marketplaceContext) {
+const profileLinks = function profileLinks(username, router, location, customColor) {
   if (username) {
     return [
       {
-        active: router.person_inbox_path(username) === marketplaceContext.location,
-        activeColor: marketplaceContext.marketplace_color1,
+        active: router.person_inbox_path(username) === location,
+        activeColor: customColor,
         content: t('web.topbar.inbox'),
         href: router.person_inbox_path(username),
         type: 'menuitem',
       },
       {
-        active: router.person_path(username) === marketplaceContext.location,
-        activeColor: marketplaceContext.marketplace_color1,
+        active: router.person_path(username) === location,
+        activeColor: customColor,
         content: t('web.topbar.profile'),
         href: router.person_path(username),
         type: 'menuitem',
       },
       {
-        active: `${router.person_path(username)}?show_closed=1` === marketplaceContext.location,
-        activeColor: marketplaceContext.marketplace_color1,
+        active: `${router.person_path(username)}?show_closed=1` === location,
+        activeColor: customColor,
         content: t('web.topbar.manage_listings'),
         href: `${router.person_path(username)}?show_closed=1`,
         type: 'menuitem',
       },
       {
-        active: router.person_settings_path(username) === marketplaceContext.location,
-        activeColor: marketplaceContext.marketplace_color1,
+        active: router.person_settings_path(username) === location,
+        activeColor: customColor,
         content: t('web.topbar.settings'),
         href: router.person_settings_path(username),
         type: 'menuitem',
       },
       {
-        active: router.logout_path() === marketplaceContext.location,
-        activeColor: marketplaceContext.marketplace_color1,
+        active: router.logout_path() === location,
+        activeColor: customColor,
         content: t('web.topbar.logout'),
         href: router.logout_path(),
         type: 'menuitem',
@@ -81,7 +81,10 @@ const DEFAULT_RAILS_CONTEXT = {
 
 class Topbar extends Component {
   render() {
-    const marketplaceContext = this.props.railsContext || DEFAULT_RAILS_CONTEXT;
+    const marketplaceContext = { ...DEFAULT_RAILS_CONTEXT, ...this.props.railsContext };
+    const currentLocation = marketplaceContext.location;
+    const customColor = marketplaceContext.marketplace_color1;
+    const loggedInUsername = marketplaceContext.loggedInUsername;
 
     const menuProps = this.props.menu ?
       Object.assign({}, this.props.menu, {
@@ -91,8 +94,8 @@ class Topbar extends Component {
         menuLabelType: LABEL_TYPE_MENU,
         content: this.props.menu.links.map((l) => (
           {
-            active: l.link === marketplaceContext.location,
-            activeColor: marketplaceContext.marketplace_color1,
+            active: l.link === currentLocation,
+            activeColor: customColor,
             content: l.title,
             href: l.link,
             type: 'menuitem',
@@ -113,7 +116,7 @@ class Topbar extends Component {
         content: this.props.locales.available_locales.map((v) => (
           {
             active: v.locale_ident === this.props.locales.current_locale_ident,
-            activeColor: marketplaceContext.marketplace_color1,
+            activeColor: customColor,
             content: v.locale_name,
             href: v.change_locale_uri,
             type: 'menuitem',
@@ -122,25 +125,26 @@ class Topbar extends Component {
       }) :
       {};
 
-    const username = marketplaceContext.loggedInUsername || null;
+    const username = loggedInUsername || null;
     const mobileMenuProps = Object.assign({}, this.props.menu, {
       key: 'mobilemenu',
       name: t('web.topbar.menu'),
       identifier: 'Menu',
       menuLabelType: LABEL_TYPE_MENU,
       color: marketplaceContext.marketplace_color1,
+      extraClasses: `${css.topbarMobileMenu}`,
       menuLinksTitle: t('web.topbar.menu'),
       menuLinks: this.props.menu.links.map((l) => (
         {
-          active: l.link === marketplaceContext.location,
-          activeColor: marketplaceContext.marketplace_color1,
+          active: l.link === currentLocation,
+          activeColor: customColor,
           content: l.title,
           href: l.link,
           type: 'menuitem',
         }
       )),
       userLinksTitle: t('web.topbar.user'),
-      userLinks: profileLinks(username, this.props.routes, marketplaceContext),
+      userLinks: profileLinks(username, this.props.routes, currentLocation, customColor),
     });
 
     const newListingRoute = this.props.routes && this.props.routes.new_listing_path ?
@@ -166,7 +170,7 @@ class Topbar extends Component {
       hasMultipleLanguages ? r(Menu, { ...languageMenuProps, className: css.topbarMenu }) : null,
       this.props.avatarDropdown ?
         r(AvatarDropdown, {
-          ...avatarDropdownProps(this.props.avatarDropdown, marketplaceContext.marketplace_color1),
+          ...avatarDropdownProps(this.props.avatarDropdown, customColor),
           classSet: css.topbarAvatarDropdown,
         }) :
         div({ className: css.topbarAvatarDropdownPlaceholder }),
@@ -175,7 +179,7 @@ class Topbar extends Component {
           ...this.props.newListingButton,
           className: css.topbarListingButton,
           url: newListingRoute,
-          customColor: marketplaceContext.marketplace_color1,
+          customColor,
         }) :
         null,
     ]);
@@ -206,7 +210,7 @@ Topbar.propTypes = {
   }),
   newListingButton: object,
   routes,
-  railsContext,
+  railsContext: object,
 };
 
 export default Topbar;
