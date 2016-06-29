@@ -219,7 +219,7 @@ class LandingPageController < ActionController::Metal
   def render_landing_page(community_id:, default_locale:, locale_param:, structure:)
     locale, sitename = structure["settings"].values_at("locale", "sitename")
 
-    initialize_i18n!(cid, locale)
+    initialize_i18n!(community_id, locale)
 
     font_path = APP_CONFIG[:font_proximanovasoft_url].present? ? APP_CONFIG[:font_proximanovasoft_url] : "/landing_page/fonts"
 
