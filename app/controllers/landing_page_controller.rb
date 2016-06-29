@@ -21,6 +21,7 @@ class LandingPageController < ActionController::Metal
 
   CACHE_TIME = APP_CONFIG[:clp_cache_time].to_i.seconds
   CACHE_HEADER = "X-CLP-Cache"
+  FEATURE_FLAG = :landingpage_topbar
 
   FONT_PATH = APP_CONFIG[:font_proximanovasoft_url].present? ? APP_CONFIG[:font_proximanovasoft_url] : "/landing_page/fonts"
 
@@ -263,7 +264,7 @@ class LandingPageController < ActionController::Metal
   def fetch_topbar_enabled(community_id)
     flags_res = FeatureFlagService::API::Api.features.get(community_id: community_id)
     flags_res.maybe
-      .map { |flags| flags[:features].include?(:topbar_v1) }
+      .map { |flags| flags[:features].include?(FEATURE_FLAG) }
       .or_else(false)
   end
 
