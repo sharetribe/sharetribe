@@ -76,6 +76,7 @@ module CustomLandingPage
         translation_keys = {
           "search_button" => "landing_page.hero.search",
           "signup_button" => "landing_page.hero.signup",
+          "no_listing_image" => "landing_page.listings.no_listing_image"
         }
 
         key = translation_keys[id]
@@ -93,24 +94,33 @@ module CustomLandingPage
     end
 
     class CategoryResolver
-      def initialize(cid, locale, build_category_path)
-        @_cid = cid
-        @_locale = locale
-        @_build_category_path = build_category_path
+      def initialize(data)
+        @_data = data
       end
 
       def call(type, id, _)
-        Maybe(categories.find { |c| c.id == id }).map { |c|
-          {
-            "title" => c.display_name(@_locale),
-            "path" => @_build_category_path.call(c.url)
-          }
-        }.or_else(nil)
+        unless @_data.key?(id)
+          raise LinkResolvingError.new("Unknown category id '#{id}'.")
+        end
+
+        @_data[id].merge("id" => id, "type" => type)
+      end
+    end
+
+    class ListingResolver
+      def initialize(cid, locale, name_display_type)
+        @_cid = cid
+        @_locale = locale
+        @_name_display_type = name_display_type
       end
 
-      def categories
-        @_categories ||= Category.where(community_id: @_cid).to_a
+      def call(type, id, _)
+        ListingStore.listing(id: id,
+                             community_id: @_cid,
+                             locale: @_locale,
+                             name_display_type: @_name_display_type)
       end
+
     end
   end
 end

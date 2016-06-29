@@ -40,4 +40,31 @@ module I18nHelper
     return community_default
 
   end
+
+  # Load translation from TranslationService and initialize the CommunityBackend,
+  # which then let's you to fetch community specific translations with the good ol'
+  # I18n.t() method
+  #
+  # Params:
+  # - community_id
+  # - locales: array of locales to load
+  #
+  # Usage:
+  #
+  # ```
+  # I18nHelper.initialize_community_backend!(123, ["en", "fr"])
+  # ```
+  def initialize_community_backend!(community_id, locales)
+    community_backend = I18n::Backend::CommunityBackend.instance
+    community_backend.set_community!(community_id, locales.map(&:to_sym))
+    community_translations = TranslationService::API::Api.translations.get(community_id)[:data]
+    TranslationServiceHelper.community_translations_for_i18n_backend(community_translations).each { |locale, data|
+      # Store community translations to I18n backend.
+      #
+      # Since the data in data hash is already flatten, we don't want to
+      # escape the separators (. dots) in the key
+      community_backend.store_translations(locale, data, escape: false)
+    }
+  end
+
 end

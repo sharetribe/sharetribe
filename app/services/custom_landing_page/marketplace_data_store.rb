@@ -6,7 +6,9 @@ module CustomLandingPage
     module_function
 
     def marketplace_data(cid, locale)
-      primary_color, private = Community.where(id: cid)
+      primary_color,
+      private,
+      name_display_type = Community.where(id: cid)
                                .pluck(:custom_color1, :private)
                                .first
 
@@ -43,7 +45,8 @@ module CustomLandingPage
         "slogan" => slogan,
         "description" => description,
         "search_type" => search_type,
-        "search_placeholder" => search_placeholder
+        "search_placeholder" => search_placeholder,
+        "name_display_type" => name_display_type
       }
     end
   end

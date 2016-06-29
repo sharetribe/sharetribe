@@ -110,6 +110,10 @@ class LandingPageController < ActionController::Metal
 
   private
 
+  def initialize_i18n!(cid, locale)
+    I18nHelper.initialize_community_backend!(cid, [locale])
+  end
+
   def build_html(community_id:, default_locale:, locale_param:, version:)
     structure = CLP::LandingPageStore.load_structure(community_id, version)
     render_landing_page(
@@ -161,10 +165,9 @@ class LandingPageController < ActionController::Metal
             }
 
     marketplace_data = CLP::MarketplaceDataStore.marketplace_data(cid, locale)
+    name_display_type = marketplace_data["name_display_type"]
 
-    build_category_path = ->(category_name_param) {
-      search_path.call(category: category_name_param)
-    }
+    category_data = CLP::CategoryStore.categories(cid, locale, search_path)
 
     CLP::Denormalizer.new(
       link_resolvers: {
@@ -172,7 +175,8 @@ class LandingPageController < ActionController::Metal
         "marketplace_data" => CLP::LinkResolver::MarketplaceDataResolver.new(marketplace_data),
         "assets" => CLP::LinkResolver::AssetResolver.new(APP_CONFIG[:clp_asset_host], sitename),
         "translation" => CLP::LinkResolver::TranslationResolver.new(locale),
-        "category" => CLP::LinkResolver::CategoryResolver.new(cid, locale, build_category_path)
+        "category" => CLP::LinkResolver::CategoryResolver.new(category_data),
+        "listing" => CLP::LinkResolver::ListingResolver.new(cid, locale, name_display_type)
       }
     )
   end
@@ -193,6 +197,9 @@ class LandingPageController < ActionController::Metal
 
   def render_landing_page(community_id:, default_locale:, locale_param:, structure:)
     locale, sitename = structure["settings"].values_at("locale", "sitename")
+
+    initialize_i18n!(community_id, locale)
+
     font_path = APP_CONFIG[:font_proximanovasoft_url].present? ? APP_CONFIG[:font_proximanovasoft_url] : "/landing_page/fonts"
 
     denormalizer = build_denormalizer(
@@ -248,6 +255,39 @@ class LandingPageController < ActionController::Metal
       "search_button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "signup_button_color": {"type": "marketplace_data", "id": "primary_color"},
       "signup_button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
+    },
+    {
+      "id": "listings",
+      "kind": "listings",
+      "title": "Section title goes here",
+      "paragraph": "Section paragraph goes here",
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "button_title": "Section link",
+      "button_path": {"value": "https://google.com"},
+      "price_color": {"type": "marketplace_data", "id": "primary_color"},
+      "no_listing_image_background_color": {"type": "marketplace_data", "id": "primary_color"},
+      "no_listing_image_text": {"type": "translation", "id": "no_listing_image"},
+      "author_name_color_hover": {"type": "marketplace_data", "id": "primary_color"},
+      "listings": [
+        {
+          "listing": { "type": "listing", "id": 1 }
+        },
+        {
+          "listing": { "type": "listing", "id": 2 }
+        },
+        {
+          "listing": {
+            "title": "Pelago San Sebastian, in very good condition in Kallio",
+            "price": "$39",
+            "author_name": "Mikko P.",
+            "price_unit": "day",
+            "author_avatar": "https://c5.staticflickr.com/1/727/20082134084_88e9691b84_h.jpg",
+            "listing_image": "https://c4.staticflickr.com/2/1501/26646827091_e8a73c0c6c_h.jpg",
+            "listing_path": "http://www.google.com"
+          }
+        }
+      ]
     },
     {
       "id": "categories7",
@@ -755,6 +795,7 @@ class LandingPageController < ActionController::Metal
 
   "composition": [
     { "section": {"type": "sections", "id": "myhero1"}},
+    { "section": {"type": "sections", "id": "listings"}},
     { "section": {"type": "sections", "id": "categories7"}},
     { "section": {"type": "sections", "id": "categories6"}},
     { "section": {"type": "sections", "id": "categories5"}},

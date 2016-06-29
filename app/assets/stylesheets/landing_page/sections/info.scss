@@ -18,7 +18,7 @@
 
 .info__section--blank {
   @extend .info__section;
-  color: #525961;
+  color: $typography__main-color;
   padding: $dimension-section-margin 0;
 }
 
@@ -72,22 +72,7 @@ $content-padding: 36px;
 }
 
 .info__title {
-  font-family: ProximaNovaSoft-Regular;
-
-  // mobile
-  font-size: 26px;
-  letter-spacing: -0.5px;
-
-  @media #{$tablet} {
-    font-size: 36px;
-    letter-spacing: -0.69px;
-    line-height: 56px;
-  }
-
-  @media #{$desktop} {
-    font-size: 46px;
-    letter-spacing: -0.88px;
-  }
+  @include typography__section-title;
 }
 
 .info__title--single-column {
@@ -120,27 +105,7 @@ $content-padding: 36px;
 }
 
 .info__paragraph {
-  font-family: ProximaNovaSoft-Regular;
-
-  // mobile
-  margin: 18px 0 36px 0;
-  font-size: 16px;
-  letter-spacing: 0px;
-  line-height: 24px;
-
-  @media #{$tablet} {
-    margin: 24px 0 48px 0;
-    font-size: 18px;
-    letter-spacing: 0px;
-    line-height: 26px;
-  }
-
-  @media #{$desktop} {
-    margin: 24px 0 48px 0;
-    font-size: 21px;
-    letter-spacing: 0px;
-    line-height: 32px;
-  }
+  @include typography__section-paragraph;
 }
 
 .info__button {

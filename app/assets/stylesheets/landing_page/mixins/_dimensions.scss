@@ -23,3 +23,5 @@ $dimension-golden-ratio: 1.61803398875;
 @mixin golden-ratio-denominator($prop, $total) {
   #{$prop}: $total - ($total / $dimension-golden-ratio);
 }
+
+$dimension-card-border-radius: 4px;
