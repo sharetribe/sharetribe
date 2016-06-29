@@ -17,7 +17,7 @@ ReactOnRails.register({
 ReactOnRails.registerStore({
 });
 
-if (window) {
+if (typeof window !== 'undefined') {
   window.React = React;
   window.ReactDOM = ReactDOM;
 }

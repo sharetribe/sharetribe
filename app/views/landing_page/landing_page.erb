@@ -35,10 +35,6 @@
 
   <title><%= page["title"]["value"] %></title>
 
-  <script>
-    window.I18n = {};
-    <%= javascripts[:translations] %>
-  </script>
   <%= stylesheet_link_tag 'app-bundle' %>
 
   <!-- SEO Meta -->
@@ -141,7 +137,13 @@
   <%= yield :javascript %>
 
   <% if topbar_enabled %>
+  <script>
+    window.I18n = {};
+    <%= javascripts[:translations] %>
+  </script>
+
   <%= javascript_include_tag 'application' %>
+
   <script>
     props = <%= topbar_props.to_json.html_safe %>
     ReactDOM.render(React.createElement(window.ReactOnRails.getComponent('TopbarApp').component, props), document.getElementById('topbar-placeholder'));
