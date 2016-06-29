@@ -12,6 +12,7 @@ import Menu from '../../composites/Menu/Menu';
 import MenuMobile from '../../composites/MenuMobile/MenuMobile';
 import AvatarDropdown from '../../composites/AvatarDropdown/AvatarDropdown';
 import AddNewListingButton from '../../elements/AddNewListingButton/AddNewListingButton';
+import Link from '../../elements/Link/Link';
 
 const profileDropdownActions = function profileDropdownActions(routes, username) {
   return username ?
@@ -83,6 +84,30 @@ const profileLinks = function profileLinks(username, router, location, customCol
     ];
   }
   return [];
+};
+
+const LoginLinks = ({ loginUrl, signupUrl, customColor }) =>
+  div({
+    className: 'LoginLinks',
+    classSet: { [css.topbarLinks]: true },
+  }, [
+    r(Link, {
+      className: css.topbarLink,
+      href: signupUrl,
+      customColor,
+      openInNewTab: true,
+    }, t('web.topbar.signup')),
+    r(Link, {
+      className: css.topbarLink,
+      href: loginUrl,
+      customColor,
+    }, t('web.topbar.login')),
+  ]);
+
+LoginLinks.propTypes = {
+  loginUrl: PropTypes.string.isRequired,
+  signupUrl: PropTypes.string.isRequired,
+  customColor: PropTypes.string,
 };
 
 const DEFAULT_CONTEXT = {
@@ -157,9 +182,11 @@ class Topbar extends Component {
       }) :
       {};
 
-    const newListingRoute = this.props.routes && this.props.routes.new_listing_path ?
+    const newListingRoute = this.props.routes.new_listing_path ?
             this.props.routes.new_listing_path() :
             '#';
+    const loginRoute = this.props.routes.login_path ? this.props.routes.login_path() : '#';
+    const signupRoute = this.props.routes.sign_up_path ? this.props.routes.sign_up_path() : '#';
 
     return div({ className: css.topbar }, [
       this.props.menu ? r(MenuMobile, { ...mobileMenuProps, className: css.topbarMobileMenu }) : null,
@@ -178,12 +205,16 @@ class Topbar extends Component {
       this.props.menu ? r(Menu, { ...menuProps, className: css.topbarMenu }) : null,
       div({ className: css.topbarSpacer }),
       hasMultipleLanguages ? r(Menu, { ...languageMenuProps, className: css.topbarMenu }) : null,
-      this.props.avatarDropdown ?
+      this.props.avatarDropdown && loggedInUsername ?
         r(AvatarDropdown, {
           ...avatarDropdownProps(this.props.avatarDropdown, marketplace_color1, loggedInUsername, this.props.routes),
           classSet: css.topbarAvatarDropdown,
         }) :
-        div({ className: css.topbarAvatarDropdownPlaceholder }),
+        r(LoginLinks, {
+          loginUrl: loginRoute,
+          signupUrl: signupRoute,
+          customColor: marketplace_color1,
+        }),
       this.props.newListingButton ?
         r(AddNewListingButton, {
           ...this.props.newListingButton,

@@ -109,6 +109,7 @@ module.exports = {
   '--Topbar_logoHeight': '25px',
   '--Topbar_textLogoMaxWidth': '20em',
   '--Topbar_fontFamily': "'Proxima Nova Soft', Helvetica, sans",
+  '--Topbar_borderColor': 'rgba(0, 0, 50, 0.1)',
 
    // Must be at least 16px to avoid iOS from zooming in when focusing
    // on an input.
