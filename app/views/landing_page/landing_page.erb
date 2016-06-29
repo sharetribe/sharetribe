@@ -39,7 +39,6 @@
     window.I18n = {};
     <%= javascripts[:translations] %>
   </script>
-  <%= javascript_include_tag 'application' %>
   <%= stylesheet_link_tag 'app-bundle' %>
 
   <!-- SEO Meta -->
@@ -122,7 +121,9 @@
 </head>
 <body>
 
+  <% if topbar_enabled %>
   <div id="topbar-placeholder" style="height: 80px"> </div>
+  <% end %>
 
   <%= yield :sections %>
 
@@ -139,10 +140,13 @@
 
   <%= yield :javascript %>
 
+  <% if topbar_enabled %>
+  <%= javascript_include_tag 'application' %>
   <script>
     props = <%= topbar_props.to_json.html_safe %>
     ReactDOM.render(React.createElement(window.ReactOnRails.getComponent('TopbarApp').component, props), document.getElementById('topbar-placeholder'));
   </script>
+  <% end %>
 
 </body>
 </html>

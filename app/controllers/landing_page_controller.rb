@@ -212,7 +212,10 @@ class LandingPageController < ActionController::Metal
 
     props = topbar_props(community(request),
                          community_customization(request, locale),
-                         request.fullpath)
+                         request.fullpath,
+                         locale_param,
+                         default_locale)
+    topbar_enabled = fetch_topbar_enabled(community_id)
 
     denormalizer = build_denormalizer(
       cid: community_id,
@@ -226,11 +229,12 @@ class LandingPageController < ActionController::Metal
                      styles: landing_page_styles,
                      javascripts: {
                        location_search: location_search_js,
-                       translations: js_translations(locale)
+                       translations: js_translations(locale_param, default_locale)
                      },
                      page: denormalizer.to_tree(structure, root: "page"),
                      sections: denormalizer.to_tree(structure, root: "composition"),
-                     topbar_props: props }
+                     topbar_props: props,
+                     topbar_enabled: topbar_enabled }
   end
 
   def render_not_found(msg = "Not found")
@@ -238,12 +242,29 @@ class LandingPageController < ActionController::Metal
     self.response_body = msg
   end
 
-  def topbar_props(community, community_customization, request_path)
+  def topbar_props(community, community_customization, request_path, locale_param, default_locale)
+    # TopbarHelper pulls current lang from I18n
+    I18n.locale = locale_param.present? ? locale_param : default_locale
+
+    path =
+      if locale_param.present?
+        request_path.gsub(/^\/#{locale_param}/, "").gsub(/^\//, "")
+      else
+        request_path.gsub(/^\//, "")
+      end
+
     TopbarHelper.topbar_props(
       community: community,
-      path_after_locale_change: request_path.gsub(/^\/en/, "").gsub(/^\//, ""),
+      path_after_locale_change: path,
       search_placeholder: community_customization&.search_placeholder,
-      locale_param: params[:locale])
+      locale_param: locale_param)
+  end
+
+  def fetch_topbar_enabled(community_id)
+    flags_res = FeatureFlagService::API::Api.features.get(community_id: community_id)
+    flags_res.maybe
+      .map { |flags| flags[:features].include?(:topbar_v1) }
+      .or_else(false)
   end
 
   # rubocop:disable Metrics/MethodLength
@@ -856,7 +877,8 @@ JSON
     Rails.application.assets.find_asset("location_search.js").to_s.html_safe
   end
 
-  def js_translations(locale)
+  def js_translations(locale_param, default_locale)
+    locale = locale_param.present? ? locale_param : default_locale
     Rails.application.assets.find_asset("i18n/#{locale}.js").to_s.html_safe
   end
 end
