@@ -91,6 +91,12 @@ $listings__tablet-gutter: 16px;
   overflow: hidden;
 
   box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.10);
+
+  &:hover {
+    transform: scale(1.011);
+    box-shadow: 0 0 50px 0 rgba(0,0,0,0.1);
+    transition: all 50ms ease-in-out;
+  }
 }
 
 .listings__listing-image-container {
@@ -150,6 +156,9 @@ $listings__tablet-gutter: 16px;
   padding: 0;
 
   font-family: ProximaNovaSoft-Medium;
+
+  // override the link color
+  color: $typography__main-color;
 
   // mobile
   font-size: 16px;

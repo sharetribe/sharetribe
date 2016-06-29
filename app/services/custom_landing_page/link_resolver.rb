@@ -151,12 +151,22 @@ module CustomLandingPage
               deleted_user_text: I18n.translate("common.removed_user")
             ),
             "author_avatar" => author_avatar,
-            "listing_image" => listing_image
+            "listing_image" => listing_image,
+            "path" => listing_path(l.id, @_locale)
           }
 
         }.or_else(nil)
       end
 
+      def listing_path(listing_id, locale)
+        paths.listing_path(id: listing_id, locale: locale)
+      end
+
+      private
+
+      def paths
+        Rails.application.routes.url_helpers
+      end
     end
   end
 end

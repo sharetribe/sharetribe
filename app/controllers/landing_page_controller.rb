@@ -298,12 +298,12 @@ class LandingPageController < ActionController::Metal
         {
           "listing": {
             "title": "Pelago San Sebastian, in very good condition in Kallio",
-            "price_cents": 3900,
-            "price_unit": "day",
-            "currency_symbol": "$",
+            "price": "$39",
             "author_name": "Mikko P.",
+            "price_unit": "day",
             "author_avatar": "https://c5.staticflickr.com/1/727/20082134084_88e9691b84_h.jpg",
-            "listing_image": "https://c4.staticflickr.com/2/1501/26646827091_e8a73c0c6c_h.jpg"
+            "listing_image": "https://c4.staticflickr.com/2/1501/26646827091_e8a73c0c6c_h.jpg",
+            "path": "http://www.google.com"
           }
         }
       ]
