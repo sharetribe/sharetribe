@@ -125,6 +125,17 @@ module CustomLandingPage
         listing = Listing.includes(:author).find_by(community_id: @_cid, id: id)
 
         Maybe(listing).map { |l|
+          # Check that image is processed and downloaded before using it
+          listing_image = Maybe(l.listing_images.first)
+                          .select { |img| img.image_ready? }
+                          .map { |img| img.image.url(:big) }
+                          .or_else(nil)
+
+          author_avatar =
+            if l.author.image.present? && !l.author.image.processing?
+              l.author.image.url(:thumb)
+            end
+
           {
             "title" => l.title,
             "price" => l.price.format(no_cents_if_whole: true),
@@ -139,9 +150,10 @@ module CustomLandingPage
               is_deleted: l.author.deleted?,
               deleted_user_text: I18n.translate("common.removed_user")
             ),
-            "author_avatar" => l.author.image.present? ? l.author.image.url(:thumb) : nil,
-            "listing_image" => Maybe(l.listing_images.first).map { |img| img.image.url(:big) }.or_else(nil)
+            "author_avatar" => author_avatar,
+            "listing_image" => listing_image
           }
+
         }.or_else(nil)
       end
 
