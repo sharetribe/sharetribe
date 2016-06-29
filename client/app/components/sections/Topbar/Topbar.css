@@ -96,6 +96,14 @@
       padding: var(--Topbar_avatarPadding);
     }
   }
+
+  & > .topbarListingButton {
+    display: none;
+
+    @media (--medium-viewport) {
+      display: inline-block;
+    }
+  }
 }
 
 .topbarSpacer {
@@ -143,13 +151,5 @@
 
   @media (--large-viewport) {
     margin: var(--Topbar_avatarPadding);
-  }
-}
-
-.topbarListingButton {
-  display: none;
-
-  @media (--medium-viewport) {
-    display: block;
   }
 }
