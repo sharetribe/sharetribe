@@ -13,20 +13,7 @@ echo "SUITE: ${SUITE}"
 nvm install
 nvm use
 
-if [ "$SUITE" = "rspec" ]
-then
-    bundle exec rspec spec 2>&1
-    exit
-elif [ "$SUITE" = "rubocop" ]
-then
-    bundle exec rubocop -V
-    bundle exec rubocop -R 2>&1
-    exit
-elif [ "$SUITE" = "cucumber" ]
-then
-    echo "PhantomJS version:"
-    (cd client && npm run print-phantomjs-version)
-
+function build_js() {
     echo "Running npm rebuild node-sass"
     (cd client && npm rebuild node-sass)
 
@@ -41,6 +28,22 @@ then
 
     echo "Running client and server builds"
     (cd client && npm run build:client && npm run build:server)
+}
+
+if [ "$SUITE" = "rspec" ]
+then
+    build_js
+
+    bundle exec rspec spec 2>&1
+    exit
+elif [ "$SUITE" = "rubocop" ]
+then
+    bundle exec rubocop -V
+    bundle exec rubocop -R 2>&1
+    exit
+elif [ "$SUITE" = "cucumber" ]
+then
+    build_js
 
     echo "Starting PhantomJS and Cucumber"
     (cd client && npm run start-phantomjs) &
