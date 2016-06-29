@@ -17,19 +17,14 @@ import MenuMobile from '../../composites/MenuMobile/MenuMobile';
 import AvatarDropdown from '../../composites/AvatarDropdown/AvatarDropdown';
 import AddNewListingButton from '../../elements/AddNewListingButton/AddNewListingButton';
 
-const linkAction = (target) =>
-  function openLink() {
-    window.location.href = target;
-  };
-
 const profileDropdownActions = function profileDropdownActions(routes, username) {
   return username ?
   {
-    inboxAction: linkAction(routes.person_inbox_path(username)),
-    profileAction: linkAction(routes.person_path(username)),
-    settingsAction: linkAction(routes.person_settings_path(username)),
-    adminDashboardAction: linkAction(routes.admin_path()),
-    logoutAction: linkAction(routes.logout_path()),
+    inboxAction: routes.person_inbox_path(username),
+    profileAction: routes.person_path(username),
+    settingsAction: routes.person_settings_path(username),
+    adminDashboardAction: routes.admin_path(),
+    logoutAction: routes.logout_path(),
   } : null;
 };
 

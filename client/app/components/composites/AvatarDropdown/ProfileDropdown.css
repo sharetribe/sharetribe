@@ -32,6 +32,8 @@
   justify-content: center;
   cursor: pointer;
 
+  color: var(--ProfileDropdown_textColor);
+
   &:hover {
     background-color: rgb(249, 249, 249);
   }

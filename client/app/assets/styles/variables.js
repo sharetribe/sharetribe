@@ -152,6 +152,7 @@ module.exports = {
   '--ProfileDropdown_borderColor': topbarBorderColor,
   '--ProfileDropdown_zIndex': 1,
   '--ProfileDropdown_rightOffset': bodyPadding,
+  '--ProfileDropdown_textColor': textColor,
 
   '--MenuItem_borderColor': topbarBorderColor,
   '--MenuItem_backgroundColorHover': backgroundLightColorHover,
