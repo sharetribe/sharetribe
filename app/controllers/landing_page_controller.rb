@@ -111,22 +111,7 @@ class LandingPageController < ActionController::Metal
   private
 
   def initialize_i18n!(cid, locale)
-    # This logic is very similar to what we have in ApplicationController
-
-    community_backend = I18n::Backend::CommunityBackend.instance
-
-    # Load translations from TranslationService
-    if cid
-      community_backend.set_community!(cid, [locale].map(&:to_sym))
-      community_translations = TranslationService::API::Api.translations.get(cid)[:data]
-      TranslationServiceHelper.community_translations_for_i18n_backend(community_translations).each { |translation_locale, data|
-        # Store community translations to I18n backend.
-        #
-        # Since the data in data hash is already flatten, we don't want to
-        # escape the separators (. dots) in the key
-        community_backend.store_translations(translation_locale, data, escape: false)
-      }
-    end
+    I18nHelper.initialize_community_backend!(cid, [locale])
   end
 
   def build_html(community_id:, default_locale:, locale_param:, version:)
