@@ -2166,12 +2166,12 @@ nb:
     topbar:
       menu: Meny
       search_placeholder: Søk...
-      user: ~
-      inbox: ~
-      profile: ~
-      manage_listings: ~
-      settings: ~
-      logout: ~
+      user: Bruker
+      inbox: Innboks
+      profile: Profil
+      manage_listings: "Administrer annonser"
+      settings: Innstillinger
+      logout: "Logg ut"
   will_paginate:
     models:
       person:

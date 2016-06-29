@@ -439,7 +439,7 @@ it:
       successfully_deleted: ~
       pricing_and_checkout_title: ~
       online_payments_label: ~
-      shipping_label: ~
+      shipping_label: "Consentono ai venditori di definire una tassa di spedizione"
       price_label: ~
       units_title: ~
       units_desc: ~
@@ -1495,8 +1495,8 @@ it:
         price_excludes_vat: "Il prezzo non include l'IVA"
         delivery: "Metodo di consegna"
         shipping: Spedizione
-        shipping_price: ~
-        shipping_price_additional: ~
+        shipping_price: "Spese di spedizione"
+        shipping_price_additional: "Articoli aggiuntivi"
         pickup: Ritiro
       origin:
         location: Località
@@ -2134,11 +2134,11 @@ it:
       menu: Menù
       search_placeholder: Cerca...
       user: ~
-      inbox: ~
-      profile: ~
-      manage_listings: ~
-      settings: ~
-      logout: ~
+      inbox: Messaggi
+      profile: Profilo
+      manage_listings: "Gestione annunci"
+      settings: Impostazioni
+      logout: Esci
   will_paginate:
     models:
       listing_conversation:

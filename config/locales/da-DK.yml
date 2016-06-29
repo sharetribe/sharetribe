@@ -173,7 +173,7 @@ da-DK:
         payments_link_text: "indstil betalingsmetode"
         info_texts: "Glem ikke at tilrette info sider og andre tekster hvor du kan fortælle brugerne om din markedsplads. Gode steder at tjekke er din %{about_page_link}, dine %{terms_of_use_link} (du bør tilføje dine egne brugsvilkår her, enten ved at modificere den eksisterende skabelon, eller ved at oprette et helt nyt dokument), %{privacy_policy_link}, og %{welcome_email_link} som sendes til alle nye brugere. Der er også en %{instruction_texts_link} du kan tilrette."
         about_page_link_text: om-side
-        terms_of_use_link_text: brugsvilkår
+        terms_of_use_link_text: brugervilkår
         privacy_policy_link_text: privatlivspolitik
         welcome_email_link_text: "velkomst email"
         instruction_texts_link_text: "anden instruktionstekst"
@@ -788,9 +788,9 @@ da-DK:
       contact_page_link: feedback
     new:
       welcome_fb_user: "Velkommen til %{service_name}, %{name}!"
-      fb_join_accept_terms: "Der er ét step mere, før du kan joine %{service_name}: du skal acceptere brugsvilkårene."
+      fb_join_accept_terms: "Der er ét step mere, før du kan joine %{service_name}: du skal acceptere brugervilkårene."
       join_community: "Join %{service_name}"
-      you_can_join: "Du kan tilmelde dig %{service_name} ved at acceptere brugsvilkårene og klikke på 'Tilmeld' nedenfor."
+      you_can_join: "Du kan tilmelde dig %{service_name} ved at acceptere brugervilkårene og klikke på 'Tilmeld' nedenfor."
       you_can_join_email_confirmation: "Hvis du vil deltage %{service_name} skal du have en gyldig e-mail adresse, der ender med %{email_ending}. Du kan tilmelde dig ved at udfylde din e-mailadresse, accepterer vilkårene for brug og klikke på 'Deltag %{service_name}' nedenfor, og bekræfter din e-mail."
       you_can_join_email_confirmation_multiple_addresses: "%{service_name} har e-mail-restriktioner. Du kan kun deltage, hvis du har en tilladt e-mailadresse. Du kan tilmelde dig ved at udfylde din e-mailadresse, accepterer vilkårene for brug af %{service_name} og klikke på 'Deltag %{service_name}' nedenfor."
       you_can_join_with_invite_only: "Du skal have en invitation fra et andet medlem til at slutte %{service_name}. Hvis du har en invitation kode, kan du tilmelde dig ved at skrive koden til feltet nedenfor accepterer vilkårene for brug og klikke på 'Deltag %{service_name}' nedenfor."
@@ -1266,7 +1266,7 @@ da-DK:
       info_about_kassi: "Hvad er %{service_name}?"
       news: Nyheder
       register_details: Privatlivspolitik
-      terms: Brugsvilkår
+      terms: Brugervilkår
     logged_in:
       admin: Administration
       go_to_your_profile_page: "Min profil"
@@ -1385,7 +1385,7 @@ da-DK:
       additional_email_confirmed_dashboard: "Din email er nu godkendt."
       you_must_log_in_to_give_feedback: "Du skal logge ind for at give feedback"
       you_must_log_in_to_invite_new_users: "Du skal logge ind for at invitere nye brugere til %{service_name}"
-      you_must_log_in_to_send_a_comment: "Du skal logge ind for at sende en ny kommentar"
+      you_must_log_in_to_send_a_comment: "Du skal være logget ind for at kommentere."
       you_must_log_in_to_send_a_message: "Du skal logge ind på %{service_name} for at sende en meddelelse til en anden bruger."
       you_must_log_in_to_do_a_transaction: "Du skal logge ind på %{service_name} for at gennemføre en transaktion."
       you_must_log_in_to_view_this_content: "Du skal logge ind for at se dette indhold"
@@ -1407,7 +1407,7 @@ da-DK:
       email_deleted: "Email fjernet"
       payment_details_add_successful: "Du har nu tilføjet dine betalingsoplysninger"
       payment_details_add_error: "Vi kunne ikke tilføje dine betalingsoplysninger"
-      listing_author_payment_details_missing: "Kontakt sælger ved at trykke på knappen \"Kontakt\" nedenfor. De skal opdatere deres betalingsoplysninger for at kunne modtage betalinger."
+      listing_author_payment_details_missing: "Kontakt sælger ved at trykke på knappen 'Kontakt' nedenfor. De skal opdatere deres betalingsoplysninger for at kunne modtage betalinger."
       stylesheet_needs_recompiling: "Stylesheet er ved at blive genoversat. Genindlæs venligst siden om lidt."
       maintenance_mode:
         zero: "Dette website vil nu være offline for vedligeholdelse"
@@ -1429,7 +1429,7 @@ da-DK:
       delete: slet
       are_you_sure: "Er du sikker på, at du vil slette kommentaren?"
     comment_form:
-      ask_a_question: "Skriv en kommentar eller spørg efter flere detaljer. Alle andre brugere har mulighed for at se din kommentar."
+      ask_a_question: "Skriv en kommentar eller spørg efter flere detaljer. Alle brugere kan se din kommentar."
       log_in: "logge ind"
       send_comment: "Send kommentar"
       to_send_a_comment: "for at sende en ny kommentar."
@@ -1502,7 +1502,7 @@ da-DK:
         accepted_formats: "Billedet skal være i GIF, JPG eller PNG format."
         images_not_uploaded_confirm: "Alle billeder er ikke uploadet endnu. Ønsker du virkelig at fortsætte?"
       location:
-        location: Sted
+        location: Lokation
       price:
         price: Pris
         per: pr.
@@ -1522,7 +1522,7 @@ da-DK:
         shipping_price_additional: "Yderligere emner"
         pickup: Afhentning
       origin:
-        location: Sted
+        location: Lokation
         origin: Oprindelse
       send_button:
         save_listing: "Gem annonce"
@@ -1736,14 +1736,14 @@ da-DK:
   paypal_accounts:
     payout_info_title: "Sådan modtager du betaling"
     paypal_account_email_connected: "<del>1. Tilknyt din PayPal-konto</del> Godkendt!"
-    payout_info_paypal: "%{service_name} anvender PayPal som betalingsudbyder. For at kunne modtage betalinger for dine annoncer, skal du tilknytte din %{create_paypal_account_link} til din %{service_name}-profil."
+    payout_info_paypal: "%{service_name} anvender PayPal som betalingsudbyder. For at kunne modtage betaling skal du forbinde din %{create_paypal_account_link} med %{service_name}."
     paypal_billing_agreement_made: "<del>2. Tillad %{service_name} at tage et servicegebyr</del> Godkendt!"
     commission_permission_needed: "Du skal også give %{service_name} tilladelse til at opkræve et transaktionsgebyr."
     create_paypal_account_link_text: PayPal-konto
     connected_account: "Din PayPal-konto '%{email}' er nu tilknyttet."
     paypal_receive_funds_info_label_australia_only: "Din PayPal-konto skal være i stand til at modtage betalinger. Dette kan kræve en Premier- eller Business-konto."
     paypal_receive_funds_info_label: "Din PayPal-konto skal kunne modtage betalinger. Dette kræver en PayPal erhvervskonto."
-    paypal_receive_funds_info: "Hvis du ser en fejl når du forsøger at forbinde din konto til %{service_name}, skal du opgradere din PayPal-konto ved at %{upgrade_paypal_account_link}. Det er gratis og nemt. Hvis du er en privatperson, anbefaler PayPal at du anvender dit navn som firmanavn."
+    paypal_receive_funds_info: "Hvis der opstår fejl, når du forsøger at forbinde din konto med %{service_name}, skal du opgradere din PayPal-konto ved at %{upgrade_paypal_account_link}. Det er nemt og gratis. PayPal anbefaler, at man som privatperson anvender sit navn som firmanavn."
     upgrade_paypal_account_link_text: "logge ind og klikke på linket opgradering"
     admin_account_not_connected: "Brug af %{service_name}s betalingssystem, til brug for modtagelse af betalinger, er ikke muligt, da betalinger ikke er sat op. Venligst %{contact_admin_link} for detaljer."
     contact_admin_link_text: "kontakt markedspladsens administrator"
@@ -1760,7 +1760,7 @@ da-DK:
       create_paypal_account: her
       upgrade_paypal_account: "Opgrader din konto her."
       paypal_account_billing_agreement: "2. Tillad %{service_name} at tage et servicegebyr"
-      follow_steps: "Følg trinene nedenfor - og bliv i stand til at modtage betalinger:"
+      follow_steps: "Følg nedenstående trin, og begynd at tage imod betalinger."
       connect_paypal_account_title: "Tilknyt din PayPal-konto"
       connect_paypal_account_title_with_step: "Trin %{current_step}/%{total_steps}: Tilknyt din PayPal-konto"
       connect_paypal_account_instructions: "Forbind din PayPal-konto med %{service_name}."
@@ -1808,8 +1808,8 @@ da-DK:
       deactivate: Deaktiver
     help_texts:
       feedback_description_title: Feedback
-      help_invitation_code_title: "Du har brug for en invitation til at deltage"
-      terms_title: "%{service_name} brugsvilkår"
+      help_invitation_code_title: "Du skal have en invitation for at kunne deltage"
+      terms_title: "%{service_name} brugervilkår"
       invite_only_help_text: "Vælg denne mulighed hvis du vil have at nye medlemmer kun kan være med, hvis de er blevet inviteret af en eksisterende bruger."
       invite_only_help_text_title: "Udelukkende med invitation"
     inactive_notification:
@@ -1835,7 +1835,7 @@ da-DK:
       password_again: "Bekræft adgangskode"
       show_my_name_to_others: "Vis mit rigtige navn til andre %{service_name} brugere"
       sign_up: "Opret ny %{service_name} konto"
-      terms: Brugsvilkår
+      terms: Brugervilkår
       username_is_in_use: "Dette brugernavn er allerede i brug."
       username_is_invalid: "Brugernavn er ugyldig. Tilladte tegn er bogstaver, tal og understregning."
       visible_only_to_you: "kun synlige for dig og markedspladsens admin"
@@ -1854,9 +1854,9 @@ da-DK:
       contact: "Kontakt %{person}"
       about_me: "Om mig:"
       add_description: "Fortæl lidt om dig selv"
-      add_location: "Tilføj sted"
+      add_location: "Tilføj lokation"
       add_phone_number: "Tilføj telefonnummer"
-      address: "Sted:"
+      address: "Lokation:"
       as_expected: "Som forventet"
       edit_profile_info: "Rediger profil"
       exceeded_expectations: "Oversteg forventninger"
@@ -1998,13 +1998,13 @@ da-DK:
       given_name: Fornavn
       first_name_with_initial: "(kun forbogstavet vil blive vist til andre brugere)"
       first_name_only: "(vises ikke til andre brugere)"
-      location_description: "Du kan enten angive din nøjagtige placering eller for eksempel kun dit postnummer. Du kan også vælge en placering på kortet nedenfor."
+      location_description: "Angiv enten nøjagtig placering eller postnummer, eller vælg en placering på kortet."
       phone_number: Telefonnnummer
       profile_picture: Profilbillede
       postal_code: Postnummer
       profile_page: "på din profilside"
       profilemap: Kort
-      street_address: Sted
+      street_address: Lokation
       these_fields_are_shown_in_your: "Disse informationer er synlige for alle %{service_name}-brugere"
       visible_to_everybody: "Synlig for alle"
       visible_to_registered_users: "(synligt for brugere, der er logget ind)"
@@ -2160,12 +2160,12 @@ da-DK:
     topbar:
       menu: Menu
       search_placeholder: Søg...
-      user: ~
-      inbox: ~
-      profile: ~
-      manage_listings: ~
-      settings: ~
-      logout: ~
+      user: Bruger
+      inbox: Indbakke
+      profile: Profil
+      manage_listings: "Administrer annoncer"
+      settings: Indstillinger
+      logout: "Log ud"
   will_paginate:
     models:
       person:
