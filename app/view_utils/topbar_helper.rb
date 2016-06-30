@@ -66,7 +66,7 @@ module TopbarHelper
         customColor: CommonStylesHelper.marketplace_colors(community)[:marketplace_color1],
         avatar: {
           imageHeight: '44px',
-          image: Maybe(user).image.url(:thumb).or_else(missing_profile_image_path()),
+          image: user&.image.present? ? user.image.url(:thumb) : missing_profile_image_path(),
         }
       },
       newListingButton: {
