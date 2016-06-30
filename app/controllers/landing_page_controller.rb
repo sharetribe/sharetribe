@@ -226,7 +226,7 @@ class LandingPageController < ActionController::Metal
                          locale_param,
                          topbar_locale)
     marketplace_context = marketplace_context(community_id, topbar_locale, request)
-    topbar_enabled = fetch_topbar_enabled(community_id)
+    topbar_enabled = feature_enabled?(FEATURE_FLAG)
 
     google_maps_key = community(request).google_maps_key
 
@@ -276,17 +276,6 @@ class LandingPageController < ActionController::Metal
       path_after_locale_change: path,
       search_placeholder: community_customization&.search_placeholder,
       locale_param: locale_param)
-  end
-
-  def fetch_topbar_enabled(community_id)
-    flags_res = FeatureFlagService::API::Api.features.get(community_id: community_id)
-    if flags_res.success
-      flags_res.maybe
-        .map { |flags| flags[:features].include?(FEATURE_FLAG) }
-        .or_else(false)
-    else
-      false
-    end
   end
 
   def marketplace_context(community_id, locale, request)
