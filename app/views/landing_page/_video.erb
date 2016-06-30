@@ -1,0 +1,100 @@
+<% content_for :video_css, flush: false do %>
+  .<%= section_id %>__video__youtube-player-container {
+    width: 100%;
+    padding-bottom: <%= (100.to_f / s["width"].to_f * s["height"].to_f) %>%;
+  }
+<% end %>
+
+<div id="<%= section_id%>__video__youtube-player-mask" class="video__youtube-player-mask">
+  <div class="<%= section_id %>__video__youtube-player-container video__youtube-player-container">
+    <iframe id="<%= section_id %>__youtube-iframe" class="video__youtube-player" type="text/html"
+            src="https://www.youtube.com/embed/<%= s["youtube_video_id"] %>?controls=0&modestbranding=1&rel=0&showinfo=0&autoplay=1&loop=1&playlist=<%= s["youtube_video_id"] %>&enablejsapi=1 %>"
+            frameborder="0"></iframe>
+    <div id="<%= section_id%>__video__youtube-overlay" class="video__youtube-overlay">
+      <svg id="<%= section_id %>__video__youtube-watch-video-icon" class="video__youtube-watch-video-icon" width="63" height="63" viewBox="47 -1 63 63" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke="#FFF" stroke-width="2"><path d="M108 30c0 16.57-13.433 30-30 30-16.57 0-30-13.43-30-30S61.43 0 78 0c16.567 0 30 13.43 30 30z"/><path d="M68.87 41.74V18.26L92.347 30z"/></g></svg>
+      <span id="<%= section_id %>__video__youtube-watch-video-text" class="video__youtube-watch-video-text">Watch our video</span>
+    </div>
+  </div>
+</div>
+
+<% content_for :youtube_ready_js, flush: false do %>
+ (function() {
+
+   var mask = document.getElementById("<%= section_id%>__video__youtube-player-mask");
+   var overlay = document.getElementById("<%= section_id%>__video__youtube-overlay");
+   var icon = document.getElementById("<%= section_id %>__video__youtube-watch-video-icon");
+   var text = document.getElementById("<%= section_id %>__video__youtube-watch-video-text");
+
+   var player = new YT.Player('<%= section_id %>__youtube-iframe', {
+     events: {
+       onReady: onReady,
+       onStateChange: onStateChange
+     }
+   });
+
+   // Event listeners
+   function onReady() {
+     player.mute();
+   }
+
+   function onStateChange(e) {
+     var ended = 0;
+     if (e.data == ended) {
+       inactivate();
+     }
+   }
+
+   // UI
+   function hideOverlay() {
+     mask.style.maxHeight = "none";
+     overlay.style.backgroundColor = "rgba(0, 0, 0, 0)";
+     icon.style.display = "none";
+     text.style.display = "none";
+   }
+
+   function showOverlay() {
+     mask.style.maxHeight = "75vh";
+     overlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+     icon.style.display = "inline";
+     text.style.display = "inline";
+   }
+
+   // Player controls
+
+   var inactive = true;
+
+   function activate() {
+     player.seekTo(0, true);
+     player.unMute();
+     hideOverlay();
+     inactive = false;
+   }
+
+   function inactivate() {
+     player.mute();
+     showOverlay();
+     inactive = true;
+   }
+
+   var playing = true;
+
+   function togglePlayback() {
+     if(playing) {
+       player.pauseVideo();
+       showOverlay();
+     } else {
+       player.playVideo();
+       hideOverlay();
+     }
+     playing = !playing;
+   }
+
+   overlay.addEventListener("click", function() {
+     if(inactive) {
+       activate();
+     } else {
+       togglePlayback();
+     }
+   });
+ })();
+<% end %>

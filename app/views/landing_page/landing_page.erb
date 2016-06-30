@@ -23,6 +23,8 @@
       <%= render partial: "categories", locals: {section_id: section_id, s: s} %>
     <% when "listings" %>
       <%= render partial: "listings", locals: {section_id: section_id, s: s} %>
+    <% when "video" %>
+      <%= render partial: "video", locals: {section_id: section_id, s: s} %>
     <% end %>
 
   <% end # sections#each %>
@@ -115,6 +117,7 @@
     <%= yield :info_css %>
     <%= yield :categories_css %>
     <%= yield :listings_css %>
+    <%= yield :video_css %>
   </style>
 
 </head>
@@ -126,13 +129,27 @@
 
   <%= yield :sections %>
 
-  <% # Add javascript libraries %>
+  <% # Add javascript libraries and external javascript code %>
 
   <% if sections.any? { |s| s["section"]["kind"] == "hero" && s["section"]["variation"]["value"] == "location_search" } %>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-  <script>
-    <%= javascripts[:location_search] %>
-  </script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    <script>
+      <%= javascripts[:location_search] %>
+    </script>
+  <% end %>
+
+  <% if sections.any? { |s| s["section"]["kind"] == "video" && s["section"]["variation"] == "youtube" } %>
+    <script type="text/javascript">
+     var tag = document.createElement('script');
+     tag.id = 'youtube-player-script';
+     tag.src = 'https://www.youtube.com/iframe_api';
+     var firstScriptTag = document.getElementsByTagName('script')[0];
+     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+     function onYouTubeIframeAPIReady() {
+       <%= yield :youtube_ready_js %>
+     }
+    </script>
   <% end %>
 
   <% # Add javascript from sections %>
