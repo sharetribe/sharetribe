@@ -24,8 +24,9 @@ module CustomLandingPage
 
         {
           "title" => listing.title,
-          "price" => listing.price.format(no_cents_if_whole: true),
+          "price" => Maybe(listing.price).format(no_cents_if_whole: true).or_else(nil),
           "price_unit" => Maybe(listing.unit_type).map { |unit_type| ListingViewUtils.translate_unit(unit_type, listing.unit_tr_key) }.or_else(nil),
+          "shape_name" => I18n.t(listing.shape_name_tr_key, locale: locale),
           "author_name" => PersonViewUtils.display_name(
             first_name: author.given_name,
             last_name: author.family_name,

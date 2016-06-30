@@ -190,13 +190,21 @@ $listings__tablet-gutter: 16px;
   text-align: left;
 }
 
-.listings__price-amount {
+.listings__price-text {
   font-family: ProximaNovaSoft-Medium;
 
   @media #{$desktop} {
     font-size: 20px;
     letter-spacing: 0px;
   }
+}
+
+.listings__price-amount {
+  @extend .listings__price-text;
+}
+
+.listings__price-shape-name {
+  @extend .listings__price-text;
 }
 
 .listings__price-unit {
