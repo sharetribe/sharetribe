@@ -2,11 +2,7 @@ import { Component, PropTypes } from 'react';
 import r, { div } from 'r-dom';
 
 import { t } from '../../../utils/i18n';
-<<<<<<< 5d72eda3236c9a701bce6ac436339e811de38022
-import { routes, marketplaceContext } from '../../../utils/PropTypes';
-=======
-import { routes as routesProp, railsContext } from '../../../utils/PropTypes';
->>>>>>> Avatar dropdown links
+import { routes as routesProp, marketplaceContext } from '../../../utils/PropTypes';
 import css from './Topbar.css';
 import styleVariables from '../../../assets/styles/variables';
 
@@ -184,7 +180,7 @@ class Topbar extends Component {
       hasMultipleLanguages ? r(Menu, { ...languageMenuProps, className: css.topbarMenu }) : null,
       this.props.avatarDropdown ?
         r(AvatarDropdown, {
-          ...avatarDropdownProps(this.props.avatarDropdown, marketplace_color1, username, this.props.routes),
+          ...avatarDropdownProps(this.props.avatarDropdown, marketplace_color1, loggedInUsername, this.props.routes),
           classSet: css.topbarAvatarDropdown,
         }) :
         div({ className: css.topbarAvatarDropdownPlaceholder }),
