@@ -209,6 +209,13 @@ class LandingPageController < ActionController::Metal
     request.env[:current_marketplace]&.default_locale
   end
 
+  def community_context(request)
+    c = community(request)
+
+    { favicon: c.favicon.url,
+      apple_touch_icon: c.logo.url(:apple_touch) }
+  end
+
   def render_landing_page(community_id:, default_locale:, locale_param:, structure:)
     landing_page_locale, sitename = structure["settings"].values_at("locale", "sitename")
     topbar_locale = locale_param.present? ? locale_param : default_locale
@@ -242,7 +249,9 @@ class LandingPageController < ActionController::Metal
                      topbar_props: props,
                      topbar_props_path: ui_api_topbar_props_path(locale: topbar_locale),
                      marketplace_context: marketplace_context,
-                     topbar_enabled: topbar_enabled }
+                     topbar_enabled: topbar_enabled,
+                     community_context: community_context(request)
+                   }
   end
 
   def render_not_found(msg = "Not found")
