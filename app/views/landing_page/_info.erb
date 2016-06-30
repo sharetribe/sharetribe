@@ -64,16 +64,18 @@
       <div class="info__columns">
         <% s["columns"].each do |c| %>
           <div class="info__column--<%= multi_column_modifier %>">
-            <% if c["icon"] %>
-              <div class="info__column-icon <%= section_id %>__info__column-icon">
-                <%= render partial: "icon", locals: { icon: c["icon"] } %>
-              </div>
-            <% end %>
-            <h2 class="info__column-title"><%= c["title"] %></h2>
-            <p class="info__column-paragraph"><%= c["paragraph"] %></p>
+            <div class="info__column-text-content">
+              <% if c["icon"] %>
+                <div class="info__column-icon <%= section_id %>__info__column-icon">
+                  <%= render partial: "icon", locals: { icon: c["icon"] } %>
+                </div>
+              <% end %>
+              <h2 class="info__column-title"><%= c["title"] %></h2>
+              <p class="info__column-paragraph"><%= c["paragraph"] %></p>
+            </div>
 
             <% if c["button_title"] %>
-              <a class="info__button--ghost <%= section_id %>__info__button--ghost" href="<%= c['button_path']['value'] %>"><%= c["button_title"]%></a>
+              <a class="info__column-button--ghost <%= section_id %>__info__button--ghost" href="<%= c['button_path']['value'] %>"><%= c["button_title"]%></a>
             <% end %>
           </div>
         <% end %>

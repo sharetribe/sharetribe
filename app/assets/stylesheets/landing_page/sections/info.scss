@@ -113,6 +113,12 @@ $content-padding: 36px;
   @extend .landing-page__button;
 }
 
+.info__column-button--ghost {
+  color: inherit;
+  @extend .landing-page__button;
+  margin-top: 36px;
+}
+
 .info__button--ghost {
   @extend .info__button;
 }
@@ -137,6 +143,11 @@ $content-padding: 36px;
 }
 
 .info__column {
+  @include prefix-val(display, flex);
+  @include prefix-prop(flex-direction, column);
+  @include prefix-prop(align-items, center);
+  @include prefix-prop(justify-content, space-between);
+
   width: 100%;
   margin: 0px 0px 76px 0px;
 
@@ -242,12 +253,6 @@ $content-padding: 36px;
   font-size: 16px;
   letter-spacing: 0px;
   line-height: 22px;
-
-  margin-bottom: 36px;
-
-  &:last-child {
-    margin-bottom: 0px;
-  }
 
   @media #{$tablet} {
     font-size: 16px;

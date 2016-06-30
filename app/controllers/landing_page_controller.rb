@@ -778,7 +778,7 @@ class LandingPageController < ActionController::Metal
         {
           "icon": "quill",
           "title": "Our mission",
-          "paragraph": "Paragraph. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus.",
+          "paragraph": "Paragraph. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
           "button_title": "Section link",
           "button_path": {"value": "https://google.com"}
         },
