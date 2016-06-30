@@ -35,6 +35,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <% unless local_assigns.has_key?(:skip_analytics) && skip_analytics %>
+    <%= render partial: "layouts/google_analytics_script" %>
+  <% end %>
+
   <title><%= page["title"]["value"] %></title>
 
   <%= favicon_link_tag community_context[:favicon] %>

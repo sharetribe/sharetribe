@@ -529,23 +529,6 @@ class ApplicationController < ActionController::Base
 
   end
 
-  def feature_flags
-    @feature_flags ||= fetch_feature_flags
-  end
-
-  def fetch_feature_flags
-    flags_from_service = FeatureFlagService::API::Api.features.get(community_id: @current_community.id).maybe[:features].or_else(Set.new)
-
-    is_admin = Maybe(@current_user).is_admin?.or_else(false)
-    temp_flags = ApplicationController.fetch_temp_flags(is_admin, params, session)
-
-    session[:feature_flags] = temp_flags
-
-    flags_from_service.union(temp_flags)
-  end
-
-  helper_method :fetch_feature_flags # Make this method available for FeatureFlagHelper
-
   def logger
     if @logger.nil?
       metadata = [:marketplace_id, :marketplace_ident, :user_id, :username, :request_uuid]

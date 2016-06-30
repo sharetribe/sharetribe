@@ -19,15 +19,20 @@ class LandingPageController < ActionController::Metal
   # Adds helper_method
   include ActionController::Helpers
 
+  include FeatureFlagHelper
+
   CACHE_TIME = APP_CONFIG[:clp_cache_time].to_i.seconds
   CACHE_HEADER = "X-CLP-Cache"
   FEATURE_FLAG = :landingpage_topbar
 
   FONT_PATH = APP_CONFIG[:font_proximanovasoft_url].present? ? APP_CONFIG[:font_proximanovasoft_url] : "/landing_page/fonts"
 
+  helper_method :feature_flags
+
   def index
-    cid = community_id(request)
-    default_locale = community_default_locale(request)
+    cid = community(request).id
+    default_locale = community(request).default_locale
+
     version = CLP::LandingPageStore.released_version(cid)
     locale_param = params[:locale]
 
@@ -84,8 +89,9 @@ class LandingPageController < ActionController::Metal
   end
 
   def preview
-    cid = community_id(request)
-    default_locale = community_default_locale(request)
+    cid = community(request).id
+    default_locale = community(request).default_locale
+
     preview_version = parse_int(params[:preview_version])
     locale_param = params[:locale]
 
@@ -194,19 +200,11 @@ class LandingPageController < ActionController::Metal
   end
 
   def community(request)
-    request.env[:current_marketplace]
+    @current_community ||= request.env[:current_marketplace]
   end
 
   def community_customization(request, locale)
     community(request).community_customizations.where(locale: locale).first
-  end
-
-  def community_id(request)
-    community(request)&.id
-  end
-
-  def community_default_locale(request)
-    request.env[:current_marketplace]&.default_locale
   end
 
   def community_context(request)
