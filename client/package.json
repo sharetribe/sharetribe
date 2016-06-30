@@ -57,7 +57,8 @@
     "webpack": "1.13.1",
     "i18n-js": "http://github.com/sharetribe/i18n-js/archive/interpolation-mode.tar.gz",
     "customfile-loader": "./customloaders/customfileloader",
-    "raw-loader": "0.5.1"
+    "raw-loader": "0.5.1",
+    "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
     "@kadira/storybook": "1.31.0",

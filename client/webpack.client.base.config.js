@@ -24,6 +24,7 @@ module.exports = {
       'babel-polyfill',
       'es5-shim/es5-shim',
       'es5-shim/es5-sham',
+      'whatwg-fetch',
     ],
 
     // This will contain the app entry points

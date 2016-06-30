@@ -220,6 +220,7 @@ class LandingPageController < ActionController::Metal
                          request.fullpath,
                          locale_param,
                          topbar_locale)
+    marketplace_context = marketplace_context(community_id, topbar_locale, request)
     topbar_enabled = fetch_topbar_enabled(community_id)
 
     denormalizer = build_denormalizer(
@@ -239,6 +240,8 @@ class LandingPageController < ActionController::Metal
                      page: denormalizer.to_tree(structure, root: "page"),
                      sections: denormalizer.to_tree(structure, root: "composition"),
                      topbar_props: props,
+                     topbar_props_path: ui_api_topbar_props_path(locale: topbar_locale),
+                     marketplace_context: marketplace_context,
                      topbar_enabled: topbar_enabled }
   end
 
@@ -274,6 +277,31 @@ class LandingPageController < ActionController::Metal
     else
       false
     end
+  end
+
+  def marketplace_context(community_id, locale, request)
+    uri = Addressable::URI.parse(request.original_url)
+
+    result = {
+      # URL settings
+      href: request.original_url,
+      location: "#{uri.path}#{uri.query.present? ? '?#{uri.query}' : ''}",
+      scheme: uri.scheme,
+      host: uri.host,
+      port: uri.port,
+      pathname: uri.path,
+      search: uri.query,
+
+      # Locale settings
+      i18nLocale: locale,
+      i18nDefaultLocale: I18n.default_locale,
+      httpAcceptLanguage: request.env["HTTP_ACCEPT_LANGUAGE"],
+
+      # Extension(s)
+      marketplaceId: community_id
+    }
+
+    result
   end
 
   # rubocop:disable Metrics/MethodLength
@@ -894,3 +922,4 @@ JSON
     Rails.application.assets.find_asset("i18n/#{topbar_locale}.js").to_s.html_safe
   end
 end
+
