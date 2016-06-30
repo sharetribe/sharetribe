@@ -1225,6 +1225,8 @@ es-ES:
       search: ~
       signup: ~
       search_placeholder: ~
+    listings:
+      no_listing_image: ~
   layouts:
     admin:
       admin: "Panel de administración de %{service_name}"
