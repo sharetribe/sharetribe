@@ -118,6 +118,7 @@ module.exports = {
 
   '--Topbar_avatarSize': topbarItemHeight,
   '--Topbar_avatarPadding': '18px 0',
+  '--Topbar_avatarTabletPadding': '12px 0',
   '--Topbar_avatarMobilePadding': '8px 0',
 
   // SearchBar

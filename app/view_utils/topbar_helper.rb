@@ -65,7 +65,6 @@ module TopbarHelper
       avatarDropdown: {
         customColor: CommonStylesHelper.marketplace_colors(community)[:marketplace_color1],
         avatar: {
-          imageHeight: '44px',
           image: user&.image.present? ? user.image.url(:thumb) : missing_profile_image_path(),
         }
       },

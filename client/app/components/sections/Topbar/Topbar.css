@@ -101,6 +101,7 @@
 
     @media (--medium-viewport) {
       display: flex;
+      padding: var(--Topbar_avatarTabletPadding);
     }
 
     @media (--large-viewport) {
