@@ -240,7 +240,7 @@ class LandingPageController < ActionController::Metal
                      page: denormalizer.to_tree(structure, root: "page"),
                      sections: denormalizer.to_tree(structure, root: "composition"),
                      topbar_props: props,
-                     topbar_props_path: ui_api_topbar_props_path,
+                     topbar_props_path: ui_api_topbar_props_path(locale: topbar_locale),
                      marketplace_context: marketplace_context,
                      topbar_enabled: topbar_enabled }
   end

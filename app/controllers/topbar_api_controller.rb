@@ -2,7 +2,8 @@
 class TopbarApiController < ApplicationController
 
   def props
-    p = topbar_props(context_objects())
+    locale = params[:locale]
+    p = topbar_props(context_objects(), locale)
     respond_to do |format|
       format.html { render text: p.to_json.html_safe }
       format.json { render json: p.to_json }
@@ -18,7 +19,11 @@ class TopbarApiController < ApplicationController
       community_customization: @community_customization }
   end
 
-  def topbar_props(ctx)
+  def topbar_props(ctx, locale)
+    if locale
+      I18n.locale = locale
+    end
+
     community, user, community_customization = ctx.values_at(:community, :user, :community_customization)
 
     props = TopbarHelper.topbar_props(
