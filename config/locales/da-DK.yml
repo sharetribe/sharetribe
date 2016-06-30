@@ -959,7 +959,7 @@ da-DK:
       text_version_text: "Har du noget du kunne dele med andre, som måske ville have brug for det? Eller har du brug for noget andre muligvis har? Tilføj et tilbud eller en forespørgsel, eller tjek alt hvad andre tilbyder lige nu på %{url}"
     reset_password_instructions:
       change_my_password: "Skift min adgangskode"
-      reset_password_instructions: "<p>Du har angivet at du har glemt din adgangskode eller dit brugernavn på %{service_name}.</ p><p>Dit brugernavn er: %{username}</ p><p>Har du brug for at nulstille din adgangskode? Klik her: %{password_reset_link}</ p><br/><p>Hvis du ikke har anmodet om dette, skal du bare ignorere beskeden. Din adgangskode vil ikke ændre sig.</p>"
+      reset_password_instructions: "<p>Du har angivet, at du har glemt din adgangskode eller brugernavn på %{service_name}.</p><p>Dit brugernavn er: %{username}</p><p>Nulstil adgangskode: %{password_reset_link}</p><br/><p>Hvis du ikke har bedt om dette, skal du bare ignorere denne besked.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Påmindelse: Husk at give feedback til %{name}"
       you_have_not_given_feedback_yet: "Du har endnu ikke givet %{name} feedback på '%{event}'. Husk at give %{given_name} feedback."
@@ -1223,6 +1223,8 @@ da-DK:
       search: Søg
       signup: Tilmeld
       search_placeholder: "Hvad leder du efter?"
+    listings:
+      no_listing_image: ~
   layouts:
     admin:
       admin: "%{service_name} administrator panel"

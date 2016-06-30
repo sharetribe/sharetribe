@@ -1215,6 +1215,8 @@ fr-CA:
       search: ~
       signup: ~
       search_placeholder: ~
+    listings:
+      no_listing_image: ~
   layouts:
     admin:
       admin: "Panneau d'administration %{service_name}"

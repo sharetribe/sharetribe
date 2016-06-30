@@ -1198,6 +1198,8 @@ ca:
       search: ~
       signup: ~
       search_placeholder: ~
+    listings:
+      no_listing_image: ~
   layouts:
     admin:
       admin: "Panell d'administració de %{service_name}"

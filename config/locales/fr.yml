@@ -1227,6 +1227,8 @@ fr:
       search: Rechercher
       signup: S'inscrire
       search_placeholder: "Que recherchez-vous ?"
+    listings:
+      no_listing_image: "Aucune image"
   layouts:
     admin:
       admin: "Panneau d'administration %{service_name}"
@@ -1235,7 +1237,7 @@ fr:
       create_own: "Voulez-vous créer votre propre place de marché en ligne, comme %{service_name} ? %{learn_more}."
       learn_more: "Découvrez-en plus"
     no_tribe:
-      inbox: "Boîte de réception"
+      inbox: Messagerie
       settings: Paramètres
       feedback: "Nous contacter"
     application:
@@ -1394,7 +1396,7 @@ fr:
       you_must_log_in_to_do_a_transaction: "Vous devez vous connecter à %{service_name} pour réaliser une transaction."
       you_must_log_in_to_view_this_content: "Vous devez vous connecter pour voir ce contenu"
       you_must_log_in_to_view_this_page: "Vous devez vous connecter pour voir cette page"
-      you_must_log_in_to_view_your_inbox: "Vous devez vous connecter à %{service_name} pour consulter votre boîte de réception."
+      you_must_log_in_to_view_your_inbox: "Vous devez vous connecter à %{service_name} pour consulter votre messagerie."
       you_must_log_in_to_view_your_settings: "Vous devez vous connecter à %{service_name} pour afficher vos paramètres."
       you_must_log_in_to_add_news_item: "Vous devez vous connecter à %{service_name} pour ajouter un nouvel article."
       you_must_log_in_to_change_profile_settings: "Vous devez vous connecter à %{service_name} pour modifier les paramètres de profil."
@@ -2164,12 +2166,12 @@ fr:
     topbar:
       menu: Menu
       search_placeholder: Rechercher...
-      user: ~
-      inbox: ~
-      profile: ~
-      manage_listings: ~
-      settings: ~
-      logout: ~
+      user: Utilisateur
+      inbox: Messagerie
+      profile: Profil
+      manage_listings: "Gérer les annonces"
+      settings: Paramètres
+      logout: Déconnexion
   will_paginate:
     models:
       person:
