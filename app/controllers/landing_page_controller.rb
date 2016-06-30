@@ -891,8 +891,8 @@ class LandingPageController < ActionController::Metal
 
   "composition": [
     { "section": {"type": "sections", "id": "myhero1"}},
-    { "section": {"type": "sections", "id": "listings"}},
     { "section": {"type": "sections", "id": "video2"}},
+    { "section": {"type": "sections", "id": "listings"}},
     { "section": {"type": "sections", "id": "categories7"}},
     { "section": {"type": "sections", "id": "categories6"}},
     { "section": {"type": "sections", "id": "categories5"}},
