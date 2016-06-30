@@ -1,0 +1,19 @@
+.links {
+  height: 100%;
+}
+
+.link {
+  display: inline-block;
+  height: 100%;
+  line-height: var(--Topbar_mobileHeight);
+  padding: 0 0.5em;
+
+  &:hover {
+    background-color: var(--Topbar_borderColor);
+    filter: none;
+  }
+
+  @media (--large-viewport) {
+    line-height: var(--Topbar_height);
+  }
+}

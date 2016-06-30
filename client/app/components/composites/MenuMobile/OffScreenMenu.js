@@ -5,21 +5,26 @@ import css from './MenuMobile.css';
 import MenuSection from './MenuSection';
 import Avatar from '../../elements/Avatar/Avatar';
 import AddNewListingButton from '../../elements/AddNewListingButton/AddNewListingButton';
+import LoginLinks from '../../composites/LoginLinks/LoginLinks';
 
 class OffScreenMenu extends Component {
 
   render() {
     const isOpenClass = this.props.isOpen ? css.offScreenMenuOpen : '';
 
+    const header = this.props.avatar ? [
+      this.props.avatar ? r(Avatar, this.props.avatar) : null,
+      this.props.newListingButton ? r(AddNewListingButton, this.props.newListingButton) : null,
+    ] : [
+      r(LoginLinks, this.props.loginLinks),
+    ];
+
     return div({
       className: `OffScreenMenu ${css.offScreenMenu} ${isOpenClass}`,
     }, [
       div({
         className: `OffScreenMenu_header ${css.offScreenHeader}`,
-      }, [
-        this.props.avatar ? r(Avatar, this.props.avatar) : null,
-        this.props.newListingButton ? r(AddNewListingButton, this.props.newListingButton) : null,
-      ]),
+      }, header),
       div({
         className: `OffScreenMenu_main ${css.offScreenMain}`,
       }, [
@@ -66,6 +71,7 @@ OffScreenMenu.propTypes = {
   ),
   avatar: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   newListingButton: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  loginLinks: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
 export default OffScreenMenu;
