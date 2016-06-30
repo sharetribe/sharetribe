@@ -374,7 +374,8 @@ class LandingPageController < ActionController::Metal
       "variation": "youtube",
       "youtube_video_id": "UffchBUUIoI",
       "width": "1280",
-      "height": "720"
+      "height": "720",
+      "text": "Watch the cool video!"
     },
     {
       "id": "categories7",
