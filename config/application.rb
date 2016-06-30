@@ -66,7 +66,8 @@ module Kassi
       'jquery-1.7.js',
       'i18n/*.js',
       'app-bundle.css',
-      'app-bundle.js'
+      'app-bundle.js',
+      'vendor-bundle.js',
     ]
 
     # Read the config from the config.yml
