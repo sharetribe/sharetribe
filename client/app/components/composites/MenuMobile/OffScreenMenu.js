@@ -36,7 +36,7 @@ class OffScreenMenu extends Component {
       ]),
       div({
         className: `OffScreenMenu_footer ${css.offScreenFooter}`,
-      }, 'footer'),
+      }),
     ]);
   }
 }
