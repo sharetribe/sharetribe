@@ -4,10 +4,9 @@ class EnforceSsl
   end
 
   def call(env)
-    if ::APP_CONFIG.always_use_ssl.to_s == "true" && env["HTTPS"] == "off" # always_use_ssl can be string if it comes from ENV
-      req = ::Rack::Request.new(env)
-      port_s = req.port ? ":#{req.port}" : ""
-      redirect("https://#{req.host}#{port_s}#{req.fullpath}")
+    req = ::Rack::Request.new(env)
+    if ::APP_CONFIG.always_use_ssl.to_s == "true" && !req.ssl? # always_use_ssl can be string if it comes from ENV
+      redirect("https://#{req.host}#{req.fullpath}")
     else
       @app.call(env)
     end
