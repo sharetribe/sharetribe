@@ -872,7 +872,9 @@ class LandingPageController < ActionController::Metal
         {"service": "facebook", "url": "https://www.facebook.com"},
         {"service": "twitter", "url": "https://www.twitter.com"},
         {"service": "instagram", "url": "https://www.instagram.com"},
-        {"service": "youtube", "url": "https://www.youtube.com/channel/UCtefWVq2uu4pHXaIsHlBFnw"}
+        {"service": "youtube", "url": "https://www.youtube.com/channel/UCtefWVq2uu4pHXaIsHlBFnw"},
+        {"service": "googleplus", "url": "https://www.google.com"},
+        {"service": "linkedin", "url": "https://www.google.com"}
       ],
       "copyright": "Copyright Marketplace Ltd 2016"
     },
