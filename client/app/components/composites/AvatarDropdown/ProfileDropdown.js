@@ -1,5 +1,5 @@
 import { Component, PropTypes } from 'react';
-import r, { div } from 'r-dom';
+import r, { div, a } from 'r-dom';
 import classNames from 'classnames';
 
 import css from './ProfileDropdown.css';
@@ -9,18 +9,28 @@ import settingsIcon from './images/settingsIcon.svg';
 import { className } from '../../../utils/PropTypes';
 
 class ProfileActionCard extends Component {
+  actionProps() {
+    return (typeof this.props.action) === 'function' ?
+      { onClick: this.props.action } :
+      { href: this.props.action };
+  }
   render() {
-    return div({ className: css.profileAction, onClick: this.props.action }, [
+    return a({ ...this.actionProps(), className: css.profileAction }, [
       div({ className: css.profileActionIcon, dangerouslySetInnerHTML: { __html: this.props.icon } }),
       div({ className: css.profileActionLabel }, this.props.label),
     ]);
   }
 }
 
+const eitherStringOrFunc = PropTypes.oneOfType([
+  PropTypes.string,
+  PropTypes.func,
+]);
+
 ProfileActionCard.propTypes = {
   icon: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  action: PropTypes.func.isRequired,
+  action: eitherStringOrFunc.isRequired,
 };
 
 class ProfileDropdown extends Component {
@@ -39,11 +49,11 @@ class ProfileDropdown extends Component {
           div({
             className: css.adminLink,
             style: { color: this.props.customColor },
-            onClick: this.props.actions.adminDashboardAction,
+            href: this.props.actions.adminDashboardAction,
           }, 'Admin dashboard'),
           div({
             className: css.logoutLink,
-            onClick: this.props.actions.logoutAction,
+            href: this.props.actions.logoutAction,
           }, 'Logout'),
         ]),
       ]),
@@ -53,11 +63,11 @@ class ProfileDropdown extends Component {
 
 ProfileDropdown.propTypes = {
   actions: PropTypes.shape({
-    inboxAction: PropTypes.func.isRequired,
-    profileAction: PropTypes.func.isRequired,
-    settingsAction: PropTypes.func.isRequired,
-    adminDashboardAction: PropTypes.func.isRequired,
-    logoutAction: PropTypes.func.isRequired,
+    inboxAction: eitherStringOrFunc.isRequired,
+    profileAction: eitherStringOrFunc.isRequired,
+    settingsAction: eitherStringOrFunc.isRequired,
+    adminDashboardAction: eitherStringOrFunc.isRequired,
+    logoutAction: eitherStringOrFunc.isRequired,
   }).isRequired,
   customColor: PropTypes.string.isRequired,
   className,
