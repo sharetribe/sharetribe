@@ -31,7 +31,7 @@ export default (props, marketplaceContext) => {
   ], { locale: marketplaceContext.i18nLocale });
 
   const combinedReducer = combineReducers(reducers);
-  const combinedProps = Object.assign({}, props, { routes });
+  const combinedProps = Object.assign({}, props, { routes, marketplaceContext });
 
   const store = applyMiddleware(middleware)(createStore)(combinedReducer, combinedProps);
 
