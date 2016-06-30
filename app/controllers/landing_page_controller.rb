@@ -630,7 +630,7 @@ class LandingPageController < ActionController::Metal
       "icon_color": {"type": "marketplace_data", "id": "primary_color"},
       "columns": [
         {
-          "icon": "quill",
+          "icon": "binocular",
           "title": "Our mission",
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
           "button_title": "Section link",
