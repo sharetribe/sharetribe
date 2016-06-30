@@ -181,22 +181,31 @@ $listings__tablet-gutter: 16px;
 .listings__listing-info {
   margin: 18px 24px;
   @include prefix-val(display, flex);
-  @include prefix-prop(align-items, center);
+  @include prefix-prop(align-items, flex-end);
   @include prefix-prop(flex-direction, row);
   @include prefix-prop(justify-content, space-between);
 }
 
 .listings__price-container {
   text-align: left;
+  margin-right: 12px;
 }
 
-.listings__price-amount {
+.listings__price-text {
   font-family: ProximaNovaSoft-Medium;
 
   @media #{$desktop} {
     font-size: 20px;
     letter-spacing: 0px;
   }
+}
+
+.listings__price-amount {
+  @extend .listings__price-text;
+}
+
+.listings__price-shape-name {
+  @extend .listings__price-text;
 }
 
 .listings__price-unit {
@@ -208,6 +217,10 @@ $listings__tablet-gutter: 16px;
   }
 }
 
+.listings__author-link {
+  max-width: 50%;
+}
+
 .listings__author-container {
   @include prefix-val(display, flex);
   @include prefix-prop(align-items, center);
@@ -215,6 +228,9 @@ $listings__tablet-gutter: 16px;
 }
 
 .listings__author-avatar-container {
+  // The avatar needs to be round, not oval
+  @include prefix-prop(flex-shrink, 0);
+
   border-radius: 100%;
   width: 24px;
   height: 24px;
@@ -253,4 +269,9 @@ $listings__tablet-gutter: 16px;
   // override default link color
   // hover color is set in the template
   color: #7A7D80;
+
+  // ellipsis
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

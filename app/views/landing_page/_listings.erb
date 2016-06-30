@@ -58,13 +58,17 @@
             </a>
             <div class="listings__listing-info">
               <div class="<%= section_id%>__listings__price-container listings__price-container">
-                <span class="listings__price-amount"><%= l["price"] %></span>
+                <% if l["price"].present? %>
+                  <span class="listings__price-amount"><%= l["price"] %></span>
 
-                <% if l["price_unit"] %>
-                  <span class="listings__price-unit">/ <%= l["price_unit"] %></span>
+                  <% if l["price_unit"] %>
+                    <span class="listings__price-unit">/ <%= l["price_unit"] %></span>
+                  <% end %>
+                <% else %>
+                  <span class="listings__price-shape-name"><%= l["shape_name"] %></span>
                 <% end %>
               </div>
-              <a class="<%= section_id%>__listings__author-link" href="<%= l["author_path"] %>">
+              <a class="<%= section_id%>__listings__author-link listings__author-link" href="<%= l["author_path"] %>">
                 <div class="listings__author-container">
                   <div class="listings__author-avatar-container">
                     <% if l["author_avatar"] %>
