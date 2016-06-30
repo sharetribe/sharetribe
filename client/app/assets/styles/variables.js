@@ -15,6 +15,7 @@ const customColor2Fallback = '#00a26c';
 
 const topbarBorderColor = 'rgba(169, 172, 176, 0.5)';
 const topbarItemHeight = '44px';
+const topbarMediumItemHeight = '36px';
 const bodyPadding = '24px';
 
 const pxToEms = function pxToEms(px, againstFontSize) {
@@ -99,8 +100,10 @@ module.exports = {
   '--widthRestrictionPercentage': '90%',
 
   '--Topbar_height': '80px',
+  '--Topbar_tabletHeight': '60px',
   '--Topbar_mobileHeight': '50px',
   '--Topbar_padding': `0 ${bodyPadding}`,
+  '--Topbar_tabletPadding': `0 ${bodyPadding} 0 6px`,
   '--Topbar_itemSpacing': '24px',
   '--Topbar_mobileItemSpacing': '18px',
   '--Topbar_logoHeight': '25px',
@@ -115,7 +118,7 @@ module.exports = {
 
   '--Topbar_avatarSize': topbarItemHeight,
   '--Topbar_avatarPadding': '18px 0',
-  '--Topbar_avatarMobilePadding': '3px 0',
+  '--Topbar_avatarMobilePadding': '8px 0',
 
   // SearchBar
   '--SearchBar_width': '396px',
@@ -191,6 +194,7 @@ module.exports = {
   '--MenuSection_paddingOffScreenHorizontal': pxToEms(24, 12), // eslint-disable-line no-magic-numbers
 
   '--AddNewListingButton_height': topbarItemHeight,
+  '--AddNewListingButton_tabletHeight': topbarMediumItemHeight,
   '--AddNewListingButton_defaultColor': '#43A5CC',
   '--AddNewListingButton_textSize': fontSize,
   '--AddNewListingButton_textColor': '#fff',
