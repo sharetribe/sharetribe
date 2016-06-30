@@ -8,14 +8,15 @@ import profileIcon from './images/profileIcon.svg';
 import settingsIcon from './images/settingsIcon.svg';
 import { className } from '../../../utils/PropTypes';
 
+const actionProps = function actionProps(action) {
+  return (typeof action) === 'function' ?
+    { onClick: action } :
+    { href: action };
+};
+
 class ProfileActionCard extends Component {
-  actionProps() {
-    return (typeof this.props.action) === 'function' ?
-      { onClick: this.props.action } :
-      { href: this.props.action };
-  }
   render() {
-    return a({ ...this.actionProps(), className: css.profileAction }, [
+    return a({ ...actionProps(this.props.action), className: css.profileAction }, [
       div({ className: css.profileActionIcon, dangerouslySetInnerHTML: { __html: this.props.icon } }),
       div({ className: css.profileActionLabel }, this.props.label),
     ]);
@@ -46,14 +47,14 @@ class ProfileDropdown extends Component {
           r(ProfileActionCard, { label: 'Settings', icon: settingsIcon, action: this.props.actions.settingsAction }),
         ]),
         div({ className: css.logoutArea }, [
-          div({
+          a({
             className: css.adminLink,
             style: { color: this.props.customColor },
-            href: this.props.actions.adminDashboardAction,
+            ...actionProps(this.props.actions.adminDashboardAction),
           }, 'Admin dashboard'),
-          div({
+          a({
             className: css.logoutLink,
-            href: this.props.actions.logoutAction,
+            ...actionProps(this.props.actions.logoutAction),
           }, 'Logout'),
         ]),
       ]),
