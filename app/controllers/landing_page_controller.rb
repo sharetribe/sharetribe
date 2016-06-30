@@ -647,7 +647,8 @@ class LandingPageController < ActionController::Metal
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "button_title": "Section link",
-      "button_path": {"value": "https://google.com"}
+      "button_path": {"value": "https://google.com"},
+      "background_color": [255, 0, 255]
     },
     {
       "id": "info1_v4",

@@ -4,10 +4,30 @@
     "multi_column"  => "multi-column",
   }
 
-  background_enabled     = !s["background_image"].nil?
-  background_image_style = background_enabled ? "url('#{s["background_image"]["src"]}')" : "none"
-  section_style_modifier = background_enabled ? "background" : "blank"
-  variation_modifier     = variation_modifiers[s["variation"]]
+  background_image_enabled  = !s["background_image"].nil?
+  background_image_style    = background_image_enabled ? "url('#{s["background_image"]["src"]}')" : "none"
+  background_color_enabled  = !s["background_color"].nil?
+  background_color_style    = background_color_enabled ? "rgb(#{s["background_color"].join(",")})" : "transparent";
+  background_enabled        = background_image_enabled || background_color_enabled
+  variation_modifier        = variation_modifiers[s["variation"]]
+
+  section_style_modifier =
+    if background_image_enabled
+      "background-image"
+    elsif background_color_enabled
+      "background-color"
+    else
+      "blank"
+    end
+
+  button_modifier =
+    if background_image_enabled
+      ""
+    elsif background_color_enabled
+      "--inverted"
+    else
+      "--ghost"
+    end
 %>
 
 <% content_for :info_css do %>
@@ -19,6 +39,15 @@
       .<%= section_id %>__info__button--ghost {
         color: rgb(<%= s["button_color"]["value"].join(",") %>);
         border-color: rgb(<%= s["button_color"]["value"].join(",") %>);
+      }
+
+      .<%= section_id %>__info__button--inverted {
+        color: rgb(<%= s["button_color"]["value"].join(",") %>);
+      }
+
+      .<%= section_id %>__info__button--inverted:hover {
+        color: #FFF;
+        background-color: rgb(<%= s["button_color_hover"]["value"].join(",") %>);
       }
     <% end %>
 
@@ -37,7 +66,7 @@
     <% end %>
 <% end %>
 
-<section id="<%= section_id %>" class="info__section--<%= section_style_modifier %>" style="background-image: <%= background_image_style %>">
+<section id="<%= section_id %>" class="info__section--<%= section_style_modifier %>" style="background-image: <%= background_image_style %>; background-color: <%= background_color_style %>">
   <div class="info__content--<%= variation_modifier %>">
     <h1 class="info__title--<%= variation_modifier %>"><%= s["title"] %></h1>
     <% case s["variation"] %>
@@ -46,7 +75,6 @@
       <p class="info__paragraph"><%= s["paragraph"] %></p>
 
       <% if s["button_title"] %>
-        <% button_modifier = background_enabled ? "" : "--ghost" %>
         <a class="info__button<%= button_modifier %> <%= section_id %>__info__button<%= button_modifier %>" href="<%= s["button_path"]["value"] %>"><%= s["button_title"] %></a>
       <% end %>
 
