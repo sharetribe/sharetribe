@@ -3,6 +3,18 @@ import withProps from '../../Styleguide/withProps';
 
 import OnboardingTopBar from './OnboardingTopBar';
 
+const noop = () => null;
+const routes = {
+  admin_getting_started_guide_path: noop,
+  admin_getting_started_guide_slogan_and_description_path: noop,
+  admin_getting_started_guide_cover_photo_path: noop,
+  admin_getting_started_guide_filter_path: noop,
+  admin_getting_started_guide_paypal_path: noop,
+  admin_getting_started_guide_listing_path: noop,
+  admin_getting_started_guide_invitation_path: noop,
+};
+
+
 const defaultProps = {
   translations: {
     progress_label: 'Marketplace progress',
@@ -17,6 +29,7 @@ const defaultProps = {
   progress: 83,
   next_step: 'paypal',
   guide_root: '/fi/admin/communities/501/getting_started_guide',
+  routes,
 };
 
 storiesOf('Onboarding top bar')

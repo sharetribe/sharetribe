@@ -7,7 +7,7 @@ import Topbar from './Topbar';
 const containerStyle = { style: { minWidth: '600px', background: 'white' } };
 
 const baseProps = {
-  railsContext: defaultRailsContext,
+  marketplaceContext: defaultRailsContext,
   routes: {},
   logo: {
     href: 'http://example.com',
@@ -89,7 +89,11 @@ storiesOf('Top bar')
   .add('Basic state', () => (
     storifyTopbar(baseProps)))
   .add('Empty state', () => (
-    storifyTopbar({ logo: baseProps.logo })))
+    storifyTopbar({
+      logo: baseProps.logo,
+      marketplaceContext: baseProps.marketplaceContext,
+      routes: baseProps.routes,
+    })))
   .add('Text logo', () => (
     storifyTopbar({ ...baseProps, logo: {
       href: 'http://example.com',

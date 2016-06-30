@@ -3,9 +3,9 @@ import { initialize as initializeI18n } from '../utils/i18n';
 import Topbar from '../components/sections/Topbar/Topbar';
 import { subset } from '../utils/routes';
 
-export default (props, railsContext) => {
-  const locale = props.i18n ? props.i18n.locale : railsContext.i18nLocale;
-  const defaultLocale = props.i18n ? props.i18n.defaultLocale : railsContext.i18nDefaultLocale;
+export default (props, marketplaceContext) => {
+  const locale = props.i18n ? props.i18n.locale : marketplaceContext.i18nLocale;
+  const defaultLocale = props.i18n ? props.i18n.defaultLocale : marketplaceContext.i18nDefaultLocale;
 
   initializeI18n(locale, defaultLocale, process.env.NODE_ENV);
 
@@ -17,6 +17,6 @@ export default (props, railsContext) => {
     'logout',
   ], { locale });
 
-  const combinedProps = Object.assign({}, props, { railsContext, routes });
+  const combinedProps = Object.assign({}, props, { marketplaceContext, routes });
   return r(Topbar, combinedProps);
 };

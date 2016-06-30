@@ -10,7 +10,7 @@ import GuidePaypalPage from './GuidePaypalPage';
 import GuideListingPage from './GuideListingPage';
 import GuideInvitationPage from './GuideInvitationPage';
 
-import { routes, railsContext } from '../../../utils/PropTypes';
+import { routes, marketplaceContext } from '../../../utils/PropTypes';
 
 // Select child component (page/view) to be rendered
 // Returns object (including child component) based on props.data
@@ -59,7 +59,7 @@ class OnboardingGuide extends React.Component {
     this.handlePageChange = this.handlePageChange.bind(this);
 
     // Add current path to window.history. Initially it contains null as a state
-    const path = this.props.railsContext.pathname;
+    const path = this.props.marketplaceContext.pathname;
     const page = this.props.data.page;
     setPushState({ path, page }, path, path);
   }
@@ -114,7 +114,7 @@ OnboardingGuide.propTypes = {
   actions: shape({
     updateGuidePage: func.isRequired,
   }).isRequired,
-  railsContext,
+  marketplaceContext,
   routes,
   data: shape({
     page: string.isRequired,

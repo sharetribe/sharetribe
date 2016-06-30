@@ -14,6 +14,8 @@ storiesOf('MenuItem')
         content: 'Link',
         active: false,
         activeColor: '#a64c5d',
+        type: 'menuitem',
+        index: 1,
       }),
       containerStyle
     ))
@@ -25,6 +27,8 @@ storiesOf('MenuItem')
         content: 'Link',
         active: true,
         activeColor: '#a64c5d',
+        type: 'menuitem',
+        index: 1,
       }),
       containerStyle
     ))
@@ -36,6 +40,8 @@ storiesOf('MenuItem')
           content: 'Lorem ipsum dolor sit amet consectetur adepisci velit',
           active: true,
           activeColor: '#a64c5d',
+          type: 'menuitem',
+          index: 1,
         }),
         { style: { minWidth: '200px', maxWidth: '230px', background: 'white' } },
         {}

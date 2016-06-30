@@ -39,7 +39,7 @@ storiesOf('Menu')
             ],
           },
           {
-            railsContext: defaultRailsContext,
+            marketplaceContext: defaultRailsContext,
           }
         )),
         containerStyle
