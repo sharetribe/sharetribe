@@ -14,7 +14,6 @@ class MenuMobile extends Component {
     super(props, context);
 
     this.handleClick = this.handleClick.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
     this.state = {
       isOpen: false,
@@ -23,10 +22,6 @@ class MenuMobile extends Component {
 
   handleClick() {
     this.setState({ isOpen: !this.state.isOpen });// eslint-disable-line react/no-set-state
-  }
-
-  handleBlur() {
-    this.closeMenu();
   }
 
   closeMenu() {
@@ -40,7 +35,6 @@ class MenuMobile extends Component {
 
     return div({
       className: classNames(this.props.className, 'MenuMobile', css.menuMobile, extraClasses, openClass),
-      onBlur: this.handleBlur,
       tabIndex: 0,
     }, [
       div({
