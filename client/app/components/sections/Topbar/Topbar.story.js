@@ -103,6 +103,8 @@ storiesOf('Top bar')
       href: 'http://example.com',
       text: 'My Marketplace with a looong name',
     } })))
+  .add('Without search', () => (
+    storifyTopbar({ ...baseProps, search: null })))
   .add('With keyword search', () => (
     storifyTopbar({ ...baseProps, search: { mode: 'keyword' } })))
   .add('With location search', () => (
