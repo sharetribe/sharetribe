@@ -7,6 +7,7 @@ const fontSizeMobile = '17px';
 
 const textColor = 'rgb(82, 89, 97)';
 const textColorFocus = 'rgb(0, 0, 0)';
+const textColorGrey = 'rgb(122, 125, 128)';
 const backgroundLightColor = 'white';
 const backgroundLightColorHover = 'rgba(169, 172, 176, 0.07)';
 const customColorFallback = '#a64c5d';
@@ -102,7 +103,7 @@ module.exports = {
   '--Topbar_padding': `0 ${bodyPadding}`,
   '--Topbar_itemSpacing': '24px',
   '--Topbar_mobileItemSpacing': '18px',
-  '--Topbar_logoHeight': '40px',
+  '--Topbar_logoHeight': '25px',
   '--Topbar_textLogoMaxWidth': '20em',
   '--Topbar_fontFamily': "'Proxima Nova Soft', Helvetica, sans",
 
@@ -121,11 +122,11 @@ module.exports = {
   '--SearchBar_mobileHeight': '50px',
   '--SearchBar_height': topbarItemHeight,
   '--SearchBar_borderColor': topbarBorderColor,
-  '--SearchBar_borderColorActive': 'rgb(122, 125, 128)',
-  '--SearchBar_textColor': 'rgb(122, 125, 128)',
+  '--SearchBar_borderColorActive': textColorGrey,
+  '--SearchBar_textColor': textColorGrey,
   '--SearchBar_textColorActive': 'rgb(82, 89, 97)',
   '--SearchBar_textColorFocus': 'rgb(28, 30, 33)',
-  '--SearchBar_iconColor': 'rgb(122, 125, 128)',
+  '--SearchBar_iconColor': textColorGrey,
   '--SearchBar_iconColorActive': 'rgb(82, 89, 97)',
   '--SearchBar_iconColorFocus': 'rgb(28, 30, 33)',
   '--SearchBar_textPaddingMobile': '0.63em',
@@ -153,6 +154,8 @@ module.exports = {
   '--ProfileDropdown_zIndex': 1,
   '--ProfileDropdown_rightOffset': bodyPadding,
   '--ProfileDropdown_textColor': textColor,
+  '--ProfileDropdown_logoutLinkColor': textColorGrey,
+  '--ProfileDropdown_textLinkSize': pxToEms(13, 14), // eslint-disable-line no-magic-numbers
 
   '--MenuItem_borderColor': topbarBorderColor,
   '--MenuItem_backgroundColorHover': backgroundLightColorHover,
@@ -173,7 +176,7 @@ module.exports = {
   '--Menu_colorBackground': backgroundLightColor,
   '--Menu_borderColor': topbarBorderColor,
   '--Menu_boxShadow': '0px 2px 4px 0px rgba(0, 0, 0, 0.1)',
-  '--Menu_iconPadding': '0.7em',
+  '--Menu_iconPadding': pxToEms(5, 14),
   '--Menu_zIndex': '1',
 
   // topbar can't control base font-size.
@@ -189,6 +192,7 @@ module.exports = {
 
   '--AddNewListingButton_height': topbarItemHeight,
   '--AddNewListingButton_defaultColor': '#43A5CC',
+  '--AddNewListingButton_textSize': fontSize,
   '--AddNewListingButton_textColor': '#fff',
   '--AddNewListingButton_maxTextWidth': '15em',
   '--AddNewListingButton_textPadding': '1.5em',

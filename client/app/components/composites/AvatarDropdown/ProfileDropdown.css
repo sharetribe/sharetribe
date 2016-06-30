@@ -46,6 +46,7 @@
 .logoutArea {
   border-top: var(--ProfileDropdown_border);
   padding: 0.69em 1.15em;
+  font-size: var(--ProfileDropdown_textLinkSize);
 }
 
 .adminLink {
@@ -56,4 +57,5 @@
 .logoutLink {
   float: right;
   cursor: pointer;
+  color: var(--ProfileDropdown_logoutLinkColor);
 }

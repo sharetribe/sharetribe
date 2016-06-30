@@ -8,6 +8,8 @@
   background: var(--colorBackground);
   border-bottom: 1px solid rgba(0, 0, 50, 0.1);
 
+  font-size: var(--Topbar_fontSize);
+
   @media (--large-viewport) {
     height: var(--Topbar_height);
     padding: var(--Topbar_padding);
@@ -43,6 +45,11 @@
     @media (--large-viewport) {
       font-size: var(--Topbar_fontSize);
     }
+  }
+
+  & .topbarLogo {
+    height: var(--Topbar_logoHeight);
+    max-width: var(--Topbar_textLogoMaxWidth);
   }
 
   & .topbarMenu {
@@ -84,7 +91,6 @@
   & > .topbarAvatarDropdown {
     padding: var(--Topbar_avatarMobilePadding);
     font-family: var(--Topbar_fontFamily);
-    font-size: var(--Topbar_fontSize);
     align-self: flex-start;
     display: none;
 
@@ -132,11 +138,6 @@
 .topbarMobileMenu {
   font-size: var(--Topbar_fontSizeMobile);
   margin-right: 0;
-}
-
-.topbarLogo {
-  height: var(--Topbar_logoHeight);
-  max-width: var(--Topbar_textLogoMaxWidth);
 }
 
 .topbarAvatarDropdownPlaceholder {
