@@ -3,6 +3,8 @@ import r, { div } from 'r-dom';
 
 import css from './MenuMobile.css';
 import MenuSection from './MenuSection';
+import Avatar from '../../elements/Avatar/Avatar';
+import AddNewListingButton from '../../elements/AddNewListingButton/AddNewListingButton';
 
 class OffScreenMenu extends Component {
 
@@ -14,7 +16,10 @@ class OffScreenMenu extends Component {
     }, [
       div({
         className: `OffScreenMenu_header ${css.offScreenHeader}`,
-      }, 'header'),
+      }, [
+        this.props.avatar ? r(Avatar, this.props.avatar) : null,
+        this.props.newListingButton ? r(AddNewListingButton, this.props.newListingButton) : null,
+      ]),
       div({
         className: `OffScreenMenu_main ${css.offScreenMain}`,
       }, [
@@ -59,6 +64,8 @@ OffScreenMenu.propTypes = {
       type: PropTypes.string.isRequired,
     })
   ),
+  avatar: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  newListingButton: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
 export default OffScreenMenu;

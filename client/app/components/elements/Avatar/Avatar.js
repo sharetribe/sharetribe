@@ -1,26 +1,26 @@
-import { Component, PropTypes } from 'react';
-import { img } from 'r-dom';
+import { PropTypes } from 'react';
+import { a, img } from 'r-dom';
 import classNames from 'classnames';
-import { className } from '../../../utils/PropTypes';
+import * as propTypeUtils from '../../../utils/PropTypes';
 
 import css from './Avatar.css';
 
-class Avatar extends Component {
-  render() {
-    return img({
-      onClick: this.props.onClick,
-      src: this.props.image,
-      className: classNames(this.props.className, css.avatar),
-      style: { height: this.props.imageHeight ? this.props.imageHeight : '100%' },
-    });
-  }
+export default function Avatar({ image, imageHeight, className, url }) {
+  const height = imageHeight ? imageHeight : '100%';
+  const imageEl = img({
+    src: image,
+    className: classNames(className, css.avatar),
+    style: { height },
+  });
+
+  return url ? a({ href: url, className: css.link }, [imageEl]) : imageEl;
 }
 
-Avatar.propTypes = {
-  image: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
-  imageHeight: PropTypes.string,
-  className,
-};
+const { string } = PropTypes;
 
-export default Avatar;
+Avatar.propTypes = {
+  url: string,
+  image: string.isRequired,
+  imageHeight: string,
+  className: propTypeUtils.className,
+};

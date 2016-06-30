@@ -159,6 +159,17 @@ class Topbar extends Component {
       }) :
       {};
 
+    const newListingRoute = this.props.routes && this.props.routes.new_listing_path ?
+            this.props.routes.new_listing_path() :
+            '#';
+
+    const profileRoute = this.props.routes && this.props.routes.person_path && loggedInUsername ?
+            this.props.routes.person_path(loggedInUsername) :
+            null;
+    const mobileMenuAvatarProps = this.props.avatarDropdown ?
+            { ...this.props.avatarDropdown.avatar, ...{ url: profileRoute } } :
+          null;
+
     const mobileMenuProps = this.props.menu ?
       Object.assign({}, this.props.menu, {
         key: 'mobilemenu',
@@ -179,12 +190,13 @@ class Topbar extends Component {
         )),
         userLinksTitle: t('web.topbar.user'),
         userLinks: profileLinks(loggedInUsername, this.props.routes, location, marketplace_color1),
+        avatar: mobileMenuAvatarProps,
+        newListingButton: this.props.newListingButton ?
+          { ...this.props.newListingButton, ...{ url: newListingRoute, mobileLayoutOnly: true } } :
+          null,
       }) :
       {};
 
-    const newListingRoute = this.props.routes.new_listing_path ?
-            this.props.routes.new_listing_path() :
-            '#';
     const loginRoute = this.props.routes.login_path ? this.props.routes.login_path() : '#';
     const signupRoute = this.props.routes.sign_up_path ? this.props.routes.sign_up_path() : '#';
 

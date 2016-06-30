@@ -60,6 +60,8 @@ class MenuMobile extends Component {
         menuLinks: this.props.menuLinks,
         userLinksTitle: this.props.userLinksTitle,
         userLinks: this.props.userLinks,
+        avatar: this.props.avatar,
+        newListingButton: this.props.newListingButton,
       }),
     ]);
   }
@@ -91,6 +93,8 @@ MenuMobile.propTypes = {
     })
   ),
   className,
+  avatar: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  newListingButton: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
 export default MenuMobile;
