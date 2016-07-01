@@ -13,6 +13,10 @@ class SessionsController < ApplicationController
   before_filter :allow_params_authentication!, :only => :create
 
   def new
+    if params[:return_to].present?
+      session[:return_to] = params[:return_to]
+    end
+
     @selected_tribe_navi_tab = "members"
     @facebook_merge = session["devise.facebook_data"].present?
     if @facebook_merge
