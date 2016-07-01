@@ -9,11 +9,6 @@
   line-height: var(--Topbar_mobileHeight);
   padding: 0 0.5em;
 
-  &:hover {
-    background-color: var(--Topbar_borderColor);
-    filter: none;
-  }
-
   @media (--medium-viewport) {
     line-height: var(--Topbar_tabletHeight);
   }
