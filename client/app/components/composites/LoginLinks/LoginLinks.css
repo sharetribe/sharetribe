@@ -13,6 +13,10 @@
     filter: none;
   }
 
+  @media (--medium-viewport) {
+    line-height: var(--Topbar_tabletHeight);
+  }
+
   @media (--large-viewport) {
     line-height: var(--Topbar_height);
   }
