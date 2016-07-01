@@ -72,9 +72,9 @@ hu:
         transaction_agreement_description: ~
       edit_look_and_feel:
         edit_community_look_and_feel: ~
-        community_logo: ~
+        community_logo: "Asztali logó"
         community_logo_icon: ~
-        community_cover_photo: ~
+        community_cover_photo: Háttérkép
         small_community_cover_photo: "Kis háttérkép"
         favicon: ~
         favicon_info_text: ~
@@ -87,7 +87,9 @@ hu:
         small_cover_photo_visibility: ~
         small_cover_photo_instructions_text_with_dimensions: ~
         main_content_width: ~
-        custom_color1_instructions_text: ~
+        custom_color1_instructions_text: |-
+            Ön megváltoztathatja az oldal elsődleges színét egy színkód megadásával.<a href="http://www.colorpicker.com/?colorcode=D96E21" target="_blank" rel="noreferrer">
+            A ColorPicker.com</a>  segítségével kiválaszthatja a színt és bemásohatja a színkódot ide.
         custom_color2_instructions_text: ~
         default_browse_view: ~
         default_browse_view_instructions_text: ~
@@ -99,7 +101,7 @@ hu:
         full_name: "Teljes név (keresztnév először)"
         first_name_with_initial: ~
         first_name_only: "Keresztnév csak"
-        invalid_color_code: ~
+        invalid_color_code: "A színkód 6 számból vagy betűből kell álljon A-F, például D96E21"
         custom_head_script: ~
         custom_head_script_instructions_text: ~
       edit_text_instructions:
@@ -560,7 +562,7 @@ hu:
       accept_request: "Kérés elfogadása"
       reject_offer: "Nem most"
       reject_request: "Most nem"
-      close_listing: ~
+      close_listing: "Zárja be a hírdetést %{listing_title_link}"
       update_later: "Maradjon a hirdetés aktív"
       optional_message: "Választható üzenet"
       price_to_pay: "Teljes ár fizetendő"
@@ -580,7 +582,7 @@ hu:
     confirm:
       confirm_description: ~
       cancel_description: ~
-      cancel_payed_description: ~
+      cancel_payed_description: "Kérése elfogadása után, ha kétsége merőlne fel akkor még a kifizetés előtt visszavonhatja a kérését."
       canceling_payed_transaction: "Tranzakció megszakítása"
       confirm: ~
       cancel: ~
@@ -620,7 +622,7 @@ hu:
       confirmed_offer: "Az ajánlat teljesítettként megjelölve"
       canceled_request: "Hirdetés törölve"
       canceled_offer: "Ajánlat törlése"
-      paid: ~
+      paid: "Fizetve %{sum}"
       payment_preauthorized: ~
     new:
       message: Üzenet
@@ -636,7 +638,7 @@ hu:
       about_listing: "A következő hirdetéssel kapcsolatban: %{listing_title}"
       author_has_to_accept_request: ~
     show:
-      in_response_to_listing: ~
+      in_response_to_listing: "a hirdetéssel kapcsolatban"
       message_sent_by: "Az üzenetet küldte"
       message_sent_to: "Üzenet elküldve:"
       send_reply: "Válasz küldés"
@@ -845,11 +847,11 @@ hu:
       kassi_team: "A(z) %{service_name} Csapat"
       thanks: "Köszönjük,"
       dont_want_to_receive_these_emails: "Nem szeretné ezeket az e-maileket kapni?"
-      edit_your_email_settings_here: ~
+      edit_your_email_settings_here: "E-mail beállítások szerkesztése itt"
       message_not_displaying_correctly: "Nem helyesen jelent meg az e-mail?"
       view_it_in_your_browser: "Megtekintés böngészőben"
       or: vagy
-      unsubscribe_from_these_emails: ~
+      unsubscribe_from_these_emails: "Leíratkozás ezekről az e-mailekről."
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} elfogadta az Ön %{listing} ajánlatát"
       has_accepted_your_request: "%{accepter} elfogadta az Ön %{listing} ajánlatkérését"
@@ -868,7 +870,7 @@ hu:
       you_have_been_invited_to_kassi: ~
       here_is_a_message_from: "Privát üzenete érkezett %{inviter}"
       join_now: "Csatlakozás most"
-      invitation_code: ~
+      invitation_code: "Meghívási kód: %{code}"
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} hozzászólt az ön hirdetéséhez %{listing}"
       view_comment: "Hozzászólás megtekintése"
@@ -914,7 +916,7 @@ hu:
       has_updated_listing_you_follow_in_kassi: ~
       view_changes: "Változások megtekintése"
     community_updates:
-      added_offer: ~
+      added_offer: "%{name_link} feladott egy hirdetést:"
       added_request: ~
       added_listing: ~
       update_mail_title: ~
@@ -950,7 +952,9 @@ hu:
       welcome_email_subject: ~
       welcome_to_marketplace: ~
       love_marketplace_crew: ~
-      welcome_email_footer_text: ~
+      welcome_email_footer_text: |-
+          Milyen jellegű e-maileket szeretne kapni %{service_name} -tól?
+          %{settings_link}
       settings_link_text: "Ellenőrizze a beállításokat"
       welcome_email_subject_for_marketplace_creator: "Üdvözlet a Sharetribe-n"
       welcome_to_marketplace_creator: "Üdvözöljük a  Sharetribe-n %{name}!"
@@ -1118,7 +1122,7 @@ hu:
       processing_uploaded_image: "(Képek feltöltése folyamatban)"
     index:
       no_listings_with_your_search_criteria: ~
-      no_listings_notification: ~
+      no_listings_notification: "Nics hírdetés. %{add_listing_link}"
       add_listing_link_text: "Új hirdetés hozzáadása"
       open_listing: "Aktuális hirdetés"
       open_listings: "Aktuális hirdetések"
@@ -1152,9 +1156,9 @@ hu:
       add_email_addresses_description: ~
       add_lots_of_email_addresses: ~
       this_article_link: "ez a termék"
-      invitation_emails_field_placeholder: ~
+      invitation_emails_field_placeholder: "barat1@pelda.com, barat2@pelda.com, ..."
       invitation_message_field_placeholder: ~
-      errors_in_emails: ~
+      errors_in_emails: "Ellenőrizze, hogy az ön által megadott e-mail címek érvényességét. Ha több címet adott meg, győződjön meg róla, hogy vesszővel vannak elválasztva."
     list_item:
       review: ~
       reviews: ~
@@ -1223,7 +1227,7 @@ hu:
       your_email_address: "Az Ön e-mail címe"
       connect: Bejelentkezés
       invite_your_friends: "Hívja meg ismerőseit!"
-      invite_your_neighbors: ~
+      invite_your_neighbors: "Hívd meg a szomszédokat!"
       invite_your_friends_description: ~
       invite_your_friends_invite_only_description: ~
       join_without_facebook: ~
@@ -1318,7 +1322,7 @@ hu:
       only_listing_author_can_edit_a_listing: "Csak a hirdetés feladója szerkesztheti a hirdetést\n"
       payment_successful: "Sikeres fizetés"
       payment_canceled: "Fizetés megszakítva"
-      error_in_payment: ~
+      error_in_payment: "Hiba a kifizetésben. Ha még nem fizetett, probálja újra. Ha fizetett, kérjük értesítsen minket."
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: "A jelszómódosítás útmutatásairól e-mailben értesítettük."
@@ -1516,7 +1520,7 @@ hu:
         comma_separate: "(vessző elválasztó)"
         tags: Címkék
       title:
-        listing_title: ~
+        listing_title: "A hírdetés címe"
       valid_until:
         valid_until: "Lejárat dátuma"
       valid_until_radio_buttons:
@@ -1846,10 +1850,10 @@ hu:
       open_listings: "Aktuális hirdetések"
       no_listings: "Nincs hirdetés"
       no_open_listings: "Nincs nyitott hirdetés"
-      no_reviews: ~
+      no_reviews: "Nincs értékelés"
       show_all_listings: "Mutassa az összes hirdetést"
       show_all_open_listings: "Összes nyitott hirdetés mutatása"
-      show_all_reviews: ~
+      show_all_reviews: "Az összes értékelés megjelenítése"
     followed_people:
       you_follow_plural: "Ön követi %{count} embert"
       you_follow_singular: "Ön követi %{count} személyt"
@@ -1950,8 +1954,8 @@ hu:
       email_when_conversation_accepted: "valaki elfogadta az ajánlatomat vagy ajánlatkérésemet."
       email_when_conversation_rejected: "valaki visszautasította az ajánlatomat vagy ajánlatkérésemet."
       email_about_completed_transactions: ~
-      email_about_new_payments: ~
-      email_about_payment_reminders: ~
+      email_about_new_payments: "...Új kifizetést kapok"
+      email_about_payment_reminders: "...Elfelejtettem fizetni"
       email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: "Leiratkozás sikeres"
       unsubscribe_info_text: ~
@@ -2018,7 +2022,7 @@ hu:
       negative: Negatív
       default_textual_feedback: "Minden zökkenőmentes volt, nagyon köszönöm!"
     testimonial:
-      about_listing: ~
+      about_listing: "a hirdetéssel kapcsolatban"
   date:
     formats:
       long_with_abbr_day_name: ~
