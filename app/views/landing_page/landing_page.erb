@@ -171,25 +171,35 @@
   <%= javascript_include_tag 'app-bundle' %>
 
   <script>
-    var renderTopBar = function renderTopBar(props, marketplaceCtx) {
-      componentFn = function (props) {
-        return window.ReactOnRails.getComponent('TopbarApp').component(props, marketplaceCtx)
-      }
-      ReactDOM.render(React.createElement(componentFn, props), document.getElementById('topbar-placeholder'));
-    };
+    (function() {
+      var renderTopBar = function renderTopBar(props, marketplaceCtx) {
+        componentFn = function (props) {
+          return window.ReactOnRails.getComponent('TopbarApp').component(props, marketplaceCtx)
+        }
+        ReactDOM.render(React.createElement(componentFn, props), document.getElementById('topbar-placeholder'));
+      };
 
-    staticProps = <%= topbar_props.to_json.html_safe %>
-    staticMarketplaceContext = <%= marketplace_context.to_json.html_safe %>
+      var staticProps = <%= topbar_props.to_json.html_safe %>
+      var staticMarketplaceContext = <%= marketplace_context.to_json.html_safe %>
 
-    renderTopBar(staticProps, staticMarketplaceContext);
+      var p = Promise.race([
+        window.fetch("<%= topbar_props_path %>", { credentials: 'same-origin' }),
+        new Promise(function (resolve, reject) {
+          setTimeout(function() { reject(new Error('request timeout')) }, 3000);
+        })]);
 
-    window.fetch("<%= topbar_props_path %>", { credentials: 'same-origin' })
-      .then(function (res) { return res.json(); })
-      .then(function (resJson) {
-        props = Object.assign({}, staticProps, resJson.props);
-        mCtx = Object.assign({}, staticMarketplaceContext, resJson.marketplaceContext)
-        renderTopBar(props, mCtx);
+      p.then(function (res) { return res.json(); })
+       .then(function (resJson) {
+          props = Object.assign({}, staticProps, resJson.props);
+          mCtx = Object.assign({}, staticMarketplaceContext, resJson.marketplaceContext);
+          renderTopBar(props, mCtx);
+        });
+
+      p.catch(function(error) {
+        console.error(error);
+        renderTopBar(staticProps, staticMarketplaceContext);
       });
+    }());
   </script>
   <% end %>
 
