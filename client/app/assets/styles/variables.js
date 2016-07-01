@@ -104,6 +104,7 @@ module.exports = {
   '--Topbar_mobileHeight': '50px',
   '--Topbar_padding': `0 ${bodyPadding}`,
   '--Topbar_tabletPadding': `0 ${bodyPadding} 0 6px`,
+  '--Topbar_mobilePadding': '0 1px 0 0',
   '--Topbar_itemSpacing': '24px',
   '--Topbar_mobileItemSpacing': '18px',
   '--Topbar_logoHeight': '25px',

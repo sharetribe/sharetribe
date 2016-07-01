@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   height: var(--Topbar_mobileHeight);
+  padding: var(--Topbar_mobilePadding);
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
@@ -141,6 +142,14 @@
   }
 }
 
+.topbarMobileSearchPlaceholder {
+  width: var(--SearchBar_mobileHeight);
+
+  @media (--medium-viewport) {
+    display: none;
+  }
+}
+
 .topbarMobileMenu {
   font-size: var(--Topbar_fontSizeMobile);
   margin-right: 0;
@@ -158,5 +167,13 @@
 
   @media (--large-viewport) {
     margin: var(--Topbar_avatarPadding);
+  }
+}
+
+.topbarLinks {
+  display: none;
+
+  @media (--large-viewport) {
+    display: block;
   }
 }
