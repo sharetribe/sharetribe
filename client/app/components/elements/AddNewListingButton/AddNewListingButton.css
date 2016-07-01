@@ -82,5 +82,6 @@
   @media (--large-viewport) {
     height: var(--AddNewListingButton_height);
     line-height: calc(var(--AddNewListingButton_height) - 1px);
+    font-size: var(--AddNewListingButton_textSize);
   }
 }
