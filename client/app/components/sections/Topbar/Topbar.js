@@ -146,7 +146,8 @@ class Topbar extends Component {
             { ...this.props.avatarDropdown.avatar, ...{ url: profileRoute } } :
           null;
 
-    const loginRoute = this.props.routes.login_path ? this.props.routes.login_path() : '#';
+    const pathParams = { return_to: location };
+    const loginRoute = this.props.routes.login_path ? this.props.routes.login_path(pathParams) : '#';
     const signupRoute = this.props.routes.sign_up_path ? this.props.routes.sign_up_path() : '#';
 
     const mobileMenuProps = this.props.menu ?
