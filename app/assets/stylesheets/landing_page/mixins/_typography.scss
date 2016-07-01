@@ -1,7 +1,37 @@
 $typography__main-color: #525961;
 
+//
+// Basic fonts
+//
+
+$typography__font-family: 'Proxima Nova Soft', Helvetica, sans;
+
+@mixin typography__regular {
+  font-family: $typography__font-family;
+  font-weight: 400;
+}
+
+@mixin typography__medium {
+  font-family: $typography__font-family;
+  font-weight: 500;
+}
+
+@mixin typography__semibold {
+  font-family: $typography__font-family;
+  font-weight: 600;
+}
+
+@mixin typography__bold {
+  font-family: $typography__font-family;
+  font-weight: 700;
+}
+
+//
+// Section typography
+//
+
 @mixin typography__section-title {
-  font-family: ProximaNovaSoft-Regular;
+  @include typography__regular;
 
   // mobile
   font-size: 26px;
@@ -20,7 +50,7 @@ $typography__main-color: #525961;
 }
 
 @mixin typography__section-paragraph {
-  font-family: ProximaNovaSoft-Regular;
+  @include typography__regular;
 
   // mobile
   margin: 18px 0 36px 0;

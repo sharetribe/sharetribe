@@ -84,7 +84,7 @@ $footer__link-margin-tablet: 16px;
 
 .footer__link {
   display: inline-block;
-  font-family: ProximaNovaSoft-Medium;
+  @include typography__medium;
   color: inherit;
 
   .footer__container--dark & {
@@ -141,7 +141,7 @@ $footer__link-margin-tablet: 16px;
 }
 
 .footer__copyrights {
-  font-family: ProximaNovaSoft-Regular;
+  @include typography__regular;
   text-align: center;
 
   .footer__container--dark & {

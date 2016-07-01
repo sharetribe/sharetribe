@@ -236,7 +236,7 @@ $content-padding: 36px;
 
 .info__column-title {
   color: #525961;
-  font-family: ProximaNovaSoft-Medium;
+  @include typography__medium;
 
   // mobile
   margin: 0px 0px 14px 0px;
@@ -259,7 +259,7 @@ $content-padding: 36px;
 }
 
 .info__column-paragraph {
-  font-family: ProximaNovaSoft-Regular;
+  @include typography__regular;
   color: #525961;
 
   // mobile

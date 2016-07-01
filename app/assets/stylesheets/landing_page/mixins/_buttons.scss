@@ -1,3 +1,4 @@
+@import "./typography";
 
 /*
 Generic landing page button
@@ -12,7 +13,7 @@ You may want to override following properties:
 .landing-page__button {
   $button-border-size: 2px;
 
-  font-family: ProximaNovaSoft-Bold;
+  @include typography__bold;
   font-size: 16px;
   letter-spacing: 0px;
   padding: (16px - $button-border-size) (32px - $button-border-size);
