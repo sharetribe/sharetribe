@@ -11,6 +11,8 @@ const defaultRailsContext = {
 
   marketplace_color1: '#ee4',
   marketplace_color2: '#00a26c',
+
+  loggedInUsername: 'foo',
 };
 
 const withProps = function withProps(component, props) {

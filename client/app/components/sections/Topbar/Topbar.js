@@ -195,7 +195,7 @@ class Topbar extends Component {
             console.log('submit search'); // eslint-disable-line no-console
           }),
         }) :
-        null,
+        div({ className: css.topbarMobileSearchPlaceholder }),
       this.props.menu ? r(Menu, { ...menuProps, className: css.topbarMenu }) : null,
       div({ className: css.topbarSpacer }),
       hasMultipleLanguages ? r(Menu, { ...languageMenuProps, className: css.topbarMenu }) : null,
@@ -208,6 +208,7 @@ class Topbar extends Component {
           loginUrl: loginRoute,
           signupUrl: signupRoute,
           customColor: marketplace_color1,
+          className: css.topbarLinks,
         }),
       this.props.newListingButton ?
         r(AddNewListingButton, {

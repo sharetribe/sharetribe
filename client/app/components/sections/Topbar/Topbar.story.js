@@ -6,9 +6,17 @@ import Topbar from './Topbar';
 
 const containerStyle = { style: { minWidth: '600px', background: 'white' } };
 
+const fakeRoute = () => '#';
+
 const baseProps = {
   marketplaceContext: defaultRailsContext,
-  routes: {},
+  routes: {
+    person_inbox_path: fakeRoute,
+    person_path: fakeRoute,
+    person_settings_path: fakeRoute,
+    logout_path: fakeRoute,
+    admin_path: fakeRoute,
+  },
   logo: {
     href: 'http://example.com',
     text: 'Bikerrrs',
@@ -79,6 +87,14 @@ const baseProps = {
   },
 };
 
+const loggedOut = (props) => ({
+  ...props,
+  marketplaceContext: {
+    ...props.marketplaceContext,
+    loggedInUsername: null,
+  },
+});
+
 const storifyTopbar = (props) => r(storify(r(Topbar, props)), containerStyle);
 
 storiesOf('Top bar')
@@ -90,6 +106,8 @@ storiesOf('Top bar')
       marketplaceContext: baseProps.marketplaceContext,
       routes: baseProps.routes,
     })))
+  .add('Logged out', () => (
+    storifyTopbar(loggedOut(baseProps))))
   .add('Text logo', () => (
     storifyTopbar({ ...baseProps, logo: {
       href: 'http://example.com',
@@ -102,6 +120,8 @@ storiesOf('Top bar')
     } })))
   .add('Without search', () => (
     storifyTopbar({ ...baseProps, search: null })))
+  .add('Without search, logged out', () => (
+    storifyTopbar({ ...loggedOut(baseProps), search: null })))
   .add('With keyword search', () => (
     storifyTopbar({ ...baseProps, search: { mode: 'keyword' } })))
   .add('With location search', () => (
