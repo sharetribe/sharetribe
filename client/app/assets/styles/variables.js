@@ -196,6 +196,7 @@ module.exports = {
   '--MenuSection_paddingOffScreenHorizontal': pxToEms(24, 12), // eslint-disable-line no-magic-numbers
 
   '--MobileMenu_offscreenMenuWidth': '300px',
+  '--MobileMenu_offscreenHeaderItemHeight': '44px',
 
   '--AddNewListingButton_height': topbarItemHeight,
   '--AddNewListingButton_tabletHeight': topbarMediumItemHeight,

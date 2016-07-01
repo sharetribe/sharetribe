@@ -1,6 +1,7 @@
 import { Component, PropTypes } from 'react';
 import r, { div } from 'r-dom';
 
+import * as variables from '../../../assets/styles/variables';
 import css from './MenuMobile.css';
 import MenuSection from './MenuSection';
 import Avatar from '../../elements/Avatar/Avatar';
@@ -11,10 +12,13 @@ class OffScreenMenu extends Component {
 
   render() {
     const isOpenClass = this.props.isOpen ? css.offScreenMenuOpen : '';
+    const headerItemHeight = variables['--MobileMenu_offscreenHeaderItemHeight'];
 
+    const avatarExtras = { imageHeight: headerItemHeight };
+    const buttonExtras = { className: css.offScreenHeaderNewListingButton };
     const header = this.props.avatar ? [
-      this.props.avatar ? r(Avatar, this.props.avatar) : null,
-      this.props.newListingButton ? r(AddNewListingButton, this.props.newListingButton) : null,
+      this.props.avatar ? r(Avatar, { ...this.props.avatar, ...avatarExtras }) : null,
+      this.props.newListingButton ? r(AddNewListingButton, { ...this.props.newListingButton, ...buttonExtras }) : null,
     ] : [
       r(LoginLinks, this.props.loginLinks),
     ];

@@ -74,7 +74,12 @@
 
 .offScreenHeader {
   display: flex;
-  padding: var(--MenuItem_paddingOffScreenVertical) var(--MenuItem_paddingOffScreenHorizontal);
+  margin: var(--MenuItem_paddingOffScreenVertical) var(--MenuItem_paddingOffScreenHorizontal);
+}
+
+.offScreenHeaderNewListingButton span {
+  height: var(--MobileMenu_offscreenHeaderItemHeight);
+  line-height: var(--MobileMenu_offscreenHeaderItemHeight);
 }
 
 .offScreenMain {
