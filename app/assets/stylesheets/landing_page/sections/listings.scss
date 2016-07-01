@@ -144,7 +144,7 @@ $listings__tablet-gutter: 16px;
 .listings__no-listing-image-text {
   font-size: 14px;
   margin-top: 8px;
-  font-family: ProximaNovaSoft-Semibold;
+  @include typography__semibold;
 }
 
 .listings__button--ghost {
@@ -156,7 +156,7 @@ $listings__tablet-gutter: 16px;
   margin: 18px 24px;
   padding: 0;
 
-  font-family: ProximaNovaSoft-Medium;
+  @include typography__medium;
 
   // override the link color
   color: $typography__main-color;
@@ -193,7 +193,7 @@ $listings__tablet-gutter: 16px;
 }
 
 .listings__price-text {
-  font-family: ProximaNovaSoft-Medium;
+  @include typography__medium;
 
   @media #{$desktop} {
     font-size: 20px;
@@ -210,7 +210,7 @@ $listings__tablet-gutter: 16px;
 }
 
 .listings__price-unit {
-  font-family: ProximaNovaSoft-Medium;
+  @include typography__medium;
 
   @media #{$desktop} {
     font-size: 14px;
@@ -259,7 +259,7 @@ $listings__tablet-gutter: 16px;
 }
 
 .listings__author-name {
-  font-family: ProximaNovaSoft-Medium;
+  @include typography__medium;
 
   margin-left: 8px;
 

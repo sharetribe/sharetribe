@@ -51,7 +51,7 @@
 }
 
 .video__youtube-watch-video-text {
-  font-family: ProximaNovaSoft-Semibold;
+  @include typography__semibold;
   font-size: 12px;
   color: #FFFFFF;
   letter-spacing: 3px;

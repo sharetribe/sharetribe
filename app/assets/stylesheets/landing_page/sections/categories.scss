@@ -302,7 +302,7 @@ $categories__mobile-gutter: 12px;
 .categories__category-title {
   color: #FFF;
   margin: 0 auto;
-  font-family: ProximaNovaSoft-Semibold;
+  @include typography__semibold;
   letter-spacing: 0px;
   line-height: 22px;
 
