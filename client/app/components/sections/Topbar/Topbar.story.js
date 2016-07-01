@@ -72,9 +72,6 @@ const baseProps = {
     },
     avatar: {
       image: 'https://www.gravatar.com/avatar/d0865b2133d55fd507639a0fd1692b9a',
-      onClick: () => {
-        action('clicked avatar');
-      },
     },
   },
   newListingButton: {

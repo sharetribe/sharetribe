@@ -160,24 +160,3 @@
     margin: var(--Topbar_avatarPadding);
   }
 }
-
-.topbarLinks {
-  height: 100%;
-
-  & .topbarLink {
-    display: inline-block;
-    height: 100%;
-    line-height: var(--Topbar_mobileHeight);
-    padding: 0 0.5em;
-
-    &:hover {
-      background-color: var(--Topbar_borderColor);
-      filter: none;
-    }
-
-    @media (--large-viewport) {
-      line-height: var(--Topbar_height);
-    }
-  }
-}
-

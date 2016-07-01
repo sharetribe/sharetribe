@@ -7,11 +7,11 @@ import { className as classNameProp } from '../../../utils/PropTypes';
 import * as variables from '../../../assets/styles/variables';
 import css from './AddNewListingButton.css';
 
-export default function AddNewListingButton({ text, url, customColor, className }) {
+export default function AddNewListingButton({ text, url, customColor, className, mobileLayoutOnly }) {
   const buttonText = `+ ${text}`;
   const color = customColor || variables['--AddNewListingButton_defaultColor'];
   return a({
-    className: classNames(className, 'AddNewListingButton', css.button),
+    className: classNames(className, 'AddNewListingButton', css.button, { [css.responsiveLayout]: !mobileLayoutOnly }),
     href: url,
     title: text,
   }, [
@@ -42,6 +42,7 @@ export default function AddNewListingButton({ text, url, customColor, className 
 AddNewListingButton.propTypes = {
   text: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
+  mobileLayoutOnly: PropTypes.bool,
 
   // Marketplace color or default color
   customColor: PropTypes.string,

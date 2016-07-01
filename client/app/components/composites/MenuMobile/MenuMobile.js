@@ -14,7 +14,6 @@ class MenuMobile extends Component {
     super(props, context);
 
     this.handleClick = this.handleClick.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
     this.state = {
       isOpen: false,
@@ -23,10 +22,6 @@ class MenuMobile extends Component {
 
   handleClick() {
     this.setState({ isOpen: !this.state.isOpen });// eslint-disable-line react/no-set-state
-  }
-
-  handleBlur() {
-    this.closeMenu();
   }
 
   closeMenu() {
@@ -40,7 +35,6 @@ class MenuMobile extends Component {
 
     return div({
       className: classNames(this.props.className, 'MenuMobile', css.menuMobile, extraClasses, openClass),
-      onBlur: this.handleBlur,
       tabIndex: 0,
     }, [
       div({
@@ -60,6 +54,9 @@ class MenuMobile extends Component {
         menuLinks: this.props.menuLinks,
         userLinksTitle: this.props.userLinksTitle,
         userLinks: this.props.userLinks,
+        avatar: this.props.avatar,
+        newListingButton: this.props.newListingButton,
+        loginLinks: this.props.loginLinks,
       }),
     ]);
   }
@@ -91,6 +88,9 @@ MenuMobile.propTypes = {
     })
   ),
   className,
+  avatar: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  newListingButton: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  loginLinks: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
 export default MenuMobile;

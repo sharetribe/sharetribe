@@ -12,7 +12,7 @@ import Menu from '../../composites/Menu/Menu';
 import MenuMobile from '../../composites/MenuMobile/MenuMobile';
 import AvatarDropdown from '../../composites/AvatarDropdown/AvatarDropdown';
 import AddNewListingButton from '../../elements/AddNewListingButton/AddNewListingButton';
-import Link from '../../elements/Link/Link';
+import LoginLinks from '../../composites/LoginLinks/LoginLinks';
 
 const profileDropdownActions = function profileDropdownActions(routes, username) {
   return username ?
@@ -86,30 +86,6 @@ const profileLinks = function profileLinks(username, router, location, customCol
   return [];
 };
 
-const LoginLinks = ({ loginUrl, signupUrl, customColor }) =>
-  div({
-    className: 'LoginLinks',
-    classSet: { [css.topbarLinks]: true },
-  }, [
-    r(Link, {
-      className: css.topbarLink,
-      href: signupUrl,
-      customColor,
-      openInNewTab: true,
-    }, t('web.topbar.signup')),
-    r(Link, {
-      className: css.topbarLink,
-      href: loginUrl,
-      customColor,
-    }, t('web.topbar.login')),
-  ]);
-
-LoginLinks.propTypes = {
-  loginUrl: PropTypes.string.isRequired,
-  signupUrl: PropTypes.string.isRequired,
-  customColor: PropTypes.string,
-};
-
 const DEFAULT_CONTEXT = {
   marketplace_color1: styleVariables['--customColorFallback'],
   marketplace_color2: styleVariables['--customColor2Fallback'],
@@ -159,6 +135,21 @@ class Topbar extends Component {
       }) :
       {};
 
+    const newListingRoute = this.props.routes && this.props.routes.new_listing_path ?
+            this.props.routes.new_listing_path() :
+            '#';
+
+    const profileRoute = this.props.routes && this.props.routes.person_path && loggedInUsername ?
+            this.props.routes.person_path(loggedInUsername) :
+            null;
+    const mobileMenuAvatarProps = this.props.avatarDropdown && loggedInUsername ?
+            { ...this.props.avatarDropdown.avatar, ...{ url: profileRoute } } :
+          null;
+
+    const pathParams = { return_to: location };
+    const loginRoute = this.props.routes.login_path ? this.props.routes.login_path(pathParams) : '#';
+    const signupRoute = this.props.routes.sign_up_path ? this.props.routes.sign_up_path() : '#';
+
     const mobileMenuProps = this.props.menu ?
       Object.assign({}, this.props.menu, {
         key: 'mobilemenu',
@@ -179,14 +170,17 @@ class Topbar extends Component {
         )),
         userLinksTitle: t('web.topbar.user'),
         userLinks: profileLinks(loggedInUsername, this.props.routes, location, marketplace_color1),
+        avatar: mobileMenuAvatarProps,
+        newListingButton: this.props.newListingButton ?
+          { ...this.props.newListingButton, ...{ url: newListingRoute, mobileLayoutOnly: true } } :
+          null,
+        loginLinks: {
+          loginUrl: loginRoute,
+          signupUrl: signupRoute,
+          customColor: marketplace_color1,
+        },
       }) :
       {};
-
-    const newListingRoute = this.props.routes.new_listing_path ?
-            this.props.routes.new_listing_path() :
-            '#';
-    const loginRoute = this.props.routes.login_path ? this.props.routes.login_path() : '#';
-    const signupRoute = this.props.routes.sign_up_path ? this.props.routes.sign_up_path() : '#';
 
     return div({ className: css.topbar }, [
       this.props.menu ? r(MenuMobile, { ...mobileMenuProps, className: css.topbarMobileMenu }) : null,
