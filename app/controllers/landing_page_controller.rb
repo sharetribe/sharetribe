@@ -106,7 +106,6 @@ class LandingPageController < ActionController::Metal
 
       self.status = 200
       self.response_body = render_landing_page(
-        community_id: cid,
         default_locale: default_locale,
         locale_param: locale_param,
         structure: structure
@@ -126,7 +125,6 @@ class LandingPageController < ActionController::Metal
   def build_html(community_id:, default_locale:, locale_param:, version:)
     structure = CLP::LandingPageStore.load_structure(community_id, version)
     render_landing_page(
-      community_id: community_id,
       default_locale: default_locale,
       structure: structure,
       locale_param: locale_param
@@ -215,24 +213,26 @@ class LandingPageController < ActionController::Metal
       apple_touch_icon: c.logo.url(:apple_touch) }
   end
 
-  def render_landing_page(community_id:, default_locale:, locale_param:, structure:)
+  def render_landing_page(default_locale:, locale_param:, structure:)
+    c = community(request)
+
     landing_page_locale, sitename = structure["settings"].values_at("locale", "sitename")
     topbar_locale = locale_param.present? ? locale_param : default_locale
 
-    initialize_i18n!(community_id, locale)
+    initialize_i18n!(c&.id, locale)
 
-    props = topbar_props(community(request),
+    props = topbar_props(c,
                          community_customization(request, landing_page_locale),
                          request.fullpath,
                          locale_param,
                          topbar_locale)
-    marketplace_context = marketplace_context(community_id, topbar_locale, request)
+    marketplace_context = marketplace_context(c, topbar_locale, request)
     topbar_enabled = feature_enabled?(FEATURE_FLAG)
 
-    google_maps_key = community(request).google_maps_key
+    google_maps_key = c&.google_maps_key
 
     denormalizer = build_denormalizer(
-      cid: community_id,
+      cid: c&.id,
       locale_param: locale_param,
       default_locale: default_locale,
       sitename: sitename
@@ -279,7 +279,7 @@ class LandingPageController < ActionController::Metal
       locale_param: locale_param)
   end
 
-  def marketplace_context(community_id, locale, request)
+  def marketplace_context(community, locale, request)
     uri = Addressable::URI.parse(request.original_url)
 
     result = {
@@ -298,8 +298,9 @@ class LandingPageController < ActionController::Metal
       httpAcceptLanguage: request.env["HTTP_ACCEPT_LANGUAGE"],
 
       # Extension(s)
-      marketplaceId: community_id
-    }
+      marketplaceId: community.id,
+      loggedInUsername: nil
+    }.merge(CommonStylesHelper.marketplace_colors(community))
 
     result
   end

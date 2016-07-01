@@ -3,10 +3,16 @@ class TopbarApiController < ApplicationController
 
   def props
     locale = params[:locale]
-    p = topbar_props(context_objects(), locale)
+    community, user, community_customization = context_objects()
+                                               .values_at(:community, :user, :community_customization)
+
+    p = topbar_props(community, user, community_customization, locale)
+    m_ctx = marketplace_context(community, user)
+    result = { props: p, marketplaceContext: m_ctx }
+
     respond_to do |format|
-      format.html { render text: p.to_json.html_safe }
-      format.json { render json: p.to_json }
+      format.html { render text: result.to_json.html_safe }
+      format.json { render json: result.to_json }
     end
   end
 
@@ -19,12 +25,10 @@ class TopbarApiController < ApplicationController
       community_customization: @community_customization }
   end
 
-  def topbar_props(ctx, locale)
+  def topbar_props(community, user, community_customization, locale)
     if locale
       I18n.locale = locale
     end
-
-    community, user, community_customization = ctx.values_at(:community, :user, :community_customization)
 
     props = TopbarHelper.topbar_props(
       community: community,
@@ -42,5 +46,20 @@ class TopbarApiController < ApplicationController
     # the JS side inside the component.
     props.delete(:locales)
     props
+  end
+
+  def marketplace_context(community, user)
+    # This is just the extensions part of the marketplaceContext
+    # (railsContext) and is assumed to be merged over an existing full
+    # context. We cannot build the full context because we don't know
+    # the path from where this is being called from (nor should that
+    # be the job of the server to handle).
+    result = {
+      # Extensions
+      marketplaceId: community&.id,
+      loggedInUsername: user&.username
+    }.merge(CommonStylesHelper.marketplace_colors(community))
+
+    result
   end
 end

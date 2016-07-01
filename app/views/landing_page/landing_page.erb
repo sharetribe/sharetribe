@@ -178,14 +178,18 @@
       ReactDOM.render(React.createElement(componentFn, props), document.getElementById('topbar-placeholder'));
     };
 
-    static_props = <%= topbar_props.to_json.html_safe %>
-    marketplaceContext = <%= marketplace_context.to_json.html_safe %>
+    staticProps = <%= topbar_props.to_json.html_safe %>
+    staticMarketplaceContext = <%= marketplace_context.to_json.html_safe %>
 
-    renderTopBar(static_props, marketplaceContext);
+    renderTopBar(staticProps, staticMarketplaceContext);
 
     window.fetch("<%= topbar_props_path %>", { credentials: 'same-origin' })
       .then(function (res) { return res.json(); })
-      .then(function (props) { renderTopBar(Object.assign({}, static_props, props), marketplaceContext); });
+      .then(function (resJson) {
+        props = Object.assign({}, staticProps, resJson.props);
+        mCtx = Object.assign({}, staticMarketplaceContext, resJson.marketplaceContext)
+        renderTopBar(props, mCtx);
+      });
   </script>
   <% end %>
 
