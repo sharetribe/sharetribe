@@ -1,0 +1,7 @@
+.link {
+  transition: all 100ms ease-in;
+
+  &:hover {
+    filter: brightness(80%);
+  }
+}

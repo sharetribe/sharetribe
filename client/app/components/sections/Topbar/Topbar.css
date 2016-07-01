@@ -6,7 +6,7 @@
   justify-content: space-between;
   align-items: center;
   background: var(--colorBackground);
-  border-bottom: 1px solid rgba(0, 0, 50, 0.1);
+  border-bottom: 1px solid var(--Topbar_borderColor);
 
   font-size: var(--Topbar_fontSize);
 
@@ -160,3 +160,24 @@
     margin: var(--Topbar_avatarPadding);
   }
 }
+
+.topbarLinks {
+  height: 100%;
+
+  & .topbarLink {
+    display: inline-block;
+    height: 100%;
+    line-height: var(--Topbar_mobileHeight);
+    padding: 0 0.5em;
+
+    &:hover {
+      background-color: var(--Topbar_borderColor);
+      filter: none;
+    }
+
+    @media (--large-viewport) {
+      line-height: var(--Topbar_height);
+    }
+  }
+}
+

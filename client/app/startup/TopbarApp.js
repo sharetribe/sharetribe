@@ -16,6 +16,8 @@ export default (props, marketplaceContext) => {
     'person_settings',
     'logout',
     'admin',
+    'login',
+    'sign_up',
   ], { locale });
 
   const combinedProps = Object.assign({}, props, { marketplaceContext, routes });
