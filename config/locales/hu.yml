@@ -628,7 +628,7 @@ hu:
       optional_message_to: ~
       send_message: "Küldjön üzenetet"
       send: Elküld
-      this_message_is_private: ~
+      this_message_is_private: "Ez egy privát üzenet ön és %{person} között. %{person} e-mailben fog kapni értesítést erről az üzenetről."
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
       title: Megszólítás
@@ -873,7 +873,7 @@ hu:
       has_commented_your_listing_in_kassi: "%{author} hozzászólt az ön hirdetéséhez %{listing}"
       view_comment: "Hozzászólás megtekintése"
       you_have_a_new_comment: "%{author} megjegyzést fűzött az Ön %{service_name} hirdetéséhez"
-      listing_you_follow_has_a_new_comment: ~
+      listing_you_follow_has_a_new_comment: "%{author} kommentálta a hirdetést amelyet követ %{service_name}"
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: "Üzenetek megtekintése"
@@ -1036,10 +1036,10 @@ hu:
       positive_number: ~
   event_feed_events:
     accept:
-      has_accepted_lend_item: ~
-      has_accepted_borrow_item: ~
-      has_accepted_rent_out_item: ~
-      has_accepted_rent_item: ~
+      has_accepted_lend_item: "%{offerer_name} engedélyezte %{listing_title} kölcsönadását %{requester_name} számára %{time_ago}"
+      has_accepted_borrow_item: "%{offerer_name} engedélyezte %{listing_title} kölcsözését %{requester_name} számára %{time_ago}"
+      has_accepted_rent_out_item: "%{offerer_name} engedélyezte %{listing_title} a bérlését %{requester_name} számára %{time_ago}"
+      has_accepted_rent_item: "%{offerer_name} engedélyezte %{listing_title} a bérlését %{requester_name} számára %{time_ago}"
       has_accepted_give_away_item: ~
       has_accepted_receive_item: ~
       has_accepted_sell_item: ~
@@ -1877,7 +1877,7 @@ hu:
       i_forgot_my_password: "Elfelejtett felhasználónév vagy jelszó"
       login: Bejelentkezés
       login_to_kassi: "Bejelentkezés az %{service_name}"
-      connect_your_facebook_to_kassi: ~
+      connect_your_facebook_to_kassi: "Csatlakoztassa a Facebook profilját a %{service_name}-hoz."
       facebook_account: "Facebook felhasználói fiók"
       log_in_to_link_account: ~
       you_can_also_create_new_account: ~
