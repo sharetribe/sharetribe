@@ -80,6 +80,10 @@
     font-size: var(--Menu_fontSizeSmall);
   }
 
+  & .topbarLanguageMenu {
+    margin-right: calc(var(--Topbar_itemSpacing) - 15.54px); /* doesn't get much more magical than this */
+  }
+
   & > * {
     @media (--medium-viewport) {
       margin-right: var(--Topbar_mobileItemSpacing);
