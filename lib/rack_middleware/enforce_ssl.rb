@@ -6,7 +6,19 @@ class EnforceSsl
   def call(env)
     req = ::Rack::Request.new(env)
     if ::APP_CONFIG.always_use_ssl.to_s == "true" && !req.ssl? # always_use_ssl can be string if it comes from ENV
-      redirect("https://#{req.host}#{req.fullpath}")
+      domain = ::APP_CONFIG.domain
+
+      # If request is for something.IDENT.domain, strip "something" before redirecting
+      # This avoids issue with wildcard SSL certificate covering *.domain
+      matches = /^(.*)\.(([^\.]+)\.#{domain})$/.match(req.host)
+      redirect_host = if matches
+                        matches[2]
+                      else
+                        req.host
+                      end
+
+      path = req.fullpath == "/" ? "" : req.fullpath
+      redirect("https://#{redirect_host}#{path}")
     else
       @app.call(env)
     end
