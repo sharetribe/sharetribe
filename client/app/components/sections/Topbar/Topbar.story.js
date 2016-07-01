@@ -71,7 +71,6 @@ const baseProps = {
       logoutAction: action('clicked logout'),
     },
     avatar: {
-      imageHeight: '44px',
       image: 'https://www.gravatar.com/avatar/d0865b2133d55fd507639a0fd1692b9a',
       onClick: () => {
         action('clicked avatar');
@@ -104,6 +103,8 @@ storiesOf('Top bar')
       href: 'http://example.com',
       text: 'My Marketplace with a looong name',
     } })))
+  .add('Without search', () => (
+    storifyTopbar({ ...baseProps, search: null })))
   .add('With keyword search', () => (
     storifyTopbar({ ...baseProps, search: { mode: 'keyword' } })))
   .add('With location search', () => (

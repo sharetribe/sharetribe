@@ -36,8 +36,6 @@
 .desktop {
   position: relative;
   padding: 0 var(--AddNewListingButton_textPadding);
-  height: var(--AddNewListingButton_height);
-  line-height: calc(var(--AddNewListingButton_height) - 1px);
   max-width: var(--AddNewListingButton_maxTextWidth);
   white-space: nowrap;
   overflow: hidden;
@@ -45,6 +43,8 @@
 }
 
 .mobile {
+  height: var(--AddNewListingButton_tabletHeight);
+  line-height: calc(var(--AddNewListingButton_tabletHeight) - 1px);
   display: block;
   transition: filter 100ms ease-in;
 
@@ -64,8 +64,15 @@
 .desktop {
   display: none;
   color: var(--AddNewListingButton_textColor);
+  height: var(--AddNewListingButton_tabletHeight);
+  line-height: calc(var(--AddNewListingButton_tabletHeight) - 1px);
 
   @media (--medium-viewport) {
     display: block;
+  }
+
+  @media (--large-viewport) {
+    height: var(--AddNewListingButton_height);
+    line-height: calc(var(--AddNewListingButton_height) - 1px);
   }
 }

@@ -4,6 +4,7 @@
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   border-bottom: 8px solid var(--ProfileDropdown_borderColor);
+  margin-top: 3px;
 }
 
 .box {
@@ -46,6 +47,7 @@
 .logoutArea {
   border-top: var(--ProfileDropdown_border);
   padding: 0.69em 1.15em;
+  font-size: var(--ProfileDropdown_textLinkSize);
 }
 
 .adminLink {
@@ -56,4 +58,5 @@
 .logoutLink {
   float: right;
   cursor: pointer;
+  color: var(--ProfileDropdown_logoutLinkColor);
 }
