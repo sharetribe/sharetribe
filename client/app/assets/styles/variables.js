@@ -171,6 +171,8 @@ module.exports = {
   '--MenuItem_paddingTopbarHorizontal': pxToEms(24, 14), // eslint-disable-line no-magic-numbers
   '--MenuItem_paddingOffScreenVertical': pxToEms(10, 17), // eslint-disable-line no-magic-numbers
   '--MenuItem_paddingOffScreenHorizontal': pxToEms(24, 17), // eslint-disable-line no-magic-numbers
+  '--MenuItem_paddingOffScreenHorizontalTablet': '36px', // eslint-disable-line no-magic-numbers
+  '--MenuItem_fontSize': fontSizeBig,
   '--MenuItem_textColor': textColor,
   '--MenuItem_textColorFocus': textColorFocus,
   '--MenuItem_textColorDefault': customColorFallback,
@@ -198,7 +200,7 @@ module.exports = {
   '--MenuSection_paddingOffScreenVertical': pxToEms(10, 12), // eslint-disable-line no-magic-numbers
   '--MenuSection_paddingOffScreenHorizontal': pxToEms(24, 12), // eslint-disable-line no-magic-numbers
 
-  '--MobileMenu_offscreenMenuWidth': '300px',
+  '--MobileMenu_offscreenMenuWidth': '288px',
   '--MobileMenu_offscreenHeaderItemHeight': '44px',
 
   '--AddNewListingButton_height': topbarItemHeight,
