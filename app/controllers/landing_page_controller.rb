@@ -282,10 +282,12 @@ class LandingPageController < ActionController::Metal
   def marketplace_context(community, locale, request)
     uri = Addressable::URI.parse(request.original_url)
 
+    location = uri.path + (uri.query.present? ? "?#{uri.query}" : "")
+
     result = {
       # URL settings
       href: request.original_url,
-      location: "#{uri.path}#{uri.query.present? ? '?#{uri.query}' : ''}",
+      location: location,
       scheme: uri.scheme,
       host: uri.host,
       port: uri.port,
@@ -304,6 +306,7 @@ class LandingPageController < ActionController::Metal
 
     result
   end
+
 
   # rubocop:disable Metrics/MethodLength
   def data_str
