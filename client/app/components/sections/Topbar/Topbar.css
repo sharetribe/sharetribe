@@ -54,8 +54,16 @@
   }
 
   & .topbarLogo {
-    height: var(--Topbar_logoHeight);
+    max-height: var(--Topbar_logoMaxHeightMobile);
     max-width: var(--Topbar_textLogoMaxWidth);
+
+    @media (--medium-viewport) {
+      max-height: var(--Topbar_logoMaxHeightTablet);
+    }
+
+    @media (--large-viewport) {
+      max-height: var(--Topbar_logoMaxHeight);
+    }
   }
 
   & .topbarMenu {
