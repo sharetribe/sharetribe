@@ -13,6 +13,7 @@
   &.touchless:hover {
     & .avatarProfileDropdown {
       display: block;
+      margin-bottom: -11px;
     }
   }
 }
