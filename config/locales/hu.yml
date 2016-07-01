@@ -629,8 +629,8 @@ hu:
       send_message: "Küldjön üzenetet"
       send: Elküld
       this_message_is_private: "Ez egy privát üzenet ön és %{person} között. %{person} e-mailben fog kapni értesítést erről az üzenetről."
-      you_will_get_notified_of_acceptance: ~
-      you_will_get_notified: ~
+      you_will_get_notified_of_acceptance: "Ön e-mailben fog értesítést kapni amint %{person} elfogadja vagy elutasítja az ajánlatát."
+      you_will_get_notified: "Ön e-mailben fog értesítést kapni amint %{person} válaszol önnek."
       title: Megszólítás
       send_message_to_user: "Üzenet küldése %{person} felhasználónak"
       about_listing: "A következő hirdetéssel kapcsolatban: %{listing_title}"
@@ -1349,7 +1349,7 @@ hu:
       you_are_not_authorized_to_do_this: "Önnek ehhez nincs jogosultsága"
       you_are_not_authorized_to_view_this_content: "Önnek nincs jogosultsága ezt megtekinteni"
       listing_closed: "Ez a hirdetés lezárult"
-      send_instructions: ~
+      send_instructions: "Néhány percen belül e-mail-ben küldjük az instrukciókat amelynek segítségével megváltoztathatja jelszavát."
       you_cannot_reply_to_a_closed_offer: "Nem válaszolhat egy lezárt ajánlatra"
       you_cannot_send_message_to_yourself: "Nem küldhet értesítést saját magának"
       you_followed_listing: "Követi ezt a hirdetést"
@@ -1607,7 +1607,7 @@ hu:
       favor_request: "Szolgáltatás kérés"
       inquiry: ~
       item_offer_trade: "Csere ajánlat"
-      item_request_trade: ~
+      item_request_trade: "Cserét ajánl"
       no_description: "Ehhez a felsoroláshoz nincs leírás"
       no_image: "Nincs kép"
       no_reviews: ~
