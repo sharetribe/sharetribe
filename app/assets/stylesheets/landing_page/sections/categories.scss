@@ -292,8 +292,10 @@ $categories__mobile-gutter: 12px;
   width: 100%;
   height: 100%;
 
+  @include hover-transition();
+
   &:hover {
-    @include hover-transition(box-shadow);
+    transform: scale(1.011);
   }
 }
 

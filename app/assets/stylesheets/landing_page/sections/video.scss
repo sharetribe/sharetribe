@@ -4,8 +4,6 @@
   width: 100%;
   overflow: hidden;
 
-  @include prefix-prop(transition, all 2000ms ease-in-out);
-
   @include prefix-val(display, flex);
   @include prefix-prop(flex-direction, column);
   @include prefix-prop(align-items, center);

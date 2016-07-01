@@ -11,6 +11,7 @@ $listings__tablet-gutter: 16px;
   @include prefix-prop(align-items, center);
 
   padding: $dimension-section-margin 0px;
+  background-color: #F9F9F9;
 }
 
 .listings__content {

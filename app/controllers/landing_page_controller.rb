@@ -168,6 +168,7 @@ class LandingPageController < ActionController::Metal
     paths = { "search" => search_path.call(),
               "all_categories" => search_path.call(category: "all"),
               "signup" => sign_up_path(locale: locale_param),
+              "login" => login_path(locale: locale_param),
               "about" => about_infos_path(locale: locale_param),
               "contact_us" => new_user_feedback_path(locale: locale_param),
               "post_a_new_listing" => new_listing_path(locale: locale_param),
@@ -342,8 +343,8 @@ class LandingPageController < ActionController::Metal
       "paragraph": "Section paragraph goes here",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "button_title": "Section link",
-      "button_path": {"value": "https://google.com"},
+      "button_title": "Login",
+      "button_path": {"type": "path", "id": "login"},
       "price_color": {"type": "marketplace_data", "id": "primary_color"},
       "no_listing_image_background_color": {"type": "marketplace_data", "id": "primary_color"},
       "no_listing_image_text": {"type": "translation", "id": "no_listing_image"},
@@ -374,7 +375,8 @@ class LandingPageController < ActionController::Metal
       "variation": "youtube",
       "youtube_video_id": "UffchBUUIoI",
       "width": "1280",
-      "height": "720"
+      "height": "720",
+      "text": "Watch the cool video!"
     },
     {
       "id": "categories7",
@@ -646,7 +648,8 @@ class LandingPageController < ActionController::Metal
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "button_title": "Section link",
-      "button_path": {"value": "https://google.com"}
+      "button_path": {"value": "https://google.com"},
+      "background_color": [255, 0, 255]
     },
     {
       "id": "info1_v4",
@@ -777,7 +780,7 @@ class LandingPageController < ActionController::Metal
         {
           "icon": "quill",
           "title": "Our mission",
-          "paragraph": "Paragraph. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus.",
+          "paragraph": "Paragraph. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
           "button_title": "Section link",
           "button_path": {"value": "https://google.com"}
         },
@@ -871,7 +874,9 @@ class LandingPageController < ActionController::Metal
         {"service": "facebook", "url": "https://www.facebook.com"},
         {"service": "twitter", "url": "https://www.twitter.com"},
         {"service": "instagram", "url": "https://www.instagram.com"},
-        {"service": "youtube", "url": "https://www.youtube.com/channel/UCtefWVq2uu4pHXaIsHlBFnw"}
+        {"service": "youtube", "url": "https://www.youtube.com/channel/UCtefWVq2uu4pHXaIsHlBFnw"},
+        {"service": "googleplus", "url": "https://www.google.com"},
+        {"service": "linkedin", "url": "https://www.google.com"}
       ],
       "copyright": "Copyright Marketplace Ltd 2016"
     },
@@ -886,8 +891,8 @@ class LandingPageController < ActionController::Metal
 
   "composition": [
     { "section": {"type": "sections", "id": "myhero1"}},
-    { "section": {"type": "sections", "id": "listings"}},
     { "section": {"type": "sections", "id": "video2"}},
+    { "section": {"type": "sections", "id": "listings"}},
     { "section": {"type": "sections", "id": "categories7"}},
     { "section": {"type": "sections", "id": "categories6"}},
     { "section": {"type": "sections", "id": "categories5"}},
