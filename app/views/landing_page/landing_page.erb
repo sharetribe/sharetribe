@@ -136,7 +136,7 @@
   <% # Add javascript libraries and external javascript code %>
 
   <% if sections.any? { |s| s["section"]["kind"] == "hero" && s["section"]["variation"]["value"] == "location_search" } %>
-    <% key_param = google_maps_key ? "&key=#{google_maps_key}" : "" %>
+    <% key_param = local_assigns.has_key?(:google_maps_key) && google_maps_key ? "&key=#{google_maps_key}" : "" %>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places<%= key_param %>"></script>
     <script>
       <%= javascripts[:location_search] %>
