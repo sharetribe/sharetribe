@@ -159,7 +159,15 @@ $content-padding: 36px;
 .info__columns {
   @extend .info__columns;
 
-  padding: 0px 36px;
+  padding: 0px;
+
+  @media #{$tablet} {
+    padding: 0px 36px;
+  }
+
+  @media #{$desktop} {
+    padding: 0px 36px;
+  }
 }
 
 .info__column {
