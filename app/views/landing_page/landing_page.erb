@@ -18,7 +18,23 @@
     <% when "footer" %>
       <%= render partial: "footer", locals: {section_id: section_id, s: s} %>
     <% when "info" %>
-      <%= render partial: "info", locals: {section_id: section_id, s: s} %>
+      <%
+      second_wo_background =
+        sections.reduce([Set.new, false]) { |(consecutive_infos, second_in_row), section|
+          sect = section["section"]
+          if sect["kind"] == "info" && sect["background_image"].nil? && sect["background_color"].nil?
+            if second_in_row
+              [consecutive_infos.add(sect["id"]), false]
+            else
+              [consecutive_infos, true]
+            end
+          else
+            [consecutive_infos, false]
+          end
+        }.first.include?(s["id"])
+      %>
+
+      <%= render partial: "info", locals: {section_id: section_id, s: s, second_wo_background: second_wo_background } %>
     <% when "categories" %>
       <%= render partial: "categories", locals: {section_id: section_id, s: s} %>
     <% when "listings" %>

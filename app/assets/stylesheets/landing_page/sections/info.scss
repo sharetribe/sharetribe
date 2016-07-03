@@ -30,6 +30,11 @@
   padding: $dimension-section-margin 0;
 }
 
+.info__section--zebra {
+  @extend .info__section--blank;
+  background-color: #F9F9F9;
+}
+
 .info__content {
   text-align: center;
   @include viewport-unit(margin-top, -4.44vh); /* -50px, when content height is 900px, 80vh */

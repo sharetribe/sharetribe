@@ -5,17 +5,19 @@
   }
 
   background_image_enabled  = !s["background_image"].nil?
-  background_image_style    = background_image_enabled ? "url('#{s["background_image"]["src"]}')" : "none"
+  background_image_style    = background_image_enabled ? "background-image: url('#{s["background_image"]["src"]}');" : ""
   background_color_enabled  = !s["background_color"].nil?
-  background_color_style    = background_color_enabled ? "rgb(#{s["background_color"].join(",")})" : "transparent";
   background_enabled        = background_image_enabled || background_color_enabled
   variation_modifier        = variation_modifiers[s["variation"]]
+  background_color_style    = background_color_enabled ? "background-color: rgb(#{s["background_color"].join(",")});" : "";
 
   section_style_modifier =
     if background_image_enabled
       "background-image"
     elsif background_color_enabled
       "background-color"
+    elsif second_wo_background
+      "zebra"
     else
       "blank"
     end
@@ -66,7 +68,7 @@
     <% end %>
 <% end %>
 
-<section id="<%= section_id %>" class="info__section--<%= section_style_modifier %>" style="background-image: <%= background_image_style %>; background-color: <%= background_color_style %>">
+<section id="<%= section_id %>" class="info__section--<%= section_style_modifier %>" style="<%= background_image_style %> <%= background_color_style %>">
   <div class="info__content--<%= variation_modifier %>">
     <h1 class="info__title--<%= variation_modifier %>"><%= s["title"] %></h1>
     <% case s["variation"] %>
