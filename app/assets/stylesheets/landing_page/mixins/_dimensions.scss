@@ -41,14 +41,24 @@ $dimension-card-border-radius: 4px;
 }
 
 @mixin dimensions__section-paragraph {
-  margin: 18px 0 36px 0;
+
+  margin-bottom: 8px;
+
+  &:last-of-type {
+    margin-bottom: 36px;
+  }
 
   @media #{$tablet} {
-    margin: 24px 0 48px 0;
+
+    &:last-of-type {
+      margin-bottom: 48px;
+    }
   }
 
   @media #{$desktop} {
-    margin: 24px 0 48px 0;
+    &:last-of-type {
+      margin-bottom: 48px;
+    }
   }
 }
 
