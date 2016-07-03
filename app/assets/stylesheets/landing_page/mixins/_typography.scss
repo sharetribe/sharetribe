@@ -53,20 +53,17 @@ $typography__font-family: 'Proxima Nova Soft', Helvetica, sans;
   @include typography__regular;
 
   // mobile
-  margin: 18px 0 36px 0;
   font-size: 16px;
   letter-spacing: 0px;
   line-height: 24px;
 
   @media #{$tablet} {
-    margin: 24px 0 48px 0;
     font-size: 18px;
     letter-spacing: 0px;
     line-height: 26px;
   }
 
   @media #{$desktop} {
-    margin: 24px 0 48px 0;
     font-size: 21px;
     letter-spacing: 0px;
     line-height: 32px;

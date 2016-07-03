@@ -114,6 +114,7 @@ $content-padding: 36px;
 
 .info__paragraph {
   @include typography__section-paragraph;
+  @include dimensions__section-paragraph;
 }
 
 .info__button {
