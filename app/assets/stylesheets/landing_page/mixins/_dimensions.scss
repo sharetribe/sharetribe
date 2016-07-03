@@ -26,6 +26,20 @@ $dimension-golden-ratio: 1.61803398875;
 
 $dimension-card-border-radius: 4px;
 
+@mixin dimensions__section-title--limited-width {
+  margin: 18px $dimension-mobile-margin 36px $dimension-mobile-margin;
+
+  @media #{$tablet} {
+    max-width: 75%;
+    margin: 24px auto 48px auto;
+  }
+
+  @media #{$desktop} {
+    max-width: 75%;
+    margin: 24px auto 48px auto;
+  }
+}
+
 @mixin dimensions__section-paragraph {
   margin: 18px 0 36px 0;
 

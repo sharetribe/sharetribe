@@ -99,6 +99,7 @@ $content-padding: 36px;
 
 .info__title--multi-column {
   @extend .info__title;
+  @include dimensions__section-title--limited-width;
 
   // mobile
   margin-bottom: 36px;

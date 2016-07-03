@@ -32,6 +32,7 @@ $listings__tablet-gutter: 16px;
 
 .listings__title {
   @include typography__section-title;
+  @include dimensions__section-title--limited-width;
 }
 
 .listings__paragraph {
