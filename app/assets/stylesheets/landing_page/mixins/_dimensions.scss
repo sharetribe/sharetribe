@@ -37,3 +37,17 @@ $dimension-card-border-radius: 4px;
     margin: 24px 0 48px 0;
   }
 }
+
+@mixin dimensions__section-paragraph--limited-width {
+  margin: 18px $dimension-mobile-margin 36px $dimension-mobile-margin;
+
+  @media #{$tablet} {
+    max-width: 75%;
+    margin: 24px auto 48px auto;
+  }
+
+  @media #{$desktop} {
+    max-width: 75%;
+    margin: 24px auto 48px auto;
+  }
+}
