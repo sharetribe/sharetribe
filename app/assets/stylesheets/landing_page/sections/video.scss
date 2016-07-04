@@ -40,6 +40,8 @@
 
   @include prefix-prop(transition, background-color 800ms ease-in-out);
 
+  cursor: pointer;
+
   display: none;
 
   // .videoautoplay class is added by Modernizr
