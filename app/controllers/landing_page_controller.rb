@@ -343,8 +343,8 @@ class LandingPageController < ActionController::Metal
     {
       "id": "listings",
       "kind": "listings",
-      "title": "Section title goes here",
-      "paragraph": "Section paragraph goes here",
+      "title": "Section title goes here. Section title goes here. Section title goes here. Section title goes here. Section title goes here. Section title goes here.",
+      "paragraph": "Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. ",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "button_title": "Login",
@@ -385,8 +385,8 @@ class LandingPageController < ActionController::Metal
     {
       "id": "categories7",
       "kind": "categories",
-      "title": "Section title goes here",
-      "paragraph": "Section paragraph goes here",
+      "title": "Section title goes here. Section title goes here. Section title goes here. Section title goes here. Section title goes here. Section title goes here.",
+      "paragraph": "Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. ",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "button_title": "All categories",
@@ -627,7 +627,7 @@ class LandingPageController < ActionController::Metal
       "kind": "info",
       "variation": "single_column",
       "title": "Section title goes here [Info #1 - V1]",
-      "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero.",
+      "paragraph": ["Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero.","Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero."],
 
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
@@ -666,7 +666,7 @@ class LandingPageController < ActionController::Metal
       "id": "info2_v1",
       "kind": "info",
       "variation": "multi_column",
-      "title": "Section title goes here [Info #2 - V1]",
+      "title": "Section title goes here. Section title goes here. Section title goes here. Section title goes here. Section title goes here. Section title goes here.",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "icon_color": {"type": "marketplace_data", "id": "primary_color"},
@@ -674,7 +674,7 @@ class LandingPageController < ActionController::Metal
         {
           "icon": "binocular",
           "title": "Our mission",
-          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
+          "paragraph": ["Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.","Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."],
           "button_title": "Section link",
           "button_path": {"value": "https://google.com"}
         },
@@ -852,7 +852,7 @@ class LandingPageController < ActionController::Metal
       "columns": [
         {
           "title": "Our mission",
-          "paragraph": "Paragraph. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus."
+          "paragraph": ["Paragraph. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus.","Paragraph. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus.","Paragraph. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus."]
         },
         {
           "title": "Our mission",

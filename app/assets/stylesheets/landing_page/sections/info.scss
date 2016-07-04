@@ -30,6 +30,11 @@
   padding: $dimension-section-margin 0;
 }
 
+.info__section--zebra {
+  @extend .info__section--blank;
+  background-color: #F9F9F9;
+}
+
 .info__content {
   text-align: center;
   @include viewport-unit(margin-top, -4.44vh); /* -50px, when content height is 900px, 80vh */
@@ -99,6 +104,7 @@ $content-padding: 36px;
 
 .info__title--multi-column {
   @extend .info__title;
+  @include dimensions__section-title--limited-width;
 
   // mobile
   margin-bottom: 36px;
@@ -114,6 +120,7 @@ $content-padding: 36px;
 
 .info__paragraph {
   @include typography__section-paragraph;
+  @include dimensions__section-paragraph;
 }
 
 .info__button {
@@ -152,7 +159,15 @@ $content-padding: 36px;
 .info__columns {
   @extend .info__columns;
 
-  padding: 0px 36px;
+  padding: 0px;
+
+  @media #{$tablet} {
+    padding: 0px 36px;
+  }
+
+  @media #{$desktop} {
+    padding: 0px 36px;
+  }
 }
 
 .info__column {
@@ -261,6 +276,8 @@ $content-padding: 36px;
 .info__column-paragraph {
   @include typography__regular;
   color: #525961;
+
+  margin-bottom: 8px;
 
   // mobile
   font-size: 16px;
