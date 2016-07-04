@@ -141,23 +141,34 @@
       var staticProps = <%= topbar_props.to_json.html_safe %>
       var staticMarketplaceContext = <%= marketplace_context.to_json.html_safe %>
 
-      var p = Promise.race([
-        window.fetch("<%= topbar_props_path %>", { credentials: 'same-origin' }),
-        new Promise(function (resolve, reject) {
-          setTimeout(function() { reject(new Error('request timeout')) }, 3000);
-        })]);
-
-      p.then(function (res) { return res.json(); })
-       .then(function (resJson) {
+      var fetchPromise = window.fetch("<%= topbar_props_path %>", { credentials: 'same-origin' })
+        .then(function (res) {
+          if (res.status >= 200 && res.status < 300) {
+              return res;
+          } else {
+              var error = new Error(res.statusText);
+              error.res = res;
+              throw error;
+          }
+       })
+        .then(function (res) {
+          return res.json();
+        })
+        .then(function (resJson) {
           props = Object.assign({}, staticProps, resJson.props);
           mCtx = Object.assign({}, staticMarketplaceContext, resJson.marketplaceContext);
           renderTopBar(props, mCtx);
         });
 
-      p.catch(function(error) {
-        console.error(error);
-        renderTopBar(staticProps, staticMarketplaceContext);
-      });
+      Promise.race([
+        fetchPromise,
+        new Promise(function (resolve, reject) {
+          setTimeout(function() { reject(new Error('request timeout')) }, 3000);
+      })])
+       .catch(function(error) {
+         console.error(error);
+         renderTopBar(staticProps, staticMarketplaceContext);
+       });
     }());
   </script>
   <% end %>
