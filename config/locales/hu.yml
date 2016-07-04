@@ -1798,6 +1798,8 @@ hu:
       email_is_in_use: "Az e-mail cím amit megadott már foglalt"
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
+      email_restriction_instructions:
+        other: "A hozzáférés korlátozott a %{service_name}-hez. Az e-mail címe megadásával igazolhatja a csatlakozáshoz való jogosultságát."
       family_name: Családnév
       given_name: Keresztnév
       i_accept_the: Elfogadom
@@ -1817,8 +1819,6 @@ hu:
       create_account_with_facebook: "Regisztráció Facebookkal"
       OR: VAGY
       signup_with_email: "Bejelentkezés emaillel"
-      email_restriction_instructions:
-        other: "A hozzáférés korlátozott a %{service_name}-hez. Az e-mail címe megadásával igazolhatja a csatlakozáshoz való jogosultságát."
     profile_feedback:
       grade: "fokozat:"
       and_gave_following_feedback: "A következő értékelést adta"
@@ -2139,6 +2139,7 @@ hu:
       logout: ~
       login: ~
       signup: ~
+      admin_dashboard: ~
   will_paginate:
     models:
       person:
