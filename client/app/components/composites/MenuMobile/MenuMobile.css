@@ -75,12 +75,21 @@
 
 .offScreenHeader {
   display: flex;
-  margin: var(--MenuItem_paddingOffScreenVertical) var(--MenuItem_paddingOffScreenHorizontal);
+  margin: var(--MenuItem_paddingOffScreenVertical) 0 var(--MenuItem_paddingOffScreenVertical) var(--MenuItem_paddingOffScreenHorizontal);
+
+  @media (--medium-viewport) {
+    margin-left: var(--MenuItem_paddingOffScreenHorizontalTablet);
+  }
+
+  & a:first-child {
+    padding-left: 0;
+  }
 }
 
 .offScreenHeaderNewListingButton span {
   height: var(--MobileMenu_offscreenHeaderItemHeight);
   line-height: var(--MobileMenu_offscreenHeaderItemHeight);
+  padding: 0 0 0 0.5em;
 }
 
 .offScreenMain {
@@ -101,6 +110,10 @@
     padding: var(--MenuItem_paddingOffScreenVertical) var(--MenuItem_paddingOffScreenHorizontal);
     letter-spacing: 0;
 
+    @media (--medium-viewport) {
+      padding: var(--MenuItem_paddingOffScreenVertical) var(--MenuItem_paddingOffScreenHorizontalTablet);
+    }
+
     &:focus,
     &:hover {
       color: var(--MenuItem_textColorFocus);
@@ -119,4 +132,10 @@
   color: var(--MenuSection_titleColor);
   width: 100%;
   letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+
+  @media (--medium-viewport) {
+    padding: var(--MenuItem_paddingOffScreenVertical) var(--MenuItem_paddingOffScreenHorizontalTablet);
+  }
 }

@@ -4,6 +4,10 @@
   list-style: none;
   border-bottom: 1px solid var(--MenuItem_borderColor);
 
+  @media (--medium-viewport) {
+    font-size: var(--MenuItem_fontSize);
+  }
+
   &:last-child {
     border-bottom: 0;
   }
