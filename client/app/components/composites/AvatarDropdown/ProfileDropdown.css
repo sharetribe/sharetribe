@@ -1,11 +1,37 @@
-.rootArrow {
-  width: 0;
+.rootArrowTop,
+.rootArrowBelow {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: ' ';
   height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 8px solid var(--ProfileDropdown_borderColor);
-  margin-top: 3px;
+  width: 0;
+  pointer-events: none;
+
+  position: relative;
 }
+
+.rootArrowTop {
+  border-color: transparent;
+  border-bottom-color: white;
+  border-width: 7px;
+  margin-left: -7px;
+
+  z-index: 20;
+  left: 4px;
+  top: 3px;
+}
+
+.rootArrowBelow {
+  border-color: transparent;
+  border-bottom-color: var(--ProfileDropdown_borderColor);
+  border-width: 9px;
+  margin-left: -9px;
+
+  top: -15px;
+}
+
+/* var(--ProfileDropdown_borderColor) */
 
 .box {
   position: absolute;
@@ -17,6 +43,8 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   z-index: var(--ProfileDropdown_zIndex);
+
+  margin-top: -16px;
 }
 
 .profileActions {

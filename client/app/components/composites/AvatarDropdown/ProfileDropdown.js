@@ -39,7 +39,8 @@ class ProfileDropdown extends Component {
     return div({
       className: classNames(css.profileDropdown, this.props.className),
     }, [
-      div({ className: css.rootArrow }),
+      div({ className: css.rootArrowTop }),
+      div({ className: css.rootArrowBelow }),
       div({ className: css.box }, [
         div({ className: css.profileActions }, [
           r(ProfileActionCard, { label: 'Inbox', icon: inboxEmptyIcon, action: this.props.actions.inboxAction }),
