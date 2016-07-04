@@ -527,7 +527,7 @@ zh-HK:
     share_types:
       request: 請求
       offer: ~
-      borrow: 借入
+      borrow: 借用
       buy: 購買
       give_away: 贈送
       lend: 出借
@@ -675,7 +675,7 @@ zh-HK:
       feedback_given: 評價已發送
       feedback_skipped: 已跳過評價
       give_feedback: 給予評價
-      offer_accepted: 接受
+      offer_accepted: 被接納
       offer_rejected: 被拒絕
       offer_canceled: 已取消
       offer_confirmed: 已完成
@@ -692,7 +692,7 @@ zh-HK:
           intl: "我們不能移至PayPal的付款程序，因為你的帳戶沒有退出機制。請登錄到%{paypal_url}以接受或拒絕款項。"
       waiting_for_current_user_to_deliver_listing: "正在等待你完成%{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "正在等待%{listing_author_name}完成%{listing_title}"
-      request_accepted: 接受
+      request_accepted: 被接納
       request_rejected: 被拒絕
       request_confirmed: 完成
       request_canceled: 已取消
@@ -715,9 +715,9 @@ zh-HK:
           verify: 正在等待確認你的Paypal帳號
     status_link:
       accept_offer: 接受議價
-      accept_request: 接受請求
-      reject_offer: 這次不行
-      reject_request: 這次不行
+      accept_request: 接受要求
+      reject_offer: 這次不被接納
+      reject_request: 這次不被接納
       accept_preauthorized_offer: 接受交易
       accept_preauthorized_request: 接受請求
       reject_preauthorized_offer: 暫不需要
@@ -796,11 +796,11 @@ zh-HK:
   emails:
     accept_reminder:
       remember_to_accept_offer: "請記得接受或拒絕來自%{sender_name}提供的出價"
-      remember_to_accept_request: "請記得接受或拒絕來自%{sender_name}的請求"
+      remember_to_accept_request: "請記得接受或拒絕來自%{sender_name}的要求"
       you_can_accept_or_reject_offer_at: 你可在此接受或拒絕此議價
       you_can_accept_or_reject_request_at: 你可在此接受或拒絕此要求
-      you_have_not_yet_accepted_or_rejected_offer: "你尚未接受或拒絕你在%{date}收到的%{title}"
-      you_have_not_yet_accepted_or_rejected_request: "你尚未接受或拒絕你在%{date}收到的%{title}"
+      you_have_not_yet_accepted_or_rejected_offer: "你尚未接受或拒絕你在%{date}收到的%{title}議價"
+      you_have_not_yet_accepted_or_rejected_request: "你尚未接受或拒絕你在%{date}收到的%{title}要求"
       show_thread: 顯示對話
     branding:
       powered_by: ~
@@ -859,7 +859,7 @@ zh-HK:
       or_paste_link: 或者你可以複製以下的連結到你的瀏覽器：
       turning_on_confirmations_in_this_community: "我們將會在%{service_name}中使用電郵確認。"
     common:
-      hey: "你好 %{name},"
+      hey: "%{name} 你好 ,"
       kassi_team: "%{service_name} 團隊"
       thanks: 謝謝！
       dont_want_to_receive_these_emails: 不想收到這些郵件？
@@ -876,8 +876,8 @@ zh-HK:
       view_thread: 查看對話
       your_offer_was_accepted: 你的議價已被接受
       your_offer_was_rejected: 你的議價已被拒絕
-      your_request_was_accepted: 你的請求已被接受
-      your_request_was_rejected: 你的請求已被拒絕
+      your_request_was_accepted: 你的要求已被接受
+      your_request_was_rejected: 你的要求已被拒絕
       you_can_now_pay_to: "你現在可以支付請求的金額予%{payment_receiver}。"
       pay_now: 現在付款
       remember_to_confirm: "當交易完成後，請把它標記為「已完成」。若交易未完成，你可在%{days_to_automatic_confirmation}內取消它。否則它將會自動被標示為已完成。"
@@ -1034,7 +1034,7 @@ zh-HK:
     error_500_title: 頁面加載失敗
     error_description: 錯誤描述
     no_javascript:
-      javascript_is_disabled_in_your_browser: 你的瀏覽器已禁示使用Javascript
+      javascript_is_disabled_in_your_browser: 你的瀏覽器禁示使用Javascript
       kassi_does_not_currently_work_without_javascript: "抱歉，%{service_name}目前不能在沒有javascript下提供服務。請在瀏覽器首選中打開javascript，然後刷新頁面。"
       contact_us: 聯絡我們
       send_feedback: 發出評價
@@ -1103,14 +1103,14 @@ zh-HK:
     blank_slate:
       add_first: 請增加一個！
       but_that_is_visible_only_to_registered_members: 但只有註冊用戶才能夠查看。
-      but_those_are_visible_only_to_registered_members: 但這些只有註冊用戶才能夠查看。
+      but_those_are_visible_only_to_registered_members: 但只有註冊用戶才能夠查看。
       create_new_account_for_yourself: 註冊新用戶
       examples_of_what_you_could_offer_to_others: 您有什麼能夠提供予其他用戶
       examples_of_what_you_could_request_to_others: 您有什麼想向其他用戶要求
       favor_offer_list: 電腦援助、衣物縫補、烘焙、單車維修
       favor_request_list: ~
-      favors_to_offer: "求助: "
-      favors_to_request: "求助: "
+      favors_to_offer: "支援: "
+      favors_to_request: "支援: "
       item_offer_list: 工具、體育用品、服裝、露營裝備
       item_request_list: 工具、體育用品、服裝、露營裝備
       items_to_offer: "可借出的物品： "

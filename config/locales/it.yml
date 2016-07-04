@@ -2141,8 +2141,8 @@ it:
       manage_listings: "Gestione annunci"
       settings: Impostazioni
       logout: Esci
-      login: ~
-      signup: ~
+      login: "Log in"
+      signup: Registrati
   will_paginate:
     models:
       listing_conversation:

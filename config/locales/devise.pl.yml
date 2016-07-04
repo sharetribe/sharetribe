@@ -3,17 +3,22 @@ pl:
     messages:
       expired: "wygasło/a, proszę wybrać nowy/ą"
       not_found: "nie znaleziono"
-      already_confirmed: ~
-      not_locked: ~
+      already_confirmed: "została już potwierdzona, spróbuj zalogować się"
+      not_locked: "nie została zablokowana"
+      not_saved:
+        one: "1 błąd zablokował ten %{resource} od zapisania."
+        few: "%{count} błędów zablokowało ten %{resource} od zapisania."
+        many: "%{count} błędów zablokowało ten %{resource} od zapisania."
+        other: "%{count} błędów zablokowało ten %{resource} od zapisania."
   devise:
     failure:
       already_authenticated: "Już jesteś zalogowany."
-      unauthenticated: "Aby kontynuować zaloguj się lub zarejestruj."
+      unauthenticated: "Aby kontynuować, zaloguj się lub zarejestruj."
       unconfirmed: "Musisz aktywować swoje konto."
       locked: "Twoje konto jest zablokowane."
       invalid: "Niewłaściwy email lub hasło."
       invalid_token: "Nieprawidłowy token uwierzytelnienia."
-      timeout: "Sesja wygasła, aby kontynuować zaloguj się ponownie."
+      timeout: "Sesja wygasła. Zaloguj się ponownie, aby kontynuować."
       inactive: "Twoje konto nie zostało jeszcze aktywowane."
     passwords:
       updated_not_active: "Hasło zostało zmienione."
@@ -29,27 +34,27 @@ pl:
       confirmed: "Konto zostało aktywowane."
     registrations:
       signed_up_but_unconfirmed: "Wiadomość z linkiem aktywacyjnym została wysłana na Twój adres email. Proszę kliknij na link w celu aktywowania swojego konta."
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_inactive: "Rejestracja przebiegła pomyślnie. Jednakże, nie możemy Cię zalogować, ponieważ Twoje konto nie zostało jeszcze aktywowane."
+      signed_up_but_locked: "Rejestracja przebiegła pomyślnie. Jednakże, nie możemy Cię zalogować, ponieważ Twoje konto zostało zablokowane."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
+        inactive: nieaktywne
+        unconfirmed: niepotwierdzone
+        locked: zablokowane
+      update_needs_confirmation: "Twoje konto zostało zaktualizowane, ale musimy zweryfikować Twój nowy adres email. Sprawdź swoją skrzynkę i kliknij na przesłany link, aby potwierdzić Twój nowy adres."
       signed_up: "Witamy! Rejestracja pomyślna."
-      updated: ~
-      destroyed: ~
+      updated: "Twoje konto zostało zaktualizowane."
+      destroyed: "Do zobaczenia! Twoje konto zostało pomyślnie anulowane. Mamy nadzieję, że zobaczymy się wkrótce!"
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: "Jeżeli konto istnieje, za kilka minut otrzymasz wiadomość na swój adres email z instrukcją jak je odblokować."
+      send_instructions: "Otrzymasz email z instrukcją jak odblokować Twoje konto."
+      unlocked: "Twoje konto zostało pomyślnie odblokowane. Zaloguj się, aby kontynuować."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "Pomyślnie autoryzowany z %{kind} konta."
+      failure: "Nie możemy Cię autoryzować z %{kind} ponieważ %{reason}."
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "Instrukcje aktywacji"
       reset_password_instructions:
-        subject: ~
+        subject: "Instrukcje resetowania hasła"
       unlock_instructions:
-        subject: ~
+        subject: "Instrukcje odblokowania konta"

@@ -6,10 +6,10 @@ zh-HK:
       already_confirmed: "已經確認,請重新登入"
       not_locked: 未鎖定
       not_saved:
-        other: "有%{count}個錯誤導致此%{resource}保存失敗："
+        other: "有%{count}個錯誤導致此%{resource}存檔失敗："
   devise:
     failure:
-      already_authenticated: 你已登入了。
+      already_authenticated: 你已登入。
       unauthenticated: 繼續瀏覽前請註册或登入帳戶
       unconfirmed: 繼續瀏覽前請先確認你的帳戶
       locked: 你的帳戶暫時停止使用
@@ -19,9 +19,9 @@ zh-HK:
       inactive: 您的帳戶還沒有被啟動
     passwords:
       updated_not_active: 您的密碼已修改成功。
-      send_paranoid_instructions: 如果您的電郵帳戶存在我們數據庫記錄中，您將收到一封重置密碼的郵件
+      send_paranoid_instructions: 如果您的電郵帳戶存在我們記錄中，您將收到一封重置密碼的郵
       send_instructions: 幾分鐘後，您將收到重置密碼的電子郵件。
-      updated: 您的密碼已成功修改，您現在已登入。
+      updated: 您的密碼已成功更改，您現在已登入。
     sessions:
       signed_in: 登入成功
       signed_out: 登出成功
@@ -30,23 +30,23 @@ zh-HK:
       send_instructions: 幾分鐘內，您將收到確認帳號的電子郵件。
       confirmed: 成功確認帳戶
     registrations:
-      signed_up_but_unconfirmed: 帳號確認郵件已經發送到您的電郵信箱。請打開該連結來啟動您的帳號
+      signed_up_but_unconfirmed: 帳號確認郵件已經發送到您的電郵信箱。請打開該連結來啟動您的帳號。
       signed_up_but_inactive: 雖然您已註冊成功，但因為您的帳號還未認証，所以您暫時無法登入。
       signed_up_but_locked: 雖然您已註冊成功，但因為您的帳號已被暫時停止使用，所以您暫時無法登入。
       reasons:
         inactive: 未啟動
         unconfirmed: 未確認
-        locked: 鎖上
+        locked: 被鎖定
       update_needs_confirmation: 帳戶資料更新成功，但我們需要驗證您的新電郵地址。請檢查您的電子郵箱，點擊確認連結來確認您的新電子郵件地址。
       signed_up: 歡迎您！你已註冊成功。
       updated: 帳戶資料更新成功。
-      destroyed: 再見！您Jerseypapa的帳戶已成功取消。我們希望可以很快再見到您.
+      destroyed: 再見！您的帳戶已成功取消。我們希望將來可以再為您服務。
     unlocks:
-      send_paranoid_instructions: 如果您的電郵帳戶存在我們數據庫記錄中，您將收到一封有關解鎖帳戶的電郵。
-      send_instructions: 幾分鐘後，您將收到一封有關解鎖帳戶的電郵.
-      unlocked: 您的帳戶已成功解鎖，請重新登入以便繼續使用本網.
+      send_paranoid_instructions: 如果您的電郵帳戶存在我們記錄中，您將收到一封電郵助你解除鎖定帳戶。
+      send_instructions: 幾分鐘後，您將收到一封電郵助你解除鎖定帳戶。
+      unlocked: 您的帳戶已成功解鎖，請重新登入以便繼續使用本網。
     omniauth_callbacks:
-      success: "成功地從%{kind}獲得授權。"
+      success: "%{kind} 授權成功。"
       failure: "因為%{reason}，所以您無法從%{kind}獲得授權。"
     mailer:
       confirmation_instructions:
@@ -54,4 +54,4 @@ zh-HK:
       reset_password_instructions:
         subject: 重設密碼說明
       unlock_instructions:
-        subject: 解鎖步驟說明
+        subject: 解鎖帳戶步驟說明
