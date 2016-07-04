@@ -75,15 +75,12 @@
     <% when "single_column" %>
 
       <%
-      # Support old deprecated `paragraph` field
-      paragraphs =
-        if s["paragraphs"]
-          s["paragraphs"]
-        elsif s["paragraph"]
-          [s["paragraph"]]
-        else
-          []
-        end
+        paragraphs =
+          if s["paragraph"]
+            s["paragraph"].is_a?(Array) ? s["paragraph"] : [s["paragraph"]]
+          else
+            []
+          end
       %>
 
       <% paragraphs.each do |p| %>
@@ -116,12 +113,9 @@
               <% end %>
               <h2 class="info__column-title"><%= c["title"] %></h2>
               <%
-              # Support old deprecated `paragraph` field
               paragraphs =
-                if c["paragraphs"]
-                  c["paragraphs"]
-                elsif c["paragraph"]
-                  [c["paragraph"]]
+                if c["paragraph"]
+                  c["paragraph"].is_a?(Array) ? c["paragraph"] : [c["paragraph"]]
                 else
                   []
                 end
