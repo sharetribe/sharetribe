@@ -42,20 +42,20 @@ class ProfileDropdown extends Component {
       div({ className: css.rootArrow }),
       div({ className: css.box }, [
         div({ className: css.profileActions }, [
-          r(ProfileActionCard, { label: 'Inbox', icon: inboxEmptyIcon, action: this.props.actions.inboxAction }),
-          r(ProfileActionCard, { label: 'Profile', icon: profileIcon, action: this.props.actions.profileAction }),
-          r(ProfileActionCard, { label: 'Settings', icon: settingsIcon, action: this.props.actions.settingsAction }),
+          r(ProfileActionCard, { label: this.props.translations.inbox, icon: inboxEmptyIcon, action: this.props.actions.inboxAction }),
+          r(ProfileActionCard, { label: this.props.translations.profile, icon: profileIcon, action: this.props.actions.profileAction }),
+          r(ProfileActionCard, { label: this.props.translations.settings, icon: settingsIcon, action: this.props.actions.settingsAction }),
         ]),
         div({ className: css.logoutArea }, [
           this.props.isAdmin ? a({
             className: css.adminLink,
             style: { color: this.props.customColor },
             ...actionProps(this.props.actions.adminDashboardAction),
-          }, 'Admin dashboard') : null,
+          }, this.props.translations.adminDashboard) : null,
           a({
             className: css.logoutLink,
             ...actionProps(this.props.actions.logoutAction),
-          }, 'Logout'),
+          }, this.props.translations.logout),
         ]),
       ]),
     ]);
@@ -70,6 +70,13 @@ ProfileDropdown.propTypes = {
     adminDashboardAction: eitherStringOrFunc.isRequired,
     logoutAction: eitherStringOrFunc.isRequired,
   }).isRequired,
+  translations: PropTypes.shape({
+    inbox: PropTypes.string.isRequired,
+    profile: PropTypes.string.isRequired,
+    settings: PropTypes.string.isRequired,
+    adminDashboard: PropTypes.string.isRequired,
+    logout: PropTypes.string.isRequired,
+  }),
   customColor: PropTypes.string.isRequired,
   isAdmin: PropTypes.bool.isRequired,
   className,
