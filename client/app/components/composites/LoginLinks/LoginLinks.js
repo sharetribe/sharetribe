@@ -13,14 +13,14 @@ export default function LoginLinks({ loginUrl, signupUrl, customColor, className
   }, [
     r(Link, {
       className: css.link,
-      href: signupUrl,
-      customColor,
-    }, t('web.topbar.signup')),
-    r(Link, {
-      className: css.link,
       href: loginUrl,
       customColor,
     }, t('web.topbar.login')),
+    r(Link, {
+      className: css.link,
+      href: signupUrl,
+      customColor,
+    }, t('web.topbar.signup')),
   ]);
 }
 
