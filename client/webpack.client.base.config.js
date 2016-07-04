@@ -62,6 +62,6 @@ module.exports = {
     mixins({ mixinsFiles: path.join(__dirname, 'app/assets/styles/mixins.css') }),
     customMedia({ extensions: mediaQueries }),
     customProperties({ variables: cssVariables }),
-    cssnext({ browsers: ['last 2 versions', 'not ie < 11', 'not ie_mob < 11', 'ie >= 11'] }),
+    cssnext({ browsers: ['last 2 versions', 'not ie < 11', 'not ie_mob < 11', 'ie >= 11', 'iOS >= 8'] }),
   ],
 };
