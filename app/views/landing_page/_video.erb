@@ -34,7 +34,14 @@
 
    // Event listeners
    function onReady() {
+     // By default, assume that autoplay is available and mute. If not, unmute it after feature detection is ready
      player.mute();
+
+     Modernizr.on('videoautoplay', function(result) {
+       if(!result) {
+         player.unmute();
+       }
+     });
    }
 
    function onStateChange(e) {
