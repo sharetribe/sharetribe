@@ -7,8 +7,8 @@ hu:
         listing_categories: "Hirdetési kategóriák"
         create_a_new_category: "+ Hozzon létre új kategóriát"
         remove_category_confirmation: "Biztos ki akar lépni a %{category_name} kategóriából?"
-        saving_order: ~
-        save_order_successful: ~
+        saving_order: "Kategória sorrendjének mentése"
+        save_order_successful: "Sikeresen mentett kategória sorrend"
         save_order_error: ~
       new:
         new_listing_category: "Új hirdetési kategória"
@@ -28,12 +28,14 @@ hu:
           cancel: Mégse
       remove:
         remove_category: "Kategória eltávolítása"
-        remove_category_name: ~
-        warning_remove_effects: ~
+        remove_category_name: "Kategória törlése '%{category_name}'"
+        warning_remove_effects: "Figyelmeztetés! Ezen kategória '%{category_name}' törlése a következőket eredményezheti:"
         select_new_category: ~
         buttons:
           remove: Eltávolít
           cancel: Mégse
+        warning_listing_will_be_moved:
+          other: "A kategóriában %{count} számú hirdetés van. Ezek a kiválasztott kategóriába lesznek áthelyezve."
     communities:
       edit_details:
         community_details: ~
@@ -88,7 +90,7 @@ hu:
         cover_photo_instructions_text_with_dimensions: "A kép újr lesz méretve %{width}x%{height} pixel nagyságúra és a magasabb képek félbe lesznek vágva. %{see_how_it_looks_like}"
         small_cover_photo_visibility: ~
         small_cover_photo_instructions_text_with_dimensions: "A kép újra lesz méretve %{width}x%{height} pixel nagyságúra és a magasabb képek félbe lesznek vágva."
-        main_content_width: ~
+        main_content_width: "A fedőkép  kiválasztásakor vegye figyelembe, hogy az oldal maximálisan %{main_width} pixel szélességű. Ellenőrizze kisebb képernyőn is a fedőkép megjelenítését (pl: egy sokkal keskenyebb keresőablakot használva)."
         custom_color1_instructions_text: |-
             Ön megváltoztathatja az oldal elsődleges színét egy színkód megadásával.<a href="http://www.colorpicker.com/?colorcode=D96E21" target="_blank" rel="noreferrer">
             A ColorPicker.com</a>  segítségével kiválaszthatja a színt és bemásohatja a színkódot ide.
@@ -327,7 +329,7 @@ hu:
         paypal_admin_account: Fizetések
     custom_fields:
       edit:
-        edit_listing_field: ~
+        edit_listing_field: "Mező szerkesztése %{field_name}"
       edit_price:
         description: ~
         edit_price_field: "Ár változtatása"
@@ -354,7 +356,7 @@ hu:
         save: Mentés
         field_title: "A mező elnevezése"
         field_type: "Mező típus"
-        categories: ~
+        categories: "A használt mezőben a kategóriák listázása"
         select_all: "Mindet kijelöl"
         clear_all: "Mindet töröl"
         options: Beállítások
@@ -489,9 +491,9 @@ hu:
       sell: Eladás
       rent: Bérbeadás
       give: Ajándékozás
-      lend: ~
-      swap: ~
-      service: ~
+      lend: Kölcsönöz
+      swap: Cserél
+      service: Ajánlat
       request: ~
       inquiry: ~
       share_for_free: "ingyen fuvar"
@@ -1150,7 +1152,7 @@ hu:
       no_reviews: "Nincs vélemény"
       no_image: "Nincs kép"
       filter: Szűrő
-      this_is_private_community: ~
+      this_is_private_community: "Kérjük íratkozzon fel a tartalom megtekintéséhez"
     invitation_form:
       email: "E-mail cím(ek)"
       message: "Személyes üzenet"
