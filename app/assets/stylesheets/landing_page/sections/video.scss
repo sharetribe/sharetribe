@@ -49,6 +49,8 @@
 
   cursor: pointer;
 
+  @include prefix-prop(user-select, none);
+
   display: none;
 
   // .videoautoplay class is added by Modernizr
