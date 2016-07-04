@@ -1,26 +1,28 @@
 <% content_for :video_css, flush: false do %>
-  .<%= section_id %>__video__youtube-player-container {
+  .<%= section_id %>__video__youtube-player-container--aspect-ratio {
     width: 100%;
     padding-bottom: <%= (100.to_f / s["width"].to_f * s["height"].to_f) %>%;
   }
 <% end %>
 
-<div id="<%= section_id%>__video__youtube-player-mask" class="video__youtube-player-mask">
-  <div class="<%= section_id %>__video__youtube-player-container video__youtube-player-container">
-    <iframe id="<%= section_id %>__youtube-iframe" class="video__youtube-player" type="text/html"
-            src="https://www.youtube.com/embed/<%= s["youtube_video_id"] %>?controls=0&modestbranding=1&rel=0&showinfo=0&autoplay=1&loop=1&playlist=<%= s["youtube_video_id"] %>&enablejsapi=1"
-            frameborder="0"></iframe>
-    <div id="<%= section_id%>__video__youtube-overlay" class="video__youtube-overlay">
-      <svg id="<%= section_id %>__video__youtube-watch-video-icon" class="video__youtube-watch-video-icon" width="63" height="63" viewBox="47 -1 63 63" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke="#FFF" stroke-width="2"><path d="M108 30c0 16.57-13.433 30-30 30-16.57 0-30-13.43-30-30S61.43 0 78 0c16.567 0 30 13.43 30 30z"/><path d="M68.87 41.74V18.26L92.347 30z"/></g></svg>
-      <span id="<%= section_id %>__video__youtube-watch-video-text" class="video__youtube-watch-video-text"><%= s["text"] %></span>
+<section id="<%= section_id%>" class="video__youtube-player-mask">
+  <div class="video__youtube-player-container--centering">
+    <div class="<%= section_id %>__video__youtube-player-container--aspect-ratio video__youtube-player-container--aspect-ratio">
+      <iframe id="<%= section_id %>__youtube-iframe" class="video__youtube-player" type="text/html"
+              src="https://www.youtube.com/embed/<%= s["youtube_video_id"] %>?controls=0&modestbranding=1&rel=0&showinfo=0&autoplay=1&loop=1&playlist=<%= s["youtube_video_id"] %>&enablejsapi=1"
+              frameborder="0"></iframe>
+      <div id="<%= section_id%>__video__youtube-overlay" class="video__youtube-overlay">
+        <svg id="<%= section_id %>__video__youtube-watch-video-icon" class="video__youtube-watch-video-icon" width="63" height="63" viewBox="47 -1 63 63" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke="#FFF" stroke-width="2"><path d="M108 30c0 16.57-13.433 30-30 30-16.57 0-30-13.43-30-30S61.43 0 78 0c16.567 0 30 13.43 30 30z"/><path d="M68.87 41.74V18.26L92.347 30z"/></g></svg>
+        <span id="<%= section_id %>__video__youtube-watch-video-text" class="video__youtube-watch-video-text"><%= s["text"] %></span>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 <% content_for :youtube_ready_js, flush: false do %>
  (function() {
 
-   var mask = document.getElementById("<%= section_id%>__video__youtube-player-mask");
+   var mask = document.getElementById("<%= section_id%>");
    var overlay = document.getElementById("<%= section_id%>__video__youtube-overlay");
    var icon = document.getElementById("<%= section_id %>__video__youtube-watch-video-icon");
    var text = document.getElementById("<%= section_id %>__video__youtube-watch-video-text");

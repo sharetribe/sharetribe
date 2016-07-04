@@ -14,11 +14,18 @@
   }
 }
 
-.video__youtube-player-container {
+.video__youtube-player-container--centering {
+  // This container is here just to vertically align the video.
+  // The extra container is needed, because Firefox and Edge don't do
+  // show to percetage padding-bottom right for flex items.
+  // https://bugzilla.mozilla.org/show_bug.cgi?id=958714
+
+  width: 100%;
   position: relative;
-  overflow: hidden;
-  @include prefix-val(display, flex);
-  @include prefix-prop(align-items, center);
+}
+
+.video__youtube-player-container--aspect-ratio {
+  // Dimensions are added in the ERB file
 }
 
 .video__youtube-player {
