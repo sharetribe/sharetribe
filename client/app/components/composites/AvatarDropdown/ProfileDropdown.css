@@ -37,6 +37,7 @@
 
   &:hover {
     background-color: rgb(249, 249, 249);
+    color: var(--ProfileDropdown_textColorFocus);
   }
 }
 
@@ -59,4 +60,8 @@
   float: right;
   cursor: pointer;
   color: var(--ProfileDropdown_logoutLinkColor);
+
+  &:hover {
+    color: var(--ProfileDropdown_textColorFocus);
+  }
 }

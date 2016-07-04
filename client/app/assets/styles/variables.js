@@ -162,6 +162,7 @@ module.exports = {
   '--ProfileDropdown_zIndex': 1,
   '--ProfileDropdown_rightOffset': bodyPadding,
   '--ProfileDropdown_textColor': textColor,
+  '--ProfileDropdown_textColorFocus': textColorFocus,
   '--ProfileDropdown_logoutLinkColor': textColorGrey,
   '--ProfileDropdown_textLinkSize': pxToEms(13, 14), // eslint-disable-line no-magic-numbers
 
