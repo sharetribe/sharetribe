@@ -66,7 +66,8 @@ module TopbarHelper
         customColor: CommonStylesHelper.marketplace_colors(community)[:marketplace_color1],
         avatar: {
           image: user&.image.present? ? user.image.url(:thumb) : missing_profile_image_path(),
-        }
+        },
+        isAdmin: user&.has_admin_rights? || false
       },
       newListingButton: {
         text: I18n.t("homepage.index.post_new_listing"),

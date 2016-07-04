@@ -47,11 +47,11 @@ class ProfileDropdown extends Component {
           r(ProfileActionCard, { label: 'Settings', icon: settingsIcon, action: this.props.actions.settingsAction }),
         ]),
         div({ className: css.logoutArea }, [
-          a({
+          this.props.isAdmin ? a({
             className: css.adminLink,
             style: { color: this.props.customColor },
             ...actionProps(this.props.actions.adminDashboardAction),
-          }, 'Admin dashboard'),
+          }, 'Admin dashboard') : null,
           a({
             className: css.logoutLink,
             ...actionProps(this.props.actions.logoutAction),
@@ -71,6 +71,7 @@ ProfileDropdown.propTypes = {
     logoutAction: eitherStringOrFunc.isRequired,
   }).isRequired,
   customColor: PropTypes.string.isRequired,
+  isAdmin: PropTypes.bool.isRequired,
   className,
 };
 
