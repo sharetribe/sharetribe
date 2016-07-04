@@ -35,7 +35,14 @@ const avatarDropdownProps = (avatarDropdown, customColor, username, routes) => {
     logoutAction: () => false,
     ...profileDropdownActions(routes, username),
   };
-  return { actions, customColor: color, ...avatarDropdown };
+  const translations = {
+    inbox: t('web.topbar.inbox'),
+    profile: t('web.topbar.profile'),
+    settings: t('web.topbar.settings'),
+    adminDashboard: t('web.topbar.admin_dashboard'),
+    logout: t('web.topbar.logout'),
+  };
+  return { actions, translations, customColor: color, ...avatarDropdown };
 };
 
 const LABEL_TYPE_MENU = 'menu';

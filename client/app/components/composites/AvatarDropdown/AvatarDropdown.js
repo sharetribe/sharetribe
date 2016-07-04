@@ -50,6 +50,7 @@ class AvatarDropdown extends Component {
         customColor: this.props.customColor,
         actions: this.props.actions,
         isAdmin: this.props.isAdmin,
+        translations: this.props.translations,
       }),
     ]);
   }
