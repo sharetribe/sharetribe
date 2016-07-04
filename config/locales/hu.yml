@@ -570,7 +570,7 @@ hu:
       price_to_pay: "Teljes ár fizetendő"
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: "fizetési beállítások"
-      minimum_price_error_message: ~
+      minimum_price_error_message: "Az ár nem lehet alacsonyabb %{amount} összegnél."
       accept: Elfogad
       decline: Visszautasít
       quantity_label: "Mennyiség:"
@@ -742,7 +742,7 @@ hu:
       account_number: Bankszámlaszám
   braintree_payments:
     edit:
-      new_credit_card_payment: ~
+      new_credit_card_payment: "Új bankkártyás fizetés"
       payment_receiver: "Utalás címzettje:"
       cardholder_name: "Kártyatulajdonos neve"
       credit_card_number: "Bankkártya száma"
@@ -1232,7 +1232,7 @@ hu:
       invite_your_neighbors: "Hívd meg a szomszédokat!"
       invite_your_friends_description: "Minél többen csatlakoznak a %{service_name} -hoz, annál hasznosabb lesz."
       invite_your_friends_invite_only_description: ~
-      join_without_facebook: ~
+      join_without_facebook: "...vagy igény szerint %{join_without_facebook_link}"
       join_without_facebook_link: "bejelentkezés Facebook nélkül"
     conversations:
       messages: Üzenetek
@@ -1705,7 +1705,7 @@ hu:
       continue_to_pay: "Folytatás és fizetés"
       invoice: Számla
       service_fee: "%{service_name} szolgáltatás díja:"
-      you_will_get: ~
+      you_will_get: "Ön kapni fog:"
     braintree:
       terms:
         braintree_terms_also_included: ~
@@ -1846,8 +1846,8 @@ hu:
       slightly_better_than_expected: "Elvártnál jobb"
       slightly_less_than_expected: "Elvártnál rosszabb"
       what_are_these: "Mik ezek?"
-      review: ~
-      reviews: ~
+      review: "Fogadott vélemény"
+      reviews: "Fogadott vélemények"
       listing: hirdetés
       listings: hirdetések
       open_listing: "Aktuális hirdetés"
