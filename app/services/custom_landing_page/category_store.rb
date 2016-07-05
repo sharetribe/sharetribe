@@ -25,7 +25,7 @@ module CustomLandingPage
     # private
 
     def paths
-      Rails.application.routes.url_helpers
+      @_url_helpers ||= Rails.application.routes.url_helpers
     end
   end
 end
