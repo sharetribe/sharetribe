@@ -24,6 +24,7 @@ class Logo extends Component {
     return a({
       className: classNames(this.props.className, css.logo),
       href: this.props.href,
+      style: this.props.color ? { color: this.props.color } : null,
     }, logoContent(this.props.image, this.props.image_highres, this.props.text));
   }
 }
@@ -33,6 +34,7 @@ Logo.propTypes = {
   image: PropTypes.string,
   image_highres: PropTypes.string,
   text: PropTypes.string.isRequired,
+  color: PropTypes.string,
   className,
 };
 
