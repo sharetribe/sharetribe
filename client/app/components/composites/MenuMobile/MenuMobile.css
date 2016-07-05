@@ -76,6 +76,7 @@
 .offScreenHeader {
   display: flex;
   margin: var(--MenuItem_paddingOffScreenVertical) 0 var(--MenuItem_paddingOffScreenVertical) var(--MenuItem_paddingOffScreenHorizontal);
+  flex-shrink: 0;
 
   @media (--medium-viewport) {
     margin-left: var(--MenuItem_paddingOffScreenHorizontalTablet);
