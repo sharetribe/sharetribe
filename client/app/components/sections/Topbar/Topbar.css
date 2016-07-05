@@ -10,6 +10,7 @@
   border-bottom: 1px solid var(--Topbar_borderColor);
 
   font-size: var(--Topbar_fontSize);
+  font-family: var(--Topbar_fontFamily);
 
   @media (--medium-viewport) {
     height: var(--Topbar_tabletHeight);
