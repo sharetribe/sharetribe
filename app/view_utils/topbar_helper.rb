@@ -102,6 +102,6 @@ module TopbarHelper
   end
 
   def paths
-    Rails.application.routes.url_helpers
+    @_url_herlpers ||= Rails.application.routes.url_helpers
   end
 end
