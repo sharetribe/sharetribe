@@ -30,7 +30,7 @@ hu:
         remove_category: "Kategória eltávolítása"
         remove_category_name: "Kategória törlése '%{category_name}'"
         warning_remove_effects: "Figyelmeztetés! Ezen kategória '%{category_name}' törlése a következőket eredményezheti:"
-        select_new_category: ~
+        select_new_category: "Válasszon egy új kategóriát amelyben a fent listázott tételek törölve lesznek:"
         buttons:
           remove: Eltávolít
           cancel: Mégse
@@ -63,10 +63,10 @@ hu:
             Itt felvilágosítást adhat a felhasználóknak a felíratkozásról, valamint arról hogy hogyan kaphatnak meghívást stb. Az alapértelmezés szerint nincs megadva utasítás.
         edit_info: "Információk változtatása"
         see_how_it_looks_like: Előnézet
-        verification_to_post_listings_info_content: ~
+        verification_to_post_listings_info_content: "Info ablak az ellenőrizetlen használóknak"
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: ~
+        contact_admin_link_text: "Lépjen kapcsolatba a rendszergazdával"
         save: "Beállítások mentése"
         transaction_agreement: "Tranzakciós megállapodás"
         transaction_agreement_checkbox: ~
@@ -210,7 +210,7 @@ hu:
         join_with_invite_only: ~
         users_can_invite_new_users: ~
         private: ~
-        require_verification_to_post_listings: ~
+        require_verification_to_post_listings: "Csak a rendszergazda által ellenőrzött felhasználók adhatnak fel új hírdetéseket"
         search_preferences: ~
         default_search_type: ~
         keyword_search: ~
@@ -220,7 +220,7 @@ hu:
         miles: ~
         listing_preferences: "Hirdetési beállítások"
         transaction_preferences: ~
-        show_listing_publishing_date: ~
+        show_listing_publishing_date: "A hírdetés feladásának megmutatása a hírdető oldalon"
         show_category_in_listing_list: ~
         hide_expiration_date: ~
         listing_comments_in_use: ~
@@ -245,12 +245,12 @@ hu:
         you_will_be_redirected_to: ~
         delete_this_marketplace: "Piactér törlése"
       manage_members:
-        manage_members: ~
+        manage_members: "Felhasználók kezelése"
         email: Email
         name: Név
         join_date: Csatlakozva
         admin: Rendszergazda
-        posting_allowed: ~
+        posting_allowed: "Posztolás engedélyezve"
         ban_user: "Felhasználó tiltása"
         saving_user_status: Mentés...
         save_user_status_successful: "Mentve "
@@ -1585,9 +1585,9 @@ hu:
       listing: Hirdetés
       selected_category: "Kategória: %{category}"
       selected_subcategory: "Alkategória: %{subcategory}"
-      selected_transaction_type: ~
+      selected_transaction_type: "Hírdetés típusa: %{transaction_type}"
       select_category: "Válasszon kategóriát"
-      select_subcategory: ~
+      select_subcategory: "Válasszon alkategóriát"
       select_transaction_type: "Válassza ki a hirdetés típusát"
       you_need_to_fill_payout_details_before_accepting: ~
       contact_admin_link_text: "Lépjen kapcsolatba az adminisztrátorral"
@@ -1653,7 +1653,7 @@ hu:
       week: hét
       month: hónap
     verification_required:
-      verification_required: ~
+      verification_required: "Visszaigazolás szükséges"
   listing_conversations:
     preauthorize:
       details: Részletek
@@ -2153,3 +2153,5 @@ hu:
     page_entries_info:
       multi_page: ~
       multi_page_html: ~
+      single_page:
+        other: "Az összes megmutatása %{count} %{model}"

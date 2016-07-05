@@ -1228,7 +1228,7 @@ de:
       signup: Registrieren
       search_placeholder: ~
     listings:
-      no_listing_image: ~
+      no_listing_image: "Kein Bild"
   layouts:
     admin:
       admin: "%{service_name} Verwaltung"
@@ -2164,16 +2164,16 @@ de:
     days: Tage
   web:
     topbar:
-      menu: ~
+      menu: Menü
       search_placeholder: "Suche ..."
-      user: ~
-      inbox: ~
-      profile: ~
-      manage_listings: ~
-      settings: ~
-      logout: ~
-      login: ~
-      signup: ~
+      user: Nutzer
+      inbox: Eingang
+      profile: Profil
+      manage_listings: "Einträge verwalten"
+      settings: Einstellungen
+      logout: Abmelden
+      login: Anmelden
+      signup: Registrieren
       admin_dashboard: ~
   will_paginate:
     models:

@@ -36,26 +36,26 @@ pl:
           cancel: ~
     communities:
       edit_details:
-        community_details: ~
-        community_look_and_feel: ~
-        edit_community: ~
+        community_details: "Podstawowe informacje"
+        community_look_and_feel: Wygląd
+        edit_community: "Podstawoowe informacje"
         enabled_languages: ~
         enabled_languages_description: ~
         default_language: ~
         language_selection_disabled: ~
-        community_name: ~
+        community_name: "Nazwa platformy"
         edit_community_name_description: ~
-        community_slogan: ~
+        community_slogan: "Slogan platformy"
         edit_community_slogan_description: ~
-        community_description: ~
+        community_description: "Opis platformy"
         edit_community_description_description: ~
         community_search_placeholder: ~
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
-        update_information: ~
-        invite_people: ~
-        edit_signup_info: ~
+        update_information: "Zapisz ustawienia"
+        invite_people: "Zaproś nowych użytkowników"
+        edit_signup_info: "Dane rejestracji"
         edit_signup_info_description: ~
         edit_info: ~
         see_how_it_looks_like: ~
@@ -71,15 +71,15 @@ pl:
         transaction_agreement_text_header: ~
         transaction_agreement_description: ~
       edit_look_and_feel:
-        edit_community_look_and_feel: ~
-        community_logo: ~
-        community_logo_icon: ~
-        community_cover_photo: ~
+        edit_community_look_and_feel: "Edytuj wygląd platformy %{community_name}"
+        community_logo: "Logo na desktopie"
+        community_logo_icon: "Logo dla sieci społecznościowych i urządzeń mobilnych"
+        community_cover_photo: "Zdjęcie w tle"
         small_community_cover_photo: ~
         favicon: ~
         favicon_info_text: ~
-        community_custom_color1: ~
-        community_custom_color2: ~
+        community_custom_color1: "Główny kolor"
+        community_custom_color2: "Kolor przycisku %{post_new_listing}"
         logo_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
@@ -107,8 +107,8 @@ pl:
       edit_welcome_email:
         welcome_email_content: ~
         welcome_email_content_description: ~
-        edit_message: ~
-        send_test_message: ~
+        edit_message: "Edytuj wiadomość"
+        send_test_message: "Wyślij wiadomość testową"
       outgoing_email:
         title: ~
         info: ~
@@ -373,16 +373,16 @@ pl:
         date: ~
     emails:
       new:
-        send_email_to_members: ~
-        send_email_to_members_title: ~
-        email_subject: ~
-        email_content: ~
-        email_content_placeholder: ~
-        email_language: ~
-        any_language: ~
-        send_email: ~
+        send_email_to_members: "Wyślij wiadomość do użytkowników"
+        send_email_to_members_title: "Wyślij wiadomość do wszystkich swoich użytkowników"
+        email_subject: "Tytuł wiadomości email"
+        email_content: "Treść wiadomości email"
+        email_content_placeholder: "Co chcesz powiedzieć do swoich użytkowników?"
+        email_language: "Język, którym posługują się odbiorcy"
+        any_language: "Dowolny język"
+        send_email: "Wyślij wiadomość email"
         message_will_be_sent_only_to_people_with_this_language: ~
-        email_sent: ~
+        email_sent: "Wiadomość email wysłana"
     left_hand_navigation:
       general: ~
       users_and_transactions: ~
@@ -498,17 +498,17 @@ pl:
         offer: ~
         inquiry: ~
   common:
-    edit_page: ~
+    edit_page: "Edytuj stronę"
     default_community_slogan: "Platforma społecznościowa"
     default_community_description: ~
     cancel: Anuluj
     fields_that_are_mandatory: "Pola zaznaczone gwiazdką (*) są obowiązkowe."
     or: lub
     password: Hasło
-    service_name: ~
+    service_name: "%{service_name}"
     share_types:
-      request: ~
-      offer: ~
+      request: zapytaj
+      offer: oferuj
       borrow: wypożyczać
       buy: kupować
       give_away: rozdawać
@@ -517,32 +517,32 @@ pl:
       rent: wynajmować
       rent_out: wynająć
       sell: sprzedawać
-      offer_to_swap: ~
-      request_to_swap: ~
-      share_for_free: ~
+      offer_to_swap: wymieniaj
+      request_to_swap: wymień
+      share_for_free: "współdzielone za darmo"
       accept_for_free: ~
     categories:
-      item: ~
-      favor: ~
-      rideshare: ~
-      housing: ~
-      tools: ~
-      sports: ~
-      music: ~
-      books: ~
-      games: ~
-      furniture: ~
-      outdoors: ~
-      food: ~
-      electronics: ~
-      pets: ~
-      film: ~
-      clothes: ~
-      garden: ~
-      travel: ~
-      other: ~
+      item: Rzeczy
+      favor: Usługi
+      rideshare: Przejazd
+      housing: Przestrzenie
+      tools: Narzędzia
+      sports: Sporty
+      music: Muzyka
+      books: "Książki i magazyny"
+      games: "Gry i zabawki"
+      furniture: Meble
+      outdoors: "Kemping i wszystko co na zewnątrz"
+      food: "Jedzenie i kuchnia"
+      electronics: Elektornika
+      pets: "Zwierzaki domowe"
+      film: Filmy
+      clothes: "Odzież i akcesoria"
+      garden: Ogród
+      travel: Podróżowanie
+      other: Inne
     username: "Nazwa użytkownika"
-    username_or_email: ~
+    username_or_email: "Adres email lub nazwa konta użytkownika"
     what_is_this: "Co to jest?"
     removed_user: ~
     paypal_fee_info:
@@ -554,18 +554,18 @@ pl:
     accept:
       details: ~
       order_by: ~
-      respond_to_offer: ~
-      respond_to_request: ~
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
-      close_listing: ~
-      update_later: ~
-      optional_message: ~
-      price_to_pay: ~
+      respond_to_offer: "Odpowiedz na ofertę"
+      respond_to_request: "Odpowiedz na zapytanie"
+      accept_offer: "Zaakceptuj ofertę"
+      accept_request: "Zaakceptuj zapytanie"
+      reject_offer: "Nie tym razem"
+      reject_request: "Nie tym razem"
+      close_listing: "Zamknij ofertę %{listing_title_link}"
+      update_later: "Zostaw ofertę otwartą"
+      optional_message: "Opcjonalna wiadomość"
+      price_to_pay: "Całościowy koszt do zapłaty"
       you_need_to_fill_payout_details_before_accepting: ~
-      payment_settings_link: ~
+      payment_settings_link: "ustawienia płatności"
       minimum_price_error_message: ~
       accept: ~
       decline: ~
@@ -581,12 +581,12 @@ pl:
       confirm_description: ~
       cancel_description: ~
       cancel_payed_description: ~
-      canceling_payed_transaction: ~
-      confirm: ~
-      cancel: ~
-      continue: ~
-      give_feedback_to: ~
-      do_not_give_feedback: ~
+      canceling_payed_transaction: "Anuluj transakcję"
+      confirm: "Zaznacz jako ukończone"
+      cancel: Spór
+      continue: Kontynuuj
+      give_feedback_to: "Przekaż opinię dla %{person_link}"
+      do_not_give_feedback: "Pomiń opinię"
     details:
       day: ~
       days: ~
@@ -598,36 +598,36 @@ pl:
       no_received_messages: "Brak wiadomości"
       no_sent_messages: "Brak wysłanych wiadomości"
     conversation:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
+      accepted_request: "Zapytanie zaakceptowane."
+      accepted_offer: "Oferta zaakceptowana."
+      rejected_request: "Zapytanie odrzucone."
+      rejected_offer: "Oferta odrzucona."
+      confirmed_request: "Zamówienie zakończone."
+      confirmed_offer: "Oferta zakończona."
+      canceled_request: "Zamówienie anulowane."
+      canceled_offer: "Oferta anulowana."
       message_from: ~
       about_listing: ~
       free_message: ~
       message_content_not_available: ~
     message:
-      accepted_request: ~
+      accepted_request: "zapytanie zaakceptowane"
       received_payment: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
+      accepted_offer: "oferta zaakceptowana"
+      rejected_request: "odrzucone zapytanie, anulowana płatność"
+      rejected_offer: "odrzucono ofertę"
       confirmed_request: ~
       confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      paid: ~
+      canceled_request: "anulowano zamówienie"
+      canceled_offer: "anulowano ofertę"
+      paid: "zapłacono %{sum}"
       payment_preauthorized: ~
     new:
       message: Wiadomość
       message_to: ~
       optional_message_to: ~
-      send_message: ~
-      send: ~
+      send_message: "Wyślij wiadomość"
+      send: Wysłano
       this_message_is_private: "Ta konwersacja jest prywatna pomiędzy Tobą i %{person}. %{person} będzie informowany o tej wiadomości na jego adres email."
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
@@ -636,15 +636,15 @@ pl:
       about_listing: ~
       author_has_to_accept_request: ~
     show:
-      in_response_to_listing: ~
-      message_sent_by: ~
-      message_sent_to: ~
+      in_response_to_listing: "o pozycji"
+      message_sent_by: "Wiadomość wysłana przez"
+      message_sent_to: "Wiadomość wysłana do"
       send_reply: "Wyślij odpowiedź"
       write_a_reply: "Napisz odpowiedź:"
-      conversation_about_listing: ~
+      conversation_about_listing: "Z osobą %{person} o %{listing}"
       conversation_with_user: "Z %{person}"
       conversation_with: ~
-      last_message_at: ~
+      last_message_at: "(ostatnia wiadomość %{time})"
       price: ~
       sum: ~
       price_excludes_vat: "(bez podatku VAT)"
@@ -653,20 +653,20 @@ pl:
       payment_errored: ~
       payment_errored_starter: ~
       payment_errored_author: ~
-      cancel_payed_transaction: ~
+      cancel_payed_transaction: Anuluj
       feedback_given: "Otrzymana opinia"
       feedback_skipped: "Opinia pominięta"
       give_feedback: "Przekaż opinię"
       offer_accepted: Zaakceptowano
       offer_rejected: Odrzucono
-      offer_canceled: ~
-      offer_confirmed: ~
+      offer_canceled: Anulowano
+      offer_confirmed: Ukończono
       offer_paid: ~
       offer_preauthorized: ~
       offer_waiting_for_payment: ~
-      pay: ~
+      pay: Zapłać
       preauthorized: ~
-      paid: ~
+      paid: "Płatność dokonana"
       pending_external:
         paypal:
           multicurrency: ~
@@ -676,12 +676,12 @@ pl:
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: Zaakceptowano
       request_rejected: Odrzucono
-      request_confirmed: ~
-      request_canceled: ~
+      request_confirmed: Ukończono
+      request_canceled: Anulowano
       request_paid: ~
       request_preauthorized: ~
       skip_feedback: "Pomiń przekazywanie opinii"
-      waiting_for_listing_author_to_accept_offer: ~
+      waiting_for_listing_author_to_accept_offer: "Oczekuje na akceptację oferty %{listing_author_name}"
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
       waiting_confirmation_from_requester: ~
@@ -708,31 +708,31 @@ pl:
       cancel: ~
   braintree_accounts:
     new:
-      add_payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
+      add_payout_details: "Dodaj szczegóły płatności"
+      first_name: Imię
+      last_name: Nazwisko
+      email: "Adres email"
+      phone: "Numer telefonu"
+      address_street_address: Ulica
+      address_postal_code: "Kod pocztowy"
+      address_locality: Miasto
+      address_region: Województwo
+      date_of_birth: "Data urodzenia"
       ssn: ~
       routing_number: ~
       account_number: ~
-      save: ~
+      save: Zapisz
     show:
       payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
+      first_name: Imię
+      last_name: Nazwisko
+      email: "Adres email"
+      phone: "Numer telefonu"
+      address_street_address: Ulica
+      address_postal_code: "Kod pocztowy"
+      address_locality: Miasto
+      address_region: Województwo
+      date_of_birth: "Data urodzenia"
       ssn: ~
       routing_number: ~
       account_number: ~
@@ -740,8 +740,8 @@ pl:
     edit:
       new_credit_card_payment: ~
       payment_receiver: ~
-      cardholder_name: ~
-      credit_card_number: ~
+      cardholder_name: "Imię i nazwisko posiadacza karty"
+      credit_card_number: "Numer karty kredytowej"
       cvv: ~
       credit_card_expiration_date: ~
       confirm_payment: ~
@@ -760,10 +760,10 @@ pl:
       you_are_banned_in_this_community: ~
       contact_page_link: ~
     new:
-      welcome_fb_user: ~
-      fb_join_accept_terms: ~
+      welcome_fb_user: "%{name}, witaj na platformie %{service_name}!"
+      fb_join_accept_terms: "Jest jeszcze jeden krok, który musisz wykonać, aby dołączyć do %{service_name}: musisz zaakceptować zasady użytkowania."
       join_community: "Dołącz do %{service_name}"
-      you_can_join: ~
+      you_can_join: "Możesz dołączyć do platformy %{service_name} akceptując zasady użytkowania i klikając na 'Dołącz do %{service_name}' poniżej."
       you_can_join_email_confirmation: ~
       you_can_join_email_confirmation_multiple_addresses: ~
       you_can_join_with_invite_only: ~
@@ -783,7 +783,7 @@ pl:
       you_can_accept_or_reject_request_at: "Możesz zaakceptować bądź odrzucić ofertę na"
       you_have_not_yet_accepted_or_rejected_offer: "Jeszcze nie zaakceptowałeś, ani nie odrzuciłeś oferty %{title}, którą otrzymałeś %{date}"
       you_have_not_yet_accepted_or_rejected_request: "Jeszcze nie zaakceptowałeś, ani nie odrzuciłeś oferty %{title}, którą otrzymałeś %{date}"
-      show_thread: ~
+      show_thread: "Pokaż konwersację"
     branding:
       powered_by: ~
       create_own: ~
@@ -798,7 +798,7 @@ pl:
       if_will_not_happen_you_should_cancel: ~
       if_will_not_happen_you_should_cancel_escrow: ~
       if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
-      cancel_it_link_text: ~
+      cancel_it_link_text: anuluj
       automatic_confirmation: ~
     payment_reminder:
       remember_to_pay: ~
@@ -809,15 +809,15 @@ pl:
       remember_to_add_payment_details: ~
       you_have_added_listing_with_payment: ~
       please_go_to_payment_settings: ~
-      payment_settings_link: ~
+      payment_settings_link: "ustawienia płatności"
     transaction_confirmed:
       here_is_a_message_from: ~
       request_marked_as_confirmed: ~
-      request_marked_as_canceled: ~
+      request_marked_as_canceled: "Zamówienie anulowane"
       has_marked_request_as_confirmed: ~
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      give_feedback_to: "Przekaż opinię do %{other_party_given_name}"
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
@@ -839,48 +839,48 @@ pl:
       need_to_confirm: "Musisz potwierdzić swój adres email."
       confirmation_link_text: "Potwierdź mój adres email"
       or_paste_link: ~
-      turning_on_confirmations_in_this_community: ~
+      turning_on_confirmations_in_this_community: "Zaczynamy używać potwierdzeń email na platformie %{service_name}."
     common:
       hey: "Witaj %{name}"
       kassi_team: "Zespół %{service_name}"
       thanks: "Dziękuję,"
-      dont_want_to_receive_these_emails: ~
-      edit_your_email_settings_here: ~
-      message_not_displaying_correctly: ~
-      view_it_in_your_browser: ~
-      or: ~
-      unsubscribe_from_these_emails: ~
+      dont_want_to_receive_these_emails: "Nie chcesz otrzymywać takich wiadomości email?"
+      edit_your_email_settings_here: "Zmień swoje preferencje dot. emaili tutaj"
+      message_not_displaying_correctly: "Czy ta wiadomość email nie wyświetla się poprawnie?"
+      view_it_in_your_browser: "Zobacz to w przeglądarce internetowej"
+      or: lub
+      unsubscribe_from_these_emails: "Wypisz się z tych wiadomości email"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} zaakceptował Twoją ofertę %{listing}."
       has_accepted_your_request: "%{accepter} zaakceptował Twoje zapytanie %{listing}."
       has_rejected_your_offer: "%{accepter} odrzucił Twoją ofertę %{listing}."
       has_rejected_your_request: "%{accepter} odrzucił Twoje zapytanie %{listing}."
-      view_thread: ~
+      view_thread: "Zobacz konwersację"
       your_offer_was_accepted: "Twoja oferta została zaakceptowana"
       your_offer_was_rejected: "Twoja oferta została odrzucona"
       your_request_was_accepted: "Twoje zapytanie zostało zaakceptowane"
       your_request_was_rejected: "Twoje zapytanie zostało odrzucone"
       you_can_now_pay_to: ~
-      pay_now: ~
+      pay_now: "Zapłać teraz"
       remember_to_confirm: ~
     invitation_to_kassi:
       hi: Cześć!
       you_have_been_invited_to_kassi: "%{inviter} zaprosił Cię do %{service_name}."
       here_is_a_message_from: "Wiadomość prywatna od %{inviter}:"
-      join_now: ~
-      invitation_code: ~
+      join_now: "Dołąćz teraz"
+      invitation_code: "Kod zaproszenia: %{code}"
     new_comment:
       has_commented_your_listing_in_kassi: ~
-      view_comment: ~
+      view_comment: "Zobacz komentarz"
       you_have_a_new_comment: "%{author} dodał komentarz do Twojej oferty %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} skomentował ofertę, którą śledzisz w %{service_name}"
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
-      view_message: ~
+      view_message: "Zobacz wiadomość"
       has_sent_you_a_message_in_kassi: "%{sender} wysłał Tobie wiadomość w %{service_name}"
       you_have_a_new_message: "Nowa wiadomość w %{service_name} od %{sender_name}"
     new_payment:
-      new_payment: ~
+      new_payment: "Otrzymałeś nową płatność"
       price_per_unit_type: "Price per %{unit_type}"
       quantity: ~
       you_have_received_new_payment: ~
@@ -894,7 +894,7 @@ pl:
       you_will_get: ~
       money_will_be_transferred: ~
     receipt_to_payer:
-      receipt_of_payment: ~
+      receipt_of_payment: "Rachunek za płatność"
       you_have_made_new_payment: ~
       product: ~
       price_per_unit_type: "Price per %{unit_type}"
@@ -908,23 +908,23 @@ pl:
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} przekazał Tobie opinię w %{service_name}"
       you_can_give_feedback_to: "Jeszcze nie przekazałeś opinii do %{name}"
-      view_feedback: ~
+      view_feedback: "Zobacz opinie"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Oferta, którą śledzisz została zaktualizowana"
       has_updated_listing_you_follow_in_kassi: ~
-      view_changes: ~
+      view_changes: "Zobacz zmiany"
     community_updates:
-      added_offer: ~
-      added_request: ~
-      added_listing: ~
-      update_mail_title: ~
-      title_link_text: ~
+      added_offer: "%{name_link} dodał ofertę:"
+      added_request: "%{name_link} dodał ofertę:"
+      added_listing: "%{name_link} dodał ofertę:"
+      update_mail_title: "Aktualizacja %{title_link}"
+      title_link_text: "%{community_name}"
       intro_paragraph: ~
-      intro_paragraph_link_text: ~
+      intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Wystaw swoją ofertę!"
-      reduce_email_footer_text: ~
-      settings_link_text: ~
-      unsubscribe_link_text: ~
+      reduce_email_footer_text: "Otrzymujesz za dużo wiadomości email? %{settings_link} lub %{unsubscribe_link}"
+      settings_link_text: "Zmień swoje preferencje dot. emaili tutaj"
+      unsubscribe_link_text: "wypisz się"
     newsletter:
       hi: "Cześć %{name},"
       newest_offers: "Co aktualnie jest oferowane innym"
@@ -950,8 +950,8 @@ pl:
       welcome_email_subject: ~
       welcome_to_marketplace: ~
       love_marketplace_crew: ~
-      welcome_email_footer_text: ~
-      settings_link_text: ~
+      welcome_email_footer_text: "Jakie rodzaje wiadomości email chcesz otrzymywać od %{service_name}? %{settings_link}"
+      settings_link_text: "Sprawdź swoje ustawienia"
       welcome_email_subject_for_marketplace_creator: ~
       welcome_to_marketplace_creator: ~
       congrats_for_creating_your_marketplace: ~
@@ -981,8 +981,8 @@ pl:
       departure_time: "Czas rozpoczęcia musi być pomiędzy aktualny czasem, a datą za rok od dziś."
       share_type: "Musisz wybrać przynajmniej jedną."
       valid_until: "Data musi być pomiędzy aktualnym czasem, a sześć miesięcy od dziś."
-      price: ~
-      minimum_price: ~
+      price: "Cena musi być liczbą całkowitą."
+      minimum_price: "Cena minimum to %{minimum_price} %{currency}"
     testimonials:
       you_must_explain_not_neutral_feedback: "Jeżeli chcesz przekazać nieneutralną opinię, musisz wyjaśnić dlaczego."
       you_must_select_a_grade: "Pamiętaj, aby przekazać czy Twoje odczucia są pozytywne lub negatywne."
@@ -1018,7 +1018,7 @@ pl:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript jest wyłączony w Twojej przeglądarce"
       kassi_does_not_currently_work_without_javascript: "%{service_name} nie działa poprawnie bez javascript. Spróbuj włączyć javascript w ustawieniach preferencji Twojej przeglądarki i później odśwież stronę."
-      contact_us: ~
+      contact_us: "skontaktuj się z nami"
       send_feedback: "Przekaż opinię"
       your_feedback_to_admins: "Twoja opinia do administratorów"
     send: Wyślij
@@ -1036,43 +1036,43 @@ pl:
       positive_number: ~
   event_feed_events:
     accept:
-      has_accepted_lend_item: ~
-      has_accepted_borrow_item: ~
-      has_accepted_rent_out_item: ~
-      has_accepted_rent_item: ~
-      has_accepted_give_away_item: ~
-      has_accepted_receive_item: ~
-      has_accepted_sell_item: ~
-      has_accepted_buy_item: ~
-      has_accepted_trade_item: ~
-      has_accepted_sell_housing: ~
-      has_accepted_buy_housing: ~
-      has_accepted_rent_out_housing: ~
-      has_accepted_rent_housing: ~
-      has_accepted_favor: ~
-      has_accepted_rideshare: ~
+      has_accepted_lend_item: "%{offerer_name} zgodził się, aby pożyczyć %{listing_title} do %{requester_name} %{time_ago}"
+      has_accepted_borrow_item: "%{offerer_name} zgodził się, aby pożyczyć %{listing_title} do %{requester_name} %{time_ago}"
+      has_accepted_rent_out_item: "%{offerer_name} zgodził się, aby wypożyczyć %{listing_title} do %{requester_name} %{time_ago}"
+      has_accepted_rent_item: "%{offerer_name} zgodził się, aby wypożyczyć %{listing_title} do %{requester_name} %{time_ago}"
+      has_accepted_give_away_item: "%{offerer_name} zgodził się, aby przekazać %{listing_title} do %{requester_name} %{time_ago}"
+      has_accepted_receive_item: "%{offerer_name} zgodził się, aby przekazać %{listing_title} do %{requester_name} %{time_ago}"
+      has_accepted_sell_item: "%{offerer_name} zgodził się, aby sprzedać %{listing_title} do %{requester_name} %{time_ago}"
+      has_accepted_buy_item: "%{offerer_name} zgodził się, aby sprzedać %{listing_title} do %{requester_name} %{time_ago}"
+      has_accepted_trade_item: "%{offerer_name} zgodził się, aby wymienić %{listing_title} do %{requester_name} %{time_ago}"
+      has_accepted_sell_housing: "%{offerer_name} zgodził się, aby sprzedać %{listing_title} do %{requester_name} %{time_ago}"
+      has_accepted_buy_housing: "%{offerer_name} zgodził się, aby sprzedać %{listing_title} do %{requester_name} %{time_ago}"
+      has_accepted_rent_out_housing: "%{offerer_name} zgodził się, aby wypożyczyć %{listing_title} do %{requester_name} %{time_ago}"
+      has_accepted_rent_housing: "%{offerer_name} zgodził się, aby wypożyczyć %{listing_title} do %{requester_name} %{time_ago}"
+      has_accepted_favor: "%{offerer_name} zgodził się, aby zaoferować %{listing_title} do %{requester_name} %{time_ago}"
+      has_accepted_rideshare: "%{offerer_name} zgodził się, aby przewieźć %{listing_title} do %{requester_name} %{time_ago}"
     join:
-      joined_kassi: ~
+      joined_kassi: "%{name} dołączył do platformy %{service_name} %{time_ago}."
     login:
-      logged_in_to_kassi: ~
+      logged_in_to_kassi: "%{name} zalogował się do %{service_name} %{time_ago}."
     comment:
-      commented: ~
+      commented: "%{commenter_name} skomentował w ofercie %{listing_title} %{time_ago}."
       offer_partitive: oferuj
       request_partitive: zapytaj
   header:
     about: "O nas"
     home: "Strona główna"
-    members: ~
-    new_listing: ~
+    members: Społeczność
+    new_listing: "Nowa oferta"
     mobile_version: "Wersja mobilna"
     offers: Oferty
     requests: Zapytania
     search_kassi: "Wyszukaj %{service_name}"
-    create_new_marketplace: ~
-    contact_us: ~
-    profile: ~
+    create_new_marketplace: "Stwórz nową platformę"
+    contact_us: "Skontaktuj się z nami"
+    profile: Profil
     manage_listings: ~
-    invite: ~
+    invite: "Zaproś nowych członków"
     login: "Zaloguj się"
     signup: ~
     menu: ~
@@ -1115,17 +1115,17 @@ pl:
     event_feed:
       latest_events: "Co się dzieje"
     grid_item:
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(Procesowanie przesłanego zdjęcia...)"
     index:
       no_listings_with_your_search_criteria: ~
-      no_listings_notification: ~
-      add_listing_link_text: ~
-      open_listing: ~
-      open_listings: ~
-      private_listing_notification_log_in: ~
-      is: ~
-      are: ~
-      what_do_you_need: ~
+      no_listings_notification: "Brak ofert. %{add_listing_link}."
+      add_listing_link_text: "Dodaj nową ofertę"
+      open_listing: "otwórz ofertę"
+      open_listings: "otwórz oferty"
+      private_listing_notification_log_in: "zaloguj się"
+      is: jest
+      are: są
+      what_do_you_need: "Czego poszukujesz?"
       post_new_listing: "Wystaw swoją ofertę"
       are_offering: oferta
       add_news_item: "Dodaj artykuł"
@@ -1141,9 +1141,9 @@ pl:
       requesting: potrzebuję
       tell_it_here: "Powiedz to tutaj!"
       welcome_to_new_kassi: "Witaj w nowym %{service_name}!"
-      no_reviews: ~
-      no_image: ~
-      filter: ~
+      no_reviews: "Brak recenzji"
+      no_image: "Brak zdjęcia"
+      filter: Filtr
       this_is_private_community: ~
     invitation_form:
       email: "Adres(y) email"
@@ -1152,8 +1152,8 @@ pl:
       add_email_addresses_description: ~
       add_lots_of_email_addresses: ~
       this_article_link: ~
-      invitation_emails_field_placeholder: ~
-      invitation_message_field_placeholder: ~
+      invitation_emails_field_placeholder: "kumpel1@przyklad.pl, kumpel2@przyklad.pl, ..."
+      invitation_message_field_placeholder: "Dołączyłem do tej platformy. Ty też powinieneś/aś!"
       errors_in_emails: ~
     list_item:
       review: ~
@@ -1172,10 +1172,10 @@ pl:
       comment: komentarz
       comments: komentarze
     filters:
-      show: ~
-      search: ~
-      map: ~
-      list: ~
+      show: "Filtr:"
+      search: Szukaj
+      map: "Pokaż mapę"
+      list: "Pokaż listę"
       map_button: Mapa
       grid_button: Miniaturki
       list_button: Lista
@@ -1187,7 +1187,7 @@ pl:
     about:
       default_about_text_title: ~
       default_about_text: ~
-      click_here_link_text: ~
+      click_here_link_text: "Kliknij tutaj"
     how_to_use:
       default_title: ~
       default_content: ~
@@ -1206,12 +1206,12 @@ pl:
       create_own: ~
       learn_more: ~
     no_tribe:
-      inbox: ~
-      settings: ~
-      feedback: ~
+      inbox: "Skrzynka odbiorcza"
+      settings: Ustawienia
+      feedback: "Skontaktuj się z nami"
     application:
-      join_this_community: ~
-      read_more: ~
+      join_this_community: "Dołącz do platformy"
+      read_more: "Czytaj więcej"
       feedback: "Co chcesz nam powiedzieć?"
       default_feedback: "Czy spotkałeś się z problemem z %{service_name}? Masz sugestię jak poprawić usługę? Zauważyłeś podejrzaną treść? Lub masz coś, co chciałbyś przedyskutować z nami? Daj nam znać!"
       feedback_forum: "forum opinii"
@@ -1222,19 +1222,19 @@ pl:
       to_see_what_others_have_suggested: "aby zobaczyć, co zasugerowali inni użytkownicy i zagłosować na pomysły."
       your_email_address: "Twój adres email (do kontaktu)"
       connect: Rejestracja
-      invite_your_friends: ~
-      invite_your_neighbors: ~
-      invite_your_friends_description: ~
-      invite_your_friends_invite_only_description: ~
-      join_without_facebook: ~
-      join_without_facebook_link: ~
+      invite_your_friends: "Zaproś znajomych!"
+      invite_your_neighbors: "Zaproś sąsiadów!"
+      invite_your_friends_description: "Im więcej ludzi na platformie %{service_name}, tym bardziej jest ona użyteczna."
+      invite_your_friends_invite_only_description: "Ludzie nie mogą dołączyć do platformy %{service_name}, dopóki nie zostaną zaproszeni."
+      join_without_facebook: "lub alternatywnie %{join_without_facebook_link}"
+      join_without_facebook_link: "zaloguj się korzystając z konta na Facebook"
     conversations:
       messages: Wiadomości
       notifications: Powiadomienia
       received: Otrzymane
       sent: Wysłane
     global-header:
-      select_language: ~
+      select_language: "Wybierz język"
     infos:
       about: O
       how_to_use: "Jak to działa"
@@ -1269,21 +1269,21 @@ pl:
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
-      test_welcome_email_delivered_to: ~
-      something_went_wrong: ~
-      community_updated: ~
-      community_update_failed: ~
+      test_welcome_email_delivered_to: "Testowa wiadomość została wysłana do %{email}."
+      something_went_wrong: "Coś poszło nie tak"
+      community_updated: "Szczegóły zaktualizowane."
+      community_update_failed: "Aktualizacja szczegółów nie powiodła się."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Twoje konto zostało pomyślnie utworzone. Teraz musisz potwierdzić swój adres email."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Dziękujemy, że dołączyłeś do %{service_name}. Teraz musisz potwierdzić swój adres email."
       comment_cannot_be_empty: "Komentarz nie może być pusty"
       comment_sent: "Komentarz wysłany"
       confirmation_link_is_wrong_or_used: "Ten link potwierdzający został już użyty lub jest uszkodzony. Spróbuj się zalogować, albo przesłać nam opinię jeżeli problem wciąż występuje."
-      additional_email_confirmed: ~
+      additional_email_confirmed: "Adres email, który wprowadziłeś jest potwierdzony."
       could_not_get_email_from_facebook: ~
       facebook_email_unconfirmed: ~
-      create_new_listing: ~
+      create_new_listing: "Stwórz kolejną ofertę"
       create_one_here: "stwórz nowy tutaj"
-      email_confirmation_sent_to_new_address: ~
+      email_confirmation_sent_to_new_address: "Email potwierdzający został wysłany na nowy adres."
       email_not_found: "Email, który podałeś nie został znaleziony w bazie %{service_name}"
       error_with_session: "Problem z sesją."
       feedback_considered_spam: "Opinia nie została zapisana ze względu na jego formatowanie. Spróbuj ponownie lub skorzystaj z forum opinii."
@@ -1297,8 +1297,8 @@ pl:
       inviting_new_users_is_not_allowed_in_this_community: "Zapraszanie nowych użytkowników nie jest dozwolone."
       login_again: "Zaloguj się ponownie."
       login_failed: "Logowanie nie udało się. Proszę podaj poprawne dane."
-      account_creation_successful: ~
-      account_deleted: ~
+      account_creation_successful: "Witaj %{person_name}, na platformie %{service_name}!"
+      account_deleted: "Twoje konto zostało usunięte."
       login_successful: "Witaj, %{person_name}!"
       logout_successful: "Wylogowałeś się z %{service_name}. Do zobaczenia wkrótce!"
       news_item_created: "Artykuł stworzony"
@@ -1307,17 +1307,17 @@ pl:
       news_item_updated: "Artykuł zaktualizowany"
       news_item_deleted: "Artykuł usunięty"
       offer_accepted: "Oferta zaakceptowana"
-      offer_confirmed: ~
+      offer_confirmed: "Oferta potwierdzona"
       offer_closed: "Oferta zamknięta"
-      listing_created_successfully: ~
+      listing_created_successfully: "Pozycja stworzona pomyślnie. %{new_listing_link}"
       offer_rejected: "Oferta odrzucona"
-      offer_canceled: ~
-      listing_updated_successfully: ~
+      offer_canceled: "Oferta anulowana"
+      listing_updated_successfully: "Oferta zaktualizowana pomyślnie"
       only_kassi_administrators_can_access_this_area: "Tylko adminstratorzy %{service_name} mogą przejść do tej sekcji"
       only_listing_author_can_close_a_listing: "Tylko autor może zamknąć pozycję"
       only_listing_author_can_edit_a_listing: "Tylko autor może edytować pozycję"
-      payment_successful: ~
-      payment_canceled: ~
+      payment_successful: "Płatność dokonana"
+      payment_canceled: "Płatność anulowana"
       error_in_payment: ~
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
@@ -1337,9 +1337,9 @@ pl:
       reply_cannot_be_empty: "Nie możesz wysłać pustej wiadomości"
       reply_sent: "Odpowiedź wysłana pomyślnie"
       request_accepted: "Zapytanie zaakceptowane"
-      request_confirmed: ~
+      request_confirmed: "Zamówienie zakończone"
       request_rejected: "Zapytanie odrzucone"
-      request_canceled: ~
+      request_canceled: "Zamówienie anulowane"
       message_sent: "Wiadomość wysłana"
       message_not_sent: ~
       this_content_is_not_available_in_this_community: "Treść nie jest dostępna."
@@ -1356,8 +1356,8 @@ pl:
       you_have_already_given_feedback_about_this_event: "Już przekazałeś opinię do tego wydarzenia"
       you_are_now_member: "Witaj w %{service_name}!"
       you_are_already_member: "Już jesteś członkiem %{service_name}. Witaj ponownie!"
-      you_must_log_in_to_create_new_listing: ~
-      additional_email_confirmed_dashboard: ~
+      you_must_log_in_to_create_new_listing: "Musisz się zalogować na platformie %{service_name}, aby stworzyć nową ofertę. Jeżeli nie masz jeszcze konta, możesz je %{sign_up_link}."
+      additional_email_confirmed_dashboard: "Twój adres email jest potwierdzony."
       you_must_log_in_to_give_feedback: "Aby przekazać opinię musisz się zalogować."
       you_must_log_in_to_invite_new_users: "Musisz się zalogować, aby zaprosić innych użytkowników do %{service_name}"
       you_must_log_in_to_send_a_comment: "Musiz się zalogować, aby dodać nowy komentarz"
@@ -1373,13 +1373,13 @@ pl:
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Musisz potwierdzić swój adres email."
-      you_must_fill_all_the_fields: ~
+      you_must_fill_all_the_fields: "Musisz wypełnić wszystkie pola"
       you_unfollowed_listing: "Już nie śledzisz tej oferty"
       joining_community_failed: "Dołączenie nie zakończyło się pomyślnie"
       can_not_login_with_private_user: ~
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
-      email_deleted: ~
+      email_deleted: "Adres email usunięty"
       payment_details_add_successful: ~
       payment_details_add_error: ~
       listing_author_payment_details_missing: ~
@@ -1390,7 +1390,7 @@ pl:
       notifications: Powiadomienia
       profile: "Informacje o profilu"
       settings: Ustawienia
-      payments: ~
+      payments: Płatności
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Nie masz uprawnień, aby zobaczyć tę pozycję."
@@ -1405,15 +1405,15 @@ pl:
       send_comment: "Wyślij komentarz"
       to_send_a_comment: "aby wysłać nowy komentarz."
       write_comment: "Napisz nowy komentarz:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: ~
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Nie możesz dodawać nowych komentarzy, ponieważ oferta została zamknięta."
       you_must: Musisz
       subscribe_to_comments: "Powiadamiaj mnie o nowych komentarzach i uaktualnieniach"
     edit:
-      edit_listing: ~
+      edit_listing: "Edytuj ofertę"
     edit_links:
       close_listing: "Usuń ofertę"
       edit_listing: "Edytuj ofertę"
-      reopen_listing: ~
+      reopen_listing: "Otwórz ponownie ofertę"
       move_to_top: "Przesuń na górę strony"
       show_in_updates_email: "Pokaż w kolejnym newsletterze"
       show_in_updates_email_loading: ~
@@ -1478,9 +1478,9 @@ pl:
         price: Cena
         per: za
         per_day: "za dzień"
-        mass: ~
+        mass: "sztuk, kilo, litrów, m2, ..."
         time: "godzina, dzień, miesiąc, ..."
-        long_time: ~
+        long_time: "tygodni, miesięcy, ..."
         after_service_fee_you_will_get: ~
         no_service_fee_you_will_get_paypal_text: ~
         after_service_fee_you_will_get_paypal_text: ~
@@ -1509,8 +1509,8 @@ pl:
         rent_out: Wynajęcie
         request_type: "Rodzaj zapytania"
         sell: Sprzedawanie
-        share_for_free: ~
-        accept_for_free: ~
+        share_for_free: "Współdzielone za darmo"
+        accept_for_free: "Zaakceptuj za darmo"
         trade: Wymienianie
       tag_list:
         comma_separate: "(oddzielnie przecinkami)"
@@ -1522,9 +1522,9 @@ pl:
       valid_until_radio_buttons:
         for_the_time_being: "Od chwili obecnej"
       privacy:
-        privacy: ~
-        private: ~
-        public: ~
+        privacy: Prywatność
+        private: "Prywatny (tylko zalogowani użytkownicy to widzą)"
+        public: "Publiczny (widoczne także dla użytkowników niezalogowanych)"
     help_texts:
       help_share_type_title: "Rodzaj oferty lub zapytania"
       help_tags_title: Tagi
@@ -1539,7 +1539,7 @@ pl:
       housing: Przestrzenie
       items: Rzeczy
       list_view: "Widok listy"
-      listings: ~
+      listings: Oferty
       map_view: "Widok mapy"
       offer_something: "Daj znać innym!"
       offer_type: "Rodzaj oferty"
@@ -1550,7 +1550,7 @@ pl:
       rideshare: Przejazd
       search_verb: Szukaj
       you_have_something_others_do_not: "Masz coś do zaoferowania?"
-      feed_title: ~
+      feed_title: "%{listing_type} w %{service_name} %{optional_category}"
     left_panel_link:
       borrows: Wypożyczanie
       buys: Kupowanie
@@ -1564,8 +1564,8 @@ pl:
       rents: Wynajmowanie
       rideshares: Przejazdy
       sells: Sprzedawanie
-      share_for_frees: ~
-      accept_for_frees: ~
+      share_for_frees: "Współdzielone za darmo"
+      accept_for_frees: "Zaakceptuj za darmo"
       trades: Wymienianie
     listing_actions:
       booking_from: ~
@@ -1574,11 +1574,11 @@ pl:
       payment_help: ~
     new:
       post_a_new_listing: "Wystaw swoją ofertę"
-      listing: ~
-      selected_category: ~
-      selected_subcategory: ~
+      listing: oferta
+      selected_category: "Kategoria: %{category}"
+      selected_subcategory: "Podkategoria: %{subcategory}"
       selected_transaction_type: ~
-      select_category: ~
+      select_category: "Wybierz kategorię"
       select_subcategory: ~
       select_transaction_type: ~
       you_need_to_fill_payout_details_before_accepting: ~
@@ -1596,35 +1596,35 @@ pl:
     quantity_placeholder: ~
     please_comment: Skomentuj
     reply_link:
-      listing_closed: ~
+      listing_closed: "Oferta jest zamknieta"
     show:
       add_your_phone_number: "Dodaj swój numer telefonu"
       add_profile_picture: "Dodaj zdjęcie profilowe"
       comments: Komentarze
-      contact_by_phone: ~
-      contact: ~
+      contact_by_phone: "Skontaktuj się telefonicznie:"
+      contact: Kontakt
       favor_offer: "Oferta usługi"
       favor_request: "Zapytanie o usługę"
       inquiry: ~
-      item_offer_trade: ~
-      item_request_trade: ~
+      item_offer_trade: "Wymień się ofertą"
+      item_request_trade: "Wymień się zapytaniem"
       no_description: "Pozycja nie ma opisu"
-      no_image: ~
-      no_reviews: ~
+      no_image: "Brak zdjęcia"
+      no_reviews: "Brak otrzymanych recenzji"
       offer: Oferuj
-      listing_created: ~
-      open_until: ~
-      feedback: ~
+      listing_created: Utworzona
+      open_until: "Otwarte do %{date}"
+      feedback: Opinie
       qr_code: "Kod QR"
       request: Zapytaj
       rideshare_offer: "Oferta przejazdu"
       rideshare_request: "Zapytanie o przejazd"
-      send_private_message: ~
+      send_private_message: "Wyślij wiadomość prywatną"
       tags: Tagi
       time: czas
       times: czasy
       times_viewed: Wyświetlono
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(Procesowanie przesłanego zdjęcia...)"
       price_excludes_vat: "(bez podatku VAT)"
       listing_created_at: ~
       price:
@@ -1683,20 +1683,20 @@ pl:
     content_too_long: ~
   okl:
     member_id: "ID członka"
-    member_id_or_email: ~
+    member_id_or_email: "ID członka lub adres email"
   payments:
     new:
-      new_payment: ~
-      continue: ~
-      payment_receiver: ~
-      sum: ~
+      new_payment: "Nowa płatność"
+      continue: Kontynuuj
+      payment_receiver: "Odbiorca płatności:"
+      sum: "Suma płatności:"
     form:
-      total: ~
-      service_charge: ~
-      product: ~
-      price: ~
+      total: "W całości"
+      service_charge: "Opłata serwisowa"
+      product: "Produkt:"
+      price: "Suma:"
       price_for: ~
-      continue_to_pay: ~
+      continue_to_pay: "Kontynuuj, aby zapłacić"
       invoice: ~
       service_fee: ~
       you_will_get: ~
@@ -1782,7 +1782,7 @@ pl:
       help_invitation_code_title: "Musisz mieć zaproszenie, aby dołączyć"
       terms_title: "Zasady użytkowania %{service_name}"
       invite_only_help_text: ~
-      invite_only_help_text_title: ~
+      invite_only_help_text_title: "Tylko z zaproszeniem"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Ten użytkownik nie jest już aktywny w %{service_name}"
       inactive_description: "Użytkownik przestał korzystać z %{service_name}. Nie możesz się z nim skontaktować, przekazać opinii, abo komentować ich oferty."
@@ -1791,7 +1791,7 @@ pl:
       email: "Adres email"
       email_is_in_use: "Adres email, który podałeś jest już w użyciu."
       email_is_in_use_or_not_allowed: "Ten adres email nie jest dozwolony lub ktoś już z niego korzysta. Jeżeli nie możesz z niego skorzystać, skontaktuj się z nami."
-      email_not_allowed: ~
+      email_not_allowed: "Ten adres email nie jest dozwolony w %{service_name}. Proszę użyj innego adresu. Jeżeli wciąż nie możesz się zalogować, skontaktuj się z nami."
       family_name: Nazwisko
       given_name: Imię
       i_accept_the: Akceptuję
@@ -1808,18 +1808,18 @@ pl:
       username_is_invalid: "Nazwa użytkownika nie jest poprawna. Dozwolone znaki to litery, cyfry i podkreślnik."
       visible_only_to_you: "widoczne tylko dla Ciebie i administratora platformy"
       visible_to_everybody: "widoczne dla wszystkich"
-      create_account_with_facebook: ~
+      create_account_with_facebook: "Zarejestruj się poprzez Facebooka"
       OR: ~
       signup_with_email: ~
     profile_feedback:
       grade: "stopień:"
-      and_gave_following_feedback: ~
+      and_gave_following_feedback: "oraz daj następującą opinię"
     profile_listings:
       show_also_closed: "Pokaż także zamknięte"
       show_only_open: "Pokaż tylko otwarte"
-      no_image: ~
+      no_image: "Brak zdjęcia"
     show:
-      contact: ~
+      contact: "Skontaktuj się z %{person}"
       about_me: "O mnie:"
       add_description: "Napisz coś o sobie"
       add_location: "Dodaj lokalizację"
@@ -1828,7 +1828,7 @@ pl:
       as_expected: Spodziewane
       edit_profile_info: "Edytuj profil"
       exceeded_expectations: "Przewyższył oczekiwania"
-      positive: ~
+      positive: pozytywny
       hide_description: "Pokaż mniej"
       less_than_expected: "Poniżej oczekiwań"
       phone_number: "Numer telefonu:"
@@ -1838,18 +1838,18 @@ pl:
       slightly_better_than_expected: "Przewyższył oczekiwania"
       slightly_less_than_expected: "Poniżej oczekiwań"
       what_are_these: "Co to jest?"
-      review: ~
-      reviews: ~
-      listing: ~
-      listings: ~
-      open_listing: ~
-      open_listings: ~
-      no_listings: ~
-      no_open_listings: ~
-      no_reviews: ~
-      show_all_listings: ~
-      show_all_open_listings: ~
-      show_all_reviews: ~
+      review: "otrzymana recenzja"
+      reviews: "otrzymane recenzje"
+      listing: oferta
+      listings: oferty
+      open_listing: "otwórz ofertę"
+      open_listings: "otwórz oferty"
+      no_listings: "Brak ofert"
+      no_open_listings: "Brak otwartych ofert"
+      no_reviews: "Brak recenzji"
+      show_all_listings: "Pokaż wszystkie oferty"
+      show_all_open_listings: "Pokaż wszystkie otwarte oferty"
+      show_all_reviews: "Pokaż wszystkie recenzje"
     followed_people:
       you_follow_plural: ~
       you_follow_singular: ~
@@ -1877,15 +1877,15 @@ pl:
       i_forgot_my_password: "Zapomniałeś nazwy użytkownika lub hasła?"
       login: "Zaloguj się"
       login_to_kassi: "Zaloguj się do %{service_name}"
-      connect_your_facebook_to_kassi: ~
+      connect_your_facebook_to_kassi: "Połącz swoje konto Facebook z %{service_name}"
       facebook_account: "Konto na Facebooku:"
       log_in_to_link_account: ~
       you_can_also_create_new_account: ~
       account_creation_link_text: "kliknij tutaj"
       cancle_facebook_connect: ~
       facebook_cancel_link_text: anuluj
-      log_in_with_your_facebook_account: ~
-      or_sign_up_with_your_username: ~
+      log_in_with_your_facebook_account: "Zaloguj się kontem Facebook"
+      or_sign_up_with_your_username: "...lub Twoim kontem użytkownika lub adresem email:"
       we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: "Adres email"
@@ -1898,7 +1898,7 @@ pl:
       resend_confirmation_instructions: "Wyślij ponownie link potwierdzający na adres email"
       your_current_email_is: "Twój adres email to %{email}"
       change_email: Zmień
-      confirm_your_email: ~
+      confirm_your_email: "Proszę potwierdź Twój adres email"
       account_confirmation_instructions: ~
       account_confirmation_instructions_title_admin: ~
       your_marketplace_has_now_been_created: ~
@@ -1907,10 +1907,10 @@ pl:
     account:
       change: Zmień
       confirm_new_password: "Potwierdź nowe hasło"
-      delete_account: ~
-      delete_account_button: ~
+      delete_account: "Usuń konto"
+      delete_account_button: "Usuń moje konto na zawsze"
       delete_account_confirmation_popup: ~
-      email_addresses: ~
+      email_addresses: "Adresy email"
       new_email: "Nowy adres email"
       delete_personal_information: ~
       delete_information_others_involved: ~
@@ -1920,45 +1920,45 @@ pl:
       these_fields_are_shown_only_to_you: "Nazwa użytkownika jest wyświetlana w Twoim profilu, chyba, że podałeś swoje imię. Inne informacje są widoczne tylko dla Ciebie."
       email_already_confirmed: ~
       email:
-        address_title: ~
-        remove_title: ~
+        address_title: Adres
+        remove_title: Usuń
         remove_confirmation: ~
-        receive_notifications_title_desktop: ~
-        receive_notifications_title_mobile: ~
-        receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
-        add_new_cancel: ~
-        confirmation_title_mobile: ~
-        confirmation_title_desktop: ~
-        confirmation_resend: ~
-        status_confirmed: ~
-        status_pending: ~
+        receive_notifications_title_desktop: "Otrzymuj powiadomienia"
+        receive_notifications_title_mobile: "Otrzymuj powiadomienia"
+        receive_notifications_new_title_mobile: "Otrzymuj powiadomienia"
+        add_new_with_plus: "+ Dodaj nowy adres email"
+        add_new_cancel: Anuluj
+        confirmation_title_mobile: "Potwierdzenie:"
+        confirmation_title_desktop: Potwierdzenie
+        confirmation_resend: "Wyślij ponownie"
+        status_confirmed: Potwierdzone
+        status_pending: "W trakcie"
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Chcę otrzymywać powiadomienie email gdy..."
       newsletters: "Emaile od administratorów"
-      community_updates: ~
+      community_updates: Newslettery
       email_about_accept_reminders: "...zapomniałem zaakceptować ofertę lub zapytanie"
       email_about_confirm_reminders: ~
       email_about_new_comments_to_own_listing: "...ktoś komentuje w mojej ofercie lub zapytaniu"
       email_about_new_messages: "...ktoś przesyła mi wiadomość"
       email_about_new_received_testimonials: "...ktoś przekazuje mi opinię"
       email_about_testimonial_reminders: "...zapomniałem przekazać opinię o wydarzeniu"
-      email_daily_community_updates: ~
-      email_weekly_community_updates: ~
-      do_not_email_community_updates: ~
+      email_daily_community_updates: "Wyślij mi <b>codzienny</b> newsletter, jeżeli pojawią się nowe oferty"
+      email_weekly_community_updates: "Wyślij mi <b>cotygodniowy</b> newsletter, jeżeli pojawią się nowe oferty"
+      do_not_email_community_updates: "Nie wysyłaj mi newsletterów"
       email_when_conversation_accepted: "...ktoś akceptuje moją ofertę lub zapytanie"
       email_when_conversation_rejected: "...ktoś odrzuca moją ofertę lub zapytanie"
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_payment_reminders: ~
       email_about_new_listings_by_followed_people: ~
-      unsubscribe_succesful: ~
+      unsubscribe_succesful: "Wypisanie z newslettera zakończyło się sukcesem"
       unsubscribe_info_text: ~
-      settings_link: ~
-      homepage_link: ~
-      unsubscribe_unsuccesful: ~
-      unsuccessful_unsubscribe_info_text: ~
+      settings_link: ustawienia
+      homepage_link: "strona główna"
+      unsubscribe_unsuccesful: "Błąd podczas wypisywania"
+      unsuccessful_unsubscribe_info_text: "Łącze do wypisywania wygasło. Zaloguj się, aby zmienić preferencje dot. powiadomień email."
     profile:
       about_you: "O Tobie"
       city: Miasto
@@ -1968,7 +1968,7 @@ pl:
       first_name_only: ~
       location_description: ~
       phone_number: "Numer telefonu"
-      profile_picture: ~
+      profile_picture: "Zdjęcie profilowe"
       postal_code: "Kod pocztowy"
       profile_page: "na stronie Twojego profilu"
       profilemap: "Widok mapy"
@@ -2014,9 +2014,9 @@ pl:
       slightly_less_than_expected: "Trochę gorzej niż oczekiwano"
       textual_feedback: "Jak wyglądały sprawy?"
       this_will_be_shown_in_profile: ~
-      positive: ~
-      negative: ~
-      default_textual_feedback: ~
+      positive: Pozytywny
+      negative: Negatywny
+      default_textual_feedback: "Wszystko było okej, dzięki bardzo!"
     testimonial:
       about_listing: ~
   date:
@@ -2093,6 +2093,11 @@ pl:
     seconds_ago: "%{count} sekund temu"
     year_ago: "%{count} rok temu"
     years_ago: "%{count} lat temu"
+    days_since:
+      one: "%{count} dzień"
+      few: "%{count} dni"
+      many: "%{count} dni"
+      other: "%{count} dni"
   transactions:
     initiate:
       booked_days: ~
