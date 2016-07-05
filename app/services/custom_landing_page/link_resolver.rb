@@ -108,16 +108,18 @@ module CustomLandingPage
     end
 
     class ListingResolver
-      def initialize(cid, locale, name_display_type)
+      def initialize(cid, landing_page_locale, locale_param, name_display_type)
         @_cid = cid
-        @_locale = locale
+        @_landing_page_locale = landing_page_locale
+        @_locale_param = locale_param
         @_name_display_type = name_display_type
       end
 
       def call(type, id, _)
         ListingStore.listing(id: id,
                              community_id: @_cid,
-                             locale: @_locale,
+                             landing_page_locale: @_landing_page_locale,
+                             locale_param: @_locale_param,
                              name_display_type: @_name_display_type)
       end
 

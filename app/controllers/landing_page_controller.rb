@@ -151,7 +151,7 @@ class LandingPageController < ActionController::Metal
     Rails.cache.write("clp/#{community_id}/#{version}/#{digest}", content, expires_in: cache_time)
   end
 
-  def build_denormalizer(cid:, default_locale:, locale_param:, sitename:)
+  def build_denormalizer(cid:, default_locale:, locale_param:, landing_page_locale:, sitename:)
     search_path = ->(opts = {}) {
       PathHelpers.search_path(
         community_id: cid,
@@ -175,19 +175,19 @@ class LandingPageController < ActionController::Metal
               "privacy" => privacy_infos_path(locale: locale_param)
             }
 
-    marketplace_data = CLP::MarketplaceDataStore.marketplace_data(cid, locale)
+    marketplace_data = CLP::MarketplaceDataStore.marketplace_data(cid, landing_page_locale)
     name_display_type = marketplace_data["name_display_type"]
 
-    category_data = CLP::CategoryStore.categories(cid, locale, search_path)
+    category_data = CLP::CategoryStore.categories(cid, landing_page_locale, search_path)
 
     CLP::Denormalizer.new(
       link_resolvers: {
         "path" => CLP::LinkResolver::PathResolver.new(paths),
         "marketplace_data" => CLP::LinkResolver::MarketplaceDataResolver.new(marketplace_data),
         "assets" => CLP::LinkResolver::AssetResolver.new(APP_CONFIG[:clp_asset_host], sitename),
-        "translation" => CLP::LinkResolver::TranslationResolver.new(locale),
+        "translation" => CLP::LinkResolver::TranslationResolver.new(landing_page_locale),
         "category" => CLP::LinkResolver::CategoryResolver.new(category_data),
-        "listing" => CLP::LinkResolver::ListingResolver.new(cid, locale, name_display_type)
+        "listing" => CLP::LinkResolver::ListingResolver.new(cid, landing_page_locale, locale_param, name_display_type)
       }
     )
   end
@@ -235,11 +235,13 @@ class LandingPageController < ActionController::Metal
       cid: c&.id,
       locale_param: locale_param,
       default_locale: default_locale,
+      landing_page_locale: landing_page_locale,
       sitename: sitename
     )
 
     render_to_string :landing_page,
            locals: { font_path: FONT_PATH,
+                     landing_page_locale: landing_page_locale,
                      styles: landing_page_styles,
                      javascripts: {
                        location_search: location_search_js,
