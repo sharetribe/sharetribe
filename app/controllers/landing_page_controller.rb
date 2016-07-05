@@ -240,6 +240,7 @@ class LandingPageController < ActionController::Metal
 
     render_to_string :landing_page,
            locals: { font_path: FONT_PATH,
+                     landing_page_locale: landing_page_locale,
                      styles: landing_page_styles,
                      javascripts: {
                        location_search: location_search_js,
