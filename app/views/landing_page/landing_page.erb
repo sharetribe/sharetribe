@@ -60,8 +60,6 @@
   <%= favicon_link_tag community_context[:favicon] %>
   <%= favicon_link_tag community_context[:apple_touch_icon], rel: 'apple-touch-icon-precomposed', type: 'image/png' %>
 
-  <%= stylesheet_link_tag 'app-bundle' %>
-
   <!-- SEO Meta -->
   <!--
   <meta name="description" content="The HTML5 Herald">
@@ -130,6 +128,7 @@
     <%= javascripts[:translations] %>
   </script>
 
+  <%= stylesheet_link_tag 'app-bundle' %>
   <%= javascript_include_tag 'vendor-bundle' %>
   <%= javascript_include_tag 'app-bundle' %>
 
