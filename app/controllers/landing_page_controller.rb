@@ -672,14 +672,14 @@ class LandingPageController < ActionController::Metal
       "icon_color": {"type": "marketplace_data", "id": "primary_color"},
       "columns": [
         {
-          "icon": "binocular",
+          "icon": "grape",
           "title": "Our mission",
           "paragraph": ["Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.","Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."],
           "button_title": "Section link",
           "button_path": {"value": "https://google.com"}
         },
         {
-          "icon": "piggy-bank",
+          "icon": "watering-can",
           "title": "Our mission",
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
           "button_title": "Section link",

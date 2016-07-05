@@ -235,17 +235,16 @@ $content-padding: 36px;
   margin-bottom: 24px;
 
   // mobile
-  height: 48px;
-  width: 48px;
-
-  @media #{$tablet} {
+  & > svg {
     height: 48px;
-    width: 48px;
-  }
 
-  @media #{$desktop} {
-    height: 60px;
-    width: 60px;
+    @media #{$tablet} {
+      height: 48px;
+    }
+
+    @media #{$desktop} {
+      height: 60px;
+    }
   }
 }
 
