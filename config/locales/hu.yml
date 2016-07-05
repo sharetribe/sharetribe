@@ -103,7 +103,7 @@ hu:
             Ön megváltoztathatja az oldal elsődleges színét egy színkód megadásával.<a href="http://www.colorpicker.com/?colorcode=D96E21" target="_blank" rel="noreferrer">
             A ColorPicker.com</a>  segítségével kiválaszthatja a színt és bemásohatja a színkódot ide.
         custom_color2_instructions_text: ~
-        default_browse_view: ~
+        default_browse_view: "Alapértelmezett keresési nézet"
         default_browse_view_instructions_text: ~
         grid: "Magazin nézet"
         list: "Lista nézet"
@@ -229,13 +229,13 @@ hu:
         listing_preferences: "Hirdetési beállítások"
         transaction_preferences: ~
         show_listing_publishing_date: "A hírdetés feladásának megmutatása a hírdető oldalon"
-        show_category_in_listing_list: ~
-        hide_expiration_date: ~
-        listing_comments_in_use: ~
+        show_category_in_listing_list: "A hírdetés típusának kijelzése lista nézetben"
+        hide_expiration_date: "Nem szükséges lejárati dátumot megadni a hírdetések feladásakor"
+        listing_comments_in_use: "Hírdetésekhez való hozzászólás engedélyezése felhasználók részére (minden felhasználó számára látható)"
         email_preferences: "Email beállítások"
-        automatic_newsletters: ~
-        email_admins_about_new_members: ~
-        google_analytics_key: ~
+        automatic_newsletters: "Napi/heti hírlevél küldése minden felhasználónak (amennyiben nem kapcsolják ki)"
+        email_admins_about_new_members: "E-mail küldése a rendszergazdáknak minden új felhasználó felíratkozásakor"
+        google_analytics_key: "Google Analytics követési azonosító"
         twitter_handle: ~
         update_settings: "Beállítások mentése"
         automatically_confirmed: ~
@@ -263,7 +263,7 @@ hu:
         saving_user_status: Mentés...
         save_user_status_successful: "Mentve "
         export_all_as_csv: ~
-        save_user_status_error: ~
+        save_user_status_error: "Hiba történt a mentés közben. Kérlek, frissítsd az oldalt s próbáld újra!"
         ban_user_confirmation: ~
         ban_me_error: "Nem tilthatja le önmagát"
       social_media:
@@ -341,7 +341,7 @@ hu:
       edit_price:
         description: ~
         edit_price_field: "Ár változtatása"
-        show_price_filter_homepage: ~
+        show_price_filter_homepage: "Az ár szűrő megjelenítése a kezdőlapon"
         price_min: ~
         price_max: ~
       edit_location:
@@ -770,7 +770,7 @@ hu:
       confirm_payment: "Fizetés jóváhagyása"
   community_memberships:
     access_denied:
-      access_denied: ~
+      access_denied: "Hozzáférés megtagadva"
       you_are_banned_in_this_community: ~
       contact_page_link: Értékelés
     new:
@@ -845,8 +845,8 @@ hu:
     escrow_canceled:
       subject: "Fizetés megszakítva"
       has_marked_request_as_canceled: ~
-      if_this_was_error: ~
-      please_contant_admin_link: ~
+      if_this_was_error: "Ha ön szerint hiba történt, lépjen kapcsolatba a rendszergazdával %{please_contant_admin_link}"
+      please_contant_admin_link: "Kérjük lépjen kapcsolatba a rendszergazdával"
     confirmation_instructions:
       confirmation_instructions_signature: "Üdvözlettel,<br/>A %{service_name} csapata"
       welcome_to_kassi: "Üdvözlünk a %{service_name}-n!"
@@ -1284,7 +1284,7 @@ hu:
       sign_up: Feliratkozás
     notifications:
       listing_could_not_be_saved: ~
-      contact_admin_link_text: ~
+      contact_admin_link_text: "Lépjen kapcsolatba a rendszergazdával"
       test_welcome_email_delivered_to: "Egy próba e-mailt küldtünk ide: %{email}"
       something_went_wrong: "Hiba történt"
       community_updated: ~
@@ -1982,8 +1982,8 @@ hu:
       city: Város
       family_name: Vezetéknév
       given_name: Keresztnév
-      first_name_with_initial: ~
-      first_name_only: ~
+      first_name_with_initial: "(a többi felhasználó csak az első betűt láthatja)"
+      first_name_only: "(a többi felhasználó számára nem látható)"
       location_description: "Nem adta meg a pontos címét, vagy például az irányítószámát. Kérem a végén adja meg irányítószámát. Kiválaszthat címet a lenti térkép segítségével is."
       phone_number: Telefonszám
       profile_picture: Profilkép
@@ -1994,8 +1994,8 @@ hu:
       these_fields_are_shown_in_your: "Ez az információ látható az összes %{service_name} felhasználó számára"
       visible_to_everybody: "Mindenki számára látható"
       visible_to_registered_users: "Regisztrált felhasználók láthatják"
-      default_in_listing: ~
-      invisible: ~
+      default_in_listing: "(alapbeállításként használt kizárólag új hírdetés feladásakor)"
+      invisible: "(a többi felhasználó számára nem látható)"
       image_is_processing: ~
     save_information: Mentés
   shipping_address:
