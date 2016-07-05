@@ -1,38 +1,3 @@
-.rootArrowTop,
-.rootArrowBelow {
-  bottom: 100%;
-  left: 50%;
-  border: solid transparent;
-  content: ' ';
-  height: 0;
-  width: 0;
-  pointer-events: none;
-
-  position: relative;
-}
-
-.rootArrowTop {
-  border-color: transparent;
-  border-bottom-color: white;
-  border-width: 7px;
-  margin-left: -7px;
-
-  z-index: 20;
-  left: 4px;
-  top: 3px;
-}
-
-.rootArrowBelow {
-  border-color: transparent;
-  border-bottom-color: var(--ProfileDropdown_borderColor);
-  border-width: 9px;
-  margin-left: -9px;
-
-  top: -15px;
-}
-
-/* var(--ProfileDropdown_borderColor) */
-
 .box {
   position: absolute;
   border: var(--ProfileDropdown_border);
@@ -43,8 +8,7 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   z-index: var(--ProfileDropdown_zIndex);
-
-  margin-top: -16px;
+  margin-top: calc(var(--ProfileDropdown_topSeparation) - var(--ProfileDropdown_arrowWidth) - 1);
 }
 
 .profileActions {
@@ -87,4 +51,37 @@
   float: right;
   cursor: pointer;
   color: var(--ProfileDropdown_logoutLinkColor);
+}
+
+/* The arrow on top */
+
+.rootArrowTop,
+.rootArrowBelow {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  width: 0;
+  pointer-events: none;
+
+  position: relative;
+}
+
+.rootArrowTop {
+  border-color: transparent;
+  border-bottom-color: white;
+  border-width: calc((var(--ProfileDropdown_arrowWidth) - 2 * var(--ProfileDropdown_lineWidth)) / 2);
+  margin-left: calc(0 - (var(--ProfileDropdown_arrowWidth) - 2 * var(--ProfileDropdown_lineWidth)) / 2);
+  z-index: calc(var(--ProfileDropdown_zIndex) + 1);
+  left: calc(var(--ProfileDropdown_lineWidth) * 2);
+  top: var(--ProfileDropdown_topSeparation);
+}
+
+.rootArrowBelow {
+  border-color: transparent;
+  border-bottom-color: var(--ProfileDropdown_borderColor);
+  border-width: calc(var(--ProfileDropdown_arrowWidth) / 2);
+  margin-left: calc(0 - var(--ProfileDropdown_arrowWidth) / 2);
+  top: calc(var(--ProfileDropdown_topSeparation) - var(--ProfileDropdown_arrowWidth));
 }
