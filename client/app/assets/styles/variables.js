@@ -165,6 +165,9 @@ module.exports = {
   '--ProfileDropdown_textColorFocus': textColorFocus,
   '--ProfileDropdown_logoutLinkColor': textColorGrey,
   '--ProfileDropdown_textLinkSize': pxToEms(13, 14), // eslint-disable-line no-magic-numbers
+  '--ProfileDropdown_arrowWidth': '18px',
+  '--ProfileDropdown_topSeparation': '3px',
+  '--ProfileDropdown_lineWidth': '2px',
 
   '--MenuItem_borderColor': topbarBorderColor,
   '--MenuItem_backgroundColorHover': backgroundLightColorHover,
