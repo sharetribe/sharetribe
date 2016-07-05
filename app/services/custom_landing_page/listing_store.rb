@@ -3,7 +3,7 @@ module CustomLandingPage
 
     module_function
 
-    def listing(community_id:, locale:, name_display_type:, id:)
+    def listing(community_id:, landing_page_locale:, locale_param:, name_display_type:, id:)
 
       listing = Listing.includes(:author).find_by(community_id: community_id, id: id)
 
@@ -25,8 +25,8 @@ module CustomLandingPage
         {
           "title" => listing.title,
           "price" => Maybe(listing.price).format(no_cents_if_whole: true).or_else(nil),
-          "price_unit" => Maybe(listing.unit_type).map { |unit_type| ListingViewUtils.translate_unit(unit_type, listing.unit_tr_key) }.or_else(nil),
-          "shape_name" => I18n.t(listing.shape_name_tr_key, locale: locale),
+          "price_unit" => Maybe(listing.unit_type).map { |unit_type| ListingViewUtils.translate_unit(unit_type, listing.unit_tr_key, locale: landing_page_locale) }.or_else(nil),
+          "shape_name" => I18n.t(listing.shape_name_tr_key, locale: landing_page_locale),
           "author_name" => PersonViewUtils.display_name(
             first_name: author.given_name,
             last_name: author.family_name,
@@ -39,20 +39,20 @@ module CustomLandingPage
           ),
           "author_avatar" => author_avatar,
           "listing_image" => listing_image,
-          "listing_path" => listing_path(listing.id, locale),
-          "author_path" => author_path(author.username, locale)
+          "listing_path" => listing_path(listing.id, locale_param),
+          "author_path" => author_path(author.username, locale_param)
         }
       end
     end
 
     # private
 
-    def author_path(username, locale)
-      paths.person_path(username: username, locale: locale)
+    def author_path(username, locale_param)
+      paths.person_path(username: username, locale: locale_param)
     end
 
-    def listing_path(id, locale)
-      paths.listing_path(id: id, locale: locale)
+    def listing_path(id, locale_param)
+      paths.listing_path(id: id, locale: locale_param)
     end
 
 

@@ -30,20 +30,22 @@ module ListingViewUtils
       }
   end
 
-  def translate_unit(type, tr_key)
+  def translate_unit(type, tr_key, locale: nil)
+    l = (locale || I18n.locale).to_sym
+
     case type
     when :hour
-      I18n.translate("listings.unit_types.hour")
+      I18n.translate("listings.unit_types.hour", locale: l)
     when :day
-      I18n.translate("listings.unit_types.day")
+      I18n.translate("listings.unit_types.day", locale: l)
     when :night
-      I18n.translate("listings.unit_types.night")
+      I18n.translate("listings.unit_types.night", locale: l)
     when :week
-      I18n.translate("listings.unit_types.week")
+      I18n.translate("listings.unit_types.week", locale: l)
     when :month
-      I18n.translate("listings.unit_types.month")
+      I18n.translate("listings.unit_types.month", locale: l)
     when :custom
-      I18n.translate(tr_key)
+      I18n.translate(tr_key, locale: l)
     else
       raise ArgumentError.new("No translation for unit type: #{type}, translation_key: #{tr_key}")
     end
