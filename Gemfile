@@ -122,6 +122,9 @@ gem "i18n-js",
     branch: "master",
     ref: "2ca6d31365bb41db21e373d126cac00d38d15144"
 
+# A store scoped to the request object for caching
+gem "request_store", "~> 1.3"
+
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
   gem 'rails_12factor', '~> 0.0.3'

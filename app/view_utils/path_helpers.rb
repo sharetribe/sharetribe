@@ -56,7 +56,7 @@ module PathHelpers
   end
 
   def paths
-    Rails.application.routes.url_helpers
+    RequestStore.store[:url_helpers] ||= Rails.application.routes.url_helpers
   end
 
 end

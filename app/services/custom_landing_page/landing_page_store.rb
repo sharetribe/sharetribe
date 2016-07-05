@@ -31,6 +31,14 @@ module CustomLandingPage
     end
 
     def enabled?(cid)
+      if RequestStore.store.key?(:clp_enabled)
+        RequestStore.store[:clp_enabled]
+      else
+        RequestStore.store[:clp_enabled] = _enabled?(cid)
+      end
+    end
+
+    def _enabled?(cid)
       enabled, released_version = LandingPage
                                   .where(community_id: cid)
                                   .pluck(:enabled, :released_version)
