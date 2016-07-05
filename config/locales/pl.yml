@@ -44,7 +44,7 @@ pl:
         default_language: ~
         language_selection_disabled: ~
         community_name: "Nazwa platformy"
-        edit_community_name_description: ~
+        edit_community_name_description: "Nazwa Twojej platformy. To jest wyświetlane dla użytkowników w wiadomościach email i różnych, innych miejscach."
         community_slogan: "Slogan platformy"
         edit_community_slogan_description: ~
         community_description: "Opis platformy"
@@ -75,17 +75,17 @@ pl:
         community_logo: "Logo na desktopie"
         community_logo_icon: "Logo dla sieci społecznościowych i urządzeń mobilnych"
         community_cover_photo: "Zdjęcie w tle"
-        small_community_cover_photo: ~
+        small_community_cover_photo: "Małe zdjęcie w tle"
         favicon: ~
         favicon_info_text: ~
         community_custom_color1: "Główny kolor"
         community_custom_color2: "Kolor przycisku %{post_new_listing}"
         logo_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions: ~
-        cover_photo_visibility: ~
+        cover_photo_visibility: "Zdjęcie w tle jest wyświetlane na stronie głównej dla użytkowników, którzy nie są zalogowani."
         cover_photo_instructions_text_with_dimensions: ~
-        small_cover_photo_visibility: ~
-        small_cover_photo_instructions_text_with_dimensions: ~
+        small_cover_photo_visibility: "Małe zdjęcie profilowe jest wyświetlane na wszystkich stronach poza stroną główną dla użytkowników, którzy nie są zalogowani."
+        small_cover_photo_instructions_text_with_dimensions: "Zdjęcie będzie zmniejszone do %{width} na %{height} pikseli i wyższe zdjęcia będą ucięte w połowie."
         main_content_width: ~
         custom_color1_instructions_text: ~
         custom_color2_instructions_text: ~
@@ -105,7 +105,7 @@ pl:
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
-        welcome_email_content: ~
+        welcome_email_content: "Treść wiadomości email"
         welcome_email_content_description: ~
         edit_message: "Edytuj wiadomość"
         send_test_message: "Wyślij wiadomość testową"
@@ -566,7 +566,7 @@ pl:
       price_to_pay: "Całościowy koszt do zapłaty"
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: "ustawienia płatności"
-      minimum_price_error_message: ~
+      minimum_price_error_message: "Cena nie może być mniejsza niż %{amount}"
       accept: ~
       decline: ~
       quantity_label: ~
@@ -720,10 +720,10 @@ pl:
       date_of_birth: "Data urodzenia"
       ssn: ~
       routing_number: ~
-      account_number: ~
+      account_number: "Numer konta"
       save: Zapisz
     show:
-      payout_details: ~
+      payout_details: "Twoje szczegóły płatności"
       first_name: Imię
       last_name: Nazwisko
       email: "Adres email"
@@ -733,18 +733,18 @@ pl:
       address_locality: Miasto
       address_region: Województwo
       date_of_birth: "Data urodzenia"
-      ssn: ~
-      routing_number: ~
-      account_number: ~
+      ssn: SSN
+      routing_number: "Numer Kierunkowy banku, ang. Routing number"
+      account_number: "Numer konta"
   braintree_payments:
     edit:
-      new_credit_card_payment: ~
-      payment_receiver: ~
+      new_credit_card_payment: "Nowa płatność kartą"
+      payment_receiver: "Odbiorca płatności"
       cardholder_name: "Imię i nazwisko posiadacza karty"
       credit_card_number: "Numer karty kredytowej"
-      cvv: ~
-      credit_card_expiration_date: ~
-      confirm_payment: ~
+      cvv: "Kod CVV"
+      credit_card_expiration_date: "Data ważności karty"
+      confirm_payment: "Potwierdź płatność"
       exp: ~
   feedback:
     feedback_subject: ~
@@ -789,8 +789,8 @@ pl:
       create_own: ~
       learn_more: ~
     braintree_account_approved:
-      account_ready: ~
-      message: ~
+      account_ready: "Wszystko gotowe, aby otrzymywać płatności"
+      message: "Informacje o płatnościach zostały zapisane i jesteś gotów, aby otrzymywać płatności na platformie %{service_name}"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
@@ -870,11 +870,11 @@ pl:
       join_now: "Dołąćz teraz"
       invitation_code: "Kod zaproszenia: %{code}"
     new_comment:
-      has_commented_your_listing_in_kassi: ~
+      has_commented_your_listing_in_kassi: "%{author} dodał komentarz do Twojej oferty %{listing}"
       view_comment: "Zobacz komentarz"
       you_have_a_new_comment: "%{author} dodał komentarz do Twojej oferty %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} skomentował ofertę, którą śledzisz w %{service_name}"
-      has_commented_listing_you_follow_in_kassi: ~
+      has_commented_listing_you_follow_in_kassi: "%{author} dodał komentarz do oferty %{listing}, którą śledzisz w %{service_name}"
     new_message:
       view_message: "Zobacz wiadomość"
       has_sent_you_a_message_in_kassi: "%{sender} wysłał Tobie wiadomość w %{service_name}"
@@ -888,22 +888,22 @@ pl:
       paypal_gateway_fee: ~
       shipping_total: ~
     braintree_new_payment:
-      product: ~
-      price_payer_paid: ~
-      service_fee: ~
-      you_will_get: ~
+      product: "Produkt:"
+      price_payer_paid: "Kwota, którą zapłacił %{payer_full_name}:"
+      service_fee: "Opłata serwisowa %{service_name}:"
+      you_will_get: "Suma:"
       money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: "Rachunek za płatność"
       you_have_made_new_payment: ~
-      product: ~
+      product: Produkt
       price_per_unit_type: "Price per %{unit_type}"
       duration: ~
       quantity: ~
       subtotal: ~
-      total: ~
+      total: Suma
       price: Cena
-      service_fee: ~
+      service_fee: "Opłata serwisowa"
       money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} przekazał Tobie opinię w %{service_name}"
@@ -911,7 +911,7 @@ pl:
       view_feedback: "Zobacz opinie"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Oferta, którą śledzisz została zaktualizowana"
-      has_updated_listing_you_follow_in_kassi: ~
+      has_updated_listing_you_follow_in_kassi: "%{author} zaktualizował ofertę %{listing}, którą śledzisz w %{service_name}"
       view_changes: "Zobacz zmiany"
     community_updates:
       added_offer: "%{name_link} dodał ofertę:"
@@ -1117,7 +1117,7 @@ pl:
     grid_item:
       processing_uploaded_image: "(Procesowanie przesłanego zdjęcia...)"
     index:
-      no_listings_with_your_search_criteria: ~
+      no_listings_with_your_search_criteria: "Przepraszamy, nie znaleźliśmy ofert na Twoje zapytanie. Może spróbujesz innego zapytania?"
       no_listings_notification: "Brak ofert. %{add_listing_link}."
       add_listing_link_text: "Dodaj nową ofertę"
       open_listing: "otwórz ofertę"
@@ -1156,8 +1156,8 @@ pl:
       invitation_message_field_placeholder: "Dołączyłem do tej platformy. Ty też powinieneś/aś!"
       errors_in_emails: ~
     list_item:
-      review: ~
-      reviews: ~
+      review: recenzje
+      reviews: recenzje
       distance_away: ~
     news_item:
       show_less: "Pokaż mniej"
@@ -1185,7 +1185,7 @@ pl:
       search_engine_not_responding: ~
   infos:
     about:
-      default_about_text_title: ~
+      default_about_text_title: "Czym jest Sharetribe?"
       default_about_text: ~
       click_here_link_text: "Kliknij tutaj"
     how_to_use:
@@ -1318,9 +1318,9 @@ pl:
       only_listing_author_can_edit_a_listing: "Tylko autor może edytować pozycję"
       payment_successful: "Płatność dokonana"
       payment_canceled: "Płatność anulowana"
-      error_in_payment: ~
+      error_in_payment: "Błąd podczas procesowania płatności. Jeżeli nie dokończyłeś płatności, spróbuj ponownie. Jeżeli już zakończyłeś, prześlij nam opinię."
       cannot_receive_payment: ~
-      payment_waiting_for_later_accomplishment: ~
+      payment_waiting_for_later_accomplishment: "Kiedy zapłacisz powiadomimy sprzedawcę i otrzymasz rachunek na adres email"
       password_recovery_sent: "Instrukcje resetowania hasła zostały przesłane na Twój adres email."
       person_activated: "Użytkownik aktywowany"
       person_deactivated: "Użytkownik zdezaktywowany"
@@ -1368,8 +1368,8 @@ pl:
       you_must_log_in_to_view_your_inbox: "Musisz się zalogować do %{service_name}, aby zobaczyć swoją skrzynkę."
       you_must_log_in_to_view_your_settings: "Musisz się zalogować do %{service_name}, aby zobaczyć ustawienia."
       you_must_log_in_to_add_news_item: "Musisz się zalogować do %{service_name}, aby dodać nowy artykuł."
-      you_must_log_in_to_change_profile_settings: ~
-      you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_change_profile_settings: "Musisz się zalogować do platformy %{service_name}, aby zobaczyć ustawienia profilu"
+      you_must_log_in_to_change_payment_settings: "Musisz zalogować się do platformy %{service_name}, aby zmienić ustawienia płatności"
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Musisz potwierdzić swój adres email."
@@ -1377,11 +1377,11 @@ pl:
       you_unfollowed_listing: "Już nie śledzisz tej oferty"
       joining_community_failed: "Dołączenie nie zakończyło się pomyślnie"
       can_not_login_with_private_user: ~
-      can_not_delete_email: ~
-      user_does_not_have_email_to_delete: ~
+      can_not_delete_email: "Nie możesz usunąć adresu email"
+      user_does_not_have_email_to_delete: "Nie masz adresu email, który chcesz usunąć"
       email_deleted: "Adres email usunięty"
-      payment_details_add_successful: ~
-      payment_details_add_error: ~
+      payment_details_add_successful: "Dane dot. płatności zostały dodane pomyślnie"
+      payment_details_add_error: "Nie mogliśmy dodać danych płatności"
       listing_author_payment_details_missing: ~
       stylesheet_needs_recompiling: ~
       automatically_logged_out_please_sign_in: ~
@@ -1481,7 +1481,7 @@ pl:
         mass: "sztuk, kilo, litrów, m2, ..."
         time: "godzina, dzień, miesiąc, ..."
         long_time: "tygodni, miesięcy, ..."
-        after_service_fee_you_will_get: ~
+        after_service_fee_you_will_get: "Po prowizjach %{service_name} i pośrednika płatności otrzymasz %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: ~
         after_service_fee_you_will_get_paypal_text: ~
         paypal_fee_info_link_text: ~
@@ -1695,11 +1695,11 @@ pl:
       service_charge: "Opłata serwisowa"
       product: "Produkt:"
       price: "Suma:"
-      price_for: ~
+      price_for: "Cena za %{payer_given_name}:"
       continue_to_pay: "Kontynuuj, aby zapłacić"
-      invoice: ~
-      service_fee: ~
-      you_will_get: ~
+      invoice: Faktura
+      service_fee: "Opłata serwisowa %{service_name}:"
+      you_will_get: "Otrzymasz:"
     braintree:
       terms:
         braintree_terms_also_included: ~
@@ -1922,7 +1922,7 @@ pl:
       email:
         address_title: Adres
         remove_title: Usuń
-        remove_confirmation: ~
+        remove_confirmation: "Chcesz na pewno usunąć ten adres email?"
         receive_notifications_title_desktop: "Otrzymuj powiadomienia"
         receive_notifications_title_mobile: "Otrzymuj powiadomienia"
         receive_notifications_new_title_mobile: "Otrzymuj powiadomienia"
@@ -2018,7 +2018,7 @@ pl:
       negative: Negatywny
       default_textual_feedback: "Wszystko było okej, dzięki bardzo!"
     testimonial:
-      about_listing: ~
+      about_listing: "o pozycji"
   date:
     formats:
       long_with_abbr_day_name: ~
@@ -2125,7 +2125,7 @@ pl:
       logout: ~
       login: ~
       signup: ~
-      admin_dashboard: ~
+      admin_dashboard: "Panel administracyjny"
   will_paginate:
     previous_label: ~
     next_label: ~

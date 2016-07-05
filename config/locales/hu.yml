@@ -2,7 +2,7 @@ hu:
   admin:
     categories:
       edit:
-        edit_listing_category: ~
+        edit_listing_category: "Kategória szerkesztése '%{category}'"
       index:
         listing_categories: "Hirdetési kategóriák"
         create_a_new_category: "+ Hozzon létre új kategóriát"
@@ -36,6 +36,14 @@ hu:
           cancel: Mégse
         warning_listing_will_be_moved:
           other: "A kategóriában %{count} számú hirdetés van. Ezek a kiválasztott kategóriába lesznek áthelyezve."
+        warning_custom_field_will_be_moved:
+          other: "%{count} számú egyedi mező van a kategóriában. A kiválasztott kategóriába fog átkerülni."
+        warning_subcategory_will_be_removed:
+          other: "%{count} számú alkategória van a kategórián belül. Ez törlésre fog kerülni."
+        warning_with_subcategories_listing_will_be_moved:
+          other: "%{count} számú hírdetés található a kategóriában és alkategóriákban. Ez a kiválasztott kategóriába fog kerülni."
+        warning_with_subcategories_custom_field_will_be_moved:
+          other: "%{count} számú egyedi mező található a kategóriában és az alkategóriákban. A kiválasztott kategóriába fog átkerülni."
     communities:
       edit_details:
         community_details: ~
@@ -494,7 +502,7 @@ hu:
       lend: Kölcsönöz
       swap: Cserél
       service: Ajánlat
-      request: ~
+      request: Kérés
       inquiry: ~
       share_for_free: "ingyen fuvar"
       default_action_button_labels:
@@ -692,7 +700,7 @@ hu:
       waiting_for_you_to_accept_request: ~
       waiting_confirmation_from_requester: ~
       waiting_confirmation_from_you: ~
-      waiting_payment_from_requester: ~
+      waiting_payment_from_requester: "Várakozás amíg %{requester_name} átutalja az vételárat"
       waiting_payment_from_you: "Várjuk az utalását"
       waiting_feedback_from_you: ~
       pending_external_inbox:
@@ -714,7 +722,7 @@ hu:
       cancel: ~
   braintree_accounts:
     new:
-      add_payout_details: ~
+      add_payout_details: "Kérjük adja meg fizetési információit"
       first_name: Keresztnév
       last_name: Vezetéknév
       email: "E-mail cím"
@@ -729,7 +737,7 @@ hu:
       account_number: Bankszámlaszám
       save: Mentés
     show:
-      payout_details: ~
+      payout_details: "Az ön fizetési információi"
       first_name: Keresztnév
       last_name: Vezetéknév
       email: "E-mail cím"
@@ -740,7 +748,7 @@ hu:
       address_region: Állam
       date_of_birth: "Születési idő"
       ssn: SSN
-      routing_number: ~
+      routing_number: Útvonalszám
       account_number: Bankszámlaszám
   braintree_payments:
     edit:
@@ -807,7 +815,7 @@ hu:
       cancel_it_link_text: töröl
       automatic_confirmation: ~
     payment_reminder:
-      remember_to_pay: ~
+      remember_to_pay: "Ne felejtse el kifizetni a következő tételt: %{listing_title}"
       you_have_not_yet_paid: ~
       if_will_not_happen_you_should_cancel: ~
       cancel_it_link_text: töröl
@@ -817,13 +825,13 @@ hu:
       please_go_to_payment_settings: ~
       payment_settings_link: "Fizetési beállítások"
     transaction_confirmed:
-      here_is_a_message_from: ~
+      here_is_a_message_from: "%{other_party_given_name} üzenetet küldött önnek:"
       request_marked_as_confirmed: ~
       request_marked_as_canceled: "Hirdetés törölve"
       has_marked_request_as_confirmed: ~
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: "Mindig jó, ha ad visszajelzést. Ha minden rendben ment, tudathatja másokkal is hogy, %{other_party_given_name} megbízható. Az is hasznos lehet, ha jelzi amennyiben problémája merült fel."
-      give_feedback_to: ~
+      give_feedback_to: "Adjon értékelést %{other_party_given_name} számára"
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
@@ -880,7 +888,7 @@ hu:
       view_comment: "Hozzászólás megtekintése"
       you_have_a_new_comment: "%{author} megjegyzést fűzött az Ön %{service_name} hirdetéséhez"
       listing_you_follow_has_a_new_comment: "%{author} kommentálta a hirdetést amelyet követ %{service_name}"
-      has_commented_listing_you_follow_in_kassi: ~
+      has_commented_listing_you_follow_in_kassi: "%{author} hozzászólt a hírdetéshez '%{listing}' amelyet ön is követ a %{service_name} oldalon."
     new_message:
       view_message: "Üzenetek megtekintése"
       has_sent_you_a_message_in_kassi: "%{sender} üzenetet küldött Önnek itt: %{service_name}"
@@ -917,7 +925,7 @@ hu:
       view_feedback: "Értékelések megtekintése"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Az ön által követett hirdetést frisssítették"
-      has_updated_listing_you_follow_in_kassi: ~
+      has_updated_listing_you_follow_in_kassi: "%{author} frissítette a hírdetést '%{listing}' amelyet ön is követ a %{service_name} oldalon."
       view_changes: "Változások megtekintése"
     community_updates:
       added_offer: "%{name_link} feladott egy hirdetést:"
@@ -1389,7 +1397,7 @@ hu:
       user_does_not_have_email_to_delete: "Ön nem adott meg e-mail címet, így nem tudja törölni sem"
       email_deleted: "Email eltávolítva"
       payment_details_add_successful: "Sikeresen hozzáadott fizetési információk"
-      payment_details_add_error: ~
+      payment_details_add_error: "A fizetési információk megadása sikertelen"
       listing_author_payment_details_missing: ~
       stylesheet_needs_recompiling: ~
       automatically_logged_out_please_sign_in: ~
@@ -1710,7 +1718,7 @@ hu:
       you_will_get: "Ön kapni fog:"
     braintree:
       terms:
-        braintree_terms_also_included: ~
+        braintree_terms_also_included: "MEGJEGYZÉS: Braintree egy online fizetési szolgáltató és ezt az oldalt használva ön elfogadja a feltételeit %{terms_link_text}, melyek hozzáadódnak a lent található feltételekhez."
         terms_link_text: "Braintree használati feltételei"
   paypal_accounts:
     payout_info_title: ~
