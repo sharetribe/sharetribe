@@ -89,10 +89,6 @@
     font-size: var(--Menu_fontSizeSmall);
   }
 
-  & .topbarLanguageMenu {
-    margin-right: calc(var(--Topbar_itemSpacing) - 15.54px); /* doesn't get much more magical than this */
-  }
-
   & > * {
     @media (--medium-viewport) {
       margin-right: var(--Topbar_mobileItemSpacing);
@@ -137,7 +133,7 @@
   margin: 0;
 
   @media (--large-viewport) {
-    flex-grow: 30;
+    flex-grow: 1;
     display: block;
   }
 }
@@ -147,7 +143,7 @@
 
   @media (--medium-viewport) {
     display: block;
-    flex-grow: 30;
+    flex-grow: 1;
   }
 
   @media (--large-viewport) {
