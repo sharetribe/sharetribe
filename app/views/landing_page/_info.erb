@@ -7,7 +7,6 @@
   background_image_enabled  = !s["background_image"].nil?
   background_image_style    = background_image_enabled ? "background-image: url('#{s["background_image"]["src"]}');" : ""
   background_color_enabled  = !s["background_color"].nil?
-  background_enabled        = background_image_enabled || background_color_enabled
   variation_modifier        = variation_modifiers[s["variation"]]
   background_color_style    = background_color_enabled ? "background-color: rgb(#{s["background_color"].join(",")});" : "";
 
