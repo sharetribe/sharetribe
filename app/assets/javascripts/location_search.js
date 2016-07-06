@@ -58,6 +58,13 @@ window.ST = window.ST || {};
       }
     }
 
+    function isValidPrintableKey(keycode) {
+      return keycode == 32 || keycode == 13 || keycode == 8 ||  // spacebar & return key & backspace
+        (keycode > 47 && keycode < 112)   || // numbers, letters, numpad keys and some special chars
+        (keycode > 185 && keycode < 193) || // ;=,-./` (in order) in standard US layout
+        (keycode > 218 && keycode < 223);   // [\]' (in order) in standard US layout
+    }
+
     window.google.maps.event.addListener(autocomplete, 'place_changed', function(){
       var place = autocomplete.getPlace();
       if(place != null) {
@@ -86,10 +93,15 @@ window.ST = window.ST || {};
       }
     });
 
-    // With location search searchInput should not cause form submit
     searchInput.addEventListener('keypress', function(e) {
+      // With location search, searchInput should not cause form submit
       if (e.keyCode === 13) {
         e.preventDefault();
+      }
+
+      // If searchInput value changes, let's clear derivative hidden fields
+      if (isValidPrintableKey(e.keyCode)) {
+        clearHiddenInputs();
       }
     });
 
