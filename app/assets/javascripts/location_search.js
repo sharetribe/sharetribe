@@ -10,6 +10,7 @@ window.ST = window.ST || {};
     var maxDistanceInput = document.querySelector(selectors.maxDistance);
     var form = document.querySelector(selectors.form);
     var autocomplete = new window.google.maps.places.Autocomplete(searchInput, { bounds: { north: -90, east: -180, south: 90, west: 180 } });
+    var locationQueryMade = false;
     autocomplete.setTypes(['geocode']);
 
     // The values of these fields are defined based on the value of searchInput
@@ -71,6 +72,7 @@ window.ST = window.ST || {};
         if(place.geometry != null) {
           coordinateInput.value = place.geometry.location.toUrlValue();
           statusInput.value = window.google.maps.places.PlacesServiceStatus.OK;
+          locationQueryMade = true;
           updateViewportData(place.geometry.viewport);
           form.submit();
         } else {
@@ -84,7 +86,7 @@ window.ST = window.ST || {};
     // Ensure default events don't fire without correct info
     form.addEventListener('submit', function(e) {
       // If service status is unset and there are no coordinates, do not make search submit
-      if(statusInput.value === "" && coordinateInput.value === "" && searchInput.value !== "") {
+      if(searchInput.value !== "" && !locationQueryMade) {
         e.preventDefault();
         // Submit will be triggered again after call to queryPredictions()
         queryPredictions(searchInput.value, handlePredictions);
@@ -101,6 +103,7 @@ window.ST = window.ST || {};
 
       // If searchInput value changes, let's clear derivative hidden fields
       if (isValidPrintableKey(e.keyCode)) {
+        locationQueryMade = false;
         clearHiddenInputs();
       }
     });
@@ -127,12 +130,14 @@ window.ST = window.ST || {};
           }
           // Save received service status for logging
           statusInput.value = placeServiceStatus;
+          locationQueryMade = true;
           form.submit();
 
         });
       } else {
         // Save received service status for logging
         statusInput.value = autocompleteServiceStatus;
+        locationQueryMade = true;
         form.submit();
       }
     };
