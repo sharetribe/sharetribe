@@ -1,6 +1,5 @@
 .menu {
   font-family: var(--Topbar_fontFamily); /* should come from topbar */
-  flex-grow: 1;
   cursor: pointer;
 
   &:focus,
