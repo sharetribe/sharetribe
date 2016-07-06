@@ -62,29 +62,10 @@ $listings__tablet-gutter: 16px;
 }
 
 .listings__listing {
-  margin: 0 auto;
   width: 100%;
   max-width: 327px;
 
-  margin-bottom: 24px;
-
-  @media #{$tablet} {
-    margin: 0;
-    padding: $listings__tablet-gutter / 2;
-    width: (100% / 3);
-  }
-
-  @media #{$desktop} {
-    margin: 0;
-    padding: $listings__desktop-gutter / 2;
-    width: (100% / 3);
-  }
-}
-
-.listings__listing-content {
   background-color: #FFF;
-  width: 100%;
-  height: 100%;
 
   @include prefix-val(display, flex);
   @include prefix-prop(justify-content, space-between);
@@ -99,6 +80,21 @@ $listings__tablet-gutter: 16px;
     transform: scale(1.011);
     box-shadow: 0 0 50px 0 rgba(0,0,0,0.1);
     @include prefix-prop(transition, all 50ms ease-in-out);
+  }
+
+  // mobile
+  margin: 0px auto 24px auto;
+
+  @media #{$tablet} {
+    margin: $listings__tablet-gutter / 2;
+    margin-bottom: 24px;
+    width: (100% / 3);
+  }
+
+  @media #{$desktop} {
+    margin: $listings__desktop-gutter / 2;
+    margin-bottom: 24px;
+    width: (100% / 3);
   }
 }
 

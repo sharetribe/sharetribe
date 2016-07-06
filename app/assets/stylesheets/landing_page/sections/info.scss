@@ -21,7 +21,9 @@
 }
 
 .info__section--background-color {
-  @extend .info__section--background;
+  @extend .info__section;
+  color: #FFFFFF;
+  padding: $dimension-section-margin 0;
 }
 
 .info__section--blank {
