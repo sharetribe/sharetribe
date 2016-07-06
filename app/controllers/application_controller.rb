@@ -423,8 +423,9 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # Override basic instrumentation and provide additional info for lograge to consume
-  # These are further configured in environment configs
+  # Override basic instrumentation and provide additional info for
+  # lograge to consume. These are pulled and logged in environment
+  # configs.
   def append_info_to_payload(payload)
     super
     payload[:host] = request.host

@@ -13,6 +13,9 @@ class LandingPageController < ActionController::Metal
   include ActionView::Layouts
   append_view_path "#{Rails.root}/app/views"
 
+  # Ensure ActiveSupport::Notifications events are fired
+  include ActionController::Instrumentation
+
   # Include route helpers
   include Rails.application.routes.url_helpers
 
@@ -117,6 +120,17 @@ class LandingPageController < ActionController::Metal
 
 
   private
+
+  # Override basic instrumentation and provide additional info for
+  # lograge to consume. These are pulled and logged in environment
+  # configs.
+  def append_info_to_payload(payload)
+    super
+    payload[:host] = request.host
+    payload[:community_id] = community(request)&.id
+    payload[:current_user_id] = nil
+    payload[:request_uuid] = request.uuid
+  end
 
   def initialize_i18n!(cid, locale)
     I18nHelper.initialize_community_backend!(cid, [locale])
