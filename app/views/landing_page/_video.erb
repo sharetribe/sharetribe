@@ -9,7 +9,8 @@
   <div class="video__youtube-player-container--centering">
     <div class="<%= section_id %>__video__youtube-player-container--aspect-ratio video__youtube-player-container--aspect-ratio">
       <div id="<%= section_id %>__video__youtube-player" class="video__youtube-player"></div>
-      <div id="<%= section_id%>__video__youtube-overlay" class="video__youtube-overlay">
+      <div id="<%= section_id%>__video__youtube-overlay" class="video__youtube-overlay video__youtube-overlay--inactive video__youtube-overlay--hover-animation"></div>
+      <div id="<%= section_id%>__video__youtube-controls" class="video__youtube-controls">
         <svg id="<%= section_id %>__video__youtube-watch-video-icon" class="video__youtube-watch-video-icon" width="63" height="63" viewBox="47 -1 63 63" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke="#FFF" stroke-width="2"><path d="M108 30c0 16.57-13.433 30-30 30-16.57 0-30-13.43-30-30S61.43 0 78 0c16.567 0 30 13.43 30 30z"/><path d="M68.87 41.74V18.26L92.347 30z"/></g></svg>
         <span id="<%= section_id %>__video__youtube-watch-video-text" class="video__youtube-watch-video-text"><%= s["text"] %></span>
       </div>
@@ -22,8 +23,7 @@
 
    var mask = document.getElementById("<%= section_id%>");
    var overlay = document.getElementById("<%= section_id%>__video__youtube-overlay");
-   var icon = document.getElementById("<%= section_id %>__video__youtube-watch-video-icon");
-   var text = document.getElementById("<%= section_id %>__video__youtube-watch-video-text");
+   var controls = document.getElementById("<%= section_id %>__video__youtube-controls");
 
    var player = new YT.Player('<%= section_id %>__video__youtube-player', {
      videoId: '<%= s["youtube_video_id"] %>',
@@ -64,16 +64,16 @@
    // UI
    function hideOverlay() {
      mask.style.maxHeight = "none";
-     overlay.style.backgroundColor = "rgba(0, 0, 0, 0)";
-     icon.style.display = "none";
-     text.style.display = "none";
+     overlay.classList.remove("video__youtube-overlay--inactive");
+     overlay.classList.add("video__youtube-overlay--active");
+     controls.style.opacity = 0;
    }
 
    function showOverlay() {
      mask.style.maxHeight = "75vh";
-     overlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-     icon.style.display = "inline";
-     text.style.display = "inline";
+     overlay.classList.remove("video__youtube-overlay--active");
+     overlay.classList.add("video__youtube-overlay--inactive");
+     controls.style.opacity = 1;
    }
 
    // Player controls

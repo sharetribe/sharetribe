@@ -36,20 +36,17 @@
   height: 100%;
 }
 
-.video__youtube-overlay {
+.video__youtube-controls {
+  // Set pointer-events to none
+  // This will the controls layer to ignore all mouse events and
+  // that allows overlay element to have a hover effetc
+  pointer-events: none;
+
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-
-  background-color: rgba(0, 0, 0, 0.5);
-
-  @include prefix-prop(transition, background-color 800ms ease-in-out);
-
-  cursor: pointer;
-
-  @include prefix-prop(user-select, none);
 
   display: none;
 
@@ -60,6 +57,42 @@
     @include prefix-prop(align-items, center);
     @include prefix-prop(justify-content, center);
   }
+}
+
+.video__youtube-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  @include prefix-prop(user-select, none);
+
+  display: none;
+
+  // .videoautoplay class is added by Modernizr
+  .videoautoplay & {
+    display: block;
+  }
+
+  cursor: pointer;
+
+  // Hover off
+  background-color: rgba(0, 0, 0, 0.5);
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.35);
+  }
+
+  @include prefix-prop(transition, (background-color 100ms ease-in-out, opacity 800ms ease-in-out));
+}
+
+.video__youtube-overlay--inactive {
+  opacity: 1;
+}
+
+.video__youtube-overlay--active {
+  opacity: 0;
 }
 
 .video__youtube-watch-video-text {
