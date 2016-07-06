@@ -98,9 +98,7 @@ class Admin::PaypalPreferencesController < ApplicationController
         report_to_gtm([{event: "km_record", km_event: "Onboarding payments setup"},
                        {event: "km_record", km_event: "Onboarding paypal connected"}])
 
-        with_feature(:onboarding_redesign_v1) do
-          flash[:show_onboarding_popup] = true
-        end
+        flash[:show_onboarding_popup] = true
       end
 
       flash[:notice] = t("admin.paypal_accounts.preferences_updated")

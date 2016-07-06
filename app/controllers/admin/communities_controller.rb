@@ -9,11 +9,7 @@ class Admin::CommunitiesController < ApplicationController
     @selected_left_navi_link = "getting_started"
     @community = @current_community
 
-    if(feature_enabled?(:onboarding_redesign_v1))
-      redirect_to admin_getting_started_guide_path
-    else
-      render locals: {paypal_enabled: PaypalHelper.paypal_active?(@current_community.id)}
-    end
+    redirect_to admin_getting_started_guide_path
   end
 
   def edit_look_and_feel
@@ -254,9 +250,7 @@ class Admin::CommunitiesController < ApplicationController
       if state_changed
         report_to_gtm({event: "km_record", km_event: "Onboarding cover photo uploaded"})
 
-        with_feature(:onboarding_redesign_v1) do
-          flash[:show_onboarding_popup] = true
-        end
+        flash[:show_onboarding_popup] = true
       end
     }
   end
