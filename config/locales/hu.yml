@@ -88,8 +88,8 @@ hu:
         community_logo_icon: ~
         community_cover_photo: Háttérkép
         small_community_cover_photo: "Kis háttérkép"
-        favicon: ~
-        favicon_info_text: ~
+        favicon: Favicon
+        favicon_info_text: "A favicon az alapértelmezett Sharetribe logo helyébe fog lépni. Nagyága 32x32 pixel lehet és a feltöltött kép is ekkorára lesz újraméretezve."
         community_custom_color1: "Fő szín"
         community_custom_color2: "Másodlagos szín"
         logo_instructions_text_with_dimensions: "Az asztali logó mérete %{width}x%{height}px legyen. Ezt a nagyobb képernyőt használók láthatják majd."
@@ -108,7 +108,7 @@ hu:
         grid: "Magazin nézet"
         list: "Lista nézet"
         map: "Térkép nézet"
-        name_display_type: ~
+        name_display_type: "Kijelző típusának megadása"
         name_display_type_instructions_text: ~
         full_name: "Teljes név (keresztnév először)"
         first_name_with_initial: ~
@@ -240,7 +240,7 @@ hu:
         update_settings: "Beállítások mentése"
         automatically_confirmed: ~
         automatically_confirmed_no_escrow: ~
-        automatic_newsletter_frequency: ~
+        automatic_newsletter_frequency: "Automatikus hírlevél küldése: %{frequency_dropdown}"
         newsletter_daily: Napi
         newsletter_weekly: Heti
         delete_marketplace_title: "Piactér törlése"
@@ -285,7 +285,7 @@ hu:
         save: "Beállítások mentése"
       analytics:
         analytics: Vizsgálat
-        google_analytics_key: ~
+        google_analytics_key: "Google Analytics követési azonosító"
         google_analytics_key_info_text: ~
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
@@ -326,7 +326,7 @@ hu:
         not_available: "Nem elérhető"
       braintree_payment_gateway:
         braintree_payment_gateway: ~
-        environment: ~
+        environment: Környezet
         private_key: "Személyes kulcs"
         public_key: "Bárki számára hozzáférhető"
         client_side_encryption_key: ~
@@ -345,7 +345,7 @@ hu:
         price_min: ~
         price_max: ~
       edit_location:
-        edit_location_field: ~
+        edit_location_field: "A hely mező szerkesztése"
         this_field_is_required: "A mező kitöltése kötelező."
       form:
         field_required:
@@ -376,7 +376,7 @@ hu:
         continue: Folytatás
         minimum_value: Minimum
         maximum_value: Maximum
-        allow_decimals: ~
+        allow_decimals: "Tizedes tört engedélyezése"
       new:
         new_listing_field: "Új hírdetés mezeje"
       field_types:
@@ -399,7 +399,7 @@ hu:
         email_sent: "Email elküldve"
     left_hand_navigation:
       general: Általános
-      users_and_transactions: ~
+      users_and_transactions: "Felhasználók & tranzakciók"
       configure: Beállítás
       emails_title: Emailek
       support: Segítség
@@ -480,17 +480,17 @@ hu:
           time_label: ~
     paypal_accounts:
       marketplace_paypal_integration: "Fizetési beállítások"
-      preferences_updated: ~
+      preferences_updated: "Fizetési preferenciák frissítve"
       marketplace_currency_used: ~
       contact_support_link_text: ~
-      integration_info_text: ~
+      integration_info_text: "A Sharetribe-os kifizetéseket a PayPal támogatja. Amennyiben szeretné, hogy felhasználói fizessenek a piactér használatakor kapcsolja össze PayPal fiókjával. Amint csatlakoztatta a PayPal fiókját, kiválaszthatja a minimális tranakciós méretet és a lehetséges jutalékot."
       link_paypal_personal_account_label: "Ön gondoskodik a termékekről illetve szolgáltatásokról személyesen?"
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: "Az Ön személyes piactéri fiókja"
       read_more_about_paypal: ~
       set_minimum_price_and_fee: ~
       minimum_listing_price_label: "Minimum tranzakciós méret:"
-      transaction_fee_label: ~
+      transaction_fee_label: "Tranzakciós díj:"
       minimum_transaction_fee_label: "Minimum tranzakciós költség:"
       save_settings: "Beállítások mentése"
       minimum_listing_price_below_tx_fee: ~
@@ -659,13 +659,13 @@ hu:
       conversation_with_user: "%{person} felhasználóval"
       conversation_with: "Üzenetváltás %{person} felhasználóval"
       last_message_at: "( legutolsó üzenet %{time})"
-      price: ~
+      price: "Ár: %{price}"
       sum: "Összesen: %{sum}"
       price_excludes_vat: "ÁFA nélküli ár"
       total: ~
     status:
       payment_errored: "Sikertelen fizetés. Kérem próbálja újra."
-      payment_errored_starter: ~
+      payment_errored_starter: "A fizetés meghiúsult. Kérjük próbálja újra. Ha a probléma folytatódik, kérjük jellezze a rendszergazdának."
       payment_errored_author: ~
       cancel_payed_transaction: Töröl
       feedback_given: "Visszajelzés elküldve"
@@ -697,25 +697,25 @@ hu:
       skip_feedback: "Visszajelzés küldés kihagyása"
       waiting_for_listing_author_to_accept_offer: "Várakozás %{listing_author_name}-ra, hogy elfogadja az ajánlatot"
       waiting_for_listing_author_to_accept_request: ~
-      waiting_for_you_to_accept_request: ~
+      waiting_for_you_to_accept_request: "Várakozás önre, hogy elfogadja a felkérést"
       waiting_confirmation_from_requester: ~
       waiting_confirmation_from_you: ~
       waiting_payment_from_requester: "Várakozás amíg %{requester_name} átutalja az vételárat"
       waiting_payment_from_you: "Várjuk az utalását"
-      waiting_feedback_from_you: ~
+      waiting_feedback_from_you: "Várakozás önre, hogy adjon értékelést"
       pending_external_inbox:
         paypal:
-          multicurrency: ~
-          intl: ~
+          multicurrency: "Várakozás önre, hogy elfogadja a PayPal-os kifizetést"
+          intl: "Várakozás önre, hogy elfogadja a PayPal-os kifizetést"
           unknown_reason: ~
-          verify: ~
+          verify: "Várakozás önre, hogy hitelesítse a PayPal fiókját"
     status_link:
       accept_offer: "Ajánlat elfogadása"
       accept_request: "Ajánlatkérés elfogadása"
       reject_offer: "Most nem"
       reject_request: "Most nem"
       accept_preauthorized_offer: "Ajánlat elfogadása"
-      accept_preauthorized_request: ~
+      accept_preauthorized_request: "Kérés elfogadása"
       reject_preauthorized_offer: "Most nem"
       reject_preauthorized_request: "Most nem"
       confirm: Megjelölve
@@ -733,7 +733,7 @@ hu:
       address_region: Állam
       date_of_birth: "Születési idő"
       ssn: SSN
-      routing_number: ~
+      routing_number: Útvonalszám
       account_number: Bankszámlaszám
       save: Mentés
     show:
@@ -844,7 +844,7 @@ hu:
       show_thread: "Mutassa a beszélgetéseket"
     escrow_canceled:
       subject: "Fizetés megszakítva"
-      has_marked_request_as_canceled: ~
+      has_marked_request_as_canceled: "%{other_party_full_name} törölte a kérését '%{request}'. Ebből a tranzakcióból ön nem fog kifizetést kapni."
       if_this_was_error: "Ha ön szerint hiba történt, lépjen kapcsolatba a rendszergazdával %{please_contant_admin_link}"
       please_contant_admin_link: "Kérjük lépjen kapcsolatba a rendszergazdával"
     confirmation_instructions:
@@ -1008,8 +1008,8 @@ hu:
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: ~
-      generic_error: ~
-      cancel_error: ~
+      generic_error: "Hiba merült fel a fizetés során. A PayPal-os kifizetés sikertelen."
+      cancel_error: "A törlés alatt hiba merült fel. A törlés sikertelen."
       accept_authorization_error: ~
       reject_authorization_error: ~
   error_pages:
@@ -1283,7 +1283,7 @@ hu:
       settings: Beállítások
       sign_up: Feliratkozás
     notifications:
-      listing_could_not_be_saved: ~
+      listing_could_not_be_saved: "A hirdetés mentése sikertelen. Kérjük, próbálja újra. Ha a probléma továbbra is fennáll lépjen kapcsolatba a rendszergazdával %{contact_admin_link}."
       contact_admin_link_text: "Lépjen kapcsolatba a rendszergazdával"
       test_welcome_email_delivered_to: "Egy próba e-mailt küldtünk ide: %{email}"
       something_went_wrong: "Hiba történt"
@@ -1433,7 +1433,7 @@ hu:
       move_to_top: ~
       show_in_updates_email: ~
       show_in_updates_email_loading: Töltés...
-      show_in_updates_email_error: ~
+      show_in_updates_email_error: "A szerver elérése sikertelen. Frissítés után próbálja újra."
       show_in_updates_email_success: ~
     map:
       open_in_google_maps: "Megnyitása Google Maps-szal"
@@ -1482,7 +1482,7 @@ hu:
         image_uploading_in_progress: "Kép feltöltése folyamatban..."
         processing_takes_a_while: ~
         this_may_take_a_while: ~
-        percentage_loaded: ~
+        percentage_loaded: "%{percentage}%"
         uploading_failed: "A kép feltöltése sikertelen"
         image_processing_failed: "Kép feltöltése sikertelen"
         file_too_large: ~
@@ -1735,7 +1735,7 @@ hu:
     admin_account_not_connected: ~
     contact_admin_link_text: "Kapcsolat a piactér adminisztrátorral"
     you_are_ready_to_accept_payments: "Ön kész fizetések fogadására"
-    commission: ~
+    commission: "%{commission} %"
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: ~
@@ -1751,7 +1751,7 @@ hu:
       connect_paypal_account_title: "Csatlakozás az Ön PayPal fiókjához"
       connect_paypal_account_title_with_step: ~
       connect_paypal_account_instructions: ~
-      connect_paypal_account: ~
+      connect_paypal_account: "Csatlakozás az Ön PayPal fiókjához"
       paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: ~
       paypal_account_billing_agreement_info_fixed: ~
@@ -1759,11 +1759,11 @@ hu:
       paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: "PayPal fizetési folyamat költsége"
       billing_agreement_description: ~
-      billing_agreement: ~
+      billing_agreement: "Engedély megadása:"
       permissions_not_granted: ~
       could_not_fetch_redirect_url: ~
-      paypal_not_enabled: ~
-      billing_agreement_canceled: ~
+      paypal_not_enabled: "A PayPal kifizetések nem engedélyezettek"
+      billing_agreement_canceled: "A számlázási megegyezés törölve"
       billing_agreement_not_accepted: ~
       billing_agreement_wrong_account: ~
       something_went_wrong: "Hiba történt. Kérem próbálja meg újra. Amennyiben a probléma továbbra is fennáll, lépjen kapcsolatba az oldal adminisztrátorával."
@@ -1972,7 +1972,7 @@ hu:
       email_about_payment_reminders: "...Elfelejtettem fizetni"
       email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: "Leiratkozás sikeres"
-      unsubscribe_info_text: ~
+      unsubscribe_info_text: "Ön nem fog több hasonló e-mailt kapni. Ellenőrizzea beállításokat %{settings_link}, hogy kiválaszthassa milyen e-maileket szeretne kapni a %{service_name} oldaltól, vagy térjen vissza a kezdőlapra %{homepage_link}"
       settings_link: Beállítások
       homepage_link: Honlap
       unsubscribe_unsuccesful: "Hiba a leiratkozásnál"

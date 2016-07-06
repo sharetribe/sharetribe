@@ -1217,7 +1217,7 @@ ka:
       signup: დარეგისტრირდი
       search_placeholder: "რას ეძებთ?"
     listings:
-      no_listing_image: ~
+      no_listing_image: "სურათი არ არის"
   layouts:
     admin:
       admin: "%{service_name} ადმინისტრატორის პანელი"
@@ -2148,15 +2148,15 @@ ka:
     topbar:
       menu: მენიუ
       search_placeholder: ძებნა...
-      user: ~
-      inbox: ~
-      profile: ~
-      manage_listings: ~
-      settings: ~
-      logout: ~
-      login: ~
-      signup: ~
-      admin_dashboard: ~
+      user: მომხმარებელი
+      inbox: ინბოქსი
+      profile: პროფილი
+      manage_listings: "განცხადებების მართვა"
+      settings: პარამეტრები
+      logout: გამოსვლა
+      login: შესვლა
+      signup: დარეგისტრირება
+      admin_dashboard: "ადმინისტრატორის პანელი"
   will_paginate:
     models:
       person:
