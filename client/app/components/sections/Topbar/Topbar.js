@@ -25,7 +25,7 @@ const profileDropdownActions = function profileDropdownActions(routes, username)
   } : null;
 };
 
-const avatarDropdownProps = (avatarDropdown, customColor, username, routes) => {
+const avatarDropdownProps = (avatarDropdown, customColor, username,  isAdmin, routes) => {
   const color = customColor || styleVariables['--customColorFallback'];
   const actions = {
     inboxAction: () => false,
@@ -42,7 +42,7 @@ const avatarDropdownProps = (avatarDropdown, customColor, username, routes) => {
     adminDashboard: t('web.topbar.admin_dashboard'),
     logout: t('web.topbar.logout'),
   };
-  return { actions, translations, customColor: color, ...avatarDropdown };
+  return { actions, translations, customColor: color, isAdmin: isAdmin, ...avatarDropdown };
 };
 
 const LABEL_TYPE_MENU = 'menu';
@@ -156,15 +156,14 @@ class Topbar extends Component {
     const newListingRoute = this.props.routes && this.props.routes.new_listing_path ?
             this.props.routes.new_listing_path() :
             '#';
-
     const profileRoute = this.props.routes && this.props.routes.person_path && loggedInUsername ?
             this.props.routes.person_path(loggedInUsername) :
             null;
     const mobileMenuAvatarProps = this.props.avatarDropdown && loggedInUsername ?
             { ...this.props.avatarDropdown.avatar, ...{ url: profileRoute } } :
             null;
-    const isAdmin = this.props.avatarDropdown && loggedInUsername ?
-            this.props.avatarDropdown.isAdmin :
+    const isAdmin = this.props.isAdmin && loggedInUsername ?
+            this.props.isAdmin :
             false;
 
     const pathParams = { return_to: location };
@@ -227,7 +226,8 @@ class Topbar extends Component {
         } }) : null,
       this.props.avatarDropdown && loggedInUsername ?
         r(AvatarDropdown, {
-          ...avatarDropdownProps(this.props.avatarDropdown, marketplace_color1, loggedInUsername, this.props.routes),
+          ...avatarDropdownProps(this.props.avatarDropdown, marketplace_color1,
+                                 loggedInUsername, this.props.isAdmin, this.props.routes),
           classSet: css.topbarAvatarDropdown,
         }) :
         r(LoginLinks, {

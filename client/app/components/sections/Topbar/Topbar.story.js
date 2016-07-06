@@ -129,5 +129,4 @@ storiesOf('Top bar')
   .add('With keyword and location search', () => (
     storifyTopbar({ ...baseProps, search: { mode: 'keyword-and-location' } })))
   .add('Logged in as admin', () => (
-    storifyTopbar({ ...baseProps, avatarDropdown: Object.assign({},
-      baseProps.avatarDropdown, { isAdmin: true }) })));
+    storifyTopbar({ ...baseProps, isAdmin: true })));
