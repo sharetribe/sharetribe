@@ -109,10 +109,11 @@ $footer__link-margin-tablet: 16px;
   letter-spacing: 0px;
   padding: $footer__clickarea-y-padding-mobile $footer__link-margin-mobile;
 
-  @media #{$mobile-landscape}, #{$tablet} {
-    font-size: 16px;
-    letter-spacing: 0px;
+  @media #{$mobile-landscape} {
+    padding: $footer__clickarea-y-padding-tablet $footer__link-margin-tablet;
+  }
 
+  @media #{$tablet} {
     padding: $footer__clickarea-y-padding-tablet $footer__link-margin-tablet;
   }
 
@@ -156,6 +157,10 @@ $footer__link-margin-tablet: 16px;
   font-size: 12px;
   letter-spacing: 0px;
   line-height: 18px;
+
+  @media #{$mobile-landscape}, #{$tablet} {
+    margin-top: 30px;
+  }
 
   @media #{$mobile-landscape}, #{$tablet} {
     margin-top: 30px;

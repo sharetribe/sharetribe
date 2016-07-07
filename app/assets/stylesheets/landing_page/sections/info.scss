@@ -263,7 +263,11 @@ $content-padding: 36px;
   // mobile
   margin: 0px 0px 14px 0px;
 
-  @media #{$mobile-landscape}, #{$tablet} {
+  @media #{$mobile-landscape} {
+    margin: 0px 0px 14px 0px;
+  }
+
+  @media #{$tablet} {
     font-size: 24px;
     letter-spacing: -0.46px;
     line-height: 28px;
@@ -291,7 +295,7 @@ $content-padding: 36px;
   letter-spacing: 0px;
   line-height: 22px;
 
-  @media #{$mobile-landscape}, #{$tablet} {
+  @media #{$tablet} {
     font-size: 16px;
     letter-spacing: 0px;
     line-height: 22px;

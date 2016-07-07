@@ -46,7 +46,11 @@
   line-height: 42px;
   margin-bottom: 24px;
 
-  @media #{$mobile-landscape}, #{$tablet} {
+  @media #{$mobile-landscape} {
+    margin-bottom: 28px;
+  }
+
+  @media #{$tablet} {
     font-size: 62px;
     letter-spacing: -1.23px;
     line-height: 68px;
@@ -72,7 +76,11 @@
   line-height: 24px;
   margin-bottom: 36px;
 
-  @media #{$mobile-landscape}, #{$tablet} {
+  @media #{$mobile-landscape} {
+    margin-bottom: 48px;
+  }
+
+  @media #{$tablet} {
     font-size: 21px;
     line-height: 32px;
     margin-bottom: 48px;
@@ -138,7 +146,11 @@
   line-height: 32px;
   padding: 8px 12px 8px 0px;
 
-  @media #{$mobile-landscape}, #{$tablet} {
+  @media #{$mobile-landscape} {
+    padding: 14px 24px 14px 12px;
+  }
+
+  @media #{$tablet} {
     font-size: 18px;
     letter-spacing: 0px;
     line-height: 32px;
@@ -252,7 +264,11 @@
     @include hover-transition;
   }
 
-  @media #{$mobile-landscape}, #{$tablet} {
+  @media #{$mobile-landscape} {
+    padding: 21px 63px;
+  }
+
+  @media #{$tablet} {
     font-size: 21px;
     letter-spacing: 0px;
 

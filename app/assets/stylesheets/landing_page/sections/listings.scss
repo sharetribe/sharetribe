@@ -165,7 +165,7 @@ $listings__tablet-gutter: 16px;
   letter-spacing: 0px;
   line-height: 21px;
 
-  @media #{$mobile-landscape}, #{$tablet} {
+  @media #{$tablet} {
     font-size: 16px;
     letter-spacing: 0px;
     line-height: 21px;
