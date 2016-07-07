@@ -66,9 +66,7 @@ class Admin::CommunityCustomizationsController < ApplicationController
       if state_changed
         report_to_gtm({event: "km_record", km_event: "Onboarding slogan/description created"})
 
-        with_feature(:onboarding_redesign_v1) do
-          flash[:show_onboarding_popup] = true
-        end
+        flash[:show_onboarding_popup] = true
       end
 
       flash[:notice] = t("layouts.notifications.community_updated")

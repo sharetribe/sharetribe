@@ -10,11 +10,10 @@
       -# Noscript content will be positioned here
 
   - if display_onboarding_topbar?
-    - with_feature(:onboarding_redesign_v1) do
-      - props = onboarding_topbar_props
-      - unless props[:next_step] == :all_done
-        - react_component_cache(name: "onboarding_topbar", props: props) do
-          = react_component("OnboardingTopBar", props: props, prerender: true)
+    - props = onboarding_topbar_props
+    - unless props[:next_step] == :all_done
+      - react_component_cache(name: "onboarding_topbar", props: props) do
+        = react_component("OnboardingTopBar", props: props, prerender: true)
 
   - if feature_enabled?(:topbar_v1)
     - props = topbar_props

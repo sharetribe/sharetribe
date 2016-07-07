@@ -92,9 +92,7 @@ class Admin::ListingShapesController < ApplicationController
         report_to_gtm([{event: "km_record", km_event: "Onboarding payments setup"},
                        {event: "km_record", km_event: "Onboarding payment disabled"}])
 
-        with_feature(:onboarding_redesign_v1) do
-          flash[:show_onboarding_popup] = true
-        end
+        flash[:show_onboarding_popup] = true
       end
       return redirect_to admin_listing_shapes_path
     else

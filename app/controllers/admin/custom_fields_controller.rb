@@ -132,9 +132,7 @@ class Admin::CustomFieldsController < ApplicationController
       if state_changed
         report_to_gtm({event: "km_record", km_event: "Onboarding filter created"})
 
-        with_feature(:onboarding_redesign_v1) do
-          flash[:show_onboarding_popup] = true
-        end
+        flash[:show_onboarding_popup] = true
       end
 
       redirect_to admin_custom_fields_path

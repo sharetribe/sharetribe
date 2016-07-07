@@ -49,8 +49,6 @@ class IntApi::MarketplacesController < ApplicationController
     auth_token = UserService::API::AuthTokens.create_login_token(user[:id])
     url = URLUtils.append_query_param(marketplace[:url], "auth", auth_token[:token])
 
-    assign_onboarding_feature_flag(community_id: marketplace[:id])
-
     # TODO handle error cases with proper response
 
     render status: 201, json: {"marketplace_url" => url, "marketplace_id" => marketplace[:id]}
@@ -71,11 +69,4 @@ class IntApi::MarketplacesController < ApplicationController
     # TODO change this to more strict setting when done testing
     headers['Access-Control-Allow-Origin'] = '*'
   end
-
-  def assign_onboarding_feature_flag(community_id:)
-    if(rand < 0.5)
-      FeatureFlagService::API::Api.features.enable(community_id: community_id, features: [:onboarding_redesign_v1])
-    end
-  end
-
 end
