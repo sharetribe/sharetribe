@@ -40,6 +40,10 @@ $dimension-card-border-radius: 4px;
   }
 }
 
+@mixin dimensions__section--paddings {
+  padding: 96px 0px;
+}
+
 @mixin dimensions__section-paragraph {
 
   margin-bottom: 8px;

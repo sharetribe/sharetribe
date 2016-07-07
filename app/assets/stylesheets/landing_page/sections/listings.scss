@@ -10,7 +10,8 @@ $listings__tablet-gutter: 16px;
   @include prefix-val(display, flex);
   @include prefix-prop(align-items, center);
 
-  padding: $dimension-section-margin 0px;
+  @include dimensions__section--paddings;
+
   background-color: #F9F9F9;
 }
 

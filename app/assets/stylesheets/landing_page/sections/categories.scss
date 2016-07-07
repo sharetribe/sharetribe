@@ -27,7 +27,7 @@ $categories__mobile-gutter: 12px;
   @include prefix-val(display, flex);
   @include prefix-prop(align-items, center);
 
-  padding: $dimension-section-margin 0px;
+  @include dimensions__section--paddings;
 }
 
 .categories__content {
