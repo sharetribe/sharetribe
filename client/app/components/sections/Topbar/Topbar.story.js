@@ -127,4 +127,6 @@ storiesOf('Top bar')
   .add('With location search', () => (
     storifyTopbar({ ...baseProps, search: { mode: 'location' } })))
   .add('With keyword and location search', () => (
-    storifyTopbar({ ...baseProps, search: { mode: 'keyword-and-location' } })));
+    storifyTopbar({ ...baseProps, search: { mode: 'keyword-and-location' } })))
+  .add('Logged in as admin', () => (
+    storifyTopbar({ ...baseProps, isAdmin: true })));

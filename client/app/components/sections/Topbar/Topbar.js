@@ -25,7 +25,7 @@ const profileDropdownActions = function profileDropdownActions(routes, username)
   } : null;
 };
 
-const avatarDropdownProps = (avatarDropdown, customColor, username, routes) => {
+const avatarDropdownProps = (avatarDropdown, customColor, username, isAdmin, routes) => {
   const color = customColor || styleVariables['--customColorFallback'];
   const actions = {
     inboxAction: () => false,
@@ -42,7 +42,7 @@ const avatarDropdownProps = (avatarDropdown, customColor, username, routes) => {
     adminDashboard: t('web.topbar.admin_dashboard'),
     logout: t('web.topbar.logout'),
   };
-  return { actions, translations, customColor: color, ...avatarDropdown };
+  return { actions, translations, customColor: color, isAdmin, ...avatarDropdown };
 };
 
 const LABEL_TYPE_MENU = 'menu';
@@ -50,9 +50,9 @@ const LABEL_TYPE_DROPDOWN = 'dropdown';
 
 const SEARCH_ENABLED = false;
 
-const profileLinks = function profileLinks(username, router, location, customColor) {
+const profileLinks = function profileLinks(username, isAdmin, router, location, customColor) {
   if (username) {
-    return [
+    const links = [
       {
         active: router.person_inbox_path(username) === location,
         activeColor: customColor,
@@ -89,6 +89,17 @@ const profileLinks = function profileLinks(username, router, location, customCol
         type: 'menuitem',
       },
     ];
+    if (isAdmin) {
+      links.unshift(
+        {
+          active: router.admin_path() === location,
+          activeColor: customColor,
+          content: t('web.topbar.admin_dashboard'),
+          href: router.admin_path(),
+          type: 'menuitem',
+        });
+    }
+    return links;
   }
   return [];
 };
@@ -145,13 +156,13 @@ class Topbar extends Component {
     const newListingRoute = this.props.routes && this.props.routes.new_listing_path ?
             this.props.routes.new_listing_path() :
             '#';
-
     const profileRoute = this.props.routes && this.props.routes.person_path && loggedInUsername ?
             this.props.routes.person_path(loggedInUsername) :
             null;
     const mobileMenuAvatarProps = this.props.avatarDropdown && loggedInUsername ?
             { ...this.props.avatarDropdown.avatar, ...{ url: profileRoute } } :
-          null;
+            null;
+    const isAdmin = this.props.isAdmin && loggedInUsername;
 
     const pathParams = { return_to: location };
     const loginRoute = this.props.routes.login_path ? this.props.routes.login_path(pathParams) : '#';
@@ -176,7 +187,7 @@ class Topbar extends Component {
           }
         )),
         userLinksTitle: t('web.topbar.user'),
-        userLinks: profileLinks(loggedInUsername, this.props.routes, location, marketplace_color1),
+        userLinks: profileLinks(loggedInUsername, isAdmin, this.props.routes, location, marketplace_color1),
         avatar: mobileMenuAvatarProps,
         newListingButton: this.props.newListingButton ?
           { ...this.props.newListingButton, ...{ url: newListingRoute, mobileLayoutOnly: true } } :
@@ -213,7 +224,8 @@ class Topbar extends Component {
         } }) : null,
       this.props.avatarDropdown && loggedInUsername ?
         r(AvatarDropdown, {
-          ...avatarDropdownProps(this.props.avatarDropdown, marketplace_color1, loggedInUsername, this.props.routes),
+          ...avatarDropdownProps(this.props.avatarDropdown, marketplace_color1,
+                                 loggedInUsername, this.props.isAdmin, this.props.routes),
           classSet: css.topbarAvatarDropdown,
         }) :
         r(LoginLinks, {
@@ -259,6 +271,7 @@ Topbar.propTypes = {
   newListingButton: object,
   routes: routesProp,
   marketplaceContext,
+  isAdmin: PropTypes.bool,
 };
 
 export default Topbar;
