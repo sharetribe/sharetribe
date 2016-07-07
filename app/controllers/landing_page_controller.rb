@@ -2,6 +2,7 @@
 
 class LandingPageController < ActionController::Metal
 
+  # Shorthand for accessing CustomLandingPage service namespace
   CLP = CustomLandingPage
 
   # Needed for rendering
@@ -35,13 +36,12 @@ class LandingPageController < ActionController::Metal
   def index
     cid = community(request).id
     default_locale = community(request).default_locale
-
     version = CLP::LandingPageStore.released_version(cid)
     locale_param = params[:locale]
 
     begin
       content = nil
-      cache_meta = fetch_cache_meta(cid, version, locale_param)
+      cache_meta = CLP::Caching.fetch_cache_meta(cid, version, locale_param)
       cache_hit = true
 
       if cache_meta.nil?
@@ -52,12 +52,8 @@ class LandingPageController < ActionController::Metal
           locale_param: locale_param,
           version: version
         )
-        cache_meta = build_cache_meta(content)
-
-        # write metadata first, so that it expires first
-        write_cache_meta!(cid, version, locale_param, cache_meta, CACHE_TIME)
-        # cache html longer than metadata, but keyed by content (digest)
-        write_cached_content!(cid, version, content, cache_meta[:digest], CACHE_TIME + 10.seconds)
+        cache_meta = CLP::Caching.cache_content!(
+          cid, version, locale_param, content, CACHE_TIME)
       end
 
       if stale?(etag: cache_meta[:digest],
@@ -65,7 +61,7 @@ class LandingPageController < ActionController::Metal
                 template: false,
                 public: true)
 
-        content = fetch_cached_content(cid, version, cache_meta[:digest])
+        content = CLP::Caching.fetch_cached_content(cid, version, cache_meta[:digest])
         if content.nil?
           # This should not happen since html is cached longer than metadata
           cache_hit = false
@@ -143,26 +139,6 @@ class LandingPageController < ActionController::Metal
       structure: structure,
       locale_param: locale_param
     )
-  end
-
-  def build_cache_meta(content)
-    {last_modified: Time.now(), digest: Digest::MD5.hexdigest(content)}
-  end
-
-  def fetch_cache_meta(community_id, version, locale)
-    Rails.cache.read("clp/#{community_id}/#{version}/#{locale}")
-  end
-
-  def write_cache_meta!(community_id, version, locale, cache_meta, cache_time)
-    Rails.cache.write("clp/#{community_id}/#{version}/#{locale}", cache_meta, expires_in: cache_time)
-  end
-
-  def fetch_cached_content(community_id, version, digest)
-    Rails.cache.read("clp/#{community_id}/#{version}/#{digest}")
-  end
-
-  def write_cached_content!(community_id, version, content, digest, cache_time)
-    Rails.cache.write("clp/#{community_id}/#{version}/#{digest}", content, expires_in: cache_time)
   end
 
   def build_denormalizer(cid:, default_locale:, locale_param:, landing_page_locale:, sitename:)
