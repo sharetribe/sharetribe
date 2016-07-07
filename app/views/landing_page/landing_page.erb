@@ -84,7 +84,7 @@
 </head>
 <body>
 
-  <% if topbar_enabled %>
+  <% if topbar[:enabled] %>
   <div id="topbar-placeholder" class="topbar-placeholder"> </div>
   <% end %>
 
@@ -122,58 +122,21 @@
 
   <%= yield :javascript %>
 
-  <% if topbar_enabled %>
-  <script>
-    window.I18n = {};
-    <%= javascripts[:translations] %>
-  </script>
+  <% if topbar[:enabled]%>
+    <script>
+        window.I18n = {};
+        <%= javascripts[:translations] %>
+    </script>
 
-  <%= stylesheet_link_tag 'app-bundle' %>
-  <%= javascript_include_tag 'vendor-bundle' %>
-  <%= javascript_include_tag 'app-bundle' %>
+    <%= stylesheet_link_tag 'app-bundle' %>
+    <%= javascript_include_tag 'vendor-bundle' %>
+    <%= javascript_include_tag 'app-bundle' %>
 
-  <script>
-    (function() {
-      var renderTopBar = function renderTopBar(props, marketplaceCtx) {
-        componentFn = function (props) {
-          return window.ReactOnRails.getComponent('TopbarApp').component(props, marketplaceCtx)
-        }
-        ReactDOM.render(React.createElement(componentFn, props), document.getElementById('topbar-placeholder'));
-      };
-
-      var staticProps = <%= topbar_props.to_json.html_safe %>
-      var staticMarketplaceContext = <%= marketplace_context.to_json.html_safe %>
-
-      var fetchPromise = window.fetch("<%= topbar_props_path %>", { credentials: 'same-origin' })
-        .then(function (res) {
-          if (res.status >= 200 && res.status < 300) {
-              return res;
-          } else {
-              var error = new Error(res.statusText);
-              error.res = res;
-              throw error;
-          }
-       })
-        .then(function (res) {
-          return res.json();
-        })
-        .then(function (resJson) {
-          props = Object.assign({}, staticProps, resJson.props);
-          mCtx = Object.assign({}, staticMarketplaceContext, resJson.marketplaceContext);
-          renderTopBar(props, mCtx);
-        });
-
-      Promise.race([
-        fetchPromise,
-        new Promise(function (resolve, reject) {
-          setTimeout(function() { reject(new Error('request timeout')) }, 3000);
-      })])
-       .catch(function(error) {
-         console.error(error);
-         renderTopBar(staticProps, staticMarketplaceContext);
-       });
-    }());
-  </script>
+    <%= render partial: "topbar",
+        locals: {props: topbar[:props],
+                 marketplace_context: topbar[:marketplace_context],
+                 props_endpoint: topbar[:props_endpoint],
+                 container_id: "topbar-placeholder"} %>
   <% end %>
 
 </body>

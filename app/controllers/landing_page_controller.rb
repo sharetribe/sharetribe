@@ -235,12 +235,14 @@ class LandingPageController < ActionController::Metal
                        location_search: location_search_js,
                        translations: js_translations(topbar_locale)
                      },
+                     topbar: {
+                       enabled: topbar_enabled,
+                       props: props,
+                       marketplace_context: marketplace_context,
+                       props_endpoint: ui_api_topbar_props_path(locale: topbar_locale),
+                     },
                      page: denormalizer.to_tree(structure, root: "page"),
                      sections: denormalizer.to_tree(structure, root: "composition"),
-                     topbar_props: props,
-                     topbar_props_path: ui_api_topbar_props_path(locale: topbar_locale),
-                     marketplace_context: marketplace_context,
-                     topbar_enabled: topbar_enabled,
                      google_maps_key: google_maps_key,
                      community_context: community_context(request)
                    }
@@ -269,6 +271,10 @@ class LandingPageController < ActionController::Metal
       locale_param: locale_param)
   end
 
+  # This is copied from the React on Rails source with our own rails
+  # context extensions. It's repeated code and a potential source of
+  # fragility. We need to address this and think if it's a good idea
+  # to leverage the railsContext at all.
   def marketplace_context(community, locale, request)
     uri = Addressable::URI.parse(request.original_url)
 
