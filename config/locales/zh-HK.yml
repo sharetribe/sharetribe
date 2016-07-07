@@ -152,38 +152,6 @@ zh-HK:
         follow_the_instructions: 請按電郵中的說明來驗證你的電郵地址。
       getting_started:
         getting_started: ~
-        welcome_to_your_marketplace: "歡迎你，%{name}！"
-        intro: ~
-        live_site_link_text: ~
-        look_and_feel: ~
-        logo_link_text: ~
-        custom_domain: "你也許還想增加一個定制的網頁地址（比如www.yourmarketplace.com）。設置它需要我們做一些手動工作，同時我們也需要為域名購買SSL證書以保證你的站點安全。由於這些原因，定制域名在免費試用期不可用，所以如果需要該域名，你要訂閱我們的Pro計劃或更高級別的計劃。如果你想要定制域名，請%{contact_support_link}。"
-        categories_and_custom_fields: "接下來需要決定用戶可以發布什麼樣的內容到你的網站。你可以%{categories_link}，通過%{custom_fields_link}定制實際列表表單包含的內容，並在用戶瀏覽訊息時決定%{filters_link}。"
-        categories_link_text: ~
-        custom_fields_link_text: ~
-        filters_link_text: ~
-        order_types: "你可以在你的集市中定義訂單的處理流程。你的用戶可以出售，出租或者免費提供？用戶可以按小時，天或者周出租？這些都可以在%{order_types_link}裡面配置。"
-        order_types_link_text: 交易類型顯示模式
-        payments: "如果你希望人們透過你的網站購物，從而由每個交易中收取費用，你應該%{payments_link}。"
-        payments_link_text: 配置一個付款方法
-        info_texts: "不要忘記通過定制信息頁面和其他文本來告訴你的用戶關於你的集市。有一些不錯的地方可以參考：你的%{about_page_link}，你的%{terms_of_use_link}（你應該增加你自己的條款，或者編輯當前模板，或者創建一個全新文檔），你的%{privacy_policy_link}，以及發送給每個新用戶的%{welcome_email_link}。這兒還有一些你可以配置的%{instruction_texts_link}。"
-        about_page_link_text: 關於
-        terms_of_use_link_text: 服務條款
-        privacy_policy_link_text: 隱私權條款
-        welcome_email_link_text: 歡迎電郵
-        instruction_texts_link_text: ~
-        social_media: ~
-        facebook_link_text: ~
-        twitter_link_text: 添加你的Twitter帳號
-        analytics: ~
-        analytics_link_text: "連接一個Google Analytics帳號"
-        settings: "這裡有一些你可以選擇的設定。例如，你可以要求大家在加入前必需邀請其它人，令你的網站私人化，於是只有那些已登入的用能查看內容。%{settings_link}"
-        settings_link_text: 在這裡查看你的網站設置
-        final_words: "就是這些了！如果一切都準備好了，你可以開始在你的網站發送邀請%{invite_link}。你可以看到所有加入你的%{view_users_link}的用戶，以及所有他們完成的交易%{view_transactions_link}。你還可以很容易的管理發布的訊息：去訊息展示頁面你將看到管理員鏈接以用於編輯和關閉。如果需要幫助，你可以點擊%{contact_support_link} ——我們在這兒隨時準備為你服務。"
-        invite_link_text: ~
-        view_users_link_text: ~
-        view_transactions_link_text: ~
-        contact_support_link_text: ~
       available_languages:
         en: ~
         en-AU: ~

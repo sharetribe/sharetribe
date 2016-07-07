@@ -157,38 +157,6 @@ nl:
         follow_the_instructions: ~
       getting_started:
         getting_started: Startersgids
-        welcome_to_your_marketplace: "Welkom op jouw marktplaats, %{name}!"
-        intro: "Dit is een snelle gids om je marktplaats te configureren en te beheren. Je kan de live site bekijken %{live_site_link}."
-        live_site_link_text: hier
-        look_and_feel: "Vooraleer je je site lanceert, wil je vermoedelijk wel een paar dingen aanpassen. Zo kan je b.v. %{logo_link} en de cover afbeelding wijzigen of de kleuren aanpassen zodat ze bij de look & feel van je merk passen."
-        logo_link_text: "voeg je logo toe"
-        custom_domain: "Je kan eventueel ook een aangepast web adres toevoegen (b.v.: www.jouwmarktplaats.com). Om dat te doen moet je ons contacteren via de support link. Dit opzetten vraagt een aantal manuele stappen van onze kant. Voor die reden is een aangepast web adres enkel beschikbaar voor betalende klanten, niet tijdens de proefperiode"
-        categories_and_custom_fields: "Het volgende dat je moet bepalen is wat voor soort inhoud mensen op je site kunnen plaatsen. Je kan %{categories_link},%{custom_fields_link} die de detailpagina van item zullen bevatten en bepalen %{filters_link} er gebruikt worden wanneer mensen door de items bladeren."
-        categories_link_text: "voeg categorieën en subcategorieën toe"
-        custom_fields_link_text: "configureer velden formulier"
-        filters_link_text: "welke soort filters"
-        order_types: ~
-        order_types_link_text: ~
-        payments: "Als je wil dat mensen via je marktplaats kunnen betalen voor hun aankopen zodat je een commissie kan heffen op elke transactie, dan moet je %{payments_link}."
-        payments_link_text: "configureer een betalingsmethode"
-        info_texts: "Vergeet niet om de informatiepagina's en andere teksten aan te passen waar je je gebruikers over je marktplaats kan vertellen. Goede plaatsen om te bekijken zijn jouw %{about_page_link}, je %{terms_of_use_link} (je moet hier je eigen voorwaarden bepalen door de bestaande template aan te passen of door een volledig nieuw document te maken), je %{privacy_policy_link} en de %{welcome_email_link} die naar elke nieuwe gebruiker gestuurd wordt. Er zijn ook enkele %{instruction_texts_link} die aangepast kunnen worden."
-        about_page_link_text: "\"over\" pagina"
-        terms_of_use_link_text: gebruiksvoorwaarden
-        privacy_policy_link_text: "Beleid privacy"
-        welcome_email_link_text: "welkom e-mail"
-        instruction_texts_link_text: "andere instructie teksten"
-        social_media: "Social media gebruiken is een goede manier om je gebruikersgroep op te bouwen. Je kan %{facebook_link} om het mensen makkelijker te maken in te loggen in je marktplaats en %{twitter_link} zodat ook anderen ervan op de hoogte gebracht worden wanneer gebruikers tweets schrijven over je marktplaats."
-        facebook_link_text: "koppel je aangepaste Facebook app"
-        twitter_link_text: "voeg je Twitter account toe"
-        analytics: "Het is altijd een goed idee om %{analytics_link}. Zo kan je makkelijk volgen wat er allemaal gebeurd op je marktplaats, hoeveel bezoekers je hebt, enz..."
-        analytics_link_text: "connecteer een Google Analytics account"
-        settings: "Er zijn een pak instellingen die je kan uitproberen. Zo kan je b.v. je marktplaats privé maken en nieuwe gebruikers enkel op uitnodiging van bestaande gebruikers toegang geven. %{settings_link}."
-        settings_link_text: "Bekijk je marktplaats instellingen hier"
-        final_words: "Klaar! Als alles in orde is, kan je %{invite_link} naar je marktplaats. Je kan alle gebruikers zien die zich hebben geregistreerd %{view_users_link} en alle transacties die ze hebben afgewerkt %{view_transactions_link}. Je kan ook makkelijk aanbiedingen beheren: ga simpelweg naar de pagina van het item en je zal beheerder links zien om te editeren en te sluiten. Als je hulp nodig hebt kan je %{contact_support_link}. We zijn hier om je te helpen!"
-        invite_link_text: "gebruikers uitnodigen"
-        view_users_link_text: hier
-        view_transactions_link_text: hier
-        contact_support_link_text: "contacteer onze support"
       available_languages:
         en: ~
         en-AU: ~

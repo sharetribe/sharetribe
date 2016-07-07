@@ -162,38 +162,6 @@ cs:
         follow_the_instructions: "Prosíme, postupujte dle pokynů v e-mailu pro ověření Vaší adresy."
       getting_started:
         getting_started: "Příručka pro začátečníky"
-        welcome_to_your_marketplace: "Vítejte ve Vašem tržišti, uživateli %{name}!"
-        intro: "Toto je rychlý průvodce pro nastavení a správu stránek Vašeho tržiště. Pro zobrazení úvodní stránky klikněte %{live_site_link}."
-        live_site_link_text: zde
-        look_and_feel: "Předtím, než spustíte Vaše stránky pro veřejnost, budete pravděpodobně chtít nastavit několik věcí. Například budete možná chtít %{logo_link} a změnit úvodní fotky a barvy, aby ladily se vzhledem Vaší značky."
-        logo_link_text: "přidat Vaše logo"
-        custom_domain: "Možná budete chtít také přidat svoji vlastní webovou adresu (např.: www.yourmarketplace.com). Toto nastavení bude na naší straně vyžadovat nějakou tu práci, takže zakoupíme SSL certifikát, aby byly Vaše stránky v bezpečí. Z těchto důvodů nejsou vlastní domény právě teď dostupné v bezplatné zkušební verzi, takže budete muset nejdřív přejít na náš Pro plan nebo vyšší verzi. Pokud byste chtěli mít svoji vlastní doménu, prosíme, %{contact_support_link}."
-        categories_and_custom_fields: "Další věc, o které se budete muset rozhodnout, je, jakými druhy obsahu mohou lidé na Vašich stránkách přispívat. Můžete %{categories_link}, %{custom_fields_link}, které obsahují aktuální podobu inzerátů a rozhodnout, %{filters_link} se použijete v případě, když si lidé budou vyhledávat inzeráty."
-        categories_link_text: "přidat kategorie a subkategorie"
-        custom_fields_link_text: "nastavit seznamy"
-        filters_link_text: "jaký druh filtrů"
-        order_types: "Můžete také nastavit, jak bude proces objednávání na Vašem tržišti probíhat. Prodávají, pronajímají nebo darují věci zadarmo Vaši uživatelé? Půjčují uživatelé hodinově, denně či týdně? Tyto věci můžete nastavit v %{order_types_link}."
-        order_types_link_text: "zobrazení typu objednávky"
-        payments: "Pokud chcete, aby lidé mohli za své nákupy zaplatit prostřednictvím Vašeho tržiště, měli byste tedy si nastavit poplatek z každé transakce v tedy měli %{payments_link}."
-        payments_link_text: "nastavení způsobu platby"
-        info_texts: "Nezapomeňte nastavit informační stránky a další texty, kterými se můžete zmínit uživatelům o Vašem tržišti. Měli byste zkontrolovat odkaz %{about_page_link}, Vaše %{terms_of_use_link} (měli byste přidat Vaše vlastní podmínky použití buď úpravou stávající šablony, nebo vytvořením zcela nových podmínek), %{privacy_policy_link} a %{welcome_email_link}, který je zasílán každému novému uživateli. Jsou zde také některé %{instruction_texts_link}, které si můžete nastavit."
-        about_page_link_text: "O nás"
-        terms_of_use_link_text: "podmínky použití"
-        privacy_policy_link_text: "zásady ochrany osobních údajů"
-        welcome_email_link_text: "uvítací e-mail"
-        instruction_texts_link_text: "další informační texty"
-        social_media: "Používání sociálních sítí je skvělý způsob, jak si vybudovat vlastní komunitu. Můžete se %{facebook_link}, což lidem usnadní přihlášení tržišti a %{twitter_link}, abyste byli viditelnější, když lidé budou tweetovat o zboží na Vašem tržišti."
-        facebook_link_text: "připojit k Vaši vlastní Facebook aplikaci"
-        twitter_link_text: "přidejte i Váš Twitter účet"
-        analytics: "Dobrý nápad je se také %{analytics_link}. Díky tomu pro Vás bude snažší sledovat, co se na Vašem tržišti děje, kolik návštěvníků máte atd."
-        analytics_link_text: "přihlásit k účtu Google Analytics"
-        settings: "Existuje spousta dalších nastavení, se kterými byste si mohli hrát. Například můžete požadovat, aby byl každý pozvaný již od nějakého uživatele předtím, než se bude moci přidat k Vašemu tržišti, takže pouze přihlášení uživatelé si budou moci zobrazit obsah. %{settings_link}"
-        settings_link_text: "Zobrazit nastavení tržiště zde"
-        final_words: "A je to! Pokud si myslíte, že je vše připraveno, můžete začít %{invite_link} do Vašeho tržiště. Můžete zobrazit všechny přihlášené uživatele %{view_users_link} či všechny provedené transakce %{view_transactions_link}. Velmi snadno můžete spravovat i inzeráty: přejděte na stránku s inzerátem a uvidíte tam odkazy pro úpravu a uzavření inzerátu. Pokud byste potřebovali pomoci, %{contact_support_link} - jsme tu přece pro Vás!"
-        invite_link_text: "s pozváním uživatelů"
-        view_users_link_text: zde
-        view_transactions_link_text: zde
-        contact_support_link_text: "kontaktujte nás přes zákaznickou podporu"
       available_languages:
         en: Angličtina
         en-AU: "Angličtina (Austrálie)"

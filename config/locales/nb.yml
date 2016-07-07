@@ -157,38 +157,6 @@ nb:
         follow_the_instructions: "Følg instruksjonen i eposten for å bekrefte din adresse."
       getting_started:
         getting_started: "Kom i gang"
-        welcome_to_your_marketplace: "Velkommen til din markedsplass, %{name}!"
-        intro: "Dette er en rask guide for hvordan sette opp og administrere din markedsplass. Du kan se live-site her %{live_site_link}."
-        live_site_link_text: her
-        look_and_feel: "Før du lanserer siden til brukere bør du gjøre noen tilpasninger. Du bør ha en %{logo_link} og endre forsidebildet og fargene til å matche din profil."
-        logo_link_text: "legg til logo"
-        custom_domain: "Du bør også legge til ditt eget domenenavn (eksempel www.dinmarkedsplass.no). Å sette opp dette krever noe manuelt arbeid fra vår side, vi må blant annet kjøpe et SSL-sertifikat til domenet for å sørge for at siden er sikret. Derfor er ikke egne domener tilgjengelig i gratis prøveversjon akkurat nå. Abonnér på vårt Pro-abonnement eller mer for å gjøre dette. Hvis du vil ha et eget domene, vennligst %{contact_support_link}."
-        categories_and_custom_fields: "Neste tilpasning er å velge hvilke type innhold brukere kan legge inn på siden. Du kan %{categories_link}, %{custom_fields_link} som annonsen inneholder og bestemme %{filters_link} i bruk når brukere navigerer i annonsene."
-        categories_link_text: "legge til kategorier og underkategorier"
-        custom_fields_link_text: "tilpasse felter"
-        filters_link_text: "hvilke type filter"
-        order_types: "Du kan også endre innstillingene for hvordan ordreprosessen fungerer i din markedsplass. Vil brukerne dine selge, leie ut eller gi bort ting gratis? Er det timebasert, daglig eller ukentlig? Disse tingene kan stilles inn fra %{order_types_link}."
-        order_types_link_text: ordretypevisning
-        payments: "Hvis du vil at brukere skal kunne betale for transaksjonene gjennom din markedsplass slik at du kan ta en provisjonsbetaling må du %{payments_link}."
-        payments_link_text: "sette opp en betalingsmetode"
-        info_texts: "Ikke glem å tilpasse info-sider og andre tekster hvor du kan fortelle brukere om din markedsplass. Gode steder verdt å sjekke er din %{about_page_link}, din  %{terms_of_use_link} (du bør skrive dine egne bruksvilkår her, enten ved å tilpasse malen eller lage et nytt dokument), din %{privacy_policy_link}, og %{welcome_email_link} som sendes til hver nye bruker. Det er også noen %{instruction_texts_link} du kan tilpasse."
-        about_page_link_text: "om side"
-        terms_of_use_link_text: "Betingelser for bruk"
-        privacy_policy_link_text: personvern
-        welcome_email_link_text: velkomstmelding
-        instruction_texts_link_text: "andre instruksjoner"
-        social_media: "Bruk av sosiale medier er viktig når du skal bygge et community. Du kan %{facebook_link} for å gjøre det enklere å registrere seg på siden din, og %{twitter_link} for å få viral spredning når folk tweeter om annonser på siden din."
-        facebook_link_text: "koble til din Facebook-app"
-        twitter_link_text: "legge til din Twitter-konto"
-        analytics: "Det er også en god idé å %{analytics_link}. Slik kan du enkelt se hva som skjer på markedsplassen din, hvor mange besøkende du har osv."
-        analytics_link_text: "koble til Google Analytics-konto"
-        settings: "Det er massevis av andre innstillinger du kan leke deg med. For eksempel så kan du kreve at alle brukere må ha en invitasjon fra en annen bruker for å registrere seg. Du kan også gjøre markedsplassen privat slik at brukere må logge inn for å se innholdet. %{settings_link}."
-        settings_link_text: "Se innstillinger for markedsplassen her"
-        final_words: "That's it! Hvis alt erklart kan du begynne å %{invite_link} til din markedsplass. Du kan se alle brukere som har registrert seg %{view_users_link}, og alle fullførte transaksjoner %{view_transactions_link}. Du kan enkelt administrere annonser: gå til annonsesiden og du vil se admin-lenker for å endre og stoppe annonser der. Hvis du trenger hjelp kan du %{contact_support_link} - vi er her for deg!"
-        invite_link_text: "invitere brukere"
-        view_users_link_text: her
-        view_transactions_link_text: her
-        contact_support_link_text: "kontakt vår support"
       available_languages:
         en: Engelsk
         en-AU: "Engelsk (Australia)"

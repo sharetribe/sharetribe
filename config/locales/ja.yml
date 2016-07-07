@@ -152,38 +152,6 @@ ja:
         follow_the_instructions: ~
       getting_started:
         getting_started: 「開始するには」ガイド
-        welcome_to_your_marketplace: "%{name}さん、あなたのマーケットプレイスへようこそ！"
-        intro: "こちらはあなたのマーケットプレイスの設置と、運営方法のクイックガイドです。 %{live_site_link} から現在の見え方を確認出来ます。"
-        live_site_link_text: こちら
-        look_and_feel: "サイト公開前にいくつか確認してください。例えば、%{logo_link}と、カバー写真とサイトカラーの色を、マッチしているでしょうか。"
-        logo_link_text: ロゴを追加
-        custom_domain: "（例： www.yourmarketplace.comのような）カスタムドメインを使用したいと思うでしょう。その場合は、マニュアルのステップがいくつか必要になりますので、左側のサポートリンクからお問い合わせください。カスタムドメインの使用は、フリートライアルではなく、有料サービスになります。"
-        categories_and_custom_fields: "次に決めるのことは、あなたのサイトで、どのような内容で投稿をしてもらうかです。%{categories_link}%{custom_fields_link}から、実際のリストの形式が構成されます。%{filters_link}を追加すると、訪問者がリストをブラウザするときに検索フィルターとして用いられます。"
-        categories_link_text: カテゴリとサブカテゴリを追加する
-        custom_fields_link_text: フォーム項目を設定
-        filters_link_text: フィルターの種類
-        order_types: ~
-        order_types_link_text: ~
-        payments: "あなたのマーケットプレイスからの購入のお支払いを可能にしたい場合は、各々の取引から手数料を請求できます。 %{payments_link} からどうぞ。"
-        payments_link_text: お支払い方法の設定
-        info_texts: "ユーザに促したいマーケットプレイスについての大事な情報をカスタマイズするのを忘れないでください。%{about_page_link}、%{terms_of_use_link} （こちらはあなたが作成した独自のものにしてください。あるいはテンプレートを編集しても構いません）、%{privacy_policy_link}、新規のユーザに送信する %{welcome_email_link} 。%{instruction_texts_link} も設定できます。"
-        about_page_link_text: ページについて
-        terms_of_use_link_text: 利用規約
-        privacy_policy_link_text: プライバシーポリシー
-        welcome_email_link_text: 新ユーザ案内メール
-        instruction_texts_link_text: その他の説明文
-        social_media: "ソーシャルメディアを使うことはコミュニティを確立するために、とても良いことです。%{facebook_link} から人がログインをより簡単にしてもらえたり、%{twitter_link} でマーケットプレイスの商品やサービスのことをツイートしてもらって、口コミや良いうわさはすばやく広がるでしょう。"
-        facebook_link_text: Facebookアプリと接続する
-        twitter_link_text: Twitterのアカウントを追加する
-        analytics: "%{analytics_link}して活用することは、良いアイデアです。これにより、何人の訪問者が来ているかなど情報をはじめとする、マーケットプレイスの動向が見えやすくなります。"
-        analytics_link_text: "Google アナリティクスのアカウントに接続"
-        settings: "各種設定は、こちらにまとめています。手短に、現ユーザからの招待制する場合、サイトをプライベートに設定にする必要があります。ログインユーザしか中身を見れないようにします。%{settings_link} 。"
-        settings_link_text: こちらからマーケットプレイスの設定を確認する
-        final_words: "ここまでです。すべて準備が整いましたら、%{invite_link}であなたのマーケットプレイスに招待し始めてください。%{view_users_link}でどのユーザが利用中であるかを閲覧できます。%{view_transactions_link}は、マーケットプレイス内の取引履歴です。また、容易にリストを管理することが出来ます： 各リストページに行って、管理者は編集リンクで編集や、公開・非公開などの変更が可能です。ヘルプが必要なら、%{contact_support_link} - お声をかけてください！(Sharetribeの直接サポートは、英語のみになります。)"
-        invite_link_text: ユーザを招待する
-        view_users_link_text: こちら
-        view_transactions_link_text: こちら
-        contact_support_link_text: サポートにお問い合わせ
       available_languages:
         en: ~
         en-AU: ~

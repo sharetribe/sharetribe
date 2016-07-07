@@ -157,40 +157,6 @@ es-ES:
         follow_the_instructions: "Por favor sigue las instrucciones que te enviamos en el e-mail para verificar tu dirección."
       getting_started:
         getting_started: "Guía para comenzar"
-        welcome_to_your_marketplace: "Bienvenido a tu comunidad, %{name}!"
-        intro: "Esta es una guía rápida para configurar y gestionar tu marketplace. Puedes ver el sitio en vivo %{live_site_link}."
-        live_site_link_text: aquí
-        look_and_feel: "Antes de lanzar tu sitio al público, probablemente querrás configurar algunas cosas. Por ejemplo, quizá quieras %{logo_link} y cambiar la foto de portada y los colores para ajustarse a la identidad visual de tu marca."
-        logo_link_text: "añadir tu logo"
-        custom_domain: "También puedes agregar un dominio personalizado (por ejemplo: www.tumarketplace.com). Esta configuración requiere algunos ajustes manuales por nuestra parte, y también deberemos comprar un certificado SSL para el dominio para mantener tu sitio seguro. Por esta razón, los dominios personalizados no están disponibles en las pruebas gratis en este momento. Necesitarás actualizar a nuestro plan Pro o uno superior para tener un dominio personalizado. Si quieres tener un dominio personalizado, por favor %{contact_support_link}."
-        categories_and_custom_fields: "El siguiente paso es elegir qué tipo de contenido podrán publicar los usuarios de tu web. Puedes %{categories_link}, %{custom_fields_link} en los anuncios, y decidir qué %{filters_link} estarán disponibles durante una búsqueda."
-        categories_link_text: "añadir categorías y subcategorías"
-        custom_fields_link_text: "Configurar campos del formulario"
-        filters_link_text: "tipos de filtros"
-        order_types: "También puedes configurar cómo funciona el proceso de solicitud en tu marketplace. Tus usuarios están vendiendo, alquilando o regalando cosas gratis? Están ofreciendo alquileres por horas, por días o por semanas? Estos parámetros pueden configurarse en este enlace %{order_types_link}."
-        order_types_link_text: "Vista de tipos de solicitud"
-        payments: "Si quieres que las personas puedan pagar por sus compras a través de tu marketplace, y poder cobrar una comisión de servicio por cada transacción, debes %{payments_link}."
-        payments_link_text: "configurar una forma de pago"
-        info_texts: "No olvides personalizar las páginas de información y los demás textos en los que puedes hablarle a los usuarios acerca de tu marketplace.  Unos lugares ideales para empezar son tu %{about_page_link}, tu %{terms_of_use_link} (Debes ingresar tus propios términos de uso aquí, ya sea modificando el modelo actual o creando un documento nuevo que se ajuste a tus necesidades), tu %{privacy_policy_link}, y el %{welcome_email_link} que se envía a cada nuevo usuario.  También hay algunos %{instruction_texts_link} que puedes configurar."
-        about_page_link_text: "sobre nosotros"
-        terms_of_use_link_text: "términos y condiciones de uso"
-        privacy_policy_link_text: "política de privacidad"
-        welcome_email_link_text: "email de bienvenida"
-        instruction_texts_link_text: "Otros textos con instrucciones"
-        social_media: "Es recomendable utilizar redes sociales para hacer crecer tu comunidad. Puedes %{facebook_link} para hacer más fácil que los usuarios se registren en tu comunidad y además puedes %{twitter_link} para conseguir que tu contenido tenga un mayor alcance."
-        facebook_link_text: "conectar tu Facebook app personalizada"
-        twitter_link_text: "añadir tu cuenta de Twitter"
-        analytics: "También es una buena idea %{analytics_link}. De esta manera, podrás ver lo que pasa en tu marketplace, cuántos visitantes tienes, y demás"
-        analytics_link_text: "conectar tu cuenta de Google Analytics"
-        settings: "Hay otras opciones de configuración que puedes utilizar. Por ejemplo, puedes requerir que todos los usuarios sean invitados por otros usuarios antes de que puedan unirse a tu comunidad; o puedes hacerla privada, para que únicamente los usuarios que hayan iniciado sesión puedan ver el contenido. %{settings_link}."
-        settings_link_text: "Ver la configuración de tu comunidad aquí"
-        final_words: |-
-            Eso es todo! Si ya tienes todo listo, puedes empezar %{invite_link} a tu marketplace. Puedes ver todos los usuarios que se han registrado %{view_users_link}, y todas las transacciones que han completado %{view_transactions_link}. También podrás gestionar las publicaciones fácilmente: simplemente ve a la página de la publicación y allí verás los links de administrador de 'editar' y 'cerrar'. 
-            Si necesitas ayuda, puedes %{contact_support_link} - Estamos aquí para ayudarte!
-        invite_link_text: "invitar a otros usuarios"
-        view_users_link_text: aquí
-        view_transactions_link_text: aquí
-        contact_support_link_text: "contacta con soporte"
       available_languages:
         en: Inglés
         en-AU: "Inglés (Australia)"

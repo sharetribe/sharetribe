@@ -157,38 +157,6 @@ de:
         follow_the_instructions: "Bitte folge den Anweisungen in der Email, um Deine Adresse zu verifizieren."
       getting_started:
         getting_started: Kurzanleitung
-        welcome_to_your_marketplace: "Willkommen auf deinem Marktplatz, %{name}!"
-        intro: "Dies ist eine Kurzanleitung für die Einrichtung und Verwaltung deines Marktplatzes. Du kannst die Live Seite %{live_site_link} ansehen."
-        live_site_link_text: hier
-        look_and_feel: "Bevor du Deinen Marktplatz veröffentlichst, willst du vermutlich ein paar Sachen einrichten. Zum Beispiel kannst du %{logo_link}, und das Cover-Foto sowie die Farben ändern, so dass sie mit dem Aussehen deiner Marke gut zusammenpassen."
-        logo_link_text: "dein Logo hinzufügen"
-        custom_domain: "Vielleicht möchtest du auch eine benutzerdefinierte Web-Adresse hinzufügen (zum Beispiel www.deinmarktplatz.com). Um die Domain für deinen Marktplatz zu aktivieren müssen wir einige Sachen für dich einrichten sowie ein SSL-Zertifikat für die Domain kaufen, um sie zu sichern. Deswegen sind benutzerdefinierte Domainnamen zur Zeit nicht inklusive in unserem Trial-Plan, und du solltest für die Aktivierung deiner eigenen Domain einen Pro-, Growth- oder Scale-Plan abonnieren. Wenn du eine benutzerdefinierte Domain einrichten möchtest, bitte %{contact_support_link}."
-        categories_and_custom_fields: "Als Nächstes solltest du entscheiden was für Inhalt Leute auf Deinem Marktplatz verkaufen können. Du kannst %{categories_link}, %{custom_fields_link} die das aktuelle Anzeigeformular umfasst, und bestimmen %{filters_link} aktiviert sind wenn Leute die Anzeigen durchblättern."
-        categories_link_text: "Kategorien und Unterkategorien hinzufügen"
-        custom_fields_link_text: "die Formularfelder anpassen"
-        filters_link_text: "welche Art von Filter"
-        order_types: "Du kannst auch den Auftragsprozess auf deinem Marktplatz konfigurieren. Werden deine Nutzer Sachen verkaufen, verleihen, oder kostenlos schenken? Wenn sie etwas verleihen, dauert der Leihvertrag in der Regel einige Stunden, Tage, oder Wochen? Dies kannst Du auf %{order_types_link} ansehen."
-        order_types_link_text: Auftragsprozesseinstellungen
-        payments: "Wenn du möchtest, dass Leute durch Deinen Marktplatz bezahlen können, damit du einen Transaktionsgebühr von jedem Kauf abrechnen kannst, solltest du %{payments_link}."
-        payments_link_text: "eine Zahlungsart einrichten"
-        info_texts: "Vergiss nicht die Infoseiten und andere Texte, wo du deinen Benutzern über Ihren Marktplatz erzählen kannst, einzurichten. Du solltest %{about_page_link} ansehen sowie deine %{terms_of_use_link} (wo du deine eigenen Nutzungsbedingungen hinzufügen solltest, entweder durch Anpassen der Vorlage oder Einrichtung eines ganz neuen Dokuments), deine %{privacy_policy_link}, und die %{welcome_email_link} die zu jedem neuen Benutzer geschickt wird. Es gibt auch einige %{instruction_texts_link} die du anpassen kannst."
-        about_page_link_text: "Über uns"
-        terms_of_use_link_text: Nutzungsbedingungen
-        privacy_policy_link_text: Datenschutzbestimmungen
-        welcome_email_link_text: Begrüßungs-E-Mail
-        instruction_texts_link_text: "anderen Anleitungstexte"
-        social_media: "Du kannst deine Community durch Social Media aufbauen. Du kannst %{facebook_link} um die Anmeldung für deine Nutzer zu vereinfachen, und %{twitter_link} um virale Sichtbarkeit durch Tweets über deinen Marktplatz zu erhalten."
-        facebook_link_text: "Deine benutzerdefinierte Facebook-App verbinden"
-        twitter_link_text: "Dein Twitter-Konto hinzufügen"
-        analytics: "%{analytics_link} ist auch eine gute Idee. Dadurch ist es einfacher für dich, die Aktivität deines Marktplatzes zu betrachten, wie viele Besucher du bekommst, und so weiter."
-        analytics_link_text: "Das Verknüpfen eines Google Analytics Kontos"
-        settings: "Es gibt viele andere Einstellungen mit denen du herumspielen kannst. Zum Beispiel kannst du deinen Marktplatz so einrichten, dass neue Kunden nur durch eine Einladung von einem bevorstehenden Kunden ein Konto einrichten können. Du kannst deinen Marktplatz auch privat machen, damit nur die angemeldeten Kunden den Inhalt ansehen können. %{settings_link}"
-        settings_link_text: "Hier siehst du deine Marktplatz-Einstellungen"
-        final_words: "Das war's! Wenn alles bereit ist, kannst du %{invite_link}. Du kannst %{view_users_link} alle registrierte Benutzerkonten ansehen, und %{view_transactions_link} kannst du ihre Käufe ansehen. Du kannst auch einfach die Anzeigen verwalten: gehe einfach auf die Seite der Anzeige und da siehst du sofort die Administrator-Links mit denen du die Anzeige modifizieren oder kündigen kannst. Wenn du Hilfe brauchst, %{contact_support_link} - wir sind da für dich!"
-        invite_link_text: "Benutzer zu Deinem Marktplatz einladen"
-        view_users_link_text: hier
-        view_transactions_link_text: hier
-        contact_support_link_text: "Kontaktiere unseren Support"
       available_languages:
         en: Englisch
         en-AU: "Englisch (Australien)"

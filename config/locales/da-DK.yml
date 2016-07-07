@@ -157,38 +157,6 @@ da-DK:
         follow_the_instructions: "Følg instruktionerne i e-mailen for at bekræfte din adresse."
       getting_started:
         getting_started: "Kom i gang guide"
-        welcome_to_your_marketplace: "Velkommen til din markedsplads, %{name}!"
-        intro: "Dette er en hurtig guide til hvordan du kommer i gang med din nye markedsplads."
-        live_site_link_text: her
-        look_and_feel: "Før du offentliggør din markedsplads, vil du sandsynligvis gerne tilrette dele af den. Eksempelvis %{logo_link} samt ændre forsidebillede og farver, så det matcher dit brand."
-        logo_link_text: "tilføje et logo"
-        custom_domain: "Du vil måske også ønske at tilføje en personlig webadresse (eksempel: www.yourmarketplace.com). Opsætningen kræver noget manuelt arbejde fra vores side, og vi skal også købe et SSL certifikat for domænet for at gøre din markedsplads sikker. Derfor er personlige webadresser ikke tilgængelige i gratis-versionen lige nu. Abonnement på vores Pro plan eller højere, er nødvendigt for at kunne anvende en personlig webadresse. Hvis du gerne vil have en personlig webadresse, så %{contact_support_link}."
-        categories_and_custom_fields: "Det næste er at beslutte, hvilken slags indhold man kan poste på dit domæne - %{categories_link}, %{custom_fields_link} og %{filters_link} som er i brug, når brugerne får søgeresultaterne vist."
-        categories_link_text: "tilføj kategorier og underkategorier"
-        custom_fields_link_text: "konfigurer form felterne"
-        filters_link_text: "hvilken slags filtre"
-        order_types: "Du kan også konfigurere ordre processen på din markedsplads. Er dine brugere sælgere, lejere eller bortgiver de ting? Tilbyder de udlejning pr. time, dag eller uge. Disse ting kan konfigureres under %{order_types_link}."
-        order_types_link_text: "ordretype visning"
-        payments: "Hvis du ønsker at få en bid fra hver transaktion på markedspladsen, så %{payments_link}."
-        payments_link_text: "indstil betalingsmetode"
-        info_texts: "Glem ikke at tilrette info sider og andre tekster hvor du kan fortælle brugerne om din markedsplads. Gode steder at tjekke er din %{about_page_link}, dine %{terms_of_use_link} (du bør tilføje dine egne brugsvilkår her, enten ved at modificere den eksisterende skabelon, eller ved at oprette et helt nyt dokument), %{privacy_policy_link}, og %{welcome_email_link} som sendes til alle nye brugere. Der er også en %{instruction_texts_link} du kan tilrette."
-        about_page_link_text: om-side
-        terms_of_use_link_text: brugervilkår
-        privacy_policy_link_text: privatlivspolitik
-        welcome_email_link_text: "velkomst email"
-        instruction_texts_link_text: "anden instruktionstekst"
-        social_media: "At anvende sociale medier er en god måde at opbygge dit community på - %{facebook_link} for at gøre det nemmere at logge ind på din markedsplads, og %{twitter_link} for at få viral opmærksomhed når brugere tweeter om produkter på din markedsplads."
-        facebook_link_text: "tilknyt din Facebook app"
-        twitter_link_text: "tilføj din Twitter konto"
-        analytics: "Det er også en god idé at %{analytics_link}. På den måde kan du let se hvad der sker på din markedsplads, hvor mange besøgende du har og så videre."
-        analytics_link_text: "tilknytte din Google Analytics-konto"
-        settings: "Der er en bunke andre indstillinger du kan fifle med. For eksempel kan du indstille at alle skal have en invitation fra andre brugere, for at kunne deltage og dermed gøre markedspladsen privat, så kun registrerede brugere kan se indholdet. %{settings_link}."
-        settings_link_text: "Se indstillinger for din markedsplads her"
-        final_words: "Det er det hele! Hvis alt er klart, så %{invite_link} til din markedsplads. Du kan se alle brugerne som er registreret %{view_users_link}, og alle deres gennemførte transaktioner %{view_transactions_link}. Du kan også let håndtere annoncer: Gå til annonce-siden og du vil se administrator links til redigering og lukning. Har du brug for hjælp, %{contact_support_link} - vi er her for dig!"
-        invite_link_text: "inviter brugere"
-        view_users_link_text: her
-        view_transactions_link_text: her
-        contact_support_link_text: "kontakt vores support"
       available_languages:
         en: Engelsk
         en-AU: "Engelsk (Australien)"

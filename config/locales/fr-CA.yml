@@ -157,38 +157,6 @@ fr-CA:
         follow_the_instructions: ~
       getting_started:
         getting_started: "Guide de démarrage"
-        welcome_to_your_marketplace: "Bienvenue dans votre place de marché, %{name} !"
-        intro: "Ceci est un guide pour vous aider à configurer et gérer votre place de marché. Vous pouvez voir votre site sur %{live_site_link}."
-        live_site_link_text: ici
-        look_and_feel: "Avant de rendre votre site public, vous souhaitez probablement configurer quelques éléments. Par exemple, vous pouvez %{logo_link}, modifier l'image de couverture et les couleurs pour que cela corresponde à l'esprit de votre marque."
-        logo_link_text: "ajouter votre logo"
-        custom_domain: "Vous pourriez également souhaiter utiliser votre propre adresse (par exemple www.votreplacedemarche.com). Cela requiert quelques étapes manuelles de notre côté et nous devons également acheter un certificat SSL pour votre adresse afin que votre site soit sécurisé. C'est pour cela que votre propre adresse n'est pas disponible dans votre place de marché d'essai, vous devez donc souscrire à notre offre Pro ou supérieure pour en bénéficier. Si vous souhaitez avoir votre propre adresse, veuillez %{contact_support_link}."
-        categories_and_custom_fields: "Le point suivant concerne le type de contenu que les utilisateurs pourront diffuser sur votre site. Vous pouvez %{categories_link}, %{custom_fields_link} que le formulaire comporte déjà et choisir %{filters_link} doivent être utilisés lorsque les utilisateurs parcourent les annonces."
-        categories_link_text: "ajouter des catégories et sous-catégories"
-        custom_fields_link_text: "configurer les champs d'annonces"
-        filters_link_text: "quels types de filtres"
-        order_types: ~
-        order_types_link_text: ~
-        payments: "Si vous souhaitez que les utilisateurs puissent régler leur achats au sein de la place de marché, pour que vous puissiez prélever une commission sur chaque transaction, vous devriez %{payments_link}."
-        payments_link_text: "configurer une méthode de paiement"
-        info_texts: "N'oubliez pas d'éditer les pages d'informations et divers textes où vous pouvez en dire plus à vos utilisateurs sur votre place de marché. Cela se passe sur votre %{about_page_link}, vos %{terms_of_use_link} (vous devriez y ajouter vos propres conditions d'utilisations soit en modifiant le modèle actuel soit en créant un nouveau texte), votre %{privacy_policy_link} et votre %{welcome_email_link} qui est envoyé à chaque nouvel utilisateur. Il y a également %{instruction_texts_link} que vous pouvez éditer."
-        about_page_link_text: "page à propos"
-        terms_of_use_link_text: "conditions d'utilisations"
-        privacy_policy_link_text: "politique des renseignements personnels"
-        welcome_email_link_text: "email de bienvenue"
-        instruction_texts_link_text: "d'autres instructions textuelles"
-        social_media: "Utiliser les réseaux sociaux est un bon moyen de construire votre communauté. Vous pouvez %{facebook_link} pour rendre plus facile la connexion à votre place de marché pour vos utilisateurs et %{twitter_link} pour obtenir une visibilité virale lorsque des utilisateurs tweetent à propos d'annonces de votre place de marché."
-        facebook_link_text: "connecter votre propre application Facebook"
-        twitter_link_text: "ajouter votre compte Twitter"
-        analytics: "C'est également bonne idée de %{analytics_link}. Ainsi il sera facile pour vous de voir ce qui se passe dans votre place de marché, combien de visiteurs vous avez, etc."
-        analytics_link_text: "connecter un compte Google Analytics"
-        settings: "Il y a bien d'autres réglages que vous pouvez manipuler. Par exemple, vous pouvez demander à chacun d'avoir une invitation de la part d'un autre utilisateur pour pouvoir rejoindre votre place de marché, ou encore rendre votre place de marché privée afin que seuls les utilisateurs qui sont connectés puissent en voir le contenu. %{settings_link}"
-        settings_link_text: "Parcourir les réglages de votre place de marché."
-        final_words: "Voici le principal ! Si tout est prêt, vous pouvez commencer à %{invite_link} dans votre place de marché. Vous pouvez voir la liste des utilisateurs qui l'ont rejointe %{view_users_link} ainsi que toutes les transactions réalisées %{view_transactions_link}. Vous pouvez également gérer les annonces facilement : rendez-vous sur la page d'une annonce et vous verrez des liens pour l'éditer ou la clore. Si vous avez besoin d'aide, vous pouvez %{contact_support_link} : nous sommes là pour vous !"
-        invite_link_text: "inviter des utilisateurs"
-        view_users_link_text: ici
-        view_transactions_link_text: ici
-        contact_support_link_text: "contacter notre support"
       available_languages:
         en: ~
         en-AU: ~

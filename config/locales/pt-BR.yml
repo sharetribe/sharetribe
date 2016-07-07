@@ -157,38 +157,6 @@ pt-BR:
         follow_the_instructions: "Por favor siga as instruções para confirmar seu e-mail."
       getting_started:
         getting_started: "Guia dos primeiros passos"
-        welcome_to_your_marketplace: "Bem-vindo(a) ao seu mercado virtual, %{name}!"
-        intro: "Este é um guia rápido para configurar e gerenciar o seu mercado virtual. Você pode visualizar %{live_site_link} o seu site ao vivo."
-        live_site_link_text: aqui
-        look_and_feel: "Antes de você lançar o seu site para o público, você provavelmente vai querer configurar algumas coisas. Por exemplo, talvez você queira %{logo_link}, também mudar a imagem de destaque e as cores para combinar melhor com a concepção da sua marca."
-        logo_link_text: "adicionar o seu logotipo"
-        custom_domain: "Você também pode querer adicionar um endereço de web personalizado (um exemplo: www.seumercadovirtual.com.br). Configurá-lo requer algum trabalho manual da nossa parte, e nós também precisaremos comprar um certificado SSL para o seu domínio, afim de manter seu site seguro. Por estas razões, domínios personalizados não estão disponíveis nos períodos de testes gratuitos, para ter um domínio personalizado, você precisa se inscrever em algum dos nossos planos: Pro ou superior. Se você desejar ter um domínio personalizado, por favor %{contact_support_link}."
-        categories_and_custom_fields: "O próximo passo é decidir que tipo de conteúdo as pessoas podem anunciar em seu mercado virtual. Você pode %{categories_link}, %{custom_fields_link} que contém a forma atual de anúncios, e decidir %{filters_link} estarão em uso quando as pessoas navegarem pelos anúncios."
-        categories_link_text: "adicionar categorias e subcategorias"
-        custom_fields_link_text: "configurar os campos do formulário"
-        filters_link_text: "que tipo de filtros"
-        order_types: "Você também pode configurar como as transações funcionam no seu mercado virtual. Seus usuários vendem, alugam ou doam produtos? Eles oferecem alugueis por hora, dia ou semana? Essas coisas podem ser configuradas em %{order_types_link}."
-        order_types_link_text: "visão do tipo de pedido"
-        payments: "Se você quer que as pessoas sejam capazes de pagar suas compras através do seu mercado virtual, de modo que você possa cobrar uma taxa por cada transação, você deve %{payments_link}."
-        payments_link_text: "configurar um método de pagamento"
-        info_texts: "Não se esqueça de personalizar as páginas de informações e outros textos em que você possa informar a seus usuários sobre o seu mercado virtual. Bons lugares para verificar são a sua página %{about_page_link}, seus %{terms_of_use_link} (você deve adicionar seus próprios termos de uso aqui, seja modificando o modelo atual ou criando completamente um novo documento), sua %{privacy_policy_link}, e o  %{welcome_email_link} que é enviado para cada novo usuário. Há também alguns outros %{instruction_texts_link} que você pode configurar."
-        about_page_link_text: "sobre a página"
-        terms_of_use_link_text: "termos de uso"
-        privacy_policy_link_text: "Política de Privacidade"
-        welcome_email_link_text: "Conteúdo do e-mail de boas-vindas"
-        instruction_texts_link_text: "outros textos de instrução"
-        social_media: "Usar a mídia social é uma boa maneira de construir a comunidade. Você pode %{facebook_link} para tornar mais fácil a inscrição das pessoas ao seu mercado virtual, e %{twitter_link} para obter melhor visibilidade quando as pessoas \"tweetarem\" sobre produtos em seu mercado virtual."
-        facebook_link_text: "conectar seu app personalizado do Facebook"
-        twitter_link_text: "adicionar sua conta do Twitter"
-        analytics: "Também é uma boa ideia para %{analytics_link}. Desta forma é fácil para você ver o que está acontecendo no seu mercado virtual, quantos visitantes tem, e assim por diante."
-        analytics_link_text: "conectar uma conta do \"Google Analytics\""
-        settings: "Há um monte de outras configurações que você pode alterar. Por exemplo, você pode exigir que todos tenham um convite de outros usuários antes que eles possam se juntar e fazer o seu mercado virtual privado, portanto, apenas os usuários que estão cadastrados, podem ver o conteúdo. %{settings_link}."
-        settings_link_text: "Ver as suas definições de mercado virtual aqui"
-        final_words: "É só isso! Se tudo estiver pronto, você pode começar %{invite_link} para o seu mercado virtual. Você pode ver todos os usuários que se juntaram %{view_users_link}, e todas as operações que foram concluídas %{view_transactions_link}. Você também pode facilmente gerenciar os anúncios: basta ir até a página de anúncios e você verá os links de administração para edição e  encerramento lá. Se você precisar de alguma ajuda, você pode %{contact_support_link} - nós estamos aqui para você!"
-        invite_link_text: "Convidar outros usuários"
-        view_users_link_text: aqui
-        view_transactions_link_text: aqui
-        contact_support_link_text: "entre em contato com o nosso suporte"
       available_languages:
         en: Inglês
         en-AU: "Inglês (Austrália)"

@@ -152,38 +152,6 @@ tr-TR:
         follow_the_instructions: ~
       getting_started:
         getting_started: "Hızlı Başlangıç"
-        welcome_to_your_marketplace: "%{name}, pazarına hoş geldin!"
-        intro: "Bu, pazar sitenin ayarları ve yönetimi için kısa bir rehber niteliğinde olacak."
-        live_site_link_text: buradan
-        look_and_feel: "Sitenizi halka açmadan önce, bazı ayarlamaları yapmak isteyeceksiniz. Örneğin, %{logo_link} ya da kapak fotoğrafınızı ya da renkleri markanızı daha iyi yansıtacak şekilde düzenlemek isteyebilirsiniz."
-        logo_link_text: "kendi logonuzu ekleyin"
-        custom_domain: "Ya da kişiselleştirilmiş bir web adresi (örneğin, www.yourmarketplace.com) eklemek isteyebilirsiniz. Bunu yapmak bizim tarafımızdan bazı ayarlamaları gerektirdiği için hello@sharetribe.com adresinden ekibimize ulaşmalısınız."
-        categories_and_custom_fields: "Karar vermeniz gereken diğer şey ise kişilerin sitenize gönderebileceği içeriklerin türü. %{categories_link} ekleyebilir ya da asıl listeleme formunda yer alan %{custom_fields_link}nı düzenleyebilir ve kişiler listelemeleri görüntülerken hangi %{filters_link}in kullanılacağını belirleyebilirsiniz."
-        categories_link_text: "Kategori ve alt kategoriler"
-        custom_fields_link_text: "form alanları"
-        filters_link_text: filtreler
-        order_types: ~
-        order_types_link_text: ~
-        payments: "Her işlemden ücret alabilmek için kişilerin satışlarını pazarınız üzerinden gerçekleştirmelerini istiyorsanız, %{payments_link} belirlemelisiniz."
-        payments_link_text: "bir ödeme metodu"
-        info_texts: "Kullanıcılarınıza pazarınızdan bahsedeceğiniz bilgi sayfası ve diğer metinleri düzenlemeyi unutmayın. Bakmanız gereken en önemli yerlerden bazıları %{about_page_link} sayfanız, %{terms_of_use_link} bağlantınız (burada var olan metni düzenleyerek ya da tamamen yeni bir belge oluşturarak kendi kullanım koşullarınızı eklemelisiniz), %{privacy_policy_link} bağlantınız ve her yeni üyeye gönderilen %{welcome_email_link}dır. Düzenleyebileceğiniz bazı %{instruction_texts_link} de mevcuttur."
-        about_page_link_text: hakkımda
-        terms_of_use_link_text: "kullanım koşulları"
-        privacy_policy_link_text: "gizlilik politikası"
-        welcome_email_link_text: "hoş geldiniz e-postası"
-        instruction_texts_link_text: "diğer yönerge metinleri"
-        social_media: "Topluluğunuzu inşa etmek için sosyal medya kullanmak güzel bir yöntemdir. Örneğin, %{facebook_link} ekleyerek kişilerin pazarınıza daha kolay giriş yapmalarını sağlayabilir ve %{twitter_link} kişiler pazarınızdaki ürünler hakkında tweet attıkça viraz görsellik sağlayabilirsiniz."
-        facebook_link_text: "kendi Facebook uygulamanızı"
-        twitter_link_text: "Twitter hesabınızı bağlayarak"
-        analytics: "Başka bir güzel fikir de, pazarınıza %{analytics_link} eklemektir. Bu şekilde, pazar yerinizde olan biteni, ziyaretçi sayınız ve vb. istatistikleri kolayca görüntüleyebilirsiniz."
-        analytics_link_text: "Google Analytics hesabı"
-        settings: "Oynayabileceğiniz daha pek çok ayar mevcuttur. Örneğin, pazar yerinizi gizli yaparak, herkesin mevcut kullanıcılardan davet almasını talep edebilir ve içeriği sadece üyelerin görüntüleyebileceği hale getirebilirsiniz. %{settings_link}"
-        settings_link_text: "Pazarınızın ayarlarını buradan görüntüleyin"
-        final_words: "Neredeyse hepsi bu! Eğer her şey hazırsa, pazarınıza %{invite_link} başlayabilirsiniz. Katılan tüm kullanıcıları %{view_users_link} ve gerçekleştirdikleri tüm işlemleri %{view_transactions_link} görüntüleyebilirsiniz. Listelemeleri de kolayca düzenleyebilirsiniz: listeleme sayfasına gidin ve düzenleme ve kapama işlemleri için yönetici bağlantılarını göreceksiniz. Yardıma ihtiyacınız olursa, destek ekibimize ulaşabilirsiniz. Biz, sizler için buradayız!"
-        invite_link_text: "kullanıcıları davet etmeye"
-        view_users_link_text: burada
-        view_transactions_link_text: burada
-        contact_support_link_text: "destek ile bağlantıya geç."
       available_languages:
         en: ~
         en-AU: ~

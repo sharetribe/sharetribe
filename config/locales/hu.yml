@@ -30,10 +30,6 @@ hu:
         remove_category: "Kategória eltávolítása"
         remove_category_name: "Kategória törlése '%{category_name}'"
         warning_remove_effects: "Figyelmeztetés! Ezen kategória '%{category_name}' törlése a következőket eredményezheti:"
-        select_new_category: "Válasszon egy új kategóriát amelyben a fent listázott tételek törölve lesznek:"
-        buttons:
-          remove: Eltávolít
-          cancel: Mégse
         warning_listing_will_be_moved:
           other: "A kategóriában %{count} számú hirdetés van. Ezek a kiválasztott kategóriába lesznek áthelyezve."
         warning_custom_field_will_be_moved:
@@ -44,6 +40,10 @@ hu:
           other: "%{count} számú hírdetés található a kategóriában és alkategóriákban. Ez a kiválasztott kategóriába fog kerülni."
         warning_with_subcategories_custom_field_will_be_moved:
           other: "%{count} számú egyedi mező található a kategóriában és az alkategóriákban. A kiválasztott kategóriába fog átkerülni."
+        select_new_category: "Válasszon egy új kategóriát amelyben a fent listázott tételek törölve lesznek:"
+        buttons:
+          remove: Eltávolít
+          cancel: Mégse
     communities:
       edit_details:
         community_details: ~
@@ -156,38 +156,6 @@ hu:
         follow_the_instructions: ~
       getting_started:
         getting_started: ~
-        welcome_to_your_marketplace: ~
-        intro: ~
-        live_site_link_text: itt
-        look_and_feel: ~
-        logo_link_text: "Az Ön logójának hozzáadása"
-        custom_domain: ~
-        categories_and_custom_fields: ~
-        categories_link_text: ~
-        custom_fields_link_text: ~
-        filters_link_text: "Mely szűrők"
-        order_types: ~
-        order_types_link_text: ~
-        payments: ~
-        payments_link_text: ~
-        info_texts: ~
-        about_page_link_text: "az oldalról"
-        terms_of_use_link_text: "felhasználási feltételek"
-        privacy_policy_link_text: "Adatvédelmi politika"
-        welcome_email_link_text: "Üdvözlő e-mail:"
-        instruction_texts_link_text: ~
-        social_media: ~
-        facebook_link_text: ~
-        twitter_link_text: "Twitteréhez hozzáadás"
-        analytics: ~
-        analytics_link_text: ~
-        settings: ~
-        settings_link_text: ~
-        final_words: ~
-        invite_link_text: "Hívjon meg ismerősöket"
-        view_users_link_text: itt
-        view_transactions_link_text: itt
-        contact_support_link_text: ~
       available_languages:
         en: Angol
         en-AU: "Angol (Ausztrália)"
@@ -2159,7 +2127,7 @@ hu:
     next_label: "Következő &#8594;"
     page_gap: ~
     page_entries_info:
-      multi_page: ~
-      multi_page_html: ~
       single_page:
         other: "Az összes megmutatása %{count} %{model}"
+      multi_page: ~
+      multi_page_html: ~
