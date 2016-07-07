@@ -14,8 +14,7 @@
     }
   <% end %>
 
-  <% if s["button_color_hover"] %>
-
+  <% if s["category_color_hover"] %>
     .<%= section_id %>__categories__category-content:hover {
       box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 999999px rgba(<%= s["category_color_hover"]["value"].join(",") %>, 0.9); /* big enough number to cover the whole area */
     }
