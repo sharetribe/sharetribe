@@ -9,30 +9,37 @@ class Admin::GettingStartedGuideController < ApplicationController
   end
 
   def index
+    @selected_left_navi_link = "getting_started_guide"
     render :index, locals: { props: data(page: :status) }
   end
 
   def slogan_and_description
+    @selected_left_navi_link = "getting_started_guide"
     render :index, locals: { props: data(page: :slogan_and_description) }
   end
 
   def cover_photo
+    @selected_left_navi_link = "getting_started_guide"
     render :index, locals: { props: data(page: :cover_photo) }
   end
 
   def filter
+    @selected_left_navi_link = "getting_started_guide"
     render :index, locals: { props: data(page: :filter) }
   end
 
   def paypal
+    @selected_left_navi_link = "getting_started_guide"
     render :index, locals: { props: data(page: :paypal) }
   end
 
   def listing
+    @selected_left_navi_link = "getting_started_guide"
     render :index, locals: { props: data(page: :listing) }
   end
 
   def invitation
+    @selected_left_navi_link = "getting_started_guide"
     render :index, locals: { props: data(page: :invitation) }
   end
 
