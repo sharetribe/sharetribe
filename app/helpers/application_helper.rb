@@ -320,7 +320,7 @@ module ApplicationHelper
         :text => t("admin.communities.getting_started.getting_started"),
         :icon_class => icon_class("openbook"),
         :path => admin_getting_started_guide_path,
-        :name => "getting_started"
+        :name => "getting_started_guide"
       },
       {
         :topic => :general,
