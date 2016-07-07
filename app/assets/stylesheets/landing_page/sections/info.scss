@@ -6,6 +6,7 @@
   background-position: center;
   @include prefix-val(display, flex);
   @include prefix-prop(align-items, center);
+  @include prefix-prop(justify-content, center);
 
   @include dimensions__section--paddings;
 }
