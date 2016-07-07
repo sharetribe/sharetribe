@@ -22,7 +22,7 @@ $listings__tablet-gutter: 16px;
   // mobile
   width: 100%;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     width: 100%;
   }
 
@@ -49,7 +49,7 @@ $listings__tablet-gutter: 16px;
   padding: 0px $dimension-mobile-margin;
   margin-bottom: 36px;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     @include prefix-prop(flex-direction, row);
     margin: 0;
     padding: 0px (48px - $listings__tablet-gutter / 2) 48px (48px - $listings__tablet-gutter / 2);
@@ -86,7 +86,7 @@ $listings__tablet-gutter: 16px;
   // mobile
   margin: 0px auto 24px auto;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     margin: $listings__tablet-gutter / 2;
     margin-bottom: 24px;
     width: (100% / 3);

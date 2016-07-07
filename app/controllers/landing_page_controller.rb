@@ -207,7 +207,7 @@ class LandingPageController < ActionController::Metal
     landing_page_locale, sitename = structure["settings"].values_at("locale", "sitename")
     topbar_locale = locale_param.present? ? locale_param : default_locale
 
-    initialize_i18n!(c&.id, locale)
+    initialize_i18n!(c&.id, landing_page_locale)
 
     props = topbar_props(c,
                          community_customization(request, landing_page_locale),
@@ -313,6 +313,10 @@ class LandingPageController < ActionController::Metal
 
   def js_translations(topbar_locale)
     Rails.application.assets.find_asset("i18n/#{topbar_locale}.js").to_s.html_safe
+  end
+
+  def locale
+    raise ArgumentError.new("You called `locale` method. This was probably a mistake. Most likely you'd want to use `landing_page_locale`, `default_locale`, or `locale_param`")
   end
 end
 

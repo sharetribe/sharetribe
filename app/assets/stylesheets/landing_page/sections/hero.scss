@@ -25,7 +25,7 @@
 .hero__content-container {
   text-align: center;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     max-width: 561px;
   }
 
@@ -45,6 +45,10 @@
   letter-spacing: -1.23px;
   line-height: 42px;
   margin-bottom: 24px;
+
+  @media #{$mobile-landscape} {
+    margin-bottom: 28px;
+  }
 
   @media #{$tablet} {
     font-size: 62px;
@@ -71,6 +75,10 @@
   font-size: 18px;
   line-height: 24px;
   margin-bottom: 36px;
+
+  @media #{$mobile-landscape} {
+    margin-bottom: 48px;
+  }
 
   @media #{$tablet} {
     font-size: 21px;
@@ -109,7 +117,7 @@
   @include prefix-prop(flex-direction, row-reverse);
   padding: 0px 0px 0px 24px;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     border-radius: 29.5px 0px 0px 29.5px;
     @include prefix-prop(flex-direction, row);
   }
@@ -137,6 +145,10 @@
   letter-spacing: 0px;
   line-height: 32px;
   padding: 8px 12px 8px 0px;
+
+  @media #{$mobile-landscape} {
+    padding: 14px 24px 14px 12px;
+  }
 
   @media #{$tablet} {
     font-size: 18px;
@@ -183,7 +195,7 @@
   /* mobile */
   display: none;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     display: block;
   }
 
@@ -203,7 +215,7 @@
   width: 18px;
   height: 18px;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     width: 22px;
     height: 22px;
   }
@@ -223,7 +235,7 @@
   /* mobile */
   padding: 15px 24px 15px 0px;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     padding: 19px 0px;
   }
 
@@ -250,6 +262,10 @@
 
   &:hover {
     @include hover-transition;
+  }
+
+  @media #{$mobile-landscape} {
+    padding: 21px 63px;
   }
 
   @media #{$tablet} {
