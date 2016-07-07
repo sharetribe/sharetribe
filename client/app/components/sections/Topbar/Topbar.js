@@ -162,9 +162,7 @@ class Topbar extends Component {
     const mobileMenuAvatarProps = this.props.avatarDropdown && loggedInUsername ?
             { ...this.props.avatarDropdown.avatar, ...{ url: profileRoute } } :
             null;
-    const isAdmin = this.props.isAdmin && loggedInUsername ?
-            this.props.isAdmin :
-            false;
+    const isAdmin = this.props.isAdmin && loggedInUsername;
 
     const pathParams = { return_to: location };
     const loginRoute = this.props.routes.login_path ? this.props.routes.login_path(pathParams) : '#';
