@@ -41,7 +41,15 @@ $dimension-card-border-radius: 4px;
 }
 
 @mixin dimensions__section--paddings {
-  padding: 96px 0px;
+  padding: 36px 0px 48px 0px;
+
+  @media #{$desktop} {
+    padding: 60px 0px 72px 0px;
+  }
+
+  @media #{$desktop} {
+    padding: 96px 0px;
+  }
 }
 
 @mixin dimensions__section-paragraph {
