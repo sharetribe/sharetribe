@@ -180,7 +180,13 @@ $content-padding: 36px;
   @include prefix-prop(justify-content, space-between);
 
   width: 100%;
-  margin: 0px 0px 76px 0px;
+
+  // Mobile
+  margin: 0px 0px 72px 0px;
+
+  &:last-child {
+    margin: 0px;
+  }
 
   @media #{$tablet} {
     margin: 0px;
