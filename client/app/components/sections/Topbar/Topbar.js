@@ -25,7 +25,7 @@ const profileDropdownActions = function profileDropdownActions(routes, username)
   } : null;
 };
 
-const avatarDropdownProps = (avatarDropdown, customColor, username,  isAdmin, routes) => {
+const avatarDropdownProps = (avatarDropdown, customColor, username, isAdmin, routes) => {
   const color = customColor || styleVariables['--customColorFallback'];
   const actions = {
     inboxAction: () => false,
@@ -42,7 +42,7 @@ const avatarDropdownProps = (avatarDropdown, customColor, username,  isAdmin, ro
     adminDashboard: t('web.topbar.admin_dashboard'),
     logout: t('web.topbar.logout'),
   };
-  return { actions, translations, customColor: color, isAdmin: isAdmin, ...avatarDropdown };
+  return { actions, translations, customColor: color, isAdmin, ...avatarDropdown };
 };
 
 const LABEL_TYPE_MENU = 'menu';
@@ -273,6 +273,7 @@ Topbar.propTypes = {
   newListingButton: object,
   routes: routesProp,
   marketplaceContext,
+  isAdmin: PropTypes.bool,
 };
 
 export default Topbar;
