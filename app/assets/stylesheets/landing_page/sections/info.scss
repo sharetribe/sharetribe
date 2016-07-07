@@ -128,12 +128,12 @@ $content-padding: 36px;
 
 .info__button {
   color: inherit;
-  @extend .landing-page__button;
+  @include landing-page__button;
 }
 
 .info__column-button--ghost {
   color: inherit;
-  @extend .landing-page__button;
+  @include landing-page__button;
   margin-top: 36px;
 }
 

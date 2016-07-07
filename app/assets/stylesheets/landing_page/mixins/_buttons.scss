@@ -10,10 +10,10 @@ You may want to override following properties:
 - height
 
 */
-.landing-page__button {
+@mixin landing-page__button {
   $button-border-size: 2px;
 
-  @include typography__bold;
+  @include typography__semibold;
   font-size: 16px;
   letter-spacing: 0px;
   padding: (16px - $button-border-size) (32px - $button-border-size);

@@ -53,7 +53,7 @@ $categories__mobile-gutter: 12px;
 }
 
 .categories__button--ghost {
-  @extend .landing-page__button;
+  @include landing-page__button;
 }
 
 .categories__categories {

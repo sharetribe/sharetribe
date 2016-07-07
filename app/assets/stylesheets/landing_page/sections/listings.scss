@@ -147,7 +147,7 @@ $listings__tablet-gutter: 16px;
 }
 
 .listings__button--ghost {
-  @extend .landing-page__button;
+  @include landing-page__button;
 }
 
 .listings__listing-title {
