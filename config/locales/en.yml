@@ -157,38 +157,6 @@ en:
         follow_the_instructions: "Please follow the instructions in the email to verify your address."
       getting_started:
         getting_started: "Getting started guide"
-        welcome_to_your_marketplace: "Welcome to your marketplace, %{name}!"
-        intro: "This is a quick guide for configuring and managing your marketplace site. You can view the live site %{live_site_link}."
-        live_site_link_text: here
-        look_and_feel: "Before you launch your site to the public, you probably want to configure some things. For instance, you might want to %{logo_link} and change the cover photo and colors to match the look and feel of your brand."
-        logo_link_text: "add your logo"
-        custom_domain: "You might also want to add a custom web address (an example: www.yourmarketplace.com). Setting it up requires some manual work on our side, and we also need to buy an SSL certificate for the domain to keep your site secure. For these reasons custom domains are not available in free trials right now, so you need to subscribe to our Pro plan or higher to have one. If you would like to have a custom domain, please %{contact_support_link}."
-        categories_and_custom_fields: "The next thing is to decide what kind of content people can post to your site. You can %{categories_link}, %{custom_fields_link} that the actual listing form contains, and decide %{filters_link} are in use when people browse the listings."
-        categories_link_text: "add categories and subcategories"
-        custom_fields_link_text: "configure form fields"
-        filters_link_text: "what kind of filters"
-        order_types: "You can also configure how the order process works in your marketplace. Are your users selling, renting, or giving things away for free? Are they offering rentals hourly, daily or weekly? These things can be configured from the %{order_types_link}."
-        order_types_link_text: "order type view"
-        payments: "If you want people to be able to pay for their purchases through your marketplace, so that you can charge a fee from each transaction, you should %{payments_link}."
-        payments_link_text: "configure a payment method"
-        info_texts: "Don't forget to customize info pages and other texts where you can tell your users about your marketplace. Good places to check are your %{about_page_link}, your %{terms_of_use_link} (you should add your own terms of use here, either by modifying the current template or creating a completely new document), your %{privacy_policy_link}, and the %{welcome_email_link} that is sent to each new user. There are also some %{instruction_texts_link} you can configure."
-        about_page_link_text: "about page"
-        terms_of_use_link_text: "terms of use"
-        privacy_policy_link_text: "privacy policy"
-        welcome_email_link_text: "welcome email"
-        instruction_texts_link_text: "other instruction texts"
-        social_media: "Using social media is a good way to build the community. You can %{facebook_link} to make it easier for people to log in to your marketplace, and %{twitter_link} to get viral visibility when people tweet about products on your marketplace."
-        facebook_link_text: "connect your custom Facebook app"
-        twitter_link_text: "add your Twitter account"
-        analytics: "It's also a good idea to %{analytics_link}. This way it's easy for you to see what's happening in your marketplace, how many visitors you have, and so on."
-        analytics_link_text: "connect a Google Analytics account"
-        settings: "There are a bunch of other settings that you can play around with. For instance, you can require everyone to have an invite from other users before they can join and make your marketplace private, so only the users who are logged in, can see the content. %{settings_link}."
-        settings_link_text: "View your marketplace settings here"
-        final_words: "That's about it! If everything's ready, you can start %{invite_link} to your marketplace. You can see all the users who have joined %{view_users_link}, and all the transactions they have completed %{view_transactions_link}. You can also easily manage listings: simply go to the listing page and you'll see the admin links for editing and closing there. If you need any help, you can %{contact_support_link} - we are here for you!"
-        invite_link_text: "inviting users"
-        view_users_link_text: here
-        view_transactions_link_text: here
-        contact_support_link_text: "contact our support"
       available_languages:
         en: English
         en-AU: "English (Australia)"

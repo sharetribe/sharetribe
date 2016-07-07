@@ -38,7 +38,7 @@ Kassi::Application.routes.draw do
 
   # Prettier link for admin panel
   namespace :admin do
-    get '' => "communities#getting_started"
+    get '' => "getting_started_guide#index"
   end
 
   # Internal API
@@ -177,7 +177,6 @@ Kassi::Application.routes.draw do
 
       resources :communities do
         member do
-          get :getting_started, to: 'communities#getting_started'
           get :edit_welcome_email
           post :create_sender_address
           get :check_email_status
@@ -194,6 +193,11 @@ Kassi::Application.routes.draw do
           get :menu_links
           put :menu_links, to: 'communities#update_menu_links'
           delete :delete_marketplace
+
+          # DEPRECATED (2016-07-07)
+          # These routes are not in use anymore, don't use them
+          # See new "Guide" routes above, outside of communities resource
+          get :getting_started, to: redirect('/admin/getting_started_guide')
 
           # DEPRECATED (2016-03-22)
           # These routes are not in use anymore, don't use them

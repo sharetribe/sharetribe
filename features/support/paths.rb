@@ -88,8 +88,8 @@ module NavigationHelpers
       menu_links_admin_community_path(:id => @current_community.id)
     when /the transactions admin page/
       admin_community_transactions_path(:community_id => @current_community.id)
-    when /the getting started page for admins/
-      getting_started_admin_community_path(:id => @current_community.id)
+    when /the getting started guide for admins/
+      admin_getting_started_guide_path
     else
       begin
         page_name =~ /the (.*) page/
