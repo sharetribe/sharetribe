@@ -63,7 +63,7 @@ $categories__mobile-gutter: 12px;
   // mobile
   padding: 0px (24px - $categories__tablet-gutter / 2) 36px (24px - $categories__tablet-gutter / 2);
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     padding: 0px (48px - $categories__tablet-gutter / 2) 48px (48px - $categories__tablet-gutter / 2);
   }
 
@@ -75,7 +75,7 @@ $categories__mobile-gutter: 12px;
 .categories__category {
   padding: $categories__mobile-gutter / 2;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     padding: $categories__tablet-gutter / 2;
   }
 
@@ -102,7 +102,7 @@ $categories__mobile-gutter: 12px;
   // mobile
   @include category-mobile-style(7);
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     &:nth-child(1) {
       width: (100% / 3 * 2);
       @include golden-ratio-numerator(height, $categories__tablet-height-7);
@@ -155,7 +155,7 @@ $categories__mobile-gutter: 12px;
   // mobile
   @include category-mobile-style(6);
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     width: (100% / 3);
 
     &:nth-child(1),
@@ -194,7 +194,7 @@ $categories__mobile-gutter: 12px;
   // mobile
   @include category-mobile-style(5);
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     &:nth-child(1) {
       width: (100% / 3 * 2);
       @include golden-ratio-numerator(height, $categories__tablet-height-5);
@@ -239,7 +239,7 @@ $categories__mobile-gutter: 12px;
   // mobile
   @include category-mobile-style(4);
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     width: 50%;
 
     &:nth-child(1),
@@ -265,7 +265,7 @@ $categories__mobile-gutter: 12px;
   // mobile
   @include category-mobile-style(3);
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     // category-mobile-style uses :first-child so we need to override it
     &, &:first-child {
       width: (100% / 3);

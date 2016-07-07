@@ -41,7 +41,7 @@
   text-align: center;
   @include viewport-unit(margin-top, -4.44vh); /* -50px, when content height is 900px, 80vh */
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     margin: 0 auto;
   }
 
@@ -56,7 +56,7 @@
   // mobile
   margin: 0 $dimension-mobile-margin;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     margin: 0 auto;
     max-width: 561px;
   }
@@ -75,7 +75,7 @@ $content-padding: 36px;
   // mobile
   margin: 0 $dimension-mobile-margin-big;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     margin: 0 auto;
     max-width: $content-padding + 1120px + $content-padding;
   }
@@ -95,7 +95,7 @@ $content-padding: 36px;
   // mobile
   margin-bottom: 18px;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     margin-bottom: 24px;
   }
 
@@ -111,7 +111,7 @@ $content-padding: 36px;
   // mobile
   margin-bottom: 36px;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     margin-bottom: 36px;
   }
 
@@ -149,7 +149,7 @@ $content-padding: 36px;
   @include prefix-val(display, flex);
   @include prefix-prop(flex-direction, column);
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     @include prefix-prop(flex-direction, row);
   }
 
@@ -163,7 +163,7 @@ $content-padding: 36px;
 
   padding: 0px;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     padding: 0px 36px;
   }
 
@@ -187,7 +187,7 @@ $content-padding: 36px;
     margin: 0px;
   }
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     margin: 0px;
   }
 
@@ -199,7 +199,7 @@ $content-padding: 36px;
 .info__column--three-columns {
   @extend .info__column;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     max-width: 340px;
     margin-right: 36px;
     &:last-child {
@@ -219,7 +219,7 @@ $content-padding: 36px;
 .info__column--two-columns {
   @extend .info__column;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     max-width: 310px;
     margin-right: 28px;
     &:last-child {
@@ -246,7 +246,7 @@ $content-padding: 36px;
   & > svg {
     height: 48px;
 
-    @media #{$tablet} {
+    @media #{$mobile-landscape}, #{$tablet} {
       height: 48px;
     }
 
@@ -263,7 +263,7 @@ $content-padding: 36px;
   // mobile
   margin: 0px 0px 14px 0px;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     font-size: 24px;
     letter-spacing: -0.46px;
     line-height: 28px;
@@ -291,7 +291,7 @@ $content-padding: 36px;
   letter-spacing: 0px;
   line-height: 22px;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     font-size: 16px;
     letter-spacing: 0px;
     line-height: 22px;

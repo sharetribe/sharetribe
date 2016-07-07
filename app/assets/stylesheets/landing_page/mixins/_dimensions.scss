@@ -26,7 +26,7 @@ $dimension-card-border-radius: 4px;
 @mixin dimensions__section-title--limited-width {
   margin: 0px $dimension-mobile-margin 36px $dimension-mobile-margin;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     max-width: 75%;
     margin: 0px auto 48px auto;
   }
@@ -57,7 +57,7 @@ $dimension-card-border-radius: 4px;
     margin-bottom: 36px;
   }
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
 
     &:last-of-type {
       margin-bottom: 48px;
@@ -74,7 +74,7 @@ $dimension-card-border-radius: 4px;
 @mixin dimensions__section-paragraph--limited-width {
   margin: 18px $dimension-mobile-margin 36px $dimension-mobile-margin;
 
-  @media #{$tablet} {
+  @media #{$mobile-landscape}, #{$tablet} {
     max-width: 75%;
     margin: 24px auto 48px auto;
   }
