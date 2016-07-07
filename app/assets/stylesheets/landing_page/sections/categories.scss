@@ -310,6 +310,9 @@ $categories__mobile-gutter: 12px;
 
   font-size: 16px;
 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
   @media #{$desktop} {
     font-size: 18px;
   }
