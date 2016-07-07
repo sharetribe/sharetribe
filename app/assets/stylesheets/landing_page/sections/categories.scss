@@ -27,7 +27,7 @@ $categories__mobile-gutter: 12px;
   @include prefix-val(display, flex);
   @include prefix-prop(align-items, center);
 
-  padding: $dimension-section-margin 0px;
+  @include dimensions__section--paddings;
 }
 
 .categories__content {
@@ -53,7 +53,7 @@ $categories__mobile-gutter: 12px;
 }
 
 .categories__button--ghost {
-  @extend .landing-page__button;
+  @include landing-page__button;
 }
 
 .categories__categories {
@@ -309,6 +309,9 @@ $categories__mobile-gutter: 12px;
   line-height: 22px;
 
   font-size: 16px;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   @media #{$desktop} {
     font-size: 18px;

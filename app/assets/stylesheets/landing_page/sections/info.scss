@@ -29,7 +29,8 @@
 .info__section--blank {
   @extend .info__section;
   color: $typography__main-color;
-  padding: $dimension-section-margin 0;
+
+  @include dimensions__section--paddings;
 }
 
 .info__section--zebra {
@@ -127,12 +128,12 @@ $content-padding: 36px;
 
 .info__button {
   color: inherit;
-  @extend .landing-page__button;
+  @include landing-page__button;
 }
 
 .info__column-button--ghost {
   color: inherit;
-  @extend .landing-page__button;
+  @include landing-page__button;
   margin-top: 36px;
 }
 
@@ -179,7 +180,13 @@ $content-padding: 36px;
   @include prefix-prop(justify-content, space-between);
 
   width: 100%;
-  margin: 0px 0px 76px 0px;
+
+  // Mobile
+  margin: 0px 0px 72px 0px;
+
+  &:last-child {
+    margin: 0px;
+  }
 
   @media #{$tablet} {
     margin: 0px;
