@@ -34,6 +34,9 @@
   <% if p["facebook_image"]["content_type"] %>
     <meta property="og:image:type" content="<%= p["facebook_image"]["content_type"] %>" />
   <% end %>
+
+  <meta property="og:image:width" content="2000" />
+  <meta property="og:image:height" content="1328" />
 <% end %>
 
 <% if cc[:facebook_connect_id] %>
