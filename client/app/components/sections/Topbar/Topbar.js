@@ -174,6 +174,22 @@ class Topbar extends Component {
             null;
     const isAdmin = this.props.isAdmin && loggedInUsername;
 
+    const mobileMenuLanguageProps = hasMultipleLanguages ?
+      Object.assign({}, {
+        name: t('web.topbar.language'),
+        color: marketplace_color1,
+        links: this.props.locales.available_locales.map((locale) => (
+          {
+            href: locale.change_locale_uri,
+            content: locale.locale_name,
+            active: locale.locale_ident === this.props.locales.current_locale_ident,
+            activeColor: marketplace_color1,
+          }
+        )),
+      }) :
+      {};
+
+
     const pathParams = { return_to: location };
     const loginRoute = this.props.routes.login_path ? this.props.routes.login_path(pathParams) : '#';
     const signupRoute = this.props.routes.sign_up_path ? this.props.routes.sign_up_path() : '#';
@@ -198,6 +214,7 @@ class Topbar extends Component {
         )),
         userLinksTitle: t('web.topbar.user'),
         userLinks: profileLinks(loggedInUsername, isAdmin, this.props.routes, location, marketplace_color1, this.props.unReadMessagesCount),
+        languages: mobileMenuLanguageProps,
         avatar: mobileMenuAvatarProps,
         newListingButton: this.props.newListingButton ?
           { ...this.props.newListingButton, ...{ url: newListingRoute, mobileLayoutOnly: true } } :
