@@ -12,7 +12,14 @@ module CustomLandingPage
   },
 
   "page": {
-    "title": {"type": "marketplace_data", "id": "name"}
+    "twitter_handle": {"value": "@CHANGEME"},
+    "twitter_image": {"type": "assets", "id": "hero_background_image"},
+    "facebook_image": {"type": "assets", "id": "hero_background_image"},
+    "title": {"type": "marketplace_data", "id": "page_title"},
+    "description": {"type": "marketplace_data", "id": "description"},
+    "publisher": {"type": "marketplace_data", "id": "name"},
+    "copyright": {"type": "marketplace_data", "id": "name"},
+    "facebook_site_name": {"type": "marketplace_data", "id": "name"}
   },
 
   "sections": [
@@ -605,9 +612,9 @@ module CustomLandingPage
   ],
 
   "assets": [
-    { "id": "myheroimage", "src": "hero.jpg" },
-    { "id": "myinfoimage", "src": "info.jpg" },
-    { "id": "myinfoimage2", "src": "church.jpg" }
+    { "id": "myheroimage", "src": "hero.jpg", "content_type": "image/jpeg" },
+    { "id": "myinfoimage", "src": "info.jpg", "content_type": "image/jpeg" },
+    { "id": "myinfoimage2", "src": "church.jpg", "content_type": "image/jpeg" }
   ]
 }
 JSON

@@ -195,11 +195,13 @@ class LandingPageController < ActionController::Metal
     community(request).community_customizations.where(locale: locale).first
   end
 
-  def community_context(request)
+  def community_context(request, locale)
     c = community(request)
 
     { favicon: c.favicon.url,
-      apple_touch_icon: c.logo.url(:apple_touch) }
+      apple_touch_icon: c.logo.url(:apple_touch),
+      facebook_locale: facebook_locale(locale),
+      facebook_connect_id: c.facebook_connect_id }
   end
 
   def render_landing_page(default_locale:, locale_param:, structure:)
@@ -231,6 +233,7 @@ class LandingPageController < ActionController::Metal
     render_to_string :landing_page,
            locals: { font_path: FONT_PATH,
                      landing_page_locale: landing_page_locale,
+                     landing_page_url: "#{c.full_url}#{request.fullpath}",
                      styles: landing_page_styles,
                      javascripts: {
                        location_search: location_search_js,
@@ -245,7 +248,7 @@ class LandingPageController < ActionController::Metal
                      page: denormalizer.to_tree(structure, root: "page"),
                      sections: denormalizer.to_tree(structure, root: "composition"),
                      google_maps_key: google_maps_key,
-                     community_context: community_context(request)
+                     community_context: community_context(request, landing_page_locale)
                    }
   end
 
@@ -302,6 +305,10 @@ class LandingPageController < ActionController::Metal
     }.merge(CommonStylesHelper.marketplace_colors(community))
 
     result
+  end
+
+  def facebook_locale(locale)
+    I18nHelper.facebook_locale_code(Sharetribe::AVAILABLE_LOCALES, locale)
   end
 
   def landing_page_styles

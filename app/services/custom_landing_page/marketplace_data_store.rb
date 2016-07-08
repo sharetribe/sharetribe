@@ -43,6 +43,7 @@ module CustomLandingPage
         "primary_color_darken" => ColorUtils.css_to_rgb_array(color_darken),
         "name" => name,
         "slogan" => slogan,
+        "page_title" => "#{name} - #{slogan}",
         "description" => description,
         "search_type" => search_type,
         "search_placeholder" => search_placeholder,

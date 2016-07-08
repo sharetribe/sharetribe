@@ -1,0 +1,48 @@
+<% if p["description"] %>
+	<meta name="description" content="<%= p["description"]["value"] %>" />
+	<meta name="publisher" content="<%= p["description"]["value"] %>" />
+	<meta property="og:description" content="<%= p["description"]["value"] %>" />
+	<meta name="twitter:description" content="<%= p["description"]["value"] %>" />
+<% end %>
+
+<meta charset="UTF-8" />
+<link rel="canonical" href="<%= url %>" />
+<meta http-equiv="content-language" content="<%= locale %>" />
+<meta name="identifier-url" content="<%= url %>" />
+
+<% if p["copyright"] %>
+	<meta name="copyright" content="<%= p["copyright"]["value"] %>" />
+<% end %>
+
+<meta property="og:locale" content="<%= cc[:facebook_locale] %>" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="<%= url %>" />
+<meta property="og:title" content="<%= p["title"]["value"] %>" />
+
+<% if p["facebook_site_name"] %>
+	<meta property="og:site_name" content="<%= p["facebook_site_name"]["value"] %>" />
+<% end %>
+
+<% if cc[:facebook_connect_id] %>
+	<meta property="fb:app_id" content="<%= cc[:facebook_connect_id] %>" />
+<% end %>
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="<%= p["title"]["value"] %>" />
+<meta name="twitter:url" content="<%= url %>" />
+
+<% if p["twitter_handle"] %>
+	<meta name="twitter:site" content="<%= p["twitter_handle"]["value"] %>" />
+	<meta name="twitter:creator" content="<%= p["twitter_handle"]["value"] %>" />
+<% end %>
+
+<% if p["twitter_image"] %>
+	<meta name="twitter:image" content="<%= p["twitter_image"]["src"] %>" />
+<% end %>
+
+<% if p["facebook_image"] %>
+	<meta property="og:image" content="<%= p["facebook_image"]["src"] %>" />
+	<% if p["facebook_image"]["content_type"] %>
+		<meta property="og:image:type" content="<%= p["facebook_image"]["content_type"] %>" />
+	<% end %>
+<% end %>

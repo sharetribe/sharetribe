@@ -57,6 +57,8 @@
 
   <title><%= page["title"]["value"] %></title>
 
+  <%= render partial: "meta", locals: {cc: community_context, p: page, locale: landing_page_locale, url: landing_page_url } %>
+
   <%= favicon_link_tag community_context[:favicon] %>
   <%= favicon_link_tag community_context[:apple_touch_icon], rel: 'apple-touch-icon-precomposed', type: 'image/png' %>
 
