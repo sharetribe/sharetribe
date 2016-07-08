@@ -21,11 +21,16 @@
   // https://bugzilla.mozilla.org/show_bug.cgi?id=958714
 
   width: 100%;
-  position: relative;
+
+  // Workaround for Safari bug:
+  // https://github.com/philipwalton/flexbugs/tree/bba00a51c0ecc0e8afcd718f8757a3cbcb41cf56#1-minimum-content-sizing-of-flex-items-not-honored
+  @include prefix-prop(flex-shrink, 0);
 }
 
 .video__youtube-player-container--aspect-ratio {
   // Dimensions are added in the ERB file
+
+  position: relative;
 }
 
 .video__youtube-player {
