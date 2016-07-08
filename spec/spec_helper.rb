@@ -56,6 +56,11 @@ prefork = lambda {
     config.include Devise::TestHelpers, type: :controller
     config.include SpecUtils
 
+    config.after(:all) do
+      # Clean remaining delayed jobs between test groups
+      Delayed::Job.delete_all
+    end
+
     Timecop.safe_mode = true
 
     config.filter_run focus: true
