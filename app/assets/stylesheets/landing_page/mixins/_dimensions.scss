@@ -23,6 +23,10 @@ $dimension-golden-ratio: 1.61803398875;
 
 $dimension-card-border-radius: 4px;
 
+@mixin dimensions__section-title {
+  margin: 0px $dimension-mobile-margin 36px $dimension-mobile-margin;
+}
+
 @mixin dimensions__section-title--limited-width {
   margin: 0px $dimension-mobile-margin 36px $dimension-mobile-margin;
 
@@ -50,8 +54,7 @@ $dimension-card-border-radius: 4px;
 }
 
 @mixin dimensions__section-paragraph {
-
-  margin-bottom: 8px;
+  margin: 0px $dimension-mobile-margin 8px $dimension-mobile-margin;
 
   &:last-of-type {
     margin-bottom: 36px;

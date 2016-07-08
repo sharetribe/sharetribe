@@ -40,13 +40,14 @@
 
 .info__content {
   text-align: center;
-  @include viewport-unit(margin-top, -4.44vh); /* -50px, when content height is 900px, 80vh */
 
   @media #{$mobile-landscape}, #{$tablet} {
+    @include viewport-unit(margin-top, -4.44vh); /* -50px, when content height is 900px, 80vh */
     margin: 0 auto;
   }
 
   @media #{$desktop} {
+    @include viewport-unit(margin-top, -4.44vh); /* -50px, when content height is 900px, 80vh */
     margin: 0 auto;
   }
 }
@@ -55,7 +56,7 @@
   @extend .info__content;
 
   // mobile
-  margin: 0 $dimension-mobile-margin;
+  margin: 0;
 
   @media #{$mobile-landscape}, #{$tablet} {
     margin: 0 auto;
@@ -73,9 +74,6 @@ $content-padding: 36px;
 .info__content--multi-column {
   @extend .info__content;
 
-  // mobile
-  margin: 0 $dimension-mobile-margin-big;
-
   @media #{$mobile-landscape}, #{$tablet} {
     margin: 0 auto;
     max-width: $content-padding + 1120px + $content-padding;
@@ -89,6 +87,7 @@ $content-padding: 36px;
 
 .info__title {
   @include typography__section-title;
+  @include dimensions__section-title;
 }
 
 .info__title--single-column {
@@ -106,8 +105,11 @@ $content-padding: 36px;
 }
 
 .info__title--multi-column {
-  @extend .info__title;
+  @include typography__section-title;
   @include dimensions__section-title--limited-width;
+
+  // Override default margin
+  margin: 0px $dimension-mobile-margin-big 36px $dimension-mobile-margin-big;
 
   // mobile
   margin-bottom: 36px;
@@ -200,7 +202,15 @@ $content-padding: 36px;
 .info__column--three-columns {
   @extend .info__column;
 
-  @media #{$mobile-landscape}, #{$tablet} {
+  @media #{$mobile-landscape} {
+    max-width: 340px;
+    margin-right: 24px;
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+
+  @media #{$tablet} {
     max-width: 340px;
     margin-right: 36px;
     &:last-child {
@@ -262,7 +272,7 @@ $content-padding: 36px;
   @include typography__medium;
 
   // mobile
-  margin: 0px 0px 14px 0px;
+  margin: 0px $dimension-mobile-margin-big 14px $dimension-mobile-margin-big;
 
   @media #{$mobile-landscape} {
     margin: 0px 0px 14px 0px;
@@ -289,22 +299,30 @@ $content-padding: 36px;
   @include typography__regular;
   color: #525961;
 
-  margin-bottom: 8px;
-
   // mobile
   font-size: 16px;
   letter-spacing: 0px;
   line-height: 22px;
 
+  margin: 0px $dimension-mobile-margin-big 8px $dimension-mobile-margin-big;
+
+  @media #{$mobile-landscape} {
+    margin: 0px 0px 8px 0px;
+  }
+
   @media #{$tablet} {
     font-size: 16px;
     letter-spacing: 0px;
     line-height: 22px;
+
+    margin: 0px 0px 8px 0px;
   }
 
   @media #{$desktop} {
     font-size: 18px;
     letter-spacing: 0px;
     line-height: 26px;
+
+    margin: 0px 0px 8px 0px;
   }
 }
