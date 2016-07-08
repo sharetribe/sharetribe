@@ -191,6 +191,8 @@ FactoryGirl.define do
     build_association(:community)
     name "Sharetribe"
     locale "en"
+    slogan "Test slogan"
+    description "Test description"
   end
 
   factory :community_membership do
