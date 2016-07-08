@@ -21,6 +21,7 @@ class LandingPageController < ActionController::Metal
   # Adds helper_method
   include ActionController::Helpers
 
+  # Access feature flags set for the community
   include FeatureFlagHelper
 
   CACHE_TIME = APP_CONFIG[:clp_cache_time].to_i.seconds
@@ -319,4 +320,3 @@ class LandingPageController < ActionController::Metal
     raise ArgumentError.new("You called `locale` method. This was probably a mistake. Most likely you'd want to use `landing_page_locale`, `default_locale`, or `locale_param`")
   end
 end
-
