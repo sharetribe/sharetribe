@@ -1188,11 +1188,11 @@ es-ES:
       default_content: "Aquí puedes encontrar información sobre cómo funciona %{marketplace_name}."
   landing_page:
     hero:
-      search: ~
-      signup: ~
-      search_placeholder: ~
+      search: Buscar
+      signup: Registrarse
+      search_placeholder: "¿Qué estás buscando?"
     listings:
-      no_listing_image: ~
+      no_listing_image: "Sin imagen"
   layouts:
     admin:
       admin: "Panel de administración de %{service_name}"
@@ -2128,17 +2128,17 @@ es-ES:
     days: días
   web:
     topbar:
-      menu: ~
-      search_placeholder: ~
-      user: ~
-      inbox: ~
-      profile: ~
-      manage_listings: ~
-      settings: ~
-      logout: ~
-      login: ~
-      signup: ~
-      admin_dashboard: ~
+      menu: Menú
+      search_placeholder: Buscar...
+      user: Usuario
+      inbox: "Bandeja de Entrada"
+      profile: Perfil
+      manage_listings: "Administrar anuncios"
+      settings: Configuración
+      logout: "Cerrar sesión"
+      login: "Iniciar sesión"
+      signup: Registrarse
+      admin_dashboard: "Panel de administración"
   will_paginate:
     models:
       person:
