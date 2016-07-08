@@ -28,6 +28,7 @@
   left: 0;
   border-radius: calc(var(--AddNewListingButton_height) / 2);
   transition: filter 100ms ease-in;
+  transition: background-color 100ms ease-in;
   will-change: filter;
 
   @nest .responsiveLayout & {
