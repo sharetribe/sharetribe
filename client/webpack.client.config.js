@@ -28,7 +28,7 @@ config.module.loaders.push(
     loader: ExtractTextPlugin.extract(
       'style-loader',
       'css-loader?modules&localIdentName=[name]__[local]__[hash:base64:5]' + // eslint-disable-line prefer-template
-        (devBuild ? '' : '&minimize') +
+        (devBuild ? '' : '&minimize&-autoprefixer') +
         '!postcss-loader'
     ),
   },
