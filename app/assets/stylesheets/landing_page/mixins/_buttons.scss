@@ -15,7 +15,7 @@ You may want to override following properties:
 
   @include typography__semibold;
   font-size: 16px;
-  letter-spacing: 0px;
+  letter-spacing: 0.2px;
   padding: (16px - $button-border-size) (32px - $button-border-size);
   display: inline-block;
 
