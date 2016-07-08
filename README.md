@@ -17,7 +17,7 @@ Would you like to set up your marketplace in one minute without touching code? [
 - [Technical roadmap](#technical-roadmap)
 - [Translation](#translation)
 - [Known issues](#known-issues)
-- [Developer documentation](#developer-documentation)
+- [Documentation](#documentation)
 - [License](#mit-license)
 
 ## Installation
@@ -406,14 +406,9 @@ All language additions and modifications (except for English) should be done thr
 Browse open issues and submit new ones at http://github.com/sharetribe/sharetribe/issues.
 
 
-## Developer documentation
+## Documentation
 
-* [Testing](docs/testing.md)
-* [SCSS coding guidelines](docs/scss-coding-guidelines.md)
-* [Delayed job priorities](docs/delayed-job-priorities.md)
-* [Cucumber testing Do's and Don'ts](docs/cucumber-do-dont.md)
-* [Technical roadmap](TECHNICAL_ROADMAP.md)
-* [Feature flags](docs/feature-flags.md)
+The documentation is localed in [docs/](docs/)
 
 
 ## Community forum
