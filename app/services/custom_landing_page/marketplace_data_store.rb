@@ -9,7 +9,7 @@ module CustomLandingPage
       primary_color,
       private,
       name_display_type = Community.where(id: cid)
-                               .pluck(:custom_color1, :private)
+                               .pluck(:custom_color1, :private, :name_display_type)
                                .first
 
       name,
