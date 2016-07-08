@@ -12,7 +12,7 @@ module CustomLandingPage
   },
 
   "page": {
-    "twitter_handle": {"value": "@CHANGEME"},
+    "twitter_handle": {"type": "marketplace_data", "id": "twitter_handle"},
     "twitter_image": {"type": "assets", "id": "hero_background_image"},
     "facebook_image": {"type": "assets", "id": "hero_background_image"},
     "title": {"type": "marketplace_data", "id": "page_title"},
