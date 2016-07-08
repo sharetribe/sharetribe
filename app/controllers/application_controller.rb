@@ -636,17 +636,6 @@ class ApplicationController < ActionController::Base
     Maybe(Sharetribe::AVAILABLE_LOCALES.find { |l| l[:ident] == locale.to_s })[:name].or_else(locale).to_s
   end
 
-
-  # Fetch temporary flags from params and session
-  def self.fetch_temp_flags(is_admin, params, session)
-    return Set.new unless is_admin
-
-    from_session = Maybe(session)[:feature_flags].or_else(Set.new)
-    from_params = Maybe(params)[:enable_feature].map { |feature| [feature.to_sym] }.to_set.or_else(Set.new)
-
-    from_session.union(from_params)
-  end
-
   def render_not_found!(msg = "Not found")
     raise ActionController::RoutingError.new(msg)
   end

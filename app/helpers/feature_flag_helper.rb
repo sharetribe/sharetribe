@@ -30,11 +30,21 @@ module FeatureFlagHelper
       flags_from_service = FeatureFlagService::API::Api.features.get(community_id: community_id(request)).maybe[:features].or_else(Set.new)
 
       is_admin = called_with_admin_user?
-      temp_flags = ApplicationController.fetch_temp_flags(is_admin, params, session)
+      temp_flags = fetch_temp_flags(is_admin, request.params, request.session)
 
-      session[:feature_flags] = temp_flags
+      request.session[:feature_flags] = temp_flags
 
       flags_from_service.union(temp_flags)
+    end
+
+    # Fetch temporary flags from params and session
+    def fetch_temp_flags(is_admin, params, session)
+      return Set.new unless is_admin
+
+      from_session = Maybe(session)[:feature_flags].or_else(Set.new)
+      from_params = Maybe(params)[:enable_feature].map { |feature| [feature.to_sym] }.to_set.or_else(Set.new)
+
+      from_session.union(from_params)
     end
 
     def community_id(request)
