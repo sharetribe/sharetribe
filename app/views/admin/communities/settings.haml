@@ -46,6 +46,9 @@
             .settings-checkbox-label.label
             - select_distance_unit = select_tag 'distance_unit', options_for_select(distance_unit_select_options, distance_unit), class: 'inline-select'
             = t("admin.communities.settings.select_distance_unit", distance_units_selector: select_distance_unit).html_safe
+          .checkbox-container
+            = check_box_tag :limit_distance, true, limit_distance
+            = label_tag("limit_distance", t(".show_only_nearby"), {class: "settings-checkbox-label"})
 
     .row
       .col-12
