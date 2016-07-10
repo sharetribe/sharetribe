@@ -11,7 +11,7 @@ RUN /bin/bash -l -c "rvm install 2.3.1"
 RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
 
 # Install deps
-RUN apt-get -yqq install build-essential mysql-client libmysqlclient-dev libxslt-dev libxml2-dev mysql-server-5.5 nodejs sphinxsearch imagemagick
+RUN apt-get -yqq install build-essential mysql-client libmysqlclient-dev libxslt-dev libxml2-dev mysql-server-5.5 nodejs npm sphinxsearch imagemagick
 RUN /bin/bash -l -c "gem install mysql2 -v 0.3.14"
 
 # Create directory for Sharetribe
@@ -22,5 +22,9 @@ WORKDIR /opt/sharetribe
 ADD Gemfile /opt/sharetribe/Gemfile
 ADD Gemfile.lock /opt/sharetribe/Gemfile.lock
 RUN /bin/bash -l -c "bundle install"
+
+# Run node install
+ADD package.json /opt/sharetribe/package.json
+RUN npm install
 
 EXPOSE 3000
