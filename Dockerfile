@@ -12,7 +12,7 @@ RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
 
 # Install deps
 RUN apt-get -yqq install build-essential mysql-client libmysqlclient-dev libxslt-dev libxml2-dev mysql-server-5.5 nodejs sphinxsearch imagemagick
-RUN /bin/bash -l -c "gem install mysql2 -v 0.2.7"
+RUN /bin/bash -l -c "gem install mysql2 -v 0.3.14"
 
 # Create directory for Sharetribe
 RUN /bin/bash -l -c "mkdir -p /opt/sharetribe"
