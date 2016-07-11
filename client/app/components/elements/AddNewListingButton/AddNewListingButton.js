@@ -14,6 +14,10 @@ const HOVER_COLOR_BRIGHTNESS = 80;
 export default function AddNewListingButton({ text, url, customColor, className, mobileLayoutOnly }) {
   const buttonText = `+ ${text}`;
   const color = customColor || variables['--AddNewListingButton_defaultColor'];
+
+  // We have added hoverColor calucalation because IE11 doesn't support CSS filters yet
+  // However, CSS filters are a better solution (hover works without js).
+  // Since this better solution has already been written let's keep it.
   const hoverColor = brightness(color, HOVER_COLOR_BRIGHTNESS);
 
   return a({
