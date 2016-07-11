@@ -9,7 +9,7 @@
 
   -# Kissmetrics is deprecated, use Google Tag Manager instead
   = render :partial => "layouts/kissmetrics"
-  = render :partial => "layouts/google_analytics_script"
+  = render :partial => "layouts/google_analytics_script", locals: {feature_flags: FeatureFlagHelper.feature_flags}
   :css
     @import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&subset=latin-ext);
   %meta{content: "width=device-width, initial-scale=1.0, user-scalable=no", name: "viewport"}

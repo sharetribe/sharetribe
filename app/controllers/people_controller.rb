@@ -45,7 +45,7 @@ class PeopleController < Devise::RegistrationsController
       .search(
         community_id: @current_community.id,
         search: search,
-        engine: search_engine,
+        engine: FeatureFlagHelper.search_engine,
         raise_errors: raise_errors,
         includes: includes
       ).and_then { |res|

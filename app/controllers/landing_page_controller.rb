@@ -21,16 +21,10 @@ class LandingPageController < ActionController::Metal
   # Adds helper_method
   include ActionController::Helpers
 
-  # Access feature flags set for the community
-  include FeatureFlagHelper
-
   CACHE_TIME = APP_CONFIG[:clp_cache_time].to_i.seconds
   CACHE_HEADER = "X-CLP-Cache"
-  FEATURE_FLAG = :landingpage_topbar
 
   FONT_PATH = APP_CONFIG[:font_proximanovasoft_url].present? ? APP_CONFIG[:font_proximanovasoft_url] : "/landing_page/fonts"
-
-  helper_method :feature_flags
 
   def index
     cid = community(request).id
@@ -218,7 +212,9 @@ class LandingPageController < ActionController::Metal
                          locale_param,
                          topbar_locale)
     marketplace_context = marketplace_context(c, topbar_locale, request)
-    topbar_enabled = feature_enabled?(FEATURE_FLAG)
+
+    FeatureFlagHelper.init(request, false)
+    topbar_enabled = FeatureFlagHelper.feature_enabled?(:landingpage_topbar)
 
     google_maps_key = c&.google_maps_key
 

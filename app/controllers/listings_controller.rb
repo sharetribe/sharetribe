@@ -63,7 +63,7 @@ class ListingsController < ApplicationController
             .search(
               community_id: @current_community.id,
               search: search,
-              engine: search_engine,
+              engine: FeatureFlagHelper.search_engine,
               raise_errors: raise_errors,
               includes: includes
             ).and_then { |res|
@@ -111,7 +111,7 @@ class ListingsController < ApplicationController
                              page: page,
                              per_page: per_page
                            },
-                           engine: search_engine,
+                           engine: FeatureFlagHelper.search_engine,
                            raise_errors: raise_errors,
                            includes: [:listing_images, :author, :location])
                      end

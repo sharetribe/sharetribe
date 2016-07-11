@@ -15,7 +15,7 @@
       - react_component_cache(name: "onboarding_topbar", props: props) do
         = react_component("OnboardingTopBar", props: props, prerender: true)
 
-  - if feature_enabled?(:topbar_v1)
+  - if FeatureFlagHelper.feature_enabled?(:topbar_v1)
     - props = topbar_props
     - maps_key = @current_community.google_maps_key
     - key_param = maps_key ? "&key=#{maps_key}" : ""
