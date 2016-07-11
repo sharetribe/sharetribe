@@ -49,8 +49,8 @@ hu:
         community_details: ~
         community_look_and_feel: ~
         edit_community: ~
-        enabled_languages: ~
-        enabled_languages_description: ~
+        enabled_languages: "Választható nyelvek"
+        enabled_languages_description: "Választható nyelvek felhasználók részére. Az első lesz az alapértelmezett."
         default_language: "Alapértelmezett nyelv"
         language_selection_disabled: ~
         community_name: ~
@@ -81,7 +81,7 @@ hu:
         transaction_agreement_checkbox_header: ~
         transaction_agreement_checkbox_label_description: ~
         transaction_agreement_text_header: ~
-        transaction_agreement_description: ~
+        transaction_agreement_description: "A használati feltételek tartalmát a felhasználónak tudomásul kell vennie. A használati feltételek tartalma akkor kerül megjelenésre ha a felhasználó  rákattint a \"%{read_more}\" linkre amely használati feltételek címke mellett található."
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: "Asztali logó"
@@ -111,11 +111,11 @@ hu:
         name_display_type: "Kijelző típusának megadása"
         name_display_type_instructions_text: "Válassza ki felhasználók nevének megjelenítési formáját."
         full_name: "Teljes név (keresztnév először)"
-        first_name_with_initial: ~
+        first_name_with_initial: "Keresztnév és vezetéknév kezdőbetűje (Keresztnév L)"
         first_name_only: "Keresztnév csak"
         invalid_color_code: "A színkód 6 számból vagy betűből kell álljon A-F, például D96E21"
         custom_head_script: "Egyedi leírás"
-        custom_head_script_instructions_text: ~
+        custom_head_script_instructions_text: "Ez a szkript be van injektálva  az összes oldal  <head> tag-jébe és egyedi CSS, JavaScript vagy HTML beszúrására használható. A Sharetribe jövőbeni fejlesztéseinek/valtoztatásainak következtében arra számíthat, hogy a szkriptje inkompatibilissé válik."
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
@@ -155,7 +155,7 @@ hu:
         verification_sent_from: ~
         follow_the_instructions: ~
       getting_started:
-        getting_started: ~
+        getting_started: "Útmutató az első lépésekhez"
       available_languages:
         en: Angol
         en-AU: "Angol (Ausztrália)"
@@ -207,7 +207,7 @@ hu:
         twitter_handle: ~
         update_settings: "Beállítások mentése"
         automatically_confirmed: ~
-        automatically_confirmed_no_escrow: ~
+        automatically_confirmed_no_escrow: "A rendelés automatikusan teljesítettnek lesz jelölve %{days_dropdown} nappal a kifizetést követően."
         automatic_newsletter_frequency: "Automatikus hírlevél küldése: %{frequency_dropdown}"
         newsletter_daily: Napi
         newsletter_weekly: Heti
@@ -237,15 +237,15 @@ hu:
       social_media:
         social_media: "Közösségi média"
         twitter_handle: ~
-        twitter_handle_info_text: ~
-        twitter_handle_info_text_with_instructions: ~
+        twitter_handle_info_text: "A piactere Twitter fiókjának neve (ha van) megemlítésre fog kerülni ha a felhasználók megnyomják a Tweet gombot a hirdető oldalon."
+        twitter_handle_info_text_with_instructions: "A piactere Twitter fiókjának neve (ha van) megemlítésre fog kerülni ha a felhasználók megnyomják a Tweet gombot a hirdető oldalon.%{instructions_link}"
         twitter_instructions_link_text: Bővebben
         twitter_handle_placeholder: felhasználó
         invalid_twitter_handle: ~
         facebook_connect: Facebook
-        facebook_connect_info_text: ~
+        facebook_connect_info_text: "A Facebook-os bejelentkezés lehetővé tételéhez jelentkezzen piacterével <a href='https://developers.facebook.com/'> Facebook fejlesztők kezelőpultján</a>. Adja meg a generált azonosítót és a titkos kódot itt."
         facebook_connect_info_text_with_instructions: ~
-        facebook_instructions_link_text: ~
+        facebook_instructions_link_text: "Magyarázat a Facebook kapcsolat beállításához."
         facebook_connect_id: "Facebook felhasználó azonosító"
         invalid_facebook_connect_id: "Felhasználó azonosító csak számokat tartalmazhat."
         facebook_connect_secret: ~
@@ -254,12 +254,12 @@ hu:
       analytics:
         analytics: Vizsgálat
         google_analytics_key: "Google Analytics követési azonosító"
-        google_analytics_key_info_text: ~
-        google_analytics_key_info_text_with_instructions: ~
-        google_analytics_instructions_link_text: ~
+        google_analytics_key_info_text: "Google Analytics fiókja azonosítójának lekövetése."
+        google_analytics_key_info_text_with_instructions: "Google Analytics fiókja azonosítójának lekövetése.%{instructions_link}"
+        google_analytics_instructions_link_text: "Leírás a Google Analytics csatlakoztatásáról."
         save: "Beállítások mentése"
       menu_links:
-        menu_links: ~
+        menu_links: "Menü linkek"
         save: "Beállítások mentése"
         add_menu_link: "Új link menühöz adása"
         title_placeholder: "Link cím"
@@ -283,14 +283,14 @@ hu:
         status:
           free: ~
           pending: Folyamatban
-          preauthorized: ~
+          preauthorized: "Előzetesen engedélyezett"
           accepted: Elfogadva
           rejected: Elutasítva
           paid: Fizetve
           confirmed: Megerősítve
           canceled: Törölve
           initiated: "Várjuk PayPal utalását"
-          pending_ext: ~
+          pending_ext: "Várakozás a PayPal-os kifizetésre"
         not_available: "Nem elérhető"
       braintree_payment_gateway:
         braintree_payment_gateway: "Braintree fizetési API kód"
@@ -375,7 +375,7 @@ hu:
       preview: ~
     listing_shapes:
       index:
-        listing_shapes: ~
+        listing_shapes: Ajánlattípusok
         description: ~
         read_more_about_order_types: "Tudjon meg többet az ajánlattípusokról"
         add_new_shape: "Adjon meg új ajánlattípust: "
@@ -389,27 +389,27 @@ hu:
         order:
           saving_order: "Rendelés mentése"
           save_order_successful: ~
-          save_order_error: ~
+          save_order_error: "Hiba történt a rendelés mentése közben. Kérjük, frissítse az oldalt és próbálja újra."
       templates:
         selling_products: "Eladó termékek"
-        renting_products: ~
+        renting_products: "Termékek bérlése"
         offering_services: "Szolgáltatási ajánlatok"
         giving_things_away: Ajándékozás
-        requesting: ~
-        announcement: ~
-        custom: ~
+        requesting: Kérés
+        announcement: "Bejelentések kiírása"
+        custom: Egyedi
       new:
         create_listing_shape: "Hozzon létre ajánlattípust"
         create: Létrehoz
         cancel: Mégse
-        create_success: ~
+        create_success: "Új rendelési típus '%{shape}' elkészülte"
         create_failure: "Nem tudott új ajánlattípust létrehozni. Hiba:%{error_msg}"
       edit:
         edit_listing_shape: ~
         update: Mentés
         cancel: Mégse
         update_success: ~
-        update_failure: ~
+        update_failure: "A változások elmentése sikertelen. Hiba: %{error_msg}"
         delete: "Ajánlattípus törlése"
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
@@ -418,13 +418,13 @@ hu:
       action_button_label: ~
       action_button_placeholder: ~
       successfully_closed: "Sikeresen lezárt hirdetések"
-      successfully_deleted: ~
+      successfully_deleted: "Sikeresen törölt rendelési típus '%{order_type}'"
       pricing_and_checkout_title: ~
-      online_payments_label: ~
-      shipping_label: ~
-      price_label: ~
+      online_payments_label: "Onine utalások fogadásáanak engedélyezése az eladók számára"
+      shipping_label: "Eladók felhatalmazása a szállítási költség meghatározására"
+      price_label: "Hirdetések beárazásának engedélyezése az eladók számára"
       units_title: Egységár
-      units_desc: ~
+      units_desc: "Amennyiben egységáras árat adott meg, a hirdetésben is  így lesz feltüntetve \"ár egységenként\". Például: \"900Ft/óra\"."
       units:
         piece: Darabonként
         hour: Óránként
@@ -455,14 +455,14 @@ hu:
       link_paypal_personal_account_label: "Ön gondoskodik a termékekről illetve szolgáltatásokról személyesen?"
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: "Az Ön személyes piactéri fiókja"
-      read_more_about_paypal: ~
-      set_minimum_price_and_fee: ~
+      read_more_about_paypal: "Leírás a Sharetribe fizetési rendszeréről"
+      set_minimum_price_and_fee: "Állítson be egy minimális árat és kezelési költséget"
       minimum_listing_price_label: "Minimum tranzakciós méret:"
       transaction_fee_label: "Tranzakciós díj:"
       minimum_transaction_fee_label: "Minimum tranzakciós költség:"
       save_settings: "Beállítások mentése"
-      minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      minimum_listing_price_below_tx_fee: "A minimális tranzakció összegének megegyezőnek vagy nagyobbnak kell lennie a minimális tranzakciós díjnál:%{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "A minimális tranzakció összege legyen nagyobb mint a minimális jutalék %{minimum_commission}."
     transaction_types:
       sell: Eladás
       rent: Bérbeadás
@@ -529,13 +529,13 @@ hu:
     removed_user: "Törölt felhasználó"
     paypal_fee_info:
       title: "PayPal fizetési folyamat költsége"
-      body_text: ~
+      body_text: "A PayPal kezelési költséget számol fel minden utaláskor. Ez az összeg a teljes eladási árnak 2% és 5% körüli része és a havi eladás mértékétől és a vevő lakhelyétől (ország) függ. Általában a hazai vásárlásoknak alacsonyabb a díja mint a nemzetközieknek és a nagyobb mértékű havi eladás kedvezményes díjakat eredményez. A pontos díjakat a PayPal fiókjába belépve tekintheti meg %{link_to_paypal}. Minden vásárlás után egy bizonylatot kap a díj pontos mértékéről."
       body_with_shipping_text: ~
       link_to_paypal_text: itt
   conversations:
     accept:
       details: "Rendelés részletei"
-      order_by: ~
+      order_by: "Rendelés itt %{orderer_link}"
       respond_to_offer: "Válasz az ajánlatra"
       respond_to_request: "Válasz a hirdetésre"
       accept_offer: "Ajánlat elfogadás"
@@ -546,15 +546,15 @@ hu:
       update_later: "Maradjon a hirdetés aktív"
       optional_message: "Választható üzenet"
       price_to_pay: "Teljes ár fizetendő"
-      you_need_to_fill_payout_details_before_accepting: ~
+      you_need_to_fill_payout_details_before_accepting: "Kérjük adja meg fizetési információit. Ezt követően el tudja fogadni az ajánlatokat és a az átutalásokat. Az adatok kitöltéséhez kattintson ide: %{payment_settings_link}."
       payment_settings_link: "fizetési beállítások"
       minimum_price_error_message: "Az ár nem lehet alacsonyabb %{amount} összegnél."
       accept: Elfogad
       decline: Visszautasít
       quantity_label: "Mennyiség:"
       sum_label: "Végösszeg:"
-      service_fee_label: ~
-      you_will_get_label: ~
+      service_fee_label: "%{service_name} szolgáltatás díja:"
+      you_will_get_label: "Ön kapni fog:"
       total_label: "Összesen:"
       total_value: ~
       paypal_fee_info: ~
@@ -623,7 +623,7 @@ hu:
       message_sent_to: "Üzenet elküldve:"
       send_reply: "Válasz küldés"
       write_a_reply: "Válasz írása"
-      conversation_about_listing: ~
+      conversation_about_listing: "%{person} felhasználóval %{listing} hirdetésről"
       conversation_with_user: "%{person} felhasználóval"
       conversation_with: "Üzenetváltás %{person} felhasználóval"
       last_message_at: "( legutolsó üzenet %{time})"
@@ -634,7 +634,7 @@ hu:
     status:
       payment_errored: "Sikertelen fizetés. Kérem próbálja újra."
       payment_errored_starter: "A fizetés meghiúsult. Kérjük próbálja újra. Ha a probléma folytatódik, kérjük jellezze a rendszergazdának."
-      payment_errored_author: ~
+      payment_errored_author: "Sikertelen fizetés. Vegye fel a kapcsolatot %{starter_name} felhasználóval és kérje az utalás megismétlését."
       cancel_payed_transaction: Töröl
       feedback_given: "Visszajelzés elküldve"
       feedback_skipped: "Értékelés kihagyása"
@@ -651,9 +651,11 @@ hu:
       paid: "Sikeres fizetés"
       pending_external:
         paypal:
-          multicurrency: ~
-          verify: ~
-          intl: ~
+          multicurrency: "A PayPal-os utalását nem tudtuk teljesíteni mert az ön PayPal fiókján nincs beállítva ebben a pénznemben %{currency}. Lépjen be a PayPal fiókjába és manuálisan engedélyezze vagy utasítsa el a kifizetést %{paypal_url}."
+          verify: |-
+              Ön nem tud utalást fogadni mert még nem hitelesítette a PayPal fiókját. 
+               A fiókja hitelesítéséhez kattintson ide:%{paypal_url}
+          intl: "A PayPal-os utalását nem tudtuk teljesíteni mert az ön PayPal fiókja nem rendelkezik levonási mechanizmussal. Lépjen be a PayPal fiókjába és manuálisan engedélyezze vagy utasítsa el a kifizetést %{paypal_url}."
       waiting_for_current_user_to_deliver_listing: "Várakozás önre, hogy teljesítse a felkérést a következő hirdetésre vonatkozóan: %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "Várakozás %{listing_author_name} hirdetőre, hogy teljesítse a felkérést a következő hirdetésre vonatkozőan: %{listing_title}"
       request_accepted: Elfogadva
@@ -675,7 +677,7 @@ hu:
         paypal:
           multicurrency: "Várakozás önre, hogy elfogadja a PayPal-os kifizetést"
           intl: "Várakozás önre, hogy elfogadja a PayPal-os kifizetést"
-          unknown_reason: ~
+          unknown_reason: "A kifizetés függőben. További információért lépjen be a PayPal fiókjába."
           verify: "Várakozás önre, hogy hitelesítse a PayPal fiókját"
     status_link:
       accept_offer: "Ajánlat elfogadása"
@@ -874,7 +876,7 @@ hu:
       price_payer_paid: "Ár %{payer_full_name} fizetve:"
       service_fee: "%{service_name} szolgáltatás díja:"
       you_will_get: ~
-      money_will_be_transferred: ~
+      money_will_be_transferred: "Az összeg akkor kerül a számlájára amennyiben a) %{payer_name} jelezte a rendelés teljesítését vagy b) %{automatic_confirmation_days} nap eltelt amióta %{payer_name} fizetett."
     receipt_to_payer:
       receipt_of_payment: "Fizetés elfogadása"
       you_have_made_new_payment: ~
@@ -886,7 +888,7 @@ hu:
       total: Összesen
       price: Ár
       service_fee: "Szolgáltatás díja"
-      money_will_be_transferred: ~
+      money_will_be_transferred: "Az összeg akkor utalódik %{recipient_name} számára amennyiben a) ön a rendelést teljesítettnek jelölte vagy b) %{automatic_confirmation_days} nap eltelt amióta ön fizetett."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} értékelte Önt itt: %{service_name}"
       you_can_give_feedback_to: "Ön még nem értékelte a következő usert: %{name}"
@@ -938,20 +940,20 @@ hu:
       settings_link_text: "Ellenőrizze a beállításokat"
       welcome_email_subject_for_marketplace_creator: "Üdvözlet a Sharetribe-n"
       welcome_to_marketplace_creator: "Üdvözöljük a  Sharetribe-n %{name}!"
-      congrats_for_creating_your_marketplace: ~
-      here_is_your_account_information: ~
-      your_email_address: ~
+      congrats_for_creating_your_marketplace: "Gratulálunk a piactere elkészítéséhez! Igaz milyen egyszerű volt?"
+      here_is_your_account_information: "Itt találja a fiók információit."
+      your_email_address: "A bejelentkezéshez használt e-mailcím:"
       your_marketplace_address: "Az Ön piacterének címe:"
-      your_marketplace_admin_area: ~
-      just_follow_details: ~
-      we_will_guide_you_along_the_way: ~
-      are_you_new_to_online_marketplaces: ~
+      your_marketplace_admin_area: "A piactere rendszergazda területe:"
+      just_follow_details: "Ezeknek a linkeknek a követése soran megtudhatja, hogyan kezdje el piacterét építeni!"
+      we_will_guide_you_along_the_way: "Folyamatos útmutatást fogunk biztosítani."
+      are_you_new_to_online_marketplaces: "Szeretne segítséget a piacteréhez? Ne aggódjon! Azért vagyunk, hogy segítsünk önnek. E-mailben egy oktaó sorozatot fogunk küldeni amely segítségére lesz abban, hogy a legtöbbet kapja a Sharetribe-tól és sikeres piacteret tudjon építeni. Hamarosan küldjük az első részt."
       have_questions: "Kérdései vannak?"
       our_happiness_team_is_here_to_help: ~
       love: "Szeretettel,"
-      sharetribe_crew: ~
-      knowledge_base_link_text: ~
-      contact_support_link_text: ~
+      sharetribe_crew: "A Sharetribe csapata"
+      knowledge_base_link_text: "Nézze meg a tudásbázisunkat."
+      contact_support_link_text: "Lépjen kapcsolatba a rendszergazdával"
       admin_panel_link_text: "Rendszergazda felület"
     new_listing_by_followed_person:
       subject: "%{author_name} új hirdetést adott fel a %{service_name} oldalon."
@@ -978,8 +980,8 @@ hu:
       seller_express_checkout_disabled: ~
       generic_error: "Hiba merült fel a fizetés során. A PayPal-os kifizetés sikertelen."
       cancel_error: "A törlés alatt hiba merült fel. A törlés sikertelen."
-      accept_authorization_error: ~
-      reject_authorization_error: ~
+      accept_authorization_error: "Hiba történt a PayPal-os utalás elfogadásakor. Kérjem, próbálja újra!"
+      reject_authorization_error: "Hiba történt a PayPal-os utalás elutasításakor. Kérem, próbálja újra!"
   error_pages:
     back_to_kassi_front_page: Főoldalra
     error_404:
@@ -990,13 +992,13 @@ hu:
     error_410:
       page_removed: "Oldal törölve"
       page_you_requested_has_been_removed: "Az ön által kért oldalt eltávolították."
-      page_removed_reason: ~
+      page_removed_reason: "Ennek néhany oka lehet. Például egy felhasználó törölte a fiókját vagy egy hirdetés lett törölve."
     error_410_title: "Oldal törölve"
     error_500:
-      temporary_unavailable: ~
-      unable_to_process: ~
-      we_hate_this: ~
-      refer_to_error_id: ~
+      temporary_unavailable: "A piactér pillanatnyilag nem elérhető"
+      unable_to_process: "Kérését a rendszer pillanatnyilag nem tudja teljesíteni. Kérjük, hogy próbálkozzon újra egy kicsit később!"
+      we_hate_this: "Sajnáljuk, hogy ez történt! Tiszában vagyunk a problémával és igyekszünk kijavítani."
+      refer_to_error_id: "Ha szeretne kapcsolatba lépni a rendszergazdával a problémát illetően, kérjük az üzenetében küldje el a hibakódot %{error_id} is."
     error_500_title: "Az oldal betöltése nem sikerült"
     error_description: "A hiba leírása"
     no_javascript:
@@ -1012,12 +1014,12 @@ hu:
       invalid_date: "nem valós dátum"
       invalid_time: "nem elfogadott idő"
       invalid_datetime: "Nem valós dátum"
-      is_at: ~
-      before: ~
+      is_at: "legyen %{restriction} helyen"
+      before: "ezt megelőzően legyen %{restriction}"
       on_or_before: ~
       after: ~
       on_or_after: ~
-      positive_number: ~
+      positive_number: "Szám megadása"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} engedélyezte %{listing_title} kölcsönadását %{requester_name} számára %{time_ago}"
@@ -1027,12 +1029,12 @@ hu:
       has_accepted_give_away_item: ~
       has_accepted_receive_item: ~
       has_accepted_sell_item: ~
-      has_accepted_buy_item: ~
+      has_accepted_buy_item: "%{offerer_name} engedélyezte %{listing_title} eladását %{requester_name} számára %{time_ago}"
       has_accepted_trade_item: ~
-      has_accepted_sell_housing: ~
-      has_accepted_buy_housing: ~
-      has_accepted_rent_out_housing: ~
-      has_accepted_rent_housing: ~
+      has_accepted_sell_housing: "%{offerer_name} engedélyezte %{listing_title} eladását %{requester_name} számára %{time_ago}"
+      has_accepted_buy_housing: "%{offerer_name} engedélyezte %{listing_title} eladását %{requester_name} számára %{time_ago}"
+      has_accepted_rent_out_housing: "%{offerer_name} engedélyezte %{listing_title} a bérlését %{requester_name} számára %{time_ago}"
+      has_accepted_rent_housing: "%{offerer_name} engedélyezte %{listing_title} a bérlését %{requester_name} számára %{time_ago}"
       has_accepted_favor: ~
       has_accepted_rideshare: ~
     join:
@@ -1161,7 +1163,7 @@ hu:
       map: "Mutasd a térképet"
       list: "Lista megjelenítése"
       map_button: Térkép
-      grid_button: ~
+      grid_button: "Magazin nézet"
       list_button: Hirdetés
       all_listing_types: "Összes hirdetés típus"
       all_categories: "Összes kategória"
@@ -1174,7 +1176,7 @@ hu:
       click_here_link_text: "Kattintson ide"
     how_to_use:
       default_title: "Hogyan működik"
-      default_content: ~
+      default_content: "Itt talál információt a %{marketplace_name} működéséről."
   landing_page:
     hero:
       search: ~
@@ -1366,7 +1368,9 @@ hu:
       email_deleted: "Email eltávolítva"
       payment_details_add_successful: "Sikeresen hozzáadott fizetési információk"
       payment_details_add_error: "A fizetési információk megadása sikertelen"
-      listing_author_payment_details_missing: ~
+      listing_author_payment_details_missing: |-
+          Kérjük a 'Kapcsolat' gombra kattintva lépjen kapcsolatba a hirdetővel. 
+          A hirdetőnek frissítenie kell a fizetési információit, hogy átutalásokat tudjon fogadni.
       stylesheet_needs_recompiling: ~
       automatically_logged_out_please_sign_in: ~
     settings:
@@ -1567,9 +1571,9 @@ hu:
       select_transaction_type: "Válassza ki a hirdetés típusát"
       you_need_to_fill_payout_details_before_accepting: "A hirdetés feladásához kérjük adja meg fizetési információit. Kattintson ide %{payment_settings_link} az adatok kitoltéséhez."
       contact_admin_link_text: "Lépjen kapcsolatba az adminisztrátorral"
-      community_not_configured_for_payments: ~
+      community_not_configured_for_payments: "%{service_name} oldalon a fizetési lehetőségek még nincsenek beállítva ezért ön még nem tud hirdetést feladni. Kérjük vegye fel a kapcsolatot a rendszergazdával %{contact_admin_link} a részletekért."
       payment_settings_link: "Fizetési beállítások"
-      community_not_configured_for_payments_admin: ~
+      community_not_configured_for_payments_admin: "%{service_name} oldalon a fizetési lehetőségek még nincsenek beállítva ezért ön még nem tud hirdetést feladni. A fizetési információk kitöltéséhez kattintson ide: %{payment_settings_link}."
     quantity:
       hour: "Órák száma:"
       day: "Napok száma:"
@@ -1617,7 +1621,7 @@ hu:
       delivery: "Szállítás módja"
       shipping: "Szállítás (+%{price})"
       shipping_no_price: Szállítás
-      shipping_price_additional: ~
+      shipping_price_additional: "Házhozszállítás (+%{price}, hozzáadott tételek: +%{shipping_price_additional})"
       pickup: Felvétel
       pickup_no_price: Felvétel
       youtube_video_player: ~
@@ -1690,12 +1694,12 @@ hu:
         terms_link_text: "Braintree használati feltételei"
   paypal_accounts:
     payout_info_title: ~
-    paypal_account_email_connected: ~
+    paypal_account_email_connected: "<del>PayPal fiók csatlakoztatása</del> Sikeres!"
     payout_info_paypal: ~
-    paypal_billing_agreement_made: ~
+    paypal_billing_agreement_made: "<del>Engedélyezés %{service_name} számára hogy tranzakciós díjat számoljon fel</del> Teljesítve!"
     commission_permission_needed: ~
     create_paypal_account_link_text: "PayPal fiók"
-    connected_account: ~
+    connected_account: "PayPal fiók  <%{email}> csatlakozás sikeres"
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: ~
     paypal_receive_funds_info: ~
@@ -1705,16 +1709,16 @@ hu:
     you_are_ready_to_accept_payments: "Ön kész fizetések fogadására"
     commission: "%{commission} %"
     new:
-      payout_info_you_need_to_connect: ~
-      payout_info_text: ~
+      payout_info_you_need_to_connect: "Az utalások elfogadásához csatlakoztassa PayPal fiókját a %{service_name} oldallal."
+      payout_info_text: "A fiókja csatlakoztatásához, kérem teljesítse a következő lépéseket."
       contact_admin_link_text: "Lépjen kapcsolatba az adminisztrátorral"
-      admin_account_not_connected: ~
-      paypal_account_email: ~
+      admin_account_not_connected: "A PayPal fiók csatlakoztatása nem lehetséges mert a %{service_name} oldal nem állított be fizetési módot. Kérjük a részletekért kattintson ide: %{contact_admin_link}"
+      paypal_account_email: "Csatlakozás az Ön PayPal fiókjához"
       paypal_account_email_placeholder: "Az Ön PayPal emailcíme"
-      paypal_account_email_info_text: ~
+      paypal_account_email_info_text: "Ha még nincs PayPal fiókja akkor ite kattintva: %{create_paypal_account} nyithat egy fiókot. Ha hibaüzenetet kapna a PayPal fiókja csatlakoztatásakor akkor váltsa át a fiókot üzleti módra. Az átváltás ingyenes és egyszerű. Ha magánszemélyként jelentkezik be akkor használhatja a saját nevét mint \"üzlet neve\". Az átváltáshoz kattintson ide: %{upgrade_paypal_account}."
       create_paypal_account: "Kattintson ide"
-      upgrade_paypal_account: ~
-      paypal_account_billing_agreement: ~
+      upgrade_paypal_account: "Bejelentkezés a PayPal fiókba"
+      paypal_account_billing_agreement: "Tranzakciós díj felszámításának engedélyezése %{service_name} számára."
       follow_steps: ~
       connect_paypal_account_title: "Csatlakozás az Ön PayPal fiókjához"
       connect_paypal_account_title_with_step: ~
@@ -1726,21 +1730,21 @@ hu:
       paypal_account_billing_agreement_info_relative: ~
       paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: "PayPal fizetési folyamat költsége"
-      billing_agreement_description: ~
+      billing_agreement_description: "Tranzakciós díj felszámításának engedélyezése %{service_name} számára."
       billing_agreement: "Engedély megadása:"
-      permissions_not_granted: ~
+      permissions_not_granted: "A PayPal fiókkal történő csatlakoztatás engedélyezése még nincs megava."
       could_not_fetch_redirect_url: ~
       paypal_not_enabled: "A PayPal kifizetések nem engedélyezettek"
       billing_agreement_canceled: "A számlázási megegyezés törölve"
-      billing_agreement_not_accepted: ~
-      billing_agreement_wrong_account: ~
+      billing_agreement_not_accepted: "Ön még nem fogadta el a számlázási megegyezést a PayPal-lal."
+      billing_agreement_wrong_account: "A PayPal fiókok nem azonosak. Kérjük, hogy ugyanazt a PayPal fiókot használja amivel legelőször csatlakozott."
       something_went_wrong: "Hiba történt. Kérem próbálja meg újra. Amennyiben a probléma továbbra is fennáll, lépjen kapcsolatba az oldal adminisztrátorával."
-      account_not_verified: ~
-      account_restricted: ~
+      account_not_verified: "Még nem hitelesítette a PayPal fiókját. A paypal.com-on hitelesítse a fiókját, hogy tovább tudjon lépni."
+      account_restricted: "Az ön PayPal fiókja korlátozva van és ezért nem lehet csatlakoztatni. További információért kérjük jelentkezzen be a paypal.com-oldalon és vegye fel a kapcsolatot a PayPal vevőszolgálatával."
     paypal_account_connected_title: "PayPal fiókhoz csatlakozva"
     paypal_account_connected: ~
     change_account: "Paypal fiók változtatás"
-    missing: ~
+    missing: "Önnek vannak hirdetései, de az ön PayPal fiókja még nem lett beállítva átutalások fogadására. Csatlakoztassa a PayPal fiókját és engedélyezze a %{service_name} számára, hogy tranzakciós dijat számoljon fel %{settings_link}."
     from_your_payment_settings_link_text: "Fizetési beállítások"
     redirect_message: ~
     redirect_link_text: itt
@@ -1749,12 +1753,12 @@ hu:
     paypal_account_connected_summary: "PayPal fiók  <%{email}> csatlakozás sikeres"
     paypal_permission_granted_summary: ~
   paypal:
-    pay_with_paypal: ~
-    checkout_with_paypal: ~
+    pay_with_paypal: "Tovább a fizetéshez"
+    checkout_with_paypal: "Kosár ellenőrzése PayPal-lal"
     cancel_succesful: "PayPal fizetés sikeresen megszakítva"
     transaction:
-      commission_payment_name: ~
-      commission_payment_description: ~
+      commission_payment_name: "Jutalék kifizetése %{listing_title} hirdetésért"
+      commission_payment_description: "A %{service_name} piactér jutalékban részesült a %{listing_title} hirdetés tranzakciójából."
     wait_while_loading: "Kérem várjon."
     chatting_with_paypal: ~
   people:
@@ -1839,8 +1843,8 @@ hu:
     followed_people:
       you_follow_plural: "Ön követi %{count} embert"
       you_follow_singular: "Ön követi %{count} személyt"
-      they_follow_plural: ~
-      they_follow_singular: ~
+      they_follow_plural: "%{count} számú követett hirdető"
+      they_follow_singular: "%{count} követett hirdető"
       show_all_followed_people: "Az összes követett mutatása"
       no_followed_people: "Nincs követés"
     follow_button:
@@ -1886,9 +1890,9 @@ hu:
       change_email: Változás
       confirm_your_email: ~
       account_confirmation_instructions: ~
-      account_confirmation_instructions_title_admin: ~
-      your_marketplace_has_now_been_created: ~
-      account_confirmation_instructions_admin: ~
+      account_confirmation_instructions_title_admin: Üdvözöljük!
+      your_marketplace_has_now_been_created: "Az ön piactere elkészült! Ugye milyen egyszerű volt? Még egy utolsó lépés mielőtt belépne az oldalra:  kérjük erősítse meg az e-mailcímét."
+      account_confirmation_instructions_admin: "Ön hamarosan egy e-mailt fog kapni és a benne található link segítségével megerősítheti e-mailcímét. Ellenőrizze a levélszemét (spam) mappáját is! Amint megnyitotta a linket megkezdheti a piactere felállítását."
   settings:
     account:
       change: Módosítás
@@ -1898,13 +1902,13 @@ hu:
       delete_account_confirmation_popup: ~
       email_addresses: "Email címek"
       new_email: "Új e-mail cím"
-      delete_personal_information: ~
-      delete_information_others_involved: ~
-      unfinished_transactions: ~
+      delete_personal_information: "Amennyiben törölné a fiókját, a személyes adatai (név, telefonszám, cím, e-mailcím, profilkép stb.) véglegesen törlődnek. Az összes ön által feladott hirdetés törléslődni fog. A fiókot nem lesz módjában újraaktiválni."
+      delete_information_others_involved: "Információ melynek más felhasználók is részesei voltak (társalgások, tranzakciók, értékelések, stb) nem törlődik a fiók törlésekor. De az ön neve már nem lesz feltűntetve ezek megjelenítésekor."
+      unfinished_transactions: "Az ön fiókját a folyamatban lévő tranzakciók miatt nem lehet törölni. Kérjük fejezze be tranzakcióit a fiók törlése előtt."
       new_password: "Új jelszó"
       save: Mentés
       these_fields_are_shown_only_to_you: "A felhasználónév a profilban látható, kivéve ha a nevét adta meg. A többi infomációt csak Ön látja."
-      email_already_confirmed: ~
+      email_already_confirmed: "Az ön e-mailcíme már visszaigazolásra került."
       email:
         address_title: Cím
         remove_title: Eltávolít
@@ -1964,7 +1968,7 @@ hu:
       visible_to_registered_users: "Regisztrált felhasználók láthatják"
       default_in_listing: "(alapbeállításként használt kizárólag új hírdetés feladásakor)"
       invisible: "(a többi felhasználó számára nem látható)"
-      image_is_processing: ~
+      image_is_processing: "A profilképe feldolgozása folyamatban van. Kérjük, frissítse az oldalt egy kis idő elteltével."
     save_information: Mentés
   shipping_address:
     shipping_address: "Szállítási cím"
@@ -2123,6 +2127,9 @@ hu:
       person:
         zero: Felhasználók
         other: Felhasználó
+      listing_conversation:
+        zero: Tranzakció
+        other: Tranzakció
     previous_label: "&#8592; Előző"
     next_label: "Következő &#8594;"
     page_gap: ~

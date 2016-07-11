@@ -573,8 +573,8 @@ da-DK:
       paypal_fee_info: "* Exclusiv <a id='%{fee_info_link_id}' href='#'>PayPal's ekspeditionsgebyr</a>"
       shipping_price_label: "Levering:"
     confirm:
-      confirm_description: "Hvis din ansøgning er godkendt, bør du markerer den som en success. Så kan I give feedback til hinanden."
-      cancel_description: "Hvis din ansøgning ikke er godkendt, kan du markere den som 'ikke godkendt'. Du kan stadig give feedback til den anden part."
+      confirm_description: "Hvis din ordre er blevet gennemført, bør du markere den som så. Så kan I anmelde hinanden."
+      cancel_description: "Hvis din ordre ikke blev gennemført, kan du markere den som 'ikke godkendt'. Du kan stadig anmelde den anden part."
       cancel_payed_description: "Hvis din ansøgning er godkendt, men du har skiftet mening, kan du stadig nå at annullere din bestilling før betalingen bliver trukket."
       canceling_payed_transaction: "Annuller handel"
       confirm: "Marker som success"
@@ -675,7 +675,7 @@ da-DK:
       request_canceled: Annulleret
       request_paid: "Betaling godkendt"
       request_preauthorized: "Betaling godkendt"
-      skip_feedback: "Spring over feedback"
+      skip_feedback: "Spring over"
       waiting_for_listing_author_to_accept_offer: "Venter på at %{listing_author_name} accepterer dit tilbud"
       waiting_for_listing_author_to_accept_request: "Venter på at %{listing_author_name} accepterer din anmodning"
       waiting_for_you_to_accept_request: "Venter på at du godkender anmodningen"
@@ -811,7 +811,7 @@ da-DK:
       request_marked_as_canceled: "Anmodning annulleret"
       has_marked_request_as_confirmed: "%{other_party_full_name} har markeret din anmodning '%{request}' som godkendt. Du kan nu give feedback til %{other_party_given_name}."
       has_marked_request_as_canceled: "%{other_party_full_name} har annulleret din anmodning '%{request}'. Du kan stadig give feedback til %{other_party_given_name}."
-      giving_feedback_is_good_idea: "At give feedback er altid en god ide. Hvis hele handlen gik perfekt, burde du fortælle andre at %{other_party_given_name} er god at handle med. Hvis du har oplevet problemer, er det naturligvis også godt at nævne dette."
+      giving_feedback_is_good_idea: "Det er altid godt at anmelde hinanden. Hvis alt gik godt, bør du fortælle andre, at de kan have tillid til %{other_party_given_name}. Hvis der var nogen problemer, kan du nævne dem også."
       give_feedback_to: "Giv feedback til %{other_party_given_name}"
     transaction_automatically_confirmed:
       subject: "Anmodningen blev automatisk godkendt - husk at give respons"
@@ -820,7 +820,7 @@ da-DK:
       subject: "Anmodningen blev automatisk godkendt - husk at give feedback"
       we_have_marked_request_as_confirmed: "Vi har markeret anmodningen om '%{request}' som godkendt. Anmodningen blev automatisk godkendt fordi der er gået en dag siden bookingen var overstået."
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: "Du kan nu give feedback til %{other_party_given_name}. At give feedback er altid en god ide. Hvis alt går vel, skal du lade andre vide at de sikkert kan handle med %{other_party_given_name}. Hvis der er problemer, bør andre også vide dette."
+      giving_feedback_is_good_idea: "Du kan nu give feedback til %{other_party_given_name}. Det er altid godt at anmelde hinanden. Hvis alt gik godt, bør du fortælle andre, at de kan have tillid til %{other_party_given_name}. Hvis der var nogen problemer, kan du nævne dem også."
       give_feedback_to: "Giv feedback til %{other_party_given_name}"
       show_thread: "Vis samtalen"
     escrow_canceled:
@@ -837,7 +837,7 @@ da-DK:
       turning_on_confirmations_in_this_community: "Vi er begyndt at bruge e-mail bekræftelser i denne %{service_name} markedsplads."
     common:
       hey: "Hej %{name}"
-      kassi_team: "%{service_name} teamet"
+      kassi_team: "%{service_name}-Teamet"
       thanks: "Tak,"
       dont_want_to_receive_these_emails: "Vil du ikke længere modtage emails fra os?"
       edit_your_email_settings_here: "Skift dine email indstillinger"
@@ -927,7 +927,7 @@ da-DK:
       text_version_text: "Har du noget du kunne dele med andre, som måske ville have brug for det? Eller har du brug for noget andre muligvis har? Tilføj et tilbud eller en forespørgsel, eller tjek alt hvad andre tilbyder lige nu på %{url}"
     reset_password_instructions:
       change_my_password: "Skift min adgangskode"
-      reset_password_instructions: "<p>Du har angivet, at du har glemt din adgangskode eller brugernavn på %{service_name}.</p><p>Dit brugernavn er: %{username}</p><p>Nulstil adgangskode: %{password_reset_link}</p><br/><p>Hvis du ikke har bedt om dette, skal du bare ignorere denne besked.</p>"
+      reset_password_instructions: "<p>Vi har modtaget en anmodning om at nulstille adgangskoden til din %{service_name}-konto.</p><p>Dit brugernavn er: %{username}</p><p>Glemt adgangskode? %{password_reset_link}</p><br/><p>Hvis du ikke har bedt om dette, kan du bare se bort fra denne email.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Påmindelse: Husk at give feedback til %{name}"
       you_have_not_given_feedback_yet: "Du har endnu ikke givet %{name} feedback på '%{event}'. Husk at give %{given_name} feedback."
@@ -1069,7 +1069,7 @@ da-DK:
     manage_listings: "Administrer annoncer"
     invite: "Inviter nye medlemmer"
     login: "Log ind"
-    signup: "Opret profil﻿"
+    signup: Tilmeld
     menu: Menu
   homepage:
     additional_private_listings_slate:
@@ -1272,7 +1272,7 @@ da-DK:
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Tak for din tilmelding! Nu skal du bare bekræfte din email."
       comment_cannot_be_empty: "Kommentaren kan ikke være tom"
       comment_sent: "Kommentar sendt"
-      confirmation_link_is_wrong_or_used: "Bekræftigelses linket er allerede brugt eller på anden måde brudt. Prøv at logge ind, ellers kontakt os, hvis problemet fortsætter."
+      confirmation_link_is_wrong_or_used: "Bekræftelseslinket er allerede brugt eller på anden måde brudt. Prøv at logge ind, ellers kontakt os, hvis problemet fortsætter."
       additional_email_confirmed: "Din indtastede email er nu godkendt."
       could_not_get_email_from_facebook: "Vi kunne ikke få din email fra Facebook og vi kan ikke oprette en konto uden din email."
       facebook_email_unconfirmed: "E-mail adressen '%{email}' på din Facebook konto er allerede blevet taget, men er ikke bekræftet. Bekræft venligst e-mail adressen før log ind med Facebook."
@@ -1784,7 +1784,7 @@ da-DK:
       invite_only_help_text_title: "Udelukkende med invitation"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Denne bruger er ikke længere aktiv i %{service_name}"
-      inactive_description: "Denne bruger har stoppet med at bruge %{service_name}. Du kan ikke kontakte denne bruger, give feedback til dem eller kommentere deres programoversigter."
+      inactive_description: "Denne bruger er stoppet med at bruge %{service_name}. Du kan ikke kontakte denne bruger, anmelde eller kommentere deres opslag."
     new:
       create_new_account: "Opret konto"
       email: Email

@@ -11,7 +11,7 @@ da-DK:
   devise:
     failure:
       already_authenticated: "Du er allerede logget ind."
-      unauthenticated: "Du skal logge ind eller oprette en konto for at fortsætte."
+      unauthenticated: "Du skal logge ind eller tilmelde dig for at fortsætte."
       unconfirmed: "Du skal bekræfte din konto for at fortsætte."
       locked: "Din konto er låst."
       invalid: "Email eller password er ikke gyldig."
