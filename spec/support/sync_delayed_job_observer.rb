@@ -30,6 +30,7 @@ class SyncDelayedJobObserver
       @total_processed = 0
       @enabled = false
 
+      Delayed::Job.delete_all
       Delayed::Worker.delay_jobs = true
     end
 
