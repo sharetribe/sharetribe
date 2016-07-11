@@ -244,6 +244,7 @@ class LandingPageController < ActionController::Metal
                        props: props,
                        marketplace_context: marketplace_context,
                        props_endpoint: ui_api_topbar_props_path(locale: topbar_locale),
+                       landing_page: true
                      },
                      page: denormalizer.to_tree(structure, root: "page"),
                      sections: denormalizer.to_tree(structure, root: "composition"),
