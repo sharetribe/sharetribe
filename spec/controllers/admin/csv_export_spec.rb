@@ -40,6 +40,9 @@ end
 
 describe Admin::CommunityTransactionsController, type: :controller do
   before(:each) do
+    # the @request is shared between test groups here so clear the request store
+    RequestStore.clear!
+
     @community = FactoryGirl.create(:community)
     @person = create_admin_for(@community)
     @listing = FactoryGirl.create(:listing, community_id: @community.id, transaction_process_id: 123, author: @person)
