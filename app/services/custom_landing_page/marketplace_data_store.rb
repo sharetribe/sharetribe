@@ -8,8 +8,9 @@ module CustomLandingPage
     def marketplace_data(cid, locale)
       primary_color,
       private,
+      twitter_handle,
       name_display_type = Community.where(id: cid)
-                               .pluck(:custom_color1, :private, :name_display_type)
+                               .pluck(:custom_color1, :private, :twitter_handle, :name_display_type)
                                .first
 
       name,
@@ -47,6 +48,7 @@ module CustomLandingPage
         "description" => description,
         "search_type" => search_type,
         "search_placeholder" => search_placeholder,
+        "twitter_handle" => twitter_handle,
         "name_display_type" => name_display_type
       }
     end
