@@ -6,6 +6,49 @@ module CustomLandingPage
 
     module_function
 
+    def create_landing_page!(cid)
+      LandingPage.create(community_id: cid)
+    end
+
+    def create_version!(cid, version_number, content)
+      LandingPageVersion.create(community_id: cid, version: version_number, content: content)
+    end
+
+    def update_version!(cid, version_number, content)
+      version = LandingPageVersion.where(community_id: cid, version: version_number).first
+      unless version
+        raise LandingPageNotFound.new("Version not found for community_id: #{cid} and version: #{version_number}.")
+      end
+
+      version.content = content
+      version.save!
+      lp
+    end
+
+    def release_version!(cid, version_number)
+      LandingPage.transaction do
+        lp = LandingPage.where(community_id: cid).first
+
+        unless lp
+          LandingPageNotFound.new("No landing page created for community_id: #{cid}.")
+        end
+
+        version = LandingPageVersion.where(community_id: cid, version: version_number).first
+
+        unless version
+          LandingPageNotFound.new("No landing page version for community_id: #{cid}, version: #{version_number}.")
+        end
+
+        version.released = Time.now
+        lp.released_version = version.version
+        lp.enabled = 1
+
+        version.save!
+        lp.save!
+        lp
+      end
+    end
+
     def released_version(cid)
       enabled, released_version = LandingPage.where(community_id: cid)
                                   .pluck(:enabled, :released_version)

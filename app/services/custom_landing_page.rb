@@ -1,4 +1,6 @@
 module CustomLandingPage
-  class LandingPageConfigurationError < StandardError; end
-  class LandingPageContentNotFound < StandardError; end
+  class LandingPageError < StandardError; end
+  class LandingPageConfigurationError < LandingPageError; end
+  class LandingPageNotFound < LandingPageError; end
+  class LandingPageContentNotFound < LandingPageError; end
 end
