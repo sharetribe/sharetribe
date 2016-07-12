@@ -10,13 +10,13 @@ module CustomLandingPage
   "settings": {
     "marketplace_id": 9999,
     "locale": "en",
-    "sitename": "turbobikes"
+    "sitename": "example"
   },
 
   "page": {
     "twitter_handle": {"type": "marketplace_data", "id": "twitter_handle"},
-    "twitter_image": {"type": "assets", "id": "hero_background_image"},
-    "facebook_image": {"type": "assets", "id": "hero_background_image"},
+    "twitter_image": {"type": "assets", "id": "default_hero_background"},
+    "facebook_image": {"type": "assets", "id": "default_hero_background"},
     "title": {"type": "marketplace_data", "id": "page_title"},
     "description": {"type": "marketplace_data", "id": "description"},
     "publisher": {"type": "marketplace_data", "id": "name"},
@@ -26,12 +26,12 @@ module CustomLandingPage
 
   "sections": [
     {
-      "id": "myhero1",
+      "id": "hero",
       "kind": "hero",
       "variation": {"type": "marketplace_data", "id": "search_type"},
       "title": {"type": "marketplace_data", "id": "slogan"},
       "subtitle": {"type": "marketplace_data", "id": "description"},
-      "background_image": {"type": "assets", "id": "myheroimage"},
+      "background_image": {"type": "assets", "id": "default_hero_background"},
       "search_button": {"type": "translation", "id": "search_button"},
       "search_path": {"type": "path", "id": "search"},
       "search_placeholder": {"type": "marketplace_data", "id": "search_placeholder"},
@@ -43,529 +43,211 @@ module CustomLandingPage
       "signup_button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
     },
     {
-      "id": "listings",
-      "kind": "listings",
-      "title": "Section title goes here. Section title goes here. Section title goes here. Section title goes here. Section title goes here. Section title goes here.",
-      "paragraph": "Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. ",
-      "button_color": {"type": "marketplace_data", "id": "primary_color"},
-      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "button_title": "Login",
-      "button_path": {"type": "path", "id": "login"},
-      "price_color": {"type": "marketplace_data", "id": "primary_color"},
-      "no_listing_image_background_color": {"type": "marketplace_data", "id": "primary_color"},
-      "no_listing_image_text": {"type": "translation", "id": "no_listing_image"},
-      "author_name_color_hover": {"type": "marketplace_data", "id": "primary_color"},
-      "listings": [
-        {
-          "listing": { "type": "listing", "id": 1 }
-        },
-        {
-          "listing": { "type": "listing", "id": 2 }
-        },
-        {
-          "listing": {
-            "title": "Pelago San Sebastian, in very good condition in Kallio",
-            "price": "$39",
-            "author_name": "Mikko P.",
-            "price_unit": "day",
-            "author_avatar": "https://c5.staticflickr.com/1/727/20082134084_88e9691b84_h.jpg",
-            "listing_image": "https://c4.staticflickr.com/2/1501/26646827091_e8a73c0c6c_h.jpg",
-            "listing_path": "http://www.google.com"
-          }
-        }
-      ]
-    },
-    {
-      "id": "video2",
+      "id": "video",
       "kind": "video",
       "variation": "youtube",
       "youtube_video_id": "UffchBUUIoI",
       "width": "1280",
       "height": "720",
-      "text": "Watch the cool video!"
+      "text": "Video section can contain one Youtube video. Click to watch!"
     },
     {
-      "id": "categories7",
-      "kind": "categories",
-      "title": "Section title goes here. Section title goes here. Section title goes here. Section title goes here. Section title goes here. Section title goes here.",
-      "paragraph": "Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. Section paragraph goes here. ",
-      "button_color": {"type": "marketplace_data", "id": "primary_color"},
-      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "button_title": "All categories",
-      "button_path": {"type": "path", "id": "all_categories"},
-      "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
-      "categories": [
-        {
-          "category": {
-            "title": "Mountain bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "type": "category",
-            "id": 1
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "Parts",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        }
-      ]
-    },
-    {
-      "id": "categories6",
-      "kind": "categories",
-      "title": "Section title goes here",
-      "paragraph": "Section paragraph goes here",
-      "button_color": {"type": "marketplace_data", "id": "primary_color"},
-      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "button_title": "All categories",
-      "button_path": {"type": "path", "id": "all_categories"},
-      "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
-      "categories": [
-        {
-          "category": {
-            "title": "Mountain bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        }
-      ]
-    },
-    {
-      "id": "categories5",
-      "kind": "categories",
-      "title": "Section title goes here",
-      "paragraph": "Section paragraph goes here",
-      "button_color": {"type": "marketplace_data", "id": "primary_color"},
-      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "button_title": "All categories",
-      "button_path": {"type": "path", "id": "all_categories"},
-      "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
-      "categories": [
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        }
-      ]
-    },
-    {
-      "id": "categories4",
-      "kind": "categories",
-      "title": "Section title goes here",
-      "paragraph": "Section paragraph goes here",
-      "button_color": {"type": "marketplace_data", "id": "primary_color"},
-      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "button_title": "All categories",
-      "button_path": {"type": "path", "id": "all_categories"},
-      "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
-      "categories": [
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        }
-      ]
-    },
-    {
-      "id": "categories3",
-      "kind": "categories",
-      "title": "Section title goes here",
-      "paragraph": "Section paragraph goes here",
-      "button_color": {"type": "marketplace_data", "id": "primary_color"},
-      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "button_title": "All categories",
-      "button_path": {"type": "path", "id": "all_categories"},
-      "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
-      "categories": [
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        },
-        {
-          "category": {
-            "title": "City bikes",
-            "path": "https://google.com"
-          },
-          "background_image": {"type": "assets", "id": "myheroimage"}
-        }
-      ]
-    },
-    {
-      "id": "info1_v1",
+      "id": "single_info_without_background_and_cta",
       "kind": "info",
       "variation": "single_column",
-      "title": "Section title goes here [Info #1 - V1]",
-      "paragraph": ["Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero.","Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero."],
-
+      "title": "Single column info section without background image and call to action button",
+      "paragraph": ["This is a single column info section without background image and call to action button."]
+    },
+    {
+      "id": "single_info_without_cta",
+      "kind": "info",
+      "variation": "single_column",
+      "title": "Single column info section without call to action button",
+      "paragraph": ["This is a single column info section without background image and call to action button."],
+      "background_image": {"type": "assets", "id": "default_hero_background"}
+    },
+    {
+      "id": "single_info_with_background_and_cta",
+      "kind": "info",
+      "variation": "single_column",
+      "title": "Single column info section with background image and call to action button",
+      "paragraph": ["This is a single column info section with background image and call to action button."],
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "button_title": "Section link",
-      "button_path": {"type": "path", "id": "post_a_new_listing"},
-      "background_image": {"type": "assets", "id": "myinfoimage"}
+      "button_title": "Go to sharetribe.com",
+      "button_path": {"value": "https://www.sharetribe.com"},
+      "background_image": {"type": "assets", "id": "default_hero_background"}
     },
     {
-      "id": "info1_v2",
+      "id": "single_info_with_cta",
       "kind": "info",
       "variation": "single_column",
-      "title": "Section title goes here [Info #1 - V2]",
-      "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero.",
-      "background_image": {"type": "assets", "id": "myinfoimage2"}
+      "title": "Single column info section with call to action button",
+      "paragraph": ["This is a single column info section with call to action button."],
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "button_title": "Contact us",
+      "button_path": {"type": "path", "id": "contact_us"}
     },
     {
-      "id": "info1_v3",
+      "id": "single_info_with_background_color_and_cta",
       "kind": "info",
       "variation": "single_column",
-      "title": "Section title goes here [Info #1 - V3]",
+      "title": "Single column info section with background color and call to action button",
       "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero.",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "button_title": "Section link",
-      "button_path": {"value": "https://google.com"},
-      "background_color": [255, 0, 255]
+      "button_title": "About",
+      "button_path": {"type": "path", "id" :"about"},
+      "background_color": [166, 76, 94]
     },
     {
-      "id": "info1_v4",
-      "kind": "info",
-      "variation": "single_column",
-      "title": "Section title goes here [Info #1 - V4]",
-      "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero."
-    },
-    {
-      "id": "info2_v1",
+      "id": "two_column_info_with_icons_and_buttons",
       "kind": "info",
       "variation": "multi_column",
-      "title": "Section title goes here. Section title goes here. Section title goes here. Section title goes here. Section title goes here. Section title goes here.",
+      "title": "Two column info section with icons and buttons",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "icon_color": {"type": "marketplace_data", "id": "primary_color"},
       "columns": [
         {
           "icon": "grape",
-          "title": "Our mission",
+          "title": "Column 1",
           "paragraph": ["Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.","Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."],
-          "button_title": "Section link",
-          "button_path": {"value": "https://google.com"}
+          "button_title": "Go to sharetribe.com",
+          "button_path": {"value": "https://www.sharetribe.com"}
         },
         {
           "icon": "watering-can",
-          "title": "Our mission",
+          "title": "Column 2",
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
-          "button_title": "Section link",
-          "button_path": {"value": "https://google.com"}
+          "button_title": "Go to sharetribe.com",
+          "button_path": {"value": "https://www.sharetribe.com"}
+        }
+      ]
+    },
+    {
+      "id": "two_column_info_without_icons_and_buttons",
+      "kind": "info",
+      "variation": "multi_column",
+      "title": "Two column info section without icons and buttons",
+      "columns": [
+        {
+          "title": "Column 1",
+          "paragraph": ["Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.","Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."]
         },
         {
+          "title": "Column 2",
+          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
+        }
+      ]
+    },
+    {
+      "id": "three_column_info_with_icons_and_buttons",
+      "kind": "info",
+      "variation": "multi_column",
+      "title": "Three column info with icons and buttons",
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "icon_color": {"type": "marketplace_data", "id": "primary_color"},
+      "columns": [
+        {
+          "title": "Column 1",
+          "icon": "quill",
+          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
+          "button_title": "Go to sharetribe.com",
+          "button_path": {"value": "https://www.sharetribe.com"}
+        },
+        {
+          "title": "Column 2",
+          "icon": "piggy-bank",
+          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
+          "button_title": "Go to sharetribe.com",
+          "button_path": {"value": "https://www.sharetribe.com"}
+        },
+        {
+          "title": "Column 3",
           "icon": "globe-1",
-          "title": "Our mission",
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
-          "button_title": "Section link",
-          "button_path": {"value": "https://google.com"}
+          "button_title": "Go to sharetribe.com",
+          "button_path": {"value": "https://www.sharetribe.com"}
         }
       ]
     },
     {
-      "id": "info2_v2",
+      "id": "three_column_info_without_icons_and_buttons",
       "kind": "info",
       "variation": "multi_column",
-      "title": "Section title goes here [Info #2 - V2]",
-      "button_color": {"type": "marketplace_data", "id": "primary_color"},
-      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "icon_color": {"type": "marketplace_data", "id": "primary_color"},
+      "title": "Three column info without icons and buttons",
       "columns": [
         {
-          "title": "Our mission",
-          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
-          "button_title": "Section link",
-          "button_path": {"value": "https://google.com"}
-        },
-        {
-          "title": "Our mission",
-          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
-          "button_title": "Section link",
-          "button_path": {"value": "https://google.com"}
-        },
-        {
-          "title": "Our mission",
-          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
-          "button_title": "Section link",
-          "button_path": {"value": "https://google.com"}
-        }
-      ]
-    },
-    {
-      "id": "info2_v3",
-      "kind": "info",
-      "variation": "multi_column",
-      "title": "Section title goes here [Info #2 - V3]",
-      "button_color": {"type": "marketplace_data", "id": "primary_color"},
-      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "icon_color": {"type": "marketplace_data", "id": "primary_color"},
-      "columns": [
-        {
-          "icon": "quill",
-          "title": "Our mission",
+          "title": "Column 1",
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
         },
         {
-          "icon": "piggy-bank",
-          "title": "Our mission",
+          "title": "Column 2",
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
         },
         {
-          "icon": "globe-1",
-          "title": "Our mission",
+          "title": "Column 3",
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
         }
       ]
     },
     {
-      "id": "info2_v4",
-      "kind": "info",
-      "variation": "multi_column",
-      "title": "Section title goes here [Info #2 - V4]",
-      "button_color": {"type": "marketplace_data", "id": "primary_color"},
-      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "icon_color": {"type": "marketplace_data", "id": "primary_color"},
-      "columns": [
-        {
-          "title": "Our mission",
-          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
-        },
-        {
-          "title": "Our mission",
-          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
-        },
-        {
-          "title": "Our mission",
-          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
-        }
-      ]
+        "id": "categories",
+        "kind": "categories",
+        "title": "Categories section",
+        "paragraph": "PLEASE NOTE: This section is NOT ENABLED by default. To enable this section, replace category IDs with real IDs and add the section to the 'composition'. Categories section can contain 3 to 7 featured categories. Each category should have a background image.",
+        "button_color": {"type": "marketplace_data", "id": "primary_color"},
+        "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+        "button_title": "All categories",
+        "button_path": {"type": "path", "id": "all_categories"},
+        "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
+        "categories": [
+            {
+                "category": { "type": "category", "id": 99999 },
+                "background_image": {"type": "assets", "id": "default_hero_background"}
+            },
+            {
+                "category": { "type": "category", "id": 99999 },
+                "background_image": {"type": "assets", "id": "default_hero_background"}
+            },
+            {
+                "category": { "type": "category", "id": 99999 },
+                "background_image": {"type": "assets", "id": "default_hero_background"}
+            }
+        ]
     },
     {
-      "id": "info3_v1",
-      "kind": "info",
-      "variation": "multi_column",
-      "title": "Section title goes here [Info #3 - V1]",
-      "button_color": {"type": "marketplace_data", "id": "primary_color"},
-      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "icon_color": {"type": "marketplace_data", "id": "primary_color"},
-      "columns": [
-        {
-          "icon": "quill",
-          "title": "Our mission",
-          "paragraph": "Paragraph. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
-          "button_title": "Section link",
-          "button_path": {"value": "https://google.com"}
-        },
-        {
-          "icon": "piggy-bank",
-          "title": "Our mission",
-          "paragraph": "Paragraph. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus.",
-          "button_title": "Section link",
-          "button_path": {"value": "https://google.com"}
-        }
-      ]
-    },
-    {
-      "id": "info3_v2",
-      "kind": "info",
-      "variation": "multi_column",
-      "title": "Section title goes here [Info #3 - V2]",
-      "button_color": {"type": "marketplace_data", "id": "primary_color"},
-      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "icon_color": {"type": "marketplace_data", "id": "primary_color"},
-      "columns": [
-        {
-          "title": "Our mission",
-          "paragraph": "Paragraph. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus.",
-          "button_title": "Section link",
-          "button_path": {"value": "https://google.com"}
-        },
-        {
-          "title": "Our mission",
-          "paragraph": "Paragraph. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus.",
-          "button_title": "Section link",
-          "button_path": {"value": "https://google.com"}
-        }
-      ]
-    },
-    {
-      "id": "info3_v3",
-      "kind": "info",
-      "variation": "multi_column",
-      "title": "Section title goes here [Info #3 - V3]",
-      "button_color": {"type": "marketplace_data", "id": "primary_color"},
-      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "icon_color": {"type": "marketplace_data", "id": "primary_color"},
-      "columns": [
-        {
-          "icon": "quill",
-          "title": "Our mission",
-          "paragraph": "Paragraph. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus."
-        },
-        {
-          "icon": "piggy-bank",
-          "title": "Our mission",
-          "paragraph": "Paragraph. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus."
-        }
-      ]
-    },
-    {
-      "id": "info3_v4",
-      "kind": "info",
-      "variation": "multi_column",
-      "title": "Section title goes here [Info #3 - V4]",
-      "button_color": {"type": "marketplace_data", "id": "primary_color"},
-      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "icon_color": {"type": "marketplace_data", "id": "primary_color"},
-      "columns": [
-        {
-          "title": "Our mission",
-          "paragraph": ["Paragraph. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus.","Paragraph. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus.","Paragraph. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus."]
-        },
-        {
-          "title": "Our mission",
-          "paragraph": "Paragraph. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus."
-        }
-      ]
+        "id": "listings",
+        "kind": "listings",
+        "title": "Featured listings section",
+        "paragraph": "PLEASE NOTE: This section is NOT ENABLED by default. To enable this section, replace listing IDs with real IDs and add the section to the 'composition'. This section contains 3 featured listings",
+        "button_color": {"type": "marketplace_data", "id": "primary_color"},
+        "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+        "button_title": "Browse all listings",
+        "button_path": {"type": "path", "id": "search"},
+        "price_color": {"type": "marketplace_data", "id": "primary_color"},
+        "no_listing_image_background_color": {"type": "marketplace_data", "id": "primary_color"},
+        "no_listing_image_text": {"type": "translation", "id": "no_listing_image"},
+        "author_name_color_hover": {"type": "marketplace_data", "id": "primary_color"},
+        "listings": [
+            {
+                "listing": { "type": "listing", "id": 99999 }
+            },
+            {
+                "listing": { "type": "listing", "id": 99999 }
+            },
+            {
+                "listing": { "type": "listing", "id": 99999 }
+            }
+        ]
     },
     {
       "id": "footer",
       "kind": "footer",
-      "theme": "light",
+      "theme": "dark",
       "social_media_icon_color": {"type": "marketplace_data", "id": "primary_color"},
       "social_media_icon_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "links": [
@@ -577,46 +259,34 @@ module CustomLandingPage
         {"label": "Sharetribe", "href": {"value": "https://www.sharetribe.com"}}
       ],
       "social": [
-        {"service": "facebook", "url": "https://www.facebook.com"},
-        {"service": "twitter", "url": "https://www.twitter.com"},
-        {"service": "instagram", "url": "https://www.instagram.com"},
+        {"service": "facebook", "url": "https://www.facebook.com/Sharetribe/"},
+        {"service": "twitter", "url": "https://twitter.com/sharetribe"},
+        {"service": "instagram", "url": "https://www.instagram.com/"},
         {"service": "youtube", "url": "https://www.youtube.com/channel/UCtefWVq2uu4pHXaIsHlBFnw"},
-        {"service": "googleplus", "url": "https://www.google.com"},
-        {"service": "linkedin", "url": "https://www.google.com"}
+        {"service": "googleplus", "url": "https://plus.google.com/114869130265262677354/"},
+        {"service": "linkedin", "url": "https://www.linkedin.com/company/2626583"}
       ],
       "copyright": "Copyright Marketplace Ltd 2016"
-    },
-
-    {
-      "id": "thecategories",
-      "kind": "categories",
-      "slogan": "blaablaa",
-      "category_ids": [123, 432, 131]
     }
   ],
 
   "composition": [
-    { "section": {"type": "sections", "id": "myhero1"}},
-    { "section": {"type": "sections", "id": "video2"}},
-    { "section": {"type": "sections", "id": "info1_v1"}},
-    { "section": {"type": "sections", "id": "info1_v2"}},
-    { "section": {"type": "sections", "id": "info1_v3"}},
-    { "section": {"type": "sections", "id": "info1_v4"}},
-    { "section": {"type": "sections", "id": "info2_v1"}},
-    { "section": {"type": "sections", "id": "info2_v2"}},
-    { "section": {"type": "sections", "id": "info2_v3"}},
-    { "section": {"type": "sections", "id": "info2_v4"}},
-    { "section": {"type": "sections", "id": "info3_v1"}},
-    { "section": {"type": "sections", "id": "info3_v2"}},
-    { "section": {"type": "sections", "id": "info3_v3"}},
-    { "section": {"type": "sections", "id": "info3_v4"}},
+    { "section": {"type": "sections", "id": "hero"}},
+    { "section": {"type": "sections", "id": "single_info_without_background_and_cta"}},
+    { "section": {"type": "sections", "id": "single_info_without_cta"}},
+    { "section": {"type": "sections", "id": "single_info_with_cta"}},
+    { "section": {"type": "sections", "id": "single_info_with_background_and_cta"}},
+    { "section": {"type": "sections", "id": "single_info_with_background_color_and_cta"}},
+    { "section": {"type": "sections", "id": "two_column_info_with_icons_and_buttons"}},
+    { "section": {"type": "sections", "id": "two_column_info_without_icons_and_buttons"}},
+    { "section": {"type": "sections", "id": "three_column_info_with_icons_and_buttons"}},
+    { "section": {"type": "sections", "id": "three_column_info_without_icons_and_buttons"}},
+    { "section": {"type": "sections", "id": "video"}},
     { "section": {"type": "sections", "id": "footer"}}
   ],
 
   "assets": [
-    { "id": "myheroimage", "src": "hero.jpg", "content_type": "image/jpeg" },
-    { "id": "myinfoimage", "src": "info.jpg", "content_type": "image/jpeg" },
-    { "id": "myinfoimage2", "src": "church.jpg", "content_type": "image/jpeg" }
+    { "id": "default_hero_background", "src": "default_hero_background.jpg", "content_type": "image/jpeg" }
   ]
 }
 JSON
