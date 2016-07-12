@@ -195,6 +195,7 @@ nb:
         select_distance_unit: "Vis avstand i %{distance_units_selector}"
         km: km
         miles: miles
+        show_only_nearby: ~
         listing_preferences: Annonseinnstillinger
         transaction_preferences: Transaksjonsinnstillinger
         show_listing_publishing_date: "Vis dato annonsen ble publisert"

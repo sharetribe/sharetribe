@@ -52,7 +52,7 @@ hu:
         enabled_languages: "Választható nyelvek"
         enabled_languages_description: "Választható nyelvek felhasználók részére. Az első lesz az alapértelmezett."
         default_language: "Alapértelmezett nyelv"
-        language_selection_disabled: ~
+        language_selection_disabled: "A nyelv kiválasztása tiltva lett az ön piacterén mert ön nem hivatalos nyelveket használ: %{languages}. Kérjük vegye fel a kapcsolatot a Sharetribe-bal ha változtatni szeretne a nyelvi beállításokon."
         community_name: ~
         edit_community_name_description: ~
         community_slogan: ~
@@ -80,7 +80,7 @@ hu:
         transaction_agreement_checkbox: ~
         transaction_agreement_checkbox_header: ~
         transaction_agreement_checkbox_label_description: ~
-        transaction_agreement_text_header: ~
+        transaction_agreement_text_header: "Felhasználói feltételek"
         transaction_agreement_description: "A használati feltételek tartalmát a felhasználónak tudomásul kell vennie. A használati feltételek tartalma akkor kerül megjelenésre ha a felhasználó  rákattint a \"%{read_more}\" linkre amely használati feltételek címke mellett található."
       edit_look_and_feel:
         edit_community_look_and_feel: ~
@@ -125,10 +125,10 @@ hu:
         send_test_message: "Tesztüzenet küldése"
       outgoing_email:
         title: "Kimenő emailcím"
-        info: ~
-        read_more: ~
-        sender_address: ~
-        sender_address_default: ~
+        info: "Ez a név és cím a piactérrtől a felhasználóknak küldött e-mailekben szerepel."
+        read_more: "További információ kimenő e-mailekkel kapcsolatban."
+        sender_address: "Feladó címe: %{sender_address}"
+        sender_address_default: "Feladó címe: nincs beállítva (alapértelmezett cím használata %{sender_address})"
         need_to_change: ~
         contact_support_link_text: ~
         set_sender_address: ~
@@ -194,6 +194,7 @@ hu:
         select_distance_unit: ~
         km: ~
         miles: ~
+        show_only_nearby: ~
         listing_preferences: "Hirdetési beállítások"
         transaction_preferences: ~
         show_listing_publishing_date: "A hírdetés feladásának megmutatása a hírdető oldalon"
@@ -212,13 +213,13 @@ hu:
         newsletter_daily: Napi
         newsletter_weekly: Heti
         delete_marketplace_title: "Piactér törlése"
-        type_marketplace_domain: ~
+        type_marketplace_domain: "A piactere domain nevét (%{domain}) írja az alábbi mezőbe:"
         type_marketplace_domain_placeholder: ~
-        once_you_delete: ~
+        once_you_delete: "Ha törli a piacterét,  hozzáférése véglegesen megszűnik.  Csak óvatosan."
         are_you_sure: "Biztos benne?"
-        i_understand_button: ~
-        last_community_updates: ~
-        you_will_be_redirected_to: ~
+        i_understand_button: "Megértettem, hogy amennyiben erre a gombra kattintok a piacterem törlésre kerül"
+        last_community_updates: "Kérjük vegye figyelembe, hogy a piactér törlését követően ön és a piactere felhasználói még utoljára kaphatnak tájékoztató e-maileket."
+        you_will_be_redirected_to: "A piactere törlését követően önt átirányítjuk %{destination} oldalra. A továbbiakban nem lesz hozzáférése a piacteréhez."
         delete_this_marketplace: "Piactér törlése"
       manage_members:
         manage_members: "Felhasználók kezelése"
@@ -376,7 +377,9 @@ hu:
     listing_shapes:
       index:
         listing_shapes: Ajánlattípusok
-        description: ~
+        description: |-
+            A hirdetési típusok meghatározzák, a rendelések és vásárlások menetét. 
+            Ön eldöntheti, hogy a felhasználói bérbe adnak vagy eladnak, vagy akár csak  közleményeket osztanak meg és ingyen üzenetekkel kommunikálnak.
         read_more_about_order_types: "Tudjon meg többet az ajánlattípusokról"
         add_new_shape: "Adjon meg új ajánlattípust: "
         select_template: Válasszon
@@ -385,10 +388,10 @@ hu:
         category_count: ~
         header:
           listing_shape_name: "Ajánlattípus neve"
-          listing_shape_categories: ~
+          listing_shape_categories: "Kategóriák ahol ez használva van"
         order:
           saving_order: "Rendelés mentése"
-          save_order_successful: ~
+          save_order_successful: "Sikeresen mentett hirdetési típus"
           save_order_error: "Hiba történt a rendelés mentése közben. Kérjük, frissítse az oldalt és próbálja újra."
       templates:
         selling_products: "Eladó termékek"
@@ -405,18 +408,20 @@ hu:
         create_success: "Új rendelési típus '%{shape}' elkészülte"
         create_failure: "Nem tudott új ajánlattípust létrehozni. Hiba:%{error_msg}"
       edit:
-        edit_listing_shape: ~
+        edit_listing_shape: "Hirdetési típus szerkesztése '%{shape}'"
         update: Mentés
         cancel: Mégse
-        update_success: ~
+        update_success: "A hirdetési típus változásai '%{shape}' mentésre kerültek"
         update_failure: "A változások elmentése sikertelen. Hiba: %{error_msg}"
         delete: "Ajánlattípus törlése"
-        can_not_delete_last: ~
-        can_not_delete_only_one_in_categories: ~
+        can_not_delete_last: "Ezt a hirdetéstípust nem tudja törölni mert jelenleg piactere ezzel az egyetlen típussal rendelkezik."
+        can_not_delete_only_one_in_categories: "Ezt a hirdetéstípust ön nem tudja törölni mert a következő kategóriákban kizárólag ez a hirdetéstípus van használatban: %{categories}"
+        confirm_delete_order_type:
+          other: "Ebben a hirdetési típusban %{count} számú hirdetés található. Amennyiben törli ezt a hirdetési típust a hirdetések lezáródnak. Biztos benne hogy törölni akarja ezt a hirdetési típust?"
       listing_shape_name: Név
-      listing_shape_name_placeholder: ~
+      listing_shape_name_placeholder: "Például: Elad"
       action_button_label: ~
-      action_button_placeholder: ~
+      action_button_placeholder: "Például: Vásárlás"
       successfully_closed: "Sikeresen lezárt hirdetések"
       successfully_deleted: "Sikeresen törölt rendelési típus '%{order_type}'"
       pricing_and_checkout_title: ~
@@ -433,19 +438,23 @@ hu:
         week: Hetente
         month: Havonta
       can_not_find: ~
-      add_custom_unit: ~
+      add_custom_unit: "+Adjon meg egy egyedi árat ..."
       delete_custom_unit: töröl
       custom_unit_form:
         title: "Új egységár"
         label_heading: Címke
         selector_label_heading: ~
-        label_placeholder: ~
-        selector_placeholder: ~
-        per: ~
+        label_placeholder: "pl: \"kg\", \"30 perc\", \"személy\", \"osztály\""
+        selector_placeholder: "pl: \"személyek száma\", \"Mennyiség kg-ban\""
+        per: Per
         unit_type:
           heading: "Egység típus"
-          quantity_label: ~
-          time_label: ~
+          quantity_label: "Mennyiség ( darabonként, kg-onként, személyenként, 2 órás túránként...)"
+          time_label: "Idő (30 percenként, 2 hetente, évente...)"
+      close_listings_action:
+        other: "%{count} számú hirdetés lezárása"
+      confirm_close_listings_action:
+        other: "Biztos benne, hogy le szeretne zárni %{count} számú hirdetést?"
     paypal_accounts:
       marketplace_paypal_integration: "Fizetési beállítások"
       preferences_updated: "Fizetési preferenciák frissítve"
@@ -603,7 +612,7 @@ hu:
       canceled_request: "Hirdetés törölve"
       canceled_offer: "Ajánlat törlése"
       paid: "Fizetve %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Fizetés engedélyezve: %{sum}"
     new:
       message: Üzenet
       message_to: "Üzenet neki: %{author_name}"
@@ -923,7 +932,7 @@ hu:
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
-      you_have_time_to_accept: ~
+      you_have_time_to_accept: "Kérjük engedélyezze vagy utasítsa el az ajánlatot a lejárat előtt %{payment_expires_in}. Ha a lejárat előtt megadja az engedélyt, az utalás meg fog valósulni. Amennyiben nem engedélyezi, az ajánlat automatikusan elutasításra kerül és az átutalás meghiúsul."
       click_here_to_reply: "Kattintson ide a kérésre válaszoláshoz"
     transaction_preauthorized_reminder:
       subject: "Ne feledje elfogadni %{requester} felkérését a %{listing_title} hirdetés ügyében"
@@ -975,8 +984,8 @@ hu:
     transaction_agreement:
       required_error: "Kérem fogadja el a megegyezést"
     paypal:
-      buyer_cannot_pay_error: ~
-      pending_review_error: ~
+      buyer_cannot_pay_error: "PayPal az átutalást elutasította. Kérjük vegye fel a kapcsolatot a vevőszolgálatukkal: %{customer_service_link}"
+      pending_review_error: "Az utalás elindításra került, de a PayPal jelölte mint: 'értékelés igénylése'. Amint a PayPal elvégzi az értékelést az utalás automatikusan engedélyezésre kerül."
       seller_express_checkout_disabled: ~
       generic_error: "Hiba merült fel a fizetés során. A PayPal-os kifizetés sikertelen."
       cancel_error: "A törlés alatt hiba merült fel. A törlés sikertelen."
@@ -1136,7 +1145,7 @@ hu:
       message: "Személyes üzenet"
       send_invitation: "Meghívó küldése"
       add_email_addresses_description: ~
-      add_lots_of_email_addresses: ~
+      add_lots_of_email_addresses: "Egy tanács, önnek mint adminisztrátornak: amennyiben sok e-mailes meghívást tervez, használjon egy e-mail eszközt. Itt %{this_article_link} találhat több információt az alkalmas e-mail szolgáltatásokról."
       this_article_link: "ez a termék"
       invitation_emails_field_placeholder: "barat1@pelda.com, barat2@pelda.com, ..."
       invitation_message_field_placeholder: ~
@@ -1278,7 +1287,7 @@ hu:
       feedback_sent_to: "Visszajelzését elküldtük neki: %{target_person}"
       feedback_skipped: "Értékelés kihagyva"
       invitation_cannot_be_sent: "Meghívó küldés sikertelen"
-      invitation_limit_reached: ~
+      invitation_limit_reached: "Túl sok meghívás küldésével próbálkozott. Elérte a napi limitet."
       invitation_sent: "Meghívó sikeresen elküldve"
       inviting_new_users_is_not_allowed_in_this_community: "Új felhasználók meghívása nem engedélyezett"
       login_again: "Kérjük lépjen be újra."
@@ -1470,8 +1479,8 @@ hu:
         time: "óra, nap, hónap..."
         long_time: "hét, hónap,..."
         after_service_fee_you_will_get: ~
-        no_service_fee_you_will_get_paypal_text: ~
-        after_service_fee_you_will_get_paypal_text: ~
+        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} levonásra fog kerülni."
+        after_service_fee_you_will_get_paypal_text: "%{service_name} díja (%{sum_with_currency}) és %{paypal_fee_info_link} levonásra fog kerülni."
         paypal_fee_info_link_text: "PayPal fizetési folyamat költsége"
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "Az ár nem tartalmazza az ÁFÁ-t"
