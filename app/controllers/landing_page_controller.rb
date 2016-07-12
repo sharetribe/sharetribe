@@ -192,10 +192,13 @@ class LandingPageController < ActionController::Metal
   def community_context(request, locale)
     c = community(request)
 
-    { favicon: c.favicon.url,
+    { id: c.id,
+      favicon: c.favicon.url,
       apple_touch_icon: c.logo.url(:apple_touch),
       facebook_locale: facebook_locale(locale),
-      facebook_connect_id: c.facebook_connect_id }
+      facebook_connect_id: c.facebook_connect_id,
+      google_maps_key: c.google_maps_key,
+      google_analytics_key: c.google_analytics_key }
   end
 
   def render_landing_page(default_locale:, locale_param:, structure:)
@@ -243,8 +246,8 @@ class LandingPageController < ActionController::Metal
                      },
                      page: denormalizer.to_tree(structure, root: "page"),
                      sections: denormalizer.to_tree(structure, root: "composition"),
-                     google_maps_key: google_maps_key,
-                     community_context: community_context(request, landing_page_locale)
+                     community_context: community_context(request, landing_page_locale),
+                     feature_flags: FeatureFlagHelper.feature_flags,
                    }
   end
 

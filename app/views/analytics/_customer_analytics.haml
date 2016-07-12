@@ -7,7 +7,7 @@
   })(window,document,'script','//www.google-analytics.com/analytics.js','gaCustomer');
 
   (function(){
-    var communityGaKey = "#{@current_community.google_analytics_key}";
+    var communityGaKey = "#{google_analytics_key}";
     var communityCookieDomain = "#{PublicSuffix.parse(request.host).domain}";
 
     gaCustomer('create', communityGaKey, 'auto', {'legacyCookieDomain': communityCookieDomain, 'allowLinker': true});

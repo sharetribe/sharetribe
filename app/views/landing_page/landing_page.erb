@@ -52,7 +52,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <% unless local_assigns.has_key?(:skip_analytics) && skip_analytics %>
-    <%= render partial: "layouts/google_analytics_script", locals: {feature_flags: FeatureFlagHelper.feature_flags} %>
+    <%= render partial: "layouts/google_analytics_script",
+               locals: { feature_flags: feature_flags,
+                         community_id: community_context[:id],
+                         google_analytics_key: community_context[:google_analytics_key] } %>
   <% end %>
 
   <title><%= page["title"]["value"] %></title>
@@ -89,7 +92,7 @@
   <% # Add javascript libraries and external javascript code %>
 
   <% if sections.any? { |s| s["section"]["kind"] == "hero" && s["section"]["variation"]["value"] == "location_search" } %>
-    <% key_param = local_assigns.has_key?(:google_maps_key) && google_maps_key ? "&key=#{google_maps_key}" : "" %>
+    <% key_param = community_context.has_key?(:google_maps_key) && community_context[:google_maps_key] ? "&key=#{community_context[:google_maps_key]}" : "" %>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places<%= key_param %>"></script>
     <script>
       <%= javascripts[:location_search] %>

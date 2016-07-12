@@ -1,7 +1,7 @@
 :plain
   var dataLayer = dataLayer || [];
   (function(dl){
-    var marketplaceId = #{Maybe(@current_community).id.or_else};
+    var marketplaceId = #{community_id};
     if (marketplaceId) {
       dl.push({"event": "identify", "id": "mp-"+marketplaceId+"-admin" });
     }
