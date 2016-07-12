@@ -9,7 +9,7 @@ module Sharetribe
 
   # List of locales that are completely or almost completely translated
   SUPPORTED_LOCALES = [
-    {ident: "da-DK", name: "Dansk", language: "da", region: "DK", fallback: nil}, # Danish (Denmark)
+    {ident: "da-DK", name: "Dansk", language: "da", region: "DK", fallback: "da"}, # Danish (Denmark)
     {ident: "de", name: "Deutsch", language: "de", region: "DE", fallback: nil}, # German (Germany)
     {ident: "el", name: "Ελληνικά", language: "el", region: "GR", fallback: nil}, # Greek (Greece)
     {ident: "en", name: "English", language: "en", region: "US", fallback: nil}, # English (United States)
@@ -24,10 +24,10 @@ module Sharetribe
     {ident: "ja", name: "日本語", language: "ja", region: "JP", fallback: nil}, # Japanese (Japan)
     {ident: "nb", name: "Norsk", language: "nb", region: "NO", fallback: nil}, # Norwegian Bokmål (Norway)
     {ident: "nl", name: "Nederlands", language: "nl", region: "NL", fallback: nil}, # Dutch (Netherlands)
-    {ident: "pt-BR", name: "Português do Brasil", language: "pt", region: "BR", fallback: nil}, # Portuguese (Brazil)
+    {ident: "pt-BR", name: "Português do Brasil", language: "pt", region: "BR", fallback: "pt"}, # Portuguese (Brazil)
     {ident: "ru", name: "Pусский", language: "ru", region: "RU", fallback: nil}, # Russian (Russia)
     {ident: "sv", name: "Svenska", language: "sv", region: "SE", fallback: nil}, # Swedish (Sweden)
-    {ident: "tr-TR", name: "Turkish", language: "tr", region: "TR", fallback: nil}, # Turkish (Turkey)
+    {ident: "tr-TR", name: "Turkish", language: "tr", region: "TR", fallback: "tr"}, # Turkish (Turkey)
     {ident: "zh", name: "中文", language: "zh", region: "CN", fallback: nil}, # Chinese (China)
     {ident: "pt-PT", name: "Português", language: "pt", region: "PT", fallback: "pt-BR"}, # Portuguese (Portugal)
   ]
@@ -40,15 +40,15 @@ module Sharetribe
     {ident: "hr", name: "Hrvatski", language: "hr", region: "HR", fallback: nil}, # Croatian (Croatia)
     {ident: "id", name: "Bahasa Indonesia", language: "id", region: "ID", fallback: nil}, # Indonesian (Indonesia)
     {ident: "is", name: "íslenska", language: "is", region: "IS", fallback: nil}, # Icelandic (Iceland)
-    {ident: "km-KH", name: "ភាសាខ្មែ", language: "km", region: "KH", fallback: nil}, # Khmer (Cambodia)
-    {ident: "ms-MY", name: "Bahasa Malaysia", language: "ms", region: "MY", fallback: nil}, # Malay (Malaysia)
+    {ident: "km-KH", name: "ភាសាខ្មែ", language: "km", region: "KH", fallback: "km"}, # Khmer (Cambodia)
+    {ident: "ms-MY", name: "Bahasa Malaysia", language: "ms", region: "MY", fallback: "ms"}, # Malay (Malaysia)
     {ident: "pl", name: "Polski", language: "pl", region: "PL", fallback: nil}, # Polish (Poland)
     {ident: "ro", name: "Română", language: "ro", region: "RO", fallback: nil}, # Romanian (Romania)
     {ident: "sw", name: "Kiswahili", language: "sw", region: "KE", fallback: nil}, # Swahili (Kenya)
     {ident: "vi", name: "Tiếng Việt", language: "vi", region: "VN", fallback: nil}, # Vietnamese (Vietnam)
     {ident: "hu", name: "Magyar", language: "hu", region: "HU", fallback: nil}, # Hungarian
     {ident: "cs", name: "Čeština", language: "cs", region: "CZ", fallback: nil}, # Czech
-    {ident: "th-TH", name: "Thai", language: "th", region: "TH", fallback: nil}, # Thai (Thailand)
+    {ident: "th-TH", name: "Thai", language: "th", region: "TH", fallback: "th"}, # Thai (Thailand)
     {ident: "bg", name: "български", language: "bg", reqion: "BG", fallback: nil}, # Bulgarian
     {ident: "mn", name: "Mongolian", language: "mn", reqion: "MN", fallback: nil}, # Mongolian
     {ident: "zh-TW", name: "繁體中文(台灣)", language: "zh", region: "TW", fallback: "zh"}, # Chinese (Taiwan)
