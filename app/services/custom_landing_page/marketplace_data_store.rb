@@ -21,6 +21,8 @@ module CustomLandingPage
                            .pluck(:name, :slogan, :description, :search_placeholder)
                            .first
 
+      slogan             ||= I18n.t("common.default_community_slogan", locale: locale)
+      description        ||= I18n.t("common.default_community_description", locale: locale)
       search_placeholder ||= I18n.t("landing_page.hero.search_placeholder", locale: locale)
 
       main_search = MarketplaceConfigurations
