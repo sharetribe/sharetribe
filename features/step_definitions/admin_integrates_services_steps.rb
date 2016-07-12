@@ -14,8 +14,18 @@ When(/^I add "(.*?)" to the Google analytics key field$/) do |arg1|
   }
 end
 
+When(/^I add "([^"]*)" to the Google Maps API key field$/) do |arg1|
+  steps %Q{
+    When I fill in "community_google_maps_key" with "#{arg1}"
+  }
+end
+
 Then(/^I should see "(.*?)" in the Google analytics key field$/) do |arg1|
   expect(find('#community_google_analytics_key').value).to eq(arg1)
+end
+
+Then(/^I should see "([^"]*)" in the Google Maps API key field$/) do |arg1|
+  expect(find('#community_google_maps_key').value).to eq(arg1)
 end
 
 Then(/^I should see "(.*?)" in the Facebook client id field$/) do |arg1|
