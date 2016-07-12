@@ -184,10 +184,10 @@ en:
         general: General
         users_can_review_each_other_after_transaction: "Users can review each other after an order"
         access: "Access preferences"
-        join_with_invite_only: "Users can only join this marketplace with an invite from another user"
-        users_can_invite_new_users: "All users can invite new users to this marketplace"
-        private: "This marketplace is private (only registered users can see the content)"
-        require_verification_to_post_listings: "Only users verified by admin can post new listings"
+        join_with_invite_only: "Allow users to join only with an invite from another user"
+        users_can_invite_new_users: "Allow all users to invite new users"
+        private: "Allow only registered users to see listings and user profiles (make marketplace private)"
+        require_verification_to_post_listings: "Allow only users verified by admin to post new listings"
         search_preferences: "Search preferences"
         default_search_type: "Search type: %{select_search_type}"
         keyword_search: "Keyword search"
@@ -195,7 +195,7 @@ en:
         select_distance_unit: "Show distance in %{distance_units_selector}"
         km: km
         miles: miles
-        show_only_nearby: "Location search shows only nearby listings in the list and grid view"
+        show_only_nearby: "Show only nearby listings in the list and grid view when location search is used"
         listing_preferences: "Listing preferences"
         transaction_preferences: "Order preferences"
         show_listing_publishing_date: "Display publishing date of the listing on the listing page"
