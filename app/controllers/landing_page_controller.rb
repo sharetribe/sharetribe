@@ -216,9 +216,6 @@ class LandingPageController < ActionController::Metal
                          topbar_locale)
     marketplace_context = marketplace_context(c, topbar_locale, request)
 
-    FeatureFlagHelper.init(request, false)
-    topbar_enabled = FeatureFlagHelper.feature_enabled?(:landingpage_topbar)
-
     google_maps_key = c&.google_maps_key
 
     denormalizer = build_denormalizer(
@@ -239,7 +236,7 @@ class LandingPageController < ActionController::Metal
                        translations: js_translations(topbar_locale)
                      },
                      topbar: {
-                       enabled: topbar_enabled,
+                       enabled: true,
                        props: props,
                        marketplace_context: marketplace_context,
                        props_endpoint: ui_api_topbar_props_path(locale: topbar_locale),
