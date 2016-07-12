@@ -1,7 +1,7 @@
 class InvitationsController < ApplicationController
 
   before_filter do |controller|
-    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_invite_new_user")
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_invite_new_users")
   end
 
   before_filter :users_can_invite_new_users
