@@ -198,33 +198,21 @@ describe "Landing page", type: :request do
       describe "cache expiration" do
         before(:all) { Rails.cache.clear }
 
-        before(:each) do
-          APP_CONFIG.clp_cache_time = 5
-          # Stub CACHE_TIME constant, because controller has already been loaded
-          stub_const("LandingPageController::CACHE_TIME", 5.seconds)
-        end
-
-        after(:each) do
-          APP_CONFIG.clp_cache_time = @orig_cache_time
-          stub_const("LandingPageController::CACHE_TIME", @orig_cache_time.seconds)
-        end
-
         it "after configured time" do
           get "http://#{@domain}"
 
           expect(response.status).to eq(200)
           expect(response.headers["X-CLP-Cache"]).to eq("0")
 
-          # wait for cache to expire
-          sleep(APP_CONFIG.clp_cache_time + 1)
+          # Travel forward to when the cache should have expired
+          Timecop.travel((APP_CONFIG.clp_cache_time + 1).seconds.from_now) do
+            get "http://#{@domain}"
 
-          get "http://#{@domain}"
-
-          expect(response.status).to eq(200)
-          expect(response.headers["X-CLP-Cache"]).to eq("0")
+            expect(response.status).to eq(200)
+            expect(response.headers["X-CLP-Cache"]).to eq("0")
+          end
         end
       end
     end
   end
-
 end
