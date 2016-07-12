@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
 
   include ApplicationHelper
   include IconHelper
-  include FeatureFlagHelper
   include DefaultURLOptions
   protect_from_forgery
   layout 'application'
@@ -22,6 +21,7 @@ class ApplicationController < ActionController::Base
     :fetch_community_plan_expiration_status,
     :perform_redirect,
     :fetch_logged_in_user,
+    :initialize_feature_flags,
     :save_current_host_with_port,
     :fetch_community_membership,
     :redirect_removed_locale,
@@ -163,6 +163,14 @@ class ApplicationController < ActionController::Base
       @current_user = current_person
       setup_logger!(user_id: @current_user.id, username: @current_user.username)
     end
+  end
+
+  def initialize_feature_flags
+    # Skip this if there is no current marketplace.
+    # This allows to avoid skipping this filter in many places.
+    return unless request.env[:current_marketplace]
+
+    FeatureFlagHelper.init(request, Maybe(@current_user).is_admin?.or_else(false))
   end
 
   # Ensure that user accepts terms of community and has a valid email
