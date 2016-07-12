@@ -10,6 +10,14 @@ Guides about advanced configurations.
 
 This guide helps you to configure Amazon Simple Email Service to send emails and Simple Notification Service to receive bounce and spam notifications.
 
+#### [Landing page](./landing-page.md)
+
+This guide helps you to enable the landing page feature.
+
+#### [Landing page JSON structure](./landing-page-structure.md)
+
+This document describes the landing page structure JSON format.
+
 
 ## Coding guidelines
 
