@@ -64,6 +64,7 @@ ICON_MAP = {
       "external_link" => "ss-action",
       "social_media" => "ss-share",
       "analytics" => "ss-analytics",
+      "maps" => "ss-location",
       "openbook" => "ss-openbook",
       "order_types" => "ss-cart",
       "download" => "ss-download",

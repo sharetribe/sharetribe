@@ -188,8 +188,10 @@ Kassi::Application.routes.draw do
           post :payment_gateways, to: 'communities#create_payment_gateway'
           get :social_media
           get :analytics
+          get :maps
           put :social_media, to: 'communities#update_social_media'
           put :analytics, to: 'communities#update_analytics'
+          put :maps, to: 'communities#update_maps'
           get :menu_links
           put :menu_links, to: 'communities#update_menu_links'
           delete :delete_marketplace

@@ -466,6 +466,14 @@ module ApplicationHelper
 
     links << {
       :topic => :configure,
+      :text => t("admin.communities.maps.maps"),
+      :icon_class => icon_class("maps"),
+      :path => maps_admin_community_path(@current_community),
+      :name => "maps"
+    }
+
+    links << {
+      :topic => :configure,
       :text => t("admin.communities.edit_text_instructions.edit_text_instructions"),
       :icon_class => icon_class("edit"),
       :path => edit_text_instructions_admin_community_path(@current_community),

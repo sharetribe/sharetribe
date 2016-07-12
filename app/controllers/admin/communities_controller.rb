@@ -123,6 +123,14 @@ class Admin::CommunitiesController < ApplicationController
       knowledge_base_url: APP_CONFIG.knowledge_base_url}
   end
 
+  def maps
+    @selected_left_navi_link = "maps"
+    @community = @current_community
+    render "maps", :locals => {
+      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
+      knowledge_base_url: APP_CONFIG.knowledge_base_url}
+  end
+
   def menu_links
     @selected_left_navi_link = "menu_links"
     @community = @current_community
@@ -280,6 +288,19 @@ class Admin::CommunitiesController < ApplicationController
             analytic_params,
             analytics_admin_community_path(@current_community),
             :analytics)
+  end
+
+  def update_maps
+    @community = @current_community
+    @selected_left_navi_link = "maps"
+
+    params[:community][:google_maps_key] = nil if params[:community][:google_maps_key] == ""
+    maps_params = params.require(:community).permit(:google_maps_key)
+
+    update(@current_community,
+            maps_params,
+            maps_admin_community_path(@current_community),
+            :maps)
   end
 
   def update_settings
