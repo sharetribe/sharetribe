@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160627063918) do
+ActiveRecord::Schema.define(version: 20160708084933) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -603,11 +603,12 @@ ActiveRecord::Schema.define(version: 20160627063918) do
   add_index "locations", ["person_id"], name: "index_locations_on_person_id", using: :btree
 
   create_table "marketplace_configurations", force: :cascade do |t|
-    t.integer  "community_id",  limit: 4,                       null: false
-    t.string   "main_search",   limit: 255, default: "keyword", null: false
-    t.string   "distance_unit", limit: 255, default: "metric",  null: false
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.integer  "community_id",          limit: 4,                       null: false
+    t.string   "main_search",           limit: 255, default: "keyword", null: false
+    t.string   "distance_unit",         limit: 255, default: "metric",  null: false
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+    t.boolean  "limit_search_distance",             default: true,      null: false
   end
 
   add_index "marketplace_configurations", ["community_id"], name: "index_marketplace_configurations_on_community_id", using: :btree

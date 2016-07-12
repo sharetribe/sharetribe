@@ -205,7 +205,8 @@ class Admin::CommunitiesController < ApplicationController
         main_search: marketplace_configurations[:main_search],
         main_search_select_options: main_search_select_options,
         distance_unit: marketplace_configurations[:distance_unit],
-        distance_unit_select_options: distance_unit_select_options
+        distance_unit_select_options: distance_unit_select_options,
+        limit_distance: marketplace_configurations[:limit_search_distance]
       }
     else
       render :settings, locals: {
@@ -308,7 +309,8 @@ class Admin::CommunitiesController < ApplicationController
        MarketplaceService::API::Api.configurations.update({
         community_id: @current_community.id,
         main_search: params[:main_search],
-        distance_unit: params[:distance_unit]
+        distance_unit: params[:distance_unit],
+        limit_search_distance: params[:limit_distance].present?
       })
     end
 

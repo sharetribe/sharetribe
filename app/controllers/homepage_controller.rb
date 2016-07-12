@@ -160,12 +160,16 @@ class HomepageController < ApplicationController
     dropdowns = filter_params[:custom_dropdown_field_options].map { |dropdown_field| dropdown_field.merge(type: :selection_group, operator: :or) }
     numbers = numeric_search_params.map { |numeric| numeric.merge(type: :numeric_range) }
 
-    distance_unit = (location_search_in_use && MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:distance_unit] == :metric) ? :km : :miles
+    marketplace_configuration = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data
+
+    distance_unit = (location_search_in_use && marketplace_configuration[:distance_unit] == :metric) ? :km : :miles
+    limit_search_distance = marketplace_configuration ? marketplace_configuration[:limit_search_distance] : true
     location_search_hash = location_search_params(
       params[:lc],
       distance_unit,
       params[:distance_max],
-      APP_MINIMUM_DISTANCE_MAX
+      APP_MINIMUM_DISTANCE_MAX,
+      limit_search_distance
     )
     search_extra = location_search_hash.blank? ? { sort: nil } : location_search_hash
 
@@ -282,16 +286,17 @@ class HomepageController < ApplicationController
     end
   end
 
-  def location_search_params(latlng, distance_unit, distance_max, minimum_distance_max)
+  def location_search_params(latlng, distance_unit, distance_max, minimum_distance_max, limit_by_distance)
     # Current map doesn't react to zoom & panning, so we fetch all the results as before.
     if @view_type != 'map'
       Maybe(latlng)
         .map {
+          distance_limit = [minimum_distance_max, distance_max.to_f].max if limit_by_distance
           search_coordinates(latlng).merge({
             distance_unit: distance_unit,
-            distance_max: [minimum_distance_max, distance_max.to_f].max,
+            distance_max: distance_limit,
             sort: :distance
-          })
+          }).compact
         }
         .or_else({})
     else

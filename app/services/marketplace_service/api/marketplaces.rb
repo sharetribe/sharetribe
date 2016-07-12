@@ -93,6 +93,7 @@ module MarketplaceService::API
       marketplace_name = p[:marketplace_name].or_else("Trial Marketplace")
       payment_process = p[:payment_process].or_else(:preauthorize)
       distance_unit = p[:marketplace_country].map { |country| (country == "US") ? :imperial : :metric }.or_else(:metric)
+      limit_search_distance = false
 
       community = CommunityModel.create(Helper.community_params(p, marketplace_name, locale))
 
@@ -103,7 +104,8 @@ module MarketplaceService::API
       Helper.create_configurations!({
         community_id: community.id,
         main_search: :keyword,
-        distance_unit: distance_unit
+        distance_unit: distance_unit,
+        limit_search_distance: limit_search_distance
       })
 
       from_model(community)

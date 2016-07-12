@@ -5,7 +5,8 @@ module MarketplaceService::Store::MarketplaceConfigurations
   MarketplaceConfigurations = EntityUtils.define_builder(
     [:community_id, :mandatory, :fixnum],
     [:main_search, :to_symbol, one_of: [:keyword, :location]],
-    [:distance_unit, :to_symbol, one_of: [:metric, :imperial]]
+    [:distance_unit, :to_symbol, one_of: [:metric, :imperial]],
+    [:limit_search_distance, :to_bool, default: true]
   )
 
   module_function
