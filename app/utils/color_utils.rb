@@ -4,23 +4,31 @@ module ColorUtils
 
   # Same as in filter: brightness(80%) in CSS
   #
+  # The implementation operates on RBG space according
+  # to CSS filter effects spec.
+  #
   # Usage:
   #
   # brightness("80E619", 80) == "66B814"
   #
   def brightness(name_or_hex, percentage)
-    # CSS brightness(80%) is the same as adjust_brightness(-20)
-    p = percentage - 100
+    p = normalize_percentage(percentage)
+    rgb = Color::RGB.by_css(name_or_hex)
 
-    Color::RGB
-      .by_css(name_or_hex)
-      .adjust_brightness(p)
-      .hex
-      .upcase
+    rgb.r *= p
+    rgb.g *= p
+    rgb.b *= p
+
+    rgb.hex.upcase
   end
 
   def css_to_rgb_array(css)
     color = Color::RGB.by_css(css)
     [color.red.to_i, color.green.to_i, color.blue.to_i]
   end
+
+  def normalize_percentage(percentage)
+    percentage.to_f / 100.to_f
+  end
+
 end
