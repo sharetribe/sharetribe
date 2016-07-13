@@ -101,6 +101,27 @@ I18n.module_eval do
   end
 end
 
+# Pluralization monkey patch
+# Pluralizer is selected by language code, but I18n gem doesn't understand two-part locales
+# we use for many locales. Default fallback is "one-other" pluralisation, but Turkish needs
+# an "other" type pluralizer.
+#
+# This should be generalized to drop the region code from two-part locales.
+module I18n::Backend::Pluralization
+  alias_method :pluralizer_original, :pluralizer
+  def pluralizer(locale)
+    if (locale == :'tr-TR')
+      original_locales = I18n.available_locales
+      I18n.available_locales += [:tr]
+      p = pluralizer_original('tr')
+      I18n.available_locales = original_locales
+      p
+    else
+      pluralizer_original(locale)
+    end
+  end
+end
+
 # Throw en exception in test mode if translation is missing.
 # See: http://robots.thoughtbot.com/foolproof-i18n-setup-in-rails
 #
