@@ -9,6 +9,7 @@ const fontSizeMobile = '17px';
 const textColor = 'rgb(82, 89, 97)';
 const textColorFocus = 'rgb(0, 0, 0)';
 const textColorGrey = 'rgb(122, 125, 128)';
+const textColorLight = 'rgb(255, 255, 255)';
 const backgroundLightColor = 'white';
 const backgroundLightColorHover = 'rgba(169, 172, 176, 0.07)';
 const customColorFallback = '#a64c5d';
@@ -166,10 +167,12 @@ module.exports = {
   '--ProfileDropdown_textColor': textColor,
   '--ProfileDropdown_textColorFocus': textColorFocus,
   '--ProfileDropdown_logoutLinkColor': textColorGrey,
+  '--ProfileDropdown_colorLight': textColorLight,
   '--ProfileDropdown_textLinkSize': pxToEms(13, 14), // eslint-disable-line no-magic-numbers
   '--ProfileDropdown_arrowWidth': '18px',
   '--ProfileDropdown_topSeparation': '3px',
   '--ProfileDropdown_lineWidth': '2px',
+  '--ProfileDropdown_fontSizeNotification': fontSizeSmaller,
 
   '--MenuItem_borderColor': topbarBorderColor,
   '--MenuItem_backgroundColorHover': backgroundLightColorHover,

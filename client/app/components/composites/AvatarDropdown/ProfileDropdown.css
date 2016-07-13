@@ -37,6 +37,20 @@
   border-right: 0;
 }
 
+.profileActionIconWrapper {
+  position: relative;
+}
+
+.notificationCount {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: var(--ProfileDropdown_colorLight);
+  font-size: var(--ProfileDropdown_fontSizeNotification);
+}
+
 .logoutArea {
   border-top: var(--ProfileDropdown_border);
   padding: 0.69em 1.15em;
