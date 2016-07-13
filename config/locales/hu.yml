@@ -414,14 +414,18 @@ hu:
         update_success: "A hirdetési típus változásai '%{shape}' mentésre kerültek"
         update_failure: "A változások elmentése sikertelen. Hiba: %{error_msg}"
         delete: "Ajánlattípus törlése"
-        can_not_delete_last: "Ezt a hirdetéstípust nem tudja törölni mert jelenleg piactere ezzel az egyetlen típussal rendelkezik."
-        can_not_delete_only_one_in_categories: "Ezt a hirdetéstípust ön nem tudja törölni mert a következő kategóriákban kizárólag ez a hirdetéstípus van használatban: %{categories}"
         confirm_delete_order_type:
           other: "Ebben a hirdetési típusban %{count} számú hirdetés található. Amennyiben törli ezt a hirdetési típust a hirdetések lezáródnak. Biztos benne hogy törölni akarja ezt a hirdetési típust?"
+        can_not_delete_last: "Ezt a hirdetéstípust nem tudja törölni mert jelenleg piactere ezzel az egyetlen típussal rendelkezik."
+        can_not_delete_only_one_in_categories: "Ezt a hirdetéstípust ön nem tudja törölni mert a következő kategóriákban kizárólag ez a hirdetéstípus van használatban: %{categories}"
       listing_shape_name: Név
       listing_shape_name_placeholder: "Például: Elad"
       action_button_label: ~
       action_button_placeholder: "Például: Vásárlás"
+      close_listings_action:
+        other: "%{count} számú hirdetés lezárása"
+      confirm_close_listings_action:
+        other: "Biztos benne, hogy le szeretne zárni %{count} számú hirdetést?"
       successfully_closed: "Sikeresen lezárt hirdetések"
       successfully_deleted: "Sikeresen törölt rendelési típus '%{order_type}'"
       pricing_and_checkout_title: ~
@@ -451,10 +455,6 @@ hu:
           heading: "Egység típus"
           quantity_label: "Mennyiség ( darabonként, kg-onként, személyenként, 2 órás túránként...)"
           time_label: "Idő (30 percenként, 2 hetente, évente...)"
-      close_listings_action:
-        other: "%{count} számú hirdetés lezárása"
-      confirm_close_listings_action:
-        other: "Biztos benne, hogy le szeretne zárni %{count} számú hirdetést?"
     paypal_accounts:
       marketplace_paypal_integration: "Fizetési beállítások"
       preferences_updated: "Fizetési preferenciák frissítve"
@@ -795,7 +795,7 @@ hu:
       automatic_confirmation: ~
     payment_reminder:
       remember_to_pay: "Ne felejtse el kifizetni a következő tételt: %{listing_title}"
-      you_have_not_yet_paid: ~
+      you_have_not_yet_paid: "Ön még nem fizetett a %{listing_title} hirdetésben szereplő tételért melyenek eladását %{other_party_name} engedélyezte."
       if_will_not_happen_you_should_cancel: ~
       cancel_it_link_text: töröl
     payment_settings_reminder:
@@ -876,7 +876,7 @@ hu:
       new_payment: "Új utalást kellett kapjon"
       price_per_unit_type: "Ár: %{unit_type}"
       quantity: "Mennyiség:"
-      you_have_received_new_payment: ~
+      you_have_received_new_payment: "%{payer_full_name} fizetett a <b>%{listing_title}</b> hirdetésben szereplő tételért, <b>%{payment_sum}</b> összeget. Itt van róla a bizonylat."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal költségei"
       shipping_total: "Szállítás:"
@@ -888,7 +888,7 @@ hu:
       money_will_be_transferred: "Az összeg akkor kerül a számlájára amennyiben a) %{payer_name} jelezte a rendelés teljesítését vagy b) %{automatic_confirmation_days} nap eltelt amióta %{payer_name} fizetett."
     receipt_to_payer:
       receipt_of_payment: "Fizetés elfogadása"
-      you_have_made_new_payment: ~
+      you_have_made_new_payment: "Ön kifizette az <b>%{payment_sum}</b> összeget %{recipient_full_name} hirdetőnek a <b>%{listing_title}</b> hirdetésben szereplő tételért. Itt van róla a bizonylat."
       product: Termék
       price_per_unit_type: "Ár: %{unit_type}"
       duration: "Időtartam:"
@@ -925,7 +925,7 @@ hu:
       text_version_text: "Tud Ön is olyat felkínálni amire másoknak szüksége lehet? Vagy esetleg olyanra van szüksége ami másoknak van? Itt feladhatja kínál vagy keres hirdetését vagy átböngészheti a mások által feladott hirdetéseket: %{url}"
     reset_password_instructions:
       change_my_password: "Megváltoztatom a jelszavamat"
-      reset_password_instructions: ~
+      reset_password_instructions: "<p> Ön jelezte, hogy elfelejtette a jelszavát vagy a felhasználónevét %{service_name} oldalunkhoz. </p><p>Az ön felhasználóneve: %{username}</p><p>Amennyiben meg kell változtatnia a jelszavát, kattintson a következő linkre: %{password_reset_link}</p><br/><p>Amennyiben ön ezt nem kérte, hagyja figyelmen kívül e-mailünket. Az ön jelszava nem fog változni addig amíg a fenti liket használva ön egy újat nem készít.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Emlékeztető: kérjük értékelje a következő usert: %{name}"
       you_have_not_given_feedback_yet: "Én még nem értékelte %{name}-t ezzel az ügylettel kapcsolatban: %{event}. Kérjük értékelje %{given_name} milyen partnerként viselkedett."
@@ -1035,11 +1035,11 @@ hu:
       has_accepted_borrow_item: "%{offerer_name} engedélyezte %{listing_title} kölcsözését %{requester_name} számára %{time_ago}"
       has_accepted_rent_out_item: "%{offerer_name} engedélyezte %{listing_title} a bérlését %{requester_name} számára %{time_ago}"
       has_accepted_rent_item: "%{offerer_name} engedélyezte %{listing_title} a bérlését %{requester_name} számára %{time_ago}"
-      has_accepted_give_away_item: ~
-      has_accepted_receive_item: ~
-      has_accepted_sell_item: ~
+      has_accepted_give_away_item: "%{offerer_name} engedélyezte, %{listing_title} átadását %{requester_name} számára %{time_ago}"
+      has_accepted_receive_item: "%{offerer_name} engedélyezte, %{listing_title} átadását %{requester_name} számára %{time_ago}"
+      has_accepted_sell_item: "%{offerer_name} engedélyezte %{listing_title} eladását %{requester_name} számára %{time_ago}"
       has_accepted_buy_item: "%{offerer_name} engedélyezte %{listing_title} eladását %{requester_name} számára %{time_ago}"
-      has_accepted_trade_item: ~
+      has_accepted_trade_item: "%{offerer_name} beleegyezett %{listing_title} cseréjébe %{requester_name} felhasználóval %{time_ago}"
       has_accepted_sell_housing: "%{offerer_name} engedélyezte %{listing_title} eladását %{requester_name} számára %{time_ago}"
       has_accepted_buy_housing: "%{offerer_name} engedélyezte %{listing_title} eladását %{requester_name} számára %{time_ago}"
       has_accepted_rent_out_housing: "%{offerer_name} engedélyezte %{listing_title} a bérlését %{requester_name} számára %{time_ago}"
@@ -1051,7 +1051,7 @@ hu:
     login:
       logged_in_to_kassi: ~
     comment:
-      commented: ~
+      commented: "%{commenter_name} hozzászólt a következő hirdetéshez: %{listing_title} %{time_ago}"
       offer_partitive: Ajánlat
       request_partitive: Ajánlatkérés
   header:
@@ -1322,11 +1322,11 @@ hu:
       person_updated_successfully: "Információk frissítve"
       poll_answered: ~
       poll_could_not_be_answered: ~
-      poll_created: ~
-      poll_creation_failed: ~
-      poll_update_failed: ~
-      poll_updated: ~
-      poll_deleted: ~
+      poll_created: "Körkérdés hozzáadása"
+      poll_creation_failed: "Körkérdés hozzáadása sikertelen"
+      poll_update_failed: "Körkérdés frissítése sikertelen"
+      poll_updated: "Körkérdés frissítve"
+      poll_deleted: "Körkérdés törölve"
       read_more: "Még több információ"
       registration_considered_spam: ~
       reply_cannot_be_empty: "Nem küldhet üres üzenetet"
@@ -1473,7 +1473,7 @@ hu:
         location: Hely
       price:
         price: Ár
-        per: ~
+        per: per
         per_day: naponta
         mass: "darab, kg, liter, négyzetméter..."
         time: "óra, nap, hónap..."

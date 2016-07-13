@@ -195,6 +195,7 @@ fi:
         select_distance_unit: "Etäisyyden yksikkö %{distance_units_selector}"
         km: km
         miles: mailit
+        show_only_nearby: ~
         listing_preferences: Ilmoitusasetukset
         transaction_preferences: Tilausasetukset
         show_listing_publishing_date: "Näytä ilmoituksen julkaisuajankohta ilmoituksen sivulla"
