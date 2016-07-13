@@ -102,7 +102,7 @@ hu:
         custom_color1_instructions_text: |-
             Ön megváltoztathatja az oldal elsődleges színét egy színkód megadásával.<a href="http://www.colorpicker.com/?colorcode=D96E21" target="_blank" rel="noreferrer">
             A ColorPicker.com</a>  segítségével kiválaszthatja a színt és bemásohatja a színkódot ide.
-        custom_color2_instructions_text: ~
+        custom_color2_instructions_text: "Ön meg tudja változtatni a %{post_new_listing} gomb színét a hexadecimális színérték hozáadásával.<a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\" rel=\"noreferrer\"> A ColorPicker.com</a> segítségével választhat színt és bemásolhatja a kódot ide."
         default_browse_view: "Alapértelmezett keresési nézet"
         default_browse_view_instructions_text: "Az alapértelmezett keresési nézet a kezdőlapon arra használható, hogy beállítsuk a hírdetések alapértelmezett nézetét."
         grid: "Magazin nézet"
@@ -129,31 +129,31 @@ hu:
         read_more: "További információ kimenő e-mailekkel kapcsolatban."
         sender_address: "Feladó címe: %{sender_address}"
         sender_address_default: "Feladó címe: nincs beállítva (alapértelmezett cím használata %{sender_address})"
-        need_to_change: ~
-        contact_support_link_text: ~
-        set_sender_address: ~
+        need_to_change: "Amennyiben meg akarja változtani az e-mailcímét kattintson ide: %{contact_support_link}"
+        contact_support_link_text: "Lépjen kapcsolatba a rendszergazdával"
+        set_sender_address: "Feladó címének beállítása"
         sender_name_label: Név
         sender_name_placeholder: "Feladó neve"
         sender_email_label: Emailcím
-        sender_email_placeholder: ~
+        sender_email_placeholder: kuldo-email@pelda.com
         this_is_how_it_will_look: "Így fog kinézni:"
-        send_verification_button: ~
-        successfully_saved: ~
-        status: ~
-        status_verified: ~
+        send_verification_button: "Igazoló e-mail küldése"
+        successfully_saved: "A feladó címe sikeresen elmentve. Az igazoló e-mailt hamarosan küldjük."
+        status: "Állapot: %{status}"
+        status_verified: "Ellenőrzött - használatban"
         status_error: "Hiba történt. Kérem frissítse ezt az oldalt."
-        status_requested: ~
-        status_expired: ~
-        status_resent: ~
+        status_requested: "Ellenőrizetlen - ellenőrző e-mail elküldve %{email} számára %{time_ago}.%{resend_link}"
+        status_expired: "Igazolás a %{email} lejártáról. %{resend_link}"
+        status_resent: "Igazoló e-mail újraküldve erre az e-mailcímre %{email}. %{resend_link}"
         resend_link: Újraküld
         invalid_email_error: "Hibás e-mail formátum %{email}"
-        invalid_email_domain: ~
-        invalid_email_domain_read_more_link: ~
+        invalid_email_domain: "Ez az e-mailcím '%{email}' egy általunk nem támogatott e-mail szolgáltatót használ: '%{domain}'. %{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: "További információért tekintse át atudásbázist"
         unknown_error: "Hiba történt"
-        white_label_offer: ~
-        upgrade_plan_link: ~
-        verification_sent_from: ~
-        follow_the_instructions: ~
+        white_label_offer: "Allítsa be a saját e-mailcímét mint küldő és törölje a Sharetribe márkát a kimenő üzeneteiből %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "Váltás a Pro vagy további  csomagunkra"
+        verification_sent_from: "Az igazoló e-mail innen került küldésre %{verification_sender_name}"
+        follow_the_instructions: "Kérjük kövesse az e-mailben szereplő utasításokat hogy a címét igazolja."
       getting_started:
         getting_started: "Útmutató az első lépésekhez"
       available_languages:
@@ -214,7 +214,7 @@ hu:
         newsletter_weekly: Heti
         delete_marketplace_title: "Piactér törlése"
         type_marketplace_domain: "A piactere domain nevét (%{domain}) írja az alábbi mezőbe:"
-        type_marketplace_domain_placeholder: ~
+        type_marketplace_domain_placeholder: "Billentyűzze be a piactere domain nevét ide"
         once_you_delete: "Ha törli a piacterét,  hozzáférése véglegesen megszűnik.  Csak óvatosan."
         are_you_sure: "Biztos benne?"
         i_understand_button: "Megértettem, hogy amennyiben erre a gombra kattintok a piacterem törlésre kerül"
@@ -308,7 +308,7 @@ hu:
       edit:
         edit_listing_field: "Mező szerkesztése %{field_name}"
       edit_price:
-        description: ~
+        description: "A minimális és maximális ár csak a szűrőt befolyásolja. A hirdetések árát nem korlátozzák."
         edit_price_field: "Ár változtatása"
         show_price_filter_homepage: "Az ár szűrő megjelenítése a kezdőlapon"
         price_min: ~
@@ -373,7 +373,7 @@ hu:
       emails_title: Emailek
       support: Segítség
       subscription: Feliratkozás
-      preview: ~
+      preview: "A honlap előnézete"
     listing_shapes:
       index:
         listing_shapes: Ajánlattípusok
@@ -458,11 +458,11 @@ hu:
     paypal_accounts:
       marketplace_paypal_integration: "Fizetési beállítások"
       preferences_updated: "Fizetési preferenciák frissítve"
-      marketplace_currency_used: ~
-      contact_support_link_text: ~
+      marketplace_currency_used: "Ez a piactér %{currency} -pénznemet használ fizetőeszközként. A pénznem megváltoztatásához: %{contact_support_link}"
+      contact_support_link_text: "Vegye fel a kapcsolatot a Sharetribe rendszergazdájával"
       integration_info_text: "A Sharetribe-os kifizetéseket a PayPal támogatja. Amennyiben szeretné, hogy felhasználói fizessenek a piactér használatakor kapcsolja össze PayPal fiókjával. Amint csatlakoztatta a PayPal fiókját, kiválaszthatja a minimális tranakciós méretet és a lehetséges jutalékot."
       link_paypal_personal_account_label: "Ön gondoskodik a termékekről illetve szolgáltatásokról személyesen?"
-      link_paypal_personal_account: ~
+      link_paypal_personal_account: "Abban az esetben A PayPal fiókját is csatlakoztassa fiókjához %{personal_payment_preferences_link}"
       personal_payment_preferences_link_text: "Az Ön személyes piactéri fiókja"
       read_more_about_paypal: "Leírás a Sharetribe fizetési rendszeréről"
       set_minimum_price_and_fee: "Állítson be egy minimális árat és kezelési költséget"
@@ -764,10 +764,10 @@ hu:
       log_out: Kijelentkezés
       join_community_button: ~
     give_consent:
-      invitation_code_invalid_or_used: ~
-      email_not_allowed: ~
-      email_not_available: ~
-      consent_not_given: ~
+      invitation_code_invalid_or_used: "A meghívási kód érvénytelen vagy már használatban van."
+      email_not_allowed: "Ez az e-mail nem engedélyezett a %{service_name} oldalán."
+      email_not_available: "Az e-mail cím amit megadott már foglalt."
+      consent_not_given: "A feltételeket még nem fogadta el."
   emails:
     accept_reminder:
       remember_to_accept_offer: "Kérjük ne feledkezzen meg %{sender_name} ajánlatának elfogadásáról vagy elutasításáról"
@@ -778,9 +778,9 @@ hu:
       you_have_not_yet_accepted_or_rejected_request: "Még nem történt meg a %{date}-i %{title} ajánlatkérés elfogadása vagy elutasítása."
       show_thread: "Beszélgetések megmutatása"
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "A %{service_name} oldalát a %{sharetribe_link} piactér platform támogatja."
+      create_own: "Szeretne ön is egy online piacteret mint %{service_name}? Tudjon meg többet itt:%{learn_more}"
+      learn_more: Bővebben
     braintree_account_approved:
       account_ready: "Ön kész fizetések fogadására"
       message: "Az ön által megadott fizetési információkat elfogadtuk. Az önnek érkező átutalásokat mostantól tudja fogadni a/az %{service_name} oldalán."
@@ -971,7 +971,7 @@ hu:
       view_listing: "Hirdetés megtekintése"
   error_messages:
     onboarding:
-      server_rendering: ~
+      server_rendering: "Az útmutató kezdőknek betőltése sikertelen. Tisztában vagyunk a problémával és igyekszünk kijavítani."
     listings:
       departure_time: "Az indulás idejének a mai nap és az egy évvel későbbi dátum közé kell esnie."
       share_type: "Kérjük válasszon egyet."
@@ -1275,7 +1275,7 @@ hu:
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: "A kért e-mail megerősítve"
       could_not_get_email_from_facebook: "Nem kaptuk meg az e-mail címét a Facebook-tól és e-mail cím nélkül nem tudunk fiókot létrehozni."
-      facebook_email_unconfirmed: ~
+      facebook_email_unconfirmed: "Az e-mailcím %{email} amely a Facebook fiókjával lett társítva már használatban van de még nem lett visszaigazolva. Kérjük az e-mailcím visszaigazolását mielőtt bejelentkezne Facebook fiókjával."
       create_new_listing: "Adjon fel még egy hirdetést"
       create_one_here: "Hozzon létre egyet itt"
       email_confirmation_sent_to_new_address: "E-mail megerősítését elküldtük az új címre"
@@ -1320,8 +1320,8 @@ hu:
       person_activated: "Felhasználó aktiválva"
       person_deactivated: "Felhasználó kikapcsolva"
       person_updated_successfully: "Információk frissítve"
-      poll_answered: ~
-      poll_could_not_be_answered: ~
+      poll_answered: "Körkérdés megválaszolva"
+      poll_could_not_be_answered: "Körkérdés nem lett megválaszolva"
       poll_created: "Körkérdés hozzáadása"
       poll_creation_failed: "Körkérdés hozzáadása sikertelen"
       poll_update_failed: "Körkérdés frissítése sikertelen"
@@ -1452,7 +1452,7 @@ hu:
         googlemap_updatemap: "Térkép frissítés"
       images:
         image: Kép
-        best_result: ~
+        best_result: "A legjobb minőség elérése érdekében használjon JPG, GIF vagy PNG képeket amelyek %{width} (szélesség) X %{height} (magasság) pixel nagyságúak."
         no_file_selected: "Nincs fájl kiválasztva"
         remove_image: "Kép eltávolítása"
         select_file: "File kiválasztása"
@@ -1461,7 +1461,7 @@ hu:
         processing: Folyamatban...
         loading_image: Töltés...
         image_uploading_in_progress: "Kép feltöltése folyamatban..."
-        processing_takes_a_while: ~
+        processing_takes_a_while: "Az összes kép feltöltésre került. A feldolgozásuk egy kis időbe fog telni, de nyugodtan mentse el a hirdetést és dolgozhat tovább."
         this_may_take_a_while: ~
         percentage_loaded: "%{percentage}%"
         uploading_failed: "A kép feltöltése sikertelen"
@@ -1704,13 +1704,13 @@ hu:
   paypal_accounts:
     payout_info_title: ~
     paypal_account_email_connected: "<del>PayPal fiók csatlakoztatása</del> Sikeres!"
-    payout_info_paypal: ~
+    payout_info_paypal: "%{service_name} PayPal-t használja fizetési szolgáltatónak. Egy PayPal fiók %{create_paypal_account_link} szükséges, hogy hirdetéseiért az átutalásokat tudja fogadni. Ezért a PayPal fiókot csatlakoztatnia kell a %{service_name} oldalhoz."
     paypal_billing_agreement_made: "<del>Engedélyezés %{service_name} számára hogy tranzakciós díjat számoljon fel</del> Teljesítve!"
-    commission_permission_needed: ~
+    commission_permission_needed: "Továbbá engedélyeznie kell tranzakciós díj felszámítását %{service_name} számára."
     create_paypal_account_link_text: "PayPal fiók"
     connected_account: "PayPal fiók  <%{email}> csatlakozás sikeres"
     paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info_label: "Az ön PayPal fiókjának alkalmasnak kell lennie utalások fogadására. Ehhez valószínűleg Üzleti/Business PayPal fiókra lesz szüksége."
     paypal_receive_funds_info: ~
     upgrade_paypal_account_link_text: ~
     admin_account_not_connected: ~
@@ -1755,7 +1755,7 @@ hu:
     change_account: "Paypal fiók változtatás"
     missing: "Önnek vannak hirdetései, de az ön PayPal fiókja még nem lett beállítva átutalások fogadására. Csatlakoztassa a PayPal fiókját és engedélyezze a %{service_name} számára, hogy tranzakciós dijat számoljon fel %{settings_link}."
     from_your_payment_settings_link_text: "Fizetési beállítások"
-    redirect_message: ~
+    redirect_message: "Átirányítás a PayPal-ra. Amennyiben nem történik semmi kattintson ide: %{redirect_link}."
     redirect_link_text: itt
     paypal_account_all_set_up: "Sikeres beállítás"
     can_receive_payments: "Most már tud a hirdetéseivel kapcsolatos fizetést fogadni"
@@ -1797,7 +1797,7 @@ hu:
       invalid_invitation_code: "Meghívó kód érvénytelen"
       invitation_code: "Meghívó kód"
       not_required: ", nem szükséges"
-      notification_is_mandatory: ~
+      notification_is_mandatory: "Kérjük válasszon legalább egy e-mailcímet az értesítések fogadásához. Amennyiben nem szeretne e-maileket fogadni a %{service_name} oldaltól, ellenőrizze az e-mail értesítések beállítását."
       organization_name: "Szervezet neve"
       password_again: "Jelszó megerősítése"
       show_my_name_to_others: "Lássák a valós nevem az %{service_name} felhasználói"
@@ -2145,5 +2145,5 @@ hu:
     page_entries_info:
       single_page:
         other: "Az összes megmutatása %{count} %{model}"
-      multi_page: ~
+      multi_page: "%{model}%{from}-%{to} vagy %{count} végösszeg megjelenítése"
       multi_page_html: ~
