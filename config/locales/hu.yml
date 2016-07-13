@@ -78,7 +78,7 @@ hu:
         save: "Beállítások mentése"
         transaction_agreement: "Tranzakciós megállapodás"
         transaction_agreement_checkbox: ~
-        transaction_agreement_checkbox_header: ~
+        transaction_agreement_checkbox_header: "Használati feltételek"
         transaction_agreement_checkbox_label_description: ~
         transaction_agreement_text_header: "Felhasználói feltételek"
         transaction_agreement_description: "A használati feltételek tartalmát a felhasználónak tudomásul kell vennie. A használati feltételek tartalma akkor kerül megjelenésre ha a felhasználó  rákattint a \"%{read_more}\" linkre amely használati feltételek címke mellett található."
@@ -194,7 +194,7 @@ hu:
         select_distance_unit: ~
         km: ~
         miles: ~
-        show_only_nearby: ~
+        show_only_nearby: "Csak közeli hirdetéseket mutasson a lista és magazin nézetben hely szerinti keresés esetén"
         listing_preferences: "Hirdetési beállítások"
         transaction_preferences: ~
         show_listing_publishing_date: "A hírdetés feladásának megmutatása a hírdető oldalon"
@@ -1188,18 +1188,18 @@ hu:
       default_content: "Itt talál információt a %{marketplace_name} működéséről."
   landing_page:
     hero:
-      search: ~
-      signup: ~
-      search_placeholder: ~
+      search: Keresés
+      signup: Regisztráció
+      search_placeholder: "Mit keres?"
     listings:
-      no_listing_image: ~
+      no_listing_image: "Nincs kép"
   layouts:
     admin:
       admin: ~
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "A %{service_name} oldalát a %{sharetribe_link} piactér platform támogatja."
+      create_own: "Szeretne ön is egy online piacteret mint %{service_name}? Tudjon meg többet itt:%{learn_more}"
+      learn_more: Bővebben
     no_tribe:
       inbox: Bejövő
       settings: Beállítások
@@ -2120,17 +2120,17 @@ hu:
     days: napok
   web:
     topbar:
-      menu: ~
-      search_placeholder: ~
-      user: ~
-      inbox: ~
-      profile: ~
-      manage_listings: ~
-      settings: ~
-      logout: ~
-      login: ~
-      signup: ~
-      admin_dashboard: ~
+      menu: Menü
+      search_placeholder: Keresés...
+      user: Felhasználó
+      inbox: "Bejövő üzenetek"
+      profile: Profil
+      manage_listings: "Hirdetések rendezése"
+      settings: Beállítások
+      logout: Kijelentkezés
+      login: Bejelentkezés
+      signup: Regisztráció
+      admin_dashboard: "Rendszergazda kezelőpult"
   will_paginate:
     models:
       person:
