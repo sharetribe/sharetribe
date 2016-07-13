@@ -25,7 +25,7 @@ const profileDropdownActions = function profileDropdownActions(routes, username)
   } : null;
 };
 
-const avatarDropdownProps = (avatarDropdown, customColor, username, isAdmin, routes) => {
+const avatarDropdownProps = (avatarDropdown, customColor, username, isAdmin, notificationCount, routes) => {
   const color = customColor || styleVariables['--customColorFallback'];
   const actions = {
     inboxAction: () => false,
@@ -42,7 +42,7 @@ const avatarDropdownProps = (avatarDropdown, customColor, username, isAdmin, rou
     adminDashboard: t('web.topbar.admin_dashboard'),
     logout: t('web.topbar.logout'),
   };
-  return { actions, translations, customColor: color, isAdmin, ...avatarDropdown };
+  return { actions, translations, customColor: color, isAdmin, notificationCount, ...avatarDropdown };
 };
 
 const LABEL_TYPE_MENU = 'menu';
@@ -225,7 +225,7 @@ class Topbar extends Component {
       this.props.avatarDropdown && loggedInUsername ?
         r(AvatarDropdown, {
           ...avatarDropdownProps(this.props.avatarDropdown, marketplace_color1,
-                                 loggedInUsername, this.props.isAdmin, this.props.routes),
+                                 loggedInUsername, this.props.isAdmin, this.props.unReadMessagesCount, this.props.routes),
           classSet: css.topbarAvatarDropdown,
         }) :
         r(LoginLinks, {
@@ -272,6 +272,7 @@ Topbar.propTypes = {
   routes: routesProp,
   marketplaceContext,
   isAdmin: PropTypes.bool,
+  unReadMessagesCount: PropTypes.number,
 };
 
 export default Topbar;
