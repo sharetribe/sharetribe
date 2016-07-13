@@ -16,15 +16,15 @@
       visibility: visible;
     }
   }
+
+  & :global(.notification-background) { /* stylelint-disable-line selector-class-pattern */
+    display: none;
+  }
 }
 
 .avatarWithNotifications {
   position: relative;
   height: 100%;
-
-  & :global(.notification-background) { /* stylelint-disable-line selector-class-pattern */
-    display: none;
-  }
 }
 
 .hasNotifications {
