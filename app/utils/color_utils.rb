@@ -15,11 +15,12 @@ module ColorUtils
     p = normalize_percentage(percentage)
     rgb = Color::RGB.by_css(name_or_hex)
 
-    rgb.r *= p
-    rgb.g *= p
-    rgb.b *= p
-
-    rgb.hex.upcase
+    Color::RGB.new(
+      rgb.r *= p,
+      rgb.g *= p,
+      rgb.b *= p,
+      1
+    ).hex.upcase
   end
 
   def css_to_rgb_array(css)
