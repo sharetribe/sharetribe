@@ -2,7 +2,7 @@ module TopbarHelper
 
   module_function
 
-  def topbar_props(community:, path_after_locale_change:, user: nil, search_placeholder: nil, locale_param: nil)
+  def topbar_props(community:, path_after_locale_change:, user: nil, search_placeholder: nil, locale_param: nil, landing_page: false)
 
     links = [
       {
@@ -61,7 +61,7 @@ module TopbarHelper
       menu: {
         links: links,
       },
-      locales: locale_props(community, I18n.locale, path_after_locale_change),
+      locales: landing_page ? nil : locale_props(community, I18n.locale, path_after_locale_change),
       avatarDropdown: {
         customColor: CommonStylesHelper.marketplace_colors(community)[:marketplace_color1],
         avatar: {
