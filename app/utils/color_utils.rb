@@ -16,9 +16,9 @@ module ColorUtils
     rgb = Color::RGB.by_css(name_or_hex)
 
     Color::RGB.new(
-      rgb.r *= p,
-      rgb.g *= p,
-      rgb.b *= p,
+      rgb.r * p,
+      rgb.g * p,
+      rgb.b * p,
       1
     ).hex.upcase
   end
