@@ -50,32 +50,37 @@ class OffScreenMenu extends Component {
   }
 }
 
+const { arrayOf, bool, node, object, oneOfType, shape, string } = PropTypes;
+
 OffScreenMenu.propTypes = {
-  color: PropTypes.string.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-  menuLinksTitle: PropTypes.string.isRequired,
-  menuLinks: PropTypes.arrayOf(
-    PropTypes.shape({
-      active: PropTypes.bool.isRequired,
-      activeColor: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
+  color: string.isRequired,
+  isOpen: bool.isRequired,
+  menuLinksTitle: string.isRequired,
+  menuLinks: arrayOf(
+    shape({
+      active: bool.isRequired,
+      activeColor: string.isRequired,
+      content: string.isRequired,
+      href: string.isRequired,
+      type: string.isRequired,
     })
   ).isRequired,
-  userLinksTitle: PropTypes.string.isRequired,
-  userLinks: PropTypes.arrayOf(
-    PropTypes.shape({
-      active: PropTypes.bool.isRequired,
-      activeColor: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
+  userLinksTitle: string.isRequired,
+  userLinks: arrayOf(
+    shape({
+      active: bool.isRequired,
+      activeColor: string.isRequired,
+      content: oneOfType([
+        arrayOf(node),
+        node,
+      ]).isRequired,
+      href: string.isRequired,
+      type: string.isRequired,
     })
   ),
-  avatar: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-  newListingButton: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-  loginLinks: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  avatar: object, // eslint-disable-line react/forbid-prop-types
+  newListingButton: object, // eslint-disable-line react/forbid-prop-types
+  loginLinks: object, // eslint-disable-line react/forbid-prop-types
 };
 
 export default OffScreenMenu;

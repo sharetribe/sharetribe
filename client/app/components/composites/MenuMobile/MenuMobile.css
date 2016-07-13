@@ -19,8 +19,22 @@
 
 .menuLabelMobile {
   display: inline-block;
-  padding: var(--Menu_mobileLabelPaddingVertical) var(--Menu_mobileLabelPaddingHorizontal);
+  padding: var(--MobileMenu_labelPaddingVertical) var(--MobileMenu_labelPaddingHorizontal);
   cursor: pointer;
+  position: relative;
+
+  & .notificationBadge {
+    position: absolute;
+    top: 12px;
+    left: 29px;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+
+    @media (--medium-viewport) {
+      display: none;
+    }
+  }
 }
 
 .overlay {
@@ -110,6 +124,9 @@
   & .menuSectionMenuItemLink {
     padding: var(--MenuItem_paddingOffScreenVertical) var(--MenuItem_paddingOffScreenHorizontal);
     letter-spacing: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 
     @media (--medium-viewport) {
       padding: var(--MenuItem_paddingOffScreenVertical) var(--MenuItem_paddingOffScreenHorizontalTablet);

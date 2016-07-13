@@ -1,0 +1,28 @@
+.notificationBadge {
+  display: flex;
+  align-items: center;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  background-color: var(--NotificationBadge_alertColor);
+  padding: 0 3px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+.notificationBadgeCount {
+  text-align: center;
+  width: 100%;
+  color: var(--NotificationBadge_color);
+  font-size: var(--NotificationBadge_fontSizeSmall);
+  padding-top: 2px;
+
+  @media (--medium-viewport) {
+    font-size: var(--NotificationBadge_fontSizeSmall);
+    padding-top: 2px;
+  }
+
+  @media (--large-viewport) {
+    font-size: var(--NotificationBadge_fontSize);
+    padding-top: 0;
+  }
+}

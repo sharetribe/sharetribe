@@ -17,3 +17,38 @@
     }
   }
 }
+
+.avatarWithNotifications {
+  position: relative;
+  height: 100%;
+
+  & :global(.notification-background) { /* stylelint-disable-line selector-class-pattern */
+    display: none;
+  }
+}
+
+.hasNotifications {
+  & :global(.notification-background) { /* stylelint-disable-line selector-class-pattern */
+    display: block;
+  }
+}
+
+.notificationBadge {
+  position: absolute;
+
+  @media (--medium-viewport) {
+    top: -5px;
+    left: 22px;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+  }
+
+  @media (--large-viewport) {
+    top: -5px;
+    left: 28px;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 10px;
+  }
+}

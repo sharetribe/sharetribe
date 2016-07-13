@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { className } from '../../../utils/PropTypes';
 import ProfileDropdown from './ProfileDropdown';
 import Avatar from '../../elements/Avatar/Avatar';
+import NotificationBadge from '../../elements/NotificationBadge/NotificationBadge';
 
 import css from './AvatarDropdown.css';
 
@@ -38,18 +39,25 @@ class AvatarDropdown extends Component {
   render() {
     const touchClass = isTouch ? '' : css.touchless;
     const openClass = this.state.isOpen ? css.openDropdown : '';
+    const notificationsClass = this.props.notificationCount > 0 ? css.hasNotifications : null;
+    const notificationBadgeInArray = this.props.notificationCount > 0 ?
+      [r(NotificationBadge, { className: css.notificationBadge }, this.props.notificationCount)] :
+      [];
     return div({
       onClick: this.handleClick,
       onBlur: this.handleBlur,
       tabIndex: 0,
-      className: classNames(this.props.className, touchClass, openClass, css.avatarDropdown),
+      className: classNames(this.props.className, touchClass, openClass, css.avatarDropdown, notificationsClass),
     }, [
-      r(Avatar, this.props.avatar),
+      div({ className: css.avatarWithNotifications }, [
+        r(Avatar, this.props.avatar),
+      ].concat(notificationBadgeInArray)),
       r(ProfileDropdown, {
         className: css.avatarProfileDropdown,
         customColor: this.props.customColor,
         actions: this.props.actions,
         isAdmin: this.props.isAdmin,
+        notificationCount: this.props.notificationCount,
         translations: this.props.translations,
       }),
     ]);
@@ -58,6 +66,7 @@ class AvatarDropdown extends Component {
 
 AvatarDropdown.propTypes = {
   avatar: PropTypes.shape(Avatar.propTypes).isRequired,
+  notificationCount: PropTypes.number,
   ...ProfileDropdown.propTypes,
   className,
 };

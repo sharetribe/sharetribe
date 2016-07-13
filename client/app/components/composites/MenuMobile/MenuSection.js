@@ -39,7 +39,7 @@ class MenuSection extends Component {
   }
 }
 
-const { arrayOf, bool, string } = PropTypes;
+const { arrayOf, bool, node, oneOfType, string } = PropTypes;
 
 MenuSection.propTypes = {
   name: string.isRequired,
@@ -48,7 +48,10 @@ MenuSection.propTypes = {
     PropTypes.shape({
       active: bool.isRequired,
       activeColor: string.isRequired,
-      content: string.isRequired,
+      content: oneOfType([
+        arrayOf(node),
+        node,
+      ]).isRequired,
       href: string.isRequired,
       type: string.isRequired,
     })

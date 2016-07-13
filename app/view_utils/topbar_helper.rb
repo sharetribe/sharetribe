@@ -76,7 +76,8 @@ module TopbarHelper
         locale: I18n.locale,
         defaultLocale: I18n.default_locale
       },
-      isAdmin: user&.has_admin_rights? || false
+      isAdmin: user&.has_admin_rights? || false,
+      unReadMessagesCount: MarketplaceService::Inbox::Query.notification_count(user&.id, community.id)
     }
   end
 

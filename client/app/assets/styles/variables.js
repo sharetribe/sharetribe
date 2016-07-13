@@ -1,4 +1,5 @@
 /* eslint-env node */
+const fontSizeTiny = '11px';
 const fontSizeSmaller = '12px';
 const fontSizeSmall = '13px';
 const fontSize = '14px';
@@ -8,10 +9,12 @@ const fontSizeMobile = '17px';
 const textColor = 'rgb(82, 89, 97)';
 const textColorFocus = 'rgb(0, 0, 0)';
 const textColorGrey = 'rgb(122, 125, 128)';
+const textColorLight = 'rgb(255, 255, 255)';
 const backgroundLightColor = 'white';
 const backgroundLightColorHover = 'rgba(169, 172, 176, 0.07)';
 const customColorFallback = '#a64c5d';
 const customColor2Fallback = '#00a26c';
+const alertColor = '#ff4e36';
 
 const topbarBorderColor = 'rgba(169, 172, 176, 0.5)';
 const topbarItemHeight = '44px';
@@ -164,10 +167,12 @@ module.exports = {
   '--ProfileDropdown_textColor': textColor,
   '--ProfileDropdown_textColorFocus': textColorFocus,
   '--ProfileDropdown_logoutLinkColor': textColorGrey,
+  '--ProfileDropdown_colorLight': textColorLight,
   '--ProfileDropdown_textLinkSize': pxToEms(13, 14), // eslint-disable-line no-magic-numbers
   '--ProfileDropdown_arrowWidth': '18px',
   '--ProfileDropdown_topSeparation': '3px',
   '--ProfileDropdown_lineWidth': '2px',
+  '--ProfileDropdown_fontSizeNotification': fontSizeSmaller,
 
   '--MenuItem_borderColor': topbarBorderColor,
   '--MenuItem_backgroundColorHover': backgroundLightColorHover,
@@ -195,17 +200,21 @@ module.exports = {
 
   // topbar can't control base font-size.
   '--Menu_labelPaddingVertical': '1.28571429em',
-  '--Menu_labelPaddingHorizontal': pxToEms(24, 14),
-  '--Menu_mobileLabelPaddingVertical': pxToEms(24, 17),
-  '--Menu_mobileLabelPaddingHorizontal': pxToEms(18, 17),
 
   '--MenuSection_titleColor': 'rgba(153, 153, 153, 0.5)',
   '--MenuSection_fontSizeTitle': fontSizeSmaller,
   '--MenuSection_paddingOffScreenVertical': pxToEms(10, 12), // eslint-disable-line no-magic-numbers
   '--MenuSection_paddingOffScreenHorizontal': pxToEms(24, 12), // eslint-disable-line no-magic-numbers
 
+  '--MobileMenu_labelPaddingVertical': '18px',
+  '--MobileMenu_labelPaddingHorizontal': '18px',
   '--MobileMenu_offscreenMenuWidth': '288px',
   '--MobileMenu_offscreenHeaderItemHeight': '44px',
+
+  '--NotificationBadge_color': textColorLight,
+  '--NotificationBadge_alertColor': alertColor,
+  '--NotificationBadge_fontSize': fontSizeSmaller,
+  '--NotificationBadge_fontSizeSmall': fontSizeTiny,
 
   '--AddNewListingButton_height': topbarItemHeight,
   '--AddNewListingButton_tabletHeight': topbarMediumItemHeight,

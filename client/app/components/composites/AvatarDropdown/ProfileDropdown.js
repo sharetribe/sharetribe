@@ -1,5 +1,5 @@
 import { Component, PropTypes } from 'react';
-import r, { div, a } from 'r-dom';
+import r, { a, div, span } from 'r-dom';
 import classNames from 'classnames';
 
 import css from './ProfileDropdown.css';
@@ -14,14 +14,15 @@ const actionProps = function actionProps(action) {
     { href: action };
 };
 
-class ProfileActionCard extends Component {
-  render() {
-    return a({ ...actionProps(this.props.action), className: css.profileAction }, [
-      div({ className: css.profileActionIcon, dangerouslySetInnerHTML: { __html: this.props.icon } }),
-      div({ className: css.profileActionLabel }, this.props.label),
-    ]);
-  }
-}
+const ProfileActionCard = function ProfileActionCard({ icon, label, action, notificationCount }) {
+  const notificationCountInArray = notificationCount > 0 ? [span({ className: css.notificationCount }, notificationCount)] : [];
+  return a({ ...actionProps(action), className: css.profileAction }, [
+    div({ className: css.profileActionIconWrapper }, [
+      div({ className: css.profileActionIcon, dangerouslySetInnerHTML: { __html: icon } }),
+    ].concat(notificationCountInArray)),
+    div({ className: css.profileActionLabel }, label),
+  ]);
+};
 
 const eitherStringOrFunc = PropTypes.oneOfType([
   PropTypes.string,
@@ -32,6 +33,7 @@ ProfileActionCard.propTypes = {
   icon: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   action: eitherStringOrFunc.isRequired,
+  notificationCount: PropTypes.number,
 };
 
 class ProfileDropdown extends Component {
@@ -43,7 +45,7 @@ class ProfileDropdown extends Component {
       div({ className: css.rootArrowBelow }),
       div({ className: css.box }, [
         div({ className: css.profileActions }, [
-          r(ProfileActionCard, { label: this.props.translations.inbox, icon: inboxEmptyIcon, action: this.props.actions.inboxAction }),
+          r(ProfileActionCard, { label: this.props.translations.inbox, icon: inboxEmptyIcon, action: this.props.actions.inboxAction, notificationCount: this.props.notificationCount }),
           r(ProfileActionCard, { label: this.props.translations.profile, icon: profileIcon, action: this.props.actions.profileAction }),
           r(ProfileActionCard, { label: this.props.translations.settings, icon: settingsIcon, action: this.props.actions.settingsAction }),
         ]),
@@ -81,6 +83,7 @@ ProfileDropdown.propTypes = {
   customColor: PropTypes.string.isRequired,
   isAdmin: PropTypes.bool.isRequired,
   className,
+  notificationCount: PropTypes.number,
 };
 
 export default ProfileDropdown;
