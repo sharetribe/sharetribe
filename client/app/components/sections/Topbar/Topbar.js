@@ -56,14 +56,17 @@ const SEARCH_ENABLED = false;
 
 const profileLinks = function profileLinks(username, isAdmin, router, location, customColor, unReadMessagesCount) {
   if (username) {
+    const notificationBadgeInArray = unReadMessagesCount > 0 ?
+      [r(NotificationBadge, { className: css.notificationBadge, countClassName: css.notificationBadgeCount }, unReadMessagesCount)] :
+      [];
+
     const links = [
       {
         active: router.person_inbox_path(username) === location,
         activeColor: customColor,
         content: [
           t('web.topbar.inbox'),
-          r(NotificationBadge, { className: css.notificationBadge, countClassName: css.notificationBadgeCount }, unReadMessagesCount),
-        ],
+        ].concat(notificationBadgeInArray),
         href: router.person_inbox_path(username),
         type: 'menuitem',
       },
