@@ -45,12 +45,10 @@ class MenuMobile extends Component {
         onClick: this.closeMenu,
         className: `MenuMobile_overlay ${css.overlay}`,
       }),
-      div({ className: css.menuLabelMobileWrapper }, [
-        r(MenuLabelMobile, {
-          name: this.props.name,
-          handleClick: this.handleClick,
-        }),
-      ].concat(notificationBadgeInArray)),
+      r(MenuLabelMobile, {
+        name: this.props.name,
+        handleClick: this.handleClick,
+      }, notificationBadgeInArray),
       r(OffScreenMenu, {
         toggleOpen: this.closeMenu,
         isOpen: this.state.isOpen,

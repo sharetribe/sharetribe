@@ -21,14 +21,14 @@
 .avatarWithNotifications {
   position: relative;
   height: 100%;
-}
 
-:global(.notification-background) {
-  display: none;
+  & :global(.notification-background) { /* stylelint-disable-line selector-class-pattern */
+    display: none;
+  }
 }
 
 .hasNotifications {
-  & :global(.notification-background) {
+  & :global(.notification-background) { /* stylelint-disable-line selector-class-pattern */
     display: block;
   }
 }

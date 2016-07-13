@@ -19,7 +19,7 @@ class MenuLabelMobile extends Component {
             __html: hamburgerIcon,
           },
         }),
-      ])
+      ].concat(this.props.children))
     );
   }
 }
@@ -28,6 +28,10 @@ MenuLabelMobile.propTypes = {
   name: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
   extraClasses: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
 };
 
 export default MenuLabelMobile;
