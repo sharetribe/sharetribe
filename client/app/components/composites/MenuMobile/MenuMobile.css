@@ -113,9 +113,15 @@
 
 .offScreenFooter {
   background-color: var(--MobileMenu_offscreenFooterBackgroundColor);
+  margin-top: var(--MobileMenu_offscreenFooterMarginTop);
 }
 
 .menuSection {
+  margin-bottom: var(--MenuSection_marginOffScreenBottom);
+
+  @media (--medium-viewport) {
+    margin-bottom: var(--MenuSection_marginOffScreenBottomTablet);
+  }
 
   & .menuSectionMenuItem {
     border-bottom: 0;
