@@ -35,12 +35,15 @@ class MenuItem extends Component {
   }
 }
 
-const { bool, number, string } = PropTypes;
+const { arrayOf, bool, node, number, oneOfType, string } = PropTypes;
 
 MenuItem.propTypes = {
   active: bool.isRequired,
   activeColor: string.isRequired,
-  content: string.isRequired,
+  content: oneOfType([
+    arrayOf(node),
+    node,
+  ]),
   extraClasses: string,
   extraClassesLink: string,
   href: string.isRequired,

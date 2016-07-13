@@ -7,6 +7,7 @@ import { className } from '../../../utils/PropTypes';
 import css from './MenuMobile.css';
 import OffScreenMenu from './OffScreenMenu';
 import MenuLabelMobile from './MenuLabelMobile';
+import NotificationBadge from '../../elements/NotificationBadge/NotificationBadge';
 
 class MenuMobile extends Component {
 
@@ -32,7 +33,9 @@ class MenuMobile extends Component {
     const overlayColor = this.props.color ? this.props.color : 'black';
     const openClass = this.state.isOpen ? css.canvasOpen : '';
     const extraClasses = this.props.extraClasses ? this.props.extraClasses : '';
-
+    const notificationBadgeInArray = this.props.notificationCount > 0 ?
+      [r(NotificationBadge, { className: css.notificationBadge }, this.props.notificationCount)] :
+      [];
     return div({
       className: classNames(this.props.className, 'MenuMobile', css.menuMobile, extraClasses, openClass),
       tabIndex: 0,
@@ -42,10 +45,12 @@ class MenuMobile extends Component {
         onClick: this.closeMenu,
         className: `MenuMobile_overlay ${css.overlay}`,
       }),
-      r(MenuLabelMobile, {
-        name: this.props.name,
-        handleClick: this.handleClick,
-      }),
+      div({ className: css.menuLabelMobileWrapper }, [
+        r(MenuLabelMobile, {
+          name: this.props.name,
+          handleClick: this.handleClick,
+        }),
+      ].concat(notificationBadgeInArray)),
       r(OffScreenMenu, {
         toggleOpen: this.closeMenu,
         isOpen: this.state.isOpen,
@@ -62,35 +67,41 @@ class MenuMobile extends Component {
   }
 }
 
+const { arrayOf, bool, node, number, object, oneOfType, shape, string } = PropTypes;
+
 MenuMobile.propTypes = {
-  name: PropTypes.string.isRequired,
-  extraClasses: PropTypes.string,
-  identifier: PropTypes.string.isRequired,
-  color: PropTypes.string,
-  menuLinksTitle: PropTypes.string,
-  menuLinks: PropTypes.arrayOf(
-    PropTypes.shape({
-      active: PropTypes.bool.isRequired,
-      activeColor: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
+  name: string.isRequired,
+  extraClasses: string,
+  identifier: string.isRequired,
+  color: string,
+  menuLinksTitle: string,
+  menuLinks: arrayOf(
+    shape({
+      active: bool.isRequired,
+      activeColor: string.isRequired,
+      content: string.isRequired,
+      href: string.isRequired,
+      type: string.isRequired,
     })
   ).isRequired,
-  userLinksTitle: PropTypes.string,
-  userLinks: PropTypes.arrayOf(
+  userLinksTitle: string,
+  userLinks: arrayOf(
     PropTypes.shape({
-      active: PropTypes.bool.isRequired,
-      activeColor: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
+      active: bool.isRequired,
+      activeColor: string.isRequired,
+      content: oneOfType([
+        PropTypes.arrayOf(node),
+        node,
+      ]).isRequired,
+      href: string.isRequired,
+      type: string.isRequired,
     })
   ),
   className,
-  avatar: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-  newListingButton: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-  loginLinks: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  avatar: object, // eslint-disable-line react/forbid-prop-types
+  newListingButton: object, // eslint-disable-line react/forbid-prop-types
+  loginLinks: object, // eslint-disable-line react/forbid-prop-types
+  notificationCount: number,
 };
 
 export default MenuMobile;

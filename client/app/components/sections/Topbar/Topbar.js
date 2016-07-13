@@ -6,13 +6,17 @@ import { routes as routesProp, marketplaceContext } from '../../../utils/PropTyp
 import css from './Topbar.css';
 import styleVariables from '../../../assets/styles/variables';
 
+// elements
+import AddNewListingButton from '../../elements/AddNewListingButton/AddNewListingButton';
 import Logo from '../../elements/Logo/Logo';
-import SearchBar from '../../composites/SearchBar/SearchBar';
+import NotificationBadge from '../../elements/NotificationBadge/NotificationBadge';
+
+// composites
+import AvatarDropdown from '../../composites/AvatarDropdown/AvatarDropdown';
+import LoginLinks from '../../composites/LoginLinks/LoginLinks';
 import Menu from '../../composites/Menu/Menu';
 import MenuMobile from '../../composites/MenuMobile/MenuMobile';
-import AvatarDropdown from '../../composites/AvatarDropdown/AvatarDropdown';
-import AddNewListingButton from '../../elements/AddNewListingButton/AddNewListingButton';
-import LoginLinks from '../../composites/LoginLinks/LoginLinks';
+import SearchBar from '../../composites/SearchBar/SearchBar';
 
 const profileDropdownActions = function profileDropdownActions(routes, username) {
   return username ?
@@ -50,13 +54,16 @@ const LABEL_TYPE_DROPDOWN = 'dropdown';
 
 const SEARCH_ENABLED = false;
 
-const profileLinks = function profileLinks(username, isAdmin, router, location, customColor) {
+const profileLinks = function profileLinks(username, isAdmin, router, location, customColor, unReadMessagesCount) {
   if (username) {
     const links = [
       {
         active: router.person_inbox_path(username) === location,
         activeColor: customColor,
-        content: t('web.topbar.inbox'),
+        content: [
+          t('web.topbar.inbox'),
+          r(NotificationBadge, { className: css.notificationBadge, countClassName: css.notificationBadgeCount }, unReadMessagesCount),
+        ],
         href: router.person_inbox_path(username),
         type: 'menuitem',
       },
@@ -187,7 +194,7 @@ class Topbar extends Component {
           }
         )),
         userLinksTitle: t('web.topbar.user'),
-        userLinks: profileLinks(loggedInUsername, isAdmin, this.props.routes, location, marketplace_color1),
+        userLinks: profileLinks(loggedInUsername, isAdmin, this.props.routes, location, marketplace_color1, this.props.unReadMessagesCount),
         avatar: mobileMenuAvatarProps,
         newListingButton: this.props.newListingButton ?
           { ...this.props.newListingButton, ...{ url: newListingRoute, mobileLayoutOnly: true } } :
@@ -197,6 +204,7 @@ class Topbar extends Component {
           signupUrl: signupRoute,
           customColor: marketplace_color1,
         },
+        notificationCount: this.props.unReadMessagesCount,
       }) :
       {};
 

@@ -75,6 +75,18 @@
     display: block;
   }
 
+  & .notificationBadge {
+    min-width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    box-shadow: none;
+    margin-left: 10px;
+  }
+  & .notificationBadgeCount {
+    font-size: var(--Topbar_fontSize);
+    padding-top: 0;
+  }
+
   @media (--large-viewport) {
     & .topbarMenu {
       display: block;
