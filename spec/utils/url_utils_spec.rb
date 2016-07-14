@@ -36,4 +36,38 @@ describe URLUtils do
     expect(URLUtils.build_url("www.example.com", { intParam: 1, nilParam: nil, strParam: "foo"}))
       .to eql "www.example.com?intParam=1&strParam=foo"
   end
+
+  describe "#join" do
+
+    def expect_url_join(*parts)
+      expect(URLUtils.join(*parts))
+    end
+
+    it "joins absolute paths" do
+      expect_url_join("//example.com").to eq("//example.com")
+      expect_url_join("//example.com", "foo").to eq("//example.com/foo")
+      expect_url_join("//example.com", "foo", "bar").to eq("//example.com/foo/bar")
+
+      expect_url_join("https://example.com").to eq("https://example.com")
+      expect_url_join("https://example.com", "foo").to eq("https://example.com/foo")
+      expect_url_join("https://example.com", "foo", "bar").to eq("https://example.com/foo/bar")
+
+      expect_url_join("https://example.com/", "foo/").to eq("https://example.com/foo/")
+      expect_url_join("https://example.com/", "foo/", "bar/").to eq("https://example.com/foo/bar/")
+    end
+
+    it "joins relative paths" do
+      expect_url_join(nil, "foo").to eq("foo")
+      expect_url_join("", "foo").to eq("foo")
+      expect_url_join("", "", "foo", "", "bar", "", "").to eq("foo/bar")
+      expect_url_join("foo").to eq("foo")
+      expect_url_join("foo/").to eq("foo/")
+      expect_url_join("/", "foo").to eq("/foo")
+      expect_url_join("/foo/", "bar/", "baz").to eq("/foo/bar/baz")
+      expect_url_join("foo/", "bar/", "baz").to eq("foo/bar/baz")
+
+      expect_url_join("/foo/").to eq("/foo/")
+      expect_url_join("/", "foo/", "bar/").to eq("/foo/bar/")
+    end
+  end
 end

@@ -167,7 +167,7 @@ class LandingPageController < ActionController::Metal
       link_resolvers: {
         "path" => CLP::LinkResolver::PathResolver.new(paths),
         "marketplace_data" => CLP::LinkResolver::MarketplaceDataResolver.new(marketplace_data),
-        "assets" => CLP::LinkResolver::AssetResolver.new(APP_CONFIG[:clp_asset_host], sitename),
+        "assets" => CLP::LinkResolver::AssetResolver.new(APP_CONFIG[:clp_asset_url], sitename),
         "translation" => CLP::LinkResolver::TranslationResolver.new(landing_page_locale),
         "category" => CLP::LinkResolver::CategoryResolver.new(category_data),
         "listing" => CLP::LinkResolver::ListingResolver.new(cid, landing_page_locale, locale_param, name_display_type)

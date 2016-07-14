@@ -58,12 +58,10 @@ module CustomLandingPage
       private
 
       def append_asset_path(asset)
-        if @_asset_host.present?
-          asset.merge("src" => [@_asset_host, @_sitename, asset["src"]].join("/"))
-        else
-          # If asset_host is not configured serve assets locally
-          asset.merge("src" => ["landing_page", asset["src"]].join("/"))
-        end
+        host = @_asset_host || ""
+        src = URLUtils.join(@_asset_host, asset["src"]).sub("${sitename}", @_sitename)
+
+        asset.merge("src" => src)
       end
     end
 
