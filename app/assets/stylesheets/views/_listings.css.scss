@@ -207,6 +207,10 @@ $listing-author-avatar-height: 108;
   margin-top: 0;
   width: 100%;
   text-align: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
 }
 
 // Transaction action button
