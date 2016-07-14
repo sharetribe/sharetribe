@@ -36,11 +36,11 @@ List of commonly used Delayed Job priorities.
 
 How to use feature flags in the code and how to enable/disable them.
 
-#### [Client-side routes](./js-routes)
+#### [Client-side routes](./js-routes.md)
 
 Documentation of how to use Rails routes in JavaScript code.
 
-#### [Client-side translations](./js-translations)
+#### [Client-side translations](./js-translations.md)
 
 Documentation of how to use translation in JavaScript code.
 
