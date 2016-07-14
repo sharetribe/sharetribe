@@ -307,7 +307,20 @@ default: &default_settings
   # Default caching time for custom landing pages in seconds
   clp_cache_time: 900
 
-  # Root url for hosted proximanovasoft font files
+  #######
+  # Fonts
+  #######
+
+  # Path or URL for Proxima Nova Soft font files
+  #
+  # Because a directory is expected, it's recommended to include trailing slash.
+  #
+  # Example values:
+  #
+  # - empty: don't use Proximan Nova Soft font
+  # - landing_page/
+  # - https://s3.amazonaws.com/my-bucket/fonts/
+  #
   font_proximanovasoft_url:
 
 production: &production_settings

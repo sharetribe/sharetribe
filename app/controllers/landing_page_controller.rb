@@ -24,7 +24,7 @@ class LandingPageController < ActionController::Metal
   CACHE_TIME = APP_CONFIG[:clp_cache_time].to_i.seconds
   CACHE_HEADER = "X-CLP-Cache"
 
-  FONT_PATH = APP_CONFIG[:font_proximanovasoft_url].present? ? APP_CONFIG[:font_proximanovasoft_url] : "/landing_page/fonts"
+  FONT_PATH = APP_CONFIG[:font_proximanovasoft_url]
 
   def index
     cid = community(request).id
