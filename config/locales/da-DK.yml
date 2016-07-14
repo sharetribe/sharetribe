@@ -542,7 +542,7 @@ da-DK:
     what_is_this: "Hvad er dette?"
     removed_user: "Fjernet bruger"
     paypal_fee_info:
-      title: "PayPal's ekspeditionsgebyr"
+      title: PayPal-gebyr
       body_text: "PayPal opkræver et ekspeditionsgebyr fra hver betaling. Dette gebyr er mellem 2% og 5% af den samlede salgspris, afhængigt af din salgsvolumen og køberens bopælsland. Generelt har indenlandske betalinger lavere gebyrer end internationale, og jo mere du sælger, jo mindre betaler du. Du kan se de nøjagtige gebyrer ved at logge ind på din PayPal-konto %{link_to_paypal}. Efter hvert køb modtager du en kvittering hvoraf det nøjagtige gebyr fremgår."
       body_with_shipping_text: "PayPal opkræver et ekspeditionsgebyr fra hver betaling. Dette gebyr er mellem 2% og 5% af den samlede salgspris (inklusiv forsendelse), afhængigt af din salgsvolumen og køberens bopælsland. Generelt har indenlandske betalinger lavere gebyrer end internationale, og jo mere du sælger, jo mindre betaler du. Du kan se de nøjagtige gebyrer ved at logge ind på din PayPal-konto %{link_to_paypal}. Efter hvert køb modtager du en kvittering hvoraf det nøjagtige gebyr fremgår."
       link_to_paypal_text: her
@@ -571,7 +571,7 @@ da-DK:
       you_will_get_label: "Du vil få:"
       total_label: "Total:"
       total_value: "%{seller_gets}*"
-      paypal_fee_info: "* Exclusiv <a id='%{fee_info_link_id}' href='#'>PayPal's ekspeditionsgebyr</a>"
+      paypal_fee_info: "* Eksklusiv <a id='%{fee_info_link_id}' href='#'>PayPal-gebyr</a>"
       shipping_price_label: "Levering:"
     confirm:
       confirm_description: "Hvis din ordre er blevet gennemført, bør du markere den som så. Så kan I anmelde hinanden."
@@ -881,7 +881,7 @@ da-DK:
       quantity: "Mængde:"
       you_have_received_new_payment: "Du er blevet betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b> af %{payer_full_name}. Her er din kvittering."
     paypal_new_payment:
-      paypal_gateway_fee: "PayPal's ekspeditionsgebyr:"
+      paypal_gateway_fee: "PayPal-gebyr:"
       shipping_total: "Levering:"
     braintree_new_payment:
       product: "Produkt:"
@@ -915,7 +915,7 @@ da-DK:
       added_listing: "%{name_link} tilføjede en ny annonce:"
       update_mail_title: "%{title_link} opdatering"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Her er en lille opdaterings-email med nye produkter fra %{community_link} fra de seneste %{time_since_last_update}."
+      intro_paragraph: "Her er en lille opdateringsmail med nye produkter fra %{community_link} fra de seneste %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Opret annonce!"
       reduce_email_footer_text: "For mange emails? %{settings_link} eller %{unsubscribe_link}."
@@ -1483,13 +1483,13 @@ da-DK:
         long_time: "uge, måned, ..."
         after_service_fee_you_will_get: "Efter %{service_name}'s servicegebyr, vil du få %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} vil blive fratrukket prisen."
-        after_service_fee_you_will_get_paypal_text: "%{service_name} gebyr (%{sum_with_currency}) og %{paypal_fee_info_link}  vil blive fratrukket prisen."
-        paypal_fee_info_link_text: "PayPal's ekspeditionsgebyr"
+        after_service_fee_you_will_get_paypal_text: "%{service_name}-gebyr (%{sum_with_currency}) og %{paypal_fee_info_link}  vil blive fratrukket prisen."
+        paypal_fee_info_link_text: PayPal-gebyr
         after_service_fee_you_will_get_vat: "Efter %{service_name} servicegebyr vil du modtage: %{sum_with_currency}"
         price_excludes_vat: "Prisen er eksklusiv moms"
         delivery: Leveringsform
         shipping: Forsendelse
-        shipping_price: "Forsendelses gebyr"
+        shipping_price: Porto
         shipping_price_additional: "Yderligere emner"
         pickup: Afhentning
       origin:
@@ -1741,7 +1741,7 @@ da-DK:
       paypal_account_billing_agreement_info_fixed: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr %{minimum_commission} af produktprisen blive trukket fra din PayPal-konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr (%{commission_from_seller} af produktprisen, undtaget leveringsomkostninger blive trukket fra din PayPal-konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
       paypal_account_billing_agreement_info_none: "%{service_name} opkræver i øjeblikket ikke et servicegebyr. Hvis servicegebyr er aktiveret, skal du give %{service_name} tilladelse til at opkræve et servicegebyr for at kunne modtage betalinger. Gebyret omfatter ikke %{paypal_info_link}."
-      paypal_info_link_text: "PayPal's ekspeditionsgebyr"
+      paypal_info_link_text: PayPal-gebyr
       billing_agreement_description: "Tillad %{service_name} at tage et servicegebyr."
       billing_agreement: "Tillad adgang"
       permissions_not_granted: "Tilladelsen til at tilknytte din PayPal-konto mislykkedes."
