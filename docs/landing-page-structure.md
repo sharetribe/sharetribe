@@ -48,7 +48,7 @@ Typically, you would only need to change the `locale` if the marketplace languag
 The following values are set in `page`:
 
 * `twitter_handle` is used to render `twitter:site` and `twitter:creator` `meta` tags. By default this resolves to the `twitter_handle` of the marketplace in the database. Note that the `@` sign is automatically added as prefix, so it should be skipped if you override the `twitter_handle`.
-* `twitter_image` is used to render `twitter:image` `meta` tag. Make sure it links to the correct hero image asset id. If customer has requested, you can link to a different asset.
+* `twitter_image` is used to render `twitter:image` `meta` tag. Make sure it links to the correct hero image asset id or if you want to use a different asset, you can link to it.
 * `facebook_image` is used to render `og:image` `meta` tag. Make sure it links to the correct hero image asset id.
 * `title` is the page title. Defaults to marketplace name and slogan.
 
@@ -236,7 +236,7 @@ Values to set:
   * `googleplus`
   * `linkedin`
 
-* `copyright` set to the copyright text the customer wants, if their marketplace subscription is Pro or above
+* `copyright` copyright text
 
 ## Composition
 
