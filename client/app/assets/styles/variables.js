@@ -13,8 +13,10 @@ const textColor = 'rgb(82, 89, 97)';
 const textColorFocus = 'rgb(0, 0, 0)';
 const textColorGrey = 'rgb(122, 125, 128)';
 const textColorLight = 'rgb(255, 255, 255)';
+const textColorSelected = '#4a4a4a';
 const backgroundLightColor = 'white';
 const backgroundLightColorHover = 'rgba(169, 172, 176, 0.07)';
+const backgroundColorGrey = '#F7F7F7';
 const customColorFallback = '#a64c5d';
 const customColor2Fallback = '#00a26c';
 const alertColor = '#ff4e36';
@@ -188,7 +190,7 @@ module.exports = {
   '--MenuItem_textColor': textColor,
   '--MenuItem_textColorFocus': textColorFocus,
   '--MenuItem_textColorDefault': customColorFallback,
-  '--MenuItem_textColorSelected': '#4a4a4a',
+  '--MenuItem_textColorSelected': textColorSelected,
   '--MenuItem_letterSpacing': '0.09px',
 
   '--Menu_fontSize': fontSize,
@@ -215,12 +217,12 @@ module.exports = {
   '--MobileMenu_labelPaddingHorizontal': '18px',
   '--MobileMenu_offscreenMenuWidth': '288px',
   '--MobileMenu_offscreenHeaderItemHeight': '44px',
-  '--MobileMenu_offscreenFooterBackgroundColor': '#F7F7F7',
+  '--MobileMenu_offscreenFooterBackgroundColor': backgroundColorGrey,
 
   '--LanguagesMobile_fontSize': fontSizeMobileSmall,
   '--LanguagesMobile_fontSizeTablet': fontSizeMobileSmaller,
   '--LanguagesMobile_textColorDefault': customColorFallback,
-  '--LanguagesMobile_textColorSelected': '#4a4a4a',
+  '--LanguagesMobile_textColorSelected': textColorSelected,
   '--LanguagesMobile_marginLanguageListRight': pxToEms(65, 15), // eslint-disable-line no-magic-numbers
   '--LanguagesMobile_marginLanguageListLeft': pxToEms(24, 15), // eslint-disable-line no-magic-numbers
   '--LanguagesMobile_marginLanguageListRightTablet': pxToEms(65, 14), // eslint-disable-line no-magic-numbers
