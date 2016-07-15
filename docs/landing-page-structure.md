@@ -41,7 +41,7 @@ The following values are set in `settings`:
 * `locale` is the locale for the landing page
 * `sitename` is the name of the landing page as chosen when created
 
-Typically, you would only need to change the `locale` if the marketplace language is changed. Change the `marketplace_id` only if you made a mistake and specified incorrect ID when creating the landing page. Do not change the `sitename`.
+Typically, you would only need to change the `locale` if the marketplace language is changed.
 
 ## Page
 
@@ -217,7 +217,7 @@ Values to set:
   * `terms`
   * `privacy`
 
-  If customers are hoping to link to some other internal page that is not available, let the development team know and they are happy to add new paths.
+  If you need to add new path, add the path to the hash that is returned by the `LandingPageController#build_paths` method.
 
   **External links** have the form of `{"label": "<link label>", "href": {"value": "<hard coded url>"} }`. For example:
 
@@ -233,8 +233,8 @@ Values to set:
   * `instagram`
   * `twitter`
   * `youtube`
-
-  If customers are hoping links to other social media services, let Janne and the development team know.
+  * `googleplus`
+  * `linkedin`
 
 * `copyright` set to the copyright text the customer wants, if their marketplace subscription is Pro or above
 

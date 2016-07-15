@@ -1,6 +1,6 @@
 # Landing page
 
-_This feature is an experimental feature. The setup and configuration of the landing page needs manual code editing. There's no user interface in Admin panel to configure landing page._
+_This is an experimental feature. The setup and configuration of the landing page needs manual code editing. There's no user interface in Admin panel to configure landing page._
 
 This guide will help you to setup and configure landing page. When the landing page is enabled, it will be served to your users from the root URL of your marketplace. The old root search view will be found from `/s` path.
 
@@ -20,10 +20,12 @@ Restart the server and go to the marketplace root URL. You should now see the la
 
 ### Caching
 
-The landing page is cache heavily in order to make it lightning fast. There are two configurations that control caching:
+The landing page is heavily cached in order to make it lightning fast. There are two configurations that control caching:
 
 - `clp_cache_time`: The time in seconds how often the cache is invalidated. Default: 900 seconds, i.e. 15 minutes
 - `clp_static_released_version`: The current landing page version. The version number acts as a cache buster. The cache is in any case invalidated after `clp_cache_time`, but if you want to invalidate the cache sooner, increase the version number.
+
+The landing page is also cached on the client-side by the browser. A `Cache-Control: max-age=#{clp_cache_time}` header is sent with the request. This makes the browser to cache the page and not even try to fetch the page if the page is cached in browser. That's why users may see the old version, even if the server-side cache is invalidated.
 
 ### Images
 
@@ -52,7 +54,7 @@ Change the configuration to match the image location in your S3 bucket:
 ```yaml
 # config.yml
 
-font_proximanovasoft_url: `https://yourbucketnamehere.s3.amazonaws.com/landing_page/assets/`
+clp_asset_url: `https://yourbucketnamehere.s3.amazonaws.com/landing_page/assets/`
 ```
 
 Even if you use S3 to host the images, it's recommended to use CDN in front of the S3 bucket.
@@ -60,7 +62,7 @@ Even if you use S3 to host the images, it's recommended to use CDN in front of t
 ```yaml
 # config.yml
 
-font_proximanovasoft_url: `https://your-cdn-service.com/landing_page/assets/`
+clp_asset_url: `https://your-cdn-service.com/landing_page/assets/`
 ```
 
 ### Fonts
@@ -108,3 +110,5 @@ After you have succesfully enabled and configured the landing page, it's time to
 The content for the landing page is defined in [CustomLandingPage::ExampleData::DATA_STR](../app/services/custom_landing_page/example_data.rb). To modify the landing page content, you need the [app/services/custom\_landing\_page/example\_data.rb](../app/services/custom_landing_page/example_data.rb) file.
 
 See [Landing page JSON structure](landing-page-structure.md) for documentation about the landing page data structure format.
+
+When you modify the landing page, use the preview URL (http://lvh.me:3000/_lp_preview) instead of the root URL (http://lvh.me:3000). The root URL sends the `Cache-Control` header and thus you may not see your modifications immediately in the root URL.

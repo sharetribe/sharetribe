@@ -7,7 +7,7 @@ module CustomLandingPage
     module_function
 
     #
-    # Common methods
+    # Common methods with the static CLP store implementation
     #
 
     def released_version(cid)
