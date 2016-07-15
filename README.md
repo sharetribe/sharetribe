@@ -408,7 +408,7 @@ Browse open issues and submit new ones at http://github.com/sharetribe/sharetrib
 
 ## Documentation
 
-The documentation is localed in [docs/](docs/)
+More detailed technical documentation is located in [docs/](docs/)
 
 
 ## Community forum
