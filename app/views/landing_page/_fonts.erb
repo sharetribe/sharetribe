@@ -10,7 +10,7 @@
 
  <%
    # Copied from URLUtils
-   join = ->(*parts) { parts.select(&:present?).reduce { |a, b| "#{a.sub(/\/+\z/, "")}/#{b}" } }
+   join = ->(*parts) { File.join(parts.select(&:present?)) }
  %>
 
  @font-face {

@@ -48,8 +48,6 @@ module URLUtils
   #
   # Usage: URLUtils.join("foo", "bar/", "baz") => "foo/bar/baz"
   def join(*parts)
-    parts.select(&:present?).reduce { |a, b|
-      "#{a.sub(/\/+\z/, "")}/#{b}"
-    }
+    File.join(*parts.select(&:present?))
   end
 end

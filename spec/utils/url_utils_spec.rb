@@ -54,6 +54,8 @@ describe URLUtils do
 
       expect_url_join("https://example.com/", "foo/").to eq("https://example.com/foo/")
       expect_url_join("https://example.com/", "foo/", "bar/").to eq("https://example.com/foo/bar/")
+
+      expect_url_join("https://example.com/", "foo/", "/bar/").to eq("https://example.com/foo/bar/")
     end
 
     it "joins relative paths" do
@@ -68,6 +70,8 @@ describe URLUtils do
 
       expect_url_join("/foo/").to eq("/foo/")
       expect_url_join("/", "foo/", "bar/").to eq("/foo/bar/")
+
+      expect_url_join("/", "/foo/", "/bar/").to eq("/foo/bar/")
     end
   end
 end
