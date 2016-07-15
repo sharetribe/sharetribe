@@ -8,32 +8,27 @@ import variables from '../../../assets/styles/variables';
 class LanguagesMobile extends Component {
 
   render() {
-    const languages = this.props.links ?
-      this.props.links.map((link) => {
-        const linkColor = link.active ?
-          variables['--LanguagesMobile_textColorSelected'] :
-          this.props.color || variables['--LanguagesMobile_textColorDefault'];
-        return div(
-          { className: `LanguagesMobile_languageLink ${css.languageLink}` },
-          r(Link, { href: link.href, customColor: linkColor }, link.content));
-      }) :
-      [];
+    const languages = this.props.links.map((link) => {
+      const linkColor = link.active ?
+        variables['--LanguagesMobile_textColorSelected'] :
+        this.props.color || variables['--LanguagesMobile_textColorDefault'];
+      return div(
+        { className: `LanguagesMobile_languageLink ${css.languageLink}` },
+        r(Link, { href: link.href, customColor: linkColor }, link.content));
+    });
 
-    return languages.length > 0 ?
-
-      div({
-        className: `MobileMenu_languages ${css.languages}`,
-      }, [
-        div({ className: `MenuSection_title ${css.menuSectionTitle}` }, [
-          span({
-            className: css.menuSectionIcon,
-            dangerouslySetInnerHTML: {
-              __html: globeIcon,
-            } }),
-          this.props.name]),
-        div({ className: `LanguagesMobile_languageList ${css.languageList}` }, languages),
-      ]) :
-      null;
+    return div({
+      className: `MobileMenu_languages ${css.languages}`,
+    }, [
+      div({ className: `MenuSection_title ${css.menuSectionTitle}` }, [
+        span({
+          className: css.menuSectionIcon,
+          dangerouslySetInnerHTML: {
+            __html: globeIcon,
+          } }),
+        this.props.name]),
+      div({ className: `LanguagesMobile_languageList ${css.languageList}` }, languages),
+    ]);
   }
 }
 

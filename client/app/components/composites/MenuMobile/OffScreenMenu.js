@@ -23,6 +23,8 @@ class OffScreenMenu extends Component {
     ] : [
       r(LoginLinks, this.props.loginLinks),
     ];
+    const languagesMobile = this.props.languages ?
+      r(LanguagesMobile, this.props.languages) : null;
 
     return div({
       className: `OffScreenMenu ${css.offScreenMenu} ${isOpenClass}`,
@@ -46,7 +48,7 @@ class OffScreenMenu extends Component {
       ]),
       div({
         className: `OffScreenMenu_footer ${css.offScreenFooter}`,
-      }, r(LanguagesMobile, this.props.languages)),
+      }, languagesMobile),
     ]);
   }
 }

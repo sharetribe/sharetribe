@@ -187,7 +187,7 @@ class Topbar extends Component {
           }
         )),
       }) :
-      {};
+      null;
 
 
     const pathParams = { return_to: location };
