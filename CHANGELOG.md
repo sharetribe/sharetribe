@@ -8,17 +8,25 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ## [Unreleased]
 
+## [5.8.0] - 2016-07-15
+
+### Added
+
+- Add whitelabel_branding based on features [#2052](https://github.com/sharetribe/sharetribe/pull/2052)
+- Onboarding topbar and wizard enabled for everyone [#2250](https://github.com/sharetribe/sharetribe/pull/2250)
+- Ability to add Google Maps API key [#2172](https://github.com/sharetribe/sharetribe/pull/2172)
+- Landing page. See the [documentation](https://github.com/sharetribe/sharetribe/blob/v5.8.0/docs/landing-page.md)
+
 ### Changed
 
 - Facebook sign up/login uses API version 2.2 instead of 2.0 [#2280](https://github.com/sharetribe/sharetribe/pull/2280)
+- Improved documentation [#2271](https://github.com/sharetribe/sharetribe/pull/2271)
 
 ### Fixed
 
 - Fix some React dependency issues caused startup timing/ordering [#2046](https://github.com/sharetribe/sharetribe/pull/2046) and [#2053](https://github.com/sharetribe/sharetribe/pull/2053)
 - Fix issue that caused Google Maps Geocoder to return wrong location if the listing address contained an ampersand (&) [#2075](https://github.com/sharetribe/sharetribe/pull/2075)
-
-### Added
-- Add whitelabel_branding based on features [#2052](https://github.com/sharetribe/sharetribe/pull/2052)
+- Fix pluralization error for Turkish (tr-TR) [#2292](https://github.com/sharetribe/sharetribe/pull/2292)
 
 ## [5.7.1] - 2016-05-12
 
@@ -201,7 +209,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v5.7.1...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v5.8.0...HEAD
+[5.8.0]: https://github.com/sharetribe/sharetribe/compare/v5.7.1...v5.8.0
 [5.7.1]: https://github.com/sharetribe/sharetribe/compare/v5.7.0...v5.7.1
 [5.7.0]: https://github.com/sharetribe/sharetribe/compare/v5.6.0...v5.7.0
 [5.6.0]: https://github.com/sharetribe/sharetribe/compare/v5.5.0...v5.6.0
