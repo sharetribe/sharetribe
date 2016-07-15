@@ -43,4 +43,11 @@ module URLUtils
   def strip_port_from_host(host)
     host.split(":").first
   end
+
+  # Naive join method, which can be used to normalize multiple slashes
+  #
+  # Usage: URLUtils.join("foo", "bar/", "baz") => "foo/bar/baz"
+  def join(*parts)
+    File.join(*parts.select(&:present?))
+  end
 end

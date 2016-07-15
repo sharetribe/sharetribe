@@ -24,7 +24,7 @@ class LandingPageController < ActionController::Metal
   CACHE_TIME = APP_CONFIG[:clp_cache_time].to_i.seconds
   CACHE_HEADER = "X-CLP-Cache"
 
-  FONT_PATH = APP_CONFIG[:font_proximanovasoft_url].present? ? APP_CONFIG[:font_proximanovasoft_url] : "/landing_page/fonts"
+  FONT_PATH = APP_CONFIG[:font_proximanovasoft_url]
 
   def index
     cid = community(request).id
@@ -167,7 +167,7 @@ class LandingPageController < ActionController::Metal
       link_resolvers: {
         "path" => CLP::LinkResolver::PathResolver.new(paths),
         "marketplace_data" => CLP::LinkResolver::MarketplaceDataResolver.new(marketplace_data),
-        "assets" => CLP::LinkResolver::AssetResolver.new(APP_CONFIG[:clp_asset_host], sitename),
+        "assets" => CLP::LinkResolver::AssetResolver.new(APP_CONFIG[:clp_asset_url], sitename),
         "translation" => CLP::LinkResolver::TranslationResolver.new(landing_page_locale),
         "category" => CLP::LinkResolver::CategoryResolver.new(category_data),
         "listing" => CLP::LinkResolver::ListingResolver.new(cid, landing_page_locale, locale_param, name_display_type)
