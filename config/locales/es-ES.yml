@@ -1652,7 +1652,7 @@ es-ES:
       by: "%{listing} por %{author}"
       payment: Pago
       exp: "Exp:"
-      you_will_be_charged: "Se te cobrará este valor únicamente si %{author} acepta la transacción. %{author} necesita aceptar la transacción en un período de %{expiration_period} días.  En caso de que %{author} rechace tu solicitud o no responda, no se hará ningún cobro."
+      you_will_be_charged: "Se te cobrará esta cantidad únicamente si %{author} acepta la transacción. %{author} necesita aceptar la transacción en un período de %{expiration_period} días.  En caso de que %{author} rechace tu solicitud o no responda, no se hará ningún cobro."
       day: día
       days: días
     transaction_agreement_checkbox:
