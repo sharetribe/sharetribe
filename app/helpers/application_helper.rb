@@ -468,7 +468,7 @@ module ApplicationHelper
       :topic => :configure,
       :text => t("admin.communities.maps.maps"),
       :icon_class => icon_class("maps"),
-      :path => maps_admin_community_path(@current_community),
+      :path => admin_maps_edit_path,
       :name => "maps"
     }
 

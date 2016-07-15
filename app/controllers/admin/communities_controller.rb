@@ -123,7 +123,7 @@ class Admin::CommunitiesController < ApplicationController
       knowledge_base_url: APP_CONFIG.knowledge_base_url}
   end
 
-  def maps
+  def edit_maps
     @selected_left_navi_link = "maps"
     @community = @current_community
     render "maps", :locals => {
@@ -299,7 +299,7 @@ class Admin::CommunitiesController < ApplicationController
 
     update(@current_community,
             maps_params,
-            maps_admin_community_path(@current_community),
+            admin_maps_edit_path,
             :maps)
   end
 

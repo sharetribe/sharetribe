@@ -175,6 +175,10 @@ Kassi::Application.routes.draw do
       get   "/details/edit"       => "community_customizations#edit_details",   as: :details_edit
       patch "/details"            => "community_customizations#update_details", as: :details
 
+      # Maps
+      get   "/maps/edit" => "communities#edit_maps",     as: :maps_edit
+      patch "/maps"      => "communities#update_maps",   as: :maps
+
       resources :communities do
         member do
           get :edit_welcome_email
@@ -188,10 +192,8 @@ Kassi::Application.routes.draw do
           post :payment_gateways, to: 'communities#create_payment_gateway'
           get :social_media
           get :analytics
-          get :maps
           put :social_media, to: 'communities#update_social_media'
           put :analytics, to: 'communities#update_analytics'
-          put :maps, to: 'communities#update_maps'
           get :menu_links
           put :menu_links, to: 'communities#update_menu_links'
           delete :delete_marketplace
