@@ -4,14 +4,19 @@ const fontSizeSmaller = '12px';
 const fontSizeSmall = '13px';
 const fontSize = '14px';
 const fontSizeBig = '16px';
+
+const fontSizeMobileSmaller = '14px';
+const fontSizeMobileSmall = '15px';
 const fontSizeMobile = '17px';
 
 const textColor = 'rgb(82, 89, 97)';
 const textColorFocus = 'rgb(0, 0, 0)';
 const textColorGrey = 'rgb(122, 125, 128)';
 const textColorLight = 'rgb(255, 255, 255)';
+const textColorSelected = '#4a4a4a';
 const backgroundLightColor = 'white';
 const backgroundLightColorHover = 'rgba(169, 172, 176, 0.07)';
+const backgroundColorGrey = '#F7F7F7';
 const customColorFallback = '#a64c5d';
 const customColor2Fallback = '#00a26c';
 const alertColor = '#ff4e36';
@@ -180,12 +185,12 @@ module.exports = {
   '--MenuItem_paddingTopbarHorizontal': pxToEms(24, 14), // eslint-disable-line no-magic-numbers
   '--MenuItem_paddingOffScreenVertical': pxToEms(10, 17), // eslint-disable-line no-magic-numbers
   '--MenuItem_paddingOffScreenHorizontal': pxToEms(24, 17), // eslint-disable-line no-magic-numbers
-  '--MenuItem_paddingOffScreenHorizontalTablet': '36px', // eslint-disable-line no-magic-numbers
+  '--MenuItem_paddingOffScreenHorizontalTablet': pxToEms(36, 16), // eslint-disable-line no-magic-numbers
   '--MenuItem_fontSize': fontSizeBig,
   '--MenuItem_textColor': textColor,
   '--MenuItem_textColorFocus': textColorFocus,
   '--MenuItem_textColorDefault': customColorFallback,
-  '--MenuItem_textColorSelected': '#4a4a4a',
+  '--MenuItem_textColorSelected': textColorSelected,
   '--MenuItem_letterSpacing': '0.09px',
 
   '--Menu_fontSize': fontSize,
@@ -205,11 +210,33 @@ module.exports = {
   '--MenuSection_fontSizeTitle': fontSizeSmaller,
   '--MenuSection_paddingOffScreenVertical': pxToEms(10, 12), // eslint-disable-line no-magic-numbers
   '--MenuSection_paddingOffScreenHorizontal': pxToEms(24, 12), // eslint-disable-line no-magic-numbers
+  '--MenuSection_paddingOffScreenHorizontalTablet': pxToEms(36, 12), // eslint-disable-line no-magic-numbers
+  '--MenuSection_marginOffScreenBottom': pxToEms(16, 17), // eslint-disable-line no-magic-numbers
+  '--MenuSection_marginOffScreenBottomTablet': pxToEms(28, 17), // eslint-disable-line no-magic-numbers
+  '--MenuSection_iconMargin': pxToEms(9, 12), // eslint-disable-line no-magic-numbers
 
   '--MobileMenu_labelPaddingVertical': '18px',
   '--MobileMenu_labelPaddingHorizontal': '18px',
   '--MobileMenu_offscreenMenuWidth': '288px',
   '--MobileMenu_offscreenHeaderItemHeight': '44px',
+  '--MobileMenu_offscreenFooterBackgroundColor': backgroundColorGrey,
+  '--MobileMenu_offscreenFooterMarginTop': pxToEms(14, 17), // eslint-disable-line no-magic-numbers
+
+  '--LanguagesMobile_fontSize': fontSizeMobileSmall,
+  '--LanguagesMobile_fontSizeTablet': fontSizeMobileSmaller,
+  '--LanguagesMobile_textColorDefault': customColorFallback,
+  '--LanguagesMobile_textColorSelected': textColorSelected,
+  '--LanguagesMobile_marginLanguageListRight': pxToEms(65, 15), // eslint-disable-line no-magic-numbers
+  '--LanguagesMobile_marginLanguageListLeft': pxToEms(24, 15), // eslint-disable-line no-magic-numbers
+  '--LanguagesMobile_marginLanguageListRightTablet': pxToEms(65, 14), // eslint-disable-line no-magic-numbers
+  '--LanguagesMobile_marginLanguageListLeftTablet': pxToEms(36, 14), // eslint-disable-line no-magic-numbers
+  '--LanguagesMobile_marginTop': pxToEms(14, 15), // eslint-disable-line no-magic-numbers
+  '--LanguagesMobile_marginBottom': pxToEms(24, 15), // eslint-disable-line no-magic-numbers
+  '--LanguagesMobile_marginTopTablet': pxToEms(26, 14), // eslint-disable-line no-magic-numbers
+  '--LanguagesMobile_marginBottomTablet': pxToEms(36, 14), // eslint-disable-line no-magic-numbers
+  '--LanguagesMobile_paddingLanguageVertical': pxToEms(10, 15), // eslint-disable-line no-magic-numbers
+  '--LanguagesMobile_paddingLanguageRight': pxToEms(5, 15), // eslint-disable-line no-magic-numbers
+  '--LanguagesMobile_linkGap': pxToEms(10, 15), // eslint-disable-line no-magic-numbers
 
   '--NotificationBadge_color': textColorLight,
   '--NotificationBadge_alertColor': alertColor,

@@ -4,6 +4,7 @@ import r, { div } from 'r-dom';
 import * as variables from '../../../assets/styles/variables';
 import css from './MenuMobile.css';
 import MenuSection from './MenuSection';
+import LanguagesMobile from './LanguagesMobile';
 import Avatar from '../../elements/Avatar/Avatar';
 import AddNewListingButton from '../../elements/AddNewListingButton/AddNewListingButton';
 import LoginLinks from '../../composites/LoginLinks/LoginLinks';
@@ -22,6 +23,8 @@ class OffScreenMenu extends Component {
     ] : [
       r(LoginLinks, this.props.loginLinks),
     ];
+    const languagesMobile = this.props.languages ?
+      r(LanguagesMobile, this.props.languages) : null;
 
     return div({
       className: `OffScreenMenu ${css.offScreenMenu} ${isOpenClass}`,
@@ -45,7 +48,7 @@ class OffScreenMenu extends Component {
       ]),
       div({
         className: `OffScreenMenu_footer ${css.offScreenFooter}`,
-      }),
+      }, languagesMobile),
     ]);
   }
 }
@@ -78,6 +81,17 @@ OffScreenMenu.propTypes = {
       type: string.isRequired,
     })
   ),
+  languages: shape({
+    name: string.isRequired,
+    color: string.isRequired,
+    links: arrayOf(
+      shape({
+        active: bool.isRequired,
+        activeColor: string.isRequired,
+        content: string.isRequired,
+        href: string.isRequired,
+      })),
+  }),
   avatar: object, // eslint-disable-line react/forbid-prop-types
   newListingButton: object, // eslint-disable-line react/forbid-prop-types
   loginLinks: object, // eslint-disable-line react/forbid-prop-types

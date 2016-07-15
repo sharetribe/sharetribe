@@ -112,10 +112,16 @@
 }
 
 .offScreenFooter {
-  height: 30px;
+  background-color: var(--MobileMenu_offscreenFooterBackgroundColor);
+  margin-top: var(--MobileMenu_offscreenFooterMarginTop);
 }
 
 .menuSection {
+  margin-bottom: var(--MenuSection_marginOffScreenBottom);
+
+  @media (--medium-viewport) {
+    margin-bottom: var(--MenuSection_marginOffScreenBottomTablet);
+  }
 
   & .menuSectionMenuItem {
     border-bottom: 0;
@@ -145,7 +151,8 @@
   position: relative;
   min-width: 144px;
   list-style: none;
-  display: inline-block;
+  display: flex;
+  justify-content: flex-start;
   padding: var(--MenuSection_paddingOffScreenVertical) var(--MenuSection_paddingOffScreenHorizontal);
   color: var(--MenuSection_titleColor);
   width: 100%;
@@ -154,6 +161,51 @@
   font-weight: 600;
 
   @media (--medium-viewport) {
-    padding: var(--MenuItem_paddingOffScreenVertical) var(--MenuItem_paddingOffScreenHorizontalTablet);
+    padding: var(--MenuSection_paddingOffScreenVertical) var(--MenuSection_paddingOffScreenHorizontalTablet);
   }
 }
+
+.menuSectionIcon {
+  margin-right: var(--MenuSection_iconMargin);
+  display: flex;
+  align-items: center;
+}
+
+.languages {
+  font-size: var(--LanguagesMobile_fontSize);
+  margin-top: var(--LanguagesMobile_marginTop);
+  margin-bottom: var(--LanguagesMobile_marginBottom);
+
+  @media (--medium-viewport) {
+    font-size: var(--LanguagesMobile_fontSizeTablet);
+    margin-top: var(--LanguagesMobile_marginTopTablet);
+    margin-bottom: var(--LanguagesMobile_marginBottomTablet);
+  }
+}
+
+.languageList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: var(--LanguagesMobile_marginLanguageListLeft);
+  margin-right: var(--LanguagesMobile_marginLanguageListRight);
+
+  & .languageLink {
+    padding-bottom: var(--LanguagesMobile_paddingLanguageVertical);
+    width: calc(50% - (var(--LanguagesMobile_linkGap) / 2));
+  }
+
+  & .languageLink:last-child {
+    padding-bottom: 0;
+  }
+
+  & .languageLink:nth-last-child(2):nth-child(odd) {
+    padding-bottom: 0;
+  }
+
+  @media (--medium-viewport) {
+    margin-left: var(--LanguagesMobile_marginLanguageListLeftTablet);
+    margin-right: var(--LanguagesMobile_marginLanguageListRightTablet);
+  }
+}
+

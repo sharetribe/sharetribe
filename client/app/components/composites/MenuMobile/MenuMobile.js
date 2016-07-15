@@ -57,6 +57,7 @@ class MenuMobile extends Component {
         menuLinks: this.props.menuLinks,
         userLinksTitle: this.props.userLinksTitle,
         userLinks: this.props.userLinks,
+        languages: this.props.languages,
         avatar: this.props.avatar,
         newListingButton: this.props.newListingButton,
         loginLinks: this.props.loginLinks,
@@ -95,6 +96,17 @@ MenuMobile.propTypes = {
       type: string.isRequired,
     })
   ),
+  languages: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    links: PropTypes.arrayOf(
+      PropTypes.shape({
+        active: PropTypes.bool.isRequired,
+        activeColor: PropTypes.string.isRequired,
+        content: PropTypes.string.isRequired,
+        href: PropTypes.string.isRequired,
+      })),
+  }),
   className,
   avatar: object, // eslint-disable-line react/forbid-prop-types
   newListingButton: object, // eslint-disable-line react/forbid-prop-types

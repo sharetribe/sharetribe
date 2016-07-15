@@ -68,6 +68,11 @@ const baseProps = {
         locale_name: 'French',
         locale_ident: 'fr',
       },
+      {
+        change_locale_uri: 'http://example.com#de',
+        locale_name: 'German',
+        locale_ident: 'de',
+      },
     ],
   },
   avatarDropdown: {
