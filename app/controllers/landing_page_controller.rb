@@ -134,6 +134,20 @@ class LandingPageController < ActionController::Metal
     )
   end
 
+  def build_paths(search_path, locale_param)
+    { "search" => search_path.call(),
+      "all_categories" => search_path.call(category: "all"),
+      "signup" => sign_up_path(locale: locale_param),
+      "login" => login_path(locale: locale_param),
+      "about" => about_infos_path(locale: locale_param),
+      "contact_us" => new_user_feedback_path(locale: locale_param),
+      "post_a_new_listing" => new_listing_path(locale: locale_param),
+      "how_to_use" => how_to_use_infos_path(locale: locale_param),
+      "terms" => terms_infos_path(locale: locale_param),
+      "privacy" => privacy_infos_path(locale: locale_param)
+    }
+  end
+
   def build_denormalizer(cid:, default_locale:, locale_param:, landing_page_locale:, sitename:)
     search_path = ->(opts = {}) {
       PathHelpers.search_path(
@@ -146,17 +160,7 @@ class LandingPageController < ActionController::Metal
     }
 
     # Application paths
-    paths = { "search" => search_path.call(),
-              "all_categories" => search_path.call(category: "all"),
-              "signup" => sign_up_path(locale: locale_param),
-              "login" => login_path(locale: locale_param),
-              "about" => about_infos_path(locale: locale_param),
-              "contact_us" => new_user_feedback_path(locale: locale_param),
-              "post_a_new_listing" => new_listing_path(locale: locale_param),
-              "how_to_use" => how_to_use_infos_path(locale: locale_param),
-              "terms" => terms_infos_path(locale: locale_param),
-              "privacy" => privacy_infos_path(locale: locale_param)
-            }
+    paths = build_paths(search_path, locale_param)
 
     marketplace_data = CLP::MarketplaceDataStore.marketplace_data(cid, landing_page_locale)
     name_display_type = marketplace_data["name_display_type"]
