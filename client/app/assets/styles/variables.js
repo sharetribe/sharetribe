@@ -211,6 +211,8 @@ module.exports = {
   '--MenuSection_paddingOffScreenVertical': pxToEms(10, 12), // eslint-disable-line no-magic-numbers
   '--MenuSection_paddingOffScreenHorizontal': pxToEms(24, 12), // eslint-disable-line no-magic-numbers
   '--MenuSection_paddingOffScreenHorizontalTablet': pxToEms(36, 12), // eslint-disable-line no-magic-numbers
+  '--MenuSection_marginOffScreenBottom': pxToEms(16, 17), // eslint-disable-line no-magic-numbers
+  '--MenuSection_marginOffScreenBottomTablet': pxToEms(28, 17), // eslint-disable-line no-magic-numbers
   '--MenuSection_iconMargin': pxToEms(9, 12), // eslint-disable-line no-magic-numbers
 
   '--MobileMenu_labelPaddingVertical': '18px',
@@ -218,6 +220,7 @@ module.exports = {
   '--MobileMenu_offscreenMenuWidth': '288px',
   '--MobileMenu_offscreenHeaderItemHeight': '44px',
   '--MobileMenu_offscreenFooterBackgroundColor': backgroundColorGrey,
+  '--MobileMenu_offscreenFooterMarginTop': pxToEms(14, 17), // eslint-disable-line no-magic-numbers
 
   '--LanguagesMobile_fontSize': fontSizeMobileSmall,
   '--LanguagesMobile_fontSizeTablet': fontSizeMobileSmaller,
