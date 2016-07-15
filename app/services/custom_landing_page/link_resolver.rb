@@ -59,7 +59,7 @@ module CustomLandingPage
 
       def append_asset_path(asset)
         host = @_asset_url || ""
-        src = URLUtils.join(@_asset_url, asset["src"]).sub("${sitename}", @_sitename)
+        src = URLUtils.join(@_asset_url, asset["src"]).sub("%{sitename}", @_sitename)
 
         asset.merge("src" => src)
       end

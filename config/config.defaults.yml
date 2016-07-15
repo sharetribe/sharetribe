@@ -311,7 +311,7 @@ default: &default_settings
   # Example values:
   #
   # - landing_page/
-  # - https://s3.amazonaws.com/my-bucket/sites/${sitename}/
+  # - https://s3.amazonaws.com/my-bucket/sites/%{sitename}/
   #
   clp_asset_url: "landing_page/"
 
