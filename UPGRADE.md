@@ -34,6 +34,10 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 ## Unreleased
 
+## Upgrade from 5.7.1 to 5.8.0
+
+This release doesn't require any extra actions.
+
 ## Upgrade from 5.7.0 to 5.7.1
 
 This is a bug fix release and does not require any extra actions.
