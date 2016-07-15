@@ -315,6 +315,24 @@ default: &default_settings
   #
   clp_asset_url: "landing_page/"
 
+  #####################
+  # Custom landing page
+  #####################
+
+  # This will enabled a static landing page
+  #
+  # The hosted version stores the landing page data in the database but for single
+  # marketplace OS installations the database doesn't bring any benifits. That's why
+  # the static version is used instead of database in OS installations.
+  clp_static_enabled: false
+
+  # Landing page is cached heavily.
+  #
+  # By default, the cache is expired after `clp_cache_time`. If you want to manually
+  # expire cache, for example after a new landing page version is deployed, you can
+  # increase this version number
+  clp_static_released_version: 1
+
   # Default caching time for custom landing pages in seconds
   clp_cache_time: 900
 
