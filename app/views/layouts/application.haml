@@ -17,7 +17,7 @@
 
   - if FeatureFlagHelper.feature_enabled?(:topbar_v1)
     - props = topbar_props
-    - maps_key = @current_community.google_maps_key
+    - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
     - key_param = maps_key ? "&key=#{maps_key}" : ""
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places#{key_param}"
     = react_component("TopbarApp", props: props, prerender: true)

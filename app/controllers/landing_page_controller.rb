@@ -201,7 +201,7 @@ class LandingPageController < ActionController::Metal
       apple_touch_icon: c.logo.url(:apple_touch),
       facebook_locale: facebook_locale(locale),
       facebook_connect_id: c.facebook_connect_id,
-      google_maps_key: c.google_maps_key,
+      google_maps_key: MarketplaceHelper.google_maps_key(c.id),
       google_analytics_key: c.google_analytics_key }
   end
 
@@ -221,8 +221,6 @@ class LandingPageController < ActionController::Metal
     marketplace_context = marketplace_context(c, topbar_locale, request)
 
     FeatureFlagHelper.init(request, false)
-
-    google_maps_key = c&.google_maps_key
 
     denormalizer = build_denormalizer(
       cid: c&.id,

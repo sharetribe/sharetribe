@@ -5,7 +5,7 @@
     });
 
 - content_for :extra_javascript do
-  - maps_key = @current_community.google_maps_key
+  - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
   - key_param = maps_key ? "?key=#{maps_key}" : ""
   = javascript_include_tag "https://maps.googleapis.com/maps/api/js#{key_param}"
 
