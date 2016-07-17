@@ -18,7 +18,7 @@ test: &test
     encoding: utf8
     username: sharetribe
     password: secret
-    host: mysql
+    host: mysqltest
 
 staging:
     adapter: mysql2
