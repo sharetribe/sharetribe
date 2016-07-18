@@ -1,5 +1,3 @@
-# rubocop:disable ModuleLength
-
 module CustomLandingPage
   module ExampleData
 
