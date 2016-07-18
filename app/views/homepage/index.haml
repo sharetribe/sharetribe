@@ -6,7 +6,7 @@
 
 - content_for :extra_javascript do
   - # maps.google can't be loaded twice
-  - maps_key = @current_community.google_maps_key
+  - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
   - key_param = maps_key ? "&key=#{maps_key}" : ""
   - if(location_search_in_use && @view_type.eql?("map"))
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places#{key_param}" unless FeatureFlagHelper.feature_enabled?(:topbar_v1)

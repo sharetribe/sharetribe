@@ -301,6 +301,10 @@ default: &default_settings
   # development and false for other environments.
   use_js_routes_middleware: false
 
+  # Default Google Maps API key for communities that don't specify one
+  # Default is not to use Google Maps API key
+  google_maps_key:
+
   # Path or URL for landing page assets.
   #
   # Because a directory is expected, it's recommended to include trailing slash.
