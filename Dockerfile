@@ -20,4 +20,7 @@ RUN bundle install
 ADD package.json /opt/sharetribe/package.json
 RUN npm install
 
+# Install webpack
+RUN npm install webpack -g
+
 EXPOSE 3000
