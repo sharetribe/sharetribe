@@ -1,7 +1,7 @@
 FROM ruby:2.3.1
 MAINTAINER Sharetribe Team <team@sharetribe.com>
 RUN apt-get -yqq update
-RUN apt-get -y install build-essential mysql-client libmysqlclient-dev libxslt-dev libxml2-dev nodejs npm imagemagick
+RUN apt-get -y install build-essential mysql-client libmysqlclient-dev libxslt-dev libxml2-dev nodejs nodejs-legacy npm imagemagick
 # todo: sphinxsearch - package not found
 # mysql-server-5.5 - er, that's another image guvnor
 
