@@ -10,9 +10,11 @@
   variation_modifier        = variation_modifiers[s["variation"]]
   background_color_style    = background_color_enabled ? "background-color: rgb(#{s["background_color"].join(",")});" : "";
 
+  background_image_modifier = background_image_enabled && s["background_image_variation"] == "light" ? "light"  : "dark"
+
   section_style_modifier =
     if background_image_enabled
-      "background-image"
+      "background-image--#{background_image_modifier}"
     elsif background_color_enabled
       "background-color"
     elsif second_wo_background
