@@ -642,14 +642,21 @@ module ApplicationHelper
     end
   end
 
-  def is_uri?(s)
-    s.match /^https?:\/\//
+  def stylesheet_asset_url(stylesheet)
+    assets_host = APP_CONFIG.user_asset_host ? APP_CONFIG.user_asset_host : ""
+
+    matches, fqdn = *stylesheet.match(/^https?:\/\/[^\/]+(.*)$/)
+    if matches
+      # overwrite with user_asset_host, if configured
+      assets_host.empty? ? stylesheet : "#{assets_host}#{fqdn}"
+    else
+      "#{assets_host}/assets/#{stylesheet}"
+    end
   end
 
   def with_stylesheet_url(community, &block)
     stylesheet_url = if community.has_custom_stylesheet?
-      stylesheet = community.custom_stylesheet_url
-      is_uri?(stylesheet)  ? stylesheet : "/assets/#{stylesheet}"
+      stylesheet_asset_url(community.custom_stylesheet_url)
     else
       'application'
     end
