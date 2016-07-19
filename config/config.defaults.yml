@@ -29,6 +29,8 @@ default: &default_settings
 
   # You can use Amazong S3 to store listing and profile images
   # If you leave following empty, the images will be stored in local file system
+  # If you enable S3, you can use the user_asset_host option below to configure CDN in front
+  # of the S3 bucket.
   # NOTE: in Heroku you can't store files in local system, so S3 should be used
 
   # Default bucket
@@ -58,6 +60,21 @@ default: &default_settings
   # - assets%0.your_domain.com
   #
   asset_host:
+
+  # Your user-uploaded assets CDN distribution host name, including the desired protocol (http or https).
+  #
+  # Host for linking to user-uploaded images and compiled custom stylesheets, instead of linking to the S3
+  # bucket (if configured) or straight to Sharetribe domain (i.e. the "domain" setting above).
+  #
+  # When "user_asset_host" is left blank and S3 is NOT in use, then assets are linked via Sharetribe's installation
+  # domain or using the "asset_host" (if configured). If S3 is enabled and "user_asset_host" is left blank,
+  # asset links point to the S3 bucket URL.
+  #
+  # Examples values:
+  #
+  # - https://yourdistribution.cloudfront.com
+  #
+  user_asset_host:
 
   # AWS keys
   aws_access_key_id:
