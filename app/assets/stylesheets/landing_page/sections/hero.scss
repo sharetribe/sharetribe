@@ -11,9 +11,16 @@
   background-position: center;
   @include prefix-val(display, flex);
   @include prefix-prop(align-items, center);
-  box-shadow: inset 0 0 0 999999px rgba(0, 0, 0, 0.5); /* is there any cleaner way? */
-
   @include dimensions__section--paddings;
+}
+
+.hero__section--light {
+  @extend .hero__section;
+  box-shadow: inset 0 0 0 999999px rgba(0, 0, 0, 0.3); /* is there any cleaner way? */
+}
+.hero__section--dark {
+  @extend .hero__section;
+  box-shadow: inset 0 0 0 999999px rgba(0, 0, 0, 0.5); /* is there any cleaner way? */
 }
 
 .hero__content {

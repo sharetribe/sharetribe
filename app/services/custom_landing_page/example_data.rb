@@ -30,6 +30,7 @@ module CustomLandingPage
       "title": {"type": "marketplace_data", "id": "slogan"},
       "subtitle": {"type": "marketplace_data", "id": "description"},
       "background_image": {"type": "assets", "id": "default_hero_background"},
+      "background_image_variation": "dark",
       "search_button": {"type": "translation", "id": "search_button"},
       "search_path": {"type": "path", "id": "search"},
       "search_placeholder": {"type": "marketplace_data", "id": "search_placeholder"},
@@ -74,7 +75,8 @@ module CustomLandingPage
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "button_title": "Go to sharetribe.com",
       "button_path": {"value": "https://www.sharetribe.com"},
-      "background_image": {"type": "assets", "id": "default_hero_background"}
+      "background_image": {"type": "assets", "id": "default_hero_background"},
+      "background_image_variation": "dark"
     },
     {
       "id": "single_info_with_cta",
@@ -314,6 +316,7 @@ JSON
             "title": {"type": "marketplace_data", "id": "slogan"},
             "subtitle": {"type": "marketplace_data", "id": "description"},
             "background_image": {"type": "assets", "id": "hero_background_image"},
+            "background_image_variation": "dark",
             "search_button": {"type": "translation", "id": "search_button"},
             "search_path": {"type": "path", "id": "search"},
             "search_placeholder": {"type": "marketplace_data", "id": "search_placeholder"},

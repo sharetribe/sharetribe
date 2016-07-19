@@ -1,5 +1,6 @@
+<% section_style_class = s["background_image_variation"] == "light" ? "hero__section--light" : "hero__section--dark" %>
 <% content_for :hero_css do %>
-  .hero__section {
+  .<%= section_style_class %> {
     background-image: url('<%= s["background_image"]["src"] %>');
   }
 
@@ -19,7 +20,7 @@
   }
 <% end %>
 
-<section id="<%= section_id %>" class="hero__section">
+<section id="<%= section_id %>" class="<%= section_style_class %>">
   <div class="hero__content">
     <div class="hero__content-container">
       <h1 class="hero__title"><%= s["title"]["value"] %></h1>
