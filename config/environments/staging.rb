@@ -36,10 +36,13 @@ Kassi::Application.configure do
   config.lograge.custom_options = ->(event) {
     params = event.payload[:params].except('controller', 'action')
 
-    { params:  params,
+    { params: params,
       host: event.payload[:host],
       community_id: event.payload[:community_id],
       current_user_id: event.payload[:current_user_id],
+      user_agent: event.payload[:user_agent],
+      referer: event.payload[:referer],
+      forwarded_for: event.payload[:forwarded_for],
       request_uuid: event.payload[:request_uuid] }
   }
 
