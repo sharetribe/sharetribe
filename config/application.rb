@@ -158,6 +158,10 @@ module Kassi
         :url => ":s3_domain_url",
         :storage => :s3,
         :s3_protocol => 'https',
+        :s3_headers => {
+            "cache-control" => "public, max-age=#{APP_CONFIG.s3_cache_max_age}",
+            "expires" => APP_CONFIG.s3_cache_max_age.to_i.seconds.from_now.httpdate,
+        },
         :s3_credentials => {
               :bucket            => APP_CONFIG.s3_bucket_name,
               :access_key_id     => APP_CONFIG.aws_access_key_id,
