@@ -543,8 +543,8 @@ da-DK:
     removed_user: "Fjernet bruger"
     paypal_fee_info:
       title: PayPal-gebyr
-      body_text: "PayPal opkræver et ekspeditionsgebyr fra hver betaling. Dette gebyr er mellem 2% og 5% af den samlede salgspris, afhængigt af din salgsvolumen og køberens bopælsland. Generelt har indenlandske betalinger lavere gebyrer end internationale, og jo mere du sælger, jo mindre betaler du. Du kan se de nøjagtige gebyrer ved at logge ind på din PayPal-konto %{link_to_paypal}. Efter hvert køb modtager du en kvittering hvoraf det nøjagtige gebyr fremgår."
-      body_with_shipping_text: "PayPal opkræver et ekspeditionsgebyr fra hver betaling. Dette gebyr er mellem 2% og 5% af den samlede salgspris (inklusiv forsendelse), afhængigt af din salgsvolumen og køberens bopælsland. Generelt har indenlandske betalinger lavere gebyrer end internationale, og jo mere du sælger, jo mindre betaler du. Du kan se de nøjagtige gebyrer ved at logge ind på din PayPal-konto %{link_to_paypal}. Efter hvert køb modtager du en kvittering hvoraf det nøjagtige gebyr fremgår."
+      body_text: "PayPal opkræver et ekspeditionsgebyr for hver transaktion. Gebyret udgør 2-5% af det samlede transaktionsbeløb, afhængigt af din salgsvolumen og køberens bopælsland. Generelt har indenlandske betalinger lavere gebyrer end udenlandske. Og jo mere du sælger, jo mindre betaler du. Du kan se de nøjagtige gebyrer via din PayPal-konto %{link_to_paypal}. Gebyrbeløbet fremgår af din kvittering."
+      body_with_shipping_text: "PayPal opkræver et ekspeditionsgebyr for hver transaktion. Gebyret udgør 2-5% af det samlede transaktionsbeløb, afhængigt af din salgsvolumen og køberens bopælsland. Generelt har indenlandske betalinger lavere gebyrer end udenlandske. Og jo mere du sælger, jo mindre betaler du. Du kan se de nøjagtige gebyrer via din PayPal-konto %{link_to_paypal}. Gebyrbeløbet fremgår af din kvittering."
       link_to_paypal_text: her
   conversations:
     accept:
@@ -864,7 +864,7 @@ da-DK:
       you_have_been_invited_to_kassi: "%{inviter} har inviteret dig til %{service_name}"
       here_is_a_message_from: "Her er en personlig besked fra %{inviter}:"
       join_now: "Opret nu"
-      invitation_code: "Invitations kode: %{code}"
+      invitation_code: "Invitationskode: %{code}"
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} har kommenteret på din annonce '%{listing}'."
       view_comment: "Se kommentar"

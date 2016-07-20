@@ -195,7 +195,7 @@ fr:
         select_distance_unit: "Afficher les distances en %{distance_units_selector}"
         km: km
         miles: miles
-        show_only_nearby: "Afficher uniquement les résultats à proximité en vue liste ou grille lorsque la recherche géographique est utilisée"
+        show_only_nearby: "Afficher uniquement les résultats à proximité lorsque la recherche géographique est utilisée"
         listing_preferences: "Paramètres d'annonces"
         transaction_preferences: "Paramètres de commandes"
         show_listing_publishing_date: "Afficher la date de publication de l'annonce sur la page de l'annonce"
@@ -2144,7 +2144,7 @@ fr:
       login: "Se connecter"
       signup: S'inscrire
       admin_dashboard: "Panneau d'administration"
-      language: ~
+      language: Langue
   will_paginate:
     models:
       person:

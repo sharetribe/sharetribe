@@ -30,10 +30,10 @@ pl:
         remove_category: "Usuń kategorię"
         remove_category_name: "Usuń kategorię '%{category_name}'"
         warning_remove_effects: "Uwaga! Usunięcie kategorii '%{category_name}' będzie miało następujące efekty:"
-        select_new_category: ~
+        select_new_category: "Wybierz nową kategorię gdzie elementy wymienione powyżej zostaną przeniesione:"
         buttons:
-          remove: ~
-          cancel: ~
+          remove: Usuń
+          cancel: Anuluj
     communities:
       edit_details:
         community_details: "Podstawowe informacje"
@@ -56,13 +56,13 @@ pl:
         update_information: "Zapisz ustawienia"
         invite_people: "Zaproś nowych użytkowników"
         edit_signup_info: "Dane rejestracji"
-        edit_signup_info_description: ~
+        edit_signup_info_description: "To jest tekst informacyjny, który może zostać wyświetlony dla użytkowników na stronie rejestracji. Tutaj możesz dodać instrukcje dotyczące rejestracji, jak otrzymać zaproszenie i inne. Domyślnie, nie ma instrukcji."
         edit_info: "Edytuj informacje"
         see_how_it_looks_like: "Zobacz, jak to będzie wyglądać"
-        verification_to_post_listings_info_content: ~
+        verification_to_post_listings_info_content: "Tekst informacyjny dla użytkowników niezweryfikowanych"
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: ~
+        contact_admin_link_text: "skontaktuj się z administratorami"
         save: ~
         transaction_agreement: ~
         transaction_agreement_checkbox: ~
@@ -80,7 +80,7 @@ pl:
         favicon_info_text: ~
         community_custom_color1: "Główny kolor"
         community_custom_color2: "Kolor przycisku %{post_new_listing}"
-        logo_instructions_text_with_dimensions: ~
+        logo_instructions_text_with_dimensions: "Rozmiar loga na komputery powinno mieć %{width} na %{height} pikseli. Będzie wyświetlane użytkownikom z większym ekranem."
         logo_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Zdjęcie w tle jest wyświetlane na stronie głównej dla użytkowników, którzy nie są zalogowani."
         cover_photo_instructions_text_with_dimensions: ~
@@ -88,9 +88,9 @@ pl:
         small_cover_photo_instructions_text_with_dimensions: "Zdjęcie będzie zmniejszone do %{width} na %{height} pikseli i wyższe zdjęcia będą ucięte w połowie."
         main_content_width: ~
         custom_color1_instructions_text: "Możesz zmienić główny kolor interfejsu wprowadzając jego wartość HEX. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> może Tobie pomoc wybrać kolor, a Ty go później wklej tutaj."
-        custom_color2_instructions_text: ~
-        default_browse_view: ~
-        default_browse_view_instructions_text: ~
+        custom_color2_instructions_text: "Możesz zmienić kolor przycisku %{post_new_listing} wprowadzając wartość koloru w kodzie szesnastkowym. Możesz użyć <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a>, aby wybrać kolor i skopiować jego kod tutaj."
+        default_browse_view: "Domyślny widok przeglądarki"
+        default_browse_view_instructions_text: "Domyślny widok przeglądarki jest używany na stronie głównej, aby określić w jaki sposób oferty są domyślnie wyświetlane."
         grid: ~
         list: ~
         map: ~
@@ -106,7 +106,7 @@ pl:
         edit_text_instructions: ~
       edit_welcome_email:
         welcome_email_content: "Treść wiadomości email"
-        welcome_email_content_description: ~
+        welcome_email_content_description: "Wiadomość poniżej zostanie wysłana do każdego nowego użytkownika, gdy dołączą. Możesz dostosować wiadomość, aby pasowała do Twojej platformy. Klikając na %{send_test_message_link} możesz wysłać wiadomość testową na swój adres email, aby zobaczyć czy wszystko wygląda w porządku."
         edit_message: "Edytuj wiadomość"
         send_test_message: "Wyślij wiadomość testową"
       outgoing_email:
@@ -165,14 +165,14 @@ pl:
         ja: ~
         it: ~
       settings:
-        settings: ~
-        general: ~
-        users_can_review_each_other_after_transaction: ~
-        access: ~
-        join_with_invite_only: ~
-        users_can_invite_new_users: ~
-        private: ~
-        require_verification_to_post_listings: ~
+        settings: Ustawienia
+        general: Główne
+        users_can_review_each_other_after_transaction: "Użytkownicy mogą recenzować wzajemnie po zamówieniu"
+        access: "Preferencje związane z dostępem"
+        join_with_invite_only: "Pozwól dołączać użytkownikom tylko jeżeli mają zaproszenie od innych"
+        users_can_invite_new_users: "Pozwól użytkownikom zapraszać nowych"
+        private: "Pozwól wyłącznie zarejestrowanym użytkownikom wyświetlać oferty i profile innych (ustaw platformę jako \"prywatną\")"
+        require_verification_to_post_listings: "Pozwól tylko zweryfikowanym użytkownikom na dodawanie nowych ofert"
         search_preferences: ~
         default_search_type: ~
         keyword_search: ~
@@ -180,19 +180,19 @@ pl:
         select_distance_unit: ~
         km: ~
         miles: ~
-        show_only_nearby: "Wyszukiwanie po lokalizacji pokazuje wyłącznie okoliczne oferty w widoku listy i siatki"
-        listing_preferences: ~
+        show_only_nearby: "Pokaż tylko najbliższe oferty przy użyciu wyszukiwania po lokalizacji"
+        listing_preferences: "Preferencje wyświetlania"
         transaction_preferences: ~
-        show_listing_publishing_date: ~
-        show_category_in_listing_list: ~
-        hide_expiration_date: ~
-        listing_comments_in_use: ~
-        email_preferences: ~
-        automatic_newsletters: ~
-        email_admins_about_new_members: ~
-        google_analytics_key: ~
-        twitter_handle: ~
-        update_settings: ~
+        show_listing_publishing_date: "Wyświetl datę publikacji oferty na liście ofert"
+        show_category_in_listing_list: "Wyświetl rodzaj oferty na widoku listy"
+        hide_expiration_date: "Nie wymagaj, aby oferty miały określone datę wygaśnięcia"
+        listing_comments_in_use: "Pozwól użytkownikom dodawać komentarze do ofert (widoczne dla wszystkich pozostałych użytkowników)"
+        email_preferences: "Preferencje email"
+        automatic_newsletters: "Wysyłaj automatyczne newslettery: dzienne / tygodniowe do wszystkich użytkowników (jeżeli nie zrezygnowali z ich otrzymywania)"
+        email_admins_about_new_members: "Wyślij administratorom wiadomość email za każdym razem, gdy rejestruje się nowy użytkownik"
+        google_analytics_key: "ID śledzenia z usługi Google Analytics"
+        twitter_handle: "Nick z Twittera (używany przez guzik twitnięcia na stronie oferty)"
+        update_settings: "Zapisz ustawienia"
         automatically_confirmed: ~
         automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
@@ -208,17 +208,17 @@ pl:
         you_will_be_redirected_to: ~
         delete_this_marketplace: ~
       manage_members:
-        manage_members: ~
-        email: ~
-        name: ~
-        join_date: ~
-        admin: ~
-        posting_allowed: ~
+        manage_members: "Zarządzaj użytkownikami"
+        email: "Adres email"
+        name: Imię
+        join_date: Dołączył
+        admin: Administrator
+        posting_allowed: "Postowanie dozwolone"
         ban_user: ~
-        saving_user_status: ~
-        save_user_status_successful: ~
+        saving_user_status: "Trwa zapisywanie..."
+        save_user_status_successful: Zapisane
         export_all_as_csv: ~
-        save_user_status_error: ~
+        save_user_status_error: "Zapis nie udał się. Proszę odśwież stronę i spróbuj ponownie."
         ban_user_confirmation: ~
         ban_me_error: ~
       social_media:
@@ -295,10 +295,10 @@ pl:
         edit_listing_field: "Edytuje pole %{field_name} oferty"
       edit_price:
         description: ~
-        edit_price_field: ~
-        show_price_filter_homepage: ~
-        price_min: ~
-        price_max: ~
+        edit_price_field: "Edytuj pole ceny"
+        show_price_filter_homepage: "Pokaż filtr ceny na stronie głównej"
+        price_min: "Filtruj po cenie minimalnej"
+        price_max: "Filtruj po cenie maksymalnej"
       edit_location:
         edit_location_field: ~
         this_field_is_required: ~
@@ -329,9 +329,9 @@ pl:
         save_order_error: "Wystąpił błąd w zapisywaniu porządku pól. Proszę odśwież stronę i spróbuj ponownie."
         select_one: "Wpisz rodzaje pól..."
         continue: Kontynuuj
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
+        minimum_value: Minimum
+        maximum_value: Maksimum
+        allow_decimals: "Pozwól na ułamki"
       new:
         new_listing_field: "Nowe pole oferty"
       field_types:
@@ -458,14 +458,14 @@ pl:
       swap: Wymienianie
       service: Oferowanie
       request: Żądanie
-      inquiry: ~
-      share_for_free: ~
+      inquiry: Ogłoszenie
+      share_for_free: "Współdzielone za darmo"
       default_action_button_labels:
-        sell: ~
-        rent: ~
-        request: ~
-        offer: ~
-        inquiry: ~
+        sell: Zakup
+        rent: Wynajem
+        request: Oferta
+        offer: Zapytanie
+        inquiry: "Skontaktuj się"
   common:
     edit_page: "Edytuj stronę"
     default_community_slogan: "Platforma społecznościowa"
@@ -533,7 +533,7 @@ pl:
       update_later: "Zostaw ofertę otwartą"
       optional_message: "Opcjonalna wiadomość"
       price_to_pay: "Całościowy koszt do zapłaty"
-      you_need_to_fill_payout_details_before_accepting: ~
+      you_need_to_fill_payout_details_before_accepting: "Musisz wypełnić szczegóły dotyczące płatności zanim zaakceptujesz zapytanie i otrzymasz płatność. Przejdź do %{payment_settings_link}, aby wypełnić szczegóły."
       payment_settings_link: "ustawienia płatności"
       minimum_price_error_message: "Cena nie może być mniejsza niż %{amount}"
       accept: ~
@@ -725,9 +725,9 @@ pl:
       confirm_payment: ~
   community_memberships:
     access_denied:
-      access_denied: ~
-      you_are_banned_in_this_community: ~
-      contact_page_link: ~
+      access_denied: "Brak dostępu"
+      you_are_banned_in_this_community: "Administrator zablokował Twój dostęp do platformy %{service_name}. Jeżeli chcesz się z nim skontaktować, przejdź do %{link_to_contact_page}."
+      contact_page_link: "skontaktuj się z nimi"
     new:
       welcome_fb_user: "%{name}, witaj na platformie %{service_name}!"
       fb_join_accept_terms: "Jest jeszcze jeden krok, który musisz wykonać, aby dołączyć do %{service_name}: musisz zaakceptować zasady użytkowania."
@@ -765,7 +765,7 @@ pl:
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
       remember_to_confirm_request: "Pamiętaj, aby potwierdzić bądź odrzucić zapytanie"
       if_will_not_happen_you_should_cancel: "Jeżeli uważasz, że zamówienie z jakiegoś powodu nie zostanie ukończone, możesz je %{cancel_it_link}."
-      if_will_not_happen_you_should_cancel_escrow: ~
+      if_will_not_happen_you_should_cancel_escrow: "Jeżeli uważasz, że zamówienie z jakiegoś powodu nie zostanie ukończone, możesz je %{cancel_it_link}. To spowoduje powiadomienie administratora, który zajmie się zwrotem."
       if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
       cancel_it_link_text: anuluj
       automatic_confirmation: ~
@@ -775,9 +775,9 @@ pl:
       if_will_not_happen_you_should_cancel: "Jeżeli uważasz, że zamówienie z jakiegoś powodu nie zostanie ukończone, możesz je %{cancel_it_link}."
       cancel_it_link_text: anuluj
     payment_settings_reminder:
-      remember_to_add_payment_details: ~
-      you_have_added_listing_with_payment: ~
-      please_go_to_payment_settings: ~
+      remember_to_add_payment_details: "Pamiętaj, aby dodać szczegóły płatności, aby otrzymywać wpłaty"
+      you_have_added_listing_with_payment: "Dodałeś ofertę %{listing_link} z płatnością. Jednak, nie dodałeś szczegółów dotyczących płatności. Aby otrzymywać wpłaty, musisz dodać detale płatności."
+      please_go_to_payment_settings: "Proszę przejść do %{payment_settings_link} i wypełnij wymagane szczegóły dotyczące płatności."
       payment_settings_link: "ustawienia płatności"
     transaction_confirmed:
       here_is_a_message_from: "To wiadomość od %{other_party_given_name}:"
@@ -788,7 +788,7 @@ pl:
       giving_feedback_is_good_idea: "Przekazywanie opinii jest zawsze dobrym pomysłem. Jeżeli wszystko poszło dobrze, daj znać innym, że %{other_party_given_name} jest warty zaufania. Jeżeli napotkałeś jakieś problemy, dobrze zaznaczyć to także."
       give_feedback_to: "Przekaż opinię do %{other_party_given_name}"
     transaction_automatically_confirmed:
-      subject: ~
+      subject: "Zamówienie automatycznie zakończone - pamiętaj, aby przekazać recenzję"
       we_have_marked_request_as_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: ~
@@ -798,10 +798,10 @@ pl:
       give_feedback_to: ~
       show_thread: ~
     escrow_canceled:
-      subject: ~
-      has_marked_request_as_canceled: ~
-      if_this_was_error: ~
-      please_contant_admin_link: ~
+      subject: "Płatność anulowana"
+      has_marked_request_as_canceled: "%{other_party_full_name} oznaczył zapytanie o %{request} jako anulowane. Nie otrzymasz środków za tę transakcję."
+      if_this_was_error: "Jeżeli uważasz, że to błąd, %{please_contant_admin_link}."
+      please_contant_admin_link: "proszę skontaktuj się z administratorem"
     confirmation_instructions:
       confirmation_instructions_signature: "Pozdrawiamy,<br/>Zespół %{service_name}"
       welcome_to_kassi: "Witaj w %{service_name}!"
@@ -864,7 +864,7 @@ pl:
       money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: "Rachunek za płatność"
-      you_have_made_new_payment: ~
+      you_have_made_new_payment: "Zapłaciłeś <b>%{payment_sum}</b> za <b>%{listing_title}</b> do %{recipient_full_name}. Tutaj jest rachunek za tę płatność."
       product: Produkt
       price_per_unit_type: "Price per %{unit_type}"
       duration: ~
@@ -1079,8 +1079,8 @@ pl:
       some_private_requests_exist: "Istnieje już <b>%{number_of_listings} zapytań</b>,"
     custom_filters:
       update_view: "Zaktualizuj widok"
-      min: ~
-      max: ~
+      min: "Min:"
+      max: "Max:"
     event_feed:
       latest_events: "Co się dzieje"
     grid_item:
@@ -1237,7 +1237,7 @@ pl:
       sign_up: Rejestracja
     notifications:
       listing_could_not_be_saved: ~
-      contact_admin_link_text: ~
+      contact_admin_link_text: "skontaktuj się z administratorami"
       test_welcome_email_delivered_to: "Testowa wiadomość została wysłana do %{email}."
       something_went_wrong: "Coś poszło nie tak"
       community_updated: "Szczegóły zaktualizowane."
@@ -1248,7 +1248,7 @@ pl:
       comment_sent: "Komentarz wysłany"
       confirmation_link_is_wrong_or_used: "Ten link potwierdzający został już użyty lub jest uszkodzony. Spróbuj się zalogować, albo przesłać nam opinię jeżeli problem wciąż występuje."
       additional_email_confirmed: "Adres email, który wprowadziłeś jest potwierdzony."
-      could_not_get_email_from_facebook: ~
+      could_not_get_email_from_facebook: "Nie mogliśmy pobrać adresu z Facebooka i nie możemy stworzyć konta bez adresu email."
       facebook_email_unconfirmed: ~
       create_new_listing: "Stwórz kolejną ofertę"
       create_one_here: "stwórz nowy tutaj"
@@ -1288,7 +1288,7 @@ pl:
       payment_successful: "Płatność dokonana"
       payment_canceled: "Płatność anulowana"
       error_in_payment: "Błąd podczas procesowania płatności. Jeżeli nie dokończyłeś płatności, spróbuj ponownie. Jeżeli już zakończyłeś, prześlij nam opinię."
-      cannot_receive_payment: ~
+      cannot_receive_payment: "Inna strona nie może otrzymać płatności ze względu na błąd. Proszę skontaktuj się z administratorami, aby wyjaśnić sytuację"
       payment_waiting_for_later_accomplishment: "Kiedy zapłacisz powiadomimy sprzedawcę i otrzymasz rachunek na adres email"
       password_recovery_sent: "Instrukcje resetowania hasła zostały przesłane na Twój adres email."
       person_activated: "Użytkownik aktywowany"
@@ -1345,7 +1345,7 @@ pl:
       you_must_fill_all_the_fields: "Musisz wypełnić wszystkie pola"
       you_unfollowed_listing: "Już nie śledzisz tej oferty"
       joining_community_failed: "Dołączenie nie zakończyło się pomyślnie"
-      can_not_login_with_private_user: ~
+      can_not_login_with_private_user: "Możesz zalogować się Twoim prywatnym kontem. Zaloguj się kontem organizacji lub stwórz nowe konto."
       can_not_delete_email: "Nie możesz usunąć adresu email"
       user_does_not_have_email_to_delete: "Nie masz adresu email, który chcesz usunąć"
       email_deleted: "Adres email usunięty"
@@ -1429,17 +1429,17 @@ pl:
         remove_image: "Usuń zdjęcie"
         select_file: "Wybierz plik"
         add_more: ~
-        removing: ~
-        processing: ~
-        loading_image: ~
+        removing: "Trwa usuwanie..."
+        processing: "Trwa procesowanie..."
+        loading_image: "Trwa ładowanie..."
         image_uploading_in_progress: ~
         processing_takes_a_while: ~
-        this_may_take_a_while: ~
-        percentage_loaded: ~
-        uploading_failed: ~
+        this_may_take_a_while: "to trwa tylko chwilę"
+        percentage_loaded: "%{percentage}%"
+        uploading_failed: "Wysyłanie obrazka zakończyło się niepowodzeniem"
         image_processing_failed: "Błąd przetwarzania obrazu"
-        file_too_large: ~
-        accepted_formats: ~
+        file_too_large: "Ten plik jest zbyt duży"
+        accepted_formats: "Obrazek musi mieć format pliku GIF, JPG lub PNG."
         images_not_uploaded_confirm: ~
       location:
         location: Lokalizacja
@@ -1546,10 +1546,10 @@ pl:
       listing: oferta
       selected_category: "Kategoria: %{category}"
       selected_subcategory: "Podkategoria: %{subcategory}"
-      selected_transaction_type: ~
+      selected_transaction_type: "Rodzaj oferty: %{transaction_type}"
       select_category: "Wybierz kategorię"
-      select_subcategory: ~
-      select_transaction_type: ~
+      select_subcategory: "Wybierz podkategorię"
+      select_transaction_type: "Wybierz rodzaj oferty"
       you_need_to_fill_payout_details_before_accepting: ~
       contact_admin_link_text: ~
       community_not_configured_for_payments: ~
@@ -1574,7 +1574,7 @@ pl:
       contact: Kontakt
       favor_offer: "Oferta usługi"
       favor_request: "Zapytanie o usługę"
-      inquiry: ~
+      inquiry: Ogłoszenie
       item_offer_trade: "Wymień się ofertą"
       item_request_trade: "Wymień się zapytaniem"
       no_description: "Pozycja nie ma opisu"
@@ -1614,7 +1614,7 @@ pl:
       week: ~
       month: ~
     verification_required:
-      verification_required: ~
+      verification_required: "Wymagana weryfikacja"
   listing_conversations:
     preauthorize:
       details: ~
@@ -1672,7 +1672,7 @@ pl:
     braintree:
       terms:
         braintree_terms_also_included: ~
-        terms_link_text: ~
+        terms_link_text: "Zasady użytkowania BrainTree"
   paypal_accounts:
     payout_info_title: ~
     paypal_account_email_connected: ~
@@ -1854,7 +1854,7 @@ pl:
       connect_your_facebook_to_kassi: "Połącz swoje konto Facebook z %{service_name}"
       facebook_account: "Konto na Facebooku:"
       log_in_to_link_account: ~
-      you_can_also_create_new_account: ~
+      you_can_also_create_new_account: "Jeżeli nie masz konta na platformie %{service_name}, kliknij %{accont_creation_link}, aby stworzyć jedno z loginem z Facebooka."
       account_creation_link_text: "kliknij tutaj"
       cancle_facebook_connect: "Jeżeli nie chcesz łączyć tego konta, możesz %{cancel_link}."
       facebook_cancel_link_text: anuluj
@@ -1883,7 +1883,7 @@ pl:
       confirm_new_password: "Potwierdź nowe hasło"
       delete_account: "Usuń konto"
       delete_account_button: "Usuń moje konto na zawsze"
-      delete_account_confirmation_popup: ~
+      delete_account_confirmation_popup: "Czy jesteś pewien, że chcesz usunąć swoje konto użytkownika i definitywnie stracić wszystkie dane z nim związane? Usuwanie konta nie może zostać cofnięte."
       email_addresses: "Adresy email"
       new_email: "Nowy adres email"
       delete_personal_information: ~
@@ -1938,8 +1938,8 @@ pl:
       city: Miasto
       family_name: Nazwisko
       given_name: Imię
-      first_name_with_initial: ~
-      first_name_only: ~
+      first_name_with_initial: "(tylko pierwsza litera widoczna dla innych użytkowników)"
+      first_name_only: "(nie widoczne dla innych użytkowników)"
       location_description: ~
       phone_number: "Numer telefonu"
       profile_picture: "Zdjęcie profilowe"
@@ -1950,8 +1950,8 @@ pl:
       these_fields_are_shown_in_your: "Ta informacja jest widoczna dla wszystkich użytkowników %{service_name}"
       visible_to_everybody: "widoczne dla wszystkich"
       visible_to_registered_users: "(widoczne dla użytkowników, którzy są zalogowani)"
-      default_in_listing: ~
-      invisible: ~
+      default_in_listing: "(używane wyłącznie jako domyślne przy tworzeniu nowej oferty)"
+      invisible: "(nie widoczne dla innych użytkowników)"
       image_is_processing: ~
     save_information: "Zapisz informacje"
   shipping_address:
@@ -2100,11 +2100,18 @@ pl:
       login: ~
       signup: ~
       admin_dashboard: "Panel administracyjny"
-      language: ~
+      language: Język
   will_paginate:
-    previous_label: ~
-    next_label: ~
-    page_gap: ~
+    models:
+      person:
+        zero: użytkowników
+        one: użytkownik
+        few: użytkowników
+        many: użytkowników
+        other: użytkowników
+    previous_label: "&#8592; Poprzedni"
+    next_label: "Kolejny, &#8594;"
+    page_gap: "&hellip;"
     page_entries_info:
       multi_page: ~
       multi_page_html: ~

@@ -9,15 +9,15 @@ hu:
         remove_category_confirmation: "Biztos ki akar lépni a %{category_name} kategóriából?"
         saving_order: "Kategória sorrendjének mentése"
         save_order_successful: "Sikeresen mentett kategória sorrend"
-        save_order_error: ~
+        save_order_error: "Hiba történt a kategóriák sorrendjének mentésének során. Kérjük frissítse az oldalt és próbálkozzon újra."
       new:
         new_listing_category: "Új hirdetési kategória"
       form:
         category_name:
           category_title: "Kategória elnevezés"
         category_parent:
-          category_parent: "Előző kategória"
-          no_parent: "nincs előző"
+          category_parent: "Alap kategória"
+          no_parent: "Nincs alap kategória"
         category_transaction_types:
           transaction_types: Ajánlattípusok
           transaction_types_description: "Az ajánlattípusok meghatározzák milyen típusú ajánlatok megengedettek a hirdetésekben a kategórián belül. Például: csak adás-vétel, vagy bérlés és ingyenes elajándékozás is megengedett."
@@ -46,9 +46,9 @@ hu:
           cancel: Mégse
     communities:
       edit_details:
-        community_details: ~
+        community_details: "Alapvető részletek"
         community_look_and_feel: Dizájn
-        edit_community: ~
+        edit_community: "Alapvető részletek"
         enabled_languages: "Választható nyelvek"
         enabled_languages_description: "Választható nyelvek felhasználók részére. Az első lesz az alapértelmezett."
         default_language: "Alapértelmezett nyelv"
@@ -56,13 +56,13 @@ hu:
         community_name: "Piactér neve"
         edit_community_name_description: "A piactere neve. Ez megjelenik a felhasználóknak e-mailekben és több más helyen."
         community_slogan: "Piactér jelmondata"
-        edit_community_slogan_description: ~
+        edit_community_slogan_description: "A nem bejelentkezett felhasználók ezt fogják látni a honlapon. %{see_how_it_looks_like}"
         community_description: "A piactér bemutatása"
-        edit_community_description_description: ~
+        edit_community_description_description: "A nem bejelentkezett felhasználók ezt fogják látni a honlapon. %{see_how_it_looks_like}"
         community_search_placeholder: "Segítő szöveg keresése"
-        edit_community_search_placeholder_description: ~
+        edit_community_search_placeholder_description: "Ez piactér kezdőlapján a böngészőben fog megjelenni mint helyőrző szöveg %{see_how_it_looks_like}."
         private_community_homepage_content: "Magán piactér honlap tartalom"
-        edit_private_community_homepage_content_description: ~
+        edit_private_community_homepage_content_description: "Ez a tartalom a privát piacterek kezdőlapján lesz megjelenínetve a nem bejelentkezett felhasználók számára. Itt bemutathatja a piacterét és útmutatót adhat a csatlakozáshoz. Továbbá képeket, videókat és HTML tartalmat is hozzáadhat. %{see_how_it_looks_like}"
         update_information: "Beállítások mentése"
         invite_people: "Új felhasználók meghívása"
         edit_signup_info: "Regisztráció info"
@@ -72,8 +72,8 @@ hu:
         edit_info: "Információk változtatása"
         see_how_it_looks_like: Előnézet
         verification_to_post_listings_info_content: "Info ablak az ellenőrizetlen használóknak"
-        verification_to_post_listings_info_content_description: ~
-        verification_to_post_listings_info_content_default: ~
+        verification_to_post_listings_info_content_description: "Jelenleg ön manuálisan hitelesíti a felhasználóit mielőtt ők hirdetést tudnának feladni. Itt megadhat egy alapértelmezett írásbeli magyarázatot amely a még nem hitelesített felhasználóknak fog megjelenni amikor hirdetést próbálnak feladni."
+        verification_to_post_listings_info_content_default: "A %{service_name} oldalán a felhasználók manuálisan lesznek jóváhagyva a rendszergazda által mielőtt hirdetést tudnának feladni. Ön még nem került jóváhagyásra. Kattintson ide: %{contact_admin_link}"
         contact_admin_link_text: "Lépjen kapcsolatba a rendszergazdával"
         save: "Beállítások mentése"
         transaction_agreement: "Tranzakciós megállapodás"
@@ -85,17 +85,17 @@ hu:
         transaction_agreement_text_header: "Felhasználói feltételek"
         transaction_agreement_description: "A használati feltételek tartalmát a felhasználónak tudomásul kell vennie. A használati feltételek tartalma akkor kerül megjelenésre ha a felhasználó  rákattint a \"%{read_more}\" linkre amely használati feltételek címke mellett található."
       edit_look_and_feel:
-        edit_community_look_and_feel: ~
+        edit_community_look_and_feel: "Piactér szerkesztése \"%{community_name}\" nézet és érzet"
         community_logo: "Asztali logó"
-        community_logo_icon: ~
+        community_logo_icon: "Logó közösségi hálózatokhoz és mobil eszközökhöz."
         community_cover_photo: Háttérkép
         small_community_cover_photo: "Kis háttérkép"
         favicon: Favicon
         favicon_info_text: "A favicon az alapértelmezett Sharetribe logo helyébe fog lépni. Nagyága 32x32 pixel lehet és a feltöltött kép is ekkorára lesz újraméretezve."
         community_custom_color1: "Fő szín"
-        community_custom_color2: "Másodlagos szín"
+        community_custom_color2: "%{post_new_listing} gomb színe"
         logo_instructions_text_with_dimensions: "Az asztali logó mérete %{width}x%{height}px legyen. Ezt a nagyobb képernyőt használók láthatják majd."
-        logo_icon_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: "Ez a négyzet alakú logó jelenik majd meg amikor a felhasználók megosztják oldalát a Facebook-on. Valamint amikor mobil eszközön tekintik meg az oldalt vagy könyvjelzővel a mobil eszközük kezdőlapján. A méretek (legalább) %{width}x%{height}pixel nagyságúak legyenek."
         cover_photo_visibility: "A borítókép a nyitóoldalon jelenik meg azok számára akik nincsenek bejelentkezve."
         cover_photo_instructions_text_with_dimensions: "A kép újr lesz méretve %{width}x%{height} pixel nagyságúra és a magasabb képek félbe lesznek vágva. %{see_how_it_looks_like}"
         small_cover_photo_visibility: "A kis borítókép az összes oldalon megjelenik a nyitóoldal kivételével ahol a felhasználók nincsenek bejelentkezve."
@@ -119,14 +119,14 @@ hu:
         custom_head_script: "Egyedi leírás"
         custom_head_script_instructions_text: "Ez a szkript be van injektálva  az összes oldal  <head> tag-jébe és egyedi CSS, JavaScript vagy HTML beszúrására használható. A Sharetribe jövőbeni fejlesztéseinek/valtoztatásainak következtében arra számíthat, hogy a szkriptje inkompatibilissé válik."
       edit_text_instructions:
-        edit_text_instructions: ~
+        edit_text_instructions: "Útmutató szöveg"
       edit_welcome_email:
         welcome_email_content: "Üdvözlő üzenet tartalma"
-        welcome_email_content_description: ~
+        welcome_email_content_description: "Az alábbi üzenet minden új felhasználónak el lesz küldve csatlakozásukkor. Lehetősége van az üzenetet úgy formálni, hogy a piactere számára a legmegfelelőbb legyen. Ide kattintva: '%{send_test_message_link}' egy privát üzenetet tud küldeni a saját e-mailcímére ahol megnézheti, hogyan fog az üzenet e-mailben megjelenni."
         edit_message: "Üzenet szerkesztése"
         send_test_message: "Tesztüzenet küldése"
       outgoing_email:
-        title: "Kimenő emailcím"
+        title: "Kimenő e-mailcím"
         info: "Ez a név és cím a piactérrtől a felhasználóknak küldött e-mailekben szerepel."
         read_more: "További információ kimenő e-mailekkel kapcsolatban."
         sender_address: "Feladó címe: %{sender_address}"
@@ -136,7 +136,7 @@ hu:
         set_sender_address: "Feladó címének beállítása"
         sender_name_label: Név
         sender_name_placeholder: "Feladó neve"
-        sender_email_label: Emailcím
+        sender_email_label: E-mailcím
         sender_email_placeholder: kuldo-email@pelda.com
         this_is_how_it_will_look: "Így fog kinézni:"
         send_verification_button: "Igazoló e-mail küldése"
@@ -174,7 +174,7 @@ hu:
         fi: Finn
         ru: Orosz
         de: Német
-        el: Görök
+        el: Görög
         nl: Holland
         tr-TR: Török
         zh: Kínai
@@ -184,8 +184,8 @@ hu:
         settings: Beállítások
         general: Általános
         users_can_review_each_other_after_transaction: "A felhasználók értékelhetik egymást rendelést követően"
-        access: ~
-        join_with_invite_only: ~
+        access: "Hozzáférés beállításai"
+        join_with_invite_only: "Új felhasználók csak a régi felhasználók meghívására csatlakozhatnak"
         users_can_invite_new_users: "Engedélyezés az összes felhasználónak új felhasználók meghívására"
         private: "Hirdetések és felhasználói profilok megtekintése kizárülag regisztrált felhasználók részére (privát piactér létrehozása)"
         require_verification_to_post_listings: "Csak a rendszergazda által ellenőrzött felhasználók adhatnak fel új hírdetéseket"
@@ -196,20 +196,20 @@ hu:
         select_distance_unit: "Távolság megjelenítése %{distance_units_selector}"
         km: km
         miles: mérföld
-        show_only_nearby: "Csak közeli hirdetéseket mutasson a lista és magazin nézetben hely szerinti keresés esetén"
+        show_only_nearby: "Csak közeli hirdetéseket mutasson a listázás hely szerinti keresés esetén"
         listing_preferences: "Hirdetési beállítások"
-        transaction_preferences: ~
+        transaction_preferences: "Rendelési preferenciák"
         show_listing_publishing_date: "A hírdetés feladásának megmutatása a hírdető oldalon"
         show_category_in_listing_list: "A hírdetés típusának kijelzése lista nézetben"
         hide_expiration_date: "Nem szükséges lejárati dátumot megadni a hírdetések feladásakor"
         listing_comments_in_use: "Hírdetésekhez való hozzászólás engedélyezése felhasználók részére (minden felhasználó számára látható)"
-        email_preferences: "Email beállítások"
+        email_preferences: "E-mail beállítások"
         automatic_newsletters: "Napi/heti hírlevél küldése minden felhasználónak (amennyiben nem kapcsolják ki)"
         email_admins_about_new_members: "E-mail küldése a rendszergazdáknak minden új felhasználó felíratkozásakor"
         google_analytics_key: "Google Analytics követési azonosító"
         twitter_handle: "Twitter név (használata a tweet gombbal a hirdető oldalon)"
         update_settings: "Beállítások mentése"
-        automatically_confirmed: ~
+        automatically_confirmed: "A rendelés automatikusan teljesítettnek lesz jelölve %{days_dropdown} nappal a kifizetést követően. Letéti rendszer esetén ekkor az összeg felszabadul és kifizetésre kerül az eladónak."
         automatically_confirmed_no_escrow: "A rendelés automatikusan teljesítettnek lesz jelölve %{days_dropdown} nappal a kifizetést követően."
         automatic_newsletter_frequency: "Automatikus hírlevél küldése: %{frequency_dropdown}"
         newsletter_daily: Napi
@@ -225,7 +225,7 @@ hu:
         delete_this_marketplace: "Piactér törlése"
       manage_members:
         manage_members: "Felhasználók kezelése"
-        email: Email
+        email: E-mail
         name: Név
         join_date: Csatlakozva
         admin: Rendszergazda
@@ -235,7 +235,7 @@ hu:
         save_user_status_successful: "Mentve "
         export_all_as_csv: "Az öszes exportálása CSV-ként"
         save_user_status_error: "Hiba történt a mentés közben. Kérlek, frissítsd az oldalt s próbáld újra!"
-        ban_user_confirmation: ~
+        ban_user_confirmation: "Ez törli a felhasználót a piactérről és megakadályozza az oldalhoz való hozzáférésben ezzel a fiókkal. Biztos benne hogy folytatja?"
         ban_me_error: "Nem tilthatja le önmagát"
       social_media:
         social_media: "Közösségi média"
@@ -243,13 +243,13 @@ hu:
         twitter_handle_info_text: "A piactere Twitter fiókjának neve (ha van) megemlítésre fog kerülni ha a felhasználók megnyomják a Tweet gombot a hirdető oldalon."
         twitter_handle_info_text_with_instructions: "A piactere Twitter fiókjának neve (ha van) megemlítésre fog kerülni ha a felhasználók megnyomják a Tweet gombot a hirdető oldalon.%{instructions_link}"
         twitter_instructions_link_text: Bővebben
-        twitter_handle_placeholder: felhasználó
+        twitter_handle_placeholder: felhasználónév
         invalid_twitter_handle: "A Twitter név maximum 15 alfanumerikus (betűk A-Z és számok 0-9) karaktet tartalmazhat"
         facebook_connect: Facebook
         facebook_connect_info_text: "A Facebook-os bejelentkezés lehetővé tételéhez jelentkezzen piacterével <a href='https://developers.facebook.com/'> Facebook fejlesztők kezelőpultján</a>. Adja meg a generált azonosítót és a titkos kódot itt."
         facebook_connect_info_text_with_instructions: "A Facebook-os bejelentkezés lehetővé tételéhez jelentkezzen piacterével <a href='https://developers.facebook.com/'> Facebook fejlesztők kezelőpultján</a>. Adja meg a generált azonosítót és a titkos kódot itt. %{instructions_link}"
         facebook_instructions_link_text: "Magyarázat a Facebook kapcsolat beállításához."
-        facebook_connect_id: "Facebook felhasználó azonosító"
+        facebook_connect_id: "Facebook kliens azonosító"
         invalid_facebook_connect_id: "Felhasználó azonosító csak számokat tartalmazhat."
         facebook_connect_secret: "Facebook kliens kulcs"
         invalid_facebook_connect_secret: "A kliens kulcs csak számokat tartalmazhat és betűket a-tól f-ig."
@@ -264,7 +264,7 @@ hu:
       menu_links:
         menu_links: "Menü linkek"
         save: "Beállítások mentése"
-        add_menu_link: "Új link menühöz adása"
+        add_menu_link: "Új link hozzáadása a menühöz"
         title_placeholder: "Link cím"
         url_placeholder: "http://pelda.com/hu"
         title: Cím
@@ -284,7 +284,7 @@ hu:
           initiated_by: Kezdő
           other_party: "Egyéb party"
         status:
-          free: ~
+          free: Üzenetváltás
           pending: Folyamatban
           preauthorized: "Előzetesen engedélyezett"
           accepted: Elfogadva
@@ -321,14 +321,14 @@ hu:
       form:
         field_required:
           this_field_is_required: "A mező kitöltésének kötelezővé tétele új hirdetés feladásakor"
-          this_field_is_required_checkbox: ~
+          this_field_is_required_checkbox: "Legyen kötelező kitölteni ezt a mezőt új hirdetés feladásakor (a felhasználónak választania kell legalább egy lehetőséget)"
         search_filter:
           search_filter: "Ezen mező alapján szűrő megjelenítése a honlapon"
           date_cant_be_filtered: "A dátum mezőhöz nem áll filter rendelkezésre."
           text_cant_be_filtered: "Nincs szűrés a szövegablak számára. A fő szöveg kereső a szövegablakokból keres."
       index:
         listing_fields: "Listázási mezők és szűrők"
-        listing_fields_help: ~
+        listing_fields_help: "Itt szerkesztheti a mezőket melyeket a felhasználóknak kell kitölteniük új hirdetés feladása során. Vegye figyelembe, hogy egyes mezők előre meghatározottak és nincs lehetőség a szerkesztésükre."
         add_new_field: "Új mező hozzáadása:"
         remove_field_confirmation: "Biztos benne, hogy el akarja távolítani ezt a mezőt '%{field_name}'?"
         cancel: Mégse
@@ -339,11 +339,11 @@ hu:
         select_all: "Mindet kijelöl"
         clear_all: "Mindet töröl"
         options: Beállítások
-        add_option: "Opció hozzáadása"
+        add_option: "+Opció hozzáadása"
         saving_order: "Mezők sorrendjének elmentése"
         save_order_successful: "Mezők sorrendje sikeresen elmentve"
         save_order_error: "Hiba történt a mezők sorrendjének beállítása során. Kérjük frissítse az oldalt és próbálja újra."
-        select_one: "Válasszon mező típust"
+        select_one: "Válasszon mező típust..."
         continue: Folytatás
         minimum_value: Minimum
         maximum_value: Maximum
@@ -367,12 +367,12 @@ hu:
         any_language: "Egyéb nyelvek"
         send_email: "E-mail küldése"
         message_will_be_sent_only_to_people_with_this_language: "Figyelem: Az e-mail csak azoknak a felhasználóknak lesz elküldve akik az ön által kiválasztott nyelven használják a %{service_name} oldalát."
-        email_sent: "Email elküldve"
+        email_sent: "E-mail elküldve"
     left_hand_navigation:
       general: Általános
       users_and_transactions: "Felhasználók & tranzakciók"
       configure: Beállítás
-      emails_title: Emailek
+      emails_title: E-mailek
       support: Segítség
       subscription: Feliratkozás
       preview: "A honlap előnézete"
@@ -384,7 +384,7 @@ hu:
             Ön eldöntheti, hogy a felhasználói bérbe adnak vagy eladnak, vagy akár csak  közleményeket osztanak meg és ingyen üzenetekkel kommunikálnak.
         read_more_about_order_types: "Tudjon meg többet az ajánlattípusokról"
         add_new_shape: "Adjon meg új ajánlattípust: "
-        select_template: Válasszon
+        select_template: "Sablon választása..."
         all_categories: "Összes kategória"
         no_categories: "Nincsenek kategóriák"
         category_count: "%{category_count} kategóriák"
@@ -470,7 +470,7 @@ hu:
       personal_payment_preferences_link_text: "Az Ön személyes piactéri fiókja"
       read_more_about_paypal: "Leírás a Sharetribe fizetési rendszeréről"
       set_minimum_price_and_fee: "Állítson be egy minimális árat és kezelési költséget"
-      minimum_listing_price_label: "Minimum tranzakciós méret:"
+      minimum_listing_price_label: "Tranzakció minimális mérete:"
       transaction_fee_label: "Tranzakciós díj:"
       minimum_transaction_fee_label: "Minimum tranzakciós költség:"
       save_settings: "Beállítások mentése"
@@ -495,7 +495,7 @@ hu:
   common:
     edit_page: "Oldal szerkesztése"
     default_community_slogan: "Közösség piactér"
-    default_community_description: ~
+    default_community_description: "Ezen a piactéren adás-vétel, bérlés, csere és termékek és szolgáltatások megosztásása lehetséges a piactér többi használójával."
     cancel: Mégsem
     fields_that_are_mandatory: "Kötelező mezők (*)"
     or: vagy
@@ -593,14 +593,14 @@ hu:
       no_received_messages: "Nincs üzenet"
       no_sent_messages: "Nincs elküldött üzenet"
     conversation:
-      accepted_request: "Kérését elfogadták"
+      accepted_request: "Kérése elfogadva"
       accepted_offer: "Ajánlat elfogadva"
       rejected_request: "Kérését elutasították"
       rejected_offer: "Ajánlat visszautasítva"
       confirmed_request: "Rendelés teljesítve."
       confirmed_offer: "Ajánlat kész"
       canceled_request: "Rendelés törölve."
-      canceled_offer: "Ajánlat törölve"
+      canceled_offer: "Ajánlat visszavonva"
       message_from: "Üzenet tőle: %{person}"
       about_listing: "A következő hirdetéssel kapcsolatban: %{listing_title}"
       free_message: Kapcsolatfelvétel
@@ -608,9 +608,9 @@ hu:
     message:
       accepted_request: "ajánlat elfogadva"
       received_payment: "a felkérés elfogadva, %{sum} összegű átutalás megérkezett"
-      accepted_offer: "Ajánlat elfogadása"
+      accepted_offer: "Ajánlat elfogadva"
       rejected_request: "a felkérés elutasítva, utalás törölve"
-      rejected_offer: "Ajánlat megszakítása"
+      rejected_offer: "Az ajánlat visszautasítva"
       confirmed_request: "a rendelés teljesítettnek jelölve"
       confirmed_offer: "Az ajánlat teljesítettként megjelölve"
       canceled_request: "a rendelés törölve"
@@ -621,7 +621,7 @@ hu:
       message: Üzenet
       message_to: "Üzenet neki: %{author_name}"
       optional_message_to: "Választható üzenet %{author_name} számára"
-      send_message: "Küldjön üzenetet"
+      send_message: "Üzenet küldése"
       send: Elküld
       this_message_is_private: "Ez egy privát üzenet ön és %{person} között. %{person} e-mailben fog kapni értesítést erről az üzenetről."
       you_will_get_notified_of_acceptance: "Ön e-mailben fog értesítést kapni amint %{person} elfogadja vagy elutasítja az ajánlatát."
@@ -655,7 +655,7 @@ hu:
       offer_accepted: Elfogadva
       offer_rejected: Elutasítva
       offer_canceled: Törölve
-      offer_confirmed: Kész
+      offer_confirmed: Teljesítve
       offer_paid: "Fizetés sikeres"
       offer_preauthorized: "Fizetés sikeres"
       offer_waiting_for_payment: "Várakozás amíg %{requester_name} átutalja az vételárat"
@@ -679,10 +679,10 @@ hu:
       request_preauthorized: "Fizetésre felhatalmazva"
       skip_feedback: "Visszajelzés küldés kihagyása"
       waiting_for_listing_author_to_accept_offer: "Várakozás %{listing_author_name}-ra, hogy elfogadja az ajánlatot"
-      waiting_for_listing_author_to_accept_request: ~
+      waiting_for_listing_author_to_accept_request: "Várakozás %{listing_author_name} felhasználóra, hogy elfogadja a felajánlást. Amint %{listing_author_name} elfogadja az ajánlatot, ön fizethet."
       waiting_for_you_to_accept_request: "Várakozás önre, hogy elfogadja a felkérést"
-      waiting_confirmation_from_requester: ~
-      waiting_confirmation_from_you: ~
+      waiting_confirmation_from_requester: "Várakozás %{requester_name} felhasználóra, hogy jelezze a rendelés teljesülését"
+      waiting_confirmation_from_you: "Várakozás önre, hogy a rendelés teljesítését visszaigazolja"
       waiting_payment_from_requester: "Várakozás amíg %{requester_name} átutalja az vételárat"
       waiting_payment_from_you: "Várjuk az utalását"
       waiting_feedback_from_you: "Várakozás önre, hogy adjon értékelést"
@@ -699,8 +699,8 @@ hu:
       reject_request: "Most nem"
       accept_preauthorized_offer: "Ajánlat elfogadása"
       accept_preauthorized_request: "Kérés elfogadása"
-      reject_preauthorized_offer: "Most nem"
-      reject_preauthorized_request: "Most nem"
+      reject_preauthorized_offer: "Ezúttal nem"
+      reject_preauthorized_request: "Ezúttal nem"
       confirm: Megjelölve
       cancel: Vitat
   braintree_accounts:
@@ -710,7 +710,7 @@ hu:
       last_name: Vezetéknév
       email: "E-mail cím"
       phone: Telefonszám
-      address_street_address: "Utca neve"
+      address_street_address: "Cím (utca, házszám)"
       address_postal_code: Irányítószám
       address_locality: Város
       address_region: Állam
@@ -754,17 +754,17 @@ hu:
   community_memberships:
     access_denied:
       access_denied: "Hozzáférés megtagadva"
-      you_are_banned_in_this_community: ~
+      you_are_banned_in_this_community: "A rendszergazda korlátolta az ön hozzáférését a %{service_name} oldalához. Ha kapcsolatba akar lépni a rendszergazdával kattintson ide: %{link_to_contact_page}."
       contact_page_link: "Kapcsolatfelvétel velük"
     new:
       welcome_fb_user: "Üdvözli a %{service_name}, %{name}!"
-      fb_join_accept_terms: ~
+      fb_join_accept_terms: "Még egy lépés, hogy csatlakozzon a %{service_name} oldalához: fogadja el a felhasználói feltételeket"
       join_community: "Csatlakozzon a %{service_name} oldalához."
       you_can_join: "Ön csatlakozhat a %{service_name} oldalához a feltételek elfogadásával, majd a 'Csatlakozás a %{service_name} oldalához' gombra kattintva."
-      you_can_join_email_confirmation: ~
-      you_can_join_email_confirmation_multiple_addresses: ~
-      you_can_join_with_invite_only: ~
-      if_want_to_view_content: ~
+      you_can_join_email_confirmation: "Ahhoz, hogy csatlakozni tudjon a %{service_name} oldalhoz egy érvényes e-mailcím szükséges a következő végződéssel %{email_ending}. A csatlakozáshoz írja be az e-mailcímét, fogadja el a felhasználói feltételeket és kattintson a 'Csatlakozás %{service_name} oldalhoz' alul és igazolja vissza e-mailcímét."
+      you_can_join_email_confirmation_multiple_addresses: "A %{service_name} korlátozások vannak. Csak engedélyezett e-mailcímmel tud csatlakozni.  A csatlakozáshoz írja be az e-mailcímét, fogadja el a felhasználói feltételeit a %{service_name} oldalnak és alul kattintson a 'Csatlakozás %{service_name} oldalhoz'."
+      you_can_join_with_invite_only: "Ön meghívást kapott egy felhasználótól, hogy csatlakozzon a %{service_name} oldalához. Ha van egy meghívási kódja azt az alábbi mezőbe beírva, a felhasználói feltételeket elfogadva tud csatlakozni 'Csatlakozás %{service_name}'"
+      if_want_to_view_content: "Ha meg szeretné tekinteni a %{service_name} piactér tartalmát anélkül, hogy csatlakozna a következőt kell tennie"
       log_out: Kijelentkezés
       join_community_button: "Csatlakozzon a %{service_name} oldalához."
     give_consent:
@@ -780,50 +780,52 @@ hu:
       you_can_accept_or_reject_request_at: "Elfogadhatja vagy elutasíthatja az ajánlatkérést itt"
       you_have_not_yet_accepted_or_rejected_offer: "Még nem történt meg a %{date}-i %{title} ajánlat elfogadása vagy elutasítása."
       you_have_not_yet_accepted_or_rejected_request: "Még nem történt meg a %{date}-i %{title} ajánlatkérés elfogadása vagy elutasítása."
-      show_thread: "Beszélgetések megmutatása"
+      show_thread: "Beszélgetés megmutatása"
     branding:
       powered_by: "A %{service_name} oldalát a %{sharetribe_link} piactér platform támogatja."
       create_own: "Szeretne ön is egy online piacteret mint %{service_name}? Tudjon meg többet itt:%{learn_more}"
       learn_more: Bővebben
     braintree_account_approved:
-      account_ready: "Ön kész fizetések fogadására"
+      account_ready: "Ön készen áll fizetések fogadására"
       message: "Az ön által megadott fizetési információkat elfogadtuk. Az önnek érkező átutalásokat mostantól tudja fogadni a/az %{service_name} oldalán."
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: ~
+      you_have_not_yet_confirmed_or_canceled_request: |
+          Ön még nem igazolta vissza és nem is törölte a rendelést %{request_link}.
+          Amennyiben a rendelés teljesült, azt önnek vissza kell igazolnia. Ezt követően adhat visszajelzést a másik felhasználó %{other_party_given_name} számára.
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Ön még nem erősítette meg és nem is utasította vissza a felkérést %{request_link}. A pénzt átutaljuk %{other_party_given_name} számára amint a) ön jelzi a rendelés teljesítését vagy b) %{days_to_automatic_confirmation} nappal az utalás után. Miután a rendelést teljesítettnek jelölte, lehetősége lesz visszajelzést adni %{other_party_given_name} számára."
       remember_to_confirm_request: "Kérését ne feledje megerősíteni vagy törölni"
-      if_will_not_happen_you_should_cancel: ~
-      if_will_not_happen_you_should_cancel_escrow: ~
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
+      if_will_not_happen_you_should_cancel: "Amennyiben úgy gondolja, hogy különböző okokból ez a rendelés nem fog teljesülni, lehetősege van törölni azt %{cancel_it_link}."
+      if_will_not_happen_you_should_cancel_escrow: "Amennyiben úgy gondolja, hogy ez a rendelés nem lesz teljesítve különböző okokból, itt törölheti: %{cancel_it_link}. Ezáltal a rendszergazda is értesítve lesz és ő fel fogja venni önnel a kapcsolatot a visszafizetés ügyében."
+      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "Amennyiben úgy gondolja, hogy ez a rendelés nem lesz teljesítve különböző okokból, van még %{days_to_cancel} napja hogy törölje azt %{cancel_it_link}. Egyúttal a rendszergazda is értesítve lesz és ő fel fogja venni önnel a kapcsolatot a visszafizetés ügyében."
       cancel_it_link_text: töröl
-      automatic_confirmation: ~
+      automatic_confirmation: "Amennyiben ön nem erősíti meg és nem is törli a rendelését %{days_to_automatic_confirmation} napon belül miután az ajánlat elfogadásra került, automatikusan teljesültnek fogjuk azt jelölni."
     payment_reminder:
       remember_to_pay: "Ne felejtse el kifizetni a következő tételt: %{listing_title}"
       you_have_not_yet_paid: "Ön még nem fizetett a %{listing_title} hirdetésben szereplő tételért melyenek eladását %{other_party_name} engedélyezte."
-      if_will_not_happen_you_should_cancel: ~
+      if_will_not_happen_you_should_cancel: "Amennyiben úgy gondolja, hogy különböző okokból ez a rendelés nem fog teljesülni, lehetősege van törölni azt %{cancel_it_link}."
       cancel_it_link_text: töröl
     payment_settings_reminder:
       remember_to_add_payment_details: "Ne felejtse megadni fizetési információit, annak érdekében, hogy megkapja az önnek küldött átutalásokat"
       you_have_added_listing_with_payment: "Ön a következő hírdetést adta fel: %{listing_link}, de még nem adott meg fizetési információt. Annak érdekében, hogy meg tudja kapni az önnek szánt átutalásokat kérjük adja meg fizetési információit."
-      please_go_to_payment_settings: ~
+      please_go_to_payment_settings: "Kérjük, töltse ki a fizetési információkat ide kattintva: %{payment_settings_link}."
       payment_settings_link: "Fizetési beállítások"
     transaction_confirmed:
       here_is_a_message_from: "%{other_party_given_name} üzenetet küldött önnek:"
       request_marked_as_confirmed: "A rendelés teljesítve -ne feledjen értékelést írni"
-      request_marked_as_canceled: "Hirdetés törölve"
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      request_marked_as_canceled: "Rendelés törölve"
+      has_marked_request_as_confirmed: "%{other_party_full_name} teljesítettnek jelölte a rendelést '%{request}' felkérés ügyében. Most írhat egy visszajelzést %{other_party_given_name} számára."
+      has_marked_request_as_canceled: "%{other_party_full_name} törölte a rendelést '%{request}' felkérésre vonatkozóan. Ön továbbra is adhat visszajelzést %{other_party_given_name} számára."
       giving_feedback_is_good_idea: "Mindig jó, ha ad visszajelzést. Ha minden rendben ment, tudathatja másokkal is hogy, %{other_party_given_name} megbízható. Az is hasznos lehet, ha jelzi amennyiben problémája merült fel."
       give_feedback_to: "Adjon értékelést %{other_party_given_name} számára"
     transaction_automatically_confirmed:
       subject: "A rendelés automatikusan teljesítve - ne feledjen értékelést írni"
-      we_have_marked_request_as_confirmed: ~
+      we_have_marked_request_as_confirmed: "Ezen felkérést '%{request}' teljesítését befejezettnek jelöltük. A felkérés azért lett automatikusan teljesítve mert %{days_passed} nap eltelt mióta a felkérés elfogadásra került."
     booking_transaction_automatically_confirmed:
       subject: "A rendelés automatikusan teljesítva - ne feledjen értékelést írni"
       we_have_marked_request_as_confirmed: "Ezen felkérést '%{request}' teljesítését befejezettnek jelöltük. A felkérés azért lett automatikusan teljesítve mert az egynapos foglalási idő lejárt."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Most írhat egy visszajelzést %{other_party_given_name} számára. Mindig jó ha ad visszajelzést. Ha minden rendben ment, tudathatja másokkal is hogy, %{other_party_given_name} megbízható. Az is hasznos lehet, ha jelzi amennyiben problémája merült fel."
-      give_feedback_to: "Adjon értékelést %{other_party_given_name}ról"
+      give_feedback_to: "Adjon értékelést %{other_party_given_name} felhasználóról"
       show_thread: "Mutassa a beszélgetéseket"
     escrow_canceled:
       subject: "Fizetés megszakítva"
@@ -835,7 +837,7 @@ hu:
       welcome_to_kassi: "Üdvözlünk a %{service_name}-n!"
       need_to_confirm: "Aktiválnod kell a fiókodat e-mailben."
       confirmation_link_text: "Email aktíválása"
-      or_paste_link: "Az aktiválás az alábbi URL-cím böngészőbe másolásával is hozzáférhető:"
+      or_paste_link: "Alternatívaként be is másolhatja a következő linket a böngészőbe:"
       turning_on_confirmations_in_this_community: "Megkezdjük az e-mailes megerősítések használatát a %{service_name} piactéren."
     common:
       hey: "Üdvözöljük %{name}!"
@@ -858,12 +860,12 @@ hu:
       your_request_was_accepted: Elfogadva
       your_request_was_rejected: Elutasítva
       you_can_now_pay_to: "Ön elküldheti a kívánt összeget %{payment_receiver}-nek."
-      pay_now: "Azonnali fizetés"
-      remember_to_confirm: ~
+      pay_now: "Fizetés most"
+      remember_to_confirm: "Amennyiben a rendelés teljesült, ne feledje ezt visszaigazolni. Abban az esetben ha nem teljesült %{days_to_automatic_confirmation} nap áll rendelkezésére, hogy törölje azt. Egyébként autómatikusan teljesítettnek lesz jelölve."
     invitation_to_kassi:
       hi: Üdvözlöm!
       you_have_been_invited_to_kassi: "%{inviter} meghívta önt a %{service_name} oldalára."
-      here_is_a_message_from: "Privát üzenete érkezett %{inviter}"
+      here_is_a_message_from: "Privát üzenete érkezett %{inviter} felhasználótól"
       join_now: "Csatlakozás most"
       invitation_code: "Meghívási kód: %{code}"
     new_comment:
@@ -873,7 +875,7 @@ hu:
       listing_you_follow_has_a_new_comment: "%{author} kommentálta a hirdetést amelyet követ %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} hozzászólt a hírdetéshez '%{listing}' amelyet ön is követ a %{service_name} oldalon."
     new_message:
-      view_message: "Üzenetek megtekintése"
+      view_message: "Üzenet megtekintése"
       has_sent_you_a_message_in_kassi: "%{sender} üzenetet küldött Önnek itt: %{service_name}"
       you_have_a_new_message: "Egy új  %{service_name} üzenet tőle: %{sender_name}"
     new_payment:
@@ -891,7 +893,7 @@ hu:
       you_will_get: "Összesen:"
       money_will_be_transferred: "Az összeg akkor kerül a számlájára amennyiben a) %{payer_name} jelezte a rendelés teljesítését vagy b) %{automatic_confirmation_days} nap eltelt amióta %{payer_name} fizetett."
     receipt_to_payer:
-      receipt_of_payment: "Fizetés elfogadása"
+      receipt_of_payment: "Fizetési nyugta"
       you_have_made_new_payment: "Ön kifizette az <b>%{payment_sum}</b> összeget %{recipient_full_name} hirdetőnek a <b>%{listing_title}</b> hirdetésben szereplő tételért. Itt van róla a bizonylat."
       product: Termék
       price_per_unit_type: "Ár: %{unit_type}"
@@ -905,18 +907,18 @@ hu:
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} értékelte Önt itt: %{service_name}"
       you_can_give_feedback_to: "Ön még nem értékelte a következő usert: %{name}"
-      view_feedback: "Értékelések megtekintése"
+      view_feedback: "Értékelés megtekintése"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Az ön által követett hirdetést frisssítették"
       has_updated_listing_you_follow_in_kassi: "%{author} frissítette a hírdetést '%{listing}' amelyet ön is követ a %{service_name} oldalon."
       view_changes: "Változások megtekintése"
     community_updates:
       added_offer: "%{name_link} feladott egy hirdetést:"
-      added_request: "%{name_link} feladott hírdetést:"
+      added_request: "%{name_link} feladott hirdetést:"
       added_listing: "%{name_link} feladott egy hírdetést:"
       update_mail_title: "%{title_link} frissítés"
       title_link_text: "%{community_name}"
-      intro_paragraph: ~
+      intro_paragraph: "Ezek történtek a %{community_link} oldalán az utolsó frissítés óta %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Adjon fel új hirdetést!"
       reduce_email_footer_text: "Túl sok e-mailt kapott? %{settings_link} vagy %{unsubscribe_link}"
@@ -924,18 +926,18 @@ hu:
       unsubscribe_link_text: Leiratkozás
     newsletter:
       hi: "Üdvözöljük %{name}"
-      newest_offers: "Jelenleg kik ajánlanak"
-      newest_requests: "jelenleg kik keresnek"
+      newest_offers: "Mit kínálnak a hirdetők a többi felhasználónak"
+      newest_requests: "Mit keresnek jelenleg a felhasználók"
       text_version_text: "Tud Ön is olyat felkínálni amire másoknak szüksége lehet? Vagy esetleg olyanra van szüksége ami másoknak van? Itt feladhatja kínál vagy keres hirdetését vagy átböngészheti a mások által feladott hirdetéseket: %{url}"
     reset_password_instructions:
       change_my_password: "Megváltoztatom a jelszavamat"
-      reset_password_instructions: "<p> Ön jelezte, hogy elfelejtette a jelszavát vagy a felhasználónevét %{service_name} oldalunkhoz. </p><p>Az ön felhasználóneve: %{username}</p><p>Amennyiben meg kell változtatnia a jelszavát, kattintson a következő linkre: %{password_reset_link}</p><br/><p>Amennyiben ön ezt nem kérte, hagyja figyelmen kívül e-mailünket. Az ön jelszava nem fog változni addig amíg a fenti liket használva ön egy újat nem készít.</p>"
+      reset_password_instructions: "<p> Ön jelezte, hogy elfelejtette a jelszavát vagy a felhasználónevét %{service_name} oldalunkhoz. </p><p>Az ön felhasználóneve: %{username}</p><p>Amennyiben meg kell változtatnia a jelszavát, kattintson a következő linkre: %{password_reset_link}</p><br/><p>Amennyiben ön ezt nem kérte, hagyja figyelmen kívül e-mailünket. Az ön jelszava nem fog változni addig amíg a fenti liket használva ön egy újat nem igényel.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Emlékeztető: kérjük értékelje a következő usert: %{name}"
       you_have_not_given_feedback_yet: "Én még nem értékelte %{name}-t ezzel az ügylettel kapcsolatban: %{event}. Kérjük értékelje %{given_name} milyen partnerként viselkedett."
     transaction_preauthorized:
-      subject: ~
-      transaction_requested_by_user: ~
+      subject: "%{requester} felhasználó ajánlatot tett és engedélyezte az utalást a %{listing_title} hirdetésben szereplő tételért."
+      transaction_requested_by_user: "%{requester} felhasználó ajánlatot tett és engedélyezte az utalást a \"%{listing_title}\" hirdetésben szereplő tételért."
       you_have_time_to_accept: "Kérjük engedélyezze vagy utasítsa el az ajánlatot a lejárat előtt %{payment_expires_in}. Ha a lejárat előtt megadja az engedélyt, az utalás meg fog valósulni. Amennyiben nem engedélyezi, az ajánlat automatikusan elutasításra kerül és az átutalás meghiúsul."
       click_here_to_reply: "Kattintson ide a kérésre válaszoláshoz"
     transaction_preauthorized_reminder:
@@ -944,15 +946,15 @@ hu:
       one_day_left: "Amennyiben nem fogadja el a felkérést egy napon belül az automatikusan visszautasításra kerül és a kifizetés meghiúsul."
       click_here_to_reply: "Kattintson ide a kérésre válaszoláshoz"
     welcome_email:
-      welcome_email_subject: ~
+      welcome_email_subject: "Üdvözöljük a %{service_name} oldalán!"
       welcome_to_marketplace: "Üdvözöljük a %{service_name} oldalán! Örömmel fogadjuk hirdetőink között."
       love_marketplace_crew: "Szeretettel, a %{service_name} csapata!"
       welcome_email_footer_text: |-
           Milyen jellegű e-maileket szeretne kapni %{service_name} -tól?
           %{settings_link}
       settings_link_text: "Ellenőrizze a beállításokat"
-      welcome_email_subject_for_marketplace_creator: "Üdvözlet a Sharetribe-n"
-      welcome_to_marketplace_creator: "Üdvözöljük a  Sharetribe-n %{name}!"
+      welcome_email_subject_for_marketplace_creator: "Üdvözli a Sharetribe"
+      welcome_to_marketplace_creator: "Üdvözli a  Sharetribe, %{name}!"
       congrats_for_creating_your_marketplace: "Gratulálunk a piactere elkészítéséhez! Igaz milyen egyszerű volt?"
       here_is_your_account_information: "Itt találja a fiók információit."
       your_email_address: "A bejelentkezéshez használt e-mailcím:"
@@ -1070,7 +1072,7 @@ hu:
     create_new_marketplace: "Új piactér létrehozása"
     contact_us: "Keressen minket"
     profile: Profil
-    manage_listings: "Hirdetések szerkesztése"
+    manage_listings: "Hirdetések rendezése"
     invite: "Új tagok meghívása"
     login: Bejelentkezés
     signup: Feliratkozás
@@ -1085,7 +1087,7 @@ hu:
       add_first: "adjon hozzá egyet"
       but_that_is_visible_only_to_registered_members: "de az csak regisztráltak számára látható"
       but_those_are_visible_only_to_registered_members: "de azok csak regisztráltak számára láthatóak"
-      create_new_account_for_yourself: "(Kérem) készítsen magának egy új számlát"
+      create_new_account_for_yourself: "Kérem készítsen magának egy új fiókot"
       examples_of_what_you_could_offer_to_others: "Mit ajánlhat másoknak"
       examples_of_what_you_could_request_to_others: "Mit kérdezhet le másoktól"
       favor_offer_list: "Számítógépes segítség, ruhajavítás, sütés, kerékpáros rögzítő"
@@ -1112,7 +1114,7 @@ hu:
       min: "Min:"
       max: "Max:"
     event_feed:
-      latest_events: "Mi történt?"
+      latest_events: "Mi történik?"
     grid_item:
       processing_uploaded_image: "(Képek feltöltése folyamatban)"
     index:
@@ -1121,21 +1123,21 @@ hu:
       add_listing_link_text: "Új hirdetés hozzáadása"
       open_listing: "Aktuális hirdetés"
       open_listings: "Aktuális hirdetések"
-      private_listing_notification_log_in: ~
+      private_listing_notification_log_in: Bejelentkezés
       is: van
       are: vannak
       what_do_you_need: "Mit keres?"
       post_new_listing: "Adjon fel új hirdetést"
       are_offering: Ajánlat
-      add_news_item: "Adjon fel egy hírdetést"
+      add_news_item: "Adjon fel egy hirdetést"
       lend_rent_help_carpool: "Eladás, Kölcsönzés, Segítség, Telekocsi"
       loading_more_content: "További tartalom betöltése"
       more_events: "Több esemény"
       news: Újdonságok
       no_news: "Nem érkezett üzenet"
-      more_news: "Több üzenet"
+      more_news: "Még több hír"
       or: és
-      or_see_what_the_others: "vagy ha kiváncsi másra"
+      or_see_what_the_others: "...vagy nézze meg a többieket"
       recent_events: "Újabb események"
       requesting: szükséges
       tell_it_here: "Mondja el itt!"
@@ -1148,11 +1150,11 @@ hu:
       email: "E-mail cím(ek)"
       message: "Személyes üzenet"
       send_invitation: "Meghívó küldése"
-      add_email_addresses_description: ~
+      add_email_addresses_description: "A meghívni kívánt felhasználók e-mailcímét illessze be az alábbi mezőbe. Több e-mailcím esetén vesszővel válassza el őket."
       add_lots_of_email_addresses: "Egy tanács, önnek mint adminisztrátornak: amennyiben sok e-mailes meghívást tervez, használjon egy e-mail eszközt. Itt %{this_article_link} találhat több információt az alkalmas e-mail szolgáltatásokról."
       this_article_link: "ez a termék"
       invitation_emails_field_placeholder: "barat1@pelda.com, barat2@pelda.com, ..."
-      invitation_message_field_placeholder: ~
+      invitation_message_field_placeholder: "Csatlakoztam ehhez a bámulatos piactérhez. Csatlakozz te is!"
       errors_in_emails: "Ellenőrizze, hogy az ön által megadott e-mail címek érvényességét. Ha több címet adott meg, győződjön meg róla, hogy vesszővel vannak elválasztva."
     list_item:
       review: vélemény
@@ -1163,9 +1165,9 @@ hu:
       show_more: "Mutass többet"
     profile_info_empty_notification:
       add_your_info: "Adja meg elérhetőségét"
-      add_a_profile_picture: "Adjon hozzá profil képet"
+      add_a_profile_picture: "Profilkép hozzáadása"
       you_have_not_added_your_info: "Nem adta meg elérhetőségeit. Kérem adja meg, hogy mások könnyebben kapcsolatba léphessenek önnel. Mellékelje hozzá fényképét, ami növeli a bizalmat ön iránt."
-      add_your_info_link: "Adjon leírást most"
+      add_your_info_link: "Adja meg az adatait most"
     recent_listing:
       please_offer: Ajánlat
       comment: Hozzászólás
@@ -1177,7 +1179,7 @@ hu:
       list: "Lista megjelenítése"
       map_button: Térkép
       grid_button: "Magazin nézet"
-      list_button: Hirdetés
+      list_button: Lista
       all_listing_types: "Összes hirdetés típus"
       all_categories: "Összes kategória"
     errors:
@@ -1209,13 +1211,13 @@ hu:
       settings: Beállítások
       feedback: "Keressen minket"
     application:
-      join_this_community: ~
+      join_this_community: "Csatlakozás a piactérhez"
       read_more: Bővebben
       feedback: "Mit szeretne mondani nekünk?"
       default_feedback: "Problémával találkozott %{service_name}nél? Lenne ötlete, hogyan fejleszthetnénk szolgáltatásaink színvonalát? Gyanús tartalommal találkozott? Vagy csak szeretne beszélgetni velünk? Keressen minket!"
       feedback_forum: "Értékelések fóruma"
       feedback_handle: Értékelés
-      give_feedback: Elérhetőség
+      give_feedback: "Keressen minket"
       or_check_our: "vagy elenőrizze a mi"
       send_feedback_to_admin: "Értékelés készítése"
       to_see_what_others_have_suggested: "itt láthatja milyen fejlesztési ötletei voltak a többi felhasználónak és szavazhat is rájuk"
@@ -1271,13 +1273,13 @@ hu:
       test_welcome_email_delivered_to: "Egy próba e-mailt küldtünk ide: %{email}"
       something_went_wrong: "Hiba történt"
       community_updated: "Részletek frissítve."
-      community_update_failed: ~
+      community_update_failed: "Részletek frissítése sikertelen."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Az ön fiókja sikeresen elkészült. Most igazoja vissza az e-mailcímét."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Köszönjük, hogy csatlakozott a %{service_name} oldalához. Most igazolja vissza az e-mailcímét."
       comment_cannot_be_empty: "A megjegyzés rovat nem maradhat üresen"
       comment_sent: "Megjegyzés elküldve"
       confirmation_link_is_wrong_or_used: "A visszaigazoló link már használatban van vagy meghibásodott. Próbáljon meg belépni újra vagy jelezzen vissza ha a probléma folytatódik."
-      additional_email_confirmed: "A kért e-mail megerősítve"
+      additional_email_confirmed: "Az ön által megadott e-mailcím megerősítve."
       could_not_get_email_from_facebook: "Nem kaptuk meg az e-mail címét a Facebook-tól és e-mail cím nélkül nem tudunk fiókot létrehozni."
       facebook_email_unconfirmed: "Az e-mailcím %{email} amely a Facebook fiókjával lett társítva már használatban van de még nem lett visszaigazolva. Kérjük az e-mailcím visszaigazolását mielőtt bejelentkezne Facebook fiókjával."
       create_new_listing: "Adjon fel még egy hirdetést"
@@ -1290,7 +1292,7 @@ hu:
       feedback_saved: "Köszönjük visszajelzését! Hamarosan jelentkezünk"
       feedback_sent_to: "Visszajelzését elküldtük neki: %{target_person}"
       feedback_skipped: "Értékelés kihagyva"
-      invitation_cannot_be_sent: "Meghívó küldés sikertelen"
+      invitation_cannot_be_sent: "Meghívó küldése sikertelen"
       invitation_limit_reached: "Túl sok meghívás küldésével próbálkozott. Elérte a napi limitet."
       invitation_sent: "Meghívó sikeresen elküldve"
       inviting_new_users_is_not_allowed_in_this_community: "Új felhasználók meghívása nem engedélyezett"
@@ -1299,16 +1301,16 @@ hu:
       account_creation_successful: "Üdvözli a %{service_name}, %{person_name}"
       account_deleted: "Az Ön fiókja törölve"
       login_successful: "Üdvözöljük, %{person_name}!"
-      logout_successful: "Ö sikeresen kijelentkezett: %{service_name} szolgáltatásból. Viszontlátásra!"
+      logout_successful: "Ön sikeresen kijelentkezett: %{service_name} szolgáltatásból. Viszontlátásra!"
       news_item_created: "Hirdetés létrehozva"
       news_item_creation_failed: "Hirdetésfeladás sikertelen"
       news_item_update_failed: "Hirdetés frissítése sikertelen"
-      news_item_updated: "Hirdetését frissítette"
+      news_item_updated: "Hirdetés frissítve"
       news_item_deleted: "Hirdetés törölve"
       offer_accepted: "Ajánlatát elfogadtuk"
       offer_confirmed: "Ajánlat elfogadva"
       offer_closed: "Ajánlat lezárva"
-      listing_created_successfully: "Hírdetés sikeresen létrehozva. %{new_listing_link}"
+      listing_created_successfully: "Hirdetés sikeresen létrehozva. %{new_listing_link}"
       offer_rejected: "Ajánlat visszautasítva"
       offer_canceled: "Ajánlat törölve"
       listing_updated_successfully: "Hidetését frissítette"
@@ -1350,35 +1352,35 @@ hu:
       listing_closed: "Ez a hirdetés lezárult"
       send_instructions: "Néhány percen belül e-mail-ben küldjük az instrukciókat amelynek segítségével megváltoztathatja jelszavát."
       you_cannot_reply_to_a_closed_offer: "Nem válaszolhat egy lezárt ajánlatra"
-      you_cannot_send_message_to_yourself: "Nem küldhet értesítést saját magának"
-      you_followed_listing: "Követi ezt a hirdetést"
+      you_cannot_send_message_to_yourself: "Nem küldhet üzenetet saját magának"
+      you_followed_listing: "Ön követi ezt a hirdetést"
       you_have_already_given_feedback_about_this_event: "Visszajelzését már elküldte"
       you_are_now_member: "Üdvözöljük a %{service_name} oldalán!"
       you_are_already_member: "Ön már tag a %{service_name} oldalán. Üdvözöljük újra!"
-      you_must_log_in_to_create_new_listing: ~
-      additional_email_confirmed_dashboard: "Az ön e-mail-je megerősítve."
+      you_must_log_in_to_create_new_listing: "Új hirdetés feladásához lépjen be a %{service_name} oldalára. Ha még nincs falhasználói fiókja kattintson ide: %{sign_up_link}"
+      additional_email_confirmed_dashboard: "Az ön e-mailcíme megerősítve."
       you_must_log_in_to_give_feedback: "Csak bejelentkezés után készíthet értékelést."
-      you_must_log_in_to_invite_new_users: "Jelentkezzen be, ha új felhasználókat szeretne meghívni az %{service_name}ra"
+      you_must_log_in_to_invite_new_users: "Jelentkezzen be, ha új felhasználókat szeretne meghívni a %{service_name} oldalára"
       you_must_log_in_to_send_a_comment: "Csak bejelentkezés után fűzhet hozzá megjegyzést"
       you_must_log_in_to_send_a_message: "Csak bejelentkezés után küldhet egy másik felhasználónak üzenetet."
       you_must_log_in_to_do_a_transaction: "Lépjen be a %{service_name} oldalára a tranzakcióhoz."
       you_must_log_in_to_view_this_content: "Csak bejelentkezés után láthatja ezt a tartalmat"
-      you_must_log_in_to_view_this_page: "Be kell lépnie erre a weboldalra"
+      you_must_log_in_to_view_this_page: "Az oldal megtekintéséhez lépjen be"
       you_must_log_in_to_view_your_inbox: "Csak bejelentkezés után láthatja az üzeneteit."
       you_must_log_in_to_view_your_settings: "Csak bejelentkezés utána láthatja a beállításokat."
       you_must_log_in_to_add_news_item: "Önnek be kell lépnie a %{service_name} oldalára, hogy újabb hirdetést tudjon feladni."
-      you_must_log_in_to_change_profile_settings: ~
-      you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_change_profile_settings: "Lépjen be a %{service_name} oldalára, hogy profiljának beállításait cserélni tudja."
+      you_must_log_in_to_change_payment_settings: "Jelentkezzen be a %{service_name} oldalára, hogy változtatni tudjon a fizetési beállításokon."
       you_must_log_in_to_accept_or_reject: "Lépjen be, hogy elutasítsa vagy elfogadja a tranzakciót"
       you_must_log_in_to_confirm_or_cancel: "Lépjen be, hogy törölje vagy megerősítse a tranzakciót"
       you_need_to_confirm_your_account_first: "E-mail megerősítése"
       you_must_fill_all_the_fields: "Ki kell töltenie az összes mezőt"
       you_unfollowed_listing: "Ön már nem követi ezt a hirdetést"
       joining_community_failed: "A csatlakozás sikertelen"
-      can_not_login_with_private_user: ~
+      can_not_login_with_private_user: "Ön nem léphet be a személyes fiókjába. Lépjen be egy céges fiókkal vagy hozzon létre egy új fiókot."
       can_not_delete_email: "Az e-mailcímet nem tudja törölni"
       user_does_not_have_email_to_delete: "Ön nem adott meg e-mail címet, így nem tudja törölni sem"
-      email_deleted: "Email eltávolítva"
+      email_deleted: "E-mail eltávolítva"
       payment_details_add_successful: "Sikeresen hozzáadott fizetési információk"
       payment_details_add_error: "A fizetési információk megadása sikertelen"
       listing_author_payment_details_missing: |-
@@ -1399,7 +1401,7 @@ hu:
       listing_not_visible: "Ehhez a hirdetéshez nincs hozzáférése"
     comment:
       wrote: Írt
-      send_private_message: "Küldjön privát üzenetet %{person}"
+      send_private_message: "Küldjön privát üzenetet %{person} felhasználónak"
       delete: töröl
       are_you_sure: "Biztosan törölni szeretné a hozzászólást?"
     comment_form:
@@ -1421,7 +1423,7 @@ hu:
       show_in_updates_email: "Jelenjen meg a következő hírlevélben"
       show_in_updates_email_loading: Töltés...
       show_in_updates_email_error: "A szerver elérése sikertelen. Frissítés után próbálja újra."
-      show_in_updates_email_success: ~
+      show_in_updates_email_success: "A hirdetést a legkorábbi automatikus e-mailben küldjük a felhasználóknak"
     map:
       open_in_google_maps: "Megnyitása Google Maps-szal"
     error:
@@ -1432,7 +1434,7 @@ hu:
     form:
       custom_field_partials:
         dropdown:
-          select_one___: Válasszon
+          select_one___: Válasszon...
       departure_time:
         at: Ekkor
         departure_time: Indulás
@@ -1446,12 +1448,12 @@ hu:
       form_content:
         favor: "egy szolgáltatás"
         housing: "egy hely(szín)"
-        item: "egy cikk"
+        item: "egy tétel"
         offer_something: "Tegyen ajánlatot"
         request_something: "Kérjen ajánlatot"
         rideshare: "Egy fuvar"
-        i_want_to_offer: "Ajánlani szeretnék"
-        i_want_to_request: Keresek
+        i_want_to_offer: "Ajánlani szeretnék..."
+        i_want_to_request: Keresek...
       googlemap:
         googlemap_copy: "Végpontok a térképről"
         googlemap_description: Térképnézet
@@ -1462,7 +1464,7 @@ hu:
         no_file_selected: "Nincs fájl kiválasztva"
         remove_image: "Kép eltávolítása"
         select_file: "File kiválasztása"
-        add_more: "További hozzáadása"
+        add_more: "+Továbbiak hozzáadása"
         removing: Eltávolítva...
         processing: Folyamatban...
         loading_image: Töltés...
@@ -1484,11 +1486,11 @@ hu:
         mass: "darab, kg, liter, négyzetméter..."
         time: "óra, nap, hónap..."
         long_time: "hét, hónap,..."
-        after_service_fee_you_will_get: ~
+        after_service_fee_you_will_get: "A %{service_name} és az utalás díjainak levonása után, ön a számlájára kap %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} levonásra fog kerülni."
         after_service_fee_you_will_get_paypal_text: "%{service_name} díja (%{sum_with_currency}) és %{paypal_fee_info_link} levonásra fog kerülni."
         paypal_fee_info_link_text: "PayPal fizetési folyamat költsége"
-        after_service_fee_you_will_get_vat: ~
+        after_service_fee_you_will_get_vat: "A %{service_name} oldal és fizetési díjainak levonása után hozzávetőlegesen kapni fog %{sum_with_currency} (ÁFA 0%)"
         price_excludes_vat: "Az ár nem tartalmazza az ÁFÁ-t"
         delivery: "Szállítás módja"
         shipping: Szállítás
@@ -1519,7 +1521,7 @@ hu:
         comma_separate: "(vessző elválasztó)"
         tags: Címkék
       title:
-        listing_title: "A hírdetés címe"
+        listing_title: "A hirdetés címe"
       valid_until:
         valid_until: "Lejárat dátuma"
       valid_until_radio_buttons:
@@ -1543,7 +1545,7 @@ hu:
       items: Tételek
       list_view: "Lista nézet"
       listings: Hirdetések
-      map_view: "Mappa nézet"
+      map_view: "Térkép nézet"
       offer_something: "Tudassa másokkal!"
       offer_type: "Ajánlat típusa"
       offers: Ajánlatok
@@ -1553,7 +1555,7 @@ hu:
       rideshare: Telekocsi
       search_verb: Keresés
       you_have_something_others_do_not: "Ajánlata van?"
-      feed_title: ~
+      feed_title: "%{listing_type} hirdetések  a %{service_name} oldalon %{optional_category}"
     left_panel_link:
       borrows: Kölcsönzés
       buys: Vásárlás
@@ -1567,7 +1569,7 @@ hu:
       rents: Bérlet
       rideshares: Telekocsi
       sells: Eladás
-      share_for_frees: "ingyen fuvar"
+      share_for_frees: "Ingyen megosztás"
       accept_for_frees: "Ingyen elfogadom"
       trades: Csere
     listing_actions:
@@ -1602,9 +1604,9 @@ hu:
       listing_closed: "Hirdetés törölve"
     show:
       add_your_phone_number: "Adja meg telefonszámát"
-      add_profile_picture: "Adjon hozzá profil képet"
+      add_profile_picture: "Profilkép hozzáadása"
       comments: "Publikus megjegyzés"
-      contact_by_phone: "Telefon:"
+      contact_by_phone: "Telefonon:"
       contact: Kapcsolat
       favor_offer: "Szolgáltatás ajánlat"
       favor_request: "Szolgáltatás kérés"
@@ -1644,7 +1646,7 @@ hu:
       piece: darab
       hour: óra
       day: nap
-      night: éj
+      night: éjszaka
       week: hét
       month: hónap
     verification_required:
@@ -1655,7 +1657,7 @@ hu:
       by: "%{listing} %{author} hirdetőtől"
       payment: Fizetés
       exp: "Lejárat:"
-      you_will_be_charged: ~
+      you_will_be_charged: "Ön akkor fog fizetni ha %{author} elfogadja a tranzakciót. %{expiration_period} napon belül kell %{author} felhasználónak elfogadnia a tranzakciót. Amennyiben %{author} felhasználó elutasítja a tranzakciót vagy nem válaszol, nem kerül sor utalásra."
       day: day
       days: napok
     transaction_agreement_checkbox:
@@ -1671,11 +1673,11 @@ hu:
       housing: Helyek
       items: Tételek
       list_view: "Lista nézet"
-      map_view: "Mappa nézet"
+      map_view: "Térkép nézet"
       offer_something: "Tudassa másokkal!"
       offer_type: "Ajánlat típus"
       offers: Ajánlatok
-      request_something: "Kérjen ajánlatot"
+      request_something: "Kérjen valamit!"
       request_type: "Kérés típus"
       requests: Kérések
       rideshare: Telekocsi
@@ -1685,8 +1687,8 @@ hu:
   mercury:
     content_too_long: "A beszúrt tétel túl hosszú"
   okl:
-    member_id: "Felhasználó adatai"
-    member_id_or_email: "Felhasználói azonosító vagy e-mail"
+    member_id: "Felhasználó azonosító"
+    member_id_or_email: "Felhasználói azonosító vagy e-mailcím"
   payments:
     new:
       new_payment: "Új fizetés"
@@ -1731,7 +1733,7 @@ hu:
       contact_admin_link_text: "Lépjen kapcsolatba az adminisztrátorral"
       admin_account_not_connected: "A PayPal fiók csatlakoztatása nem lehetséges mert a %{service_name} oldal nem állított be fizetési módot. Kérjük a részletekért kattintson ide: %{contact_admin_link}"
       paypal_account_email: "Csatlakozás az Ön PayPal fiókjához"
-      paypal_account_email_placeholder: "Az Ön PayPal emailcíme"
+      paypal_account_email_placeholder: "Az Ön PayPal e-mailcíme"
       paypal_account_email_info_text: "Ha még nincs PayPal fiókja akkor ite kattintva: %{create_paypal_account} nyithat egy fiókot. Ha hibaüzenetet kapna a PayPal fiókja csatlakoztatásakor akkor váltsa át a fiókot üzleti módra. Az átváltás ingyenes és egyszerű. Ha magánszemélyként jelentkezik be akkor használhatja a saját nevét mint \"üzlet neve\". Az átváltáshoz kattintson ide: %{upgrade_paypal_account}."
       create_paypal_account: "Kattintson ide"
       upgrade_paypal_account: "Bejelentkezés a PayPal fiókba"
@@ -1780,8 +1782,8 @@ hu:
     chatting_with_paypal: "Mi chat-elünk a PayPal-al."
   people:
     edit_links:
-      activate: Aktiválva
-      deactivate: Kikapcsolva
+      activate: Aktivál
+      deactivate: Kikapcsol
     help_texts:
       feedback_description_title: Visszajelzés
       help_invitation_code_title: "Meghívás szükséges hogy csatlakozni tudjon"
@@ -1789,7 +1791,7 @@ hu:
       invite_only_help_text: "Válassza ezt az opciót amennyiben azt szeretné, hogy új felhasználók csak a régi felhasználók meghívása esetén csatlakozhassanak."
       invite_only_help_text_title: "Csak meghívásos alapon"
     inactive_notification:
-      this_person_is_not_active_in_kassi: "Ez a felhasználó már nem elérhető a %{service_name}n"
+      this_person_is_not_active_in_kassi: "Ez a felhasználó már nem elérhető a %{service_name} oldalon."
       inactive_description: "Ez a felhasználó már nem található meg a %{service_name} piactéren, ezért nem lehet kapcsolatba lépni vele, értékelni vagy kommentelni."
     new:
       create_new_account: "Fiók létrehozása"
@@ -1808,7 +1810,7 @@ hu:
       notification_is_mandatory: "Kérjük válasszon legalább egy e-mailcímet az értesítések fogadásához. Amennyiben nem szeretne e-maileket fogadni a %{service_name} oldaltól, ellenőrizze az e-mail értesítések beállítását."
       organization_name: "Szervezet neve"
       password_again: "Jelszó megerősítése"
-      show_my_name_to_others: "Lássák a valós nevem az %{service_name} felhasználói"
+      show_my_name_to_others: "Lássák a valós nevem a %{service_name} oldal felhasználói"
       sign_up: "Új %{service_name} fiók létrehozása"
       terms: "felhasználási feltételek"
       username_is_in_use: "Ez a felhasználónév már foglalt"
@@ -1820,7 +1822,7 @@ hu:
       signup_with_email: "Bejelentkezés emaillel"
     profile_feedback:
       grade: "fokozat:"
-      and_gave_following_feedback: "A következő értékelést adta"
+      and_gave_following_feedback: "és következő értékelést adta"
     profile_listings:
       show_also_closed: "Mutassa a lezártakat is"
       show_only_open: "Mutassa csak a nyitottakat"
@@ -1829,7 +1831,7 @@ hu:
       contact: "Lépjen kapcsolatba ezzel a személlyel: %{person}"
       about_me: "Rólam:"
       add_description: "Osszon meg valamit magáról"
-      add_location: "Adja meg helyzetét"
+      add_location: "Adja meg lakóhelyét (legalább a település nevét)"
       add_phone_number: "Adja meg telefonszámát"
       address: "Hely:"
       as_expected: "Elvárásoknak megfelelő"
@@ -1858,14 +1860,14 @@ hu:
       show_all_open_listings: "Összes nyitott hirdetés mutatása"
       show_all_reviews: "Az összes értékelés megjelenítése"
     followed_people:
-      you_follow_plural: "Ön követi %{count} embert"
-      you_follow_singular: "Ön követi %{count} személyt"
+      you_follow_plural: "Ön követ %{count} felhasználót"
+      you_follow_singular: "Ön követ %{count} felhasználót"
       they_follow_plural: "%{count} számú követett hirdető"
       they_follow_singular: "%{count} követett hirdető"
       show_all_followed_people: "Az összes követett mutatása"
-      no_followed_people: "Nincs követés"
+      no_followed_people: "Nem követ egy felhasználót sem"
     follow_button:
-      following: Következő
+      following: Követés
       follow: Követ
       unfollow: "Követés leállítása"
   search:
@@ -1885,14 +1887,14 @@ hu:
       login: Bejelentkezés
       login_to_kassi: "Bejelentkezés az %{service_name}"
       connect_your_facebook_to_kassi: "Csatlakoztassa a Facebook profilját a %{service_name}-hoz."
-      facebook_account: "Facebook felhasználói fiók"
-      log_in_to_link_account: ~
+      facebook_account: "Facebook felhasználói fiók:"
+      log_in_to_link_account: "Amennyiben már rendelkezik fiókkal a %{service_name} oldalán, jelentkezzen be és csatlakoztassa a Facebook fiókjával."
       you_can_also_create_new_account: "Ha még nincs fiókja a %{service_name} oldalán, akkor készítsen egyet %{accont_creation_link} a Facebook-ra belépve."
       account_creation_link_text: "Kattintson ide"
       cancle_facebook_connect: "Amennyiben nem szeretné összekapcsolni ezzel a fiókjával akkor kattintson ide: %{cancel_link}"
       facebook_cancel_link_text: Törlés
       log_in_with_your_facebook_account: "Bejelentkezés Facebookkal"
-      or_sign_up_with_your_username: "...vagy a felhasználó nevével vagy e-mail"
+      or_sign_up_with_your_username: "...vagy a felhasználó nevével vagy e-mailcímével:"
       we_will_not_post_without_asking_you: "Soha nem posztolunk az Ön Facebookján a beleegyezése nélkül"
     password_forgotten:
       email: E-mail
@@ -1906,7 +1908,7 @@ hu:
       your_current_email_is: "Az ön e-mail-je %{email}"
       change_email: Változás
       confirm_your_email: "Kérjük e-mailcíme jóváhagyását"
-      account_confirmation_instructions: ~
+      account_confirmation_instructions: "Ön hamarosan egy e-mailt fog kapni és a benne található link segítségével megerősítheti e-mailcímét. Ellenőrizze a levélszemét (spam) mappáját is! Amint megnyitotta a linket már csatlakozhat is a %{service_name} piactérhez."
       account_confirmation_instructions_title_admin: Üdvözöljük!
       your_marketplace_has_now_been_created: "Az ön piactere elkészült! Ugye milyen egyszerű volt? Még egy utolsó lépés mielőtt belépne az oldalra:  kérjük erősítse meg az e-mailcímét."
       account_confirmation_instructions_admin: "Ön hamarosan egy e-mailt fog kapni és a benne található link segítségével megerősítheti e-mailcímét. Ellenőrizze a levélszemét (spam) mappáját is! Amint megnyitotta a linket megkezdheti a piactere felállítását."
@@ -1916,8 +1918,8 @@ hu:
       confirm_new_password: "Új jelszó megerősítése"
       delete_account: "Felhasználói fiók törlése"
       delete_account_button: "Véglegesen törlöm a fiókomat"
-      delete_account_confirmation_popup: ~
-      email_addresses: "Email címek"
+      delete_account_confirmation_popup: "Biztos benne, hogy törölni akarja fiókját melynek következtében minden kapcsolódó adatot el fog veszíteni? A fiók törlése végleges."
+      email_addresses: E-mailcímek
       new_email: "Új e-mail cím"
       delete_personal_information: "Amennyiben törölné a fiókját, a személyes adatai (név, telefonszám, cím, e-mailcím, profilkép stb.) véglegesen törlődnek. Az összes ön által feladott hirdetés törléslődni fog. A fiókot nem lesz módjában újraaktiválni."
       delete_information_others_involved: "Információ melynek más felhasználók is részesei voltak (társalgások, tranzakciók, értékelések, stb) nem törlődik a fiók törlésekor. De az ön neve már nem lesz feltűntetve ezek megjelenítésekor."
@@ -1933,15 +1935,15 @@ hu:
         receive_notifications_title_desktop: "Megjegyzések fogadása"
         receive_notifications_title_mobile: "Megjegyzések fogadása"
         receive_notifications_new_title_mobile: "Megjegyzések fogadása"
-        add_new_with_plus: "Új emailcímek hozzáadása"
+        add_new_with_plus: "+Új emailcím hozzáadása"
         add_new_cancel: Mégse
-        confirmation_title_mobile: Megerősítés
+        confirmation_title_mobile: "Megerősítés:"
         confirmation_title_desktop: Megerősítés
         confirmation_resend: Újraküld
         status_confirmed: Megerősítve
         status_pending: Folyamatban
     notifications:
-      email_from_admins: ~
+      email_from_admins: "Hozzájárulok, hogy az adminisztrátorok alkalom adtán e-maileket küldjenek"
       i_want_to_get_email_notification_when: "Szeretnék e-mail értesítést, ha"
       newsletters: "E-mailek a rendszergazdáktól"
       community_updates: Hírlevelek
@@ -1951,23 +1953,23 @@ hu:
       email_about_new_messages: "Üzenetem érkezett"
       email_about_new_received_testimonials: "Értékelést kaptam"
       email_about_testimonial_reminders: "Elfelejtettem értékelést készíteni egy eseményről"
-      email_daily_community_updates: "Küldjön nekem új e-mailt - naponta - ha új hírdetések kerülnek fel"
-      email_weekly_community_updates: "Küldjön nekem új e-mailt - hetente - ha új hírdetések kerülnek fel"
+      email_daily_community_updates: "Új hirdetések megjelenésekor küldjön hírlevelet <b>naponta</b>"
+      email_weekly_community_updates: "Új hirdetések megjelenése esetén küldjön hírlevelet <b>hetente</b>"
       do_not_email_community_updates: "Ne küldjön hírlevelet"
       email_when_conversation_accepted: "valaki elfogadta az ajánlatomat vagy ajánlatkérésemet."
       email_when_conversation_rejected: "valaki visszautasította az ajánlatomat vagy ajánlatkérésemet."
       email_about_completed_transactions: "... valaki teljesültnek jelöli a rendelésemet"
       email_about_new_payments: "...Új kifizetést kapok"
       email_about_payment_reminders: "...Elfelejtettem fizetni"
-      email_about_new_listings_by_followed_people: ~
+      email_about_new_listings_by_followed_people: "... valaki akit követek új hirdetést ad fel"
       unsubscribe_succesful: "Leiratkozás sikeres"
       unsubscribe_info_text: "Ön nem fog több hasonló e-mailt kapni. Ellenőrizzea beállításokat %{settings_link}, hogy kiválaszthassa milyen e-maileket szeretne kapni a %{service_name} oldaltól, vagy térjen vissza a kezdőlapra %{homepage_link}"
       settings_link: Beállítások
       homepage_link: Honlap
       unsubscribe_unsuccesful: "Hiba a leiratkozásnál"
-      unsuccessful_unsubscribe_info_text: ~
+      unsuccessful_unsubscribe_info_text: "A leíratkozás linkje megszűnt. Jelentkezzen be, hogy meg tudja változtatni a a felíratkozás beállításait."
     profile:
-      about_you: Információk
+      about_you: Önről
       city: Város
       family_name: Vezetéknév
       given_name: Keresztnév
@@ -2002,8 +2004,8 @@ hu:
       terms: "%{service_name} felhasználási feltételek"
       terms_have_changed: "A felhasználási feltételek megváltoztak"
       you_can_view_the_new_terms: "Megtekintheti az új feltételeket"
-      you_need_to_accept: "Üdvözöli Önt az %{service_name}! Első alkalommal veszi igénybe szolgáltatásunkat. Mielőtt folytatná, kérjük fogadja el a"
-      you_need_to_accept_new_terms: "Az %{service_name} felhasználási feltételei megváltoztak. Kérjük fogadja el az új feltételeket az %{service_name} folytatásához."
+      you_need_to_accept: "Üdvözöli Önt a %{service_name} oldala!  Úgy tűnik, hogy első alkalommal veszi igénybe szolgáltatásunkat. Mielőtt folytatná, kérjük fogadja el a"
+      you_need_to_accept_new_terms: "A %{service_name} oldal felhasználási feltételei megváltoztak. Kérjük fogadja el az új feltételeket az %{service_name} folytatásához."
   testimonials:
     index:
       all_testimonials: "Összes értékelés"
@@ -2020,7 +2022,7 @@ hu:
       slightly_better_than_expected: "Kicsivel jobb, mint vártam"
       slightly_less_than_expected: "Kicsivel rosszabb, mint vártam"
       textual_feedback: "Hogy mentek a dolgok?"
-      this_will_be_shown_in_profile: ~
+      this_will_be_shown_in_profile: "Az ön visszajelését más felhasználók is láthatják a %{person} profilján. Ez segítségükre lesz abban, hogy eldöntsék ez a személy %{person} mennyire megbízható."
       positive: Pozitív
       negative: Negatív
       default_textual_feedback: "Minden zökkenőmentes volt, nagyon köszönöm!"
@@ -2050,10 +2052,10 @@ hu:
       sunday: Va
       monday: Hé
       tuesday: Ke
-      wednesday: Sz
-      thursday: Cs
+      wednesday: Sze
+      thursday: Csü
       friday: Pé
-      saturday: Sz
+      saturday: Szo
     months:
       january: Január
       february: Február
@@ -2082,12 +2084,12 @@ hu:
       december: Dec
     today: Ma
     clear: Töröl
-    format: yyyy/mm/dd
+    format: hh/nn/éééé
   time:
     formats:
-      short: ~
-      shorter: ~
-      short_date: ~
+      short: "hónap nap, év %H:%perc-kor"
+      shorter: "hónap nap %H:%perc-kor"
+      short_date: "hónap nap, év"
   timestamps:
     day_ago: "%{count} napja"
     days_ago: "%{count} napja"
@@ -2106,7 +2108,7 @@ hu:
       seconds:
         other: "%{count} másodperc"
       minutes:
-        other: "%{count} másodpercek"
+        other: "%{count} másodperc"
       hours:
         other: "%{count} óra"
       days:
@@ -2143,7 +2145,7 @@ hu:
   will_paginate:
     models:
       person:
-        zero: Felhasználók
+        zero: Felhasználó
         other: Felhasználó
       listing_conversation:
         zero: Tranzakció

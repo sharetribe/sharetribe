@@ -475,7 +475,7 @@ es-ES:
       transaction_fee_label: "Comisión por transacción:"
       minimum_transaction_fee_label: "Cuota mínima por transacción"
       save_settings: "Guardar configuración"
-      minimum_listing_price_below_tx_fee: "Tiene que ser al menos igual a la cuota mínima por transacción %{minimum_transaction_fee}"
+      minimum_listing_price_below_tx_fee: "El tamaño mínimo de transacción tiene que ser mayor o igual a la cuota mínima por transacción: %{minimum_transaction_fee}"
       minimum_listing_price_below_min: "El precio mínimo de transacción debe ser superior a la comisión mínima %{minimum_commission}"
     transaction_types:
       sell: Venta

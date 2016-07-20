@@ -64,9 +64,9 @@ ru:
         community_details: "Основные детали"
         community_look_and_feel: Дизайн
         edit_community: "Основные детали"
-        enabled_languages: ~
-        enabled_languages_description: ~
-        default_language: ~
+        enabled_languages: "Включенные языки"
+        enabled_languages_description: "Набор доступных языков для пользователей. Первый в списке используется по умолчанию."
+        default_language: "Язык по умолчанию"
         language_selection_disabled: ~
         community_name: "Название проекта"
         edit_community_name_description: "Название вашего проекта. Оно будет показано в emails и других местах."
@@ -113,7 +113,7 @@ ru:
         small_cover_photo_instructions_text_with_dimensions: "Фото будут изменено до размера %{width}x%{height} пикселей а более большие изображения будут обрезаны до среднего размера."
         main_content_width: "Выбирая обложку с фото примите во внимание что основной контент на странице %{main_width} пикселей шире. Не забудь также проверить как ваша обложка с фото выглядит на более маленьких экранах."
         custom_color1_instructions_text: "Вы можете изменить основной цвет интерфейса, введя его значение. Сайт <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> поможет выбрать и скопировать подходящий цвет."
-        custom_color2_instructions_text: ~
+        custom_color2_instructions_text: "You can change the color of the %{post_new_listing} button by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> can help you choose the color and copy the code here."
         default_browse_view: "Стандартный вид"
         default_browse_view_instructions_text: "Стандартный вид используется на главной странице чтобы установить отображение предложений по умолчанию"
         grid: Сетка
@@ -135,7 +135,7 @@ ru:
         edit_message: "Редактировать сообщение"
         send_test_message: "Отправить тестовое сообщение"
       outgoing_email:
-        title: ~
+        title: "Исходящий адрес электронной почты"
         info: ~
         read_more: ~
         sender_address: ~
@@ -168,20 +168,20 @@ ru:
       getting_started:
         getting_started: "Гид для начала работы"
       available_languages:
-        en: ~
+        en: Английский
         en-AU: ~
         en-GB: ~
-        fr: ~
-        fr-CA: ~
+        fr: Французский
+        fr-CA: "Французский (Канадский)"
         es: ~
-        es-ES: ~
+        es-ES: Испанский
         pt-PT: ~
         pt-BR: ~
         nb: ~
         sv: ~
         da-DK: ~
         fi: ~
-        ru: ~
+        ru: Русский
         de: ~
         el: ~
         nl: ~
@@ -223,7 +223,7 @@ ru:
         automatic_newsletter_frequency: "Отправлять автоматически новости: %{frequency_dropdown}"
         newsletter_daily: Ежедневно
         newsletter_weekly: Еженедельно
-        delete_marketplace_title: ~
+        delete_marketplace_title: "Удалить маркетплейс"
         type_marketplace_domain: ~
         type_marketplace_domain_placeholder: ~
         once_you_delete: ~
@@ -383,90 +383,90 @@ ru:
       configure: Конфигурация
       emails_title: Emails
       support: Поддержка
-      subscription: ~
+      subscription: Подписка
       preview: ~
     listing_shapes:
       index:
-        listing_shapes: ~
-        description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
-        select_template: ~
-        all_categories: ~
-        no_categories: ~
+        listing_shapes: "Типы заказов"
+        description: "Типы заказов определяют, каким образом процесс заказа работает на вашем сайте. Вы можете решить, будут ли пользователи арендовать или продавать, или просто публиковать объявления и общаться с помощью бесплатных сообщений."
+        read_more_about_order_types: "Подробнее о типах заказа"
+        add_new_shape: "Добавить новый тип заказа:"
+        select_template: "Выберите шаблон..."
+        all_categories: "Все рубрики"
+        no_categories: "Рубрик нет"
         category_count: ~
         header:
-          listing_shape_name: ~
+          listing_shape_name: "Имя типа заказа"
           listing_shape_categories: ~
         order:
-          saving_order: ~
+          saving_order: "Сохранение заказа"
           save_order_successful: ~
           save_order_error: ~
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
+        selling_products: "Продажа товаров"
+        renting_products: "Аренда товаров"
+        offering_services: "Предложение услуг"
+        giving_things_away: "Отдача вещей"
+        requesting: Запрашивать
         announcement: ~
         custom: ~
       new:
-        create_listing_shape: ~
-        create: ~
-        cancel: ~
-        create_success: ~
-        create_failure: ~
+        create_listing_shape: "Создать тип заказа"
+        create: Создать
+        cancel: Отменить
+        create_success: "Создан новый тип '%{shape}' заказа"
+        create_failure: "Не удалось сохранить новый тип заказа. Ошибка: %{error_msg}"
       edit:
-        edit_listing_shape: ~
-        update: ~
-        cancel: ~
-        update_success: ~
-        update_failure: ~
-        delete: ~
-        can_not_delete_last: ~
+        edit_listing_shape: "Редактировать тип заказа '%{shape}'"
+        update: Сохранить
+        cancel: Отменить
+        update_success: "Смена типа заказа '%{shape}' сохранено"
+        update_failure: "Не удалось сохранить изменения. Ошибка: %{error_msg}"
+        delete: "Удалить тип заказа"
+        can_not_delete_last: "Вы не можете удалить этот тип заказа, потому что это единственный тип в вашем маркетплейсе."
         can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
-      listing_shape_name_placeholder: ~
-      action_button_label: ~
-      action_button_placeholder: ~
-      successfully_closed: ~
-      successfully_deleted: ~
-      pricing_and_checkout_title: ~
+      listing_shape_name: Имя
+      listing_shape_name_placeholder: Продать
+      action_button_label: "Ярлык кнопки выполнения заказа"
+      action_button_placeholder: Купить
+      successfully_closed: "Публикации успешно закрыты"
+      successfully_deleted: "Успешно удален тип '%{order_type}' закаа"
+      pricing_and_checkout_title: "Цена & расчет"
       online_payments_label: ~
-      shipping_label: ~
+      shipping_label: "Позволить продавцам указывать цену доставки"
       price_label: ~
-      units_title: ~
-      units_desc: ~
+      units_title: "Ценовые единицы"
+      units_desc: "Если вы включили ценовые единицы, цена листинга отображается как \"цена за единицу\". Пример: \"$39 в час\"."
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
-      can_not_find: ~
-      add_custom_unit: ~
-      delete_custom_unit: ~
+        piece: "За единицу"
+        hour: "За час"
+        day: "За день"
+        night: "За ночь"
+        week: "За неделю"
+        month: "За месяц"
+      can_not_find: "Не удается найти тип заказа с ID: %{id}"
+      add_custom_unit: "+ Добавить пользовательскую ценовую единицу..."
+      delete_custom_unit: удалить
       custom_unit_form:
-        title: ~
-        label_heading: ~
+        title: "Новая ценовая единица"
+        label_heading: Ярлык
         selector_label_heading: ~
-        label_placeholder: ~
-        selector_placeholder: ~
-        per: ~
+        label_placeholder: "например: \"Кг\", \"30 минут\", \"человек\", \"класс\""
+        selector_placeholder: "например: \"Количество людей\", \"Сумма в кг\""
+        per: За
         unit_type:
-          heading: ~
-          quantity_label: ~
+          heading: "Тип единицы"
+          quantity_label: "Количество (за штуку, за кг, за человека, за 2 часа экскурсии...)"
           time_label: ~
     paypal_accounts:
       marketplace_paypal_integration: "Настройки платежей"
       preferences_updated: "Настройки платежей обновлены."
       marketplace_currency_used: ~
-      contact_support_link_text: ~
+      contact_support_link_text: "обратитесь в службу поддержки Sharetribe"
       integration_info_text: "Система платежей Sharetribe функционирует на основе PayPal. Если вы желаете разрешить вашим пользователям осуществлять платежи в вашем проекте, вы обязаны подключить ваш аккаунт PayPal и определить минимальный размер транзакции и комиссию которую вы желаете установить от каждой транзакции."
-      link_paypal_personal_account_label: ~
-      link_paypal_personal_account: ~
-      personal_payment_preferences_link_text: ~
+      link_paypal_personal_account_label: "Вы предоставляете товары или услуги сами?"
+      link_paypal_personal_account: "Если так, то вам необходимо подключить учетную запись PayPal к %{personal_payment_preferences_link}"
+      personal_payment_preferences_link_text: "ваш личный маркетплейс счет"
       read_more_about_paypal: "Узнать больше о системе платежей Sharetribe"
       set_minimum_price_and_fee: "Установите минимальную цену и комиссию за платеж"
       minimum_listing_price_label: "Минимальный размер транзакции:"
@@ -569,7 +569,7 @@ ru:
       you_will_get_label: "Вы получите:"
       total_label: "Итог:"
       total_value: "%{seller_gets}*"
-      paypal_fee_info: "* исключая <a id='%{fee_info_link_id}' href='#'> комиссия PayPal за обработку платежа</a>"
+      paypal_fee_info: "* Исключает <a id='%{fee_info_link_id}' href='#'> комиссию PayPal за обработку платежа</a>"
       shipping_price_label: "Доставка:"
     confirm:
       confirm_description: "Если ваш запрос был выполнен вы должны подтвердить его как завершенный. Затем вы можете оставить отзыв."
@@ -615,7 +615,7 @@ ru:
       canceled_request: "отменный запрос"
       canceled_offer: "отмененное предложение"
       paid: "оплачено %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Оплата авторизована: %{sum}"
     new:
       message: Сообщение
       message_to: "Сообщение %{author_name}"
@@ -933,7 +933,7 @@ ru:
     transaction_preauthorized:
       subject: "%{requester} запросил и оплатил за %{listing_title}"
       transaction_requested_by_user: "%{requester} запросил и оплатил за \"%{listing_title}\""
-      you_have_time_to_accept: ~
+      you_have_time_to_accept: "Вам нужно принять или отклонить запрос в течении %{payment_expires_in}. Если вы примите запрос в течение этого времени, оплата будет произведена. Если вы отклоните, запрос будет автоматически отклонен и оплата Вам произведена не будет."
       click_here_to_reply: "Нажмите здесь чтобы ответить на запрос"
     transaction_preauthorized_reminder:
       subject: "Не забудьте принять запрос от %{requester} о предложении %{listing_title}"
@@ -983,8 +983,8 @@ ru:
     transaction_agreement:
       required_error: "Вам необходимо принять соглашение."
     paypal:
-      buyer_cannot_pay_error: ~
-      pending_review_error: ~
+      buyer_cannot_pay_error: "PayPal отклонил платеж. Пожалуйста, свяжитесь с их отделом обслуживания клиентов для получения дополнительной информации: %{customer_service_link}"
+      pending_review_error: "Платеж был представлен, но был помечен PayPal как «требующий рассмотрения». Когда PayPal завершит проверку, платеж будет автоматически авторизован."
       seller_express_checkout_disabled: ~
       generic_error: "В процессе платежа произошла ошибка. Платеж не был завершен."
       cancel_error: "В процессе отмены произошла ошибка. Не смогли завершить отмену."
@@ -1120,7 +1120,7 @@ ru:
       is: является
       are: есть
       what_do_you_need: "Что бы вы хотели найти?"
-      post_new_listing: "Создать новое предложение!"
+      post_new_listing: "Создать новое предложение"
       are_offering: "что предлагают"
       add_news_item: "Добавить статью"
       lend_rent_help_carpool: "Прокат, обмен, помощь, совместные поездки"
@@ -1145,7 +1145,7 @@ ru:
       send_invitation: "Отправить приглашение"
       add_email_addresses_description: "Введите в поле адреса электронной почты своих друзей. Если вы хотите пригласить нескольких друзей, разделите их адреса электронной почты с помощью запятой."
       add_lots_of_email_addresses: ~
-      this_article_link: ~
+      this_article_link: "эта статья"
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: "Я присоединился к этому замечательному проекту. Тебе тоже нужно!"
       errors_in_emails: "Проверьте правильность адресов электронной почты, разделённых запятой."
@@ -1416,7 +1416,7 @@ ru:
     map:
       open_in_google_maps: ~
     error:
-      something_went_wrong: ~
+      something_went_wrong: "Что-то пошло не так, код ошибки: %{error_code}"
     follow_links:
       follow: "Получать письма о новых комментариях"
       unfollow: "Не получать письма о новых комментариях"
@@ -1431,7 +1431,7 @@ ru:
         repeated: "Повторяющееся событие (добавьте время и даты в поле «подробное описание»)"
       description:
         detailed_description: "Подробное описание"
-        youtube_info: ~
+        youtube_info: "Если ваша публикация содержит ссылки на YouTube, видео будет показано ниже публикации."
       destination:
         destination: "Пункт назначения"
       form_content:
@@ -1449,7 +1449,7 @@ ru:
         googlemap_updatemap: "Обновить карту"
       images:
         image: Изображение
-        best_result: ~
+        best_result: "Для лучших результатов используйте JPG, GIF или PNG изображения, размера %{width} на %{height} пикселей."
         no_file_selected: "Файл не выбран"
         remove_image: "Удалить изображение"
         select_file: "Выбрать файл"
@@ -1477,7 +1477,7 @@ ru:
         long_time: "неделя, месяц, ..."
         after_service_fee_you_will_get: "После комиссии %{service_name} и системы оплаты вы получите %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} будет удержано от стоимости."
-        after_service_fee_you_will_get_paypal_text: "Комиссия %{service_name} (%{sum_with_currency}) и комиссия PayPal %{paypal_fee_info_link} будут удержаны из этой стоимости."
+        after_service_fee_you_will_get_paypal_text: "%{service_name} оплата (%{sum_with_currency}) и %{paypal_fee_info_link} будут удержаны из этой стоимости."
         paypal_fee_info_link_text: "Комиссия PayPal за обработку платежа"
         after_service_fee_you_will_get_vat: "После комиссии %{service_name} и системы оплаты вы получите приблизительно %{sum_with_currency} (НДС 0%)"
         price_excludes_vat: "Цена без НДС."
@@ -1701,17 +1701,17 @@ ru:
   paypal_accounts:
     payout_info_title: "Информация о выплате"
     paypal_account_email_connected: "<del>Connect PayPal account</del> Завершено!"
-    payout_info_paypal: ~
+    payout_info_paypal: "%{service_name} использует PayPal в качестве представителя оплаты. %{create_paypal_account_link} счет требуется для того, чтобы Вы могли принимать оплату за ваши услуги и товары, и должен быть подключен к %{service_name}."
     paypal_billing_agreement_made: "<del>Разрешить %{service_name} комиссионное вознаграждение</del> Сделано!"
-    commission_permission_needed: ~
-    create_paypal_account_link_text: ~
+    commission_permission_needed: "Вам также нужно разрешить %{service_name} брать оплату за транзакции."
+    create_paypal_account_link_text: "PayPal счет"
     connected_account: "Email \"%{email}\" PayPal аккаунта успешно подключен."
-    paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: ~
-    paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: ~
-    admin_account_not_connected: ~
-    contact_admin_link_text: ~
+    paypal_receive_funds_info_label_australia_only: "Ваша учетная запись PayPal должна быть способна принимать платежи. Для этого вам возможно потребуется Premier или бизнес-счет."
+    paypal_receive_funds_info_label: "Ваша учетная запись PayPal должна быть в состоянии принимать платежи. Для этого вам возможно потребуется бизнес-счет."
+    paypal_receive_funds_info: "Если вы увидите сообщение об ошибке при попытке подключения к вашей учетной записи %{service_name}, обновите учетную запись PayPal с помощью %{upgrade_paypal_account_link}. Это бесплатно и легко. Если вы являетесь частным лицом, PayPal рекомендует использовать свое имя в качестве имени бизнеса."
+    upgrade_paypal_account_link_text: "входа в счет и нажатия ссылки обновления"
+    admin_account_not_connected: "Использование %{service_name} платежной системы для того, чтобы получать платежи, не представляется возможным, поскольку платежная система не была авторизована. Пожалуйста %{contact_admin_link} для деталей."
+    contact_admin_link_text: "обратитесь к администратору этого маркетплейс"
     you_are_ready_to_accept_payments: "Теперь вы готовы принимать платежи!"
     commission: "%{commission} %"
     new:
@@ -1725,16 +1725,16 @@ ru:
       create_paypal_account: "Нажмите здесь"
       upgrade_paypal_account: "Войдите в ваш PayPal аккаунт"
       paypal_account_billing_agreement: "Предоставьте %{service_name} разрешение получить комиссию за транзакцию"
-      follow_steps: ~
-      connect_paypal_account_title: ~
-      connect_paypal_account_title_with_step: ~
-      connect_paypal_account_instructions: ~
+      follow_steps: "Выполните следующие шаги, чтобы начать получать денежные средства:"
+      connect_paypal_account_title: "Подключите свой счет на PayPal"
+      connect_paypal_account_title_with_step: "Шаг %{current_step}/%{total_steps}: Подключите ваш PayPal счет"
+      connect_paypal_account_instructions: "Нажмите на кнопку ниже, чтобы войти в PayPal и подключить вашу учетную запись к %{service_name}."
       connect_paypal_account: "Подключить PayPal аккаунт"
-      paypal_account_billing_agreement_with_step: ~
+      paypal_account_billing_agreement_with_step: "Шаг %{current_step}/%{total_steps}: разрешить брать плату за транзакцию"
       paypal_account_billing_agreement_info_both: "После того, как вы сделаете продажу через %{service_name}, комиссия сервиса составит %{commission_from_seller} от общей стоимости, исключая доставку, минимальная комиссия %{minimum_commission} будет удержана с вашего аккаунта PayPal. Чтобы принимать платежи в %{service_name}, вам нужно позволить сервису удерживать комиссию. Комиссия исключает %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "После того, как вы сделаете продажу через %{service_name}, комиссия сервиса %{minimum_commission} будет удержана с вашего PayPal аккаунта. Чтобы принимать платежи в %{service_name}, вам необходимо позволить сервису удерживать комиссию. Комиссия исключает %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "После того, как вы сделаете продажу через %{service_name}, комиссия сервиса (%{commission_from_seller} от общей стоимости продукта, исключая доставку) будет удержана с вашего PayPal аккаунта. Чтобы принимать платежи в %{service_name}, вам нужно позволить сервису удерживать комиссию. Комиссия исключает %{paypal_info_link}."
-      paypal_account_billing_agreement_info_none: ~
+      paypal_account_billing_agreement_info_none: "%{service_name} в настоящее время не взимает плату за свои услуги. Если плата за услуги будет включена, вам нужно будет предоставить %{service_name} разрешение взимать комиссию для приема платежей. Комиссия не включает %{paypal_info_link}."
       paypal_info_link_text: "Комиссия PayPal за обработку платежа"
       billing_agreement_description: "Предоставьте %{service_name} разрешение получить комиссию за транзакцию"
       billing_agreement: "Предоставьте разрешение"
@@ -1747,17 +1747,17 @@ ru:
       something_went_wrong: "Произошла какая-то ошибка. Если проблема повторится, оправьте эту информацию в службу поддержки."
       account_not_verified: "Вы не подтвердили ваш PayPal аккаунт. Вам необходимо перейти на paypal.com и подтвердить ваш аккаунт перед тем как продолжить."
       account_restricted: "Ваш PayPal аккаунт имеет ограничения и не может быть подключен. Пожалуйста войдите в paypal.com чтобы уточнить детали или свяжитесь со службой поддержки PayPal чтобы решить данный вопрос."
-    paypal_account_connected_title: ~
-    paypal_account_connected: ~
+    paypal_account_connected_title: "Счет PayPal подключен"
+    paypal_account_connected: "Счет PayPal %{email} был подключен к %{service_name}."
     change_account: "Изменить аккаунт"
     missing: "У вас есть открытые предложения, но вы не подключили ваш PayPal аккаунт, поэтому вы не можете получать платежи. Пожалуйста подключите ваш PayPal аккаунт %{settings_link}."
     from_your_payment_settings_link_text: "настройки оплаты"
-    redirect_message: ~
-    redirect_link_text: ~
-    paypal_account_all_set_up: ~
-    can_receive_payments: ~
-    paypal_account_connected_summary: ~
-    paypal_permission_granted_summary: ~
+    redirect_message: "Перенаправление на PayPal. Если ничего не произойдет, нажмите %{redirect_link}"
+    redirect_link_text: здесь
+    paypal_account_all_set_up: "Ура, все готово!"
+    can_receive_payments: "Теперь вы можете принимать оплату по своим публикациям."
+    paypal_account_connected_summary: "Счет PayPal %{email} успешно подключен"
+    paypal_permission_granted_summary: "Разрешение для комиссий за транзакции получено"
   paypal:
     pay_with_paypal: "Перейти к оплате"
     checkout_with_paypal: "Осуществить расчет через PayPal"
@@ -2097,6 +2097,27 @@ ru:
       few: "%{count} дня"
       many: дней
       other: дня
+    time_to:
+      seconds:
+        one: "%{count} секунда"
+        few: "%{count} секунд"
+        many: "%{count} секунд"
+        other: "%{count} секунд"
+      minutes:
+        one: "%{count} минута"
+        few: "%{count} минут"
+        many: "%{count} минута"
+        other: "%{count} минута"
+      hours:
+        one: "%{count} час"
+        few: "%{count} часа"
+        many: "%{count} часов"
+        other: "%{count} часов"
+      days:
+        one: "%{count} день"
+        few: "%{count} дня"
+        many: "%{count} дней"
+        other: "%{count} дней"
   transactions:
     initiate:
       booked_days: "Забронировано дней:"
