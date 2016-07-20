@@ -6,7 +6,7 @@
     window.ST.listing();
   - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
   - key_param = maps_key ? "?key=#{maps_key}" : ""
-  = javascript_include_tag "https://maps.googleapis.com/maps/api/js#{key_param}"
+  = javascript_include_tag "https://maps.googleapis.com/maps/api/js#{key_param}" unless FeatureFlagHelper.feature_enabled?(:topbar_v1)
 
 - content_for :title, raw(@listing.title)
 - content_for :meta_author, @listing.author.name(@current_community)
