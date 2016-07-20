@@ -228,8 +228,10 @@ module.exports = {
   '--LanguagesMobile_textColorSelected': textColorSelected,
   '--LanguagesMobile_marginLanguageListRight': pxToEms(65, 15), // eslint-disable-line no-magic-numbers
   '--LanguagesMobile_marginLanguageListLeft': pxToEms(24, 15), // eslint-disable-line no-magic-numbers
+  '--LanguagesMobile_marginLanguageListTop': pxToEms(6, 15), // eslint-disable-line no-magic-numbers
   '--LanguagesMobile_marginLanguageListRightTablet': pxToEms(65, 14), // eslint-disable-line no-magic-numbers
   '--LanguagesMobile_marginLanguageListLeftTablet': pxToEms(36, 14), // eslint-disable-line no-magic-numbers
+  '--LanguagesMobile_marginLanguageListTopTablet': pxToEms(5, 14), // eslint-disable-line no-magic-numbers
   '--LanguagesMobile_marginTop': pxToEms(14, 15), // eslint-disable-line no-magic-numbers
   '--LanguagesMobile_marginBottom': pxToEms(24, 15), // eslint-disable-line no-magic-numbers
   '--LanguagesMobile_marginTopTablet': pxToEms(26, 14), // eslint-disable-line no-magic-numbers

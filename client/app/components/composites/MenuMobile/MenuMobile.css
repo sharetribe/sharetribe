@@ -189,6 +189,7 @@
   justify-content: space-between;
   margin-left: var(--LanguagesMobile_marginLanguageListLeft);
   margin-right: var(--LanguagesMobile_marginLanguageListRight);
+  margin-top: var(--LanguagesMobile_marginLanguageListTop);
 
   & .languageLink {
     padding-bottom: var(--LanguagesMobile_paddingLanguageVertical);
@@ -206,6 +207,7 @@
   @media (--medium-viewport) {
     margin-left: var(--LanguagesMobile_marginLanguageListLeftTablet);
     margin-right: var(--LanguagesMobile_marginLanguageListRightTablet);
+    margin-top: var(--LanguagesMobile_marginLanguageListTopTablet);
   }
 }
 
