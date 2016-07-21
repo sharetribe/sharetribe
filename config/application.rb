@@ -147,18 +147,38 @@ module Kassi
           :url => "/system/:attachment/:id/:style/:filename"
     }
 
+    if APP_CONFIG.user_asset_host
+      paperclip_options[:url] = "#{APP_CONFIG.user_asset_host}#{paperclip_options[:url]}"
+    end
+
     if (APP_CONFIG.s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key)
+      # S3 is in use for uploaded images
       paperclip_options.merge!({
         :path => "images/:class/:attachment/:id/:style/:filename",
         :url => ":s3_domain_url",
         :storage => :s3,
         :s3_protocol => 'https',
+        :s3_headers => {
+            "cache-control" => "public, max-age=#{APP_CONFIG.s3_cache_max_age}",
+            "expires" => APP_CONFIG.s3_cache_max_age.to_i.seconds.from_now.httpdate,
+        },
         :s3_credentials => {
               :bucket            => APP_CONFIG.s3_bucket_name,
               :access_key_id     => APP_CONFIG.aws_access_key_id,
               :secret_access_key => APP_CONFIG.aws_secret_access_key
         }
       })
+
+      if APP_CONFIG.user_asset_host
+        # CDN in use in front of S3
+        _, assets_proto, assets_host = *APP_CONFIG.user_asset_host.match(/^(https?):\/\/(.*)$/)
+
+        paperclip_options.merge!({
+          :s3_host_alias => assets_host,
+          :s3_protocol => assets_proto,
+          :url => ":s3_alias_url",
+        })
+      end
     end
     config.paperclip_defaults = paperclip_options
 

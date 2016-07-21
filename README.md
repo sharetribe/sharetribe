@@ -311,6 +311,8 @@ If you want to use S3 to host your images, you need to do a bit more configurati
 
 1. Add your AWS keys to the sharetribe app.  The best way to do that is via environment variables, rather than checking them into your `config.yml`.  Set the `aws_access_key_id` and `aws_secret_access_key` environment variables to the values for the IAM user.
 
+1. (Optional) When you enable S3, uploaded images are linked directly to the S3 bucket. If you want to serve these assets through CDN, you can set the `user_asset_host` configuration option in addition to `asset_host` in `config/config.yml`.
+
 
 Here's a sample CORS configuration that allows anyone to post to your bucket.  Note that you may want to lock down the origin host more tightly, depending on your needs.
 
