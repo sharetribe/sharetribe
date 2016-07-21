@@ -22,4 +22,4 @@
 - if followed_people.count > limit
   .people-load-more-listings-container
     #load-more-followed-people
-      = link_to t(".show_all_followed_people"), [ person, :followed_people ], :remote => true
+      = link_to t(".show_all_followed_people"), [ person, :followed_people ], :remote => true, :rel => "nofollow"
