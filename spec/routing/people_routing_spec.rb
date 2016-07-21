@@ -5,7 +5,12 @@ describe "routing for people", type: :routing do
   before(:each) do
     @community = FactoryGirl.create(:community)
     @protocol_and_host = "http://#{@community.ident}.test.host"
-    @person = FactoryGirl.create(:person)
+
+    # Person with username with no substrings that match a valid locale
+    @person = FactoryGirl.create(:person, username: "u1234")
+
+    # Person with username with a locale present as substring
+    @person_with_locale_substring = FactoryGirl.create(:person, username: "fooen")
   end
 
   it "routes /:username to people controller" do
@@ -15,6 +20,18 @@ describe "routing for people", type: :routing do
           :controller => "people",
           :action => "show",
           :username => @person.username
+        }
+      )
+    )
+  end
+
+  it "routes /:username to people controller when username has locale as substring" do
+    expect(get "/#{@person_with_locale_substring.username}").to(
+      route_to(
+        {
+          :controller => "people",
+          :action => "show",
+          :username => @person_with_locale_substring.username
         }
       )
     )
