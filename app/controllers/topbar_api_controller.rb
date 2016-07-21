@@ -5,10 +5,11 @@ class TopbarApiController < ApplicationController
 
   def props
     locale = params[:locale]
+    landing_page = params[:landing_page] == "true"
     community, user, community_customization = context_objects()
                                                .values_at(:community, :user, :community_customization)
 
-    p = topbar_props(community, user, community_customization, locale)
+    p = topbar_props(community, user, community_customization, locale, landing_page)
     m_ctx = marketplace_context(community, user)
     result = { props: p, marketplaceContext: m_ctx }
 
@@ -27,7 +28,7 @@ class TopbarApiController < ApplicationController
       community_customization: @community_customization }
   end
 
-  def topbar_props(community, user, community_customization, locale)
+  def topbar_props(community, user, community_customization, locale, landing_page)
     if locale
       I18n.locale = locale
     end
@@ -37,7 +38,8 @@ class TopbarApiController < ApplicationController
       user: user,
       path_after_locale_change: "",
       search_placeholder: community_customization&.search_placeholder,
-      locale_param: params[:locale])
+      locale_param: params[:locale],
+      landing_page: landing_page)
 
     # Drop language links from the properties because the
     # path_after_locale_change is not available in this

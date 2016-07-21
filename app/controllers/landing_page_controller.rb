@@ -217,7 +217,8 @@ class LandingPageController < ActionController::Metal
                          community_customization(request, landing_page_locale),
                          request.fullpath,
                          locale_param,
-                         topbar_locale)
+                         topbar_locale,
+                         true)
     marketplace_context = marketplace_context(c, topbar_locale, request)
 
     FeatureFlagHelper.init(request, false)
@@ -243,8 +244,7 @@ class LandingPageController < ActionController::Metal
                        enabled: true,
                        props: props,
                        marketplace_context: marketplace_context,
-                       props_endpoint: ui_api_topbar_props_path(locale: topbar_locale),
-                       landing_page: true
+                       props_endpoint: ui_api_topbar_props_path(locale: topbar_locale, landing_page: true)
                      },
                      page: denormalizer.to_tree(structure, root: "page"),
                      sections: denormalizer.to_tree(structure, root: "composition"),
@@ -258,7 +258,7 @@ class LandingPageController < ActionController::Metal
     self.response_body = msg
   end
 
-  def topbar_props(community, community_customization, request_path, locale_param, topbar_locale)
+  def topbar_props(community, community_customization, request_path, locale_param, topbar_locale, landing_page)
     # TopbarHelper pulls current lang from I18n
     I18n.locale = topbar_locale
 
@@ -273,7 +273,8 @@ class LandingPageController < ActionController::Metal
       community: community,
       path_after_locale_change: path,
       search_placeholder: community_customization&.search_placeholder,
-      locale_param: locale_param)
+      locale_param: locale_param,
+      landing_page: landing_page)
   end
 
   # This is copied from the React on Rails source with our own rails
