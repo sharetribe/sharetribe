@@ -210,10 +210,10 @@ module.exports = {
   '--MenuPriority_textColorHover': textColorFocus,
   '--MenuPriority_fontSize': fontSize,
   '--MenuPriority_letterSpacing': '0.22px',
-  '--MenuPriority_paddingVertical': '18px',
+  '--MenuPriority_paddingVertical': '19px',
 
   // topbar can't control base font-size.
-  '--Menu_labelPaddingVertical': '1.28571429em',
+  '--Menu_labelPaddingVertical': '15px',
 
   '--MenuSection_titleColor': 'rgba(153, 153, 153, 0.5)',
   '--MenuSection_fontSizeTitle': fontSizeSmaller,
