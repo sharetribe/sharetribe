@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import r, { div, a } from 'r-dom';
 import _ from 'lodash';
 import classNames from 'classnames';
+import { canUseDOM } from '../../../utils/featureDetection';
 
 import Menu from '../Menu/Menu';
 import css from './MenuPriority.css';
@@ -30,11 +31,6 @@ class MenuPriority extends Component {
   }
 
   componentDidMount() {
-    // React has an internal variable 'canUseDOM', which we emulate here.
-    const canUseDOM = !!(typeof window !== 'undefined' &&
-                        window.document &&
-                        window.document.createElement);
-
     if (canUseDOM) {
       const that = this;
       const priorityMenu = ReactDOM.findDOMNode(that);
