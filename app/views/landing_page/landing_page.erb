@@ -129,9 +129,10 @@
         <%= javascripts[:translations] %>
     </script>
 
-    <%= stylesheet_link_tag 'app-bundle' %>
-    <%= javascript_include_tag 'vendor-bundle' %>
-    <%= javascript_include_tag 'app-bundle' %>
+    <% asset_host = local_assigns.key?(:asset_host) ? asset_host : nil %>
+    <%= stylesheet_link_tag asset_path('app-bundle', type: :stylesheet, host: asset_host) %>
+    <%= javascript_include_tag asset_path('vendor-bundle', type: :javascript, host: asset_host) %>
+    <%= javascript_include_tag asset_path('app-bundle', type: :javascript, host: asset_host) %>
 
     <%= render partial: "topbar",
         locals: {props: topbar[:props],
