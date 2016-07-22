@@ -20,6 +20,10 @@
     & .menuLabelDropdownIcon path {
       fill: var(--Menu_textColorFocus);
     }
+
+    & :global(.more-icon) {
+      stroke: var(--Menu_textColorFocus);
+    }
   }
 
   &.openMenu,
@@ -39,6 +43,11 @@
 
   &::first-letter {
     text-transform: capitalize;
+  }
+
+  & :global(.more-icon) {
+    stroke-width: 3px;
+    stroke: var(--Menu_textColor);
   }
 }
 

@@ -52,6 +52,7 @@ const avatarDropdownProps = (avatarDropdown, customColor, username, isAdmin, not
 
 const LABEL_TYPE_MENU = 'menu';
 const LABEL_TYPE_DROPDOWN = 'dropdown';
+const LABEL_TYPE_MORE = 'more';
 
 const SEARCH_ENABLED = false;
 
@@ -128,9 +129,11 @@ class Topbar extends Component {
     const menuProps = this.props.menu ?
       Object.assign({}, this.props.menu, {
         key: 'menu',
-        name: t('web.topbar.menu'),
+        name: t('web.topbar.more'),
+        nameFallback: t('web.topbar.menu'),
         identifier: 'Menu',
-        menuLabelType: LABEL_TYPE_MENU,
+        menuLabelType: LABEL_TYPE_MORE,
+        menuLabelTypeFallback: LABEL_TYPE_MENU,
         content: this.props.menu.links.map((l) => (
           {
             active: l.link === location,

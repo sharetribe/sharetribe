@@ -7,6 +7,7 @@ import { className } from '../../../utils/PropTypes';
 
 import MenuLabel from './MenuLabel';
 import MenuLabelDropdown from './MenuLabelDropdown';
+import MenuLabelMore from './MenuLabelMore';
 import MenuContent from './MenuContent';
 import css from './Menu.css';
 
@@ -14,6 +15,7 @@ const INITIAL_ARROW_POSITION = 25;
 const MENULABEL_MAP = {
   menu: MenuLabel,
   dropdown: MenuLabelDropdown,
+  more: MenuLabelMore,
 };
 
 const isTouch = !!(typeof window !== 'undefined' && (('ontouchstart' in window) || window.navigator.msMaxTouchPoints > 0));

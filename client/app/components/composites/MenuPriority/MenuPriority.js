@@ -23,7 +23,6 @@ class MenuPriority extends Component {
     this.updateNav = this.updateNav.bind(this);
 
     this.state = {
-      breakPointsMeasured: false,
       priorityWrapperWidth: '0px',
       priorityLinks: this.links.filter((l) => l.priority >= 0),
       hiddenLinks: this.links,
@@ -109,7 +108,8 @@ class MenuPriority extends Component {
   render() {
     // If break points have not been calculated, render the div outside of viewport
     // for the sake of getting the widths of different priority links.
-    const style = this.state.priorityLinks.length > 0 && this.state.priorityLinks[0].breakPoint != null ?
+    const isMeasured = this.state.priorityLinks.length > 0 && this.state.priorityLinks[0].breakPoint != null;
+    const style = isMeasured ?
     {
       width: this.state.priorityWrapperWidth,
     } :
@@ -119,6 +119,10 @@ class MenuPriority extends Component {
       left: '-2000px',
       width: '100%',
     };
+
+    const fallbackLabel = !isMeasured || this.state.priorityLinks.length === 0 ? { name: this.props.nameFallback, menuLabelType: this.props.menuLabelTypeFallback } : {};
+    const extraMenuProps = Object.assign({ className: css.hiddenLinks, content: this.state.hiddenLinks }, fallbackLabel);
+    const menuProps = Object.assign(Object.assign({}, this.props, extraMenuProps));
 
     return div({
       className: classNames('MenuPriority', css.menuPriority),
@@ -133,7 +137,7 @@ class MenuPriority extends Component {
         }, l.content)
       ))),
       this.state.hiddenLinks.length > 0 ?
-        r(Menu, Object.assign(Object.assign({}, this.props, { className: css.hiddenLinks, content: this.state.hiddenLinks }))) :
+        r(Menu, menuProps) :
         null,
     ]);
   }
@@ -142,9 +146,11 @@ class MenuPriority extends Component {
 
 MenuPriority.propTypes = {
   name: PropTypes.string.isRequired,
+  nameFallback: PropTypes.string.isRequired,
   extraClassesLabel: PropTypes.string,
   identifier: PropTypes.string.isRequired,
   menuLabelType: PropTypes.string,
+  menuLabelTypeFallback: PropTypes.string,
   content: PropTypes.arrayOf(
     PropTypes.shape({
       active: PropTypes.bool.isRequired,
