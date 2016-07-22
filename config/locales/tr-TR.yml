@@ -594,7 +594,7 @@ tr-TR:
       message_from: "%{person} kullanıcısından mesaj"
       about_listing: "Listeleme hakkında %{listing_title}"
       free_message: "Bağımsız mesaj"
-      message_content_not_available: ~
+      message_content_not_available: "Mesaj içeriği mevcut değil."
     message:
       accepted_request: "talebi kabul etti"
       received_payment: ~
@@ -732,8 +732,8 @@ tr-TR:
       confirm_payment: "Ödemeyi onayla"
       exp: "Son:"
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
+    feedback_subject: "%{service_name}: Yeni bildirim"
+    feedback_body: "%{service_name}: %{author_name_and_email} size aşağıdaki bildirimi bıraktı;"
     unlogged_user: "Giriş yapmamış kullanıcı"
     anonymous_user: "Anonim kullanıcı"
   preauthorize_payments:
@@ -756,16 +756,16 @@ tr-TR:
       log_out: "oturumu kapat"
       join_community_button: "%{service_name} pazar yerine katıl"
     give_consent:
-      invitation_code_invalid_or_used: ~
+      invitation_code_invalid_or_used: "Davetiye kodunuz eski veya önceden kullanılmış."
       email_not_allowed: ~
-      email_not_available: ~
-      consent_not_given: ~
+      email_not_available: "Girdiğiniz email kullanımda."
+      consent_not_given: "Şartları kabul etmemişsiniz."
   emails:
     accept_reminder:
       remember_to_accept_offer: "%{sender_name}'in teklifini kabul veya reddetmeyi hatırla"
       remember_to_accept_request: "%{sender_name}'den gelen bir talebi kabul veya reddetmeyi hatırla"
       you_can_accept_or_reject_offer_at: "Teklifi kabul veya reddedebilirsiniz"
-      you_can_accept_or_reject_request_at: "Talebi kabul veya reddebilirsiniz"
+      you_can_accept_or_reject_request_at: "Talebi kabul veya reddedebilirsiniz"
       you_have_not_yet_accepted_or_rejected_offer: "%{date} tarihinde aldığınız %{title} teklifini henüz kabul veya reddetmediniz."
       you_have_not_yet_accepted_or_rejected_request: "%{date}tarihinde aldığınız %{title} talebini henüz kabul veya reddetmediniz."
       show_thread: "Konuşmayı göster"
@@ -982,7 +982,7 @@ tr-TR:
       accept_authorization_error: "İzin verilmiş PayPal ödemesi kabul edilirken hata meydana geldi. Lütfen tekrar deneyin."
       reject_authorization_error: "izin verilmiş PayPal ödemesini reddederken bir hata meydana geldi. Lütfen tekrar deneyin."
   error_pages:
-    back_to_kassi_front_page: "Önceki sayfaya dönüş"
+    back_to_kassi_front_page: "Anasayfaya dön"
     error_404:
       if_you_believe: "Eğer adresin doğru olduğunu ve bir sorun olmaması gerektiğini düşünüyorsanız, hangi adresin hataya yol açtığını ve aşağıdaki formu içeren sayfada ne olması gerektiğini bize ileterek hatayı tanımlamamıza lütfen yardım ediniz."
       page_can_not_be_found: "Sayfa bulunamadı!"
@@ -1039,7 +1039,7 @@ tr-TR:
     join:
       joined_kassi: "%{name}%{time_ago}%{service_name} pazar yerine katıldı."
     login:
-      logged_in_to_kassi: "%{name}%{time_ago}%{service_name}'a giriş yaptı."
+      logged_in_to_kassi: "%{service_name}: %{name}%{time_ago} giriş yaptı."
     comment:
       commented: "%{commenter_name}%{time_ago}%{listing_title} listelemesine yorum yaptı."
       offer_partitive: teklif
@@ -1083,7 +1083,7 @@ tr-TR:
       items_to_offer: "Ödünç verilecek ürünler: "
       items_to_request: "Ödünç alınacak ürünler: "
       log_in: "Giriş Yap!"
-      no_offers_visible_unless_logged_in: "Hiç bir ürün, hizmet veya yolculuk paylaşımı teklifi siteye giriş yapmamış kullanıcılar tarafından görülebilir değildir."
+      no_offers_visible_unless_logged_in: "Hiçbir ürün, hizmet veya yolculuk paylaşımı teklifi siteye giriş yapmamış kullanıcılar tarafından görülebilir değildir."
       no_open_offers_currently: "Geçerli bir ürün, hizmet veya yolculuk paylaşımı teklifi yok."
       no_open_requests_currently: "Geçerli bir ürün, hizmet veya yolculuk paylaşımı talebi yok."
       no_requests_visible_unless_logged_in: "Geçerli bir ürün, hizmet veya yolculuk paylaşımı talebi siteye giriş yapmamış kullanıcılar tarafından görülebilir değildir."
@@ -1092,7 +1092,7 @@ tr-TR:
       ride_offer: "Başkalarının çocuklarını hobi/kurslara bırakmak"
       ride_request: "İşe yolculuk"
       some_private_offers_exist: "Mevcut <b>%{number_of_listings} adet teklif </b> var,"
-      some_private_requests_exist: "Mevcut <b>%{number_of_listings} istem</b> var,"
+      some_private_requests_exist: "Mevcut <b>%{number_of_listings} istek</b> var,"
     custom_filters:
       update_view: "Görünümü güncelle"
       min: "Min:"
@@ -1134,7 +1134,7 @@ tr-TR:
       email: "E-posta adres(ler)i"
       message: "Kişisel bir mesaj"
       send_invitation: "Davetiye yolla"
-      add_email_addresses_description: "Aşağıdaki alana davet etmek istediğiniz kişilerin e-posta adreslerini girin. Birden fazla adres ekleyecekseniz, adresleri virgül ile ayırın."
+      add_email_addresses_description: "Aşağıdaki alana davet etmek istediğiniz kişilerin email adreslerini girin. Birden fazla adres ekleyecekseniz, adresleri virgül ile ayırın."
       add_lots_of_email_addresses: ~
       this_article_link: ~
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
@@ -1148,7 +1148,7 @@ tr-TR:
       show_less: "Daha azını göster"
       show_more: "Daha fazlasını göster"
     profile_info_empty_notification:
-      add_your_info: "Ulaşım bilgilerinizi ekleyin"
+      add_your_info: "İletişim bilgilerinizi ekleyin"
       add_a_profile_picture: "Profil resmi ekleyin"
       you_have_not_added_your_info: "Ulaşım bilgilerinizi eklemediniz. Diğer kullanıcıların size ulaşabilmesi için lütfen bilgilerinizi ekleyin. Güvenilirliğinizi arttırmak için profil resmi eklemeyi de unutmayın."
       add_your_info_link: "Bilgilerinizi şimdi ekleyin"
@@ -1162,12 +1162,12 @@ tr-TR:
       map: "Haritayı göster"
       list: "Listeyi göster"
       map_button: Harita
-      grid_button: Grid
+      grid_button: Izgara
       list_button: Liste
       all_listing_types: "Tüm listeleme türleri"
       all_categories: "Tüm kategoriler"
     errors:
-      search_engine_not_responding: ~
+      search_engine_not_responding: "Arama şu an aktif değil, daha sonra deneyin."
   infos:
     about:
       default_about_text_title: "Sharetribe nedir?"
@@ -1267,7 +1267,7 @@ tr-TR:
       could_not_get_email_from_facebook: "Facebook'tan e-posta adresinizi alamadık ve bu adres olmaksınız hesap oluşturulamıyor."
       facebook_email_unconfirmed: ~
       create_new_listing: "Yeni listeleme oluştur"
-      create_one_here: "burada bir tane oluştur"
+      create_one_here: "buradan bir tane oluşturabilirsiniz."
       email_confirmation_sent_to_new_address: "E-posta doğrulamanız yeni adresinize gönderildi."
       email_not_found: "Girdiğiniz e-posta adresi %{service_name} veri tabanında bulunamadı."
       error_with_session: "Oturum hatası."
@@ -1281,7 +1281,7 @@ tr-TR:
       invitation_sent: "Davet başarıyla gönderildi"
       inviting_new_users_is_not_allowed_in_this_community: "Yeni kullanıcı davet etmeye izin verilnenektedir."
       login_again: "Lütfen tekrar giriş yapın."
-      login_failed: "Oturum açma başarısız. Lütfen doğru referans bilgilerini giriniz."
+      login_failed: "Oturum açma başarısız. Lütfen doğru bilgilerle deneyin."
       account_creation_successful: "%{person_name}, %{service_name}'e hoş geldin!"
       account_deleted: "Hesabınız silindi."
       login_successful: "Hoş geldin, %{person_name}!"
@@ -1326,14 +1326,14 @@ tr-TR:
       request_rejected: "Teklif reddedildi"
       request_canceled: "Talep iptal edildi"
       message_sent: "Mesaj gönderildi"
-      message_not_sent: ~
+      message_not_sent: "Mesaj gönderilemedi, lütfen tekrar deneyin."
       this_content_is_not_available_in_this_community: "Bu içerik bulunmamaktadır."
       unknown_error: "Bilinmeyen hata. Lütfen Bize ulaşın bağlantısını kullanarak hata hakkında bilgi verin."
       update_error: "Bilgileriniz güncellenirken bir hata meydana geldi, lütfen tekrar deneyin"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Bu etkinlik hakkında geri bildirim verme yetkiniz yoktur"
       you_are_not_authorized_to_do_this: "Bu işlemi gerçekleştirme yetkiniz yoktur"
       you_are_not_authorized_to_view_this_content: "Bu içeriği görüntüleme yetkiniz yoktur"
-      listing_closed: ~
+      listing_closed: "Bu ilan kapatılmış."
       send_instructions: "Birkaç dakika içinde parolanızı tekrar nasıl oluşturacağınıza ilişkin talimatlar içeren bir e-posta alacaksınız."
       you_cannot_reply_to_a_closed_offer: "Kapanmış bir teklife cevap veremezsiniz"
       you_cannot_send_message_to_yourself: "Kendinize mesaj gönderemezsiniz"
@@ -1341,18 +1341,18 @@ tr-TR:
       you_have_already_given_feedback_about_this_event: "Bu etkinlik hakkında geri bildirim vermişsiniz."
       you_are_now_member: "%{service_name} pazar yerine hoş geldiniz!"
       you_are_already_member: "Zaten %{service_name} üyesisiniz. Yeniden hoş geldiniz!"
-      you_must_log_in_to_create_new_listing: "Yeni listeleme oluşturmak için %{service_name}'a giriş yapmalısınız. Eğer hesabınız yoksa, buradan %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "%{service_name}: Yeni listeleme oluşturmak için giriş yapmalısınız. Eğer hesabınız yoksa, %{sign_up_link}."
       additional_email_confirmed_dashboard: "E-posta adresiniz doğrulandı."
       you_must_log_in_to_give_feedback: "Geri bildirim vermek için oturum açmanız gerekmektedir."
       you_must_log_in_to_invite_new_users: "Yeni kullanıcıları %{service_name} pazar yerine davet etmek için oturum açmalısınız"
       you_must_log_in_to_send_a_comment: "Yeni yorum göndermek için oturum açmanız gerekmektedir."
       you_must_log_in_to_send_a_message: "Başka bir kullanıcıya mesaj göndermek için %{service_name}'de oturum açmanız gerekmektedir."
-      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_do_a_transaction: "%{service_name} pazar yerinde işlem yapmak için giriş yapmalısınız.\n"
       you_must_log_in_to_view_this_content: "Bu içeriği görüntülemek için oturum açmanız gerekmektedir."
       you_must_log_in_to_view_this_page: "Bu sayfayı görüntülemek için oturum açmalısınız"
-      you_must_log_in_to_view_your_inbox: "Gelen kutunuzu görmek için %{service_name}'de oturum açmanız gerekmektedir."
-      you_must_log_in_to_view_your_settings: "Ayarlarınızı görüntülemek için %{service_name}'de oturum açmanız gerekmektedir."
-      you_must_log_in_to_add_news_item: "Yeni bir metin eklemek için %{service_name}'a giriş yapın."
+      you_must_log_in_to_view_your_inbox: "%{service_name}: Gelen kutunuzu görmek için oturum açmanız gerekmektedir."
+      you_must_log_in_to_view_your_settings: "%{service_name}: Ayarlarınızı görüntülemek için oturum açmanız gerekmektedir."
+      you_must_log_in_to_add_news_item: "%{service_name}: Yeni bir metin eklemek için giriş yapın."
       you_must_log_in_to_change_profile_settings: "Profil ayarlarını değiştirmek için %{service_name}'a giriş yapmalısınız"
       you_must_log_in_to_change_payment_settings: "Ödeme ayarlarını değiştirmek için %{service_name}'a giriş yapmalısınız"
       you_must_log_in_to_accept_or_reject: "Bu işlemi kabul ya da reddetmek için giriş yapmalısınız"
@@ -1369,7 +1369,7 @@ tr-TR:
       payment_details_add_error: "Ödeme bilgileri eklenemedi"
       listing_author_payment_details_missing: "Bu listelemenin sahibi ödeme bilgilerini eklemediği için şu an ödeme alamıyor. Lütfen ilan sahibine veya bize ulaşın."
       stylesheet_needs_recompiling: "Site görünümü hazırlanıyor. Lütfen birazdan sayfayı tekrar yükleyiniz..."
-      automatically_logged_out_please_sign_in: ~
+      automatically_logged_out_please_sign_in: "Oturumunuzun süresi doldu, lütfen tekrar giriş yapın."
     settings:
       account: Hesap
       notifications: Bildirimler
@@ -1382,8 +1382,8 @@ tr-TR:
     comment:
       wrote: yazdı
       send_private_message: "%{person} kullanıcısına özel mesaj gönder"
-      delete: ~
-      are_you_sure: ~
+      delete: sil
+      are_you_sure: "Yorumu silmek istediğinize emin misiniz?"
     comment_form:
       ask_a_question: "Ayrıntılı bilgi için listelemeye yorum yapın. Diğer tüm kullanıcılar yorumunuzu görebilir."
       log_in: "oturum aç"
@@ -1405,7 +1405,7 @@ tr-TR:
       show_in_updates_email_error: "Sunucuyla bağlantı kurulamadı. Sayfayı yeniledikten sonra tekrar deneyin."
       show_in_updates_email_success: "Bu listeleme kullanıcılara gönderilecek bir sonraki otomatik güncelleme e-postasında gösterilecek"
     map:
-      open_in_google_maps: ~
+      open_in_google_maps: "Google Maps üzerinde aç."
     error:
       something_went_wrong: ~
     follow_links:
@@ -1422,7 +1422,7 @@ tr-TR:
         repeated: "(süre ve zaman bilgilerini 'ayrıntılı açıklama' kısmına gir) Tekrarlandı"
       description:
         detailed_description: "Ayrıntılı bilgi"
-        youtube_info: ~
+        youtube_info: "Açıklama alanında Youtube linkleri kullanırsanız, videolarınız metnin altında görüntülenecektir."
       destination:
         destination: Hedef
       form_content:
@@ -1440,23 +1440,23 @@ tr-TR:
         googlemap_updatemap: "Haritayı Güncelle"
       images:
         image: Görsel
-        best_result: ~
+        best_result: "En iyi görünüm için; %{height} x %{width} boyutlarında, JPG, GIF veya PNG fotoğraflar kullanın."
         no_file_selected: "Dosya seçilmedi"
         remove_image: "Görseli kaldır"
         select_file: "Dosya seç"
-        add_more: ~
+        add_more: "+ Ekle"
         removing: Kaldırılıyor...
         processing: İşleniyor...
         loading_image: Yükleniyor...
-        image_uploading_in_progress: ~
-        processing_takes_a_while: ~
+        image_uploading_in_progress: "Fotoğraflar yükleniyor."
+        processing_takes_a_while: "Tüm fotoğraflar yüklendi ve işleniyor, işleminizi tamamlayıp devam edebilirsiniz."
         this_may_take_a_while: "(bu biraz zaman alabilir)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Görsel yükleme başarısız oldu"
-        image_processing_failed: ~
+        image_processing_failed: "Fotoğrafların işlemesi başarısız oldu."
         file_too_large: "Dosya çok büyük"
         accepted_formats: "Resim dosyası GIF, JPG veya PNG formatında olmalıdır."
-        images_not_uploaded_confirm: ~
+        images_not_uploaded_confirm: "Henüz fotoğrafların tamamı yüklenmedi, devam etmek istiyor musunuz?"
       location:
         location: Konum
       price:
@@ -1667,7 +1667,7 @@ tr-TR:
   mercury:
     content_too_long: "Eklenen içerik çok uzun."
   okl:
-    member_id: "Üye Kimliği"
+    member_id: "Üye No"
     member_id_or_email: "Üye kimliği ya da e-posta"
   payments:
     new:
@@ -1776,7 +1776,7 @@ tr-TR:
       email: "E-posta adresi"
       email_is_in_use: "Girdiğiniz e-posta adresi kullanımda."
       email_is_in_use_or_not_allowed: "E-posta adresi tanınmıyor veya kullanımda. Giriş yapamıyorsanız, bize ulaşın."
-      email_not_allowed: "Bu e-mail adresine %{service_name}'ta izin verilmemektedir. Lütfen izin verilen bir e-posta adresi kullanın. Yine de giriş yapamıyorsanız, bize ulaşın."
+      email_not_allowed: "%{service_name}: Bu email adresine izin verilmemektedir. Lütfen izin verilen bir email adresi kullanın. Yine de giriş yapamıyorsanız, bize ulaşın."
       email_restriction_instructions:
         other: "%{service_name}'e erişim sınırlandırılmıştır. Katılım izniniz olduğunu gösteren bir e-posta adresine sahip olmalısınız."
       family_name: Soyad
@@ -1785,7 +1785,7 @@ tr-TR:
       invalid_invitation_code: "Davet kodu geçerli değil."
       invitation_code: "Davet kodu"
       not_required: ", gerekmemektedir"
-      notification_is_mandatory: ~
+      notification_is_mandatory: "Bildirimleri almak için en az 1 email adresi belirtmelisiniz. Eğer %{service_name} bildirimlerini almak istemiyorsanız email bildirim ayarlarınızı kontrol edin."
       organization_name: "Kurum adı"
       password_again: "Şifreyi doğrula"
       show_my_name_to_others: "Diğer %{service_name} kullanıcılarına gerçek adımı göster"
@@ -1793,7 +1793,7 @@ tr-TR:
       terms: "Kullanım Koşulları"
       username_is_in_use: "Bu kullanıcı adı kullanımdadır."
       username_is_invalid: "Kullanıcı adı geçersiz. Kullanıcı adı harf, rakam ve altçizgiden oluşabilir."
-      visible_only_to_you: "yalnızca siz ve pazar yöneticisi görebilir"
+      visible_only_to_you: "yalnızca siz ve pazaryeri yöneticisi görebilir"
       visible_to_everybody: "herkes görebilir"
       create_account_with_facebook: "Facebook hesabınla kayıt ol"
       OR: "YA DA"
@@ -1885,8 +1885,8 @@ tr-TR:
       resend_confirmation_instructions: "Doğrulama yönergelerini tekrar gönder"
       your_current_email_is: "E-posta adresiniz: %{email}"
       change_email: Değiştir
-      confirm_your_email: "E-posta adresinizi doğrulayın"
-      account_confirmation_instructions: "Birkaç dakika içinde girdiğiniz e-posta adresini doğrulamak için tıklamanız gereken linki içeren bir e-posta alacaksınız. E-posta adresinizi doğruladıktan sonra, %{service_name} pazar yerine katılabilirsiniz."
+      confirm_your_email: "Email adresinizi doğrulayın"
+      account_confirmation_instructions: "Birkaç dakika içinde girdiğiniz email adresini doğrulamak için tıklamanız gereken linki içeren bir e-posta alacaksınız. E-posta adresinizi doğruladıktan sonra, %{service_name} pazar yerine katılabilirsiniz."
       account_confirmation_instructions_title_admin: "Pazar yerinize hoş geldiniz!"
       your_marketplace_has_now_been_created: "Pazar siteniz oluşturuldu. Çok kolaydı, değil mi? Sitenize erişebilmeniz için tek bir adım kaldı: e-posta adresinizi doğrulamalısınız."
       account_confirmation_instructions_admin: "Birkaç dakika içinde girdiğiniz e-posta adresini doğrulamak için tıklamanız gereken linki içeren bir e-posta alacaksınız. E-posta adresinizi doğruladıktan sonra, pazarınızı düzenlemeye başlayabilirsiniz."
@@ -1924,16 +1924,16 @@ tr-TR:
       email_from_admins: "Yöneticilerden bazı güncellemeler almak istiyorum."
       i_want_to_get_email_notification_when: "...e-posta ile haberdar edilmek istiyorum."
       newsletters: Bültenler
-      community_updates: "E-postaları güncelle"
+      community_updates: Bültenler
       email_about_accept_reminders: "...bir teklif veya talebi kabul etmeyi unuttum"
       email_about_confirm_reminders: "...bir talebin tamamlandığını onaylamayı unuttum"
       email_about_new_comments_to_own_listing: "...biri teklif veya talebime yorum yaptı"
       email_about_new_messages: "...biri bana mesaj gönderdi"
       email_about_new_received_testimonials: "...biri bana geri bildirim yaptı"
       email_about_testimonial_reminders: "...bir etkinliğe geri bildirim bırakmayı unuttum"
-      email_daily_community_updates: "Yeni listelemelerde beni günlük olarak e-posta ile bilgilendir"
-      email_weekly_community_updates: "Yeni listelemelerde beni haftalık olarak e-posta ile bilgilendir"
-      do_not_email_community_updates: "Bana güncelleme e-postası gönderme"
+      email_daily_community_updates: "Yeni listelemelerde beni günlük olarak email ile bilgilendir"
+      email_weekly_community_updates: "Yeni listelemelerde beni haftalık olarak email ile bilgilendir"
+      do_not_email_community_updates: "Bana güncelleme emaili gönderme"
       email_when_conversation_accepted: "...biri teklif ya da talebimi kabul etti"
       email_when_conversation_rejected: "...biri teklif ya da talebimi reddetti"
       email_about_completed_transactions: "...biri teklif ya da talebimi tamamlandı olarak işaretledi"
@@ -1943,9 +1943,9 @@ tr-TR:
       unsubscribe_succesful: "Abonelik sonlandırıldı"
       unsubscribe_info_text: "Artık bu e-postaları almayacaksınız. %{service_name}'den hangi e-postaları almak istediğinizi düzenlemek için %{settings_link}'e göz atın ya da %{homepage_link}'ya dönün."
       settings_link: ayarlar
-      homepage_link: "ana sayfa"
+      homepage_link: anasayfa
       unsubscribe_unsuccesful: "Abonelik sonlandırılamadı"
-      unsuccessful_unsubscribe_info_text: "Bunun sebebi abonelik sonlandırma linkinin eski ya da bozuk olması olabilir. Soldaki butondan bize ulaşın ve aboneliğinizi sonlandıralım ya da e-posta ayarlarının düzenlemek için giriş yapın."
+      unsuccessful_unsubscribe_info_text: "Bunun sebebi abonelik sonlandırma linkinin eski ya da bozuk olması olabilir. Soldaki butondan bize ulaşın ve aboneliğinizi sonlandıralım ya da email ayarlarının düzenlemek için giriş yapın."
     profile:
       about_you: Hakkınızda
       city: Şehir

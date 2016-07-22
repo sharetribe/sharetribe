@@ -9,11 +9,11 @@ tr-TR:
         other: "%{count} hata %{resource}'un kaydedilmesini engelledi. "
   devise:
     failure:
-      already_authenticated: "Zaten giriş yapmışsınız."
-      unauthenticated: "Devam etmeden önce bir hesap açtırmalı veya hesabınıza giriş yapmalısınız."
+      already_authenticated: "Giriş yapılmış."
+      unauthenticated: "Devam etmeden önce bir hesap açmalı veya hesabınıza giriş yapmalısınız."
       unconfirmed: "Devam etmeden önce hesabınızı doğrulamalısınız."
       locked: "Hesabınız kilitlenmiştir."
-      invalid: "Hatalı giriş ya da şifre."
+      invalid: "Hatalı email ya da şifre."
       invalid_token: "Yanlış doğrulama kodu."
       timeout: "Zaman aşımı oldu, devam etmek için lütfen tekrar giriş yapın."
       inactive: "Hesabınız henüz etkinleştirilmemiştir."
