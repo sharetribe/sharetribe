@@ -16,6 +16,7 @@ import AvatarDropdown from '../../composites/AvatarDropdown/AvatarDropdown';
 import LoginLinks from '../../composites/LoginLinks/LoginLinks';
 import Menu from '../../composites/Menu/Menu';
 import MenuMobile from '../../composites/MenuMobile/MenuMobile';
+import MenuPriority from '../../composites/MenuPriority/MenuPriority';
 import SearchBar from '../../composites/SearchBar/SearchBar';
 
 const profileDropdownActions = function profileDropdownActions(routes, username) {
@@ -137,6 +138,7 @@ class Topbar extends Component {
             content: l.title,
             href: l.link,
             type: 'menuitem',
+            priority: l.priority,
           }
         )),
       }) :
@@ -242,13 +244,13 @@ class Topbar extends Component {
           }),
         }) :
         div({ className: css.topbarMobileSearchPlaceholder }),
-      this.props.menu ? r(Menu, { ...menuProps, className: css.topbarMenu }) : null,
-      div({ className: css.topbarSpacer }),
+      div({ className: css.topbarMenuSpacer }, this.props.menu ?
+        r(MenuPriority, menuProps) :
+        null),
       hasMultipleLanguages ? r(Menu, {
         ...languageMenuProps,
         className: {
           [css.topbarMenu]: true,
-          [css.topbarLanguageMenu]: true,
         } }) : null,
       this.props.avatarDropdown && loggedInUsername ?
         r(AvatarDropdown, {
@@ -274,7 +276,7 @@ class Topbar extends Component {
   }
 }
 
-const { string, object, shape, arrayOf } = PropTypes;
+const { arrayOf, number, object, shape, string } = PropTypes;
 
 /* eslint-disable react/forbid-prop-types */
 Topbar.propTypes = {
@@ -285,6 +287,7 @@ Topbar.propTypes = {
     links: arrayOf(shape({
       title: string.isRequired,
       link: string.isRequired,
+      priority: number,
     })),
   }),
   locales: PropTypes.shape({

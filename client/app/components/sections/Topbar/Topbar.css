@@ -140,9 +140,9 @@
   }
 }
 
-.topbarSpacer {
+.topbarMenuSpacer {
   display: none;
-  margin: 0;
+  margin: 0 48px 0 0;
 
   @media (--large-viewport) {
     flex-grow: 1;

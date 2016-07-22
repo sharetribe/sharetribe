@@ -1,0 +1,29 @@
+.menuPriority {
+  display: flex;
+  align-items: center;
+}
+
+.priorityLinks {
+  overflow: hidden;
+  width: 0px;
+  height: var(--MenuPriority_height);
+  position: relative;
+}
+
+.priorityLink {
+  display: inline-block;
+  margin-right: var(--MenuPriority_itemSpacing);
+  padding: var(--MenuPriority_paddingVertical) 0;
+  color: var(--MenuPriority_textColor);
+  letter-spacing: var(--MenuPriority_letterSpacing);
+  font-size: var(--MenuPriority_fontSize);
+  line-height: 1.5em;
+  white-space: nowrap;
+
+  &:hover {
+    color: var(--MenuPriority_textColorHover);
+  }
+}
+
+.hiddenLinks {
+}

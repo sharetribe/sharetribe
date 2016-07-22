@@ -4,6 +4,18 @@ module TopbarHelper
 
   def topbar_props(community:, path_after_locale_change:, user: nil, search_placeholder: nil, locale_param: nil, landing_page: false)
 
+    user_links = Maybe(community.menu_links)
+      .map { |menu_links|
+        menu_links
+          .map { |menu_link|
+            {
+              link: menu_link.url(I18n.locale),
+              title: menu_link.title(I18n.locale),
+              priority: menu_link.sort_priority
+            }
+          }
+      }.or_else([])
+
     links = [
       {
         link: PathHelpers.landing_page_path(
@@ -12,15 +24,18 @@ module TopbarHelper
           default_locale: community.default_locale,
           locale_param: locale_param
         ),
-        title: I18n.t("header.home")
+        title: I18n.t("header.home"),
+        priority: -1
       },
       {
         link: paths.about_infos_path,
-        title: I18n.t("header.about")
+        title: I18n.t("header.about"),
+        priority: 0
       },
       {
         link: paths.new_user_feedback_path,
         title: I18n.t("header.contact_us"),
+        priority: user_links.size > 0 ? user_links.last[:priority] + 1 : 1
       }
     ]
 
@@ -28,18 +43,11 @@ module TopbarHelper
       links << {
         link: paths.new_invitation_path,
         title: I18n.t("header.invite"),
+        priority: user_links.size > 0 ? user_links.last[:priority] + 2 : 2
       }
     end
 
-    links.concat(Maybe(community.menu_links)
-      .map { |menu_links|
-        menu_links.map { |menu_link|
-          {
-            link: menu_link.url(I18n.locale),
-            title: menu_link.title(I18n.locale)
-          }
-        }
-      }.or_else([]))
+    links.concat(user_links)
 
     {
       logo: {
