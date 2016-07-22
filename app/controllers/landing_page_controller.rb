@@ -250,6 +250,7 @@ class LandingPageController < ActionController::Metal
                      sections: denormalizer.to_tree(structure, root: "composition"),
                      community_context: community_context(request, landing_page_locale),
                      feature_flags: FeatureFlagHelper.feature_flags,
+                     asset_host: APP_CONFIG.asset_host,
                    }
   end
 
