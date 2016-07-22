@@ -36,10 +36,11 @@
 
 .menuLabel {
   display: inline-block;
-  font-size: var(--Menu_fontSize);
   padding: var(--Menu_labelPaddingVertical) 0;
-  white-space: nowrap;
   color: var(--Menu_textColor);
+  font-size: var(--Menu_fontSize);
+  line-height: 1.5em;
+  white-space: nowrap;
 
   &::first-letter {
     text-transform: capitalize;
