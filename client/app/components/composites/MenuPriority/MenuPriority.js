@@ -4,12 +4,13 @@ import r, { div, a } from 'r-dom';
 import _ from 'lodash';
 import classNames from 'classnames';
 import { canUseDOM } from '../../../utils/featureDetection';
+import variables from '../../../assets/styles/variables';
 
 import Menu from '../Menu/Menu';
 import css from './MenuPriority.css';
 
-const EXTRA_SPACING_RIGHT = 24;
-const LINK_SPACING = 18;
+const EXTRA_SPACING_RIGHT = variables['--MenuPriority_extraSpacingNoUnit'];
+const LINK_SPACING = variables['--MenuPriority_itemSpacingNoUnit'];
 const ROUNDING_ERROR_MARGIN = 2;
 
 class MenuPriority extends Component {
@@ -18,7 +19,7 @@ class MenuPriority extends Component {
     super(props, context);
 
     this.links = _.sortBy(this.props.content, ['priority']);
-    this.componentDidMount = this.componentDidMount.bind(this);
+    this.handleResize = this.handleResize.bind(this);
     this.updateWidths = this.updateWidths.bind(this);
     this.updateNav = this.updateNav.bind(this);
 
@@ -26,48 +27,46 @@ class MenuPriority extends Component {
       priorityWrapperWidth: '0px',
       priorityLinks: this.links.filter((l) => l.priority >= 0),
       hiddenLinks: this.links,
+      linksWithBreakPoints: null,
     };
   }
 
   componentDidMount() {
     if (canUseDOM) {
-      const that = this;
-      const priorityMenu = ReactDOM.findDOMNode(that);
-      let linksWithBreakPoints = null;
-
-      const menuIsVisible = function menuIsVisible(c) {
-        // This is a naive check for visibility
-        // PriorityMenu and its parent might change display settings due to responsive layout
-        return window.getComputedStyle(c, null).getPropertyValue('display') !== 'none' &&
-          window.getComputedStyle(c.parentNode, null).getPropertyValue('display') !== 'none';
-      };
 
       // Wait for a paint to be done before calculating offsetWidths and stuff
       // ComponentDidMount is called after React component is passed to DOM,
       // but painting is not necessarily ready yet at that point
       window.requestAnimationFrame(() => {
-        if (linksWithBreakPoints == null && menuIsVisible(priorityMenu)) {
-          linksWithBreakPoints = that.updateWidths(that.links);
-          that.updateNav(linksWithBreakPoints);
-        }
+        this.handleResize();
       });
 
-      window.addEventListener('resize', () => {
-        if (menuIsVisible(priorityMenu)) {
-          if (linksWithBreakPoints == null) {
-            linksWithBreakPoints = that.updateWidths(that.links);
-          }
-          that.updateNav(linksWithBreakPoints);
-        }
-      });
+      window.addEventListener('resize', this.handleResize);
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
+  handleResize() {
+    const priorityMenu = ReactDOM.findDOMNode(this);
+
+    // This is a naive check for visibility
+    // PriorityMenu and its parent might change display settings due to responsive layout
+    const menuIsVisible = window.getComputedStyle(priorityMenu, null).getPropertyValue('display') !== 'none' &&
+      window.getComputedStyle(priorityMenu.parentNode, null).getPropertyValue('display') !== 'none';
+
+    if (menuIsVisible) {
+      if (this.state.linksWithBreakPoints == null) {
+        this.setState({ linksWithBreakPoints: this.updateWidths(this.links) }); // eslint-disable-line react/no-set-state
+      }
+      this.updateNav(this.state.linksWithBreakPoints);
     }
   }
 
   updateWidths(links) {
-    const component = document.querySelectorAll(`.${css.menuPriority}`)[0];
-    const priorityLinksWrapper = component.querySelectorAll(`.${css.priorityLinks}`)[0];
-
-    const linksFromRenderedDiv = Array.prototype.slice.call(priorityLinksWrapper.childNodes);
+    const linksFromRenderedDiv = Array.prototype.slice.call(this.priorityLinksMounted.childNodes);
     const withWidths = linksFromRenderedDiv.map((l) => {
       const linkData = _.find(links, (link) => link.content === l.textContent);
       const breakPoint = l.offsetLeft + l.offsetWidth + LINK_SPACING;
@@ -77,10 +76,9 @@ class MenuPriority extends Component {
   }
 
   updateNav(links) {
-    const piorityMenu = document.querySelectorAll(`.${css.menuPriority}`)[0];
-    const menuButton = document.querySelectorAll(`.${css.hiddenLinks}`)[0];
-    const menuButtonWidth = menuButton != null ? menuButton.offsetWidth : 0;
-    const availableSpace = piorityMenu.offsetWidth - menuButtonWidth - EXTRA_SPACING_RIGHT;
+    const menuButtonDOMNode = ReactDOM.findDOMNode(this.hiddenLinksMounted);
+    const menuButtonWidth = menuButtonDOMNode != null ? menuButtonDOMNode.offsetWidth : 0;
+    const availableSpace = this.menuPriorityMounted.offsetWidth - menuButtonWidth - EXTRA_SPACING_RIGHT;
 
     for (let i = 0; i < links.length; i++) {
       if (links[i].breakPoint > availableSpace) {
@@ -121,15 +119,27 @@ class MenuPriority extends Component {
     };
 
     const fallbackLabel = !isMeasured || this.state.priorityLinks.length === 0 ? { name: this.props.nameFallback, menuLabelType: this.props.menuLabelTypeFallback } : {};
-    const extraMenuProps = Object.assign({ className: css.hiddenLinks, content: this.state.hiddenLinks }, fallbackLabel);
+    const extraMenuProps = Object.assign({
+      className: css.hiddenLinks,
+      content: this.state.hiddenLinks,
+      ref: (c) => {
+        this.hiddenLinksMounted = c;
+      },
+    }, fallbackLabel);
     const menuProps = Object.assign(Object.assign({}, this.props, extraMenuProps));
 
     return div({
       className: classNames('MenuPriority', css.menuPriority),
+      ref: (c) => {
+        this.menuPriorityMounted = c;
+      },
     }, [
       div({
         className: css.priorityLinks,
         style,
+        ref: (c) => {
+          this.priorityLinksMounted = c;
+        },
       }, this.state.priorityLinks.map((l) => (
         a({
           className: css.priorityLink,

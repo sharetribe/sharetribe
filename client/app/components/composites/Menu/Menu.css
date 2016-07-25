@@ -20,10 +20,6 @@
     & .menuLabelDropdownIcon path {
       fill: var(--Menu_textColorFocus);
     }
-
-    & :global(.more-icon) { /* stylelint-disable-line selector-class-pattern */
-      stroke: var(--Menu_textColorFocus);
-    }
   }
 
   &.openMenu,
@@ -44,11 +40,6 @@
 
   &::first-letter {
     text-transform: capitalize;
-  }
-
-  & :global(.more-icon) { /* stylelint-disable-line selector-class-pattern */
-    stroke-width: 3px;
-    stroke: var(--Menu_textColor);
   }
 }
 

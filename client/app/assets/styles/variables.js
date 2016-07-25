@@ -204,8 +204,9 @@ module.exports = {
   '--Menu_zIndex': '1',
 
   '--MenuPriority_height': '60px',
-  '--MenuPriority_extraSpacingRight': '24px',
+  '--MenuPriority_extraSpacingNoUnit': 24,
   '--MenuPriority_itemSpacing': '18px',
+  '--MenuPriority_itemSpacingNoUnit': 18,
   '--MenuPriority_textColor': textColor,
   '--MenuPriority_textColorHover': textColorFocus,
   '--MenuPriority_fontSize': fontSize,

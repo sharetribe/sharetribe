@@ -20,8 +20,10 @@
   line-height: 1.5em;
   white-space: nowrap;
 
+  &:focus,
   &:hover {
     color: var(--MenuPriority_textColorHover);
+    outline: none;
   }
 }
 
