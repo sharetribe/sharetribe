@@ -21,7 +21,7 @@
       fill: var(--Menu_textColorFocus);
     }
 
-    & :global(.more-icon) {
+    & :global(.more-icon) { /* stylelint-disable-line selector-class-pattern */
       stroke: var(--Menu_textColorFocus);
     }
   }
@@ -46,7 +46,7 @@
     text-transform: capitalize;
   }
 
-  & :global(.more-icon) {
+  & :global(.more-icon) { /* stylelint-disable-line selector-class-pattern */
     stroke-width: 3px;
     stroke: var(--Menu_textColor);
   }

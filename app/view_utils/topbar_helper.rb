@@ -35,7 +35,7 @@ module TopbarHelper
       {
         link: paths.new_user_feedback_path,
         title: I18n.t("header.contact_us"),
-        priority: user_links.size > 0 ? user_links.last[:priority] + 1 : 1
+        priority: !user_links.empty? ? user_links.last[:priority] + 1 : 1
       }
     ]
 
@@ -43,7 +43,7 @@ module TopbarHelper
       links << {
         link: paths.new_invitation_path,
         title: I18n.t("header.invite"),
-        priority: user_links.size > 0 ? user_links.last[:priority] + 2 : 2
+        priority: !user_links.empty? ? user_links.last[:priority] + 2 : 2
       }
     end
 

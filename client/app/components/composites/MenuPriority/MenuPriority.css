@@ -5,7 +5,7 @@
 
 .priorityLinks {
   overflow: hidden;
-  width: 0px;
+  width: 0;
   height: var(--MenuPriority_height);
   position: relative;
 }
@@ -25,5 +25,4 @@
   }
 }
 
-.hiddenLinks {
-}
+.hiddenLinks {} /* stylelint-disable-line block-no-empty */
