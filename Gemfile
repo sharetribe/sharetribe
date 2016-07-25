@@ -113,6 +113,8 @@ gem 'faraday_middleware', '~> 0.10.0'
 
 gem "react_on_rails", "~> 5.1.1"
 
+gem "css_parser", "~> 1.4.5"
+
 # Use latest from master
 #
 # The latest master is needed because it contains the I18n.extend configuration
