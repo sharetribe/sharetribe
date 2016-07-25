@@ -803,9 +803,9 @@ da-DK:
       cancel_it_link_text: "annullere dit tilbud"
     payment_settings_reminder:
       remember_to_add_payment_details: "Husk at udfylde dine betalingsoplysninger for at modtage betalinger"
-      you_have_added_listing_with_payment: "Du har oprettet en annonce %{listing_link} med betaling, men du har ikke tilføjet dine betalingsoplysninger. For at kunne modtage betalinger, skal du tilføje dine betalingsoplysninger."
+      you_have_added_listing_with_payment: "Du har oprettet en annonce %{listing_link} med betaling, men du har ikke tilføjet dine betalingsoplysninger, der er nødvendigt for at kunne modtage betalinger."
       please_go_to_payment_settings: "Gå venligst til %{payment_settings_link} og udfyld dine betalingsoplysninger."
-      payment_settings_link: betalingsindstillinger
+      payment_settings_link: Betalinger
     transaction_confirmed:
       here_is_a_message_from: "Her er en besked fra %{other_party_given_name}:"
       request_marked_as_confirmed: "Anmodning godkendt - husk at give feedback"
@@ -1465,7 +1465,7 @@ da-DK:
         loading_image: Venter...
         image_uploading_in_progress: "Billede upload i gang..."
         processing_takes_a_while: "Alle billeder er nu uploadet med succes! Behandling af dem vil tage nogen tid, men det er sikkert at gemme annoncen og gå videre."
-        this_may_take_a_while: "(dette kan tage et øjeblik)"
+        this_may_take_a_while: "det tager kun et øjeblik"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Billedeupload fejlede"
         image_processing_failed: "Billedbehandling mislykkedes"
@@ -1756,8 +1756,8 @@ da-DK:
     paypal_account_connected_title: "PayPal-konto forbundet"
     paypal_account_connected: "PayPal-kontoen <%{email}> er blevet forbundet med %{service_name}."
     change_account: "Ret PayPal-konto"
-    missing: "Du kan modtage direkte betalinger på %{service_name}, hvis du tilknytter din PayPal-konto i %{settings_link}."
-    from_your_payment_settings_link_text: betalingsindstillinger
+    missing: "Du har oprettet annoncer med betaling. For at kunne modtage betaling skal du forbinde din PayPal med %{service_name} i %{settings_link}."
+    from_your_payment_settings_link_text: Betalinger
     redirect_message: "Omdirigere dig til PayPal. Hvis der ikke sker noget, skal du klikke %{redirect_link}."
     redirect_link_text: her
     paypal_account_all_set_up: "Hurraaa! alt er sat op!"
@@ -2118,7 +2118,7 @@ da-DK:
       price_per_day: "Pris pr. dag:"
       quantity: "Mængde:"
       subtotal: "Subtotal:"
-      shipping-price: "Forsendelse:"
+      shipping-price: "Porto:"
     price_per_quantity: "Pris pr. %{unit_type}:"
     price: "Pris:"
     quantity: "Mængde: %{quantity}"

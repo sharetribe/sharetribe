@@ -91,7 +91,7 @@ sl:
         custom_color2_instructions_text: ~
         default_browse_view: ~
         default_browse_view_instructions_text: ~
-        grid: ~
+        grid: Mreža
         list: ~
         map: ~
         name_display_type: ~
@@ -311,7 +311,7 @@ sl:
           date_cant_be_filtered: ~
           text_cant_be_filtered: ~
       index:
-        listing_fields: ~
+        listing_fields: "Polja & filtri objav"
         listing_fields_help: ~
         add_new_field: ~
         remove_field_confirmation: ~
@@ -740,7 +740,7 @@ sl:
       log_out: ~
       join_community_button: ~
     give_consent:
-      invitation_code_invalid_or_used: ~
+      invitation_code_invalid_or_used: "Koda povabila ni veljavna ali pa je bila že uporabljena."
       email_not_allowed: ~
       email_not_available: ~
       consent_not_given: ~
@@ -754,8 +754,8 @@ sl:
       you_have_not_yet_accepted_or_rejected_request: ~
       show_thread: ~
     branding:
-      powered_by: ~
-      create_own: ~
+      powered_by: "%{service_name} deluje na %{sharetribe_link}, marketplace platformi."
+      create_own: "Bi rad tudi ti ustvaril svoj spletni marketplace kot je %{service_name}? %{learn_more}"
       learn_more: ~
     braintree_account_approved:
       account_ready: ~
@@ -805,7 +805,7 @@ sl:
     confirmation_instructions:
       confirmation_instructions_signature: ~
       welcome_to_kassi: ~
-      need_to_confirm: ~
+      need_to_confirm: "Potrditi morate svoj e-naslov."
       confirmation_link_text: ~
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
@@ -837,7 +837,7 @@ sl:
       you_have_been_invited_to_kassi: ~
       here_is_a_message_from: ~
       join_now: ~
-      invitation_code: ~
+      invitation_code: "Koda povabiila: %{code}"
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
@@ -890,7 +890,7 @@ sl:
       title_link_text: ~
       intro_paragraph: ~
       intro_paragraph_link_text: ~
-      post_a_new_listing: ~
+      post_a_new_listing: "Dodaj objavo!"
       reduce_email_footer_text: ~
       settings_link_text: ~
       unsubscribe_link_text: ~
@@ -991,7 +991,7 @@ sl:
       send_feedback: ~
       your_feedback_to_admins: ~
     send: ~
-    your_email_address: ~
+    your_email_address: "Vaš e-naslov"
   errors:
     messages:
       invalid_date: ~
@@ -1029,8 +1029,8 @@ sl:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: ~
-    home: ~
+    about: Informacije
+    home: Domov
     members: ~
     new_listing: ~
     mobile_version: ~
@@ -1044,7 +1044,7 @@ sl:
     invite: ~
     login: ~
     signup: ~
-    menu: ~
+    menu: Meni
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: ~
@@ -1078,9 +1078,9 @@ sl:
       some_private_offers_exist: ~
       some_private_requests_exist: ~
     custom_filters:
-      update_view: ~
-      min: ~
-      max: ~
+      update_view: Osveži
+      min: "Od:"
+      max: "Do:"
     event_feed:
       latest_events: ~
     grid_item:
@@ -1088,14 +1088,14 @@ sl:
     index:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
-      add_listing_link_text: ~
+      add_listing_link_text: "Dodaj novo objavo"
       open_listing: ~
       open_listings: ~
-      private_listing_notification_log_in: ~
+      private_listing_notification_log_in: prijava
       is: ~
       are: ~
       what_do_you_need: ~
-      post_new_listing: ~
+      post_new_listing: "Dodaj objavo"
       are_offering: ~
       add_news_item: ~
       lend_rent_help_carpool: ~
@@ -1112,13 +1112,13 @@ sl:
       welcome_to_new_kassi: ~
       no_reviews: ~
       no_image: ~
-      filter: ~
+      filter: Filtriraj
       this_is_private_community: ~
     invitation_form:
-      email: ~
+      email: E-naslov(i)
       message: ~
       send_invitation: ~
-      add_email_addresses_description: ~
+      add_email_addresses_description: "V spodnje polje dodaj e-naslove ljudi, ki jih želiš povabiti. Če želiš dodati več e-naslovov, jih med seboj loči z vejico."
       add_lots_of_email_addresses: ~
       this_article_link: ~
       invitation_emails_field_placeholder: ~
@@ -1141,15 +1141,15 @@ sl:
       comment: ~
       comments: ~
     filters:
-      show: ~
-      search: ~
-      map: ~
-      list: ~
-      map_button: ~
-      grid_button: ~
-      list_button: ~
-      all_listing_types: ~
-      all_categories: ~
+      show: "Filtriraj:"
+      search: Išči
+      map: "Pokaži zemljevid"
+      list: "Pokaži seznam"
+      map_button: Zemljevid
+      grid_button: Mreža
+      list_button: Seznam
+      all_listing_types: "Vse vrste objav"
+      all_categories: "Vse kategorije"
     errors:
       search_engine_not_responding: ~
   infos:
@@ -1158,8 +1158,8 @@ sl:
       default_about_text: ~
       click_here_link_text: ~
     how_to_use:
-      default_title: ~
-      default_content: ~
+      default_title: "Kako to deluje"
+      default_content: "Tukaj lahko najdete informacije, kako deluje %{marketplace_name}."
   landing_page:
     hero:
       search: ~
@@ -1171,8 +1171,8 @@ sl:
     admin:
       admin: ~
     branding:
-      powered_by: ~
-      create_own: ~
+      powered_by: "%{service_name} deluje na %{sharetribe_link}, marketplace platformi."
+      create_own: "Bi rad tudi ti ustvaril svoj spletni marketplace kot je %{service_name}? %{learn_more}"
       learn_more: ~
     no_tribe:
       inbox: ~
@@ -1185,18 +1185,18 @@ sl:
       default_feedback: ~
       feedback_forum: ~
       feedback_handle: ~
-      give_feedback: ~
+      give_feedback: Kontakt
       or_check_our: ~
       send_feedback_to_admin: ~
       to_see_what_others_have_suggested: ~
-      your_email_address: ~
+      your_email_address: "Vaš e-naslov (da vas lahko kontaktiramo)."
       connect: ~
       invite_your_friends: ~
       invite_your_neighbors: ~
       invite_your_friends_description: ~
       invite_your_friends_invite_only_description: ~
       join_without_facebook: ~
-      join_without_facebook_link: ~
+      join_without_facebook_link: "registriraj se brez uporabe Facebooka"
     conversations:
       messages: ~
       notifications: ~
@@ -1205,17 +1205,17 @@ sl:
     global-header:
       select_language: ~
     infos:
-      about: ~
-      how_to_use: ~
-      info_about_kassi: ~
+      about: Informacije
+      how_to_use: "Kako to deluje"
+      info_about_kassi: "Informacije o %{service_name}"
       news: ~
-      register_details: ~
-      terms: ~
+      register_details: Zasebnost
+      terms: "Pogoji poslovanja"
     logged_in:
       admin: ~
       go_to_your_profile_page: ~
       hi: ~
-      login: ~
+      login: Prijava
       logout: ~
       notifications: ~
       requests: ~
@@ -1229,12 +1229,12 @@ sl:
       admin: ~
       go_to_your_profile_page: ~
       hi: ~
-      login: ~
+      login: Prijava
       logout: ~
       notifications: ~
       requests: ~
       settings: ~
-      sign_up: ~
+      sign_up: Registracija
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
@@ -1242,8 +1242,8 @@ sl:
       something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
-      account_creation_succesful_you_still_need_to_confirm_your_email: ~
-      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Vaša registracija je uspela. Sedaj morate potrditi svoj e-naslov."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Hvala, da ste se pridružili %{service_name}. Zdaj morate le še potrditi svoj e-naslov."
       comment_cannot_be_empty: ~
       comment_sent: ~
       confirmation_link_is_wrong_or_used: ~
@@ -1378,10 +1378,10 @@ sl:
       you_must: ~
       subscribe_to_comments: ~
     edit:
-      edit_listing: ~
+      edit_listing: "Uredi objavo"
     edit_links:
-      close_listing: ~
-      edit_listing: ~
+      close_listing: "Zapri objavo"
+      edit_listing: "Uredi objavo"
       reopen_listing: ~
       move_to_top: ~
       show_in_updates_email: ~
@@ -1465,7 +1465,7 @@ sl:
         location: ~
         origin: ~
       send_button:
-        save_listing: ~
+        save_listing: "Shrani objavo"
       share_type:
         select: ~
         borrow: ~
@@ -1491,7 +1491,7 @@ sl:
       valid_until_radio_buttons:
         for_the_time_being: ~
       privacy:
-        privacy: ~
+        privacy: Zasebnost
         private: ~
         public: ~
     help_texts:
@@ -1542,7 +1542,7 @@ sl:
       how_paypal_works: ~
       payment_help: ~
     new:
-      post_a_new_listing: ~
+      post_a_new_listing: "Dodaj objavo"
       listing: ~
       selected_category: ~
       selected_subcategory: ~
@@ -1565,13 +1565,13 @@ sl:
     quantity_placeholder: ~
     please_comment: ~
     reply_link:
-      listing_closed: ~
+      listing_closed: "Objava je zaprta"
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
       comments: ~
       contact_by_phone: ~
-      contact: ~
+      contact: Kontakt
       favor_offer: ~
       favor_request: ~
       inquiry: ~
@@ -1749,7 +1749,7 @@ sl:
     help_texts:
       feedback_description_title: ~
       help_invitation_code_title: ~
-      terms_title: ~
+      terms_title: "%{service_name} pogoji poslovanja"
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
@@ -1757,29 +1757,29 @@ sl:
       inactive_description: ~
     new:
       create_new_account: ~
-      email: ~
+      email: E-naslov
       email_is_in_use: ~
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
       family_name: ~
       given_name: ~
       i_accept_the: ~
-      invalid_invitation_code: ~
-      invitation_code: ~
+      invalid_invitation_code: "Ta koda povabiila ni veljavna."
+      invitation_code: "Koda povabila"
       not_required: ~
       notification_is_mandatory: ~
       organization_name: ~
       password_again: ~
       show_my_name_to_others: ~
       sign_up: ~
-      terms: ~
+      terms: "pogoji poslovanja"
       username_is_in_use: ~
       username_is_invalid: ~
       visible_only_to_you: ~
       visible_to_everybody: ~
-      create_account_with_facebook: ~
+      create_account_with_facebook: "Registrirajte se s Facebookom"
       OR: ~
-      signup_with_email: ~
+      signup_with_email: "Registriraj se z e-naslovom"
     profile_feedback:
       grade: ~
       and_gave_following_feedback: ~
@@ -1858,7 +1858,7 @@ sl:
       we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: ~
-      password_recovery_instructions: ~
+      password_recovery_instructions: "Vnesite svoj e-naslov da dobite vaše uporabniško ime in obnovite geslo."
       request_new_password: ~
       change_your_password: ~
     confirmation_pending:
@@ -1867,8 +1867,8 @@ sl:
       resend_confirmation_instructions: ~
       your_current_email_is: ~
       change_email: ~
-      confirm_your_email: ~
-      account_confirmation_instructions: ~
+      confirm_your_email: "Prosim, potrdi svoj e-naslov."
+      account_confirmation_instructions: "V kratkem boš prejel e-pošto s povezavo za potrditev tvojega e-naslova. Ne pozabi preveriti še v 'spam-u'! Ko boš potrdil svoj e-naslov, se lahko pridružiš %{service_name}."
       account_confirmation_instructions_title_admin: ~
       your_marketplace_has_now_been_created: ~
       account_confirmation_instructions_admin: ~
@@ -1880,7 +1880,7 @@ sl:
       delete_account_button: ~
       delete_account_confirmation_popup: ~
       email_addresses: ~
-      new_email: ~
+      new_email: "Nov e-naslov"
       delete_personal_information: ~
       delete_information_others_involved: ~
       unfinished_transactions: ~
@@ -1957,11 +1957,11 @@ sl:
       without_tag: ~
   terms:
     show:
-      accept_terms: ~
+      accept_terms: "Potrditev %{service_name} pogojev poslovanja"
       here: ~
       i_accept_new_terms: ~
       i_accept_terms: ~
-      terms: ~
+      terms: "%{service_name} pogoji poslovanja"
       terms_have_changed: ~
       you_can_view_the_new_terms: ~
       you_need_to_accept: ~
