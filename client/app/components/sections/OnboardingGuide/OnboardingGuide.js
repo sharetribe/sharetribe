@@ -10,6 +10,7 @@ import GuidePaypalPage from './GuidePaypalPage';
 import GuideListingPage from './GuideListingPage';
 import GuideInvitationPage from './GuideInvitationPage';
 
+import { canUseDOM, canUsePushState } from '../../../utils/featureDetection';
 import { routes, marketplaceContext } from '../../../utils/PropTypes';
 
 // Select child component (page/view) to be rendered
@@ -37,14 +38,6 @@ const selectChild = function selectChild(data) {
 };
 
 const setPushState = function setPushState(state, title, path) {
-
-  // React has an internal variable 'canUseDOM', which we emulate here.
-  const canUseDOM = !!(typeof window !== 'undefined' &&
-                        window.document &&
-                        window.document.createElement);
-  const canUsePushState = !!(typeof history !== 'undefined' &&
-                              history.pushState);
-
   if (canUseDOM && canUsePushState) {
     window.history.pushState(state, title, path);
   }
