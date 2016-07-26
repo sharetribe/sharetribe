@@ -40,7 +40,7 @@ class Menu extends Component {
     const menuLabel = ReactDOM.findDOMNode(this.menuLabel);
 
     this.setState({ // eslint-disable-line react/no-did-mount-set-state, react/no-set-state
-      arrowPosition: menuLabel.offsetWidth > (INITIAL_ARROW_POSITION * 2) ? menuLabel.offsetWidth / 2 : INITIAL_ARROW_POSITION, // eslint-disable-line no-magic-numbers
+      arrowPosition: menuLabel.offsetWidth > (INITIAL_ARROW_POSITION * 2) ? Math.floor(menuLabel.offsetWidth / 2) : INITIAL_ARROW_POSITION, // eslint-disable-line no-magic-numbers
     });
   }
 
