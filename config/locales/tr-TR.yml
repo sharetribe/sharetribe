@@ -186,6 +186,7 @@ tr-TR:
         search_preferences: ~
         default_search_type: ~
         keyword_search: ~
+        keyword_and_location_search: ~
         location_search: ~
         select_distance_unit: ~
         km: ~
@@ -1422,7 +1423,7 @@ tr-TR:
         repeated: "(süre ve zaman bilgilerini 'ayrıntılı açıklama' kısmına gir) Tekrarlandı"
       description:
         detailed_description: "Ayrıntılı bilgi"
-        youtube_info: "Açıklama alanında Youtube linkleri kullanırsanız, videolarınız metnin altında görüntülenecektir."
+        youtube_info: "Açıklama alanında Youtube linkleri kullanırsanız videolarınız metnin alt kısmında görüntülenecektir."
       destination:
         destination: Hedef
       form_content:

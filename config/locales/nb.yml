@@ -191,6 +191,7 @@ nb:
         search_preferences: Søkeinnstillinger
         default_search_type: "Søketype: %{select_search_type}"
         keyword_search: Nøkkelord-søk
+        keyword_and_location_search: ~
         location_search: Stedsnavn-søk
         select_distance_unit: "Vis avstand i %{distance_units_selector}"
         km: km

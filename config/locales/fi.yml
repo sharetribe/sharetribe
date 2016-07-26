@@ -191,6 +191,7 @@ fi:
         search_preferences: Hakuasetukset
         default_search_type: "Haun tyyppi: %{select_search_type}"
         keyword_search: Avainsanahaku
+        keyword_and_location_search: ~
         location_search: Sijaintihaku
         select_distance_unit: "Etäisyyden yksikkö %{distance_units_selector}"
         km: km

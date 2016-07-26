@@ -28,14 +28,14 @@ sl:
       send_instructions: ~
       confirmed: ~
     registrations:
-      signed_up_but_unconfirmed: "Email z linkom za potrditev je bil poslan na vaš e-naslov. Prosim, odprite link in aktivirajte račun."
+      signed_up_but_unconfirmed: "Email z linkom za potrditev je bil poslan na tvoj e-naslov. Prosim, odpri link in aktiviraj račun."
       signed_up_but_inactive: ~
       signed_up_but_locked: ~
       reasons:
         inactive: ~
         unconfirmed: ~
         locked: ~
-      update_needs_confirmation: "Uspešno ste posodibili vaš račun, zdaj je potrebna še potrditev vašega novega e-naslova. Prosim, preverite svojo e-pošto in kliknite na povezavo, da dokončate potrditev vašega novega e-naslova."
+      update_needs_confirmation: "Uspešno si posodibil svoj račun. Zdaj je potrebna še potrditev novega e-naslova. Prosim, preveri e-pošto in klikni na povezavo, da dokončaš potrditev novega e-naslova."
       signed_up: ~
       updated: ~
       destroyed: ~
