@@ -9,6 +9,8 @@ module SettingsViewUtils
       t("admin.communities.settings.keyword_search")
     when :location
       t("admin.communities.settings.location_search")
+    when :keyword_and_location
+      t("admin.communities.settings.keyword_and_location_search")
     else
       raise("Unknown search type: #{search_type}")
     end
