@@ -111,6 +111,7 @@ module.exports = {
   '--Topbar_tabletHeight': '60px',
   '--Topbar_mobileHeight': '50px',
   '--Topbar_padding': `0 ${bodyPadding}`,
+  '--Topbar_paddingLanguageMenuVertical': '27.5px',
   '--Topbar_tabletPadding': `0 ${bodyPadding} 0 6px`,
   '--Topbar_mobilePadding': '0 1px 0 0',
   '--Topbar_itemSpacing': '24px',
@@ -214,7 +215,7 @@ module.exports = {
   '--MenuPriority_paddingVertical': '19px',
 
   // topbar can't control base font-size.
-  '--Menu_labelPaddingVertical': '21px',
+  '--Menu_labelPaddingVertical': '27px',
 
   '--MenuSection_titleColor': 'rgba(153, 153, 153, 0.5)',
   '--MenuSection_fontSizeTitle': fontSizeSmaller,
