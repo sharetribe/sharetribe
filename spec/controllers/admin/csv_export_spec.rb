@@ -51,7 +51,7 @@ describe Admin::CommunityTransactionsController, type: :controller do
     @request.env[:current_marketplace] = @community
     @transaction = FactoryGirl.create(:transaction, starter: @person, listing: @listing, community: @community)
 
-    FeatureFlagService::API::Api.features.enable(community_id: @community.id, features: [:export_transactions_as_csv])
+    FeatureFlagService::API::Api.features.enable(entity_id: @community.id, features: [:export_transactions_as_csv])
   end
 
   describe "transactions CSV export" do

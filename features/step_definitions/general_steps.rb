@@ -6,7 +6,7 @@ end
 
 Given /^feature flag "([^"]*)" is enabled$/ do |arg1|
   Community.all.each { |c|
-    FeatureFlagService::API::Api.features.enable(community_id: c.id, features: [arg1.to_sym])
+    FeatureFlagService::API::Api.features.enable(entity_id: c.id, features: [arg1.to_sym])
   }
 end
 
