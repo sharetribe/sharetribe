@@ -8,7 +8,6 @@ class Admin::CommunitiesController < ApplicationController
   def edit_look_and_feel
     @selected_left_navi_link = "tribe_look_and_feel"
     @community = @current_community
-    flash.now[:notice] = t("layouts.notifications.stylesheet_needs_recompiling") if @community.stylesheet_needs_recompile?
 
     onboarding_popup_locals = OnboardingViewUtils.popup_locals(
       flash[:show_onboarding_popup],
@@ -234,11 +233,10 @@ class Admin::CommunitiesController < ApplicationController
     community_params = params.require(:community).permit(*permitted_params)
 
     update(@current_community,
-           community_params.merge(stylesheet_needs_recompile: regenerate_css?(params, @current_community)),
+           community_params,
            admin_look_and_feel_edit_path,
            :edit_look_and_feel) { |community|
-      Delayed::Job.enqueue(CompileCustomStylesheetJob.new(community.id), priority: 3)
-
+      flash[:notice] = t("layouts.notifications.images_are_processing") if images_changed?(params)
       # Onboarding wizard step recording
       state_changed = Admin::OnboardingWizard.new(community.id)
         .update_from_event(:community_updated, community)
@@ -345,9 +343,7 @@ class Admin::CommunitiesController < ApplicationController
     }
   end
 
-  def regenerate_css?(params, community)
-    params[:community][:custom_color1] != community.custom_color1 ||
-    params[:community][:custom_color2] != community.custom_color2 ||
+  def images_changed?(params)
     !params[:community][:cover_photo].nil? ||
     !params[:community][:small_cover_photo].nil? ||
     !params[:community][:wide_logo].nil? ||
