@@ -175,7 +175,7 @@ module.exports = {
   '--ProfileDropdown_colorLight': textColorLight,
   '--ProfileDropdown_textLinkSize': pxToEms(13, 14), // eslint-disable-line no-magic-numbers
   '--ProfileDropdown_arrowWidth': '18px',
-  '--ProfileDropdown_topSeparation': '0px',
+  '--ProfileDropdown_topSeparation': '3px',
   '--ProfileDropdown_lineWidth': '2px',
   '--ProfileDropdown_fontSizeNotification': fontSizeSmaller,
 
@@ -214,7 +214,7 @@ module.exports = {
   '--MenuPriority_paddingVertical': '19px',
 
   // topbar can't control base font-size.
-  '--Menu_labelPaddingVertical': '21px',
+  '--Menu_labelPaddingVertical': '15px',
 
   '--MenuSection_titleColor': 'rgba(153, 153, 153, 0.5)',
   '--MenuSection_fontSizeTitle': fontSizeSmaller,
