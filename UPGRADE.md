@@ -34,6 +34,8 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 ## Unreleased
 
+This release removes the need to run CSS compilation workers. There is no CSS compilation per marketplace anymore. The `Procfile` has been updated, so if you run on Heroku, the `css_compile` worker should disappear after deployment.
+
 ## Upgrade from 5.7.1 to 5.8.0
 
 This release doesn't require any extra actions.
