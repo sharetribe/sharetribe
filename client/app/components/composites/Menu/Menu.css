@@ -1,6 +1,6 @@
 .menu {
   font-family: var(--Topbar_fontFamily); /* should come from topbar */
-  cursor: pointer;
+  cursor: default;
 
   &:focus,
   & :focus {
