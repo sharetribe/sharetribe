@@ -192,7 +192,7 @@ hu:
         search_preferences: "Keresési beállítások"
         default_search_type: "Keresés típusa: %{select_search_type}"
         keyword_search: "Keresés kulcsszóra"
-        keyword_and_location_search: ~
+        keyword_and_location_search: "Kulcsszó és hely szerinti keresés"
         location_search: "Helyszín szerinti keresés"
         select_distance_unit: "Távolság megjelenítése %{distance_units_selector}"
         km: km
@@ -2085,12 +2085,12 @@ hu:
       december: Dec
     today: Ma
     clear: Töröl
-    format: hh/nn/éééé
+    format: mm/dd/yyyy
   time:
     formats:
       short: "hónap nap, év %H:%perc-kor"
       shorter: "hónap nap %H:%perc-kor"
-      short_date: "hónap nap, év"
+      short_date: "%b %e, %Y"
   timestamps:
     day_ago: "%{count} napja"
     days_ago: "%{count} napja"

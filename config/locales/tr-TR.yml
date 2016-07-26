@@ -186,7 +186,7 @@ tr-TR:
         search_preferences: ~
         default_search_type: ~
         keyword_search: ~
-        keyword_and_location_search: ~
+        keyword_and_location_search: "Anahtar kelime ve lokasyon araması"
         location_search: ~
         select_distance_unit: ~
         km: ~
@@ -1347,7 +1347,7 @@ tr-TR:
       you_must_log_in_to_give_feedback: "Geri bildirim vermek için oturum açmanız gerekmektedir."
       you_must_log_in_to_invite_new_users: "Yeni kullanıcıları %{service_name} pazar yerine davet etmek için oturum açmalısınız"
       you_must_log_in_to_send_a_comment: "Yeni yorum göndermek için oturum açmanız gerekmektedir."
-      you_must_log_in_to_send_a_message: "Başka bir kullanıcıya mesaj göndermek için %{service_name}'de oturum açmanız gerekmektedir."
+      you_must_log_in_to_send_a_message: "%{service_name}: Başka bir kullanıcıya mesaj göndermek için oturum açmanız gerekmektedir."
       you_must_log_in_to_do_a_transaction: "%{service_name} pazar yerinde işlem yapmak için giriş yapmalısınız.\n"
       you_must_log_in_to_view_this_content: "Bu içeriği görüntülemek için oturum açmanız gerekmektedir."
       you_must_log_in_to_view_this_page: "Bu sayfayı görüntülemek için oturum açmalısınız"

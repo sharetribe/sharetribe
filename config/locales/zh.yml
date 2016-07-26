@@ -2113,18 +2113,18 @@ zh:
     days: 天
   web:
     topbar:
-      menu: ~
-      search_placeholder: ~
-      user: ~
-      inbox: ~
-      profile: ~
+      menu: 菜单
+      search_placeholder: 搜索...
+      user: 用户
+      inbox: 收件箱
+      profile: 个人主页
       manage_listings: ~
-      settings: ~
-      logout: ~
-      login: ~
-      signup: ~
+      settings: 设置
+      logout: 退出
+      login: 登录
+      signup: 注册
       admin_dashboard: ~
-      language: ~
+      language: 语言
   will_paginate:
     models:
       person:
