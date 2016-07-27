@@ -44,16 +44,15 @@
 }
 
 .info__content {
+  width: 100%;
   text-align: center;
 
   @media #{$mobile-landscape}, #{$tablet} {
     @include viewport-unit(margin-top, -4.44vh); /* -50px, when content height is 900px, 80vh */
-    margin: 0 auto;
   }
 
   @media #{$desktop} {
     @include viewport-unit(margin-top, -4.44vh); /* -50px, when content height is 900px, 80vh */
-    margin: 0 auto;
   }
 }
 
@@ -64,12 +63,10 @@
   margin: 0;
 
   @media #{$mobile-landscape}, #{$tablet} {
-    margin: 0 auto;
     max-width: 561px;
   }
 
   @media #{$desktop} {
-    margin: 0 auto;
     max-width: 808px;
   }
 }
@@ -80,12 +77,12 @@ $content-padding: 36px;
   @extend .info__content;
 
   @media #{$mobile-landscape}, #{$tablet} {
-    margin: 0 auto;
+    margin-top: 0;
     max-width: $content-padding + 1120px + $content-padding;
   }
 
   @media #{$desktop} {
-    margin: 0 auto;
+    margin-top: 0;
     max-width: $content-padding + 1120px + $content-padding;
   }
 }
@@ -208,7 +205,7 @@ $content-padding: 36px;
   @extend .info__column;
 
   @media #{$mobile-landscape} {
-    max-width: 340px;
+    max-width: 310px;
     margin-right: 24px;
     &:last-child {
       margin-right: 0px;
@@ -234,20 +231,24 @@ $content-padding: 36px;
 
 .info__column--two-columns {
   @extend .info__column;
+  width: 100%;
 
   @media #{$mobile-landscape}, #{$tablet} {
-    max-width: 310px;
-    margin-right: 28px;
+    width: 50%;
+    padding-right: 14px;
+
     &:last-child {
-      margin-right: 0px;
+      padding-left: 14px;
+      padding-right: 0px;
     }
   }
 
   @media #{$desktop} {
-    max-width: 450px;
-    margin-right: 78px;
+    padding-right: 39px;
+
     &:last-child {
-      margin-right: 0px;
+      padding-left: 39px;
+      padding-right: 0;
     }
   }
 }
@@ -330,4 +331,8 @@ $content-padding: 36px;
 
     margin: 0px 0px 8px 0px;
   }
+}
+
+.info__column-text-content {
+  width: 100%;
 }
