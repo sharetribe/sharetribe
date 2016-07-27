@@ -5,7 +5,7 @@ describe FeatureFlagService::API::Features do
 
   let(:test_flag) { :bar_feature }
   let(:features) { FeatureFlagService::API::Features.new(
-    FeatureFlagService::Store::CachingFeatureFlag.new(
+    FeatureFlagService::Store::CachingCommunityFeatureFlag.new(
     additional_flags: [test_flag]
   )) }
   let(:community_id) { 321 }

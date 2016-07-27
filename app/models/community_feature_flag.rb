@@ -16,4 +16,7 @@
 #
 
 class CommunityFeatureFlag < FeatureFlag
+  attr_accessible(:community_id)
+
+  validates_presence_of(:community_id)
 end

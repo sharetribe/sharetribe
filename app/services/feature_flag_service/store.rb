@@ -1,7 +1,7 @@
 module FeatureFlagService::Store
 
-  class FeatureFlag
-    FeatureFlagModel = ::FeatureFlag
+  class CommunityFeatureFlag
+    CommunityFeatureFlagModel = ::CommunityFeatureFlag
 
     CommunityFlags = EntityUtils.define_builder(
       [:community_id, :fixnum, :mandatory],
@@ -21,7 +21,7 @@ module FeatureFlagService::Store
     end
 
     def get(community_id)
-      Maybe(FeatureFlagModel.where(community_id: community_id))
+      Maybe(CommunityFeatureFlagModel.where(community_id: community_id))
         .map { |features| from_models(community_id, features) }
         .or_else(no_flags(community_id))
     end
@@ -57,7 +57,7 @@ module FeatureFlagService::Store
 
     def update_flags!(community_id, flags)
       flags.each { |feature, enabled|
-        FeatureFlagModel
+        CommunityFeatureFlagModel
           .where(community_id: community_id, feature: feature)
           .first_or_create
           .update_attributes(enabled: enabled)
@@ -66,10 +66,10 @@ module FeatureFlagService::Store
   end
 
 
-  class CachingFeatureFlag
+  class CachingCommunityFeatureFlag
 
     def initialize(additional_flags:)
-      @feature_flag_store = FeatureFlag.new(additional_flags: additional_flags)
+      @feature_flag_store = CommunityFeatureFlag.new(additional_flags: additional_flags)
     end
 
     def known_flags

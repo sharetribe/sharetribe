@@ -31,7 +31,7 @@ module FeatureFlagHelper
   end
 
   def fetch_feature_flags(request, is_admin)
-    flags_from_service = FeatureFlagService::API::Api.features.get(entity_id: community_id(request)).maybe[:features].or_else(Set.new)
+    flags_from_service = FeatureFlagService::API::Api.communityFeatures.get(entity_id: community_id(request)).maybe[:features].or_else(Set.new)
 
     temp_flags = fetch_temp_flags(is_admin, request.params, request.session)
 
