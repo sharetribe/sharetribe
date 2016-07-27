@@ -10,6 +10,7 @@ const fakeRoute = () => '#';
 
 const baseProps = {
   marketplaceContext: defaultRailsContext,
+  isAdmin: true,
   routes: {
     person_inbox_path: fakeRoute,
     person_path: fakeRoute,
@@ -34,18 +35,22 @@ const baseProps = {
       {
         link: 'http://example.com#about',
         title: 'About',
+        priority: 0,
       },
       {
         link: 'http://example.com#link',
         title: 'Link',
+        priority: 1,
       },
       {
         link: 'http://example.com#link2',
         title: 'Link2',
+        priority: 2,
       },
       {
         link: 'http://example.com#longlink',
         title: 'Lorem ipsum dolor sit amet consectetur adepisci velit',
+        priority: 3,
       },
     ],
   },
