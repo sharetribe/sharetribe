@@ -50,7 +50,12 @@ class MenuPriority extends Component {
   }
 
   handleResize() {
-    const priorityMenu = ReactDOM.findDOMNode(this);
+    const priorityMenu = this.menuPriorityMounted;
+
+    // If priorityMenu has not been mounted, do not update anything
+    if (priorityMenu == null) {
+      return;
+    }
 
     // This is a naive check for visibility
     // PriorityMenu and its parent might change display settings due to responsive layout
