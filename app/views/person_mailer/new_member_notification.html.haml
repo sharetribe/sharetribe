@@ -1,10 +1,11 @@
-A new member has joined #{@community.full_name(@person.locale)}. They may still have to confirm their email address.
+= t("emails.new_member_notification.new_member_has_joined", :community => @community.full_name(@person.locale))
+
 
 %div{:style => "margin: 15px 0; padding: 10px; background-color: #d1c9b4;"}
-  %b Name:
+  %b= t("emails.new_member_notification.person_name")
   = @person.name(@community)
   %br/
-  %b Email:
+  %b= t("emails.new_member_notification.person_email")
   = @email
 
-This is an automatic message sent to administrators of #{@community.full_name(@person.locale)}.
+= t("emails.new_member_notification.this_is_automatic_message", :community => @community.full_name(@person.locale))
