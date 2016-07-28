@@ -85,8 +85,9 @@ class MenuPriority extends Component {
     const menuButtonWidth = menuButtonDOMNode != null ? menuButtonDOMNode.offsetWidth : 0;
     const availableSpace = this.menuPriorityMounted.offsetWidth - menuButtonWidth - EXTRA_SPACING_RIGHT;
 
-    for (let i = 0; i < links.length; i++) {
-      if (links[i].breakPoint > availableSpace) {
+    let i = 0;
+    for (i = 0; i < links.length; i++) {
+      if (links[i].breakPoint > availableSpace || (this.props.limitPriorityLinks != null && i >= this.props.limitPriorityLinks)) {
         const noPriorityLinks = this.links.filter((l) => l.priority < 0);
         const breakPoint = i > 0 ? links[i - 1].breakPoint + ROUNDING_ERROR_MARGIN : 0;
         this.setState({ // eslint-disable-line react/no-set-state
@@ -98,7 +99,7 @@ class MenuPriority extends Component {
       }
     }
 
-    if (links[links.length - 1].breakPoint < availableSpace) {
+    if (i === links.length && links[links.length - 1].breakPoint < availableSpace) {
       const breakPoint = links[links.length - 1].breakPoint + ROUNDING_ERROR_MARGIN;
       this.setState({ // eslint-disable-line react/no-set-state
         priorityWrapperWidth: `${breakPoint}px`,
@@ -164,6 +165,7 @@ MenuPriority.propTypes = {
   nameFallback: PropTypes.string.isRequired,
   extraClassesLabel: PropTypes.string,
   identifier: PropTypes.string.isRequired,
+  limitPriorityLinks: PropTypes.number,
   menuLabelType: PropTypes.string,
   menuLabelTypeFallback: PropTypes.string,
   content: PropTypes.arrayOf(
