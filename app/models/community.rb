@@ -157,9 +157,6 @@ class Community < ActiveRecord::Base
 
   serialize :settings, Hash
 
-  DEFAULT_LOGO = ActionController::Base.helpers.asset_path("logos/mobile/default.png")
-  DEFAULT_WIDE_LOGO = ActionController::Base.helpers.asset_path("logos/full/default.png")
-
   has_attached_file :logo,
                     :styles => {
                       :header => "192x192#",
@@ -174,7 +171,7 @@ class Community < ActiveRecord::Base
                       # not work.
                       :apple_touch => "-background white -flatten"
                     },
-                    :default_url => DEFAULT_LOGO
+                    :default_url => ->(_) { ActionController::Base.helpers.asset_path("logos/mobile/default.png") }
 
   validates_attachment_content_type :logo,
                                     :content_type => ["image/jpeg",
@@ -194,7 +191,7 @@ class Community < ActiveRecord::Base
                       # The size for paypal logo will be exactly 190x60. No cropping, instead the canvas is extended with white background
                       :paypal => "-background white -gravity center -extent 190x60"
                     },
-                    :default_url => DEFAULT_WIDE_LOGO
+                    :default_url => ->(_) { ActionController::Base.helpers.asset_path("logos/full/default.png") }
 
   validates_attachment_content_type :wide_logo,
                                     :content_type => ["image/jpeg",
@@ -209,7 +206,7 @@ class Community < ActiveRecord::Base
                       :hd_header => "1920x450#",
                       :original => "3840x3840>"
                     },
-                    :default_url => ActionController::Base.helpers.asset_path("cover_photos/header/default.jpg"),
+                    :default_url => ->(_){ ActionController::Base.helpers.asset_path("cover_photos/header/default.jpg") },
                     :keep_old_files => true # Temporarily to make preprod work aside production
 
   validates_attachment_content_type :cover_photo,
@@ -225,7 +222,7 @@ class Community < ActiveRecord::Base
                       :hd_header => "1920x96#",
                       :original => "3840x3840>"
                     },
-                    :default_url => ActionController::Base.helpers.asset_path("cover_photos/header/default.jpg"),
+                    :default_url => ->(_) { ActionController::Base.helpers.asset_path("cover_photos/header/default.jpg") },
                     :keep_old_files => true # Temporarily to make preprod work aside production
 
   validates_attachment_content_type :small_cover_photo,
@@ -243,7 +240,7 @@ class Community < ActiveRecord::Base
                     :convert_options => {
                       :favicon => "-depth 32 -strip",
                     },
-                    :default_url => ActionController::Base.helpers.asset_path("favicon.ico")
+                    :default_url => ->(_) { ActionController::Base.helpers.asset_path("favicon.ico") }
 
   validates_attachment_content_type :favicon,
                                     :content_type => ["image/jpeg",
