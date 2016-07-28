@@ -136,7 +136,8 @@ module Admin
 
     def init_setup_steps(community_id)
       community = Community.find(community_id)
-      community_customizations = CommunityCustomization.where(community_id: community.id)
+      locales = community.locales
+      community_customizations = CommunityCustomization.where(community_id: community.id).select { |cc| locales.include?(cc.locale) }
       custom_field = CustomField.find_by(community_id: community.id)
       listing = Listing.find_by(community_id: community.id)
       invitation = Invitation.find_by(community_id: community.id)
