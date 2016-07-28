@@ -975,6 +975,11 @@ en:
       has_posted_a_new_listing: "%{author_name} has posted a new listing:"
       you_are_receiving_this_because: "You received this notification because you follow %{author_name}."
       view_listing: "View listing"
+    new_member_notification:
+      new_member_has_joined: "A new member has joined %{community}. They may still have to confirm their email address."
+      this_is_automatic_message: "This is an automatic message sent to administrators of %{community}."
+      person_name: "Name:"
+      person_email: "Email:"
   error_messages:
     onboarding:
       server_rendering: "Getting started guide failed to load. We have been informed about the situation and we are fixing it."
