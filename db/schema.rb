@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708084933) do
+ActiveRecord::Schema.define(version: 20160722115656) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -411,6 +411,7 @@ ActiveRecord::Schema.define(version: 20160708084933) do
     t.boolean  "enabled",                  default: true, null: false
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
+    t.string   "type",         limit: 255
   end
 
   add_index "feature_flags", ["community_id"], name: "index_feature_flags_on_community_id", using: :btree
