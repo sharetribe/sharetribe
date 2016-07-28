@@ -975,6 +975,11 @@ pt-BR:
       has_posted_a_new_listing: "%{author_name} publicou um novo anúncio:"
       you_are_receiving_this_because: "Você recebeu esta notificação porque você segue %{author_name}."
       view_listing: "Ver anúncio"
+    new_member_notification:
+      new_member_has_joined: "Um novo membro se juntou ao %{community}. Eles ainda precisam confirmar o seu endereço de e-mail."
+      this_is_automatic_message: "Esta é uma mensagem automática enviada para os administradores do(a) %{community}."
+      person_name: "Nome:"
+      person_email: "Email:"
   error_messages:
     onboarding:
       server_rendering: "Guia de introdução falhou ao carregar. Fomos informados sobre a situação e iremos corrigir isso."

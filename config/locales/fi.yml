@@ -975,6 +975,11 @@ fi:
       has_posted_a_new_listing: "%{author_name} on lisännyt uuden ilmoituksen:"
       you_are_receiving_this_because: "Sait tämän viestin, koska seuraat käyttäjää %{author_name}."
       view_listing: "Näytä ilmoitus"
+    new_member_notification:
+      new_member_has_joined: "Uusi käyttäjä liittyi markkinapaikkaan %{community}. Käyttäjän pitää mahdollisesti vielä vahvistaa sähköpostiosoitteensa."
+      this_is_automatic_message: "Tämä on automaattinen viesti, joka lähetetään markkinapaikan %{community} ylläpitäjille."
+      person_name: "Nimi:"
+      person_email: "Sähköpostiosoite:"
   error_messages:
     onboarding:
       server_rendering: "Aloitusopasta ei voitu ladata. Tieto virheestä on lähetetty meille ja korjaamme sen mahdollisimman pian."
