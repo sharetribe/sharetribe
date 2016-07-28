@@ -196,7 +196,7 @@ pt-BR:
         select_distance_unit: "Mostrar a distância em %{distance_units_selector}"
         km: km
         miles: milhas
-        show_only_nearby: ~
+        show_only_nearby: "Mostrar apenas anúncios próximos com a busca de localização"
         listing_preferences: "Preferências de anúncios"
         transaction_preferences: "Transação - preferências"
         show_listing_publishing_date: "Data de publicação de exibição da lista na página de anúncio"
@@ -1198,7 +1198,7 @@ pt-BR:
       signup: "Criar conta"
       search_placeholder: "O que você está procurando?"
     listings:
-      no_listing_image: ~
+      no_listing_image: "Sem imagem"
   layouts:
     admin:
       admin: "Painel de administração do %{service_name}"
@@ -2137,18 +2137,18 @@ pt-BR:
   web:
     topbar:
       menu: Menu
-      more: ~
+      more: Mais
       search_placeholder: Busca...
-      user: ~
-      inbox: ~
-      profile: ~
-      manage_listings: ~
-      settings: ~
-      logout: ~
-      login: ~
-      signup: ~
-      admin_dashboard: ~
-      language: ~
+      user: Usuário
+      inbox: "Caixa de Entrada"
+      profile: Perfil
+      manage_listings: "Gerenciar anúncios"
+      settings: Configurações
+      logout: Sair
+      login: Login
+      signup: "Criar conta"
+      admin_dashboard: "Painel de administração"
+      language: Idioma
   will_paginate:
     models:
       person:

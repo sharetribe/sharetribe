@@ -1111,7 +1111,7 @@ hu:
       some_private_offers_exist: "Van már %{number_of_listings} ajánlata"
       some_private_requests_exist: "Van már %{number_of_listings} ajánlatkérése"
     custom_filters:
-      update_view: "Nézet frissítése"
+      update_view: Keresés
       min: "Min:"
       max: "Max:"
     event_feed:
@@ -1220,7 +1220,7 @@ hu:
       feedback_handle: Értékelés
       give_feedback: "Keressen minket"
       or_check_our: "vagy elenőrizze a mi"
-      send_feedback_to_admin: "Értékelés készítése"
+      send_feedback_to_admin: "Visszajelzés küldése"
       to_see_what_others_have_suggested: "itt láthatja milyen fejlesztési ötletei voltak a többi felhasználónak és szavazhat is rájuk"
       your_email_address: "Az Ön e-mail címe"
       connect: Bejelentkezés
@@ -2132,7 +2132,7 @@ hu:
   web:
     topbar:
       menu: Menü
-      more: ~
+      more: Bővebben
       search_placeholder: Keresés...
       user: Felhasználó
       inbox: "Bejövő üzenetek"

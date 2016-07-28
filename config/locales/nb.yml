@@ -191,12 +191,12 @@ nb:
         search_preferences: Søkeinnstillinger
         default_search_type: "Søketype: %{select_search_type}"
         keyword_search: Nøkkelord-søk
-        keyword_and_location_search: ~
+        keyword_and_location_search: "Steds- og nøkkelordsøk"
         location_search: Stedsnavn-søk
         select_distance_unit: "Vis avstand i %{distance_units_selector}"
         km: km
         miles: miles
-        show_only_nearby: ~
+        show_only_nearby: "Vis kun annonser i nærområdet med stedssøk"
         listing_preferences: Annonseinnstillinger
         transaction_preferences: Transaksjonsinnstillinger
         show_listing_publishing_date: "Vis dato annonsen ble publisert"
@@ -2148,7 +2148,7 @@ nb:
       login: "Logg inn"
       signup: "Registrer deg"
       admin_dashboard: ~
-      language: ~
+      language: Språk
   will_paginate:
     models:
       person:
