@@ -99,6 +99,7 @@
 
   & .topbarLanguageMenuLabel {
     font-size: var(--Menu_fontSizeSmall);
+    padding: var(--Topbar_paddingLanguageMenuVertical) 0;
   }
 
   & > * {

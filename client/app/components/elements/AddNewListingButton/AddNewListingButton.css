@@ -49,7 +49,7 @@
 
 .mobile {
   height: var(--AddNewListingButton_tabletHeight);
-  line-height: calc(var(--AddNewListingButton_tabletHeight) - 1px);
+  line-height: var(--AddNewListingButton_tabletHeight);
   display: block;
   transition: filter 100ms ease-in;
 

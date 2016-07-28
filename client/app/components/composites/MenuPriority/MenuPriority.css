@@ -13,11 +13,10 @@
 .priorityLink {
   display: inline-block;
   margin-right: var(--MenuPriority_itemSpacing);
-  padding: var(--MenuPriority_paddingVertical) 0;
   color: var(--MenuPriority_textColor);
   letter-spacing: var(--MenuPriority_letterSpacing);
   font-size: var(--MenuPriority_fontSize);
-  line-height: 1.5em;
+  line-height: var(--MenuPriority_height);
   white-space: nowrap;
 
   &:focus,
