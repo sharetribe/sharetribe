@@ -392,7 +392,20 @@ module ApplicationHelper
         :icon_class => "ss-paintroller",
         :path => admin_look_and_feel_edit_path,
         :name => "tribe_look_and_feel"
-      },
+      }
+    ]
+
+    if(FeatureFlagHelper.feature_enabled?(:feature_flags_page))
+      links << {
+          :topic => :configure,
+          :text => t("admin.communities.new_layout.new_layout"),
+          :icon_class => icon_class("layout"),
+          :path => admin_new_layout_path,
+          :name => "tribe_look_and_feel"
+        }
+    end
+
+    links += [
       {
         :topic => :configure,
         :text => t("admin.communities.menu_links.menu_links"),

@@ -1,0 +1,39 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.new_layout.new_layout")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(community) }
+
+.left-navi-section
+  .row
+    .col-12
+      %h2= t("admin.communities.new_layout.new_layout")
+      %p= t("admin.communities.new_layout.description_roadmap")
+      %p= t("admin.communities.new_layout.description_process", view_page: content_tag(:i, t("admin.communities.new_layout.view_page"))).html_safe
+
+  = form_for community, :url => admin_new_layout_path, :method => :patch do |form|
+    .row
+      .col-6
+      .col-3
+        %strong
+          = t("admin.communities.new_layout.enabled_for_you")
+      .col-3
+        %strong
+          = t("admin.communities.new_layout.enabled_for_all")
+
+    - features.map do |feature|
+      .row
+        .col-6
+          %strong
+            = feature[:name]
+        .col-3
+          .checkbox-container
+            = check_box_tag :enabled_for_you, true, feature[:enabled_for_you], disabled: feature[:enabled_for_all]
+        .col-3
+          .checkbox-container
+            = check_box_tag :enabled_for_all, true, feature[:enabled_for_all]
+    .row
+      .col-12
+        = form.button t("admin.communities.settings.update_settings")

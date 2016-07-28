@@ -122,6 +122,35 @@ class Admin::CommunitiesController < ApplicationController
       knowledge_base_url: APP_CONFIG.knowledge_base_url}
   end
 
+  def new_layout
+    redirect_to admin_getting_started_guide_path and return unless(FeatureFlagHelper.feature_enabled?(:feature_flags_page))
+
+    @selected_left_navi_link = "menu_links"
+    features = [
+      { name: view_context.t("admin.communities.new_layout.new_topbar"),
+        enabled_for_you: false,
+        enabled_for_all: FeatureFlagHelper.feature_enabled?(:topbar_v1)
+      }
+    ]
+    render :new_layout, locals: { community: @current_community, features: features }
+  end
+
+  def update_new_layout
+    @community = @current_community
+
+    enabled_for_you = Maybe(params).map { |p| p[:enabled_for_you] == "true" }.or_else(false)
+    enabled_for_all = Maybe(params).map { |p| p[:enabled_for_all] == "true" }.or_else(false)
+
+    response = update_feature_flag(admin: enabled_for_you, all: enabled_for_all, feature: :topbar_v1)
+
+    if Maybe(response)[:success].or_else(false)
+      flash[:notice] = t("layouts.notifications.community_updated")
+    else
+      flash.now[:error] = t("layouts.notifications.community_update_failed")
+    end
+    redirect_to admin_new_layout_path
+  end
+
   def menu_links
     @selected_left_navi_link = "menu_links"
 
@@ -438,6 +467,15 @@ class Admin::CommunitiesController < ApplicationController
                                                     # translate.
 
       redirect_to action: :edit_welcome_email
+    end
+  end
+
+  def update_feature_flag(admin:, all:, feature:)
+    features = FeatureFlagService::API::Api.features.get(community_id: @current_community.id).maybe[:features].or_else(Set.new)
+    if(all && !features.include?(feature))
+      FeatureFlagService::API::Api.features.enable(community_id: @current_community.id, features: [feature])
+    elsif(!all && features.include?(feature))
+      FeatureFlagService::API::Api.features.disable(community_id: @current_community.id, features: [feature])
     end
   end
 

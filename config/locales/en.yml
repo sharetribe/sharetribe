@@ -237,6 +237,14 @@ en:
         save_user_status_error: "Saving failed. Please refresh the page and try again."
         ban_user_confirmation: "This removes the user from the marketplace and prevents them from accessing the site again with this account. Are you sure you want to proceed?"
         ban_me_error: "You cannot ban yourself."
+      new_layout:
+        new_layout: "New layout"
+        description_roadmap: "You can choose whether you want to use the new layout or the old layout for your marketplace. It's recommended to use the new layout, since most of our new features will not support the old layout. The old layout will be eventually removed entirely (you'll be notified when that happens)."
+        description_process: "The new layout is released one page at a time. You can decide to keep the old layout for some pages and use the new layout for others. You can preview all the pages without showing them to your users by only enabling the new pages for yourself. You can see how a page looks like in the old & new layouts by enabling or disabling it and clicking %{view_page}."
+        view_page: "view page"
+        enabled_for_you: "Enabled for you"
+        enabled_for_all: "Enabled for all"
+        new_topbar: "New top bar (visible on every page)"
       social_media:
         social_media: "Social media"
         twitter_handle: "Twitter handle"
