@@ -332,7 +332,8 @@ class Admin::CommunitiesController < ApplicationController
         community_id: @current_community.id,
         main_search: params[:main_search],
         distance_unit: params[:distance_unit],
-        limit_search_distance: params[:limit_distance].present?
+        limit_search_distance: params[:limit_distance].present?,
+        limit_priority_links: nil
       })
     end
 
