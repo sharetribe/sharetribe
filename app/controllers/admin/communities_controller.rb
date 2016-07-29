@@ -126,17 +126,21 @@ class Admin::CommunitiesController < ApplicationController
   def menu_links
     @selected_left_navi_link = "menu_links"
 
-    limit_priority_links = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:limit_priority_links]
-    all = view_context.t("admin.communities.menu_links.all")
-    limit_priority_links_options = (0..5).to_a.map {|o| [o, o]}.concat([[all, -1]])
-    limit_priority_links_selected = Maybe(limit_priority_links).or_else(-1)
+    if FeatureFlagHelper.feature_enabled?(:topbar_v1)
+      limit_priority_links = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:limit_priority_links]
+      all = view_context.t("admin.communities.menu_links.all")
+      limit_priority_links_options = (0..5).to_a.map {|o| [o, o]}.concat([[all, -1]])
+      limit_priority_links_selected = Maybe(limit_priority_links).or_else(-1)
 
-    render :menu_links, locals: {
-      community: @current_community,
-      limit_priority_links: limit_priority_links,
-      limit_priority_links_options: limit_priority_links_options,
-      limit_priority_links_selected: limit_priority_links_selected
-    }
+      render :menu_links, locals: {
+        community: @current_community,
+        limit_priority_links: limit_priority_links,
+        limit_priority_links_options: limit_priority_links_options,
+        limit_priority_links_selected: limit_priority_links_selected
+      }
+    else
+      render :menu_links, locals: { community: @current_community }
+    end
   end
 
   def update_menu_links
@@ -144,9 +148,11 @@ class Admin::CommunitiesController < ApplicationController
 
     menu_links_params = Maybe(params)[:menu_links].permit!.or_else({menu_link_attributes: {}})
 
-    old_configurations = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data
-    limit_priority_links = params[:limit_priority_links] == "-1" ? nil : params[:limit_priority_links].to_i
-    MarketplaceService::API::Api.configurations.update(old_configurations.merge(limit_priority_links: limit_priority_links))
+    if FeatureFlagHelper.feature_enabled?(:topbar_v1)
+      old_configurations = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data
+      limit_priority_links = params[:limit_priority_links] == "-1" ? nil : params[:limit_priority_links].to_i
+      MarketplaceService::API::Api.configurations.update(old_configurations.merge(limit_priority_links: limit_priority_links))
+    end
 
     update(@community,
             menu_links_params,
