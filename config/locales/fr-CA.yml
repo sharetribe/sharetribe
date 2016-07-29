@@ -271,6 +271,10 @@ fr-CA:
         language: Langue
         url: URL
         empty: "Vous n'avez pas encore ajouté de liens au menu"
+        max_number_of_links: ~
+        all: ~
+        max_number_of_links_info: ~
+        about_page: ~
       transactions:
         export_all_as_csv: ~
         transactions: "Voir les transactions"

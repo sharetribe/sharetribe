@@ -272,6 +272,10 @@ hu:
         language: Nyelv
         url: link
         empty: "Ön nem rendelkezik további menü linkekkel"
+        max_number_of_links: ~
+        all: ~
+        max_number_of_links_info: ~
+        about_page: ~
       transactions:
         export_all_as_csv: "Az öszes exportálása CSV-ként"
         transactions: "Mutassa a tranzakciókat"

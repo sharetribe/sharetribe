@@ -271,6 +271,10 @@ de:
         language: Sprache
         url: URL
         empty: "Du hast keine zusätzlichen Menü-Links"
+        max_number_of_links: ~
+        all: ~
+        max_number_of_links_info: ~
+        about_page: ~
       transactions:
         export_all_as_csv: "Exportiere Alles als CSV Datei"
         transactions: "Transaktionen anzeigen"
