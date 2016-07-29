@@ -978,10 +978,10 @@ nb:
       you_are_receiving_this_because: "Du mottok denne varslingen fordi du følger %{author_name}"
       view_listing: "Se annonse"
     new_member_notification:
-      new_member_has_joined: ~
-      this_is_automatic_message: ~
-      person_name: ~
-      person_email: ~
+      new_member_has_joined: "Et nytt medlem har registrert seg på %{community}. Vedkommende må kanskje fremdeles bekrefte sin e-postadresse."
+      this_is_automatic_message: "Dette er en automatisk melding sendt til administratorer av %{community}."
+      person_name: "Navn:"
+      person_email: "E-post:"
   error_messages:
     onboarding:
       server_rendering: "Oppstartsveiledningen kunne ikke lastes! Vi har blitt informert om situasjonen og jobber med en fiks!"
