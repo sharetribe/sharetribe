@@ -976,10 +976,10 @@ fr:
       you_are_receiving_this_because: "Vous recevez cette notification car vous suivez %{author_name}."
       view_listing: "Voir l'annonce"
     new_member_notification:
-      new_member_has_joined: ~
-      this_is_automatic_message: ~
-      person_name: ~
-      person_email: ~
+      new_member_has_joined: "Un nouveau membre a rejoint %{community}. Il lui reste peut être encore à vérifier son adresse email."
+      this_is_automatic_message: "Ceci est un message automatique envoyé aux administrateurs de %{community}."
+      person_name: "Nom : "
+      person_email: "Email : "
   error_messages:
     onboarding:
       server_rendering: "Le chargement du guide de démarrage a échoué. Nous en avons été prévenus et nous sommes en train de résoudre cela !"
