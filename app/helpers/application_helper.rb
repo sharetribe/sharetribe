@@ -401,7 +401,7 @@ module ApplicationHelper
           :text => t("admin.communities.new_layout.new_layout"),
           :icon_class => icon_class("layout"),
           :path => admin_new_layout_path,
-          :name => "tribe_look_and_feel"
+          :name => "new_layout"
         }
     end
 

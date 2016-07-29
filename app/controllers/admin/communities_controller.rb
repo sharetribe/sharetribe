@@ -125,7 +125,7 @@ class Admin::CommunitiesController < ApplicationController
   def new_layout
     redirect_to admin_getting_started_guide_path and return unless(FeatureFlagHelper.feature_enabled?(:feature_flags_page))
 
-    @selected_left_navi_link = "menu_links"
+    @selected_left_navi_link = "new_layout"
     features = [
       { name: view_context.t("admin.communities.new_layout.new_topbar"),
         enabled_for_you: false,

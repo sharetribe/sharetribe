@@ -17,10 +17,10 @@
     .row
       .col-6
       .col-3
-        %strong
+        .centered-column-title
           = t("admin.communities.new_layout.enabled_for_you")
       .col-3
-        %strong
+        .centered-column-title
           = t("admin.communities.new_layout.enabled_for_all")
 
     - features.map do |feature|
@@ -29,10 +29,10 @@
           %strong
             = feature[:name]
         .col-3
-          .checkbox-container
+          .checkbox-centered
             = check_box_tag :enabled_for_you, true, feature[:enabled_for_you], disabled: feature[:enabled_for_all]
         .col-3
-          .checkbox-container
+          .checkbox-centered
             = check_box_tag :enabled_for_all, true, feature[:enabled_for_all]
     .row
       .col-12
