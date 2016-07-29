@@ -171,7 +171,7 @@ class Community < ActiveRecord::Base
                       # not work.
                       :apple_touch => "-background white -flatten"
                     },
-                    :default_url => ->(_) { ActionController::Base.helpers.asset_path("logos/mobile/default.png") }
+                    :keep_old_files => true
 
   validates_attachment_content_type :logo,
                                     :content_type => ["image/jpeg",
@@ -191,7 +191,7 @@ class Community < ActiveRecord::Base
                       # The size for paypal logo will be exactly 190x60. No cropping, instead the canvas is extended with white background
                       :paypal => "-background white -gravity center -extent 190x60"
                     },
-                    :default_url => ->(_) { ActionController::Base.helpers.asset_path("logos/full/default.png") }
+                    :keep_old_files => true
 
   validates_attachment_content_type :wide_logo,
                                     :content_type => ["image/jpeg",
@@ -207,7 +207,7 @@ class Community < ActiveRecord::Base
                       :original => "3840x3840>"
                     },
                     :default_url => ->(_){ ActionController::Base.helpers.asset_path("cover_photos/header/default.jpg") },
-                    :keep_old_files => true # Temporarily to make preprod work aside production
+                    :keep_old_files => true
 
   validates_attachment_content_type :cover_photo,
                                     :content_type => ["image/jpeg",
@@ -223,7 +223,7 @@ class Community < ActiveRecord::Base
                       :original => "3840x3840>"
                     },
                     :default_url => ->(_) { ActionController::Base.helpers.asset_path("cover_photos/header/default.jpg") },
-                    :keep_old_files => true # Temporarily to make preprod work aside production
+                    :keep_old_files => true
 
   validates_attachment_content_type :small_cover_photo,
                                     :content_type => ["image/jpeg",
@@ -258,6 +258,8 @@ class Community < ActiveRecord::Base
 
   process_in_background :favicon
 
+  before_save :cache_previous_image_urls
+
   validates_format_of :twitter_handle, with: /\A[A-Za-z0-9_]{1,15}\z/, allow_nil: true
 
   validates :facebook_connect_id, numericality: { only_integer: true }, allow_nil: true
@@ -269,6 +271,48 @@ class Community < ActiveRecord::Base
 
   def self.columns
     super.reject { |c| ["only_public_listings"].include?(c.name) }
+  end
+
+  # Wrapper for the various attachment images url methods
+  # which returns url of old image, while new one is processing.
+  def stable_image_url(image_name, style = nil, options = {})
+    image = send(:"#{image_name}")
+    if image.processing?
+      old_name = Rails.cache.read("c_att/#{id}/#{image_name}")
+      return image.url(style, options) unless old_name
+
+      # Temporarily set processing to false and the file name to the
+      # old file name, so that we can call Paperclip's own url method.
+      new_name = image.original_filename
+      send(:"#{image_name}_processing=", false)
+      send(:"#{image_name}_file_name=", old_name)
+
+      url = image.url(style, options)
+
+      send(:"#{image_name}_file_name=", new_name)
+      send(:"#{image_name}_processing=", true)
+
+      url
+    else
+      image.url(style, options)
+    end
+  end
+
+  def cache_previous_image_urls
+    return unless changed?
+
+    changes.select { |attribute, values|
+      attachment_name = attribute.chomp("_file_name")
+      attribute.end_with?("_file_name") && !send(:"#{attachment_name}_processing") && values[0]
+    }.each { |attribute, values|
+      attachment_name = attribute.chomp("_file_name")
+      # Temporarily store previous attachment file name in cache
+      # so that we can still link to it, while new attachment is being processed.
+      # This should probably be switched to using new columns in model, so that
+      # old link doesn't break if processing fails and cache expires.
+      Rails.cache.write("c_att/#{id}/#{attachment_name}", values[0], expires_in: 5.minutes)
+    }
+    true
   end
 
   def name(locale)

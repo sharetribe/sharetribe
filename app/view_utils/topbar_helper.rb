@@ -58,8 +58,8 @@ module TopbarHelper
           locale_param: locale_param
         ),
         text: community.name(I18n.locale),
-        image: community.wide_logo.present? ? community.wide_logo.url(:header) : nil,
-        image_highres: community.wide_logo.present? ? community.wide_logo.url(:header_highres) : nil
+        image: community.wide_logo.present? ? community.stable_image_url(:wide_logo, :header) : nil,
+        image_highres: community.wide_logo.present? ? community.stable_image_url(:wide_logo, :header_highres) : nil
       },
       search: {
         mode: 'keyword-and-location',
