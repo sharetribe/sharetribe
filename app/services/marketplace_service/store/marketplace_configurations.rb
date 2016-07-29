@@ -6,7 +6,8 @@ module MarketplaceService::Store::MarketplaceConfigurations
     [:community_id, :mandatory, :fixnum],
     [:main_search, :to_symbol, one_of: [:keyword, :location, :keyword_and_location]],
     [:distance_unit, :to_symbol, one_of: [:metric, :imperial]],
-    [:limit_search_distance, :to_bool, default: true]
+    [:limit_search_distance, :to_bool, default: true],
+    [:limit_priority_links, :fixnum]
   )
 
   module_function

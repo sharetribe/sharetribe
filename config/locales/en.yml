@@ -271,6 +271,10 @@ en:
         language: Language
         url: URL
         empty: "You don't have any additional menu links"
+        max_number_of_links: "Maximum number of links displayed in the top bar: %{select_max_number}"
+        all: All
+        max_number_of_links_info: "Link to %{about_page} is always displayed as the first menu link"
+        about_page: "about page"
       transactions:
         export_all_as_csv: "Export all as CSV"
         transactions: "View transactions"

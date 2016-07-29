@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708084933) do
+ActiveRecord::Schema.define(version: 20160728102918) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -606,6 +606,7 @@ ActiveRecord::Schema.define(version: 20160708084933) do
     t.integer  "community_id",          limit: 4,                       null: false
     t.string   "main_search",           limit: 255, default: "keyword", null: false
     t.string   "distance_unit",         limit: 255, default: "metric",  null: false
+    t.integer  "limit_priority_links",  limit: 4
     t.datetime "created_at",                                            null: false
     t.datetime "updated_at",                                            null: false
     t.boolean  "limit_search_distance",             default: true,      null: false

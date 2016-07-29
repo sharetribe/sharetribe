@@ -31,6 +31,7 @@ const baseProps = {
     onSubmit: action('submitting search'),
   },
   menu: {
+    limit_priority_links: null,
     links: [
       {
         link: 'http://example.com#about',

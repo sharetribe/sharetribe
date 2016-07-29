@@ -131,6 +131,7 @@ class Topbar extends Component {
         name: t('web.topbar.more'),
         nameFallback: t('web.topbar.menu'),
         identifier: 'Menu',
+        limitPriorityLinks: this.props.menu.limit_priority_links,
         menuLabelType: LABEL_TYPE_DROPDOWN,
         menuLabelTypeFallback: LABEL_TYPE_MENU,
         content: this.props.menu.links.map((l) => (
@@ -286,6 +287,7 @@ Topbar.propTypes = {
   search: object,
   avatarDropdown: object,
   menu: shape({
+    limit_priority_links: number,
     links: arrayOf(shape({
       title: string.isRequired,
       link: string.isRequired,

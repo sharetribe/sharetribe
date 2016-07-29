@@ -68,6 +68,7 @@ module TopbarHelper
       },
       menu: {
         links: links,
+        limit_priority_links: Maybe(MarketplaceService::API::Api.configurations.get(community_id: community.id).data)[:limit_priority_links].or_else(nil)
       },
       locales: landing_page ? nil : locale_props(community, I18n.locale, path_after_locale_change),
       avatarDropdown: {

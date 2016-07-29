@@ -125,13 +125,28 @@ class Admin::CommunitiesController < ApplicationController
 
   def menu_links
     @selected_left_navi_link = "menu_links"
-    @community = @current_community
+
+    limit_priority_links = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:limit_priority_links]
+    all = view_context.t("admin.communities.menu_links.all")
+    limit_priority_links_options = (0..5).to_a.map {|o| [o, o]}.concat([[all, -1]])
+    limit_priority_links_selected = Maybe(limit_priority_links).or_else(-1)
+
+    render :menu_links, locals: {
+      community: @current_community,
+      limit_priority_links: limit_priority_links,
+      limit_priority_links_options: limit_priority_links_options,
+      limit_priority_links_selected: limit_priority_links_selected
+    }
   end
 
   def update_menu_links
     @community = @current_community
 
     menu_links_params = Maybe(params)[:menu_links].permit!.or_else({menu_link_attributes: {}})
+
+    old_configurations = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data
+    limit_priority_links = params[:limit_priority_links] == "-1" ? nil : params[:limit_priority_links].to_i
+    MarketplaceService::API::Api.configurations.update(old_configurations.merge(limit_priority_links: limit_priority_links))
 
     update(@community,
             menu_links_params,
