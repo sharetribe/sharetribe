@@ -271,10 +271,10 @@ fr:
         language: Langue
         url: URL
         empty: "Vous n'avez pas encore ajouté de liens au menu"
-        max_number_of_links: ~
-        all: ~
-        max_number_of_links_info: ~
-        about_page: ~
+        max_number_of_links: "Nombre maximum de liens affichés dans la barre des menus : %{select_max_number}"
+        all: Tous
+        max_number_of_links_info: "Le lien vers %{about_page} sera toujours affiché en premier"
+        about_page: "la page A propos"
       transactions:
         export_all_as_csv: "Exporter au format CSV"
         transactions: "Voir les transactions"
