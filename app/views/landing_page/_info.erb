@@ -63,7 +63,9 @@
     <% end %>
 
     <% if s["variation"] == "multi_column" && s["icon_color"] %>
-      .<%= section_id %>__info__column-icon > svg > g {
+      .<%= section_id %>__info__column-icon > svg g,
+      .<%= section_id %>__info__column-icon > svg circle,
+      .<%= section_id %>__info__column-icon > svg path  {
         stroke: rgb(<%= s["icon_color"]["value"].join(",") %>);
       }
     <% end %>
