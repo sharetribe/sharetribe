@@ -203,6 +203,14 @@ FactoryGirl.define do
     status "accepted"
   end
 
+  factory :marketplace_configurations do
+    community_id 1
+    main_search "keyword"
+    distance_unit "metric"
+    limit_search_distance 0
+    limit_priority_links nil
+  end
+
   factory :invitation do
     community_id 1
   end

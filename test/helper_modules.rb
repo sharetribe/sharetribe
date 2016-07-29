@@ -275,6 +275,13 @@ module TestHelpers
     :address => "kassi_testperson2@example.com",
     :send_notifications => true,
     :confirmed_at => "2012-05-04 18:17:04")
+
+    FactoryGirl.create(:marketplace_configurations,
+                      community_id: community1.id,
+                      main_search: "keyword",
+                      distance_unit: "metric",
+                      limit_search_distance: 0)
+
   end
   module_function :load_default_test_data_to_db_before_test
 
