@@ -87,7 +87,7 @@ class MenuPriority extends Component {
 
     let i = 0;
     for (i = 0; i < links.length; i++) {
-      if (links[i].breakPoint > availableSpace || (this.props.limitPriorityLinks >= 0 && i >= this.props.limitPriorityLinks)) {
+      if (links[i].breakPoint > availableSpace || (this.props.limitPriorityLinks != null && this.props.limitPriorityLinks >= 0 && i >= this.props.limitPriorityLinks)) {
         const noPriorityLinks = this.links.filter((l) => l.priority < 0);
         const breakPoint = i > 0 ? links[i - 1].breakPoint + ROUNDING_ERROR_MARGIN : 0;
         this.setState({ // eslint-disable-line react/no-set-state
