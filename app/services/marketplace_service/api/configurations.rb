@@ -32,8 +32,8 @@ module MarketplaceService::API
       configs = current_confs.merge(ConfigurationParam.call(configurations))
 
       Maybe(ConfigurationsStore.update(configs))
-        .map { |configurations|
-          Result::Success.new(configurations)
+        .map { |confs|
+          Result::Success.new(confs)
         }
         .or_else {
           Result::Error.new("Cannot update marketplace configurations for community id: #{community_id}")
