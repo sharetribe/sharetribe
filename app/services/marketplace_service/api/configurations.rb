@@ -14,13 +14,21 @@ module MarketplaceService::API
         }
     end
 
-    def update(community_id:, main_search:, distance_unit:, limit_search_distance:, limit_priority_links:)
-      Maybe(ConfigurationsStore.update(
-                                      community_id: community_id,
-                                      main_search: main_search,
-                                      distance_unit: distance_unit,
-                                      limit_search_distance: limit_search_distance,
-                                      limit_priority_links: limit_priority_links))
+    # Usage:
+    # update({
+    #   community_id: 1,                # <community_id>,
+    #   configurations: {
+    #     main_search: :keyword,        # optional, one of: :keyword, :location, :keyword_and_location
+    #     distance_unit: :metric,       # optional, one of: :metric, :imperial
+    #     limit_search_distance: false, # optional, boolean
+    #     limit_priority_links: 4,      # optional, -1..5
+    #   }
+    # })
+    def update(community_id:, configurations:)
+      current_confs = Maybe(ConfigurationsStore.get(community_id: community_id)).or_else(community_id: community_id)
+      configs = current_confs.merge(configurations)
+
+      Maybe(ConfigurationsStore.update(configs))
         .map { |configurations|
           Result::Success.new(configurations)
         }

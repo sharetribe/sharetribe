@@ -149,9 +149,13 @@ class Admin::CommunitiesController < ApplicationController
     menu_links_params = Maybe(params)[:menu_links].permit!.or_else({menu_link_attributes: {}})
 
     if FeatureFlagHelper.feature_enabled?(:topbar_v1)
-      old_configurations = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data
-      limit_priority_links = params[:limit_priority_links] == "-1" ? nil : params[:limit_priority_links].to_i
-      MarketplaceService::API::Api.configurations.update(old_configurations.merge(limit_priority_links: limit_priority_links))
+      limit_priority_links = params[:limit_priority_links].to_i
+      MarketplaceService::API::Api.configurations.update({
+        community_id: @current_community.id,
+        configurations: {
+          limit_priority_links: limit_priority_links
+        }
+      })
     end
 
     update(@community,
@@ -328,12 +332,13 @@ class Admin::CommunitiesController < ApplicationController
     maybe_update_payment_settings(@current_community.id, params[:community][:automatic_confirmation_after_days])
 
     if(FeatureFlagHelper.location_search_available)
-       MarketplaceService::API::Api.configurations.update({
+      MarketplaceService::API::Api.configurations.update({
         community_id: @current_community.id,
-        main_search: params[:main_search],
-        distance_unit: params[:distance_unit],
-        limit_search_distance: params[:limit_distance].present?,
-        limit_priority_links: nil
+        configurations: {
+          main_search: params[:main_search],
+          distance_unit: params[:distance_unit],
+          limit_search_distance: params[:limit_distance].present?
+        }
       })
     end
 
