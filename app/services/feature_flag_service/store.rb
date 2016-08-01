@@ -3,8 +3,12 @@ module FeatureFlagService::Store
   class FeatureFlag
     FeatureFlagModel = ::FeatureFlag
 
-    CommunityFlags = EntityUtils.define_builder(
+    CommunityFlag = EntityUtils.define_builder(
       [:community_id, :fixnum, :mandatory],
+      [:features, :mandatory, :set])
+
+    PersonFlag = EntityUtils.define_builder(
+      [:person_id, :string, :mandatory],
       [:features, :mandatory, :set])
 
     FLAGS = [
@@ -20,45 +24,58 @@ module FeatureFlagService::Store
       FLAGS.dup.merge(@additional_flags)
     end
 
-    def get(community_id)
-      Maybe(FeatureFlagModel.where(community_id: community_id))
-        .map { |features| from_models(community_id, features) }
-        .or_else(no_flags(community_id))
+    def get(community_id, person_id)
+      Maybe(FeatureFlagModel.where(community_id: community_id, person_id: person_id))
+        .map { |features|
+          person_id ? from_person_models(person_id, features) : from_community_models(community_id, features) }
+        .or_else(no_flags(community_id, person_id))
     end
 
-    def enable(community_id, features)
+    def enable(community_id, person_id, features)
       flags_to_enable = known_flags.intersection(features).map { |flag| [flag, true] }.to_h
-      update_flags!(community_id, flags_to_enable)
+      update_flags!(community_id, person_id, flags_to_enable)
 
-      get(community_id)
+      get(community_id, person_id)
     end
 
-    def disable(community_id, features)
+    def disable(community_id, person_id, features)
       flags_to_disable = known_flags.intersection(features).map { |flag| [flag, false] }.to_h
-      update_flags!(community_id, flags_to_disable)
+      update_flags!(community_id, person_id, flags_to_disable)
 
-      get(community_id)
+      get(community_id, person_id)
     end
 
 
     private
 
-    def from_models(community_id, feature_models)
-      CommunityFlags.call(
+    def from_community_models(community_id, feature_models)
+      CommunityFlag.call(
         community_id: community_id,
         features: feature_models.select { |m| known_flags.include?(m.feature.to_sym) && m.enabled }
           .map { |m| m.feature.to_sym }
           .to_set)
     end
 
-    def no_flags(community_id)
-      CommunityFlags.call(community_id: community_id, features: Set.new)
+    def from_person_models(person_id, feature_models)
+      PersonFlag.call(
+        person_id: person_id,
+        features: feature_models.select { |m| known_flags.include?(m.feature.to_sym) && m.enabled }
+          .map { |m| m.feature.to_sym }
+          .to_set)
     end
 
-    def update_flags!(community_id, flags)
+    def no_flags(community_id, person_id)
+      if person_id
+        PersonFlag.call(person_id: person_id, features: Set.new)
+      else
+        CommunityFlag.call(community_id: community_id, features: Set.new)
+      end
+    end
+
+    def update_flags!(community_id, person_id, flags)
       flags.each { |feature, enabled|
         FeatureFlagModel
-          .where(community_id: community_id, feature: feature)
+          .where(community_id: community_id, person_id: person_id, feature: feature)
           .first_or_create
           .update_attributes(enabled: enabled)
       }
@@ -76,29 +93,32 @@ module FeatureFlagService::Store
       @feature_flag_store.known_flags
     end
 
-    def get(community_id)
-      Rails.cache.fetch(cache_key(community_id)) do
-        @feature_flag_store.get(community_id)
+    def get(community_id, person_id)
+      Rails.cache.fetch(cache_key(community_id, person_id)) do
+        @feature_flag_store.get(community_id, person_id)
       end
     end
 
-    def enable(community_id, features)
-      Rails.cache.delete(cache_key(community_id))
-      @feature_flag_store.enable(community_id, features)
+    def enable(community_id, person_id, features)
+      Rails.cache.delete(cache_key(community_id, person_id))
+      @feature_flag_store.enable(community_id, person_id, features)
     end
 
-    def disable(community_id, features)
-      Rails.cache.delete(cache_key(community_id))
-      @feature_flag_store.disable(community_id, features)
+    def disable(community_id, person_id, features)
+      Rails.cache.delete(cache_key(community_id, person_id))
+      @feature_flag_store.disable(community_id, person_id, features)
     end
 
 
     private
 
-    def cache_key(community_id)
-      raise ArgumentError.new("You must specify a valid community_id.") if community_id.blank?
-      "/feature_flag_service/community/#{community_id}"
+    def cache_key(community_id, person_id)
+      if person_id
+        "/feature_flag_service/person/#{person_id}"
+      else
+        raise ArgumentError.new("You must specify a valid community_id.") if community_id.blank?
+        "/feature_flag_service/community/#{community_id}"
+      end
     end
   end
-
 end
