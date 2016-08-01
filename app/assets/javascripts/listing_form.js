@@ -512,6 +512,7 @@ window.ST = window.ST || {};
 
     var isLoading = status.map(function(stats) { return stats.loading > 0; });
 
+    // This handler is used only when Image uploader is loading
     validFormSubmitted.filter(isLoading).onValue(function(e) {
       var confirmed = window.confirm(imageLoadingInProgressConfirm);
 
@@ -522,10 +523,13 @@ window.ST = window.ST || {};
         // executing. Please note that the order matters. This works
         // before it's called BEFORE the submitHandler
         e.stopImmediatePropagation();
-      } else {
-        report_analytics_event("listing", "created");
-        disable_submit_button(form_id, locale);
       }
+    });
+
+    // This handler is used when Image uploader is not loading
+    validFormSubmitted.filter(isLoading.not()).onValue(function(e) {
+      report_analytics_event("listing", "created");
+      disable_submit_button(form_id, locale);
     });
 
     set_textarea_maxlength();
