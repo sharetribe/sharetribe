@@ -7,17 +7,6 @@ namespace :sharetribe do
     end
   end
 
-  desc "Generates customized CSS stylesheets in the background"
-  task :generate_customization_stylesheets => :environment do
-    # If preboot in use, give 2 minutes time to load new code
-    CommunityStylesheetCompiler.compile_all(run_at: 2.minutes.from_now)
-  end
-
-  desc "Generates customized CSS stylesheets immediately"
-  task :generate_customization_stylesheets_immediately => :environment do
-    CommunityStylesheetCompiler.compile_all_immediately()
-  end
-
   desc "Cleans the auth_tokens table in the DB by deleting expired ones"
   task :delete_expired_auth_tokens => :environment do
     AuthToken.delete_expired

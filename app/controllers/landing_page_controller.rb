@@ -198,7 +198,7 @@ class LandingPageController < ActionController::Metal
 
     { id: c.id,
       favicon: c.favicon.url,
-      apple_touch_icon: c.logo.url(:apple_touch),
+      apple_touch_icon: c.stable_image_url(:logo, :apple_touch),
       facebook_locale: facebook_locale(locale),
       facebook_connect_id: c.facebook_connect_id,
       google_maps_key: MarketplaceHelper.google_maps_key(c.id),

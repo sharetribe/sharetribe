@@ -13,6 +13,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Add support for using CDN for dynamic assets (uploaded images, custom compiled stylesheets) when S3 is otherwise in use [#2314](https://github.com/sharetribe/sharetribe/pull/2314)
 - Add possibility to choose between light and dark background image filter for hero and info sections in custom landing pages [#2310](https://github.com/sharetribe/sharetribe/pull/2310)
 
+### Changed
+
+- Remove the need for CSS compilation per marketplace [#2325](https://github.com/sharetribe/sharetribe/pull/2325)
+
 ### Fixed
 
 - Fix some asset links not respecting `asset_host` setting on landing pages [#2320](https://github.com/sharetribe/sharetribe/pull/2320)
