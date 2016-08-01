@@ -900,10 +900,10 @@ sk-SK:
       settings_link_text: ~
       unsubscribe_link_text: ~
     newsletter:
-      hi: ~
-      newest_offers: ~
-      newest_requests: ~
-      text_version_text: ~
+      hi: "Vitajte %{name},"
+      newest_offers: "Čo práve ľudia ponúkajú"
+      newest_requests: "Čo práve ľudia potrebujú"
+      text_version_text: "Mohli by ste niečo ponúknuť, čo ostatní potrebujú? Potrebujete niečo, čo ostatní majú? Zadajte ponuku alebo žiadosť, alebo si prezrite všetko, čo ostatní ponúkaju alebo žiadajú na %{url}"
     reset_password_instructions:
       change_my_password: ~
       reset_password_instructions: ~
@@ -1243,7 +1243,7 @@ sk-SK:
       logout: Odhlásiť
       notifications: Oznámenia
       requests: "Žiadosti o priateľstvo"
-      settings: ~
+      settings: Nastavenia
       sign_up: "Zaregistrovať sa"
     notifications:
       listing_could_not_be_saved: ~
@@ -1293,16 +1293,16 @@ sk-SK:
       offer_canceled: ~
       listing_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: "Iba %{service_name} administrátory majú prístup k tejto oblasti"
-      only_listing_author_can_close_a_listing: ~
-      only_listing_author_can_edit_a_listing: ~
+      only_listing_author_can_close_a_listing: "Iba autor výpisu môže uzavrieť výpis"
+      only_listing_author_can_edit_a_listing: "Iba autor výpisu môže upravovať výpis"
       payment_successful: ~
       payment_canceled: ~
       error_in_payment: ~
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: "Inštrukcie, ako zmeniť heslo bolo zaslané na Vašu e-mailovú adresu"
-      person_activated: ~
-      person_deactivated: ~
+      person_activated: "Užívateľ bol aktivovaný"
+      person_deactivated: "Užívateľ bol deaktivovaný"
       person_updated_successfully: "Informácie boli aktualizované"
       poll_answered: ~
       poll_could_not_be_answered: ~
@@ -1321,7 +1321,7 @@ sk-SK:
       request_canceled: ~
       message_sent: ~
       message_not_sent: ~
-      this_content_is_not_available_in_this_community: ~
+      this_content_is_not_available_in_this_community: "Obsah nie je k dispozícii."
       unknown_error: "Neznáma chyba. Prosím použite odkaz Kontaktujte nás, aby ste vedeli poslať čo sa vlastne stalo."
       update_error: "Došlo k chybe pri pokuse o aktualizáciu údajov, skúste to prosím znova"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Nie ste oprávnení poskytnúť spätnú väzbu na táto udalosť"
@@ -1372,7 +1372,7 @@ sk-SK:
       payments: ~
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: ~
+      listing_not_visible: "Nemáte povolenie zobraziť tento zoznam."
     comment:
       wrote: ~
       send_private_message: ~
@@ -1754,8 +1754,8 @@ sk-SK:
     chatting_with_paypal: ~
   people:
     edit_links:
-      activate: ~
-      deactivate: ~
+      activate: Aktivovať
+      deactivate: Deaktivovať
     help_texts:
       feedback_description_title: "Spätná väzba"
       help_invitation_code_title: ~
@@ -1791,32 +1791,32 @@ sk-SK:
       OR: ~
       signup_with_email: ~
     profile_feedback:
-      grade: ~
+      grade: "stupeň:"
       and_gave_following_feedback: ~
     profile_listings:
-      show_also_closed: ~
-      show_only_open: ~
+      show_also_closed: "Zobraz aj uzatvorené"
+      show_only_open: "Zobraz iba otvorené"
       no_image: ~
     show:
       contact: ~
-      about_me: ~
+      about_me: "O mne:"
       add_description: ~
       add_location: ~
       add_phone_number: ~
-      address: ~
-      as_expected: ~
-      edit_profile_info: ~
-      exceeded_expectations: ~
+      address: "Poloha:"
+      as_expected: "Podľa očakávania"
+      edit_profile_info: "Upraviť profil"
+      exceeded_expectations: "Presiahol očakávania"
       positive: ~
-      hide_description: ~
-      less_than_expected: ~
-      phone_number: ~
-      show_all_feedback: ~
-      show_all_testimonials: ~
-      show_full_description: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      what_are_these: ~
+      hide_description: "Zobraz menej"
+      less_than_expected: "Horší ako sa čakalo"
+      phone_number: "Telefónne číslo"
+      show_all_feedback: "Zobraz všetky hodnotenia"
+      show_all_testimonials: "Zobraz všetky hodnotenia"
+      show_full_description: "Zobraz viac"
+      slightly_better_than_expected: "Nad očakávanie"
+      slightly_less_than_expected: "Horší ako sa čakalo"
+      what_are_these: "Čo je to?"
       review: ~
       reviews: ~
       listing: ~
@@ -1842,20 +1842,20 @@ sk-SK:
       unfollow: ~
   search:
     show:
-      all_results: ~
-      loading_more_search_results: ~
-      offers: ~
-      requests: ~
-      search: ~
-      search_results: ~
-      search_returned_no_results: ~
-      search_verb: ~
+      all_results: "Všetky výsledky"
+      loading_more_search_results: "Nahrávam ďalšie výsledky"
+      offers: Ponuky
+      requests: Žiadosti
+      search: Hľadaj
+      search_results: "Výsledky vyhľadávania"
+      search_returned_no_results: "Neboli nájdené žiadne výsledky."
+      search_verb: Hľadať
   sessions:
     new:
-      create_new_account: ~
-      i_forgot_my_password: ~
-      login: ~
-      login_to_kassi: ~
+      create_new_account: "Vytvoriť nový účet"
+      i_forgot_my_password: "Zabudnuté meno alebo heslo"
+      login: Prihlásiť
+      login_to_kassi: "Prihlásiť do %{service_name}"
       connect_your_facebook_to_kassi: ~
       facebook_account: ~
       log_in_to_link_account: ~
@@ -1867,9 +1867,9 @@ sk-SK:
       or_sign_up_with_your_username: ~
       we_will_not_post_without_asking_you: ~
     password_forgotten:
-      email: ~
-      password_recovery_instructions: ~
-      request_new_password: ~
+      email: E-mail
+      password_recovery_instructions: "Zadajte e-mailovú adresu pre zaslanie užívateľského mena na zmenu hesla."
+      request_new_password: "Žiadosť o nové heslo"
       change_your_password: ~
     confirmation_pending:
       welcome_to_kassi: ~
@@ -1884,19 +1884,19 @@ sk-SK:
       account_confirmation_instructions_admin: ~
   settings:
     account:
-      change: ~
-      confirm_new_password: ~
+      change: Zmeniť
+      confirm_new_password: "Potvrdiť nové heslo"
       delete_account: ~
       delete_account_button: ~
       delete_account_confirmation_popup: ~
       email_addresses: ~
-      new_email: ~
+      new_email: "Nová e-mailová adresa"
       delete_personal_information: ~
       delete_information_others_involved: ~
       unfinished_transactions: ~
-      new_password: ~
-      save: ~
-      these_fields_are_shown_only_to_you: ~
+      new_password: "Nové heslo"
+      save: Uložiť
+      these_fields_are_shown_only_to_you: "Užívateľské meno sa zobrazuje v profile iba, keď bolo zadané meno. Ostatné informácie sa zobrazujú iba Vám."
       email_already_confirmed: ~
       email:
         address_title: ~
@@ -1914,20 +1914,20 @@ sk-SK:
         status_pending: ~
     notifications:
       email_from_admins: ~
-      i_want_to_get_email_notification_when: ~
-      newsletters: ~
+      i_want_to_get_email_notification_when: "Chcem dostať notifikáciu e-mailom keď..."
+      newsletters: "E-mailové správy od administrátora"
       community_updates: ~
-      email_about_accept_reminders: ~
+      email_about_accept_reminders: "...zabudol som sa prijať ponuku alebo žiadosť"
       email_about_confirm_reminders: ~
-      email_about_new_comments_to_own_listing: ~
-      email_about_new_messages: ~
-      email_about_new_received_testimonials: ~
-      email_about_testimonial_reminders: ~
+      email_about_new_comments_to_own_listing: "...niekto komentoval tvoju ponuku alebo žiadosť"
+      email_about_new_messages: "...niekto ti posiela správu"
+      email_about_new_received_testimonials: "...niekto pridal spätnú väzbu"
+      email_about_testimonial_reminders: "...zabudol som pridať spätnú väzbu na udalosť"
       email_daily_community_updates: ~
       email_weekly_community_updates: ~
       do_not_email_community_updates: ~
-      email_when_conversation_accepted: ~
-      email_when_conversation_rejected: ~
+      email_when_conversation_accepted: "...niekto prijal moju ponuku alebo žiadosť"
+      email_when_conversation_rejected: "...niekto odmietol moju ponuku alebo žiadosť"
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_payment_reminders: ~
@@ -1939,59 +1939,59 @@ sk-SK:
       unsubscribe_unsuccesful: ~
       unsuccessful_unsubscribe_info_text: ~
     profile:
-      about_you: ~
-      city: ~
-      family_name: ~
-      given_name: ~
+      about_you: "O mne"
+      city: Mesto
+      family_name: Priezvisko
+      given_name: "Krstné meno"
       first_name_with_initial: ~
       first_name_only: ~
       location_description: ~
-      phone_number: ~
+      phone_number: "Telefónne číslo"
       profile_picture: ~
-      postal_code: ~
-      profile_page: ~
-      profilemap: ~
-      street_address: ~
-      these_fields_are_shown_in_your: ~
-      visible_to_everybody: ~
-      visible_to_registered_users: ~
+      postal_code: PSČ
+      profile_page: "na profilovej stránke"
+      profilemap: Mapa
+      street_address: Poloha
+      these_fields_are_shown_in_your: "Tieto informácie sú zobrazené každému %{service_name} uživateľovi"
+      visible_to_everybody: "viditeľné pre každého"
+      visible_to_registered_users: "(viditeľné pre každého prihláseného užívateľa)"
       default_in_listing: ~
       invisible: ~
       image_is_processing: ~
-    save_information: ~
+    save_information: "Ulož informácie"
   shipping_address:
     shipping_address: ~
   tag_cloud:
     tag_used:
-      with_tag: ~
-      without_tag: ~
+      with_tag: "So štítkom"
+      without_tag: "Bez štítku"
   terms:
     show:
-      accept_terms: ~
-      here: ~
-      i_accept_new_terms: ~
-      i_accept_terms: ~
-      terms: ~
-      terms_have_changed: ~
-      you_can_view_the_new_terms: ~
-      you_need_to_accept: ~
-      you_need_to_accept_new_terms: ~
+      accept_terms: "Prijímam %{service_name} podmienky používania"
+      here: "kliknutím tu"
+      i_accept_new_terms: "Súhlasím s novými podmienkami"
+      i_accept_terms: "Súhlasím s podmienkami"
+      terms: "%{service_name} podmienky používania"
+      terms_have_changed: "Podmienky používania sa zmenili"
+      you_can_view_the_new_terms: "Môžete si zobraziť nové podmienky"
+      you_need_to_accept: "Vitajte v %{service_name}! Zdá sa, že ste tu po prvý krát. Pred začatím je potrebné najprv prijať"
+      you_need_to_accept_new_terms: "%{service_name} podmienky používania sa zmenili. Musíte súhlasiť s podmienkami aby ste mohli naďalej používať %{service_name}. Nové podmienky sú určené na udržanie behu služieb pri ukončení projektu."
   testimonials:
     index:
-      all_testimonials: ~
-      feedback_altogether: ~
-      loading_more_testimonials: ~
-      no_testimonials: ~
+      all_testimonials: "Všetky hodnotenia"
+      feedback_altogether: "Všetky hodnotenia dokopy: "
+      loading_more_testimonials: "Nahrávam ďalšie odporúčania"
+      no_testimonials: "Bez hodnotenia."
     new:
-      as_expected: ~
-      exceeded_expectations: ~
-      give_feedback_to: ~
-      grade: ~
-      less_than_expected: ~
-      send_feedback: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      textual_feedback: ~
+      as_expected: "Podľa očakávania"
+      exceeded_expectations: "Lepší, ako sa očakávalo"
+      give_feedback_to: "Ohodnotiť %{person}"
+      grade: "Aký je váš celkový pocit?"
+      less_than_expected: "Horší ako sa čakalo"
+      send_feedback: "Pošli hodnotenie"
+      slightly_better_than_expected: "Trošku lepší, ako sa čakalo"
+      slightly_less_than_expected: "Trošku horší, ako sa čakalo"
+      textual_feedback: "Ako to prebiehalo?"
       this_will_be_shown_in_profile: ~
       positive: ~
       negative: ~
@@ -2057,21 +2057,21 @@ sk-SK:
     format: ~
   time:
     formats:
-      short: ~
-      shorter: ~
+      short: "%b %e, %Y o %H:%M"
+      shorter: "%b %e o %H:%M"
       short_date: ~
   timestamps:
-    day_ago: ~
-    days_ago: ~
-    hour_ago: ~
-    hours_ago: ~
-    minute_ago: ~
-    minutes_ago: ~
-    month_ago: ~
-    months_ago: ~
-    seconds_ago: ~
-    year_ago: ~
-    years_ago: ~
+    day_ago: "%{count} včera"
+    days_ago: "%{count} dní dozadu"
+    hour_ago: "%{count} hodinu pred"
+    hours_ago: "%{count} hodín pred"
+    minute_ago: "%{count} pred minútou"
+    minutes_ago: "%{count} minút pred"
+    month_ago: "%{count} pred mesiacom"
+    months_ago: "%{count} mesiacov pred"
+    seconds_ago: "%{count} sekúnd pred"
+    year_ago: "%{count} pred rokom"
+    years_ago: "%{count} roky pred"
   transactions:
     initiate:
       booked_days: ~
