@@ -76,7 +76,7 @@ pl:
         community_logo_icon: "Logo dla sieci społecznościowych i urządzeń mobilnych"
         community_cover_photo: "Zdjęcie w tle"
         small_community_cover_photo: "Małe zdjęcie w tle"
-        favicon: ~
+        favicon: "Ikona strony, tzw. favicon"
         favicon_info_text: ~
         community_custom_color1: "Główny kolor"
         community_custom_color2: "Kolor przycisku %{post_new_listing}"
@@ -196,9 +196,9 @@ pl:
         update_settings: "Zapisz ustawienia"
         automatically_confirmed: ~
         automatically_confirmed_no_escrow: ~
-        automatic_newsletter_frequency: ~
-        newsletter_daily: ~
-        newsletter_weekly: ~
+        automatic_newsletter_frequency: "Wysyłaj automatycznie newsletter: %{frequency_dropdown}"
+        newsletter_daily: Codziennie
+        newsletter_weekly: Tygodniowo
         delete_marketplace_title: ~
         type_marketplace_domain: ~
         type_marketplace_domain_placeholder: ~
@@ -215,7 +215,7 @@ pl:
         join_date: Dołączył
         admin: Administrator
         posting_allowed: "Postowanie dozwolone"
-        ban_user: ~
+        ban_user: "Zablokuj użytkownika"
         saving_user_status: "Trwa zapisywanie..."
         save_user_status_successful: Zapisane
         export_all_as_csv: ~
@@ -247,19 +247,19 @@ pl:
         google_analytics_instructions_link_text: ~
         save: ~
       menu_links:
-        menu_links: ~
-        save: ~
-        add_menu_link: ~
-        title_placeholder: ~
-        url_placeholder: ~
-        title: ~
-        language: ~
-        url: ~
+        menu_links: "Linki menu"
+        save: "Zapisz ustawienia"
+        add_menu_link: "Dodaj nowy link do menu"
+        title_placeholder: "Nazwa linku"
+        url_placeholder: "http://przyklad.pl/pl"
+        title: Nazwa
+        language: Język
+        url: "Adres URL"
         empty: ~
-        max_number_of_links: ~
-        all: ~
-        max_number_of_links_info: ~
-        about_page: ~
+        max_number_of_links: "Liczba maksymalnie wyświetlanych linków w górnym pasku: %{select_max_number}"
+        all: Wszystkie
+        max_number_of_links_info: "Link do %{about_page} jest zawsze wyświetlany jako pierwszy w menu"
+        about_page: "o stronie"
       transactions:
         export_all_as_csv: ~
         transactions: ~
@@ -327,7 +327,7 @@ pl:
         categories: "Pokazane kategorie, w których pola są użyte"
         select_all: ~
         clear_all: ~
-        options: ~
+        options: Opcke
         add_option: "+ dodaj opcję"
         saving_order: "Zapisz porządek pól"
         save_order_successful: "Zapisywanie porządku pól zakończyło się sukcesem"
@@ -340,11 +340,11 @@ pl:
       new:
         new_listing_field: "Nowe pole oferty"
       field_types:
-        text: ~
-        number: ~
+        text: Tekst
+        number: Numer
         dropdown: "Pokazuj jako rozwijalne menu"
-        checkbox_group: ~
-        date: ~
+        checkbox_group: "Pole wybory grupy"
+        date: Data
     emails:
       new:
         send_email_to_members: "Wyślij wiadomość do użytkowników"
@@ -949,10 +949,10 @@ pl:
       you_are_receiving_this_because: ~
       view_listing: ~
     new_member_notification:
-      new_member_has_joined: ~
-      this_is_automatic_message: ~
-      person_name: ~
-      person_email: ~
+      new_member_has_joined: "Nowy członek dołączył do %{community}. Jednakże jeszcze mogli nie potwierdzić adresu email."
+      this_is_automatic_message: "To jest automatyczna wiadomość wysłana do administratorów %{community}."
+      person_name: "Imię:"
+      person_email: "Adres email:"
   error_messages:
     onboarding:
       server_rendering: ~
@@ -1053,8 +1053,8 @@ pl:
     manage_listings: ~
     invite: "Zaproś nowych członków"
     login: "Zaloguj się"
-    signup: ~
-    menu: ~
+    signup: "Zarejestruj się"
+    menu: Menu
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Dodatkowo jest jeszcze <b>jedna inna oferta</b>,"
@@ -1362,7 +1362,7 @@ pl:
       payment_details_add_successful: "Dane dot. płatności zostały dodane pomyślnie"
       payment_details_add_error: "Nie mogliśmy dodać danych płatności"
       listing_author_payment_details_missing: ~
-      stylesheet_needs_recompiling: ~
+      images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
     settings:
       account: Konto

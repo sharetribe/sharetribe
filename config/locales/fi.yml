@@ -1393,7 +1393,7 @@ fi:
       payment_details_add_successful: "Maksutiedot lisätty onnistuneesti"
       payment_details_add_error: "Maksutietojen lisäys epäonnistui"
       listing_author_payment_details_missing: "Ole hyvä ja ota yhteyttä ilmoituksen tekijään painamalla alla olevaa nappia. Heidän tulee päivittää maksutietonsa pystyäkseen vastaanottamaan maksuja."
-      stylesheet_needs_recompiling: "Tyylejä rakennetaan taustalla. Lataa sivu uudestaan hetken kuluttua."
+      images_are_processing: ~
       maintenance_mode:
         zero: "Sivusto menee nyt offline-tilaan huoltoa varten"
         one: "Sivusto menee %{count} minuutin kuluttua offline-tilaan huoltoa varten"
