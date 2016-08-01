@@ -2,9 +2,6 @@ module MarketplaceService::API
 
   ConfigurationsStore = MarketplaceService::Store::MarketplaceConfigurations
 
-  ConfigurationParam = EntityUtils.define_builder(
-    [:configurations, :hash, :mandatory])
-
   class Configurations
 
     def get(community_id:)
@@ -29,7 +26,7 @@ module MarketplaceService::API
     # })
     def update(community_id:, configurations:)
       current_confs = Maybe(ConfigurationsStore.get(community_id: community_id)).or_else(community_id: community_id)
-      configs = current_confs.merge(ConfigurationParam.call(configurations))
+      configs = current_confs.merge(configurations)
 
       Maybe(ConfigurationsStore.update(configs))
         .map { |confs|
