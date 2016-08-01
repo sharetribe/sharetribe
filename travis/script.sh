@@ -47,7 +47,7 @@ then
 
     echo "Starting PhantomJS and Cucumber"
     (cd client && npm run start-phantomjs) &
-    PHANTOMJS=true bundle exec cucumber -ptravis 2>&1
+    PHANTOMJS=true bundle exec cucumber -p ci 2>&1
     exit
 elif [ "$SUITE" = "lint" ]
 then
