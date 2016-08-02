@@ -264,7 +264,8 @@ module CustomLandingPage
         {"service": "instagram", "url": "https://www.instagram.com/"},
         {"service": "youtube", "url": "https://www.youtube.com/channel/UCtefWVq2uu4pHXaIsHlBFnw"},
         {"service": "googleplus", "url": "https://plus.google.com/114869130265262677354/"},
-        {"service": "linkedin", "url": "https://www.linkedin.com/company/2626583"}
+        {"service": "linkedin", "url": "https://www.linkedin.com/company/2626583"},
+        {"service": "pinterest", "url": "https://www.pinterest.com/"}
       ],
       "copyright": "Copyright Marketplace Ltd 2016"
     }
