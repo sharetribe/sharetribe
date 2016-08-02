@@ -131,7 +131,7 @@ en:
         sender_address: "Sender address: %{sender_address}"
         sender_address_default: "Sender address: not set (using default address %{sender_address})"
         need_to_change: "If you need to change the email address, please %{contact_support_link}."
-        contact_support_link_text: "contact our support"
+        contact_support_link_text: "contact Sharetribe support"
         set_sender_address: "Set sender address"
         sender_name_label: Name
         sender_name_placeholder: "Sender name"
@@ -152,7 +152,7 @@ en:
         invalid_email_domain_read_more_link: "Read the knowledge base article for more information."
         unknown_error: "Something went wrong"
         white_label_offer: "Set your own email address as the sender and remove all Sharetribe branding from outgoing email messages by %{upgrade_pro_plan_link}."
-        upgrade_plan_link: "upgrading to our Pro plan or higher"
+        upgrade_plan_link: "upgrading to the Pro plan or higher"
         verification_sent_from: "The verification email was sent from %{verification_sender_name}."
         follow_the_instructions: "Please follow the instructions in the email to verify your address."
       getting_started:
@@ -656,7 +656,7 @@ en:
       total: "Total: %{total}"
     status:
       payment_errored: "Payment failed. Please try again."
-      payment_errored_starter: "Payment failed. Please try again. If the problem continues, please contact our support."
+      payment_errored_starter: "Payment failed. Please try again. If the problem continues, please contact Sharetribe support."
       payment_errored_author: "Payment failed. Please contact %{starter_name} and ask him to try the payment again."
       cancel_payed_transaction: Cancel
       feedback_given: "Feedback given"
@@ -968,7 +968,7 @@ en:
       we_will_guide_you_along_the_way: "We will guide you along the way."
       are_you_new_to_online_marketplaces: "Need assistance with your marketplace? No worries, we're here to help you out! We will be sending you a series of emails that will help you get the most out of Sharetribe and to build a successful marketplace business. We will be sending Part 1 to you soon."
       have_questions: "Have questions?"
-      our_happiness_team_is_here_to_help: "Our happiness team is here for you! Either %{knowledge_base_link} or contact our support through %{admin_panel_link}."
+      our_happiness_team_is_here_to_help: "Our happiness team is here for you! Either %{knowledge_base_link} or contact support through the %{admin_panel_link}."
       love: "Love,"
       sharetribe_crew: "The Sharetribe crew"
       knowledge_base_link_text: "check out our knowledge base"
@@ -1393,7 +1393,7 @@ en:
       payment_details_add_successful: "Successfully added payment details"
       payment_details_add_error: "Could not add payment details"
       listing_author_payment_details_missing: "Please contact the author by pressing the 'Contact' button below. They need to update their payment details to receive payments."
-      images_are_processing: "We are processing your new images, they will be visible in a few seconds."
+      images_are_processing: "We are processing your images. Give us a minute or two and they'll be visible."
       maintenance_mode:
         zero: "The website will now go offline for maintenance"
         one: "The website will be offline for maintenance in %{count} minute"
