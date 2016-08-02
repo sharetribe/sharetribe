@@ -238,6 +238,7 @@ Values to set:
   * `youtube`
   * `googleplus`
   * `linkedin`
+  * `pinterest`
 
 * `copyright` copyright text
 
