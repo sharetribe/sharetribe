@@ -36,24 +36,24 @@ sk-SK:
           cancel: ~
     communities:
       edit_details:
-        community_details: ~
-        community_look_and_feel: ~
-        edit_community: ~
+        community_details: "Základné detaily"
+        community_look_and_feel: Dizajn
+        edit_community: "Základné detaily"
         enabled_languages: ~
         enabled_languages_description: ~
         default_language: ~
         language_selection_disabled: ~
-        community_name: ~
+        community_name: "Názov trhoviska"
         edit_community_name_description: ~
-        community_slogan: ~
+        community_slogan: Slogan
         edit_community_slogan_description: ~
-        community_description: ~
+        community_description: "Popis Trhoviska"
         edit_community_description_description: ~
         community_search_placeholder: ~
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
-        update_information: ~
+        update_information: "Uložiť nastavenia"
         invite_people: ~
         edit_signup_info: ~
         edit_signup_info_description: ~
@@ -71,14 +71,14 @@ sk-SK:
         transaction_agreement_text_header: ~
         transaction_agreement_description: ~
       edit_look_and_feel:
-        edit_community_look_and_feel: ~
-        community_logo: ~
+        edit_community_look_and_feel: "Upraviť vzhľad trhoviska %{community_name}"
+        community_logo: "Veľké logo"
         community_logo_icon: ~
-        community_cover_photo: ~
+        community_cover_photo: "Úvodná fotografia"
         small_community_cover_photo: ~
         favicon: ~
         favicon_info_text: ~
-        community_custom_color1: ~
+        community_custom_color1: "Hlavná farba"
         community_custom_color2: ~
         logo_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions: ~
@@ -87,7 +87,7 @@ sk-SK:
         small_cover_photo_visibility: ~
         small_cover_photo_instructions_text_with_dimensions: ~
         main_content_width: ~
-        custom_color1_instructions_text: ~
+        custom_color1_instructions_text: "Môžete zmeniť základnú farbu užívateľského rozhrania zadaním hexadecimálnej hodnoty farby. Na <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> si môžete vybrať farbu a následne hodnotu skopírovať sem."
         custom_color2_instructions_text: ~
         default_browse_view: ~
         default_browse_view_instructions_text: ~
@@ -494,12 +494,12 @@ sk-SK:
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: "zdielanie zdarma"
-      accept_for_free: ~
+      accept_for_free: "chcem použiť zdarma"
     categories:
-      item: ~
-      favor: ~
-      rideshare: ~
-      housing: ~
+      item: Položky
+      favor: Služby
+      rideshare: "Spoločná jazda"
+      housing: Priestory
       tools: ~
       sports: ~
       music: ~
@@ -516,7 +516,7 @@ sk-SK:
       travel: ~
       other: ~
     username: "Užívateľské meno"
-    username_or_email: ~
+    username_or_email: "E-mailová adresa alebo užívateľské meno"
     what_is_this: "Čo to je?"
     removed_user: ~
     paypal_fee_info:
@@ -818,10 +818,10 @@ sk-SK:
       hey: "Dobrý deň %{name}"
       kassi_team: "Prehľad o %{service_name} tíme"
       thanks: Ďakujeme
-      dont_want_to_receive_these_emails: ~
-      edit_your_email_settings_here: ~
-      message_not_displaying_correctly: ~
-      view_it_in_your_browser: ~
+      dont_want_to_receive_these_emails: "Nechcete dostávať tieto emailové správy?"
+      edit_your_email_settings_here: "Upraviť nastavenia Vašeho e-mailu tu"
+      message_not_displaying_correctly: "Nezobrazuje sa Vám e-mailová správa správne?"
+      view_it_in_your_browser: "Pozrite si ju v internetovom prehliadači"
       or: ~
       unsubscribe_from_these_emails: ~
     conversation_status_changed:
@@ -888,17 +888,17 @@ sk-SK:
       has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
-      added_offer: ~
-      added_request: ~
+      added_offer: "Užívateľ %{name_link} pridal inzerát:"
+      added_request: "Užívateľ %{name_link} pridal inzerát:"
       added_listing: ~
-      update_mail_title: ~
-      title_link_text: ~
-      intro_paragraph: ~
-      intro_paragraph_link_text: ~
-      post_a_new_listing: ~
-      reduce_email_footer_text: ~
-      settings_link_text: ~
-      unsubscribe_link_text: ~
+      update_mail_title: "%{title_link} aktualizácia"
+      title_link_text: "%{community_name}"
+      intro_paragraph: "Tu nájdete výpis udalostí, ktoré sa stali na %{community_link} od %{time_since_last_update}."
+      intro_paragraph_link_text: "%{community_name}"
+      post_a_new_listing: "Pridať nový inzerát!"
+      reduce_email_footer_text: "Príliš veľa e-mailových správ? %{settings_link} alebo %{unsubscribe_link}."
+      settings_link_text: "Upraviť nastavenia Vašeho e-mailu tu"
+      unsubscribe_link_text: "Odhlásiť sa"
     newsletter:
       hi: "Vitajte %{name},"
       newest_offers: "Čo práve ľudia ponúkajú"
@@ -997,7 +997,7 @@ sk-SK:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript je deaktivovaný vo Vašom prehliadači."
       kassi_does_not_currently_work_without_javascript: "%{service_name} nefunguje správne bez JavaScriptu. Skúste povoliť javascript z preferencií v prehliadači a potom obnovte túto stránku znova."
-      contact_us: ~
+      contact_us: "kontaktujte nás"
       send_feedback: "Pošlite spätnú väzbu"
       your_feedback_to_admins: "Vaša spätná väzba administrátorov"
     send: Poslať
@@ -1041,15 +1041,15 @@ sk-SK:
   header:
     about: O
     home: Domov
-    members: ~
+    members: Komunita
     new_listing: ~
     mobile_version: "Mobilná verzia"
     offers: Ponuky
     requests: Žiadosti
     search_kassi: "Hľadať %{service_name}"
-    create_new_marketplace: ~
-    contact_us: ~
-    profile: ~
+    create_new_marketplace: "Vytvoriť nové trhovisko"
+    contact_us: "Kontaktujte nás"
+    profile: Profil
     manage_listings: ~
     invite: ~
     login: ~
@@ -1062,7 +1062,7 @@ sk-SK:
       additionally_some_private_offers_exist: "Ďalej sú tu %{number_of_listings} iné ponuky"
       additionally_some_private_requests_exist: "Ďalej sú tu %{number_of_listings} iné žiadosti"
     blank_slate:
-      add_first: "Pridať jeden!"
+      add_first: "Pridajte niečo!"
       but_that_is_visible_only_to_registered_members: "ale to je viditeľný len pre registrovaných členov."
       but_those_are_visible_only_to_registered_members: "ale sú to viditeľné len pre registrovaných členov."
       create_new_account_for_yourself: "Vytvorte Váš nový účet"
@@ -1104,8 +1104,8 @@ sk-SK:
       private_listing_notification_log_in: ~
       is: ~
       are: ~
-      what_do_you_need: ~
-      post_new_listing: ~
+      what_do_you_need: "Čo hľadáte?"
+      post_new_listing: "Pridať nový inzerát"
       are_offering: ponuka
       add_news_item: "Pridať článok"
       lend_rent_help_carpool: "Predať, požičať, pomáhať, zdieľať jázd"
@@ -1151,15 +1151,15 @@ sk-SK:
       comment: komentár
       comments: komentáre
     filters:
-      show: ~
-      search: ~
-      map: ~
-      list: ~
+      show: "Filter:"
+      search: Hľadať
+      map: "Ukázať mapu"
+      list: "Ukázať zoznam"
       map_button: ~
       grid_button: ~
       list_button: ~
-      all_listing_types: ~
-      all_categories: ~
+      all_listing_types: "Všetky typy inzerátov"
+      all_categories: "Všetky kategórie"
     errors:
       search_engine_not_responding: ~
   infos:
@@ -1185,12 +1185,12 @@ sk-SK:
       create_own: ~
       learn_more: ~
     no_tribe:
-      inbox: ~
-      settings: ~
+      inbox: "Doručená pošta"
+      settings: Nastavenia
       feedback: ~
     application:
       join_this_community: ~
-      read_more: ~
+      read_more: "Celý článok"
       feedback: "Čo by ste potrebovali nám pvedať?"
       default_feedback: "Stretli ste sa už s problémom %{service_name} ? Máte návrh na vylepšenie služieb? Všimli ste si nejaký podozrivý obsah? Alebo len niečo, čo chcete diskutovať s nami? Dajte nám vedieť!"
       feedback_forum: "fórum spätnej väzby"
@@ -1200,8 +1200,8 @@ sk-SK:
       send_feedback_to_admin: "Pošlite spätnú väzbu"
       to_see_what_others_have_suggested: "aby ste videli, čo ostatní používatelia navrhli, a hlasujte pre nápady."
       your_email_address: "Vaša e-mailová adresa (kontaktovať Vás)"
-      connect: ~
-      invite_your_friends: ~
+      connect: "Zaregistrovať sa"
+      invite_your_friends: "Pozvi svojich priateľov!"
       invite_your_neighbors: ~
       invite_your_friends_description: ~
       invite_your_friends_invite_only_description: ~
@@ -1375,7 +1375,7 @@ sk-SK:
       listing_not_visible: "Nemáte povolenie zobraziť tento zoznam."
     comment:
       wrote: napísal
-      send_private_message: ~
+      send_private_message: "Poslať súkromnú správu pre %{person}"
       delete: ~
       are_you_sure: ~
     comment_form:
@@ -1488,7 +1488,7 @@ sk-SK:
         rent_out: prenájom
         request_type: "Typ žiadosti"
         sell: predať
-        share_for_free: ~
+        share_for_free: "Zdieľanie zdarma"
         accept_for_free: ~
         trade: Vymeniť
       tag_list:
@@ -1518,7 +1518,7 @@ sk-SK:
       housing: Medzerník
       items: Položky
       list_view: "Zobraziť zoznamu."
-      listings: ~
+      listings: Inzeráty
       map_view: "Zobraziť mapu"
       offer_something: "Dajte všetkým vedieť"
       offer_type: "Typ ponuky"
@@ -1529,7 +1529,7 @@ sk-SK:
       rideshare: jazda
       search_verb: Hľadať
       you_have_something_others_do_not: "Máte nejakú ponuku?"
-      feed_title: ~
+      feed_title: "%{listing_type} v %{service_name} %{optional_category}"
     left_panel_link:
       borrows: vypožičať
       buys: Kúpiť
@@ -1543,7 +1543,7 @@ sk-SK:
       rents: "prenajať si"
       rideshares: jazda
       sells: predať
-      share_for_frees: ~
+      share_for_frees: "Zdieľanie zdarma"
       accept_for_frees: ~
       trades: Vymeniť
     listing_actions:
@@ -1577,28 +1577,28 @@ sk-SK:
     reply_link:
       listing_closed: ~
     show:
-      add_your_phone_number: ~
-      add_profile_picture: ~
+      add_your_phone_number: "Zadajte telefónne číslo"
+      add_profile_picture: "Pridať profilovú fotografiu"
       comments: "Verejná diskusia"
-      contact_by_phone: ~
+      contact_by_phone: "Telefónny kontakt:"
       contact: ~
       favor_offer: "Ponuka služieb"
       favor_request: "Žiadosť o službu"
       inquiry: ~
-      item_offer_trade: ~
-      item_request_trade: ~
+      item_offer_trade: "Ponuka výmeny"
+      item_request_trade: "Žiadosť výmeny"
       no_description: "Tento zoznam nemá popis"
       no_image: ~
       no_reviews: ~
       offer: ponuka
       listing_created: ~
       open_until: ~
-      feedback: ~
+      feedback: Hodnotenie
       qr_code: "QR kód"
       request: Žiadosť
-      rideshare_offer: ~
-      rideshare_request: ~
-      send_private_message: ~
+      rideshare_offer: "Ponúknuť spoločnú jazdu"
+      rideshare_request: "Požiadať o spoločnú jazdu"
+      send_private_message: "Poslať súkromnú správu"
       tags: Označenia
       time: Čas
       times: časy
@@ -1662,7 +1662,7 @@ sk-SK:
     content_too_long: ~
   okl:
     member_id: "Členské id"
-    member_id_or_email: ~
+    member_id_or_email: "Členské id alebo e-mailová adresa"
   payments:
     new:
       new_payment: ~
@@ -1760,8 +1760,8 @@ sk-SK:
       feedback_description_title: "Spätná väzba"
       help_invitation_code_title: "Musíte mať pozvánku"
       terms_title: "%{service_name} podmienky používania"
-      invite_only_help_text: ~
-      invite_only_help_text_title: ~
+      invite_only_help_text: "Vyberte túto možnosť, pokiaľ chcete, aby se nový členovia mohli pripojiť iba v prípade, že im bola zaslaná pozvánka od existujúceho užívateľa."
+      invite_only_help_text_title: "Iba na pozvanie"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Tento užívatel už nie je aktívny %{service_name}"
       inactive_description: "Tento užívateľ prestal používať %{service_name}. Nemôžete kontaktovať tohoto užívateľa, zanechajte hodnotenie alebo okomentujte jeho zoznam."
@@ -1790,6 +1790,10 @@ sk-SK:
       create_account_with_facebook: ~
       OR: ~
       signup_with_email: ~
+      email_restriction_instructions:
+        one: "Prístup do %{service_name} je obmedzený. K pripojeniu budete potrebovať %{allowed_emails} e-mailovú adresu."
+        few: "Prístup do %{service_name} je obmedzený. Budete potrebovať e-mailovú adresu, vďaka ktorej sa budete môcť prihlásiť."
+        other: "Prístup do %{service_name} je obmezený. Budete potrebovať e-mailovú adresu, vďaka ktorej sa budete môcť prihlásiť."
     profile_feedback:
       grade: "stupeň:"
       and_gave_following_feedback: "a poskytnite spätnú väzbu"
@@ -1798,7 +1802,7 @@ sk-SK:
       show_only_open: "Zobraz iba otvorené"
       no_image: ~
     show:
-      contact: ~
+      contact: "Kontaktovať užívateľa %{person}"
       about_me: "O mne:"
       add_description: "Napíšte niečo o sebe"
       add_location: "Pridať polohu"
@@ -1863,8 +1867,8 @@ sk-SK:
       account_creation_link_text: "Kliknite sem"
       cancle_facebook_connect: "Pokiaľ nechcete prepojiť tento účet, kliknite na nasledujúci odkaz pre zrušenie %{cancel_link}."
       facebook_cancel_link_text: zrušit
-      log_in_with_your_facebook_account: ~
-      or_sign_up_with_your_username: ~
+      log_in_with_your_facebook_account: "Prihlásiť sa s Facebook účtom"
+      or_sign_up_with_your_username: "...alebo pomocou Vašeho užívateľského mena alebo hesla:"
       we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: E-mail
@@ -1886,7 +1890,7 @@ sk-SK:
     account:
       change: Zmeniť
       confirm_new_password: "Potvrdiť nové heslo"
-      delete_account: ~
+      delete_account: "Zmazať účet"
       delete_account_button: ~
       delete_account_confirmation_popup: ~
       email_addresses: ~
@@ -1916,28 +1920,28 @@ sk-SK:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Chcem dostať notifikáciu e-mailom keď..."
       newsletters: "E-mailové správy od administrátora"
-      community_updates: ~
+      community_updates: Letáky
       email_about_accept_reminders: "...zabudol som sa prijať ponuku alebo žiadosť"
       email_about_confirm_reminders: ~
       email_about_new_comments_to_own_listing: "...niekto komentoval tvoju ponuku alebo žiadosť"
       email_about_new_messages: "...niekto ti posiela správu"
       email_about_new_received_testimonials: "...niekto pridal spätnú väzbu"
       email_about_testimonial_reminders: "...zabudol som pridať spätnú väzbu na udalosť"
-      email_daily_community_updates: ~
-      email_weekly_community_updates: ~
-      do_not_email_community_updates: ~
+      email_daily_community_updates: "Zasielať aktualizácie e-mailom  <b>denne<b> v prípade, že se objavia nové inzeráty"
+      email_weekly_community_updates: "Zasielať aktualizácie e-mailom  <b>týždenne <b>v prípade, že se objavia nové inzeráty"
+      do_not_email_community_updates: "Neposielať novinky"
       email_when_conversation_accepted: "...niekto prijal moju ponuku alebo žiadosť"
       email_when_conversation_rejected: "...niekto odmietol moju ponuku alebo žiadosť"
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_payment_reminders: ~
       email_about_new_listings_by_followed_people: ~
-      unsubscribe_succesful: ~
-      unsubscribe_info_text: ~
-      settings_link: ~
-      homepage_link: ~
-      unsubscribe_unsuccesful: ~
-      unsuccessful_unsubscribe_info_text: ~
+      unsubscribe_succesful: "Odhlásenie prebeblo úspešne"
+      unsubscribe_info_text: "Už nebudete naďalej dostávať tieto e-mailové správy. Skontrolujte si svoje %{settings_link} a zvoľte si, aký druh e-mailových správ chcete dostávať od %{service_name} alebo sa vráťte na %{homepage_link}."
+      settings_link: nastavenia
+      homepage_link: "domovská stránka"
+      unsubscribe_unsuccesful: "Chyba pri odhlasovaní"
+      unsuccessful_unsubscribe_info_text: "Platnosť odhlasovacieho odkazu vypršala. Pre zmenu nastavení sa prosím prihláste."
     profile:
       about_you: "O mne"
       city: Mesto
@@ -1992,7 +1996,7 @@ sk-SK:
       slightly_better_than_expected: "Trošku lepší, ako sa čakalo"
       slightly_less_than_expected: "Trošku horší, ako sa čakalo"
       textual_feedback: "Ako to prebiehalo?"
-      this_will_be_shown_in_profile: ~
+      this_will_be_shown_in_profile: "Vaše hodnotenie bude viditeľné pre ostatných členov na profilovej stránke užívateľa %{person}. To im pomôže zistiť, či je užívateľ %{person} dôveryhodná osoba."
       positive: ~
       negative: ~
       default_textual_feedback: ~
@@ -2072,6 +2076,10 @@ sk-SK:
     seconds_ago: "%{count} sekúnd pred"
     year_ago: "%{count} pred rokom"
     years_ago: "%{count} roky pred"
+    days_since:
+      one: "%{count} deň"
+      few: "%{count} dni"
+      other: "%{count} dní"
   transactions:
     initiate:
       booked_days: ~

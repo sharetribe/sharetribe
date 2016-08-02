@@ -271,10 +271,10 @@ nb:
         language: Språk
         url: URL
         empty: "Du har ingen ekstra menylenker"
-        max_number_of_links: ~
-        all: ~
-        max_number_of_links_info: ~
-        about_page: ~
+        max_number_of_links: "Maks antall linker vist i toppmenylinjen: %{select_max_number}"
+        all: Alle
+        max_number_of_links_info: "Link til %{about_page} er alltid først i menyen"
+        about_page: om-side
       transactions:
         export_all_as_csv: "Eksportér alle i CSV-fil"
         transactions: "Vis transaksjoner"
@@ -1395,7 +1395,7 @@ nb:
       payment_details_add_successful: "Betalings detaljer lagt til"
       payment_details_add_error: "Kunne ikke legge til betalings detaljer"
       listing_author_payment_details_missing: "Annonseeier har ikke lagt til betalingsinformasjon og kan derfor ikke motta betaling akkurat nå. Vennligst ta kontakt med annonseeier."
-      images_are_processing: ~
+      images_are_processing: "Vi behandler de nye bildene dine. De vil bli synlige i løpet av noen sekunder."
       maintenance_mode:
         zero: "Nettstedet vil nå gå offline for vedlikehold"
         one: "Nettstedet vil være offline i %{count} minutt"
