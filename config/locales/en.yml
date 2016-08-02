@@ -840,9 +840,9 @@ en:
       please_contant_admin_link: "please contact the administrator"
     confirmation_instructions:
       confirmation_instructions_signature: "Best regards,<br/>The %{service_name} Team"
-      need_to_confirm: "You need to confirm your email address."
-      confirmation_link_text: "Confirm my email"
-      or_paste_link: "Alternatively you can copy the following link to your browser's address bar:"
+      need_to_confirm: "Confirm your email address by clicking the button below."
+      confirmation_link_text: "Confirm my address"
+      or_paste_link: "Alternatively, you can copy the following link to your browser's address bar:"
     common:
       hey: "Hello %{name},"
       kassi_team: "The %{service_name} Team"
