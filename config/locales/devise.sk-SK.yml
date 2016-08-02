@@ -1,14 +1,15 @@
 sk-SK:
   errors:
     messages:
-      expired: "vypršala, prosím požiadať o nové"
-      not_found: "súbor nenájdený"
-      already_confirmed: "bolo už potvrdené, prosím skúste sa znova prihlásiť"
-      not_locked: "nebol zamknutý"
+      expired: "vypršala, prosím požiadajte o novú"
+      not_found: "nebola nájdená"
+      already_confirmed: "bola už potvrdená, prosím skúste sa znova prihlásiť"
+      not_locked: "nebola zamknutá"
       not_saved:
-        one: "1 chyba zabraňuje %{resource} ukladať"
-        few: "%{count} chyby zabraňujú %{resource} ukladať"
-        other: "Premenné: %{resource} %{count}"
+        one: "1 chyba %{resource} zabraňuje uloženiu"
+        few: "%{count} chyby %{resource} zabraňujú uloženiu%"
+        other: "%{count} chýb %{resource} zabraňuje uloženiu"
+        zero: "0 chýb %{resource} zabraňuje uloženiu"
   devise:
     failure:
       already_authenticated: "Už ste prihlásený."
