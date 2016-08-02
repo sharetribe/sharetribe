@@ -27,8 +27,8 @@ module FeatureFlagService::Store
     def get(community_id, person_id)
       Maybe(FeatureFlagModel.where(community_id: community_id, person_id: person_id))
         .map { |features|
-          person_id ? from_person_models(person_id, features) : from_community_models(community_id, features) }
-        .or_else(no_flags(community_id, person_id))
+          person_id ? from_person_models(person_id, features) : from_community_models(community_id, features)
+        }.or_else(no_flags(community_id, person_id))
     end
 
     def enable(community_id, person_id, features)
