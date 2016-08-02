@@ -29,6 +29,7 @@ RSpec.configure do |config|
 
   config.after(:each, :'no-transaction' => true) do
     clean_db.call
+    DatabaseCleaner.strategy = :transaction
   end
 
   config.before(:each) do
