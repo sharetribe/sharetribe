@@ -32,5 +32,6 @@ Feature flags can be toggled in two ways:
 1. Query params
 If you're logged in as superadmin, you can append `?enable_feature=<your_flag>` to enable the feature for current session
 
-1. Console
-Run this in Rails console: `FeatureFlagService::API::Api.features.enable(community_id: <community_id>, features: [:<your_flag>])`
+2. Run a command in console
+   - Community-specific flag: `FeatureFlagService::API::Api.features.enable(community_id: <community_id>, features: [:<your_flag>])`
+   - User-specific flag: `FeatureFlagService::API::Api.features.enable(community_id: <community_id>, person_id: <person_id>, features: [:<your_flag>])`
