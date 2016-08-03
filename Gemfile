@@ -167,6 +167,9 @@ group :test do
   gem 'rack-test', "~> 0.6.2"
   gem 'database_cleaner', '~> 1.1'
   gem 'connection_pool', "~> 0.9.3"
+
+  # required for CircleCI automatic test balancing
+  gem 'rspec_junit_formatter'
 end
 
 group :development, :test do

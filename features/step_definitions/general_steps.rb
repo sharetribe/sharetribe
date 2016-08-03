@@ -35,11 +35,7 @@ Then /^I should see selector "([^"]*)"(?: within "([^"]*)")?$/ do |css_selector,
 end
 
 Then /^(?:|I )should not see selector "([^"]*)"?$/ do |selector|
-  lambda {
-    with_scope(selector) do
-      # nothing to do here, just try to search the selector and should fail on that
-    end
-  }.should raise_error(Capybara::ElementNotFound)
+  expect(page.has_css?(selector)).to eq(false)
 end
 
 When /^(?:|I )attach a listing image "([^"]*)"$/ do |file|

@@ -4,7 +4,8 @@ module AdminCategorySteps
   DOWN_LINK_SELECTOR = ".category-action-down"
 
   def find_category_row(category_name)
-    find(".category-row", :text => "#{category_name}")
+    expect(page).to have_css(".category-row", text: category_name)
+    find(".category-row", text: category_name)
   end
 
   def find_remove_link_for_category(category_name)

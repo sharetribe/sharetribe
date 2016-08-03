@@ -30,7 +30,8 @@ Given /^that listing is closed$/ do
 end
 
 When(/^I select "(.*?)" from listing type menu$/) do |title|
-  first('.select', :text => title).click
+  expect(page).to have_css(".select", text: title)
+  first('.select', text: title).click
 end
 
 Given(/^that listing has a numeric answer "(.*?)" for "(.*?)"$/) do |answer, custom_field|
@@ -267,16 +268,19 @@ end
 
 When(/^I select category "(.*?)"$/) do |category_name|
   expect(page).to have_content("Select category")
+  expect(page).to have_css(".select", text: category_name)
   first(".select", text: category_name).click
 end
 
 When(/^I select subcategory "(.*?)"$/) do |subcategory_name|
   expect(page).to have_content("Select subcategory")
+  expect(page).to have_css(".select", text: subcategory_name)
   first(".select", text: subcategory_name).click
 end
 
 When(/^I select listing shape "(.*?)"$/) do |listing_shape_name|
   expect(page).to have_content("Select listing type")
+  expect(page).to have_css(".select", text: listing_shape_name)
   first(".select", text: listing_shape_name).click
 end
 

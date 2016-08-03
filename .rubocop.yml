@@ -13,6 +13,7 @@ AllCops:
     - 'config/**/*'
     - 'node_modules/**/*'
     - 'client/node_modules/**/*'
+    - 'vendor/bundle/**/*'
   TargetRubyVersion: 2.3
 
 Style/RegexpLiteral:

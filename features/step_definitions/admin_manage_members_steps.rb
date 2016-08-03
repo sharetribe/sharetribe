@@ -4,7 +4,8 @@ module AdminManageMembersSteps
   REMOVE_USER_CHECKBOX_SELECTOR = ".admin-members-remove-user"
 
   def find_row_for_person(full_name)
-    email_div = find(".admin-members-full-name", :text => "#{full_name}")
+    expect(page).to have_css(".admin-members-full-name", :text => full_name)
+    email_div = find(".admin-members-full-name", :text => full_name)
     email_row = email_div.first(:xpath, ".//..")
   end
 

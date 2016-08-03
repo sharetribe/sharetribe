@@ -32,7 +32,12 @@ World(FillInHelpers)
 
 module WithinHelpers
   def with_scope(locator)
-    locator ? within(locator) { yield } : yield
+    if locator
+      expect(page).to have_css(locator)
+      within(locator) { yield }
+    else
+      yield
+    end
   end
 end
 World(WithinHelpers)
