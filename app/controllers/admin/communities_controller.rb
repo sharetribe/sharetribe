@@ -125,7 +125,7 @@ class Admin::CommunitiesController < ApplicationController
   def menu_links
     @selected_left_navi_link = "menu_links"
 
-    if FeatureFlagHelper.feature_enabled?(:topbar_v1)
+    if FeatureFlagHelper.feature_enabled?(:topbar_v1) || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)
       limit_priority_links = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:limit_priority_links]
       all = view_context.t("admin.communities.menu_links.all")
       limit_priority_links_options = (0..5).to_a.map {|o| [o, o]}.concat([[all, -1]])
@@ -147,7 +147,7 @@ class Admin::CommunitiesController < ApplicationController
 
     menu_links_params = Maybe(params)[:menu_links].permit!.or_else({menu_link_attributes: {}})
 
-    if FeatureFlagHelper.feature_enabled?(:topbar_v1)
+    if FeatureFlagHelper.feature_enabled?(:topbar_v1) || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)
       limit_priority_links = params[:limit_priority_links].to_i
       MarketplaceService::API::Api.configurations.update({
         community_id: @current_community.id,

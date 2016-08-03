@@ -45,7 +45,7 @@
       .col-12
         = link_to t("admin.communities.menu_links.add_menu_link"), "#", :id => "menu-links-add"
 
-    - if FeatureFlagHelper.feature_enabled?(:topbar_v1)
+    - if FeatureFlagHelper.feature_enabled?(:topbar_v1) || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)
       .row
         .col-12
           .checkbox-container
