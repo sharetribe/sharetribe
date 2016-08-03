@@ -45,6 +45,10 @@ body {
   padding-bottom: lines(3);
   padding-top: lines(0.5);
 
+  &.homepage {
+    padding-top: lines(0.5);
+  }
+
   p {
     margin-bottom: lines(0.5);
     -webkit-hyphens: auto;
@@ -60,6 +64,10 @@ body {
 
   @include media(tablet) {
     padding-top: lines(1);
+
+    &.homepage {
+      padding-top: lines(1.75);
+    }
   }
 
 }

@@ -5,6 +5,7 @@
   -# Render railsContext here before any react component gets rendered
   = prepend_render_rails_context("")
 
+  - is_homepage = params[:controller] == "homepage" && params[:action] == "index"
   %noscript
     .noscript-padding
       -# Noscript content will be positioned here
@@ -35,7 +36,7 @@
           %figure.marketplace-cover.fluidratio
             .lander-content.marketplace-lander-content
               = yield :title_header
-      - else
+      - elsif !(is_homepage && FeatureFlagHelper.feature_enabled?(:topbar_v1))
         .coverimage
           %figure.marketplace-cover-small.fluidratio
           .coverimage-fade{:class => yield(:coverfade_class)}
@@ -45,7 +46,7 @@
             .marketplace-title-header
               = yield :title_header
 
-    %article.page-content
+    %article.page-content{class: is_homepage ? 'homepage' : ''}
       .wrapper
         = render :partial => "layouts/notifications"
         = yield
@@ -56,7 +57,7 @@
     On homepage, we want to wrap the whole page content (search bar and the "real" content) to a form, so that
     pressing send from either search bar of filter list will send all the form fields
 
-  - if params[:controller] == "homepage" && params[:action] == "index"
+  - if is_homepage
     %form{method: "get", id: "homepage-filters"}
       - params.except("action", "controller", "q", "lc", "ls", "view", "utf8", "boundingbox", "distance_max").each do |param, value|
         - unless param.match(/^filter_option/) || param.match(/^checkbox_filter_option/) || param.match(/^nf_/) || param.match(/^price_/)
