@@ -477,8 +477,8 @@ sl:
     default_community_description: ~
     cancel: ~
     fields_that_are_mandatory: ~
-    or: ~
-    password: ~
+    or: ali
+    password: Geslo
     service_name: ~
     share_types:
       request: ~
@@ -516,8 +516,8 @@ sl:
       travel: ~
       other: ~
     username: ~
-    username_or_email: ~
-    what_is_this: ~
+    username_or_email: "E-naslov ali uporabniško ime"
+    what_is_this: "Kaj je to?"
     removed_user: ~
     paypal_fee_info:
       title: ~
@@ -695,7 +695,7 @@ sl:
       ssn: ~
       routing_number: ~
       account_number: ~
-      save: ~
+      save: Shrani
     show:
       payout_details: ~
       first_name: ~
@@ -808,22 +808,22 @@ sl:
       if_this_was_error: ~
       please_contant_admin_link: ~
     confirmation_instructions:
-      confirmation_instructions_signature: ~
+      confirmation_instructions_signature: "Lep pozdrav, %{service_name} tim"
       welcome_to_kassi: ~
       need_to_confirm: "Potrditi moraš svoj e-naslov."
-      confirmation_link_text: ~
-      or_paste_link: ~
+      confirmation_link_text: "Potrdi moj e-naslov"
+      or_paste_link: "Lahko pa skopiraš naslednjo povezavo in jo prilepiš v naslovno vrstico tvojega internet brskalnika:"
       turning_on_confirmations_in_this_community: ~
     common:
       hey: ~
-      kassi_team: ~
-      thanks: ~
+      kassi_team: "%{service_name} tim"
+      thanks: "Hvala,"
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
       view_it_in_your_browser: ~
       or: ~
-      unsubscribe_from_these_emails: ~
+      unsubscribe_from_these_emails: "se odjavi od teh sporočil"
     conversation_status_changed:
       has_accepted_your_offer: ~
       has_accepted_your_request: ~
@@ -839,9 +839,9 @@ sl:
       remember_to_confirm: ~
     invitation_to_kassi:
       hi: ~
-      you_have_been_invited_to_kassi: ~
+      you_have_been_invited_to_kassi: "%{inviter} te je povabila v %{service_name}."
       here_is_a_message_from: ~
-      join_now: ~
+      join_now: "Pridruži se"
       invitation_code: "Koda povabiila: %{code}"
     new_comment:
       has_commented_your_listing_in_kassi: ~
@@ -850,9 +850,9 @@ sl:
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
-      view_message: ~
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      view_message: "Oglej si sporočilo"
+      has_sent_you_a_message_in_kassi: "%{sender} ti je poslal/a sporočilo na %{service_name}."
+      you_have_a_new_message: "Novo sporočilo na %{service_name} od %{sender_name}"
     new_payment:
       new_payment: ~
       price_per_unit_type: ~
@@ -905,8 +905,8 @@ sl:
       newest_requests: ~
       text_version_text: ~
     reset_password_instructions:
-      change_my_password: ~
-      reset_password_instructions: ~
+      change_my_password: "Spremeni moje geslo"
+      reset_password_instructions: "<p>Prejeli smo sporočilo, da si poazbil geslo ali pa uporabniško ime na  %{service_name}.</p><p>Tvoje uporabniško ime je: %{username}</p><p>Če želiš obnoviti geslo, klikni na naslednjo povezavo: %{password_reset_link}</p><br/><p>Če zahtevka za obnovite gesla nisi poslal ti, prosim, ignoriraj to sporočilo. Tvoje geslo ne bo spremenenjo, če ne klikneš na zgoraj navedeno povezavo in kreiraš novo geslo.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: ~
       you_have_not_given_feedback_yet: ~
@@ -924,8 +924,8 @@ sl:
       welcome_email_subject: ~
       welcome_to_marketplace: ~
       love_marketplace_crew: ~
-      welcome_email_footer_text: ~
-      settings_link_text: ~
+      welcome_email_footer_text: "Kakšna sporočilo bi rad prejemal od %{service_name}? %{settings_link}"
+      settings_link_text: "Preveri svoje nastavitve"
       welcome_email_subject_for_marketplace_creator: ~
       welcome_to_marketplace_creator: ~
       congrats_for_creating_your_marketplace: ~
@@ -1096,7 +1096,7 @@ sl:
     grid_item:
       processing_uploaded_image: ~
     index:
-      no_listings_with_your_search_criteria: ~
+      no_listings_with_your_search_criteria: "Žal iskalnik ni našel nobene objave, ki bi ustrezala tvojim iskalnim kriterijem. Prosim, poskusi z drugimi iskalnimi pogoji."
       no_listings_notification: ~
       add_listing_link_text: "Dodaj novo objavo"
       open_listing: ~
@@ -1192,7 +1192,7 @@ sl:
       join_this_community: ~
       read_more: ~
       feedback: "Vpiši svoje sporočilo."
-      default_feedback: ~
+      default_feedback: "Si naletel na problem na %{service_name}? Imaš morda predlog za izboljšavo naših storitev. Si opazil kako neprimerno vsebino? Ali pa želiš samo stopiti v kontakt z nami? Piši nam!"
       feedback_forum: ~
       feedback_handle: ~
       give_feedback: Kontakt
@@ -1263,11 +1263,11 @@ sl:
       create_new_listing: ~
       create_one_here: ~
       email_confirmation_sent_to_new_address: ~
-      email_not_found: ~
+      email_not_found: "Vnešenega e-naslova nismo našli v bazi %{service_name}."
       error_with_session: ~
       feedback_considered_spam: ~
       feedback_not_saved: ~
-      feedback_saved: ~
+      feedback_saved: "Hvala za tvoje sporočilo. Se ti oglasimo takoj, ko bo možno."
       feedback_sent_to: ~
       feedback_skipped: ~
       invitation_cannot_be_sent: ~
@@ -1300,7 +1300,7 @@ sl:
       error_in_payment: ~
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
-      password_recovery_sent: ~
+      password_recovery_sent: "Navodila, kako spremeniti geslo so bila poslana na tvoj e-naslov."
       person_activated: ~
       person_deactivated: ~
       person_updated_successfully: ~
@@ -1335,7 +1335,7 @@ sl:
       you_have_already_given_feedback_about_this_event: ~
       you_are_now_member: ~
       you_are_already_member: ~
-      you_must_log_in_to_create_new_listing: ~
+      you_must_log_in_to_create_new_listing: "Da lahko na %{service_name} dodajaš nove objave, se moraš prijaviti. Če še nimaš svojega uporabniškega računa, ga prosim, kreiraj tukaj %{sign_up_link}."
       additional_email_confirmed_dashboard: ~
       you_must_log_in_to_give_feedback: ~
       you_must_log_in_to_invite_new_users: ~
@@ -1351,7 +1351,7 @@ sl:
       you_must_log_in_to_change_payment_settings: ~
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
-      you_need_to_confirm_your_account_first: ~
+      you_need_to_confirm_your_account_first: "Potrditi moraš svoj e-naslov."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: ~
       joining_community_failed: ~
@@ -1415,8 +1415,8 @@ sl:
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: ~
-        youtube_info: ~
+        detailed_description: "Podroben opis"
+        youtube_info: "Če tvoj opis vsebuje YouTube povezave, bojo videi prikazani na koncu opisa."
       destination:
         destination: ~
       form_content:
@@ -1433,12 +1433,12 @@ sl:
         googlemap_description: ~
         googlemap_updatemap: ~
       images:
-        image: ~
-        best_result: ~
+        image: Slika
+        best_result: "Priporočamo, da izbereš JPG, GIF ali PNG format v velikosti %{width} krat %{height} slikovnih točk (pikslov)."
         no_file_selected: ~
         remove_image: ~
-        select_file: ~
-        add_more: ~
+        select_file: "Izbor datoteke"
+        add_more: "+ Dodaj več"
         removing: ~
         processing: ~
         loading_image: ~
@@ -1452,7 +1452,7 @@ sl:
         accepted_formats: ~
         images_not_uploaded_confirm: ~
       location:
-        location: ~
+        location: Lokacija
       price:
         price: ~
         per: ~
@@ -1472,7 +1472,7 @@ sl:
         shipping_price_additional: ~
         pickup: ~
       origin:
-        location: ~
+        location: Lokacija
         origin: ~
       send_button:
         save_listing: "Shrani objavo"
@@ -1495,9 +1495,9 @@ sl:
         comma_separate: ~
         tags: ~
       title:
-        listing_title: ~
+        listing_title: "Naslov objave"
       valid_until:
-        valid_until: ~
+        valid_until: "Datum preteka objave"
       valid_until_radio_buttons:
         for_the_time_being: ~
       privacy:
@@ -1507,12 +1507,12 @@ sl:
     help_texts:
       help_share_type_title: ~
       help_tags_title: ~
-      help_valid_until_title: ~
+      help_valid_until_title: "Datum preteka objave"
     index:
       all_categories: "Vse kategorije"
       all_offer_types: ~
       all_request_types: ~
-      category: ~
+      category: Kategorija
       did_not_found_what_you_were_looking_for: ~
       favors: ~
       housing: ~
@@ -1554,12 +1554,12 @@ sl:
     new:
       post_a_new_listing: "Dodaj objavo"
       listing: ~
-      selected_category: ~
+      selected_category: "Kategorija: %{category}"
       selected_subcategory: ~
-      selected_transaction_type: ~
-      select_category: ~
+      selected_transaction_type: "Vrsta objave: %{transaction_type}"
+      select_category: "Izberi kategorijo"
       select_subcategory: ~
-      select_transaction_type: ~
+      select_transaction_type: "Izberi vrsto objave"
       you_need_to_fill_payout_details_before_accepting: ~
       contact_admin_link_text: ~
       community_not_configured_for_payments: ~
@@ -1773,7 +1773,7 @@ sl:
       email_not_allowed: ~
       family_name: ~
       given_name: ~
-      i_accept_the: ~
+      i_accept_the: Sprejmem
       invalid_invitation_code: "Ta koda povabiila ni veljavna."
       invitation_code: "Koda povabila"
       not_required: ~
@@ -1781,7 +1781,7 @@ sl:
       organization_name: ~
       password_again: ~
       show_my_name_to_others: ~
-      sign_up: ~
+      sign_up: "Kreiraj now %{service_name} uporabniški račun"
       terms: "pogoji poslovanja"
       username_is_in_use: ~
       username_is_invalid: ~
@@ -1825,8 +1825,8 @@ sl:
       open_listings: ~
       no_listings: ~
       no_open_listings: ~
-      no_reviews: ~
-      show_all_listings: ~
+      no_reviews: "Nimaš nobenih komentarjev"
+      show_all_listings: "Pokaži vse objave"
       show_all_open_listings: ~
       show_all_reviews: ~
     followed_people:
@@ -1835,7 +1835,7 @@ sl:
       they_follow_plural: ~
       they_follow_singular: ~
       show_all_followed_people: ~
-      no_followed_people: ~
+      no_followed_people: "Ne spremljaš objav nobene osebe"
     follow_button:
       following: ~
       follow: ~
@@ -1852,8 +1852,8 @@ sl:
       search_verb: ~
   sessions:
     new:
-      create_new_account: ~
-      i_forgot_my_password: ~
+      create_new_account: "Kreiraj nov račun..."
+      i_forgot_my_password: "Si pozabil uporabniško ime ali geslo?"
       login: ~
       login_to_kassi: ~
       connect_your_facebook_to_kassi: ~
@@ -1864,17 +1864,17 @@ sl:
       cancle_facebook_connect: ~
       facebook_cancel_link_text: ~
       log_in_with_your_facebook_account: ~
-      or_sign_up_with_your_username: ~
+      or_sign_up_with_your_username: "... ali s svojim uporabniškim imenom ali e-naslovom:"
       we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: ~
       password_recovery_instructions: "Vnesi svoj e-naslov, da dobiš uporabniško ime in obnoviš geslo."
-      request_new_password: ~
-      change_your_password: ~
+      request_new_password: "Zahtevaj novo geslo"
+      change_your_password: "Sprememba gesla"
     confirmation_pending:
       welcome_to_kassi: ~
       check_your_email: ~
-      resend_confirmation_instructions: ~
+      resend_confirmation_instructions: "Ponovno pošlji navodila za potrditev uporabniškega računa"
       your_current_email_is: ~
       change_email: ~
       confirm_your_email: "Prosim, potrdi svoj e-naslov."
@@ -1885,7 +1885,7 @@ sl:
   settings:
     account:
       change: ~
-      confirm_new_password: ~
+      confirm_new_password: "Potrdi novo geslo"
       delete_account: ~
       delete_account_button: ~
       delete_account_confirmation_popup: ~
@@ -1894,8 +1894,8 @@ sl:
       delete_personal_information: ~
       delete_information_others_involved: ~
       unfinished_transactions: ~
-      new_password: ~
-      save: ~
+      new_password: "Novo geslo"
+      save: Shrani
       these_fields_are_shown_only_to_you: ~
       email_already_confirmed: ~
       email:
@@ -1944,7 +1944,7 @@ sl:
       family_name: ~
       given_name: ~
       first_name_with_initial: ~
-      first_name_only: ~
+      first_name_only: "(ni vidno drugim uporabnikom)"
       location_description: ~
       phone_number: ~
       profile_picture: ~
@@ -1952,11 +1952,11 @@ sl:
       profile_page: ~
       profilemap: ~
       street_address: ~
-      these_fields_are_shown_in_your: ~
+      these_fields_are_shown_in_your: "Te informacije so vidne vsem %{service_name} uporabnikom"
       visible_to_everybody: ~
       visible_to_registered_users: ~
-      default_in_listing: ~
-      invisible: ~
+      default_in_listing: "(uporabljeno kot osnovna lokacija, ko kreiraš nove objave)"
+      invisible: "(ni vidno drugim uporabnikom)"
       image_is_processing: ~
     save_information: ~
   shipping_address:
@@ -1969,8 +1969,8 @@ sl:
     show:
       accept_terms: "Potrditev %{service_name} pogojev poslovanja"
       here: ~
-      i_accept_new_terms: ~
-      i_accept_terms: ~
+      i_accept_new_terms: "Sprejmem nove pogoje uporabe"
+      i_accept_terms: "Sprejmem pogoje uporabe"
       terms: "%{service_name} pogoji poslovanja"
       terms_have_changed: ~
       you_can_view_the_new_terms: ~

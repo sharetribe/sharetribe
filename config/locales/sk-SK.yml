@@ -591,10 +591,10 @@ sk-SK:
       rejected_request: "zamietol žiadosť, zrušil platbu"
       rejected_offer: "zamietol ponuku"
       confirmed_request: "označil objednávku ako vybavenú"
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      paid: ~
+      confirmed_offer: "označiť objednávku ako vybavenú"
+      canceled_request: "zrušil objednávku"
+      canceled_offer: "zrušil ponuku"
+      paid: "zaplatil %{sum}"
       payment_preauthorized: ~
     new:
       message: Správa
@@ -627,20 +627,20 @@ sk-SK:
       payment_errored: ~
       payment_errored_starter: ~
       payment_errored_author: ~
-      cancel_payed_transaction: ~
+      cancel_payed_transaction: Zruš
       feedback_given: "Spätná väzba"
       feedback_skipped: "Spätná väzba preskočená."
       give_feedback: "Dať spätnú väzbu."
       offer_accepted: Schválené
       offer_rejected: Odmietnuté
-      offer_canceled: ~
-      offer_confirmed: ~
+      offer_canceled: Zrušená
+      offer_confirmed: Ukončená
       offer_paid: ~
       offer_preauthorized: ~
       offer_waiting_for_payment: ~
-      pay: ~
+      pay: Zaplatiť
       preauthorized: ~
-      paid: ~
+      paid: "Platba úspešná"
       pending_external:
         paypal:
           multicurrency: ~
@@ -650,17 +650,17 @@ sk-SK:
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: Schválené
       request_rejected: Odmietnuté
-      request_confirmed: ~
-      request_canceled: ~
+      request_confirmed: Ukončená
+      request_canceled: Zrušená
       request_paid: ~
       request_preauthorized: ~
       skip_feedback: "Preskočiť spätnú väzbu."
-      waiting_for_listing_author_to_accept_offer: ~
-      waiting_for_listing_author_to_accept_request: ~
+      waiting_for_listing_author_to_accept_offer: "Čaká sa na %{listing_author_name}, kým prijme objednávku"
+      waiting_for_listing_author_to_accept_request: "Čaká sa na %{listing_author_name}, kým prijme žiadosť. Akonále %{listing_author_name} žiadosť prijme, bude zaúčtovaná"
       waiting_for_you_to_accept_request: ~
-      waiting_confirmation_from_requester: ~
+      waiting_confirmation_from_requester: "Čaká sa na %{requester_name}, až objednávku označí ako vybavenú"
       waiting_confirmation_from_you: ~
-      waiting_payment_from_requester: ~
+      waiting_payment_from_requester: "Čaká sa na užívateľa %{requester_name}, kým zaplatí"
       waiting_payment_from_you: ~
       waiting_feedback_from_you: ~
       pending_external_inbox:
@@ -678,8 +678,8 @@ sk-SK:
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
       reject_preauthorized_request: ~
-      confirm: ~
-      cancel: ~
+      confirm: "Označiť ako vybavené"
+      cancel: Spor
   braintree_accounts:
     new:
       add_payout_details: ~
@@ -757,7 +757,7 @@ sk-SK:
       you_can_accept_or_reject_request_at: "Môžete prijať alebo odmietnuť žiadosť u"
       you_have_not_yet_accepted_or_rejected_offer: "Ešte nie je prijatá alebo odmietnutá ponuka %{title}, ktorú ste dostali %{date}"
       you_have_not_yet_accepted_or_rejected_request: "Ešte nie je prijatá alebo odmietnutá žiadosť %{title}, ktorú ste dostali %{date}"
-      show_thread: ~
+      show_thread: "Zobraz konverzáciu"
     branding:
       powered_by: ~
       create_own: ~
@@ -766,9 +766,9 @@ sk-SK:
       account_ready: ~
       message: ~
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: ~
+      you_have_not_yet_confirmed_or_canceled_request: "Objednávka nebola ešte potvrdená alebo zrušená %{request_link}. V prípade, že objednávka bola vybavená, mali by ste ju potvrdiť. Potom môžete ohodnotiť užívateľa %{other_party_given_name}."
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
-      remember_to_confirm_request: ~
+      remember_to_confirm_request: "Nezabudnite potvrdiť alebo zrušiť žiadosť"
       if_will_not_happen_you_should_cancel: ~
       if_will_not_happen_you_should_cancel_escrow: ~
       if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~

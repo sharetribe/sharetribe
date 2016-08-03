@@ -11,7 +11,7 @@ sl:
       unauthenticated: ~
       unconfirmed: ~
       locked: ~
-      invalid: ~
+      invalid: "Napašen e-naslov ali geslo."
       invalid_token: ~
       timeout: ~
       inactive: ~
@@ -48,8 +48,8 @@ sl:
       failure: ~
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "Navodila za potrditev uporabniškega računa"
       reset_password_instructions:
-        subject: ~
+        subject: "Navodila za ponastavitev gesla"
       unlock_instructions:
         subject: ~
