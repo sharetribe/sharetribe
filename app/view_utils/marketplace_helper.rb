@@ -7,8 +7,8 @@ module MarketplaceHelper
   end
 
   def style_customizations_map(community)
-    color1 = community.custom_color1&.downcase || "a64c5d"
-    color2 = community.custom_color2&.downcase || community.custom_color1&.downcase || "00a26c"
+    # get colors from helper, but strip # prefix
+    color1, color2 = CommonStylesHelper.marketplace_colors(community).map{ |k, v| v[1..-1] }
 
     {
       color1: color1,
