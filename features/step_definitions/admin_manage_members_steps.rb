@@ -9,16 +9,22 @@ module AdminManageMembersSteps
     email_row = email_div.first(:xpath, ".//..")
   end
 
+  def find_element_for_person(full_name, selector)
+    row = find_row_for_person(full_name)
+    expect(row).to have_css(selector)
+    row.find(selector)
+  end
+
   def find_posting_allowed_checkbox_for_person(full_name)
-    find_row_for_person(full_name).find(POSTING_ALLOWED_CHECKBOX_SELECTOR)
+    find_element_for_person(full_name, POSTING_ALLOWED_CHECKBOX_SELECTOR)
   end
 
   def find_admin_checkbox_for_person(full_name)
-    find_row_for_person(full_name).find(IS_ADMIN_CHECKBOX_SELECTOR)
+    find_element_for_person(full_name, IS_ADMIN_CHECKBOX_SELECTOR)
   end
 
   def find_remove_link_for_person(full_name)
-    find_row_for_person(full_name).find(REMOVE_USER_CHECKBOX_SELECTOR)
+    find_element_for_person(full_name, REMOVE_USER_CHECKBOX_SELECTOR)
   end
 
 end
