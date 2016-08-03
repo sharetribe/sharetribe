@@ -118,7 +118,7 @@ es-ES:
         custom_head_script: "Script personalizado"
         custom_head_script_instructions_text: "Éste script será añadido al <head> de cada página y se puede usar para añadir un CSS personalizado, JavaScript o HTML. Por favor, recuerda que futuras actualizaciones de Sharetribe pueden hacer que tu script deje de funcionar correctamente."
       edit_text_instructions:
-        edit_text_instructions: "Instrucciones textuales"
+        edit_text_instructions: "Textos de instrucción"
       edit_welcome_email:
         welcome_email_content: "Contenido del email de bienvenida."
         welcome_email_content_description: "El mensaje de abajo se enviará a todos los nuevos usuarios cuando se registren. Puedes personalizar el mensaje para que se ajuste a tu comunidad.  Haciendo clic en '%{send_test_message_link}' podrás enviar un mensaje de prueba a tu correo electrónico, para que veas cómo se muesta en la bandeja de entrada."
@@ -191,7 +191,7 @@ es-ES:
         search_preferences: "Preferencias de búsqueda"
         default_search_type: "Tipo de búsqueda: %{select_search_type}"
         keyword_search: "Búsqueda por palabras clave"
-        keyword_and_location_search: ~
+        keyword_and_location_search: "Búsqueda por ubicación y palabras clave"
         location_search: "Búsqueda por ubicación"
         select_distance_unit: "Mostrar distancia en %{distance_units_selector}"
         km: km
@@ -224,7 +224,7 @@ es-ES:
         you_will_be_redirected_to: "Después de que elimines tu marketplace serás redirigido a %{destination}. Ya no podrás volver a acceder a tu marketplace."
         delete_this_marketplace: "Eliminar este marketplace"
       manage_members:
-        manage_members: "Gestionar usuarios"
+        manage_members: "Administrar usuarios"
         email: Email
         name: Nombre
         join_date: "Fecha de registro"
@@ -1991,7 +1991,7 @@ es-ES:
       visible_to_registered_users: "visible a los usuarios que han iniciado sesión"
       default_in_listing: "(usada por defecto al publicar un nuevo anuncio)"
       invisible: "(no se mostrará a otros usuarios)"
-      image_is_processing: "Tu imagen de perfil se está procesando. Por favor vuelve a cargar la página en un momento."
+      image_is_processing: "Tu imagen de perfil se está procesando. Espera un momento"
     save_information: "Guardar Información"
   shipping_address:
     shipping_address: "Dirección de envío"
@@ -2140,7 +2140,7 @@ es-ES:
   web:
     topbar:
       menu: Menú
-      more: ~
+      more: Más
       search_placeholder: Buscar...
       user: Usuario
       inbox: "Bandeja de Entrada"
@@ -2151,7 +2151,7 @@ es-ES:
       login: "Iniciar sesión"
       signup: Registrarse
       admin_dashboard: "Panel de administración"
-      language: ~
+      language: Idioma
   will_paginate:
     models:
       person:

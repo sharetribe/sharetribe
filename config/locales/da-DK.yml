@@ -191,12 +191,12 @@ da-DK:
         search_preferences: "Søge præferencer"
         default_search_type: "Søgetype: %{select_search_type}"
         keyword_search: "Nøgleord søgning"
-        keyword_and_location_search: ~
+        keyword_and_location_search: "Nøgleord og område søgning"
         location_search: "Lokations søgning"
         select_distance_unit: "Vis afstend i %{distance_units_selector}"
         km: km
         miles: mil
-        show_only_nearby: ~
+        show_only_nearby: "Vis kun annoncer i nærheden, med område søgning"
         listing_preferences: Annonceindstillinger
         transaction_preferences: "Transaktions indstillinger"
         show_listing_publishing_date: "Vis oprettelsesdato af annoncen på annonce siden"
@@ -271,10 +271,10 @@ da-DK:
         language: Sprog
         url: URL
         empty: "Du har ikke tilføjet nogen nye links i menuen"
-        max_number_of_links: ~
-        all: ~
-        max_number_of_links_info: ~
-        about_page: ~
+        max_number_of_links: "Maksimalt antal links, der vises i den øverste bjælke: %{select_max_number}"
+        all: Alle
+        max_number_of_links_info: "Link til %{about_page} vises altid som det første menu link"
+        about_page: "om side"
       transactions:
         export_all_as_csv: "Eksporter alle som CSV"
         transactions: "Vis transaktioner"
@@ -976,10 +976,10 @@ da-DK:
       you_are_receiving_this_because: "Du har modtaget denne mail, fordi du følger %{author_name}."
       view_listing: "Vis annonce"
     new_member_notification:
-      new_member_has_joined: ~
-      this_is_automatic_message: ~
-      person_name: ~
-      person_email: ~
+      new_member_has_joined: "Et nyt medlem har tilmeldt sig %{community}. Medlemmet skal muligvis bekræfte sin e-mail-adresse først."
+      this_is_automatic_message: "Dette er en automatisk meddelelse sendt til administratorer af %{community}."
+      person_name: "Navn:"
+      person_email: "E-mail:"
   error_messages:
     onboarding:
       server_rendering: "Kom godt i gang guide kunne ikke indlæses. Vi er blevet informeret om situationen, og vi løser det."
@@ -1389,7 +1389,7 @@ da-DK:
       payment_details_add_successful: "Du har nu tilføjet dine betalingsoplysninger"
       payment_details_add_error: "Vi kunne ikke tilføje dine betalingsoplysninger"
       listing_author_payment_details_missing: "Kontakt sælger ved at trykke på knappen 'Kontakt' nedenfor. De skal opdatere deres betalingsoplysninger for at kunne modtage betalinger."
-      images_are_processing: ~
+      images_are_processing: "Vi behandler dine nye billeder, de vil være synlige om et par sekunder."
       maintenance_mode:
         zero: "Dette website vil nu være offline for vedligeholdelse"
         one: "Dette website vil være offline for vedligeholdelse i %{count} minut"
@@ -2140,7 +2140,7 @@ da-DK:
   web:
     topbar:
       menu: Menu
-      more: ~
+      more: Mere
       search_placeholder: Søg...
       user: Bruger
       inbox: Indbakke
@@ -2150,8 +2150,8 @@ da-DK:
       logout: "Log ud"
       login: "Log på"
       signup: "Opret profil﻿"
-      admin_dashboard: ~
-      language: ~
+      admin_dashboard: "Administrator Dashboard"
+      language: Sprog
   will_paginate:
     models:
       person:
