@@ -17,6 +17,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 ### Changed
 
 - Remove the need for CSS compilation per marketplace [#2325](https://github.com/sharetribe/sharetribe/pull/2325)
+- Update default colors [#2365](https://github.com/sharetribe/sharetribe/pull/2365)
 
 ### Fixed
 

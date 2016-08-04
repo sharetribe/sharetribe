@@ -8,8 +8,8 @@ end
 
 World(AdminLookAndFeelSteps)
 
-When(/^I set the main color to "(.*?)"$/) do |color|
-  steps %Q{ And I fill in "community[custom_color1]" with "#{color}" }
+When(/^I set the new listing button color to "(.*?)"$/) do |color|
+  steps %Q{ And I fill in "community[custom_color2]" with "#{color}" }
 end
 
 Then(/^I should see that the background color of Post a new listing button is "(.*?)"$/) do |color|
