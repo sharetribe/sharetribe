@@ -45,7 +45,7 @@ body {
   padding-bottom: lines(3);
   padding-top: lines(0.5);
 
-  &.homepage {
+  &.no-cover-photo {
     padding-top: lines(0.5);
   }
 
@@ -65,7 +65,7 @@ body {
   @include media(tablet) {
     padding-top: lines(1);
 
-    &.homepage {
+    &.no-cover-photo {
       padding-top: lines(1.75);
     }
   }
