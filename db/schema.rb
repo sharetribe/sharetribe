@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728102918) do
+ActiveRecord::Schema.define(version: 20160728130503) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -407,13 +407,14 @@ ActiveRecord::Schema.define(version: 20160728102918) do
 
   create_table "feature_flags", force: :cascade do |t|
     t.integer  "community_id", limit: 4,                  null: false
+    t.string   "person_id",    limit: 255
     t.string   "feature",      limit: 255,                null: false
     t.boolean  "enabled",                  default: true, null: false
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
   end
 
-  add_index "feature_flags", ["community_id"], name: "index_feature_flags_on_community_id", using: :btree
+  add_index "feature_flags", ["community_id", "person_id"], name: "index_feature_flags_on_community_id_and_person_id", using: :btree
 
   create_table "feedbacks", force: :cascade do |t|
     t.text     "content",      limit: 65535
