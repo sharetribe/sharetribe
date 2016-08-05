@@ -56,7 +56,7 @@
 
     .row
       .col-12
-        - post_new_listing = "<i>#{t("homepage.index.post_new_listing")}&nbsp;</i>"
+        - post_new_listing = "<i>#{t("homepage.index.post_new_listing")}</i>"
         = form.label :custom_color2, t(".community_custom_color2", post_new_listing: post_new_listing).html_safe, :class => "input"
         = render :partial => "layouts/info_text", :locals => { :text =>  t(".custom_color2_instructions_text", post_new_listing: post_new_listing).html_safe }
         = form.text_field :custom_color2, :maxlength => "6", :class => "text_field"
