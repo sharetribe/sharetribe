@@ -2141,4 +2141,4 @@ tr-TR:
         zero: "%{model} bulunamadı"
         other: "%{count} %{model} görüntüleniyor"
       multi_page: "Toplam %{count} %{model}'den %{from} - %{to} arası görüntüleniyor"
-      multi_page_html: "Toplam %{count} %{model}'den %{from} &nbsp;-&nbsp;% %{to} arası görüntüleniyor"
+      multi_page_html: "Toplam %{count} %{model}'den %{from}&nbsp;-&nbsp;%{to} arası görüntüleniyor"

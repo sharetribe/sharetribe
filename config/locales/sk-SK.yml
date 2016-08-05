@@ -769,29 +769,29 @@ sk-SK:
       you_have_not_yet_confirmed_or_canceled_request: "Objednávka nebola ešte potvrdená alebo zrušená %{request_link}. V prípade, že objednávka bola vybavená, mali by ste ju potvrdiť. Potom môžete ohodnotiť užívateľa %{other_party_given_name}."
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
       remember_to_confirm_request: "Nezabudnite potvrdiť alebo zrušiť žiadosť"
-      if_will_not_happen_you_should_cancel: ~
+      if_will_not_happen_you_should_cancel: "Pokiaľ si myslíte, že Vaša objednávka nebola vybavená z akéhokoľvek dôvodu, môžete ju zrušiť %{cancel_it_link}."
       if_will_not_happen_you_should_cancel_escrow: ~
       if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
-      cancel_it_link_text: ~
+      cancel_it_link_text: zrušiť
       automatic_confirmation: ~
     payment_reminder:
-      remember_to_pay: ~
-      you_have_not_yet_paid: ~
-      if_will_not_happen_you_should_cancel: ~
-      cancel_it_link_text: ~
+      remember_to_pay: "Nezabudnite zaplatiť za %{listing_title}"
+      you_have_not_yet_paid: "Užívateľ %{other_party_name} schválil Vašu ponuku, ale ešte ste za %{listing_title} nezaplatili."
+      if_will_not_happen_you_should_cancel: "Pokiaľ si myslíte, že táto objednávka nebude vybavená z akýkoľvek dôvodov, môžete ju stále %{cancel_it_link}."
+      cancel_it_link_text: zrušiť
     payment_settings_reminder:
       remember_to_add_payment_details: ~
       you_have_added_listing_with_payment: ~
       please_go_to_payment_settings: ~
       payment_settings_link: ~
     transaction_confirmed:
-      here_is_a_message_from: ~
-      request_marked_as_confirmed: ~
-      request_marked_as_canceled: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
-      giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      here_is_a_message_from: "Správa od úžívateľa %{other_party_given_name}"
+      request_marked_as_confirmed: "Objednávka bola vybavená - nezabudnite na hodnotenie"
+      request_marked_as_canceled: "Objednávka bola zrušená"
+      has_marked_request_as_confirmed: "Uživateľ %{other_party_full_name} označil objednávku %{request} ako vybavenú. Teraz môžete ohodnotiť užívateľa %{other_party_given_name}."
+      has_marked_request_as_canceled: "Užívateľ %{other_party_full_name} zrušil objednávku %{request}. Stále môžete ohodnotiť užívateľa %{other_party_given_name}."
+      giving_feedback_is_good_idea: "Hodnotenie je vždy užitočné. Pokiaľ všetko prebehlo v poriadku, mali by ste ostatným dať vedieť, že užívateľ %{other_party_given_name} je dôveryhodný. Je dobré zanechať hodnotenie aj v prípade zlej skúsenosti."
+      give_feedback_to: "Zanechať hodnotenie pre %{other_party_given_name}"
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
@@ -812,7 +812,7 @@ sk-SK:
       welcome_to_kassi: "Vitajte v %{service_name}!"
       need_to_confirm: "Potrebujete overiť Vašu e-mailovú adresu."
       confirmation_link_text: "Potvrdiť e-mail"
-      or_paste_link: ~
+      or_paste_link: "Alternatívne môžete tento odkaz skopírovať do internetového prehliadača:"
       turning_on_confirmations_in_this_community: "Začíname používať e-mailové potvrdenia v tomto %{service_name} obchode."
     common:
       hey: "Dobrý deň %{name}"
@@ -829,35 +829,35 @@ sk-SK:
       has_accepted_your_request: "%{accepter} prijal Vašu žiadosť %{listing}"
       has_rejected_your_offer: "%{accepter} odmietol Vašu ponuku %{listing}"
       has_rejected_your_request: "%{accepter} odmietol Vašu žiadosť %{listing}"
-      view_thread: ~
+      view_thread: "Zobraz konverzáciu"
       your_offer_was_accepted: "Vaša ponuka je prijatá"
       your_offer_was_rejected: "Vaša ponuka bola odmietnutá"
       your_request_was_accepted: "Vaša žiadosť bola prijatá"
       your_request_was_rejected: "Vaša žiadosť bola odmietnutá"
-      you_can_now_pay_to: ~
-      pay_now: ~
+      you_can_now_pay_to: "Teraz môžete zaplatiť požadovanú čiastku užívateľovi %{payment_receiver}"
+      pay_now: Zaplatiť
       remember_to_confirm: ~
     invitation_to_kassi:
       hi: Ahoj!
       you_have_been_invited_to_kassi: "%{inviter} Vás pozval do %{service_name}."
       here_is_a_message_from: "Toto je súkromná správa od %{inviter}:"
-      join_now: ~
-      invitation_code: ~
+      join_now: "Pripojiť sa"
+      invitation_code: "Kód pozvánky: %{code}"
     new_comment:
       has_commented_your_listing_in_kassi: ~
-      view_comment: ~
+      view_comment: "Zobraz komentár"
       you_have_a_new_comment: "%{author} komentoval na Váš zoznam %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} ktorého sledujete komentoval Váš zoznam v %{service_name}"
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
-      view_message: ~
+      view_message: "Zobraz správu"
       has_sent_you_a_message_in_kassi: "%{sender} poslal Vám správu v %{service_name}"
       you_have_a_new_message: "Nová správa v %{service_name} od %{sender_name}"
     new_payment:
-      new_payment: ~
+      new_payment: "Obdržali ste novú platbu"
       price_per_unit_type: ~
       quantity: ~
-      you_have_received_new_payment: ~
+      you_have_received_new_payment: "Obdržali ste čiastku <b>%{payment_sum}</b> za <b>%{listing_title}</b> od užívateľa %{payer_full_name}. Tu je Vaše potvrdenie."
     paypal_new_payment:
       paypal_gateway_fee: ~
       shipping_total: ~
@@ -882,11 +882,11 @@ sk-SK:
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} Vám dal spätnú väzbu %{service_name}"
       you_can_give_feedback_to: "Ešte ste nedali spätnú väzbu %{name}"
-      view_feedback: ~
+      view_feedback: "Zobraz hodnotenie"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Zoznamy, ktoré sledujete boli aktualizované"
       has_updated_listing_you_follow_in_kassi: ~
-      view_changes: ~
+      view_changes: "Zobraz zmeny"
     community_updates:
       added_offer: "Užívateľ %{name_link} pridal inzerát:"
       added_request: "Užívateľ %{name_link} pridal inzerát:"
@@ -960,7 +960,7 @@ sk-SK:
       departure_time: "Čas odchodu musí byť medzi aktuálnym časom a jednym rokom odo dneška."
       share_type: "Musíte zvoliť jeden."
       valid_until: "Dátum musí byť medzi aktuálnym časom a 6 mesiacov odo dneška."
-      price: ~
+      price: "Cena musí byť zapísaná ako celé číslo."
       minimum_price: ~
     testimonials:
       you_must_explain_not_neutral_feedback: "Ak chcete dať nie neutrálny názor, musíte vysvetliť prečo."
@@ -1164,7 +1164,7 @@ sk-SK:
       search_engine_not_responding: ~
   infos:
     about:
-      default_about_text_title: ~
+      default_about_text_title: "Čo je Sharetribe?"
       default_about_text: ~
       click_here_link_text: ~
     how_to_use:
@@ -1249,7 +1249,7 @@ sk-SK:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
       test_welcome_email_delivered_to: ~
-      something_went_wrong: ~
+      something_went_wrong: "Niečo sa pokazilo"
       community_updated: "Podrobnosti boli aktualizované."
       community_update_failed: "Aktualizácia detailov zlyhala."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Váš účet bol úspešne vytvorený. Teraz musíte overiť Vašu e-mailovú adresu."
@@ -1286,16 +1286,16 @@ sk-SK:
       news_item_updated: "Výrobok bol aktualizovaný"
       news_item_deleted: "Výrobok bol odstránený"
       offer_accepted: "Ponuka schválená"
-      offer_confirmed: ~
+      offer_confirmed: "Ponuka bola potvrdená"
       offer_closed: "Ponuka uzatvorená"
-      listing_created_successfully: ~
+      listing_created_successfully: "Inzerát bol úspešne vytvorený. %{new_listing_link}"
       offer_rejected: "Ponuka odmietnutá"
-      offer_canceled: ~
+      offer_canceled: "Ponuka zrušená"
       listing_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: "Iba %{service_name} administrátory majú prístup k tejto oblasti"
       only_listing_author_can_close_a_listing: "Iba autor výpisu môže uzavrieť výpis"
       only_listing_author_can_edit_a_listing: "Iba autor výpisu môže upravovať výpis"
-      payment_successful: ~
+      payment_successful: "Platba prebehla úspešne"
       payment_canceled: ~
       error_in_payment: ~
       cannot_receive_payment: ~
@@ -1316,9 +1316,9 @@ sk-SK:
       reply_cannot_be_empty: "Nemôžete poslať prázdnu správu"
       reply_sent: "Odpoveď bola úspešne odoslaná"
       request_accepted: "Žiadosť schválená"
-      request_confirmed: ~
+      request_confirmed: "Objednávka bola vybavená."
       request_rejected: "Žiadosť odmietnutá"
-      request_canceled: ~
+      request_canceled: "Objednávka bola zrušená"
       message_sent: "Správa bola odoslaná"
       message_not_sent: ~
       this_content_is_not_available_in_this_community: "Obsah nie je k dispozícii."
@@ -1454,12 +1454,12 @@ sk-SK:
       location:
         location: Lokalita
       price:
-        price: ~
-        per: ~
+        price: Cena
+        per: za
         per_day: ~
-        mass: ~
-        time: ~
-        long_time: ~
+        mass: "kus, kg, l, m2, ..."
+        time: "hodinu, deň, mesiac, ..."
+        long_time: "týždeň, mesiac, ..."
         after_service_fee_you_will_get: ~
         no_service_fee_you_will_get_paypal_text: ~
         after_service_fee_you_will_get_paypal_text: ~
@@ -1495,7 +1495,7 @@ sk-SK:
         comma_separate: "(oddelené čiarkou)"
         tags: "Určenia (štítky)"
       title:
-        listing_title: ~
+        listing_title: "Názov inzerátu"
       valid_until:
         valid_until: "Dátum expirácie"
       valid_until_radio_buttons:
@@ -1665,10 +1665,10 @@ sk-SK:
     member_id_or_email: "Členské id alebo e-mailová adresa"
   payments:
     new:
-      new_payment: ~
-      continue: ~
-      payment_receiver: ~
-      sum: ~
+      new_payment: "Nová platba"
+      continue: Pokračovať
+      payment_receiver: "Príjemca platby:"
+      sum: "Na zaplatenie:"
     form:
       total: ~
       service_charge: ~
@@ -1922,7 +1922,7 @@ sk-SK:
       newsletters: "E-mailové správy od administrátora"
       community_updates: Letáky
       email_about_accept_reminders: "...zabudol som sa prijať ponuku alebo žiadosť"
-      email_about_confirm_reminders: ~
+      email_about_confirm_reminders: "... som zabudol/la potvrdiť objednávku ako vybavenú"
       email_about_new_comments_to_own_listing: "...niekto komentoval tvoju ponuku alebo žiadosť"
       email_about_new_messages: "...niekto ti posiela správu"
       email_about_new_received_testimonials: "...niekto pridal spätnú väzbu"
@@ -1932,9 +1932,9 @@ sk-SK:
       do_not_email_community_updates: "Neposielať novinky"
       email_when_conversation_accepted: "...niekto prijal moju ponuku alebo žiadosť"
       email_when_conversation_rejected: "...niekto odmietol moju ponuku alebo žiadosť"
-      email_about_completed_transactions: ~
-      email_about_new_payments: ~
-      email_about_payment_reminders: ~
+      email_about_completed_transactions: "... niekto označil moju objednávku ako vybavenú"
+      email_about_new_payments: "... bola prijatá nová platba"
+      email_about_payment_reminders: "... zabudol/la som zaplatiť"
       email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: "Odhlásenie prebeblo úspešne"
       unsubscribe_info_text: "Už nebudete naďalej dostávať tieto e-mailové správy. Skontrolujte si svoje %{settings_link} a zvoľte si, aký druh e-mailových správ chcete dostávať od %{service_name} alebo sa vráťte na %{homepage_link}."
@@ -2001,7 +2001,7 @@ sk-SK:
       negative: Negatívny
       default_textual_feedback: "Všetko prebehlo hladko, ďakujem veľmi pekne!"
     testimonial:
-      about_listing: ~
+      about_listing: "o inzeráte"
   date:
     formats:
       long_with_abbr_day_name: ~
