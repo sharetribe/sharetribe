@@ -68,6 +68,12 @@
       .<%= section_id %>__info__column-icon > svg path  {
         stroke: rgb(<%= s["icon_color"]["value"].join(",") %>);
       }
+      .<%= section_id %>__info__column-icon > svg .icon-no-stroke {
+        stroke: none;
+      }
+      .<%= section_id %>__info__column-icon > svg .icon-custom-color-fill {
+        fill: rgb(<%= s["icon_color"]["value"].join(",") %>);
+      }
     <% end %>
 <% end %>
 
