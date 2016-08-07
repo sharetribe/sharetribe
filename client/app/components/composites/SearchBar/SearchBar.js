@@ -97,7 +97,7 @@ class SearchBar extends Component {
 
     const keywordValue = this.keywordInput ? this.keywordInput.value : null;
 
-    if (this.state.selectedPlace) {
+    if (this.state.selectedPlace && this.state.selectedPlace.geometry) {
       // Place already selected, submitting selected value
       onSubmit({
         keywordQuery: keywordValue,
