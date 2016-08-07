@@ -19,7 +19,9 @@
 /* Used in JavaScript to toggle the mobile menu. */
 .mobileMenuOpen {} /* stylelint-disable-line block-no-empty */
 
-.root {} /* stylelint-disable-line block-no-empty */
+.root {
+  line-height: 1em;
+}
 
 .form {
   display: none;
