@@ -57,9 +57,10 @@ class HomepageController < ApplicationController
       end
 
     main_search = FeatureFlagHelper.location_search_available ? MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:main_search] : :keyword
-    location_search_in_use = main_search == :location
+    location_search_in_use = params[:lc] && (main_search == :location || main_search == :keyword_and_location)
+    keyword_search_in_use = params[:q] && (main_search == :keyword || main_search == :keyword_and_location)
 
-    search_result = find_listings(params, per_page, compact_filter_params, includes.to_set, location_search_in_use)
+    search_result = find_listings(params, per_page, compact_filter_params, includes.to_set, location_search_in_use, keyword_search_in_use)
 
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
@@ -135,13 +136,13 @@ class HomepageController < ApplicationController
 
   private
 
-  def find_listings(params, listings_per_page, filter_params, includes, location_search_in_use)
+  def find_listings(params, listings_per_page, filter_params, includes, location_search_in_use, keyword_search_in_use)
     Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
       filter_params[:categories] = category.own_and_subcategory_ids
       @selected_category = category
     end
 
-    filter_params[:search] = params[:q] if params[:q] && !location_search_in_use
+    filter_params[:search] = params[:q] if params[:q] && keyword_search_in_use
     filter_params[:custom_dropdown_field_options] = HomepageController.dropdown_field_options_for_search(params)
     filter_params[:custom_checkbox_field_options] = HomepageController.checkbox_field_options_for_search(params)
 
@@ -169,6 +170,7 @@ class HomepageController < ApplicationController
       distance_unit,
       params[:distance_max],
       APP_MINIMUM_DISTANCE_MAX,
+      location_search_in_use && keyword_search_in_use ? APP_CONFIG[:external_search_scale] : nil,
       limit_search_distance
     )
     search_extra = location_search_hash.blank? ? { sort: nil } : location_search_hash
@@ -286,17 +288,18 @@ class HomepageController < ApplicationController
     end
   end
 
-  def location_search_params(latlng, distance_unit, distance_max, minimum_distance_max, limit_by_distance)
+  def location_search_params(latlng, distance_unit, distance_max, minimum_distance_max, scale, limit_by_distance)
     # Current map doesn't react to zoom & panning, so we fetch all the results as before.
     if @view_type != 'map'
       Maybe(latlng)
         .map {
-          distance_limit = [minimum_distance_max, distance_max.to_f].max if limit_by_distance
+          distance = [minimum_distance_max, distance_max.to_f].max
+          distance_limit = distance if limit_by_distance
+          scale_or_distance = scale ? { scale: distance * scale } : { sort: :distance }
           search_coordinates(latlng).merge({
             distance_unit: distance_unit,
-            distance_max: distance_limit,
-            sort: :distance
-          }).compact
+            distance_max: distance_limit
+          }).merge(scale_or_distance).compact
         }
         .or_else({})
     else
