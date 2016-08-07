@@ -11,7 +11,7 @@ import icon from './images/search-icon.svg';
 
 const SEARCH_MODE_KEYWORD = 'keyword';
 const SEARCH_MODE_LOCATION = 'location';
-const SEARCH_MODE_KEYWORD_AND_LOCATION = 'keyword-and-location';
+const SEARCH_MODE_KEYWORD_AND_LOCATION = 'keyword_and_location';
 const SEARCH_MODES = [
   SEARCH_MODE_KEYWORD,
   SEARCH_MODE_LOCATION,
