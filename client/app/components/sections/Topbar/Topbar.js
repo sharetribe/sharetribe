@@ -121,22 +121,15 @@ const DEFAULT_CONTEXT = {
   loggedInUsername: null,
 };
 
-const currentSearchParams = (searchQuery) => {
-  const PARAMS_TO_KEEP = ['view', 'locale'];
-  const parsedParams = urlUtils.parseQuery(searchQuery);
-
-  return Object.keys(parsedParams).reduce((params, key) => {
-    if (PARAMS_TO_KEEP.includes(key)) {
-      params[key] = parsedParams[key]; // eslint-disable-line no-param-reassign
-    }
-    return params;
-  }, {});
-};
+const SEARCH_PARAMS_TO_KEEP = ['view', 'locale'];
+const parseKeepParams = urlUtils.currySearchParams(SEARCH_PARAMS_TO_KEEP);
+const SEARCH_PARAMS = ['q', 'lq'];
+const parseSearchParams = urlUtils.currySearchParams(SEARCH_PARAMS);
 
 const isValid = (value) => typeof value === 'number' && !isNaN(value) || !!value;
 
-const createQuery = (searchParams) => {
-  const extraParams = currentSearchParams(window.location.search);
+const createQuery = (searchParams, queryString) => {
+  const extraParams = parseKeepParams(queryString);
   const params = { ...extraParams, ...searchParams };
 
   console.log('creating query string from params:', params);
@@ -268,6 +261,8 @@ class Topbar extends Component {
       }) :
       {};
 
+    const oldSearchParams = parseSearchParams(location);
+
     return div({ className: css.topbar }, [
       this.props.menu ? r(MenuMobile, { ...mobileMenuProps, className: css.topbarMobileMenu }) : null,
       r(Logo, { ...this.props.logo, classSet: css.topbarLogo, color: marketplace_color1 }),
@@ -277,8 +272,8 @@ class Topbar extends Component {
           mode: this.props.search.mode,
           keywordPlaceholder: t('web.topbar.search_placeholder'),
           locationPlaceholder: t('web.topbar.search_location_placeholder'),
-          keywordQuery: this.props.search.keyword_query,
-          locationQuery: this.props.search.location_query,
+          keywordQuery: oldSearchParams.q,
+          locationQuery: oldSearchParams.lq,
           customColor: marketplace_color1,
           onSubmit: ({ keywordQuery, locationQuery, place }) => {
             console.log({
@@ -294,7 +289,7 @@ class Topbar extends Component {
               lc: placesUtils.coordinates(place),
               boundingbox: placesUtils.viewport(place),
               distance_max: placesUtils.maxDistance(place),
-            });
+            }, location);
             const searchUrl = `${this.props.search_path}${query}`;
             console.log('Search URL:', `"${searchUrl}"`);
 
