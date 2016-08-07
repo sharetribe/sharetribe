@@ -289,6 +289,7 @@ default: &default_settings
   external_search_in_use: false
   external_search_url:
   external_search_apikey:
+  external_search_scale: 0.75
 
   # Perform Thinking Sphinx incremental indexing delayed jobs
   use_thinking_sphinx_indexing: true
