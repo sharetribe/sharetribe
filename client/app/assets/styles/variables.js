@@ -55,8 +55,8 @@ module.exports = {
      }
    }
    */
-  '--breakpointMedium': 580,
-  '--breakpointLarge': 992,
+  '--breakpointMedium': 660,
+  '--breakpointLarge': 1100,
 
   '--baseFontSize': fontSize,
   '--baseFontSizeMobile': fontSizeMobile,
