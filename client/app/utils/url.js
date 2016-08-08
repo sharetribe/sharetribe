@@ -32,7 +32,9 @@ const parseQuery = (searchQuery) => {
     const pairLength = 2;
 
     if (pair.length === pairLength) {
-      params[pair[0]] = decodeURIComponent(pair[1]); // eslint-disable-line no-param-reassign
+      // We also have to deal with + char encoding a space since Rails
+      // likes these more and decodeURIComponent doesn't decode them.
+      params[pair[0]] = decodeURIComponent(pair[1]).replace(/\+/g, ' '); // eslint-disable-line no-param-reassign
     }
 
     return params;

@@ -144,7 +144,10 @@ const createQuery = (searchParams, queryString) => {
       return url;
     }
 
-    return `${url}${url ? '&' : '?'}${key}=${encodeURIComponent(val)}`;
+    // For consistency with the Rails backend, use + to encode space
+    // instead of %20.
+    const encodedVal = encodeURIComponent(val).replace(/%20/g, '+');
+    return `${url}${url ? '&' : '?'}${key}=${encodedVal}`;
   }, '');
 };
 
