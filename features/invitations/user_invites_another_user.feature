@@ -59,5 +59,5 @@ Feature: User joins invite only community
     Then I should see "This field is required."
     When I fill in "invitation_email" with "test"
     And I press "Send invitation"
-    Then I should see "Check that the email addresses you added are valid."
+    Then I should see "Check that the email addresses you added are valid and don't contain any unusual characters."
 
