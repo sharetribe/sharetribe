@@ -26,4 +26,7 @@
   }
 }
 
-.hiddenLinks {} /* stylelint-disable-line block-no-empty */
+.hiddenLinks {
+  /* Fixes dropdown being below old filter controls and admin panel selectize inputs. */
+  z-index: 2;
+}
