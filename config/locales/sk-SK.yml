@@ -618,8 +618,8 @@ sk-SK:
       payment_preauthorized: ~
     new:
       message: Správa
-      message_to: ~
-      optional_message_to: ~
+      message_to: "Správa užívateľovi %{author_name}"
+      optional_message_to: "Voliteľná správa užívateľovi %{author_name}"
       send_message: "Poslať správu"
       send: Odoslať
       this_message_is_private: "Táto správa je súkromná medzi Vami a %{person}. %{person} bude upozornený na túto správu e-mailom."
@@ -627,8 +627,8 @@ sk-SK:
       you_will_get_notified: "Obdržíte upozornenie e-mailom, keď Vám použivatel %{person} odpovie."
       title: Titul
       send_message_to_user: "Poslať správu pre %{person}"
-      about_listing: ~
-      author_has_to_accept_request: ~
+      about_listing: "Inzerát %{listing_title}"
+      author_has_to_accept_request: "%{author_name} musí prijať žiadosť, až potom budete môcť zaplatiť"
     show:
       in_response_to_listing: "o inzeráte"
       message_sent_by: "Správa od"
@@ -642,7 +642,7 @@ sk-SK:
       price: "Cena: %{price}"
       sum: "Celkovo: %{sum}"
       price_excludes_vat: "(nezahrňuje DPH)"
-      total: ~
+      total: "Celkovo: %{total}"
     status:
       payment_errored: ~
       payment_errored_starter: ~
@@ -659,7 +659,7 @@ sk-SK:
       offer_preauthorized: ~
       offer_waiting_for_payment: ~
       pay: Zaplatiť
-      preauthorized: ~
+      preauthorized: "Platba úspešná"
       paid: "Platba úspešná"
       pending_external:
         paypal:
@@ -694,10 +694,10 @@ sk-SK:
       accept_request: "Akceptovať žiadosť."
       reject_offer: "Momentálne nie."
       reject_request: "Momentálne nie."
-      accept_preauthorized_offer: ~
-      accept_preauthorized_request: ~
-      reject_preauthorized_offer: ~
-      reject_preauthorized_request: ~
+      accept_preauthorized_offer: "Prijať ponuku"
+      accept_preauthorized_request: "Prijať žiadosť"
+      reject_preauthorized_offer: "Tentokrát nie"
+      reject_preauthorized_request: "Tentokrát nie"
       confirm: "Označiť ako vybavené"
       cancel: Spor
   braintree_accounts:
@@ -931,17 +931,17 @@ sk-SK:
       remember_to_give_feedback_to: "Pripomenutie: nezabudnite uviesť spätnú väzbu %{name}"
       you_have_not_given_feedback_yet: "Ešte ste neuviedli spätnú väzbu %{name} o udalosti %{event}. event. Nezabudnite uviesť spätnú väzbu %{given_name} ako prevádzal udalosť."
     transaction_preauthorized:
-      subject: ~
-      transaction_requested_by_user: ~
+      subject: "Užívateľ %{requester} zažiadal a potvrdil platbu pre inzerát %{listing_title}"
+      transaction_requested_by_user: "Užívateľ %{requester}  zažiadal a potvrdil platbu pre inzerát \"%{listing_title}\""
       you_have_time_to_accept: ~
-      click_here_to_reply: ~
+      click_here_to_reply: "Kliknite sem pre odpoveď na žiadosť"
     transaction_preauthorized_reminder:
-      subject: ~
-      remember_to_accept: ~
-      one_day_left: ~
-      click_here_to_reply: ~
+      subject: "Nezabudnite prijať žiadosť od užívateľa %{requester} na inzerát %{listing_title}"
+      remember_to_accept: "Nezabudnite prijať žiadosť od užívateľa %{requester} na inzerát \"%{listing_title}\". Užívateľ %{requester} už zaplatil za inzerát. Musíte prijať žiadosť, aby ste mohli obdržať platbu"
+      one_day_left: "Pokiaľ neprijmete žiadosť do jedného dňa od podania žiadosti, žiadosť bude automaticky zamietnutá a peniaze Vám nebudú vyplatené."
+      click_here_to_reply: "Kliknite sem pre odpoveď na žiadosť"
     welcome_email:
-      welcome_email_subject: ~
+      welcome_email_subject: "Vitajte v %{service_name}"
       welcome_to_marketplace: ~
       love_marketplace_crew: ~
       welcome_email_footer_text: "Aký typ e-mailových správ chcete dostávať od %{service_name}? %{settings_link}"
@@ -964,10 +964,10 @@ sk-SK:
       contact_support_link_text: ~
       admin_panel_link_text: ~
     new_listing_by_followed_person:
-      subject: ~
-      has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
-      view_listing: ~
+      subject: "užívateľ %{author_name} pridal nový inzerát v %{service_name}"
+      has_posted_a_new_listing: "Užívateľ %{author_name} pridal nový inzerát"
+      you_are_receiving_this_because: "Prijali ste tento oznam pretože sledujete užívateľa %{author_name}."
+      view_listing: "Zobraziť inzerát"
     new_member_notification:
       new_member_has_joined: ~
       this_is_automatic_message: ~
@@ -1153,7 +1153,7 @@ sk-SK:
       this_article_link: ~
       invitation_emails_field_placeholder: "kamarát1@priklad.sk, kamarát2@priklad.com, ..."
       invitation_message_field_placeholder: "Navštívil som toto úžasné miesto. Mal by si tiež!"
-      errors_in_emails: "Skontrolujte si, či Vami zadané adresy sú platné. V prípade, že ste zadali viac adries, uistite sa, že či ste ich oddelili čiarkou."
+      errors_in_emails: "Skontrolujte si, či Vami zadané adresy sú platné a neobsahujú nezvyčajné  znaky. V prípade, že ste zadali viac adries, uistite sa, či ste ich oddelili čiarkou."
     list_item:
       review: hodnotenie
       reviews: hodnotenia
@@ -1369,8 +1369,8 @@ sk-SK:
       you_must_log_in_to_add_news_item: "Musíte byť prihlásený do %{service_name} aby ste mohli pridať nový výrobok."
       you_must_log_in_to_change_profile_settings: "Musíte byť prihlásený do %{service_name} aby ste mohli zmeniť profilové nastavenia."
       you_must_log_in_to_change_payment_settings: "Musíte byť prihlásený do %{service_name} aby ste mohli zmeniť nastavenie platieb"
-      you_must_log_in_to_accept_or_reject: ~
-      you_must_log_in_to_confirm_or_cancel: ~
+      you_must_log_in_to_accept_or_reject: "Musíte byť prihlásený, aby ste mohli prijať alebo odmietnuť platbu"
+      you_must_log_in_to_confirm_or_cancel: "Musíte byť prihlásený, aby ste mohli stornovať alebo potvrdiť platbu"
       you_need_to_confirm_your_account_first: "Potrebujete overiť Vašu e-mailovú adresu."
       you_must_fill_all_the_fields: "Musíte vyplniť všetky polia"
       you_unfollowed_listing: "Tento zoznam už nesledujete"
@@ -1414,10 +1414,10 @@ sk-SK:
       edit_listing: "Upraviť inzerát"
       reopen_listing: "Znovu otvoriť inzerát"
       move_to_top: "Presunúť na vrch domovskej stránky"
-      show_in_updates_email: ~
-      show_in_updates_email_loading: ~
-      show_in_updates_email_error: ~
-      show_in_updates_email_success: ~
+      show_in_updates_email: "Zobraziť v ďalších novinkách"
+      show_in_updates_email_loading: Načítavam...
+      show_in_updates_email_error: "Nepodarilo sa pripojiť k serveru. Skúste obnoviť stránky."
+      show_in_updates_email_success: "Tento inzerát bude uvedený v ďalších automaticky zasielaných novinkách pre užívateľov"
     map:
       open_in_google_maps: ~
     error:
@@ -1580,10 +1580,10 @@ sk-SK:
       select_category: "Vyberte kategóriu"
       select_subcategory: "Vyberte podkategóriu"
       select_transaction_type: "Vyberte typ inzerátu"
-      you_need_to_fill_payout_details_before_accepting: ~
+      you_need_to_fill_payout_details_before_accepting: "Potrebujete vyplniť podrobnosti o platbe pred zadaním inzerátu. Choďte na %{payment_settings_link} a vyplňte podrobnosti."
       contact_admin_link_text: ~
       community_not_configured_for_payments: ~
-      payment_settings_link: ~
+      payment_settings_link: "nastavenia platby"
       community_not_configured_for_payments_admin: ~
     quantity:
       hour: ~
@@ -1647,11 +1647,11 @@ sk-SK:
       verification_required: "Overenie požadované"
   listing_conversations:
     preauthorize:
-      details: ~
-      by: ~
-      payment: ~
-      exp: ~
-      you_will_be_charged: ~
+      details: Detaily
+      by: "%{listing} od užívateľa %{author}"
+      payment: Platba
+      exp: "Platnosť do:"
+      you_will_be_charged: "Platba Vám bude zaúčtovaná, keď užívateľ %{author} prijme podmienky transakcie. Užívateľ %{author} musí tieto podmienky prijať do %{expiration_period} dní. Pokiaľ tak užívateľ %{author} neučiní, či podmienky odmietne, tak platba nebude prevedená."
       day: ~
       days: ~
     transaction_agreement_checkbox:
@@ -1854,16 +1854,16 @@ sk-SK:
       show_all_open_listings: "Zobraziť všetky otvorené inzeráty"
       show_all_reviews: "Zobraziť všetky hodnotenia"
     followed_people:
-      you_follow_plural: ~
-      you_follow_singular: ~
-      they_follow_plural: ~
-      they_follow_singular: ~
-      show_all_followed_people: ~
-      no_followed_people: ~
+      you_follow_plural: "Sledujete %{count} ľudí"
+      you_follow_singular: "Sledujete %{count} osôb"
+      they_follow_plural: "%{count} sledovaných ľudí"
+      they_follow_singular: "%{count} sledovaných osôb"
+      show_all_followed_people: "Zobraziť všetky sledované osoby"
+      no_followed_people: "Žiadne sledované osoby"
     follow_button:
-      following: ~
-      follow: ~
-      unfollow: ~
+      following: Sledujete
+      follow: Sledovať
+      unfollow: "Prestať sledovať"
   search:
     show:
       all_results: "Všetky výsledky"
@@ -1955,7 +1955,7 @@ sk-SK:
       email_about_completed_transactions: "... niekto označil moju objednávku ako vybavenú"
       email_about_new_payments: "... bola prijatá nová platba"
       email_about_payment_reminders: "... zabudol/la som zaplatiť"
-      email_about_new_listings_by_followed_people: ~
+      email_about_new_listings_by_followed_people: "...niekto koho sledujete, pridal nový inzerát"
       unsubscribe_succesful: "Odhlásenie prebeblo úspešne"
       unsubscribe_info_text: "Už nebudete naďalej dostávať tieto e-mailové správy. Skontrolujte si svoje %{settings_link} a zvoľte si, aký druh e-mailových správ chcete dostávať od %{service_name} alebo sa vráťte na %{homepage_link}."
       settings_link: nastavenia
