@@ -8,12 +8,12 @@ sl:
   devise:
     failure:
       already_authenticated: ~
-      unauthenticated: ~
+      unauthenticated: "Preden nadaljuješ, se moraš prijaviti ali registrirati."
       unconfirmed: ~
       locked: ~
       invalid: "Napašen e-naslov ali geslo."
       invalid_token: ~
-      timeout: ~
+      timeout: "Tvoja seja je potekla. Prosim, ponovno se prijavi, da lahko nadaljuješ."
       inactive: ~
     passwords:
       updated_not_active: ~

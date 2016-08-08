@@ -4,14 +4,14 @@ ru:
       edit:
         edit_listing_category: "Редактировать категорию \"%{category}\""
       index:
-        listing_categories: "Категории предложений"
+        listing_categories: "Категории публикаций"
         create_a_new_category: "+ Создать новую категорию"
         remove_category_confirmation: "Вы уверены что хотите удалить категорию \"%{category_name}\"?"
         saving_order: "Сохранение порядка категорий"
         save_order_successful: "Порядок категорий сохранен успешно"
         save_order_error: "При сохранении порядка категорий произошла ошибка. Пожалуйста обновите страницу и попробуйте снова."
       new:
-        new_listing_category: "Новая категория предложений"
+        new_listing_category: "Новая категория публикаций"
       form:
         category_name:
           category_title: "Название категории"
@@ -20,7 +20,7 @@ ru:
           no_parent: "Нет вышестоящей"
         category_transaction_types:
           transaction_types: "Тип транзакции"
-          transaction_types_description: "Типы транзакций определяют какие типы транзакций допустимы для предложений данной категории. Для примера, это продажа, аренда или в дар где есть бесплатная возможность."
+          transaction_types_description: "Типы транзакций определяют какие типы транзакций допустимы для публикаций данной категории. Для примера, это продажа, аренда или в дар где есть бесплатная возможность."
           select_all: ~
           clear_all: ~
         buttons:
@@ -46,7 +46,7 @@ ru:
           many: "В данной категории находятся %{count} субкатегорий. Они будут удалены."
           other: "В данной категории находятся %{count} субкатегорий. Они будут удалены."
         warning_with_subcategories_listing_will_be_moved:
-          one: "В данной категорий и подкатегориях находится %{count} публикация. Она будет перемещена в выбранную категорию. "
+          one: "В данной категорий и подкатегориях находится %{count} публикация. Они будет перемещена в выбранную категорию. "
           few: "В данной категории и субкатегориях находятся %{count} предложений. Они будут перемещены в выбранную категорию."
           many: "В данной категории и субкатегориях находятся %{count} публикаций. Они будут перемещены в выбранную категорию."
           other: "В данной категории и субкатегориях находятся %{count} публикаций. Они будут перемещены в выбранную категорию."
@@ -55,7 +55,7 @@ ru:
           few: "В этой категории и субкатегориях находятся %{count} персональных полей. Они будут перемещены в выбранную категорию."
           many: "В этой категории и субкатегориях находятся %{count} персональных полей. Они будут перемещены в выбранную категорию."
           other: "В этой категории и субкатегориях находятся %{count} персональных полей. Они будут перемещены в выбранную категорию."
-        select_new_category: "Выберете новую категорию куда будут перемещены выбранные предложения:"
+        select_new_category: "Выберете новую категорию куда будут перемещены выбранные публикации:"
         buttons:
           remove: Удалить
           cancel: Отмена
@@ -85,8 +85,8 @@ ru:
         edit_info: "Редактировать информацию"
         see_how_it_looks_like: "Посмотреть как это выглядит"
         verification_to_post_listings_info_content: "Информационный текст для неподтвержденных участников"
-        verification_to_post_listings_info_content_description: "В настоящее время требуется вашим пользователям быть подтвержденным вручную вами чтобы они смогли размещать предложения. Здесь вы можете установить базовый текст который показывается для не-подтвержденных пользователей когда они пробуют создать новое размещение продукта."
-        verification_to_post_listings_info_content_default: "%{service_name} требует чтобы пользователи были подтверждены вручную администрацией до того как они смогут создавать предложения. Вы еще не были авторизованы. Пожалуйста обратитесь к администрации %{contact_admin_link} для подтверждения."
+        verification_to_post_listings_info_content_description: "Сейчас вашим пользователям требуется быть подтвержденным вручную вами, чтобы они смогли размещать публикации. Здесь вы можете установить базовый текст который показывается для не-подтвержденных пользователей когда они пробуют создать новое размещение публикации."
+        verification_to_post_listings_info_content_default: "%{service_name} требует чтобы пользователи были подтверждены вручную администрацией до того как они смогут создавать публикации. Вы еще не были авторизованы. Пожалуйста обратитесь к администрации %{contact_admin_link} для подтверждения."
         contact_admin_link_text: "связаться с администратором"
         save: "Сохранить настройки"
         transaction_agreement: "Транзакционное соглашение"
@@ -115,7 +115,7 @@ ru:
         custom_color1_instructions_text: "Вы можете изменить основной цвет интерфейса, введя его значение. Сайт <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> поможет выбрать и скопировать подходящий цвет."
         custom_color2_instructions_text: "You can change the color of the %{post_new_listing} button by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> can help you choose the color and copy the code here."
         default_browse_view: "Стандартный вид"
-        default_browse_view_instructions_text: "Стандартный вид используется на главной странице чтобы установить отображение предложений по умолчанию"
+        default_browse_view_instructions_text: "Стандартный вид используется на главной странице чтобы установить отображение публикаций по умолчанию"
         grid: Сетка
         list: Список
         map: Карта
@@ -197,7 +197,7 @@ ru:
         join_with_invite_only: "Участники могут присоединиться к проекту только по приглашению других участников."
         users_can_invite_new_users: "Все участники могут приглашать новых участников в этот проект."
         private: "Этот проект приватный (только зарегистрированные участники могут видеть содержимое)"
-        require_verification_to_post_listings: "Только участники подтвержденные администратором могут размещать новые предложения"
+        require_verification_to_post_listings: "Только участники подтвержденные администратором могут размещать новые публикации"
         search_preferences: ~
         default_search_type: ~
         keyword_search: ~
@@ -209,10 +209,10 @@ ru:
         show_only_nearby: ~
         listing_preferences: "Настройки предложений"
         transaction_preferences: "Настройки транзакции"
-        show_listing_publishing_date: "Отобразить дату публикации предложения на странице данного предложения"
+        show_listing_publishing_date: "Отобразить дату публикации на странице публикации"
         show_category_in_listing_list: "Показывать тип публикации"
-        hide_expiration_date: "Не требовать чтобы предложения имели дату окончания актуальности"
-        listing_comments_in_use: "Позволить участникам комментировать предложения (видно для всех участников)"
+        hide_expiration_date: "Не требовать чтобы публикации имели дату окончания актуальности"
+        listing_comments_in_use: "Позволить участникам комментировать публикации (видно для всех участников)"
         email_preferences: "Настройки e-mail"
         automatic_newsletters: "Автоматически отправлять ежедневно/еженедельно новости всем участникам (пока они не откажутся от подписки)"
         email_admins_about_new_members: "Уведомлять администратора о каждом новом участнике по email"
@@ -250,8 +250,8 @@ ru:
       social_media:
         social_media: "Социальные медиа"
         twitter_handle: "Twitter аккаунт"
-        twitter_handle_info_text: "Twitter аккаунт вашего проекта (если есть). Будет упоминаться когда люди используют кнопку tweet на странице предложения."
-        twitter_handle_info_text_with_instructions: "Login Twitter аккаунта вашего маркетплейс (если сть). Он будет упоминаться когда люди используют кнопку tweet на странице предложения. %{instructions_link}."
+        twitter_handle_info_text: "Twitter аккаунт вашего проекта (если есть). Будет упоминаться когда люди используют кнопку tweet на странице публикации."
+        twitter_handle_info_text_with_instructions: "Login Twitter аккаунта вашего маркетплейс (если сть). Он будет упоминаться когда люди используют кнопку tweet на странице публикации. %{instructions_link}."
         twitter_instructions_link_text: "Узнать больше"
         twitter_handle_placeholder: Логин
         invalid_twitter_handle: "Название twitter аккаунта максимум должно содержать 15 знаков (буквы A-Z И цифры 0-9)."
@@ -322,7 +322,7 @@ ru:
         paypal_admin_account: Платежи
     custom_fields:
       edit:
-        edit_listing_field: "Редактировать поле предложения \"%{field_name}\""
+        edit_listing_field: "Редактировать поле публикации \"%{field_name}\""
       edit_price:
         description: ~
         edit_price_field: "Редактировать поле цены"
@@ -341,7 +341,7 @@ ru:
           date_cant_be_filtered: ~
           text_cant_be_filtered: ~
       index:
-        listing_fields: "Поля и фильтры для предложений"
+        listing_fields: "Поля и фильтры для публикаций"
         listing_fields_help: "Здесь вы можете редактировать поля которые участники должны заполнить когда они создают новую публикацию. Пожалуйста имейте ввиду что некоторые поля предопределены и не не могут быть редактируемые."
         add_new_field: "Добавить новое поле"
         remove_field_confirmation: "Вы уверены что хотите удалить поле \"%{field_name}\"?"
@@ -349,7 +349,7 @@ ru:
         save: Сохранить
         field_title: "Наименование поля"
         field_type: "Тип поля"
-        categories: "Категории предложений где данное поле используется"
+        categories: "Категории публикаций где данное поле используется"
         select_all: ~
         clear_all: ~
         options: Варианты
@@ -363,7 +363,7 @@ ru:
         maximum_value: Максимум
         allow_decimals: "Разрешены десятичные значения"
       new:
-        new_listing_field: "Новое поле предложения"
+        new_listing_field: "Новое поле публикации"
       field_types:
         text: Текст
         number: Число
@@ -632,10 +632,10 @@ ru:
       you_will_get_notified: "Вы получите уведомление по электронной почте когда %{person} ответит вам."
       title: Заголовок
       send_message_to_user: "Отправить сообщение %{person}"
-      about_listing: "о предложении %{listing_title}"
+      about_listing: "О публикации %{listing_title}"
       author_has_to_accept_request: "%{author_name} нужно принять запрос от вас до того как вы будете оплачивать"
     show:
-      in_response_to_listing: "о предложении"
+      in_response_to_listing: "о публикации"
       message_sent_by: "Сообщение отправлено"
       message_sent_to: "Сообщение отправлено"
       send_reply: "Отправить ответ"
@@ -941,7 +941,7 @@ ru:
       you_have_time_to_accept: "Вам нужно принять или отклонить запрос в течении %{payment_expires_in}. Если вы примите запрос в течение этого времени, оплата будет произведена. Если вы отклоните, запрос будет автоматически отклонен и оплата Вам произведена не будет."
       click_here_to_reply: "Нажмите здесь чтобы ответить на запрос"
     transaction_preauthorized_reminder:
-      subject: "Не забудьте принять запрос от %{requester} о предложении %{listing_title}"
+      subject: "Не забудьте принять запрос от %{requester} о публикации %{listing_title}"
       remember_to_accept: "Не забудьте принять запрос от %{requester} о новом размещении \"%{listing_title}\". %{requester} уже оплатил. Вы должны принять запрос чтобы получить оплату."
       one_day_left: "Если вы не примите запрос в течении одного дня запрос будет автоматически отменен и оплата не будет произведена."
       click_here_to_reply: "Нажмите здесь чтобы ответить на запрос"
@@ -972,7 +972,7 @@ ru:
       subject: "%{author_name} разместил новую публикацию в %{service_name}"
       has_posted_a_new_listing: "%{author_name} разместил новую публикацию:"
       you_are_receiving_this_because: "Вы получили это уведомление так как вы подписаны на %{author_name}."
-      view_listing: "Просмотр предложения"
+      view_listing: "Просмотр публикации"
     new_member_notification:
       new_member_has_joined: ~
       this_is_automatic_message: ~
@@ -1010,7 +1010,7 @@ ru:
     error_410:
       page_removed: "Страница удалена"
       page_you_requested_has_been_removed: "Запрошенная вами страница была удалена"
-      page_removed_reason: "На это есть несколько причин. На пример, участник мог удалить свой аккаунт или предложения могли быть удалены."
+      page_removed_reason: "На это есть несколько причин. На пример, участник мог удалить свой аккаунт или публикации могли быть удалены."
     error_410_title: "страница удалена"
     error_500:
       temporary_unavailable: "Площадка временно недоступна"
@@ -1122,7 +1122,7 @@ ru:
       processing_uploaded_image: "(Изображение в обработке...)"
     index:
       no_listings_with_your_search_criteria: "Мы не смогли найти результат совпадающий с поисковым запросом."
-      no_listings_notification: "Нет предложений. %{add_listing_link}"
+      no_listings_notification: "Нет публикаций. %{add_listing_link}"
       add_listing_link_text: "Добавить новую публикацию"
       open_listing: "открытое объявление"
       open_listings: "открытые объявления"
@@ -1183,7 +1183,7 @@ ru:
       map_button: Карта
       grid_button: Сетка
       list_button: Список
-      all_listing_types: "Все предложения"
+      all_listing_types: "Все типы публикаций"
       all_categories: "Все категории"
     errors:
       search_engine_not_responding: ~
@@ -1360,7 +1360,7 @@ ru:
       you_have_already_given_feedback_about_this_event: "Вы уже оставляли отзыв об этом событии"
       you_are_now_member: "Добро пожаловать в %{service_name}!"
       you_are_already_member: "Вы уже являетесь участником %{service_name}. С возвращением!"
-      you_must_log_in_to_create_new_listing: "Вы должны авторизоваться в %{service_name} для создания нового предложения. Если у вас нет учётной записи, вы можете %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "Вы должны авторизоваться в %{service_name} для создания новой публикации. Если у вас нет учётной записи, вы можете %{sign_up_link}."
       additional_email_confirmed_dashboard: "Ваш адрес электронной почты подтверждён."
       you_must_log_in_to_give_feedback: "Вы должны войти, чтобы отправить отзыв"
       you_must_log_in_to_invite_new_users: "Для того, чтобы пригласить новых пользователей, вы должны войти в %{service_name}"
@@ -1386,7 +1386,7 @@ ru:
       email_deleted: "E-mail удален"
       payment_details_add_successful: "Платежные реквизиты успешно добавлены"
       payment_details_add_error: "Платежная информация не добавлена"
-      listing_author_payment_details_missing: "Создатель предложения не добавил детали оплаты поэтому они не получат оплату прямо сейчас. Пожалуйста свяжитесь с создателем предложения."
+      listing_author_payment_details_missing: "Создатель публикации не добавил детали оплаты поэтому они не получат оплату прямо сейчас. Пожалуйста свяжитесь с автором."
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
     settings:
@@ -1581,15 +1581,15 @@ ru:
       listing: список
       selected_category: "Категория: %{category}"
       selected_subcategory: "Подкатегория: %{subcategory}"
-      selected_transaction_type: "Тип предложения: %{transaction_type}"
+      selected_transaction_type: "Тип публикации: %{transaction_type}"
       select_category: "Выберите отдел"
       select_subcategory: "Выберите подкатегорию"
-      select_transaction_type: "Выберите тип предложения"
+      select_transaction_type: "Выберите тип публикации"
       you_need_to_fill_payout_details_before_accepting: "Вам нужно заполнить детали оплаты до того как вы создадите публикацию. Перейдите в %{payment_settings_link} чтобы заполнить детали."
       contact_admin_link_text: "Пожалуйста свяжитесь с администратором"
-      community_not_configured_for_payments: "%{service_name} не был настроен для принятия платежей, поэтому вы не можете размещать новые предложения сейчас. Свяжитесь с %{contact_admin_link} для уточнения деталей."
+      community_not_configured_for_payments: "%{service_name} не был настроен для принятия платежей, поэтому вы не можете размещать новые публикации сейчас. Свяжитесь с %{contact_admin_link} для уточнения деталей."
       payment_settings_link: "настройки оплаты"
-      community_not_configured_for_payments_admin: "%{service_name} не был настроен для принятия платежей, поэтому вы не можете размещать новые предложения сейчас. Перейдите на %{payment_settings_link} чтобы настроить платежные реквизиты."
+      community_not_configured_for_payments_admin: "%{service_name} не был настроен для принятия платежей, поэтому вы не можете размещать новые публикации сейчас. Перейдите на %{payment_settings_link} чтобы настроить платежные реквизиты."
     quantity:
       hour: "Количество часов:"
       day: "Количество дней:"
@@ -1760,7 +1760,7 @@ ru:
     paypal_account_connected_title: "PayPal аккаунт подключен"
     paypal_account_connected: "Аккаунт PayPal %{email} был подключен к %{service_name}."
     change_account: "Сменить PayPal аккаунт"
-    missing: "У вас есть открытые предложения, но ваш PayPal счет не подключен для получения платежей. Подключите ваш PayPal и разрешите %{service_name} снимать комиссию за транзакцию через %{settings_link}."
+    missing: "У вас есть открытые публикации, но ваш PayPal счет не подключен для получения платежей. Подключите ваш PayPal и разрешите %{service_name} снимать комиссию за транзакцию через %{settings_link}."
     from_your_payment_settings_link_text: "настройки оплаты"
     redirect_message: "Перенаправление на PayPal. Если ничего не произойдет, нажмите %{redirect_link}"
     redirect_link_text: здесь
@@ -1850,14 +1850,14 @@ ru:
       review: "получен отзыв"
       reviews: "получены отзывы"
       listing: публикация
-      listings: Предложения
+      listings: публикации
       open_listing: "открытое объявление"
       open_listings: "открытые объявления"
-      no_listings: "Нет предложений"
-      no_open_listings: "Нет открытых предложений"
+      no_listings: "Нет публикаций"
+      no_open_listings: "Нет открытых публикаций"
       no_reviews: "Нет отзывов"
       show_all_listings: "Показать все предлождения"
-      show_all_open_listings: "Показать все открытые предложения"
+      show_all_open_listings: "Показать все открытые публикации"
       show_all_reviews: "Показать все обзоры"
     followed_people:
       you_follow_plural: "Вы подписаны на %{count} участников"
@@ -1921,7 +1921,7 @@ ru:
       delete_account_confirmation_popup: "Вы уверены что хотите удалить ваш аккаунт и навсегда утратить информацию относящуюся к нему? Удаление аккаунта не может быть отменено."
       email_addresses: "Адреса e-mail"
       new_email: "Новый адрес электронной почты"
-      delete_personal_information: "Если вы удалите ваш аккаунт, ваша персональная информация (имя, телефон, адрес, email, аватар и тд) будут удалены постоянно и без восстановления. Все предложения которые вы создали будут удалены. Вы не сможете реактивировать ваш аккаунт."
+      delete_personal_information: "Если вы удалите ваш аккаунт, ваша персональная информация (имя, телефон, адрес, email, аватар и тд) будут удалены постоянно и без восстановления. Все публикации которые вы создали будут удалены. Вы не сможете реактивировать ваш аккаунт."
       delete_information_others_involved: "Информация в которую вовлечены другие участники (диалоги, транзакции, отзывы, и тд) не будут удалены при удалении вашего аккаунта. Однако, ваше имя/название более не будет отображаться."
       unfinished_transactions: "Ваш аккаунт не может быть удален так как вы имеете незавершенные транзакции. Пожалуйста завершите все транзакции перед удалением вашего аккаунта."
       new_password: "Новый пароль"
@@ -1985,7 +1985,7 @@ ru:
       these_fields_are_shown_in_your: "Эта информация видна всем пользователям %{service_name}"
       visible_to_everybody: "видимо для всех"
       visible_to_registered_users: "(видимо только для зарегистрированных пользователей)"
-      default_in_listing: "(используется по умолчанию при создании нового предложения))"
+      default_in_listing: "(используется по умолчанию при создании новой публикации)"
       invisible: "(не видно другим участникам)"
       image_is_processing: "Изображение вашего профиля обрабатывается. Пожалуйста, перезагрузите страницу."
     save_information: Сохранить
@@ -2027,7 +2027,7 @@ ru:
       negative: Отрицательный
       default_textual_feedback: "Всё прошло отлично, большое спасибо!"
     testimonial:
-      about_listing: "о предложении"
+      about_listing: "о публикации"
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
