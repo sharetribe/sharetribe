@@ -56,14 +56,23 @@
 
   & .topbarLogo {
     max-height: var(--Topbar_logoMaxHeightMobile);
-    max-width: var(--Topbar_textLogoMaxWidth);
+    max-width: 70%;
+
+    & span {
+      @media (max-width: 320px) {
+        /* Height fix for the smaller font in tiny viewport. */
+        font-size: 1.3rem;
+      }
+    }
 
     @media (--medium-viewport) {
       max-height: var(--Topbar_logoMaxHeightTablet);
+      max-width: 38%;
     }
 
     @media (--large-viewport) {
       max-height: var(--Topbar_logoMaxHeight);
+      max-width: 18em;
     }
   }
 

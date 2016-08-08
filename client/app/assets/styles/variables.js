@@ -122,7 +122,6 @@ module.exports = {
   '--Topbar_logoMaxHeight': '40px',
   '--Topbar_logoMaxHeightTablet': '36px',
   '--Topbar_logoMaxHeightMobile': '32px',
-  '--Topbar_textLogoMaxWidth': '20em',
   '--Topbar_fontFamily': "'Proxima Nova Soft', Helvetica, sans",
   '--Topbar_borderColor': 'rgba(0, 0, 50, 0.1)',
 
