@@ -30,10 +30,6 @@ sk-SK:
         remove_category: "Odobrať kategóriu"
         remove_category_name: "Odobrať kategóriu '%{category_name}'"
         warning_remove_effects: "Upozornenie! Odstránenie kategórie '%{category_name}' bude mať nasledujúci efekt:"
-        select_new_category: "Vyberte novú kategóriu kam budú všetky položky presunuté:"
-        buttons:
-          remove: Odstrániť
-          cancel: Zrušiť
         warning_listing_will_be_moved:
           one: "V tejto kategórii je %{count} inzerát. Inzerát bude presunutý do vybranej kategórie."
           few: "V tejto kategórii sú %{count} inzeráty. Inzeráty budú presunuté do vybranej kategórie."
@@ -54,6 +50,10 @@ sk-SK:
           one: "V tejto kategórii a podkategórií je %{count} vlastné pole, ktoré bude presunuté do vybranej kategórie."
           few: "V tejto kategórii a podkategórií sú %{count} vlatné polia, ktoré budú presunuté do vybranej kategórie."
           other: "V tejto kategórii a podkategórií je %{count} vlasntých polí, ktoré budú presunuté do vybranej kategórie."
+        select_new_category: "Vyberte novú kategóriu kam budú všetky položky presunuté:"
+        buttons:
+          remove: Odstrániť
+          cancel: Zrušiť
     communities:
       edit_details:
         community_details: "Základné detaily"
@@ -83,7 +83,7 @@ sk-SK:
         verification_to_post_listings_info_content_description: "Užívatelia predtým, než budú môcť zadávať príspevky musia byť Vami manuálne overení. Tu môžete nastaviť základný text, ktorý se zobrazí neovereným užívateľom, keď sa budú snažiť pridať nový príspevok."
         verification_to_post_listings_info_content_default: "%{service_name} vyžaduje, aby boli ľudia ručne overení správcom predtým, než budú môcť pridávať príspevky. Ešte ste neboli overený/á. Prosíme, %{contact_admin_link} pre overenie."
         contact_admin_link_text: "kontaktujte administrátora"
-        save: ~
+        save: "Uložiť nastavenia"
         transaction_agreement: ~
         transaction_agreement_checkbox: ~
         transaction_agreement_checkbox_header: ~
@@ -96,8 +96,8 @@ sk-SK:
         community_logo_icon: "Logo pre sociálne siete a mobilné zariadenia"
         community_cover_photo: "Úvodná fotografia"
         small_community_cover_photo: "Malá úvodná fotografia"
-        favicon: ~
-        favicon_info_text: ~
+        favicon: "Ikonka webovej stránky"
+        favicon_info_text: "Ikonka webovej stránky nahradí základné Sharetribe logo. Rozmery by mali byť 32x32 pixelov a nahratý súbor bude prispôsobený týmto rozmerom."
         community_custom_color1: "Hlavná farba"
         community_custom_color2: "%{post_new_listing} farba tlačítka"
         logo_instructions_text_with_dimensions: "Veľkosť loga by mala byť %{width}x%{height} . Toto logo bude zobrazené užívateľom s veľkou obrazovkou."
@@ -120,10 +120,10 @@ sk-SK:
         first_name_with_initial: "Krstné meno a počiatočné písmeno krstného mena"
         first_name_only: "Iba krstné meno"
         invalid_color_code: "Kód farby by mal obsahovať 6 čísiel alebo písmen A až F, napríklad D69E21"
-        custom_head_script: ~
-        custom_head_script_instructions_text: ~
+        custom_head_script: "Vlastný skript"
+        custom_head_script_instructions_text: "Tento skript je súčasťou <head> časti každej stránky a môže byť vložený do CSS, JavaScript alebo HTML. Vezmite na vedomie, že budúce zmeny v Sharetribe môžu spôsobiť, že Váš skript nebude kompatibilný."
       edit_text_instructions:
-        edit_text_instructions: ~
+        edit_text_instructions: Návody
       edit_welcome_email:
         welcome_email_content: "Obsah uvítacieho e-mailu."
         welcome_email_content_description: "Nižšie uvedená správa bude odoslaná novým užívateľom, keď sa pripoja. Správu môžete upraviť podľa Vašej potreby. Kliknutím na %{send_test_message_link} môžete odoslať na Váš e-mail náhľad správy, takže budete vidieť ako bude vyzerať v prijatej e-mailovej správe."
@@ -203,7 +203,7 @@ sk-SK:
         miles: ~
         show_only_nearby: ~
         listing_preferences: "Nastavenia inzerátu"
-        transaction_preferences: ~
+        transaction_preferences: "Nastavenia transakcii"
         show_listing_publishing_date: "Zobraziť dátum zverejnenia na stránke inzerátu"
         show_category_in_listing_list: "Zobraziť typ inzerátu v zozname"
         hide_expiration_date: "Nevyžadovať dátum vypršania platnosti inzerátov"
@@ -216,9 +216,9 @@ sk-SK:
         update_settings: "Uložiť nastavenia"
         automatically_confirmed: "Transakcia bude automaticky označená ako vybavená za %{days_dropdown} dní od doby, čo bola platba vykonaná. Pokiaľ je systém úschovy zdrojových kódov v prevádzke, peniaze budú poskytovateľovi čo najskôr prevedené."
         automatically_confirmed_no_escrow: ~
-        automatic_newsletter_frequency: ~
-        newsletter_daily: ~
-        newsletter_weekly: ~
+        automatic_newsletter_frequency: "Automaticky posielať novinky: %{frequency_dropdown}"
+        newsletter_daily: Denne
+        newsletter_weekly: Týždenne
         delete_marketplace_title: ~
         type_marketplace_domain: ~
         type_marketplace_domain_placeholder: ~
@@ -235,12 +235,12 @@ sk-SK:
         join_date: "Dátum registrácie"
         admin: Administrátor
         posting_allowed: "Pridávanie príspevkov je povolené"
-        ban_user: ~
+        ban_user: "Vylúčiť užívateľa"
         saving_user_status: Ukladám...
         save_user_status_successful: Uložené
         export_all_as_csv: ~
         save_user_status_error: "Pri ukladaní nastala chyba. Prosím obnovte stránku a skúste to znova."
-        ban_user_confirmation: ~
+        ban_user_confirmation: "Týmto bude užívateľ odstránený z trhoviska a nebude už pod týmto účtom pristupovať na túto stránku. Ste si istý, že chcete pokračovať?"
         ban_me_error: ~
       social_media:
         social_media: ~
@@ -267,15 +267,15 @@ sk-SK:
         google_analytics_instructions_link_text: ~
         save: ~
       menu_links:
-        menu_links: ~
-        save: ~
-        add_menu_link: ~
-        title_placeholder: ~
-        url_placeholder: ~
-        title: ~
-        language: ~
-        url: ~
-        empty: ~
+        menu_links: "Menu odkazy"
+        save: "Uložiť nastavenia"
+        add_menu_link: "Pridať nový odkaz do menu"
+        title_placeholder: "Názov odkazu"
+        url_placeholder: "http://priklad.sk/sk"
+        title: Názov
+        language: Jazyk
+        url: URL
+        empty: "Nemáte žiadne menu odkazy"
         max_number_of_links: ~
         all: ~
         max_number_of_links_info: ~
@@ -305,13 +305,13 @@ sk-SK:
           pending_ext: ~
         not_available: ~
       braintree_payment_gateway:
-        braintree_payment_gateway: ~
-        environment: ~
-        private_key: ~
-        public_key: ~
-        client_side_encryption_key: ~
-        merchant_id: ~
-        master_merchant_id: ~
+        braintree_payment_gateway: "Braintree platba API klúčom"
+        environment: Prostredie
+        private_key: "Súkromný klúč"
+        public_key: "Verejný kľúč"
+        client_side_encryption_key: "Šifrovací kód klienta"
+        merchant_id: "Identifikačné číslo obchodníka"
+        master_merchant_id: "Identifikačné číslo hlavného obchodníka"
         commission_from_seller: ~
       paypal_account:
         paypal_admin_account: ~
@@ -325,19 +325,19 @@ sk-SK:
         price_min: "Filtrovať minimálnu cenu"
         price_max: "Filtrovať maximálnu cenu"
       edit_location:
-        edit_location_field: ~
-        this_field_is_required: ~
+        edit_location_field: "Upraviť umiestnenie poľa"
+        this_field_is_required: "Toto pole je povinné"
       form:
         field_required:
           this_field_is_required: "Označiť toto pole ako povinné pri vytváraní nového inzerátu"
-          this_field_is_required_checkbox: ~
+          this_field_is_required_checkbox: "Použiť ako povinné pole pri vytváraní nového inzerátu (užívateľ musí vybrať aspoň jednu možnosť)"
         search_filter:
           search_filter: ~
           date_cant_be_filtered: ~
           text_cant_be_filtered: ~
       index:
         listing_fields: "Zoznam polí a filtrov"
-        listing_fields_help: ~
+        listing_fields_help: "Tu môžete upraviť pole, ktoré užívatelia musia vyplniť pri vytváraní nového inzerátu. Vezmite na vedomie, že niektoré polia sú predvolené a nemôžu byť upravené."
         add_new_field: "Pridať nové pole:"
         remove_field_confirmation: "Ste si istý, že chcete vymazať pole %{field_name}?"
         cancel: Zrušiť
@@ -347,7 +347,7 @@ sk-SK:
         categories: "Zoznam inzerátov, kde sa pole používa"
         select_all: ~
         clear_all: ~
-        options: ~
+        options: Možnosti
         add_option: "+ Pridať možnosžť"
         saving_order: "Ukladám pole objednávky"
         save_order_successful: "Pole objednávky bolo úspešne uložené"
@@ -360,11 +360,11 @@ sk-SK:
       new:
         new_listing_field: "Nové pole inzerátu"
       field_types:
-        text: ~
-        number: ~
+        text: Text
+        number: Číslo
         dropdown: "Vyberte si"
-        checkbox_group: ~
-        date: ~
+        checkbox_group: "Zaškrtávacie pole"
+        date: Dátum
     emails:
       new:
         send_email_to_members: "Poslať e-mailovú správu užívateľom"
@@ -600,9 +600,9 @@ sk-SK:
       confirmed_offer: "Ponuka bola vybavená."
       canceled_request: "Objednávka bola zamietnutá."
       canceled_offer: "Ponuka bola zamietnutá."
-      message_from: ~
-      about_listing: ~
-      free_message: ~
+      message_from: "Správa od %{person}"
+      about_listing: "O inzeráte %{listing_title}"
+      free_message: "Správa zdarma"
       message_content_not_available: ~
     message:
       accepted_request: "prijal žiadosť"
@@ -637,11 +637,11 @@ sk-SK:
       write_a_reply: Odpovedať
       conversation_about_listing: "S uživateľom %{person} o zozname %{listing}"
       conversation_with_user: "S užívateľom %{person}"
-      conversation_with: ~
+      conversation_with: "Konverácia s %{person}"
       last_message_at: "(posledná správa %{time})"
-      price: ~
-      sum: ~
-      price_excludes_vat: ~
+      price: "Cena: %{price}"
+      sum: "Celkovo: %{sum}"
+      price_excludes_vat: "(nezahrňuje DPH)"
       total: ~
     status:
       payment_errored: ~
@@ -677,12 +677,12 @@ sk-SK:
       skip_feedback: "Preskočiť spätnú väzbu."
       waiting_for_listing_author_to_accept_offer: "Čaká sa na %{listing_author_name}, kým prijme objednávku"
       waiting_for_listing_author_to_accept_request: "Čaká sa na %{listing_author_name}, kým prijme žiadosť. Akonále %{listing_author_name} žiadosť prijme, bude zaúčtovaná"
-      waiting_for_you_to_accept_request: ~
+      waiting_for_you_to_accept_request: "Čaká sa na Vás, kým prijmete žiadosť"
       waiting_confirmation_from_requester: "Čaká sa na %{requester_name}, až objednávku označí ako vybavenú"
-      waiting_confirmation_from_you: ~
+      waiting_confirmation_from_you: "Čaká sa na Vás, kým označíte žiadosť ako vybavenú"
       waiting_payment_from_requester: "Čaká sa na užívateľa %{requester_name}, kým zaplatí"
-      waiting_payment_from_you: ~
-      waiting_feedback_from_you: ~
+      waiting_payment_from_you: "Čaká sa na Vás, kým zaplatíte"
+      waiting_feedback_from_you: "Čaká sa na Vás, kým poskytnete spätnú väzbu"
       pending_external_inbox:
         paypal:
           multicurrency: ~
@@ -1072,9 +1072,9 @@ sk-SK:
     profile: Profil
     manage_listings: ~
     invite: "Pozvať nových členov"
-    login: ~
-    signup: ~
-    menu: ~
+    login: "Prihlásiť sa"
+    signup: "Zaregistrovať sa"
+    menu: Menu
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Ďalej je tu <b>jedna iná ponuka</b>,"
@@ -1413,7 +1413,7 @@ sk-SK:
       close_listing: "Uzavrieť inzerát"
       edit_listing: "Upraviť inzerát"
       reopen_listing: "Znovu otvoriť inzerát"
-      move_to_top: ~
+      move_to_top: "Presunúť na vrch domovskej stránky"
       show_in_updates_email: ~
       show_in_updates_email_loading: ~
       show_in_updates_email_error: ~
@@ -1484,7 +1484,7 @@ sk-SK:
         no_service_fee_you_will_get_paypal_text: ~
         after_service_fee_you_will_get_paypal_text: ~
         paypal_fee_info_link_text: ~
-        after_service_fee_you_will_get_vat: ~
+        after_service_fee_you_will_get_vat: "Po %{service_name} a zaplatení procesných poplatkov obdržíte cca. %{sum_with_currency} (DPH 0%)"
         price_excludes_vat: "Cena nezahrňuje DPH."
         delivery: ~
         shipping: ~
@@ -1812,8 +1812,8 @@ sk-SK:
       visible_only_to_you: "viditeľné iba pre Vás a pre admin použivateľa"
       visible_to_everybody: "videiteľné pre každích"
       create_account_with_facebook: "Prihlásiť sa cez Facebook"
-      OR: ~
-      signup_with_email: ~
+      OR: ALEBO
+      signup_with_email: "Zaregistrovať sa cez e-mail"
     profile_feedback:
       grade: "stupeň:"
       and_gave_following_feedback: "a poskytnite spätnú väzbu"
@@ -2131,12 +2131,16 @@ sk-SK:
       admin_dashboard: ~
       language: ~
   will_paginate:
+    models:
+      person:
+        zero: užívateľov
+        one: užívateľ
+        few: užívatelia
+        other: užívateľov
     previous_label: "&#8592; Predchádzajúci"
     next_label: "Ďalší &#8594;"
     page_gap: "&hellip;"
     page_entries_info:
-      multi_page: "Nájdený %{model} %{from} - %{to} z %{count} celkovo"
-      multi_page_html: "Nájdený %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> z <b>%{count}</b> celkovo"
       single_page:
         zero: "Nenašiel sa žiadny %{model}"
         one: "Nájdený 1 %{model}"
@@ -2147,9 +2151,5 @@ sk-SK:
         one: "Nájdený <b>1</b> %{model}"
         few: "Nájdené <b>all&nbsp;%{count}</b> %{model}"
         other: "Nájdených <b>all&nbsp;%{count}</b> %{model}"
-    models:
-      person:
-        zero: užívateľov
-        one: užívateľ
-        few: užívatelia
-        other: užívateľov
+      multi_page: "Nájdený %{model} %{from} - %{to} z %{count} celkovo"
+      multi_page_html: "Nájdený %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> z <b>%{count}</b> celkovo"
