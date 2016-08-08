@@ -46,7 +46,6 @@ class AvatarDropdown extends Component {
     return div({
       onClick: this.handleClick,
       onBlur: this.handleBlur,
-      tabIndex: 0,
       className: classNames(this.props.className, touchClass, openClass, css.avatarDropdown, notificationsClass),
     }, [
       div({ className: css.avatarWithNotifications }, [
