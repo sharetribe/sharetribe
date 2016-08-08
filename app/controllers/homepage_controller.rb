@@ -57,25 +57,14 @@ class HomepageController < ApplicationController
       end
 
     main_search = FeatureFlagHelper.location_search_available ? MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:main_search] : :keyword
-    location_search_in_use = params[:lc] && (main_search == :location || main_search == :keyword_and_location)
-    keyword_search_in_use = params[:q] && (main_search == :keyword || main_search == :keyword_and_location)
+    location_in_use, keyword_in_use = search_modes_in_use(params[:q], params[:lc], main_search)
 
-    search_result = find_listings(params, per_page, compact_filter_params, includes.to_set, location_search_in_use, keyword_search_in_use)
+    search_result = find_listings(params, per_page, compact_filter_params, includes.to_set, location_in_use, keyword_in_use)
 
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
     if @view_type == 'map'
-      coords = Maybe(params[:boundingbox]).split(',').or_else(nil)
-      viewport = if coords
-        sw_lat, sw_lng, ne_lat, ne_lng = coords
-        { boundingbox: { sw: [sw_lat, sw_lng], ne: [ne_lat, ne_lng] } }
-      elsif params[:lc].present?
-        { center: params[:lc].split(',') }
-      else
-        Maybe(@current_community.location)
-          .map { |l| { center: [l.latitude, l.longitude] }}
-          .or_else(nil)
-      end
+      viewport = viewport_geography(params[:boundingbox], params[:lc], @current_community.location)
     end
 
     if request.xhr? # checks if AJAX request
@@ -311,6 +300,27 @@ class HomepageController < ApplicationController
     CustomLandingPage::LandingPageStore.enabled?(@current_community.id) &&
       @current_community.private &&
       !@current_user
+  end
+
+  def search_modes_in_use(q, lc, main_search)
+    {
+      location_in_use: lc && (main_search == :location || main_search == :keyword_and_location),
+      keyword_in_use: q && (main_search == :keyword || main_search == :keyword_and_location)
+    }
+  end
+
+  def viewport_geography(boundingbox, lc, community_location)
+    coords = Maybe(boundingbox).split(',').or_else(nil)
+    if coords
+      sw_lat, sw_lng, ne_lat, ne_lng = coords
+      { boundingbox: { sw: [sw_lat, sw_lng], ne: [ne_lat, ne_lng] } }
+    elsif lc.present?
+      { center: lc.split(',') }
+    else
+      Maybe(community_location)
+        .map { |l| { center: [l.latitude, l.longitude] }}
+        .or_else(nil)
+    end
   end
 
 end

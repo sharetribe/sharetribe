@@ -49,9 +49,12 @@ module TopbarHelper
 
     links.concat(user_links)
 
-    main_search = FeatureFlagHelper.location_search_available ?
-      MarketplaceService::API::Api.configurations.get(community_id: community.id).data[:main_search] :
-      :keyword
+    main_search =
+      if FeatureFlagHelper.location_search_available
+        MarketplaceService::API::Api.configurations.get(community_id: community.id).data[:main_search]
+      else
+        :keyword
+      end
 
     search_path_string = PathHelpers.search_url({
       community_id: community.id,
