@@ -20,6 +20,7 @@ module ListingIndexService::DataTypes
     [:longitude, :to_float, :optional],
     [:distance_max, :to_float, :optional],
     [:scale, :to_float, :optional],
+    [:offset, :to_float, :optional],
     [:sort, :symbol, :optional],
     [:distance_unit, :symbol, :optional],
     [:categories, :array, :optional],

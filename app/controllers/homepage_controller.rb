@@ -160,7 +160,8 @@ class HomepageController < ApplicationController
       distance_unit,
       params[:distance_max],
       APP_MINIMUM_DISTANCE_MAX,
-      location_search_in_use && keyword_search_in_use ? APP_CONFIG[:external_search_scale] : nil,
+      location_search_in_use && keyword_search_in_use ? APP_CONFIG[:external_search_scale_multiplier] : nil,
+      location_search_in_use && keyword_search_in_use ? APP_CONFIG[:external_search_offset_multiplier] : nil,
       limit_search_distance
     )
     search_extra = location_search_hash.blank? ? { sort: nil } : location_search_hash
@@ -278,18 +279,18 @@ class HomepageController < ApplicationController
     end
   end
 
-  def location_search_params(latlng, distance_unit, distance_max, minimum_distance_max, scale, limit_by_distance)
+  def location_search_params(latlng, distance_unit, distance, minimum_distance, scale_multiplier, offset_multiplier, limit_by_distance)
     # Current map doesn't react to zoom & panning, so we fetch all the results as before.
     if @view_type != 'map'
       Maybe(latlng)
         .map {
-          distance = [minimum_distance_max, distance_max.to_f].max
+          distance = [minimum_distance, distance.to_f].max
           distance_limit = distance if limit_by_distance
-          scale_or_distance = scale ? { scale: distance * scale } : { sort: :distance }
+          scale_or_sort = scale_multiplier && offset_multiplier ? { scale: distance * scale_multiplier, offset: offset_multiplier } : { sort: :distance }
           search_coordinates(latlng).merge({
             distance_unit: distance_unit,
             distance_max: distance_limit
-          }).merge(scale_or_distance).compact
+          }).merge(scale_or_sort).compact
         }
         .or_else({})
     else
