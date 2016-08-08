@@ -132,7 +132,6 @@ const createQuery = (searchParams, queryString) => {
   const extraParams = parseKeepParams(queryString);
   const params = { ...extraParams, ...searchParams };
 
-  console.log('creating query string from params:', params);
   const paramKeys = Object.keys(params);
 
   // Sort params for caching
@@ -276,13 +275,6 @@ class Topbar extends Component {
           locationQuery: oldSearchParams.lq,
           customColor: marketplace_color1,
           onSubmit: ({ keywordQuery, locationQuery, place }) => {
-            console.log({
-              keywordQuery,
-              locationQuery,
-              coordinates: placesUtils.coordinates(place),
-              viewport: placesUtils.viewport(place),
-              maxDistance: placesUtils.maxDistance(place),
-            });
             const query = createQuery({
               q: keywordQuery,
               lq: locationQuery,
@@ -291,11 +283,7 @@ class Topbar extends Component {
               distance_max: placesUtils.maxDistance(place),
             }, location);
             const searchUrl = `${this.props.search_path}${query}`;
-            console.log('Search URL:', `"${searchUrl}"`);
-
-            // TODO: submit search
             window.location.assign(searchUrl);
-            // this.actions.submitSearch(query);
           },
         }) :
         div({ className: css.topbarMobileSearchPlaceholder }),
