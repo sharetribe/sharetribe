@@ -57,7 +57,6 @@ module TopbarHelper
       community_id: community.id,
       opts: {
         only_path: true,
-        locale: user.present? && user.locale.present? ? user.locale : community.default_locale
       }
     })
 
