@@ -284,13 +284,14 @@ class HomepageController < ApplicationController
     if @view_type != 'map'
       Maybe(latlng)
         .map {
-          distance = [minimum_distance, distance.to_f].max
-          distance_limit = distance if limit_by_distance
-          scale_or_sort = scale_multiplier && offset_multiplier ? { scale: distance * scale_multiplier, offset: offset_multiplier } : { sort: :distance }
+          d = [minimum_distance, distance.to_f].max
+          distance_limit = d if limit_by_distance
+          scale = { scale: d * scale_multiplier, offset: d * offset_multiplier } if scale_multiplier && offset_multiplier
+          sort = { sort: :distance } unless scale_multiplier && offset_multiplier
           search_coordinates(latlng).merge({
             distance_unit: distance_unit,
             distance_max: distance_limit
-          }).merge(scale_or_sort).compact
+          }).merge(scale).merge(sort).compact
         }
         .or_else({})
     else
