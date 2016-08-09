@@ -135,7 +135,7 @@ class MenuPriority extends Component {
     const menuProps = Object.assign(Object.assign({}, this.props, extraMenuProps));
 
     return div({
-      className: classNames('MenuPriority', css.menuPriority),
+      className: classNames('MenuPriority', css.menuPriority, { [css.isMeasured]: isMeasured }),
       ref: (c) => {
         this.menuPriorityMounted = c;
       },
