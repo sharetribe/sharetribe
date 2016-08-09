@@ -72,9 +72,9 @@ class HomepageController < ApplicationController
         @listings = listings # TODO Remove
 
         if @view_type == "grid" then
-          render partial: "grid_item", collection: @listings, as: :listing, locals: { show_distance: location_search_in_use }
-        elsif location_search_in_use
-          render partial: "list_item_with_distance", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map, testimonials_in_use: @current_community.testimonials_in_use, show_distance: location_search_in_use }
+          render partial: "grid_item", collection: @listings, as: :listing, locals: { show_distance: location_in_use }
+        elsif location_in_use
+          render partial: "list_item_with_distance", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map, testimonials_in_use: @current_community.testimonials_in_use, show_distance: location_in_use }
         else
           render partial: "list_item", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map, testimonials_in_use: @current_community.testimonials_in_use }
         end
@@ -93,7 +93,7 @@ class HomepageController < ApplicationController
                  testimonials_in_use: @current_community.testimonials_in_use,
                  listing_shape_menu_enabled: listing_shape_menu_enabled,
                  main_search: main_search,
-                 location_search_in_use: location_search_in_use,
+                 location_search_in_use: location_in_use,
                  viewport: viewport }
       }.on_error { |e|
         flash[:error] = t("homepage.errors.search_engine_not_responding")
@@ -107,7 +107,7 @@ class HomepageController < ApplicationController
                  testimonials_in_use: @current_community.testimonials_in_use,
                  listing_shape_menu_enabled: listing_shape_menu_enabled,
                  main_search: main_search,
-                 location_search_in_use: location_search_in_use,
+                 location_search_in_use: location_in_use,
                  viewport: viewport }
       }
     end
