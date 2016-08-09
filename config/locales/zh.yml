@@ -829,11 +829,9 @@ zh:
       please_contant_admin_link: 请联系管理员
     confirmation_instructions:
       confirmation_instructions_signature: "此致敬礼，<br/>%{service_name}团队"
-      welcome_to_kassi: "欢迎来到%{service_name}！"
       need_to_confirm: 请确认你的Email地址。
       confirmation_link_text: 确认我的电子邮件
       or_paste_link: 或者你可以复制以下链接到你浏览器的地址栏：
-      turning_on_confirmations_in_this_community: "我们开始在%{service_name}中使用电子邮件确认。"
     common:
       hey: "你好 %{name},"
       kassi_team: "%{service_name} 团队"

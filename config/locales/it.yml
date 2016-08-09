@@ -813,11 +813,9 @@ it:
       please_contant_admin_link: "ti preghiamo di contattare l'admin"
     confirmation_instructions:
       confirmation_instructions_signature: "Cordiali saluti,<br/> Il Team di %{service_name}"
-      welcome_to_kassi: "Benvenuto su %{service_name}!"
       need_to_confirm: "Devi confermare il tuo indirizzo email cliccando sul link seguente:"
       confirmation_link_text: "Conferma la tua email"
       or_paste_link: "Altrimenti puoi copiare il seguente link nella barra degli indirizzi del tuo browser:"
-      turning_on_confirmations_in_this_community: ~
     common:
       hey: "Ciao %{name},"
       kassi_team: "Il Team %{service_name}"

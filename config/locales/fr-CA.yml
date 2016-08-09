@@ -828,11 +828,9 @@ fr-CA:
       please_contant_admin_link: "veuillez contacter l'administrateur"
     confirmation_instructions:
       confirmation_instructions_signature: "Cordialement, <br/> L'équipe de %{service_name}"
-      welcome_to_kassi: "Bienvenue sur %{service_name} !"
       need_to_confirm: "Vous devez confirmer votre adresse email."
       confirmation_link_text: "Confirmer mon email"
       or_paste_link: "Vous pouvez également copier le lien suivant dans la barre d'adresse de votre navigateur : "
-      turning_on_confirmations_in_this_community: "Nous commençons à utiliser les email de confirmation dans cette place de marché %{service_name}."
     common:
       hey: "Bonjour %{name},"
       kassi_team: "L'équipe de %{service_name}"

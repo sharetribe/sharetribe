@@ -809,11 +809,9 @@ sl:
       please_contant_admin_link: ~
     confirmation_instructions:
       confirmation_instructions_signature: "Lep pozdrav, %{service_name} tim"
-      welcome_to_kassi: "Pozdravljen/a na %{service_name}"
       need_to_confirm: "Potrditi moraš svoj e-naslov."
       confirmation_link_text: "Potrdi moj e-naslov"
       or_paste_link: "Lahko pa skopiraš naslednjo povezavo in jo prilepiš v naslovno vrstico tvojega internet brskalnika:"
-      turning_on_confirmations_in_this_community: ~
     common:
       hey: "Živjo %{name}"
       kassi_team: "%{service_name} tim"

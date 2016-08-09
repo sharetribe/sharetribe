@@ -809,11 +809,9 @@ vi:
       please_contant_admin_link: ~
     confirmation_instructions:
       confirmation_instructions_signature: "Kính thư,<br> nhóm %{service_name}"
-      welcome_to_kassi: "Chào mừng đến với %{service_name}!"
       need_to_confirm: "Bạn cần phải xác nhận địa chỉ email của bạn bằng cách nhấp vào liên kết sau:"
       confirmation_link_text: "Xác nhận tài khoản của tôi"
       or_paste_link: "Nếu không bạn có thể copy đường dẫn này vào thanh địa chỉ trên trình duyệt."
-      turning_on_confirmations_in_this_community: "Chúng tôi đang bắt đầu sử dụng các xác nhận email trong cộng đồng %{service_name}."
     common:
       hey: "Chào %{name},"
       kassi_team: "Nhóm %{service_name}"

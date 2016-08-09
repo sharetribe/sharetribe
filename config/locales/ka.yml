@@ -829,11 +829,9 @@ ka:
       please_contant_admin_link: "გთხოვთ დაუკავშირდით ადმინისტრატორს"
     confirmation_instructions:
       confirmation_instructions_signature: "საუკეთესო სურვილებით, %{service_name} გუნდი"
-      welcome_to_kassi: "მოგესალმებით %{service_name}ზე!"
       need_to_confirm: "თქვენ უნდა დაადასტუროთ ელ. ფოსტა. "
       confirmation_link_text: "ელ. ფოსტის დადასტურება"
       or_paste_link: "ალტერნატიულად, თქვენ შეგიძლიათ დააკოპიროთ ეს ბმული თქვენ ბრაუზერის მისამართის ველში:"
-      turning_on_confirmations_in_this_community: "ჩვენ დავიწყეთ გამოვიყენოთ დასტური ელ. ფოსტაზე ამ %{service_name} ბაზარზე"
     common:
       hey: "გამარჯობა %{name},"
       kassi_team: "%{service_name}  გუნდი"

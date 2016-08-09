@@ -823,11 +823,9 @@ ja:
       please_contant_admin_link: サイト管理者にお問い合わせください。
     confirmation_instructions:
       confirmation_instructions_signature: "それでは、よろしくお願いいたします。<br/> - %{service_name}チーム"
-      welcome_to_kassi: "%{service_name}へようこそ！"
       need_to_confirm: メールアドレスを認証してください。
       confirmation_link_text: メールアドレス認証
       or_paste_link: 別の方法として、下記のリンクをブラウザのアドレスバーに、コピー出来ます。
-      turning_on_confirmations_in_this_community: "これから%{service_name}のマーケットプレイスで確認メールが始まります。"
     common:
       hey: "%{name}さん　こんにちは、"
       kassi_team: "%{service_name} チーム"

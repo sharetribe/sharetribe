@@ -840,11 +840,9 @@ sv:
       please_contant_admin_link: "vänligen kontakta administratören"
     confirmation_instructions:
       confirmation_instructions_signature: "Vänliga hälsningar,<br/>%{service_name} teamet"
-      welcome_to_kassi: "Välkommen till %{service_name}!"
       need_to_confirm: "Du behöver bekräfta din e-postadress."
       confirmation_link_text: "Bekräfta min e-postadress"
       or_paste_link: "Alternativt så kan du kopiera följande länk till adressfältet i din webbläsare:"
-      turning_on_confirmations_in_this_community: "Vi har börjat med att använda e-postverifiering på denna %{service_name} marknadsplats."
     common:
       hey: "Hej %{name},"
       kassi_team: "%{service_name}gänget"

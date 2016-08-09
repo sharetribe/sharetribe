@@ -842,11 +842,9 @@ nb:
       please_contant_admin_link: "vennligst kontakt oss"
     confirmation_instructions:
       confirmation_instructions_signature: "Vennlig hilsen,<br/> %{service_name}"
-      welcome_to_kassi: "Velkommen til %{service_name}!"
       need_to_confirm: "Du må bekrefte din e-post."
       confirmation_link_text: "Bekreft min e-post"
       or_paste_link: "Alternativt kan du kopiere lenken under til nettleseren din:"
-      turning_on_confirmations_in_this_community: "Vi benytter nå e-postbekreftelse på %{service_name}."
     common:
       hey: "Hei %{name}!"
       kassi_team: "Vennlig hilsen %{service_name}"

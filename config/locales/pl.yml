@@ -809,11 +809,9 @@ pl:
       please_contant_admin_link: "proszę skontaktuj się z administratorem"
     confirmation_instructions:
       confirmation_instructions_signature: "Pozdrawiamy,<br/>Zespół %{service_name}"
-      welcome_to_kassi: "Witaj w %{service_name}!"
       need_to_confirm: "Musisz potwierdzić swój adres email."
       confirmation_link_text: "Potwierdź mój adres email"
       or_paste_link: "Bądź skopiuj poniższy link do paska przeglądarki Twojej przeglądarki:"
-      turning_on_confirmations_in_this_community: "Zaczynamy używać potwierdzeń email na platformie %{service_name}."
     common:
       hey: "Witaj %{name}"
       kassi_team: "Zespół %{service_name}"

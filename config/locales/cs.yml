@@ -849,11 +849,9 @@ cs:
       please_contant_admin_link: "prosíme, kontaktujte správce"
     confirmation_instructions:
       confirmation_instructions_signature: "S pozdravem, Vaši kolegové z <br/>%{service_name}"
-      welcome_to_kassi: "Vítejte v %{service_name}!"
       need_to_confirm: "Musíte potvrdit svoji e-mailovou adresu."
       confirmation_link_text: "Potvrdit můj e-mail"
       or_paste_link: "Případně můžete zkopírovat následující odkaz do adresního řádku Vašeho prohlížeče:"
-      turning_on_confirmations_in_this_community: "Začínáme používat e-mailová potvrzení v tomto %{service_name} tržišti."
     common:
       hey: "Ahoj %{name},"
       kassi_team: "Vaši kolegové z %{service_name}"
