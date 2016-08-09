@@ -809,11 +809,9 @@ el:
       please_contant_admin_link: ~
     confirmation_instructions:
       confirmation_instructions_signature: "Χαιρετισμούς,<br>Η Ομάδα του %{service_name}"
-      welcome_to_kassi: "Καλωσήρθες στο %{service_name}!"
       need_to_confirm: "Πρέπει να επιβεβαιώσετε την διεύθυνση ηλεκτρονικού ταχυδρομείου σας."
       confirmation_link_text: "Επιβεβαίωσε το λογαριασμό μου"
       or_paste_link: "Εναλλακτικά μπορείτε να αντιγράψετε τον παρακάτω σύνδεσμο στην γραμμή διευθύνσεων του περιηγητή σας."
-      turning_on_confirmations_in_this_community: "Αρχίζουμε να κάνουμε επιβεβαίωση της διεύθυνσης ηλεκτρονικού ταχυδρομείου σε αυτή την κοινότητα %{service_name}."
     common:
       hey: "Γεια σου %{name},"
       kassi_team: "Η Ομάδα του %{service_name}"

@@ -840,11 +840,9 @@ fi:
       please_contant_admin_link: "ota yhteys ylläpitoon"
     confirmation_instructions:
       confirmation_instructions_signature: "Terveisin,<br/>%{service_name}-tiimi"
-      welcome_to_kassi: "Tervetuloa %{service_name}-palveluun!"
       need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi."
       confirmation_link_text: "Vahvista sähköpostini"
       or_paste_link: "Vaihtoehtoisesti voit kopioida seuraavan linkin selaimesi osoitepalkkiin:"
-      turning_on_confirmations_in_this_community: "Otamme käyttöön sähköpostivarmistukset %{service_name}-palvelussa."
     common:
       hey: "Hei %{name},"
       kassi_team: "%{service_name}-tiimi"

@@ -834,11 +834,9 @@ ru:
       please_contant_admin_link: "Пожалуйста свяжитесь с администратором."
     confirmation_instructions:
       confirmation_instructions_signature: "С наилучшими пожеланиями,</br>Команда %{service_name}"
-      welcome_to_kassi: "Добро пожаловать в %{service_name}!"
       need_to_confirm: "Вы должны подтвердить свой адрес электронной почты."
       confirmation_link_text: "Подтвердить мой email"
       or_paste_link: "Или же вы можете скопировать ссылку в адресную строку вашего браузера:"
-      turning_on_confirmations_in_this_community: "Мы начинаем использовать подтверждение электронной почты в  %{service_name}."
     common:
       hey: "Привет, %{name}!"
       kassi_team: "Команда %{service_name}"

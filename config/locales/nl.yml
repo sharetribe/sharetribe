@@ -824,11 +824,9 @@ nl:
       please_contant_admin_link: "contacteer a.u.b. de beheerder"
     confirmation_instructions:
       confirmation_instructions_signature: "Met vriendelijke groeten,<br/>Het %{service_name} Team"
-      welcome_to_kassi: "Welkom bij %{service_name}!"
       need_to_confirm: "Uw account is aangemaakt. De volgende stap is het bevestigen van uw e-mail adres."
       confirmation_link_text: "Bevestig mijn e-mail"
       or_paste_link: "U kunt ook onderstaande link kopiëren en plaatsen in de adresbalk van uw browser."
-      turning_on_confirmations_in_this_community: "We beginnen met e-mail bevestigingen te gebruiken in deze %{service_name} marktplaats."
     common:
       hey: "Hallo %{name},"
       kassi_team: "Het %{service_name} Team"
