@@ -131,38 +131,4 @@ describe FeatureFlagService::API::Features do
       expect(res.data[:features]).to eq([test_flag].to_set)
     end
   end
-
-  context "#enabled?" do
-    it "returns false when nothing is recorded for a community or a person" do
-      res = features.enabled?(community_id: community_id, person_id: person_id, feature: test_flag)
-
-      expect(res.success).to eq(true)
-      expect(res.data).to eq(false)
-    end
-
-    it "returns true if a feature is enabled for a community" do
-      features.enable(community_id: community_id, features: [test_flag])
-      res = features.enabled?(community_id: community_id, feature: test_flag)
-
-      expect(res.success).to eq(true)
-      expect(res.data).to eq(true)
-    end
-
-    it "returns true if a features is enabled for a person" do
-      features.enable(community_id: community_id, person_id: person_id, features: [test_flag])
-      res = features.enabled?(community_id: community_id, person_id: person_id, feature: test_flag)
-
-      expect(res.success).to eq(true)
-      expect(res.data).to eq(true)
-    end
-
-    it "returns true if a feature is enabled for a community and a person" do
-      features.enable(community_id: community_id, features: [test_flag])
-      features.enable(community_id: community_id, person_id: person_id, features: [test_flag])
-      res = features.enabled?(community_id: community_id, feature: test_flag)
-
-      expect(res.success).to eq(true)
-      expect(res.data).to eq(true)
-    end
-  end
 end

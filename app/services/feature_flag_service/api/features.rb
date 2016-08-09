@@ -28,18 +28,5 @@ module FeatureFlagService::API
     def get(community_id:, person_id: nil)
       Result::Success.new(@feature_flag_store.get(community_id, person_id))
     end
-
-    # Check if a feature is enabled for a community or a person.
-    # Both checks are made by providing both id parameters.
-    def enabled?(community_id:, person_id: nil, feature:)
-      features =
-        if person_id
-          @feature_flag_store.get(community_id, person_id)[:features] + @feature_flag_store.get(community_id, nil)[:features]
-        else
-          @feature_flag_store.get(community_id, nil)[:features]
-        end
-
-      Result::Success.new(features.include?(feature))
-    end
   end
 end
