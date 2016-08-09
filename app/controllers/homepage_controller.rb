@@ -304,10 +304,10 @@ class HomepageController < ApplicationController
   end
 
   def search_modes_in_use(q, lc, main_search)
-    {
-      location_in_use: lc && (main_search == :location || main_search == :keyword_and_location),
-      keyword_in_use: q && (main_search == :keyword || main_search == :keyword_and_location)
-    }
+    [
+      lc && (main_search == :location || main_search == :keyword_and_location),
+      q && (main_search == :keyword || main_search == :keyword_and_location)
+    ]
   end
 
   def viewport_geography(boundingbox, lc, community_location)
