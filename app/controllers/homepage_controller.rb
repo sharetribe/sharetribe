@@ -151,8 +151,9 @@ class HomepageController < ApplicationController
     numbers = numeric_search_params.map { |numeric| numeric.merge(type: :numeric_range) }
 
     marketplace_configuration = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data
+    distance_system = marketplace_configuration ? marketplace_configuration[:distance_unit] : nil
 
-    distance_unit = (location_search_in_use && marketplace_configuration[:distance_unit] == :metric) ? :km : :miles
+    distance_unit = (location_search_in_use && distance_system == :metric) ? :km : :miles
     limit_search_distance = marketplace_configuration ? marketplace_configuration[:limit_search_distance] : true
     location_search_hash = location_search_params(
       params[:lc],
