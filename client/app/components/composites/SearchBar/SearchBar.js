@@ -120,6 +120,7 @@ class SearchBar extends Component {
             keywordQuery: keywordValue,
             locationQuery: locationValueStr,
             place: null,
+            errorStatus: e.serviceStatus,
           });
         });
     } else if (this.keywordInput) {

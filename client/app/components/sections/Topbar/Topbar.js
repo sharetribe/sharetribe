@@ -277,13 +277,14 @@ class Topbar extends Component {
           keywordQuery: oldSearchParams.q,
           locationQuery: oldSearchParams.lq,
           customColor: marketplace_color1,
-          onSubmit: ({ keywordQuery, locationQuery, place }) => {
+          onSubmit: ({ keywordQuery, locationQuery, place, errorStatus }) => {
             const query = createQuery({
               q: keywordQuery,
               lq: locationQuery,
               lc: placesUtils.coordinates(place),
               boundingbox: placesUtils.viewport(place),
               distance_max: placesUtils.maxDistance(place),
+              ls: errorStatus,
             }, location);
             const searchUrl = `${this.props.search_path}${query}`;
             window.location.assign(searchUrl);
