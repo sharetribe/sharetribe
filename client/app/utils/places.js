@@ -139,7 +139,9 @@ export const getPrediction = (location) => new Promise((resolve, reject) => {
 
   service.getPlacePredictions({ input: location }, (predictions, status) => {
     if (status !== serviceStatus.OK) {
-      reject(new Error(`Prediction service status not OK: ${status}`));
+      const e = new Error(`Prediction service status not OK: ${status}`);
+      e.serviceStatus = status;
+      reject(e);
     } else if (predictions.length === 0) {
       reject(new Error(`No predictions found for location "${location}"`));
     } else {
