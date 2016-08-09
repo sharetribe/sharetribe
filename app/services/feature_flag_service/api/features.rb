@@ -24,9 +24,19 @@ module FeatureFlagService::API
       Result::Success.new(@feature_flag_store.disable(community_id, person_id, features))
     end
 
-    # Fetch community-specific features or person-specific features if person_id is provided.
-    def get(community_id:, person_id: nil)
+    # Fetch community and person-specific features combined
+    def get(community_id:, person_id:)
       Result::Success.new(@feature_flag_store.get(community_id, person_id))
+    end
+
+    # Featch feature flags for a community
+    def get_by_community_id(community_id:)
+      Result::Success.new(@feature_flag_store.get_by_community_id(community_id))
+    end
+
+    # Featch feature flags for a person
+    def get_by_person_id(person_id:)
+      Result::Success.new(@feature_flag_store.get_by_person_id(person_id))
     end
   end
 end
