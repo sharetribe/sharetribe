@@ -3,8 +3,6 @@
 import { Component, PropTypes } from 'react';
 import { form, input, button, span, div } from 'r-dom';
 import * as placesUtils from '../../../utils/places';
-import { brightness } from '../../../utils/colors';
-import * as variables from '../../../assets/styles/variables';
 
 import css from './SearchBar.css';
 import icon from './images/search-icon.svg';
@@ -132,10 +130,13 @@ class SearchBar extends Component {
     }
   }
   render() {
-    const { mode, keywordPlaceholder, locationPlaceholder, keywordQuery, locationQuery, customColor } = this.props;
+    const { mode, keywordPlaceholder, locationPlaceholder, keywordQuery, locationQuery } = this.props;
 
-    const bgColor = customColor || variables['--SearchBar_mobileBackgroundColor'];
-    const bgColorDarkened = brightness(bgColor, 80);
+    // Custom color support disabled for now until further discussion.
+    // const bgColor = customColor || variables['--SearchBar_mobileBackgroundColor'];
+    // const bgColorDarkened = brightness(bgColor, 80);
+    const bgColor = '#34495E';
+    const bgColorDarkened = '#2C3E50 ';
 
     const keywordInput = input({
       type: 'search',
