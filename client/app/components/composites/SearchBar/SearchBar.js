@@ -132,10 +132,13 @@ class SearchBar extends Component {
     }
   }
   render() {
-    const { mode, keywordPlaceholder, locationPlaceholder, keywordQuery, locationQuery, customColor } = this.props;
+    const { mode, keywordPlaceholder, locationPlaceholder, keywordQuery, locationQuery } = this.props;
 
-    const bgColor = customColor || variables['--SearchBar_mobileBackgroundColor'];
-    const bgColorDarkened = brightness(bgColor, 80);
+    // Custom color support disabled for now until further discussion.
+    // const bgColor = customColor || variables['--SearchBar_mobileBackgroundColor'];
+    // const bgColorDarkened = brightness(bgColor, 80);
+    const bgColor = '#34495E';
+    const bgColorDarkened = '#2C3E50 ';
 
     const keywordInput = input({
       type: 'search',
