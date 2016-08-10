@@ -22,7 +22,7 @@
     padding: var(--Topbar_padding);
   }
 
-  /* Base styles */
+  /* Base style overrides to reset styles coming from the old SASS styles. */
   box-sizing: border-box;
 
   & * {
@@ -57,6 +57,8 @@
   & button {
     border-radius: 0;
   }
+
+  /* End of base style overrides. */
 
   & .topbarLogo {
     max-height: var(--Topbar_logoMaxHeightMobile);
