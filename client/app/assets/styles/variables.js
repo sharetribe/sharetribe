@@ -29,6 +29,9 @@ const bodyPadding = '24px';
 // With minimum z-index we try to avoid most clashes with rails components
 const zIndexMinimum = 5;
 
+const searchBarNarrowWidth = 326;
+const searchBarWidth = 396;
+
 const pxToEms = function pxToEms(px, againstFontSize) {
   const emValue = px / againstFontSize;
   return `${emValue}em`;
@@ -59,7 +62,8 @@ module.exports = {
    }
    */
   '--breakpointMedium': 660,
-  '--breakpointLarge': 1100,
+  '--breakpointLarge': 1200,
+  '--breakpointSearchWide': 1200 + (searchBarWidth - searchBarNarrowWidth), // eslint-disable-line no-magic-numbers
 
   '--baseFontSize': fontSize,
   '--baseFontSizeMobile': fontSizeMobile,
@@ -137,7 +141,8 @@ module.exports = {
   '--Topbar_avatarMobilePadding': '8px 0',
 
   // SearchBar
-  '--SearchBar_width': '396px',
+  '--SearchBar_narrowWidth': `${searchBarNarrowWidth}px`,
+  '--SearchBar_width': `${searchBarWidth}px`,
   '--SearchBar_mobileHeight': '50px',
   '--SearchBar_height': topbarItemHeight,
   '--SearchBar_borderColor': topbarBorderColor,

@@ -43,10 +43,14 @@
     display: inline-flex;
     position: relative;
     height: var(--SearchBar_height);
-    width: var(--SearchBar_width);
+    width: var(--SearchBar_narrowWidth);
     padding-left: var(--SearchBar_sidePadding);
     top: 0;
     font-size: var(--baseFontSize);
+  }
+
+  @media (--search-desktop-wide) {
+    width: var(--SearchBar_width);
   }
 
   &:hover .focusContainer::before {
