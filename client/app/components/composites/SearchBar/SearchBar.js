@@ -44,7 +44,6 @@ class SearchBar extends Component {
       'place_changed',
       () => {
         this.setState({ selectedPlace: autocomplete.getPlace() });
-        this.handleSubmit();
       }
     );
   }
