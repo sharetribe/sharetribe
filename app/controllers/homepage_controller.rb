@@ -55,14 +55,16 @@ class HomepageController < ApplicationController
       end
 
     main_search = FeatureFlagHelper.location_search_available ? MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:main_search] : :keyword
-    location_in_use, keyword_in_use = search_modes_in_use(params[:q], params[:lc], main_search)
+    search_modes = search_modes_in_use(params[:q], params[:lc], main_search)
+    keyword_in_use = search_modes[:keyword]
+    location_in_use = search_modes[:location]
 
     search_result = find_listings(params, per_page, compact_filter_params, includes.to_set, location_in_use, keyword_in_use)
 
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
     if @view_type == 'map'
-      viewport = viewport_geography(params[:boundingbox], params[:lc], @current_community.location)
+      viewport = viewport_geometry(params[:boundingbox], params[:lc], @current_community.location)
     end
 
     if request.xhr? # checks if AJAX request
@@ -304,13 +306,13 @@ class HomepageController < ApplicationController
   end
 
   def search_modes_in_use(q, lc, main_search)
-    [
-      lc && (main_search == :location || main_search == :keyword_and_location),
-      q && (main_search == :keyword || main_search == :keyword_and_location)
-    ]
+    {
+      keyword: q && (main_search == :keyword || main_search == :keyword_and_location),
+      location: lc && (main_search == :location || main_search == :keyword_and_location),
+    }
   end
 
-  def viewport_geography(boundingbox, lc, community_location)
+  def viewport_geometry(boundingbox, lc, community_location)
     coords = Maybe(boundingbox).split(',').or_else(nil)
     if coords
       sw_lat, sw_lng, ne_lat, ne_lng = coords

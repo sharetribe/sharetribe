@@ -10,11 +10,12 @@ const toRadians = (degrees) => degrees * (Math.PI / 180); // eslint-disable-line
  * @param {google.maps.LatLng} pointA - first point
  * @param {google.maps.LatLng} pointB - second point
  *
- * @return {Number} distance between the given points (in km?)
+ * @return {Number} distance in kilometers between the given points
  */
-const computeScale = (pointA, pointB) => {
+const getDistance = (pointA, pointB) => {
   /* eslint-disable no-magic-numbers */
 
+  // Radius in kilometers
   const EARTH_RADIUS = 6371;
 
   const lat1 = pointA.lat();
@@ -38,7 +39,7 @@ const computeScale = (pointA, pointB) => {
   // distance between coordinates
   const d = EARTH_RADIUS * c;
 
-  return d / 2;
+  return d;
 
   /* eslint-enable no-magic-numbers */
 };
@@ -118,8 +119,8 @@ export const viewport = (place) => {
  */
 export const maxDistance = (place) => {
   if (place && place.geometry && place.geometry.viewport) {
-    return computeScale(place.geometry.viewport.getNorthEast(),
-                        place.geometry.viewport.getSouthWest());
+    return getDistance(place.geometry.viewport.getNorthEast(),
+                       place.geometry.viewport.getSouthWest()) / 2;
   }
   return null;
 };

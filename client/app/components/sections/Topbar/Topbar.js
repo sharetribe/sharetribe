@@ -126,7 +126,7 @@ const parseKeepParams = urlUtils.currySearchParams(SEARCH_PARAMS_TO_KEEP);
 const SEARCH_PARAMS = ['q', 'lq'];
 const parseSearchParams = urlUtils.currySearchParams(SEARCH_PARAMS);
 
-const isValid = (value) => typeof value === 'number' && !isNaN(value) || !!value;
+const isValidSearchParam = (value) => typeof value === 'number' && !isNaN(value) || !!value;
 
 const createQuery = (searchParams, queryString) => {
   const extraParams = parseKeepParams(queryString);
@@ -140,7 +140,7 @@ const createQuery = (searchParams, queryString) => {
   return paramKeys.reduce((url, key) => {
     const val = params[key];
 
-    if (!isValid(val)) {
+    if (!isValidSearchParam(val)) {
       return url;
     }
 
