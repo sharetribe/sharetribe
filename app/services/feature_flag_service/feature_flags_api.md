@@ -4,8 +4,10 @@
 
 Query params:
 
- - `community_id`: mandatory
- - `person_id`: optional (if `person_id` is provided, operation tagets user-specific feature flags)
+ - `community_id`: optional, for searching community-specific features
+ - `person_id`: optional, for searching person-specific features
+
+If both parameters are provided, result includes features for the community and the person combined
 
 Request body: empty
 
@@ -24,6 +26,18 @@ Response body (person_id provided):
 
 ```ruby
 { person_id: 456
+, features:
+  [ :topbar_v1
+  , :new_login
+  ]
+}
+```
+
+Response body (both params):
+
+```ruby
+{ community_id: 123
+, person_id: 456
 , features:
   [ :topbar_v1
   , :new_login
@@ -107,19 +121,4 @@ Response body (person_id not provided):
   , :some_other_feature
   ]
 }
-```
-
-## GET /enabled/?community_id=123&person_id=456
-
-Query params:
-
- - `community_id`: mandatory
- - `person_id`: optional (if `person_id` is provided, operation tagets community and user-specific feature flags, otherwise just community-specific flags are taken into account)
-
-Request body: empty
-
-Response body:
-
-```ruby
-{ data: true }
 ```
