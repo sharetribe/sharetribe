@@ -45,6 +45,7 @@
 
 .stepListItemDone .stepListCheckbox {
   @mixin guideStepListCheckbox;
+
   background-image: url('./images/iconSquareChecked@2x.png');
 }
 
@@ -62,6 +63,7 @@
 .stepListItemDone .stepListLink {
   text-decoration: line-through;
   color: var(--colorCompleted);
+
   &:hover {
     color: var(--colorCompletedHover);
   }
@@ -73,10 +75,12 @@
 
 .nextButtonGhost {
   @mixin guideNextButton;
+
   margin-right: 0;
   border: 1px solid var(--colorButton);
   background-color: transparent;
   color: var(--colorButton);
+
   &:hover {
     border: 1px solid var(--colorButtonGhost);
     background-color: transparent;
@@ -99,6 +103,7 @@
   color: var(--colorActionText);
   margin-bottom: var(--verticalSpaceTextSmall);
   display: inline-block;
+
   &:hover {
     color: var(--colorActionTextHover);
   }
@@ -130,6 +135,7 @@
 
 .sloganImageContainerBig {
   @mixin guideSloganImageContainer;
+
   padding: 73.68% 0 0 0; /* 73.68% = 100 / (w / h) = 100 / (722 / 532) */
 }
 

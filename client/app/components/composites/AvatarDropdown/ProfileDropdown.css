@@ -24,7 +24,6 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-
   color: var(--ProfileDropdown_textColor);
 
   &:hover {
@@ -83,7 +82,6 @@
   height: 0;
   width: 0;
   pointer-events: none;
-
   position: relative;
 }
 

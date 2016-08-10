@@ -116,7 +116,7 @@ const GuideStatusPage = (props) => {
               css.stepListItemDone :
               css.stepListItem;
 
-      return li({ className: stepListItem, page }, [
+      return li({ className: stepListItem }, [
         a({
           className: css.stepListLink,
           onClick: (e) => handleClick(e, page, links[page].path),
