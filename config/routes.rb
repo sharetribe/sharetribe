@@ -177,6 +177,10 @@ Kassi::Application.routes.draw do
       get   "/details/edit"       => "community_customizations#edit_details",   as: :details_edit
       patch "/details"            => "community_customizations#update_details", as: :details
 
+      # Maps
+      get   "/maps/edit" => "communities#edit_maps",     as: :maps_edit
+      patch "/maps"      => "communities#update_maps",   as: :maps
+
       resources :communities do
         member do
           get :edit_welcome_email

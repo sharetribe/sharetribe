@@ -84,6 +84,8 @@ module NavigationHelpers
       social_media_admin_community_path(:id => @current_community.id)
     when /the analytics admin page/
       analytics_admin_community_path(:id => @current_community.id)
+    when /the maps admin page/
+      maps_admin_community_path(:id => @current_community.id)
     when /the menu links admin page/
       menu_links_admin_community_path(:id => @current_community.id)
     when /the transactions admin page/

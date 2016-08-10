@@ -1,0 +1,24 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.maps.maps")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section
+  %h2= t("admin.communities.maps.maps", :community_name => @community.name(I18n.locale))
+  = form_for @community, :url => admin_maps_path, :method => :patch do |form|
+    .row
+      %h3= t("admin.communities.maps.google_maps_key")
+    .row
+      .col-6
+        - if display_knowledge_base_articles
+          - instructions_link = link_to(t("admin.communities.maps.google_maps_instructions_link_text"), "#{knowledge_base_url}/articles/916923-how-to-create-a-google-maps-api-key-for-your-marke" )
+          = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.maps.google_maps_key_info_text_with_instructions", :instructions_link => instructions_link).html_safe }
+        - else
+          = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.maps.google_maps_key_info_text") }
+      .col-6
+        =form.text_field :google_maps_key, :maxlength => "64", :class => "text_field", :placeholder => "Your Google Maps API key"
+    .row
+      = form.button t("admin.communities.settings.update_settings")
