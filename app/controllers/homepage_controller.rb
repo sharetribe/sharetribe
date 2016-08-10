@@ -174,16 +174,16 @@ class HomepageController < ApplicationController
     distance_system = marketplace_configuration ? marketplace_configuration[:distance_unit] : nil
     distance_unit = (location_search_in_use && distance_system == :metric) ? :km : :miles
     limit_search_distance = marketplace_configuration ? marketplace_configuration[:limit_search_distance] : true
-    distance_limit = [distance, APP_CONFIG[:external_search_distance_limit_min]].max if limit_search_distance
+    distance_limit = [distance, APP_CONFIG[:external_search_distance_limit_min].to_f].max if limit_search_distance
 
     if @view_type != 'map' && location_search_in_use
-      scale_multiplier = APP_CONFIG[:external_search_scale_multiplier]
-      offset_multiplier = APP_CONFIG[:external_search_offset_multiplier]
+      scale_multiplier = APP_CONFIG[:external_search_scale_multiplier].to_f
+      offset_multiplier = APP_CONFIG[:external_search_offset_multiplier].to_f
       combined_search_in_use = location_search_in_use && keyword_search_in_use && scale_multiplier && offset_multiplier
       combined_search_params = if combined_search_in_use
         {
-          scale: [distance * scale_multiplier, APP_CONFIG[:external_search_scale_min]].max,
-          offset: [distance * offset_multiplier, APP_CONFIG[:external_search_offset_min]].max
+          scale: [distance * scale_multiplier, APP_CONFIG[:external_search_scale_min].to_f].max,
+          offset: [distance * offset_multiplier, APP_CONFIG[:external_search_offset_min].to_f].max
         }
       else
         {}
