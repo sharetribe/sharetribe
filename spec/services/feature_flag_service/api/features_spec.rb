@@ -102,8 +102,22 @@ describe FeatureFlagService::API::Features do
   end
 
   context "#get" do
-    it "returns result with no features enabled when nothing recorded for a community or a person" do
+    it "returns a result with no features enabled when nothing recorded for a community or a person" do
       res = features.get(community_id: community_id, person_id: person_id)
+
+      expect(res.success).to eq(true)
+      expect(res.data[:features]).to eq(Set.new)
+    end
+
+    it "returns a result with no features enabled when nothing recorded for a community" do
+      res = features.get(community_id: community_id)
+
+      expect(res.success).to eq(true)
+      expect(res.data[:features]).to eq(Set.new)
+    end
+
+    it "returns a result with no features enabled when nothing recorded for a person" do
+      res = features.get(person_id: person_id)
 
       expect(res.success).to eq(true)
       expect(res.data[:features]).to eq(Set.new)
@@ -111,7 +125,7 @@ describe FeatureFlagService::API::Features do
 
     it "returns enabled features as a set for a community" do
       features.enable(community_id: community_id, features: [test_flag])
-      res = features.get(community_id: community_id, person_id: person_id)
+      res = features.get(community_id: community_id)
 
       expect(res.success).to eq(true)
       expect(res.data[:features]).to eq([test_flag].to_set)
@@ -119,7 +133,7 @@ describe FeatureFlagService::API::Features do
 
     it "returns enabled features as a set for a person" do
       features.enable(community_id: community_id, person_id: person_id, features: [test_flag])
-      res = features.get(community_id: community_id, person_id: person_id)
+      res = features.get(person_id: person_id)
 
       expect(res.success).to eq(true)
       expect(res.data[:features]).to eq([test_flag].to_set)
@@ -132,40 +146,6 @@ describe FeatureFlagService::API::Features do
 
       expect(res.success).to eq(true)
       expect(res.data[:features]).to eq([test_flag, test_flag2].to_set)
-    end
-  end
-
-  context "#get_by_community_id" do
-    it "returns result with no features enabled when nothing recorded for a community" do
-      res = features.get_by_community_id(community_id: community_id)
-
-      expect(res.success).to eq(true)
-      expect(res.data[:features]).to eq(Set.new)
-    end
-
-    it "returns enabled features as a set for a community" do
-      features.enable(community_id: community_id, features: [test_flag])
-      res = features.get_by_community_id(community_id: community_id)
-
-      expect(res.success).to eq(true)
-      expect(res.data[:features]).to eq([test_flag].to_set)
-    end
-  end
-
-  context "#get_by_person_id" do
-    it "returns result with no features enabled when nothing recorded for a person" do
-      res = features.get_by_person_id(person_id: person_id)
-
-      expect(res.success).to eq(true)
-      expect(res.data[:features]).to eq(Set.new)
-    end
-
-    it "returns enabled features as a set for a person" do
-      features.enable(community_id: community_id, person_id: person_id, features: [test_flag])
-      res = features.get_by_person_id(person_id: person_id)
-
-      expect(res.success).to eq(true)
-      expect(res.data[:features]).to eq([test_flag].to_set)
     end
   end
 end

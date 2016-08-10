@@ -12,8 +12,8 @@ module FeatureFlagService::Store
       [:features, :mandatory, :set])
 
     CombinedFlag = EntityUtils.define_builder(
-      [:community_id, :fixnum, :optional],
-      [:person_id, :string, :optional],
+      [:community_id, :fixnum, :mandatory],
+      [:person_id, :string, :mandatory],
       [:features, :mandatory, :set])
 
     FLAGS = [
@@ -30,14 +30,14 @@ module FeatureFlagService::Store
     end
 
     def get(community_id, person_id)
-      Maybe(FeatureFlagModel.where("community_id = ? or person_id = ?", community_id, person_id))
+      Maybe(FeatureFlagModel.where("(community_id = ? AND person_id IS NULL) OR person_id = ?", community_id, person_id))
         .map { |features|
           from_combined_models(community_id, person_id, features)
         }.or_else(no_combined_flags(community_id, person_id))
     end
 
     def get_by_community_id(community_id)
-      Maybe(FeatureFlagModel.where(community_id: community_id))
+      Maybe(FeatureFlagModel.where(community_id: community_id, person_id: nil))
         .map { |features|
           from_community_models(community_id, features)
         }.or_else(no_community_flags(community_id))
@@ -146,7 +146,7 @@ module FeatureFlagService::Store
     end
 
     def get_by_person_id(person_id)
-      Rails.cache.fetch(cache_key(person_id: community_id)) do
+      Rails.cache.fetch(cache_key(person_id: person_id)) do
         @feature_flag_store.get_by_person_id(person_id)
       end
     end
@@ -164,8 +164,8 @@ module FeatureFlagService::Store
 
     private
 
-    def cache_key(community_id:, person_id:)
-      raise ArgumentError.new("You must specify a valid community_id or person_id.") if community_id.blank? && person_id.blank?
+    def cache_key(community_id: nil, person_id: nil)
+      raise ArgumentError.new("You must specify a valid community_id or person_id.") unless community_id || person_id
 
       id =
         if person_id && community_id
