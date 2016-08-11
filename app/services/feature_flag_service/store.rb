@@ -122,7 +122,6 @@ module FeatureFlagService::Store
     end
   end
 
-
   class CachingFeatureFlag
 
     def initialize(additional_flags:)
@@ -133,8 +132,17 @@ module FeatureFlagService::Store
       @feature_flag_store.known_flags
     end
 
+    # The result of this query is not cached, as there is no trivial
+    # way to invalidate cache for combined queries that fetch
+    # person and community specific feature falgs.
+    #
+    # This method is only invoked for users with admin rights and
+    # feature flags for non-admin users are fetched with
+    # get_by_community_id(community_id).
+    #
+    # This method is still preserved in this class to
+    # achieve uniform API among feature flag store classes.
     def get(community_id, person_id)
-      # the combined query is not cached
       @feature_flag_store.get(community_id, person_id)
     end
 
