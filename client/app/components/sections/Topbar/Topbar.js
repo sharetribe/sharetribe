@@ -1,5 +1,6 @@
 import { Component, PropTypes } from 'react';
 import r, { div } from 'r-dom';
+import classNames from 'classnames';
 import * as placesUtils from '../../../utils/places';
 import * as urlUtils from '../../../utils/url';
 
@@ -265,7 +266,7 @@ class Topbar extends Component {
 
     const oldSearchParams = parseSearchParams(location);
 
-    return div({ className: css.topbar }, [
+    return div({ className: classNames('Topbar', css.topbar) }, [
       this.props.menu ? r(MenuMobile, { ...mobileMenuProps, className: css.topbarMobileMenu }) : null,
       r(Logo, { ...this.props.logo, classSet: css.topbarLogo, color: marketplace_color1 }),
       div({ className: css.topbarMediumSpacer }),

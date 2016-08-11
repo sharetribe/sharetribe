@@ -171,7 +171,13 @@ class SearchBar extends Component {
     // Maps Places Autocomplete .pac-container is within the body
     // element.
     if (typeof document === 'object' && document.body) {
-      document.body.classList.toggle(css.mobileMenuOpen, this.state.mobileMenuOpen);
+      if (this.state.mobileMenuOpen) {
+        if (!document.body.classList.contains(css.mobileMenuOpen)) {
+          document.body.classList.add(css.mobileMenuOpen);
+        }
+      } else if (document.body.classList.contains(css.mobileMenuOpen)) {
+        document.body.classList.remove(css.mobileMenuOpen);
+      }
     }
 
     return div({
