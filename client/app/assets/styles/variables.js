@@ -26,6 +26,9 @@ const topbarItemHeight = '44px';
 const topbarMediumItemHeight = '36px';
 const bodyPadding = '24px';
 
+// With minimum z-index we try to avoid most clashes with rails components
+const zIndexMinimum = 5;
+
 const pxToEms = function pxToEms(px, againstFontSize) {
   const emValue = px / againstFontSize;
   return `${emValue}em`;
@@ -153,9 +156,9 @@ module.exports = {
   '--SearchBar_inputFontWeight': '500',
   '--SearchBar_keywordInputWidth': '63%',
   '--SearchBar_keywordInputFocusWidth': '78%',
-  '--SearchBar_formZIndex': '1',
-  '--SearchBar_focusContainerZIndex': '0',
-  '--SearchBar_childZIndex': '1',
+  '--SearchBar_formZIndex': zIndexMinimum + 1,
+  '--SearchBar_focusContainerZIndex': zIndexMinimum,
+  '--SearchBar_childZIndex': zIndexMinimum + 1,
   '--SearchBar_mobileTextColor': '#fff',
   '--SearchBar_mobileInputBorderColor': 'rgba(255, 255, 255, 0.3)',
   '--SearchBar_mobilePlaceholderColor': '#FCFCFC',
@@ -168,7 +171,7 @@ module.exports = {
   // ProfileDropdown
   '--ProfileDropdown_border': `1px solid ${topbarBorderColor}`,
   '--ProfileDropdown_borderColor': topbarBorderColor,
-  '--ProfileDropdown_zIndex': 1,
+  '--ProfileDropdown_zIndex': zIndexMinimum,
   '--ProfileDropdown_rightOffset': bodyPadding,
   '--ProfileDropdown_textColor': textColor,
   '--ProfileDropdown_textColorFocus': textColorFocus,
@@ -202,7 +205,7 @@ module.exports = {
   '--Menu_borderColor': topbarBorderColor,
   '--Menu_boxShadow': '0px 2px 4px 0px rgba(0, 0, 0, 0.1)',
   '--Menu_iconPadding': pxToEms(5, 14),
-  '--Menu_zIndex': '1',
+  '--Menu_zIndex': zIndexMinimum,
 
   '--MenuPriority_height': '60px',
   '--MenuPriority_extraSpacingNoUnit': 24,
