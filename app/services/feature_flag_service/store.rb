@@ -134,9 +134,8 @@ module FeatureFlagService::Store
     end
 
     def get(community_id, person_id)
-      Rails.cache.fetch(cache_key(community_id: community_id, person_id: person_id)) do
-        @feature_flag_store.get(community_id, person_id)
-      end
+      # the combined query is not cached
+      @feature_flag_store.get(community_id, person_id)
     end
 
     def get_by_community_id(community_id)
@@ -167,15 +166,11 @@ module FeatureFlagService::Store
     def cache_key(community_id: nil, person_id: nil)
       raise ArgumentError.new("You must specify a valid community_id or person_id.") unless community_id || person_id
 
-      id =
-        if person_id && community_id
-          "#{community_id}-#{person_id}"
-        elsif person_id
-          person_id
-        else
-          community_id
-        end
-      "/feature_flag_service/#{id}"
+      if person_id
+        "/feature_flag_service/person/#{person_id}"
+      else
+        "/feature_flag_service/community/#{community_id}"
+      end
     end
   end
 end
