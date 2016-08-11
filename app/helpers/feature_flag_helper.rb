@@ -31,17 +31,14 @@ module FeatureFlagHelper
   end
 
   def fetch_feature_flags(request, is_admin)
-    community_flags_from_service = FeatureFlagService::API::Api.features.get(community_id: community_id(request)).maybe[:features].or_else(Set.new)
-
-    person_flags_from_service = FeatureFlagService::API::Api.features
-      .get(community_id: community_id(request), person_id: person_id(request))
+    flags_from_service = FeatureFlagService::API::Api.features.get(community_id: community_id(request), person_id: person_id(request))
       .maybe[:features].or_else(Set.new)
 
     temp_flags = fetch_temp_flags(is_admin, request.params, request.session)
 
     request.session[:feature_flags] = temp_flags
 
-    community_flags_from_service.union(person_flags_from_service).union(temp_flags)
+    flags_from_service.union(temp_flags)
   end
 
   # Fetch temporary flags from params and session
