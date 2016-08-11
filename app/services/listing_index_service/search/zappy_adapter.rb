@@ -57,6 +57,8 @@ module ListingIndexService::Search
           { :'search[lat]' => original[:latitude],
             :'search[lng]' => original[:longitude],
             :'search[distance_unit]' => original[:distance_unit],
+            :'search[scale]' => original[:scale],
+            :'search[offset]' => original[:offset],
             :'filter[distance_max]' => original[:distance_max]
           }
         else

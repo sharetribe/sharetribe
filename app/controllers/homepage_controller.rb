@@ -5,8 +5,6 @@ class HomepageController < ApplicationController
 
   APP_DEFAULT_VIEW_TYPE = "grid"
   VIEW_TYPES = ["grid", "list", "map"]
-  APP_MINIMUM_DISTANCE_MAX = 5
-
 
   def index
     redirect_to landing_page_path and return if no_current_user_in_private_clp_enabled_marketplace?
@@ -57,24 +55,16 @@ class HomepageController < ApplicationController
       end
 
     main_search = FeatureFlagHelper.location_search_available ? MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:main_search] : :keyword
-    location_search_in_use = main_search == :location
+    search_modes = search_modes_in_use(params[:q], params[:lc], main_search)
+    keyword_in_use = search_modes[:keyword]
+    location_in_use = search_modes[:location]
 
-    search_result = find_listings(params, per_page, compact_filter_params, includes.to_set, location_search_in_use)
+    search_result = find_listings(params, per_page, compact_filter_params, includes.to_set, location_in_use, keyword_in_use)
 
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
     if @view_type == 'map'
-      coords = Maybe(params[:boundingbox]).split(',').or_else(nil)
-      viewport = if coords
-        sw_lat, sw_lng, ne_lat, ne_lng = coords
-        { boundingbox: { sw: [sw_lat, sw_lng], ne: [ne_lat, ne_lng] } }
-      elsif params[:lc].present?
-        { center: params[:lc].split(',') }
-      else
-        Maybe(@current_community.location)
-          .map { |l| { center: [l.latitude, l.longitude] }}
-          .or_else(nil)
-      end
+      viewport = viewport_geometry(params[:boundingbox], params[:lc], @current_community.location)
     end
 
     if request.xhr? # checks if AJAX request
@@ -82,9 +72,9 @@ class HomepageController < ApplicationController
         @listings = listings # TODO Remove
 
         if @view_type == "grid" then
-          render partial: "grid_item", collection: @listings, as: :listing, locals: { show_distance: location_search_in_use }
-        elsif location_search_in_use
-          render partial: "list_item_with_distance", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map, testimonials_in_use: @current_community.testimonials_in_use, show_distance: location_search_in_use }
+          render partial: "grid_item", collection: @listings, as: :listing, locals: { show_distance: location_in_use }
+        elsif location_in_use
+          render partial: "list_item_with_distance", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map, testimonials_in_use: @current_community.testimonials_in_use, show_distance: location_in_use }
         else
           render partial: "list_item", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map, testimonials_in_use: @current_community.testimonials_in_use }
         end
@@ -103,7 +93,7 @@ class HomepageController < ApplicationController
                  testimonials_in_use: @current_community.testimonials_in_use,
                  listing_shape_menu_enabled: listing_shape_menu_enabled,
                  main_search: main_search,
-                 location_search_in_use: location_search_in_use,
+                 location_search_in_use: location_in_use,
                  viewport: viewport }
       }.on_error { |e|
         flash[:error] = t("homepage.errors.search_engine_not_responding")
@@ -117,7 +107,7 @@ class HomepageController < ApplicationController
                  testimonials_in_use: @current_community.testimonials_in_use,
                  listing_shape_menu_enabled: listing_shape_menu_enabled,
                  main_search: main_search,
-                 location_search_in_use: location_search_in_use,
+                 location_search_in_use: location_in_use,
                  viewport: viewport }
       }
     end
@@ -135,13 +125,13 @@ class HomepageController < ApplicationController
 
   private
 
-  def find_listings(params, listings_per_page, filter_params, includes, location_search_in_use)
+  def find_listings(params, listings_per_page, filter_params, includes, location_search_in_use, keyword_search_in_use)
     Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
       filter_params[:categories] = category.own_and_subcategory_ids
       @selected_category = category
     end
 
-    filter_params[:search] = params[:q] if params[:q] && !location_search_in_use
+    filter_params[:search] = params[:q] if params[:q] && keyword_search_in_use
     filter_params[:custom_dropdown_field_options] = HomepageController.dropdown_field_options_for_search(params)
     filter_params[:custom_checkbox_field_options] = HomepageController.checkbox_field_options_for_search(params)
 
@@ -162,17 +152,6 @@ class HomepageController < ApplicationController
 
     marketplace_configuration = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data
 
-    distance_unit = (location_search_in_use && marketplace_configuration[:distance_unit] == :metric) ? :km : :miles
-    limit_search_distance = marketplace_configuration ? marketplace_configuration[:limit_search_distance] : true
-    location_search_hash = location_search_params(
-      params[:lc],
-      distance_unit,
-      params[:distance_max],
-      APP_MINIMUM_DISTANCE_MAX,
-      limit_search_distance
-    )
-    search_extra = location_search_hash.blank? ? { sort: nil } : location_search_hash
-
     search = {
       # Add listing_id
       categories: filter_params[:categories],
@@ -185,8 +164,42 @@ class HomepageController < ApplicationController
       price_min: params[:price_min],
       price_max: params[:price_max],
       locale: I18n.locale,
-      include_closed: false
-    }.merge(search_extra)
+      include_closed: false,
+      sort: nil
+    }
+
+
+    # location search params
+    distance = params[:distance_max].to_f
+    distance_system = marketplace_configuration ? marketplace_configuration[:distance_unit] : nil
+    distance_unit = (location_search_in_use && distance_system == :metric) ? :km : :miles
+    limit_search_distance = marketplace_configuration ? marketplace_configuration[:limit_search_distance] : true
+    distance_limit = [distance, APP_CONFIG[:external_search_distance_limit_min].to_f].max if limit_search_distance
+
+    if @view_type != 'map' && location_search_in_use
+      scale_multiplier = APP_CONFIG[:external_search_scale_multiplier].to_f
+      offset_multiplier = APP_CONFIG[:external_search_offset_multiplier].to_f
+      combined_search_in_use = location_search_in_use && keyword_search_in_use && scale_multiplier && offset_multiplier
+      combined_search_params = if combined_search_in_use
+        {
+          scale: [distance * scale_multiplier, APP_CONFIG[:external_search_scale_min].to_f].max,
+          offset: [distance * offset_multiplier, APP_CONFIG[:external_search_offset_min].to_f].max
+        }
+      else
+        {}
+      end
+
+      sort = :distance unless combined_search_in_use
+
+      search = search.merge({
+        distance_unit: distance_unit,
+        distance_max: distance_limit,
+        sort: sort
+      })
+      .merge(search_coordinates(params[:lc]))
+      .merge(combined_search_params)
+      .compact
+    end
 
     raise_errors = Rails.env.development?
 
@@ -286,28 +299,31 @@ class HomepageController < ApplicationController
     end
   end
 
-  def location_search_params(latlng, distance_unit, distance_max, minimum_distance_max, limit_by_distance)
-    # Current map doesn't react to zoom & panning, so we fetch all the results as before.
-    if @view_type != 'map'
-      Maybe(latlng)
-        .map {
-          distance_limit = [minimum_distance_max, distance_max.to_f].max if limit_by_distance
-          search_coordinates(latlng).merge({
-            distance_unit: distance_unit,
-            distance_max: distance_limit,
-            sort: :distance
-          }).compact
-        }
-        .or_else({})
-    else
-      {}
-    end
-  end
-
   def no_current_user_in_private_clp_enabled_marketplace?
     CustomLandingPage::LandingPageStore.enabled?(@current_community.id) &&
       @current_community.private &&
       !@current_user
+  end
+
+  def search_modes_in_use(q, lc, main_search)
+    {
+      keyword: q && (main_search == :keyword || main_search == :keyword_and_location),
+      location: lc && (main_search == :location || main_search == :keyword_and_location),
+    }
+  end
+
+  def viewport_geometry(boundingbox, lc, community_location)
+    coords = Maybe(boundingbox).split(',').or_else(nil)
+    if coords
+      sw_lat, sw_lng, ne_lat, ne_lng = coords
+      { boundingbox: { sw: [sw_lat, sw_lng], ne: [ne_lat, ne_lng] } }
+    elsif lc.present?
+      { center: lc.split(',') }
+    else
+      Maybe(community_location)
+        .map { |l| { center: [l.latitude, l.longitude] }}
+        .or_else(nil)
+    end
   end
 
 end

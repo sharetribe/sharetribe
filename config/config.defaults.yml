@@ -290,6 +290,13 @@ default: &default_settings
   external_search_url:
   external_search_apikey:
 
+  # Combined keyword & location search distance score tweaking
+  external_search_scale_multiplier: 0.75
+  external_search_offset_multiplier: 0.5
+  external_search_distance_limit_min: 5
+  external_search_scale_min: 5
+  external_search_offset_min: 0
+
   # Perform Thinking Sphinx incremental indexing delayed jobs
   use_thinking_sphinx_indexing: true
 
