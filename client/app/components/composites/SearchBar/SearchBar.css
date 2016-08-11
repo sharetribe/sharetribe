@@ -207,6 +207,7 @@
       width: 20px;
       height: 100%;
       left: -20px;
+      pointer-events: none;
 
       @media (--large-viewport) {
         display: none;
