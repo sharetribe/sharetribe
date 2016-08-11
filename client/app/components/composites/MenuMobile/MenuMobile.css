@@ -59,9 +59,6 @@
 }
 
 .offScreenMenu {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
   width: var(--MobileMenu_offscreenMenuWidth);
   height: 100%;
   max-height: 100%;
@@ -82,8 +79,12 @@
 }
 
 .scrollPane {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   height: auto;
-  overflow-y: scroll;
+  min-height: 100%;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -115,6 +116,7 @@
 
 .offScreenMain {
   flex-grow: 1;
+  flex-shrink: 0;
 }
 
 .offScreenFooter {
