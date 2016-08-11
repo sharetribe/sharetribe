@@ -81,6 +81,12 @@
   transition-property: transform;
 }
 
+.scrollPane {
+  height: auto;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
 .canvasOpen .offScreenMenu {
   display: flex;
   transform: translateX(0);
@@ -174,12 +180,12 @@
 .languages {
   font-size: var(--LanguagesMobile_fontSize);
   margin-top: var(--LanguagesMobile_marginTop);
-  margin-bottom: var(--LanguagesMobile_marginBottom);
+  padding-bottom: var(--LanguagesMobile_marginBottom);
 
   @media (--medium-viewport) {
     font-size: var(--LanguagesMobile_fontSizeTablet);
     margin-top: var(--LanguagesMobile_marginTopTablet);
-    margin-bottom: var(--LanguagesMobile_marginBottomTablet);
+    padding-bottom: var(--LanguagesMobile_marginBottomTablet);
   }
 }
 
