@@ -1,5 +1,6 @@
 import { Component, PropTypes } from 'react';
 import r, { div } from 'r-dom';
+import classNames from 'classnames';
 
 import * as variables from '../../../assets/styles/variables';
 import css from './MenuMobile.css';
@@ -12,7 +13,6 @@ import LoginLinks from '../../composites/LoginLinks/LoginLinks';
 class OffScreenMenu extends Component {
 
   render() {
-    const isOpenClass = this.props.isOpen ? css.offScreenMenuOpen : '';
     const headerItemHeight = variables['--MobileMenu_offscreenHeaderItemHeight'];
 
     const avatarExtras = { imageHeight: headerItemHeight };
@@ -27,13 +27,15 @@ class OffScreenMenu extends Component {
       r(LanguagesMobile, this.props.languages) : null;
 
     return div({
-      className: `OffScreenMenu ${css.offScreenMenu} ${isOpenClass}`,
+      className: classNames('OffScreenMenu', css.offScreenMenu),
+    }, div({
+      className: classNames('OffScreenMenu_scrollpane', css.scrollPane),
     }, [
       div({
-        className: `OffScreenMenu_header ${css.offScreenHeader}`,
+        className: classNames('OffScreenMenu_header', css.offScreenHeader),
       }, header),
       div({
-        className: `OffScreenMenu_main ${css.offScreenMain}`,
+        className: classNames('OffScreenMenu_main', css.offScreenMain),
       }, [
         r(MenuSection, {
           name: this.props.menuLinksTitle,
@@ -47,9 +49,9 @@ class OffScreenMenu extends Component {
         }),
       ]),
       div({
-        className: `OffScreenMenu_footer ${css.offScreenFooter}`,
+        className: classNames('OffScreenMenu_footer', css.offScreenFooter),
       }, languagesMobile),
-    ]);
+    ]));
   }
 }
 
