@@ -221,7 +221,7 @@ class LandingPageController < ActionController::Metal
                          true)
     marketplace_context = marketplace_context(c, topbar_locale, request)
 
-    FeatureFlagHelper.init(request, false)
+    FeatureFlagHelper.init(request, false, false)
 
     denormalizer = build_denormalizer(
       cid: c&.id,

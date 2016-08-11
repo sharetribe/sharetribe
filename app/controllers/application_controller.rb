@@ -170,7 +170,8 @@ class ApplicationController < ActionController::Base
     # This allows to avoid skipping this filter in many places.
     return unless request.env[:current_marketplace]
 
-    FeatureFlagHelper.init(request, Maybe(@current_user).is_admin?.or_else(false))
+    FeatureFlagHelper.init(request, Maybe(@current_user).is_admin?.or_else(false),
+                           Maybe(@current_user).is_marketplace_admin?.or_else(false))
   end
 
   # Ensure that user accepts terms of community and has a valid email
