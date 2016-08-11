@@ -30,7 +30,7 @@ module FeatureFlagService::Store
     end
 
     def get(community_id, person_id)
-      Maybe(FeatureFlagModel.where("(community_id = ? AND person_id IS NULL) OR person_id = ?", community_id, person_id))
+      Maybe(FeatureFlagModel.where("community_id = ? AND (person_id IS NULL OR person_id = ?)", community_id, person_id))
         .map { |features|
           from_combined_models(community_id, person_id, features)
         }.or_else(no_combined_flags(community_id, person_id))
