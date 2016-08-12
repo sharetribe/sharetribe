@@ -58,6 +58,15 @@
   opacity: 0.95;
 }
 
+/* Used in JavaScript to change page behaviour with open menu. */
+.menuMobileOpen {
+  overflow-y: hidden;
+
+  @media (--large-viewport) {
+    overflow-y: initial;
+  }
+}
+
 .offScreenMenu {
   width: var(--MobileMenu_offscreenMenuWidth);
   height: 100%;

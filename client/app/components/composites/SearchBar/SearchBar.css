@@ -17,7 +17,7 @@
 }
 
 /* Used in JavaScript to toggle the mobile menu. */
-.mobileMenuOpen {} /* stylelint-disable-line block-no-empty */
+.mobileSearchOpen {} /* stylelint-disable-line block-no-empty */
 
 .root {
   line-height: 1em;
@@ -35,7 +35,7 @@
   transition: height 1s ease-in;
   font-size: 16px;
 
-  @nest .mobileMenuOpen & {
+  @nest .mobileSearchOpen & {
     display: flex;
   }
 
@@ -355,7 +355,7 @@
     filter: brightness(100%);
   }
 
-  @nest .mobileMenuOpen & {
+  @nest .mobileSearchOpen & {
     display: block;
   }
 }
