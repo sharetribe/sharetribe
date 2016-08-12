@@ -30,6 +30,17 @@ class MenuMobile extends Component {
   }
 
   render() {
+    // Ugly, but only way to make the page beneath not scroll
+    if (typeof document === 'object' && document.body) {
+      if (this.state.isOpen) {
+        if (!document.body.classList.contains(css.menuMobileOpen)) {
+          document.body.classList.add(css.menuMobileOpen);
+        }
+      } else if (document.body.classList.contains(css.menuMobileOpen)) {
+        document.body.classList.remove(css.menuMobileOpen);
+      }
+    }
+
     const overlayColor = this.props.color ? this.props.color : 'black';
     const openClass = this.state.isOpen ? css.canvasOpen : '';
     const extraClasses = this.props.extraClasses ? this.props.extraClasses : '';
