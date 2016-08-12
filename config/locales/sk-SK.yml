@@ -156,8 +156,8 @@ sk-SK:
         invalid_email_domain: "E-mailová adresa %{email} využíva nepodporovaného poskytovateľa e-mailu: \"%{domain}\". %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Prečítajte si vedomostnú databázu pre viac informácií."
         unknown_error: "Niečo sa pokazilo"
-        white_label_offer: ~
-        upgrade_plan_link: ~
+        white_label_offer: "Nastaviť vlastnú e-mailovú adresu ako odosielateľ a odstrániť všetky Sharetribe značky z odchádzajúcich e-mailov s %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "upgrade na plán Pro alebo vyšší"
         verification_sent_from: "Overovací e-mail bol odoslaný užívateľom %{verification_sender_name}"
         follow_the_instructions: "Pre overenie postupujte prosím podľa pokynov uvedených v e-mailovej správe"
       getting_started:
@@ -170,7 +170,7 @@ sk-SK:
         fr-CA: "Francúzština (Kanada)"
         es: "Španielčina (Čile)"
         es-ES: Španielčina
-        pt-PT: ~
+        pt-PT: Portugalčina
         pt-BR: "Portugalčina (Brazílska)"
         nb: Nórčina
         sv: Švédčina
@@ -193,15 +193,15 @@ sk-SK:
         users_can_invite_new_users: "Všetci užívatelia môžu pozvať nových užívateľov do tohoto trhoviska"
         private: "Toto trhovisko je súkromné (iba registrovaní užívatelia môžu zobraziť obsah)"
         require_verification_to_post_listings: "Iba správcom overení užívatelia môžu pridávať inzeráty"
-        search_preferences: ~
-        default_search_type: ~
-        keyword_search: ~
-        keyword_and_location_search: ~
-        location_search: ~
-        select_distance_unit: ~
-        km: ~
-        miles: ~
-        show_only_nearby: ~
+        search_preferences: "Nastavenie vyhľadávania"
+        default_search_type: "Typ vyhľadávania: %{select_search_type}"
+        keyword_search: "Vyhľadávanie pomocou kľúčového slova"
+        keyword_and_location_search: "Kľúčové slovo a vyhľadávanie podľa polohy"
+        location_search: "Vyhľadávanie pomocou lokality"
+        select_distance_unit: "Zobraziť vzdialenosť v %{distance_units_selector}"
+        km: km
+        miles: míľach
+        show_only_nearby: "Zobraziť iba inzeráty z okolia"
         listing_preferences: "Nastavenia inzerátu"
         transaction_preferences: "Nastavenia transakcii"
         show_listing_publishing_date: "Zobraziť dátum zverejnenia na stránke inzerátu"
@@ -276,10 +276,10 @@ sk-SK:
         language: Jazyk
         url: URL
         empty: "Nemáte žiadne menu odkazy"
-        max_number_of_links: ~
-        all: ~
-        max_number_of_links_info: ~
-        about_page: ~
+        max_number_of_links: "Maximálny počet odkazov zobrazených v hornej lište: %{select_max_number}"
+        all: Všetky
+        max_number_of_links_info: "Odkaz na %{about_page} je vždy zobrazený ako prvá možnosť v menu."
+        about_page: "o nás"
       transactions:
         export_all_as_csv: "Exportovať všetko do CSV"
         transactions: "Zobraziť platby"
@@ -332,9 +332,9 @@ sk-SK:
           this_field_is_required: "Označiť toto pole ako povinné pri vytváraní nového inzerátu"
           this_field_is_required_checkbox: "Použiť ako povinné pole pri vytváraní nového inzerátu (užívateľ musí vybrať aspoň jednu možnosť)"
         search_filter:
-          search_filter: ~
-          date_cant_be_filtered: ~
-          text_cant_be_filtered: ~
+          search_filter: "Zobraziť filter na základe tohoto poľa na domovskej stránke"
+          date_cant_be_filtered: "Filter pre dátum nie je k dispozícií."
+          text_cant_be_filtered: "Filter pre text nie je k dispozícií. Hlavné textové vyhľadávanie vyhľadáva v textových poliach."
       index:
         listing_fields: "Zoznam polí a filtrov"
         listing_fields_help: "Tu môžete upraviť pole, ktoré užívatelia musia vyplniť pri vytváraní nového inzerátu. Vezmite na vedomie, že niektoré polia sú predvolené a nemôžu byť upravené."
@@ -383,8 +383,8 @@ sk-SK:
       configure: Konfigurácia
       emails_title: E-maily
       support: "Zákaznícka podpora"
-      subscription: ~
-      preview: ~
+      subscription: Odber
+      preview: "Náhľad stránky"
     listing_shapes:
       index:
         listing_shapes: "Typy objednávok"
@@ -623,10 +623,10 @@ sk-SK:
       message_from: "Správa od %{person}"
       about_listing: "O inzeráte %{listing_title}"
       free_message: "Správa zdarma"
-      message_content_not_available: ~
+      message_content_not_available: "Obsah správy nie je k dispozícii."
     message:
       accepted_request: "prijal žiadosť"
-      received_payment: ~
+      received_payment: "prijal žiadosť, dostal platbu celkovo %{sum}"
       accepted_offer: "prijal ponuku"
       rejected_request: "zamietol žiadosť, zrušil platbu"
       rejected_offer: "zamietol ponuku"
@@ -785,10 +785,10 @@ sk-SK:
       log_out: "Odhlásiť sa"
       join_community_button: "Pripojiť sa k %{service_name}"
     give_consent:
-      invitation_code_invalid_or_used: ~
-      email_not_allowed: ~
-      email_not_available: ~
-      consent_not_given: ~
+      invitation_code_invalid_or_used: "Kód pozvánky je neplatný alebo sa už používa."
+      email_not_allowed: "Tento e-mail nie je povolený v %{service_name}."
+      email_not_available: "Zadaný e-mail sa už používa."
+      consent_not_given: "Podmienky neboli prijaté."
   emails:
     accept_reminder:
       remember_to_accept_offer: "Nezabudnite prijať alebo odmietnuť ponuku od %{sender_name}"
@@ -799,9 +799,9 @@ sk-SK:
       you_have_not_yet_accepted_or_rejected_request: "Ešte nie je prijatá alebo odmietnutá žiadosť %{title}, ktorú ste dostali %{date}"
       show_thread: "Zobraz konverzáciu"
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} funguje na platforme %{sharetribe_link}."
+      create_own: "Chcete vytvoriť svoje vlastné online trhovisko ako %{service_name}? %{learn_more}"
+      learn_more: "Čítať viac"
     braintree_account_approved:
       account_ready: "Už môžete prijímať platby"
       message: "Vaše platobné údaje boli potvrdené a už môžete prijímať platby v %{service_name}."
@@ -987,13 +987,13 @@ sk-SK:
       you_are_receiving_this_because: "Prijali ste tento oznam pretože sledujete užívateľa %{author_name}."
       view_listing: "Zobraziť inzerát"
     new_member_notification:
-      new_member_has_joined: ~
-      this_is_automatic_message: ~
-      person_name: ~
-      person_email: ~
+      new_member_has_joined: "Nový užívateľ sa pripojil k %{community}. Stále ešte môžu čakať na potvrdenie e-mailovej adresy."
+      this_is_automatic_message: "Toto je automatická správa odoslaná administrátorom %{community}."
+      person_name: "Meno:"
+      person_email: "E-mail:"
   error_messages:
     onboarding:
-      server_rendering: ~
+      server_rendering: "Otvorenie začiatočníckej príručky zlyhalo. O chybe vieme a pracujeme na jej odstránení."
     listings:
       departure_time: "Čas odchodu musí byť medzi aktuálnym časom a jednym rokom odo dneška."
       share_type: "Musíte zvoliť jeden."
@@ -1088,7 +1088,7 @@ sk-SK:
     create_new_marketplace: "Vytvoriť nové trhovisko"
     contact_us: "Kontaktujte nás"
     profile: Profil
-    manage_listings: ~
+    manage_listings: "Spravovať inzeráty"
     invite: "Pozvať nových členov"
     login: "Prihlásiť sa"
     signup: "Zaregistrovať sa"
@@ -1175,7 +1175,7 @@ sk-SK:
     list_item:
       review: hodnotenie
       reviews: hodnotenia
-      distance_away: ~
+      distance_away: "vzdialené %{distance} %{distance_unit}"
     news_item:
       show_less: "Zobraz menej"
       show_more: "Zobraz viac"
@@ -1210,18 +1210,18 @@ sk-SK:
       default_content: "Tu môžete nájsť viac informácií o tom ako %{marketplace_name} funguje."
   landing_page:
     hero:
-      search: ~
-      signup: ~
-      search_placeholder: ~
+      search: Hľadať
+      signup: "Zaregistrovať sa"
+      search_placeholder: "Čo hľadáte?"
     listings:
-      no_listing_image: ~
+      no_listing_image: "bez obrázku"
   layouts:
     admin:
       admin: "%{service_name} panel administrátora"
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} funguje na platforme %{sharetribe_link}."
+      create_own: "Chcete vytvoriť svoje vlastné online trhovisko ako %{service_name}? %{learn_more}"
+      learn_more: "Zistiť viac"
     no_tribe:
       inbox: "Doručená pošta"
       settings: Nastavenia
@@ -1297,7 +1297,7 @@ sk-SK:
       confirmation_link_is_wrong_or_used: "Potvrdzujúci odkaz sa už používa alebo je neplatný. Skúste sa prihlásiť, alebo nám zanechajte odkaz, keď problémy pretrvávajú."
       additional_email_confirmed: "Zadaný e-mail nebol potvrdený."
       could_not_get_email_from_facebook: "Nepodarilo sa nám získať Vašu e-mailovú adresu z účtu na Facebooku a teda nemôžeme vytvoriť účet bez e-mailu."
-      facebook_email_unconfirmed: ~
+      facebook_email_unconfirmed: "E-mailová adresa %{email} združená s Vašim Facebook účtom sa už používa, ale ešte nebola potvrdená. Prosím potvrďte e-mailovú adresu pred prihlásením do Facebook účtu."
       create_new_listing: "Vytvoriť ďalší inzerát"
       create_one_here: "Vytvoriť tu jeden"
       email_confirmation_sent_to_new_address: "Potvrdzujúci e-mail bol odoslaný na novú adresu."
@@ -1358,7 +1358,7 @@ sk-SK:
       request_rejected: "Žiadosť odmietnutá"
       request_canceled: "Objednávka bola zrušená"
       message_sent: "Správa bola odoslaná"
-      message_not_sent: ~
+      message_not_sent: "Odoslanie správy zlyhalo. Prosím, skúste to znova."
       this_content_is_not_available_in_this_community: "Obsah nie je k dispozícii."
       unknown_error: "Neznáma chyba. Prosím použite odkaz Kontaktujte nás, aby ste vedeli poslať čo sa vlastne stalo."
       update_error: "Došlo k chybe pri pokuse o aktualizáciu údajov, skúste to prosím znova"
@@ -1401,7 +1401,12 @@ sk-SK:
       payment_details_add_error: "Platobné údaje nemôžu byť pridané"
       listing_author_payment_details_missing: "Prosím kontaktujte autora kliknutím na tlačítko 'Kontakt' nižšie. Je potrebné aktualizovať podrobnosti o platbe, aby platba mohla byť prijatá."
       images_are_processing: "Vaše nové obrázky, ktoré práve spracovávame budú viditeľné za niekoľko sekúnd."
-      automatically_logged_out_please_sign_in: ~
+      automatically_logged_out_please_sign_in: "Boli ste automaticky odhlásený. Prosím prihláste sa znovu."
+      maintenance_mode:
+        zero: "Webová stránka sa pre údržbu prepne do offline režimu."
+        one: "Webová stánka bude pre údržbu v offline režime %{count} minút"
+        few: "Webová stánka bude pre údržbu v offline režime %{count} minúty"
+        other: "Webová stánka bude pre údržbu v offline režime %{count} minút"
     settings:
       account: Účet
       notifications: Oznámenia
@@ -1454,7 +1459,7 @@ sk-SK:
         repeated: "Opakované (pridať dni a čas do poľa \"podrobný popis\" )"
       description:
         detailed_description: Popis
-        youtube_info: ~
+        youtube_info: "Pokiaľ Váš popis obsahuje odkazy na YouTube, videá sa zobrazia nižšie v popise."
       destination:
         destination: Destinácia
       form_content:
@@ -1485,7 +1490,7 @@ sk-SK:
         this_may_take_a_while: "bude to chvíľu trvať"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Nahrávanie obrázku zlyhalo"
-        image_processing_failed: ~
+        image_processing_failed: "Spracovanie obrázku zlyhalo."
         file_too_large: "Súbor je príliš veľký"
         accepted_formats: "Obrázok musí byť vo formáte GIF, JPG alebo PNG."
         images_not_uploaded_confirm: "Všetky obrázky ešte neboli nahrané. Naozaj chcete pokračovať?"
@@ -1653,7 +1658,7 @@ sk-SK:
       shipping_price_additional: "Doprava (+%{price}, dodatočné položky: +%{shipping_price_additional})"
       pickup: Vyzdvihnutie
       pickup_no_price: Vyzdvihnutie
-      youtube_video_player: ~
+      youtube_video_player: "YouTube video prehrávač"
     unit_types:
       piece: kus
       hour: hodina
@@ -1729,7 +1734,7 @@ sk-SK:
     commission_permission_needed: "Potrebujete udeliť práva %{service_name} pre strhnutie poplatkov."
     create_paypal_account_link_text: "PayPal účet"
     connected_account: "Paypal účet '%{email}' bol úspešne pripojený."
-    paypal_receive_funds_info_label_australia_only: ~
+    paypal_receive_funds_info_label_australia_only: "Váš PayPal účet musí byť nastavený pre príjem platieb. K tomuto je potrebný Premier alebo Business účet."
     paypal_receive_funds_info_label: "Váš PayPal účet musí byť nastavený pre príjem platieb. K tomuto je potrebný Business účet."
     paypal_receive_funds_info: "Pokiaľ dôjde k chybe pri pokuse o prepojenie účtu do %{service_name}, budete musieť aktualizovať Váš PayPal účet,%{upgrade_paypal_account_link}. Je to jednoduché a zadarmo. PayPal odporúča použiť svoje meno ako názov spoločnosti."
     upgrade_paypal_account_link_text: "prihlásiť sa a kliknúť na odkaz"
@@ -2152,19 +2157,19 @@ sk-SK:
     days: dni
   web:
     topbar:
-      menu: ~
-      more: ~
-      search_placeholder: ~
-      user: ~
-      inbox: ~
-      profile: ~
-      manage_listings: ~
-      settings: ~
-      logout: ~
-      login: ~
-      signup: ~
-      admin_dashboard: ~
-      language: ~
+      menu: Menu
+      more: Viac
+      search_placeholder: Hľadať...
+      user: Užívateľ
+      inbox: "Doručená pošta"
+      profile: Profil
+      manage_listings: "Spravovať inzeráty"
+      settings: Nastavenia
+      logout: Odhlásiť
+      login: Prihlásiť
+      signup: "Zaregistrovať sa"
+      admin_dashboard: "Konzola správcu"
+      language: Jazyk
   will_paginate:
     models:
       person:
