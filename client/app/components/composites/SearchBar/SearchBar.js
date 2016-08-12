@@ -26,7 +26,7 @@ class SearchBar extends Component {
 
     this.state = {
       selectedPlace: null,
-      mobileMenuOpen: false,
+      mobileSearchOpen: false,
     };
   }
   componentDidMount() {
@@ -63,14 +63,14 @@ class SearchBar extends Component {
     }
   }
   handleResize() {
-    this.setState({ mobileMenuOpen: false });
+    this.setState({ mobileSearchOpen: false });
   }
   handleSubmit() {
     if (!this.keywordInput && !this.locationInput) {
       throw new Error('No input refs saved to submit SearchBar form');
     }
 
-    this.setState({ mobileMenuOpen: false });
+    this.setState({ mobileSearchOpen: false });
 
     const keywordValueStr = this.keywordInput ? this.keywordInput.value.trim() : '';
     const locationValueStr = this.locationInput ? this.locationInput.value.trim() : '';
@@ -171,12 +171,12 @@ class SearchBar extends Component {
     // Maps Places Autocomplete .pac-container is within the body
     // element.
     if (typeof document === 'object' && document.body) {
-      if (this.state.mobileMenuOpen) {
-        if (!document.body.classList.contains(css.mobileMenuOpen)) {
-          document.body.classList.add(css.mobileMenuOpen);
+      if (this.state.mobileSearchOpen) {
+        if (!document.body.classList.contains(css.mobileSearchOpen)) {
+          document.body.classList.add(css.mobileSearchOpen);
         }
-      } else if (document.body.classList.contains(css.mobileMenuOpen)) {
-        document.body.classList.remove(css.mobileMenuOpen);
+      } else if (document.body.classList.contains(css.mobileSearchOpen)) {
+        document.body.classList.remove(css.mobileSearchOpen);
       }
     }
 
@@ -184,12 +184,12 @@ class SearchBar extends Component {
       className: css.root,
       classSet: {
         [css.root]: true,
-        [css.mobileMenuOpen]: this.state.mobileMenuOpen,
+        [css.mobileSearchOpen]: this.state.mobileSearchOpen,
       },
     }, [
       button({
         className: css.mobileToggle,
-        onClick: () => this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen }),
+        onClick: () => this.setState({ mobileSearchOpen: !this.state.mobileSearchOpen }),
       }, [
         div({
           dangerouslySetInnerHTML: { __html: icon },
@@ -197,7 +197,7 @@ class SearchBar extends Component {
         span({
           className: css.mobileToggleArrow,
           style: {
-            borderBottomColor: this.state.mobileMenuOpen ? bgColor : 'transparent',
+            borderBottomColor: this.state.mobileSearchOpen ? bgColor : 'transparent',
           },
         }),
       ]),
@@ -208,7 +208,7 @@ class SearchBar extends Component {
           this.handleSubmit();
         },
         style: {
-          backgroundColor: this.state.mobileMenuOpen ? bgColor : 'transparent',
+          backgroundColor: this.state.mobileSearchOpen ? bgColor : 'transparent',
         },
       }, [
         hasKeywordInput ? keywordInput : null,
@@ -218,7 +218,7 @@ class SearchBar extends Component {
           className: css.searchButton,
           dangerouslySetInnerHTML: { __html: icon },
           style: {
-            backgroundColor: this.state.mobileMenuOpen ? bgColorDarkened : 'transparent',
+            backgroundColor: this.state.mobileSearchOpen ? bgColorDarkened : 'transparent',
           },
         }),
         span({ className: css.focusContainer }),
