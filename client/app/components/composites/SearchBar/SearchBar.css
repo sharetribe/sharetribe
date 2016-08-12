@@ -199,10 +199,18 @@
 
     /* Focusing on the keyword input puts the location input under the
        search button with a shadow effect on the button. */
-    & ~ .searchButton {
-      box-shadow: -10px 0 20px -5px #000;
+    & ~ .searchButton::before {
+      box-shadow: -10px 0 15px -10px #000 inset;
+      content: " ";
+      position: absolute;
+      top: 0;
+      width: 20px;
+      height: 100%;
+      left: -20px;
+      pointer-events: none;
 
       @media (--large-viewport) {
+        display: none;
         box-shadow: none;
       }
     }
