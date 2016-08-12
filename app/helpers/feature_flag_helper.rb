@@ -7,8 +7,8 @@ module FeatureFlagHelper
 
   module_function
 
-  def init(request, is_admin)
-    RequestStore.store[:feature_flags] ||= fetch_feature_flags(request, is_admin)
+  def init(request, is_admin, is_marketplace_admin)
+    RequestStore.store[:feature_flags] ||= fetch_feature_flags(request, is_admin, is_marketplace_admin)
   end
 
   def feature_enabled?(feature_name)
@@ -30,18 +30,21 @@ module FeatureFlagHelper
     RequestStore.store[:feature_flags]
   end
 
-  def fetch_feature_flags(request, is_admin)
-    community_flags_from_service = FeatureFlagService::API::Api.features.get(community_id: community_id(request)).maybe[:features].or_else(Set.new)
-
-    person_flags_from_service = FeatureFlagService::API::Api.features
-      .get(community_id: community_id(request), person_id: person_id(request))
-      .maybe[:features].or_else(Set.new)
+  def fetch_feature_flags(request, is_admin, is_marketplace_admin)
+    flags_from_service = fetch_flags_from_service(community_id(request), person_id(request), is_admin, is_marketplace_admin)
 
     temp_flags = fetch_temp_flags(is_admin, request.params, request.session)
 
     request.session[:feature_flags] = temp_flags
 
-    community_flags_from_service.union(person_flags_from_service).union(temp_flags)
+    flags_from_service.union(temp_flags)
+  end
+
+  def fetch_flags_from_service(community_id, person_id, is_admin, is_marketplace_admin)
+    # for non-admin users, only fetch the community specific feature flags
+    parameters = is_admin || is_marketplace_admin ? {community_id: community_id, person_id: person_id} : {community_id: community_id}
+
+    FeatureFlagService::API::Api.features.get(parameters).maybe[:features].or_else(Set.new)
   end
 
   # Fetch temporary flags from params and session
