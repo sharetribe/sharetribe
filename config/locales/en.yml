@@ -1027,8 +1027,8 @@ en:
       javascript_is_disabled_in_your_browser: "Javascript is disabled in your browser"
       kassi_does_not_currently_work_without_javascript: "%{service_name} does not work properly without javascript. Try to enable javascript from your browser's preferences and then reload this page again."
       contact_us: "contact us"
-      send_feedback: "Send feedback"
-      your_feedback_to_admins: "Your feedback to admins"
+      send_feedback: "Send message"
+      your_feedback_to_admins: "Your message to %{service_name} team"
     send: Send
     your_email_address: "Your email address"
   errors:
@@ -1220,13 +1220,13 @@ en:
     application:
       join_this_community: "Join marketplace"
       read_more: "Read more"
-      feedback: "What would you like to tell us?"
-      default_feedback: "Did you encounter a problem with %{service_name}? Have a suggestion for improving the service? Noticed some suspicious content? Or just have something you want to discuss with us? Let us know!"
+      feedback: "Your message to %{service_name} team"
+      dont_use_to_contact_support: "We noticed you're an admin of %{service_name}. This form is what your users use to contact you. You cannot use this form to contact Sharetribe support. You can do that via the Support link in your admin panel instead."
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
       give_feedback: "Contact us"
       or_check_our: "...or check our"
-      send_feedback_to_admin: "Send feedback"
+      send_feedback_to_admin: "Send message"
       to_see_what_others_have_suggested: "to see what other users have suggested, and vote for the ideas there."
       your_email_address: "Your email address (to contact you)"
       connect: "Sign up"
