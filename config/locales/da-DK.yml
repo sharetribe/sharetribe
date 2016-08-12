@@ -957,7 +957,7 @@ da-DK:
       here_is_your_account_information: "Her er dine konto informationer."
       your_email_address: "Din email som du brugte til at logge ind:"
       your_marketplace_address: "Link til din markedsplads:"
-      your_marketplace_admin_area: "Administrationspanel til din markedsplads:"
+      your_marketplace_admin_area: "Admin panel:"
       just_follow_details: "Du skal blot følge disse links for at få mere information til hvordan du starter med at bygge din egen markedsplads!"
       we_will_guide_you_along_the_way: "Vi guider dig hele vejen i mål."
       are_you_new_to_online_marketplaces: "Er vi din første markedsplads? Intet problem, vi er her for at hjælpe dig hele vejen i mål! Vi vil sende dig en serie emails som skal hjælpe dig gennem Sharetribe's funktioner og hjælpe dig med at bygge en succesfuld markedsplads. Vi sender din første email om et øjeblik."
@@ -1247,7 +1247,7 @@ da-DK:
       register_details: Privatliv
       terms: Brugervilkår
     logged_in:
-      admin: Administration
+      admin: Admin
       go_to_your_profile_page: "Min profil"
       hi: Hej
       login: "Log ind"
@@ -1360,15 +1360,15 @@ da-DK:
       you_have_already_given_feedback_about_this_event: "Du har allerede givet feedback om denne begivenhed"
       you_are_now_member: "Velkommen til %{service_name}!"
       you_are_already_member: "Du er allerede medlem af %{service_name}. Velkommen tilbage!"
-      you_must_log_in_to_create_new_listing: "Du skal logge ind på %{service_name} for at oprette en annonce. Hvis du ikke har en konto kan du %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "Du skal være logget ind for at kunne oprette en annonce. Hvis du ikke har en konto, kan du %{sign_up_link}."
       additional_email_confirmed_dashboard: "Din email er nu godkendt."
-      you_must_log_in_to_give_feedback: "Du skal logge ind for at give feedback"
-      you_must_log_in_to_invite_new_users: "Du skal logge ind for at invitere nye brugere til %{service_name}"
+      you_must_log_in_to_give_feedback: "Du skal være logget ind for at kunne give feedback."
+      you_must_log_in_to_invite_new_users: "Du skal være logget ind for at kunne invitere nye brugere til %{service_name}"
       you_must_log_in_to_send_a_comment: "Du skal være logget ind for at kommentere."
-      you_must_log_in_to_send_a_message: "Du skal logge ind på %{service_name} for at sende en meddelelse til en anden bruger."
-      you_must_log_in_to_do_a_transaction: "Du skal logge ind på %{service_name} for at gennemføre en transaktion."
-      you_must_log_in_to_view_this_content: "Du skal logge ind for at se dette indhold"
-      you_must_log_in_to_view_this_page: "Du skal logge ind for at se denne side"
+      you_must_log_in_to_send_a_message: "Du skal være logget ind for at kunne sende en besked til en anden bruger."
+      you_must_log_in_to_do_a_transaction: "Du skal være logget ind for at gennemføre en transaktion."
+      you_must_log_in_to_view_this_content: "Du skal være logget ind for at kunne se denne side."
+      you_must_log_in_to_view_this_page: "Du skal være logget ind for at kunne se denne side."
       you_must_log_in_to_view_your_inbox: "Du skal logge ind på %{service_name} for at få vist din indbakke."
       you_must_log_in_to_view_your_settings: "Du skal logge ind på %{service_name} for at se dine indstillinger."
       you_must_log_in_to_add_news_item: "Du skal logge ind på %{service_name} for at tilføje en ny artikel."

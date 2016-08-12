@@ -1008,7 +1008,7 @@ sk-SK:
     paypal:
       buyer_cannot_pay_error: "Platba bola odmietnutá serverom PayPal. Pre viac informácií, kontaktujte ich zákaznícky servis: %{customer_service_link}"
       pending_review_error: "Platba bola prevedená, ale bola serverom PayPal označená ako \"vyžaduje preskúmať\". Akonáhle PayPal dokončí preskúmanie platby, platba bude automaticky vybavená."
-      seller_express_checkout_disabled: ~
+      seller_express_checkout_disabled: "PayPal express pokladňa bola zakázaná. Kontaktujte predajcu a dajte mu vedieť, že majú problém s ich PayPal účtom. Prípadne im odkázať aby kontaktovali PayPal zákaznícky servis."
       generic_error: "Došlo k chybe behom platobného procesu. Nemôžeme dokončiť Vašu Paypal platbu."
       cancel_error: "Nastala chyba pri stornovaní. Zrušenie sa nedá dokončiť."
       accept_authorization_error: "Došlo k chybe pri pokuse o prijatie pred schválenej PayPal platby. Prosíme, skúste to znovu."
@@ -1748,16 +1748,16 @@ sk-SK:
       create_paypal_account: "kliknutím sem"
       upgrade_paypal_account: "Prihlásiť sa do PayPal účtu"
       paypal_account_billing_agreement: "%{service_name} si oprávňuje účtovať transakčný poplatok"
-      follow_steps: ~
-      connect_paypal_account_title: ~
-      connect_paypal_account_title_with_step: ~
-      connect_paypal_account_instructions: ~
+      follow_steps: "Postupujte podľa nasledujúcich krokov aby ste mohli začať prijímať platby ."
+      connect_paypal_account_title: "Pripojiť Váš Paypal účet"
+      connect_paypal_account_title_with_step: "Krok %{current_step}/%{total_steps}: Pripojiť Váš Paypal účet"
+      connect_paypal_account_instructions: "Kliknite na tlačítko nižšie pre prihlásenie do PayPal a spojenie účtu PayPal s %{service_name}."
       connect_paypal_account: "Pripojiť Váš Paypal účet"
-      paypal_account_billing_agreement_with_step: ~
+      paypal_account_billing_agreement_with_step: "Krok %{current_step}/%{total_steps}: Povoliť účtovať transakčný poplatok"
       paypal_account_billing_agreement_info_both: "Po predaji na %{service_name}, a poplatku za služby (%{commission_from_seller} z celkovej ceny položky, okrem dopravy, minimálny poplatok %{minimum_commission}) bude strhnutý z Vašeho PayPal účtu. Keď Chcete prijímať platby v %{service_name}, je potrebné povoliť, aby Vám poplatok mohol byť strhnutý. Tento poplatok nezahrňuje %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Po predaji na %{service_name}, poplatok za služby %{minimum_commission} bude strhnutý z Vašeho PayPal účtu. Keď chcete prijímať platby v %{service_name}, je potrebné povoliť, aby Vám poplatok mohol byť strhnutý. Tento poplatok nezahrňuje %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Po predaji na %{service_name}, poplatok za služby (%{commission_from_seller} z celkovej ceny položky, okrem dopravného) bude strhnutý z Vašeho PayPal účtu. Keď chcete prijímať platby v %{service_name}, je treba povoliť, aby Vám poplatok mohol byť strhnutý. Tento poplatok nezahrňuje %{paypal_info_link}."
-      paypal_account_billing_agreement_info_none: ~
+      paypal_account_billing_agreement_info_none: "%{service_name} si neúčtuje servisný poplatok. Pokiaľ je servisný poplatok aktivovaný, budete potrebovať udeliť povolenia %{service_name} účtovať poplatok za službu pre príjem platieb. Poplatok nezahŕňa %{paypal_info_link}."
       paypal_info_link_text: "PayPal poplatok za prevedenie platby"
       billing_agreement_description: "%{service_name} si oprávňuje účtovať transakčný poplatok"
       billing_agreement: "Udeliť oprávnenie"
@@ -1780,7 +1780,7 @@ sk-SK:
     paypal_account_all_set_up: "Hurá, všetko je nastavené!"
     can_receive_payments: "Teraz môžete prijímať platby za inzeráty."
     paypal_account_connected_summary: "PayPal účet <%{email}> bol úspešne pripojený"
-    paypal_permission_granted_summary: ~
+    paypal_permission_granted_summary: "Povolenie pre transakčné poplatky bolo udelené"
   paypal:
     pay_with_paypal: "Pokračovať k platbe"
     checkout_with_paypal: "Zaplatiť s PayPal"
