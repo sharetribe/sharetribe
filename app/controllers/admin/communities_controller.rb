@@ -139,8 +139,10 @@ class Admin::CommunitiesController < ApplicationController
     enabled_for_community = Maybe(params[:enabled_for_community]).map { |f| NewLayoutViewUtils.enabled_features(f) }.or_else([])
     disabled_for_community = NewLayoutViewUtils.resolve_disabled(enabled_for_community)
 
-    response = update_feature_flags(user_enabled: enabled_for_user, user_disabled: disabled_for_user,
+    response = update_feature_flags(community_id: @current_community.id, person_id: @current_user.id,
+                                    user_enabled: enabled_for_user, user_disabled: disabled_for_user,
                                     community_enabled: enabled_for_community, community_disabled: disabled_for_community)
+
     if Maybe(response)[:success].or_else(false)
       flash[:notice] = t("layouts.notifications.community_updated")
     else
@@ -468,10 +470,10 @@ class Admin::CommunitiesController < ApplicationController
     end
   end
 
-  def update_feature_flags(user_enabled:, user_disabled:, community_enabled:, community_disabled:)
+  def update_feature_flags(community_id:, person_id:, user_enabled:, user_disabled:, community_enabled:, community_disabled:)
     updates = []
     updates << ->() {
-      FeatureFlagService::API::Api.features.enable(community_id: @current_community.id, person_id: @current_user.id, features: user_enabled)
+      FeatureFlagService::API::Api.features.enable(community_id: community_id, person_id: person_id, features: user_enabled)
     } unless user_enabled.blank?
     updates << ->(*) {
       FeatureFlagService::API::Api.features.disable(community_id: @current_community.id, person_id: @current_user.id, features: user_disabled)
