@@ -661,6 +661,10 @@ module ApplicationHelper
       opts: opts)
   end
 
+  def search_mode
+    FeatureFlagHelper.location_search_available ? MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:main_search] : :keyword
+  end
+
   def landing_page_path
     PathHelpers.landing_page_path(
       community_id: @current_community.id,

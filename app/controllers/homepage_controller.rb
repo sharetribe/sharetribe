@@ -54,10 +54,10 @@ class HomepageController < ApplicationController
         raise ArgumentError.new("Unknown view_type #{@view_type}")
       end
 
-    main_search = FeatureFlagHelper.location_search_available ? MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:main_search] : :keyword
-    search_modes = search_modes_in_use(params[:q], params[:lc], main_search)
-    keyword_in_use = search_modes[:keyword]
-    location_in_use = search_modes[:location]
+    main_search = search_mode
+    enabled_search_modes = search_modes_in_use(params[:q], params[:lc], main_search)
+    keyword_in_use = enabled_search_modes[:keyword]
+    location_in_use = enabled_search_modes[:location]
 
     search_result = find_listings(params, per_page, compact_filter_params, includes.to_set, location_in_use, keyword_in_use)
 
