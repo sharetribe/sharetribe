@@ -4,7 +4,7 @@
 - content_for :title_header do
   %h1= t("layouts.no_tribe.feedback")
 
-- if has_admin_rights	
+- if has_admin_rights
   %p= render :partial => "layouts/info_text", :locals => { :text => t("layouts.application.dont_use_to_contact_support") }
 
 .new-feedback-form.centered-section
