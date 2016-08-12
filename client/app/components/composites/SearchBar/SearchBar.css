@@ -200,7 +200,7 @@
     /* Focusing on the keyword input puts the location input under the
        search button with a shadow effect on the button. */
     & ~ .searchButton::before {
-      box-shadow: -10px 0 20px -10px #000 inset;
+      box-shadow: -10px 0 15px -10px #000 inset;
       content: " ";
       position: absolute;
       top: 0;
