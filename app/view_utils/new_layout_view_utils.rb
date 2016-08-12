@@ -38,8 +38,10 @@ module NewLayoutViewUtils
   # and returns the keys as symbols from the entries
   # that hold value "true".
   def enabled_features(feature_params)
+    allowed_features = FEATURES.map { |f| f[:name]}
     feature_params.select { |key, value| value == "true"}
       .keys
+      .select { |k| allowed_features.include?(k)}
       .map(&:to_sym)
   end
 

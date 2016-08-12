@@ -126,6 +126,18 @@ describe NewLayoutViewUtils do
           .to eql([])
       end
     end
+
+    context "when invalid features are passed as params" do
+      it "thise should not be returned" do
+        feature_params = {
+          foo: "true",
+          bar: "true",
+          invalid: "true"
+        }
+        expect(NewLayoutViewUtils.enabled_features(feature_params))
+          .to eql([:foo, :bar])
+      end
+    end
   end
 
   describe "#resolve_disabled" do
