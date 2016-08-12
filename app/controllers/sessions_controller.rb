@@ -108,7 +108,8 @@ class SessionsController < ApplicationController
 
   def facebook
     data = request.env["omniauth.auth"].extra.raw_info
-    I18n.locale = URLUtils.extract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
+    origin_locale = get_origin_locale(request, available_locales())
+    I18n.locale = origin_locale if origin_locale
 
     persons = Person
               .includes(:emails, :community_memberships)
@@ -157,7 +158,8 @@ class SessionsController < ApplicationController
 
   # Callback from Omniauth failures
   def failure
-    I18n.locale = URLUtils.extract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
+    origin_locale = get_origin_locale(request, available_locales())
+    I18n.locale = origin_locale if origin_locale
     error_message = params[:error_reason] || "login error"
     kind = env["omniauth.error.strategy"].name.to_s || "Facebook"
     flash[:error] = t("devise.omniauth_callbacks.failure",:kind => kind.humanize, :reason => error_message.humanize)
@@ -168,6 +170,13 @@ class SessionsController < ApplicationController
 
   def terms_accepted?(user, community)
     user && community.consent.eql?(user.consent)
+  end
+
+  def get_origin_locale(request, available_locales)
+    locale_string ||= URLUtils.extract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
+    if locale_string && available_locales.include?(locale_string)
+      locale_string
+    end
   end
 
 end
