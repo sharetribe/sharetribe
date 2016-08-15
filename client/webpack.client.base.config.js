@@ -1,8 +1,5 @@
 /* eslint-env node */
 
-const Promise = require('es6-promise');
-Promise.polyfill();
-
 const path = require('path');
 const webpack = require('webpack');
 const cssnext = require('postcss-cssnext');
@@ -21,9 +18,7 @@ module.exports = {
 
     // See use of 'vendor' in the CommonsChunkPlugin inclusion below.
     vendor: [
-      'babel-polyfill',
-      'es5-shim/es5-shim',
-      'es5-shim/es5-sham',
+      'es6-shim',
       'whatwg-fetch',
     ],
 

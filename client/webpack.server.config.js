@@ -1,8 +1,5 @@
 /* eslint-env node */
 
-const Promise = require('es6-promise');
-Promise.polyfill();
-
 const webpack = require('webpack');
 const devBuild = process.env.NODE_ENV !== 'production';
 const nodeEnv = devBuild ? 'development' : 'production';
