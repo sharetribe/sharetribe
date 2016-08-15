@@ -176,6 +176,8 @@ Kassi::Application.routes.draw do
       patch "/look_and_feel"      => "communities#update_look_and_feel",        as: :look_and_feel
       get   "/details/edit"       => "community_customizations#edit_details",   as: :details_edit
       patch "/details"            => "community_customizations#update_details", as: :details
+      get   "/new_layout"         => "communities#new_layout",                  as: :new_layout
+      patch "/new_layout"         => "communities#update_new_layout",           as: :update_new_layout
 
       resources :communities do
         member do

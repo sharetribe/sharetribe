@@ -122,6 +122,35 @@ class Admin::CommunitiesController < ApplicationController
       knowledge_base_url: APP_CONFIG.knowledge_base_url}
   end
 
+  def new_layout
+    redirect_to admin_getting_started_guide_path and return unless(FeatureFlagHelper.feature_enabled?(:feature_flags_page))
+
+    @selected_left_navi_link = "new_layout"
+
+    render :new_layout, locals: { community: @current_community, features: NewLayoutViewUtils.features(@current_community.id, @current_user.id) }
+  end
+
+  def update_new_layout
+    @community = @current_community
+
+    enabled_for_user = Maybe(params[:enabled_for_user]).map { |f| NewLayoutViewUtils.enabled_features(f) }.or_else([])
+    disabled_for_user = NewLayoutViewUtils.resolve_disabled(enabled_for_user)
+
+    enabled_for_community = Maybe(params[:enabled_for_community]).map { |f| NewLayoutViewUtils.enabled_features(f) }.or_else([])
+    disabled_for_community = NewLayoutViewUtils.resolve_disabled(enabled_for_community)
+
+    response = update_feature_flags(community_id: @current_community.id, person_id: @current_user.id,
+                                    user_enabled: enabled_for_user, user_disabled: disabled_for_user,
+                                    community_enabled: enabled_for_community, community_disabled: disabled_for_community)
+
+    if Maybe(response)[:success].or_else(false)
+      flash[:notice] = t("layouts.notifications.community_updated")
+    else
+      flash[:error] = t("layouts.notifications.community_update_failed")
+    end
+    redirect_to admin_new_layout_path
+  end
+
   def menu_links
     @selected_left_navi_link = "menu_links"
 
@@ -441,4 +470,21 @@ class Admin::CommunitiesController < ApplicationController
     end
   end
 
+  def update_feature_flags(community_id:, person_id:, user_enabled:, user_disabled:, community_enabled:, community_disabled:)
+    updates = []
+    updates << ->() {
+      FeatureFlagService::API::Api.features.enable(community_id: community_id, person_id: person_id, features: user_enabled)
+    } unless user_enabled.blank?
+    updates << ->(*) {
+      FeatureFlagService::API::Api.features.disable(community_id: @current_community.id, person_id: @current_user.id, features: user_disabled)
+    } unless user_disabled.blank?
+    updates << ->(*) {
+      FeatureFlagService::API::Api.features.enable(community_id: @current_community.id, features: community_enabled)
+    } unless community_enabled.blank?
+    updates << ->(*) {
+      FeatureFlagService::API::Api.features.disable(community_id: @current_community.id, features: community_disabled)
+    } unless community_disabled.blank?
+
+    Result.all(*updates)
+  end
 end

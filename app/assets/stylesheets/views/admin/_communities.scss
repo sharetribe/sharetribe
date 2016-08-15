@@ -55,6 +55,16 @@ textarea.text_area_code {
   margin: 0 0 0 lines(0.25);
 }
 
+.checkbox-centered {
+  text-align: center;
+}
+.centered-column-title {
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+}
+
 .transaction-agreement-modal.disabled:not(.label) {
   background-color: $highlight;
 }
