@@ -420,7 +420,6 @@ Kassi::Application.routes.draw do
           end
         end
         resources :transactions, only: [:show, :new, :create]
-        resource :checkout_account, only: [:new, :show, :create]
         resource :settings do
           member do
             get :account
