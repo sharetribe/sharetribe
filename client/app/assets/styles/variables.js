@@ -123,6 +123,7 @@ module.exports = {
   '--Topbar_mobilePadding': '0 1px 0 0',
   '--Topbar_itemSpacing': '24px',
   '--Topbar_mobileItemSpacing': '18px',
+  '--Topbar_logoMinWidth': '168px',
   '--Topbar_logoMaxHeight': '40px',
   '--Topbar_logoMaxHeightTablet': '36px',
   '--Topbar_logoMaxHeightMobile': '32px',
