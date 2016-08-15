@@ -68,11 +68,12 @@ Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do 
   if listing_type == "request" && @transaction.listing.payment_required_at?(@transaction.community)
     if status == "accepted" || status == "paid"
       # In this case there should be a pending payment done when this got accepted.
-      type = if @transaction.community.payment_gateway.type == "BraintreePaymentGateway"
-        :braintree_payment
-      else
-        :checkout_payment
-      end
+      payment_gateway_type = @transaction.community.payment_gateway.type
+      type = if payment_gateway_type == "BraintreePaymentGateway"
+               :braintree_payment
+             else
+               raise ArgumentError.new("Unknown payment_gateway.type: #{payment_gateway_type}")
+             end
 
       recipient = @transaction.listing.author
 
