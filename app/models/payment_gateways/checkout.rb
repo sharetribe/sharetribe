@@ -107,47 +107,6 @@ class Checkout < PaymentGateway
     self.has_registered?(person)
   end
 
-  def register_payout_details(person, checkout_account_params)
-    url = "https://rpcapi.checkout.fi/reseller/createMerchant"
-    user = checkout_user_id
-    password = checkout_password
-
-    if checkout_environment == "production"
-      type = 0 # Creates real merchant accounts
-    else
-      type = 2 # Creates test accounts
-    end
-
-    api_params = {
-      "company" => person.name('first_name_with_initial'),
-      "vat_id"  => checkout_account_params.company_id_or_personal_id,
-      "name"    => person.name('first_name_with_initial'),
-      "email"   => person.confirmed_notification_email_to,
-      "gsm"     => checkout_account_params.phone_number,
-      "type"    => type,
-      "info"    => "",
-      "address" => checkout_account_params.organization_address,
-      "url"     => checkout_account_params.organization_website || person_url(person),
-      "kkhinta" => "0",
-    }
-
-    if checkout_environment == "production" || checkout_environment == "test"
-      response = RestClient::Request.execute(:method => :post, :url => url, :user => user, :password => password, :payload => api_params)
-    else
-      # Stub response to avoid unnecessary accounts being created (unless config is set to make real accounts)
-      #puts "STUBBING A CALL TO MERCHANT API WITH PARAMS: #{api_params.inspect}"
-      response = "<merchant><id>375917</id><secret>SAIPPUAKAUPPIAS</secret><banner>http://rpcapi.checkout.fi/banners/5a1e9f504277f6cf17a7026de4375e97.png</banner></merchant>"
-    end
-
-    checkout_account = CheckoutAccount.new({
-        person_id: person.id,
-        merchant_id: response[/<id>([^<]+)<\/id>/, 1],
-        merchant_key: response[/<secret>([^<]+)<\/secret>/, 1],
-        company_id_or_personal_id: checkout_account_params.company_id_or_personal_id
-      })
-    checkout_account.save!
-  end
-
   def has_registered?(person)
     person.checkout_account.present?
   end

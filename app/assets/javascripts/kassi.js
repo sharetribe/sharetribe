@@ -263,24 +263,6 @@ function initialize_login_form(password_forgotten) {
   $('#login_form input.text_field:first').focus();
 }
 
-function initialize_payments_form(locale) {
-  var form_id = "#payment_settings_form";
-  $(form_id).validate({
-    rules: {
-      // regex validation here kept failing always, so relying on backend validation for the ID
-      "checkout_account_form[company_id_or_personal_id]": {required: true, minlength: 9, maxlength: 11},
-      "checkout_account_form[phone_number]": {required: true, maxlength: 25},
-      "checkout_account_form[organization_address]": {required: true, minlength: 6}
-    },
-    messages: {
-    },
-    onkeyup: false, //Only do validations when form focus changes
-    submitHandler: function(form) {
-      disable_and_submit(form_id, form, "false", locale);
-    }
-  });
-}
-
 function initialize_braintree_account_form(locale) {
   var form_id = "#braintree_account_form";
   $(form_id).validate({
