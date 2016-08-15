@@ -39,7 +39,7 @@ module Sharetribe
     {ident: "et", name: "Eesti", language: "et", region: "EE", fallback: nil}, # Estonian (Estonia)
     {ident: "hr", name: "Hrvatski", language: "hr", region: "HR", fallback: nil}, # Croatian (Croatia)
     {ident: "id", name: "Bahasa Indonesia", language: "id", region: "ID", fallback: nil}, # Indonesian (Indonesia)
-    {ident: "is", name: "íslenska", language: "is", region: "IS", fallback: nil}, # Icelandic (Iceland)
+    {ident: "is", name: "Íslenska", language: "is", region: "IS", fallback: nil}, # Icelandic (Iceland)
     {ident: "km-KH", name: "ភាសាខ្មែ", language: "km", region: "KH", fallback: nil}, # Khmer (Cambodia)
     {ident: "ms-MY", name: "Bahasa Malaysia", language: "ms", region: "MY", fallback: nil}, # Malay (Malaysia)
     {ident: "pl", name: "Polski", language: "pl", region: "PL", fallback: nil}, # Polish (Poland)
@@ -54,8 +54,8 @@ module Sharetribe
     {ident: "zh-TW", name: "繁體中文(台灣)", language: "zh", region: "TW", fallback: "zh"}, # Chinese (Taiwan)
     {ident: "zh-HK", name: "繁體中文(香港澳門)", language: "zh", region: "HK", fallback: "zh-TW"}, # Chinese (Hong Kong)
     {ident: "ka", name: "ქართული", language: "ka", region: "GE", fallback: nil}, # Georgian
-    {ident: "sl", name: "slovenščina", language: "sl", region: "SI", fallback: nil}, # Slovenian
-    {ident: "sk-SK", name: "slovenčina", language: "sk-SK", region: "SK", fallback: nil}, # Slovak
+    {ident: "sl", name: "Slovenščina", language: "sl", region: "SI", fallback: nil}, # Slovenian
+    {ident: "sk-SK", name: "Slovenčina", language: "sk-SK", region: "SK", fallback: nil}, # Slovak
   ]
 
   AVAILABLE_LOCALES = SUPPORTED_LOCALES + UNSUPPORTED_LOCALES
