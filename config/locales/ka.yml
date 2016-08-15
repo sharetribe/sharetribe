@@ -232,6 +232,13 @@ ka:
         save_user_status_error: "კატეგორიის დამახსოვრების დროს მოხდა შეცდომა. გთხოვთ გადატვირთეთ გვერდი და ცადეთ თავიდან."
         ban_user_confirmation: "ეს წაშლის მომხმარებელს ბაზრიდან და შეუზრუდავს თავისი ანგარიშით საიტზე შემოსვლის უფლებას. დარწმუნებული ხარ რომ გსურს გაგრძელება?"
         ban_me_error: "თქვენ ვერ დაბლოკავთ საკუთარ თავს."
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: "სოციალური მედია"
         twitter_handle: "Twitter handle"
@@ -1210,7 +1217,7 @@ ka:
       join_this_community: "შეუერთდი ბაზარს"
       read_more: "წაიკითხე მეტი"
       feedback: "რა გსურს რომ გვითხრა?"
-      default_feedback: "ხომ არ გექმნებათ პრობლემა %{service_name}-თან? სერვისის გამოსწორების შეთავაზება ხომ არ გაქვთ? საეჭვო შინაარსის მქონე რამ ხომ არ შეგინიშნავთ? ან რაიმეზე საუბარი ხომ არ გსურთ ჩვენთან? შეგვატყობინე!"
+      dont_use_to_contact_support: ~
       feedback_forum: "შეფასების ფორუმი"
       feedback_handle: შეფასება
       give_feedback: კონტაქტი

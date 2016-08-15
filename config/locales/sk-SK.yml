@@ -242,6 +242,13 @@ sk-SK:
         save_user_status_error: "Pri ukladaní nastala chyba. Prosím obnovte stránku a skúste to znova."
         ban_user_confirmation: "Týmto bude užívateľ odstránený z trhoviska a nebude už pod týmto účtom pristupovať na túto stránku. Ste si istý, že chcete pokračovať?"
         ban_me_error: "Nemôžete seba samého vylúčiť."
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: "Sociálne médiá"
         twitter_handle: "Twitter účet"
@@ -523,7 +530,7 @@ sk-SK:
       buy: nakupovať
       give_away: rozdávať
       lend: požičať
-      receive: "prevzať zadarmo"
+      receive: "prevziať zadarmo"
       rent: "prenajať si"
       rent_out: prenájom
       sell: predať
@@ -1230,7 +1237,7 @@ sk-SK:
       join_this_community: "Pripojiť sa k trhovisku"
       read_more: "Celý článok"
       feedback: "Čo by ste potrebovali nám pvedať?"
-      default_feedback: "Stretli ste sa už s problémom %{service_name} ? Máte návrh na vylepšenie služieb? Všimli ste si nejaký podozrivý obsah? Alebo len niečo, čo chcete diskutovať s nami? Dajte nám vedieť!"
+      dont_use_to_contact_support: ~
       feedback_forum: "fórum spätnej väzby"
       feedback_handle: "Spätná väzba"
       give_feedback: "Kontaktujte nás"
@@ -1401,12 +1408,12 @@ sk-SK:
       payment_details_add_error: "Platobné údaje nemôžu byť pridané"
       listing_author_payment_details_missing: "Prosím kontaktujte autora kliknutím na tlačítko 'Kontakt' nižšie. Je potrebné aktualizovať podrobnosti o platbe, aby platba mohla byť prijatá."
       images_are_processing: "Vaše nové obrázky, ktoré práve spracovávame budú viditeľné za niekoľko sekúnd."
-      automatically_logged_out_please_sign_in: "Boli ste automaticky odhlásený. Prosím prihláste sa znovu."
       maintenance_mode:
         zero: "Webová stránka sa pre údržbu prepne do offline režimu."
         one: "Webová stánka bude pre údržbu v offline režime %{count} minút"
         few: "Webová stánka bude pre údržbu v offline režime %{count} minúty"
         other: "Webová stánka bude pre údržbu v offline režime %{count} minút"
+      automatically_logged_out_please_sign_in: "Boli ste automaticky odhlásený. Prosím prihláste sa znovu."
     settings:
       account: Účet
       notifications: Oznámenia

@@ -222,6 +222,13 @@ is:
         save_user_status_error: ~
         ban_user_confirmation: ~
         ban_me_error: ~
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: ~
         twitter_handle: ~
@@ -1190,7 +1197,7 @@ is:
       join_this_community: ~
       read_more: ~
       feedback: "Hvað liggur þér á hjarta?"
-      default_feedback: "Þurftiru að glíma við einhver vandamál með %{service_name}? Ertu með einhverjar ráðleggingar til að bæta þjónustuna? Tókstu eftir einhverju tortryggilegu efni? Eða ertu með eitthvað annað til að ræða? Láttu okkur vita!"
+      dont_use_to_contact_support: ~
       feedback_forum: "umsagnar forum"
       feedback_handle: Umsögn
       give_feedback: "Hafðu samband"

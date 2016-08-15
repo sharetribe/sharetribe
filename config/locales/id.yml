@@ -222,6 +222,13 @@ id:
         save_user_status_error: ~
         ban_user_confirmation: ~
         ban_me_error: ~
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: ~
         twitter_handle: ~
@@ -1190,9 +1197,7 @@ id:
       join_this_community: ~
       read_more: ~
       feedback: "Apa yang Anda mau kabari kami?"
-      default_feedback: |-
-          Apakah Anda mengalami masalah dengan %{service_name}? 
-          Memiliki saran untuk meningkatkan pelayanan? Melihat beberapa konten yang mencurigakan atau mengkwatirkan? Atau hanya memiliki sesuatu yang Anda ingin diskusikan dengan kami? Beritahu kami!
+      dont_use_to_contact_support: ~
       feedback_forum: feedback_forum
       feedback_handle: "Saran atau masukan"
       give_feedback: "Hubungi Kami"

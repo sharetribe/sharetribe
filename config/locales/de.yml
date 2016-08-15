@@ -237,6 +237,13 @@ de:
         save_user_status_error: "Speichern fehlgeschlagen. Bitte erneuere die Seite und versuch es noch einmal."
         ban_user_confirmation: "Dies entfernt den Benutzer von der Community und wird einen erneuten Zugriff mit diesem Account auf die Seite verhindern. Bist du sicher, dass du fortfahren möchtest?"
         ban_me_error: "Du kannst dich nicht selber sperren."
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: "Social media"
         twitter_handle: Twittername
@@ -1221,7 +1228,7 @@ de:
       join_this_community: "Marktplatz beitreten"
       read_more: "Mehr lesen"
       feedback: "Was möchtest du uns mitteilen?"
-      default_feedback: "Bist du bei %{service_name} auf ein Problem gestoßen? Hast du einen Verbesserungsvorschlag, um unseren Service zu verbessern? Hast du verdächtigen Inhalt gesehen? Oder möchtest du einfach nur etwas mit uns besprechen? Lass es uns wissen!"
+      dont_use_to_contact_support: ~
       feedback_forum: Feedback-Forum
       feedback_handle: Feedback
       give_feedback: "Kontaktiere uns"

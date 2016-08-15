@@ -232,6 +232,13 @@ zh:
         save_user_status_error: 保存失败。请刷新页面后重试。
         ban_user_confirmation: 这将会把用户从集市中删除并阻止他们使用这个帐号再次访问该站点。你确认要继续吗？
         ban_me_error: 你不能禁止自己。
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: 社交媒体
         twitter_handle: Twitter用户名
@@ -1210,7 +1217,7 @@ zh:
       join_this_community: 加入集市
       read_more: 读取更多
       feedback: 给我们提供反馈？
-      default_feedback: "你有任何关于%{service_name}的问题吗？有什么提高服务质量的建议吗？发现了一些可疑的内容？或者你有些想法与我们讨论？在这里告诉我们！"
+      dont_use_to_contact_support: ~
       feedback_forum: 反馈论坛
       feedback_handle: 反馈
       give_feedback: 联系我们

@@ -222,6 +222,13 @@ el:
         save_user_status_error: ~
         ban_user_confirmation: ~
         ban_me_error: ~
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: ~
         twitter_handle: ~
@@ -1190,7 +1197,7 @@ el:
       join_this_community: "Εγγραφή στην κοινότητα"
       read_more: "Διαβάστε περισσότερα"
       feedback: "Τι θα θέλατε να μας πείτε;"
-      default_feedback: "Αντιμετωπίσατε κάποιο πρόβλημα με το %{service_name}; Έχετε κάποια πρόταση για να βελτιωθεί η υπηρεσία; Μήπως βρήκατε ύποπτο περιεχόμενο; Θέλετε απλώς να μας μιλήσετε; Στείλτε μας μήνυμα!"
+      dont_use_to_contact_support: ~
       feedback_forum: "περιοχή σχολίων"
       feedback_handle: Ανατροφοδότηση
       give_feedback: "Επικοινωνήστε μαζί μας"

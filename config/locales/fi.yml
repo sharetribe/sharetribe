@@ -237,6 +237,13 @@ fi:
         save_user_status_error: "Tallennus epäonnistui. Päivitä sivu ja yritä uudelleen."
         ban_user_confirmation: "Olet poistamassa käyttäjää palvelusta ja estämästä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
         ban_me_error: "Et voi poistaa itseäsi."
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: "Sosiaalinen media"
         twitter_handle: Twitter-tili
@@ -1221,7 +1228,7 @@ fi:
       join_this_community: Liity
       read_more: "Lue lisää"
       feedback: "Mitä haluaisit kertoa meille?"
-      default_feedback: "Tee kehitysehdotus, ilmoita virheestä tai epäilyttävästä sisällöstä, kerro mielipiteesi palvelusta %{service_name} tai ota yhteyttä muuten vain!"
+      dont_use_to_contact_support: ~
       feedback_forum: "palautefoorumiltamme,"
       feedback_handle: Palaute
       give_feedback: "Ota yhteyttä"

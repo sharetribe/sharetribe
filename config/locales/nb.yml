@@ -237,6 +237,13 @@ nb:
         save_user_status_error: "Lagring feilet. Vennligst oppdater siden på nytt og prøv igjen."
         ban_user_confirmation: "Dette fjerner bruker fra denne markedsplassen og hindrer vedkommende tilgang med denne bruker kontoen igjen. Er du sikker på at du ønsker å fortsette?"
         ban_me_error: "Du kan ikke forby deg selv."
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: "Sosiale medier"
         twitter_handle: Twitternavn
@@ -1223,7 +1230,7 @@ nb:
       join_this_community: "Bli medlem"
       read_more: "Les mer"
       feedback: "Hva vil du fortelle oss?"
-      default_feedback: "Opplevde du problemer med %{service_name}? Har du forslag til forbedringer? Så du noe utenom det vanlige? Eller vil du bare slå av en prat? Gi oss en lyd!"
+      dont_use_to_contact_support: ~
       feedback_forum: diskusjonsforum
       feedback_handle: Tilbakemelding
       give_feedback: "Kontakt oss"

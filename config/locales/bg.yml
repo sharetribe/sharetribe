@@ -222,6 +222,13 @@ bg:
         save_user_status_error: ~
         ban_user_confirmation: ~
         ban_me_error: ~
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: ~
         twitter_handle: ~
@@ -1190,7 +1197,7 @@ bg:
       join_this_community: ~
       read_more: ~
       feedback: "Какво искате да ни препоръчате?"
-      default_feedback: ~
+      dont_use_to_contact_support: ~
       feedback_forum: "форум за препоръки"
       feedback_handle: Препоръка
       give_feedback: "Свържете се с нас"

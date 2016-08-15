@@ -222,6 +222,13 @@ vi:
         save_user_status_error: ~
         ban_user_confirmation: ~
         ban_me_error: ~
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: ~
         twitter_handle: ~
@@ -1190,7 +1197,7 @@ vi:
       join_this_community: ~
       read_more: "Xem thêm"
       feedback: "Thông tin phản hồi đến đội ngũ %{service_name}"
-      default_feedback: "Đề nghị một đặc tính mới, thông báo lỗi, cho biết ý kiến của bạn về dịch vụ, hoặc chỉ để lại chú ý bằng cách nói xin chào!"
+      dont_use_to_contact_support: ~
       feedback_forum: "diễn đàn thông tin phản hồi"
       feedback_handle: "Thông tin phản hồi"
       give_feedback: "Cho ý kiến phản hồi đối với %{service_name}"

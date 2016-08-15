@@ -237,6 +237,13 @@ da-DK:
         save_user_status_error: "Der opstod en fejl da vi forsøgte at gemme dit valg. Venligst genindlæs siden og prøv igen."
         ban_user_confirmation: "Dette sletter brugeren fra markedspladsen og hindrer ham/hende i at logge ind på markedspladsen igen med denne bruger. Er du sikker på at du vil fortsætte?"
         ban_me_error: "Du kan ikke forbyde dig selv."
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: Social
         twitter_handle: "Twitter konto"
@@ -548,8 +555,8 @@ da-DK:
     removed_user: "Fjernet bruger"
     paypal_fee_info:
       title: PayPal-gebyr
-      body_text: "PayPal opkræver et ekspeditionsgebyr for hver transaktion. Gebyret udgør 2-5% af det samlede transaktionsbeløb, afhængigt af din salgsvolumen og køberens bopælsland. Generelt har indenlandske betalinger lavere gebyrer end udenlandske. Og jo mere du sælger, jo mindre betaler du. Du kan se de nøjagtige gebyrer via din PayPal-konto %{link_to_paypal}. Gebyrbeløbet fremgår af din kvittering."
-      body_with_shipping_text: "PayPal opkræver et ekspeditionsgebyr for hver transaktion. Gebyret udgør 2-5% af det samlede transaktionsbeløb, afhængigt af din salgsvolumen og køberens bopælsland. Generelt har indenlandske betalinger lavere gebyrer end udenlandske. Og jo mere du sælger, jo mindre betaler du. Du kan se de nøjagtige gebyrer via din PayPal-konto %{link_to_paypal}. Gebyrbeløbet fremgår af din kvittering."
+      body_text: "PayPal opkræver et ekspeditionsgebyr på 2-5% pr. transaktion – som er faldende jo flere transaktioner man har. Betalinger fra udlandet koster lidt mere. Du kan altid se de nøjagtige gebyrer via din PayPal-konto %{link_to_paypal}. Gebyrbeløbet fremgår af din kvittering."
+      body_with_shipping_text: "PayPal opkræver et ekspeditionsgebyr på 2-5% pr. transaktion – som er faldende jo flere transaktioner man har. Betalinger fra udlandet koster lidt mere. Du kan altid se de nøjagtige gebyrer via din PayPal-konto %{link_to_paypal}. Gebyrbeløbet fremgår af din kvittering."
       link_to_paypal_text: her
   conversations:
     accept:
@@ -767,7 +774,7 @@ da-DK:
       you_can_join: "Du kan tilmelde dig %{service_name} ved at acceptere brugervilkårene og klikke på 'Tilmeld' nedenfor."
       you_can_join_email_confirmation: "Hvis du vil deltage %{service_name} skal du have en gyldig e-mail adresse, der ender med %{email_ending}. Du kan tilmelde dig ved at udfylde din e-mailadresse, accepterer vilkårene for brug og klikke på 'Deltag %{service_name}' nedenfor, og bekræfter din e-mail."
       you_can_join_email_confirmation_multiple_addresses: "%{service_name} har e-mail-restriktioner. Du kan kun deltage, hvis du har en tilladt e-mailadresse. Du kan tilmelde dig ved at udfylde din e-mailadresse, accepterer vilkårene for brug af %{service_name} og klikke på 'Deltag %{service_name}' nedenfor."
-      you_can_join_with_invite_only: "Du skal have en invitation fra et andet medlem til at slutte %{service_name}. Hvis du har en invitation kode, kan du tilmelde dig ved at skrive koden til feltet nedenfor accepterer vilkårene for brug og klikke på 'Deltag %{service_name}' nedenfor."
+      you_can_join_with_invite_only: "For at kunne joine %{service_name} skal du have en invitation fra en eksisterende bruger. Hvis du har en invitation, skal du indtaste koden i feltet nedenfor, acceptere brugervilkårene og derefter klikke på 'Tilmeld %{service_name}'."
       if_want_to_view_content: "Hvis du ønsker at se indholdet på %{service_name} uden at tilmelde dig, skal du"
       log_out: "logge ud."
       join_community_button: "Join %{service_name}"
@@ -1217,7 +1224,7 @@ da-DK:
       join_this_community: "Slut dig til markedspladsen"
       read_more: "Læs mere"
       feedback: "Din besked til os:"
-      default_feedback: "Er du stødt på et problem med %{service_name}? Har du forslag til forbedring af servicen? Har du bemærket noget mistænkeligt? Eller vil du bare gerne i kontakt med os? Skriv endelig!"
+      dont_use_to_contact_support: ~
       feedback_forum: "fællesskabets diskussionsforum"
       feedback_handle: Feedback
       give_feedback: "Kontakt os"
@@ -1715,9 +1722,9 @@ da-DK:
   paypal_accounts:
     payout_info_title: "Sådan modtager du betaling"
     paypal_account_email_connected: "<del>1. Tilknyt din PayPal-konto</del> Godkendt!"
-    payout_info_paypal: "%{service_name} anvender PayPal som betalingsudbyder. For at kunne modtage betaling skal du forbinde din %{create_paypal_account_link} med %{service_name}."
+    payout_info_paypal: "%{service_name} anvender PayPal som betalingsudbyder. For at kunne modtage betaling skal du forbinde din %{create_paypal_account_link} med %{service_name}"
     paypal_billing_agreement_made: "<del>2. Tillad %{service_name} at tage et servicegebyr</del> Godkendt!"
-    commission_permission_needed: "Du skal også give %{service_name} tilladelse til at opkræve et transaktionsgebyr."
+    commission_permission_needed: "og give os tilladelse til at opkræve et transaktionsgebyr."
     create_paypal_account_link_text: PayPal-konto
     connected_account: "Din PayPal-konto '%{email}' er nu tilknyttet."
     paypal_receive_funds_info_label_australia_only: "Din PayPal-konto skal være i stand til at modtage betalinger. Dette kan kræve en Premier- eller Business-konto."
@@ -1946,7 +1953,7 @@ da-DK:
         status_pending: Venter
     notifications:
       email_from_admins: "Send mig de seneste nyheder og opdateringer"
-      i_want_to_get_email_notification_when: "Giv mig besked når ..."
+      i_want_to_get_email_notification_when: "Giv mig besked, når ..."
       newsletters: Nyhedsbrev
       community_updates: Mailnotifikationer
       email_about_accept_reminders: "...jeg har glemt at acceptere et tilbud eller en anmodning"
@@ -1963,7 +1970,7 @@ da-DK:
       email_about_completed_transactions: "...nogen har markeret mit tilbud eller anmodning som godkendt"
       email_about_new_payments: "...jeg modtager en ny betaling"
       email_about_payment_reminders: "...jeg har glemt at betale"
-      email_about_new_listings_by_followed_people: "...en som jeg følger har oprettet en ny annonce"
+      email_about_new_listings_by_followed_people: "... personer, jeg følger, har oprettet en ny annonce"
       unsubscribe_succesful: "Du er nu afmeldt"
       unsubscribe_info_text: "Du vil nu ikke længere modtage emails. Tjek dine %{settings_link} for at vælge hvilken slags emails du ønsker at modtage fra %{service_name}, eller vend tilbage til %{homepage_link}."
       settings_link: Indstillinger

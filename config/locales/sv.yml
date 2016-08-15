@@ -237,6 +237,13 @@ sv:
         save_user_status_error: "Ett fel inträffade när sidan sparades. Försök igen eller ladda om sidan."
         ban_user_confirmation: "Detta tar bort medlemmen från marknadsplatsen och förhindrar att dem ska komma åt sidan igen med deras konto. Är du säker att du vill fortsätta?"
         ban_me_error: "Du kan inte bannlysa dig själv."
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: "Social media"
         twitter_handle: "Twitter användarnamn"
@@ -1223,7 +1230,7 @@ sv:
       join_this_community: "Gå med marknadsplatsen"
       read_more: "Läs mer"
       feedback: "Vad skulle du vilja berätta för oss?"
-      default_feedback: "Har du stött på något problem med %{service_name}? Har du ett förslag hur vi förbättrar tjänsten? Märkt något misstänksamt innehåll? Eller har du bara något du vill diskutera med oss? Låt oss veta!"
+      dont_use_to_contact_support: ~
       feedback_forum: "forum för feedback"
       feedback_handle: Feedback
       give_feedback: "Kontakta oss"

@@ -222,6 +222,13 @@ pl:
         save_user_status_error: "Zapis nie udał się. Proszę odśwież stronę i spróbuj ponownie."
         ban_user_confirmation: ~
         ban_me_error: ~
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: ~
         twitter_handle: ~
@@ -1190,7 +1197,7 @@ pl:
       join_this_community: "Dołącz do platformy"
       read_more: "Czytaj więcej"
       feedback: "Co chcesz nam powiedzieć?"
-      default_feedback: "Czy spotkałeś się z problemem z %{service_name}? Masz sugestię jak poprawić usługę? Zauważyłeś podejrzaną treść? Lub masz coś, co chciałbyś przedyskutować z nami? Daj nam znać!"
+      dont_use_to_contact_support: ~
       feedback_forum: "forum opinii"
       feedback_handle: Opinia
       give_feedback: "Skontaktuj się z nami"

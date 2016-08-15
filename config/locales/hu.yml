@@ -238,6 +238,13 @@ hu:
         save_user_status_error: "Hiba történt a mentés közben. Kérlek, frissítsd az oldalt s próbáld újra!"
         ban_user_confirmation: "Ez törli a felhasználót a piactérről és megakadályozza az oldalhoz való hozzáférésben ezzel a fiókkal. Biztos benne hogy folytatja?"
         ban_me_error: "Nem tilthatja le önmagát"
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: "Közösségi média"
         twitter_handle: "Twitter név"
@@ -1222,7 +1229,7 @@ hu:
       join_this_community: "Csatlakozás a piactérhez"
       read_more: Bővebben
       feedback: "Mit szeretne mondani nekünk?"
-      default_feedback: "Problémával találkozott %{service_name}nél? Lenne ötlete, hogyan fejleszthetnénk szolgáltatásaink színvonalát? Gyanús tartalommal találkozott? Vagy csak szeretne beszélgetni velünk? Keressen minket!"
+      dont_use_to_contact_support: ~
       feedback_forum: "Értékelések fóruma"
       feedback_handle: Értékelés
       give_feedback: "Keressen minket"

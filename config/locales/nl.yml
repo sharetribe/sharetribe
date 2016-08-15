@@ -237,6 +237,13 @@ nl:
         save_user_status_error: "Opslaan mislukt. Vernieuw de pagina en probeer opnieuw."
         ban_user_confirmation: "Dit verwijdert de gebruiker van de marktplaats en belet hem de site opnieuw te gebruiken met deze account. Ben je zeker dat je verder wil gaan?"
         ban_me_error: "Je kunt jezelf niet uitsluiten."
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: "Sociale media"
         twitter_handle: "Twitter account"
@@ -1205,7 +1212,7 @@ nl:
       join_this_community: "Sluit aan bij marktplaats"
       read_more: "Lees meer"
       feedback: "Wat wil u ons vertellen?"
-      default_feedback: "Heeft u een probleem gehad met %{service_name}? Heeft u suggesties om onze dienst te verbeteren? Ongepaste inhoud gezien? Of wilt u gewoon iets vertellen? Laat het ons weten!"
+      dont_use_to_contact_support: ~
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
       give_feedback: "Neem contact op"

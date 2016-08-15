@@ -247,6 +247,13 @@ ru:
         save_user_status_error: "Во время сохранения поля произошла ошибка Обновите страницу и попробуйте еще раз."
         ban_user_confirmation: "Это удалит участника из проекта и доступ из этого аккаунта будет не возможен. Вы уверены что хотите продолжить?"
         ban_me_error: "Вы не можете заблокировать сами себя"
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: "Социальные медиа"
         twitter_handle: "Twitter аккаунт"
@@ -1215,7 +1222,7 @@ ru:
       join_this_community: "Присоединиться к проекту"
       read_more: Подробнее
       feedback: "Что бы Вы хотели нам рассказать?"
-      default_feedback: "Вы обнаружили проблему с %{service_name}? У Вас есть предложение для улучшения сервиса? Заметили подозрительный контент? Сообщите нам пожалуйста!"
+      dont_use_to_contact_support: ~
       feedback_forum: форум
       feedback_handle: "Написать отзыв"
       give_feedback: "Напиши нам"

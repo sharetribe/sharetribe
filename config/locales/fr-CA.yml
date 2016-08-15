@@ -237,6 +237,13 @@ fr-CA:
         save_user_status_error: "La sauvegarde a échoué. Veuillez rafraîchir la page et essayer de nouveau."
         ban_user_confirmation: "Ceci supprime l'utilisateur de la place de marché et l'empêche d’y accéder de nouveau avec ce compte. Êtes-vous sûr de vouloir faire cela ?"
         ban_me_error: "Vous ne pouvez pas vous bannir vous-même."
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: "Réseaux sociaux"
         twitter_handle: "Nom Twitter"
@@ -1209,7 +1216,7 @@ fr-CA:
       join_this_community: "Rejoindre la place de marché"
       read_more: "Lire la suite"
       feedback: "Vos commentaires pour l'équipe de %{service_name}"
-      default_feedback: "Vous avez rencontré un problème sur %{service_name} ? Vous souhaitez proposer une nouvelle fonctionnalité ? Vous avez remarqué une annonce suspecte ? Ou vous voulez juste discuter avec nous ? Dites le nous !"
+      dont_use_to_contact_support: ~
       feedback_forum: "forum de discussion"
       feedback_handle: Commentaire
       give_feedback: "Nous contacter"

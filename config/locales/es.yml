@@ -222,6 +222,13 @@ es:
         save_user_status_error: ~
         ban_user_confirmation: ~
         ban_me_error: ~
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: ~
         twitter_handle: ~
@@ -1197,7 +1204,7 @@ es:
       join_this_community: "Únete a la comunidad"
       read_more: "Leer más"
       feedback: "Sugerencia al equipo de %{service_name}"
-      default_feedback: "¿Tuviste algún problema con %{service_name}?¿Tienes alguna sugerencia para mejorar el servicio? ¿Notaste algún contenido sospechoso? ¿O quieres conversar sobre un tema con nosotros? Cuéntanos!"
+      dont_use_to_contact_support: ~
       feedback_forum: "Forum de sugerencias"
       feedback_handle: Feedback
       give_feedback: Contáctenos

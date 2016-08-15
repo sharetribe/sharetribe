@@ -237,6 +237,13 @@ pt-BR:
         save_user_status_error: "Erro ao gravar. Por favor, atualize a página e tente novamente"
         ban_user_confirmation: "Isso remove o usuário do mercado virtual e o impede de acessar o site novamente com esta conta. Tem certeza de que deseja continuar?"
         ban_me_error: "Você não pode se banir."
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: "Mídia social"
         twitter_handle: "Nome Twitter"
@@ -1221,7 +1228,7 @@ pt-BR:
       join_this_community: "Juntar-se ao mercado virtual"
       read_more: "Ler o seguinte"
       feedback: "O que você gostaria de nos contar?"
-      default_feedback: "Você encontrou um problema com %{service_name}? Tem alguma sugestão para melhorar o serviço? Notou algum conteúdo suspeito? Ou você simplesmente quer discutir algo com a gente? Mande sua mensagem!"
+      dont_use_to_contact_support: ~
       feedback_forum: "fórum de respostas"
       feedback_handle: Reposta
       give_feedback: Contato

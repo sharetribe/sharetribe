@@ -242,6 +242,13 @@ cs:
         save_user_status_error: "Ukládání selhalo. Prosíme, aktualizujte stránku a zkuste to znovu."
         ban_user_confirmation: "Tímto bude uživatel z tržiště odstraněn a nebude již mít pod tímto účtem přístup na tuto stránku. Jste si jisti, že chcete pokračovat?"
         ban_me_error: "Nemůžete sami sebe zakázat."
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: "Sociální média"
         twitter_handle: Twitter
@@ -1230,7 +1237,7 @@ cs:
       join_this_community: "Připojit se k tržišti"
       read_more: "Přečtete si více"
       feedback: "Co byste nám chtěli sdělit?"
-      default_feedback: "Narazili jste na nějaký na problém s %{service_name}? Máte návrh na vylepšení služeb? Zaznamenali jste nějaký podezřelý obsah? Nebo je zde něco, co byste nám chtěli vzkázat? Dejte nám vědět!"
+      dont_use_to_contact_support: ~
       feedback_forum: "Diskuzní fórum"
       feedback_handle: "Napište nám"
       give_feedback: "Kontaktujte nás"

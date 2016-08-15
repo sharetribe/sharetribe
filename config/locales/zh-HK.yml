@@ -232,6 +232,13 @@ zh-HK:
         save_user_status_error: ~
         ban_user_confirmation: 這將會把用戶從集市中刪除並阻止他們使用這個帳號再次訪問該站點。你確認要繼續嗎？
         ban_me_error: ~
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: ~
         twitter_handle: ~
@@ -1208,7 +1215,7 @@ zh-HK:
       join_this_community: 加入網站
       read_more: 讀取更多
       feedback: 您有什麼想要發表?
-      default_feedback: "你在使用%{service_name}時遇上困難? 對服務表現有意見發表? 發現可疑的內容? 或只是有一些想法想要跟我們討論? 歡迎告訴我們！"
+      dont_use_to_contact_support: ~
       feedback_forum: 反饋論壇
       feedback_handle: 回應
       give_feedback: 聯絡我們

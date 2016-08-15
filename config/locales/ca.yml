@@ -222,6 +222,13 @@ ca:
         save_user_status_error: ~
         ban_user_confirmation: ~
         ban_me_error: ~
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: ~
         twitter_handle: ~
@@ -1192,7 +1199,7 @@ ca:
       join_this_community: ~
       read_more: ~
       feedback: "Suggeriment a l'equip de Kassi"
-      default_feedback: "Suggereix una nova aplicació, informa d'un error, fes-nos arribar la teva opinió sobre el servei o simplement deixa'ns una nota dient-nos hola!"
+      dont_use_to_contact_support: ~
       feedback_forum: "Fòrum de suggeriments"
       feedback_handle: Suggeriment
       give_feedback: "Fes un suggeriment"

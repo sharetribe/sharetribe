@@ -222,6 +222,13 @@ it:
         save_user_status_error: ~
         ban_user_confirmation: ~
         ban_me_error: ~
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: ~
         twitter_handle: "Nome utente di Twitter"
@@ -1194,7 +1201,7 @@ it:
       join_this_community: ~
       read_more: Continua
       feedback: "Che cosa vorresti comunicarci?"
-      default_feedback: "Hai incontrato problemi con %{service_name}? Hai suggerimenti per migliorare il servizio? Hai notato del contenuto sospetto? O semplicemente hai qualcosa di cui vuoi parlare con noi? Faccelo sapere!"
+      dont_use_to_contact_support: ~
       feedback_forum: "forum dei feedback"
       feedback_handle: Feedback
       give_feedback: Contattaci

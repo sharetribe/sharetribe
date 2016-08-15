@@ -232,6 +232,13 @@ tr-TR:
         save_user_status_error: "Kayıt başarısız oldu. Sayfayı yenileyin ve tekrar deneyin."
         ban_user_confirmation: "Bu, kullanıcıyı pazar yerinden engeller ve bu hesapla siteye tekrar giriş yapmalarını önler. Devam etmek istediğinizden emin misiniz?"
         ban_me_error: "Kendinizi banlayamazsınız."
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: "Sosyal medya"
         twitter_handle: "Twitter aracı"
@@ -1206,7 +1213,7 @@ tr-TR:
       join_this_community: "Pazara katılın"
       read_more: "Devamını oku"
       feedback: "Neden bahsetmek istiyorsunuz?"
-      default_feedback: "%{service_name} ile ilgili bir problemle mi karşılaştınız? Hizmeti iyileştirmek için bir öneriniz mi var? Şüpheli içerik mi fark ettiniz? Ya da sadece bizimle görüşmek istediğiniz bir konu mu var? Lütfen bize bildirin!"
+      dont_use_to_contact_support: ~
       feedback_forum: "geribildirim forumu"
       feedback_handle: Geribildirim
       give_feedback: "Bize Ulaşın"

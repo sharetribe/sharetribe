@@ -237,6 +237,13 @@ es-ES:
         save_user_status_error: "No se han guardado los cambios. Por favor, actualiza la página y vuelve a intentarlo."
         ban_user_confirmation: "Esto bloquea al usuario de la comunidad y le impide volver a acceder con esta cuenta. Estás seguro de que quieres continuar?"
         ban_me_error: "No te puedes rechazar a ti mismo."
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: "Social media"
         twitter_handle: Twitter
@@ -1217,7 +1224,7 @@ es-ES:
       join_this_community: "Únete a la comunidad"
       read_more: "Leer más"
       feedback: "Qué sugerencia te gustaría hacernos?"
-      default_feedback: "¿Tienes algún problema con %{service_name}? ¿Tienes sugerencias o comentarios que nos ayuden a mejorar el servicio? ¿Quieres reportar contenidos o usuarios sospechosos o que violan los Términos de Uso? O simplemente hay algo que quieres discutir con nosotros. Contáctanos!"
+      dont_use_to_contact_support: ~
       feedback_forum: "Foro de sugerencias"
       feedback_handle: "Sugerencia o comentario"
       give_feedback: Contáctanos

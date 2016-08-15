@@ -232,6 +232,13 @@ ja:
         save_user_status_error: 保存に失敗しました。ページを再読込してもう一度試してください
         ban_user_confirmation: これはマーケットプレイスのユーザを削除するものであり、今後二度とこのアカウントに戻れないようになります。本当にこの削除手続きを実行してもよろしいですか。
         ban_me_error: 自分自身をアカウント停止ユーザに出来ません。
+      new_layout:
+        new_layout: ~
+        description_roadmap: ~
+        description_process: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
       social_media:
         social_media: ソーシャルメディア
         twitter_handle: Twitterのハンドル
@@ -1204,7 +1211,7 @@ ja:
       join_this_community: マーケットプレイスに参加する
       read_more: もっと読む
       feedback: ご用件をどうぞ
-      default_feedback: "%{service_name} の利用に関するご質問、サービス改善のご提案、怪しい投稿のご報告は、こちらからお願いします。もちろん、当社へのご意見も大歓迎です！"
+      dont_use_to_contact_support: ~
       feedback_forum: レビューフォーラム
       feedback_handle: レビューを書く
       give_feedback: お問い合わせ
