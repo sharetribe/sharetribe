@@ -131,6 +131,8 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def update_new_layout
+    redirect_to admin_getting_started_guide_path and return unless(FeatureFlagHelper.feature_enabled?(:feature_flags_page))
+
     @community = @current_community
 
     enabled_for_user = Maybe(params[:enabled_for_user]).map { |f| NewLayoutViewUtils.enabled_features(f) }.or_else([])
