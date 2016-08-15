@@ -7,6 +7,7 @@ describe Admin::CommunitiesController, type: :controller do
     @request.host = "#{@community.ident}.lvh.me"
     @request.env[:current_marketplace] = @community
     @user = create_admin_for(@community)
+    FeatureFlagService::API::Api.features.enable(community_id: @community.id, features: [:feature_flags_page])
     sign_in_for_spec(@user)
   end
 
