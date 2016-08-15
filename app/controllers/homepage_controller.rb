@@ -306,9 +306,12 @@ class HomepageController < ApplicationController
   end
 
   def search_modes_in_use(q, lc, main_search)
+    # lc should be two decimal coordinates separated with a comma
+    # e.g. 65.123,-10
+    coords_valid = /^-?\d+(?:\.\d+)?,-?\d+(?:\.\d+)?$/.match(lc)
     {
       keyword: q && (main_search == :keyword || main_search == :keyword_and_location),
-      location: lc && (main_search == :location || main_search == :keyword_and_location),
+      location: coords_valid && (main_search == :location || main_search == :keyword_and_location),
     }
   end
 
