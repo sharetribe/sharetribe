@@ -106,9 +106,9 @@ end
 
 Then(/^I should be able to send a message to admin$/) do
   steps %Q{
-    When I fill in "What would you like to tell us?" with "I sad that I have been banned."
-    And I press "Send feedback"
-    Then I should see "Thanks a lot for your feedback!" within ".flash-notifications"
+    When I fill in "feedback_content" with "I sad that I have been banned."
+    And I press "Send message"
+    Then I should see "Thanks a lot for your message!" within ".flash-notifications"
   }
 end
 
