@@ -242,10 +242,9 @@ class Admin::CommunitiesController < ApplicationController
     if(FeatureFlagHelper.location_search_available)
       marketplace_configurations = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data
 
-      topbar_enabled_for_community = FeatureFlagService::API::Api.features.get(community_id: @current_community.id)
-        .maybe[:features].or_else(Set.new).include?(:topbar_v1)
+      keyword_and_location = FeatureFlagService::API::Api.features.get(community_id: @current_community.id)
+        .data[:features].include?(:topbar_v1) ? [:keyword_and_location] : []
 
-      keyword_and_location = topbar_enabled_for_community ? [:keyword_and_location] : []
       main_search_select_options = [:keyword, :location].concat(keyword_and_location)
         .map { |type|
           [SettingsViewUtils.search_type_translation(type), type]
