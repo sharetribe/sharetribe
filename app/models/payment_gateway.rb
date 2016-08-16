@@ -27,9 +27,6 @@ class PaymentGateway < ActiveRecord::Base
   # methods that must be defined in subclasses, but are not defined here as
   # this model is never directly used, only via subclasses
 
-  # def payment_data(payment, options={})
-  # initializes the payment and returns the data that is needed by the template.
-
   # this is called after the payment is paid.
   # some gateways might have actions related to this hook, e.g. instant payout
   def handle_paid_payment(payment)
