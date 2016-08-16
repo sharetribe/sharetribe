@@ -25,7 +25,7 @@ const baseProps = {
     image_highres: 'https://s3.amazonaws.com/sharetribe-manual-assets/styleguide/bikerrrs-logo.png',
   },
   search: {
-    mode: 'keyword-and-location',
+    mode: 'keyword_and_location',
     keyword_placeholder: 'Search...',
     location_placeholder: 'Location',
     onSubmit: action('submitting search'),
@@ -140,6 +140,6 @@ storiesOf('Top bar')
   .add('With location search', () => (
     storifyTopbar({ ...baseProps, search: { mode: 'location' } })))
   .add('With keyword and location search', () => (
-    storifyTopbar({ ...baseProps, search: { mode: 'keyword-and-location' } })))
+    storifyTopbar({ ...baseProps, search: { mode: 'keyword_and_location' } })))
   .add('Logged in as admin', () => (
     storifyTopbar({ ...baseProps, isAdmin: true })));

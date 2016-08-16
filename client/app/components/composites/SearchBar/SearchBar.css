@@ -100,7 +100,6 @@
   flex-grow: 1;
   transition: flex-grow 0.25s ease-out, width 0.25s ease-out, color 0.1s ease-in;
   background-color: transparent;
-
   -webkit-font-smoothing: antialiased;
 
   &:focus {
@@ -273,7 +272,6 @@
     }
 
     @nest .form:hover & {
-
       & svg {
         stroke: var(--SearchBar_iconColorActive);
       }
@@ -334,7 +332,6 @@
   @media (--large-viewport) {
     display: none;
   }
-
 }
 
 /* CSS triangle pointing to the search toggle icon */

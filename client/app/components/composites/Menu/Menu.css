@@ -11,7 +11,6 @@
   &:focus,
   &.openMenu,
   &.touchless:hover {
-
     & .menuLabel {
       color: var(--Menu_textColorFocus);
     }

@@ -8,7 +8,6 @@
   align-items: center;
   background: var(--colorBackground);
   border-bottom: 1px solid var(--Topbar_borderColor);
-
   font-size: var(--Topbar_fontSize);
   font-family: var(--Topbar_fontFamily);
 
@@ -46,6 +45,7 @@
   & svg {
     font-family: var(--Topbar_fontFamily);
   }
+
   & input {
     font-size: var(--Topbar_inputFontSizeMobile);
 
@@ -98,6 +98,7 @@
     box-shadow: none;
     margin-left: 10px;
   }
+
   & .notificationBadgeCount {
     font-size: var(--Topbar_fontSize);
     padding-top: 0;

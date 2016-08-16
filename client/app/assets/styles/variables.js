@@ -1,4 +1,5 @@
 /* eslint-env node */
+/* eslint-disable no-magic-numbers */
 const fontSizeTiny = '11px';
 const fontSizeSmaller = '12px';
 const fontSizeSmall = '13px';
@@ -182,7 +183,7 @@ module.exports = {
   '--ProfileDropdown_textColorFocus': textColorFocus,
   '--ProfileDropdown_logoutLinkColor': textColorGrey,
   '--ProfileDropdown_colorLight': textColorLight,
-  '--ProfileDropdown_textLinkSize': pxToEms(13, 14), // eslint-disable-line no-magic-numbers
+  '--ProfileDropdown_textLinkSize': pxToEms(13, 14),
   '--ProfileDropdown_arrowWidth': '18px',
   '--ProfileDropdown_topSeparation': '0px',
   '--ProfileDropdown_lineWidth': '2px',
@@ -190,11 +191,11 @@ module.exports = {
 
   '--MenuItem_borderColor': topbarBorderColor,
   '--MenuItem_backgroundColorHover': backgroundLightColorHover,
-  '--MenuItem_paddingTopbarVertical': pxToEms(13, 14), // eslint-disable-line no-magic-numbers
-  '--MenuItem_paddingTopbarHorizontal': pxToEms(24, 14), // eslint-disable-line no-magic-numbers
-  '--MenuItem_paddingOffScreenVertical': pxToEms(10, 17), // eslint-disable-line no-magic-numbers
-  '--MenuItem_paddingOffScreenHorizontal': pxToEms(24, 17), // eslint-disable-line no-magic-numbers
-  '--MenuItem_paddingOffScreenHorizontalTablet': pxToEms(36, 16), // eslint-disable-line no-magic-numbers
+  '--MenuItem_paddingTopbarVertical': pxToEms(13, 14),
+  '--MenuItem_paddingTopbarHorizontal': pxToEms(24, 14),
+  '--MenuItem_paddingOffScreenVertical': pxToEms(10, 17),
+  '--MenuItem_paddingOffScreenHorizontal': pxToEms(24, 17),
+  '--MenuItem_paddingOffScreenHorizontalTablet': pxToEms(36, 16),
   '--MenuItem_fontSize': fontSizeBig,
   '--MenuItem_textColor': textColor,
   '--MenuItem_textColorFocus': textColorFocus,
@@ -227,37 +228,37 @@ module.exports = {
 
   '--MenuSection_titleColor': 'rgba(153, 153, 153, 0.5)',
   '--MenuSection_fontSizeTitle': fontSizeSmaller,
-  '--MenuSection_paddingOffScreenVertical': pxToEms(10, 12), // eslint-disable-line no-magic-numbers
-  '--MenuSection_paddingOffScreenHorizontal': pxToEms(24, 12), // eslint-disable-line no-magic-numbers
-  '--MenuSection_paddingOffScreenHorizontalTablet': pxToEms(36, 12), // eslint-disable-line no-magic-numbers
-  '--MenuSection_marginOffScreenBottom': pxToEms(16, 17), // eslint-disable-line no-magic-numbers
-  '--MenuSection_marginOffScreenBottomTablet': pxToEms(28, 17), // eslint-disable-line no-magic-numbers
-  '--MenuSection_iconMargin': pxToEms(9, 12), // eslint-disable-line no-magic-numbers
+  '--MenuSection_paddingOffScreenVertical': pxToEms(10, 12),
+  '--MenuSection_paddingOffScreenHorizontal': pxToEms(24, 12),
+  '--MenuSection_paddingOffScreenHorizontalTablet': pxToEms(36, 12),
+  '--MenuSection_marginOffScreenBottom': pxToEms(16, 17),
+  '--MenuSection_marginOffScreenBottomTablet': pxToEms(28, 17),
+  '--MenuSection_iconMargin': pxToEms(9, 12),
 
   '--MobileMenu_labelPaddingVertical': '18px',
   '--MobileMenu_labelPaddingHorizontal': '18px',
   '--MobileMenu_offscreenMenuWidth': '288px',
   '--MobileMenu_offscreenHeaderItemHeight': '44px',
   '--MobileMenu_offscreenFooterBackgroundColor': backgroundColorGrey,
-  '--MobileMenu_offscreenFooterMarginTop': pxToEms(14, 17), // eslint-disable-line no-magic-numbers
+  '--MobileMenu_offscreenFooterMarginTop': pxToEms(14, 17),
 
   '--LanguagesMobile_fontSize': fontSizeMobileSmall,
   '--LanguagesMobile_fontSizeTablet': fontSizeMobileSmaller,
   '--LanguagesMobile_textColorDefault': customColorFallback,
   '--LanguagesMobile_textColorSelected': textColorSelected,
-  '--LanguagesMobile_marginLanguageListRight': pxToEms(65, 15), // eslint-disable-line no-magic-numbers
-  '--LanguagesMobile_marginLanguageListLeft': pxToEms(24, 15), // eslint-disable-line no-magic-numbers
-  '--LanguagesMobile_marginLanguageListTop': pxToEms(6, 15), // eslint-disable-line no-magic-numbers
-  '--LanguagesMobile_marginLanguageListRightTablet': pxToEms(65, 14), // eslint-disable-line no-magic-numbers
-  '--LanguagesMobile_marginLanguageListLeftTablet': pxToEms(36, 14), // eslint-disable-line no-magic-numbers
-  '--LanguagesMobile_marginLanguageListTopTablet': pxToEms(5, 14), // eslint-disable-line no-magic-numbers
-  '--LanguagesMobile_marginTop': pxToEms(14, 15), // eslint-disable-line no-magic-numbers
-  '--LanguagesMobile_marginBottom': pxToEms(24, 15), // eslint-disable-line no-magic-numbers
-  '--LanguagesMobile_marginTopTablet': pxToEms(26, 14), // eslint-disable-line no-magic-numbers
-  '--LanguagesMobile_marginBottomTablet': pxToEms(36, 14), // eslint-disable-line no-magic-numbers
-  '--LanguagesMobile_paddingLanguageVertical': pxToEms(10, 15), // eslint-disable-line no-magic-numbers
-  '--LanguagesMobile_paddingLanguageRight': pxToEms(5, 15), // eslint-disable-line no-magic-numbers
-  '--LanguagesMobile_linkGap': pxToEms(10, 15), // eslint-disable-line no-magic-numbers
+  '--LanguagesMobile_marginLanguageListRight': pxToEms(65, 15),
+  '--LanguagesMobile_marginLanguageListLeft': pxToEms(24, 15),
+  '--LanguagesMobile_marginLanguageListTop': pxToEms(6, 15),
+  '--LanguagesMobile_marginLanguageListRightTablet': pxToEms(65, 14),
+  '--LanguagesMobile_marginLanguageListLeftTablet': pxToEms(36, 14),
+  '--LanguagesMobile_marginLanguageListTopTablet': pxToEms(5, 14),
+  '--LanguagesMobile_marginTop': pxToEms(14, 15),
+  '--LanguagesMobile_marginBottom': pxToEms(24, 15),
+  '--LanguagesMobile_marginTopTablet': pxToEms(26, 14),
+  '--LanguagesMobile_marginBottomTablet': pxToEms(36, 14),
+  '--LanguagesMobile_paddingLanguageVertical': pxToEms(10, 15),
+  '--LanguagesMobile_paddingLanguageRight': pxToEms(5, 15),
+  '--LanguagesMobile_linkGap': pxToEms(10, 15),
 
   '--NotificationBadge_color': textColorLight,
   '--NotificationBadge_alertColor': alertColor,
