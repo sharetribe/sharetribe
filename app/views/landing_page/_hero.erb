@@ -26,8 +26,9 @@
       <h1 class="hero__title"><%= s["title"]["value"] %></h1>
       <h3 class="hero__subtitle"><%= render partial: "prevent_widows", locals: { text: s["subtitle"]["value"]} %></h3>
 
-      <% case s["variation"]["value"] %>
-      <% when "keyword_search", "location_search" %>
+      <% search_mode = s["variation"]["value"] %>
+      <% case search_mode %>
+      <% when "keyword_search", "location_search", "keyword_and_location_search" %>
 
         <div class="hero__search-bar-padding">
           <form method="get" id="<%= section_id %>__search-form" class="hero__search-bar" action="<%= s["search_path"]["value"] %>">
@@ -42,9 +43,12 @@
                 </svg>
               </div>
               <input type="search" name="q" class="hero__search-input" placeholder="<%= s["search_placeholder"]["value"] %>"/>
+              <% if search_mode == "keyword_and_location_search" %>
+                <input type="search" name="lq" class="hero__search-input" placeholder="<%= s["search_placeholder"]["value"] %>"/>
+              <% end %>
             </div>
             <button type="submit" class="hero__search-button"><%= s["search_button"]["value"] %></button>
-            <% if s["variation"]["value"] == "location_search" %>
+            <% if search_mode == "location_search" || search_mode == "keyword_and_location_search" %>
               <input type="hidden" name="ls" />
               <input type="hidden" name="lc" />
               <input type="hidden" name="boundingbox" />
@@ -54,7 +58,7 @@
                 <script>
                  window.ST.initializeLocationSearch({
                    form: '#<%= section_id %>__search-form',
-                   search: '#<%= section_id %>__search-form [name=q]',
+                   search: '#<%= section_id %>__search-form [name=<%= search_mode == "keyword_and_location_search" ? "lq" : "q" %>]',
                    status: '#<%= section_id %>__search-form [name=ls]',
                    coordinate: '#<%= section_id %>__search-form [name=lc]',
                    boundingbox: '#<%= section_id %>__search-form [name=boundingbox]',
