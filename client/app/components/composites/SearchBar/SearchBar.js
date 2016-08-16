@@ -120,7 +120,7 @@ class SearchBar extends Component {
             errorStatus: e.serviceStatus,
           });
         });
-    } else if (this.keywordInput) {
+    } else {
       // Only keyword value present, submit that
       onSubmit({
         keywordQuery: keywordValue,
