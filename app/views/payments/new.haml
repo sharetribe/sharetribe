@@ -6,4 +6,4 @@
 
     = "#{link_to payment_receiver.name(@current_community), payment_receiver}".html_safe
 
-  = render :partial => @current_community.payment_gateway.form_template_dir + "/show"
+  = render :partial => "payments/simple_form/show"

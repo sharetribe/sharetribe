@@ -20,10 +20,6 @@
 
 class Checkout < PaymentGateway
 
-  def form_template_dir
-    "payments/complex_form"
-  end
-
   def gateway_templates_dir
     "payments/checkout"
   end

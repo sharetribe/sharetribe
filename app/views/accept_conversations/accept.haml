@@ -47,7 +47,7 @@
 
     %div{:class => (@payout_registration_missing ? "hidden-accept-form visible-when-reject #{@action.eql?("accept") ? "hidden" : ""}" : "")}
       - if @listing_conversation.listing.payment_required_at?(@current_community)
-        = render :partial => @current_community.payment_gateway.form_template_dir + "/form"
+        = render :partial => "payments/simple_form/form"
 
       = fields_for :message, message_form do |message_form|
         = message_form.label :content, t("conversations.new.message"), :class => "input"
