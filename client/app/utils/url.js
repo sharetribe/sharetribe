@@ -53,7 +53,7 @@ const parseSearchQueryParams = function parseSearchQueryParams(location, restric
   const searchQuery = parseQueryString(location);
   const parsedParams = parseQuery(searchQuery);
   return Object.keys(parsedParams).reduce((params, key) => {
-    if (restrict_to_params == null || restrict_to_params.includes(key)) {
+    if (restrict_to_params == null || restrict_to_params.indexOf(key) !== -1) {
       params[key] = parsedParams[key]; // eslint-disable-line no-param-reassign
     }
     return params;
