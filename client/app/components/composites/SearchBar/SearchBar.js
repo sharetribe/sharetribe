@@ -75,11 +75,6 @@ class SearchBar extends Component {
     const keywordValueStr = this.keywordInput ? this.keywordInput.value.trim() : '';
     const locationValueStr = this.locationInput ? this.locationInput.value.trim() : '';
 
-    if ((keywordValueStr + locationValueStr).length === 0) {
-      // Skip submit when all inputs are empty
-      return;
-    }
-
     const onSubmit = this.props.onSubmit;
 
     if (!this.locationInput) {
