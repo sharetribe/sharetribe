@@ -1003,8 +1003,8 @@ is:
       javascript_is_disabled_in_your_browser: "Javascript er óvirkt í vafranum þínum"
       kassi_does_not_currently_work_without_javascript: "%{service_name} virkar ekki almennilega án javascript. Reyndu að virkja javascript undir stillingum í vafranum þínum og endurhlaða svo þessa síðu."
       contact_us: ~
-      send_feedback: "Sendu umsögn"
-      your_feedback_to_admins: "Þín umsögn til stjórnenda síðunnar"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Senda
     your_email_address: "Netfangið þitt"
   errors:
@@ -1196,13 +1196,13 @@ is:
     application:
       join_this_community: ~
       read_more: ~
-      feedback: "Hvað liggur þér á hjarta?"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: "umsagnar forum"
       feedback_handle: Umsögn
       give_feedback: "Hafðu samband"
       or_check_our: "...eða skoðaðu"
-      send_feedback_to_admin: "Gefðu þitt álit"
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "til að sjá hvað aðrir hafa mælt með og kjósa hugmyndir þar."
       your_email_address: "Þitt netfang (til að hafa samband)"
       connect: ~
@@ -1272,7 +1272,7 @@ is:
       error_with_session: Villa.
       feedback_considered_spam: "Umsögn var ekki vistuð vegna gruns um ruslpóst. Reyndu aftur eða breyttu sniðinu."
       feedback_not_saved: "Umsögn var ekki send."
-      feedback_saved: "Takk kærlega fyrir umsögnina! Við munum svara þér eins fljótt og við getum."
+      feedback_saved: ~
       feedback_sent_to: "Amusing send til %{target_person}."
       feedback_skipped: "Umsögn sleppt"
       invitation_cannot_be_sent: ~
@@ -2097,6 +2097,7 @@ is:
       menu: ~
       more: ~
       search_placeholder: ~
+      search_location_placeholder: ~
       user: ~
       inbox: ~
       profile: ~

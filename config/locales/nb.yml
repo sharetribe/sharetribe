@@ -1036,8 +1036,8 @@ nb:
       javascript_is_disabled_in_your_browser: "Javascript er deaktivert i din nettleser"
       kassi_does_not_currently_work_without_javascript: "%{service_name} vil ikke fungere skikkelig uten javascript. Forsøk å aktivere javascript i nettleserens innstillinger og last siden på nytt."
       contact_us: "Kontakt oss"
-      send_feedback: "Send tilbakemelding"
-      your_feedback_to_admins: "Din tilbakemelding til administratorene"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Send
     your_email_address: "Din e-post"
   errors:
@@ -1225,17 +1225,17 @@ nb:
     no_tribe:
       inbox: Innboks
       settings: Innstillinger
-      feedback: "Kontakt oss"
+      feedback: ~
     application:
       join_this_community: "Bli medlem"
       read_more: "Les mer"
-      feedback: "Hva vil du fortelle oss?"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: diskusjonsforum
       feedback_handle: Tilbakemelding
       give_feedback: "Kontakt oss"
       or_check_our: "…eller sjekk ut vår"
-      send_feedback_to_admin: "Send tilbakemelding"
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "for å se hva andre brukere har foreslått, og stemme på ideene der."
       your_email_address: "Din e-postadresse (for å kontakte deg)"
       connect: "Registrer deg"
@@ -1305,7 +1305,7 @@ nb:
       error_with_session: "Feil ved økt."
       feedback_considered_spam: "Tilbakemeldingen ble ikke lagret grunnet feil ved formatering. Prøv igjen eller se diskusjonsforum."
       feedback_not_saved: "Tilbakemeldingen kunne ikke sendes."
-      feedback_saved: "Takk for din tilbakemelding. Vi kommer tilbake til deg så fort vi kan."
+      feedback_saved: ~
       feedback_sent_to: "Tilbakemelding sent til %{target_person}."
       feedback_skipped: "Hoppet over tilbakemelding"
       invitation_cannot_be_sent: "Invitasjonen kunne ikke sendes"
@@ -2153,6 +2153,7 @@ nb:
       menu: Meny
       more: ~
       search_placeholder: Søk...
+      search_location_placeholder: ~
       user: Bruker
       inbox: Innboks
       profile: Profil

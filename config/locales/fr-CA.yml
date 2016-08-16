@@ -1022,8 +1022,8 @@ fr-CA:
       javascript_is_disabled_in_your_browser: "Javascript est désactivé dans votre navigateur"
       kassi_does_not_currently_work_without_javascript: "%{service_name} ne fonctionne pas correctement sans JavaScript. Essayez d'activer javascript à partir des préférences de votre navigateur puis rechargez cette page."
       contact_us: "nous contacter"
-      send_feedback: "Envoyer votre commentaire"
-      your_feedback_to_admins: "Vos commentaires aux administrateurs"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Envoyer
     your_email_address: "Votre adresse email"
   errors:
@@ -1211,17 +1211,17 @@ fr-CA:
     no_tribe:
       inbox: "Boîte de réception"
       settings: Paramètres
-      feedback: "Nous contacter"
+      feedback: ~
     application:
       join_this_community: "Rejoindre la place de marché"
       read_more: "Lire la suite"
-      feedback: "Vos commentaires pour l'équipe de %{service_name}"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: "forum de discussion"
       feedback_handle: Commentaire
       give_feedback: "Nous contacter"
       or_check_our: "... ou consultez notre"
-      send_feedback_to_admin: "Envoyer votre commentaire"
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "pour voir ce que les autres ont suggéré et votez pour vos fonctionnalités préférées."
       your_email_address: "Votre adresse email (pour vous joindre)"
       connect: S'inscrire
@@ -1291,7 +1291,7 @@ fr-CA:
       error_with_session: "Erreur avec la session."
       feedback_considered_spam: "Le commentaire n'a pas pu être enregistré en raison de sa mise en forme. Essayez à nouveau ou utilisez le forum de discussion."
       feedback_not_saved: "Le commentaire n'a pas pu être envoyé."
-      feedback_saved: "Merci pour votre commentaire ! Si vous avez laissé votre email, nous vous répondrons dès que possible."
+      feedback_saved: ~
       feedback_sent_to: "Avis envoyé à %{target_person}."
       feedback_skipped: "Pas d'avis donné"
       invitation_cannot_be_sent: "L' (les) invitation(s) n'a (n'ont) pas pu être envoyée(s)"
@@ -2122,6 +2122,7 @@ fr-CA:
       menu: ~
       more: ~
       search_placeholder: ~
+      search_location_placeholder: ~
       user: ~
       inbox: ~
       profile: ~

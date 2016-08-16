@@ -1019,8 +1019,8 @@ tr-TR:
       javascript_is_disabled_in_your_browser: "Javascript tarayıcınızda engellenmiş"
       kassi_does_not_currently_work_without_javascript: "%{service_name} javascript olmadan olması gerektiği gibi çalışmaz. Tarayıcınızın seçenekler bölümünden javascript'in çalışmasına izin veriniz ve sonra bu sayfayı tekrar yükleyiniz."
       contact_us: "bize ulaşın"
-      send_feedback: "Geri bildirim gönder"
-      your_feedback_to_admins: "Admin kullanıcılara geri bildiriminiz"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Gönder
     your_email_address: "E-posta adresiniz"
   errors:
@@ -1208,17 +1208,17 @@ tr-TR:
     no_tribe:
       inbox: "Gelen Kutusu"
       settings: Ayarlar
-      feedback: "Bize ulaşın"
+      feedback: ~
     application:
       join_this_community: "Pazara katılın"
       read_more: "Devamını oku"
-      feedback: "Neden bahsetmek istiyorsunuz?"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: "geribildirim forumu"
       feedback_handle: Geribildirim
       give_feedback: "Bize Ulaşın"
       or_check_our: "...ya da bizimkine göz atın."
-      send_feedback_to_admin: "Geri bildirim gönder"
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "Başka kullanıcıların önerilerini görmek ve farklı fikirler üzerinde oylama yapmak için."
       your_email_address: "E-posta adresiniz (size ulaşabilmemiz için)"
       connect: "Kayıt ol"
@@ -1288,7 +1288,7 @@ tr-TR:
       error_with_session: "Oturum hatası."
       feedback_considered_spam: "Format hatası nedeniyle, geri bildiriminiz kaydedilemedi. Tekrar deneyin ya da geri bildirim forumumuza göz atın."
       feedback_not_saved: "Geri bildirim gönderilemedi."
-      feedback_saved: "Geri bildirimizin için teşekkürler! En kısa zamanda size dönüş yapacağız."
+      feedback_saved: ~
       feedback_sent_to: "Geri bildirim %{target_person} kişisine gönderildi."
       feedback_skipped: "Geri bildirim atlandı."
       invitation_cannot_be_sent: "Davetiye gönderilemedi"
@@ -2117,6 +2117,7 @@ tr-TR:
       menu: ~
       more: ~
       search_placeholder: ~
+      search_location_placeholder: ~
       user: ~
       inbox: ~
       profile: ~

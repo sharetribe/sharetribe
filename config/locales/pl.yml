@@ -1003,8 +1003,8 @@ pl:
       javascript_is_disabled_in_your_browser: "Javascript jest wyłączony w Twojej przeglądarce"
       kassi_does_not_currently_work_without_javascript: "%{service_name} nie działa poprawnie bez javascript. Spróbuj włączyć javascript w ustawieniach preferencji Twojej przeglądarki i później odśwież stronę."
       contact_us: "skontaktuj się z nami"
-      send_feedback: "Przekaż opinię"
-      your_feedback_to_admins: "Twoja opinia do administratorów"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Wyślij
     your_email_address: "Twój adres email"
   errors:
@@ -1192,17 +1192,17 @@ pl:
     no_tribe:
       inbox: "Skrzynka odbiorcza"
       settings: Ustawienia
-      feedback: "Skontaktuj się z nami"
+      feedback: ~
     application:
       join_this_community: "Dołącz do platformy"
       read_more: "Czytaj więcej"
-      feedback: "Co chcesz nam powiedzieć?"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: "forum opinii"
       feedback_handle: Opinia
       give_feedback: "Skontaktuj się z nami"
       or_check_our: "... lub spróbuj nasze"
-      send_feedback_to_admin: "Przekaż opinię"
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "aby zobaczyć, co zasugerowali inni użytkownicy i zagłosować na pomysły."
       your_email_address: "Twój adres email (do kontaktu)"
       connect: Rejestracja
@@ -1272,7 +1272,7 @@ pl:
       error_with_session: "Problem z sesją."
       feedback_considered_spam: "Opinia nie została zapisana ze względu na jego formatowanie. Spróbuj ponownie lub skorzystaj z forum opinii."
       feedback_not_saved: "Opinia nie stała wysłana."
-      feedback_saved: "Bardzo dziękujemy za Twoją opinię! Wrócimy do Ciebie jak szybko to możliwe."
+      feedback_saved: ~
       feedback_sent_to: "Opinia przesłana do %{target_person}"
       feedback_skipped: "Opinia pominięta"
       invitation_cannot_be_sent: "Zaproszenie nie może być wysłane"
@@ -2107,6 +2107,7 @@ pl:
       menu: ~
       more: ~
       search_placeholder: ~
+      search_location_placeholder: ~
       user: ~
       inbox: ~
       profile: ~

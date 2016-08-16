@@ -1023,8 +1023,8 @@ ka:
       javascript_is_disabled_in_your_browser: "Javascript გამორთულია თქვენ ბრაუზერზე"
       kassi_does_not_currently_work_without_javascript: "%{service_name} არ მუშაობს გამართულად javascript-ის გარეშე. ცადეთ რომ javascript ჩართოთ თქვენი ბრაუზერის პარამეტრებიდან და გადატვირთეთ გვერდი კიდევ ერთხელ."
       contact_us: დაგვიკავშირდით
-      send_feedback: "შეფასების გაგზავნა"
-      your_feedback_to_admins: "თქვენი შეფასება ადმინისტრატორებს"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: გაგზავნა
     your_email_address: "თქვენი ელ. ფოსტა"
   errors:
@@ -1212,17 +1212,17 @@ ka:
     no_tribe:
       inbox: "შემოსული წერილები"
       settings: პარამეტრები
-      feedback: კონტაქტი
+      feedback: ~
     application:
       join_this_community: "შეუერთდი ბაზარს"
       read_more: "წაიკითხე მეტი"
-      feedback: "რა გსურს რომ გვითხრა?"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: "შეფასების ფორუმი"
       feedback_handle: შეფასება
       give_feedback: კონტაქტი
       or_check_our: ".. ან შეამოწმეთ ჩვენი"
-      send_feedback_to_admin: "შეფასების გაგზავნა"
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "რომ ნახოთ რა შეთავაზეს სხვა მომხმარებლებმა და ხმა მისცეთ იდეებს. "
       your_email_address: "თქვენი ელ. ფოსტა (რომ დაგიკავშირდეთ)"
       connect: დარეგისტრირება
@@ -1292,7 +1292,7 @@ ka:
       error_with_session: "სესიის შეცდომა."
       feedback_considered_spam: "შეფასება არ იქნა დამახსოვრებული მისი ფორმატიდან გამომდინარე. სცადეთ თავიდან, ან გამოიყენეთ შეფასების ფორუმი"
       feedback_not_saved: "შეფასება ვერ გაიგზავნება"
-      feedback_saved: "დიდი მადლობა შეფასებისთვის! დაგიბრუნდებით პასუხით რაც შეიძლება მალე"
+      feedback_saved: ~
       feedback_sent_to: "შეფასება გაგზავნილია %{target_person}სთვის"
       feedback_skipped: "შეფასება გამოტოვებულია"
       invitation_cannot_be_sent: "მოწვევა ვერ გაიგზავნა"
@@ -2133,6 +2133,7 @@ ka:
       menu: მენიუ
       more: ~
       search_placeholder: ძებნა...
+      search_location_placeholder: ~
       user: მომხმარებელი
       inbox: ინბოქსი
       profile: პროფილი

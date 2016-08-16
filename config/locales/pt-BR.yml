@@ -1034,8 +1034,8 @@ pt-BR:
       javascript_is_disabled_in_your_browser: "Javascript está desabilitado no seu navegador"
       kassi_does_not_currently_work_without_javascript: "%{service_name} não funciona corretamente sem javascript. Tente habilitar o javascript nas configurações de seu navegador e recarregar a pagina novamente."
       contact_us: Contato
-      send_feedback: "Enviar feedback"
-      your_feedback_to_admins: "Seu feedback para os administradores"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Enviar
     your_email_address: "Seu endereço de e-mail"
   errors:
@@ -1223,17 +1223,17 @@ pt-BR:
     no_tribe:
       inbox: "caixa de entrada"
       settings: Configurações
-      feedback: Contato
+      feedback: ~
     application:
       join_this_community: "Juntar-se ao mercado virtual"
       read_more: "Ler o seguinte"
-      feedback: "O que você gostaria de nos contar?"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: "fórum de respostas"
       feedback_handle: Reposta
       give_feedback: Contato
       or_check_our: "...ou verifique nosso"
-      send_feedback_to_admin: "Enviar feedback"
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "para ver o que outros usuários sugeriram, e votar para novas idéias."
       your_email_address: "Seu e-mail (para entrar em contato)"
       connect: "Criar conta"
@@ -1303,7 +1303,7 @@ pt-BR:
       error_with_session: "Erro na sessão."
       feedback_considered_spam: "Feedback não gravado, devido a sua formatação. Tente novamente ou use o fórum de feedback."
       feedback_not_saved: "Feedback não pode ser enviado."
-      feedback_saved: "Muito obrigado pelo seu feedback! Nós retornaremos mais breve possível."
+      feedback_saved: ~
       feedback_sent_to: "Feedback enviado para %{target_person}."
       feedback_skipped: "Feedback pulado."
       invitation_cannot_be_sent: "Convite não pôde ser enviado"
@@ -2153,6 +2153,7 @@ pt-BR:
       menu: Menu
       more: Mais
       search_placeholder: Busca...
+      search_location_placeholder: ~
       user: Usuário
       inbox: "Caixa de Entrada"
       profile: Perfil

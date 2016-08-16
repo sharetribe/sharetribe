@@ -100,13 +100,13 @@ sk-SK:
         favicon_info_text: "Ikonka webovej stránky nahradí základné Sharetribe logo. Rozmery by mali byť 32x32 pixelov a nahratý súbor bude prispôsobený týmto rozmerom."
         community_custom_color1: "Hlavná farba"
         community_custom_color2: "%{post_new_listing} farba tlačítka"
-        logo_instructions_text_with_dimensions: "Veľkosť loga by mala byť %{width}x%{height} . Toto logo bude zobrazené užívateľom s veľkou obrazovkou."
-        logo_icon_instructions_text_with_dimensions: "Toto štvorcové logo sa zobrazí v prípade, keď ľudia zdieľajú Vaše stránky na Facebooku, keď si ju pozerajú na mobilnom zariadení, alebo keď si nastavia Vaše stránky ako domovskú stránku na ich mobilnom zariadení. Rozmery by mali mať (aspoň) %{width}x%{height} px."
+        logo_instructions_text_with_dimensions: "Veľkosť loga by mala byť %{width}x%{height} pixelov. Toto logo bude zobrazené užívateľom s veľkou obrazovkou."
+        logo_icon_instructions_text_with_dimensions: "Toto štvorcové logo sa zobrazí v prípade zdieľania Vašej stránky na Facebooku, na mobilnom zariadení, alebo v prípade nastavenia Vašej stránky ako domovskej na mobilnom zariadení. Rozmery by mali byť (aspoň) %{width}x%{height} px."
         cover_photo_visibility: "Úvodná fotografia sa zobrazí na domovskej stránke neprihláseným užívateľom."
         cover_photo_instructions_text_with_dimensions: "Fotografie budú prispôsobené veľkosti %{width}x%{height} pixelov a väčšie snímky budú orezané. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Malá úvodná fotografia sa zobrazí neprihláseným užívateľom na všetkých stránkach okrem domovskej stránky."
         small_cover_photo_instructions_text_with_dimensions: "Fotografia bude prispôsobená veľkosti %{width}x%{height} pixelov a vačšie obrázky budú orezané."
-        main_content_width: "Pri výbere úvodných fotiek berte na vedomie, že rozlíšenie hlavnej stránky je maximálne %{main_width} pixelov na šírku. Nezabudnite taktiež skontrolovať, ako bude Vaša úvodná fotografia vyzerať na menších obrazovkách."
+        main_content_width: "Pri výbere úvodných fotiek berte na vedomie, že rozlíšenie hlavnej stránky je maximálne %{main_width} pixelov na šírku. Nezabudnite tiež skontrolovať, ako bude Vaša úvodná fotografia vyzerať na menších obrazovkách."
         custom_color1_instructions_text: "Môžete zmeniť základnú farbu užívateľského rozhrania zadaním hexadecimálnej hodnoty farby. Na <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> si môžete vybrať farbu a následne hodnotu skopírovať sem."
         custom_color2_instructions_text: "Môžete zmeniť farbu %{post_new_listing} tlačítka zadaním hexadecimálneho kódu farby.<a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> Vám pomôže vybrať farbu a okopírovať kód farby."
         default_browse_view: "Východzie zobrazenie prehliadača"
@@ -117,8 +117,8 @@ sk-SK:
         name_display_type: "Názov typu zobrazenia"
         name_display_type_instructions_text: "Vyberte si ako sa má meno každého užívateľa zobrazovať na stránke."
         full_name: "Meno a priezvisko"
-        first_name_with_initial: "Krstné meno a počiatočné písmeno krstného mena"
-        first_name_only: "Iba krstné meno"
+        first_name_with_initial: "Meno a počiatočné písmeno priezviska"
+        first_name_only: "Iba meno"
         invalid_color_code: "Kód farby by mal obsahovať 6 čísiel alebo písmen A až F, napríklad D69E21"
         custom_head_script: "Vlastný skript"
         custom_head_script_instructions_text: "Tento skript je súčasťou <head> časti každej stránky a môže byť vložený do CSS, JavaScript alebo HTML. Vezmite na vedomie, že budúce zmeny v Sharetribe môžu spôsobiť, že Váš skript nebude kompatibilný."
@@ -156,7 +156,7 @@ sk-SK:
         invalid_email_domain: "E-mailová adresa %{email} využíva nepodporovaného poskytovateľa e-mailu: \"%{domain}\". %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Prečítajte si vedomostnú databázu pre viac informácií."
         unknown_error: "Niečo sa pokazilo"
-        white_label_offer: "Nastaviť vlastnú e-mailovú adresu ako odosielateľ a odstrániť všetky Sharetribe značky z odchádzajúcich e-mailov s %{upgrade_pro_plan_link}."
+        white_label_offer: "Nastavte vlastnú e-mailovú adresu odosielateľa a odstránte všetky Sharetribe značky z odchádzajúcich e-mailov s %{upgrade_pro_plan_link}."
         upgrade_plan_link: "upgrade na plán Pro alebo vyšší"
         verification_sent_from: "Overovací e-mail bol odoslaný užívateľom %{verification_sender_name}"
         follow_the_instructions: "Pre overenie postupujte prosím podľa pokynov uvedených v e-mailovej správe"
@@ -243,12 +243,12 @@ sk-SK:
         ban_user_confirmation: "Týmto bude užívateľ odstránený z trhoviska a nebude už pod týmto účtom pristupovať na túto stránku. Ste si istý, že chcete pokračovať?"
         ban_me_error: "Nemôžete seba samého vylúčiť."
       new_layout:
-        new_layout: ~
-        description_roadmap: ~
-        description_process: ~
-        enabled_for_you: ~
-        enabled_for_all: ~
-        new_topbar: ~
+        new_layout: "Nový vzhľad"
+        description_roadmap: "Môžete si vybrať, či chcete použiť nový vzhľad, alebo starý Vašeho trhoviska. Odporúča sa použiť nový vzhľad, pretože väčšina nových funkcií nepodporuje starý vzhľad. Starý vzhľad bude kompletne odstránený (budete upozornený, keď sa to stane)."
+        description_process: "Nový vzhľad je nasadený raz za čas. Môžete sa rozhodnúť ponechať si starý vzhľad pre niektoré stránky a použiť nový pre ostatné. Všetky stránky si môžete prezrieť v náhľade bez toho, aby to užívatelia videli, tým, že si nové stránky aktivujete pre seba."
+        enabled_for_you: "Sprístupnené pre Vás"
+        enabled_for_all: "Sprístupnené pre všetkých"
+        new_topbar: "Nová horná lišta (viditeľná na každej stránke)"
       social_media:
         social_media: "Sociálne médiá"
         twitter_handle: "Twitter účet"
@@ -344,7 +344,7 @@ sk-SK:
           text_cant_be_filtered: "Filter pre text nie je k dispozícií. Hlavné textové vyhľadávanie vyhľadáva v textových poliach."
       index:
         listing_fields: "Zoznam polí a filtrov"
-        listing_fields_help: "Tu môžete upraviť pole, ktoré užívatelia musia vyplniť pri vytváraní nového inzerátu. Vezmite na vedomie, že niektoré polia sú predvolené a nemôžu byť upravené."
+        listing_fields_help: "Tu môžete upraviť polia, ktoré užívatelia musia vyplniť pri vytváraní nového inzerátu. Vezmite na vedomie, že niektoré polia sú predvolené a nemôžu byť upravené."
         add_new_field: "Pridať nové pole:"
         remove_field_confirmation: "Ste si istý, že chcete vymazať pole %{field_name}?"
         cancel: Zrušiť
@@ -355,7 +355,7 @@ sk-SK:
         select_all: "Vybrať všetko"
         clear_all: "Zrušiť všetko"
         options: Možnosti
-        add_option: "+ Pridať možnosžť"
+        add_option: "+ Pridať možnosť"
         saving_order: "Ukladám pole objednávky"
         save_order_successful: "Pole objednávky bolo úspešne uložené"
         save_order_error: "Pri ukladaní pola objednávky nastala chyba. Prosím obnovte stránku a skúste to znova."
@@ -369,7 +369,7 @@ sk-SK:
       field_types:
         text: Text
         number: Číslo
-        dropdown: "Vyberte si"
+        dropdown: "Rozbaľovací výpis"
         checkbox_group: "Zaškrtávacie pole"
         date: Dátum
     emails:
@@ -390,13 +390,13 @@ sk-SK:
       configure: Konfigurácia
       emails_title: E-maily
       support: "Zákaznícka podpora"
-      subscription: Odber
+      subscription: "Predplatné služieb"
       preview: "Náhľad stránky"
     listing_shapes:
       index:
         listing_shapes: "Typy objednávok"
-        description: "Tu môžete nastaviť, ako bude Vaše stránka fungovať. Môžete se rozhodnúť, či Vaši užívatelia budú prenajímať, predávať, alebo iba pridávať príspevky a komunikovať cez správy."
-        read_more_about_order_types: "Čítať viac o typu objednávkach"
+        description: "Tu si môžete nastaviť, ako bude Vaše stránka fungovať. Môžete sa rozhodnúť, či Vaši užívatelia budú prenajímať, predávať, alebo iba pridávať príspevky a komunikovať cez správy."
+        read_more_about_order_types: "Čítať viac o type objednávok"
         add_new_shape: "Pridať nový typ objednávky: "
         select_template: "Vyberte šablónu..."
         all_categories: "Všetky kategórie"
@@ -434,7 +434,7 @@ sk-SK:
           one: "K dispozícií je %{count} inzerát s týmto typom objednávky. Tento inzerát bude uzavretý, pokiaľ odstránite typ objednávky. Ste si istý, že chcete odstrániť typ objednávky?"
           few: "K dispozícií sú%{count} inzeráty s týmto typom objednávky. Tieto inzeráty budú uzavreté, pokiaľ odstránite typ objednávky. Ste si istý, že chcete odstrániť typ objednávky?"
           other: "K dispozícií je %{count} inzerátov s týmto typom objednávky. Tieto inzeráty budú uzavreté, pokiaľ odstránite typ objednávky. Ste si istý, že chcete odstrániť typ objednávky?"
-        can_not_delete_last: "Nemôže zmazať tento typ objednávky, pretože je to jediný typ vo Vašom trhovisku."
+        can_not_delete_last: "Nemôžete vymazať tento typ objednávky, pretože je to jediný typ objednávky vo Vašom trhovisku."
         can_not_delete_only_one_in_categories: "Nemôže zmazať tento typ objednávky, pretože v nasledovných kategóriách %{categories} sa tento typ objednávky používa."
       listing_shape_name: Meno
       listing_shape_name_placeholder: "Napr. predať"
@@ -484,7 +484,7 @@ sk-SK:
     paypal_accounts:
       marketplace_paypal_integration: "Nastavenie platieb"
       preferences_updated: "Nastavenia platieb boli aktualizované"
-      marketplace_currency_used: "Toto trhovisko používa %{currency} ako menu. Pre zmenu meny, %{contact_support_link}."
+      marketplace_currency_used: "Toto trhovisko používa platobnú menu %{currency}. Pre zmenu meny, %{contact_support_link}."
       contact_support_link_text: "kontaktujte Sharetribe podporu"
       integration_info_text: "Platobný systém Sharetribe je založený na PayPal. Pokiaľ chcete užívateľom umožniť, aby prevádzali platby cez Vaše trhovisko, musíte se pripojiť k Vašemu PayPal účtu, zadať minimálnu veľkosť transakcie a poplatok z každej prevedenej transakcie."
       link_paypal_personal_account_label: "Ponúkate tovar alebo poskytujete služby?"
@@ -506,7 +506,7 @@ sk-SK:
       swap: Vymením
       service: Ponúkam
       request: Žiadam
-      inquiry: Oznámenie
+      inquiry: Oznamy
       share_for_free: "Zdielanie zdarma"
       default_action_button_labels:
         sell: Kúpiť
@@ -730,7 +730,7 @@ sk-SK:
   braintree_accounts:
     new:
       add_payout_details: "Pridať podrobnosti o platbe"
-      first_name: "Krstné meno"
+      first_name: Meno
       last_name: Priezvisko
       email: "E-mailová adresa"
       phone: "Telefónne číslo"
@@ -745,7 +745,7 @@ sk-SK:
       save: Uložiť
     show:
       payout_details: "Vaše platobné údaje"
-      first_name: "Krstné meno"
+      first_name: Meno
       last_name: Priezvisko
       email: "E-mailová adresa"
       phone: "Telefónne číslo"
@@ -807,7 +807,7 @@ sk-SK:
       show_thread: "Zobraz konverzáciu"
     branding:
       powered_by: "%{service_name} funguje na platforme %{sharetribe_link}."
-      create_own: "Chcete vytvoriť svoje vlastné online trhovisko ako %{service_name}? %{learn_more}"
+      create_own: "Chcete si vytvoriť svoje vlastné online trhovisko ako %{service_name}? %{learn_more}"
       learn_more: "Čítať viac"
     braintree_account_approved:
       account_ready: "Už môžete prijímať platby"
@@ -827,10 +827,10 @@ sk-SK:
       if_will_not_happen_you_should_cancel: "Pokiaľ si myslíte, že táto objednávka nebude vybavená z akýkoľvek dôvodov, môžete ju stále %{cancel_it_link}."
       cancel_it_link_text: zrušiť
     payment_settings_reminder:
-      remember_to_add_payment_details: "Nezabudnite zadať podrobnosti o platbe aby ste obdržali platbu."
-      you_have_added_listing_with_payment: "Pridali ste inzerát %{listing_link} s platbou ale zatiaľ ste nepridali žiadne podrobnosti o platbe. Aby ste obdržali platbu, musíte pridať informácie o platbe."
+      remember_to_add_payment_details: "Nezabudnite vyplniť svoje platobné údaje pre príjem platieb"
+      you_have_added_listing_with_payment: "Pridali ste inzerát %{listing_link} s platbou ale zatiaľ ste nepridali žiadne platobné údaje. Aby ste mohli prijímať platby, je nutné pridať informácie o platbe."
       please_go_to_payment_settings: "Prosím prejdite na %{payment_settings_link} a vyplňte informácie o platbe."
-      payment_settings_link: "nastavenia platby"
+      payment_settings_link: "nastavenia platieb"
     transaction_confirmed:
       here_is_a_message_from: "Správa od úžívateľa %{other_party_given_name}"
       request_marked_as_confirmed: "Objednávka bola vybavená - nezabudnite na hodnotenie"
@@ -858,10 +858,10 @@ sk-SK:
       confirmation_instructions_signature: "S pozdravom,<br/>Váš %{service_name} tím"
       need_to_confirm: "Potvrďte Vašu e-mailovú adresu kliknutím na tlačítko nižšie."
       confirmation_link_text: "Potvrdiť moju e-mailovú adresu"
-      or_paste_link: "Alebo môžete nasledujúci odkaz skopírovať do internetového prehliadača:"
+      or_paste_link: "Alebo si môžete nasledujúci odkaz skopírovať do internetového prehliadača:"
     common:
       hey: "Dobrý deň %{name}"
-      kassi_team: "Prehľad o %{service_name} tíme"
+      kassi_team: "Váš %{service_name} tím"
       thanks: Ďakujeme
       dont_want_to_receive_these_emails: "Nechcete dostávať tieto emailové správy?"
       edit_your_email_settings_here: "Upraviť nastavenia Vašeho e-mailu tu"
@@ -1043,8 +1043,8 @@ sk-SK:
       javascript_is_disabled_in_your_browser: "Javascript je deaktivovaný vo Vašom prehliadači."
       kassi_does_not_currently_work_without_javascript: "%{service_name} nefunguje správne bez JavaScriptu. Skúste povoliť javascript z preferencií v prehliadači a potom obnovte túto stránku znova."
       contact_us: "kontaktujte nás"
-      send_feedback: "Pošlite spätnú väzbu"
-      your_feedback_to_admins: "Vaša spätná väzba administrátorov"
+      send_feedback: "Poslať správu"
+      your_feedback_to_admins: "Vaša správa pre %{service_name} tím."
     send: Poslať
     your_email_address: "Vaša e-mailová adresa"
   errors:
@@ -1174,7 +1174,7 @@ sk-SK:
       message: "Súkromná správa"
       send_invitation: "Odoslať pozvánku"
       add_email_addresses_description: "Do poľa nižšie napíšte e-mailové adresy ľudí, ktorých chcete pozvať. Pokiaľ chcete pridať viac adries naraz, oddeľte ich čiarkou."
-      add_lots_of_email_addresses: "Pokiaľ by ste chceli zaslať viac pozvánok naraz, použite špeciální nástroj. Pozrite se na  %{this_article_link}, kde se dozviete viac o vhodných e-mailových službách."
+      add_lots_of_email_addresses: "Pokiaľ by ste chceli zaslať viac pozvánok naraz, použite špeciálny nástroj. Pozrite sa na  %{this_article_link}, kde se dozviete viac o vhodných e-mailových službách."
       this_article_link: "tento článok"
       invitation_emails_field_placeholder: "kamarát1@priklad.sk, kamarát2@priklad.com, ..."
       invitation_message_field_placeholder: "Navštívil som toto úžasné miesto. Mal by si tiež!"
@@ -1227,24 +1227,24 @@ sk-SK:
       admin: "%{service_name} panel administrátora"
     branding:
       powered_by: "%{service_name} funguje na platforme %{sharetribe_link}."
-      create_own: "Chcete vytvoriť svoje vlastné online trhovisko ako %{service_name}? %{learn_more}"
+      create_own: "Chcete si vytvoriť svoje vlastné online trhovisko ako %{service_name}? %{learn_more}"
       learn_more: "Zistiť viac"
     no_tribe:
       inbox: "Doručená pošta"
       settings: Nastavenia
-      feedback: "Kontaktujte nás"
+      feedback: "Kontaktujte %{service_name} tím"
     application:
       join_this_community: "Pripojiť sa k trhovisku"
       read_more: "Celý článok"
-      feedback: "Čo by ste potrebovali nám pvedať?"
-      dont_use_to_contact_support: ~
+      feedback: "Vaša správa pre %{service_name} tím."
+      dont_use_to_contact_support: "Zaznamenali sme, že ste administrátor %{service_name}. Toto je formulár, ktorý používajú užívatelia aby Vás kontaktovali. Nemôžete použiť tento formulár za účelom kontaktovania Sharetribe podpory. Môžete to tak spraviť cez linku podpory vo svojom panely pre administráciu."
       feedback_forum: "fórum spätnej väzby"
       feedback_handle: "Spätná väzba"
       give_feedback: "Kontaktujte nás"
       or_check_our: "...alebo si pozrite náš"
-      send_feedback_to_admin: "Pošlite spätnú väzbu"
+      send_feedback_to_admin: "Poslať správu"
       to_see_what_others_have_suggested: "aby ste videli, čo ostatní používatelia navrhli, a hlasujte pre nápady."
-      your_email_address: "Vaša e-mailová adresa (kontaktovať Vás)"
+      your_email_address: "Vaša e-mailová adresa (aby sme Vás mohli kontaktovať)"
       connect: "Zaregistrovať sa"
       invite_your_friends: "Pozvi svojich priateľov!"
       invite_your_neighbors: "Pozvite Vašich susedov!"
@@ -1260,7 +1260,7 @@ sk-SK:
     global-header:
       select_language: "Vyberte jazyk"
     infos:
-      about: o
+      about: "O nás"
       how_to_use: "Ako to funguje"
       info_about_kassi: "Informácie o %{service_name}"
       news: Novinky
@@ -1301,18 +1301,18 @@ sk-SK:
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Ďakujeme, že ste sa pripojili k %{service_name}. Teraz bude potrebné potvrdiť Vašu e-mailovú adresu."
       comment_cannot_be_empty: "Komentár nemôže byť prázdny"
       comment_sent: "Komentár odoslaný"
-      confirmation_link_is_wrong_or_used: "Potvrdzujúci odkaz sa už používa alebo je neplatný. Skúste sa prihlásiť, alebo nám zanechajte odkaz, keď problémy pretrvávajú."
+      confirmation_link_is_wrong_or_used: "Potvrdzujúci odkaz sa už používa alebo je neplatný. Skúste sa prihlásiť, alebo v prípade problémov nám zanechajte odkaz."
       additional_email_confirmed: "Zadaný e-mail nebol potvrdený."
       could_not_get_email_from_facebook: "Nepodarilo sa nám získať Vašu e-mailovú adresu z účtu na Facebooku a teda nemôžeme vytvoriť účet bez e-mailu."
       facebook_email_unconfirmed: "E-mailová adresa %{email} združená s Vašim Facebook účtom sa už používa, ale ešte nebola potvrdená. Prosím potvrďte e-mailovú adresu pred prihlásením do Facebook účtu."
       create_new_listing: "Vytvoriť ďalší inzerát"
-      create_one_here: "Vytvoriť tu jeden"
+      create_one_here: "vytvoriť tu"
       email_confirmation_sent_to_new_address: "Potvrdzujúci e-mail bol odoslaný na novú adresu."
       email_not_found: "E-mailová adresa, ktorú ste zadali, nebola nájdená v datanáze %{service_name}"
       error_with_session: Chyba
       feedback_considered_spam: "Spätná väzba nie je uložená, kvôli jeho formátovania. Skúste znova alebo použite fórum na spätnú väzbu."
       feedback_not_saved: "Spätnú väzbu nebolo možné odoslať"
-      feedback_saved: "Ďakujem za Vašu spätnú väzbu. Dostaneme späť k Vám čo najskôr."
+      feedback_saved: "Ďakujeme za Vašu spätnú väzbu. Ozveme sa Vám, akonáhle Vašu správu spracujeme."
       feedback_sent_to: "Spätná väzba poslaná %{target_person}"
       feedback_skipped: "Spätná väzba vynechaná"
       invitation_cannot_be_sent: "Pozvánku nie je možné odoslať"
@@ -1324,7 +1324,7 @@ sk-SK:
       account_creation_successful: "Vitajte v %{person_name},%{service_name}!"
       account_deleted: "Váš účet bol práve vymazaný."
       login_successful: "Vitajte, %{person_name}!"
-      logout_successful: "Teraz ste odhlásený z %{service_name}. Čoskoro sa vidíme!"
+      logout_successful: "Odhlásili ste sa z %{service_name}. Dovidenia nabudúce!"
       news_item_created: "Výrobok bol vytvorený"
       news_item_creation_failed: "Vytvorenie výrobku zlyhalo"
       news_item_update_failed: "Aktualizácia výrobku zlyhala"
@@ -1380,7 +1380,7 @@ sk-SK:
       you_have_already_given_feedback_about_this_event: "Už ste si dali spätnú väzbu na tento udalosť"
       you_are_now_member: "Vitajte v %{service_name}!"
       you_are_already_member: "Už ste členom %{service_name}. Vitajte späť!"
-      you_must_log_in_to_create_new_listing: "Musíte sa prihlásiť do %{service_name}, aby ste mohli pridať nový inzerát. Pokiaľ ešte nemáte účet, môžete %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "Musíte byť prihlásený do %{service_name}, aby ste mohli pridať nový inzerát. Pokiaľ ešte nemáte účet, môžete si %{sign_up_link}."
       additional_email_confirmed_dashboard: "Váš e-mail bol práve potvrdený."
       you_must_log_in_to_give_feedback: "Musíte sa prihlásiť pre písanie spätnú väzbu"
       you_must_log_in_to_invite_new_users: "Musíte byť prihlásený pre odoslanie pozvánky do %{service_name}"
@@ -1520,7 +1520,7 @@ sk-SK:
         shipping: Doprava
         shipping_price: "Poplatok za dopravu"
         shipping_price_additional: "Dodatočné položky"
-        pickup: Vyzdvihnutie
+        pickup: "Osobný odber"
       origin:
         location: Lokalita
         origin: Pôvod
@@ -1613,7 +1613,7 @@ sk-SK:
       you_need_to_fill_payout_details_before_accepting: "Potrebujete vyplniť podrobnosti o platbe pred zadaním inzerátu. Choďte na %{payment_settings_link} a vyplňte podrobnosti."
       contact_admin_link_text: "kontaktujte administrátora"
       community_not_configured_for_payments: "%{service_name} ešte nebol nakonfigurovaný pre platby, takže ešte nemôžete pridávať nové inzeráty. Prosíme, %{contact_admin_link} pre viac informácií."
-      payment_settings_link: "nastavenia platby"
+      payment_settings_link: "nastavenia platieb"
       community_not_configured_for_payments_admin: "%{service_name} ešte nebol nakonfigurovaný pre platby, takže ešte nemôžete pridávať nové inzeráty. Choďte na %{payment_settings_link} a vyplňte podrobnosti o platbách."
     quantity:
       hour: "Počet hodín:"
@@ -1634,7 +1634,7 @@ sk-SK:
       contact: Kontakt
       favor_offer: "Ponuka služieb"
       favor_request: "Žiadosť o službu"
-      inquiry: Oznámenie
+      inquiry: Oznamy
       item_offer_trade: "Ponuka výmeny"
       item_request_trade: "Žiadosť výmeny"
       no_description: "Tento zoznam nemá popis"
@@ -1663,8 +1663,8 @@ sk-SK:
       shipping: "Doprava (+%{price})"
       shipping_no_price: Doprava
       shipping_price_additional: "Doprava (+%{price}, dodatočné položky: +%{shipping_price_additional})"
-      pickup: Vyzdvihnutie
-      pickup_no_price: Vyzdvihnutie
+      pickup: "Osobný odber"
+      pickup_no_price: "Osobný odber"
       youtube_video_player: "YouTube video prehrávač"
     unit_types:
       piece: kus
@@ -1734,7 +1734,7 @@ sk-SK:
         braintree_terms_also_included: "POZNÁMKA: Braintree je používaný ako platobná brána a pomocou tejto stránky môžete prijať %{terms_link_text}, podľa nižšie uvedených podmienok."
         terms_link_text: "Braintree podmienky používania"
   paypal_accounts:
-    payout_info_title: "Informácie o platbe"
+    payout_info_title: "Nastavenia platieb"
     paypal_account_email_connected: "<del>Pripojenie cez Paypal účet</del> Hotovo!"
     payout_info_paypal: "%{service_name} používa PayPal ako poskytovateľa platobných služieb. %{create_paypal_account_link} je potrebný na prijatie platieb za inzeráty a musí byť pripojený na %{service_name}"
     paypal_billing_agreement_made: "<del>%{service_name} si oprávňuje účtovať poplatok za transakcie</del> Hotovo!"
@@ -1746,7 +1746,7 @@ sk-SK:
     paypal_receive_funds_info: "Pokiaľ dôjde k chybe pri pokuse o prepojenie účtu do %{service_name}, budete musieť aktualizovať Váš PayPal účet,%{upgrade_paypal_account_link}. Je to jednoduché a zadarmo. PayPal odporúča použiť svoje meno ako názov spoločnosti."
     upgrade_paypal_account_link_text: "prihlásiť sa a kliknúť na odkaz"
     admin_account_not_connected: "Použitie %{service_name} ako platobného systému pre platby nie je možné, pretože platby nie sú nastavené. Prosím %{contact_admin_link} pre podrobnosti."
-    contact_admin_link_text: "kontaktujte administrátora trhoviska"
+    contact_admin_link_text: "kontaktujte administrátora"
     you_are_ready_to_accept_payments: "Teraz môžete prijímať platby!"
     commission: "%{commission} %"
     new:
@@ -1763,12 +1763,12 @@ sk-SK:
       follow_steps: "Postupujte podľa nasledujúcich krokov aby ste mohli začať prijímať platby ."
       connect_paypal_account_title: "Pripojiť Váš Paypal účet"
       connect_paypal_account_title_with_step: "Krok %{current_step}/%{total_steps}: Pripojiť Váš Paypal účet"
-      connect_paypal_account_instructions: "Kliknite na tlačítko nižšie pre prihlásenie do PayPal a spojenie účtu PayPal s %{service_name}."
+      connect_paypal_account_instructions: "Kliknite na tlačítko nižšie pre prihlásenie do PayPal a spojenie účtu PayPal s trhoviskom %{service_name}."
       connect_paypal_account: "Pripojiť Váš Paypal účet"
       paypal_account_billing_agreement_with_step: "Krok %{current_step}/%{total_steps}: Povoliť účtovať transakčný poplatok"
-      paypal_account_billing_agreement_info_both: "Po predaji na %{service_name}, a poplatku za služby (%{commission_from_seller} z celkovej ceny položky, okrem dopravy, minimálny poplatok %{minimum_commission}) bude strhnutý z Vašeho PayPal účtu. Keď Chcete prijímať platby v %{service_name}, je potrebné povoliť, aby Vám poplatok mohol byť strhnutý. Tento poplatok nezahrňuje %{paypal_info_link}."
-      paypal_account_billing_agreement_info_fixed: "Po predaji na %{service_name}, poplatok za služby %{minimum_commission} bude strhnutý z Vašeho PayPal účtu. Keď chcete prijímať platby v %{service_name}, je potrebné povoliť, aby Vám poplatok mohol byť strhnutý. Tento poplatok nezahrňuje %{paypal_info_link}."
-      paypal_account_billing_agreement_info_relative: "Po predaji na %{service_name}, poplatok za služby (%{commission_from_seller} z celkovej ceny položky, okrem dopravného) bude strhnutý z Vašeho PayPal účtu. Keď chcete prijímať platby v %{service_name}, je treba povoliť, aby Vám poplatok mohol byť strhnutý. Tento poplatok nezahrňuje %{paypal_info_link}."
+      paypal_account_billing_agreement_info_both: "Po predaji na %{service_name}, a poplatku za služby (%{commission_from_seller} z celkovej ceny položky, okrem dopravy, minimálny poplatok %{minimum_commission}) bude strhnutý z Vašeho PayPal účtu. Keď Chcete prijímať platby v trhovisku %{service_name}, je potrebné povoliť, aby Vám poplatok mohol byť strhnutý. Tento poplatok nezahrňuje %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "Po predaji na %{service_name}, poplatok za služby %{minimum_commission} bude strhnutý z Vašeho PayPal účtu. Keď chcete prijímať platby v trhovisku %{service_name}, je potrebné povoliť, aby Vám poplatok mohol byť strhnutý. Tento poplatok nezahrňuje %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Po predaji na %{service_name}, poplatok za služby (%{commission_from_seller} z celkovej ceny položky, okrem dopravného) bude strhnutý z Vašeho PayPal účtu. Keď chcete prijímať platby v trhovisku %{service_name}, je treba povoliť, aby Vám poplatok mohol byť strhnutý. Tento poplatok nezahrňuje %{paypal_info_link}."
       paypal_account_billing_agreement_info_none: "%{service_name} si neúčtuje servisný poplatok. Pokiaľ je servisný poplatok aktivovaný, budete potrebovať udeliť povolenia %{service_name} účtovať poplatok za službu pre príjem platieb. Poplatok nezahŕňa %{paypal_info_link}."
       paypal_info_link_text: "PayPal poplatok za prevedenie platby"
       billing_agreement_description: "%{service_name} si oprávňuje účtovať transakčný poplatok"
@@ -1783,11 +1783,11 @@ sk-SK:
       account_not_verified: "Nemáte ešte overený PayPal účet. Prejdite na paypal.com a overte si Váš účet aby ste mohli pokračovať."
       account_restricted: "Váš PayPal účet má obmedzený prístup a nemôžete byť pripojený. Prosíme, prihláste se na paypal.com a zistite, čo sa deje alebo kontaktujte PayPal zákaznícku podporu, aby ste problém vyriešili."
     paypal_account_connected_title: "PayPal účet bol pripojený"
-    paypal_account_connected: "PayPal účet %{email} bol pripojený na %{service_name}"
+    paypal_account_connected: "PayPal účet %{email} bol prepojený s trhoviskom %{service_name}"
     change_account: "Zmeniť PayPal účet"
-    missing: "Máte otvorené inzeráty, ale Váš PayPal účet nie je ešte nastavený k  prijímaniu platieb. Pripojte svoj PayPal účet a preveďte %{service_name} povolenia zúčtovať transakčný poplatok z Vašeho %{settings_link}."
-    from_your_payment_settings_link_text: "nastavenia platby"
-    redirect_message: "Prebieha presmerovanie na PayPal. Keď sa nič neudeje kliknite na %{redirect_link}"
+    missing: "Máte otvorené inzeráty, ale Váš PayPal účet nie je ešte nastavený aby ste mohli prijať platby. Pripojte svoj PayPal účet a %{service_name} povolenia zúčtovať transakčný poplatok z Vašeho %{settings_link}."
+    from_your_payment_settings_link_text: "nastavenia platieb"
+    redirect_message: "Prebieha presmerovanie na PayPal. Keď sa nič neudeje kliknite %{redirect_link}"
     redirect_link_text: tu
     paypal_account_all_set_up: "Hurá, všetko je nastavené!"
     can_receive_payments: "Teraz môžete prijímať platby za inzeráty."
@@ -1825,8 +1825,8 @@ sk-SK:
         one: "Prístup do %{service_name} je obmedzený. K pripojeniu budete potrebovať %{allowed_emails} e-mailovú adresu."
         few: "Prístup do %{service_name} je obmedzený. Budete potrebovať e-mailovú adresu, vďaka ktorej sa budete môcť prihlásiť."
         other: "Prístup do %{service_name} je obmezený. Budete potrebovať e-mailovú adresu, vďaka ktorej sa budete môcť prihlásiť."
-      family_name: priezvisko
-      given_name: "krstné meno"
+      family_name: Priezvisko
+      given_name: Meno
       i_accept_the: Akceptujem
       invalid_invitation_code: "Kód pozvánky je neplatný."
       invitation_code: "Kód pozvánky"
@@ -1848,7 +1848,7 @@ sk-SK:
       grade: "stupeň:"
       and_gave_following_feedback: "a poskytnite spätnú väzbu"
     profile_listings:
-      show_also_closed: "Zobraz aj uzatvorené"
+      show_also_closed: "Zobraz aj uzavreté"
       show_only_open: "Zobraz iba otvorené"
       no_image: "Žiadny obrázok"
     show:
@@ -1879,7 +1879,7 @@ sk-SK:
       open_listings: "otvorené inzeráty"
       no_listings: "Žiadne inzeráty"
       no_open_listings: "Žiadne otvorené inzeráty"
-      no_reviews: "žiadne hodnotenia"
+      no_reviews: "Žiadne hodnotenia"
       show_all_listings: "Zobraz všetky inzeráty"
       show_all_open_listings: "Zobraziť všetky otvorené inzeráty"
       show_all_reviews: "Zobraziť všetky hodnotenia"
@@ -1970,21 +1970,21 @@ sk-SK:
       email_from_admins: "Súhlasím s prijímaním e-mailových správ od administrátorov"
       i_want_to_get_email_notification_when: "Chcem dostať notifikáciu e-mailom keď..."
       newsletters: "E-mailové správy od administrátora"
-      community_updates: Letáky
-      email_about_accept_reminders: "...zabudol som sa prijať ponuku alebo žiadosť"
-      email_about_confirm_reminders: "... som zabudol/la potvrdiť objednávku ako vybavenú"
-      email_about_new_comments_to_own_listing: "...niekto komentoval tvoju ponuku alebo žiadosť"
-      email_about_new_messages: "...niekto ti posiela správu"
+      community_updates: Novinky
+      email_about_accept_reminders: "...som zabudol/la prijať ponuku alebo žiadosť"
+      email_about_confirm_reminders: "...som zabudol/la potvrdiť objednávku ako vybavenú"
+      email_about_new_comments_to_own_listing: "...niekto komentoval moju ponuku alebo žiadosť"
+      email_about_new_messages: "...niekto mi pošle správu"
       email_about_new_received_testimonials: "...niekto pridal spätnú väzbu"
-      email_about_testimonial_reminders: "...zabudol som pridať spätnú väzbu na udalosť"
+      email_about_testimonial_reminders: "...som zabudol/la pridať spätnú väzbu na udalosť"
       email_daily_community_updates: "Zasielať aktualizácie e-mailom  <b>denne<b> v prípade, že se objavia nové inzeráty"
       email_weekly_community_updates: "Zasielať aktualizácie e-mailom  <b>týždenne <b>v prípade, že se objavia nové inzeráty"
       do_not_email_community_updates: "Neposielať novinky"
       email_when_conversation_accepted: "...niekto prijal moju ponuku alebo žiadosť"
       email_when_conversation_rejected: "...niekto odmietol moju ponuku alebo žiadosť"
-      email_about_completed_transactions: "... niekto označil moju objednávku ako vybavenú"
-      email_about_new_payments: "... bola prijatá nová platba"
-      email_about_payment_reminders: "... zabudol/la som zaplatiť"
+      email_about_completed_transactions: "...niekto označil moju objednávku ako vybavenú"
+      email_about_new_payments: "...bola prijatá nová platba"
+      email_about_payment_reminders: "...som zabudol/la zaplatiť"
       email_about_new_listings_by_followed_people: "...niekto koho sledujete, pridal nový inzerát"
       unsubscribe_succesful: "Odhlásenie prebeblo úspešne"
       unsubscribe_info_text: "Už nebudete naďalej dostávať tieto e-mailové správy. Skontrolujte si svoje %{settings_link} a zvoľte si, aký druh e-mailových správ chcete dostávať od %{service_name} alebo sa vráťte na %{homepage_link}."
@@ -1996,7 +1996,7 @@ sk-SK:
       about_you: "O mne"
       city: Mesto
       family_name: Priezvisko
-      given_name: "Krstné meno"
+      given_name: Meno
       first_name_with_initial: "(zobrazí sa iba prvé písmeno užívateľom)"
       first_name_only: "(nezobrazí sa ostatným užívateľom)"
       location_description: "Môžete zadať Vašu presnú polohu, alebo napríklad iba PSČ. Prosím zadajte aspoň Vaše PSČ. Môžete si vybrať polohu z mapy pod textom."
@@ -2006,7 +2006,7 @@ sk-SK:
       profile_page: "na profilovej stránke"
       profilemap: Mapa
       street_address: Poloha
-      these_fields_are_shown_in_your: "Tieto informácie sú zobrazené každému %{service_name} uživateľovi"
+      these_fields_are_shown_in_your: "Tieto informácie sú zobrazené každému užívateľovi %{service_name}"
       visible_to_everybody: "viditeľné pre každého"
       visible_to_registered_users: "(viditeľné pre každého prihláseného užívateľa)"
       default_in_listing: "(použité ako východzie pri vytváraní nového inzerátu)"
@@ -2167,6 +2167,7 @@ sk-SK:
       menu: Menu
       more: Viac
       search_placeholder: Hľadať...
+      search_location_placeholder: Poloha
       user: Užívateľ
       inbox: "Doručená pošta"
       profile: Profil
@@ -2200,7 +2201,7 @@ sk-SK:
         other: "Nájdených %{count} %{model}"
       single_page_html:
         zero: "Nenašiel sa žiadny %{model}"
-        one: "Nájdený <b>1</b> %{model}"
+        one: "Nájdená <b>1</b> %{model}"
         few: "Nájdené <b>all&nbsp;%{count}</b> %{model}"
         other: "Nájdených <b>all&nbsp;%{count}</b> %{model}"
       multi_page: "Nájdený %{model} %{from} - %{to} z %{count} celkovo"

@@ -1005,8 +1005,8 @@ ca:
       javascript_is_disabled_in_your_browser: "Javascript està inhabilitat al teu navegador"
       kassi_does_not_currently_work_without_javascript: "Malauradament %{service_name} no funciona sense javascript. Intenta activar javascript en els opcions del navegador i torna a carregar la pàgina. Si desitges utilitzar Kassi sense javascript, siusplau, envia'ns un suggeriment utilitzant el formulari que apareix a continuació."
       contact_us: ~
-      send_feedback: "Enviar suggeriment"
-      your_feedback_to_admins: "Enviar el suggeriment a l'administrador"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Enviar
     your_email_address: "Correu electrònic"
   errors:
@@ -1198,13 +1198,13 @@ ca:
     application:
       join_this_community: ~
       read_more: ~
-      feedback: "Suggeriment a l'equip de Kassi"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: "Fòrum de suggeriments"
       feedback_handle: Suggeriment
       give_feedback: "Fes un suggeriment"
       or_check_our: "...o comprova el nostre"
-      send_feedback_to_admin: "Enviar suggeriment"
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "per veure els suggeriments d'altres usuaris."
       your_email_address: "Correu electrònic (no obligatori)"
       connect: ~
@@ -1274,7 +1274,7 @@ ca:
       error_with_session: "Error amb la sessió."
       feedback_considered_spam: "Suggeriment no enviat degut al format. Intenti-ho de nou o utilitzi el fòrum per a suggeriments."
       feedback_not_saved: "No es pot enviar el suggeriment."
-      feedback_saved: "Gràcies pels comentaris!"
+      feedback_saved: ~
       feedback_sent_to: "Comentari enviat a"
       feedback_skipped: "Suggeriment omès"
       invitation_cannot_be_sent: "No s'ha pogut enviar la invitació"
@@ -2099,6 +2099,7 @@ ca:
       menu: ~
       more: ~
       search_placeholder: ~
+      search_location_placeholder: ~
       user: ~
       inbox: ~
       profile: ~

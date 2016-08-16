@@ -87,7 +87,7 @@ es-ES:
         transaction_agreement_description: "Este el contenido del texto del acuerdo que los usuarios han de aceptar. El texto del presente acuerdo se mostrará cuando los usuarios hagan clic en el enlace %{read_more} ."
       edit_look_and_feel:
         edit_community_look_and_feel: "Edita la apariencia de %{community_name}"
-        community_logo: "Logo de escritorio"
+        community_logo: Logotipo
         community_logo_icon: "Logo para sedes sociales y dispositivos móviles"
         community_cover_photo: "Foto de portada"
         small_community_cover_photo: "Imagen de cabecera pequeña"
@@ -95,7 +95,7 @@ es-ES:
         favicon_info_text: "El Favicon reemplazará el logo predeterminado de Sharetribe. Las dimensiones deberían ser de 32x32 pixels y la imagen que subas se recortará a ese tamaño."
         community_custom_color1: "Color principal"
         community_custom_color2: "Color del botón: %{post_new_listing}"
-        logo_instructions_text_with_dimensions: "El logo de escritorio debe tener una resolución de %{width}x%{height} pixeles. Se mostrará a los usuarios con pantallas más grandes."
+        logo_instructions_text_with_dimensions: "El logo debe tener una resolución de %{width}x%{height} pixeles. Se mostrará a los usuarios con pantallas más grandes."
         logo_icon_instructions_text_with_dimensions: "Este logo cuadrado se mostrará cuando las personas compartan tu sitio en Facebook, cuando vean tu sitio desde un dispositivo móvil o cuando guarden un acceso directo a tu sitio en sus dispositivos móviles. Las dimensiones deben ser (al menos) %{width}x%{height}px."
         cover_photo_visibility: "La foto de portada se muestra en la home a usuarios que todavía no han iniciado sesión."
         cover_photo_instructions_text_with_dimensions: "La foto será redimensionada a un tamaño de %{width}x%{height} pixeles y las imágenes más altas se cortarán en el medio. %{see_how_it_looks_like}."
@@ -131,7 +131,7 @@ es-ES:
         sender_address: "Dirección del remitente: %{sender_address}"
         sender_address_default: "Dirección del remitente: no establecida (se utiliza la dirección por defecto %{sender_address})"
         need_to_change: "Si necesitas cambiar la dirección de correo electrónico, por favor %{contact_support_link}"
-        contact_support_link_text: "Contacta a nuestro servicio de soporte"
+        contact_support_link_text: "Contacta al equipo de soporte de Sharetribe"
         set_sender_address: "Establecer una dirección de remitente"
         sender_name_label: Nombre
         sender_name_placeholder: "Nombre del remitente"
@@ -238,12 +238,12 @@ es-ES:
         ban_user_confirmation: "Esto bloquea al usuario de la comunidad y le impide volver a acceder con esta cuenta. Estás seguro de que quieres continuar?"
         ban_me_error: "No te puedes rechazar a ti mismo."
       new_layout:
-        new_layout: ~
-        description_roadmap: ~
-        description_process: ~
-        enabled_for_you: ~
-        enabled_for_all: ~
-        new_topbar: ~
+        new_layout: "Nuevo diseño"
+        description_roadmap: "Puedes decidir cual diseño usar en tu comunidad: el nuevo or el viejo. Es recomendable usar el nuevo diseño, debido a que la mayoría de nuestras nuevas funciones no soportarán el viejo diseño. El viejo diseño será removido eventualmente (te notificaremos con antelación)."
+        description_process: "El nuevo diseño será lanzado por partes. Puedes decidir mantener el viejo diseño en algunas páginas y usar el nuevo diseño en otras. Puedes revisar como se ven las páginas antes de hacer el diseño público a todos tus usuarios por medio de la opción de habilitar sólo para ti."
+        enabled_for_you: "Habilitar sólo para ti"
+        enabled_for_all: "Habilitar para todos"
+        new_topbar: "Nueva barra superior (visible en todas las páginas)"
       social_media:
         social_media: "Social media"
         twitter_handle: Twitter
@@ -278,10 +278,10 @@ es-ES:
         language: Idioma
         url: URL
         empty: "No tienes ningún menú de enlaces adicionales"
-        max_number_of_links: ~
-        all: ~
-        max_number_of_links_info: ~
-        about_page: ~
+        max_number_of_links: "Número de vínculos que se muestran en la barra superior: %{select_max_number}"
+        all: Todos
+        max_number_of_links_info: "Vinculo para la %{about_page} se muestra siempre como el primer vínculo del menu."
+        about_page: "página Acerca de"
       transactions:
         export_all_as_csv: "Exportar todos como CSV"
         transactions: "Ver transacciones"
@@ -659,7 +659,7 @@ es-ES:
       total: "Total: %{total}"
     status:
       payment_errored: "No se ha procesado el pago. Por favor, vuelve a intentarlo."
-      payment_errored_starter: "No se ha procesado el pago. Por favor, vuelve a intentarlo y si el problema continúa, contacta con nuestro equipo de soporte."
+      payment_errored_starter: "No se ha procesado el pago. Por favor, vuelve a intentarlo y si el problema continúa, contacta con el equipo de soporte de Sharetribe."
       payment_errored_author: "El pago ha fallado. Por favor, contacta a %{starter_name} y pídele que vuelva a intentarlo de nuevo."
       cancel_payed_transaction: Cancelar
       feedback_given: "Retroalimentación dada"
@@ -843,7 +843,7 @@ es-ES:
       please_contant_admin_link: "por favor, contacta al administrador"
     confirmation_instructions:
       confirmation_instructions_signature: "Saludos cordiales,<br/>El Equipo de %{service_name}"
-      need_to_confirm: "Debes confirmar tu cuenta de correo electrónico."
+      need_to_confirm: "Confirma tu cuenta de correo electrónico haciendo click en el botón inferior."
       confirmation_link_text: "Confirmar mi dirección de correo electrónico"
       or_paste_link: "Si lo prefieres, puedes copiar el siguiente enlace y pegarlo directamente en la barra de tu navegador:"
     common:
@@ -969,7 +969,7 @@ es-ES:
       we_will_guide_you_along_the_way: "Te guiaremos a lo largo del proceso."
       are_you_new_to_online_marketplaces: "Necesitas ayuda con tu comunidad? No te preocupes! Estamos aquí para ayudarte! Te enviaremos una serie de correos que te ayudarán a sacarle el mayor provecho a Sharetribe y a construir un negocio exitoso con tu comunidad. Muy pronto te enviaremos la primera parte."
       have_questions: "¿Tienes alguna pregunta?"
-      our_happiness_team_is_here_to_help: "Nuestro 'equipo de la felicidad' está aquí para tí! Puedes %{knowledge_base_link} o contactar a nuestro equipo de soporte a través de %{admin_panel_link}."
+      our_happiness_team_is_here_to_help: "Nuestro 'equipo de la felicidad' está aquí para ti! Puedes %{knowledge_base_link} o contactar a nuestro equipo de soporte a través de %{admin_panel_link}."
       love: "Love,"
       sharetribe_crew: "El equipo de Sharetribe."
       knowledge_base_link_text: "revisa nuestros recursos"
@@ -981,10 +981,10 @@ es-ES:
       you_are_receiving_this_because: "Has recibido ésta notificación porque sigues a %{author_name}."
       view_listing: "Ver anuncio"
     new_member_notification:
-      new_member_has_joined: ~
-      this_is_automatic_message: ~
-      person_name: ~
-      person_email: ~
+      new_member_has_joined: "Un nuevo miembro se ha unido a %{community}. Es posible que deban aún confirmar su dirección de correo electrónico."
+      this_is_automatic_message: "Este es un mensaje automático enviado a los administradores de %{community}."
+      person_name: "Nombre:"
+      person_email: "Correo electrónico:"
   error_messages:
     onboarding:
       server_rendering: "La guía de inicio no se ha cargado correctamente. Nuestro equipo está trabajando para arreglar el problema lo antes posible."
@@ -1030,8 +1030,8 @@ es-ES:
       javascript_is_disabled_in_your_browser: "Javascript está desactivado en tu buscador"
       kassi_does_not_currently_work_without_javascript: "%{service_name} no funciona adecuadamente sin javascript. Intenta activar javascript en las preferencias de tu navegador y vuelve a cargar la página."
       contact_us: contáctanos
-      send_feedback: "Enviar comentarios"
-      your_feedback_to_admins: "Envía tus comentarios al administrador"
+      send_feedback: "Enviar mensaje"
+      your_feedback_to_admins: "Tu mensaje para el equipo de %{service_name}"
     send: Enviar
     your_email_address: "Tu dirección email"
   errors:
@@ -1165,7 +1165,7 @@ es-ES:
       this_article_link: "este artículo"
       invitation_emails_field_placeholder: "amigo1@ejemplo.com, amigo2@ejemplo.com, ..."
       invitation_message_field_placeholder: "Me uní a este fantástica comunidad. Deberías hacer lo mismo!"
-      errors_in_emails: "Revisa que sean los correos que añadiste sean válidos y estén separados por una coma."
+      errors_in_emails: "Revisa que los correos que añadiste sean válidos y no contengan caracteres inusuales. Si añadiste varios correos, asegúrate de que estén separados por una coma."
     list_item:
       review: opinión
       reviews: opiniones
@@ -1219,17 +1219,17 @@ es-ES:
     no_tribe:
       inbox: "Buzón de entrada"
       settings: Configuración
-      feedback: Contáctanos
+      feedback: "Contacta al equipo de %{service_name}"
     application:
       join_this_community: "Únete a la comunidad"
       read_more: "Leer más"
-      feedback: "Qué sugerencia te gustaría hacernos?"
-      dont_use_to_contact_support: ~
+      feedback: "Tu mensaje para el equipo de %{service_name}"
+      dont_use_to_contact_support: "Hemos notado que eres administrador de %{service_name}. Esta forma es para que los usuarios de tu comunidad te contacten. Si lo que quieres es contactar el equipo de soporte de Sharetribe, puedes hacerlo por medio del vínculo de Soporte que se encuentra en el panel de administrador."
       feedback_forum: "Foro de sugerencias"
       feedback_handle: "Sugerencia o comentario"
       give_feedback: Contáctanos
       or_check_our: "...o revisa nuestro"
-      send_feedback_to_admin: "Enviar sugerencia"
+      send_feedback_to_admin: "Enviar mensaje"
       to_see_what_others_have_suggested: "para ver lo que otros usuarios han sugerido, y votar por ideas publicadas."
       your_email_address: "Tu dirección de correo electrónico (para contactarte)"
       connect: Regístrate
@@ -1299,7 +1299,7 @@ es-ES:
       error_with_session: "Error con la sesión."
       feedback_considered_spam: "Sugerencia no enviada debido a su formato. Inténtalo de nuevo o utiliza el foro para sugerencias."
       feedback_not_saved: "La sugerencia no puedo ser enviada."
-      feedback_saved: "¡Gracias por tus comentarios! Nos pondremos en contacto contigo lo antes posible."
+      feedback_saved: "Gracias por tu mensaje! Nos pondremos en contacto tan pronto nos sea posible."
       feedback_sent_to: "Retroalimentación enviada a %{target_person}."
       feedback_skipped: "Retroalimentación omitida"
       invitation_cannot_be_sent: "No se pudo enviar la invitación"
@@ -1394,7 +1394,7 @@ es-ES:
       payment_details_add_successful: "Datos de pago añadidos correctamente"
       payment_details_add_error: "No se han podido añadir tus datos de pago"
       listing_author_payment_details_missing: "Por favor contacta con al autor del anuncio por medio del botón de 'Contactar'. Necesita actualizar sus datos de pago para poder recibir pagos en linea."
-      images_are_processing: ~
+      images_are_processing: "Estamos procesando tus imágenes. Danos un minuto o dos y estarán listas."
       maintenance_mode:
         zero: "La página estará fuera de servicio por mantenimiento"
         one: "La página estará fuera de servicio por mantenimiento en %{count} minuto"
@@ -1996,7 +1996,7 @@ es-ES:
       visible_to_registered_users: "visible a los usuarios que han iniciado sesión"
       default_in_listing: "(usada por defecto al publicar un nuevo anuncio)"
       invisible: "(no se mostrará a otros usuarios)"
-      image_is_processing: "Tu imagen de perfil se está procesando. Espera un momento"
+      image_is_processing: "Espera un momento. Tu imagen de perfil se está procesando. Estará lista en unos minutos."
     save_information: "Guardar Información"
   shipping_address:
     shipping_address: "Dirección de envío"
@@ -2147,6 +2147,7 @@ es-ES:
       menu: Menú
       more: Más
       search_placeholder: Buscar...
+      search_location_placeholder: Ubicación
       user: Usuario
       inbox: "Bandeja de Entrada"
       profile: Perfil

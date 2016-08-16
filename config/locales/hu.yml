@@ -1035,8 +1035,8 @@ hu:
       javascript_is_disabled_in_your_browser: "A JavaScript ki van kapcsolva az Ön böngészőjében"
       kassi_does_not_currently_work_without_javascript: "%{service_name} nem tud megfelelően működni JavaScript nélkül. A böngésző beállításokban engedélyezze a JavaSript-et és frissítse az oldalt."
       contact_us: "Lépjen velünk kapcsolatba"
-      send_feedback: "Visszajelzés küldése"
-      your_feedback_to_admins: "Visszajelzés küldése az oldal adminisztrátorának"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Küldés
     your_email_address: "Az ön email címe"
   errors:
@@ -1224,17 +1224,17 @@ hu:
     no_tribe:
       inbox: Bejövő
       settings: Beállítások
-      feedback: "Keressen minket"
+      feedback: ~
     application:
       join_this_community: "Csatlakozás a piactérhez"
       read_more: Bővebben
-      feedback: "Mit szeretne mondani nekünk?"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: "Értékelések fóruma"
       feedback_handle: Értékelés
       give_feedback: "Keressen minket"
       or_check_our: "vagy elenőrizze a mi"
-      send_feedback_to_admin: "Visszajelzés küldése"
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "itt láthatja milyen fejlesztési ötletei voltak a többi felhasználónak és szavazhat is rájuk"
       your_email_address: "Az Ön e-mail címe"
       connect: Bejelentkezés
@@ -1304,7 +1304,7 @@ hu:
       error_with_session: Hiba
       feedback_considered_spam: "A visszajelzés nem lett elmentve, problémák vannak a formátumával. Próbálja újra vagy használja a fórumot."
       feedback_not_saved: "Értékelése nincs elküldve"
-      feedback_saved: "Köszönjük visszajelzését! Hamarosan jelentkezünk"
+      feedback_saved: ~
       feedback_sent_to: "Visszajelzését elküldtük neki: %{target_person}"
       feedback_skipped: "Értékelés kihagyva"
       invitation_cannot_be_sent: "Meghívó küldése sikertelen"
@@ -2148,6 +2148,7 @@ hu:
       menu: Menü
       more: Bővebben
       search_placeholder: Keresés...
+      search_location_placeholder: ~
       user: Felhasználó
       inbox: "Bejövő üzenetek"
       profile: Profil

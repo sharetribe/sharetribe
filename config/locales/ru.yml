@@ -1028,8 +1028,8 @@ ru:
       javascript_is_disabled_in_your_browser: "В вашем браузере отключён Javascript"
       kassi_does_not_currently_work_without_javascript: "К сожалению, %{service_name} не сможет работать при отключенном javascript. Попробуйте включить поддержку javascript в своём браузере и перезагрузить страницу."
       contact_us: "свяжитесь с нами"
-      send_feedback: Отправить
-      your_feedback_to_admins: "Обратная связь с администрацией"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Отправить
     your_email_address: "Ваш адрес электронной почты"
   errors:
@@ -1217,17 +1217,17 @@ ru:
     no_tribe:
       inbox: Входящие
       settings: Настройки
-      feedback: "Обратная связь"
+      feedback: ~
     application:
       join_this_community: "Присоединиться к проекту"
       read_more: Подробнее
-      feedback: "Что бы Вы хотели нам рассказать?"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: форум
       feedback_handle: "Написать отзыв"
       give_feedback: "Напиши нам"
       or_check_our: "...или зайдите на наш"
-      send_feedback_to_admin: "Отправить отзыв"
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "чтобы увидеть, что предлагают другие пользователи и проголосовать за новые идеи для проекта."
       your_email_address: "Ваш адрес email (для связи с Вами)"
       connect: Регистрация
@@ -1297,7 +1297,7 @@ ru:
       error_with_session: "Ошибка сессии."
       feedback_considered_spam: "Отзыв не сохранён из-за неверного формата. Попробуйте снова, либо воспользуйтесь форумом."
       feedback_not_saved: "Отзыв не может быть отправлен."
-      feedback_saved: "Спасибо Вам за отзыв! Мы свяжемся с Вами в ближайшее время."
+      feedback_saved: ~
       feedback_sent_to: "Отзыв отправлен %{target_person}"
       feedback_skipped: "Отзыв отменён"
       invitation_cannot_be_sent: "Приглашение не может быть отправлено"
@@ -2153,6 +2153,7 @@ ru:
       menu: ~
       more: ~
       search_placeholder: ~
+      search_location_placeholder: ~
       user: ~
       inbox: ~
       profile: ~

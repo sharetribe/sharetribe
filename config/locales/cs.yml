@@ -1043,8 +1043,8 @@ cs:
       javascript_is_disabled_in_your_browser: "Javascript je ve Vašem prohlížeči zablokován"
       kassi_does_not_currently_work_without_javascript: "%{service_name} nepracuje správně bez Javascriptu. Zkuste povolit Javascript v nastavení ve Vašem prohlížeči, a potom znovu aktualizujte tuto stránku."
       contact_us: "kontaktujte nás"
-      send_feedback: "Poslat komentář"
-      your_feedback_to_admins: Ohodnocení
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Poslat
     your_email_address: "Vaše a-mailová adresa"
   errors:
@@ -1232,17 +1232,17 @@ cs:
     no_tribe:
       inbox: "Doručená pošta"
       settings: Nastavení
-      feedback: "Kontaktujte nás"
+      feedback: ~
     application:
       join_this_community: "Připojit se k tržišti"
       read_more: "Přečtete si více"
-      feedback: "Co byste nám chtěli sdělit?"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: "Diskuzní fórum"
       feedback_handle: "Napište nám"
       give_feedback: "Kontaktujte nás"
       or_check_our: "...nebo se podívejte na"
-      send_feedback_to_admin: Odeslat
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "abyste viděli, co ostatní uživatelé navrhli a pro jaké nápady můžete hlasovat."
       your_email_address: "Vaše e-mailová adresa (abychom Vás mohli kontaktovat)"
       connect: "Zaregistrovat se"
@@ -1312,7 +1312,7 @@ cs:
       error_with_session: Chyba
       feedback_considered_spam: "Zpětná vazba nebyla uložena z důvodu jejího formátování. Zkuste to znovu nebo využijte diskuzního fóra."
       feedback_not_saved: "Zpětná vazba nemohla být odeslána."
-      feedback_saved: "Děkujeme za zpětnou vazbu! Jakmile ji zpracujeme, ozveme se Vám."
+      feedback_saved: ~
       feedback_sent_to: "Zpětná vazba odeslána uživateli %{target_person}."
       feedback_skipped: "Zpětná vazba přeskočena"
       invitation_cannot_be_sent: "Pozvánka nemohla být odeslána"
@@ -2162,6 +2162,7 @@ cs:
       menu: ~
       more: ~
       search_placeholder: ~
+      search_location_placeholder: ~
       user: ~
       inbox: ~
       profile: ~

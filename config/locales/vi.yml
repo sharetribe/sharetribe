@@ -1003,8 +1003,8 @@ vi:
       javascript_is_disabled_in_your_browser: "Javascript bị vô hiệu hóa trên trình duyệt của bạn"
       kassi_does_not_currently_work_without_javascript: "Thật không may %{service_name} hiện tại không làm việc nếu javascript không hoạt động. Hãy thử kích hoạt javascript từ tùy chọn của trình duyệt của bạn và sau đó tải lại trang này. Nếu bạn muốn sử dụng %{service_name} mà không cần javascript, vui lòng gửi cho chúng tôi thông tin phản hồi bằng cách sử dụng mẫu dưới đây."
       contact_us: "liên hệ với chúng tôi"
-      send_feedback: "Gửi thông tin phản hồi"
-      your_feedback_to_admins: "Thông tin phản hồi của bạn đến các quản trị viên"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Gửi
     your_email_address: "Địa chỉ email của bạn"
   errors:
@@ -1192,17 +1192,17 @@ vi:
     no_tribe:
       inbox: "Hộp thư đến"
       settings: "Cài đặt"
-      feedback: "Liên hệ"
+      feedback: ~
     application:
       join_this_community: ~
       read_more: "Xem thêm"
-      feedback: "Thông tin phản hồi đến đội ngũ %{service_name}"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: "diễn đàn thông tin phản hồi"
       feedback_handle: "Thông tin phản hồi"
       give_feedback: "Cho ý kiến phản hồi đối với %{service_name}"
       or_check_our: "...hoặc kiểm tra"
-      send_feedback_to_admin: "Gửi ý kiến phản hồi"
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "để xem những gì người dùng khác đề nghị"
       your_email_address: "Địa chỉ email của bạn (không bắt buộc)"
       connect: "Đăng ký"
@@ -1272,7 +1272,7 @@ vi:
       error_with_session: "Vùng bị lỗi"
       feedback_considered_spam: "Thông tin phản hồi không được lưu, vì định dạng của nó. Thử lại hoặc sử dụng diễn đàn thông tin phản hồi."
       feedback_not_saved: "Không thể gửi thông tin phản hồi."
-      feedback_saved: "Cảm ơn bạn đã phản hồi!"
+      feedback_saved: ~
       feedback_sent_to: "Thông tin phản hồi đã gửi đến"
       feedback_skipped: "Thông tin phản hổi đã bị bỏ qua"
       invitation_cannot_be_sent: "Không thể gửi lời mời"
@@ -2099,6 +2099,7 @@ vi:
       menu: ~
       more: ~
       search_placeholder: ~
+      search_location_placeholder: ~
       user: ~
       inbox: ~
       profile: ~

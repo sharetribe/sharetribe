@@ -1034,8 +1034,8 @@ de:
       javascript_is_disabled_in_your_browser: "JavaScript ist in deinem Browser deaktiviert."
       kassi_does_not_currently_work_without_javascript: "Leider funktioniert %{service_name} derzeit nicht ohne javascript. Versuche javascript in deinen Browser-Einstellungen zu aktivieren und lade diese Seite dann noch einmal."
       contact_us: Kontakt
-      send_feedback: "Bewertung senden"
-      your_feedback_to_admins: "Dein Feedback an die Administratoren"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Senden
     your_email_address: "Deine E-Mail-Adresse"
   errors:
@@ -1223,17 +1223,17 @@ de:
     no_tribe:
       inbox: Posteingang
       settings: Einstellungen
-      feedback: "Kontaktiere uns"
+      feedback: ~
     application:
       join_this_community: "Marktplatz beitreten"
       read_more: "Mehr lesen"
-      feedback: "Was möchtest du uns mitteilen?"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: Feedback-Forum
       feedback_handle: Feedback
       give_feedback: "Kontaktiere uns"
       or_check_our: "...oder überprüfe unser"
-      send_feedback_to_admin: Senden
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "um zu sehen, was andere Benutzer vorgeschlagen haben und um die für die Ideen zu stimmen."
       your_email_address: "Deine E-Mail-Adresse (um dich zu kontaktieren)"
       connect: "Jetzt registrieren"
@@ -1303,7 +1303,7 @@ de:
       error_with_session: "Fehler dieser Sitzung."
       feedback_considered_spam: "Die Bewertung wurde aufgrund der Formatierung nicht gespeichert. Versuche es erneut oder verwende das Feedback-Forum."
       feedback_not_saved: "Die Bewertung konnte nicht gesendet werden."
-      feedback_saved: "Danke für dein Feedback! Wir werden uns so bald wie möglich bei dir melden."
+      feedback_saved: ~
       feedback_sent_to: "Feedback an %{target_person} gesendet."
       feedback_skipped: "Bewertung übersprungen"
       invitation_cannot_be_sent: "Einladung konnte nicht gesendet werden"
@@ -2151,6 +2151,7 @@ de:
       menu: Menü
       more: Mehr
       search_placeholder: "Suche ..."
+      search_location_placeholder: ~
       user: Nutzer
       inbox: Eingang
       profile: Profil

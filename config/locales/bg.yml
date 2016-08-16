@@ -1003,8 +1003,8 @@ bg:
       javascript_is_disabled_in_your_browser: "Javascript е изключен във вашият браузър."
       kassi_does_not_currently_work_without_javascript: "%{service_name} не работи коректно със изключен javascript. Моля, активирайте javascript и заредете страницата отново."
       contact_us: ~
-      send_feedback: "Изпрати обратна връзка"
-      your_feedback_to_admins: "Обратна връзка с Администраторите"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Изпратено
     your_email_address: "Вашият email адрес:"
   errors:
@@ -1196,13 +1196,13 @@ bg:
     application:
       join_this_community: ~
       read_more: ~
-      feedback: "Какво искате да ни препоръчате?"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: "форум за препоръки"
       feedback_handle: Препоръка
       give_feedback: "Свържете се с нас"
       or_check_our: "..или проверете нашата"
-      send_feedback_to_admin: "Изпрати обратна връзка"
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: ~
       your_email_address: "Вашата електронна поща(За контакт с Вас)"
       connect: "Регистрирай се"
@@ -2097,6 +2097,7 @@ bg:
       menu: ~
       more: ~
       search_placeholder: ~
+      search_location_placeholder: ~
       user: ~
       inbox: ~
       profile: ~

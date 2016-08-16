@@ -1021,8 +1021,8 @@ zh-HK:
       javascript_is_disabled_in_your_browser: 你的瀏覽器禁示使用Javascript
       kassi_does_not_currently_work_without_javascript: "抱歉，%{service_name}目前不能在沒有javascript下提供服務。請在瀏覽器首選中打開javascript，然後刷新頁面。"
       contact_us: 聯絡我們
-      send_feedback: 發出評價
-      your_feedback_to_admins: 您對管理員的評價
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: 傳送
     your_email_address: 您的電郵地址
   errors:
@@ -1210,17 +1210,17 @@ zh-HK:
     no_tribe:
       inbox: 收件箱
       settings: 設定
-      feedback: 聯絡我們
+      feedback: ~
     application:
       join_this_community: 加入網站
       read_more: 讀取更多
-      feedback: 您有什麼想要發表?
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: 反饋論壇
       feedback_handle: 回應
       give_feedback: 聯絡我們
       or_check_our: "......或者查看我們的"
-      send_feedback_to_admin: 發出評價
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: 觀看其它用戶的提議，並投選合適的提議。
       your_email_address: "您的電郵地址 (用作聯絡閣下)"
       connect: 註冊
@@ -1290,7 +1290,7 @@ zh-HK:
       error_with_session: 內容錯誤
       feedback_considered_spam: 由於格式錯誤，無法提出回應。請重試或使用反饋論壇。
       feedback_not_saved: 未能發出回應。
-      feedback_saved: 感謝你的回應！我們會盡快給予回覆。
+      feedback_saved: ~
       feedback_sent_to: "回應已發送至%{target_person}。"
       feedback_skipped: 跳過回應
       invitation_cannot_be_sent: 未發出邀請
@@ -2122,6 +2122,7 @@ zh-HK:
       menu: ~
       more: ~
       search_placeholder: ~
+      search_location_placeholder: ~
       user: ~
       inbox: ~
       profile: ~

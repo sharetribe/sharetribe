@@ -1003,8 +1003,8 @@ ro:
       javascript_is_disabled_in_your_browser: "JavaScript este dezactivat pentru browserul tau."
       kassi_does_not_currently_work_without_javascript: "%{service_name} nu functioneaza corect fara JavaScript. Te rog sa activezi JavaScript din setarile browserului si apoi reincarca aceasta pagina."
       contact_us: ~
-      send_feedback: "Trimite feedback"
-      your_feedback_to_admins: "Feedback-ul tau pentru administratori"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Trimite
     your_email_address: "Adresa ta de e-mail"
   errors:
@@ -1196,13 +1196,13 @@ ro:
     application:
       join_this_community: ~
       read_more: ~
-      feedback: "Ce doresti sa ne transmiti?"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: "Forum de sugestii"
       feedback_handle: Sugestii
       give_feedback: Contacteaza-ne
       or_check_our: "...sau verifica a noastra"
-      send_feedback_to_admin: "Trimite sugestii"
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "pentru a vedea ceea ce altii au sugerat si pentru a vota acele idei."
       your_email_address: "Adresa ta e-mail (pentru a te contacta)"
       connect: ~
@@ -1272,7 +1272,7 @@ ro:
       error_with_session: "Eroare in aceasta sesiune."
       feedback_considered_spam: "Sugestia nu a fost salvata din pricina formatarii. Incearca din nou sau foloseste forumul de sugestii."
       feedback_not_saved: "Sugestia nu a putut fi trimisa."
-      feedback_saved: "Multumim mult pentru sugestie! Vom raspunde in cel mai scurt timp posibil!"
+      feedback_saved: ~
       feedback_sent_to: "Feedback trimis lui %{target_person}"
       feedback_skipped: "Sugestia a fost omisa"
       invitation_cannot_be_sent: ~
@@ -2097,6 +2097,7 @@ ro:
       menu: ~
       more: ~
       search_placeholder: ~
+      search_location_placeholder: ~
       user: ~
       inbox: ~
       profile: ~

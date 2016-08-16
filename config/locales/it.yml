@@ -1007,8 +1007,8 @@ it:
       javascript_is_disabled_in_your_browser: "Javascript è disabilitato nel tuo browser"
       kassi_does_not_currently_work_without_javascript: "%{service_name} non funziona bene senza javascript. Prova ad abilitare javascript nelle preferenze del tuo browser e dopo ricarica nuovamente la pagina."
       contact_us: contattaci
-      send_feedback: "Invia feedback"
-      your_feedback_to_admins: "I tuoi feedback agli amministratori"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Invia
     your_email_address: "Il tuo indirizzo email"
   errors:
@@ -1196,17 +1196,17 @@ it:
     no_tribe:
       inbox: Messaggi
       settings: Impostazioni
-      feedback: Contattaci
+      feedback: ~
     application:
       join_this_community: ~
       read_more: Continua
-      feedback: "Che cosa vorresti comunicarci?"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: "forum dei feedback"
       feedback_handle: Feedback
       give_feedback: Contattaci
       or_check_our: "...o controlla i nostri"
-      send_feedback_to_admin: "Invia feedback"
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "vedere cosa gli altri utenti hanno suggerito, e votare le  idee."
       your_email_address: "Il tuo indirizzo email (per contattarti)"
       connect: Registrati
@@ -1276,7 +1276,7 @@ it:
       error_with_session: "Errore con la sessione."
       feedback_considered_spam: "Feedback non salvato a causa della formattazione. Prova ancora o usa il forum dei feedback."
       feedback_not_saved: "Il feedback non può essere inviato."
-      feedback_saved: "Grazie per il tuo feedback! Ti ricontatteremo appena possibile."
+      feedback_saved: ~
       feedback_sent_to: "Feedback inviato a %{target_person}."
       feedback_skipped: "Feedback saltato"
       invitation_cannot_be_sent: "L'invito non può essere inviato"
@@ -2120,6 +2120,7 @@ it:
       menu: Menù
       more: Altro..
       search_placeholder: Cerca...
+      search_location_placeholder: ~
       user: ~
       inbox: Messaggi
       profile: Profilo

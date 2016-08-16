@@ -1023,8 +1023,8 @@ zh:
       javascript_is_disabled_in_your_browser: 你的浏览器已禁用Javascript
       kassi_does_not_currently_work_without_javascript: "抱歉，%{service_name}目前不能在无javascript环境下工作。请在浏览器首选项中打开javascript，然后刷新页面。"
       contact_us: 联系我们
-      send_feedback: 发送反馈
-      your_feedback_to_admins: 给管理员发送反馈
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: 发送
     your_email_address: 你的E-mail地址
   errors:
@@ -1212,17 +1212,17 @@ zh:
     no_tribe:
       inbox: 收件箱
       settings: 设置
-      feedback: 联系我们
+      feedback: ~
     application:
       join_this_community: 加入集市
       read_more: 读取更多
-      feedback: 给我们提供反馈？
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: 反馈论坛
       feedback_handle: 反馈
       give_feedback: 联系我们
       or_check_our: ……或者查看我们的
-      send_feedback_to_admin: 发送反馈
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: 看看其他用户的推荐，给那些主意投票。
       your_email_address: 你的E-mail地址（用来联系你）
       connect: 注册
@@ -1292,7 +1292,7 @@ zh:
       error_with_session: 内容错误
       feedback_considered_spam: 格式错误，评价失败。请重试或者使用论坛评价。
       feedback_not_saved: 评价发送失败。
-      feedback_saved: 感谢你的评价！我们会尽快给你回复。
+      feedback_saved: ~
       feedback_sent_to: "发送评价给%{target_person}"
       feedback_skipped: 跳过评价
       invitation_cannot_be_sent: 邀请未被发出
@@ -2130,6 +2130,7 @@ zh:
       menu: 菜单
       more: 更多
       search_placeholder: 搜索...
+      search_location_placeholder: ~
       user: 用户
       inbox: 收件箱
       profile: 个人主页

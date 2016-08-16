@@ -1034,8 +1034,8 @@ fi:
       javascript_is_disabled_in_your_browser: "Javascript ei ole päällä selaimessasi"
       kassi_does_not_currently_work_without_javascript: "%{service_name} ei toimi oikein ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan."
       contact_us: "ota yhteyttä"
-      send_feedback: "Lähetä palaute"
-      your_feedback_to_admins: "Palautteesi ylläpidolle"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Lähetä
     your_email_address: Sähköpostiosoitteesi
   errors:
@@ -1223,17 +1223,17 @@ fi:
     no_tribe:
       inbox: Postilaatikko
       settings: Asetukset
-      feedback: "Ota yhteyttä"
+      feedback: ~
     application:
       join_this_community: Liity
       read_more: "Lue lisää"
-      feedback: "Mitä haluaisit kertoa meille?"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: "palautefoorumiltamme,"
       feedback_handle: Palaute
       give_feedback: "Ota yhteyttä"
       or_check_our: "...tai tarkista"
-      send_feedback_to_admin: "Lähetä palaute ylläpidolle"
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "mitä muut ovat ehdottaneet, ja antaaksesi eri ehdotuksille äänesi."
       your_email_address: "Sähköpostiosoitteesi (yhteydenottoa varten)"
       connect: Liity
@@ -1303,7 +1303,7 @@ fi:
       error_with_session: "Virhe istunnon käsittelyssä."
       feedback_considered_spam: "Jokin palautteen sisällössä esti tallentamisen. Yritä uudelleen tai käydä palautefoorumia."
       feedback_not_saved: "Palautteen lähettäminen epäonnistui."
-      feedback_saved: "Kiitos palautteestasi! Otamme sinuun yhteyttä mahdollisimman pian."
+      feedback_saved: ~
       feedback_sent_to: "Palaute lähetetty käyttäjälle %{target_person}."
       feedback_skipped: "Palaute ohitettu"
       invitation_cannot_be_sent: "Kutsua ei voitu lähettää"
@@ -2151,6 +2151,7 @@ fi:
       menu: ~
       more: ~
       search_placeholder: ~
+      search_location_placeholder: ~
       user: ~
       inbox: ~
       profile: ~

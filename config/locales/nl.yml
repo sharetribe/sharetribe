@@ -1018,8 +1018,8 @@ nl:
       javascript_is_disabled_in_your_browser: "Javascript is niet actief in uw browser"
       kassi_does_not_currently_work_without_javascript: "%{service_name} werkt niet goed zonder JavaScript. Schakel JavaScript in bij de instellingen van uw browser en herlaad de pagina."
       contact_us: "Neem contact op"
-      send_feedback: "Stuur feedback"
-      your_feedback_to_admins: "Uw feedback aan de beheerder"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Verstuur
     your_email_address: "Je e-mail adres"
   errors:
@@ -1207,17 +1207,17 @@ nl:
     no_tribe:
       inbox: Inbox
       settings: Instellingen
-      feedback: "Neem contact op"
+      feedback: ~
     application:
       join_this_community: "Sluit aan bij marktplaats"
       read_more: "Lees meer"
-      feedback: "Wat wil u ons vertellen?"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
       give_feedback: "Neem contact op"
       or_check_our: "...of bekijk onze"
-      send_feedback_to_admin: "Verstuur feedback"
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "om te zien wat voor ideeën andere gebruikers hebben en om op die ideeën te stemmen."
       your_email_address: "Je e-mail adres"
       connect: Registreer
@@ -1287,7 +1287,7 @@ nl:
       error_with_session: "Fout in sessie."
       feedback_considered_spam: "Feedback is niet opgeslagen door de opmaak. Probeer opnieuw of gebruik het feedback forum."
       feedback_not_saved: "Feedback kon niet worden verzonden."
-      feedback_saved: "Bedankt voor uw feedback! We komen zo snel mogelijk bij u terug."
+      feedback_saved: ~
       feedback_sent_to: "Feedback gestuurd naar %{target_person}."
       feedback_skipped: "Feedback overgeslagen"
       invitation_cannot_be_sent: "Uitnodiging kon niet verstuurd worden"
@@ -2118,6 +2118,7 @@ nl:
       menu: ~
       more: ~
       search_placeholder: ~
+      search_location_placeholder: ~
       user: ~
       inbox: ~
       profile: ~

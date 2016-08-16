@@ -1003,8 +1003,8 @@ mn:
       javascript_is_disabled_in_your_browser: "Javascript таны браузерт хаалттай байна"
       kassi_does_not_currently_work_without_javascript: ~
       contact_us: "Холбоо барих"
-      send_feedback: "Үнэлэлт явуулах"
-      your_feedback_to_admins: "Админд таны үнэлэлт"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Илгээх
     your_email_address: "Таны и-мэйл хаяг"
   errors:
@@ -1192,7 +1192,7 @@ mn:
     no_tribe:
       inbox: Ирсэн
       settings: Тохиргоо
-      feedback: "Холбоо барих"
+      feedback: ~
     application:
       join_this_community: ~
       read_more: ~
@@ -2097,6 +2097,7 @@ mn:
       menu: ~
       more: ~
       search_placeholder: ~
+      search_location_placeholder: ~
       user: ~
       inbox: ~
       profile: ~

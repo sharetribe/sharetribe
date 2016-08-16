@@ -1017,8 +1017,8 @@ ja:
       javascript_is_disabled_in_your_browser: Javascriptがあなたのブラウザで無効になっています
       kassi_does_not_currently_work_without_javascript: "%{service_name}ではjavascriptなしでは正しく機能しません。お使いのブラウザのjavascriptを有効にして、再度ロードしてみてください。"
       contact_us: サイト管理者に、メニューの「お問い合わせ」より、ご連絡下さい。
-      send_feedback: レビューを送信
-      your_feedback_to_admins: サイト管理者へ何か意見する
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: 送信する
     your_email_address: あなたのメールアドレス
   errors:
@@ -1206,17 +1206,17 @@ ja:
     no_tribe:
       inbox: 受信メール
       settings: 設定
-      feedback: お問い合わせ
+      feedback: ~
     application:
       join_this_community: マーケットプレイスに参加する
       read_more: もっと読む
-      feedback: ご用件をどうぞ
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: レビューフォーラム
       feedback_handle: レビューを書く
       give_feedback: お問い合わせ
       or_check_our: "...それとも確認する"
-      send_feedback_to_admin: 送信する
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: 他のユーザがそのアイデアについて、何を提案や投票したかを見てみる。
       your_email_address: あなたのメールアドレス
       connect: 新規登録
@@ -1286,7 +1286,7 @@ ja:
       error_with_session: セッション中にエラーが起こりました
       feedback_considered_spam: 初期化により内容は保存されませんでした。フィードバックフォーラムを使用して再試行してください。
       feedback_not_saved: レビューは送信できませんでした。
-      feedback_saved: ご意見いただきまして、ありがとうございます！なるべく早めのご返信を心がけたいと思います。
+      feedback_saved: ~
       feedback_sent_to: "%{target_person}さんにレビューを送信しました。"
       feedback_skipped: レビューをスキップしました
       invitation_cannot_be_sent: 招待状は送られませんでした
@@ -2115,6 +2115,7 @@ ja:
       menu: ~
       more: ~
       search_placeholder: ~
+      search_location_placeholder: ~
       user: ~
       inbox: ~
       profile: ~

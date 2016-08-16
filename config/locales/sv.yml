@@ -1036,8 +1036,8 @@ sv:
       javascript_is_disabled_in_your_browser: "Javascript har avaktiverats i din webbläsare"
       kassi_does_not_currently_work_without_javascript: "Tyvärr %{service_name} fungerar inte utan Javascript. Försök att aktivera Javascript i din webbläsare och ladda om sidan."
       contact_us: "kontakta oss"
-      send_feedback: "Skicka feedback"
-      your_feedback_to_admins: "Din feedback till admin."
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: Skicka
     your_email_address: "Din e-postadress"
   errors:
@@ -1225,17 +1225,17 @@ sv:
     no_tribe:
       inbox: Inkorg
       settings: Inställningar
-      feedback: "Kontakta oss"
+      feedback: ~
     application:
       join_this_community: "Gå med marknadsplatsen"
       read_more: "Läs mer"
-      feedback: "Vad skulle du vilja berätta för oss?"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: "forum för feedback"
       feedback_handle: Feedback
       give_feedback: "Kontakta oss"
       or_check_our: "...eller kolla vår"
-      send_feedback_to_admin: "Skicka feedback"
+      send_feedback_to_admin: ~
       to_see_what_others_have_suggested: "för att se vad andra användare har föreslagit, rösta på idéerna där."
       your_email_address: "Din e-postadress (för att kontakta dig)"
       connect: "Gå med"
@@ -1305,7 +1305,7 @@ sv:
       error_with_session: "Fel med session."
       feedback_considered_spam: "Feedbacken sparades inte på grund av formatet. Försök igen eller använd feedbacks forumet."
       feedback_not_saved: "Feedback kunde inte skickas."
-      feedback_saved: "Tack för din feedback! Vi återkommer till dig så fort som möjligt."
+      feedback_saved: ~
       feedback_sent_to: "Feedback skickades till %{target_person}."
       feedback_skipped: "Feedback skippades"
       invitation_cannot_be_sent: "Inbjudan kunde inte skickas"
@@ -2149,6 +2149,7 @@ sv:
       menu: ~
       more: ~
       search_placeholder: ~
+      search_location_placeholder: ~
       user: ~
       inbox: ~
       profile: ~

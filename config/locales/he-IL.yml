@@ -1003,8 +1003,8 @@ he-IL:
       javascript_is_disabled_in_your_browser: "JavaScript אינו פעיל כרגע בדפדפן שלך"
       kassi_does_not_currently_work_without_javascript: "‎%{service_name}‎ אינו פועל כשורה ללא JavaScript. נסה להפעיל JavaScript דרך מאפייני הדפדפן שלך ולטעון דף זה מחדש."
       contact_us: ~
-      send_feedback: "שלח/י משוב"
-      your_feedback_to_admins: "משוב למנהלי האתר"
+      send_feedback: ~
+      your_feedback_to_admins: ~
     send: שלח
     your_email_address: "כתובת הדואר האלקטרוני שלך"
   errors:
@@ -1196,7 +1196,7 @@ he-IL:
     application:
       join_this_community: ~
       read_more: ~
-      feedback: "מה ברצונך לומר לנו?"
+      feedback: ~
       dont_use_to_contact_support: ~
       feedback_forum: "פורום משובים, הערות והארות."
       feedback_handle: משוב
@@ -1272,7 +1272,7 @@ he-IL:
       error_with_session: "שגיאה בפעולה זו."
       feedback_considered_spam: "המשוב לא נשמר בשל בעיות בפורמט שלו. נסה שוב או קבל עזרה בפורום המשובים."
       feedback_not_saved: "משוב לא נשלח."
-      feedback_saved: "תודה רבה עבור המשוב! אשוב אליך בהקדם."
+      feedback_saved: ~
       feedback_sent_to: "משוב נשלח ל‎%{target_person}‎."
       feedback_skipped: "לא נכתב משוב"
       invitation_cannot_be_sent: ~
@@ -2097,6 +2097,7 @@ he-IL:
       menu: ~
       more: ~
       search_placeholder: ~
+      search_location_placeholder: ~
       user: ~
       inbox: ~
       profile: ~
