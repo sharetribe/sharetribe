@@ -44,7 +44,7 @@
               </div>
               <input type="search" name="q" class="hero__search-input" placeholder="<%= s["search_placeholder"]["value"] %>"/>
               <% if search_mode == "keyword_and_location_search" %>
-                <input type="search" name="lq" class="hero__search-input" placeholder="<%= s["search_placeholder"]["value"] %>"/>
+                <input type="search" name="lq" class="hero__search-input<%= combined_mode %>" placeholder="<%= s["search_location_with_keyword_placeholder"]["value"] %>"/>
               <% end %>
             </div>
             <button type="submit" class="hero__search-button"><%= s["search_button"]["value"] %></button>
