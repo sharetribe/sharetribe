@@ -7,7 +7,6 @@ describe Admin::CommunitiesController, type: :controller do
     @request.host = "#{@community.ident}.lvh.me"
     @request.env[:current_marketplace] = @community
     @user = create_admin_for(@community)
-    FeatureFlagService::API::Api.features.enable(community_id: @community.id, features: [:feature_flags_page])
     sign_in_for_spec(@user)
   end
 
@@ -91,6 +90,9 @@ describe Admin::CommunitiesController, type: :controller do
         .with(anything()).and_return(Result::Success.new("success"))
       allow(FeatureFlagService::API::Api.features).to receive(:disable)
         .with(anything()).and_return(Result::Success.new("success"))
+
+      allow(FeatureFlagHelper).to receive(:feature_enabled?)
+        .with(:feature_flags_page).and_return(true)
     end
 
     it "should enable given features for a user" do
