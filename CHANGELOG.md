@@ -24,6 +24,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Security: Rails and gems updated [#2393](https://github.com/sharetribe/sharetribe/pull/2393), [#2318](https://github.com/sharetribe/sharetribe/pull/2318)
 - Fix some asset links not respecting `asset_host` setting on landing pages [#2320](https://github.com/sharetribe/sharetribe/pull/2320)
 
+- Fix JS errors in development by replacing `babel-polyfill` with `es6-shim` [#2087](https://github.com/sharetribe/sharetribe/issues/2087)
+
 ## [5.8.0] - 2016-07-15
 
 ### Added
