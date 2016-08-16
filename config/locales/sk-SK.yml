@@ -85,7 +85,7 @@ sk-SK:
         contact_admin_link_text: "kontaktujte administrátora"
         save: "Uložiť nastavenia"
         transaction_agreement: "Súhlas s transakciou"
-        transaction_agreement_checkbox: "Požiadať užívateľa, aby potvrdili zmluvu pred prevedením transakcie"
+        transaction_agreement_checkbox: "Požiadať užívateľa, aby potvrdil zmluvu pred prevedením transakcie"
         transaction_agreement_checkbox_header: "Popis dohody"
         transaction_agreement_checkbox_label_description: "Tento text sa zobrazí vedľa zaškrtávacieho poľa vo formulári. Užívateľ musí zaškrtnúť pole, aby mohla byť transakcia prevedená. Príkladom pomenovania by mohlo byť niečo ako \"Kliknutím na toto pole súhlasím s podmienkami.\""
         transaction_agreement_text_header: "Text dohody"
@@ -488,7 +488,7 @@ sk-SK:
       contact_support_link_text: "kontaktujte Sharetribe podporu"
       integration_info_text: "Platobný systém Sharetribe je založený na PayPal. Pokiaľ chcete užívateľom umožniť, aby prevádzali platby cez Vaše trhovisko, musíte se pripojiť k Vašemu PayPal účtu, zadať minimálnu veľkosť transakcie a poplatok z každej prevedenej transakcie."
       link_paypal_personal_account_label: "Ponúkate tovar alebo poskytujete služby?"
-      link_paypal_personal_account: "pokiaľ áno, tak sa musíte pripojiť na Váš PayPal účet %{personal_payment_preferences_link}"
+      link_paypal_personal_account: "pokiaľ áno, tak sa musíte pripojiť na Váš PayPal účet. %{personal_payment_preferences_link}"
       personal_payment_preferences_link_text: "Váš osobný účet"
       read_more_about_paypal: "Čítať viac o Sharetribe platobnom systéme"
       set_minimum_price_and_fee: "Nastaviť minimálnu cenu a transakčný poplatok"
@@ -1380,7 +1380,7 @@ sk-SK:
       you_have_already_given_feedback_about_this_event: "Už ste si dali spätnú väzbu na tento udalosť"
       you_are_now_member: "Vitajte v %{service_name}!"
       you_are_already_member: "Už ste členom %{service_name}. Vitajte späť!"
-      you_must_log_in_to_create_new_listing: "Musíte byť prihlásený do %{service_name}, aby ste mohli pridať nový inzerát. Pokiaľ ešte nemáte účet, môžete si %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "Musíte byť prihlásený do %{service_name}, aby ste mohli pridať nový inzerát. Pokiaľ ešte nemáte účet, môžete si ho %{sign_up_link}."
       additional_email_confirmed_dashboard: "Váš e-mail bol práve potvrdený."
       you_must_log_in_to_give_feedback: "Musíte sa prihlásiť pre písanie spätnú väzbu"
       you_must_log_in_to_invite_new_users: "Musíte byť prihlásený pre odoslanie pozvánky do %{service_name}"
@@ -1918,7 +1918,7 @@ sk-SK:
       cancle_facebook_connect: "Pokiaľ nechcete prepojiť tento účet, kliknite na nasledujúci odkaz pre zrušenie %{cancel_link}."
       facebook_cancel_link_text: zrušit
       log_in_with_your_facebook_account: "Prihlásiť sa s Facebook účtom"
-      or_sign_up_with_your_username: "...alebo pomocou Vašeho užívateľského mena alebo hesla:"
+      or_sign_up_with_your_username: "...alebo pomocou Vašeho užívateľského mena a hesla:"
       we_will_not_post_without_asking_you: "Nikdy nebudeme prispievať na Facebook, bez toho aby sme sa Vás spýtali."
     password_forgotten:
       email: E-mail
