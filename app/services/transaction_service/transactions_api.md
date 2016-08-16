@@ -19,7 +19,7 @@ Example request body:
 
 ```ruby
 { transaction:
-  { payment_gateway: :none, # :paypal, :checkout or :braintree
+  { payment_gateway: :none, # :paypal, or :braintree
   , community_id: 501
   , listing_author_id: "1234abcd"
   }
@@ -40,7 +40,7 @@ Example request body:
 ```ruby
 { transaction:
   { payment_process: :none # or :postpay, :preauthorize
-  , payment_gateway: :none, # :paypal, :checkout or :braintree
+  , payment_gateway: :none, # :paypal, or :braintree
   , community_id: 501
   , starter_id: "5678dcba"
   , listing_id: 1234
@@ -80,7 +80,7 @@ Response:
   { id: 1234
   , conversation_id: 3344,
   , payment_process: :none # or :postpay, :prepay
-  , payment_gateway: :paypal # or :checkout, :braintree
+  , payment_gateway: :paypal # or :braintree
   , community_id: 501
   , starter_id: "5678dcba"
   , listing_id: 1234
@@ -94,7 +94,7 @@ Response:
   , last_transition_at: <Time>
   , current_state: :free       # or :initiated for Paypal
                                # or :preauthorized for preauthorized Braintree
-                               # or :pending for postpay Braintree and Checkout
+                               # or :pending for postpay Braintree
   , payment_total: Money.new(50, "USD") # only for Braintree if :preauthorized
   }
 
@@ -199,19 +199,14 @@ Response:
 
 ## POST /:transaction_id/invoice
 
-Only for **postpay** and **checkout** and **braintree**
+Only for **postpay** and **braintree**
 
 Request:
 
 ```ruby
 {
-  # Checkout
-  gateway_fields:
-  { payment_rows: [] # Some payment row stuff here
-  }
-
   # Braintree
-, gateway_fields
+  gateway_fields
   { total_sum: Money.new(5000, "EUR")
   }
 }
@@ -244,17 +239,13 @@ Response:
 
 ## POST /:transaction\_id/pay\_invoice
 
-Only for **postpay** and **checkout** and **braintree**
+Only for **postpay** and **braintree**
 
 Request:
 
 ```ruby
 {
-  # Checkout
-  gateway_fields:
-  { ??? }
-
-, gateway_fields
+  gateway_fields
   { cardholder_name: "Mikko Koski"
   , credit_card_number: "4000 5000 6000 7000 9"
   , cvv: "1234"

@@ -606,7 +606,7 @@ class Community < ActiveRecord::Base
   end
 
   def invoice_form_type_for(listing)
-    payment_possible_for?(listing) && payments_in_use? ? payment_gateway.invoice_form_type : "no_form"
+    payment_possible_for?(listing) && payments_in_use? ? "simple" : "no_form"
   end
 
   def email_notification_types
