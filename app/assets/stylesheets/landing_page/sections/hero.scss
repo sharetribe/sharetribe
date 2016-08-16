@@ -121,7 +121,7 @@
   overflow: hidden; // add overflow hidden so that children's borders are also rounded
 
   /* mobile */
-  @include prefix-prop(flex-direction, row-reverse);
+  @include prefix-prop(flex-direction, row);
   padding: 0px 0px 0px 24px;
 
   @media #{$mobile-landscape}, #{$tablet} {
@@ -137,6 +137,7 @@
 
 .hero__search-input {
   @include typography__medium;
+  order: 1;
   margin: 0;
   border: 0;
   width: 100%;
@@ -237,16 +238,19 @@
 .hero__search-icon {
   @include enable-flex-shrink-fix;
 
+  order: 2;
   background: #FFF;
 
   /* mobile */
   padding: 15px 24px 15px 0px;
 
   @media #{$mobile-landscape}, #{$tablet} {
+    order: 0;
     padding: 19px 0px;
   }
 
   @media #{$desktop} {
+    order: 0;
     padding: 19px 0px;
   }
 }
