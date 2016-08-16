@@ -12,6 +12,11 @@
   = render :partial => "layouts/google_analytics_script", locals: {feature_flags: FeatureFlagHelper.feature_flags, community_id: Maybe(@current_community).id.or_else, google_analytics_key: Maybe(@current_community).google_analytics_key.or_else}
   :css
     @import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&subset=latin-ext);
+
+  - font_path = APP_CONFIG[:font_proximanovasoft_url]
+  - if font_path.present? && FeatureFlagHelper.feature_enabled?(:topbar_v1)
+    = render partial: "layouts/fonts", locals: { font_path: font_path }
+
   %meta{content: "width=device-width, initial-scale=1.0, user-scalable=no", name: "viewport"}
   %meta{ :property => "og:type", :content =>"website"}
   %meta{:"http-equiv" => "content-language", content: "#{I18n.locale}"}
