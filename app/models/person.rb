@@ -161,7 +161,6 @@ class Person < ActiveRecord::Base
   USERNAME_BLACKLIST = YAML.load_file("#{Rails.root}/config/username_blacklist.yml")
 
   validates :username, :exclusion => USERNAME_BLACKLIST
-  validate :community_email_type_is_correct
 
   has_attached_file :image, :styles => {
                       :medium => "288x288#",
