@@ -242,3 +242,6 @@ Then /^I should see receipt info for unit_type (.*?) with quantity (\d+) and sub
   expect(find(".initiate-transaction-sum-value")).to have_content(subtotal)
 end
 
+Then /^I should see flash error$/ do
+  expect(find(".flash-error")).to be_visible
+end

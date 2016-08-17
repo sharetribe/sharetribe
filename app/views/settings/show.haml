@@ -17,15 +17,14 @@
     = link_to(t("settings.profile.profile_page"), target_user) + "."
 
   = form_for target_user do |form|
-    - unless target_user.is_organization
-      = form.label :given_name, t("settings.profile.given_name")
-      = form.text_field :given_name, :class => "text_field", :maxlength => "30"
-      .inline-label-container
-        = form.label :family_name, t("settings.profile.family_name"), :class => "inline"
-        %small
-          - if ["first_name_with_initial", "first_name_only"].include? @current_community.name_display_type
-            = t("settings.profile.#{@current_community.name_display_type}")
-      = form.text_field :family_name, :class => "text_field", :maxlength => "30"
+    = form.label :given_name, t("settings.profile.given_name")
+    = form.text_field :given_name, :class => "text_field", :maxlength => "30"
+    .inline-label-container
+      = form.label :family_name, t("settings.profile.family_name"), :class => "inline"
+      %small
+        - if ["first_name_with_initial", "first_name_only"].include? @current_community.name_display_type
+          = t("settings.profile.#{@current_community.name_display_type}")
+    = form.text_field :family_name, :class => "text_field", :maxlength => "30"
 
     -# Location
     .inline-label-container
