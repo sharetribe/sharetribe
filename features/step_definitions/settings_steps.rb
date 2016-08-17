@@ -1,6 +1,6 @@
 module SettingsSteps
   DELETE_LINK_SELECTOR = ".account-settings-email-row-delete-link"
-  NOTIFICATION_CHECKOUT_SELECTOR = ".account-settings-email-row-send-notification-checkbox"
+  NOTIFICATION_CHECKBOX_SELECTOR = ".account-settings-email-row-send-notification-checkbox"
   RESEND_LINK_SELECTOR = ".account-settings-email-row-resend-link"
 
   def find_row_for_email(email)
@@ -17,7 +17,7 @@ module SettingsSteps
   end
 
   def find_notification_checkbox_for_email(email)
-    find_row_for_email(email).find(NOTIFICATION_CHECKOUT_SELECTOR)
+    find_row_for_email(email).find(NOTIFICATION_CHECKBOX_SELECTOR)
   end
 
   def find_resend_link_for_email(email)

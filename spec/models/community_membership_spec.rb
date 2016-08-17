@@ -3,7 +3,7 @@
 # Table name: community_memberships
 #
 #  id                  :integer          not null, primary key
-#  person_id           :string(255)      default(""), not null
+#  person_id           :string(255)      not null
 #  community_id        :integer          not null
 #  admin               :boolean          default(FALSE)
 #  created_at          :datetime

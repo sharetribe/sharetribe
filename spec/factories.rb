@@ -349,29 +349,6 @@ FactoryGirl.define do
       currency "USD"
       sum_cents 500
     end
-
-    factory :checkout_payment, class: 'CheckoutPayment' do
-      build_association(:payer)
-      build_association(:recipient)
-      status "pending"
-      payment_gateway { FactoryGirl.build(:checkout_payment_gateway) }
-      currency "EUR"
-
-      has_many :rows do
-        FactoryGirl.build(:payment_row)
-      end
-    end
-  end
-
-  factory :payment_row do
-    currency "EUR"
-    sum_cents 2000
-  end
-
-  factory :checkout_account do
-    build_association(:person)
-    merchant_id "12345678-9"
-    merchant_key "abcdef12345"
   end
 
   factory :braintree_account do
@@ -399,10 +376,6 @@ FactoryGirl.define do
       braintree_private_key { APP_CONFIG.braintree_test_private_key }
       braintree_client_side_encryption_key { APP_CONFIG.braintree_client_side_encryption_key }
       braintree_environment { APP_CONFIG.braintree_environment }
-    end
-
-    factory :checkout_payment_gateway, class: 'Checkout' do
-      checkout_environment "stub"
     end
   end
 

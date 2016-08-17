@@ -1,17 +1,13 @@
 module CommunitySteps
 
-  def use_payment_gateway(community_ident, gateway_name, commission)
-    gateway_name ||= "Checkout"
+  def use_braintree(community_ident, commission)
+    gateway_name = "BraintreePaymentGateway"
     commission ||= "8"
 
     community = Community.where(ident: community_ident).first
-    community.update_attributes(:vat => "24", :commission_from_seller => commission.to_i)
+    community.update_attributes(:commission_from_seller => commission.to_i)
 
-    if gateway_name == "Checkout"
-      FactoryGirl.create(:checkout_payment_gateway, :community => community, :type => gateway_name)
-    else
-      FactoryGirl.create(:braintree_payment_gateway, :community => community, :type => gateway_name)
-    end
+    FactoryGirl.create(:braintree_payment_gateway, :community => community, :type => gateway_name)
 
     listings_api = ListingService::API::Api
     shapes = listings_api.shapes.get(community_id: community.id)[:data]
@@ -90,12 +86,12 @@ Given /^community "([^"]*)" requires users to have an email address of type "(.*
   Community.where(ident: community).first.update_attribute(:allowed_emails, email)
 end
 
-Given /^the community has payments in use(?: via (\w+))?(?: with seller commission (\w+))?$/ do |gateway_name, commission|
-  use_payment_gateway(@current_community.ident, gateway_name, commission)
+Given /^the community has payments in use via BraintreePaymentGateway(?: with seller commission (\w+))?$/ do |commission|
+  use_braintree(@current_community.ident, commission)
 end
 
-Given /^community "([^"]*)" has payments in use(?: via (\w+))?(?: with seller commission (\w+))?$/ do |community_ident, gateway_name, commission|
-  use_payment_gateway(community_ident, gateway_name, commission)
+Given /^community "([^"]*)" has payments in use via BraintreePaymentGateway(?: with seller commission (\w+))?$/ do |community_ident, commission|
+  use_braintree(community_ident, commission)
 end
 
 Given /^users (can|can not) invite new users to join community "([^"]*)"$/ do |verb, community|

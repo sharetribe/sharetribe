@@ -46,14 +46,6 @@ Given(/^"(.*?)" has paid for that listing$/) do |username|
   MarketplaceService::Transaction::Command.transition_to(transaction.id, "paid")
 end
 
-Then /^"(.*?)" should have required Checkout payment details saved to my account information$/ do |username|
-  p = Person.find_by(username: username, community_id: @current_community.id)
-  expect(p.checkout_account.merchant_id).not_to be_nil
-  expect(p.checkout_account.merchant_id).not_to be_blank
-  expect(p.checkout_account.merchant_key).not_to be_nil
-  expect(p.checkout_account.merchant_key).not_to be_blank
-end
-
 When /^Braintree webhook "(.*?)" with id "(.*?)" is triggered$/ do |kind, id|
   community = Community.where(ident: "test").first # Hard-coded default test community
   signature, payload = BraintreeApi.webhook_testing_sample_notification(
@@ -171,13 +163,6 @@ When /^I browse to payment settings$/ do
   }
 end
 
-When /^I browse to Checkout account settings$/ do
-  steps %Q{
-    When I browse to payment settings
-    Then I should be on the new Checkout account page
-  }
-end
-
 Then /^the link to payment settings should be visible$/ do
   expect(find("#settings-tab-payments")).to be_visible
 end
@@ -203,44 +188,6 @@ When /^I fill in Braintree account details$/ do
     And I select "9" from "braintree_account[date_of_birth(3i)]"
     And I fill in "braintree_account[routing_number]" with "101000187"
     And I fill in "braintree_account[account_number]" with "43759348798"
-  }
-end
-
-When /^I fill the payment details form(?: with valid information)?$/ do
-  steps %Q{
-    When I fill in "checkout_account_form[company_id_or_personal_id]" with "1234567-8"
-    And I fill in "checkout_account_form[organization_address]" with "Startup Sauna, Betonimiehenkuja, Espoo, Finland"
-    And I fill in "checkout_account_form[phone_number]" with "555-12345678"
-    And I fill in "checkout_account_form[organization_website]" with "http://www.company.com/"
-    And I press submit
-  }
-end
-
-When /^I fill the payment details form with invalid information$/ do
-  steps %Q{
-    When I fill in "checkout_account_form[company_id_or_personal_id]" with "12345465467"
-    And I fill in "checkout_account_form[organization_address]" with "kepponen"
-    And I fill in "checkout_account_form[phone_number]" with "555"
-    And I fill in "checkout_account_form[organization_website]" with ""
-    And I press submit
-  }
-end
-
-Given /^"(.*?)" has Checkout account$/ do |org_username|
-  org = Person.find_by(username: org_username)
-  checkout = CheckoutAccount.new({ merchant_key: "SAIPPUAKAUPPIAS", merchant_id: "375917", person_id: org.id })
-  checkout.save!
-end
-
-Given /^"(.*?)" does not have Checkout account$/ do |org_username|
-  org = Person.find_by(username: org_username)
-  org.checkout_account.destroy if org.checkout_account.present?
-end
-
-Then /^I should see information about existing Checkout account$/ do
-  expect(find("#payment-help-checkout-exists").visible?).to be_truthy
-  steps %Q{
-    And I should not see payment setting fields
   }
 end
 
@@ -276,10 +223,6 @@ Then /^I should not see payment setting fields$/ do
   expect(page).to have_no_selector("#person-phone-number")
   expect(page).to have_no_selector("#person-organization-website")
   expect(page).to have_no_selector("[type=submit]")
-end
-
-When /^I click Tilisiirto logo$/ do
-  page.find('input[src="https://payment.checkout.fi/static/img/tilisiirto.gif"]').click
 end
 
 Then /^I should receive an email about missing payment details$/ do

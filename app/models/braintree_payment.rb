@@ -14,7 +14,7 @@
 #  payment_gateway_id       :integer
 #  sum_cents                :integer
 #  currency                 :string(255)
-#  type                     :string(255)      default("CheckoutPayment")
+#  type                     :string(255)      default("BraintreePayment")
 #  braintree_transaction_id :string(255)
 #
 # Indexes

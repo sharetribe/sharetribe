@@ -429,7 +429,7 @@ module ApplicationHelper
       }
     ]
 
-    # Disabled for Braintree and Checkout
+    # Disabled for Braintree
     gw = PaymentGateway.where(community_id: @current_community.id).first
     unless gw
       links << {
@@ -551,8 +551,6 @@ module ApplicationHelper
   def payment_settings_path(gateway_type, person)
     if gateway_type == :braintree
       show_braintree_settings_payment_path(person)
-    elsif gateway_type == :checkout
-      person_checkout_account_path(person)
     elsif gateway_type == :paypal
       paypal_account_settings_payment_path(person)
     end
@@ -561,8 +559,6 @@ module ApplicationHelper
   def payment_settings_url(gateway_type, person, url_params)
     if gateway_type == :braintree
       show_braintree_settings_payment_url(person, url_params.merge(locale: person.locale))
-    elsif gateway_type == :checkout
-      person_checkout_account_url(person, url_params.merge(locale: person.locale))
     elsif gateway_type == :paypal
       paypal_account_settings_payment_url(person, url_params.merge(locale: person.locale))
     end

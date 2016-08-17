@@ -216,7 +216,7 @@ module MarketplaceService
 
         payment_total =
           case payment_gateway.to_sym
-          when :checkout, :braintree
+          when :braintree
             # Use Maybe, since payment may not exists yet, if postpay flow
             Maybe(PaymentModel.where(id: transaction[:payment_id]).first).total_sum.or_else(nil)
           when :paypal

@@ -19,15 +19,6 @@ class SendPaymentReceipts < Struct.new(:transaction_id)
         receipts << TransactionMailer.braintree_receipt_to_payer(payment, community)
         receipts
 
-      when :checkout
-        community = Community.find(transaction[:community_id])
-        payment = checkout_payment_for(transaction_id)
-
-        receipts = []
-        receipts << PersonMailer.new_payment(payment, community) if receipt_to_seller
-        receipts << PersonMailer.receipt_to_payer(payment, community)
-        receipts
-
       when :paypal
         community = Community.find(transaction[:community_id])
 
@@ -55,10 +46,6 @@ class SendPaymentReceipts < Struct.new(:transaction_id)
 
   def braintree_payment_for(transaction_id)
     BraintreePayment.where(transaction_id: transaction_id).first
-  end
-
-  def checkout_payment_for(transaction_id)
-    CheckoutPayment.where(transaction_id: transaction_id).first
   end
 
 end

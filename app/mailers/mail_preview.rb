@@ -3,20 +3,12 @@
 class MailPreview < MailView
   include MailViewTestData
 
-  def new_payment
-    PersonMailer.new_payment(checkout_payment, checkout_community)
-  end
-
   def payment_settings_reminder
     PersonMailer.payment_settings_reminder(listing, member, community)
   end
 
   def payment_reminder
     PersonMailer.payment_reminder(conversation, member, community)
-  end
-
-  def receipt_to_payer
-    PersonMailer.receipt_to_payer(checkout_payment, checkout_community)
   end
 
   def braintree_receipt_to_payer

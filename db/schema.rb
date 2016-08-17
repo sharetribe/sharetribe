@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816083607) do
+ActiveRecord::Schema.define(version: 20160816123633) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -779,13 +779,13 @@ ActiveRecord::Schema.define(version: 20160816083607) do
     t.string   "organization_id",          limit: 255
     t.integer  "transaction_id",           limit: 4
     t.string   "status",                   limit: 255
-    t.datetime "created_at",                                                       null: false
-    t.datetime "updated_at",                                                       null: false
+    t.datetime "created_at",                                                        null: false
+    t.datetime "updated_at",                                                        null: false
     t.integer  "community_id",             limit: 4
     t.integer  "payment_gateway_id",       limit: 4
     t.integer  "sum_cents",                limit: 4
     t.string   "currency",                 limit: 255
-    t.string   "type",                     limit: 255, default: "CheckoutPayment"
+    t.string   "type",                     limit: 255, default: "BraintreePayment"
     t.string   "braintree_transaction_id", limit: 255
   end
 

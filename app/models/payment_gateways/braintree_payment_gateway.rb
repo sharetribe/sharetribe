@@ -46,14 +46,6 @@ class BraintreePaymentGateway < PaymentGateway
     "braintree"
   end
 
-  def form_template_dir
-    "payments/simple_form"
-  end
-
-  def invoice_form_type
-    "simple"
-  end
-
   def new_payment
     payment = BraintreePayment.new
     payment.payment_gateway = self

@@ -253,9 +253,6 @@ default: &default_settings
   # don't need to change those
   # ----------------------------------------------------------------
 
-  # If there's a tax related to payment service charge (e.g. VAT) mark the percentage here
-  service_fee_tax_percentage: 24
-
   # Max filesize for uploaded image (bytes)
   max_image_filesize: 104857600
 

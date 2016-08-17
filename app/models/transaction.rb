@@ -104,8 +104,7 @@ class Transaction < ActiveRecord::Base
       # Simple payment form
       initialize_braintree_payment!(payment, attributes[:sum], attributes[:currency])
     else
-      # Complex (multi-row) payment form
-      initialize_checkout_payment!(payment, attributes[:payment_rows])
+      raise ArgumentError.new("Missing attribute 'sum'")
     end
 
     payment.save!
@@ -125,10 +124,6 @@ class Transaction < ActiveRecord::Base
 
   def initialize_braintree_payment!(payment, sum, currency)
     payment.sum = MoneyUtil.parse_str_to_money(sum.to_s, currency)
-  end
-
-  def initialize_checkout_payment!(payment, rows)
-    rows.each { |row| payment.rows.build(row.merge(:currency => "EUR")) unless row["title"].blank? }
   end
 
   def has_feedback_from?(person)
