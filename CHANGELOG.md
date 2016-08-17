@@ -21,7 +21,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Removed
 
-- Removed Checkout Finland payment gateway [#2408](https://github.com/sharetribe/sharetribe/pull/2408)
+- Removed Checkout Finland payment gateway [#2408](https://github.com/sharetribe/sharetribe/pull/2408) [#2406](https://github.com/sharetribe/sharetribe/pull/2406)
 
 ### Fixed
 
