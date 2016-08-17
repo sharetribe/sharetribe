@@ -78,7 +78,7 @@ class Person < ActiveRecord::Base
   attr_accessor :guid, :password2, :form_login,
                 :form_given_name, :form_family_name, :form_password,
                 :form_password2, :form_email, :consent,
-                :input_again, :community_category, :send_notifications
+                :input_again, :send_notifications
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
@@ -148,8 +148,6 @@ class Person < ActiveRecord::Base
     "email_from_admins"
   ]
 
-  PERSONAL_EMAIL_ENDINGS = ["gmail.com", "hotmail.com", "yahoo.com"]
-
   serialize :preferences
 
   validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
@@ -198,15 +196,6 @@ class Person < ActiveRecord::Base
     if email_ids
       emails.each do |email|
         email.update_attribute(:send_notifications, email_ids.include?(email.id.to_s))
-      end
-    end
-  end
-
-  def community_email_type_is_correct
-    if ["university", "community"].include? community_category
-      email_ending = email.split('@')[1]
-      if PERSONAL_EMAIL_ENDINGS.include? email_ending
-        errors.add(:email, "This looks like a non-organization email address. Remember to use the email of your organization.")
       end
     end
   end
