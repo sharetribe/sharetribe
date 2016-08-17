@@ -37,15 +37,15 @@ module FeatureFlagService::Store
         }.or_else(no_combined_flags(community_id, person_id))
     end
 
-    def get_by_community_id(community_id)
+    def get_for_community(community_id)
       Maybe(FeatureFlagModel.where(community_id: community_id, person_id: nil))
         .map { |features|
           from_community_models(community_id, features)
         }.or_else(no_community_flags(community_id))
     end
 
-    def get_by_person_id(person_id)
-      Maybe(FeatureFlagModel.where(person_id: person_id))
+    def get_for_person(community_id, person_id)
+      Maybe(FeatureFlagModel.where(community_id: community_id, person_id: person_id))
         .map { |features|
           from_person_models(person_id, features)
         }.or_else(no_person_flags(person_id))
@@ -56,9 +56,9 @@ module FeatureFlagService::Store
       update_flags!(community_id, person_id, flags_to_enable)
 
       if person_id
-        get_by_person_id(person_id)
+        get_for_person(community_id, person_id)
       else
-        get_by_community_id(community_id)
+        get_for_community(community_id)
       end
     end
 
@@ -67,9 +67,9 @@ module FeatureFlagService::Store
       update_flags!(community_id, person_id, flags_to_disable)
 
       if person_id
-        get_by_person_id(person_id)
+        get_for_person(community_id, person_id)
       else
-        get_by_community_id(community_id)
+        get_for_community(community_id)
       end
     end
 
@@ -147,15 +147,15 @@ module FeatureFlagService::Store
       @feature_flag_store.get(community_id, person_id)
     end
 
-    def get_by_community_id(community_id)
+    def get_for_community(community_id)
       Rails.cache.fetch(cache_key(community_id: community_id)) do
-        @feature_flag_store.get_by_community_id(community_id)
+        @feature_flag_store.get_for_community(community_id)
       end
     end
 
-    def get_by_person_id(person_id)
-      Rails.cache.fetch(cache_key(person_id: person_id)) do
-        @feature_flag_store.get_by_person_id(person_id)
+    def get_for_person(community_id, person_id)
+      Rails.cache.fetch(cache_key(community_id: community_id, person_id: person_id)) do
+        @feature_flag_store.get_for_person(community_id, person_id)
       end
     end
 
@@ -173,12 +173,14 @@ module FeatureFlagService::Store
     private
 
     def cache_key(community_id: nil, person_id: nil)
-      raise ArgumentError.new("You must specify a valid community_id or person_id.") unless community_id || person_id
+      unless (community_id && person_id) || community_id
+        raise ArgumentError.new("You must specify a valid community_id or person_id and community_id.")
+      end
 
-      if person_id
-        "/feature_flag_service/person/#{person_id}"
+      if community_id && person_id
+        "/feature_flag_service/#{community_id}-#{person_id}"
       else
-        "/feature_flag_service/community/#{community_id}"
+        "/feature_flag_service/#{community_id}"
       end
     end
   end

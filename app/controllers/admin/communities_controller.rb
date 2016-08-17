@@ -243,7 +243,7 @@ class Admin::CommunitiesController < ApplicationController
       marketplace_configurations = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data
 
       keyword_and_location =
-        if FeatureFlagService::API::Api.features.get(community_id: @current_community.id).data[:features].include?(:topbar_v1)
+        if FeatureFlagService::API::Api.features.get_for_community(community_id: @current_community.id).data[:features].include?(:topbar_v1)
           [:keyword_and_location]
         else
           []

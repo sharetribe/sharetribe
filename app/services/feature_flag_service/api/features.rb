@@ -24,19 +24,29 @@ module FeatureFlagService::API
       Result::Success.new(@feature_flag_store.disable(community_id, person_id, features))
     end
 
-    # Fetch enabled features for a community, a person or both if both params are provided
+    # Fetch features enabled for a community or a person
     def get(community_id: nil, person_id: nil)
-      unless community_id || person_id
-        return Result::Error.new("You must specify a community_id or a person_id for feature flag query.")
+      unless community_id && person_id
+        return Result::Error.new("You must specify a community_id and a person_id for feature flag query.")
       end
 
-      if community_id && person_id
-        Result::Success.new(@feature_flag_store.get(community_id, person_id))
-      elsif community_id
-        Result::Success.new(@feature_flag_store.get_by_community_id(community_id))
-      elsif person_id
-        Result::Success.new(@feature_flag_store.get_by_person_id(person_id))
+      Result::Success.new(@feature_flag_store.get(community_id, person_id))
+    end
+
+    def get_for_person(community_id:, person_id:)
+      unless community_id && person_id
+        return Result::Error.new("You must specify a community_id and a person_id for feature flag query.")
       end
+
+      Result::Success.new(@feature_flag_store.get_for_person(community_id, person_id))
+    end
+
+    def get_for_community(community_id:)
+      unless community_id
+        return Result::Error.new("You must specify a community_id for feature flag query.")
+      end
+
+      Result::Success.new(@feature_flag_store.get_for_community(community_id))
     end
   end
 end

@@ -41,10 +41,13 @@ module FeatureFlagHelper
   end
 
   def fetch_flags_from_service(community_id, person_id, is_admin, is_marketplace_admin)
-    # for non-admin users, only fetch the community specific feature flags
-    parameters = is_admin || is_marketplace_admin ? {community_id: community_id, person_id: person_id} : {community_id: community_id}
-
-    FeatureFlagService::API::Api.features.get(parameters).maybe[:features].or_else(Set.new)
+    # for admin users fetch combined feature flags,
+    # for non-admin users only fetch the community specific feature flags
+    if is_admin || is_marketplace_admin
+      FeatureFlagService::API::Api.features.get(community_id: community_id, person_id: person_id).maybe[:features].or_else(Set.new)
+    else
+      FeatureFlagService::API::Api.features.get_for_community(community_id: community_id).maybe[:features].or_else(Set.new)
+    end
   end
 
   # Fetch temporary flags from params and session
