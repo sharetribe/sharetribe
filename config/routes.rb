@@ -403,11 +403,7 @@ Kassi::Application.routes.draw do
               put :skip
             end
           end
-          resources :payments do
-            member do
-              get :done
-            end
-          end
+          resources :payments
           resources :braintree_payments
         end
         resource :paypal_account, only: [:index] do

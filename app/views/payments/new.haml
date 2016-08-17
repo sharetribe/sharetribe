@@ -1,9 +1,0 @@
-.centered-section-wide.payment-form
-  - payment_receiver = @conversation.other_party(@current_user)
-  %h2= t(".new_payment")
-  %p
-    = t(".payment_receiver")
-
-    = "#{link_to payment_receiver.name(@current_community), payment_receiver}".html_safe
-
-  = render :partial => "payments/simple_form/show"
