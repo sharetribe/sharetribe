@@ -19,6 +19,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Remove the need for CSS compilation per marketplace [#2325](https://github.com/sharetribe/sharetribe/pull/2325)
 - Update default colors [#2365](https://github.com/sharetribe/sharetribe/pull/2365)
 
+### Removed
+
+- Removed Checkout Finland payment gateway [#2408](https://github.com/sharetribe/sharetribe/pull/2408)
+
 ### Fixed
 
 - Security: Rails and gems updated [#2393](https://github.com/sharetribe/sharetribe/pull/2393), [#2318](https://github.com/sharetribe/sharetribe/pull/2318)
