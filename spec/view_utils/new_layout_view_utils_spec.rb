@@ -2,18 +2,18 @@ require 'spec_helper'
 
 describe NewLayoutViewUtils do
   before do
-    TEST_FEATURES = [
-      { title: "Foo",
-        name: :foo
-      },
-      { title: "Bar",
-        name: :bar
-      },
-      { title: "Wat",
-        name: :wat
-      }
-    ]
-    stub_const("NewLayoutViewUtils::FEATURES", TEST_FEATURES)
+    stub_const("NewLayoutViewUtils::FEATURES",
+      [
+        { title: "Foo",
+          name: :foo
+        },
+        { title: "Bar",
+          name: :bar
+        },
+        { title: "Wat",
+          name: :wat
+        }
+      ])
   end
 
   describe "#features" do
@@ -36,9 +36,9 @@ describe NewLayoutViewUtils do
           }
         )
 
-        allow(FeatureFlagService::API::Api.features).to receive(:get)
-          .with({person_id: person_id}).and_return(Result::Success.new(person_features))
-        allow(FeatureFlagService::API::Api.features).to receive(:get)
+        allow(FeatureFlagService::API::Api.features).to receive(:get_for_person)
+          .with({community_id: community_id, person_id: person_id}).and_return(Result::Success.new(person_features))
+        allow(FeatureFlagService::API::Api.features).to receive(:get_for_community)
           .with({community_id: community_id}).and_return(Result::Success.new(community_features))
       end
 
@@ -79,9 +79,9 @@ describe NewLayoutViewUtils do
           }
         )
 
-        allow(FeatureFlagService::API::Api.features).to receive(:get)
-          .with({person_id: person_id}).and_return(Result::Success.new(person_features))
-        allow(FeatureFlagService::API::Api.features).to receive(:get)
+        allow(FeatureFlagService::API::Api.features).to receive(:get_for_person)
+          .with({community_id: community_id, person_id: person_id}).and_return(Result::Success.new(person_features))
+        allow(FeatureFlagService::API::Api.features).to receive(:get_for_community)
           .with({community_id: community_id}).and_return(Result::Success.new(community_features))
       end
 

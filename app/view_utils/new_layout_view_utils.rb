@@ -17,8 +17,8 @@ module NewLayoutViewUtils
   module_function
 
   def features(community_id, person_id)
-    person_flags = FeatureFlagService::API::Api.features.get(person_id: person_id).maybe[:features].or_else(Set.new)
-    community_flags = FeatureFlagService::API::Api.features.get(community_id: community_id).maybe[:features].or_else(Set.new)
+    person_flags = FeatureFlagService::API::Api.features.get_for_person(community_id: community_id, person_id: person_id).data[:features]
+    community_flags = FeatureFlagService::API::Api.features.get_for_community(community_id: community_id).data[:features]
 
     FEATURES.map { |f|
       Feature.build({

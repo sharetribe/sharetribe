@@ -4,36 +4,12 @@
 
 Query params:
 
- - `community_id`: optional, for searching community-specific features
- - `person_id`: optional, for searching person-specific features
-
-If both parameters are provided, result includes features for the community and the person combined
+ - `community_id`: mandatory, for searching community-specific features
+ - `person_id`: mandatory, for searching person-specific features
 
 Request body: empty
 
-Response body (person_id not provided):
-
-```ruby
-{ community_id: 123
-, features:
-  [ :topbar_v1
-  , :new_login
-  ]
-}
-```
-
-Response body (person_id provided):
-
-```ruby
-{ person_id: 456
-, features:
-  [ :topbar_v1
-  , :new_login
-  ]
-}
-```
-
-Response body (both params):
+Response body:
 
 ```ruby
 { community_id: 123
@@ -44,6 +20,43 @@ Response body (both params):
   ]
 }
 ```
+
+## GET /community/?community_id=123
+
+Query params:
+
+ - `community_id`: mandatory, for searching community-specific features
+
+Request body: empty
+
+Response body:
+
+```ruby
+{ community_id: 123
+, features:
+  [ :topbar_v1
+  ]
+}
+```
+
+## GET /person/?person_id=456
+
+Query params:
+
+ - `person_id`: mandatory, for searching person-specific features
+
+Request body: empty
+
+Response body:
+
+```ruby
+{ person_id: 456
+, features:
+  [ :new_login
+  ]
+}
+```
+
 
 ## POST /?community_id=123&person_id=456
 
@@ -66,7 +79,6 @@ Response body (person_id not provided):
 { community_id: 123
 , features:
   [ :topbar_v1
-  , :new_login
   , :some_feature
   , :some_other_feature
   ]
@@ -78,8 +90,7 @@ Response body (person_id provided):
 ```ruby
 { person_id: 456
 , features:
-  [ :topbar_v1
-  , :new_login
+  [ :new_login
   , :some_feature
   , :some_other_feature
   ]
