@@ -27,7 +27,6 @@
 #  event_feed_enabled                         :boolean          default(TRUE)
 #  slogan                                     :string(255)
 #  description                                :text(65535)
-#  category                                   :string(255)      default("other")
 #  country                                    :string(255)
 #  members_count                              :integer          default(0)
 #  user_limit                                 :integer

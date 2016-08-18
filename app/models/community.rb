@@ -26,7 +26,6 @@
 #  event_feed_enabled                         :boolean          default(TRUE)
 #  slogan                                     :string(255)
 #  description                                :text(65535)
-#  category                                   :string(255)      default("other")
 #  country                                    :string(255)
 #  members_count                              :integer          default(0)
 #  user_limit                                 :integer
@@ -517,12 +516,6 @@ class Community < ActiveRecord::Base
   def self.find_by_allowed_email(email)
     email_ending = "@#{email.split('@')[1]}"
     where("allowed_emails LIKE ?", "%#{email_ending}%")
-  end
-
-  # Check if communities with this category are email restricted
-  # TODO Is this still in use?
-  def self.email_restricted?(community_category)
-    ["company", "university"].include?(community_category)
   end
 
   # Returns all the people who are admins in at least one tribe.

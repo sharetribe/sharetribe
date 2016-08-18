@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817130729) do
+ActiveRecord::Schema.define(version: 20160817140558) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -151,7 +151,6 @@ ActiveRecord::Schema.define(version: 20160817130729) do
     t.boolean  "event_feed_enabled",                                          default: true
     t.string   "slogan",                                     limit: 255
     t.text     "description",                                limit: 65535
-    t.string   "category",                                   limit: 255,      default: "other"
     t.string   "country",                                    limit: 255
     t.integer  "members_count",                              limit: 4,        default: 0
     t.integer  "user_limit",                                 limit: 4
