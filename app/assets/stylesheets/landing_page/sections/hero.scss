@@ -218,6 +218,10 @@
   }
 
   @include hero-search-input-media;
+
+  &:nth-of-type(2) {
+    border-left: solid 1px #cccccc;
+  }
 }
 
 .hero__search-button {
