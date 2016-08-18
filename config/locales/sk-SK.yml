@@ -1384,7 +1384,7 @@ sk-SK:
       additional_email_confirmed_dashboard: "Váš e-mail bol práve potvrdený."
       you_must_log_in_to_give_feedback: "Musíte sa prihlásiť pre písanie spätnú väzbu"
       you_must_log_in_to_invite_new_users: "Musíte byť prihlásený pre odoslanie pozvánky do %{service_name}"
-      you_must_log_in_to_send_a_comment: "Musíte sa prihlásiť pre poslanie nového komentára"
+      you_must_log_in_to_send_a_comment: "Musíte sa prihlásiť ak chcete pridať komentár"
       you_must_log_in_to_send_a_message: "Musíte sa prihlásiť do %{service_name} aby ste mohli poslať správu pre ďalších užívateľov"
       you_must_log_in_to_do_a_transaction: "Musíte byť prihlásený do %{service_name} pre vykonanie transakcie."
       you_must_log_in_to_view_this_content: "Musíte sa prihlásiť pre zobrazenie obsahu"
@@ -1430,9 +1430,9 @@ sk-SK:
       are_you_sure: "Ste si istý, že chcete zmazať komentár?"
     comment_form:
       ask_a_question: "Okomentujte inzerát, alebo sa spýtajte na viac detailov. Ostatní užívatelia Váš komentár uvidia."
-      log_in: "Prihlásiť sa"
+      log_in: "sa prihlásiť"
       send_comment: "Pošlite komentár"
-      to_send_a_comment: "pre poslanie nového komentára"
+      to_send_a_comment: "ak chcete pridať komentár."
       write_comment: "Píšte nový koment"
       you_cannot_send_a_new_comment_because_listing_is_closed: "Nemôžete odoslať nový komentár, lebo tento inzerát bol uzavretý."
       you_must: Musíte
@@ -2113,7 +2113,7 @@ sk-SK:
     formats:
       short: "%b %e, %Y o %H:%M"
       shorter: "%b %e o %H:%M"
-      short_date: "%b %e, %Y"
+      short_date: "%e %b, %Y"
   timestamps:
     day_ago: "%{count} včera"
     days_ago: "%{count} dní dozadu"
