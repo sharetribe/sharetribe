@@ -5,7 +5,6 @@
 #  id                       :integer          not null, primary key
 #  payer_id                 :string(255)
 #  recipient_id             :string(255)
-#  organization_id          :string(255)
 #  transaction_id           :integer
 #  status                   :string(255)
 #  created_at               :datetime         not null

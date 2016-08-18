@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817140558) do
+ActiveRecord::Schema.define(version: 20160818090814) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -193,7 +193,6 @@ ActiveRecord::Schema.define(version: 20160817140558) do
     t.string   "wide_logo_content_type",                     limit: 255
     t.integer  "wide_logo_file_size",                        limit: 4
     t.datetime "wide_logo_updated_at"
-    t.boolean  "only_organizations"
     t.boolean  "listing_comments_in_use",                                     default: false
     t.boolean  "show_listing_publishing_date",                                default: false
     t.boolean  "require_verification_to_post_listings",                       default: false
@@ -560,7 +559,6 @@ ActiveRecord::Schema.define(version: 20160817140558) do
     t.integer  "transaction_process_id",          limit: 4
     t.string   "shape_name_tr_key",               limit: 255
     t.string   "action_button_tr_key",            limit: 255
-    t.integer  "organization_id",                 limit: 4
     t.integer  "price_cents",                     limit: 4
     t.string   "currency",                        limit: 255
     t.string   "quantity",                        limit: 255
@@ -775,7 +773,6 @@ ActiveRecord::Schema.define(version: 20160817140558) do
   create_table "payments", force: :cascade do |t|
     t.string   "payer_id",                 limit: 255
     t.string   "recipient_id",             limit: 255
-    t.string   "organization_id",          limit: 255
     t.integer  "transaction_id",           limit: 4
     t.string   "status",                   limit: 255
     t.datetime "created_at",                                                        null: false
@@ -931,8 +928,6 @@ ActiveRecord::Schema.define(version: 20160817140558) do
     t.string   "authentication_token",               limit: 255
     t.datetime "community_updates_last_sent_at"
     t.integer  "min_days_between_community_updates", limit: 4,     default: 1
-    t.boolean  "is_organization"
-    t.string   "organization_name",                  limit: 255
     t.boolean  "deleted",                                          default: false
     t.string   "cloned_from",                        limit: 22
   end

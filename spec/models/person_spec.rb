@@ -38,8 +38,6 @@
 #  authentication_token               :string(255)
 #  community_updates_last_sent_at     :datetime
 #  min_days_between_community_updates :integer          default(1)
-#  is_organization                    :boolean
-#  organization_name                  :string(255)
 #  deleted                            :boolean          default(FALSE)
 #  cloned_from                        :string(22)
 #
