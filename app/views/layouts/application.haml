@@ -24,7 +24,8 @@
     - if(@view_type.eql?("map"))
       = javascript_include_tag "markerclusterer.js"
     - props = topbar_props
-    = react_component("TopbarApp", props: props, prerender: true)
+    - cache props do
+      = react_component("TopbarApp", props: props, prerender: true, id: 'topbar-container')
   - else
     = render partial: 'layouts/global_header', locals: header_props()
 
