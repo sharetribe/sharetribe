@@ -8,10 +8,8 @@ module PersonViewUtils
       display_name(
         first_name: nil,
         last_name: nil,
-        organization_name: nil,
         username: nil,
         name_display_type: nil,
-        is_organization: false,
         is_deleted: true,
         deleted_user_text: I18n.translate("common.removed_user")
       )
@@ -22,9 +20,6 @@ module PersonViewUtils
         username: person.username,
 
         name_display_type: community.name_display_type,
-
-        is_organization: person.is_organization?,
-        organization_name: person.organization_name,
 
         is_deleted: person.deleted?,
         deleted_user_text: I18n.translate("common.removed_user")
@@ -39,10 +34,8 @@ module PersonViewUtils
       display_name(
         first_name: nil,
         last_name: nil,
-        organization_name: nil,
         username: nil,
         name_display_type: name_display_type,
-        is_organization: false,
         is_deleted: true,
         deleted_user_text: I18n.translate("common.removed_user")
       )
@@ -50,46 +43,38 @@ module PersonViewUtils
       display_name(
         first_name: person_entity[:first_name],
         last_name: person_entity[:last_name],
-        organization_name: person_entity[:organization_name],
         username: person_entity[:username],
         name_display_type: name_display_type,
-        is_organization: person_entity[:is_organization],
         is_deleted: person_entity[:is_deleted],
         deleted_user_text: I18n.translate("common.removed_user")
       )
     end
   end
 
-  # rubocop:disable ParameterLists
   def display_name(
         first_name:,
         last_name:,
-        organization_name:,
         username:,
         name_display_type:,
-        is_organization:,
         is_deleted:,
         deleted_user_text:)
     name_present = first_name.present?
 
-    case [is_deleted, is_organization, name_present, name_display_type]
+    case [is_deleted, name_present, name_display_type]
     when matches([true])
       deleted_user_text
-    when matches([__, true])
-      organization_name
-    when matches([__, __, true, "first_name_with_initial"])
+    when matches([__, true, "first_name_with_initial"])
       first_name_with_initial(first_name, last_name)
-    when matches([__, __, true, "first_name_only"])
+    when matches([__, true, "first_name_only"])
       first_name
-    when matches([__, __, true, "full_name"])
+    when matches([__, true, "full_name"])
       full_name(first_name, last_name)
-    when matches([__, __, true])
+    when matches([__, true])
       first_name_with_initial(first_name, last_name)
     else
       username
     end
   end
-  # rubocop:enable ParameterLists
 
   def full_name(first_name, last_name)
     "#{first_name} #{last_name}"

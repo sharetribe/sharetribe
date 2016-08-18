@@ -32,8 +32,6 @@ module CustomLandingPage
             last_name: author.family_name,
             username: author.username,
             name_display_type: name_display_type,
-            is_organization: nil,
-            organization_name: nil,
             is_deleted: author.deleted?,
             deleted_user_text: I18n.translate("common.removed_user")
           ),

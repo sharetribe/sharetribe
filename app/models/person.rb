@@ -234,9 +234,7 @@ class Person < ActiveRecord::Base
     else
       display_type = community_or_display_type
     end
-    if is_organization
-      return organization_name
-    elsif given_name.present?
+    if given_name.present?
       if display_type
         case display_type
         when "first_name_with_initial"
@@ -280,12 +278,7 @@ class Person < ActiveRecord::Base
   # Deprecated: This is view logic (how to display name) and thus should not be in model layer
   # Consider using PersonViewUtils
   def given_name_or_username
-    if is_organization
-      # Quick and somewhat dirty solution. `given_name_or_username`
-      # is quite explicit method name and thus it should return the
-      # given name or username. Maybe this should be cleaned in the future.
-      return organization_name
-    elsif given_name.present?
+    if given_name.present?
       return given_name
     else
       return username
@@ -541,8 +534,6 @@ class Person < ActiveRecord::Base
 
   # A person inherits some default settings from the community in which she is joining
   def inherit_settings_from(current_community)
-    # Mark as organization user if signed up through market place which is only for orgs
-    self.is_organization = current_community.only_organizations
     self.min_days_between_community_updates = current_community.default_min_days_between_community_updates
   end
 
