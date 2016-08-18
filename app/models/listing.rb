@@ -33,7 +33,6 @@
 #  transaction_process_id          :integer
 #  shape_name_tr_key               :string(255)
 #  action_button_tr_key            :string(255)
-#  organization_id                 :integer
 #  price_cents                     :integer
 #  currency                        :string(255)
 #  quantity                        :string(255)
