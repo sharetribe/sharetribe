@@ -191,12 +191,6 @@ Given /^"([^"]*)" has admin rights in community "([^"]*)"$/ do |username, commun
   CommunityMembership.find_by_person_id_and_community_id(user.id, community.id).update_attribute(:admin, true)
 end
 
-Given /^"([^"]*)" does not have admin rights in community "([^"]*)"$/ do |username, community|
-  user = Person.find_by(username: username)
-  community = Community.where(ident: community).first
-  CommunityMembership.find_by_person_id_and_community_id(user.id, community.id).update_attribute(:admin, false)
-end
-
 Then /^I should see my username$/ do
   username = Person.order("updated_at").last.username
   if @values && @values["username"]

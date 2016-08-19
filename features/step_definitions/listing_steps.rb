@@ -293,13 +293,3 @@ end
 Then(/^I should warning about missing payment details$/) do
   expect(page).to have_content("You need to fill in payout details before you can post a listing. Go to payment settings to fill in the details.")
 end
-
-When(/I fill rent time for (\d+) days$/) do |day_count|
-  select_days_from_now(day_count)
-end
-
-def select_days_from_now(day_count)
-  @booking_end_date = Date.today + day_count.to_i.days - 1.day
-  select_start_date(Date.today)
-  select_end_date(@booking_end_date)
-end
