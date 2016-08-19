@@ -335,48 +335,6 @@ FactoryGirl.define do
     build_association(:transaction, as: :tx)
   end
 
-  factory :payment do
-    build_association(:community)
-    build_association(:transaction, as: :tx)
-
-    factory :braintree_payment, class: 'BraintreePayment' do
-      build_association(:payer)
-      build_association(:recipient)
-      status "pending"
-      payment_gateway { FactoryGirl.build(:braintree_payment_gateway) }
-      currency "USD"
-      sum_cents 500
-    end
-  end
-
-  factory :braintree_account do
-    build_association(:person)
-    first_name "Joe"
-    last_name "Bloggs"
-    email "joe@14ladders.com"
-    phone "5551112222"
-    address_street_address "123 Credibility St."
-    address_postal_code "60606"
-    address_locality "Chicago"
-    address_region "IL"
-    date_of_birth "1980-10-09"
-    routing_number "1234567890"
-    hidden_account_number "*********98"
-    status "active"
-    build_association(:community)
-  end
-
-  factory :payment_gateway do
-    factory :braintree_payment_gateway, class: 'BraintreePaymentGateway' do
-      braintree_merchant_id { APP_CONFIG.braintree_test_merchant_id }
-      braintree_master_merchant_id { APP_CONFIG.braintree_test_master_merchant_id }
-      braintree_public_key { APP_CONFIG.braintree_test_public_key }
-      braintree_private_key { APP_CONFIG.braintree_test_private_key }
-      braintree_client_side_encryption_key { APP_CONFIG.braintree_client_side_encryption_key }
-      braintree_environment { APP_CONFIG.braintree_environment }
-    end
-  end
-
   factory :menu_link do
     build_association(:community)
   end
