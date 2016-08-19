@@ -8,8 +8,6 @@ class BraintreePaymentsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")
   end
 
-  before_filter :ensure_recipient_does_not_have_account_for_another_community
-
   # This expects that each conversation already has a (pending) payment at this point
   def edit
     @conversation = Transaction.find(params[:message_id])
@@ -35,28 +33,6 @@ class BraintreePaymentsController < ApplicationController
   end
 
   private
-
-  # Before filter
-  #
-  # Support for multiple Braintree account in multipe communities
-  # is not implemented. Show error.
-  def ensure_recipient_does_not_have_account_for_another_community
-    @braintree_account = BraintreeAccount.find_by_person_id(@braintree_payment.recipient_id)
-
-    if @braintree_account
-      # Braintree account exists
-      if @braintree_account.community_id.present? && @braintree_account.community_id != @current_community.id
-        # ...but is associated to different community
-        account_community = Community.find(@braintree_account.community_id)
-        flash[:error] = "Unfortunately, we cannot proceed with the payment. Please contact the administrators."
-
-        error_msg = "User #{@current_user.id} tries to pay for user #{@braintree_payment.recipient_id} which has Braintree account for another community #{account_community.name(I18n.locale)}"
-        BTLog.error(error_msg)
-        ApplicationHelper.send_error_notification(error_msg, "BraintreePaymentAccountError")
-        redirect_to person_transaction_path(@current_user, @conversation)
-      end
-    end
-  end
 
   # Before filter
   def fetch_conversation
