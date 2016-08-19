@@ -173,6 +173,7 @@ class Topbar extends Component {
             href: l.link,
             type: 'menuitem',
             priority: l.priority,
+            external: l.external,
           }
         )),
       }) :
@@ -246,6 +247,7 @@ class Topbar extends Component {
             content: l.title,
             href: l.link,
             type: 'menuitem',
+            external: l.external,
           }
         )),
         userLinksTitle: t('web.topbar.user'),
@@ -324,7 +326,7 @@ class Topbar extends Component {
   }
 }
 
-const { arrayOf, number, object, shape, string } = PropTypes;
+const { arrayOf, number, object, shape, string, bool } = PropTypes;
 
 /* eslint-disable react/forbid-prop-types */
 Topbar.propTypes = {
@@ -338,6 +340,7 @@ Topbar.propTypes = {
       title: string.isRequired,
       link: string.isRequired,
       priority: number,
+      external: bool,
     })),
   }),
   locales: PropTypes.shape({

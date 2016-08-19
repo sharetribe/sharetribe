@@ -37,6 +37,7 @@ storiesOf('MenuMobile')
                 content: 'Lorem ipsum dolor sit amet consectetur adepisci velit',
                 active: false,
                 activeColor: '#a64c5d',
+                external: true,
               },
             ],
             userLinksTitle: 'User',

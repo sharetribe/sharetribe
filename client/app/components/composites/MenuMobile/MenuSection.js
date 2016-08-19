@@ -54,6 +54,7 @@ MenuSection.propTypes = {
       ]).isRequired,
       href: string.isRequired,
       type: string.isRequired,
+      external: bool,
     })
   ),
 };

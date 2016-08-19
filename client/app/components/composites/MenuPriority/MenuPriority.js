@@ -150,6 +150,7 @@ class MenuPriority extends Component {
         a({
           className: css.priorityLink,
           href: l.href,
+          target: l.external ? '_blank' : '',
         }, l.content)
       ))),
       this.state.hiddenLinks.length > 0 ?
@@ -176,6 +177,7 @@ MenuPriority.propTypes = {
       href: PropTypes.string.isRequired,
       priority: PropTypes.number.isRequired,
       type: PropTypes.string.isRequired,
+      external: PropTypes.bool,
     })
   ).isRequired,
 };
