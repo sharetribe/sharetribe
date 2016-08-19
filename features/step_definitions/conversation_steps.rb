@@ -53,44 +53,9 @@ When /^I try to go to inbox of "([^"]*)"$/ do |person|
   visit person_inbox_path(:locale => :en, :person_id => @people[person].id)
 end
 
-Then /^I should see information about missing payment details$/ do
-  expect(find("#conversation-payment-details-missing")).to be_visible
-end
-
-When(/^I skip feedback$/) do
-  steps %Q{
-    When I click "#do_not_give_feedback"
-    And I press submit
-  }
-end
-
-Then(/^I should see that the conversation is waiting for confirmation$/) do
-  steps %Q{
-    Then I should see "Accepted"
-    Then I should see "Waiting for"
-    Then I should see "to mark the request completed"
-  }
-end
-
-When(/^I open message "(.*?)"$/) do |title|
-  steps %Q{
-    When I follow "#{title}" within "h2"
-  }
-end
-
 def visit_transaction_of_listing(listing)
   transaction = Transaction.find_by_listing_id(listing.id)
   visit(person_transaction_path(:person_id => @current_user.id, :id => transaction.id, :locale => "en"))
-end
-
-
-Then(/^I should see that the order is confirmed/) do
-  expect(page).to have_content(/marked the order as completed/)
-end
-
-When(/^I pay my request for that listing$/) do
-  visit_transaction_of_listing(@listing)
-  click_link "Pay"
 end
 
 When(/^I confirm the request for that listing$/) do

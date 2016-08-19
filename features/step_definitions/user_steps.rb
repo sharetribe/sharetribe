@@ -31,13 +31,6 @@ Given /^I log in(?: as "([^"]*)")?$/ do |person|
   logout_and_login_user(person)
 end
 
-Given /^I log in to this private community(?: as "([^"]*)")?$/ do |person|
-  visit login_path(:locale => :en)
-  fill_in("person[login]", :with => (person ? person : "kassi_testperson1"))
-  fill_in("person[password]", :with => "testi")
-  click_button("Log in")
-end
-
 Given /^I am not logged in$/ do
   # TODO Check here that not logged in
 end
@@ -160,15 +153,6 @@ Given /^"([^"]*)" has admin rights in community "([^"]*)"$/ do |username, commun
   user = Person.find_by(username: username)
   community = Community.where(ident: community).first
   CommunityMembership.find_by_person_id_and_community_id(user.id, community.id).update_attribute(:admin, true)
-end
-
-Then /^I should see my username$/ do
-  username = Person.order("updated_at").last.username
-  if @values && @values["username"]
-    # puts "it seems there username of last created person is stored, so use that"
-    username = @values["username"]
-  end
-  expect(page).to have_content(username)
 end
 
 Then /^I should not see my username$/ do

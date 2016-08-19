@@ -44,17 +44,3 @@ When(/^I change the name display type to "(.*?)"$/) do |name_display_type|
     And I press submit
   }
 end
-
-Then(/^I should see that the favicon is "(.*?)"$/) do |filename|
-  expect(page).to have_xpath("/html/head/link[contains(@href, #{filename})]", :visible => false)
-end
-
-Then(/^I upload a new favicon$/) do
-  attach_image("favicontest.ico", "community[favicon]", ".edit_community")
-end
-
-Then(/^I should see that the favicon is the default$/) do
-  steps %Q{
-    Then I should see that the favicon is "favicon.ico"
-  }
-end

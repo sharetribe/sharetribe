@@ -37,18 +37,6 @@ When /^(?:|I )attach a valid image file to "([^"]*)"(?: within "([^"]*)")?$/ do 
   attach_image(@latest_uploaded_image, field, selector)
 end
 
-Then(/^I should see listing image "(.*?)"$/) do |file|
-  expect(page).to have_xpath("//img[contains(@src,'#{file}')]")
-end
-
-Then /^I should see the image I just uploaded$/ do
-  steps %Q{ Then I should see listing image "#{@latest_uploaded_image}" }
-end
-
-Then /^I should not see the image I just uploaded$/ do
-  expect(page).not_to have_xpath("//img[contains(@src,'#{@latest_uploaded_image}')]")
-end
-
 def attach_image(filename, field, selector)
   path = File.join(Rails.root, 'spec', 'fixtures', filename)
   with_scope(selector) do

@@ -86,22 +86,6 @@ When /^I create a new listing "(.*?)" with price(?: "([^"]*)")?$/ do |title, pri
   }
 end
 
-When /^I select that I want to sell housing$/ do
-  steps %Q{
-    And I follow "I have something to offer"
-    And I follow "A space"
-    And I follow "I'm selling it"
-    Then I should see "Space you offer"
-  }
-end
-
-When /^I fill in listing form with housing information$/ do
-  steps %Q{
-    And I fill in "listing_title" with "Nice appartment in the city centre"
-    And I fill in "listing_price" with "10000"
-  }
-end
-
 When /^I choose to view only listing shape "(.*?)"$/ do |listing_shape|
   steps %Q{
     When I click "#home_toolbar-select-share-type"
@@ -160,18 +144,6 @@ Given /^listing comments are in use in community "(.*?)"$/ do |community_ident|
   community.update_attribute(:listing_comments_in_use, true)
 end
 
-When(/^I remove the image$/) do
-
-  # Hovering didn't work without first clicking the element. Not sure why, but I expect that it has something to do
-  # with window focus
-  steps %Q{
-    And I click ".fileupload-preview"
-    When I hover ".fileupload-preview"
-    And I click ".fileupload-preview-remove-image"
-    Then I should see "Select file"
-  }
-end
-
 When(/^I click for the next image$/) do
   # Selenium can not interact with hidden elements
   page.execute_script("$('#listing-image-navi-right').show()");
@@ -192,49 +164,8 @@ Then(/^I should see that the listing does not have "(.*?)"$/) do |option_title|
   find(".checkbox-option.not-selected", :text => option_title)
 end
 
-# Move to more generic place if needed
-def select_date_from_date_selector(date, date_selector_base_id)
-  day = date.day
-  month = I18n.t("date.month_names")[date.month]
-  year = date.year
-
-  select(day, :from => "#{date_selector_base_id}_3i")
-  select(month, :from => "#{date_selector_base_id}_2i")
-  select(year, :from => "#{date_selector_base_id}_1i")
-end
-
-def select_start_date(date)
-  date = [date.year, date.month, date.day].join("-")
-  page.execute_script("$('#start-on').val('#{date}')");
-  # Selenium can not interact with hidden elements, use JavaScript
-  page.execute_script("$('#booking-start-output').val('#{date}')");
-end
-
-def select_end_date(date)
-  date = [date.year, date.month, date.day].join("-")
-  page.execute_script("$('#end-on').val('#{date}')");
-  # Selenium can not interact with hidden elements, use JavaScript
-  page.execute_script("$('#booking-end-output').val('#{date}')");
-end
-
-When(/^I set the expiration date to (\d+) months from now$/) do |months|
-  select_date_from_date_selector(months.to_i.months.from_now, "listing_valid_until")
-end
-
-When(/^I select category "(.*?)"$/) do |category_name|
-  expect(page).to have_content("Select category")
-  expect(page).to have_css(".select", text: category_name)
-  first(".select", text: category_name).click
-end
-
 When(/^I select subcategory "(.*?)"$/) do |subcategory_name|
   expect(page).to have_content("Select subcategory")
   expect(page).to have_css(".select", text: subcategory_name)
   first(".select", text: subcategory_name).click
-end
-
-When(/^I select listing shape "(.*?)"$/) do |listing_shape_name|
-  expect(page).to have_content("Select listing type")
-  expect(page).to have_css(".select", text: listing_shape_name)
-  first(".select", text: listing_shape_name).click
 end
