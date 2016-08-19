@@ -112,6 +112,21 @@
   max-width: 532px;
 }
 
+.hero__search-bar--combined {
+  @extend .hero__search-bar;
+  flex-direction: column;
+
+  @media #{$hero_search-tablet} {
+    flex-direction: row;
+  }
+}
+
+@mixin hero-search-input-container {
+  @media #{$mobile-landscape}, #{$tablet}, #{$desktop} {
+    border-radius: 29.5px 0px 0px 29.5px;
+  }
+}
+
 .hero__search-input-container {
   @include prefix-val(display, flex);
   width: 100%;
@@ -121,38 +136,31 @@
   overflow: hidden; // add overflow hidden so that children's borders are also rounded
 
   /* mobile */
-  @include prefix-prop(flex-direction, row-reverse);
+  @include prefix-prop(flex-direction, row);
   padding: 0px 0px 0px 24px;
 
-  @media #{$mobile-landscape}, #{$tablet} {
-    border-radius: 29.5px 0px 0px 29.5px;
-    @include prefix-prop(flex-direction, row);
-  }
-
-  @media #{$desktop} {
-    border-radius: 29.5px 0px 0px 29.5px;
-    @include prefix-prop(flex-direction, row);
-  }
+  @include hero-search-input-container;
 }
 
-.hero__search-input {
-  @include typography__medium;
-  margin: 0;
-  border: 0;
-  width: 100%;
-  color: #525961;
+.hero__search-input-container--combined {
+  @extend .hero__search-input-container;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+  flex-direction: column;
 
-  &:focus {
-    // The input element has already the blinking cursor
-    // indicating that the element is selected
-    outline: none;
+  @media #{$hero_search-tablet} {
+    background-color: #FFF;
+    border-radius: 29.5px;
+    padding: 0px 0px 0px 24px;
+    flex-direction: row;
   }
 
-  font-size: 16px;
-  letter-spacing: 0px;
-  line-height: 32px;
-  padding: 8px 12px 8px 0px;
+  @include hero-search-input-container;
 
+}
+
+@mixin hero-search-input-media {
   @media #{$mobile-landscape} {
     padding: 14px 24px 14px 12px;
   }
@@ -172,7 +180,48 @@
 
     padding: 14px 24px 14px 18px;
   }
+}
 
+.hero__search-input {
+  @include typography__medium;
+  order: 1;
+  margin: 0;
+  border: 0;
+  width: 100%;
+  color: #525961;
+
+  &:focus {
+    // The input element has already the blinking cursor
+    // indicating that the element is selected
+    outline: none;
+  }
+
+  font-size: 16px;
+  letter-spacing: 0px;
+  line-height: 32px;
+  padding: 8px 12px 8px 0px;
+
+  @include hero-search-input-media;
+
+}
+
+.hero__search-input--combined {
+  @extend .hero__search-input;
+  border-radius: 29.5px;
+  margin: 0 0 12px 0;
+  padding: 8px 12px 8px 24px;
+
+  @media #{$hero_search-tablet} {
+    padding: 8px 12px 8px 0px;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  @include hero-search-input-media;
+
+  &:nth-of-type(2) {
+    border-left: solid 1px #cccccc;
+  }
 }
 
 .hero__search-button {
@@ -215,6 +264,23 @@
   }
 }
 
+.hero__search-button--combined {
+  @extend .hero__search-button;
+  border-radius: 29.5px;
+  display: block;
+
+  @media #{$hero_search-tablet} {
+    /* hero tablet */
+    display: none;
+    border-radius: 0px 29.5px 29.5px 0px;
+  }
+
+  @media #{$mobile-landscape}, #{$tablet}, #{$desktop} {
+    display: block;
+  }
+
+}
+
 .hero__search-icon-svg {
   display: block;
 
@@ -237,17 +303,29 @@
 .hero__search-icon {
   @include enable-flex-shrink-fix;
 
+  order: 2;
   background: #FFF;
 
   /* mobile */
   padding: 15px 24px 15px 0px;
 
   @media #{$mobile-landscape}, #{$tablet} {
+    order: 0;
     padding: 19px 0px;
   }
 
   @media #{$desktop} {
+    order: 0;
     padding: 19px 0px;
+  }
+}
+
+.hero__search-icon--combined {
+  @extend .hero__search-icon;
+  display: none;
+
+  @media #{$hero_search-tablet} {
+    display: block;
   }
 }
 

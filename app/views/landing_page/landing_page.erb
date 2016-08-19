@@ -93,7 +93,7 @@
 
   <% # Add javascript libraries and external javascript code %>
 
-  <% if sections.any? { |s| s["section"]["kind"] == "hero" && s["section"]["variation"]["value"] == "location_search" } %>
+  <% if sections.any? { |s| s["section"]["kind"] == "hero" && (s["section"]["variation"]["value"] == "location_search" || s["section"]["variation"]["value"] == "keyword_and_location_search") } %>
     <% key_param = community_context.has_key?(:google_maps_key) && community_context[:google_maps_key] ? "&key=#{community_context[:google_maps_key]}" : "" %>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places<%= key_param %>"></script>
     <script>

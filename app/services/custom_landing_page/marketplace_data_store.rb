@@ -25,6 +25,9 @@ module CustomLandingPage
       description        ||= I18n.t("common.default_community_description", locale: locale)
       search_placeholder ||= I18n.t("landing_page.hero.search_placeholder", locale: locale)
 
+      # In :keyword_and_location mode, we use fixed translation for location input.
+      search_location_with_keyword_placeholder = I18n.t("landing_page.hero.search_location_placeholder", locale: locale)
+
       main_search = MarketplaceConfigurations
                     .where(community_id: cid)
                     .pluck(:main_search)
@@ -33,6 +36,8 @@ module CustomLandingPage
       search_type =
         if private
           "private"
+        elsif main_search == "keyword_and_location"
+          "keyword_and_location_search"
         elsif main_search == "location"
           "location_search"
         else
@@ -50,6 +55,7 @@ module CustomLandingPage
         "description" => description,
         "search_type" => search_type,
         "search_placeholder" => search_placeholder,
+        "search_location_with_keyword_placeholder" => search_location_with_keyword_placeholder,
         "twitter_handle" => twitter_handle,
         "name_display_type" => name_display_type
       }
