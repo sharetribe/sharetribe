@@ -222,10 +222,6 @@ Then(/^I should see that the order is waiting for buyer confirmation$/) do
   expect(page).to have_content(/Waiting for (.*) to mark the order completed/)
 end
 
-Then /^I should see that I should now deliver the board$/ do
-  expect(page).to have_content(/Waiting for you to fulfill the order for (.*)/)
-end
-
 Then(/^I should see that the order is confirmed/) do
   expect(page).to have_content(/marked the order as completed/)
 end
@@ -302,20 +298,6 @@ end
 
 When /^I follow link to fill in Braintree payout details$/ do
   click_link("#conversation-payment-settings-link")
-end
-
-Then /^I should see that the total price is "(.*?)"$/ do |total_price|
-  expect(page).to have_content("Total: $#{total_price}")
-end
-
-When /^the booking is automatically confirmed$/ do
-  Timecop.travel(@booking_end_date + 2.days)
-  process_jobs
-  visit(current_path)
-end
-
-Then /^I should see that the request is completed$/ do
-  expect(page.find(".conversation-status")).to have_content("Completed")
 end
 
 Then /^I should see "(.*?)" in the message list$/ do |msg|

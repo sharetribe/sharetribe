@@ -294,13 +294,6 @@ Then(/^I should warning about missing payment details$/) do
   expect(page).to have_content("You need to fill in payout details before you can post a listing. Go to payment settings to fill in the details.")
 end
 
-When(/^I make a booking request for that listing for (\d+) days$/) do |day_count|
-  visit_current_listing
-  select_days_from_now(day_count)
-
-  click_button('Buy')
-end
-
 When(/I fill rent time for (\d+) days$/) do |day_count|
   select_days_from_now(day_count)
 end
