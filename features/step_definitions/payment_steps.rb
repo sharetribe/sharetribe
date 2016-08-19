@@ -41,11 +41,6 @@ Given /^that payment is (pending|paid)$/ do |status|
   @transaction.payment.update_attribute(:status, status)
 end
 
-Given(/^"(.*?)" has paid for that listing$/) do |username|
-  transaction = Transaction.find_by_listing_id(@listing)
-  MarketplaceService::Transaction::Command.transition_to(transaction.id, "paid")
-end
-
 When /^Braintree webhook "(.*?)" with id "(.*?)" is triggered$/ do |kind, id|
   community = Community.where(ident: "test").first # Hard-coded default test community
   signature, payload = BraintreeApi.webhook_testing_sample_notification(
