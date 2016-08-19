@@ -39,7 +39,6 @@ class PreauthorizeTransactionsController < ApplicationController
   PreauthorizeBookingForm = FormUtils.merge("ListingConversation", PreauthorizeMessageForm, BookingForm)
 
   ListingQuery = MarketplaceService::Listing::Query
-  BraintreePaymentQuery = BraintreeService::Payments::Query
 
   def initiate
     delivery_method = valid_delivery_method(delivery_method_str: params[:delivery],
@@ -279,7 +278,6 @@ class PreauthorizeTransactionsController < ApplicationController
   def preauthorize
     quantity = TransactionViewUtils.parse_quantity(params[:quantity])
     vprms = view_params(listing_id: params[:listing_id], quantity: quantity)
-    braintree_settings = BraintreePaymentQuery.braintree_settings(@current_community.id)
 
     price_break_down_locals = TransactionViewUtils.price_break_down_locals({
       booking:  false,
@@ -293,7 +291,6 @@ class PreauthorizeTransactionsController < ApplicationController
 
     render "listing_conversations/preauthorize", locals: {
       preauthorize_form: PreauthorizeMessageForm.new,
-      braintree_client_side_encryption_key: braintree_settings[:braintree_client_side_encryption_key],
       braintree_form: BraintreeForm.new,
       listing: vprms[:listing],
       quantity: quantity,
@@ -472,10 +469,7 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def braintree_gateway_locals(community_id)
-    braintree_settings = BraintreePaymentQuery.braintree_settings(community_id)
-
     {
-      braintree_client_side_encryption_key: braintree_settings[:braintree_client_side_encryption_key],
       braintree_form: BraintreeForm.new
     }
   end
