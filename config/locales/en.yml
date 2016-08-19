@@ -306,15 +306,6 @@ en:
           initiated: "Waiting PayPal payment"
           pending_ext: "Waiting PayPal payment"
         not_available: "Not available"
-      braintree_payment_gateway:
-        braintree_payment_gateway: "Braintree Payment API keys"
-        environment: Environment
-        private_key: "Private Key"
-        public_key: "Public Key"
-        client_side_encryption_key: "Client-Side Encryption (CSE) Key"
-        merchant_id: "Merchant ID"
-        master_merchant_id: "Master Merchant ID"
-        commission_from_seller: "Commission percentage from seller"
       paypal_account:
         paypal_admin_account: Payments
     custom_fields:
@@ -718,16 +709,6 @@ en:
       reject_preauthorized_request: "Not this time"
       confirm: "Mark completed"
       cancel: Dispute
-  braintree_payments:
-    edit:
-      new_credit_card_payment: "New credit card payment"
-      payment_receiver: "Payment receiver"
-      cardholder_name: "Cardholder name"
-      credit_card_number: "Credit card number"
-      cvv: CVV
-      credit_card_expiration_date: "Credit card expiration date"
-      confirm_payment: "Confirm payment"
-      exp: "Exp:"
   feedback:
     feedback_subject: "New feedback from %{service_name}"
     feedback_body: "%{author_name_and_email} has sent the following feedback from %{service_name}"
@@ -864,12 +845,6 @@ en:
     paypal_new_payment:
       paypal_gateway_fee: "PayPal's fee:"
       shipping_total: "Shipping:"
-    braintree_new_payment:
-      product: "Product:"
-      price_payer_paid: "Price %{payer_full_name} paid:"
-      service_fee: "%{service_name} service fee:"
-      you_will_get: "Total:"
-      money_will_be_transferred: "The money will be transferred to your account when a) %{payer_name} has marked the request completed or b) %{automatic_confirmation_days} days have passed since %{payer_name} paid."
     receipt_to_payer:
       receipt_of_payment: "Receipt of payment"
       you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> to %{recipient_full_name}. Here is a receipt of the payment."
@@ -1683,10 +1658,6 @@ en:
       invoice: Invoice
       service_fee: "%{service_name} service fee:"
       you_will_get: "You will get:"
-    braintree:
-      terms:
-        braintree_terms_also_included: "NOTE: Braintree is used as a payment gateway service and by using this website you also accept %{terms_link_text}, in addition to the terms below."
-        terms_link_text: "Braintree terms of use"
   paypal_accounts:
     payout_info_title: "Receiving funds"
     paypal_account_email_connected: "<del>Connect PayPal account</del> Completed!"
