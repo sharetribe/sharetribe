@@ -6,13 +6,11 @@ module TransactionService::Transaction
 
   SETTINGS_ADAPTERS = {
     paypal: TransactionService::Gateway::PaypalSettingsAdapter.new,
-    braintree: TransactionService::Gateway::BraintreeSettingsAdapter.new,
     none: TransactionService::Gateway::FreeSettingsAdapter.new
   }
 
   GATEWAY_ADAPTERS = {
     paypal: TransactionService::Gateway::PaypalAdapter.new,
-    braintree: TransactionService::Gateway::BraintreeAdapter.new,
     none: TransactionService::Gateway::FreeAdapter.new
   }
 
