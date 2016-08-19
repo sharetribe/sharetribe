@@ -226,32 +226,8 @@ Then(/^I should see that the order is confirmed/) do
   expect(page).to have_content(/marked the order as completed/)
 end
 
-When(/^I accept the "(.*?)" request for that listing for post pay$/) do |request|
-  click_link "inbox-link"
-  click_link request
-  click_link "Accept request"
-end
-
-When(/^I approve the request for that listing for post pay$/) do
-  click_button "Send"
-end
-
-Then(/^I should see that I should fill in payout details$/) do
-  expect(find(:link, "payment settings"))
-end
-
-Then(/^I should see that the request is waiting for buyer to pay$/) do
-  expect(page).to have_content(/Waiting for (.*) to pay/)
-end
-
 When(/^I pay my request for that listing$/) do
   visit_transaction_of_listing(@listing)
-  click_link "Pay"
-end
-
-When(/^I buy approved request "(.*)"$/) do |accepted_request|
-  click_link "inbox-link"
-  click_link accepted_request
   click_link "Pay"
 end
 
@@ -274,30 +250,6 @@ end
 
 Then(/^I should see that the request was rejected$/) do
   expect(page).to have_content(/Rejected/)
-end
-
-
-Then /^I should see that the price of a listing is "(.*?)"$/ do |price_string|
-  expect(find(".message-price")).to have_content(price_string)
-end
-
-Then /^I should send a message to "(.*?)"$/ do |seller_name|
-  expect(find("#new_listing_conversation").visible?).to be_truthy
-  seller = Person.find_by(username: seller_name)
-  expect(find("label[for=listing_conversation_content]")).to have_content("Message to #{seller.given_name}")
-end
-
-When /^I send initial message to "(.*?)"$/ do |seller|
-  fill_in "listing_conversation[content]", :with => "I want to buy this item"
-  click_button("Buy")
-end
-
-Then /^I should see that buy message has been sent$/ do
-  expect(page).to have_content("Message sent")
-end
-
-When /^I follow link to fill in Braintree payout details$/ do
-  click_link("#conversation-payment-settings-link")
 end
 
 Then /^I should see "(.*?)" in the message list$/ do |msg|

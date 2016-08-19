@@ -198,10 +198,6 @@ Then /^I should be see that the payment was successful$/ do
   }
 end
 
-Then /^I should see that I successfully paid (.*?)$/ do |amount|
-  expect(page).to have_content("paid #{amount}")
-end
-
 Then /^I should see that I successfully authorized payment (.*?)$/ do |amount|
   expect(page).to have_content("Payment authorized: #{amount}")
 end
