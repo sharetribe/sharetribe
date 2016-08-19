@@ -17,12 +17,8 @@ Feature: User views a single listing
     When I follow "Massage"
     Then I should see "Massage"
     When I am logged in as "kassi_testperson1"
-    And I have "2" testimonials with grade "1"
     And I am on the home page
     And I follow "Massage"
-    Then I should see "Feedback"
-    And I should see "100%"
-    And I should see "(2/2)"
 
   @only_without_asi
   Scenario: User views a listing with price
@@ -32,12 +28,8 @@ Feature: User views a single listing
     Then I should see "Massage"
     And I should see "$20.55"
     When I am logged in as "kassi_testperson1"
-    And I have "2" testimonials with grade "1"
     And I am on the home page
     And I follow "Massage"
-    Then I should see "Feedback"
-    And I should see "100%"
-    And I should see "(2/2)"
 
   @skip_phantomjs
   Scenario: User sees the avatar in listing page
