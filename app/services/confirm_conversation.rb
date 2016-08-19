@@ -73,6 +73,6 @@ class ConfirmConversation
   end
 
   def release_escrow
-    BraintreeService::EscrowReleaseHelper.release_from_escrow(@community, @payment.braintree_transaction_id)
+    # TODO: Used only removed Braintree function
   end
 end
