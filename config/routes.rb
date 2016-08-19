@@ -182,9 +182,6 @@ Kassi::Application.routes.draw do
           post :resend_verification_email
           get :edit_text_instructions
           get :test_welcome_email
-          get :payment_gateways
-          put :payment_gateways, to: 'communities#update_payment_gateway'
-          post :payment_gateways, to: 'communities#create_payment_gateway'
           get :social_media
           get :analytics
           put :social_media, to: 'communities#update_social_media'

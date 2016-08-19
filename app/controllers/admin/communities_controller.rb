@@ -2,7 +2,6 @@ class Admin::CommunitiesController < ApplicationController
   include CommunitiesHelper
 
   before_filter :ensure_is_admin
-  before_filter :ensure_is_superadmin, :only => [:payment_gateways, :update_payment_gateway, :create_payment_gateway]
   before_filter :ensure_white_label_plan, only: [:create_sender_address]
 
   def edit_look_and_feel
@@ -192,41 +191,6 @@ class Admin::CommunitiesController < ApplicationController
             menu_links_params,
             menu_links_admin_community_path(@community),
             :menu_links)
-  end
-
-  # This is currently only for superadmins, quick and hack solution
-  def payment_gateways
-    # Redirect if payment gateway in use but it's not braintree
-    redirect_to admin_details_edit_path if @current_community.payment_gateway && !@current_community.braintree_in_use?
-
-    @selected_left_navi_link = "payment_gateways"
-    @community = @current_community
-    @payment_gateway = Maybe(@current_community).payment_gateway.or_else { BraintreePaymentGateway.new }
-
-    render :braintree_payment_gateway
-  end
-
-  def update_payment_gateway
-    # Redirect if payment gateway in use but it's not braintree
-    redirect_to admin_details_edit_path if @current_community.payment_gateway && !@current_community.braintree_in_use?
-
-    braintree_params = params[:payment_gateway]
-    community_params = params.require(:community).permit(:commission_from_seller)
-
-    unless @current_community.update_attributes(community_params)
-      flash.now[:error] = t("layouts.notifications.community_update_failed")
-      return render :payment_gateways
-    end
-
-    update(@current_community.payment_gateway,
-      braintree_params,
-      payment_gateways_admin_community_path(@current_community),
-      :payment_gateways)
-  end
-
-  def create_payment_gateway
-    @current_community.payment_gateway = BraintreePaymentGateway.create(params[:payment_gateway].merge(community: @current_community))
-    update_payment_gateway
   end
 
   def test_welcome_email

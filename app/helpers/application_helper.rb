@@ -451,16 +451,6 @@ module ApplicationHelper
       }
     end
 
-    if Maybe(@current_user).is_admin?.or_else { false }
-      links << {
-        :topic => :configure,
-        :text => t("admin.communities.braintree_payment_gateway.braintree_payment_gateway"),
-        :icon_class => icon_class("payments"),
-        :path => payment_gateways_admin_community_path(@current_community),
-        :name => "payment_gateways"
-      }
-    end
-
     links << {
       :topic => :configure,
       :text => t("admin.communities.social_media.social_media"),
