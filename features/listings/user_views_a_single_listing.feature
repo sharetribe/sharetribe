@@ -31,17 +31,6 @@ Feature: User views a single listing
     And I am on the home page
     And I follow "Massage"
 
-  @skip_phantomjs
-  Scenario: User sees the avatar in listing page
-    Given I am logged in as "kassi_testperson1"
-    When I open user menu
-    When I follow "Settings"
-    And I attach a valid image file to "avatar_file"
-    And I press "Save information"
-    And I go to the home page
-    And I follow "Massage"
-    Then I should not see "Add profile picture"
-
   Scenario: User tries to view a listing restricted viewable to community members without logging in
     Given I am not logged in
     And this community is private

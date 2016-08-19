@@ -65,10 +65,6 @@ Given /^community "([^"]*)" does not require invite to join$/ do |community|
   Community.where(ident: community).first.update_attribute(:join_with_invite_only, false)
 end
 
-Given /^community "([^"]*)" requires users to have an email address of type "(.*?)"$/ do |community, email|
-  Community.where(ident: community).first.update_attribute(:allowed_emails, email)
-end
-
 Given /^users (can|can not) invite new users to join community "([^"]*)"$/ do |verb, community|
   can_invite = verb == "can"
   Community.where(ident: community).first.update_attribute(:users_can_invite_new_users, can_invite)
@@ -92,14 +88,6 @@ end
 
 When /^I arrive to sign up page with the link in the invitation email with code "(.*?)"$/ do |code|
   visit "/en/signup?code=#{code}"
-end
-
-Then /^community "(.*?)" should require invite to join$/ do |community|
-   expect(Community.where(ident: community).first.join_with_invite_only).to be_truthy
-end
-
-Then /^community "(.*?)" should not require invite to join$/ do |community|
-   expect(Community.where(ident: community).first.join_with_invite_only).not_to be_truthy
 end
 
 Given /^community "(.*?)" is private$/ do |community_ident|

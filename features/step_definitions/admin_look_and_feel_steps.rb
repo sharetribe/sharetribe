@@ -53,12 +53,6 @@ Then(/^I upload a new favicon$/) do
   attach_image("favicontest.ico", "community[favicon]", ".edit_community")
 end
 
-Then(/^I should see that the favicon is the file I uploaded$/) do
-   steps %Q{
-     Then I should see that the favicon is "favicontest.ico"
-   }
-end
-
 Then(/^I should see that the favicon is the default$/) do
   steps %Q{
     Then I should see that the favicon is "favicon.ico"

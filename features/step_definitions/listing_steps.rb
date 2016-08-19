@@ -58,16 +58,8 @@ When(/^I set search range for numeric filter "(.*?)" between "(.*?)" and "(.*?)"
   }
 end
 
-Given /^privacy of that listing is "([^"]*)"$/ do |privacy|
-  @listing.update_attribute(:privacy, privacy)
-end
-
 Given /^that listing has a description "(.*?)"$/ do |description|
   @listing.update_attribute(:description, description)
-end
-
-Then /^There should be a rideshare (offer|request) from "([^"]*)" to "([^"]*)" starting at "([^"]*)"$/ do |share_type, origin, destination, time|
-  listings = Listing.where(title: "#{origin} - #{destination}")
 end
 
 When /^I save the listing$/ do
@@ -245,14 +237,4 @@ When(/^I select listing shape "(.*?)"$/) do |listing_shape_name|
   expect(page).to have_content("Select listing type")
   expect(page).to have_css(".select", text: listing_shape_name)
   first(".select", text: listing_shape_name).click
-end
-
-Then(/^I should see the new listing form$/) do
-  expect(page).to have_content("Listing title")
-  expect(page).to have_content("Detailed description")
-  expect(page).to have_content("Image")
-end
-
-Then(/^I should warning about missing payment details$/) do
-  expect(page).to have_content("You need to fill in payout details before you can post a listing. Go to payment settings to fill in the details.")
 end

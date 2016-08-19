@@ -151,14 +151,6 @@ When /^(?:|I )fill in "([^"]*)" with random (username|email)(?: within "([^"]*)"
   end
 end
 
-Then /^the "([^"]*)" field(?: within "([^"]*)")? should contain the (username|email) I gave$/ do |field, selector, value|
-  with_scope(selector) do
-    field = find_field(field)
-    field_value = (field.tag_name == 'textarea') ? field.text : field.value
-    expect(field_value).to match(/#{@values[value]}/)
-  end
-end
-
 Given /^"([^"]*)" is superadmin$/ do |username|
   user = Person.find_by(username: username)
   user.update_attribute(:is_admin, true)

@@ -78,19 +78,11 @@ When(/^I open message "(.*?)"$/) do |title|
   }
 end
 
-Then(/^I should see that the request is waiting for seller acceptance$/) do
-  expect(page).to have_content(/Waiting for (.*) to accept the request/)
-end
-
 def visit_transaction_of_listing(listing)
   transaction = Transaction.find_by_listing_id(listing.id)
   visit(person_transaction_path(:person_id => @current_user.id, :id => transaction.id, :locale => "en"))
 end
 
-
-Then(/^I should see that the order is waiting for buyer confirmation$/) do
-  expect(page).to have_content(/Waiting for (.*) to mark the order completed/)
-end
 
 Then(/^I should see that the order is confirmed/) do
   expect(page).to have_content(/marked the order as completed/)
@@ -106,14 +98,6 @@ When(/^I confirm the request for that listing$/) do
   click_link "Mark completed"
   choose("Skip feedback")
   click_button "Continue"
-end
-
-Then(/^I should see that the request was confirmed$/) do
-  expect(page).to have_content(/Completed/)
-end
-
-Then(/^I should see that the request was rejected$/) do
-  expect(page).to have_content(/Rejected/)
 end
 
 Then /^I should see "(.*?)" in the message list$/ do |msg|
