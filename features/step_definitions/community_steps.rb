@@ -264,10 +264,6 @@ Given /^that transaction uses payment preauthorization$/ do
   TransactionProcess.find(@shape[:transaction_process_id]).update_attribute(:process, :preauthorize)
 end
 
-Given /^that transaction does not use payment preauthorization$/ do
-  TransactionProcess.find(@shape[:transaction_process_id]).update_attribute(:process, :postpay)
-end
-
 Given /^that transaction belongs to category "(.*?)"$/ do |category_name|
   category = find_category_by_name(category_name)
   CategoryListingShape.where(category_id: category.id, listing_shape_id: @shape[:id]).first_or_create!
