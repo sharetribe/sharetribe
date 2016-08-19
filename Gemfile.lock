@@ -409,7 +409,8 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
-    react_on_rails (5.1.1)
+    react_on_rails (6.0.5)
+      addressable
       connection_pool
       execjs (~> 2.5)
       foreman
@@ -592,7 +593,7 @@ DEPENDENCIES
   rails-i18n (~> 4.0.8)
   rails_12factor (~> 0.0.3)
   rb-fsevent (~> 0.9.4)
-  react_on_rails (~> 5.1.1)
+  react_on_rails (~> 6.0.5)
   request_store (~> 1.3)
   rest-client (~> 1.8.0)
   rspec-rails (~> 3.0)
@@ -618,4 +619,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.3
+   1.12.5
