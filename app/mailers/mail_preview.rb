@@ -11,14 +11,6 @@ class MailPreview < MailView
     PersonMailer.payment_reminder(conversation, member, community)
   end
 
-  def braintree_receipt_to_payer
-    TransactionMailer.braintree_receipt_to_payer(payment, community)
-  end
-
-  def braintree_new_payment
-    TransactionMailer.braintree_new_payment(transaction.payment, community)
-  end
-
   def paypal_receipt_to_payer
     transaction = TransactionService::DataTypes::Transaction.create_transaction({
         id: 999,
