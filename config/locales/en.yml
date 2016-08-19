@@ -713,9 +713,6 @@ en:
     feedback_body: "%{author_name_and_email} has sent the following feedback from %{service_name}"
     unlogged_user: "Unlogged user"
     anonymous_user: "Anonymous user"
-  preauthorize_payments:
-    edit:
-      confirm_payment: "Confirm payment"
   community_memberships:
     access_denied:
       access_denied: "Access denied"
