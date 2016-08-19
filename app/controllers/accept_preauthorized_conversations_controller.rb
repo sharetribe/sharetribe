@@ -23,8 +23,6 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
     payment_type = tx[:payment_gateway]
     case payment_type
-    when :braintree
-      render_braintree_form("accept")
     when :paypal
       render_paypal_form("accept")
     else
@@ -43,8 +41,6 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
     payment_type = tx[:payment_gateway]
     case payment_type
-    when :braintree
-      render_braintree_form("reject")
     when :paypal
       render_paypal_form("reject")
     else
@@ -166,27 +162,4 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     }
   end
 
-  def render_braintree_form(preselected_action)
-    result = TransactionService::Transaction.get(community_id: @current_community.id, transaction_id: @listing_conversation.id)
-    transaction = result[:data]
-
-    render action: :accept, locals: {
-      payment_gateway: :braintree,
-      listing: @listing,
-      listing_quantity: transaction[:listing_quantity],
-      booking: transaction[:booking],
-      orderer: @listing_conversation.starter,
-      sum: transaction[:item_total],
-      fee: transaction[:commission_total],
-      shipping_price: nil,
-      shipping_address: nil,
-      seller_gets: transaction[:checkout_total] - transaction[:commission_total],
-      form: @listing_conversation,
-      form_action: acceptance_preauthorized_person_message_path(
-        person_id: @current_user.id,
-        id: @listing_conversation.id
-      ),
-      preselected_action: preselected_action
-    }
-  end
 end
