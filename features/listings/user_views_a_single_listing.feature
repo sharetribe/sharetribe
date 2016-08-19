@@ -9,7 +9,6 @@ Feature: User views a single listing
       | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And the community has payments in use via BraintreePaymentGateway
     And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with listing shape "Requesting"
 
   @only_without_asi

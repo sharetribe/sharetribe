@@ -86,14 +86,6 @@ Given /^community "([^"]*)" requires users to have an email address of type "(.*
   Community.where(ident: community).first.update_attribute(:allowed_emails, email)
 end
 
-Given /^the community has payments in use via BraintreePaymentGateway(?: with seller commission (\w+))?$/ do |commission|
-  use_braintree(@current_community.ident, commission)
-end
-
-Given /^community "([^"]*)" has payments in use via BraintreePaymentGateway(?: with seller commission (\w+))?$/ do |community_ident, commission|
-  use_braintree(community_ident, commission)
-end
-
 Given /^users (can|can not) invite new users to join community "([^"]*)"$/ do |verb, community|
   can_invite = verb == "can"
   Community.where(ident: community).first.update_attribute(:users_can_invite_new_users, can_invite)
