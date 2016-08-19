@@ -23,8 +23,6 @@ Kassi::Application.routes.draw do
   end
 
   # Some non-RESTful mappings
-  get '/webhooks/braintree' => 'braintree_webhooks#challenge'
-  post '/webhooks/braintree' => 'braintree_webhooks#hooks'
   post '/webhooks/paypal_ipn' => 'paypal_ipn#ipn_hook', as: :paypal_ipn_hook
   post '/webhooks/plans' => 'plans#create'
   get '/webhooks/trials' => 'plans#get_trials'
@@ -401,7 +399,6 @@ Kassi::Application.routes.draw do
             end
           end
           resources :payments
-          resources :braintree_payments
         end
         resource :paypal_account, only: [:index] do
           member do
