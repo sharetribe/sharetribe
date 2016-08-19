@@ -1200,6 +1200,7 @@ zh-TW:
       search: ~
       signup: ~
       search_placeholder: ~
+      search_location_placeholder: ~
     listings:
       no_listing_image: ~
   layouts:
@@ -1380,7 +1381,6 @@ zh-TW:
       you_must_fill_all_the_fields: 你必须填写所有表单项
       you_unfollowed_listing: 你不再关注此条信息
       joining_community_failed: 加入失败
-      can_not_login_with_private_user: 你不能使用你的个人帐号登录。使用企业帐号登录或创建一个新帐号。
       can_not_delete_email: 你不能移除邮件地址
       user_does_not_have_email_to_delete: 你想要移除的邮件地址不存在
       email_deleted: 邮件已删除
@@ -1805,7 +1805,6 @@ zh-TW:
       invitation_code: 邀请码
       not_required: ，不是必须的
       notification_is_mandatory: "你必须挑选至少一个邮件地址用于接收通知。如果你不想收到来自%{service_name}的邮件，在你的邮件通知设置中修改。"
-      organization_name: 组织名称
       password_again: 确认密码
       show_my_name_to_others: "对其他%{service_name}用户显示真实姓名"
       sign_up: "在%{service_name}注册"

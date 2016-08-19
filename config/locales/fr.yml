@@ -1211,6 +1211,7 @@ fr:
       search: Rechercher
       signup: S'inscrire
       search_placeholder: "Que recherchez-vous ?"
+      search_location_placeholder: ~
     listings:
       no_listing_image: "Aucune image"
   layouts:
@@ -1391,7 +1392,6 @@ fr:
       you_must_fill_all_the_fields: "Vous devez compléter tous les champs"
       you_unfollowed_listing: "Vous ne suivez plus cette annonce"
       joining_community_failed: "Rejoindre cette place de marché a échoué."
-      can_not_login_with_private_user: "Vous ne pouvez pas vous connecter avec votre compte personnel. Connectez vous avec le compte de votre organisation ou créez en un nouveau."
       can_not_delete_email: "Vous ne pouvez pas supprimer cette adresse email"
       user_does_not_have_email_to_delete: "Vous n'avez pas l'adresse email que vous essayez de supprimer"
       email_deleted: "Email supprimé"
@@ -1821,7 +1821,6 @@ fr:
       invitation_code: "Code d'invitation"
       not_required: ", pas demandé"
       notification_is_mandatory: "Vous devez choisir au moins une adresse email pour recevoir les notifications. Si vous ne souhaitez pas recevoir d'emails de %{service_name}, vérifiez vos paramètres de notifications."
-      organization_name: "Nom de l'organisation"
       password_again: "Confirmer le mot de passe"
       show_my_name_to_others: "Montrer mon nom complet aux autres utilisateurs de %{service_name}"
       sign_up: "Créer un nouveau compte sur %{service_name}"
@@ -2151,7 +2150,7 @@ fr:
       menu: Menu
       more: Plus
       search_placeholder: Rechercher...
-      search_location_placeholder: Lieu
+      search_location_placeholder: "Ou ?"
       user: Utilisateur
       inbox: Messagerie
       profile: Profil

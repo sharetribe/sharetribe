@@ -1198,6 +1198,7 @@ zh-HK:
       search: ~
       signup: ~
       search_placeholder: ~
+      search_location_placeholder: ~
     listings:
       no_listing_image: ~
   layouts:
@@ -1378,7 +1379,6 @@ zh-HK:
       you_must_fill_all_the_fields: 你必須填寫所有表單項
       you_unfollowed_listing: 你不再關注這則訊息
       joining_community_failed: 加入失敗
-      can_not_login_with_private_user: 你不能使用你的個人帳號登錄。請使用企業帳號或重新建立一個新帳號
       can_not_delete_email: 你不能移除電郵地址
       user_does_not_have_email_to_delete: 你想要移除的電郵地址並不存在
       email_deleted: 已删除電郵
@@ -1806,7 +1806,6 @@ zh-HK:
       invitation_code: 邀請碼
       not_required: 不需要
       notification_is_mandatory: "你必須挑選至少一個電郵地址用於接收通知。如果你不想收到來自%{service_name}的電郵，在你的電郵通知設置中修改。"
-      organization_name: ~
       password_again: 確認密碼
       show_my_name_to_others: "向其它%{service_name}用戶顯示我的真實姓名"
       sign_up: "建立一個新的%{service_name}帳戶"

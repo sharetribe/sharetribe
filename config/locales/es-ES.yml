@@ -1207,6 +1207,7 @@ es-ES:
       search: Buscar
       signup: Registrarse
       search_placeholder: "¿Qué estás buscando?"
+      search_location_placeholder: ~
     listings:
       no_listing_image: "Sin imagen"
   layouts:
@@ -1387,7 +1388,6 @@ es-ES:
       you_must_fill_all_the_fields: "Debes completar todos los campos"
       you_unfollowed_listing: "Ya no estás siguiendo este anuncio"
       joining_community_failed: "Error al unirte a esta comunidad"
-      can_not_login_with_private_user: "No puedes registrarte con tu cuenta personal. Regístrate con la cuenta de tu organización o crea una cuenta nueva."
       can_not_delete_email: "No es posible eliminar tu dirección de correo electrónico"
       user_does_not_have_email_to_delete: "La dirección de correo electrónico que quieres eliminar no existe"
       email_deleted: "Email eliminado"
@@ -1817,7 +1817,6 @@ es-ES:
       invitation_code: "Código de invitación:"
       not_required: ", no es necesario"
       notification_is_mandatory: "Debes elegir al menos una dirección de correo para recibir notificaciones. Si no deseas recibir e-mails de %{service_name}, revisa tus ajustes de notificaciones."
-      organization_name: "Nombre de la empresa"
       password_again: "Confirme la contraseña:"
       show_my_name_to_others: "Mostrar mi nombre real a otros usuarios de %{service_name}"
       sign_up: "Crear una nueva cuenta en %{service_name}"

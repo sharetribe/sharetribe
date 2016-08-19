@@ -1211,6 +1211,7 @@ fi:
       search: ~
       signup: ~
       search_placeholder: ~
+      search_location_placeholder: ~
     listings:
       no_listing_image: ~
   layouts:
@@ -1391,7 +1392,6 @@ fi:
       you_must_fill_all_the_fields: "Kaikki kentät täytyy täyttää"
       you_unfollowed_listing: "Ilmoituksen seuraaminen lopetettu"
       joining_community_failed: "Liittyminen epäonnistui"
-      can_not_login_with_private_user: "Et voi kirjautua sisään yksityishenkilön tunnuksilla. Kirjaudu organisaatiotunnuksella tai luo uusi tunnus."
       can_not_delete_email: "Et voi poistaa valitsemaasi sähköpostiosoitetta."
       user_does_not_have_email_to_delete: "Et omista sähköpostiosoitetta, jota yrität poistaa."
       email_deleted: "Sähköpostiosoite poistettu"
@@ -1821,7 +1821,6 @@ fi:
       invitation_code: Kutsukoodi
       not_required: ", ei pakollinen"
       notification_is_mandatory: "Sinun täytyy valita ainakin yksi sähköpostiosoite, johon voit vastaanottaa tiedotteita. Jos et halua, että %{service_name} lähettää sinulle lainkaan sähköpostia, tarkista sähköpostiasetuksesi."
-      organization_name: "Organisaation virallinen nimi"
       password_again: "Salasana uudelleen"
       show_my_name_to_others: "Näytä oikea nimeni muille käyttäjille"
       sign_up: "Luo uusi tunnus"

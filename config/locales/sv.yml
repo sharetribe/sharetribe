@@ -1213,6 +1213,7 @@ sv:
       search: ~
       signup: ~
       search_placeholder: ~
+      search_location_placeholder: ~
     listings:
       no_listing_image: ~
   layouts:
@@ -1393,7 +1394,6 @@ sv:
       you_must_fill_all_the_fields: "Du måste fylla i alla fält"
       you_unfollowed_listing: "Du följer inte längre annonsen"
       joining_community_failed: "Det gick inte att bli medlem"
-      can_not_login_with_private_user: "Du kan inte logga in med ditt personliga konto. Logga in med organisationens konto eller skapa ett nytt konto."
       can_not_delete_email: "Du kan inte ta bort e-postadressen"
       user_does_not_have_email_to_delete: "Du har inte e-postadressen som du försöker ta bort"
       email_deleted: "E-post borttaget"
@@ -1819,7 +1819,6 @@ sv:
       invitation_code: Inbjudningskod
       not_required: ", krävs inte"
       notification_is_mandatory: "Du måste välja minst en e-postadress för att få notifieringar. Om du inte vill få några e-postmeddelanden från %{service_name}, vänligen kolla dina e-postnotifikationsinställningar."
-      organization_name: Organisationsnamn
       password_again: "Bekräfta lösenord"
       show_my_name_to_others: "Visa mitt riktiga namn till andra %{service_name} användare"
       sign_up: "Skapa ett nytt %{service_name} konto"

@@ -1194,6 +1194,7 @@ ja:
       search: ~
       signup: ~
       search_placeholder: ~
+      search_location_placeholder: ~
     listings:
       no_listing_image: ~
   layouts:
@@ -1374,7 +1375,6 @@ ja:
       you_must_fill_all_the_fields: 空欄を埋めてください
       you_unfollowed_listing: あなたは今後このリストのフォローをしません
       joining_community_failed: 参加失敗
-      can_not_login_with_private_user: あなたの個人アドレスでログインできませんでした。組織のアカウントでログインするか、新規登録をしてください。
       can_not_delete_email: メールアドレスを削除できません
       user_does_not_have_email_to_delete: 削除しようとしていたメールアドレスは、正しくありません。
       email_deleted: メールアドレスは削除されました
@@ -1799,7 +1799,6 @@ ja:
       invitation_code: 招待コード
       not_required: 、必要ありません
       notification_is_mandatory: ~
-      organization_name: 組織名
       password_again: パスワードを確認する
       show_my_name_to_others: "%{service_name}内の他のユーザーに私の本名を表示する"
       sign_up: "%{service_name}に新規登録する"

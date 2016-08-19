@@ -1180,6 +1180,7 @@ pl:
       search: ~
       signup: ~
       search_placeholder: ~
+      search_location_placeholder: ~
     listings:
       no_listing_image: ~
   layouts:
@@ -1360,7 +1361,6 @@ pl:
       you_must_fill_all_the_fields: "Musisz wypełnić wszystkie pola"
       you_unfollowed_listing: "Już nie śledzisz tej oferty"
       joining_community_failed: "Dołączenie nie zakończyło się pomyślnie"
-      can_not_login_with_private_user: "Możesz zalogować się Twoim prywatnym kontem. Zaloguj się kontem organizacji lub stwórz nowe konto."
       can_not_delete_email: "Nie możesz usunąć adresu email"
       user_does_not_have_email_to_delete: "Nie masz adresu email, który chcesz usunąć"
       email_deleted: "Adres email usunięty"
@@ -1788,7 +1788,6 @@ pl:
       invitation_code: "Kod zaproszenia"
       not_required: ", nie wymagane"
       notification_is_mandatory: ~
-      organization_name: ~
       password_again: "Powtórz hasło"
       show_my_name_to_others: "Pokaż moje prawdziwe imię do innych użytkowników %{service_name}"
       sign_up: "Stwórz nowe konto w %{service_name}"

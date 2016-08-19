@@ -1213,6 +1213,7 @@ nb:
       search: Søk
       signup: "Registrer deg"
       search_placeholder: "Hva ser du etter?"
+      search_location_placeholder: ~
     listings:
       no_listing_image: "Ingen bilde"
   layouts:
@@ -1393,7 +1394,6 @@ nb:
       you_must_fill_all_the_fields: "Du må fylle inn alle felter"
       you_unfollowed_listing: "Du følger ikke lenger denne annonsen"
       joining_community_failed: "Kunne ikke koble til"
-      can_not_login_with_private_user: "Du kan ikke logge inn med din personlige konto. Logg inn med organisasjons konto eller opprett en ny konto."
       can_not_delete_email: "Du kan ikke fjerne e-post adressen"
       user_does_not_have_email_to_delete: "Du har ikke e-post adressen du prøver å fjerne"
       email_deleted: "E-post fjernet"
@@ -1823,7 +1823,6 @@ nb:
       invitation_code: Invitasjonskode
       not_required: ", ikke påkrevd"
       notification_is_mandatory: "Du må velge minst en epostadresse for å motta varslinger. Hvis du ikke ønsker å motta eposter fra %{service_name}, se dine innstillinger for epostvarslinger."
-      organization_name: "Navn på organisasjon"
       password_again: "Bekreft passord"
       show_my_name_to_others: "Vis mitt virkelige navn til andre brukere på %{service_name}"
       sign_up: "Opprett ny  %{service_name} brukerkonto"

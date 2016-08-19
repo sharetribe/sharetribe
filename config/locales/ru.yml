@@ -1205,6 +1205,7 @@ ru:
       search: ~
       signup: ~
       search_placeholder: ~
+      search_location_placeholder: ~
     listings:
       no_listing_image: ~
   layouts:
@@ -1385,7 +1386,6 @@ ru:
       you_must_fill_all_the_fields: "Вы должны заполнить все поля"
       you_unfollowed_listing: "Вы больше не следите за этим листингом"
       joining_community_failed: "Ошибка при вступлении в сообщество"
-      can_not_login_with_private_user: "Вы не можете войти с вашей персональной учетной записью. Войдите с аккаунтом организации или создайте новый аккаунт."
       can_not_delete_email: "Вы не можете удалить email адрес"
       user_does_not_have_email_to_delete: "У вас нет email адреса который вы пытаетесь удалить"
       email_deleted: "E-mail удален"
@@ -1813,7 +1813,6 @@ ru:
       invitation_code: "Код приглашения:"
       not_required: ", не обязательно"
       notification_is_mandatory: ~
-      organization_name: "Название организации"
       password_again: "Подтвердить пароль:"
       show_my_name_to_others: "Показывать моё настоящее имя другим пользователям %{service_name}"
       sign_up: "Зарегистрироваться в %{service_name}"

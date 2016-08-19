@@ -1180,6 +1180,7 @@ hy-AM:
       search: ~
       signup: ~
       search_placeholder: ~
+      search_location_placeholder: ~
     listings:
       no_listing_image: ~
   layouts:
@@ -1360,7 +1361,6 @@ hy-AM:
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: ~
       joining_community_failed: ~
-      can_not_login_with_private_user: ~
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
       email_deleted: ~
@@ -1783,7 +1783,6 @@ hy-AM:
       invitation_code: ~
       not_required: ~
       notification_is_mandatory: ~
-      organization_name: ~
       password_again: ~
       show_my_name_to_others: ~
       sign_up: ~

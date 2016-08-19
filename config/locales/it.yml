@@ -1184,6 +1184,7 @@ it:
       search: ~
       signup: ~
       search_placeholder: "Che cosa stai cercando?"
+      search_location_placeholder: ~
     listings:
       no_listing_image: "Nessuna immagine"
   layouts:
@@ -1364,7 +1365,6 @@ it:
       you_must_fill_all_the_fields: "Devi completare tutti i campi"
       you_unfollowed_listing: "Non stai più seguendo questa inserzione"
       joining_community_failed: ~
-      can_not_login_with_private_user: ~
       can_not_delete_email: "Non puoi rimuovere l'indirizzo email"
       user_does_not_have_email_to_delete: "Non hai l'indirizzo email che stai cercando di rimuovere"
       email_deleted: "Email rimossa"
@@ -1794,7 +1794,6 @@ it:
       invitation_code: "Codice di invito"
       not_required: ", non richiesto"
       notification_is_mandatory: "È necessario scegliere almeno un indirizzo e-mail per ricevere le notifiche. Se non vuoi ricevere email da %{service_name}, controlla la configurazione delle notifiche."
-      organization_name: "Nome attività"
       password_again: "Conferma password"
       show_my_name_to_others: "Mostra il mio vero nome agli altri utenti di %{service_name}"
       sign_up: "Crea un nuovo account per %{service_name}"

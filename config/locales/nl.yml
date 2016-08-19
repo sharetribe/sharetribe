@@ -1195,6 +1195,7 @@ nl:
       search: ~
       signup: ~
       search_placeholder: ~
+      search_location_placeholder: ~
     listings:
       no_listing_image: ~
   layouts:
@@ -1375,7 +1376,6 @@ nl:
       you_must_fill_all_the_fields: "U moet alle velden invullen"
       you_unfollowed_listing: "U volgt dit item niet meer"
       joining_community_failed: "Aansluiten mislukt"
-      can_not_login_with_private_user: "Je kan niet inloggen met je persoonlijke account. Log in met de account van je organisatie of maak een nieuwe account."
       can_not_delete_email: "Je kan het e-mail adres niet verwijderen"
       user_does_not_have_email_to_delete: "Je bezit het e-mail adres dat je tracht te verwijderen niet"
       email_deleted: "E-mail verwijderd"
@@ -1801,7 +1801,6 @@ nl:
       invitation_code: "Invitatie code"
       not_required: ", niet vereist"
       notification_is_mandatory: ~
-      organization_name: "Naam organisatie"
       password_again: "Bevestig wachtwoord"
       show_my_name_to_others: "Toon mijn echte naam aan andere %{service_name} gebruikers"
       sign_up: "Maak een nieuwe account op %{service_name}"

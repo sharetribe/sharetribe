@@ -1200,6 +1200,7 @@ ka:
       search: ძებნა
       signup: დარეგისტრირდი
       search_placeholder: "რას ეძებთ?"
+      search_location_placeholder: ~
     listings:
       no_listing_image: "სურათი არ არის"
   layouts:
@@ -1380,7 +1381,6 @@ ka:
       you_must_fill_all_the_fields: "თქვენ უნდა შეავსოთ ყველა ველი"
       you_unfollowed_listing: "თქვენ უკვე აღარ ადევნებთ თვალს ამ სიას"
       joining_community_failed: "გაწევრიანება ვერ მოხერხდა"
-      can_not_login_with_private_user: "თქვენ არ შეგიძლიათ სისტემაში შესვლა პერსონალური ანგარიშის გარეშე. შედით სისტემაში კორპორატიული ანგარიშით და შექენით ახალი ანგარიში"
       can_not_delete_email: "თქვენ არ შეგიძლიათ ელ. ფოსტის წაშლა"
       user_does_not_have_email_to_delete: "თქვენ არ გაქვთ ის ელ. ფოსტა, რომლის წაშლავც გსურთ. "
       email_deleted: "ელ. ფოსტა წაშლილია"
@@ -1808,7 +1808,6 @@ ka:
       invitation_code: "მოწვევის კოდი"
       not_required: "არ არის მოთხოვნილი"
       notification_is_mandatory: "თქვენ უნდა აირჩიოთ მინიმუმ ერთი ელ. ფსოტის მისამართი რომ მიიღოთ შეტყობინებები. თუ თქვენ არ გსურთ რაიმე სახის წერილის მიღება %{service_name}-სგან, შეამოწმეთ თქვენი ელ ფოსტის შეტყობინების პარამეტრები"
-      organization_name: "ორგანიზაციის დასახელება"
       password_again: "პაროლის დადასტურება"
       show_my_name_to_others: "აჩვენე ჩემი ნამდვილი სახელი სხვა %{service_name}ის მომხმარებლებს"
       sign_up: "შექმენით ახალი %{service_name} ანგარიში"

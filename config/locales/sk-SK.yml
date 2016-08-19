@@ -1220,6 +1220,7 @@ sk-SK:
       search: Hľadať
       signup: "Zaregistrovať sa"
       search_placeholder: "Čo hľadáte?"
+      search_location_placeholder: ~
     listings:
       no_listing_image: "bez obrázku"
   layouts:
@@ -1400,7 +1401,6 @@ sk-SK:
       you_must_fill_all_the_fields: "Musíte vyplniť všetky polia"
       you_unfollowed_listing: "Tento zoznam už nesledujete"
       joining_community_failed: "Prihlásenie zlyhalo"
-      can_not_login_with_private_user: "Nemôžete se prihlásiť pomocou Vašeho osobného účtu. Prihláste se cez účet organizácie alebo si vytvorte nový účet."
       can_not_delete_email: "Nemôžete odstrániť e-mailovú adresu."
       user_does_not_have_email_to_delete: "E-mailová adresa, ktorú sa snažíte odstrániť Vám nepatrí"
       email_deleted: "E-mailová adresa bola odstránená"
@@ -1832,7 +1832,6 @@ sk-SK:
       invitation_code: "Kód pozvánky"
       not_required: "nie je požadované"
       notification_is_mandatory: "Musíte vybrať aspoň jednu e-mailovú adresu, aby ste dostávali upozornenia. Pokiaľ nechcete dostávať žiadne e-maily od %{service_name}, skontrolujte si nastavenia upozornenia e-mailom."
-      organization_name: "Názov organizácie"
       password_again: "Potvrdiť heslo"
       show_my_name_to_others: "Zobraziť skutočné meno používateľom %{service_name}"
       sign_up: "Vytvoriť nový %{service_name} účet"

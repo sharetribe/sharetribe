@@ -1196,6 +1196,7 @@ tr-TR:
       search: ~
       signup: ~
       search_placeholder: ~
+      search_location_placeholder: ~
     listings:
       no_listing_image: ~
   layouts:
@@ -1376,7 +1377,6 @@ tr-TR:
       you_must_fill_all_the_fields: "Tüm alanları doldurmalısınız."
       you_unfollowed_listing: "Bu ilanı takip etmeyi bıraktınız"
       joining_community_failed: "Katılım başarısız oldu"
-      can_not_login_with_private_user: "Kişisel hesabınızla giriş yapamazsınız. Şirket hesabıyla giriş yapın ya da yeni hesap oluşturun."
       can_not_delete_email: "E-posta adresini kaldıramazsınız."
       user_does_not_have_email_to_delete: "Kaldırmaya çalıştığınız e-posta adresi mevcut değildir."
       email_deleted: "E-posta adresi kaldırıldı"
@@ -1801,7 +1801,6 @@ tr-TR:
       invitation_code: "Davet kodu"
       not_required: ", gerekmemektedir"
       notification_is_mandatory: "Bildirimleri almak için en az 1 email adresi belirtmelisiniz. Eğer %{service_name} bildirimlerini almak istemiyorsanız email bildirim ayarlarınızı kontrol edin."
-      organization_name: "Kurum adı"
       password_again: "Şifreyi doğrula"
       show_my_name_to_others: "Diğer %{service_name} kullanıcılarına gerçek adımı göster"
       sign_up: "Yeni %{service_name} hesabı oluştur."

@@ -1211,6 +1211,7 @@ pt-BR:
       search: Busca
       signup: "Criar conta"
       search_placeholder: "O que você está procurando?"
+      search_location_placeholder: ~
     listings:
       no_listing_image: "Sem imagem"
   layouts:
@@ -1391,7 +1392,6 @@ pt-BR:
       you_must_fill_all_the_fields: "Você deve preencher todos os campos"
       you_unfollowed_listing: "Você já não estão seguindo este anúncio"
       joining_community_failed: "Entrar nesta comunidade falhou"
-      can_not_login_with_private_user: "Você não pode entrar nessa comunidade com a sua conta pessoal. Se conecte com uma conta empresarial ou crie uma nova conta."
       can_not_delete_email: "Você não pode remover o endereço de email"
       user_does_not_have_email_to_delete: "Você não tem o endereço de e-mail que você está tentando remover"
       email_deleted: "E-mail removido"
@@ -1823,7 +1823,6 @@ pt-BR:
       invitation_code: "Código do convite "
       not_required: ", não necessaria"
       notification_is_mandatory: "Você deve escolher pelo menos um endereço de e-mail para receber notificações. Se você não quiser receber nenhum e-mail do %{service_name}, verifique suas configurações para notificações de e-mail."
-      organization_name: "Nome da organização"
       password_again: "Confirme a senha"
       show_my_name_to_others: "Mostrar o meu nome completo aos utilizadores de %{service_name}"
       sign_up: "Criar uma conta no %{service_name}"

@@ -1212,6 +1212,7 @@ hu:
       search: Keresés
       signup: Regisztráció
       search_placeholder: "Mit keres?"
+      search_location_placeholder: ~
     listings:
       no_listing_image: "Nincs kép"
   layouts:
@@ -1392,7 +1393,6 @@ hu:
       you_must_fill_all_the_fields: "Ki kell töltenie az összes mezőt"
       you_unfollowed_listing: "Ön már nem követi ezt a hirdetést"
       joining_community_failed: "A csatlakozás sikertelen"
-      can_not_login_with_private_user: "Ön nem léphet be a személyes fiókjába. Lépjen be egy céges fiókkal vagy hozzon létre egy új fiókot."
       can_not_delete_email: "Az e-mailcímet nem tudja törölni"
       user_does_not_have_email_to_delete: "Ön nem adott meg e-mail címet, így nem tudja törölni sem"
       email_deleted: "E-mail eltávolítva"
@@ -1823,7 +1823,6 @@ hu:
       invitation_code: "Meghívó kód"
       not_required: ", nem szükséges"
       notification_is_mandatory: "Kérjük válasszon legalább egy e-mailcímet az értesítések fogadásához. Amennyiben nem szeretne e-maileket fogadni a %{service_name} oldaltól, ellenőrizze az e-mail értesítések beállítását."
-      organization_name: "Szervezet neve"
       password_again: "Jelszó megerősítése"
       show_my_name_to_others: "Lássák a valós nevem a %{service_name} oldal felhasználói"
       sign_up: "Új %{service_name} fiók létrehozása"
