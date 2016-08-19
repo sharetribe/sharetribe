@@ -60,8 +60,6 @@ module NavigationHelpers
       "#{person_path(@logged_in_user, :locale => "en")}/settings"
     when /the profile settings page/
       "#{person_path(@logged_in_user, :locale => "en")}/settings"
-    when /the new Braintree account page/
-      "#{person_path(@logged_in_user, :locale => "en")}/settings/payments/braintree/new"
     when /the account settings page/
       "#{person_path(@logged_in_user, :locale => "en")}/settings/account"
     when /the about page$/

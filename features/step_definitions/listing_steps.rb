@@ -62,30 +62,12 @@ Given /^privacy of that listing is "([^"]*)"$/ do |privacy|
   @listing.update_attribute(:privacy, privacy)
 end
 
-Given(/^that listing belongs to community "(.*?)"$/) do |ident|
-  @listing.community_id = Community.where(ident: ident).first.id
-  @listing.save!
-end
-
-Given /^that listing is visible to members of community "([^"]*)"$/ do |ident|
-  @listing.community_id = Community.where(ident: ident).first.id
-  @listing.save!
-end
-
 Given /^that listing has a description "(.*?)"$/ do |description|
   @listing.update_attribute(:description, description)
 end
 
 Then /^There should be a rideshare (offer|request) from "([^"]*)" to "([^"]*)" starting at "([^"]*)"$/ do |share_type, origin, destination, time|
   listings = Listing.where(title: "#{origin} - #{destination}")
-end
-
-When /^there is one comment to the listing from "([^"]*)"$/ do |author|
-  @comment = FactoryGirl.create(:comment, :listing => @listing, :author => @people[author])
-end
-
-Then /^the total number of comments should be (\d+)$/ do |no_of_comments|
-  expect(Comment.all.count).to eq(no_of_comments.to_i)
 end
 
 When /^I save the listing$/ do
@@ -125,14 +107,6 @@ When /^I fill in listing form with housing information$/ do
   steps %Q{
     And I fill in "listing_title" with "Nice appartment in the city centre"
     And I fill in "listing_price" with "10000"
-  }
-end
-
-When /^I choose to view only share type "(.*?)"$/ do |share_type_name|
-  puts "Using deprecated step When I choose to view only share type"
-  steps %Q{
-    When I click "#home_toolbar-select-share-type"
-    And I follow "#{share_type_name}" within ".home-toolbar-share-type-menu"
   }
 end
 
@@ -253,17 +227,6 @@ end
 
 When(/^I set the expiration date to (\d+) months from now$/) do |months|
   select_date_from_date_selector(months.to_i.months.from_now, "listing_valid_until")
-end
-
-When(/^I (?:buy) that listing$/) do
-  visit(path_to "the listing page")
-  find(".book-button").click
-end
-
-When(/^I (?:buy) (\d+) hours worth of those listings$/) do |hours|
-  visit(path_to "the listing page")
-  fill_in('Number of hours:', with: hours)
-  find(".book-button").click
 end
 
 When(/^I select category "(.*?)"$/) do |category_name|

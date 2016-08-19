@@ -42,13 +42,6 @@ Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |mes
   @transaction.reload
 end
 
-Given /^there is a pending request "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
-  @transaction = create_transaction(@current_community, @listing, @people[sender], message, @current_community.payment_gateway.gateway_type)
-  @conversation = @transaction.conversation
-  MarketplaceService::Transaction::Command.transition_to(@transaction.id, "pending")
-  @transaction.reload
-end
-
 Given /^there is a reply "([^"]*)" to that message by "([^"]*)"$/ do |content, sender|
   @conversation.messages.create(
     sender: @people[sender],
@@ -58,62 +51,6 @@ end
 
 When /^I try to go to inbox of "([^"]*)"$/ do |person|
   visit person_inbox_path(:locale => :en, :person_id => @people[person].id)
-end
-
-Then /^the status of the conversation should be "([^"]*)"$/ do |status|
-  @transaction.status.should == status
-end
-
-Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do |listing_type, status|
-  if listing_type == "request" && @transaction.listing.payment_required_at?(@transaction.community)
-    if status == "accepted" || status == "paid"
-      # In this case there should be a pending payment done when this got accepted.
-      payment_gateway_type = @transaction.community.payment_gateway.type
-      type = if payment_gateway_type == "BraintreePaymentGateway"
-               :braintree_payment
-             else
-               raise ArgumentError.new("Unknown payment_gateway.type: #{payment_gateway_type}")
-             end
-
-      recipient = @transaction.listing.author
-
-      if @transaction.payment == nil
-        payment = FactoryGirl.build(type, tx: @transaction, recipient: recipient, status: "pending", community: @current_community)
-        payment.default_sum(@transaction.listing, 24)
-        payment.save!
-
-        @transaction.payment = payment
-      end
-    end
-  end
-
-  # TODO Change status step by step
-  if @transaction.status == "pending" && status == "confirmed"
-    MarketplaceService::Transaction::Command.transition_to(@transaction.id, :accepted)
-    @transaction.payment.update_attribute(:status, "paid") if @transaction.payment
-    MarketplaceService::Transaction::Command.transition_to(@transaction.id, :paid) if @transaction.payment
-    MarketplaceService::Transaction::Command.transition_to(@transaction.id, :confirmed)
-  elsif @transaction.status == "pending" && status == "paid"
-    MarketplaceService::Transaction::Command.transition_to(@transaction.id, :accepted)
-    @transaction.payment.update_attribute(:status, "paid") if @transaction.payment
-    MarketplaceService::Transaction::Command.transition_to(@transaction.id, :paid) if @transaction.payment
-  elsif @transaction.status == "not_started" && status == "accepted"
-    MarketplaceService::Transaction::Command.transition_to(@transaction.id, :pending)
-    MarketplaceService::Transaction::Command.transition_to(@transaction.id, :accepted)
-  else
-    MarketplaceService::Transaction::Command.transition_to(@transaction.id, status.to_sym)
-  end
-
-  @transaction.reload
-end
-
-When /^there is feedback about that event from "([^"]*)" with grade "([^"]*)" and with text "([^"]*)"$/ do |feedback_giver, grade, text|
-  Testimonial.create!(
-    grade: grade,
-    author_id: @people[feedback_giver].id,
-    text: text,
-    receiver_id: @transaction.other_party(@people[feedback_giver]).id,
-    transaction_id: @transaction.id)
 end
 
 Then /^I should see information about missing payment details$/ do
@@ -150,12 +87,6 @@ def visit_transaction_of_listing(listing)
   visit(person_transaction_path(:person_id => @current_user.id, :id => transaction.id, :locale => "en"))
 end
 
-When(/^I accepts the request for that listing$/) do
-  visit_transaction_of_listing(@listing)
-  click_link "Accept request"
-  click_button "Accept"
-end
-
 
 Then(/^I should see that the order is waiting for buyer confirmation$/) do
   expect(page).to have_content(/Waiting for (.*) to mark the order completed/)
@@ -179,12 +110,6 @@ end
 
 Then(/^I should see that the request was confirmed$/) do
   expect(page).to have_content(/Completed/)
-end
-
-When(/^the seller does not respond the request within (\d+) days$/) do |days|
-  Timecop.travel(DateTime.now + (days.to_i + 1))
-  process_jobs
-  visit(current_path)
 end
 
 Then(/^I should see that the request was rejected$/) do

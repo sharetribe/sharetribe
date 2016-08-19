@@ -21,15 +21,6 @@ end
 
 World(UserSteps)
 
-Given /^there is a logged in user "(.*?)"$/ do |username|
-  steps %Q{
-    Given there are following users:
-      | person |
-      | #{username} |
-    And I am logged in as "#{username}"
-  }
-end
-
 Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
   username = person || "kassi_testperson1"
   person = Person.find_by(username: username)
@@ -56,12 +47,6 @@ Given /^my given name is "([^"]*)"$/ do |name|
   cookie = nil
   @test_person = Person.find_by_username "kassi_testperson1"
   @test_person.set_given_name(name)
-end
-
-Given /^my phone number in my profile is "([^"]*)"$/ do |phone_number|
-  raise RuntimeException.new("@session neede to be set before the line 'my phone number...'") unless @session
-  @test_person = Person.find(@session.person_id) if @test_person.nil?
-  @test_person.set_phone_number(phone_number)
 end
 
 Given /^user "(.*?)" has additional email "(.*?)"$/ do |username, email|
@@ -171,12 +156,6 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should contain the (username|em
     field = find_field(field)
     field_value = (field.tag_name == 'textarea') ? field.text : field.value
     expect(field_value).to match(/#{@values[value]}/)
-  end
-end
-
-Then /^(?:|I )should see the (username|email) I gave(?: within "([^"]*)")?$/ do |value, selector|
-  with_scope(selector) do
-    expect(page).to have_content(@values[value])
   end
 end
 
