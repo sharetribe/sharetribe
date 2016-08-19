@@ -93,31 +93,6 @@ Given /^Braintree void transaction is mocked$/ do
     .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
 end
 
-Given /^Braintree merchant creation is mocked$/ do
-  expect(BraintreeApi).to receive(:create_merchant_account) do |braintree_account, community|
-    expect(braintree_account.first_name).to eq("Joe")
-    expect(braintree_account.last_name).to eq("Bloggs")
-    expect(braintree_account.email).to eq("joe@14ladders.com")
-    expect(braintree_account.phone).to eq("5551112222")
-    expect(braintree_account.address_street_address).to eq("123 Credibility St.")
-    expect(braintree_account.address_postal_code).to eq("60606")
-    expect(braintree_account.address_locality).to eq("Chicago")
-    expect(braintree_account.address_region).to eq("IL")
-    expect(braintree_account.date_of_birth.year).to eq(1980)
-    expect(braintree_account.date_of_birth.month).to eq(10)
-    expect(braintree_account.date_of_birth.day).to eq(9)
-    expect(braintree_account.routing_number).to eq("101000187")
-    expect(braintree_account.account_number).to eq("43759348798")
-    expect(braintree_account.person_id).to eq(@current_user.id)
-    expect(community.name('en')).to eq("Sharetribe")
-  end.and_return(Braintree::SuccessfulResult.new({:merchant_account => HashClass.new({:id => @current_user.id, :status => "pending"})}))
-end
-
-Given /^Braintree merchant creation is mocked to return failure$/ do
-  expect(BraintreeApi).to receive(:create_merchant_account)
-    .and_return(Braintree::ErrorResult.new(nil, :errors => { :errors => [] } ))
-end
-
 Given /^I want to pay "(.*?)"$/ do |item_title|
   # This probably fails if there are many payments waiting
   steps %Q{
