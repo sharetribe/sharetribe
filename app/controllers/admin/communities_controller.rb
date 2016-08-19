@@ -260,7 +260,6 @@ class Admin::CommunitiesController < ApplicationController
       ]
 
       render :settings, locals: {
-        supports_escrow: escrow_payments?(@current_community),
         delete_redirect_url: delete_redirect_url(APP_CONFIG),
         delete_confirmation: @current_community.ident,
         can_delete_marketplace: can_delete_marketplace?(@current_community.id),
@@ -272,7 +271,6 @@ class Admin::CommunitiesController < ApplicationController
       }
     else
       render :settings, locals: {
-        supports_escrow: escrow_payments?(@current_community),
         delete_redirect_url: delete_redirect_url(APP_CONFIG),
         delete_confirmation: @current_community.ident,
         can_delete_marketplace: can_delete_marketplace?(@current_community.id)
@@ -445,10 +443,6 @@ class Admin::CommunitiesController < ApplicationController
 
   def payment_settings_api
     TransactionService::API::Api.settings
-  end
-
-  def escrow_payments?(community)
-    MarketplaceService::Community::Query.payment_type(community.id) == :braintree
   end
 
   def delete_redirect_url(configs)
