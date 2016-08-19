@@ -172,20 +172,6 @@ class PersonMailer < ActionMailer::Base
     end
   end
 
-  # Braintree account was approved (via Webhook)
-  def braintree_account_approved(recipient, community)
-    set_up_layout_variables(recipient, community)
-    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
-      @recipient = recipient
-
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.braintree_account_approved.account_ready")) do |format|
-        format.html {render :locals => {:skip_unsubscribe_footer => true} }
-      end
-    end
-  end
-
   # Remind users of conversations that have not been accepted or rejected
   def confirm_reminder(conversation, recipient, community, days_to_cancel)
     @email_type = "email_about_confirm_reminders"

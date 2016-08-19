@@ -21,8 +21,7 @@
 class BraintreePaymentGateway < PaymentGateway
 
   def can_receive_payments?(person)
-    braintree_account = person.braintree_account
-    braintree_account.present? && braintree_account.status == "active"
+    false
   end
 
   def new_payment_path(person, message, locale)

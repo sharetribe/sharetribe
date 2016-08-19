@@ -94,19 +94,6 @@ describe PersonMailer, type: :mailer do
 
   end
 
-  it "should send email about approved Braintree account" do
-    community = FactoryGirl.create(:community)
-    person = FactoryGirl.create(:person)
-    email = MailCarrier.deliver_now(PersonMailer.braintree_account_approved(person, community))
-
-    assert !ActionMailer::Base.deliveries.empty?
-    assert_equal person.confirmed_notification_email_addresses, email.to
-    assert_equal "You are ready to receive payments", email.subject
-    assert_equal "You are ready to receive payments", email.subject
-
-    expect(email.body.include?("Your payment information has been confirmed and you are now ready")).to be_truthy
-  end
-
   it "should send email about a new testimonial" do
     @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
 

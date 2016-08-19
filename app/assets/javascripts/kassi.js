@@ -263,31 +263,6 @@ function initialize_login_form(password_forgotten) {
   $('#login_form input.text_field:first').focus();
 }
 
-function initialize_braintree_account_form(locale) {
-  var form_id = "#braintree_account_form";
-  $(form_id).validate({
-    rules: {
-      "braintree_account[first_name]": {required: true},
-      "braintree_account[last_name]": {required: true},
-      "braintree_account[email]": {required: true, email: true},
-      "braintree_account[phone]": {required: true},
-      "braintree_account[address_street_address]": {required: true},
-      "braintree_account[address_postal_code]": {required: true, minlength: 2, maxlength: 6},
-      "braintree_account[address_locality]": {required: true},
-      "braintree_account[address_region]": {required: true},
-      "braintree_account[date_of_birth]": {required: true},
-      "braintree_account[routing_number]": {required: true, minlength: 9, maxlength: 9},
-      "braintree_account[account_number]": {required: true},
-    },
-    messages: {
-    },
-    onkeyup: false, //Only do validations when form focus changes
-    submitHandler: function(form) {
-      disable_and_submit(form_id, form, "false", locale);
-    }
-  });
-}
-
 function initialize_send_message_form(locale) {
   auto_resize_text_areas("text_area");
   $('textarea').focus();
@@ -925,50 +900,6 @@ function initialize_pending_consent_form(email_invalid_message, invitation_requi
       "form[invitation_code]": { remote: invalid_invitation_code_message }
     }
   });
-}
-
-function initialize_braintree_preauthorize_form(locale, beforeSubmit) {
-  $('#transaction-agreement-read-more').click(function() { $('#transaction-agreement-content').lightbox_me({centered: true, zIndex: 1000000}); });
-
-  var opts = {
-    errorPlacement: function(error, element) {
-      if (element.attr("name") == "listing_conversation[contract_agreed]") {
-        error.appendTo(element.parent().parent());
-      } else {
-        error.insertAfter(element);
-      }
-    }
-  }
-
-  validateBraintreeForm(locale, beforeSubmit, opts);
-}
-
-function initialize_braintree_payment_form(locale, beforeSubmit) {
-  validateBraintreeForm(locale, beforeSubmit);
-}
-
-function validateBraintreeForm(locale, beforeSubmit, opts) {
-  opts = opts || {};
-  beforeSubmit = beforeSubmit || function(callback) { callback() };
-
-  var form_id = "#braintree-payment-form";
-
-  var defaultValidationOptions = {
-    rules: {
-      "braintree_payment[cardholder_name]": {required: true, minlength: 2, maxlength: 50},
-      "braintree_payment[credit_card_number]": {required: true, creditcard: true},
-      "braintree_payment[cvv]": {required: true, digits: true, minlength: 3, maxlength: 4},
-    },
-    submitHandler: function(form) {
-      beforeSubmit(function() {
-        disable_and_submit(form_id, form, "false", locale);
-      });
-    }
-  }
-
-  var validationOptions = _.defaults(opts, defaultValidationOptions);
-
-  $(form_id).validate(validationOptions);
 }
 
 function set_textarea_maxlength() {
