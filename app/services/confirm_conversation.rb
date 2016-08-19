@@ -33,7 +33,6 @@ class ConfirmConversation
   def cancel_escrow!
     return unless @hold_in_escrow
     Delayed::Job.enqueue(EscrowCanceledJob.new(@transaction.id, @community.id))
-    BTLog.info("Escrow canceled by user #{@user.id}, transaction #{@transaction.id}, community #{@community.id}")
   end
 
   def update_participation(feedback_given)
