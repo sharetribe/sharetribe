@@ -7,10 +7,6 @@ class MailPreview < MailView
     PersonMailer.payment_settings_reminder(listing, member, community)
   end
 
-  def payment_reminder
-    PersonMailer.payment_reminder(conversation, member, community)
-  end
-
   def paypal_receipt_to_payer
     transaction = TransactionService::DataTypes::Transaction.create_transaction({
         id: 999,

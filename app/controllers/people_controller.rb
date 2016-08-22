@@ -246,7 +246,6 @@ class PeopleController < Devise::RegistrationsController
           :email_about_testimonial_reminders,
           :email_about_completed_transactions,
           :email_about_new_payments,
-          :email_about_payment_reminders,
           :email_about_new_listings_by_followed_people,
         ] }
       )

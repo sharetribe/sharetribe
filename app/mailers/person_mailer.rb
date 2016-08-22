@@ -110,20 +110,6 @@ class PersonMailer < ActionMailer::Base
     end
   end
 
-  # Remind users to pay
-  def payment_reminder(conversation, recipient, community)
-    @email_type = "email_about_payment_reminders"
-    recipient = conversation.payment.payer
-    set_up_layout_variables(recipient, community, @email_type)
-    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
-      @conversation = conversation
-
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.payment_reminder.remember_to_pay", :listing_title => conversation.listing.title))
-    end
-  end
-
   # Remind user to fill in payment details
   def payment_settings_reminder(listing, recipient, community)
     set_up_layout_variables(recipient, community)
