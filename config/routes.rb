@@ -377,9 +377,6 @@ Kassi::Application.routes.draw do
             get :received, to: 'inboxes#show'
           end
           member do
-            get :accept, to: 'accept_conversations#accept'
-            get :reject, to: 'accept_conversations#reject'
-            put :acceptance, to: 'accept_conversations#acceptance'
             get :confirm, to: 'confirm_conversations#confirm'
             get :cancel, to: 'confirm_conversations#cancel'
             put :confirmation, to: 'confirm_conversations#confirmation' #TODO these should be under transaction

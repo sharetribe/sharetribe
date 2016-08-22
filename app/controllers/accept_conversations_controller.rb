@@ -14,14 +14,6 @@ class AcceptConversationsController < ApplicationController
 
   MessageForm = Form::Message
 
-  def accept
-    prepare_accept_or_reject_form
-    @action = "accept"
-
-    path_to_payment_settings = paypal_account_settings_payment_path(@current_user)
-    render(locals: { path_to_payment_settings: path_to_payment_settings, message_form: MessageForm.new })
-  end
-
   def reject
     prepare_accept_or_reject_form
     @action = "reject"

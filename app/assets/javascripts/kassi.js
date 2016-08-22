@@ -319,42 +319,6 @@ function initialize_listing_view(locale) {
   });
 }
 
-function initialize_accept_transaction_form(
-  commission_percentage,
-  service_fee_vat,
-  form_type,
-  form_id,
-  minimum_price,
-  subunit_to_unit,
-  minimum_price_message) {
-
-  auto_resize_text_areas("text_area");
-
-  if (commission_percentage != null) {
-    if (form_type === "simple") {
-      $(".trigger-focusout").keyup(function(value) {
-	update_simple_form_price_fields(commission_percentage);
-      });
-      $(form_id).validate({
-	rules: {
-          "listing_conversation[payment_attributes][sum]": {money: true, minimum_price_required: [minimum_price, subunit_to_unit]}
-        },
-        messages: {
-          "listing_conversation[payment_attributes][sum]": {minimum_price_required: minimum_price_message}
-        },
-      });
-    } else {
-      function update() {
-        update_complex_form_price_fields(commission_percentage, service_fee_vat);
-      }
-
-      $(".trigger-focusout").focusout(update);
-      update();
-    }
-
-  }
-}
-
 function updateSellerGetsValue(priceInputSelector, displayTargetSelector, currencySelector, communityCommissionPercentage, minCommission, showReversed) {
   // true == Show the fee instead of what's left after the fee
   showReversed = showReversed || false;
@@ -384,52 +348,6 @@ function updateSellerGetsValue(priceInputSelector, displayTargetSelector, curren
 
   // Run once immediately
   updateYouWillGet();
-}
-
-function update_simple_form_price_fields(commission_percentage) {
-  var sum = ST.paymentMath.parseFloatFromFieldValue($(".invoice-sum-field").val());
-  var service_fee_sum = ST.paymentMath.totalCommission(sum, commission_percentage, 0, 0);
-  var seller_sum = sum - service_fee_sum;
-  $("#service-fee").text(ST.paymentMath.displayMoney(service_fee_sum));
-  $("#payment-to-seller").text(ST.paymentMath.displayMoney(seller_sum));
-}
-
-function update_complex_form_price_fields(commissionPercentage, serviceFeeVat) {
-  var euro = '\u20AC'
-
-  var rows = $(".field-row").toArray().map(function(row) {
-    var row = $(row);
-    var sumEl = row.find(".payment-row-sum-field");
-    var vatEl = row.find(".payment-row-vat-field");
-    var totalEl = row.find(".total-label");
-    var sum = ST.paymentMath.parseFloatFromFieldValue(sumEl.val());
-    var vat = ST.paymentMath.parseFloatFromFieldValue(vatEl.val());
-
-    vat = Math.min(Math.max(vat, 0), 100);
-    var sumWithVat = sum + (sum * vat / 100);
-
-    return {
-      totalEl: totalEl,
-      sumWithVat: sumWithVat
-    };
-  });
-
-  var total = rows.reduce(function(total, rowObj) {
-    return total + rowObj.sumWithVat;
-  }, 0);
-
-  var totalFee = ST.paymentMath.totalCommission(total, commissionPercentage);
-  var totalFeeWithoutVat = totalFee / (1 + serviceFeeVat / 100);
-  var youWillGet = total - totalFee;
-
-  rows.forEach(function(rowObj) {
-    rowObj.totalEl.text(rowObj.sumWithVat.toFixed(2) + euro);
-  });
-
-  $("#service-fee-sum").text(totalFeeWithoutVat.toFixed(2) + euro);
-  $("#service-fee-total").text(totalFee.toFixed(2) + euro);
-
-  $("#total").text(youWillGet.toFixed(2) + euro);
 }
 
 function initialize_give_feedback_form(locale, grade_error_message, text_error_message) {

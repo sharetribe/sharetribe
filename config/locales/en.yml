@@ -556,8 +556,6 @@ en:
     accept:
       details: "Order details"
       order_by: "Order by %{orderer_link}"
-      respond_to_offer: "Respond to an offer"
-      respond_to_request: "Respond to a request"
       accept_offer: "Accept the offer"
       accept_request: "Accept the request"
       reject_offer: "Not this time"
@@ -566,9 +564,6 @@ en:
       update_later: "Leave the listing open"
       optional_message: "Optional message"
       price_to_pay: "Total price to be paid"
-      you_need_to_fill_payout_details_before_accepting: "You need to fill in payout details before you can accept the request and receive the payment. Go to %{payment_settings_link} to fill in the details."
-      payment_settings_link: "payment settings"
-      minimum_price_error_message: "The price cannot be lower than %{amount}."
       accept: Accept
       decline: Decline
       quantity_label: "Quantity:"
