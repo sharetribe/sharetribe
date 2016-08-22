@@ -78,6 +78,7 @@ module TopbarHelper
         image_highres: community.wide_logo.present? ? community.stable_image_url(:wide_logo, :header_highres) : nil
       },
       search: landing_page ? nil : {
+        search_placeholder: search_placeholder,
         mode: main_search.to_s,
       },
       search_path: search_path_string,
