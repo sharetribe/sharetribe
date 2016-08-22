@@ -523,31 +523,17 @@ module ApplicationHelper
 
     if payment_type.present?
 
-      path = payment_settings_path(payment_type, @current_user)
-
       links << {
         :id => "settings-tab-payments",
         :text => t("layouts.settings.payments"),
         :icon_class => icon_class("payments"),
-        :path => path,
+        :path => paypal_account_settings_payment_path(@current_user),
         :name => "payments"
       }
 
     end
 
     return links
-  end
-
-  def payment_settings_path(gateway_type, person)
-    elsif gateway_type == :paypal
-      paypal_account_settings_payment_path(person)
-    end
-  end
-
-  def payment_settings_url(gateway_type, person, url_params)
-    elsif gateway_type == :paypal
-      paypal_account_settings_payment_url(person, url_params.merge(locale: person.locale))
-    end
   end
 
   def display_expiration_notice?

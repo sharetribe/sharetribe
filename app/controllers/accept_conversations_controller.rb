@@ -17,14 +17,15 @@ class AcceptConversationsController < ApplicationController
   def accept
     prepare_accept_or_reject_form
     @action = "accept"
-    path_to_payment_settings = payment_settings_path(@current_community.payment_gateway.gateway_type, @current_user)
+
+    path_to_payment_settings = paypal_account_settings_payment_path(@current_user)
     render(locals: { path_to_payment_settings: path_to_payment_settings, message_form: MessageForm.new })
   end
 
   def reject
     prepare_accept_or_reject_form
     @action = "reject"
-    path_to_payment_settings = payment_settings_path(@current_community.payment_gateway.gateway_type, @current_user)
+    path_to_payment_settings = paypal_account_settings_payment_path(@current_user)
     render(:accept, locals: { path_to_payment_settings: path_to_payment_settings, message_form: MessageForm.new })
   end
 

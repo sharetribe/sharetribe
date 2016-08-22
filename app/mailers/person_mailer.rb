@@ -161,7 +161,7 @@ class PersonMailer < ActionMailer::Base
       @recipient = recipient
 
       if community.payments_in_use?
-        @payment_settings_link = payment_settings_url(MarketplaceService::Community::Query.payment_type(community.id), recipient, @url_params)
+        @payment_settings_link = paypal_account_settings_payment_url(recipient, @url_params.merge(locale: recipient.locale))
       end
 
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
