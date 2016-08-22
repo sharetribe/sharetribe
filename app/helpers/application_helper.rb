@@ -539,16 +539,12 @@ module ApplicationHelper
   end
 
   def payment_settings_path(gateway_type, person)
-    if gateway_type == :braintree
-      show_braintree_settings_payment_path(person)
     elsif gateway_type == :paypal
       paypal_account_settings_payment_path(person)
     end
   end
 
   def payment_settings_url(gateway_type, person, url_params)
-    if gateway_type == :braintree
-      show_braintree_settings_payment_url(person, url_params.merge(locale: person.locale))
     elsif gateway_type == :paypal
       paypal_account_settings_payment_url(person, url_params.merge(locale: person.locale))
     end

@@ -38,8 +38,6 @@ class TransactionsController < ApplicationController
         redirect_to book_path(transaction_params)
       when matches([:preauthorize, :paypal])
         redirect_to initiate_order_path(transaction_params)
-      when matches([:preauthorize, :braintree])
-        redirect_to preauthorize_payment_path(transaction_params)
       when matches([:postpay])
         redirect_to post_pay_listing_path(transaction_params)
       else
