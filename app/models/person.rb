@@ -530,12 +530,6 @@ class Person < ActiveRecord::Base
     return community_updates_last_sent_at + min_days_between_community_updates.days - 45.minutes < Time.now
   end
 
-  # Return true if this user should use a payment
-  # system in this transaction
-  def should_pay?(conversation, community)
-    conversation.requires_payment?(community) && conversation.status.eql?("accepted") && id.eql?(conversation.buyer.id)
-  end
-
   # Returns and email that is pending confirmation
   # If community is given as parameter, in case of many pending
   # emails the one required by the community is returned

@@ -429,17 +429,13 @@ module ApplicationHelper
       }
     ]
 
-    # Disabled for Braintree
-    gw = PaymentGateway.where(community_id: @current_community.id).first
-    unless gw
-      links << {
-        :topic => :configure,
-        :text => t("admin.listing_shapes.index.listing_shapes"),
-        :icon_class => icon_class("order_types"),
-        :path => admin_listing_shapes_path,
-        :name => "listing_shapes"
-      }
-    end
+    links << {
+      :topic => :configure,
+      :text => t("admin.listing_shapes.index.listing_shapes"),
+      :icon_class => icon_class("order_types"),
+      :path => admin_listing_shapes_path,
+      :name => "listing_shapes"
+    }
 
     if PaypalHelper.paypal_active?(@current_community.id)
       links << {

@@ -97,19 +97,6 @@ class Transaction < ActiveRecord::Base
     current_state
   end
 
-  def payment_attributes=(attributes)
-    payment = initialize_payment
-
-    if attributes[:sum]
-      # Simple payment form
-      initialize_braintree_payment!(payment, attributes[:sum], attributes[:currency])
-    else
-      raise ArgumentError.new("Missing attribute 'sum'")
-    end
-
-    payment.save!
-  end
-
   # TODO Remove this
   def initialize_payment
     payment ||= community.payment_gateway.new_payment
@@ -120,10 +107,6 @@ class Transaction < ActiveRecord::Base
     payment.recipient = author
     payment.community = community
     payment
-  end
-
-  def initialize_braintree_payment!(payment, sum, currency)
-    payment.sum = MoneyUtil.parse_str_to_money(sum.to_s, currency)
   end
 
   def has_feedback_from?(person)

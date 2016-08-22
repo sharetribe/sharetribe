@@ -64,7 +64,7 @@ module MarketplaceService
       end
 
       def authorization_expiration_period(payment_type)
-        # TODO These configs should be moved to Paypal/Braintree services
+        # TODO These configs should be moved to Paypal services
         case payment_type
         when :paypal
           APP_CONFIG.paypal_expiration_period.to_i

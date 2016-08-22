@@ -583,10 +583,6 @@ class Community < ActiveRecord::Base
     end
   end
 
-  def braintree_in_use?
-    payment_gateway.present? && payment_gateway.type == "BraintreePaymentGateway"
-  end
-
   def email_notification_types
     valid_types = Person::EMAIL_NOTIFICATION_TYPES.dup
     if !follow_in_use?

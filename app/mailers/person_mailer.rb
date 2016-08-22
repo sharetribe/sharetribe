@@ -24,11 +24,6 @@ class PersonMailer < ActionMailer::Base
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @transaction = transaction
 
-      if @transaction.payment_gateway == "braintree" ||  @transaction.payment_process == "postpay"
-        # Payment url concerns only braintree and postpay, otherwise we show only the message thread
-        @payment_url = community.payment_gateway.new_payment_url(@recipient, @transaction, @recipient.locale, @url_params)
-      end
-
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
                      :subject => t("emails.conversation_status_changed.your_request_was_#{transaction.status}"))
@@ -122,8 +117,6 @@ class PersonMailer < ActionMailer::Base
     set_up_layout_variables(recipient, community, @email_type)
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @conversation = conversation
-
-      @pay_url = payment_url(conversation, recipient, @url_params)
 
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
@@ -370,16 +363,6 @@ class PersonMailer < ActionMailer::Base
 
   def premailer_mail(opts, &block)
     premailer(mail(opts, &block))
-  end
-
-  # This is an ugly method. Ideas how to improve are very welcome.
-  # Depending on a class name prevents refactoring.
-  def payment_url(conversation, recipient, url_params)
-    if conversation.payment.is_a? BraintreePayment
-      edit_person_message_braintree_payment_url(url_params.merge({:id => conversation.payment.id, :person_id => recipient.id.to_s, :message_id => conversation.id}))
-    else
-      new_person_message_payment_url(recipient, url_params.merge({:message_id => conversation.id}))
-    end
   end
 
   private
