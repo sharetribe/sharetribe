@@ -33,4 +33,5 @@
   left: -1px;
   width: 0.5em; /* topbar can't trust root font-size due to old design */
   height: 100%;
+  border-radius: inherit;
 }
