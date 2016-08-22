@@ -368,14 +368,14 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def create_preauth_transaction(opts)
-    gateway_fields =
-      # PayPal doesn't like images with cache buster in the URL
-      logo_url = Maybe(opts[:community])
-        .wide_logo
-        .select { |wl| wl.present? }
-        .url(:paypal, timestamp: false)
-        .or_else(nil)
+    # PayPal doesn't like images with cache buster in the URL
+    logo_url = Maybe(opts[:community])
+                 .wide_logo
+                 .select { |wl| wl.present? }
+                 .url(:paypal, timestamp: false)
+                 .or_else(nil)
 
+    gateway_fields =
       {
         merchant_brand_logo_url: logo_url,
         success_url: success_paypal_service_checkout_orders_url,
