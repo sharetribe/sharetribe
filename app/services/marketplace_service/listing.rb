@@ -48,7 +48,7 @@ module MarketplaceService
 
         raise ArgumentError.new("Cannot find transaction process: #{opts}") if process.nil?
 
-        payment_type && process == :preauthorize || &&
+        payment_type && process == :preauthorize &&
           !TransactionService::Transaction.can_start_transaction(query_info).data[:result]
       end
     end

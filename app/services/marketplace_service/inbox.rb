@@ -52,7 +52,6 @@ module MarketplaceService
 
     module QueryHelper
       PersonModel = ::Person
-      PaymentModel = ::Payment
 
       @tiny_int_to_bool = ->(tiny_int) {
         !(tiny_int.nil? || tiny_int == 0)
@@ -298,8 +297,6 @@ module MarketplaceService
             listings.title                                    AS listing_title,
             listings.deleted                                  AS listing_deleted,
 
-            payments.id                                       AS payment_id,
-
             listings.author_id                                AS author_id,
             current_participation.person_id                   AS current_id,
             other_participation.person_id                     AS other_id,
@@ -324,7 +321,6 @@ module MarketplaceService
 
           LEFT JOIN transactions      ON transactions.conversation_id = conversations.id
           LEFT JOIN listings          ON transactions.listing_id = listings.id
-          LEFT JOIN payments          ON payments.transaction_id = transactions.id
           LEFT JOIN testimonials      ON (testimonials.transaction_id = transactions.id AND testimonials.author_id = #{params[:person_id]})
           LEFT JOIN participations    AS current_participation ON (current_participation.conversation_id = conversations.id AND current_participation.person_id = #{params[:person_id]})
           LEFT JOIN participations    AS other_participation ON (other_participation.conversation_id = conversations.id AND other_participation.person_id != #{params[:person_id]})
