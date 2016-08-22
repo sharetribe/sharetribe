@@ -64,7 +64,7 @@ class ApplicationController < ActionController::Base
 
     # We should fix this -- START
     #
-    # There are a couple of controllers (amazon ses bounces, braintree webhooks) that
+    # There are a couple of controllers (amazon ses bounces, etc.) that
     # inherit application controller, even though they shouldn't. ApplicationController
     # has a lot of community specific filters and those controllers do not have community.
     # Thus, we need to add this kind of additional logic to make sure whether we have

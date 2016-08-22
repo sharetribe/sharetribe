@@ -1,7 +1,6 @@
 class Admin::ListingShapesController < ApplicationController
   before_filter :ensure_is_admin
 
-  before_filter :ensure_no_braintree
   before_filter :set_url_name
 
   LISTING_SHAPES_NAVI_LINK = "listing_shapes"
@@ -318,14 +317,6 @@ class Admin::ListingShapesController < ApplicationController
     translations.find { |(locale, translation)|
       locale.to_s == I18n.locale.to_s
     }.second
-  end
-
-  def ensure_no_braintree
-    gw = PaymentGateway.where(community_id: @current_community.id).first
-    if !@current_user.is_admin? && gw
-      flash[:error] = "Not available for your payment gateway: #{gw.type}"
-      redirect_to admin_details_edit_path
-    end
   end
 
   # FormViewLayer provides helper functions to transform:
