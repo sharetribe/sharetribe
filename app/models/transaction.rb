@@ -144,18 +144,6 @@ class Transaction < ActiveRecord::Base
     author
   end
 
-  # If payment through Sharetribe is required to
-  # complete the transaction, return true, whether the payment
-  # has been conducted yet or not.
-  def requires_payment?(community)
-    listing.payment_required_at?(community)
-  end
-
-  # Return true if the next required action is the payment
-  def waiting_payment?(community)
-    requires_payment?(community) && status.eql?("accepted")
-  end
-
   # Return true if the transaction is in a state that it can be confirmed
   def can_be_confirmed?
     # TODO This is a lazy fix. Remove this method, and make the caller to use the service directly

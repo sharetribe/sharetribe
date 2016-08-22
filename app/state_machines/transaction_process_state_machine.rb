@@ -4,34 +4,19 @@ class TransactionProcessStateMachine
   state :not_started, initial: true
   state :free
   state :initiated
-  state :pending
   state :preauthorized
   state :pending_ext
-  state :accepted
   state :rejected
   state :errored
   state :paid
   state :confirmed
   state :canceled
 
-  transition from: :not_started,               to: [:free, :pending, :preauthorized, :initiated]
+  transition from: :not_started,               to: [:free, :initiated]
   transition from: :initiated,                 to: [:preauthorized]
-  transition from: :pending,                   to: [:accepted, :rejected]
   transition from: :preauthorized,             to: [:paid, :rejected, :pending_ext, :errored]
   transition from: :pending_ext,               to: [:paid, :rejected]
-  transition from: :accepted,                  to: [:paid, :canceled]
   transition from: :paid,                      to: [:confirmed, :canceled]
-
-  guard_transition(to: :pending) do |conversation|
-    conversation.requires_payment?(conversation.community)
-  end
-
-  after_transition(to: :accepted) do |transaction|
-    accepter = transaction.listing.author
-    current_community = transaction.community
-
-    Delayed::Job.enqueue(TransactionStatusChangedJob.new(transaction.id, accepter.id, current_community.id))
-  end
 
   after_transition(to: :paid) do |transaction|
     payer = transaction.starter
@@ -57,11 +42,6 @@ class TransactionProcessStateMachine
   after_transition(to: :confirmed) do |conversation|
     confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
     confirmation.confirm!
-  end
-
-  after_transition(from: :accepted, to: :canceled) do |conversation|
-    confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
-    confirmation.cancel!
   end
 
   after_transition(from: :paid, to: :canceled) do |conversation|

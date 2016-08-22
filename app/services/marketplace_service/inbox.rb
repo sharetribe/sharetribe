@@ -263,8 +263,8 @@ module MarketplaceService
             (participations.is_read = FALSE) OR
 
             # Requires actions
-            ((transactions.current_state = 'pending' OR transactions.current_state = 'preauthorized') AND participations.is_starter = FALSE) OR
-            ((transactions.current_state = 'accepted' OR transactions.current_state = 'paid')         AND participations.is_starter = TRUE) OR
+            (transactions.current_state = 'preauthorized' AND participations.is_starter = FALSE) OR
+            (transactions.current_state = 'paid'          AND participations.is_starter = TRUE) OR
 
             # Waiting feedback
             ((transactions.current_state = 'confirmed') AND (
@@ -311,8 +311,8 @@ module MarketplaceService
 
             # Requires actions
             (
-             ((transactions.current_state = 'pending' OR transactions.current_state = 'preauthorized') AND current_participation.is_starter = FALSE) OR
-             ((transactions.current_state = 'accepted' OR transactions.current_state = 'paid')         AND current_participation.is_starter = TRUE)
+             (transactions.current_state = 'preauthorized' AND current_participation.is_starter = FALSE) OR
+             (transactions.current_state = 'paid'          AND current_participation.is_starter = TRUE)
             )                                                 AS current_action_required,
 
             # Waiting feedback
