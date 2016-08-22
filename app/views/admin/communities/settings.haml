@@ -10,14 +10,6 @@
   = form_for @current_community, url: admin_update_settings_path, method: :patch do |form|
     %h2= t(".settings")
 
-    - Maybe(@current_community).payment_gateway.each do
-      .row
-        .col-12
-          %h3= t(".general")
-          .checkbox-container
-            = form.check_box :testimonials_in_use
-            = form.label :testimonials_in_use, t(".users_can_review_each_other_after_transaction"), :class => "settings-checkbox-label"
-
     .row
       .col-12
         %h3= t(".access")

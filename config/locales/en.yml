@@ -182,7 +182,6 @@ en:
       settings:
         settings: Settings
         general: General
-        users_can_review_each_other_after_transaction: "Users can review each other after an order"
         access: "Access preferences"
         join_with_invite_only: "Allow users to join only with an invite from another user"
         users_can_invite_new_users: "Allow all users to invite new users"
@@ -744,11 +743,8 @@ en:
       learn_more: "Learn more"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "You have not yet confirmed or canceled the order %{request_link}. If the order has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "You have not yet confirmed or canceled the request %{request_link}. We will transfer the money to %{other_party_given_name} only when a) you have marked the request completed or b) %{days_to_automatic_confirmation} days have passed since you paid. After marking the request as completed you can give feedback to %{other_party_given_name}."
       remember_to_confirm_request: "Remember to confirm or cancel a request"
       if_will_not_happen_you_should_cancel: "If you think this order will not be completed for one reason or another, you can %{cancel_it_link}."
-      if_will_not_happen_you_should_cancel_escrow: "If you think this order will not be completed for one reason or another, you can %{cancel_it_link}. This will notify the admin who will then contact you for a refund."
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "If you think this order will not be completed for one reason or another, you have %{days_to_cancel} days to %{cancel_it_link}. This will notify the admin who will then contact you for a refund."
       cancel_it_link_text: "cancel it"
       automatic_confirmation: "If you don't confirm or cancel the order within %{days_to_automatic_confirmation} days after the request was accepted, we will mark it automatically as completed."
     payment_settings_reminder:
@@ -1888,7 +1884,6 @@ en:
       email_when_conversation_rejected: "...someone rejects my offer or request"
       email_about_completed_transactions: "...someone marks my order as completed"
       email_about_new_payments: "...I receive a new payment"
-      email_about_payment_reminders: "...I have forgotten to pay"
       email_about_new_listings_by_followed_people: "...someone I follow posts a new listing"
       unsubscribe_succesful: "Unsubscribe succesful"
       unsubscribe_info_text: "You will no longer receive these emails. Check your %{settings_link} to choose what kind of emails you want to receive from %{service_name}, or return to the %{homepage_link}."

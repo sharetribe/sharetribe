@@ -137,8 +137,7 @@ class PersonMailer < ActionMailer::Base
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @conversation = conversation
       @days_to_cancel = days_to_cancel
-      escrow = community.payment_gateway && community.payment_gateway.hold_in_escrow
-      template = escrow ? "confirm_reminder_escrow" : "confirm_reminder"
+      template = "confirm_reminder"
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
                      :subject => t("emails.confirm_reminder.remember_to_confirm_request")) do |format|

@@ -322,8 +322,6 @@ class Admin::CommunitiesController < ApplicationController
       :default_min_days_between_community_updates,
       :email_admins_about_new_members
     ]
-    permitted_params << :testimonials_in_use if @current_community.payment_gateway
-
     settings_params = params.require(:community).permit(*permitted_params)
 
     maybe_update_payment_settings(@current_community.id, params[:community][:automatic_confirmation_after_days])

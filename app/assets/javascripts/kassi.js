@@ -424,13 +424,6 @@ function initialize_terms_form() {
   });
 }
 
-function initialize_payment_gateway_terms_lightbox(gateway_name) {
-  $('#' + gateway_name + '_terms_link').click(function(link) {
-    link.preventDefault();
-    $('#' + gateway_name + '_terms').lightbox_me({ centered: true, zIndex: 1000001 });
-  });
-}
-
 function initialize_update_profile_info_form(locale, person_id, name_required) {
   auto_resize_text_areas("update_profile_description_text_area");
   $('input.text_field:first').focus();

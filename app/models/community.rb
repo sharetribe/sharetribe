@@ -125,7 +125,6 @@ class Community < ActiveRecord::Base
 
   has_many :listings
 
-  has_one :payment_gateway, :dependent => :destroy
   has_one :paypal_account # Admin paypal account
 
   has_many :custom_fields, :dependent => :destroy
