@@ -70,7 +70,6 @@ class Transaction < ActiveRecord::Base
   belongs_to :community
   belongs_to :listing
   has_many :transaction_transitions, dependent: :destroy, foreign_key: :transaction_id
-  has_one :payment, foreign_key: :transaction_id
   has_one :booking, :dependent => :destroy
   has_one :shipping_address, dependent: :destroy
   belongs_to :starter, :class_name => "Person", :foreign_key => "starter_id"
@@ -95,18 +94,6 @@ class Transaction < ActiveRecord::Base
 
   def status
     current_state
-  end
-
-  # TODO Remove this
-  def initialize_payment
-    payment ||= community.payment_gateway.new_payment
-    payment.payment_gateway ||= community.payment_gateway
-    payment.tx = self
-    payment.status = "pending"
-    payment.payer = starter
-    payment.recipient = author
-    payment.community = community
-    payment
   end
 
   def has_feedback_from?(person)

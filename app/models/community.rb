@@ -122,7 +122,6 @@ class Community < ActiveRecord::Base
 
   has_many :conversations
   has_many :transactions
-  has_many :payments
 
   has_many :listings
 

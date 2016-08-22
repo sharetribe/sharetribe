@@ -31,10 +31,6 @@ class TransactionProcessStateMachine
     current_community = transaction.community
 
     Delayed::Job.enqueue(TransactionStatusChangedJob.new(transaction.id, accepter.id, current_community.id))
-
-    [3, 10].each do |send_interval|
-      Delayed::Job.enqueue(PaymentReminderJob.new(transaction.id, transaction.payment.payer.id, current_community.id), :priority => 9, :run_at => send_interval.days.from_now)
-    end
   end
 
   after_transition(to: :paid) do |transaction|
