@@ -1225,10 +1225,14 @@ $.format = $.validator.format;
 		}, function( original, fix ){
 			$.event.special[fix] = {
 				setup:function() {
-					this.addEventListener( original, handler, true );
+					if ($(this).parents('.Topbar')[0] != null) {
+						this.addEventListener( original, handler, true );
+					}
 				},
 				teardown:function() {
-					this.removeEventListener( original, handler, true );
+					if ($(this).parents('.Topbar')[0] != null) {
+						this.removeEventListener( original, handler, true );
+					}
 				},
 				handler: function(e) {
 					var args = arguments;
