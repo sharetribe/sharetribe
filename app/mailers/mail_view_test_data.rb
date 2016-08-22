@@ -101,7 +101,6 @@ module MailViewTestData
 
   def community
     @community ||= FactoryGirl.build(:community,
-      payment_gateway: payment_gateway,
       custom_color1: "FF0099",
       admins: [admin],
       members: members,

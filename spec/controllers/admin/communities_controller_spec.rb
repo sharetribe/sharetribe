@@ -29,28 +29,6 @@ describe Admin::CommunitiesController, type: :controller do
       attempt_to_update_different_community_with(:update_settings, private: true)
     end
 
-    context "when there is a payment gateway" do
-      before { allow_any_instance_of(Community).to receive(:payment_gateway).and_return(true) }
-
-      it "should allow changing testimonials_in_use" do
-        update_community_with(:update_settings, testimonials_in_use: true)
-      end
-
-      after { allow_any_instance_of(Community).to receive(:payment_gateway).and_call_original }
-    end
-
-    context "there is no payment gateway" do
-      before { allow_any_instance_of(Community).to receive(:payment_gateway).and_return(false) }
-
-      it "should not allow changing testimonials_in_use" do
-        expect {
-          put :update_settings, id: @community.id, community: { testimonials_in_use: true }
-        }.to raise_error ActionController::UnpermittedParameters
-      end
-
-      after { allow_any_instance_of(Community).to receive(:payment_gateway).and_call_original }
-    end
-
   end
 
   describe "#update_look_and_feel" do
