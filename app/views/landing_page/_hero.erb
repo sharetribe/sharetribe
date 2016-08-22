@@ -34,7 +34,7 @@
           <% combined_mode = search_mode == 'keyword_and_location_search' ? '--combined' : '' %>
           <form method="get" id="<%= section_id %>__search-form" class="hero__search-bar<%= combined_mode %>" action="<%= s["search_path"]["value"] %>">
             <div class="hero__search-input-container<%= combined_mode %>">
-              <div class="hero__search-icon<%= combined_mode %>">
+              <button type="submit" class="hero__search-icon<%= combined_mode %>">
 
                 <svg class="hero__search-icon-svg" viewBox="27 19 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                   <g id="icon_search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(38.000000, 30.000000) scale(-1, 1) translate(-38.000000, -30.000000) translate(28.000000, 20.000000)" stroke-linecap="round" stroke-linejoin="round">
@@ -42,7 +42,7 @@
                     <circle id="Oval" stroke="#525961" stroke-width="2" cx="8" cy="8" r="8"></circle>
                   </g>
                 </svg>
-              </div>
+              </button>
               <input type="search" name="q" class="hero__search-input<%= combined_mode %>" placeholder="<%= s["search_placeholder"]["value"] %>"/>
               <% if search_mode == "keyword_and_location_search" %>
                 <input type="search" name="lq" class="hero__search-input<%= combined_mode %>" placeholder="<%= s.dig("search_location_with_keyword_placeholder", "value") %>"/>

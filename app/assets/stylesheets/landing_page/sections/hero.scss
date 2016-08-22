@@ -305,9 +305,15 @@
 
   order: 2;
   background: #FFF;
+  border: 0;
+  cursor: pointer;
 
   /* mobile */
   padding: 15px 24px 15px 0px;
+
+  &:focus {
+    outline: none;
+  }
 
   @media #{$mobile-landscape}, #{$tablet} {
     order: 0;
