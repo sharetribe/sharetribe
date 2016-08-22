@@ -19,34 +19,6 @@ class TransactionMailer < ActionMailer::Base
 
   add_template_helper(EmailTemplateHelper)
 
-  def transaction_created(transaction)
-    community = transaction.community
-
-    recipient = transaction.author
-    sender = transaction.starter
-    sender_name = sender.name(community)
-
-    url_params = build_url_params(community, recipient)
-    reply_url = person_transaction_url(recipient, url_params.merge(:id => transaction.id))
-
-    prepare_template(community, recipient)
-
-    # TODO Now that we have splitted "new message", we could be more specific here, and say that this message
-    # is about a new transaction!
-    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
-      premailer_mail(
-        mail_params(recipient, community, t("emails.new_message.you_have_a_new_message", :sender_name => sender_name))) do |format|
-        format.html {
-          render locals: {
-                   recipient: recipient,
-                   reply_url: reply_url,
-                   sender_name: sender_name,
-                 }
-        }
-      end
-    end
-  end
-
   def transaction_preauthorized(transaction)
     @transaction = transaction
     @community = transaction.community

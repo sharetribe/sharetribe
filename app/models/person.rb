@@ -128,7 +128,6 @@ class Person < ActiveRecord::Base
     "email_when_conversation_accepted",
     "email_when_conversation_rejected",
     "email_about_new_received_testimonials",
-    "email_about_accept_reminders",
     "email_about_confirm_reminders",
     "email_about_testimonial_reminders",
     "email_about_completed_transactions",

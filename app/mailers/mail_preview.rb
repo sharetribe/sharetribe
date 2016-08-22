@@ -91,10 +91,6 @@ class MailPreview < MailView
     PersonMailer.welcome_email(member, community)
   end
 
-  def transaction_created
-    TransactionMailer.transaction_created(transaction)
-  end
-
   def transaction_preauthorized
     change_conversation_status_to!("preauthorized")
     TransactionMailer.transaction_preauthorized(transaction)

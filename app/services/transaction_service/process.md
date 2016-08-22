@@ -9,7 +9,7 @@ Response:
 ```json
 {
   id: 123,
-  process: "preauthorize" # or "none" or "postpay"
+  process: "preauthorize" # or "none"
 }
 ```
 
@@ -23,7 +23,7 @@ Response:
 ```json
 {
   id: 123,
-  process: "preauthorize" # or "none" or "postpay"
+  process: "preauthorize" # or "none"
 }
 ```
 
@@ -35,6 +35,6 @@ Request:
 ```json
 {
   id: 123,
-  process: "preauthorize" # or "none" or "postpay"
+  process: "preauthorize" # or "none"
 }
 ```

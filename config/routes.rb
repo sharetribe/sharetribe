@@ -109,10 +109,6 @@ Kassi::Application.routes.draw do
     get "/listings/:listing_id/initiate" => "preauthorize_transactions#initiate", :as => :initiate_order
     post "/listings/:listing_id/initiated" => "preauthorize_transactions#initiated", :as => :initiated_order
 
-    # post pay flow
-    get "/listings/:listing_id/post_pay" => "post_pay_transactions#new", :as => :post_pay_listing
-    post "/listings/:listing_id/create_transaction" => "post_pay_transactions#create", :as => :create_transaction
-
     # free flow
     post "/listings/:listing_id/create_contact" => "free_transactions#create_contact", :as => :create_contact
     get "/listings/:listing_id/contact" => "free_transactions#contact", :as => :contact_to_listing

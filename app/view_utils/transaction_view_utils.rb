@@ -77,21 +77,10 @@ module TransactionViewUtils
 
   def create_message_from_action(transition, old_state, author, starter, payment_sum)
     preauthorize_accepted = ->(new_state) { new_state == "paid" && old_state == "preauthorized" }
-    post_pay_accepted = ->(new_state) {
-      # The condition here is simply "if new_state is paid", since due to migrations from old system there might be
-      # transitions in "paid" state without previous state.
-      new_state == "paid"
-    }
-
     message = case transition[:to_state]
     when "preauthorized"
       {
         sender: starter,
-        mood: :positive
-      }
-    when "accepted"
-      {
-        sender: author,
         mood: :positive
       }
     when "rejected"
@@ -102,11 +91,6 @@ module TransactionViewUtils
     when preauthorize_accepted
       {
         sender: author,
-        mood: :positive
-      }
-    when post_pay_accepted
-      {
-        sender: starter,
         mood: :positive
       }
     when "canceled"
@@ -131,23 +115,14 @@ module TransactionViewUtils
 
   def create_content_from_action(state, old_state, payment_sum)
     preauthorize_accepted = ->(new_state) { new_state == "paid" && old_state == "preauthorized" }
-    post_pay_accepted = ->(new_state) {
-      # The condition here is simply "if new_state is paid", since due to migrations from old system there might be
-      # transitions in "paid" state without previous state.
-      new_state == "paid"
-    }
 
     message = case state
     when "preauthorized"
       t("conversations.message.payment_preauthorized", sum: humanized_money_with_symbol(payment_sum))
-    when "accepted"
-      t("conversations.message.accepted_request")
     when "rejected"
       t("conversations.message.rejected_request")
     when preauthorize_accepted
       t("conversations.message.received_payment", sum: humanized_money_with_symbol(payment_sum))
-    when post_pay_accepted
-      t("conversations.message.paid", sum: humanized_money_with_symbol(payment_sum))
     when "canceled"
       t("conversations.message.canceled_request")
     when "confirmed"
