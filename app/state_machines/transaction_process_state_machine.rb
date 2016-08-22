@@ -71,7 +71,6 @@ class TransactionProcessStateMachine
   after_transition(from: :paid, to: :canceled) do |conversation|
     confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
     confirmation.cancel!
-    confirmation.cancel_escrow!
   end
 
 end

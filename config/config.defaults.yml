@@ -97,9 +97,6 @@ default: &default_settings
   # used.
   aws_ses_sns_topic:
 
-  # after preauthorization there is 5 day period before expiration
-  braintree_expiration_period: 5
-
   # Paypal credentials for the platform owner.
   paypal_username: xxxxxxxxxxxxx
   paypal_password: xxxxxxxxxxxxx

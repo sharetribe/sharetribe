@@ -10,9 +10,6 @@ class ConfirmConversation
     @offerer = transaction.seller
     @requester = transaction.buyer
     @community = community
-    @hold_in_escrow = Maybe(TransactionService::Transaction.query(transaction.id))
-      .map {|transaction| transaction[:payment_gateway] == :braintree }
-      .or_else(false)
     @payment = transaction.payment
   end
 
@@ -22,17 +19,11 @@ class ConfirmConversation
     [3, 10].each do |send_interval|
       Delayed::Job.enqueue(TestimonialReminderJob.new(@transaction.id, nil, @community.id), :priority => 9, :run_at => send_interval.days.from_now)
     end
-    release_escrow if @hold_in_escrow
   end
 
   # Listing canceled by user
   def cancel!
     Delayed::Job.enqueue(TransactionCanceledJob.new(@transaction.id, @community.id))
-  end
-
-  def cancel_escrow!
-    return unless @hold_in_escrow
-    Delayed::Job.enqueue(EscrowCanceledJob.new(@transaction.id, @community.id))
   end
 
   def update_participation(feedback_given)
@@ -71,7 +62,4 @@ class ConfirmConversation
     end
   end
 
-  def release_escrow
-    # TODO: Used only removed Braintree function
-  end
 end

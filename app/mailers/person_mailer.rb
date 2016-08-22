@@ -87,28 +87,6 @@ class PersonMailer < ActionMailer::Base
     end
   end
 
-  def escrow_canceled_to(conversation, community, to)
-    @email_type =  "email_about_canceled_escrow"
-    @conversation = conversation
-    recipient = conversation.seller
-    set_up_layout_variables(recipient, community, @email_type)
-    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
-      premailer_mail(:to => to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.escrow_canceled.subject")) do |format|
-        format.html { render "escrow_canceled" }
-      end
-    end
-  end
-
-  def escrow_canceled(conversation, community)
-    escrow_canceled_to(conversation, community, conversation.seller.confirmed_notification_emails_to)
-  end
-
-  def admin_escrow_canceled(conversation, community)
-    escrow_canceled_to(conversation, community, community.admin_emails.join(","))
-  end
-
   def new_testimonial(testimonial, community)
     @email_type =  "email_about_new_received_testimonials"
     recipient = testimonial.receiver
