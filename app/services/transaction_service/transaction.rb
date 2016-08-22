@@ -120,14 +120,6 @@ module TransactionService::Transaction
       .or_else(res)
   end
 
-  def invoice
-    raise NoMethodError.new("Not implemented")
-  end
-
-  def pay_invoice
-    raise NoMethodError.new("Not implemented")
-  end
-
   def complete(community_id:, transaction_id:, message: nil, sender_id: nil)
     tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 

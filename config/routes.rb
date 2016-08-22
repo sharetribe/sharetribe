@@ -390,7 +390,6 @@ Kassi::Application.routes.draw do
               put :skip
             end
           end
-          resources :payments
         end
         resource :paypal_account, only: [:index] do
           member do
