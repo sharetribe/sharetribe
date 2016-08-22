@@ -10,7 +10,8 @@
 - content_for :extra_javascript do
   - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
   - key_param = maps_key ? "?key=#{maps_key}" : ""
-  = javascript_include_tag "https://maps.googleapis.com/maps/api/js#{key_param}" unless FeatureFlagHelper.feature_enabled?(:topbar_v1)
+  - needs_maps = !FeatureFlagHelper.feature_enabled?(:topbar_v1) || search_mode == :keyword
+  = javascript_include_tag "https://maps.googleapis.com/maps/api/js#{key_param}" if needs_maps
 
 #new_listing_form.new-listing-form.centered-section
 
