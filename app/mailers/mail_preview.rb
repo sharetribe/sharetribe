@@ -59,20 +59,8 @@ class MailPreview < MailView
     TransactionMailer.paypal_new_payment(transaction, seller_model, buyer_model, community)
   end
 
-  def escrow_canceled
-    PersonMailer.escrow_canceled(conversation, community)
-  end
-
   def confirm_reminder
     PersonMailer.confirm_reminder(conversation, conversation.buyer, conversation.community, 4)
-  end
-
-  def confirm_reminder_escrow
-    PersonMailer.confirm_reminder(conversation, conversation.buyer, conversation.community, 5)
-  end
-
-  def admin_escrow_canceled
-    PersonMailer.admin_escrow_canceled(conversation, community)
   end
 
   def transaction_confirmed
