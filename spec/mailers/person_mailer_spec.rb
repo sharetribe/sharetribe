@@ -124,19 +124,6 @@ describe PersonMailer, type: :mailer do
     assert_equal "Reminder: remember to give feedback to Teppo T", email.subject
   end
 
-  it "should remind to accept or reject" do
-    starter = FactoryGirl.build(:person, given_name: "Jack", family_name: "Dexter")
-    author = FactoryGirl.build(:person)
-    listing = FactoryGirl.build(:listing, :author => author, listing_shape_id: 123)
-    conversation = FactoryGirl.create(:transaction, starter: starter, listing: listing)
-
-    email = MailCarrier.deliver_now(PersonMailer.accept_reminder(conversation, "this_can_be_anything", @community))
-    assert !ActionMailer::Base.deliveries.empty?
-
-    assert_equal author.confirmed_notification_email_addresses, email.to
-    assert_equal "Remember to accept or reject a request from Jack D", email.subject
-  end
-
   it "should send email to admins of new feedback" do
     @feedback = FactoryGirl.create(:feedback)
     @community = FactoryGirl.create(:community)
