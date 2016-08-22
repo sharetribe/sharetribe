@@ -10,7 +10,6 @@ class ConfirmConversation
     @offerer = transaction.seller
     @requester = transaction.buyer
     @community = community
-    @payment = transaction.payment
   end
 
   # Listing confirmed by user
