@@ -132,7 +132,7 @@
           .listing-price
             %span.listing-price-amount
               = humanized_money_with_symbol(@listing.price).upcase
-            - with_quantity_and_vat_text(@current_community, @listing) do |text|
+            - with_quantity_text(@current_community, @listing) do |text|
               %span.listing-price-quantity
                 = text
 

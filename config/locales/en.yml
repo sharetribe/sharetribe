@@ -643,7 +643,6 @@ en:
       last_message_at: "(latest message %{time})"
       price: "Price: %{price}"
       sum: "Total: %{sum}"
-      price_excludes_vat: "(excludes VAT)"
       total: "Total: %{total}"
     status:
       payment_errored: "Payment failed. Please try again."
@@ -1425,8 +1424,6 @@ en:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} will be deducted from the price."
         after_service_fee_you_will_get_paypal_text: "%{service_name} fee (%{sum_with_currency}) and %{paypal_fee_info_link} will be deducted from the price."
         paypal_fee_info_link_text: "PayPal's payment processing fee"
-        after_service_fee_you_will_get_vat: "After %{service_name} and payment processor fees you will get approx. %{sum_with_currency} (VAT 0%)"
-        price_excludes_vat: "The price doesn't include VAT."
         delivery: "Delivery method"
         shipping: Shipping
         shipping_price: "Shipping fee"
@@ -1565,7 +1562,6 @@ en:
       times: times
       times_viewed: Viewed
       processing_uploaded_image: "(Processing uploaded image...)"
-      price_excludes_vat: "(excludes VAT)"
       listing_created_at: "Listing created"
       price:
         per_quantity_unit: "per %{quantity_unit}"
