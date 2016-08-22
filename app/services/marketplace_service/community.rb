@@ -27,8 +27,6 @@ module MarketplaceService
           .map { |community|
             if paypal_active?(community.id)
               :paypal
-            elsif community.payment_gateway.present?
-              community.payment_gateway.gateway_type
             else
               nil
             end
