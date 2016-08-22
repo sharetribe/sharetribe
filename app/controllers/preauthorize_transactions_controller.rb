@@ -22,8 +22,6 @@ class PreauthorizeTransactionsController < ApplicationController
   ContactForm = FormUtils.define_form("ListingConversation", :content, :sender_id, :listing_id, :community_id)
     .with_validations { validates_presence_of :content, :listing_id }
 
-  BraintreeForm = Form::Braintree
-
   PreauthorizeMessageForm = FormUtils.define_form("ListingConversation",
     :content,
     :sender_id,
@@ -150,23 +148,6 @@ class PreauthorizeTransactionsController < ApplicationController
       return redirect_to listing_path(vprms[:listing][:id])
     end
 
-    gateway_locals =
-      if (vprms[:payment_type] == :braintree)
-        braintree_gateway_locals(@current_community.id)
-      else
-        {}
-      end
-
-    view =
-      case vprms[:payment_type]
-      when :braintree
-        "listing_conversations/preauthorize"
-      when :paypal
-        "listing_conversations/initiate"
-      else
-        raise ArgumentError.new("Unknown payment type #{vprms[:payment_type]} for booking")
-      end
-
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 
     price_break_down_locals = TransactionViewUtils.price_break_down_locals({
@@ -182,7 +163,7 @@ class PreauthorizeTransactionsController < ApplicationController
       total: vprms[:total_price]
     })
 
-    render view, locals: {
+    render "listing_conversations/initiate", locals: {
       preauthorize_form: PreauthorizeBookingForm.new({
           start_on: booking_data[:start_on],
           end_on: booking_data[:end_on]
@@ -196,7 +177,7 @@ class PreauthorizeTransactionsController < ApplicationController
       expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(vprms[:payment_type]),
       form_action: booked_path(person_id: @current_user.id, listing_id: vprms[:listing][:id]),
       price_break_down_locals: price_break_down_locals
-    }.merge(gateway_locals)
+    }
   end
 
   def booked
@@ -240,7 +221,6 @@ class PreauthorizeTransactionsController < ApplicationController
       use_async: request.xhr?,
       delivery_method: delivery_method,
       shipping_price: @listing.shipping_price,
-      bt_payment_params: params[:braintree_payment],
       booking_fields: {
         start_on: preauthorize_form.start_on,
         end_on: preauthorize_form.end_on
@@ -259,94 +239,13 @@ class PreauthorizeTransactionsController < ApplicationController
 
     transaction_id = transaction_response[:data][:transaction][:id]
 
-    case payment_type
-    when :paypal
-      if (transaction_response[:data][:gateway_fields][:redirect_url])
-        return redirect_to transaction_response[:data][:gateway_fields][:redirect_url]
-      else
-        return render json: {
-          op_status_url: transaction_op_status_path(transaction_response[:data][:gateway_fields][:process_token]),
-          op_error_msg: t("error_messages.paypal.generic_error")
-        }
-      end
-    when :braintree
-      return redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_id)
-    end
-
-  end
-
-  def preauthorize
-    quantity = TransactionViewUtils.parse_quantity(params[:quantity])
-    vprms = view_params(listing_id: params[:listing_id], quantity: quantity)
-
-    price_break_down_locals = TransactionViewUtils.price_break_down_locals({
-      booking:  false,
-      quantity: quantity,
-      listing_price: vprms[:listing][:price],
-      localized_unit_type: translate_unit_from_listing(vprms[:listing]),
-      localized_selector_label: translate_selector_label_from_listing(vprms[:listing]),
-      subtotal: (quantity > 1) ? vprms[:subtotal] : nil,
-      total: vprms[:total_price]
-    })
-
-    render "listing_conversations/preauthorize", locals: {
-      preauthorize_form: PreauthorizeMessageForm.new,
-      braintree_form: BraintreeForm.new,
-      listing: vprms[:listing],
-      quantity: quantity,
-      author: query_person_entity(vprms[:listing][:author_id]),
-      action_button_label: vprms[:action_button_label],
-      expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(vprms[:payment_type]),
-      form_action: preauthorized_payment_path(person_id: @current_user.id, listing_id: vprms[:listing][:id]),
-      price_break_down_locals: price_break_down_locals
-    }
-  end
-
-  def preauthorized
-    conversation_params = params[:listing_conversation]
-
-    if @current_community.transaction_agreement_in_use? && conversation_params[:contract_agreed] != "1"
-      flash[:error] = t("error_messages.transaction_agreement.required_error")
-      return redirect_to action: :preauthorize
-    end
-
-    preauthorize_form = PreauthorizeMessageForm.new(conversation_params.merge({
-      listing_id: @listing.id
-    }))
-
-    if preauthorize_form.valid?
-      braintree_form = BraintreeForm.new(params[:braintree_payment])
-      quantity = TransactionViewUtils.parse_quantity(preauthorize_form.quantity)
-
-      transaction_response = TransactionService::Transaction.create({
-          transaction: {
-            community_id: @current_community.id,
-            listing_id: @listing.id,
-            listing_title: @listing.title,
-            starter_id: @current_user.id,
-            listing_author_id: @listing.author.id,
-            unit_type: @listing.unit_type,
-            unit_price: @listing.price,
-            unit_tr_key: @listing.unit_tr_key,
-            listing_quantity: quantity,
-            content: preauthorize_form.content,
-            payment_gateway: :braintree,
-            payment_process: :preauthorize,
-          },
-          gateway_fields: braintree_form.to_hash
-        })
-
-      unless transaction_response[:success]
-        flash[:error] = "An error occured while trying to create a new transaction: #{transaction_response[:error_msg]}"
-        return redirect_to action: :preauthorize
-      end
-
-      transaction_id = transaction_response[:data][:transaction][:id]
-
-      redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_id)
+    if (transaction_response[:data][:gateway_fields][:redirect_url])
+      return redirect_to transaction_response[:data][:gateway_fields][:redirect_url]
     else
-      flash[:error] = preauthorize_form.errors.full_messages.join(", ")
-      return redirect_to action: :preauthorize
+      return render json: {
+        op_status_url: transaction_op_status_path(transaction_response[:data][:gateway_fields][:process_token]),
+        op_error_msg: t("error_messages.paypal.generic_error")
+      }
     end
   end
 
@@ -468,30 +367,20 @@ class PreauthorizeTransactionsController < ApplicationController
     end
   end
 
-  def braintree_gateway_locals(community_id)
-    {
-      braintree_form: BraintreeForm.new
-    }
-  end
-
   def create_preauth_transaction(opts)
     gateway_fields =
-      if (opts[:payment_type] == :paypal)
-        # PayPal doesn't like images with cache buster in the URL
-        logo_url = Maybe(opts[:community])
-          .wide_logo
-          .select { |wl| wl.present? }
-          .url(:paypal, timestamp: false)
-          .or_else(nil)
+      # PayPal doesn't like images with cache buster in the URL
+      logo_url = Maybe(opts[:community])
+        .wide_logo
+        .select { |wl| wl.present? }
+        .url(:paypal, timestamp: false)
+        .or_else(nil)
 
-        {
-          merchant_brand_logo_url: logo_url,
-          success_url: success_paypal_service_checkout_orders_url,
-          cancel_url: cancel_paypal_service_checkout_orders_url(listing_id: opts[:listing].id)
-        }
-      else
-        BraintreeForm.new(opts[:bt_payment_params]).to_hash
-      end
+      {
+        merchant_brand_logo_url: logo_url,
+        success_url: success_paypal_service_checkout_orders_url,
+        cancel_url: cancel_paypal_service_checkout_orders_url(listing_id: opts[:listing].id)
+      }
 
     transaction = {
           community_id: opts[:community].id,
