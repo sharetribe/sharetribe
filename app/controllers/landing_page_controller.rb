@@ -275,7 +275,8 @@ class LandingPageController < ActionController::Metal
       path_after_locale_change: path,
       search_placeholder: community_customization&.search_placeholder,
       locale_param: locale_param,
-      landing_page: landing_page)
+      landing_page: landing_page,
+      host_with_port: request.host_with_port)
   end
 
   # This is copied from the React on Rails source with our own rails

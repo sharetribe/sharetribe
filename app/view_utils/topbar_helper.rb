@@ -2,7 +2,8 @@ module TopbarHelper
 
   module_function
 
-  def topbar_props(community:, path_after_locale_change:, user: nil, search_placeholder: nil, locale_param: nil, landing_page: false)
+  def topbar_props(community:, path_after_locale_change:, user: nil, search_placeholder: nil,
+                   locale_param: nil, landing_page: false, host_with_port:)
 
     user_links = Maybe(community.menu_links)
       .map { |menu_links|
@@ -11,7 +12,8 @@ module TopbarHelper
             {
               link: menu_link.url(I18n.locale),
               title: menu_link.title(I18n.locale),
-              priority: menu_link.sort_priority
+              priority: menu_link.sort_priority,
+              external: link_external?(menu_link.url(I18n.locale), host_with_port)
             }
           }
       }.or_else([])
@@ -126,5 +128,9 @@ module TopbarHelper
 
   def paths
     @_url_herlpers ||= Rails.application.routes.url_helpers
+  end
+
+  def link_external?(url, host_with_port)
+    /^(https?:\/\/)?#{host_with_port}((\/|\?).*)?$/.match(url).nil?
   end
 end

@@ -39,7 +39,8 @@ class TopbarApiController < ApplicationController
       path_after_locale_change: "",
       search_placeholder: community_customization&.search_placeholder,
       locale_param: params[:locale],
-      landing_page: landing_page)
+      landing_page: landing_page,
+      host_with_port: request.host_with_port)
 
     # Drop language links from the properties because the
     # path_after_locale_change is not available in this

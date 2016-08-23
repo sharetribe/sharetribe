@@ -92,6 +92,7 @@ MenuMobile.propTypes = {
       content: string.isRequired,
       href: string.isRequired,
       type: string.isRequired,
+      external: bool,
     })
   ).isRequired,
   userLinksTitle: string,

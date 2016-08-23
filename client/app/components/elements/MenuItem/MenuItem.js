@@ -19,6 +19,7 @@ class MenuItem extends Component {
     const linkProps = Object.assign({
       className: `MenuItem_link ${css.menuitemLink} ${extraClassesLink}`,
       href: this.props.href,
+      target: this.props.external ? '_blank' : '',
     }, inlineStyling);
 
     return div({ className: `MenuItem ${css.menuitem}  ${extraClasses}` }, [
@@ -50,6 +51,7 @@ MenuItem.propTypes = {
   index: number.isRequired,
   textColor: string,
   type: string.isRequired,
+  external: bool,
 };
 
 export default MenuItem;
