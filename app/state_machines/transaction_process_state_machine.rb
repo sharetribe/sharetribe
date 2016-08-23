@@ -4,8 +4,10 @@ class TransactionProcessStateMachine
   state :not_started, initial: true
   state :free
   state :initiated
+  state :pending  # Deprecated
   state :preauthorized
   state :pending_ext
+  state :accepted # Deprecated
   state :rejected
   state :errored
   state :paid

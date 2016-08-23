@@ -37,6 +37,18 @@ module TransactionHelper
     end if status == "confirmed"
 
     status_hash = {
+      pending: ->() {
+        ActiveSupport::Deprecation.warn("Transaction state 'pending' is deprecated and will be removed in the future.")
+        {
+          author: {
+            icon: icon_waiting_you,
+            text: t("conversations.status.waiting_for_you_to_accept_request")
+          },
+          starter: {
+            icon: icon_waiting_other,
+            text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
+          }
+        } },
       preauthorized: ->() { {
         author: {
           icon: icon_waiting_you,
@@ -47,7 +59,18 @@ module TransactionHelper
           text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
         }
       } },
-
+      accepted: ->() {
+        ActiveSupport::Deprecation.warn("Transaction state 'accepted' is deprecated and will be removed in the future.")
+          {
+          author: {
+            icon: icon_waiting_other,
+            text: t("conversations.status.waiting_payment_from_requester", requester_name: other_party_name)
+          },
+          starter: {
+            icon: icon_waiting_you,
+            text: t("conversations.status.waiting_payment_from_you")
+          }
+        } },
       pending_ext: ->() {
         case status_meta[:paypal_pending_reason]
         when "multicurrency"
