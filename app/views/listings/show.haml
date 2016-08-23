@@ -155,7 +155,7 @@
                   .content
                     = t(".contact")
 
-    - if @current_community.testimonials_in_use && received_testimonials.size > 0
+    - if received_testimonials.size > 0
       .row-with-divider.listing-author-activity
         .col-12
           %i.listing-author-activity-icon{:class => icon_class("testimonial")}

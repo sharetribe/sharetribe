@@ -192,7 +192,7 @@ module TransactionHelper
           both: [
             status_info(t("conversations.status.request_paid"), icon_classes: icon_for("paid")),
             delivery_status(conversation),
-            paid_status(conversation, @current_community.testimonials_in_use)
+            paid_status(conversation)
           ]
         } },
         preauthorized: ->() { {
@@ -244,13 +244,13 @@ module TransactionHelper
         confirmed: ->() { {
           both: [
             status_info(t("conversations.status.request_confirmed"), icon_classes: icon_for("confirmed")),
-            feedback_status(conversation, @current_community.testimonials_in_use)
+            feedback_status(conversation)
           ]
         } },
         canceled: ->() { {
           both: [
             status_info(t("conversations.status.request_canceled"), icon_classes: icon_for("canceled")),
-            feedback_status(conversation, @current_community.testimonials_in_use)
+            feedback_status(conversation)
           ]
         } },
         rejected: ->() { {
@@ -281,9 +281,7 @@ module TransactionHelper
 
   private
 
-  def paid_status(conversation, show_testimonial_status)
-    return nil unless show_testimonial_status
-
+  def paid_status(conversation)
     if conversation.seller == @current_user
       waiting_for_buyer_to_confirm(conversation)
     else
@@ -318,9 +316,7 @@ module TransactionHelper
     end
   end
 
-  def feedback_status(conversation, show_feedback_status)
-    return nil unless show_feedback_status
-
+  def feedback_status(conversation)
     if conversation.has_feedback_from?(@current_user)
       feedback_given_status
     elsif conversation.feedback_skipped_by?(@current_user)

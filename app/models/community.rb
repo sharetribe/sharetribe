@@ -557,12 +557,6 @@ class Community < ActiveRecord::Base
     MarketplaceService::Community::Query.payment_type(id) == :paypal
   end
 
-  # Testimonials can be used only if payments are used and `testimonials_in_use` value
-  # is true. `testimonials_in_use` doesn't have any effect, if there are no payments
-  def testimonials_in_use
-    read_attribute(:testimonials_in_use) && payments_in_use?
-  end
-
   def default_currency
     if available_currencies
       available_currencies.gsub(" ","").split(",").first

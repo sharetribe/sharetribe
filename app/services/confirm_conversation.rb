@@ -54,7 +54,7 @@ class ConfirmConversation
 
   def confirmation_reminder_job!(automatic_confirmation_at)
     reminder_email_at           = automatic_confirmation_at - REMIND_DAYS_BEFORE_CLOSING.days
-    activate_reminder           = @community.testimonials_in_use && @transaction.automatic_confirmation_after_days > REMIND_DAYS_BEFORE_CLOSING
+    activate_reminder           = @transaction.automatic_confirmation_after_days > REMIND_DAYS_BEFORE_CLOSING
 
     if activate_reminder
       Delayed::Job.enqueue(ConfirmReminderJob.new(@transaction.id, @requester.id, @community.id, REMIND_DAYS_BEFORE_CLOSING), :priority => 9, :run_at => reminder_email_at)
