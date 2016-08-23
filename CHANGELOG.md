@@ -8,6 +8,12 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ## [Unreleased]
 
+## [5.10.0] - 2016-08-23
+
+### Removed
+
+- Disable Braintree payments [#2423](https://github.com/sharetribe/sharetribe/pull/2423)
+
 ## [5.9.0] - 2016-08-18
 
 ### Added
@@ -233,7 +239,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v5.9.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v5.10.0...HEAD
+[5.10.0]: https://github.com/sharetribe/sharetribe/compare/v5.9.0...v5.10.0
 [5.9.0]: https://github.com/sharetribe/sharetribe/compare/v5.8.0...v5.9.0
 [5.8.0]: https://github.com/sharetribe/sharetribe/compare/v5.7.1...v5.8.0
 [5.7.1]: https://github.com/sharetribe/sharetribe/compare/v5.7.0...v5.7.1
