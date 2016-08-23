@@ -34,6 +34,14 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 ## Unreleased
 
+## Upgrade from 5.9.0 to 5.10.0
+
+This version starts the two step process of disabling Braintree payments. In the first phase new payments are disabled with Braintree. The main purpose of this version is to ensure that there will be no new Braintree transactions. Existing transactions can be completed still after this update.
+
+This version changes existing transaction processes, so taking a backup before upgrading is recommended.
+
+Reasoning behind removing Braintree support can be seen in the [Community forum post](https://www.sharetribe.com/community/t/braintree-integration-will-be-removed-from-sharetribe/225).
+
 ## Upgrade from 5.8.0 to 5.9.0
 
 This release removes the need to run CSS compilation workers. There is no CSS compilation per marketplace anymore. The `Procfile` has been updated, so if you run on Heroku, the `css_compile` worker should disappear after deployment.
