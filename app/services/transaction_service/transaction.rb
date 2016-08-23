@@ -11,7 +11,12 @@ module TransactionService::Transaction
 
   GATEWAY_ADAPTERS = {
     paypal: TransactionService::Gateway::PaypalAdapter.new,
-    none: TransactionService::Gateway::FreeAdapter.new
+    none: TransactionService::Gateway::FreeAdapter.new,
+
+    # Deprecated adapters.
+    # We need these to be here, otherwise reading the old transactions will fail
+    checkout: TransactionService::Gateway::FreeAdapter.new,
+    braintree: TransactionService::Gateway::FreeAdapter.new,
   }
 
   TX_PROCESSES = {
@@ -36,6 +41,10 @@ module TransactionService::Transaction
   end
 
   def gateway_adapter(payment_gateway)
+    if [:checkout, :braintree].include?(payment_gateway)
+      ActiveSupport::Deprecation.warn("Payment gateway adapter '#{payment_gateway}' is deprecated.")
+    end
+
     adapter = GATEWAY_ADAPTERS[payment_gateway]
     raise ArgumentError.new("No matching gateway adapter found for payment_gateway type #{payment_gateway}.") if adapter.nil?
 
