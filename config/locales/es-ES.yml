@@ -54,10 +54,10 @@ es-ES:
         community_details: "Detalles básicos"
         community_look_and_feel: Diseño
         edit_community: "Detalles básicos"
-        enabled_languages: "Idiomas activados"
-        enabled_languages_description: "Conjunto de idiomas disponibles para los usuarios. El primero se usa por defecto."
+        enabled_languages: "Idiomas habilitados"
+        enabled_languages_description: "Conjunto de idiomas disponibles para los usuarios. El primero en el orden se usa por defecto."
         default_language: "Idioma predeterminado"
-        language_selection_disabled: "La selección de idioma está deshabilitada para tu marketplace porque estás usando los siguientes idiomas no oficiales: %{languages}. Por favor contacta al equipo de soporte de Sharetribe si quieres modificar tus ajustes de idiomas."
+        language_selection_disabled: "La selección de idioma está deshabilitada para tu comunidad porque estás usando los siguientes idiomas no oficiales: %{languages}. Por favor contacta al equipo de soporte de Sharetribe si quieres modificar tus ajustes de idiomas."
         community_name: "Nombre de la comunidad:"
         edit_community_name_description: "El nombre de tu comunidad. Este se muestra en correos electrónicos y en varios otros lugares."
         community_slogan: "Eslogan de la comunidad:"
@@ -125,36 +125,36 @@ es-ES:
         edit_message: "Editar mensaje"
         send_test_message: "Enviar mensaje de prueba"
       outgoing_email:
-        title: "Dirección de correo electrónico saliente"
-        info: "Este nombre y dirección se usan para los e-mails enviados por tu marketplace a los miembros."
-        read_more: "Leer más sobre las direcciones de correo saliente"
+        title: "Dirección de envío de correos electrónicos"
+        info: "Este nombre y dirección se usan para los e-mails enviados desde tu comunidad a los miembros."
+        read_more: "Leer más sobre las dirección de envío de correo electrónico"
         sender_address: "Dirección del remitente: %{sender_address}"
         sender_address_default: "Dirección del remitente: no establecida (se utiliza la dirección por defecto %{sender_address})"
         need_to_change: "Si necesitas cambiar la dirección de correo electrónico, por favor %{contact_support_link}"
-        contact_support_link_text: "Contacta al equipo de soporte de Sharetribe"
-        set_sender_address: "Establecer una dirección de remitente"
+        contact_support_link_text: "contacta al equipo de soporte de Sharetribe"
+        set_sender_address: "Establecer una dirección de envío"
         sender_name_label: Nombre
         sender_name_placeholder: "Nombre del remitente"
-        sender_email_label: E-mail
+        sender_email_label: "Dirección de correo electrónico"
         sender_email_placeholder: remitente-email@ejemplo.com
-        this_is_how_it_will_look: "Así se verá:"
-        send_verification_button: "Enviar e-mail de verificación"
-        successfully_saved: "Dirección de remitente guardada correctamente. El e-mail de verificación se enviará pronto."
+        this_is_how_it_will_look: "Así es como se verá:"
+        send_verification_button: "Enviar correo de verificación"
+        successfully_saved: "Dirección de remitente guardada correctamente. El correo de verificación se enviará pronto."
         status: "Estado: %{status}"
         status_verified: "Verificado - En uso"
         status_error: "Ocurrió un error. Por favor actualiza la página."
-        status_requested: "Sin verificar - El e-mail de verificación se envió a %{email} %{time_ago}. %{resend_link}"
-        status_expired: "La verificación del e-mail %{email} expiró. %{resend_link}"
-        status_resent: "E-mail de verificación reenviado a %{email}. %{resend_link}"
+        status_requested: "Sin verificar - El correo de verificación se envió a %{email} %{time_ago}. %{resend_link}"
+        status_expired: "La verificación del correo %{email} ha expirado. %{resend_link}"
+        status_resent: "Correo de verificación reenviado a %{email}. %{resend_link}"
         resend_link: Reenviar
-        invalid_email_error: "Formato de e-mail para '%{email}' es inválido"
+        invalid_email_error: "Formato de correo electrónico para '%{email}' es inválido"
         invalid_email_domain: "La dirección de correo '%{email}' usa un proveedor de correo no soportado por nuestro sistema: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Lee el artículo en nuestra base de conocimiento para más información."
         unknown_error: "Algo salió mal"
         white_label_offer: "Configura tu propia dirección de correo electrónico al enviar mensajes y elimina toda mención de Sharetribe de los correos enviados desde tu comunidad al %{upgrade_pro_plan_link}"
         upgrade_plan_link: "suscribirte al plan Pro o un plan superior"
-        verification_sent_from: "El email de verificación se envió desde %{verification_sender_name}."
-        follow_the_instructions: "Por favor sigue las instrucciones que te enviamos en el e-mail para verificar tu dirección."
+        verification_sent_from: "El correo de verificación se envió desde %{verification_sender_name}."
+        follow_the_instructions: "Por favor sigue las instrucciones que te enviamos en el correo para verificar tu dirección."
       getting_started:
         getting_started: "Guía para comenzar"
       available_languages:
@@ -170,7 +170,7 @@ es-ES:
         nb: "Noruego Bokmål"
         sv: Sueco
         da-DK: Danés
-        fi: Finlandés
+        fi: Finés
         ru: Ruso
         de: Alemán
         el: Griego
@@ -214,15 +214,15 @@ es-ES:
         automatic_newsletter_frequency: "Enviar newsletter automático: %{frequency_dropdown}"
         newsletter_daily: Diariamente
         newsletter_weekly: Semanalmente
-        delete_marketplace_title: "Eliminar marketplace"
-        type_marketplace_domain: "Introduce el dominio de tu marketplace %{domain} en el siguiente campo de texto:"
-        type_marketplace_domain_placeholder: "Introduce aquí el dominio de tu marketplace"
-        once_you_delete: "Ten cuidado! una vez que elimines tu marketplace, ya no podrás volver a acceder a él."
+        delete_marketplace_title: "Eliminar comunidad"
+        type_marketplace_domain: "Introduce el dominio de tu comunidad (%{domain}) en el siguiente campo de texto:"
+        type_marketplace_domain_placeholder: "Introduce aquí el dominio de tu comunidad"
+        once_you_delete: "Ten cuidado! una vez que elimines tu comunidad, ya no podrás volver a acceder a ella. Ten cuidado."
         are_you_sure: "Estás seguro?"
-        i_understand_button: "Entiendo y acepto que al hacer clic en este botón mi marketplace será eliminado"
+        i_understand_button: "Entiendo y acepto que al hacer clic en este botón mi comunidad será eliminada"
         last_community_updates: "Por favor ten presente que después de eliminado, tú y los usuarios de tu comunidad aún podrán recibir los últimos emails de actualización de tu comunidad."
-        you_will_be_redirected_to: "Después de que elimines tu marketplace serás redirigido a %{destination}. Ya no podrás volver a acceder a tu marketplace."
-        delete_this_marketplace: "Eliminar este marketplace"
+        you_will_be_redirected_to: "Después de que elimines tu comunidad serás redirigido a %{destination}. Ya no podrás volver a acceder a tu marketplace."
+        delete_this_marketplace: "Eliminar esta comunidad"
       manage_members:
         manage_members: "Administrar usuarios"
         email: Email
@@ -233,7 +233,7 @@ es-ES:
         ban_user: "Bloquear usuario"
         saving_user_status: Guardando...
         save_user_status_successful: Guardado
-        export_all_as_csv: "Exportar todos como CSV"
+        export_all_as_csv: "Exportar todos en formato CSV"
         save_user_status_error: "No se han guardado los cambios. Por favor, actualiza la página y vuelve a intentarlo."
         ban_user_confirmation: "Esto bloquea al usuario de la comunidad y le impide volver a acceder con esta cuenta. Estás seguro de que quieres continuar?"
         ban_me_error: "No te puedes rechazar a ti mismo."
@@ -283,7 +283,7 @@ es-ES:
         max_number_of_links_info: "Vinculo para la %{about_page} se muestra siempre como el primer vínculo del menu."
         about_page: "página Acerca de"
       transactions:
-        export_all_as_csv: "Exportar todos como CSV"
+        export_all_as_csv: "Exportar todos en formato CSV"
         transactions: "Ver transacciones"
         headers:
           conversation: Conversación
@@ -321,7 +321,7 @@ es-ES:
       edit:
         edit_listing_field: "Editar campo '%{field_name}'"
       edit_price:
-        description: "El precio mínimo y máximo solo afecta al filtro. No establece un límite para los precios de las ofertas."
+        description: "El precio mínimo y máximo sólo afecta al filtro. No establece un límite para los precios de los anuncios."
         edit_price_field: "Ha habido un fallo al editar el precio"
         show_price_filter_homepage: "Mostrar filtro por precio en la página principal"
         price_min: "Precio mínimo del filtro"
@@ -391,8 +391,8 @@ es-ES:
       index:
         listing_shapes: "Tipos de Orden"
         description: "Los tipos de orden determinan cómo funciona el proceso en tu comunidad. Puedes decidir si tus usuarios van a alquilar o vender, o incluso si sólo van a publicar anuncios y comunicarse por medio de mensajes gratuitos."
-        read_more_about_order_types: "Leer más sobre tipos de pedidos"
-        add_new_shape: "Añadir un nuevo tipo de pedido: "
+        read_more_about_order_types: "Leer más sobre tipos de órdenes"
+        add_new_shape: "Añadir un nuevo tipo de orden: "
         select_template: "Seleccionar plantilla..."
         all_categories: "Todas las categorías"
         no_categories: "Sin categorías"
@@ -401,8 +401,8 @@ es-ES:
           listing_shape_name: "Nombre del tipo de orden"
           listing_shape_categories: "Categorías en las que se usa"
         order:
-          saving_order: "Guardando pedido"
-          save_order_successful: "Pedido guardado correctamente"
+          saving_order: "Guardando orden"
+          save_order_successful: "El orden ha sido guardado correctamente"
           save_order_error: "Un error ha ocurrido mientras se guardaba el pedido. Por favor, actualice la página y vuelva a intentarlo."
       templates:
         selling_products: "Productos en venta"
@@ -411,32 +411,32 @@ es-ES:
         giving_things_away: "Productos regalados"
         requesting: Solicitando
         announcement: "Publicar anuncio"
-        custom: "A medida"
+        custom: Personalizado
       new:
-        create_listing_shape: "Crear tipo de pedido"
+        create_listing_shape: "Crear tipo de orden"
         create: Crear
         cancel: Cancelar
-        create_success: "Nuevo tipo de pedido '%{shape}' creado"
-        create_failure: "No se pudo crear un nuevo tipo de pedido. Error: %{error_msg}"
+        create_success: "Nuevo tipo de orden '%{shape}' creado"
+        create_failure: "No se pudo crear un nuevo tipo de orden. Error: %{error_msg}"
       edit:
         edit_listing_shape: "Editar el tipo de orden '%{shape}'"
         update: Guardar
         cancel: Cancelar
         update_success: "Se han guardado los cambios al tipo de orden '%{shape}'"
         update_failure: "No se pudieron guardar los cambios. Error: %{error_msg}"
-        delete: "Borrar tipo de pedido"
+        delete: "Borrar tipo de orden"
         confirm_delete_order_type:
           one: "Hay %{count} anuncio con este tipo de orden. Si eliminas el tipo de orden este anuncio se cerrará. Estás seguro de que quieres eliminar este tipo de orden?"
           other: "Hay %{count} anuncios con este tipo de orden. Si eliminas el tipo de orden estos anuncios se cerrarán. Estás seguro de que quieres eliminar este tipo de orden?"
-        can_not_delete_last: "No puedes eliminar este tipo de transacción porque es el único tipo de transacción que existe en tu marketplace."
-        can_not_delete_only_one_in_categories: "No puedes eliminar este tipo de transacción porque en las categorías solo se usa este tipo de transacción: %{categories}"
+        can_not_delete_last: "No puedes eliminar este tipo de orden porque es el único tipo de orden que existe en tu comunidad."
+        can_not_delete_only_one_in_categories: "No puedes eliminar este tipo de orden porque en las siguientes categorías solo se usa este tipo de orden: %{categories}"
       listing_shape_name: Nombre
       listing_shape_name_placeholder: "ej: Vender"
       action_button_label: "Etiqueta del botón de checkout"
       action_button_placeholder: "ej: Comprar"
       open_listings_warning:
-        one: "Hay %{count} anuncio abierto con este tipo de orden. Si cambias cualquiera de los ajustes de abajo, este anuncio no se actualizará y mantendrá los ajustes anteriores. Puedes actualizar los ajustes del anuncio editándolo manualmente.  En caso de que no quieras que este anuncio con los ajustes desactualizados sea visible en tu marketplace, puedes cerrarlo (desactivarlo) haciendo clic en el botón de abajo."
-        other: "Hay %{count} anuncios abiertos con este tipo de orden. Si cambias cualquiera de los ajustes de abajo, esos anuncios no se actualizarán y mantendrán los ajustes anteriores. Puedes actualizar los ajustes de los anuncios editándolos manualmente.  En caso de que no quieras que estos anuncios con los ajustes desactualizados sean visibles en tu marketplace, puedes cerrarlos (desactivarlos) haciendo clic en el botón de abajo."
+        one: "Hay %{count} anuncio abierto con este tipo de orden. Si cambias cualquiera de los ajustes de abajo, este anuncio no se actualizará y mantendrá los ajustes anteriores. Puedes actualizar los ajustes del anuncio editándolo manualmente. En caso de que no quieras que este anuncio con los ajustes desactualizados sea visible en tu comunidad, puedes cerrarlo (desactivarlo) haciendo clic en el botón de abajo."
+        other: "Hay %{count} anuncios abiertos con este tipo de orden. Si cambias cualquiera de los ajustes de abajo, esos anuncios no se actualizarán y mantendrán los ajustes anteriores. Puedes actualizar los ajustes de los anuncios editándolos manualmente. En caso de que no quieras que estos anuncios con los ajustes desactualizados sean visibles en tu comunidad, puedes cerrarlos (desactivarlos) haciendo clic en el botón de abajo."
       close_listings_action:
         one: "Cerrar %{count} anuncio"
         other: "Cerrar %{count} anuncios"
@@ -444,8 +444,8 @@ es-ES:
         one: "Estás seguro de que quieres cerrar %{count} anuncio?"
         other: "Estás seguro de que quieres cerrar %{count} anuncios?"
       successfully_closed: "Anuncios cerrados correctamente"
-      successfully_deleted: "Pedido tipo '%{order_type}' borrado correctamente"
-      pricing_and_checkout_title: "Precio & pago y envío"
+      successfully_deleted: "Tipo de orden '%{order_type}' eliminado correctamente"
+      pricing_and_checkout_title: "Precio & pago"
       online_payments_label: "Permitir a los usuarios aceptar pagos en linea"
       shipping_label: "Permitir que los vendedores establezcan un costo de envío"
       price_label: "Permitir a los usuarios añadir precio a sus anuncios"
@@ -458,9 +458,9 @@ es-ES:
         night: "Por noche"
         week: "Por semana"
         month: "Por mes"
-      can_not_find: "No se pudo encontrar el tipo de transacción con id: %{id}"
+      can_not_find: "No se pudo encontrar el tipo de orden con id: %{id}"
       add_custom_unit: "+ Añadir una unidad de precio personalizada..."
-      delete_custom_unit: Eliminar
+      delete_custom_unit: eliminar
       custom_unit_form:
         title: "Nueva unidad de precio"
         label_heading: Etiqueta
@@ -475,12 +475,12 @@ es-ES:
     paypal_accounts:
       marketplace_paypal_integration: "Preferencias de pago"
       preferences_updated: "Preferencias de pago actualizadas"
-      marketplace_currency_used: "Este marketplace usa %{currency} como su moneda. Para cambiar de moneda, %{contact_support_link}."
-      contact_support_link_text: "Contactar al soporte de Sharetribe"
+      marketplace_currency_used: "Esta comunidad usa %{currency} como su moneda. Para cambiar la moneda, %{contact_support_link}."
+      contact_support_link_text: "contacta al equipo de soporte de Sharetribe"
       integration_info_text: "El sistema de pagos de Sharetribe se basa en PayPal. Si quieres permitir a tus usuarios hacer pagos a través de tu comunidad, debes conectar tu cuenta de PayPal. Después de esto, puedes decidir el precio mínimo para las transacciones, así como la comisión y/o cuota por transacción que quieres recibir."
       link_paypal_personal_account_label: "Venderás productos u ofrecerás productos en tu comunidad?"
       link_paypal_personal_account: "Si es así, también necesitará conectar su cuenta PayPal en %{personal_payment_preferences_link}."
-      personal_payment_preferences_link_text: "su cuenta personal del marketplace"
+      personal_payment_preferences_link_text: "su cuenta personal de la comunidad"
       read_more_about_paypal: "Leer más sobre el sistema de pagos de Sharetribe."
       set_minimum_price_and_fee: "Configura un precio mínimo y una comisión por transacción"
       minimum_listing_price_label: "Precio mínimo por transacción:"
@@ -555,8 +555,12 @@ es-ES:
     removed_user: "Usuario eliminado"
     paypal_fee_info:
       title: "Comisión de procesamiento de pago de PayPal"
-      body_text: "PayPal cobra una tarifa de procesamiento de cada pago realizado. Esta tarifa está entre 2% y 5% del precio total de venta, dependiendo de su volumen mensual de ventas y del país de residencia del comprador. En general, las compras domésticas tienen tarifas más bajas que las internacionales, y las mayores ventas mensuales le dan un descuento en estas tarifas.  Puede ver las tarifas exactas accediendo a su cuenta de PayPal %{link_to_paypal}.  Después de cada compra recibirá un recibo en el que se muestra la tarifa exacta."
-      body_with_shipping_text: "PayPal cobra una tarifa de procesamiento de cada pago realizado. Esta tarifa está entre 2% y 5% del precio total de venta, incluyendo envío, dependiendo de su volumen mensual de ventas y del país de residencia del comprador. En general, las compras domésticas tienen tarifas más bajas que las internacionales, y las mayores ventas mensuales le dan un descuento en estas tarifas.  Puede ver las tarifas exactas accediendo a su cuenta de PayPal %{link_to_paypal}.  Después de cada compra recibirá un recibo en el que se muestra la tarifa exacta."
+      body_text: |-
+          PayPal cobra una tarifa de procesamiento de cada pago realizado. Esta tarifa está entre 2% y 5% del precio total de venta, dependiendo de su volumen mensual de ventas y del país de residencia del comprador. En general, las compras domésticas tienen tarifas más bajas que las internacionales, y las mayores ventas mensuales le dan un descuento en estas tarifas.
+          Puedes ver las tarifas exactas accediendo a su cuenta de PayPal %{link_to_paypal}. Después de cada compra recibirá un recibo en el que se muestra la tarifa exacta.
+      body_with_shipping_text: |-
+          PayPal cobra una tarifa de procesamiento de cada pago realizado. Esta tarifa está entre 2% y 5% del precio total de venta (incluyendo envío), dependiendo de su volumen mensual de ventas y del país de residencia del comprador. En general, las compras domésticas tienen tarifas más bajas que las internacionales, y las mayores ventas mensuales le dan un descuento en estas tarifas.
+          Puedes ver las tarifas exactas accediendo a su cuenta de PayPal %{link_to_paypal}. Después de cada compra recibirá un recibo en el que se muestra la tarifa exacta.
       link_to_paypal_text: aquí
   conversations:
     accept:
@@ -659,7 +663,7 @@ es-ES:
       total: "Total: %{total}"
     status:
       payment_errored: "No se ha procesado el pago. Por favor, vuelve a intentarlo."
-      payment_errored_starter: "No se ha procesado el pago. Por favor, vuelve a intentarlo y si el problema continúa, contacta con el equipo de soporte de Sharetribe."
+      payment_errored_starter: "No pudimos procesar el pago. Por favor, vuelve a intentarlo y si el problema continúa, contacta con el equipo de soporte de Sharetribe."
       payment_errored_author: "El pago ha fallado. Por favor, contacta a %{starter_name} y pídele que vuelva a intentarlo de nuevo."
       cancel_payed_transaction: Cancelar
       feedback_given: "Retroalimentación dada"
@@ -755,8 +759,8 @@ es-ES:
       confirm_payment: "Confirmar pago"
       exp: "Exp:"
   feedback:
-    feedback_subject: "Nuevo feedback de %{service_name}"
-    feedback_body: "%{author_name_and_email} ha enviado el siguiente feedback desde %{service_name}"
+    feedback_subject: "Nueva retroalimentación de %{service_name}"
+    feedback_body: "%{author_name_and_email} ha enviado la siguiente retroalimentación desde %{service_name}"
     unlogged_user: "Usuario no identificado"
     anonymous_user: "Usuario anónimo"
   preauthorize_payments:
@@ -981,7 +985,7 @@ es-ES:
       you_are_receiving_this_because: "Has recibido ésta notificación porque sigues a %{author_name}."
       view_listing: "Ver anuncio"
     new_member_notification:
-      new_member_has_joined: "Un nuevo miembro se ha unido a %{community}. Es posible que deban aún confirmar su dirección de correo electrónico."
+      new_member_has_joined: "Un nuevo miembro se ha unido a %{community}. Es posible que aún deban confirmar su dirección de correo electrónico."
       this_is_automatic_message: "Este es un mensaje automático enviado a los administradores de %{community}."
       person_name: "Nombre:"
       person_email: "Correo electrónico:"
@@ -1207,7 +1211,7 @@ es-ES:
       search: Buscar
       signup: Registrarse
       search_placeholder: "¿Qué estás buscando?"
-      search_location_placeholder: ~
+      search_location_placeholder: Ubicación
     listings:
       no_listing_image: "Sin imagen"
   layouts:
@@ -1360,7 +1364,7 @@ es-ES:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "No estás autorizado para dar retroalimentación en este evento."
       you_are_not_authorized_to_do_this: "No estás autorizado para realizar esta acción."
       you_are_not_authorized_to_view_this_content: "No estás autorizado para ver este contenido"
-      listing_closed: "Se ha cerrado esta publicación"
+      listing_closed: "Este anuncio ha sido cerrado"
       send_instructions: "Recibirás un correo electrónico con las instrucciones para cambiar tu contraseña en pocos minutos."
       you_cannot_reply_to_a_closed_offer: "No puedes responder a una oferta cerrada"
       you_cannot_send_message_to_yourself: "No puedes enviarte un mensaje"
@@ -1413,7 +1417,7 @@ es-ES:
       wrote: escribió
       send_private_message: "Enviar mensaje privado a %{person}"
       delete: eliminar
-      are_you_sure: "Estás seguro de que deseas borrar el comentario?"
+      are_you_sure: "¿Estás seguro de que deseas eliminar el comentario?"
     comment_form:
       ask_a_question: "Escribe un comentario o pregunta para solicitar más detalles sobre el anuncio. Todos los demás usuarios podrán verlo."
       log_in: "iniciar sesión"
@@ -1695,7 +1699,7 @@ es-ES:
       you_have_something_others_do_not: "Tienes algo que quieres ofertar?"
     please_comment: Comentario
   mercury:
-    content_too_long: "El contenido ingresado era muy largo."
+    content_too_long: "El contenido ingresado es muy largo."
   okl:
     member_id: "Número de identificación"
     member_id_or_email: "Identificación de usuario o cuenta de correo electrónico"
@@ -1722,17 +1726,17 @@ es-ES:
   paypal_accounts:
     payout_info_title: "Recibo de fondos"
     paypal_account_email_connected: "<del>Conectar cuenta PayPal</del> Completado!"
-    payout_info_paypal: "%{service_name} usa PayPal como su proveedor de pagos. %{create_paypal_account_link} y conectarla a %{service_name} es necesario para aceptar pagos por sus ofertas."
+    payout_info_paypal: "%{service_name} usa PayPal como su proveedor de pagos. %{create_paypal_account_link} y conectarla a %{service_name} es necesario para aceptar pagos por sus anuncios en línea."
     paypal_billing_agreement_made: "<del>Otorgar permiso a %{service_name} para cobrar la cuota de servicio</del> Completado!"
     commission_permission_needed: "También es necesario que otorgue permiso a %{service_name} para cobrar la comisión de servicio"
-    create_paypal_account_link_text: "cuenta PayPal"
+    create_paypal_account_link_text: "cuenta de PayPal"
     connected_account: "La cuenta de PayPal '%{email}' se ha conectado con éxito."
-    paypal_receive_funds_info_label_australia_only: "Es necesario que tu cuenta PayPal esté habilitada para aceptar pagos. Esto puede requerir una cuenta Premium o de Empresa."
+    paypal_receive_funds_info_label_australia_only: "Es necesario que tu cuenta PayPal esté habilitada para aceptar pagos. Esto puede requerir una cuenta Premium o Empresarial."
     paypal_receive_funds_info_label: "Es necesario que tu cuenta PayPal pueda aceptar pagos. Esto puede requerir que tengas una cuenta empresarial (Business account)."
-    paypal_receive_funds_info: "Si ves un error al intentar conectar tu cuenta a %{service_name}, actualiza tu cuenta PayPal %{upgrade_paypal_account_link}. Es gratis y fácil. Si eres un individuo, PayPal recomienda que utilices tu nombre como el nombre de la empresa."
+    paypal_receive_funds_info: "Si ves un error al intentar conectar tu cuenta a %{service_name}, actualiza tu cuenta PayPal %{upgrade_paypal_account_link}. Es fácil y gratis. Si eres un persona física, PayPal recomienda que utilices tu nombre como el nombre de la empresa."
     upgrade_paypal_account_link_text: "iniciando sesión y haciendo clic en el enlace de actualización"
     admin_account_not_connected: "No es posible usar el sistema de pagos de %{service_name} para recibir pagos, ya que los pagos no se han configurado. Por favor %{contact_admin_link} para más información."
-    contact_admin_link_text: "contacta al administrador del marketplace"
+    contact_admin_link_text: "contacta al administrador de la comunidad"
     you_are_ready_to_accept_payments: "¡Estás listo para aceptar pagos!"
     commission: "%{commission} %"
     new:
@@ -1776,7 +1780,7 @@ es-ES:
     redirect_message: "Redirigiendo a PayPal. Si no sucede nada, haz clic %{redirect_link}."
     redirect_link_text: aquí
     paypal_account_all_set_up: "Muy bien! todo está listo!"
-    can_receive_payments: "Ahora puedes empezar a recibir pagos por tus ofertas."
+    can_receive_payments: "Ahora puedes empezar a recibir pagos por tus anuncios en línea."
     paypal_account_connected_summary: "Cuenta PayPal <%{email}> conectada con éxito"
     paypal_permission_granted_summary: "permiso otorgado para cobrar las comisiones de transacción"
   paypal:
@@ -1816,7 +1820,7 @@ es-ES:
       invalid_invitation_code: "El código de invitación no es válido."
       invitation_code: "Código de invitación:"
       not_required: ", no es necesario"
-      notification_is_mandatory: "Debes elegir al menos una dirección de correo para recibir notificaciones. Si no deseas recibir e-mails de %{service_name}, revisa tus ajustes de notificaciones."
+      notification_is_mandatory: "Debes elegir al menos una dirección de correo para recibir notificaciones. Si no deseas recibir correos de %{service_name}, revisa tus ajustes de notificaciones."
       password_again: "Confirme la contraseña:"
       show_my_name_to_others: "Mostrar mi nombre real a otros usuarios de %{service_name}"
       sign_up: "Crear una nueva cuenta en %{service_name}"
@@ -2136,7 +2140,7 @@ es-ES:
     price_per_quantity: "Precio por %{unit_type}:"
     price: "Precio:"
     quantity: "Cantidad: %{quantity}"
-    unit_price: "Precio de unidad: %{unit_price}"
+    unit_price: "Precio unitario: %{unit_price}"
     total: "Total:"
   unit:
     day: día
