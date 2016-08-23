@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818111724) do
+ActiveRecord::Schema.define(version: 20160823073938) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -174,10 +174,7 @@ ActiveRecord::Schema.define(version: 20160818111724) do
     t.string   "service_logo_style",                         limit: 255,      default: "full-logo"
     t.text     "available_currencies",                       limit: 65535
     t.boolean  "facebook_connect_enabled",                                    default: true
-    t.integer  "vat",                                        limit: 4
-    t.integer  "commission_from_seller",                     limit: 4
     t.integer  "minimum_price_cents",                        limit: 4
-    t.boolean  "testimonials_in_use",                                         default: true
     t.boolean  "hide_expiration_date",                                        default: false
     t.string   "facebook_connect_id",                        limit: 255
     t.string   "facebook_connect_secret",                    limit: 255
