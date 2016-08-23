@@ -2,7 +2,7 @@ class ChangeBraintreePreauthorizationProcessesToFree < ActiveRecord::Migration
   def up
     # Change all preauthorize processes to none unless they are in use with Paypal gateway
     execute "UPDATE transaction_processes tp
-             SET process = 'none'
+             SET tp.process = 'none'
              WHERE tp.process = 'preauthorize' AND (
                SELECT COUNT(*) = 0
                FROM payment_settings ps
