@@ -206,10 +206,6 @@ class Listing < ActiveRecord::Base
     custom_field_values.find { |value| value.custom_field_id == custom_field.id }
   end
 
-  def payment_required_at?(community)
-    price && price > 0 && community.payments_in_use?
-  end
-
   def unit_type
     Maybe(read_attribute(:unit_type)).to_sym.or_else(nil)
   end

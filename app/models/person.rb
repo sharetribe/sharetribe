@@ -88,7 +88,6 @@ class Person < ActiveRecord::Base
   has_many :emails, :dependent => :destroy, :inverse_of => :person
 
   has_one :location, -> { where(location_type: :person) }, :dependent => :destroy
-  has_one :braintree_account, :dependent => :destroy
 
   has_many :participations, :dependent => :destroy
   has_many :conversations, :through => :participations, :dependent => :destroy
@@ -129,12 +128,10 @@ class Person < ActiveRecord::Base
     "email_when_conversation_accepted",
     "email_when_conversation_rejected",
     "email_about_new_received_testimonials",
-    "email_about_accept_reminders",
     "email_about_confirm_reminders",
     "email_about_testimonial_reminders",
     "email_about_completed_transactions",
     "email_about_new_payments",
-    "email_about_payment_reminders",
     "email_about_new_listings_by_followed_people"
 
     # These should not yet be shown in UI, although they might be stored in DB
@@ -529,12 +526,6 @@ class Person < ActiveRecord::Base
     # 1 day limit to match even if there's 23.55 minutes passed since last sending.
     return true if community_updates_last_sent_at.nil?
     return community_updates_last_sent_at + min_days_between_community_updates.days - 45.minutes < Time.now
-  end
-
-  # Return true if this user should use a payment
-  # system in this transaction
-  def should_pay?(conversation, community)
-    conversation.requires_payment?(community) && conversation.status.eql?("accepted") && id.eql?(conversation.buyer.id)
   end
 
   # Returns and email that is pending confirmation

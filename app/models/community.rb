@@ -122,11 +122,9 @@ class Community < ActiveRecord::Base
 
   has_many :conversations
   has_many :transactions
-  has_many :payments
 
   has_many :listings
 
-  has_one :payment_gateway, :dependent => :destroy
   has_one :paypal_account # Admin paypal account
 
   has_many :custom_fields, :dependent => :destroy
@@ -556,17 +554,7 @@ class Community < ActiveRecord::Base
   #
   # There is a method `payment_type` is community service. Use that instead.
   def payments_in_use?
-    if MarketplaceService::Community::Query.payment_type(id) == :paypal
-      true
-    else
-      payment_gateway.present? && payment_gateway.configured?
-    end
-  end
-
-  # Testimonials can be used only if payments are used and `testimonials_in_use` value
-  # is true. `testimonials_in_use` doesn't have any effect, if there are no payments
-  def testimonials_in_use
-    read_attribute(:testimonials_in_use) && payments_in_use?
+    MarketplaceService::Community::Query.payment_type(id) == :paypal
   end
 
   def default_currency
@@ -585,20 +573,6 @@ class Community < ActiveRecord::Base
       # so return empty array, as it shouldn't matter in those cases
       return []
     end
-  end
-
-  def braintree_in_use?
-    payment_gateway.present? && payment_gateway.type == "BraintreePaymentGateway"
-  end
-
-  # Return either minimum price defined by this community or the absolute
-  # platform default minimum price.
-  def absolute_minimum_price(currency)
-    Money.new(minimum_price_cents || 100, currency || "EUR")
-  end
-
-  def invoice_form_type_for(listing)
-    payment_possible_for?(listing) && payments_in_use? ? "simple" : "no_form"
   end
 
   def email_notification_types

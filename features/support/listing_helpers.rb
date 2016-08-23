@@ -31,10 +31,6 @@ module ListingHelpers
     ListingService::API::Api.shapes.get(community_id: community.id)[:data]
   end
 
-  def visit_current_listing
-    visit(listing_path(:id => @listing.id, :locale => "en"))
-  end
-
 end
 
 World(ListingHelpers)

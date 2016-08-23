@@ -58,34 +58,8 @@ When(/^I set search range for numeric filter "(.*?)" between "(.*?)" and "(.*?)"
   }
 end
 
-Given /^privacy of that listing is "([^"]*)"$/ do |privacy|
-  @listing.update_attribute(:privacy, privacy)
-end
-
-Given(/^that listing belongs to community "(.*?)"$/) do |ident|
-  @listing.community_id = Community.where(ident: ident).first.id
-  @listing.save!
-end
-
-Given /^that listing is visible to members of community "([^"]*)"$/ do |ident|
-  @listing.community_id = Community.where(ident: ident).first.id
-  @listing.save!
-end
-
 Given /^that listing has a description "(.*?)"$/ do |description|
   @listing.update_attribute(:description, description)
-end
-
-Then /^There should be a rideshare (offer|request) from "([^"]*)" to "([^"]*)" starting at "([^"]*)"$/ do |share_type, origin, destination, time|
-  listings = Listing.where(title: "#{origin} - #{destination}")
-end
-
-When /^there is one comment to the listing from "([^"]*)"$/ do |author|
-  @comment = FactoryGirl.create(:comment, :listing => @listing, :author => @people[author])
-end
-
-Then /^the total number of comments should be (\d+)$/ do |no_of_comments|
-  expect(Comment.all.count).to eq(no_of_comments.to_i)
 end
 
 When /^I save the listing$/ do
@@ -109,30 +83,6 @@ When /^I create a new listing "(.*?)" with price(?: "([^"]*)")?$/ do |title, pri
     Then I should see "You need to insert a valid monetary value."
     When I fill in "listing_price" with "#{price}"
     And I save the listing
-  }
-end
-
-When /^I select that I want to sell housing$/ do
-  steps %Q{
-    And I follow "I have something to offer"
-    And I follow "A space"
-    And I follow "I'm selling it"
-    Then I should see "Space you offer"
-  }
-end
-
-When /^I fill in listing form with housing information$/ do
-  steps %Q{
-    And I fill in "listing_title" with "Nice appartment in the city centre"
-    And I fill in "listing_price" with "10000"
-  }
-end
-
-When /^I choose to view only share type "(.*?)"$/ do |share_type_name|
-  puts "Using deprecated step When I choose to view only share type"
-  steps %Q{
-    When I click "#home_toolbar-select-share-type"
-    And I follow "#{share_type_name}" within ".home-toolbar-share-type-menu"
   }
 end
 
@@ -194,18 +144,6 @@ Given /^listing comments are in use in community "(.*?)"$/ do |community_ident|
   community.update_attribute(:listing_comments_in_use, true)
 end
 
-When(/^I remove the image$/) do
-
-  # Hovering didn't work without first clicking the element. Not sure why, but I expect that it has something to do
-  # with window focus
-  steps %Q{
-    And I click ".fileupload-preview"
-    When I hover ".fileupload-preview"
-    And I click ".fileupload-preview-remove-image"
-    Then I should see "Select file"
-  }
-end
-
 When(/^I click for the next image$/) do
   # Selenium can not interact with hidden elements
   page.execute_script("$('#listing-image-navi-right').show()");
@@ -226,87 +164,8 @@ Then(/^I should see that the listing does not have "(.*?)"$/) do |option_title|
   find(".checkbox-option.not-selected", :text => option_title)
 end
 
-# Move to more generic place if needed
-def select_date_from_date_selector(date, date_selector_base_id)
-  day = date.day
-  month = I18n.t("date.month_names")[date.month]
-  year = date.year
-
-  select(day, :from => "#{date_selector_base_id}_3i")
-  select(month, :from => "#{date_selector_base_id}_2i")
-  select(year, :from => "#{date_selector_base_id}_1i")
-end
-
-def select_start_date(date)
-  date = [date.year, date.month, date.day].join("-")
-  page.execute_script("$('#start-on').val('#{date}')");
-  # Selenium can not interact with hidden elements, use JavaScript
-  page.execute_script("$('#booking-start-output').val('#{date}')");
-end
-
-def select_end_date(date)
-  date = [date.year, date.month, date.day].join("-")
-  page.execute_script("$('#end-on').val('#{date}')");
-  # Selenium can not interact with hidden elements, use JavaScript
-  page.execute_script("$('#booking-end-output').val('#{date}')");
-end
-
-When(/^I set the expiration date to (\d+) months from now$/) do |months|
-  select_date_from_date_selector(months.to_i.months.from_now, "listing_valid_until")
-end
-
-When(/^I (?:buy) that listing$/) do
-  visit(path_to "the listing page")
-  find(".book-button").click
-end
-
-When(/^I (?:buy) (\d+) hours worth of those listings$/) do |hours|
-  visit(path_to "the listing page")
-  fill_in('Number of hours:', with: hours)
-  find(".book-button").click
-end
-
-When(/^I select category "(.*?)"$/) do |category_name|
-  expect(page).to have_content("Select category")
-  expect(page).to have_css(".select", text: category_name)
-  first(".select", text: category_name).click
-end
-
 When(/^I select subcategory "(.*?)"$/) do |subcategory_name|
   expect(page).to have_content("Select subcategory")
   expect(page).to have_css(".select", text: subcategory_name)
   first(".select", text: subcategory_name).click
-end
-
-When(/^I select listing shape "(.*?)"$/) do |listing_shape_name|
-  expect(page).to have_content("Select listing type")
-  expect(page).to have_css(".select", text: listing_shape_name)
-  first(".select", text: listing_shape_name).click
-end
-
-Then(/^I should see the new listing form$/) do
-  expect(page).to have_content("Listing title")
-  expect(page).to have_content("Detailed description")
-  expect(page).to have_content("Image")
-end
-
-Then(/^I should warning about missing payment details$/) do
-  expect(page).to have_content("You need to fill in payout details before you can post a listing. Go to payment settings to fill in the details.")
-end
-
-When(/^I make a booking request for that listing for (\d+) days$/) do |day_count|
-  visit_current_listing
-  select_days_from_now(day_count)
-
-  click_button('Buy')
-end
-
-When(/I fill rent time for (\d+) days$/) do |day_count|
-  select_days_from_now(day_count)
-end
-
-def select_days_from_now(day_count)
-  @booking_end_date = Date.today + day_count.to_i.days - 1.day
-  select_start_date(Date.today)
-  select_end_date(@booking_end_date)
 end

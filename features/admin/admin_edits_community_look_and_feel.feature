@@ -32,10 +32,3 @@ Feature: Admin edits community look-and-feel
     And I set the new listing button color to "FF0099"
     And I press submit
     Then I should see that the background color of Post a new listing button is "FF0099"
-
-  @skip_phantomjs
-  Scenario: Admin uploads a favicon
-    Then I should see that the favicon is the default
-    And I upload a new favicon
-    And I press submit
-    Then I should see that the favicon is the file I uploaded

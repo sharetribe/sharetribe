@@ -6,14 +6,6 @@ module Form
     validates_presence_of :content, :conversation_id
   }
 
-  Braintree = FormUtils.define_form("Braintree",
-    :cardholder_name,
-    :credit_card_number,
-    :cvv,
-    :credit_card_expiration_month,
-    :credit_card_expiration_year
-  )
-
   NewMarketplace = FormUtils.define_form("NewMarketplaceForm",
     :admin_email, :admin_first_name, :admin_last_name, :admin_password,
     :marketplace_country, :marketplace_language, :marketplace_name, :marketplace_type

@@ -70,7 +70,6 @@ class Transaction < ActiveRecord::Base
   belongs_to :community
   belongs_to :listing
   has_many :transaction_transitions, dependent: :destroy, foreign_key: :transaction_id
-  has_one :payment, foreign_key: :transaction_id
   has_one :booking, :dependent => :destroy
   has_one :shipping_address, dependent: :destroy
   belongs_to :starter, :class_name => "Person", :foreign_key => "starter_id"
@@ -95,35 +94,6 @@ class Transaction < ActiveRecord::Base
 
   def status
     current_state
-  end
-
-  def payment_attributes=(attributes)
-    payment = initialize_payment
-
-    if attributes[:sum]
-      # Simple payment form
-      initialize_braintree_payment!(payment, attributes[:sum], attributes[:currency])
-    else
-      raise ArgumentError.new("Missing attribute 'sum'")
-    end
-
-    payment.save!
-  end
-
-  # TODO Remove this
-  def initialize_payment
-    payment ||= community.payment_gateway.new_payment
-    payment.payment_gateway ||= community.payment_gateway
-    payment.tx = self
-    payment.status = "pending"
-    payment.payer = starter
-    payment.recipient = author
-    payment.community = community
-    payment
-  end
-
-  def initialize_braintree_payment!(payment, sum, currency)
-    payment.sum = MoneyUtil.parse_str_to_money(sum.to_s, currency)
   end
 
   def has_feedback_from?(person)
@@ -172,18 +142,6 @@ class Transaction < ActiveRecord::Base
 
   def payment_receiver
     author
-  end
-
-  # If payment through Sharetribe is required to
-  # complete the transaction, return true, whether the payment
-  # has been conducted yet or not.
-  def requires_payment?(community)
-    listing.payment_required_at?(community)
-  end
-
-  # Return true if the next required action is the payment
-  def waiting_payment?(community)
-    requires_payment?(community) && status.eql?("accepted")
   end
 
   # Return true if the transaction is in a state that it can be confirmed

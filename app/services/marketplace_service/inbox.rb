@@ -52,7 +52,6 @@ module MarketplaceService
 
     module QueryHelper
       PersonModel = ::Person
-      PaymentModel = ::Payment
 
       @tiny_int_to_bool = ->(tiny_int) {
         !(tiny_int.nil? || tiny_int == 0)
@@ -216,9 +215,6 @@ module MarketplaceService
 
         payment_total =
           case payment_gateway.to_sym
-          when :braintree
-            # Use Maybe, since payment may not exists yet, if postpay flow
-            Maybe(PaymentModel.where(id: transaction[:payment_id]).first).total_sum.or_else(nil)
           when :paypal
             paypal_payments = PaypalService::API::Api.payments
             Maybe(paypal_payments.get_payment(transaction[:community_id], transaction[:transaction_id]))[:data][:authorization_total].or_else(nil)
@@ -266,8 +262,8 @@ module MarketplaceService
             (participations.is_read = FALSE) OR
 
             # Requires actions
-            ((transactions.current_state = 'pending' OR transactions.current_state = 'preauthorized') AND participations.is_starter = FALSE) OR
-            ((transactions.current_state = 'accepted' OR transactions.current_state = 'paid')         AND participations.is_starter = TRUE) OR
+            (transactions.current_state = 'preauthorized' AND participations.is_starter = FALSE) OR
+            (transactions.current_state = 'paid'          AND participations.is_starter = TRUE) OR
 
             # Waiting feedback
             ((transactions.current_state = 'confirmed') AND (
@@ -301,8 +297,6 @@ module MarketplaceService
             listings.title                                    AS listing_title,
             listings.deleted                                  AS listing_deleted,
 
-            payments.id                                       AS payment_id,
-
             listings.author_id                                AS author_id,
             current_participation.person_id                   AS current_id,
             other_participation.person_id                     AS other_id,
@@ -314,8 +308,8 @@ module MarketplaceService
 
             # Requires actions
             (
-             ((transactions.current_state = 'pending' OR transactions.current_state = 'preauthorized') AND current_participation.is_starter = FALSE) OR
-             ((transactions.current_state = 'accepted' OR transactions.current_state = 'paid')         AND current_participation.is_starter = TRUE)
+             (transactions.current_state = 'preauthorized' AND current_participation.is_starter = FALSE) OR
+             (transactions.current_state = 'paid'          AND current_participation.is_starter = TRUE)
             )                                                 AS current_action_required,
 
             # Waiting feedback
@@ -327,7 +321,6 @@ module MarketplaceService
 
           LEFT JOIN transactions      ON transactions.conversation_id = conversations.id
           LEFT JOIN listings          ON transactions.listing_id = listings.id
-          LEFT JOIN payments          ON payments.transaction_id = transactions.id
           LEFT JOIN testimonials      ON (testimonials.transaction_id = transactions.id AND testimonials.author_id = #{params[:person_id]})
           LEFT JOIN participations    AS current_participation ON (current_participation.conversation_id = conversations.id AND current_participation.person_id = #{params[:person_id]})
           LEFT JOIN participations    AS other_participation ON (other_participation.conversation_id = conversations.id AND other_participation.person_id != #{params[:person_id]})

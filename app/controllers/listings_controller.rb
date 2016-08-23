@@ -181,8 +181,7 @@ class ListingsController < ApplicationController
       [nil, nil]
     end
 
-    gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
-    payment_gateway = gateway == :braintree ? nil : gateway
+    payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
     process = get_transaction_process(community_id: @current_community.id, transaction_process_id: @listing.transaction_process_id)
     form_path = new_transaction_path(listing_id: @listing.id)
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
@@ -622,11 +621,7 @@ class ListingsController < ApplicationController
        commission_from_seller: p_set[:commission_from_seller],
        minimum_price_cents: p_set[:minimum_price_cents]}
     else
-      {seller_commission_in_use: !!community.commission_from_seller,
-       payment_gateway: payment_type,
-       minimum_commission: Money.new(0, currency),
-       commission_from_seller: community.commission_from_seller,
-       minimum_price_cents: community.absolute_minimum_price(currency).cents}
+      raise ArgumentError.new("Unknown payment_type, process combination: [#{payment_type}, #{process}]")
     end
   end
 
@@ -783,12 +778,6 @@ class ListingsController < ApplicationController
     when matches([nil]),
          matches([__, :none])
       [true, ""]
-    when matches([:braintree])
-      can_post = !PaymentRegistrationGuard.new(community, user, listing).requires_registration_before_posting?
-      settings_link = payment_settings_path(community.payment_gateway.gateway_type, user)
-      error_msg = t("listings.new.you_need_to_fill_payout_details_before_accepting", :payment_settings_link => view_context.link_to(t("listings.new.payment_settings_link"), settings_link)).html_safe
-
-      [can_post, error_msg]
     when matches([:paypal])
       can_post = PaypalHelper.community_ready_for_payments?(community.id)
       error_msg =

@@ -70,7 +70,6 @@ gem 'mercury-rails',
   ref: '1cc637b0bccea19085f824d2881c6513ed5ee8ae'
 
 gem 'countries', '~> 1.2', '>= 1.2.2'
-gem 'braintree', "~> 2.30.0"
 gem "mail_view", "~> 1.0.3"
 gem 'statesman', '~> 1.3.1'
 gem "premailer", "~> 1.8.2"

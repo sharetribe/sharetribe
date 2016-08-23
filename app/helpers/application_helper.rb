@@ -429,17 +429,13 @@ module ApplicationHelper
       }
     ]
 
-    # Disabled for Braintree
-    gw = PaymentGateway.where(community_id: @current_community.id).first
-    unless gw
-      links << {
-        :topic => :configure,
-        :text => t("admin.listing_shapes.index.listing_shapes"),
-        :icon_class => icon_class("order_types"),
-        :path => admin_listing_shapes_path,
-        :name => "listing_shapes"
-      }
-    end
+    links << {
+      :topic => :configure,
+      :text => t("admin.listing_shapes.index.listing_shapes"),
+      :icon_class => icon_class("order_types"),
+      :path => admin_listing_shapes_path,
+      :name => "listing_shapes"
+    }
 
     if PaypalHelper.paypal_active?(@current_community.id)
       links << {
@@ -448,16 +444,6 @@ module ApplicationHelper
         :icon_class => icon_class("payments"),
         :path => admin_paypal_preferences_path(),
         :name => "paypal_account"
-      }
-    end
-
-    if Maybe(@current_user).is_admin?.or_else { false }
-      links << {
-        :topic => :configure,
-        :text => t("admin.communities.braintree_payment_gateway.braintree_payment_gateway"),
-        :icon_class => icon_class("payments"),
-        :path => payment_gateways_admin_community_path(@current_community),
-        :name => "payment_gateways"
       }
     end
 
@@ -533,35 +519,17 @@ module ApplicationHelper
 
     if payment_type.present?
 
-      path = payment_settings_path(payment_type, @current_user)
-
       links << {
         :id => "settings-tab-payments",
         :text => t("layouts.settings.payments"),
         :icon_class => icon_class("payments"),
-        :path => path,
+        :path => paypal_account_settings_payment_path(@current_user),
         :name => "payments"
       }
 
     end
 
     return links
-  end
-
-  def payment_settings_path(gateway_type, person)
-    if gateway_type == :braintree
-      show_braintree_settings_payment_path(person)
-    elsif gateway_type == :paypal
-      paypal_account_settings_payment_path(person)
-    end
-  end
-
-  def payment_settings_url(gateway_type, person, url_params)
-    if gateway_type == :braintree
-      show_braintree_settings_payment_url(person, url_params.merge(locale: person.locale))
-    elsif gateway_type == :paypal
-      paypal_account_settings_payment_url(person, url_params.merge(locale: person.locale))
-    end
   end
 
   def display_expiration_notice?

@@ -2,8 +2,6 @@ module TransactionHelper
 
   def icon_for(status)
     case status
-    when "accepted"
-      "ss-check"
     when "confirmed"
       "ss-check"
     when "rejected"
@@ -39,17 +37,18 @@ module TransactionHelper
     end if status == "confirmed"
 
     status_hash = {
-      pending: ->() { {
-        author: {
-          icon: icon_waiting_you,
-          text: t("conversations.status.waiting_for_you_to_accept_request")
-        },
-        starter: {
-          icon: icon_waiting_other,
-          text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
-        }
-      } },
-
+      pending: ->() {
+        ActiveSupport::Deprecation.warn("Transaction state 'pending' is deprecated and will be removed in the future.")
+        {
+          author: {
+            icon: icon_waiting_you,
+            text: t("conversations.status.waiting_for_you_to_accept_request")
+          },
+          starter: {
+            icon: icon_waiting_other,
+            text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
+          }
+        } },
       preauthorized: ->() { {
         author: {
           icon: icon_waiting_you,
@@ -60,7 +59,18 @@ module TransactionHelper
           text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
         }
       } },
-
+      accepted: ->() {
+        ActiveSupport::Deprecation.warn("Transaction state 'accepted' is deprecated and will be removed in the future.")
+          {
+          author: {
+            icon: icon_waiting_other,
+            text: t("conversations.status.waiting_payment_from_requester", requester_name: other_party_name)
+          },
+          starter: {
+            icon: icon_waiting_you,
+            text: t("conversations.status.waiting_payment_from_you")
+          }
+        } },
       pending_ext: ->() {
         case status_meta[:paypal_pending_reason]
         when "multicurrency"
@@ -112,17 +122,6 @@ module TransactionHelper
           }
         end
       },
-
-      accepted: ->() { {
-        author: {
-          icon: icon_waiting_other,
-          text: t("conversations.status.waiting_payment_from_requester", requester_name: other_party_name)
-        },
-        starter: {
-          icon: icon_waiting_you,
-          text: t("conversations.status.waiting_payment_from_you")
-        }
-      } },
 
       rejected: -> () { {
         both: {
@@ -199,7 +198,7 @@ module TransactionHelper
   #   {
   #     type: :status_links,
   #     content: [{
-  #         link_href: @current_community.payment_gateway.new_payment_path(@current_user, conversation, params[:locale],
+  #         link_href: "/path/to/somewhere" # url
   #         link_classes: '[if-any]'
   #         link_data: {},                  # e.g. {:method => "put", :remote => "true"}
   #         link_icon_tag: '[some-tag]>',   # OR link_icon_with_text_classes: icon_for("accepted")
@@ -212,22 +211,11 @@ module TransactionHelper
   def get_conversation_statuses(conversation, is_author)
     statuses = if conversation.listing && !conversation.status.eql?("free")
       status_hash = {
-        pending: ->() { {
-          both: [
-            pending_status(conversation)
-          ]
-        } },
-        accepted: ->() { {
-          both: [
-            status_info(t("conversations.status.request_accepted"), icon_classes: icon_for("accepted")),
-            accepted_status(conversation)
-          ]
-        } },
         paid: ->() { {
           both: [
             status_info(t("conversations.status.request_paid"), icon_classes: icon_for("paid")),
             delivery_status(conversation),
-            paid_status(conversation, @current_community.testimonials_in_use)
+            paid_status(conversation)
           ]
         } },
         preauthorized: ->() { {
@@ -279,13 +267,13 @@ module TransactionHelper
         confirmed: ->() { {
           both: [
             status_info(t("conversations.status.request_confirmed"), icon_classes: icon_for("confirmed")),
-            feedback_status(conversation, @current_community.testimonials_in_use)
+            feedback_status(conversation)
           ]
         } },
         canceled: ->() { {
           both: [
             status_info(t("conversations.status.request_canceled"), icon_classes: icon_for("canceled")),
-            feedback_status(conversation, @current_community.testimonials_in_use)
+            feedback_status(conversation)
           ]
         } },
         rejected: ->() { {
@@ -316,25 +304,7 @@ module TransactionHelper
 
   private
 
-  def pending_status(conversation)
-    if current_user?(conversation.listing.author)
-      waiting_for_current_user_to_accept(conversation)
-    else
-      waiting_for_author_acceptance(conversation)
-    end
-  end
-
-  def accepted_status(conversation)
-    if conversation.seller == @current_user
-      waiting_for_buyer_to_pay(conversation)
-    else
-      waiting_for_current_user_to_pay(conversation)
-    end
-  end
-
-  def paid_status(conversation, show_testimonial_status)
-    return nil unless show_testimonial_status
-
+  def paid_status(conversation)
     if conversation.seller == @current_user
       waiting_for_buyer_to_confirm(conversation)
     else
@@ -369,9 +339,7 @@ module TransactionHelper
     end
   end
 
-  def feedback_status(conversation, show_feedback_status)
-    return nil unless show_feedback_status
-
+  def feedback_status(conversation)
     if conversation.has_feedback_from?(@current_user)
       feedback_given_status
     elsif conversation.feedback_skipped_by?(@current_user)
@@ -379,40 +347,6 @@ module TransactionHelper
     else
       feedback_pending_status(conversation)
     end
-  end
-
-  def waiting_for_current_user_to_accept(conversation)
-    status_links([
-      {
-        link_href: accept_person_message_path(@current_user, :id => conversation.id),
-        link_classes: "accept",
-        link_icon_with_text_classes: icon_for("accepted"),
-        link_text_with_icon: link_text_with_icon(conversation, "accept")
-      },
-      {
-        link_href: reject_person_message_path(@current_user, :id => conversation.id),
-        link_classes: "reject",
-        icon_classes: icon_for("rejected"),
-        link_text_with_icon: link_text_with_icon(conversation, "reject")
-      }
-    ])
-  end
-
-  def waiting_for_current_user_to_pay(conversation)
-    status_links([
-      {
-        link_href: @current_community.payment_gateway.new_payment_path(@current_user, conversation, params[:locale]),
-        link_classes: "accept",
-        link_icon_with_text_classes: 'ss-coins',
-        link_text_with_icon: t("conversations.status.pay")
-      },
-      {
-        link_href: cancel_person_message_path(@current_user, :id => conversation.id),
-        link_classes: 'cancel',
-        link_icon_with_text_classes: icon_for("canceled"),
-        link_text_with_icon: t("conversations.status.cancel_payed_transaction")
-      }
-    ])
   end
 
   def waiting_for_current_user_to_confirm(conversation)
@@ -479,23 +413,6 @@ module TransactionHelper
     else
       t("conversations.status_link.#{status_link_name}")
     end
-  end
-
-  def waiting_for_author_acceptance(conversation)
-    other_party = conversation.other_party(@current_user)
-    other_party_link = link_to(other_party.given_name_or_username, other_party)
-
-    link = t(
-      "conversations.status.waiting_for_listing_author_to_accept_request",
-      :listing_author_name => other_party_link
-    ).html_safe
-
-    status_info(link, icon_classes: 'ss-clock')
-  end
-
-  def waiting_for_buyer_to_pay(conversation)
-    link = t("conversations.status.waiting_payment_from_requester", :requester_name => link_to(conversation.buyer.given_name_or_username, conversation.buyer)).html_safe
-    status_info(link, icon_classes: 'ss-clock')
   end
 
   def waiting_for_buyer_to_confirm(conversation)

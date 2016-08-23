@@ -64,12 +64,12 @@ module MarketplaceService
       end
 
       def authorization_expiration_period(payment_type)
-        # TODO These configs should be moved to Paypal/Braintree services
+        # TODO These configs should be moved to Paypal services
         case payment_type
-        when :braintree
-          APP_CONFIG.braintree_expiration_period.to_i
         when :paypal
           APP_CONFIG.paypal_expiration_period.to_i
+        else
+          raise ArgumentError.new("Unknown payment_type: '#{payment_type}'")
         end
       end
 
@@ -335,15 +335,15 @@ module MarketplaceService
       def preauthorized(transaction, payment_type)
         expiration_period = Entity.authorization_expiration_period(payment_type)
         gateway_expires_at = case payment_type
-                              when :braintree
-                                expiration_period.days.from_now
-                              when :paypal
-                                # expiration period in PayPal is an estimate,
-                                # which should be quite accurate. We can get
-                                # the exact time from Paypal through IPN notification. In this case,
-                                # we take the 3 days estimate and add 10 minute buffer
-                                expiration_period.days.from_now - 10.minutes
-                              end
+                             when :paypal
+                               # expiration period in PayPal is an estimate,
+                               # which should be quite accurate. We can get
+                               # the exact time from Paypal through IPN notification. In this case,
+                               # we take the 3 days estimate and add 10 minute buffer
+                               expiration_period.days.from_now - 10.minutes
+                             else
+                               raise ArgumentError.new("Unknown payment_type: '#{payment_type}'")
+                             end
 
         booking_ends_on = Maybe(transaction)[:booking][:end_on].or_else(nil)
         expire_at = Entity.preauth_expires_at(gateway_expires_at, booking_ends_on)

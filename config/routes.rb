@@ -23,8 +23,6 @@ Kassi::Application.routes.draw do
   end
 
   # Some non-RESTful mappings
-  get '/webhooks/braintree' => 'braintree_webhooks#challenge'
-  post '/webhooks/braintree' => 'braintree_webhooks#hooks'
   post '/webhooks/paypal_ipn' => 'paypal_ipn#ipn_hook', as: :paypal_ipn_hook
   post '/webhooks/plans' => 'plans#create'
   get '/webhooks/trials' => 'plans#get_trials'
@@ -106,16 +104,10 @@ Kassi::Application.routes.draw do
     get "/transactions/new" => "transactions#new", as: :new_transaction
 
     # preauthorize flow
-    get "/listings/:listing_id/preauthorize" => "preauthorize_transactions#preauthorize", :as => :preauthorize_payment
-    post "/listings/:listing_id/preauthorized" => "preauthorize_transactions#preauthorized", :as => :preauthorized_payment
     get "/listings/:listing_id/book" => "preauthorize_transactions#book", :as => :book
     post "/listings/:listing_id/booked" => "preauthorize_transactions#booked", :as => :booked
     get "/listings/:listing_id/initiate" => "preauthorize_transactions#initiate", :as => :initiate_order
     post "/listings/:listing_id/initiated" => "preauthorize_transactions#initiated", :as => :initiated_order
-
-    # post pay flow
-    get "/listings/:listing_id/post_pay" => "post_pay_transactions#new", :as => :post_pay_listing
-    post "/listings/:listing_id/create_transaction" => "post_pay_transactions#create", :as => :create_transaction
 
     # free flow
     post "/listings/:listing_id/create_contact" => "free_transactions#create_contact", :as => :create_contact
@@ -126,9 +118,6 @@ Kassi::Application.routes.draw do
     get "/login" => "sessions#new", :as => :login
     get "/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble
     get "/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
-    get '/:person_id/settings/payments/braintree/new' => 'braintree_accounts#new', :as => :new_braintree_settings_payment
-    get '/:person_id/settings/payments/braintree/show' => 'braintree_accounts#show', :as => :show_braintree_settings_payment
-    post '/:person_id/settings/payments/braintree/create' => 'braintree_accounts#create', :as => :create_braintree_settings_payment
     get '/:person_id/settings/payments/paypal_account' => 'paypal_accounts#index', :as => :paypal_account_settings_payment
 
     # community membership related actions
@@ -187,9 +176,6 @@ Kassi::Application.routes.draw do
           post :resend_verification_email
           get :edit_text_instructions
           get :test_welcome_email
-          get :payment_gateways
-          put :payment_gateways, to: 'communities#update_payment_gateway'
-          post :payment_gateways, to: 'communities#create_payment_gateway'
           get :social_media
           get :analytics
           put :social_media, to: 'communities#update_social_media'
@@ -387,9 +373,6 @@ Kassi::Application.routes.draw do
             get :received, to: 'inboxes#show'
           end
           member do
-            get :accept, to: 'accept_conversations#accept'
-            get :reject, to: 'accept_conversations#reject'
-            put :acceptance, to: 'accept_conversations#acceptance'
             get :confirm, to: 'confirm_conversations#confirm'
             get :cancel, to: 'confirm_conversations#cancel'
             put :confirmation, to: 'confirm_conversations#confirmation' #TODO these should be under transaction
@@ -403,8 +386,6 @@ Kassi::Application.routes.draw do
               put :skip
             end
           end
-          resources :payments
-          resources :braintree_payments
         end
         resource :paypal_account, only: [:index] do
           member do

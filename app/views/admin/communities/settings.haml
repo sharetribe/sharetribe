@@ -10,14 +10,6 @@
   = form_for @current_community, url: admin_update_settings_path, method: :patch do |form|
     %h2= t(".settings")
 
-    - Maybe(@current_community).payment_gateway.each do
-      .row
-        .col-12
-          %h3= t(".general")
-          .checkbox-container
-            = form.check_box :testimonials_in_use
-            = form.label :testimonials_in_use, t(".users_can_review_each_other_after_transaction"), :class => "settings-checkbox-label"
-
     .row
       .col-12
         %h3= t(".access")
@@ -73,10 +65,7 @@
           .checkbox-container
             .settings-checkbox-label.label
               - day_dropdown = form.select :automatic_confirmation_after_days, (1..100), {}, :class => "inline-select"
-              - if supports_escrow
-                = t(".automatically_confirmed", :days_dropdown => day_dropdown).html_safe
-              - else
-                = t(".automatically_confirmed_no_escrow", :days_dropdown => day_dropdown).html_safe
+              = t(".automatically_confirmed_no_escrow", :days_dropdown => day_dropdown).html_safe
 
     .row
       .col-12

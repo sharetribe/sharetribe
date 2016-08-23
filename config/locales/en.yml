@@ -182,7 +182,6 @@ en:
       settings:
         settings: Settings
         general: General
-        users_can_review_each_other_after_transaction: "Users can review each other after an order"
         access: "Access preferences"
         join_with_invite_only: "Allow users to join only with an invite from another user"
         users_can_invite_new_users: "Allow all users to invite new users"
@@ -209,7 +208,6 @@ en:
         google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Twitter handle (used with tweet button in listing page)"
         update_settings: "Save settings"
-        automatically_confirmed: "Order will be automatically marked as completed %{days_dropdown} days after the payment has been made. If escrow system is in use, the money will be released to the provider at this point."
         automatically_confirmed_no_escrow: "Order will be automatically marked as completed %{days_dropdown} days after the payment has been made"
         automatic_newsletter_frequency: "Send automatic newsletter: %{frequency_dropdown}"
         newsletter_daily: Daily
@@ -306,15 +304,6 @@ en:
           initiated: "Waiting PayPal payment"
           pending_ext: "Waiting PayPal payment"
         not_available: "Not available"
-      braintree_payment_gateway:
-        braintree_payment_gateway: "Braintree Payment API keys"
-        environment: Environment
-        private_key: "Private Key"
-        public_key: "Public Key"
-        client_side_encryption_key: "Client-Side Encryption (CSE) Key"
-        merchant_id: "Merchant ID"
-        master_merchant_id: "Master Merchant ID"
-        commission_from_seller: "Commission percentage from seller"
       paypal_account:
         paypal_admin_account: Payments
     custom_fields:
@@ -566,8 +555,6 @@ en:
     accept:
       details: "Order details"
       order_by: "Order by %{orderer_link}"
-      respond_to_offer: "Respond to an offer"
-      respond_to_request: "Respond to a request"
       accept_offer: "Accept the offer"
       accept_request: "Accept the request"
       reject_offer: "Not this time"
@@ -576,9 +563,6 @@ en:
       update_later: "Leave the listing open"
       optional_message: "Optional message"
       price_to_pay: "Total price to be paid"
-      you_need_to_fill_payout_details_before_accepting: "You need to fill in payout details before you can accept the request and receive the payment. Go to %{payment_settings_link} to fill in the details."
-      payment_settings_link: "payment settings"
-      minimum_price_error_message: "The price cannot be lower than %{amount}."
       accept: Accept
       decline: Decline
       quantity_label: "Quantity:"
@@ -659,7 +643,6 @@ en:
       last_message_at: "(latest message %{time})"
       price: "Price: %{price}"
       sum: "Total: %{sum}"
-      price_excludes_vat: "(excludes VAT)"
       total: "Total: %{total}"
     status:
       payment_errored: "Payment failed. Please try again."
@@ -718,54 +701,11 @@ en:
       reject_preauthorized_request: "Not this time"
       confirm: "Mark completed"
       cancel: Dispute
-  braintree_accounts:
-    new:
-      add_payout_details: "Add your payout details"
-      first_name: "First name"
-      last_name: "Last name"
-      email: "Email address"
-      phone: "Phone number"
-      address_street_address: "Street address"
-      address_postal_code: "Zip/Postal code"
-      address_locality: City
-      address_region: State
-      date_of_birth: "Date of birth"
-      ssn: SSN
-      routing_number: "Routing number"
-      account_number: "Account number"
-      save: Save
-    show:
-      payout_details: "Your payout details"
-      first_name: "First name"
-      last_name: "Last name"
-      email: "Email address"
-      phone: "Phone number"
-      address_street_address: "Street address"
-      address_postal_code: "Zip/Postal code"
-      address_locality: City
-      address_region: State
-      date_of_birth: "Date of birth"
-      ssn: SSN
-      routing_number: "Routing number"
-      account_number: "Account number"
-  braintree_payments:
-    edit:
-      new_credit_card_payment: "New credit card payment"
-      payment_receiver: "Payment receiver"
-      cardholder_name: "Cardholder name"
-      credit_card_number: "Credit card number"
-      cvv: CVV
-      credit_card_expiration_date: "Credit card expiration date"
-      confirm_payment: "Confirm payment"
-      exp: "Exp:"
   feedback:
     feedback_subject: "New feedback from %{service_name}"
     feedback_body: "%{author_name_and_email} has sent the following feedback from %{service_name}"
     unlogged_user: "Unlogged user"
     anonymous_user: "Anonymous user"
-  preauthorize_payments:
-    edit:
-      confirm_payment: "Confirm payment"
   community_memberships:
     access_denied:
       access_denied: "Access denied"
@@ -800,23 +740,12 @@ en:
       powered_by: "%{service_name} is powered by the %{sharetribe_link} marketplace platform."
       create_own: "Want to create your own online marketplace website like %{service_name}? %{learn_more}."
       learn_more: "Learn more"
-    braintree_account_approved:
-      account_ready: "You are ready to receive payments"
-      message: "Your payment information has been confirmed and you are now ready to receive payments in %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "You have not yet confirmed or canceled the order %{request_link}. If the order has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "You have not yet confirmed or canceled the request %{request_link}. We will transfer the money to %{other_party_given_name} only when a) you have marked the request completed or b) %{days_to_automatic_confirmation} days have passed since you paid. After marking the request as completed you can give feedback to %{other_party_given_name}."
       remember_to_confirm_request: "Remember to confirm or cancel a request"
       if_will_not_happen_you_should_cancel: "If you think this order will not be completed for one reason or another, you can %{cancel_it_link}."
-      if_will_not_happen_you_should_cancel_escrow: "If you think this order will not be completed for one reason or another, you can %{cancel_it_link}. This will notify the admin who will then contact you for a refund."
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "If you think this order will not be completed for one reason or another, you have %{days_to_cancel} days to %{cancel_it_link}. This will notify the admin who will then contact you for a refund."
       cancel_it_link_text: "cancel it"
       automatic_confirmation: "If you don't confirm or cancel the order within %{days_to_automatic_confirmation} days after the request was accepted, we will mark it automatically as completed."
-    payment_reminder:
-      remember_to_pay: "Remember to pay for %{listing_title}"
-      you_have_not_yet_paid: "You have not yet paid for %{listing_title} that %{other_party_name} has accepted to offer you."
-      if_will_not_happen_you_should_cancel: "If you think this order will not be completed for one reason or another, you can also still %{cancel_it_link}."
-      cancel_it_link_text: "cancel it"
     payment_settings_reminder:
       remember_to_add_payment_details: "Remember to add your payment details to receive payments"
       you_have_added_listing_with_payment: "You have added a listing %{listing_link} with payment. However, you haven't yet added your payment details. In order to receive the payment you have to add your payment information."
@@ -840,11 +769,6 @@ en:
       giving_feedback_is_good_idea: "You can now give feedback to %{other_party_given_name}. Giving feedback is always a good idea. If everything went well, you should let others know that %{other_party_given_name} can be trusted. If there were any problems, it's good to mention those as well."
       give_feedback_to: "Give feedback to %{other_party_given_name}"
       show_thread: "Show conversation"
-    escrow_canceled:
-      subject: "Payment canceled"
-      has_marked_request_as_canceled: "%{other_party_full_name} has marked the request about '%{request}' canceled. You will not receive money from this transaction."
-      if_this_was_error: "If you think this was an error, %{please_contant_admin_link}."
-      please_contant_admin_link: "please contact the administrator"
     confirmation_instructions:
       confirmation_instructions_signature: "Best regards,<br/>The %{service_name} Team"
       need_to_confirm: "Confirm your email address by clicking the button below."
@@ -902,7 +826,6 @@ en:
       price_payer_paid: "Price %{payer_full_name} paid:"
       service_fee: "%{service_name} service fee:"
       you_will_get: "Total:"
-      money_will_be_transferred: "The money will be transferred to your account when a) %{payer_name} has marked the request completed or b) %{automatic_confirmation_days} days have passed since %{payer_name} paid."
     receipt_to_payer:
       receipt_of_payment: "Receipt of payment"
       you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> to %{recipient_full_name}. Here is a receipt of the payment."
@@ -1385,7 +1308,6 @@ en:
       you_must_log_in_to_view_your_settings: "You must log in to %{service_name} to view your settings."
       you_must_log_in_to_add_news_item: "You must log in to %{service_name} to add a new article."
       you_must_log_in_to_change_profile_settings: "You must log in to %{service_name} to change profile settings"
-      you_must_log_in_to_change_payment_settings: "You must log in to %{service_name} to change payment settings"
       you_must_log_in_to_accept_or_reject: "You must log in to accept or reject the transaction"
       you_must_log_in_to_confirm_or_cancel: "You must log in to cancel or confirm the transaction"
       you_need_to_confirm_your_account_first: "You need to confirm your email."
@@ -1395,8 +1317,6 @@ en:
       can_not_delete_email: "You cannot remove the email address"
       user_does_not_have_email_to_delete: "You don't have the email address you're trying to remove"
       email_deleted: "Email removed"
-      payment_details_add_successful: "Successfully added payment details"
-      payment_details_add_error: "Could not add payment details"
       listing_author_payment_details_missing: "Please contact the author by pressing the 'Contact' button below. They need to update their payment details to receive payments."
       images_are_processing: "We are processing your images. Give us a minute or two and they'll be visible."
       maintenance_mode:
@@ -1504,8 +1424,6 @@ en:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} will be deducted from the price."
         after_service_fee_you_will_get_paypal_text: "%{service_name} fee (%{sum_with_currency}) and %{paypal_fee_info_link} will be deducted from the price."
         paypal_fee_info_link_text: "PayPal's payment processing fee"
-        after_service_fee_you_will_get_vat: "After %{service_name} and payment processor fees you will get approx. %{sum_with_currency} (VAT 0%)"
-        price_excludes_vat: "The price doesn't include VAT."
         delivery: "Delivery method"
         shipping: Shipping
         shipping_price: "Shipping fee"
@@ -1644,7 +1562,6 @@ en:
       times: times
       times_viewed: Viewed
       processing_uploaded_image: "(Processing uploaded image...)"
-      price_excludes_vat: "(excludes VAT)"
       listing_created_at: "Listing created"
       price:
         per_quantity_unit: "per %{quantity_unit}"
@@ -1703,26 +1620,6 @@ en:
   okl:
     member_id: "Member id"
     member_id_or_email: "Member id or email"
-  payments:
-    new:
-      new_payment: "New payment"
-      continue: Continue
-      payment_receiver: "Payment receiver:"
-      sum: "Payment sum:"
-    form:
-      total: Total
-      service_charge: "Service charge"
-      product: "Product:"
-      price: "Sum:"
-      price_for: "Price for %{payer_given_name}:"
-      continue_to_pay: "Continue to pay"
-      invoice: Invoice
-      service_fee: "%{service_name} service fee:"
-      you_will_get: "You will get:"
-    braintree:
-      terms:
-        braintree_terms_also_included: "NOTE: Braintree is used as a payment gateway service and by using this website you also accept %{terms_link_text}, in addition to the terms below."
-        terms_link_text: "Braintree terms of use"
   paypal_accounts:
     payout_info_title: "Receiving funds"
     paypal_account_email_connected: "<del>Connect PayPal account</del> Completed!"
@@ -1959,7 +1856,6 @@ en:
       i_want_to_get_email_notification_when: "I want to get an email notification when..."
       newsletters: "Emails from administrators"
       community_updates: Newsletters
-      email_about_accept_reminders: "...I have forgotten to accept an offer or a request"
       email_about_confirm_reminders: "...I have forgotten to confirm an order as completed"
       email_about_new_comments_to_own_listing: "...someone comments on my offer or request"
       email_about_new_messages: "...someone sends me a message"
@@ -1972,7 +1868,6 @@ en:
       email_when_conversation_rejected: "...someone rejects my offer or request"
       email_about_completed_transactions: "...someone marks my order as completed"
       email_about_new_payments: "...I receive a new payment"
-      email_about_payment_reminders: "...I have forgotten to pay"
       email_about_new_listings_by_followed_people: "...someone I follow posts a new listing"
       unsubscribe_succesful: "Unsubscribe succesful"
       unsubscribe_info_text: "You will no longer receive these emails. Check your %{settings_link} to choose what kind of emails you want to receive from %{service_name}, or return to the %{homepage_link}."

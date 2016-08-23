@@ -42,7 +42,6 @@ module AdminTransactionSteps
       :transaction,
       transaction_opts.merge({
           listing: listing,
-          payment: sum ? FactoryGirl.build(:braintree_payment, { sum_cents: sum, currency: transaction_data[:currency] }) : nil,
           conversation: conversation,
           starter: starter,
           current_state: transaction_data[:status]

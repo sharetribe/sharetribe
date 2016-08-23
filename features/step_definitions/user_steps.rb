@@ -21,15 +21,6 @@ end
 
 World(UserSteps)
 
-Given /^there is a logged in user "(.*?)"$/ do |username|
-  steps %Q{
-    Given there are following users:
-      | person |
-      | #{username} |
-    And I am logged in as "#{username}"
-  }
-end
-
 Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
   username = person || "kassi_testperson1"
   person = Person.find_by(username: username)
@@ -38,13 +29,6 @@ end
 
 Given /^I log in(?: as "([^"]*)")?$/ do |person|
   logout_and_login_user(person)
-end
-
-Given /^I log in to this private community(?: as "([^"]*)")?$/ do |person|
-  visit login_path(:locale => :en)
-  fill_in("person[login]", :with => (person ? person : "kassi_testperson1"))
-  fill_in("person[password]", :with => "testi")
-  click_button("Log in")
 end
 
 Given /^I am not logged in$/ do
@@ -56,12 +40,6 @@ Given /^my given name is "([^"]*)"$/ do |name|
   cookie = nil
   @test_person = Person.find_by_username "kassi_testperson1"
   @test_person.set_given_name(name)
-end
-
-Given /^my phone number in my profile is "([^"]*)"$/ do |phone_number|
-  raise RuntimeException.new("@session neede to be set before the line 'my phone number...'") unless @session
-  @test_person = Person.find(@session.person_id) if @test_person.nil?
-  @test_person.set_phone_number(phone_number)
 end
 
 Given /^user "(.*?)" has additional email "(.*?)"$/ do |username, email|
@@ -166,20 +144,6 @@ When /^(?:|I )fill in "([^"]*)" with random (username|email)(?: within "([^"]*)"
   end
 end
 
-Then /^the "([^"]*)" field(?: within "([^"]*)")? should contain the (username|email) I gave$/ do |field, selector, value|
-  with_scope(selector) do
-    field = find_field(field)
-    field_value = (field.tag_name == 'textarea') ? field.text : field.value
-    expect(field_value).to match(/#{@values[value]}/)
-  end
-end
-
-Then /^(?:|I )should see the (username|email) I gave(?: within "([^"]*)")?$/ do |value, selector|
-  with_scope(selector) do
-    expect(page).to have_content(@values[value])
-  end
-end
-
 Given /^"([^"]*)" is superadmin$/ do |username|
   user = Person.find_by(username: username)
   user.update_attribute(:is_admin, true)
@@ -189,21 +153,6 @@ Given /^"([^"]*)" has admin rights in community "([^"]*)"$/ do |username, commun
   user = Person.find_by(username: username)
   community = Community.where(ident: community).first
   CommunityMembership.find_by_person_id_and_community_id(user.id, community.id).update_attribute(:admin, true)
-end
-
-Given /^"([^"]*)" does not have admin rights in community "([^"]*)"$/ do |username, community|
-  user = Person.find_by(username: username)
-  community = Community.where(ident: community).first
-  CommunityMembership.find_by_person_id_and_community_id(user.id, community.id).update_attribute(:admin, false)
-end
-
-Then /^I should see my username$/ do
-  username = Person.order("updated_at").last.username
-  if @values && @values["username"]
-    # puts "it seems there username of last created person is stored, so use that"
-    username = @values["username"]
-  end
-  expect(page).to have_content(username)
 end
 
 Then /^I should not see my username$/ do

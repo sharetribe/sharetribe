@@ -24,12 +24,3 @@ Feature: User updates profile information
     And the "Last name" field should contain "Dude"
     And the "Location" field should contain "Broadway"
     And I should not see my username
-
-  @skip_phantomjs
-  @javascript
-  Scenario: Updating profile avatar
-    When I attach a valid image file to "avatar_file"
-    And I press "Save information"
-    Then I should see "Information updated" within ".flash-notifications"
-    And I should not see my username
-    And I should see the image I just uploaded

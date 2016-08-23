@@ -9,7 +9,6 @@ Feature: User views a single listing
       | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And the community has payments in use via BraintreePaymentGateway
     And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with listing shape "Requesting"
 
   @only_without_asi
@@ -18,12 +17,8 @@ Feature: User views a single listing
     When I follow "Massage"
     Then I should see "Massage"
     When I am logged in as "kassi_testperson1"
-    And I have "2" testimonials with grade "1"
     And I am on the home page
     And I follow "Massage"
-    Then I should see "Feedback"
-    And I should see "100%"
-    And I should see "(2/2)"
 
   @only_without_asi
   Scenario: User views a listing with price
@@ -33,23 +28,8 @@ Feature: User views a single listing
     Then I should see "Massage"
     And I should see "$20.55"
     When I am logged in as "kassi_testperson1"
-    And I have "2" testimonials with grade "1"
     And I am on the home page
     And I follow "Massage"
-    Then I should see "Feedback"
-    And I should see "100%"
-    And I should see "(2/2)"
-
-  @skip_phantomjs
-  Scenario: User sees the avatar in listing page
-    Given I am logged in as "kassi_testperson1"
-    When I open user menu
-    When I follow "Settings"
-    And I attach a valid image file to "avatar_file"
-    And I press "Save information"
-    And I go to the home page
-    And I follow "Massage"
-    Then I should not see "Add profile picture"
 
   Scenario: User tries to view a listing restricted viewable to community members without logging in
     Given I am not logged in

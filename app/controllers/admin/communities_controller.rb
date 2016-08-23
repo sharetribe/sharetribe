@@ -2,7 +2,6 @@ class Admin::CommunitiesController < ApplicationController
   include CommunitiesHelper
 
   before_filter :ensure_is_admin
-  before_filter :ensure_is_superadmin, :only => [:payment_gateways, :update_payment_gateway, :create_payment_gateway]
   before_filter :ensure_white_label_plan, only: [:create_sender_address]
 
   def edit_look_and_feel
@@ -194,41 +193,6 @@ class Admin::CommunitiesController < ApplicationController
             :menu_links)
   end
 
-  # This is currently only for superadmins, quick and hack solution
-  def payment_gateways
-    # Redirect if payment gateway in use but it's not braintree
-    redirect_to admin_details_edit_path if @current_community.payment_gateway && !@current_community.braintree_in_use?
-
-    @selected_left_navi_link = "payment_gateways"
-    @community = @current_community
-    @payment_gateway = Maybe(@current_community).payment_gateway.or_else { BraintreePaymentGateway.new }
-
-    render :braintree_payment_gateway
-  end
-
-  def update_payment_gateway
-    # Redirect if payment gateway in use but it's not braintree
-    redirect_to admin_details_edit_path if @current_community.payment_gateway && !@current_community.braintree_in_use?
-
-    braintree_params = params[:payment_gateway]
-    community_params = params.require(:community).permit(:commission_from_seller)
-
-    unless @current_community.update_attributes(community_params)
-      flash.now[:error] = t("layouts.notifications.community_update_failed")
-      return render :payment_gateways
-    end
-
-    update(@current_community.payment_gateway,
-      braintree_params,
-      payment_gateways_admin_community_path(@current_community),
-      :payment_gateways)
-  end
-
-  def create_payment_gateway
-    @current_community.payment_gateway = BraintreePaymentGateway.create(params[:payment_gateway].merge(community: @current_community))
-    update_payment_gateway
-  end
-
   def test_welcome_email
     MailCarrier.deliver_later(PersonMailer.welcome_email(@current_user, @current_community, true, true))
     flash[:notice] = t("layouts.notifications.test_welcome_email_delivered_to", :email => @current_user.confirmed_notification_email_to)
@@ -260,7 +224,6 @@ class Admin::CommunitiesController < ApplicationController
       ]
 
       render :settings, locals: {
-        supports_escrow: escrow_payments?(@current_community),
         delete_redirect_url: delete_redirect_url(APP_CONFIG),
         delete_confirmation: @current_community.ident,
         can_delete_marketplace: can_delete_marketplace?(@current_community.id),
@@ -272,7 +235,6 @@ class Admin::CommunitiesController < ApplicationController
       }
     else
       render :settings, locals: {
-        supports_escrow: escrow_payments?(@current_community),
         delete_redirect_url: delete_redirect_url(APP_CONFIG),
         delete_confirmation: @current_community.ident,
         can_delete_marketplace: can_delete_marketplace?(@current_community.id)
@@ -360,8 +322,6 @@ class Admin::CommunitiesController < ApplicationController
       :default_min_days_between_community_updates,
       :email_admins_about_new_members
     ]
-    permitted_params << :testimonials_in_use if @current_community.payment_gateway
-
     settings_params = params.require(:community).permit(*permitted_params)
 
     maybe_update_payment_settings(@current_community.id, params[:community][:automatic_confirmation_after_days])
@@ -445,10 +405,6 @@ class Admin::CommunitiesController < ApplicationController
 
   def payment_settings_api
     TransactionService::API::Api.settings
-  end
-
-  def escrow_payments?(community)
-    MarketplaceService::Community::Query.payment_type(community.id) == :braintree
   end
 
   def delete_redirect_url(configs)

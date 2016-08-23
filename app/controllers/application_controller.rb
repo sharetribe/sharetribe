@@ -64,7 +64,7 @@ class ApplicationController < ActionController::Base
 
     # We should fix this -- START
     #
-    # There are a couple of controllers (amazon ses bounces, braintree webhooks) that
+    # There are a couple of controllers (amazon ses bounces, etc.) that
     # inherit application controller, even though they shouldn't. ApplicationController
     # has a lot of community specific filters and those controllers do not have community.
     # Thus, we need to add this kind of additional logic to make sure whether we have
@@ -402,7 +402,7 @@ class ApplicationController < ActionController::Base
   def warn_about_missing_payment_info
     if @current_user && PaypalHelper.open_listings_with_missing_payment_info?(@current_user.id, @current_community.id)
       settings_link = view_context.link_to(t("paypal_accounts.from_your_payment_settings_link_text"),
-        payment_settings_path(:paypal, @current_user), target: "_blank")
+        paypal_account_settings_payment_path(@current_user), target: "_blank")
       warning = t("paypal_accounts.missing", settings_link: settings_link)
       flash.now[:warning] = warning.html_safe
     end

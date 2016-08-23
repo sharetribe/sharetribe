@@ -63,7 +63,6 @@ describe UserService::API::Users do
   describe "#delete_user" do
     let(:user) { FactoryGirl.create(:person) }
     let!(:membership) { FactoryGirl.create(:community_membership, person: user) }
-    let!(:braintree_account) { FactoryGirl.create(:braintree_account, person: user) }
     let!(:auth_token) { FactoryGirl.create(:auth_token, person: user) }
     let!(:follower) { FactoryGirl.create(:person) }
     let!(:followed) { FactoryGirl.create(:person) }
@@ -77,7 +76,6 @@ describe UserService::API::Users do
       expect(new_user.family_name).not_to be_nil
       expect(new_user.emails).not_to be_empty
       expect(new_user.community_membership).not_to be_nil
-      expect(new_user.braintree_account).not_to be_nil
       expect(new_user.auth_tokens).not_to be_nil
       expect(new_user.follower_relationships.length).to eql(1)
       expect(new_user.inverse_follower_relationships.length).to eql(1)
@@ -92,7 +90,6 @@ describe UserService::API::Users do
       expect(deleted_user.family_name).to be_nil
       expect(deleted_user.emails).to be_empty
       expect(deleted_user.community_membership.status).to eq("deleted_user")
-      expect(deleted_user.braintree_account).to be_nil
       expect(deleted_user.auth_tokens).to be_empty
       expect(deleted_user.follower_relationships.length).to eql(0)
       expect(deleted_user.inverse_follower_relationships.length).to eql(0)

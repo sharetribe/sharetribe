@@ -49,22 +49,6 @@ Feature: User creates a new listing
     And I should see "Log in to Sharetribe" within "h1"
 
   @javascript
-  @skip_phantomjs
-  Scenario: Trying to create a new item request with insufficient information
-    Given I am logged in
-    And I am on the home page
-    When I follow "new-listing-link"
-    And I select "Items" from listing type menu
-    And I select "Books" from listing type menu
-    And I select "Requesting" from listing type menu
-    And I set the expiration date to 7 months from now
-    And I attach an image with invalid extension to "listing_image[image]"
-    And I press "Save listing"
-    Then I should see "This field is required."
-    And I should see "This date must be between current time and 6 months from now."
-    And I should see "The image file must be either in GIF, JPG or PNG format."
-
-  @javascript
   Scenario: Create a new listing successfully after going back and forth in the listing form
     Given I am logged in
     And I am on the home page

@@ -24,11 +24,6 @@ class PersonMailer < ActionMailer::Base
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @transaction = transaction
 
-      if @transaction.payment_gateway == "braintree" ||  @transaction.payment_process == "postpay"
-        # Payment url concerns only braintree and postpay, otherwise we show only the message thread
-        @payment_url = community.payment_gateway.new_payment_url(@recipient, @transaction, @recipient.locale, @url_params)
-      end
-
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
                      :subject => t("emails.conversation_status_changed.your_request_was_#{transaction.status}"))
@@ -87,28 +82,6 @@ class PersonMailer < ActionMailer::Base
     end
   end
 
-  def escrow_canceled_to(conversation, community, to)
-    @email_type =  "email_about_canceled_escrow"
-    @conversation = conversation
-    recipient = conversation.seller
-    set_up_layout_variables(recipient, community, @email_type)
-    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
-      premailer_mail(:to => to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.escrow_canceled.subject")) do |format|
-        format.html { render "escrow_canceled" }
-      end
-    end
-  end
-
-  def escrow_canceled(conversation, community)
-    escrow_canceled_to(conversation, community, conversation.seller.confirmed_notification_emails_to)
-  end
-
-  def admin_escrow_canceled(conversation, community)
-    escrow_canceled_to(conversation, community, community.admin_emails.join(","))
-  end
-
   def new_testimonial(testimonial, community)
     @email_type =  "email_about_new_received_testimonials"
     recipient = testimonial.receiver
@@ -121,38 +94,6 @@ class PersonMailer < ActionMailer::Base
     end
   end
 
-  # Remind users of conversations that have not been accepted or rejected
-  # NOTE: the not_really_a_recipient is at the same spot in params
-  # to keep the call structure similar for reminder mails
-  # but the actual recipient is always the listing author.
-  def accept_reminder(conversation, not_really_a_recipient, community)
-    @email_type = "email_about_accept_reminders"
-    recipient = conversation.listing.author
-    set_up_layout_variables(recipient, community, @email_type)
-    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
-      @conversation = conversation
-      premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.accept_reminder.remember_to_accept_request", :sender_name => conversation.other_party(recipient).name(community)))
-    end
-  end
-
-  # Remind users to pay
-  def payment_reminder(conversation, recipient, community)
-    @email_type = "email_about_payment_reminders"
-    recipient = conversation.payment.payer
-    set_up_layout_variables(recipient, community, @email_type)
-    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
-      @conversation = conversation
-
-      @pay_url = payment_url(conversation, recipient, @url_params)
-
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.payment_reminder.remember_to_pay", :listing_title => conversation.listing.title))
-    end
-  end
-
   # Remind user to fill in payment details
   def payment_settings_reminder(listing, recipient, community)
     set_up_layout_variables(recipient, community)
@@ -161,26 +102,12 @@ class PersonMailer < ActionMailer::Base
       @recipient = recipient
 
       if community.payments_in_use?
-        @payment_settings_link = payment_settings_url(MarketplaceService::Community::Query.payment_type(community.id), recipient, @url_params)
+        @payment_settings_link = paypal_account_settings_payment_url(recipient, @url_params.merge(locale: recipient.locale))
       end
 
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
                      :subject => t("emails.payment_settings_reminder.remember_to_add_payment_details")) do |format|
-        format.html {render :locals => {:skip_unsubscribe_footer => true} }
-      end
-    end
-  end
-
-  # Braintree account was approved (via Webhook)
-  def braintree_account_approved(recipient, community)
-    set_up_layout_variables(recipient, community)
-    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
-      @recipient = recipient
-
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.braintree_account_approved.account_ready")) do |format|
         format.html {render :locals => {:skip_unsubscribe_footer => true} }
       end
     end
@@ -194,8 +121,7 @@ class PersonMailer < ActionMailer::Base
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @conversation = conversation
       @days_to_cancel = days_to_cancel
-      escrow = community.payment_gateway && community.payment_gateway.hold_in_escrow
-      template = escrow ? "confirm_reminder_escrow" : "confirm_reminder"
+      template = "confirm_reminder"
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
                      :subject => t("emails.confirm_reminder.remember_to_confirm_request")) do |format|
@@ -406,16 +332,6 @@ class PersonMailer < ActionMailer::Base
 
   def premailer_mail(opts, &block)
     premailer(mail(opts, &block))
-  end
-
-  # This is an ugly method. Ideas how to improve are very welcome.
-  # Depending on a class name prevents refactoring.
-  def payment_url(conversation, recipient, url_params)
-    if conversation.payment.is_a? BraintreePayment
-      edit_person_message_braintree_payment_url(url_params.merge({:id => conversation.payment.id, :person_id => recipient.id.to_s, :message_id => conversation.id}))
-    else
-      new_person_message_payment_url(recipient, url_params.merge({:message_id => conversation.id}))
-    end
   end
 
   private

@@ -69,8 +69,7 @@ module ListingsHelper
 
   def price_as_text(listing)
     humanized_money_with_symbol(listing.price).upcase +
-    unless listing.quantity.blank? then " / #{listing.quantity}" else "" end +
-    if @current_community.vat then " " + t("listings.displayed_price.price_excludes_vat") else "" end
+    unless listing.quantity.blank? then " / #{listing.quantity}" else "" end
   end
 
   def has_images?(listing)
@@ -90,14 +89,9 @@ module ListingsHelper
     end
   end
 
-  def with_quantity_and_vat_text(community, listing, &block)
+  def with_quantity_text(community, listing, &block)
     buffer = []
     buffer.push(price_quantity_per_unit(listing))
-
-    if community.vat
-      buffer.push(t("listings.show.price_excludes_vat"))
-    end
-
     block.call(buffer.join(" ")) unless buffer.empty?
   end
 

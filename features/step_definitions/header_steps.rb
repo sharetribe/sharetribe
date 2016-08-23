@@ -79,12 +79,6 @@ Then(/^I should see that there (?:is|are) (\d+|no) new messages?$/) do |message_
   }
 end
 
-Then /^I should see "(.*?)" as logged in user$/ do |display_name|
-  steps %Q{
-    Then I should see my name displayed as "#{display_name}"
-  }
-end
-
 Then(/^I should see my name displayed as "(.*?)"$/) do |name|
   expect(find("#header-user-display-name")).to have_content(name)
 end
@@ -104,10 +98,6 @@ When(/^I follow log in link$/) do
   steps %Q{
     When I follow "header-login-link"
   }
-end
-
-When(/^I follow sign up link$/) do
-  click_link('Sign up')
 end
 
 Then(/^I should be logged in$/) do

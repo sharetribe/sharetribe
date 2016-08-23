@@ -4,21 +4,20 @@ module TransactionService::Transaction
 
   TxStore = TransactionService::Store::Transaction
 
+  DEPRECATED_GATEWAYS = [:braintree, :checkout]
+
   SETTINGS_ADAPTERS = {
     paypal: TransactionService::Gateway::PaypalSettingsAdapter.new,
-    braintree: TransactionService::Gateway::BraintreeSettingsAdapter.new,
     none: TransactionService::Gateway::FreeSettingsAdapter.new
   }
 
   GATEWAY_ADAPTERS = {
     paypal: TransactionService::Gateway::PaypalAdapter.new,
-    braintree: TransactionService::Gateway::BraintreeAdapter.new,
-    none: TransactionService::Gateway::FreeAdapter.new
+    none: TransactionService::Gateway::FreeAdapter.new,
   }
 
   TX_PROCESSES = {
     preauthorize: TransactionService::Process::Preauthorize.new,
-    postpay: TransactionService::Process::Postpay.new,
     none: TransactionService::Process::Free.new
   }
 
@@ -122,14 +121,6 @@ module TransactionService::Transaction
       .or_else(res)
   end
 
-  def invoice
-    raise NoMethodError.new("Not implemented")
-  end
-
-  def pay_invoice
-    raise NoMethodError.new("Not implemented")
-  end
-
   def complete(community_id:, transaction_id:, message: nil, sender_id: nil)
     tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
@@ -178,13 +169,26 @@ module TransactionService::Transaction
     end
   end
 
-  def to_tx_response(tx)
-    gw = gateway_adapter(tx[:payment_gateway])
-    payment_details = gw.get_payment_details(tx: tx)
+  def payment_details(tx)
+    if DEPRECATED_GATEWAYS.include?(tx[:payment_gateway])
+      ActiveSupport::Deprecation.warn(
+        "Payment gateway adapter '#{tx[:payment_gateway]}' is deprecated.")
 
+      { payment_total: nil,
+        total_price: tx[:unit_price] * tx[:listing_quantity],
+        charged_commission: nil,
+        payment_gateway_fee: nil }
+    else
+      gw = gateway_adapter(tx[:payment_gateway])
+      gw.get_payment_details(tx: tx)
+    end
+  end
+
+  def to_tx_response(tx)
     item_total = tx[:unit_price] * tx[:listing_quantity]
     commission_total = calculate_commission(item_total, tx[:commission_from_seller], tx[:minimum_commission])
 
+    payment = payment_details(tx)
 
     DataTypes.create_transaction(
       {
@@ -206,13 +210,13 @@ module TransactionService::Transaction
         automatic_confirmation_after_days: tx[:automatic_confirmation_after_days],
         last_transition_at: tx[:last_transition_at],
         current_state: tx[:current_state],
-        payment_total: payment_details[:payment_total],
+        payment_total: payment[:payment_total],
         minimum_commission: tx[:minimum_commission],
         commission_from_seller: tx[:commission_from_seller],
-        checkout_total: payment_details[:total_price],
+        checkout_total: payment[:total_price],
         commission_total: commission_total,
-        charged_commission: payment_details[:charged_commission],
-        payment_gateway_fee: payment_details[:payment_gateway_fee],
+        charged_commission: payment[:charged_commission],
+        payment_gateway_fee: payment[:payment_gateway_fee],
         shipping_address: tx[:shipping_address],
         booking: tx[:booking]})
   end

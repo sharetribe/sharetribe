@@ -1,22 +1,5 @@
 module CommunitySteps
 
-  def use_braintree(community_ident, commission)
-    gateway_name = "BraintreePaymentGateway"
-    commission ||= "8"
-
-    community = Community.where(ident: community_ident).first
-    community.update_attributes(:commission_from_seller => commission.to_i)
-
-    FactoryGirl.create(:braintree_payment_gateway, :community => community, :type => gateway_name)
-
-    listings_api = ListingService::API::Api
-    shapes = listings_api.shapes.get(community_id: community.id)[:data]
-
-    shapes.select { |s| s[:price_enabled] }.each { |s|
-      TransactionProcess.find(s[:transaction_process_id]).update_attribute(:process, :postpay)
-    }
-  end
-
   def save_name_and_action(community_id, groups)
     created_translations = TranslationService::API::Api.translations.create(community_id, groups)
     created_translations[:data].map { |translation| translation[:translation_key] }
@@ -82,18 +65,6 @@ Given /^community "([^"]*)" does not require invite to join$/ do |community|
   Community.where(ident: community).first.update_attribute(:join_with_invite_only, false)
 end
 
-Given /^community "([^"]*)" requires users to have an email address of type "(.*?)"$/ do |community, email|
-  Community.where(ident: community).first.update_attribute(:allowed_emails, email)
-end
-
-Given /^the community has payments in use via BraintreePaymentGateway(?: with seller commission (\w+))?$/ do |commission|
-  use_braintree(@current_community.ident, commission)
-end
-
-Given /^community "([^"]*)" has payments in use via BraintreePaymentGateway(?: with seller commission (\w+))?$/ do |community_ident, commission|
-  use_braintree(community_ident, commission)
-end
-
 Given /^users (can|can not) invite new users to join community "([^"]*)"$/ do |verb, community|
   can_invite = verb == "can"
   Community.where(ident: community).first.update_attribute(:users_can_invite_new_users, can_invite)
@@ -117,22 +88,6 @@ end
 
 When /^I arrive to sign up page with the link in the invitation email with code "(.*?)"$/ do |code|
   visit "/en/signup?code=#{code}"
-end
-
-Given /^there is an existing community with "([^"]*)" in allowed emails and with slogan "([^"]*)"$/ do |email_ending, slogan|
-  @existing_community = FactoryGirl.create(:community, :allowed_emails => email_ending, :slogan => slogan, :category => "company")
-end
-
-Given /^show me existing community$/ do
-  puts "Email ending: #{@existing_community.allowed_emails}"
-end
-
-Then /^community "(.*?)" should require invite to join$/ do |community|
-   expect(Community.where(ident: community).first.join_with_invite_only).to be_truthy
-end
-
-Then /^community "(.*?)" should not require invite to join$/ do |community|
-   expect(Community.where(ident: community).first.join_with_invite_only).not_to be_truthy
 end
 
 Given /^community "(.*?)" is private$/ do |community_ident|
@@ -200,78 +155,6 @@ Given /^community "(.*?)" has following listing shapes enabled:$/ do |community,
   end
 
   current_community.reload
-end
-
-Given /^the community has listing shape Rent with name "(.*?)" and action button label "(.*?)"$/ do |name, action_button_label|
-  process_id = TransactionProcess.where(community_id: @current_community.id, process: [:preauthorize, :postpay]).first.id
-  defaults = TransactionTypeCreator::DEFAULTS["Rent"]
-
-  name_tr_key, action_button_tr_key = save_name_and_action(@current_community.id, [
-    {translations: [{locale: "en", translation: name}]},
-    {translations: [{locale: "en", translation: (action_button_label || "Action")}]}
-  ])
-
-  shape_res = ListingService::API::Api.shapes.create(
-    community_id: @current_community.id,
-    opts: {
-      price_enabled: true,
-      shipping_enabled: false,
-      name_tr_key: name_tr_key,
-      action_button_tr_key: action_button_tr_key,
-      transaction_process_id: process_id,
-      basename: name,
-      units: [ {type: :day, quantity_selector: :day} ]
-    }
-  )
-
-  @shape = shape_res.data
-end
-
-Given /^the community has listing shape Sell with name "(.*?)" and action button label "(.*?)"$/ do |name, action_button_label|
-  process_id = TransactionProcess.where(community_id: @current_community.id, process: [:preauthorize, :postpay]).first.id
-  defaults = TransactionTypeCreator::DEFAULTS["Sell"]
-
-  name_tr_key, action_button_tr_key = save_name_and_action(@current_community.id, [
-    {translations: [{locale: "en", translation: name}]},
-    {translations: [{locale: "en", translation: (action_button_label || "Action")}]}
-  ])
-
-  shape_res = ListingService::API::Api.shapes.create(
-    community_id: @current_community.id,
-    opts: {
-      price_enabled: true,
-      shipping_enabled: false,
-      name_tr_key: name_tr_key,
-      action_button_tr_key: action_button_tr_key,
-      transaction_process_id: process_id,
-      basename: name,
-      units: [ {type: :hour, quantity_selector: :number} ]
-    }
-  )
-
-  @shape = shape_res.data
-end
-
-Given /^that listing shape shows the price of listing per day$/ do
-  @shape = ListingService::API::Api.shapes.update(
-    community_id: @current_community.id,
-    listing_shape_id: @shape[:id],
-    opts: {
-      units: [type: :day, quantity_selector: :day]})
-end
-
-Given /^that transaction uses payment preauthorization$/ do
-  TransactionProcess.find(@shape[:transaction_process_id]).update_attribute(:process, :preauthorize)
-end
-
-Given /^that transaction does not use payment preauthorization$/ do
-  TransactionProcess.find(@shape[:transaction_process_id]).update_attribute(:process, :postpay)
-end
-
-Given /^that transaction belongs to category "(.*?)"$/ do |category_name|
-  category = find_category_by_name(category_name)
-  CategoryListingShape.where(category_id: category.id, listing_shape_id: @shape[:id]).first_or_create!
-  category.reload
 end
 
 Given /^listing publishing date is shown in community "(.*?)"$/ do |community_ident|

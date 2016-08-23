@@ -37,25 +37,6 @@ module MailViewTestData
     @members ||= [admin, author, starter, member]
   end
 
-  def payment_gateway
-    @braintree_payment_gateway ||= FactoryGirl.build(:braintree_payment_gateway)
-  end
-
-  def payment
-    return @payment unless @payment.nil?
-    @payment ||= FactoryGirl.build(:braintree_payment,
-      id: 55,
-      payment_gateway:
-      payment_gateway,
-      payer: starter,
-      recipient: author
-    )
-
-    # Avoid infinite loop, set conversation here
-    @payment.tx = transaction
-    @payment
-  end
-
   def listing
     @listing ||= FactoryGirl.build(:listing,
       author: author,
@@ -120,7 +101,6 @@ module MailViewTestData
 
   def community
     @community ||= FactoryGirl.build(:community,
-      payment_gateway: payment_gateway,
       custom_color1: "FF0099",
       admins: [admin],
       members: members,
