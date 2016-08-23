@@ -181,7 +181,8 @@ class ListingsController < ApplicationController
       [nil, nil]
     end
 
-    payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    payment_gateway = gateway == :braintree ? nil : gateway
     process = get_transaction_process(community_id: @current_community.id, transaction_process_id: @listing.transaction_process_id)
     form_path = new_transaction_path(listing_id: @listing.id)
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
