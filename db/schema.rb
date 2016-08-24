@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818111724) do
+ActiveRecord::Schema.define(version: 20160823120845) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -46,25 +46,6 @@ ActiveRecord::Schema.define(version: 20160818111724) do
   end
 
   add_index "bookings", ["transaction_id"], name: "index_bookings_on_transaction_id", using: :btree
-
-  create_table "braintree_accounts", force: :cascade do |t|
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.string   "first_name",             limit: 255
-    t.string   "last_name",              limit: 255
-    t.string   "person_id",              limit: 255
-    t.string   "email",                  limit: 255
-    t.string   "phone",                  limit: 255
-    t.string   "address_street_address", limit: 255
-    t.string   "address_postal_code",    limit: 255
-    t.string   "address_locality",       limit: 255
-    t.string   "address_region",         limit: 255
-    t.date     "date_of_birth"
-    t.string   "routing_number",         limit: 255
-    t.string   "hidden_account_number",  limit: 255
-    t.string   "status",                 limit: 255
-    t.integer  "community_id",           limit: 4
-  end
 
   create_table "categories", force: :cascade do |t|
     t.integer  "parent_id",     limit: 4
@@ -174,10 +155,7 @@ ActiveRecord::Schema.define(version: 20160818111724) do
     t.string   "service_logo_style",                         limit: 255,      default: "full-logo"
     t.text     "available_currencies",                       limit: 65535
     t.boolean  "facebook_connect_enabled",                                    default: true
-    t.integer  "vat",                                        limit: 4
-    t.integer  "commission_from_seller",                     limit: 4
     t.integer  "minimum_price_cents",                        limit: 4
-    t.boolean  "testimonials_in_use",                                         default: true
     t.boolean  "hide_expiration_date",                                        default: false
     t.string   "facebook_connect_id",                        limit: 255
     t.string   "facebook_connect_secret",                    limit: 255
@@ -727,34 +705,6 @@ ActiveRecord::Schema.define(version: 20160818111724) do
   add_index "participations", ["conversation_id"], name: "index_participations_on_conversation_id", using: :btree
   add_index "participations", ["person_id"], name: "index_participations_on_person_id", using: :btree
 
-  create_table "payment_gateways", force: :cascade do |t|
-    t.integer  "community_id",                         limit: 4
-    t.string   "type",                                 limit: 255
-    t.string   "braintree_environment",                limit: 255
-    t.string   "braintree_merchant_id",                limit: 255
-    t.string   "braintree_master_merchant_id",         limit: 255
-    t.string   "braintree_public_key",                 limit: 255
-    t.string   "braintree_private_key",                limit: 255
-    t.text     "braintree_client_side_encryption_key", limit: 65535
-    t.string   "checkout_environment",                 limit: 255
-    t.string   "checkout_user_id",                     limit: 255
-    t.string   "checkout_password",                    limit: 255
-    t.datetime "created_at",                                         null: false
-    t.datetime "updated_at",                                         null: false
-  end
-
-  create_table "payment_rows", force: :cascade do |t|
-    t.integer  "payment_id", limit: 4
-    t.integer  "vat",        limit: 4
-    t.integer  "sum_cents",  limit: 4
-    t.string   "currency",   limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "title",      limit: 255
-  end
-
-  add_index "payment_rows", ["payment_id"], name: "index_payment_rows_on_payment_id", using: :btree
-
   create_table "payment_settings", force: :cascade do |t|
     t.boolean  "active",                                   null: false
     t.integer  "community_id",                  limit: 4,  null: false
@@ -769,24 +719,6 @@ ActiveRecord::Schema.define(version: 20160818111724) do
   end
 
   add_index "payment_settings", ["community_id"], name: "index_payment_settings_on_community_id", using: :btree
-
-  create_table "payments", force: :cascade do |t|
-    t.string   "payer_id",                 limit: 255
-    t.string   "recipient_id",             limit: 255
-    t.integer  "transaction_id",           limit: 4
-    t.string   "status",                   limit: 255
-    t.datetime "created_at",                                                        null: false
-    t.datetime "updated_at",                                                        null: false
-    t.integer  "community_id",             limit: 4
-    t.integer  "payment_gateway_id",       limit: 4
-    t.integer  "sum_cents",                limit: 4
-    t.string   "currency",                 limit: 255
-    t.string   "type",                     limit: 255, default: "BraintreePayment"
-    t.string   "braintree_transaction_id", limit: 255
-  end
-
-  add_index "payments", ["payer_id"], name: "index_payments_on_payer_id", using: :btree
-  add_index "payments", ["transaction_id"], name: "index_payments_on_conversation_id", using: :btree
 
   create_table "paypal_accounts", force: :cascade do |t|
     t.string   "person_id",    limit: 255

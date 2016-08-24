@@ -50,10 +50,7 @@
 #  service_logo_style                         :string(255)      default("full-logo")
 #  available_currencies                       :text(65535)
 #  facebook_connect_enabled                   :boolean          default(TRUE)
-#  vat                                        :integer
-#  commission_from_seller                     :integer
 #  minimum_price_cents                        :integer
-#  testimonials_in_use                        :boolean          default(TRUE)
 #  hide_expiration_date                       :boolean          default(FALSE)
 #  facebook_connect_id                        :string(255)
 #  facebook_connect_secret                    :string(255)
