@@ -32,8 +32,12 @@ class AvatarDropdown extends Component {
     }
   }
 
-  handleBlur() {
-    this.setState({ isOpen: false });// eslint-disable-line react/no-set-state
+  handleBlur(event) {
+    // FocusEvent is fired faster than the link elements native click handler
+    // gets its own event. Therefore, we need to check the origin of this FocusEvent.
+    if (!this.profileDropdown.contains(event.relatedTarget)) {
+      this.setState({ isOpen: false });// eslint-disable-line react/no-set-state
+    }
   }
 
   render() {
@@ -59,15 +63,19 @@ class AvatarDropdown extends Component {
         isAdmin: this.props.isAdmin,
         notificationCount: this.props.notificationCount,
         translations: this.props.translations,
+        profileDropdownRef: (c) => {
+          this.profileDropdown = c;
+        },
       }),
     ]);
   }
 }
 
+const { profileDropdownRef, ...passedThroughProps } = ProfileDropdown.propTypes; // eslint-disable-line no-unused-vars
 AvatarDropdown.propTypes = {
   avatar: PropTypes.shape(Avatar.propTypes).isRequired,
   notificationCount: PropTypes.number,
-  ...ProfileDropdown.propTypes,
+  ...passedThroughProps,
   className,
 };
 

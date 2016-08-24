@@ -47,8 +47,12 @@ class Menu extends Component {
     }
   }
 
-  handleBlur() {
-    this.setState({ isOpen: false });// eslint-disable-line react/no-set-state
+  handleBlur(event) {
+    // FocusEvent is fired faster than the link elements native click handler
+    // gets its own event. Therefore, we need to check the origin of this FocusEvent.
+    if (!this.menu.contains(event.relatedTarget)) {
+      this.setState({ isOpen: false });// eslint-disable-line react/no-set-state
+    }
   }
 
   render() {
@@ -62,6 +66,9 @@ class Menu extends Component {
       onClick: this.handleClick,
       onBlur: this.handleBlur,
       tabIndex: 0,
+      ref: (c) => {
+        this.menu = c;
+      },
     }, [
       r(LabelComponent,
         {

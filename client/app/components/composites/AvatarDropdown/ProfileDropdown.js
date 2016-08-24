@@ -39,6 +39,7 @@ class ProfileDropdown extends Component {
   render() {
     return div({
       className: this.props.className,
+      ref: this.props.profileDropdownRef,
     }, [
       div({ className: css.rootArrowTop }),
       div({ className: css.rootArrowBelow }),
@@ -83,6 +84,7 @@ ProfileDropdown.propTypes = {
   isAdmin: PropTypes.bool.isRequired,
   className,
   notificationCount: PropTypes.number,
+  profileDropdownRef: PropTypes.func.isRequired,
 };
 
 export default ProfileDropdown;
