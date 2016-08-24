@@ -10,6 +10,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ## [5.10.0] - 2016-08-23
 
+### Changed
+
+- `RAILS_ENV=production` environment added to the `rake assets:compile` command in README [#2440](https://github.com/sharetribe/sharetribe/pull/2440) by [@pcm211](https://github.com/pcm211)
+
 ### Removed
 
 - Disable Braintree payments [#2423](https://github.com/sharetribe/sharetribe/pull/2423)
