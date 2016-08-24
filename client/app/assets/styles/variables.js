@@ -177,7 +177,7 @@ module.exports = {
   // ProfileDropdown
   '--ProfileDropdown_border': `1px solid ${topbarBorderColor}`,
   '--ProfileDropdown_borderColor': topbarBorderColor,
-  '--ProfileDropdown_zIndex': zIndexMinimum,
+  '--ProfileDropdown_zIndex': zIndexMinimum + 1,
   '--ProfileDropdown_rightOffset': bodyPadding,
   '--ProfileDropdown_textColor': textColor,
   '--ProfileDropdown_textColorFocus': textColorFocus,
