@@ -244,38 +244,37 @@ Before starting these steps, perform [steps 1-5 from above](#setting-up-the-deve
 1. Create the database:
 
   ```bash
-  bundle exec rake RAILS_ENV=production db:create
+  RAILS_ENV=production bundle exec rake db:create
   ```
 
 1. Initialize your database:
 
   ```bash
-  bundle exec rake RAILS_ENV=production db:schema:load
+  RAILS_ENV=production bundle exec rake db:schema:load
   ```
 
 1. Run Sphinx index:
 
   ```bash
-  bundle exec rake RAILS_ENV=production ts:index
+  RAILS_ENV=production bundle exec rake ts:index
   ```
 
 1. Start the Sphinx daemon:
 
   ```bash
-  bundle exec rake RAILS_ENV=production ts:start
+  RAILS_ENV=production bundle exec rake ts:start
   ```
 
 1. Precompile the assets:
 
   ```bash
-  RAILS_ENV=production rake assets:precompile
+  RAILS_ENV=production bundle exec rake assets:precompile
   ```
-
 
 1. Invoke the delayed job worker:
 
   ```bash
-  bundle exec rake RAILS_ENV=production jobs:work
+  RAILS_ENV=production bundle exec rake jobs:work
   ```
 
 1. In a new console, open the project root folder and start the server:
