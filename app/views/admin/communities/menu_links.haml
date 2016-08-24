@@ -56,6 +56,9 @@
         .col-12
           = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.menu_links.max_number_of_links_info", about_page: link_to(t("admin.communities.menu_links.about_page"), about_infos_path)).html_safe }
 
+    .row#post-listing-button
+      = render partial: "new_listing_button"
+
     .row
       .col-12
         = form.button t("admin.communities.menu_links.save")
