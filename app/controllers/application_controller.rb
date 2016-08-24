@@ -577,6 +577,7 @@ class ApplicationController < ActionController::Base
       path_after_locale_change: @return_to,
       user: @current_user,
       search_placeholder: @community_customization&.search_placeholder,
+      current_path: request.fullpath,
       locale_param: params[:locale],
       host_with_port: request.host_with_port)
   end

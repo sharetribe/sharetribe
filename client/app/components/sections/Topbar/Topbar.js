@@ -5,7 +5,7 @@ import * as placesUtils from '../../../utils/places';
 import * as urlUtils from '../../../utils/url';
 
 import { t } from '../../../utils/i18n';
-import { routes as routesProp, marketplaceContext } from '../../../utils/PropTypes';
+import { routes as routesProp } from '../../../utils/PropTypes';
 import css from './Topbar.css';
 import styleVariables from '../../../assets/styles/variables';
 
@@ -154,7 +154,8 @@ const createQuery = (searchParams, queryString) => {
 
 class Topbar extends Component {
   render() {
-    const { location, marketplace_color1, loggedInUsername } = { ...DEFAULT_CONTEXT, ...this.props.marketplaceContext };
+    const { location, marketplace_color1: marketplaceColor1 } = { ...DEFAULT_CONTEXT, ...this.props.marketplace };
+    const { loggedInUsername } = this.props.user || {};
 
     const menuProps = this.props.menu ?
       Object.assign({}, this.props.menu, {
@@ -168,7 +169,7 @@ class Topbar extends Component {
         content: this.props.menu.links.map((l) => (
           {
             active: l.link === location,
-            activeColor: marketplace_color1,
+            activeColor: marketplaceColor1,
             content: l.title,
             href: l.link,
             type: 'menuitem',
@@ -191,7 +192,7 @@ class Topbar extends Component {
         content: this.props.locales.available_locales.map((v) => (
           {
             active: v.locale_ident === this.props.locales.current_locale_ident,
-            activeColor: marketplace_color1,
+            activeColor: marketplaceColor1,
             content: v.locale_name,
             href: v.change_locale_uri,
             type: 'menuitem',
@@ -209,18 +210,18 @@ class Topbar extends Component {
     const mobileMenuAvatarProps = this.props.avatarDropdown && loggedInUsername ?
             { ...this.props.avatarDropdown.avatar, ...{ url: profileRoute } } :
             null;
-    const isAdmin = !!(this.props.isAdmin && loggedInUsername);
+    const isAdmin = !!(this.props.user && this.props.user.isAdmin && loggedInUsername);
 
     const mobileMenuLanguageProps = hasMultipleLanguages ?
       Object.assign({}, {
         name: t('web.topbar.language'),
-        color: marketplace_color1,
+        color: marketplaceColor1,
         links: this.props.locales.available_locales.map((locale) => (
           {
             href: locale.change_locale_uri,
             content: locale.locale_name,
             active: locale.locale_ident === this.props.locales.current_locale_ident,
-            activeColor: marketplace_color1,
+            activeColor: marketplaceColor1,
           }
         )),
       }) :
@@ -237,13 +238,13 @@ class Topbar extends Component {
         name: t('web.topbar.menu'),
         identifier: 'Menu',
         menuLabelType: LABEL_TYPE_MENU,
-        color: marketplace_color1,
+        color: marketplaceColor1,
         extraClasses: `${css.topbarMobileMenu}`,
         menuLinksTitle: t('web.topbar.menu'),
         menuLinks: this.props.menu.links.map((l) => (
           {
             active: l.link === location,
-            activeColor: marketplace_color1,
+            activeColor: marketplaceColor1,
             content: l.title,
             href: l.link,
             type: 'menuitem',
@@ -251,7 +252,7 @@ class Topbar extends Component {
           }
         )),
         userLinksTitle: t('web.topbar.user'),
-        userLinks: profileLinks(loggedInUsername, isAdmin, this.props.routes, location, marketplace_color1, this.props.unReadMessagesCount),
+        userLinks: profileLinks(loggedInUsername, isAdmin, this.props.routes, location, marketplaceColor1, this.props.unReadMessagesCount),
         languages: mobileMenuLanguageProps,
         avatar: mobileMenuAvatarProps,
         newListingButton: this.props.newListingButton ?
@@ -260,7 +261,7 @@ class Topbar extends Component {
         loginLinks: {
           loginUrl: loginRoute,
           signupUrl: signupRoute,
-          customColor: marketplace_color1,
+          customColor: marketplaceColor1,
         },
         notificationCount: this.props.unReadMessagesCount,
       }) :
@@ -271,7 +272,7 @@ class Topbar extends Component {
 
     return div({ className: classNames('Topbar', css.topbar) }, [
       this.props.menu ? r(MenuMobile, { ...mobileMenuProps, className: css.topbarMobileMenu }) : null,
-      r(Logo, { ...this.props.logo, classSet: css.topbarLogo, color: marketplace_color1 }),
+      r(Logo, { ...this.props.logo, classSet: css.topbarLogo, color: marketplaceColor1 }),
       div({ className: css.topbarMediumSpacer }),
       this.props.search ?
         r(SearchBar, {
@@ -280,7 +281,7 @@ class Topbar extends Component {
           locationPlaceholder: searchPlaceholder == null || this.props.search.mode === 'keyword_and_location' ? t('web.topbar.search_location_placeholder') : searchPlaceholder,
           keywordQuery: oldSearchParams.q,
           locationQuery: oldSearchParams.lq,
-          customColor: marketplace_color1,
+          customColor: marketplaceColor1,
           onSubmit: ({ keywordQuery, locationQuery, place, errorStatus }) => {
             const query = createQuery({
               q: keywordQuery,
@@ -305,14 +306,14 @@ class Topbar extends Component {
         } }) : null,
       this.props.avatarDropdown && loggedInUsername ?
         r(AvatarDropdown, {
-          ...avatarDropdownProps(this.props.avatarDropdown, marketplace_color1,
+          ...avatarDropdownProps(this.props.avatarDropdown, marketplaceColor1,
                                  loggedInUsername, isAdmin, this.props.unReadMessagesCount, this.props.routes),
           classSet: css.topbarAvatarDropdown,
         }) :
         r(LoginLinks, {
           loginUrl: loginRoute,
           signupUrl: signupRoute,
-          customColor: marketplace_color1,
+          customColor: marketplaceColor1,
           className: css.topbarLinks,
         }),
       this.props.newListingButton ?
@@ -320,7 +321,7 @@ class Topbar extends Component {
           ...this.props.newListingButton,
           className: css.topbarListingButton,
           url: newListingRoute,
-          customColor: marketplace_color1,
+          customColor: marketplaceColor1,
         }) :
       null,
     ]);
@@ -355,8 +356,14 @@ Topbar.propTypes = {
   }),
   newListingButton: object,
   routes: routesProp,
-  marketplaceContext,
-  isAdmin: PropTypes.bool,
+  marketplace: PropTypes.shape({
+    marketplaceColor1: string,
+    location: string,
+  }),
+  user: PropTypes.shape({
+    loggedInUsername: string,
+    isAdmin: PropTypes.bool,
+  }),
   unReadMessagesCount: PropTypes.number,
 };
 

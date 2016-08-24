@@ -2,8 +2,10 @@ module TopbarHelper
 
   module_function
 
+  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/ParameterLists
   def topbar_props(community:, path_after_locale_change:, user: nil, search_placeholder: nil,
-                   locale_param: nil, landing_page: false, host_with_port:)
+                   locale_param: nil, current_path: nil, landing_page: false, host_with_port:)
 
     user_links = Maybe(community.menu_links)
       .map { |menu_links|
@@ -88,24 +90,30 @@ module TopbarHelper
       },
       locales: landing_page ? nil : locale_props(community, I18n.locale, path_after_locale_change),
       avatarDropdown: {
-        customColor: CommonStylesHelper.marketplace_colors(community)[:marketplace_color1],
         avatar: {
           image: user&.image.present? ? user.image.url(:thumb) : missing_profile_image_path(),
         }
       },
       newListingButton: {
         text: I18n.t("homepage.index.post_new_listing"),
-        customColor: CommonStylesHelper.marketplace_colors(community)[:marketplace_color1]
       },
       i18n: {
         locale: I18n.locale,
         defaultLocale: I18n.default_locale
       },
-      isAdmin: user&.has_admin_rights? || false,
+      marketplace: {
+        marketplace_color1: CommonStylesHelper.marketplace_colors(community)[:marketplace_color1],
+        location: current_path
+      },
+      user: {
+        loggedInUsername: user&.username,
+        isAdmin: user&.has_admin_rights? || false,
+      },
       unReadMessagesCount: MarketplaceService::Inbox::Query.notification_count(user&.id, community.id)
     }
   end
-
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/ParameterLists
 
   def locale_props(community, current_locale, path_after_locale_change)
     community_locales = community.locales.map { |loc_ident|
