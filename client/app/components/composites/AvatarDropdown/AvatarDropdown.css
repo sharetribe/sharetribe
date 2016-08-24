@@ -20,6 +20,10 @@
   & :global(.notification-background) { /* stylelint-disable-line selector-class-pattern */
     display: none;
   }
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .avatarWithNotifications {
