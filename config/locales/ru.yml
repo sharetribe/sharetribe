@@ -192,7 +192,6 @@ ru:
       settings:
         settings: Настройки
         general: Основные
-        users_can_review_each_other_after_transaction: "Участники могут увидеть друг друга после транзакции"
         access: Доступ
         join_with_invite_only: "Участники могут присоединиться к проекту только по приглашению других участников."
         users_can_invite_new_users: "Все участники могут приглашать новых участников в этот проект."
@@ -219,7 +218,6 @@ ru:
         google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Ваш имя в Twitter (используется вместе с кнопкой tweet на странице размещения)"
         update_settings: "Сохранить настройки"
-        automatically_confirmed: "Транзакция будет автоматически помечена как завершенная спустя %{days_dropdown} дней после того как платеж осуществлен. Если используется система депонирования, деньги будут выпущены поставщику."
         automatically_confirmed_no_escrow: "Транзакция будет автоматически отмечена как завешенная через %{days_dropdown} дней после осуществления платежа"
         automatic_newsletter_frequency: "Отправлять автоматически новости: %{frequency_dropdown}"
         newsletter_daily: Ежедневно
@@ -316,15 +314,6 @@ ru:
           initiated: "Ожидание платежа PayPal"
           pending_ext: "Ожидание платежа PayPal"
         not_available: "Не доступно"
-      braintree_payment_gateway:
-        braintree_payment_gateway: "Braintree Payment API keys"
-        environment: Environment
-        private_key: "Личный ключ"
-        public_key: "Открытый ключ"
-        client_side_encryption_key: "CSE Ключ"
-        merchant_id: "Merchant ID"
-        master_merchant_id: "Master Merchant ID"
-        commission_from_seller: "Процент комиссии от продавца"
       paypal_account:
         paypal_admin_account: Платежи
     custom_fields:
@@ -560,8 +549,6 @@ ru:
     accept:
       details: "Детали заказа"
       order_by: "Заказ %{orderer_link}"
-      respond_to_offer: "Ответить на предложение"
-      respond_to_request: "Ответить на запрос"
       accept_offer: "Принять предложение"
       accept_request: "Принять запрос"
       reject_offer: "Не сейчас"
@@ -570,9 +557,6 @@ ru:
       update_later: "Оставить размещения открытыми"
       optional_message: "Сообщение (необязательно)"
       price_to_pay: "Сумма к оплате"
-      you_need_to_fill_payout_details_before_accepting: "Вам нужно заполнить платежные реквизиты до того как принять запрос и получить оплату. Посетите %{payment_settings_link} чтобы указать детали."
-      payment_settings_link: "настройки оплаты"
-      minimum_price_error_message: "Цена не может быть ниже чем %{amount}."
       accept: Принять
       decline: Отклонить
       quantity_label: "Количество:"
@@ -653,7 +637,6 @@ ru:
       last_message_at: "(последнее сообщение: %{time})"
       price: "Цена: %{price}"
       sum: "Итого: %{sum}"
-      price_excludes_vat: "(без НДС)"
       total: "Сумма: %{total}"
     status:
       payment_errored: "Ошибка в процессе оплаты. Повторите попытку."
@@ -712,54 +695,11 @@ ru:
       reject_preauthorized_request: "Не сейчас"
       confirm: "Отметить как завершенное"
       cancel: Спорно
-  braintree_accounts:
-    new:
-      add_payout_details: "Добавить платежные реквизиты"
-      first_name: Имя
-      last_name: Фамилия
-      email: "Email адрес"
-      phone: Телефон
-      address_street_address: Улица
-      address_postal_code: Индекс
-      address_locality: Город
-      address_region: Область
-      date_of_birth: "Дата рождения"
-      ssn: "Номер Социального Страхования"
-      routing_number: "Код Банка"
-      account_number: "Номер счета"
-      save: Сохранить
-    show:
-      payout_details: "Ваши платежные реквизиты"
-      first_name: Имя
-      last_name: Фамилия
-      email: "E-mail адрес"
-      phone: Телефон
-      address_street_address: Улица
-      address_postal_code: Индекс
-      address_locality: Город
-      address_region: Область
-      date_of_birth: "Дата рождения"
-      ssn: "Номер Социального Страхования"
-      routing_number: "Код Банка"
-      account_number: "Номер счета"
-  braintree_payments:
-    edit:
-      new_credit_card_payment: "Новый платеж кредитной картой"
-      payment_receiver: "Получатель платежа"
-      cardholder_name: "Имя владельца карты"
-      credit_card_number: "Номер карты"
-      cvv: "CVV код"
-      credit_card_expiration_date: "Дата окончания действия карты"
-      confirm_payment: "Подтверждение оплаты"
-      exp: "Exp:"
   feedback:
     feedback_subject: ~
     feedback_body: ~
     unlogged_user: ~
     anonymous_user: ~
-  preauthorize_payments:
-    edit:
-      confirm_payment: "Подтверждение оплаты"
   community_memberships:
     access_denied:
       access_denied: "Доступ закрыт"
@@ -794,23 +734,12 @@ ru:
       powered_by: ~
       create_own: ~
       learn_more: ~
-    braintree_account_approved:
-      account_ready: "Вы готовы получать платежи"
-      message: "Ваши платежные реквизиты были подтверждены и вы готовы к получения платежей в %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Вы пока еще не подтвердили или отменили запрос %{request_link}. Если запрос был выполнен, вам нужно подтвердить это. После этого вы можете оставить отзыв о %{other_party_given_name}."
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Вы пока еще не подтвердили или отменили заказ %{request_link}. Мы осуществим перевод денег %{other_party_given_name} только когда а) вы отметите заказ выполненным или б) пройдет %{days_to_automatic_confirmation} дней после вашей оплаты. После отметки заказа как выполненный вы сможете оставить отзыв о %{other_party_given_name}."
       remember_to_confirm_request: "Не забудьте подтвердить или отменить запрос"
       if_will_not_happen_you_should_cancel: "Если вы предполагаете что запрос не будет выполнен по различным причинам, вы можете его отменить %{cancel_it_link}."
-      if_will_not_happen_you_should_cancel_escrow: "Если вы предполагаете что запрос не будет выполнен по различным причинам, вы можете его отменить %{cancel_it_link}. Администратор получит уведомление и свяжется с вами."
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "Если вы думаете что заказ не будет выполнен по какой-то причине, у вас есть %{days_to_cancel} дней чтобы отменить его %{cancel_it_link}. Администратор получит уведомление и свяжется с вами."
       cancel_it_link_text: отменить
       automatic_confirmation: "Если вы не подтвердите или отмените запрос в течении %{days_to_automatic_confirmation} дней после принятия этого запроса, мы автоматически пометим его как выполненный."
-    payment_reminder:
-      remember_to_pay: "Не забудьте оплатить за %{listing_title}"
-      you_have_not_yet_paid: "Вы пока не оплатили за %{listing_title} что было %{other_party_name} принято и предложено для вас."
-      if_will_not_happen_you_should_cancel: "Если вы предполагаете что запрос не будет выполнен по различным причинам, вы также можете его отменить %{cancel_it_link}."
-      cancel_it_link_text: отменить
     payment_settings_reminder:
       remember_to_add_payment_details: "Не забудьте указать ваши реквизиты для приема оплаты."
       you_have_added_listing_with_payment: "Вы добавили публикацию %{listing_link} с оплатой. Однако, вы еще не добавили ваши платежные данные. Чтобы получить оплату вам необходимо указать платежную информацию."
@@ -834,11 +763,6 @@ ru:
       giving_feedback_is_good_idea: "Вы можете оставить отзыв о %{other_party_given_name}.Оставлять отзыв это всегда хорошо. Если все прошло правильно, вы должны поделиться с другими пользователями что %{other_party_given_name} можно доверять. Либо если были сложности, об этом тоже можно сообщить."
       give_feedback_to: "Оставьте отзыв о %{other_party_given_name}"
       show_thread: "Показать диалог"
-    escrow_canceled:
-      subject: "Платеж отменен"
-      has_marked_request_as_canceled: "%{other_party_full_name} пометил данный запрос о %{request} отмененным. Вы не получите оплату от этой транзакции."
-      if_this_was_error: "Если вы считаете что произошла ошибка, нажмите %{please_contant_admin_link}."
-      please_contant_admin_link: "Пожалуйста свяжитесь с администратором."
     confirmation_instructions:
       confirmation_instructions_signature: "С наилучшими пожеланиями,</br>Команда %{service_name}"
       need_to_confirm: "Вы должны подтвердить свой адрес электронной почты."
@@ -896,7 +820,6 @@ ru:
       price_payer_paid: "Оплаченная %{payer_full_name} сумма:"
       service_fee: "Комиссия сервиса %{service_name}:"
       you_will_get: "Всего:"
-      money_will_be_transferred: "Деньги будут переведены на ваш аккаунт когда а) %{payer_name} отметит запрос завершенным или б) %{automatic_confirmation_days} дней пройдет после того как %{payer_name} оплатил."
     receipt_to_payer:
       receipt_of_payment: "Квитанция об оплате"
       you_have_made_new_payment: "Вы оплатили <b>%{payment_sum}</b> за <b>%{listing_title}</b> %{recipient_full_name}. Здесь ваша квитанция."
@@ -1379,7 +1302,6 @@ ru:
       you_must_log_in_to_view_your_settings: "Для просмотра настроек требуется авторизация в %{service_name}"
       you_must_log_in_to_add_news_item: "Вы должны авторизоваться в %{service_name}, чтобы добавить новую статью."
       you_must_log_in_to_change_profile_settings: "Вы обязаны войти в %{service_name} чтобы изменить настройки"
-      you_must_log_in_to_change_payment_settings: "Вы должны войти в %{service_name} чтобы изменить настройки оплаты"
       you_must_log_in_to_accept_or_reject: "Вы обязаны войти чтобы принять или отклонить транзакцию"
       you_must_log_in_to_confirm_or_cancel: "Вы обязаны войти чтобы отменить или подтвердить транзакцию"
       you_need_to_confirm_your_account_first: "Вы должны подтвердить свою учётную запись."
@@ -1389,8 +1311,6 @@ ru:
       can_not_delete_email: "Вы не можете удалить email адрес"
       user_does_not_have_email_to_delete: "У вас нет email адреса который вы пытаетесь удалить"
       email_deleted: "E-mail удален"
-      payment_details_add_successful: "Платежные реквизиты успешно добавлены"
-      payment_details_add_error: "Платежная информация не добавлена"
       listing_author_payment_details_missing: "Создатель публикации не добавил детали оплаты поэтому они не получат оплату прямо сейчас. Пожалуйста свяжитесь с автором."
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
@@ -1494,8 +1414,6 @@ ru:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} будет удержано от стоимости."
         after_service_fee_you_will_get_paypal_text: "%{service_name} оплата (%{sum_with_currency}) и %{paypal_fee_info_link} будут удержаны из этой стоимости."
         paypal_fee_info_link_text: "PayPal комиссия за обработку платежа"
-        after_service_fee_you_will_get_vat: "После комиссии %{service_name} и системы оплаты вы получите приблизительно %{sum_with_currency} (НДС 0%)"
-        price_excludes_vat: "Цена без НДС."
         delivery: "Способ доставки"
         shipping: Доставка
         shipping_price: "Стоимость доставки"
@@ -1634,7 +1552,6 @@ ru:
       times: раз(а)
       times_viewed: Просмотрено
       processing_uploaded_image: "(Изображение в обработке...)"
-      price_excludes_vat: "(без НДС)"
       listing_created_at: "Публикация создана"
       price:
         per_quantity_unit: "за %{quantity_unit}"
@@ -1693,26 +1610,6 @@ ru:
   okl:
     member_id: Идентификатор
     member_id_or_email: "ID пользователя или электронная почта"
-  payments:
-    new:
-      new_payment: "Вы получили новый платёж"
-      continue: Продолжить
-      payment_receiver: "Получатель платежа:"
-      sum: "Сумма оплаты:"
-    form:
-      total: Итого
-      service_charge: "Комиссия сервиса"
-      product: Товар
-      price: Цена
-      price_for: "Цена для %{payer_given_name}:"
-      continue_to_pay: "Продолжить оплату"
-      invoice: Счет
-      service_fee: "Комиссия сервиса %{service_name}:"
-      you_will_get: "Вы получите:"
-    braintree:
-      terms:
-        braintree_terms_also_included: "Примечание: Braintree используется в качестве платежного шлюза и используя этот сайт вы также принимаете условия %{terms_link_text}, в дополнении к условиям ниже."
-        terms_link_text: "Условия использования Braintree"
   paypal_accounts:
     payout_info_title: "Информация о выплате"
     paypal_account_email_connected: "<del>Подключить PayPal аккаунт</del> Завершено!"
@@ -1951,7 +1848,6 @@ ru:
       i_want_to_get_email_notification_when: "Я хочу получать уведомления по электронной почте, когда"
       newsletters: "Рассылка от администраторов"
       community_updates: "Новостная рассылка"
-      email_about_accept_reminders: "...я забыл принять предложение или запрос"
       email_about_confirm_reminders: "...я забыл (а) подтвердить запрос как выполненный"
       email_about_new_comments_to_own_listing: "...кто-либо оставил комментарий на мой запрос или предложение"
       email_about_new_messages: "...кто-нибудь отправил мне сообщение"
@@ -1964,7 +1860,6 @@ ru:
       email_when_conversation_rejected: "...кто-нибудь отверг мой запрос или предложение"
       email_about_completed_transactions: "...кто-то отметил мое предложение или запрос как выполенный"
       email_about_new_payments: "...я получил новый платеж"
-      email_about_payment_reminders: "...я забыл оплатить"
       email_about_new_listings_by_followed_people: "... кто-то на кого я подписан разместил новую публикацию"
       unsubscribe_succesful: "Вы успешно отписались от рассылки!"
       unsubscribe_info_text: "Вы больше не будете получать подобные письма. Проверьте свои %{settings_link}, чтобы выбрать, какие письма вы хотели бы получать от %{service_name}, либо посетите %{homepage_link}"

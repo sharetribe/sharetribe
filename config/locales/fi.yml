@@ -182,7 +182,6 @@ fi:
       settings:
         settings: Yleisasetukset
         general: Yleiset
-        users_can_review_each_other_after_transaction: "Käyttäjät voivat antaa palautetta toisilleen"
         access: Pääsyoikeudet
         join_with_invite_only: "Käyttäjät voivat liittyä palveluun ainoastaan saatuaan kutsun toiselta käyttäjältä"
         users_can_invite_new_users: "Kaikilla käyttäjillä on oikeus kutsua muita käyttäjiä palveluun"
@@ -209,7 +208,6 @@ fi:
         google_analytics_key: "Google Analytics tracking ID (classic account)"
         twitter_handle: "Twitter-tili (käytetään ilmoitussivulla olevan twitter-napin yhteydessä)"
         update_settings: Tallenna
-        automatically_confirmed: "Tilaus merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää. Jos käytössä on escrow-järjestelmä, rahat tilitetään tässä vaiheessa maksun saajalle."
         automatically_confirmed_no_escrow: "Tilaus merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää"
         automatic_newsletter_frequency: "Lähetä automaattinen uutiskirje: %{frequency_dropdown}"
         newsletter_daily: Päivittäin
@@ -306,15 +304,6 @@ fi:
           initiated: "Odottaa maksua"
           pending_ext: "Odottaa maksun hyväksyntää"
         not_available: "Ei saatavilla"
-      braintree_payment_gateway:
-        braintree_payment_gateway: "Braintree API key"
-        environment: Ympäristö
-        private_key: "Yksityinen avain"
-        public_key: "Julkinen avain"
-        client_side_encryption_key: "Asiakaspään enkryptioavain (CSE)"
-        merchant_id: "Merchant ID"
-        master_merchant_id: "Master Merchant ID"
-        commission_from_seller: "Komissioprosentti myyjältä"
       paypal_account:
         paypal_admin_account: Maksuasetukset
     custom_fields:
@@ -566,8 +555,6 @@ fi:
     accept:
       details: "Tilauksen tiedot"
       order_by: "Tilaus käyttäjältä %{orderer_link}"
-      respond_to_offer: "Vastaa tarjoukseen"
-      respond_to_request: "Vastaa pyyntöön"
       accept_offer: "Hyväksy tarjous"
       accept_request: "Hyväksy pyyntö"
       reject_offer: "Ei tällä kertaa"
@@ -576,9 +563,6 @@ fi:
       update_later: "Älä sulje ilmoitusta"
       optional_message: "Vapaaehtoinen viesti"
       price_to_pay: "Maksettava kokonaishinta"
-      you_need_to_fill_payout_details_before_accepting: "Sinun pitää täyttää maksutietosi ennen kuin voit hyväksyä pyynnön ja vastaanottaa maksun. Täytä maksutietosi %{payment_settings_link}."
-      payment_settings_link: täällä
-      minimum_price_error_message: "Hinta ei voi olla pienempi kuin %{amount}."
       accept: Hyväksy
       decline: Hylkää
       quantity_label: "Määrä:"
@@ -659,7 +643,6 @@ fi:
       last_message_at: "(uusin viesti %{time})"
       price: "Hinta: %{price}"
       sum: "Loppusumma: %{sum}"
-      price_excludes_vat: "(alv 0)"
       total: "Yhteensä: %{total}"
     status:
       payment_errored: "Maksu epäonnistui"
@@ -718,54 +701,11 @@ fi:
       reject_preauthorized_request: "Ei tällä kertaa"
       confirm: "Merkitse toteutuneeksi"
       cancel: Riitauta
-  braintree_accounts:
-    new:
-      add_payout_details: "Lisää maksutietosi"
-      first_name: Etunimi
-      last_name: Sukunimi
-      email: Sähköpostiosoite
-      phone: Puhelinnumero
-      address_street_address: Katuosoite
-      address_postal_code: Postinumero
-      address_locality: Kaupunki
-      address_region: Osavaltio
-      date_of_birth: Syntymäaika
-      ssn: Henkilötunnus
-      routing_number: Reititysnumero
-      account_number: Tilinumero
-      save: Tallenna
-    show:
-      payout_details: Etunimi
-      first_name: Etunimi
-      last_name: Sukunimi
-      email: Sähköpostiosoite
-      phone: Puhelinnumero
-      address_street_address: Katuosoite
-      address_postal_code: Postinumero
-      address_locality: Kaupunki
-      address_region: Osavaltio
-      date_of_birth: Syntymäaika
-      ssn: Henkilötunnus
-      routing_number: Reititysnumero
-      account_number: Tilinumero
-  braintree_payments:
-    edit:
-      new_credit_card_payment: "Uusi luottokorttimaksu"
-      payment_receiver: "Maksun vastaanottaja"
-      cardholder_name: "Kortinhaltijan nimi"
-      credit_card_number: "Luottokortin numero"
-      cvv: Tarkistuskoodi
-      credit_card_expiration_date: "Luottokortin viimeinen voimassaolopäivä"
-      confirm_payment: "Vahvista maksu"
-      exp: "Exp:"
   feedback:
     feedback_subject: "Uusi palaute palvelusta %{service_name}"
     feedback_body: "%{author_name_and_email} on lähettänyt seuraavan palautteen palvelusta %{service_name}"
     unlogged_user: "Kirjautumaton käyttäjä"
     anonymous_user: "Anonyymi käyttäjä"
-  preauthorize_payments:
-    edit:
-      confirm_payment: "Vahvista maksu"
   community_memberships:
     access_denied:
       access_denied: "Pääsy estetty"
@@ -800,23 +740,12 @@ fi:
       powered_by: ~
       create_own: ~
       learn_more: ~
-    braintree_account_approved:
-      account_ready: "Voit nyt vastaanottaa maksuja"
-      message: "Maksutietosi on nyt tarkistettu ja hyväksytty. Voit tästä lähtien vastaanottaa maksuja %{service_name}-palvelussa"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Et ole vielä merkinnyt pyyntöä '%{request_link}' toteutuneeksi tai toteutumattomaksi. Jos pyyntö on toteutettu, sinun kannattaa ilmoittaa siitä. Tämän jälkeen voit antaa palautetta tapahtuneesta käyttäjälle %{other_party_given_name}."
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Et ole vielä merkinnyt tilausta %{request_link} toteutuneeksi tai peruuttanut sitä. Siirrämme rahat käyttäjälle %{other_party_given_name} vasta kun a) olet merkinnyt tilauksen toteutuneeksi tai b) %{days_to_automatic_confirmation} päivää on kulunut maksun suorittamisesta. Kun olet merkinnyt tilauksen toteutuneeksi, voit antaa palautetta käyttäjälle %{other_party_given_name}."
       remember_to_confirm_request: "Muista merkitä pyyntö toteutuneeksi tai toteutumattomaksi"
       if_will_not_happen_you_should_cancel: "Jos pyyntö syystä tai toisesta jää toteutumatta, voit %{cancel_it_link}."
-      if_will_not_happen_you_should_cancel_escrow: "Jos uskot että tämä tilaus jää toteutumatta syystä tai toisesta, voit %{cancel_it_link}. Tämä lähettää ylläpitäjälle viestin, ja hän on sinuun yhteydessä rahojen palautukseen liittyen."
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "Jos uskot että tämä tilaus jää toteutumatta syystä tai toisesta, sinulla on %{days_to_cancel} päivää aikaa %{cancel_it_link}. Tämä lähettää ylläpitäjälle viestin, ja hän on sinuun yhteydessä rahojen palautukseen liittyen."
       cancel_it_link_text: "peruuttaa sen"
       automatic_confirmation: "Jos et merkkaa pyyntöä toteutuneeksi tai peruuta sitä %{days_to_automatic_confirmation} päivän kuluttua sen hyväksymisestä, merkkaamme sen automaattisesti toteutuneeksi."
-    payment_reminder:
-      remember_to_pay: "Maksumuistutus: %{listing_title}"
-      you_have_not_yet_paid: "Et ole vielä suorittanut maksua liittyen ilmoitukseen %{listing_title}. Muista maksaa sovittu summa käyttäjälle %{other_party_name}."
-      if_will_not_happen_you_should_cancel: "Mikäli uskot että pyyntö ei kuitenkaan syystä tai toisesta toteudu, voit myös halutessasi vielä %{cancel_it_link}."
-      cancel_it_link_text: "peruuttaa tapahtuman"
     payment_settings_reminder:
       remember_to_add_payment_details: "Muistutus: Käy lisäämässä maksutietosi"
       you_have_added_listing_with_payment: "Olet lisännyt ilmoituksen %{listing_link}, jolla on hinta. Et ole kuitenkaan vielä syöttänyt maksutietojasi. Jotta voit vastaanottaa maksun ilmoituksestasi, käy täyttämässä maksutietosi."
@@ -840,11 +769,6 @@ fi:
       giving_feedback_is_good_idea: "Palautteen antaminen kannattaa aina. Jos kaikki meni hyvin, voit palautteen avulla kertoa muille jäsenille, että %{other_party_given_name} on luotettava. Jos vastaan tuli ongelmia, niistä kannattaa myös mainita."
       give_feedback_to: "Anna palautetta käyttäjälle %{other_party_given_name}"
       show_thread: "Näytä viestiketju"
-    escrow_canceled:
-      subject: "Maksu peruutettu"
-      has_marked_request_as_canceled: "%{other_party_full_name} on peruuttanut tilauksen '%{request}'. Tilaussummaa ei tilitetä sinulle."
-      if_this_was_error: "Jos luulet että tämä tapahtui erehdyksessä, %{please_contant_admin_link}."
-      please_contant_admin_link: "ota yhteys ylläpitoon"
     confirmation_instructions:
       confirmation_instructions_signature: "Terveisin,<br/>%{service_name}-tiimi"
       need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi."
@@ -902,7 +826,6 @@ fi:
       price_payer_paid: "Ostajan maksama summa:"
       service_fee: "%{service_name} palvelumaksu:"
       you_will_get: "Loppusumma:"
-      money_will_be_transferred: "Rahat siirretään tilillesi kun a) %{payer_name} on merkinnyt tilauksen toteutuneeksi tai b) %{automatic_confirmation_days} päivää on kulunut siitä kun %{payer_name} suoritti maksun."
     receipt_to_payer:
       receipt_of_payment: "Kuitti maksusta"
       you_have_made_new_payment: "Olet maksanut käyttäjälle %{recipient_full_name} <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
@@ -1385,7 +1308,6 @@ fi:
       you_must_log_in_to_view_your_settings: "Sinun pitää kirjautua sisään %{service_name}-palveluun nähdäksesi asetuksesi."
       you_must_log_in_to_add_news_item: "Sinun pitää kirjautua sisään %{service_name}-palveluun, jotta voisit luoda uuden uutisen."
       you_must_log_in_to_change_profile_settings: "Sinun pitää kirjautua sisään %{service_name}-palveluun, jotta voit muuttaa profiiliasetuksia."
-      you_must_log_in_to_change_payment_settings: "Sinun tulee kirjautua %{service_name}-palveluun muuttaaksesi maksuasetuksiasi."
       you_must_log_in_to_accept_or_reject: "Sinun täytyy kirjautua sisään hyväksyäksesi tai hylätäksesi tilauksen"
       you_must_log_in_to_confirm_or_cancel: "Sinun täytyy kirjautua sisään peruuttaaksesi tai vahvistaaksesi tilauksen"
       you_need_to_confirm_your_account_first: "Sinun täytyy vahvistaa sähköpostiosoitteesi ennen kuin voit jatkaa."
@@ -1395,8 +1317,6 @@ fi:
       can_not_delete_email: "Et voi poistaa valitsemaasi sähköpostiosoitetta."
       user_does_not_have_email_to_delete: "Et omista sähköpostiosoitetta, jota yrität poistaa."
       email_deleted: "Sähköpostiosoite poistettu"
-      payment_details_add_successful: "Maksutiedot lisätty onnistuneesti"
-      payment_details_add_error: "Maksutietojen lisäys epäonnistui"
       listing_author_payment_details_missing: "Ole hyvä ja ota yhteyttä ilmoituksen tekijään painamalla alla olevaa nappia. Heidän tulee päivittää maksutietonsa pystyäkseen vastaanottamaan maksuja."
       images_are_processing: ~
       maintenance_mode:
@@ -1504,8 +1424,6 @@ fi:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} vähennetään hinnasta."
         after_service_fee_you_will_get_paypal_text: "%{service_name}-palvelun palvelumaksu (%{sum_with_currency}) sekä %{paypal_fee_info_link} vähennetään hinnasta."
         paypal_fee_info_link_text: "PayPalin käsittelymaksu"
-        after_service_fee_you_will_get_vat: "%{service_name} palvelumaksun ja maksujärjestelmän käsittelymaksun jälkeen sinä saat noin %{sum_with_currency} (ALV 0%)"
-        price_excludes_vat: "Merkitse tähän alv 0 -hinta."
         delivery: Kuljetustapa
         shipping: Postitus
         shipping_price: "Postituksen hinta"
@@ -1644,7 +1562,6 @@ fi:
       times: kertaa
       times_viewed: Katsottu
       processing_uploaded_image: "(Ladatun kuvan käsittely kesken...)"
-      price_excludes_vat: "(alv 0)"
       listing_created_at: "Ilmoitus luotu"
       price:
         per_quantity_unit: "per %{quantity_unit}"
@@ -1703,26 +1620,6 @@ fi:
   okl:
     member_id: Jäsennumero
     member_id_or_email: "Jäsennumero tai sähköposti"
-  payments:
-    new:
-      new_payment: "Uusi maksu"
-      continue: Jatka
-      payment_receiver: "Maksun saaja:"
-      sum: "Summa:"
-    form:
-      total: Yhteensä
-      service_charge: Palvelumaksu
-      product: "Tuote:"
-      price: "Loppusumma:"
-      price_for: "Hinta käyttäjälle %{payer_given_name}:"
-      continue_to_pay: "Jatka maksamaan"
-      invoice: Lasku
-      service_fee: "%{service_name} palvelumaksu:"
-      you_will_get: "Sinulle tilitetään:"
-    braintree:
-      terms:
-        braintree_terms_also_included: "HUOM: Tämä verkkopalvelu käyttää maksunvälittäjänä Braintree-palvelua ja käyttämällä tätä verkkopalvelua hyväksyt alla olevien ehtojen lisäksi myös %{terms_link_text}."
-        terms_link_text: "Braintreen käyttöehdot"
   paypal_accounts:
     payout_info_title: "Maksujen vastaanotto"
     paypal_account_email_connected: "<del>Yhdistä Paypal-tilisi</del> Tehty!"
@@ -1959,7 +1856,6 @@ fi:
       i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
       newsletters: Uutiskirjeet
       community_updates: Tapahtumapäivitykset
-      email_about_accept_reminders: "...olen unohtanut hyväksyä pyynnön tai tarjouksen"
       email_about_confirm_reminders: "...olen unohtanut merkitä pyynnön toteutuneeksi"
       email_about_new_comments_to_own_listing: "...joku kommentoi pyyntöäni tai tarjoustani"
       email_about_new_messages: "...joku lähettää minulle viestin"
@@ -1972,7 +1868,6 @@ fi:
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
       email_about_completed_transactions: "...joku merkitsee pyyntöni tai tarjoukseni toteutetuksi"
       email_about_new_payments: "...saan tililleni uuden maksun"
-      email_about_payment_reminders: "...olen unohtanut maksaa maksun"
       email_about_new_listings_by_followed_people: "...joku jota seuraan lisää uuden ilmoituksen"
       unsubscribe_succesful: "Tämä sähköpostitiedote on kytketty pois"
       unsubscribe_info_text: "Et jatkossa enää saa tämäntyyppistä sähköpostia. Tarkista %{settings_link}, niin voit valita mistä asioista haluat sähköpostiviestin tai palaa %{homepage_link}."

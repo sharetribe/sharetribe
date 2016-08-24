@@ -182,7 +182,6 @@ nl:
       settings:
         settings: Instellingen
         general: Algemeen
-        users_can_review_each_other_after_transaction: "Gebruikers kunnen elkaar evalueren na transactie"
         access: Toegang
         join_with_invite_only: "Aansluiten bij deze marktplaats kan enkel met een uitnodiging van een andere gebruiker"
         users_can_invite_new_users: "Alle gebruikers kunnen nieuwe leden uitnodigen voor deze marktplaats"
@@ -209,7 +208,6 @@ nl:
         google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Twitter account (gebruikt met de tweet knop in de items pagina)"
         update_settings: "Instellingen opslaan"
-        automatically_confirmed: "De transactie zal automatisch als uitgevoerd gemarkeerd worden %{days_dropdown} nadat de betaling is voldaan. Indien er een escrow-dienst word gebruikt, zal het geld op dit moment vrijgegeven worden."
         automatically_confirmed_no_escrow: "%{days_dropdown} dagen nadat de betaling is uitgevoerd, zal de transactie automatisch als afgerond worden gemarkeerd"
         automatic_newsletter_frequency: "Zend automatische nieuwsbrief: %{frequency_dropdown}"
         newsletter_daily: Dagelijks
@@ -306,15 +304,6 @@ nl:
           initiated: "Wachten op PayPal betaling"
           pending_ext: "Wachten PayPal betaling"
         not_available: ~
-      braintree_payment_gateway:
-        braintree_payment_gateway: "Braintree Betaling API sleutels"
-        environment: Omgeving
-        private_key: "Privé sleutel"
-        public_key: "Publieke sleutel"
-        client_side_encryption_key: "Client-Side Encryption (CSE) Sleutel"
-        merchant_id: "Verkoper ID"
-        master_merchant_id: "Hoofd verkoper ID"
-        commission_from_seller: "Commissie percentage van de verkoper"
       paypal_account:
         paypal_admin_account: Betalingen
     custom_fields:
@@ -550,8 +539,6 @@ nl:
     accept:
       details: "Order details"
       order_by: "Sorteer op %{orderer_link}"
-      respond_to_offer: "Antwoord op een aanbod"
-      respond_to_request: "Ga in op een vraag"
       accept_offer: "Aanvaard het aanbod"
       accept_request: "Aanvaard het verzoek"
       reject_offer: "Nu niet"
@@ -560,9 +547,6 @@ nl:
       update_later: "Laat het item open"
       optional_message: "Optioneel bericht"
       price_to_pay: "Totaal te betalen prijs"
-      you_need_to_fill_payout_details_before_accepting: "U dient uw betalingsgegevens in te vullen alvorens u betalingen kunt ontvangen. Ga naar %{payment_settings_link} om de details in te vullen."
-      payment_settings_link: "instellingen betalingen"
-      minimum_price_error_message: "De prijs kan niet lager zijn dan %{amount}."
       accept: Aanvaard
       decline: "Wijs af"
       quantity_label: "Aantal:"
@@ -643,7 +627,6 @@ nl:
       last_message_at: "(laatste bericht %{time})"
       price: "Prijs: %{price}"
       sum: "Totaal: %{sum}"
-      price_excludes_vat: "(exclusief BTW)"
       total: "Totaal: %{total}"
     status:
       payment_errored: "Betaling mislukt. Probeer opnieuw a.u.b."
@@ -702,54 +685,11 @@ nl:
       reject_preauthorized_request: Afwijzen
       confirm: "Markeer als uitgevoerd"
       cancel: Geschil
-  braintree_accounts:
-    new:
-      add_payout_details: "Voeg uw betalingsdetails toe"
-      first_name: Voornaam
-      last_name: Achternaam
-      email: "E-mail adres"
-      phone: Telefoon
-      address_street_address: Straat
-      address_postal_code: Postcode
-      address_locality: Stad
-      address_region: Staat/provincie
-      date_of_birth: Geboortedatum
-      ssn: "Sofinummer / Rijksregisternummer"
-      routing_number: "Routing nummer"
-      account_number: "Account nummer"
-      save: Opslaan
-    show:
-      payout_details: "Uw betalingsdetails"
-      first_name: Voornaam
-      last_name: Achternaam
-      email: "E-mail adres"
-      phone: Telefoonnummer
-      address_street_address: Adres
-      address_postal_code: Postcode
-      address_locality: Stad
-      address_region: "Staat of provincie"
-      date_of_birth: Geboortedatum
-      ssn: "Sofinummer / Rijksregisternummer"
-      routing_number: "Routing nummer"
-      account_number: "Account nummer"
-  braintree_payments:
-    edit:
-      new_credit_card_payment: "Nieuwe creditcard betaling "
-      payment_receiver: "Ontvanger betaling"
-      cardholder_name: "Naam kaarthouder"
-      credit_card_number: "Creditcard nummer"
-      cvv: CVV
-      credit_card_expiration_date: "Creditcard vervaldatum"
-      confirm_payment: "Bevestig betaling"
-      exp: "Exp:"
   feedback:
     feedback_subject: ~
     feedback_body: ~
     unlogged_user: ~
     anonymous_user: ~
-  preauthorize_payments:
-    edit:
-      confirm_payment: "Bevestig betaling"
   community_memberships:
     access_denied:
       access_denied: "Toegang geweigerd"
@@ -784,23 +724,12 @@ nl:
       powered_by: ~
       create_own: ~
       learn_more: ~
-    braintree_account_approved:
-      account_ready: "U kunt nu betalingen ontvangen"
-      message: "Uw betalingsinformatie is goedgekeurd en u kunt nu betalingen ontvangen op %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "U heeft het verzoek %{request_link} nog niet geaccepteerd of geannuleerd. Zodra het verzoek is uitgevoerd, dient u dat te bevestigen. Daarna kunt u  feedback geven aan %{other_party_given_name}."
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "U heeft het verzoek nog niet geaccepeteerd of geannuleerd %{request_link}. We zullen de betaling pas naar %{other_party_given_name} overmaken wanneer a) u het verzoek als afgerond heeft gemarkeerd of b) %{days_to_automatic_confirmation} dagen zijn verstreken nadat u betaald heeft. Nadat het verzoek als afgerond heeft gemarkeerd, kunt u feedback geven aan %{other_party_given_name}."
       remember_to_confirm_request: "Herinnering om een verzoek te accepteren of te annuleren"
       if_will_not_happen_you_should_cancel: "Als u denkt dat dit verzoek om welke reden dan ook niet uitgevoerd zal worden, kunt u %{cancel_it_link}."
-      if_will_not_happen_you_should_cancel_escrow: "Als u verwacht dat het verzoek om welke reden dan ook niet zal worden uitgevoerd, kunt u het %{cancel_it_link}. De beheerder neemt contact met u op voor de terugbetaling. "
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "Als uw verzoek om welke reden dan ook niet wordt uitgevoerd, heeft u %{days_to_cancel} dagen om %{cancel_it_link}. De beheerder neemt contact met u op voor de terugbetaling. "
       cancel_it_link_text: "Annuleer het"
       automatic_confirmation: "Indien u het voorstel niet accepteert of afwijst binnen %{days_to_automatic_confirmation} dagen nadat het verzoek is geaccepteerd, zullen we het automatisch als afgerond markeren."
-    payment_reminder:
-      remember_to_pay: "Herinnering om te betalen voor %{listing_title}"
-      you_have_not_yet_paid: "U heeft nog niet betaald voor %{listing_title} die %{other_party_name} geaccepteerd heeft."
-      if_will_not_happen_you_should_cancel: "Als u denkt dat dit verzoek om welke reden dan ook niet uitgevoerd zal worden, kunt u nog steeds %{cancel_it_link}."
-      cancel_it_link_text: "Annuleer het"
     payment_settings_reminder:
       remember_to_add_payment_details: "Vergeet niet om de juiste gegevens toe te voegen om betalingen te kunnen ontvangen."
       you_have_added_listing_with_payment: "U heeft een item %{listing_link} toegevoegd met betaling. U heeft echter nog geen betalingsgegevens opgegeven. Om betalingen te kunnen ontvangen dient u deze informatie nog toe te voegen."
@@ -824,11 +753,6 @@ nl:
       giving_feedback_is_good_idea: "Je kan nu feedback geven aan %{other_party_given_name}. Het is altijd een goed idee om feedback te geven. Als alles goed is gegaan, kun je anderen laten weten dat %{other_party_given_name} een betrouwbare partij is. Als er problemen zijn geweest, is het zinvol om deze ook te vermelden."
       give_feedback_to: "Geef feedback aan %{other_party_given_name}"
       show_thread: "Toon conversatie"
-    escrow_canceled:
-      subject: "Betaling geannuleerd"
-      has_marked_request_as_canceled: "%{other_party_full_name} heeft het verzoek betreft '%{request}' geannuleerd. U ontvangt geen geld voor deze transactie."
-      if_this_was_error: "Als u denkt dat dit een fout was, %{please_contant_admin_link}."
-      please_contant_admin_link: "contacteer a.u.b. de beheerder"
     confirmation_instructions:
       confirmation_instructions_signature: "Met vriendelijke groeten,<br/>Het %{service_name} Team"
       need_to_confirm: "Uw account is aangemaakt. De volgende stap is het bevestigen van uw e-mail adres."
@@ -886,7 +810,6 @@ nl:
       price_payer_paid: "Prijs %{payer_full_name} betaald:"
       service_fee: "%{service_name} service toeslag:"
       you_will_get: "Totaal:"
-      money_will_be_transferred: "Het geld zal naar je account overgemaakt worden indien a) %{payer_name} het verzoek heeft gemarkeerd als zijnde afgewerkt b) %{automatic_confirmation_days} dagen zijn verstreken sinds %{payer_name} betaalde."
     receipt_to_payer:
       receipt_of_payment: Betalingsbewijs.
       you_have_made_new_payment: "U heeft <b>%{payment_sum}</b> betaald voor <b>%{listing_title}</b> aan %{recipient_full_name}. Hier is een betalingsbewijs."
@@ -1369,7 +1292,6 @@ nl:
       you_must_log_in_to_view_your_settings: "U moet ingelogd zijn op %{service_name} om uw instellingen te kunnen zien."
       you_must_log_in_to_add_news_item: "U moet inloggen op %{service_name} om een nieuw artikel toe te voegen."
       you_must_log_in_to_change_profile_settings: "U moet inloggen op %{service_name} om uw profiel instellingen te wijzigen"
-      you_must_log_in_to_change_payment_settings: "U moet inloggen op %{service_name} om uw betalingsgegevens te wijzigen"
       you_must_log_in_to_accept_or_reject: "Je moet inloggen om de transactie te accepteren of te annuleren"
       you_must_log_in_to_confirm_or_cancel: "Je moet inloggen om de transactie te confirmeren of te annuleren"
       you_need_to_confirm_your_account_first: "U dient uw e-mail adres te bevestigen."
@@ -1379,8 +1301,6 @@ nl:
       can_not_delete_email: "Je kan het e-mail adres niet verwijderen"
       user_does_not_have_email_to_delete: "Je bezit het e-mail adres dat je tracht te verwijderen niet"
       email_deleted: "E-mail verwijderd"
-      payment_details_add_successful: "Betalingsdetails succesvol toegevoegd"
-      payment_details_add_error: "Kon betalingsgegevens niet toevoegen"
       listing_author_payment_details_missing: "De persoon die het item heeft geplaatst heeft zijn betalingsgegevens nog niet ingevuld en kan daardoor nog geen betalingen ontvangen. Contacteer de verkoper a.u.b."
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
@@ -1484,8 +1404,6 @@ nl:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} wordt ingehouden op de prijs"
         after_service_fee_you_will_get_paypal_text: ~
         paypal_fee_info_link_text: ~
-        after_service_fee_you_will_get_vat: "Na de commissie aan %{service_name} en de transactiekosten, ontvangt u ongeveer %{sum_with_currency} (BTW 0%)"
-        price_excludes_vat: "De prijs is exclusief BTW."
         delivery: Levering
         shipping: Verzenden
         shipping_price: Verzendkosten
@@ -1624,7 +1542,6 @@ nl:
       times: keer
       times_viewed: Gezien
       processing_uploaded_image: "(Opgestuurd bestand bewerken...)"
-      price_excludes_vat: "(exclusief BTW)"
       listing_created_at: "Item geplaatst"
       price:
         per_quantity_unit: "per %{quantity_unit}"
@@ -1683,26 +1600,6 @@ nl:
   okl:
     member_id: Lidmaatschapsnummer
     member_id_or_email: "Lid ID of e-mail"
-  payments:
-    new:
-      new_payment: "Nieuwe betaling"
-      continue: Doorgaan
-      payment_receiver: "Ontvanger betaling:"
-      sum: "Totaal betaling:"
-    form:
-      total: Totaal
-      service_charge: "Service toeslag"
-      product: "Product:"
-      price: "Som:"
-      price_for: "Prijs voor %{payer_given_name}:"
-      continue_to_pay: "Ga verder met betalen"
-      invoice: Factuur
-      service_fee: "%{service_name} service toeslag:"
-      you_will_get: "U ontvangt:"
-    braintree:
-      terms:
-        braintree_terms_also_included: "Opmerking: Braintree is gebruikt als een dienst voor betalingen. Door deze website te gebruiken, accepteer je ook %{terms_link_text} bovenop de voorwaarden hieronder vermeld."
-        terms_link_text: "Braintree gebruikersvoorwaarden"
   paypal_accounts:
     payout_info_title: Betalingsinformatie
     paypal_account_email_connected: "<del>Koppeling met PayPal account</del> Uitgevoerd!"
@@ -1939,7 +1836,6 @@ nl:
       i_want_to_get_email_notification_when: "Ik wil graag een e-mail bevestiging krijgen wanneer..."
       newsletters: Nieuwsbrieven
       community_updates: "Update e-mails"
-      email_about_accept_reminders: "...ik ben vergeten om een voorstel of een verzoek te accepteren"
       email_about_confirm_reminders: "...ik ben vergeten om een verzoek als uitgevoerd te bevestigen"
       email_about_new_comments_to_own_listing: "...iemand op mijn vraag of aanbod heeft gereageerd"
       email_about_new_messages: "...iemand me een bericht stuurt"
@@ -1952,7 +1848,6 @@ nl:
       email_when_conversation_rejected: "...iemand mijn vraag of aanbod weigert"
       email_about_completed_transactions: "...iemand mijn vraag markeert als voltooid"
       email_about_new_payments: "...ik een nieuwe betaling ontvang"
-      email_about_payment_reminders: "...ik ben vergeten om te betalen"
       email_about_new_listings_by_followed_people: "...iemand die ik volg iets nieuws heeft geplaatst"
       unsubscribe_succesful: "Uitschrijven succesvol uitgevoerd"
       unsubscribe_info_text: "U zal deze berichten niet langer ontvangen. Controleer uw %{settings_link} om te kiezen welke e-mails u wilt ontvangen van %{service_name}, of keer terug naar %{homepage_link}."
