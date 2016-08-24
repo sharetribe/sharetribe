@@ -268,8 +268,9 @@ Before starting these steps, perform [steps 1-5 from above](#setting-up-the-deve
 1. Precompile the assets:
 
   ```bash
-  bundle exec rake assets:precompile
+  RAILS_ENV=production rake assets:precompile
   ```
+
 
 1. Invoke the delayed job worker:
 
