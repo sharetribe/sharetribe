@@ -81,9 +81,6 @@ class Menu extends Component {
           key: `${this.props.identifier}_menucontent`,
           content: this.props.content,
           arrowPosition: this.state.arrowPosition,
-          ref: (c) => {
-            this.menuContent = c;
-          },
         }
       ),
     ]);
