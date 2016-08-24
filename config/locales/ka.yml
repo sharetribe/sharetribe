@@ -177,7 +177,6 @@ ka:
       settings:
         settings: პარამეტრები
         general: ზოგადი
-        users_can_review_each_other_after_transaction: "შეკვეთის შემდეგ მომხმარებლებს შეუძლიათ ერმანეთის დათვალიერება"
         access: "წვდომის პარამეტრები"
         join_with_invite_only: "მომხმარებელს შეუძლია შეუერთდეს ბაზარს მხოლოდ მაშინ, თუ მას სხვა მომხმარებელი მოიწვევს"
         users_can_invite_new_users: "ყველა მომხმარებელს შეუძლია მოიწვიოს ახალი მომხმარებელი ამ ბაზარზე"
@@ -204,7 +203,6 @@ ka:
         google_analytics_key: "Google Analytics ტრეკინგის  ID"
         twitter_handle: "Twitter handle (გამოიყენება tweet ღილაკთან ერთად ჩამონათვალის გვერდზე)"
         update_settings: "პარამეტრების დამახსოვრება"
-        automatically_confirmed: "შეკვეთა ავტომატურად მოინიშნება დასრულებულად, %{days_dropdown} დღის მერე რაც გადახდა მოხდება. თუ \"ესქროუ\" სისტემა გამოიყენება, თანხა იქნება გაშვებული პროვაიდერზე ამ ეტაპზე."
         automatically_confirmed_no_escrow: "შეკვეთა ავტომატურად მოინიშნება შესრულებულად გადახდის შესრულებიდან %{days_dropdown} დღის მერე"
         automatic_newsletter_frequency: "გააგზავნე ავტომატური სიახლეები: %{frequency_dropdown}"
         newsletter_daily: დღიური
@@ -301,15 +299,6 @@ ka:
           initiated: "ველოდებით PayPal-ით გადახდას"
           pending_ext: "ველოდებით PayPal-ით გადახდას"
         not_available: "არ არის ხელმისაწვდომი"
-      braintree_payment_gateway:
-        braintree_payment_gateway: "Braintree გადახდის API-ს გასაღები"
-        environment: გარემო
-        private_key: "პირადი გასაღები"
-        public_key: "საჯარო გასაღები"
-        client_side_encryption_key: "კლიენტის-მხარის დაშიფრვა (კმდ) ღილაკი"
-        merchant_id: "გამყიდველის ID"
-        master_merchant_id: "მთავარი გამყიდველის ID"
-        commission_from_seller: "საკომისიოს პროცენტი გამყიდველისგან"
       paypal_account:
         paypal_admin_account: გადახდები
     custom_fields:
@@ -553,8 +542,6 @@ ka:
     accept:
       details: "შეკვეთის დეტალები"
       order_by: "შეკვეთა %{orderer_link}ს"
-      respond_to_offer: "შეთავაზებაზე პასუხის გაცემა"
-      respond_to_request: "მოთხოვნაზე პასუხის გაცემა"
       accept_offer: "შემოთავაზებაზე დათანხმება"
       accept_request: "მოთხოვნაზე დათანხმება"
       reject_offer: "ამჯერად არა"
@@ -563,9 +550,6 @@ ka:
       update_later: "დატოვე ჩამონათვალი ღია"
       optional_message: "ალტერნატიული წერილი"
       price_to_pay: "გადასახდელი ჯამური თანხა"
-      you_need_to_fill_payout_details_before_accepting: "თქვენ უნდა შეავსოთ გადახდის დეტალები, მანამდე, სანამ თქვენ გექნებათ უფლება რომ მოითხოვოთ ან მიიღოთ გადახდები. შედით %{payment_settings_link}-ზე რომ შეავსოთ ყველა დეტალი."
-      payment_settings_link: "გადახდის პარამეტრები"
-      minimum_price_error_message: "ფასი ვერ იქნება %{amount}ზე დაბალი"
       accept: დადასტურება
       decline: უარყოფა
       quantity_label: რაოდენობა
@@ -646,7 +630,6 @@ ka:
       last_message_at: "(ბოლო წერილი %{time})"
       price: "ფასი: %{price}"
       sum: "ჯამი: %{sum}"
-      price_excludes_vat: "(არ შეიცავს დღგ-ს)"
       total: "ჯამი: %{total}"
     status:
       payment_errored: "გადახდა ვერ მოხერხდა. გთხოვთ ცადოთ კიდევ ერთხელ."
@@ -705,54 +688,11 @@ ka:
       reject_preauthorized_request: "ახლა არა"
       confirm: "მონიშნე დასრულებულად"
       cancel: დავა
-  braintree_accounts:
-    new:
-      add_payout_details: "დაამატეთ თქვენი გადახდის დეტალები"
-      first_name: სახელი
-      last_name: გვარი
-      email: "ელ. ფოსტა"
-      phone: "ტელეფონის ნომერი"
-      address_street_address: ქუჩა
-      address_postal_code: "საფოსტო ინდექსი"
-      address_locality: ქალაქი
-      address_region: შტატი
-      date_of_birth: "დაბადების თარიღი"
-      ssn: SSN
-      routing_number: "მარშრუტიზაციის ნომერი"
-      account_number: "ანგარიშის ნომერი"
-      save: დამახსოვრება
-    show:
-      payout_details: "თქვენი გადახდის დეტალები"
-      first_name: სახელი
-      last_name: გვარი
-      email: "ელ. ფოსტა"
-      phone: "ტელეფონის ნომერი"
-      address_street_address: ქუჩა
-      address_postal_code: "საფოსტო ინდექსი"
-      address_locality: ქალაქი
-      address_region: შტატი
-      date_of_birth: "დაბადების თარიღი"
-      ssn: SSN
-      routing_number: "მარშრუტიზაციის ნომერი"
-      account_number: "ანგარიშის ნომერი"
-  braintree_payments:
-    edit:
-      new_credit_card_payment: "ახალი საკრედიტო ბარათით გადახდა"
-      payment_receiver: "გადახდის მიმღები"
-      cardholder_name: "ბარათის მფლობელის სახელი"
-      credit_card_number: "საკრედიტო ბარათის ნომერი"
-      cvv: CVV
-      credit_card_expiration_date: "საკრედიტო ბარათის ვადა"
-      confirm_payment: "დაადასტურე გადახდა"
-      exp: "ვადის გასვლა:"
   feedback:
     feedback_subject: "ახალი სეფასება %{service_name} სგან"
     feedback_body: "%{author_name_and_email} გამოაგზავნა შეფასება %{service_name}-სგან"
     unlogged_user: "სისტემიდან გამოსული მომხმარებელი"
     anonymous_user: "ანონიმური მომხმარებელი"
-  preauthorize_payments:
-    edit:
-      confirm_payment: "დაადასტურე გადახდა"
   community_memberships:
     access_denied:
       access_denied: "წვდომა უარყოფილია"
@@ -787,23 +727,12 @@ ka:
       powered_by: "%{service_name} ფუნქციონირებს %{sharetribe_link}-ის ბაზრის პლატფორმაზე."
       create_own: "გსურთ რომ შექმნათ თქვენი პირადი ბაზრის ონლაინ ვებ გვერდი როგორიცაა %{service_name}-ს? %{learn_more}."
       learn_more: "გაიგე მეტი"
-    braintree_account_approved:
-      account_ready: "თქვენ მზად ხართ გადახდების მისაღებად"
-      message: "თქვენი გადახდის დეტალები დადასტურდა და ეხლა თქვენ მზად ხართ რომ მიიღოთ გადახდები %{service_name}-ში."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "თქვენ ჯერ არც დაგიდასტურებიათ და არც უარი გითხვამთ შეკვეთაზე %{request_link}. თუ შეკვეთა დასრულებულია უნდა დაადასტუროთ. მხოლოდ ამის შემდეგ თქვენ შეგეძლებათ შეფასების მიცემა %{other_party_given_name}-ზე."
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "თქვენ ჯერ არც დაგიდასტურებიათ და არც უარი გითქვამთ მოთხოვნაზე %{request_link}. ჩვენ გადავრიცხავთ თანხას %{other_party_given_name} მხოლოდ მაშინ, როცა ა) მონისნავ მოთხოვნას დასრულებულად ან ბ) %{days_to_automatic_confirmation} დღე გავა გადახდიდან. მოთხოვნის შესრულებულად მონიშვნის შემდეგ შეგეძლებათ მისთეთ შეფასება %{other_party_given_name}-ს."
       remember_to_confirm_request: "გახსოვდეთ, რომ დაადასტუროთ ან უარყოთ მოთხოვნა"
       if_will_not_happen_you_should_cancel: "თუ თვლით, რომ ეს შეკვეთა არ დასრულდება ერთი ან რამოდენიმე მიზეზის გამო, თქვენ შეგიძლიათ %{cancel_it_link}."
-      if_will_not_happen_you_should_cancel_escrow: "თუ თვლით, რომ ეს შეკვეთა არ დასრულდება ერთი ან რამოდენიმე მიზეზის გამო, თქვენ შეგიძლიათ %{cancel_it_link}. ინფორმაცია ამის შესახებ მიუვა ადმინისტრატორს, რომელიც დაგიკავშირდებათ თანხის უკან დაბრუნების შესახებ."
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "თუ თვლით რომ შეკვეთა არ შესრულდება ერთი ან რამოდენიმე მიზეზის გამო, თქვენ შეგიძლიათ %{days_to_cancel} დღეში %{cancel_it_link}. ამის შესახებ ინფორმაცია მიუვა ადმინისტრატორს, რომელიც დაგეკონტაქტებათ თქვენ თანხის უკან დაბრუნების შესახებ."
       cancel_it_link_text: გააუქმე
       automatic_confirmation: "თუ თქვენ არ დაადასტურებთ ან გააუქმებთ შეკვეთას %{days_to_automatic_confirmation}-ს მოთხოვნის დადასტურებიდან რამოდენიმე დღის განმავლობაში, ჩვენ ამას მოვნიშნავთ როგორც დასრულებულად."
-    payment_reminder:
-      remember_to_pay: "გახსოვდეთ რომ გადაიხადო %{listing_title}სთვის"
-      you_have_not_yet_paid: "თქვენ ჯერ არ გადაგიხდიათ %{listing_title}-ს. %{other_party_name}-მ დატანხმდა რომ შემოგთავაზოთ თქვენ. "
-      if_will_not_happen_you_should_cancel: "თუ თვლით, რომ ეს შეკვეთა არ დასრულდება ერთი ან რამოდენიმე მიზეზის გამო, თქვენ შეგიძლიათ ასევე %{cancel_it_link}."
-      cancel_it_link_text: გააუქმე
     payment_settings_reminder:
       remember_to_add_payment_details: "არ დაგავიწყდეთ გადახდის დეტალების დამატება, რომ მიიღოთ გადახდები; "
       you_have_added_listing_with_payment: "თქვენ დაამატეთ ჩამონათვალი %{listing_link} გადახდით. მაგრამ თქვენ ჯერ არ დაგიმატებიათ გადახდის დეტალები. გადახდის მიღებისთვის აუცილებელია რომ შეავსოთ ეს ინფორმაცია."
@@ -829,11 +758,6 @@ ka:
           შეფასების მიცემა ყოველთვის კარგი იდეაა. თუ ყველაფერმა კარგად ჩაიარა შენ უნდა შეგვატყობინო, რომ %{other_party_given_name}-ს ნდობა შეიძლება. თუ რაიმე პრობლემა იყო, კარგი იქნებოდა მათი აღნიშვნაც.
       give_feedback_to: "მიეცით შეფასება %{other_party_given_name}ს"
       show_thread: "მანახე მიმოწერა"
-    escrow_canceled:
-      subject: "გადახდა გაუქმებულია"
-      has_marked_request_as_canceled: "%{other_party_full_name} მონიშნა მოთხოვნა %{request}-ს შესახებ გაუქმებულად. ამ ტრანზაქციიდან თქვენ ვერ მიიღებთ თანხას."
-      if_this_was_error: "თუ ფიქრობთ რომ ეს იყო შეცდომა, %{please_contant_admin_link}"
-      please_contant_admin_link: "გთხოვთ დაუკავშირდით ადმინისტრატორს"
     confirmation_instructions:
       confirmation_instructions_signature: "საუკეთესო სურვილებით, %{service_name} გუნდი"
       need_to_confirm: "თქვენ უნდა დაადასტუროთ ელ. ფოსტა. "
@@ -891,7 +815,6 @@ ka:
       price_payer_paid: "ფასი %{payer_full_name} გადახდილია:"
       service_fee: "%{service_name} სერვისის ღირებულება"
       you_will_get: "ჯამი:"
-      money_will_be_transferred: "ფული გადმორიცხული იქნება შენ ანგარიშზე როცა ა) %{payer_name} მონისნავს შეკვეთას დასრულებულად ან ბ) %{automatic_confirmation_days} დღეები გავა %{payer_name}-ს გადახდიდან."
     receipt_to_payer:
       receipt_of_payment: "გადახდის დამადასტურებელი ქვითარი"
       you_have_made_new_payment: "თქვენ გადაიხადეთ <b>%{payment_sum}</b> %{listing_title}</b> სთვის %{recipient_full_name}-ს. აქ არის გადახდის ქვითარი."
@@ -1374,7 +1297,6 @@ ka:
       you_must_log_in_to_view_your_settings: "თქვენ უნდა შეხვიდეთ %{service_name}ში რომ ნახოთ პარამეტრები"
       you_must_log_in_to_add_news_item: "თქვენ უნდა შეხვიდეთ %{service_name}ში რათა დაამატოთ ახალი სტატია."
       you_must_log_in_to_change_profile_settings: "თქვენ უნდა შეხვიდეთ %{service_name}ში რომ შეცვალოთ პროფილის პარამეტრები"
-      you_must_log_in_to_change_payment_settings: "თქვენ უნდა შეხვიდეთ %{service_name}ში, რომ შეცვალოთ გადახდის პარამეტრები"
       you_must_log_in_to_accept_or_reject: "თქვენ უნდა შეხვიდეთ სისტემაში რომ დაადასტუროთ ან უარყოთ ტრანზაქცია"
       you_must_log_in_to_confirm_or_cancel: "თქვენ უნდა შეხვიდეთ სისტემაში რომ გააუქმოთ ან დაადასტუროთ ტრანზაქცია"
       you_need_to_confirm_your_account_first: "თქვენ უნდა დაადასტუროთ ელ. ფოსტა. "
@@ -1384,8 +1306,6 @@ ka:
       can_not_delete_email: "თქვენ არ შეგიძლიათ ელ. ფოსტის წაშლა"
       user_does_not_have_email_to_delete: "თქვენ არ გაქვთ ის ელ. ფოსტა, რომლის წაშლავც გსურთ. "
       email_deleted: "ელ. ფოსტა წაშლილია"
-      payment_details_add_successful: "წარმატებით დაემატა გადახდის დეტალები"
-      payment_details_add_error: "ვერ დაემატა გადახდის დეტალები"
       listing_author_payment_details_missing: "გთხოვთ დაუკავშირდით ავტორს, \"კონტაქტი\"-ს ღილაკზე ხელის დაჭერით. მათ უნდა განაახლონ თავისი გადახდის დეტალები რომ მიიღონ გადახდა."
       images_are_processing: ~
       maintenance_mode:
@@ -1492,8 +1412,6 @@ ka:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} დაიქვითება ფასიდან."
         after_service_fee_you_will_get_paypal_text: "%{service_name} საფასური %{sum_with_currency} და %{paypal_fee_info_link} გამოიქვითება ფასიდან."
         paypal_fee_info_link_text: "PayPal-ით გადახდის საფასური"
-        after_service_fee_you_will_get_vat: "%{service_name}-ს და გადახდის საფასურის შემდეგ თქვენ მიიღებთ დაახლოებით %{sum_with_currency} (დღგ 0%)"
-        price_excludes_vat: "ფასი არ შეიცავს დღგ-ს"
         delivery: "მიტანის მეთოდი"
         shipping: "ტრანსპორტირება:"
         shipping_price: "ტრანსპორტირების გადასახადი"
@@ -1632,7 +1550,6 @@ ka:
       times: დრო
       times_viewed: ნანახი
       processing_uploaded_image: "(სურათის ატვირთვა პროგრესშია)"
-      price_excludes_vat: "(დღგ-ს გარეშე)"
       listing_created_at: "ჩამონათვალი შექმნილია"
       price:
         per_quantity_unit: "ყოველ %{quantity_unit}"
@@ -1691,26 +1608,6 @@ ka:
   okl:
     member_id: "წევრის ID"
     member_id_or_email: "წევრის ID ან ელ. ფოსტა"
-  payments:
-    new:
-      new_payment: "ახალი გადახდა"
-      continue: გაგრძელება
-      payment_receiver: "გადახდის მიმღები"
-      sum: "გადახდის ჯამი:"
-    form:
-      total: ჯამი
-      service_charge: "სერვისის გადასახადი"
-      product: "პროდუქტი:"
-      price: "ჯამი:"
-      price_for: "ფასი %{payer_given_name}სთვის"
-      continue_to_pay: "გააგრძელე გადახდა"
-      invoice: ინვოისი
-      service_fee: "%{service_name} სერვისის ღირებულება"
-      you_will_get: "თქვენ მიიღებთ:"
-    braintree:
-      terms:
-        braintree_terms_also_included: "შენიშვნა: Braintree არის გადახდის პროვაიდერი სერვისი და ამ ვებ გვერდის გამოყენებით თქვენ ასევე ეთანხმებით %{terms_link_text}ს, ქვემოთ აღნიშნულ პირობებთან ერთად."
-        terms_link_text: "Braintree მოხმარების პირობები"
   paypal_accounts:
     payout_info_title: "თანხის მიღება"
     paypal_account_email_connected: "<del> PayPal-ის ანგარიშის მიბმა </del> წარმატებით დასრულდა!"
@@ -1946,7 +1843,6 @@ ka:
       i_want_to_get_email_notification_when: "მე მინდა მივიღო ელ. ფოსტაზე შეტყობინებები როცა..."
       newsletters: "ელ. ფოსტა ადმინისტრატორისგან"
       community_updates: სიახლეები
-      email_about_accept_reminders: "... დამავიწყდა შეთავაზების ან მოთხოვნის დადასტურება"
       email_about_confirm_reminders: "... დამავიწყდა მომენიშნა შეკვეთა დასრულებულად"
       email_about_new_comments_to_own_listing: "... ვიღაცამ დააკომენტარა შენს შეთავაზებაზე ან მოთხოვნაზე"
       email_about_new_messages: "... ვიღაცამ მესიჯი გამომიგზავნა"
@@ -1959,7 +1855,6 @@ ka:
       email_when_conversation_rejected: "...ვიღაცამ უარყო ჩემი შეთავაზება ან მოთხოვნა"
       email_about_completed_transactions: "... ვიღაცამ მონიშნა ჩემი შეკვეთა დასრულებულად"
       email_about_new_payments: "... მე მივიღე ახალი გადახდა"
-      email_about_payment_reminders: "... მე დამავიწყდა გადახდა"
       email_about_new_listings_by_followed_people: "... ვიღაც, ვისაც მივყვები დაპოსტა ახალი ჩამონათვალი"
       unsubscribe_succesful: "გამოწერა წარმატებით გაუქმდა"
       unsubscribe_info_text: "თქვენ აღარ მიიღებთ ამ წერილს ელ. ფოსტაზე. შეამოწმე თქვენი %{settings_link} რათა აირჩიოთ რა სახის წერილები გინდა რო მიიღოთ %{service_name}-დან, ან დაბრუნდით %{homepage_link}-ზე"

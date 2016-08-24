@@ -167,7 +167,6 @@ vi:
       settings:
         settings: ~
         general: ~
-        users_can_review_each_other_after_transaction: ~
         access: ~
         join_with_invite_only: ~
         users_can_invite_new_users: ~
@@ -194,7 +193,6 @@ vi:
         google_analytics_key: ~
         twitter_handle: ~
         update_settings: ~
-        automatically_confirmed: ~
         automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
@@ -291,15 +289,6 @@ vi:
           initiated: ~
           pending_ext: ~
         not_available: ~
-      braintree_payment_gateway:
-        braintree_payment_gateway: ~
-        environment: ~
-        private_key: ~
-        public_key: ~
-        client_side_encryption_key: ~
-        merchant_id: ~
-        master_merchant_id: ~
-        commission_from_seller: ~
       paypal_account:
         paypal_admin_account: ~
     custom_fields:
@@ -535,8 +524,6 @@ vi:
     accept:
       details: ~
       order_by: ~
-      respond_to_offer: "Trả lời"
-      respond_to_request: "Trả lời"
       accept_offer: "Chấp nhận đề nghị"
       accept_request: "Chấp nhận yêu cầu"
       reject_offer: "Để lần sau vậy."
@@ -545,9 +532,6 @@ vi:
       update_later: "Khoan đóng tin"
       optional_message: "Thông điệp"
       price_to_pay: "Giá tổng cộng"
-      you_need_to_fill_payout_details_before_accepting: "Bạn cần điền thông tin tài khoản trước khi bắt đầu giao dịch. Bấm vào %{payment_settings_link} để bổ sung thông tin chi trả."
-      payment_settings_link: "Thiết lập thông tin thanh toán"
-      minimum_price_error_message: ~
       accept: ~
       decline: ~
       quantity_label: ~
@@ -628,7 +612,6 @@ vi:
       last_message_at: "(tin nhắn mới nhất %{time})"
       price: ~
       sum: ~
-      price_excludes_vat: ~
       total: ~
     status:
       payment_errored: ~
@@ -687,54 +670,11 @@ vi:
       reject_preauthorized_request: ~
       confirm: "Đánh dấu hoàn tất"
       cancel: ~
-  braintree_accounts:
-    new:
-      add_payout_details: "Thêm thông tin thanh toán"
-      first_name: Tên
-      last_name: Họ
-      email: "Địa chỉ email"
-      phone: "Số điện thoại"
-      address_street_address: "Địa chỉ"
-      address_postal_code: "Mã bưu chính"
-      address_locality: "Thành phố"
-      address_region: Bang
-      date_of_birth: "Ngày sinh"
-      ssn: SSN
-      routing_number: ~
-      account_number: ~
-      save: Lưu
-    show:
-      payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: "Số điện thoại"
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
-      ssn: ~
-      routing_number: ~
-      account_number: ~
-  braintree_payments:
-    edit:
-      new_credit_card_payment: ~
-      payment_receiver: ~
-      cardholder_name: ~
-      credit_card_number: "Mã số thẻ tín dụng"
-      cvv: ~
-      credit_card_expiration_date: ~
-      confirm_payment: ~
-      exp: ~
   feedback:
     feedback_subject: ~
     feedback_body: ~
     unlogged_user: ~
     anonymous_user: ~
-  preauthorize_payments:
-    edit:
-      confirm_payment: ~
   community_memberships:
     access_denied:
       access_denied: ~
@@ -769,23 +709,12 @@ vi:
       powered_by: ~
       create_own: ~
       learn_more: ~
-    braintree_account_approved:
-      account_ready: ~
-      message: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
       remember_to_confirm_request: "Hãy nhớ xác nhận hoặc hủy bỏ yêu cầu"
       if_will_not_happen_you_should_cancel: ~
-      if_will_not_happen_you_should_cancel_escrow: ~
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
       cancel_it_link_text: "Hủy bỏ"
       automatic_confirmation: ~
-    payment_reminder:
-      remember_to_pay: "Hãy nhớ thanh toán tiền cho %{listing_title}"
-      you_have_not_yet_paid: "Bạn chưa thanh toán tiền cho %{listing_title} mà %{other_party_name} đã chấp nhận."
-      if_will_not_happen_you_should_cancel: ~
-      cancel_it_link_text: "Hủy bỏ"
     payment_settings_reminder:
       remember_to_add_payment_details: "Hãy nhớ điền hoàn chỉnh thông tin chi trả của bạn để nhận được thanh toán từ khách hàng."
       you_have_added_listing_with_payment: "Bạn vừa đăng một tin rao vặt %{listing_link} kèm theo lựa chọn chia trả trược tuyến. Tuy nhiên, thông tin chi trả trong tài khoản của không đầy đủ, bạn vui lòng điền đầy đủ thông tin để nhận được chi trả từ khách hàng."
@@ -809,11 +738,6 @@ vi:
       giving_feedback_is_good_idea: ~
       give_feedback_to: ~
       show_thread: ~
-    escrow_canceled:
-      subject: ~
-      has_marked_request_as_canceled: ~
-      if_this_was_error: ~
-      please_contant_admin_link: ~
     confirmation_instructions:
       confirmation_instructions_signature: "Kính thư,<br> nhóm %{service_name}"
       need_to_confirm: "Bạn cần phải xác nhận địa chỉ email của bạn bằng cách nhấp vào liên kết sau:"
@@ -871,7 +795,6 @@ vi:
       price_payer_paid: ~
       service_fee: ~
       you_will_get: ~
-      money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: "Biên nhận"
       you_have_made_new_payment: "Bạn đã thanh toán %{payment_sum} cho %{recipient_full_name} cho sản phẩm %{listing_title}. Đây là biên nhận."
@@ -1354,7 +1277,6 @@ vi:
       you_must_log_in_to_view_your_settings: "Bạn phải đăng nhập vào %{service_name} để xem được các thiết lập của bạn."
       you_must_log_in_to_add_news_item: "Bạn phải đăng nhập vào %{service_name} mới thêm được bài viết mới."
       you_must_log_in_to_change_profile_settings: ~
-      you_must_log_in_to_change_payment_settings: ~
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Bạn cần phải xác nhận email của bạn lần trước tiên."
@@ -1364,8 +1286,6 @@ vi:
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: "Địa chỉ mail mà bạn đang xóa không tồn tại."
       email_deleted: "Email đã được xóa."
-      payment_details_add_successful: ~
-      payment_details_add_error: ~
       listing_author_payment_details_missing: ~
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
@@ -1469,8 +1389,6 @@ vi:
         no_service_fee_you_will_get_paypal_text: ~
         after_service_fee_you_will_get_paypal_text: ~
         paypal_fee_info_link_text: ~
-        after_service_fee_you_will_get_vat: ~
-        price_excludes_vat: "Giá không bao gồm thuế Giá trị gia tăng."
         delivery: ~
         shipping: ~
         shipping_price: ~
@@ -1609,7 +1527,6 @@ vi:
       times: lần
       times_viewed: "đã xem"
       processing_uploaded_image: "(Đang xử lý hình ảnh tải lên...)"
-      price_excludes_vat: "(trước thuế Giá trị gia tăng)"
       listing_created_at: ~
       price:
         per_quantity_unit: ~
@@ -1668,26 +1585,6 @@ vi:
   okl:
     member_id: "ID thành viên"
     member_id_or_email: "Định danh hoặc email của thành viên"
-  payments:
-    new:
-      new_payment: "Chi trả mới"
-      continue: "Tiếp tục"
-      payment_receiver: "Người nhận tiền :"
-      sum: "Số tiền phải trả :"
-    form:
-      total: Tổng
-      service_charge: "Phí dịch vụ"
-      product: "Sản phẩm"
-      price: "Tổng cộng:"
-      price_for: ~
-      continue_to_pay: "Tiếp tục quá trình thanh toán"
-      invoice: ~
-      service_fee: ~
-      you_will_get: ~
-    braintree:
-      terms:
-        braintree_terms_also_included: ~
-        terms_link_text: ~
   paypal_accounts:
     payout_info_title: ~
     paypal_account_email_connected: ~
@@ -1921,7 +1818,6 @@ vi:
       i_want_to_get_email_notification_when: "Tôi muốn nhận email thông báo khi..."
       newsletters: "Bản in các hoạt động"
       community_updates: "Các cập nhật cộng đồng"
-      email_about_accept_reminders: "...tôi đã quên để chấp nhận một sự kiện"
       email_about_confirm_reminders: ~
       email_about_new_comments_to_own_listing: ".. .người nào đó bình luận về sự hỗ trợ hoặc yêu cầu của tôi"
       email_about_new_messages: ".. .người nào đó gửi cho tôi một tin nhắn"
@@ -1934,7 +1830,6 @@ vi:
       email_when_conversation_rejected: ".. .người nào đó từ chối sự hỗ trợ hoặc yêu cầu của tôi"
       email_about_completed_transactions: ~
       email_about_new_payments: "...Một khách hàng vừa chi trả cho tôi"
-      email_about_payment_reminders: "...Tôi đã quên thanh toán tiền"
       email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: "Hủy đăng ký thành công."
       unsubscribe_info_text: "Bạn sẽ không tiếp tục nhận được những thư điện tử này. Kiểm tra %{settings_link} để chọn chủ đề thư điện tử bạn muốn nhận từ %{service_name}, hoặc trờ về %{homepage_link}."

@@ -182,7 +182,6 @@ sv:
       settings:
         settings: Inställningar
         general: Allmänt
-        users_can_review_each_other_after_transaction: "Användare kan recensera varandra efter transaktion"
         access: Åtkomst
         join_with_invite_only: "Användare kan bara gå med denna marknadsplats med en inbjudan från en annan användare"
         users_can_invite_new_users: "Alla användare kan bjuda in nya användare till denna marknadsplats"
@@ -209,7 +208,6 @@ sv:
         google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Twitter handtag (används med twitterknappen på annonssidan)"
         update_settings: "Spara inställningar"
-        automatically_confirmed: "Transaktionen kommer automatiskt att markeras som klar %{days_dropdown} dagar efter att betalningen har gjorts. Om deponeringssystemet är i bruk så kommer pengarna att släppas till leverantören."
         automatically_confirmed_no_escrow: "Transaktionen kommer automatiskt att markeras som klar %{days_dropdown} dagar efter att betalningen gjorts"
         automatic_newsletter_frequency: "Skicka automatiskt nyhetsbrev: %{frequency_dropdown}"
         newsletter_daily: Dagligen
@@ -306,15 +304,6 @@ sv:
           initiated: "Väntar på PayPal betalning"
           pending_ext: "Väntar på PayPal betalning"
         not_available: "Inte tillgänglig"
-      braintree_payment_gateway:
-        braintree_payment_gateway: "Braintree Payment API nycklar"
-        environment: Miljö
-        private_key: "Privat nyckel"
-        public_key: "Publik nyckel"
-        client_side_encryption_key: "Client-Side Encryption (CSE) Key"
-        merchant_id: "Handels ID"
-        master_merchant_id: "Master handels ID"
-        commission_from_seller: "Provision i % från säljaren"
       paypal_account:
         paypal_admin_account: Betalningar
     custom_fields:
@@ -566,8 +555,6 @@ sv:
     accept:
       details: Orderinformation
       order_by: "Order av %{orderer_link}"
-      respond_to_offer: "Svara på ett erbjudande"
-      respond_to_request: "Svara på en förfrågan"
       accept_offer: "Acceptera erbjudande"
       accept_request: "Acceptera förfrågan"
       reject_offer: "Inte den här gången"
@@ -576,9 +563,6 @@ sv:
       update_later: "Lämna annonsen öppen"
       optional_message: "Valfritt meddelande"
       price_to_pay: "Totalt pris att betala"
-      you_need_to_fill_payout_details_before_accepting: "Du måste fylla i utbetalningsdetaljerna innan du kan acceptera förfrågan och ta emot betalning. Gå till %{payment_settings_link} för att fylla i detaljerna."
-      payment_settings_link: betalningsinställningar
-      minimum_price_error_message: "Priset kan inte bli lägre än %{amount}."
       accept: Acceptera
       decline: Avböj
       quantity_label: "Antal:"
@@ -659,7 +643,6 @@ sv:
       last_message_at: "(senaste meddelande %{time})"
       price: "Pris: %{price}"
       sum: "Totalt: %{sum}"
-      price_excludes_vat: "(utan moms)"
       total: "Totalt: %{total}"
     status:
       payment_errored: "Betalning misslyckades. Vänligen försök igen."
@@ -718,54 +701,11 @@ sv:
       reject_preauthorized_request: "Inte den här gången"
       confirm: "Markera klar"
       cancel: Avbryt
-  braintree_accounts:
-    new:
-      add_payout_details: "Lägg till betalningsdetaljer"
-      first_name: Förnamn
-      last_name: Efternamn
-      email: E-postadress
-      phone: Telefonnummer
-      address_street_address: Gatuadress
-      address_postal_code: Postnummer
-      address_locality: Stad
-      address_region: Län
-      date_of_birth: Födelsedatum
-      ssn: SSN
-      routing_number: Clearingnummer
-      account_number: Kontonummer
-      save: Spara
-    show:
-      payout_details: "Dina betalningsdetaljer"
-      first_name: Förnamn
-      last_name: Efternamn
-      email: E-postadress
-      phone: Telefonnummer
-      address_street_address: Gatuadress
-      address_postal_code: Postnummer
-      address_locality: Stad
-      address_region: Län
-      date_of_birth: Födelsedatum
-      ssn: SSN
-      routing_number: Clearingnummer
-      account_number: Kontonummer
-  braintree_payments:
-    edit:
-      new_credit_card_payment: "Ny kreditkortsbetalning"
-      payment_receiver: Betalningsmottagare
-      cardholder_name: "Kortinnehavarens namn"
-      credit_card_number: Kreditkortsnummer
-      cvv: Säkerhetskod
-      credit_card_expiration_date: "Kreditkortets utgångsdatum"
-      confirm_payment: "Bekräfta betalning"
-      exp: "Exp:"
   feedback:
     feedback_subject: "Ny feedback från %{service_name}"
     feedback_body: "%{author_name_and_email} har skickat följande feedback från %{service_name}"
     unlogged_user: "Ej inloggad användare"
     anonymous_user: "Anonym användare"
-  preauthorize_payments:
-    edit:
-      confirm_payment: "Bekräfta betalning"
   community_memberships:
     access_denied:
       access_denied: "Åtkomst nekad"
@@ -800,23 +740,12 @@ sv:
       powered_by: ~
       create_own: ~
       learn_more: ~
-    braintree_account_approved:
-      account_ready: "Du är redo för att ta emot betalningar"
-      message: "Din betalningsinformation har blivit godkänd och du är nu redo att ta emot betalningar på %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Du har inte än bekräftat eller avbrutit förfrågan %{request_link}. Om förfrågan är klar så måste du bekräfta det. Efter det så kan du lämna feedback till %{other_party_given_name}."
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Du har ännu inte bekräftat eller avbrutit förfrågan %{request_link}. Vi kommer att skicka pengarna till %{other_party_given_name} när a) du har markerat förfrågan som klar eller b) %{days_to_automatic_confirmation} dagar har passerat sen du betalde. Efter du har markerat förfrågan som klar så kan du ge feedback till %{other_party_given_name}."
       remember_to_confirm_request: "Kom ihåg att godkänna eller avbryta din förfrågan"
       if_will_not_happen_you_should_cancel: "Om du tror att förfrågan inte skulle bli klar för någon anledning så kan du %{cancel_it_link}."
-      if_will_not_happen_you_should_cancel_escrow: "Om du tror att förfrågan inte skulle bli klar för någon anledning så kan du %{cancel_it_link}. Detta kommer att meddela administratören som sen kommer att kontakta dig för återbetalning."
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "Om du tror att förfrågan inte skulle bli klar för någon anledning. Du har %{days_to_cancel} för att %{cancel_it_link}. Detta kommer att meddela administratören som sen kommer att kontakta dig för återbetalning."
       cancel_it_link_text: "avbryt den"
       automatic_confirmation: "Om du inte accepterar eller avbryter förfrågan inom %{days_to_automatic_confirmation} dagar efter förfrågan var accepterad så kommer den automatiskt markeras som klar."
-    payment_reminder:
-      remember_to_pay: "Kom ihåg att betala för %{listing_title}"
-      you_have_not_yet_paid: "Du har ännu inte betalat för %{listing_title} som %{other_party_name} har accepterat att erbjuda dig."
-      if_will_not_happen_you_should_cancel: "Om du tror att förfrågan inte skulle bli klar för någon anledning så kan du %{cancel_it_link}."
-      cancel_it_link_text: "avbryt den"
     payment_settings_reminder:
       remember_to_add_payment_details: "Kom ihåg att ange betalningsdetaljer för att få betalt."
       you_have_added_listing_with_payment: "Du har skapat annons %{listing_link} med betalning. Men du har inte angett dina betalningsdetaljer. För att du ska kunna få betalt så måste du lägga till betalningsinformationen."
@@ -840,11 +769,6 @@ sv:
       giving_feedback_is_good_idea: "Du kan nu ge feedback till %{other_party_given_name}. Att ge feedback är alltid en bra idé. Om något gick bra så borde du låta andra få veta att %{other_party_given_name} är trovärdig. Om det blev något problem så är det bra att nämna det också."
       give_feedback_to: "Ge feedback till %{other_party_given_name}"
       show_thread: "Visa konversation"
-    escrow_canceled:
-      subject: "Betalning avbruten"
-      has_marked_request_as_canceled: "%{other_party_full_name} har markerat förfrågan om %{request} avbruten. Du kommer inte att få några pengar från denna transaktion."
-      if_this_was_error: "Om du tror att ett fel uppstod, %{please_contant_admin_link}"
-      please_contant_admin_link: "vänligen kontakta administratören"
     confirmation_instructions:
       confirmation_instructions_signature: "Vänliga hälsningar,<br/>%{service_name} teamet"
       need_to_confirm: "Du behöver bekräfta din e-postadress."
@@ -902,7 +826,6 @@ sv:
       price_payer_paid: "Pris %{payer_full_name} betalt:"
       service_fee: "%{service_name} serviceavgift:"
       you_will_get: "Totalt:"
-      money_will_be_transferred: "Pengarna kommer att överföras till ditt konto när a) %{payer_name} har markerat förfrågan som klar eller b) %{automatic_confirmation_days} dagar har passerat sedan %{payer_name} betalat."
     receipt_to_payer:
       receipt_of_payment: "Kvitto för betalning"
       you_have_made_new_payment: "Du har betalat <b>%{payment_sum}</b> för <b>%{listing_title}</b> till %{recipient_full_name}. Här är ett kvitto av betalningen."
@@ -1387,7 +1310,6 @@ sv:
       you_must_log_in_to_view_your_settings: "Du måste logga in på %{service_name} för att visa dina inställningar."
       you_must_log_in_to_add_news_item: "Du måste logga in på %{service_name} för att lägga till en ny annons."
       you_must_log_in_to_change_profile_settings: "Du måste logga in på %{service_name} för att göra profilinställningar"
-      you_must_log_in_to_change_payment_settings: "Du måste logga in på %{service_name} för att ändra betalningsinställningarna"
       you_must_log_in_to_accept_or_reject: "Du måste logga in för att acceptera eller avböja transaktionen"
       you_must_log_in_to_confirm_or_cancel: "Du måste logga in för att avbryta eller acceptera transaktionen"
       you_need_to_confirm_your_account_first: "Du behöver bekräfta din e-postadress."
@@ -1397,8 +1319,6 @@ sv:
       can_not_delete_email: "Du kan inte ta bort e-postadressen"
       user_does_not_have_email_to_delete: "Du har inte e-postadressen som du försöker ta bort"
       email_deleted: "E-post borttaget"
-      payment_details_add_successful: "Betalningsinformation tillagd"
-      payment_details_add_error: "Det gick inte att lägga till betalningsdetaljer"
       listing_author_payment_details_missing: "Vänligen kontakta ägaren genom att klicka på \"Kontakt\" nedan. De måste uppdatera sina betalningsdetaljer för att kunna ta emot betalning."
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
@@ -1502,8 +1422,6 @@ sv:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} kommer att dras av från priset."
         after_service_fee_you_will_get_paypal_text: "%{service_name}s avgift %{sum_with_currency} och %{paypal_fee_info_link} kommer att dras av från priset."
         paypal_fee_info_link_text: "PayPal's betalningshanteringsavgift"
-        after_service_fee_you_will_get_vat: "Efter %{service_name} och betalningsavgifter kommer du att få ca. %{sum_with_currency} (moms 0%)"
-        price_excludes_vat: "Priset inkluderar inte moms."
         delivery: Leveransmetod
         shipping: Frakt
         shipping_price: Fraktkostnad
@@ -1642,7 +1560,6 @@ sv:
       times: tider
       times_viewed: Visat
       processing_uploaded_image: "(Behandlar uppladdad bild...)"
-      price_excludes_vat: "(utan moms)"
       listing_created_at: "Annons skapad"
       price:
         per_quantity_unit: "per %{quantity_unit}"
@@ -1701,26 +1618,6 @@ sv:
   okl:
     member_id: Medlems-ID
     member_id_or_email: "Medlems-ID eller e-post"
-  payments:
-    new:
-      new_payment: "Ny betalning"
-      continue: Fortsätt
-      payment_receiver: "Betalningsmottagare:"
-      sum: "Betalningssumma:"
-    form:
-      total: Totalt
-      service_charge: Serviceavgift
-      product: "Produkt:"
-      price: "Summa:"
-      price_for: "Pris för %{payer_given_name}"
-      continue_to_pay: "Fortsätt till betalning"
-      invoice: Faktura
-      service_fee: "%{service_name} serviceavgift:"
-      you_will_get: "Du kommer att få:"
-    braintree:
-      terms:
-        braintree_terms_also_included: "NOTERA: Braintree används som betalningslösning. Genom att använda denna sida så accepterar du också %{terms_link_text}, utöver villkoren nedan."
-        terms_link_text: "Braintree användarvillkor"
   paypal_accounts:
     payout_info_title: Utbetalningsinformation
     paypal_account_email_connected: "<del>1. Anslut PayPal konto</del> Klart!"
@@ -1957,7 +1854,6 @@ sv:
       i_want_to_get_email_notification_when: "Jag vill få e-post aviseringar när..."
       newsletters: Nyhetsbrev
       community_updates: "E-post om uppdateringar"
-      email_about_accept_reminders: "...jag har glömt att acceptera ett erbjudande eller efterfrågan"
       email_about_confirm_reminders: "...jag har glömt att bekräfta en förfrågan som avslutad"
       email_about_new_comments_to_own_listing: "...någon har kommenterat mitt erbjudande eller efterfrågan"
       email_about_new_messages: "...någon skickar mig ett meddelande"
@@ -1970,7 +1866,6 @@ sv:
       email_when_conversation_rejected: "...någon avböjer mitt erbjudande eller min efterfrågan"
       email_about_completed_transactions: "...när någon markerat mitt erbjudande som klar"
       email_about_new_payments: "...jag har fått en ny betalning"
-      email_about_payment_reminders: "...jag har glömt att betala"
       email_about_new_listings_by_followed_people: "...någon jag följer har skapat en annons"
       unsubscribe_succesful: "Avprenumeration lyckades"
       unsubscribe_info_text: "Du kommer inte längre att få dessa e-post. Kontrollera dina %{settings_link} för att välja vilka e-postmeddelanden du vill ha från %{service_name} eller gå tillbaka till %{homepage_link}."

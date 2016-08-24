@@ -183,7 +183,6 @@ hu:
       settings:
         settings: Beállítások
         general: Általános
-        users_can_review_each_other_after_transaction: "A felhasználók értékelhetik egymást rendelést követően"
         access: "Hozzáférés beállításai"
         join_with_invite_only: "Új felhasználók csak a régi felhasználók meghívására csatlakozhatnak"
         users_can_invite_new_users: "Engedélyezés az összes felhasználónak új felhasználók meghívására"
@@ -210,7 +209,6 @@ hu:
         google_analytics_key: "Google Analytics követési azonosító"
         twitter_handle: "Twitter név (használata a tweet gombbal a hirdető oldalon)"
         update_settings: "Beállítások mentése"
-        automatically_confirmed: "A rendelés automatikusan teljesítettnek lesz jelölve %{days_dropdown} nappal a kifizetést követően. Letéti rendszer esetén ekkor az összeg felszabadul és kifizetésre kerül az eladónak."
         automatically_confirmed_no_escrow: "A rendelés automatikusan teljesítettnek lesz jelölve %{days_dropdown} nappal a kifizetést követően."
         automatic_newsletter_frequency: "Automatikus hírlevél küldése: %{frequency_dropdown}"
         newsletter_daily: Napi
@@ -307,15 +305,6 @@ hu:
           initiated: "Várjuk PayPal utalását"
           pending_ext: "Várakozás a PayPal-os kifizetésre"
         not_available: "Nem elérhető"
-      braintree_payment_gateway:
-        braintree_payment_gateway: "Braintree fizetési API kód"
-        environment: Környezet
-        private_key: "Személyes kulcs"
-        public_key: "Bárki számára hozzáférhető"
-        client_side_encryption_key: "Kliens oldali titkosítás (CSE) kódja"
-        merchant_id: "Kereskedő azonosító"
-        master_merchant_id: "Mester kereskedelmi azonosító"
-        commission_from_seller: "A jutalék százaléka az eladótól"
       paypal_account:
         paypal_admin_account: Fizetések
     custom_fields:
@@ -561,8 +550,6 @@ hu:
     accept:
       details: "Rendelés részletei"
       order_by: "Rendelés itt %{orderer_link}"
-      respond_to_offer: "Válasz az ajánlatra"
-      respond_to_request: "Válasz a hirdetésre"
       accept_offer: "Ajánlat elfogadás"
       accept_request: "Kérés elfogadása"
       reject_offer: "Nem most"
@@ -571,9 +558,6 @@ hu:
       update_later: "Maradjon a hirdetés aktív"
       optional_message: "Választható üzenet"
       price_to_pay: "Teljes ár fizetendő"
-      you_need_to_fill_payout_details_before_accepting: "Kérjük adja meg fizetési információit. Ezt követően el tudja fogadni az ajánlatokat és a az átutalásokat. Az adatok kitöltéséhez kattintson ide: %{payment_settings_link}."
-      payment_settings_link: "fizetési beállítások"
-      minimum_price_error_message: "Az ár nem lehet alacsonyabb %{amount} összegnél."
       accept: Elfogad
       decline: Visszautasít
       quantity_label: "Mennyiség:"
@@ -654,7 +638,6 @@ hu:
       last_message_at: "( legutolsó üzenet %{time})"
       price: "Ár: %{price}"
       sum: "Összesen: %{sum}"
-      price_excludes_vat: "ÁFA nélküli ár"
       total: "Összes: %{total}"
     status:
       payment_errored: "Sikertelen fizetés. Kérem próbálja újra."
@@ -715,54 +698,11 @@ hu:
       reject_preauthorized_request: "Ezúttal nem"
       confirm: Megjelölve
       cancel: Vitat
-  braintree_accounts:
-    new:
-      add_payout_details: "Kérjük adja meg fizetési információit"
-      first_name: Keresztnév
-      last_name: Vezetéknév
-      email: "E-mail cím"
-      phone: Telefonszám
-      address_street_address: "Cím (utca, házszám)"
-      address_postal_code: Irányítószám
-      address_locality: Város
-      address_region: Állam
-      date_of_birth: "Születési idő"
-      ssn: SSN
-      routing_number: Útvonalszám
-      account_number: Bankszámlaszám
-      save: Mentés
-    show:
-      payout_details: "Az ön fizetési információi"
-      first_name: Keresztnév
-      last_name: Vezetéknév
-      email: "E-mail cím"
-      phone: Telefonszám
-      address_street_address: "Utca neve"
-      address_postal_code: Irányítószám
-      address_locality: Város
-      address_region: Állam
-      date_of_birth: "Születési idő"
-      ssn: SSN
-      routing_number: Útvonalszám
-      account_number: Bankszámlaszám
-  braintree_payments:
-    edit:
-      new_credit_card_payment: "Új bankkártyás fizetés"
-      payment_receiver: "Utalás címzettje:"
-      cardholder_name: "Kártyatulajdonos neve"
-      credit_card_number: "Bankkártya száma"
-      cvv: Önéletrajz
-      credit_card_expiration_date: "Bankkártya érvényességi ideje"
-      confirm_payment: "Fizetés jóváhagyása"
-      exp: "Lejárat:"
   feedback:
     feedback_subject: "Új értékelés %{service_name}tól"
     feedback_body: "%{author_name_and_email} a következő visszajelzést küldte a %{service_name} oldaláról."
     unlogged_user: "Nem regisztrált felhasználó"
     anonymous_user: "Névtelen felhasználó"
-  preauthorize_payments:
-    edit:
-      confirm_payment: "Fizetés jóváhagyása"
   community_memberships:
     access_denied:
       access_denied: "Hozzáférés megtagadva"
@@ -797,25 +737,14 @@ hu:
       powered_by: "A %{service_name} oldalát a %{sharetribe_link} piactér platform támogatja."
       create_own: "Szeretne ön is egy online piacteret mint %{service_name}? Tudjon meg többet itt:%{learn_more}"
       learn_more: Bővebben
-    braintree_account_approved:
-      account_ready: "Ön készen áll fizetések fogadására"
-      message: "Az ön által megadott fizetési információkat elfogadtuk. Az önnek érkező átutalásokat mostantól tudja fogadni a/az %{service_name} oldalán."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: |
           Ön még nem igazolta vissza és nem is törölte a rendelést %{request_link}.
           Amennyiben a rendelés teljesült, azt önnek vissza kell igazolnia. Ezt követően adhat visszajelzést a másik felhasználó %{other_party_given_name} számára.
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Ön még nem erősítette meg és nem is utasította vissza a felkérést %{request_link}. A pénzt átutaljuk %{other_party_given_name} számára amint a) ön jelzi a rendelés teljesítését vagy b) %{days_to_automatic_confirmation} nappal az utalás után. Miután a rendelést teljesítettnek jelölte, lehetősége lesz visszajelzést adni %{other_party_given_name} számára."
       remember_to_confirm_request: "Kérését ne feledje megerősíteni vagy törölni"
       if_will_not_happen_you_should_cancel: "Amennyiben úgy gondolja, hogy különböző okokból ez a rendelés nem fog teljesülni, lehetősege van törölni azt %{cancel_it_link}."
-      if_will_not_happen_you_should_cancel_escrow: "Amennyiben úgy gondolja, hogy ez a rendelés nem lesz teljesítve különböző okokból, itt törölheti: %{cancel_it_link}. Ezáltal a rendszergazda is értesítve lesz és ő fel fogja venni önnel a kapcsolatot a visszafizetés ügyében."
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "Amennyiben úgy gondolja, hogy ez a rendelés nem lesz teljesítve különböző okokból, van még %{days_to_cancel} napja hogy törölje azt %{cancel_it_link}. Egyúttal a rendszergazda is értesítve lesz és ő fel fogja venni önnel a kapcsolatot a visszafizetés ügyében."
       cancel_it_link_text: töröl
       automatic_confirmation: "Amennyiben ön nem erősíti meg és nem is törli a rendelését %{days_to_automatic_confirmation} napon belül miután az ajánlat elfogadásra került, automatikusan teljesültnek fogjuk azt jelölni."
-    payment_reminder:
-      remember_to_pay: "Ne felejtse el kifizetni a következő tételt: %{listing_title}"
-      you_have_not_yet_paid: "Ön még nem fizetett a %{listing_title} hirdetésben szereplő tételért melyenek eladását %{other_party_name} engedélyezte."
-      if_will_not_happen_you_should_cancel: "Amennyiben úgy gondolja, hogy különböző okokból ez a rendelés nem fog teljesülni, lehetősege van törölni azt %{cancel_it_link}."
-      cancel_it_link_text: töröl
     payment_settings_reminder:
       remember_to_add_payment_details: "Ne felejtse megadni fizetési információit, annak érdekében, hogy megkapja az önnek küldött átutalásokat"
       you_have_added_listing_with_payment: "Ön a következő hírdetést adta fel: %{listing_link}, de még nem adott meg fizetési információt. Annak érdekében, hogy meg tudja kapni az önnek szánt átutalásokat kérjük adja meg fizetési információit."
@@ -839,11 +768,6 @@ hu:
       giving_feedback_is_good_idea: "Most írhat egy visszajelzést %{other_party_given_name} számára. Mindig jó ha ad visszajelzést. Ha minden rendben ment, tudathatja másokkal is hogy, %{other_party_given_name} megbízható. Az is hasznos lehet, ha jelzi amennyiben problémája merült fel."
       give_feedback_to: "Adjon értékelést %{other_party_given_name} felhasználóról"
       show_thread: "Mutassa a beszélgetéseket"
-    escrow_canceled:
-      subject: "Fizetés megszakítva"
-      has_marked_request_as_canceled: "%{other_party_full_name} törölte a kérését '%{request}'. Ebből a tranzakcióból ön nem fog kifizetést kapni."
-      if_this_was_error: "Ha ön szerint hiba történt, lépjen kapcsolatba a rendszergazdával %{please_contant_admin_link}"
-      please_contant_admin_link: "Kérjük lépjen kapcsolatba a rendszergazdával"
     confirmation_instructions:
       confirmation_instructions_signature: "Üdvözlettel,<br/>A %{service_name} csapata"
       need_to_confirm: "Aktiválnod kell a fiókodat e-mailben."
@@ -901,7 +825,6 @@ hu:
       price_payer_paid: "Ár %{payer_full_name} fizetve:"
       service_fee: "%{service_name} szolgáltatás díja:"
       you_will_get: "Összesen:"
-      money_will_be_transferred: "Az összeg akkor kerül a számlájára amennyiben a) %{payer_name} jelezte a rendelés teljesítését vagy b) %{automatic_confirmation_days} nap eltelt amióta %{payer_name} fizetett."
     receipt_to_payer:
       receipt_of_payment: "Fizetési nyugta"
       you_have_made_new_payment: "Ön kifizette az <b>%{payment_sum}</b> összeget %{recipient_full_name} hirdetőnek a <b>%{listing_title}</b> hirdetésben szereplő tételért. Itt van róla a bizonylat."
@@ -1386,7 +1309,6 @@ hu:
       you_must_log_in_to_view_your_settings: "Csak bejelentkezés utána láthatja a beállításokat."
       you_must_log_in_to_add_news_item: "Önnek be kell lépnie a %{service_name} oldalára, hogy újabb hirdetést tudjon feladni."
       you_must_log_in_to_change_profile_settings: "Lépjen be a %{service_name} oldalára, hogy profiljának beállításait cserélni tudja."
-      you_must_log_in_to_change_payment_settings: "Jelentkezzen be a %{service_name} oldalára, hogy változtatni tudjon a fizetési beállításokon."
       you_must_log_in_to_accept_or_reject: "Lépjen be, hogy elutasítsa vagy elfogadja a tranzakciót"
       you_must_log_in_to_confirm_or_cancel: "Lépjen be, hogy törölje vagy megerősítse a tranzakciót"
       you_need_to_confirm_your_account_first: "E-mail megerősítése"
@@ -1396,8 +1318,6 @@ hu:
       can_not_delete_email: "Az e-mailcímet nem tudja törölni"
       user_does_not_have_email_to_delete: "Ön nem adott meg e-mail címet, így nem tudja törölni sem"
       email_deleted: "E-mail eltávolítva"
-      payment_details_add_successful: "Sikeresen hozzáadott fizetési információk"
-      payment_details_add_error: "A fizetési információk megadása sikertelen"
       listing_author_payment_details_missing: |-
           Kérjük a 'Kapcsolat' gombra kattintva lépjen kapcsolatba a hirdetővel. 
           A hirdetőnek frissítenie kell a fizetési információit, hogy átutalásokat tudjon fogadni.
@@ -1505,8 +1425,6 @@ hu:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} levonásra fog kerülni."
         after_service_fee_you_will_get_paypal_text: "%{service_name} díja (%{sum_with_currency}) és %{paypal_fee_info_link} levonásra fog kerülni."
         paypal_fee_info_link_text: "PayPal fizetési folyamat költsége"
-        after_service_fee_you_will_get_vat: "A %{service_name} oldal és fizetési díjainak levonása után hozzávetőlegesen kapni fog %{sum_with_currency} (ÁFA 0%)"
-        price_excludes_vat: "Az ár nem tartalmazza az ÁFÁ-t"
         delivery: "Szállítás módja"
         shipping: Szállítás
         shipping_price: "Szállítási költség"
@@ -1645,7 +1563,6 @@ hu:
       times: Idő
       times_viewed: Látta
       processing_uploaded_image: "(Képek feltöltése folyamatban)"
-      price_excludes_vat: "( ÁFÁ-val együtt)"
       listing_created_at: "Hirdetés létrehozva"
       price:
         per_quantity_unit: "per %{quantity_unit}"
@@ -1704,26 +1621,6 @@ hu:
   okl:
     member_id: "Felhasználó azonosító"
     member_id_or_email: "Felhasználói azonosító vagy e-mailcím"
-  payments:
-    new:
-      new_payment: "Új fizetés"
-      continue: Folytatás
-      payment_receiver: "Utalás címzettje:"
-      sum: "Fizetés össz.:"
-    form:
-      total: Összesen
-      service_charge: "Szolgáltatás ára"
-      product: "Termék:"
-      price: "Össz.:"
-      price_for: "Ár %{payer_given_name}:"
-      continue_to_pay: "Folytatás és fizetés"
-      invoice: Számla
-      service_fee: "%{service_name} szolgáltatás díja:"
-      you_will_get: "Ön kapni fog:"
-    braintree:
-      terms:
-        braintree_terms_also_included: "MEGJEGYZÉS: Braintree egy online fizetési szolgáltató és ezt az oldalt használva ön elfogadja a feltételeit %{terms_link_text}, melyek hozzáadódnak a lent található feltételekhez."
-        terms_link_text: "Braintree használati feltételei"
   paypal_accounts:
     payout_info_title: "Pénzeszközök fogadása"
     paypal_account_email_connected: "<del>PayPal fiók csatlakoztatása</del> Sikeres!"
@@ -1961,7 +1858,6 @@ hu:
       i_want_to_get_email_notification_when: "Szeretnék e-mail értesítést, ha"
       newsletters: "E-mailek a rendszergazdáktól"
       community_updates: Hírlevelek
-      email_about_accept_reminders: "...elfelejtettem elfogadni egy ajánlatot vagy kérést"
       email_about_confirm_reminders: "...Elfelejtettem megerősíteni, hogy a rendelés teljesült"
       email_about_new_comments_to_own_listing: "Hozzászólás érkezett az ajánlatomra vagy ajánlatkérésemre"
       email_about_new_messages: "Üzenetem érkezett"
@@ -1974,7 +1870,6 @@ hu:
       email_when_conversation_rejected: "valaki visszautasította az ajánlatomat vagy ajánlatkérésemet."
       email_about_completed_transactions: "... valaki teljesültnek jelöli a rendelésemet"
       email_about_new_payments: "...Új kifizetést kapok"
-      email_about_payment_reminders: "...Elfelejtettem fizetni"
       email_about_new_listings_by_followed_people: "... valaki akit követek új hirdetést ad fel"
       unsubscribe_succesful: "Leiratkozás sikeres"
       unsubscribe_info_text: "Ön nem fog több hasonló e-mailt kapni. Ellenőrizzea beállításokat %{settings_link}, hogy kiválaszthassa milyen e-maileket szeretne kapni a %{service_name} oldaltól, vagy térjen vissza a kezdőlapra %{homepage_link}"

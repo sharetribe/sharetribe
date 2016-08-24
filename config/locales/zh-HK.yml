@@ -177,7 +177,6 @@ zh-HK:
       settings:
         settings: 設定
         general: 普通
-        users_can_review_each_other_after_transaction: 用戶可以在交易結束後相互評論
         access: 訪問偏好
         join_with_invite_only: 用戶只能通過其他用戶的邀請才能加入這個集市
         users_can_invite_new_users: 所有用戶都可以邀請新用戶來到這個網站
@@ -204,7 +203,6 @@ zh-HK:
         google_analytics_key: "Google Analytics跟踪ID"
         twitter_handle: Twitter用戶名（使用在信息頁面的tweet按鈕）
         update_settings: 保存設定
-        automatically_confirmed: "交易在付款%{days_dropdown}天後將被自動標記為已完成。如果在交易中使用了第三方支付系統，現在錢將你的款項將被轉入第三方的系統。"
         automatically_confirmed_no_escrow: "在付款後%{days_dropdown}天內交易將被自動標記為完成。"
         automatic_newsletter_frequency: "自動發送電子報: %{frequency_dropdown}"
         newsletter_daily: 每日
@@ -301,15 +299,6 @@ zh-HK:
           initiated: 等待PayPal的款項
           pending_ext: 等待PayPal的款項
         not_available: ~
-      braintree_payment_gateway:
-        braintree_payment_gateway: Braintree的API密鑰
-        environment: 環境
-        private_key: 非公開密鑰
-        public_key: 公開密鑰
-        client_side_encryption_key: 客戶端加密（CSE）鍵
-        merchant_id: 商戶ID
-        master_merchant_id: 主要商戶ID
-        commission_from_seller: 來自賣家的佣金比例
       paypal_account:
         paypal_admin_account: 款項
     custom_fields:
@@ -553,8 +542,6 @@ zh-HK:
     accept:
       details: 交易細節
       order_by: "由%{orderer_link}請求"
-      respond_to_offer: 回覆
-      respond_to_request: 回覆請求
       accept_offer: 接受
       accept_request: 接受請求
       reject_offer: 暫不需要
@@ -563,9 +550,6 @@ zh-HK:
       update_later: 保持公開訊息
       optional_message: 可選擇的訊息
       price_to_pay: 所需要支付的總額
-      you_need_to_fill_payout_details_before_accepting: "在接受請求並收款前你需要填寫支出詳情。請點擊%{payment_settings_link}來填寫詳情。"
-      payment_settings_link: 付款設置
-      minimum_price_error_message: "價格不能低予%{amount}。"
       accept: ~
       decline: ~
       quantity_label: ~
@@ -646,7 +630,6 @@ zh-HK:
       last_message_at: "(最近的訊息%{time})"
       price: "價錢：%{price}"
       sum: "總共：%{sum}"
-      price_excludes_vat: （不包括增值稅）
       total: "總共：%{total}"
     status:
       payment_errored: 付款失敗，請稍後再試。
@@ -705,54 +688,11 @@ zh-HK:
       reject_preauthorized_request: 暫不需要
       confirm: 標記為已完成
       cancel: ~
-  braintree_accounts:
-    new:
-      add_payout_details: 添加你的支付訊息
-      first_name: 名
-      last_name: 姓
-      email: 電郵地址
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
-      ssn: ~
-      routing_number: ~
-      account_number: ~
-      save: ~
-    show:
-      payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: 電郵地址
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
-      ssn: ~
-      routing_number: ~
-      account_number: ~
-  braintree_payments:
-    edit:
-      new_credit_card_payment: 新的信用卡款項
-      payment_receiver: 收款人
-      cardholder_name: 卡主姓名
-      credit_card_number: 信用卡號碼
-      cvv: CVV
-      credit_card_expiration_date: 信用卡有效期
-      confirm_payment: 確認付款
-      exp: 過期日：
   feedback:
     feedback_subject: ~
     feedback_body: "%{author_name_and_email}已經在%{service_name}發送了以下的回應"
     unlogged_user: ~
     anonymous_user: ~
-  preauthorize_payments:
-    edit:
-      confirm_payment: 確認款項
   community_memberships:
     access_denied:
       access_denied: 訪問被拒絕
@@ -787,23 +727,12 @@ zh-HK:
       powered_by: ~
       create_own: ~
       learn_more: ~
-    braintree_account_approved:
-      account_ready: 你已經可以接收付款了
-      message: "你的付款資訊已被確認，現在你可以在%{service_name}接收付款了。"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "你尚未確認取消%{request_link}的請求。若你已完成交易，你應該確認，然後向%{other_party_given_name}作出回應。"
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "你還沒有確認或者取消%{request_link}的請求。只有在以下情況我們才會把錢轉給%{other_party_given_name}：a) 你標記請求為完成 b) 在你付款後的%{days_to_automatic_confirmation}天。在標記請求完成後，你可以向%{other_party_given_name}作出回應。"
       remember_to_confirm_request: 請記得確認或取消請求
       if_will_not_happen_you_should_cancel: "如果你認為由於某種原因無法完成這個請求，你可以%{cancel_it_link}。"
-      if_will_not_happen_you_should_cancel_escrow: "如果你覺得由於某種原因無法完成這個請求，你可以%{cancel_it_link}。系統將通知管理員聯絡你以退回款項。"
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "如果你覺得由於某種原因無法完成此請求，你有%{days_to_cancel}天時間來%{cancel_it_link}。系統將通知管理員絡你以退回款項。"
       cancel_it_link_text: 取消
       automatic_confirmation: "如果你不能在請求被接受後%{days_to_automatic_confirmation}內確認或取消交易，我們將自動把它標記為已完成。"
-    payment_reminder:
-      remember_to_pay: "請記得支付%{listing_title}"
-      you_have_not_yet_paid: "你還沒有支付%{other_party_name}與你交易的%{listing_title}。"
-      if_will_not_happen_you_should_cancel: "如果你認為由於某種原因無法完成這個請求，你還可以%{cancel_it_link}。"
-      cancel_it_link_text: 取消
     payment_settings_reminder:
       remember_to_add_payment_details: 請記得填寫付款詳情以接收付款
       you_have_added_listing_with_payment: "你已新增了一個需要付款的訊息：%{listing_link}。然而，你尚未填寫你的付款詳情。請填寫付款的資料以接收款項。"
@@ -827,11 +756,6 @@ zh-HK:
       giving_feedback_is_good_idea: "你現在可以向%{other_party_given_name}給予回應。若一切順利，你可以讓其它人知道%{other_party_given_name}是可靠的。若有任何問題發生，你也可向其它人提出。"
       give_feedback_to: "向%{other_party_given_name}給予回應"
       show_thread: 顯示對話
-    escrow_canceled:
-      subject: 已取消付款
-      has_marked_request_as_canceled: "%{other_party_full_name}已把「%{request}」取消。你將不能從此交易中收取任何款項。"
-      if_this_was_error: "如果你認為有任何錯誤，%{please_contant_admin_link}。"
-      please_contant_admin_link: 請聯絡管理員
     confirmation_instructions:
       confirmation_instructions_signature: "%{service_name}團隊向你致以問候。"
       need_to_confirm: 請確認你的電郵地址。
@@ -889,7 +813,6 @@ zh-HK:
       price_payer_paid: "%{payer_full_name}所支付的價錢："
       service_fee: "%{service_name}的服務費："
       you_will_get: 總計：
-      money_will_be_transferred: "以下兩種情況發生時，款項將被轉至你的帳號中：a) %{payer_name}標示請求為完成；或 b) 在%{payer_name}完成支付的%{automatic_confirmation_days}天後。"
     receipt_to_payer:
       receipt_of_payment: 付款收據
       you_have_made_new_payment: "你已經為<b>%{listing_title}</b> 支付了 <b>%{payment_sum}</b> 給 %{recipient_full_name}。這是付款的收據。"
@@ -1372,7 +1295,6 @@ zh-HK:
       you_must_log_in_to_view_your_settings: "你必需登入%{service_name}以查看你的設定。"
       you_must_log_in_to_add_news_item: "你必須登入%{service_name}以建立新訊息。"
       you_must_log_in_to_change_profile_settings: "你必須登入%{service_name}以修改個人設定"
-      you_must_log_in_to_change_payment_settings: "你必須登錄至%{service_name}來修改付款設置"
       you_must_log_in_to_accept_or_reject: 你必須登入以接受或拒絕此交易
       you_must_log_in_to_confirm_or_cancel: 你必須登入以取消或確認此交易
       you_need_to_confirm_your_account_first: 請確認你的電郵地址。
@@ -1382,8 +1304,6 @@ zh-HK:
       can_not_delete_email: 你不能移除電郵地址
       user_does_not_have_email_to_delete: 你想要移除的電郵地址並不存在
       email_deleted: 已删除電郵
-      payment_details_add_successful: 成功新增付款詳情
-      payment_details_add_error: 無法新增付款詳情
       listing_author_payment_details_missing: 請點擊下面的‘聯繫’來聯絡賣家。他們需要更新付款詳情來接收付款。
       images_are_processing: ~
       maintenance_mode:
@@ -1490,8 +1410,6 @@ zh-HK:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link}會從價格中扣除。"
         after_service_fee_you_will_get_paypal_text: "%{service_name}的費用（%{sum_with_currency}）和%{paypal_fee_info_link}會從價格中扣除。"
         paypal_fee_info_link_text: PayPal的款項處理費
-        after_service_fee_you_will_get_vat: "在支付%{service_name}和付款處理費用之後你將得到大概%{sum_with_currency}（消費稅：0%）"
-        price_excludes_vat: 此價格不包含增值税。
         delivery: 配送方式
         shipping: 郵寄
         shipping_price: 運費
@@ -1630,7 +1548,6 @@ zh-HK:
       times: 次數
       times_viewed: 已瀏覽
       processing_uploaded_image: （正在處理上傳的圖片……）
-      price_excludes_vat: （不包括增值稅）
       listing_created_at: 訊息發佈於
       price:
         per_quantity_unit: "每%{quantity_unit}"
@@ -1689,26 +1606,6 @@ zh-HK:
   okl:
     member_id: 會員號碼
     member_id_or_email: 會員ID或電郵
-  payments:
-    new:
-      new_payment: 新的款項
-      continue: 繼續
-      payment_receiver: 收款人：
-      sum: 總金額：
-    form:
-      total: 總計
-      service_charge: 服務費
-      product: 產品：
-      price: 總金額：
-      price_for: "給%{payer_given_name}的價格："
-      continue_to_pay: 繼續付款
-      invoice: 收據
-      service_fee: "%{service_name}的服務費："
-      you_will_get: 你將得到：
-    braintree:
-      terms:
-        braintree_terms_also_included: "請注意：我們使用Braintree作為網上付款系統。通過使用該網站，除了下列的條款以外，我們將默認你也接受%{terms_link_text}。"
-        terms_link_text: Braintree的使用條款
   paypal_accounts:
     payout_info_title: 接受資金
     paypal_account_email_connected: "完成<del>連接 PayPal 帳號</del>！"
@@ -1944,7 +1841,6 @@ zh-HK:
       i_want_to_get_email_notification_when: 當...的時候請寄給我一封電郵通知
       newsletters: 電子通訊
       community_updates: 關於更新訊息的電郵
-      email_about_accept_reminders: "... 我忘記接受一個交易或請求"
       email_about_confirm_reminders: "... 我忘記了確認已完成的請求"
       email_about_new_comments_to_own_listing: "... 有人評論了我的交易或請求"
       email_about_new_messages: "... 有人發送了一則訊息給我"
@@ -1957,7 +1853,6 @@ zh-HK:
       email_when_conversation_rejected: "... 有人拒絕了我的交易或請求"
       email_about_completed_transactions: "... 有人將交易標示作已完成"
       email_about_new_payments: "... 我收到一筆新的付款"
-      email_about_payment_reminders: "... 我忘記了支付"
       email_about_new_listings_by_followed_people: "... 我關注的人發佈了一則新的訊息"
       unsubscribe_succesful: 取消訂閱不成功
       unsubscribe_info_text: "你將不再接收到這些電郵。請查看你的%{settings_link}以選取你想從%{service_name}得到的電郵通知類型，或者回到%{homepage_link}。"

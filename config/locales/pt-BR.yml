@@ -182,7 +182,6 @@ pt-BR:
       settings:
         settings: Opções
         general: Geral
-        users_can_review_each_other_after_transaction: "Os usuários podem avaliar um ao outro após a completar a transação."
         access: Acesso
         join_with_invite_only: "Novos usuários só podem se cadastrar neste mercado virtual com o convite de outro usuário"
         users_can_invite_new_users: "Todos os usuários podem convidar novos usuários para este mercado virtual"
@@ -209,7 +208,6 @@ pt-BR:
         google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Twitter handle (usado com o botão de tweet na página de anúncio)"
         update_settings: "Salvar configurações"
-        automatically_confirmed: "Os anúncios serão automaticamente confirmados %{days_dropdown} dias após o pagamento. Se o sistema de depósito for utilizado, o dinheiro sera transmitido ao vendedor nesse momento."
         automatically_confirmed_no_escrow: "A operação será automaticamente marcada como concluída %{days_dropdown} dias após o pagamento ter sido confirmado"
         automatic_newsletter_frequency: "Enviar boletim automático: %{frequency_dropdown}"
         newsletter_daily: Diaramente
@@ -306,15 +304,6 @@ pt-BR:
           initiated: "Aguardando pagamento PayPal"
           pending_ext: "Aguardando pagamento PayPal"
         not_available: Indisponível
-      braintree_payment_gateway:
-        braintree_payment_gateway: "Chaves API de Pagamento Braintree"
-        environment: Ambiente
-        private_key: "Chave privada"
-        public_key: "Chave Pública"
-        client_side_encryption_key: "Chave de encriptação do lado do cliente (CSE)"
-        merchant_id: "ID de Comerciante"
-        master_merchant_id: "ID de Comerciante Mestre"
-        commission_from_seller: "Percentual de comissão do vendedor"
       paypal_account:
         paypal_admin_account: Pagamentos
     custom_fields:
@@ -566,8 +555,6 @@ pt-BR:
     accept:
       details: "Detalhes do pedido"
       order_by: "Ordernar por %{orderer_link}"
-      respond_to_offer: "Responder a uma oferta"
-      respond_to_request: "Responder a um pedido"
       accept_offer: "Aceitar a oferta"
       accept_request: "Aceitar o pedido"
       reject_offer: "Não agora"
@@ -576,9 +563,6 @@ pt-BR:
       update_later: "Deixar o anúncio ativo"
       optional_message: "Mensagem opcional"
       price_to_pay: "Preço total a ser pago"
-      you_need_to_fill_payout_details_before_accepting: "Você precisa preencher os detalhes de pagamento antes de aceitar o pedido e receber o pagamento. Vá para %{payment_settings_link}para preencher os detalhes."
-      payment_settings_link: "configurações de pagamento"
-      minimum_price_error_message: "O preço não pode ser inferior %{amount}"
       accept: Aceitar
       decline: Recusar
       quantity_label: "Quantidade:"
@@ -659,7 +643,6 @@ pt-BR:
       last_message_at: "(última mensagem %{time})"
       price: "Preço: %{price}"
       sum: "Total: %{sum}"
-      price_excludes_vat: "(exclui impostos)"
       total: "Total: %{total}"
     status:
       payment_errored: "O pagamento falhou. Por favor, tente novamente."
@@ -718,54 +701,11 @@ pt-BR:
       reject_preauthorized_request: "Não desta vez"
       confirm: "Marca concluida"
       cancel: "Não aconteceu"
-  braintree_accounts:
-    new:
-      add_payout_details: "Adicione seus detalhes de pagamento."
-      first_name: Nome
-      last_name: Sobrenome
-      email: "Endereço de e-mail"
-      phone: Telefone
-      address_street_address: Rua
-      address_postal_code: CEP
-      address_locality: Cidade
-      address_region: Estado
-      date_of_birth: "Data de nascimento"
-      ssn: CPF
-      routing_number: "Número de identificação bancária"
-      account_number: "Número da Conta"
-      save: Salvar
-    show:
-      payout_details: "Detalhes do pagamento"
-      first_name: Nome
-      last_name: Sobrenome
-      email: "Endereço de e-mail"
-      phone: Telefone
-      address_street_address: Rua
-      address_postal_code: CEP
-      address_locality: Cidade
-      address_region: Estado
-      date_of_birth: "Data de nascimento"
-      ssn: "Numero de Identidade"
-      routing_number: "Número de identificação bancária"
-      account_number: "Número da Conta"
-  braintree_payments:
-    edit:
-      new_credit_card_payment: "Novo cartão de crédito"
-      payment_receiver: "Destinatário do pagamento :"
-      cardholder_name: "Nome et sobrenome do dono da carta bancária"
-      credit_card_number: "Número da carta bancária"
-      cvv: "Código de Segurança do Cartão de Crédito"
-      credit_card_expiration_date: Validade
-      confirm_payment: "Confirmar pagamento"
-      exp: "Validade:"
   feedback:
     feedback_subject: "Novo comentário do %{service_name}"
     feedback_body: "%{author_name_and_email} enviou este comentário do %{service_name}"
     unlogged_user: "Usuário desconectado"
     anonymous_user: "Usuário anônimo"
-  preauthorize_payments:
-    edit:
-      confirm_payment: "Confirmar pagamento"
   community_memberships:
     access_denied:
       access_denied: "Acesso negado"
@@ -800,23 +740,12 @@ pt-BR:
       powered_by: "%{service_name} é desenvolvido por %{sharetribe_link} plataforma de mercado virtual."
       create_own: "Quer criar o seu próprio mercado virtual como o %{service_name}? %{learn_more}."
       learn_more: "Saiba mais"
-    braintree_account_approved:
-      account_ready: "Você já pode receber pagamentos"
-      message: "Suas informações de pagamento foram confirmadas e agora você está pronto para receber pagamentos em %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Você ainda não confirmou ou cancelou o pedido %{request_link}. Se o pedido foi concluído, você deve confirmá-lo. Depois disso você pode dar um parecer ao %{other_party_given_name}."
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Você ainda não confirmou nem cancelou o pedido %{request_link}. Iremos transferir o valor de %{other_party_given_name} somento quando a) você marcar pedido completo ou b) %{days_to_automatic_confirmation} dias após seu pagamento. Depois de marcar o pedido como completo você poderá dar o feedback para %{other_party_given_name}."
       remember_to_confirm_request: "Lembre-se de confirmar ou cancelar um pedido"
       if_will_not_happen_you_should_cancel: "Se você acha que este pedido não será concluído por uma razão ou outra, você pode %{cancel_it_link}."
-      if_will_not_happen_you_should_cancel_escrow: "Se você acha que este pedido não será concluído por uma razão ou outra, você pode %{cancel_it_link}. Isto notificará o administrador que entrará em contato com você para um reembolso."
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "Se você acha que este pedido não será concluído por um motivo ou outro, você tem %{days_to_cancel} dias para %{cancel_it_link}. Isto notificará o administrador que entrará em contato com você para um reembolso."
       cancel_it_link_text: Cancelar
       automatic_confirmation: "Se você não confirmar ou cancelar o pedido no prazo de %{days_to_automatic_confirmation} dias depois de aceito, vamos marcá-lo automaticamente como concluído."
-    payment_reminder:
-      remember_to_pay: "Lembre-se de pagar por %{listing_title}"
-      you_have_not_yet_paid: "Você ainda não pagou por %{listing_title} que %{other_party_name} aceitou lhe oferecer."
-      if_will_not_happen_you_should_cancel: "Se você acha que este pedido não será concluído por uma razão ou outra, você também pode ainda %{cancel_it_link}."
-      cancel_it_link_text: Cancelar
     payment_settings_reminder:
       remember_to_add_payment_details: "Lembre-se de configurar seus dados para receber pagamentos"
       you_have_added_listing_with_payment: "Você adicionou um anúncio %{listing_link}. No entanto você ainda não configurou seus dados para pagamento. Você precisa configurar essas informações para poder receber pagamentos."
@@ -840,11 +769,6 @@ pt-BR:
       giving_feedback_is_good_idea: "Agora você pode dar o feedback para %{other_party_given_name}. Dar este retorno é sempre uma boa ideia. Se tudo ocorreu bem, você deve permitir que outros saibam que %{other_party_given_name} é confiável. Se houve algum problema, é bom mencionar que deu tudo certo."
       give_feedback_to: "Dar uma opinião sobre %{other_party_given_name}"
       show_thread: "Exibir conversa."
-    escrow_canceled:
-      subject: "Pagamento cancelado"
-      has_marked_request_as_canceled: "%{other_party_full_name} tem marcado o pedido '%{request}' cancelado. Você não vai receber o dinheiro dessa transação."
-      if_this_was_error: "Se você acha que foi um erro, %{please_contant_admin_link}."
-      please_contant_admin_link: "entre em contato com o administrador"
     confirmation_instructions:
       confirmation_instructions_signature: "Cordialmente <br/> a equipe %{service_name}"
       need_to_confirm: "Você precisa confirmar o seu endereço de e-mail."
@@ -902,7 +826,6 @@ pt-BR:
       price_payer_paid: "Preço pago por %{payer_full_name} :"
       service_fee: "Comissão de %{service_name} :"
       you_will_get: "Total:"
-      money_will_be_transferred: "O dinheiro será transferido para sua conta quando a) %{payer_name} marcar a solicitação como concluída ou b) %{automatic_confirmation_days} dias se passarem desde que %{payer_name} efetuou o pagamento."
     receipt_to_payer:
       receipt_of_payment: "Recibo do pagamento"
       you_have_made_new_payment: "Você pagou <b>%{payment_sum}</b> por <b>%{listing_title}</b> à %{recipient_full_name}. Veja o recibo."
@@ -1385,7 +1308,6 @@ pt-BR:
       you_must_log_in_to_view_your_settings: "Você deve entrar no %{service_name} para exibir suas configurações."
       you_must_log_in_to_add_news_item: "Você deve entrar no %{service_name} para adicionar um novo artigo."
       you_must_log_in_to_change_profile_settings: "Você deve entrar no %{service_name} para mudar as configurações de perfil."
-      you_must_log_in_to_change_payment_settings: "Você deve entrar no %{service_name} para alterar as configurações de pagamento"
       you_must_log_in_to_accept_or_reject: "Você deve conectar sua conta para aceitar ou rejeitar a transação"
       you_must_log_in_to_confirm_or_cancel: "Você deve conectar sua conta para cancelar ou confirmar a transação"
       you_need_to_confirm_your_account_first: "Você precisa confirmar o seu e-mail."
@@ -1395,8 +1317,6 @@ pt-BR:
       can_not_delete_email: "Você não pode remover o endereço de email"
       user_does_not_have_email_to_delete: "Você não tem o endereço de e-mail que você está tentando remover"
       email_deleted: "E-mail removido"
-      payment_details_add_successful: "Detalhes de pagamento adicionado com sucesso"
-      payment_details_add_error: "Não foi possível adicionar detalhes de pagamento"
       listing_author_payment_details_missing: "Por favor entre em contato com o anunciante pressionando o botão \"Contato\" abaixo. Ele precisa atualizar suas informações para receber pagamentos."
       images_are_processing: ~
       maintenance_mode:
@@ -1504,8 +1424,6 @@ pt-BR:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} irá deduzir do preço."
         after_service_fee_you_will_get_paypal_text: "Desse valor será deduzida uma taxa de (%{sum_with_currency}) cobrada pelo %{service_name} e a %{paypal_fee_info_link}."
         paypal_fee_info_link_text: "Taxa de processamento do pagamento do PayPal"
-        after_service_fee_you_will_get_vat: "Depois do processamento das taxas da %{service_name}, você receberá aproximadamente %{sum_with_currency}"
-        price_excludes_vat: "O preço não inclui impostos."
         delivery: "Forma de entrega"
         shipping: Envio
         shipping_price: "Taxa de envio"
@@ -1644,7 +1562,6 @@ pt-BR:
       times: vezes
       times_viewed: Visualizado
       processing_uploaded_image: "(Processando imagem...)"
-      price_excludes_vat: "(exclui impostos)"
       listing_created_at: "Anúncio criado"
       price:
         per_quantity_unit: "por %{quantity_unit}"
@@ -1705,26 +1622,6 @@ pt-BR:
   okl:
     member_id: "ID de Membro"
     member_id_or_email: "Nome de usuário ou e-mail"
-  payments:
-    new:
-      new_payment: "Novo pagamento"
-      continue: Continua
-      payment_receiver: "Destinatário do pagamento :"
-      sum: "Soma do pagamento:"
-    form:
-      total: Total
-      service_charge: "taxa de serviço"
-      product: "Produto:"
-      price: "Total :"
-      price_for: "Preço por %{payer_given_name} :"
-      continue_to_pay: "Continuar para pagamento"
-      invoice: Fatura
-      service_fee: "comissão de %{service_name} :"
-      you_will_get: "Você terá:"
-    braintree:
-      terms:
-        braintree_terms_also_included: "NOTA: Braintree é usado como um serviço de gateway de pagamento e por utilizar este site você também aceita %{terms_link_text}, além dos termos abaixo."
-        terms_link_text: "Termos de uso Braintree"
   paypal_accounts:
     payout_info_title: "Receber pagamentos"
     paypal_account_email_connected: "<del>1. Conectar-se a conta PayPal</del> Concluído!"
@@ -1961,7 +1858,6 @@ pt-BR:
       i_want_to_get_email_notification_when: "Eu quero receber uma notificação por email quando ..."
       newsletters: Noticias
       community_updates: "Atualizações de e-mails"
-      email_about_accept_reminders: "...esquecer de aceitar uma oferta ou um pedido"
       email_about_confirm_reminders: "...esquecer de confirmar um pedido como concluído"
       email_about_new_comments_to_own_listing: "...alguém comentar a minha oferta ou solicitação"
       email_about_new_messages: "...alguém me enviar uma mensagem"
@@ -1974,7 +1870,6 @@ pt-BR:
       email_when_conversation_rejected: "...alguém rejeitar a minha oferta ou solicitação"
       email_about_completed_transactions: "...alguém marca a minha oferta ou solicitação como concluída"
       email_about_new_payments: "...receber um novo pagamento"
-      email_about_payment_reminders: "...esquecer de efetuar um pagamento"
       email_about_new_listings_by_followed_people: "...alguém que eu siga publique uma mensagem"
       unsubscribe_succesful: "Subscrição bem sucedida"
       unsubscribe_info_text: "Você não vai mais receber esses e-mails. Verifique seu %{settings_link} para escolher qual tipo de e-mails você deseja receber de %{service_name}, ou voltar para %{homepage_link}."

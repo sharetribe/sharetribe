@@ -182,7 +182,6 @@ da-DK:
       settings:
         settings: Indstillinger
         general: Generelt
-        users_can_review_each_other_after_transaction: "Brugerne kan anmelde hinanden efter transaktionen er godkendt"
         access: Adgang
         join_with_invite_only: "Brugere kan kun benytte denne markedsplads med en invitation fra en anden bruger"
         users_can_invite_new_users: "Alle brugere kan invitere nye brugere til denne markedsplads"
@@ -209,7 +208,6 @@ da-DK:
         google_analytics_key: "Google Analytics Sporingskode (tracking ID)"
         twitter_handle: "Twitter brugernavn (bruges ved tweet knappen på annonce siderne)"
         update_settings: "Gem indstillinger"
-        automatically_confirmed: "Transaktioner vil automatisk blive markeret som godkendt %{days_dropdown} dage efter betaling er lavet. Betalingen vil blive frigivet til sælger herefter."
         automatically_confirmed_no_escrow: "Transaktioner vil automatisk blive markeret som godkendt %{days_dropdown} dage efter betaling er foretaget"
         automatic_newsletter_frequency: "Send automatiske nyhedsbreve: %{frequency_dropdown}"
         newsletter_daily: Dagligt
@@ -306,15 +304,6 @@ da-DK:
           initiated: "Venter på PayPal betalingen"
           pending_ext: "Venter på PayPal betalingen"
         not_available: "Ikke tilgængelig"
-      braintree_payment_gateway:
-        braintree_payment_gateway: "Braintree Payment API keys"
-        environment: Environment
-        private_key: "Private Key"
-        public_key: "Public Key"
-        client_side_encryption_key: "Client-Side Encryption (CSE) Key"
-        merchant_id: "Sælgers ID"
-        master_merchant_id: "Mastersælgers ID"
-        commission_from_seller: "Servicegebyr fra sælger"
       paypal_account:
         paypal_admin_account: Betalinger
     custom_fields:
@@ -562,8 +551,6 @@ da-DK:
     accept:
       details: Ordredetaljer
       order_by: "Ordre ved %{orderer_link}"
-      respond_to_offer: "Svar på et tilbud"
-      respond_to_request: "Svar på en ansøgning"
       accept_offer: "Accepter tilbud"
       accept_request: "Accepter anmodningen"
       reject_offer: "Ikke denne gang"
@@ -572,9 +559,6 @@ da-DK:
       update_later: "Lad annoncen stå åben"
       optional_message: "Frivillig besked"
       price_to_pay: "Totalpris at betale"
-      you_need_to_fill_payout_details_before_accepting: "Du skal udfylde dine udbetalingsoplysninger, før du kan acceptere en betaling og modtage dine penge. Gå til %{payment_settings_link} og udfyld dine oplysninger."
-      payment_settings_link: betalingsindstillinger
-      minimum_price_error_message: "Prisen kan ikke være lavere end %{amount}."
       accept: Acceptér
       decline: Afslå
       quantity_label: "Mængde:"
@@ -655,7 +639,6 @@ da-DK:
       last_message_at: "(seneste besked %{time})"
       price: "Pris: %{price}"
       sum: "Total: %{sum}"
-      price_excludes_vat: "(eksklusiv moms)"
       total: "Total: %{total}"
     status:
       payment_errored: "Betalingen fejlede. Prøv venligst igen."
@@ -714,54 +697,11 @@ da-DK:
       reject_preauthorized_request: "Ikke denne gang"
       confirm: "Marker som success"
       cancel: "Ikke sat"
-  braintree_accounts:
-    new:
-      add_payout_details: "Tilføj dine udbetalingsdetaljer."
-      first_name: Fornavn
-      last_name: Efternavn
-      email: E-mailadresse
-      phone: Mobilnummer
-      address_street_address: Adresse
-      address_postal_code: Postnummer
-      address_locality: By
-      address_region: Stat
-      date_of_birth: Fødselsdato
-      ssn: SSN
-      routing_number: Routernummer
-      account_number: Kontonummer
-      save: Gem
-    show:
-      payout_details: "Dine betalingsoplysninger"
-      first_name: Fornavn
-      last_name: Efternavn
-      email: "Email adresse"
-      phone: Mobilnummer
-      address_street_address: Adresse
-      address_postal_code: Postnummer
-      address_locality: By
-      address_region: Stat
-      date_of_birth: Fødselsdato
-      ssn: SSN
-      routing_number: Routernummer
-      account_number: Kontonummer
-  braintree_payments:
-    edit:
-      new_credit_card_payment: "Ny kreditkortbetaling"
-      payment_receiver: Betalingsmodtager
-      cardholder_name: "Kortholders navn"
-      credit_card_number: "Kreditkort nummer"
-      cvv: CVV
-      credit_card_expiration_date: "Betalingskort udløbsdato"
-      confirm_payment: "Bekræft betaling"
-      exp: "Exp:"
   feedback:
     feedback_subject: "Ny feedback sendt fra %{service_name}"
     feedback_body: "%{author_name_and_email} har sendt følgende feedback fra %{service_name}"
     unlogged_user: "Bruger, der ikke er logget ind"
     anonymous_user: "Anonym bruger"
-  preauthorize_payments:
-    edit:
-      confirm_payment: "Bekræft betaling"
   community_memberships:
     access_denied:
       access_denied: "Adgang nægtet"
@@ -796,23 +736,12 @@ da-DK:
       powered_by: "%{service_name} er drevet af %{sharetribe_link}"
       create_own: "Vil du oprette din egen online markedsplads hjemmeside som %{learn_more} %{service_name}"
       learn_more: "Lær mere"
-    braintree_account_approved:
-      account_ready: "Du er klar til at modtage betalinger"
-      message: "Dine betalingsinformationer er blevet godkendt og du er nu klar til at modtage betalinger på %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Du har endnu ikke godkendt eller afvist %{request_link}. Hvis den allerede er godkendt, skal du markere den som success. Derefter kan du sende din feedback til %{other_party_given_name}."
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Du har endnu ikke godkendt eller afvist %{request_link}. Vi overfører kun pengene til %{other_party_given_name}, hvis du godkender anmodningen eller %{days_to_automatic_confirmation} dage er gået siden betalingen. Når du har godkendt anmodningen, kan du give feedback til %{other_party_given_name}."
       remember_to_confirm_request: "Husk at godkende eller afvise anmodningen"
       if_will_not_happen_you_should_cancel: "Hvis du ikke tror at anmodningen vil blive godkendt, kan du %{cancel_it_link}."
-      if_will_not_happen_you_should_cancel_escrow: "Hvis du ikke tror din anmodning vil blive godkendt, kan du %{cancel_it_link}. Dette vil sende en besked til administratoren, som herefter kan kontakte dig med en tilbagebetaling."
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "Hvis du tror din anmodning ikke vil blive godkendt, af den ene eller ande årsag, har du %{days_to_cancel} dage til %{cancel_it_link}."
       cancel_it_link_text: "annullere din anmodning"
       automatic_confirmation: "Hvis du ikke acceptere eller afviser anmodningen inden %{days_to_automatic_confirmation} dage efter anmodningen blev accepteret, vil vi automatisk markere den som godkendt."
-    payment_reminder:
-      remember_to_pay: "Husk at betale for %{listing_title}"
-      you_have_not_yet_paid: "Du har endnu ikke betalt for %{listing_title} selvom %{other_party_name} har godkendt dit tilbud."
-      if_will_not_happen_you_should_cancel: "Hvis du ikke tror at dit tilbud vil blive godkendt, kan du stadig %{cancel_it_link}."
-      cancel_it_link_text: "annullere dit tilbud"
     payment_settings_reminder:
       remember_to_add_payment_details: "Husk at udfylde dine betalingsoplysninger for at modtage betalinger"
       you_have_added_listing_with_payment: "Du har oprettet en annonce %{listing_link} med betaling, men du har ikke tilføjet dine betalingsoplysninger, der er nødvendigt for at kunne modtage betalinger."
@@ -836,11 +765,6 @@ da-DK:
       giving_feedback_is_good_idea: "Du kan nu give feedback til %{other_party_given_name}. Det er altid en god idé at vurdere hinanden. Hvis alt gik godt, kan du fortælle andre, at de kan have tillid til %{other_party_given_name}. Hvis der var nogen problemer, kan du nævne dem også."
       give_feedback_to: "Giv feedback til %{other_party_given_name}"
       show_thread: "Vis samtalen"
-    escrow_canceled:
-      subject: "Betaling annulleret"
-      has_marked_request_as_canceled: "%{other_party_full_name} har markeret anmodningen om '%{request}' som annulleret. Du vil derfor ikke modtage betaling for denne transaktion."
-      if_this_was_error: "Hvis du mener dette er en fejl, %{please_contant_admin_link}."
-      please_contant_admin_link: "så kontakt os gerne"
     confirmation_instructions:
       confirmation_instructions_signature: "Venlig hilsen,<br/> %{service_name} Holdet"
       need_to_confirm: "Du skal bekræfte din email."
@@ -898,7 +822,6 @@ da-DK:
       price_payer_paid: "Pris %{payer_full_name} betalte:"
       service_fee: "%{service_name} servicegebyr:"
       you_will_get: "Du vil få:"
-      money_will_be_transferred: "Pengene vil blive overført til din konto når a) %{payer_name} har markeret handlen som gennemført eller b) %{automatic_confirmation_days} dage er gået siden %{payer_name} betalte."
     receipt_to_payer:
       receipt_of_payment: "Kvittering for betaling"
       you_have_made_new_payment: "Du har betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b> til %{recipient_full_name}. Her er din kvittering for betalingen."
@@ -1381,7 +1304,6 @@ da-DK:
       you_must_log_in_to_view_your_settings: "Du skal logge ind på %{service_name} for at se dine indstillinger."
       you_must_log_in_to_add_news_item: "Du skal logge ind på %{service_name} for at tilføje en ny artikel."
       you_must_log_in_to_change_profile_settings: "Du skal logge ind på %{service_name} for at ændre dine profilindstillinger."
-      you_must_log_in_to_change_payment_settings: "Du skal logge ind på %{service_name} for at ændre dine betalingsoplysninger"
       you_must_log_in_to_accept_or_reject: "Du skal være logget ind for at godkende eller afvise handlen"
       you_must_log_in_to_confirm_or_cancel: "Du skal være logget ind for at annullere eller godkende handlen"
       you_need_to_confirm_your_account_first: "Du skal bekræfte din email."
@@ -1391,8 +1313,6 @@ da-DK:
       can_not_delete_email: "Du kan ikke fjerne denne email"
       user_does_not_have_email_to_delete: "Du har ikke email adressen som du prøver at fjerne"
       email_deleted: "Email fjernet"
-      payment_details_add_successful: "Du har nu tilføjet dine betalingsoplysninger"
-      payment_details_add_error: "Vi kunne ikke tilføje dine betalingsoplysninger"
       listing_author_payment_details_missing: "Kontakt sælger ved at trykke på knappen 'Kontakt' nedenfor. De skal opdatere deres betalingsoplysninger for at kunne modtage betalinger."
       images_are_processing: "Vi behandler dine nye billeder, de vil være synlige om et par sekunder."
       maintenance_mode:
@@ -1500,8 +1420,6 @@ da-DK:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} vil blive fratrukket prisen."
         after_service_fee_you_will_get_paypal_text: "%{service_name}-gebyr (%{sum_with_currency}) og %{paypal_fee_info_link}  vil blive fratrukket prisen."
         paypal_fee_info_link_text: PayPal-gebyr
-        after_service_fee_you_will_get_vat: "Efter %{service_name} servicegebyr vil du modtage: %{sum_with_currency}"
-        price_excludes_vat: "Prisen er eksklusiv moms"
         delivery: Leveringsform
         shipping: Forsendelse
         shipping_price: Porto
@@ -1640,7 +1558,6 @@ da-DK:
       times: Tider
       times_viewed: Vist
       processing_uploaded_image: "(Henter billede...)"
-      price_excludes_vat: "(eksklusiv moms)"
       listing_created_at: "Annoncen blev oprettet"
       price:
         per_quantity_unit: "pr. %{quantity_unit}"
@@ -1699,26 +1616,6 @@ da-DK:
   okl:
     member_id: "Medlems ID"
     member_id_or_email: "Medlemsnummer eller email"
-  payments:
-    new:
-      new_payment: "Ny betaling"
-      continue: Fortsæt
-      payment_receiver: "Betalingsmodtager:"
-      sum: "Betalingssum:"
-    form:
-      total: Total
-      service_charge: Servicegebyr
-      product: "Produkt:"
-      price: "Total:"
-      price_for: "Pris: %{payer_given_name}"
-      continue_to_pay: "Fortsæt til betaling"
-      invoice: Faktura
-      service_fee: "%{service_name} servicegebyr:"
-      you_will_get: "Du vil få:"
-    braintree:
-      terms:
-        braintree_terms_also_included: "Bemærk: Braintree er brugt som en betalingsgateway og ved at anvende dette website godkender du også %{terms_link_text}, sammen med vores vilkår."
-        terms_link_text: "Braintrees vilkår og betingelser"
   paypal_accounts:
     payout_info_title: "Sådan modtager du betaling"
     paypal_account_email_connected: "<del>1. Tilknyt din PayPal-konto</del> Godkendt!"
@@ -1955,7 +1852,6 @@ da-DK:
       i_want_to_get_email_notification_when: "Giv mig besked, når ..."
       newsletters: Nyhedsbrev
       community_updates: Mailnotifikationer
-      email_about_accept_reminders: "...jeg har glemt at acceptere et tilbud eller en anmodning"
       email_about_confirm_reminders: "...jeg har glemt at markere anmodningen som godkendt"
       email_about_new_comments_to_own_listing: "... nogen kommenterer mit tilbud eller anmodning"
       email_about_new_messages: "... nogen sender mig en besked"
@@ -1968,7 +1864,6 @@ da-DK:
       email_when_conversation_rejected: "... nogen afviser mit tilbud eller anmodning"
       email_about_completed_transactions: "...nogen har markeret mit tilbud eller anmodning som godkendt"
       email_about_new_payments: "...jeg modtager en ny betaling"
-      email_about_payment_reminders: "...jeg har glemt at betale"
       email_about_new_listings_by_followed_people: "... personer, jeg følger, har oprettet en ny annonce"
       unsubscribe_succesful: "Du er nu afmeldt"
       unsubscribe_info_text: "Du vil nu ikke længere modtage emails. Tjek dine %{settings_link} for at vælge hvilken slags emails du ønsker at modtage fra %{service_name}, eller vend tilbage til %{homepage_link}."

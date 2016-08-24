@@ -167,7 +167,6 @@ he-IL:
       settings:
         settings: ~
         general: ~
-        users_can_review_each_other_after_transaction: ~
         access: ~
         join_with_invite_only: ~
         users_can_invite_new_users: ~
@@ -194,7 +193,6 @@ he-IL:
         google_analytics_key: ~
         twitter_handle: ~
         update_settings: ~
-        automatically_confirmed: ~
         automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
@@ -291,15 +289,6 @@ he-IL:
           initiated: ~
           pending_ext: ~
         not_available: ~
-      braintree_payment_gateway:
-        braintree_payment_gateway: ~
-        environment: ~
-        private_key: ~
-        public_key: ~
-        client_side_encryption_key: ~
-        merchant_id: ~
-        master_merchant_id: ~
-        commission_from_seller: ~
       paypal_account:
         paypal_admin_account: ~
     custom_fields:
@@ -535,8 +524,6 @@ he-IL:
     accept:
       details: ~
       order_by: ~
-      respond_to_offer: ~
-      respond_to_request: ~
       accept_offer: ~
       accept_request: ~
       reject_offer: ~
@@ -545,9 +532,6 @@ he-IL:
       update_later: ~
       optional_message: ~
       price_to_pay: ~
-      you_need_to_fill_payout_details_before_accepting: ~
-      payment_settings_link: ~
-      minimum_price_error_message: ~
       accept: ~
       decline: ~
       quantity_label: ~
@@ -628,7 +612,6 @@ he-IL:
       last_message_at: ~
       price: ~
       sum: ~
-      price_excludes_vat: ~
       total: ~
     status:
       payment_errored: ~
@@ -687,54 +670,11 @@ he-IL:
       reject_preauthorized_request: ~
       confirm: ~
       cancel: ~
-  braintree_accounts:
-    new:
-      add_payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
-      ssn: ~
-      routing_number: ~
-      account_number: ~
-      save: ~
-    show:
-      payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
-      ssn: ~
-      routing_number: ~
-      account_number: ~
-  braintree_payments:
-    edit:
-      new_credit_card_payment: ~
-      payment_receiver: ~
-      cardholder_name: ~
-      credit_card_number: ~
-      cvv: ~
-      credit_card_expiration_date: ~
-      confirm_payment: ~
-      exp: ~
   feedback:
     feedback_subject: ~
     feedback_body: ~
     unlogged_user: ~
     anonymous_user: ~
-  preauthorize_payments:
-    edit:
-      confirm_payment: ~
   community_memberships:
     access_denied:
       access_denied: ~
@@ -769,23 +709,12 @@ he-IL:
       powered_by: ~
       create_own: ~
       learn_more: ~
-    braintree_account_approved:
-      account_ready: ~
-      message: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
       remember_to_confirm_request: ~
       if_will_not_happen_you_should_cancel: ~
-      if_will_not_happen_you_should_cancel_escrow: ~
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
       cancel_it_link_text: ~
       automatic_confirmation: ~
-    payment_reminder:
-      remember_to_pay: ~
-      you_have_not_yet_paid: ~
-      if_will_not_happen_you_should_cancel: ~
-      cancel_it_link_text: ~
     payment_settings_reminder:
       remember_to_add_payment_details: ~
       you_have_added_listing_with_payment: ~
@@ -809,11 +738,6 @@ he-IL:
       giving_feedback_is_good_idea: ~
       give_feedback_to: ~
       show_thread: ~
-    escrow_canceled:
-      subject: ~
-      has_marked_request_as_canceled: ~
-      if_this_was_error: ~
-      please_contant_admin_link: ~
     confirmation_instructions:
       confirmation_instructions_signature: ~
       need_to_confirm: ~
@@ -871,7 +795,6 @@ he-IL:
       price_payer_paid: ~
       service_fee: ~
       you_will_get: ~
-      money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1354,7 +1277,6 @@ he-IL:
       you_must_log_in_to_view_your_settings: ~
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
-      you_must_log_in_to_change_payment_settings: ~
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: ~
@@ -1364,8 +1286,6 @@ he-IL:
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
       email_deleted: ~
-      payment_details_add_successful: ~
-      payment_details_add_error: ~
       listing_author_payment_details_missing: ~
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
@@ -1469,8 +1389,6 @@ he-IL:
         no_service_fee_you_will_get_paypal_text: ~
         after_service_fee_you_will_get_paypal_text: ~
         paypal_fee_info_link_text: ~
-        after_service_fee_you_will_get_vat: ~
-        price_excludes_vat: ~
         delivery: ~
         shipping: ~
         shipping_price: ~
@@ -1609,7 +1527,6 @@ he-IL:
       times: ~
       times_viewed: ~
       processing_uploaded_image: ~
-      price_excludes_vat: ~
       listing_created_at: ~
       price:
         per_quantity_unit: ~
@@ -1668,26 +1585,6 @@ he-IL:
   okl:
     member_id: ~
     member_id_or_email: ~
-  payments:
-    new:
-      new_payment: ~
-      continue: ~
-      payment_receiver: ~
-      sum: ~
-    form:
-      total: ~
-      service_charge: ~
-      product: ~
-      price: ~
-      price_for: ~
-      continue_to_pay: ~
-      invoice: ~
-      service_fee: ~
-      you_will_get: ~
-    braintree:
-      terms:
-        braintree_terms_also_included: ~
-        terms_link_text: ~
   paypal_accounts:
     payout_info_title: ~
     paypal_account_email_connected: ~
@@ -1921,7 +1818,6 @@ he-IL:
       i_want_to_get_email_notification_when: ~
       newsletters: ~
       community_updates: ~
-      email_about_accept_reminders: ~
       email_about_confirm_reminders: ~
       email_about_new_comments_to_own_listing: ~
       email_about_new_messages: ~
@@ -1934,7 +1830,6 @@ he-IL:
       email_when_conversation_rejected: ~
       email_about_completed_transactions: ~
       email_about_new_payments: ~
-      email_about_payment_reminders: ~
       email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: ~
       unsubscribe_info_text: ~

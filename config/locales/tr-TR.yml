@@ -177,7 +177,6 @@ tr-TR:
       settings:
         settings: Ayarlar
         general: Genel
-        users_can_review_each_other_after_transaction: "Kullanıcılar işlem sonrası birbirlerine yorum bırakabilir"
         access: Erişim
         join_with_invite_only: "Kullanıcılar bu pazara sadece başka bir kullanıcının davetiyle katılabilir"
         users_can_invite_new_users: "Tüm kullanıcılar yeni kullanıcıları bu pazara davet edebilir"
@@ -204,7 +203,6 @@ tr-TR:
         google_analytics_key: "Google Analytics takip kimliği"
         twitter_handle: "Twitter aracı (listeleme sayfasında tweet at butonuyla)"
         update_settings: "Ayarları kaydet"
-        automatically_confirmed: "Ödemenin üzerinden %{days_dropdown} gün geçtikten sonra, işlem otomatik olarak tamamlandı olarak işaretlenecektir. Eğer escrow sistemi kullanılmışsa, ödeme alıcının eline bu tarihte geçecektir."
         automatically_confirmed_no_escrow: "Ödemenin üzerinden %{days_dropdown} gün geçtikten sonra, işlem otomatik olarak tamamlandı olarak işaretlenecektir."
         automatic_newsletter_frequency: "Otomatik bülten gönder: %{frequency_dropdown}"
         newsletter_daily: Günlük
@@ -301,15 +299,6 @@ tr-TR:
           initiated: "PayPal ödemesi bekleniyor"
           pending_ext: "PayPal ödemesi bekleniyor"
         not_available: ~
-      braintree_payment_gateway:
-        braintree_payment_gateway: "Braintree Ödeme API tuşları"
-        environment: Çevre
-        private_key: "Özel Anahtar"
-        public_key: "Genel Anahtar"
-        client_side_encryption_key: "Müşteri Taraflı Şifreleme (CSE) Anahtarı"
-        merchant_id: "Tüccar Kimliği"
-        master_merchant_id: "Uzman Müşteri Kimliği"
-        commission_from_seller: "Satıcının komisyon oranı"
       paypal_account:
         paypal_admin_account: Ödemeler
     custom_fields:
@@ -551,8 +540,6 @@ tr-TR:
     accept:
       details: "Sipariş Detayları"
       order_by: "%{orderer_link} göre listele"
-      respond_to_offer: "Teklife cevap ver"
-      respond_to_request: "Talebe cevap ver"
       accept_offer: "Teklifi kabul et"
       accept_request: "Talebi kabul et"
       reject_offer: "Bu sefer değil"
@@ -561,9 +548,6 @@ tr-TR:
       update_later: "İlanı açık bırak"
       optional_message: "Opsiyonel mesaj"
       price_to_pay: "Ödenecek toplam tutar"
-      you_need_to_fill_payout_details_before_accepting: "Talebi kabul edip ödemeyi almadan önce, ödeme ayrıntılarını girmeniz gerekmektedir. %{payment_settings_link} sayfasına gidip bilgilerinizi girin."
-      payment_settings_link: "ödeme ayarları"
-      minimum_price_error_message: "Fiyat %{amount}'den az olamaz."
       accept: "Kabul Et"
       decline: Reddet
       quantity_label: "Adet:"
@@ -644,7 +628,6 @@ tr-TR:
       last_message_at: "(son mesaj %{time})"
       price: "Fiyat: %{price}"
       sum: "Toplam: %{sum}"
-      price_excludes_vat: "(KDV hariç)"
       total: "Toplam: %{total}"
     status:
       payment_errored: "Ödeme başarısız oldu. Lütfen tekrar deneyin."
@@ -703,54 +686,11 @@ tr-TR:
       reject_preauthorized_request: "Bu sefer değil"
       confirm: "Tamamlandı olarak işaretle"
       cancel: Gerçekleşmedi
-  braintree_accounts:
-    new:
-      add_payout_details: "Ödeme bilgilerinizi ekleyin"
-      first_name: Ad
-      last_name: Soyad
-      email: "E-posta adresi"
-      phone: "Telefon numarası"
-      address_street_address: "Sokak adresi"
-      address_postal_code: "Posta kodu"
-      address_locality: Şehir
-      address_region: İlçe
-      date_of_birth: "Doğum tarihi"
-      ssn: SSN
-      routing_number: "Yönlendirme numarası"
-      account_number: "Hesap numarası"
-      save: Kaydet
-    show:
-      payout_details: "Ödeme bilgileriniz"
-      first_name: Ad
-      last_name: Soyad
-      email: "E-posta adresi"
-      phone: "Telefon numarası"
-      address_street_address: "Sokak adresi"
-      address_postal_code: "Posta kodu"
-      address_locality: Şehir
-      address_region: İlçe
-      date_of_birth: "Doğum tarihi"
-      ssn: SSN
-      routing_number: "Yönlendirme numarası"
-      account_number: "Hesap numarası"
-  braintree_payments:
-    edit:
-      new_credit_card_payment: "Yeni kredi kartı ödemesi"
-      payment_receiver: "Ödeme alıcısı"
-      cardholder_name: "Kart sahibinin adı"
-      credit_card_number: "Kredi kartı numarası"
-      cvv: CVV
-      credit_card_expiration_date: "Kredi kartı son kullanma tarihi"
-      confirm_payment: "Ödemeyi onayla"
-      exp: "Son:"
   feedback:
     feedback_subject: "%{service_name}: Yeni bildirim"
     feedback_body: "%{service_name}: %{author_name_and_email} size aşağıdaki bildirimi bıraktı;"
     unlogged_user: "Giriş yapmamış kullanıcı"
     anonymous_user: "Anonim kullanıcı"
-  preauthorize_payments:
-    edit:
-      confirm_payment: "Ödemeyi onayla"
   community_memberships:
     access_denied:
       access_denied: "Erişim engellendi"
@@ -785,23 +725,12 @@ tr-TR:
       powered_by: ~
       create_own: ~
       learn_more: ~
-    braintree_account_approved:
-      account_ready: "Ödeme almaya hazırsınız"
-      message: "Ödeme bilgileriniz doğrulandı ve artık %{service_name}'de ödeme almaya hazırsınız."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "%{request_link}'i henüz kabul veya reddetmediniz. Eğer talep gerçekleştiyse, bunu doğrulamalısınız. Bunun ardından, %{other_party_given_name}'e geri bildirim bırakabilirsiniz."
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "%{request_link}'i henüz kabul veya reddetmediniz. %{other_party_given_name} kişisine para transferini ancak a) talebi tamamlandı olarak işaretledikten ya da b) ödemenizin üzerinden %{days_to_automatic_confirmation} gün geçtikten sonra yapacağız. Talebi tamamlandı olarak işaretledikten sonra, %{other_party_given_name} üyesine geri bildirim bırakabilirsiniz."
       remember_to_confirm_request: "Talebi kabul veya reddetmeyi unutmayın"
       if_will_not_happen_you_should_cancel: "Eğer herhangi bir sebepten ötürü bu talebin gerçekleşmeyeceğine inanıyorsanız, %{cancel_it_link}."
-      if_will_not_happen_you_should_cancel_escrow: "Eğer herhangi bir sebepten ötürü bu talebin gerçekleşmeyeceğine inanıyorsanız, %{cancel_it_link}. Yönetici bilgilendirilecek ve geri ödeme hakkında sizinle iletişime geçecektir."
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "Eğer herhangi bir sebepten ötürü bu talebin gerçekleşmeyeceğine inanıyorsanız, bunu %{cancel_it_link} için %{days_to_cancel} gününüz var. Yönetici bilgilendirilecek ve geri ödeme hakkında sizinle iletişime geçecektir."
       cancel_it_link_text: "iptal edebilirsiniz"
       automatic_confirmation: "Eğer talebin kabulünden sonra %{days_to_automatic_confirmation} gün içerisinde bunu doğrulamaz ya da iptal etmezseniz, otomatik olarak tamamlandı olarak işaretleyeceğiz."
-    payment_reminder:
-      remember_to_pay: "%{listing_title} için ödeme yapmayı unutmayın"
-      you_have_not_yet_paid: "Henüz %{other_party_name}'in size teklif etmeye kabul ettiği %{listing_title} için ödeme yapmadınız."
-      if_will_not_happen_you_should_cancel: "Eğer herhangi bir sebepten ötürü bu talebin gerçekleşmeyeceğine inanıyorsanız, %{cancel_it_link}."
-      cancel_it_link_text: "iptal edebilirsiniz"
     payment_settings_reminder:
       remember_to_add_payment_details: "Ödeme alabilmek için ödeme bilgilerinizi eklemeyi unutmayın"
       you_have_added_listing_with_payment: "Ödemeli bir %{listing_link} ilan eklediniz. Ancak, ödeme bilgilerinizi girmediniz. Ödeme alabilmek için, ödeme bilgilerinizi eklemeniz gerekmektedir."
@@ -825,11 +754,6 @@ tr-TR:
       giving_feedback_is_good_idea: "Şimdi %{other_party_given_name} kullanıcısına geri bildirim bırakabilirsiniz.Geri bildirim bırakmak her zaman iyi bir fikirdir. Eğer her şey yolunda gittiyse, diğer üyelere %{other_party_given_name} üyesinin güvenilir olduğunu bildirmelisiniz. Eğer sorun yaşadıysanız, bunlardan bahsetmekte de fayda var."
       give_feedback_to: "%{other_party_given_name} kullanıcısına geri bildirim bırakın"
       show_thread: "Konuşmayı göster"
-    escrow_canceled:
-      subject: "Ödeme iptal edildi"
-      has_marked_request_as_canceled: "%{other_party_full_name} '%{request}' hakkındaki talebi iptal edildi olarak işaretledi. Bu işlemden ödeme almayacaksınız."
-      if_this_was_error: "Eğer bir hata olduğunu düşünüyorsanız, %{please_contant_admin_link}."
-      please_contant_admin_link: "yöneticiyle iletişime geçin"
     confirmation_instructions:
       confirmation_instructions_signature: "Saygılarımızla, %{service_name} Ekibi"
       need_to_confirm: "E-posta adresinizi doğrulamanız gerekmektedir."
@@ -887,7 +811,6 @@ tr-TR:
       price_payer_paid: "%{payer_full_name}'in ödediği tutar:"
       service_fee: "%{service_name} hizmet bedeli:"
       you_will_get: "Alacağınız:"
-      money_will_be_transferred: "Ödeme hesabınıza a) %{payer_name} talebi tamamlandı olarak işaretlediğinde ya da b) %{payer_name}'in ödeme yapmasının ardından %{automatic_confirmation_days} gün geçtikten sonra aktarılacaktır."
     receipt_to_payer:
       receipt_of_payment: "Ödeme faturası"
       you_have_made_new_payment: "%{listing_title} için %{recipient_full_name} kişisine %{payment_sum} tutarında ödeme yaptınız. Faturanız burada."
@@ -1370,7 +1293,6 @@ tr-TR:
       you_must_log_in_to_view_your_settings: "%{service_name}: Ayarlarınızı görüntülemek için oturum açmanız gerekmektedir."
       you_must_log_in_to_add_news_item: "%{service_name}: Yeni bir metin eklemek için giriş yapın."
       you_must_log_in_to_change_profile_settings: "Profil ayarlarını değiştirmek için %{service_name}'a giriş yapmalısınız"
-      you_must_log_in_to_change_payment_settings: "Ödeme ayarlarını değiştirmek için %{service_name}'a giriş yapmalısınız"
       you_must_log_in_to_accept_or_reject: "Bu işlemi kabul ya da reddetmek için giriş yapmalısınız"
       you_must_log_in_to_confirm_or_cancel: "İşlemi iptal etmek ya da onaylamak için giriş yapmalısınız"
       you_need_to_confirm_your_account_first: "E-posta adresinizi doğrulamanız gerekmektedir."
@@ -1380,8 +1302,6 @@ tr-TR:
       can_not_delete_email: "E-posta adresini kaldıramazsınız."
       user_does_not_have_email_to_delete: "Kaldırmaya çalıştığınız e-posta adresi mevcut değildir."
       email_deleted: "E-posta adresi kaldırıldı"
-      payment_details_add_successful: "Ödeme bilgileri başarıyla eklendi"
-      payment_details_add_error: "Ödeme bilgileri eklenemedi"
       listing_author_payment_details_missing: "Bu listelemenin sahibi ödeme bilgilerini eklemediği için şu an ödeme alamıyor. Lütfen ilan sahibine veya bize ulaşın."
       images_are_processing: ~
       automatically_logged_out_please_sign_in: "Oturumunuzun süresi doldu, lütfen tekrar giriş yapın."
@@ -1485,8 +1405,6 @@ tr-TR:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} toplam ücretten kesilecektir..."
         after_service_fee_you_will_get_paypal_text: "%{service_name} ücreti (%{sum_with_currency}) ve %{paypal_fee_info_link} toplam ücretten kesilecektir."
         paypal_fee_info_link_text: "PayPal işlem ücreti"
-        after_service_fee_you_will_get_vat: "%{service_name} hizmet bedeli düşüldükten sonra, yaklaşık %{sum_with_currency} tutarında ödeme alacaksınız (KDV 0%)"
-        price_excludes_vat: "Fiyata KDV dahil değildir."
         delivery: "Teslim Yöntemi"
         shipping: "Kargo:"
         shipping_price: "Kargo ücreti"
@@ -1625,7 +1543,6 @@ tr-TR:
       times: defa
       times_viewed: Görüldü
       processing_uploaded_image: "(Yüklenen görsel işleniyor...)"
-      price_excludes_vat: "(KDV hariç)"
       listing_created_at: "İlan oluşturuldu"
       price:
         per_quantity_unit: "%{quantity_unit} başına"
@@ -1684,26 +1601,6 @@ tr-TR:
   okl:
     member_id: "Üye No"
     member_id_or_email: "Üye kimliği ya da e-posta"
-  payments:
-    new:
-      new_payment: "Yeni ödeme"
-      continue: "Devam et"
-      payment_receiver: "Ödeme alıcısı:"
-      sum: "Ödeme toplamı:"
-    form:
-      total: Toplam
-      service_charge: "Hizmet bedeli"
-      product: "Ürün:"
-      price: "Toplam:"
-      price_for: "%{payer_given_name} fiyatı:"
-      continue_to_pay: "Ödemeye devam et"
-      invoice: Fatura
-      service_fee: "%{service_name} hizmet bedeli:"
-      you_will_get: "Alacağınız:"
-    braintree:
-      terms:
-        braintree_terms_also_included: "Not: Ödeme geçit sistemi olarak Braintree kullanılmaktadır ve bu siteyi kullanarak, aşağıdaki koşullarla birlikte %{terms_link_text}'nı da kabul etmiş olursunuz."
-        terms_link_text: "Braintree kullanım koşulları"
   paypal_accounts:
     payout_info_title: "Ödeme bilgileri"
     paypal_account_email_connected: "<del>1. PayPal hesabını bağla</del> Tamamlandı!"
@@ -1939,7 +1836,6 @@ tr-TR:
       i_want_to_get_email_notification_when: "...e-posta ile haberdar edilmek istiyorum."
       newsletters: Bültenler
       community_updates: Bültenler
-      email_about_accept_reminders: "...bir teklif veya talebi kabul etmeyi unuttum"
       email_about_confirm_reminders: "...bir talebin tamamlandığını onaylamayı unuttum"
       email_about_new_comments_to_own_listing: "...biri teklif veya talebime yorum yaptı"
       email_about_new_messages: "...biri bana mesaj gönderdi"
@@ -1952,7 +1848,6 @@ tr-TR:
       email_when_conversation_rejected: "...biri teklif ya da talebimi reddetti"
       email_about_completed_transactions: "...biri teklif ya da talebimi tamamlandı olarak işaretledi"
       email_about_new_payments: "...yeni ödeme aldım"
-      email_about_payment_reminders: "...ödeme yapmayı unuttum"
       email_about_new_listings_by_followed_people: "...takip ettiğim bir kişi yeni bir listeleme ekleme"
       unsubscribe_succesful: "Abonelik sonlandırıldı"
       unsubscribe_info_text: "Artık bu e-postaları almayacaksınız. %{service_name}'den hangi e-postaları almak istediğinizi düzenlemek için %{settings_link}'e göz atın ya da %{homepage_link}'ya dönün."

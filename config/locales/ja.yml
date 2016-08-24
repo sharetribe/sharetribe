@@ -177,7 +177,6 @@ ja:
       settings:
         settings: 設定
         general: 一般
-        users_can_review_each_other_after_transaction: ユーザはお互いにお取引後レビューを書くことが出来ます
         access: アクセス
         join_with_invite_only: 他のユーザより招待されたユーザのみ、このマーケットプレイスに参加可能です
         users_can_invite_new_users: 全てのユーザはこのマーケットプレイスに招待できます
@@ -204,7 +203,6 @@ ja:
         google_analytics_key: "Google アナリティクス トラッキング コード"
         twitter_handle: "Twitter ハンドルネーム （リストページのtweetボタンを使用します）"
         update_settings: 設定を保存する
-        automatically_confirmed: "お支払いは%{days_dropdown}日後、お支払い済みとして処理されます。第三者預託システムを使用している場合、この時点で料金はサービス提供側へ開放されます。"
         automatically_confirmed_no_escrow: "お支払いは%{days_dropdown}日後、完了済みとして処理されます。"
         automatic_newsletter_frequency: "%{frequency_dropdown}の☆速報☆を自動で送信する"
         newsletter_daily: 毎日
@@ -301,15 +299,6 @@ ja:
           initiated: PayPalの支払いを待っています
           pending_ext: PayPalの支払いを待っています
         not_available: ご利用できません
-      braintree_payment_gateway:
-        braintree_payment_gateway: "API 設定"
-        environment: 環境
-        private_key: プライベート暗号キー
-        public_key: パブリック暗号キー
-        client_side_encryption_key: クライアント側暗号化（CSE）キー
-        merchant_id: マーチャントID
-        master_merchant_id: マスターマーチャントID
-        commission_from_seller: 売り手からの手数料％
       paypal_account:
         paypal_admin_account: お支払い
     custom_fields:
@@ -549,8 +538,6 @@ ja:
     accept:
       details: ご注文の詳細
       order_by: "%{orderer_link}順"
-      respond_to_offer: オファーに返事をする
-      respond_to_request: リクエストに返事をする
       accept_offer: オファーを受け入れる
       accept_request: リクエストを受け入れる
       reject_offer: 今回はやめる
@@ -559,9 +546,6 @@ ja:
       update_later: このリストを再開する
       optional_message: 追加メッセージ
       price_to_pay: 支払われる合計金額
-      you_need_to_fill_payout_details_before_accepting: "リストを投稿する前に、お支払い情報の入力を完了している必要があります。%{payment_settings_link}で、情報入力をお願いします。"
-      payment_settings_link: お支払い設定
-      minimum_price_error_message: "価格は%{amount}より低く設定できません。"
       accept: 受諾する
       decline: 辞退する
       quantity_label: 数量：
@@ -642,7 +626,6 @@ ja:
       last_message_at: "最新メッセージ %{time}"
       price: "価格： %{price}"
       sum: "合計： %{sum}"
-      price_excludes_vat: （外税）
       total: "合計： %{total}"
     status:
       payment_errored: お支払い手続きが失敗しました。再度お試しください。
@@ -701,54 +684,11 @@ ja:
       reject_preauthorized_request: 今回はやめる
       confirm: マーク完了
       cancel: 何も起きませんでした
-  braintree_accounts:
-    new:
-      add_payout_details: お支払い情報を追加
-      first_name: 名
-      last_name: 姓
-      email: メールアドレス
-      phone: 電話番号
-      address_street_address: 以降の住所
-      address_postal_code: 郵便番号
-      address_locality: 区市町村
-      address_region: 都道府県
-      date_of_birth: 生年月日
-      ssn: 社会保障番号
-      routing_number: 銀行支店コード
-      account_number: 口座番号
-      save: 保存する
-    show:
-      payout_details: お支払い情報
-      first_name: 名
-      last_name: 姓
-      email: メールアドレス
-      phone: 電話番号
-      address_street_address: 以降の住所
-      address_postal_code: 郵便番号
-      address_locality: 区市町村
-      address_region: 州/都道府県
-      date_of_birth: 生年月日
-      ssn: 社会保障番号
-      routing_number: 銀行支店コード
-      account_number: 口座番号
-  braintree_payments:
-    edit:
-      new_credit_card_payment: 新しいクレジットカードでお支払い
-      payment_receiver: お支払い受取人
-      cardholder_name: クレジットカード名義人氏名
-      credit_card_number: クレジットカード番号
-      cvv: CVV（クレジットカード裏面の署名欄に記載されている3桁の番号）
-      credit_card_expiration_date: カード有効期限
-      confirm_payment: お支払いを承認する
-      exp: カード有効期限：
   feedback:
     feedback_subject: ~
     feedback_body: ~
     unlogged_user: ~
     anonymous_user: ~
-  preauthorize_payments:
-    edit:
-      confirm_payment: お支払いを承認する
   community_memberships:
     access_denied:
       access_denied: アクセスが拒否されました
@@ -783,23 +723,12 @@ ja:
       powered_by: ~
       create_own: ~
       learn_more: ~
-    braintree_account_approved:
-      account_ready: お支払い受け取りの準備が整いました
-      message: "お支払いに関する情報が承認されました。%{service_name}で、お支払い受け取りの準備が整いました。"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "%{request_link} に対しての承認かキャンセルをしていないようです。もしリクエストが完了しているなら、承認をしてください。その後で、%{other_party_given_name}さんより、レビューをいただきます。"
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "%{request_link} に対しての承認かキャンセルをしていないようです。a) あなたがリクエスト完了のステータスにしたとき、b) %{days_to_automatic_confirmation}日後に、お代金を%{other_party_given_name}さんに送金します。もしリクエストが完了しているなら、承認をしてください。その後で、%{other_party_given_name}さんより、レビューをいただきます。"
       remember_to_confirm_request: リクエストを承認するかキャンセルしてください
       if_will_not_happen_you_should_cancel: "もしこのリクエストを何かの理由で完了できないと思う場合は、まだキャンセルが出来ます %{cancel_it_link}。"
-      if_will_not_happen_you_should_cancel_escrow: "もしこのリクエストを何かの事情により完了出来ない場合は、キャンセルが出来ます %{cancel_it_link}。管理者に払い戻しの手続きの案内についてお知らせされます。"
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "もしこのリクエストを何かの事情により完了出来ない場合は、%{days_to_cancel}日の猶予を持ってキャンセルが出来ます %{cancel_it_link}。管理者に払い戻しの手続きの案内についてお知らせされます。"
       cancel_it_link_text: キャンセルしてください
       automatic_confirmation: "リクエストが承諾されてから、%{days_to_automatic_confirmation}日以内にリクエストを承認かキャンセル扱いにしない場合は、自動的にサービスが提供されたとして完了済みステータスに変更されます。"
-    payment_reminder:
-      remember_to_pay: "%{listing_title}のお支払いをしてください"
-      you_have_not_yet_paid: "%{other_party_name}さんがおなたにオファーすると承諾した%{listing_title}のお支払いが完了しておりません。"
-      if_will_not_happen_you_should_cancel: "もしこのリクエストを何かの理由で完了できないと思う場合は、まだキャンセルが出来ます %{cancel_it_link}。"
-      cancel_it_link_text: キャンセルしてください
     payment_settings_reminder:
       remember_to_add_payment_details: お支払いを受け取るためにお支払い情報の入力をお願いします
       you_have_added_listing_with_payment: "%{listing_link}のリストが追加されました。しかし、あなたは料金受け取りに必要なPaypalの情報を追加していないようです。お支払いを受け取るには、お支払い情報ページより、PayPalアカウントを追加してください。"
@@ -823,11 +752,6 @@ ja:
       giving_feedback_is_good_idea: "これより先、%{other_party_given_name}さんにレビューを書くことが出来ます。レビューを残すことは、いつでもポジティブな面があります。もし全体的に満足できたサービスであった場合は、%{other_party_given_name}さんが信頼できる方であると、他の皆さんにお知らせするのが良いでしょう。仮に問題が発生していた場合であっても、その情報はきっと、今後その方のサービス向上のために役立つでしょう。"
       give_feedback_to: "%{other_party_given_name}さんへレビューを書く"
       show_thread: 会話を表示
-    escrow_canceled:
-      subject: お支払いはキャンセルされました
-      has_marked_request_as_canceled: "%{other_party_full_name}さんが「%{request}」の件で、リクエストをキャンセルにしました。恐れ入りますが、それにより、お代金を受け取らないことになります。"
-      if_this_was_error: "エラーが起こった場合には、%{please_contant_admin_link}"
-      please_contant_admin_link: サイト管理者にお問い合わせください。
     confirmation_instructions:
       confirmation_instructions_signature: "それでは、よろしくお願いいたします。<br/> - %{service_name}チーム"
       need_to_confirm: メールアドレスを認証してください。
@@ -885,7 +809,6 @@ ja:
       price_payer_paid: "価格 %{payer_full_name}さん 支払い済み："
       service_fee: "%{service_name}のご利用料金："
       you_will_get: あなたに支払われる金額：
-      money_will_be_transferred: "a) %{payer_name}さんがリクエストを完了しステータスを変更したとき、あるいは b) %{payer_name}さんがお支払い後、%{automatic_confirmation_days}日が経過したとき、お代金があなたの口座に送金されます。"
     receipt_to_payer:
       receipt_of_payment: 領収書
       you_have_made_new_payment: "%{recipient_full_name}さんに<b>%{listing_title}</b>の件で、<b>%{payment_sum}</b>支払いました。こちらはその領収書です。"
@@ -1017,7 +940,7 @@ ja:
       javascript_is_disabled_in_your_browser: Javascriptがあなたのブラウザで無効になっています
       kassi_does_not_currently_work_without_javascript: "%{service_name}ではjavascriptなしでは正しく機能しません。お使いのブラウザのjavascriptを有効にして、再度ロードしてみてください。"
       contact_us: サイト管理者に、メニューの「お問い合わせ」より、ご連絡下さい。
-      send_feedback: ~
+      send_feedback: メッセージを送信する
       your_feedback_to_admins: ~
     send: 送信する
     your_email_address: あなたのメールアドレス
@@ -1368,7 +1291,6 @@ ja:
       you_must_log_in_to_view_your_settings: "設定を見るには、%{service_name}にログインしてください"
       you_must_log_in_to_add_news_item: "新しい記事を追加するには、%{service_name}にログインしている必要があります。"
       you_must_log_in_to_change_profile_settings: "プロフィールの設定を変更するには、%{service_name}にログインしてください。"
-      you_must_log_in_to_change_payment_settings: "お支払い設定を変更するには、%{service_name}にログインしてください。"
       you_must_log_in_to_accept_or_reject: お取引を受諾か却下するにはログインしてください
       you_must_log_in_to_confirm_or_cancel: お取引をキャンセルか、承認するにはログインしてください
       you_need_to_confirm_your_account_first: メールアドレスを認証してください。
@@ -1378,8 +1300,6 @@ ja:
       can_not_delete_email: メールアドレスを削除できません
       user_does_not_have_email_to_delete: 削除しようとしていたメールアドレスは、正しくありません。
       email_deleted: メールアドレスは削除されました
-      payment_details_add_successful: お支払い情報を正常に追加できました
-      payment_details_add_error: お支払い情報を追加できませんでした
       listing_author_payment_details_missing: このリストの作成者はお支払い詳細を追加していないので、現在のところお支払いを受け取れません。このリストの作者に直接連絡を取ってください。作成者
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
@@ -1483,8 +1403,6 @@ ja:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link}は料金から控除されます。"
         after_service_fee_you_will_get_paypal_text: "%{service_name}のご利用手数料 %{sum_with_currency}と%{paypal_fee_info_link}が料金より控除されます。"
         paypal_fee_info_link_text: PayPalのお支払い手数料
-        after_service_fee_you_will_get_vat: "%{service_name}のご利用手数、お支払い手数料を引いて、あなたに%{sum_with_currency}が支払われます。送料など発生する場合は、送料込みの価格にしてください。（消費税 0%）"
-        price_excludes_vat: 価格は外税です。
         delivery: 配送の方法
         shipping: 送料
         shipping_price: 送料
@@ -1623,7 +1541,6 @@ ja:
       times: 回
       times_viewed: 表示
       processing_uploaded_image: （画像をアップロード中です...）
-      price_excludes_vat: （外税）
       listing_created_at: 掲載日
       price:
         per_quantity_unit: "あたり： %{quantity_unit}"
@@ -1682,26 +1599,6 @@ ja:
   okl:
     member_id: メンバーID
     member_id_or_email: ユーザ名もしくはメールアドレス
-  payments:
-    new:
-      new_payment: 新しいお支払い
-      continue: 続ける
-      payment_receiver: お支払いを受け取る方：
-      sum: お支払い金額：
-    form:
-      total: トータル
-      service_charge: 手数料
-      product: 商品・サービス名：
-      price: 合計：
-      price_for: "%{payer_given_name}さんのための価格"
-      continue_to_pay: お支払いを続ける
-      invoice: ご請求書
-      service_fee: "%{service_name}のご利用料金："
-      you_will_get: あなたに支払われる金額：
-    braintree:
-      terms:
-        braintree_terms_also_included: "注意： Braintreeは、お支払い方法の一部として使用されます。そして、このウェブサイトを経由して、下記の条件 %{terms_link_text} を受け入れることになります。"
-        terms_link_text: Braintreeのご利用規約
   paypal_accounts:
     payout_info_title: お支払い情報
     paypal_account_email_connected: "<del>1. PayPalアカウントに接続する</del> 完了しました！"
@@ -1937,7 +1834,6 @@ ja:
       i_want_to_get_email_notification_when: ☆以下のタイミングでメールの通知を希望します☆
       newsletters: ☆速報☆
       community_updates: ☆メールを更新☆
-      email_about_accept_reminders: "...オファーまたはリクエストを承認するのを忘れました"
       email_about_confirm_reminders: "...リクエスト完了処理をし忘れました"
       email_about_new_comments_to_own_listing: "...オファーまたはリクエストに対し誰かがコメントしました"
       email_about_new_messages: "...誰かがメッセージを送信しました"
@@ -1950,7 +1846,6 @@ ja:
       email_when_conversation_rejected: "...誰かが私のオファーあるいはリクエストを受け入れませんでした"
       email_about_completed_transactions: "...誰かが私のオファーかリクエストが完了しているとステータスを変更（マーク）しました"
       email_about_new_payments: "...新しいお支払いを受けました"
-      email_about_payment_reminders: "...支払い忘れました"
       email_about_new_listings_by_followed_people: "...フォロー中の誰かが新しいリストを投稿しました"
       unsubscribe_succesful: 購読をやめる
       unsubscribe_info_text: "これらのメールを今後受け取りません。今一度%{settings_link}から、%{service_name}より受け取りたい種類のメールを選んでください。もしくは%{homepage_link}に戻ります。"

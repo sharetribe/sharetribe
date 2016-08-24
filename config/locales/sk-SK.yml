@@ -187,7 +187,6 @@ sk-SK:
       settings:
         settings: Nastavenia
         general: Všeobecné
-        users_can_review_each_other_after_transaction: "Užívatelia si môžu navzájom skontrolovať transakciu"
         access: "Nastavenia prístupu"
         join_with_invite_only: "Iba užívatelia s pozvánkou od iného užívateľa sa môžu pripojiť k tomuto trhovisku"
         users_can_invite_new_users: "Všetci užívatelia môžu pozvať nových užívateľov do tohoto trhoviska"
@@ -214,7 +213,6 @@ sk-SK:
         google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Twitter (používa se tweet tlačítkom na strane)"
         update_settings: "Uložiť nastavenia"
-        automatically_confirmed: "Transakcia bude automaticky označená ako vybavená za %{days_dropdown} dní od doby, čo bola platba vykonaná. Pokiaľ je systém úschovy zdrojových kódov v prevádzke, peniaze budú poskytovateľovi čo najskôr prevedené."
         automatically_confirmed_no_escrow: "Transakcia bude automaticky označená ako vybavená za %{days_dropdown} dní od doby, kedy bola platba prevedená."
         automatic_newsletter_frequency: "Automaticky posielať novinky: %{frequency_dropdown}"
         newsletter_daily: Denne
@@ -311,15 +309,6 @@ sk-SK:
           initiated: "Čaká sa na PayPal platbu"
           pending_ext: "Čaká sa na PayPal platbu"
         not_available: "Teraz k dispozicií"
-      braintree_payment_gateway:
-        braintree_payment_gateway: "Braintree platba API klúčom"
-        environment: Prostredie
-        private_key: "Súkromný klúč"
-        public_key: "Verejný kľúč"
-        client_side_encryption_key: "Šifrovací kód klienta"
-        merchant_id: "Identifikačné číslo obchodníka"
-        master_merchant_id: "Identifikačné číslo hlavného obchodníka"
-        commission_from_seller: "Prirážka predajcu v percentách"
       paypal_account:
         paypal_admin_account: Platby
     custom_fields:
@@ -575,8 +564,6 @@ sk-SK:
     accept:
       details: "Podrobnosti o usporiadaní."
       order_by: "Zoradené podľa %{orderer_link}"
-      respond_to_offer: "Reagovať na ponuku"
-      respond_to_request: "Reagovať na žiadosť"
       accept_offer: "Prijať ponuku"
       accept_request: "Prijať žiadosť"
       reject_offer: "Teraz nie"
@@ -585,9 +572,6 @@ sk-SK:
       update_later: "Zanechať inzerát otvorený"
       optional_message: "Voliteľná správa"
       price_to_pay: "Celková suma na zaplatenie"
-      you_need_to_fill_payout_details_before_accepting: "Najprv musíte vyplniť podrobnosti ohľadne platby, potom môžete prijať žiadosť a obdržať platbu. Prejdite do %{payment_settings_link} a vyplňte podrobnosti."
-      payment_settings_link: "nastavenie platieb"
-      minimum_price_error_message: "Cena nemôže byť nižšia ako %{amount}"
       accept: Prijať
       decline: Odmietnuť
       quantity_label: "Množstvo:"
@@ -668,7 +652,6 @@ sk-SK:
       last_message_at: "(posledná správa %{time})"
       price: "Cena: %{price}"
       sum: "Celkovo: %{sum}"
-      price_excludes_vat: "(nezahrňuje DPH)"
       total: "Celkovo: %{total}"
     status:
       payment_errored: "Platba neúspešná. Prosím skúste to znova."
@@ -727,54 +710,11 @@ sk-SK:
       reject_preauthorized_request: "Tentokrát nie"
       confirm: "Označiť ako vybavené"
       cancel: Spor
-  braintree_accounts:
-    new:
-      add_payout_details: "Pridať podrobnosti o platbe"
-      first_name: Meno
-      last_name: Priezvisko
-      email: "E-mailová adresa"
-      phone: "Telefónne číslo"
-      address_street_address: Ulica
-      address_postal_code: PSČ
-      address_locality: Mesto
-      address_region: Štát
-      date_of_birth: "Dátum narodenia"
-      ssn: "Číslo sociálneho zabezpečenia"
-      routing_number: "Clearingový kód"
-      account_number: "Číslo účtu"
-      save: Uložiť
-    show:
-      payout_details: "Vaše platobné údaje"
-      first_name: Meno
-      last_name: Priezvisko
-      email: "E-mailová adresa"
-      phone: "Telefónne číslo"
-      address_street_address: Ulica
-      address_postal_code: PSČ
-      address_locality: Mesto
-      address_region: Štát
-      date_of_birth: "Dátum narodenia"
-      ssn: "Číslo sociálneho zabezpečenia"
-      routing_number: "Clearingový kód"
-      account_number: "Číslo účtu"
-  braintree_payments:
-    edit:
-      new_credit_card_payment: "Platba novou kreditnou kartou"
-      payment_receiver: "Príjemca platby"
-      cardholder_name: "Držiteľ karty"
-      credit_card_number: "Číslo kreditnej karty"
-      cvv: CVV
-      credit_card_expiration_date: "Dátum expirácie kreditnej karty"
-      confirm_payment: "Potvrdiť platbu"
-      exp: "Platnosť:"
   feedback:
     feedback_subject: "Nové hodnotenie od %{service_name}"
     feedback_body: "%{author_name_and_email} odoslal nasledujúce hodnotenie z %{service_name}"
     unlogged_user: "Neprihlásený užívateľ"
     anonymous_user: "Anonymný užívateľ"
-  preauthorize_payments:
-    edit:
-      confirm_payment: "Potvrdiť platbu"
   community_memberships:
     access_denied:
       access_denied: "Prístup bol odmietnutý."
@@ -809,23 +749,12 @@ sk-SK:
       powered_by: "%{service_name} funguje na platforme %{sharetribe_link}."
       create_own: "Chcete si vytvoriť svoje vlastné online trhovisko ako %{service_name}? %{learn_more}"
       learn_more: "Čítať viac"
-    braintree_account_approved:
-      account_ready: "Už môžete prijímať platby"
-      message: "Vaše platobné údaje boli potvrdené a už môžete prijímať platby v %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Objednávka nebola ešte potvrdená alebo zrušená %{request_link}. V prípade, že objednávka bola vybavená, mali by ste ju potvrdiť. Potom môžete ohodnotiť užívateľa %{other_party_given_name}."
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Ešte ste nepotvrdili alebo nezrušili žiadosť %{request_link}. Peniaze prevedieme užívateľovi %{other_party_given_name} iba vtedy a) pokiaľ ste označili žiadosť ako vybavenú alebo b) pokiaľ uplynulo %{days_to_automatic_confirmation} dní od dátumu platby. Po označení žiadosti za vybavenú, môžete poskytnúť spätnú väzbu užívateľovi %{other_party_given_name}."
       remember_to_confirm_request: "Nezabudnite potvrdiť alebo zrušiť žiadosť"
       if_will_not_happen_you_should_cancel: "Pokiaľ si myslíte, že Vaša objednávka nebola vybavená z akéhokoľvek dôvodu, môžete ju zrušiť %{cancel_it_link}."
-      if_will_not_happen_you_should_cancel_escrow: "Pokiaľ si myslíte, že táto žiadosť nebude splnená z akýchkoľvek dôvodov, môžete ju %{cancel_it_link}. Týmto bude administrátor upozornený a bude Vás kontaktovať ohľadom vrátenia peňazí."
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "Pokiaľ si myslíte, že táto žiadosť nebude splnená z akýchkoľvek dôvodov, máte %{days_to_cancel} dní ju %{cancel_it_link}. Týmto bude administrátor upozornený a bude Vás kontaktovať ohľadom vrátenia peňazí."
       cancel_it_link_text: zrušiť
       automatic_confirmation: "Pokiaľ nepotvrdíte alebo nezrušíte objednávku do%{days_to_automatic_confirmation} dní potom, čo bola žiadosť prijatá, automaticky se žiadosť označí ako vybavená."
-    payment_reminder:
-      remember_to_pay: "Nezabudnite zaplatiť za %{listing_title}"
-      you_have_not_yet_paid: "Užívateľ %{other_party_name} schválil Vašu ponuku, ale ešte ste za %{listing_title} nezaplatili."
-      if_will_not_happen_you_should_cancel: "Pokiaľ si myslíte, že táto objednávka nebude vybavená z akýkoľvek dôvodov, môžete ju stále %{cancel_it_link}."
-      cancel_it_link_text: zrušiť
     payment_settings_reminder:
       remember_to_add_payment_details: "Nezabudnite vyplniť svoje platobné údaje pre príjem platieb"
       you_have_added_listing_with_payment: "Pridali ste inzerát %{listing_link} s platbou ale zatiaľ ste nepridali žiadne platobné údaje. Aby ste mohli prijímať platby, je nutné pridať informácie o platbe."
@@ -849,11 +778,6 @@ sk-SK:
       giving_feedback_is_good_idea: "Teraz môžete poskytnúť spätnú väzbu užívateľovi %{other_party_given_name}. Spätná väzba je vždy užitočná. Ak všetko prebehlo v poriadku, mali by ste dať ostatným vedieť, že užívateľ %{other_party_given_name} dôveryhodný. V prípade, že sa vyskytli akékoľvek problémy, je dobré to tiež zmieniť."
       give_feedback_to: "Hodnotenie pre užívateľa %{other_party_given_name}"
       show_thread: "Zobraz konverzáciu"
-    escrow_canceled:
-      subject: "Platba zrušená"
-      has_marked_request_as_canceled: "%{other_party_full_name} označil Vašu žiadosť %{request} ako zrušenú. Z tejto transkakcie neobdržíte žiadne peniaze."
-      if_this_was_error: "Pokiaľ si myslíte, že nastala chyba, %{please_contant_admin_link}."
-      please_contant_admin_link: "Prosím kontaktujte administrátora"
     confirmation_instructions:
       confirmation_instructions_signature: "S pozdravom,<br/>Váš %{service_name} tím"
       need_to_confirm: "Potvrďte Vašu e-mailovú adresu kliknutím na tlačítko nižšie."
@@ -911,7 +835,6 @@ sk-SK:
       price_payer_paid: "Cena zaplatená užívateľom %{payer_full_name}:"
       service_fee: "%{service_name} poplatok za službu:"
       you_will_get: "Celkovo:"
-      money_will_be_transferred: "Peniaze budú prevedené na Váš účet, a) pokiaľ užívateľ %{payer_name} označí žiadosť ako vybavenú alebo b) pokiaľ uplynulo %{automatic_confirmation_days} dní od doby, keď užívateľ %{payer_name} zaplatil."
     receipt_to_payer:
       receipt_of_payment: "Potvrdenka o platbe"
       you_have_made_new_payment: "Zaplatili ste <b>%{payment_sum}</b> za <b>%{listing_title}</b> užívateľovi %{recipient_full_name}. Tu je potvrdenie Vašej platby."
@@ -1394,7 +1317,6 @@ sk-SK:
       you_must_log_in_to_view_your_settings: "Musíte sa prihlásiť v %{service_name} pre zobrazenie nastavenia"
       you_must_log_in_to_add_news_item: "Musíte byť prihlásený do %{service_name} aby ste mohli pridať nový výrobok."
       you_must_log_in_to_change_profile_settings: "Musíte byť prihlásený do %{service_name} aby ste mohli zmeniť profilové nastavenia."
-      you_must_log_in_to_change_payment_settings: "Musíte byť prihlásený do %{service_name} aby ste mohli zmeniť nastavenie platieb"
       you_must_log_in_to_accept_or_reject: "Musíte byť prihlásený, aby ste mohli prijať alebo odmietnuť platbu"
       you_must_log_in_to_confirm_or_cancel: "Musíte byť prihlásený, aby ste mohli stornovať alebo potvrdiť platbu"
       you_need_to_confirm_your_account_first: "Potrebujete overiť Vašu e-mailovú adresu."
@@ -1404,8 +1326,6 @@ sk-SK:
       can_not_delete_email: "Nemôžete odstrániť e-mailovú adresu."
       user_does_not_have_email_to_delete: "E-mailová adresa, ktorú sa snažíte odstrániť Vám nepatrí"
       email_deleted: "E-mailová adresa bola odstránená"
-      payment_details_add_successful: "Platobné údaje boli úspešne pridané"
-      payment_details_add_error: "Platobné údaje nemôžu byť pridané"
       listing_author_payment_details_missing: "Prosím kontaktujte autora kliknutím na tlačítko 'Kontakt' nižšie. Je potrebné aktualizovať podrobnosti o platbe, aby platba mohla byť prijatá."
       images_are_processing: "Vaše nové obrázky, ktoré práve spracovávame budú viditeľné za niekoľko sekúnd."
       maintenance_mode:
@@ -1514,8 +1434,6 @@ sk-SK:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} bude odčítaný z ceny."
         after_service_fee_you_will_get_paypal_text: "%{service_name} poplatok (%{sum_with_currency}) a %{paypal_fee_info_link} bude odčítaný z ceny."
         paypal_fee_info_link_text: "PayPal poplatok za spracovanie platby"
-        after_service_fee_you_will_get_vat: "Po %{service_name} a zaplatení procesných poplatkov obdržíte cca. %{sum_with_currency} (DPH 0%)"
-        price_excludes_vat: "Cena nezahrňuje DPH."
         delivery: "Metóda doručenia"
         shipping: Doprava
         shipping_price: "Poplatok za dopravu"
@@ -1654,7 +1572,6 @@ sk-SK:
       times: časy
       times_viewed: Zobrazené
       processing_uploaded_image: "(spracovávanie nahraného obrázku...)"
-      price_excludes_vat: "(bez DPH)"
       listing_created_at: "Inzerát vytvorený"
       price:
         per_quantity_unit: "za %{quantity_unit}"
@@ -1713,26 +1630,6 @@ sk-SK:
   okl:
     member_id: "Členské id"
     member_id_or_email: "Členské id alebo e-mailová adresa"
-  payments:
-    new:
-      new_payment: "Nová platba"
-      continue: Pokračovať
-      payment_receiver: "Príjemca platby:"
-      sum: "Na zaplatenie:"
-    form:
-      total: Celkovo
-      service_charge: "Poplatok za službu"
-      product: "Produkt:"
-      price: "Čiastka:"
-      price_for: "Cena za %{payer_given_name}:"
-      continue_to_pay: "Pokračovať v platbe"
-      invoice: Faktúra
-      service_fee: "%{service_name} poplatok za službu:"
-      you_will_get: "Obdržíte:"
-    braintree:
-      terms:
-        braintree_terms_also_included: "POZNÁMKA: Braintree je používaný ako platobná brána a pomocou tejto stránky môžete prijať %{terms_link_text}, podľa nižšie uvedených podmienok."
-        terms_link_text: "Braintree podmienky používania"
   paypal_accounts:
     payout_info_title: "Nastavenia platieb"
     paypal_account_email_connected: "<del>Pripojenie cez Paypal účet</del> Hotovo!"
@@ -1970,7 +1867,6 @@ sk-SK:
       i_want_to_get_email_notification_when: "Chcem dostať notifikáciu e-mailom keď..."
       newsletters: "E-mailové správy od administrátora"
       community_updates: Novinky
-      email_about_accept_reminders: "...som zabudol/la prijať ponuku alebo žiadosť"
       email_about_confirm_reminders: "...som zabudol/la potvrdiť objednávku ako vybavenú"
       email_about_new_comments_to_own_listing: "...niekto komentoval moju ponuku alebo žiadosť"
       email_about_new_messages: "...niekto mi pošle správu"
@@ -1983,7 +1879,6 @@ sk-SK:
       email_when_conversation_rejected: "...niekto odmietol moju ponuku alebo žiadosť"
       email_about_completed_transactions: "...niekto označil moju objednávku ako vybavenú"
       email_about_new_payments: "...bola prijatá nová platba"
-      email_about_payment_reminders: "...som zabudol/la zaplatiť"
       email_about_new_listings_by_followed_people: "...niekto koho sledujete, pridal nový inzerát"
       unsubscribe_succesful: "Odhlásenie prebeblo úspešne"
       unsubscribe_info_text: "Už nebudete naďalej dostávať tieto e-mailové správy. Skontrolujte si svoje %{settings_link} a zvoľte si, aký druh e-mailových správ chcete dostávať od %{service_name} alebo sa vráťte na %{homepage_link}."
