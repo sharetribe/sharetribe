@@ -8,11 +8,17 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ## [Unreleased]
 
-## [5.10.0] - 2016-08-23
+## [5.11.0] - 2016-08-24
 
 ### Changed
 
 - `RAILS_ENV=production` environment added to the `rake assets:compile` command in README [#2440](https://github.com/sharetribe/sharetribe/pull/2440) by [@pcm211](https://github.com/pcm211)
+
+### Removed
+
+- Remove Braintree support completely [#2424](https://github.com/sharetribe/sharetribe/pull/2424), [#2435](https://github.com/sharetribe/sharetribe/pull/2435)
+
+## [5.10.0] - 2016-08-23
 
 ### Removed
 
@@ -243,7 +249,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v5.10.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v5.11.0...HEAD
+[5.11.0]: https://github.com/sharetribe/sharetribe/compare/v5.10.0...v5.11.0
 [5.10.0]: https://github.com/sharetribe/sharetribe/compare/v5.9.0...v5.10.0
 [5.9.0]: https://github.com/sharetribe/sharetribe/compare/v5.8.0...v5.9.0
 [5.8.0]: https://github.com/sharetribe/sharetribe/compare/v5.7.1...v5.8.0

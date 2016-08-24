@@ -34,6 +34,12 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 ## Unreleased
 
+## Upgrade from 5.10.0 to 5.11.0
+
+This version is the second phase of removing support for Braintree payments. Old payment data for Braintree transactions will be removed in the migrations. If you want to save this data, you should take a backup before updating.
+
+After the upgrade to 5.10.0 no new transactions could be started with Braintree anymore, and before upgrading to this version you should make sure that there are no ongoing Braintree transactions. You can check the status of each transaction in the transaction view in the admin panel. All transaction statuses should be either Conversation, Confirmed, Canceled, or Rejected.
+
 ## Upgrade from 5.9.0 to 5.10.0
 
 This version starts the two step process of disabling Braintree payments. In the first phase new payments are disabled with Braintree. The main purpose of this version is to ensure that there will be no new Braintree transactions. Existing transactions can be completed still after this update.
