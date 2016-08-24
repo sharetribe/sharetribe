@@ -78,6 +78,14 @@
   border-radius: 3px;
   position: absolute;
   box-shadow: var(--Menu_boxShadow);
+
+  /* 3rd child is the first child after arrow - i.e. first menu item */
+  & :nth-child(3) {
+    border-top-left-radius: 3px;
+  }
+  & :last-child {
+    border-bottom-left-radius: 3px;
+  }
 }
 
 .menuContentArrowTop,
