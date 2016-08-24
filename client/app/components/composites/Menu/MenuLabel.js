@@ -10,6 +10,7 @@ class MenuLabel extends Component {
     return (
       div({
         className: `MenuLabel ${css.menuLabel} ${extraClasses}`,
+        ref: this.props.menuLabelRef,
       }, [
         span({
           className: css.menuLabelIcon,
@@ -24,8 +25,9 @@ class MenuLabel extends Component {
 }
 
 MenuLabel.propTypes = {
-  name: PropTypes.string.isRequired,
   extraClasses: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  menuLabelRef: PropTypes.func.isRequired,
 };
 
 export default MenuLabel;

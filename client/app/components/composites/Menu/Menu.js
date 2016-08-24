@@ -1,5 +1,4 @@
 import { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
 import r, { div } from 'r-dom';
 import classNames from 'classnames';
 
@@ -37,10 +36,8 @@ class Menu extends Component {
   }
 
   calculateDropdownPosition() {
-    const menuLabel = ReactDOM.findDOMNode(this.menuLabel);
-
     this.setState({ // eslint-disable-line react/no-did-mount-set-state, react/no-set-state
-      arrowPosition: menuLabel.offsetWidth > (INITIAL_ARROW_POSITION * 2) ? Math.floor(menuLabel.offsetWidth / 2) : INITIAL_ARROW_POSITION, // eslint-disable-line no-magic-numbers
+      arrowPosition: this.menuLabel.offsetWidth > (INITIAL_ARROW_POSITION * 2) ? Math.floor(this.menuLabel.offsetWidth / 2) : INITIAL_ARROW_POSITION, // eslint-disable-line no-magic-numbers
     });
   }
 
@@ -71,7 +68,7 @@ class Menu extends Component {
           key: `${this.props.identifier}_menulabel`,
           name: this.props.name,
           extraClasses: this.props.extraClassesLabel,
-          ref: (c) => {
+          menuLabelRef: (c) => {
             this.menuLabel = c;
           },
         }
