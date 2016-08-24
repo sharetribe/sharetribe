@@ -3,16 +3,12 @@ import r, { div } from 'r-dom';
 import classNames from 'classnames';
 
 import { className } from '../../../utils/PropTypes';
+import { hasTouchEvents } from '../../../utils/featureDetection';
 import ProfileDropdown from './ProfileDropdown';
 import Avatar from '../../elements/Avatar/Avatar';
 import NotificationBadge from '../../elements/NotificationBadge/NotificationBadge';
 
 import css from './AvatarDropdown.css';
-
-const isTouch =
-  !!(typeof window !== 'undefined' &&
-    (('ontouchstart' in window) ||
-      window.navigator.msMaxTouchPoints > 0));
 
 class AvatarDropdown extends Component {
   constructor(props, context) {
@@ -27,7 +23,7 @@ class AvatarDropdown extends Component {
   }
 
   handleClick() {
-    if (isTouch) {
+    if (hasTouchEvents) {
       this.setState({ isOpen: !this.state.isOpen });// eslint-disable-line react/no-set-state
     }
   }
@@ -41,7 +37,7 @@ class AvatarDropdown extends Component {
   }
 
   render() {
-    const touchClass = isTouch ? '' : css.touchless;
+    const touchClass = hasTouchEvents ? '' : css.touchless;
     const openClass = this.state.isOpen ? css.openDropdown : '';
     const notificationsClass = this.props.notificationCount > 0 ? css.hasNotifications : null;
     const notificationBadgeInArray = this.props.notificationCount > 0 ?

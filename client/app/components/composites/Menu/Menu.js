@@ -3,6 +3,7 @@ import r, { div } from 'r-dom';
 import classNames from 'classnames';
 
 import { className } from '../../../utils/PropTypes';
+import { hasTouchEvents } from '../../../utils/featureDetection';
 
 import MenuLabel from './MenuLabel';
 import MenuLabelDropdown from './MenuLabelDropdown';
@@ -14,8 +15,6 @@ const MENULABEL_MAP = {
   menu: MenuLabel,
   dropdown: MenuLabelDropdown,
 };
-
-const isTouch = !!(typeof window !== 'undefined' && (('ontouchstart' in window) || window.navigator.msMaxTouchPoints > 0));
 
 class Menu extends Component {
 
@@ -42,7 +41,7 @@ class Menu extends Component {
   }
 
   handleClick() {
-    if (isTouch) {
+    if (hasTouchEvents) {
       this.setState({ isOpen: !this.state.isOpen });// eslint-disable-line react/no-set-state
     }
   }
@@ -58,7 +57,7 @@ class Menu extends Component {
   render() {
     const requestedLabel = MENULABEL_MAP[this.props.menuLabelType];
     const LabelComponent = requestedLabel != null ? requestedLabel : null;
-    const touchClass = isTouch ? '' : css.touchless;
+    const touchClass = hasTouchEvents ? '' : css.touchless;
     const openClass = this.state.isOpen ? css.openMenu : '';
 
     return div({
