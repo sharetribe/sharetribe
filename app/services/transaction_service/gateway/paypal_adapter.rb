@@ -65,7 +65,7 @@ module TransactionService::Gateway
 
       payment_total = payment[:payment_total].or_else(nil)
       total_price = Maybe(payment[:payment_total].or_else(payment[:authorization_total].or_else(nil)))
-                    .or_else(tx[:unit_price])
+                    .or_else(tx[:unit_price] * tx[:listing_quantity])
 
       { payment_total: payment_total,
         total_price: total_price,
