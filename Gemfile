@@ -110,7 +110,7 @@ gem 'demoji', "~> 0.0.5"
 gem 'faraday', '~> 0.9.1'
 gem 'faraday_middleware', '~> 0.10.0'
 
-gem "react_on_rails", "~> 5.1.1"
+gem "react_on_rails", "~> 6.0.5"
 
 gem "css_parser", "~> 1.4.5"
 
