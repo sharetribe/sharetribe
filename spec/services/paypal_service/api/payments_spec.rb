@@ -1,5 +1,3 @@
-require_relative '../api'
-
 describe PaypalService::API::Payments do
 
   TokenStore = PaypalService::Store::Token
@@ -9,9 +7,9 @@ describe PaypalService::API::Payments do
   before(:each) do
     # Test version of merchant client
     PaypalService::API::Api.reset!
-    @events = PaypalService::API::Api.events
+    @events = PaypalService::API::Api.build_test_events
     @api_builder = PaypalService::API::Api.api_builder
-    @payments = PaypalService::API::Api.payments
+    @payments = PaypalService::API::Api.build_test_payments(events: @events)
 
     @process = PaypalService::API::Process.new
 

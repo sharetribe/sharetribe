@@ -121,7 +121,13 @@ class PreauthorizeTransactionsController < ApplicationController
     transaction_id = transaction_response[:data][:transaction][:id]
 
     if (transaction_response[:data][:gateway_fields][:redirect_url])
-      redirect_to transaction_response[:data][:gateway_fields][:redirect_url]
+      if request.xhr?
+        render json: {
+          redirect_url: transaction_response[:data][:gateway_fields][:redirect_url]
+        }
+      else
+        redirect_to transaction_response[:data][:gateway_fields][:redirect_url]
+      end
     else
       render json: {
         op_status_url: transaction_op_status_path(transaction_response[:data][:gateway_fields][:process_token]),

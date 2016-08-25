@@ -27,12 +27,18 @@ class PaypalService::CheckoutOrdersController < ApplicationController
       return redirect_to search_path
     end
 
-    render "paypal_service/success", layout: false, locals: {
-      op_status_url: transaction_op_status_path(proc_status[:data][:process_token]),
-      redirect_url: success_processed_paypal_service_checkout_orders_path(
-        process_token: proc_status[:data][:process_token],
-        listing_id: transaction[:listing_id])
-    }
+    if proc_status[:data][:process_token].present?
+      # Operation was performed asynchronously
+
+      render "paypal_service/success", layout: false, locals: {
+        op_status_url: transaction_op_status_path(proc_status[:data][:process_token]),
+        redirect_url: success_processed_paypal_service_checkout_orders_path(
+          process_token: proc_status[:data][:process_token],
+          listing_id: transaction[:listing_id])
+      }
+    else
+      handle_proc_result(proc_status)
+    end
 
   end
 
@@ -45,9 +51,26 @@ class PaypalService::CheckoutOrdersController < ApplicationController
       return redirect_to error_not_found_path
     end
 
-    response_data = proc_status[:data][:result][:data] || {}
+    handle_proc_result(proc_status[:data][:result])
+  end
 
-    if proc_status[:data][:result][:success]
+  def cancel
+    pp_result = paypal_payments_service.request_cancel(@current_community.id, params[:token])
+    if(!pp_result[:success])
+      flash[:error] = t("error_messages.paypal.cancel_error")
+      return redirect_to search_path
+    end
+
+    flash[:notice] = t("paypal.cancel_succesful")
+    return redirect_to person_listing_path(person_id: @current_user.id, id: params[:listing_id])
+  end
+
+  private
+
+  def handle_proc_result(response)
+    response_data = response[:data] || {}
+
+    if response[:success]
       redirect_to person_transaction_path(person_id: @current_user.id, id: response_data[:transaction_id])
     else
       if response_data[:paypal_error_code] == "10486"
@@ -73,19 +96,6 @@ class PaypalService::CheckoutOrdersController < ApplicationController
       end
     end
   end
-
-  def cancel
-    pp_result = paypal_payments_service.request_cancel(@current_community.id, params[:token])
-    if(!pp_result[:success])
-      flash[:error] = t("error_messages.paypal.cancel_error")
-      return redirect_to search_path
-    end
-
-    flash[:notice] = t("paypal.cancel_succesful")
-    return redirect_to person_listing_path(person_id: @current_user.id, id: params[:listing_id])
-  end
-
-  private
 
   def transaction_service
     TransactionService::Transaction

@@ -223,7 +223,7 @@ class PaypalAccountsController < ApplicationController
   end
 
   def accounts_api
-    PaypalService::API::Api.accounts_api
+    PaypalService::API::Api.accounts
   end
 
 end

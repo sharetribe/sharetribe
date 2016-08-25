@@ -1,4 +1,4 @@
-require_relative '../api'
+require 'spec_helper'
 
 describe PaypalService::API::Accounts do
 
@@ -16,7 +16,7 @@ describe PaypalService::API::Accounts do
         person_id: @mid,
         # For testing purposes, add 'email' and 'payer_id' query params.
         # That way we can inject them to our fake PayPal
-        callback_url: "http://test.com/request?email=#{email}&payer_id=#{payer_id}",
+        callback_url: "https://test.com/request?email=#{email}&payer_id=#{payer_id}",
         country: @country
       }),
       flow: flow)
@@ -32,7 +32,7 @@ describe PaypalService::API::Accounts do
         community_id: @cid,
         # For testing purposes, add 'email' and 'payer_id' query params.
         # That way we can inject them to our fake PayPal
-        callback_url: "http://test.com/request?email=#{email}&payer_id=#{payer_id}",
+        callback_url: "https://test.com/request?email=#{email}&payer_id=#{payer_id}",
         country: @country
       }),
       flow: flow)
@@ -108,8 +108,8 @@ describe PaypalService::API::Accounts do
       person_id: @mid,
       body: {
         description: "Let marketplace X take commissions",
-        success_url: "http://test.com/billing_agreement/success",
-        cancel_url: "http://test.com/billing_agreement/cancel"
+        success_url: "https://test.com/billing_agreement/success",
+        cancel_url: "https://test.com/billing_agreement/cancel"
       }
     )
   end
@@ -157,7 +157,8 @@ describe PaypalService::API::Accounts do
 
   ## Helpers
 
-  # For testing purpose, let's agree on simple URL schema
+  # Takes a callback URL and returns parsed version, that is, a tuple of URL
+  # without query part and the token
   #
   # https://<what_ever>?token=<36 chars length token>
   #
@@ -165,7 +166,17 @@ describe PaypalService::API::Accounts do
   #
   # Returs: ["https://paypaltest.com/billing_agreement", "3252be6f-e606-41df-a3b7-3eae625be9ac"]
   def parse_redirect_url(url)
-    url.split("?token=")
+    uri = URI(url)
+
+    token = Maybe(URI(url).query).map { |query_string|
+      Maybe(CGI.parse(query_string)["token"]).map { |token_value_array|
+        token_value_array.first
+      }.or_else(nil)
+    }.or_else(nil)
+
+    path_without_query = "#{uri.scheme}://#{uri.host}#{uri.path}"
+
+    [path_without_query, token]
   end
 
   def parse_redirect_url_from_response(res)
@@ -221,7 +232,7 @@ describe PaypalService::API::Accounts do
     # Test version of merchant and permission clients
     PaypalService::API::Api.reset!
     @api_builder = PaypalService::API::Api.api_builder
-    @accounts = PaypalService::API::Api.accounts
+    @accounts = PaypalService::API::Api.build_test_accounts(prepend_country_code: true)
 
     # Test data
 
@@ -241,7 +252,7 @@ describe PaypalService::API::Accounts do
 
       with_success(response) { |data|
         redirect_endpoint, token = parse_redirect_url(data[:redirect_url])
-        expect(redirect_endpoint).to eq "https://paypaltest.com/gb/"
+        expect(redirect_endpoint).to eq "https://test.com/gb/request"
         expect_token(token)
       }
     end
@@ -251,7 +262,7 @@ describe PaypalService::API::Accounts do
 
       with_success(response) { |data|
         redirect_endpoint, token = parse_redirect_url(data[:redirect_url])
-        expect(redirect_endpoint).to eq "https://paypaltest.com/gb/"
+        expect(redirect_endpoint).to eq "https://test.com/gb/request"
         expect_token(token)
       }
     end
@@ -619,7 +630,7 @@ describe PaypalService::API::Accounts do
 
       with_success(response) { |data|
         redirect_endpoint, token = parse_redirect_url(data[:redirect_url])
-        expect(redirect_endpoint).to eq "https://paypaltest.com/billing_agreement"
+        expect(redirect_endpoint).to eq "https://test.com/billing_agreement/success"
         expect_token(token)
       }
 
