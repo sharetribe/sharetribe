@@ -58,8 +58,8 @@
       .row
         .col-12
           - post_new_listing = "<i>#{t("homepage.index.post_new_listing")}</i>"
-          = form.label :custom_color2, t(".community_custom_color2", post_new_listing: post_new_listing).html_safe, :class => "input"
-          = render :partial => "layouts/info_text", :locals => { :text =>  t(".custom_color2_instructions_text", post_new_listing: post_new_listing).html_safe }
+          = form.label :custom_color2, t(".new_listing_button_custom_color").html_safe, :class => "input"
+          = render :partial => "layouts/info_text", :locals => { :text =>  t(".new_listing_button_instructions_text", link_to_colorpicker: link_to("ColorPicker.com", "http://www.colorpicker.com?colorcode=00a26c", target: "_blank", rel: "noreferrer")).html_safe }
           = form.text_field :custom_color2, :maxlength => "6", :class => "text_field"
 
     .row
