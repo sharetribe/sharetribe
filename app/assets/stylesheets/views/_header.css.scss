@@ -89,6 +89,10 @@ $elementSpacing: lines(0.5);
 
 .new-listing-link {
   @include header-menu-button($link2);
+  max-width: em(200);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .header-menu-container {
