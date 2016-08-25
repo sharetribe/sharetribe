@@ -152,8 +152,8 @@ class Admin::CommunitiesController < ApplicationController
     redirect_to admin_new_layout_path
   end
 
-  def menu_links
-    @selected_left_navi_link = "menu_links"
+  def topbar
+    @selected_left_navi_link = "topbar"
 
     if FeatureFlagHelper.feature_enabled?(:topbar_v1) || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)
       limit_priority_links = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:limit_priority_links]
@@ -172,7 +172,7 @@ class Admin::CommunitiesController < ApplicationController
     end
   end
 
-  def update_menu_links
+  def update_topbar
     @community = @current_community
 
     menu_links_params = Maybe(params)[:menu_links].permit!.or_else({menu_link_attributes: {}})
@@ -191,7 +191,7 @@ class Admin::CommunitiesController < ApplicationController
 
     if translations.any?{ |t| t[:translation].blank? }
       flash[:error] = t("admin.communities.topbar.invalid_post_listing_button_label")
-      redirect_to menu_links_admin_community_path(@community) and return
+      redirect_to topbar_admin_community_path(@community) and return
     end
 
     translations_group = [{
@@ -202,7 +202,7 @@ class Admin::CommunitiesController < ApplicationController
 
     update(@community,
             menu_links_params,
-            menu_links_admin_community_path(@community),
+            topbar_admin_community_path(@community),
             :menu_links)
   end
 

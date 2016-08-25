@@ -13,7 +13,7 @@ Feature: Admin edits menu link
     And the title is "Kotisivu" and the URL is "http://sharetribe.com/" with locale "fi" for that menu link
 
     And I am logged in as "kassi_testperson1"
-    And I am on the menu links admin page
+    And I am on the top bar admin page
 
   Scenario: Admin edits menu link
     And I change field "Blog link" to "Sharetribe Blog"

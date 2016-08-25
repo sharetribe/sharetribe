@@ -180,8 +180,8 @@ Kassi::Application.routes.draw do
           get :analytics
           put :social_media, to: 'communities#update_social_media'
           put :analytics, to: 'communities#update_analytics'
-          get :menu_links
-          put :menu_links, to: 'communities#update_menu_links'
+          get :topbar
+          put :topbar, to: 'communities#update_topbar'
           delete :delete_marketplace
 
           # DEPRECATED (2016-07-07)

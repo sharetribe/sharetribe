@@ -408,10 +408,10 @@ module ApplicationHelper
     links += [
       {
         :topic => :configure,
-        :text => t("admin.communities.menu_links.menu_links"),
+        :text => t("admin.communities.topbar.topbar"),
         :icon_class => icon_class("link"),
-        :path => menu_links_admin_community_path(@current_community),
-        :name => "menu_links"
+        :path => topbar_admin_community_path(@current_community),
+        :name => "topbar"
       },
       {
         :topic => :configure,
