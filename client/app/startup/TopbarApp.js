@@ -3,9 +3,9 @@ import { initialize as initializeI18n } from '../utils/i18n';
 import Topbar from '../components/sections/Topbar/Topbar';
 import { subset } from '../utils/routes';
 
-export default (props, marketplaceContext) => {
-  const locale = props.i18n ? props.i18n.locale : marketplaceContext.i18nLocale;
-  const defaultLocale = props.i18n ? props.i18n.defaultLocale : marketplaceContext.i18nDefaultLocale;
+export default (props) => {
+  const locale = props.i18n.locale;
+  const defaultLocale = props.i18n.defaultLocale;
 
   initializeI18n(locale, defaultLocale, process.env.NODE_ENV);
 
@@ -20,6 +20,6 @@ export default (props, marketplaceContext) => {
     'sign_up',
   ], { locale });
 
-  const combinedProps = Object.assign({}, props, { marketplaceContext, routes });
+  const combinedProps = Object.assign({}, props, { routes });
   return r(Topbar, combinedProps);
 };

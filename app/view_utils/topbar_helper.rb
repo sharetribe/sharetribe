@@ -2,9 +2,74 @@ module TopbarHelper
 
   module_function
 
+  # rubocop:disable Metrics/ParameterLists
   def topbar_props(community:, path_after_locale_change:, user: nil, search_placeholder: nil,
-                   locale_param: nil, landing_page: false, host_with_port:)
+                   locale_param: nil, current_path: nil, landing_page: false, host_with_port:)
 
+    links = links(community: community, user: user, locale_param: locale_param, host_with_port: host_with_port)
+
+    main_search =
+      if FeatureFlagHelper.location_search_available
+        MarketplaceService::API::Api.configurations.get(community_id: community.id).data[:main_search]
+      else
+        :keyword
+      end
+
+    search_path_string = PathHelpers.search_url({
+      community_id: community.id,
+      opts: {
+        only_path: true,
+      }
+    })
+
+    {
+      logo: {
+        href: PathHelpers.landing_page_path(
+          community_id: community.id,
+          default_locale: community.default_locale,
+          logged_in: user.present?,
+          locale_param: locale_param
+        ),
+        text: community.name(I18n.locale),
+        image: community.wide_logo.present? ? community.stable_image_url(:wide_logo, :header) : nil,
+        image_highres: community.wide_logo.present? ? community.stable_image_url(:wide_logo, :header_highres) : nil
+      },
+      search: landing_page ? nil : {
+        search_placeholder: search_placeholder,
+        mode: main_search.to_s,
+      },
+      search_path: search_path_string,
+      menu: {
+        links: links,
+        limit_priority_links: Maybe(MarketplaceService::API::Api.configurations.get(community_id: community.id).data)[:limit_priority_links].or_else(nil)
+      },
+      locales: landing_page ? nil : locale_props(community, I18n.locale, path_after_locale_change),
+      avatarDropdown: {
+        avatar: {
+          image: user&.image.present? ? user.image.url(:thumb) : missing_profile_image_path(),
+        }
+      },
+      newListingButton: {
+        text: I18n.t("homepage.index.post_new_listing"),
+      },
+      i18n: {
+        locale: I18n.locale,
+        defaultLocale: I18n.default_locale
+      },
+      marketplace: {
+        marketplace_color1: CommonStylesHelper.marketplace_colors(community)[:marketplace_color1],
+        location: current_path
+      },
+      user: {
+        loggedInUsername: user&.username,
+        isAdmin: user&.has_admin_rights? || false,
+      },
+      unReadMessagesCount: MarketplaceService::Inbox::Query.notification_count(user&.id, community.id)
+    }
+  end
+  # rubocop:enable Metrics/ParameterLists
+
+  def links(community:, user:, locale_param:, host_with_port:)
     user_links = Maybe(community.menu_links)
       .map { |menu_links|
         menu_links
@@ -49,63 +114,8 @@ module TopbarHelper
       }
     end
 
-    links.concat(user_links)
-
-    main_search =
-      if FeatureFlagHelper.location_search_available
-        MarketplaceService::API::Api.configurations.get(community_id: community.id).data[:main_search]
-      else
-        :keyword
-      end
-
-    search_path_string = PathHelpers.search_url({
-      community_id: community.id,
-      opts: {
-        only_path: true,
-      }
-    })
-
-    {
-      logo: {
-        href: PathHelpers.landing_page_path(
-          community_id: community.id,
-          default_locale: community.default_locale,
-          logged_in: user.present?,
-          locale_param: locale_param
-        ),
-        text: community.name(I18n.locale),
-        image: community.wide_logo.present? ? community.stable_image_url(:wide_logo, :header) : nil,
-        image_highres: community.wide_logo.present? ? community.stable_image_url(:wide_logo, :header_highres) : nil
-      },
-      search: landing_page ? nil : {
-        search_placeholder: search_placeholder,
-        mode: main_search.to_s,
-      },
-      search_path: search_path_string,
-      menu: {
-        links: links,
-        limit_priority_links: Maybe(MarketplaceService::API::Api.configurations.get(community_id: community.id).data)[:limit_priority_links].or_else(nil)
-      },
-      locales: landing_page ? nil : locale_props(community, I18n.locale, path_after_locale_change),
-      avatarDropdown: {
-        customColor: CommonStylesHelper.marketplace_colors(community)[:marketplace_color1],
-        avatar: {
-          image: user&.image.present? ? user.image.url(:thumb) : missing_profile_image_path(),
-        }
-      },
-      newListingButton: {
-        text: I18n.t("homepage.index.post_new_listing"),
-        customColor: CommonStylesHelper.marketplace_colors(community)[:marketplace_color1]
-      },
-      i18n: {
-        locale: I18n.locale,
-        defaultLocale: I18n.default_locale
-      },
-      isAdmin: user&.has_admin_rights? || false,
-      unReadMessagesCount: MarketplaceService::Inbox::Query.notification_count(user&.id, community.id)
-    }
+    links + user_links
   end
-
 
   def locale_props(community, current_locale, path_after_locale_change)
     community_locales = community.locales.map { |loc_ident|

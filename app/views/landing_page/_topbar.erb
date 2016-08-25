@@ -1,42 +1,42 @@
 <script>
-    (function() {
-    var renderTopBar = function renderTopBar(props, marketplaceCtx) {
-        componentFn = function (props) {
-        return window.ReactOnRails.getComponent('TopbarApp').component(props, marketplaceCtx)
-        }
-        ReactDOM.render(React.createElement(componentFn, props), document.getElementById('<%= container_id %>'));
+  (function() {
+    var renderTopBar = function renderTopBar(props) {
+      componentFn = function (props) {
+        return window.ReactOnRails.getComponent('TopbarApp').component(props)
+      }
+      ReactDOM.render(React.createElement(componentFn, props), document.getElementById('<%= container_id %>'));
     };
 
     var staticProps = <%= props.to_json.html_safe %>
     var staticMarketplaceContext = <%= marketplace_context.to_json.html_safe %>
 
     var fetchPromise = window.fetch('<%= props_endpoint %>', { credentials: 'same-origin' })
-        .then(function (res) {
+      .then(function (res) {
         if (res.status >= 200 && res.status < 300) {
-            return res;
+          return res;
         } else {
-            var error = new Error(res.statusText);
-            error.res = res;
-            throw error;
+          var error = new Error(res.statusText);
+          error.res = res;
+          throw error;
         }
-    })
-        .then(function (res) {
+      })
+      .then(function (res) {
         return res.json();
-        })
-        .then(function (resJson) {
+      })
+      .then(function (resJson) {
         props = Object.assign({}, staticProps, resJson.props);
-        mCtx = Object.assign({}, staticMarketplaceContext, resJson.marketplaceContext);
-        renderTopBar(props, mCtx);
-        });
+        renderTopBar(props);
+      });
 
     Promise.race([
-        fetchPromise,
-        new Promise(function (resolve, reject) {
+      fetchPromise,
+      new Promise(function (resolve, reject) {
         setTimeout(function() { reject(new Error('request timeout')) }, 3000);
-    })])
+      })
+    ])
     .catch(function(error) {
-        console.error(error);
-        renderTopBar(staticProps, staticMarketplaceContext);
+      console.error(error);
+      renderTopBar(staticProps);
     });
-    }());
+  }());
 </script>

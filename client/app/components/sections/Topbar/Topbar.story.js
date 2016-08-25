@@ -1,6 +1,6 @@
 import { storiesOf, action } from '@kadira/storybook';
 import r from 'r-dom';
-import { storify, defaultRailsContext } from '../../Styleguide/withProps';
+import { storify } from '../../Styleguide/withProps';
 
 import Topbar from './Topbar';
 
@@ -9,8 +9,6 @@ const containerStyle = { style: { minWidth: '600px', background: 'white' } };
 const fakeRoute = () => '#';
 
 const baseProps = {
-  marketplaceContext: defaultRailsContext,
-  isAdmin: true,
   routes: {
     person_inbox_path: fakeRoute,
     person_path: fakeRoute,
@@ -97,13 +95,25 @@ const baseProps = {
   newListingButton: {
     text: 'Post a new listing',
   },
+  i18n: {
+    locale: 'en',
+    defaultLocale: 'en',
+  },
+  marketplace: {
+    marketplace_color1: '#64A',
+    location: '/',
+  },
+  user: {
+    loggedInUsername: 'foo',
+    isAdmin: true,
+  },
 };
 
 const loggedOut = (props) => ({
   ...props,
-  marketplaceContext: {
-    ...props.marketplaceContext,
+  user: {
     loggedInUsername: null,
+    isAdmin: false,
   },
 });
 
@@ -115,7 +125,9 @@ storiesOf('Top bar')
   .add('Empty state', () => (
     storifyTopbar({
       logo: baseProps.logo,
-      marketplaceContext: baseProps.marketplaceContext,
+      marketplace: {
+        location: '/',
+      },
       routes: baseProps.routes,
       search_path: baseProps.search_path,
     })))
