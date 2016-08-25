@@ -22,7 +22,7 @@ import MenuMobile from '../../composites/MenuMobile/MenuMobile';
 import MenuPriority from '../../composites/MenuPriority/MenuPriority';
 import SearchBar from '../../composites/SearchBar/SearchBar';
 
-const profileDropdownActions = function profileDropdownActions(routes, username) {
+
 const LABEL_TYPE_MENU = 'menu';
 const LABEL_TYPE_DROPDOWN = 'dropdown';
 const SEARCH_PARAMS_TO_KEEP = ['view', 'locale'];
@@ -33,6 +33,8 @@ const DEFAULT_CONTEXT = {
   loggedInUsername: null,
 };
 
+
+const profileActions = function profileActions(routes, username) {
   return username ?
   {
     inboxAction: routes.person_inbox_path(username),
@@ -40,6 +42,7 @@ const DEFAULT_CONTEXT = {
     settingsAction: routes.person_settings_path(username),
     adminDashboardAction: routes.admin_path(),
     logoutAction: routes.logout_path(),
+    manageListingsAction: `${routes.person_path(username)}?show_closed=1`,
   } : null;
 };
 
@@ -51,7 +54,7 @@ const avatarDropdownProps = (avatarDropdown, customColor, username, isAdmin, not
     settingsAction: () => false,
     adminDashboardAction: () => false,
     logoutAction: () => false,
-    ...profileDropdownActions(routes, username),
+    ...profileActions(routes, username),
   };
   const translations = {
     inbox: t('web.topbar.inbox'),
@@ -69,55 +72,31 @@ const profileLinks = function profileLinks(username, isAdmin, router, location, 
       [r(NotificationBadge, { className: css.notificationBadge, countClassName: css.notificationBadgeCount }, unReadMessagesCount)] :
       [];
 
+    const profilePaths = profileActions(router, username);
+    const formatLinkData = function getLink(link, currentLocation, color, content) {
+      return {
+        active: link === currentLocation,
+        activeColor: color,
+        content,
+        href: link,
+        type: 'menuitem',
+      };
+    };
+
     const links = [
-      {
-        active: router.person_inbox_path(username) === location,
-        activeColor: customColor,
-        content: [
-          t('web.topbar.inbox'),
-        ].concat(notificationBadgeInArray),
-        href: router.person_inbox_path(username),
-        type: 'menuitem',
-      },
-      {
-        active: router.person_path(username) === location,
-        activeColor: customColor,
-        content: t('web.topbar.profile'),
-        href: router.person_path(username),
-        type: 'menuitem',
-      },
-      {
-        active: `${router.person_path(username)}?show_closed=1` === location,
-        activeColor: customColor,
-        content: t('web.topbar.manage_listings'),
-        href: `${router.person_path(username)}?show_closed=1`,
-        type: 'menuitem',
-      },
-      {
-        active: router.person_settings_path(username) === location,
-        activeColor: customColor,
-        content: t('web.topbar.settings'),
-        href: router.person_settings_path(username),
-        type: 'menuitem',
-      },
-      {
-        active: router.logout_path() === location,
-        activeColor: customColor,
-        content: t('web.topbar.logout'),
-        href: router.logout_path(),
-        type: 'menuitem',
-      },
+      formatLinkData(profilePaths.inboxAction, location, customColor, [t('web.topbar.inbox')].concat(notificationBadgeInArray)),
+      formatLinkData(profilePaths.profileAction, location, customColor, t('web.topbar.profile'), 'menuitem'),
+      formatLinkData(profilePaths.manageListingsAction, location, customColor, t('web.topbar.manage_listings')),
+      formatLinkData(profilePaths.settingsAction, location, customColor, t('web.topbar.settings')),
+      formatLinkData(profilePaths.logoutAction, location, customColor, t('web.topbar.logout')),
     ];
+
     if (isAdmin) {
       links.unshift(
-        {
-          active: router.admin_path() === location,
-          activeColor: customColor,
-          content: t('web.topbar.admin_dashboard'),
-          href: router.admin_path(),
-          type: 'menuitem',
-        });
+        formatLinkData(profilePaths.adminDashboardAction, location, customColor, t('web.topbar.admin_dashboard'))
+      );
     }
+
     return links;
   }
   return [];
@@ -126,13 +105,10 @@ const profileLinks = function profileLinks(username, isAdmin, router, location, 
 
 const parseKeepParams = urlUtils.currySearchParams(SEARCH_PARAMS_TO_KEEP);
 const parseSearchParams = urlUtils.currySearchParams(SEARCH_PARAMS);
-
 const isValidSearchParam = (value) => typeof value === 'number' && !isNaN(value) || !!value;
-
 const createQuery = (searchParams, queryString) => {
   const extraParams = parseKeepParams(queryString);
   const params = { ...extraParams, ...searchParams };
-
   const paramKeys = Object.keys(params);
 
   // Sort params for caching
