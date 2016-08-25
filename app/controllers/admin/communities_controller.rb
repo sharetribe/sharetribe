@@ -161,14 +161,14 @@ class Admin::CommunitiesController < ApplicationController
       limit_priority_links_options = (0..5).to_a.map {|o| [o, o]}.concat([[all, -1]])
       limit_priority_links_selected = Maybe(limit_priority_links).or_else(-1)
 
-      render :menu_links, locals: {
+      render :topbar, locals: {
         community: @current_community,
         limit_priority_links: limit_priority_links,
         limit_priority_links_options: limit_priority_links_options,
         limit_priority_links_selected: limit_priority_links_selected
       }
     else
-      render :menu_links, locals: { community: @current_community }
+      render :topbar, locals: { community: @current_community }
     end
   end
 
