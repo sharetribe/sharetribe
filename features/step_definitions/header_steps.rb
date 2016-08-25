@@ -1,7 +1,7 @@
 module HeaderSteps
   REMOVE_SELECTOR    = ".menu-link-remove"
   UP_SELECTOR        = ".menu-link-action-up"
-  MENU_ROW_CLASS     = "menu-link-container"
+  MENU_ROW_CLASS     = "topbar-menu-container"
 
   def find_row_for_menu_link(title)
     find(:xpath, "//div[contains(@class, '#{MENU_ROW_CLASS}')][descendant::input[@value='#{title}']]")

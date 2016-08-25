@@ -1,6 +1,9 @@
+- content_for :javascript do
+  ST.menuLinkOptionOrder = ST.createMenuLinksOrder(".topbar-menu-container");
+
 %h3= t("admin.communities.menu_links.menu_links")
 #menu-links-table
-  .row.menu-link-container-padding.visible-tablet
+  .row.topbar-menu-container-padding.visible-tablet
     .col-10
       - if show_locales
         .col-2

@@ -1,12 +1,12 @@
 @import "mixins/all";
 
-.menu-link-container-padding {
+.topbar-menu-container-padding {
   padding: lines(0.5);
   padding-bottom: 0;
 }
 
-.menu-link-container {
-  @extend .menu-link-container-padding;
+.topbar-menu-container {
+  @extend .topbar-menu-container-padding;
 
   &:nth-of-type(odd) {
     background: $highlight;

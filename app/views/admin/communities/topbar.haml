@@ -1,6 +1,3 @@
-- content_for :javascript do
-  ST.menuLinkOptionOrder = ST.createMenuLinksOrder(".menu-link-container");
-
 - show_locales = available_locales.size > 1
 
 - content_for :title_header do
@@ -13,7 +10,7 @@
 
 .left-navi-section
   %h2= t("admin.communities.topbar.topbar")
-  = form_for community, :url => topbar_admin_community_path(community), :method => :put, html: {id: "menu-links-form"} do |form|
+  = form_for community, :url => topbar_admin_community_path(community), :method => :put, html: {id: "topbar-menu-form"} do |form|
 
     = render partial: "new_listing_button", locals: { show_locales: show_locales }
 
