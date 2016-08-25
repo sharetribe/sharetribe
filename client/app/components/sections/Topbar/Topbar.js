@@ -23,6 +23,16 @@ import MenuPriority from '../../composites/MenuPriority/MenuPriority';
 import SearchBar from '../../composites/SearchBar/SearchBar';
 
 const profileDropdownActions = function profileDropdownActions(routes, username) {
+const LABEL_TYPE_MENU = 'menu';
+const LABEL_TYPE_DROPDOWN = 'dropdown';
+const SEARCH_PARAMS_TO_KEEP = ['view', 'locale'];
+const SEARCH_PARAMS = ['q', 'lq'];
+const DEFAULT_CONTEXT = {
+  marketplace_color1: styleVariables['--customColorFallback'],
+  marketplace_color2: styleVariables['--customColor2Fallback'],
+  loggedInUsername: null,
+};
+
   return username ?
   {
     inboxAction: routes.person_inbox_path(username),
@@ -52,9 +62,6 @@ const avatarDropdownProps = (avatarDropdown, customColor, username, isAdmin, not
   };
   return { actions, translations, customColor: color, isAdmin, notificationCount, ...avatarDropdown };
 };
-
-const LABEL_TYPE_MENU = 'menu';
-const LABEL_TYPE_DROPDOWN = 'dropdown';
 
 const profileLinks = function profileLinks(username, isAdmin, router, location, customColor, unReadMessagesCount) {
   if (username) {
@@ -116,15 +123,8 @@ const profileLinks = function profileLinks(username, isAdmin, router, location, 
   return [];
 };
 
-const DEFAULT_CONTEXT = {
-  marketplace_color1: styleVariables['--customColorFallback'],
-  marketplace_color2: styleVariables['--customColor2Fallback'],
-  loggedInUsername: null,
-};
 
-const SEARCH_PARAMS_TO_KEEP = ['view', 'locale'];
 const parseKeepParams = urlUtils.currySearchParams(SEARCH_PARAMS_TO_KEEP);
-const SEARCH_PARAMS = ['q', 'lq'];
 const parseSearchParams = urlUtils.currySearchParams(SEARCH_PARAMS);
 
 const isValidSearchParam = (value) => typeof value === 'number' && !isNaN(value) || !!value;
