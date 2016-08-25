@@ -67,7 +67,8 @@ function translate_validation_messages(locale) {
     }
   }
 
-  var json = ST.jsonTranslations;
+    var json = ST.jsonTranslations;
+    debugger;
   jQuery.extend(jQuery.validator.messages, {
       required: json.validation_messages.required,
       remote: json.validation_messages.remote,
@@ -90,6 +91,7 @@ function translate_validation_messages(locale) {
       money: jQuery.validator.format(json.validation_messages.money),
       min_bound: formatMinMaxMessage(json.validation_messages.min_bound),
       max_bound: formatMinMaxMessage(json.validation_messages.max_bound),
+      night_selected: jQuery.validator.format(json.validation_messages.night_selected),
       number_min: jQuery.validator.format(json.validation_messages.min),
       number_max: jQuery.validator.format(json.validation_messages.max),
       number_no_decimals: json.validation_messages.number_no_decimals,
