@@ -181,8 +181,17 @@ class Topbar extends Component {
       }) :
       {};
 
-    const available_locales = this.props.locales ? this.props.locales.available_locales : null;
-    const hasMultipleLanguages = available_locales && available_locales.length > 1;
+    const availableLocales = this.props.locales ? this.props.locales.available_locales : null;
+    const hasMultipleLanguages = availableLocales && availableLocales.length > 1;
+    const languageLinks = availableLocales.map((locale) => (
+      {
+        active: locale.locale_ident === this.props.locales.current_locale_ident,
+        activeColor: marketplaceColor1,
+        content: locale.locale_name,
+        href: locale.change_locale_uri,
+        type: 'menuitem',
+      }
+    ));
     const languageMenuProps = hasMultipleLanguages ?
       Object.assign({}, {
         key: 'languageMenu',
@@ -190,15 +199,7 @@ class Topbar extends Component {
         identifier: 'LanguageMenu',
         menuLabelType: LABEL_TYPE_DROPDOWN,
         extraClassesLabel: `${css.topbarLanguageMenuLabel}`,
-        content: this.props.locales.available_locales.map((v) => (
-          {
-            active: v.locale_ident === this.props.locales.current_locale_ident,
-            activeColor: marketplaceColor1,
-            content: v.locale_name,
-            href: v.change_locale_uri,
-            type: 'menuitem',
-          }
-        )),
+        content: languageLinks,
       }) :
       {};
 
@@ -217,14 +218,7 @@ class Topbar extends Component {
       Object.assign({}, {
         name: t('web.topbar.language'),
         color: marketplaceColor1,
-        links: this.props.locales.available_locales.map((locale) => (
-          {
-            href: locale.change_locale_uri,
-            content: locale.locale_name,
-            active: locale.locale_ident === this.props.locales.current_locale_ident,
-            activeColor: marketplaceColor1,
-          }
-        )),
+        links: languageLinks,
       }) :
       null;
 
