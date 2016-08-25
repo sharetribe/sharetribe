@@ -187,6 +187,19 @@ class Admin::CommunitiesController < ApplicationController
       })
     end
 
+    translations = params[:post_new_listing_button].map{ |k, v| {locale: k, translation: v}}
+
+    if translations.any?{ |t| t[:translation].blank? }
+      flash[:error] = t("admin.communities.topbar.invalid_post_listing_button_label")
+      redirect_to menu_links_admin_community_path(@community) and return
+    end
+
+    translations_group = [{
+      translation_key: "homepage.index.post_new_listing",
+      translations: translations
+    }]
+    TranslationService::API::Api.translations.create(@community.id, translations_group)
+
     update(@community,
             menu_links_params,
             menu_links_admin_community_path(@community),
