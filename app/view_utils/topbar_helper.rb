@@ -2,56 +2,11 @@ module TopbarHelper
 
   module_function
 
-  # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/ParameterLists
   def topbar_props(community:, path_after_locale_change:, user: nil, search_placeholder: nil,
                    locale_param: nil, current_path: nil, landing_page: false, host_with_port:)
 
-    user_links = Maybe(community.menu_links)
-      .map { |menu_links|
-        menu_links
-          .map { |menu_link|
-            {
-              link: menu_link.url(I18n.locale),
-              title: menu_link.title(I18n.locale),
-              priority: menu_link.sort_priority,
-              external: link_external?(menu_link.url(I18n.locale), host_with_port)
-            }
-          }
-      }.or_else([])
-
-    links = [
-      {
-        link: PathHelpers.landing_page_path(
-          community_id: community.id,
-          logged_in: user.present?,
-          default_locale: community.default_locale,
-          locale_param: locale_param
-        ),
-        title: I18n.t("header.home"),
-        priority: -1
-      },
-      {
-        link: paths.about_infos_path,
-        title: I18n.t("header.about"),
-        priority: 0
-      },
-      {
-        link: paths.new_user_feedback_path,
-        title: I18n.t("header.contact_us"),
-        priority: !user_links.empty? ? user_links.last[:priority] + 1 : 1
-      }
-    ]
-
-    if user&.has_admin_rights? || community.users_can_invite_new_users
-      links << {
-        link: paths.new_invitation_path,
-        title: I18n.t("header.invite"),
-        priority: !user_links.empty? ? user_links.last[:priority] + 2 : 2
-      }
-    end
-
-    links.concat(user_links)
+    links = links(community: community, user: user, locale_param: locale_param, host_with_port: host_with_port)
 
     main_search =
       if FeatureFlagHelper.location_search_available
@@ -112,8 +67,55 @@ module TopbarHelper
       unReadMessagesCount: MarketplaceService::Inbox::Query.notification_count(user&.id, community.id)
     }
   end
-  # rubocop:enable Metrics/MethodLength
   # rubocop:enable Metrics/ParameterLists
+
+  def links(community:, user:, locale_param:, host_with_port:)
+    user_links = Maybe(community.menu_links)
+      .map { |menu_links|
+        menu_links
+          .map { |menu_link|
+            {
+              link: menu_link.url(I18n.locale),
+              title: menu_link.title(I18n.locale),
+              priority: menu_link.sort_priority,
+              external: link_external?(menu_link.url(I18n.locale), host_with_port)
+            }
+          }
+      }.or_else([])
+
+    links = [
+      {
+        link: PathHelpers.landing_page_path(
+          community_id: community.id,
+          logged_in: user.present?,
+          default_locale: community.default_locale,
+          locale_param: locale_param
+        ),
+        title: I18n.t("header.home"),
+        priority: -1
+      },
+      {
+        link: paths.about_infos_path,
+        title: I18n.t("header.about"),
+        priority: 0
+      },
+      {
+        link: paths.new_user_feedback_path,
+        title: I18n.t("header.contact_us"),
+        priority: !user_links.empty? ? user_links.last[:priority] + 1 : 1
+      }
+    ]
+
+    if user&.has_admin_rights? || community.users_can_invite_new_users
+      links << {
+        link: paths.new_invitation_path,
+        title: I18n.t("header.invite"),
+        priority: !user_links.empty? ? user_links.last[:priority] + 2 : 2
+      }
+    end
+
+    links + user_links
+  end
 
   def locale_props(community, current_locale, path_after_locale_change)
     community_locales = community.locales.map { |loc_ident|
