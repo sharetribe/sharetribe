@@ -208,7 +208,7 @@ class Topbar extends Component {
       this.props.routes.person_path(loggedInUsername) :
       null;
     const mobileMenuAvatarProps = this.props.avatarDropdown && loggedInUsername ?
-      { ...this.props.avatarDropdown.avatar, ...{ url: profileRoute } } :
+      { ...this.props.avatarDropdown.avatar, url: profileRoute } :
       null;
     const mobileMenuProps = hasMenuContext ?
       Object.assign({}, this.props.menu, {
@@ -225,7 +225,7 @@ class Topbar extends Component {
         languages: mobileMenuLanguageProps,
         avatar: mobileMenuAvatarProps,
         newListingButton: this.props.newListingButton ?
-          { ...this.props.newListingButton, ...{ url: newListingRoute, mobileLayoutOnly: true } } :
+          { ...this.props.newListingButton, url: newListingRoute, mobileLayoutOnly: true } :
           null,
         loginLinks: {
           loginUrl: loginRoute,
