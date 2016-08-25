@@ -160,16 +160,15 @@ class Admin::CommunitiesController < ApplicationController
       all = view_context.t("admin.communities.menu_links.all")
       limit_priority_links_options = (0..5).to_a.map {|o| [o, o]}.concat([[all, -1]])
       limit_priority_links_selected = Maybe(limit_priority_links).or_else(-1)
-
-      render :topbar, locals: {
-        community: @current_community,
-        limit_priority_links: limit_priority_links,
-        limit_priority_links_options: limit_priority_links_options,
-        limit_priority_links_selected: limit_priority_links_selected
-      }
-    else
-      render :topbar, locals: { community: @current_community }
     end
+
+    # Limits are by default nil
+    render :topbar, locals: {
+             community: @current_community,
+             limit_priority_links: limit_priority_links,
+             limit_priority_links_options: limit_priority_links_options,
+             limit_priority_links_selected: limit_priority_links_selected
+           }
   end
 
   def update_topbar
