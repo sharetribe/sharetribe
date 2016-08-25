@@ -16,8 +16,13 @@ const canUseDOM = !!(typeof window !== 'undefined' &&
 const canUsePushState = !!(typeof history !== 'undefined' &&
                             history.pushState);
 
+const hasTouchEvents = !!(typeof window !== 'undefined' &&
+                          (('ontouchstart' in window) ||
+                            window.navigator.msMaxTouchPoints > 0));
+
 export {
   canUseDOM,
   canUsePushState,
   hasCSSFilters,
+  hasTouchEvents,
 };

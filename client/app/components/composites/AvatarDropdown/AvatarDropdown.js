@@ -3,16 +3,12 @@ import r, { div } from 'r-dom';
 import classNames from 'classnames';
 
 import { className } from '../../../utils/PropTypes';
+import { hasTouchEvents } from '../../../utils/featureDetection';
 import ProfileDropdown from './ProfileDropdown';
 import Avatar from '../../elements/Avatar/Avatar';
 import NotificationBadge from '../../elements/NotificationBadge/NotificationBadge';
 
 import css from './AvatarDropdown.css';
-
-const isTouch =
-  !!(typeof window !== 'undefined' &&
-    (('ontouchstart' in window) ||
-      window.navigator.msMaxTouchPoints > 0));
 
 class AvatarDropdown extends Component {
   constructor(props, context) {
@@ -27,17 +23,21 @@ class AvatarDropdown extends Component {
   }
 
   handleClick() {
-    if (isTouch) {
+    if (hasTouchEvents) {
       this.setState({ isOpen: !this.state.isOpen });// eslint-disable-line react/no-set-state
     }
   }
 
-  handleBlur() {
-    this.setState({ isOpen: false });// eslint-disable-line react/no-set-state
+  handleBlur(event) {
+    // FocusEvent is fired faster than the link elements native click handler
+    // gets its own event. Therefore, we need to check the origin of this FocusEvent.
+    if (!this.profileDropdown.contains(event.relatedTarget)) {
+      this.setState({ isOpen: false });// eslint-disable-line react/no-set-state
+    }
   }
 
   render() {
-    const touchClass = isTouch ? '' : css.touchless;
+    const touchClass = hasTouchEvents ? '' : css.touchless;
     const openClass = this.state.isOpen ? css.openDropdown : '';
     const notificationsClass = this.props.notificationCount > 0 ? css.hasNotifications : null;
     const notificationBadgeInArray = this.props.notificationCount > 0 ?
@@ -46,6 +46,7 @@ class AvatarDropdown extends Component {
     return div({
       onClick: this.handleClick,
       onBlur: this.handleBlur,
+      tabIndex: 0,
       className: classNames(this.props.className, touchClass, openClass, css.avatarDropdown, notificationsClass),
     }, [
       div({ className: css.avatarWithNotifications }, [
@@ -58,15 +59,19 @@ class AvatarDropdown extends Component {
         isAdmin: this.props.isAdmin,
         notificationCount: this.props.notificationCount,
         translations: this.props.translations,
+        profileDropdownRef: (c) => {
+          this.profileDropdown = c;
+        },
       }),
     ]);
   }
 }
 
+const { profileDropdownRef, ...passedThroughProps } = ProfileDropdown.propTypes; // eslint-disable-line no-unused-vars
 AvatarDropdown.propTypes = {
   avatar: PropTypes.shape(Avatar.propTypes).isRequired,
   notificationCount: PropTypes.number,
-  ...ProfileDropdown.propTypes,
+  ...passedThroughProps,
   className,
 };
 

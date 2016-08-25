@@ -1,9 +1,9 @@
 import { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
 import r, { div } from 'r-dom';
 import classNames from 'classnames';
 
 import { className } from '../../../utils/PropTypes';
+import { hasTouchEvents } from '../../../utils/featureDetection';
 
 import MenuLabel from './MenuLabel';
 import MenuLabelDropdown from './MenuLabelDropdown';
@@ -15,8 +15,6 @@ const MENULABEL_MAP = {
   menu: MenuLabel,
   dropdown: MenuLabelDropdown,
 };
-
-const isTouch = !!(typeof window !== 'undefined' && (('ontouchstart' in window) || window.navigator.msMaxTouchPoints > 0));
 
 class Menu extends Component {
 
@@ -37,27 +35,29 @@ class Menu extends Component {
   }
 
   calculateDropdownPosition() {
-    const menuLabel = ReactDOM.findDOMNode(this.menuLabel);
-
     this.setState({ // eslint-disable-line react/no-did-mount-set-state, react/no-set-state
-      arrowPosition: menuLabel.offsetWidth > (INITIAL_ARROW_POSITION * 2) ? Math.floor(menuLabel.offsetWidth / 2) : INITIAL_ARROW_POSITION, // eslint-disable-line no-magic-numbers
+      arrowPosition: this.menuLabel.offsetWidth > (INITIAL_ARROW_POSITION * 2) ? Math.floor(this.menuLabel.offsetWidth / 2) : INITIAL_ARROW_POSITION, // eslint-disable-line no-magic-numbers
     });
   }
 
   handleClick() {
-    if (isTouch) {
+    if (hasTouchEvents) {
       this.setState({ isOpen: !this.state.isOpen });// eslint-disable-line react/no-set-state
     }
   }
 
-  handleBlur() {
-    this.setState({ isOpen: false });// eslint-disable-line react/no-set-state
+  handleBlur(event) {
+    // FocusEvent is fired faster than the link elements native click handler
+    // gets its own event. Therefore, we need to check the origin of this FocusEvent.
+    if (!this.menu.contains(event.relatedTarget)) {
+      this.setState({ isOpen: false });// eslint-disable-line react/no-set-state
+    }
   }
 
   render() {
     const requestedLabel = MENULABEL_MAP[this.props.menuLabelType];
     const LabelComponent = requestedLabel != null ? requestedLabel : null;
-    const touchClass = isTouch ? '' : css.touchless;
+    const touchClass = hasTouchEvents ? '' : css.touchless;
     const openClass = this.state.isOpen ? css.openMenu : '';
 
     return div({
@@ -65,13 +65,16 @@ class Menu extends Component {
       onClick: this.handleClick,
       onBlur: this.handleBlur,
       tabIndex: 0,
+      ref: (c) => {
+        this.menu = c;
+      },
     }, [
       r(LabelComponent,
         {
           key: `${this.props.identifier}_menulabel`,
           name: this.props.name,
           extraClasses: this.props.extraClassesLabel,
-          ref: (c) => {
+          menuLabelRef: (c) => {
             this.menuLabel = c;
           },
         }
@@ -81,9 +84,6 @@ class Menu extends Component {
           key: `${this.props.identifier}_menucontent`,
           content: this.props.content,
           arrowPosition: this.state.arrowPosition,
-          ref: (c) => {
-            this.menuContent = c;
-          },
         }
       ),
     ]);

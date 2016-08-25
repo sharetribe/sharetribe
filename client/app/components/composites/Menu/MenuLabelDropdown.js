@@ -11,6 +11,7 @@ class MenuLabelDropdown extends Component {
     return (
       div({
         className: `menu__label ${css.menuLabel} ${extraClasses}`,
+        ref: this.props.menuLabelRef,
       }, [
         this.props.name,
         span({
@@ -27,8 +28,9 @@ class MenuLabelDropdown extends Component {
 }
 
 MenuLabelDropdown.propTypes = {
-  name: PropTypes.string.isRequired,
   extraClasses: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  menuLabelRef: PropTypes.func.isRequired,
 };
 
 export default MenuLabelDropdown;

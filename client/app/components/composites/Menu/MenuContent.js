@@ -25,9 +25,6 @@ class MenuContent extends Component {
       div(
         {
           className: `MenuContent ${css.menuContent}`,
-          ref: (c) => {
-            this.menuContent = c;
-          },
         }, [
           div({
             className: css.menuContentArrowBelow,
