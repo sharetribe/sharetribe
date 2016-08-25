@@ -12,6 +12,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 - Updated React on Rails to 6.0.5 [#2428](https://github.com/sharetribe/sharetribe/pull/2428)
 
+### Fixed
+
+- Transactions in `initiated` state showed wrong total price in the transaction page if the item quantity was more than one [#2452](https://github.com/sharetribe/sharetribe/pull/2452)
+
 ## [5.11.0] - 2016-08-24
 
 ### Changed
