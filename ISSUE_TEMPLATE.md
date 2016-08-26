@@ -1,4 +1,4 @@
-Please add only one problem per Issue. If you are facing multiple problems, add multiple Issues.
+_Please add only one problem per Issue. If you are facing multiple problems, add multiple Issues._
 
 ##### Sharetribe Version:
 
