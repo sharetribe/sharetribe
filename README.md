@@ -268,7 +268,7 @@ Before starting these steps, perform [steps 1-5 from above](#setting-up-the-deve
 1. Following cmd is not required if the next command has never been executed earlier (else):
 
   ```bash
-  rm -rf /public/assets
+  rm -rf public/assets
   ```
 
 1. Precompile the assets:
