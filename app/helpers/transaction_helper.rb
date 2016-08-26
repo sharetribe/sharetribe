@@ -8,6 +8,8 @@ module TransactionHelper
       "ss-delete"
     when "canceled"
       "ss-delete"
+    when "accepted"
+      "ss-check"
     when "paid"
       "ss-check"
     when "preauthorized"
