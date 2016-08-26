@@ -5,6 +5,7 @@
   @nest :global(.js-enabled) & {
     visibility: hidden;
 
+    &.noPriorityLinks,
     &.isMeasured {
       visibility: visible;
     }

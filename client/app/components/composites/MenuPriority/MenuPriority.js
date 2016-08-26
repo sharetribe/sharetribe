@@ -124,7 +124,8 @@ class MenuPriority extends Component {
       width: '100%',
     };
 
-    const fallbackLabel = !isMeasured || this.state.priorityLinks.length === 0 ? { name: this.props.nameFallback, menuLabelType: this.props.menuLabelTypeFallback } : {};
+    const useFallback = !isMeasured || this.state.priorityLinks.length === 0;
+    const fallbackLabel = useFallback ? { name: this.props.nameFallback, menuLabelType: this.props.menuLabelTypeFallback } : {};
     const extraMenuProps = Object.assign({
       className: css.hiddenLinks,
       content: this.state.hiddenLinks,
@@ -135,7 +136,7 @@ class MenuPriority extends Component {
     const menuProps = Object.assign(Object.assign({}, this.props, extraMenuProps));
 
     return div({
-      className: classNames('MenuPriority', css.menuPriority, { [css.isMeasured]: isMeasured }),
+      className: classNames('MenuPriority', css.menuPriority, { [css.isMeasured]: isMeasured, [css.noPriorityLinks]: useFallback }),
       ref: (c) => {
         this.menuPriorityMounted = c;
       },
