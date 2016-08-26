@@ -1,3 +1,5 @@
+Please add only one problem per Issue. If you are facing multiple problems, add multiple Issues.
+
 ##### Sharetribe Version:
 
 _Share the git commit hash of the version of Sharetribe that you are using. You can find it by running `git rev-parse HEAD` in your Sharetribe directory._
