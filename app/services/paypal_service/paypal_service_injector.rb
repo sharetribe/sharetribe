@@ -33,20 +33,20 @@ module PaypalService
     end
 
     def events
-      Events.new({
-                   request_cancelled: -> (flow, token) {
-                     TransactionService::PaypalEvents.request_cancelled(flow, token)
-                   },
-                   order_details: -> (flow, details) {
-                     TransactionService::PaypalEvents.update_transaction_details(flow, details)
-                   },
-                   payment_created: -> (flow, payment) {
-                     TransactionService::PaypalEvents.payment_updated(flow, payment)
-                   },
-                   payment_updated: -> (flow, payment) {
-                     TransactionService::PaypalEvents.payment_updated(flow, payment)
-                   }
-                 })
+      Events.new(
+        request_cancelled: -> (flow, token) {
+          TransactionService::PaypalEvents.request_cancelled(flow, token)
+        },
+        order_details: -> (flow, details) {
+          TransactionService::PaypalEvents.update_transaction_details(flow, details)
+        },
+        payment_created: -> (flow, payment) {
+          TransactionService::PaypalEvents.payment_updated(flow, payment)
+        },
+        payment_updated: -> (flow, payment) {
+          TransactionService::PaypalEvents.payment_updated(flow, payment)
+        }
+      )
     end
 
     def build_paypal_payments
