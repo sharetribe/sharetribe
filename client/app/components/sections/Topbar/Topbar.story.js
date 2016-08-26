@@ -38,8 +38,9 @@ const baseProps = {
         priority: 0,
       },
       {
-        link: 'http://example.com#link',
-        title: 'Link',
+        link: 'http://suspicious.com#link',
+        title: 'External',
+        external: true,
         priority: 1,
       },
       {
