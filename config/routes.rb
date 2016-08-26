@@ -104,7 +104,11 @@ Kassi::Application.routes.draw do
     get "/transactions/new" => "transactions#new", as: :new_transaction
 
     # preauthorize flow
-    get "/listings/:listing_id/book" => "preauthorize_transactions#book", :as => :book
+    get "/listings/:listing_id/book", :to => redirect { |path_params, request|
+      # Deprecated route (26-08-2016)
+      query_params = request.params
+      "/listings/#{path_params[:listing_id]}/initiate?start_on=#{query_params[:start_on]}&end_on=#{query_params[:end_on]}"
+    }
     post "/listings/:listing_id/booked" => "preauthorize_transactions#booked", :as => :booked
     get "/listings/:listing_id/initiate" => "preauthorize_transactions#initiate", :as => :initiate_order
     post "/listings/:listing_id/initiated" => "preauthorize_transactions#initiated", :as => :initiated_order

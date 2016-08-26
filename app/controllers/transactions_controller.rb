@@ -27,15 +27,11 @@ class TransactionsController < ApplicationController
         ensure_can_start_transactions(listing_model: listing_model, current_user: @current_user, current_community: @current_community)
       }
     ).on_success { |((listing_id, listing_model, author_model, process, gateway))|
-      booking = listing_model.unit_type == :day
-
       transaction_params = HashUtils.symbolize_keys({listing_id: listing_model.id}.merge(params.slice(:start_on, :end_on, :quantity, :delivery)))
 
-      case [process[:process], gateway, booking]
+      case [process[:process], gateway]
       when matches([:none])
         render_free(listing_model: listing_model, author_model: author_model, community: @current_community, params: transaction_params)
-      when matches([:preauthorize, __, true])
-        redirect_to book_path(transaction_params)
       when matches([:preauthorize, :paypal])
         redirect_to initiate_order_path(transaction_params)
       else
