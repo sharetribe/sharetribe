@@ -458,7 +458,7 @@ class Community < ActiveRecord::Base
     end
 
     if options[:with_protocol]
-      dom = "#{(APP_CONFIG.always_use_ssl ? "https://" : "http://")}#{dom}"
+      dom = "#{(APP_CONFIG.always_use_ssl.to_s == "true" ? "https://" : "http://")}#{dom}"
     end
 
     return dom
