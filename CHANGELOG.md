@@ -10,10 +10,12 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Changed
 
+- Added functionality to edit Post a new listing button text [#2448](https://github.com/sharetribe/sharetribe/pull/2448)
 - Updated React on Rails to 6.0.5 [#2428](https://github.com/sharetribe/sharetribe/pull/2428)
 
 ### Fixed
 
+- Correctly add https or http to links generated in `community.rb` [#2459](https://github.com/sharetribe/sharetribe/pull/2459)
 - Transactions in `initiated` state showed wrong total price in the transaction page if the item quantity was more than one [#2452](https://github.com/sharetribe/sharetribe/pull/2452)
 
 ## [5.11.0] - 2016-08-24
