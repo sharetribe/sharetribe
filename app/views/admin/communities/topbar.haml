@@ -10,7 +10,7 @@
 
 .left-navi-section
   %h2= t("admin.communities.topbar.topbar")
-  = form_for community, :url => topbar_admin_community_path(community), :method => :put, html: {id: "topbar-menu-form"} do |form|
+  = form_for community, :url => admin_topbar_path, :method => :patch, html: {id: "topbar-menu-form"} do |form|
 
     = render partial: "new_listing_button", locals: { show_locales: show_locales }
 

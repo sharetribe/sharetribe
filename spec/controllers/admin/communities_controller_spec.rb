@@ -73,7 +73,7 @@ describe Admin::CommunitiesController, type: :controller do
       text_en = "Modified en"
 
       expect(TranslationService::API::Api.translations).to_not receive(:create).with(anything())
-      put :update_topbar, id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en}
+      patch :update_topbar, post_new_listing_button: {fi: text_fi, en: text_en}
     end
   end
 

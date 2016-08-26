@@ -81,7 +81,7 @@ module NavigationHelpers
     when /the analytics admin page/
       analytics_admin_community_path(:id => @current_community.id)
     when /the top bar admin page/
-      topbar_admin_community_path(:id => @current_community.id)
+      admin_topbar_edit_path
     when /the transactions admin page/
       admin_community_transactions_path(:community_id => @current_community.id)
     when /the getting started guide for admins/

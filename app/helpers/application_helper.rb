@@ -410,7 +410,7 @@ module ApplicationHelper
         :topic => :configure,
         :text => t("admin.communities.topbar.topbar"),
         :icon_class => icon_class("topbar_menu"),
-        :path => topbar_admin_community_path(@current_community),
+        :path => admin_topbar_edit_path,
         :name => "topbar"
       },
       {
