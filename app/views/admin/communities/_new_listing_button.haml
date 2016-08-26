@@ -1,0 +1,24 @@
+%h3= t("admin.communities.topbar.new_listing_button_label")
+
+#post-new-listing-button-table
+  .row.topbar-menu-container-padding.visible-tablet
+    .col-10
+      - if show_locales
+        .col-2
+          = label_tag do
+            = t("admin.communities.menu_links.language")
+      %div{:class => show_locales ? "col-5" : "col-6"}
+        = label_tag do
+          = t("admin.communities.menu_links.title")
+
+  .row.without-margin.topbar-menu-container
+    .col-10
+      - available_locales.each do |locale_name, locale_value|
+        .row
+          - if show_locales
+            .col-2
+              = locale_name
+          %div{:class => show_locales ? "col-5" : "col-6"}
+            %span.hidden-tablet
+              = t("admin.communities.menu_links.title")
+            = text_field_tag "post_new_listing_button[#{locale_value}]", t("homepage.index.post_new_listing", locale: locale_value), :class => "required", id: "post-new-listing-button-#{locale_value}"

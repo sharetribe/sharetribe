@@ -152,27 +152,26 @@ class Admin::CommunitiesController < ApplicationController
     redirect_to admin_new_layout_path
   end
 
-  def menu_links
-    @selected_left_navi_link = "menu_links"
+  def topbar
+    @selected_left_navi_link = "topbar"
 
     if FeatureFlagHelper.feature_enabled?(:topbar_v1) || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)
       limit_priority_links = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:limit_priority_links]
       all = view_context.t("admin.communities.menu_links.all")
       limit_priority_links_options = (0..5).to_a.map {|o| [o, o]}.concat([[all, -1]])
       limit_priority_links_selected = Maybe(limit_priority_links).or_else(-1)
-
-      render :menu_links, locals: {
-        community: @current_community,
-        limit_priority_links: limit_priority_links,
-        limit_priority_links_options: limit_priority_links_options,
-        limit_priority_links_selected: limit_priority_links_selected
-      }
-    else
-      render :menu_links, locals: { community: @current_community }
     end
+
+    # Limits are by default nil
+    render :topbar, locals: {
+             community: @current_community,
+             limit_priority_links: limit_priority_links,
+             limit_priority_links_options: limit_priority_links_options,
+             limit_priority_links_selected: limit_priority_links_selected
+           }
   end
 
-  def update_menu_links
+  def update_topbar
     @community = @current_community
 
     menu_links_params = Maybe(params)[:menu_links].permit!.or_else({menu_link_attributes: {}})
@@ -187,9 +186,22 @@ class Admin::CommunitiesController < ApplicationController
       })
     end
 
+    translations = params[:post_new_listing_button].map{ |k, v| {locale: k, translation: v}}
+
+    if translations.any?{ |t| t[:translation].blank? }
+      flash[:error] = t("admin.communities.topbar.invalid_post_listing_button_label")
+      redirect_to topbar_admin_community_path(@community) and return
+    end
+
+    translations_group = [{
+      translation_key: "homepage.index.post_new_listing",
+      translations: translations
+    }]
+    TranslationService::API::Api.translations.create(@community.id, translations_group)
+
     update(@community,
             menu_links_params,
-            menu_links_admin_community_path(@community),
+            topbar_admin_community_path(@community),
             :menu_links)
   end
 

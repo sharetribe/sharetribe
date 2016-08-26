@@ -4,7 +4,7 @@ Feature: Admin adds menu link
   Background:
     Given "kassi_testperson1" has admin rights in community "test"
     And I am logged in as "kassi_testperson1"
-    And I am on the menu links admin page
+    And I am on the top bar admin page
 
   Scenario: Admin adds menu link
     When I follow "Add a new link to menu"

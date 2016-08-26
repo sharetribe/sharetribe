@@ -155,6 +155,7 @@ ICON_MAP = {
       "work_spot" => "ss-briefcase",
       "cars" => "ss-car",
       "raclette_grill" => "ss-cookingutensils",
+      "topbar_menu" => "ss-signpost",
     },
     "font-awesome" => {
       "map" => "icon-map-marker",
@@ -244,6 +245,7 @@ ICON_MAP = {
       "lock" => "icon-lock",
       "unlock" => "icon-unlock",
       "edit" => "icon-edit",
-      "reply" => "icon-reply"
+      "reply" => "icon-reply",
+      "topbar_menu" => "icon-minus",
     }
   }
