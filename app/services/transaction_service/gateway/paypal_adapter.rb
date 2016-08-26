@@ -8,12 +8,6 @@ module TransactionService::Gateway
     end
 
     def create_payment(tx:, gateway_fields:, prefer_async:)
-      # Note: Quantity may be confusing in Paypal Checkout page, thus,
-      # we don't use separated unit price and quantity, only the total
-      # price for now.
-      shipping_total = Maybe(tx[:shipping_price]).or_else(0)
-      order_total = tx[:unit_price] * tx[:listing_quantity] + shipping_total
-
       create_payment_info = DataTypes.create_create_payment_request(
         {
          transaction_id: tx[:id],
@@ -24,7 +18,7 @@ module TransactionService::Gateway
          merchant_id: tx[:listing_author_id],
          require_shipping_address: tx[:delivery_method] == :shipping,
          shipping_total: tx[:shipping_price],
-         order_total: order_total,
+         order_total: order_total(tx),
          success: gateway_fields[:success_url],
          cancel: gateway_fields[:cancel_url],
          merchant_brand_logo_url: gateway_fields[:merchant_brand_logo_url]})
@@ -65,7 +59,7 @@ module TransactionService::Gateway
 
       payment_total = payment[:payment_total].or_else(nil)
       total_price = Maybe(payment[:payment_total].or_else(payment[:authorization_total].or_else(nil)))
-                    .or_else(tx[:unit_price])
+                    .or_else(order_total(tx))
 
       { payment_total: payment_total,
         total_price: total_price,
@@ -78,6 +72,15 @@ module TransactionService::Gateway
 
     def paypal_api
       PaypalService::API::Api
+    end
+
+    def order_total(tx)
+      # Note: Quantity may be confusing in Paypal Checkout page, thus,
+      # we don't use separated unit price and quantity, only the total
+      # price for now.
+
+      shipping_total = Maybe(tx[:shipping_price]).or_else(0)
+      tx[:unit_price] * tx[:listing_quantity] + shipping_total
     end
   end
 
