@@ -20,6 +20,7 @@ class MenuItem extends Component {
       className: `MenuItem_link ${css.menuitemLink} ${extraClassesLink}`,
       href: this.props.href,
       target: this.props.external ? '_blank' : null,
+      rel: this.props.external ? 'noopener noreferrer' : null,
     }, inlineStyling);
 
     return div({ className: `MenuItem ${css.menuitem}  ${extraClasses}` }, [
