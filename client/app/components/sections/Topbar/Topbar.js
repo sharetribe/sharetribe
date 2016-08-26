@@ -132,6 +132,7 @@ class Topbar extends Component {
   render() {
     const { location, marketplace_color1: marketplaceColor1 } = { ...DEFAULT_CONTEXT, ...this.props.marketplace };
     const { loggedInUsername } = this.props.user || {};
+    const isAdmin = !!(this.props.user && this.props.user.isAdmin && loggedInUsername);
 
     // new listing, login and sign up routes
     const newListingRoute = this.props.routes && this.props.routes.new_listing_path ?
@@ -174,8 +175,8 @@ class Topbar extends Component {
       null;
 
     // menu props
-    const hasMenuContext = !!this.props.menu;
-    const menuLinksData = hasMenuContext ?
+    const hasMenuProps = !!this.props.menu;
+    const menuLinksData = hasMenuProps ?
       this.props.menu.links.map((l) => (
         {
           active: l.link === location,
@@ -188,7 +189,7 @@ class Topbar extends Component {
         }
       )) :
       [];
-    const menuProps = hasMenuContext ?
+    const menuProps = hasMenuProps ?
       Object.assign({}, this.props.menu, {
         key: 'menu',
         name: t('web.topbar.more'),
@@ -203,14 +204,13 @@ class Topbar extends Component {
       {};
 
     // mobile menu props
-    const isAdmin = !!(this.props.user && this.props.user.isAdmin && loggedInUsername);
     const profileRoute = this.props.routes && this.props.routes.person_path && loggedInUsername ?
       this.props.routes.person_path(loggedInUsername) :
       null;
     const mobileMenuAvatarProps = this.props.avatarDropdown && loggedInUsername ?
       { ...this.props.avatarDropdown.avatar, url: profileRoute } :
       null;
-    const mobileMenuProps = hasMenuContext ?
+    const mobileMenuProps = hasMenuProps ?
       Object.assign({}, this.props.menu, {
         key: 'mobilemenu',
         name: t('web.topbar.menu'),
@@ -240,7 +240,7 @@ class Topbar extends Component {
     const searchPlaceholder = this.props.search ? this.props.search.search_placeholder : null;
 
     return div({ className: classNames('Topbar', css.topbar) }, [
-      hasMenuContext ? r(MenuMobile, { ...mobileMenuProps, className: css.topbarMobileMenu }) : null,
+      hasMenuProps ? r(MenuMobile, { ...mobileMenuProps, className: css.topbarMobileMenu }) : null,
       r(Logo, { ...this.props.logo, classSet: css.topbarLogo, color: marketplaceColor1 }),
       div({ className: css.topbarMediumSpacer }),
       this.props.search ?
@@ -265,7 +265,7 @@ class Topbar extends Component {
           },
         }) :
         div({ className: css.topbarMobileSearchPlaceholder }),
-      div({ className: css.topbarMenuSpacer }, hasMenuContext ?
+      div({ className: css.topbarMenuSpacer }, hasMenuProps ?
         r(MenuPriority, menuProps) :
         null),
       hasMultipleLanguages ? r(Menu, {
