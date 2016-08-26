@@ -219,9 +219,11 @@ module PaypalService
             req = res[:value]
             token = @fake_pal.save_token(req, :authorization)
 
+            redirect_url = URLUtils.append_query_param(req[:success], :token, token[:token])
+
             DataTypes::Merchant.create_set_express_checkout_order_response({
                 token: token[:token],
-                redirect_url: "https://paypaltest.com/#{token[:token]}",
+                redirect_url: redirect_url,
                 receiver_username: api.config.subject || api.config.username
               })
           }
@@ -344,12 +346,15 @@ module PaypalService
           wrapper_method_name: :do_nothing,
           action_method_name: :wrap,
           output_transformer: -> (res, api) {
+            req = res[:value]
             token = @fake_pal.save_token({}, :authorization)
+
+            redirect_url = URLUtils.append_query_param(req[:success], :token, token[:token])
 
             DataTypes::Merchant.create_setup_billing_agreement_response(
               {
                 token: token[:token],
-                redirect_url: "https://paypaltest.com/billing_agreement?token=#{token[:token]}",
+                redirect_url: redirect_url,
                 username_to: api.config.subject || api.config.username
               }
             )

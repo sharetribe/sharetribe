@@ -183,7 +183,7 @@ class Admin::PaypalPreferencesController < ApplicationController
   end
 
   def paypal_minimum_commissions_api
-    PaypalService::API::Api.minimum_commissions_api
+    PaypalService::API::Api.minimum_commissions
   end
 
   def tx_settings_api
@@ -191,7 +191,7 @@ class Admin::PaypalPreferencesController < ApplicationController
   end
 
   def accounts_api
-    PaypalService::API::Api.accounts_api
+    PaypalService::API::Api.accounts
   end
 
 end

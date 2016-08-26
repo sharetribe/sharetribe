@@ -14,7 +14,10 @@ module PaypalService
     end
 
     def save_permission_token(req)
-      details = parse_details_from_url(req[:callback])
+      details = parse_details_from_url(req[:callback]) || {
+        "email" => "payer_email@example.com",
+        "payer_id" => "payer_id"
+      }
 
       token = {
         request_token: SecureRandom.uuid,
@@ -28,8 +31,11 @@ module PaypalService
     end
 
     def parse_details_from_url(callback_url)
-      hash_of_arrays = CGI.parse(URI.parse(callback_url).query)
-      HashUtils.map_values(hash_of_arrays) { |val| val.first }
+      query = URI.parse(callback_url).query
+      if query
+        hash_of_arrays = CGI.parse(query)
+        HashUtils.map_values(hash_of_arrays) { |val| val.first }
+      end
     end
 
     def by_request_token(request_token)
@@ -60,12 +66,15 @@ module PaypalService
           output_transformer: -> (res, api) {
             req = res[:value]
             token = @fake_pal.save_permission_token(req)
+            uri = URI(req[:callback])
+            redirect_url = "#{uri.scheme}://#{uri.host}#{uri.port ? ':' + uri.port.to_s : ''}#{uri.path}"
+            verification_code = SecureRandom.uuid
 
             DataTypes::Permissions.create_req_perm_response(
               {
                 username_to: api.config.subject,
                 request_token: token[:request_token],
-                redirect_url: "https://paypaltest.com/?token=#{token[:request_token]}"
+                redirect_url: "#{redirect_url}?token=#{token[:request_token]}&verification_code=#{verification_code}&request_token=#{token[:request_token]}"
               })
           }
         ),

@@ -59,3 +59,6 @@ ThinkingSphinx::Test.start_with_autostop
 
 # Disable delta indexing as it is not needed and generates unnecessary delay and output
 ThinkingSphinx::Deltas.suspend!
+
+# Require a fake implementation of the Paypal service
+require_relative '../../spec/services/paypal_service/api/fake_api_implementation'

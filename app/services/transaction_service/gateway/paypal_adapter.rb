@@ -32,9 +32,11 @@ module TransactionService::Gateway
         return SyncCompletion.new(result)
       end
 
-      if prefer_async
+      if result[:data][:process_token].present?
+        # PayPal API performed the operation asynchronously
         AsyncCompletion.new(Result::Success.new({ process_token: result[:data][:process_token] }))
       else
+        # PayPal API performed the operation synchronously
         AsyncCompletion.new(Result::Success.new({ redirect_url: result[:data][:redirect_url] }))
       end
     end

@@ -20,6 +20,11 @@ window.ST.transaction = window.ST.transaction || {};
           return new Bacon.Error({ errorMsg: submitResponse.op_error_msg });
         }
       });
+    } else if (submitResponse.redirect_url) {
+        return {
+          success: true,
+          data: submitResponse
+        };
     } else {
       return new Bacon.Error({ errorMsg: submitResponse.error_msg });
     }

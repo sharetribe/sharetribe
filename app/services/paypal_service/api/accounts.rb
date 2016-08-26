@@ -3,11 +3,12 @@ module PaypalService::API
 
   class Accounts
 
-    def initialize(permissions, merchant, onboarding, logger = PaypalService::Logger.new)
+    def initialize(permissions, merchant, onboarding, logger = PaypalService::Logger.new, prepend_country_code:)
       @permissions = permissions
       @merchant = merchant
       @onboarding = onboarding
       @logger = logger
+      @prepend_country_code = prepend_country_code
     end
 
     # The API implementation
@@ -48,7 +49,13 @@ module PaypalService::API
               order_permission_paypal_username_to: perm_req_response[:username_to]
             })
 
-          redirect_url = URLUtils.prepend_path_component(perm_req_response[:redirect_url], body[:country])
+          redirect_url =
+            if @prepend_country_code
+              URLUtils.prepend_path_component(perm_req_response[:redirect_url], body[:country])
+            else
+              perm_req_response[:redirect_url]
+            end
+
 
           Result::Success.new(
             DataTypes.create_account_request(

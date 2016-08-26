@@ -118,10 +118,14 @@ class PreauthorizeTransactionsController < ApplicationController
       return render_error_response(request.xhr?, t("error_messages.paypal.generic_error"), action: :initiate) unless transaction_response[:success]
     end
 
-    transaction_id = transaction_response[:data][:transaction][:id]
-
     if (transaction_response[:data][:gateway_fields][:redirect_url])
-      redirect_to transaction_response[:data][:gateway_fields][:redirect_url]
+      if request.xhr?
+        render json: {
+          redirect_url: transaction_response[:data][:gateway_fields][:redirect_url]
+        }
+      else
+        redirect_to transaction_response[:data][:gateway_fields][:redirect_url]
+      end
     else
       render json: {
         op_status_url: transaction_op_status_path(transaction_response[:data][:gateway_fields][:process_token]),
@@ -237,12 +241,16 @@ class PreauthorizeTransactionsController < ApplicationController
       return render_error_response(request.xhr?, error, { action: :book, start_on: TransactionViewUtils.stringify_booking_date(start_on), end_on: TransactionViewUtils.stringify_booking_date(end_on) })
     end
 
-    transaction_id = transaction_response[:data][:transaction][:id]
-
     if (transaction_response[:data][:gateway_fields][:redirect_url])
-      return redirect_to transaction_response[:data][:gateway_fields][:redirect_url]
+      if request.xhr?
+        render json: {
+          redirect_url: transaction_response[:data][:gateway_fields][:redirect_url]
+        }
+      else
+        redirect_to transaction_response[:data][:gateway_fields][:redirect_url]
+      end
     else
-      return render json: {
+      render json: {
         op_status_url: transaction_op_status_path(transaction_response[:data][:gateway_fields][:process_token]),
         op_error_msg: t("error_messages.paypal.generic_error")
       }
