@@ -190,7 +190,7 @@ class Admin::CommunitiesController < ApplicationController
 
     if translations.any?{ |t| t[:translation].blank? }
       flash[:error] = t("admin.communities.topbar.invalid_post_listing_button_label")
-      redirect_to topbar_admin_community_path(@community) and return
+      redirect_to admin_topbar_edit_path and return
     end
 
     translations_group = [{
@@ -201,7 +201,7 @@ class Admin::CommunitiesController < ApplicationController
 
     update(@community,
             menu_links_params,
-            topbar_admin_community_path(@community),
+            admin_topbar_edit_path,
             :menu_links)
   end
 

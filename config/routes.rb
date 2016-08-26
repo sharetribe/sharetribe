@@ -168,6 +168,10 @@ Kassi::Application.routes.draw do
       get   "/new_layout"         => "communities#new_layout",                  as: :new_layout
       patch "/new_layout"         => "communities#update_new_layout",           as: :update_new_layout
 
+      # Topbar menu
+      get   "/topbar/edit"        => "communities#topbar",                      as: :topbar_edit
+      patch "/topbar"             => "communities#update_topbar",               as: :topbar
+
       resources :communities do
         member do
           get :edit_welcome_email
@@ -180,9 +184,16 @@ Kassi::Application.routes.draw do
           get :analytics
           put :social_media, to: 'communities#update_social_media'
           put :analytics, to: 'communities#update_analytics'
-          get :topbar
-          put :topbar, to: 'communities#update_topbar'
           delete :delete_marketplace
+
+          # DEPRECATED (2016-08-26)
+          # These routes are not in use anymore, don't use them
+          # See new "Topbar menu" routes above, outside of communities resource
+          get :topbar, to: redirect("/admin/topbar/edit")
+          put :topbar, to: "communities#update_topbar" # PUT request, no redirect
+          # also redirect old menu link requests to topbar
+          get :menu_links, to: redirect("/admin/topbar/edit")
+          put :menu_links, to: "communities#update_topbar" # PUT request, no redirect
 
           # DEPRECATED (2016-07-07)
           # These routes are not in use anymore, don't use them
