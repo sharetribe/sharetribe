@@ -265,6 +265,12 @@ Before starting these steps, perform [steps 1-5 from above](#setting-up-the-deve
   RAILS_ENV=production bundle exec rake ts:start
   ```
 
+1. Following cmd is not required if the next command has never been executed earlier (else):
+
+  ```bash
+  rm -rf /public/assets
+  ```
+
 1. Precompile the assets:
 
   ```bash
