@@ -93,7 +93,7 @@ hu:
         favicon: Favicon
         favicon_info_text: "A favicon az alapértelmezett Sharetribe logo helyébe fog lépni. Nagyága 32x32 pixel lehet és a feltöltött kép is ekkorára lesz újraméretezve."
         community_custom_color1: "Fő szín"
-        community_custom_color2: "%{post_new_listing} gomb színe"
+        new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: "A logó mérete %{width}x%{height}px legyen. Ezt a nagyobb képernyőt használók láthatják majd."
         logo_icon_instructions_text_with_dimensions: "Ez a négyzet alakú logó jelenik majd meg amikor a felhasználók megosztják oldalát a Facebook-on. Valamint amikor mobil eszközön tekintik meg az oldalt vagy könyvjelzővel a mobil eszközük kezdőlapján. A méretek (legalább) %{width}x%{height}pixel nagyságúak legyenek."
         cover_photo_visibility: "A borítókép a nyitóoldalon jelenik meg azok számára akik nincsenek bejelentkezve."
@@ -104,7 +104,7 @@ hu:
         custom_color1_instructions_text: |-
             Ön megváltoztathatja az oldal elsődleges színét egy színkód megadásával.<a href="http://www.colorpicker.com/?colorcode=D96E21" target="_blank" rel="noreferrer">
             A ColorPicker.com</a>  segítségével kiválaszthatja a színt és bemásohatja a színkódot ide.
-        custom_color2_instructions_text: "Ön meg tudja változtatni a %{post_new_listing} gomb színét a hexadecimális színérték hozáadásával.<a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\" rel=\"noreferrer\"> A ColorPicker.com</a> segítségével választhat színt és bemásolhatja a kódot ide."
+        new_listing_button_instructions_text: ~
         default_browse_view: "Alapértelmezett keresési nézet"
         default_browse_view_instructions_text: "Az alapértelmezett keresési nézet a kezdőlapon arra használható, hogy beállítsuk a hírdetések alapértelmezett nézetét."
         grid: "Magazin nézet"
@@ -281,6 +281,10 @@ hu:
         all: Összes
         max_number_of_links_info: "A link a %{about_page} oldalhoz mindig az első menüpontban kerül megjelenínétésre."
         about_page: rólunk
+      topbar:
+        topbar: ~
+        new_listing_button_label: ~
+        invalid_post_listing_button_label: ~
       transactions:
         export_all_as_csv: "Az öszes exportálása CSV-ként"
         transactions: "Mutassa a tranzakciókat"

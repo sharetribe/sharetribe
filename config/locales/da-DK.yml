@@ -94,7 +94,7 @@ da-DK:
         favicon: Favicon
         favicon_info_text: "Dit favicon vil erstatte vores standard Sharetribe logo. Størrelsen på dit favicon skal være 32x32 pixels."
         community_custom_color1: Farvekode
-        community_custom_color2: "Anden farve"
+        new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: "Størrelsen på logoet, som vises på alm. computer, skal være %{height}x%{width}px. Det vil blive vist til brugere med større skærme."
         logo_icon_instructions_text_with_dimensions: "Mobillogo skal være kvadratisk, %{width}x%{height}px. Det vil blive vist til brugere med små skærme."
         cover_photo_visibility: "Coverbillede bliver vist på startsiden for dem som ikke er logget ind."
@@ -103,7 +103,7 @@ da-DK:
         small_cover_photo_instructions_text_with_dimensions: "Billedet vil blive skaleret til %{width}x%{height}px og større billede vil blive beskåret i midten."
         main_content_width: "Når du vælger et coverbillede, så læg mærke til at siden hovedindhold er %{main_width} pixels bredde ved største skærm. Husk at tjekke om coverbilledet sær normalt ud på mindre skærme (f.eks ved at gøre browser vinduet mindre)."
         custom_color1_instructions_text: "Du kan ændre brugerfladens primære farve ved at indtaste en hex-farvekode. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kan hjælpe dig med at vælge en farve og bagefter kan du kopiere farvekoden hertil."
-        custom_color2_instructions_text: "Du kan ændre farven på %{post_new_listing} knappen ved at indtaste en hex farve værdi. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\" rel=\"noreferrer\"> ColorPicker.com </a> kan hjælpe dig med at vælge farven og kopier koden hertil."
+        new_listing_button_instructions_text: ~
         default_browse_view: "Standard visning"
         default_browse_view_instructions_text: "Standard visningen er brugt på forsiden, og er den måde annoncerne bliver præsenteret på."
         grid: Rude
@@ -280,6 +280,10 @@ da-DK:
         all: Alle
         max_number_of_links_info: "Link til %{about_page} vises altid som det første menu link"
         about_page: "om side"
+      topbar:
+        topbar: ~
+        new_listing_button_label: ~
+        invalid_post_listing_button_label: ~
       transactions:
         export_all_as_csv: "Eksporter alle som CSV"
         transactions: "Vis transaktioner"
