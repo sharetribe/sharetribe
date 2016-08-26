@@ -29,7 +29,6 @@ const SEARCH_PARAMS_TO_KEEP = ['view', 'locale'];
 const SEARCH_PARAMS = ['q', 'lq'];
 const DEFAULT_CONTEXT = {
   marketplace_color1: styleVariables['--customColorFallback'],
-  marketplace_color2: styleVariables['--customColor2Fallback'],
   loggedInUsername: null,
 };
 
