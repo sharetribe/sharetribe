@@ -220,6 +220,12 @@
     }
   }
 
+  @media #{$desktop} {
+    &:nth-of-type(2) {
+      padding: 14px 24px 14px 18px;
+    }
+  }
+
   @include hero-search-input-media;
 
   &:nth-of-type(2) {
