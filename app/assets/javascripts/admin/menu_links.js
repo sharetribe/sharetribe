@@ -69,6 +69,6 @@ window.ST.createMenuLinksOrder = function(rowSelector) {
     updateTableVisibility();
   });
 
-  $("#topbar-form").validate();
+  $("#topbar-menu-form").validate();
 
 };
