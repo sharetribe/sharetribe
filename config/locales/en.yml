@@ -309,7 +309,7 @@ en:
           pending_ext: "Waiting PayPal payment"
         not_available: "Not available"
       paypal_account:
-        paypal_admin_account: Payments
+        paypal_admin_account: Payment system
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -466,15 +466,15 @@ en:
           quantity_label: "Quantity (per piece, per kg, per person, per 2 hour tour...)"
           time_label: "Time (per 30 minutes, per 2 weeks, per year...)"
     paypal_accounts:
-      marketplace_paypal_integration: "Payment preferences"
-      preferences_updated: "Payment preferences updated"
+      marketplace_paypal_integration: "Payment system preferences"
+      preferences_updated: "Payment system preferences updated"
       marketplace_currency_used: "This marketplace uses %{currency} as its currency. To change the currency, %{contact_support_link}."
       contact_support_link_text: "contact Sharetribe support"
-      integration_info_text: "Sharetribe payments are powered by PayPal. To allow your users to pay using your marketplace, you must connect your PayPal account. Once you have connected your PayPal account, you can choose a minimum transaction size and a possible commission fee."
+      integration_info_text: "The payment system of your marketplace is powered by PayPal. To allow your users to pay using your marketplace, you must connect your PayPal account. Once you have connected your PayPal account, you can choose a minimum transaction size and a possible commission fee."
       link_paypal_personal_account_label: "Are you providing products or services yourself?"
       link_paypal_personal_account: "If so, you will also need to connect your PayPal account to %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "your personal marketplace account"
-      read_more_about_paypal: "Read more about Sharetribe's payment system"
+      read_more_about_paypal: "Read more about the payment system"
       set_minimum_price_and_fee: "Set a minimum price & transaction fee"
       minimum_listing_price_label: "Minimum transaction size:"
       transaction_fee_label: "Transaction fee:"
