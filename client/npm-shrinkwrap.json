@@ -2841,7 +2841,14 @@
     "node-pre-gyp": {
       "version": "0.6.29",
       "from": "node-pre-gyp@>=0.6.29 <0.7.0",
-      "resolved": "https://registry.npmjs.org/node-pre-gyp/-/node-pre-gyp-0.6.29.tgz"
+      "resolved": "https://registry.npmjs.org/node-pre-gyp/-/node-pre-gyp-0.6.29.tgz",
+      "dependencies": {
+        "semver": {
+          "version": "5.2.0",
+          "from": "semver@>=5.2.0 <5.3.0",
+          "resolved": "https://registry.npmjs.org/semver/-/semver-5.2.0.tgz"
+        }
+      }
     },
     "node-sass": {
       "version": "3.8.0",
@@ -3767,9 +3774,9 @@
       }
     },
     "react-on-rails": {
-      "version": "5.2.0",
-      "from": "react-on-rails@5.2.0",
-      "resolved": "https://registry.npmjs.org/react-on-rails/-/react-on-rails-5.2.0.tgz"
+      "version": "6.0.5",
+      "from": "react-on-rails@6.0.5",
+      "resolved": "https://registry.npmjs.org/react-on-rails/-/react-on-rails-6.0.5.tgz"
     },
     "react-proxy": {
       "version": "1.1.8",
