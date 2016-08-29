@@ -69,7 +69,7 @@ fr:
         private_community_homepage_content: "Page d'accueil de la place de marché privée"
         edit_private_community_homepage_content_description: "Ce contenu n'est visible qu'aux utilisateurs non connectés, sur la page d'accueil de la place de marché privée. Vous pouvez décrire ici votre place de marché et comment la rejoindre. Vous pouvez aussi ajouter des images, des vidéos et du contenu HTML. %{see_how_it_looks_like}."
         update_information: "Sauvegarder les paramètres"
-        invite_people: "Inviter des nouveaux utilisateurs"
+        invite_people: "Inviter des nouveaux utilisateurs sur %{service_name}"
         edit_signup_info: "Informations lors de l'inscription"
         edit_signup_info_description: "Ce texte peut être affiché aux utilisateurs sur la page d'inscription. Vous pouvez y donner des instructions à propos de l'inscription, des conseils pour obtenir une invitation, etc. Par défaut, il n'y a pas d'instructions."
         edit_info: "Modifier les informations"
@@ -94,7 +94,7 @@ fr:
         favicon: Favicon
         favicon_info_text: "Le favicon remplacera celui par défaut dans Sharetribe. Les dimensions doivent être de 32x32 pixels et l'image téléchargée sera redimensionnée à ces dimensions."
         community_custom_color1: "Couleur principale"
-        community_custom_color2: "Couleur du bouton %{post_new_listing}"
+        new_listing_button_custom_color: "Couleur du bouton Déposer une annonce"
         logo_instructions_text_with_dimensions: "Le logo doit avoir des dimensions de %{width}x%{height} pixels. Il sera affiché sur les grands écrans."
         logo_icon_instructions_text_with_dimensions: "Ce logo carré sera utilisé lorsque des gens partageront votre site sur Facebook, quand ils navigueront sur votre site depuis un appareil mobile ou en tant qu'image lorsqu'ils mettront le site en favori. Les dimensions doivent être d'au moins %{width}x%{height} pixels."
         cover_photo_visibility: "La photo de couverture est affichée sur la page d'accueil aux utilisateurs non connectés."
@@ -103,7 +103,7 @@ fr:
         small_cover_photo_instructions_text_with_dimensions: "La photo sera redimensionnée en %{width}x%{height} pixels et les images trop grandes seront coupées au centre."
         main_content_width: "Lorsque vous choisissez les photos de couverture, gardez à l'esprit que la page principale a une largeur maximale de %{main_width} pixels. N'oubliez pas non plus de vérifier comment s'affiche votre photo de couverture sur des petits écrans (par exemple en réduisant la taille de la fenêtre de votre navigateur)."
         custom_color1_instructions_text: "Vous pouvez changer la couleur principale de l'interface en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier ici."
-        custom_color2_instructions_text: "Vous pouvez changer la couleur du bouton %{post_new_listing} en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier ici."
+        new_listing_button_instructions_text: "Vous pouvez changer la couleur du bouton Déposer une nouvelle annonce en entrant une valeur hexadécimale. %{link_to_colorpicker} peut vous aider à choisir cette valeur que pourrez alors copier ici."
         default_browse_view: "Vue par défaut"
         default_browse_view_instructions_text: "La vue par défaut est utilisée sur la page d'accueil pour définir comment sont affichées les annonces par défaut."
         grid: Grille
@@ -280,6 +280,10 @@ fr:
         all: Tous
         max_number_of_links_info: "Le lien vers %{about_page} sera toujours affiché en premier"
         about_page: "la page A propos"
+      topbar:
+        topbar: "Barre des menus"
+        new_listing_button_label: "Texte du bouton Déposer une annonce"
+        invalid_post_listing_button_label: "Veuillez ajouter un texte valide pour le bouton \"Déposer une annonce\""
       transactions:
         export_all_as_csv: "Exporter au format CSV"
         transactions: "Voir les transactions"
@@ -854,7 +858,6 @@ fr:
       title_link_text: "%{community_name}"
       intro_paragraph: "Voici une partie de ce qu'il s'est passé sur %{community_link} depuis %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: "Déposez une annonce !"
       reduce_email_footer_text: "Trop d'emails ? %{settings_link} ou %{unsubscribe_link}."
       settings_link_text: "Gérez vos paramètres d'email"
       unsubscribe_link_text: désabonnez-vous
@@ -1510,7 +1513,6 @@ fr:
       how_paypal_works: "Comment fonctionne PayPal"
       payment_help: "Aide à propos du paiement"
     new:
-      post_a_new_listing: "Déposer une annonce"
       listing: annonce
       selected_category: "Catégorie : %{category}"
       selected_subcategory: "Sous-catégorie : %{subcategory}"

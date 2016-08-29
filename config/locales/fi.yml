@@ -858,7 +858,6 @@ fi:
       title_link_text: "%{community_name}"
       intro_paragraph: "Tässä poimintoja siitä, mitä %{community_link}-palvelussa on tapahtunut viimeisen %{time_since_last_update} aikana."
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: "Lisää uusi ilmoitus!"
       reduce_email_footer_text: "Liikaa sähköpostia? %{settings_link} tai %{unsubscribe_link}."
       settings_link_text: "Säädä sähköpostit harvemmaksi"
       unsubscribe_link_text: "peruuta tämän sähköpostin tulo kokonaan"
@@ -1514,7 +1513,6 @@ fi:
       how_paypal_works: "Miten PayPal toimii"
       payment_help: "Apua maksujen kanssa"
     new:
-      post_a_new_listing: "Lisää uusi ilmoitus"
       listing: ilmoitus
       selected_category: "Kategoria: %{category}"
       selected_subcategory: "Alakategoria: %{subcategory}"

@@ -79,7 +79,7 @@ es:
         favicon: ~
         favicon_info_text: ~
         community_custom_color1: "Color principal"
-        community_custom_color2: ~
+        new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
@@ -88,7 +88,7 @@ es:
         small_cover_photo_instructions_text_with_dimensions: ~
         main_content_width: ~
         custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad ingresando un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
-        custom_color2_instructions_text: "Puedes cambiar el color del botón de %{post_new_listing} con un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
+        new_listing_button_instructions_text: ~
         default_browse_view: ~
         default_browse_view_instructions_text: ~
         grid: ~
@@ -265,6 +265,10 @@ es:
         all: ~
         max_number_of_links_info: ~
         about_page: ~
+      topbar:
+        topbar: ~
+        new_listing_button_label: ~
+        invalid_post_listing_button_label: ~
       transactions:
         export_all_as_csv: ~
         transactions: ~
@@ -828,7 +832,6 @@ es:
       title_link_text: "%{community_name}"
       intro_paragraph: "Aquí están algunas actualizaciones que han ocurrido en %{community_link} durante el pasado %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: "Publica un nuevo listado!"
       reduce_email_footer_text: "¿Demasiados emails? %{settings_link} o %{unsubscribe_link}."
       settings_link_text: "Edita tu configuración de email aquí"
       unsubscribe_link_text: "cancelar suscripción"
@@ -1482,7 +1485,6 @@ es:
       how_paypal_works: ~
       payment_help: ~
     new:
-      post_a_new_listing: "Publica un nuevo listado"
       listing: listado
       selected_category: "Categoría: %{category}"
       selected_subcategory: "Subcategoría: %{subcategory}"

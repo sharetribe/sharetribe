@@ -104,7 +104,7 @@ ru:
         favicon: "Значок для избранного и отображения во вкладке"
         favicon_info_text: "Favicon заменит лого платформы установленной по умолчанию. Размеры должны быть 32x32 пикс и загружаемое изображение будет адаптировано под эти размеры."
         community_custom_color1: "Основной цвет"
-        community_custom_color2: "Второй цвет"
+        new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: "Лого для desktop должен быть %{width} x %{height} px. Он будет показан пользователям с большими экранами."
         logo_icon_instructions_text_with_dimensions: "Этот квадратный лого будет показан когда люди делятся вашим проектом в Фейсбук, когда они просматривают ваш сайт на мобильных устройствах или когда они запоминают ваш сайт на главной странице их мобильного устройства. Размеры должны быть (по крайней мере) %{width}x%{height} px."
         cover_photo_visibility: "Обложка с фото будет показана на главной странице для не зарегистрированных пользователей."
@@ -113,7 +113,7 @@ ru:
         small_cover_photo_instructions_text_with_dimensions: "Фото будут изменено до размера %{width}x%{height} пикселей а более большие изображения будут обрезаны до среднего размера."
         main_content_width: "Выбирая обложку с фото примите во внимание что основной контент на странице %{main_width} пикселей шире. Не забудь также проверить как ваша обложка с фото выглядит на более маленьких экранах."
         custom_color1_instructions_text: "Вы можете изменить основной цвет интерфейса, введя его значение. Сайт <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> поможет выбрать и скопировать подходящий цвет."
-        custom_color2_instructions_text: "You can change the color of the %{post_new_listing} button by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=00a26c\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> can help you choose the color and copy the code here."
+        new_listing_button_instructions_text: ~
         default_browse_view: "Стандартный вид"
         default_browse_view_instructions_text: "Стандартный вид используется на главной странице чтобы установить отображение публикаций по умолчанию"
         grid: Сетка
@@ -290,6 +290,10 @@ ru:
         all: ~
         max_number_of_links_info: ~
         about_page: ~
+      topbar:
+        topbar: ~
+        new_listing_button_label: ~
+        invalid_post_listing_button_label: ~
       transactions:
         export_all_as_csv: ~
         transactions: "Посмотреть транзакции"
@@ -848,7 +852,6 @@ ru:
       title_link_text: "%{community_name}"
       intro_paragraph: "Несколько новостей %{community_link} за последние %{time_since_last_update}"
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: "Пусть об этом узнают!"
       reduce_email_footer_text: "Надоели эти письма? %{settings_link} или %{unsubscribe_link}."
       settings_link_text: "Отредактируй настройки получения писем"
       unsubscribe_link_text: отпишись
@@ -1500,7 +1503,6 @@ ru:
       how_paypal_works: "Как функционирует PayPal"
       payment_help: "Информация о платежах"
     new:
-      post_a_new_listing: "Добавить новую публикацию"
       listing: список
       selected_category: "Категория: %{category}"
       selected_subcategory: "Подкатегория: %{subcategory}"

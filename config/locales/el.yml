@@ -79,7 +79,7 @@ el:
         favicon: ~
         favicon_info_text: ~
         community_custom_color1: "Κυρίως χρώμα"
-        community_custom_color2: "Δεύτερο χρώμα"
+        new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: "Το λογότυπο πρέπει να έχει μέγεθος %{width}x%{height}px."
         logo_icon_instructions_text_with_dimensions: "Το μέγεθος του λογότυπου πρέπει να είναι %{width}x%{height} px."
         cover_photo_visibility: ~
@@ -88,7 +88,7 @@ el:
         small_cover_photo_instructions_text_with_dimensions: ~
         main_content_width: ~
         custom_color1_instructions_text: "Μπορείτε να αλλάξετε το κυρίως χρώμα του περιβάλλοντος αυτής της κοινότητας εισάγοντας ένα χρώμα σε δεκαεξαδική μορφή. Στο <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> μπορείτε να βρείτε το χρώμα που θέλετε και να αντιγράψετε τον κατάλληλο κωδικό εδώ."
-        custom_color2_instructions_text: ~
+        new_listing_button_instructions_text: ~
         default_browse_view: ~
         default_browse_view_instructions_text: ~
         grid: ~
@@ -265,6 +265,10 @@ el:
         all: ~
         max_number_of_links_info: ~
         about_page: ~
+      topbar:
+        topbar: ~
+        new_listing_button_label: ~
+        invalid_post_listing_button_label: ~
       transactions:
         export_all_as_csv: ~
         transactions: ~
@@ -823,7 +827,6 @@ el:
       title_link_text: "%{community_name}"
       intro_paragraph: "Δείτε κάποια από τα νέα του %{community_link} τις τελευταίες %{time_since_last_update}"
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: "Κάντε μια νέα καταχώρηση!"
       reduce_email_footer_text: "Είναι πολλά τα email που λαμβάνετε; %{settings_link} ή %{unsubscribe_link}"
       settings_link_text: "Επεξεργαστείτε τις ρυθμίσεις ηλεκτρονικού ταχυδρομείου"
       unsubscribe_link_text: "διαγραφτείτε από τη λίστα ενημερώσεων"
@@ -1475,7 +1478,6 @@ el:
       how_paypal_works: ~
       payment_help: ~
     new:
-      post_a_new_listing: "Νέα καταχώρηση"
       listing: καταχώρηση
       selected_category: "Κατηγορία: %{category}"
       selected_subcategory: "Υποκατηγορία: %{subcategory}"
