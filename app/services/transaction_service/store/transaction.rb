@@ -167,7 +167,7 @@ module TransactionService::Store::Transaction
     if m.booking
       booking_data = EntityUtils.model_to_hash(m.booking)
       hash.merge(booking: Booking.call(
-                  booking_data.merge(duration: booking_duration(booking_data))))
+                  booking_data.merge(duration: booking_duration(booking_data, include_last: m.unit_type.to_sym != :night))))
     else
       hash
     end
@@ -203,7 +203,7 @@ module TransactionService::Store::Transaction
 
       # TODO What's the correct place for the booking calculation logic?
       # Make sure listing_quantity equals duration
-      if booking_duration(tx_data[:booking_fields]) != tx_model.listing_quantity
+      if booking_duration(tx_data[:booking_fields], include_last: tx_model.unit_type.to_sym != :night) != tx_model.listing_quantity
         raise ArgumentException.new("Listing quantity (#{tx_listing_quantity}) must be equal to booking duration in days (#{booking_duration(tx_data)})")
       end
 
@@ -217,10 +217,10 @@ module TransactionService::Store::Transaction
     tx_data[:booking_fields] && tx_data[:booking_fields][:start_on] && tx_data[:booking_fields][:end_on]
   end
 
-  def booking_duration(booking_data)
+  def booking_duration(booking_data, include_last:)
     start_on = booking_data[:start_on]
     end_on = booking_data[:end_on]
-    DateUtils.duration_days(start_on, end_on)
+    DateUtils.duration_days(start_on, end_on, include_last: include_last)
   end
 
   def do_mark_as_unseen_by_other(tx_model, person_id)

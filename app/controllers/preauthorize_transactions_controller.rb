@@ -142,7 +142,8 @@ class PreauthorizeTransactionsController < ApplicationController
       return redirect_to error_not_found_path
     end
 
-    booking_data = verified_booking_data(params[:start_on], params[:end_on])
+    booking_data = verified_booking_data(params[:start_on], params[:end_on], include_last: @listing.unit_type.to_sym != :night)
+
     vprms = view_params(listing_id: params[:listing_id],
                         quantity: booking_data[:duration],
                         shipping_enabled: delivery_method == :shipping)
@@ -220,7 +221,7 @@ class PreauthorizeTransactionsController < ApplicationController
       community: @current_community,
       listing: @listing,
       user: @current_user,
-      listing_quantity: DateUtils.duration_days(preauthorize_form.start_on, preauthorize_form.end_on),
+      listing_quantity: DateUtils.duration_days(preauthorize_form.start_on, preauthorize_form.end_on, include_last: @listing.unit_type.to_sym != :night),
       content: preauthorize_form.content,
       use_async: request.xhr?,
       delivery_method: delivery_method,
@@ -347,7 +348,7 @@ class PreauthorizeTransactionsController < ApplicationController
     end
   end
 
-  def verified_booking_data(start_on, end_on)
+  def verified_booking_data(start_on, end_on, include_last:)
     booking_form = BookingForm.new({
       start_on: TransactionViewUtils.parse_booking_date(start_on),
       end_on: TransactionViewUtils.parse_booking_date(end_on)
@@ -357,7 +358,7 @@ class PreauthorizeTransactionsController < ApplicationController
       { error: booking_form.errors.full_messages }
     else
       booking_form.to_hash.merge({
-        duration: DateUtils.duration_days(booking_form.start_on, booking_form.end_on)
+        duration: DateUtils.duration_days(booking_form.start_on, booking_form.end_on, include_last: include_last)
       })
     end
   end
