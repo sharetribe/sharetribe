@@ -192,6 +192,7 @@ module.exports = {
   '--MenuItem_borderColor': topbarBorderColor,
   '--MenuItem_backgroundColorHover': backgroundLightColorHover,
   '--MenuItem_paddingTopbarVertical': pxToEms(13, 14),
+  '--MenuItem_paddingTopbarHorizontalMin': pxToEms(13, 14),
   '--MenuItem_paddingTopbarHorizontal': pxToEms(24, 14),
   '--MenuItem_paddingOffScreenVertical': pxToEms(10, 17),
   '--MenuItem_paddingOffScreenHorizontal': pxToEms(24, 17),
