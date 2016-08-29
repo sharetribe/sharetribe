@@ -198,7 +198,7 @@ class Admin::CommunitiesController < ApplicationController
     update(@community,
             menu_links_params,
             admin_topbar_edit_path,
-            :menu_links)
+            :topbar)
   end
 
   def test_welcome_email
