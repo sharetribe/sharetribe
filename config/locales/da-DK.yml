@@ -236,7 +236,7 @@ da-DK:
         ban_user_confirmation: "Dette sletter brugeren fra markedspladsen og hindrer ham/hende i at logge ind på markedspladsen igen med denne bruger. Er du sikker på at du vil fortsætte?"
         ban_me_error: "Du kan ikke forbyde dig selv."
       new_layout:
-        new_layout: ~
+        new_layout: "Nyt layout"
         description_roadmap: ~
         description_process: ~
         enabled_for_you: ~
@@ -957,8 +957,8 @@ da-DK:
       javascript_is_disabled_in_your_browser: "Javascript er deaktiveret i din browser"
       kassi_does_not_currently_work_without_javascript: "%{service_name} virker ikke korrekt uden javascript. Prøv at aktivere javascript fra din browsers indstillinger og derefter genindlæse denne side igen."
       contact_us: "kontakt os"
-      send_feedback: ~
-      your_feedback_to_admins: ~
+      send_feedback: "Send besked"
+      your_feedback_to_admins: "Din besked til %{service_name} team"
     send: Send
     your_email_address: "Din email"
   errors:
@@ -1147,17 +1147,17 @@ da-DK:
     no_tribe:
       inbox: Indbakke
       settings: Indstillinger
-      feedback: ~
+      feedback: "Kontakt %{service_name} team"
     application:
       join_this_community: "Slut dig til markedspladsen"
       read_more: "Læs mere"
-      feedback: ~
+      feedback: "Din besked til %{service_name} team"
       dont_use_to_contact_support: ~
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
       give_feedback: "Kontakt os"
       or_check_our: "...eller tjek vores"
-      send_feedback_to_admin: ~
+      send_feedback_to_admin: "Send besked"
       to_see_what_others_have_suggested: "at se, hvad andre brugere har foreslået, og stemme for de idéer der."
       your_email_address: "Din email (for at kontakte dig)"
       connect: "Opret profil﻿"

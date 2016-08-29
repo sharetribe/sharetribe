@@ -74,7 +74,7 @@ sk-SK:
         private_community_homepage_content: "Obsah domovskej stránky súkromného trhoviska"
         edit_private_community_homepage_content_description: "Tento obsah je zobrazený na domovskej stránke súkromného trhoviska neprihláseným užívateľom. Tu môžete opísať Vaše trhovisko a postup ako sa pripojiť. Taktiež sem môžete pridávať obrázky, videá a HTML obsah. %{see_how_it_looks_like}."
         update_information: "Uložiť nastavenia"
-        invite_people: "Pozvať nových užívateľov"
+        invite_people: "Pozvať nových užívateľov do %{service_name}"
         edit_signup_info: "Prihlasovacie údaje"
         edit_signup_info_description: "Toto je informačný text, ktorý sa zobrazuje iba užívateľom pri registrácii. Tu môžete napísať užívateľom inštrukcie k registrácii, ako napríklad, kde získať pozvánku atď. V základnom nastavení nie sú k dispozícii akékoľvek inštrukcie."
         edit_info: "Uprav informácie"
@@ -99,7 +99,7 @@ sk-SK:
         favicon: "Ikonka webovej stránky"
         favicon_info_text: "Ikonka webovej stránky nahradí základné Sharetribe logo. Rozmery by mali byť 32x32 pixelov a nahratý súbor bude prispôsobený týmto rozmerom."
         community_custom_color1: "Hlavná farba"
-        new_listing_button_custom_color: ~
+        new_listing_button_custom_color: "Farba tlačítka Pridať nový inzerát"
         logo_instructions_text_with_dimensions: "Veľkosť loga by mala byť %{width}x%{height} pixelov. Toto logo bude zobrazené užívateľom s veľkou obrazovkou."
         logo_icon_instructions_text_with_dimensions: "Toto štvorcové logo sa zobrazí v prípade zdieľania Vašej stránky na Facebooku, na mobilnom zariadení, alebo v prípade nastavenia Vašej stránky ako domovskej na mobilnom zariadení. Rozmery by mali byť (aspoň) %{width}x%{height} px."
         cover_photo_visibility: "Úvodná fotografia sa zobrazí na domovskej stránke neprihláseným užívateľom."
@@ -108,7 +108,7 @@ sk-SK:
         small_cover_photo_instructions_text_with_dimensions: "Fotografia bude prispôsobená veľkosti %{width}x%{height} pixelov a vačšie obrázky budú orezané."
         main_content_width: "Pri výbere úvodných fotiek berte na vedomie, že rozlíšenie hlavnej stránky je maximálne %{main_width} pixelov na šírku. Nezabudnite tiež skontrolovať, ako bude Vaša úvodná fotografia vyzerať na menších obrazovkách."
         custom_color1_instructions_text: "Môžete zmeniť základnú farbu užívateľského rozhrania zadaním hexadecimálnej hodnoty farby. Na <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> si môžete vybrať farbu a následne hodnotu skopírovať sem."
-        new_listing_button_instructions_text: ~
+        new_listing_button_instructions_text: "Môžete zmeniť farbu tlačítka pridať nový inzerát zadaním hexadecimálneho čísla farby. %{link_to_colorpicker} Vám pomôže vybrať farbu a kód."
         default_browse_view: "Východzie zobrazenie prehliadača"
         default_browse_view_instructions_text: "Východzie zobrazenie prehliadača sa používa na domovskej stránke k nastavení, ako majú byť inzeráty zobrazené vo východzom nastavení."
         grid: Mriežka
@@ -286,9 +286,9 @@ sk-SK:
         max_number_of_links_info: "Odkaz na %{about_page} je vždy zobrazený ako prvá možnosť v menu."
         about_page: "o nás"
       topbar:
-        topbar: ~
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        topbar: "Horná lišta"
+        new_listing_button_label: "Text tlačítka Pridať nový inzerát"
+        invalid_post_listing_button_label: "Prosím zadajte platný text pre tlačítko \"Pridať nový inzerát\""
       transactions:
         export_all_as_csv: "Exportovať všetko do CSV"
         transactions: "Zobraziť platby"
@@ -1147,7 +1147,7 @@ sk-SK:
       search: Hľadať
       signup: "Zaregistrovať sa"
       search_placeholder: "Čo hľadáte?"
-      search_location_placeholder: ~
+      search_location_placeholder: Lokalita
     listings:
       no_listing_image: "bez obrázku"
   layouts:
