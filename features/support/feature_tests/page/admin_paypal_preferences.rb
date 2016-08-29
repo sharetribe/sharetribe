@@ -13,10 +13,10 @@ module FeatureTests
         payment_settings.click_button("Connect your PayPal account")
       end
 
-      def set_payment_preferences(min_tx_size, tx_fee, min_tx_fee)
-        payment_settings.fill_in("paypal_preferences_form[minimum_listing_price]", with: min_tx_size)
-        payment_settings.fill_in("paypal_preferences_form[commission_from_seller]", with: tx_fee)
-        payment_settings.fill_in("paypal_preferences_form[minimum_transaction_fee]", with: min_tx_fee)
+      def set_payment_preferences(min_price:, commission:, min_commission:)
+        payment_settings.fill_in("paypal_preferences_form[minimum_listing_price]", with: min_price)
+        payment_settings.fill_in("paypal_preferences_form[commission_from_seller]", with: commission)
+        payment_settings.fill_in("paypal_preferences_form[minimum_transaction_fee]", with: min_commission)
       end
 
       def save_settings

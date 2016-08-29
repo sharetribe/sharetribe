@@ -20,7 +20,7 @@ module FeatureTests
         expect(page).to have_content("PayPal account connected")
 
         # Save payment preferences
-        paypal_preferences.set_payment_preferences("2.0", "5", "1.0")
+        paypal_preferences.set_payment_preferences(min_price: "2.0", commission: "5", min_commission: "1.0")
         paypal_preferences.save_settings
         expect(page).to have_content("Payment preferences updated")
       end
