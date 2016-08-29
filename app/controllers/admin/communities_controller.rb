@@ -122,16 +122,12 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def new_layout
-    redirect_to admin_getting_started_guide_path and return unless(FeatureFlagHelper.feature_enabled?(:feature_flags_page))
-
     @selected_left_navi_link = "new_layout"
 
     render :new_layout, locals: { community: @current_community, features: NewLayoutViewUtils.features(@current_community.id, @current_user.id) }
   end
 
   def update_new_layout
-    redirect_to admin_getting_started_guide_path and return unless(FeatureFlagHelper.feature_enabled?(:feature_flags_page))
-
     @community = @current_community
 
     enabled_for_user = Maybe(params[:enabled_for_user]).map { |f| NewLayoutViewUtils.enabled_features(f) }.or_else([])

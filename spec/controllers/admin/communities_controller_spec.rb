@@ -96,9 +96,6 @@ describe Admin::CommunitiesController, type: :controller do
         .with(anything()).and_return(Result::Success.new("success"))
       allow(FeatureFlagService::API::Api.features).to receive(:disable)
         .with(anything()).and_return(Result::Success.new("success"))
-
-      allow(FeatureFlagHelper).to receive(:feature_enabled?)
-        .with(:feature_flags_page).and_return(true)
     end
 
     it "should enable given features for a user" do
