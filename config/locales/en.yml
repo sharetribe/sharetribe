@@ -858,7 +858,6 @@ en:
       title_link_text: "%{community_name}"
       intro_paragraph: "Here are some of the things that happened on %{community_link} during the past %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: "Post a new listing!"
       reduce_email_footer_text: "Too much email? %{settings_link} or %{unsubscribe_link}."
       settings_link_text: "Edit your email settings here"
       unsubscribe_link_text: unsubscribe
@@ -1514,7 +1513,6 @@ en:
       how_paypal_works: "How PayPal Works"
       payment_help: "Payment help"
     new:
-      post_a_new_listing: "Post a new listing"
       listing: listing
       selected_category: "Category: %{category}"
       selected_subcategory: "Subcategory: %{subcategory}"

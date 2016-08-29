@@ -31,7 +31,7 @@
 
                             %tr
 
-                              = render :partial => "person_mailer/action_button", :locals => { :text => t("emails.community_updates.post_a_new_listing"), :url => new_request_without_locale_url(@url_params.merge({:type => "offer"})), :align => "center"}
+                              = render :partial => "person_mailer/action_button", :locals => { :text => t("homepage.index.post_new_listing"), :url => new_request_without_locale_url(@url_params.merge({:type => "offer"})), :align => "center"}
                       %td{:width => "5%"}
             %tr
               %td{:style => "text-align: left;width:100%;max-width:602px;padding: 5px 30px;"}
