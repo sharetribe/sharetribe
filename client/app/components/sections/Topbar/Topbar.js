@@ -163,6 +163,7 @@ class Topbar extends Component {
         name: t('web.topbar.more'),
         nameFallback: t('web.topbar.menu'),
         identifier: 'Menu',
+        color: marketplaceColor1,
         limitPriorityLinks: this.props.menu.limit_priority_links,
         menuLabelType: LABEL_TYPE_DROPDOWN,
         menuLabelTypeFallback: LABEL_TYPE_MENU,
