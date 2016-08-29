@@ -56,11 +56,11 @@ module FeatureTests
         listing.click_request
 
         expect(page).to have_content("Request #{listing_title}")
-        listing_book.fill_in_message("Trölölö #{listing_title}")
+        listing_book.fill_in_message("Snowman ☃ sells: #{listing_title}")
         listing_book.proceed_to_payment
 
         expect(page).to have_content("Payment authorized")
-        expect(page).to have_content("Trölölö #{listing_title}")
+        expect(page).to have_content("Snowman ☃ sells: #{listing_title}")
       end
 
       def accept_listing_request

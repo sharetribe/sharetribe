@@ -21,12 +21,12 @@ Then("I expect transaction with PayPal test to pass") do
   paypal_actions.connect_seller_paypal
 
   # Add new listing
-  listing_actions.add_new_listing("Lörem ipsum")
+  listing_actions.add_new_listing("Snowman for sale: ☃")
   onboarding_wizard.dismiss_dialog
 
   # Member buys the listing
   login.logout_and_login_as(member[:username], member[:password])
-  paypal_actions.request_listing("Lörem ipsum")
+  paypal_actions.request_listing("Snowman for sale: ☃")
 
   # Adming accepts request
   login.logout_and_login_as(admin[:username], admin[:password])
