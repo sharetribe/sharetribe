@@ -46,6 +46,10 @@ module FeatureTests
         header.find("#inbox-link").click
       end
 
+      def click_logo
+        header.find(".header-logo").click
+      end
+
       def header
         find(".header")
       end

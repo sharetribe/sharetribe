@@ -48,7 +48,9 @@ module FeatureTests
         home = FeatureTests::Page::Home
         listing = FeatureTests::Page::Listing
         listing_book = FeatureTests::Page::ListingBook
+        topbar = FeatureTests::Section::Topbar
 
+        topbar.click_logo
         home.click_listing(listing_title)
         listing.fill_in_booking_dates
         listing.click_request
