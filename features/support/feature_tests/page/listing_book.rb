@@ -6,7 +6,7 @@ module FeatureTests
       module_function
 
       def fill_in_message(message)
-        page_content.fill_in("listing_conversation[content]", with: message)
+        page_content.fill_in("message", with: message)
       end
 
       def proceed_to_payment

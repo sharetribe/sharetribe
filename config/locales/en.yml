@@ -1593,6 +1593,7 @@ en:
       you_will_be_charged: "You will be charged only if %{author} accepts the transaction. %{author} needs to accept the transaction within %{expiration_period} days. If %{author} declines or does not respond, no charge is made."
       day: day
       days: days
+      invalid_parameters: "Invalid values for new transaction"
     transaction_agreement_checkbox:
       read_more: View.
   mapview:
