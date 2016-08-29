@@ -843,7 +843,6 @@ tr-TR:
       title_link_text: "%{community_name}"
       intro_paragraph: "Son %{time_since_last_update} içinde %{community_link}'deki etkinliklerden bazıları."
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: "Yeni İlan Ekle"
       reduce_email_footer_text: "Çok fazla e-posta mı alıyorsunuz? %{settings_link} ya da %{unsubscribe_link}."
       settings_link_text: "E-posta ayarlarınızı buradan düzenleyin"
       unsubscribe_link_text: "Aboneliği sonlandır"
@@ -1495,7 +1494,6 @@ tr-TR:
       how_paypal_works: "PayPal Nasıl Çalışır"
       payment_help: ~
     new:
-      post_a_new_listing: "Yeni İlan Ekle"
       listing: ilan
       selected_category: "Kategori: %{category}"
       selected_subcategory: "Alt kategori: %{subcategory}"

@@ -841,7 +841,6 @@ ja:
       title_link_text: "%{community_name}"
       intro_paragraph: "こちらは%{time_since_last_update}間に、%{community_link}で更新された情報です。"
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: 投稿する！
       reduce_email_footer_text: "メールが多すぎますか。%{settings_link} or %{unsubscribe_link}"
       settings_link_text: ここからメール設定を編集
       unsubscribe_link_text: 購読を解除する
@@ -1493,7 +1492,6 @@ ja:
       how_paypal_works: PayPalの仕組み
       payment_help: ~
     new:
-      post_a_new_listing: 投稿する
       listing: リスト
       selected_category: "カテゴリー： %{category}"
       selected_subcategory: "サブカテゴリー： %{subcategory}"

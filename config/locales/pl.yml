@@ -827,7 +827,6 @@ pl:
       title_link_text: "%{community_name}"
       intro_paragraph: "Kilka rzeczy, które zadziały się w %{community_link} podczas ostatnich %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: "Wystaw swoją ofertę!"
       reduce_email_footer_text: "Otrzymujesz za dużo wiadomości email? %{settings_link} lub %{unsubscribe_link}"
       settings_link_text: "Zmień swoje preferencje dot. emaili tutaj"
       unsubscribe_link_text: "wypisz się"
@@ -1479,7 +1478,6 @@ pl:
       how_paypal_works: ~
       payment_help: ~
     new:
-      post_a_new_listing: "Wystaw swoją ofertę"
       listing: oferta
       selected_category: "Kategoria: %{category}"
       selected_subcategory: "Podkategoria: %{subcategory}"

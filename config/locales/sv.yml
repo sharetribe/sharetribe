@@ -858,7 +858,6 @@ sv:
       title_link_text: "%{community_name}"
       intro_paragraph: "Här är några saker som har hänt på %{community_link} under de senaste %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: "Skapa annons!"
       reduce_email_footer_text: "För många e-postmeddelanden? %{settings_link} eller %{unsubscribe_link}"
       settings_link_text: "Ändra dina e-postinställningar här"
       unsubscribe_link_text: avprenumerera
@@ -1512,7 +1511,6 @@ sv:
       how_paypal_works: "Hur PayPal fungerar"
       payment_help: Betalningshjälp
     new:
-      post_a_new_listing: "Skapa annons"
       listing: annons
       selected_category: "Kategori: %{category}"
       selected_subcategory: "Underkategori: %{subcategory}"

@@ -867,7 +867,6 @@ cs:
       title_link_text: "%{community_name}"
       intro_paragraph: "Zde jsou některé věci, které se staly na %{community_link} od %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: "Přidat nový inzerát!"
       reduce_email_footer_text: "Příliš mnoho e-mailů? %{settings_link} nebo %{unsubscribe_link}"
       settings_link_text: "Upravte nastavení Vašeho e-mailu zde"
       unsubscribe_link_text: "se odhlašte"
@@ -1519,7 +1518,6 @@ cs:
       how_paypal_works: "Jak PayPal funguje"
       payment_help: "Nápověda k platbě"
     new:
-      post_a_new_listing: "Přidat nový inzerát"
       listing: inzerát
       selected_category: "Kategorie: %{category}"
       selected_subcategory: "Podkategorie: %{subcategory}"
