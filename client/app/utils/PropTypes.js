@@ -20,7 +20,6 @@ const marketplaceContext = shape({
 
   // Optional props
   marketplace_color1: string,
-  marketplace_color2: string,
   loggedInUsername: string,
   host: string,
   href: string,

@@ -22,7 +22,18 @@ import MenuMobile from '../../composites/MenuMobile/MenuMobile';
 import MenuPriority from '../../composites/MenuPriority/MenuPriority';
 import SearchBar from '../../composites/SearchBar/SearchBar';
 
-const profileDropdownActions = function profileDropdownActions(routes, username) {
+
+const LABEL_TYPE_MENU = 'menu';
+const LABEL_TYPE_DROPDOWN = 'dropdown';
+const SEARCH_PARAMS_TO_KEEP = ['view', 'locale'];
+const SEARCH_PARAMS = ['q', 'lq'];
+const DEFAULT_CONTEXT = {
+  marketplace_color1: styleVariables['--customColorFallback'],
+  loggedInUsername: null,
+};
+
+
+const profileActions = function profileActions(routes, username) {
   return username ?
   {
     inboxAction: routes.person_inbox_path(username),
@@ -30,6 +41,7 @@ const profileDropdownActions = function profileDropdownActions(routes, username)
     settingsAction: routes.person_settings_path(username),
     adminDashboardAction: routes.admin_path(),
     logoutAction: routes.logout_path(),
+    manageListingsAction: `${routes.person_path(username)}?show_closed=1`,
   } : null;
 };
 
@@ -41,7 +53,7 @@ const avatarDropdownProps = (avatarDropdown, customColor, username, isAdmin, not
     settingsAction: () => false,
     adminDashboardAction: () => false,
     logoutAction: () => false,
-    ...profileDropdownActions(routes, username),
+    ...profileActions(routes, username),
   };
   const translations = {
     inbox: t('web.topbar.inbox'),
@@ -53,86 +65,49 @@ const avatarDropdownProps = (avatarDropdown, customColor, username, isAdmin, not
   return { actions, translations, customColor: color, isAdmin, notificationCount, ...avatarDropdown };
 };
 
-const LABEL_TYPE_MENU = 'menu';
-const LABEL_TYPE_DROPDOWN = 'dropdown';
-
-const profileLinks = function profileLinks(username, isAdmin, router, location, customColor, unReadMessagesCount) {
+const mobileProfileLinks = function mobileProfileLinks(username, isAdmin, router, location, customColor, unReadMessagesCount) {
   if (username) {
     const notificationBadgeInArray = unReadMessagesCount > 0 ?
       [r(NotificationBadge, { className: css.notificationBadge, countClassName: css.notificationBadgeCount }, unReadMessagesCount)] :
       [];
 
+    const profilePaths = profileActions(router, username);
+    const formatLinkData = function getLink(link, currentLocation, color, content) {
+      return {
+        active: link === currentLocation,
+        activeColor: color,
+        content,
+        href: link,
+        type: 'menuitem',
+      };
+    };
+
     const links = [
-      {
-        active: router.person_inbox_path(username) === location,
-        activeColor: customColor,
-        content: [
-          t('web.topbar.inbox'),
-        ].concat(notificationBadgeInArray),
-        href: router.person_inbox_path(username),
-        type: 'menuitem',
-      },
-      {
-        active: router.person_path(username) === location,
-        activeColor: customColor,
-        content: t('web.topbar.profile'),
-        href: router.person_path(username),
-        type: 'menuitem',
-      },
-      {
-        active: `${router.person_path(username)}?show_closed=1` === location,
-        activeColor: customColor,
-        content: t('web.topbar.manage_listings'),
-        href: `${router.person_path(username)}?show_closed=1`,
-        type: 'menuitem',
-      },
-      {
-        active: router.person_settings_path(username) === location,
-        activeColor: customColor,
-        content: t('web.topbar.settings'),
-        href: router.person_settings_path(username),
-        type: 'menuitem',
-      },
-      {
-        active: router.logout_path() === location,
-        activeColor: customColor,
-        content: t('web.topbar.logout'),
-        href: router.logout_path(),
-        type: 'menuitem',
-      },
+      formatLinkData(profilePaths.inboxAction, location, customColor, [t('web.topbar.inbox')].concat(notificationBadgeInArray)),
+      formatLinkData(profilePaths.profileAction, location, customColor, t('web.topbar.profile'), 'menuitem'),
+      formatLinkData(profilePaths.manageListingsAction, location, customColor, t('web.topbar.manage_listings')),
+      formatLinkData(profilePaths.settingsAction, location, customColor, t('web.topbar.settings')),
+      formatLinkData(profilePaths.logoutAction, location, customColor, t('web.topbar.logout')),
     ];
+
     if (isAdmin) {
       links.unshift(
-        {
-          active: router.admin_path() === location,
-          activeColor: customColor,
-          content: t('web.topbar.admin_dashboard'),
-          href: router.admin_path(),
-          type: 'menuitem',
-        });
+        formatLinkData(profilePaths.adminDashboardAction, location, customColor, t('web.topbar.admin_dashboard'))
+      );
     }
+
     return links;
   }
   return [];
 };
 
-const DEFAULT_CONTEXT = {
-  marketplace_color1: styleVariables['--customColorFallback'],
-  marketplace_color2: styleVariables['--customColor2Fallback'],
-  loggedInUsername: null,
-};
 
-const SEARCH_PARAMS_TO_KEEP = ['view', 'locale'];
 const parseKeepParams = urlUtils.currySearchParams(SEARCH_PARAMS_TO_KEEP);
-const SEARCH_PARAMS = ['q', 'lq'];
 const parseSearchParams = urlUtils.currySearchParams(SEARCH_PARAMS);
-
 const isValidSearchParam = (value) => typeof value === 'number' && !isNaN(value) || !!value;
-
 const createQuery = (searchParams, queryString) => {
   const extraParams = parseKeepParams(queryString);
   const params = { ...extraParams, ...searchParams };
-
   const paramKeys = Object.keys(params);
 
   // Sort params for caching
@@ -156,33 +131,30 @@ class Topbar extends Component {
   render() {
     const { location, marketplace_color1: marketplaceColor1 } = { ...DEFAULT_CONTEXT, ...this.props.marketplace };
     const { loggedInUsername } = this.props.user || {};
+    const isAdmin = !!(this.props.user && this.props.user.isAdmin && loggedInUsername);
 
-    const menuProps = this.props.menu ?
-      Object.assign({}, this.props.menu, {
-        key: 'menu',
-        name: t('web.topbar.more'),
-        nameFallback: t('web.topbar.menu'),
-        identifier: 'Menu',
-        color: marketplaceColor1,
-        limitPriorityLinks: this.props.menu.limit_priority_links,
-        menuLabelType: LABEL_TYPE_DROPDOWN,
-        menuLabelTypeFallback: LABEL_TYPE_MENU,
-        content: this.props.menu.links.map((l) => (
-          {
-            active: l.link === location,
-            activeColor: marketplaceColor1,
-            content: l.title,
-            href: l.link,
-            type: 'menuitem',
-            priority: l.priority,
-            external: l.external,
-          }
-        )),
-      }) :
-      {};
+    // new listing, login and sign up routes
+    const newListingRoute = this.props.routes && this.props.routes.new_listing_path ?
+            this.props.routes.new_listing_path() :
+            '#';
+    const pathParams = { return_to: location };
+    const loginRoute = this.props.routes.login_path ? this.props.routes.login_path(pathParams) : '#';
+    const signupRoute = this.props.routes.sign_up_path ? this.props.routes.sign_up_path() : '#';
 
-    const available_locales = this.props.locales ? this.props.locales.available_locales : null;
-    const hasMultipleLanguages = available_locales && available_locales.length > 1;
+    // language menu props
+    const availableLocales = this.props.locales ? this.props.locales.available_locales : null;
+    const hasMultipleLanguages = availableLocales && availableLocales.length > 1;
+    const languageLinks = hasMultipleLanguages ?
+      availableLocales.map((locale) => (
+        {
+          active: locale.locale_ident === this.props.locales.current_locale_ident,
+          activeColor: marketplaceColor1,
+          content: locale.locale_name,
+          href: locale.change_locale_uri,
+          type: 'menuitem',
+        }
+      )) :
+      [];
     const languageMenuProps = hasMultipleLanguages ?
       Object.assign({}, {
         key: 'languageMenu',
@@ -190,50 +162,54 @@ class Topbar extends Component {
         identifier: 'LanguageMenu',
         menuLabelType: LABEL_TYPE_DROPDOWN,
         extraClassesLabel: `${css.topbarLanguageMenuLabel}`,
-        content: this.props.locales.available_locales.map((v) => (
-          {
-            active: v.locale_ident === this.props.locales.current_locale_ident,
-            activeColor: marketplaceColor1,
-            content: v.locale_name,
-            href: v.change_locale_uri,
-            type: 'menuitem',
-          }
-        )),
+        content: languageLinks,
       }) :
       {};
-
-    const newListingRoute = this.props.routes && this.props.routes.new_listing_path ?
-            this.props.routes.new_listing_path() :
-            '#';
-    const profileRoute = this.props.routes && this.props.routes.person_path && loggedInUsername ?
-            this.props.routes.person_path(loggedInUsername) :
-            null;
-    const mobileMenuAvatarProps = this.props.avatarDropdown && loggedInUsername ?
-            { ...this.props.avatarDropdown.avatar, ...{ url: profileRoute } } :
-            null;
-    const isAdmin = !!(this.props.user && this.props.user.isAdmin && loggedInUsername);
-
     const mobileMenuLanguageProps = hasMultipleLanguages ?
       Object.assign({}, {
         name: t('web.topbar.language'),
         color: marketplaceColor1,
-        links: this.props.locales.available_locales.map((locale) => (
-          {
-            href: locale.change_locale_uri,
-            content: locale.locale_name,
-            active: locale.locale_ident === this.props.locales.current_locale_ident,
-            activeColor: marketplaceColor1,
-          }
-        )),
+        links: languageLinks,
       }) :
       null;
 
+    // menu props
+    const hasMenuProps = !!this.props.menu;
+    const menuLinksData = hasMenuProps ?
+      this.props.menu.links.map((l) => (
+        {
+          active: l.link === location,
+          activeColor: marketplaceColor1,
+          content: l.title,
+          href: l.link,
+          type: 'menuitem',
+          priority: l.priority,
+          external: l.external,
+        }
+      )) :
+      [];
+    const menuProps = hasMenuProps ?
+      Object.assign({}, this.props.menu, {
+        key: 'menu',
+        name: t('web.topbar.more'),
+        nameFallback: t('web.topbar.menu'),
+        color: marketplaceColor1,
+        identifier: 'Menu',
+        limitPriorityLinks: this.props.menu.limit_priority_links,
+        menuLabelType: LABEL_TYPE_DROPDOWN,
+        menuLabelTypeFallback: LABEL_TYPE_MENU,
+        content: menuLinksData,
+      }) :
+      {};
 
-    const pathParams = { return_to: location };
-    const loginRoute = this.props.routes.login_path ? this.props.routes.login_path(pathParams) : '#';
-    const signupRoute = this.props.routes.sign_up_path ? this.props.routes.sign_up_path() : '#';
-
-    const mobileMenuProps = this.props.menu ?
+    // mobile menu props
+    const profileRoute = this.props.routes && this.props.routes.person_path && loggedInUsername ?
+      this.props.routes.person_path(loggedInUsername) :
+      null;
+    const mobileMenuAvatarProps = this.props.avatarDropdown && loggedInUsername ?
+      { ...this.props.avatarDropdown.avatar, url: profileRoute } :
+      null;
+    const mobileMenuProps = hasMenuProps ?
       Object.assign({}, this.props.menu, {
         key: 'mobilemenu',
         name: t('web.topbar.menu'),
@@ -242,22 +218,13 @@ class Topbar extends Component {
         color: marketplaceColor1,
         extraClasses: `${css.topbarMobileMenu}`,
         menuLinksTitle: t('web.topbar.menu'),
-        menuLinks: this.props.menu.links.map((l) => (
-          {
-            active: l.link === location,
-            activeColor: marketplaceColor1,
-            content: l.title,
-            href: l.link,
-            type: 'menuitem',
-            external: l.external,
-          }
-        )),
+        menuLinks: menuLinksData,
         userLinksTitle: t('web.topbar.user'),
-        userLinks: profileLinks(loggedInUsername, isAdmin, this.props.routes, location, marketplaceColor1, this.props.unReadMessagesCount),
+        userLinks: mobileProfileLinks(loggedInUsername, isAdmin, this.props.routes, location, marketplaceColor1, this.props.unReadMessagesCount),
         languages: mobileMenuLanguageProps,
         avatar: mobileMenuAvatarProps,
         newListingButton: this.props.newListingButton ?
-          { ...this.props.newListingButton, ...{ url: newListingRoute, mobileLayoutOnly: true } } :
+          { ...this.props.newListingButton, url: newListingRoute, mobileLayoutOnly: true } :
           null,
         loginLinks: {
           loginUrl: loginRoute,
@@ -272,7 +239,7 @@ class Topbar extends Component {
     const searchPlaceholder = this.props.search ? this.props.search.search_placeholder : null;
 
     return div({ className: classNames('Topbar', css.topbar) }, [
-      this.props.menu ? r(MenuMobile, { ...mobileMenuProps, className: css.topbarMobileMenu }) : null,
+      hasMenuProps ? r(MenuMobile, { ...mobileMenuProps, className: css.topbarMobileMenu }) : null,
       r(Logo, { ...this.props.logo, classSet: css.topbarLogo, color: marketplaceColor1 }),
       div({ className: css.topbarMediumSpacer }),
       this.props.search ?
@@ -297,7 +264,7 @@ class Topbar extends Component {
           },
         }) :
         div({ className: css.topbarMobileSearchPlaceholder }),
-      div({ className: css.topbarMenuSpacer }, this.props.menu ?
+      div({ className: css.topbarMenuSpacer }, hasMenuProps ?
         r(MenuPriority, menuProps) :
         null),
       hasMultipleLanguages ? r(Menu, {

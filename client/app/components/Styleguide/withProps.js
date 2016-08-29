@@ -10,7 +10,6 @@ const defaultRailsContext = {
   marketplaceId: 1,
 
   marketplace_color1: '#64A',
-  marketplace_color2: '#00a26c',
 
   loggedInUsername: 'foo',
 };
