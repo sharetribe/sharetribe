@@ -17,7 +17,6 @@ Then("I expect transaction with PayPal test to pass") do
   # Connect Paypal for marketplace and seller
   login.login_as(admin[:username], admin[:password])
   paypal_actions.connect_marketplace_paypal
-  onboarding_wizard.dismiss_dialog
   paypal_actions.connect_seller_paypal
 
   # Add new listing

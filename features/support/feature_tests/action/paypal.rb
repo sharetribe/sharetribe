@@ -11,6 +11,7 @@ module FeatureTests
         topbar = FeatureTests::Section::Topbar
         paypal_preferences = FeatureTests::Page::AdminPaypalPreferences
         admin_sidebar = FeatureTests::Section::AdminSidebar
+        onboarding_wizard = FeatureTests::Section::OnboardingWizard
 
         # Connect Paypal for admin
         topbar.navigate_to_admin
@@ -22,7 +23,8 @@ module FeatureTests
         # Save payment preferences
         paypal_preferences.set_payment_preferences(min_price: "2.0", commission: "5", min_commission: "1.0")
         paypal_preferences.save_settings
-        expect(page).to have_content("Payment preferences updated")
+        onboarding_wizard.dismiss_dialog
+        expect(page).to have_content("Payment system preferences updated")
       end
 
       def connect_seller_paypal
