@@ -1,6 +1,6 @@
 module FeatureTests
-  module Section
-    module UserPaypalPreferences
+  module Page
+    module UserSettingsPayments
       extend Capybara::DSL
 
       module_function

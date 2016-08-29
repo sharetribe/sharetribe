@@ -28,7 +28,7 @@ module FeatureTests
       def connect_seller_paypal
         topbar = FeatureTests::Section::Topbar
         settings_sidebar = FeatureTests::Section::UserSettingsSidebar
-        paypal_preferences = FeatureTests::Section::UserPaypalPreferences
+        paypal_preferences = FeatureTests::Page::UserSettingsPayments
 
         # Connect Paypal for seller
         topbar.open_user_menu
