@@ -309,7 +309,7 @@ fr:
           pending_ext: "En attente du paiement PayPal"
         not_available: "Non disponible"
       paypal_account:
-        paypal_admin_account: Paiements
+        paypal_admin_account: "Système de paiements"
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
@@ -466,15 +466,15 @@ fr:
           quantity_label: "Quantité (par élément, par kg, par personne, par visite de 2 heures...)"
           time_label: "Temps (par 30 minutes, par 2 semaines, par année...)"
     paypal_accounts:
-      marketplace_paypal_integration: "Paramètres de paiement"
-      preferences_updated: "Préférences de paiement mises à jour"
+      marketplace_paypal_integration: "Paramètres du système de paiements"
+      preferences_updated: "Préférences du système de paiements mises à jour"
       marketplace_currency_used: "Cette place de marché utilise %{currency} comme devise. Pour changer la devise, %{contact_support_link}."
       contact_support_link_text: "contactez le support Sharetribe"
-      integration_info_text: "Le système de paiement de Sharetribe est propulsé par PayPal. Pour permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal. Une fois connecté, vous pourrez choisir un montant minimal pour les transactions et éventuellement vos frais de service."
+      integration_info_text: "Le système de paiement de votre place de marché est propulsé par PayPal. Pour permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal. Une fois connecté, vous pourrez choisir un montant minimal pour les transactions et éventuellement vos frais de service."
       link_paypal_personal_account_label: "Proposez-vous vous aussi vos produits ou services ?"
       link_paypal_personal_account: "Dans ce cas, vous devez également connecter votre compte PayPal depuis %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "votre compte personnel"
-      read_more_about_paypal: "En savoir plus sur le système de paiement avec Sharetribe."
+      read_more_about_paypal: "En savoir plus sur le système de paiement."
       set_minimum_price_and_fee: "Définir un montant minimum et les frais de service"
       minimum_listing_price_label: "Montant minimal de transaction : "
       transaction_fee_label: "Frais de service : "
