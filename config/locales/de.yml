@@ -87,14 +87,14 @@ de:
         transaction_agreement_description: "Dies ist der Inhalt der allgemeinen Geschäftsbedingungen (AGBs), die der Anwender akzeptieren muss. Der Inhalt der AGBs wird angezeigt, wenn der Benutzer den \"%{read_more}\" -Link neben dem Label der Allgemeinen Geschäftsbedingungen klickt."
       edit_look_and_feel:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" des Marktplatzes %{community_name}"
-        community_logo: Desktop-Logo
+        community_logo: Logo
         community_logo_icon: "Logo für soziale Netzwerke und Mobilgeräte"
         community_cover_photo: Titelbild
         small_community_cover_photo: "Kleines Titelbild"
         favicon: Favicon
         favicon_info_text: "Das Favicon ersetzt das Standard Sharetribe Logo. Es sollte 32x32 Pixel groß sein. Hochgeladene Bilder werden auf diese Größe geändert."
         community_custom_color1: Hauptfarbe
-        new_listing_button_custom_color: ~
+        new_listing_button_custom_color: "Farbe der \"Neuen Eintrag erstellen\" Taste"
         logo_instructions_text_with_dimensions: "Die Größe des Desktop-Logos sollte %{width}x%{height}px betragen. Es wird Benutzern mit größeren Bildschirmen angezeigt."
         logo_icon_instructions_text_with_dimensions: "Dieses quadratisches Logo wird angezeigt, wenn Leute deinen Marktplatz auf soziale Netzwerke teilen, wenn sie deinen Marktplatz auf einem Mobilgerät ansehen oder wenn sie ein Lesezeichen für deinen Marktplatz zum Hauptbildschirm ihres Mobilgeräten anheften. Die Größe dieses Icon-Logos sollte (mindestens) %{width}x%{height}px betragen."
         cover_photo_visibility: "Das Titelbild wird den nicht angemeldeten Benutzern auf der Startseite angezeigt."
@@ -190,12 +190,12 @@ de:
         search_preferences: Einstellungen
         default_search_type: "Suchtyp: %{select_search_type}"
         keyword_search: Schlagwortsuche
-        keyword_and_location_search: ~
+        keyword_and_location_search: "Schlagwort- und Umgebungssuche"
         location_search: Umgebungssuche
         select_distance_unit: "Zeige die Entfernung im %{distance_units_selector}"
         km: km
         miles: Meilen
-        show_only_nearby: ~
+        show_only_nearby: "Mit Umgebungssuche nur Einträge in der Nähe zeigen"
         listing_preferences: Eintragseinstellungen
         transaction_preferences: Auftragspräferenzen
         show_listing_publishing_date: "Datum der Veröffentlichung des Eintrags auf der Artikelseite darstellen"
@@ -236,12 +236,12 @@ de:
         ban_user_confirmation: "Dies entfernt den Benutzer von der Community und wird einen erneuten Zugriff mit diesem Account auf die Seite verhindern. Bist du sicher, dass du fortfahren möchtest?"
         ban_me_error: "Du kannst dich nicht selber sperren."
       new_layout:
-        new_layout: ~
+        new_layout: "Neues Layout"
         description_roadmap: ~
         description_process: ~
-        enabled_for_you: ~
-        enabled_for_all: ~
-        new_topbar: ~
+        enabled_for_you: "Für dich aktiviert"
+        enabled_for_all: "Für alle aktiviert"
+        new_topbar: "Neuer Top Bar (auf jeder Seite angezeigt)"
       social_media:
         social_media: "Social media"
         twitter_handle: Twittername
@@ -276,14 +276,14 @@ de:
         language: Sprache
         url: URL
         empty: "Du hast keine zusätzlichen Menü-Links"
-        max_number_of_links: ~
+        max_number_of_links: "Maximale Anzahl von Links die auf dem Top-Bar angezeigt werden: %{select_max_number}"
         all: Alle
-        max_number_of_links_info: ~
+        max_number_of_links_info: "Der Link zu %{about_page} wird immer als der erste Menu-Link angezeigt."
         about_page: "Über uns Seite"
       topbar:
-        topbar: ~
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        topbar: "Top bar"
+        new_listing_button_label: "Text auf der \"Neuen Eintrag erstellen\" Taste"
+        invalid_post_listing_button_label: "Bitte einen gültigen Text für die \"Neuen Eintrag erstellen\" Taste eingeben."
       transactions:
         export_all_as_csv: "Exportiere Alles als CSV Datei"
         transactions: "Transaktionen anzeigen"
@@ -911,10 +911,10 @@ de:
       you_are_receiving_this_because: "Du hast diese Benachrichtigung erhalten, weil du %{author_name} folgst."
       view_listing: "Eintrag ansehen"
     new_member_notification:
-      new_member_has_joined: ~
-      this_is_automatic_message: ~
-      person_name: ~
-      person_email: ~
+      new_member_has_joined: "Ein neuer Mitglied ist %{community} beigetreten. Es kann sein, dass sie noch ihre E-Mail-Adresse bestätigen müssen."
+      this_is_automatic_message: "Diese Nachricht wurde automatisch an alle Administratoren von %{community} geschickt."
+      person_name: "Name:"
+      person_email: "E-mail:"
   error_messages:
     onboarding:
       server_rendering: "Die Kurzanleitung konnte nicht geladen werden. Wir wurden über dieses Problem informiert und werden es schnellstmöglich lösen."
@@ -960,8 +960,8 @@ de:
       javascript_is_disabled_in_your_browser: "JavaScript ist in deinem Browser deaktiviert."
       kassi_does_not_currently_work_without_javascript: "Leider funktioniert %{service_name} derzeit nicht ohne javascript. Versuche javascript in deinen Browser-Einstellungen zu aktivieren und lade diese Seite dann noch einmal."
       contact_us: Kontakt
-      send_feedback: ~
-      your_feedback_to_admins: ~
+      send_feedback: "Nachricht senden"
+      your_feedback_to_admins: "Deine Nachricht an das Team von %{service_name}"
     send: Senden
     your_email_address: "Deine E-Mail-Adresse"
   errors:
@@ -1136,8 +1136,8 @@ de:
     hero:
       search: Suchen
       signup: Registrieren
-      search_placeholder: ~
-      search_location_placeholder: ~
+      search_placeholder: "Was suchst du?"
+      search_location_placeholder: Ort
     listings:
       no_listing_image: "Kein Bild"
   layouts:
@@ -1150,17 +1150,17 @@ de:
     no_tribe:
       inbox: Posteingang
       settings: Einstellungen
-      feedback: ~
+      feedback: "Das Team von %{service_name} kontaktieren"
     application:
       join_this_community: "Marktplatz beitreten"
       read_more: "Mehr lesen"
-      feedback: ~
+      feedback: "Deine Nachricht an das Team von %{service_name}"
       dont_use_to_contact_support: ~
       feedback_forum: Feedback-Forum
       feedback_handle: Feedback
       give_feedback: "Kontaktiere uns"
       or_check_our: "...oder überprüfe unser"
-      send_feedback_to_admin: ~
+      send_feedback_to_admin: "Nachricht senden"
       to_see_what_others_have_suggested: "um zu sehen, was andere Benutzer vorgeschlagen haben und um die für die Ideen zu stimmen."
       your_email_address: "Deine E-Mail-Adresse (um dich zu kontaktieren)"
       connect: "Jetzt registrieren"
@@ -1230,7 +1230,7 @@ de:
       error_with_session: "Fehler dieser Sitzung."
       feedback_considered_spam: "Die Bewertung wurde aufgrund der Formatierung nicht gespeichert. Versuche es erneut oder verwende das Feedback-Forum."
       feedback_not_saved: "Die Bewertung konnte nicht gesendet werden."
-      feedback_saved: ~
+      feedback_saved: "Vielen Dank für deine Nachricht! Wir werden dir schnellstmöglich antworten."
       feedback_sent_to: "Feedback an %{target_person} gesendet."
       feedback_skipped: "Bewertung übersprungen"
       invitation_cannot_be_sent: "Einladung konnte nicht gesendet werden"
@@ -1321,7 +1321,7 @@ de:
       user_does_not_have_email_to_delete: "Die E-Mail-Adresse, die du zu entfernen versuchst, gehört nicht zu dir"
       email_deleted: "E-Mail entfernt"
       listing_author_payment_details_missing: "Leider kann dieser Anbieter keine Zahlungen empfangen, da er seine Zahlungsdaten noch angeben muss. Bitte kontaktiere ihn über das Kontakt Feld unten."
-      images_are_processing: ~
+      images_are_processing: "Wir bearbeiten deine Bilder. Nach ein paar Minuten werden die angezeigt."
       maintenance_mode:
         zero: "Die Webseite geht nun offline für Wartungsarbeiten."
         one: "Die Webseite geht offline für Wartungsarbeiten in %{count} Minute."
@@ -2047,7 +2047,7 @@ de:
       menu: Menü
       more: Mehr
       search_placeholder: "Suche ..."
-      search_location_placeholder: ~
+      search_location_placeholder: Ort
       user: Nutzer
       inbox: Eingang
       profile: Profil
@@ -2057,7 +2057,7 @@ de:
       login: Anmelden
       signup: Registrieren
       admin_dashboard: "Administrator Dashboard"
-      language: ~
+      language: Sprache
   will_paginate:
     models:
       person:
