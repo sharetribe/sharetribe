@@ -61,10 +61,16 @@
     = label_tag("units_title", t("admin.listing_shapes.units_title"), class: "input")
     = render partial: "layouts/info_text", locals: {text: t("admin.listing_shapes.units_desc")}
 - shape[:predefined_units].map do |unit|
-  .row
-    .col-12
-      = check_box_tag("units[#{unit[:type]}]", "true", unit[:enabled], class: "js-unit-checkbox checkbox-row-checkbox")
-      = label_tag("units[#{unit[:type]}]", unit[:label], class: "checkbox-row-label js-unit-label")
+
+  -# Temporarily remove night unit from UI
+  - if unit[:type] == :night
+    - if unit[:enabled]
+      = hidden_field_tag("units[#{unit[:type]}]", "true")
+  - else
+    .row
+      .col-12
+        = check_box_tag("units[#{unit[:type]}]", "true", unit[:enabled], class: "js-unit-checkbox checkbox-row-checkbox")
+        = label_tag("units[#{unit[:type]}]", unit[:label], class: "checkbox-row-label js-unit-label")
 
 - shape[:custom_units].each_with_index do |unit, index|
   .row{class: "js-custom-unit-#{index}"}
