@@ -9,4 +9,8 @@ module DateUtils
   def duration_days(start_date, end_date)
     (end_date - start_date).to_i + 1
   end
+
+  def duration_nights(start_date, end_date)
+    (end_date - start_date).to_i
+  end
 end

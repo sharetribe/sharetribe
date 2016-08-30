@@ -123,7 +123,7 @@ class ShapeService
   end
 
   def add_quantity_selector(unit)
-    unit.merge(quantity_selector: unit[:type] == :day ? :day : :number)
+    unit.merge(quantity_selector: [:day, :night].include?(unit[:type]) ? unit[:type] : :number)
   end
 
   def select_process(online_payments, author_is_seller, processes)

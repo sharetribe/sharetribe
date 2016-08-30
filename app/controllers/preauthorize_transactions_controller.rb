@@ -91,22 +91,22 @@ class PreauthorizeTransactionsController < ApplicationController
     module_function
 
     def validate_initiate_params(tx_params:,
-                                 is_booking:,
+                                 quantity_selector:,
                                  shipping_enabled:,
                                  pickup_enabled:)
 
       validate_delivery_method(tx_params: tx_params, shipping_enabled: shipping_enabled, pickup_enabled: pickup_enabled)
-        .and_then { validate_booking(tx_params: tx_params, is_booking: is_booking) }
+        .and_then { validate_booking(tx_params: tx_params, quantity_selector: quantity_selector) }
     end
 
     def validate_initiated_params(tx_params:,
-                                  is_booking:,
+                                  quantity_selector:,
                                   shipping_enabled:,
                                   pickup_enabled:,
                                   transaction_agreement_in_use:)
 
       validate_delivery_method(tx_params: tx_params, shipping_enabled: shipping_enabled, pickup_enabled: pickup_enabled)
-        .and_then { validate_booking(tx_params: tx_params, is_booking: is_booking) }
+        .and_then { validate_booking(tx_params: tx_params, quantity_selector: quantity_selector) }
         .and_then {
           validate_transaction_agreement(tx_params: tx_params,
                                          transaction_agreement_in_use: transaction_agreement_in_use)
@@ -128,14 +128,16 @@ class PreauthorizeTransactionsController < ApplicationController
       end
     end
 
-    def validate_booking(tx_params:, is_booking:)
-      if is_booking
+    def validate_booking(tx_params:, quantity_selector:)
+      if [:day, :night].include?(quantity_selector)
         start_on, end_on = tx_params.values_at(:start_on, :end_on)
 
         if start_on.nil? || end_on.nil?
           Result::Error.new(nil, code: :dates_missing, tx_params: tx_params)
         elsif start_on > end_on
           Result::Error.new(nil, code: :end_cant_be_before_start, tx_params: tx_params)
+        elsif quantity_selector == :night && start_on == end_on
+          Result::Error.new(nil, code: :at_least_one_night_required, tx_params: tx_params)
         else
           Result::Success.new(tx_params)
         end
@@ -167,7 +169,7 @@ class PreauthorizeTransactionsController < ApplicationController
         pickup_enabled: listing.pickup_enabled)
 
       Validator.validate_initiate_params(tx_params: tx_params,
-                                         is_booking: booking?(listing),
+                                         quantity_selector: listing.quantity_selector&.to_sym,
                                          shipping_enabled: listing.require_shipping_address,
                                          pickup_enabled: listing.pickup_enabled)
     }
@@ -175,7 +177,7 @@ class PreauthorizeTransactionsController < ApplicationController
     validation_result.on_success { |tx_params|
       is_booking = booking?(listing)
 
-      quantity = calculate_quantity(tx_params: tx_params, is_booking: is_booking)
+      quantity = calculate_quantity(tx_params: tx_params, is_booking: is_booking, unit: listing.unit_type)
 
       listing_entity = ListingQuery.listing(params[:listing_id])
 
@@ -220,7 +222,8 @@ class PreauthorizeTransactionsController < ApplicationController
                  localized_selector_label: translate_selector_label_from_listing(listing_entity),
                  subtotal: subtotal_to_show(order_total),
                  shipping_price: shipping_price_to_show(tx_params[:delivery], shipping_total),
-                 total: order_total.total)
+                 total: order_total.total,
+                 unit_type: listing.unit_type)
              }
 
     }
@@ -230,7 +233,7 @@ class PreauthorizeTransactionsController < ApplicationController
         if data.is_a?(Array)
           # Entity validation failed
           t("listing_conversations.preauthorize.invalid_parameters")
-        elsif [:dates_missing, :end_cant_be_before_start, :delivery_method_missing].include?(data[:code])
+        elsif [:dates_missing, :end_cant_be_before_start, :delivery_method_missing, :at_least_one_night_required].include?(data[:code])
           t("listing_conversations.preauthorize.invalid_parameters")
         else
           raise NotImplementedError.new("No error handler for: #{msg}, #{data.inspect}")
@@ -252,32 +255,16 @@ class PreauthorizeTransactionsController < ApplicationController
       is_booking = booking?(listing)
 
       Validator.validate_initiated_params(tx_params: tx_params,
-                                          is_booking: is_booking,
+                                          quantity_selector: listing.quantity_selector&.to_sym,
                                           shipping_enabled: listing.require_shipping_address,
                                           pickup_enabled: listing.pickup_enabled,
                                           transaction_agreement_in_use: @current_community.transaction_agreement_in_use?)
     }
 
-    validation_result.on_error { |msg, data|
-      error_msg, path =
-        case data[:code]
-        when :dates_missing
-          [t("listing_conversations.preauthorize.booking_dates_missing"), listing_path(listing.id)]
-        when :end_cant_be_before_start
-          [t("listing_conversations.preauthorize.end_cant_be_before_start"), listing_path(listing.id)]
-        when :delivery_method_missing
-          [t("listing_conversations.preauthorize.delivery_method_missing"), listing_path(listing.id)]
-        when :agreement_missing
-          [t("error_messages.transaction_agreement.required_error"), error_path(data[:tx_params])]
-        else
-          raise NotImplementedError.new("Unknown error #{data[:code]}")
-        end
-    }
-
     validation_result.on_success { |tx_params|
       is_booking = booking?(listing)
 
-      quantity = calculate_quantity(tx_params: tx_params, is_booking: is_booking)
+      quantity = calculate_quantity(tx_params: tx_params, is_booking: is_booking, unit: listing.unit_type)
 
       shipping_total =
         if tx_params[:delivery] == :shipping
@@ -314,7 +301,7 @@ class PreauthorizeTransactionsController < ApplicationController
           logger.error(msg, :transaction_initiated_error, data)
           [t("listing_conversations.preauthorize.invalid_parameters"), listing_path(listing.id)]
 
-        elsif [:dates_missing, :end_cant_be_before_start, :delivery_method_missing].include?(data[:code])
+        elsif [:dates_missing, :end_cant_be_before_start, :delivery_method_missing, :at_least_one_night_required].include?(data[:code])
           logger.error(msg, :transaction_initiated_error, data)
           [t("listing_conversations.preauthorize.invalid_parameters"), listing_path(listing.id)]
         elsif data[:code] == :agreement_missing
@@ -365,9 +352,11 @@ class PreauthorizeTransactionsController < ApplicationController
     end
   end
 
-  def calculate_quantity(tx_params:, is_booking:)
-    if is_booking
+  def calculate_quantity(tx_params:, is_booking:, unit:)
+    if is_booking && unit == :day
       DateUtils.duration_days(tx_params[:start_on], tx_params[:end_on])
+    elsif is_booking && unit == :night
+      DateUtils.duration_nights(tx_params[:start_on], tx_params[:end_on])
     else
       tx_params[:quantity] || 1
     end
@@ -414,7 +403,7 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def booking?(listing)
-    [:day].include?(listing.unit_type&.to_sym)
+    [:day, :night].include?(listing.unit_type&.to_sym)
   end
 
   def render_error_response(is_xhr, error_msg, redirect_params)

@@ -283,7 +283,7 @@ class TransactionsController < ApplicationController
     if tx[:payment_process] == :none && tx[:listing_price].cents == 0
       nil
     else
-      unit_type = tx[:unit_type].present? ? ListingViewUtils.translate_unit(tx[:unit_type], tx[:unit_tr_key]) : nil
+      localized_unit_type = tx[:unit_type].present? ? ListingViewUtils.translate_unit(tx[:unit_type], tx[:unit_tr_key]) : nil
       localized_selector_label = tx[:unit_type].present? ? ListingViewUtils.translate_quantity(tx[:unit_type], tx[:unit_selector_tr_key]) : nil
       booking = !!tx[:booking]
       quantity = tx[:listing_quantity]
@@ -292,7 +292,7 @@ class TransactionsController < ApplicationController
 
       TransactionViewUtils.price_break_down_locals({
         listing_price: tx[:listing_price],
-        localized_unit_type: unit_type,
+        localized_unit_type: localized_unit_type,
         localized_selector_label: localized_selector_label,
         booking: booking,
         start_on: booking ? tx[:booking][:start_on] : nil,
@@ -302,7 +302,8 @@ class TransactionsController < ApplicationController
         subtotal: show_subtotal ? tx[:listing_price] * quantity : nil,
         total: Maybe(tx[:payment_total]).or_else(tx[:checkout_total]),
         shipping_price: tx[:shipping_price],
-        total_label: total_label
+        total_label: total_label,
+        unit_type: tx[:unit_type]
       })
     end
   end
@@ -342,7 +343,8 @@ class TransactionsController < ApplicationController
           subtotal: quantity != 1 ? l_model.price * quantity : nil,
           total: l_model.price * quantity,
           shipping_price: nil,
-          total_label: total_label
+          total_label: total_label,
+          unit_type: l_model.unit_type
         })
     }
 

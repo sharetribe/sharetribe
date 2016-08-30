@@ -2,18 +2,27 @@
   - if booking
     .initiate-transaction-per-unit-wrapper
       %span.initiate-transaction-per-unit-label
-        = t("transactions.initiate.price_per_day")
+        - if unit_type == :day
+          = t("transactions.initiate.price_per_day")
+        - else
+          = t("transactions.initiate.price_per_night")
       %span.initiate-transaction-per-unit-value
         = humanized_money_with_symbol(listing_price)
 
     .initiate-transaction-booking-wrapper
       %span.initiate-transaction-booking-label
-        = t("transactions.initiate.booked_days")
+        - if unit_type == :day
+          = t("transactions.initiate.booked_days")
+        - else
+          = t("transactions.initiate.booked_nights")
       %span.initiate-transaction-booking-value
         = l start_on, format: :long_with_abbr_day_name
         = "-"
         = l end_on, format: :long_with_abbr_day_name
-        = "(#{pluralize(duration, t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
+        - if unit_type == :day
+          = "(#{pluralize(duration, t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
+        - else
+          = "(#{pluralize(duration, t("listing_conversations.preauthorize.night"), t("listing_conversations.preauthorize.nights"))})"
 
   - elsif quantity.present? && localized_unit_type.present?
     .initiate-transaction-per-unit-wrapper
