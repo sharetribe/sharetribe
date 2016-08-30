@@ -7,9 +7,9 @@ module FeatureTests
 
       def fill_in_booking_dates
 
-        # Select the first available day in the current month
+        # Select the last available day in the current month
         page_content.find("input[name=start_on]").click
-        datepicker.first(".day:not(.disabled):not(.new)").click
+        datepicker.all(".day:not(.disabled):not(.new)").last.click
 
         # Select the first available day in the following month
         page_content.find("input[name=end_on]").click

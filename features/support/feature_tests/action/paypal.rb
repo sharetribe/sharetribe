@@ -7,7 +7,7 @@ module FeatureTests
 
       module_function
 
-      def connect_marketplace_paypal
+      def connect_marketplace_paypal(min_price: "2.0", commission: "5", min_commission: "1.0")
         topbar = FeatureTests::Section::Topbar
         paypal_preferences = FeatureTests::Page::AdminPaypalPreferences
         admin_sidebar = FeatureTests::Section::AdminSidebar
@@ -21,7 +21,7 @@ module FeatureTests
         expect(page).to have_content("PayPal account connected")
 
         # Save payment preferences
-        paypal_preferences.set_payment_preferences(min_price: "2.0", commission: "5", min_commission: "1.0")
+        paypal_preferences.set_payment_preferences(min_price: min_price, commission: commission, min_commission: min_commission)
         paypal_preferences.save_settings
         onboarding_wizard.dismiss_dialog
         expect(page).to have_content("Payment system preferences updated")
@@ -46,23 +46,30 @@ module FeatureTests
         expect(page).to have_content("Hooray, everything is set up!")
       end
 
-      def request_listing(listing_title)
+      def request_listing(title:, expected_price: nil)
         home = FeatureTests::Page::Home
         listing = FeatureTests::Page::Listing
         listing_book = FeatureTests::Page::ListingBook
         topbar = FeatureTests::Section::Topbar
 
         topbar.click_logo
-        home.click_listing(listing_title)
+        home.click_listing(title)
         listing.fill_in_booking_dates
         listing.click_request
 
-        expect(page).to have_content("Request #{listing_title}")
-        listing_book.fill_in_message("Snowman ☃ sells: #{listing_title}")
+        expect(page).to have_content("Request #{title}")
+        listing_book.fill_in_message("Snowman ☃ sells: #{title}")
+
+        if expected_price.present?
+          # listing.fill_in_booking_dates always selects a two day period
+          expect(page).to have_content("(2 days)")
+          expect(listing_book.total_value).to have_content("$#{expected_price}")
+        end
+
         listing_book.proceed_to_payment
 
         expect(page).to have_content("Payment authorized")
-        expect(page).to have_content("Snowman ☃ sells: #{listing_title}")
+        expect(page).to have_content("Snowman ☃ sells: #{title}")
       end
 
       def accept_listing_request

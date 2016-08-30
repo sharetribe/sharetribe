@@ -6,7 +6,7 @@ module FeatureTests
 
       module_function
 
-      def add_new_listing(title, price: "2.0")
+      def add_new_listing(title:, price: "2.0")
         topbar = FeatureTests::Section::Topbar
         new_listing = FeatureTests::Page::NewListing
 
