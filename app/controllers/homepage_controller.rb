@@ -175,6 +175,12 @@ class HomepageController < ApplicationController
     distance_limit = [distance, APP_CONFIG[:external_search_distance_limit_min].to_f].max if limit_search_distance
 
     if @view_type != 'map' && location_search_in_use
+      center_point = if limit_search_distance && params[:boundingbox]
+        LocationUtils.center(*params[:boundingbox].split(',').map { |n| LocationUtils.to_radians(n) })
+      else
+        search_coordinates(params[:lc])
+      end
+
       scale_multiplier = APP_CONFIG[:external_search_scale_multiplier].to_f
       offset_multiplier = APP_CONFIG[:external_search_offset_multiplier].to_f
       combined_search_in_use = location_search_in_use && keyword_search_in_use && scale_multiplier && offset_multiplier
@@ -194,7 +200,7 @@ class HomepageController < ApplicationController
         distance_max: distance_limit,
         sort: sort
       })
-      .merge(search_coordinates(params[:lc]))
+      .merge(center_point)
       .merge(combined_search_params)
       .compact
     end
