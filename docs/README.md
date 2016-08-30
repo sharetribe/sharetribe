@@ -46,9 +46,9 @@ We support last two major versions, with following exceptions: IE is supported f
   'safari 9' ]
 ```
 
-#### [Cucumber Do's and Don'ts](./cucumber-do-dont.md)
+#### [UI testing guidelines](./ui-testing.md)
 
-Some tips how to write Cucumber tests (and how not to).
+Guidelines for writing new UI tests.
 
 #### [SCSS coding guidelines](./scss-coding-guidelines.md)
 
