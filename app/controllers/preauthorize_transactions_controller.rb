@@ -268,7 +268,7 @@ class PreauthorizeTransactionsController < ApplicationController
         when :delivery_method_missing
           [t("listing_conversations.preauthorize.delivery_method_missing"), listing_path(listing.id)]
         when :agreement_missing
-          [t("error_messages.transaction_agreement.required_error"), error_path(tx_params)]
+          [t("error_messages.transaction_agreement.required_error"), error_path(data[:tx_params])]
         else
           raise NotImplementedError.new("Unknown error #{data[:code]}")
         end
@@ -374,7 +374,7 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def error_path(tx_params)
-    booking_dates = HashUtils.map_values(tx_params.slice(:start_on, :end_on).select(&:present?)) { |date|
+    booking_dates = HashUtils.map_values(tx_params.slice(:start_on, :end_on).compact) { |date|
       TransactionViewUtils.stringify_booking_date(date)
     }
 
