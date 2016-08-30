@@ -17,14 +17,20 @@
   = form_for @community, :url => admin_look_and_feel_path, method: :patch do |form|
     .row
       .col-12
+        - logo_old = ".logo_instructions_text_with_dimensions"
+        - logo_no_placing = ".logo_instructions_text_with_dimensions_no_placing"
+        - logo_info = FeatureFlagHelper.feature_enabled?(:topbar_v1) ? logo_no_placing : logo_old
         = form.label :wide_logo, t(".community_logo"), :class => "input"
-        = render :partial => "layouts/info_text", :locals => { :text =>t(".logo_instructions_text_with_dimensions", :width => 336, :height => 80)}
+        = render :partial => "layouts/info_text", :locals => { :text =>t(logo_info, :width => 336, :height => 80)}
         = form.file_field(:wide_logo, :class => "file_field")
 
     .row
       .col-12
+        - icon_old = ".logo_icon_instructions_text_with_dimensions"
+        - icon_no_placing = ".logo_icon_instructions_text_with_dimensions_no_placing"
+        - icon_info = FeatureFlagHelper.feature_enabled?(:topbar_v1) ? icon_no_placing : icon_old
         = form.label :logo, t(".community_logo_icon"), :class => "input"
-        = render :partial => "layouts/info_text", :locals => { :text => t(".logo_icon_instructions_text_with_dimensions", :width => 600, :height => 600)}
+        = render :partial => "layouts/info_text", :locals => { :text => t(icon_info, :width => 600, :height => 600)}
         = form.file_field(:logo, :class => "file_field")
 
     .row
