@@ -13,6 +13,10 @@ module FeatureTests
         page_content.click_button("Proceed to payment")
       end
 
+      def total_value
+        page_content.find('.initiate-transaction-total-value')
+      end
+
       def page_content
         find(".page-content")
       end
