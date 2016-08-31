@@ -103,7 +103,7 @@ de:
         small_cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt."
         main_content_width: "Wenn du ein Titelfoto aussuchst, beachte bitte, dass die Breite des Inhalts auf der Startseite höchstens %{main_width} Pixel beträgt. Überprüfe außerdem, wie dein Titelfoto auf kleineren Bildschirmen aussieht (z.B wenn du einen schmaleren Browser benutzt)."
         custom_color1_instructions_text: "Du kannst die Hauptfarbe der Benutzeroberfläche ändern, indem du einen neuen Farbwert eingibst. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kann dir helfen die Farbe auszuwählen. Kopiere den Code hier ein."
-        new_listing_button_instructions_text: ~
+        new_listing_button_instructions_text: "Du kannst die Farbe des \"Neuen Eintrag erstellen\" Knopfes ändern, indem du die Hex-Wert einer neuen Farbe eingibst. %{link_to_colorpicker} kann dir helfen, eine Farbe zu wählen. Du musst nur den Code hier einfügen!"
         default_browse_view: Standardansicht
         default_browse_view_instructions_text: "Die Standardansicht legt fest, wie die Angebote auf der Webseite standardmäßig angezeigt werden."
         grid: Gitter
@@ -237,8 +237,8 @@ de:
         ban_me_error: "Du kannst dich nicht selber sperren."
       new_layout:
         new_layout: "Neues Layout"
-        description_roadmap: ~
-        description_process: ~
+        description_roadmap: "Wir entwickeln derzeit ein neues, verbessertes Layout für Sharetribe. Während der Umbruchphase kannst du unten wählen, welche Aspekte deines Marktplatzes das alte Layout verwenden sollen. Neue Features von Sharetribe werden nur mit dem neuen Layout verfügbar sein."
+        description_process: "Wir werden das alte Layout in der Zukunft allmählich abbauen. Das Sharetribe-Team wird dir informieren, bevor wir dies tun. Hast du Fragen? Du kannst das Team eine Nachricht hier schicken: %{support_link}."
         enabled_for_you: "Für dich aktiviert"
         enabled_for_all: "Für alle aktiviert"
         new_topbar: "Neuer Top Bar (auf jeder Seite angezeigt)"
@@ -1155,7 +1155,7 @@ de:
       join_this_community: "Marktplatz beitreten"
       read_more: "Mehr lesen"
       feedback: "Deine Nachricht an das Team von %{service_name}"
-      dont_use_to_contact_support: ~
+      dont_use_to_contact_support: "Wir haben gemerkt, dass du ein Administrator von %{service_name} bist. Durch dieses Formular werden deine Kunden dir Nachrichten senden. Du kannst dieses Formular nicht verwenden, um Sharetribe Support zu kontaktieren. Das kannst du auf deinem Admin Panel tun, indem du auf \"Support\" klickst."
       feedback_forum: Feedback-Forum
       feedback_handle: Feedback
       give_feedback: "Kontaktiere uns"
@@ -1593,7 +1593,7 @@ de:
       you_will_be_charged: "Die Kosten werden nur in Rechnung gestellt, wenn %{author} die Transaktion annimmt. %{author} muss die Transaktion innerhalb von %{expiration_period} Tagen akzeptieren. Wenn %{author} ablehnt oder nicht antwortet, werden keine Gebühren erhoben."
       day: Tag
       days: Tage
-      invalid_parameters: ~
+      invalid_parameters: "Ungültige Werte für neue Transaktion"
     transaction_agreement_checkbox:
       read_more: Anzeigen.
   mapview:
