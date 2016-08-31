@@ -175,8 +175,9 @@ class HomepageController < ApplicationController
     distance_limit = [distance, APP_CONFIG[:external_search_distance_limit_min].to_f].max if limit_search_distance
 
     if @view_type != 'map' && location_search_in_use
-      center_point = if limit_search_distance && params[:boundingbox]
-        LocationUtils.center(*params[:boundingbox].split(',').map { |n| LocationUtils.to_radians(n) })
+      corners = params[:boundingbox].split(',') if params[:boundingbox].present?
+      center_point = if limit_search_distance && corners&.length == 4
+        LocationUtils.center(*corners.map { |n| LocationUtils.to_radians(n) })
       else
         search_coordinates(params[:lc])
       end
