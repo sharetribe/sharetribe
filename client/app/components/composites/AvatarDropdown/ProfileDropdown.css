@@ -25,6 +25,8 @@
   justify-content: center;
   cursor: pointer;
   color: var(--ProfileDropdown_textColor);
+  padding: 0 0.69em;
+  text-align: center;
 
   &:hover {
     background-color: rgb(249, 249, 249);
@@ -38,16 +40,28 @@
 
 .profileActionIconWrapper {
   position: relative;
+  flex-basis: 60%;
+  display: flex;
+  align-items: flex-end;
 }
 
 .notificationCount {
   position: absolute;
   top: 0;
   left: 0;
+  bottom: 17px;
   width: 100%;
   text-align: center;
   color: var(--ProfileDropdown_colorLight);
   font-size: var(--ProfileDropdown_fontSizeNotification);
+}
+
+.profileActionLabel {
+  flex-basis: 40%;
+  text-align: center;
+  line-height: 1.25em;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
 .logoutArea {
