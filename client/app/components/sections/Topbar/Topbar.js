@@ -237,10 +237,11 @@ class Topbar extends Component {
 
     const oldSearchParams = parseSearchParams(location);
     const searchPlaceholder = this.props.search ? this.props.search.search_placeholder : null;
+    const textLogo = this.props.logo.image ? '' : css.textLogo;
 
     return div({ className: classNames('Topbar', css.topbar) }, [
       hasMenuProps ? r(MenuMobile, { ...mobileMenuProps, className: css.topbarMobileMenu }) : null,
-      r(Logo, { ...this.props.logo, classSet: css.topbarLogo, color: marketplaceColor1 }),
+      r(Logo, { ...this.props.logo, className: classNames(css.topbarLogo, textLogo), color: marketplaceColor1 }),
       div({ className: css.topbarMediumSpacer }),
       this.props.search ?
         r(SearchBar, {

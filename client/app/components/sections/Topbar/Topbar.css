@@ -83,6 +83,10 @@
     }
   }
 
+  & .textLogo {
+    min-width: 0;
+  }
+
   & .topbarMenu {
     display: none;
   }
