@@ -91,7 +91,9 @@ ja:
         community_custom_color1: 第一カラー
         new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: "デスクトップロゴは%{width}ｘ%{height}ピクセルにしてください。それは特に大きいスクリーンを使用しているユーザに表示されます。"
+        logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "モバイル用ロゴは出来れば、%{width}ｘ%{height}ピクセルの正方形にしてください。それは特に小さいスクリーンを使用しているユーザに表示されます。"
+        logo_icon_instructions_text_with_dimensions_no_placing: ~
         cover_photo_visibility: カバー写真はログイン前のユーザに表示されます
         cover_photo_instructions_text_with_dimensions: "写真は%{width}ｘ%{height}ピクセルにリサイズされます。縦長のイメージ画像の場合中心を使用する形でカットされます%{see_how_it_looks_like}。"
         small_cover_photo_visibility: 小さいカバー写真はログイン前のユーザを除いて、すべてのページに表示されます。
