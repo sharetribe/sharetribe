@@ -59,14 +59,6 @@ module FeatureFlagHelper
     from_session.union(from_params)
   end
 
-  def person_id(request)
-    request.session[:person_id]
-  end
-
-  def community_id(request)
-    request.env[:current_marketplace].id
-  end
-
   def search_engine
     use_external_search = Maybe(APP_CONFIG).external_search_in_use.map { |v| v == true || v.to_s.casecmp("true") == 0 }.or_else(false)
     use_external_search ? :zappy : :sphinx
