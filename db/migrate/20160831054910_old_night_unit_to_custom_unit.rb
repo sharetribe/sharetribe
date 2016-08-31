@@ -63,7 +63,12 @@ class OldNightUnitToCustomUnit < ActiveRecord::Migration
       "(#{tr_data[:community_id]}, '#{tr_data[:locale]}', '#{tr_data[:translation_key]}', '#{tr_data[:translation]}', NOW(), NOW())"
     }
 
-    new_translations_sql = "INSERT INTO community_translations (community_id, locale, translation_key, translation, created_at, updated_at) VALUES #{insert_into_values.join(', ')}"
+    new_translations_sql =
+      if !insert_into_values.empty?
+        "INSERT INTO community_translations (community_id, locale, translation_key, translation, created_at, updated_at) VALUES #{insert_into_values.join(', ')}"
+      else
+        nil
+      end
 
     update_tx_sql_statements = transaction_res_array.map { |(community_id, tx_id)|
       unit_tr_key = translation_data[community_id][:unit_tr_key]
@@ -75,7 +80,9 @@ class OldNightUnitToCustomUnit < ActiveRecord::Migration
     ActiveRecord::Base.transaction do
       exec_update("UPDATE transactions SET old_unit_type = unit_type", "Save old unit type for rollback", [])
 
-      exec_insert(new_translations_sql, "Add new translations", [])
+      if !new_translations_sql.blank?
+        exec_insert(new_translations_sql, "Add new translations", [])
+      end
 
       update_tx_sql_statements.each { |update_tx|
         exec_update(update_tx, "Update transactions' unit to custom", [])
