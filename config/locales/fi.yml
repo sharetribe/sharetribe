@@ -1593,6 +1593,7 @@ fi:
       you_will_be_charged: "Maksu veloitetaan vain mikäli myyjä %{author} hyväksyy oston. Myyjän täytyy hyväksyä maksu %{expiration_period} päivän kuluessa. Sinua ei veloiteta, jos %{author} ei hyväksy ostoa tai ei vastaa ostopyyntöön."
       day: päivä
       days: päivää
+      invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: "Lue lisää."
   mapview:

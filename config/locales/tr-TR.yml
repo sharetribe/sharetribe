@@ -1574,6 +1574,7 @@ tr-TR:
       you_will_be_charged: "Ödeme sadece %{author} kişisi işlemi kabul ettiğinde hesabınızdan düşülür. %{author} işlemi %{expiration_period} gün içerisinde kabul etmelidir. %{author} reddeder ya da cevap vermezse, hesabınızdan kesinti olmayacaktır."
       day: gün
       days: günler
+      invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Görüntüle.
   mapview:

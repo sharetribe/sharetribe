@@ -1598,6 +1598,7 @@ cs:
       you_will_be_charged: "Platba Vám bude zaúčtována pouze, když uživatel %{author} přijme podmínky transakce. Uživatel %{author} musí tyto podmínky přijmout do %{expiration_period} dní. Pokud tak uživatel %{author} neučiní či podmínky odmítne, tak platba nebude provedena."
       day: den
       days: dní
+      invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Zobrazit.
   mapview:

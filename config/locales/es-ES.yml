@@ -69,7 +69,7 @@ es-ES:
         private_community_homepage_content: "Contenido de la página de inicio de la comunidad privada"
         edit_private_community_homepage_content_description: "Este contenido se muestra en la página de inicio de las comunidades privadas a los usuarios que no se han registrado. Aquí puedes describir tu comunidad y el proceso para registrarse. Aquí también puedes añadir imágenes, videos y contenido HTML. %{see_how_it_looks_like}."
         update_information: "Guardar configuración"
-        invite_people: "Invita nuevos usuarios"
+        invite_people: "Invita nuevos usuarios a %{service_name}"
         edit_signup_info: "Información de registro"
         edit_signup_info_description: "Este es un texto informativo que puede mostrarse a los usuarios en la página de registro. Aquí puedes darles instrucciones para iniciar sesión, información sobre cómo conseguir una invitación, etc. Por defecto, no hay instrucciones para mostrar."
         edit_info: "Editar información"
@@ -94,7 +94,7 @@ es-ES:
         favicon: Favicon
         favicon_info_text: "El Favicon reemplazará el logo predeterminado de Sharetribe. Las dimensiones deberían ser de 32x32 pixels y la imagen que subas se recortará a ese tamaño."
         community_custom_color1: "Color principal"
-        new_listing_button_custom_color: ~
+        new_listing_button_custom_color: "Color del botón de \"Publicar Anuncio\""
         logo_instructions_text_with_dimensions: "El logo debe tener una resolución de %{width}x%{height} pixeles. Se mostrará a los usuarios con pantallas más grandes."
         logo_icon_instructions_text_with_dimensions: "Este logo cuadrado se mostrará cuando las personas compartan tu sitio en Facebook, cuando vean tu sitio desde un dispositivo móvil o cuando guarden un acceso directo a tu sitio en sus dispositivos móviles. Las dimensiones deben ser (al menos) %{width}x%{height}px."
         cover_photo_visibility: "La foto de portada se muestra en la home a usuarios que todavía no han iniciado sesión."
@@ -103,7 +103,7 @@ es-ES:
         small_cover_photo_instructions_text_with_dimensions: "La imagen será redimensionada a %{width}x%{height} pixeles. Las imágenes más grandes serán recortadas en el centro."
         main_content_width: "Al escoger las fotos de portada ten presente que el contenido principal de la página es de máximo %{main_width} pixeles de ancho. Recuerda también revisar cómo se ve tu foto de portada en otros dispositivos con pantallas más pequeñas (puedes utilizar una ventana de navegación más estrecha para comprobarlo)."
         custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad introduciendo un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
-        new_listing_button_instructions_text: ~
+        new_listing_button_instructions_text: "Puedes cambiar el color del botón de Publicar Anuncio escribiendo un código de color hexadecimal. En %{link_to_colorpicker} puedes escoger el color y copiar el código aquí."
         default_browse_view: "Vista por defecto del buscador"
         default_browse_view_instructions_text: "La vista por defecto del buscador se usa en la página principal para elegir cómo se muestran los resultados por defecto."
         grid: Cuadrícula
@@ -237,8 +237,8 @@ es-ES:
         ban_me_error: "No te puedes rechazar a ti mismo."
       new_layout:
         new_layout: "Nuevo diseño"
-        description_roadmap: "Puedes decidir cual diseño usar en tu comunidad: el nuevo or el viejo. Es recomendable usar el nuevo diseño, debido a que la mayoría de nuestras nuevas funciones no soportarán el viejo diseño. El viejo diseño será removido eventualmente (te notificaremos con antelación)."
-        description_process: "El nuevo diseño será lanzado por partes. Puedes decidir mantener el viejo diseño en algunas páginas y usar el nuevo diseño en otras. Puedes revisar como se ven las páginas antes de hacer el diseño público a todos tus usuarios por medio de la opción de habilitar sólo para ti."
+        description_roadmap: "En Sharetribe, estamos en el proceso de publicar un nuevo diseño de nuestra plataforma. Durante el periodo de transición, puedes decidir que partes de tu comunidad seguirán utilizando el viejo diseño usando el menú inferior. La mayoría de nuestras nuevas funciones no soportarán el viejo diseño."
+        description_process: "Soporte para el viejo diseño será eliminado en el futuro. El equipo de Sharetribe te notificará antes de que esto suceda. Si tienes alguna pregunta no dudes en contactarnos por medio del %{support_link}."
         enabled_for_you: "Habilitar sólo para ti"
         enabled_for_all: "Habilitar para todos"
         new_topbar: "Nueva barra superior (visible en todas las páginas)"
@@ -281,9 +281,9 @@ es-ES:
         max_number_of_links_info: "Vinculo para la %{about_page} se muestra siempre como el primer vínculo del menu."
         about_page: "página Acerca de"
       topbar:
-        topbar: ~
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        topbar: "Barra Superior"
+        new_listing_button_label: "Texto del botón para Publicar Anuncio"
+        invalid_post_listing_button_label: "Proporciona un texto válido para el botón de \"Publicar Anuncio\""
       transactions:
         export_all_as_csv: "Exportar todos en formato CSV"
         transactions: "Ver transacciones"
@@ -309,7 +309,7 @@ es-ES:
           pending_ext: "Esperando al pago de PayPal"
         not_available: "No disponible"
       paypal_account:
-        paypal_admin_account: Pagos
+        paypal_admin_account: "Sistema de pagos"
     custom_fields:
       edit:
         edit_listing_field: "Editar campo '%{field_name}'"
@@ -466,15 +466,15 @@ es-ES:
           quantity_label: "Cantidad (por pieza, por Kg, por persona, por tour de 2 horas...)"
           time_label: "Tiempo (por 30 minutos, por 2 semanas, por año...)"
     paypal_accounts:
-      marketplace_paypal_integration: "Preferencias de pago"
-      preferences_updated: "Preferencias de pago actualizadas"
+      marketplace_paypal_integration: "Preferencias del sistema de pagos"
+      preferences_updated: "Preferencias del sistema de pagos actualizadas"
       marketplace_currency_used: "Esta comunidad usa %{currency} como su moneda. Para cambiar la moneda, %{contact_support_link}."
       contact_support_link_text: "contacta al equipo de soporte de Sharetribe"
-      integration_info_text: "El sistema de pagos de Sharetribe se basa en PayPal. Si quieres permitir a tus usuarios hacer pagos a través de tu comunidad, debes conectar tu cuenta de PayPal. Después de esto, puedes decidir el precio mínimo para las transacciones, así como la comisión y/o cuota por transacción que quieres recibir."
+      integration_info_text: "El sistema de pagos de tu comunidad se basa en PayPal. Si quieres permitir a tus usuarios hacer pagos a través de tu comunidad, debes conectar tu cuenta de PayPal. Después de esto, puedes decidir el precio mínimo para las transacciones, así como la comisión y/o cuota por transacción que quieres recibir."
       link_paypal_personal_account_label: "Venderás productos u ofrecerás productos en tu comunidad?"
       link_paypal_personal_account: "Si es así, también necesitará conectar su cuenta PayPal en %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "su cuenta personal de la comunidad"
-      read_more_about_paypal: "Leer más sobre el sistema de pagos de Sharetribe."
+      read_more_about_paypal: "Leer más sobre el sistema de pagos."
       set_minimum_price_and_fee: "Configura un precio mínimo y una comisión por transacción"
       minimum_listing_price_label: "Precio mínimo por transacción:"
       transaction_fee_label: "Comisión por transacción:"
@@ -1593,6 +1593,7 @@ es-ES:
       you_will_be_charged: "Se te cobrará esta cantidad únicamente si %{author} acepta la transacción. %{author} necesita aceptar la transacción en un período de %{expiration_period} días.  En caso de que %{author} rechace tu solicitud o no responda, no se hará ningún cobro."
       day: día
       days: días
+      invalid_parameters: "Valores inválidos para una transacción nueva"
     transaction_agreement_checkbox:
       read_more: Ver
   mapview:
@@ -1884,7 +1885,7 @@ es-ES:
       given_name: "Nombre:"
       first_name_with_initial: "(Sólo se mostrará tu inicial al resto de usuarios)"
       first_name_only: "(no se mostrará a otros usuarios)"
-      location_description: "Puedes dar tu ubicación exacta o, por ejemplo, indicar solo tu código postal. Por favor agrega al menos tu código postal. También puedes seleccionar una ubicación del mapa que aparece abajo."
+      location_description: "Puedes dar tu ubicación exacta o indicar sólo tu código postal. Es buena idea indicar tu país al momento de añadir tu ubicación. Ejemplos son: \"10117 Berlin, Alemania\" or \"2000 Sand Hill Road, CA, USA\". ."
       phone_number: "Número de teléfono:"
       profile_picture: "Foto de perfil"
       postal_code: "Código postal:"

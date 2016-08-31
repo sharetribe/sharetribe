@@ -1579,6 +1579,7 @@ zh-HK:
       you_will_be_charged: "只有%{author}接受了交易後你才會被支取費用。%{author}需要於%{expiration_period}內接受交易。若%{author}拒絕或沒有回應，這並不會產生任何費用。"
       day: ~
       days: ~
+      invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: ~
   mapview:

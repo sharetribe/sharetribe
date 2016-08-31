@@ -1593,6 +1593,7 @@ fr:
       you_will_be_charged: "Vous ne serez prélevé que si %{author} accepte la transaction. %{author} doit accepter la transaction sous %{expiration_period} jours. Si %{author} refuse ou ne répond pas, aucun prélèvement ne sera effectué."
       day: jour
       days: jours
+      invalid_parameters: "Valeurs non correctes pour une nouvelle transaction"
     transaction_agreement_checkbox:
       read_more: Lire.
   mapview:

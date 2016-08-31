@@ -1578,6 +1578,7 @@ zh:
       you_will_be_charged: "你只有在%{author}接受交易后才会被收费。%{author}需要在%{expiration_period}天内接受交易。如果%{author}拒绝或者没有响应，不会产生任何费用。"
       day: 日
       days: 天
+      invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: 查看。
   mapview:

@@ -1595,6 +1595,7 @@ pt-BR:
           %{author} precisa aceitar a transação em no máximo %{expiration_period} dias. Se %{author} rejeitar ou não responder neste período você não será cobrado.
       day: dia
       days: dias
+      invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Ver.
   mapview:

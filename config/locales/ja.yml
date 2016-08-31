@@ -1572,6 +1572,7 @@ ja:
       you_will_be_charged: "%{author}さんが取引を受け入れた場合のみ、その後あなたに請求がされます。%{author}さんが%{expiration_period}日以内に取引を受け入れる必要があります。%{author}さんがこの件に関して拒否したり、返事をしない場合はお支払いは完了しません。"
       day: 日
       days: 日
+      invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: 表示
   mapview:

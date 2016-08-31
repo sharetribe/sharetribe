@@ -1591,6 +1591,7 @@ sv:
       you_will_be_charged: "OBS! Du debiteras endast om %{author} accepterar ditt köp. %{author} behöver acceptera köpet inom %{expiration_period} dagar. Om %{author} avvisar eller inte svarar så sker ingen debitering."
       day: dag
       days: dagar
+      invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Visa
   mapview:

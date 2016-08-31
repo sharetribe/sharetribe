@@ -1593,6 +1593,7 @@ de:
       you_will_be_charged: "Die Kosten werden nur in Rechnung gestellt, wenn %{author} die Transaktion annimmt. %{author} muss die Transaktion innerhalb von %{expiration_period} Tagen akzeptieren. Wenn %{author} ablehnt oder nicht antwortet, werden keine Gebühren erhoben."
       day: Tag
       days: Tage
+      invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Anzeigen.
   mapview:

@@ -1583,6 +1583,7 @@ ru:
       you_will_be_charged: "Сумма будет списана только если %{author} примет транзакцию. %{author} должен принять транзакцию в течении %{expiration_period} дней. Если %{author} отменит транзакцию или не ответит, списание не произойдет."
       day: день
       days: дней
+      invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Вид.
   mapview:

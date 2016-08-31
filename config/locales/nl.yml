@@ -1573,6 +1573,7 @@ nl:
       you_will_be_charged: "Je bestelling zal pas afgerekend worden als %{author} de transactie accepteert. Dit moet binnen %{expiration_period} dagen gebeuren. Als %{author} de transactie afwijst of niet reageert, worden er geen kosten gerekend."
       day: dag
       days: dagen
+      invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Overzicht.
   mapview:

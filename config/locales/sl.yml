@@ -595,7 +595,7 @@ sl:
       message: ~
       message_to: ~
       optional_message_to: ~
-      send_message: ~
+      send_message: "Pošlji sporočilo"
       send: ~
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
@@ -929,8 +929,8 @@ sl:
       javascript_is_disabled_in_your_browser: ~
       kassi_does_not_currently_work_without_javascript: ~
       contact_us: "kontaktiraj nas"
-      send_feedback: ~
-      your_feedback_to_admins: ~
+      send_feedback: "Pošlji sporočilo"
+      your_feedback_to_admins: "Tvoje sporočilo za %{service_name} ekipo"
     send: ~
     your_email_address: "Tvoj e-naslov"
   errors:
@@ -970,7 +970,7 @@ sl:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: Informacije
+    about: "O marketu"
     home: Domov
     members: ~
     new_listing: ~
@@ -1119,17 +1119,17 @@ sl:
     no_tribe:
       inbox: ~
       settings: ~
-      feedback: ~
+      feedback: "Kontaktiraj %{service_name} ekipo."
     application:
       join_this_community: ~
       read_more: ~
-      feedback: ~
+      feedback: "Tvoje sporočilo za %{service_name} ekipo"
       dont_use_to_contact_support: ~
       feedback_forum: ~
       feedback_handle: ~
       give_feedback: Kontakt
       or_check_our: ~
-      send_feedback_to_admin: ~
+      send_feedback_to_admin: "Pošlji sporočilo"
       to_see_what_others_have_suggested: ~
       your_email_address: "Vaš e-naslov (da vas lahko kontaktiramo)."
       connect: Registracija
@@ -1343,7 +1343,7 @@ sl:
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: "Podroben opis (in povezava do več informacij)"
+        detailed_description: "Podroben opis objave, vključno s podrobnostmi za prijavo in povezavami do več informacij"
         youtube_info: "Če tvoj opis vsebuje YouTube povezave, bojo videi prikazani na koncu opisa."
       destination:
         destination: ~
@@ -1558,6 +1558,7 @@ sl:
       you_will_be_charged: ~
       day: ~
       days: ~
+      invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: ~
   mapview:
@@ -1990,8 +1991,8 @@ sl:
     days: ~
   web:
     topbar:
-      menu: ~
-      more: ~
+      menu: Meni
+      more: Več
       search_placeholder: ~
       search_location_placeholder: ~
       user: ~

@@ -1593,6 +1593,7 @@ nb:
       you_will_be_charged: "Du blir belastet kun dersom %{author} aksepterer transaksjonen. %{author} må akseptere transaksjonen innen %{expiration_period} dager. Hvis %{author} avviser eller ikke svarer, forekommer ingen kostnad."
       day: dag
       days: dager
+      invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Vis.
   mapview:

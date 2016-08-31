@@ -1133,7 +1133,7 @@ da-DK:
       search: Søg
       signup: Tilmeld
       search_placeholder: "Hvad leder du efter?"
-      search_location_placeholder: ~
+      search_location_placeholder: Lokation
     listings:
       no_listing_image: "Ingen billede"
   layouts:
@@ -1589,6 +1589,7 @@ da-DK:
       you_will_be_charged: "Ordren er først gennemført, når %{author} godkender ordren. Hvis %{author} afviser eller ikke godkender ordren inden for %{expiration_period} dage, bliver der ikke trukket noget beløb."
       day: dag
       days: dage
+      invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Vis.
   mapview:
@@ -1623,7 +1624,7 @@ da-DK:
     paypal_account_email_connected: "<del>1. Tilknyt din PayPal-konto</del> Godkendt!"
     payout_info_paypal: "%{service_name} anvender PayPal som betalingsudbyder. For at kunne modtage betaling skal du forbinde din %{create_paypal_account_link} med %{service_name}"
     paypal_billing_agreement_made: "<del>2. Tillad %{service_name} at tage et servicegebyr</del> Godkendt!"
-    commission_permission_needed: "og give os tilladelse til at opkræve et transaktionsgebyr."
+    commission_permission_needed: "og give os tilladelse til at opkræve et servicegebyr."
     create_paypal_account_link_text: PayPal-konto
     connected_account: "Din PayPal-konto '%{email}' er nu tilknyttet."
     paypal_receive_funds_info_label_australia_only: "Din PayPal-konto skal være i stand til at modtage betalinger. Dette kan kræve en Premier- eller Business-konto."
@@ -1650,10 +1651,10 @@ da-DK:
       connect_paypal_account_title_with_step: "Trin %{current_step}/%{total_steps}: Tilknyt din PayPal-konto"
       connect_paypal_account_instructions: "Forbind din PayPal-konto med %{service_name}."
       connect_paypal_account: "Tilknyt din PayPal-konto"
-      paypal_account_billing_agreement_with_step: "Trin %{current_step}/%{total_steps}: Giv tilladelse til at opkræve et transaktionsgebyr"
-      paypal_account_billing_agreement_info_both: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr (%{commission_from_seller} af produktprisen, undtaget leveringsomkostninger, minimumsgebyr %{minimum_commission}) blive trukket fra din PayPal-konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
-      paypal_account_billing_agreement_info_fixed: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr %{minimum_commission} af produktprisen blive trukket fra din PayPal-konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
-      paypal_account_billing_agreement_info_relative: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr (%{commission_from_seller} af produktprisen, undtaget leveringsomkostninger blive trukket fra din PayPal-konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
+      paypal_account_billing_agreement_with_step: "Trin %{current_step}/%{total_steps}: Giv tilladelse til at opkræve et servicegebyr"
+      paypal_account_billing_agreement_info_both: "Når du har gennemført et salg på %{service_name}, vil et servicegebyr (%{commission_from_seller} af produktprisen, undtaget leveringsomkostninger, minimumsgebyr %{minimum_commission}) blive trukket fra din PayPal-konto. For at kunne modtage betaling på %{service_name} skal du give tilladelse til at dette gebyr må trækkes. Gebyret omfatter ikke %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "Når du har gennemført et salg på %{service_name}, vil et servicegebyr %{minimum_commission} af produktprisen blive trukket fra din PayPal-konto. For at kunne modtage betaling på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Gebyret omfatter ikke %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Når du har gennemført et salg på %{service_name}, vil et servicegebyr (%{commission_from_seller} af produktprisen, undtaget leveringsomkostninger) blive trukket fra din PayPal-konto. For at kunne modtage betaling på %{service_name} skal du give tilladelse til at dette gebyr må trækkes. Gebyret omfatter ikke %{paypal_info_link}."
       paypal_account_billing_agreement_info_none: "%{service_name} opkræver i øjeblikket ikke et servicegebyr. Hvis servicegebyr er aktiveret, skal du give %{service_name} tilladelse til at opkræve et servicegebyr for at kunne modtage betalinger. Gebyret omfatter ikke %{paypal_info_link}."
       paypal_info_link_text: PayPal-gebyr
       billing_agreement_description: "Tillad %{service_name} at tage et servicegebyr."
@@ -1801,7 +1802,7 @@ da-DK:
       cancle_facebook_connect: "Hvis du ikke ønsker at logge ind med denne konto, kan du klikke her: %{cancel_link}."
       facebook_cancel_link_text: annuller
       log_in_with_your_facebook_account: "Log ind med Facebook"
-      or_sign_up_with_your_username: "Eller med din email eller brugernavn:"
+      or_sign_up_with_your_username: "Eller med din:"
       we_will_not_post_without_asking_you: "Vi vil aldrig poste på din Facebookvæg uden din tilladelse."
     password_forgotten:
       email: Email
@@ -2043,7 +2044,7 @@ da-DK:
       menu: Menu
       more: Mere
       search_placeholder: Søg...
-      search_location_placeholder: ~
+      search_location_placeholder: Lokation
       user: Bruger
       inbox: Indbakke
       profile: Profil

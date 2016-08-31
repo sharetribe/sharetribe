@@ -1566,6 +1566,7 @@ it:
       you_will_be_charged: "Il pagamento sarà convalidato solo se %{author} accetterà il pagamento. %{author} ha tempo %{expiration_period} giorni per convalidare. Se %{author} rifiuta o non risponde il pagamento non sarà effettuato."
       day: giorno
       days: giorni
+      invalid_parameters: "La nuova transazione non è andata a buon fine, per causa di un errore."
     transaction_agreement_checkbox:
       read_more: Mostra
   mapview:
