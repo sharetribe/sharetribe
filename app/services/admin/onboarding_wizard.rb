@@ -103,7 +103,7 @@ module Admin
 
     def listing_created(setup_status, listing)
       if !setup_status[:listing] &&
-         listing
+         listing&.author&.is_marketplace_admin?
         :listing
       end
     end
@@ -139,7 +139,9 @@ module Admin
       locales = community.locales
       community_customizations = CommunityCustomization.where(community_id: community.id).select { |cc| locales.include?(cc.locale) }
       custom_field = CustomField.find_by(community_id: community.id)
-      listing = Listing.find_by(community_id: community.id)
+      listing = Listing.where(community_id: community.id)
+                  .joins(author: :community_membership)
+                  .where('community_memberships.admin' => true).first
       invitation = Invitation.find_by(community_id: community.id)
       listing_shapes = ListingShape.where(community_id: community.id)
 
