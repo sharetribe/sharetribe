@@ -9,37 +9,39 @@ class SitemapController < ActionController::Metal
   include ActionController::Redirecting
 
   def sitemap
-    return unless can_show_sitemap?
+    community = request.env[:current_marketplace]
 
-    asset_host = APP_CONFIG.asset_host
+    return unless can_show_sitemap?(community)
 
-    if asset_host.present?
-      redirect_to ActionController::Base.helpers.asset_url("/sitemap/generate.xml")
+    if APP_CONFIG.asset_host.present?
+      redirect_to ActionController::Base.helpers.asset_url(
+                    "/sitemap/generate.xml?sitemap_host=#{request.host}")
     else
-      render_site_map
+      render_site_map(community)
     end
   end
 
   def generate
-    return unless can_show_sitemap?
+    community = CurrentMarketplaceResolver.resolve_from_host(
+      params[:sitemap_host], URLUtils.strip_port_from_host(APP_CONFIG.domain))
 
-    render_site_map
+    return unless can_show_sitemap?(community)
+
+    render_site_map(community)
   end
 
   private
 
-  def community
-    request.env[:current_marketplace]
-  end
+  def render_site_map(community)
+    default_host = community.full_domain(with_protocol: true)
 
-  def render_site_map
-    sitemap = from_cache(community.id, max_sitemap_links) do
+    sitemap = from_cache([community.id, max_sitemap_links, default_host]) do
       adapter = SitemapGenerator::NeverWriteAdapter.new
 
       open_listings = find_open_listings(community.id)
 
       SitemapGenerator::Sitemap.create(
-            default_host: request.base_url,
+            default_host: default_host,
             verbose: false,
             adapter: adapter) do
         open_listings.each do |l|
@@ -65,8 +67,8 @@ class SitemapController < ActionController::Metal
       }
   end
 
-  def from_cache(community_id, limit, &block)
-    key = "sitemaps/#{community_id}/#{limit}"
+  def from_cache(keys, &block)
+    key = "sitemaps/#{keys.join("-")}"
     Rails.cache.fetch(key, expires_in: 24.hours, &block)
   end
 
@@ -81,7 +83,7 @@ class SitemapController < ActionController::Metal
     end
   end
 
-  def can_show_sitemap?
+  def can_show_sitemap?(community)
     if APP_CONFIG.enable_sitemap&.to_s != "true"
       render_not_found
       false
