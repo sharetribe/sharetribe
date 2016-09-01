@@ -167,10 +167,13 @@ class ApplicationController < ActionController::Base
   def initialize_feature_flags
     # Skip this if there is no current marketplace.
     # This allows to avoid skipping this filter in many places.
-    return unless request.env[:current_marketplace]
+    return unless @current_community
 
-    FeatureFlagHelper.init(request, Maybe(@current_user).is_admin?.or_else(false),
-                           Maybe(@current_user).is_marketplace_admin?.or_else(false))
+    FeatureFlagHelper.init(community_id: @current_community.id,
+                           user_id: @current_user&.id,
+                           request: request,
+                           is_admin: Maybe(@current_user).is_admin?.or_else(false),
+                           is_marketplace_admin: Maybe(@current_user).is_marketplace_admin?.or_else(false))
   end
 
   # Ensure that user accepts terms of community and has a valid email

@@ -221,7 +221,12 @@ class LandingPageController < ActionController::Metal
                          true)
     marketplace_context = marketplace_context(c, topbar_locale, request)
 
-    FeatureFlagHelper.init(request, false, false)
+    # Init feature flags with marketplace specific flags, skip personal
+    FeatureFlagHelper.init(community_id: c.id,
+                           user_id: nil,
+                           request: request,
+                           is_admin: false,
+                           is_marketplace_admin: false)
 
     denormalizer = build_denormalizer(
       cid: c&.id,
