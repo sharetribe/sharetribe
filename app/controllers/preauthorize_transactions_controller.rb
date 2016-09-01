@@ -175,7 +175,7 @@ class PreauthorizeTransactionsController < ApplicationController
     }
 
     validation_result.on_success { |tx_params|
-      is_booking = booking?(listing)
+      is_booking = date_selector?(listing)
 
       quantity = calculate_quantity(tx_params: tx_params, is_booking: is_booking, unit: listing.unit_type)
 
@@ -252,7 +252,7 @@ class PreauthorizeTransactionsController < ApplicationController
         shipping_enabled: listing.require_shipping_address,
         pickup_enabled: listing.pickup_enabled)
 
-      is_booking = booking?(listing)
+      is_booking = date_selector?(listing)
 
       Validator.validate_initiated_params(tx_params: tx_params,
                                           quantity_selector: listing.quantity_selector&.to_sym,
@@ -262,7 +262,7 @@ class PreauthorizeTransactionsController < ApplicationController
     }
 
     validation_result.on_success { |tx_params|
-      is_booking = booking?(listing)
+      is_booking = date_selector?(listing)
 
       quantity = calculate_quantity(tx_params: tx_params, is_booking: is_booking, unit: listing.unit_type)
 
@@ -402,8 +402,8 @@ class PreauthorizeTransactionsController < ApplicationController
     delivery_method == :shipping
   end
 
-  def booking?(listing)
-    [:day, :night].include?(listing.unit_type&.to_sym)
+  def date_selector?(listing)
+    [:day, :night].include?(listing.quantity_selector&.to_sym)
   end
 
   def render_error_response(is_xhr, error_msg, redirect_params)
