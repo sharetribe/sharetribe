@@ -81,7 +81,9 @@ el:
         community_custom_color1: "Κυρίως χρώμα"
         new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: "Το λογότυπο πρέπει να έχει μέγεθος %{width}x%{height}px."
+        logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "Το μέγεθος του λογότυπου πρέπει να είναι %{width}x%{height} px."
+        logo_icon_instructions_text_with_dimensions_no_placing: ~
         cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: "Το μέγεθος της φωτογραφίας εξώφυλλου θα γίνει %{width}x%{height} pixels και ψηλότερες εικόνες θα περικοπούν στο κέντρο."
         small_cover_photo_visibility: ~
@@ -1558,6 +1560,8 @@ el:
       you_will_be_charged: ~
       day: ~
       days: ~
+      night: ~
+      nights: ~
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: ~
@@ -1983,7 +1987,9 @@ el:
   transactions:
     initiate:
       booked_days: ~
+      booked_nights: ~
       price_per_day: ~
+      price_per_night: ~
       quantity: ~
       subtotal: ~
       shipping-price: ~

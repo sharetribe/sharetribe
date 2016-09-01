@@ -1595,6 +1595,8 @@ de:
       you_will_be_charged: "Die Kosten werden nur in Rechnung gestellt, wenn %{author} die Transaktion annimmt. %{author} muss die Transaktion innerhalb von %{expiration_period} Tagen akzeptieren. Wenn %{author} ablehnt oder nicht antwortet, werden keine Gebühren erhoben."
       day: Tag
       days: Tage
+      night: ~
+      nights: ~
       invalid_parameters: "Ungültige Werte für neue Transaktion"
     transaction_agreement_checkbox:
       read_more: Anzeigen.
@@ -2033,7 +2035,9 @@ de:
   transactions:
     initiate:
       booked_days: "Gebuchte Tage:"
+      booked_nights: ~
       price_per_day: "Preis pro Tag:"
+      price_per_night: ~
       quantity: "Anzahl:"
       subtotal: "Zwischensumme:"
       shipping-price: "Versandkosten:"

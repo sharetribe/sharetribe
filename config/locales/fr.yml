@@ -96,7 +96,9 @@ fr:
         community_custom_color1: "Couleur principale"
         new_listing_button_custom_color: "Couleur du bouton Déposer une annonce"
         logo_instructions_text_with_dimensions: "Le logo doit avoir des dimensions de %{width}x%{height} pixels. Il sera affiché sur les grands écrans."
+        logo_instructions_text_with_dimensions_no_placing: "Les dimensions du logo doivent être de %{width}*%{height} pixels."
         logo_icon_instructions_text_with_dimensions: "Ce logo carré sera utilisé lorsque des gens partageront votre site sur Facebook, quand ils navigueront sur votre site depuis un appareil mobile ou en tant qu'image lorsqu'ils mettront le site en favori. Les dimensions doivent être d'au moins %{width}x%{height} pixels."
+        logo_icon_instructions_text_with_dimensions_no_placing: "Ce logo carré est affiché lorsque des utilisateurs partagent votre site sur Facebook ou qu'ils l'ajoutent comme favori sur l'écran d'accueil de leur smartphone ou tablette. Ses dimensions doivent être (au moins) de %{width}x%{height} pixels."
         cover_photo_visibility: "La photo de couverture est affichée sur la page d'accueil aux utilisateurs non connectés."
         cover_photo_instructions_text_with_dimensions: "La photo sera redimensionnée en %{width}x%{height} pixels et les images trop grandes seront coupées au centre. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "La photo de couverture réduite est affichée sur toute les pages excepté sur la page d'accueil pour les visiteurs non connectés."
@@ -1593,6 +1595,8 @@ fr:
       you_will_be_charged: "Vous ne serez prélevé que si %{author} accepte la transaction. %{author} doit accepter la transaction sous %{expiration_period} jours. Si %{author} refuse ou ne répond pas, aucun prélèvement ne sera effectué."
       day: jour
       days: jours
+      night: ~
+      nights: ~
       invalid_parameters: "Valeurs non correctes pour une nouvelle transaction"
     transaction_agreement_checkbox:
       read_more: Lire.
@@ -2031,7 +2035,9 @@ fr:
   transactions:
     initiate:
       booked_days: "Jours réservés : "
+      booked_nights: ~
       price_per_day: "Prix par jour : "
+      price_per_night: ~
       quantity: "Quantité : "
       subtotal: "Sous-total : "
       shipping-price: "Frais de livraison : "

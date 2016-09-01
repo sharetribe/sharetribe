@@ -96,7 +96,9 @@ nl:
         community_custom_color1: Hoofdkleur
         new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: "Het desktop logo zou %{width}x%{height} pixels moeten zijn. Het zal getoond worden aan gebruikers met grotere schermen."
+        logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "Mobiele logo's zouden vierkant moeten zijn, bij voorkeur %{width}x%{height} pixels. Het zal getoond worden aan gebruikers met kleinere schermen."
+        logo_icon_instructions_text_with_dimensions_no_placing: ~
         cover_photo_visibility: "Cover afbeelding wordt getoond op de homepagina voor gebruikers die niet ingelogd zijn."
         cover_photo_instructions_text_with_dimensions: "De afbeelding zal verkleind worden naar %{width}x%{height} pixels. Grote afbeeldingen zullen in twee gesplitst worden. %{see_how_it_looks_like}"
         small_cover_photo_visibility: "Kleine cover afbeeldingen worden op alle pagina's getoond behalve op de homepagina voor gebruikers die niet ingelogd zijn."
@@ -1573,6 +1575,8 @@ nl:
       you_will_be_charged: "Je bestelling zal pas afgerekend worden als %{author} de transactie accepteert. Dit moet binnen %{expiration_period} dagen gebeuren. Als %{author} de transactie afwijst of niet reageert, worden er geen kosten gerekend."
       day: dag
       days: dagen
+      night: ~
+      nights: ~
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Overzicht.
@@ -1998,7 +2002,9 @@ nl:
   transactions:
     initiate:
       booked_days: ~
+      booked_nights: ~
       price_per_day: "Prijs per dag:"
+      price_per_night: ~
       quantity: "Hoeveelheid:"
       subtotal: "Subtotaal:"
       shipping-price: "Verzenden:"

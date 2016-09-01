@@ -1579,6 +1579,8 @@ fr-CA:
       you_will_be_charged: "Vous ne serez prélevé que si %{author} accepte la transaction. %{author} doit accepter la transaction sous %{expiration_period} jours. Si %{author} refuse ou ne répond pas, aucun prélèvement ne sera effectué."
       day: jour
       days: jours
+      night: ~
+      nights: ~
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Lire.
@@ -2004,7 +2006,9 @@ fr-CA:
   transactions:
     initiate:
       booked_days: ~
+      booked_nights: ~
       price_per_day: ~
+      price_per_night: ~
       quantity: ~
       subtotal: "Sous-total : "
       shipping-price: "Frais de livraison : "

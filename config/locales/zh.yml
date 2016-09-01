@@ -1580,6 +1580,8 @@ zh:
       you_will_be_charged: "你只有在%{author}接受交易后才会被收费。%{author}需要在%{expiration_period}天内接受交易。如果%{author}拒绝或者没有响应，不会产生任何费用。"
       day: 日
       days: 天
+      night: ~
+      nights: ~
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: 查看。
@@ -2012,7 +2014,9 @@ zh:
   transactions:
     initiate:
       booked_days: "预订的天数:"
+      booked_nights: ~
       price_per_day: "每天的价格:"
+      price_per_night: ~
       quantity: "数量:"
       subtotal: "小结:"
       shipping-price: "运费:"

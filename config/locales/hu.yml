@@ -1596,6 +1596,8 @@ hu:
       you_will_be_charged: "Ön akkor fog fizetni ha %{author} elfogadja a tranzakciót. %{expiration_period} napon belül kell %{author} felhasználónak elfogadnia a tranzakciót. Amennyiben %{author} felhasználó elutasítja a tranzakciót vagy nem válaszol, nem kerül sor utalásra."
       day: day
       days: napok
+      night: ~
+      nights: ~
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Nézet
@@ -2030,7 +2032,9 @@ hu:
   transactions:
     initiate:
       booked_days: "Lefoglalt napok:"
+      booked_nights: ~
       price_per_day: "Napi díja"
+      price_per_night: ~
       quantity: "Mennyisége:"
       subtotal: "Végösszeg:"
       shipping-price: "Szállítás:"

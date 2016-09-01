@@ -1595,6 +1595,8 @@ nb:
       you_will_be_charged: "Du blir belastet kun dersom %{author} aksepterer transaksjonen. %{author} må akseptere transaksjonen innen %{expiration_period} dager. Hvis %{author} avviser eller ikke svarer, forekommer ingen kostnad."
       day: dag
       days: dager
+      night: ~
+      nights: ~
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Vis.
@@ -2033,7 +2035,9 @@ nb:
   transactions:
     initiate:
       booked_days: "Dager booket:"
+      booked_nights: ~
       price_per_day: "Pris per dag:"
+      price_per_night: ~
       quantity: "Antall:"
       subtotal: "Delsum:"
       shipping-price: "Frakt:"

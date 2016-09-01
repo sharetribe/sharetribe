@@ -1593,6 +1593,8 @@ sv:
       you_will_be_charged: "OBS! Du debiteras endast om %{author} accepterar ditt köp. %{author} behöver acceptera köpet inom %{expiration_period} dagar. Om %{author} avvisar eller inte svarar så sker ingen debitering."
       day: dag
       days: dagar
+      night: ~
+      nights: ~
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Visa
@@ -2031,7 +2033,9 @@ sv:
   transactions:
     initiate:
       booked_days: "Bokade dagar:"
+      booked_nights: ~
       price_per_day: "Pris per dag:"
+      price_per_night: ~
       quantity: "Antal:"
       subtotal: "Delsumma:"
       shipping-price: "Frakt:"

@@ -96,7 +96,9 @@ es-ES:
         community_custom_color1: "Color principal"
         new_listing_button_custom_color: "Color del botón de \"Publicar Anuncio\""
         logo_instructions_text_with_dimensions: "El logo debe tener una resolución de %{width}x%{height} pixeles. Se mostrará a los usuarios con pantallas más grandes."
+        logo_instructions_text_with_dimensions_no_placing: "El logo debe tener una resolución de %{width}x%{height} pixeles."
         logo_icon_instructions_text_with_dimensions: "Este logo cuadrado se mostrará cuando las personas compartan tu sitio en Facebook, cuando vean tu sitio desde un dispositivo móvil o cuando guarden un acceso directo a tu sitio en sus dispositivos móviles. Las dimensiones deben ser (al menos) %{width}x%{height}px."
+        logo_icon_instructions_text_with_dimensions_no_placing: "Este logo cuadrado se mostrará cuando las personas compartan tu sitio en Facebook o cuando guarden un acceso directo a tu sitio en sus dispositivos móviles. Las dimensiones deben ser (al menos) %{width}x%{height} pixeles."
         cover_photo_visibility: "La foto de portada se muestra en la home a usuarios que todavía no han iniciado sesión."
         cover_photo_instructions_text_with_dimensions: "La foto será redimensionada a un tamaño de %{width}x%{height} pixeles y las imágenes más altas se cortarán en el medio. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "La foto de portada pequeña se muestra en todas las páginas excepto en la de inicio para los usuarios que no han iniciado sesión."
@@ -1593,6 +1595,8 @@ es-ES:
       you_will_be_charged: "Se te cobrará esta cantidad únicamente si %{author} acepta la transacción. %{author} necesita aceptar la transacción en un período de %{expiration_period} días.  En caso de que %{author} rechace tu solicitud o no responda, no se hará ningún cobro."
       day: día
       days: días
+      night: ~
+      nights: ~
       invalid_parameters: "Valores inválidos para una transacción nueva"
     transaction_agreement_checkbox:
       read_more: Ver
@@ -2031,7 +2035,9 @@ es-ES:
   transactions:
     initiate:
       booked_days: "Días reservados:"
+      booked_nights: ~
       price_per_day: "Precio por día:"
+      price_per_night: ~
       quantity: "Cantidad:"
       subtotal: "Subtotal:"
       shipping-price: "Envío:"

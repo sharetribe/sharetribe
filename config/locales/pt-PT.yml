@@ -1560,6 +1560,8 @@ pt-PT:
       you_will_be_charged: ~
       day: ~
       days: ~
+      night: ~
+      nights: ~
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: ~
@@ -1979,7 +1981,9 @@ pt-PT:
   transactions:
     initiate:
       booked_days: ~
+      booked_nights: ~
       price_per_day: ~
+      price_per_night: ~
       quantity: ~
       subtotal: ~
       shipping-price: ~

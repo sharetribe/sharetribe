@@ -1583,6 +1583,8 @@ ka:
       you_will_be_charged: "თქვენ დაგერიცხებათ თანხა, მხოლოდ მაშინ, როცა %{author} დაადასტურებს ტრანზაქციას. %{author} საჭიროა დაადასტუროს ტრანზაქცია %{expiration_period} დღის განმავლობაში. თუ %{author} უარყოფს ან არ უპასუხებს მაშინ დარიცხვა არ მოხდება."
       day: დღე
       days: დღეები
+      night: ~
+      nights: ~
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: ნახვა
@@ -2015,7 +2017,9 @@ ka:
   transactions:
     initiate:
       booked_days: "დაჯავშნილი დღეები:"
+      booked_nights: ~
       price_per_day: "ფასი დღიურად"
+      price_per_night: ~
       quantity: რაოდენობა
       subtotal: "ჯამი:"
       shipping-price: "ტრანსპორტირება:"

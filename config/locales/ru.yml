@@ -106,7 +106,9 @@ ru:
         community_custom_color1: "Основной цвет"
         new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: "Лого для desktop должен быть %{width} x %{height} px. Он будет показан пользователям с большими экранами."
+        logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "Этот квадратный лого будет показан когда люди делятся вашим проектом в Фейсбук, когда они просматривают ваш сайт на мобильных устройствах или когда они запоминают ваш сайт на главной странице их мобильного устройства. Размеры должны быть (по крайней мере) %{width}x%{height} px."
+        logo_icon_instructions_text_with_dimensions_no_placing: ~
         cover_photo_visibility: "Обложка с фото будет показана на главной странице для не зарегистрированных пользователей."
         cover_photo_instructions_text_with_dimensions: "Фото будут изменено до размера %{width}x%{height} пикселей а более большие изображения будут обрезаны до среднего размера %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Уменьшенная обложка с фото будет показана на всех страницах исключаю главную страницу для не зарегистрированных пользователей."
@@ -1583,6 +1585,8 @@ ru:
       you_will_be_charged: "Сумма будет списана только если %{author} примет транзакцию. %{author} должен принять транзакцию в течении %{expiration_period} дней. Если %{author} отменит транзакцию или не ответит, списание не произойдет."
       day: день
       days: дней
+      night: ~
+      nights: ~
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Вид.
@@ -2033,7 +2037,9 @@ ru:
   transactions:
     initiate:
       booked_days: "Забронировано дней:"
+      booked_nights: ~
       price_per_day: "Цена за день:"
+      price_per_night: ~
       quantity: "Количество:"
       subtotal: "Предварительный итог:"
       shipping-price: "Доставка:"

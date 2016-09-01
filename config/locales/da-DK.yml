@@ -1591,6 +1591,8 @@ da-DK:
       you_will_be_charged: "Ordren er først gennemført, når %{author} godkender ordren. Hvis %{author} afviser eller ikke godkender ordren inden for %{expiration_period} dage, bliver der ikke trukket noget beløb."
       day: dag
       days: dage
+      night: ~
+      nights: ~
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Vis.
@@ -2029,7 +2031,9 @@ da-DK:
   transactions:
     initiate:
       booked_days: "Bookede dage:"
+      booked_nights: ~
       price_per_day: "Pris pr. dag:"
+      price_per_night: ~
       quantity: "Mængde:"
       subtotal: "Subtotal:"
       shipping-price: "Porto:"

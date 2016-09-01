@@ -1600,6 +1600,8 @@ cs:
       you_will_be_charged: "Platba Vám bude zaúčtována pouze, když uživatel %{author} přijme podmínky transakce. Uživatel %{author} musí tyto podmínky přijmout do %{expiration_period} dní. Pokud tak uživatel %{author} neučiní či podmínky odmítne, tak platba nebude provedena."
       day: den
       days: dní
+      night: ~
+      nights: ~
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Zobrazit.
@@ -2044,7 +2046,9 @@ cs:
   transactions:
     initiate:
       booked_days: "Zarezervované dny:"
+      booked_nights: ~
       price_per_day: "Cena za den:"
+      price_per_night: ~
       quantity: "Množství:"
       subtotal: "Mezisoučet:"
       shipping-price: "Doprava:"

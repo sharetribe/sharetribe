@@ -1597,6 +1597,8 @@ pt-BR:
           %{author} precisa aceitar a transação em no máximo %{expiration_period} dias. Se %{author} rejeitar ou não responder neste período você não será cobrado.
       day: dia
       days: dias
+      night: ~
+      nights: ~
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Ver.
@@ -2035,7 +2037,9 @@ pt-BR:
   transactions:
     initiate:
       booked_days: "Dias reservados:"
+      booked_nights: ~
       price_per_day: "Preço por dia:"
+      price_per_night: ~
       quantity: "Quantidade:"
       subtotal: "Sub-total:"
       shipping-price: "Envio:"

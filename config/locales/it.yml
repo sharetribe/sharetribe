@@ -1568,6 +1568,8 @@ it:
       you_will_be_charged: "Il pagamento sarà convalidato solo se %{author} accetterà il pagamento. %{author} ha tempo %{expiration_period} giorni per convalidare. Se %{author} rifiuta o non risponde il pagamento non sarà effettuato."
       day: giorno
       days: giorni
+      night: ~
+      nights: ~
       invalid_parameters: "La nuova transazione non è andata a buon fine, per causa di un errore."
     transaction_agreement_checkbox:
       read_more: Mostra
@@ -2002,7 +2004,9 @@ it:
   transactions:
     initiate:
       booked_days: "Giorni prenotati:"
+      booked_nights: ~
       price_per_day: "Prezzo al giorno:"
+      price_per_night: ~
       quantity: "Quantità:"
       subtotal: "Subtotale:"
       shipping-price: "Spedizione:"
@@ -2019,7 +2023,7 @@ it:
       menu: Menù
       more: Altro..
       search_placeholder: Cerca...
-      search_location_placeholder: ~
+      search_location_placeholder: Località
       user: ~
       inbox: Messaggi
       profile: Profilo

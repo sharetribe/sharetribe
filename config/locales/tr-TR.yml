@@ -1576,6 +1576,8 @@ tr-TR:
       you_will_be_charged: "Ödeme sadece %{author} kişisi işlemi kabul ettiğinde hesabınızdan düşülür. %{author} işlemi %{expiration_period} gün içerisinde kabul etmelidir. %{author} reddeder ya da cevap vermezse, hesabınızdan kesinti olmayacaktır."
       day: gün
       days: günler
+      night: ~
+      nights: ~
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Görüntüle.
@@ -1999,7 +2001,9 @@ tr-TR:
   transactions:
     initiate:
       booked_days: ~
+      booked_nights: ~
       price_per_day: "Günlük ücret:"
+      price_per_night: ~
       quantity: "Adet:"
       subtotal: "Ara Toplam:"
       shipping-price: "Kargo:"

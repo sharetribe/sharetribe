@@ -1605,6 +1605,8 @@ sk-SK:
       you_will_be_charged: "Platba Vám bude zaúčtovaná, keď užívateľ %{author} prijme podmienky transakcie. Užívateľ %{author} musí tieto podmienky prijať do %{expiration_period} dní. Pokiaľ tak užívateľ %{author} neučiní, či podmienky odmietne, tak platba nebude prevedená."
       day: deň
       days: dni
+      night: ~
+      nights: ~
       invalid_parameters: "Nesprávne hodnoty pre novú transakciu"
     transaction_agreement_checkbox:
       read_more: Zobraziť.
@@ -2049,7 +2051,9 @@ sk-SK:
   transactions:
     initiate:
       booked_days: "Rezervované dni:"
+      booked_nights: ~
       price_per_day: "Cena za deň:"
+      price_per_night: ~
       quantity: "Množstvo:"
       subtotal: "Medzisúčet:"
       shipping-price: "Doprava:"
