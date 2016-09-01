@@ -6,35 +6,34 @@ class SitemapController < ActionController::Metal
   include ActionController::RackDelegation
   include ActionController::Rescue
   include ActionController::Head
+  include ActionController::Redirecting
 
   def sitemap
-    render_site_map
+    return unless can_show_sitemap?
+
+    asset_host = APP_CONFIG.asset_host
+
+    if asset_host.present?
+      redirect_to ActionController::Base.helpers.asset_url("/sitemap/generate.xml")
+    else
+      render_site_map
+    end
   end
 
-  def find_open_listings(community_id)
-    Listing
-      .currently_open
-      .where(community_id: community_id)
-      .limit(max_sitemap_links)
-      .pluck(:id, :title, :updated_at)
-      .map { |(id, title, updated_at)|
-          {id: Listing.to_param(id, title), lastmod: updated_at}
-      }
+  def generate
+    return unless can_show_sitemap?
+
+    render_site_map
   end
 
   private
 
+  def community
+    request.env[:current_marketplace]
+  end
+
   def render_site_map
-    community = request.env[:current_marketplace]
-    if community.deleted?
-      head :not_found
-      return
-    end
-    if community.private?
-      head :forbidden
-      return
-    end
-    sitemap = from_cache(community.id) do
+    sitemap = from_cache(community.id, max_sitemap_links) do
       adapter = SitemapGenerator::NeverWriteAdapter.new
 
       open_listings = find_open_listings(community.id)
@@ -51,11 +50,23 @@ class SitemapController < ActionController::Metal
       adapter.data
     end
 
-    send_data(sitemap)
+    send_data(sitemap, filename: "sitemap.xml")
   end
 
-  def from_cache(community_id, &block)
-    Rails.cache.fetch("sitemaps/#{community_id}", expires_in: 24.hours, &block)
+  def find_open_listings(community_id)
+    Listing
+      .currently_open
+      .where(community_id: community_id)
+      .limit(max_sitemap_links)
+      .pluck(:id, :title, :updated_at)
+      .map { |(id, title, updated_at)|
+          {id: Listing.to_param(id, title), lastmod: updated_at}
+      }
+  end
+
+  def from_cache(community_id, limit, &block)
+    key = "sitemaps/#{community_id}/#{limit}"
+    Rails.cache.fetch(key, expires_in: 24.hours, &block)
   end
 
   def max_sitemap_links
@@ -66,6 +77,18 @@ class SitemapController < ActionController::Metal
       [configured_limit.to_i, max_limit].min
     else
       max_limit
+    end
+  end
+
+  def can_show_sitemap?
+    if community.deleted?
+      head :not_found
+      false
+    elsif community.private?
+      head :forbidden
+      false
+    else
+      true
     end
   end
 
