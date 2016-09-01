@@ -20,7 +20,7 @@ class OldNightUnitToCustomUnit < ActiveRecord::Migration
       execute("
         SELECT tx.community_id, tx.id FROM transactions tx
         LEFT JOIN bookings ON bookings.transaction_id = tx.id
-        WHERE unit_type = 'night' AND bookings.id IS NULL
+        WHERE tx.unit_type = 'night' AND bookings.id IS NULL
       ")
 
     transaction_res_array = transaction_res.to_a
