@@ -49,6 +49,10 @@ class IntApi::MarketplacesController < ApplicationController
     auth_token = UserService::API::AuthTokens.create_login_token(user[:id])
     url = URLUtils.append_query_param(marketplace[:url], "auth", auth_token[:token])
 
+    # Enable specific features for all new trials
+    FeatureFlagService::API::Api.features.enable(community_id: marketplace[:id], person_id: user[:id], features: [:topbar_v1])
+    FeatureFlagService::API::Api.features.enable(community_id: marketplace[:id], features: [:topbar_v1])
+
     # TODO handle error cases with proper response
 
     render status: 201, json: {"marketplace_url" => url, "marketplace_id" => marketplace[:id]}
