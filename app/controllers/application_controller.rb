@@ -418,6 +418,20 @@ class ApplicationController < ActionController::Base
     @minutes_to_maintenance = NextMaintenance.minutes_to(now)
   end
 
+  # Respond to a MissingTemplate error with 404.
+  # This prevents the server from responding with a 500
+  # in cases where a template for a requested format is
+  # not found.
+  rescue_from(ActionView::MissingTemplate) do |e|
+    logger.info(
+      "An ActionView::MissingTemplate error occurred, responding with 404",
+      :missing_template,
+      requested_url: request.original_url
+    )
+    render "/errors/status_404", status: 404, content_type: "text/html", locals: { status: 404 }
+  end
+
+
   private
 
   # Override basic instrumentation and provide additional info for
