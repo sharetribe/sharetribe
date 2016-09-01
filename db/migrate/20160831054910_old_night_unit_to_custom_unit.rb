@@ -90,7 +90,7 @@ class OldNightUnitToCustomUnit < ActiveRecord::Migration
     end
 
     # Invalidate cache
-    transaction_res_array.map { |(community_id)|
+    community_ids.map { |(community_id)|
       Rails.cache.delete("/translation_service/community/#{community_id}")
     }
   end
@@ -112,7 +112,7 @@ class OldNightUnitToCustomUnit < ActiveRecord::Migration
         []
       )
 
-      tr_keys = transactions_to_change.flat_map { |row| ["'#{row["unit_tr_key"]}'", "'#{row["unit_selector_tr_key"]}'"] }
+      tr_keys = transactions_to_change.flat_map { |row| ["'#{row["unit_tr_key"]}'", "'#{row["unit_selector_tr_key"]}'"] }.uniq
       exec_delete(
         "DELETE FROM community_translations WHERE translation_key IN (#{tr_keys.join(',')})",
         "Rollback translations",
