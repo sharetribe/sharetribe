@@ -70,11 +70,17 @@ class OldNightUnitToCustomUnit < ActiveRecord::Migration
         nil
       end
 
-    update_tx_sql_statements = transaction_res_array.map { |(community_id, tx_id)|
+    tx_ids_by_community = transaction_res_array.reduce({}) { |memo, (community_id, tx_id)|
+      memo[community_id] ||= []
+      memo[community_id].push(tx_id)
+      memo
+    }
+
+    update_tx_sql_statements = tx_ids_by_community.map { |community_id, tx_ids|
       unit_tr_key = translation_data[community_id][:unit_tr_key]
       unit_selector_tr_key = translation_data[community_id][:unit_selector_tr_key]
 
-      "UPDATE transactions SET unit_type = 'custom', unit_tr_key = '#{unit_tr_key}', unit_selector_tr_key = '#{unit_selector_tr_key}' WHERE transactions.id = #{tx_id}"
+      "UPDATE transactions SET unit_type = 'custom', unit_tr_key = '#{unit_tr_key}', unit_selector_tr_key = '#{unit_selector_tr_key}' WHERE transactions.id IN (#{tx_ids.join(',')}) AND transactions.community_id = #{community_id}"
     }
 
     ActiveRecord::Base.transaction do
