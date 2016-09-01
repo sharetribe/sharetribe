@@ -167,7 +167,7 @@ module TransactionService::Store::Transaction
     if m.booking
       booking_data = EntityUtils.model_to_hash(m.booking)
       hash.merge(booking: Booking.call(
-                  booking_data.merge(duration: booking_duration(booking_data, hash[:unit_type].to_sym))))
+                  booking_data.merge(duration: m.listing_quantity)))
     else
       hash
     end
@@ -200,14 +200,6 @@ module TransactionService::Store::Transaction
 
   def build_booking(tx_model, tx_data)
     if is_booking?(tx_data)
-
-      # TODO What's the correct place for the booking calculation logic?
-      # Make sure listing_quantity equals duration
-      duration = booking_duration(tx_data[:booking_fields], tx_data[:unit_type])
-      if duration != tx_model.listing_quantity
-        raise ArgumentException.new("Listing quantity (#{tx_listing_quantity}) must be equal to booking duration in days/nigths (#{duration})")
-      end
-
       start_on = tx_data[:booking_fields][:start_on]
       end_on = tx_data[:booking_fields][:end_on]
       tx_model.build_booking({start_on: start_on, end_on: end_on})
@@ -216,19 +208,6 @@ module TransactionService::Store::Transaction
 
   def is_booking?(tx_data)
     tx_data[:booking_fields] && tx_data[:booking_fields][:start_on] && tx_data[:booking_fields][:end_on]
-  end
-
-  def booking_duration(booking_data, unit_type)
-    start_on = booking_data[:start_on]
-    end_on = booking_data[:end_on]
-
-    if unit_type == :day
-      DateUtils.duration_days(start_on, end_on)
-    elsif unit_type == :night
-      DateUtils.duration_nights(start_on, end_on)
-    else
-      raise ArgumentError.new("Unknown unit_type for a booking: #{unit_type}")
-    end
   end
 
   def do_mark_as_unseen_by_other(tx_model, person_id)
