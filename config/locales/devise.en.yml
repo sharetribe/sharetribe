@@ -51,7 +51,7 @@ en:
       failure: "Could not authorize you from %{kind} because \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: "Confirmation instructions"
+        subject: "Confirmation instructions to join %{service_name}"
       reset_password_instructions:
         subject: "Reset password instructions"
       unlock_instructions:
