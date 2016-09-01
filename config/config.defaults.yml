@@ -387,6 +387,9 @@ default: &default_settings
   #
   max_sitemap_links: 5000
 
+  # Turn `enable_sitemap` to `false` to disable the sitemap
+  enable_sitemap: true
+
 production: &production_settings
   <<: *default_settings
 

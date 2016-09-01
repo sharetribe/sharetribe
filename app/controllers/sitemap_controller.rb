@@ -58,6 +58,7 @@ class SitemapController < ActionController::Metal
       .currently_open
       .where(community_id: community_id)
       .limit(max_sitemap_links)
+      .order(sort_date: :desc)
       .pluck(:id, :title, :updated_at)
       .map { |(id, title, updated_at)|
           {id: Listing.to_param(id, title), lastmod: updated_at}
@@ -81,7 +82,13 @@ class SitemapController < ActionController::Metal
   end
 
   def can_show_sitemap?
-    if community.deleted?
+    if APP_CONFIG.enable_sitemap&.to_s != "true"
+      render_not_found
+      false
+    elsif community.nil?
+      render_not_found
+      false
+    elsif community.deleted?
       head :not_found
       false
     elsif community.private?
@@ -92,4 +99,7 @@ class SitemapController < ActionController::Metal
     end
   end
 
+  def render_not_found(msg = "Not found")
+    redirect_to "/404"
+  end
 end
