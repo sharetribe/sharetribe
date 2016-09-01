@@ -2036,6 +2036,12 @@ en:
     initiate:
       booked_days: "Booked days:"
       booked_nights: "Booked nights:"
+      booked_days_label:
+        one: "Booked day:"
+        other: "Booked days:"
+      booked_nights_label:
+        one: "Booked night:"
+        other: "Booked nights:"
       price_per_day: "Price per day:"
       price_per_night: "Price per night:"
       quantity: "Quantity:"

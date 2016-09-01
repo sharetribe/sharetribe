@@ -12,9 +12,9 @@
     .initiate-transaction-booking-wrapper
       %span.initiate-transaction-booking-label
         - if unit_type == :day
-          = t("transactions.initiate.booked_days")
+          = use_new_translation("transactions.initiate.booked_days_label", count: duration).or_fallback_to("transactions.initiate.booked_days")
         - else
-          = t("transactions.initiate.booked_nights")
+          = use_new_translation("transactions.initiate.booked_nights_label", count: duration).or_fallback_to("transactions.initiate.booked_nights")
       %span.initiate-transaction-booking-value
         = l start_on, format: :long_with_abbr_day_name
         = "-"
