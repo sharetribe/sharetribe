@@ -37,6 +37,7 @@
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.9.0",
     "i18n-js": "http://github.com/sharetribe/i18n-js/archive/interpolation-mode.tar.gz",
+    "immutable": "https://registry.npmjs.org/immutable/-/immutable-3.8.1.tgz",
     "imports-loader": "0.6.5",
     "loader-utils": "0.2.15",
     "lodash": "4.15.0",
@@ -55,6 +56,7 @@
     "redux-thunk": "2.1.0",
     "resolve-url-loader": "1.6.0",
     "style-loader": "0.13.1",
+    "transit-js": "^0.8.846",
     "webpack": "1.13.1",
     "whatwg-fetch": "1.0.0"
   },
