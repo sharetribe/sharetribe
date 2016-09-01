@@ -22,7 +22,8 @@ module TransactionViewUtils
     [:subtotal, :money],
     [:total, :money],
     [:shipping_price, :money],
-    [:total_label, :string])
+    [:total_label, :string],
+    [:unit_type, :symbol])
 
 
   module_function

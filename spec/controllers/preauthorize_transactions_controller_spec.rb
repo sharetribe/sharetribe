@@ -110,10 +110,10 @@ describe PreauthorizeTransactionsController::Validator do
       it "passes for valid booking dates" do
         params = {
           tx_params: {
-            start_on: 1.day.from_now,
-            end_on: 2.days.from_now
+            start_on: 1.day.from_now.to_date,
+            end_on: 2.days.from_now.to_date
           },
-          is_booking: true
+          quantity_selector: :day
         }
 
         expect(validator.validate_booking(params).success).to eq(true)
@@ -122,7 +122,7 @@ describe PreauthorizeTransactionsController::Validator do
       it "passes if booking is not in use" do
         params = {
           tx_params: {},
-          is_booking: false
+          quantity_selector: :number
         }
 
         expect(validator.validate_booking(params).success).to eq(true)
@@ -133,20 +133,40 @@ describe PreauthorizeTransactionsController::Validator do
       it "fails if start date is after end date" do
         params = {
           tx_params: {
-            start_on: 1.day.from_now,
-            end_on: 2.days.ago
+            start_on: 1.day.from_now.to_date,
+            end_on: 2.days.ago.to_date
           },
-          is_booking: true
+          quantity_selector: :day
         }
 
         expect(validator.validate_booking(params).data[:code]).to eq(:end_cant_be_before_start)
-
       end
 
-      it "fails if start date or end date is missing" do
+      it "fails if start date equals end date for night selector" do
+        params = {
+          tx_params: {
+            start_on: 1.day.from_now.to_date,
+            end_on: 1.day.from_now.to_date
+          },
+          quantity_selector: :night
+        }
+
+        expect(validator.validate_booking(params).data[:code]).to eq(:at_least_one_night_required)
+      end
+
+      it "fails if start date or end date is missing for day selector" do
         params = {
           tx_params: {},
-          is_booking: true
+          quantity_selector: :day
+        }
+
+        expect(validator.validate_booking(params).data[:code]).to eq(:dates_missing)
+      end
+
+      it "fails if start date or end date is missing for night selector" do
+        params = {
+          tx_params: {},
+          quantity_selector: :night
         }
 
         expect(validator.validate_booking(params).data[:code]).to eq(:dates_missing)

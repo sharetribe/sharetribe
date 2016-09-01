@@ -45,7 +45,7 @@ module ListingService::Store::Shape
     [:kind, :to_symbol, const_value: :time],
     [:name_tr_key],
     [:selector_tr_key],
-    [:quantity_selector, :to_symbol, one_of: ["".to_sym, :none, :number, :day]] # in the future include :hour, :week:, :night ,:month etc.
+    [:quantity_selector, :to_symbol, one_of: ["".to_sym, :none, :number, :day, :night]] # in the future include :hour, :week:,:month etc.
   )
 
   CustomUnit = EntityUtils.define_builder(
@@ -53,7 +53,7 @@ module ListingService::Store::Shape
     [:kind, :to_symbol, one_of: [:time, :quantity]],
     [:name_tr_key, :string, :mandatory],
     [:selector_tr_key, :string, :mandatory],
-    [:quantity_selector, :to_symbol, one_of: ["".to_sym, :none, :number, :day]] # in the future include :hour, :week:, :night ,:month etc.
+    [:quantity_selector, :to_symbol, one_of: ["".to_sym, :none, :number, :day, :night]] # in the future include :hour, :week:, :month etc.
   )
 
   DEFAULT_BASENAME = 'order_type'
