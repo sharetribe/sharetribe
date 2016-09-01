@@ -1,0 +1,6 @@
+// Search page
+const CURRENT_PAGE_UPDATE = 'SEARCH::CURRENT_PAGE_UPDATE';
+
+export {
+  CURRENT_PAGE_UPDATE,
+};
