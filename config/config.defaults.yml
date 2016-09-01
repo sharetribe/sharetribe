@@ -381,7 +381,7 @@ default: &default_settings
 
   # Maximum number of links in sitemap.xml.
   #
-  # The default number is 5000. Increasing the limit may affect on performance.
+  # The default number is 5000. Increasing the limit may affect performance.
   #
   # The hard coded max limit is 50000.
   #
