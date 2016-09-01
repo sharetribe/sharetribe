@@ -5,11 +5,13 @@ import ReactDOM from 'react-dom';
 import OnboardingTopBar from './OnboardingTopBarApp';
 import OnboardingGuideApp from './OnboardingGuideApp';
 import TopbarApp from './TopbarApp';
+import SearchPageApp from './SearchPageApp';
 
 ReactOnRails.register({
   OnboardingGuideApp,
   OnboardingTopBar,
   TopbarApp,
+  SearchPageApp,
 });
 
 ReactOnRails.registerStore({
