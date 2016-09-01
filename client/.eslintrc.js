@@ -153,7 +153,14 @@ module.exports = {
       allowArrayStart: true,
     }],
     'new-cap': 0,
-    'babel/new-cap': 2,
+    'babel/new-cap': [2, {
+      "capIsNewExceptions": [
+        "Immutable.List",
+        "Immutable.Map",
+        "Immutable.Record",
+        "Immutable.Set",
+        ]
+    }],
     'new-parens': 2,
     'newline-per-chained-call': 2,
     'no-array-constructor': 2,
