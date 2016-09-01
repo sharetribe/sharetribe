@@ -138,8 +138,6 @@ class PeopleController < Devise::RegistrationsController
       session[:invitation_code] = nil
     end
 
-    session[:person_id] = @person.id
-
     # If invite was used, reduce usages left
     invitation.use_once! if invitation.present?
 
@@ -192,7 +190,6 @@ class PeopleController < Devise::RegistrationsController
 
     @person.store_picture_from_facebook
 
-    session[:person_id] = @person.id
     sign_in(resource_name, @person)
     flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(@person.given_name_or_username, person_path(@person))).html_safe
 

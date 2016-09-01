@@ -30,7 +30,6 @@ class TermsController < ApplicationController
     end
 
     sign_in @current_user
-    session[:person_id] = session[:temp_person_id]
     session[:temp_cookie] = session[:temp_person_id] = nil
     session[:temp_community_id] = nil
     session[:consent_changed] = nil
