@@ -25,30 +25,22 @@ RSpec.describe SitemapController, type: :controller do
 
     it "contains root url" do
       get :sitemap, {}, valid_session
-      gzipped = response.body
-      ungzipped = ActiveSupport::Gzip.decompress(gzipped)
-      expect(ungzipped).to match("<loc>http[^<]*"+@community.ident+"[^<]*</loc>")
+      expect(response.body).to match("<loc>http[^<]*"+@community.ident+"[^<]*</loc>")
     end
 
     it "contains listing" do
       get :sitemap, {}, valid_session
-      gzipped = response.body
-      ungzipped = ActiveSupport::Gzip.decompress(gzipped)
-      expect(ungzipped).to match(Regexp.new("listings/"+@listing.id.to_s))
+      expect(response.body).to match(Regexp.new("listings/"+@listing.id.to_s))
     end
 
     it "contains listing's nice name" do
       get :sitemap, {}, valid_session
-      gzipped = response.body
-      ungzipped = ActiveSupport::Gzip.decompress(gzipped)
-      expect(ungzipped).to match(Regexp.new("listings/"+@listing.to_param))
+      expect(response.body).to match(Regexp.new("listings/"+@listing.to_param))
     end
 
     it "doesn't contain other community listing" do
       get :sitemap, {}, valid_session
-      gzipped = response.body
-      ungzipped = ActiveSupport::Gzip.decompress(gzipped)
-      expect(ungzipped).to_not match(Regexp.new("listings/"+@listing2.id.to_s))
+      expect(response.body).to_not match(Regexp.new("listings/"+@listing2.id.to_s))
     end
 
     it "if community is private returns forbidden" do

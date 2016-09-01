@@ -11,15 +11,14 @@ class SitemapController < ActionController::Metal
     render_site_map
   end
 
-  def self.find_open_listings(community_id)
+  def find_open_listings(community_id)
     Listing
       .currently_open
       .where(community_id: community_id)
-      .limit(SitemapGenerator::MAX_SITEMAP_LINKS)
+      .limit(max_sitemap_links)
       .pluck(:id, :title, :updated_at)
-      .map { |l|
-          # this is from Listing.to_param: "#{id}-#{title.to_url}"
-          {id: "#{l[0]}-#{l[1].to_url}", lastmod: l[2]}
+      .map { |(id, title, updated_at)|
+          {id: Listing.to_param(id, title), lastmod: updated_at}
       }
   end
 
@@ -35,27 +34,38 @@ class SitemapController < ActionController::Metal
       head :forbidden
       return
     end
-    respond_to do |format|
+    sitemap = from_cache(community.id) do
+      adapter = SitemapGenerator::NeverWriteAdapter.new
 
-      compressed_data = Rails.cache.fetch("sitemaps/#{community.id}", expires_in: 24.hours) do
-        adapter = SitemapGenerator::NeverWriteAdapter.new
+      open_listings = find_open_listings(community.id)
 
-        community_id = community.id
-
-        SitemapGenerator::Sitemap.create(
-              :default_host => request.base_url,
-              :verbose => false,
-              :adapter => adapter) do
-                SitemapController.find_open_listings(community_id).each do |l|
-                  add listing_path(id: l[:id]), :lastmod => l[:updated_at]
-                end
+      SitemapGenerator::Sitemap.create(
+            default_host: request.base_url,
+            verbose: false,
+            adapter: adapter) do
+        open_listings.each do |l|
+          add listing_path(id: l[:id]), lastmod: l[:lastmod]
         end
-
-        compressed_data = ActiveSupport::Gzip.compress(adapter.data)
-        compressed_data
       end
-      format.xml_gz { send_data compressed_data }
-      format.html { send_data compressed_data }
+
+      adapter.data
+    end
+
+    send_data(sitemap)
+  end
+
+  def from_cache(community_id, &block)
+    Rails.cache.fetch("sitemaps/#{community_id}", expires_in: 24.hours, &block)
+  end
+
+  def max_sitemap_links
+    configured_limit = APP_CONFIG.max_sitemap_links
+    max_limit = SitemapGenerator::MAX_SITEMAP_LINKS
+
+    if configured_limit.present?
+      [configured_limit.to_i, max_limit].min
+    else
+      max_limit
     end
   end
 
