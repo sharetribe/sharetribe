@@ -777,7 +777,7 @@ fr:
       show_thread: "Voir la conversation"
     confirmation_instructions:
       confirmation_instructions_signature: "Cordialement, <br/> L'équipe %{service_name}"
-      need_to_confirm: "Confirmez votre votre adresse email en cliquant sur le bouton ci-dessous."
+      need_to_confirm: "Pour rejoindre %{service_name}, confirmez votre votre adresse email en cliquant sur le bouton ci-dessous."
       confirmation_link_text: "Confirmer mon adresse email"
       or_paste_link: "Vous pouvez également copier le lien suivant dans la barre d'adresse de votre navigateur : "
     common:
@@ -1595,8 +1595,8 @@ fr:
       you_will_be_charged: "Vous ne serez prélevé que si %{author} accepte la transaction. %{author} doit accepter la transaction sous %{expiration_period} jours. Si %{author} refuse ou ne répond pas, aucun prélèvement ne sera effectué."
       day: jour
       days: jours
-      night: ~
-      nights: ~
+      night: nuit
+      nights: nuits
       invalid_parameters: "Valeurs non correctes pour une nouvelle transaction"
     transaction_agreement_checkbox:
       read_more: Lire.
@@ -2035,9 +2035,9 @@ fr:
   transactions:
     initiate:
       booked_days: "Jours réservés : "
-      booked_nights: ~
+      booked_nights: "Nuits réservées :"
       price_per_day: "Prix par jour : "
-      price_per_night: ~
+      price_per_night: "Prix par nuit :"
       quantity: "Quantité : "
       subtotal: "Sous-total : "
       shipping-price: "Frais de livraison : "

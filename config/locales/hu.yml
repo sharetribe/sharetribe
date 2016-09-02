@@ -964,7 +964,7 @@ hu:
       kassi_does_not_currently_work_without_javascript: "%{service_name} nem tud megfelelően működni JavaScript nélkül. A böngésző beállításokban engedélyezze a JavaSript-et és frissítse az oldalt."
       contact_us: "Lépjen velünk kapcsolatba"
       send_feedback: "Üzenet küldése"
-      your_feedback_to_admins: ~
+      your_feedback_to_admins: "Üzenet a %{service_name} csapatának"
     send: Küldés
     your_email_address: "Az ön email címe"
   errors:
@@ -1157,7 +1157,7 @@ hu:
     application:
       join_this_community: "Csatlakozás a piactérhez"
       read_more: Bővebben
-      feedback: ~
+      feedback: "Üzenet a %{service_name} csapatának"
       dont_use_to_contact_support: ~
       feedback_forum: "Értékelések fóruma"
       feedback_handle: Értékelés
