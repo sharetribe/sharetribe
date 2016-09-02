@@ -8,7 +8,6 @@
 #  author_is_seller :boolean
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#  old_process      :string(32)
 #
 # Indexes
 #

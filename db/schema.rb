@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831054910) do
+ActiveRecord::Schema.define(version: 20160902103712) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -927,7 +927,6 @@ ActiveRecord::Schema.define(version: 20160831054910) do
     t.boolean  "author_is_seller"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.string   "old_process",      limit: 32
   end
 
   add_index "transaction_processes", ["community_id"], name: "index_transaction_process_on_community_id", using: :btree
