@@ -42,9 +42,11 @@ module TranslationHelper
     begin
       translation =
         I18n.translate(tr_key, opts.merge(
-                         throw: true,        # Throw error, if not found
-                         fallback: true,     # Disable fallbacks (no idea why the value needs to be `true`
-                                             # instead of `false`. Feels counter intuitive)
+                         # Throw error, if not found
+                         # Disable fallbacks (no idea why the value needs to be `true`
+                         # instead of `false`. Feels counter intuitive)
+                         throw: true,
+                         fallback: true,
                        ))
 
       NewTranslationOrFallback.new(translation)
