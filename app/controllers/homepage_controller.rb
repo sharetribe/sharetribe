@@ -7,28 +7,32 @@ class HomepageController < ApplicationController
   VIEW_TYPES = ["grid", "list", "map"]
 
   def index
+    all_shapes = shapes.get(community_id: @current_community.id)[:data]
+    shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
+
+    if FeatureFlagHelper.search_engine == :discovery
+      @view_type = "grid"
+    else
+      @view_type = HomepageController.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
+      @big_cover_photo = !(@current_user || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)) || params[:big_cover_photo]
+
+      @categories = @current_community.categories.includes(:children)
+      @main_categories = @categories.select { |c| c.parent_id == nil }
+
+      # This assumes that we don't never ever have communities with only 1 main share type and
+      # only 1 sub share type, as that would make the listing type menu visible and it would look bit silly
+      listing_shape_menu_enabled = all_shapes.size > 1
+      @show_categories = @categories.size > 1
+      show_price_filter = @current_community.show_price_filter && all_shapes.any? { |s| s[:price_enabled] }
+
+      filters = @current_community.custom_fields.where(search_filter: true).sort
+      @show_custom_fields = filters.present? || show_price_filter
+      @category_menu_enabled = @show_categories || @show_custom_fields
+    end
+
     redirect_to landing_page_path and return if no_current_user_in_private_clp_enabled_marketplace?
 
     @homepage = true
-
-    @view_type = HomepageController.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
-
-    @big_cover_photo = !(@current_user || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)) || params[:big_cover_photo]
-
-    @categories = @current_community.categories.includes(:children)
-    @main_categories = @categories.select { |c| c.parent_id == nil }
-
-    all_shapes = shapes.get(community_id: @current_community.id)[:data]
-
-    # This assumes that we don't never ever have communities with only 1 main share type and
-    # only 1 sub share type, as that would make the listing type menu visible and it would look bit silly
-    listing_shape_menu_enabled = all_shapes.size > 1
-    @show_categories = @categories.size > 1
-    show_price_filter = @current_community.show_price_filter && all_shapes.any? { |s| s[:price_enabled] }
-
-    filters = @current_community.custom_fields.where(search_filter: true).sort
-    @show_custom_fields = filters.present? || show_price_filter
-    @category_menu_enabled = @show_categories || @show_custom_fields
 
     filter_params = {}
 
@@ -61,13 +65,17 @@ class HomepageController < ApplicationController
 
     search_result = find_listings(params, per_page, compact_filter_params, includes.to_set, location_in_use, keyword_in_use)
 
-    shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
-
     if @view_type == 'map'
       viewport = viewport_geometry(params[:boundingbox], params[:lc], @current_community.location)
     end
 
-    if request.xhr? # checks if AJAX request
+    if FeatureFlagHelper.search_engine == :discovery
+      search_result.on_success { |listings|
+        render template: "search_page/search_page", locals: { bootstrapped_data: listings }
+      }.on_error {
+        render nothing: true, status: 500
+      }
+    elsif request.xhr? # checks if AJAX request
       search_result.on_success { |listings|
         @listings = listings # TODO Remove
 
@@ -216,12 +224,17 @@ class HomepageController < ApplicationController
       raise_errors: raise_errors
       ).and_then { |res|
       Result::Success.new(
-        ListingIndexViewUtils.to_struct(
-        result: res,
-        includes: includes,
-        page: search[:page],
-        per_page: search[:per_page]
-      ))
+        if FeatureFlagHelper.search_engine == :discovery
+          res
+        else
+          ListingIndexViewUtils.to_struct(
+            result: res,
+            includes: includes,
+            page: search[:page],
+            per_page: search[:per_page]
+          )
+        end
+      )
     }
   end
 

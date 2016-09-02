@@ -25,12 +25,12 @@ export default (props) => {
   const bootstrappedData = TransitImmutableConverter.fromJSON(props.data);
 
   const searchPage = new SearchPageModel({
-    currentPage: bootstrappedData.map((l) => l.get(':id')),
+    currentPage: bootstrappedData.get(':data').map((l) => l.get(':id')),
     listings: bootstrappedData
       .get(':data')
       .map((l) => new ListingModel({
         id: l.get(':id'),
-        title: l.get(':source').get(':title'),
+        title: l.get(':attributes').get(':title'),
       }))
       .toSet(),
   });
