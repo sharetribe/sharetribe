@@ -221,7 +221,6 @@ class ApplicationController < ActionController::Base
       )
 
       sign_out
-      session[:person_id] = nil
       flash[:notice] = t("layouts.notifications.automatically_logged_out_please_sign_in")
 
       redirect_to search_path
@@ -447,7 +446,7 @@ class ApplicationController < ActionController::Base
   end
 
   def clear_user_session
-    @current_user = session[:person_id] = nil
+    @current_user = nil
   end
 
   # this generates the event_id that will be used in

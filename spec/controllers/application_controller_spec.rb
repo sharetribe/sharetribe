@@ -19,7 +19,6 @@ describe ApplicationController, type: :controller do
 
     it "logs the user out from Sharetribe" do
       get :index
-      expect(session[:person_id]).to be_nil
       expect(assigns("current_user")).to be_nil
     end
 

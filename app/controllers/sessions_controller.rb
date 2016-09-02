@@ -64,8 +64,6 @@ class SessionsController < ApplicationController
       redirect_to terms_path and return
     end
 
-    session[:person_id] = current_person.id
-
     flash[:notice] = t("layouts.notifications.login_successful", person_name: view_context.link_to(@current_user.given_name_or_username, person_path(@current_user))).html_safe
     if session[:return_to]
       redirect_to session[:return_to]
@@ -80,7 +78,6 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
-    session[:person_id] = nil
     flash[:notice] = t("layouts.notifications.logout_successful")
     redirect_to landing_page_path
   end
