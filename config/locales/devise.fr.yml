@@ -51,7 +51,7 @@ fr:
       failure: "Nous n'avons pas pu vous authentifier via %{kind} : '%{reason}'."
     mailer:
       confirmation_instructions:
-        subject: "Instructions de confirmation"
+        subject: "Instructions de confirmation pour rejoindre %{service_name}"
       reset_password_instructions:
         subject: "Instructions pour réinitialiser votre mot de passe"
       unlock_instructions:
