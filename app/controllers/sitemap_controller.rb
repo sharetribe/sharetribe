@@ -84,13 +84,7 @@ class SitemapController < ActionController::Metal
   end
 
   def can_show_sitemap?(community)
-    if APP_CONFIG.enable_sitemap&.to_s != "true"
-      render_not_found
-      false
-    elsif community.nil?
-      render_not_found
-      false
-    elsif community.deleted?
+    if sitemap_enabled? || community.nil? || community.deleted?
       head :not_found
       false
     elsif community.private?
@@ -101,7 +95,7 @@ class SitemapController < ActionController::Metal
     end
   end
 
-  def render_not_found(msg = "Not found")
-    redirect_to "/404"
+  def sitemap_enabled?
+    APP_CONFIG.enable_sitemap&.to_s == "true"
   end
 end
