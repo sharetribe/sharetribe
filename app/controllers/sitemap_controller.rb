@@ -8,29 +8,44 @@ class SitemapController < ActionController::Metal
   include ActionController::Head
   include ActionController::Redirecting
 
-  def sitemap
-    community = request.env[:current_marketplace]
+  # Ensure ActiveSupport::Notifications events are fired
+  include ActionController::Instrumentation
 
-    return unless can_show_sitemap?(community)
+  def sitemap
+    com = community(request)
+
+    return unless can_show_sitemap?(com)
 
     if APP_CONFIG.asset_host.present?
       redirect_to ActionController::Base.helpers.asset_url(
                     "/sitemap/generate.xml?sitemap_host=#{request.host}")
     else
-      render_site_map(community)
+      render_site_map(com)
     end
   end
 
   def generate
-    community = CurrentMarketplaceResolver.resolve_from_host(
-      params[:sitemap_host], URLUtils.strip_port_from_host(APP_CONFIG.domain))
+    com = community(request)
 
-    return unless can_show_sitemap?(community)
+    return unless can_show_sitemap?(com)
 
-    render_site_map(community)
+    render_site_map(com)
   end
 
   private
+
+  def community(request)
+    community_from_request(request) || community_from_params(request)
+  end
+
+  def community_from_request(request)
+    request.env[:current_marketplace]
+  end
+
+  def community_from_params(request)
+    CurrentMarketplaceResolver.resolve_from_host(
+      request.params[:sitemap_host], URLUtils.strip_port_from_host(APP_CONFIG.domain))
+  end
 
   def render_site_map(community)
     default_host = community.full_domain(with_protocol: true)
@@ -84,7 +99,7 @@ class SitemapController < ActionController::Metal
   end
 
   def can_show_sitemap?(community)
-    if sitemap_enabled? || community.nil? || community.deleted?
+    if !sitemap_enabled? || community.nil? || community.deleted?
       head :not_found
       false
     elsif community.private?
@@ -97,5 +112,16 @@ class SitemapController < ActionController::Metal
 
   def sitemap_enabled?
     APP_CONFIG.enable_sitemap&.to_s == "true"
+  end
+
+  # Override basic instrumentation and provide additional info for
+  # lograge to consume. These are pulled and logged in environment
+  # configs.
+  def append_info_to_payload(payload)
+    super
+    payload[:host] = request.host
+    payload[:community_id] = community(request)&.id
+    payload[:current_user_id] = nil
+    payload[:request_uuid] = request.uuid
   end
 end
