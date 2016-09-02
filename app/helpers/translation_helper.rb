@@ -32,10 +32,10 @@ module TranslationHelper
   # use_new_translation("build_an_airplane").or_fallback_to("build_a_vehicle_that_flies")
   # => "Build a vehicle that flies."
   #
-  # use_new_translation("apples", count: "1").or_fallback_to("count_apples")
+  # use_new_translation("apples", count: "1").or_fallback_to("count_apples", count: 1)
   # => "1 apple"
   #
-  # use_new_translation("apples", count: "5").or_fallback_to("count_apples")
+  # use_new_translation("apples", count: "5").or_fallback_to("count_apples", count: 5)
   # => "There are 5 apples"
   #
   def use_new_translation(tr_key, opts = {})
