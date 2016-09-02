@@ -5,36 +5,22 @@ class ConfirmationsController < Devise::ConfirmationsController
               :ensure_consent_given,
               :ensure_user_belongs_to_community
 
-  # This is directly copied from Devise::ConfirmationsController
+  # This is overridden from Devise::ConfirmationsController
   # to be able to handle better the situations of resending confirmation and
   # confirmation attemt with wrong token.
 
   # POST /resource/confirmation
   def create
-    email_param_present = params[:person] && params[:person][:email]
+    email = params.dig(:person, :email)
+    to_confirm = create_or_find_email(email)
 
-    # Change the email address
-    if email_param_present && ! @current_user.has_email?(params[:person][:email]) && @current_community
-      # If user submitted the email change form, change the email before sending again.
-      if Email.email_available?(params[:person][:email], @current_community.id)
-        if @current_community.email_allowed?(params[:person][:email])
-          email = Email.create(:person => @current_user, :address => params[:person][:email], :send_notifications => true, community_id: @current_community.id)
-          Email.send_confirmation(email, @current_community)
-          flash[:notice] = t("sessions.confirmation_pending.check_your_email")
-        else
-          flash[:error] = t("people.new.email_not_allowed")
-        end
-      else
-        flash[:error] = t("people.new.email_is_in_use")
-      end
-    else
-      email_to_confirm = @current_user.latest_pending_email_address(@current_community)
-      email = Email.find_by_address_and_community_id(email_to_confirm, @current_community.id)
-      Email.send_confirmation(email, @current_community)
+    if to_confirm
+      Email.send_confirmation(to_confirm, @current_community)
       flash[:notice] = t("sessions.confirmation_pending.check_your_email")
+      redirect_to confirmation_pending_path
+    else
+      redirect_to search_path
     end
-
-    redirect_to confirmation_pending_path
   end
 
   # GET /resource/confirmation?confirmation_token=abcdef
@@ -45,7 +31,8 @@ class ConfirmationsController < Devise::ConfirmationsController
     end
 
     #check if this confirmation code matches to additional emails
-    if e = Email.find_by_confirmation_token(params[:confirmation_token])
+    e = Email.find_by_confirmation_token(params[:confirmation_token])
+    if e
       person = e.person
       e.confirmed_at = Time.now
       e.confirmation_token = nil
@@ -76,4 +63,29 @@ class ConfirmationsController < Devise::ConfirmationsController
     end
   end
 
+  private
+
+  def create_or_find_email(email)
+    if new_email_address_sent?(email)
+      # If user submitted the email change form, change the email before sending again.
+      create_new_email(email)
+    else
+      email_to_confirm = @current_user.latest_pending_email_address(@current_community)
+      Email.find_by_address_and_community_id(email_to_confirm, @current_community.id)
+    end
+  end
+
+  def create_new_email(email)
+    if !@current_community.email_allowed?(email)
+      flash[:error] = t("people.new.email_not_allowed")
+    elsif !Email.email_available?(email, @current_community.id)
+      flash[:error] = t("people.new.email_is_in_use")
+    else
+      Email.create(:person => @current_user, :address => email, :send_notifications => true, community_id: @current_community.id)
+    end
+  end
+
+  def new_email_address_sent?(email)
+    email && !@current_user.has_email?(email)
+  end
 end
