@@ -22,7 +22,6 @@ Lint/AmbiguousRegexpLiteral:
 Lint/AssignmentInCondition:
   Exclude:
     - 'app/controllers/community_memberships_controller.rb'
-    - 'app/controllers/confirmations_controller.rb'
     - 'app/controllers/sessions_controller.rb'
     - 'app/models/category.rb'
     - 'app/models/community.rb'
@@ -772,7 +771,6 @@ Style/HashSyntax:
 Style/IdenticalConditionalBranches:
   Exclude:
     - 'app/controllers/admin/communities_controller.rb'
-    - 'app/controllers/confirmations_controller.rb'
 
 # Offense count: 7
 Style/IfInsideElse:
