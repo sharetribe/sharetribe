@@ -22,7 +22,6 @@
 #  listing_author_id                 :string(255)
 #  listing_title                     :string(255)
 #  unit_type                         :string(32)
-#  old_unit_type                     :string(32)
 #  unit_price_cents                  :integer
 #  unit_price_currency               :string(8)
 #  unit_tr_key                       :string(64)
