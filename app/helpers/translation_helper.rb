@@ -39,19 +39,17 @@ module TranslationHelper
   # => "There are 5 apples"
   #
   def use_new_translation(tr_key, opts = {})
-    begin
-      translation =
-        I18n.translate(tr_key, opts.merge(
-                         # Throw error, if not found
-                         # Disable fallbacks (no idea why the value needs to be `true`
-                         # instead of `false`. Feels counter intuitive)
-                         throw: true,
-                         fallback: true,
-                       ))
+    translation =
+      I18n.translate(tr_key, opts.merge(
+                       # Throw error, if not found
+                       # Disable fallbacks (no idea why the value needs to be `true`
+                       # instead of `false`. Feels counter intuitive)
+                       throw: true,
+                       fallback: true
+                     ))
 
-      NewTranslationOrFallback.new(translation)
-    rescue StandardError
-      NewTranslationOrFallback.new
-    end
+    NewTranslationOrFallback.new(translation)
+  rescue StandardError
+    NewTranslationOrFallback.new
   end
 end
