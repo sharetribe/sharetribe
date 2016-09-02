@@ -390,6 +390,10 @@ default: &default_settings
   # Turn `enable_sitemap` to `false` to disable the sitemap
   enable_sitemap: true
 
+  # Sitemap cache time in seconds
+  # Default 24 hours
+  sitemap_cache_time: 86400
+
 production: &production_settings
   <<: *default_settings
 

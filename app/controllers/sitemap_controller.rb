@@ -7,9 +7,13 @@ class SitemapController < ActionController::Metal
   include ActionController::Rescue
   include ActionController::Head
   include ActionController::Redirecting
+  include ActionController::ConditionalGet
 
   # Ensure ActiveSupport::Notifications events are fired
   include ActionController::Instrumentation
+
+  CACHE_TIME = APP_CONFIG[:sitemap_cache_time].to_i.seconds
+  CACHE_HEADER = "X-Sitemap-Cache"
 
   def sitemap
     com = community(request)
@@ -48,9 +52,11 @@ class SitemapController < ActionController::Metal
   end
 
   def render_site_map(community)
+    cache_hit = true
     default_host = community.full_domain(with_protocol: true)
 
     sitemap = from_cache([community.id, max_sitemap_links, default_host]) do
+      cache_hit = false
       adapter = SitemapGenerator::NeverWriteAdapter.new
 
       open_listings = find_open_listings(community.id)
@@ -64,10 +70,19 @@ class SitemapController < ActionController::Metal
         end
       end
 
-      adapter.data
+      {
+        content: adapter.data,
+        digest: Digest::MD5.hexdigest(adapter.data),
+        last_modified: Time.now
+      }
     end
 
-    send_data(sitemap, filename: "sitemap.xml")
+    headers[CACHE_HEADER] = cache_hit ? "1" : "0"
+    expires_in(CACHE_TIME, public: true)
+
+    if stale?(etag: sitemap[:digest], last_modified: sitemap[:last_modified])
+      send_data(sitemap[:content], filename: "sitemap.xml")
+    end
   end
 
   def find_open_listings(community_id)
@@ -84,7 +99,7 @@ class SitemapController < ActionController::Metal
 
   def from_cache(keys, &block)
     key = "sitemaps/#{keys.join("-")}"
-    Rails.cache.fetch(key, expires_in: 24.hours, &block)
+    Rails.cache.fetch(key, expires_in: CACHE_TIME, &block)
   end
 
   def max_sitemap_links
