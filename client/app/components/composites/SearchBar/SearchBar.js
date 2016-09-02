@@ -3,6 +3,7 @@
 import { Component, PropTypes } from 'react';
 import { form, input, button, span, div } from 'r-dom';
 import * as placesUtils from '../../../utils/places';
+import variables from '../../../assets/styles/variables';
 
 import css from './SearchBar.css';
 import icon from './images/search-icon.svg';
@@ -63,7 +64,13 @@ class SearchBar extends Component {
     }
   }
   handleResize() {
-    this.setState({ mobileSearchOpen: false });
+
+    // We need to remove mobileSearchOpen state to get correct mode
+    // when resizing browser window
+    const searchFormBreakpoint = variables['--breakpointLarge'];
+    if (window.matchMedia(`(min-width: ${searchFormBreakpoint}px)`).matches) {
+      this.setState({ mobileSearchOpen: false });
+    }
   }
   handleSubmit() {
     if (!this.keywordInput && !this.locationInput) {
