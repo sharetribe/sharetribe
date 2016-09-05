@@ -47,8 +47,12 @@ class SitemapController < ActionController::Metal
   end
 
   def community_from_params(request)
-    CurrentMarketplaceResolver.resolve_from_host(
-      request.params[:sitemap_host], URLUtils.strip_port_from_host(APP_CONFIG.domain))
+    host = request.params[:sitemap_host]
+
+    if host.present?
+      CurrentMarketplaceResolver.resolve_from_host(
+        host, URLUtils.strip_port_from_host(APP_CONFIG.domain))
+    end
   end
 
   def render_site_map(community)
