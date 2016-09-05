@@ -1,0 +1,12 @@
+<% props = {
+  discoveryAPI: {
+    url: 'somedomain.com/discovery/query'
+  },
+  i18n: {
+    locale: I18n.locale,
+    defaultLocale: I18n.default_locale
+  },
+  data: bootstrapped_data,
+  }
+%>
+<%= react_component("SearchPageApp", props: props, prerender: true, id: 'searchpage-container') %>

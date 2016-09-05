@@ -109,6 +109,7 @@ gem 'demoji', "~> 0.0.5"
 
 gem 'faraday', '~> 0.9.1'
 gem 'faraday_middleware', '~> 0.10.0'
+gem 'faraday-encoding', '~> 0.0.3'
 
 gem "react_on_rails", "~> 6.0.5"
 
