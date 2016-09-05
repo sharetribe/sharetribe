@@ -16,6 +16,7 @@ module PaypalCountryHelper
     "fr" => "https://www.paypal.com/fr/webapps/mpp/paypal-fees",
     "au" => "https://www.paypal.com/au/webapps/mpp/paypal-seller-fees",
     "no" => "https://www.paypal.com/no/webapps/mpp/paypal-fees",
+    "nz" => "https://www.paypal.com/nz/webapps/mpp/paypal-fees"
   }
 
   FEE_URL.default = "https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside"
@@ -32,6 +33,7 @@ module PaypalCountryHelper
     # (and default English popup is not good)
     "br" => "https://www.paypal.com/br/webapps/mpp/home",
     "no" => "https://www.paypal.com/no/webapps/mpp/home",
+    "nz" => "https://www.paypal.com/nz/webapps/mpp/home"
   }
 
   POPUP_URL.default = "https://www.paypal.com/webapps/mpp/paypal-popup"
