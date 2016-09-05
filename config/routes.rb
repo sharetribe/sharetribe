@@ -24,7 +24,7 @@ Kassi::Application.routes.draw do
   # parameter with dots
   #
   get "/sitemap.xml.gz"                        => "sitemap#sitemap", format: :xml
-  get "/sitemap/:sitemap_host/generate.xml.gz" => "sitemap#generate", format: :xml, :constraints => { :sitemap_host => /[^\/]+/ }
+  get "/sitemap/:sitemap_host/generate.xml.gz" => "sitemap#generate", format: :xml, :constraints => { sitemap_host: /[.\-\w]+/ }
 
   # A route for DV test file
   # A CA will check if there is a file in this route
