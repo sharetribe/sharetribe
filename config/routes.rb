@@ -11,8 +11,8 @@ Kassi::Application.routes.draw do
 
   get "/robots.txt" => RobotsGenerator
 
-  get "/sitemap"          => "sitemap#sitemap", format: :xml
-  get "/sitemap/generate" => "sitemap#generate", format: :xml
+  get "/sitemap.xml.gz"          => "sitemap#sitemap", format: :xml
+  get "/sitemap/generate.xml.gz" => "sitemap#generate", format: :xml
 
   # A route for DV test file
   # A CA will check if there is a file in this route

@@ -22,7 +22,7 @@ class SitemapController < ActionController::Metal
 
     if APP_CONFIG.asset_host.present?
       redirect_to ActionController::Base.helpers.asset_url(
-                    "/sitemap/generate.xml?sitemap_host=#{request.host}")
+                    "/sitemap/generate.xml.gz?sitemap_host=#{request.host}")
     else
       render_site_map(com)
     end
@@ -70,9 +70,11 @@ class SitemapController < ActionController::Metal
         end
       end
 
+      compressed = ActiveSupport::Gzip.compress(adapter.data)
+
       {
-        content: adapter.data,
-        digest: Digest::MD5.hexdigest(adapter.data),
+        content: compressed,
+        digest: Digest::MD5.hexdigest(compressed),
         last_modified: Time.now
       }
     end
@@ -81,7 +83,7 @@ class SitemapController < ActionController::Metal
     expires_in(CACHE_TIME, public: true)
 
     if stale?(etag: sitemap[:digest], last_modified: sitemap[:last_modified])
-      send_data(sitemap[:content], filename: "sitemap.xml")
+      send_data(sitemap[:content], filename: "sitemap.xml.gz")
     end
   end
 
