@@ -22,7 +22,7 @@ class SitemapController < ActionController::Metal
 
     if APP_CONFIG.asset_host.present?
       redirect_to ActionController::Base.helpers.asset_path(
-                    "/sitemap/generate.xml.gz?sitemap_host=#{request.host}")
+                    "/sitemap/#{request.host}/generate.xml.gz")
     else
       render_site_map(com)
     end
