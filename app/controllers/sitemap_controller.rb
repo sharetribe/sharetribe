@@ -21,7 +21,7 @@ class SitemapController < ActionController::Metal
     return unless can_show_sitemap?(com)
 
     if APP_CONFIG.asset_host.present?
-      redirect_to ActionController::Base.helpers.asset_url(
+      redirect_to ActionController::Base.helpers.asset_path(
                     "/sitemap/generate.xml.gz?sitemap_host=#{request.host}")
     else
       render_site_map(com)
