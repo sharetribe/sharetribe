@@ -102,6 +102,7 @@ class HomepageController < ApplicationController
                  listing_shape_menu_enabled: listing_shape_menu_enabled,
                  main_search: main_search,
                  location_search_in_use: location_in_use,
+                 seo_pagination_links: seo_pagination_links(params, listings.current_page, listings.total_pages),
                  viewport: viewport }
       }.on_error { |e|
         flash[:error] = t("homepage.errors.search_engine_not_responding")
@@ -115,6 +116,7 @@ class HomepageController < ApplicationController
                  listing_shape_menu_enabled: listing_shape_menu_enabled,
                  main_search: main_search,
                  location_search_in_use: location_in_use,
+                 seo_pagination_links: seo_pagination_links(params, listings.current_page, listings.total_pages),
                  viewport: viewport }
       }
     end
@@ -348,6 +350,23 @@ class HomepageController < ApplicationController
         .map { |l| { center: [l.latitude, l.longitude] }}
         .or_else(nil)
     end
+  end
+
+  def seo_pagination_links(params, current_page, total_pages)
+    prev_page =
+      if current_page > 1
+        search_path(params.merge(page: current_page - 1))
+      end
+
+    next_page =
+      if current_page < total_pages
+        search_path(params.merge(page: current_page + 1))
+      end
+
+    {
+      prev: prev_page,
+      next: next_page
+    }
   end
 
 end

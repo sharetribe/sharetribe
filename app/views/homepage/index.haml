@@ -38,6 +38,12 @@
       - else
         = render partial: "search_bar"
 
+- content_for(:head) do
+  - if seo_pagination_links[:prev].present?
+    %link{rel: "prev", href: seo_pagination_links[:prev]}
+  - if seo_pagination_links[:next].present?
+    %link{rel: "next", href: seo_pagination_links[:next]}
+
 - if @current_community.private? && @big_cover_photo
   - if @community_customization && @community_customization.private_community_homepage_content
     .community-customization-wrapper
