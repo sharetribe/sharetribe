@@ -1,5 +1,6 @@
 import { Component, PropTypes } from 'react';
 import { div, img, p } from 'r-dom';
+import Immutable from 'immutable';
 
 import css from './SearchPage.css';
 
@@ -32,10 +33,24 @@ class SearchPage extends Component {
   }
 }
 
-const { object } = PropTypes;
+
+// These will change when DiscoveryAPI is ready
+export const ListingModel = Immutable.Record({
+  id: 'uuid',
+  title: 'Listing',
+});
+
+export const SearchPageModel = Immutable.Record({
+  prevPage: new Immutable.List(),
+  currentPage: new Immutable.List(),
+  nextPage: new Immutable.List(),
+  listings: new Immutable.List(),
+});
+
+const { instanceOf } = PropTypes;
 
 SearchPage.propTypes = {
-  searchPage: object, // eslint-disable-line react/forbid-prop-types
+  searchPage: instanceOf(SearchPageModel).isRequired,
 };
 
 export default SearchPage;

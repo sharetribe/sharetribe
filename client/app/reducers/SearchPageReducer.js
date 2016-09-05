@@ -1,14 +1,9 @@
-import { List, Map, Set } from 'immutable';
 import * as actionTypes from '../constants/SearchPageConstants';
+import { SearchPageModel } from '../components/sections/SearchPage/SearchPage';
 
 // prevPage, currentPage, and nextPage are Id lists
 const initialState = {
-  searchPage: new Map({
-    prevPage: new List(),
-    currentPage: new List(),
-    nextPage: new List(),
-    listings: new Set(),
-  }),
+  searchPage: new SearchPageModel(),
 };
 
 export default function searchPageReducer(state = initialState, action) {
