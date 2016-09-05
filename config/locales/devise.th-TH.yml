@@ -4,10 +4,12 @@ th-TH:
       expired: "หมดอายุแล้ว กรุณาขอใหม่"
       not_found: ไม่พบข้อมูล
       already_confirmed: "ได้รับการยืนยันแล้ว โปรดดำเนินการเข้าสู่ระบบ"
-      not_locked: ~
+      not_locked: ไม่ได้ถูกล็อค
+      not_saved:
+        other: "พบข้อผิดพลาด %{count} แห่ง ทำให้ %{resource} ไม่ได้ถูกจัดเก็บ "
   devise:
     failure:
-      already_authenticated: คุณเข้าสู่ระบบแล้ว
+      already_authenticated: คุณได้เข้าสู่ระบบแล้ว
       unauthenticated: คุณต้องเข้าสู่ระบบหรือสมัครใช้งานก่อนดำเนินการต่อ
       unconfirmed: คุณต้องยืนยันบัญชีของคุณก่อนดำเนินการต่อ
       locked: บัญชีของคุณถูกล็อค
@@ -44,11 +46,11 @@ th-TH:
       send_instructions: คุณจะได้รับอีเมลพร้อมคำแนะนำเกี่ยวกับวิธีการปลดล็อคบัญชีของคุณในอีกไม่กี่นาทีนี้
       unlocked: "บัญชีของคุณถูกปลดล็อคเรียบร้อยแล้ว โปรดเข้าสู่ระบบเพื่อใช้งานต่อไป"
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "การยืนยันสำเร็จจากบัญชี %{kind} "
+      failure: "ไม่สามารถให้สิทธิ์แก่คุณจาก %{kind} ได้ เนื่องจาก \"%{reason}\""
     mailer:
       confirmation_instructions:
-        subject: คำแนะนำในการยืนยัน
+        subject: "คำแนะนำในการยืนยันที่จะเข้าร่วม %{service_name}"
       reset_password_instructions:
         subject: คำแนะนำในการรีเซ็ตรหัสผ่าน
       unlock_instructions:

@@ -51,7 +51,7 @@ es-ES:
       failure: "No pudo ser autorizado desde %{kind} porque \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: "Instrucciones de confirmación"
+        subject: "Instrucciones de confirmación para unirte a %{service_name}"
       reset_password_instructions:
         subject: "Instrucciones para cambiar tu contraseña"
       unlock_instructions:

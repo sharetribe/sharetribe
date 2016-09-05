@@ -777,7 +777,7 @@ es-ES:
       show_thread: "Ver conversación"
     confirmation_instructions:
       confirmation_instructions_signature: "Saludos cordiales,<br/>El Equipo de %{service_name}"
-      need_to_confirm: "Confirma tu cuenta de correo electrónico haciendo click en el botón inferior."
+      need_to_confirm: "Para unirte a %{service_name} confirma tu cuenta de correo electrónico haciendo click en el botón inferior."
       confirmation_link_text: "Confirmar mi dirección de correo electrónico"
       or_paste_link: "Si lo prefieres, puedes copiar el siguiente enlace y pegarlo directamente en la barra de tu navegador:"
     common:
@@ -1595,8 +1595,8 @@ es-ES:
       you_will_be_charged: "Se te cobrará esta cantidad únicamente si %{author} acepta la transacción. %{author} necesita aceptar la transacción en un período de %{expiration_period} días.  En caso de que %{author} rechace tu solicitud o no responda, no se hará ningún cobro."
       day: día
       days: días
-      night: ~
-      nights: ~
+      night: noche
+      nights: noches
       invalid_parameters: "Valores inválidos para una transacción nueva"
     transaction_agreement_checkbox:
       read_more: Ver
@@ -2035,9 +2035,9 @@ es-ES:
   transactions:
     initiate:
       booked_days: "Días reservados:"
-      booked_nights: ~
+      booked_nights: "Noches elegidas:"
       price_per_day: "Precio por día:"
-      price_per_night: ~
+      price_per_night: "Precio por noche:"
       quantity: "Cantidad:"
       subtotal: "Subtotal:"
       shipping-price: "Envío:"
