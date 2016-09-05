@@ -2057,6 +2057,14 @@ sk-SK:
       quantity: "Množstvo:"
       subtotal: "Medzisúčet:"
       shipping-price: "Doprava:"
+      booked_days_label:
+        one: "Rezervovaný deň:"
+        few: "Rezervované dni:"
+        other: "Rezervovaných dní:"
+      booked_nights_label:
+        one: "Rezervovaná noc:"
+        few: "Rezervované noci:"
+        other: "Rezervovaných nocí:"
     price_per_quantity: "Cena za %{unit_type}:"
     price: "Cena:"
     quantity: "Množstvo: %{quantity}"

@@ -2041,6 +2041,9 @@ nb:
       quantity: "Antall:"
       subtotal: "Delsum:"
       shipping-price: "Frakt:"
+      booked_days_label:
+        one: "Dag booket:"
+        other: "Dager booket:"
     price_per_quantity: "Pris per %{unit_type}:"
     price: "Pris:"
     quantity: "Antall: %{quantity}"

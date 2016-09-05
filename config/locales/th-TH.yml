@@ -30,16 +30,16 @@ th-TH:
         remove_category: ~
         remove_category_name: ~
         warning_remove_effects: ~
+        warning_custom_field_will_be_moved:
+          other: "มี %{count} รายการที่กำหนดเองอยู่ในหมวดหมู่นี้ รายการดังกล่าวจะถูกย้ายไปยังหมวดหมู่ที่เลือก"
+        warning_with_subcategories_listing_will_be_moved:
+          other: "มี %{count} รายการในหมวดหมู่ และหมวดหมู่ย่อย รายการจะถูกย้ายไปยังหมวดหมู่ที่เลือก"
+        warning_with_subcategories_custom_field_will_be_moved:
+          other: "มี %{count} ข้อมูลที่กำหนดเองอยู่ในหมวดหมู่ และหมวดหมู่ย่อย มันจะถูกย้ายไปยัง หมวดหมู่ที่ถูกเลือก"
         select_new_category: ~
         buttons:
           remove: ~
           cancel: ~
-        warning_with_subcategories_custom_field_will_be_moved:
-          other: "มี %{count} ข้อมูลที่กำหนดเองอยู่ในหมวดหมู่ และหมวดหมู่ย่อย มันจะถูกย้ายไปยัง หมวดหมู่ที่ถูกเลือก"
-        warning_with_subcategories_listing_will_be_moved:
-          other: "มี %{count} รายการในหมวดหมู่ และหมวดหมู่ย่อย รายการจะถูกย้ายไปยังหมวดหมู่ที่เลือก"
-        warning_custom_field_will_be_moved:
-          other: "มี %{count} รายการที่กำหนดเองอยู่ในหมวดหมู่นี้ รายการดังกล่าวจะถูกย้ายไปยังหมวดหมู่ที่เลือก"
     communities:
       edit_details:
         community_details: ~
@@ -411,14 +411,16 @@ th-TH:
         update_success: ~
         update_failure: ~
         delete: ~
-        can_not_delete_last: ~
-        can_not_delete_only_one_in_categories: ~
         confirm_delete_order_type:
           other: "มี %{count} รายการที่มีคำสั่งประเภทนี้อยู่ ถ้าคุณลบประเภทคำสั่ง รายการนี้จะถูกปิด คุณแน่ใจหรือว่าต้องการลบประเภทคำสั่งนี้?"
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
       listing_shape_name: ~
       listing_shape_name_placeholder: ~
       action_button_label: ~
       action_button_placeholder: ~
+      open_listings_warning:
+        other: "มี %{count} รายการเปิดที่สัมพันธ์กับชนิดของคำสั่งนี้ หากคุณเปลี่ยนการตั้งค่าด้านล่าง รายการนั้นจะยังคงมีการตั้งค่าแบบเก่าอยู่ รายการสามารถเปลี่ยนการตั้งค่าใหม่ได้โดยการแก้ไขรายการด้วยตนเอง หากคุณไม่ต้องการที่จะมีรายการที่มีการตั้งค่าเก่าปรากฏอยู่บนเว็บไซต์ คุณสามารถปิดได้โดยคลิกที่ปุ่มด้านล่าง"
       successfully_closed: ~
       successfully_deleted: ~
       pricing_and_checkout_title: ~
@@ -448,8 +450,6 @@ th-TH:
           heading: ~
           quantity_label: ~
           time_label: ~
-      open_listings_warning:
-        other: "มี %{count} รายการเปิดที่สัมพันธ์กับชนิดของคำสั่งนี้ หากคุณเปลี่ยนการตั้งค่าด้านล่าง รายการนั้นจะยังคงมีการตั้งค่าแบบเก่าอยู่ รายการสามารถเปลี่ยนการตั้งค่าใหม่ได้โดยการแก้ไขรายการด้วยตนเอง หากคุณไม่ต้องการที่จะมีรายการที่มีการตั้งค่าเก่าปรากฏอยู่บนเว็บไซต์ คุณสามารถปิดได้โดยคลิกที่ปุ่มด้านล่าง"
     paypal_accounts:
       marketplace_paypal_integration: ~
       preferences_updated: ~
@@ -1694,6 +1694,8 @@ th-TH:
       email_is_in_use: อีเมล์ที่คุณให้ได้ถูกใช้ไปแล้ว
       email_is_in_use_or_not_allowed: "อีเมล์นี้ไม่ได้รับอนุญาต หรือถูกใช้ไปแล้ว หากคุณไม่สามารถเข้าระบบได้ กรุณาติดต่อเรา"
       email_not_allowed: "อีเมล์นี้ไม่ได้รับอนุญาตใน %{service_name} โปรดใช้ที่อยู่อีเมลที่ได้รับอนุญาต หากคุณยังเข้าระบบไม่ได้ กรุณาติดต่อเรา"
+      email_restriction_instructions:
+        other: "การเข้าถึงไปยัง %{service_name} ถูกจำกัด  คุณจำเป็นต้องมีที่อยู่อีเมล '%{allowed_emails}' เพื่อที่จะเข้าร่วม"
       family_name: นามสกุล
       given_name: ชื่อ
       i_accept_the: ฉันยอมรับ
@@ -1712,8 +1714,6 @@ th-TH:
       create_account_with_facebook: ~
       OR: ~
       signup_with_email: ~
-      email_restriction_instructions:
-        other: "การเข้าถึงไปยัง %{service_name} ถูกจำกัด  คุณจำเป็นต้องมีที่อยู่อีเมล '%{allowed_emails}' เพื่อที่จะเข้าร่วม"
     profile_feedback:
       grade: "เกรด:"
       and_gave_following_feedback: และให้ข้อเสนอแนะดังต่อไปนี้
