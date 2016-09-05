@@ -469,6 +469,8 @@ GEM
       rubyzip (~> 1.0)
       websocket (~> 1.0)
     shellany (0.0.1)
+    sitemap_generator (5.1.0)
+      builder
     slop (3.6.0)
     sprockets (2.12.4)
       hike (~> 1.2)
@@ -602,6 +604,7 @@ DEPENDENCIES
   sass (~> 3.2.9)
   sass-rails (~> 4.0.0)
   selenium-webdriver (~> 2.45)
+  sitemap_generator (~> 5.1.0)
   statesman (~> 1.3.1)
   stringex (~> 2.5.2)
   therubyracer (~> 0.12.2)

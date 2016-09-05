@@ -379,6 +379,21 @@ default: &default_settings
   #
   font_proximanovasoft_url:
 
+  # Maximum number of links in sitemap.xml.
+  #
+  # The default number is 500. Increasing the limit may affect performance.
+  #
+  # The hard coded max limit is 50000.
+  #
+  max_sitemap_links: 500
+
+  # Turn `enable_sitemap` to `false` to disable the sitemap
+  enable_sitemap: true
+
+  # Sitemap cache time in seconds
+  # Default 24 hours
+  sitemap_cache_time: 86400
+
 production: &production_settings
   <<: *default_settings
 

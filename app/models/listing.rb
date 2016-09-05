@@ -140,6 +140,10 @@ class Listing < ActiveRecord::Base
 
   # Overrides the to_param method to implement clean URLs
   def to_param
+    self.class.to_param(id, title)
+  end
+
+  def self.to_param(id, title)
     "#{id}-#{title.to_url}"
   end
 
