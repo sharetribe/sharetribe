@@ -1,3 +1,4 @@
+# coding: utf-8
 Kassi::Application.routes.draw do
 
   namespace :mercury do
@@ -11,8 +12,19 @@ Kassi::Application.routes.draw do
 
   get "/robots.txt" => RobotsGenerator
 
-  get "/sitemap.xml.gz"          => "sitemap#sitemap", format: :xml
-  get "/sitemap/generate.xml.gz" => "sitemap#generate", format: :xml
+  # URLs for sitemaps
+  #
+  # From Rails guide: By default dynamic segments don’t accept dots –
+  # this is because the dot is used as a separator for formatted
+  # routes. If you need to use a dot within a dynamic segment add a
+  # constraint which overrides this – for example :id => /[^\/]+/
+  # allows anything except a slash.
+  #
+  # That's why there's the constraints in generate URL to accept host
+  # parameter with dots
+  #
+  get "/sitemap.xml.gz"                        => "sitemap#sitemap", format: :xml
+  get "/sitemap/:sitemap_host/generate.xml.gz" => "sitemap#generate", format: :xml, :constraints => { :sitemap_host => /[^\/]+/ }
 
   # A route for DV test file
   # A CA will check if there is a file in this route
