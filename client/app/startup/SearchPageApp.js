@@ -5,7 +5,7 @@ import Immutable from 'immutable';
 import middleware from 'redux-thunk';
 import { initialize as initializeI18n } from '../utils/i18n';
 import { subset } from '../utils/routes';
-import TransitImmutable from '../utils/transitImmutable';
+import TransitImmutableConverter from '../utils/transitImmutableConverter';
 
 import reducers from '../reducers/reducersIndex';
 import SearchPageContainer from '../components/sections/SearchPage/SearchPageContainer';
