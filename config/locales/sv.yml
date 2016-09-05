@@ -964,8 +964,8 @@ sv:
       javascript_is_disabled_in_your_browser: "Javascript har avaktiverats i din webbläsare"
       kassi_does_not_currently_work_without_javascript: "Tyvärr %{service_name} fungerar inte utan Javascript. Försök att aktivera Javascript i din webbläsare och ladda om sidan."
       contact_us: "kontakta oss"
-      send_feedback: ~
-      your_feedback_to_admins: ~
+      send_feedback: "Skicka meddelande"
+      your_feedback_to_admins: "Ditt meddelande till %{service_name} -teamet"
     send: Skicka
     your_email_address: "Din e-postadress"
   errors:
@@ -1141,7 +1141,7 @@ sv:
       search: ~
       signup: ~
       search_placeholder: ~
-      search_location_placeholder: ~
+      search_location_placeholder: Plats
     listings:
       no_listing_image: ~
   layouts:
@@ -1154,17 +1154,17 @@ sv:
     no_tribe:
       inbox: Inkorg
       settings: Inställningar
-      feedback: ~
+      feedback: "Kontakta team %{service_name}"
     application:
       join_this_community: "Gå med marknadsplatsen"
       read_more: "Läs mer"
-      feedback: ~
+      feedback: "Ditt meddelande till %{service_name} -teamet"
       dont_use_to_contact_support: ~
       feedback_forum: "forum för feedback"
       feedback_handle: Feedback
       give_feedback: "Kontakta oss"
       or_check_our: "...eller kolla vår"
-      send_feedback_to_admin: ~
+      send_feedback_to_admin: "Skicka meddelande"
       to_see_what_others_have_suggested: "för att se vad andra användare har föreslagit, rösta på idéerna där."
       your_email_address: "Din e-postadress (för att kontakta dig)"
       connect: "Gå med"
@@ -2052,7 +2052,7 @@ sv:
       menu: ~
       more: ~
       search_placeholder: ~
-      search_location_placeholder: ~
+      search_location_placeholder: Plats
       user: ~
       inbox: ~
       profile: ~

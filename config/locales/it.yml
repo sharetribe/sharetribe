@@ -2010,6 +2010,12 @@ it:
       quantity: "Quantità:"
       subtotal: "Subtotale:"
       shipping-price: "Spedizione:"
+      booked_days_label:
+        one: "Giorno prenotato:"
+        other: "Giorni prenotati:"
+      booked_nights_label:
+        one: "Notte prenotata:"
+        other: "Notti prenotate:"
     price_per_quantity: "Prezzo per %{unit_type}"
     price: "Prezzo:"
     quantity: "Quantità: %{quantity}"
