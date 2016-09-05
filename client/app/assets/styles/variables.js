@@ -161,7 +161,7 @@ module.exports = {
   '--SearchBar_sidePadding': '1.715em',
   '--SearchBar_inputFontWeight': '500',
   '--SearchBar_keywordInputWidth': '68%',
-  '--SearchBar_keywordInputFocusWidth': '78%',
+  '--SearchBar_keywordInputFocusWidth': '75%',
   '--SearchBar_formZIndex': zIndexMinimum + 1,
   '--SearchBar_focusContainerZIndex': zIndexMinimum,
   '--SearchBar_childZIndex': zIndexMinimum + 1,

@@ -184,7 +184,7 @@
   }
 
   &:focus {
-    @media (--large-viewport) {
+    @media (--search-desktop-wide) {
       width: var(--SearchBar_keywordInputFocusWidth);
     }
 
@@ -192,6 +192,10 @@
       margin-right: var(--SearchBar_mobileHeight);
 
       @media (--large-viewport) {
+        margin-right: var(--SearchBar_height);
+      }
+
+      @media (--search-desktop-wide) {
         width: calc(100% - var(--SearchBar_keywordInputFocusWidth));
       }
     }
