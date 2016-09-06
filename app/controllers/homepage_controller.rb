@@ -7,6 +7,8 @@ class HomepageController < ApplicationController
   VIEW_TYPES = ["grid", "list", "map"]
 
   def index
+    redirect_to landing_page_path and return if no_current_user_in_private_clp_enabled_marketplace?
+
     all_shapes = shapes.get(community_id: @current_community.id)[:data]
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
@@ -30,7 +32,6 @@ class HomepageController < ApplicationController
       @category_menu_enabled = @show_categories || @show_custom_fields
     end
 
-    redirect_to landing_page_path and return if no_current_user_in_private_clp_enabled_marketplace?
 
     @homepage = true
 

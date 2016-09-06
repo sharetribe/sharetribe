@@ -60,7 +60,7 @@ module FeatureFlagHelper
   end
 
   def search_engine
-    if feature_enabled?(:discovery_api) && APP_CONFIG.external_search_in_use.to_s.casecmp("true").zero?
+    if feature_enabled?(:searchpage_v1) && APP_CONFIG.external_search_in_use.to_s.casecmp("true").zero?
       :discovery
     elsif APP_CONFIG.external_search_in_use.to_s.casecmp("true").zero?
       :zappy
