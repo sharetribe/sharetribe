@@ -2,13 +2,12 @@
 
 class RobotsGenerator
 
-  # Use the config/robots.txt in production.
-  # Disallow everything for all other environments.
   def self.call(env)
     return [404, {}, []] if env[:current_marketplace].nil?
 
     begin
 
+      # Disallow indexing from other than production environments
       body =
         if Rails.env.production?
           index_content(env)
