@@ -179,8 +179,12 @@
   margin-right: calc(var(--SearchBar_sidePaddingMobile) / 2);
 
   @media (--large-viewport) {
-    width: var(--SearchBar_keywordInputWidth);
+    width: var(--SearchBar_keywordInputWidthNarrow);
     margin-right: var(--SearchBar_sidePadding);
+  }
+
+  @media (--search-desktop-wide) {
+    width: var(--SearchBar_keywordInputWidth);
   }
 
   &:focus {
@@ -222,6 +226,10 @@
 
 .locationInput {
   @media (--large-viewport) {
+    width: calc(100% - var(--SearchBar_keywordInputWidthNarrow));
+  }
+
+  @media (--search-desktop-wide) {
     width: calc(100% - var(--SearchBar_keywordInputWidth));
   }
 }
