@@ -5,13 +5,16 @@ class RobotsGenerator
   # Use the config/robots.txt in production.
   # Disallow everything for all other environments.
   def self.call(env)
+    return [404, {}, []] if env[:current_marketplace].nil?
+
     begin
 
-      if Rails.env.production?
-        body = robots_txt_content
-      else
-        body = "User-agent: *\nDisallow: /"
-      end
+      body =
+        if Rails.env.production?
+          index_content(env)
+        else
+          no_index_content()
+        end
 
       # Adding cache control here seemed to cause strange errors in production env
       headers = {"Content-Type" => "text/plain" }
@@ -22,7 +25,20 @@ class RobotsGenerator
     end
   end
 
-  def self.robots_txt_content
-    @_robots_txt_content ||= File.read Rails.root.join('config', 'robots.txt')
+  def self.index_content(env)
+    req = Rack::Request.new(env)
+
+    [
+      "User-agent: *",
+      "Allow: /",
+      "Sitemap: #{req.scheme}://#{req.host_with_port}/sitemap.xml.gz"
+    ].join("\n")
+  end
+
+  def self.no_index_content
+    [
+      "User-agent: *",
+      "Disallow: /"
+    ].join("\n")
   end
 end
