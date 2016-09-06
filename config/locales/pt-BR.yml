@@ -1597,9 +1597,9 @@ pt-BR:
           %{author} precisa aceitar a transação em no máximo %{expiration_period} dias. Se %{author} rejeitar ou não responder neste período você não será cobrado.
       day: dia
       days: dias
-      night: ~
-      nights: ~
-      invalid_parameters: ~
+      night: noite
+      nights: noites
+      invalid_parameters: "Valores inválidos para uma nova transação"
     transaction_agreement_checkbox:
       read_more: Ver.
   mapview:
@@ -2037,7 +2037,7 @@ pt-BR:
   transactions:
     initiate:
       booked_days: "Dias reservados:"
-      booked_nights: ~
+      booked_nights: "Noites reservadas"
       price_per_day: "Preço por dia:"
       price_per_night: ~
       quantity: "Quantidade:"
@@ -2056,7 +2056,7 @@ pt-BR:
       menu: Menu
       more: Mais
       search_placeholder: Busca...
-      search_location_placeholder: ~
+      search_location_placeholder: Localização
       user: Usuário
       inbox: "Caixa de Entrada"
       profile: Perfil

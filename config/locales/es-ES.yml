@@ -2041,6 +2041,12 @@ es-ES:
       quantity: "Cantidad:"
       subtotal: "Subtotal:"
       shipping-price: "Envío:"
+      booked_days_label:
+        one: "Día reservado:"
+        other: "Días reservados:"
+      booked_nights_label:
+        one: "Noche reservada:"
+        other: "Noches reservadas:"
     price_per_quantity: "Precio por %{unit_type}:"
     price: "Precio:"
     quantity: "Cantidad: %{quantity}"

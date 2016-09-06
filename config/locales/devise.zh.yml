@@ -11,7 +11,7 @@ zh:
   devise:
     failure:
       already_authenticated: 你已经登录。
-      unauthenticated: 继续操作前请注册或者登录.
+      unauthenticated: 继续操作前，请注册或登录.
       unconfirmed: 继续操作前请先确认你的帐号.
       locked: 你的帐号已被锁定.
       invalid: 邮箱或密码错误

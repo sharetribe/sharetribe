@@ -21,8 +21,8 @@ zh:
         category_transaction_types:
           transaction_types: 订单的类型
           transaction_types_description: 交易类型决定了在该类别中的发布的信息的订购流程。比如，是否只能卖，或者出租以及允许免费赠送。
-          select_all: ~
-          clear_all: ~
+          select_all: 选择全部
+          clear_all: 清除全部
         buttons:
           save: 保存
           cancel: 取消
@@ -149,7 +149,7 @@ zh:
         invalid_email_domain_read_more_link: 通过读知识库的文章获得更多信息
         unknown_error: 出错了
         white_label_offer: ~
-        upgrade_plan_link: ~
+        upgrade_plan_link: "升级到 Pro 账户或者更高级别"
         verification_sent_from: "验证邮件已经从%{verification_sender_name}发出"
         follow_the_instructions: 请跟随邮件中的说明来验证你的邮箱地址。
       getting_started:
@@ -162,7 +162,7 @@ zh:
         fr-CA: 法文(加拿大)
         es: 西班牙文(智利)
         es-ES: 西班牙文
-        pt-PT: ~
+        pt-PT: 葡萄牙文
         pt-BR: 葡萄牙文（巴西）
         nb: 挪威博克马尔文
         sv: 瑞典语
@@ -186,12 +186,12 @@ zh:
         require_verification_to_post_listings: 只有经管理员验证的用户可以发布新的信息
         search_preferences: ~
         default_search_type: ~
-        keyword_search: ~
+        keyword_search: 按关键词搜索
         keyword_and_location_search: ~
-        location_search: ~
+        location_search: 按地点搜索
         select_distance_unit: ~
-        km: ~
-        miles: ~
+        km: 千米
+        miles: 英里
         show_only_nearby: ~
         listing_preferences: 信息展示页面偏好设置
         transaction_preferences: 交易偏好
@@ -233,12 +233,12 @@ zh:
         ban_user_confirmation: 这将会把用户从集市中删除并阻止他们使用这个帐号再次访问该站点。你确认要继续吗？
         ban_me_error: 你不能禁止自己。
       new_layout:
-        new_layout: ~
+        new_layout: 新布局
         description_roadmap: ~
         description_process: ~
         enabled_for_you: ~
         enabled_for_all: ~
-        new_topbar: ~
+        new_topbar: "新的顶部条 (所有页面可见)"
       social_media:
         social_media: 社交媒体
         twitter_handle: Twitter用户名
@@ -274,11 +274,11 @@ zh:
         url: 网址
         empty: 你没有更多的菜单链接
         max_number_of_links: ~
-        all: ~
+        all: 全部
         max_number_of_links_info: ~
-        about_page: ~
+        about_page: 关于
       topbar:
-        topbar: ~
+        topbar: 顶部条
         new_listing_button_label: ~
         invalid_post_listing_button_label: ~
       transactions:
@@ -311,7 +311,7 @@ zh:
       edit:
         edit_listing_field: "编辑信息字段“%{field_name}”"
       edit_price:
-        description: ~
+        description: 最低和最高价格只会影响过滤条件。他们不会限制列表的价格
         edit_price_field: 编辑价格字段
         show_price_filter_homepage: 在主页显示价格过滤器
         price_min: 最低价格
@@ -337,8 +337,8 @@ zh:
         field_title: 字段标题
         field_type: 字段类型
         categories: 信息分类字段
-        select_all: ~
-        clear_all: ~
+        select_all: 选择全部
+        clear_all: 清除全部
         options: 选项
         add_option: +添加选项
         saving_order: 保存字段顺序
@@ -375,8 +375,8 @@ zh:
       configure: 配置
       emails_title: 电邮
       support: 支持
-      subscription: ~
-      preview: ~
+      subscription: 订阅
+      preview: 预览站点
     listing_shapes:
       index:
         listing_shapes: 交易类型
@@ -461,12 +461,12 @@ zh:
     paypal_accounts:
       marketplace_paypal_integration: 支付偏好
       preferences_updated: 支付偏好设置更新
-      marketplace_currency_used: ~
-      contact_support_link_text: ~
+      marketplace_currency_used: "这个集市用的货币是 %{currency}. 如果想更改货币单位，请 %{contact_support_link}"
+      contact_support_link_text: "联系 Sharetribe 的支持人员"
       integration_info_text: Sharetribe的支付系统由PayPal提供支持。如果你想使用你的用户名在你的集市上付款，你必须连接你的PayPal帐号及决定最小交易规模以及对每个交易收取的费用。
-      link_paypal_personal_account_label: ~
+      link_paypal_personal_account_label: 你是自己提供产品或者服务吗？
       link_paypal_personal_account: ~
-      personal_payment_preferences_link_text: ~
+      personal_payment_preferences_link_text: 你的个人集市账户
       read_more_about_paypal: 了解更多关于Sharetribe的支付系统
       set_minimum_price_and_fee: 设置最低价格和交易费用
       minimum_listing_price_label: 最小交易规模：
@@ -718,10 +718,10 @@ zh:
       log_out: 退出
       join_community_button: "加入%{service_name}"
     give_consent:
-      invitation_code_invalid_or_used: ~
+      invitation_code_invalid_or_used: 邀请代码无效或已经被使用
       email_not_allowed: ~
-      email_not_available: ~
-      consent_not_given: ~
+      email_not_available: 此邮箱地址已经被使用
+      consent_not_given: 你还没有接受条款
   emails:
     accept_reminder:
       remember_to_accept_offer: "请记得接受或拒绝来自%{sender_name}提供的宝贝"
@@ -734,7 +734,7 @@ zh:
     branding:
       powered_by: ~
       create_own: ~
-      learn_more: ~
+      learn_more: 了解更多
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "你还没有确认或者取消请求%{request_link}。如果请求已经完成，你应该确认。之后你可以评论给%{other_party_given_name}。"
       remember_to_confirm_request: 记得确认或取消请求
@@ -904,8 +904,8 @@ zh:
     new_member_notification:
       new_member_has_joined: ~
       this_is_automatic_message: ~
-      person_name: ~
-      person_email: ~
+      person_name: "名字:"
+      person_email: "电子邮件:"
   error_messages:
     onboarding:
       server_rendering: ~
@@ -951,8 +951,8 @@ zh:
       javascript_is_disabled_in_your_browser: 你的浏览器已禁用Javascript
       kassi_does_not_currently_work_without_javascript: "抱歉，%{service_name}目前不能在无javascript环境下工作。请在浏览器首选项中打开javascript，然后刷新页面。"
       contact_us: 联系我们
-      send_feedback: ~
-      your_feedback_to_admins: ~
+      send_feedback: 发送消息
+      your_feedback_to_admins: "给 %{service_name} 团队发消息"
     send: 发送
     your_email_address: 你的E-mail地址
   errors:
@@ -1126,32 +1126,32 @@ zh:
   landing_page:
     hero:
       search: 搜索
-      signup: ~
-      search_placeholder: ~
-      search_location_placeholder: ~
+      signup: 注册
+      search_placeholder: 想找什么？
+      search_location_placeholder: 位置
     listings:
-      no_listing_image: ~
+      no_listing_image: 没有图片
   layouts:
     admin:
       admin: "%{service_name}控制面板"
     branding:
       powered_by: ~
       create_own: ~
-      learn_more: ~
+      learn_more: 了解更多
     no_tribe:
       inbox: 收件箱
       settings: 设置
-      feedback: ~
+      feedback: "联系 %{service_name} 团队"
     application:
       join_this_community: 加入集市
       read_more: 读取更多
-      feedback: ~
+      feedback: "给 %{service_name} 团队发消息"
       dont_use_to_contact_support: ~
       feedback_forum: 反馈论坛
       feedback_handle: 反馈
       give_feedback: 联系我们
       or_check_our: ……或者查看我们的
-      send_feedback_to_admin: ~
+      send_feedback_to_admin: 发送消息
       to_see_what_others_have_suggested: 看看其他用户的推荐，给那些主意投票。
       your_email_address: 你的E-mail地址（用来联系你）
       connect: 注册
@@ -1221,7 +1221,7 @@ zh:
       error_with_session: 内容错误
       feedback_considered_spam: 格式错误，评价失败。请重试或者使用论坛评价。
       feedback_not_saved: 评价发送失败。
-      feedback_saved: ~
+      feedback_saved: 感谢给我们发消息！我们会尽快回复。
       feedback_sent_to: "发送评价给%{target_person}"
       feedback_skipped: 跳过评价
       invitation_cannot_be_sent: 邀请未被发出
@@ -1313,7 +1313,7 @@ zh:
       email_deleted: 邮件已删除
       listing_author_payment_details_missing: 请点击下面的‘联系’按钮联系卖家。他们需要更新付款信息来接收付款。
       images_are_processing: ~
-      automatically_logged_out_please_sign_in: ~
+      automatically_logged_out_please_sign_in: 你已被自动登出。请重新登录。
     settings:
       account: 帐号
       notifications: 通知
@@ -1397,7 +1397,7 @@ zh:
         this_may_take_a_while: 这只需要一小会
         percentage_loaded: "%{percentage}%"
         uploading_failed: 图片加载出错
-        image_processing_failed: ~
+        image_processing_failed: 处理图像失败
         file_too_large: 文件太大
         accepted_formats: "图片必须是GIF,JPG或PNG格式。"
         images_not_uploaded_confirm: 图片还没有上传完成。你真的想要跳过吗?
@@ -1561,7 +1561,7 @@ zh:
       shipping_price_additional: "运费(+%{price}, 附件的费用: +%{shipping_price_additional})"
       pickup: 自取
       pickup_no_price: 自提
-      youtube_video_player: ~
+      youtube_video_player: "YouTube 视频播放器"
     unit_types:
       piece: 个
       hour: 小时
@@ -1580,7 +1580,7 @@ zh:
       you_will_be_charged: "你只有在%{author}接受交易后才会被收费。%{author}需要在%{expiration_period}天内接受交易。如果%{author}拒绝或者没有响应，不会产生任何费用。"
       day: 日
       days: 天
-      night: ~
+      night: 晚上
       nights: ~
       invalid_parameters: ~
     transaction_agreement_checkbox:
@@ -1618,14 +1618,14 @@ zh:
     payout_info_paypal: ~
     paypal_billing_agreement_made: "<del>授权%{service_name}收取交易费</del> 完成！"
     commission_permission_needed: ~
-    create_paypal_account_link_text: ~
+    create_paypal_account_link_text: "PayPal 账户"
     connected_account: "PayPal帐号“%{email}”连接成功。"
     paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info_label: "你的 PayPal 账户需要可以接受付款。这可能需要一个商业账户。"
     paypal_receive_funds_info: ~
     upgrade_paypal_account_link_text: ~
     admin_account_not_connected: ~
-    contact_admin_link_text: ~
+    contact_admin_link_text: 联系集市管理员
     you_are_ready_to_accept_payments: 你已准备好接受付款！
     commission: "%{commission}%"
     new:
@@ -1640,7 +1640,7 @@ zh:
       upgrade_paypal_account: 登录你的PayPal帐号
       paypal_account_billing_agreement: "授权%{service_name}收取交易费"
       follow_steps: ~
-      connect_paypal_account_title: ~
+      connect_paypal_account_title: "连接 PayPal 帐号"
       connect_paypal_account_title_with_step: ~
       connect_paypal_account_instructions: ~
       connect_paypal_account: 连接PayPal帐号
@@ -1661,14 +1661,14 @@ zh:
       something_went_wrong: 出错了。请再试一次。如果这个问题仍旧存在，请联系网站管理员。
       account_not_verified: 你还没有验证你的PayPal帐号。要继续请先登录paypal.com并确认你的帐号。
       account_restricted: 你的PayPal帐号受到限制且不能被连接。请登录paypal.com以了解更多或联系PayPal的客户服务解决这个问题。
-    paypal_account_connected_title: ~
-    paypal_account_connected: ~
+    paypal_account_connected_title: "PayPal 帐号已连接成功"
+    paypal_account_connected: "PayPal 账户 %{email} 已经和 %{service_name} 建立了连接"
     change_account: 更改帐户
     missing: "你有开放的信息，但是并没有连接到你的PayPal帐号来接受付款。通过你的%{settings_link}连接你的Paypal账号并且授予%{service_name}权限来收取交易费。"
     from_your_payment_settings_link_text: 付款设置
-    redirect_message: ~
-    redirect_link_text: ~
-    paypal_account_all_set_up: ~
+    redirect_message: "正在将你重定向到 PayPal. 如果你的浏览器没有自动跳转, 请点击 %{redirect_link}"
+    redirect_link_text: 这里
+    paypal_account_all_set_up: 太棒了，一切就绪！
     can_receive_payments: ~
     paypal_account_connected_summary: ~
     paypal_permission_granted_summary: ~
@@ -2016,7 +2016,7 @@ zh:
       booked_days: "预订的天数:"
       booked_nights: ~
       price_per_day: "每天的价格:"
-      price_per_night: ~
+      price_per_night: 每晚价格
       quantity: "数量:"
       subtotal: "小结:"
       shipping-price: "运费:"
@@ -2033,7 +2033,7 @@ zh:
       menu: 菜单
       more: 更多
       search_placeholder: 搜索...
-      search_location_placeholder: ~
+      search_location_placeholder: 位置
       user: 用户
       inbox: 收件箱
       profile: 个人主页
