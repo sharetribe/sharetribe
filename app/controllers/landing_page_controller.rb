@@ -213,6 +213,13 @@ class LandingPageController < ActionController::Metal
 
     initialize_i18n!(c&.id, landing_page_locale)
 
+    # Init feature flags with marketplace specific flags, skip personal
+    FeatureFlagHelper.init(community_id: c.id,
+                           user_id: nil,
+                           request: request,
+                           is_admin: false,
+                           is_marketplace_admin: false)
+
     props = topbar_props(c,
                          community_customization(request, landing_page_locale),
                          request.fullpath,
@@ -221,12 +228,6 @@ class LandingPageController < ActionController::Metal
                          true)
     marketplace_context = marketplace_context(c, topbar_locale, request)
 
-    # Init feature flags with marketplace specific flags, skip personal
-    FeatureFlagHelper.init(community_id: c.id,
-                           user_id: nil,
-                           request: request,
-                           is_admin: false,
-                           is_marketplace_admin: false)
 
     denormalizer = build_denormalizer(
       cid: c&.id,

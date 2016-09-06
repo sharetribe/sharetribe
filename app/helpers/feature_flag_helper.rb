@@ -60,8 +60,13 @@ module FeatureFlagHelper
   end
 
   def search_engine
-    use_external_search = Maybe(APP_CONFIG).external_search_in_use.map { |v| v == true || v.to_s.casecmp("true") == 0 }.or_else(false)
-    use_external_search ? :zappy : :sphinx
+    if feature_enabled?(:searchpage_v1) && APP_CONFIG.external_search_in_use.to_s.casecmp("true").zero?
+      :discovery
+    elsif APP_CONFIG.external_search_in_use.to_s.casecmp("true").zero?
+      :zappy
+    else
+      :sphinx
+    end
   end
 
   def location_search_available
