@@ -157,8 +157,6 @@ class HomepageController < ApplicationController
     dropdowns = filter_params[:custom_dropdown_field_options].map { |dropdown_field| dropdown_field.merge(type: :selection_group, operator: :or) }
     numbers = numeric_search_params.map { |numeric| numeric.merge(type: :numeric_range) }
 
-    marketplace_configuration = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data
-
     search = {
       # Add listing_id
       categories: filter_params[:categories],
@@ -175,44 +173,8 @@ class HomepageController < ApplicationController
       sort: nil
     }
 
-
-    # location search params
-    distance = params[:distance_max].to_f
-    distance_system = marketplace_configuration ? marketplace_configuration[:distance_unit] : nil
-    distance_unit = (location_search_in_use && distance_system == :metric) ? :km : :miles
-    limit_search_distance = marketplace_configuration ? marketplace_configuration[:limit_search_distance] : true
-    distance_limit = [distance, APP_CONFIG[:external_search_distance_limit_min].to_f].max if limit_search_distance
-
     if @view_type != 'map' && location_search_in_use
-      corners = params[:boundingbox].split(',') if params[:boundingbox].present?
-      center_point = if limit_search_distance && corners&.length == 4
-        LocationUtils.center(*corners.map { |n| LocationUtils.to_radians(n) })
-      else
-        search_coordinates(params[:lc])
-      end
-
-      scale_multiplier = APP_CONFIG[:external_search_scale_multiplier].to_f
-      offset_multiplier = APP_CONFIG[:external_search_offset_multiplier].to_f
-      combined_search_in_use = location_search_in_use && keyword_search_in_use && scale_multiplier && offset_multiplier
-      combined_search_params = if combined_search_in_use
-        {
-          scale: [distance * scale_multiplier, APP_CONFIG[:external_search_scale_min].to_f].max,
-          offset: [distance * offset_multiplier, APP_CONFIG[:external_search_offset_min].to_f].max
-        }
-      else
-        {}
-      end
-
-      sort = :distance unless combined_search_in_use
-
-      search = search.merge({
-        distance_unit: distance_unit,
-        distance_max: distance_limit,
-        sort: sort
-      })
-      .merge(center_point)
-      .merge(combined_search_params)
-      .compact
+      search.merge(location_search_params(params, keyword_search_in_use))
     end
 
     raise_errors = Rails.env.development?
@@ -237,6 +199,46 @@ class HomepageController < ApplicationController
         end
       )
     }
+  end
+
+  def location_search_params(params, keyword_search_in_use)
+    marketplace_configuration = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data
+
+    distance = params[:distance_max].to_f
+    distance_system = marketplace_configuration ? marketplace_configuration[:distance_unit] : nil
+    distance_unit = distance_system == :metric ? :km : :miles
+    limit_search_distance = marketplace_configuration ? marketplace_configuration[:limit_search_distance] : true
+    distance_limit = [distance, APP_CONFIG[:external_search_distance_limit_min].to_f].max if limit_search_distance
+
+    corners = params[:boundingbox].split(',') if params[:boundingbox].present?
+    center_point = if limit_search_distance && corners&.length == 4
+      LocationUtils.center(*corners.map { |n| LocationUtils.to_radians(n) })
+    else
+      search_coordinates(params[:lc])
+    end
+
+    scale_multiplier = APP_CONFIG[:external_search_scale_multiplier].to_f
+    offset_multiplier = APP_CONFIG[:external_search_offset_multiplier].to_f
+    combined_search_in_use = keyword_search_in_use && scale_multiplier && offset_multiplier
+    combined_search_params = if combined_search_in_use
+      {
+        scale: [distance * scale_multiplier, APP_CONFIG[:external_search_scale_min].to_f].max,
+        offset: [distance * offset_multiplier, APP_CONFIG[:external_search_offset_min].to_f].max
+      }
+    else
+      {}
+    end
+
+    sort = :distance unless combined_search_in_use
+
+    {
+      distance_unit: distance_unit,
+      distance_max: distance_limit,
+      sort: sort
+    }
+    .merge(center_point)
+    .merge(combined_search_params)
+    .compact
   end
 
   def filter_range(price_min, price_max)
