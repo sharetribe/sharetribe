@@ -1,8 +1,8 @@
 describe PaypalService::API::Payments do
 
-  TokenStore = PaypalService::Store::Token
-  PaymentStore = PaypalService::Store::PaypalPayment
-  AccountStore = PaypalService::Store::PaypalAccount
+  let(:token_store) { PaypalService::Store::Token }
+  let(:payment_store) { PaypalService::Store::PaypalPayment }
+  let(:account_store) { PaypalService::Store::PaypalAccount }
 
   before(:each) do
     # Test version of merchant client
@@ -21,7 +21,7 @@ describe PaypalService::API::Payments do
     @paypal_email = "merchant_1@test.com"
     @payer_id = "payer_id_1"
 
-    AccountStore.create(opts:
+    account_store.create(opts:
       {
         active: true,
         person_id: @mid,
@@ -151,7 +151,7 @@ describe PaypalService::API::Payments do
 
       payment_res = @payments.create(@cid, token[:token])
 
-      payment = PaymentStore.get(@cid, @tx_id)
+      payment = payment_store.get(@cid, @tx_id)
       expect(payment_res.success).to eq(true)
       expect(payment).not_to be_nil
       expect(payment_res[:data][:payment_status]).to eq(:pending)
@@ -167,7 +167,7 @@ describe PaypalService::API::Payments do
 
       payment_res = @payments.create(@cid, token[:token])
 
-      payment = PaymentStore.get(@cid, @tx_id)
+      payment = payment_store.get(@cid, @tx_id)
       expect(payment_res.success).to eq(true)
       expect(payment).not_to be_nil
       expect(payment_res[:data][:payment_status]).to eq(:pending)
@@ -183,7 +183,7 @@ describe PaypalService::API::Payments do
 
       payment_res = @payments.create(@cid, token[:token])
 
-      payment = PaymentStore.get(@cid, @tx_id)
+      payment = payment_store.get(@cid, @tx_id)
       expect(payment_res.success).to eq(false)
       expect(payment_res.data[:error_code]).to eq(:"payment-review")
       expect(payment[:pending_reason]).to eq(:"payment-review")
@@ -193,7 +193,7 @@ describe PaypalService::API::Payments do
       token = @payments.request(@cid, @req_info)[:data]
       payment_res = @payments.create(@cid, token[:token])
 
-      payment = PaymentStore.get(@cid, @tx_id)
+      payment = payment_store.get(@cid, @tx_id)
       expect(@events.received_events[:payment_created].length).to eq(1)
       expect(@events.received_events[:payment_updated].length).to eq(1)
       expect(@events.received_events[:payment_updated].first).to eq([:success, payment_res[:data]])
@@ -301,7 +301,7 @@ describe PaypalService::API::Payments do
 
       process_status = @payments.create(@cid, token[:token], async: true)[:data]
       expect(process_status[:completed]).to eq(false)
-      expect(PaymentStore.get(@cid, @tx_id)).to be_nil
+      expect(payment_store.get(@cid, @tx_id)).to be_nil
 
       SyncDelayedJobObserver.process_queue!
 
@@ -441,7 +441,7 @@ describe PaypalService::API::Payments do
 
       expect(payment_res.success).to eq(false)
       expect(@events.received_events[:payment_updated].length).to eq(0)
-      expect(PaymentStore.get(@cid, @tx_id)[:payment_status]).to eq(:completed)
+      expect(payment_store.get(@cid, @tx_id)[:payment_status]).to eq(:completed)
     end
 
     it "does nothing if called for non-existent payment" do
@@ -489,7 +489,7 @@ describe PaypalService::API::Payments do
       payment = @payments.get_payment(@cid, @tx_id)[:data]
       expect(payment[:payment_status]).to eq(:pending)
       expect(payment[:pending_reason]).to eq(:authorization)
-      expect(TokenStore.get_all.count).to eq(0)
+      expect(token_store.get_all.count).to eq(0)
     end
 
     it "leaves token in place if op fails but clean time limit not reached" do
@@ -498,7 +498,7 @@ describe PaypalService::API::Payments do
       @payments.retry_and_clean_tokens(1.hour.ago)
 
       expect(@payments.get_payment(@cid, @tx_id)[:success]).to eq(false)
-      expect(TokenStore.get_all.count).to eq(1)
+      expect(token_store.get_all.count).to eq(1)
     end
 
     it "removes token if op fails and clean time limit reached" do
@@ -507,7 +507,7 @@ describe PaypalService::API::Payments do
       @payments.retry_and_clean_tokens(1.hour.from_now)
 
       expect(@payments.get_payment(@cid, @tx_id)[:success]).to eq(false)
-      expect(TokenStore.get_all.count).to eq(0)
+      expect(token_store.get_all.count).to eq(0)
     end
 
     it "doesn't remove token when op fails, clean time limit reached but payment in :payment-review state" do
@@ -516,7 +516,7 @@ describe PaypalService::API::Payments do
       @payments.retry_and_clean_tokens(1.hour.from_now)
 
       expect(@payments.get_payment(@cid, @tx_id)[:data][:pending_reason]).to eq(:"payment-review")
-      expect(TokenStore.get_all.count).to eq(1)
+      expect(token_store.get_all.count).to eq(1)
     end
   end
 

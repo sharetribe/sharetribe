@@ -1,11 +1,10 @@
 module PlanService::API
-  PlanStore = PlanService::Store::Plan
-
-  Plan                     = PlanService::DataTypes::Plan
-  ExternalPlan             = PlanService::DataTypes::ExternalPlan
-  LoginLinkMarketplaceData = PlanService::DataTypes::LoginLinkMarketplaceData
-
   class Plans
+    PlanStore = PlanService::Store::Plan
+
+    Plan                     = PlanService::DataTypes::Plan
+    ExternalPlan             = PlanService::DataTypes::ExternalPlan
+    LoginLinkMarketplaceData = PlanService::DataTypes::LoginLinkMarketplaceData
 
     def initialize(configuration)
       @jwt_secret = configuration[:jwt_secret]
