@@ -444,6 +444,10 @@ en:
       online_payments_label: "Allow sellers to accept payments online"
       shipping_label: "Allow sellers to define a shipping fee"
       price_label: "Allow sellers to add a price to their listings"
+      availability_title: "Availability"
+      allow_availability_management: "Allow providers to manage their availability from a calendar"
+      per_day_availability: "\"Per day\" availability"
+      per_night_availability: "\"Per night\" availability"
       units_title: "Pricing units"
       units_desc: "If you have enabled pricing units, the listing price is displayed as \"price per pricing unit\". An example: \"$39 per hour\"."
       units:

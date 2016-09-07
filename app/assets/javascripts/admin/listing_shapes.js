@@ -73,11 +73,24 @@ window.ST.initializeListingShapeForm = function(formId) {
   var onlinePaymentsChanged = function(currentEl) {
     var enabled = currentEl.is(':checked');
     if(enabled) {
+      toggleAvailabilityEnabled(true);
       toggleShippingEnabled(true);
     } else {
+      toggleAvailabilityEnabled(false);
       toggleShippingEnabled(false);
     }
   };
+
+  var availabilityChanged = function(currentEl) {
+    var enabled = currentEl.is(':checked');
+    if(enabled) {
+      toggleAvailabilityUnitsEnabled(true);
+      toggleUnitsEnabled(false);
+    } else {
+      toggleAvailabilityUnitsEnabled(false)
+      toggleUnitsEnabled(true);
+    }
+  }
 
   var toggleOnlinePaymentEnabled = function(enabled) {
     toggle($(".js-online-payments"), enabled);
@@ -92,6 +105,16 @@ window.ST.initializeListingShapeForm = function(formId) {
   var toggleUnitsEnabled = function(enabled) {
     toggle($(".js-unit-checkbox"), enabled);
     toggleLabel($(".js-unit-label"), enabled);
+  };
+
+  var toggleAvailabilityEnabled = function(enabled) {
+    toggle($(".js-availability"), enabled);
+    toggleLabel($(".js-availability-label"), enabled);
+  };
+
+  var toggleAvailabilityUnitsEnabled = function(enabled) {
+    toggle($(".js-availability-unit"), enabled);
+    toggleLabel($(".js-availability-unit-label"), enabled);
   };
 
   var removeCustomUnit = function() {
@@ -138,11 +161,14 @@ window.ST.initializeListingShapeForm = function(formId) {
   $('.js-listing-shape-add-custom-unit-link').click(function() {
     addCustomUnitForm();
   });
+  $('.js-availability').click(function() {
+    availabilityChanged($(this));
+  });
+
   $('.js-listing-shape-close-custom-unit-form').click(closeCustomUnitForm);
   $('.js-remove-custom-unit').click(removeCustomUnit);
 
   // Run once on init
   priceChanged($('.js-price-enabled'));
   onlinePaymentsChanged($('.js-online-payments'));
-
 };

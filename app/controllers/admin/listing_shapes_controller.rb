@@ -180,6 +180,7 @@ class Admin::ListingShapesController < ApplicationController
     {
       shipping_enabled: !process_summary[:preauthorize_available] || !author_is_seller,
       online_payments: !process_summary[:preauthorize_available] || !author_is_seller,
+      availability: !process_summary[:preauthorize_available] || !author_is_seller,
     }
   end
 
@@ -329,12 +330,8 @@ class Admin::ListingShapesController < ApplicationController
     def params_to_shape(params)
       form_params = HashUtils.symbolize_keys(params)
 
-      units = parse_predefined_units(form_params[:units])
-        .concat(parse_existing_custom_units(Maybe(form_params)[:custom_units][:existing].or_else([])))
-        .concat(parse_new_custom_units(Maybe(form_params)[:custom_units][:new].or_else([])))
-
       parsed_params = form_params.merge(
-        units: units,
+        units: parse_units_from_params(form_params),
         author_is_seller: form_params[:author_is_seller] == "false" ? false : true # default true
       )
 
@@ -344,13 +341,56 @@ class Admin::ListingShapesController < ApplicationController
     def shape_to_locals(shape)
       shape = Shape.call(shape)
 
+      units = split_availability_and_pricing_units(shape)
+
       shape.merge(
-        predefined_units: expand_predefined_units(shape[:units]),
-        custom_units: encode_custom_units(shape[:units].select { |unit| unit[:type] == :custom })
+        availability_unit: units[:availability],
+        predefined_units: expand_predefined_units(units[:pricing]),
+        custom_units: encode_custom_units(units[:pricing].select { |unit| unit[:type] == :custom })
       )
     end
 
     # private
+
+    # Splits units to availability units and pricing units.
+    #
+    # In the backend we have only one concept, units. However, in the UI
+    # we are showing pricing unit checkboxes and availability unit radio
+    # buttons. This method maps backend units to the two unit formats
+    # we have in the UI
+    #
+    def split_availability_and_pricing_units(shape)
+      if shape[:availability] == :booking
+        {
+          pricing: [],
+          availability: shape[:units].first[:type]
+        }
+      else
+        {
+          pricing: shape[:units],
+          availability: nil
+        }
+      end
+    end
+
+    # Combines availability units and pricing units to just "units".
+    #
+    # In the backend we have only one concept, units. However, in the UI
+    # we are showing pricing unit checkboxes and availability unit radio
+    # buttons. This method maps the UI units to backend units.
+    #
+    def parse_units_from_params(form_params)
+      selected_predefined_units =
+        if form_params[:availability] == "booking"
+          [form_params[:availability_unit]]
+        else
+          form_params[:units]
+        end
+
+      parse_predefined_units(selected_predefined_units)
+        .concat(parse_existing_custom_units(Maybe(form_params)[:custom_units][:existing].or_else([])))
+        .concat(parse_new_custom_units(Maybe(form_params)[:custom_units][:new].or_else([])))
+    end
 
     def expand_predefined_units(shape_units)
       shape_units_set = shape_units.map { |t| t[:type] }.to_set
