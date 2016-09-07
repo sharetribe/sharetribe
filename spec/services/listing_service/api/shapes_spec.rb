@@ -88,6 +88,19 @@ describe ListingService::API::Shapes do
       end
     end
 
+    # TODO This is only a temporary test that accesses the DB and bypasses the Store layer.
+    # Remove this test when the data migration is complete
+    it "creates a new listing shape and saves information to new unit columns" do
+      shape_model = ListingShape.find(create_shape().data[:id])
+      unit_models = shape_model.listing_units
+
+      expect(unit_models[0].label).to eq("day")
+      expect(unit_models[0].pricing).to eq("day")
+      expect(unit_models[1].label).to eq("custom")
+      expect(unit_models[1].pricing).to eq("quantity")
+
+    end
+
     it "uses default basename for url if the name results in emtpy string" do
       create_shape_res = create_shape(
         basename: "!!"
