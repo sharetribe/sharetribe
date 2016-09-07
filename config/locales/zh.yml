@@ -1623,7 +1623,7 @@ zh:
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: "你的 PayPal 账户需要可以接受付款。这可能需要一个商业账户。"
     paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: ~
+    upgrade_paypal_account_link_text: 登陆并点击升级套餐连接
     admin_account_not_connected: ~
     contact_admin_link_text: 联系集市管理员
     you_are_ready_to_accept_payments: 你已准备好接受付款！
@@ -1639,7 +1639,7 @@ zh:
       create_paypal_account: 点击这里
       upgrade_paypal_account: 登录你的PayPal帐号
       paypal_account_billing_agreement: "授权%{service_name}收取交易费"
-      follow_steps: ~
+      follow_steps: 跟着下面的步骤做以开始接收资金
       connect_paypal_account_title: "连接 PayPal 帐号"
       connect_paypal_account_title_with_step: ~
       connect_paypal_account_instructions: ~
@@ -1669,8 +1669,8 @@ zh:
     redirect_message: "正在将你重定向到 PayPal. 如果你的浏览器没有自动跳转, 请点击 %{redirect_link}"
     redirect_link_text: 这里
     paypal_account_all_set_up: 太棒了，一切就绪！
-    can_receive_payments: ~
-    paypal_account_connected_summary: ~
+    can_receive_payments: 现在你可以为你的列表接收付款了。
+    paypal_account_connected_summary: "PayPal 账户 %{email} 连接成功"
     paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: 进行支付

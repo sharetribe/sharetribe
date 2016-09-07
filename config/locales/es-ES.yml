@@ -2036,17 +2036,17 @@ es-ES:
     initiate:
       booked_days: "Días reservados:"
       booked_nights: "Noches elegidas:"
-      price_per_day: "Precio por día:"
-      price_per_night: "Precio por noche:"
-      quantity: "Cantidad:"
-      subtotal: "Subtotal:"
-      shipping-price: "Envío:"
       booked_days_label:
         one: "Día reservado:"
         other: "Días reservados:"
       booked_nights_label:
         one: "Noche reservada:"
         other: "Noches reservadas:"
+      price_per_day: "Precio por día:"
+      price_per_night: "Precio por noche:"
+      quantity: "Cantidad:"
+      subtotal: "Subtotal:"
+      shipping-price: "Envío:"
     price_per_quantity: "Precio por %{unit_type}:"
     price: "Precio:"
     quantity: "Cantidad: %{quantity}"
