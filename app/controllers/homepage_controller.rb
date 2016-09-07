@@ -174,7 +174,7 @@ class HomepageController < ApplicationController
     }
 
     if @view_type != 'map' && location_search_in_use
-      search.merge(location_search_params(params, keyword_search_in_use))
+      search.merge!(location_search_params(params, keyword_search_in_use))
     end
 
     raise_errors = Rails.env.development?
