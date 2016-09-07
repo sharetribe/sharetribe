@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe Admin::CategoryService do
 
   before(:each) do

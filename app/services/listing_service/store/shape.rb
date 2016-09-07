@@ -190,6 +190,7 @@ module ListingService::Store::Shape
       {
         type: :unit_type
       }, hash)
+    .merge(from_unit_type(hash.slice(:type)))
   end
 
   def from_unit_model_attributes(hash)
@@ -197,6 +198,13 @@ module ListingService::Store::Shape
       {
         unit_type: :type
       }, hash)
+  end
+
+  def from_unit_type(type:)
+    {
+      label: type,
+      pricing: type == :custom ? :quantity : type
+    }
   end
 
   def find_shape_model(community_id:, listing_shape_id: nil, name: nil)
