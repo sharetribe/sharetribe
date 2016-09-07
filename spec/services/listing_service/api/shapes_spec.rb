@@ -141,24 +141,41 @@ describe ListingService::API::Shapes do
     end
 
     context "failure" do
-      let(:valid_unit) {
-        {
-          type: :custom,
-          quantity_selector: :number,
-          kind: :time,
-          name_tr_key: "name_tr",
-          selector_tr_key: "selector_tr"
+      describe "units" do
+        let(:valid_unit) {
+          {
+            type: :custom,
+            quantity_selector: :number,
+            kind: :time,
+            name_tr_key: "name_tr",
+            selector_tr_key: "selector_tr"
+          }
         }
-      }
 
-      it "passes for valid unit" do
-        expect { create_shape(units: [valid_unit])}.not_to raise_error
+        it "passes for valid unit" do
+          expect { create_shape(units: [valid_unit])}.not_to raise_error
+        end
+
+        it "validates custom unit without mandatory fields" do
+          [:type, :quantity_selector, :kind, :name_tr_key, :selector_tr_key].each { |field|
+            expect { create_shape(units: [valid_unit.except(field)]) }.to raise_error(ArgumentError), "Expected error, field: #{field}"
+          }
+        end
       end
 
-      it "validates custom unit without mandatory fields" do
-        [:type, :quantity_selector, :kind, :name_tr_key, :selector_tr_key].each { |field|
-          expect { create_shape(units: [valid_unit.except(field)]) }.to raise_error(ArgumentError), "Expected error, field: #{field}"
-        }
+      describe "availability booking and units" do
+        it "fails if availability is booking, but the unit is something else than night or day" do
+          [:hour, :week, :month].each { |type|
+            expect(create_shape(
+                     availability: :booking,
+                     units: [
+                       { type: type,
+                         quantity_selector: :number
+                       }
+                     ]
+                   ).success).to eq(false)
+          }
+        end
       end
     end
   end
