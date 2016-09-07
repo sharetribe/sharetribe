@@ -29,6 +29,7 @@ describe ListingService::API::Shapes do
       name_tr_key: name_tr_key,
       action_button_tr_key: action_button_tr_key,
       basename: "Selling",
+      availability: :none,
 
       units: [
         {
@@ -75,6 +76,7 @@ describe ListingService::API::Shapes do
         expect(shape[:action_button_tr_key]).to eql(action_button_tr_key)
         expect(shape[:category_ids].sort).to eq category_ids.sort
         expect(shape[:name]).to eql("selling")
+        expect(shape[:availability]).to eql(:none)
 
         units = shape[:units]
 
@@ -85,6 +87,41 @@ describe ListingService::API::Shapes do
         expect(units[1][:quantity_selector]).to eql(:number)
         expect(units[1][:name_tr_key]).to eql('my.custom.units.translation')
         expect(units[1][:selector_tr_key]).to eql('my.custom.selector.translation')
+      end
+
+      it "creates a new listing shape with availability" do
+        create_shape_res = create_shape(
+          availability: :booking,
+          units: [
+            {
+              type: :day,
+              quantity_selector: :day
+            }
+          ]
+        )
+
+        expect(create_shape_res.success).to eql(true)
+        listing_shape_id = create_shape_res.data[:id]
+        res = listings_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id, include_categories: true)
+        expect(res.success).to eql(true)
+
+        shape = res.data
+
+        expect(shape[:id]).to be_a(Fixnum)
+        expect(shape[:community_id]).to eql(community_id)
+        expect(shape[:price_enabled]).to eql(true)
+        expect(shape[:shipping_enabled]).to eql(true)
+        expect(shape[:transaction_process_id]).to eql(transaction_process_id)
+        expect(shape[:name_tr_key]).to eql(name_tr_key)
+        expect(shape[:action_button_tr_key]).to eql(action_button_tr_key)
+        expect(shape[:category_ids].sort).to eq category_ids.sort
+        expect(shape[:name]).to eql("selling")
+        expect(shape[:availability]).to eq(:booking)
+
+        units = shape[:units]
+
+        expect(units[0][:type]).to eql(:day)
+        expect(units[0][:quantity_selector]).to eql(:day)
       end
     end
 

@@ -13,7 +13,8 @@ module ListingService::Store::Shape
     [:shipping_enabled, :bool, :mandatory],
     [:units, :array, default: []], # Mandatory only if price_enabled
     [:sort_priority, :fixnum],
-    [:basename, :string, :mandatory]
+    [:basename, :string, :mandatory],
+    [:availability, :symbol, one_of: [:none, :booking], default: :none] # Possibly :stock in the future
   )
 
   Shape = EntityUtils.define_builder(
@@ -27,7 +28,8 @@ module ListingService::Store::Shape
     [:shipping_enabled, :bool, :mandatory],
     [:name, :string, :mandatory],
     [:sort_priority, :fixnum, default: 0],
-    [:category_ids, :array]
+    [:category_ids, :array],
+    [:availability, :to_symbol, one_of: [:none, :booking]]
   )
 
   UpdateShape = EntityUtils.define_builder(
@@ -37,7 +39,8 @@ module ListingService::Store::Shape
     [:transaction_process_id, :fixnum],
     [:units, :array],
     [:shipping_enabled, :bool],
-    [:sort_priority, :fixnum]
+    [:sort_priority, :fixnum],
+    [:availability, :symbol, one_of: [:none, :booking], default: :none] # Possibly :stock in the future
   )
 
   BuiltInUnit = EntityUtils.define_builder(

@@ -14,6 +14,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  deleted                :boolean          default(FALSE)
+#  availability           :string(32)       default("none")
 #
 # Indexes
 #
