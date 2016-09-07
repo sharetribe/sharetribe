@@ -1,6 +1,5 @@
 describe PaypalService::Store::PaypalPayment do
   order = {
-    order_total: 100,
     community_id: 1,
     transaction_id: 1,
     payer_id: "7LFUVCDKGARH4",

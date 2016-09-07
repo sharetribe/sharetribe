@@ -1,8 +1,7 @@
 module PlanService::API
 
-  Plan = PlanService::DataTypes::Plan
-
   class NoPlans
+    Plan = PlanService::DataTypes::Plan
 
     def active?
       false

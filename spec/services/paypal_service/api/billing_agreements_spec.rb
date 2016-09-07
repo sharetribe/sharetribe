@@ -1,6 +1,6 @@
 describe PaypalService::API::BillingAgreements do
 
-  AccountStore = PaypalService::Store::PaypalAccount
+  let(:account_store) { PaypalService::Store::PaypalAccount }
 
   before(:each) do
     # Test version of merchant client
@@ -27,7 +27,7 @@ describe PaypalService::API::BillingAgreements do
     @billing_agreement_id = "bagrid"
 
     # Normal personal account
-    AccountStore.create(opts:
+    account_store.create(opts:
       {
         active: true,
         person_id: @person_id,
@@ -42,7 +42,7 @@ describe PaypalService::API::BillingAgreements do
       })
 
     # Admin personal account (same Paypal account as Community account)
-    AccountStore.create(opts:
+    account_store.create(opts:
       {
         active: true,
         person_id: @admin_person_id,
@@ -57,7 +57,7 @@ describe PaypalService::API::BillingAgreements do
       })
 
     # Community account
-    AccountStore.create(opts:
+    account_store.create(opts:
       {
         active: true,
         community_id: @cid,
@@ -125,7 +125,7 @@ describe PaypalService::API::BillingAgreements do
       do_payment!(@admin_person_id)
       @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
 
-      AccountStore.create(opts:
+      account_store.create(opts:
         {
           person_id: @payer_id_admin,
           community_id: @cid,

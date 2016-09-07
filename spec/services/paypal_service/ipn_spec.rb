@@ -4,7 +4,7 @@ require_relative 'test_events'
 
 describe PaypalService::IPN do
 
-  AccountStore = PaypalService::Store::PaypalAccount
+  let(:account_store) { PaypalService::Store::PaypalAccount }
 
   before(:each) do
     @events = PaypalService::TestEvents.new
@@ -233,7 +233,7 @@ describe PaypalService::IPN do
     PaypalService::Store::PaypalPayment.create(@cid, @txid, @order)
     PaypalService::Store::PaypalPayment.create(@cid, @txid_auth, @authorization)
 
-    AccountStore.create(
+    account_store.create(
       opts:
         {
           active: true,
@@ -376,7 +376,7 @@ describe PaypalService::IPN do
     end
 
     it "should handle billing agreement cancelled" do
-      acc = AccountStore.get_active(
+      acc = account_store.get_active(
         person_id: @mid,
         community_id: @cid
       )
@@ -385,7 +385,7 @@ describe PaypalService::IPN do
 
       @ipn_service.handle_msg(@billing_agreement_cancelled)
 
-      acc2 = AccountStore.get_active(
+      acc2 = account_store.get_active(
         person_id: @mid,
         community_id: @cid
       )
