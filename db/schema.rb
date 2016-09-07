@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902104733) do
+ActiveRecord::Schema.define(version: 20160906122416) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -495,6 +495,8 @@ ActiveRecord::Schema.define(version: 20160902104733) do
   add_index "listing_shapes", ["name"], name: "index_listing_shapes_on_name", using: :btree
 
   create_table "listing_units", force: :cascade do |t|
+    t.string   "label",             limit: 32
+    t.string   "pricing",           limit: 32
     t.string   "unit_type",         limit: 32, null: false
     t.string   "quantity_selector", limit: 32, null: false
     t.string   "kind",              limit: 32, null: false
