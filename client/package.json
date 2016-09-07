@@ -37,7 +37,7 @@
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.9.0",
     "i18n-js": "http://github.com/sharetribe/i18n-js/archive/interpolation-mode.tar.gz",
-    "immutable": "https://registry.npmjs.org/immutable/-/immutable-3.8.1.tgz",
+    "immutable": "3.8.1",
     "imports-loader": "0.6.5",
     "loader-utils": "0.2.15",
     "lodash": "4.15.0",
@@ -61,7 +61,7 @@
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
-    "@kadira/storybook": "1.31.0",
+    "@kadira/storybook": "2.13.0",
     "@kadira/storybook-deployer": "github:mporkola/storybook-deployer",
     "babel-eslint": "6.1.2",
     "babel-plugin-react-transform": "2.0.2",
