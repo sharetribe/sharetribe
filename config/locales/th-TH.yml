@@ -493,8 +493,8 @@ th-TH:
     password: รหัสผ่าน
     service_name: "%{service_name}"
     share_types:
-      request: ~
-      offer: ~
+      request: คำขอ
+      offer: ข้อเสนอ
       borrow: ยืม
       buy: ซื้อ
       give_away: ให้เปล่า
@@ -503,8 +503,8 @@ th-TH:
       rent: เช่า
       rent_out: ให้เช่า
       sell: ขาย
-      offer_to_swap: ~
-      request_to_swap: ~
+      offer_to_swap: แลก
+      request_to_swap: แลก
       share_for_free: แบ่งปันฟรี
       accept_for_free: ต้องการใช้ฟรี
     categories:
@@ -512,21 +512,21 @@ th-TH:
       favor: บริการ
       rideshare: Rideshare
       housing: พื้นที่
-      tools: ~
-      sports: ~
-      music: ~
-      books: ~
-      games: ~
-      furniture: ~
-      outdoors: ~
-      food: ~
-      electronics: ~
-      pets: ~
-      film: ~
-      clothes: ~
-      garden: ~
-      travel: ~
-      other: ~
+      tools: เครื่องมือ
+      sports: กีฬา
+      music: ดนตรี
+      books: "หนังสือ และนิตยสาร"
+      games: "เกมส์ และของเล่น"
+      furniture: เฟอร์นิเจอร์
+      outdoors: "แคมปิ้ง และกิจกรรมกลางแจ้ง"
+      food: "อาหาร และครัว"
+      electronics: อิเล็กทรอนิกส์
+      pets: สัตว์เลี้ยงและสัตว์
+      film: "ฟิล์ม และภาพยนตร์"
+      clothes: "เสื้อผ้า และของตกแต่ง"
+      garden: สวน
+      travel: การท่องเที่ยว
+      other: "อื่น ๆ"
     username: ชื่อผู้ใช้
     username_or_email: "อีเมล์ หรือ ชื่อผู้ใช้"
     what_is_this: นี่คืออะไร?
@@ -544,14 +544,14 @@ th-TH:
     accept:
       details: ~
       order_by: ~
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
-      close_listing: ~
-      update_later: ~
-      optional_message: ~
-      price_to_pay: ~
+      accept_offer: ยอมรับข้อเสนอ
+      accept_request: ยอมรับคำขอ
+      reject_offer: ไม่ใช่เวลานี้
+      reject_request: ไม่ใช่เวลานี้
+      close_listing: "ปิดรายการ %{listing_title_link}"
+      update_later: ปล่อยให้รายการเปิด
+      optional_message: ข้อความเพิ่มเติม
+      price_to_pay: ราคารวมที่จะต้องจ่าย
       accept: ~
       decline: ~
       quantity_label: ~
@@ -563,15 +563,15 @@ th-TH:
       paypal_fee_info: ~
       shipping_price_label: ~
     confirm:
-      confirm_description: ~
-      cancel_description: ~
-      cancel_payed_description: ~
-      canceling_payed_transaction: ~
-      confirm: ~
-      cancel: ~
-      continue: ~
-      give_feedback_to: ~
-      do_not_give_feedback: ~
+      confirm_description: "หากรายการสั่งซื้อของคุณได้รับการกรอกจนเต็มแล้ว คุณควรยืนยันว่าเสร็จสิ้น หลังจากนั้นคุณจึงจะสามารถให้ข้อเสนอแนะไปยังบุคคลอื่น"
+      cancel_description: "หากรายการสั่งซื้อของคุณไม่ได้ถูกกรอกจนเต็ม คุณสามารถทำเครื่องหมาย 'อภิปราย' ได้ คุณยังคงสามารถให้ข้อเสนอแนะไปยังบุคคลอื่น และอธิบายถึงสิ่งที่เกิดขึ้น"
+      cancel_payed_description: "หากคำขอของคุณได้รับการยอมรับแล้ว แต่คุณเปลี่ยนใจ คุณยังสามารถยกเลิกคำขอ ก่อนที่จะชำระเงินได้"
+      canceling_payed_transaction: ยกเลิกการทำรายการ
+      confirm: การทำเครื่องหมายเสร็จสมบูรณ์
+      cancel: อภิปราย
+      continue: ต่อไป
+      give_feedback_to: "ให้ความคิดเห็นแก่ %{person_link}"
+      do_not_give_feedback: ข้ามความคิดเห็น
     details:
       day: ~
       days: ~
@@ -583,29 +583,29 @@ th-TH:
       no_received_messages: ไม่พบข้อความ
       no_sent_messages: ไม่พบข้อความที่ถูกส่ง
     conversation:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
+      accepted_request: คำขอได้รับการยอมรับแล้ว
+      accepted_offer: ข้อเสนอได้รับการยอมรับแล้ว
+      rejected_request: คำขอถูกปฎิเสธ
+      rejected_offer: ข้อเสนอถูกปฏิเสธ
+      confirmed_request: การสั่งซื้อสินค้าเสร็จสมบูรณ์
+      confirmed_offer: ข้อเสนอเสร็จสมบูรณ์
+      canceled_request: การสั่งซื้อสินค้าถูกยกเลิก
+      canceled_offer: ข้อเสนอถูกยกเลิก
       message_from: ~
       about_listing: ~
       free_message: ~
       message_content_not_available: ~
     message:
-      accepted_request: ~
+      accepted_request: ยอมรับคำขอ
       received_payment: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      paid: ~
+      accepted_offer: ยอมรับข้อเสนอ
+      rejected_request: "ปฏิเสธคำขอ ยกเลิกการชำระเงิน"
+      rejected_offer: ปฏิเสธข้อเสนอ
+      confirmed_request: ทำเครื่องหมายการสั่งซื้อเสร็จสมบูรณ์
+      confirmed_offer: ทำเครื่องหมายข้อเสนอเสร็จสมบูรณ์
+      canceled_request: ยกเลิกการสั่งซื้อ
+      canceled_offer: ยกเลิกข้อเสนอ
+      paid: "ชำระเงิน %{sum}"
       payment_preauthorized: ~
     new:
       message: ข้อความ
@@ -637,20 +637,20 @@ th-TH:
       payment_errored: ~
       payment_errored_starter: ~
       payment_errored_author: ~
-      cancel_payed_transaction: ~
+      cancel_payed_transaction: ยกเลิก
       feedback_given: ความคิดเห็นที่ได้
       feedback_skipped: ความคิดเห็นที่ถูกข้าม
       give_feedback: ให้ความคิดเห็น
       offer_accepted: ได้รับการยอมรับแล้ว
       offer_rejected: ถูกปฏิเสธ
-      offer_canceled: ~
-      offer_confirmed: ~
+      offer_canceled: ยกเลิก
+      offer_confirmed: เสร็จสมบูรณ์
       offer_paid: ~
       offer_preauthorized: ~
       offer_waiting_for_payment: ~
-      pay: ~
+      pay: ชำระเงิน
       preauthorized: ~
-      paid: ~
+      paid: ชำระเงินสำเร็จ
       pending_external:
         paypal:
           multicurrency: "เราไม่สามารถประมวลผลการชำระเงิน PayPal เพราะบัญชี PayPal ของคุณยังไม่ได้รับการตั้งค่าที่จะได้รับเงินในสกุลเงิน%{currency} กรุณาไปที่ %{paypal_url} และเข้าสู่ระบบบัญชีของคุณ เพื่อที่จะยอมรับหรือปฏิเสธการชำระเงินด้วยตนเอง "
@@ -660,17 +660,17 @@ th-TH:
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: ได้รับการยอมรับแล้ว
       request_rejected: ถูกปฏิเสธ
-      request_confirmed: ~
-      request_canceled: ~
+      request_confirmed: เสร็จสมบูรณ์
+      request_canceled: ยกเลิก
       request_paid: ~
       request_preauthorized: ~
       skip_feedback: ข้ามความคิดเห็น
-      waiting_for_listing_author_to_accept_offer: ~
-      waiting_for_listing_author_to_accept_request: ~
+      waiting_for_listing_author_to_accept_offer: "กำลังรอให้ %{listing_author_name} ที่จะยอมรับข้อเสนอ"
+      waiting_for_listing_author_to_accept_request: "กำลังรอให้ %{listing_author_name} ที่จะยอมรับคำขอ เมื่อใดที่ %{listing_author_name} ยอมรับคำขอ คุณจึงจะถูกเรียกเก็บเงิน"
       waiting_for_you_to_accept_request: ~
-      waiting_confirmation_from_requester: ~
+      waiting_confirmation_from_requester: "กำลังรอให้ %{requester_name} เพื่อทำเครื่องหมายการสั่งซื้อให้เสร็จสมบูรณ์"
       waiting_confirmation_from_you: ~
-      waiting_payment_from_requester: ~
+      waiting_payment_from_requester: "กำลังรอให้%{requester_name}ชำระเงิน"
       waiting_payment_from_you: ~
       waiting_feedback_from_you: ~
       pending_external_inbox:
@@ -688,8 +688,8 @@ th-TH:
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
       reject_preauthorized_request: ~
-      confirm: ~
-      cancel: ~
+      confirm: การทำเครื่องหมายเสร็จสมบูรณ์
+      cancel: อภิปราย
   feedback:
     feedback_subject: ~
     feedback_body: ~
@@ -724,16 +724,16 @@ th-TH:
       you_can_accept_or_reject_request_at: คุณสามารถยอมรับหรือปฎิเสธข้อเสนอที่
       you_have_not_yet_accepted_or_rejected_offer: "คุณยังไม่ได้ยอมรับหรือปฎิเสธข้อเสนอ %{title} ที่ได้รับเมื่อ %{date}"
       you_have_not_yet_accepted_or_rejected_request: "คุณยังไม่ได้ยอมรับหรือปฎิเสธคำขอ %{title} ที่ได้รับเมื่อ %{date}"
-      show_thread: ~
+      show_thread: แสดงการสนทนา
     branding:
       powered_by: ~
       create_own: ~
       learn_more: ~
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: ~
-      remember_to_confirm_request: ~
-      if_will_not_happen_you_should_cancel: ~
-      cancel_it_link_text: ~
+      you_have_not_yet_confirmed_or_canceled_request: "คุณยังไม่ได้ยืนยัน หรือยกเลิกการสั่งซื้อที่ %{request_link} หากการสั่งซื้อเสร็จเรียบร้อยแล้ว คุณควรยืนยันด้วย หลังจากนั้นคุณจึงจะสามารถให้ความคิดเห็นไปยัง%{other_party_given_name}ได้"
+      remember_to_confirm_request: อย่าลืมที่จะยืนยันหรือยกเลิกคำขอ
+      if_will_not_happen_you_should_cancel: "หากคุณคิดว่าการสั่งซื้อนี้จะไม่สมบูรณ์ด้วยเหตุผลใด ๆ ก็ตาม คุณสามารถ%{cancel_it_link}ได้"
+      cancel_it_link_text: ยกเลิก
       automatic_confirmation: ~
     payment_settings_reminder:
       remember_to_add_payment_details: ~
@@ -741,13 +741,13 @@ th-TH:
       please_go_to_payment_settings: ~
       payment_settings_link: ~
     transaction_confirmed:
-      here_is_a_message_from: ~
-      request_marked_as_confirmed: ~
-      request_marked_as_canceled: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      here_is_a_message_from: "นี่คือข้อความจาก%{other_party_given_name}:"
+      request_marked_as_confirmed: "การสั่งซื้อเสร็จสมบูรณ์ - อย่าลืมที่จะให้ความคิดเห็น"
+      request_marked_as_canceled: การสั่งซื้อถูกยกเลิก
+      has_marked_request_as_confirmed: "%{other_party_full_name} ได้ทำเครื่องหมายการสั่งซื้อเกี่ยวกับ%{request}เสร็จสมบูรณ์แล้ว ขณะนี้คุณสามารถให้ความคิดเห็นไปยัง%{other_party_given_name}ได้"
+      has_marked_request_as_canceled: "%{other_party_full_name}ได้ยกเลิกเกี่ยวกับ%{request} คุณยังคงสามารถให้ความคิดเห็นแก่%{other_party_given_name}ได้"
       giving_feedback_is_good_idea: "การให้ข้อเสนอแนะมักเป็นสิ่งที่ดี หากทุกอย่างเป็นไปด้วยดี คุณควรช่วยให้คนอื่นรู้ว่า %{other_party_given_name} สามารถเชื่อถือได้ หากมีปัญหาใด ๆ ก็การดีที่จะพูดถึง ปัญหาเหล่านั้นเช่นกัน"
-      give_feedback_to: ~
+      give_feedback_to: "ให้ความคิดเห็นแก่%{other_party_given_name}"
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
@@ -771,8 +771,8 @@ th-TH:
       edit_your_email_settings_here: แก้ไขการตั้งค่าอีเมล์ของคุณที่นี่
       message_not_displaying_correctly: อีเมลนี้แสดงอย่างถูกต้องหรือไม่?
       view_it_in_your_browser: แสดงในเบาว์เซอร์ของคุณ
-      or: ~
-      unsubscribe_from_these_emails: ~
+      or: หรือ
+      unsubscribe_from_these_emails: ยกเลิกการรับอีเมล์เหล่านี้
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ได้ยอมรับข้อเสนอ %{listing} ของคุณแล้ว"
       has_accepted_your_request: "%{accepter} ได้ยอมรับคำขอ %{listing} ของคุณแล้ว"
@@ -1044,10 +1044,10 @@ th-TH:
       processing_uploaded_image: ~
     index:
       no_listings_with_your_search_criteria: ~
-      no_listings_notification: ~
+      no_listings_notification: "ไม่มีรายการ %{add_listing_link}"
       add_listing_link_text: ~
-      open_listing: ~
-      open_listings: ~
+      open_listing: รายการเปิด
+      open_listings: รายการเปิด
       private_listing_notification_log_in: เข้าสู่ระบบ
       is: คือ
       are: คือ
@@ -1152,7 +1152,7 @@ th-TH:
       invite_your_friends: เชิญเพื่อน!
       invite_your_neighbors: ชวนเพื่อนบ้าน!
       invite_your_friends_description: "ยิ่งมีผู้คนที่มีอยู่ใน %{service_name} มากเท่าใด ก็จะยิ่งมีประโยชน์มากขึ้นเท่านั้น"
-      invite_your_friends_invite_only_description: ~
+      invite_your_friends_invite_only_description: "ไม่มีใครสามารถเข้าร่วม%{service_name}ได้ จนกว่าพวกเขาจะได้รับเชิญ"
       join_without_facebook: "...หรืออีกทางเลือกหนึ่ง %{join_without_facebook_link}"
       join_without_facebook_link: "ลงทะเบียนโดยไม่ต้องใช้ Facebook"
     conversations:
@@ -1837,7 +1837,7 @@ th-TH:
         status_confirmed: ~
         status_pending: ~
     notifications:
-      email_from_admins: ~
+      email_from_admins: ฉันยินดีที่จะได้รับอีเมล์เป็นครั้งคราวจากแอดมิน
       i_want_to_get_email_notification_when: "ฉันต้องการที่จะได้รับการแจ้งเตือนทางอีเมล์ เมื่อ ..."
       newsletters: อีเมล์จากผู้ดูแลระบบ
       community_updates: จดหมายข่าว
