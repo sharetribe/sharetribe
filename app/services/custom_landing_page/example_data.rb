@@ -19,7 +19,8 @@ module CustomLandingPage
     "description": {"type": "marketplace_data", "id": "description"},
     "publisher": {"type": "marketplace_data", "id": "name"},
     "copyright": {"type": "marketplace_data", "id": "name"},
-    "facebook_site_name": {"type": "marketplace_data", "id": "name"}
+    "facebook_site_name": {"type": "marketplace_data", "id": "name"},
+    "google_site_verification": {"value": "CHANGEME"}
   },
 
   "sections": [
@@ -308,7 +309,8 @@ JSON
       "description": {"type": "marketplace_data", "id": "description"},
       "publisher": {"type": "marketplace_data", "id": "name"},
       "copyright": {"type": "marketplace_data", "id": "name"},
-      "facebook_site_name": {"type": "marketplace_data", "id": "name"}
+      "facebook_site_name": {"type": "marketplace_data", "id": "name"},
+      "google_site_verification": {"value": "CHANGEME"}
     },
     "sections": [
         {

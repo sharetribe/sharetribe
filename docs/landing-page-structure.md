@@ -51,6 +51,7 @@ The following values are set in `page`:
 * `twitter_image` is used to render `twitter:image` `meta` tag. Make sure it links to the correct hero image asset id or if you want to use a different asset, you can link to it.
 * `facebook_image` is used to render `og:image` `meta` tag. Make sure it links to the correct hero image asset id.
 * `title` is the page title. Defaults to marketplace name and slogan.
+* `google_site_verification`is the value for meta tag for Google search console verification code. You need to edit the default value to the correct verification code code. If you don't have a google verification code you can remove this line from the structure. 
 
 `page` includes a number of other SEO-related keys. They default to appropriate values for the marketplace, but can be overriden, if desired.
 
