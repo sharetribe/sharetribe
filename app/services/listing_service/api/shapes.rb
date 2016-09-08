@@ -25,10 +25,12 @@ module ListingService::API
     end
 
     def create(community_id:, opts:)
-      Result::Success.new(ShapeStore.create(
-        community_id: community_id,
-        opts: opts
-      ))
+      validate_upsert_opts(opts).and_then { |valid_opts|
+        Result::Success.new(ShapeStore.create(
+                              community_id: community_id,
+                              opts: valid_opts
+                            ))
+      }
     end
 
     def update(community_id:, listing_shape_id: nil, name: nil, opts:)
@@ -39,10 +41,12 @@ module ListingService::API
       }
 
       validate_find_opts(find_opts, unique_result_required: true).and_then { |f_opts|
-        Maybe(ShapeStore.update(f_opts.merge(opts: opts))).map { |shape|
+        validate_upsert_opts(f_opts.merge(opts: opts))
+      }.and_then { |update_opts|
+        Maybe(ShapeStore.update(update_opts)).map { |shape|
           Result::Success.new(shape)
         }.or_else {
-          Result::Error.new("Cannot find listing shape for #{f_opts}")
+          Result::Error.new("Cannot find listing shape for #{find_opts}")
         }
       }
     end
@@ -64,6 +68,19 @@ module ListingService::API
     end
 
     private
+
+    def validate_upsert_opts(opts)
+      error =
+        if opts[:availability] == :booking
+          if opts[:units].length != 1
+            Result::Error.new("Only one unit is allowed if booking availability is in use. Was: #{opts[:units].inspect}")
+          elsif ![:day, :night].include?(opts[:units].first[:type])
+            Result::Error.new("Only day or night unit is allowed if booking availability is in use. Was: #{opts[:units].inspect}")
+          end
+        end
+
+      error || Result::Success.new(opts)
+    end
 
     def validate_find_opts(opts, unique_result_required:)
       if opts[:listing_shape_id].present? && opts[:name].present?

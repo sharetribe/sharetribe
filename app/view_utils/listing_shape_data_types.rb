@@ -37,7 +37,8 @@ module ListingShapeDataTypes
     [:price_enabled, transform_with: CHECKBOX],
     [:online_payments, transform_with: CHECKBOX],
     [:units, default: [], collection: Unit],
-    [:author_is_seller, :bool]
+    [:author_is_seller, :bool],
+    [:availability, :to_symbol, one_of: [:none, :booking], default: :none] # also stock, in the future
   )
 
   KEY_MAP = {

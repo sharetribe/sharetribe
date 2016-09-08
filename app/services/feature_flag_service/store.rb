@@ -19,7 +19,8 @@ module FeatureFlagService::Store
     FLAGS = [
       :export_transactions_as_csv,
       :topbar_v1,
-      :searchpage_v1
+      :searchpage_v1,
+      :availability
     ].to_set
 
     def initialize(additional_flags:)

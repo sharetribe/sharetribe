@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902104733) do
+ActiveRecord::Schema.define(version: 20160907095103) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token",            limit: 255
@@ -477,16 +477,17 @@ ActiveRecord::Schema.define(version: 20160902104733) do
   add_index "listing_images", ["listing_id"], name: "index_listing_images_on_listing_id", using: :btree
 
   create_table "listing_shapes", force: :cascade do |t|
-    t.integer  "community_id",           limit: 4,                   null: false
-    t.integer  "transaction_process_id", limit: 4,                   null: false
-    t.boolean  "price_enabled",                                      null: false
-    t.boolean  "shipping_enabled",                                   null: false
-    t.string   "name",                   limit: 255,                 null: false
-    t.string   "name_tr_key",            limit: 255,                 null: false
-    t.string   "action_button_tr_key",   limit: 255,                 null: false
-    t.integer  "sort_priority",          limit: 4,   default: 0,     null: false
-    t.datetime "created_at",                                         null: false
-    t.datetime "updated_at",                                         null: false
+    t.integer  "community_id",           limit: 4,                    null: false
+    t.integer  "transaction_process_id", limit: 4,                    null: false
+    t.boolean  "price_enabled",                                       null: false
+    t.boolean  "shipping_enabled",                                    null: false
+    t.string   "availability",           limit: 32,  default: "none"
+    t.string   "name",                   limit: 255,                  null: false
+    t.string   "name_tr_key",            limit: 255,                  null: false
+    t.string   "action_button_tr_key",   limit: 255,                  null: false
+    t.integer  "sort_priority",          limit: 4,   default: 0,      null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
     t.boolean  "deleted",                            default: false
   end
 
