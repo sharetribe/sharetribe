@@ -997,7 +997,7 @@ ru:
       offer_partitive: предложение
       request_partitive: запросил
   header:
-    about: "О сервисе"
+    about: "О проекте"
     home: Главная
     members: Сообщество
     new_listing: "Новая публикация"
@@ -1008,7 +1008,7 @@ ru:
     create_new_marketplace: "Создать новый проект"
     contact_us: "Обратная связь"
     profile: Профиль
-    manage_listings: ~
+    manage_listings: "Управление публикациями"
     invite: "Пригласить новых участников"
     login: Войти
     signup: Зарегистрироваться
@@ -2060,12 +2060,12 @@ ru:
       user: ~
       inbox: Входящие
       profile: Профиль
-      manage_listings: ~
+      manage_listings: "Управление публикациями"
       settings: Настройки
       logout: Выйти
       login: Войти
       signup: Регистрация
-      admin_dashboard: ~
+      admin_dashboard: "Панель администратора"
       language: ~
   will_paginate:
     models:
