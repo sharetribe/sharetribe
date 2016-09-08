@@ -1,13 +1,19 @@
 [
   "app/utils/service_client/context_runner",
+  "app/utils/service_client/middleware",
+  "app/utils/service_client/endpoint_mapper",
   "app/utils/service_client/client",
+  "app/utils/service_client/http_client",
+  "app/utils/service_client/result_mapper",
   "app/services/result",
 ].each { |file| require_relative "../../../#{file}" }
 
 describe ServiceClient::Client do
 
-  module FakeHTTPClient
-    module_function
+  class FakeHTTPClient
+
+    def initialize(*)
+    end
 
     def enter(ctx)
       endpoint = ctx.fetch(:params).fetch(:url)
@@ -55,7 +61,14 @@ describe ServiceClient::Client do
     }
 
     let(:client) {
-      ServiceClient::Client.new(endpoints, [], FakeHTTPClient)
+      ServiceClient::Client.new("http://example.com",
+                                [
+                                  ServiceClient::ResultMapper.new,
+                                  ServiceClient::EndpointMapper.new(endpoints),
+                                ],
+                                http_client: FakeHTTPClient,
+                                raise_errors: true
+                               )
     }
 
     it "throws an exception if endpoint is not found" do

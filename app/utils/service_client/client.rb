@@ -1,46 +1,34 @@
 module ServiceClient
   class Client
-    def initialize(url, endpoints, middleware = [], http_client = HTTPClient)
-      @_endpoints = endpoints
-      @_context_runner = ContextRunner.new(middleware + [HTTPClient.new(url)])
+    def initialize(url, middleware = [], opts)
+      @_raise_errors = opts[:raise_errors]
+      http_client = opts[:http_client] || HTTPClient
+      @_context_runner = ContextRunner.new(middleware + [http_client.new(url)])
     end
 
     def get(endpoint, params = {}, opts = {})
-      execute(:get, endpoint, params, opts)
+      execute(:get, endpoint, params, opts).fetch(:res)
     end
 
     def post(endpoint, params = {}, opts = {})
-      execute(:post, endpoint, params, opts)
+      execute(:post, endpoint, params, opts).fetch(:res)
     end
 
     private
 
     def execute(method, endpoint, params, opts)
-      endpoint_url = @_endpoints[endpoint]
-
-      raise ArgumentError.new("Couldn't find endpoint '#{endpoint}'") if endpoint_url.nil?
-
       ctx = @_context_runner.execute(
-        url: endpoint_url,
+        endpoint: endpoint,
         method: method,
         params: params,
         opts: opts
       )
 
-      res = ctx.fetch(:res)
-
-      if res.fetch(:success)
-        Result::Success.new(
-          status: res[:status],
-          body: res[:body]
-        )
-      else
-        Result::Error.new(res[:body],
-          status: res[:status],
-          body: res[:body]
-        )
+      if ctx[:error] && @_raise_errors
+        raise ctx[:error]
       end
 
+      ctx
     end
   end
 end
