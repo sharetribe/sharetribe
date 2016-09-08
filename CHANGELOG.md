@@ -11,6 +11,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 ### Added
 
 - Added date picker for "per night" listing unit type [#2481](https://github.com/sharetribe/sharetribe/pull/2481)
+- Added support for setting memory limits for image processing [#2521](https://github.com/sharetribe/sharetribe/pull/2521)
 
 ### Changed
 
