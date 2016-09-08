@@ -113,10 +113,10 @@ th-TH:
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
-        welcome_email_content: ~
+        welcome_email_content: เนื้อหาของอีเมล์ยินดีต้อนรับ
         welcome_email_content_description: "ข้อความด้านล่างนี้จะถูกส่งไปยังผู้ใช้ใหม่ทุกคน เมื่อพวกเขาเข้าสมัคร คุณสามารถปรับแต่งข้อความให้เหมาะสมกับตลาดของคุณได้ โดยการคลิก '%{send_test_message_link}' คุณสามารถส่งข้อความตัวอย่างไปยังที่อยู่อีเมล์ของคุณ เพื่อให้คุณสามารถดูลักษณะของมันได้ในอีเมล์ "
-        edit_message: ~
-        send_test_message: ~
+        edit_message: แก้ไขข้อความ
+        send_test_message: ส่งข้อความทดสอบ
       outgoing_email:
         title: ~
         info: ~
@@ -484,7 +484,7 @@ th-TH:
         offer: ~
         inquiry: ~
   common:
-    edit_page: ~
+    edit_page: แก้ไขหน้านี้
     default_community_slogan: ตลาดชุมชน
     default_community_description: "นี่คือสถานที่สำหรับการขาย ให้เช่า แลกเปลี่ยน และแบ่งปันสินค้าและบริการระหว่างสมาชิกคนอื่น ๆ ในตลาด"
     cancel: ยกเลิก
@@ -612,7 +612,7 @@ th-TH:
       message_to: ~
       optional_message_to: ~
       send_message: ส่งข้อความ
-      send: ~
+      send: ส่ง
       this_message_is_private: "ข้อความนี้เป็นข้อความส่วนตัวระหว่างคุณและ%{person} %{person} จะได้รับแจ้ง ข้อความนี้ทางอีเมล์"
       you_will_get_notified_of_acceptance: "คุณจะได้รับการแจ้งเตือนทางอีเมล์เมื่อ %{person} ยอมรับหรือปฏิเสธข้อเสนอของคุณ"
       you_will_get_notified: "คุณจะได้รับการแจ้งเตือนทางอีเมล์เมื่อ %{person} ตอบคุณ"
@@ -621,9 +621,9 @@ th-TH:
       about_listing: ~
       author_has_to_accept_request: ~
     show:
-      in_response_to_listing: ~
-      message_sent_by: ~
-      message_sent_to: ~
+      in_response_to_listing: เกี่ยวกับรายการ
+      message_sent_by: ข้อความถูกส่งโดย
+      message_sent_to: ข้อความถูกส่งไปยัง
       send_reply: ตอบกลับ
       write_a_reply: เขียนตอบกลับ
       conversation_about_listing: "กับ %{person} เกี่ยวกับ %{listing}"
@@ -762,7 +762,7 @@ th-TH:
       confirmation_instructions_signature: "ขอแสดงความนับถือ,<br/>ทีมงาน %{service_name}"
       need_to_confirm: "ในการเข้าร่วม %{service_name} กรุณายืนยันที่อยู่อีเมล์ของคุณ โดยคลิกที่ปุ่มด้านล่าง"
       confirmation_link_text: ยืนยันที่อยู่ของฉัน
-      or_paste_link: ~
+      or_paste_link: "หรือคุณสามารถคัดลอกลิงค์ต่อไปนี้ ไปที่แถบที่อยู่ของเบราว์เซอร์ของคุณ:"
     common:
       hey: "สวัสดี %{name},"
       kassi_team: "ทีมงาน %{service_name}"
@@ -778,35 +778,35 @@ th-TH:
       has_accepted_your_request: "%{accepter} ได้ยอมรับคำขอ %{listing} ของคุณแล้ว"
       has_rejected_your_offer: "%{accepter} ได้ปฏิเสธข้อเสนอ %{listing} ของคุณ"
       has_rejected_your_request: "%{accepter} ได้ปฏิเสธคำขอ %{listing} ของคุณ"
-      view_thread: ~
+      view_thread: แสดงการสนทนา
       your_offer_was_accepted: ข้อเสนอของคุณได้รับการยอมรับแล้ว
       your_offer_was_rejected: ข้อเสนอของคุณถูกปฏิเสธ
       your_request_was_accepted: คำขอของคุณได้รับการยอมรับแล้ว
       your_request_was_rejected: คำขอของคุณถูกปฏิเสธ
-      you_can_now_pay_to: ~
-      pay_now: ~
+      you_can_now_pay_to: "ขณะนี้คุณสามารถชำระเงินจำนวนที่ร้องขอไปยัง%{payment_receiver}ได้แล้ว"
+      pay_now: ชำระเงินเดี๋ยวนี้
       remember_to_confirm: "เมื่อการสั่งซื้อสมบูรณ์แล้ว อย่าลืมทำเครื่องหมายว่าเสร็จสมบูรณ์ หากการสั่งซื้อไม่สมบูรณ์ คุณมีเวลา %{days_to_automatic_confirmation} วันที่จะยกเลิก มิฉะนั้นการสั่งซื้อก็จะถูกทำเครื่องหมายให้เสร็จสมบูรณ์โดยอัตโนมัติ"
     invitation_to_kassi:
       hi: สวัสดี!
       you_have_been_invited_to_kassi: "%{inviter} ได้เชิญคุณไปยัง %{service_name}"
       here_is_a_message_from: "นี่คือข้อความส่วนตัวจาก %{inviter}:"
-      join_now: ~
-      invitation_code: ~
+      join_now: เข้าร่วมเดี๋ยวนี้
+      invitation_code: "รหัสเชิญ:%{code}"
     new_comment:
-      has_commented_your_listing_in_kassi: ~
-      view_comment: ~
+      has_commented_your_listing_in_kassi: "%{author} ได้ให้ความเห็นในรายการ '%{listing}' ของคุณ"
+      view_comment: ดูความเห็น
       you_have_a_new_comment: "%{author} ได้ให้ความเห็นในรายการ %{service_name} ของคุณ"
       listing_you_follow_has_a_new_comment: "%{author} มีความเห็นในรายการที่คุณติดตามใน %{service_name}"
-      has_commented_listing_you_follow_in_kassi: ~
+      has_commented_listing_you_follow_in_kassi: "%{author} ได้ให้ความเห็นในรายการ '%{listing}' ที่คุณติดตามใน %{service_name}"
     new_message:
-      view_message: ~
+      view_message: ดูข้อความ
       has_sent_you_a_message_in_kassi: "%{sender} ได้ส่งข้อความถึงคุณใน %{service_name}"
       you_have_a_new_message: "ข้อความใหม่ใน %{service_name} จาก %{sender_name}"
     new_payment:
-      new_payment: ~
+      new_payment: คุณได้รับการชำระเงินใหม่
       price_per_unit_type: ~
       quantity: ~
-      you_have_received_new_payment: ~
+      you_have_received_new_payment: "คุณได้รับการชำระเงิน <b>%{payment_sum}</b> สำหรับ <b>%{listing_title}</b> จาก %{payer_full_name} นี่คือใบเสร็จรับเงินของคุณ"
     paypal_new_payment:
       paypal_gateway_fee: ~
       shipping_total: ~
@@ -816,8 +816,8 @@ th-TH:
       service_fee: ~
       you_will_get: ~
     receipt_to_payer:
-      receipt_of_payment: ~
-      you_have_made_new_payment: ~
+      receipt_of_payment: ใบเสร็จรับเงินของการชำระเงิน
+      you_have_made_new_payment: "คุณได้ชำระเงิน <b>%{payment_sum}</b> สำหรับ <b>%{listing_title}</b> แก่ %{recipient_full_name} นี่คือใบเสร็จรับเงินของการชำระเงิน"
       product: ~
       price_per_unit_type: ~
       duration: ~
@@ -830,11 +830,11 @@ th-TH:
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} ได้ให้ข้อเสนอแนะแก่คุณใน %{service_name}"
       you_can_give_feedback_to: "คุณยังไม่ได้ให้ข้อเสนอแนะแก่ %{name}"
-      view_feedback: ~
+      view_feedback: ดูความคิดเห็น
     new_update_to_listing:
       listing_you_follow_has_been_updated: รายการที่คุณติดตามได้รับการปรับปรุงใหม่
-      has_updated_listing_you_follow_in_kassi: ~
-      view_changes: ~
+      has_updated_listing_you_follow_in_kassi: "%{author} ได้ทำการอัพเดทรายการ '%{listing}' ที่คุณติดตามใน %{service_name}"
+      view_changes: ดูการเปลี่ยนแปลง
     community_updates:
       added_offer: "%{name_link}ได้เพิ่มรายการ:"
       added_request: "%{name_link}ได้เพิ่มรายการ:"
@@ -907,8 +907,8 @@ th-TH:
       departure_time: เวลาออกต้องอยู่ระหว่างเวลาปัจจุบันและหนึ่งปีนับจากนี้
       share_type: คุณต้องเลือกหนึ่งข้อ
       valid_until: "วันนี้ต้องอยู่ระหว่างเวลาปัจจุบันและ 6 เดือนนับจากนี้"
-      price: ~
-      minimum_price: ~
+      price: ราคาต้องเป็นจำนวนเต็ม
+      minimum_price: "ราคาต่ำที่สุดคือ%{minimum_price} %{currency}"
     testimonials:
       you_must_explain_not_neutral_feedback: "หากคุณต้องการที่จะให้ข้อเสนอแนะที่ไม่เป็นกลาง คุณต้องอธิบายเหตุผล"
       you_must_select_a_grade: โปรดแบ่งปันประสบการณ์ของคุณว่าเป็นบวกหรือลบ
@@ -1043,9 +1043,9 @@ th-TH:
     grid_item:
       processing_uploaded_image: ~
     index:
-      no_listings_with_your_search_criteria: ~
+      no_listings_with_your_search_criteria: "ขออภัย ไม่มีสามารถค้นพบรายการในเกณฑ์การค้นหาของคุณ คุณอาจจะลองคำค้นหา อื่น ๆ ดูไหม?"
       no_listings_notification: "ไม่มีรายการ %{add_listing_link}"
-      add_listing_link_text: ~
+      add_listing_link_text: เพิ่มรายการใหม่
       open_listing: รายการเปิด
       open_listings: รายการเปิด
       private_listing_notification_log_in: เข้าสู่ระบบ
@@ -1111,9 +1111,9 @@ th-TH:
       search_engine_not_responding: ~
   infos:
     about:
-      default_about_text_title: ~
-      default_about_text: ~
-      click_here_link_text: ~
+      default_about_text_title: "Sharetribe คืออะไร?"
+      default_about_text: "ตลาดนี้ได้รับการขับเคลื่อนโดยแพลตฟอร์ม Sharetribe ด้วย Sharetribe คุณสามารถสร้างเว็บไซต์ตลาดของคุณเองได้ฟรี และใช้เวลาเพียงไม่กี่นาที %{click_here_link}เพื่อเรียนรู้เพิ่มเติม!"
+      click_here_link_text: คลิ๊กที่นี่
     how_to_use:
       default_title: ~
       default_content: ~
@@ -1196,8 +1196,8 @@ th-TH:
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
-      test_welcome_email_delivered_to: ~
-      something_went_wrong: ~
+      test_welcome_email_delivered_to: "อีเมล์ทดสอบได้ถูกส่งไปยัง %{email}"
+      something_went_wrong: บางอย่างผิดปกติ
       community_updated: รายละเอียดได้รับการอัพเดทแล้ว
       community_update_failed: รายละเอียดอัพเดทไม่สำเร็จ
       account_creation_succesful_you_still_need_to_confirm_your_email: "บัญชีของคุณถูกสร้างเสร็จเรียบร้อยแล้ว ขณะนี้คุณต้องยืนยันที่อยู่อีเมล์ของคุณ"
@@ -1206,9 +1206,9 @@ th-TH:
       comment_sent: ข้อคิดเห็นถูกจัดส่งแล้ว
       confirmation_link_is_wrong_or_used: "ลิงก์การยืนยันถูกใช้ไปแล้ว หรือเสียหาย กรุณาลองเข้าระบบอีกครั้ง หรือส่งความคิดเห็น ถ้ายังคงมีปัญหาอยู่"
       additional_email_confirmed: อีเมล์ที่คุณป้อนได้รับการยืนยันแล้วในขณะนี้
-      could_not_get_email_from_facebook: ~
+      could_not_get_email_from_facebook: "ไม่สามารถรับอีเมล์จาก Facebook และไม่สามารถสร้างบัญชีโดยไม่ต้องใช้อีเมล์ "
       facebook_email_unconfirmed: ~
-      create_new_listing: ~
+      create_new_listing: สร้างรายการใหม่อีก
       create_one_here: สร้างที่นี่
       email_confirmation_sent_to_new_address: อีเมล์ยืนยันถูกส่งไปไปยังที่อยู่ใหม่แล้ว
       email_not_found: "อีเมล์ที่คุณให้ไม่สามารถค้นพบได้ในคลังข้อมูลของ %{service_name}"
@@ -1225,7 +1225,7 @@ th-TH:
       login_again: กรุณาเข้าสู่ระบบอีกครั้ง
       login_failed: "การเข้าสู่ระบบล้มเหลว กรุณากรอกข้อมูลประจำตัวที่ถูกต้อง"
       account_creation_successful: "ยินดีต้อนรับสู่%{service_name} คุณ%{person_name}!"
-      account_deleted: ~
+      account_deleted: บัญชีของคุณได้ถูกลบแล้ว
       login_successful: "ยินดีต้อนรับ %{person_name}!"
       logout_successful: "ขณะนี้คุณได้ออกจากระบบ %{service_name} แล้ว  หวังว่าจะพบกันใหม่เร็ว ๆ นี้!"
       news_item_created: บทความสร้างสำเร็จ
@@ -1234,20 +1234,20 @@ th-TH:
       news_item_updated: บทความอัพเดทสำเร็จ
       news_item_deleted: บทความถูกลบแล้ว
       offer_accepted: ข้อเสนอได้รับการยอมรับแล้ว
-      offer_confirmed: ~
+      offer_confirmed: ข้อเสนอได้รับการยืยยันแล้ว
       offer_closed: ข้อเสนอถูกปิด
-      listing_created_successfully: ~
+      listing_created_successfully: "รายการสร้างเสร็จเรียบร้อยแล้ว %{new_listing_link}"
       offer_rejected: ข้อเสนอถูกปฏิเสธ
-      offer_canceled: ~
-      listing_updated_successfully: ~
+      offer_canceled: ข้อเสนอถูกยกเลิก
+      listing_updated_successfully: การอัพเดทรายการเสร็จสมบูรณ์แล้ว
       only_kassi_administrators_can_access_this_area: "ผู้ดูแล %{service_name} เท่านั้นที่จะสามารถเข้าถึงพื้นที่นี้ได้"
       only_listing_author_can_close_a_listing: คนเขียนรายการเท่านั้นที่จะสามารถปิดรายการได้
       only_listing_author_can_edit_a_listing: คนเขียนรายการเท่านั้นที่จะสามารถแก้ไขรายการได้
-      payment_successful: ~
-      payment_canceled: ~
-      error_in_payment: ~
+      payment_successful: ชำระเงินสำเร็จ
+      payment_canceled: การชำระเงินถูกยกเลิก
+      error_in_payment: "เกิดข้อผิดพลาดในการชำระเงิน หากคุณยังไม่ได้ดำเนินการชำระเงิน กรุณาลองอีกครั้ง หากคุณชำระแล้ว โปรดส่งความคิดเห็นมาหาเรา"
       cannot_receive_payment: ~
-      payment_waiting_for_later_accomplishment: ~
+      payment_waiting_for_later_accomplishment: "เมื่อคุณชำระเงินแล้ว เราจะแจ้งให้ผู้ขายทราบ และคุณจะได้รับใบเสร็จรับเงินในอีเมล์"
       password_recovery_sent: คำแนะนำในการเปลี่ยนรหัสผ่านได้ถูกส่งไปยังอีเมลของคุณแล้ว
       person_activated: ผู้ใช้เปิดใช้งาน
       person_deactivated: ผู้ใช้เลิกใช้งาน
@@ -1264,9 +1264,9 @@ th-TH:
       reply_cannot_be_empty: คุณไม่สามารถที่จะส่งข้อความว่างเปล่าได้
       reply_sent: การตอบกลับได้ถูกส่งเรียบร้อยแล้ว
       request_accepted: คำขอได้รับการยอมรับแล้ว
-      request_confirmed: ~
+      request_confirmed: การสั่งซื้อสินค้าเสร็จสมบูรณ์
       request_rejected: คำขอถูกปฎิเสธ
-      request_canceled: ~
+      request_canceled: การสั่งซื้อถูกยกเลิก
       message_sent: ข้อความถูกส่ง
       message_not_sent: ~
       this_content_is_not_available_in_this_community: เนื้อหานี้ไม่สามารถใช้ได้
@@ -1328,15 +1328,15 @@ th-TH:
       send_comment: ส่งข้อคิดเห็น
       to_send_a_comment: ส่งข้อคิดเห็นใหม่
       write_comment: "เขียนข้อคิดเห็นใหม่:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: ~
+      you_cannot_send_a_new_comment_because_listing_is_closed: คุณไม่สามารถส่งความคิดเห็นใหม่เพราะรายการนี้ถูกปิด
       you_must: คุณต้อง
       subscribe_to_comments: แจ้งเตือนเมื่อมีความคิดเห็นและการปรับปรุงใหม่
     edit:
-      edit_listing: ~
+      edit_listing: แก้ไขรายการ
     edit_links:
-      close_listing: ~
-      edit_listing: ~
-      reopen_listing: ~
+      close_listing: ปิดรายการ
+      edit_listing: แก้ไขรายการ
+      reopen_listing: เปิดรายการอีกครั้ง
       move_to_top: ~
       show_in_updates_email: ~
       show_in_updates_email_loading: ~
@@ -1398,12 +1398,12 @@ th-TH:
       location:
         location: ตำแหน่ง
       price:
-        price: ~
-        per: ~
+        price: ราคา
+        per: ต่อ
         per_day: ~
-        mass: ~
-        time: ~
-        long_time: ~
+        mass: "ชื้น, กิโลกรัม, ลิตร, ตารางเมตร,..."
+        time: "ชั่วโมง, วัน, เดือน, ..."
+        long_time: "สัปดาห์, เดือน, ..."
         after_service_fee_you_will_get: ~
         no_service_fee_you_will_get_paypal_text: ~
         after_service_fee_you_will_get_paypal_text: ~
@@ -1417,7 +1417,7 @@ th-TH:
         location: ตำแหน่ง
         origin: ที่มา
       send_button:
-        save_listing: ~
+        save_listing: บันทึกรายการ
       share_type:
         select: เลือก
         borrow: ยืม
@@ -1437,7 +1437,7 @@ th-TH:
         comma_separate: (แยกด้วยจุลภาค)
         tags: แท็ก
       title:
-        listing_title: ~
+        listing_title: ชื่อรายการ
       valid_until:
         valid_until: วันหมดอายุ
       valid_until_radio_buttons:
@@ -1498,7 +1498,7 @@ th-TH:
       selected_category: "หมวดหมู่: %{category}"
       selected_subcategory: "หมวดหมู่ย่อย: %{subcategory}"
       selected_transaction_type: ~
-      select_category: ~
+      select_category: เลือกหมวดหมู่
       select_subcategory: ~
       select_transaction_type: ~
       you_need_to_fill_payout_details_before_accepting: ~
@@ -1516,7 +1516,7 @@ th-TH:
     quantity_placeholder: ~
     please_comment: ข้อคิดเห็น
     reply_link:
-      listing_closed: ~
+      listing_closed: รายการถูกปิด
     show:
       add_your_phone_number: เพิ่มเบอร์โทรศัพท์ของคุณ
       add_profile_picture: เพิ่มรูปโปรไฟล์
@@ -1532,7 +1532,7 @@ th-TH:
       no_image: ~
       no_reviews: ~
       offer: ข้อเสนอ
-      listing_created: ~
+      listing_created: สร้าง
       open_until: "เปิดจนถึง %{date}"
       feedback: ความคิดเห็น
       qr_code: "รหัส QR"
@@ -1544,7 +1544,7 @@ th-TH:
       time: เวลา
       times: เวลา
       times_viewed: ดู
-      processing_uploaded_image: ~
+      processing_uploaded_image: (ประมวลผลการอัพโหลดภาพ...)
       listing_created_at: ~
       price:
         per_quantity_unit: ~
@@ -1743,14 +1743,14 @@ th-TH:
       what_are_these: นี่อะไร?
       review: ได้รับคำติชมแล้ว
       reviews: ได้รับคำติชมแล้ว
-      listing: ~
-      listings: ~
+      listing: รายการ
+      listings: รายการ
       open_listing: รายการเปิด
       open_listings: รายการเปิด
-      no_listings: ~
+      no_listings: ไม่มีรายการ
       no_open_listings: ไม่มีรายการเปิด
       no_reviews: ไม่มีคำติชม
-      show_all_listings: ~
+      show_all_listings: แสดงรายการทั้งหมด
       show_all_open_listings: แสดงรายการเปิดทั้งหมด
       show_all_reviews: แสดงคำติชมทั้งหมด
     followed_people:
@@ -1811,8 +1811,8 @@ th-TH:
       change: เปลี่ยน
       confirm_new_password: ยืนยันรหัสผ่านใหม่
       delete_account: ลบบัญชี
-      delete_account_button: ~
-      delete_account_confirmation_popup: ~
+      delete_account_button: ลบบัญชีของฉันอย่างถาวร
+      delete_account_confirmation_popup: "คุณแน่ใจหรือไม่ว่าต้องการที่จะลบบัญชีผู้ใช้ของคุณอย่างถาวร และจะสูญเสียข้อมูล ทั้งหมดที่เกี่ยวข้องกับบัญชีนี้? การลบบัญชีจะไม่สามารถยกเลิกได้"
       email_addresses: ~
       new_email: ที่อยู่อีเมล์ใหม่
       delete_personal_information: "หากคุณลบบัญชีของคุณ ข้อมูลส่วนบุคคลของคุณ (ชื่อ , หมายเลขโทรศัพท์, ที่อยู่, อีเมล์, ภาพโปรไฟล์ ฯลฯ) จะถูกลบออกอย่างถาวร และไม่สามารถกู้คืนได้ รายการทั้งหมดที่คุณได้สร้างขึ้นจะถูกลบออก คุณจะไม่สามารถเปิดใช้งานบัญชีของคุณได้อีก"
@@ -1841,7 +1841,7 @@ th-TH:
       i_want_to_get_email_notification_when: "ฉันต้องการที่จะได้รับการแจ้งเตือนทางอีเมล์ เมื่อ ..."
       newsletters: อีเมล์จากผู้ดูแลระบบ
       community_updates: จดหมายข่าว
-      email_about_confirm_reminders: ~
+      email_about_confirm_reminders: "...ฉันลืมที่จะยืนยันการสั่งซื้อให้เสร็จ"
       email_about_new_comments_to_own_listing: "... บางคนแสดงความคิดเห็นเกี่ยวกับข้อเสนอ หรือคำขอของฉัน"
       email_about_new_messages: "...บางคนส่งข้อความถึงฉัน"
       email_about_new_received_testimonials: "...บางคนแสดงความคิดเห็นแก่ฉัน"
@@ -1851,8 +1851,8 @@ th-TH:
       do_not_email_community_updates: อย่าส่งจดหมายข่าวแก่ฉัน
       email_when_conversation_accepted: "...บางคนยอมรับข้อเสนอ หรือคำขอของฉัน"
       email_when_conversation_rejected: "...บางคนปฏิเสธข้อเสนอ หรือคำขอของฉัน"
-      email_about_completed_transactions: ~
-      email_about_new_payments: ~
+      email_about_completed_transactions: "...มีคนทำเครื่องหมายให้การสั่งซื้อของฉันสมบูรณ์"
+      email_about_new_payments: "...ฉันได้รับการชำระเงินใหม่"
       email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: ยกเลิกการเป็นสมาชิกเรียบร้อยแล้ว
       unsubscribe_info_text: "คุณจะไม่ได้รับอีเมลเหล่านี้ กรุณาตรวจสอบ%{settings_link} ของคุณ เพื่อที่จะเลือกประเภทของอีเมลที่คุณต้องการที่จะได้รับจาก%{service_name} หรือกลับไปที่%{homepage_link}"
@@ -1869,7 +1869,7 @@ th-TH:
       first_name_only: ~
       location_description: "คุณสามารถให้ทั้งที่อยู่ หรือเฉพาะเมือง หรือเฉพาะรหัสไปรษณีย์ของคุณ จะเป็นการดีที่จะเพิ่มประเทศของคุณ ในขณะที่เพิ่มตำแหน่งของคุณ ตัวอย่าง: \"10117 Berlin, Germany\" หรือ \" 2000 Sand Hill Road, CA, USA \""
       phone_number: หมายเลขโทรศัพท์
-      profile_picture: ~
+      profile_picture: รูปโปรไฟล์
       postal_code: รหัสไปรษณีย์
       profile_page: ในหน้าโปรไฟล์ของคุณ
       profilemap: ดูในแผนที่
@@ -1921,7 +1921,7 @@ th-TH:
       negative: แง่ลบ
       default_textual_feedback: "ทุกอย่างเป็นไปด้วยดี ขอขอบคุณมาก!"
     testimonial:
-      about_listing: ~
+      about_listing: เกี่ยวกับรายการ
   date:
     formats:
       long_with_abbr_day_name: ~
