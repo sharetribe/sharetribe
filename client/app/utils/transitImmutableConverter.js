@@ -5,12 +5,7 @@ const createReader = function createReader() {
   return transit.reader('json', {
     mapBuilder: {
       init: () => Immutable.Map().asMutable(),
-      add: (m, k, v) => {
-        if (transit.isKeyword(k)) {
-          return m.set(k.toString(), v);
-        }
-        return m.set(k, v);
-      },
+      add: (m, k, v) => m.set(k, v),
       finalize: (m) => m.asImmutable(),
     },
     arrayBuilder: {
