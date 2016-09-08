@@ -30,8 +30,8 @@ gem 'haml', "~> 4.0.5"
 gem 'sass', "  ~> 3.2.9"
 gem 'rest-client', '~> 1.8.0'
 
-gem 'paperclip', '~> 4.3.6'
-gem 'delayed_paperclip', "~> 2.9.1"
+gem 'paperclip', '~> 5.1.0'
+gem 'delayed_paperclip', "~> 3.0"
 
 gem 'aws-sdk-v1', "~> 1.64.0"
 gem 'aws-sdk', '~> 2'
