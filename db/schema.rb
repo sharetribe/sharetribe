@@ -481,6 +481,7 @@ ActiveRecord::Schema.define(version: 20160907095103) do
     t.integer  "transaction_process_id", limit: 4,                    null: false
     t.boolean  "price_enabled",                                       null: false
     t.boolean  "shipping_enabled",                                    null: false
+    t.string   "availability",           limit: 32,  default: "none"
     t.string   "name",                   limit: 255,                  null: false
     t.string   "name_tr_key",            limit: 255,                  null: false
     t.string   "action_button_tr_key",   limit: 255,                  null: false
@@ -488,7 +489,6 @@ ActiveRecord::Schema.define(version: 20160907095103) do
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
     t.boolean  "deleted",                            default: false
-    t.string   "availability",           limit: 32,  default: "none"
   end
 
   add_index "listing_shapes", ["community_id", "deleted", "sort_priority"], name: "multicol_index", using: :btree
