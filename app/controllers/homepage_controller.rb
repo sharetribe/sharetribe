@@ -72,7 +72,7 @@ class HomepageController < ApplicationController
 
     if FeatureFlagHelper.search_engine == :discovery
       search_result.on_success { |listings|
-        render template: "search_page/search_page", locals: { bootstrapped_data: listings }
+        render layout: "layouts/react_page.haml", template: "search_page/search_page", locals: { bootstrapped_data: listings }
       }.on_error {
         render nothing: true, status: 500
       }
