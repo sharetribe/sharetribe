@@ -153,7 +153,11 @@ window.ST.initializeListingShapeForm = function(formId) {
   var toggleRadio = function(el, state) {
     if(state) {
       el.prop('disabled', false);
-      el.first().prop('checked', true);
+
+      // Check the first one if none of the radiobuttons is checked
+      if (!el.is(":checked")) {
+        el.first().prop('checked', true);
+      }
     } else {
       el.prop('disabled', true);
       el.prop('checked', false);
