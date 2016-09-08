@@ -253,6 +253,18 @@ default: &default_settings
   # Max filesize for uploaded image (bytes)
   max_image_filesize: 104857600
 
+  # Memory limit for image processing - passed to ImageMagick -limit memory (MAGICK_MEMORY_LIMIT)
+  # See http://www.imagemagick.org/script/resources.php
+  # Example value:
+  # image_processing_memory_limit: 512MiB
+  image_processing_memory_limit:
+
+  # Memory map limit for image processing - passed to ImageMagick -limit map (MAGICK_MAP_LIMIT)
+  # See http://www.imagemagick.org/script/resources.php
+  # Example value:
+  # image_processing_map_limit: 512MiB
+  image_processing_map_limit:
+
   # width/height for "original" sized image, i.e. the largest image we store.
   # Please note, this does NOT mean that user can not upload images larger than
   # 1600x1600.
