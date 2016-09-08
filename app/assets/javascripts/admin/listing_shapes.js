@@ -67,6 +67,8 @@ window.ST.initializeListingShapeForm = function(formId) {
       toggleOnlinePaymentEnabled(false);
       toggleShippingEnabled(false);
       toggleUnitsEnabled(false);
+      toggleAvailabilityEnabled(false);
+      toggleAvailabilityUnitsEnabled(false);
     }
   };
 
@@ -75,9 +77,12 @@ window.ST.initializeListingShapeForm = function(formId) {
     if(enabled) {
       toggleAvailabilityEnabled(true);
       toggleShippingEnabled(true);
+      toggleUnitsEnabled(true);
     } else {
       toggleAvailabilityEnabled(false);
+      toggleAvailabilityUnitsEnabled(false);
       toggleShippingEnabled(false);
+      toggleUnitsEnabled(true);
     }
   };
 
