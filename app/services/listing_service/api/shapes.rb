@@ -25,10 +25,10 @@ module ListingService::API
     end
 
     def create(community_id:, opts:)
-      validate_upsert_opts(opts).and_then { |opts|
+      validate_upsert_opts(opts).and_then { |valid_opts|
         Result::Success.new(ShapeStore.create(
                               community_id: community_id,
-                              opts: opts
+                              opts: valid_opts
                             ))
       }
     end
