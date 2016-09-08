@@ -1,8 +1,8 @@
 module ServiceClient
   class Client
-    def initialize(endpoints, middleware = [], http_client = HTTPClient)
+    def initialize(url, endpoints, middleware = [], http_client = HTTPClient)
       @_endpoints = endpoints
-      @_context_runner = ContextRunner.new(middleware + [http_client])
+      @_context_runner = ContextRunner.new(middleware + [HTTPClient.new(url)])
     end
 
     def get(endpoint, params = {}, opts = {})
