@@ -93,30 +93,30 @@ window.ST.initializeListingShapeForm = function(formId) {
   }
 
   var toggleOnlinePaymentEnabled = function(enabled) {
-    toggleCheckbox($(".js-online-payments"), enabled);
-    toggleLabel($(".js-online-payments-label"), enabled);
+    toggleCheckboxEnabled($(".js-online-payments"), enabled);
+    toggleLabelEnabled($(".js-online-payments-label"), enabled);
   };
 
   var toggleShippingEnabled = function(enabled) {
-    toggleCheckbox($(".js-shipping-enabled"), enabled);
-    toggleLabel($(".js-shipping-enabled-label"), enabled);
+    toggleCheckboxEnabled($(".js-shipping-enabled"), enabled);
+    toggleLabelEnabled($(".js-shipping-enabled-label"), enabled);
   };
 
   var toggleUnitsEnabled = function(enabled) {
-    toggleCheckbox($(".js-unit-checkbox"), enabled);
-    toggleLabel($(".js-unit-label"), enabled);
-    toggleInfo($('.js-pricing-units-info'), enabled);
+    toggleCheckboxEnabled($(".js-unit-checkbox"), enabled);
+    toggleLabelEnabled($(".js-unit-label"), enabled);
+    toggleInfoEnabled($('.js-pricing-units-info'), enabled);
   };
 
   var toggleAvailabilityEnabled = function(enabled) {
-    toggleCheckbox($(".js-availability"), enabled);
-    toggleLabel($(".js-availability-label"), enabled);
+    toggleCheckboxEnabled($(".js-availability"), enabled);
+    toggleLabelEnabled($(".js-availability-label"), enabled);
   };
 
   var toggleAvailabilityUnitsEnabled = function(enabled) {
-    toggleRadio($(".js-availability-unit"), enabled);
-    toggleLabel($(".js-availability-unit-label"), enabled);
-    toggleInfo($('.js-pricing-units-disabled-info'), enabled)
+    toggleRadioEnabled($(".js-availability-unit"), enabled);
+    toggleLabelEnabled($(".js-availability-unit-label"), enabled);
+    toggleInfoEnabled($('.js-pricing-units-disabled-info'), enabled)
   };
 
   var removeCustomUnit = function() {
@@ -141,7 +141,7 @@ window.ST.initializeListingShapeForm = function(formId) {
     this.parentElement.remove();
   };
 
-  var toggleCheckbox = function(el, state) {
+  var toggleCheckboxEnabled = function(el, state) {
     if(state) {
       el.prop('disabled', false);
     } else {
@@ -150,7 +150,7 @@ window.ST.initializeListingShapeForm = function(formId) {
     }
   };
 
-  var toggleRadio = function(el, state) {
+  var toggleRadioEnabled = function(el, state) {
     if(state) {
       el.prop('disabled', false);
 
@@ -164,7 +164,7 @@ window.ST.initializeListingShapeForm = function(formId) {
     }
   };
 
-  var toggleInfo = function(el, state) {
+  var toggleInfoEnabled = function(el, state) {
     if (state) {
       el.show();
     } else {
@@ -172,7 +172,7 @@ window.ST.initializeListingShapeForm = function(formId) {
     }
   };
 
-  var toggleLabel = function(el, state) {
+  var toggleLabelEnabled = function(el, state) {
     el.toggleClass("listing-shape-label-disabled", !state);
   };
 
