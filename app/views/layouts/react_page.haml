@@ -1,0 +1,60 @@
+= render :partial => 'layouts/head'
+
+%body
+
+  -# Render railsContext here before any react component gets rendered
+  = prepend_render_rails_context("")
+
+  - if display_onboarding_topbar?
+    - props = onboarding_topbar_props
+    - unless props[:next_step] == :all_done
+      - react_component_cache(name: "onboarding_topbar", props: props) do
+        = react_component("OnboardingTopBar", props: props, prerender: true)
+
+  - if FeatureFlagHelper.feature_enabled?(:topbar_v1)
+    - if(search_mode != :keyword )
+      - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
+      - key_param = maps_key ? "&key=#{maps_key}" : ""
+      = javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places#{key_param}"
+    - props = topbar_props
+    - cache props do
+      = react_component("TopbarApp", props: props, prerender: true, id: 'topbar-container')
+  - else
+    = render partial: 'layouts/global_header', locals: header_props()
+
+  - if display_expiration_notice?
+    = render partial: "layouts/expiration_notice",
+        :locals => {external_plan_service_login_url: admin_plan_path}
+
+  = yield
+
+  -# Initialize global I18n variable and load translations there
+  :javascript
+    window.I18n = {};
+
+  = javascript_include_tag "i18n/#{I18n.locale}"
+
+  = javascript_include_tag 'application_reactpage.js'
+
+  - if @analytics_event
+    :javascript
+      report_analytics_event.apply(null, #{@analytics_event});
+  - if @gtm_datalayer
+    :javascript
+      if(window.ST != null && typeof window.ST.gtmPush === 'function') {
+        window.ST.gtmPush(#{@gtm_datalayer.to_json});
+      }
+
+  - # FF doesn't support touch-action: manipulation
+  :javascript
+    document.onreadystatechange = function () {
+      if (document.readyState === "complete") {
+        if ('touchAction' in document.body.style) {
+          document.body.style.touchAction = 'manipulation';
+        } else {
+          window.FastClick.attach(document.body, { excludeNode: '^pac-'} );
+        }
+      }
+    }
+
+  = render :partial => "layouts/noscript"
