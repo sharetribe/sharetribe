@@ -81,7 +81,9 @@
 .row
   .col-12
     = label_tag("units_title", t("admin.listing_shapes.units_title"), class: "input")
-    = render partial: "layouts/info_text", locals: {text: t("admin.listing_shapes.units_desc")}
+
+    .js-pricing-units-info.hidden
+      = render partial: "layouts/info_text", locals: {text: t("admin.listing_shapes.units_desc")}
 
     - if feature_enabled?(:availability)
       .js-pricing-units-disabled-info.hidden

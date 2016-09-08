@@ -86,11 +86,9 @@ window.ST.initializeListingShapeForm = function(formId) {
     if(enabled) {
       toggleAvailabilityUnitsEnabled(true);
       toggleUnitsEnabled(false);
-      $('.js-pricing-units-disabled-info').show();
     } else {
       toggleAvailabilityUnitsEnabled(false)
       toggleUnitsEnabled(true);
-      $('.js-pricing-units-disabled-info').hide();
     }
   }
 
@@ -107,6 +105,7 @@ window.ST.initializeListingShapeForm = function(formId) {
   var toggleUnitsEnabled = function(enabled) {
     toggleCheckbox($(".js-unit-checkbox"), enabled);
     toggleLabel($(".js-unit-label"), enabled);
+    toggleInfo($('.js-pricing-units-info'), enabled);
   };
 
   var toggleAvailabilityEnabled = function(enabled) {
@@ -117,6 +116,7 @@ window.ST.initializeListingShapeForm = function(formId) {
   var toggleAvailabilityUnitsEnabled = function(enabled) {
     toggleRadio($(".js-availability-unit"), enabled);
     toggleLabel($(".js-availability-unit-label"), enabled);
+    toggleInfo($('.js-pricing-units-disabled-info'), enabled)
   };
 
   var removeCustomUnit = function() {
@@ -161,6 +161,14 @@ window.ST.initializeListingShapeForm = function(formId) {
     } else {
       el.prop('disabled', true);
       el.prop('checked', false);
+    }
+  };
+
+  var toggleInfo = function(el, state) {
+    if (state) {
+      el.show();
+    } else {
+      el.hide();
     }
   };
 
