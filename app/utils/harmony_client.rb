@@ -1,0 +1,1 @@
+HarmonyClient = ServiceClient::Client.new()
