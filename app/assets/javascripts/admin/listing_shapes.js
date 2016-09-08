@@ -86,9 +86,11 @@ window.ST.initializeListingShapeForm = function(formId) {
     if(enabled) {
       toggleAvailabilityUnitsEnabled(true);
       toggleUnitsEnabled(false);
+      $('.js-pricing-units-disabled-info').show();
     } else {
       toggleAvailabilityUnitsEnabled(false)
       toggleUnitsEnabled(true);
+      $('.js-pricing-units-disabled-info').hide();
     }
   }
 
