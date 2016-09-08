@@ -93,27 +93,27 @@ window.ST.initializeListingShapeForm = function(formId) {
   }
 
   var toggleOnlinePaymentEnabled = function(enabled) {
-    toggle($(".js-online-payments"), enabled);
+    toggleCheckbox($(".js-online-payments"), enabled);
     toggleLabel($(".js-online-payments-label"), enabled);
   };
 
   var toggleShippingEnabled = function(enabled) {
-    toggle($(".js-shipping-enabled"), enabled);
+    toggleCheckbox($(".js-shipping-enabled"), enabled);
     toggleLabel($(".js-shipping-enabled-label"), enabled);
   };
 
   var toggleUnitsEnabled = function(enabled) {
-    toggle($(".js-unit-checkbox"), enabled);
+    toggleCheckbox($(".js-unit-checkbox"), enabled);
     toggleLabel($(".js-unit-label"), enabled);
   };
 
   var toggleAvailabilityEnabled = function(enabled) {
-    toggle($(".js-availability"), enabled);
+    toggleCheckbox($(".js-availability"), enabled);
     toggleLabel($(".js-availability-label"), enabled);
   };
 
   var toggleAvailabilityUnitsEnabled = function(enabled) {
-    toggle($(".js-availability-unit"), enabled);
+    toggleRadio($(".js-availability-unit"), enabled);
     toggleLabel($(".js-availability-unit-label"), enabled);
   };
 
@@ -139,9 +139,19 @@ window.ST.initializeListingShapeForm = function(formId) {
     this.parentElement.remove();
   };
 
-  var toggle = function(el, state) {
+  var toggleCheckbox = function(el, state) {
     if(state) {
       el.prop('disabled', false);
+    } else {
+      el.prop('disabled', true);
+      el.prop('checked', false);
+    }
+  };
+
+  var toggleRadio = function(el, state) {
+    if(state) {
+      el.prop('disabled', false);
+      el.first().prop('checked', true);
     } else {
       el.prop('disabled', true);
       el.prop('checked', false);
@@ -171,4 +181,5 @@ window.ST.initializeListingShapeForm = function(formId) {
   // Run once on init
   priceChanged($('.js-price-enabled'));
   onlinePaymentsChanged($('.js-online-payments'));
+  availabilityChanged($('.js-availability'));
 };
