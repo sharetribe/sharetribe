@@ -16,7 +16,7 @@ describe ServiceClient::Client do
     end
 
     def enter(ctx)
-      endpoint = ctx.fetch(:params).fetch(:url)
+      endpoint = ctx.fetch(:params).fetch(:req).fetch(:path)
       case endpoint
       when "/show"
         ctx.merge(
@@ -62,10 +62,8 @@ describe ServiceClient::Client do
 
     let(:client) {
       ServiceClient::Client.new("http://example.com",
-                                [
-                                  ServiceClient::ResultMapper.new,
-                                  ServiceClient::EndpointMapper.new(endpoints),
-                                ],
+                                endpoints,
+                                [],
                                 http_client: FakeHTTPClient,
                                 raise_errors: true
                                )

@@ -1,11 +1,17 @@
 module ServiceClient
   class Client
-    def initialize(host, middleware = [], opts)
+    def initialize(host, endpoint_map, middleware = [], opts = {})
       @_host = host
       @_raise_errors = opts[:raise_errors]
-      http_client = opts[:http_client] || HTTPClient
+      @_endpoint_map = endpoint_map
 
-      @_context_runner = ContextRunner.new(middleware + [http_client.new])
+      @_context_runner = ContextRunner.new(
+        [ResultMapper.new] +
+        middleware +
+        [
+          EndpointMapper.new,
+          (opts[:http_client] || HTTPClient).new
+        ])
     end
 
     def get(endpoint, params: {}, opts: {})
@@ -43,6 +49,7 @@ module ServiceClient
           headers: {}
         },
         endpoint: endpoint,
+        endpoint_map: @_endpoint_map,
         opts: opts
       )
 

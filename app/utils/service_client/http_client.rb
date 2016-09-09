@@ -1,7 +1,7 @@
 module ServiceClient
   class HTTPClient < Middleware
     def enter(ctx)
-      res = send_request(ctx.slice(:req, :opts))
+      res = send_request(ctx.fetch(:params).slice(:req, :opts))
 
       ctx.merge(
         res: {
