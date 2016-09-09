@@ -12,6 +12,9 @@ describe ServiceClient::Client do
 
   class FakeHTTPClient < ServiceClient::Middleware::MiddlewareBase
 
+    def initialize(*)
+    end
+
     def enter(ctx)
       endpoint = ctx.fetch(:req).fetch(:path)
       case endpoint

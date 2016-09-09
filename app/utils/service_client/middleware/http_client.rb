@@ -1,6 +1,12 @@
 module ServiceClient
   module Middleware
     class HTTPClient < MiddlewareBase
+      def initialize(host)
+        @_conn = Faraday.new(host) do |c|
+          c.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+        end
+      end
+
       def enter(ctx)
         res = send_request(ctx.slice(:req, :opts))
 
@@ -21,13 +27,9 @@ module ServiceClient
         headers,
         path = req.values_at(:host, :method, :headers, :path)
 
-        conn = Faraday.new(host) do |c|
-          c.adapter  Faraday.default_adapter  # make requests with Net::HTTP
-        end
-
         case method
         when :get
-          conn.get do |req|
+          @_conn.get do |req|
             req.headers = headers
             req.url(path)
           end

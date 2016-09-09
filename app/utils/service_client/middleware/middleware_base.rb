@@ -19,6 +19,18 @@ module ServiceClient
       def error(ctx)
         ctx
       end
+
+      def to_s
+        self.class.name
+      end
+
+      def inspect
+        self.class.name
+      end
+
+      def as_json(opts)
+        to_s
+      end
     end
   end
 end
