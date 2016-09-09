@@ -1,13 +1,7 @@
 module ServiceClient
   class HTTPClient < Middleware
-    def initialize(url)
-      @url = url
-    end
-
     def enter(ctx)
-      path, method, params = ctx[:params].values_at(:url, :method, :params)
-
-      res = send_request(path, method, params)
+      res = send_request(ctx.slice(:req, :opts))
 
       ctx.merge(
         res: {
@@ -21,8 +15,12 @@ module ServiceClient
 
     private
 
-    def send_request(path, method, params)
-      conn = Faraday.new(@url) do |c|
+    def send_request(req:, opts:)
+      host,
+      method,
+      path = req.values_at(:host, :method, :path)
+
+      conn = Faraday.new(host) do |c|
         c.adapter  Faraday.default_adapter  # make requests with Net::HTTP
       end
 
