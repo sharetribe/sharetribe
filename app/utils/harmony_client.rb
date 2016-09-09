@@ -4,9 +4,9 @@ HarmonyClient =
                               authors: "/v1/authors"
                             },
                             [
-                              ServiceClient::RequestID.new,
-                              ServiceClient::Logger.new,
-                              ServiceClient::BodyEncoder.new(:json),
+                              ServiceClient::Middleware::RequestID.new,
+                              ServiceClient::Middleware::Logger.new,
+                              ServiceClient::Middleware::BodyEncoder.new(:json),
                             ],
                             raise_errors: true
                            )

@@ -5,12 +5,12 @@ module ServiceClient
       @_raise_errors = opts[:raise_errors]
 
       before_middleware = [
-        ResultMapper.new
+        Middleware::ResultMapper.new
       ]
 
       after_middleware = [
-        EndpointMapper.new(endpoint_map),
-        (opts[:http_client] || HTTPClient).new
+        Middleware::EndpointMapper.new(endpoint_map),
+        (opts[:http_client] || Middleware::HTTPClient).new
       ]
 
       @_context_runner = ContextRunner.new(

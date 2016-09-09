@@ -1,10 +1,10 @@
 [
   "app/utils/service_client/context_runner",
-  "app/utils/service_client/middleware",
-  "app/utils/service_client/endpoint_mapper",
   "app/utils/service_client/client",
-  "app/utils/service_client/http_client",
-  "app/utils/service_client/result_mapper",
+  "app/utils/service_client/middleware/middleware_base",
+  "app/utils/service_client/middleware/endpoint_mapper",
+  "app/utils/service_client/middleware/http_client",
+  "app/utils/service_client/middleware/result_mapper",
   "app/services/result",
 ].each { |file| require_relative "../../../#{file}" }
 
