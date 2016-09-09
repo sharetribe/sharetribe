@@ -19,7 +19,7 @@ describe ServiceClient::Client do
       endpoint = ctx.fetch(:params).fetch(:req).fetch(:path)
       case endpoint
       when "/show"
-        ctx.merge(
+        ctx[:params] = ctx[:params].merge(
           res: {
             status: 200,
             success: true,
@@ -27,8 +27,9 @@ describe ServiceClient::Client do
             headers: {}
           }
         )
+        ctx
       when "/error"
-        ctx.merge(
+        ctx[:params] = ctx[:params].merge(
           res: {
             status: 500,
             success: false,
@@ -36,6 +37,7 @@ describe ServiceClient::Client do
             headers: {}
           }
         )
+        ctx
       else
         raise ArgumentError.new("Unknown endpoint: '#{endpoint}'")
       end
