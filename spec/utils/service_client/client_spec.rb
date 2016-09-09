@@ -16,31 +16,27 @@ describe ServiceClient::Client do
     end
 
     def enter(ctx)
-      endpoint = ctx.fetch(:params).fetch(:req).fetch(:path)
+      endpoint = ctx.fetch(:req).fetch(:path)
       case endpoint
       when "/show"
-        ctx[:params] = ctx[:params].merge(
-          res: {
-            status: 200,
-            success: true,
-            body: "",
-            headers: {}
-          }
-        )
-        ctx
+        ctx[:res] = {
+          status: 200,
+          success: true,
+          body: "",
+          headers: {}
+        }
       when "/error"
-        ctx[:params] = ctx[:params].merge(
-          res: {
-            status: 500,
-            success: false,
-            body: "Internal server error",
-            headers: {}
-          }
-        )
-        ctx
+        ctx[:res] = {
+          status: 500,
+          success: false,
+          body: "Internal server error",
+          headers: {}
+        }
       else
         raise ArgumentError.new("Unknown endpoint: '#{endpoint}'")
       end
+
+      ctx
     end
 
     def leave(ctx)

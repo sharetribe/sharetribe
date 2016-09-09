@@ -19,13 +19,13 @@ module ServiceClient
     end
 
     def enter(ctx)
-      req = ctx.fetch(:params).fetch(:req)
+      req = ctx.fetch(:req)
 
       body = req[:body]
       headers = req.fetch(:headers)
 
-      ctx[:params][:req][:body] = @_encoder.encode(body)
-      ctx[:params][:req][:headers] = headers.merge(
+      ctx[:req][:body] = @_encoder.encode(body)
+      ctx[:req][:headers] = headers.merge(
         "Accept" => @_encoder.mime_type,
         "Content-Type" => @_encoder.mime_type
       )
@@ -34,10 +34,10 @@ module ServiceClient
     end
 
     def leave(ctx)
-      res = ctx.fetch(:params).fetch(:res)
+      res = ctx.fetch(:res)
       body = res[:body]
 
-      ctx[:params][:res][:body] = @_encoder.decode(body)
+      ctx[:res][:body] = @_encoder.decode(body)
       ctx
     end
 

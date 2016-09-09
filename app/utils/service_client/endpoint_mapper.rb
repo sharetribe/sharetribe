@@ -5,7 +5,8 @@ module ServiceClient
     end
 
     def enter(ctx)
-      endpoint = ctx[:params][:endpoint]
+      req = ctx.fetch(:req)
+      endpoint = ctx.fetch(:endpoint)
 
       if endpoint.nil?
         raise ArgumentError.new(
@@ -19,7 +20,7 @@ module ServiceClient
                 "Unknown endpoint: '#{endpoint}'")
       end
 
-      ctx[:params][:req][:path] = path
+      ctx[:req][:path] = path
       ctx
     end
   end

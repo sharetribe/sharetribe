@@ -4,13 +4,20 @@ module ServiceClient
       @_host = host
       @_raise_errors = opts[:raise_errors]
 
+      before_middleware = [
+        ResultMapper.new
+      ]
+
+      after_middleware = [
+        EndpointMapper.new(endpoint_map),
+        (opts[:http_client] || HTTPClient).new
+      ]
+
       @_context_runner = ContextRunner.new(
-        [ResultMapper.new] +
+        before_middleware +
         middleware +
-        [
-          EndpointMapper.new(endpoint_map),
-          (opts[:http_client] || HTTPClient).new
-        ])
+        after_middleware
+      )
     end
 
     def get(endpoint, params: {}, opts: {})
@@ -21,7 +28,7 @@ module ServiceClient
         body: nil,
         opts: opts)
 
-      ctx.fetch(:params).fetch(:res)
+      ctx.fetch(:res)
     end
 
     def post(endpoint, body: nil, opts: {})
@@ -32,7 +39,7 @@ module ServiceClient
         params: {},
         opts: opts)
 
-      ctx.fetch(:params).fetch(:res)
+      ctx.fetch(:res)
     end
 
     private

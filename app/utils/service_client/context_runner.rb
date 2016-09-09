@@ -64,9 +64,10 @@ module ServiceClient
     # nil). In this case the context running will proceed to call
     # leave functions of all remaining middleware in the stack.
     def build_ctx(params)
-      {params: params,
+      params.merge(
        enter_queue: build_enter_queue(params, middleware),
-       leave_stack: []}
+       leave_stack: []
+      )
     end
 
     def execute(params)
