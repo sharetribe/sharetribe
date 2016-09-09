@@ -10,10 +10,7 @@
 
 describe ServiceClient::Client do
 
-  class FakeHTTPClient
-
-    def initialize(*)
-    end
+  class FakeHTTPClient < ServiceClient::Middleware::MiddlewareBase
 
     def enter(ctx)
       endpoint = ctx.fetch(:req).fetch(:path)
@@ -36,14 +33,6 @@ describe ServiceClient::Client do
         raise ArgumentError.new("Unknown endpoint: '#{endpoint}'")
       end
 
-      ctx
-    end
-
-    def leave(ctx)
-      ctx
-    end
-
-    def error(ctx)
       ctx
     end
   end
@@ -84,7 +73,6 @@ describe ServiceClient::Client do
       expect(res[:data][:body]).to eq("Internal server error")
       expect(res[:data][:status]).to eq(500)
     end
-
   end
 
 end
