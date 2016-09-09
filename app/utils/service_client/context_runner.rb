@@ -77,19 +77,21 @@ module ServiceClient
 
     private
 
-    def try_execute_mw(ctx, &block)
+    def try_execute_mw(ctx, mw_name, stage, &block)
       begin
         block.call
       rescue StandardError => e
         new_ctx = ctx.dup
         new_ctx[:error] = e
+        new_ctx[:error_middleware] = mw_name
+        new_ctx[:error_stage] = stage
         new_ctx
       end
     end
 
 
     def execute_enter(ctx, mw)
-      try_execute_mw(ctx) do
+      try_execute_mw(ctx, mw.class.name, :enter) do
         if mw.respond_to?(:enter)
           new_ctx = mw.enter(ctx)
         else
@@ -102,7 +104,7 @@ module ServiceClient
     end
 
     def execute_leave(ctx, mw)
-      try_execute_mw(ctx) do
+      try_execute_mw(ctx, mw.class.name, :leave) do
         if mw.respond_to?(:leave)
           mw.leave(ctx)
         else
@@ -112,7 +114,7 @@ module ServiceClient
     end
 
     def execute_error(ctx, mw)
-      try_execute_mw(ctx) do
+      try_execute_mw(ctx, mw.class.name, :exit) do
         if mw.respond_to?(:error)
           mw.error(ctx)
         else
