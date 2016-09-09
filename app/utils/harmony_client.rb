@@ -6,6 +6,7 @@ HarmonyClient =
                             },
                             [
                               ServiceClient::Middleware::RequestID.new,
+                              ServiceClient::Middleware::Timeout.new,
                               ServiceClient::Middleware::Logger.new,
                               ServiceClient::Middleware::BodyEncoder.new(:transit_msgpack),
                             ],

@@ -22,30 +22,39 @@ module ServiceClient
       private
 
       def send_request(req:, opts:)
-        host,
         method,
-        headers,
-        path,
         params,
-        body = req.values_at(:host, :method, :headers, :path, :params, :body)
+        body = req.values_at(:method, :params, :body)
 
         case method
         when :get
-          @_conn.get do |req|
-            req.params = params
-            req.headers = headers
-            req.url(path)
+          @_conn.get do |faraday_req|
+            faraday_req.params = params
+
+            setup_request(faraday_req, req)
           end
         when :post
-          @_conn.post do |req|
-            req.body = body
-            req.headers = headers
-            req.url(path)
+          @_conn.post do |faraday_req|
+            faraday_req.body = body
+
+            setup_request(faraday_req, req)
           end
         else
           raise ArgumentError.new("Unknown HTTP method '#{method}'")
         end
 
+      end
+
+      def setup_request(faraday_req, req)
+        headers,
+        path,
+        timeout,
+        open_timeout = req.values_at(:headers, :path, :timeout, :open_timeout)
+
+        faraday_req.headers = headers
+        faraday_req.url(path)
+        faraday_req.options.timeout = timeout if timeout
+        faraday_req.options.open_timeout = open_timeout if open_timeout
       end
     end
   end
