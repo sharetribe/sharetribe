@@ -25,16 +25,25 @@ module ServiceClient
         host,
         method,
         headers,
-        path = req.values_at(:host, :method, :headers, :path)
+        path,
+        params,
+        body = req.values_at(:host, :method, :headers, :path, :params, :body)
 
         case method
         when :get
           @_conn.get do |req|
+            req.params = params
+            req.headers = headers
+            req.url(path)
+          end
+        when :post
+          @_conn.post do |req|
+            req.body = body
             req.headers = headers
             req.url(path)
           end
         else
-          raise argumenterror.new("unknown http method '#{method}'")
+          raise ArgumentError.new("Unknown HTTP method '#{method}'")
         end
 
       end
