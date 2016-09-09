@@ -50,7 +50,7 @@ th-TH:
         default_language: ~
         language_selection_disabled: "การเลือกภาษาถูกปิดการใช้งานในตลาดของคุณ เพราะคุณกำลังใช้ภาษาที่ไม่เป็นทางการต่อไปนี้ : %{languages} โปรดติดต่อฝ่ายสนับสนุนของ Sharetribe หากคุณต้องการที่จะปรับเปลี่ยนการตั้งค่าภาษาของคุณ"
         community_name: ชื่อตลาด
-        edit_community_name_description: ~
+        edit_community_name_description: "ชื่อตลาดของคุณ ซึ่งจะปรากฏต่อผู้ใช้ในอีเมล์และที่อื่น ๆ "
         community_slogan: สโลแกนตลาด
         edit_community_slogan_description: ~
         community_description: คำอธิบายตลาด
@@ -61,7 +61,7 @@ th-TH:
         edit_private_community_homepage_content_description: "เนื้อหานี้จะปรากฏในหน้าแรกของตลาดส่วนตัว ให้กับผู้ใช้ที่ไม่ได้เข้าสู่ระบบ ที่นี่ คุณสามารถอธิบายตลาดของคุณ และกระบวนการที่จะเข้าร่วมได้ นอกจากนี้คุณยังสามารถเพิ่มรูปภาพ วิดีโอ และเนื้อหา HTML ได้ที่นี่ %{see_how_it_looks_like}"
         update_information: บันทึกการตั้งค่า
         invite_people: "เชิญผู้ใช้ใหม่เพื่อเข้าร่วม %{service_name}"
-        edit_signup_info: ~
+        edit_signup_info: ข้อมูลลงทะเบียน
         edit_signup_info_description: "นี่คือข้อความข้อมูลที่จะปรากฎต่อผู้ใช้ในหน้าการสมัคร คุณสามารถให้คำแนะนำแก่ผู้ใช้ในการลงทะเบียน ข้อมูลเช่น ผู้ใช้จะได้รับเชิญจากไหน ฯลฯ โดยค่าเริ่มต้นนั้นจะไม่มีคำแนะนำ"
         edit_info: ~
         see_how_it_looks_like: ~
@@ -79,9 +79,9 @@ th-TH:
       edit_look_and_feel:
         edit_community_look_and_feel: "แก้ไขรูปลักษณ์และความรู้สึกของตลาด \"%{community_name}\""
         community_logo: โลโก้
-        community_logo_icon: ~
+        community_logo_icon: โลโก้สำหรับเครือข่ายทางสังคมและอุปกรณ์มือถือ
         community_cover_photo: รูปภาพหน้าปก
-        small_community_cover_photo: ~
+        small_community_cover_photo: ภาพปกขนาดเล็ก
         favicon: ~
         favicon_info_text: ~
         community_custom_color1: สีหลัก
@@ -90,10 +90,10 @@ th-TH:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "โลโก้ขนาดจัตุรัสนี้จะปรากฎเมื่อมีคนแชร์เว็บไซต์ของคุณใน Facebook เมื่อมีคนดูเว็บไซต์ของคุณบนอุปกรณ์มือถือ หรือเมื่อมีการบุ๊คมาร์คเว็บไซต์ของคุณในหน้าจอหลักของอุปกรณ์มือถือ ขนาดที่แนะนำ (อย่างน้อย) คือ %{width}x%{height} px"
         logo_icon_instructions_text_with_dimensions_no_placing: "โลโก้ขนาดจัตุรัสนี้จะปรากฎเมื่อมีคนแชร์เว็บไซต์ของคุณใน Facebook เมื่อมีคนดูเว็บไซต์ของคุณบนอุปกรณ์มือถือ หรือเมื่อมีการบุ๊คมาร์คเว็บไซต์ของคุณในหน้าจอหลักของอุปกรณ์มือถือ ขนาดที่แนะนำ (อย่างน้อย) คือ %{width}x%{height} px"
-        cover_photo_visibility: ~
-        cover_photo_instructions_text_with_dimensions: ~
-        small_cover_photo_visibility: ~
-        small_cover_photo_instructions_text_with_dimensions: ~
+        cover_photo_visibility: รูปภาพหน้าปกจะแสดงในหน้าแรกสำหรับผู้ใช้ที่ยังไม่ได้ล็อคอิน
+        cover_photo_instructions_text_with_dimensions: "ขนาดโลโก้จะถูกย่อขนาดเหลือ %{width} x %{height} px ภาพที่มีขนาดสูงกว่าจะถูกตัดจากตรงกลาง %{see_how_it_looks_like}"
+        small_cover_photo_visibility: "ภาพปกขนาดเล็กจะถูกแสดงในหน้าเว็บทั้งหมด ยกเว้นในหน้าแรกสำหรับผู้ใช้ที่ยังไม่ได้ล็อคอิน"
+        small_cover_photo_instructions_text_with_dimensions: "รูปภาพจะถูกย่อขนาดเหลือ %{width} x %{height} px ภาพที่มีขนาดสูงกว่าจะถูกตัดจากตรงกลาง "
         main_content_width: "เมื่อเลือกภาพปก โปรดทราบว่าความกว้างสูงสุดของเนื้อหาหลักคือ%{main_width} px  อย่าลืมตรวจสอบว่าภาพปกของคุณจะมีลักษณะใดบนหน้าจอขนาดเล็ก (เช่น โดยใช้ หน้าต่างเบราว์เซอร์ที่แคบขึ้น)"
         custom_color1_instructions_text: "คุณสามารถเปลี่ยนสีหลักของอินเตอร์เฟซผู้ใช้ โดยการป้อนค่าสี hex <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> สามารถช่วยให้คุณเลือกสี และคัดลอกโค้ดมาที่นี่"
         new_listing_button_instructions_text: ~
@@ -736,10 +736,10 @@ th-TH:
       cancel_it_link_text: ยกเลิก
       automatic_confirmation: ~
     payment_settings_reminder:
-      remember_to_add_payment_details: ~
-      you_have_added_listing_with_payment: ~
-      please_go_to_payment_settings: ~
-      payment_settings_link: ~
+      remember_to_add_payment_details: อย่าลืมที่จะเพิ่มรายละเอียดการชำระเงินของคุณในการรับเงิน
+      you_have_added_listing_with_payment: "คุณได้เพิ่มรายการ %{listing_link} กับการชำระเงิน ทั้งนี้ คุณยังไม่ได้เพิ่มรายละเอียดการชำระเงินของคุณ คุณต้องมีเพิ่มข้อมูลการชำระเงินเพื่อที่จะรับเงิน"
+      please_go_to_payment_settings: "กรุณาไปที่ %{payment_settings_link} และกรอกข้อมูลการชำระเงินที่จำเป็น"
+      payment_settings_link: การตั้งค่าการชำระเงิน
     transaction_confirmed:
       here_is_a_message_from: "นี่คือข้อความจาก%{other_party_given_name}:"
       request_marked_as_confirmed: "การสั่งซื้อเสร็จสมบูรณ์ - อย่าลืมที่จะให้ความคิดเห็น"
@@ -811,21 +811,21 @@ th-TH:
       paypal_gateway_fee: ~
       shipping_total: ~
     braintree_new_payment:
-      product: ~
-      price_payer_paid: ~
-      service_fee: ~
-      you_will_get: ~
+      product: "ผลิตภัณฑ์:"
+      price_payer_paid: "ราคา %{payer_full_name} จ่าย:"
+      service_fee: "ค่าบริการ %{service_name}:"
+      you_will_get: "รวมทั้งหมด:"
     receipt_to_payer:
       receipt_of_payment: ใบเสร็จรับเงินของการชำระเงิน
       you_have_made_new_payment: "คุณได้ชำระเงิน <b>%{payment_sum}</b> สำหรับ <b>%{listing_title}</b> แก่ %{recipient_full_name} นี่คือใบเสร็จรับเงินของการชำระเงิน"
-      product: ~
+      product: ผลิตภัณฑ์
       price_per_unit_type: ~
       duration: ~
       quantity: ~
       subtotal: ~
-      total: ~
-      price: ~
-      service_fee: ~
+      total: รวมทั้งหมด
+      price: ราคา
+      service_fee: "ค่าบริการ "
       money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} ได้ให้ข้อเสนอแนะแก่คุณใน %{service_name}"
@@ -838,7 +838,7 @@ th-TH:
     community_updates:
       added_offer: "%{name_link}ได้เพิ่มรายการ:"
       added_request: "%{name_link}ได้เพิ่มรายการ:"
-      added_listing: ~
+      added_listing: "%{name_link}ได้เพิ่มรายการ:"
       update_mail_title: "%{title_link}อัพเดท"
       title_link_text: "%{community_name}"
       intro_paragraph: "นี่คือบางส่วนของสิ่งที่เกิดขึ้นใน %{community_link} ในช่วง%{time_since_last_update}ที่ผ่านมา "
@@ -998,7 +998,7 @@ th-TH:
     contact_us: ติดต่อเรา
     profile: โปรไฟล์
     manage_listings: ~
-    invite: ~
+    invite: เชิญสมาชิกใหม่
     login: ~
     signup: ~
     menu: ~
@@ -1041,7 +1041,7 @@ th-TH:
     event_feed:
       latest_events: เกิดอะไรขึ้น
     grid_item:
-      processing_uploaded_image: ~
+      processing_uploaded_image: (ประมวลผลการอัพโหลดภาพ...)
     index:
       no_listings_with_your_search_criteria: "ขออภัย ไม่มีสามารถค้นพบรายการในเกณฑ์การค้นหาของคุณ คุณอาจจะลองคำค้นหา อื่น ๆ ดูไหม?"
       no_listings_notification: "ไม่มีรายการ %{add_listing_link}"
@@ -1067,9 +1067,9 @@ th-TH:
       requesting: ต้องการ
       tell_it_here: บอกที่นี่!
       welcome_to_new_kassi: "ยินดีต้อนรับสู่ %{service_name} ใหม่"
-      no_reviews: ~
-      no_image: ~
-      filter: ~
+      no_reviews: ไม่มีรีวิว
+      no_image: ไม่มีรูปภาพ
+      filter: ตัวกรอง
       this_is_private_community: ~
     invitation_form:
       email: ที่อยู่อีเมล์
@@ -1082,8 +1082,8 @@ th-TH:
       invitation_message_field_placeholder: "ฉันได้เข้าร่วมในตลาดอันน่าตื่นตาตื่นใจนี้ คุณน่าจะมาร่วมด้วยกันนะ!"
       errors_in_emails: "กรุณาตรวจสอบว่าที่อยู่อีเมล์ที่คุณเพิ่มถูกต้อง และไม่มีตัวอักษรที่ผิดปกติใด ๆ หากคุณเพิ่มหลายที่อยู่ โปรดแน่ใจว่าที่อยู่เหล่านั้นถูกแยกด้วยเครื่องหมายจุลภาค"
     list_item:
-      review: ~
-      reviews: ~
+      review: รีวิว
+      reviews: รีวิว
       distance_away: ~
     news_item:
       show_less: แสดงน้อยกว่า
@@ -1102,9 +1102,9 @@ th-TH:
       search: ค้นหา
       map: แสดงแผนที่
       list: แสดงรายการ
-      map_button: ~
-      grid_button: ~
-      list_button: ~
+      map_button: แผนที่
+      grid_button: ตาราง
+      list_button: รายการ
       all_listing_types: รายการทุกประเภท
       all_categories: หมวดหมู่ทั้งหมด
     errors:
@@ -1161,7 +1161,7 @@ th-TH:
       received: ได้รับแล้ว
       sent: จัดส่งแล้ว
     global-header:
-      select_language: ~
+      select_language: เลือกภาษา
     infos:
       about: เกี่ยวกับ
       how_to_use: ทำงานอย่างไร
@@ -1246,7 +1246,7 @@ th-TH:
       payment_successful: ชำระเงินสำเร็จ
       payment_canceled: การชำระเงินถูกยกเลิก
       error_in_payment: "เกิดข้อผิดพลาดในการชำระเงิน หากคุณยังไม่ได้ดำเนินการชำระเงิน กรุณาลองอีกครั้ง หากคุณชำระแล้ว โปรดส่งความคิดเห็นมาหาเรา"
-      cannot_receive_payment: ~
+      cannot_receive_payment: "บุคคลอื่น ๆ ไม่สามารถรับเงินได้ เนื่องจากข้อผิดพลาดบางอย่าง กรุณาติดต่อผู้ดูแลระบบเพื่อชี้แจงสถานการณ์"
       payment_waiting_for_later_accomplishment: "เมื่อคุณชำระเงินแล้ว เราจะแจ้งให้ผู้ขายทราบ และคุณจะได้รับใบเสร็จรับเงินในอีเมล์"
       password_recovery_sent: คำแนะนำในการเปลี่ยนรหัสผ่านได้ถูกส่งไปยังอีเมลของคุณแล้ว
       person_activated: ผู้ใช้เปิดใช้งาน
@@ -1295,16 +1295,16 @@ th-TH:
       you_must_log_in_to_view_your_inbox: "คุณต้องเข้าสู่ระบบ %{service_name} เพื่อดูกล่องจดหมายของคุณ"
       you_must_log_in_to_view_your_settings: "คุณต้องเข้าสู่ระบบ %{service_name} เพื่อดูการตั้งค่าของคุณ"
       you_must_log_in_to_add_news_item: "คุณต้องเข้าสู่ระบบ %{service_name} เพื่อเพิ่มบทความใหม่"
-      you_must_log_in_to_change_profile_settings: ~
+      you_must_log_in_to_change_profile_settings: "คุณต้องเข้าสู่ระบบ %{service_name} เพื่อที่จะเปลี่ยนการตั้งค่าโปรไฟล์"
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: คุณจำเป็นต้องยืนยันอีเมล์ของคุณ
-      you_must_fill_all_the_fields: ~
+      you_must_fill_all_the_fields: คุณต้องกรอกทุกช่อง
       you_unfollowed_listing: คุณไม่ได้ติดตามรายการนี้อีกต่อไปแล้ว
       joining_community_failed: การเข้าร่วมไม่สำเร็จ
-      can_not_delete_email: ~
-      user_does_not_have_email_to_delete: ~
-      email_deleted: ~
+      can_not_delete_email: คุณไม่สามารถลบที่อยู่อีเมล์ได้
+      user_does_not_have_email_to_delete: คุณไม่มีที่อยู่อีเมล์ที่คุณกำลังพยายามที่จะลบ
+      email_deleted: อีเมล์ได้ถูกลบแล้ว
       listing_author_payment_details_missing: ~
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
@@ -1313,7 +1313,7 @@ th-TH:
       notifications: แจ้งเตือน
       profile: ข้อมูลโปรไฟล์
       settings: การตั้งค่า
-      payments: ~
+      payments: การชำระเงิน
   listings:
     bubble_listing_not_visible:
       listing_not_visible: คุณไม่มีสิทธิที่จะดูรายการนี้
@@ -1404,7 +1404,7 @@ th-TH:
         mass: "ชื้น, กิโลกรัม, ลิตร, ตารางเมตร,..."
         time: "ชั่วโมง, วัน, เดือน, ..."
         long_time: "สัปดาห์, เดือน, ..."
-        after_service_fee_you_will_get: ~
+        after_service_fee_you_will_get: "หลังจาก %{service_name} และการชำระเงินค่าธรรมเนียมการประมวลผล คุณจะได้รับ %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: ~
         after_service_fee_you_will_get_paypal_text: ~
         paypal_fee_info_link_text: ~
@@ -1522,15 +1522,15 @@ th-TH:
       add_profile_picture: เพิ่มรูปโปรไฟล์
       comments: การอภิปรายสาธารณะ
       contact_by_phone: "ติดต่อทางโทรศัพท์:"
-      contact: ~
+      contact: ติดต่อ
       favor_offer: ข้อเสนอการบริการ
       favor_request: คำขอการบริการ
       inquiry: ~
       item_offer_trade: ข้อเสนอแลกเปลี่ยน
       item_request_trade: คำขอแลกเปลี่ยน
       no_description: รายการนี้ไม่มีคำอธิบาย
-      no_image: ~
-      no_reviews: ~
+      no_image: ไม่มีรูปภาพ
+      no_reviews: ไม่ได้รับรีวิว
       offer: ข้อเสนอ
       listing_created: สร้าง
       open_until: "เปิดจนถึง %{date}"
@@ -1720,7 +1720,7 @@ th-TH:
     profile_listings:
       show_also_closed: การแสดงถูกปิด
       show_only_open: แสดงเฉพาะที่เปิด
-      no_image: ~
+      no_image: ไม่มีรูปภาพ
     show:
       contact: "ติดต่อ%{person}"
       about_me: "เกี่ยวกับฉัน:"
@@ -1813,7 +1813,7 @@ th-TH:
       delete_account: ลบบัญชี
       delete_account_button: ลบบัญชีของฉันอย่างถาวร
       delete_account_confirmation_popup: "คุณแน่ใจหรือไม่ว่าต้องการที่จะลบบัญชีผู้ใช้ของคุณอย่างถาวร และจะสูญเสียข้อมูล ทั้งหมดที่เกี่ยวข้องกับบัญชีนี้? การลบบัญชีจะไม่สามารถยกเลิกได้"
-      email_addresses: ~
+      email_addresses: ที่อยู่อีเมล์
       new_email: ที่อยู่อีเมล์ใหม่
       delete_personal_information: "หากคุณลบบัญชีของคุณ ข้อมูลส่วนบุคคลของคุณ (ชื่อ , หมายเลขโทรศัพท์, ที่อยู่, อีเมล์, ภาพโปรไฟล์ ฯลฯ) จะถูกลบออกอย่างถาวร และไม่สามารถกู้คืนได้ รายการทั้งหมดที่คุณได้สร้างขึ้นจะถูกลบออก คุณจะไม่สามารถเปิดใช้งานบัญชีของคุณได้อีก"
       delete_information_others_involved: "ข้อมูลที่สมาชิกคนอื่น ๆ มีส่วนเกี่ยวข้อง (บทสนทนากับคนอื่น ๆ, การทำธุรกรรมที่คุณได้ทำ, ความเห็นที่คุณให้กับคนอื่น ๆ ฯลฯ) จะไม่ถูกลบ เมื่อคุณลบบัญชีของคุณ อย่างไรก็ตาม ชื่อของคุณจะไม่ปรากฏถัดจากข้อมูลเหล่านี้"
@@ -1823,19 +1823,19 @@ th-TH:
       these_fields_are_shown_only_to_you: "ชื่อผู้ใช้จะปรากฏในโปรไฟล์ของคุณ นอกจากคุณจะให้ชื่อของคุณเอง ข้อมูลอื่น ๆ จะแสดงให้เห็นเฉพาะกับคุณ"
       email_already_confirmed: ~
       email:
-        address_title: ~
-        remove_title: ~
-        remove_confirmation: ~
-        receive_notifications_title_desktop: ~
-        receive_notifications_title_mobile: ~
-        receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
-        add_new_cancel: ~
-        confirmation_title_mobile: ~
-        confirmation_title_desktop: ~
-        confirmation_resend: ~
-        status_confirmed: ~
-        status_pending: ~
+        address_title: ที่อยู่
+        remove_title: ลบ
+        remove_confirmation: คุณแน่ใจว่าหรือว่าต้องการลบที่อยู่อีเมลนี้?
+        receive_notifications_title_desktop: ได้รับการแจ้งเตือน
+        receive_notifications_title_mobile: ได้รับการแจ้งเตือน
+        receive_notifications_new_title_mobile: ได้รับการแจ้งเตือน
+        add_new_with_plus: "+ เพิ่มที่อยู่อีเมล์ใหม่"
+        add_new_cancel: ยกเลิก
+        confirmation_title_mobile: "การยืนยัน:"
+        confirmation_title_desktop: การยืนยัน
+        confirmation_resend: ส่งอีกครั้ง
+        status_confirmed: ยืนยันแล้ว
+        status_pending: กำลังรอดำเนินการ
     notifications:
       email_from_admins: ฉันยินดีที่จะได้รับอีเมล์เป็นครั้งคราวจากแอดมิน
       i_want_to_get_email_notification_when: "ฉันต้องการที่จะได้รับการแจ้งเตือนทางอีเมล์ เมื่อ ..."
