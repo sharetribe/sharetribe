@@ -1,7 +1,8 @@
 HarmonyClient =
-  ServiceClient::Client.new("http://localhost:8080",
+  ServiceClient::Client.new("http://localhost:8085",
                             {
-                              authors: "/v1/authors"
+                              query_time_slots: "/timeslots/query",
+                              create_bookable: "/bookables/create",
                             },
                             [
                               ServiceClient::Middleware::RequestID.new,
