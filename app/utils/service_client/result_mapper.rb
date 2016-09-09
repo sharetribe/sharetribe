@@ -2,7 +2,7 @@ module ServiceClient
   class ResultMapper < Middleware
 
     def leave(ctx)
-      res = ctx.fetch(:res)
+      res = ctx.fetch(:params).fetch(:res)
 
       res_object =
         if res.fetch(:success)
@@ -17,12 +17,12 @@ module ServiceClient
                            )
         end
 
-      ctx[:res] = res_object
+      ctx[:params][:res] = res_object
       ctx
     end
 
     def error(ctx)
-      ctx[:res] = Result::Error.new("An error occured during the middleware processing", ctx)
+      ctx[:params][:res] = Result::Error.new("An error occured during the middleware processing", ctx)
       ctx
     end
 

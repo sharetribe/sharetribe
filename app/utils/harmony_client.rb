@@ -5,6 +5,8 @@ HarmonyClient =
                             },
                             [
                               ServiceClient::RequestID.new,
-                              ServiceClient::Logger.new
-                            ]
+                              ServiceClient::Logger.new,
+                              ServiceClient::BodyEncoder.new(:json),
+                            ],
+                            raise_errors: true
                            )

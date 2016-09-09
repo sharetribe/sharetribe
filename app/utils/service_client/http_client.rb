@@ -2,8 +2,7 @@ module ServiceClient
   class HTTPClient < Middleware
     def enter(ctx)
       res = send_request(ctx.fetch(:params).slice(:req, :opts))
-
-      ctx.merge(
+      ctx[:params] = ctx[:params].merge(
         res: {
           success: res.success?,
           status: res.status,
@@ -11,6 +10,7 @@ module ServiceClient
           headers: res.headers
         }
       )
+      ctx
     end
 
     private
@@ -18,7 +18,8 @@ module ServiceClient
     def send_request(req:, opts:)
       host,
       method,
-      path = req.values_at(:host, :method, :path)
+      headers,
+      path = req.values_at(:host, :method, :headers, :path)
 
       conn = Faraday.new(host) do |c|
         c.adapter  Faraday.default_adapter  # make requests with Net::HTTP
@@ -27,6 +28,7 @@ module ServiceClient
       case method
       when :get
         conn.get do |req|
+          req.headers = headers
           req.url(path)
         end
       else

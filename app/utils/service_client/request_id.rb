@@ -1,7 +1,9 @@
 module ServiceClient
   class RequestID < ServiceClient::Middleware
     def enter(ctx)
-      ctx[:params] = ctx[:params].merge(request_id: SecureRandom.uuid)
+      headers = ctx.fetch(:params).fetch(:req).fetch(:headers)
+      ctx[:params][:req][:headers] = headers.merge("X-Request-Id" => SecureRandom.uuid)
+
       ctx
     end
   end

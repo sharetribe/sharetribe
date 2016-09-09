@@ -22,7 +22,7 @@ module ServiceClient
         body: nil,
         opts: opts)
 
-      ctx.fetch(:res)
+      ctx.fetch(:params).fetch(:res)
     end
 
     def post(endpoint, body: nil, opts: {})
@@ -33,7 +33,7 @@ module ServiceClient
         params: {},
         opts: opts)
 
-      ctx.fetch(:res)
+      ctx.fetch(:params).fetch(:res)
     end
 
     private
