@@ -3,13 +3,12 @@ module ServiceClient
     def initialize(host, endpoint_map, middleware = [], opts = {})
       @_host = host
       @_raise_errors = opts[:raise_errors]
-      @_endpoint_map = endpoint_map
 
       @_context_runner = ContextRunner.new(
         [ResultMapper.new] +
         middleware +
         [
-          EndpointMapper.new,
+          EndpointMapper.new(endpoint_map),
           (opts[:http_client] || HTTPClient).new
         ])
     end
@@ -49,7 +48,6 @@ module ServiceClient
           headers: {}
         },
         endpoint: endpoint,
-        endpoint_map: @_endpoint_map,
         opts: opts
       )
 
