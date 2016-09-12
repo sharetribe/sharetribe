@@ -1,4 +1,8 @@
-require 'spec_helper'
+[
+  "app/utils/service_client/middleware/middleware_base",
+  "app/utils/service_client/middleware/result_mapper",
+  "app/services/result",
+].each { |file| require_relative "../../../../#{file}" }
 
 describe ServiceClient::Middleware::ResultMapper do
 

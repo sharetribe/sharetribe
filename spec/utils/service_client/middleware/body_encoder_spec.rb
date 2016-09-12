@@ -1,4 +1,11 @@
-require 'spec_helper'
+[
+  "app/utils/service_client/middleware/middleware_base",
+  "app/utils/service_client/middleware/body_encoder",
+  "app/utils/transit_utils",
+].each { |file| require_relative "../../../../#{file}" }
+
+require 'transit'
+require 'active_support/json'
 
 describe ServiceClient::Middleware::BodyEncoder do
 
