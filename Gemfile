@@ -33,7 +33,6 @@ gem 'rest-client', '~> 1.8.0'
 gem 'paperclip', '~> 5.1.0'
 gem 'delayed_paperclip', "~> 3.0"
 
-gem 'aws-sdk-v1', "~> 1.64.0"
 gem 'aws-sdk', '~> 2'
 gem "will_paginate", '~>3.0.5'
 gem 'dalli', "~> 2.6.4"
