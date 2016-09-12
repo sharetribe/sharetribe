@@ -1,5 +1,6 @@
 module ServiceClient
   module Middleware
+
     class JSONEncoder
       def encode(body)
         body.to_json unless body.nil?
@@ -25,6 +26,14 @@ module ServiceClient
       end
     end
 
+    # Encodes the body to given encoding.
+    #
+    # The encoding is given to the constructor and that encoding is
+    # used encode the request. For response, the Content-Type header
+    # is used to define which decoder to use.
+    #
+    # Reads from res[:body] and writes to res[:body]
+    #
     class BodyEncoder < MiddlewareBase
 
       ENCODERS = [

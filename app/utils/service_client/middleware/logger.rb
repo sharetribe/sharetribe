@@ -1,5 +1,9 @@
 module ServiceClient
   module Middleware
+
+    # Logger middleware logs the request and response. In addition, if
+    # Timing middleware is in use, the Logger will also log the
+    # `started_at` timestamp and the `duration`.
     class Logger < MiddlewareBase
       def initialize
         @logger = SharetribeLogger.new(:service_client)

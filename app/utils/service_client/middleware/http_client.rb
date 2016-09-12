@@ -1,5 +1,12 @@
 module ServiceClient
   module Middleware
+
+    # HTTP Client middleware.
+    #
+    # 1. Reads ctx[:req]
+    # 2. Makes an HTTP request.
+    # 3. Writes the result to ctx[:res]
+    #
     class HTTPClient < MiddlewareBase
       def initialize(host)
         @_conn = Faraday.new(host) do |c|

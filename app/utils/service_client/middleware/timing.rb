@@ -1,5 +1,15 @@
 module ServiceClient
   module Middleware
+
+    # Adds `started_at` timestamp on `enter` phase and calculates
+    # `duration` on `leave` and `error` phases.
+    #
+    # Writes to context:
+    #
+    # {
+    #   started_at: <Time>,
+    #   duration: <duration in milliseconds
+    # }
     class Timing < MiddlewareBase
 
       def initialize(now = nil)

@@ -1,5 +1,20 @@
 module ServiceClient
   module Middleware
+
+    # Adds timeout options to the context.
+    #
+    # This middleware only adds the options to context, but relies on HTTPClient
+    # to actually implement the timeout feature.
+    #
+    # Writes:
+    #
+    # {
+    #   req: {
+    #     timeout: <timeout>,
+    #     open_timout: <open_timeout>
+    #   }
+    # }
+    #
     class Timeout < MiddlewareBase
 
       TIMEOUT      = 5
