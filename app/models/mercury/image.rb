@@ -18,6 +18,9 @@ class Mercury::Image < ActiveRecord::Base
   attr_accessible :image
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" },
+        :convert_options => {
+          :all => PaperclipUtils.limit_options(),
+        },
         :path => "images/mercury/:attachment/:id/:style/:filename",
         :url => "/system/:class/:attachment/:id/:style/:filename"
 

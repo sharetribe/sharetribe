@@ -158,10 +158,13 @@ class Person < ActiveRecord::Base
   validates :username, :exclusion => USERNAME_BLACKLIST
 
   has_attached_file :image, :styles => {
-                      :medium => "288x288#",
-                      :small => "108x108#",
-                      :thumb => "48x48#",
-                      :original => "600x800>"}
+                              :medium => "288x288#",
+                              :small => "108x108#",
+                              :thumb => "48x48#",
+                              :original => "600x800>"},
+                            :convert_options => {
+                              :all => PaperclipUtils.limit_options(),
+                            }
 
   process_in_background :image
 
