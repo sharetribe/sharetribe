@@ -61,7 +61,7 @@ sl:
         see_how_it_looks_like: ~
         verification_to_post_listings_info_content: ~
         verification_to_post_listings_info_content_description: ~
-        verification_to_post_listings_info_content_default: ~
+        verification_to_post_listings_info_content_default: "Na %{service_name} ti mora administrator osebno odobriti dodajanje objav. Trenutno žal nimaš te pravice. Prosim, kontaktiraj %{contact_admin_link}, da ti odobri dostop."
         contact_admin_link_text: ~
         save: ~
         transaction_agreement: ~
@@ -683,9 +683,9 @@ sl:
     anonymous_user: ~
   community_memberships:
     access_denied:
-      access_denied: ~
+      access_denied: "Dostop zavrnjen"
       you_are_banned_in_this_community: "Administrator ti je preprečil dostop do %{service_name}. Če želiš kontaktirati administratorja, lahko to storiš tu: %{link_to_contact_page}."
-      contact_page_link: ~
+      contact_page_link: "kontaktiraj nas"
     new:
       welcome_fb_user: ~
       fb_join_accept_terms: ~
@@ -1119,8 +1119,8 @@ sl:
       create_own: "Bi rad tudi ti ustvaril svoj spletni marketplace kot je %{service_name}? %{learn_more}"
       learn_more: "Izvedi več."
     no_tribe:
-      inbox: ~
-      settings: ~
+      inbox: "Prejeta sporočila"
+      settings: Nastavitve
       feedback: "Kontaktiraj %{service_name} ekipo."
     application:
       join_this_community: ~
@@ -1194,7 +1194,7 @@ sl:
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
       facebook_email_unconfirmed: ~
-      create_new_listing: ~
+      create_new_listing: "Dodaj še eno objavo"
       create_one_here: "kreiraj tukaj."
       email_confirmation_sent_to_new_address: ~
       email_not_found: "Vnešenega e-naslova nismo našli v bazi %{service_name}."
@@ -1212,7 +1212,7 @@ sl:
       login_failed: ~
       account_creation_successful: ~
       account_deleted: ~
-      login_successful: ~
+      login_successful: "Pozdravljen/a, %{person_name}!"
       logout_successful: "Odlogiral/a si se iz %{service_name}. Se vidimo spet kmalu!"
       news_item_created: ~
       news_item_creation_failed: ~
@@ -1372,7 +1372,7 @@ sl:
         removing: ~
         processing: ~
         loading_image: ~
-        image_uploading_in_progress: ~
+        image_uploading_in_progress: "Slike se nalagajo ..."
         processing_takes_a_while: "Vse slike so naložene! Trajalo bo sicer še nekaj časa, da bojo vidne, ampak lahko shraniš objavo in nadaljuješ."
         this_may_take_a_while: ~
         percentage_loaded: ~
@@ -1550,7 +1550,7 @@ sl:
       week: ~
       month: ~
     verification_required:
-      verification_required: ~
+      verification_required: "Potrebna je odobritev"
   listing_conversations:
     preauthorize:
       details: ~
@@ -1845,7 +1845,7 @@ sl:
       unsubscribe_unsuccesful: ~
       unsuccessful_unsubscribe_info_text: ~
     profile:
-      about_you: "O tebu"
+      about_you: "O tebi"
       city: ~
       family_name: Priimek
       given_name: Ime
@@ -2002,7 +2002,7 @@ sl:
       search_placeholder: ~
       search_location_placeholder: ~
       user: ~
-      inbox: ~
+      inbox: "Prejeta sporočila"
       profile: Profil
       manage_listings: "Uredi svoje objave"
       settings: ~

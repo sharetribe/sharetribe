@@ -2005,17 +2005,17 @@ it:
     initiate:
       booked_days: "Giorni prenotati:"
       booked_nights: "Notti prenotate"
-      price_per_day: "Prezzo al giorno:"
-      price_per_night: "Prezzo per notte"
-      quantity: "Quantità:"
-      subtotal: "Subtotale:"
-      shipping-price: "Spedizione:"
       booked_days_label:
         one: "Giorno prenotato:"
         other: "Giorni prenotati:"
       booked_nights_label:
         one: "Notte prenotata:"
         other: "Notti prenotate:"
+      price_per_day: "Prezzo al giorno:"
+      price_per_night: "Prezzo per notte"
+      quantity: "Quantità:"
+      subtotal: "Subtotale:"
+      shipping-price: "Spedizione:"
     price_per_quantity: "Prezzo per %{unit_type}"
     price: "Prezzo:"
     quantity: "Quantità: %{quantity}"

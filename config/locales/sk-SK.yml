@@ -2052,11 +2052,6 @@ sk-SK:
     initiate:
       booked_days: "Rezervované dni:"
       booked_nights: "Rezervované noci:"
-      price_per_day: "Cena za deň:"
-      price_per_night: "Cena za noc:"
-      quantity: "Množstvo:"
-      subtotal: "Medzisúčet:"
-      shipping-price: "Doprava:"
       booked_days_label:
         one: "Rezervovaný deň:"
         few: "Rezervované dni:"
@@ -2065,6 +2060,11 @@ sk-SK:
         one: "Rezervovaná noc:"
         few: "Rezervované noci:"
         other: "Rezervovaných nocí:"
+      price_per_day: "Cena za deň:"
+      price_per_night: "Cena za noc:"
+      quantity: "Množstvo:"
+      subtotal: "Medzisúčet:"
+      shipping-price: "Doprava:"
     price_per_quantity: "Cena za %{unit_type}:"
     price: "Cena:"
     quantity: "Množstvo: %{quantity}"

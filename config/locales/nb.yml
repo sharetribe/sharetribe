@@ -2036,14 +2036,14 @@ nb:
     initiate:
       booked_days: "Dager booket:"
       booked_nights: "Netter booket:"
+      booked_days_label:
+        one: "Dag booket:"
+        other: "Dager booket:"
       price_per_day: "Pris per dag:"
       price_per_night: "Pris per natt:"
       quantity: "Antall:"
       subtotal: "Delsum:"
       shipping-price: "Frakt:"
-      booked_days_label:
-        one: "Dag booket:"
-        other: "Dager booket:"
     price_per_quantity: "Pris per %{unit_type}:"
     price: "Pris:"
     quantity: "Antall: %{quantity}"

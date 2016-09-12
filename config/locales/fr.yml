@@ -2036,6 +2036,12 @@ fr:
     initiate:
       booked_days: "Jours réservés : "
       booked_nights: "Nuits réservées :"
+      booked_days_label:
+        one: "Jour réservé : "
+        other: "Jours réservés : "
+      booked_nights_label:
+        one: "Nuit réservée : "
+        other: "Nuits réservées : "
       price_per_day: "Prix par jour : "
       price_per_night: "Prix par nuit :"
       quantity: "Quantité : "
