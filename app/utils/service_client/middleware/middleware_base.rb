@@ -3,22 +3,13 @@ module ServiceClient
 
     # Base class for middlewares.
     #
-    # Default implementations for `enter`, `leave` and `error`
-    # return the context object `ctx` without manipulating it.
-    # The subclasses can override all or some of these methods.
+    # The subclasses may implement following methods:
+    #
+    # * `enter(ctx)`
+    # * `leave(ctx)`
+    # * `error(ctx)`
     #
     class MiddlewareBase
-      def enter(ctx)
-        ctx
-      end
-
-      def leave(ctx)
-        ctx
-      end
-
-      def error(ctx)
-        ctx
-      end
 
       def to_s
         self.class.name
