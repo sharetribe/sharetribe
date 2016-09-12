@@ -6,7 +6,7 @@ module ServiceClient
         res = ctx.fetch(:res)
 
         res_object =
-          if res.fetch(:success)
+          if res[:success]
             Result::Success.new(
               status: res[:status],
               body: res[:body]
