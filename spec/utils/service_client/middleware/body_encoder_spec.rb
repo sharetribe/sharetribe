@@ -2,6 +2,7 @@
   "app/utils/service_client/middleware/middleware_base",
   "app/utils/service_client/middleware/body_encoder",
   "app/utils/transit_utils",
+  "app/utils/http_utils",
 ].each { |file| require_relative "../../../../#{file}" }
 
 require 'transit'
@@ -30,7 +31,7 @@ describe ServiceClient::Middleware::BodyEncoder do
     end
 
     it "#leave" do
-      ctx = encoder.leave(res: { body: {"a" => 1}.to_json })
+      ctx = encoder.leave(res: { body: {"a" => 1}.to_json, headers: { "Content-Type" => "application/json;charset=UTF-8"} })
       expect(ctx[:res][:body]).to eq({"a" => 1})
     end
   end
@@ -49,7 +50,7 @@ describe ServiceClient::Middleware::BodyEncoder do
       end
 
       it "#leave" do
-        ctx = encoder.leave(res: { body: TransitUtils.encode({a: 1}, :json) })
+        ctx = encoder.leave(res: { body: TransitUtils.encode({a: 1}, :json), headers: { "Content-Type" => "application/transit+json;charset=UTF-8"} })
         expect(ctx[:res][:body]).to eq({a: 1})
       end
     end
@@ -66,9 +67,26 @@ describe ServiceClient::Middleware::BodyEncoder do
       end
 
       it "#leave" do
-        ctx = encoder.leave(res: { body: TransitUtils.encode({a: 1}, :msgpack) })
+        ctx = encoder.leave(res: { body: TransitUtils.encode({a: 1}, :msgpack), headers: { "Content-Type" => "application/transit+msgpack;charset=UTF-8"} })
         expect(ctx[:res][:body]).to eq({a: 1})
       end
+    end
+  end
+
+  describe "#leave" do
+
+    let(:encoder) { body_encoder.new(:transit_msgpack) }
+
+    it "uses the response Content-Type to define which decoder to use" do
+      ctx = encoder.leave(res: { body: {a: 1}.to_json, headers: { "Content-Type" => "application/json" }})
+
+      expect(ctx[:res][:body]).to eq("a" => 1)
+    end
+
+    it "uses the request encoder if the Content-Type header is missing" do
+      ctx = encoder.leave(res: { body: TransitUtils.encode({a: 1}, :msgpack), headers: {}})
+
+      expect(ctx[:res][:body]).to eq(a: 1)
     end
   end
 end

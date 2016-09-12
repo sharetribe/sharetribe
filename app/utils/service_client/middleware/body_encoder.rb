@@ -8,18 +8,9 @@ module ServiceClient
       def decode(body)
         JSON.parse(body) unless body.nil?
       end
-
-      def mime_type
-        "application/json"
-      end
     end
 
     class TransitEncoder
-
-      ENCODINGS = {
-        json: "application/transit+json",
-        msgpack: "application/transit+msgpack",
-      }
 
       def initialize(encoding)
         @_encoding = encoding
@@ -32,18 +23,27 @@ module ServiceClient
       def encode(body)
         TransitUtils.encode(body, @_encoding) unless body.nil?
       end
-
-      def mime_type
-        ENCODINGS[@_encoding]
-      end
     end
 
     class BodyEncoder < MiddlewareBase
+
+      ENCODERS = [
+        {encoding: :json, media_type: "application/json", encoder: JSONEncoder.new},
+        {encoding: :transit_json, media_type: "application/transit+json", encoder: TransitEncoder.new(:json)},
+        {encoding: :transit_msgpack, media_type: "application/transit+msgpack", encoder: TransitEncoder.new(:transit_msgpack)},
+      ]
+
       class ParsingError < StandardError
       end
 
       def initialize(encoding)
-        @_encoder = choose_encoder(encoding)
+        encoder = encoder_by_encoding(encoding)
+
+        if encoder.nil?
+          raise ArgumentError.new("Coulnd't find encoder for encoding: '#{encoding}'")
+        end
+
+        @_request_encoder = encoder
       end
 
       def enter(ctx)
@@ -52,19 +52,24 @@ module ServiceClient
         body = req[:body]
         headers = req.fetch(:headers)
 
-        ctx[:req][:body] = @_encoder.encode(body)
-        ctx[:req][:headers]["Accept"] = @_encoder.mime_type
-        ctx[:req][:headers]["Content-Type"] = @_encoder.mime_type unless body.nil?
+        ctx[:req][:body] = @_request_encoder[:encoder].encode(body)
+        ctx[:req][:headers]["Accept"] = @_request_encoder[:media_type]
+        ctx[:req][:headers]["Content-Type"] = @_request_encoder[:media_type] unless body.nil?
 
         ctx
       end
 
       def leave(ctx)
         res = ctx.fetch(:res)
+        headers = res.fetch(:headers)
         body = res[:body]
 
+        # Choose encoder by the Content-Type header, if possible.
+        # Otherwise, fallback to the same encoder we used to encode the request
+        encoder = encoder_by_content_type(headers["Content-Type"]) || @_request_encoder
+
         begin
-          ctx[:res][:body] = @_encoder.decode(body)
+          ctx[:res][:body] = encoder[:encoder].decode(body)
         rescue StandardError => e
           raise ParsingError.new("Parsing error, msg: '#{e.message}', body: '#{body}'")
         end
@@ -73,17 +78,14 @@ module ServiceClient
 
       private
 
-      def choose_encoder(enc)
-        case enc
-        when :json
-          JSONEncoder.new
-        when :transit_json
-          TransitEncoder.new(:json)
-        when :transit_msgpack
-          TransitEncoder.new(:msgpack)
-        else
-          ArgumentError.new("Unknown encoder: '#{enc}'")
-        end
+      def encoder_by_encoding(encoding)
+        ENCODERS.find { |e| e[:encoding] == encoding }
+      end
+
+      def encoder_by_content_type(content_type)
+        media_type = HTTPUtils.parse_content_type(content_type)
+
+        ENCODERS.find { |e| e[:media_type] == media_type }
       end
     end
   end
