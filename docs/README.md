@@ -64,6 +64,10 @@ How to deprecate old methods in the code.
 
 This guide contains information how to run tests.
 
+#### [Testing without Rails](./testing-without-rails.md)
+
+This guide shows how to write fast RSpec tests without requiring Rails environment
+
 ## Process documentation
 
 Documentation of the development process.
