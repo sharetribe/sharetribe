@@ -3,7 +3,7 @@ module ServiceClient
     class HTTPClient < MiddlewareBase
       def initialize(host)
         @_conn = Faraday.new(host) do |c|
-          c.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+          c.adapter Faraday.default_adapter # make requests with Net::HTTP
         end
       end
 

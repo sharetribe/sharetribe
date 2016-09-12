@@ -77,25 +77,24 @@ class ContextRunner
   private
 
   def try_execute_mw(ctx, mw_name, stage, &block)
-    begin
-      block.call
-    rescue StandardError => e
-      new_ctx = ctx.dup
-      new_ctx[:error] = e
-      new_ctx[:error_middleware] = mw_name
-      new_ctx[:error_stage] = stage
-      new_ctx
-    end
+    block.call
+  rescue StandardError => e
+    new_ctx = ctx.dup
+    new_ctx[:error] = e
+    new_ctx[:error_middleware] = mw_name
+    new_ctx[:error_stage] = stage
+    new_ctx
   end
 
 
   def execute_enter(ctx, mw)
     try_execute_mw(ctx, mw.class.name, :enter) do
-      if mw.respond_to?(:enter)
-        new_ctx = mw.enter(ctx)
-      else
-        new_ctx = ctx
-      end
+      new_ctx =
+        if mw.respond_to?(:enter)
+          mw.enter(ctx)
+        else
+          ctx
+        end
 
       new_ctx[:leave_stack].unshift(mw)
       new_ctx
@@ -141,7 +140,7 @@ class ContextRunner
   def execute_ctx(ctx)
     ctx, mw, type = next_mw(ctx)
 
-    while mw do
+    while mw
       case type
       when :error
         ctx = execute_error(ctx, mw)

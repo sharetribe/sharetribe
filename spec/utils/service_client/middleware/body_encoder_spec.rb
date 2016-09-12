@@ -12,7 +12,7 @@ describe ServiceClient::Middleware::BodyEncoder do
   def expect_headers(ctx, mime_type)
     expect(ctx[:req][:headers]).to include(
                                      "Accept" => mime_type,
-                                     "Content-Type" => mime_type,
+                                     "Content-Type" => mime_type
                                    )
   end
 

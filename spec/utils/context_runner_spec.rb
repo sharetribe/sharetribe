@@ -3,7 +3,7 @@
 
 require_relative '../../app/utils/context_runner'
 
-describe ServiceClient::ContextRunner do
+describe ContextRunner do
 
   module EnterMW # :nodoc:
     def enter(ctx)
@@ -59,21 +59,27 @@ describe ServiceClient::ContextRunner do
     include LeaveMW
 
     attr_reader :name
-    def initialize(name); @name = name end
+    def initialize(name)
+      @name = name
+    end
   end
 
   class TestMiddlewareE # :nodoc:
     include EnterMW
 
     attr_reader :name
-    def initialize(name); @name = name end
+    def initialize(name)
+      @name = name
+    end
   end
 
   class TestMiddlewareL # :nodoc:
     include LeaveMW
 
     attr_reader :name
-    def initialize(name); @name = name end
+    def initialize(name)
+      @name = name
+    end
   end
 
   class TestMiddlewareELERaise
@@ -82,7 +88,9 @@ describe ServiceClient::ContextRunner do
     include ErrorRaiseMW
 
     attr_reader :name
-    def initialize(name); @name = name end
+    def initialize(name)
+      @name = name
+    end
   end
 
   class TestMiddlewareRaise
@@ -95,7 +103,9 @@ describe ServiceClient::ContextRunner do
     include ErrorResolveMW
 
     attr_reader :name
-    def initialize(name); @name = name end
+    def initialize(name)
+      @name = name
+    end
   end
 
   class TestMiddlewareELRaise
@@ -103,17 +113,19 @@ describe ServiceClient::ContextRunner do
     include LeaveRaiseMW
 
     attr_reader :name
-    def initialize(name); @name = name end
+    def initialize(name)
+      @name = name
+    end
   end
 
 
   it 'exists' do
-    expect(ServiceClient::ContextRunner).not_to be nil
+    expect(ContextRunner).not_to be nil
   end
 
   it 'executes enter and leave phases of middleware' do
     mw = TestMiddlewareEL.new(:one)
-    runner = ServiceClient::ContextRunner.new([mw])
+    runner = ContextRunner.new([mw])
     ctx = runner.execute(nil)
 
     expect(ctx[:enters]).to eql [:one]
@@ -124,7 +136,7 @@ describe ServiceClient::ContextRunner do
     mw1 = TestMiddlewareEL.new(:one)
     mw2 = TestMiddlewareEL.new(:two)
     mw3 = TestMiddlewareEL.new(:three)
-    runner = ServiceClient::ContextRunner.new([mw1, mw2, mw3])
+    runner = ContextRunner.new([mw1, mw2, mw3])
     ctx = runner.execute(nil)
 
     expect(ctx[:enters]).to eql [:one, :two, :three]
@@ -135,7 +147,7 @@ describe ServiceClient::ContextRunner do
     mw1 = TestMiddlewareE.new(:one)
     mw2 = TestMiddlewareEL.new(:two)
     mw3 = TestMiddlewareL.new(:three)
-    runner = ServiceClient::ContextRunner.new([mw1, mw2, mw3])
+    runner = ContextRunner.new([mw1, mw2, mw3])
     ctx = runner.execute(nil)
 
     expect(ctx[:enters]).to eql [:one, :two]
@@ -146,7 +158,7 @@ describe ServiceClient::ContextRunner do
     mw1 = TestMiddlewareELERaise.new(:one)
     mw2 = TestMiddlewareELERaise.new(:two)
     mw3 = TestMiddlewareRaise.new
-    runner = ServiceClient::ContextRunner.new([mw1, mw2, mw3])
+    runner = ContextRunner.new([mw1, mw2, mw3])
     ctx = runner.execute(nil)
 
     expect(ctx[:enters]).to eql [:one, :two]
@@ -158,7 +170,7 @@ describe ServiceClient::ContextRunner do
     mw1 = TestMiddlewareEL.new(:one)
     mw2 = TestMiddlewareELEResolve.new(:two)
     mw3 = TestMiddlewareRaise.new
-    runner = ServiceClient::ContextRunner.new([mw1, mw2, mw3])
+    runner = ContextRunner.new([mw1, mw2, mw3])
     ctx = runner.execute(nil)
 
     expect(ctx[:enters]).to eql [:one, :two]
@@ -170,7 +182,7 @@ describe ServiceClient::ContextRunner do
     mw1 = TestMiddlewareELERaise.new(:one)
     mw2 = TestMiddlewareELRaise.new(:two)
     mw3 = TestMiddlewareEL.new(:three)
-    runner = ServiceClient::ContextRunner.new([mw1, mw2, mw3])
+    runner = ContextRunner.new([mw1, mw2, mw3])
     ctx = runner.execute(nil)
 
     expect(ctx[:enters]).to eql [:one, :two, :three]
