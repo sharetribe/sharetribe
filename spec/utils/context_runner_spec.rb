@@ -1,7 +1,7 @@
 # Make test faster by not requiring Rails environment (spec_helper).
 # In that case, we need to manually require the file we need.
 
-require_relative '../../app/utils/service_client/context_runner'
+require_relative '../../app/utils/context_runner'
 
 describe ServiceClient::ContextRunner do
 

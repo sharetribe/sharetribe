@@ -1,5 +1,5 @@
 [
-  "app/utils/service_client/context_runner",
+  "app/utils/context_runner",
   "app/utils/service_client/client",
   "app/utils/service_client/middleware/middleware_base",
   "app/utils/service_client/middleware/endpoint_mapper",
