@@ -94,37 +94,29 @@ class HomepageController < ApplicationController
         render nothing: true, status: 500
       }
     else
+      locals = {
+        shapes: all_shapes,
+        filters: filters,
+        show_price_filter: show_price_filter,
+        selected_shape: selected_shape,
+        shape_name_map: shape_name_map,
+        listing_shape_menu_enabled: listing_shape_menu_enabled,
+        main_search: main_search,
+        location_search_in_use: location_in_use,
+        current_page: current_page,
+        current_search_path_without_page: search_path(params.except(:page)),
+        viewport: viewport }
+
       search_result.on_success { |listings|
         @listings = listings
-        render locals: {
-                 shapes: all_shapes,
-                 filters: filters,
-                 show_price_filter: show_price_filter,
-                 selected_shape: selected_shape,
-                 shape_name_map: shape_name_map,
-                 listing_shape_menu_enabled: listing_shape_menu_enabled,
-                 main_search: main_search,
-                 location_search_in_use: location_in_use,
-                 current_page: current_page,
-                 current_search_path_without_page: search_path(params.except(:page)),
-                 seo_pagination_links: seo_pagination_links(params, listings.current_page, listings.total_pages),
-                 viewport: viewport }
+        render locals: locals.merge(
+                 seo_pagination_links: seo_pagination_links(params, @listings.current_page, @listings.total_pages))
       }.on_error { |e|
         flash[:error] = t("homepage.errors.search_engine_not_responding")
         @listings = Listing.none.paginate(:per_page => 1, :page => 1)
-        render status: 500, locals: {
-                 shapes: all_shapes,
-                 filters: filters,
-                 show_price_filter: show_price_filter,
-                 selected_shape: selected_shape,
-                 shape_name_map: shape_name_map,
-                 listing_shape_menu_enabled: listing_shape_menu_enabled,
-                 main_search: main_search,
-                 location_search_in_use: location_in_use,
-                 current_page: current_page,
-                 current_search_path_without_page: search_path(params.except(:page)),
-                 seo_pagination_links: seo_pagination_links(params, listings.current_page, listings.total_pages),
-                 viewport: viewport }
+        render status: 500,
+               locals: locals.merge(
+                 seo_pagination_links: seo_pagination_links(params, @listings.current_page, @listings.total_pages))
       }
     end
   end
