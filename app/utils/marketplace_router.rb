@@ -22,7 +22,6 @@ module MarketplaceRouter
       [:deleted, :bool, :mandatory],
       [:closed, :bool, :mandatory],
       [:domain, :string, :optional],
-      [:domain_verification_file, :optional],
       [:ident, :string, :mandatory]
     )
 
@@ -99,8 +98,7 @@ module MarketplaceRouter
   module_function
 
   def needs_redirect(request:, community:, paths:, configs:, other:, &block)
-    is_domain_verification = Maybe(community)[:domain_verification_file].map { |dv_file| request[:fullpath] == "/#{dv_file}" }.or_else(false)
-    new_protocol = protocol(request: request, community: community, configs: configs, is_domain_verification: is_domain_verification)
+    new_protocol = protocol(request: request, community: community, configs: configs)
     protocol_needs_redirect = request[:protocol] != "#{new_protocol}://"
 
     reason = redirect_reason(
@@ -108,8 +106,7 @@ module MarketplaceRouter
       community: community,
       configs: configs,
       other: other,
-      protocol_needs_redirect: protocol_needs_redirect,
-      is_domain_verification: is_domain_verification)
+      protocol_needs_redirect: protocol_needs_redirect)
 
     if reason
       target = redirect_target(
@@ -205,7 +202,7 @@ module MarketplaceRouter
   end
   # rubocop:enable ParameterLists
 
-  def redirect_reason(request:, community:, configs:, other:, protocol_needs_redirect:, is_domain_verification:)
+  def redirect_reason(request:, community:, configs:, other:, protocol_needs_redirect:)
     if other[:community_search_status] == :not_found && other[:no_communities]
       :new_marketplace
     elsif other[:community_search_status] == :not_found && !other[:no_communities]
@@ -216,7 +213,7 @@ module MarketplaceRouter
       :closed
     elsif community && community[:domain].present? && community[:use_domain] && request[:host] != community[:domain]
       :domain
-    elsif community && community[:domain].present? && !community[:use_domain] && request[:host] == community[:domain] && !is_domain_verification
+    elsif community && community[:domain].present? && !community[:use_domain] && request[:host] == community[:domain]
       :no_domain
     elsif community && request[:host] == "www.#{community[:ident]}.#{configs[:app_domain]}"
       :www_ident
@@ -227,19 +224,19 @@ module MarketplaceRouter
     end
   end
 
-  def protocol(request:, community:, configs:, is_domain_verification:)
-    if should_use_https?(request: request, community: community, configs: configs, is_domain_verification: is_domain_verification)
+  def protocol(request:, community:, configs:)
+    if should_use_https?(request: request, community: community, configs: configs)
       "https"
     else
       request[:protocol] == "http://" ? "http" : "https"
     end
   end
 
-  def should_use_https?(request:, configs:, community:, is_domain_verification:)
+  def should_use_https?(request:, configs:, community:)
     from_proxy = (request[:headers]["HTTP_VIA"] && request[:headers]["HTTP_VIA"].include?("sharetribe_proxy"))
     robots = request[:fullpath] == "/robots.txt"
 
-    configs[:always_use_ssl] && !from_proxy && !robots && !is_domain_verification
+    configs[:always_use_ssl] && !from_proxy && !robots
   end
 
 end

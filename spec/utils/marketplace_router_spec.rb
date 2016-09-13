@@ -23,7 +23,6 @@ describe MarketplaceRouter do
       deleted: false,
       closed: false,
       domain: "www.marketplace.com",
-      domain_verification_file: nil,
       ident: "marketplace",
     }
     default_paths = {
@@ -232,28 +231,6 @@ describe MarketplaceRouter do
                       ).to eq(nil)
     end
 
-    it "doesn't redirect domain verification file" do
-      expect_redirect(request: {
-                        host: "www.marketplace.com",
-                        protocol: "http://",
-                        fullpath: "/1234567890ABCDEF.txt",
-                      },
-                      community: {
-                        domain_verification_file: "no-match-domain-verification-file.txt"
-                      }
-                     ).to eq(reason: :https, url: "https://www.marketplace.com/1234567890ABCDEF.txt", status: :moved_permanently)
-
-      expect_redirect(request: {
-                        host: "www.marketplace.com",
-                        protocol: "http://",
-                        fullpath: "/1234567890ABCDEF.txt",
-                      },
-                      community: {
-                        domain_verification_file: "1234567890ABCDEF.txt"
-                      }
-                      ).to eq(nil)
-    end
-
     it "redirects to marketplace ident without www" do
       expect_redirect(request: {
                         host: "www.marketplace.sharetribe.com",
@@ -290,23 +267,6 @@ describe MarketplaceRouter do
                         use_domain: false
                       }
                      ).to eq(reason: :no_domain, url: "https://marketplace.sharetribe.com/listings", status: :moved_permanently)
-    end
-
-    it "doesn't redirect domain validation back to ident" do
-
-      expect_redirect(request: {
-                        protocol: "http://",
-                        host: "www.marketplace.com",
-                        fullpath: "/1234567890ABCDEF.txt",
-                      },
-                      community: {
-                        ident: "marketplace",
-                        domain: "www.marketplace.com",
-                        use_domain: false,
-                        domain_verification_file: "1234567890ABCDEF.txt",
-                      }
-                     ).to eq(nil)
-
     end
   end
 end

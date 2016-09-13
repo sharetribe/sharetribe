@@ -294,7 +294,6 @@ class ApplicationController < ActionController::Base
         domain: c.domain,
         deleted: c.deleted?,
         use_domain: c.use_domain?,
-        domain_verification_file: c.dv_test_file_name,
         closed: Maybe(@current_plan)[:closed].or_else(false)
       }
     }.or_else(nil)
