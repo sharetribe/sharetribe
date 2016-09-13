@@ -159,7 +159,6 @@ class Community < ActiveRecord::Base
                       :original => "600x600>"
                     },
                     :convert_options => {
-                      :all => PaperclipUtils.limit_options(),
                       # iOS makes logo background black if there's an alpha channel
                       # And the options has to be in correct order! First background, then flatten. Otherwise it will
                       # not work.
@@ -182,7 +181,6 @@ class Community < ActiveRecord::Base
                       :original => "600x600>"
                     },
                     :convert_options => {
-                      :all => PaperclipUtils.limit_options(),
                       # The size for paypal logo will be exactly 190x60. No cropping, instead the canvas is extended with white background
                       :paypal => "-background white -gravity center -extent 190x60"
                     },
@@ -201,9 +199,6 @@ class Community < ActiveRecord::Base
                       :hd_header => "1920x450#",
                       :original => "3840x3840>"
                     },
-                    :convert_options => {
-                      :all => PaperclipUtils.limit_options(),
-                    },
                     :default_url => ->(_){ ActionController::Base.helpers.asset_path("cover_photos/header/default.jpg") },
                     :keep_old_files => true
 
@@ -219,9 +214,6 @@ class Community < ActiveRecord::Base
                       :header => "1600x195#",
                       :hd_header => "1920x96#",
                       :original => "3840x3840>"
-                    },
-                    :convert_options => {
-                      :all => PaperclipUtils.limit_options(),
                     },
                     :default_url => ->(_) { ActionController::Base.helpers.asset_path("cover_photos/header/default.jpg") },
                     :keep_old_files => true
@@ -239,7 +231,6 @@ class Community < ActiveRecord::Base
                     },
                     :default_style => :favicon,
                     :convert_options => {
-                      :all => PaperclipUtils.limit_options(),
                       :favicon => "-depth 32 -strip",
                     },
                     :default_url => ->(_) { ActionController::Base.helpers.asset_path("favicon.ico") }
