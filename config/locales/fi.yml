@@ -94,18 +94,18 @@ fi:
         favicon: Favicon
         favicon_info_text: "Ladattu kuva korvaa oletuksena käytettävän Sharetriben logon. Faviconin koon tulee olla 32x32 pikseliä. Ladattu kuva muunnetaan tähän kokoon."
         community_custom_color1: Pääväri
-        new_listing_button_custom_color: ~
+        new_listing_button_custom_color: "Lisää uusi ilmoitus -napin väri"
         logo_instructions_text_with_dimensions: "Peruslogon koon tulee olla %{width}x%{height} pikseliä. Se näytetään käyttäjille, jotka katsovat sivua suuremmalta näytöltä."
-        logo_instructions_text_with_dimensions_no_placing: ~
+        logo_instructions_text_with_dimensions_no_placing: "Login koon tulisi olla %{height}x%{width}px."
         logo_icon_instructions_text_with_dimensions: "Tämä neliönmuotoinen logo näytetään, kun käyttäjät jakavat sivustosi Facebookissa, vierailevat sivustollasi mobiililaitteellaan tai lisäävät sivustosi kirjanmerkiksi mobiililaitteensa aloitusnäytölle. Tämän logon koon tulee olla (vähintään) %{width}x%{height} pikseliä."
-        logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_icon_instructions_text_with_dimensions_no_placing: "Tämä neliönmuotoinen logo näytetään, kun käyttäjät jakavat sivustosi Facebookissa, vierailevat sivustollasi mobiililaitteellaan tai lisäävät sivustosi kirjanmerkiksi mobiililaitteensa aloitusnäytölle. Tämän logon koon tulee olla (vähintään) %{width}x%{height} pikseliä."
         cover_photo_visibility: "Kansikuva näytetään etusivulla kirjautumattomille käyttäjille."
         cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Matala kansikuva näytetään kaikilla sivuilla paitsi etusivulla kirjautumattomille käyttäjille."
         small_cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
         main_content_width: "Valitessasi kansikuvia, huomaathan että sivuston sisällön leveys on korkeintaan %{main_width} pikseliä. Muistathan katsoa myös miltä kansikuvasi näyttää pienemmillä näytöillä, esimerkiksi muuttamalla selainikkunasi kokoa."
         custom_color1_instructions_text: "Tästä voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
-        new_listing_button_instructions_text: ~
+        new_listing_button_instructions_text: "Voit vaihtaa Lisää uusi ilmoitus -napin väriä antamalla värin heksa-arvon. %{link_to_colorpicker} voi auttaa sinua valitsemaan värin ja kopioimaan sen koodin tänne."
         default_browse_view: "Oletusarvo listausten näyttämiselle"
         default_browse_view_instructions_text: "Tätä arvoa käytetään oletuksena etusivun listauksen näyttötavalle."
         grid: Ruudukko
@@ -153,8 +153,8 @@ fi:
         invalid_email_domain: "Sähköpostioosoite '%{email}' käyttää sähköpostipalveluntarjoajaa '%{domain}'. Järjestelmämme ei tällä hetkellä tue kyseistä palveluntarjoajaa. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: Lisätietoja
         unknown_error: "Jotain meni vikaan"
-        white_label_offer: ~
-        upgrade_plan_link: ~
+        white_label_offer: "Aseta oma sähköpostiosoitteesi lähettäjäosoitteeksi ja poista kaikki Sharetribe-brändäys lähtevistä sähköpostiviesteistä %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "päivittämällä Pro-tilaukseen tai parempaan"
         verification_sent_from: "Vahvistusviesti lähetettiin osoitteesta %{verification_sender_name}."
         follow_the_instructions: "Seuraa sähköpostissa annettuja ohjeita vahvistaaksesi sähköpostiosoitteesi."
       getting_started:
@@ -192,7 +192,7 @@ fi:
         search_preferences: Hakuasetukset
         default_search_type: "Haun tyyppi: %{select_search_type}"
         keyword_search: Avainsanahaku
-        keyword_and_location_search: ~
+        keyword_and_location_search: "Avainsana- ja sijaintihaku"
         location_search: Sijaintihaku
         select_distance_unit: "Etäisyyden yksikkö %{distance_units_selector}"
         km: km
@@ -238,12 +238,12 @@ fi:
         ban_user_confirmation: "Olet poistamassa käyttäjää palvelusta ja estämästä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
         ban_me_error: "Et voi poistaa itseäsi."
       new_layout:
-        new_layout: ~
+        new_layout: "Uusi ulkoasu"
         description_roadmap: ~
         description_process: ~
-        enabled_for_you: ~
-        enabled_for_all: ~
-        new_topbar: ~
+        enabled_for_you: "Käytössä vain sinulla"
+        enabled_for_all: "Käytössä kaikilla"
+        new_topbar: "Uusi yläpalkki (näkyy joka sivulla)"
       social_media:
         social_media: "Sosiaalinen media"
         twitter_handle: Twitter-tili
@@ -278,14 +278,14 @@ fi:
         language: Kieli
         url: "Osoite (URL)"
         empty: "Sinulla ei ole lisälinkkejä valikossa"
-        max_number_of_links: ~
-        all: ~
-        max_number_of_links_info: ~
-        about_page: ~
+        max_number_of_links: "Yläpalkissa näytettyjen linkkien enimmäismäärä: %{select_max_number}"
+        all: Kaikki
+        max_number_of_links_info: "Linkki sivulle %{about_page} näytetään aina ensimmäisenä valikkolinkkinä"
+        about_page: "tietoa palvelusta"
       topbar:
-        topbar: ~
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        topbar: Yläpalkki
+        new_listing_button_label: "Lisää uusi ilmoitus -napin teksti"
+        invalid_post_listing_button_label: "Ole hyvä ja anna kelvollinen teksti \"Lisää uusi ilmoitus\" -napille"
       transactions:
         export_all_as_csv: "Lataa tiedot CSV-tiedostona"
         transactions: "Näytä tilaukset"
@@ -743,9 +743,9 @@ fi:
       you_have_not_yet_accepted_or_rejected_request: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi pyyntöä %{title}."
       show_thread: "Näytä viestiketju"
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} -palvelua pyörittää %{sharetribe_link} -markkinapaikkajärjestelmä."
+      create_own: "Haluatko luoda oman online-markkinapaikkasi, aivan kuin %{service_name}? %{learn_more}."
+      learn_more: "Lue lisää"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Et ole vielä merkinnyt pyyntöä '%{request_link}' toteutuneeksi tai toteutumattomaksi. Jos pyyntö on toteutettu, sinun kannattaa ilmoittaa siitä. Tämän jälkeen voit antaa palautetta tapahtuneesta käyttäjälle %{other_party_given_name}."
       remember_to_confirm_request: "Muista merkitä pyyntö toteutuneeksi tai toteutumattomaksi"
@@ -962,8 +962,8 @@ fi:
       javascript_is_disabled_in_your_browser: "Javascript ei ole päällä selaimessasi"
       kassi_does_not_currently_work_without_javascript: "%{service_name} ei toimi oikein ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan."
       contact_us: "ota yhteyttä"
-      send_feedback: ~
-      your_feedback_to_admins: ~
+      send_feedback: "Lähetä viesti"
+      your_feedback_to_admins: "Viestisi %{service_name} -tiimille"
     send: Lähetä
     your_email_address: Sähköpostiosoitteesi
   errors:
@@ -1136,33 +1136,33 @@ fi:
       default_content: "Tällä sivulla kerrotaan, miten %{marketplace_name}-palvelu toimii."
   landing_page:
     hero:
-      search: ~
-      signup: ~
-      search_placeholder: ~
-      search_location_placeholder: ~
+      search: Hae
+      signup: Liity
+      search_placeholder: "Mitä tarvitset?"
+      search_location_placeholder: Sijainti
     listings:
-      no_listing_image: ~
+      no_listing_image: "Ei kuvaa"
   layouts:
     admin:
       admin: "%{service_name} ylläpitonäkymä"
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} -palvelua pyörittää %{sharetribe_link} -markkinapaikkajärjestelmä."
+      create_own: "Haluatko luoda oman online-markkinapaikkasi, aivan kuin %{service_name}? %{learn_more}."
+      learn_more: "Lue lisää"
     no_tribe:
       inbox: Postilaatikko
       settings: Asetukset
-      feedback: ~
+      feedback: "Ota yhteyttä %{service_name} -tiimiin"
     application:
       join_this_community: Liity
       read_more: "Lue lisää"
-      feedback: ~
-      dont_use_to_contact_support: ~
+      feedback: "Viestisi %{service_name} -tiimille"
+      dont_use_to_contact_support: "Huomasimme, että olet ylläpitäjä %{service_name} -palvelussa. Markkinapaikkasi käyttäjät käyttävät tätä kenttää ottaakseen sinuun yhteyttä. Et voi ottaa Sharetriben tukeen yhteyttä sen avulla. Voit ottaa tukeemme yhteyttä ylläpitonäkymän tuki-linkin kautta."
       feedback_forum: "palautefoorumiltamme,"
       feedback_handle: Palaute
       give_feedback: "Ota yhteyttä"
       or_check_our: "...tai tarkista"
-      send_feedback_to_admin: ~
+      send_feedback_to_admin: "Lähetä viesti"
       to_see_what_others_have_suggested: "mitä muut ovat ehdottaneet, ja antaaksesi eri ehdotuksille äänesi."
       your_email_address: "Sähköpostiosoitteesi (yhteydenottoa varten)"
       connect: Liity
@@ -1232,7 +1232,7 @@ fi:
       error_with_session: "Virhe istunnon käsittelyssä."
       feedback_considered_spam: "Jokin palautteen sisällössä esti tallentamisen. Yritä uudelleen tai käydä palautefoorumia."
       feedback_not_saved: "Palautteen lähettäminen epäonnistui."
-      feedback_saved: ~
+      feedback_saved: "Kiitos viestistäsi! Vastaamme sinulle mahdollisimman pian."
       feedback_sent_to: "Palaute lähetetty käyttäjälle %{target_person}."
       feedback_skipped: "Palaute ohitettu"
       invitation_cannot_be_sent: "Kutsua ei voitu lähettää"
@@ -1323,7 +1323,7 @@ fi:
       user_does_not_have_email_to_delete: "Et omista sähköpostiosoitetta, jota yrität poistaa."
       email_deleted: "Sähköpostiosoite poistettu"
       listing_author_payment_details_missing: "Ole hyvä ja ota yhteyttä ilmoituksen tekijään painamalla alla olevaa nappia. Heidän tulee päivittää maksutietonsa pystyäkseen vastaanottamaan maksuja."
-      images_are_processing: ~
+      images_are_processing: "Prosessoimme kuviasi. Ole hyvä ja odota pari minuuttia, niin ne tulevat valmiiksi ja näkyvät."
       maintenance_mode:
         zero: "Sivusto menee nyt offline-tilaan huoltoa varten"
         one: "Sivusto menee %{count} minuutin kuluttua offline-tilaan huoltoa varten"
@@ -1595,9 +1595,9 @@ fi:
       you_will_be_charged: "Maksu veloitetaan vain mikäli myyjä %{author} hyväksyy oston. Myyjän täytyy hyväksyä maksu %{expiration_period} päivän kuluessa. Sinua ei veloiteta, jos %{author} ei hyväksy ostoa tai ei vastaa ostopyyntöön."
       day: päivä
       days: päivää
-      night: ~
-      nights: ~
-      invalid_parameters: ~
+      night: yö
+      nights: yötä
+      invalid_parameters: "Epäpätevät arvot uudelle transaktiolle"
     transaction_agreement_checkbox:
       read_more: "Lue lisää."
   mapview:
@@ -2035,9 +2035,15 @@ fi:
   transactions:
     initiate:
       booked_days: "Valitut päivät:"
-      booked_nights: ~
+      booked_nights: "Valitut yöt:"
+      booked_days_label:
+        one: "Valittu päivä:"
+        other: "Valitut päivät:"
+      booked_nights_label:
+        one: "Valittu yö:"
+        other: "Valitut yöt:"
       price_per_day: "Päivähinta:"
-      price_per_night: ~
+      price_per_night: "Hinta per yö:"
       quantity: "Määrä:"
       subtotal: "Välisumma:"
       shipping-price: "Postikulut:"
@@ -2051,20 +2057,20 @@ fi:
     days: päivää
   web:
     topbar:
-      menu: ~
-      more: ~
-      search_placeholder: ~
-      search_location_placeholder: ~
-      user: ~
-      inbox: ~
-      profile: ~
-      manage_listings: ~
-      settings: ~
-      logout: ~
-      login: ~
-      signup: ~
-      admin_dashboard: ~
-      language: ~
+      menu: Valikko
+      more: Lisää
+      search_placeholder: Hae...
+      search_location_placeholder: Sijainti
+      user: Käyttäjä
+      inbox: Postilaatikko
+      profile: "Oma profiili"
+      manage_listings: "Hallitse ilmoituksia"
+      settings: Asetukset
+      logout: "Kirjaudu ulos"
+      login: "Kirjaudu sisään"
+      signup: Liity
+      admin_dashboard: Ylläpitonäkymä
+      language: Kieli
   will_paginate:
     models:
       person:

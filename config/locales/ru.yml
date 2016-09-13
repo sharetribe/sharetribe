@@ -957,7 +957,7 @@ ru:
       kassi_does_not_currently_work_without_javascript: "К сожалению, %{service_name} не сможет работать при отключенном javascript. Попробуйте включить поддержку javascript в своём браузере и перезагрузить страницу."
       contact_us: "свяжитесь с нами"
       send_feedback: ~
-      your_feedback_to_admins: ~
+      your_feedback_to_admins: "Ваше сообщение команде %{service_name}"
     send: Отправить
     your_email_address: "Ваш адрес электронной почты"
   errors:
@@ -1146,11 +1146,11 @@ ru:
     no_tribe:
       inbox: Входящие
       settings: Настройки
-      feedback: ~
+      feedback: "Связаться с командой %{service_name}"
     application:
       join_this_community: "Присоединиться к проекту"
       read_more: Подробнее
-      feedback: ~
+      feedback: "Ваше сообщение команде %{service_name}"
       dont_use_to_contact_support: ~
       feedback_forum: форум
       feedback_handle: "Написать отзыв"
