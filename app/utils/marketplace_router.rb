@@ -102,7 +102,7 @@ module MarketplaceRouter
         protocol:                request[:protocol],
       )
 
-      block.call(target) if target
+      block.call(target)
     end
   end
 
