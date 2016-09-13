@@ -117,9 +117,10 @@ module ApplicationHelper
     end
   end
 
-  def pageless(total_pages, target_id, url=nil, loader_message='Loading more results')
+  def pageless(total_pages, target_id, url=nil, loader_message='Loading more results', current_page = 1)
 
     opts = {
+      :currentPage => current_page,
       :totalPages => total_pages,
       :url        => url,
       :loaderMsg  => loader_message,

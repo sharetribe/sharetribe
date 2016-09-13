@@ -65,7 +65,9 @@ class HomepageController < ApplicationController
     keyword_in_use = enabled_search_modes[:keyword]
     location_in_use = enabled_search_modes[:location]
 
-    search_result = find_listings(params, per_page, compact_filter_params, includes.to_set, location_in_use, keyword_in_use)
+    current_page = Maybe(params)[:page].to_i.map { |n| n > 0 ? n : 1 }.or_else(1)
+
+    search_result = find_listings(params, current_page, per_page, compact_filter_params, includes.to_set, location_in_use, keyword_in_use)
 
     if @view_type == 'map'
       viewport = viewport_geometry(params[:boundingbox], params[:lc], @current_community.location)
@@ -103,6 +105,8 @@ class HomepageController < ApplicationController
                  listing_shape_menu_enabled: listing_shape_menu_enabled,
                  main_search: main_search,
                  location_search_in_use: location_in_use,
+                 current_page: current_page,
+                 current_search_path_without_page: search_path(params.except(:page)),
                  seo_pagination_links: seo_pagination_links(params, listings.current_page, listings.total_pages),
                  viewport: viewport }
       }.on_error { |e|
@@ -117,6 +121,8 @@ class HomepageController < ApplicationController
                  listing_shape_menu_enabled: listing_shape_menu_enabled,
                  main_search: main_search,
                  location_search_in_use: location_in_use,
+                 current_page: current_page,
+                 current_search_path_without_page: search_path(params.except(:page)),
                  seo_pagination_links: seo_pagination_links(params, listings.current_page, listings.total_pages),
                  viewport: viewport }
       }
@@ -136,7 +142,7 @@ class HomepageController < ApplicationController
 
   private
 
-  def find_listings(params, listings_per_page, filter_params, includes, location_search_in_use, keyword_search_in_use)
+  def find_listings(params, current_page, listings_per_page, filter_params, includes, location_search_in_use, keyword_search_in_use)
     Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
       filter_params[:categories] = category.own_and_subcategory_ids
       @selected_category = category
@@ -169,7 +175,7 @@ class HomepageController < ApplicationController
       keywords: filter_params[:search],
       fields: checkboxes.concat(dropdowns).concat(numbers),
       per_page: listings_per_page,
-      page: Maybe(params)[:page].to_i.map { |n| n > 0 ? n : 1 }.or_else(1),
+      page: current_page,
       price_min: params[:price_min],
       price_max: params[:price_max],
       locale: I18n.locale,
