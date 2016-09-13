@@ -97,7 +97,7 @@ Before you get started, the following needs to be installed:
 1. Initialize your database:
 
   ```bash
-  bundle exec rake db:schema:load
+  bundle exec rake db:structure:load
   ```
 
 1. Run Sphinx index:
@@ -250,7 +250,7 @@ Before starting these steps, perform [steps 1-5 from above](#setting-up-the-deve
 1. Initialize your database:
 
   ```bash
-  RAILS_ENV=production bundle exec rake db:schema:load
+  RAILS_ENV=production bundle exec rake db:structure:load
   ```
 
 1. Run Sphinx index:

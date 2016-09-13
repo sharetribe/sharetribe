@@ -121,7 +121,7 @@ module Kassi
 
     # Speed up schema loading. No need to use rake when creating database schema
     # from SQL dump.
-    config.active_record.schema_format = :ruby
+    config.active_record.schema_format = :sql
 
     # Configure generators values. Many other options are available, be sure to check the documentation.
     # config.generators do |g|
