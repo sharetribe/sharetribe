@@ -4,6 +4,7 @@
 # Table name: listings
 #
 #  id                              :integer          not null, primary key
+#  uuid                            :binary(16)
 #  community_id                    :integer          not null
 #  author_id                       :string(255)
 #  category_old                    :string(255)
@@ -101,6 +102,19 @@ class Listing < ActiveRecord::Base
   before_create :set_updates_email_at_to_now
   def set_updates_email_at_to_now
     self.updates_email_at ||= Time.now
+  end
+
+  def uuid
+    if self[:uuid].nil?
+      nil
+    else
+      UUIDTools::UUID.parse_raw(self[:uuid])
+    end
+  end
+
+  before_create :add_uuid
+  def add_uuid
+    self.uuid ||= UUIDTools::UUID.timestamp_create.raw
   end
 
   before_validation do

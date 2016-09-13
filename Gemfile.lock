@@ -510,6 +510,7 @@ GEM
       unf_ext
     unf_ext (0.0.7.2)
     unicode-display_width (0.3.1)
+    uuidtools (2.1.5)
     warden (1.2.6)
       rack (>= 1.0)
     web-console (2.3.0)
@@ -616,6 +617,7 @@ DEPENDENCIES
   truncate_html (~> 0.9.1)
   ts-delayed-delta (~> 2.0.2)!
   uglifier (~> 2.7.2)
+  uuidtools (~> 2.1)
   web-console (~> 2.0)
   web_translate_it (~> 2.1.8)
   will_paginate (~> 3.0.5)
@@ -625,4 +627,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.5
+   1.13.0

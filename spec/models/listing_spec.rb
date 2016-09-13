@@ -3,6 +3,7 @@
 # Table name: listings
 #
 #  id                              :integer          not null, primary key
+#  uuid                            :binary(16)
 #  community_id                    :integer          not null
 #  author_id                       :string(255)
 #  category_old                    :string(255)
