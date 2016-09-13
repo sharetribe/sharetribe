@@ -12,6 +12,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 - Added date picker for "per night" listing unit type [#2481](https://github.com/sharetribe/sharetribe/pull/2481)
 - Added support for setting memory limits for image processing [#2521](https://github.com/sharetribe/sharetribe/pull/2521)
+- SEO: Added rel=next and rel=prev links to give a hint to crawlers about the paginated content [#2505](https://github.com/sharetribe/sharetribe/pull/2505)
 
 ### Changed
 
