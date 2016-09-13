@@ -331,7 +331,6 @@ class ApplicationController < ActionController::Base
       protocol: request.protocol,
       fullpath: request.fullpath,
       port_string: request.port_string,
-      headers: request.headers
     }
   end
 

@@ -1,20 +1,11 @@
 module MarketplaceRouter
   module DataTypes
 
-    LIKE_HASH = ->(v) {
-      return if v.nil?
-
-      unless v.respond_to?(:[])
-        {code: :must_be_hash_like, msg: "Value must be like hash (i.e. responds to :[])"}
-      end
-    }
-
     Request = EntityUtils.define_builder(
       [:host, :string, :mandatory],
       [:protocol, :string, one_of: ["http://", "https://"]],
       [:fullpath, :string, :mandatory],
       [:port_string, :string, :optional, default: ""],
-      [:headers, :mandatory, validate_with: LIKE_HASH]
     )
 
     Community = EntityUtils.define_builder(
@@ -36,7 +27,6 @@ module MarketplaceRouter
     )
 
     Configs = EntityUtils.define_builder(
-      [:always_use_ssl, :bool, :mandatory],
       [:app_domain, :string, :mandatory]
     )
 
@@ -46,7 +36,7 @@ module MarketplaceRouter
     )
 
     # Target can be either URL or named route.
-    # If URL, protocol and route_name are not needed
+    # If URL, route_name are not needed
     # If named route, URL is not needed
     # Status should be included always
     Target = EntityUtils.define_builder(
@@ -58,7 +48,6 @@ module MarketplaceRouter
          :closed,          # Marketplace has been closed
          :not_found,       # Marketplace not found, but some marketplaces do exist
          :new_marketplace, # There are no marketplaces. Redirect to new marketplace page
-         :https,           # Redirect to HTTPS
          :www_ident,       # Accessed marketplace with WWW and subdomain, e.g. www.mymarketplace.sharetribe.com
        ]],
 
@@ -66,7 +55,6 @@ module MarketplaceRouter
       [:url, :string, :optional],
 
       # Named route
-      [:protocol, :string, :optional],
       [:route_name, :symbol, :optional],
 
       [:status, :symbol, :mandatory]
@@ -98,15 +86,11 @@ module MarketplaceRouter
   module_function
 
   def needs_redirect(request:, community:, paths:, configs:, other:, &block)
-    new_protocol = protocol(request: request, community: community, configs: configs)
-    protocol_needs_redirect = request[:protocol] != "#{new_protocol}://"
-
     reason = redirect_reason(
       request: request,
       community: community,
       configs: configs,
-      other: other,
-      protocol_needs_redirect: protocol_needs_redirect)
+      other: other)
 
     if reason
       target = redirect_target(
@@ -115,8 +99,7 @@ module MarketplaceRouter
         community:               Maybe(community).map { |c| DataTypes.create_community(c) }.or_else(nil),
         paths:                   DataTypes.create_paths(paths),
         configs:                 DataTypes.create_configs(configs),
-        protocol:                new_protocol,
-        protocol_needs_redirect: protocol_needs_redirect,
+        protocol:                request[:protocol],
       )
 
       block.call(target) if target
@@ -138,7 +121,7 @@ module MarketplaceRouter
   # { route_name: :new_community, status: :moved_permanently, protocol: "http"}
   #
   # rubocop:disable ParameterLists
-  def redirect_target(reason:, request:, community:, paths:, configs:, protocol:, protocol_needs_redirect:)
+  def redirect_target(reason:, request:, community:, paths:, configs:, protocol:)
     target =
       case reason
       when :new_marketplace
@@ -151,9 +134,9 @@ module MarketplaceRouter
         Maybe(paths[:community_not_found])[:url].map { |u|
           URLUtils.build_url(u, {utm_source: request[:host], utm_medium: "redirect", utm_campaign: "na-auto-redirect"})
         }.map { |u|
-          {url: u, status: :found, protocol: protocol}
+          {url: u, status: :found}
         }.or_else {
-          paths[:community_not_found].merge(status: :found, protocol: protocol)
+          paths[:community_not_found].merge(status: :found)
         }
       when :deleted
         # Community deleted
@@ -161,9 +144,9 @@ module MarketplaceRouter
         Maybe(paths[:community_not_found])[:url].map { |u|
           URLUtils.build_url(u, {utm_source: request[:host], utm_medium: "redirect", utm_campaign: "dl-auto-redirect"})
         }.map { |u|
-          {url: u, status: :moved_permanently, protocol: protocol}
+          {url: u, status: :moved_permanently}
         }.or_else {
-          paths[:community_not_found].merge(status: :moved_permanently, protocol: protocol)
+          paths[:community_not_found].merge(status: :moved_permanently)
         }
       when :closed
         # Community closed
@@ -171,38 +154,31 @@ module MarketplaceRouter
         Maybe(paths[:community_not_found])[:url].map { |u|
           URLUtils.build_url(u, {utm_source: request[:host], utm_medium: "redirect", utm_campaign: "qc-auto-redirect"})
         }.map { |u|
-          {url: u, status: :moved_permanently, protocol: protocol}
+          {url: u, status: :moved_permanently}
         }.or_else {
-          paths[:community_not_found].merge(status: :moved_permanently, protocol: protocol)
+          paths[:community_not_found].merge(status: :moved_permanently)
         }
       when :domain
         # Community has domain ready, should use it
         # -> Redirect to community domain
-        {url: "#{protocol}://#{community[:domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
+        {url: "#{protocol}#{community[:domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
       when :no_domain
         # Community has a domain, but it's not in use.
         # -> Redirect to subdomain (ident)
-        {url: "#{protocol}://#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
+        {url: "#{protocol}#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
       when :www_ident
         # Accessed community with ident, including www
         # -> Redirect to ident without www
-        {url: "#{protocol}://#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
-      when :https
-        # Needs protocol redirect (to https)
-        # -> Redirect to https
-        {url: "#{protocol}://#{request[:host]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
+        {url: "#{protocol}#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
       else
         raise ArgumentError.new("Unknown redirect reason: '#{reason}'")
       end
 
-    # If protocol redirect is needed, the status is always :moved_permanently
-    target_with_status = target.merge(status: protocol_needs_redirect ? :moved_permanently : target[:status])
-
-    HashUtils.compact(DataTypes::Target.call(target_with_status.merge(reason: reason)))
+    HashUtils.compact(DataTypes::Target.call(target.merge(reason: reason)))
   end
   # rubocop:enable ParameterLists
 
-  def redirect_reason(request:, community:, configs:, other:, protocol_needs_redirect:)
+  def redirect_reason(request:, community:, configs:, other:)
     if other[:community_search_status] == :not_found && other[:no_communities]
       :new_marketplace
     elsif other[:community_search_status] == :not_found && !other[:no_communities]
@@ -217,26 +193,8 @@ module MarketplaceRouter
       :no_domain
     elsif community && request[:host] == "www.#{community[:ident]}.#{configs[:app_domain]}"
       :www_ident
-    elsif protocol_needs_redirect
-      :https
     else
       nil
     end
   end
-
-  def protocol(request:, community:, configs:)
-    if should_use_https?(request: request, community: community, configs: configs)
-      "https"
-    else
-      request[:protocol] == "http://" ? "http" : "https"
-    end
-  end
-
-  def should_use_https?(request:, configs:, community:)
-    from_proxy = (request[:headers]["HTTP_VIA"] && request[:headers]["HTTP_VIA"].include?("sharetribe_proxy"))
-    robots = request[:fullpath] == "/robots.txt"
-
-    configs[:always_use_ssl] && !from_proxy && !robots
-  end
-
 end
