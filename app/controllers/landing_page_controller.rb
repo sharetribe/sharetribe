@@ -115,10 +115,10 @@ class LandingPageController < ActionController::Metal
   # configs.
   def append_info_to_payload(payload)
     super
-    payload[:host] = request.host
     payload[:community_id] = community(request)&.id
     payload[:current_user_id] = nil
-    payload[:request_uuid] = request.uuid
+
+    ControllerLogging.append_request_info_to_payload!(request, payload)
   end
 
   def initialize_i18n!(cid, locale)

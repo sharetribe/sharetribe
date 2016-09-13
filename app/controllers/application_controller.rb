@@ -427,13 +427,10 @@ class ApplicationController < ActionController::Base
   # configs.
   def append_info_to_payload(payload)
     super
-    payload[:host] = request.host
     payload[:community_id] = Maybe(@current_community).id.or_else("")
     payload[:current_user_id] = Maybe(@current_user).id.or_else("")
-    payload[:request_uuid] = request.uuid
-    payload[:user_agent] = request.headers["User-Agent"] || ""
-    payload[:referer] = request.headers["Referer"] || ""
-    payload[:forwarded_for] = request.headers["X-Forwarded-For"] || ""
+
+    ControllerLogging.append_request_info_to_payload!(request, payload)
   end
 
   def date_equals?(date, comp)
