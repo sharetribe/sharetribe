@@ -5,15 +5,20 @@ const fontSizeSmaller = '12px';
 const fontSizeSmall = '13px';
 const fontSize = '14px';
 const fontSizeBig = '16px';
+const fontSizeBigger = '19px';
 
 const fontSizeMobileSmaller = '14px';
 const fontSizeMobileSmall = '15px';
 const fontSizeMobile = '17px';
 
+const fontWeightMedium = '500';
+const fontWeightSemibold = '600';
+
 const textColor = 'rgb(82, 89, 97)';
 const textColorFocus = 'rgb(0, 0, 0)';
 const textColorGrey = 'rgb(122, 125, 128)';
 const textColorLight = 'rgb(255, 255, 255)';
+const textColorDark = 'rgb(28, 30, 33)';
 const textColorSelected = '#4a4a4a';
 const backgroundLightColor = 'white';
 const backgroundLightColorHover = 'rgba(169, 172, 176, 0.07)';
@@ -275,4 +280,24 @@ module.exports = {
   '--AddNewListingButton_textColor': '#fff',
   '--AddNewListingButton_maxTextWidth': '15em',
   '--AddNewListingButton_textPadding': '1.5em',
+
+  // SEARCH PAGE
+  '--ListingCard_noImageText': textColor,
+  '--ListingCard_fontSize': fontSize,
+  '--ListingCard_fontSizeTitle': fontSizeBig,
+  '--ListingCard_fontSizeDistance': fontSizeSmaller,
+  '--ListingCard_fontSizePrice': fontSizeBigger,
+  '--ListingCard_lineHeight': '26px',
+  '--ListingCard_lineHeightTitle': '22px',
+  '--ListingCard_colorTitle': textColorDark,
+  '--ListingCard_colorDistance': textColorGrey,
+  '--ListingCard_colorBackground': backgroundLightColor,
+  '--ListingCard_spacingHorizontal': '20px',
+  '--ListingCard_spacingVertical': '16px',
+  '--ListingCard_avatarSize': '42px',
+  '--ListingCard_spacingAvatar': '16px',
+  '--ListingCard_textSpacing': '6px',
+  '--ListingCard_letterSpacing': '0.2px',
+  '--ListingCard_fontWeightMedium': fontWeightMedium,
+  '--ListingCard_fontWeightSemibold': fontWeightSemibold,
 };
