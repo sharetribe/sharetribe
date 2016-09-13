@@ -6,6 +6,7 @@ class HomepageController < ApplicationController
   APP_DEFAULT_VIEW_TYPE = "grid"
   VIEW_TYPES = ["grid", "list", "map"]
 
+  # rubocop:disable AbcSize
   def index
     redirect_to landing_page_path and return if no_current_user_in_private_clp_enabled_marketplace?
 
@@ -121,6 +122,7 @@ class HomepageController < ApplicationController
       }
     end
   end
+  # rubocop:enable AbcSize
 
   def self.selected_view_type(view_param, community_default, app_default, all_types)
     if view_param.present? and all_types.include?(view_param)
