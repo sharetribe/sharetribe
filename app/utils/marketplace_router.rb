@@ -5,7 +5,7 @@ module MarketplaceRouter
       [:host, :string, :mandatory],
       [:protocol, :string, one_of: ["http://", "https://"]],
       [:fullpath, :string, :mandatory],
-      [:port_string, :string, :optional, default: ""],
+      [:port_string, :string, :optional, default: ""]
     )
 
     Community = EntityUtils.define_builder(
@@ -99,7 +99,7 @@ module MarketplaceRouter
         community:               Maybe(community).map { |c| DataTypes.create_community(c) }.or_else(nil),
         paths:                   DataTypes.create_paths(paths),
         configs:                 DataTypes.create_configs(configs),
-        protocol:                request[:protocol],
+        protocol:                request[:protocol]
       )
 
       block.call(target)
@@ -120,7 +120,6 @@ module MarketplaceRouter
   #
   # { route_name: :new_community, status: :moved_permanently, protocol: "http"}
   #
-  # rubocop:disable ParameterLists
   def redirect_target(reason:, request:, community:, paths:, configs:, protocol:)
     target =
       case reason
@@ -176,7 +175,6 @@ module MarketplaceRouter
 
     HashUtils.compact(DataTypes::Target.call(target.merge(reason: reason)))
   end
-  # rubocop:enable ParameterLists
 
   def redirect_reason(request:, community:, configs:, other:)
     if other[:community_search_status] == :not_found && other[:no_communities]
@@ -193,8 +191,6 @@ module MarketplaceRouter
       :no_domain
     elsif community && request[:host] == "www.#{community[:ident]}.#{configs[:app_domain]}"
       :www_ident
-    else
-      nil
     end
   end
 end
