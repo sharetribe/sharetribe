@@ -51,6 +51,18 @@ module MarketplaceRouter
     # If named route, URL is not needed
     # Status should be included always
     Target = EntityUtils.define_builder(
+      # Reason
+      [:reason, :symbol, one_of: [
+         :domain,          # Marketplace has a custom domain in use. Redirect to that domain.
+         :no_domain,       # Marketplace has a custom domain but it's not in use. Redirect to subdomain.
+         :deleted,         # Marketplace has been deleted
+         :closed,          # Marketplace has been closed
+         :not_found,       # Marketplace not found, but some marketplaces do exist
+         :new_marketplace, # There are no marketplaces. Redirect to new marketplace page
+         :https,           # Redirect to HTTPS
+         :www_ident,       # Accessed marketplace with WWW and subdomain, e.g. www.mymarketplace.sharetribe.com
+       ]],
+
       # Url
       [:url, :string, :optional],
 
@@ -125,7 +137,7 @@ module MarketplaceRouter
       if other[:community_search_status] == :not_found && other[:no_communities]
         # Community not found, because there are no communities
         # -> Redirect to new community page
-        paths[:new_community].merge(status: :found, protocol: protocol)
+        paths[:new_community].merge(reason: :new_marketplace, status: :found, protocol: protocol)
 
       elsif other[:community_search_status] == :not_found && !other[:no_communities]
         # Community not found
@@ -136,7 +148,7 @@ module MarketplaceRouter
           {url: u, status: :found, protocol: protocol}
         }.or_else {
           paths[:community_not_found].merge(status: :found, protocol: protocol)
-        }
+        }.merge(reason: :not_found)
 
       elsif community && community[:deleted]
         # Community deleted
@@ -147,7 +159,7 @@ module MarketplaceRouter
           {url: u, status: :moved_permanently, protocol: protocol}
         }.or_else {
           paths[:community_not_found].merge(status: :moved_permanently, protocol: protocol)
-        }
+        }.merge(reason: :deleted)
 
       elsif community && community[:closed]
         # Community closed
@@ -158,25 +170,27 @@ module MarketplaceRouter
           {url: u, status: :moved_permanently, protocol: protocol}
         }.or_else {
           paths[:community_not_found].merge(status: :moved_permanently, protocol: protocol)
-        }
+        }.merge(reason: :closed)
 
       elsif community && community[:domain].present? && community[:use_domain] && request[:host] != community[:domain]
         # Community has domain ready, should use it
         # -> Redirect to community domain
-        {url: "#{protocol}://#{community[:domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
+        {reason: :domain, url: "#{protocol}://#{community[:domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
 
       elsif community && community[:domain].present? && !community[:use_domain] && request[:host] == community[:domain] && !is_domain_verification
-        {url: "#{protocol}://#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
+        # Community has a domain, but it's not in use.
+        # -> Redirect to subdomain (ident)
+        {reason: :no_domain, url: "#{protocol}://#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
 
       elsif community && request[:host] == "www.#{community[:ident]}.#{configs[:app_domain]}"
         # Accessed community with ident, including www
         # -> Redirect to ident without www
-        {url: "#{protocol}://#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
+        {reason: :www_ident, url: "#{protocol}://#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
 
       elsif protocol_needs_redirect
         # Needs protocol redirect (to https)
         # -> Redirect to https
-        {url: "#{protocol}://#{request[:host]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
+        {reason: :https, url: "#{protocol}://#{request[:host]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
             end
 
     # If protocol redirect is needed, the status is always :moved_permanently
