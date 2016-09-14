@@ -1,4 +1,12 @@
-require 'spec_helper'
+require 'active_support/core_ext/object'
+require 'possibly' # Maybe
+
+[
+  "app/utils/entity_utils",
+  "app/utils/hash_utils",
+  "app/utils/url_utils",
+  "app/utils/marketplace_router",
+].each { |f| require_relative "../../#{f}" }
 
 describe MarketplaceRouter do
 
@@ -15,7 +23,6 @@ describe MarketplaceRouter do
       deleted: false,
       closed: false,
       domain: "www.marketplace.com",
-      domain_verification_file: nil,
       ident: "marketplace",
     }
     default_paths = {
@@ -23,7 +30,6 @@ describe MarketplaceRouter do
       new_community: {route_name: :new_community},
     }
     default_configs = {
-      always_use_ssl: true,
       app_domain: "sharetribe.com"
     }
     default_other = {
@@ -63,7 +69,7 @@ describe MarketplaceRouter do
                         use_domain: true,
                         deleted: false,
                         domain: "www.marketplace.com",
-                      }).to eq(url: "https://www.marketplace.com/listings", status: :moved_permanently)
+                      }).to eq(reason: :use_domain, url: "https://www.marketplace.com/listings", status: :moved_permanently)
     end
 
     it "does not redirect if use_domain is false" do
@@ -82,7 +88,7 @@ describe MarketplaceRouter do
                         domain: "www.marketplace.com",
                         deleted: false,
                         use_domain: true,
-                      }).to eq(url: "https://www.marketplace.com:3333/listings", status: :moved_permanently)
+                      }).to eq(reason: :use_domain, url: "https://www.marketplace.com:3333/listings", status: :moved_permanently)
     end
 
     it "redirects deleted marketplaces" do
@@ -90,7 +96,7 @@ describe MarketplaceRouter do
                         domain: "www.marketplace.com",
                         deleted: true,
                         use_domain: true,
-                      }).to eq(route_name: :not_found, status: :moved_permanently, protocol: "https")
+                      }).to eq(reason: :deleted, route_name: :not_found, status: :moved_permanently)
     end
 
     it "redirects closed marketplaces" do
@@ -98,7 +104,7 @@ describe MarketplaceRouter do
                         domain: "www.marketplace.com",
                         closed: true,
                         use_domain: true,
-                      }).to eq(route_name: :not_found, status: :moved_permanently, protocol: "https")
+                      }).to eq(reason: :closed, route_name: :not_found, status: :moved_permanently)
     end
 
     it "adds utm_ parameters when redirecting deleted" do
@@ -110,8 +116,8 @@ describe MarketplaceRouter do
                       },
                       paths: {
                         community_not_found: {url: "https://redirect.site.com"},
-                      }).to eq(url: "https://redirect.site.com?utm_source=www.marketplace.com&utm_medium=redirect&utm_campaign=dl-auto-redirect",
-                               protocol: "https",
+                      }).to eq(reason: :deleted,
+                               url: "https://redirect.site.com?utm_source=www.marketplace.com&utm_medium=redirect&utm_campaign=dl-auto-redirect",
                                status: :moved_permanently)
     end
 
@@ -124,13 +130,13 @@ describe MarketplaceRouter do
                       },
                       paths: {
                         community_not_found: {url: "https://redirect.site.com"},
-                      }).to eq(url: "https://redirect.site.com?utm_source=www.marketplace.com&utm_medium=redirect&utm_campaign=qc-auto-redirect",
-                               protocol: "https",
+                      }).to eq(reason: :closed,
+                               url: "https://redirect.site.com?utm_source=www.marketplace.com&utm_medium=redirect&utm_campaign=qc-auto-redirect",
                                status: :moved_permanently)
     end
 
     it "redirects to community not found if community was not found and some communities do exist" do
-      expect_redirect(community: nil, other: {community_search_status: :not_found}).to eq(route_name: :not_found, status: :found, protocol: "https")
+      expect_redirect(community: nil, other: {community_search_status: :not_found}).to eq(reason: :not_found, route_name: :not_found, status: :found)
     end
 
     it "adds utm_ parameters when redirecting no community found and other communties exist" do
@@ -138,8 +144,8 @@ describe MarketplaceRouter do
                       request: { host: "www.wrongmarketplace.com" },
                       other: { community_search_status: :not_found },
                       paths: { community_not_found: { url: "https://redirect.site.com"} }
-                     ).to eq(url: "https://redirect.site.com?utm_source=www.wrongmarketplace.com&utm_medium=redirect&utm_campaign=na-auto-redirect",
-                             protocol: "https",
+                     ).to eq(reason: :not_found,
+                             url: "https://redirect.site.com?utm_source=www.wrongmarketplace.com&utm_medium=redirect&utm_campaign=na-auto-redirect",
                              status: :found)
     end
 
@@ -148,99 +154,7 @@ describe MarketplaceRouter do
                       other: {
                         community_search_status: :not_found,
                         no_communities: true,
-                      }).to eq(route_name: :new_community, status: :found, protocol: "https")
-    end
-
-    it "redirects to https if always_use_ssl configuration is set true" do
-      expect_redirect(request: {
-                        protocol: "http://",
-                      },
-                      community: {
-                        domain: "www.marketplace.com",
-                        deleted: false,
-                        use_domain: true,
-                      }).to eq(url: "https://www.marketplace.com/listings", status: :moved_permanently)
-    end
-
-    it "redirects to https even if there's no other reason to do redirect" do
-      expect_redirect(request: {
-                        protocol: "http://",
-                      },
-                      community: {
-                        domain: nil,
-                        deleted: false,
-                        use_domain: false,
-                      }).to eq(url: "https://marketplace.sharetribe.com/listings", status: :moved_permanently)
-    end
-
-    it "redirects to protocol in use if always_use_ssl configuration is set false" do
-      expect_redirect(request: {
-                        protocol: "http://",
-                      },
-                      community: {
-                        domain: "www.marketplace.com",
-                        deleted: false,
-                        use_domain: true,
-                      },
-                      configs: {
-                        always_use_ssl: false,
-                      }).to eq(url: "http://www.marketplace.com/listings", status: :moved_permanently)
-    end
-
-    it "redirects with moved permanently if the protocol needs redirect even if it would otherwise used found status" do
-      expect_redirect(other: {community_search_status: :not_found},
-                      request: {
-                        protocol: "http://",
-                      }).to eq(route_name: :not_found, status: :moved_permanently, protocol: "https")
-    end
-
-    it "doesn't redirect to https if the request comes from proxy, even if always_use_ssl is true" do
-      expect_redirect(request: {
-                        host: "www.marketplace.com",
-                        protocol: "http://",
-                        headers: {
-                          "HTTP_VIA" => "random_proxy"
-                        }
-                      }).to eq({url: "https://www.marketplace.com/listings", status: :moved_permanently})
-
-      expect_redirect(request: {
-                        host: "www.marketplace.com",
-                        protocol: "http://",
-                        headers: {
-                          "HTTP_VIA" => ["sharetribe_proxy"]
-                        }
-                      }).to eq(nil)
-    end
-
-    it "doesn't redirect robots.txt to https" do
-      expect_redirect(request: {
-                        host: "www.marketplace.com",
-                        protocol: "http://",
-                        fullpath: "/robots.txt",
-                        }
-                      ).to eq(nil)
-    end
-
-    it "doesn't redirect domain verification file" do
-      expect_redirect(request: {
-                        host: "www.marketplace.com",
-                        protocol: "http://",
-                        fullpath: "/1234567890ABCDEF.txt",
-                      },
-                      community: {
-                        domain_verification_file: "no-match-domain-verification-file.txt"
-                      }
-                     ).to eq(url: "https://www.marketplace.com/1234567890ABCDEF.txt", status: :moved_permanently)
-
-      expect_redirect(request: {
-                        host: "www.marketplace.com",
-                        protocol: "http://",
-                        fullpath: "/1234567890ABCDEF.txt",
-                      },
-                      community: {
-                        domain_verification_file: "1234567890ABCDEF.txt"
-                      }
-                      ).to eq(nil)
+                      }).to eq(reason: :no_marketplaces, route_name: :new_community, status: :found)
     end
 
     it "redirects to marketplace ident without www" do
@@ -254,7 +168,7 @@ describe MarketplaceRouter do
                       configs: {
                         app_domain: "sharetribe.com"
                       }
-                     ).to eq(url: "https://marketplace.sharetribe.com/listings", status: :moved_permanently)
+                     ).to eq(reason: :www_ident, url: "https://marketplace.sharetribe.com/listings", status: :moved_permanently)
     end
 
     it "redirects to marketplace domain if available" do
@@ -266,7 +180,7 @@ describe MarketplaceRouter do
                         domain: "www.marketplace.com",
                         use_domain: true
                       }
-                     ).to eq(url: "https://www.marketplace.com/listings", status: :moved_permanently)
+                     ).to eq(reason: :use_domain, url: "https://www.marketplace.com/listings", status: :moved_permanently)
     end
 
     it "redirects back to ident if domain is not in use" do
@@ -278,24 +192,7 @@ describe MarketplaceRouter do
                         domain: "www.marketplace.com",
                         use_domain: false
                       }
-                     ).to eq(url: "https://marketplace.sharetribe.com/listings", status: :moved_permanently)
-    end
-
-    it "doesn't redirect domain validation back to ident" do
-
-      expect_redirect(request: {
-                        protocol: "http://",
-                        host: "www.marketplace.com",
-                        fullpath: "/1234567890ABCDEF.txt",
-                      },
-                      community: {
-                        ident: "marketplace",
-                        domain: "www.marketplace.com",
-                        use_domain: false,
-                        domain_verification_file: "1234567890ABCDEF.txt",
-                      }
-                     ).to eq(nil)
-
+                     ).to eq(reason: :use_ident, url: "https://marketplace.sharetribe.com/listings", status: :moved_permanently)
     end
   end
 end
