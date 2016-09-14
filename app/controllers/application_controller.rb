@@ -294,21 +294,28 @@ class ApplicationController < ActionController::Base
       app_domain: URLUtils.strip_port_from_host(APP_CONFIG.domain),
     }
 
-    other = {
-      no_communities: request.env[:no_marketplaces],
-      community_search_status: community_search_status,
-    }
+    app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
 
-    MarketplaceRouter.needs_redirect(
-      request: MarketplaceRouter.request_hash(request),
+    reason = MarketplaceRouter.redirect_reason(
+      host: request.host,
       community: MarketplaceRouter.community_hash(@current_community, @current_plan),
-      paths: paths,
-      configs: configs,
-      other: other) { |redirect_dest|
-      url = redirect_dest[:url] || send(redirect_dest[:route_name], protocol: redirect_dest[:protocol])
+      app_domain: app_domain,
+      no_communities: request.env[:no_marketplaces],
+      community_search_status: community_search_status)
 
-      redirect_to(url, status: redirect_dest[:status])
-    }
+    if reason
+      target = MarketplaceRouter.redirect_target(
+        reason:    reason,
+        request:   MarketplaceRouter.request_hash(request),
+        community: MarketplaceRouter.community_hash(@current_community, @current_plan),
+        paths:     paths,
+        configs:   configs,
+      )
+
+      url = target[:url] || send(target[:route_name], protocol: target[:protocol])
+
+      redirect_to(url, status: target[:status])
+    end
   end
 
   def fetch_community_membership

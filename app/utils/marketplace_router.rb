@@ -85,31 +85,6 @@ module MarketplaceRouter
 
   module_function
 
-  def needs_redirect(request:, community:, paths:, configs:, other:, &block)
-    reason = redirect_reason(
-      host: request[:host],
-      community: community,
-      app_domain: configs[:app_domain],
-      no_communities: other[:no_communities],
-      community_search_status: other[:community_search_status])
-
-    if reason
-      target = redirect_target(
-        reason:                  reason,
-        request:                 DataTypes.create_request(request),
-        community:               Maybe(community).map { |c| DataTypes.create_community(c) }.or_else(nil),
-        paths:                   DataTypes.create_paths(paths),
-        configs:                 DataTypes.create_configs(configs),
-      )
-
-      block.call(target)
-    end
-  end
-
-  # private
-
-  # The main "router function"
-  #
   # Returns a hash, which contains either a url or named route
   #
   # Example, return hash with url:
@@ -121,6 +96,11 @@ module MarketplaceRouter
   # { route_name: :new_community, status: :moved_permanently, protocol: "http"}
   #
   def redirect_target(reason:, request:, community:, paths:, configs:)
+    community = Maybe(community).map { |c| DataTypes.create_community(c) }.or_else(nil)
+    request   = DataTypes.create_request(request)
+    paths     = DataTypes.create_paths(paths)
+    configs   = DataTypes.create_configs(configs)
+
     target =
       case reason
       when :no_marketplaces
@@ -176,7 +156,11 @@ module MarketplaceRouter
     HashUtils.compact(DataTypes::Target.call(target.merge(reason: reason)))
   end
 
+  # Returns a redirect reason or nil, if no redirect should be made
+  #
   def redirect_reason(community:, host:, community_search_status:, no_communities:, app_domain:)
+    community = Maybe(community).map { |c| DataTypes.create_community(c) }.or_else(nil)
+
     if community_search_status == :not_found && no_communities
       :no_marketplaces
     elsif community_search_status == :not_found && !no_communities
