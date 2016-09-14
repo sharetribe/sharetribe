@@ -4,7 +4,7 @@
 # Table name: communities
 #
 #  id                                         :integer          not null, primary key
-#  uuid                                       :binary(16)
+#  uuid                                       :binary(16)       not null
 #  ident                                      :string(255)
 #  domain                                     :string(255)
 #  use_domain                                 :boolean          default(FALSE), not null
@@ -95,6 +95,7 @@
 #
 #  index_communities_on_domain  (domain)
 #  index_communities_on_ident   (ident)
+#  index_communities_on_uuid    (uuid) UNIQUE
 #
 
 require 'spec_helper'
