@@ -157,6 +157,7 @@ module Kassi
         :path => "images/:class/:attachment/:id/:style/:filename",
         :url => ":s3_domain_url",
         :storage => :s3,
+        :s3_region => APP_CONFIG.s3_region,
         :s3_protocol => 'https',
         :s3_headers => {
             "cache-control" => "public, max-age=#{APP_CONFIG.s3_cache_max_age}",

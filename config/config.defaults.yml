@@ -36,6 +36,9 @@ default: &default_settings
   # Default bucket
   s3_bucket_name:
 
+  # AWS S3 region
+  s3_region: us-east-1
+
   # Cache-Control: max-age time in seconds for assets uploaded to S3.
   # Default is one day. Normally, you can use the default. Links to images have
   # modification timestamp appended as query parameter and that should be enough for cache invalidation.

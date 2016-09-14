@@ -68,7 +68,7 @@ class ListingImagesController < ApplicationController
   # Given path which includes placeholder `${filename}` and
   # the `filename` and get back working URL
   def escape_s3_url(path, filename)
-    escaped_filename = AWS::Core::UriEscape.escape(filename)
+    escaped_filename = CGI.escape(filename.encode('UTF-8')).gsub('+', '%20').gsub('%7E', '~')
     path.sub("${filename}", escaped_filename)
   end
 
