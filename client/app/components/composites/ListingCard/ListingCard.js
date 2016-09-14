@@ -43,7 +43,7 @@ class ListingCard extends Component {
     const tintedRGB = tint(this.props.color, TINT_PERCENTAGE);
     const hasDistance = !!this.props.distance;
     const precision = (hasDistance && this.props.distance < 1) ? 1 : PRECISION;
-    const distanceFormatted = (hasDistance && this.props.distance < MINIMUM_DISTANCE) ? `< 0.1${this.props.distanceUnit}` : `${sigFigs(this.props.distance, precision)}${this.props.distanceUnit}`;
+    const distanceFormatted = (hasDistance && this.props.distance < MINIMUM_DISTANCE) ? `< 0.1 ${this.props.distanceUnit}` : `${sigFigs(this.props.distance, precision)} ${this.props.distanceUnit}`;
 
     const priceFormatted = `${this.props.priceUnit} ${this.props.price}`;
 
@@ -66,7 +66,7 @@ class ListingCard extends Component {
           className: css.noImageContainer,
         }, div(
           {
-            className: css.noImagaWrapper,
+            className: css.noImageWrapper,
           }, [
             div({
               className: css.noImageIcon,
