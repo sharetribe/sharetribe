@@ -390,9 +390,7 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_community_plan_expiration_status
-    Maybe(@current_community).id.each { |community_id|
-      @current_plan = PlanService::API::Api.plans.get_current(community_id: community_id).data
-    }
+    @current_plan = request.env[:current_plan]
   end
 
   # Before filter for PayPal, shows notification if user is not ready for payments

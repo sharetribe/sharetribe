@@ -10,6 +10,12 @@ class CurrentMarketplaceAppender
     app_domain = ::URLUtils.strip_port_from_host(::APP_CONFIG.domain)
     host = ::URLUtils.strip_port_from_host(env['HTTP_HOST'])
     marketplace = ::CurrentMarketplaceResolver.resolve_from_host(host, app_domain)
-    @app.call(env.merge!(current_marketplace: marketplace))
+
+    plan =
+      if marketplace
+        PlanService::API::Api.plans.get_current(community_id: marketplace.id).data
+      end
+
+    @app.call(env.merge!(current_marketplace: marketplace, current_plan: plan))
   end
 end
