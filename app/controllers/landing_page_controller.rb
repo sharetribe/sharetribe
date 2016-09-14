@@ -110,6 +110,33 @@ class LandingPageController < ActionController::Metal
 
   private
 
+  def perform_redirect
+    paths = {
+      community_not_found: Maybe(APP_CONFIG).community_not_found_redirect.map { |url| {url: url} }.or_else({route_name: :community_not_found_path}),
+      new_community: {route_name: :new_community_path}
+    }
+
+    configs = {
+      app_domain: URLUtils.strip_port_from_host(APP_CONFIG.domain),
+    }
+
+    reason = request.env[:redirect_reason]
+
+    if reason
+      target = MarketplaceRouter.redirect_target(
+        reason:    reason,
+        request:   MarketplaceRouter.request_hash(request),
+        community: MarketplaceRouter.community_hash(community(request), plan(request)),
+        paths:     paths,
+        configs:   configs,
+      )
+
+      url = target[:url] || send(target[:route_name], protocol: target[:protocol])
+
+      redirect_to(url, status: target[:status])
+    end
+  end
+
   # Override basic instrumentation and provide additional info for
   # lograge to consume. These are pulled and logged in environment
   # configs.
@@ -187,6 +214,10 @@ class LandingPageController < ActionController::Metal
 
   def community(request)
     @current_community ||= request.env[:current_marketplace]
+  end
+
+  def plan(request)
+    @current_plan ||= request.env[:current_plan]
   end
 
   def community_customization(request, locale)
