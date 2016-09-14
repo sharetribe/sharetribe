@@ -153,7 +153,7 @@
           .home-loading-more
             = will_paginate(@listings)
             - item_container = if @view_type.eql?("grid") then '.home-fluid-thumbnail-grid' else '.home-listings' end
-            = pageless(@listings.total_pages, item_container, request.fullpath, t('.loading_more_content'))
+            = pageless(@listings.total_pages, item_container, current_search_path_without_page, t('.loading_more_content'), current_page)
       - else
         .home-no-listings
           - if params[:q] || params[:category] || params[:share_type] # Some filter in use

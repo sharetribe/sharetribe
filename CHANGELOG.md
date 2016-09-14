@@ -29,6 +29,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 - Correctly add https or http to links generated in `community.rb` [#2459](https://github.com/sharetribe/sharetribe/pull/2459)
 - Transactions in `initiated` state showed wrong total price in the transaction page if the item quantity was more than one [#2452](https://github.com/sharetribe/sharetribe/pull/2452)
+- Fix bug in infinite scroll: The current page was not taken into account [#2532](https://github.com/sharetribe/sharetribe/pull/2532)
 
 ## [5.11.0] - 2016-08-24
 
