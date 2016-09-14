@@ -100,7 +100,6 @@ module MarketplaceRouter
         community:               Maybe(community).map { |c| DataTypes.create_community(c) }.or_else(nil),
         paths:                   DataTypes.create_paths(paths),
         configs:                 DataTypes.create_configs(configs),
-        protocol:                request[:protocol]
       )
 
       block.call(target)
@@ -121,13 +120,13 @@ module MarketplaceRouter
   #
   # { route_name: :new_community, status: :moved_permanently, protocol: "http"}
   #
-  def redirect_target(reason:, request:, community:, paths:, configs:, protocol:)
+  def redirect_target(reason:, request:, community:, paths:, configs:)
     target =
       case reason
       when :no_marketplaces
         # Community not found, because there are no communities
         # -> Redirect to new community page
-        paths[:new_community].merge(status: :found, protocol: protocol)
+        paths[:new_community].merge(status: :found, protocol: request[:protocol])
       when :not_found
         # Community not found
         # -> Redirect to not found
@@ -161,15 +160,15 @@ module MarketplaceRouter
       when :use_domain
         # Community has domain ready, should use it
         # -> Redirect to community domain
-        {url: "#{protocol}#{community[:domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
+        {url: "#{request[:protocol]}#{community[:domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
       when :use_ident
         # Community has a domain, but it's not in use.
         # -> Redirect to subdomain (ident)
-        {url: "#{protocol}#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
+        {url: "#{request[:protocol]}#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
       when :www_ident
         # Accessed community with ident, including www
         # -> Redirect to ident without www
-        {url: "#{protocol}#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
+        {url: "#{request[:protocol]}#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
       else
         raise ArgumentError.new("Unknown redirect reason: '#{reason}'")
       end
