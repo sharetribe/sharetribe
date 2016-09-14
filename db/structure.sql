@@ -200,6 +200,7 @@ DROP TABLE IF EXISTS `communities`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `communities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uuid` binary(16) DEFAULT NULL,
   `ident` varchar(255) DEFAULT NULL,
   `domain` varchar(255) DEFAULT NULL,
   `use_domain` tinyint(1) NOT NULL DEFAULT '0',
@@ -1558,7 +1559,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-13 14:37:34
+-- Dump completed on 2016-09-14 10:12:45
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3096,4 +3097,6 @@ INSERT INTO schema_migrations (version) VALUES ('20160908091353');
 INSERT INTO schema_migrations (version) VALUES ('20160913110411');
 
 INSERT INTO schema_migrations (version) VALUES ('20160913112734');
+
+INSERT INTO schema_migrations (version) VALUES ('20160914070509');
 

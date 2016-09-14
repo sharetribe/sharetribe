@@ -3,6 +3,7 @@
 # Table name: communities
 #
 #  id                                         :integer          not null, primary key
+#  uuid                                       :binary(16)
 #  ident                                      :string(255)
 #  domain                                     :string(255)
 #  use_domain                                 :boolean          default(FALSE), not null
@@ -252,6 +253,19 @@ class Community < ActiveRecord::Base
   process_in_background :favicon
 
   before_save :cache_previous_image_urls
+
+  def uuid
+    if self[:uuid].nil?
+      nil
+    else
+      UUIDTools::UUID.parse_raw(self[:uuid])
+    end
+  end
+
+  before_create :add_uuid
+  def add_uuid
+    self.uuid ||= UUIDTools::UUID.timestamp_create.raw
+  end
 
   validates_format_of :twitter_handle, with: /\A[A-Za-z0-9_]{1,15}\z/, allow_nil: true
 
