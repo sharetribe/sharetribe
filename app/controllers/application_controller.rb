@@ -285,23 +285,12 @@ class ApplicationController < ActionController::Base
   # Note: This filter is safe to run even if :fetch_community
   # filter is skipped
   def perform_redirect
-    community = Maybe(@current_community).map { |c|
-      {
-        ident: c.ident,
-        domain: c.domain,
-        deleted: c.deleted?,
-        use_domain: c.use_domain?,
-        closed: Maybe(@current_plan)[:closed].or_else(false)
-      }
-    }.or_else(nil)
-
     paths = {
       community_not_found: Maybe(APP_CONFIG).community_not_found_redirect.map { |url| {url: url} }.or_else({route_name: :community_not_found_path}),
       new_community: {route_name: :new_community_path}
     }
 
     configs = {
-      always_use_ssl: Maybe(APP_CONFIG).always_use_ssl.map { |v| v == true || v.to_s.downcase == "true" }.or_else(false), # value can be string if it comes from ENV
       app_domain: URLUtils.strip_port_from_host(APP_CONFIG.domain),
     }
 
@@ -311,23 +300,14 @@ class ApplicationController < ActionController::Base
     }
 
     MarketplaceRouter.needs_redirect(
-      request: request_hash,
-      community: community,
+      request: MarketplaceRouter.request_hash(request),
+      community: MarketplaceRouter.community_hash(@current_community, @current_plan),
       paths: paths,
       configs: configs,
       other: other) { |redirect_dest|
       url = redirect_dest[:url] || send(redirect_dest[:route_name], protocol: redirect_dest[:protocol])
 
       redirect_to(url, status: redirect_dest[:status])
-    }
-  end
-
-  def request_hash
-    @request_hash ||= {
-      host: request.host,
-      protocol: request.protocol,
-      fullpath: request.fullpath,
-      port_string: request.port_string,
     }
   end
 

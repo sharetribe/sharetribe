@@ -87,10 +87,11 @@ module MarketplaceRouter
 
   def needs_redirect(request:, community:, paths:, configs:, other:, &block)
     reason = redirect_reason(
-      request: request,
+      host: request[:host],
       community: community,
-      configs: configs,
-      other: other)
+      app_domain: configs[:app_domain],
+      no_communities: other[:no_communities],
+      community_search_status: other[:community_search_status])
 
     if reason
       target = redirect_target(
@@ -176,21 +177,50 @@ module MarketplaceRouter
     HashUtils.compact(DataTypes::Target.call(target.merge(reason: reason)))
   end
 
-  def redirect_reason(request:, community:, configs:, other:)
-    if other[:community_search_status] == :not_found && other[:no_communities]
+  def redirect_reason(community:, host:, community_search_status:, no_communities:, app_domain:)
+    if community_search_status == :not_found && no_communities
       :no_marketplaces
-    elsif other[:community_search_status] == :not_found && !other[:no_communities]
+    elsif community_search_status == :not_found && !no_communities
       :not_found
     elsif community && community[:deleted]
       :deleted
     elsif community && community[:closed]
       :closed
-    elsif community && community[:domain].present? && community[:use_domain] && request[:host] != community[:domain]
+    elsif community && community[:domain].present? && community[:use_domain] && host != community[:domain]
       :use_domain
-    elsif community && community[:domain].present? && !community[:use_domain] && request[:host] == community[:domain]
+    elsif community && community[:domain].present? && !community[:use_domain] && host == community[:domain]
       :use_ident
-    elsif community && request[:host] == "www.#{community[:ident]}.#{configs[:app_domain]}"
+    elsif community && host == "www.#{community[:ident]}.#{app_domain}"
       :www_ident
     end
+  end
+
+  # Takes a Request
+  #
+  # Returns a Hash in a form that MarketplaceRouter expects
+  #
+  def request_hash(request)
+    {
+      host: request.host,
+      protocol: request.protocol,
+      fullpath: request.fullpath,
+      port_string: request.port_string,
+    }
+  end
+
+  # Takes a Community model and Plan entity.
+  #
+  # Returns a Hash in a form that MarketplaceRouter expects
+  #
+  def community_hash(community, plan)
+    Maybe(community).map { |c|
+      {
+        ident: c.ident,
+        domain: c.domain,
+        deleted: c.deleted?,
+        use_domain: c.use_domain?,
+        closed: Maybe(plan)[:closed].or_else(false)
+      }
+    }.or_else(nil)
   end
 end
