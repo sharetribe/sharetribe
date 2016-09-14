@@ -140,20 +140,35 @@ module MarketplaceRouter
       when :use_domain
         # Community has domain ready, should use it
         # -> Redirect to community domain
-        {url: "#{request[:protocol]}#{community[:domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
-      when :use_ident
+        { url: domain_redirect_url(domain: community[:domain], request: request),
+          status: :moved_permanently
+        }
+      when :use_ident, :www_ident
         # Community has a domain, but it's not in use.
         # -> Redirect to subdomain (ident)
-        {url: "#{request[:protocol]}#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
-      when :www_ident
+        # OR
         # Accessed community with ident, including www
         # -> Redirect to ident without www
-        {url: "#{request[:protocol]}#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
+        { url: ident_redirect_url(ident: community[:ident], app_domain: configs[:app_domain], request: request),
+          status: :moved_permanently
+        }
       else
         raise ArgumentError.new("Unknown redirect reason: '#{reason}'")
       end
 
     HashUtils.compact(DataTypes::Target.call(target.merge(reason: reason)))
+  end
+
+  def domain_redirect_url(domain:, request:)
+    host_redirect_url(host: domain, request: request)
+  end
+
+  def ident_redirect_url(ident:, app_domain:, request:)
+    host_redirect_url(host: "#{ident}.#{app_domain}", request: request)
+  end
+
+  def host_redirect_url(host:, request:)
+    "#{request[:protocol]}#{host}#{request[:port_string]}#{request[:fullpath]}"
   end
 
   # Returns a redirect reason or nil, if no redirect should be made
