@@ -306,7 +306,7 @@ class ApplicationController < ActionController::Base
     }
 
     other = {
-      no_communities: Community.count == 0,
+      no_communities: request.env[:no_marketplaces],
       community_search_status: community_search_status,
     }
 

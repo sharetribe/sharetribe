@@ -16,6 +16,16 @@ class CurrentMarketplaceAppender
         PlanService::API::Api.plans.get_current(community_id: marketplace.id).data
       end
 
-    @app.call(env.merge!(current_marketplace: marketplace, current_plan: plan))
+    no_marketplaces =
+      if marketplace
+        false
+      else
+        Community.count == 0
+      end
+
+    @app.call(env.merge!(
+                current_marketplace: marketplace,
+                current_plan: plan,
+                no_marketplaces: no_marketplaces))
   end
 end
