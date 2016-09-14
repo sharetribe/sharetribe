@@ -8,7 +8,6 @@ import css from './ListingCard.css';
 import noImageIcon from './images/noImageIcon.svg';
 import distanceIcon from './images/distanceIcon.svg';
 
-const NUMERAL_SYSTEM = 10;
 const MINIMUM_DISTANCE = 0.1;
 const PRECISION = 2;
 const TINT_PERCENTAGE = 20;
