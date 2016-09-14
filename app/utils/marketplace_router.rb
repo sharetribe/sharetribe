@@ -42,12 +42,12 @@ module MarketplaceRouter
     Target = EntityUtils.define_builder(
       # Reason
       [:reason, :symbol, one_of: [
-         :domain,          # Marketplace has a custom domain in use. Redirect to that domain.
-         :no_domain,       # Marketplace has a custom domain but it's not in use. Redirect to subdomain.
+         :use_domain,      # Marketplace has a custom domain in use. Redirect to that domain.
+         :use_ident,       # Marketplace has a custom domain but it's not in use. Redirect to subdomain.
          :deleted,         # Marketplace has been deleted
          :closed,          # Marketplace has been closed
          :not_found,       # Marketplace not found, but some marketplaces do exist
-         :new_marketplace, # There are no marketplaces. Redirect to new marketplace page
+         :no_marketplaces, # There are no marketplaces. Redirect to new marketplace page
          :www_ident,       # Accessed marketplace with WWW and subdomain, e.g. www.mymarketplace.sharetribe.com
        ]],
 
@@ -123,7 +123,7 @@ module MarketplaceRouter
   def redirect_target(reason:, request:, community:, paths:, configs:, protocol:)
     target =
       case reason
-      when :new_marketplace
+      when :no_marketplaces
         # Community not found, because there are no communities
         # -> Redirect to new community page
         paths[:new_community].merge(status: :found, protocol: protocol)
@@ -157,11 +157,11 @@ module MarketplaceRouter
         }.or_else {
           paths[:community_not_found].merge(status: :moved_permanently)
         }
-      when :domain
+      when :use_domain
         # Community has domain ready, should use it
         # -> Redirect to community domain
         {url: "#{protocol}#{community[:domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
-      when :no_domain
+      when :use_ident
         # Community has a domain, but it's not in use.
         # -> Redirect to subdomain (ident)
         {url: "#{protocol}#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
@@ -178,7 +178,7 @@ module MarketplaceRouter
 
   def redirect_reason(request:, community:, configs:, other:)
     if other[:community_search_status] == :not_found && other[:no_communities]
-      :new_marketplace
+      :no_marketplaces
     elsif other[:community_search_status] == :not_found && !other[:no_communities]
       :not_found
     elsif community && community[:deleted]
@@ -186,9 +186,9 @@ module MarketplaceRouter
     elsif community && community[:closed]
       :closed
     elsif community && community[:domain].present? && community[:use_domain] && request[:host] != community[:domain]
-      :domain
+      :use_domain
     elsif community && community[:domain].present? && !community[:use_domain] && request[:host] == community[:domain]
-      :no_domain
+      :use_ident
     elsif community && request[:host] == "www.#{community[:ident]}.#{configs[:app_domain]}"
       :www_ident
     end

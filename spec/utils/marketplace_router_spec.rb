@@ -69,7 +69,7 @@ describe MarketplaceRouter do
                         use_domain: true,
                         deleted: false,
                         domain: "www.marketplace.com",
-                      }).to eq(reason: :domain, url: "https://www.marketplace.com/listings", status: :moved_permanently)
+                      }).to eq(reason: :use_domain, url: "https://www.marketplace.com/listings", status: :moved_permanently)
     end
 
     it "does not redirect if use_domain is false" do
@@ -88,7 +88,7 @@ describe MarketplaceRouter do
                         domain: "www.marketplace.com",
                         deleted: false,
                         use_domain: true,
-                      }).to eq(reason: :domain, url: "https://www.marketplace.com:3333/listings", status: :moved_permanently)
+                      }).to eq(reason: :use_domain, url: "https://www.marketplace.com:3333/listings", status: :moved_permanently)
     end
 
     it "redirects deleted marketplaces" do
@@ -154,7 +154,7 @@ describe MarketplaceRouter do
                       other: {
                         community_search_status: :not_found,
                         no_communities: true,
-                      }).to eq(reason: :new_marketplace, route_name: :new_community, status: :found)
+                      }).to eq(reason: :no_marketplaces, route_name: :new_community, status: :found)
     end
 
     it "redirects to marketplace ident without www" do
@@ -180,7 +180,7 @@ describe MarketplaceRouter do
                         domain: "www.marketplace.com",
                         use_domain: true
                       }
-                     ).to eq(reason: :domain, url: "https://www.marketplace.com/listings", status: :moved_permanently)
+                     ).to eq(reason: :use_domain, url: "https://www.marketplace.com/listings", status: :moved_permanently)
     end
 
     it "redirects back to ident if domain is not in use" do
@@ -192,7 +192,7 @@ describe MarketplaceRouter do
                         domain: "www.marketplace.com",
                         use_domain: false
                       }
-                     ).to eq(reason: :no_domain, url: "https://marketplace.sharetribe.com/listings", status: :moved_permanently)
+                     ).to eq(reason: :use_ident, url: "https://marketplace.sharetribe.com/listings", status: :moved_permanently)
     end
   end
 end
