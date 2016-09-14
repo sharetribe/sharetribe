@@ -38,7 +38,7 @@ describe MarketplaceRouter do
       request: default_request.merge(request),
       community: community.nil? ? nil : default_community.merge(community),
       paths: default_paths.merge(paths),
-      configs: default_configs.merge(configs),
+      configs: default_configs.merge(configs)
     )
 
     expect(target)

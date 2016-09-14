@@ -46,7 +46,7 @@ describe CurrentMarketplaceAppender do
       expect(JSON.parse(r.body)["current_plan"])
         .to include(
               "community_id" => com.id,
-              "status" => "trial",
+              "status" => "trial"
             )
     end
 

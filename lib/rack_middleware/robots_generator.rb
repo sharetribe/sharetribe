@@ -58,7 +58,7 @@ class RobotsGenerator
     env[:redirect_reason]
   end
 
-  def self.not_found()
+  def self.not_found
     [404, CONTENT_TYPE, ['Not Found']]
   end
 

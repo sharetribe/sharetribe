@@ -35,19 +35,12 @@ class SitemapController < ActionController::Metal
     com = community(request)
     reason = redirect_reason(request)
 
-    if APP_CONFIG.asset_host.present?
-      if !UrlUtils.asset_host?(request.host)
-        return redirect_to ActionController::Base.helpers.asset_path(
-                      "/sitemap/#{request.host}/generate.xml.gz")
-      end
-    else
-      return if do_host_redirect!(com, reason)
+    if APP_CONFIG.asset_host.present? && !UrlUtils.asset_host?(request.host)
+      redirect_to ActionController::Base.helpers.asset_path(
+                    "/sitemap/#{request.host}/generate.xml.gz")
+    elsif !do_host_redirect!(com, reason) && !render_not_found!(reason) && can_show_sitemap?(com)
+      render_site_map(com)
     end
-
-    return if render_not_found!(reason)
-    return unless can_show_sitemap?(com)
-
-    render_site_map(com)
   end
 
   private

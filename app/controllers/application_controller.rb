@@ -304,7 +304,7 @@ class ApplicationController < ActionController::Base
         request:   MarketplaceRouter.request_hash(request),
         community: MarketplaceRouter.community_hash(@current_community, @current_plan),
         paths:     paths,
-        configs:   configs,
+        configs:   configs
       )
 
       url = target[:url] || send(target[:route_name], protocol: target[:protocol])

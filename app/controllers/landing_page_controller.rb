@@ -128,7 +128,7 @@ class LandingPageController < ActionController::Metal
         request:   MarketplaceRouter.request_hash(request),
         community: MarketplaceRouter.community_hash(community(request), plan(request)),
         paths:     paths,
-        configs:   configs,
+        configs:   configs
       )
 
       url = target[:url] || send(target[:route_name], protocol: target[:protocol])
