@@ -41,6 +41,7 @@ class ListingCard extends Component {
   render() {
 
     const tintedRGB = tint(this.props.color, TINT_PERCENTAGE);
+    const higherRes = this.props.image2xURL != null ? { srcSet: `${this.props.image2xURL} 2x` } : null;
     const hasDistance = !!this.props.distance;
     const precision = (hasDistance && this.props.distance < 1) ? 1 : PRECISION;
     const distanceFormatted = (hasDistance && this.props.distance < MINIMUM_DISTANCE) ? `< 0.1 ${this.props.distanceUnit}` : `${sigFigs(this.props.distance, precision)} ${this.props.distanceUnit}`;
@@ -56,12 +57,12 @@ class ListingCard extends Component {
         style: { backgroundColor: `rgb(${tintedRGB.r}, ${tintedRGB.g}, ${tintedRGB.b})` },
         href: this.props.listingURL,
       }, this.props.imageURL && this.state.imageStatus !== 'failed' ?
-        img({
+        img(Object.assign({}, {
           className: css.thumbnail,
           src: this.props.imageURL,
           onLoad: this.handleImageLoaded,
           onError: this.handleImageErrored,
-        }) :
+        }, higherRes)) :
         div({
           className: css.noImageContainer,
         }, div(
@@ -131,6 +132,7 @@ ListingCard.propTypes = {
   distanceUnit: string,
   id: string.isRequired,
   imageURL: string,
+  image2xURL: string,
   listingURL: string.isRequired,
   noImageText: string.isRequired,
   per: string,
