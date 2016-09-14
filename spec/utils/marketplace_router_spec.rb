@@ -195,4 +195,117 @@ describe MarketplaceRouter do
                      ).to eq(reason: :use_ident, url: "https://marketplace.sharetribe.com/listings", status: :moved_permanently)
     end
   end
+
+  describe "#redirect_reason" do
+
+    def expect_reason(opts = {})
+      defaults = {
+        community: {
+          use_domain: true,
+          deleted: false,
+          closed: false,
+          domain: "www.marketplace.com",
+          ident: "marketplace",
+        },
+        host: "marketplace.sharetribe.com",
+        community_search_status: :found,
+        no_communities: false,
+        app_domain: "sharetribe.com",
+      }
+
+      reason = MarketplaceRouter.redirect_reason(defaults.deep_merge(opts))
+      expect(reason)
+    end
+
+    it "does not redirect to full domain if the host is already the full domain" do
+      expect_reason(
+        host: "www.marketplace.com").to eq(nil)
+    end
+
+    it "does not redirect to full domain if full domain is not provided" do
+      expect_reason(
+        community: {
+          deleted: false,
+          use_domain: false,
+        }).to eq(nil)
+    end
+
+    it "redirects to full domain, if marketplace is accessed with the subdomain (ident) and full domain is provided and use_domain is true" do
+      expect_reason(
+        community: {
+          use_domain: true,
+          deleted: false,
+          domain: "www.marketplace.com",
+        }).to eq(:use_domain)
+    end
+
+    it "does not redirect if use_domain is false" do
+      expect_reason(
+        community: {
+          deleted: false,
+          domain: "www.marketplace.com",
+          use_domain: false,
+        }).to eq(nil)
+    end
+
+    it "redirects deleted marketplaces" do
+      expect_reason(
+        community: {
+          domain: "www.marketplace.com",
+          deleted: true,
+          use_domain: true,
+        }).to eq(:deleted)
+    end
+
+    it "redirects closed marketplaces" do
+      expect_reason(
+        community: {
+          domain: "www.marketplace.com",
+          closed: true,
+          use_domain: true,
+        }).to eq(:closed)
+    end
+
+    it "redirects to community not found if community was not found and some communities do exist" do
+      expect_reason(
+        community: nil, community_search_status: :not_found).to eq(:not_found)
+    end
+
+    it "redirects to new community page if community was not found and no communities exist" do
+      expect_reason(
+        community: nil,
+        community_search_status: :not_found,
+        no_communities: true).to eq(:no_marketplaces)
+    end
+
+    it "redirects to marketplace ident without www" do
+      expect_reason(
+        host: "www.marketplace.sharetribe.com",
+        community: {
+          ident: "marketplace",
+          domain: nil,
+        },
+        app_domain: "sharetribe.com").to eq(:www_ident)
+    end
+
+    it "redirects to marketplace domain if available" do
+      expect_reason(
+        community: {
+          ident: "marketplace",
+          domain: "www.marketplace.com",
+          use_domain: true
+        },
+        host: "www.marketplace.sharetribe.com").to eq(:use_domain)
+    end
+
+    it "redirects back to ident if domain is not in use" do
+      expect_reason(
+        host: "www.marketplace.com",
+        community: {
+          ident: "marketplace",
+          domain: "www.marketplace.com",
+          use_domain: false
+        }).to eq(:use_ident)
+    end
+  end
 end
