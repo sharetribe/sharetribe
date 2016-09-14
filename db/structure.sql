@@ -283,8 +283,6 @@ CREATE TABLE `communities` (
   `cover_photo_processing` tinyint(1) DEFAULT NULL,
   `small_cover_photo_processing` tinyint(1) DEFAULT NULL,
   `favicon_processing` tinyint(1) DEFAULT NULL,
-  `dv_test_file_name` varchar(64) DEFAULT NULL,
-  `dv_test_file` varchar(64) DEFAULT NULL,
   `deleted` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_communities_on_uuid` (`uuid`),
@@ -3100,6 +3098,8 @@ INSERT INTO schema_migrations (version) VALUES ('20160913110411');
 INSERT INTO schema_migrations (version) VALUES ('20160913112734');
 
 INSERT INTO schema_migrations (version) VALUES ('20160914070509');
+
+INSERT INTO schema_migrations (version) VALUES ('20160914071634');
 
 INSERT INTO schema_migrations (version) VALUES ('20160914072428');
 

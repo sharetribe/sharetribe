@@ -18,8 +18,4 @@
 #
 
 class ListingUnit < ActiveRecord::Base
-
-  def self.columns
-    super.reject { |c| c.name == "translation_key"}
-  end
 end
