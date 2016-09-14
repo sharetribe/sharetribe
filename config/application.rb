@@ -87,6 +87,7 @@ module Kassi
 
     # Resolve current marketplace and append it to env
     config.middleware.use "CurrentMarketplaceAppender"
+    config.middleware.use "MarketplaceRedirectReason"
 
     # Map of removed locales and their fallbacks
     config.REMOVED_LOCALE_FALLBACKS = Sharetribe::REMOVED_LOCALE_FALLBACKS

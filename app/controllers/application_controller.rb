@@ -285,6 +285,8 @@ class ApplicationController < ActionController::Base
   # Note: This filter is safe to run even if :fetch_community
   # filter is skipped
   def perform_redirect
+    return if community_search_status == :skipped
+
     paths = {
       community_not_found: Maybe(APP_CONFIG).community_not_found_redirect.map { |url| {url: url} }.or_else({route_name: :community_not_found_path}),
       new_community: {route_name: :new_community_path}
@@ -294,14 +296,7 @@ class ApplicationController < ActionController::Base
       app_domain: URLUtils.strip_port_from_host(APP_CONFIG.domain),
     }
 
-    app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
-
-    reason = MarketplaceRouter.redirect_reason(
-      host: request.host,
-      community: MarketplaceRouter.community_hash(@current_community, @current_plan),
-      app_domain: app_domain,
-      no_communities: request.env[:no_marketplaces],
-      community_search_status: community_search_status)
+    reason = request.env[:redirect_reason]
 
     if reason
       target = MarketplaceRouter.redirect_target(
