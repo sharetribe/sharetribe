@@ -34,6 +34,8 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 ## Unreleased
 
+If you are using S3 and are using an AWS region other than `us-east-1`, you need to update your `config.yml` file and set the `s3_region` configuration option to the AWS region you are using. As with all configuration options, you can also pass it as an environment variable.
+
 ## Upgrade from 5.10.0 to 5.11.0
 
 This version is the second phase of removing support for Braintree payments. Old payment data for Braintree transactions will be removed in the migrations. If you want to save this data, you should take a backup before updating.
