@@ -200,7 +200,7 @@ DROP TABLE IF EXISTS `communities`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `communities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uuid` binary(16) DEFAULT NULL,
+  `uuid` binary(16) NOT NULL,
   `ident` varchar(255) DEFAULT NULL,
   `domain` varchar(255) DEFAULT NULL,
   `use_domain` tinyint(1) NOT NULL DEFAULT '0',
@@ -287,6 +287,7 @@ CREATE TABLE `communities` (
   `dv_test_file` varchar(64) DEFAULT NULL,
   `deleted` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `index_communities_on_uuid` (`uuid`),
   KEY `index_communities_on_domain` (`domain`) USING BTREE,
   KEY `index_communities_on_ident` (`ident`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1559,7 +1560,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-14 10:12:45
+-- Dump completed on 2016-09-14 10:27:21
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3099,4 +3100,8 @@ INSERT INTO schema_migrations (version) VALUES ('20160913110411');
 INSERT INTO schema_migrations (version) VALUES ('20160913112734');
 
 INSERT INTO schema_migrations (version) VALUES ('20160914070509');
+
+INSERT INTO schema_migrations (version) VALUES ('20160914072428');
+
+INSERT INTO schema_migrations (version) VALUES ('20160914072601');
 
