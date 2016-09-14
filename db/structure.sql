@@ -816,7 +816,7 @@ DROP TABLE IF EXISTS `listings`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `listings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uuid` binary(16) DEFAULT NULL,
+  `uuid` binary(16) NOT NULL,
   `community_id` int(11) NOT NULL,
   `author_id` varchar(255) DEFAULT NULL,
   `category_old` varchar(255) DEFAULT NULL,
@@ -859,6 +859,7 @@ CREATE TABLE `listings` (
   `shipping_price_cents` int(11) DEFAULT NULL,
   `shipping_price_additional_cents` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `index_listings_on_uuid` (`uuid`),
   KEY `index_listings_on_new_category_id` (`category_id`) USING BTREE,
   KEY `person_listings` (`community_id`,`author_id`) USING BTREE,
   KEY `homepage_query` (`community_id`,`open`,`sort_date`,`deleted`) USING BTREE,
@@ -1557,7 +1558,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-13 13:53:27
+-- Dump completed on 2016-09-13 14:37:34
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3091,4 +3092,8 @@ INSERT INTO schema_migrations (version) VALUES ('20160902104733');
 INSERT INTO schema_migrations (version) VALUES ('20160907095103');
 
 INSERT INTO schema_migrations (version) VALUES ('20160908091353');
+
+INSERT INTO schema_migrations (version) VALUES ('20160913110411');
+
+INSERT INTO schema_migrations (version) VALUES ('20160913112734');
 
