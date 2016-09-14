@@ -4,6 +4,7 @@
 # Table name: communities
 #
 #  id                                         :integer          not null, primary key
+#  uuid                                       :binary(16)
 #  ident                                      :string(255)
 #  domain                                     :string(255)
 #  use_domain                                 :boolean          default(FALSE), not null
