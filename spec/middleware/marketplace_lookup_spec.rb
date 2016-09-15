@@ -3,9 +3,9 @@ require 'spec_helper'
 # Override the API with test API
 require_relative '../services/plan_service/api/api'
 
-describe CurrentMarketplaceAppender do
+describe MarketplaceLookup do
   let(:app) { ->(env) {['200', {'Content-Type' => 'text/plain'}, [env.to_json]]} }
-  let(:request) { Rack::MockRequest.new(CurrentMarketplaceAppender.new(app))}
+  let(:request) { Rack::MockRequest.new(MarketplaceLookup.new(app))}
 
   describe "current_marketplace" do
     it 'gets the right community by subdomain' do
@@ -68,23 +68,4 @@ describe CurrentMarketplaceAppender do
       expect(JSON.parse(r.body)["current_plan"]).to eq(nil)
     end
   end
-
-  describe "no_marketplaces" do
-    before(:each) {
-      Community.destroy_all
-    }
-
-    it "sets no_marketplaces to true, if there are no marketplaces" do
-      r = request.get 'https://non-existing-market.custom.org', {'HTTP_HOST' => 'non-existing-market.custom.org'}
-      expect(JSON.parse(r.body)["no_marketplaces"]).to eq(true)
-    end
-
-    it "sets no_marketplaces to false, if marketplaces do exist" do
-      com = FactoryGirl.create(:community, :domain => 'market.custom.org')
-
-      r = request.get 'https://non-existing-market.custom.org', {'HTTP_HOST' => 'non-existing-market.custom.org'}
-      expect(JSON.parse(r.body)["no_marketplaces"]).to eq(false)
-    end
-  end
-
 end
