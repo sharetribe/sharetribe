@@ -275,16 +275,6 @@ class Community < ActiveRecord::Base
 
   attr_accessor :terms
 
-  def self.columns
-    super.reject { |c|
-      [
-        "only_public_listings",
-        "dv_test_file_name",
-        "dv_test_file",
-      ].include?(c.name)
-    }
-  end
-
   # Wrapper for the various attachment images url methods
   # which returns url of old image, while new one is processing.
   def stable_image_url(image_name, style = nil, options = {})

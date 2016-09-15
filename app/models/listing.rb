@@ -162,10 +162,6 @@ class Listing < ActiveRecord::Base
     "#{id}-#{title.to_url}"
   end
 
-  def self.columns
-    super.reject { |c| c.name == "transaction_type_id" || c.name == "visibility"}
-  end
-
   def self.find_by_category_and_subcategory(category)
     Listing.where(:category_id => category.own_and_subcategory_ids)
   end
