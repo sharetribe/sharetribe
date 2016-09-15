@@ -8,31 +8,6 @@ describe ApplicationController, type: :controller do
     end
   end
 
-  describe "handling RestClient::Unauthorized exceptions" do
-
-    controller do
-      # a mock method to raise the error
-      def index
-        raise RestClient::Unauthorized
-      end
-    end
-
-    it "logs the user out from Sharetribe" do
-      get :index
-      expect(assigns("current_user")).to be_nil
-    end
-
-    if APP_CONFIG.login_domain
-      it "shows flash error" do
-        @request.host = "login.lvh.me"
-        request.env['HTTP_REFERER'] = 'http://test.lvh.me:9887'
-        get :index
-        expect(flash[:error].class).to eq(Array)
-        expect(flash[:error][0]).to eq("error_with_session")
-      end
-    end
-  end
-
   describe "handling wrong requests coming to login domain" do
     if APP_CONFIG.login_domain
       controller do
