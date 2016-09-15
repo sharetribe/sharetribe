@@ -4,10 +4,14 @@ class RobotsGenerator
 
   CONTENT_TYPE = { "Content-Type" => "text/plain" }
 
+  class Request < Rack::Request
+    include ActionDispatch::Http::URL
+  end
+
   def self.call(env)
     community = community(env)
     reason = redirect_reason(env)
-    req = Rack::Request.new(env)
+    req = Request.new(env)
 
     target = redirect_target(community, reason, req)
     return target unless target.nil?
@@ -41,7 +45,7 @@ class RobotsGenerator
     when :use_ident, :www_ident
       redirect_to(
         MarketplaceRouter.ident_redirect_url(
-          domain: community.ident,
+          ident: community.ident,
           app_domain: app_domain,
           request: request_hash))
     when :deleted, :closed, :not_found, :no_marketplaces
@@ -51,7 +55,7 @@ class RobotsGenerator
   end
 
   def self.community(env)
-    env[:current_community]
+    env[:current_marketplace]
   end
 
   def self.redirect_reason(env)

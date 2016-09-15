@@ -35,7 +35,7 @@ class SitemapController < ActionController::Metal
     com = community(request)
     reason = redirect_reason(request)
 
-    if APP_CONFIG.asset_host.present? && !UrlUtils.asset_host?(request.host)
+    if APP_CONFIG.asset_host.present? && !URLUtils.asset_host?(host: request.host_with_port, asset_host: APP_CONFIG.asset_host)
       redirect_to ActionController::Base.helpers.asset_path(
                     "/sitemap/#{request.host}/generate.xml.gz")
     elsif !do_host_redirect!(com, reason) && !render_not_found!(reason) && can_show_sitemap?(com)
@@ -61,7 +61,7 @@ class SitemapController < ActionController::Metal
     when :use_ident, :www_ident
       redirect_to(
         MarketplaceRouter.ident_redirect_url(
-          domain: community.ident,
+          ident: community.ident,
           app_domain: app_domain,
           request: request_hash),
         status: :moved_permanently)

@@ -287,28 +287,14 @@ class ApplicationController < ActionController::Base
   def perform_redirect
     return if community_search_status == :skipped
 
-    paths = {
-      community_not_found: Maybe(APP_CONFIG).community_not_found_redirect.map { |url| {url: url} }.or_else({route_name: :community_not_found_path}),
-      new_community: {route_name: :new_community_path}
+    redirect_params = {
+      community: @current_community,
+      plan: @current_plan,
+      request: request
     }
 
-    configs = {
-      app_domain: URLUtils.strip_port_from_host(APP_CONFIG.domain),
-    }
-
-    reason = request.env[:redirect_reason]
-
-    if reason
-      target = MarketplaceRouter.redirect_target(
-        reason:    reason,
-        request:   MarketplaceRouter.request_hash(request),
-        community: MarketplaceRouter.community_hash(@current_community, @current_plan),
-        paths:     paths,
-        configs:   configs
-      )
-
+    MarketplaceRouter.perform_redirect(redirect_params) do |target|
       url = target[:url] || send(target[:route_name], protocol: target[:protocol])
-
       redirect_to(url, status: target[:status])
     end
   end

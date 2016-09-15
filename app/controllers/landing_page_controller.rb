@@ -15,11 +15,18 @@ class LandingPageController < ActionController::Metal
   # Ensure ActiveSupport::Notifications events are fired
   include ActionController::Instrumentation
 
-  # Include route helpers
-  include Rails.application.routes.url_helpers
-
   # Adds helper_method
   include ActionController::Helpers
+
+  # Add redirect_to
+  include ActionController::Redirecting
+
+  # Include route helpers.
+  #
+  # This needs to be included last! Otherwise you may get error saying
+  # that you need to include url_helpers in order to use #url_for
+  #
+  include Rails.application.routes.url_helpers
 
   CACHE_TIME = APP_CONFIG[:clp_cache_time].to_i.seconds
   CACHE_HEADER = "X-CLP-Cache"
@@ -27,6 +34,8 @@ class LandingPageController < ActionController::Metal
   FONT_PATH = APP_CONFIG[:font_proximanovasoft_url]
 
   def index
+    return if perform_redirect!
+
     cid = community(request).id
     default_locale = community(request).default_locale
     version = CLP::LandingPageStore.released_version(cid)
@@ -81,6 +90,8 @@ class LandingPageController < ActionController::Metal
   end
 
   def preview
+    return if perform_redirect!
+
     cid = community(request).id
     default_locale = community(request).default_locale
 
@@ -110,29 +121,15 @@ class LandingPageController < ActionController::Metal
 
   private
 
-  def perform_redirect
-    paths = {
-      community_not_found: Maybe(APP_CONFIG).community_not_found_redirect.map { |url| {url: url} }.or_else({route_name: :community_not_found_path}),
-      new_community: {route_name: :new_community_path}
+  def perform_redirect!
+    redirect_params = {
+      community: community(request),
+      plan: plan(request),
+      request: request
     }
 
-    configs = {
-      app_domain: URLUtils.strip_port_from_host(APP_CONFIG.domain),
-    }
-
-    reason = request.env[:redirect_reason]
-
-    if reason
-      target = MarketplaceRouter.redirect_target(
-        reason:    reason,
-        request:   MarketplaceRouter.request_hash(request),
-        community: MarketplaceRouter.community_hash(community(request), plan(request)),
-        paths:     paths,
-        configs:   configs
-      )
-
+    MarketplaceRouter.perform_redirect(redirect_params) do |target|
       url = target[:url] || send(target[:route_name], protocol: target[:protocol])
-
       redirect_to(url, status: target[:status])
     end
   end

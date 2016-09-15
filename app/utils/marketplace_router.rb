@@ -193,7 +193,48 @@ module MarketplaceRouter
     end
   end
 
-  # Takes a Request
+  # This is a dirty method that is aware of the global application
+  # configs. You can use this method in a controller. This method will
+  # call the block if redirect is needed.
+  #
+  # The method returns `true` if redirect is needed, so you can use it as a guard:
+  #
+  # ```
+  # def index
+  #   return if MarketplaceRouter.perform_redirect(community: @current_community, plan: @current_plan, request: request) { |target|
+  #     url = target[:url] || send(target[:route_name], protocol: target[:protocol])
+  #     redirect_to(url, status: target[:status])
+  #   }
+  # end
+  # ```
+  #
+  def perform_redirect(community:, plan:, request:, &block)
+    paths = {
+      community_not_found: Maybe(APP_CONFIG).community_not_found_redirect.map { |url| {url: url} }.or_else({route_name: :community_not_found_path}),
+      new_community: {route_name: :new_community_path}
+    }
+
+    configs = {
+      app_domain: URLUtils.strip_port_from_host(APP_CONFIG.domain),
+    }
+
+    reason = request.env[:redirect_reason]
+
+    if reason
+      target = MarketplaceRouter.redirect_target(
+        reason:    reason,
+        request:   MarketplaceRouter.request_hash(request),
+        community: MarketplaceRouter.community_hash(community, plan),
+        paths:     paths,
+        configs:   configs
+      )
+
+      block.call(target)
+      true
+    end
+  end
+
+  # Takes a Rails Request
   #
   # Returns a Hash in a form that MarketplaceRouter expects
   #
