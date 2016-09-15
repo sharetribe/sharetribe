@@ -146,7 +146,7 @@ describe PersonMailer, type: :mailer do
     @community = FactoryGirl.create(:community, :email_admins_about_new_members => 1)
     m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id, :status => "accepted")
     m.update_attribute(:admin, true)
-    email = MailCarrier.deliver_now(PersonMailer.new_member_notification(@test_person2, @community, @test_person2.email))
+    email = MailCarrier.deliver_now(PersonMailer.new_member_notification(@test_person2, @community, @community.admins.first))
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal @test_person.confirmed_notification_email_addresses, email.to
     assert_equal "New member in #{@community.full_name('en')}", email.subject

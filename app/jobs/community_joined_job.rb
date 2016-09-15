@@ -11,10 +11,15 @@ class CommunityJoinedJob < Struct.new(:person_id, :community_id)
   end
 
   def perform
-    current_user = Person.find(person_id)
-    current_community = Community.find(community_id)
+    new_member = Person.find(person_id)
+    community = Community.find(community_id)
 
-    MailCarrier.deliver_now(PersonMailer.new_member_notification(current_user, current_community, current_user.emails.last.address)) if current_community.email_admins_about_new_members?
+    if community.email_admins_about_new_members?
+      community.admins.each do |admin|
+        MailCarrier.deliver_now(
+          PersonMailer.new_member_notification(new_member, community, admin))
+      end
+    end
   end
 
 end
