@@ -250,14 +250,17 @@ class PersonMailer < ActionMailer::Base
 
   # Old layout
 
-  def new_member_notification(person, community, email)
+  def new_member_notification(new_member, community, admin)
     @community = community
     @no_settings = true
-    @person = person
-    @email = email
-    premailer_mail(:to => @community.admin_emails,
-         :from => community_specific_sender(@community),
-         :subject => "New member in #{@community.full_name(@person.locale)}")
+    @person = new_member
+    @email = new_member.emails.last.address
+    with_locale(admin.locale, community.locales.map(&:to_sym), community.id) do
+      premailer_mail(:to => admin.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => "New member in #{@community.full_name(@person.locale)}",
+                     :template_name => "new_member_notification")
+    end
   end
 
   def email_confirmation(email, community)
@@ -267,7 +270,7 @@ class PersonMailer < ActionMailer::Base
     @confirmation_token = email.confirmation_token
     @host = community.full_domain
     @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]
-    with_locale(email.person.locale, community.locales.map(&:to_sym) ,community.id) do
+    with_locale(email.person.locale, community.locales.map(&:to_sym), community.id) do
       email.update_attribute(:confirmation_sent_at, Time.now)
       premailer_mail(:to => email.address,
                      :from => community_specific_sender(community),
