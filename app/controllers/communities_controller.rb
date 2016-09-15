@@ -1,5 +1,6 @@
 class CommunitiesController < ApplicationController
   skip_filter :fetch_community,
+              :perform_redirect,
               :cannot_access_if_banned,
               :cannot_access_without_confirmation,
               :ensure_consent_given,

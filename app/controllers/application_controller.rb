@@ -267,26 +267,12 @@ class ApplicationController < ActionController::Base
     request.env[:community_id] = m_community.id.or_else(nil)
 
     setup_logger!(marketplace_id: m_community.id.or_else(nil), marketplace_ident: m_community.ident.or_else(nil))
-
-    # Save :found or :not_found to community status
-    # This is needed because we need to distinguish to cases
-    # where community is nil
-    #
-    # 1. Community is nil because it was not found
-    # 2. Community is nil beucase fetch_community filter was skipped
-    @community_search_status = @current_community ? :found : :not_found
-  end
-
-  def community_search_status
-    @community_search_status || :skipped
   end
 
   # Performs redirect to correct URL, if needed.
   # Note: This filter is safe to run even if :fetch_community
   # filter is skipped
   def perform_redirect
-    return if community_search_status == :skipped
-
     redirect_params = {
       community: @current_community,
       plan: @current_plan,

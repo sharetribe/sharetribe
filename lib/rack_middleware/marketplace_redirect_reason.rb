@@ -17,7 +17,6 @@ class MarketplaceRedirectReason
     redirect_reason = ::MarketplaceRouter.redirect_reason(
       community: ::MarketplaceRouter.community_hash(marketplace, plan),
       host: request.host,
-      community_search_status: marketplace.nil? ? :not_found : :found,
       no_communities: no_marketplaces,
       app_domain: ::URLUtils.strip_port_from_host(APP_CONFIG.domain)
     )

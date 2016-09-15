@@ -31,8 +31,7 @@ module MarketplaceRouter
     )
 
     Other = EntityUtils.define_builder(
-      [:no_communities, :bool, :mandatory],
-      [:community_search_status, one_of: [:found, :not_found, :skipped]]
+      [:no_communities, :bool, :mandatory]
     )
 
     # Target can be either URL or named route.
@@ -173,12 +172,12 @@ module MarketplaceRouter
 
   # Returns a redirect reason or nil, if no redirect should be made
   #
-  def redirect_reason(community:, host:, community_search_status:, no_communities:, app_domain:)
+  def redirect_reason(community:, host:, no_communities:, app_domain:)
     community = Maybe(community).map { |c| DataTypes.create_community(c) }.or_else(nil)
 
-    if community_search_status == :not_found && no_communities
+    if no_communities
       :no_marketplaces
-    elsif community_search_status == :not_found && !no_communities
+    elsif community.nil? && !no_communities
       :not_found
     elsif community && community[:deleted]
       :deleted

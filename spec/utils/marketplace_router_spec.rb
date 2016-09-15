@@ -124,8 +124,7 @@ describe MarketplaceRouter do
     it "redirects to community not found if community was not found and some communities do exist" do
       expect_target(
         reason: :not_found,
-        community: nil,
-        other: {community_search_status: :not_found}).to eq(reason: :not_found, route_name: :not_found, status: :found)
+        community: nil).to eq(reason: :not_found, route_name: :not_found, status: :found)
     end
 
     it "adds utm_ parameters when redirecting no community found and other communties exist" do
@@ -133,7 +132,6 @@ describe MarketplaceRouter do
         reason: :not_found,
         community: nil,
         request: { host: "www.wrongmarketplace.com" },
-        other: { community_search_status: :not_found },
         paths: { community_not_found: { url: "https://redirect.site.com"} }
       ).to eq(reason: :not_found,
               url: "https://redirect.site.com?utm_source=www.wrongmarketplace.com&utm_medium=redirect&utm_campaign=na-auto-redirect",
@@ -145,7 +143,6 @@ describe MarketplaceRouter do
         reason: :no_marketplaces,
         community: nil,
         other: {
-          community_search_status: :not_found,
           no_communities: true,
         }).to eq(reason: :no_marketplaces, route_name: :new_community, status: :found)
     end
@@ -207,7 +204,6 @@ describe MarketplaceRouter do
           ident: "marketplace",
         },
         host: "marketplace.sharetribe.com",
-        community_search_status: :found,
         no_communities: false,
         app_domain: "sharetribe.com",
       }
@@ -266,15 +262,11 @@ describe MarketplaceRouter do
     end
 
     it "redirects to community not found if community was not found and some communities do exist" do
-      expect_reason(
-        community: nil, community_search_status: :not_found).to eq(:not_found)
+      expect_reason(community: nil).to eq(:not_found)
     end
 
     it "redirects to new community page if community was not found and no communities exist" do
-      expect_reason(
-        community: nil,
-        community_search_status: :not_found,
-        no_communities: true).to eq(:no_marketplaces)
+      expect_reason(community: nil, no_communities: true).to eq(:no_marketplaces)
     end
 
     it "redirects to marketplace ident without www" do
