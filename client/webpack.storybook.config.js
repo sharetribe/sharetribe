@@ -37,6 +37,14 @@ config.module.loaders.push(
   }
 );
 
+config.externals = {
+  jsdom: 'window',
+  cheerio: 'window',
+  'react/lib/ExecutionEnvironment': true,
+  'react/lib/ReactContext': 'window',
+  'react/addons': true,
+};
+
 config.output = {};
 config.output.publicPath = '/static/';
 
