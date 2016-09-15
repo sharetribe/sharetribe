@@ -1,0 +1,11 @@
+- hosts: all
+  tasks:
+    - name: Imagemagick | Install Imagemagick
+      action: apt pkg={{ item }} state=latest
+      sudo: yes
+      with_items:
+        - imagemagick
+        - libjpeg8-dev
+        - libpng12-dev
+      #  - libmagickcore-dev
+      #  - libmagickwand-dev

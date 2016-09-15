@@ -1,0 +1,7 @@
+---
+- include: install_dependencies.yml
+- include: install_ruby.yml
+- include: install_nodejs.yml
+- include: mysql/main.yml
+- include: install_sphinx.yml
+- include: install_imagemagick.yml
