@@ -192,7 +192,7 @@ module MarketplaceRouter
     end
   end
 
-  # This is a dirty method that is aware of the global application
+  # This method is not side-effect free: It's aware of the global application
   # configs. You can use this method in a controller. This method will
   # call the block if redirect is needed.
   #
