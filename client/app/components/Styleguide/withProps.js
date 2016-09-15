@@ -33,7 +33,7 @@ const storify = (ComposedComponent, containerStyle) => (
   class EnhancedComponent extends Component {
     render() {
       return div(null, [
-        div({ className: css.componentWrapper, key: 'componentWrapper' }, [
+        div({ key: 'componentWrapper' }, [
           div(containerStyle, ComposedComponent),
         ]),
 
