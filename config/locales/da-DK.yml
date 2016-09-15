@@ -94,18 +94,18 @@ da-DK:
         favicon: Favicon
         favicon_info_text: "Dit favicon vil erstatte vores standard Sharetribe logo. Størrelsen på dit favicon skal være 32x32 pixels."
         community_custom_color1: Farvekode
-        new_listing_button_custom_color: ~
+        new_listing_button_custom_color: "Farven af knappen \"Opret annonce\"."
         logo_instructions_text_with_dimensions: "Størrelsen på logoet, som vises på alm. computer, skal være %{height}x%{width}px. Det vil blive vist til brugere med større skærme."
-        logo_instructions_text_with_dimensions_no_placing: ~
+        logo_instructions_text_with_dimensions_no_placing: "Højden på logoet skal være %{height} %{width}px."
         logo_icon_instructions_text_with_dimensions: "Mobillogo skal være kvadratisk, %{width}x%{height}px. Det vil blive vist til brugere med små skærme."
-        logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_icon_instructions_text_with_dimensions_no_placing: "Dette firkantede logo vil blive vist når folk deler din side på Facebook eller når folk gemmer din side som en bogmærke. Dimensionerne på logoet bør være (mindst) %{height}%{width}px."
         cover_photo_visibility: "Coverbillede bliver vist på startsiden for dem som ikke er logget ind."
         cover_photo_instructions_text_with_dimensions: "Billedet vil blive skalleret til %{width}x%{height}px og større billede vil blive beskåret i midten. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Det lille coverbillede bliver vist på alle sider undtagen forsiden, for dem som ikke er logget ind."
         small_cover_photo_instructions_text_with_dimensions: "Billedet vil blive skaleret til %{width}x%{height}px og større billede vil blive beskåret i midten."
         main_content_width: "Når du vælger et coverbillede, så læg mærke til at siden hovedindhold er %{main_width} pixels bredde ved største skærm. Husk at tjekke om coverbilledet sær normalt ud på mindre skærme (f.eks ved at gøre browser vinduet mindre)."
         custom_color1_instructions_text: "Du kan ændre brugerfladens primære farve ved at indtaste en hex-farvekode. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kan hjælpe dig med at vælge en farve og bagefter kan du kopiere farvekoden hertil."
-        new_listing_button_instructions_text: ~
+        new_listing_button_instructions_text: "Du kan ændre farven af knappen \"Opret annonce\" ved at indtaste en hex farve kode. %{link_to_colorpicker} kan hjælpe dig med at vælge farve og du kan kopiere koden derfra."
         default_browse_view: "Standard visning"
         default_browse_view_instructions_text: "Standard visningen er brugt på forsiden, og er den måde annoncerne bliver præsenteret på."
         grid: Rude
@@ -239,11 +239,13 @@ da-DK:
         ban_me_error: "Du kan ikke forbyde dig selv."
       new_layout:
         new_layout: "Nyt layout"
-        description_roadmap: ~
-        description_process: ~
-        enabled_for_you: ~
-        enabled_for_all: ~
-        new_topbar: ~
+        description_roadmap: "Sharetribe er i øjeblikket ved at lancere et nyt og forbedret layout. I denne overgangsperiode kan du vælge hvilke dele af din markedsplads, der skal bruge det gamle layout, ved hjælp af knappen nedenfor. Nye features vil kun være tilgængelige i det nye layout."
+        description_process: |-
+            Support til det gamle layout vil blive fjernet i fremtiden. Sharetribe teamet vil give dig besked inden det sker. Spørgsmål?
+            Kontakt teamet via %{support_link}.
+        enabled_for_you: "Tilladt for dig."
+        enabled_for_all: "Tilladt for alle."
+        new_topbar: "Ny top bjælke (synlig på alle sider)."
       social_media:
         social_media: Social
         twitter_handle: "Twitter konto"
@@ -283,9 +285,9 @@ da-DK:
         max_number_of_links_info: "Link til %{about_page} vises altid som det første menu link"
         about_page: "om side"
       topbar:
-        topbar: ~
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        topbar: "Top bjælke"
+        new_listing_button_label: "Tekst på knappen \"Opret annonce\""
+        invalid_post_listing_button_label: "Indtast venligst en gyldig tekst for \"Opret annonce\" knappen."
       transactions:
         export_all_as_csv: "Eksporter alle som CSV"
         transactions: "Vis transaktioner"
@@ -1153,7 +1155,7 @@ da-DK:
       join_this_community: "Slut dig til markedspladsen"
       read_more: "Læs mere"
       feedback: "Din besked til %{service_name} team"
-      dont_use_to_contact_support: ~
+      dont_use_to_contact_support: "Vi har lagt mærke til at du er administrator for %{service_name}. Denne formular benytter brugerne sig til at kontakte dig med. Du kan ikke bruge denne formular til at kontakte Sharetribe teamet. Det kan du gøre via Support linket i admin panelet."
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
       give_feedback: "Kontakt os"
@@ -1228,7 +1230,7 @@ da-DK:
       error_with_session: "Fejl ved session."
       feedback_considered_spam: "Feedback ikke gemt på grund af sin formatering. Prøv igen, eller brug feedback-forum."
       feedback_not_saved: "Feedback kunne ikke sendes."
-      feedback_saved: ~
+      feedback_saved: "Tusind tak for din besked! Vi vender tilbage så hurtigt som muligt."
       feedback_sent_to: "Feedback sendt til %{target_person}."
       feedback_skipped: "Feedback sprunget over"
       invitation_cannot_be_sent: "Invitation kunne ikke sendes"
@@ -1591,9 +1593,9 @@ da-DK:
       you_will_be_charged: "Ordren er først gennemført, når %{author} godkender ordren. Hvis %{author} afviser eller ikke godkender ordren inden for %{expiration_period} dage, bliver der ikke trukket noget beløb."
       day: dag
       days: dage
-      night: ~
-      nights: ~
-      invalid_parameters: ~
+      night: Nat
+      nights: Nætter
+      invalid_parameters: "Ugyldige værdier for ny transaktion"
     transaction_agreement_checkbox:
       read_more: Vis.
   mapview:
@@ -2031,12 +2033,18 @@ da-DK:
   transactions:
     initiate:
       booked_days: "Bookede dage:"
-      booked_nights: ~
+      booked_nights: "Reserverede nætter:"
       price_per_day: "Pris pr. dag:"
-      price_per_night: ~
+      price_per_night: "Pris per nat:"
       quantity: "Mængde:"
       subtotal: "Subtotal:"
       shipping-price: "Porto:"
+      booked_days_label:
+        one: "Reserveret dag:"
+        other: "Reserverede dage:"
+      booked_nights_label:
+        one: "Reserveret nat:"
+        other: "Reserverede nætter:"
     price_per_quantity: "Pris pr. %{unit_type}:"
     price: "Pris:"
     quantity: "Mængde: %{quantity}"

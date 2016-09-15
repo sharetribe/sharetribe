@@ -53,7 +53,7 @@ sk-SK:
       failure: "Nemožno Vás autorizovať z %{kind}, lebo %{reason}"
     mailer:
       confirmation_instructions:
-        subject: "Pokyny na potvrdenie"
+        subject: "Pokyny na potvrdenie %{service_name}"
       reset_password_instructions:
         subject: "Pokyny na zmenu hesla"
       unlock_instructions:

@@ -51,7 +51,7 @@ da-DK:
       failure: "Kunne ikke godkende dig fra %{kind} fordi \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: Bekræftelsesinstruktioner
+        subject: "Instruktioner for bekræftelse ved tilmelding til %{service_name}"
       reset_password_instructions:
         subject: "Nulstil adgangskode"
       unlock_instructions:

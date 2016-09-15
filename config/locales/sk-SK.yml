@@ -244,8 +244,8 @@ sk-SK:
         ban_me_error: "Nemôžete seba samého vylúčiť."
       new_layout:
         new_layout: "Nový vzhľad"
-        description_roadmap: "Môžete si vybrať, či chcete použiť nový vzhľad, alebo starý Vašeho trhoviska. Odporúča sa použiť nový vzhľad, pretože väčšina nových funkcií nepodporuje starý vzhľad. Starý vzhľad bude kompletne odstránený (budete upozornený, keď sa to stane)."
-        description_process: "Nový vzhľad je nasadený raz za čas. Môžete sa rozhodnúť ponechať si starý vzhľad pre niektoré stránky a použiť nový pre ostatné. Všetky stránky si môžete prezrieť v náhľade bez toho, aby to užívatelia videli, tým, že si nové stránky aktivujete pre seba."
+        description_roadmap: "Sharetribe momentálne vyvíja nový vylepšený vzhľad. Môžete si vybrať, či chcete použiť nový, alebo starý vzhľad vašeho trhoviska. Odporúča sa použiť nový vzhľad, pretože väčšina nových funkcií nepodporuje starý vzhľad. Starý vzhľad bude kompletne odstránený ."
+        description_process: "Podpora pre starý vzhľad bude v budúcnosti odstránená. Sharetribe tím vás o tom bude informovať. Otázky? Kontaktujte tím cez %{support_link}"
         enabled_for_you: "Sprístupnené pre Vás"
         enabled_for_all: "Sprístupnené pre všetkých"
         new_topbar: "Nová horná lišta (viditeľná na každej stránke)"
@@ -316,7 +316,7 @@ sk-SK:
           pending_ext: "Čaká sa na PayPal platbu"
         not_available: "Teraz k dispozicií"
       paypal_account:
-        paypal_admin_account: Platby
+        paypal_admin_account: "Platobný systém"
     custom_fields:
       edit:
         edit_listing_field: "Upraviť pole inzerátu '%{field_name}'"
@@ -477,15 +477,15 @@ sk-SK:
           quantity_label: "Množstvo (za kus, za kg, za osobu, za dve hodiny výletu...)"
           time_label: "Čas (za 30 minút, za 2 týždne, za rok...)"
     paypal_accounts:
-      marketplace_paypal_integration: "Nastavenie platieb"
-      preferences_updated: "Nastavenia platieb boli aktualizované"
+      marketplace_paypal_integration: "Nastavenia platobného systému"
+      preferences_updated: "Nastavenia platobného systému boli upravené"
       marketplace_currency_used: "Toto trhovisko používa platobnú menu %{currency}. Pre zmenu meny, %{contact_support_link}."
       contact_support_link_text: "kontaktujte Sharetribe podporu"
-      integration_info_text: "Platobný systém Sharetribe je založený na PayPal. Pokiaľ chcete užívateľom umožniť, aby prevádzali platby cez Vaše trhovisko, musíte se pripojiť k Vašemu PayPal účtu, zadať minimálnu veľkosť transakcie a poplatok z každej prevedenej transakcie."
+      integration_info_text: "Platobný systém vašeho trhoviska je založený na PayPal. Pokiaľ chcete užívateľom umožniť, aby prevádzali platby cez vaše trhovisko, musíte sa pripojiť k Vašemu PayPal účtu, zadať minimálnu veľkosť transakcie a poplatok z každej prevedenej transakcie."
       link_paypal_personal_account_label: "Ponúkate tovar alebo poskytujete služby?"
       link_paypal_personal_account: "pokiaľ áno, tak sa musíte pripojiť na Váš PayPal účet. %{personal_payment_preferences_link}"
       personal_payment_preferences_link_text: "Váš osobný účet"
-      read_more_about_paypal: "Čítať viac o Sharetribe platobnom systéme"
+      read_more_about_paypal: "Čítať viac o platobnom systéme"
       set_minimum_price_and_fee: "Nastaviť minimálnu cenu a transakčný poplatok"
       minimum_listing_price_label: "Minimálna čiastka transakcie:"
       transaction_fee_label: "Transakčný poplatok:"
@@ -786,7 +786,7 @@ sk-SK:
       show_thread: "Zobraz konverzáciu"
     confirmation_instructions:
       confirmation_instructions_signature: "S pozdravom,<br/>Váš %{service_name} tím"
-      need_to_confirm: "Potvrďte Vašu e-mailovú adresu kliknutím na tlačítko nižšie."
+      need_to_confirm: "Pre prihlásenie do %{service_name}, potvrďte Vašu e-mailovú adresu kliknutím na tlačítko nižšie."
       confirmation_link_text: "Potvrdiť moju e-mailovú adresu"
       or_paste_link: "Alebo si môžete nasledujúci odkaz skopírovať do internetového prehliadača:"
     common:
@@ -1559,7 +1559,7 @@ sk-SK:
       inquiry: Oznamy
       item_offer_trade: "Ponuka výmeny"
       item_request_trade: "Žiadosť výmeny"
-      no_description: "Tento zoznam nemá popis"
+      no_description: "Tento inzerát nemá popis"
       no_image: "Žiadny obrázok"
       no_reviews: "Bez hodnotení"
       offer: ponuka
@@ -1900,7 +1900,7 @@ sk-SK:
       given_name: Meno
       first_name_with_initial: "(zobrazí sa iba prvé písmeno užívateľom)"
       first_name_only: "(nezobrazí sa ostatným užívateľom)"
-      location_description: "Môžete zadať Vašu presnú polohu, alebo napríklad iba PSČ. Prosím zadajte aspoň Vaše PSČ. Môžete si vybrať polohu z mapy pod textom."
+      location_description: "Môžete zadať Vašu presnú adresu, alebo napríklad iba PSČ. Je dobré tiež pridať krajinu. Príklady: \"10117 Berlin, Germany\" or \"2000 Sand Hill Road, CA, USA\"."
       phone_number: "Telefónne číslo"
       profile_picture: "Profilová fotka"
       postal_code: PSČ
