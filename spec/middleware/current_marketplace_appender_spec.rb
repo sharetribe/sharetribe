@@ -26,10 +26,15 @@ describe CurrentMarketplaceAppender do
   describe "current_plan" do
     before(:each) {
       PlanService::API::Api.reset!
+      PlanService::API::Api.set_environment(active: true)
+    }
+
+    after(:each) {
+      PlanService::API::Api.reset!
+      PlanService::API::Api.set_environment(active: false)
     }
 
     let(:plans_api) {
-      PlanService::API::Api.set_environment(active: true)
       PlanService::API::Api.plans
     }
 
