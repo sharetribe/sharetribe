@@ -27,7 +27,6 @@ class ApplicationController < ActionController::Base
     :redirect_removed_locale,
     :set_locale,
     :redirect_locale_param,
-    :generate_event_id,
     :set_default_url_for_mailer,
     :fetch_community_admin_status,
     :warn_about_missing_payment_info,
@@ -45,8 +44,6 @@ class ApplicationController < ActionController::Base
   #this shuold be last
   before_filter :push_reported_analytics_event_to_js
   before_filter :push_reported_gtm_data_to_js
-
-  rescue_from RestClient::Unauthorized, :with => :session_unauthorized
 
   helper_method :root, :logged_in?, :current_user?
 
@@ -433,26 +430,6 @@ class ApplicationController < ActionController::Base
 
   def date_equals?(date, comp)
     date && date.to_date.eql?(comp)
-  end
-
-  def session_unauthorized
-    # For some reason, ASI session is no longer valid => log the user out
-    clear_user_session
-    flash[:error] = t("layouts.notifications.error_with_session")
-    ApplicationHelper.send_error_notification("ASI session was unauthorized. This may be normal, if session just expired, but if this occurs frequently something is wrong.", "ASI session error", params)
-    redirect_to search_path and return
-  end
-
-  def clear_user_session
-    @current_user = nil
-  end
-
-  # this generates the event_id that will be used in
-  # requests to cos during this Sharetribe-page view only
-  def generate_event_id
-    RestHelper.event_id = "#{EventIdHelper.generate_event_id(params)}_#{Time.now.to_f}"
-    # The event id is generated here and stored for the duration of this request.
-    # The option above stores it to thread which should work fine on mongrel
   end
 
   def ensure_is_admin
