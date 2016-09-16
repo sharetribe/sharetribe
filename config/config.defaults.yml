@@ -284,6 +284,9 @@ default: &default_settings
   external_search_scale_min: 5
   external_search_offset_min: 0
 
+  # Harmony service API connection
+  harmony_api_url:
+
   # Perform Thinking Sphinx incremental indexing delayed jobs
   use_thinking_sphinx_indexing: true
 
