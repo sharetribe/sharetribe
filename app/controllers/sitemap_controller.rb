@@ -17,7 +17,10 @@ class SitemapController < ActionController::Metal
 
   def sitemap
     com = community(request)
+    reason = redirect_reason(request)
 
+    return if do_host_redirect!(com, reason)
+    return if render_not_found!(reason)
     return unless can_show_sitemap?(com)
 
     if APP_CONFIG.asset_host.present?
@@ -30,13 +33,49 @@ class SitemapController < ActionController::Metal
 
   def generate
     com = community(request)
+    reason = redirect_reason(request)
 
-    return unless can_show_sitemap?(com)
-
-    render_site_map(com)
+    if APP_CONFIG.asset_host.present? && !URLUtils.asset_host?(host: request.host_with_port, asset_host: APP_CONFIG.asset_host)
+      redirect_to ActionController::Base.helpers.asset_path(
+                    "/sitemap/#{request.host}/generate.xml.gz")
+    elsif !do_host_redirect!(com, reason) && !render_not_found!(reason) && can_show_sitemap?(com)
+      render_site_map(com)
+    end
   end
 
   private
+
+  def do_host_redirect!(community, reason)
+    app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
+    request_hash = MarketplaceRouter.request_hash(request)
+
+    case reason
+    when :use_domain
+      redirect_to(
+        MarketplaceRouter.domain_redirect_url(
+          domain: community.domain,
+          request: request_hash),
+        status: :moved_permanently)
+
+      true
+    when :use_ident, :www_ident
+      redirect_to(
+        MarketplaceRouter.ident_redirect_url(
+          ident: community.ident,
+          app_domain: app_domain,
+          request: request_hash),
+        status: :moved_permanently)
+
+      true
+    end
+  end
+
+  def render_not_found!(reason)
+    if [:deleted, :closed, :not_found, :no_marketplaces].include?(reason)
+      head :not_found
+      true
+    end
+  end
 
   def community(request)
     community_from_request(request) || community_from_params(request)
@@ -53,6 +92,10 @@ class SitemapController < ActionController::Metal
       CurrentMarketplaceResolver.resolve_from_host(
         host, URLUtils.strip_port_from_host(APP_CONFIG.domain))
     end
+  end
+
+  def redirect_reason(request)
+    request.env[:redirect_reason]
   end
 
   def render_site_map(community)

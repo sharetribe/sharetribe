@@ -60,14 +60,4 @@ describe ApplicationController, type: :controller do
       expect(assigns("current_user").id).to eq(p1.id)
     end
   end
-
-  describe "#fetch_community" do
-    controller do
-      def index
-        # do nothing as we are testing the filters here only
-        # just return a dummy json
-        render :json => "test_result".to_json
-      end
-    end
-  end
 end

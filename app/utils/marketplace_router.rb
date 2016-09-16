@@ -31,8 +31,7 @@ module MarketplaceRouter
     )
 
     Other = EntityUtils.define_builder(
-      [:no_communities, :bool, :mandatory],
-      [:community_search_status, one_of: [:found, :not_found, :skipped]]
+      [:no_communities, :bool, :mandatory]
     )
 
     # Target can be either URL or named route.
@@ -85,31 +84,6 @@ module MarketplaceRouter
 
   module_function
 
-  def needs_redirect(request:, community:, paths:, configs:, other:, &block)
-    reason = redirect_reason(
-      request: request,
-      community: community,
-      configs: configs,
-      other: other)
-
-    if reason
-      target = redirect_target(
-        reason:                  reason,
-        request:                 DataTypes.create_request(request),
-        community:               Maybe(community).map { |c| DataTypes.create_community(c) }.or_else(nil),
-        paths:                   DataTypes.create_paths(paths),
-        configs:                 DataTypes.create_configs(configs),
-        protocol:                request[:protocol]
-      )
-
-      block.call(target)
-    end
-  end
-
-  # private
-
-  # The main "router function"
-  #
   # Returns a hash, which contains either a url or named route
   #
   # Example, return hash with url:
@@ -120,13 +94,18 @@ module MarketplaceRouter
   #
   # { route_name: :new_community, status: :moved_permanently, protocol: "http"}
   #
-  def redirect_target(reason:, request:, community:, paths:, configs:, protocol:)
+  def redirect_target(reason:, request:, community:, paths:, configs:)
+    community = Maybe(community).map { |c| DataTypes.create_community(c) }.or_else(nil)
+    request   = DataTypes.create_request(request)
+    paths     = DataTypes.create_paths(paths)
+    configs   = DataTypes.create_configs(configs)
+
     target =
       case reason
       when :no_marketplaces
         # Community not found, because there are no communities
         # -> Redirect to new community page
-        paths[:new_community].merge(status: :found, protocol: protocol)
+        paths[:new_community].merge(status: :found, protocol: request[:protocol])
       when :not_found
         # Community not found
         # -> Redirect to not found
@@ -160,15 +139,18 @@ module MarketplaceRouter
       when :use_domain
         # Community has domain ready, should use it
         # -> Redirect to community domain
-        {url: "#{protocol}#{community[:domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
-      when :use_ident
+        { url: domain_redirect_url(domain: community[:domain], request: request),
+          status: :moved_permanently
+        }
+      when :use_ident, :www_ident
         # Community has a domain, but it's not in use.
         # -> Redirect to subdomain (ident)
-        {url: "#{protocol}#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
-      when :www_ident
+        # OR
         # Accessed community with ident, including www
         # -> Redirect to ident without www
-        {url: "#{protocol}#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
+        { url: ident_redirect_url(ident: community[:ident], app_domain: configs[:app_domain], request: request),
+          status: :moved_permanently
+        }
       else
         raise ArgumentError.new("Unknown redirect reason: '#{reason}'")
       end
@@ -176,21 +158,107 @@ module MarketplaceRouter
     HashUtils.compact(DataTypes::Target.call(target.merge(reason: reason)))
   end
 
-  def redirect_reason(request:, community:, configs:, other:)
-    if other[:community_search_status] == :not_found && other[:no_communities]
+  def domain_redirect_url(domain:, request:)
+    host_redirect_url(host: domain, request: request)
+  end
+
+  def ident_redirect_url(ident:, app_domain:, request:)
+    host_redirect_url(host: "#{ident}.#{app_domain}", request: request)
+  end
+
+  def host_redirect_url(host:, request:)
+    "#{request[:protocol]}#{host}#{request[:port_string]}#{request[:fullpath]}"
+  end
+
+  # Returns a redirect reason or nil, if no redirect should be made
+  #
+  def redirect_reason(community:, host:, no_communities:, app_domain:)
+    community = Maybe(community).map { |c| DataTypes.create_community(c) }.or_else(nil)
+
+    if no_communities
       :no_marketplaces
-    elsif other[:community_search_status] == :not_found && !other[:no_communities]
+    elsif community.nil? && !no_communities
       :not_found
     elsif community && community[:deleted]
       :deleted
     elsif community && community[:closed]
       :closed
-    elsif community && community[:domain].present? && community[:use_domain] && request[:host] != community[:domain]
+    elsif community && community[:domain].present? && community[:use_domain] && host != community[:domain]
       :use_domain
-    elsif community && community[:domain].present? && !community[:use_domain] && request[:host] == community[:domain]
+    elsif community && community[:domain].present? && !community[:use_domain] && host == community[:domain]
       :use_ident
-    elsif community && request[:host] == "www.#{community[:ident]}.#{configs[:app_domain]}"
+    elsif community && host == "www.#{community[:ident]}.#{app_domain}"
       :www_ident
     end
+  end
+
+  # This method is not side-effect free: It's aware of the global application
+  # configs. You can use this method in a controller. This method will
+  # call the block if redirect is needed.
+  #
+  # The method returns `true` if redirect is needed, so you can use it as a guard:
+  #
+  # ```
+  # def index
+  #   return if MarketplaceRouter.perform_redirect(community: @current_community, plan: @current_plan, request: request) { |target|
+  #     url = target[:url] || send(target[:route_name], protocol: target[:protocol])
+  #     redirect_to(url, status: target[:status])
+  #   }
+  # end
+  # ```
+  #
+  def perform_redirect(community:, plan:, request:, &block)
+    paths = {
+      community_not_found: Maybe(APP_CONFIG).community_not_found_redirect.map { |url| {url: url} }.or_else({route_name: :community_not_found_path}),
+      new_community: {route_name: :new_community_path}
+    }
+
+    configs = {
+      app_domain: URLUtils.strip_port_from_host(APP_CONFIG.domain),
+    }
+
+    reason = request.env[:redirect_reason]
+
+    if reason
+      target = MarketplaceRouter.redirect_target(
+        reason:    reason,
+        request:   MarketplaceRouter.request_hash(request),
+        community: MarketplaceRouter.community_hash(community, plan),
+        paths:     paths,
+        configs:   configs
+      )
+
+      block.call(target)
+      true
+    end
+  end
+
+  # Takes a Rails Request
+  #
+  # Returns a Hash in a form that MarketplaceRouter expects
+  #
+  def request_hash(request)
+    {
+      host: request.host,
+      protocol: request.protocol,
+      fullpath: request.fullpath,
+      port_string: request.port_string,
+    }
+  end
+
+  # Takes a Community model and Plan entity.
+  #
+  # Returns a Hash in a form that MarketplaceRouter expects
+  #
+  def community_hash(community, plan)
+    Maybe(community).map { |c|
+      {
+        ident: c.ident,
+        domain: c.domain,
+        deleted: c.deleted?,
+        use_domain: c.use_domain?,
+        closed: Maybe(plan)[:closed].or_else(false)
+      }
+    }.or_else(nil)
   end
 end

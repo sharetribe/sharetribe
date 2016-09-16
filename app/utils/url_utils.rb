@@ -50,4 +50,10 @@ module URLUtils
   def join(*parts)
     File.join(*parts.select(&:present?))
   end
+
+  def asset_host?(host:, asset_host:)
+    regexp_str = asset_host.gsub("%d", "\\d")
+
+    !Regexp.new(regexp_str).match(host).nil?
+  end
 end

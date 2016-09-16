@@ -2,31 +2,75 @@
 
 class RobotsGenerator
 
+  CONTENT_TYPE = { "Content-Type" => "text/plain" }
+
+  class Request < Rack::Request
+    include ActionDispatch::Http::URL
+  end
+
   def self.call(env)
-    return [404, {}, []] if env[:current_marketplace].nil?
+    community = community(env)
+    reason = redirect_reason(env)
+    req = Request.new(env)
+
+    target = redirect_target(community, reason, req)
+    return target unless target.nil?
 
     begin
 
       # Disallow indexing from other than production environments
       body =
         if Rails.env.production?
-          index_content(env)
+          index_content(req)
         else
           no_index_content()
         end
 
-      # Adding cache control here seemed to cause strange errors in production env
-      headers = {"Content-Type" => "text/plain" }
-
-      return [200, headers, [body]]
+      return [200, CONTENT_TYPE, [body]]
     rescue Errno::ENOENT
-      return [404, {}, ['# A robots.txt is not configured']]
+      return [404, CONTENT_TYPE, ['# A robots.txt is not configured']]
     end
   end
 
-  def self.index_content(env)
-    req = Rack::Request.new(env)
+  def self.redirect_target(community, reason, request)
+    app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
+    request_hash = MarketplaceRouter.request_hash(request)
 
+    case reason
+    when :use_domain
+      redirect_to(
+        MarketplaceRouter.domain_redirect_url(
+          domain: community.domain,
+          request: request_hash))
+    when :use_ident, :www_ident
+      redirect_to(
+        MarketplaceRouter.ident_redirect_url(
+          ident: community.ident,
+          app_domain: app_domain,
+          request: request_hash))
+    when :deleted, :closed, :not_found, :no_marketplaces
+      not_found
+    end
+
+  end
+
+  def self.community(env)
+    env[:current_marketplace]
+  end
+
+  def self.redirect_reason(env)
+    env[:redirect_reason]
+  end
+
+  def self.not_found
+    [404, CONTENT_TYPE, ['Not Found']]
+  end
+
+  def self.redirect_to(location)
+    [301, {'Location' => location}.merge(CONTENT_TYPE), ['Moved Permanently']]
+  end
+
+  def self.index_content(req)
     [
       "User-agent: *",
       "Allow: /",

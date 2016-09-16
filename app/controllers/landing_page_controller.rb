@@ -15,11 +15,18 @@ class LandingPageController < ActionController::Metal
   # Ensure ActiveSupport::Notifications events are fired
   include ActionController::Instrumentation
 
-  # Include route helpers
-  include Rails.application.routes.url_helpers
-
   # Adds helper_method
   include ActionController::Helpers
+
+  # Add redirect_to
+  include ActionController::Redirecting
+
+  # Include route helpers.
+  #
+  # This needs to be included last! Otherwise you may get error saying
+  # that you need to include url_helpers in order to use #url_for
+  #
+  include Rails.application.routes.url_helpers
 
   CACHE_TIME = APP_CONFIG[:clp_cache_time].to_i.seconds
   CACHE_HEADER = "X-CLP-Cache"
@@ -27,6 +34,8 @@ class LandingPageController < ActionController::Metal
   FONT_PATH = APP_CONFIG[:font_proximanovasoft_url]
 
   def index
+    return if perform_redirect!
+
     cid = community(request).id
     default_locale = community(request).default_locale
     version = CLP::LandingPageStore.released_version(cid)
@@ -81,6 +90,8 @@ class LandingPageController < ActionController::Metal
   end
 
   def preview
+    return if perform_redirect!
+
     cid = community(request).id
     default_locale = community(request).default_locale
 
@@ -109,6 +120,19 @@ class LandingPageController < ActionController::Metal
 
 
   private
+
+  def perform_redirect!
+    redirect_params = {
+      community: community(request),
+      plan: plan(request),
+      request: request
+    }
+
+    MarketplaceRouter.perform_redirect(redirect_params) do |target|
+      url = target[:url] || send(target[:route_name], protocol: target[:protocol])
+      redirect_to(url, status: target[:status])
+    end
+  end
 
   # Override basic instrumentation and provide additional info for
   # lograge to consume. These are pulled and logged in environment
@@ -187,6 +211,10 @@ class LandingPageController < ActionController::Metal
 
   def community(request)
     @current_community ||= request.env[:current_marketplace]
+  end
+
+  def plan(request)
+    @current_plan ||= request.env[:current_plan]
   end
 
   def community_customization(request, locale)

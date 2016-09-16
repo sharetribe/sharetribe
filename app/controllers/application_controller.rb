@@ -267,68 +267,22 @@ class ApplicationController < ActionController::Base
     request.env[:community_id] = m_community.id.or_else(nil)
 
     setup_logger!(marketplace_id: m_community.id.or_else(nil), marketplace_ident: m_community.ident.or_else(nil))
-
-    # Save :found or :not_found to community status
-    # This is needed because we need to distinguish to cases
-    # where community is nil
-    #
-    # 1. Community is nil because it was not found
-    # 2. Community is nil beucase fetch_community filter was skipped
-    @community_search_status = @current_community ? :found : :not_found
-  end
-
-  def community_search_status
-    @community_search_status || :skipped
   end
 
   # Performs redirect to correct URL, if needed.
   # Note: This filter is safe to run even if :fetch_community
   # filter is skipped
   def perform_redirect
-    community = Maybe(@current_community).map { |c|
-      {
-        ident: c.ident,
-        domain: c.domain,
-        deleted: c.deleted?,
-        use_domain: c.use_domain?,
-        closed: Maybe(@current_plan)[:closed].or_else(false)
-      }
-    }.or_else(nil)
-
-    paths = {
-      community_not_found: Maybe(APP_CONFIG).community_not_found_redirect.map { |url| {url: url} }.or_else({route_name: :community_not_found_path}),
-      new_community: {route_name: :new_community_path}
+    redirect_params = {
+      community: @current_community,
+      plan: @current_plan,
+      request: request
     }
 
-    configs = {
-      always_use_ssl: Maybe(APP_CONFIG).always_use_ssl.map { |v| v == true || v.to_s.downcase == "true" }.or_else(false), # value can be string if it comes from ENV
-      app_domain: URLUtils.strip_port_from_host(APP_CONFIG.domain),
-    }
-
-    other = {
-      no_communities: Community.count == 0,
-      community_search_status: community_search_status,
-    }
-
-    MarketplaceRouter.needs_redirect(
-      request: request_hash,
-      community: community,
-      paths: paths,
-      configs: configs,
-      other: other) { |redirect_dest|
-      url = redirect_dest[:url] || send(redirect_dest[:route_name], protocol: redirect_dest[:protocol])
-
-      redirect_to(url, status: redirect_dest[:status])
-    }
-  end
-
-  def request_hash
-    @request_hash ||= {
-      host: request.host,
-      protocol: request.protocol,
-      fullpath: request.fullpath,
-      port_string: request.port_string,
-    }
+    MarketplaceRouter.perform_redirect(redirect_params) do |target|
+      url = target[:url] || send(target[:route_name], protocol: target[:protocol])
+      redirect_to(url, status: target[:status])
+    end
   end
 
   def fetch_community_membership
@@ -390,9 +344,7 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_community_plan_expiration_status
-    Maybe(@current_community).id.each { |community_id|
-      @current_plan = PlanService::API::Api.plans.get_current(community_id: community_id).data
-    }
+    @current_plan = request.env[:current_plan]
   end
 
   # Before filter for PayPal, shows notification if user is not ready for payments

@@ -1,6 +1,6 @@
 class IntApi::MarketplacesController < ApplicationController
 
-  skip_filter :fetch_community, :check_http_auth
+  skip_filter :fetch_community, :check_http_auth, :perform_redirect
 
   before_filter :set_access_control_headers
 
