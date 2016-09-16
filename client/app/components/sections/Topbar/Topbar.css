@@ -61,7 +61,6 @@
   /* End of base style overrides. */
 
   & .topbarLogo {
-    min-width: var(--Topbar_logoMinWidth);
     max-height: var(--Topbar_logoMaxHeightMobile);
     max-width: 70%;
 
@@ -73,6 +72,7 @@
     }
 
     @media (--medium-viewport) {
+      min-width: var(--Topbar_logoMinWidth);
       max-height: var(--Topbar_logoMaxHeightTablet);
       max-width: 38%;
     }
