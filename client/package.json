@@ -19,7 +19,8 @@
     "print-phantomjs-version": "phantomjs --version",
     "start-phantomjs": "phantomjs --webdriver=8910",
     "styleguide": "start-storybook -p 9001",
-    "deploy-storybook": "storybook-to-ghpages"
+    "deploy-storybook": "storybook-to-ghpages",
+    "test": "mocha './app/components/**/*.story.js' --reporter mocha-circleci-reporter --require babel-register --require ignore-styles --require ./mochaConfig.js"
   },
   "dependencies": {
     "babel-cli": "6.11.4",
@@ -65,11 +66,13 @@
     "@kadira/storybook-deployer": "github:mporkola/storybook-deployer",
     "babel-eslint": "6.1.2",
     "babel-plugin-react-transform": "2.0.2",
+    "babel-register": "6.14.0",
     "chai": "3.5.0",
     "enzyme": "2.4.1",
     "eslint": "3.3.1",
     "eslint-plugin-babel": "3.3.0",
     "eslint-plugin-react": "6.1.1",
+    "ignore-styles": "5.0.1",
     "json": "9.0.4",
     "mocha": "3.0.2",
     "phantomjs-prebuilt": "2.1.12",
