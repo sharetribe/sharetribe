@@ -261,7 +261,20 @@ class ListingsController < ApplicationController
     params[:listing].delete("origin_loc_attributes") if params[:listing][:origin_loc_attributes][:address].blank?
 
     shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
+    listing_uuid = UUIDTools::UUID.timestamp_create
 
+    if FeatureFlagHelper.feature_enabled?(:availability) && shape.present? && shape[:availability] == :booking
+      bookable_res = create_bookable(@current_community.uuid, listing_uuid, @current_user.uuid)
+      unless bookable_res.success
+        flash[:error] = t("listings.error.something_went_wrong_plain")
+        return redirect_to new_listing_path
+      end
+    end
+
+    create_listing(shape, listing_uuid)
+  end
+
+  def create_listing(shape, listing_uuid)
     listing_params = ListingFormViewUtils.filter(params[:listing], shape)
     listing_unit = Maybe(params)[:listing][:unit].map { |u| ListingViewUtils::Unit.deserialize(u) }.or_else(nil)
     listing_params = ListingFormViewUtils.filter_additional_shipping(listing_params, listing_unit)
@@ -276,6 +289,7 @@ class ListingsController < ApplicationController
     m_unit = select_unit(listing_unit, shape)
 
     listing_params = create_listing_params(listing_params).merge(
+        uuid: listing_uuid.raw,
         community_id: @current_community.id,
         listing_shape_id: shape[:id],
         transaction_process_id: shape[:transaction_process_id],
@@ -483,6 +497,22 @@ class ListingsController < ApplicationController
   end
 
   private
+
+  def create_bookable(community_uuid, listing_uuid, author_uuid)
+    res = HarmonyClient.post(
+      :create_bookable,
+      body: {
+        marketplaceId: community_uuid,
+        refId: listing_uuid,
+        authorId: author_uuid
+      })
+
+    if !res[:success] && res[:data][:status] == 409
+      Result::Success.new("Bookable for listing with UUID #{listing_uuid} already created")
+    else
+      res
+    end
+  end
 
   def select_shape(shapes, id)
     if shapes.size == 1

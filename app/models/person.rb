@@ -176,6 +176,10 @@ class Person < ActiveRecord::Base
     set_default_preferences unless self.preferences
   end
 
+  def uuid
+    UUIDTools::UUID.parse_raw(Base64.urlsafe_decode64(self.id))
+  end
+
   # Creates a new email
   def email_attributes=(attributes)
     ActiveSupport::Deprecation.warn(
