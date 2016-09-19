@@ -37,7 +37,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
           listing_id: transaction[:listing_id])
       }
     else
-      handle_proc_result(proc_status)
+      handle_proc_result(proc_status, transaction[:listing_id])
     end
 
   end
@@ -51,7 +51,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
       return redirect_to error_not_found_path
     end
 
-    handle_proc_result(proc_status[:data][:result])
+    handle_proc_result(proc_status[:data][:result], listing_id)
   end
 
   def cancel
@@ -67,7 +67,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
 
   private
 
-  def handle_proc_result(response)
+  def handle_proc_result(response, listing_id)
     response_data = response[:data] || {}
 
     if response[:success]
