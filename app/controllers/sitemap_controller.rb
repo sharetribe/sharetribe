@@ -16,13 +16,13 @@ class SitemapController < ActionController::Metal
   CACHE_HEADER = "X-Sitemap-Cache"
 
   def sitemap
-    return if render_sitemap_disabled
+    return if render_sitemap_disabled!
 
     com = community_from_request(request)
     reason = redirect_reason_from_request(request)
 
     return if render_not_found!(reason)
-    return if render_private_community(com)
+    return if render_private_community!(com)
     return if do_host_redirect!(com, reason)
 
     if APP_CONFIG.asset_host.present?
@@ -34,14 +34,14 @@ class SitemapController < ActionController::Metal
   end
 
   def generate
-    return if render_sitemap_disabled
-    return if render_cdn_not_in_use
+    return if render_sitemap_disabled!
+    return if render_cdn_not_in_use!
 
     com = community_from_params(request)
     reason = redirect_reason(com)
 
     return if render_not_found!(reason)
-    return if render_private_community(com)
+    return if render_private_community!(com)
 
     render_site_map(com)
   end
@@ -192,21 +192,21 @@ class SitemapController < ActionController::Metal
     end
   end
 
-  def render_private_community(community)
+  def render_private_community!(community)
     if community.private?
       head :forbidden
       true
     end
   end
 
-  def render_sitemap_disabled
+  def render_sitemap_disabled!
     unless sitemap_enabled?
       head :not_found
       true
     end
   end
 
-  def render_cdn_not_in_use
+  def render_cdn_not_in_use!
     unless APP_CONFIG.asset_host.present?
       head :not_found
       true
