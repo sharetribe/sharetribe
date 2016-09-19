@@ -74,8 +74,8 @@ th-TH:
         verification_to_post_listings_info_content_default: "%{service_name} ร้องขอให้ต้องมีคนได้รับการยืนยันด้วยตนเองโดยผู้ดูแลระบบก่อน จึงจะสามารถโพสต์รายการได้ คุณยังไม่ได้รับการยืนยัน กรุณา%{contact_admin_link}เพื่อขอรับการยืนยัน"
         contact_admin_link_text: ติดต่อผู้ดูแลระบบ
         save: บันทึกการตั้งค่า
-        transaction_agreement: ~
-        transaction_agreement_checkbox: ~
+        transaction_agreement: ข้อตกลงก่อนการทำธุรกรรมทางการเงิน
+        transaction_agreement_checkbox: ผู้ใช้จะต้องยอมรับข้อตกลงจึงจะสามารถทำธุรกรรมทางการเงินได้
         transaction_agreement_checkbox_header: ~
         transaction_agreement_checkbox_label_description: "ข้อความนี้จะปรากฎถัดจากช่องทำเครื่องหมายในแบบฟอร์มการชำระเงิน ผู้ใช้จำเป็นต้อง ทำเครื่องหมายในกล่อง เพื่อที่จะดำเนินการกับการทำธุรกรรม เช่นป้ายตัวอย่างบอกว่า \"โดยการคลิกที่กล่องนี้ ฉันขอยอมรับข้อตกลง\" เป็นต้น"
         transaction_agreement_text_header: ~
