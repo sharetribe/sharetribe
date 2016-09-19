@@ -26,6 +26,16 @@ module ServiceClient
       end
     end
 
+    class TextEncoder
+      def encode(body)
+        body.to_s unless body.nil?
+      end
+
+      def decode(body)
+        body
+      end
+    end
+
     # Encodes the body to given encoding.
     #
     # The encoding is given to the constructor and that encoding is
@@ -40,6 +50,7 @@ module ServiceClient
         {encoding: :json, media_type: "application/json", encoder: JSONEncoder.new},
         {encoding: :transit_json, media_type: "application/transit+json", encoder: TransitEncoder.new(:json)},
         {encoding: :transit_msgpack, media_type: "application/transit+msgpack", encoder: TransitEncoder.new(:transit_msgpack)},
+        {encoding: :text, media_type: "text/plain", encoder: TextEncoder.new},
       ]
 
       class ParsingError < StandardError
