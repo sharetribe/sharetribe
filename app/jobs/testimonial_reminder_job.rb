@@ -15,13 +15,25 @@ class TestimonialReminderJob < Struct.new(:conversation_id, :recipient_id, :comm
     transaction = Transaction.find(conversation_id)
     community = Community.find(community_id)
 
-    if transaction.testimonial_from_author.nil? && !transaction.author_skipped_feedback
+    if should_send_author_reminder?(transaction)
       MailCarrier.deliver_now(PersonMailer.send("testimonial_reminder", transaction, transaction.author, community))
     end
 
-    if transaction.testimonial_from_starter.nil? && !transaction.starter_skipped_feedback
+    if should_send_starter_reminder?(transaction)
       MailCarrier.deliver_now(PersonMailer.send("testimonial_reminder", transaction, transaction.starter, community))
     end
+  end
+
+  def should_send_author_reminder?(transaction)
+    transaction.testimonial_from_author.nil? &&
+      !transaction.author_skipped_feedback &&
+      transaction.author.should_receive?("email_about_testimonial_reminders")
+  end
+
+  def should_send_starter_reminder?(transaction)
+    transaction.testimonial_from_starter.nil? &&
+      !transaction.starter_skipped_feedback &&
+      transaction.starter.should_receive?("email_about_testimonial_reminders")
   end
 
 end
