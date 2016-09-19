@@ -16,12 +16,14 @@ class SitemapController < ActionController::Metal
   CACHE_HEADER = "X-Sitemap-Cache"
 
   def sitemap
-    com = community(request)
-    reason = redirect_reason(request)
+    return if render_sitemap_disabled
 
-    return if do_host_redirect!(com, reason)
+    com = community_from_request(request)
+    reason = redirect_reason_from_request(request)
+
     return if render_not_found!(reason)
-    return unless can_show_sitemap?(com)
+    return if render_private_community(com)
+    return if do_host_redirect!(com, reason)
 
     if APP_CONFIG.asset_host.present?
       redirect_to ActionController::Base.helpers.asset_path(
@@ -32,9 +34,14 @@ class SitemapController < ActionController::Metal
   end
 
   def generate
-    com = community(request)
+    return if render_sitemap_disabled
+    return if render_cdn_not_in_use
 
-    return unless can_show_sitemap?(com)
+    com = community_from_params(request)
+    reason = redirect_reason(com)
+
+    return if render_not_found!(reason)
+    return if render_private_community(com)
 
     render_site_map(com)
   end
@@ -90,8 +97,35 @@ class SitemapController < ActionController::Metal
     end
   end
 
-  def redirect_reason(request)
+  def redirect_reason_from_request(request)
     request.env[:redirect_reason]
+  end
+
+  # This code is mostly copy-pasted from the MarketplaceLookup middleware
+  #
+  # This is the only controller action where we use params to identify the
+  # community, thus we don't get the community by the middleware.
+  #
+  def redirect_reason(marketplace)
+    app_domain = URLUtils.strip_port_from_host(::APP_CONFIG.domain)
+
+    plan =
+      if marketplace
+        PlanService::API::Api.plans.get_current(community_id: marketplace.id).data
+      end
+
+    no_marketplaces =
+      if marketplace
+        false
+      else
+        Community.count == 0
+      end
+
+    MarketplaceRouter.redirect_reason(
+      community: ::MarketplaceRouter.community_hash(marketplace, plan),
+      host: request.host,
+      no_communities: no_marketplaces,
+      app_domain: app_domain)
   end
 
   def render_site_map(community)
@@ -158,14 +192,23 @@ class SitemapController < ActionController::Metal
     end
   end
 
-  def can_show_sitemap?(community)
-    if !sitemap_enabled? || community.nil? || community.deleted?
-      head :not_found
-      false
-    elsif community.private?
+  def render_private_community(community)
+    if community.private?
       head :forbidden
-      false
-    else
+      true
+    end
+  end
+
+  def render_sitemap_disabled
+    unless sitemap_enabled?
+      head :not_found
+      true
+    end
+  end
+
+  def render_cdn_not_in_use
+    unless APP_CONFIG.asset_host.present?
+      head :not_found
       true
     end
   end
