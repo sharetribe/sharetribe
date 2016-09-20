@@ -42,29 +42,6 @@
 #
 
 class Transaction < ActiveRecord::Base
-  attr_accessible(
-    :community_id,
-    :starter_id,
-    :listing_id,
-    :automatic_confirmation_after_days,
-    :author_skipped_feedback,
-    :starter_skipped_feedback,
-    :payment_attributes,
-    :payment_gateway,
-    :payment_process,
-    :commission_from_seller,
-    :minimum_commission,
-    :listing_quantity,
-    :listing_title,
-    :listing_author_id,
-    :unit_type,
-    :unit_price,
-    :unit_tr_key,
-    :unit_selector_tr_key,
-    :shipping_price,
-    :delivery_method
-  )
-
   attr_accessor :contract_agreed
 
   belongs_to :community
