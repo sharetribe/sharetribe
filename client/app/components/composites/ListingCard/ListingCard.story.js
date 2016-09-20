@@ -187,14 +187,17 @@ storiesOf('Search results')
       ));
 
     specs(() => describe('Failing image', () => {
-      const output = mount(story);
       it('Should display "No picture"', () => {
+        const output = mount(story);
+        output.setState({ imageStatus: 'failed' });
         expect(output.text()).to.include('No picture');
       });
       it('Should display formatted price', () => {
+        const output = mount(story);
         expect(output.text()).to.include('€ 199');
       });
       it('Should display formatted distance', () => {
+        const output = mount(story);
         expect(output.text()).to.include('9 km');
       });
     }));
