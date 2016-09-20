@@ -90,13 +90,26 @@ class PreauthorizeTransactionsController < ApplicationController
 
     module_function
 
-    def validate_initiate_params(tx_params:,
+    def validate_initiate_params(marketplace_uuid:,
+                                 listing_uuid:,
+                                 tx_params:,
                                  quantity_selector:,
                                  shipping_enabled:,
-                                 pickup_enabled:)
+                                 pickup_enabled:,
+                                 availability_enabled:)
 
       validate_delivery_method(tx_params: tx_params, shipping_enabled: shipping_enabled, pickup_enabled: pickup_enabled)
         .and_then { validate_booking(tx_params: tx_params, quantity_selector: quantity_selector) }
+        .and_then { |result|
+          if FeatureFlagHelper.feature_enabled?(:availability) && availability_enabled
+            validate_booking_timeslots(tx_params: tx_params,
+                                       marketplace_uuid: marketplace_uuid,
+                                       listing_uuid: listing_uuid,
+                                       quantity_selector: quantity_selector)
+          else
+            Result::Success.new(result)
+          end
+      }
     end
 
     def validate_initiated_params(tx_params:,
@@ -146,6 +159,50 @@ class PreauthorizeTransactionsController < ApplicationController
       end
     end
 
+    def all_days_available(timeslots, start_on, end_on)
+      # Take all the days except the exclusive last day
+      requested_days = (start_on..end_on).to_a[0..-2]
+
+      available_days = timeslots
+                         .select { |s| s[:unitType] == :day }
+                         .map { |s| s[:start].to_date }
+
+      requested_days.all? { |d|
+        available_days.include?(d)
+      }
+    end
+
+    def validate_booking_timeslots(tx_params:, marketplace_uuid:, listing_uuid:, quantity_selector:)
+      start_on, end_on = tx_params.values_at(:start_on, :end_on)
+
+      # The calendar UI doesn't give the exclusive end date for the
+      # day selector, which is why we have to adjust by increasing
+      # it with one day. The timestamp will be 00:00:00, ensuring
+      # the the full day before the exclusive end date is taken into
+      # account.
+      end_adjusted = quantity_selector == :day ? end_on + 1.days : end_on
+
+      HarmonyClient.get(
+        :query_timeslots,
+        params: {
+          marketplaceId: marketplace_uuid,
+          refId: listing_uuid,
+          start: start_on,
+          end: end_adjusted
+        }
+      ).rescue {
+        Result::Error.new(nil, code: :harmony_api_error)
+      }.and_then { |res|
+        timeslots = res[:body][:data].map { |v| v[:attributes] }
+
+        if all_days_available(timeslots, start_on, end_adjusted)
+          Result::Success.new(tx_params)
+        else
+          Result::Error.new(nil, code: :dates_not_available)
+        end
+      }
+    end
+
     def validate_transaction_agreement(tx_params:, transaction_agreement_in_use:)
       contract_agreed = tx_params[:contract_agreed]
 
@@ -168,10 +225,13 @@ class PreauthorizeTransactionsController < ApplicationController
         shipping_enabled: listing.require_shipping_address,
         pickup_enabled: listing.pickup_enabled)
 
-      Validator.validate_initiate_params(tx_params: tx_params,
+      Validator.validate_initiate_params(marketplace_uuid: @current_community.uuid,
+                                         listing_uuid: listing.uuid,
+                                         tx_params: tx_params,
                                          quantity_selector: listing.quantity_selector&.to_sym,
                                          shipping_enabled: listing.require_shipping_address,
-                                         pickup_enabled: listing.pickup_enabled)
+                                         pickup_enabled: listing.pickup_enabled,
+                                         availability_enabled: listing.availability.to_sym == :booking)
     }
 
     validation_result.on_success { |tx_params|
@@ -235,6 +295,10 @@ class PreauthorizeTransactionsController < ApplicationController
           t("listing_conversations.preauthorize.invalid_parameters")
         elsif [:dates_missing, :end_cant_be_before_start, :delivery_method_missing, :at_least_one_night_required].include?(data[:code])
           t("listing_conversations.preauthorize.invalid_parameters")
+        elsif data[:code] == :dates_not_available
+          t("listing_conversations.preauthorize.dates_not_available")
+        elsif data[:code] == :harmony_api_error
+          t("listing_conversations.preauthorize.error_in_checking_availability")
         else
           raise NotImplementedError.new("No error handler for: #{msg}, #{data.inspect}")
         end
