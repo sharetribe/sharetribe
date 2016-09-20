@@ -294,7 +294,8 @@ class ListingsController < ApplicationController
         listing_shape_id: shape[:id],
         transaction_process_id: shape[:transaction_process_id],
         shape_name_tr_key: shape[:name_tr_key],
-        action_button_tr_key: shape[:action_button_tr_key]
+        action_button_tr_key: shape[:action_button_tr_key],
+        availability: shape[:availability]
     ).merge(unit_to_listing_opts(m_unit)).except(:unit)
 
     @listing = Listing.new(listing_params)
@@ -416,7 +417,8 @@ class ListingsController < ApplicationController
       transaction_process_id: shape[:transaction_process_id],
       shape_name_tr_key: shape[:name_tr_key],
       action_button_tr_key: shape[:action_button_tr_key],
-      last_modified: DateTime.now
+      last_modified: DateTime.now,
+      availability: shape[:availability]
     ).merge(open_params).merge(unit_to_listing_opts(m_unit)).except(:unit)
 
     update_successful = @listing.update_fields(listing_params)

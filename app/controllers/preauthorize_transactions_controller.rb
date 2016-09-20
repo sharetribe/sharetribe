@@ -484,6 +484,7 @@ class PreauthorizeTransactionsController < ApplicationController
           unit_price: opts[:listing].price,
           unit_tr_key: opts[:listing].unit_tr_key,
           unit_selector_tr_key: opts[:listing].unit_selector_tr_key,
+          availability: opts[:listing].availability,
           content: opts[:content],
           payment_gateway: opts[:payment_type],
           payment_process: :preauthorize,

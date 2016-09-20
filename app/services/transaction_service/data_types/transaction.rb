@@ -17,6 +17,7 @@ module TransactionService::DataTypes::Transaction
     [:listing_quantity, :fixnum, default: 1],
     [:unit_type, :to_symbol, one_of: [:hour, :day, :night, :week, :month, :custom, nil]],
     [:unit_tr_key, :string, :optional],
+    [:availability, :to_symbol, one_of: [:none, :booking]],
     [:unit_selector_tr_key, :string, :optional],
     [:automatic_confirmation_after_days, :fixnum],
     [:last_transition_at, :time],
