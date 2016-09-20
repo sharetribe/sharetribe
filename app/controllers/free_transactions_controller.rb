@@ -35,6 +35,7 @@ class FreeTransactionsController < ApplicationController
             unit_type: @listing.unit_type,
             unit_price: @listing.price,
             unit_tr_key: @listing.unit_tr_key,
+            availability: @listing.availability,
             listing_quantity: 1,
             content: contact_form.content,
             payment_gateway: :none,
