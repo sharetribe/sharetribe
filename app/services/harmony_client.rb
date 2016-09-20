@@ -11,6 +11,7 @@ HarmonyClient = ServiceClient::Client.new(
     ServiceClient::Middleware::Timeout.new,
     ServiceClient::Middleware::Logger.new,
     ServiceClient::Middleware::Timing.new,
-    ServiceClient::Middleware::BodyEncoder.new(:transit_json)
+    ServiceClient::Middleware::BodyEncoder.new(:transit_json),
+    ServiceClient::Middleware::ParamEncoder.new
   ]
 )
