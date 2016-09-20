@@ -24,6 +24,7 @@ describe TransactionService::Store::Transaction do
       listing_id: @listing.id,
       listing_title: @listing.title,
       unit_price: @listing.price,
+      availability: @listing.availability,
       listing_author_id: @listing.author_id,
       listing_quantity: 1,
       automatic_confirmation_after_days: 3,

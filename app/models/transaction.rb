@@ -29,6 +29,7 @@
 #  payment_process                   :string(31)       default("none")
 #  delivery_method                   :string(31)       default("none")
 #  shipping_price_cents              :integer
+#  availability                      :string(32)       default("none")
 #  deleted                           :boolean          default(FALSE)
 #
 # Indexes

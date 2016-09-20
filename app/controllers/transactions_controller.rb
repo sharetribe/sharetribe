@@ -74,6 +74,7 @@ class TransactionsController < ApplicationController
               unit_type: listing_model.unit_type,
               unit_price: listing_model.price,
               unit_tr_key: listing_model.unit_tr_key,
+              availability: listing_model.availability,
               listing_quantity: quantity,
               content: form[:message],
               booking_fields: booking_fields,
