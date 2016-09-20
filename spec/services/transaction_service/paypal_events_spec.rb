@@ -11,7 +11,9 @@ describe TransactionService::PaypalEvents do
   def create_test_transaction(opts)
     transaction = transaction_model.new(
       community_id: opts[:community_id],
+      community_uuid: opts[:community_uuid],
       listing_id: opts[:listing_id],
+      listing_uuid: opts[:listing_uuid],
       listing_title: opts[:listing_title],
       listing_author_id: opts[:listing_author_id],
       starter_id: opts[:starter_id],
@@ -48,7 +50,8 @@ describe TransactionService::PaypalEvents do
   end
 
   before(:each) do
-    @cid = 3
+    @community = FactoryGirl.create(:community)
+    @cid = @community.id
     @payer = FactoryGirl.create(:payer)
     @listing = FactoryGirl.create(:listing,
                                   price: Money.new(45000, "EUR"),
@@ -61,9 +64,11 @@ describe TransactionService::PaypalEvents do
       payment_process: :preauthorize,
       payment_gateway: :paypal,
       community_id: @cid,
+      community_uuid: @community.uuid.raw,
       starter_id: @payer.id,
       listing_id: @listing.id,
       listing_title: @listing.title,
+      listing_uuid: @listing.uuid.raw,
       unit_price: @listing.price,
       listing_author_id: @listing.author_id,
       listing_quantity: 1,

@@ -475,7 +475,9 @@ class PreauthorizeTransactionsController < ApplicationController
 
     transaction = {
           community_id: opts[:community].id,
+          community_uuid: opts[:community].uuid,
           listing_id: opts[:listing].id,
+          listing_uuid: opts[:listing].uuid,
           listing_title: opts[:listing].title,
           starter_id: opts[:user].id,
           listing_author_id: opts[:listing].author.id,

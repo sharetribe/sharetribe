@@ -132,6 +132,11 @@ module EntityUtils
         {code: :lte, msg: "Value must be less than or equal to #{limit}. Was: #{v} (#{v.class.name})." }
       end
     },
+    uuid: ->(_, v, _) {
+      unless (v.nil? || v.is_a?(UUIDTools::UUID))
+        {code: :uuid, msg: "Value must be an instance of UUIDTools::UUID. Was: #{v} (#{v.class.name})."}
+      end
+    },
     validate_with: -> (validator, v, _) {
       validator.call(v)
     }

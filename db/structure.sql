@@ -1515,9 +1515,11 @@ CREATE TABLE `transactions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `starter_id` varchar(255) NOT NULL,
   `listing_id` int(11) NOT NULL,
+  `listing_uuid` binary(16) NOT NULL,
   `conversation_id` int(11) DEFAULT NULL,
   `automatic_confirmation_after_days` int(11) NOT NULL,
   `community_id` int(11) NOT NULL,
+  `community_uuid` binary(16) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `starter_skipped_feedback` tinyint(1) DEFAULT '0',
@@ -1560,7 +1562,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-20 11:17:01
+-- Dump completed on 2016-09-20 16:00:58
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3108,4 +3110,10 @@ INSERT INTO schema_migrations (version) VALUES ('20160914072428');
 INSERT INTO schema_migrations (version) VALUES ('20160914072601');
 
 INSERT INTO schema_migrations (version) VALUES ('20160920081409');
+
+INSERT INTO schema_migrations (version) VALUES ('20160920102506');
+
+INSERT INTO schema_migrations (version) VALUES ('20160920102507');
+
+INSERT INTO schema_migrations (version) VALUES ('20160920103321');
 

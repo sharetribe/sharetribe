@@ -5,7 +5,9 @@ module TransactionService::Store::Transaction
 
   NewTransaction = EntityUtils.define_builder(
     [:community_id, :fixnum, :mandatory],
+    [:community_uuid, :uuid, :mandatory],
     [:listing_id, :fixnum, :mandatory],
+    [:listing_uuid, :uuid, :mandatory],
     [:starter_id, :string, :mandatory],
     [:listing_quantity, :fixnum, default: 1],
     [:listing_title, :string, :mandatory],
@@ -28,7 +30,9 @@ module TransactionService::Store::Transaction
   Transaction = EntityUtils.define_builder(
     [:id, :fixnum, :mandatory],
     [:community_id, :fixnum, :mandatory],
+    [:community_uuid, :uuid], # This will be mandatory once the migrations have run
     [:listing_id, :fixnum, :mandatory],
+    [:listing_uuid, :uuid, :mandatory], # This will be mandatory once the migrations have run
     [:starter_id, :string, :mandatory],
     [:listing_quantity, :fixnum, :mandatory],
     [:listing_title, :string, :mandatory],
@@ -77,7 +81,10 @@ module TransactionService::Store::Transaction
 
   def create(opts)
     tx_data = HashUtils.compact(NewTransaction.call(opts))
-    tx_model = TransactionModel.new(tx_data.except(:content, :booking_fields))
+    tx_model = TransactionModel.new(tx_data
+                                      .except(:content, :booking_fields)
+                                      .merge(listing_uuid: tx_data[:listing_uuid].raw,
+                                             community_uuid: tx_data[:community_uuid].raw))
     build_conversation(tx_model, tx_data)
     build_booking(tx_model, tx_data)
 
@@ -152,6 +159,11 @@ module TransactionService::Store::Transaction
 
         hash = add_opt_shipping_address(hash, m)
         hash = add_opt_booking(hash, m)
+
+        hash[:listing_uuid] = UUIDTools::UUID.parse_raw(hash[:listing_uuid]) if hash[:listing_uuid].present?
+        hash[:community_uuid] = UUIDTools::UUID.parse_raw(hash[:community_uuid]) if hash[:community_uuid].present?
+
+        hash
       }
       .map { |hash| Transaction.call(hash) }
       .or_else(nil)
