@@ -777,7 +777,7 @@ fr:
       show_thread: "Voir la conversation"
     confirmation_instructions:
       confirmation_instructions_signature: "Cordialement, <br/> L'équipe %{service_name}"
-      need_to_confirm: "Pour rejoindre %{service_name}, confirmez votre votre adresse email en cliquant sur le bouton ci-dessous."
+      need_to_confirm: "Pour rejoindre %{service_name}, confirmez votre adresse email en cliquant sur le bouton ci-dessous."
       confirmation_link_text: "Confirmer mon adresse email"
       or_paste_link: "Vous pouvez également copier le lien suivant dans la barre d'adresse de votre navigateur : "
     common:
@@ -1367,6 +1367,7 @@ fr:
       open_in_google_maps: "Ouvrir dans Google Maps"
     error:
       something_went_wrong: "Quelque chose s'est mal passé, code d'erreur : %{error_code}"
+      something_went_wrong_plain: "Quelque chose s'est mal passé"
     follow_links:
       follow: "Recevoir les nouveaux commentaires par email."
       unfollow: "Ne pas recevoir les nouveaux commentaires par email."

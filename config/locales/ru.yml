@@ -1175,7 +1175,7 @@ ru:
       select_language: "Выбрать язык"
     infos:
       about: "О проекте"
-      how_to_use: "Как пользоваться?"
+      how_to_use: "Как это работает?"
       info_about_kassi: "Информация о %{service_name}"
       news: Новости
       register_details: Конфиденциальность
@@ -1357,6 +1357,7 @@ ru:
       open_in_google_maps: "Открыть карту Google"
     error:
       something_went_wrong: "Что-то пошло не так, код ошибки: %{error_code}"
+      something_went_wrong_plain: ~
     follow_links:
       follow: "Получать письма о новых комментариях"
       unfollow: "Не получать письма о новых комментариях"
@@ -1717,7 +1718,7 @@ ru:
       invitation_code: "Код приглашения:"
       not_required: ", не обязательно"
       notification_is_mandatory: ~
-      password_again: "Подтвердить пароль:"
+      password_again: "Подтвердите пароль"
       show_my_name_to_others: "Показывать моё настоящее имя другим пользователям %{service_name}"
       sign_up: "Зарегистрироваться в %{service_name}"
       terms: "условиями использования"
@@ -1727,7 +1728,7 @@ ru:
       visible_to_everybody: "видимо для всех"
       create_account_with_facebook: "Создать учётную запись с помощью Facebook"
       OR: или
-      signup_with_email: "Зарегистрируйтесь с email"
+      signup_with_email: "Зарегистрируйте используя адрес электронной почты"
     profile_feedback:
       grade: "Оценка:"
       and_gave_following_feedback: "и оставил отзыв"
@@ -1764,7 +1765,7 @@ ru:
       no_listings: "Нет публикаций"
       no_open_listings: "Нет открытых публикаций"
       no_reviews: "Нет отзывов"
-      show_all_listings: "Показать все предлождения"
+      show_all_listings: "Показать все предложения"
       show_all_open_listings: "Показать все открытые публикации"
       show_all_reviews: "Показать все обзоры"
     followed_people:
@@ -1773,7 +1774,7 @@ ru:
       they_follow_plural: "%{count} участников подписаны"
       they_follow_singular: "%{count} участников подписаны"
       show_all_followed_people: "Показать всех подписчиков"
-      no_followed_people: "Ни за кем не следует"
+      no_followed_people: "Ни на кого не подписан(а)"
     follow_button:
       following: Подписаны
       follow: Подписаться
@@ -2053,11 +2054,11 @@ ru:
     days: дней
   web:
     topbar:
-      menu: ~
+      menu: Меню
       more: ~
       search_placeholder: ~
       search_location_placeholder: ~
-      user: ~
+      user: Пользователь
       inbox: Входящие
       profile: Профиль
       manage_listings: "Управление публикациями"

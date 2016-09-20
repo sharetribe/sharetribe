@@ -1365,6 +1365,7 @@ da-DK:
       open_in_google_maps: "Åbn i Google Maps"
     error:
       something_went_wrong: "Noget gik galt, error code: %{error_code}"
+      something_went_wrong_plain: ~
     follow_links:
       follow: "Modtag emails om nye kommentarer"
       unfollow: "Afmeld emails om nye kommentarer"
@@ -2034,17 +2035,17 @@ da-DK:
     initiate:
       booked_days: "Bookede dage:"
       booked_nights: "Reserverede nætter:"
-      price_per_day: "Pris pr. dag:"
-      price_per_night: "Pris per nat:"
-      quantity: "Mængde:"
-      subtotal: "Subtotal:"
-      shipping-price: "Porto:"
       booked_days_label:
         one: "Reserveret dag:"
         other: "Reserverede dage:"
       booked_nights_label:
         one: "Reserveret nat:"
         other: "Reserverede nætter:"
+      price_per_day: "Pris pr. dag:"
+      price_per_night: "Pris per nat:"
+      quantity: "Mængde:"
+      subtotal: "Subtotal:"
+      shipping-price: "Porto:"
     price_per_quantity: "Pris pr. %{unit_type}:"
     price: "Pris:"
     quantity: "Mængde: %{quantity}"

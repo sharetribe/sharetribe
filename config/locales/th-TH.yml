@@ -642,7 +642,7 @@ th-TH:
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: ยกเลิก
-      feedback_given: ความคิดเห็นที่ได้
+      feedback_given: ได้ให้ความคิดเห็นแล้ว
       feedback_skipped: ความคิดเห็นที่ถูกข้าม
       give_feedback: ให้ความคิดเห็น
       offer_accepted: ได้รับการยอมรับแล้ว
@@ -1350,6 +1350,7 @@ th-TH:
       open_in_google_maps: ~
     error:
       something_went_wrong: ~
+      something_went_wrong_plain: ~
     follow_links:
       follow: รับอีเมล์เกี่ยวกับความคิดเห็นใหม่
       unfollow: ไม่รับอีเมล์เกี่ยวกับความคิดเห็นใหม่

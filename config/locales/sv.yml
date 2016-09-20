@@ -1365,6 +1365,7 @@ sv:
       open_in_google_maps: ~
     error:
       something_went_wrong: "Något gick fel, felmeddelande: %{error_code}"
+      something_went_wrong_plain: ~
     follow_links:
       follow: "Få e-post om nya kommentarer"
       unfollow: "Få inga meddelanden om nya kommentarer"

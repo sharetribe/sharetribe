@@ -1332,6 +1332,7 @@ pl:
       open_in_google_maps: "Otwórz w Google Maps"
     error:
       something_went_wrong: ~
+      something_went_wrong_plain: ~
     follow_links:
       follow: "Powiadom mnie emailem, gdy pojawią się nowe komentarze"
       unfollow: "Nie powiadamiaj mnie emailem, gdy pojawią się nowe komentarze"
@@ -1992,11 +1993,6 @@ pl:
     initiate:
       booked_days: ~
       booked_nights: "Zarezerwowanych nocy:"
-      price_per_day: "Cena za dzień:"
-      price_per_night: "Cena za noc:"
-      quantity: ~
-      subtotal: ~
-      shipping-price: ~
       booked_days_label:
         one: "Zarezerwowane dzień:"
         few: "Zarezerwowane dni:"
@@ -2007,6 +2003,11 @@ pl:
         few: "Zarezerwowanych nocy:"
         many: "Zarezerwowanych nocy:"
         other: "Zarezerwowanych nocy:"
+      price_per_day: "Cena za dzień:"
+      price_per_night: "Cena za noc:"
+      quantity: ~
+      subtotal: ~
+      shipping-price: ~
     price_per_quantity: "Cena za %{unit_type}:"
     price: ~
     quantity: ~

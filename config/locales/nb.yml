@@ -1122,7 +1122,7 @@ nb:
       map_button: Kart
       grid_button: Rutenett
       list_button: Liste
-      all_listing_types: "Vis alle typer listinger"
+      all_listing_types: "Vis alle typer annonser"
       all_categories: "Alle kategorier"
     errors:
       search_engine_not_responding: "Søk er for øyeblikket utilgjengelig. Forsøk å søke igjen snart."
@@ -1367,6 +1367,7 @@ nb:
       open_in_google_maps: "Åpne i Google Maps"
     error:
       something_went_wrong: "Noe gikk galt, feilkode: %{error_code}"
+      something_went_wrong_plain: ~
     follow_links:
       follow: "Motta e-post ved nye kommentarer"
       unfollow: "Ikke motta e-post om nye kommentarer"

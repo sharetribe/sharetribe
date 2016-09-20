@@ -1367,6 +1367,7 @@ fi:
       open_in_google_maps: "Avaa Google Maps -palvelussa"
     error:
       something_went_wrong: "Jotain meni vikaan, virhekoodi: %{error_code}"
+      something_went_wrong_plain: ~
     follow_links:
       follow: "Seuraa ilmoitusta"
       unfollow: "Lopeta ilmoituksen seuraaminen"
