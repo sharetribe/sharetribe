@@ -1,11 +1,11 @@
-import { storiesOf, action } from '@kadira/storybook';
 import r from 'r-dom';
 import { storify } from '../../Styleguide/withProps';
 
 import Topbar from './Topbar';
 
-const containerStyle = { style: { minWidth: '600px', background: 'white' } };
+const { storiesOf, action } = storybookFacade;
 
+const containerStyle = { style: { minWidth: '600px', background: 'white' } };
 const fakeRoute = () => '#';
 
 const baseProps = {

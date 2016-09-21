@@ -1,13 +1,12 @@
 import r, { div, h1, h2, p } from 'r-dom';
 import { mount } from 'enzyme';
 
-const { storiesOf, specs, expect } = storybookFacade;
-
 import { storify } from '../../Styleguide/withProps';
 
 import ListingCard from './ListingCard';
 import css from './ListingCard.story.css';
 
+const { storiesOf, specs, expect } = storybookFacade;
 const containerStyle = { style: { background: 'white' } };
 
 storiesOf('Search results')

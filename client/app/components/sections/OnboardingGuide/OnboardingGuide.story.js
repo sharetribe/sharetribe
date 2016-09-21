@@ -1,5 +1,4 @@
 import { div } from 'r-dom';
-import { storiesOf, action } from '@kadira/storybook';
 import withProps from '../../Styleguide/withProps';
 
 import GuideStatusPage from './GuideStatusPage';
@@ -11,6 +10,7 @@ import GuideListingPage from './GuideListingPage';
 import GuideInvitationPage from './GuideInvitationPage';
 import { all as allRoutes } from '../../../utils/routes';
 
+const { storiesOf, action } = storybookFacade;
 const routes = allRoutes({ locale: 'en' });
 
 const onboardingData = [

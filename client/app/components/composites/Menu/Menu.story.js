@@ -1,9 +1,9 @@
 import r from 'r-dom';
-import { storiesOf } from '@kadira/storybook';
 import { storify, defaultRailsContext } from '../../Styleguide/withProps';
 
 import Menu from './Menu';
 
+const { storiesOf } = storybookFacade;
 const containerStyle = { style: { minWidth: '100px', background: 'white' } };
 
 storiesOf('Menu')

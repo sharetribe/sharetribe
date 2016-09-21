@@ -1,9 +1,9 @@
 import r from 'r-dom';
-import { storiesOf } from '@kadira/storybook';
 import { storify } from '../../Styleguide/withProps';
 
 import MenuItem from './MenuItem';
 
+const { storiesOf } = storybookFacade;
 const containerStyle = { style: { minWidth: '200px', background: 'white' } };
 
 storiesOf('MenuItem')
