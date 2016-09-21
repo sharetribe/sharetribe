@@ -7,5 +7,5 @@ import { jsdom } from 'jsdom';
 
 // Enzyme fix: load a document into the global scope before requiring React
 global.document = jsdom('<!doctype html><html><body></body></html>');
-global.window = document.defaultView;
+global.window = global.document.defaultView;
 global.navigator = global.window.navigator;
