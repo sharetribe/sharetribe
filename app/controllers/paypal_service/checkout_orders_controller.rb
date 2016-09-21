@@ -31,7 +31,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
       # Operation was performed asynchronously
 
       render "paypal_service/success", layout: false, locals: {
-        op_status_url: transaction_op_status_path(proc_status[:data][:process_token]),
+        op_status_url: paypal_op_status_path(proc_status[:data][:process_token]),
         redirect_url: success_processed_paypal_service_checkout_orders_path(
           process_token: proc_status[:data][:process_token],
           listing_id: transaction[:listing_id])

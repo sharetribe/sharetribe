@@ -261,6 +261,9 @@ module PaypalService::API
       end
     end
 
+    def allow_async?
+      !!@allow_async
+    end
 
     private
 
@@ -496,7 +499,7 @@ module PaypalService::API
     end
 
     def use_async?(prefer_async)
-      @allow_async && prefer_async
+      allow_async? && prefer_async
     end
 
   end

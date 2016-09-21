@@ -69,6 +69,9 @@ module TransactionService::Gateway
         payment_gateway_fee: payment[:fee_total].or_else(nil) }
     end
 
+    def allow_async?
+      paypal_api.payments.allow_async?
+    end
 
     private
 

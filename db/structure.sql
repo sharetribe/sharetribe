@@ -1465,6 +1465,30 @@ CREATE TABLE `testimonials` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `transaction_process_tokens`
+--
+
+DROP TABLE IF EXISTS `transaction_process_tokens`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `transaction_process_tokens` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `process_token` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `community_id` int(11) NOT NULL,
+  `transaction_id` int(11) NOT NULL,
+  `op_completed` tinyint(1) NOT NULL DEFAULT '0',
+  `op_name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `op_input` text COLLATE utf8_unicode_ci,
+  `op_output` text COLLATE utf8_unicode_ci,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `index_transaction_process_tokens_on_process_token` (`process_token`),
+  UNIQUE KEY `index_paypal_process_tokens_on_transaction` (`transaction_id`,`community_id`,`op_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `transaction_processes`
 --
 
@@ -1562,7 +1586,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-20 16:00:58
+-- Dump completed on 2016-09-21 20:21:21
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3116,4 +3140,6 @@ INSERT INTO schema_migrations (version) VALUES ('20160920102506');
 INSERT INTO schema_migrations (version) VALUES ('20160920102507');
 
 INSERT INTO schema_migrations (version) VALUES ('20160920103321');
+
+INSERT INTO schema_migrations (version) VALUES ('20160921130544');
 
