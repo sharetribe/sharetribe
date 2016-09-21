@@ -37,6 +37,8 @@ config.module.loaders.push(
   }
 );
 
+// Enzyme fix: Ignore conditional require() calls which makes Enzyme compatible with old React versions.
+// https://github.com/airbnb/enzyme/blob/master/docs/guides/webpack.md
 config.externals = {
   jsdom: 'window',
   cheerio: 'window',
