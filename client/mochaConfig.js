@@ -1,12 +1,7 @@
-import { storiesOf, action, linkTo, describe, it, specs } from './.storybook/mockApi';
+import { storiesOf, action, linkTo, specs } from './.storybook/mockApi';
 import { expect } from 'chai';
-global.storiesOf = storiesOf;
-global.action = action;
-global.linkTo = linkTo;
-global.describe = describe;
-global.it = it;
-global.expect = expect;
-global.specs = specs;
+
+global.storybookFacade = { storiesOf, action, linkTo, specs, expect };
 
 import { jsdom } from 'jsdom';
 
