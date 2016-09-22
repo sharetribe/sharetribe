@@ -7,10 +7,10 @@ module TransactionService::Process
 
     TxStore = TransactionService::Store::Transaction
 
-    def create(tx:, gateway_fields:, gateway_adapter:, prefer_async:)
+    def create(tx:, gateway_fields:, gateway_adapter:, force_sync:)
       Transition.transition_to(tx[:id], :initiated)
 
-      if use_async?(prefer_async, gateway_adapter)
+      if use_async?(force_sync, gateway_adapter)
         proc_token = Worker.enqueue_preauthorize_op(
           community_id: tx[:community_id],
           transaction_id: tx[:id],
@@ -29,7 +29,7 @@ module TransactionService::Process
       completion = gateway_adapter.create_payment(
         tx: tx,
         gateway_fields: gateway_fields,
-        prefer_async: false)
+        force_sync: true)
 
       Gateway.unwrap_completion(completion) do
         Transition.transition_to(tx[:id], :preauthorized)
@@ -108,8 +108,8 @@ module TransactionService::Process
                                               result: proc_token[:op_output]}))
     end
 
-    def use_async?(prefer_async, gw_adapter)
-      prefer_async && gw_adapter.allow_async?
+    def use_async?(force_sync, gw_adapter)
+      !force_sync && gw_adapter.allow_async?
     end
   end
 end

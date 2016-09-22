@@ -163,7 +163,7 @@ describe PaypalService::API::BillingAgreements do
       @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
       SyncDelayedJobObserver.collect!
 
-      process_status = @billing_agreements.charge_commission(@cid, @person_id, @commission_info, async: true)[:data]
+      process_status = @billing_agreements.charge_commission(@cid, @person_id, @commission_info, force_sync: false)[:data]
       expect(process_status[:completed]).to eq(false)
 
       SyncDelayedJobObserver.process_queue!

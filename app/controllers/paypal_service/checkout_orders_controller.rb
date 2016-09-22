@@ -19,7 +19,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
     proc_status = paypal_payments_service.create(
       @current_community.id,
       token[:data][:token],
-      async: true)
+      force_sync: false)
 
 
     if !proc_status[:success]

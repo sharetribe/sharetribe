@@ -283,7 +283,7 @@ class PreauthorizeTransactionsController < ApplicationController
         listing_quantity: quantity,
         user: @current_user,
         content: tx_params[:message],
-        use_async: request.xhr?,
+        force_sync: !request.xhr?,
         delivery_method: tx_params[:delivery],
         shipping_price: shipping_total.total,
         booking_fields: {
@@ -502,7 +502,7 @@ class PreauthorizeTransactionsController < ApplicationController
         transaction: transaction,
         gateway_fields: gateway_fields
       },
-      paypal_async: opts[:use_async])
+      force_sync: opts[:force_sync])
   end
 
   def query_person_entity(id)

@@ -7,7 +7,7 @@ module TransactionService::Gateway
       [:none, :preauthorize].include?(process)
     end
 
-    def create_payment(tx:, gateway_fields:, prefer_async:)
+    def create_payment(tx:, gateway_fields:, force_sync:)
       create_payment_info = DataTypes.create_create_payment_request(
         {
          transaction_id: tx[:id],
@@ -26,7 +26,7 @@ module TransactionService::Gateway
       result = paypal_api.payments.request(
         tx[:community_id],
         create_payment_info,
-        async: prefer_async)
+        force_sync: force_sync)
 
       unless result[:success]
         return SyncCompletion.new(result)
