@@ -1340,7 +1340,7 @@ it:
       open_in_google_maps: "Apri in Google Maps"
     error:
       something_went_wrong: "Qualcosa è andato storto. Codice errore: %{error_code}"
-      something_went_wrong_plain: ~
+      something_went_wrong_plain: "Qualcosa è andato storto"
     follow_links:
       follow: "Ricevi email per ogni nuovo commento"
       unfollow: "Non ricevere email per ogni nuovo commento"
