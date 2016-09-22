@@ -7,6 +7,7 @@ describe TransactionService::Store::Transaction do
   let(:transaction_model) { ::Transaction }
 
   before(:each) do
+    @community = FactoryGirl.create(:community)
     @cid = 3
     @payer = FactoryGirl.create(:payer)
     @listing = FactoryGirl.create(:listing,
@@ -20,8 +21,10 @@ describe TransactionService::Store::Transaction do
       payment_process: :preauthorize,
       payment_gateway: :paypal,
       community_id: @cid,
+      community_uuid: @community.uuid,
       starter_id: @payer.id,
       listing_id: @listing.id,
+      listing_uuid: @listing.uuid,
       listing_title: @listing.title,
       unit_price: @listing.price,
       availability: @listing.availability,
