@@ -167,7 +167,7 @@ class TransactionsController < ApplicationController
     if resp
       render :json => resp
     else
-      redirect_to error_not_found_path
+      head :not_found
     end
   end
 
@@ -183,7 +183,7 @@ class TransactionsController < ApplicationController
     if resp
       render :json => resp
     else
-      redirect_to error_not_found_path
+      head :not_found
     end
   end
 
