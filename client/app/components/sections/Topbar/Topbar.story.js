@@ -1,9 +1,10 @@
 import r from 'r-dom';
+import { mount } from 'enzyme';
 import { storify } from '../../Styleguide/withProps';
 
 import Topbar from './Topbar';
 
-const { storiesOf, action } = storybookFacade;
+const { storiesOf, action, specs, expect } = storybookFacade;
 
 const containerStyle = { style: { minWidth: '600px', background: 'white' } };
 const fakeRoute = () => '#';
@@ -120,17 +121,60 @@ const loggedOut = (props) => ({
 
 const storifyTopbar = (props) => r(storify(r(Topbar, props)), containerStyle);
 
+const topbarWithSpecs = (props, spec) => {
+  const component = r(Topbar, props);
+  const mounted = mount(component);
+  spec(mounted);
+  return r(storify(component, containerStyle));
+};
+
+const noLoginLinks = (component) => {
+  it('shouldn\'t contain login and signup links', () => {
+    expect(component.text()).to.not.contain('login');
+    expect(component.text()).to.not.contain('signup');
+  });
+  it('should contain logout link', () => {
+    expect(component.text()).to.contain('Log out');
+  });
+};
+
+const hasLoginLinks = (component) => {
+  it('should contain login and signup links', () => {
+    expect(component.text()).to.contain('Log in');
+    expect(component.text()).to.contain('Sign up');
+  });
+  it('shouldn\'t contain logout link', () => {
+    expect(component.text()).to.not.contain('Log out');
+  });
+};
+
+const hasLogo = (component) => {
+  it('should contain logo', () => {
+    expect(component.find('.Logo')).to.exist;
+  });
+};
+
 storiesOf('Top bar')
   .add('Basic state', () => (
-    storifyTopbar(baseProps)))
+    topbarWithSpecs(baseProps, (component) => {
+      specs(() => describe('Basic topbar', () => {
+        noLoginLinks(component);
+        it('should have stuff in place');
+      }));
+    })))
   .add('Empty state', () => (
-    storifyTopbar({
+    topbarWithSpecs({
       logo: baseProps.logo,
       marketplace: {
         location: '/',
       },
       routes: baseProps.routes,
       search_path: baseProps.search_path,
+    }, (component) => {
+      specs(() => describe('Empty state', () => {
+        hasLogo(component);
+        hasLoginLinks(component);
+      }));
     })))
   .add('Logged out', () => (
     storifyTopbar(loggedOut(baseProps))))
