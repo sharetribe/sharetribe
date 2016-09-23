@@ -150,7 +150,7 @@ const hasLoginLinks = (component) => {
 
 const hasLogo = (component) => {
   it('should contain logo', () => {
-    expect(component.find('.Logo')).to.exist;
+    expect(component.find('.Logo')).to.have.length(1);
   });
 };
 
