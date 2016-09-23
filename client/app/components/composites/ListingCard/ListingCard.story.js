@@ -130,7 +130,7 @@ storiesOf('Search results')
     const card = ListingCardBasic;
     const mountedCard = mount(card);
 
-    specs(() => describe('Failing image', () => {
+    specs(() => describe('ListingCard - basic', () => {
       it('Should not display "No picture"', () => {
         expect(mountedCard.text()).to.not.include(card.props.noImageText);
         expect(mountedCard.find('.ListingCard_image')).to.have.length(1);
@@ -145,7 +145,7 @@ storiesOf('Search results')
     const card = ListingCardNoImage;
     const mountedCard = mount(card);
 
-    specs(() => describe('Failing image', () => {
+    specs(() => describe('ListingCard - no image', () => {
       it('Should display "No picture"', () => {
         expect(mountedCard.text()).to.include(card.props.noImageText);
         expect(mountedCard.find('.ListingCard_image')).to.have.length(0);
@@ -160,7 +160,7 @@ storiesOf('Search results')
     const card = ListingCardImageError;
     const mountedCard = mount(card);
 
-    specs(() => describe('Failing image', () => {
+    specs(() => describe('ListingCard - image fail', () => {
       it('Should display "No picture"', () => {
         const mounted = mount(card);
         mounted.setState({ imageStatus: 'failed' });
