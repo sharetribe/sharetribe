@@ -9,5 +9,10 @@
       .alert-text-icon
         = icon_tag("alert")
       %p.alert-text-content
+        -# paypal_accounts.paypal_receive_funds_info_label
+        -# paypal_accounts.paypal_receive_funds_info_label_australia_only
         %strong= t(receive_funds_info_label_tr_key)
-        =t("paypal_accounts.paypal_receive_funds_info", upgrade_paypal_account_link: upgrade_paypal_account_link).html_safe
+
+        -# paypal_accounts.paypal_receive_funds_info
+        -# paypal_accounts.paypal_receive_funds_info_australia_only
+        =t(receive_funds_info_tr_key, upgrade_paypal_account_link: upgrade_paypal_account_link).html_safe
