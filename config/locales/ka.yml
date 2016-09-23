@@ -2020,15 +2020,15 @@ ka:
     initiate:
       booked_days: "დაჯავშნილი დღეები:"
       booked_nights: "დაჯავშნილი ღამეები"
-      booked_days_label:
-        other: "დაჯავშნილი დღე:"
-      booked_nights_label:
-        other: "დაჯავშნილი ღამე"
       price_per_day: "ფასი დღიურად"
       price_per_night: "ერთი ღამის ფასი:"
       quantity: რაოდენობა
       subtotal: "ჯამი:"
       shipping-price: "ტრანსპორტირება:"
+      booked_days_label:
+        other: "დაჯავშნილი დღე:"
+      booked_nights_label:
+        other: "დაჯავშნილი ღამე"
     price_per_quantity: "ფასი ყოველ %{unit_type}"
     price: "ფასი:"
     quantity: "რაოდენობა: %{quantity}"
