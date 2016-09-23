@@ -1,5 +1,8 @@
 import { storiesOf, action, linkTo, specs } from './.storybook/mockApi';
-import { expect } from 'chai';
+import chai, { expect } from 'chai';
+import chaiEnzyme from 'chai-enzyme';
+
+chai.use(chaiEnzyme());
 
 global.storybookFacade = { storiesOf, action, linkTo, specs, expect };
 
