@@ -52,7 +52,7 @@ class ListingCard extends Component {
       }, this.props.imageURL && this.state.imageStatus !== 'failed' ?
         img({
           ...{
-            className: css.thumbnail,
+            className: classNames('ListingCard_image', css.thumbnail),
             src: this.props.imageURL,
             onLoad: this.handleImageLoaded,
             onError: this.handleImageErrored,
