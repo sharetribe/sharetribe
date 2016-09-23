@@ -1,6 +1,7 @@
 import { storiesOf, action, linkTo, specs } from './.storybook/mockApi';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
+import { initialize as initializeI18n } from './app/utils/i18n';
 
 chai.use(chaiEnzyme());
 
@@ -17,3 +18,5 @@ Object.keys(global.document.defaultView).forEach((property) => {
   }
 });
 global.navigator = global.window.navigator;
+
+initializeI18n('en', 'en', 'development');
