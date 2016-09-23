@@ -159,10 +159,13 @@ class TransactionsController < ApplicationController
     process_token = params[:process_token]
 
     resp = Maybe(process_token)
-      .map { |ptok| transaction_process_tokens.get_status(ptok) }
-      .select(&:success)
-      .data
-      .or_else(nil)
+             .map { |ptok|
+               uuid = UUIDTools::UUID.parse(process_token)
+               transaction_process_tokens.get_status(uuid)
+             }
+             .select(&:success)
+             .data
+             .or_else(nil)
 
     if resp
       render :json => resp

@@ -3,7 +3,7 @@ module TransactionService::Store::ProcessToken
   ProcessTokenModel = ::TransactionProcessToken
 
   ProcessToken = EntityUtils.define_builder(
-    [:process_token, :mandatory, :string],
+    [:process_token, :mandatory, :uuid],
     [:community_id, :mandatory, :fixnum],
     [:paypal_token, :string],
     [:transaction_id, :fixnum],
@@ -25,7 +25,7 @@ module TransactionService::Store::ProcessToken
   end
 
   def update_to_completed(process_token:, op_output:)
-    ProcessTokenModel.where(process_token: process_token).first!
+    by_process_token(process_token).first!
       .update_attributes(op_completed: true, op_output: YAML.dump(op_output))
   end
 
@@ -40,7 +40,7 @@ module TransactionService::Store::ProcessToken
   end
 
   def get_by_process_token(process_token)
-    Maybe(ProcessTokenModel.where(process_token: process_token).first)
+    Maybe(by_process_token(process_token).first)
       .map { |model| from_model(model) }
       .or_else(nil)
   end
@@ -48,8 +48,12 @@ module TransactionService::Store::ProcessToken
 
   # Privates
 
+  def by_process_token(process_token)
+    ProcessTokenModel.where(process_token: UUIDUtils.raw(process_token))
+  end
+
   def gen_process_token_uuid
-    SecureRandom.uuid
+    UUIDUtils.create_raw
   end
 
   def create_unique(info)
@@ -71,6 +75,7 @@ module TransactionService::Store::ProcessToken
     model_hash = EntityUtils.model_to_hash(model)
     model_hash[:op_input] = YAML.load(model_hash[:op_input]) unless model_hash[:op_input].nil?
     model_hash[:op_output] = YAML.load(model_hash[:op_output]) unless model_hash[:op_output].nil?
+    model_hash[:process_token] = UUIDUtils.parse_raw(model_hash[:process_token])
 
     ProcessToken.call(model_hash)
   end

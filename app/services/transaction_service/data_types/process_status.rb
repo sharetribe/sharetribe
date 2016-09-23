@@ -1,7 +1,7 @@
 module TransactionService::DataTypes::ProcessStatus
 
   ProcessStatus = EntityUtils.define_builder(
-    [:process_token, :mandatory, :string],
+    [:process_token, :mandatory, :uuid],
     [:completed, :mandatory, :to_bool],
     [:result])
 

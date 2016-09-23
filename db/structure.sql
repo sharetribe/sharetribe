@@ -1473,18 +1473,18 @@ DROP TABLE IF EXISTS `transaction_process_tokens`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `transaction_process_tokens` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `process_token` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `process_token` binary(16) DEFAULT NULL,
   `community_id` int(11) NOT NULL,
   `transaction_id` int(11) NOT NULL,
   `op_completed` tinyint(1) NOT NULL DEFAULT '0',
   `op_name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `op_input` text COLLATE utf8_unicode_ci,
   `op_output` text COLLATE utf8_unicode_ci,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `index_transaction_process_tokens_on_process_token` (`process_token`),
-  UNIQUE KEY `index_paypal_process_tokens_on_transaction` (`transaction_id`,`community_id`,`op_name`)
+  UNIQUE KEY `index_paypal_process_tokens_on_transaction` (`transaction_id`,`community_id`,`op_name`),
+  UNIQUE KEY `index_transaction_process_tokens_on_process_token` (`process_token`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

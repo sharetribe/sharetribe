@@ -3,15 +3,15 @@
 # Table name: transaction_process_tokens
 #
 #  id             :integer          not null, primary key
-#  process_token  :string(64)       not null
+#  process_token  :binary(16)
 #  community_id   :integer          not null
 #  transaction_id :integer          not null
 #  op_completed   :boolean          default(FALSE), not null
 #  op_name        :string(64)       not null
 #  op_input       :text(65535)
 #  op_output      :text(65535)
-#  created_at     :datetime
-#  updated_at     :datetime
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #
 # Indexes
 #

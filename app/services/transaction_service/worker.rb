@@ -29,7 +29,7 @@ module TransactionService::Worker
 
   def schedule_preauthorize_job(proc_token)
     Delayed::Job.enqueue(
-      TransactionService::Jobs::ProcessPreauthorizeCommand.new(proc_token[:process_token]),
+      TransactionService::Jobs::ProcessPreauthorizeCommand.new(proc_token[:process_token].to_s),
       priority: JOB_PRIORITY)
   end
 end

@@ -5,7 +5,7 @@ module TransactionService::Jobs
 
     def perform
       ProcessCommand.run(
-        process_token: process_token,
+        process_token: UUIDTools::UUID.parse(process_token),
         resolve_cmd: (method :resolve_preauthorize_cmd))
     end
 
