@@ -1648,6 +1648,7 @@ sk-SK:
     connected_account: "Paypal účet '%{email}' bol úspešne pripojený."
     paypal_receive_funds_info_label_australia_only: "Váš PayPal účet musí byť nastavený pre príjem platieb. K tomuto je potrebný Premier alebo Business účet."
     paypal_receive_funds_info_label: "Váš PayPal účet musí byť nastavený pre príjem platieb. K tomuto je potrebný Business účet."
+    paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: "Pokiaľ dôjde k chybe pri pokuse o prepojenie účtu do %{service_name}, budete musieť aktualizovať Váš PayPal účet,%{upgrade_paypal_account_link}. Je to jednoduché a zadarmo. PayPal odporúča použiť svoje meno ako názov spoločnosti."
     upgrade_paypal_account_link_text: "prihlásiť sa a kliknúť na odkaz"
     admin_account_not_connected: "Použitie %{service_name} ako platobného systému pre platby nie je možné, pretože platby nie sú nastavené. Prosím %{contact_admin_link} pre podrobnosti."

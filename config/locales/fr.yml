@@ -1638,6 +1638,7 @@ fr:
     connected_account: "Le compte PayPal '%{email}' est désormais connecté."
     paypal_receive_funds_info_label_australia_only: "Votre compte PayPal doit permettre de recevoir des paiements. Cela peut nécessiter un compte Premier ou Business."
     paypal_receive_funds_info_label: "Votre compte PayPal doit permettre la réception de paiements. Cela nécessite un compte Business."
+    paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: "Si vous voyez une erreur en essayant de connecter votre compte à %{service_name}, surclassez votre compte PayPal en %{upgrade_paypal_account_link}. C'est simple et gratuit. Si vous êtes un particulier, PayPal recommande d'utiliser votre nom comme nom Business ou Entreprise."
     upgrade_paypal_account_link_text: "vous connectant et cliquant sur le lien de surclassement"
     admin_account_not_connected: "Utiliser le système de paiement de %{service_name} pour recevoir des paiements est impossible tant que celui-ci n'a pas été activé. Veuillez %{contact_admin_link} pour en savoir plus."

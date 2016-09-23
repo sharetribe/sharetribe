@@ -1628,6 +1628,7 @@ ru:
     connected_account: "PayPal аккаунт \"%{email}\" успешно подключен."
     paypal_receive_funds_info_label_australia_only: "Ваша учетная запись PayPal должна быть способна принимать платежи. Для этого вам возможно потребуется Premier или бизнес-аккаунт."
     paypal_receive_funds_info_label: "Ваш PayPal аккаунт должен быть способен принимать платежи. Для этого вам возможно потребуется простой бизнес аккаунт."
+    paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: "Если вы увидите сообщение об ошибке, при попытке подключения к %{service_name}, обновите ваш PayPal с помощью %{upgrade_paypal_account_link}. Это бесплатно и легко. Если вы являетесь частным лицом, PayPal рекомендует использовать свое имя в качестве имени бизнеса."
     upgrade_paypal_account_link_text: "входа в счет и нажатия ссылки обновления"
     admin_account_not_connected: "Использование %{service_name} платежной системы для того, чтобы получать платежи, не представляется возможным, поскольку платежная система не была авторизована. Пожалуйста %{contact_admin_link} для деталей."

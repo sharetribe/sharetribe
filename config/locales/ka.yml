@@ -89,18 +89,18 @@ ka:
         favicon: Favicon
         favicon_info_text: "Favicon ჩაანაცვლებს Sharetribe-ს მოყოლილ ლოგოს. გაფართოება უნდა იყოს 32x32 პიქსელი და ატვირთული სურათის ზომები შეიცვლება ამ გაფართოებაზე."
         community_custom_color1: "მთავარი ფერი"
-        new_listing_button_custom_color: ~
+        new_listing_button_custom_color: "დაპოსტე ახალი ჩამონათვალის ღილაკის ფერი"
         logo_instructions_text_with_dimensions: "დესკტოპის ლოგოს ზომა უნდა იყოს %{width}x%{height} პიქსელი."
-        logo_instructions_text_with_dimensions_no_placing: ~
+        logo_instructions_text_with_dimensions_no_placing: "ლოგოს ზომა უნდა იყოს%{height}%{width}პიქსელი"
         logo_icon_instructions_text_with_dimensions: "ეს ლოგო ნაჩვენები იქნება მაშინ, როცა ხალხი გააზიარებს თქვენს გვერდს Facebook-ზე, მაშინ როცა ნახავენ თქვენ საიტს მობილური მოწყობილობით ან როცა ჩაინიშნავენ მთავარ გვერდზე თავიანთ მობილურ მოწყობილობაში. გაფართოება უნდა იყოს (მინიმუმ) %{width}x%{height} პიკსელი."
-        logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_icon_instructions_text_with_dimensions_no_placing: "ეს ლოგო ნაჩვენები იქნება მაშინ, როცა ხალხი გააზიარებს თქვენს გვერდს Facebook-ზე, მაშინ როცა ნახავენ თქვენ საიტს მობილური მოწყობილობით ან როცა ჩაინიშნავენ მთავარ გვერდზე თავიანთ მობილურ მოწყობილობაში. გაფართოება უნდა იყოს (მინიმუმ) %{width}x%{height} პიკსელი."
         cover_photo_visibility: "გარეკანის ფოტო ჩანს მთავარ გვერდზე იმ მომხარებლებისთვის, ვინც სისტემაში არ არიან შესულები"
         cover_photo_instructions_text_with_dimensions: "ფოტოს შეეცვლება ზომები %{width}x%{height} პიქსელის ზომაზე ხოლო მაღალი სურათები გაიჭრება შუაზე. %{see_how_it_looks_like}"
         small_cover_photo_visibility: "პატარა გარეკანის სურათი ნაჩვენები იქნება ყველა გვერდზე გარდა მთავარი გვერდისა იმ მომხმარებლებისთვის ვინც არ არიან სისტემაში შესულები."
         small_cover_photo_instructions_text_with_dimensions: "ფოტოს შეეცვლება ზომები %{width}x%{height} პიქსელის ზომაზე ხოლო მაღალი სურათები გაიჭრება შუაზე."
         main_content_width: "გარეკანის ფოტოს არჩევისას დაიმახსოვრე, რომ გვერდის მთავარი შიგთავსი იყოს %{main_width} პიქსელის ყველაზე ფართო. არ დაგავიწყდეს ასევე იმის შემოწმება, თუ როგორ გამოიყურება გარეკანის სურათი პატარა ეკრანებზე (მაგ. უფრო ვიწრო ბრაუზერის გამოყენებისას)."
         custom_color1_instructions_text: "თქვენ შეგიძლიათ შეცვალოთ მომხმარებლის ინტერფეისის მთავარი ფერი hex ფერის შეყვანით <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> დაგეხმარებათ ფერის არჩევაში და კოდის დაკოპირებაში."
-        new_listing_button_instructions_text: ~
+        new_listing_button_instructions_text: "შენ შეგიძლია შეცვალო პოსტის ფერი hex ფერის შეყვანის მეთოდით.%{link_to_colorpicker} დაგეხმარებათ აირჩიოთ ფერი და დააკოპიროთ მისი კოდი აქ."
         default_browse_view: "ნაგულისხმევი ხედი"
         default_browse_view_instructions_text: "ნაგულისხმევი ხედი გამოიყენება მთავარ გვერდზე, რომ განახოთ ჩამონათვალი როგორ იქნება ნაჩვენები დეფოლტად."
         grid: ცხრილი
@@ -187,12 +187,12 @@ ka:
         search_preferences: "ძებნის პარამეტრები"
         default_search_type: "ძებნის ტიპი: %{select_search_type}"
         keyword_search: "საკვანძო სიტყვის ძებნა"
-        keyword_and_location_search: ~
+        keyword_and_location_search: "საკვანძო სიტყვით და ადგილით ძიება"
         location_search: "ადგილმდებარეობის ძებნ"
         select_distance_unit: "მაჩვენე დისტანცია %{distance_units_selector}-ში"
         km: კმ
         miles: მილები
-        show_only_nearby: ~
+        show_only_nearby: "ძებნაში აჩვენე მხოლოდ ახლომდებარე პროდუქცია"
         listing_preferences: "ჩამონათვალის პარამეტრები"
         transaction_preferences: "შეკვეთის პარამეტრები"
         show_listing_publishing_date: "გამოაჩინე ჩამონათვალის გამოქვეყნების თარიღი ჩამონათვალის გვერდზე"
@@ -214,7 +214,7 @@ ka:
         type_marketplace_domain_placeholder: "აკრიფე შენი ბაზრის დომენი აქ"
         once_you_delete: "თუ წაშლით ბაზარს ვეღარ შეძლებთ მასთან წვდომას. იყავით ფრთხილი."
         are_you_sure: "დარწმუნებული ხართ?"
-        i_understand_button: "მე მესმის, რომ ამ ღილაკზე ხელის დაჭერით ჩემი ბაზარი იქნება წაშლილი"
+        i_understand_button: "მე ვეთანხმები იმას რომ ამ ღილაკზე ხელის დაჭერით ჩემი ბაზარი იქნება წაშლილი"
         last_community_updates: "გთხოვთ დაიმახსოვრეთ, რომ წაშლის შემდეგ თქვენ და თქვენი ბაზარის მომხარებელმა შეიძლება ისევ მიიღოთ ბოლო ბაზრის განახლების წერილები. "
         you_will_be_redirected_to: "თქვენი ბაზრის წაშლის შემდეგ თქვენ გადამისამართდებით %{destination}-ზე. თქვენ აღარ გექნებათ წვდომა ბაზარზე."
         delete_this_marketplace: "წაშალეთ ეს ბაზარი"
@@ -233,12 +233,12 @@ ka:
         ban_user_confirmation: "ეს წაშლის მომხმარებელს ბაზრიდან და შეუზრუდავს თავისი ანგარიშით საიტზე შემოსვლის უფლებას. დარწმუნებული ხარ რომ გსურს გაგრძელება?"
         ban_me_error: "თქვენ ვერ დაბლოკავთ საკუთარ თავს."
       new_layout:
-        new_layout: ~
-        description_roadmap: ~
-        description_process: ~
-        enabled_for_you: ~
-        enabled_for_all: ~
-        new_topbar: ~
+        new_layout: "ახალი განლაგება"
+        description_roadmap: "Sharetribe ამჟამად მუშაობს გაუმჯობესებული ვიზუალის და განლაგების კეთებაზე. ამ გარდამავალ პერიოდში, თქვენ შეგიძლიათ აირჩიოთ თქვენი ბაზრის რომელი ნაწილი გინდათ რომ დარჩეს ძველი სახით. ახალი ოფციები მხოლოდ ახალ განლაგებაში იქნება ნაჩვენები."
+        description_process: "ძველი ვიზუალის და განლაგებების მხარდაჭერა მომავალში აღარ იქნება. Sharetribe-ის გუნდი აუცილებლად შეგატყობინებთ ამის თაობაზე წინასწარ. კითხვების შემთხვევაში დაგვიკავშირდით %{support_link}"
+        enabled_for_you: "თქვენთვის გააქტიურდა"
+        enabled_for_all: "ყველასთვის გააქტიურდა"
+        new_topbar: "ახალი ზემოთა ბარი (ყველა გვერდზე ჩანს)"
       social_media:
         social_media: "სოციალური მედია"
         twitter_handle: "Twitter handle"
@@ -273,14 +273,14 @@ ka:
         language: ენა
         url: URL
         empty: "თქვენ არ გაქვთ დამატებით მენიუს ბმულები"
-        max_number_of_links: ~
-        all: ~
-        max_number_of_links_info: ~
-        about_page: ~
+        max_number_of_links: "ზემოთ ნაჩვენები ბმულების მაქსიმალური რაოდენობა: %{select_max_number}"
+        all: ყველა
+        max_number_of_links_info: "%{about_page}ის ბმული ყოველთვის პირველ ბმულად იქნება ნაჩვენები მენიუში"
+        about_page: შესახებ
       topbar:
-        topbar: ~
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        topbar: "ზედა ბარი"
+        new_listing_button_label: "დაპოსტე ახალი ჩამონათვალის ღილაკის ტექსტი."
+        invalid_post_listing_button_label: "დაარქვი შესაბამისი სახელი \"განცხადების დამატების\" ღილაკს"
       transactions:
         export_all_as_csv: "დააექსპორტე ყველა CSV-დ"
         transactions: "ტრანზაქციების ნახვა"
@@ -902,10 +902,10 @@ ka:
       you_are_receiving_this_because: "თქვენ მიიღეთ შეტყობინება, იმიტომ, რომ მისდევთ %{author_name}-ს."
       view_listing: "ნახე ჩამონათვლები"
     new_member_notification:
-      new_member_has_joined: ~
-      this_is_automatic_message: ~
-      person_name: ~
-      person_email: ~
+      new_member_has_joined: "ახალი წევრი შემოუერთდა %{community}ს. მათ მოუწევთ ელ.ფოსტის დადასტურება."
+      this_is_automatic_message: "ეს არის ავტომატური წერილი რომელიც გაეგზავნა %{community}ის ადმინისტრატორებს"
+      person_name: "სახელი:"
+      person_email: "ელ.ფოსტა:"
   error_messages:
     onboarding:
       server_rendering: "დაწყების გიდის ჩატვირთვა ვერ მოხერხდა. ჩვენ ვართ ინფორმირებულები ამის შესახებ და ვმუშაობთ მის გამოსწორებაზე."
@@ -951,8 +951,8 @@ ka:
       javascript_is_disabled_in_your_browser: "Javascript გამორთულია თქვენ ბრაუზერზე"
       kassi_does_not_currently_work_without_javascript: "%{service_name} არ მუშაობს გამართულად javascript-ის გარეშე. ცადეთ რომ javascript ჩართოთ თქვენი ბრაუზერის პარამეტრებიდან და გადატვირთეთ გვერდი კიდევ ერთხელ."
       contact_us: დაგვიკავშირდით
-      send_feedback: ~
-      your_feedback_to_admins: ~
+      send_feedback: "წერილის გაგზავნა"
+      your_feedback_to_admins: "თქვენი მესიჯი %{service_name} გუნდს"
     send: გაგზავნა
     your_email_address: "თქვენი ელ. ფოსტა"
   errors:
@@ -1128,7 +1128,7 @@ ka:
       search: ძებნა
       signup: დარეგისტრირდი
       search_placeholder: "რას ეძებთ?"
-      search_location_placeholder: ~
+      search_location_placeholder: ადგილმდებარეობა
     listings:
       no_listing_image: "სურათი არ არის"
   layouts:
@@ -1141,17 +1141,17 @@ ka:
     no_tribe:
       inbox: "შემოსული წერილები"
       settings: პარამეტრები
-      feedback: ~
+      feedback: "დაუკავშირდით %{service_name}ს გუნდს"
     application:
       join_this_community: "შეუერთდი ბაზარს"
       read_more: "წაიკითხე მეტი"
-      feedback: ~
-      dont_use_to_contact_support: ~
+      feedback: " თქვენი წერილი %{service_name} გუნდს"
+      dont_use_to_contact_support: "ჩვენ შევნიშნეთ რომ თქვენ ხართ%{service_name}ის ადმინისტრატორი. ამ ფორმის მეშვეობით თქვენი მომხმარებლები გიკავშირდებიან. ამ ფორმით თქვენ ვერ დაუკავშირდებით Sharetribe დამხმარე გუნდს. ეს შეგიძლიათ Support link-ის მეშვეობით რომელიც ადმინ პანელშია განთავსებული."
       feedback_forum: "შეფასების ფორუმი"
       feedback_handle: შეფასება
       give_feedback: კონტაქტი
       or_check_our: ".. ან შეამოწმეთ ჩვენი"
-      send_feedback_to_admin: ~
+      send_feedback_to_admin: "წერილის გაგზავნა"
       to_see_what_others_have_suggested: "რომ ნახოთ რა შეთავაზეს სხვა მომხმარებლებმა და ხმა მისცეთ იდეებს. "
       your_email_address: "თქვენი ელ. ფოსტა (რომ დაგიკავშირდეთ)"
       connect: დარეგისტრირება
@@ -1221,7 +1221,7 @@ ka:
       error_with_session: "სესიის შეცდომა."
       feedback_considered_spam: "შეფასება არ იქნა დამახსოვრებული მისი ფორმატიდან გამომდინარე. სცადეთ თავიდან, ან გამოიყენეთ შეფასების ფორუმი"
       feedback_not_saved: "შეფასება ვერ გაიგზავნება"
-      feedback_saved: ~
+      feedback_saved: "დიდი მადლობა წერილის გამოგზავნისთვის. ჩვენ მალე გიპასუხებთ."
       feedback_sent_to: "შეფასება გაგზავნილია %{target_person}სთვის"
       feedback_skipped: "შეფასება გამოტოვებულია"
       invitation_cannot_be_sent: "მოწვევა ვერ გაიგზავნა"
@@ -1312,7 +1312,7 @@ ka:
       user_does_not_have_email_to_delete: "თქვენ არ გაქვთ ის ელ. ფოსტა, რომლის წაშლავც გსურთ. "
       email_deleted: "ელ. ფოსტა წაშლილია"
       listing_author_payment_details_missing: "გთხოვთ დაუკავშირდით ავტორს, \"კონტაქტი\"-ს ღილაკზე ხელის დაჭერით. მათ უნდა განაახლონ თავისი გადახდის დეტალები რომ მიიღონ გადახდა."
-      images_are_processing: ~
+      images_are_processing: "ჩვენ ვამუშავებთ თქვენს სურათებს. 2 წუთში ყველა გამოჩნდება, დაელოდეთ."
       maintenance_mode:
         zero: "საიტი იქნება გამორთული შეკეთებისთვის "
         other: "საიტი იქნება გამორთული შეკეთებისთვის %{count} წუთში"
@@ -1355,7 +1355,7 @@ ka:
       open_in_google_maps: "გახსენი Google Maps-ში"
     error:
       something_went_wrong: "რაღაც შეცდომით მოხდა. შეცდომის კოდი: %{error_code}"
-      something_went_wrong_plain: ~
+      something_went_wrong_plain: "რაღაც შეცდომა მოხდა"
     follow_links:
       follow: "მიიღეთ ელ. ფოსტა ახალი კომენტარების შესახებ"
       unfollow: "არ მიიღოთ ელ. ფოსტა ახალი კომენტარების შესახებ"
@@ -1584,9 +1584,9 @@ ka:
       you_will_be_charged: "თქვენ დაგერიცხებათ თანხა, მხოლოდ მაშინ, როცა %{author} დაადასტურებს ტრანზაქციას. %{author} საჭიროა დაადასტუროს ტრანზაქცია %{expiration_period} დღის განმავლობაში. თუ %{author} უარყოფს ან არ უპასუხებს მაშინ დარიცხვა არ მოხდება."
       day: დღე
       days: დღეები
-      night: ~
-      nights: ~
-      invalid_parameters: ~
+      night: ღამე
+      nights: ღამე
+      invalid_parameters: "ახალი ტრანზაქციისთვის ასეთი სახელი არ არსებობს"
     transaction_agreement_checkbox:
       read_more: ნახვა
   mapview:
@@ -1626,6 +1626,7 @@ ka:
     connected_account: "PayPal-ის ანგარიში %{email} წარმატებით შეერთდა"
     paypal_receive_funds_info_label_australia_only: "თქვენი PayPal-ის ანგარიშს ჭირდება გადახდის მიღების უფლების ქონა. ეს მოითხოვს პრემიალურ ან ბიზნეს ანგარიშს."
     paypal_receive_funds_info_label: "თქვენი PayPal-ის ანგარიშს სჭირდება შესაძლელბობა რომ დაადასტუროს გადახდები. ამისთვის შეიძლება საჭირო იყოს ბიზნეს ანგარიში."
+    paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: "თუ ხედავ შეცდომას შენ ანგარიშის %{service_name}-სთან დაკავშირების დროს , განაახლე PayPal-ის ანგარისი %{upgrade_paypal_account_link}-ით. ეს უფასო და მარტივია. თუ ფიზიკური პირი ხართ PayPal გირჩევთ გამოიყენოთ თქვენი სახელი ბიზნესის სახელად."
     upgrade_paypal_account_link_text: "სისტემაში შესვლა და განახლების ბმულზე დაჭერა"
     admin_account_not_connected: "%{service_name}-ს გადახდის სისტემის სერვისის გამოყენება გადახდების მისაღებად შეუძლებელია, რადგან გადახდები არ არის დაყენებული. გთხოვთ %{contact_admin_link} დეტალებისთვის."
@@ -1668,7 +1669,7 @@ ka:
     paypal_account_connected_title: "PayPal-ის ანგარიში დაკავშირებულია"
     paypal_account_connected: "PayPal ანგარიში %{email} დაუკავშირდა %{service_name}ს."
     change_account: "შეცვალე PayPal ანგარიში"
-    missing: "თქვენ გახსენით ჩამონათვალი, მაგრამ თქვენი Paypal ანგარიში არ არის დაყენებული, რომ მიიღოს გადახდები. დაუკავშირდით თქვენს Paypal ანგარიშს და დართეთ %{service_name} უფლება რომ დაგარიცხოთ ტრანზაქციის საფასური თქვენი %{settings_link}-დან."
+    missing: "თქვენ გახსენით ჩამონათვალი, მაგრამ თქვენი Paypal ანგარიში არ არის დაყენებული, რომ მიიღოს გადახდები. დაუკავშირდით თქვენს Paypal ანგარიშს და დართეთ %{service_name}ს უფლება რომ დაგარიცხოთ ტრანზაქციის საფასური თქვენი %{settings_link}-დან."
     from_your_payment_settings_link_text: "გადახდის პარამეტრები"
     redirect_message: "გადამისამართება თქვენ PayPal-ზე. თუ არაფერი მოხდა დააჭირე %{redirect_link}-ს."
     redirect_link_text: აქ
@@ -1692,7 +1693,7 @@ ka:
     help_texts:
       feedback_description_title: შეფასება
       help_invitation_code_title: "თქვენ გჭირდებათ მოწვევა რომ შეუერთდეთ"
-      terms_title: "%{service_name} მოხმარების ვადები"
+      terms_title: "%{service_name} მოხმარების პირობებს"
       invite_only_help_text: "მონიშნე ეს ოფცია, თუ გინდა რომ ახალი მომხმარებლები შემოუერთდნენ მხოლოდ მაშინ თუ მათ ექლებათ მოთხოვნა უკვე არსებული მომხმარებლისგან."
       invite_only_help_text_title: "მოიწვიე მხოლოდ"
     inactive_notification:
@@ -1899,11 +1900,11 @@ ka:
       without_tag: "მონიშვნის გარეშე"
   terms:
     show:
-      accept_terms: "~%{service_name} მოხმარების ვადების დადასტურება"
+      accept_terms: "~%{service_name} მოხმარების პირობების დადასტურება"
       here: "ღილაკზე დაჭერით"
       i_accept_new_terms: "ვადასტურებ ახალ ვადებს"
       i_accept_terms: "ვადასტურებ ვადებს"
-      terms: "%{service_name} მოხმარების ვადები"
+      terms: "%{service_name} მოხმარების პირობებს"
       terms_have_changed: "მოხმარების ვადები შეიცვალა"
       you_can_view_the_new_terms: "თქვენ შეგიძლიათ იხილოთ ახალი ვადები "
       you_need_to_accept: "მოგესალმებით %{service_name}-ზე! მგონი პირველად იყენებთ ამ სერვისს. სანამ დაიწყებთ თქვენ უნდა დაადასტუროთ"
@@ -2018,9 +2019,13 @@ ka:
   transactions:
     initiate:
       booked_days: "დაჯავშნილი დღეები:"
-      booked_nights: ~
+      booked_nights: "დაჯავშნილი ღამეები"
+      booked_days_label:
+        other: "დაჯავშნილი დღე:"
+      booked_nights_label:
+        other: "დაჯავშნილი ღამე"
       price_per_day: "ფასი დღიურად"
-      price_per_night: ~
+      price_per_night: "ერთი ღამის ფასი:"
       quantity: რაოდენობა
       subtotal: "ჯამი:"
       shipping-price: "ტრანსპორტირება:"
@@ -2035,9 +2040,9 @@ ka:
   web:
     topbar:
       menu: მენიუ
-      more: ~
+      more: მეტი
       search_placeholder: ძებნა...
-      search_location_placeholder: ~
+      search_location_placeholder: ადგილმდებარეობა
       user: მომხმარებელი
       inbox: ინბოქსი
       profile: პროფილი
@@ -2047,7 +2052,7 @@ ka:
       login: შესვლა
       signup: დარეგისტრირება
       admin_dashboard: "ადმინისტრატორის პანელი"
-      language: ~
+      language: ენა
   will_paginate:
     models:
       person:

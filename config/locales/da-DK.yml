@@ -1636,6 +1636,7 @@ da-DK:
     connected_account: "Din PayPal-konto '%{email}' er nu tilknyttet."
     paypal_receive_funds_info_label_australia_only: "Din PayPal-konto skal kunne modtage betalinger, dette kræver en erhvervskonto."
     paypal_receive_funds_info_label: "Din PayPal-konto skal kunne modtage betalinger. Dette kræver en PayPal erhvervskonto."
+    paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: "Hvis der opstår fejl, når du forsøger at forbinde din konto med %{service_name}, skal du opgradere din PayPal-konto ved at %{upgrade_paypal_account_link}. Det er nemt og gratis. PayPal anbefaler, at man som privatperson anvender sit navn som firmanavn."
     upgrade_paypal_account_link_text: "logge ind og klikke på linket opgradering"
     admin_account_not_connected: "Brug af %{service_name}s betalingssystem, til brug for modtagelse af betalinger, er ikke muligt, da betalinger ikke er sat op. Venligst %{contact_admin_link} for detaljer."

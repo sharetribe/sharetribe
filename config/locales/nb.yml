@@ -1638,6 +1638,7 @@ nb:
     connected_account: "PayPal-kontoen '%{email}' er riktig tilkoblet."
     paypal_receive_funds_info_label_australia_only: "Din PayPal-konto må kunne ta imot betalinger. Dette kan kreve en Premiums- eller Bedriftskonto."
     paypal_receive_funds_info_label: "Din PayPal-konto må konfigureres til å ta imot betalinger. Du må opprette en Bedriftskonto."
+    paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: "Hvis du ser en feilmelding når du prøver å koble PayPal-kontoen din til %{service_name}, må du %{upgrade_paypal_account_link}. Det er gratis og enkelt. Hvis du er en privatperson, anbefaler PayPal at du bruker navnet ditt som bedriftsnavn."
     upgrade_paypal_account_link_text: "logge inn og klikke på oppgradér-linken"
     admin_account_not_connected: "Det er ikke mulig å bruke %{service_name} sin betalingsløsning, siden den ikke har blitt satt opp. Vennligst %{contact_admin_link} for detaljer."

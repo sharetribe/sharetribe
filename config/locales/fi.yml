@@ -1638,6 +1638,7 @@ fi:
     connected_account: "PayPal-tili '%{email}' yhdistetty onnistuneesti."
     paypal_receive_funds_info_label_australia_only: "PayPal-tilisi pitää pystyä ottamaan vastaan maksuja. Tätä varten saatat tarvita Premier- tai Business-tilin."
     paypal_receive_funds_info_label: "PayPal-tilisi pitää pystyä ottamaan maksuja vastaan. Saatat tarvita PayPal Business -tilin."
+    paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: "Jos näet virheviestin yrittäessäsi yhdistää PayPal-tilisi %{service_name}-palveluun, päivitä PayPal-tilisi %{upgrade_paypal_account_link}. Päivittäminen on ilmaista ja helppoa. Jos olet yksityishenkilö, PayPal suosittelee käyttämään koko nimeäsi \"Business name\" -kentässä."
     upgrade_paypal_account_link_text: "kirjautumalla sisään ja klikkaamalla päivitä-linkkiä"
     admin_account_not_connected: "%{service_name}-palvelun maksujärjestelmä ei ole vielä käytössä, joten et voi vielä muokata maksuasetuksiasi. Ole hyvä ja %{contact_admin_link}."

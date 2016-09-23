@@ -1611,6 +1611,7 @@ it:
     connected_account: "Il conto PayPal '%{email}' è stato connesso con successo."
     paypal_receive_funds_info_label_australia_only: "Devi abilitare il tuo conto PayPal per accettare i pagamenti. Può essere richiesto un conto PayPal premier o business. L'aggiornamento ad un conto PayPal business è semplice e non costa nulla."
     paypal_receive_funds_info_label: "Raramente accade che non è possibile collegare il conto PayPal."
+    paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: "Se avviene un errore tentando di collegare il tuo Conto PayPal a %{service_name}, il tuo conto potrebbe essere obsoleto, e aver bisogno di un aggiornamento ad un Conto Premier a questo link: %{upgrade_paypal_account_link}. La cosa migliore è contattare il servizio clienti PayPal e farsi guidare."
     upgrade_paypal_account_link_text: "Aggiorna l'account PayPal."
     admin_account_not_connected: "Non è possibile utilizzare il sistema di pagamenti di %{service_name} e ricevere pagamenti, se prima non è stato settato. Per favore %{contact_admin_link} per i dettagli."
