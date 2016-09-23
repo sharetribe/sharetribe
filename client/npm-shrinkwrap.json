@@ -131,7 +131,8 @@
       "dependencies": {
         "acorn": {
           "version": "2.7.0",
-          "from": "acorn@>=2.1.0 <3.0.0"
+          "from": "acorn@2.7.0",
+          "resolved": "https://registry.npmjs.org/acorn/-/acorn-2.7.0.tgz"
         }
       }
     },
@@ -782,6 +783,11 @@
       "from": "block-stream@*",
       "resolved": "https://registry.npmjs.org/block-stream/-/block-stream-0.0.9.tgz"
     },
+    "bluebird": {
+      "version": "3.4.1",
+      "from": "bluebird@>=3.1.1 <4.0.0",
+      "resolved": "https://registry.npmjs.org/bluebird/-/bluebird-3.4.1.tgz"
+    },
     "bn.js": {
       "version": "4.11.6",
       "from": "bn.js@>=4.1.1 <5.0.0",
@@ -958,6 +964,11 @@
       "version": "1.1.1",
       "from": "chalk@1.1.1",
       "resolved": "https://registry.npmjs.org/chalk/-/chalk-1.1.1.tgz"
+    },
+    "charenc": {
+      "version": "0.0.1",
+      "from": "charenc@>=0.0.1 <0.1.0",
+      "resolved": "https://registry.npmjs.org/charenc/-/charenc-0.0.1.tgz"
     },
     "cheerio": {
       "version": "0.20.0",
@@ -1199,6 +1210,11 @@
       "version": "3.0.1",
       "from": "cross-spawn@>=3.0.0 <4.0.0",
       "resolved": "https://registry.npmjs.org/cross-spawn/-/cross-spawn-3.0.1.tgz"
+    },
+    "crypt": {
+      "version": "0.0.1",
+      "from": "crypt@>=0.0.1 <0.1.0",
+      "resolved": "https://registry.npmjs.org/crypt/-/crypt-0.0.1.tgz"
     },
     "cryptiles": {
       "version": "2.0.5",
@@ -2376,6 +2392,11 @@
       "from": "ignore@>=3.1.2 <4.0.0",
       "resolved": "https://registry.npmjs.org/ignore/-/ignore-3.1.5.tgz"
     },
+    "ignore-styles": {
+      "version": "5.0.1",
+      "from": "ignore-styles@latest",
+      "resolved": "https://registry.npmjs.org/ignore-styles/-/ignore-styles-5.0.1.tgz"
+    },
     "immutable": {
       "version": "3.8.1",
       "from": "immutable@>=3.7.6 <4.0.0",
@@ -3078,6 +3099,11 @@
       "from": "map-obj@>=1.0.1 <2.0.0",
       "resolved": "https://registry.npmjs.org/map-obj/-/map-obj-1.0.1.tgz"
     },
+    "md5": {
+      "version": "2.2.1",
+      "from": "md5@>=2.1.0 <3.0.0",
+      "resolved": "https://registry.npmjs.org/md5/-/md5-2.2.1.tgz"
+    },
     "media-typer": {
       "version": "0.3.0",
       "from": "media-typer@0.3.0",
@@ -3181,6 +3207,16 @@
           "resolved": "https://registry.npmjs.org/supports-color/-/supports-color-3.1.2.tgz"
         }
       }
+    },
+    "mocha-circleci-reporter": {
+      "version": "0.0.2",
+      "from": "mocha-circleci-reporter@latest",
+      "resolved": "https://registry.npmjs.org/mocha-circleci-reporter/-/mocha-circleci-reporter-0.0.2.tgz"
+    },
+    "mocha-junit-reporter": {
+      "version": "1.12.0",
+      "from": "mocha-junit-reporter@>=1.12.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/mocha-junit-reporter/-/mocha-junit-reporter-1.12.0.tgz"
     },
     "ms": {
       "version": "0.7.1",
@@ -4900,14 +4936,7 @@
     "table": {
       "version": "3.7.8",
       "from": "table@>=3.7.8 <4.0.0",
-      "resolved": "https://registry.npmjs.org/table/-/table-3.7.8.tgz",
-      "dependencies": {
-        "bluebird": {
-          "version": "3.4.1",
-          "from": "bluebird@>=3.1.1 <4.0.0",
-          "resolved": "https://registry.npmjs.org/bluebird/-/bluebird-3.4.1.tgz"
-        }
-      }
+      "resolved": "https://registry.npmjs.org/table/-/table-3.7.8.tgz"
     },
     "tapable": {
       "version": "0.1.10",
@@ -5406,6 +5435,11 @@
       "version": "2.0.0",
       "from": "xdg-basedir@>=2.0.0 <3.0.0",
       "resolved": "https://registry.npmjs.org/xdg-basedir/-/xdg-basedir-2.0.0.tgz"
+    },
+    "xml": {
+      "version": "1.0.1",
+      "from": "xml@>=1.0.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/xml/-/xml-1.0.1.tgz"
     },
     "xml-name-validator": {
       "version": "2.0.1",
