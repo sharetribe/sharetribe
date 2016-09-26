@@ -163,7 +163,26 @@ class TransactionsController < ApplicationController
     }
   end
 
-  def op_status
+  def transaction_op_status
+    process_token = params[:process_token]
+
+    resp = Maybe(process_token)
+             .map { |ptok|
+               uuid = UUIDTools::UUID.parse(process_token)
+               transaction_process_tokens.get_status(uuid)
+             }
+             .select(&:success)
+             .data
+             .or_else(nil)
+
+    if resp
+      render :json => resp
+    else
+      head :not_found
+    end
+  end
+
+  def paypal_op_status
     process_token = params[:process_token]
 
     resp = Maybe(process_token)
@@ -175,7 +194,7 @@ class TransactionsController < ApplicationController
     if resp
       render :json => resp
     else
-      redirect_to error_not_found_path
+      head :not_found
     end
   end
 
@@ -187,6 +206,10 @@ class TransactionsController < ApplicationController
 
   def paypal_process
     PaypalService::API::Api.process
+  end
+
+  def transaction_process_tokens
+    TransactionService::API::Api.process_tokens
   end
 
   private

@@ -113,7 +113,8 @@ Kassi::Application.routes.draw do
 
     put '/mercury_update' => "mercury_update#update", :as => :mercury_update
 
-    get "/transactions/op_status/:process_token" => "transactions#op_status", :as => :transaction_op_status
+    get "/transactions/op_status/:process_token" => "transactions#paypal_op_status", as: :paypal_op_status
+    get "/transactions/transaction_op_status/:process_token" => "transactions#transaction_op_status", :as => :transaction_op_status
 
     # All new transactions (in the future)
     get "/transactions/new" => "transactions#new", as: :new_transaction
