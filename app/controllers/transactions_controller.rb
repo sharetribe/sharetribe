@@ -363,7 +363,7 @@ class TransactionsController < ApplicationController
     quantity = calculate_quantity(tx_params: {
                                     start_on: booking_start,
                                     end_on: booking_end,
-                                    quantity: params[:quantity]
+                                    quantity: TransactionViewUtils.parse_quantity(params[:quantity])
                                   },
                                   is_booking: booking,
                                   unit: listing_model.unit_type)
