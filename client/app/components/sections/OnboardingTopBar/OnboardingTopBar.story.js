@@ -1,7 +1,8 @@
-import { storiesOf } from '@kadira/storybook';
 import withProps from '../../Styleguide/withProps';
 
 import OnboardingTopBar from './OnboardingTopBar';
+
+const { storiesOf } = storybookFacade;
 
 const noop = () => null;
 const routes = {

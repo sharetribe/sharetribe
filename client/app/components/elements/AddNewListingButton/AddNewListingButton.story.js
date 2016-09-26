@@ -1,7 +1,8 @@
-import { storiesOf } from '@kadira/storybook';
 import withProps from '../../Styleguide/withProps';
 
 import AddNewListingButton from './AddNewListingButton';
+
+const { storiesOf } = storybookFacade;
 
 storiesOf('Add new listing button')
   .add('Default background color', () => (

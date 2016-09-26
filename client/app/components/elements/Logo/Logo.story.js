@@ -1,8 +1,9 @@
-import { storiesOf } from '@kadira/storybook';
 import withProps from '../../Styleguide/withProps';
 import r from 'r-dom';
 
 import Logo from './Logo';
+
+const { storiesOf } = storybookFacade;
 
 storiesOf('Header logo')
   .add('Picture logo 1', () => (

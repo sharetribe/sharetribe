@@ -3,6 +3,12 @@ import '../app/assets/styles/base.css';
 import '../app/i18n/all';
 import { initialize as initializeI18n } from '../app/utils/i18n';
 
+import { storiesOf, action, linkTo, specs, describe, it, expect } from './facade';
+
+global.storybookFacade = { storiesOf, action, linkTo, specs, expect };
+global.describe = describe;
+global.it = it;
+
 // initializeI18n needs to know railsContext and node_env
 initializeI18n('en', 'en', process.env.NODE_ENV);
 
