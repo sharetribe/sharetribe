@@ -67,7 +67,7 @@ def deploy(params)
   clear_cache if params[:clear_cache]
 
   if migrations_to_run.present?
-    run_migrations(migrations)
+    run_migrations(migrations_to_run)
     restart
   end
 end
