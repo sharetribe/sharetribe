@@ -20,7 +20,7 @@ module ListingIndexService::Search
       path_base = "/discovery/listings/query"
       begin
         res = @conn.get do |req|
-          req.url(path_base, format_params(search))
+          req.url(path_base, format_params(search.merge({marketplace_id: community_id})))
           req.headers['Authorization'] = "apikey key=#{API_KEY}"
         end
         result = res.body
