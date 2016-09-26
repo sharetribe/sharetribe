@@ -257,13 +257,17 @@ class Community < ActiveRecord::Base
     if self[:uuid].nil?
       nil
     else
-      UUIDTools::UUID.parse_raw(self[:uuid])
+      UUIDUtils.parse_raw(self[:uuid])
     end
   end
 
   before_create :add_uuid
   def add_uuid
-    self.uuid ||= UUIDTools::UUID.timestamp_create.raw
+    if self.uuid.blank? && self.uuid_object.present?
+      self.uuid = UUIDUtils.raw(self.uuid_object)
+    else
+      self.uuid ||= UUIDUtils.create_raw
+    end
   end
 
   validates_format_of :twitter_handle, with: /\A[A-Za-z0-9_]{1,15}\z/, allow_nil: true
