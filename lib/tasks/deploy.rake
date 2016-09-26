@@ -160,7 +160,7 @@ end
 def fetch_local_migrations
   # List of files added to db/migrate dir
   new_files = `git diff --name-only --diff-filter=A #{@destination}/master..#{@branch} db/migrate`
-  migrations = select_down_migrations(parse_added_migration_files(new_files))
+  select_down_migrations(parse_added_migration_files(new_files))
 end
 
 def ask_local_migrations_to_run(migrations)
