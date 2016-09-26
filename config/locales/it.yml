@@ -1572,6 +1572,8 @@ it:
       night: notte
       nights: notti
       invalid_parameters: "La nuova transazione non è andata a buon fine, per causa di un errore."
+      dates_not_available: ~
+      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: Mostra
   mapview:
