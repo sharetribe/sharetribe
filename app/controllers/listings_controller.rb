@@ -264,7 +264,7 @@ class ListingsController < ApplicationController
     listing_uuid = UUIDTools::UUID.timestamp_create
 
     if FeatureFlagHelper.feature_enabled?(:availability) && shape.present? && shape[:availability] == :booking
-      bookable_res = create_bookable(@current_community.uuid, listing_uuid, @current_user.uuid)
+      bookable_res = create_bookable(@current_community.uuid_object, listing_uuid, @current_user.uuid_object)
       unless bookable_res.success
         flash[:error] = t("listings.error.something_went_wrong_plain")
         return redirect_to new_listing_path
@@ -289,7 +289,7 @@ class ListingsController < ApplicationController
     m_unit = select_unit(listing_unit, shape)
 
     listing_params = create_listing_params(listing_params).merge(
-        uuid: listing_uuid.raw,
+        uuid_object: listing_uuid,
         community_id: @current_community.id,
         listing_shape_id: shape[:id],
         transaction_process_id: shape[:transaction_process_id],
