@@ -17,7 +17,7 @@ module ListingIndexService::Search
     end
 
     def search(community_id:, search:, includes: nil)
-      path_base = "/discovery/#{community_id}/listings/query"
+      path_base = "/discovery/listings/query"
       begin
         res = @conn.get do |req|
           req.url(path_base, format_params(search))
