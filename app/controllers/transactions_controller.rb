@@ -75,7 +75,7 @@ class TransactionsController < ApplicationController
           {
             transaction: {
               community_id: @current_community.id,
-              community_uuid: @current_community.uuid,
+              community_uuid: @current_community.uuid_object,
               listing_id: listing_id,
               listing_uuid: listing_model.uuid,
               listing_title: listing_model.title,

@@ -64,7 +64,7 @@ describe TransactionService::PaypalEvents do
       payment_process: :preauthorize,
       payment_gateway: :paypal,
       community_id: @cid,
-      community_uuid: @community.uuid.raw,
+      community_uuid: @community.uuid, # raw UUID
       starter_id: @payer.id,
       listing_id: @listing.id,
       listing_title: @listing.title,

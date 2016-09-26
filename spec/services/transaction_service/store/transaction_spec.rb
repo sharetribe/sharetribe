@@ -21,7 +21,7 @@ describe TransactionService::Store::Transaction do
       payment_process: :preauthorize,
       payment_gateway: :paypal,
       community_id: @cid,
-      community_uuid: @community.uuid,
+      community_uuid: @community.uuid_object,
       starter_id: @payer.id,
       listing_id: @listing.id,
       listing_uuid: @listing.uuid,

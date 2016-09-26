@@ -122,7 +122,7 @@ FactoryGirl.define do
     automatic_confirmation_after_days 14
     listing_quantity 1
     listing_uuid { listing.uuid.raw }
-    community_uuid { community.uuid.raw }
+    community_uuid { community.uuid } # raw UUID
   end
 
   factory :conversation do
