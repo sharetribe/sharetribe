@@ -6,7 +6,7 @@ import Menu from './Menu';
 const { storiesOf } = storybookFacade;
 const containerStyle = { style: { minWidth: '100px', background: 'white' } };
 
-storiesOf('Menu')
+storiesOf('Top bar')
   .add('Menu closed', () => (
       r(storify(
         r(Menu, Object.assign({},
