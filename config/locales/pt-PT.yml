@@ -54,7 +54,7 @@ pt-PT:
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: "Este conteúdo é mostrado para utilizadores não cadastrados na página inicial dos mercados virtuais privados. Aqui você pode descrever o seu mercado virtual e o processo para se juntar a ele. Você também pode adicionar imagens, vídeos e conteúdo HTML aqui. %{see_how_it_looks_like}."
         update_information: ~
-        invite_people: "Convide novos utilizadores"
+        invite_people: "Convide novos utilizadores para o %{service_name}"
         edit_signup_info: ~
         edit_signup_info_description: "Este é um texto de informação que pode ser mostrado para os utilizadores na página de inscrição. Lá você pode dar aos utilizadores instruções para se inscrever, informações como onde conseguir um convite, etc. Por padrão não há instruções."
         edit_info: ~
@@ -477,22 +477,22 @@ pt-PT:
     edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
-    cancel: ~
-    fields_that_are_mandatory: ~
-    or: ~
+    cancel: Cancelar
+    fields_that_are_mandatory: "Campos marcados com asterisco (*) são obrigatórios."
+    or: ou
     password: ~
     service_name: ~
     share_types:
       request: ~
       offer: ~
-      borrow: ~
-      buy: ~
-      give_away: ~
-      lend: ~
-      receive: ~
-      rent: ~
-      rent_out: ~
-      sell: ~
+      borrow: empréstimo
+      buy: compra
+      give_away: doar
+      lend: empréstimo
+      receive: Gratuito
+      rent: aluguer
+      rent_out: aluga-se
+      sell: vende-se
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: ~
@@ -519,7 +519,7 @@ pt-PT:
       other: ~
     username: Utilizador
     username_or_email: "E-mail ou nome de utilizador"
-    what_is_this: ~
+    what_is_this: "O que é isto?"
     removed_user: "Utilizador removido"
     paypal_fee_info:
       title: ~
@@ -563,11 +563,11 @@ pt-PT:
       days: ~
       price_per_day: ~
     index:
-      loading_more_messages: ~
-      message_partitive: ~
-      messages_partitive: ~
-      no_received_messages: ~
-      no_sent_messages: ~
+      loading_more_messages: "A carregar mais mensagens"
+      message_partitive: mensagem
+      messages_partitive: mensagens
+      no_received_messages: "Nenhuma mensagem recebida"
+      no_sent_messages: "Nenhuma mensagem enviada"
     conversation:
       accepted_request: ""
       accepted_offer: ~
@@ -594,7 +594,7 @@ pt-PT:
       paid: ~
       payment_preauthorized: ~
     new:
-      message: ~
+      message: Mensagem
       message_to: ~
       optional_message_to: ~
       send_message: ~
@@ -602,7 +602,7 @@ pt-PT:
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
-      title: ~
+      title: Título
       send_message_to_user: ~
       about_listing: ~
       author_has_to_accept_request: ~
@@ -610,8 +610,8 @@ pt-PT:
       in_response_to_listing: ~
       message_sent_by: ~
       message_sent_to: ~
-      send_reply: ~
-      write_a_reply: ~
+      send_reply: Responder
+      write_a_reply: "Escreva uma resposta:"
       conversation_about_listing: ~
       conversation_with_user: ~
       conversation_with: ~
@@ -624,11 +624,11 @@ pt-PT:
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: ~
-      feedback_given: ~
-      feedback_skipped: ~
-      give_feedback: ~
-      offer_accepted: ~
-      offer_rejected: ~
+      feedback_given: "Opinião enviada"
+      feedback_skipped: "Não foi dada opinião"
+      give_feedback: "Dar opinião"
+      offer_accepted: Aceite
+      offer_rejected: Rejeitada
       offer_canceled: ~
       offer_confirmed: ~
       offer_paid: ~
@@ -644,13 +644,13 @@ pt-PT:
           intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
-      request_accepted: ~
-      request_rejected: ~
+      request_accepted: Aceite
+      request_rejected: Rejeitada
       request_confirmed: ~
       request_canceled: ~
       request_paid: ~
       request_preauthorized: ~
-      skip_feedback: ~
+      skip_feedback: "Não deixar opinião"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
@@ -666,10 +666,10 @@ pt-PT:
           unknown_reason: ~
           verify: ~
     status_link:
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
+      accept_offer: "Aceitar oferta"
+      accept_request: "Aceitar pedido"
+      reject_offer: "Desta vez não"
+      reject_request: "Desta vez não"
       accept_preauthorized_offer: ~
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
@@ -704,12 +704,12 @@ pt-PT:
       consent_not_given: ~
   emails:
     accept_reminder:
-      remember_to_accept_offer: ~
-      remember_to_accept_request: ~
-      you_can_accept_or_reject_offer_at: ~
-      you_can_accept_or_reject_request_at: ~
-      you_have_not_yet_accepted_or_rejected_offer: ~
-      you_have_not_yet_accepted_or_rejected_request: ~
+      remember_to_accept_offer: "Lembrar de aceitar ou rejeitar uma oferta de %{sender_name}"
+      remember_to_accept_request: "Lembrar de aceitar ou rejeitar um pedido de %{sender_name}"
+      you_can_accept_or_reject_offer_at: "Pode aceitar ou rejeitar a oferta de"
+      you_can_accept_or_reject_request_at: "Pode aceitar ou rejeitar o pedido de"
+      you_have_not_yet_accepted_or_rejected_offer: "Ainda não aceitou nem rejeitou a oferta %{title} que recebeu em %{date}"
+      you_have_not_yet_accepted_or_rejected_request: "Ainda não aceitou nem rejeitou o pedido %{title} que recebeu em %{date}"
       show_thread: ~
     branding:
       powered_by: ~
@@ -750,9 +750,9 @@ pt-PT:
       confirmation_link_text: ~
       or_paste_link: ~
     common:
-      hey: ~
-      kassi_team: ~
-      thanks: ~
+      hey: "Olá %{name}"
+      kassi_team: "Equipa %{service_name}"
+      thanks: "Obrigado,"
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
@@ -760,15 +760,15 @@ pt-PT:
       or: ~
       unsubscribe_from_these_emails: "cancele a recepção destes emails"
     conversation_status_changed:
-      has_accepted_your_offer: ~
-      has_accepted_your_request: ~
-      has_rejected_your_offer: ~
-      has_rejected_your_request: ~
+      has_accepted_your_offer: "%{accepter} aceitou a sua oferta %{listing}"
+      has_accepted_your_request: "%{accepter} aceitou o seu pedido %{listing}"
+      has_rejected_your_offer: "%{accepter} rejeitou a sua oferta %{listing}"
+      has_rejected_your_request: "%{accepter} rejeitou o seu pedido %{listing}"
       view_thread: ~
-      your_offer_was_accepted: ~
-      your_offer_was_rejected: ~
-      your_request_was_accepted: ~
-      your_request_was_rejected: ~
+      your_offer_was_accepted: "A sua oferta foi aceite"
+      your_offer_was_rejected: "A sua oferta foi rejeitada"
+      your_request_was_accepted: "O seu pedido foi aceite"
+      your_request_was_rejected: "O seu pedido foi rejeitado"
       you_can_now_pay_to: ~
       pay_now: ~
       remember_to_confirm: ~
@@ -781,13 +781,13 @@ pt-PT:
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
-      you_have_a_new_comment: ~
+      you_have_a_new_comment: "%{author} comentou o seu anúncio em %{service_name}"
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
       has_sent_you_a_message_in_kassi: "%{sender} enviou-lhe uma mensagem no %{service_name}."
-      you_have_a_new_message: ~
+      you_have_a_new_message: "Tem uma nova mensagem em %{service_name} de %{sender_name}"
     new_payment:
       new_payment: ~
       price_per_unit_type: ~
@@ -814,8 +814,8 @@ pt-PT:
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: ~
-      you_can_give_feedback_to: ~
+      has_given_you_feedback_in_kassi: "%{name} deu-lhe uma opinião sobre %{service_name}"
+      you_can_give_feedback_to: "Ainda não deu uma opinião a %{name}"
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
@@ -841,8 +841,8 @@ pt-PT:
       change_my_password: ~
       reset_password_instructions: "<p>Você informou que esqueceu sua senha ou nome de utilizador no serviço %{service_name}.</p><p>Seu nome de utilizador é: %{username}</p><p>Se você precisa redefinir sua senha, clique no link seguinte: %{password_reset_link}</p><br/><p>Se você não fez essa solicitação, por favor ignore este e-mail. Sua senha não mudará até que acesse o link acima e crie uma nova.</p>"
     testimonial_reminder:
-      remember_to_give_feedback_to: ~
-      you_have_not_given_feedback_yet: ~
+      remember_to_give_feedback_to: "Lembrete: não esquecer de dar uma opinião a %{name}"
+      you_have_not_given_feedback_yet: "Ainda não deu a sua opinião a %{name} sobre o evento %{event}. Lembre-se de dar uma opinião sobre o desempenho de %{given_name} no evento"
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -890,14 +890,14 @@ pt-PT:
     onboarding:
       server_rendering: ~
     listings:
-      departure_time: ~
-      share_type: ~
-      valid_until: ~
+      departure_time: "A hora de partida deve estar entre a hora atual e daqui a um ano."
+      share_type: "Deve selecionar um."
+      valid_until: "Esta data deve estar entre a data atual e daqui a seis meses."
       price: ~
       minimum_price: ~
     testimonials:
-      you_must_explain_not_neutral_feedback: ~
-      you_must_select_a_grade: ~
+      you_must_explain_not_neutral_feedback: "Se quiser dar uma opinião não neutra, deverá explicar porquê."
+      you_must_select_a_grade: "Lembre-se de dizer se a sua experiencia foi positiva ou negativa."
     transaction_agreement:
       required_error: ~
     paypal:
@@ -909,12 +909,12 @@ pt-PT:
       accept_authorization_error: ~
       reject_authorization_error: ~
   error_pages:
-    back_to_kassi_front_page: ~
+    back_to_kassi_front_page: "Voltar à pagina inicial"
     error_404:
-      if_you_believe: ~
-      page_can_not_be_found: ~
-      page_you_requested_can_not_be_found: ~
-    error_404_title: ~
+      if_you_believe: "Se acredita que o endereço está correto e deveria funcionar, por favor ajude-nos a localizar o erro, dizendo-nos qual o endereço que causou o erro e o que é que deveria ser visto na pagina do formulário a seguir."
+      page_can_not_be_found: "Pagina não encontrada!"
+      page_you_requested_can_not_be_found: "A página solicitada não foi encontrada. Tem a certeza que digitou o endereço corretamente?"
+    error_404_title: "pagina não encontrada"
     error_410:
       page_removed: ~
       page_you_requested_has_been_removed: ~
@@ -925,16 +925,16 @@ pt-PT:
       unable_to_process: ~
       we_hate_this: ~
       refer_to_error_id: ~
-    error_500_title: ~
-    error_description: ~
+    error_500_title: "Erro ao carregar a página"
+    error_description: "Descrição do erro"
     no_javascript:
-      javascript_is_disabled_in_your_browser: ~
-      kassi_does_not_currently_work_without_javascript: ~
+      javascript_is_disabled_in_your_browser: "O Javascript não está ativado no seu browser"
+      kassi_does_not_currently_work_without_javascript: "%{service_name} não funciona corretamente sem javascript. Tente ativar o javascript nas configurações do seu browser e recarregar a página."
       contact_us: Contacte-nos
-      send_feedback: ~
-      your_feedback_to_admins: ~
-    send: ~
-    your_email_address: ~
+      send_feedback: "Enviar mensagem"
+      your_feedback_to_admins: "A sua mensagem para a equipa do %{service_name}"
+    send: Enviar
+    your_email_address: "O seu endereço de email"
   errors:
     messages:
       invalid_date: ~
@@ -972,14 +972,14 @@ pt-PT:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: ~
-    home: ~
+    about: Sobre
+    home: Início
     members: ~
     new_listing: ~
-    mobile_version: ~
-    offers: ~
-    requests: ~
-    search_kassi: ~
+    mobile_version: "Versão para telemóvel"
+    offers: ofertas
+    requests: Pedidos
+    search_kassi: "Procurar %{service_name}"
     create_new_marketplace: ~
     contact_us: Contacte-nos
     profile: ~
@@ -990,36 +990,36 @@ pt-PT:
     menu: ~
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: ~
-      additionally_one_private_request_exists: ~
-      additionally_some_private_offers_exist: ~
-      additionally_some_private_requests_exist: ~
+      additionally_one_private_offer_exists: "Há também <b>uma outra oferta</b>,"
+      additionally_one_private_request_exists: "Há também <b>um outro pedido</b>,"
+      additionally_some_private_offers_exist: "Há também <b>%{number_of_listings} outras ofertas</b>,"
+      additionally_some_private_requests_exist: "Há também <b>%{number_of_listings} outros pedidos</b>,"
     blank_slate:
-      add_first: ~
+      add_first: "Adicione um!"
       but_that_is_visible_only_to_registered_members: "mas isso é visível apenas por utilizadores registrados."
       but_those_are_visible_only_to_registered_members: "mas isso é visível apenas por utilizadores registrados."
-      create_new_account_for_yourself: ~
-      examples_of_what_you_could_offer_to_others: ~
-      examples_of_what_you_could_request_to_others: ~
-      favor_offer_list: ~
-      favor_request_list: ~
-      favors_to_offer: ~
-      favors_to_request: ~
-      item_offer_list: ~
-      item_request_list: ~
-      items_to_offer: ~
-      items_to_request: ~
-      log_in: ~
+      create_new_account_for_yourself: "Crie a sua nova conta"
+      examples_of_what_you_could_offer_to_others: "O que pode oferecer aos outros"
+      examples_of_what_you_could_request_to_others: "O que pode pedir aos outros"
+      favor_offer_list: "assistência informática, arranjo de roupas, trabalhos de panificação, reparação de bicicletas"
+      favor_request_list: "babysitting, aulas de piano, passeio de cães, corte de relvados "
+      favors_to_offer: "Ajuda: "
+      favors_to_request: "Ajuda: "
+      item_offer_list: "ferramentas, artigos desportivos, roupas, equipamentos para campismo"
+      item_request_list: "ferramentas, artigos desportivos, roupas, equipamentos para campismo\n"
+      items_to_offer: "Itens para emprestar: "
+      items_to_request: "Itens para levar emprestados: "
+      log_in: login!
       no_offers_visible_unless_logged_in: "Nenhuma oferta de itens, serviços ou caronas compartilhadas visíveis para utilizadores não logados."
-      no_open_offers_currently: ~
-      no_open_requests_currently: ~
+      no_open_offers_currently: "Não há nenhum anúncio aberto sobre itens, serviços ou partilha de viagens."
+      no_open_requests_currently: "Não há nenhum pedido aberto sobre itens, serviços ou partilha de viagens."
       no_requests_visible_unless_logged_in: "Nenhuma solicitação de itens, serviços ou caronas compartilhadas visíveis para utilizadores não logados."
-      one_private_offer_exists: ~
-      one_private_request_exists: ~
-      ride_offer: ~
-      ride_request: ~
-      some_private_offers_exist: ~
-      some_private_requests_exist: ~
+      one_private_offer_exists: "Já existe <b>uma oferta</b>,"
+      one_private_request_exists: "Já existe <b>um pedido</b>,"
+      ride_offer: "transporte de crianças para atividades de tempos livres"
+      ride_request: "Uma boleia até ao trabalho"
+      some_private_offers_exist: "Existem <b>%{number_of_listings} ofertas</b>,"
+      some_private_requests_exist: "Existem <b>%{number_of_listings} pedidos</b>"
     custom_filters:
       update_view: ~
       min: ~
@@ -1039,20 +1039,20 @@ pt-PT:
       are: ~
       what_do_you_need: ~
       post_new_listing: "Publicar anúncio"
-      are_offering: ~
+      are_offering: Oferta
       add_news_item: ~
-      lend_rent_help_carpool: ~
-      loading_more_content: ~
-      more_events: ~
-      news: ~
+      lend_rent_help_carpool: "Venda, empreste, ajude, compartilhe viagens"
+      loading_more_content: "A carregar mais conteúdo"
+      more_events: "Mais eventos..."
+      news: Notícia(s)
       no_news: ~
       more_news: ~
-      or: ~
-      or_see_what_the_others: ~
-      recent_events: ~
-      requesting: ~
-      tell_it_here: ~
-      welcome_to_new_kassi: ~
+      or: e
+      or_see_what_the_others: "...ou veja o que os outros"
+      recent_events: "Eventos recentes"
+      requesting: precisa
+      tell_it_here: "Conte aqui!"
+      welcome_to_new_kassi: "Bem-vindo(a) ao novo %{service_name}!"
       no_reviews: ~
       no_image: ~
       filter: ~
@@ -1080,7 +1080,7 @@ pt-PT:
       you_have_not_added_your_info: ~
       add_your_info_link: ~
     recent_listing:
-      please_offer: ~
+      please_offer: oferta
       comment: ~
       comments: ~
     filters:
@@ -1113,7 +1113,7 @@ pt-PT:
       no_listing_image: ~
   layouts:
     admin:
-      admin: ~
+      admin: "Painel de administração do %{service_name}"
     branding:
       powered_by: ~
       create_own: ~
@@ -1125,13 +1125,13 @@ pt-PT:
     application:
       join_this_community: ~
       read_more: ~
-      feedback: ~
+      feedback: "A sua mensagem para a equipa do %{service_name}"
       dont_use_to_contact_support: ~
-      feedback_forum: ~
-      feedback_handle: ~
+      feedback_forum: "fórum de respostas"
+      feedback_handle: Feedback
       give_feedback: Contacte-nos
-      or_check_our: ~
-      send_feedback_to_admin: ~
+      or_check_our: "...ou veja o(a) nosso(a)"
+      send_feedback_to_admin: "Enviar mensagem"
       to_see_what_others_have_suggested: "para ver o que outros utilizadores sugeriram, e votar para novas idéias."
       your_email_address: "O seu e-mail (para entrar em contacto)"
       connect: ~
@@ -1142,102 +1142,102 @@ pt-PT:
       join_without_facebook: ~
       join_without_facebook_link: ~
     conversations:
-      messages: ~
-      notifications: ~
-      received: ~
-      sent: ~
+      messages: mensagens
+      notifications: "Notificações "
+      received: Recebida
+      sent: Enviada
     global-header:
       select_language: ~
     infos:
-      about: ~
-      how_to_use: ~
-      info_about_kassi: ~
+      about: Sobre
+      how_to_use: "Como funciona"
+      info_about_kassi: "Informação sobre %{service_name}"
       news: ~
-      register_details: ~
-      terms: ~
+      register_details: Privacidade
+      terms: "Termos de utilização"
     logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
-      settings: ~
-      sign_up: ~
+      admin: Admin
+      go_to_your_profile_page: Perfil
+      hi: Olá
+      login: Login
+      logout: Logout
+      notifications: "Notificações "
+      requests: "Solicitações de amizade"
+      settings: Configurações
+      sign_up: "Criar conta"
     logged_in_messages_icon:
-      messages: ~
+      messages: Mensagens
     logged_in_notifications_icon:
-      notifications: ~
+      notifications: "Notificações "
     mobile_logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
+      admin: Admin
+      go_to_your_profile_page: Perfil
+      hi: Olá
+      login: Login
+      logout: Logout
+      notifications: "Notificações "
+      requests: "Solicitações de amizade"
       settings: ~
-      sign_up: ~
+      sign_up: "Criar conta"
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
-      test_welcome_email_delivered_to: ~
+      test_welcome_email_delivered_to: "Foi enviado um e-mail de teste para %{email}"
       something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: "A sua conta foi criada com sucesso. Agora precisa de confirmar o seu endereço de e-mail."
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
-      comment_cannot_be_empty: ~
-      comment_sent: ~
+      comment_cannot_be_empty: "Comentário não pode estar em branco"
+      comment_sent: "Comentário enviado"
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
       facebook_email_unconfirmed: ~
       create_new_listing: ~
-      create_one_here: ~
+      create_one_here: "criar uma aqui"
       email_confirmation_sent_to_new_address: ~
-      email_not_found: ~
-      error_with_session: ~
-      feedback_considered_spam: ~
-      feedback_not_saved: ~
-      feedback_saved: ~
-      feedback_sent_to: ~
+      email_not_found: "O e-mail que forneceu não existe na base de dados do %{service_name}."
+      error_with_session: "Erro na sessão."
+      feedback_considered_spam: "Feedback não gravado, devido à formatação. Tente novamente ou use o fórum de feedback."
+      feedback_not_saved: "O feedback não pôde ser enviado."
+      feedback_saved: "Obrigado pela sua mensagem! Contacta-lo(a)-emos assim que possível."
+      feedback_sent_to: "Opinião enviada a %{target_person}."
       feedback_skipped: ~
       invitation_cannot_be_sent: ~
       invitation_limit_reached: ~
       invitation_sent: ~
       inviting_new_users_is_not_allowed_in_this_community: "Não é permitido convidar novos utilizadores."
-      login_again: ~
+      login_again: "Por favor, faça novamente login"
       login_failed: "Falha no acesso à sua conta. Por favor entre com os dados correctos."
       account_creation_successful: ~
       account_deleted: ~
-      login_successful: ~
-      logout_successful: "Você abandonou a sessão de %{service_name}. Vemo-nos em breve!"
+      login_successful: "Bem-vindo(a), %{person_name}"
+      logout_successful: "Abandonou a sessão do %{service_name}. Até breve!"
       news_item_created: ~
       news_item_creation_failed: ~
       news_item_update_failed: ~
       news_item_updated: ~
       news_item_deleted: ~
-      offer_accepted: ~
+      offer_accepted: "Oferta aceite"
       offer_confirmed: "Pedido realizado"
-      offer_closed: ~
+      offer_closed: "Oferta encerrada"
       listing_created_successfully: ~
-      offer_rejected: ~
+      offer_rejected: "Oferta rejeitada"
       offer_canceled: ~
       listing_updated_successfully: ~
-      only_kassi_administrators_can_access_this_area: ~
-      only_listing_author_can_close_a_listing: ~
-      only_listing_author_can_edit_a_listing: ~
+      only_kassi_administrators_can_access_this_area: "Só administradores do %{service_name} podem aceder a esta área"
+      only_listing_author_can_close_a_listing: "Só o autor do anúncio pode fechar o mesmo"
+      only_listing_author_can_edit_a_listing: "Só o autor do anúncio pode editar o mesmo"
       payment_successful: ~
       payment_canceled: ~
       error_in_payment: ~
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
-      password_recovery_sent: ~
+      password_recovery_sent: "As instruções para a alteração da palavra-passe foram enviadas para o seu e-mail"
       person_activated: "Utilizador ativado"
       person_deactivated: "Utilizador desativado"
-      person_updated_successfully: ~
+      person_updated_successfully: "Informação atualizada"
       poll_answered: ~
       poll_could_not_be_answered: ~
       poll_created: ~
@@ -1245,41 +1245,41 @@ pt-PT:
       poll_update_failed: ~
       poll_updated: ~
       poll_deleted: ~
-      read_more: ~
+      read_more: "Leia mais!"
       registration_considered_spam: ~
-      reply_cannot_be_empty: ~
-      reply_sent: ~
+      reply_cannot_be_empty: "Não pode enviar uma mensagem vazia"
+      reply_sent: "Resposta enviada com sucesso!"
       request_accepted: ""
       request_confirmed: ~
-      request_rejected: ~
+      request_rejected: "Pedido rejeitado."
       request_canceled: ~
       message_sent: ~
       message_not_sent: ~
       this_content_is_not_available_in_this_community: ~
-      unknown_error: ~
-      update_error: ~
-      you_are_not_allowed_to_give_feedback_on_this_transaction: ~
-      you_are_not_authorized_to_do_this: ~
-      you_are_not_authorized_to_view_this_content: ~
+      unknown_error: "Erro desconhecido. Por favor use o link Fale conosco para enviar detalhes sobre o que aconteceu."
+      update_error: "Ocorreu um erro ao tentar atualizar a sua informação. Por favor, tente novamente."
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Não está autorizado a fazer comentários sobre este evento"
+      you_are_not_authorized_to_do_this: "Não está autorizado a fazer isto"
+      you_are_not_authorized_to_view_this_content: "Não está autorizado a visualizar este conteúdo"
       listing_closed: ~
       send_instructions: ~
-      you_cannot_reply_to_a_closed_offer: ~
+      you_cannot_reply_to_a_closed_offer: "Não pode responder a uma oferta fechada"
       you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
-      you_have_already_given_feedback_about_this_event: ~
+      you_have_already_given_feedback_about_this_event: "Já deixou sua opinião sobre este evento"
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_listing: "Você deve iniciar sessão em %{service_name} para criar um novo anúncio. Se você não tem uma conta, você pode %{sign_up_link}."
       additional_email_confirmed_dashboard: ~
-      you_must_log_in_to_give_feedback: ~
+      you_must_log_in_to_give_feedback: "Deve fazer login para poder dar feedback"
       you_must_log_in_to_invite_new_users: "Você deve se conectar para convidar novos utilizadores a %{service_name}"
-      you_must_log_in_to_send_a_comment: ~
-      you_must_log_in_to_send_a_message: "Você deve fazer entrar no %{service_name} para enviar uma mensagem para outro utilizador."
+      you_must_log_in_to_send_a_comment: "Deve fazer login para poder enviar um novo comentário"
+      you_must_log_in_to_send_a_message: "Deve fazer login no %{service_name} para poder enviar uma mensagem a outro utilizador."
       you_must_log_in_to_do_a_transaction: ~
-      you_must_log_in_to_view_this_content: ~
+      you_must_log_in_to_view_this_content: "Deve fazer login para poder ver este conteúdo"
       you_must_log_in_to_view_this_page: ~
-      you_must_log_in_to_view_your_inbox: ~
-      you_must_log_in_to_view_your_settings: ~
+      you_must_log_in_to_view_your_inbox: "Deve fazer login no %{service_name} para poder ver a sua caixa de entrada."
+      you_must_log_in_to_view_your_settings: "Deve fazer login no %{service_name} para poder ver as suas configurações."
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_accept_or_reject: ~
@@ -1295,10 +1295,10 @@ pt-PT:
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
     settings:
-      account: ~
-      notifications: ~
-      profile: ~
-      settings: ~
+      account: Conta
+      notifications: "Notificações "
+      profile: "Informação de perfil"
+      settings: configurações
       payments: ~
   listings:
     bubble_listing_not_visible:
@@ -1310,12 +1310,12 @@ pt-PT:
       are_you_sure: ~
     comment_form:
       ask_a_question: "Comente o anúncio ou peça mais detalhes. Todos os outros utilizadores serão capazes de ver o seu comentário."
-      log_in: ~
-      send_comment: ~
-      to_send_a_comment: ~
-      write_comment: ~
+      log_in: login
+      send_comment: "Enviar comentário"
+      to_send_a_comment: "para enviar um novo comentário."
+      write_comment: "Escrever um novo comentário:"
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
-      you_must: ~
+      you_must: Deve
       subscribe_to_comments: ~
     edit:
       edit_listing: ~
@@ -1341,34 +1341,34 @@ pt-PT:
         dropdown:
           select_one___: ~
       departure_time:
-        at: ~
-        departure_time: ~
+        at: às
+        departure_time: "Hora de partida"
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: ~
+        detailed_description: "Descrição detalhada"
         youtube_info: ~
       destination:
-        destination: ~
+        destination: Destino
       form_content:
-        favor: ~
-        housing: ~
-        item: ~
-        offer_something: ~
-        request_something: ~
-        rideshare: ~
+        favor: "um serviço"
+        housing: "um lugar"
+        item: "um item"
+        offer_something: "Oferecer algo"
+        request_something: "Pedir algo"
+        rideshare: "uma boleia"
         i_want_to_offer: ~
         i_want_to_request: ~
       googlemap:
         googlemap_copy: ~
-        googlemap_description: ~
-        googlemap_updatemap: ~
+        googlemap_description: "Ver mapa"
+        googlemap_updatemap: "Atualizar mapa"
       images:
-        image: ~
+        image: Imagem
         best_result: ~
-        no_file_selected: ~
-        remove_image: ~
-        select_file: ~
+        no_file_selected: "Nenhum ficheiro selecionado"
+        remove_image: "Remover imagem"
+        select_file: "Selecionar ficheiro"
         add_more: ~
         removing: ~
         processing: ~
@@ -1383,7 +1383,7 @@ pt-PT:
         accepted_formats: ~
         images_not_uploaded_confirm: ~
       location:
-        location: ~
+        location: Localização
       price:
         price: ~
         per: ~
@@ -1401,80 +1401,80 @@ pt-PT:
         shipping_price_additional: ~
         pickup: Levantar
       origin:
-        location: ~
-        origin: ~
+        location: Localização
+        origin: Origem
       send_button:
         save_listing: ~
       share_type:
         select: ~
-        borrow: ~
-        buy: ~
-        give_away: ~
-        lend: ~
-        offer_type: ~
-        receive: ~
-        rent: ~
-        rent_out: ~
-        request_type: ~
-        sell: ~
+        borrow: Empréstimo
+        buy: Compra
+        give_away: doar
+        lend: Empréstimo
+        offer_type: "Tipo de oferta"
+        receive: "Aceitar gratuitamente"
+        rent: aluguer
+        rent_out: Aluga-se
+        request_type: "Tipo de pedido"
+        sell: vende-se
         share_for_free: ~
         accept_for_free: ~
-        trade: ~
+        trade: troca-se
       tag_list:
-        comma_separate: ~
-        tags: ~
+        comma_separate: "(separados por uma vírgula)"
+        tags: Tags
       title:
         listing_title: ~
       valid_until:
-        valid_until: ~
+        valid_until: Validade
       valid_until_radio_buttons:
-        for_the_time_being: ~
+        for_the_time_being: "Por enquanto"
       privacy:
         privacy: ~
         private: "Privativo (visível unicamente pelos utilizadores conectados)"
         public: "Público (visível também pelos utilizadores não conectados)"
     help_texts:
-      help_share_type_title: ~
-      help_tags_title: ~
-      help_valid_until_title: ~
+      help_share_type_title: "Tipo da oferta ou pedido"
+      help_tags_title: Tags
+      help_valid_until_title: Validade
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
+      all_categories: "Todas as categorias"
+      all_offer_types: "Todos os tipos de oferta"
+      all_request_types: "Todos os tipos de pedido"
+      category: Categoria
+      did_not_found_what_you_were_looking_for: "Não encontrou o que precisa?"
+      favors: Serviços
+      housing: Espaços
+      items: Itens
+      list_view: "Ver lista"
       listings: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
+      map_view: "Ver mapa"
+      offer_something: "Informe os outros!"
+      offer_type: "Tipo de oferta"
+      offers: Ofertas
+      request_something: "Faça um pedido!"
+      request_type: "Tipo de pedido"
+      requests: Pedidos
+      rideshare: Boleia
+      search_verb: Pesquisa
+      you_have_something_others_do_not: "Tem algo a oferecer?"
       feed_title: ~
     left_panel_link:
-      borrows: ~
-      buys: ~
-      favors: ~
-      give_aways: ~
-      housings: ~
-      items: ~
-      lends: ~
-      receives: ~
-      rent_outs: ~
-      rents: ~
-      rideshares: ~
-      sells: ~
+      borrows: empréstimo
+      buys: Comprar
+      favors: Serviços
+      give_aways: Doar
+      housings: Espaços
+      items: Itens
+      lends: Empréstimo
+      receives: "Aceitar gratuitamente"
+      rent_outs: Aluga-se
+      rents: Aluguer
+      rideshares: Boleia
+      sells: Vender
       share_for_frees: ~
       accept_for_frees: ~
-      trades: ~
+      trades: Troca
     listing_actions:
       booking_from: De
       booking_to: Até
@@ -1501,36 +1501,36 @@ pt-PT:
       month: ~
       custom: ~
     quantity_placeholder: ~
-    please_comment: ~
+    please_comment: Comentar
     reply_link:
       listing_closed: ~
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
-      comments: ~
+      comments: "Discussão pública"
       contact_by_phone: ~
       contact: Contacto
-      favor_offer: ~
-      favor_request: ~
+      favor_offer: "Oferta de serviço"
+      favor_request: "Solicitação de serviço"
       inquiry: ~
       item_offer_trade: ~
       item_request_trade: ~
-      no_description: ~
+      no_description: "Este anúncio não tem descrição"
       no_image: ~
       no_reviews: ~
-      offer: ~
+      offer: Oferta
       listing_created: ~
       open_until: ~
       feedback: ~
       qr_code: ~
-      request: ~
+      request: Pedido
       rideshare_offer: ~
       rideshare_request: ~
       send_private_message: ~
       tags: ~
       time: ~
       times: ~
-      times_viewed: ~
+      times_viewed: Visualizado
       processing_uploaded_image: ~
       listing_created_at: ~
       price:
@@ -1702,7 +1702,7 @@ pt-PT:
       signup_with_email: "Registe-se com seu e-mail"
     profile_feedback:
       grade: ~
-      and_gave_following_feedback: ~
+      and_gave_following_feedback: "deu a seguinte opinião "
     profile_listings:
       show_also_closed: ~
       show_only_open: ~
@@ -1714,7 +1714,7 @@ pt-PT:
       add_location: ~
       add_phone_number: ~
       address: ~
-      as_expected: ~
+      as_expected: "Como esperado"
       edit_profile_info: ~
       exceeded_expectations: ~
       positive: ~
@@ -1777,7 +1777,7 @@ pt-PT:
       or_sign_up_with_your_username: "...ou com seu nome de utilizador ou e-mail"
       we_will_not_post_without_asking_you: ~
     password_forgotten:
-      email: ~
+      email: Email
       password_recovery_instructions: "Digite o seu endereço de e-mail e receberá o seu nome de utilizador e instruções sobre como alterar sua senha."
       request_new_password: ~
       change_your_password: ~
@@ -1886,14 +1886,14 @@ pt-PT:
       you_need_to_accept_new_terms: ~
   testimonials:
     index:
-      all_testimonials: ~
-      feedback_altogether: ~
+      all_testimonials: "Todos os comentários"
+      feedback_altogether: "Mostrar todas as opiniões"
       loading_more_testimonials: ~
-      no_testimonials: ~
+      no_testimonials: "Nenhuma opinião recebida"
     new:
       as_expected: ~
       exceeded_expectations: ~
-      give_feedback_to: ~
+      give_feedback_to: "Dar uma opinião sobre %{person}"
       grade: ~
       less_than_expected: ~
       send_feedback: ~

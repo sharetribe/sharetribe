@@ -11,7 +11,7 @@ pt-PT:
   devise:
     failure:
       already_authenticated: "Já está conectado."
-      unauthenticated: "Precisa autenticar-se ou cadastrar-se antes de continuar."
+      unauthenticated: "Precisa fazer login ou registar-se antes de continuar."
       unconfirmed: "Deve confirmar a sua conta antes de continuar."
       locked: "A sua conta está bloqueada."
       invalid: "E-mail ou palavra-passe inválidos."
@@ -27,32 +27,32 @@ pt-PT:
       signed_in: "Sessão iniciada com sucesso."
       signed_out: "Sessão encerrada com sucesso."
     confirmations:
-      send_paranoid_instructions: ~
+      send_paranoid_instructions: "Se o seu e-mail existir na nossa basede dados, receberá um e-mail com instruções sobre como confirmar a sua conta dentro de poucos minutos."
       send_instructions: "Receberá um e-mail com instruções sobre como confirmar a sua conta dentro de poucos minutos."
-      confirmed: ~
+      confirmed: "A sua conta foi confirmada com sucesso."
     registrations:
-      signed_up_but_unconfirmed: ~
+      signed_up_but_unconfirmed: "Uma mensagem com um link de confirmação foi enviada para o seu endereço de e-mail. Por favor, abra o link para ativar a sua conta."
       signed_up_but_inactive: "Inscreveu-se com sucesso. No entanto, não poderá entrar porque a sua conta ainda não foi ativada."
       signed_up_but_locked: "Inscreveu-se com sucesso. No entanto, não poderá entrar porque a sua conta está bloqueada."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+        inactive: inativo
+        unconfirmed: "não confirmado"
+        locked: bloqueado
+      update_needs_confirmation: "Atualizou a sua conta com êxito, mas precisamos verificar o seu novo endereço de e-mail. Por favor verifique o seu e-mail e clique no link para finalizar a confirmação do seu novo endereço de e-mail."
+      signed_up: "Bem-vindo(a)! Registo efetuado com sucesso."
+      updated: "Conta atualizada com sucesso."
+      destroyed: "A sua conta foi cancelada com sucesso. Esperamos vê-lo(a) novamente em breve."
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: "Se a sua conta existir, receberá um e-mail com instruções sobre como desbloqueá-la dentro de poucos minutos."
+      send_instructions: "Receberá um e-mail com instruções sobre como desbloquear a sua conta dentro de alguns minutos."
+      unlocked: "A sua conta foi desbloqueada com sucesso. Por favor, conecte-se para continuar."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "Autorizado com sucesso para a conta %{kind} ."
+      failure: "Não foi possivel autorizar para a conta %{kind} porque '%{reason}'"
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "Instruções de confirmação para aderir a %{service_name}"
       reset_password_instructions:
-        subject: ~
+        subject: "Instruções para redefinição da palavra-passe"
       unlock_instructions:
-        subject: ~
+        subject: "Instruções para desbloqueio"

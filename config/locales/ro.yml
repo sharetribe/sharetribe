@@ -1150,8 +1150,8 @@ ro:
       select_language: ~
     infos:
       about: "Despre noi"
-      how_to_use: "Cum să folosești Kassi"
-      info_about_kassi: "Informații despre Kassi"
+      how_to_use: "Cum să folosești"
+      info_about_kassi: "Informații despre %{service_name}"
       news: ~
       register_details: Confidentialitate
       terms: "Termeni de utilizare"
@@ -1782,7 +1782,7 @@ ro:
       request_new_password: ~
       change_your_password: ~
     confirmation_pending:
-      welcome_to_kassi: "Bine ați venit la Kassi!"
+      welcome_to_kassi: "Bine ați venit la %{service_name}!"
       check_your_email: ~
       resend_confirmation_instructions: "Retrimite instrucțiunile de confirmare"
       your_current_email_is: ~
