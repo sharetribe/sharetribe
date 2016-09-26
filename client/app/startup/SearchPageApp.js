@@ -8,6 +8,8 @@ import { subset } from '../utils/routes';
 import reducers from '../reducers/reducersIndex';
 import SearchPageContainer from '../components/sections/SearchPage/SearchPageContainer';
 import { SearchPageModel } from '../components/sections/SearchPage/SearchPage';
+import { parse as parseListingModel } from '../models/ListingModel';
+import TransitImmutableConverter from '../utils/transitImmutableConverter';
 
 
 export default (props) => {
@@ -21,24 +23,18 @@ export default (props) => {
     'person',
   ], { locale });
 
+  const bootstrappedData = TransitImmutableConverter.fromJSON(props.data);
+  const searchPage = new SearchPageModel({
+    currentPage: bootstrappedData.get(':data')
+      .get(0)
+      .map((l) => l.get(':id')),
+    listings: bootstrappedData
+      .get(':data')
+      .get(0)
+      .map(parseListingModel),
+  });
 
-  // This is commented out temporarily. We need to handle new data types before
-  // this can pass the bootsrapped data forward to components.
-  //
-  // import TransitImmutableConverter from '../utils/transitImmutableConverter';
-  // const bootstrappedData = TransitImmutableConverter.fromJSON(props.data);
-  // const searchPage = new SearchPageModel({
-  //   currentPage: bootstrappedData.get(':data').map((l) => l.get(':id')),
-  //   listings: bootstrappedData
-  //     .get(':data')
-  //     .map((l) => new ListingModel({
-  //       id: l.get(':id'),
-  //       title: l.get(':attributes').get(':title'),
-  //     }))
-  //     .toSet(),
-  // });
-
-  const combinedProps = Object.assign({}, { searchPage: new SearchPageModel() }, { routes });
+  const combinedProps = Object.assign({}, { searchPage }, { routes });
   const combinedReducer = combineReducers(reducers);
 
   const store = applyMiddleware(middleware)(createStore)(combinedReducer, combinedProps);
