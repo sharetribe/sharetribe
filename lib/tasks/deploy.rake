@@ -56,7 +56,7 @@ def deploy(params)
   fetch_remote_heroku_branch if params[:migrations] != false
   local_migrations = fetch_local_migrations()
 
-  unless local_migrations.empty?
+  if local_migrations.present?
     update_data_export_script_reminder!(@destination)
   end
 
@@ -66,7 +66,7 @@ def deploy(params)
 
   clear_cache if params[:clear_cache]
 
-  unless migrations_to_run.empty?
+  if migrations_to_run.present?
     run_migrations(migrations)
     restart
   end
