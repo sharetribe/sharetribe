@@ -4,13 +4,13 @@ import AddNewListingButton from './AddNewListingButton';
 
 const { storiesOf } = storybookFacade;
 
-storiesOf('Add new listing button')
-  .add('Default background color', () => (
+storiesOf('Top bar')
+  .add('AddNewListingButton: default color', () => (
     withProps(AddNewListingButton, {
       text: 'Post a new listing',
       url: '#',
     })))
-  .add('Custom background color', () => (
+  .add('AddNewListingButton: custom color', () => (
     withProps(AddNewListingButton, {
       text: 'Some long text from translations here',
       url: '#',

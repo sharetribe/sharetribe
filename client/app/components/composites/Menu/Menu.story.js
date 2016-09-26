@@ -7,7 +7,7 @@ const { storiesOf } = storybookFacade;
 const containerStyle = { style: { minWidth: '100px', background: 'white' } };
 
 storiesOf('Top bar')
-  .add('Menu closed', () => (
+  .add('Menu: basic desktop', () => (
       r(storify(
         r(Menu, Object.assign({},
           {
