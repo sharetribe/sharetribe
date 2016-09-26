@@ -14,6 +14,7 @@ initializeI18n('en', 'en', process.env.NODE_ENV);
 
 const loadStories = function loadStories() {
   require('../app/components/Styleguide/ColorsAndTypography.js');
+  require('../app/components/sections/SearchPage/SearchPage.story.js');
   require('../app/components/sections/Topbar/Topbar.story.js');
   require('../app/components/sections/OnboardingTopBar/OnboardingTopBar.story.js');
   require('../app/components/sections/OnboardingGuide/OnboardingGuide.story.js');

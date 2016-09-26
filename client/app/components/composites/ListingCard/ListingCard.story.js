@@ -1,4 +1,4 @@
-import r, { div, h1, h2, p } from 'r-dom';
+import r from 'r-dom';
 import { mount } from 'enzyme';
 
 import { storify } from '../../Styleguide/withProps';
@@ -26,27 +26,6 @@ const ListingCardBasic =
       per: '/ hundred centimeters',
       distance: 12972,
       distanceUnit: 'mi',
-      color: '#347F9D',
-      className: css.listing,
-    },
-  ));
-
-const ListingCardLongTitle =
-  r(ListingCard, Object.assign({},
-    {
-      id: 'iuttei7538746tr',
-      title: 'Cisco SF300-48 SRW248G4-K9-NA 10/100 Managed Switch 48 Port',
-      listingURL: 'http://marketplace.com/listing/342iu4',
-      imageURL: 'http://placehold.it/408x408',
-      image2xURL: 'http://placehold.it/816x816',
-      noImageText: 'No picture',
-      avatarURL: 'http://placehold.it/40x40',
-      profileURL: '#profile2',
-      price: 49,
-      priceUnit: '€',
-      per: '/ day',
-      distance: 0.02,
-      distanceUnit: 'km',
       color: '#347F9D',
       className: css.listing,
     },
@@ -105,27 +84,6 @@ const testDistance = function priceTest(card, mountedCard) {
 
 
 storiesOf('Search results')
-  .add('Summary', () => (
-    div({
-      className: css.previewPage,
-    }, [
-      h1({ className: css.title }, 'Listings'),
-      p({ className: css.description }, 'Search results are shown in grid view using listing cards. They contain square images and the result set is paged.'),
-      h2({ className: css.sectionTitle }, 'ListingCard'),
-      div({
-        className: css.singleListingWrapper,
-      }, ListingCardLongTitle),
-      h2({ className: css.sectionTitle }, 'ListingPage (not ready yet)'),
-      div({
-        className: css.wrapper,
-      }, [
-        ListingCardImageError,
-        ListingCardNoImage,
-        ListingCardBasic,
-        ListingCardLongTitle,
-      ]),
-    ])
-  ))
   .add('ListingCard - basic', () => {
     const card = ListingCardBasic;
     const mountedCard = mount(card);
