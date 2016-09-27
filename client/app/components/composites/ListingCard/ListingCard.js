@@ -1,6 +1,7 @@
 import { Component, PropTypes } from 'react';
 import r, { a, div, img } from 'r-dom';
 import classNames from 'classnames';
+import { canUseDOM } from '../../../utils/featureDetection';
 import { tint } from '../../../utils/colors';
 import { formatDistance, formatPrice } from '../../../utils/numbers';
 
@@ -20,6 +21,7 @@ class ListingCard extends Component {
 
     this.handleImageLoaded = this.handleImageLoaded.bind(this);
     this.handleImageErrored = this.handleImageErrored.bind(this);
+    this.clickHandler = this.clickHandler.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -34,6 +36,12 @@ class ListingCard extends Component {
     this.setState({ imageStatus: 'failed' }); // eslint-disable-line react/no-set-state
   }
 
+  clickHandler() {
+    if (canUseDOM) {
+      window.location = this.props.listingURL;
+    }
+  }
+
   render() {
 
     const tintedRGB = tint(this.props.color, TINT_PERCENTAGE);
@@ -42,8 +50,9 @@ class ListingCard extends Component {
     const priceFormatted = formatPrice(this.props.price, this.props.priceUnit);
 
     return div({
-      className: classNames(css.listing, this.props.className),
+      className: classNames('ListingCard', css.listing, this.props.className),
       'data-listing-id': this.props.id,
+      onClick: this.clickHandler,
     }, [
       a({
         className: css.squareWrapper,

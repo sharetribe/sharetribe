@@ -33,16 +33,16 @@ const defaultProps = {
   routes,
 };
 
-storiesOf('Onboarding top bar')
-  .add('Not started', () => (
+storiesOf('Onboarding')
+  .add('TopBar: Not started', () => (
     withProps(OnboardingTopBar, Object.assign({}, defaultProps, {
       progress: 0,
       next_step: 'slogan_and_description',
     }))))
-  .add('In progress', () => (
+  .add('TopBar: In progress', () => (
     withProps(OnboardingTopBar, defaultProps)
     ))
-  .add('Complete', () => (
+  .add('TopBar: Complete', () => (
     withProps(OnboardingTopBar, Object.assign({}, defaultProps, {
       progress: 100,
       next_step: 'all_done',

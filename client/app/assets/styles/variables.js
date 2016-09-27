@@ -301,6 +301,8 @@ module.exports = {
   '--ListingCard_fontWeightMedium': fontWeightMedium,
   '--ListingCard_fontWeightSemibold': fontWeightSemibold,
 
+  '--ListingCardPanel_gutterSpacing': bodyPadding,
+
   '--Branding_textColor': textColor,
   '--Branding_borderColor': borderColor,
 };

@@ -1,7 +1,7 @@
 import { List } from 'immutable';
 import * as actionTypes from '../constants/SearchPageConstants';
 
-export function updateCurrentPage({ listings = new List() } = {}) {
+const updateCurrentPage = function updateCurrentPage({ listings = new List() } = {}) {
   return {
     type: actionTypes.CURRENT_PAGE_UPDATE,
     payload: {
@@ -9,4 +9,6 @@ export function updateCurrentPage({ listings = new List() } = {}) {
       listings,
     },
   };
-}
+};
+
+export { updateCurrentPage };

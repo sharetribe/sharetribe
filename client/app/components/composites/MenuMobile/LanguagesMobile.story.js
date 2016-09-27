@@ -6,8 +6,8 @@ import LanguagesMobile from './LanguagesMobile';
 const { storiesOf } = storybookFacade;
 const containerStyle = { style: { minWidth: '100px', background: 'white' } };
 
-storiesOf('LanguagesMobile')
-  .add('Basic state ', () => (
+storiesOf('Top bar')
+  .add('MenuMobile: language section', () => (
       r(storify(
         r(LanguagesMobile,
           {

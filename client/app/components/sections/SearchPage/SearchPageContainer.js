@@ -19,15 +19,15 @@ SearchPageContainer.propTypes = {
   routes: ownPropTypes.routes,
 };
 
-function mapStateToProps(state) {
+const mapStateToProps = function mapStateToProps(state) {
   return {
     searchPage: state.searchPage,
     routes: state.routes,
   };
-}
+};
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return { actions: bindActionCreators(SearchPageActions, dispatch) };
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPageContainer);
