@@ -1599,8 +1599,8 @@ fr:
       night: nuit
       nights: nuits
       invalid_parameters: "Valeurs non correctes pour une nouvelle transaction"
-      dates_not_available: ~
-      error_in_checking_availability: ~
+      dates_not_available: "Les dates choisies ne sont pas disponibles"
+      error_in_checking_availability: "Impossible de vérifier la disponibilité des jours sélectionnés"
     transaction_agreement_checkbox:
       read_more: Lire.
   mapview:
@@ -2076,9 +2076,9 @@ fr:
       admin_dashboard: "Panneau d'administration"
       language: Langue
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} est propulsé par la plate-forme de places de marché %{sharetribe_link}."
+      create_own: "Voulez-vous créer votre propre place de marché en ligne, comme %{service_name} ? %{learn_more}."
+      learn_more: "Découvrez-en plus"
   will_paginate:
     models:
       person:

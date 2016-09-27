@@ -2036,9 +2036,9 @@ pl:
       admin_dashboard: "Panel administracyjny"
       language: Język
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "Platforma %{service_name} działa na silniku %{sharetribe_link}."
+      create_own: "Chcesz stworzyć swoją platformę online jak %{service_name}? %{learn_more}."
+      learn_more: "Dowiedz się więcej"
   will_paginate:
     models:
       person:
