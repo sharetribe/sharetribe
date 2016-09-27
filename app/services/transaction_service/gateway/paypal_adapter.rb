@@ -41,6 +41,26 @@ module TransactionService::Gateway
       end
     end
 
+    def finalize_create_payment(tx:, gateway_fields:, force_sync:)
+      result = paypal_api.payments.create(
+        tx[:community_id],
+        gateway_fields[:token],
+        force_sync: force_sync)
+
+      unless result[:success]
+        return SyncCompletion.new(result)
+      end
+
+      if result[:data][:process_token].present?
+        # PayPal API performed the operation asynchronously
+        AsyncCompletion.new(Result::Success.new({ process_token: result[:data][:process_token] }))
+      else
+        binding.pry
+        # PayPal API performed the operation synchronously
+        AsyncCompletion.new(Result::Success.new({}))
+      end
+    end
+
     def reject_payment(tx:, reason: "")
       AsyncCompletion.new(paypal_api.payments.void(tx[:community_id], tx[:id], {note: reason}))
     end
