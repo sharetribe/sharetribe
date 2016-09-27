@@ -209,7 +209,7 @@ pt-PT:
         you_will_be_redirected_to: ~
         delete_this_marketplace: ~
       manage_members:
-        manage_members: "Gerenciar utilizadores"
+        manage_members: "Gerir utilizadores"
         email: ~
         name: ~
         join_date: ~
@@ -1524,12 +1524,12 @@ pt-PT:
       feedback: ~
       qr_code: ~
       request: Pedido
-      rideshare_offer: ~
-      rideshare_request: ~
+      rideshare_offer: "Oferecer boleia"
+      rideshare_request: "Pedir boleia"
       send_private_message: ~
-      tags: ~
-      time: ~
-      times: ~
+      tags: Tags
+      time: hora
+      times: vezes
       times_viewed: Visualizado
       processing_uploaded_image: ~
       listing_created_at: ~
@@ -1570,26 +1570,26 @@ pt-PT:
       read_more: ~
   mapview:
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
-    please_comment: ~
+      all_categories: "Todas as categorias"
+      all_offer_types: "Todos os tipos de oferta"
+      all_request_types: "Todos os tipos de pedido"
+      category: Categoria
+      did_not_found_what_you_were_looking_for: "Não encontrou o que precisa?"
+      favors: Serviços
+      housing: Espaços
+      items: Itens
+      list_view: "Ver lista"
+      map_view: "Ver mapa"
+      offer_something: "Informe os outros!"
+      offer_type: "Tipo de oferta"
+      offers: Ofertas
+      request_something: "Perguntar algo!"
+      request_type: "Tipo de pedido"
+      requests: Pedidos
+      rideshare: Boleia
+      search_verb: Pesquisar
+      you_have_something_others_do_not: "Tem algo a oferecer?"
+    please_comment: Comentar
   mercury:
     content_too_long: ~
   okl:
@@ -1670,65 +1670,65 @@ pt-PT:
       activate: ~
       deactivate: ~
     help_texts:
-      feedback_description_title: ~
+      feedback_description_title: Feedback
       help_invitation_code_title: "Você precisa de um convite para se juntar a nós"
-      terms_title: ~
+      terms_title: "Termos de utilização do %{service_name} "
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: "Esse utilizador está inativo no %{service_name}"
       inactive_description: "Esse utilizador parou de usar %{service_name}. Você pode não pode entrar em contacto, nem avaliar, nem comentar seus anúncios."
     new:
-      create_new_account: ~
-      email: ~
-      email_is_in_use: ~
+      create_new_account: "Criar conta"
+      email: "Endereço de email"
+      email_is_in_use: "O email já está em uso."
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
-      family_name: ~
-      given_name: ~
-      i_accept_the: ~
+      family_name: Apelido
+      given_name: Nome
+      i_accept_the: "Aceito os"
       invalid_invitation_code: ~
       invitation_code: ~
-      not_required: ~
+      not_required: ", não necessaria"
       notification_is_mandatory: ~
-      password_again: ~
+      password_again: "Confirme a palavra-passe"
       show_my_name_to_others: ~
-      sign_up: ~
-      terms: ~
+      sign_up: "Criar uma conta no %{service_name}"
+      terms: "Termos de utilização"
       username_is_in_use: "Este nome de utilizador já está em uso."
       username_is_invalid: "Nome de utilizador é inválido. Os caracteres permitidos são letras, números e sublinhado."
-      visible_only_to_you: ~
-      visible_to_everybody: ~
+      visible_only_to_you: "visível apenas para si e para o administrador do mercado virtual"
+      visible_to_everybody: "visível para todos"
       create_account_with_facebook: "Registe-se com seu Facebook"
       OR: ~
       signup_with_email: "Registe-se com seu e-mail"
     profile_feedback:
-      grade: ~
+      grade: "nota:"
       and_gave_following_feedback: "deu a seguinte opinião "
     profile_listings:
-      show_also_closed: ~
-      show_only_open: ~
+      show_also_closed: "Mostar também anúncios invisíveis"
+      show_only_open: "Mostrar apenas os abertos"
       no_image: ~
     show:
       contact: "Contacte %{person}"
-      about_me: ~
+      about_me: "Sobre mim:"
       add_description: ~
       add_location: ~
       add_phone_number: ~
-      address: ~
+      address: "Localização:"
       as_expected: "Como esperado"
-      edit_profile_info: ~
-      exceeded_expectations: ~
+      edit_profile_info: "Editar o perfil"
+      exceeded_expectations: "Excedeu as expectativas"
       positive: ~
-      hide_description: ~
-      less_than_expected: ~
-      phone_number: ~
-      show_all_feedback: ~
+      hide_description: "Mostrar menos"
+      less_than_expected: "Pior do que o esperado"
+      phone_number: "Número de telefone:"
+      show_all_feedback: "Mostrar todos os comentários"
       show_all_testimonials: ~
-      show_full_description: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      what_are_these: ~
+      show_full_description: "mostrar mais"
+      slightly_better_than_expected: "Excedeu um pouco as expectativas"
+      slightly_less_than_expected: "Um pouco pior do que o esperado"
+      what_are_these: "O que é isto?"
       review: ~
       reviews: ~
       listing: ~
@@ -1754,20 +1754,20 @@ pt-PT:
       unfollow: ~
   search:
     show:
-      all_results: ~
-      loading_more_search_results: ~
-      offers: ~
-      requests: ~
-      search: ~
-      search_results: ~
-      search_returned_no_results: ~
-      search_verb: ~
+      all_results: "Todos os resultados"
+      loading_more_search_results: "A carregar mais resultados de pesquisa"
+      offers: Ofertas
+      requests: Pedidos
+      search: Pesquisa
+      search_results: "Procurar resultados"
+      search_returned_no_results: "A sua pesquisa não encontrou resultados."
+      search_verb: Pesquisa
   sessions:
     new:
-      create_new_account: ~
+      create_new_account: "Criar uma nova conta"
       i_forgot_my_password: "Esqueci meu utilizador ou a minha senha"
-      login: ~
-      login_to_kassi: ~
+      login: login
+      login_to_kassi: "Login no %{service_name}"
       connect_your_facebook_to_kassi: ~
       facebook_account: ~
       log_in_to_link_account: ~
@@ -1781,7 +1781,7 @@ pt-PT:
     password_forgotten:
       email: Email
       password_recovery_instructions: "Digite o seu endereço de e-mail e receberá o seu nome de utilizador e instruções sobre como alterar sua senha."
-      request_new_password: ~
+      request_new_password: "Pedir uma nova palavra-passe"
       change_your_password: ~
     confirmation_pending:
       welcome_to_kassi: ~
@@ -1796,18 +1796,18 @@ pt-PT:
       account_confirmation_instructions_admin: ~
   settings:
     account:
-      change: ~
-      confirm_new_password: ~
+      change: Alterar
+      confirm_new_password: "Confirmar a nova palavra-passe"
       delete_account: "Apagar conta"
       delete_account_button: ~
       delete_account_confirmation_popup: "Você tem certeza que realmente quer apagar sua conta de utilizador e perder permanentemente todos os dados relacionados à ela? A exclusão da conta não pode ser revertida."
       email_addresses: ~
-      new_email: ~
+      new_email: "Novo endereço de email"
       delete_personal_information: ~
       delete_information_others_involved: ~
       unfinished_transactions: ~
-      new_password: ~
-      save: ~
+      new_password: "Nova palavra-passe"
+      save: Salvar
       these_fields_are_shown_only_to_you: "Seu nome de utilizador é mostrado no seu perfil a menos que você tenha dado o seu nome. Outras informações só é mostrado a você."
       email_already_confirmed: ~
       email:
@@ -1826,19 +1826,19 @@ pt-PT:
         status_pending: ~
     notifications:
       email_from_admins: ~
-      i_want_to_get_email_notification_when: ~
+      i_want_to_get_email_notification_when: "Quero receber uma notificação por email quando ..."
       newsletters: ~
       community_updates: ~
       email_about_confirm_reminders: ~
-      email_about_new_comments_to_own_listing: ~
-      email_about_new_messages: ~
+      email_about_new_comments_to_own_listing: "... comentarios de alguém sobre a minha oferta ou pedido"
+      email_about_new_messages: "...alguém me envia uma mensagem"
       email_about_new_received_testimonials: ~
       email_about_testimonial_reminders: ~
       email_daily_community_updates: ~
       email_weekly_community_updates: ~
       do_not_email_community_updates: ~
-      email_when_conversation_accepted: ~
-      email_when_conversation_rejected: ~
+      email_when_conversation_accepted: "...alguém aceita a minha oferta ou pedido"
+      email_when_conversation_rejected: "...alguém rejeita a minha oferta ou pedido"
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_new_listings_by_followed_people: ~
@@ -1849,26 +1849,26 @@ pt-PT:
       unsubscribe_unsuccesful: ~
       unsuccessful_unsubscribe_info_text: ~
     profile:
-      about_you: ~
-      city: ~
-      family_name: ~
-      given_name: ~
+      about_you: "Sobre si"
+      city: Cidade
+      family_name: Apelido
+      given_name: Nome
       first_name_with_initial: "(apenas a primeira letra mostrada para outros utilizadores)"
       first_name_only: "(não será mostrado a outros utilizadores)"
       location_description: ~
-      phone_number: ~
+      phone_number: "Número de telefone"
       profile_picture: ~
-      postal_code: ~
-      profile_page: ~
-      profilemap: ~
+      postal_code: "Código postal"
+      profile_page: "na sua página de perfil"
+      profilemap: "Ver mapa"
       street_address: ~
       these_fields_are_shown_in_your: "Esta informação pode ser vista por todos os utilizadores %{service_name}"
-      visible_to_everybody: ~
+      visible_to_everybody: "visível para todos"
       visible_to_registered_users: "(visível para os utilizadores que tenham logado)"
       default_in_listing: ~
       invisible: "(não será mostrado a outros utilizadores)"
       image_is_processing: ~
-    save_information: ~
+    save_information: "Salvar informação"
   shipping_address:
     shipping_address: ~
   tag_cloud:
@@ -1877,14 +1877,14 @@ pt-PT:
       without_tag: ~
   terms:
     show:
-      accept_terms: ~
-      here: ~
-      i_accept_new_terms: ~
-      i_accept_terms: ~
-      terms: ~
-      terms_have_changed: ~
-      you_can_view_the_new_terms: ~
-      you_need_to_accept: ~
+      accept_terms: "Aceitar os termos de utilização do %{service_name} "
+      here: "clicando aqui"
+      i_accept_new_terms: "Aceito os novos termos"
+      i_accept_terms: "Aceito os termos"
+      terms: "termos de utilização do %{service_name} "
+      terms_have_changed: "Os termos de utilização mudaram"
+      you_can_view_the_new_terms: "Pode ver os novos termos"
+      you_need_to_accept: "Bem-vindo(a) ao %{service_name}! Esta parece ser a primeira vez que está a utilizar este serviço. Antes de começar, deve aceitar os"
       you_need_to_accept_new_terms: ~
   testimonials:
     index:
@@ -2008,13 +2008,17 @@ pt-PT:
       user: ~
       inbox: ~
       profile: ~
-      manage_listings: ~
+      manage_listings: "Gerir anúncios"
       settings: ~
       logout: ~
       login: ~
       signup: ~
       admin_dashboard: ~
       language: ~
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
   will_paginate:
     models:
       person:

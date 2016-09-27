@@ -1599,7 +1599,7 @@ nb:
       night: natt
       nights: netter
       invalid_parameters: "Ugyldig verdi for ny betaling"
-      dates_not_available: ~
+      dates_not_available: "Valgte datoer er ikke tilgjengelige"
       error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: Vis.
@@ -2072,6 +2072,10 @@ nb:
       signup: "Registrer deg"
       admin_dashboard: ~
       language: Språk
+    branding:
+      powered_by: "%{service_name} kjøres på markedsplass-plattformen %{sharetribe_link}"
+      create_own: "Vil du lage din egen digitale marrkedsplass, slik som %{service_name}? %{learn_more}."
+      learn_more: "Les mer"
   will_paginate:
     models:
       person:

@@ -1579,6 +1579,8 @@ nl:
       night: ~
       nights: ~
       invalid_parameters: ~
+      dates_not_available: ~
+      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: Overzicht.
   mapview:
@@ -2034,6 +2036,10 @@ nl:
       signup: ~
       admin_dashboard: ~
       language: ~
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
   will_paginate:
     models:
       person:

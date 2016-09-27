@@ -1599,6 +1599,8 @@ fr:
       night: nuit
       nights: nuits
       invalid_parameters: "Valeurs non correctes pour une nouvelle transaction"
+      dates_not_available: ~
+      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: Lire.
   mapview:
@@ -2073,6 +2075,10 @@ fr:
       signup: S'inscrire
       admin_dashboard: "Panneau d'administration"
       language: Langue
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
   will_paginate:
     models:
       person:

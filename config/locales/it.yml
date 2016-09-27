@@ -1572,8 +1572,8 @@ it:
       night: notte
       nights: notti
       invalid_parameters: "La nuova transazione non è andata a buon fine, per causa di un errore."
-      dates_not_available: ~
-      error_in_checking_availability: ~
+      dates_not_available: "Le date selezionate non sono disponibili"
+      error_in_checking_availability: "Non è possibile verificare la disponibilità nei giorni selezionati"
     transaction_agreement_checkbox:
       read_more: Mostra
   mapview:
@@ -2044,6 +2044,10 @@ it:
       signup: Registrati
       admin_dashboard: ~
       language: Lingua
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
   will_paginate:
     models:
       listing_conversation:

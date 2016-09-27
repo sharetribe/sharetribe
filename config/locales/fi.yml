@@ -1599,6 +1599,8 @@ fi:
       night: yö
       nights: yötä
       invalid_parameters: "Epäpätevät arvot uudelle transaktiolle"
+      dates_not_available: ~
+      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: "Lue lisää."
   mapview:
@@ -2073,6 +2075,10 @@ fi:
       signup: Liity
       admin_dashboard: Ylläpitonäkymä
       language: Kieli
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
   will_paginate:
     models:
       person:

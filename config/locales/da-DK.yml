@@ -1365,7 +1365,7 @@ da-DK:
       open_in_google_maps: "Åbn i Google Maps"
     error:
       something_went_wrong: "Noget gik galt, error code: %{error_code}"
-      something_went_wrong_plain: ~
+      something_went_wrong_plain: "Noget gik galt"
     follow_links:
       follow: "Modtag emails om nye kommentarer"
       unfollow: "Afmeld emails om nye kommentarer"
@@ -1597,8 +1597,8 @@ da-DK:
       night: Nat
       nights: Nætter
       invalid_parameters: "Ugyldige værdier for ny transaktion"
-      dates_not_available: ~
-      error_in_checking_availability: ~
+      dates_not_available: "De valgte datoer er ikke tilgængelige"
+      error_in_checking_availability: "Kunne ikke tjekke tilgængelighed for de valgte dage"
     transaction_agreement_checkbox:
       read_more: Vis.
   mapview:
@@ -2073,6 +2073,10 @@ da-DK:
       signup: Tilmeld
       admin_dashboard: "Administrator Dashboard"
       language: Sprog
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
   will_paginate:
     models:
       person:

@@ -1063,7 +1063,7 @@ ru:
       is: является
       are: есть
       what_do_you_need: "Что бы вы хотели найти?"
-      post_new_listing: "Создать новую публикацию"
+      post_new_listing: "Создать публикацию"
       are_offering: "что предлагают"
       add_news_item: "Добавить статью"
       lend_rent_help_carpool: "Прокат, обмен, помощь, совместные поездки"
@@ -1589,6 +1589,8 @@ ru:
       night: ~
       nights: ~
       invalid_parameters: ~
+      dates_not_available: ~
+      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: Вид.
   mapview:
@@ -2069,6 +2071,10 @@ ru:
       signup: Регистрация
       admin_dashboard: "Панель администратора"
       language: ~
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
   will_paginate:
     models:
       person:

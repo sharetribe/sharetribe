@@ -1599,6 +1599,8 @@ es-ES:
       night: noche
       nights: noches
       invalid_parameters: "Valores inválidos para una transacción nueva"
+      dates_not_available: ~
+      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: Ver
   mapview:
@@ -2073,6 +2075,10 @@ es-ES:
       signup: Registrarse
       admin_dashboard: "Panel de administración"
       language: Idioma
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
   will_paginate:
     models:
       person:
