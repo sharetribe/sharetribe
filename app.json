@@ -1,0 +1,55 @@
+{
+  "name": "sharetribe",
+  "scripts": {
+  },
+  "env": {
+    "clp_static_enabled": {
+      "required": true
+    },
+    "DATABASE_URL": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "PASSENGER_MAX_POOL_SIZE": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "secret_key_base": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1
+    },
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "cleardb",
+    "memcachier",
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
