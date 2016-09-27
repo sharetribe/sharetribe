@@ -2,7 +2,7 @@
   "settings": {
     "marketplace_id": 9999,
     "locale": "en",
-    "sitename": "example"
+    "sitename": "Natives"
   },
 
   "page": {
@@ -24,7 +24,7 @@
       "variation": {"type": "marketplace_data", "id": "search_type"},
       "title": {"type": "marketplace_data", "id": "slogan"},
       "subtitle": {"type": "marketplace_data", "id": "description"},
-      "background_image": {"type": "assets", "id": "default_hero_background"},
+      "background_image": {"type": "assets", "id": "natives_background"},
       "background_image_variation": "dark",
       "search_button": {"type": "translation", "id": "search_button"},
       "search_path": {"type": "path", "id": "search"},
@@ -35,11 +35,7 @@
       "search_button_color": {"type": "marketplace_data", "id": "primary_color"},
       "search_button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "signup_button_color": {"type": "marketplace_data", "id": "primary_color"},
-      "signup_button_color_hover": {
-        "type": "marketplace_data", 
-        "id": 
-        "primary_color_darken"
-      }
+      "signup_button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
     },
     {
       "id": "video",
@@ -48,7 +44,7 @@
       "youtube_video_id": "UffchBUUIoI",
       "width": "1280",
       "height": "720",
-      "text": "Video section can contain one Youtube SNATCH. Click to watch!"
+      "text": "Video section can contain one Youtube video. Click to watch!"
     },
     {
       "id": "single_info_without_background_and_cta",
@@ -99,29 +95,29 @@
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "button_title": "About",
       "button_path": {"type": "path", "id" :"about"},
-      "background_color": [166, 76, 94]
+      "background_color": [140,118,255] 
     },
     {
       "id": "two_column_info_with_icons_and_buttons",
       "kind": "info",
       "variation": "multi_column",
-      "title": "Two column info section with icons and buttons",
+      "title": "Why join Natives?",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "icon_color": {"type": "marketplace_data", "id": "primary_color"},
       "columns": [
         {
-          "icon": "grape",
-          "title": "Column 1",
-          "paragraph": ["Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.","Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."],
-          "button_title": "Go to sharetribe.com",
+          "icon": "meditation",
+          "title": "For Practioners",
+          "paragraph": ["Promote your services to thousands of people in your area. Easily manage your invoicing and bookings"],
+          "button_title": "BECOME A NATIVES PRACTIONER",
           "button_path": {"value": "https://www.sharetribe.com"}
         },
         {
-          "icon": "watering-can",
-          "title": "Column 2",
-          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
-          "button_title": "Go to sharetribe.com",
+          "icon": "user-group",
+          "title": "For Customers",
+          "paragraph": "Find and book the best local practioners. We vet every srvice provider. Schedule, pay, and enjoy the results.",
+          "button_title": "BROWSE PRACTIONERS",
           "button_path": {"value": "https://www.sharetribe.com"}
         }
       ]
@@ -146,7 +142,38 @@
       "id": "three_column_info_with_icons_and_buttons",
       "kind": "info",
       "variation": "multi_column",
-      "title": "Three column info with icons and buttons",
+      "title": "How Natives works",
+      "subtitle": "Let's Put a Title Here :)",
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "icon_color": {"type": "marketplace_data", "id": "primary_color"},
+      "columns": [
+        {
+          "title": "Find the perfect practioner",
+          "icon": "practioner-user",
+          "paragraph": "Easily compaire professionals by skills, work history and rating."
+          
+        },
+        {
+          "title": "Make a booking instantly",
+          "icon": "booking",
+          "paragraph": "Schedule a practioner and pay online. No need to deal with cash or invoices."
+          
+        },
+        {
+          "title": "Need Title",
+          "icon": "happy",
+          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
+          
+        }
+      
+      ]
+    },
+     {
+      "id": "three_column_new",
+      "kind": "info",
+      "variation": "multi_column",
+      "title": "Three column info with icons and Dicks",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "icon_color": {"type": "marketplace_data", "id": "primary_color"},
@@ -172,6 +199,8 @@
           "button_title": "Go to sharetribe.com",
           "button_path": {"value": "https://www.sharetribe.com"}
         }
+
+      
       ]
     },
     {
@@ -192,6 +221,7 @@
           "title": "Column 3",
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
         }
+
       ]
     },
     {
@@ -234,20 +264,20 @@
         "author_name_color_hover": {"type": "marketplace_data", "id": "primary_color"},
         "listings": [
             {
-                "listing": { "type": "listing", "id": 99999 }
+                "listing": { "type": "listing", "id": 1 }
             },
             {
-                "listing": { "type": "listing", "id": 99999 }
+                "listing": { "type": "listing", "id": 1 }
             },
             {
-                "listing": { "type": "listing", "id": 99999 }
+                "listing": { "type": "listing", "id": 1 }
             }
         ]
     },
     {
       "id": "footer",
       "kind": "footer",
-      "theme": "dark",
+      "theme": "White",
       "social_media_icon_color": {"type": "marketplace_data", "id": "primary_color"},
       "social_media_icon_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "links": [
@@ -259,34 +289,26 @@
         {"label": "Sharetribe", "href": {"value": "https://www.sharetribe.com"}}
       ],
       "social": [
-        {"service": "facebook", "url": "https://www.facebook.com/Sharetribe/"},
-        {"service": "twitter", "url": "https://twitter.com/sharetribe"},
-        {"service": "instagram", "url": "https://www.instagram.com/"},
-        {"service": "youtube", "url": "https://www.youtube.com/channel/UCtefWVq2uu4pHXaIsHlBFnw"},
-        {"service": "googleplus", "url": "https://plus.google.com/114869130265262677354/"},
-        {"service": "linkedin", "url": "https://www.linkedin.com/company/2626583"},
-        {"service": "pinterest", "url": "https://www.pinterest.com/"}
+        {"service": "facebook", "url": "https://www.facebook.com/nativesapp/"},
+        {"service": "twitter", "url": "https://twitter.com/nativesapp"},
+        {"service": "instagram", "url": "https://www.instagram.com/nativesapp"}
+
       ],
-      "copyright": "Copyright Marketplace Ltd 2016"
+      "copyright": "© 2016 Natives. All Rights Reserved."
     }
   ],
 
   "composition": [
     { "section": {"type": "sections", "id": "hero"}},
-    { "section": {"type": "sections", "id": "single_info_without_background_and_cta"}},
-    { "section": {"type": "sections", "id": "single_info_without_cta"}},
-    { "section": {"type": "sections", "id": "single_info_with_cta"}},
-    { "section": {"type": "sections", "id": "single_info_with_background_and_cta"}},
+    { "section": {"type": "sections", "id": "three_column_info_with_icons_and_buttons"}},
     { "section": {"type": "sections", "id": "single_info_with_background_color_and_cta"}},
     { "section": {"type": "sections", "id": "two_column_info_with_icons_and_buttons"}},
-    { "section": {"type": "sections", "id": "two_column_info_without_icons_and_buttons"}},
-    { "section": {"type": "sections", "id": "three_column_info_with_icons_and_buttons"}},
-    { "section": {"type": "sections", "id": "three_column_info_without_icons_and_buttons"}},
-    { "section": {"type": "sections", "id": "video"}},
+    { "section": {"type": "sections", "id": "listings"}},
     { "section": {"type": "sections", "id": "footer"}}
   ],
 
   "assets": [
-    { "id": "default_hero_background", "src": "default_hero_background.jpg", "content_type": "image/jpeg" }
+    { "id": "default_hero_background", "src": "default_hero_background.jpg", "content_type": "image/jpeg" },
+    { "id": "natives_background", "src": "natives_banner.jpg", "content_type": "image/jpeg" }
   ]
 }
