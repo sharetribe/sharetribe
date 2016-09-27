@@ -4,11 +4,14 @@ import Immutable from 'immutable';
 
 import css from './SearchPage.css';
 
+const listingsByIds = (listings, ids) =>
+  ids.map((id) => listings.get(id));
+
 class SearchPage extends Component {
 
   constructor(props, context) {
     super(props, context);
-    this.listings = props.searchPage.listings || [];
+    this.listings = listingsByIds(props.searchPage.listings, props.searchPage.currentPage) || [];
   }
 
   render() {
