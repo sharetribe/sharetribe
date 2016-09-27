@@ -605,6 +605,12 @@ class Community < ActiveRecord::Base
     favicon.processing?
   end
 
+  def as_json(options)
+    attrs = super(options)
+    uuid = UUIDUtils.parse_raw(attrs["uuid"])
+    attrs.merge({"uuid" => uuid.to_s})
+  end
+
   private
 
   def initialize_settings
