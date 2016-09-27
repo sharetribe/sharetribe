@@ -4,11 +4,10 @@ import { Provider } from 'react-redux';
 import middleware from 'redux-thunk';
 import { initialize as initializeI18n } from '../utils/i18n';
 import { subset } from '../utils/routes';
-import TransitImmutableConverter from '../utils/transitImmutableConverter';
 
 import reducers from '../reducers/reducersIndex';
 import SearchPageContainer from '../components/sections/SearchPage/SearchPageContainer';
-import { SearchPageModel, ListingModel } from '../components/sections/SearchPage/SearchPage';
+import { SearchPageModel } from '../components/sections/SearchPage/SearchPage';
 
 
 export default (props) => {
@@ -26,6 +25,7 @@ export default (props) => {
   // This is commented out temporarily. We need to handle new data types before
   // this can pass the bootsrapped data forward to components.
   //
+  // import TransitImmutableConverter from '../utils/transitImmutableConverter';
   // const bootstrappedData = TransitImmutableConverter.fromJSON(props.data);
   // const searchPage = new SearchPageModel({
   //   currentPage: bootstrappedData.get(':data').map((l) => l.get(':id')),
