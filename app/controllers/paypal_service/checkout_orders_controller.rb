@@ -71,7 +71,16 @@ class PaypalService::CheckoutOrdersController < ApplicationController
     response_data = response[:data] || {}
 
     if response[:success]
-      redirect_to person_transaction_path(person_id: @current_user.id, id: response_data[:transaction_id])
+      finalize_res = transaction_service.finalize_create(
+        community_id: @current_community.id,
+        transaction_id: response_data[:transaction_id],
+        force_sync: true)
+
+      finalize_res.on_success {
+        redirect_to person_transaction_path(person_id: @current_user.id, id: response_data[:transaction_id])
+      }.on_error {
+        # TODO Proper error handling: void payment
+      }
     else
       if response_data[:paypal_error_code] == "10486"
         redirect_to response_data[:redirect_url]

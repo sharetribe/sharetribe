@@ -96,6 +96,22 @@ module TransactionService::Transaction
       .or_else(res)
   end
 
+  def finalize_create(community_id:, transaction_id:, force_sync: true)
+    tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
+
+    tx_process = tx_process(tx[:payment_process])
+    gw = gateway_adapter(tx[:payment_gateway])
+
+    res = tx_process.finalize_create(tx: tx,
+                                     gateway_adapter: gw,
+                                     force_sync: force_sync)
+
+    # FIXME Add correct DataType
+    res.maybe()
+      .map { |gw_fields| Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]), gw_fields)) }
+      .or_else(res)
+  end
+
   def reject(community_id:, transaction_id:, message: nil, sender_id: nil)
     tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 

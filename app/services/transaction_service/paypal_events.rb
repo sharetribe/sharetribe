@@ -15,8 +15,6 @@ module TransactionService::PaypalEvents
     tx = MarketplaceService::Transaction::Query.transaction(payment[:transaction_id])
     if tx
       case transition_type(tx, payment)
-      when :initiated_to_preauthorized
-        initiated_to_preauthorized(tx)
       when :initiated_to_voided
         delete_transaction(cid: tx[:community_id], tx_id: tx[:id])
       when :preauthorized_to_paid
@@ -57,7 +55,6 @@ module TransactionService::PaypalEvents
   ## Mapping from payment transition to transaction transition
 
   TRANSITIONS = [
-    [:initiated_to_preauthorized,   [:initiated, :pending, :authorization]],
     [:initiated_to_voided,          [:initiated, :voided]],
     [:preauthorized_to_paid,        [:preauthorized, :completed]],
     [:preauthorized_to_pending_ext, [:preauthorized, :pending]],
@@ -92,10 +89,6 @@ module TransactionService::PaypalEvents
 
   def pending_ext_to_denied(tx, payment_status)
     MarketplaceService::Transaction::Command.transition_to(tx[:id], "rejected", paypal_payment_status: payment_status)
-  end
-
-  def initiated_to_preauthorized(tx)
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], :preauthorized)
   end
 
   def preauthorized_to_paid(tx)
