@@ -19,12 +19,8 @@ const toImage = (rep) => {
     ':square_2x': 'square2x',
   };
   const data = rep[1];
-  const images = data.map((s) => new Image({
-    type: s.get(0),
-    height: s.get(1),
-    width: s.get(2), // eslint-disable-line no-magic-numbers
-    url: s.get(3), // eslint-disable-line no-magic-numbers
-  }));
+  const images = data.map(([type, height, width, url]) =>
+    new Image({ type, height, width, url }));
   const styles = images.reduce((acc, val) => {
     const style = knownStyles[val.type];
     return style ? acc.set(style, val) : acc;
