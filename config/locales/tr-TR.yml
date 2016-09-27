@@ -1580,6 +1580,8 @@ tr-TR:
       night: ~
       nights: ~
       invalid_parameters: ~
+      dates_not_available: ~
+      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: Görüntüle.
   mapview:
@@ -1619,6 +1621,7 @@ tr-TR:
     connected_account: "'%{email}' PayPal hesabı başarıyla eklendi."
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: ~
     upgrade_paypal_account_link_text: ~
     admin_account_not_connected: ~
@@ -2032,6 +2035,10 @@ tr-TR:
       signup: ~
       admin_dashboard: ~
       language: ~
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
   will_paginate:
     models:
       person:

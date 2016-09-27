@@ -1,20 +1,17 @@
 import { Component, PropTypes } from 'react';
 import r, { a, div, img } from 'r-dom';
 import classNames from 'classnames';
+import { canUseDOM } from '../../../utils/featureDetection';
 import { tint } from '../../../utils/colors';
+import { formatDistance, formatPrice } from '../../../utils/numbers';
 
 import Avatar from '../../elements/Avatar/Avatar';
 import css from './ListingCard.css';
 import noImageIcon from './images/noImageIcon.svg';
 import distanceIcon from './images/distanceIcon.svg';
 
-const MINIMUM_DISTANCE = 0.1;
-const PRECISION = 2;
 const TINT_PERCENTAGE = 20;
 
-const sigFigs = function sigFigs(n, sig) {
-  return parseFloat(n.toPrecision(sig));
-};
 
 class ListingCard extends Component {
 
@@ -24,6 +21,7 @@ class ListingCard extends Component {
 
     this.handleImageLoaded = this.handleImageLoaded.bind(this);
     this.handleImageErrored = this.handleImageErrored.bind(this);
+    this.clickHandler = this.clickHandler.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -38,18 +36,23 @@ class ListingCard extends Component {
     this.setState({ imageStatus: 'failed' }); // eslint-disable-line react/no-set-state
   }
 
+  clickHandler() {
+    if (canUseDOM) {
+      window.location = this.props.listingURL;
+    }
+  }
+
   render() {
 
     const tintedRGB = tint(this.props.color, TINT_PERCENTAGE);
-    const hasDistance = !!this.props.distance;
-    const precision = (hasDistance && this.props.distance < 1) ? 1 : PRECISION;
-    const distanceFormatted = (hasDistance && this.props.distance < MINIMUM_DISTANCE) ? `< 0.1 ${this.props.distanceUnit}` : `${sigFigs(this.props.distance, precision)} ${this.props.distanceUnit}`;
-
-    const priceFormatted = `${this.props.priceUnit} ${this.props.price}`;
+    const higherRes = this.props.image2xURL ? { srcSet: `${this.props.image2xURL} 2x` } : null;
+    const distanceFormatted = formatDistance(this.props.distance, this.props.distanceUnit);
+    const priceFormatted = formatPrice(this.props.price, this.props.priceUnit);
 
     return div({
-      className: classNames(css.listing, this.props.className),
+      className: classNames('ListingCard', css.listing, this.props.className),
       'data-listing-id': this.props.id,
+      onClick: this.clickHandler,
     }, [
       a({
         className: css.squareWrapper,
@@ -57,10 +60,13 @@ class ListingCard extends Component {
         href: this.props.listingURL,
       }, this.props.imageURL && this.state.imageStatus !== 'failed' ?
         img({
-          className: css.thumbnail,
-          src: this.props.imageURL,
-          onLoad: this.handleImageLoaded,
-          onError: this.handleImageErrored,
+          ...{
+            className: classNames('ListingCard_image', css.thumbnail),
+            src: this.props.imageURL,
+            onLoad: this.handleImageLoaded,
+            onError: this.handleImageErrored,
+          },
+          ...higherRes,
         }) :
         div({
           className: css.noImageContainer,
@@ -105,7 +111,7 @@ class ListingCard extends Component {
               div({ className: css.per }, this.props.per) :
               null,
           ]),
-          hasDistance ?
+          distanceFormatted ?
             div({ className: css.distance }, [
               div({
                 className: css.distanceIcon,
@@ -131,6 +137,7 @@ ListingCard.propTypes = {
   distanceUnit: string,
   id: string.isRequired,
   imageURL: string,
+  image2xURL: string,
   listingURL: string.isRequired,
   noImageText: string.isRequired,
   per: string,

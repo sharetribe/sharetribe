@@ -1,7 +1,7 @@
 module TransactionService::Process
   class Free
 
-    def create(tx:, gateway_fields:, gateway_adapter:, prefer_async:)
+    def create(tx:, gateway_fields:, gateway_adapter:, force_sync:)
       Result::Success.new({result: true})
     end
 

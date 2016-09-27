@@ -22,16 +22,16 @@ OnbardingGuideContainer.propTypes = {
   routes: ownPropTypes.routes,
 };
 
-function mapStateToProps(state) {
+const mapStateToProps = function mapStateToProps(state) {
   return {
     data: state.onboarding_guide_page,
     marketplaceContext: state.marketplaceContext,
     routes: state.routes,
   };
-}
+};
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return { actions: bindActionCreators(OnboardingGuideActions, dispatch) };
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(OnbardingGuideContainer);

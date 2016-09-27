@@ -1601,6 +1601,8 @@ pt-BR:
       night: noite
       nights: noites
       invalid_parameters: "Valores inválidos para uma nova transação"
+      dates_not_available: ~
+      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: Ver.
   mapview:
@@ -1640,6 +1642,7 @@ pt-BR:
     connected_account: "Conta PayPal '%{email}' connectada com sucesso."
     paypal_receive_funds_info_label_australia_only: "Sua conta PayPal deve poder aceitar pagamentos. Talvez você precise de uma conta especifica para receber pagamentos."
     paypal_receive_funds_info_label: "Sua conta PayPal deve ser capaz de aceitar pagamentos. Por isso ela deve ser uma conta para \"Receber pagamentos com PayPal\"."
+    paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: "Se você receber um erro quando tentar conectar sua conta com o %{service_name}, faça um upgrade da sua conta PayPal clicando em %{upgrade_paypal_account_link}. É fácil e rápido. Se você for pessoa física o PayPal recomenda que você use seu nome como nome da companhia."
     upgrade_paypal_account_link_text: "entrando e clicando no link de upgrade"
     admin_account_not_connected: "Não é possível receber pagamentos pelo %{service_name}  porque o sistema ainda não foi configurado. Por favor %{contact_admin_link} para mais informações."
@@ -2068,6 +2071,10 @@ pt-BR:
       signup: "Criar conta"
       admin_dashboard: "Painel de administração"
       language: Idioma
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
   will_paginate:
     models:
       person:

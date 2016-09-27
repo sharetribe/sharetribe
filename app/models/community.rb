@@ -253,17 +253,21 @@ class Community < ActiveRecord::Base
 
   before_save :cache_previous_image_urls
 
-  def uuid
+  def uuid_object
     if self[:uuid].nil?
       nil
     else
-      UUIDTools::UUID.parse_raw(self[:uuid])
+      UUIDUtils.parse_raw(self[:uuid])
     end
+  end
+
+  def uuid_object=(uuid)
+    self.uuid = UUIDUtils.raw(uuid)
   end
 
   before_create :add_uuid
   def add_uuid
-    self.uuid ||= UUIDTools::UUID.timestamp_create.raw
+    self.uuid ||= UUIDUtils.create_raw
   end
 
   validates_format_of :twitter_handle, with: /\A[A-Za-z0-9_]{1,15}\z/, allow_nil: true
@@ -599,6 +603,12 @@ class Community < ActiveRecord::Base
     cover_photo.processing? ||
     small_cover_photo.processing? ||
     favicon.processing?
+  end
+
+  def as_json(options)
+    attrs = super(options)
+    uuid = UUIDUtils.parse_raw(attrs["uuid"])
+    attrs.merge({"uuid" => uuid.to_s})
   end
 
   private

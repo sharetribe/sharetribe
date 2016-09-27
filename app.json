@@ -6,9 +6,6 @@
     "clp_static_enabled": {
       "required": true
     },
-    "DATABASE_URL": {
-      "required": true
-    },
     "LANG": {
       "required": true
     },
@@ -22,9 +19,6 @@
       "required": true
     },
     "RAILS_SERVE_STATIC_FILES": {
-      "required": true
-    },
-    "secret_key_base": {
       "required": true
     },
     "SECRET_KEY_BASE": {
@@ -41,8 +35,7 @@
   },
   "addons": [
     "cleardb",
-    "memcachier",
-    "heroku-postgresql"
+    "memcachier"
   ],
   "buildpacks": [
     {

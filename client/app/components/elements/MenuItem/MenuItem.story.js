@@ -1,13 +1,13 @@
 import r from 'r-dom';
-import { storiesOf } from '@kadira/storybook';
 import { storify } from '../../Styleguide/withProps';
 
 import MenuItem from './MenuItem';
 
+const { storiesOf } = storybookFacade;
 const containerStyle = { style: { minWidth: '200px', background: 'white' } };
 
-storiesOf('MenuItem')
-  .add('MenuItem not active', () => (
+storiesOf('Top bar')
+  .add('MenuItem: not active', () => (
     r(storify(
       r(MenuItem, {
         href: 'http://example.com',
@@ -20,7 +20,7 @@ storiesOf('MenuItem')
       containerStyle
     ))
   ))
-  .add('MenuItem active', () => (
+  .add('MenuItem: active', () => (
     r(storify(
       r(MenuItem, {
         href: 'http://example.com',
@@ -33,7 +33,7 @@ storiesOf('MenuItem')
       containerStyle
     ))
   ))
-  .add('MenuItem long content in mobile', () => (
+  .add('MenuItem: long content in mobile', () => (
       r(storify(
         r(MenuItem, {
           href: 'http://example.com',

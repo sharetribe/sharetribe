@@ -1584,6 +1584,8 @@ zh:
       night: 晚上
       nights: ~
       invalid_parameters: ~
+      dates_not_available: ~
+      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: 查看。
   mapview:
@@ -1623,6 +1625,7 @@ zh:
     connected_account: "PayPal帐号“%{email}”连接成功。"
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: "你的 PayPal 账户需要可以接受付款。这可能需要一个商业账户。"
+    paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: ~
     upgrade_paypal_account_link_text: 登陆并点击升级套餐连接
     admin_account_not_connected: ~
@@ -2045,6 +2048,10 @@ zh:
       signup: 注册
       admin_dashboard: 管理员空间
       language: 语言
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
   will_paginate:
     models:
       person:

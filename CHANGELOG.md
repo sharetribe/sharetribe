@@ -10,11 +10,32 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Added
 
+### Removed
+
+### Changed
+
+### Fixed
+
+## [6.0.0] - 2016-09-27
+
+### Removed
+
+- Dropped official support for MySQL server version 5.6. Only MySQL 5.7 is officialy supported. This release contains no other changes.
+
+## [5.12.0] - 2016-09-27
+
+### Added
+
 - Added date picker for "per night" listing unit type [#2481](https://github.com/sharetribe/sharetribe/pull/2481)
 - SEO: Added `rel=next` and `rel=prev` links to give a hint to crawlers about the paginated content [#2505](https://github.com/sharetribe/sharetribe/pull/2505)
 - Added _New layout_ admin page where marketplace admins can enable new layout designs for the whole marketplace or just for themselves to try out [#2338](https://github.com/sharetribe/sharetribe/pull/2338) and [#2469](https://github.com/sharetribe/sharetribe/pull/2469)
 - Added functionality to edit Post a new listing button text [#2448](https://github.com/sharetribe/sharetribe/pull/2448)
 - Sitemap [#2492](https://github.com/sharetribe/sharetribe/pull/2492), thanks Dan Moore ([@mooreds](https://github.com/mooreds)) for helping!
+- Mocha test setup for new frontend architecture [#2550](https://github.com/sharetribe/sharetribe/pull/2550)
+
+### Deprecated
+
+- Deprecated use of MySQL server version 5.6.x [2566](https://github.com/sharetribe/sharetribe/pull/2566)
 
 ### Removed
 
@@ -26,6 +47,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Updated [React Storybook](https://github.com/kadirahq/react-storybook) to version 2.13.0 [#2528](https://github.com/sharetribe/sharetribe/pull/2528)
 - Changed ActiveRecord schema format to :sql [#2531](https://github.com/sharetribe/sharetribe/pull/2531)
 - Upgraded Paperclip and Delayed::Paperclip, dropped deprecated AWS SDK v1 [#2522](https://github.com/sharetribe/sharetribe/pull/2522)
+- Upgraded mysql2 dependency [#2565](https://github.com/sharetribe/sharetribe/pull/2565)
 
 ### Fixed
 
@@ -33,6 +55,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Transactions in `initiated` state showed wrong total price in the transaction page if the item quantity was more than one [#2452](https://github.com/sharetribe/sharetribe/pull/2452)
 - Fix bug in infinite scroll: The current page was not taken into account [#2532](https://github.com/sharetribe/sharetribe/pull/2532)
 - Fix bug: Testimonial reminders were sent even if user had disabled them [#2557](https://github.com/sharetribe/sharetribe/pull/2557)
+- Fix regression: Add quantity pickers to non-payment transactions [#2568](https://github.com/sharetribe/sharetribe/pull/2568)
 
 ## [5.11.0] - 2016-08-24
 
@@ -275,7 +298,9 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v5.11.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v6.0.0...HEAD
+[6.0.0]: https://github.com/sharetribe/sharetribe/compare/v5.12.0...v6.0.0
+[5.12.0]: https://github.com/sharetribe/sharetribe/compare/v5.11.0...v5.12.0
 [5.11.0]: https://github.com/sharetribe/sharetribe/compare/v5.10.0...v5.11.0
 [5.10.0]: https://github.com/sharetribe/sharetribe/compare/v5.9.0...v5.10.0
 [5.9.0]: https://github.com/sharetribe/sharetribe/compare/v5.8.0...v5.9.0

@@ -27,7 +27,7 @@ const customColorFallback = '#4a90e2';
 const customColor2Fallback = '#2ab865';
 const alertColor = '#ff4e36';
 
-const topbarBorderColor = 'rgba(169, 172, 176, 0.5)';
+const borderColor = 'rgba(169, 172, 176, 0.5)';
 const topbarItemHeight = '44px';
 const topbarMediumItemHeight = '36px';
 const bodyPadding = '24px';
@@ -152,7 +152,7 @@ module.exports = {
   '--SearchBar_width': `${searchBarWidth}px`,
   '--SearchBar_mobileHeight': '50px',
   '--SearchBar_height': topbarItemHeight,
-  '--SearchBar_borderColor': topbarBorderColor,
+  '--SearchBar_borderColor': borderColor,
   '--SearchBar_borderColorActive': textColorGrey,
   '--SearchBar_textColor': textColorGrey,
   '--SearchBar_textColorActive': 'rgb(82, 89, 97)',
@@ -181,8 +181,8 @@ module.exports = {
   '--SearchBar_iconTopMarginFix': '4px',
 
   // ProfileDropdown
-  '--ProfileDropdown_border': `1px solid ${topbarBorderColor}`,
-  '--ProfileDropdown_borderColor': topbarBorderColor,
+  '--ProfileDropdown_border': `1px solid ${borderColor}`,
+  '--ProfileDropdown_borderColor': borderColor,
   '--ProfileDropdown_zIndex': zIndexMinimum + 1,
   '--ProfileDropdown_rightOffset': bodyPadding,
   '--ProfileDropdown_textColor': textColor,
@@ -195,7 +195,7 @@ module.exports = {
   '--ProfileDropdown_lineWidth': '2px',
   '--ProfileDropdown_fontSizeNotification': fontSizeSmaller,
 
-  '--MenuItem_borderColor': topbarBorderColor,
+  '--MenuItem_borderColor': borderColor,
   '--MenuItem_backgroundColorHover': backgroundLightColorHover,
   '--MenuItem_paddingTopbarVertical': pxToEms(13, 14),
   '--MenuItem_paddingTopbarHorizontalMin': pxToEms(13, 14),
@@ -215,7 +215,7 @@ module.exports = {
   '--Menu_textColor': textColor,
   '--Menu_textColorFocus': textColorFocus,
   '--Menu_colorBackground': backgroundLightColor,
-  '--Menu_borderColor': topbarBorderColor,
+  '--Menu_borderColor': borderColor,
   '--Menu_boxShadow': '0px 2px 4px 0px rgba(0, 0, 0, 0.1)',
   '--Menu_iconPadding': pxToEms(5, 14),
   '--Menu_zIndex': zIndexMinimum,
@@ -300,4 +300,9 @@ module.exports = {
   '--ListingCard_letterSpacing': '0.2px',
   '--ListingCard_fontWeightMedium': fontWeightMedium,
   '--ListingCard_fontWeightSemibold': fontWeightSemibold,
+
+  '--ListingCardPanel_gutterSpacing': bodyPadding,
+
+  '--Branding_textColor': textColor,
+  '--Branding_borderColor': borderColor,
 };

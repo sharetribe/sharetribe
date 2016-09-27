@@ -52,6 +52,12 @@ module PaypalCountryHelper
 
   RECEIVE_FUNDS_INFO_LABEL_TR_KEY.default = "paypal_accounts.paypal_receive_funds_info_label"
 
+  RECEIVE_FUNDS_INFO_TR_KEY = {
+    "au" => "paypal_accounts.paypal_receive_funds_info_australia_only",
+  }
+
+  RECEIVE_FUNDS_INFO_TR_KEY.default = "paypal_accounts.paypal_receive_funds_info"
+
   module_function
 
   def fee_link(country_code)
@@ -68,5 +74,9 @@ module PaypalCountryHelper
 
   def receive_funds_info_label_tr_key(country_code)
     RECEIVE_FUNDS_INFO_LABEL_TR_KEY[country_code.to_s.downcase]
+  end
+
+  def receive_funds_info_tr_key(country_code)
+    RECEIVE_FUNDS_INFO_TR_KEY[country_code.to_s.downcase]
   end
 end

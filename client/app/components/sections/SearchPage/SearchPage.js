@@ -8,7 +8,7 @@ class SearchPage extends Component {
 
   constructor(props, context) {
     super(props, context);
-    this.listings = this.props.searchPage.get('listings') || [];
+    this.listings = [];
   }
 
   render() {

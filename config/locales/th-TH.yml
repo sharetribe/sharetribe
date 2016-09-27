@@ -76,10 +76,10 @@ th-TH:
         save: บันทึกการตั้งค่า
         transaction_agreement: ข้อตกลงก่อนการทำธุรกรรมทางการเงิน
         transaction_agreement_checkbox: ผู้ใช้จะต้องยอมรับข้อตกลงจึงจะสามารถทำธุรกรรมทางการเงินได้
-        transaction_agreement_checkbox_header: ~
+        transaction_agreement_checkbox_header: ฉลากข้อตกลง
         transaction_agreement_checkbox_label_description: "ข้อความนี้จะปรากฎถัดจากช่องทำเครื่องหมายในแบบฟอร์มการชำระเงิน ผู้ใช้จำเป็นต้อง ทำเครื่องหมายในกล่อง เพื่อที่จะดำเนินการกับการทำธุรกรรม เช่นป้ายตัวอย่างบอกว่า \"โดยการคลิกที่กล่องนี้ ฉันขอยอมรับข้อตกลง\" เป็นต้น"
-        transaction_agreement_text_header: ~
-        transaction_agreement_description: ~
+        transaction_agreement_text_header: ข้อความข้อตกลง
+        transaction_agreement_description: "นี่คือเนื้อหาของข้อตกลงอย่างเป็นทางการที่ผู้ใช้จำเป็นต้องยอมรับ เนื้อหาข้อตกลงจะปรากฏขึ้นเมื่อผู้ใช้คลิกที่ลิงค์ \"%{read_more}\" ข้างฉลากข้อตกลง"
       edit_look_and_feel:
         edit_community_look_and_feel: "แก้ไขรูปลักษณ์และความรู้สึกของตลาด \"%{community_name}\""
         community_logo: โลโก้
@@ -240,29 +240,29 @@ th-TH:
         enabled_for_all: ~
         new_topbar: ~
       social_media:
-        social_media: ~
-        twitter_handle: ~
-        twitter_handle_info_text: ~
+        social_media: โซเชียลมีเดีย
+        twitter_handle: "การจัดการ Twitter"
+        twitter_handle_info_text: "ชื่อผู้ใช้บัญชี Twitter ในตลาดของคุณ (ถ้ามี) ซึ่งจะได้รับการกล่าวถึงเมื่อมีคนใช้ปุ่มทวีตบนหน้ารายการ"
         twitter_handle_info_text_with_instructions: ~
         twitter_instructions_link_text: ~
-        twitter_handle_placeholder: ~
-        invalid_twitter_handle: ~
-        facebook_connect: ~
+        twitter_handle_placeholder: ชื่อผู้ใช้
+        invalid_twitter_handle: "การจัดการ Twitter ควรมีตัวเลขและอักษรมากที่สุด 15 ตัว (อักษร A-Z เลข 0-9)"
+        facebook_connect: Facebook
         facebook_connect_info_text: "ในการเปิดการใช้งานเข้าสู่ระบบ Facebook กรุณาสร้างแบบฟอร์มสำหรับตลาดของคุณใน <a href='https://developers.facebook.com/'>แดชบอร์ดนักพัฒนา Facebook</a> เพิ่ม ID และรหัสลับของแอพลิเคชันโดยอัตโนมัติได้ที่นี่"
         facebook_connect_info_text_with_instructions: "ในการเปิดการใช้งานเข้าสู่ระบบ Facebook กรุณาสร้างแบบฟอร์มสำหรับตลาดของคุณใน <a href='https://developers.facebook.com/'>แดชบอร์ดนักพัฒนา Facebook</a> เพิ่ม ID และรหัสลับของแอพลิเคชันโดยอัตโนมัติได้ที่นี่ %{instructions_link}"
         facebook_instructions_link_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
-        save: ~
+        facebook_connect_id: "รหัสลูกค้า Facebook"
+        invalid_facebook_connect_id: รหัสลูกค้าควรมีแต่ตัวเลขเท่านั้น
+        facebook_connect_secret: "รหัสลับของลูกค้า Facebook"
+        invalid_facebook_connect_secret: "รหัสลับลูกค้าควรมีเฉพาะตัวเลขและตัวอักษรจาก A ถึง F"
+        save: บันทึกการตั้งค่า
       analytics:
-        analytics: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
+        analytics: การวิเคราะห์ข้อมูลหรือสถิติ
+        google_analytics_key: " ID ติดตามของ Google Analytics"
+        google_analytics_key_info_text: "รหัสการติดตามของบัญชี Google Analytics"
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
-        save: ~
+        save: บันทึกการตั้งค่า
       menu_links:
         menu_links: ลิงค์เมนู
         save: บันทึกการตั้งค่า
@@ -302,11 +302,11 @@ th-TH:
           paid: ชำระเงินแล้ว
           confirmed: ยืนยันแล้ว
           canceled: ถูกยกเลิก
-          initiated: ~
-          pending_ext: ~
+          initiated: "กำลังรอการชำระเงิน PayPal"
+          pending_ext: "กำลังรอการชำระเงิน PayPal"
         not_available: ~
       paypal_account:
-        paypal_admin_account: ~
+        paypal_admin_account: ระบบการชำระเงิน
     custom_fields:
       edit:
         edit_listing_field: "แก้ไขข้อมูลรายการ '%{field_name}'"
@@ -371,8 +371,8 @@ th-TH:
         email_sent: ส่งอีเมล์สำเร็จแล้ว
     left_hand_navigation:
       general: ~
-      users_and_transactions: ~
-      configure: ~
+      users_and_transactions: ผู้ใช้และการทำธุรกรรม
+      configure: ตั้งค่า
       emails_title: ~
       support: ~
       subscription: ~
@@ -455,7 +455,7 @@ th-TH:
           quantity_label: ~
           time_label: ~
     paypal_accounts:
-      marketplace_paypal_integration: ~
+      marketplace_paypal_integration: การตั้งค่าระบบการชำระเงิน
       preferences_updated: ~
       marketplace_currency_used: ~
       contact_support_link_text: ~
@@ -649,25 +649,25 @@ th-TH:
       offer_rejected: ถูกปฏิเสธ
       offer_canceled: ยกเลิก
       offer_confirmed: เสร็จสมบูรณ์
-      offer_paid: ~
-      offer_preauthorized: ~
-      offer_waiting_for_payment: ~
+      offer_paid: ชำระเงินสำเร็จ
+      offer_preauthorized: ชำระเงินสำเร็จ
+      offer_waiting_for_payment: "กำลังรอให้%{requester_name}ชำระเงิน"
       pay: ชำระเงิน
       preauthorized: ชำระเงินสำเร็จ
       paid: ชำระเงินสำเร็จ
       pending_external:
         paypal:
           multicurrency: "เราไม่สามารถประมวลผลการชำระเงิน PayPal เพราะบัญชี PayPal ของคุณยังไม่ได้รับการตั้งค่าที่จะได้รับเงินในสกุลเงิน%{currency} กรุณาไปที่ %{paypal_url} และเข้าสู่ระบบบัญชีของคุณ เพื่อที่จะยอมรับหรือปฏิเสธการชำระเงินด้วยตนเอง "
-          verify: ~
+          verify: "คุณไม่สามารถยอมรับการทำธุรกรรมนี้ได้ เพราะคุณยังไม่ได้ยืนยันบัญชี PayPal ของคุณ กรุณาไปที่ %{paypal_url} เพื่อตรวจสอบบัญชีของคุณ"
           intl: "เราไม่สามารถประมวลผลการชำระเงิน PayPal ได้ เนื่องจากบัญชี PayPal ของคุณไม่มี กลไกการถอนเงิน กรุณาไปที่ %{paypal_url} เพื่อเข้าสู่ระบบบัญชีของคุณ และยอมรับหรือปฏิเสธการชำระเงินด้วยตนเอง "
-      waiting_for_current_user_to_deliver_listing: ~
-      waiting_for_listing_author_to_deliver_listing: ~
+      waiting_for_current_user_to_deliver_listing: "กำลังรอให้คุณตอบสนองคำสั่งของ %{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "กำลังรอให้ %{listing_author_name} ตอบสนองคำสั่งของ %{listing_title}"
       request_accepted: ได้รับการยอมรับแล้ว
       request_rejected: ถูกปฏิเสธ
       request_confirmed: เสร็จสมบูรณ์
       request_canceled: ยกเลิก
-      request_paid: ~
-      request_preauthorized: ~
+      request_paid: ชำระเงินสำเร็จ
+      request_preauthorized: การชำระเงินได้รับอนุญาตแล้ว
       skip_feedback: ข้ามความคิดเห็น
       waiting_for_listing_author_to_accept_offer: "กำลังรอให้ %{listing_author_name} ที่จะยอมรับข้อเสนอ"
       waiting_for_listing_author_to_accept_request: "กำลังรอให้ %{listing_author_name} ที่จะยอมรับคำขอ เมื่อใดที่ %{listing_author_name} ยอมรับคำขอ คุณจึงจะถูกเรียกเก็บเงิน"
@@ -679,10 +679,10 @@ th-TH:
       waiting_feedback_from_you: กำลังรอให้คุณให้ความคิดเห็น
       pending_external_inbox:
         paypal:
-          multicurrency: ~
-          intl: ~
+          multicurrency: "กำลังรอให้คุณยอมรับการชำระเงิน PayPal"
+          intl: "กำลังรอให้คุณยอมรับการชำระเงิน PayPal"
           unknown_reason: ~
-          verify: ~
+          verify: "กำลังรอให้คุณตรวจสอบบัญชี PayPal ของคุณ"
     status_link:
       accept_offer: ยอมรับข้อเสนอ
       accept_request: ยอมรับคำขอ
@@ -757,11 +757,11 @@ th-TH:
       we_have_marked_request_as_confirmed: "เราได้ทำเครื่องหมายในการสั่งซื้อ '%{request}' เสร็จแล้ว การสั่งซื้อเสร็จสมบูรณ์โดยอัตโนมัติเนื่องจากผ่านมาแล้ว %{days_passed} วันนับตั้งแต่คำขอได้รับการยอมรับ"
     booking_transaction_automatically_confirmed:
       subject: "การสั่งซื้อเสร็จสมบูรณ์โดยอัตโนมัติ - อย่าลืมที่จะให้ความคิดเห็น"
-      we_have_marked_request_as_confirmed: ~
+      we_have_marked_request_as_confirmed: "เราได้ทำเครื่องหมายในการสั่งซื้อ '%{request}' เสร็จแล้ว การสั่งซื้อเสร็จสมบูรณ์โดยอัตโนมัติเนื่องจาก เวลาผ่านมาแล้วหนึ่งวัน นับตั้งแต่คำขอได้รับการยอมรับ"
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "ขณะนี้คุณสามารถให้ข้อเสนอแนะไปยัง %{other_party_given_name} การให้ข้อเสนอแนะมักเป็นสิ่งที่ดี หากทุกอย่างเป็นไปด้วยดี คุณควรช่วยให้คนอื่นรู้ว่า %{other_party_given_name} สามารถเชื่อถือได้ หากมีปัญหาใด ๆ ก็การดีที่จะพูดถึง ปัญหาเหล่านั้นเช่นกัน"
-      give_feedback_to: ~
-      show_thread: ~
+      give_feedback_to: "ให้ความคิดเห็นแก่%{other_party_given_name}"
+      show_thread: แสดงการสนทนา
     confirmation_instructions:
       confirmation_instructions_signature: "ขอแสดงความนับถือ,<br/>ทีมงาน %{service_name}"
       need_to_confirm: "ในการเข้าร่วม %{service_name} กรุณายืนยันที่อยู่อีเมล์ของคุณ โดยคลิกที่ปุ่มด้านล่าง"
@@ -830,7 +830,7 @@ th-TH:
       total: รวมทั้งหมด
       price: ราคา
       service_fee: "ค่าบริการ "
-      money_will_be_transferred: ~
+      money_will_be_transferred: "เงินจะถูกโอนไปยัง %{recipient_name} เมื่อ ก.) คุณได้ทำเครื่องหมายให้คำขอเสร็จสมบูรณ์ หรือ ข.) คุณจ่ายเงินมาแล้ว %{automatic_confirmation_days} วัน"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} ได้ให้ข้อเสนอแนะแก่คุณใน %{service_name}"
       you_can_give_feedback_to: "คุณยังไม่ได้ให้ข้อเสนอแนะแก่ %{name}"
@@ -922,7 +922,7 @@ th-TH:
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: "PayPal Express Checkout ได้ถูกปิดในรายการบัญชี PayPal ของผู้เขียน กรุณาติดต่อ ผู้เขียน เพื่อรายงานให้รู้ว่ามีปัญหากับบัญชี PayPal ของเขา และแนะนำให้ติดต่อฝ่ายบริการลูกค้าของ PayPal"
-      generic_error: ~
+      generic_error: "เกิดข้อผิดพลาดในระหว่างขั้นตอนการชำระเงิน ไม่สามารถสรุปการชำระเงิน PayPal ของคุณได้"
       cancel_error: ~
       accept_authorization_error: ~
       reject_authorization_error: ~
@@ -955,14 +955,14 @@ th-TH:
     your_email_address: อีเมล์ของคุณ
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
-      invalid_datetime: ~
-      is_at: ~
-      before: ~
-      on_or_before: ~
-      after: ~
-      on_or_after: ~
+      invalid_date: ไม่ใช่วันที่ที่ถูกต้อง
+      invalid_time: ไม่ใช่เวลาที่ถูกต้อง
+      invalid_datetime: ไม่ใช่วันเวลาที่ถูกต้อง
+      is_at: "ต้องเป็น %{restriction}"
+      before: "ต้องเป็นก่อน %{restriction}"
+      on_or_before: "ต้องเป็นเท่ากับหรือก่อน %{restriction}"
+      after: "ต้องเป็นหลัง %{restriction}"
+      on_or_after: "ต้องเป็นเท่ากับหรือหลัง %{restriction}"
       positive_number: ~
   event_feed_events:
     accept:
@@ -1309,7 +1309,7 @@ th-TH:
       can_not_delete_email: คุณไม่สามารถลบที่อยู่อีเมล์ได้
       user_does_not_have_email_to_delete: คุณไม่มีที่อยู่อีเมล์ที่คุณกำลังพยายามที่จะลบ
       email_deleted: อีเมล์ได้ถูกลบแล้ว
-      listing_author_payment_details_missing: ~
+      listing_author_payment_details_missing: "โปรดติดต่อผู้ขายโดยการกดปุ่ม 'ติดต่อ' ด้านล่าง ผู้ขายจำเป็นต้องอัพเดทรายละเอียดการชำระเงินของตนเพื่อที่จะรับเงิน"
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
     settings:
@@ -1405,7 +1405,7 @@ th-TH:
       price:
         price: ราคา
         per: ต่อ
-        per_day: ~
+        per_day: ต่อวัน
         mass: "ชื้น, กิโลกรัม, ลิตร, ตารางเมตร,..."
         time: "ชั่วโมง, วัน, เดือน, ..."
         long_time: "สัปดาห์, เดือน, ..."
@@ -1494,8 +1494,8 @@ th-TH:
       accept_for_frees: ยอมรับโดยไม่มีค่าใช้จ่าย
       trades: แลก
     listing_actions:
-      booking_from: ~
-      booking_to: ~
+      booking_from: จาก
+      booking_to: ถึง
       how_paypal_works: ~
       payment_help: ~
     new:
@@ -1552,8 +1552,8 @@ th-TH:
       processing_uploaded_image: (ประมวลผลการอัพโหลดภาพ...)
       listing_created_at: รายการสร้างเสร็จเรียบร้อยแล้ว
       price:
-        per_quantity_unit: ~
-        per_day: ~
+        per_quantity_unit: "ต่อ %{quantity_unit}"
+        per_day: ต่อวัน
       delivery: ~
       shipping: ~
       shipping_no_price: ~
@@ -1576,14 +1576,16 @@ th-TH:
       by: "%{listing} โดย %{author}"
       payment: การชำระเงิน
       exp: "Exp:"
-      you_will_be_charged: ~
-      day: ~
-      days: ~
+      you_will_be_charged: "คุณจะถูกเรียกเก็บเงินเฉพาะในกรณีที่%{author}ยอมรับการทำธุรกรรม %{author}จำเป็นต้องยอมรับการทำธุรกรรมภายใน %{expiration_period} วัน หาก %{author}ปฏิเสธหรือไม่ตอบสนอง จะไม่มีค่าการทำธุรกรรมใด ๆ "
+      day: วัน
+      days: วัน
       night: ~
       nights: ~
       invalid_parameters: ~
+      dates_not_available: ~
+      error_in_checking_availability: ~
     transaction_agreement_checkbox:
-      read_more: ~
+      read_more: แสดง
   mapview:
     index:
       all_categories: หมวดหมู่ทั้งหมด
@@ -1612,52 +1614,53 @@ th-TH:
     member_id: "ID สมาชิก "
     member_id_or_email: "ID สมาชิก หรืออีเมล์"
   paypal_accounts:
-    payout_info_title: ~
-    paypal_account_email_connected: ~
+    payout_info_title: กำลังรับเงิน
+    paypal_account_email_connected: "<del>ติดต่อกับบัญชี PayPal</del> สำเร็จแล้ว!"
     payout_info_paypal: ~
-    paypal_billing_agreement_made: ~
+    paypal_billing_agreement_made: "<del>ให้สิทธิ์แก่%{service_name}ในการเรียกเก็บค่าธรรมเนียมการทำธุรกรรม </del>เสร็จสมบูรณ์แล้ว!"
     commission_permission_needed: ~
     create_paypal_account_link_text: ~
-    connected_account: ~
+    connected_account: "เชื่อมต่อบัญชี PayPal '%{email}' สำเร็จแล้ว"
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: "หากคุณพบข้อผิดพลาด เมื่อพยายามที่จะเชื่อมต่อบัญชีของคุณไปยัง %{service_name} โปรดอัพเกรดบัญชี PayPal ของคุณโดย %{upgrade_paypal_account_link} ซึ่งไม่มีค่าใช้จ่ายและง่าย หากคุณเป็นบุคคลธรรมดา PayPal แนะนำให้ใช้ชื่อของคุณเป็นชื่อธุรกิจ"
     upgrade_paypal_account_link_text: ~
     admin_account_not_connected: ~
     contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
-    commission: ~
+    you_are_ready_to_accept_payments: คุณพร้อมที่จะยอมรับการชำระเงินแล้ว!
+    commission: "%{commission} %"
     new:
-      payout_info_you_need_to_connect: ~
-      payout_info_text: ~
+      payout_info_you_need_to_connect: "ในการรับเงิน คุณจะต้องเชื่อมต่อบัญชี PayPal ของคุณกับ %{service_name}"
+      payout_info_text: "โปรดทำตามขั้นตอนดังต่อไปนี้ เพื่อเชื่อมต่อกับบัญชีของคุณ"
       contact_admin_link_text: ~
-      admin_account_not_connected: ~
-      paypal_account_email: ~
-      paypal_account_email_placeholder: ~
+      admin_account_not_connected: "การเชื่อมต่อบัญชี PayPal ของคุณเป็นไปไม่ได้ เนื่องจาก%{service_name} ไม่ได้ตั้งค่าการชำระเงิน กรุณา %{contact_admin_link} สำหรับรายละเอียด"
+      paypal_account_email: "เชื่อมต่อบัญชี PayPal ของคุณ"
+      paypal_account_email_placeholder: "ที่อยู่อีเมล PayPal ของคุณ"
       paypal_account_email_info_text: "หากคุณไม่มีบัญชี PayPal คุณสามารถสร้างบัญชีใหม่ได้โดย %{create_paypal_account} หากคุณได้รับข้อความแสดงข้อผิดพลาด เมื่อเชื่อมต่อบัญชี PayPal ของคุณ กรุณาอัพเกรดบัญชี PayPal ของคุณไปยังบัญชีธุรกิจ การอัพเกรดไม่มีค่าใช้จ่ายและง่าย หากคุณเป็นบุคคลธรรมดา คุณสามารถใช้ชื่อและนามสกุลของคุณเป็น \"ชื่อธุรกิจของคุณ\" ได้ การอัปเกรดบัญชีของคุณ %{upgrade_paypal_account} และ ไปที่ลิงค์การอัพเกรด"
-      create_paypal_account: ~
-      upgrade_paypal_account: ~
-      paypal_account_billing_agreement: ~
+      create_paypal_account: คลิ๊กที่นี่
+      upgrade_paypal_account: "เข้าสู่ระบบบัญชี PayPal ของคุณ"
+      paypal_account_billing_agreement: "ให้สิทธิ์แก่%{service_name}ในการเรียกเก็บค่าธรรมเนียมการทำธุรกรรม "
       follow_steps: ~
       connect_paypal_account_title: ~
       connect_paypal_account_title_with_step: ~
       connect_paypal_account_instructions: ~
-      connect_paypal_account: ~
+      connect_paypal_account: "เชื่อมต่อบัญชี PayPal ของคุณ"
       paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: "หลังจากที่คุณทำการขายใน %{service_name} ค่าธรรมเนียมในบริการ (%{commission_from_seller} ของราคาสินค้าทั้งหมด ไม่รวมค่าจัดส่ง ค่าธรรมเนียมขั้นต่ำ %{minimum_commission}) จะถูกเรียกเก็บเงินจากบัญชี PayPal ของคุณ การให้อนุญาตให้ทำเช่นนี้เป็นสิ่งจำเป็นเพื่อที่จะรับการชำระเงินใน %{service_name} ค่าธรรมเนียมนี้ไม่รวม %{paypal_info_link}"
       paypal_account_billing_agreement_info_fixed: ~
       paypal_account_billing_agreement_info_relative: ~
       paypal_account_billing_agreement_info_none: "ขณะนี้ %{service_name} ไม่เรียกเก็บค่าบริการ หากมีการเปิดใช้งานค่าบริการ คุณจะต้องอนุญาตให้ %{service_name} ในการเรียกเก็บค่าบริการ เพื่อที่จะยอมรับการชำระเงิน ค่าธรรมเนียมนี้ไม่รวม %{paypal_info_link}"
       paypal_info_link_text: ~
-      billing_agreement_description: ~
-      billing_agreement: ~
-      permissions_not_granted: ~
-      could_not_fetch_redirect_url: ~
-      paypal_not_enabled: ~
-      billing_agreement_canceled: ~
+      billing_agreement_description: "ให้สิทธิ์แก่%{service_name}ในการเรียกเก็บค่าธรรมเนียมการทำธุรกรรม "
+      billing_agreement: ให้อนุญาต
+      permissions_not_granted: "ไม่ได้รับอนุญาตสิทธิในการเชื่อมต่อกับบัญชี PayPal ของคุณ"
+      could_not_fetch_redirect_url: "ไม่สามารถเรียกคืน URL ที่จะเชื่อมต่อกับ PayPal ได้"
+      paypal_not_enabled: "ไม่ได้เปิดใช้การชำระเงิน PayPal "
+      billing_agreement_canceled: ข้อตกลงในการเรียกเก็บเงินถูกยกเลิก
       billing_agreement_not_accepted: ~
       billing_agreement_wrong_account: ~
-      something_went_wrong: ~
+      something_went_wrong: "บางอย่างผิดพลาด กรุณาลองอีกครั้ง หากยังคงมีปัญหาอยู่ กรุณาติดต่อผู้ดูแลเว็บไซต์"
       account_not_verified: ~
       account_restricted: ~
     paypal_account_connected_title: ~
@@ -1673,7 +1676,7 @@ th-TH:
     paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: ~
-    checkout_with_paypal: ~
+    checkout_with_paypal: "เช็คเอาท์ด้วย PayPal"
     cancel_succesful: ~
     transaction:
       commission_payment_name: ~
@@ -1929,61 +1932,61 @@ th-TH:
       about_listing: เกี่ยวกับรายการ
   date:
     formats:
-      long_with_abbr_day_name: ~
+      long_with_abbr_day_name: "%a, %b %d, %Y"
   datepicker:
     days:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: วันอาทิตย์
+      monday: วันจันทร์
+      tuesday: วันอังคาร
+      wednesday: วันพุธ
+      thursday: วันพฤหัสบดี
+      friday: วันศุกร์
+      saturday: วันเสาร์
     days_short:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: อาทิตย์
+      monday: จันทร์
+      tuesday: อังคาร
+      wednesday: พุธ
+      thursday: พฤหัส
+      friday: ศุกร์
+      saturday: เสาร์
     days_min:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: อา
+      monday: จ
+      tuesday: อ
+      wednesday: พ
+      thursday: พฤ
+      friday: ศ
+      saturday: ส
     months:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: มกราคม
+      february: กุมภาพันธ์
+      march: มีนาคม
+      april: เมษายน
+      may: พฤษภาคม
+      june: มิถุนายน
+      july: กรกฎาคม
+      august: สิงหาคม
+      september: กันยายน
+      october: ตุลาคม
+      november: พฤศจิกายน
+      december: ธันวาคม
     months_short:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
-    today: ~
-    clear: ~
-    format: ~
+      january: ม.ค.
+      february: ก.พ.
+      march: มี.ค.
+      april: เม.ย.
+      may: พ.ค.
+      june: มิ.ย.
+      july: ก.ค.
+      august: ส.ค.
+      september: ก.ย.
+      october: ต.ค.
+      november: พ.ย.
+      december: ธ.ค.
+    today: วันนี้
+    clear: ล้าง
+    format: (วว/ดด/ปปปป)
   time:
     formats:
       short: "%b %e, %Y เวลา %H:%M"
@@ -2018,8 +2021,8 @@ th-TH:
     unit_price: ~
     total: ~
   unit:
-    day: ~
-    days: ~
+    day: วัน
+    days: วัน
   web:
     topbar:
       menu: ~
@@ -2036,6 +2039,10 @@ th-TH:
       signup: ~
       admin_dashboard: ~
       language: ~
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
   will_paginate:
     models:
       person:

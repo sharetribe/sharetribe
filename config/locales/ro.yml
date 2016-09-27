@@ -1150,8 +1150,8 @@ ro:
       select_language: ~
     infos:
       about: "Despre noi"
-      how_to_use: "Cum să folosești Kassi"
-      info_about_kassi: "Informații despre Kassi"
+      how_to_use: "Cum să folosești"
+      info_about_kassi: "Informații despre %{service_name}"
       news: ~
       register_details: Confidentialitate
       terms: "Termeni de utilizare"
@@ -1564,6 +1564,8 @@ ro:
       night: ~
       nights: ~
       invalid_parameters: ~
+      dates_not_available: ~
+      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: ~
   mapview:
@@ -1603,6 +1605,7 @@ ro:
     connected_account: ~
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: ~
     upgrade_paypal_account_link_text: ~
     admin_account_not_connected: ~
@@ -1781,7 +1784,7 @@ ro:
       request_new_password: ~
       change_your_password: ~
     confirmation_pending:
-      welcome_to_kassi: "Bine ați venit la Kassi!"
+      welcome_to_kassi: "Bine ați venit la %{service_name}!"
       check_your_email: ~
       resend_confirmation_instructions: "Retrimite instrucțiunile de confirmare"
       your_current_email_is: ~
@@ -2012,6 +2015,10 @@ ro:
       signup: ~
       admin_dashboard: ~
       language: ~
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
   will_paginate:
     previous_label: ~
     next_label: ~

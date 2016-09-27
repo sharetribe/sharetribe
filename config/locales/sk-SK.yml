@@ -1377,7 +1377,7 @@ sk-SK:
       open_in_google_maps: "Otvoriť v Google Maps"
     error:
       something_went_wrong: "Niekde nastala chyba, kód chyby: %{error_code}"
-      something_went_wrong_plain: ~
+      something_went_wrong_plain: "Niekde nastala chyba"
     follow_links:
       follow: "Prijať e-mail v prípade nového komentára."
       unfollow: "Neprijímať e-mail v prípade nového komentára."
@@ -1609,6 +1609,8 @@ sk-SK:
       night: noc
       nights: noci
       invalid_parameters: "Nesprávne hodnoty pre novú transakciu"
+      dates_not_available: ~
+      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: Zobraziť.
   mapview:
@@ -1648,6 +1650,7 @@ sk-SK:
     connected_account: "Paypal účet '%{email}' bol úspešne pripojený."
     paypal_receive_funds_info_label_australia_only: "Váš PayPal účet musí byť nastavený pre príjem platieb. K tomuto je potrebný Premier alebo Business účet."
     paypal_receive_funds_info_label: "Váš PayPal účet musí byť nastavený pre príjem platieb. K tomuto je potrebný Business účet."
+    paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: "Pokiaľ dôjde k chybe pri pokuse o prepojenie účtu do %{service_name}, budete musieť aktualizovať Váš PayPal účet,%{upgrade_paypal_account_link}. Je to jednoduché a zadarmo. PayPal odporúča použiť svoje meno ako názov spoločnosti."
     upgrade_paypal_account_link_text: "prihlásiť sa a kliknúť na odkaz"
     admin_account_not_connected: "Použitie %{service_name} ako platobného systému pre platby nie je možné, pretože platby nie sú nastavené. Prosím %{contact_admin_link} pre podrobnosti."
@@ -2090,6 +2093,10 @@ sk-SK:
       signup: "Zaregistrovať sa"
       admin_dashboard: "Konzola správcu"
       language: Jazyk
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
   will_paginate:
     models:
       person:

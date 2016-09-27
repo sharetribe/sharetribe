@@ -5,6 +5,8 @@ machine:
     version: ruby-2.3.1
   node:
     version: 6.1.0
+  environment:
+    MOCHA_FILE: "$CIRCLE_TEST_REPORTS/mocha.xml"
 dependencies:
   cache_directories:
     - "client/node_modules"
@@ -41,3 +43,5 @@ test:
         parallel: true
         files:
           - features/**/*.feature
+    - npm test:
+        pwd: client

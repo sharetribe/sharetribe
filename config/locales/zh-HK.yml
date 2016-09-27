@@ -1585,6 +1585,8 @@ zh-HK:
       night: ~
       nights: ~
       invalid_parameters: ~
+      dates_not_available: ~
+      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: ~
   mapview:
@@ -1624,6 +1626,7 @@ zh-HK:
     connected_account: "已成功連結PayPal帳戶%{email}。"
     paypal_receive_funds_info_label_australia_only: 你的PayPal帳戶必需能夠接收款項。這或者需要一個高級帳戶或商業帳戶。
     paypal_receive_funds_info_label: 你的PayPal帳戶必需能夠接收款項。這或者需要一個高級帳戶。
+    paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: "當你嘗試連接你的帳戶至%{service_name}時發生錯誤，請按%{upgrade_paypal_account_link}升級你的PayPal帳戶。這個過程是簡單且免費的。假如你以個人身份使用PayPal，我們提議你使用你的個人姓名作商業登記。"
     upgrade_paypal_account_link_text: 登入及前往升級
     admin_account_not_connected: "因為未設立款項，未能使用%{service_name}的付款系統以接收款項。請聯絡%{contact_admin_link}以瞭解詳情。"
@@ -2037,6 +2040,10 @@ zh-HK:
       signup: ~
       admin_dashboard: 管理員控制台
       language: ~
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
   will_paginate:
     models:
       person:

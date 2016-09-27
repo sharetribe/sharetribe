@@ -108,6 +108,7 @@ FactoryGirl.define do
     privacy "public"
     listing_shape_id 123
     price Money.new(20, "USD")
+    uuid { UUIDTools::UUID.timestamp_create.raw }
   end
 
   factory :transaction do
@@ -120,6 +121,8 @@ FactoryGirl.define do
     commission_from_seller 0
     automatic_confirmation_after_days 14
     listing_quantity 1
+    listing_uuid { listing.uuid.raw }
+    community_uuid { community.uuid } # raw UUID
   end
 
   factory :conversation do
@@ -183,6 +186,8 @@ FactoryGirl.define do
     has_many(:community_customizations) do |community|
       FactoryGirl.build(:community_customization, community: community)
     end
+
+    uuid { UUIDTools::UUID.timestamp_create.raw }
   end
 
   factory :community_customization do

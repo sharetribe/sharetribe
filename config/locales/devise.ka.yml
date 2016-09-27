@@ -50,7 +50,7 @@ ka:
       failure: "ვერ ხერხდება თქვენთვის ავტორიზაციის მიცემა %{kind}ზე %{reason}-ის გამო"
     mailer:
       confirmation_instructions:
-        subject: "დადასტურების ინსტრუქციები"
+        subject: "დადასტურების ინსტრუქციები %{service_name}თან შესაერთებლად"
       reset_password_instructions:
         subject: "პაროლის აღდგენის ინსტრუქციები"
       unlock_instructions:

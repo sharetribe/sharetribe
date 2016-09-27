@@ -12,7 +12,7 @@ module ServiceClient
               body: res[:body]
             )
           else
-            Result::Error.new(res[:body],
+            Result::Error.new(res[:body].to_s,
                               status: res[:status],
                               body: res[:body]
                              )

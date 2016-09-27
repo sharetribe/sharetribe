@@ -120,7 +120,7 @@ export const viewport = (place) => {
 export const maxDistance = (place) => {
   if (place && place.geometry && place.geometry.viewport) {
     return getDistance(place.geometry.viewport.getNorthEast(),
-                       place.geometry.viewport.getSouthWest()) / 2;
+                       place.geometry.viewport.getSouthWest()) / 2; // eslint-disable-line no-magic-numbers
   }
   return null;
 };
