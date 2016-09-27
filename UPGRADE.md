@@ -34,6 +34,10 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 ## Unreleased
 
+## Upgrade from 5.12.0 to 6.0.0
+
+Release 6.0.0 drops official support for MySQL server version 5.6. Please upgrade to 5.7 when upgrading Sharetribe. See the upgrade notes from release 5.12.0 below for more information.
+
 ## Upgrade from 5.11.0 to 5.12.0
 
 **IMPORTANT:** This release deprecates use of MySQL server version 5.6.x. Please, consider upgrading to MySQL 5.7. Support for MySQL 5.6 will be dropped with the next release of Sharetribe. From this point onward, versions other than 5.7 might work, but are not guaranteed to work with Sharetribe. Make sure to back up your database before upgrading MySQL server. For general upgrade instructions, see [the official MySQL upgrade instructions](http://dev.mysql.com/doc/refman/5.7/en/upgrading.html).
