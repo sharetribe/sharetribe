@@ -34,6 +34,8 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 ## Unreleased
 
+## Upgrade from 5.11.0 to 5.12.0
+
 **IMPORTANT:** This release deprecates use of MySQL server version 5.6.x. Please, consider upgrading to MySQL 5.7. Support for MySQL 5.6 will be dropped with the next release of Sharetribe. From this point onward, versions other than 5.7 might work, but are not guaranteed to work with Sharetribe. Make sure to back up your database before upgrading MySQL server. For general upgrade instructions, see [the official MySQL upgrade instructions](http://dev.mysql.com/doc/refman/5.7/en/upgrading.html).
 
 If you are using S3 and are using an AWS region other than `us-east-1`, you need to update your `config.yml` file and set the `s3_region` configuration option to the AWS region you are using. As with all configuration options, you can also pass it as an environment variable.
