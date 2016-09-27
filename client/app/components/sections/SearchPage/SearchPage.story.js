@@ -34,7 +34,7 @@ const listingCardTemplate = (title, perUnit, price, distance) => (
         priceUnit: '€',
         per: perUnit || '/ day',
         distance: distance || Math.random() * (20000) + 0.01, // eslint-disable-line no-magic-numbers
-        distanceUnit: 'km',
+        distanceUnit: ':km',
       }),
     }
   )

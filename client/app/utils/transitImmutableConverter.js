@@ -1,6 +1,8 @@
 import transit from 'transit-js';
 import Immutable from 'immutable';
-import { Image, ImageRefs } from '../models/ListingModel';
+import { Distance, Image, ImageRefs, Money } from '../models/ListingModel';
+
+const toDistance = ([value, unit]) => new Distance({ value, unit });
 
 const toImage = (data) => {
   const knownStyles = {
@@ -15,6 +17,7 @@ const toImage = (data) => {
   }, new ImageRefs());
   return styles;
 };
+const toMoney = ([fractionalAmount, code]) => new Money({ fractionalAmount, code });
 
 const createReader = function createReader() {
   return transit.reader('json', {
@@ -32,7 +35,10 @@ const createReader = function createReader() {
       ':': (rep) => `:${rep}`,
       list: (rep) => Immutable.List(rep).asImmutable(),
       r: (rep) => rep,
+      u: (rep) => rep,
+      di: toDistance,
       im: toImage,
+      mn: toMoney,
     },
   });
 };

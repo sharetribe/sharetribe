@@ -19,8 +19,9 @@ class SearchPage extends Component {
 
   constructor(props, context) {
     super(props, context);
-    this.listings = listingsByIds(props.searchPage.listings, props.searchPage.currentPage) || [];
     this.listingProps = this.listingProps.bind(this);
+
+    this.listings = listingsByIds(props.searchPage.listings, props.searchPage.currentPage) || [];
   }
 
   listingProps(listing, color) {

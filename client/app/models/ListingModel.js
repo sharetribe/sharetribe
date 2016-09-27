@@ -1,5 +1,10 @@
 import Immutable from 'immutable';
 
+export const Distance = Immutable.Record({
+  value: 0,
+  unit: 'km',
+});
+
 export const Image = Immutable.Record({
   type: ':square',
   height: 408,
@@ -12,8 +17,16 @@ export const ImageRefs = Immutable.Record({
   square2x: new Image(),
 });
 
+export const Money = Immutable.Record({
+  fractionalAmount: 0,
+  code: 'USD',
+});
+
+
 const ListingModel = Immutable.Record({
   id: 'uuid',
+  distance: null,
+  price: null,
   title: 'Listing',
   images: new Immutable.List([new ImageRefs({
     square: new Image(),
@@ -33,6 +46,8 @@ const ListingModel = Immutable.Record({
 
 export const parse = (l) => new ListingModel({
   id: l.get(':id'),
+  distance: l.getIn([':attributes', ':distance']),
+  price: l.getIn([':attributes', ':price']),
   title: l.getIn([':attributes', ':title']),
   images: l.getIn([':attributes', ':images']),
 });
