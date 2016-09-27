@@ -10,6 +10,16 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Added
 
+### Removed
+
+### Changed
+
+### Fixed
+
+## [5.12.0] - 2016-09-27
+
+### Added
+
 - Added date picker for "per night" listing unit type [#2481](https://github.com/sharetribe/sharetribe/pull/2481)
 - SEO: Added `rel=next` and `rel=prev` links to give a hint to crawlers about the paginated content [#2505](https://github.com/sharetribe/sharetribe/pull/2505)
 - Added _New layout_ admin page where marketplace admins can enable new layout designs for the whole marketplace or just for themselves to try out [#2338](https://github.com/sharetribe/sharetribe/pull/2338) and [#2469](https://github.com/sharetribe/sharetribe/pull/2469)
@@ -282,7 +292,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v5.11.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v5.12.0...HEAD
+[5.12.0]: https://github.com/sharetribe/sharetribe/compare/v5.11.0...v5.12.0
 [5.11.0]: https://github.com/sharetribe/sharetribe/compare/v5.10.0...v5.11.0
 [5.10.0]: https://github.com/sharetribe/sharetribe/compare/v5.9.0...v5.10.0
 [5.9.0]: https://github.com/sharetribe/sharetribe/compare/v5.8.0...v5.9.0
