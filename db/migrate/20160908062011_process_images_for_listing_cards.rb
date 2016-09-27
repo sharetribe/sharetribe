@@ -15,11 +15,12 @@ class ProcessImagesForListingCards < ActiveRecord::Migration
 
   def values(ids)
     ids.map { |id|
-      "(1, #{handler(id)}, NULL, NOW(), NOW(), NOW(), 'image_reprocess')"
+      "(1, '#{handler(id)}', NULL, NOW(), NOW(), NOW(), 'image_reprocess')"
     }.join(",")
   end
 
   def handler(id)
-    "'--- !ruby/struct:CreateSquareImagesJob\nimage_id: #{id}\n'"
+    CreateSquareImagesJob.new(id).to_yaml
   end
+
 end
