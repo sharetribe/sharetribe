@@ -23,7 +23,8 @@
     },
     "SECRET_KEY_BASE": {
       "required": true
-    }
+    },
+    "NPM_CONFIG_PRODUCTION": false
   },
   "formation": {
     "worker": {
