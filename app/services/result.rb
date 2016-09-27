@@ -41,11 +41,29 @@ module Result
     #     payments_api.do_payment(payer: account[:payer_id])
     #   end
     # }
+    #
+    # ## Map an Error to a Success
+    #
+    # ```ruby
+    # result = client.get(:create_thing).rescue { |error_msg, data|
+    #   case error_msg
+    #   when :thing_already_exists
+    #     Result::Success.new("Thing already created")
+    #   else
+    #     Result::Error.new(error_msg, data)
+    #   end
+    # }
     def and_then(&block)
       result = block.call(data)
       result.tap do |res|
         raise ArgumentError.new("Block must return Result") unless (res.is_a?(Result::Success) || res.is_a?(Result::Error))
       end
+    end
+
+    # Error a -> Result b
+    # No-op
+    def rescue(&block)
+      self
     end
 
     def on_success(&block)
@@ -94,6 +112,14 @@ module Result
     # No-op
     def and_then(&block)
       self
+    end
+
+    # Error a -> Result b
+    def rescue(&block)
+      result = block.call(error_msg, data)
+      result.tap do |res|
+        raise ArgumentError.new("Block must return Result") unless (res.is_a?(Result::Success) || res.is_a?(Result::Error))
+      end
     end
 
     def on_success(&block)

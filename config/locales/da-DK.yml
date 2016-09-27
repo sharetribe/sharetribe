@@ -875,18 +875,18 @@ da-DK:
     transaction_preauthorized:
       subject: "%{requester} har anmodet og betalt for %{listing_title}"
       transaction_requested_by_user: "%{requester} har anmodet og betalt for \"%{listing_title}\""
-      you_have_time_to_accept: "Du er nødt til at acceptere eller afvise anmodningen indenfor %{payment_expires_in}. Hvis du accepterer inden for denne tidsramme vil betalingen gå igennem. Hvis du ikke accepterer vil anmodningen automatisk blive afvist og du modtager ingen betaling."
+      you_have_time_to_accept: "Du skal acceptere eller afvise anmodningen inden for %{payment_expires_in}. Hvis du accepterer inden for denne tidsramme, vil betalingen gå igennem. Hvis du ikke accepterer, vil anmodningen automatisk blive afvist, og du vil ikke blive betalt."
       click_here_to_reply: "Klik her for at sende dit svar"
     transaction_preauthorized_reminder:
       subject: "Husk at godkende ansøgningen fra %{requester} omhandlende annoncen %{listing_title}"
       remember_to_accept: "Husk at acceptere anmodningen fra %{requester} omhandlende \"%{listing_title}\". %{requester} har allerede betalt for dit produkt. Du skal godkende på siden, for at modtage dine penge."
-      one_day_left: "Hvis du ikke acceptere anmodningen inden for en dag vil vi automatisk afvise anmodningen og du vil ikke modtage dine penge."
+      one_day_left: "Hvis du ikke accepterer anmodningen inden for en dag, bliver anmodningen automatisk afvist, og du vil ikke blive betalt."
       click_here_to_reply: "Klik her for at sende dit svar"
     welcome_email:
       welcome_email_subject: "Velkommen til %{service_name}"
       welcome_to_marketplace: "Velkommen til %{service_name}! Vi er glade for at have dig med."
       love_marketplace_crew: "Hilsen,<br /><i>Holdet bag %{service_name}</i>"
-      welcome_email_footer_text: "Hvilken slags email ønsker du at modtage fra %{service_name}? %{settings_link}"
+      welcome_email_footer_text: "Hvilke typer emails vil du gerne modtage fra %{service_name}? %{settings_link}"
       settings_link_text: "Tjek dine indstillinger"
       welcome_email_subject_for_marketplace_creator: "Velkommen til Sharetribe"
       welcome_to_marketplace_creator: "Velkommen til Sharetribe, %{name}!"
@@ -1163,7 +1163,7 @@ da-DK:
       send_feedback_to_admin: "Send besked"
       to_see_what_others_have_suggested: "at se, hvad andre brugere har foreslået, og stemme for de idéer der."
       your_email_address: "Din email (for at kontakte dig)"
-      connect: "Opret profil﻿"
+      connect: "Tilmeld dig"
       invite_your_friends: "Send invitation!"
       invite_your_neighbors: "Inviter andre!"
       invite_your_friends_description: "Desto flere mennesker der er i %{service_name}, desto mere anvendeligt bliver det."
@@ -1207,7 +1207,7 @@ da-DK:
       notifications: Notifikationer
       requests: Venneanmodninger
       settings: Indstillinger
-      sign_up: "Opret profil﻿"
+      sign_up: "Tilmeld dig"
     notifications:
       listing_could_not_be_saved: "Annoncen kunne ikke gemmes. Prøv venligst igen. Hvis problemet fortsætter, så %{contact_admin_link}."
       contact_admin_link_text: "kontakt os gerne"
@@ -1365,7 +1365,7 @@ da-DK:
       open_in_google_maps: "Åbn i Google Maps"
     error:
       something_went_wrong: "Noget gik galt, error code: %{error_code}"
-      something_went_wrong_plain: ~
+      something_went_wrong_plain: "Noget gik galt"
     follow_links:
       follow: "Modtag emails om nye kommentarer"
       unfollow: "Afmeld emails om nye kommentarer"
@@ -1597,6 +1597,8 @@ da-DK:
       night: Nat
       nights: Nætter
       invalid_parameters: "Ugyldige værdier for ny transaktion"
+      dates_not_available: "De valgte datoer er ikke tilgængelige"
+      error_in_checking_availability: "Kunne ikke tjekke tilgængelighed for de valgte dage"
     transaction_agreement_checkbox:
       read_more: Vis.
   mapview:
@@ -1634,8 +1636,9 @@ da-DK:
     commission_permission_needed: "og give os tilladelse til at opkræve et servicegebyr."
     create_paypal_account_link_text: PayPal-konto
     connected_account: "Din PayPal-konto '%{email}' er nu tilknyttet."
-    paypal_receive_funds_info_label_australia_only: "Din PayPal-konto skal være i stand til at modtage betalinger. Dette kan kræve en Premier- eller Business-konto."
+    paypal_receive_funds_info_label_australia_only: "Din PayPal-konto skal kunne modtage betalinger, dette kræver en erhvervskonto."
     paypal_receive_funds_info_label: "Din PayPal-konto skal kunne modtage betalinger. Dette kræver en PayPal erhvervskonto."
+    paypal_receive_funds_info_australia_only: "Hvis du ser en fejl, når de forsøger at forbinde din konto til %{service_name}, enten %{upgrade_paypal_account_link} og opgradere til en Business-konto, eller (hvis du er enkelt person), oprette en ny Premier-konto. Begge typer konto er helt gratis."
     paypal_receive_funds_info: "Hvis der opstår fejl, når du forsøger at forbinde din konto med %{service_name}, skal du opgradere din PayPal-konto ved at %{upgrade_paypal_account_link}. Det er nemt og gratis. PayPal anbefaler, at man som privatperson anvender sit navn som firmanavn."
     upgrade_paypal_account_link_text: "logge ind og klikke på linket opgradering"
     admin_account_not_connected: "Brug af %{service_name}s betalingssystem, til brug for modtagelse af betalinger, er ikke muligt, da betalinger ikke er sat op. Venligst %{contact_admin_link} for detaljer."
@@ -1659,9 +1662,9 @@ da-DK:
       connect_paypal_account_instructions: "Forbind din PayPal-konto med %{service_name}."
       connect_paypal_account: "Tilknyt din PayPal-konto"
       paypal_account_billing_agreement_with_step: "Trin %{current_step}/%{total_steps}: Giv tilladelse til at opkræve et servicegebyr"
-      paypal_account_billing_agreement_info_both: "Når du har gennemført et salg på %{service_name}, vil et servicegebyr (%{commission_from_seller} af produktprisen, undtaget leveringsomkostninger, minimumsgebyr %{minimum_commission}) blive trukket fra din PayPal-konto. For at kunne modtage betaling på %{service_name} skal du give tilladelse til at dette gebyr må trækkes. Gebyret omfatter ikke %{paypal_info_link}."
-      paypal_account_billing_agreement_info_fixed: "Når du har gennemført et salg på %{service_name}, vil et servicegebyr %{minimum_commission} af produktprisen blive trukket fra din PayPal-konto. For at kunne modtage betaling på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Gebyret omfatter ikke %{paypal_info_link}."
-      paypal_account_billing_agreement_info_relative: "Når du har gennemført et salg på %{service_name}, vil et servicegebyr (%{commission_from_seller} af produktprisen, undtaget leveringsomkostninger) blive trukket fra din PayPal-konto. For at kunne modtage betaling på %{service_name} skal du give tilladelse til at dette gebyr må trækkes. Gebyret omfatter ikke %{paypal_info_link}."
+      paypal_account_billing_agreement_info_both: "Når du har gennemført et salg på %{service_name}, vil et servicegebyr på %{commission_from_seller} af varens pris (min. %{minimum_commission}) blive trukket fra din PayPal-konto. For at kunne modtage betaling på %{service_name} skal du give tilladelse til at dette gebyr må trækkes. Gebyret omfatter ikke %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "Når du har gennemført et salg på %{service_name}, vil et servicegebyr på %{minimum_commission} af varens pris blive trukket fra din PayPal-konto. For at kunne modtage betaling på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Gebyret omfatter ikke %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Når du har gennemført et salg på %{service_name}, vil et servicegebyr (%{commission_from_seller} af varens pris ekskl. fragt) blive trukket fra din PayPal-konto. For at kunne modtage betaling på %{service_name} skal du give tilladelse til at dette gebyr må trækkes. Gebyret omfatter ikke %{paypal_info_link}."
       paypal_account_billing_agreement_info_none: "%{service_name} opkræver i øjeblikket ikke et servicegebyr. Hvis servicegebyr er aktiveret, skal du give %{service_name} tilladelse til at opkræve et servicegebyr for at kunne modtage betalinger. Gebyret omfatter ikke %{paypal_info_link}."
       paypal_info_link_text: PayPal-gebyr
       billing_agreement_description: "Tillad %{service_name} at tage et servicegebyr."
@@ -1876,7 +1879,7 @@ da-DK:
       email_about_new_payments: "...jeg modtager en ny betaling"
       email_about_new_listings_by_followed_people: "... personer, jeg følger, har oprettet en ny annonce"
       unsubscribe_succesful: "Du er nu afmeldt"
-      unsubscribe_info_text: "Du vil nu ikke længere modtage emails. Tjek dine %{settings_link} for at vælge hvilken slags emails du ønsker at modtage fra %{service_name}, eller vend tilbage til %{homepage_link}."
+      unsubscribe_info_text: "Du vil ikke længere modtage disse mails. Tjek dine %{settings_link} for at vælge hvilke typer emails du gerne vil modtage fra %{service_name}, eller vend tilbage til %{homepage_link}."
       settings_link: Indstillinger
       homepage_link: forsiden
       unsubscribe_unsuccesful: "Fejl i afmelding"
@@ -2066,10 +2069,14 @@ da-DK:
       manage_listings: "Administrer annoncer"
       settings: Indstillinger
       logout: "Log ud"
-      login: "Log på"
-      signup: "Opret profil﻿"
+      login: "Log ind"
+      signup: Tilmeld
       admin_dashboard: "Administrator Dashboard"
       language: Sprog
+    branding:
+      powered_by: "%{service_name} er powered af %{sharetribe_link} markedsplads platformen."
+      create_own: "Vil du oprette din egen online markedsplads hjemmeside som %{service_name}? %{learn_more}."
+      learn_more: "Lær mere"
   will_paginate:
     models:
       person:

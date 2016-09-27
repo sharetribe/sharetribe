@@ -7,8 +7,10 @@ module TransactionService::DataTypes::Transaction
     [:payment_process, one_of: [:none, :postpay, :preauthorize]],
     [:payment_gateway, one_of: [:paypal, :checkout, :braintree, :none]],
     [:community_id, :fixnum, :mandatory],
+    [:community_uuid, :uuid], # This will be mandatory once the migrations have run
     [:starter_id, :string, :mandatory],
     [:listing_id, :fixnum, :mandatory],
+    [:listing_uuid, :uuid], # This will be mandatory once the migrations have run
     [:listing_title, :string, :mandatory],
     [:listing_price, :money, :optional],
     [:item_total, :money, :mandatory],

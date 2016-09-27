@@ -5,9 +5,11 @@
 #  id                                :integer          not null, primary key
 #  starter_id                        :string(255)      not null
 #  listing_id                        :integer          not null
+#  listing_uuid                      :binary(16)       not null
 #  conversation_id                   :integer
 #  automatic_confirmation_after_days :integer          not null
 #  community_id                      :integer          not null
+#  community_uuid                    :binary(16)       not null
 #  created_at                        :datetime         not null
 #  updated_at                        :datetime         not null
 #  starter_skipped_feedback          :boolean          default(FALSE)

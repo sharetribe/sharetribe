@@ -1,5 +1,4 @@
 import { div } from 'r-dom';
-import { storiesOf, action } from '@kadira/storybook';
 import withProps from '../../Styleguide/withProps';
 
 import GuideStatusPage from './GuideStatusPage';
@@ -11,6 +10,7 @@ import GuideListingPage from './GuideListingPage';
 import GuideInvitationPage from './GuideInvitationPage';
 import { all as allRoutes } from '../../../utils/routes';
 
+const { storiesOf, action } = storybookFacade;
 const routes = allRoutes({ locale: 'en' });
 
 const onboardingData = [
@@ -144,36 +144,36 @@ const onboardingDataCompleted = onboardingData
 // Column max-width is 732px in admin panel
 const columnWidth = { style: { maxWidth: '732px' } };
 
-storiesOf('Onboarding guide')
-  .add('Status page', () => (
+storiesOf('Onboarding')
+  .add('Guide: Status page', () => (
     div(columnWidth,
       withProps(GuideStatusPage, statusPageProps)
     )))
-  .add('Slogan and description page', () => (
+  .add('Guide: Slogan and description page', () => (
     div(columnWidth,
       withProps(GuideSloganAndDescriptionPage, sloganAndDescriptionProps)
     )))
-  .add('Cover photo page', () => (
+  .add('Guide: Cover photo page', () => (
     div(columnWidth,
       withProps(GuideCoverPhotoPage, coverPhotoProps)
     )))
-  .add('Filter page', () => (
+  .add('Guide: Filter page', () => (
     div(columnWidth,
       withProps(GuideFilterPage, filterProps)
     )))
-  .add('Paypal page', () => (
+  .add('Guide: Paypal page', () => (
     div(columnWidth,
       withProps(GuidePaypalPage, paypalProps)
     )))
-  .add('Listing page', () => (
+  .add('Guide: Listing page', () => (
     div(columnWidth,
       withProps(GuideListingPage, listingProps)
     )))
-  .add('Invitation page', () => (
+  .add('Guide: Invitation page', () => (
     div(columnWidth,
       withProps(GuideInvitationPage, invitationProps)
     )))
-  .add('Status page complete', () => (
+  .add('Guide: Status page complete', () => (
     div(columnWidth,
       withProps(GuideStatusPage, Object.assign({},
         statusPageProps,

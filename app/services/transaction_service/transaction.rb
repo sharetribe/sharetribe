@@ -76,7 +76,7 @@ module TransactionService::Transaction
     Result::Success.new(result: set_adapter.configured?(community_id: community_id, author_id: author_id))
   end
 
-  def create(opts, paypal_async: false)
+  def create(opts, force_sync: true)
     opts_tx = opts[:transaction]
 
     set_adapter = settings_adapter(opts_tx[:payment_gateway])
@@ -89,7 +89,7 @@ module TransactionService::Transaction
     res = tx_process.create(tx: tx,
                             gateway_fields: opts[:gateway_fields],
                             gateway_adapter: gateway_adapter,
-                            prefer_async: paypal_async)
+                            force_sync: force_sync)
 
     res.maybe()
       .map { |gw_fields| Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]), gw_fields)) }
@@ -196,8 +196,10 @@ module TransactionService::Transaction
         payment_process: tx[:payment_process],
         payment_gateway: tx[:payment_gateway],
         community_id: tx[:community_id],
+        community_uuid: tx[:community_uuid],
         starter_id: tx[:starter_id],
         listing_id: tx[:listing_id],
+        listing_uuid: tx[:listing_uuid],
         listing_title: tx[:listing_title],
         listing_price: tx[:unit_price],
         unit_type: tx[:unit_type],

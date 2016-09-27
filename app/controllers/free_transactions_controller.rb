@@ -28,7 +28,9 @@ class FreeTransactionsController < ApplicationController
         {
           transaction: {
             community_id: @current_community.id,
+            community_uuid: @current_community.uuid_object,
             listing_id: @listing.id,
+            listing_uuid: @listing.uuid,
             listing_title: @listing.title,
             starter_id: @current_user.id,
             listing_author_id: @listing.author.id,

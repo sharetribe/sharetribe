@@ -24,13 +24,13 @@ module PaypalService::API
     end
 
     # POST /billing_agreements/:community_id/:person_id/charge_commission
-    def charge_commission(community_id, person_id, info, async: false)
+    def charge_commission(community_id, person_id, info, force_sync: true)
       @lookup.with_completed_payment(community_id, info[:transaction_id]) do |payment|
         @lookup.with_accounts(community_id, person_id, payment[:receiver_id]) do |m_acc, admin_acc|
           if(seller_is_admin?(m_acc, admin_acc))
             commission_not_applicable(community_id, info[:transaction_id], m_acc[:person_id], payment, :seller_is_admin)
           else
-            if async
+            if !force_sync
               proc_token = Worker.enqueue_billing_agreements_op(
                 community_id: community_id,
                 transaction_id: info[:transaction_id],

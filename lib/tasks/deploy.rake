@@ -54,15 +54,30 @@ def deploy(params)
   set_app(@destination)
 
   fetch_remote_heroku_branch if params[:migrations] != false
-  migrations = params[:migrations] == false ? [] : ask_local_migrations_to_run
+  local_migrations = fetch_local_migrations()
+
+  if local_migrations.present?
+    update_data_export_script_reminder!(@destination)
+  end
+
+  migrations_to_run = params[:migrations] == false ? [] : ask_local_migrations_to_run(local_migrations)
 
   deploy_to_server
 
   clear_cache if params[:clear_cache]
 
-  unless migrations.empty?
-    run_migrations(migrations)
+  if migrations_to_run.present?
+    run_migrations(migrations_to_run)
     restart
+  end
+end
+
+def update_data_export_script_reminder!(destination)
+  if destination == "production"
+    puts ""
+    puts "Did you remember to update the data export script? (y/n)"
+    response = STDIN.gets.strip
+    exit if response != 'y' && response != 'Y'
   end
 end
 
@@ -142,11 +157,13 @@ def fetch_remote_heroku_branch
   `git fetch #{@destination} master`
 end
 
-def ask_local_migrations_to_run
+def fetch_local_migrations
   # List of files added to db/migrate dir
   new_files = `git diff --name-only --diff-filter=A #{@destination}/master..#{@branch} db/migrate`
-  migrations = select_down_migrations(parse_added_migration_files(new_files))
+  select_down_migrations(parse_added_migration_files(new_files))
+end
 
+def ask_local_migrations_to_run(migrations)
   if migrations.empty?
     []
   else

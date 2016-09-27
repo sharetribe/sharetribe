@@ -1600,6 +1600,8 @@ hu:
       night: ~
       nights: ~
       invalid_parameters: ~
+      dates_not_available: ~
+      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: Nézet
   mapview:
@@ -1639,6 +1641,7 @@ hu:
     connected_account: "PayPal fiók  <%{email}> csatlakozás sikeres"
     paypal_receive_funds_info_label_australia_only: "Az ön PayPal fiókjának alkalmasnak kell lennie utalások fogadására. Ehhez valószínűleg Premier vagy Üzleti/Business PayPal fiókra lesz szüksége."
     paypal_receive_funds_info_label: "Az ön PayPal fiókjának alkalmasnak kell lennie utalások fogadására. Ehhez valószínűleg Üzleti/Business PayPal fiókra lesz szüksége."
+    paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: "Amennyiben fiókjához való csatlakozáskor hiba merül fel a %{service_name} oldalán, PayPal fiókja frissítésre szorul %{upgrade_paypal_account_link}. Ez ingyenes és könnyű. Amennyiben magánszemélyként használja a PayPal-t adja meg saját nevét mint cégnév."
     upgrade_paypal_account_link_text: "Belépés és a frissítés linkre kattintás"
     admin_account_not_connected: |-
@@ -2063,6 +2066,10 @@ hu:
       signup: Regisztráció
       admin_dashboard: "Rendszergazda kezelőpult"
       language: Nyelv
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
   will_paginate:
     models:
       person:

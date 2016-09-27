@@ -17,7 +17,7 @@ module TransactionService::Gateway
     # implementation.
     #
     # Returns a Completion( Result( gateway_specific_response) )
-    def create_payment(tx:, gateway_fields:, prefer_async:)
+    def create_payment(tx:, gateway_fields:, force_sync:)
       raise InterfaceMethodNotImplementedError.new
     end
 
@@ -30,6 +30,10 @@ module TransactionService::Gateway
     end
 
     def get_payment_details(tx:)
+      raise InterfaceMethodNotImplementedError.new
+    end
+
+    def allow_async?
       raise InterfaceMethodNotImplementedError.new
     end
   end

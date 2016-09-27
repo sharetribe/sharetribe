@@ -38,15 +38,17 @@ class SearchBar extends Component {
       return;
     }
     const bounds = { north: -90, east: -180, south: 90, west: 180 };
-    const autocomplete = new window.google.maps.places.Autocomplete(this.locationInput, { bounds });
-    autocomplete.setTypes(['geocode']);
-    this.placeChangedListener = window.google.maps.event.addListener(
-      autocomplete,
-      'place_changed',
-      () => {
-        this.setState({ selectedPlace: autocomplete.getPlace() });
-      }
-    );
+    if (window.google) {
+      const autocomplete = new window.google.maps.places.Autocomplete(this.locationInput, { bounds });
+      autocomplete.setTypes(['geocode']);
+      this.placeChangedListener = window.google.maps.event.addListener(
+        autocomplete,
+        'place_changed',
+        () => {
+          this.setState({ selectedPlace: autocomplete.getPlace() });
+        }
+      );
+    }
   }
   componentWillUnmount() {
     document.body.classList.remove(css.topLevelBody);

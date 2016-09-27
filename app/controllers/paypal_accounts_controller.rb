@@ -41,6 +41,7 @@ class PaypalAccountsController < ApplicationController
       paypal_fees_url: PaypalCountryHelper.fee_link(community_country_code),
       create_url: PaypalCountryHelper.create_paypal_account_url(community_country_code),
       receive_funds_info_label_tr_key: PaypalCountryHelper.receive_funds_info_label_tr_key(community_country_code),
+      receive_funds_info_tr_key: PaypalCountryHelper.receive_funds_info_tr_key(community_country_code),
       upgrade_url: "https://www.paypal.com/#{community_country_code}/upgrade"
     })
   end

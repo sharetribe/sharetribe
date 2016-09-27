@@ -1,3 +1,5 @@
+require "spec_helper"
+
 require_relative "api.rb"
 
 describe EmailService::API::Addresses do

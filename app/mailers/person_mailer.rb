@@ -256,10 +256,13 @@ class PersonMailer < ActionMailer::Base
     @person = new_member
     @email = new_member.emails.last.address
     with_locale(admin.locale, community.locales.map(&:to_sym), community.id) do
-      premailer_mail(:to => admin.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => "New member in #{@community.full_name(@person.locale)}",
-                     :template_name => "new_member_notification")
+      address = admin.confirmed_notification_email_to
+      if address.present?
+        premailer_mail(:to => address,
+                       :from => community_specific_sender(community),
+                       :subject => "New member in #{@community.full_name(@person.locale)}",
+                       :template_name => "new_member_notification")
+      end
     end
   end
 

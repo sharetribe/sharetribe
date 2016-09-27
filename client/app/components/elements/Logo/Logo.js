@@ -22,7 +22,7 @@ const logoContent = function logoContent(image, imageHighRes, text) {
 class Logo extends Component {
   render() {
     return a({
-      className: classNames(this.props.className, css.logo),
+      className: classNames('Logo', this.props.className, css.logo),
       href: this.props.href,
       style: this.props.color ? { color: this.props.color } : null,
     }, logoContent(this.props.image, this.props.image_highres, this.props.text));

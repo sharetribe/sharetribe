@@ -1332,7 +1332,7 @@ pl:
       open_in_google_maps: "Otwórz w Google Maps"
     error:
       something_went_wrong: ~
-      something_went_wrong_plain: ~
+      something_went_wrong_plain: "Coś poszło nie tak"
     follow_links:
       follow: "Powiadom mnie emailem, gdy pojawią się nowe komentarze"
       unfollow: "Nie powiadamiaj mnie emailem, gdy pojawią się nowe komentarze"
@@ -1564,6 +1564,8 @@ pl:
       night: noc
       nights: nocy
       invalid_parameters: "Niepoprawna wartość dla nowej transakcji"
+      dates_not_available: "Wybrane daty nie są dostępne"
+      error_in_checking_availability: "Nie możemy sprawdzić dostępności dla wskazanych dni"
     transaction_agreement_checkbox:
       read_more: ~
   mapview:
@@ -1603,6 +1605,7 @@ pl:
     connected_account: ~
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: ~
     upgrade_paypal_account_link_text: ~
     admin_account_not_connected: ~
@@ -2032,6 +2035,10 @@ pl:
       signup: ~
       admin_dashboard: "Panel administracyjny"
       language: Język
+    branding:
+      powered_by: "Platforma %{service_name} działa na silniku %{sharetribe_link}."
+      create_own: "Chcesz stworzyć swoją platformę online jak %{service_name}? %{learn_more}."
+      learn_more: "Dowiedz się więcej"
   will_paginate:
     models:
       person:

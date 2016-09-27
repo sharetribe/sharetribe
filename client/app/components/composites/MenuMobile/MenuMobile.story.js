@@ -1,13 +1,13 @@
 import r from 'r-dom';
-import { storiesOf } from '@kadira/storybook';
 import { storify, defaultRailsContext } from '../../Styleguide/withProps';
 
 import MenuMobile from './MenuMobile';
 
+const { storiesOf } = storybookFacade;
 const containerStyle = { style: { minWidth: '100px', background: 'white', height: '768px' } };
 
-storiesOf('MenuMobile')
-  .add('Basic state ', () => (
+storiesOf('Top bar')
+  .add('MenuMobile: basic state', () => (
       r(storify(
         r(MenuMobile,
           {
