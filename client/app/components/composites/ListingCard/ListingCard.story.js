@@ -11,7 +11,7 @@ const { storiesOf, specs, expect } = storybookFacade;
 const containerStyle = { style: { background: 'white' } };
 
 const ListingCardBasic =
-  r(ListingCard, Object.assign({},
+  r(ListingCard,
     {
       id: 'lkjg84573874yjdf',
       title: 'Title',
@@ -29,10 +29,10 @@ const ListingCardBasic =
       color: '#347F9D',
       className: css.listing,
     },
-  ));
+  );
 
 const ListingCardNoImage =
-  r(ListingCard, Object.assign({},
+  r(ListingCard,
     {
       id: 'lkjg84573874yjdf',
       title: 'No picture',
@@ -48,10 +48,10 @@ const ListingCardNoImage =
       color: '#347F9D',
       className: css.listing,
     },
-  ));
+  );
 
 const ListingCardImageError =
-  r(ListingCard, Object.assign({},
+  r(ListingCard,
     {
       id: 'lkjg84573874yjdf',
       title: 'Picture load fails',
@@ -68,7 +68,7 @@ const ListingCardImageError =
       color: '#347F9D',
       className: css.listing,
     },
-  ));
+  );
 
 
 const testPrice = function priceTest(card, mountedCard) {

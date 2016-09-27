@@ -8,7 +8,7 @@ const { storiesOf } = storybookFacade;
 const LISTINGS_COUNT = 7;
 
 const listingCardTemplate = (title, perUnit, price, distance) => (
-  r(ListingCard, Object.assign({},
+  r(ListingCard,
     {
       id: 'iuttei7538746tr',
       title,
@@ -26,7 +26,7 @@ const listingCardTemplate = (title, perUnit, price, distance) => (
       color: '#347F9D',
       className: css.listing,
     },
-  ))
+  )
 );
 
 const generateListings = (arrayLength) => {

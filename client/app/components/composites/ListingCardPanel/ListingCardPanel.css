@@ -16,7 +16,8 @@
   max-width: 550px;
   flex-basis: calc(100% - 24px);
 
-  /* 24 + 264 + 24 + 264 + 24 = 600 */
+  /* Counting columns (minimum card width 264px) + gutters (24px)
+     24 + 264 + 24 + 264 + 24 = 600 */
   @media screen and (min-width: 600px) {
     max-width: 408px;
     flex-basis: calc(50% - var(--ListingCardPanel_gutterSpacing));

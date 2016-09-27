@@ -14,7 +14,7 @@ const containerStyle = { style: { background: 'white' } };
 
 
 const listingCardTemplate = (title, perUnit, price, distance) => (
-  r(ListingCard, Object.assign({},
+  r(ListingCard,
     {
       id: 'iuttei7538746tr',
       title,
@@ -30,8 +30,8 @@ const listingCardTemplate = (title, perUnit, price, distance) => (
       distance: distance || Math.random() * (20000) + 0.01, // eslint-disable-line no-magic-numbers
       distanceUnit: 'km',
       color: '#347F9D',
-    },
-  ))
+    }
+  )
 );
 
 const generateListings = (arrayLength) => {
