@@ -71,7 +71,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
     response_data = response[:data] || {}
 
     if response[:success]
-      redirect_to_transaction_controller(transaction_id: response_data[:transaction_id])
+      redirect_to_transaction_controller(transaction_id: response_data[:transaction_id], listing_id: listing_id)
     else
       if response_data[:paypal_error_code] == "10486"
         redirect_to response_data[:redirect_url]
@@ -97,7 +97,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
     end
   end
 
-  def redirect_to_transaction_controller(transaction_id:)
+  def redirect_to_transaction_controller(transaction_id:, listing_id:)
 
     #
     # This method should redirect user from PaypalService to TransactionService.
@@ -109,7 +109,8 @@ class PaypalService::CheckoutOrdersController < ApplicationController
     transaction_service.finalize_create(community_id: @current_community.id, transaction_id: transaction_id).on_success {
       redirect_to person_transaction_path(person_id: @current_user.id, id: transaction_id)
     }.on_error { |error_msg, data|
-      # TODO Error handling
+      flash[:error] = t("error_messages.booking.booking_failed_payment_voided")
+      redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
     }
   end
 

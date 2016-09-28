@@ -10,3 +10,6 @@ en:
     preauthorize:
       dates_not_available: "Selected dates are not available"
       error_in_checking_availability: "Could not check availability for the selected dates"
+  error_messages:
+    booking:
+      booking_failed_payment_voided: "Failed to create a booking. Your payment will be refunded."

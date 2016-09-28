@@ -100,6 +100,13 @@ module TransactionService::Transaction
     tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
     if tx.nil?
+
+      # Transaction doesn't exist.
+      #
+      # This may happen if the finalize_create action has been called already, and it failed.
+      # If the finalization fails (e.g. booking fails), we void the payment and delete the
+      # transaction.
+
       return Result::Error.new("Can't find transaction, id: #{transaction_id}, community_id: #{community_id}", {code: :tx_not_existing})
     end
 

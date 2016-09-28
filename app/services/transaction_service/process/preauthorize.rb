@@ -61,11 +61,14 @@ module TransactionService::Process
         booking_res.on_success {
           Transition.transition_to(tx[:id], :preauthorized)
         }.on_error { |error_msg, data|
+          logger.error("Failed to initiate booking", :failed_initiate_booking, tx.slice(:community_id, :transaction_id).merge(error_msg: error_msg))
+
           void_res = gateway_adapter.reject_payment(tx: tx, reason: "Failed to create booking, tx_id: #{tx[:id]}, error: #{error_msg}")[:response]
 
-          void_res.on_error { |payment_error_msg, payment_data|
-            # TODO Proper logging
-            Rails.logger.error("Failed to void payment after failed booking, tx_id: #{tx[:id]}, error: #{payment_error_msg}")
+          void_res.on_success {
+            logger.info("Payment voided after failed transaction", :void_payment, tx.slice(:community_id, :transaction_id))
+          }.on_error { |payment_error_msg, payment_data|
+            logger.error("Failed to void payment after failed booking", :failed_void_payment, tx.slice(:community_id, :transaction_id).merge(error_msg: payment_error_msg))
           }
         }
       end
@@ -149,6 +152,10 @@ module TransactionService::Process
 
     def base64_to_uuid(person_id)
       UUIDTools::UUID.parse_raw(Base64.urlsafe_decode64(person_id))
+    end
+
+    def logger
+      @logger ||= SharetribeLogger.new(:preauthorize_process)
     end
   end
 end
