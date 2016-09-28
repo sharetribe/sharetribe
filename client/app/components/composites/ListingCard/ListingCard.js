@@ -1,9 +1,11 @@
 import { Component, PropTypes } from 'react';
 import r, { a, div, img } from 'r-dom';
 import classNames from 'classnames';
+import { t } from '../../../utils/i18n';
 import { canUseDOM } from '../../../utils/featureDetection';
 import { tint } from '../../../utils/colors';
 import { formatDistance, formatPrice } from '../../../utils/numbers';
+import ListingModel from '../../../models/ListingModel';
 
 import Avatar from '../../elements/Avatar/Avatar';
 import css from './ListingCard.css';
@@ -38,31 +40,33 @@ class ListingCard extends Component {
 
   clickHandler() {
     if (canUseDOM) {
-      window.location = this.props.listingURL;
+      window.location = this.props.listing.get('listingURL');
     }
   }
 
   render() {
-
     const tintedRGB = tint(this.props.color, TINT_PERCENTAGE);
-    const higherRes = this.props.image2xURL ? { srcSet: `${this.props.image2xURL} 2x` } : null;
-    const distanceFormatted = formatDistance(this.props.distance, this.props.distanceUnit);
-    const priceFormatted = formatPrice(this.props.price, this.props.priceUnit);
+    const listing = this.props.listing;
+    const imageURL = listing.images.getIn([0, 'square', 'url']);
+    const image2xURL = listing.images.getIn([0, 'square2x', 'url']);
+    const higherRes = image2xURL ? { srcSet: `${image2xURL} 2x` } : null;
+    const distanceFormatted = formatDistance(listing.get('distance'), listing.get('distanceUnit'));
+    const priceFormatted = formatPrice(listing.get('price'), listing.get('priceUnit'));
 
     return div({
       className: classNames('ListingCard', css.listing, this.props.className),
-      'data-listing-id': this.props.id,
+      'data-listing-id': listing.get('id'),
       onClick: this.clickHandler,
     }, [
       a({
         className: css.squareWrapper,
         style: { backgroundColor: `rgb(${tintedRGB.r}, ${tintedRGB.g}, ${tintedRGB.b})` },
-        href: this.props.listingURL,
-      }, this.props.imageURL && this.state.imageStatus !== 'failed' ?
+        href: listing.get('listingURL'),
+      }, imageURL && this.state.imageStatus !== 'failed' ?
         img({
           ...{
             className: classNames('ListingCard_image', css.thumbnail),
-            src: this.props.imageURL,
+            src: imageURL,
             onLoad: this.handleImageLoaded,
             onError: this.handleImageErrored,
           },
@@ -80,7 +84,7 @@ class ListingCard extends Component {
             }),
             div({
               className: css.noImageText,
-            }, this.props.noImageText),
+            }, t('web.listing_card.no_picture')),
           ]),
         ),
       ),
@@ -88,18 +92,18 @@ class ListingCard extends Component {
         div({
           className: css.avatarPosition,
         }, r(Avatar, {
-          url: this.props.profileURL,
-          image: this.props.avatarURL,
+          url: listing.get('profileURL'),
+          image: listing.get('avatarURL'),
           color: this.props.color,
         })),
         a({
           className: css.title,
-          href: this.props.profileURL,
+          href: listing.get('listingURL'),
         }, [
           div({
             className: css.avatarSpacer,
           }),
-          this.props.title,
+          listing.get('title'),
         ]),
         div({ className: css.footer }, [
           div({
@@ -107,8 +111,8 @@ class ListingCard extends Component {
             style: { color: this.props.color },
           }, [
             div({ className: css.price }, priceFormatted),
-            this.props.per ?
-              div({ className: css.per }, this.props.per) :
+            listing.get('per') ?
+              div({ className: css.per }, listing.get('per')) :
               null,
           ]),
           distanceFormatted ?
@@ -127,25 +131,12 @@ class ListingCard extends Component {
 }
 
 
-const { number, string } = PropTypes;
+const { instanceOf, number, string } = PropTypes;
 
 ListingCard.propTypes = {
-  avatarURL: string.isRequired,
   className: string,
   color: string.isRequired,
-  distance: number,
-  distanceUnit: string,
-  id: string.isRequired,
-  imageURL: string,
-  image2xURL: string,
-  listingURL: string.isRequired,
-  noImageText: string.isRequired,
-  per: string,
-  profileURL: string.isRequired,
-  price: number.isRequired,
-  priceUnit: string.isRequired,
-  title: string.isRequired,
-
+  listing: instanceOf(ListingModel).isRequired,
 };
 
 export default ListingCard;
