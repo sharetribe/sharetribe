@@ -1041,7 +1041,7 @@ ka:
       some_private_offers_exist: "უკვე არსებობს %{number_of_listings} შეთავაზებები"
       some_private_requests_exist: "უკვე არსებობს %{number_of_listings} მოთხოვნები"
     custom_filters:
-      update_view: "განაახლე ხედი"
+      update_view: "განაახლე სია"
       min: "მინ:"
       max: "მაქს:"
     event_feed:
@@ -1587,8 +1587,6 @@ ka:
       night: ღამე
       nights: ღამე
       invalid_parameters: "ახალი ტრანზაქციისთვის ასეთი სახელი არ არსებობს"
-      dates_not_available: ~
-      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: ნახვა
   mapview:

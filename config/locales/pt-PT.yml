@@ -599,7 +599,7 @@ pt-PT:
       optional_message_to: ~
       send_message: ~
       send: ~
-      this_message_is_private: ~
+      this_message_is_private: "Esta mensagem é particular entre si e %{person}. %{person} será notificado(a) sobre esta mensagem por email."
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
       title: Título
@@ -745,9 +745,9 @@ pt-PT:
       give_feedback_to: ~
       show_thread: ~
     confirmation_instructions:
-      confirmation_instructions_signature: ~
-      need_to_confirm: ~
-      confirmation_link_text: ~
+      confirmation_instructions_signature: "Cordialmente, <br/> a equipa do %{service_name}"
+      need_to_confirm: "Precisa confirmar o seu endereço de email"
+      confirmation_link_text: "Confirmar o meu email"
       or_paste_link: ~
     common:
       hey: "Olá %{name}"
@@ -773,16 +773,16 @@ pt-PT:
       pay_now: ~
       remember_to_confirm: ~
     invitation_to_kassi:
-      hi: ~
-      you_have_been_invited_to_kassi: ~
-      here_is_a_message_from: ~
+      hi: Olá!
+      you_have_been_invited_to_kassi: "%{inviter} convidou-o(a) a fazer parte do %{service_name}."
+      here_is_a_message_from: "Aqui está uma mensagem pessoal de %{inviter}"
       join_now: ~
       invitation_code: ~
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
       you_have_a_new_comment: "%{author} comentou o seu anúncio em %{service_name}"
-      listing_you_follow_has_a_new_comment: ~
+      listing_you_follow_has_a_new_comment: "%{author} comentou um anúncio que você segue no %{service_name}"
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
@@ -818,7 +818,7 @@ pt-PT:
       you_can_give_feedback_to: "Ainda não deu uma opinião a %{name}"
       view_feedback: ~
     new_update_to_listing:
-      listing_you_follow_has_been_updated: ~
+      listing_you_follow_has_been_updated: "Um anúncio que você segue foi atualizado"
       has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
@@ -834,9 +834,9 @@ pt-PT:
       unsubscribe_link_text: ~
     newsletter:
       hi: "Olá %{name},"
-      newest_offers: ~
-      newest_requests: ~
-      text_version_text: ~
+      newest_offers: "O que neste momento as pessoas oferecem aos outros"
+      newest_requests: "O que neste momento as pessoas precisam"
+      text_version_text: "Pode partilhar algo de que outros podem precisar? Ou precisa de algo que outros podem possuir? Adicionar uma oferta, um pedido ou verificar tudo o que os outros estão a oferecer ou a pedir a %{url}"
     reset_password_instructions:
       change_my_password: ~
       reset_password_instructions: "<p>Você informou que esqueceu sua senha ou nome de utilizador no serviço %{service_name}.</p><p>Seu nome de utilizador é: %{username}</p><p>Se você precisa redefinir sua senha, clique no link seguinte: %{password_reset_link}</p><br/><p>Se você não fez essa solicitação, por favor ignore este e-mail. Sua senha não mudará até que acesse o link acima e crie uma nova.</p>"
@@ -1058,9 +1058,9 @@ pt-PT:
       filter: ~
       this_is_private_community: ~
     invitation_form:
-      email: ~
-      message: ~
-      send_invitation: ~
+      email: "Endereço(s) de email"
+      message: "Uma mensagem pessoal"
+      send_invitation: "Enviar convite"
       add_email_addresses_description: ~
       add_lots_of_email_addresses: ~
       this_article_link: ~
@@ -1075,10 +1075,10 @@ pt-PT:
       show_less: ~
       show_more: ~
     profile_info_empty_notification:
-      add_your_info: ~
+      add_your_info: "Adicione a sua informação de contacto"
       add_a_profile_picture: ~
-      you_have_not_added_your_info: ~
-      add_your_info_link: ~
+      you_have_not_added_your_info: "Não adicionou a sua informação de contacto. Por favor, faça-o para que os outros possam entrar em contato consigo com mais facilidade. Adicione também uma imagem de perfil para que seja mais fácil confiarem em si."
+      add_your_info_link: "Adicione a sua informação agora"
     recent_listing:
       please_offer: oferta
       comment: ~
@@ -1177,7 +1177,7 @@ pt-PT:
       logout: Logout
       notifications: "Notificações "
       requests: "Solicitações de amizade"
-      settings: ~
+      settings: configuração
       sign_up: "Criar conta"
     notifications:
       listing_could_not_be_saved: ~
@@ -1190,7 +1190,7 @@ pt-PT:
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       comment_cannot_be_empty: "Comentário não pode estar em branco"
       comment_sent: "Comentário enviado"
-      confirmation_link_is_wrong_or_used: ~
+      confirmation_link_is_wrong_or_used: "O link de confirmação já está a ser usado ou está com problemas. Tente fazer login ou entre em contacto conosco se o problema persistir."
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
       facebook_email_unconfirmed: ~
@@ -1204,9 +1204,9 @@ pt-PT:
       feedback_saved: "Obrigado pela sua mensagem! Contacta-lo(a)-emos assim que possível."
       feedback_sent_to: "Opinião enviada a %{target_person}."
       feedback_skipped: ~
-      invitation_cannot_be_sent: ~
+      invitation_cannot_be_sent: "O convite não pôde ser enviado"
       invitation_limit_reached: ~
-      invitation_sent: ~
+      invitation_sent: "Convite enviado com sucesso"
       inviting_new_users_is_not_allowed_in_this_community: "Não é permitido convidar novos utilizadores."
       login_again: "Por favor, faça novamente login"
       login_failed: "Falha no acesso à sua conta. Por favor entre com os dados correctos."
@@ -1255,7 +1255,7 @@ pt-PT:
       request_canceled: ~
       message_sent: ~
       message_not_sent: ~
-      this_content_is_not_available_in_this_community: ~
+      this_content_is_not_available_in_this_community: "Este conteúdo não está disponível"
       unknown_error: "Erro desconhecido. Por favor use o link Fale conosco para enviar detalhes sobre o que aconteceu."
       update_error: "Ocorreu um erro ao tentar atualizar a sua informação. Por favor, tente novamente."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Não está autorizado a fazer comentários sobre este evento"
@@ -1284,9 +1284,9 @@ pt-PT:
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
-      you_need_to_confirm_your_account_first: ~
+      you_need_to_confirm_your_account_first: "Precisa confirmar o seu email."
       you_must_fill_all_the_fields: ~
-      you_unfollowed_listing: ~
+      you_unfollowed_listing: "Você já não está a seguir este anúncio"
       joining_community_failed: ~
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
@@ -1302,7 +1302,7 @@ pt-PT:
       payments: ~
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: ~
+      listing_not_visible: "Não tem permissão para consultar este anúncio."
     comment:
       wrote: ~
       send_private_message: ~
@@ -1316,7 +1316,7 @@ pt-PT:
       write_comment: "Escrever um novo comentário:"
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
       you_must: Deve
-      subscribe_to_comments: ~
+      subscribe_to_comments: "Avise-me quando houver novos comentários ou atualizações."
     edit:
       edit_listing: ~
     edit_links:
@@ -1334,8 +1334,8 @@ pt-PT:
       something_went_wrong: ~
       something_went_wrong_plain: ~
     follow_links:
-      follow: ~
-      unfollow: ~
+      follow: "Receber emails quando houver novos comentários"
+      unfollow: "Não receber emails quando houver novos comentários"
     form:
       custom_field_partials:
         dropdown:
@@ -1344,7 +1344,7 @@ pt-PT:
         at: às
         departure_time: "Hora de partida"
       departure_time_radio_buttons:
-        repeated: ~
+        repeated: "Periódico (indicar horas e dias no campo 'descrição detalhada')"
       description:
         detailed_description: "Descrição detalhada"
         youtube_info: ~
@@ -1564,8 +1564,6 @@ pt-PT:
       night: ~
       nights: ~
       invalid_parameters: ~
-      dates_not_available: ~
-      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: ~
   mapview:
@@ -1667,8 +1665,8 @@ pt-PT:
     chatting_with_paypal: ~
   people:
     edit_links:
-      activate: ~
-      deactivate: ~
+      activate: Ativar
+      deactivate: Desativar
     help_texts:
       feedback_description_title: Feedback
       help_invitation_code_title: "Você precisa de um convite para se juntar a nós"
@@ -1682,17 +1680,17 @@ pt-PT:
       create_new_account: "Criar conta"
       email: "Endereço de email"
       email_is_in_use: "O email já está em uso."
-      email_is_in_use_or_not_allowed: ~
+      email_is_in_use_or_not_allowed: "Este endereço de email não é permitido ou já está a ser utilizado. Se não conseguir entrar, contacte-nos."
       email_not_allowed: ~
       family_name: Apelido
       given_name: Nome
       i_accept_the: "Aceito os"
-      invalid_invitation_code: ~
-      invitation_code: ~
+      invalid_invitation_code: "O código de convite não é válido."
+      invitation_code: "Código de convite"
       not_required: ", não necessaria"
       notification_is_mandatory: ~
       password_again: "Confirme a palavra-passe"
-      show_my_name_to_others: ~
+      show_my_name_to_others: "Mostrar o meu nome completo aos utilizadores do %{service_name}"
       sign_up: "Criar uma conta no %{service_name}"
       terms: "Termos de utilização"
       username_is_in_use: "Este nome de utilizador já está em uso."
@@ -1712,7 +1710,7 @@ pt-PT:
     show:
       contact: "Contacte %{person}"
       about_me: "Sobre mim:"
-      add_description: ~
+      add_description: "Fale sobre si"
       add_location: ~
       add_phone_number: ~
       address: "Localização:"
@@ -1724,7 +1722,7 @@ pt-PT:
       less_than_expected: "Pior do que o esperado"
       phone_number: "Número de telefone:"
       show_all_feedback: "Mostrar todos os comentários"
-      show_all_testimonials: ~
+      show_all_testimonials: "Mostrar todos os comentários"
       show_full_description: "mostrar mais"
       slightly_better_than_expected: "Excedeu um pouco as expectativas"
       slightly_less_than_expected: "Um pouco pior do que o esperado"
@@ -1784,9 +1782,9 @@ pt-PT:
       request_new_password: "Pedir uma nova palavra-passe"
       change_your_password: ~
     confirmation_pending:
-      welcome_to_kassi: ~
-      check_your_email: ~
-      resend_confirmation_instructions: ~
+      welcome_to_kassi: "Seja bem-vindo(a) ao %{service_name}!"
+      check_your_email: "Verifique a sua caixa de entrada"
+      resend_confirmation_instructions: "Reenviar instruções de confirmação"
       your_current_email_is: "O seu e-mail é %{email}"
       change_email: ~
       confirm_your_email: ~
@@ -1827,7 +1825,7 @@ pt-PT:
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Quero receber uma notificação por email quando ..."
-      newsletters: ~
+      newsletters: "Emails dos administradores"
       community_updates: ~
       email_about_confirm_reminders: ~
       email_about_new_comments_to_own_listing: "... comentarios de alguém sobre a minha oferta ou pedido"
@@ -1861,7 +1859,7 @@ pt-PT:
       postal_code: "Código postal"
       profile_page: "na sua página de perfil"
       profilemap: "Ver mapa"
-      street_address: ~
+      street_address: Local
       these_fields_are_shown_in_your: "Esta informação pode ser vista por todos os utilizadores %{service_name}"
       visible_to_everybody: "visível para todos"
       visible_to_registered_users: "(visível para os utilizadores que tenham logado)"
@@ -1885,23 +1883,23 @@ pt-PT:
       terms_have_changed: "Os termos de utilização mudaram"
       you_can_view_the_new_terms: "Pode ver os novos termos"
       you_need_to_accept: "Bem-vindo(a) ao %{service_name}! Esta parece ser a primeira vez que está a utilizar este serviço. Antes de começar, deve aceitar os"
-      you_need_to_accept_new_terms: ~
+      you_need_to_accept_new_terms: "As condições de utilização do %{service_name} mudaram. Deve aceitar as novas condições para poder continuar a utilizar o %{service_name}. O objetivo das novas condições é possibilitar a existência do serviço depois de terminado o projeto de investigação que lhe deu origem."
   testimonials:
     index:
       all_testimonials: "Todos os comentários"
       feedback_altogether: "Mostrar todas as opiniões"
-      loading_more_testimonials: ~
+      loading_more_testimonials: "A carregar mais testemunhos"
       no_testimonials: "Nenhuma opinião recebida"
     new:
-      as_expected: ~
-      exceeded_expectations: ~
+      as_expected: "Como esperado"
+      exceeded_expectations: "Muito melhor do que esperado"
       give_feedback_to: "Dar uma opinião sobre %{person}"
       grade: ~
-      less_than_expected: ~
+      less_than_expected: "Pior do que esperado"
       send_feedback: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      textual_feedback: ~
+      slightly_better_than_expected: "Um pouco melhor do que esperado"
+      slightly_less_than_expected: "Um pouco pior do que esperado"
+      textual_feedback: "Como é que correu?"
       this_will_be_shown_in_profile: "A sua opinião será visível pelos outros utilizadores no perfil de %{person}. Isso ajuda os outros membros a saber se %{person} é uma pessoa de confiança."
       positive: ~
       negative: ~
@@ -1971,17 +1969,17 @@ pt-PT:
       shorter: ~
       short_date: ~
   timestamps:
-    day_ago: ~
-    days_ago: ~
-    hour_ago: ~
-    hours_ago: ~
-    minute_ago: ~
-    minutes_ago: ~
-    month_ago: ~
-    months_ago: ~
-    seconds_ago: ~
-    year_ago: ~
-    years_ago: ~
+    day_ago: "há %{count} dia"
+    days_ago: "há %{count} dias"
+    hour_ago: "há %{count} hora"
+    hours_ago: "há %{count} horas"
+    minute_ago: "há %{count} minuto"
+    minutes_ago: "há %{count} minutos"
+    month_ago: "há %{count} mês"
+    months_ago: "há %{count} meses"
+    seconds_ago: "há %{count} segundos"
+    year_ago: "há %{count} ano"
+    years_ago: "há %{count} anos"
   transactions:
     initiate:
       booked_days: ~
