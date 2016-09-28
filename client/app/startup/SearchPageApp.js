@@ -38,9 +38,7 @@ export default (props) => {
     .get(0);
 
   const searchPage = new SearchPageModel({
-    currentPage: bootstrappedData.get(':data')
-      .get(0)
-      .map((l) => l.get(':id')),
+    currentPage: rawListings.map((l) => l.get(':id')),
     listings: listingsToMap(rawListings),
   });
 
