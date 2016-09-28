@@ -41,7 +41,7 @@ export default (props) => {
     listings: listingsToMap(rawListings),
   });
 
-  const combinedProps = Object.assign({}, { searchPage }, { routes });
+  const combinedProps = Object.assign({}, { marketplace: props.marketplace }, { searchPage, routes });
   const combinedReducer = combineReducers(reducers);
 
   const store = applyMiddleware(middleware)(createStore)(combinedReducer, combinedProps);
