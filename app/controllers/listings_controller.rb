@@ -261,7 +261,7 @@ class ListingsController < ApplicationController
     params[:listing].delete("origin_loc_attributes") if params[:listing][:origin_loc_attributes][:address].blank?
 
     shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
-    listing_uuid = UUIDTools::UUID.timestamp_create
+    listing_uuid = UUIDUtils.create
 
     if FeatureFlagHelper.feature_enabled?(:availability) && shape.present? && shape[:availability] == :booking
       bookable_res = create_bookable(@current_community.uuid_object, listing_uuid, @current_user.uuid_object)
@@ -289,7 +289,7 @@ class ListingsController < ApplicationController
     m_unit = select_unit(listing_unit, shape)
 
     listing_params = create_listing_params(listing_params).merge(
-        uuid: listing_uuid.raw,
+        uuid_object: listing_uuid,
         community_id: @current_community.id,
         listing_shape_id: shape[:id],
         transaction_process_id: shape[:transaction_process_id],

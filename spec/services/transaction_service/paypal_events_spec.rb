@@ -68,7 +68,7 @@ describe TransactionService::PaypalEvents do
       starter_id: @payer.id,
       listing_id: @listing.id,
       listing_title: @listing.title,
-      listing_uuid: @listing.uuid.raw,
+      listing_uuid: @listing.uuid, # raw UUID
       unit_price: @listing.price,
       listing_author_id: @listing.author_id,
       listing_quantity: 1,

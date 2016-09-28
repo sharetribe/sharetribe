@@ -24,7 +24,7 @@ describe TransactionService::Store::Transaction do
       community_uuid: @community.uuid_object,
       starter_id: @payer.id,
       listing_id: @listing.id,
-      listing_uuid: @listing.uuid,
+      listing_uuid: @listing.uuid_object,
       listing_title: @listing.title,
       unit_price: @listing.price,
       availability: @listing.availability,
