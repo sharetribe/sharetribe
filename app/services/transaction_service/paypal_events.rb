@@ -95,7 +95,7 @@ module TransactionService::PaypalEvents
   end
 
   def initiated_to_preauthorized(tx)
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], :preauthorized)
+    TransactionService::Transaction.finalize_create(community_id: tx[:community_id], transaction_id: tx[:id])
   end
 
   def preauthorized_to_paid(tx)

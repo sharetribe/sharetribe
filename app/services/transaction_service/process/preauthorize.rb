@@ -32,8 +32,13 @@ module TransactionService::Process
         force_sync: true)
 
       Gateway.unwrap_completion(completion) do
-        Transition.transition_to(tx[:id], :preauthorized)
+        finalize_create(tx: tx, gateway_adapter: gateway_adapter)
       end
+    end
+
+    def finalize_create(tx:, gateway_adapter:)
+      Transition.transition_to(tx[:id], :preauthorized)
+      Result::Success.new
     end
 
     def reject(tx:, message:, sender_id:, gateway_adapter:)
