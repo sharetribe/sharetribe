@@ -21,6 +21,10 @@ module TransactionService::Gateway
       raise InterfaceMethodNotImplementedError.new
     end
 
+    def finalize_create_payment(tx:, gateway_fields:, force_sync:)
+      raise InterfaceMethodNotImplementedError.new
+    end
+
     def reject_payment(tx:, reason:)
       raise InterfaceMethodNotImplementedError.new
     end

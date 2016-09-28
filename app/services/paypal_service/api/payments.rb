@@ -147,6 +147,7 @@ module PaypalService::API
         TokenStore.delete(community_id, response[:data][:transaction_id])
       end
 
+      binding.pry
       response
     end
 

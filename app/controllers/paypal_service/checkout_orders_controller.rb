@@ -16,22 +16,24 @@ class PaypalService::CheckoutOrdersController < ApplicationController
 
     transaction = transaction_service.query(token[:data][:transaction_id])
 
-    proc_status = paypal_payments_service.create(
-      @current_community.id,
-      token[:data][:token],
+    proc_status = transaction_service.finalize_create(
+      community_id: @current_community.id,
+      transaction_id: token[:data][:transaction_id],
+      gateway_fields: {
+        token: token[:data][:token]
+      },
       force_sync: false)
-
 
     if !proc_status[:success]
       flash[:error] = t("error_messages.paypal.generic_error")
       return redirect_to search_path
     end
 
-    if proc_status[:data][:process_token].present?
+    if proc_status[:data][:gateway_fields][:process_token].present?
       # Operation was performed asynchronously
 
       render "paypal_service/success", layout: false, locals: {
-        op_status_url: paypal_op_status_path(proc_status[:data][:process_token]),
+        op_status_url: transaction_op_status_path(proc_status[:data][:process_token]),
         redirect_url: success_processed_paypal_service_checkout_orders_path(
           process_token: proc_status[:data][:process_token],
           listing_id: transaction[:listing_id])
@@ -71,11 +73,12 @@ class PaypalService::CheckoutOrdersController < ApplicationController
     response_data = response[:data] || {}
 
     if response[:success]
-      redirect_to person_transaction_path(person_id: @current_user.id, id: response_data[:transaction_id])
+      binding.pry
+      redirect_to person_transaction_path(person_id: @current_user.id, id: response_data[:transaction][:id])
     else
-      if response_data[:paypal_error_code] == "10486"
+      if response_data[:gateway_fields][:paypal_error_code] == "10486"
         redirect_to response_data[:redirect_url]
-      elsif response_data[:paypal_error_code] == "13113"
+      elsif response_data[:gateway_fields][:paypal_error_code] == "13113"
         flash[:error] = t("error_messages.paypal.buyer_cannot_pay_error",
                           customer_service_link: view_context.link_to("https://www.paypal.com/contactus",
                                                                       "https://www.paypal.com/contactus",
@@ -83,10 +86,10 @@ class PaypalService::CheckoutOrdersController < ApplicationController
                         .html_safe
         redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
 
-      elsif response_data[:paypal_error_code] == "10425"
+      elsif response_data[:gateway_fields][:paypal_error_code] == "10425"
         flash[:error] = t("error_messages.paypal.seller_express_checkout_disabled")
         redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
-      elsif response_data[:error_code] == :"payment-review"
+      elsif response_data[:gateway_fields][:error_code] == :"payment-review"
         flash[:warning] = t("error_messages.paypal.pending_review_error")
         redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
       else

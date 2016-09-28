@@ -32,8 +32,39 @@ module TransactionService::Process
         force_sync: true)
 
       Gateway.unwrap_completion(completion) do
-        Transition.transition_to(tx[:id], :preauthorized)
+        finalize_create(tx: tx, gateway_adapter: gateway_adapter, force_sync: true)
       end
+    end
+
+    def finalize_create(tx:, gateway_adapter:, gateway_fields:, force_sync:)
+      if use_async?(force_sync, gateway_adapter)
+        proc_token = Worker.enqueue_preauthorize_op(
+          community_id: tx[:community_id],
+          transaction_id: tx[:id],
+          op_name: :do_finalize_create,
+          op_input: [tx, gateway_fields]
+        )
+      else
+        do_finalize_create(tx, gateway_fields)
+      end
+    end
+
+    def do_finalize_create(tx, gateway_fields)
+      binding.pry
+      gateway_adapter = TransactionService::Transaction.gateway_adapter(tx[:payment_gateway])
+
+      completion = gateway_adapter.finalize_create_payment(
+        tx: tx,
+        gateway_fields: gateway_fields,
+        force_sync: true)
+
+      binding.pry
+
+      completion[:response].on_success {
+        Transition.transition_to(tx[:id], :preauthorized)
+      }
+
+      # TODO Error handling
     end
 
     def reject(tx:, message:, sender_id:, gateway_adapter:)
