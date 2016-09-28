@@ -27,7 +27,7 @@ class ProcessImagesForListingCards < ActiveRecord::Migration
 
   def values(ids)
     ids.map { |id|
-      "(1, '#{handler(id)}', NULL, NOW(), NOW(), NOW(), 'image_reprocess')"
+      "(11, '#{handler(id)}', NULL, NOW(), NOW(), NOW(), 'default')"
     }.join(",")
   end
 
