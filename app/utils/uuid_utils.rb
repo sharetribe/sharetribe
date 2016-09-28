@@ -18,6 +18,10 @@ module UUIDUtils
     to_rearranged(uuid.raw)
   end
 
+  def base64_to_uuid(base64)
+    UUIDTools::UUID.parse_raw(Base64.urlsafe_decode64(base64))
+  end
+
   # private
 
   def to_rearranged(b)

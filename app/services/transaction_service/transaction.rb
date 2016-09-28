@@ -1,5 +1,8 @@
 module TransactionService::Transaction
 
+  class IllegalTransactionStateException < Exception
+  end
+
   DataTypes = TransactionService::DataTypes::Transaction
 
   TxStore = TransactionService::Store::Transaction

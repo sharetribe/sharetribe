@@ -3,6 +3,8 @@ module TransactionService::Process
   Worker = TransactionService::Worker
   ProcessStatus = TransactionService::DataTypes::ProcessStatus
 
+  IllegalTransactionStateException = TransactionService::Transaction::IllegalTransactionStateException
+
   class Preauthorize
 
     TxStore = TransactionService::Store::Transaction
@@ -37,6 +39,8 @@ module TransactionService::Process
     end
 
     def finalize_create(tx:, gateway_adapter:)
+      ensure_can_execute!(tx: tx, allowed_states: [:initiated, :preauthorized])
+
       payment = gateway_adapter.get_payment_details(tx: tx)
 
       if tx[:current_state] == :preauthorized
@@ -52,7 +56,7 @@ module TransactionService::Process
           body: {
             marketplaceId: tx[:community_uuid],
             refId: tx[:listing_uuid],
-            customerId: base64_to_uuid(tx[:starter_id]),
+            customerId: UUIDUtils.base64_to_uuid(tx[:starter_id]),
             initialStatus: :paid,
             start: tx[:booking][:start_on],
             end: end_adjusted
@@ -150,12 +154,16 @@ module TransactionService::Process
       !force_sync && gw_adapter.allow_async?
     end
 
-    def base64_to_uuid(person_id)
-      UUIDTools::UUID.parse_raw(Base64.urlsafe_decode64(person_id))
-    end
-
     def logger
       @logger ||= SharetribeLogger.new(:preauthorize_process)
+    end
+
+    def ensure_can_execute!(tx:, allowed_states:)
+      tx_state = tx[:current_state]
+
+      unless allowed_states.include?(tx_state)
+        raise IllegalTransactionStateException.new("Transaction was in illegal state, expected state: [#{allowed_states.join(',')}], actual state: #{tx_state}")
+      end
     end
   end
 end
