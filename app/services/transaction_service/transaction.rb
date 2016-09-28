@@ -99,12 +99,15 @@ module TransactionService::Transaction
   def finalize_create(community_id:, transaction_id:)
     tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
+    if tx.nil?
+      return Result::Error.new("Can't find transaction, id: #{transaction_id}, community_id: #{community_id}", {code: :tx_not_existing})
+    end
+
     tx_process = tx_process(tx[:payment_process])
     gw = gateway_adapter(tx[:payment_gateway])
 
     res = tx_process.finalize_create(tx: tx, gateway_adapter: gw)
     res.and_then { |gw_fields| Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]), gw_fields)) }
-
   end
 
   def reject(community_id:, transaction_id:, message: nil, sender_id: nil)

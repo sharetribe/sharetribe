@@ -37,8 +37,38 @@ module TransactionService::Process
     end
 
     def finalize_create(tx:, gateway_adapter:)
-      Transition.transition_to(tx[:id], :preauthorized)
-      Result::Success.new
+      payment = gateway_adapter.get_payment_details(tx: tx)
+
+      if tx[:current_state] == :preauthorized
+        Result::Success.new()
+      elsif tx[:availability] != :booking
+        Result::Success.new()
+      else
+        end_on = tx[:booking][:end_on]
+        end_adjusted = tx[:unit_type] == :day ? end_on + 1.days : end_on
+
+        booking_res = HarmonyClient.post(
+          :initiate_booking,
+          body: {
+            marketplaceId: tx[:community_uuid],
+            refId: tx[:listing_uuid],
+            customerId: base64_to_uuid(tx[:starter_id]),
+            initialStatus: :paid,
+            start: tx[:booking][:start_on],
+            end: end_adjusted
+          })
+
+        booking_res.on_success {
+          Transition.transition_to(tx[:id], :preauthorized)
+        }.on_error { |error_msg, data|
+          void_res = gateway_adapter.reject_payment(tx: tx, reason: "Failed to create booking, tx_id: #{tx[:id]}, error: #{error_msg}")[:response]
+
+          void_res.on_error { |payment_error_msg, payment_data|
+            # TODO Proper logging
+            Rails.logger.error("Failed to void payment after failed booking, tx_id: #{tx[:id]}, error: #{payment_error_msg}")
+          }
+        }
+      end
     end
 
     def reject(tx:, message:, sender_id:, gateway_adapter:)
@@ -115,6 +145,10 @@ module TransactionService::Process
 
     def use_async?(force_sync, gw_adapter)
       !force_sync && gw_adapter.allow_async?
+    end
+
+    def base64_to_uuid(person_id)
+      UUIDTools::UUID.parse_raw(Base64.urlsafe_decode64(person_id))
     end
   end
 end
