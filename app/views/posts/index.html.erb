@@ -1,3 +1,12 @@
+<div class="blog-container">
+
 <% @posts.each do |p| %>
-  <%= raw p["post_content"] %>
+	<div class="blog-post">
+		<h3 class="blog-title">
+			<%= raw p["post_title"] %>
+	  </h3>
+	  <%= raw p["post_excerpt"] %>
+	</div>
 <% end %>
+
+</div>

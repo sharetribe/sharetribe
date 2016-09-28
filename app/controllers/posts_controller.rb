@@ -5,6 +5,9 @@ class PostsController < ApplicationController
                            :password => "changeme12",
                            :use_ssl  => true)
 
-    @posts = wp.getPosts
+    @posts = wp.getPosts(filter: {number: 1000})
+
+
+    render json: @posts if request.format.json?
   end
 end
