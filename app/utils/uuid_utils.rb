@@ -2,8 +2,12 @@ module UUIDUtils
 
   module_function
 
+  def create
+    UUIDTools::UUID.timestamp_create
+  end
+
   def create_raw
-    raw(UUIDTools::UUID.timestamp_create)
+    raw(create)
   end
 
   def parse_raw(raw_uuid)
