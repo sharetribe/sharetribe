@@ -95,12 +95,12 @@ module TopbarHelper
         priority: -1
       },
       {
-        link: paths.about_infos_path,
+        link: paths.about_infos_path(locale: locale_param),
         title: I18n.t("header.about"),
         priority: 0
       },
       {
-        link: paths.new_user_feedback_path,
+        link: paths.new_user_feedback_path(locale: locale_param),
         title: I18n.t("header.contact_us"),
         priority: !user_links.empty? ? user_links.last[:priority] + 1 : 1
       }
@@ -108,7 +108,7 @@ module TopbarHelper
 
     if user&.has_admin_rights? || community.users_can_invite_new_users
       links << {
-        link: paths.new_invitation_path,
+        link: paths.new_invitation_path(locale: locale_param),
         title: I18n.t("header.invite"),
         priority: !user_links.empty? ? user_links.last[:priority] + 2 : 2
       }
