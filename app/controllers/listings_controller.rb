@@ -264,7 +264,7 @@ class ListingsController < ApplicationController
     listing_uuid = UUIDTools::UUID.timestamp_create
 
     if FeatureFlagHelper.feature_enabled?(:availability) && shape.present? && shape[:availability] == :booking
-      bookable_res = create_bookable(@current_community.uuid_object, listing_uuid, @current_user.uuid)
+      bookable_res = create_bookable(@current_community.uuid_object, listing_uuid, @current_user.uuid_object)
       unless bookable_res.success
         flash[:error] = t("listings.error.something_went_wrong_plain")
         return redirect_to new_listing_path

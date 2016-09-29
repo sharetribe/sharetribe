@@ -176,7 +176,7 @@ class Person < ActiveRecord::Base
     set_default_preferences unless self.preferences
   end
 
-  def uuid
+  def uuid_object
     UUIDTools::UUID.parse_raw(Base64.urlsafe_decode64(self.id))
   end
 
