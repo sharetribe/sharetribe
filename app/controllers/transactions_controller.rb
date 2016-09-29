@@ -169,7 +169,7 @@ class TransactionsController < ApplicationController
       transaction_id: params[:transaction_id],
       force_sync: false)
 
-    if !proc_status[:success]
+    unless proc_status[:success]
       flash[:error] = t("error_messages.booking.booking_failed_payment_voided")
       return redirect_to search_path
     end
@@ -251,10 +251,6 @@ class TransactionsController < ApplicationController
 
   def paypal_process
     PaypalService::API::Api.process
-  end
-
-  def transaction_process_tokens
-    TransactionService::API::Api.process_tokens
   end
 
   private
