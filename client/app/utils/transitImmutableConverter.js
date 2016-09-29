@@ -31,6 +31,7 @@ const createReader = function createReader() {
     handlers: {
       ':': (rep) => `:${rep}`,
       list: (rep) => Immutable.List(rep).asImmutable(),
+      u: (rep) => rep.toString(),
       r: (rep) => rep,
       im: toImage,
     },
