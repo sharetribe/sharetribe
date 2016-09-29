@@ -429,6 +429,7 @@ class ListingsController < ApplicationController
       @listing.location.update_attributes(params[:location]) if @listing.location
       flash[:notice] = t("layouts.notifications.listing_updated_successfully")
       Delayed::Job.enqueue(ListingUpdatedJob.new(@listing.id, @current_community.id))
+      create_images(@listing) if open_params[:open]
       redirect_to @listing
     else
       logger.error("Errors in editing listing: #{@listing.errors.full_messages.inspect}")
@@ -944,5 +945,13 @@ class ListingsController < ApplicationController
         price_info: ListingViewUtils.shipping_info(delivery_type, price, shipping_price_additional),
         default: true
       }
+  end
+
+  # Create image sizes that might be missing
+  # from a reopened listing
+  def create_images(listing)
+    listing.listing_images.pluck(:id).each { | image_id |
+      Delayed::Job.enqueue(CreateSquareImagesJob.new(image_id))
+    }
   end
 end
