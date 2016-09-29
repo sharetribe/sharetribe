@@ -187,7 +187,7 @@ class TransactionsController < ApplicationController
           process_token: process_token)
       }
     else
-      handle_finalize_proc_result(proc_status, transaction_id)
+      handle_finalize_proc_result(proc_status)
     end
   end
 
@@ -258,7 +258,7 @@ class TransactionsController < ApplicationController
   def handle_finalize_proc_result(response)
     response_data = response[:data] || {}
 
-    tx = transaction_service.query(response_data[:transaction_id])
+    tx = response_data[:transaction]
 
     if response[:success]
       redirect_to person_transaction_path(person_id: @current_user.id, id: tx[:id])

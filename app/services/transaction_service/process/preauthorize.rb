@@ -3,6 +3,7 @@ module TransactionService::Process
   Gateway = TransactionService::Gateway
   Worker = TransactionService::Worker
   ProcessStatus = TransactionService::DataTypes::ProcessStatus
+  DataTypes = TransactionService::DataTypes::Transaction
 
   class Preauthorize
 
@@ -57,54 +58,57 @@ module TransactionService::Process
       tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
       gateway_adapter = TransactionService::Transaction.gateway_adapter(tx[:payment_gateway])
 
-      if tx[:current_state] == :preauthorized
-        Result::Success.new()
-      else
-        booking_res =
-          if tx[:availability] != :booking
-            Result::Success.new()
-          else
-            end_on = tx[:booking][:end_on]
-            end_adjusted = tx[:unit_type] == :day ? end_on + 1.days : end_on
+      res =
+        if tx[:current_state] == :preauthorized
+          Result::Success.new()
+        else
+          booking_res =
+            if tx[:availability] != :booking
+              Result::Success.new()
+            else
+              end_on = tx[:booking][:end_on]
+              end_adjusted = tx[:unit_type] == :day ? end_on + 1.days : end_on
 
-            HarmonyClient.post(
-              :initiate_booking,
-              body: {
-                marketplaceId: tx[:community_uuid],
-                refId: tx[:listing_uuid],
-                customerId: UUIDUtils.base64_to_uuid(tx[:starter_id]),
-                initialStatus: :paid,
-                start: tx[:booking][:start_on],
-                end: end_adjusted
-              }).and_then { |res|
-              Result::Success.new(res.merge(transaction_id: transaction_id))
-            }.on_error { |error_msg, data|
-              logger.error("Failed to initiate booking", :failed_initiate_booking, tx.slice(:community_id, :id).merge(error_msg: error_msg))
+              HarmonyClient.post(
+                :initiate_booking,
+                body: {
+                  marketplaceId: tx[:community_uuid],
+                  refId: tx[:listing_uuid],
+                  customerId: UUIDUtils.base64_to_uuid(tx[:starter_id]),
+                  initialStatus: :paid,
+                  start: tx[:booking][:start_on],
+                  end: end_adjusted
+                }).on_error { |error_msg, data|
+                logger.error("Failed to initiate booking", :failed_initiate_booking, tx.slice(:community_id, :id).merge(error_msg: error_msg))
 
-              void_res = gateway_adapter.reject_payment(tx: tx, reason: "")[:response]
+                void_res = gateway_adapter.reject_payment(tx: tx, reason: "")[:response]
 
-              void_res.on_success {
-                logger.info("Payment voided after failed transaction", :void_payment, tx.slice(:community_id, :id))
-              }.on_error { |payment_error_msg, payment_data|
-                logger.error("Failed to void payment after failed booking", :failed_void_payment, tx.slice(:community_id, :id).merge(error_msg: payment_error_msg))
+                void_res.on_success {
+                  logger.info("Payment voided after failed transaction", :void_payment, tx.slice(:community_id, :id))
+                }.on_error { |payment_error_msg, payment_data|
+                  logger.error("Failed to void payment after failed booking", :failed_void_payment, tx.slice(:community_id, :id).merge(error_msg: payment_error_msg))
+                }
               }
-            }
-          end
+            end
 
-        booking_res.on_success {
-          Transition.transition_to(tx[:id], :preauthorized)
-        }.rescue { |error_msg, data|
-          #
-          # The operation output is saved as YAML in database.
-          # Serializing/deserializing the Exception object causes issues,
-          # so we'll just convert the error to string
-          #
+          booking_res.on_success {
+            Transition.transition_to(tx[:id], :preauthorized)
+          }.rescue { |error_msg, data|
+            #
+            # The operation output is saved as YAML in database.
+            # Serializing/deserializing the Exception object causes issues,
+            # so we'll just convert the error to string
+            #
 
-          data[:error] = data[:error].to_s if data[:error].present?
+            data[:error] = data[:error].to_s if data[:error].present?
 
-          Result::Error.new(error_msg, data)
-        }
-      end
+            Result::Error.new(error_msg, data)
+          }
+        end
+
+      res.and_then {
+        Result::Success.new(DataTypes.create_transaction_response(tx))
+      }
     end
 
     def reject(tx:, message:, sender_id:, gateway_adapter:)
