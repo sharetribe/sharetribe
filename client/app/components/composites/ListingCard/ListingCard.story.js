@@ -33,7 +33,7 @@ const ListingCardBasic =
         })]),
         listingURL: 'https://example.com/listing/342iu4',
         avatarURL: 'https://placehold.it/40x40',
-        profileURL: `#profile`,
+        profileURL: '#profile',
         price: 21474836.47,  // eslint-disable-line no-magic-numbers
         priceUnit: '€',
         per: '/ hundred centimeters',
@@ -54,7 +54,7 @@ const ListingCardNoImage =
         images: new Immutable.List([new ImageRefs()]),
         listingURL: 'https://example.com/listing/342iu4',
         avatarURL: 'https://placehold.it/40x40',
-        profileURL: `#profile`,
+        profileURL: '#profile',
         price: 19,  // eslint-disable-line no-magic-numbers
         priceUnit: '€',
         per: '/ day',
@@ -83,7 +83,7 @@ const ListingCardImageError =
         })]),
         listingURL: 'https://example.com/listing/342iu4',
         avatarURL: 'https://placehold.it/40x40',
-        profileURL: `#profile`,
+        profileURL: '#profile',
         price: 199,  // eslint-disable-line no-magic-numbers
         priceUnit: '€',
         per: '/ day',

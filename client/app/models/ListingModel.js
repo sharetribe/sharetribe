@@ -23,7 +23,7 @@ const ListingModel = Immutable.Record({
   // these need to be updated
   listingURL: 'https://example.com/listing/1',
   avatarURL: 'https://placehold.it/40x40',
-  profileURL: `https://example.com/anonym`,
+  profileURL: 'https://example.com/anonym',
   price: 1,
   priceUnit: '$',
   per: '/ day',

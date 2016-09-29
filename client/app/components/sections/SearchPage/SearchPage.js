@@ -1,5 +1,5 @@
 import { Component, PropTypes } from 'react';
-import r, { div, img, p } from 'r-dom';
+import r, { div } from 'r-dom';
 import Immutable from 'immutable';
 import styleVariables from '../../../assets/styles/variables';
 

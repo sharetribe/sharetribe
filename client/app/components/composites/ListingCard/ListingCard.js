@@ -131,7 +131,7 @@ class ListingCard extends Component {
 }
 
 
-const { instanceOf, number, string } = PropTypes;
+const { instanceOf, string } = PropTypes;
 
 ListingCard.propTypes = {
   className: string,
