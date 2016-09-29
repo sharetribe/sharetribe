@@ -59,37 +59,40 @@ module TransactionService::Process
 
       if tx[:current_state] == :preauthorized
         Result::Success.new()
-      elsif tx[:availability] != :booking
-        Result::Success.new()
       else
-        end_on = tx[:booking][:end_on]
-        end_adjusted = tx[:unit_type] == :day ? end_on + 1.days : end_on
+        booking_res =
+          if tx[:availability] != :booking
+            Result::Success.new()
+          else
+            end_on = tx[:booking][:end_on]
+            end_adjusted = tx[:unit_type] == :day ? end_on + 1.days : end_on
 
-        booking_res = HarmonyClient.post(
-          :initiate_booking,
-          body: {
-            marketplaceId: tx[:community_uuid],
-            refId: tx[:listing_uuid],
-            customerId: UUIDUtils.base64_to_uuid(tx[:starter_id]),
-            initialStatus: :paid,
-            start: tx[:booking][:start_on],
-            end: end_adjusted
-          }).and_then { |res|
-          Result::Success.new(res.merge(transaction_id: transaction_id))
-        }
+            HarmonyClient.post(
+              :initiate_booking,
+              body: {
+                marketplaceId: tx[:community_uuid],
+                refId: tx[:listing_uuid],
+                customerId: UUIDUtils.base64_to_uuid(tx[:starter_id]),
+                initialStatus: :paid,
+                start: tx[:booking][:start_on],
+                end: end_adjusted
+              }).and_then { |res|
+              Result::Success.new(res.merge(transaction_id: transaction_id))
+            }.on_error { |error_msg, data|
+              logger.error("Failed to initiate booking", :failed_initiate_booking, tx.slice(:community_id, :id).merge(error_msg: error_msg))
+
+              void_res = gateway_adapter.reject_payment(tx: tx, reason: "")[:response]
+
+              void_res.on_success {
+                logger.info("Payment voided after failed transaction", :void_payment, tx.slice(:community_id, :id))
+              }.on_error { |payment_error_msg, payment_data|
+                logger.error("Failed to void payment after failed booking", :failed_void_payment, tx.slice(:community_id, :id).merge(error_msg: payment_error_msg))
+              }
+            }
+          end
 
         booking_res.on_success {
           Transition.transition_to(tx[:id], :preauthorized)
-        }.on_error { |error_msg, data|
-          logger.error("Failed to initiate booking", :failed_initiate_booking, tx.slice(:community_id, :id).merge(error_msg: error_msg))
-
-          void_res = gateway_adapter.reject_payment(tx: tx, reason: "")[:response]
-
-          void_res.on_success {
-            logger.info("Payment voided after failed transaction", :void_payment, tx.slice(:community_id, :id))
-          }.on_error { |payment_error_msg, payment_data|
-            logger.error("Failed to void payment after failed booking", :failed_void_payment, tx.slice(:community_id, :id).merge(error_msg: payment_error_msg))
-          }
         }
       end
     end
