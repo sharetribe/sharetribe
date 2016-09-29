@@ -34,8 +34,7 @@ export default (props) => {
     }, new Immutable.Map());
 
   const rawListings = bootstrappedData
-    .get(':data')
-    .get(0);
+    .get(':data');
 
   const searchPage = new SearchPageModel({
     currentPage: rawListings.map((l) => l.get(':id')),

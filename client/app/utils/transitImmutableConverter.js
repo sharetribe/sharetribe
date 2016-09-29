@@ -13,12 +13,11 @@ const ImageRefs = Immutable.Record({
   square2x: new Image(),
 });
 
-const toImage = (rep) => {
+const toImage = (data) => {
   const knownStyles = {
     ':square': 'square',
     ':square_2x': 'square2x',
   };
-  const data = rep[1];
   const images = data.map(([type, height, width, url]) =>
     new Image({ type, height, width, url }));
   const styles = images.reduce((acc, val) => {
