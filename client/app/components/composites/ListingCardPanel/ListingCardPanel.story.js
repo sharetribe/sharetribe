@@ -1,8 +1,10 @@
 import r from 'r-dom';
 import { mount } from 'enzyme';
+import Immutable from 'immutable';
 
 import { storify } from '../../Styleguide/withProps';
 import { toFixedNumber } from '../../../utils/numbers';
+import ListingModel, { Image, ImageRefs } from '../../../models/ListingModel';
 
 import ListingCardPanel from '../ListingCardPanel/ListingCardPanel';
 import ListingCard from '../ListingCard/ListingCard';
@@ -16,20 +18,30 @@ const containerStyle = { style: { background: 'white' } };
 const listingCardTemplate = (title, perUnit, price, distance) => (
   r(ListingCard,
     {
-      id: 'iuttei7538746tr',
-      title,
-      listingURL: 'http://marketplace.com/listing/342iu4',
-      imageURL: 'https://placehold.it/408x408',
-      image2xURL: 'https://placehold.it/816x816',
-      noImageText: 'No picture',
-      avatarURL: 'https://placehold.it/40x40',
-      profileURL: `#profile${Math.random(10)}`, // eslint-disable-line no-magic-numbers
-      price: price || toFixedNumber(Math.random() * 9999, 2), // eslint-disable-line no-magic-numbers
-      priceUnit: '€',
-      per: perUnit || '/ day',
-      distance: distance || Math.random() * (20000) + 0.01, // eslint-disable-line no-magic-numbers
-      distanceUnit: 'km',
       color: '#347F9D',
+      listing: new ListingModel({
+        id: 'lkjg84573874yjdf',
+        title,
+        images: new Immutable.List([new ImageRefs({
+          square: new Image({
+            url: 'https://placehold.it/408x408',
+          }),
+          square2x: new Image({
+            type: 'square2x',
+            width: 816,
+            height: 816,
+            url: 'https://placehold.it/816x816',
+          }),
+        })]),
+        listingURL: 'https://example.com/listing/342iu4',
+        avatarURL: 'https://placehold.it/40x40',
+        profileURL: `#profile${Math.random(10)}`, // eslint-disable-line no-magic-numbers
+        price: price || toFixedNumber(Math.random() * 9999, 2), // eslint-disable-line no-magic-numbers
+        priceUnit: '€',
+        per: perUnit || '/ day',
+        distance: distance || Math.random() * (20000) + 0.01, // eslint-disable-line no-magic-numbers
+        distanceUnit: 'km',
+      }),
     }
   )
 );

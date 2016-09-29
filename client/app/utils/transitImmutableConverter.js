@@ -1,17 +1,6 @@
 import transit from 'transit-js';
 import Immutable from 'immutable';
-
-export const Image = Immutable.Record({
-  type: ':square',
-  height: 408,
-  width: 408,
-  url: null,
-});
-
-const ImageRefs = Immutable.Record({
-  square: new Image(),
-  square2x: new Image(),
-});
+import { Image, ImageRefs } from '../models/ListingModel';
 
 const toImage = (data) => {
   const knownStyles = {
