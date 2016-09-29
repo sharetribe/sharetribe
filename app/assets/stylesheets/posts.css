@@ -1,3 +1,7 @@
-.blog-container .blog-post {
-	color: blue;	
+.blog-post {
+	width: 33%;
+  display: inline-block;
+}
+.blog-post img {
+  width: 80%;
 }
