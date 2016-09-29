@@ -2,12 +2,16 @@ import r from 'r-dom';
 import { combineReducers, applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import middleware from 'redux-thunk';
+import Immutable from 'immutable';
+
 import { initialize as initializeI18n } from '../utils/i18n';
 import { subset } from '../utils/routes';
 
 import reducers from '../reducers/reducersIndex';
 import SearchPageContainer from '../components/sections/SearchPage/SearchPageContainer';
 import { SearchPageModel } from '../components/sections/SearchPage/SearchPage';
+import { parse as parseListingModel } from '../models/ListingModel';
+import TransitImmutableConverter from '../utils/transitImmutableConverter';
 
 
 export default (props) => {
@@ -21,24 +25,23 @@ export default (props) => {
     'person',
   ], { locale });
 
+  const bootstrappedData = TransitImmutableConverter.fromJSON(props.data);
 
-  // This is commented out temporarily. We need to handle new data types before
-  // this can pass the bootsrapped data forward to components.
-  //
-  // import TransitImmutableConverter from '../utils/transitImmutableConverter';
-  // const bootstrappedData = TransitImmutableConverter.fromJSON(props.data);
-  // const searchPage = new SearchPageModel({
-  //   currentPage: bootstrappedData.get(':data').map((l) => l.get(':id')),
-  //   listings: bootstrappedData
-  //     .get(':data')
-  //     .map((l) => new ListingModel({
-  //       id: l.get(':id'),
-  //       title: l.get(':attributes').get(':title'),
-  //     }))
-  //     .toSet(),
-  // });
+  const listingsToMap = (listings) =>
+    listings.reduce((acc, val) => {
+      const listing = parseListingModel(val);
+      return acc.set(listing.id, listing);
+    }, new Immutable.Map());
 
-  const combinedProps = Object.assign({}, { searchPage: new SearchPageModel() }, { routes });
+  const rawListings = bootstrappedData
+    .get(':data');
+
+  const searchPage = new SearchPageModel({
+    currentPage: rawListings.map((l) => l.get(':id')),
+    listings: listingsToMap(rawListings),
+  });
+
+  const combinedProps = Object.assign({}, { searchPage }, { routes });
   const combinedReducer = combineReducers(reducers);
 
   const store = applyMiddleware(middleware)(createStore)(combinedReducer, combinedProps);

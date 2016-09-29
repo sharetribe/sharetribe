@@ -22,6 +22,7 @@ module ListingIndexService::Search
         res = @conn.get do |req|
           req.url(path_base, format_params(search.merge({marketplace_id: community_id})))
           req.headers['Authorization'] = "apikey key=#{API_KEY}"
+          req.headers['Accept'] = "application/transit+json"
         end
         result = res.body
         Result::Success.new(result)

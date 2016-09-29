@@ -4,11 +4,14 @@ import Immutable from 'immutable';
 
 import css from './SearchPage.css';
 
+const listingsByIds = (listings, ids) =>
+  ids.map((id) => listings.get(id));
+
 class SearchPage extends Component {
 
   constructor(props, context) {
     super(props, context);
-    this.listings = [];
+    this.listings = listingsByIds(props.searchPage.listings, props.searchPage.currentPage) || [];
   }
 
   render() {
@@ -21,7 +24,7 @@ class SearchPage extends Component {
           div({ className: css.squareWrapper },
             img({
               className: css.thumbnail,
-              src: 'http://placehold.it/264x264',
+              src: l.images.getIn([0, 'square', 'url']),
             }),
           ),
           div({ className: css.info }, [
@@ -32,13 +35,6 @@ class SearchPage extends Component {
     ]);
   }
 }
-
-
-// These will change when DiscoveryAPI is ready
-export const ListingModel = Immutable.Record({
-  id: 'uuid',
-  title: 'Listing',
-});
 
 export const SearchPageModel = Immutable.Record({
   prevPage: new Immutable.List(),
