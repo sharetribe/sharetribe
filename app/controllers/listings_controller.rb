@@ -951,7 +951,7 @@ class ListingsController < ApplicationController
   # Create image sizes that might be missing
   # from a reopened listing
   def reprocess_missing_image_styles(listing)
-    listing.listing_images.pluck(:id).each { | image_id |
+    listing.listing_images.pluck(:id).each { |image_id|
       Delayed::Job.enqueue(CreateSquareImagesJob.new(image_id))
     }
   end
