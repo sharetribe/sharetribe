@@ -215,7 +215,7 @@ class TransactionsController < ApplicationController
              .or_else(nil)
 
     if resp
-      render :json => resp
+      render json: process_resp_to_json(resp)
     else
       head :not_found
     end
@@ -470,6 +470,22 @@ class TransactionsController < ApplicationController
       DateUtils.duration_nights(tx_params[:start_on], tx_params[:end_on])
     else
       tx_params[:quantity] || 1
+    end
+  end
+
+  def process_resp_to_json(resp)
+    if resp[:completed]
+      {
+        completed: true,
+        result: {
+          success: resp[:result][:success],
+          data: {
+            redirect_url: resp.dig(:result, :data, :redirect_url)
+          }
+        }
+      }
+    else
+      { completed: false }
     end
   end
 

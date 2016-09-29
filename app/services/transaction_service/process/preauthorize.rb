@@ -93,6 +93,16 @@ module TransactionService::Process
 
         booking_res.on_success {
           Transition.transition_to(tx[:id], :preauthorized)
+        }.rescue { |error_msg, data|
+          #
+          # The operation output is saved as YAML in database.
+          # Serializing/deserializing the Exception object causes issues,
+          # so we'll just convert the error to string
+          #
+
+          data[:error] = data[:error].to_s if data[:error].present?
+
+          Result::Error.new(error_msg, data)
         }
       end
     end
