@@ -96,12 +96,12 @@ const ListingCardImageError =
 
 const testPrice = function priceTest(card, mountedCard) {
   it('Should display formatted price', () => {
-    expect(mountedCard.text()).to.include(formatPrice(card.props.listing.get('price'), card.props.listing.get('priceUnit')));
+    expect(mountedCard.text()).to.include(formatPrice(card.props.listing.price, card.props.listing.priceUnit));
   });
 };
 const testDistance = function priceTest(card, mountedCard) {
   it('Should display formatted distance', () => {
-    expect(mountedCard.text()).to.include(formatDistance(card.props.listing.get('distance'), card.props.listing.get('distanceUnit')));
+    expect(mountedCard.text()).to.include(formatDistance(card.props.listing.distance, card.props.listing.distanceUnit));
   });
 };
 

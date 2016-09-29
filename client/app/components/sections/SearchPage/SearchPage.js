@@ -25,7 +25,7 @@ class SearchPage extends Component {
 
   listingProps(listing, color) {
     return {
-      key: `card_${listing.get('id')}`,
+      key: `card_${listing.id}`,
       color,
       listing,
     };

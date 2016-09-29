@@ -40,7 +40,7 @@ class ListingCard extends Component {
 
   clickHandler() {
     if (canUseDOM) {
-      window.location = this.props.listing.get('listingURL');
+      window.location = this.props.listing.listingURL;
     }
   }
 
@@ -50,18 +50,18 @@ class ListingCard extends Component {
     const imageURL = listing.images.getIn([0, 'square', 'url']);
     const image2xURL = listing.images.getIn([0, 'square2x', 'url']);
     const higherRes = image2xURL ? { srcSet: `${image2xURL} 2x` } : null;
-    const distanceFormatted = formatDistance(listing.get('distance'), listing.get('distanceUnit'));
-    const priceFormatted = formatPrice(listing.get('price'), listing.get('priceUnit'));
+    const distanceFormatted = formatDistance(listing.distance, listing.distanceUnit);
+    const priceFormatted = formatPrice(listing.price, listing.priceUnit);
 
     return div({
       className: classNames('ListingCard', css.listing, this.props.className),
-      'data-listing-id': listing.get('id'),
+      'data-listing-id': listing.id,
       onClick: this.clickHandler,
     }, [
       a({
         className: css.squareWrapper,
         style: { backgroundColor: `rgb(${tintedRGB.r}, ${tintedRGB.g}, ${tintedRGB.b})` },
-        href: listing.get('listingURL'),
+        href: listing.listingURL,
       }, imageURL && this.state.imageStatus !== 'failed' ?
         img({
           ...{
@@ -92,18 +92,18 @@ class ListingCard extends Component {
         div({
           className: css.avatarPosition,
         }, r(Avatar, {
-          url: listing.get('profileURL'),
-          image: listing.get('avatarURL'),
+          url: listing.profileURL,
+          image: listing.avatarURL,
           color: this.props.color,
         })),
         a({
           className: css.title,
-          href: listing.get('listingURL'),
+          href: listing.listingURL,
         }, [
           div({
             className: css.avatarSpacer,
           }),
-          listing.get('title'),
+          listing.title,
         ]),
         div({ className: css.footer }, [
           div({
@@ -111,8 +111,8 @@ class ListingCard extends Component {
             style: { color: this.props.color },
           }, [
             div({ className: css.price }, priceFormatted),
-            listing.get('per') ?
-              div({ className: css.per }, listing.get('per')) :
+            listing.per ?
+              div({ className: css.per }, listing.per) :
               null,
           ]),
           distanceFormatted ?
