@@ -31,7 +31,7 @@ class AvatarDropdown extends Component {
   handleBlur(event) {
     // FocusEvent is fired faster than the link elements native click handler
     // gets its own event. Therefore, we need to check the origin of this FocusEvent.
-    if (!this.profileDropdown.contains(event.relatedTarget)) {
+    if (this.state.isOpen && !this.profileDropdown.contains(event.relatedTarget)) {
       this.setState({ isOpen: false });// eslint-disable-line react/no-set-state
     }
   }
