@@ -71,7 +71,7 @@ class TransactionsController < ApplicationController
                                       unit: listing_model.unit_type&.to_sym)
 
 
-        TransactionService::Transaction.create(
+        transaction_service.create(
           {
             transaction: {
               community_id: @current_community.id,
@@ -123,7 +123,7 @@ class TransactionsController < ApplicationController
 
     transaction_conversation, role = m_participant.or_else { m_admin.or_else([]) }
 
-    tx = TransactionService::Transaction.get(community_id: @current_community.id, transaction_id: params[:id])
+    tx = transaction_service.get(community_id: @current_community.id, transaction_id: params[:id])
          .maybe()
          .or_else(nil)
 
@@ -163,6 +163,45 @@ class TransactionsController < ApplicationController
     }
   end
 
+  def created
+    proc_status = transaction_service.finalize_create(
+      community_id: @current_community.id,
+      transaction_id: params[:transaction_id],
+      force_sync: false)
+
+    if !proc_status[:success]
+      flash[:error] = t("error_messages.booking.booking_failed_payment_voided")
+      return redirect_to search_path
+    end
+
+    process_token = proc_status.dig(:data, :transaction_service_fields, :process_token)
+
+    if process_token.present?
+      # Operation was performed asynchronously
+
+      # We're using here the same PayPal spinner, although we could
+      # create a new one for TransactionService.
+      render "paypal_service/success", layout: false, locals: {
+        op_status_url: transaction_op_status_path(process_token),
+        redirect_url: transaction_finalize_processed_path(
+          process_token: process_token)
+      }
+    else
+      handle_finalize_proc_result(proc_status, transaction_id)
+    end
+  end
+
+  def finalize_processed
+    process_token = params[:process_token]
+
+    proc_status = transaction_process_tokens.get_status(UUIDTools::UUID.parse(process_token))
+    unless (proc_status[:success] && proc_status[:data][:completed])
+      return redirect_to error_not_found_path
+    end
+
+    handle_finalize_proc_result(proc_status[:data][:result])
+  end
+
   def transaction_op_status
     process_token = params[:process_token]
 
@@ -182,6 +221,12 @@ class TransactionsController < ApplicationController
     end
   end
 
+  #
+  # TODO
+  #
+  # Move this to CheckoutOrdersController
+  # This shouldn't be in TransactionService, it should be in PaypalService
+  #
   def paypal_op_status
     process_token = params[:process_token]
 
@@ -213,6 +258,19 @@ class TransactionsController < ApplicationController
   end
 
   private
+
+  def handle_finalize_proc_result(response)
+    response_data = response[:data] || {}
+
+    tx = transaction_service.query(response_data[:transaction_id])
+
+    if response[:success]
+      redirect_to person_transaction_path(person_id: @current_user.id, id: tx[:id])
+    else
+      flash[:error] = t("error_messages.booking.booking_failed_payment_voided")
+      redirect_to person_listing_path(person_id: @current_user.id, id: tx[:listing_id])
+    end
+  end
 
   def other_party(conversation)
     if @current_user.id == conversation[:other_person][:id]
@@ -413,5 +471,13 @@ class TransactionsController < ApplicationController
     else
       tx_params[:quantity] || 1
     end
+  end
+
+  def transaction_service
+    TransactionService::Transaction
+  end
+
+  def transaction_process_tokens
+    TransactionService::API::Api.process_tokens
   end
 end

@@ -115,6 +115,8 @@ Kassi::Application.routes.draw do
 
     get "/transactions/op_status/:process_token" => "transactions#paypal_op_status", as: :paypal_op_status
     get "/transactions/transaction_op_status/:process_token" => "transactions#transaction_op_status", :as => :transaction_op_status
+    get "/transactions/created/:transaction_id" => "transactions#created", as: :transaction_created
+    get "/transactions/finalize_processed/:process_token" => "transactions#finalize_processed", as: :transaction_finalize_processed
 
     # All new transactions (in the future)
     get "/transactions/new" => "transactions#new", as: :new_transaction

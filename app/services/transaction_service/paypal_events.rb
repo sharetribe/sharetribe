@@ -95,7 +95,10 @@ module TransactionService::PaypalEvents
   end
 
   def initiated_to_preauthorized(tx)
-    TransactionService::Transaction.finalize_create(community_id: tx[:community_id], transaction_id: tx[:id])
+    TransactionService::Transaction.finalize_create(
+      community_id: tx[:community_id],
+      transaction_id: tx[:id],
+      force_sync: false)
   end
 
   def preauthorized_to_paid(tx)
