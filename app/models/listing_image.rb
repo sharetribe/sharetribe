@@ -37,7 +37,9 @@ class ListingImage < ActiveRecord::Base
         :thumb => "120x120#",
         :original => "#{APP_CONFIG.original_image_width}x#{APP_CONFIG.original_image_height}>",
         :big => Proc.new { |instance| instance.crop_big },
-        :email => "150x100#"}
+        :email => "150x100#",
+        :square => "408x408#",
+        :square_2x => "816x816#"}
 
   before_save :set_dimensions!
 
@@ -58,6 +60,10 @@ class ListingImage < ActiveRecord::Base
       {width: 120, height: 120}
     when :email
       {width: 150, height: 100}
+    when :square
+      {width: 408, height: 408}
+    when :square_2x
+      {width: 816, height: 816}
     when :original, :big
       raise NotImplementedError.new("This feature is not implemented yet for style: #{style}")
     else
