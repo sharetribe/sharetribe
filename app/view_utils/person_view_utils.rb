@@ -4,8 +4,12 @@ module PersonViewUtils
   # This method is an adapter to `display_name` method.
   # Makes the use easier by allowing Person and Community models as parameters
   def person_display_name(person, community)
+    person_display_names(person, community).join(" ")
+  end
+
+  def person_display_names(person, community)
     if person.nil?
-      display_name(
+      names(
         first_name: nil,
         last_name: nil,
         username: nil,
@@ -14,7 +18,7 @@ module PersonViewUtils
         deleted_user_text: I18n.translate("common.removed_user")
       )
     else
-      display_name(
+      names(
         first_name: person.given_name,
         last_name: person.family_name,
         username: person.username,
@@ -30,8 +34,12 @@ module PersonViewUtils
   # This is another adapter to `display_name`.
   # It accepts person entity
   def person_entity_display_name(person_entity, name_display_type)
+    person_entity_display_names(person_entity, name_display_type).join(" ")
+  end
+
+  def person_entity_display_names(person_entity, name_display_type)
     if person_entity.nil?
-      display_name(
+      names(
         first_name: nil,
         last_name: nil,
         username: nil,
@@ -40,7 +48,7 @@ module PersonViewUtils
         deleted_user_text: I18n.translate("common.removed_user")
       )
     else
-      display_name(
+      names(
         first_name: person_entity[:first_name],
         last_name: person_entity[:last_name],
         username: person_entity[:username],
@@ -51,40 +59,57 @@ module PersonViewUtils
     end
   end
 
+  def names(
+        first_name:,
+        last_name:,
+        username:,
+        name_display_type:,
+        is_deleted:,
+        deleted_user_text:
+        )
+    name_present = first_name.present?
+
+    case [is_deleted, name_present, name_display_type]
+    when matches([true])
+      [deleted_user_text]
+    when matches([__, true, "first_name_with_initial"])
+      first_name_with_initial(first_name, last_name)
+    when matches([__, true, "first_name_only"])
+      [first_name]
+    when matches([__, true, "full_name"])
+      full_name(first_name, last_name)
+    when matches([__, true])
+      first_name_with_initial(first_name, last_name)
+    else
+      [username]
+    end
+  end
+
   def display_name(
         first_name:,
         last_name:,
         username:,
         name_display_type:,
         is_deleted:,
-        deleted_user_text:)
-    name_present = first_name.present?
-
-    case [is_deleted, name_present, name_display_type]
-    when matches([true])
-      deleted_user_text
-    when matches([__, true, "first_name_with_initial"])
-      first_name_with_initial(first_name, last_name)
-    when matches([__, true, "first_name_only"])
-      first_name
-    when matches([__, true, "full_name"])
-      full_name(first_name, last_name)
-    when matches([__, true])
-      first_name_with_initial(first_name, last_name)
-    else
-      username
-    end
+        deleted_user_text:
+        )
+    names(first_name: first_name,
+          last_name: last_name,
+          username: username,
+          name_display_type: name_display_type,
+          is_deleted: is_deleted,
+          deleted_user_text: deleted_user_text).join(" ")
   end
 
   def full_name(first_name, last_name)
-    "#{first_name} #{last_name}"
+    [first_name.to_s, last_name.to_s]
   end
 
   def first_name_with_initial(first_name, last_name)
     if last_name.present?
-      "#{first_name} #{last_name[0, 1]}"
+      [first_name.to_s, last_name[0, 1].to_s]
     else
-      first_name
+      [first_name]
     end
   end
 end

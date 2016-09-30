@@ -22,6 +22,8 @@ module TopbarHelper
       }
     })
 
+    given_name, family_name = *PersonViewUtils.person_display_names(user, community)
+
     {
       logo: {
         href: PathHelpers.landing_page_path(
@@ -46,8 +48,10 @@ module TopbarHelper
       locales: landing_page ? nil : locale_props(community, I18n.locale, path_after_locale_change),
       avatarDropdown: {
         avatar: {
-          image: user&.image.present? ? user.image.url(:thumb) : missing_profile_image_path(),
-        }
+          image: user&.image.present? ? user.image.url(:thumb) : nil,
+          givenName: given_name,
+          familyName: family_name,
+        },
       },
       newListingButton: {
         text: I18n.t("homepage.index.post_new_listing"),

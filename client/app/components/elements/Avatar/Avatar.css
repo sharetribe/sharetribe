@@ -6,4 +6,14 @@
 .link {
   display: inline-block;
   height: 100%;
+  width: 100%;
+}
+
+.textAvatar {
+  width: 100%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--Avatar_textColor);
 }

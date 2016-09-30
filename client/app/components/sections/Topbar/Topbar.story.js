@@ -92,6 +92,8 @@ const baseProps = {
     },
     avatar: {
       image: 'https://www.gravatar.com/avatar/d0865b2133d55fd507639a0fd1692b9a',
+      givenName: 'First',
+      familyName: 'Last',
     },
   },
   newListingButton: {
@@ -154,12 +156,17 @@ const hasLogo = (component) => {
   });
 };
 
+const hasUserInitials = (component) => {
+  it('should show user initials', () => {
+    expect(component.find('.AvatarDropdown').text()).to.contain('FL');
+  });
+};
+
 storiesOf('Top bar')
   .add('Basic state', () => (
     topbarWithSpecs(baseProps, (component) => {
       specs(() => describe('Basic topbar', () => {
         noLoginLinks(component);
-        it('should have stuff in place');
       }));
     })))
   .add('Empty state', () => (
@@ -178,6 +185,21 @@ storiesOf('Top bar')
     })))
   .add('Logged out', () => (
     storifyTopbar(loggedOut(baseProps))))
+  .add('User without profile picture', () => (
+    topbarWithSpecs({
+      ...baseProps,
+      avatarDropdown: {
+        ...baseProps.avatarDropdown,
+        avatar: {
+          ...baseProps.avatarDropdown.avatar,
+          image: null,
+        },
+      },
+    }, (component) => {
+      specs(() => describe('User without profile picture', () => {
+        hasUserInitials(component);
+      }));
+    })))
   .add('Text logo', () => (
     storifyTopbar({ ...baseProps, logo: {
       href: 'http://example.com',
