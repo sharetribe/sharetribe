@@ -7,6 +7,7 @@
 
 require 'transit'
 require 'active_support/json'
+require 'uuidtools'
 
 describe ServiceClient::Middleware::BodyEncoder do
 
