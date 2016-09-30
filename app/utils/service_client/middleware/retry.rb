@@ -18,15 +18,15 @@ module ServiceClient
 
       def leave(ctx)
         if leave_needs_retry?(ctx)
-          retry_context(ctx)
+          retry_leave_context(ctx)
         else
           ctx
         end
       end
 
       def error(ctx)
-        if error_needs_retry?
-          retry_context(ctx)
+        if error_needs_retry?(ctx)
+          retry_error_context(ctx)
         else
           ctx
         end
@@ -49,9 +49,16 @@ module ServiceClient
         ctx[:req][:attempts] >= max_attempts
       end
 
-      def retry_context(ctx)
+      def retry_leave_context(ctx)
         ctx[:enter_queue] = ctx[:complete_stack].reverse
         ctx[:complete_stack] = []
+        ctx
+      end
+
+      def retry_error_context(ctx)
+        ctx[:enter_queue] = ctx[:complete_stack].reverse
+        ctx[:complete_stack] = []
+        ctx[:error] = nil
         ctx
       end
     end

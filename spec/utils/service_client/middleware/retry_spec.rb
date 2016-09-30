@@ -82,4 +82,24 @@ describe ServiceClient::Middleware::Retry do
     end
 
   end
+
+  describe "#error" do
+
+    it "retries and removes the error if unsuccessful" do
+      new_ctx = mw.error(req: { attempts: 1 },
+                         res: { success: false },
+                         error: ArgumentError.new("Some error"),
+                         opts: {},
+                         enter_queue: [],
+                         complete_stack: [1, 2, 3])
+
+      expect(new_ctx).to eq(req: { attempts: 1 },
+                            res: { success: false },
+                            error: nil,
+                            opts: {},
+                            enter_queue: [3, 2, 1],
+                            complete_stack: [])
+
+    end
+  end
 end
