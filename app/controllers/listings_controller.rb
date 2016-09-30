@@ -509,6 +509,9 @@ class ListingsController < ApplicationController
         marketplaceId: community_uuid,
         refId: listing_uuid,
         authorId: author_uuid
+      },
+      opts: {
+        max_attempts: 3
       })
 
     if !res[:success] && res[:data][:status] == 409
