@@ -27,19 +27,12 @@ class PaypalService::CheckoutOrdersController < ApplicationController
       return redirect_to search_path
     end
 
-    if proc_status[:data][:process_token].present?
-      # Operation was performed asynchronously
-
-      render "paypal_service/success", layout: false, locals: {
-        op_status_url: paypal_op_status_path(proc_status[:data][:process_token]),
-        redirect_url: success_processed_paypal_service_checkout_orders_path(
-          process_token: proc_status[:data][:process_token],
-          listing_id: transaction[:listing_id])
-      }
-    else
-      handle_proc_result(proc_status, transaction[:listing_id])
-    end
-
+    render "paypal_service/success", layout: false, locals: {
+             op_status_url: paypal_op_status_path(proc_status[:data][:process_token]),
+             redirect_url: success_processed_paypal_service_checkout_orders_path(
+               process_token: proc_status[:data][:process_token],
+               listing_id: transaction[:listing_id])
+           }
   end
 
   def success_processed
