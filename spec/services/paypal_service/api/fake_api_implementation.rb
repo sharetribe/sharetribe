@@ -16,7 +16,7 @@ module PaypalService
       end
 
       def payments
-        @payments ||= build_test_payments(allow_async: true, events: events)
+        @payments ||= build_test_payments(events: events)
       end
 
       def billing_agreements
@@ -67,12 +67,11 @@ module PaypalService
         PaypalService::TestEvents.new
       end
 
-      def build_test_payments(allow_async: true, events:)
+      def build_test_payments(events:)
         payments = PaypalService::API::Payments.new(
           events,
           test_merchant,
-          PaypalService::TestLogger.new,
-          allow_async: allow_async)
+          PaypalService::TestLogger.new)
       end
 
       def build_test_accounts(prepend_country_code: false)

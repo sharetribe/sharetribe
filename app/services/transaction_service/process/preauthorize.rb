@@ -12,7 +12,7 @@ module TransactionService::Process
     def create(tx:, gateway_fields:, gateway_adapter:, force_sync:)
       Transition.transition_to(tx[:id], :initiated)
 
-      if use_async?(force_sync, gateway_adapter)
+      if !force_sync
         proc_token = Worker.enqueue_preauthorize_op(
           community_id: tx[:community_id],
           transaction_id: tx[:id],
@@ -41,7 +41,7 @@ module TransactionService::Process
     def finalize_create(tx:, gateway_adapter:, force_sync:)
       ensure_can_execute!(tx: tx, allowed_states: [:initiated, :preauthorized])
 
-      if use_async?(force_sync, gateway_adapter)
+      if !force_sync
         proc_token = Worker.enqueue_preauthorize_op(
           community_id: tx[:community_id],
           transaction_id: tx[:id],
@@ -209,10 +209,6 @@ module TransactionService::Process
                                               process_token: proc_token[:process_token],
                                               completed: proc_token[:op_completed],
                                               result: proc_token[:op_output]}))
-    end
-
-    def use_async?(force_sync, gw_adapter)
-      !force_sync && gw_adapter.allow_async?
     end
 
     def logger

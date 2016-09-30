@@ -32,9 +32,5 @@ module TransactionService::Gateway
     def get_payment_details(tx:)
       raise InterfaceMethodNotImplementedError.new
     end
-
-    def allow_async?
-      raise InterfaceMethodNotImplementedError.new
-    end
   end
 end
