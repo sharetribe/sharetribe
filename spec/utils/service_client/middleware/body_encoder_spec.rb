@@ -43,11 +43,22 @@ describe ServiceClient::Middleware::BodyEncoder do
 
       let(:encoder) { body_encoder.new(:transit_json) }
 
-      it "#enter" do
-        ctx = encoder.enter(req: { body: {a: 1}, headers: {}})
+      describe "#enter" do
 
-        expect(TransitUtils.decode(ctx[:req][:body], :json)).to eq({a: 1})
-        expect_headers(ctx, "application/transit+json")
+        it "encodes the body" do
+          ctx = encoder.enter(req: { body: {a: 1}, headers: {}})
+
+          expect(TransitUtils.decode(ctx[:req][:body], :json)).to eq({a: 1})
+          expect_headers(ctx, "application/transit+json")
+        end
+
+        it "is idempotent" do
+          ctx_one = encoder.enter(req: { body: {a: 1}, headers: {}})
+          ctx_two = encoder.enter(encoder.enter(req: { body: {a: 1}, headers: {}}))
+
+          expect(ctx_two).to eq(ctx_one)
+        end
+
       end
 
       it "#leave" do
