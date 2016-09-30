@@ -28,11 +28,6 @@ export default (props) => {
 
   const bootstrappedData = TransitImmutableConverter.fromJSON(props.data);
 
-  const listingWithAuthor = (listing, profiles) => {
-    const author = profiles.get(listing.authorId);
-    return listing.set('author', author);
-  };
-
   const profilesToMap = (includes) =>
     includes.reduce((acc, val) => {
       const type = val.get(':type');
@@ -45,22 +40,23 @@ export default (props) => {
       }
     }, new Immutable.Map());
 
-  const listingsToMap = (listings, profiles) =>
+  const listingsToMap = (listings) =>
     listings.reduce((acc, val) => {
-      const listing = listingWithAuthor(parseListingModel(val), profiles);
+      const listing = parseListingModel(val);
       return acc.set(listing.id, listing);
     }, new Immutable.Map());
 
   const rawListings = bootstrappedData
     .get(':data');
 
+  const listings = listingsToMap(rawListings);
   const profiles = profilesToMap(bootstrappedData.get(':included'));
+
   const searchPage = new SearchPageModel({
     currentPage: rawListings.map((l) => l.get(':id')),
-    listings: listingsToMap(rawListings, profiles),
   });
 
-  const combinedProps = Object.assign({}, { marketplace: props.marketplace }, { searchPage, routes });
+  const combinedProps = Object.assign({}, { marketplace: props.marketplace }, { searchPage, routes, listings, profiles });
   const combinedReducer = combineReducers(reducers);
 
   const store = applyMiddleware(middleware)(createStore)(combinedReducer, combinedProps);

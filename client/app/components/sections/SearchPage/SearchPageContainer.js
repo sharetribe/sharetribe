@@ -19,9 +19,16 @@ SearchPageContainer.propTypes = {
   routes: ownPropTypes.routes,
 };
 
+const listingsWithAuthors = (listings, profiles) =>
+  listings.map((listing) => {
+    const author = profiles.get(listing.authorId);
+    return listing.set('author', author);
+  });
+
 const mapStateToProps = function mapStateToProps(state) {
+  const l = listingsWithAuthors(state.listings, state.profiles);
   return {
-    searchPage: state.searchPage,
+    searchPage: state.searchPage.set('listings', l),
     marketplace: state.marketplace,
     routes: state.routes,
   };
