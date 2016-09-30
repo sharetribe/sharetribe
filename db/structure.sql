@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.6.32, for osx10.10 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.32, for osx10.11 (x86_64)
 --
 -- Host: 127.0.0.1    Database: sharetribe_development
 -- ------------------------------------------------------
@@ -1586,7 +1586,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-28 11:10:16
+-- Dump completed on 2016-09-29 14:49:16
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3145,7 +3145,11 @@ INSERT INTO schema_migrations (version) VALUES ('20160921130544');
 
 INSERT INTO schema_migrations (version) VALUES ('20160926111847');
 
+INSERT INTO schema_migrations (version) VALUES ('20160928064340');
+
 INSERT INTO schema_migrations (version) VALUES ('20160928080048');
 
 INSERT INTO schema_migrations (version) VALUES ('20160928080819');
+
+INSERT INTO schema_migrations (version) VALUES ('20160929114326');
 
