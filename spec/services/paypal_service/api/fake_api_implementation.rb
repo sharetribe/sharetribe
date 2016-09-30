@@ -16,7 +16,7 @@ module PaypalService
       end
 
       def payments
-        @payments ||= build_test_payments(allow_async: false, events: events)
+        @payments ||= build_test_payments(allow_async: true, events: events)
       end
 
       def billing_agreements
