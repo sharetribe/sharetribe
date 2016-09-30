@@ -89,15 +89,11 @@ class ContextRunner
 
   def execute_enter(ctx, mw)
     try_execute_mw(ctx, mw.class.name, :enter) do
-      new_ctx =
-        if mw.respond_to?(:enter)
-          mw.enter(ctx)
-        else
-          ctx
-        end
-
-      new_ctx[:leave_stack].unshift(mw)
-      new_ctx
+      if mw.respond_to?(:enter)
+        mw.enter(ctx)
+      else
+        ctx
+      end
     end
   end
 
@@ -131,6 +127,8 @@ class ContextRunner
       [new_ctx, mw, :error]
     elsif !new_ctx[:enter_queue].empty?
       mw = new_ctx[:enter_queue].pop
+      new_ctx[:leave_stack].unshift(mw)
+
       [new_ctx, mw, :enter]
     else
       mw = new_ctx[:leave_stack].shift
