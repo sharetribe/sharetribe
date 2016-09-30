@@ -3,7 +3,7 @@
 module PaypalService::API
   Api =
     if Rails.env.test?
-      FakeApiImplementation
+      FakeApiImplementation.new(FakePalPStore.new("tmp/test_fakepal.store"))
     else
       ApiImplementation
     end

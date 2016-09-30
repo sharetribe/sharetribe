@@ -40,6 +40,8 @@ prefork = lambda {
   require "email_spec"
 
   # Require a fake implementation of the Paypal service
+  require_relative './services/paypal_service/api/fake_pal_store'
+  require_relative './services/paypal_service/api/fake_pal_pstore'
   require_relative './services/paypal_service/api/fake_api_implementation'
 
   # Requires supporting files with custom matchers and macros, etc,
