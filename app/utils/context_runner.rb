@@ -112,7 +112,8 @@ class ContextRunner
   end
 
   def execute_error(ctx, mw)
-    try_execute_mw(ctx, mw.class.name, :exit) do
+    try_execute_mw(ctx, mw.class.name, :error) do
+
       if mw.respond_to?(:error)
         mw.error(ctx)
       else
