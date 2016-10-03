@@ -187,6 +187,8 @@ To update your local database schema to the newest version, run database migrati
 
 Tests are handled by [RSpec](http://rspec.info/) for unit tests and [Cucumber](https://cucumber.io/) for acceptance tests.
 
+Remember to follow *all* the steps listed in the [Setting up the development environment](#setting-up-the-development-environment) paragraph before running tests because some tests depend on webpack assets.
+
 1. Navigate to the root directory of the sharetribe project
 1. Initialize your test database:
 
