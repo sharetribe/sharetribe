@@ -291,7 +291,7 @@ en-NZ:
           rejected: ~
           paid: ~
           confirmed: ~
-          canceled: ~
+          canceled: Cancelled
           initiated: ~
           pending_ext: ~
         not_available: ~
@@ -575,8 +575,8 @@ en-NZ:
       rejected_offer: ~
       confirmed_request: ~
       confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
+      canceled_request: "Order cancelled."
+      canceled_offer: "Offer cancelled."
       message_from: ~
       about_listing: ~
       free_message: ~
@@ -585,12 +585,12 @@ en-NZ:
       accepted_request: ~
       received_payment: ~
       accepted_offer: ~
-      rejected_request: ~
+      rejected_request: "rejected the request, cancelled the payment"
       rejected_offer: ~
       confirmed_request: ~
       confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
+      canceled_request: "cancelled the order"
+      canceled_offer: "cancelled the offer"
       paid: ~
       payment_preauthorized: ~
     new:
@@ -629,7 +629,7 @@ en-NZ:
       give_feedback: ~
       offer_accepted: ~
       offer_rejected: ~
-      offer_canceled: ~
+      offer_canceled: Cancelled
       offer_confirmed: ~
       offer_paid: ~
       offer_preauthorized: ~
@@ -647,7 +647,7 @@ en-NZ:
       request_accepted: ~
       request_rejected: ~
       request_confirmed: ~
-      request_canceled: ~
+      request_canceled: Cancelled
       request_paid: ~
       request_preauthorized: ~
       skip_feedback: ~
@@ -716,7 +716,7 @@ en-NZ:
       create_own: ~
       learn_more: ~
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: ~
+      you_have_not_yet_confirmed_or_canceled_request: "You have not yet confirmed or cancelled the order %{request_link}. If the order has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}"
       remember_to_confirm_request: ~
       if_will_not_happen_you_should_cancel: ~
       cancel_it_link_text: ~
@@ -731,7 +731,7 @@ en-NZ:
       request_marked_as_confirmed: ~
       request_marked_as_canceled: ~
       has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      has_marked_request_as_canceled: "%{other_party_full_name} has cancelled the order about '%{request}'. You can still give feedback to %{other_party_given_name}."
       giving_feedback_is_good_idea: ~
       give_feedback_to: ~
     transaction_automatically_confirmed:
@@ -1224,13 +1224,13 @@ en-NZ:
       offer_closed: ~
       listing_created_successfully: ~
       offer_rejected: ~
-      offer_canceled: ~
+      offer_canceled: "Offer cancelled"
       listing_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: ~
       only_listing_author_can_edit_a_listing: ~
       payment_successful: ~
-      payment_canceled: ~
+      payment_canceled: "Payment cancelled"
       error_in_payment: ~
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
@@ -1252,7 +1252,7 @@ en-NZ:
       request_accepted: ~
       request_confirmed: ~
       request_rejected: ~
-      request_canceled: ~
+      request_canceled: "Order cancelled"
       message_sent: ~
       message_not_sent: ~
       this_content_is_not_available_in_this_community: ~
@@ -1637,7 +1637,7 @@ en-NZ:
       permissions_not_granted: ~
       could_not_fetch_redirect_url: ~
       paypal_not_enabled: ~
-      billing_agreement_canceled: ~
+      billing_agreement_canceled: "The billing agreement was cancelled"
       billing_agreement_not_accepted: ~
       billing_agreement_wrong_account: ~
       something_went_wrong: ~
@@ -1657,7 +1657,7 @@ en-NZ:
   paypal:
     pay_with_paypal: ~
     checkout_with_paypal: ~
-    cancel_succesful: ~
+    cancel_succesful: "PayPal payment succesfully cancelled"
     transaction:
       commission_payment_name: ~
       commission_payment_description: ~

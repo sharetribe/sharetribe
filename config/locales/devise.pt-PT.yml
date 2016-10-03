@@ -14,37 +14,37 @@ pt-PT:
       unauthenticated: "Precisa fazer login ou registar-se antes de continuar."
       unconfirmed: "Deve confirmar a sua conta antes de continuar."
       locked: "A sua conta está bloqueada."
-      invalid: "E-mail ou palavra-passe inválidos."
+      invalid: "Email ou palavra-passe inválidos."
       invalid_token: "Dados de autenticação inválidos."
       timeout: "A sua sessão expirou. Por favor autentique-se novamente para continuar."
       inactive: "A sua conta ainda não foi ativada."
     passwords:
       updated_not_active: "A sua palavra-passe foi alterada com sucesso."
-      send_paranoid_instructions: "Se o seu e-mail existir na nossa base de dados, receberá por email um link para recuperação da palavra-passe."
-      send_instructions: "Receberá um e-mail com instruções sobre como redefinir a sua palavra-passe, dentro de alguns minutos."
+      send_paranoid_instructions: "Se o seu email existir na nossa base de dados, receberá por email um link para recuperação da palavra-passe."
+      send_instructions: "Receberá um email com instruções sobre como redefinir a sua palavra-passe, dentro de alguns minutos."
       updated: "A sua palavra-passe foi alterada com sucesso. Já está conectado."
     sessions:
       signed_in: "Sessão iniciada com sucesso."
       signed_out: "Sessão encerrada com sucesso."
     confirmations:
-      send_paranoid_instructions: "Se o seu e-mail existir na nossa basede dados, receberá um e-mail com instruções sobre como confirmar a sua conta dentro de poucos minutos."
+      send_paranoid_instructions: "Se o seu email existir na nossa base de dados, receberá um email com instruções sobre como confirmar a sua conta dentro de poucos minutos."
       send_instructions: "Receberá um e-mail com instruções sobre como confirmar a sua conta dentro de poucos minutos."
       confirmed: "A sua conta foi confirmada com sucesso."
     registrations:
-      signed_up_but_unconfirmed: "Uma mensagem com um link de confirmação foi enviada para o seu endereço de e-mail. Por favor, abra o link para ativar a sua conta."
+      signed_up_but_unconfirmed: "Foi enviada para o seu endereço de email uma mensagem com um link de confirmação. Por favor, abra o link para ativar a sua conta."
       signed_up_but_inactive: "Inscreveu-se com sucesso. No entanto, não poderá entrar porque a sua conta ainda não foi ativada."
       signed_up_but_locked: "Inscreveu-se com sucesso. No entanto, não poderá entrar porque a sua conta está bloqueada."
       reasons:
         inactive: inativo
         unconfirmed: "não confirmado"
         locked: bloqueado
-      update_needs_confirmation: "Atualizou a sua conta com êxito, mas precisamos verificar o seu novo endereço de e-mail. Por favor verifique o seu e-mail e clique no link para finalizar a confirmação do seu novo endereço de e-mail."
+      update_needs_confirmation: "Atualizou a sua conta com êxito, mas precisamos de verificar o seu novo endereço de email. Por favor verifique o seu email e clique no link para finalizar a confirmação do seu novo endereço de email."
       signed_up: "Bem-vindo(a)! Registo efetuado com sucesso."
       updated: "Conta atualizada com sucesso."
       destroyed: "A sua conta foi cancelada com sucesso. Esperamos vê-lo(a) novamente em breve."
     unlocks:
-      send_paranoid_instructions: "Se a sua conta existir, receberá um e-mail com instruções sobre como desbloqueá-la dentro de poucos minutos."
-      send_instructions: "Receberá um e-mail com instruções sobre como desbloquear a sua conta dentro de alguns minutos."
+      send_paranoid_instructions: "Se a sua conta existir, receberá um email com instruções sobre como desbloqueá-la dentro de poucos minutos."
+      send_instructions: "Receberá um email com instruções sobre como desbloquear a sua conta dentro de alguns minutos."
       unlocked: "A sua conta foi desbloqueada com sucesso. Por favor, conecte-se para continuar."
     omniauth_callbacks:
       success: "Autorizado com sucesso para a conta %{kind} ."
