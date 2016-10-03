@@ -13,6 +13,7 @@ module ServiceClient
       def enter(ctx)
         attempts = ctx[:req][:attempts] || 0
         ctx[:req][:attempts] = attempts + 1
+        ctx[:retry_queue] = build_retry_queue(ctx)
         ctx
       end
 
@@ -34,6 +35,12 @@ module ServiceClient
 
       private
 
+      def build_retry_queue(ctx)
+        # Add also `self` to the queue, because we want the Retry
+        # middleware to be in the retry queue.
+        ctx.fetch(:enter_queue).dup + [self]
+      end
+
       def leave_needs_retry?(ctx)
         !max_attempts?(ctx) && !ctx.fetch(:res).fetch(:success)
       end
@@ -50,14 +57,12 @@ module ServiceClient
       end
 
       def retry_leave_context(ctx)
-        ctx[:enter_queue] = ctx[:complete_stack].reverse
-        ctx[:complete_stack] = []
+        ctx[:enter_queue] = ctx[:retry_queue]
         ctx
       end
 
       def retry_error_context(ctx)
-        ctx[:enter_queue] = ctx[:complete_stack].reverse
-        ctx[:complete_stack] = []
+        ctx[:enter_queue] = ctx[:retry_queue]
         ctx[:error] = nil
         ctx
       end

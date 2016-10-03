@@ -12,13 +12,19 @@ describe ServiceClient::Middleware::Retry do
   describe "#enter" do
 
     it "initializes attempts" do
-      ctx = mw.enter(req: {})
+      ctx = mw.enter(req: {}, enter_queue: [])
       expect(ctx[:req][:attempts]).to eq(1)
     end
 
     it "increments attempts" do
-      ctx = mw.enter(req: { attempts: 2})
+      ctx = mw.enter(req: { attempts: 2}, enter_queue: [])
       expect(ctx[:req][:attempts]).to eq(3)
+    end
+
+    it "copies the enter_queue to retry_queue" do
+      ctx = mw.enter(req: {}, enter_queue: [:mw1, :mw2])
+      expect(ctx[:enter_queue]).to eq([:mw1, :mw2])
+      expect(ctx[:retry_queue]).to eq([:mw1, :mw2, mw])
     end
   end
 
@@ -29,13 +35,13 @@ describe ServiceClient::Middleware::Retry do
                          res: { success: true },
                          opts: {},
                          enter_queue: [],
-                         complete_stack: [1, 2, 3])
+                         retry_queue: [1, 2, 3])
 
       expect(new_ctx).to eq(req: { attempts: 1},
                             res: { success: true },
                             opts: {},
                             enter_queue: [],
-                            complete_stack: [1, 2, 3])
+                            retry_queue: [1, 2, 3])
     end
 
     it "retries if unsuccessful" do
@@ -43,13 +49,13 @@ describe ServiceClient::Middleware::Retry do
                          res: { success: false },
                          opts: {},
                          enter_queue: [],
-                         complete_stack: [1, 2, 3])
+                         retry_queue: [1, 2, 3])
 
       expect(new_ctx).to eq(req: { attempts: 1 },
                             res: { success: false },
                             opts: {},
-                            enter_queue: [3, 2, 1],
-                            complete_stack: [])
+                            enter_queue: [1, 2, 3],
+                            retry_queue: [1, 2, 3])
 
     end
 
@@ -58,13 +64,13 @@ describe ServiceClient::Middleware::Retry do
                          res: { success: false },
                          opts: {},
                          enter_queue: [],
-                         complete_stack: [1, 2, 3])
+                         retry_queue: [1, 2, 3])
 
       expect(new_ctx).to eq(req: { attempts: 3 },
                             res: { success: false },
                             opts: {},
                             enter_queue: [],
-                            complete_stack: [1, 2, 3])
+                            retry_queue: [1, 2, 3])
     end
 
     it "doesn't retry if max number of attempts (from opts) has been made" do
@@ -72,13 +78,13 @@ describe ServiceClient::Middleware::Retry do
                          res: { success: false },
                          opts: { max_attempts: 5 },
                          enter_queue: [],
-                         complete_stack: [1, 2, 3])
+                         retry_queue: [1, 2, 3])
 
       expect(new_ctx).to eq(req: { attempts: 5 },
                             res: { success: false },
                             opts: { max_attempts: 5 },
                             enter_queue: [],
-                            complete_stack: [1, 2, 3])
+                            retry_queue: [1, 2, 3])
     end
 
   end
@@ -91,14 +97,14 @@ describe ServiceClient::Middleware::Retry do
                          error: ArgumentError.new("Some error"),
                          opts: {},
                          enter_queue: [],
-                         complete_stack: [1, 2, 3])
+                         retry_queue: [1, 2, 3])
 
       expect(new_ctx).to eq(req: { attempts: 1 },
                             res: { success: false },
                             error: nil,
                             opts: {},
-                            enter_queue: [3, 2, 1],
-                            complete_stack: [])
+                            enter_queue: [1, 2, 3],
+                            retry_queue: [1, 2, 3])
 
     end
   end
