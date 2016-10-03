@@ -7,6 +7,7 @@ HarmonyClient = ServiceClient::Client.new(
     query_timeslots: "/timeslots/query"
   },
   [
+    ServiceClient::Middleware::Retry.new,
     ServiceClient::Middleware::RequestID.new,
     ServiceClient::Middleware::Timeout.new,
     ServiceClient::Middleware::Logger.new,

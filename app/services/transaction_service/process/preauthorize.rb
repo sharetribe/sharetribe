@@ -78,6 +78,9 @@ module TransactionService::Process
                   initialStatus: :paid,
                   start: tx[:booking][:start_on],
                   end: end_adjusted
+                },
+                opts: {
+                  max_attempts: 3
                 }).on_error { |error_msg, data|
                 logger.error("Failed to initiate booking", :failed_initiate_booking, tx.slice(:community_id, :id).merge(error_msg: error_msg))
 
