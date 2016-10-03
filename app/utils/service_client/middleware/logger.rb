@@ -43,7 +43,7 @@ module ServiceClient
         {
           req: ctx[:req],
           res: ctx[:res],
-          error: ctx[:error],
+          error: ctx[:error].to_s,
         }.merge(timing(ctx))
       end
 

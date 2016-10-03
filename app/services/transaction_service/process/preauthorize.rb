@@ -1,7 +1,9 @@
+# coding: utf-8
 module TransactionService::Process
   Gateway = TransactionService::Gateway
   Worker = TransactionService::Worker
   ProcessStatus = TransactionService::DataTypes::ProcessStatus
+  DataTypes = TransactionService::DataTypes::Transaction
 
   class Preauthorize
 
@@ -32,8 +34,81 @@ module TransactionService::Process
         force_sync: true)
 
       Gateway.unwrap_completion(completion) do
-        Transition.transition_to(tx[:id], :preauthorized)
+        finalize_create(tx: tx, gateway_adapter: gateway_adapter, force_sync: true)
       end
+    end
+
+    def finalize_create(tx:, gateway_adapter:, force_sync:)
+      ensure_can_execute!(tx: tx, allowed_states: [:initiated, :preauthorized])
+
+      if use_async?(force_sync, gateway_adapter)
+        proc_token = Worker.enqueue_preauthorize_op(
+          community_id: tx[:community_id],
+          transaction_id: tx[:id],
+          op_name: :do_finalize_create,
+          op_input: [tx[:id], tx[:community_id]])
+
+        proc_status_response(proc_token)
+      else
+        do_finalize_create(tx[:id], tx[:community_id])
+      end
+    end
+
+    def do_finalize_create(transaction_id, community_id)
+      tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
+      gateway_adapter = TransactionService::Transaction.gateway_adapter(tx[:payment_gateway])
+
+      res =
+        if tx[:current_state] == :preauthorized
+          Result::Success.new()
+        else
+          booking_res =
+            if tx[:availability] != :booking
+              Result::Success.new()
+            else
+              end_on = tx[:booking][:end_on]
+              end_adjusted = tx[:unit_type] == :day ? end_on + 1.days : end_on
+
+              HarmonyClient.post(
+                :initiate_booking,
+                body: {
+                  marketplaceId: tx[:community_uuid],
+                  refId: tx[:listing_uuid],
+                  customerId: UUIDUtils.base64_to_uuid(tx[:starter_id]),
+                  initialStatus: :paid,
+                  start: tx[:booking][:start_on],
+                  end: end_adjusted
+                }).on_error { |error_msg, data|
+                logger.error("Failed to initiate booking", :failed_initiate_booking, tx.slice(:community_id, :id).merge(error_msg: error_msg))
+
+                void_res = gateway_adapter.reject_payment(tx: tx, reason: "")[:response]
+
+                void_res.on_success {
+                  logger.info("Payment voided after failed transaction", :void_payment, tx.slice(:community_id, :id))
+                }.on_error { |payment_error_msg, payment_data|
+                  logger.error("Failed to void payment after failed booking", :failed_void_payment, tx.slice(:community_id, :id).merge(error_msg: payment_error_msg))
+                }
+              }
+            end
+
+          booking_res.on_success {
+            Transition.transition_to(tx[:id], :preauthorized)
+          }.rescue { |error_msg, data|
+            #
+            # The operation output is saved as YAML in database.
+            # Serializing/deserializing the Exception object causes issues,
+            # so we'll just convert the error to string
+            #
+
+            data[:error] = data[:error].to_s if data[:error].present?
+
+            Result::Error.new(error_msg, data)
+          }
+        end
+
+      res.and_then {
+        Result::Success.new(DataTypes.create_transaction_response(tx))
+      }
     end
 
     def reject(tx:, message:, sender_id:, gateway_adapter:)
@@ -110,6 +185,19 @@ module TransactionService::Process
 
     def use_async?(force_sync, gw_adapter)
       !force_sync && gw_adapter.allow_async?
+    end
+
+    def logger
+      @logger ||= SharetribeLogger.new(:preauthorize_process)
+    end
+
+    def ensure_can_execute!(tx:, allowed_states:)
+      tx_state = tx[:current_state]
+
+      unless allowed_states.include?(tx_state)
+        rase TransactionService::Transaction::IllegalTransactionStateException.new(
+               "Transaction was in illegal state, expected state: [#{allowed_states.join(',')}], actual state: #{tx_state}")
+      end
     end
   end
 end
