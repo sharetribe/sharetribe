@@ -158,12 +158,20 @@ module Kassi
 
     if (APP_CONFIG.s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key)
       # S3 is in use for uploaded images
+      s3_domain = "amazonaws.com"
+      # us-east-1 has special S3 endpoint, see http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
+      s3_host_name = if APP_CONFIG.s3_region == "us-east-1"
+                       "s3.#{s3_domain}"
+                     else
+                       "s3-#{APP_CONFIG.s3_region}.#{s3_domain}"
+                     end
       paperclip_options.merge!({
         :path => "images/:class/:attachment/:id/:style/:filename",
         :url => ":s3_domain_url",
         :storage => :s3,
         :s3_region => APP_CONFIG.s3_region,
         :s3_protocol => 'https',
+        :s3_host_name => s3_host_name,
         :s3_headers => {
             "cache-control" => "public, max-age=#{APP_CONFIG.s3_cache_max_age}",
             "expires" => APP_CONFIG.s3_cache_max_age.to_i.seconds.from_now.httpdate,
