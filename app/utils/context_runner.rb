@@ -64,9 +64,7 @@ class ContextRunner
   def build_ctx(params)
     (params || {}).merge(
       enter_queue: build_enter_queue(params, middleware),
-      leave_stack: [],
-      complete_stack: []
-    )
+      leave_stack: [])
   end
 
   def execute(params)
@@ -92,7 +90,6 @@ class ContextRunner
 
     if ctx[:error]
       mw = new_ctx[:leave_stack].shift
-      new_ctx[:complete_stack].unshift(mw)
 
       [new_ctx, mw, :error]
     elsif !new_ctx[:enter_queue].empty?
@@ -102,7 +99,6 @@ class ContextRunner
       [new_ctx, mw, :enter]
     else
       mw = new_ctx[:leave_stack].shift
-      new_ctx[:complete_stack].unshift(mw)
 
       [new_ctx, mw, :leave]
     end
