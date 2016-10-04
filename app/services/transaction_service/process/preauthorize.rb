@@ -152,7 +152,35 @@ module TransactionService::Process
     end
 
     def finalize_complete_preauthorization(tx:, gateway_adapter:)
-      Transition.transition_to(tx[:id], :paid)
+      ensure_can_execute!(tx: tx, allowed_states: [:preauthorized, :pending_ext, :paid])
+
+      if tx[:current_state] == :paid
+        Result::Success.new()
+      else
+        Transition.transition_to(tx[:id], :paid)
+
+        if tx[:availability] != :booking
+          Result::Success.new()
+        else
+          HarmonyClient.post(
+            :accept_booking,
+            params: {
+              id: tx[:booking_uuid]
+            },
+            body: {
+              actorId: UUIDUtils.base64_to_uuid(tx[:listing_author_id]),
+              reason: "provicer accepted"
+            },
+            opts: {
+              max_attempts: 3
+            }).on_error { |error_msg, data|
+
+            logger.error("Failed to accept booking",
+                         :failed_accept_booking,
+                         tx.slice(:community_id, :id).merge(error_msg: error_msg))
+          }
+        end
+      end
     end
 
     def complete(tx:, message:, sender_id:, gateway_adapter:)
