@@ -60,7 +60,7 @@ gem "omniauth-facebook", "~> 4.0.0"
 # Dynamic form adds helpers that are needed, e.g. error_messages
 gem 'dynamic_form', "~>1.1.4"
 gem "truncate_html", "~>0.9.1"
-gem 'money-rails', "~>1.3.0"
+gem 'money-rails', "~>1.4.0"
 
 # The latest release (0.9.0) is not Rails 4 compatible
 gem 'mercury-rails',
