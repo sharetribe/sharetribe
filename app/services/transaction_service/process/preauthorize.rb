@@ -141,7 +141,7 @@ module TransactionService::Process
       res = Gateway.unwrap_completion(
         gateway_adapter.complete_preauthorization(tx: tx)) do
 
-        Transition.transition_to(tx[:id], :paid)
+        finalize_complete_preauthorization(tx: tx, gateway_adapter: gateway_adapter)
       end
 
       if res[:success] && message.present?
@@ -149,6 +149,10 @@ module TransactionService::Process
       end
 
       res
+    end
+
+    def finalize_complete_preauthorization(tx:, gateway_adapter:)
+      Transition.transition_to(tx[:id], :paid)
     end
 
     def complete(tx:, message:, sender_id:, gateway_adapter:)
