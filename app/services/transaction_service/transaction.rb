@@ -154,6 +154,21 @@ module TransactionService::Transaction
       .or_else(res)
   end
 
+  def finalize_complete_preauthorization(community_id:, transaction_id:)
+    tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
+
+    tx_process = tx_process(tx[:payment_process])
+    gw = gateway_adapter(tx[:payment_gateway])
+
+    res = tx_process.finalize_complete_preauthorization(
+      tx: tx,
+      gateway_adapter: gw)
+
+    res.and_then { |tx_fields|
+      Result::Success.new(DataTypes.create_transaction_response(query(tx[:id])))
+    }
+  end
+
   def complete(community_id:, transaction_id:, message: nil, sender_id: nil)
     tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 

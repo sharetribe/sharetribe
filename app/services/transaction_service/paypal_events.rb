@@ -106,7 +106,9 @@ module TransactionService::PaypalEvents
     # transition to paid so that we have the full payment info
     # available at the time we send payment receipts.
     TransactionService::Transaction.charge_commission(tx[:id])
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], :paid)
+    TransactionService::Transaction.finalize_complete_preauthorization(
+      community_id: tx[:community_id],
+      transaction_id: tx[:id])
   end
 
   def preauthorized_to_pending_ext(tx, pending_reason)
@@ -118,8 +120,10 @@ module TransactionService::PaypalEvents
   end
 
   def pending_ext_to_paid(tx)
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], :paid)
     TransactionService::Transaction.charge_commission(tx[:id])
+    TransactionService::Transaction.finalize_complete_preauthorization(
+      community_id: tx[:community_id],
+      transaction_id: tx[:id])
   end
 
   def delete_transaction(cid:, tx_id:)
