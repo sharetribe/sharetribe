@@ -42,6 +42,7 @@ module ServiceClient
           end
         when :post
           @_conn.post do |faraday_req|
+            faraday_req.params = params
             faraday_req.body = body
 
             setup_request(faraday_req, req)
