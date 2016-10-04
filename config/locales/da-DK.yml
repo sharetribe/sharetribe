@@ -751,7 +751,7 @@ da-DK:
       cancel_it_link_text: "annullere din anmodning"
       automatic_confirmation: "Hvis du ikke acceptere eller afviser anmodningen inden %{days_to_automatic_confirmation} dage efter anmodningen blev accepteret, vil vi automatisk markere den som godkendt."
     payment_settings_reminder:
-      remember_to_add_payment_details: "Husk at udfylde dine betalingsoplysninger for at modtage betalinger"
+      remember_to_add_payment_details: "Husk at udfylde dine betalingsoplysninger"
       you_have_added_listing_with_payment: "Du har oprettet en annonce %{listing_link} med betaling, men du har ikke tilføjet dine betalingsoplysninger, der er nødvendigt for at kunne modtage betalinger."
       please_go_to_payment_settings: "Gå venligst til %{payment_settings_link} og udfyld dine betalingsoplysninger."
       payment_settings_link: Betalinger
@@ -1139,7 +1139,7 @@ da-DK:
       search_placeholder: "Hvad leder du efter?"
       search_location_placeholder: Lokation
     listings:
-      no_listing_image: "Ingen billede"
+      no_listing_image: "Intet billede"
   layouts:
     admin:
       admin: "%{service_name} administrator panel"
@@ -1398,7 +1398,7 @@ da-DK:
         googlemap_updatemap: "Opdater Kort"
       images:
         image: Billede
-        best_result: "For det bedste resultat, upload billeder i formatet JPEG, GIF eller PNG i størrelsen %{width}x%{height} px"
+        best_result: "Upload billeder i formatet JPEG, GIF eller PNG. Minimum %{width}x%{height} px."
         no_file_selected: "Ingen fil valgt"
         remove_image: "Fjern billede"
         select_file: "Vælg fil"
@@ -1690,7 +1690,7 @@ da-DK:
   paypal:
     pay_with_paypal: "Fortsæt til betaling"
     checkout_with_paypal: "Betal med PayPal"
-    cancel_succesful: "PayPal betalingen blev annulleret med success."
+    cancel_succesful: "Betaling annulleret."
     transaction:
       commission_payment_name: "Servicegebyr for %{listing_title}"
       commission_payment_description: "Markedspladsen %{service_name} tog et servicegebyr fra transaktionen på %{listing_title}"
@@ -2056,6 +2056,8 @@ da-DK:
     day: dag
     days: dage
   web:
+    listing_card:
+      no_picture: "Intet billede"
     topbar:
       menu: Menu
       more: Mere
@@ -2069,7 +2071,7 @@ da-DK:
       logout: "Log ud"
       login: "Log ind"
       signup: Tilmeld
-      admin_dashboard: "Administrator Dashboard"
+      admin_dashboard: "Admin panel"
       language: Sprog
     branding:
       powered_by: "%{service_name} er powered af %{sharetribe_link} markedsplads platformen."

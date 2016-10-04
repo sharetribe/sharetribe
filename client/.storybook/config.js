@@ -10,7 +10,8 @@ global.describe = describe;
 global.it = it;
 
 // initializeI18n needs to know railsContext and node_env
-initializeI18n('en', 'en', process.env.NODE_ENV);
+const localeInfo = { ident: 'en', name: 'English', language: 'en', region: 'US', fallback: nil };
+initializeI18n('en', 'en', process.env.NODE_ENV, localeInfo);
 
 const loadStories = function loadStories() {
   require('../app/components/Styleguide/ColorsAndTypography.js');

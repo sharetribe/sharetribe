@@ -2076,6 +2076,8 @@ sk-SK:
     day: deň
     days: dni
   web:
+    listing_card:
+      no_picture: "bez obrázku"
     topbar:
       menu: Menu
       more: Viac
@@ -2092,9 +2094,9 @@ sk-SK:
       admin_dashboard: "Konzola správcu"
       language: Jazyk
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} funguje na platforme %{sharetribe_link}."
+      create_own: "Chcete si vytvoriť svoje vlastné online trhovisko ako %{service_name}? %{learn_more}"
+      learn_more: "Čítať viac"
   will_paginate:
     models:
       person:

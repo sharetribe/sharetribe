@@ -22,6 +22,7 @@ SearchPageContainer.propTypes = {
 const mapStateToProps = function mapStateToProps(state) {
   return {
     searchPage: state.searchPage,
+    marketplace: state.marketplace,
     routes: state.routes,
   };
 };
