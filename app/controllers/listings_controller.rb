@@ -266,7 +266,7 @@ class ListingsController < ApplicationController
     if FeatureFlagHelper.feature_enabled?(:availability) && shape.present? && shape[:availability] == :booking
       bookable_res = create_bookable(@current_community.uuid_object, listing_uuid, @current_user.uuid_object)
       unless bookable_res.success
-        flash[:error] = t("listings.error.something_went_wrong_plain")
+        flash[:error] = t("listings.error.create_failed_to_connect_to_booking_service")
         return redirect_to new_listing_path
       end
     end
@@ -397,6 +397,18 @@ class ListingsController < ApplicationController
     end
 
     shape = get_shape(params[:listing][:listing_shape_id])
+
+    if FeatureFlagHelper.feature_enabled?(:availability) &&
+       shape.present? &&
+       shape[:availability] == :booking &&
+       @listing.availability.to_sym != :booking
+
+      bookable_res = create_bookable(@current_community.uuid_object, @listing.uuid_object, @current_user.uuid_object)
+      unless bookable_res.success
+        flash[:error] = t("listings.error.update_failed_to_connect_to_booking_service")
+        return redirect_to edit_listing_path(@listing)
+      end
+    end
 
     listing_params = ListingFormViewUtils.filter(params[:listing], shape)
     listing_unit = Maybe(params)[:listing][:unit].map { |u| ListingViewUtils::Unit.deserialize(u) }.or_else(nil)

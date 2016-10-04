@@ -13,3 +13,7 @@ en:
   error_messages:
     booking:
       booking_failed_payment_voided: "Failed to create a booking. Your payment will be refunded."
+  listings:
+    error:
+      create_failed_to_connect_to_booking_service: "Listing creation failed: Failed to connect to the booking service. Please try again."
+      update_failed_to_connect_to_booking_service: "Listing update failed: Failed to connect to the booking service. Please try again."
