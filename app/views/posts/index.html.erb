@@ -28,7 +28,7 @@
 
   <div class="row">
   <% @posts.each do |p| %>
-    <div class="blog-post col-6">
+    <div class="blog-post col-4">
       <%= link_to post_path(p["post_id"]) do %>
          
          <% if !p["post_thumbnail"].kind_of?(Array) && p["post_thumbnail"]["link"] %>
