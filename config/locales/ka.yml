@@ -507,7 +507,7 @@ ka:
       buy: ყიდვა
       give_away: დარიგება
       lend: გასესხება
-      receive: "უფასოდ აღება."
+      receive: "უფასოდ აღება"
       rent: ქირაობა
       rent_out: ქირავდება
       sell: გაყიდვა
@@ -565,7 +565,7 @@ ka:
       total_label: ჯამი
       total_value: "%{seller_gets}"
       paypal_fee_info: "არ შეიცავს <a id='%{fee_info_link_id}' href='#'> PayPal-ის გადახდის საფასურს </a>"
-      shipping_price_label: "ტრანსპორტირება:"
+      shipping_price_label: "ფოსტით გაგზავნა"
     confirm:
       confirm_description: "თუ თქვენი შეკვეთა შესრულდა უნდა მონიშნოთ იგი დასრულებულად. შემდეგ შეგეძლებათ მისცეთ შეფასება სხვა ნაწილს."
       cancel_description: "თუ თქვნეი შეკვეთა არ შესრულდა, თქვენ შეგიძლიათ მონიშნოთ იგი როგორც, \"სადავო\". თქვენ ისევ გაქვთ შესაძლებლობა მისცეთ შეფასება მეორე მხარეს და აღწეროთ რა მოხდა. "
@@ -815,7 +815,7 @@ ka:
       you_have_received_new_payment: "თქვენ გადაგიხადეს <b>%{payment_sum}</b> <b>%{listing_title}</b>-სთვის %{payer_full_name}-ნ. აქ არის თქვენი ქვითარი."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal-ის გადასახადი:"
-      shipping_total: "ტრანსპორტირება:"
+      shipping_total: "ფოსტით გაგზავნა:"
     braintree_new_payment:
       product: პროდუქტი
       price_payer_paid: "ფასი %{payer_full_name} გადახდილია:"
@@ -1419,10 +1419,10 @@ ka:
         after_service_fee_you_will_get_paypal_text: "%{service_name} საფასური %{sum_with_currency} და %{paypal_fee_info_link} გამოიქვითება ფასიდან."
         paypal_fee_info_link_text: "PayPal-ით გადახდის საფასური"
         delivery: "მიტანის მეთოდი"
-        shipping: "ტრანსპორტირება:"
+        shipping: "ფოსტით გაგზავნა:"
         shipping_price: "ტრანსპორტირების გადასახადი"
         shipping_price_additional: "დამატებითი  ნივთები"
-        pickup: აღება
+        pickup: "ადგილზე აღება"
       origin:
         location: ადგილმდებარეობა
         origin: თავდაპირველი
@@ -1560,11 +1560,11 @@ ka:
         per_quantity_unit: "ყოველ %{quantity_unit}"
         per_day: დღიურად
       delivery: "მიტანის მეთოდი"
-      shipping: "ტრანსპორტირება (+%{price})"
-      shipping_no_price: "ტრანსპორტირება:"
+      shipping: "ფოსტით გაგზავნა (+%{price})"
+      shipping_no_price: "ფოსტით გაგზავნა"
       shipping_price_additional: "მგზავრობა (+%{price}, დამატებითი ნივთები: +%{shipping_price_additional})"
-      pickup: აღება
-      pickup_no_price: აღება
+      pickup: "ადგილზე აღება"
+      pickup_no_price: "ადგილზე აღება"
       youtube_video_player: "YouTube ვიდეო დამკვრელი"
     unit_types:
       piece: ცალი
@@ -2028,7 +2028,7 @@ ka:
       price_per_night: "ერთი ღამის ფასი:"
       quantity: რაოდენობა
       subtotal: "ჯამი:"
-      shipping-price: "ტრანსპორტირება:"
+      shipping-price: "ფოსტით გაგზავნა:"
     price_per_quantity: "ფასი ყოველ %{unit_type}"
     price: "ფასი:"
     quantity: "რაოდენობა: %{quantity}"

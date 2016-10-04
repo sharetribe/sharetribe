@@ -599,7 +599,7 @@ pt-PT:
       optional_message_to: ~
       send_message: "Enviar mensagem"
       send: ~
-      this_message_is_private: "Esta mensagem é particular entre si e %{person}. %{person} será notificado(a) sobre esta mensagem por email."
+      this_message_is_private: "Esta mensagem é particular entre si e %{person}. %{person} será notificado/a sobre esta mensagem por email."
       you_will_get_notified_of_acceptance: "Receberá uma notificação por email quando %{person} aceitar ou rejeitar a sua proposta."
       you_will_get_notified: "Receberá uma notificação por email quando %{person} lhe responder."
       title: Título
@@ -612,8 +612,8 @@ pt-PT:
       message_sent_to: ~
       send_reply: Responder
       write_a_reply: "Escreva uma resposta:"
-      conversation_about_listing: ~
-      conversation_with_user: ~
+      conversation_about_listing: "Com %{listing} sobre %{person}"
+      conversation_with_user: "Com %{person}"
       conversation_with: ~
       last_message_at: ~
       price: ~
@@ -753,10 +753,10 @@ pt-PT:
       hey: "Olá %{name}"
       kassi_team: "Equipa %{service_name}"
       thanks: "Obrigado,"
-      dont_want_to_receive_these_emails: ~
-      edit_your_email_settings_here: ~
-      message_not_displaying_correctly: ~
-      view_it_in_your_browser: ~
+      dont_want_to_receive_these_emails: "Não deseja receber estes emails?"
+      edit_your_email_settings_here: "Edite as suas configurações de email aqui"
+      message_not_displaying_correctly: "Este email não está a ser corretamente mostrado?"
+      view_it_in_your_browser: "Visualizar no seu browser."
       or: ~
       unsubscribe_from_these_emails: "cancele a recepção destes emails"
     conversation_status_changed:
@@ -774,7 +774,7 @@ pt-PT:
       remember_to_confirm: ~
     invitation_to_kassi:
       hi: Olá!
-      you_have_been_invited_to_kassi: "%{inviter} convidou-o(a) a fazer parte do %{service_name}."
+      you_have_been_invited_to_kassi: "%{inviter} convidou-o a fazer parte do %{service_name}."
       here_is_a_message_from: "Aqui está uma mensagem pessoal de %{inviter}"
       join_now: ~
       invitation_code: ~
@@ -822,16 +822,16 @@ pt-PT:
       has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
-      added_offer: ~
-      added_request: ~
+      added_offer: "%{name_link} adicionou um post:"
+      added_request: "%{name_link} adicionou um post:"
       added_listing: ~
       update_mail_title: ~
-      title_link_text: ~
-      intro_paragraph: ~
-      intro_paragraph_link_text: ~
-      reduce_email_footer_text: ~
-      settings_link_text: ~
-      unsubscribe_link_text: ~
+      title_link_text: "%{community_name}"
+      intro_paragraph: "Veja algumas das coisas que aconteceram no %{community_link} desde há %{time_since_last_update}."
+      intro_paragraph_link_text: "%{community_name}"
+      reduce_email_footer_text: "Demasiados emails? %{settings_link} ou %{unsubscribe_link}"
+      settings_link_text: "Edite as suas configurações de email aqui"
+      unsubscribe_link_text: "Cancelar inscrição"
     newsletter:
       hi: "Olá %{name},"
       newest_offers: "O que neste momento as pessoas oferecem aos outros"
@@ -1027,7 +1027,7 @@ pt-PT:
     event_feed:
       latest_events: "O que está a acontecer"
     grid_item:
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(a processar imagem...)"
     index:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
@@ -1052,7 +1052,7 @@ pt-PT:
       recent_events: "Eventos recentes"
       requesting: precisa
       tell_it_here: "Conte aqui!"
-      welcome_to_new_kassi: "Bem-vindo(a) ao novo %{service_name}!"
+      welcome_to_new_kassi: "Bem-vindo ao novo %{service_name}!"
       no_reviews: ~
       no_image: ~
       filter: ~
@@ -1081,8 +1081,8 @@ pt-PT:
       add_your_info_link: "Adicione a sua informação agora"
     recent_listing:
       please_offer: oferta
-      comment: ~
-      comments: ~
+      comment: Comentar
+      comments: comentários
     filters:
       show: ~
       search: ~
@@ -1091,7 +1091,7 @@ pt-PT:
       map_button: ~
       grid_button: Grelha
       list_button: ~
-      all_listing_types: ~
+      all_listing_types: Categorias
       all_categories: ~
     errors:
       search_engine_not_responding: ~
@@ -1130,7 +1130,7 @@ pt-PT:
       feedback_forum: "fórum de respostas"
       feedback_handle: Feedback
       give_feedback: Contacte-nos
-      or_check_our: "...ou veja o(a) nosso(a)"
+      or_check_our: "...ou veja o nosso"
       send_feedback_to_admin: "Enviar mensagem"
       to_see_what_others_have_suggested: "para ver o que outros utilizadores sugeriram, e votar para novas idéias."
       your_email_address: "O seu e-mail (para entrar em contacto)"
@@ -1201,7 +1201,7 @@ pt-PT:
       error_with_session: "Erro na sessão."
       feedback_considered_spam: "Feedback não gravado, devido à formatação. Tente novamente ou use o fórum de feedback."
       feedback_not_saved: "O feedback não pôde ser enviado."
-      feedback_saved: "Obrigado pela sua mensagem! Contacta-lo(a)-emos assim que possível."
+      feedback_saved: "Obrigado pela sua mensagem! Contacta-lo-emos assim que possível."
       feedback_sent_to: "Opinião enviada a %{target_person}."
       feedback_skipped: ~
       invitation_cannot_be_sent: "O convite não pôde ser enviado"
@@ -1253,7 +1253,7 @@ pt-PT:
       request_confirmed: ~
       request_rejected: "Pedido rejeitado."
       request_canceled: ~
-      message_sent: ~
+      message_sent: "Mensagem enviada"
       message_not_sent: ~
       this_content_is_not_available_in_this_community: "Este conteúdo não está disponível"
       unknown_error: "Erro desconhecido. Por favor use o link Fale conosco para enviar detalhes sobre o que aconteceu."
@@ -1264,11 +1264,11 @@ pt-PT:
       listing_closed: ~
       send_instructions: "Receberá um e-mail com instruções sobre como redefinir a sua palavra-passe dentro de alguns minutos."
       you_cannot_reply_to_a_closed_offer: "Não pode responder a uma oferta fechada"
-      you_cannot_send_message_to_yourself: ~
+      you_cannot_send_message_to_yourself: "Não pode enviar uma mensagem a si mesmo"
       you_followed_listing: "Está agora a seguir este anúncio"
       you_have_already_given_feedback_about_this_event: "Já deixou sua opinião sobre este evento"
       you_are_now_member: "Bem-vindo ao %{service_name} !"
-      you_are_already_member: "Já é membro do %{service_name}. Bem-vindo(a) de volta!"
+      you_are_already_member: "Já é membro do %{service_name}. Bem-vindo de volta!"
       you_must_log_in_to_create_new_listing: "Você deve iniciar sessão em %{service_name} para criar um novo anúncio. Se você não tem uma conta, você pode %{sign_up_link}."
       additional_email_confirmed_dashboard: "O seu email está confirmado."
       you_must_log_in_to_give_feedback: "Deve fazer login para poder dar feedback"
@@ -1292,7 +1292,7 @@ pt-PT:
       user_does_not_have_email_to_delete: ~
       email_deleted: ~
       listing_author_payment_details_missing: ~
-      images_are_processing: ~
+      images_are_processing: "Estamos a processar as suas imagens. Estarão visíveis dentro de um ou dois minutos."
       automatically_logged_out_please_sign_in: ~
     settings:
       account: Conta
@@ -1305,7 +1305,7 @@ pt-PT:
       listing_not_visible: "Não tem permissão para consultar este anúncio."
     comment:
       wrote: escreveu
-      send_private_message: ~
+      send_private_message: "Enviar mensagem privada a %{person}"
       delete: ~
       are_you_sure: ~
     comment_form:
@@ -1371,7 +1371,7 @@ pt-PT:
         select_file: "Selecionar ficheiro"
         add_more: ~
         removing: ~
-        processing: ~
+        processing: "A processar..."
         loading_image: ~
         image_uploading_in_progress: ~
         processing_takes_a_while: ~
@@ -1417,7 +1417,7 @@ pt-PT:
         rent_out: Aluga-se
         request_type: "Tipo de pedido"
         sell: vende-se
-        share_for_free: ~
+        share_for_free: Gratuito
         accept_for_free: ~
         trade: troca-se
       tag_list:
@@ -1447,7 +1447,7 @@ pt-PT:
       housing: Espaços
       items: Itens
       list_view: "Ver lista"
-      listings: ~
+      listings: Posts
       map_view: "Ver mapa"
       offer_something: "Informe os outros!"
       offer_type: "Tipo de oferta"
@@ -1458,7 +1458,7 @@ pt-PT:
       rideshare: Boleia
       search_verb: Pesquisa
       you_have_something_others_do_not: "Tem algo a oferecer?"
-      feed_title: ~
+      feed_title: "%{listing_type} em %{service_name} %{optional_category}"
     left_panel_link:
       borrows: empréstimo
       buys: Comprar
@@ -1472,7 +1472,7 @@ pt-PT:
       rents: Aluguer
       rideshares: Boleia
       sells: Vender
-      share_for_frees: ~
+      share_for_frees: Gratuito
       accept_for_frees: ~
       trades: Troca
     listing_actions:
@@ -1505,16 +1505,16 @@ pt-PT:
     reply_link:
       listing_closed: ~
     show:
-      add_your_phone_number: ~
-      add_profile_picture: ~
+      add_your_phone_number: "Adicione o seu número de telefone"
+      add_profile_picture: "Adicione uma foto ao seu perfil"
       comments: "Discussão pública"
-      contact_by_phone: ~
+      contact_by_phone: "Contatar por telefone :"
       contact: Contacto
       favor_offer: "Oferta de serviço"
       favor_request: "Solicitação de serviço"
       inquiry: ~
-      item_offer_trade: ~
-      item_request_trade: ~
+      item_offer_trade: "Serviço de troca"
+      item_request_trade: "Pedido de troca"
       no_description: "Este anúncio não tem descrição"
       no_image: ~
       no_reviews: ~
@@ -1526,12 +1526,12 @@ pt-PT:
       request: Pedido
       rideshare_offer: "Oferecer boleia"
       rideshare_request: "Pedir boleia"
-      send_private_message: ~
+      send_private_message: "Enviar mensagem privada"
       tags: Tags
       time: hora
       times: vezes
       times_viewed: Visualizado
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(a processar imagem...)"
       listing_created_at: ~
       price:
         per_quantity_unit: ~
@@ -1671,8 +1671,8 @@ pt-PT:
       feedback_description_title: Feedback
       help_invitation_code_title: "Você precisa de um convite para se juntar a nós"
       terms_title: "Termos de utilização do %{service_name} "
-      invite_only_help_text: ~
-      invite_only_help_text_title: ~
+      invite_only_help_text: "Selecione esta opção se quiser que novos membros só possam aderir se forem convidados por um membro atual."
+      invite_only_help_text_title: "Apenas convidados"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Esse utilizador está inativo no %{service_name}"
       inactive_description: "Esse utilizador parou de usar %{service_name}. Você pode não pode entrar em contacto, nem avaliar, nem comentar seus anúncios."
@@ -1700,6 +1700,9 @@ pt-PT:
       create_account_with_facebook: "Registe-se com seu Facebook"
       OR: ~
       signup_with_email: "Registe-se com seu e-mail"
+      email_restriction_instructions:
+        one: "O acesso ao %{service_name} é restrito. Para aderir precisa de um '%{allowed_emails}' email address."
+        other: "O acesso ao %{service_name} é restrito. Precisa de um endereço de email que mostre que está autorizado a aderir."
     profile_feedback:
       grade: "nota:"
       and_gave_following_feedback: "deu a seguinte opinião "
@@ -1832,15 +1835,15 @@ pt-PT:
       email_about_new_messages: "...alguém me enviar uma mensagem"
       email_about_new_received_testimonials: "...alguém me enviar 'feedback'"
       email_about_testimonial_reminders: "...me esquecer de enviar 'feedback' sobre um evento"
-      email_daily_community_updates: ~
-      email_weekly_community_updates: ~
-      do_not_email_community_updates: ~
+      email_daily_community_updates: "Receber um e-mail <b>diário</b> se houver novos posts"
+      email_weekly_community_updates: "Receber um e-mail <b>semanal</b> se houver novos posts"
+      do_not_email_community_updates: "Não receber emails"
       email_when_conversation_accepted: "...alguém aceitar a minha oferta ou pedido"
       email_when_conversation_rejected: "...alguém rejeitar a minha oferta ou pedido"
       email_about_completed_transactions: "...alguém marcar a minha oferta ou solicitação como concluída"
       email_about_new_payments: ~
       email_about_new_listings_by_followed_people: "...alguém que eu siga publique uma mensagem"
-      unsubscribe_succesful: ~
+      unsubscribe_succesful: "O cancelamento da subscrição foi bem sucedido"
       unsubscribe_info_text: ~
       settings_link: ~
       homepage_link: ~
@@ -1980,6 +1983,9 @@ pt-PT:
     seconds_ago: "há %{count} segundos"
     year_ago: "há %{count} ano"
     years_ago: "há %{count} anos"
+    days_since:
+      one: "há %{count} dia"
+      other: "há %{count} dias"
   transactions:
     initiate:
       booked_days: ~
