@@ -2,16 +2,19 @@
 
 <% @posts.each do |p| %>
   <div class="blog-post">
-    <h3 class="blog-title">
-      <%= raw p["post_title"] %>
-    </h3>
+    <%= link_to post_path(p["post_id"]) do %>
+      <h3 class="blog-title">
+        <%= raw p["post_title"] %>
+      </h3>
 
-    <% if !p["post_thumbnail"].kind_of?(Array) && p["post_thumbnail"]["link"] %>
-      <img src="<%=p["post_thumbnail"]["link"]%>">
+      <% if !p["post_thumbnail"].kind_of?(Array) && p["post_thumbnail"]["link"] %>
+        <img class="thumbnail" src="<%=p["post_thumbnail"]["link"]%>">
+      <% end %>
+
+      <p class="blog-desc">
+        <%= raw p["post_excerpt"] %>
+      </p>
     <% end %>
-
-
-    <%= raw p["post_excerpt"] %>
   </div>
 <% end %>
 

@@ -1,7 +1,9 @@
 .blog-post {
 	width: 33%;
+  height: 400px;
   display: inline-block;
 }
-.blog-post img {
+.blog-post img.thumbnail {
   width: 80%;
+  height: 200px;
 }
