@@ -24,10 +24,7 @@
     "secret_key_base": {
       "required": true
     },
-    "NPM_CONFIG_PRODUCTION": {
-      "required": true,
-      "value": "false"
-    },
+    "NPM_CONFIG_PRODUCTION": "false",
     "DATABASE_URL": {
       "required": true
     }
