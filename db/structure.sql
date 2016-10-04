@@ -1566,6 +1566,7 @@ CREATE TABLE `transactions` (
   `delivery_method` varchar(31) DEFAULT 'none',
   `shipping_price_cents` int(11) DEFAULT NULL,
   `availability` varchar(32) DEFAULT 'none',
+  `booking_uuid` binary(16) DEFAULT NULL,
   `deleted` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `transactions_on_cid_and_deleted` (`community_id`,`deleted`) USING BTREE,
@@ -1586,7 +1587,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-30 10:30:17
+-- Dump completed on 2016-10-04 17:13:09
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3154,4 +3155,6 @@ INSERT INTO schema_migrations (version) VALUES ('20160929114326');
 INSERT INTO schema_migrations (version) VALUES ('20160929124124');
 
 INSERT INTO schema_migrations (version) VALUES ('20160930070122');
+
+INSERT INTO schema_migrations (version) VALUES ('20161004141208');
 
