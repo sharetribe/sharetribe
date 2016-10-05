@@ -107,7 +107,7 @@ module TopbarHelper
     ]
 
     links << {
-      link: posts_path,
+      link: paths.posts_path,
       title: 'Blog',
       priority: 0
     }
