@@ -87,11 +87,17 @@ module TransactionService::PaypalEvents
 
   def preauthorized_to_rejected(tx, payment_status = nil)
     metadata = payment_status ? { paypal_payment_status: payment_status } : nil
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], "rejected", metadata)
+    TransactionService::Transaction.finalize_reject(
+      community_id: tx[:community_id],
+      transaction_id: tx[:id],
+      metadata: metadata)
   end
 
   def pending_ext_to_denied(tx, payment_status)
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], "rejected", paypal_payment_status: payment_status)
+    TransactionService::Transaction.finalize_reject(
+      community_id: tx[:community_id],
+      transaction_id: tx[:id],
+      metadata: {paypal_payment_status: payment_status})
   end
 
   def initiated_to_preauthorized(tx)

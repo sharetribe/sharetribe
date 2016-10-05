@@ -10,7 +10,8 @@ HarmonyClient = ServiceClient::Client.new(
 
     # Bookings
     initiate_booking: "/bookings/initiate",
-    accept_booking: "/bookings/accept"
+    accept_booking: "/bookings/accept",
+    reject_booking: "/bookings/reject"
   },
   [
     ServiceClient::Middleware::Retry.new,
