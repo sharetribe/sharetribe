@@ -35,8 +35,9 @@ const listingsToMap = (listings) =>
 export default (props) => {
   const locale = props.i18n.locale;
   const defaultLocale = props.i18n.defaultLocale;
+  const localeInfo = props.i18n.localeInfo;
 
-  initializeI18n(locale, defaultLocale, process.env.NODE_ENV);
+  initializeI18n(locale, defaultLocale, process.env.NODE_ENV, localeInfo);
 
   const routes = subset([
     'listing',

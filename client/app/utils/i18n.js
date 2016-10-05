@@ -48,10 +48,11 @@ const missingTranslationMessage = function missingTranslationMessage(scope) {
   return `[missing "${scope}" translation]`;
 };
 
-const initialize = function initialize(i18nLocale, i18nDefaultLocale, env) {
+const initialize = function initialize(i18nLocale, i18nDefaultLocale, env, localeInfo) {
   I18n.locale = i18nLocale;
   I18n.defaultLocale = i18nDefaultLocale;
   I18n.interpolationMode = 'split';
+  I18n.localeInfo = localeInfo != null ? localeInfo :  { ident: i18nLocale };
 
   if (env === 'development') {
     I18n.missingTranslation = function displayMissingTranslation(scope) {
@@ -77,6 +78,19 @@ const initialize = function initialize(i18nLocale, i18nDefaultLocale, env) {
   }
 };
 
+const currentLocale = function currentLocale() {
+  return I18n.localeInfo;
+};
+
+const fullLocaleCode = function fullLocaleCode() {
+  const localeInfo = currentLocale();
+  if (!(localeInfo && localeInfo["language"] && localeInfo["region"])) {
+    throw new Error('No locale found');
+  }
+
+  return `${localeInfo.language.toLowerCase()}-${localeInfo.region.toUpperCase()}`;
+}
+
 // Bind functions to I18n
 const translate = bind(I18n.translate, I18n);
 const localize = bind(I18n.localize, I18n);
@@ -85,4 +99,14 @@ const t = bind(I18n.t, I18n);
 const l = bind(I18n.l, I18n);
 const p = bind(I18n.p, I18n);
 
-export { initialize, translate, localize, pluralize, t, l, p };
+export {
+  currentLocale,
+  fullLocaleCode,
+  initialize,
+  localize,
+  pluralize,
+  translate,
+  l,
+  p,
+  t,
+};
