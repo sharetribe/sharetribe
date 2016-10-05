@@ -4,8 +4,8 @@ import Immutable from 'immutable';
 
 import { storify } from '../../Styleguide/withProps';
 import { toFixedNumber } from '../../../utils/numbers';
-import ListingModel from '../../../models/ListingModel';
 import { Image, ImageRefs } from '../../../models/ImageModel';
+import ListingModel, { Distance, Money } from '../../../models/ListingModel';
 
 import ListingCardPanel from '../ListingCardPanel/ListingCardPanel';
 import ListingCard from '../ListingCard/ListingCard';
@@ -35,11 +35,15 @@ const listingCardTemplate = (title, perUnit, price, distance) => (
           }),
         })]),
         listingURL: 'https://example.com/listing/342iu4',
-        price: price || toFixedNumber(Math.random() * 9999, 2), // eslint-disable-line no-magic-numbers
-        priceUnit: '€',
+        price: new Money({
+          fractionalAmount: price || toFixedNumber(Math.random() * 9999, 2), // eslint-disable-line no-magic-numbers
+          code: 'EUR',
+        }),
         per: perUnit || '/ day',
-        distance: distance || Math.random() * (20000) + 0.01, // eslint-disable-line no-magic-numbers
-        distanceUnit: 'km',
+        distance: new Distance({
+          value: distance || Math.random() * (20000) + 0.01, // eslint-disable-line no-magic-numbers
+          unit: ':km'
+        }),
         author: {
           familyName: 'family name',
           givenName: 'given name',

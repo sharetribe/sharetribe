@@ -1,7 +1,7 @@
 import { Component, PropTypes } from 'react';
 import r, { a, div, img } from 'r-dom';
 import classNames from 'classnames';
-import { t } from '../../../utils/i18n';
+import { t, fullLocaleCode } from '../../../utils/i18n';
 import { canUseDOM } from '../../../utils/featureDetection';
 import { tint } from '../../../utils/colors';
 import { formatDistance, formatPrice } from '../../../utils/numbers';
@@ -50,8 +50,10 @@ class ListingCard extends Component {
     const imageURL = listing.images.getIn([0, 'square', 'url']);
     const image2xURL = listing.images.getIn([0, 'square2x', 'url']);
     const higherRes = image2xURL ? { srcSet: `${image2xURL} 2x` } : null;
-    const distanceFormatted = formatDistance(listing.distance, listing.distanceUnit);
-    const priceFormatted = formatPrice(listing.price, listing.priceUnit);
+
+    const localeCode = fullLocaleCode();
+    const distanceFormatted = formatDistance(listing.distance, localeCode);
+    const priceFormatted = listing.price ? formatPrice(listing.price, localeCode): null;
 
     return div({
       className: classNames('ListingCard', css.listing, this.props.className),
@@ -108,15 +110,17 @@ class ListingCard extends Component {
           listing.title,
         ]),
         div({ className: css.footer }, [
-          div({
-            className: css.priceWrapper,
-            style: { color: this.props.color },
-          }, [
-            div({ className: css.price }, priceFormatted),
-            listing.per ?
-              div({ className: css.per }, listing.per) :
-              null,
-          ]),
+          listing.price ?
+            div({
+              className: css.priceWrapper,
+              style: { color: this.props.color },
+            }, [
+              div({ className: css.price }, priceFormatted),
+              listing.per ?
+                div({ className: css.per }, listing.per) :
+                null,
+            ]):
+            div({ className: css.priceWrapper }),
           distanceFormatted ?
             div({ className: css.distance }, [
               div({
