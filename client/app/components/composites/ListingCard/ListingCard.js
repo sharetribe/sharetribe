@@ -115,7 +115,7 @@ class ListingCard extends Component {
               className: css.priceWrapper,
               style: { color: this.props.color },
             }, [
-              div({ className: css.price }, priceFormatted),
+              div({ className: css.price, title: listing.price.currency }, priceFormatted),
               listing.per ?
                 div({ className: css.per }, listing.per) :
                 null,
