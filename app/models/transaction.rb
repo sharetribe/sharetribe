@@ -32,6 +32,7 @@
 #  delivery_method                   :string(31)       default("none")
 #  shipping_price_cents              :integer
 #  availability                      :string(32)       default("none")
+#  booking_uuid                      :binary(16)
 #  deleted                           :boolean          default(FALSE)
 #
 # Indexes

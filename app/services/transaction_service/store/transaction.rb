@@ -25,6 +25,7 @@ module TransactionService::Store::Transaction
     [:automatic_confirmation_after_days, :fixnum, :mandatory],
     [:minimum_commission, :money, :mandatory],
     [:content, :string],
+    [:booking_uuid, :uuid],
     [:booking_fields, :hash])
 
   Transaction = EntityUtils.define_builder(
@@ -52,6 +53,7 @@ module TransactionService::Store::Transaction
     [:last_transition_at, :time],
     [:current_state, :to_symbol],
     [:shipping_address, :hash],
+    [:booking_uuid, :uuid],
     [:booking, :hash])
 
   ShippingAddress = EntityUtils.define_builder(
@@ -149,6 +151,17 @@ module TransactionService::Store::Transaction
       .or_else(nil)
   end
 
+  def update_booking_uuid(community_id:, transaction_id:, booking_uuid:)
+    unless booking_uuid.is_a?(UUIDTools::UUID)
+      raise ArgumentError.new("booking_uuid must be a UUID, was: #{booking_uuid} (#{booking_uuid.class.name})")
+    end
+
+    Maybe(TransactionModel.where(community_id: community_id, id: transaction_id).first)
+      .each { |tx_model| tx_model.update_attributes(booking_uuid: UUIDUtils.raw(booking_uuid)) }
+      .map { |tx_model| from_model(tx_model.reload) }
+      .or_else(nil)
+  end
+
   ## Privates
 
   def from_model(model)
@@ -162,6 +175,7 @@ module TransactionService::Store::Transaction
 
         hash[:listing_uuid] = UUIDTools::UUID.parse_raw(hash[:listing_uuid]) if hash[:listing_uuid].present?
         hash[:community_uuid] = UUIDTools::UUID.parse_raw(hash[:community_uuid]) if hash[:community_uuid].present?
+        hash[:booking_uuid] = UUIDUtils.parse_raw(hash[:booking_uuid]) if hash[:booking_uuid].present?
 
         hash
       }
