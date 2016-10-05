@@ -17,8 +17,8 @@ const toImage = (data) => {
 };
 
 // Outside of this file we should only pass UUID references, no need to export
-const UUID = Immutable.Record({ stringRep: '' });
-const toUUID = (transitUuid) => new UUID({ stringRep: transitUuid.toString() });
+const UUID = Immutable.Record({ value: '' });
+const toUUID = (transitUuid) => new UUID({ value: transitUuid.toString() });
 
 const createReader = function createReader() {
   return transit.reader('json', {

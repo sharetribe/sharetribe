@@ -26,9 +26,9 @@ const listingsWithAuthors = (listings, profiles) =>
   });
 
 const mapStateToProps = function mapStateToProps(state) {
-  const l = listingsWithAuthors(state.listings, state.profiles);
+  const listings = listingsWithAuthors(state.listings, state.profiles);
   return {
-    searchPage: state.searchPage.set('listings', l),
+    searchPage: state.searchPage.set('listings', listings),
     marketplace: state.marketplace,
     routes: state.routes,
   };

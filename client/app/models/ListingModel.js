@@ -19,18 +19,16 @@ const ListingModel = Immutable.Record({
     square: new Image(),
     square2x: new Image(),
   })]),
+  authorId: 'foo',
+  author: new Immutable.Record(),
+
+  // these need to be updated
   price: 1,
   priceUnit: '$',
   per: '/ day',
   distance: 1,
   distanceUnit: 'km',
-  authorId: 'foo',
-  author: new Immutable.Record(),
-
-  // these need to be updated
   listingURL: 'https://example.com/listing/1',
-  avatarURL: 'https://placehold.it/40x40',
-  profileURL: 'https://example.com/anonym',
 });
 
 export const parse = (l) => new ListingModel({
