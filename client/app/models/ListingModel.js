@@ -1,8 +1,21 @@
 import Immutable from 'immutable';
 import { Image, ImageRefs } from './ImageModel';
 
+export const Distance = Immutable.Record({
+  value: 0,
+  unit: 'km',
+});
+
+export const Money = Immutable.Record({
+  fractionalAmount: 0,
+  code: 'USD',
+});
+
+
 const ListingModel = Immutable.Record({
   id: 'uuid',
+  distance: new Distance(),
+  price: new Money(),
   title: 'Listing',
   images: new Immutable.List([new ImageRefs({
     square: new Image(),
@@ -22,6 +35,8 @@ const ListingModel = Immutable.Record({
 
 export const parse = (l) => new ListingModel({
   id: l.get(':id'),
+  distance: l.getIn([':attributes', ':distance']),
+  price: l.getIn([':attributes', ':price']),
   title: l.getIn([':attributes', ':title']),
   images: l.getIn([':attributes', ':images']),
   authorId: l.getIn([':relationships', ':author', ':id']),
