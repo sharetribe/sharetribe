@@ -8,7 +8,7 @@ export const Distance = Immutable.Record({
 
 export const Money = Immutable.Record({
   fractionalAmount: 0,
-  code: 'USD',
+  currency: 'USD',
 });
 
 

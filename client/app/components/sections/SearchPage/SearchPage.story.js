@@ -31,7 +31,7 @@ const listingCardTemplate = (title, perUnit, price, distance) => (
         listingURL: 'https://example.com/listing/342iu4',
         price: new Money({
           fractionalAmount: price || toFixedNumber(Math.random() * 9999, 2), // eslint-disable-line no-magic-numbers
-          code: 'EUR',
+          currency: 'EUR',
         }),
         per: perUnit || '/ day',
         distance: new Distance({

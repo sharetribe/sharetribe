@@ -105,7 +105,7 @@ const formatPrice = (price, locale = DEFAULT_LOCALE) => {
     return null;
   }
 
-  const currencyData = currencies[price.code.toLowerCase()];
+  const currencyData = currencies[price.currency.toLowerCase()];
   if (currencyData == null) {
     throw new Error('Unknown currency');
   }
@@ -114,7 +114,7 @@ const formatPrice = (price, locale = DEFAULT_LOCALE) => {
   const amount = price.fractionalAmount / currencyData.subunit_to_unit;
   const cultureSpecificFormat = localizedNumbro.cultureData().formats.fullWithTwoDecimals;
 
-  return localizedNumbro(amount, price.code).formatForeignCurrency(currencyData.symbol, cultureSpecificFormat);
+  return localizedNumbro(amount, price.currency).formatForeignCurrency(currencyData.symbol, cultureSpecificFormat);
 }
 
 const toFixedNumber = (number, limit, base) => {
