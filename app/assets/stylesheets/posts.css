@@ -21,6 +21,7 @@
   line-height: 41px;
   color: #5a5a5a;
   margin-bottom: 8px;
+  margin: left;
 
 }
 
@@ -41,9 +42,17 @@
   margin-bottom: 32px;
 
 }
+.blog-caption {
+  height: 300px;
+  overflow: hidden;
+}
+
+.hero-text {
+  /*margin-left: 570px;*/
+}
 
 .blog-hero-image {
-  height: 452px;
+  height: 310px;
   margin-bottom: 16px;
   background-size: cover;
   background-position: center;
