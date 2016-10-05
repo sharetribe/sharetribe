@@ -32,13 +32,18 @@ const ListingCardBasic =
           }),
         })]),
         listingURL: 'https://example.com/listing/342iu4',
-        avatarURL: 'https://placehold.it/40x40',
-        profileURL: '#profile',
         price: 21474836.47,  // eslint-disable-line no-magic-numbers
         priceUnit: '€',
         per: '/ hundred centimeters',
         distance: 12972,  // eslint-disable-line no-magic-numbers
         distanceUnit: 'mi',
+        author: {
+          familyName: 'family name',
+          givenName: 'given name',
+          description: 'product author',
+          avatarURL: 'https://placehold.it/40x40',
+          profileURL: `#profile${Math.random(10)}`, // eslint-disable-line no-magic-numbers
+        },
       }),
     },
   );

@@ -92,9 +92,11 @@ class ListingCard extends Component {
         div({
           className: css.avatarPosition,
         }, r(Avatar, {
-          url: listing.profileURL,
-          image: listing.avatarURL,
+          url: listing.author.profileURL,
+          image: listing.author.avatarURL,
           color: this.props.color,
+          givenName: listing.author.givenName,
+          familyName: listing.author.familyName,
         })),
         a({
           className: css.title,

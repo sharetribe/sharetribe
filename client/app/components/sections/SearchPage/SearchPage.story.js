@@ -28,13 +28,18 @@ const listingCardTemplate = (title, perUnit, price, distance) => (
           }),
         })]),
         listingURL: 'https://example.com/listing/342iu4',
-        avatarURL: 'https://placehold.it/40x40',
-        profileURL: `#profile${Math.random(10)}`, // eslint-disable-line no-magic-numbers
         price: price || toFixedNumber(Math.random() * 9999, 2), // eslint-disable-line no-magic-numbers
         priceUnit: '€',
         per: perUnit || '/ day',
         distance: distance || Math.random() * (20000) + 0.01, // eslint-disable-line no-magic-numbers
         distanceUnit: 'km',
+        author: {
+          familyName: 'family name',
+          givenName: 'given name',
+          description: 'product author',
+          avatarURL: 'https://placehold.it/40x40',
+          profileURL: `#profile${Math.random(10)}`, // eslint-disable-line no-magic-numbers
+        },
       }),
     }
   )

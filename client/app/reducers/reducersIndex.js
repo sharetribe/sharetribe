@@ -10,4 +10,6 @@ export default {
   onboarding_guide_page: onboardingGuideReducer,
   searchPage: searchPageReducer,
   routes: routesReducer,
+  listings: (state = {}) => state,
+  profiles: (state = {}) => state,
 };
