@@ -3,7 +3,7 @@
   "license": "MIT",
   "engines": {
     "node": "6.2.0",
-    "npm": "3.10.8"
+    "npm": "3.10.7"
   },
   "scripts": {
     "postinstall": "cd client && npm install",
