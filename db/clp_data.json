@@ -236,15 +236,15 @@
         "category_color_hover": {"type": "marketplace_data", "id": "primary_color"},
         "categories": [
             {
-                "category": { "type": "category", "id": 99999 },
+                "category": { "type": "category", "id": 166854 },
                 "background_image": {"type": "assets", "id": "default_hero_background"}
             },
             {
-                "category": { "type": "category", "id": 99999 },
+                "category": { "type": "category", "id": 166855 },
                 "background_image": {"type": "assets", "id": "default_hero_background"}
             },
             {
-                "category": { "type": "category", "id": 99999 },
+                "category": { "type": "category", "id": 166856 },
                 "background_image": {"type": "assets", "id": "default_hero_background"}
             }
         ]
@@ -264,13 +264,13 @@
         "author_name_color_hover": {"type": "marketplace_data", "id": "primary_color"},
         "listings": [
             {
-                "listing": { "type": "listing", "id": 2 }
+                "listing": { "type": "listing", "id": 289885 }
             },
             {
-                "listing": { "type": "listing", "id": 2 }
+                "listing": { "type": "listing", "id": 294897 }
             },
             {
-                "listing": { "type": "listing", "id": 2 }
+                "listing": { "type": "listing", "id": 303118 }
             }
         ]
     },
@@ -304,6 +304,7 @@
     { "section": {"type": "sections", "id": "single_info_with_background_color_and_cta"}},
     { "section": {"type": "sections", "id": "two_column_info_with_icons_and_buttons"}},
     { "section": {"type": "sections", "id": "listings"}},
+    { "section": {"type": "sections", "id": "categories"}},    
     { "section": {"type": "sections", "id": "footer"}}
   ],
 
