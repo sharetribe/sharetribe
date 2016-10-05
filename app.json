@@ -24,8 +24,16 @@
     "secret_key_base": {
       "required": true
     },
-    "NPM_CONFIG_PRODUCTION": "false",
     "DATABASE_URL": {
+      "required": true
+    },
+    "aws_access_key_id": {
+      "required": true
+    },
+    "aws_secret_access_key": {
+      "required": true
+    },
+    "s3_bucket_name": {
       "required": true
     }
   },
