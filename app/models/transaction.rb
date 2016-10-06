@@ -40,7 +40,9 @@
 #  index_transactions_on_conversation_id     (conversation_id)
 #  index_transactions_on_deleted             (deleted)
 #  index_transactions_on_last_transition_at  (last_transition_at)
+#  index_transactions_on_listing_author_id   (listing_author_id)
 #  index_transactions_on_listing_id          (listing_id)
+#  index_transactions_on_starter_id          (starter_id)
 #  transactions_on_cid_and_deleted           (community_id,deleted)
 #
 
