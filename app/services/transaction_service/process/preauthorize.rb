@@ -198,7 +198,7 @@ module TransactionService::Process
       tx_state = tx[:current_state]
 
       unless allowed_states.include?(tx_state)
-        rase TransactionService::Transaction::IllegalTransactionStateException.new(
+        raise TransactionService::Transaction::IllegalTransactionStateException.new(
                "Transaction was in illegal state, expected state: [#{allowed_states.join(',')}], actual state: #{tx_state}")
       end
     end
