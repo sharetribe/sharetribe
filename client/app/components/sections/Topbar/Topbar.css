@@ -145,6 +145,7 @@
 
     @media (--medium-viewport) {
       display: flex;
+      width: var(--Topbar_avatarSize);
       padding: var(--Topbar_avatarTabletPadding);
     }
 

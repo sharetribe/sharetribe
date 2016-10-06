@@ -24,7 +24,7 @@ const backgroundLightColor = 'white';
 const backgroundLightColorHover = 'rgba(169, 172, 176, 0.07)';
 const backgroundColorGrey = '#F7F7F7';
 const customColorFallback = '#4a90e2';
-const customColor2Fallback = '#2ab865';
+const customColor2Fallback = '#2ab  865';
 const alertColor = '#ff4e36';
 
 const borderColor = 'rgba(169, 172, 176, 0.5)';
@@ -306,4 +306,6 @@ module.exports = {
 
   '--Branding_textColor': textColor,
   '--Branding_borderColor': borderColor,
+
+  '--Avatar_textColor': textColorLight,
 };

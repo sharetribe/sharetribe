@@ -1,7 +1,8 @@
 import r, { div, h1, h2, p } from 'r-dom';
 import Immutable from 'immutable';
 import { toFixedNumber } from '../../../utils/numbers';
-import ListingModel, { Image, ImageRefs } from '../../../models/ListingModel';
+import ListingModel from '../../../models/ListingModel';
+import { Image, ImageRefs } from '../../../models/ImageModel';
 import ListingCard from '../../composites/ListingCard/ListingCard';
 import ListingCardPanel from '../../composites/ListingCardPanel/ListingCardPanel';
 import css from './SearchPage.story.css';

@@ -4,7 +4,8 @@ import Immutable from 'immutable';
 
 import { storify } from '../../Styleguide/withProps';
 import { toFixedNumber } from '../../../utils/numbers';
-import ListingModel, { Image, ImageRefs } from '../../../models/ListingModel';
+import ListingModel from '../../../models/ListingModel';
+import { Image, ImageRefs } from '../../../models/ImageModel';
 
 import ListingCardPanel from '../ListingCardPanel/ListingCardPanel';
 import ListingCard from '../ListingCard/ListingCard';

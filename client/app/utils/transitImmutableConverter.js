@@ -1,20 +1,6 @@
 import transit from 'transit-js';
 import Immutable from 'immutable';
-import { Image, ImageRefs } from '../models/ListingModel';
-
-const toImage = (data) => {
-  const knownStyles = {
-    ':square': 'square',
-    ':square_2x': 'square2x',
-  };
-  const images = data.map(([type, height, width, url]) =>
-    new Image({ type, height, width, url }));
-  const styles = images.reduce((acc, val) => {
-    const style = knownStyles[val.type];
-    return style ? acc.set(style, val) : acc;
-  }, new ImageRefs());
-  return styles;
-};
+import { parse as parseImage } from '../models/ImageModel';
 
 // Outside of this file we should only pass UUID references, no need to export
 const UUID = Immutable.Record({ value: '' });
@@ -37,7 +23,7 @@ const createReader = function createReader() {
       list: (rep) => Immutable.List(rep).asImmutable(),
       u: toUUID,
       r: (rep) => rep,
-      im: toImage,
+      im: parseImage,
     },
   });
 };
