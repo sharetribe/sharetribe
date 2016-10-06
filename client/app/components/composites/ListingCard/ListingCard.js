@@ -1,7 +1,7 @@
 import { Component, PropTypes } from 'react';
 import r, { a, div, img } from 'r-dom';
 import classNames from 'classnames';
-import { t, fullLocaleCode } from '../../../utils/i18n';
+import { t, fullLocaleCode, localizedString } from '../../../utils/i18n';
 import { canUseDOM } from '../../../utils/featureDetection';
 import { tint } from '../../../utils/colors';
 import { formatDistance, formatMoney } from '../../../utils/numbers';
@@ -53,7 +53,12 @@ class ListingCard extends Component {
 
     const localeCode = fullLocaleCode();
     const distanceFormatted = formatDistance(listing.distance, localeCode);
-    const priceFormatted = listing.price ? formatMoney(listing.price.get(':money'), localeCode): null;
+    const price = listing.price;
+    const moneyFormatted = price ? formatMoney(price.get(':money'), localeCode) : null;
+    const pricingUnitTranslations = price && price.get(':pricingUnit').size > 0 ?
+      price.get(':pricingUnit') :
+      null;
+    const pricingUnit = `/ ${localizedString(pricingUnitTranslations, 'pricing unit')}`;
 
     return div({
       className: classNames('ListingCard', css.listing, this.props.className),
@@ -110,16 +115,16 @@ class ListingCard extends Component {
           listing.title,
         ]),
         div({ className: css.footer }, [
-          listing.price ?
+          price ?
             div({
               className: css.priceWrapper,
               style: { color: this.props.color },
             }, [
-              div({ className: css.price, title: listing.price.currency }, priceFormatted),
-              listing.per ?
-                div({ className: css.per }, listing.per) :
+              div({ className: css.price, title: price.get(':money').currency }, moneyFormatted),
+              pricingUnit ?
+                div({ className: css.per }, pricingUnit) :
                 null,
-            ]):
+            ]) :
             div({ className: css.priceWrapper }),
           distanceFormatted ?
             div({ className: css.distance }, [

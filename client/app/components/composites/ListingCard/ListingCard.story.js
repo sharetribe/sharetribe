@@ -33,11 +33,13 @@ const ListingCardBasic =
           }),
         })]),
         listingURL: 'https://example.com/listing/342iu4',
-        price: new Money({
-          fractionalAmount: 2147483647, // eslint-disable-line no-magic-numbers
-          currency: 'EUR',
+        price: new Immutable.Map({
+          ':money': new Money({
+            fractionalAmount: 2147483647, // eslint-disable-line no-magic-numbers
+            currency: 'EUR',
+          }),
+          ':pricingUnit': new Immutable.Map({ en: 'hundred centimeters' }),
         }),
-        per: '/ hundred centimeters',
         distance: new Distance({
           value: 12972, // eslint-disable-line no-magic-numbers
           unit: ':miles',
@@ -65,11 +67,13 @@ const ListingCardNoImage =
         listingURL: 'https://example.com/listing/342iu4',
         avatarURL: 'https://placehold.it/40x40',
         profileURL: '#profile',
-        price: new Money({
-          fractionalAmount: 1900, // eslint-disable-line no-magic-numbers
-          currency: 'EUR',
+        price: new Immutable.Map({
+          ':money': new Money({
+            fractionalAmount: 1900, // eslint-disable-line no-magic-numbers
+            currency: 'EUR',
+          }),
+          ':pricingUnit': new Immutable.Map({ en: 'day' }),
         }),
-        per: '/ day',
         distance: new Distance({
           value: 0.67, // eslint-disable-line no-magic-numbers
           unit: ':km',
@@ -98,11 +102,13 @@ const ListingCardImageError =
         listingURL: 'https://example.com/listing/342iu4',
         avatarURL: 'https://placehold.it/40x40',
         profileURL: '#profile',
-        price: new Money({
-          fractionalAmount: 19900, // eslint-disable-line no-magic-numbers
-          currency: 'EUR',
+        price: new Immutable.Map({
+          ':money': new Money({
+            fractionalAmount: 19900, // eslint-disable-line no-magic-numbers
+            currency: 'EUR',
+          }),
+          ':pricingUnit': new Immutable.Map({ en: 'day' }),
         }),
-        per: '/ day',
         distance: new Distance({
           value: 9, // eslint-disable-line no-magic-numbers
           unit: ':miles',
@@ -114,7 +120,7 @@ const ListingCardImageError =
 
 const testPrice = function priceTest(card, mountedCard) {
   it('Should display formatted price', () => {
-    expect(mountedCard.text()).to.include(formatMoney(card.props.listing.price, card.props.listing.priceUnit));
+    expect(mountedCard.text()).to.include(formatMoney(card.props.listing.price.get(':money'), card.props.listing.price.get(':priceUnit')));
   });
 };
 const testDistance = function priceTest(card, mountedCard) {

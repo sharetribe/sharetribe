@@ -35,14 +35,16 @@ const listingCardTemplate = (title, perUnit, price, distance) => (
           }),
         })]),
         listingURL: 'https://example.com/listing/342iu4',
-        price: new Money({
-          fractionalAmount: price || toFixedNumber(Math.random() * 9999, 2), // eslint-disable-line no-magic-numbers
-          currency: 'EUR',
+        price: new Immutable.Map({
+          ':money': new Money({
+            fractionalAmount: price || toFixedNumber(Math.random() * 9999, 2), // eslint-disable-line no-magic-numbers
+            currency: 'EUR',
+          }),
+          ':pricingUnit': new Immutable.Map({ en: (perUnit || 'day'), fi: 'päivä' }),
         }),
-        per: perUnit || '/ day',
         distance: new Distance({
           value: distance || Math.random() * (20000) + 0.01, // eslint-disable-line no-magic-numbers
-          unit: ':km'
+          unit: ':km',
         }),
         author: {
           familyName: 'family name',
