@@ -4,7 +4,7 @@
     <div class="blog-hero col-12">
          
          <% if !p["post_thumbnail"].kind_of?(Array) && p["post_thumbnail"]["link"] %>
-          <div class="blog-hero-image" style="background-image: url('<%=p["post_thumbnail"]["link"]%>')">
+          <div class="blog-hero-image-post" style="background-image: url('<%=p["post_thumbnail"]["link"]%>')">
           </div>
           <% end %>
 

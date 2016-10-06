@@ -2,7 +2,7 @@
 
   <% p = @posts.shift %>
   <div class="row">
-    <div class="blog-hero col-7">
+    <div class="blog-hero col-8">
       <%= link_to post_path(p["post_id"]) do %>
 
       <% if !p["post_thumbnail"].kind_of?(Array) && p["post_thumbnail"]["link"] %>
@@ -13,7 +13,7 @@
       <% end %>
     </div>
 
-    <div class="hero-text col-5">
+    <div class="hero-text col-4">
 
       <h4 class="date">
         <%= p["post_date"].to_time.strftime('%^b %d, %G') %>

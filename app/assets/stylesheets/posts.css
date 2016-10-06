@@ -17,8 +17,8 @@
 
 .blog-title-hero {
   font-size: 32px;
-  font-weight: 700;
-  line-height: 41px;
+  font-weight: bold;
+  line-height: 36px;
   color: #5a5a5a;
   margin-bottom: 8px;
   margin: left;
@@ -52,7 +52,15 @@
 }
 
 .blog-hero-image {
-  height: 310px;
+  height: 350px;
+  margin-bottom: 16px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;  
+}
+
+.blog-hero-image-post {
+  height: 550px;
   margin-bottom: 16px;
   background-size: cover;
   background-position: center;
