@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { t, fullLocaleCode } from '../../../utils/i18n';
 import { canUseDOM } from '../../../utils/featureDetection';
 import { tint } from '../../../utils/colors';
-import { formatDistance, formatPrice } from '../../../utils/numbers';
+import { formatDistance, formatMoney } from '../../../utils/numbers';
 import ListingModel from '../../../models/ListingModel';
 
 import Avatar from '../../elements/Avatar/Avatar';
@@ -53,7 +53,7 @@ class ListingCard extends Component {
 
     const localeCode = fullLocaleCode();
     const distanceFormatted = formatDistance(listing.distance, localeCode);
-    const priceFormatted = listing.price ? formatPrice(listing.price, localeCode): null;
+    const priceFormatted = listing.price ? formatMoney(listing.price.get(':money'), localeCode): null;
 
     return div({
       className: classNames('ListingCard', css.listing, this.props.className),

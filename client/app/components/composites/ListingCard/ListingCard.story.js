@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import Immutable from 'immutable';
 
 import { storify } from '../../Styleguide/withProps';
-import { formatDistance, formatPrice } from '../../../utils/numbers';
+import { formatDistance, formatMoney } from '../../../utils/numbers';
 import { Image, ImageRefs } from '../../../models/ImageModel';
 import ListingModel, { Distance, Money } from '../../../models/ListingModel';
 
@@ -114,7 +114,7 @@ const ListingCardImageError =
 
 const testPrice = function priceTest(card, mountedCard) {
   it('Should display formatted price', () => {
-    expect(mountedCard.text()).to.include(formatPrice(card.props.listing.price, card.props.listing.priceUnit));
+    expect(mountedCard.text()).to.include(formatMoney(card.props.listing.price, card.props.listing.priceUnit));
   });
 };
 const testDistance = function priceTest(card, mountedCard) {

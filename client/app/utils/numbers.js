@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import Immutable from 'immutable';
 import numbro from 'numbro';
 import { t } from './i18n';
 import currencies from '../assets/json/currency_iso.json';
@@ -70,7 +69,7 @@ const localizeNumbro = function localizeNumbro(locale) {
 };
 
 const translateDistanceUnit = function translateDistanceUnit(unit) {
-  switch(unit) {
+  switch (unit) {
     case ':km':
       return t('web.utils.km');
     case ':miles':
@@ -78,7 +77,7 @@ const translateDistanceUnit = function translateDistanceUnit(unit) {
     default:
       throw new Error('Unknown distance unit');
   }
-}
+};
 
 const sigFigs = function sigFigs(n, sig) {
   return parseFloat(n.toPrecision(sig));
@@ -100,7 +99,7 @@ const formatDistance = function formatDistance(distance, locale = DEFAULT_LOCALE
 };
 
 
-const formatPrice = (price, locale = DEFAULT_LOCALE) => {
+const formatMoney = (price, locale = DEFAULT_LOCALE) => {
   if (price == null) {
     return null;
   }
@@ -115,11 +114,11 @@ const formatPrice = (price, locale = DEFAULT_LOCALE) => {
   const cultureSpecificFormat = localizedNumbro.cultureData().formats.fullWithTwoDecimals;
 
   return localizedNumbro(amount, price.currency).formatForeignCurrency(currencyData.symbol, cultureSpecificFormat);
-}
+};
 
 const toFixedNumber = (number, limit, base) => {
   const pow = Math.pow(base || DECIMAL_BASE, limit);
   return Number(Math.round(number * pow) / pow);
 };
 
-export { formatDistance, formatPrice, toFixedNumber };
+export { formatDistance, formatMoney, toFixedNumber };
