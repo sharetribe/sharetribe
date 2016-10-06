@@ -87,17 +87,11 @@ module TransactionService::PaypalEvents
 
   def preauthorized_to_rejected(tx, payment_status = nil)
     metadata = payment_status ? { paypal_payment_status: payment_status } : nil
-    TransactionService::Transaction.finalize_reject(
-      community_id: tx[:community_id],
-      transaction_id: tx[:id],
-      metadata: metadata)
+    MarketplaceService::Transaction::Command.transition_to(tx[:id], "rejected", metadata)
   end
 
   def pending_ext_to_denied(tx, payment_status)
-    TransactionService::Transaction.finalize_reject(
-      community_id: tx[:community_id],
-      transaction_id: tx[:id],
-      metadata: {paypal_payment_status: payment_status})
+    MarketplaceService::Transaction::Command.transition_to(tx[:id], "rejected", paypal_payment_status: payment_status)
   end
 
   def initiated_to_preauthorized(tx)
@@ -112,9 +106,7 @@ module TransactionService::PaypalEvents
     # transition to paid so that we have the full payment info
     # available at the time we send payment receipts.
     TransactionService::Transaction.charge_commission(tx[:id])
-    TransactionService::Transaction.finalize_complete_preauthorization(
-      community_id: tx[:community_id],
-      transaction_id: tx[:id])
+    MarketplaceService::Transaction::Command.transition_to(tx[:id], :paid)
   end
 
   def preauthorized_to_pending_ext(tx, pending_reason)
@@ -126,10 +118,11 @@ module TransactionService::PaypalEvents
   end
 
   def pending_ext_to_paid(tx)
+    # Commission charge is synchronous and must complete before we
+    # transition to paid so that we have the full payment info
+    # available at the time we send payment receipts.
     TransactionService::Transaction.charge_commission(tx[:id])
-    TransactionService::Transaction.finalize_complete_preauthorization(
-      community_id: tx[:community_id],
-      transaction_id: tx[:id])
+    MarketplaceService::Transaction::Command.transition_to(tx[:id], :paid)
   end
 
   def delete_transaction(cid:, tx_id:)

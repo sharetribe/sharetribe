@@ -127,7 +127,7 @@ module TransactionService::Process
       res = Gateway.unwrap_completion(
         gateway_adapter.reject_payment(tx: tx, reason: "")) do
 
-        finalize_reject(tx: tx, gateway_adapter: gateway_adapter)
+        Transition.transition_to(tx[:id], :rejected)
       end
 
       if res[:success] && message.present?
@@ -135,45 +135,13 @@ module TransactionService::Process
       end
 
       res
-    end
-
-    def finalize_reject(tx:, gateway_adapter:, metadata: nil)
-      ensure_can_execute!(tx: tx, allowed_states: [:rejected, :preauthorized, :pending_ext])
-
-      if tx[:current_state] == :rejected
-        Result::Success.new()
-      else
-        Transition.transition_to(tx[:id], :rejected, metadata)
-
-        if tx[:availability] != :booking
-          Result::Success.new()
-        else
-          HarmonyClient.post(
-            :reject_booking,
-            params: {
-              id: tx[:booking_uuid]
-            },
-            body: {
-              actorId: UUIDUtils.base64_to_uuid(tx[:listing_author_id]),
-              reason: "rejected" # TODO Proper reason
-            },
-            opts: {
-              max_attempts: 3
-            }).on_error { |error_msg, data|
-
-            logger.error("Failed to reject booking",
-                         :failed_reject_booking,
-                         tx.slice(:community_id, :id).merge(error_msg: error_msg))
-          }
-        end
-      end
     end
 
     def complete_preauthorization(tx:, message:, sender_id:, gateway_adapter:)
       res = Gateway.unwrap_completion(
         gateway_adapter.complete_preauthorization(tx: tx)) do
 
-        finalize_complete_preauthorization(tx: tx, gateway_adapter: gateway_adapter)
+        Transition.transition_to(tx[:id], :paid)
       end
 
       if res[:success] && message.present?
@@ -181,38 +149,6 @@ module TransactionService::Process
       end
 
       res
-    end
-
-    def finalize_complete_preauthorization(tx:, gateway_adapter:)
-      ensure_can_execute!(tx: tx, allowed_states: [:preauthorized, :pending_ext, :paid])
-
-      if tx[:current_state] == :paid
-        Result::Success.new()
-      else
-        Transition.transition_to(tx[:id], :paid)
-
-        if tx[:availability] != :booking
-          Result::Success.new()
-        else
-          HarmonyClient.post(
-            :accept_booking,
-            params: {
-              id: tx[:booking_uuid]
-            },
-            body: {
-              actorId: UUIDUtils.base64_to_uuid(tx[:listing_author_id]),
-              reason: "provicer accepted"
-            },
-            opts: {
-              max_attempts: 3
-            }).on_error { |error_msg, data|
-
-            logger.error("Failed to accept booking",
-                         :failed_accept_booking,
-                         tx.slice(:community_id, :id).merge(error_msg: error_msg))
-          }
-        end
-      end
     end
 
     def complete(tx:, message:, sender_id:, gateway_adapter:)
