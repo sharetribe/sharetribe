@@ -3,6 +3,9 @@ module MarketplaceService
     TransactionModel = ::Transaction
     ParticipationModel = ::Participation
 
+    class BookingStateChangeError < StandardError
+    end
+
     module Entity
       Transaction = EntityUtils.define_entity(
         :id,
@@ -379,10 +382,9 @@ module MarketplaceService
           opts: {
             max_attempts: 3
           }).on_error { |error_msg, data|
-
-          logger.error("Failed to accept booking",
-                       :failed_accept_booking,
-                       transaction.slice(:community_id, :id).merge(error_msg: error_msg))
+          log_and_notify_harmony_error!("Failed to accept booking",
+                                        :failed_accept_booking,
+                                        transaction.slice(:community_id, :id).merge(error_msg: error_msg))
         }
       end
 
@@ -405,10 +407,9 @@ module MarketplaceService
           opts: {
             max_attempts: 3
           }).on_error { |error_msg, data|
-
-          logger.error("Failed to reject booking",
-                       :failed_reject_booking,
-                       transaction.slice(:community_id, :id).merge(error_msg: error_msg))
+          log_and_notify_harmony_error!("Failed to reject booking",
+                                        :failed_reject_booking,
+                                        transaction.slice(:community_id, :id).merge(error_msg: error_msg))
         }
       end
 
@@ -423,6 +424,12 @@ module MarketplaceService
         if send_reminder
           Delayed::Job.enqueue(TransactionPreauthorizedReminderJob.new(transaction_id), priority: 9, :run_at => reminder_at)
         end
+      end
+
+      def log_and_notify_harmony_error!(error_msg, error_code, data)
+        logger.error(error_msg, error_code, data)
+
+        Airbrake.notify(BookingStateChangeError.new("#{error_msg}: #{data}")) if APP_CONFIG.use_airbrake
       end
 
       def logger
