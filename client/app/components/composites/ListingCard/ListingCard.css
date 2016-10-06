@@ -85,15 +85,15 @@
   align-items: flex-end;
 }
 
-.priceWrapper {
-  flex-basis: 68%;
+.orderTypeWrapper {
+  flex-basis: 67%;
+  font-size: var(--ListingCard_fontSizePrice);
+  font-weight: var(--ListingCard_fontWeightMedium);
+  line-height: 1em;
 }
 
 .price {
   float: left;
-  font-size: var(--ListingCard_fontSizePrice);
-  font-weight: var(--ListingCard_fontWeightMedium);
-  line-height: 1em;
   margin-right: var(--ListingCard_textSpacing);
 }
 
@@ -106,7 +106,7 @@
 }
 
 .distance {
-  flex-basis: 32%;
+  flex-basis: 33%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
