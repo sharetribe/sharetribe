@@ -377,7 +377,7 @@ module MarketplaceService
           },
           body: {
             actorId: UUIDUtils.base64_to_uuid(transaction[:listing_author_id]),
-            reason: "provicer accepted"
+            reason: :provider_accepted
           },
           opts: {
             max_attempts: 3
@@ -402,7 +402,7 @@ module MarketplaceService
             # Passing the reason to the event handler is a bit
             # cumbersome. We decided to skip it for now. That's why
             # we always set the reason to "unknown"
-            reason: "unknown"
+            reason: :unknown
           },
           opts: {
             max_attempts: 3
