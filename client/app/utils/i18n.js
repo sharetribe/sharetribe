@@ -52,7 +52,7 @@ const initialize = function initialize(i18nLocale, i18nDefaultLocale, env, local
   I18n.locale = i18nLocale;
   I18n.defaultLocale = i18nDefaultLocale;
   I18n.interpolationMode = 'split';
-  I18n.localeInfo = localeInfo != null ? localeInfo :  { ident: i18nLocale };
+  I18n.localeInfo = localeInfo != null ? localeInfo : { ident: i18nLocale };
 
   if (env === 'development') {
     I18n.missingTranslation = function displayMissingTranslation(scope) {
@@ -78,18 +78,32 @@ const initialize = function initialize(i18nLocale, i18nDefaultLocale, env, local
   }
 };
 
+const localizedString = function localizedString(localizationMap, scope) {
+  if (localizationMap == null || localizationMap.size === 0) {
+    return missingTranslationMessage(scope);
+  }
+
+  if (localizationMap.get(I18n.locale)) {
+    return localizationMap.get(I18n.locale);
+  } else if (localizationMap.get(I18n.defaultLocale)) {
+    return localizationMap.get(I18n.defaultLocale);
+  } else {
+    return localizationMap.first();
+  }
+};
+
 const currentLocale = function currentLocale() {
   return I18n.localeInfo;
 };
 
 const fullLocaleCode = function fullLocaleCode() {
   const localeInfo = currentLocale();
-  if (!(localeInfo && localeInfo["language"] && localeInfo["region"])) {
+  if (!(localeInfo && localeInfo.language && localeInfo.region)) {
     throw new Error('No locale found');
   }
 
   return `${localeInfo.language.toLowerCase()}-${localeInfo.region.toUpperCase()}`;
-}
+};
 
 // Bind functions to I18n
 const translate = bind(I18n.translate, I18n);
@@ -104,6 +118,7 @@ export {
   fullLocaleCode,
   initialize,
   localize,
+  localizedString,
   pluralize,
   translate,
   l,
