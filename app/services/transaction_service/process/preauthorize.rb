@@ -91,6 +91,15 @@ module TransactionService::Process
                 }.on_error { |payment_error_msg, payment_data|
                   logger.error("Failed to void payment after failed booking", :failed_void_payment, tx.slice(:community_id, :id).merge(error_msg: payment_error_msg))
                 }
+              }.on_success { |data|
+                response_body = data[:body]
+                booking = response_body[:data]
+
+                TxStore.update_booking_uuid(
+                  community_id: tx[:community_id],
+                  transaction_id: tx[:id],
+                  booking_uuid: booking[:id]
+                )
               }
             end
 
