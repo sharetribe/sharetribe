@@ -853,29 +853,6 @@ pt-PT:
       remember_to_accept: ~
       one_day_left: ~
       click_here_to_reply: ~
-    welcome_email:
-      welcome_email_subject: ~
-      welcome_to_marketplace: ~
-      love_marketplace_crew: ~
-      welcome_email_footer_text: ""
-      settings_link_text: "Verifique as suas configurações"
-      welcome_email_subject_for_marketplace_creator: ~
-      welcome_to_marketplace_creator: ~
-      congrats_for_creating_your_marketplace: ~
-      here_is_your_account_information: ~
-      your_email_address: ~
-      your_marketplace_address: ~
-      your_marketplace_admin_area: ~
-      just_follow_details: ~
-      we_will_guide_you_along_the_way: ~
-      are_you_new_to_online_marketplaces: ~
-      have_questions: ~
-      our_happiness_team_is_here_to_help: ~
-      love: ~
-      sharetribe_crew: ~
-      knowledge_base_link_text: ~
-      contact_support_link_text: ~
-      admin_panel_link_text: ~
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -1682,6 +1659,9 @@ pt-PT:
       email_is_in_use: "O email já está em uso."
       email_is_in_use_or_not_allowed: "Este endereço de email não é permitido ou já está a ser utilizado. Se não conseguir entrar, contacte-nos."
       email_not_allowed: "Este email não foi aceite pelo %{service_name}. Por favor, utilize um email válido. Se não conseguir conectar-se, entre em contacto conosco."
+      email_restriction_instructions:
+        one: "O acesso ao %{service_name} é restrito. Para aderir precisa de um '%{allowed_emails}' email address."
+        other: "O acesso ao %{service_name} é restrito. Precisa de um endereço de email que mostre que está autorizado a aderir."
       family_name: Apelido
       given_name: Nome
       i_accept_the: "Aceito os"
@@ -1700,9 +1680,6 @@ pt-PT:
       create_account_with_facebook: "Registe-se com seu Facebook"
       OR: ~
       signup_with_email: "Registe-se com seu e-mail"
-      email_restriction_instructions:
-        one: "O acesso ao %{service_name} é restrito. Para aderir precisa de um '%{allowed_emails}' email address."
-        other: "O acesso ao %{service_name} é restrito. Precisa de um endereço de email que mostre que está autorizado a aderir."
     profile_feedback:
       grade: "nota:"
       and_gave_following_feedback: "deu a seguinte opinião "

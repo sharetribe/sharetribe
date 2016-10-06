@@ -871,29 +871,6 @@ th-TH:
       remember_to_accept: "อย่าลืมยอมรับคำขอจาก%{requester}เกี่ยวกับรายการ %{listing_title} %{requester}ได้ชำระเงินแก่รายการไปแล้ว คุณต้องยอมรับคำขอเพื่อรับเงิน"
       one_day_left: "หากคุณไม่ยอมรับคำขอภายในหนึ่งวัน คำขอจะถูกปฏิเสธโดยอัตโนมัติ และคุณจะไม่ได้รับเงิน "
       click_here_to_reply: คลิกที่นี่เพื่อตอบสนองต่อคำขอ
-    welcome_email:
-      welcome_email_subject: "ยินดีต้อนรับสู่ %{service_name}!"
-      welcome_to_marketplace: "ยินดีต้อนรับสู่ %{service_name}! เราดีใจที่คุณอยู่ในนี้"
-      love_marketplace_crew: "ด้วยรัก, <br /><i>ลูกเรือ%{service_name}</i>"
-      welcome_email_footer_text: "อีเมล์ประเภทใดที่คุณต้องการจะได้รับจาก%{service_name}? %{settings_link}"
-      settings_link_text: ตรวจสอบการตั้งค่าของคุณ
-      welcome_email_subject_for_marketplace_creator: ~
-      welcome_to_marketplace_creator: ~
-      congrats_for_creating_your_marketplace: ~
-      here_is_your_account_information: ~
-      your_email_address: ~
-      your_marketplace_address: ~
-      your_marketplace_admin_area: ~
-      just_follow_details: ~
-      we_will_guide_you_along_the_way: ~
-      are_you_new_to_online_marketplaces: "คุณต้องการความช่วยเหลือเกี่ยวกับตลาดของคุณหรือไม่? ไม่ต้องกังวล เราอยู่ที่นี่เพื่อช่วยเหลือคุณ! เราจะส่งชุดอีเมลที่จะช่วยให้คุณได้รับประโยชน์สูงสุดจาก Sharetribe และเพื่อสร้างธุรกิจตลาดที่ประสบความสำเร็จ เราจะส่งส่วนที่ 1 ให้คุณเร็ว ๆ นี้"
-      have_questions: ~
-      our_happiness_team_is_here_to_help: ~
-      love: ~
-      sharetribe_crew: ~
-      knowledge_base_link_text: ~
-      contact_support_link_text: ~
-      admin_panel_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name}ได้โพสต์รายการใหม่ใน%{service_name}"
       has_posted_a_new_listing: "%{author_name}ได้โพสต์รายการใหม่"

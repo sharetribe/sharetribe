@@ -857,29 +857,6 @@ it:
       remember_to_accept: "Ricordati di accettare la richiesta di %{requester} per l'annuncio %{listing_title}. %{requester} ha già pagato per questo annuncio. Devi accettare la richiesta per ricevere il pagamento."
       one_day_left: "Se non accetti la richiesta entro un giorno, la richiesta sarà negata e non sarai pagato"
       click_here_to_reply: "Clicca qui per rispondere alla richiesta"
-    welcome_email:
-      welcome_email_subject: ~
-      welcome_to_marketplace: "Benvenuto su %{service_name}!"
-      love_marketplace_crew: "Con affetto,<br /><i>il team di %{service_name}</i>"
-      welcome_email_footer_text: "Quale genere di email vuoi ricevere da%{service_name}? %{settings_link}"
-      settings_link_text: "Controlla le tue impostazioni"
-      welcome_email_subject_for_marketplace_creator: ~
-      welcome_to_marketplace_creator: ~
-      congrats_for_creating_your_marketplace: ~
-      here_is_your_account_information: "Qui ci sono le informazioni del tuo account"
-      your_email_address: "Indirizzo email usato per il login:"
-      your_marketplace_address: ~
-      your_marketplace_admin_area: ~
-      just_follow_details: ~
-      we_will_guide_you_along_the_way: ~
-      are_you_new_to_online_marketplaces: ~
-      have_questions: "Ci sono domande?"
-      our_happiness_team_is_here_to_help: ~
-      love: ~
-      sharetribe_crew: ~
-      knowledge_base_link_text: ~
-      contact_support_link_text: ~
-      admin_panel_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} ha pubblicato un nuovo annuncio su %{service_name}"
       has_posted_a_new_listing: "%{author_name} ha pubblicato un nuovo annuncio:"
