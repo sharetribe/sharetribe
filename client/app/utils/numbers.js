@@ -42,18 +42,18 @@ const KNOWN_LOCALES = [
   'sk-SK',
 ];
 
-const initializeNumbro = _.memoize((n, locale) => {
+const initializeNumbro = _.memoize((numbroInstance, locale) => {
   if (locale && KNOWN_LOCALES.includes(locale) && locale !== 'en-US') {
-    n.culture(locale, require(`numbro/languages/${locale}`));
+    numbroInstance.culture(locale, require(`numbro/languages/${locale}`));
   } else {
     KNOWN_LOCALES.forEach((localeCode) => {
       if (localeCode !== 'en-US') {
-        n.culture(localeCode, require(`numbro/languages/${localeCode}`));
+        numbroInstance.culture(localeCode, require(`numbro/languages/${localeCode}`));
       }
     });
   }
-  return n;
-}, (n, locale) => (locale ? locale : 'all'));
+  return numbroInstance;
+}, (numbroInstance, locale) => (locale ? locale : 'all'));
 
 const localizeNumbro = function localizeNumbro(locale) {
 
@@ -92,9 +92,10 @@ const formatDistance = function formatDistance(distance, locale = DEFAULT_LOCALE
   const dist = localizedNumbro(sigFigs(distance.value, precision));
   const localizedUnit = translateDistanceUnit(distance.unit);
   const formatted = (distance.value < 1) ? dist.format('0,0.0') : dist.format('0,0');
+  const formattedMinimumDistance = localizedNumbro(minimumDistance).format('0.0');
 
   return (distance.value < minimumDistance) ?
-    `< 0.1 ${localizedUnit}` :
+    `< ${formattedMinimumDistance} ${localizedUnit}` :
     `${formatted} ${localizedUnit}`;
 };
 
