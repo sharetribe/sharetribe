@@ -20,7 +20,9 @@
     "start-phantomjs": "phantomjs --webdriver=8910",
     "styleguide": "start-storybook -p 9001",
     "deploy-storybook": "storybook-to-ghpages",
-    "test": "mocha './app/components/**/*.story.js' --reporter mocha-circleci-reporter --require babel-register --require ignore-styles --require ./mochaConfig.js"
+    "test:stories": "mocha './app/components/**/*.story.js' --reporter mocha-circleci-reporter --require babel-register --require ignore-styles --require ./mochaConfig.js",
+    "test:specs": "mocha './app/specs/*.spec.js' --reporter mocha-circleci-reporter --require babel-register --require ignore-styles --require ./mochaConfig.js",
+    "test": "npm run test:stories && npm run test:specs"
   },
   "dependencies": {
     "babel-cli": "6.11.4",
