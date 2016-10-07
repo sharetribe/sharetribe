@@ -89,11 +89,11 @@
       "id": "single_info_with_background_color_and_cta",
       "kind": "info",
       "variation": "single_column",
-      "title": "Natives believes that the key to a great healing experience is not just a great healer, but trust.",
+      "title": "Natives is determined to expand discoveries & education to those new to the journey; there are alternative medicines and complimentary treatments available.",
       "paragraph": "",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "button_title": "Find A Healer",
+      "button_title": "LEARN MORE ABOUT OUR HEALERS & THEIR STORIES HERE",
       "button_path": {"type": "path", "id" :"about"},
       "background_color": [140,118,255] 
     },
@@ -103,15 +103,15 @@
       "variation": "multi_column",
       "title": "Why Join Natives?",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
-      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color"},
       "icon_color": {"type": "marketplace_data", "id": "primary_color"},
       "columns": [
         {
           "icon": "meditation",
           "title": "Practioners",
           "paragraph": ["Promote your services, build & manage your personal business. Connect with your local community."],
-          "button_title": "BECOME A NATIVES PRACTIONER",
-          "button_path": {"value": "https://www.sharetribe.com"}
+          "button_title": "BECOME A PRACTIONER",
+          "button_path": {"value": "en/listings/new"}
         },
         {
           "icon": "user-group",
@@ -161,9 +161,9 @@
           
         },
         {
-          "title": "Need Title",
+          "title": "Keep Our Community Honest",
           "icon": "happy",
-          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
+          "paragraph": "Quickly leave a review of your practitioner so that other community members can feel safe with your friendly recommendation."
           
         }
       
@@ -255,7 +255,7 @@
         "title": "Meet Some Of Our Practitioneers",
         "paragraph": "",
         "button_color": {"type": "marketplace_data", "id": "primary_color"},
-        "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+        "button_color_hover": {"type": "marketplace_data", "id": "primary_color"},
         "button_title": "Browse all listings",
         "button_path": {"type": "path", "id": "search"},
         "price_color": {"type": "marketplace_data", "id": "primary_color"},
