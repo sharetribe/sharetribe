@@ -48,7 +48,7 @@ const ListingCardBasic =
           familyName: 'family name',
           givenName: 'given name',
           description: 'product author',
-          avatarURL: 'https://placehold.it/40x40',
+          avatarImage: { thumb: new Image({ url: 'https://placehold.it/40x40' }) },
           profileURL: `#profile${Math.random(10)}`, // eslint-disable-line no-magic-numbers
         },
       }),
@@ -65,7 +65,7 @@ const ListingCardNoImage =
         title: 'No picture',
         images: new Immutable.List([new ImageRefs()]),
         listingURL: 'https://example.com/listing/342iu4',
-        avatarURL: 'https://placehold.it/40x40',
+        author: { avatarImage: { thumb: new Image({ url: 'https://placehold.it/40x40' }) } },
         profileURL: '#profile',
         price: new Immutable.Map({
           ':money': new Money({
@@ -100,7 +100,7 @@ const ListingCardImageError =
           }),
         })]),
         listingURL: 'https://example.com/listing/342iu4',
-        avatarURL: 'https://placehold.it/40x40',
+        author: { avatarImage: { thumb: new Image({ url: 'https://placehold.it/40x40' }) } },
         profileURL: '#profile',
         price: new Immutable.Map({
           ':money': new Money({

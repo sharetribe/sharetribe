@@ -50,7 +50,7 @@ const listingCardTemplate = (title, perUnit, price, distance) => (
           familyName: 'family name',
           givenName: 'given name',
           description: 'product author',
-          avatarURL: 'https://placehold.it/40x40',
+          avatarImage: { thumb: new Image({ url: 'https://placehold.it/40x40' }) },
           profileURL: `#profile${Math.random(10)}`, // eslint-disable-line no-magic-numbers
         },
       }),
