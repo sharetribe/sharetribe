@@ -1,21 +1,27 @@
 import Immutable from 'immutable';
 
 export const Image = Immutable.Record({
-  type: ':square',
-  height: 408,
-  width: 408,
+  type: null,
+  height: null,
+  width: null,
   url: null,
 });
 
 export const ImageRefs = Immutable.Record({
-  square: new Image(),
-  square2x: new Image(),
+  square: null,
+  square2x: null,
+  medium: null,
+  small: null,
+  thumb: null,
 });
 
 export const parse = (data) => {
   const knownStyles = {
     ':square': 'square',
     ':square_2x': 'square2x',
+    ':medium': 'medium',
+    ':small': 'small',
+    ':thumb': 'thumb',
   };
   const images = data.map(([type, height, width, url]) =>
     new Image({ type, height, width, url }));
