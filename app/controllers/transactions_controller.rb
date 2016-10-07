@@ -71,13 +71,13 @@ class TransactionsController < ApplicationController
                                       unit: listing_model.unit_type&.to_sym)
 
 
-        TransactionService::Transaction.create(
+        transaction_service.create(
           {
             transaction: {
               community_id: @current_community.id,
               community_uuid: @current_community.uuid_object,
               listing_id: listing_id,
-              listing_uuid: listing_model.uuid,
+              listing_uuid: listing_model.uuid_object,
               listing_title: listing_model.title,
               starter_id: @current_user.id,
               listing_author_id: author_model.id,
@@ -123,7 +123,7 @@ class TransactionsController < ApplicationController
 
     transaction_conversation, role = m_participant.or_else { m_admin.or_else([]) }
 
-    tx = TransactionService::Transaction.get(community_id: @current_community.id, transaction_id: params[:id])
+    tx = transaction_service.get(community_id: @current_community.id, transaction_id: params[:id])
          .maybe()
          .or_else(nil)
 
@@ -163,6 +163,47 @@ class TransactionsController < ApplicationController
     }
   end
 
+  def created
+    proc_status = transaction_service.finalize_create(
+      community_id: @current_community.id,
+      transaction_id: params[:transaction_id],
+      force_sync: false)
+
+    unless proc_status[:success]
+      flash[:error] = t("error_messages.booking.booking_failed_payment_voided")
+      return redirect_to search_path
+    end
+
+    process_token = proc_status.dig(:data, :transaction_service_fields, :process_token)
+
+    tx = transaction_service.get(community_id: @current_community.id, transaction_id: params[:transaction_id])[:data]
+
+    if process_token.present?
+      # Operation was performed asynchronously
+
+      # We're using here the same PayPal spinner, although we could
+      # create a new one for TransactionService.
+      render "paypal_service/success", layout: false, locals: {
+        op_status_url: transaction_op_status_path(process_token),
+        redirect_url: transaction_finalize_processed_path(process_token, listing_id: tx[:listing_id])
+      }
+    else
+      handle_finalize_proc_result(proc_status, tx[:listing_id])
+    end
+  end
+
+  def finalize_processed
+    process_token = params[:process_token]
+    listing_id = params[:listing_id]
+
+    proc_status = transaction_process_tokens.get_status(UUIDTools::UUID.parse(process_token))
+    unless (proc_status[:success] && proc_status[:data][:completed])
+      return redirect_to error_not_found_path
+    end
+
+    handle_finalize_proc_result(proc_status[:data][:result], listing_id)
+  end
+
   def transaction_op_status
     process_token = params[:process_token]
 
@@ -176,12 +217,18 @@ class TransactionsController < ApplicationController
              .or_else(nil)
 
     if resp
-      render :json => resp
+      render json: process_resp_to_json(resp)
     else
       head :not_found
     end
   end
 
+  #
+  # TODO
+  #
+  # Move this to CheckoutOrdersController
+  # This shouldn't be in TransactionService, it should be in PaypalService
+  #
   def paypal_op_status
     process_token = params[:process_token]
 
@@ -208,11 +255,20 @@ class TransactionsController < ApplicationController
     PaypalService::API::Api.process
   end
 
-  def transaction_process_tokens
-    TransactionService::API::Api.process_tokens
-  end
-
   private
+
+  def handle_finalize_proc_result(response, listing_id)
+    response_data = response[:data] || {}
+
+    tx = response_data[:transaction]
+
+    if response[:success]
+      redirect_to person_transaction_path(person_id: @current_user.id, id: tx[:id])
+    else
+      flash[:error] = t("error_messages.booking.booking_failed_payment_voided")
+      redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
+    end
+  end
 
   def other_party(conversation)
     if @current_user.id == conversation[:other_person][:id]
@@ -413,5 +469,29 @@ class TransactionsController < ApplicationController
     else
       tx_params[:quantity] || 1
     end
+  end
+
+  def process_resp_to_json(resp)
+    if resp[:completed]
+      {
+        completed: true,
+        result: {
+          success: resp[:result][:success],
+          data: {
+            redirect_url: resp.dig(:result, :data, :redirect_url)
+          }
+        }
+      }
+    else
+      { completed: false }
+    end
+  end
+
+  def transaction_service
+    TransactionService::Transaction
+  end
+
+  def transaction_process_tokens
+    TransactionService::API::Api.process_tokens
   end
 end

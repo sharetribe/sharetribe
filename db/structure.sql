@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: sharetribe_development
 -- ------------------------------------------------------
--- Server version	5.6.32-log
+-- Server version	5.7.15-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -112,7 +112,8 @@ CREATE TABLE `category_custom_fields` (
   `custom_field_id` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `index_category_custom_fields_on_category_id_and_custom_field_id` (`category_id`,`custom_field_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -585,9 +586,10 @@ CREATE TABLE `emails` (
   `send_notifications` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_emails_on_address_and_community_id` (`address`,`community_id`) USING BTREE,
+  KEY `index_emails_on_person_id` (`person_id`) USING BTREE,
   KEY `index_emails_on_address` (`address`) USING BTREE,
   KEY `index_emails_on_community_id` (`community_id`) USING BTREE,
-  KEY `index_emails_on_person_id` (`person_id`) USING BTREE
+  KEY `index_emails_on_confirmation_token` (`confirmation_token`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1566,14 +1568,17 @@ CREATE TABLE `transactions` (
   `delivery_method` varchar(31) DEFAULT 'none',
   `shipping_price_cents` int(11) DEFAULT NULL,
   `availability` varchar(32) DEFAULT 'none',
+  `booking_uuid` binary(16) DEFAULT NULL,
   `deleted` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `transactions_on_cid_and_deleted` (`community_id`,`deleted`) USING BTREE,
-  KEY `index_transactions_on_community_id` (`community_id`) USING BTREE,
+  KEY `index_transactions_on_listing_id` (`listing_id`) USING BTREE,
   KEY `index_transactions_on_conversation_id` (`conversation_id`) USING BTREE,
-  KEY `index_transactions_on_deleted` (`deleted`) USING BTREE,
+  KEY `index_transactions_on_community_id` (`community_id`) USING BTREE,
   KEY `index_transactions_on_last_transition_at` (`last_transition_at`) USING BTREE,
-  KEY `index_transactions_on_listing_id` (`listing_id`) USING BTREE
+  KEY `transactions_on_cid_and_deleted` (`community_id`,`deleted`) USING BTREE,
+  KEY `index_transactions_on_deleted` (`deleted`) USING BTREE,
+  KEY `index_transactions_on_starter_id` (`starter_id`) USING BTREE,
+  KEY `index_transactions_on_listing_author_id` (`listing_author_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -1586,7 +1591,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-26 16:22:39
+-- Dump completed on 2016-10-04 17:13:09
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3145,3 +3150,16 @@ INSERT INTO schema_migrations (version) VALUES ('20160921130544');
 
 INSERT INTO schema_migrations (version) VALUES ('20160926111847');
 
+INSERT INTO schema_migrations (version) VALUES ('20160928080048');
+
+INSERT INTO schema_migrations (version) VALUES ('20160928080819');
+
+INSERT INTO schema_migrations (version) VALUES ('20160929114326');
+
+INSERT INTO schema_migrations (version) VALUES ('20160929124124');
+
+INSERT INTO schema_migrations (version) VALUES ('20160930070122');
+
+INSERT INTO schema_migrations (version) VALUES ('20161004141208');
+
+INSERT INTO schema_migrations (version) VALUES ('20161006074506');

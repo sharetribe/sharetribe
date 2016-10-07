@@ -34,6 +34,8 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 ## Unreleased
 
+In this release we are introducing layout changes that require new image styles. Therefore, a migration is added to reprocess all images from open listings into new styles. This does not require any precautions, but if your marketplace has a lot of open listings the time required for image reprocessing can be reduced by increasing the number of workers until all `CreateSquareImagesJob` jobs have been processed.
+
 ## Upgrade from 5.12.0 to 6.0.0
 
 Release 6.0.0 drops official support for MySQL server version 5.6. Please upgrade to 5.7 when upgrading Sharetribe. See the upgrade notes from release 5.12.0 below for more information.

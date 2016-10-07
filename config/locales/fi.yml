@@ -884,29 +884,6 @@ fi:
       remember_to_accept: "Muista hyväksyä pyyntö käyttäjältä %{requester} koskien tilausta \"%{listing_title}\". %{requester} on jo maksanut tilauksen. Sinun pitää hyväksyä tilaus saadaksesi maksun tilillesi."
       one_day_left: "Mikäli et hyväksy pyyntöä yhden päivän sisällä, pyyntö hylätään automaattisesti etkä saa maksua tilillesi."
       click_here_to_reply: "Klikkaa tästä vastataksesi pyyntöön"
-    welcome_email:
-      welcome_email_subject: "Tervetuloa %{community}-palveluun"
-      welcome_to_marketplace: "Tervetuloa %{service_name}-palvelun jäseneksi! Mukavaa kun liityit."
-      love_marketplace_crew: "Terveisin,<br /><i>%{service_name}-tiimi</i>"
-      welcome_email_footer_text: "Millaisia sähköpostiviestejä haluat saada %{service_name}-palvelusta? %{settings_link}"
-      settings_link_text: "Tarkista sähköpostiasetuksesi"
-      welcome_email_subject_for_marketplace_creator: "Tervetuloa Sharetribeen"
-      welcome_to_marketplace_creator: "Tervetuloa Sharetribeen, %{name}!"
-      congrats_for_creating_your_marketplace: "Onneksi olkoon, sivustosi on nyt luotu! Se oli helppoa, eikö vain?"
-      here_is_your_account_information: "Tässä Sharetribe-tilisi tärkeimmät tiedot."
-      your_email_address: "Sähköpostiosoitteesi, jolla voit kirjautua sisään:"
-      your_marketplace_address: "Sivustosi osoite:"
-      your_marketplace_admin_area: "Sivustosi ylläpitonäkymä:"
-      just_follow_details: "Näitä linkkejä seuraamalla löydät lisätietoa sivustosi muokkauksesta."
-      we_will_guide_you_along_the_way: "Me opastamme sinua."
-      are_you_new_to_online_marketplaces: "Tarvitset lisäohjeita päästäksesi alkuun? Ei hätää, me autamme! Lähipäivinä tulemme lähettämään sinulle sarjan tietopaketteja, joista kerrotaan, miten markkinapaikkasivustot toimivat, ja autetaan sinua hyödyntämään Sharetriben ominaisuuksia parhaalla mahdollisella tavalla. Ensimmäinen osa lähetetään sinulle pian."
-      have_questions: "Heräsikö sinulle kysymyksiä?"
-      our_happiness_team_is_here_to_help: "Autamme mielellämme! Voit joko %{knowledge_base_link} tai olla yhteydessä asiakapalveluumme %{admin_panel_link}."
-      love: "Terveisin,"
-      sharetribe_crew: "Sharetriben tiimi"
-      knowledge_base_link_text: "katsoa vastauksia yleisimpiin kysymyksiin"
-      contact_support_link_text: "olla yhteydessä asiakaspalveluumme"
-      admin_panel_link_text: "ylläpitonäkymän kautta"
     new_listing_by_followed_person:
       subject: "%{author_name} lisäsi ilmoituksen %{service_name}-palveluun"
       has_posted_a_new_listing: "%{author_name} on lisännyt uuden ilmoituksen:"
@@ -1599,8 +1576,6 @@ fi:
       night: yö
       nights: yötä
       invalid_parameters: "Epäpätevät arvot uudelle transaktiolle"
-      dates_not_available: ~
-      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: "Lue lisää."
   mapview:
@@ -2060,6 +2035,8 @@ fi:
     day: päivä
     days: päivää
   web:
+    listing_card:
+      no_picture: ~
     topbar:
       menu: Valikko
       more: Lisää

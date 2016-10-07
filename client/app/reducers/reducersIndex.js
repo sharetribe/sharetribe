@@ -6,7 +6,10 @@ import routesReducer from './RoutesReducer';
 // The `import * as reducers` does not work for a directory, but only with a single file
 export default {
   marketplaceContext: (state = {}) => state,
+  marketplace: (state = {}) => state,
   onboarding_guide_page: onboardingGuideReducer,
   searchPage: searchPageReducer,
   routes: routesReducer,
+  listings: (state = {}) => state,
+  profiles: (state = {}) => state,
 };

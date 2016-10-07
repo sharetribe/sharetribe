@@ -16,6 +16,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Fixed
 
+- Avoid redirect to correct S3 bucket endpoint when bucket is not in `us-east-1` region [#2605](https://github.com/sharetribe/sharetribe/pull/2605)
+
 ## [6.0.0] - 2016-09-27
 
 ### Removed

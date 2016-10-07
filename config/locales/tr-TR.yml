@@ -869,29 +869,6 @@ tr-TR:
       remember_to_accept: "\"%{listing_title}\" listelemesi hakkında %{requester}'den gelen talebi kabul etmeyi unutmayın. %{requester} listeleme için ödemeyi gerçekleştirdi. Ödemeyi alabilmek için talebi kabul etmeniz gerekmektedir."
       one_day_left: "Talebi bir gün içerisinde kabul etmezseniz, otomatik olarak reddedilecek ve ödeme alamayacaksınız."
       click_here_to_reply: "Talebe cevap vermek için buraya tıklayın"
-    welcome_email:
-      welcome_email_subject: "%{service_name} pazar yerine hoş geldiniz!"
-      welcome_to_marketplace: "%{service_name} pazar yerine hoş geldiniz! Sizi aramızda görmekten mutluyuz."
-      love_marketplace_crew: "Sevgiler, <br /><i>%{service_name} ekibi</i>"
-      welcome_email_footer_text: "%{service_name}'den hangi e-postaları almak istiyorsunuz? %{settings_link}"
-      settings_link_text: "Ayarlarınızı kontrol ediniz"
-      welcome_email_subject_for_marketplace_creator: "Sharetribe'a hoş geldiniz"
-      welcome_to_marketplace_creator: "%{name}, Sharetribe'a hoş geldin!"
-      congrats_for_creating_your_marketplace: "Pazarınızı oluşturduğunuz için sizi tebrik ederiz. Bu hiç de zor olmadı, değil mi?"
-      here_is_your_account_information: "Hesap bilgileriniz burada."
-      your_email_address: "Giriş yaparken kullandığınız e-posta adresi:"
-      your_marketplace_address: "Pazar adresiniz:"
-      your_marketplace_admin_area: "Pazar yöneticisi alanınız:"
-      just_follow_details: "Bağlantıları takip edin ve pazarınızı oluşturmak için ayrıntılı bilgileri bulacaksınız!"
-      we_will_guide_you_along_the_way: "Bu işlem süresince size yardımcı olacağız."
-      are_you_new_to_online_marketplaces: "Çevrimiçi pazarlarda yeni misiniz? Merak etmeyin, biz burada size yardımcı olmak için varız. Sharetribe'dan en iyi şekilde faydalanabilmeniz ve başarılı bir pazar işi kurabilmeniz için size yardım edecek çeşitli e-postalar göndereceğiz. İlk kısım en kısa zaman içerisinde elinizde olacak."
-      have_questions: "Sorularınız mı var?"
-      our_happiness_team_is_here_to_help: "Mutluluk ekibimiz sizin için burada! %{knowledge_base_link} ya da destek ekibimizle iletişime geçin."
-      love: "Sevgiler,"
-      sharetribe_crew: "Sharetribe ekibi"
-      knowledge_base_link_text: "Bilgi veri tabanımıza göz atın"
-      contact_support_link_text: "destek ile bağlantıya geç."
-      admin_panel_link_text: "yönetici paneli"
     new_listing_by_followed_person:
       subject: "%{author_name} %{service_name} pazar yerine yeni bir listeleme ekledi."
       has_posted_a_new_listing: "%{author_name} yeni bir listeleme ekledi."
@@ -1580,8 +1557,6 @@ tr-TR:
       night: ~
       nights: ~
       invalid_parameters: ~
-      dates_not_available: ~
-      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: Görüntüle.
   mapview:
@@ -2020,6 +1995,8 @@ tr-TR:
     day: gün
     days: günler
   web:
+    listing_card:
+      no_picture: ~
     topbar:
       menu: ~
       more: ~

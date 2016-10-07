@@ -2,8 +2,12 @@ module UUIDUtils
 
   module_function
 
+  def create
+    UUIDTools::UUID.timestamp_create
+  end
+
   def create_raw
-    raw(UUIDTools::UUID.timestamp_create)
+    raw(create)
   end
 
   def parse_raw(raw_uuid)
@@ -12,6 +16,10 @@ module UUIDUtils
 
   def raw(uuid)
     to_rearranged(uuid.raw)
+  end
+
+  def base64_to_uuid(base64)
+    UUIDTools::UUID.parse_raw(Base64.urlsafe_decode64(base64))
   end
 
   # private

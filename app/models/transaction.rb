@@ -32,6 +32,7 @@
 #  delivery_method                   :string(31)       default("none")
 #  shipping_price_cents              :integer
 #  availability                      :string(32)       default("none")
+#  booking_uuid                      :binary(16)
 #  deleted                           :boolean          default(FALSE)
 #
 # Indexes
@@ -40,7 +41,9 @@
 #  index_transactions_on_conversation_id     (conversation_id)
 #  index_transactions_on_deleted             (deleted)
 #  index_transactions_on_last_transition_at  (last_transition_at)
+#  index_transactions_on_listing_author_id   (listing_author_id)
 #  index_transactions_on_listing_id          (listing_id)
+#  index_transactions_on_starter_id          (starter_id)
 #  transactions_on_cid_and_deleted           (community_id,deleted)
 #
 
@@ -71,6 +74,18 @@ class Transaction < ActiveRecord::Base
     joins(:listing)
     .where("listings.author_id = ? OR starter_id = ?", person.id, person.id)
   }
+
+  def booking_uuid_object
+    if self[:booking_uuid].nil?
+      nil
+    else
+      UUIDUtils.parse_raw(self[:booking_uuid])
+    end
+  end
+
+  def booking_uuid_object=(uuid)
+    self.booking_uuid = UUIDUtils.raw(uuid)
+  end
 
   def status
     current_state

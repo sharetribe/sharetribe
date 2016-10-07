@@ -751,7 +751,7 @@ da-DK:
       cancel_it_link_text: "annullere din anmodning"
       automatic_confirmation: "Hvis du ikke acceptere eller afviser anmodningen inden %{days_to_automatic_confirmation} dage efter anmodningen blev accepteret, vil vi automatisk markere den som godkendt."
     payment_settings_reminder:
-      remember_to_add_payment_details: "Husk at udfylde dine betalingsoplysninger for at modtage betalinger"
+      remember_to_add_payment_details: "Husk at udfylde dine betalingsoplysninger"
       you_have_added_listing_with_payment: "Du har oprettet en annonce %{listing_link} med betaling, men du har ikke tilføjet dine betalingsoplysninger, der er nødvendigt for at kunne modtage betalinger."
       please_go_to_payment_settings: "Gå venligst til %{payment_settings_link} og udfyld dine betalingsoplysninger."
       payment_settings_link: Betalinger
@@ -882,29 +882,6 @@ da-DK:
       remember_to_accept: "Husk at acceptere anmodningen fra %{requester} omhandlende \"%{listing_title}\". %{requester} har allerede betalt for dit produkt. Du skal godkende på siden, for at modtage dine penge."
       one_day_left: "Hvis du ikke accepterer anmodningen inden for en dag, bliver anmodningen automatisk afvist, og du vil ikke blive betalt."
       click_here_to_reply: "Klik her for at sende dit svar"
-    welcome_email:
-      welcome_email_subject: "Velkommen til %{service_name}"
-      welcome_to_marketplace: "Velkommen til %{service_name}! Vi er glade for at have dig med."
-      love_marketplace_crew: "Hilsen,<br /><i>Holdet bag %{service_name}</i>"
-      welcome_email_footer_text: "Hvilke typer emails vil du gerne modtage fra %{service_name}? %{settings_link}"
-      settings_link_text: "Tjek dine indstillinger"
-      welcome_email_subject_for_marketplace_creator: "Velkommen til Sharetribe"
-      welcome_to_marketplace_creator: "Velkommen til Sharetribe, %{name}!"
-      congrats_for_creating_your_marketplace: "Tillykke med din nye markedsplads! Det var nemt, ikke?"
-      here_is_your_account_information: "Her er dine konto informationer."
-      your_email_address: "Din email som du brugte til at logge ind:"
-      your_marketplace_address: "Link til din markedsplads:"
-      your_marketplace_admin_area: "Admin panel:"
-      just_follow_details: "Du skal blot følge disse links for at få mere information til hvordan du starter med at bygge din egen markedsplads!"
-      we_will_guide_you_along_the_way: "Vi guider dig hele vejen i mål."
-      are_you_new_to_online_marketplaces: "Er vi din første markedsplads? Intet problem, vi er her for at hjælpe dig hele vejen i mål! Vi vil sende dig en serie emails som skal hjælpe dig gennem Sharetribe's funktioner og hjælpe dig med at bygge en succesfuld markedsplads. Vi sender din første email om et øjeblik."
-      have_questions: "Har du spørgsmål?"
-      our_happiness_team_is_here_to_help: "Vores tilfredshedsteam er her for din skyld. Enten %{knowledge_base_link} eller kontakt vores support."
-      love: "Kærlig hilsen,"
-      sharetribe_crew: "Holdet bag Sharetribe"
-      knowledge_base_link_text: "tjek vores support side"
-      contact_support_link_text: "kontakt vores support"
-      admin_panel_link_text: "administrator panel"
     new_listing_by_followed_person:
       subject: "%{author_name} har oprettet en ny annonce på %{service_name}"
       has_posted_a_new_listing: "%{author_name} har oprettet en ny annonce:"
@@ -1139,7 +1116,7 @@ da-DK:
       search_placeholder: "Hvad leder du efter?"
       search_location_placeholder: Lokation
     listings:
-      no_listing_image: "Ingen billede"
+      no_listing_image: "Intet billede"
   layouts:
     admin:
       admin: "%{service_name} administrator panel"
@@ -1398,7 +1375,7 @@ da-DK:
         googlemap_updatemap: "Opdater Kort"
       images:
         image: Billede
-        best_result: "For det bedste resultat, upload billeder i formatet JPEG, GIF eller PNG i størrelsen %{width}x%{height} px"
+        best_result: "Upload billeder i formatet JPEG, GIF eller PNG. Minimum %{width}x%{height} px."
         no_file_selected: "Ingen fil valgt"
         remove_image: "Fjern billede"
         select_file: "Vælg fil"
@@ -1597,8 +1574,6 @@ da-DK:
       night: Nat
       nights: Nætter
       invalid_parameters: "Ugyldige værdier for ny transaktion"
-      dates_not_available: "De valgte datoer er ikke tilgængelige"
-      error_in_checking_availability: "Kunne ikke tjekke tilgængelighed for de valgte dage"
     transaction_agreement_checkbox:
       read_more: Vis.
   mapview:
@@ -1692,7 +1667,7 @@ da-DK:
   paypal:
     pay_with_paypal: "Fortsæt til betaling"
     checkout_with_paypal: "Betal med PayPal"
-    cancel_succesful: "PayPal betalingen blev annulleret med success."
+    cancel_succesful: "Betaling annulleret."
     transaction:
       commission_payment_name: "Servicegebyr for %{listing_title}"
       commission_payment_description: "Markedspladsen %{service_name} tog et servicegebyr fra transaktionen på %{listing_title}"
@@ -2058,6 +2033,8 @@ da-DK:
     day: dag
     days: dage
   web:
+    listing_card:
+      no_picture: "Intet billede"
     topbar:
       menu: Menu
       more: Mere
@@ -2071,7 +2048,7 @@ da-DK:
       logout: "Log ud"
       login: "Log ind"
       signup: Tilmeld
-      admin_dashboard: "Administrator Dashboard"
+      admin_dashboard: "Admin panel"
       language: Sprog
     branding:
       powered_by: "%{service_name} er powered af %{sharetribe_link} markedsplads platformen."

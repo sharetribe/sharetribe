@@ -1,44 +1,47 @@
 import { Component, PropTypes } from 'react';
-import { div, img, p } from 'r-dom';
+import r, { div } from 'r-dom';
 import Immutable from 'immutable';
+import styleVariables from '../../../assets/styles/variables';
+
+import ListingCard from '../../composites/ListingCard/ListingCard';
+import ListingCardPanel from '../../composites/ListingCardPanel/ListingCardPanel';
 
 import css from './SearchPage.css';
+
+const DEFAULT_CONTEXT = {
+  marketplace_color1: styleVariables['--customColorFallback'],
+};
+
+const listingsByIds = (listings, ids) =>
+  ids.map((id) => listings.get(id));
 
 class SearchPage extends Component {
 
   constructor(props, context) {
     super(props, context);
-    this.listings = [];
+    this.listings = listingsByIds(props.searchPage.listings, props.searchPage.currentPage) || [];
+    this.listingProps = this.listingProps.bind(this);
+  }
+
+  listingProps(listing, color) {
+    return {
+      key: `card_${listing.id}`,
+      color,
+      listing,
+    };
   }
 
   render() {
+    const { marketplace_color1: marketplaceColor1 } = { ...DEFAULT_CONTEXT, ...this.props.marketplace };
     return div({ className: css.searchPage }, [
-      div({ className: css.listingContainer }, this.listings.map((l) =>
-        div({
-          className: css.listing,
-          key: `card_${l.get('id')}`,
-        }, [
-          div({ className: css.squareWrapper },
-            img({
-              className: css.thumbnail,
-              src: 'http://placehold.it/264x264',
-            }),
-          ),
-          div({ className: css.info }, [
-            p({ className: css.title }, l.get('title')),
-          ]),
-        ])
+      r(ListingCardPanel,
+        { className: css.listingContainer },
+        this.listings.map((listing) =>
+          r(ListingCard, this.listingProps(listing, marketplaceColor1))
       )),
     ]);
   }
 }
-
-
-// These will change when DiscoveryAPI is ready
-export const ListingModel = Immutable.Record({
-  id: 'uuid',
-  title: 'Listing',
-});
 
 export const SearchPageModel = Immutable.Record({
   prevPage: new Immutable.List(),
@@ -47,10 +50,14 @@ export const SearchPageModel = Immutable.Record({
   listings: new Immutable.List(),
 });
 
-const { instanceOf } = PropTypes;
+const { instanceOf, string } = PropTypes;
 
 SearchPage.propTypes = {
   searchPage: instanceOf(SearchPageModel).isRequired,
+  marketplace: PropTypes.shape({
+    marketplaceColor1: string,
+    location: string,
+  }),
 };
 
 export default SearchPage;

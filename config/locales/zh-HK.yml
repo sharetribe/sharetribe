@@ -871,29 +871,6 @@ zh-HK:
       remember_to_accept: "不要忘記接受來自%{requester}有關%{listing_title}的請求。%{requester}已為此請求付款。你需要接受請求以收取款項。"
       one_day_left: 如果你不能在一天內接受請求，這請求將會被自動取消，你亦不會收到款項。
       click_here_to_reply: 按此以回應請求
-    welcome_email:
-      welcome_email_subject: "歡迎來到%{service_name}！"
-      welcome_to_marketplace: "歡迎來到%{service_name}！恭喜你成功註冊。"
-      love_marketplace_crew: "親愛的%{service_name}團隊敬上"
-      welcome_email_footer_text: "你希望從%{service_name}接收到哪種類型的電郵？%{settings_link}"
-      settings_link_text: 查看你的設定
-      welcome_email_subject_for_marketplace_creator: 歡迎來到Sharetribe！
-      welcome_to_marketplace_creator: "歡迎來到Sharetribe，%{name}！"
-      congrats_for_creating_your_marketplace: 恭喜你成功創建你的市集！很簡單，對嗎？
-      here_is_your_account_information: 這是你的的帳戶訊息。
-      your_email_address: 你用以登入的電郵地址：
-      your_marketplace_address: 你的市集地址：
-      your_marketplace_admin_area: 你的市集管理後台：
-      just_follow_details: 以下的連結將告訴你如何開始你的市集！
-      we_will_guide_you_along_the_way: 我們將一路伴隨。
-      are_you_new_to_online_marketplaces: 你的市集需要協助嗎？沒有問題！我們將發送一系列的電郵來幫助你處理Sharetribe及建立你的市集。我們即將發送第一部份的內容給你。
-      have_questions: 有任何問題嗎？
-      our_happiness_team_is_here_to_help: "我們的團隊會為你提供協助！請按%{knowledge_base_link}或透過%{admin_panel_link}聯絡我們。"
-      love: 親愛的，
-      sharetribe_crew: Sharetribe全體人員
-      knowledge_base_link_text: 請查閱我們的資料庫
-      contact_support_link_text: 聯絡我們的支援人員
-      admin_panel_link_text: 管理員控制版面
     new_listing_by_followed_person:
       subject: "%{author_name}已經在%{service_name}發表了一個新訊息"
       has_posted_a_new_listing: "%{author_name}已經發表了一個新的訊息："
@@ -1585,8 +1562,6 @@ zh-HK:
       night: ~
       nights: ~
       invalid_parameters: ~
-      dates_not_available: ~
-      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: ~
   mapview:
@@ -2025,6 +2000,8 @@ zh-HK:
     day: ~
     days: ~
   web:
+    listing_card:
+      no_picture: ~
     topbar:
       menu: ~
       more: ~

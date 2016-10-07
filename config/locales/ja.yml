@@ -867,29 +867,6 @@ ja:
       remember_to_accept: "「%{listing_title}」について%{requester}さんからのリクエストを承諾してください。%{requester}さんは既にお支払いを完了しています。お支払いを受けるには注文のリクエストを承諾してください。"
       one_day_left: もし1日以内にリクエストを承諾しない場合は、リクエストは自動的に却下され、お支払いはされませんのでご了承願います。
       click_here_to_reply: リクエストに答えるにはこちらをクリックしてください
-    welcome_email:
-      welcome_email_subject: "%{service_name}へようこそ"
-      welcome_to_marketplace: "%{service_name}へようこそ！よくお越しくださいました。"
-      love_marketplace_crew: "それではまた、<br /><i>%{service_name}チーム"
-      welcome_email_footer_text: "%{service_name}からのメール受信設定が出来ます。%{settings_link}"
-      settings_link_text: 設定を確認する
-      welcome_email_subject_for_marketplace_creator: Sharetribeへようこそ
-      welcome_to_marketplace_creator: "%{name}さん、Sharetribeへようこそ！"
-      congrats_for_creating_your_marketplace: マーケットプレイス作成、おめでとうございます。とても簡単だったでしょう？
-      here_is_your_account_information: こちらはアカウント情報です。
-      your_email_address: 以前こちらでログインしたことがあるメールアドレスでログイン：
-      your_marketplace_address: マーケットプレイスのアドレス：
-      your_marketplace_admin_area: あなたのマーケットプレイスの管理エリア：
-      just_follow_details: このリンク先に目を通してください。マーケットプレイスを完成させるには、どのように始めたら良いかの詳細をご確認いただけます。
-      we_will_guide_you_along_the_way: 私たちがその道をご案内します。
-      are_you_new_to_online_marketplaces: "マーケットプレイスのアシスタントが必要ですか。心配しないで下さい。私たちはあなたを手助けするために、ここにいます。私たちは、Sharetribe をうまく使いこなし、マーケットプレイスのビジネスを成功に導いていただけるよう、手助けをします。また、サービス向上のために、順序だってメールをお送りいたします。第一号をお楽しみに！"
-      have_questions: ご質問がありますか。
-      our_happiness_team_is_here_to_help: "幸せなチームがあなたのために、ここにいます！ %{knowledge_base_link}やサポートに連絡が可能です %{admin_panel_link} 。"
-      love: 以上、よろしくお願いいたします。
-      sharetribe_crew: Sharetribeチーム
-      knowledge_base_link_text: 我々の知識基盤を確認してください
-      contact_support_link_text: サポートにお問い合わせ
-      admin_panel_link_text: 管理者用パネル
     new_listing_by_followed_person:
       subject: "%{service_name}で%{author_name}さんが新しいリストを投稿しました"
       has_posted_a_new_listing: "%{author_name}さんが新しいリストを投稿をしました："
@@ -1578,8 +1555,6 @@ ja:
       night: ~
       nights: ~
       invalid_parameters: ~
-      dates_not_available: ~
-      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: 表示
   mapview:
@@ -2018,6 +1993,8 @@ ja:
     day: 日
     days: 日
   web:
+    listing_card:
+      no_picture: ~
     topbar:
       menu: ~
       more: ~

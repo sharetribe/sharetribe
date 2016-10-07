@@ -22,6 +22,8 @@ module TopbarHelper
       }
     })
 
+    given_name, family_name = *PersonViewUtils.person_display_names(user, community)
+
     {
       logo: {
         href: PathHelpers.landing_page_path(
@@ -46,8 +48,10 @@ module TopbarHelper
       locales: landing_page ? nil : locale_props(community, I18n.locale, path_after_locale_change),
       avatarDropdown: {
         avatar: {
-          image: user&.image.present? ? user.image.url(:thumb) : missing_profile_image_path(),
-        }
+          image: user&.image.present? ? user.image.url(:thumb) : nil,
+          givenName: given_name,
+          familyName: family_name,
+        },
       },
       newListingButton: {
         text: I18n.t("homepage.index.post_new_listing"),
@@ -95,12 +99,12 @@ module TopbarHelper
         priority: -1
       },
       {
-        link: paths.about_infos_path,
+        link: paths.about_infos_path(locale: locale_param),
         title: I18n.t("header.about"),
         priority: 0
       },
       {
-        link: paths.new_user_feedback_path,
+        link: paths.new_user_feedback_path(locale: locale_param),
         title: I18n.t("header.contact_us"),
         priority: !user_links.empty? ? user_links.last[:priority] + 1 : 1
       }
@@ -114,7 +118,7 @@ module TopbarHelper
 
     if user&.has_admin_rights? || community.users_can_invite_new_users
       links << {
-        link: paths.new_invitation_path,
+        link: paths.new_invitation_path(locale: locale_param),
         title: I18n.t("header.invite"),
         priority: !user_links.empty? ? user_links.last[:priority] + 2 : 2
       }

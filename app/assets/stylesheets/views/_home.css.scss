@@ -104,10 +104,9 @@
 
 .home-list-item {
   position: relative;
-  padding-bottom: lines(0.5);
   margin-bottom: lines(0.5);
   border-bottom: 1px solid $border;
-  height: lines(3.5);
+  min-height: lines(3.5);
 
   @include media(tablet) {
     padding-bottom: lines(1);
@@ -207,7 +206,12 @@ $home-list-avatar-padding: lines(0.25);
   padding: em(4) em(8);
 
   position: relative;
-  top: em($padding-fine-tuning * -1);
+  display: none;
+
+  @include media(tablet) {
+    display: inline;
+    top: em($padding-fine-tuning * -1);
+  }
 }
 
 .home-list-details-right {
@@ -291,8 +295,7 @@ $home-list-avatar-padding: lines(0.25);
 
 .home-list-price-mobile,
 .browsing-list-item-price-mobile {
-  position: absolute;
-  bottom: lines(0.25, 24);
+  margin-bottom: lines(0.25, 24);
   @include media(large-mobile) {
     text-align: right;
     right: 0;
@@ -326,8 +329,6 @@ $home-list-avatar-padding: lines(0.25);
 }
 
 .home-list-price-mobile-with-listing-image {
-  left: 84px;
-
   @include media(large-mobile) {
     left: auto;
   }

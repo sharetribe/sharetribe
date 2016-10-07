@@ -868,29 +868,6 @@ nl:
       remember_to_accept: "Vergeet niet om het verzoek van %{requester} betreffende item \"%{listing_title}\" te accepteren. %{requester} heeft al betaald voor het verzoek. Je moet het verzoek aanvaarden om de betaling te ontvangen."
       one_day_left: "Als je het verzoek niet binnen één dag accepteert zal het automatisch verworpen worden en wordt je niet betaald."
       click_here_to_reply: "Klik hier om te antwoorden op het verzoek"
-    welcome_email:
-      welcome_email_subject: "Welkom bij %{service_name}"
-      welcome_to_marketplace: "Welkom, bij %{service_name}! We zijn blij dat je er bent."
-      love_marketplace_crew: "Groeten,<br /><i>%{service_name} team</i>"
-      welcome_email_footer_text: "Welk soort berichten zou u van %{service_name} willen ontvangen?%{settings_link}"
-      settings_link_text: "Kijk je instellingen na"
-      welcome_email_subject_for_marketplace_creator: "Welkom bij Sharetribe"
-      welcome_to_marketplace_creator: "Welkom bij Sharetribe, %{name}!"
-      congrats_for_creating_your_marketplace: "Proficiat met het aanmaken van je marktplaats. Dat was niet moeilijk, wel?"
-      here_is_your_account_information: "Hier is de informatie van je account."
-      your_email_address: "Het e-mail adres dat je gebruikte om in te loggen:"
-      your_marketplace_address: "Je marktplaats adres:"
-      your_marketplace_admin_area: "Je marktplaats beheerders gebied:"
-      just_follow_details: "Volg gewoon deze links en je krijgt meer details over het opzetten van je marktplaats!"
-      we_will_guide_you_along_the_way: "We zullen je onderweg begeleiden."
-      are_you_new_to_online_marketplaces: "Hulp nodig met je marktplaats! Geen probleem, we zijn er voor jou! We zullen je een reeks van e-mails sturen die je kunnen helpen het maximale te halen uit Sharetribe en om een succesvolle business op te starten. Deel 1 komt er binnenkort aan."
-      have_questions: Vragen?
-      our_happiness_team_is_here_to_help: "Ons happiness team is hier voor jou! Ofwel %{knowledge_base_link} of contact support via %{admin_panel_link}."
-      love: "Groeten,"
-      sharetribe_crew: "Het Sharetribe Team"
-      knowledge_base_link_text: "bekijk onze kennisdatabank"
-      contact_support_link_text: "contacteer onze support"
-      admin_panel_link_text: "paneel beheerder"
     new_listing_by_followed_person:
       subject: "%{author_name} heeft een nieuwe item gepost in %{service_name}"
       has_posted_a_new_listing: "%{author_name} heeft een nieuw item gepost:"
@@ -1579,8 +1556,6 @@ nl:
       night: ~
       nights: ~
       invalid_parameters: ~
-      dates_not_available: ~
-      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: Overzicht.
   mapview:
@@ -2021,6 +1996,8 @@ nl:
     day: dag
     days: dagen
   web:
+    listing_card:
+      no_picture: ~
     topbar:
       menu: ~
       more: ~

@@ -883,31 +883,6 @@ hu:
       remember_to_accept: "Ne feledje elfogadni %{requester} felkérését a \"%{listing_title}\" hirdetés ügyében. %{requester} már kifizette a hirdetésben szereplő összeget. Annak érdekében, hogy az átutalás megtörténjen fogadja el a felkérést."
       one_day_left: "Amennyiben nem fogadja el a felkérést egy napon belül az automatikusan visszautasításra kerül és a kifizetés meghiúsul."
       click_here_to_reply: "Kattintson ide a kérésre válaszoláshoz"
-    welcome_email:
-      welcome_email_subject: "Üdvözöljük a %{service_name} oldalán!"
-      welcome_to_marketplace: "Üdvözöljük a %{service_name} oldalán! Örömmel fogadjuk hirdetőink között."
-      love_marketplace_crew: "Szeretettel, a %{service_name} csapata!"
-      welcome_email_footer_text: |-
-          Milyen jellegű e-maileket szeretne kapni %{service_name} -tól?
-          %{settings_link}
-      settings_link_text: "Ellenőrizze a beállításokat"
-      welcome_email_subject_for_marketplace_creator: "Üdvözli a Sharetribe"
-      welcome_to_marketplace_creator: "Üdvözli a  Sharetribe, %{name}!"
-      congrats_for_creating_your_marketplace: "Gratulálunk a piactere elkészítéséhez! Igaz milyen egyszerű volt?"
-      here_is_your_account_information: "Itt találja a fiók információit."
-      your_email_address: "A bejelentkezéshez használt e-mailcím:"
-      your_marketplace_address: "Az Ön piacterének címe:"
-      your_marketplace_admin_area: "A piactere rendszergazda területe:"
-      just_follow_details: "Ezeknek a linkeknek a követése soran megtudhatja, hogyan kezdje el piacterét építeni!"
-      we_will_guide_you_along_the_way: "Folyamatos útmutatást fogunk biztosítani."
-      are_you_new_to_online_marketplaces: "Szeretne segítséget a piacteréhez? Ne aggódjon! Azért vagyunk, hogy segítsünk önnek. E-mailben egy oktaó sorozatot fogunk küldeni amely segítségére lesz abban, hogy a legtöbbet kapja a Sharetribe-tól és sikeres piacteret tudjon építeni. Hamarosan küldjük az első részt."
-      have_questions: "Kérdései vannak?"
-      our_happiness_team_is_here_to_help: "A mi boldogság csapatunk itt van hogy segítsen. A tudásbázisunk %{knowledge_base_link}  vagy akár a rendszergazdánk is %{admin_panel_link}."
-      love: "Szeretettel,"
-      sharetribe_crew: "A Sharetribe csapata"
-      knowledge_base_link_text: "Nézze meg a tudásbázisunkat."
-      contact_support_link_text: "Lépjen kapcsolatba a rendszergazdával"
-      admin_panel_link_text: "Rendszergazda felület"
     new_listing_by_followed_person:
       subject: "%{author_name} új hirdetést adott fel a %{service_name} oldalon."
       has_posted_a_new_listing: "%{author_name} új hirdetést adott fel:"
@@ -1600,8 +1575,6 @@ hu:
       night: ~
       nights: ~
       invalid_parameters: ~
-      dates_not_available: ~
-      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: Nézet
   mapview:
@@ -2051,6 +2024,8 @@ hu:
     day: nap
     days: napok
   web:
+    listing_card:
+      no_picture: "Nincs kép"
     topbar:
       menu: Menü
       more: Bővebben
