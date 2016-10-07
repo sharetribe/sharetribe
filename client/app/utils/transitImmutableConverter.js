@@ -8,7 +8,7 @@ const UUID = Immutable.Record({ value: '' });
 const toUUID = (transitUuid) => new UUID({ value: transitUuid.toString() });
 
 const toDistance = ([value, unit]) => new Distance({ value, unit });
-const toMoney = ([fractionalAmount, code]) => new Money({ fractionalAmount, code });
+const toMoney = ([fractionalAmount, currency]) => new Money({ fractionalAmount, currency });
 
 const createReader = function createReader() {
   return transit.reader('json', {
