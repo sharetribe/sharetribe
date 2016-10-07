@@ -10,7 +10,7 @@ module CustomLandingPage
     end
 
     def load_structure(*)
-      JSON.parse(CustomLandingPage::ExampleData::DATA_STR)
+      JSON.parse(File.read(Rails.root.join('db','clp_data.json'))) #CustomLandingPage::ExampleData::DATA_STR)
     end
 
     def enabled?(cid)

@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 
 ruby '2.3.1'
 
+gem 'rubypress'
+
 gem 'rails', '4.2.7.1'
 
 gem 'coffee-rails', "~> 4.0.1"

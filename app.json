@@ -1,0 +1,59 @@
+{
+  "name": "sharetribe",
+  "scripts": {
+  },
+  "env": {
+    "clp_static_enabled": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "PASSENGER_MAX_POOL_SIZE": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "secret_key_base": {
+      "required": true
+    },
+    "DATABASE_URL": {
+      "required": true
+    },
+    "aws_access_key_id": {
+      "required": true
+    },
+    "aws_secret_access_key": {
+      "required": true
+    },
+    "s3_bucket_name": {
+      "required": true
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1
+    },
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "memcachier"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
