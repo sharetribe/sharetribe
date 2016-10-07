@@ -93,7 +93,7 @@
       "paragraph": "",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "button_title": "LEARN MORE ABOUT OUR HEALERS & THEIR STORIES HERE",
+      "button_title": "READ OUR HEALERS STORIES",
       "button_path": {"type": "path", "id" :"about"},
       "background_color": [140,118,255] 
     },
@@ -116,9 +116,9 @@
         {
           "icon": "user-group",
           "title": "Customers",
-          "paragraph": "Find and book verified holistic practitioners in your area. Feel secure in your choice with community driven recommendation.",
+          "paragraph": "Find and book verified holistic practitioners in your area. Feel secure in your choice with community driven recommendations.",
           "button_title": "BROWSE PRACTIONERS",
-          "button_path": {"value": "https://www.sharetribe.com"}
+          "button_path": {"value": "/s"}
         }
       ]
     },
@@ -161,9 +161,9 @@
           
         },
         {
-          "title": "Keep Our Community Honest",
+          "title": "Honest Community",
           "icon": "happy",
-          "paragraph": "Quickly leave a review of your practitioner so that other community members can feel safe with your friendly recommendation."
+          "paragraph": "Leave a review so that other community members can feel safe with your friendly recommendation."
           
         }
       
@@ -304,7 +304,6 @@
     { "section": {"type": "sections", "id": "single_info_with_background_color_and_cta"}},
     { "section": {"type": "sections", "id": "two_column_info_with_icons_and_buttons"}},
     { "section": {"type": "sections", "id": "listings"}},
-    { "section": {"type": "sections", "id": "categories"}},    
     { "section": {"type": "sections", "id": "footer"}}
   ],
 

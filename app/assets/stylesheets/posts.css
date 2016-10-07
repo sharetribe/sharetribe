@@ -7,7 +7,7 @@
   /*width: 80%;*/
   /*height: 400px;*/
 }
-.blog-post a:hover {
+.blog-post a:hover h3:hover {
   color: #8C76FF;
 }
 
@@ -52,6 +52,13 @@ h4 {
   color: #5a5a5a;
   margin-bottom: 20px;
   margin-top: 40px;
+}
+
+h5 {
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 32px;
+  color: #5a5a5a;
 }
 
 h1 {
