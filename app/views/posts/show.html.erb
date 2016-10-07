@@ -1,16 +1,16 @@
 <div class="container">
   <% p = @post %>
   <div class="row">
-    <div class="blog-hero col-12">
+    <div class="blog-hero-post col-12">
 
      <% if !p["post_thumbnail"].kind_of?(Array) && p["post_thumbnail"]["link"] %>
      <div class="blog-hero-image-post" style="background-image: url('<%=p["post_thumbnail"]["link"]%>')">
      </div>
      <% end %>
 
-    <h4 class="date-post">
+    <h5 class="date-post">
        <%= p["post_date"].to_time.strftime('%^b %d, %G') %>
-    </h4>
+    </h5>
 
      <h1 class="post-title-hero">
       <%= raw p["post_title"] %>
