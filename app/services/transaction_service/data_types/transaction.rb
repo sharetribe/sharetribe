@@ -36,16 +36,18 @@ module TransactionService::DataTypes::Transaction
 
   TransactionResponse = EntityUtils.define_builder(
     [:transaction, :hash, :mandatory],
-    [:gateway_fields, :hash, :optional])
+    [:gateway_fields, :hash, :optional],
+    [:transaction_service_fields, :hash, :optional])
 
   module_function
 
   def create_transaction(opts); Transaction.call(opts) end
 
-  def create_transaction_response(transaction, gateway_fields = {})
+  def create_transaction_response(transaction, gateway_fields = {}, transaction_service_fields = {})
     TransactionResponse.call({
         transaction: transaction,
-        gateway_fields: gateway_fields
+        gateway_fields: gateway_fields,
+        transaction_service_fields: transaction_service_fields
       })
   end
 end

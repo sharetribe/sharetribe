@@ -507,7 +507,7 @@ ka:
       buy: ყიდვა
       give_away: დარიგება
       lend: გასესხება
-      receive: "უფასოდ აღება."
+      receive: "უფასოდ აღება"
       rent: ქირაობა
       rent_out: ქირავდება
       sell: გაყიდვა
@@ -565,7 +565,7 @@ ka:
       total_label: ჯამი
       total_value: "%{seller_gets}"
       paypal_fee_info: "არ შეიცავს <a id='%{fee_info_link_id}' href='#'> PayPal-ის გადახდის საფასურს </a>"
-      shipping_price_label: "ტრანსპორტირება:"
+      shipping_price_label: "ფოსტით გაგზავნა"
     confirm:
       confirm_description: "თუ თქვენი შეკვეთა შესრულდა უნდა მონიშნოთ იგი დასრულებულად. შემდეგ შეგეძლებათ მისცეთ შეფასება სხვა ნაწილს."
       cancel_description: "თუ თქვნეი შეკვეთა არ შესრულდა, თქვენ შეგიძლიათ მონიშნოთ იგი როგორც, \"სადავო\". თქვენ ისევ გაქვთ შესაძლებლობა მისცეთ შეფასება მეორე მხარეს და აღწეროთ რა მოხდა. "
@@ -815,7 +815,7 @@ ka:
       you_have_received_new_payment: "თქვენ გადაგიხადეს <b>%{payment_sum}</b> <b>%{listing_title}</b>-სთვის %{payer_full_name}-ნ. აქ არის თქვენი ქვითარი."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal-ის გადასახადი:"
-      shipping_total: "ტრანსპორტირება:"
+      shipping_total: "ფოსტით გაგზავნა:"
     braintree_new_payment:
       product: პროდუქტი
       price_payer_paid: "ფასი %{payer_full_name} გადახდილია:"
@@ -873,29 +873,6 @@ ka:
       remember_to_accept: "არ დაგავიწყდეთ რომ დაადასტუროთ %{listing_title} ჩამონათვალის შესახებ მოთხოვნა %{requester}-სგან. %{requester} უკვე გადაიხადა ამ ჩამონათვლისთვის. თანხის მისაღებად თქვენ უნდა დაადასტუროთ მოთხოვნა."
       one_day_left: "თუ არ დაადასტურებთ მოთხოვნას 1 დღის განმავლობაში მოთხოვნა ავტომატურად გაუქმდება და თქვენ ვერ მიიღებთ თანხას."
       click_here_to_reply: "დააჭირეთ აქ რომ უპასუხოთ მოთხოვნას"
-    welcome_email:
-      welcome_email_subject: "მოგესალმებით %{service_name}ზე"
-      welcome_to_marketplace: "მოგესალმებით %{service_name}-ზე! მოხარული ვართ რომ ჩვენი გუნდის წევრი ხართ."
-      love_marketplace_crew: "სიყვარული, <br /><i>%{service_name} ეკიპაჟი </i>"
-      welcome_email_footer_text: "რა სახის ელ. ფოსტა გინდათ რომ მიიღოთ %{service_name}-სგან? %{settings_link}"
-      settings_link_text: "შეამოწმე შენი პარამეტრები"
-      welcome_email_subject_for_marketplace_creator: "მოგესალმებით Sharetribe-ზე"
-      welcome_to_marketplace_creator: "მოგესალმებით Sharetribe-ზე, %{name}!"
-      congrats_for_creating_your_marketplace: "გილოცავთ თქვენი ბაზრის შექმნას. იოლი იყო არა?"
-      here_is_your_account_information: "აქ არის ინფორმაცია თქვენ ანგარიშზე."
-      your_email_address: "ელ. ფოსტა, რომელიც უნდა გამოიყენოთ შესვლისთვის:"
-      your_marketplace_address: "თქვენი ბაზრის მისამართი:"
-      your_marketplace_admin_area: "თქვენი ბაზრის ადმინისტრაციის სივრცე:"
-      just_follow_details: "მიყევით ამ ბმულებს და გაიგებთ მეტ დეტალს იმის შესახებ თუ როგორ დაიწყოთ თქვენი ბაზრის მშენებლობა!"
-      we_will_guide_you_along_the_way: "ჩვენ გაგიწევთ გიდობას მთელ გზაზე."
-      are_you_new_to_online_marketplaces: "დახმარება გჭირდება შენ ბაზარზე? არ იდარდო ჩვენ აქვ ვართ იმისთვის რომ დაგეხმაროთ. ჩვენ გამოგიგზავნით ელ. ფოსტაზე წერილების სერიას, რაც დაგეხმარება უფრო დეტალურად შეისწავლოთ Sharetribe და ააწყოთ წარმატებული ბაზრის ბიზნესი. პირველ ნაწილს მალე გადმოგიგზავნით."
-      have_questions: "გაქვთ კითხვები?"
-      our_happiness_team_is_here_to_help: "ჩვენი გუნდი თქვენ გვერდითაა! ან %{knowledge_base_link}, ან დაუკავშირდით დახმარებას %{admin_panel_link}-ს გამოყენებით."
-      love: "სიყვარული,"
-      sharetribe_crew: "Sharetribe-ის ეკიპაჟი"
-      knowledge_base_link_text: "შეამოწმე ჩვენი ცოდნის ბაზა"
-      contact_support_link_text: "დაუკავშირდი ჩვენ დახმარებას"
-      admin_panel_link_text: "ადმინისტრატორის პანელი"
     new_listing_by_followed_person:
       subject: "%{author_name} გამოაქვეყნა ახალი ჩამონათვალი %{service_name}-ში"
       has_posted_a_new_listing: "%{author_name} დაპოსტა ახალი ჩამონათვალი"
@@ -1041,7 +1018,7 @@ ka:
       some_private_offers_exist: "უკვე არსებობს %{number_of_listings} შეთავაზებები"
       some_private_requests_exist: "უკვე არსებობს %{number_of_listings} მოთხოვნები"
     custom_filters:
-      update_view: "განაახლე ხედი"
+      update_view: "განაახლე სია"
       min: "მინ:"
       max: "მაქს:"
     event_feed:
@@ -1332,7 +1309,7 @@ ka:
       delete: წაშლა
       are_you_sure: "დარწმუნებული ხართ რომ გინდათ კომენტარის წაშლა?"
     comment_form:
-      ask_a_question: "დააკომენტარი სიაზე და იკითხე მეტი დეტალი. ყველა სხვა მომხმარებელს შეეძლება თქვენი კომენტარის ნახვა."
+      ask_a_question: "დააკომენტარე განცხადებაზე და ჰკითხე მეტი მის შესახებ. "
       log_in: შესვლა
       send_comment: "კომენტარის გაგზავნა"
       to_send_a_comment: "ახალი კომენტარის გაგზავნა"
@@ -1419,10 +1396,10 @@ ka:
         after_service_fee_you_will_get_paypal_text: "%{service_name} საფასური %{sum_with_currency} და %{paypal_fee_info_link} გამოიქვითება ფასიდან."
         paypal_fee_info_link_text: "PayPal-ით გადახდის საფასური"
         delivery: "მიტანის მეთოდი"
-        shipping: "ტრანსპორტირება:"
+        shipping: "ფოსტით გაგზავნა:"
         shipping_price: "ტრანსპორტირების გადასახადი"
         shipping_price_additional: "დამატებითი  ნივთები"
-        pickup: აღება
+        pickup: "ადგილზე აღება"
       origin:
         location: ადგილმდებარეობა
         origin: თავდაპირველი
@@ -1560,11 +1537,11 @@ ka:
         per_quantity_unit: "ყოველ %{quantity_unit}"
         per_day: დღიურად
       delivery: "მიტანის მეთოდი"
-      shipping: "ტრანსპორტირება (+%{price})"
-      shipping_no_price: "ტრანსპორტირება:"
+      shipping: "ფოსტით გაგზავნა (+%{price})"
+      shipping_no_price: "ფოსტით გაგზავნა"
       shipping_price_additional: "მგზავრობა (+%{price}, დამატებითი ნივთები: +%{shipping_price_additional})"
-      pickup: აღება
-      pickup_no_price: აღება
+      pickup: "ადგილზე აღება"
+      pickup_no_price: "ადგილზე აღება"
       youtube_video_player: "YouTube ვიდეო დამკვრელი"
     unit_types:
       piece: ცალი
@@ -1587,8 +1564,6 @@ ka:
       night: ღამე
       nights: ღამე
       invalid_parameters: "ახალი ტრანზაქციისთვის ასეთი სახელი არ არსებობს"
-      dates_not_available: ~
-      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: ნახვა
   mapview:
@@ -2030,7 +2005,7 @@ ka:
       price_per_night: "ერთი ღამის ფასი:"
       quantity: რაოდენობა
       subtotal: "ჯამი:"
-      shipping-price: "ტრანსპორტირება:"
+      shipping-price: "ფოსტით გაგზავნა:"
     price_per_quantity: "ფასი ყოველ %{unit_type}"
     price: "ფასი:"
     quantity: "რაოდენობა: %{quantity}"
@@ -2040,6 +2015,8 @@ ka:
     day: დღე
     days: დღეები
   web:
+    listing_card:
+      no_picture: ~
     topbar:
       menu: მენიუ
       more: მეტი

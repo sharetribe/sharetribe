@@ -226,7 +226,7 @@ class PreauthorizeTransactionsController < ApplicationController
         pickup_enabled: listing.pickup_enabled)
 
       Validator.validate_initiate_params(marketplace_uuid: @current_community.uuid_object,
-                                         listing_uuid: listing.uuid,
+                                         listing_uuid: listing.uuid_object,
                                          tx_params: tx_params,
                                          quantity_selector: listing.quantity_selector&.to_sym,
                                          shipping_enabled: listing.require_shipping_address,
@@ -541,7 +541,7 @@ class PreauthorizeTransactionsController < ApplicationController
           community_id: opts[:community].id,
           community_uuid: opts[:community].uuid_object,
           listing_id: opts[:listing].id,
-          listing_uuid: opts[:listing].uuid,
+          listing_uuid: opts[:listing].uuid_object,
           listing_title: opts[:listing].title,
           starter_id: opts[:user].id,
           listing_author_id: opts[:listing].author.id,

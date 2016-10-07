@@ -1,5 +1,8 @@
 module TransactionService::Transaction
 
+  class IllegalTransactionStateException < Exception
+  end
+
   DataTypes = TransactionService::DataTypes::Transaction
 
   TxStore = TransactionService::Store::Transaction
@@ -94,6 +97,36 @@ module TransactionService::Transaction
     res.maybe()
       .map { |gw_fields| Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]), gw_fields)) }
       .or_else(res)
+  end
+
+  def finalize_create(community_id:, transaction_id:, force_sync: true)
+    tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
+
+    if tx.nil?
+
+      # Transaction doesn't exist.
+      #
+      # This may happen if the finalize_create action has been called already, and it failed.
+      # If the finalization fails (e.g. booking fails), we void the payment and delete the
+      # transaction.
+
+      return Result::Error.new("Can't find transaction, id: #{transaction_id}, community_id: #{community_id}", {code: :tx_not_existing})
+    end
+
+    tx_process = tx_process(tx[:payment_process])
+    gw = gateway_adapter(tx[:payment_gateway])
+
+    res = tx_process.finalize_create(
+      tx: tx,
+      gateway_adapter: gw,
+      force_sync: force_sync)
+
+    res.and_then { |tx_fields|
+      Result::Success.new(DataTypes.create_transaction_response(
+                            query(tx[:id]),
+                            {},
+                            tx_fields))
+    }
   end
 
   def reject(community_id:, transaction_id:, message: nil, sender_id: nil)

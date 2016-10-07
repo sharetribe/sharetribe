@@ -3,6 +3,9 @@ module MarketplaceService
     TransactionModel = ::Transaction
     ParticipationModel = ::Participation
 
+    class BookingStateChangeError < StandardError
+    end
+
     module Entity
       Transaction = EntityUtils.define_entity(
         :id,
@@ -15,6 +18,7 @@ module MarketplaceService
         :author_skipped_feedback,
         :starter_skipped_feedback,
         :starter_id,
+        :listing_author_id,
         :testimonials,
         :transitions,
         :payment_total,
@@ -23,6 +27,8 @@ module MarketplaceService
         :conversation,
         :booking,
         :created_at,
+        :availability,
+        :booking_uuid,
         :__model
       )
 
@@ -96,6 +102,8 @@ module MarketplaceService
           },
           payment_total: calculate_total(transaction_model),
           booking: transaction_model.booking,
+          availability: transaction_model.availability.to_sym,
+          booking_uuid: transaction_model.booking_uuid_object,
           __model: transaction_model
         })]
       end
@@ -325,8 +333,13 @@ module MarketplaceService
       module_function
 
       def handle_transition(transaction, payment_type, old_status, new_status)
-        if new_status == :preauthorized
+        case new_status
+        when :preauthorized
           preauthorized(transaction, payment_type)
+        when :paid
+          paid(transaction)
+        when :rejected
+          rejected(transaction)
         end
       end
 
@@ -354,6 +367,52 @@ module MarketplaceService
         setup_preauthorize_reminder(transaction[:id], expire_at)
       end
 
+      def paid(transaction)
+        return unless transaction[:availability].to_sym == :booking
+
+        HarmonyClient.post(
+          :accept_booking,
+          params: {
+            id: transaction[:booking_uuid]
+          },
+          body: {
+            actorId: UUIDUtils.base64_to_uuid(transaction[:listing_author_id]),
+            reason: :provider_accepted
+          },
+          opts: {
+            max_attempts: 3
+          }).on_error { |error_msg, data|
+          log_and_notify_harmony_error!("Failed to accept booking",
+                                        :failed_accept_booking,
+                                        transaction.slice(:community_id, :id).merge(error_msg: error_msg))
+        }
+      end
+
+      def rejected(transaction)
+        return unless transaction[:availability].to_sym == :booking
+
+        HarmonyClient.post(
+          :reject_booking,
+          params: {
+            id: transaction[:booking_uuid]
+          },
+          body: {
+            actorId: UUIDUtils.base64_to_uuid(transaction[:listing_author_id]),
+
+            # Passing the reason to the event handler is a bit
+            # cumbersome. We decided to skip it for now. That's why
+            # we always set the reason to "unknown"
+            reason: :unknown
+          },
+          opts: {
+            max_attempts: 3
+          }).on_error { |error_msg, data|
+          log_and_notify_harmony_error!("Failed to reject booking",
+                                        :failed_reject_booking,
+                                        transaction.slice(:community_id, :id).merge(error_msg: error_msg))
+        }
+      end
+
       # "private" helpers
 
       def setup_preauthorize_reminder(transaction_id, expire_at)
@@ -365,6 +424,16 @@ module MarketplaceService
         if send_reminder
           Delayed::Job.enqueue(TransactionPreauthorizedReminderJob.new(transaction_id), priority: 9, :run_at => reminder_at)
         end
+      end
+
+      def log_and_notify_harmony_error!(error_msg, error_code, data)
+        logger.error(error_msg, error_code, data)
+
+        Airbrake.notify(BookingStateChangeError.new("#{error_msg}: #{data}")) if APP_CONFIG.use_airbrake
+      end
+
+      def logger
+        SharetribeLogger.new(:transaction_transition_events)
       end
     end
   end

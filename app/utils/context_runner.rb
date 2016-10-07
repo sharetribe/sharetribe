@@ -64,8 +64,7 @@ class ContextRunner
   def build_ctx(params)
     (params || {}).merge(
       enter_queue: build_enter_queue(params, middleware),
-      leave_stack: []
-    )
+      leave_stack: [])
   end
 
   def execute(params)
@@ -76,63 +75,31 @@ class ContextRunner
 
   private
 
-  def try_execute_mw(ctx, mw_name, stage, &block)
+  def try_execute_mw(ctx, mw, stage, &block)
     block.call
   rescue StandardError => e
     new_ctx = ctx.dup
     new_ctx[:error] = e
-    new_ctx[:error_middleware] = mw_name
+    new_ctx[:error_middleware] = mw.class.name
     new_ctx[:error_stage] = stage
     new_ctx
   end
-
-
-  def execute_enter(ctx, mw)
-    try_execute_mw(ctx, mw.class.name, :enter) do
-      new_ctx =
-        if mw.respond_to?(:enter)
-          mw.enter(ctx)
-        else
-          ctx
-        end
-
-      new_ctx[:leave_stack].unshift(mw)
-      new_ctx
-    end
-  end
-
-  def execute_leave(ctx, mw)
-    try_execute_mw(ctx, mw.class.name, :leave) do
-      if mw.respond_to?(:leave)
-        mw.leave(ctx)
-      else
-        ctx
-      end
-    end
-  end
-
-  def execute_error(ctx, mw)
-    try_execute_mw(ctx, mw.class.name, :exit) do
-      if mw.respond_to?(:error)
-        mw.error(ctx)
-      else
-        ctx
-      end
-    end
-  end
-
 
   def next_mw(ctx)
     new_ctx = ctx.dup
 
     if ctx[:error]
       mw = new_ctx[:leave_stack].shift
+
       [new_ctx, mw, :error]
     elsif !new_ctx[:enter_queue].empty?
       mw = new_ctx[:enter_queue].pop
+      new_ctx[:leave_stack].unshift(mw)
+
       [new_ctx, mw, :enter]
     else
       mw = new_ctx[:leave_stack].shift
+
       [new_ctx, mw, :leave]
     end
   end
@@ -141,13 +108,12 @@ class ContextRunner
     ctx, mw, type = next_mw(ctx)
 
     while mw
-      case type
-      when :error
-        ctx = execute_error(ctx, mw)
-      when :enter
-        ctx = execute_enter(ctx, mw)
-      when :leave
-        ctx = execute_leave(ctx, mw)
+      ctx = try_execute_mw(ctx, mw, type) do
+        if mw.respond_to?(type)
+          mw.send(type, ctx)
+        else
+          ctx
+        end
       end
 
       ctx, mw, type = next_mw(ctx)

@@ -32,7 +32,6 @@ const DEFAULT_CONTEXT = {
   loggedInUsername: null,
 };
 
-
 const profileActions = function profileActions(routes, username) {
   return username ?
   {
@@ -62,7 +61,8 @@ const avatarDropdownProps = (avatarDropdown, customColor, username, isAdmin, not
     adminDashboard: t('web.topbar.admin_dashboard'),
     logout: t('web.topbar.logout'),
   };
-  return { actions, translations, customColor: color, isAdmin, notificationCount, ...avatarDropdown };
+  const avatar = { ...avatarDropdown.avatar, color };
+  return { actions, translations, customColor: color, isAdmin, notificationCount, ...avatarDropdown, avatar };
 };
 
 const mobileProfileLinks = function mobileProfileLinks(username, isAdmin, router, location, customColor, unReadMessagesCount) {

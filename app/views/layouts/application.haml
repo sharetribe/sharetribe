@@ -63,7 +63,10 @@
 
   - if is_homepage
     %form{method: "get", id: "homepage-filters"}
-      - params.except("action", "controller", "q", "lc", "ls", "view", "utf8", "boundingbox", "distance_max").each do |param, value|
+      - # New top bar search params are in different form and they have to be retained here
+      - search_params = ["q", "lc", "ls", "boundingbox", "distance_max"]
+      - excluded_params = search_params unless FeatureFlagHelper.feature_enabled?(:topbar_v1)
+      - params.except("action", "controller", "view", "utf8", *excluded_params).each do |param, value|
         - unless param.match(/^filter_option/) || param.match(/^checkbox_filter_option/) || param.match(/^nf_/) || param.match(/^price_/)
           = hidden_field_tag param, value
       = hidden_field_tag "view", @view_type

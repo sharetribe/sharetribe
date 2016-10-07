@@ -873,29 +873,6 @@ zh-TW:
       remember_to_accept: "记住接受来自%{requester}关于“%{listing_title}”信息的请求。%{requester}已经为该宝贝付款。你必须接受请求以接受付款。"
       one_day_left: 如果你不在一天内接受请求，该请求将被自动拒绝，你将无法收到支付款项。
       click_here_to_reply: 点击这里回应请求
-    welcome_email:
-      welcome_email_subject: "欢迎来到%{service_name}"
-      welcome_to_marketplace: "欢迎来到%{service_name}！恭喜你注册成功。"
-      love_marketplace_crew: "爱你的，<br /><i>%{service_name}团队</i>"
-      welcome_email_footer_text: "你希望从%{service_name}接收哪种类型的邮件？%{settings_link}"
-      settings_link_text: 查看你的设置
-      welcome_email_subject_for_marketplace_creator: 欢迎来到Sharetribe
-      welcome_to_marketplace_creator: "欢迎来到Sharetribe，%{name}！"
-      congrats_for_creating_your_marketplace: 恭喜成功创建你的集市！很容易，是不是？
-      here_is_your_account_information: 这是你的帐号信息。
-      your_email_address: 你用来登录的电子邮件地址：
-      your_marketplace_address: 你的集市地址：
-      your_marketplace_admin_area: 你的集市的管理后台：
-      just_follow_details: 点击下列链接你将获得如何开始搭建你的集市的详细信息！
-      we_will_guide_you_along_the_way: 我们将引导你走下去。
-      are_you_new_to_online_marketplaces: 需要协助你的集市？没关系，我们能帮助你！我们将发送给你一系列电邮帮助你最大化利用Sharetribe并且建造一个成功的集市生意。我们将很快发送给你第一部分的内容。
-      have_questions: 有问题吗？
-      our_happiness_team_is_here_to_help: "我们的欢乐团队在此支持你！点击%{knowledge_base_link}或者通过%{admin_panel_link}联系我们的支持人员。"
-      love: 爱你的，
-      sharetribe_crew: Sharetribe全体人员
-      knowledge_base_link_text: 查看我们的知识库
-      contact_support_link_text: 联系我们的支持人员
-      admin_panel_link_text: 管理控制面板
     new_listing_by_followed_person:
       subject: "%{author_name}在%{service_name}发布了一则新的信息"
       has_posted_a_new_listing: "%{author_name}发布了一则新的信息："
@@ -1584,8 +1561,6 @@ zh-TW:
       night: ~
       nights: ~
       invalid_parameters: ~
-      dates_not_available: ~
-      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: 查看。
   mapview:
@@ -2033,6 +2008,8 @@ zh-TW:
     day: 日
     days: 天
   web:
+    listing_card:
+      no_picture: ~
     topbar:
       menu: ~
       more: ~

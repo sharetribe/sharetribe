@@ -32,6 +32,22 @@
             %a.home-share-type-link{:href => search_path(:transaction_type => shape_name_map[listing.listing_shape_id], :view => :list)}
               = icon_tag(listing.icon_name, ["icon-fix"])
               = shape_name(listing)
+      .home-list-price-mobile{:class => (listing.listing_images.size > 0 ? "home-list-price-mobile-with-listing-image" : "home-list-price-mobile-without-listing-image")}
+        - if listing.price
+          .home-list-price-value-mobile
+            = humanized_money_with_symbol(listing.price).upcase
+          - price_text = nil
+          - if listing.quantity.present?
+            - price_text = t("listings.form.price.per") + " " + listing.quantity
+          - elsif listing.unit_type
+            - price_text = price_quantity_per_unit(listing)
+          - if price_text.present?
+            .home-list-price-quantity{:title => price_text}
+              = price_text
+        - else
+          %span.smaller
+            = shape_name(listing)
+
 
     .home-list-author{:class => (listing.listing_images.size > 0 ? "home-list-author-with-listing-image" : "home-list-author-without-listing-image")}
       .home-list-avatar
@@ -44,19 +60,3 @@
           - if listing.author.num_of_reviews > 0
             = icon_tag("testimonial")
             = pluralize(listing.author.num_of_reviews, t(".review"), t(".reviews"))
-
-    .home-list-price-mobile{:class => (listing.listing_images.size > 0 ? "home-list-price-mobile-with-listing-image" : "home-list-price-mobile-without-listing-image")}
-      - if listing.price
-        .home-list-price-value-mobile
-          = humanized_money_with_symbol(listing.price).upcase
-        - price_text = nil
-        - if listing.quantity.present?
-          - price_text = t("listings.form.price.per") + " " + listing.quantity
-        - elsif listing.unit_type
-          - price_text = price_quantity_per_unit(listing)
-        - if price_text.present?
-          .home-list-price-quantity{:title => price_text}
-            = price_text
-      - else
-        %span.smaller
-          = shape_name(listing)

@@ -3,11 +3,11 @@ module ServiceClient
 
     class JSONEncoder
       def encode(body)
-        body.to_json unless body.nil?
+        body.to_json
       end
 
       def decode(body)
-        JSON.parse(body) unless body.nil?
+        JSON.parse(body)
       end
     end
 
@@ -18,17 +18,17 @@ module ServiceClient
       end
 
       def decode(body)
-        TransitUtils.decode(body, @_encoding) unless body.nil?
+        TransitUtils.decode(body, @_encoding)
       end
 
       def encode(body)
-        TransitUtils.encode(body, @_encoding) unless body.nil?
+        TransitUtils.encode(body, @_encoding)
       end
     end
 
     class TextEncoder
       def encode(body)
-        body.to_s unless body.nil?
+        body.to_s
       end
 
       def decode(body)
@@ -71,10 +71,18 @@ module ServiceClient
 
         body = req[:body]
         headers = req.fetch(:headers)
+        accept = @_request_encoder[:media_type]
+        content_type = body.nil? ? nil : @_request_encoder[:media_type]
 
-        ctx[:req][:body] = @_request_encoder[:encoder].encode(body)
-        ctx[:req][:headers]["Accept"] = @_request_encoder[:media_type]
-        ctx[:req][:headers]["Content-Type"] = @_request_encoder[:media_type] unless body.nil?
+        ctx[:req][:headers]["Accept"] = accept
+
+        # Encode only if the Content-Type differs from the target Content-Type.
+        # This makes the middleware idempotent.
+        if ctx[:req][:headers]["Content-Type"] != content_type
+
+          ctx[:req][:body] = @_request_encoder[:encoder].encode(body)
+          ctx[:req][:headers]["Content-Type"] = content_type
+        end
 
         ctx
       end

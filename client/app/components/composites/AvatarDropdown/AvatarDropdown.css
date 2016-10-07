@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: flex-start;
   height: 100%;
+  width: 100%;
 
   & .avatarProfileDropdown {
     visibility: hidden;
@@ -29,6 +30,7 @@
 .avatarWithNotifications {
   position: relative;
   height: 100%;
+  width: 100%;
 }
 
 .hasNotifications {

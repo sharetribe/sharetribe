@@ -878,29 +878,6 @@ ru:
       remember_to_accept: "Не забудьте принять запрос от %{requester} о новом размещении \"%{listing_title}\". %{requester} уже оплатил. Вы должны принять запрос чтобы получить оплату."
       one_day_left: "Если вы не примите запрос в течении одного дня запрос будет автоматически отменен и оплата не будет произведена."
       click_here_to_reply: "Нажмите здесь чтобы ответить на запрос"
-    welcome_email:
-      welcome_email_subject: "Добро пожаловать в %{service_name}"
-      welcome_to_marketplace: "Добро пожаловать в %{service_name}! Рады видеть вас с нами!"
-      love_marketplace_crew: "С уважением, команда <br /><i>%{service_name}</i>"
-      welcome_email_footer_text: "Какие типы сообщение вы хотите получать от %{service_name}? %{settings_link}"
-      settings_link_text: "Проверьте настройки"
-      welcome_email_subject_for_marketplace_creator: "Добро пожаловать на Sharetribe"
-      welcome_to_marketplace_creator: "Добро пожаловать на Sharetribe, %{name}!"
-      congrats_for_creating_your_marketplace: "Поздравляем за создание создание маркетплейс! Это легко, не правда-ли?"
-      here_is_your_account_information: "Здесь информация о вашем аккаунте."
-      your_email_address: "Email адрес который вы используете для входа:"
-      your_marketplace_address: "Адрес вашего маркетплейс:"
-      your_marketplace_admin_area: "Администрирование вашего маркетплейс:"
-      just_follow_details: "Просто следуйте по этим ссылкам и вы узнаете в деталях как начать создание вашего макретплейс!"
-      we_will_guide_you_along_the_way: "Мы поможем вам на этом пути."
-      are_you_new_to_online_marketplaces: "Требуется помощь с вашим маркетплейс? Не волнуйтесь, мы поможем! Мы отправим вам серию сообщений которые помогут вам раскрыть возможности Sharetribe и создать успешный маркетплейс проект. Вскоре мы отправим первую часть."
-      have_questions: "Есть вопросы?"
-      our_happiness_team_is_here_to_help: "Наша команда работает для вас! Нажмите здесь %{knowledge_base_link} или свяжитесь с нашей службой поддержки %{admin_panel_link}."
-      love: "С любовью,"
-      sharetribe_crew: "Команда Sharetribe"
-      knowledge_base_link_text: "воспользуйтесь нашей базой знаний"
-      contact_support_link_text: "свяжитесь со службой поддержки"
-      admin_panel_link_text: "Панель администратора"
     new_listing_by_followed_person:
       subject: "%{author_name} разместил новую публикацию в %{service_name}"
       has_posted_a_new_listing: "%{author_name} разместил новую публикацию:"
@@ -1133,7 +1110,7 @@ ru:
       search: ~
       signup: Регистрация
       search_placeholder: ~
-      search_location_placeholder: ~
+      search_location_placeholder: Местоположение
     listings:
       no_listing_image: ~
   layouts:
@@ -1394,7 +1371,7 @@ ru:
         no_file_selected: "Файл не выбран"
         remove_image: "Удалить изображение"
         select_file: "Выбрать файл"
-        add_more: ~
+        add_more: "Добавить еще картинок\n"
         removing: Удаление...
         processing: Обработка...
         loading_image: Загрузка...
@@ -1589,8 +1566,6 @@ ru:
       night: ~
       nights: ~
       invalid_parameters: ~
-      dates_not_available: ~
-      error_in_checking_availability: ~
     transaction_agreement_checkbox:
       read_more: Вид.
   mapview:
@@ -2056,11 +2031,13 @@ ru:
     day: день
     days: дней
   web:
+    listing_card:
+      no_picture: ~
     topbar:
       menu: Меню
-      more: ~
+      more: Еще
       search_placeholder: ~
-      search_location_placeholder: ~
+      search_location_placeholder: Местоположение
       user: Пользователь
       inbox: Входящие
       profile: Профиль

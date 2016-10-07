@@ -109,18 +109,19 @@ module ServiceClient
     #
     # - `endpoint`: The endpoint name
     # - `body`: Body params
+    # - `params`: Query params
     # - `opts`: Optional options that may control middleware
     #
     # Returns:
     #
     # Result::Success or Result::Error
     #
-    def post(endpoint, body: nil, opts: {})
+    def post(endpoint, body: nil, params: {}, opts: {})
       ctx = execute(
         method: :post,
         endpoint: endpoint,
         body: body,
-        params: {},
+        params: params,
         opts: opts)
 
       ctx.fetch(:res)
