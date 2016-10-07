@@ -89,12 +89,12 @@
       "id": "single_info_with_background_color_and_cta",
       "kind": "info",
       "variation": "single_column",
-      "title": "Natives is determined to expand discoveries & education to those new to the journey; there are alternative medicines and complimentary treatments available.",
+      "title": "Natives is determined to expand discoveries & education to those new to the journey.",
       "paragraph": "",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "button_title": "READ OUR HEALERS STORIES",
-      "button_path": {"type": "path", "id" :"about"},
+      "button_path": {"value": "/posts"},
       "background_color": [140,118,255] 
     },
     {
