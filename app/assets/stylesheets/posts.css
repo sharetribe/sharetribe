@@ -9,6 +9,7 @@
 }
 .blog-post a:hover h3 {
   color: #8C76FF;
+  transition-duration: .15s;
 }
 
 .date {
