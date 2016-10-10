@@ -4,7 +4,8 @@
   },
   i18n: {
     locale: I18n.locale,
-    defaultLocale: I18n.default_locale
+    defaultLocale: I18n.default_locale,
+    localeInfo: I18nHelper.locale_info(Sharetribe::AVAILABLE_LOCALES, I18n.locale)
   },
   marketplace: {
     marketplace_color1: CommonStylesHelper.marketplace_colors(@current_community)[:marketplace_color1],

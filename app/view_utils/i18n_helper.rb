@@ -3,13 +3,16 @@ module I18nHelper
   module_function
 
   def facebook_locale_code(all_locales, current_locale_code)
-    locale_code_string = current_locale_code.to_s
-
-    locale = all_locales.find { |l| l[:ident] == locale_code_string }
+    locale = locale_info(all_locales, current_locale_code)
 
     if locale && locale[:language].present? && locale[:region].present?
       "#{locale[:language].downcase}_#{locale[:region].upcase}"
     end
+  end
+
+  def locale_info(all_locales, current_locale_code)
+    locale_code_string = current_locale_code.to_s
+    all_locales.find { |l| l[:ident] == locale_code_string }
   end
 
   def select_locale(user_locale:, param_locale:, community_locales:, community_default:, all_locales:)

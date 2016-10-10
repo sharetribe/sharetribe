@@ -49,6 +49,10 @@ config.module.loaders.push(
     loader: `customfile-loader?limit=10000&name=[name]-[hash].[ext]${assetHost}`,
   },
   {
+    test: /\.json$/,
+    loader: 'json-loader',
+  },
+  {
     test: /\.svg$/,
     loader: 'raw-loader',
   }

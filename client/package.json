@@ -20,7 +20,9 @@
     "start-phantomjs": "phantomjs --webdriver=8910",
     "styleguide": "start-storybook -p 9001",
     "deploy-storybook": "storybook-to-ghpages",
-    "test": "mocha './app/components/**/*.story.js' --reporter mocha-circleci-reporter --require babel-register --require ignore-styles --require ./mochaConfig.js"
+    "test:stories": "mocha './app/components/**/*.story.js' --reporter mocha-circleci-reporter --require babel-register --require ignore-styles --require ./mochaConfig.js",
+    "test:specs": "mocha './app/specs/*.spec.js' --reporter mocha-circleci-reporter --require babel-register --require ignore-styles --require ./mochaConfig.js",
+    "test": "npm run test:stories && npm run test:specs"
   },
   "dependencies": {
     "babel-cli": "6.11.4",
@@ -40,10 +42,12 @@
     "i18n-js": "http://github.com/sharetribe/i18n-js/archive/interpolation-mode.tar.gz",
     "immutable": "3.8.1",
     "imports-loader": "0.6.5",
+    "json-loader": "https://registry.npmjs.org/json-loader/-/json-loader-0.5.4.tgz",
     "loader-utils": "0.2.15",
     "lodash": "4.15.0",
     "node-libs-browser": "1.0.0",
     "node-sass": "3.8.0",
+    "numbro": "^1.9.3",
     "postcss-cssnext": "2.7.0",
     "postcss-loader": "0.10.0",
     "postcss-mixins": "5.0.1",

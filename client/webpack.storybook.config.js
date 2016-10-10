@@ -32,6 +32,10 @@ config.module.loaders.push(
     loader: 'customfile-loader?limit=10000&name=[name]-[hash].[ext]&hotMode=true',
   },
   {
+    test: /\.json$/,
+    loader: 'json-loader',
+  },
+  {
     test: /\.svg$/,
     loader: 'raw-loader',
   }
