@@ -87,12 +87,16 @@
     min-width: 0;
   }
 
+
   & .topbarMenu {
     display: none;
+    text-transform: capitalize;
+
   }
 
   & .topbarMobileMenu {
     display: block;
+    text-transform: capitalize;
   }
 
   & .notificationBadge {
@@ -111,10 +115,12 @@
   @media (--large-viewport) {
     & .topbarMenu {
       display: block;
+      text-transform: capitalize;
     }
 
     & .topbarMobileMenu {
       display: none;
+      text-transform: capitalize;
     }
   }
 
@@ -196,6 +202,10 @@
 .topbarMobileMenu {
   font-size: var(--Topbar_fontSizeMobile);
   margin-right: 0;
+}
+
+.Topbar__topbarMenuSpacer__3hqBi {
+  text-transform: capitalize;
 }
 
 .topbarAvatarDropdownPlaceholder {
