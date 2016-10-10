@@ -24,8 +24,9 @@ class SearchPage extends Component {
   }
 
   listingProps(listing, color) {
+    const listingKey = listing.id.toString();
     return {
-      key: `card_${listing.id}`,
+      key: `card_${listingKey}`,
       color,
       listing,
     };

@@ -4,7 +4,11 @@ import { parse as parseImage } from '../models/ImageModel';
 import { Distance, Money } from '../models/ListingModel';
 
 // Outside of this file we should only pass UUID references, no need to export
-const UUID = Immutable.Record({ value: '' });
+class UUID extends Immutable.Record({ value: '' }) {
+  toString() {
+    return this.value;
+  }
+}
 const toUUID = (transitUuid) => new UUID({ value: transitUuid.toString() });
 
 const toDistance = ([value, unit]) => new Distance({ value, unit });

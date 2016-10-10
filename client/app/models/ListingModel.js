@@ -38,11 +38,12 @@ const parseListingImages = (images) => new ListingImage({
 
 export const parse = (l) => new ListingModel({
   id: l.get(':id'),
-  images: l.getIn([':attributes', ':images']).map(parseListingImages),
-  authorId: l.getIn([':relationships', ':author', ':id']),
+  extId: l.getIn([':attributes', ':extId']),
   distance: l.getIn([':attributes', ':distance']),
+  images: l.getIn([':attributes', ':images']).map(parseListingImages),
   price: l.getIn([':attributes', ':price']),
   title: l.getIn([':attributes', ':title']),
+  authorId: l.getIn([':relationships', ':author', ':id']),
 });
 
 export default ListingModel;
