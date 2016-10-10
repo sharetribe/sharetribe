@@ -8,6 +8,13 @@ _Share the git commit hash of the version of Sharetribe that you are using. You 
 
 _What's your environment? Mac OS X, Heroku, or something else?_
 
+_What's your node version? Run the following commands and copy the result here:_
+
+```
+> node -v
+> npm -v
+```
+
 ##### Server mode:
 
 _Are you running in development or production mode?_
