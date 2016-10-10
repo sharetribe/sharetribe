@@ -566,7 +566,7 @@ sl:
       loading_more_messages: ~
       message_partitive: ~
       messages_partitive: sporočila
-      no_received_messages: ~
+      no_received_messages: "Ni sporočil"
       no_sent_messages: ~
     conversation:
       accepted_request: ~
@@ -839,7 +839,7 @@ sl:
       text_version_text: ~
     reset_password_instructions:
       change_my_password: "Spremeni moje geslo"
-      reset_password_instructions: "<p>Prejeli smo sporočilo, da si poazbil geslo ali pa uporabniško ime na  %{service_name}.</p><p>Tvoje uporabniško ime je: %{username}</p><p>Če želiš obnoviti geslo, klikni na naslednjo povezavo: %{password_reset_link}</p><br/><p>Če zahtevka za obnovite gesla nisi poslal ti, prosim, ignoriraj to sporočilo. Tvoje geslo ne bo spremenenjo, če ne klikneš na zgoraj navedeno povezavo in kreiraš novo geslo.</p>"
+      reset_password_instructions: "<p>Prejeli smo sporočilo, da si pozabil geslo ali pa uporabniško ime na  %{service_name}.</p><p>Tvoje uporabniško ime je: %{username}</p><p>Če želiš obnoviti geslo, klikni na naslednjo povezavo: %{password_reset_link}</p><br/><p>Če zahtevka za obnovite gesla nisi poslal ti, prosim, ignoriraj to sporočilo. Tvoje geslo ne bo spremenjeno, če ne klikneš na zgoraj navedeno povezavo in kreiraš novo geslo.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: ~
       you_have_not_given_feedback_yet: ~
@@ -1168,7 +1168,7 @@ sl:
       comment_cannot_be_empty: ~
       comment_sent: ~
       confirmation_link_is_wrong_or_used: "Povezava za potrditev je bila že uporabljena ali pa je napačna. Poskusi se prijaviti. Če ne deluje, nam pošlji sporočilo."
-      additional_email_confirmed: ~
+      additional_email_confirmed: "Tvoj e-naslov je sedaj potrjen."
       could_not_get_email_from_facebook: ~
       facebook_email_unconfirmed: ~
       create_new_listing: "Dodaj še eno objavo"
@@ -1190,7 +1190,7 @@ sl:
       account_creation_successful: ~
       account_deleted: ~
       login_successful: "Pozdravljen/a, %{person_name}!"
-      logout_successful: "Odlogiral/a si se iz %{service_name}. Se vidimo spet kmalu!"
+      logout_successful: "Odjavil/a si se iz %{service_name}. Se vidimo spet kmalu!"
       news_item_created: ~
       news_item_creation_failed: ~
       news_item_update_failed: ~
@@ -1244,7 +1244,7 @@ sl:
       you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: ~
-      you_are_now_member: ~
+      you_are_now_member: "Pozdravljen/a na %{service_name}!"
       you_are_already_member: ~
       you_must_log_in_to_create_new_listing: "Da lahko na %{service_name} dodajaš nove objave, se moraš prijaviti. Če še nimaš svojega uporabniškega računa, ga prosim, %{sign_up_link}."
       additional_email_confirmed_dashboard: ~
@@ -1687,7 +1687,7 @@ sl:
     show:
       contact: ~
       about_me: ~
-      add_description: ~
+      add_description: "Predstavi se in povej nekaj o sebi."
       add_location: ~
       add_phone_number: ~
       address: ~
@@ -1711,7 +1711,7 @@ sl:
       open_listing: "odprta objava"
       open_listings: "odprte objave"
       no_listings: "Ni objav"
-      no_open_listings: ~
+      no_open_listings: "Ni odprtih objav."
       no_reviews: "Nima nobenih komentarjev"
       show_all_listings: "Pokaži vse objave"
       show_all_open_listings: ~
@@ -1759,7 +1759,7 @@ sl:
       request_new_password: "Zahtevaj novo geslo"
       change_your_password: "Sprememba gesla"
     confirmation_pending:
-      welcome_to_kassi: ~
+      welcome_to_kassi: "Pozdravljen/a na %{service_name}!"
       check_your_email: ~
       resend_confirmation_instructions: "Ponovno pošlji navodila za potrditev uporabniškega računa"
       your_current_email_is: ~
@@ -1771,14 +1771,14 @@ sl:
       account_confirmation_instructions_admin: ~
   settings:
     account:
-      change: ~
+      change: Spremeni
       confirm_new_password: "Potrdi novo geslo"
       delete_account: "Izbriši moj uporabniški račun"
       delete_account_button: "Trajno izbriši moj uporabniški račun"
       delete_account_confirmation_popup: "Ali si res prepričan, da želiš trajno izbrisati svoj uporabniški račun in s tem izgubiti vse podatke in informacije, povezane s tem računom? Izbrisanega računa namreč ne moremo obnoviti."
-      email_addresses: ~
+      email_addresses: "Tvoji e-naslovi"
       new_email: "Nov e-naslov"
-      delete_personal_information: ~
+      delete_personal_information: "Če izbrišeš svoj uporabniški račun, se bojo vse tvoje osebne informacije (ime, telefon, e-naslov, profilna fotografija itd.) izbrisale trajno in jih ne bo možno ponovno obnoviti. Tudi vse tvoje objave bojo odstranjene. Računa ne boš mogel obnoviti sam."
       delete_information_others_involved: ~
       unfinished_transactions: ~
       new_password: "Novo geslo"
@@ -1792,7 +1792,7 @@ sl:
         receive_notifications_title_desktop: ~
         receive_notifications_title_mobile: ~
         receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
+        add_new_with_plus: "+ Dodaj nov e-naslov."
         add_new_cancel: ~
         confirmation_title_mobile: ~
         confirmation_title_desktop: ~

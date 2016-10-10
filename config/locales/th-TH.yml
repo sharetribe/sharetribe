@@ -59,7 +59,7 @@ th-TH:
         edit_community_slogan_description: "นี่จะปรากฏในหน้าแรกของตลาดสำหรับผู้ใช้ที่ไม่ได้เข้าสู่ระบบ %{see_how_it_looks_like}"
         community_description: คำอธิบายตลาด
         edit_community_description_description: "นี่จะปรากฏในหน้าแรกของตลาดสำหรับผู้ใช้ที่ไม่ได้เข้าสู่ระบบ %{see_how_it_looks_like}"
-        community_search_placeholder: ค้นหาข้อความช่วยเหลือ
+        community_search_placeholder: คำใบ้ในกล่องค้นหา
         edit_community_search_placeholder_description: "นี่จะปรากฏในหน้าแรกของตลาด ซึ่งเป็นข้อความตัวยึดในแถบค้นหา %{see_how_it_looks_like}"
         private_community_homepage_content: เนื้อหาในหน้าแรกของตลาดส่วนตัว
         edit_private_community_homepage_content_description: "เนื้อหานี้จะปรากฏในหน้าแรกของตลาดส่วนตัว ให้กับผู้ใช้ที่ไม่ได้เข้าสู่ระบบ ที่นี่ คุณสามารถอธิบายตลาดของคุณ และกระบวนการที่จะเข้าร่วมได้ นอกจากนี้คุณยังสามารถเพิ่มรูปภาพ วิดีโอ และเนื้อหา HTML ได้ที่นี่ %{see_how_it_looks_like}"
@@ -317,7 +317,7 @@ th-TH:
         price_min: กรองราคาต่ำสุด
         price_max: กรองราคาสูงสุด
       edit_location:
-        edit_location_field: แก้ไขเขตข้อมูลตำแหน่ง
+        edit_location_field: แก้ไขข้อมูลตำแหน่ง
         this_field_is_required: ข้อมูลนี้จำเป็น
       form:
         field_required:
@@ -424,12 +424,12 @@ th-TH:
       action_button_label: ~
       action_button_placeholder: ~
       open_listings_warning:
-        other: "มี %{count} รายการเปิดที่สัมพันธ์กับชนิดของคำสั่งนี้ หากคุณเปลี่ยนการตั้งค่าด้านล่าง รายการนั้นจะยังคงมีการตั้งค่าแบบเก่าอยู่ รายการสามารถเปลี่ยนการตั้งค่าใหม่ได้โดยการแก้ไขรายการด้วยตนเอง หากคุณไม่ต้องการที่จะมีรายการที่มีการตั้งค่าเก่าปรากฏอยู่บนเว็บไซต์ คุณสามารถปิดได้โดยคลิกที่ปุ่มด้านล่าง"
+        other: "มี %{count} ประกาศที่ใช้งานอยู่ ที่สัมพันธ์กับชนิดของคำสั่งนี้ หากคุณเปลี่ยนการตั้งค่าด้านล่าง ประกาศนั้นจะยังคงมีการตั้งค่าแบบเก่าอยู่ ประกาศสามารถเปลี่ยนการตั้งค่าใหม่ได้โดยการแก้ไขรายการด้วยตนเอง หากคุณไม่ต้องการที่จะมีประกาศที่มีการตั้งค่าเก่าปรากฏอยู่บนเว็บไซต์ คุณสามารถปิดได้โดยคลิกที่ปุ่มด้านล่าง"
       successfully_closed: ~
       successfully_deleted: ~
       pricing_and_checkout_title: ~
       online_payments_label: ~
-      shipping_label: ~
+      shipping_label: "อนุญาตให้ผู้ขายกำหนด ค่าจัดส่ง ได้"
       price_label: ~
       units_title: ~
       units_desc: ~
@@ -552,8 +552,8 @@ th-TH:
       accept_request: ยอมรับคำขอ
       reject_offer: ไม่ใช่เวลานี้
       reject_request: ไม่ใช่เวลานี้
-      close_listing: "ปิดรายการ %{listing_title_link}"
-      update_later: ปล่อยให้รายการเปิด
+      close_listing: "ลบประกาศ %{listing_title_link}"
+      update_later: เปิดประกาศเอาไว้
       optional_message: ข้อความเพิ่มเติม
       price_to_pay: ราคารวมที่จะต้องจ่าย
       accept: ~
@@ -565,7 +565,7 @@ th-TH:
       total_label: ~
       total_value: ~
       paypal_fee_info: ~
-      shipping_price_label: ~
+      shipping_price_label: จัดส่ง
     confirm:
       confirm_description: "หากรายการสั่งซื้อของคุณได้รับการกรอกจนเต็มแล้ว คุณควรยืนยันว่าเสร็จสิ้น หลังจากนั้นคุณจึงจะสามารถให้ข้อเสนอแนะไปยังบุคคลอื่น"
       cancel_description: "หากรายการสั่งซื้อของคุณไม่ได้ถูกกรอกจนเต็ม คุณสามารถทำเครื่องหมาย 'อภิปราย' ได้ คุณยังคงสามารถให้ข้อเสนอแนะไปยังบุคคลอื่น และอธิบายถึงสิ่งที่เกิดขึ้น"
@@ -813,7 +813,7 @@ th-TH:
       you_have_received_new_payment: "คุณได้รับการชำระเงิน <b>%{payment_sum}</b> สำหรับ <b>%{listing_title}</b> จาก %{payer_full_name} นี่คือใบเสร็จรับเงินของคุณ"
     paypal_new_payment:
       paypal_gateway_fee: ~
-      shipping_total: ~
+      shipping_total: จัดส่ง
     braintree_new_payment:
       product: "ผลิตภัณฑ์:"
       price_payer_paid: "ราคา %{payer_full_name} จ่าย:"
@@ -1027,8 +1027,8 @@ th-TH:
       no_listings_with_your_search_criteria: "ขออภัย ไม่มีสามารถค้นพบรายการในเกณฑ์การค้นหาของคุณ คุณอาจจะลองคำค้นหา อื่น ๆ ดูไหม?"
       no_listings_notification: "ไม่มีรายการ %{add_listing_link}"
       add_listing_link_text: เพิ่มรายการใหม่
-      open_listing: รายการเปิด
-      open_listings: รายการเปิด
+      open_listing: ประกาศที่ใช้งานอยู่
+      open_listings: ประกาศที่ใช้งานอยู่
       private_listing_notification_log_in: เข้าสู่ระบบ
       is: คือ
       are: คือ
@@ -1096,7 +1096,7 @@ th-TH:
       default_about_text: "ตลาดนี้ได้รับการขับเคลื่อนโดยแพลตฟอร์ม Sharetribe ด้วย Sharetribe คุณสามารถสร้างเว็บไซต์ตลาดของคุณเองได้ฟรี และใช้เวลาเพียงไม่กี่นาที %{click_here_link}เพื่อเรียนรู้เพิ่มเติม!"
       click_here_link_text: คลิ๊กที่นี่
     how_to_use:
-      default_title: ~
+      default_title: ทำงานอย่างไร
       default_content: ~
   landing_page:
     hero:
@@ -1222,7 +1222,7 @@ th-TH:
       offer_canceled: ข้อเสนอถูกยกเลิก
       listing_updated_successfully: การอัพเดทรายการเสร็จสมบูรณ์แล้ว
       only_kassi_administrators_can_access_this_area: "ผู้ดูแล %{service_name} เท่านั้นที่จะสามารถเข้าถึงพื้นที่นี้ได้"
-      only_listing_author_can_close_a_listing: คนเขียนรายการเท่านั้นที่จะสามารถปิดรายการได้
+      only_listing_author_can_close_a_listing: ผู้ประกาศเท่านั้นจึงจะมีสิทธิ์ลบประกาศได้
       only_listing_author_can_edit_a_listing: คนเขียนรายการเท่านั้นที่จะสามารถแก้ไขรายการได้
       payment_successful: ชำระเงินสำเร็จ
       payment_canceled: การชำระเงินถูกยกเลิก
@@ -1315,9 +1315,9 @@ th-TH:
     edit:
       edit_listing: แก้ไขรายการ
     edit_links:
-      close_listing: ปิดรายการ
+      close_listing: ลบประกาศ
       edit_listing: แก้ไขรายการ
-      reopen_listing: เปิดรายการอีกครั้ง
+      reopen_listing: เปิดประกาศขึ้นมาอีกครั้ง
       move_to_top: ย้ายไปที่ด้านบนสุดของหน้าแรก
       show_in_updates_email: แสดงในจดหมายข่าวฉบับต่อไป
       show_in_updates_email_loading: กำลังโหลด...
@@ -1339,10 +1339,10 @@ th-TH:
         at: เวลา
         departure_time: เวลาออก
       departure_time_radio_buttons:
-        repeated: "เวลาเดียวกัน (เพิ่มวันและเวลาในช่อง 'รายละเอียดคำอธิบาย')"
+        repeated: "เวลาเดียวกัน (เพิ่มวันและเวลาในช่อง 'คำอธิบายโดยละเอียด')"
       description:
-        detailed_description: รายละเอียดคำอธิบาย
-        youtube_info: ~
+        detailed_description: คำอธิบายโดยละเอียด
+        youtube_info: "หากคำอธิบายของคุณ มีลิงค์ YouTube ด้วย วิดีโอของ YouTube จะปรากฎที่ด้านล่างคำอธิบายค่ะ"
       destination:
         destination: จุดหมายปลายทาง
       form_content:
@@ -1360,7 +1360,7 @@ th-TH:
         googlemap_updatemap: อัพเดทแผนที่
       images:
         image: รูปภาพ
-        best_result: ~
+        best_result: "เพื่อให้มองเห็นรูปภาพได้ชัดเจน กรุณาใช้รูปภาพชนิด JPG, GIF หรือ PNG ที่มีขนาด %{height} x %{width} พิกเซล"
         no_file_selected: ไม่มีไฟล์ที่เลือก
         remove_image: ลบรูปภาพ
         select_file: เลือกไฟล์
@@ -1368,8 +1368,8 @@ th-TH:
         removing: กำลังย้าย...
         processing: กำลังประมวลผล...
         loading_image: กำลังโหลด...
-        image_uploading_in_progress: ~
-        processing_takes_a_while: ~
+        image_uploading_in_progress: กำลังอัพโหลดรูปภาพ...
+        processing_takes_a_while: "ดาวโหลดรูปภาพเสร็จสิ้นแล้ว! จะใช้เวลาสักครู่ แต่คุณสามารถทำการต่อได้โดยไม่ต้องรอค่ะ"
         this_may_take_a_while: จะใช้เวลาแค่เพียงชั่ววินาที
         percentage_loaded: "%{percentage}%"
         uploading_failed: การอัปโหลดภาพล้มเหลว
@@ -1388,13 +1388,13 @@ th-TH:
         long_time: "สัปดาห์, เดือน, ..."
         after_service_fee_you_will_get: "หลังจาก %{service_name} และการชำระเงินค่าธรรมเนียมการประมวลผล คุณจะได้รับ %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: ~
-        after_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get_paypal_text: "ค่าบริการของ %{service_name} (%{sum_with_currency}) และ %{paypal_fee_info_link} จะถูกหักออกจากราคานี้"
         paypal_fee_info_link_text: ~
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
+        delivery: วิธีการส่งสินค้า
+        shipping: จัดส่ง
+        shipping_price: ค่าจัดส่ง
         shipping_price_additional: ~
-        pickup: ~
+        pickup: มารับด้วยตนเอง
       origin:
         location: ตำแหน่ง
         origin: ที่มา
@@ -1421,7 +1421,7 @@ th-TH:
       title:
         listing_title: ชื่อรายการ
       valid_until:
-        valid_until: วันหมดอายุ
+        valid_until: ประกาศหมดอายุวันที่
       valid_until_radio_buttons:
         for_the_time_being: ในเวลานั้น
       privacy:
@@ -1431,7 +1431,7 @@ th-TH:
     help_texts:
       help_share_type_title: ประเภทของข้อเสนอหรือคำขอ
       help_tags_title: แท็ก
-      help_valid_until_title: วันหมดอายุ
+      help_valid_until_title: ประกาศหมดอายุวันที่
     index:
       all_categories: หมวดหมู่ทั้งหมด
       all_offer_types: ประเภทข้อเสนอทั้งหมด
@@ -1531,12 +1531,12 @@ th-TH:
       price:
         per_quantity_unit: "ต่อ %{quantity_unit}"
         per_day: ต่อวัน
-      delivery: ~
+      delivery: วิธีการส่งสินค้า
       shipping: ~
       shipping_no_price: ~
       shipping_price_additional: ~
-      pickup: ~
-      pickup_no_price: ~
+      pickup: มารับด้วยตนเอง
+      pickup_no_price: มารับด้วยตนเอง
       youtube_video_player: ~
     unit_types:
       piece: ~
@@ -1589,15 +1589,15 @@ th-TH:
     member_id: "ID สมาชิก "
     member_id_or_email: "ID สมาชิก หรืออีเมล์"
   paypal_accounts:
-    payout_info_title: กำลังรับเงิน
+    payout_info_title: การรับชำระเงิน
     paypal_account_email_connected: "<del>ติดต่อกับบัญชี PayPal</del> สำเร็จแล้ว!"
-    payout_info_paypal: ~
+    payout_info_paypal: "%{service_name} ใช้ PayPal ในการทำธุรกรรมทางการเงิน คุณจำเป็นต้องมี %{create_paypal_account_link} ที่เชื่อมต่อกับ %{service_name} แล้ว จึงจะสามารถรับชำระเงินจากผู้ซื้อได้"
     paypal_billing_agreement_made: "<del>ให้สิทธิ์แก่%{service_name}ในการเรียกเก็บค่าธรรมเนียมการทำธุรกรรม </del>เสร็จสมบูรณ์แล้ว!"
     commission_permission_needed: ~
     create_paypal_account_link_text: ~
     connected_account: "เชื่อมต่อบัญชี PayPal '%{email}' สำเร็จแล้ว"
     paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info_label: "แอคเคาท์ PayPal ของคุณต้องพร้อมที่จะรับเงิน ซึ่งคุณอาจจำเป็นต้องใช้แอคเคาท์ PayPal ประเภท Business Account"
     paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: "หากคุณพบข้อผิดพลาด เมื่อพยายามที่จะเชื่อมต่อบัญชีของคุณไปยัง %{service_name} โปรดอัพเกรดบัญชี PayPal ของคุณโดย %{upgrade_paypal_account_link} ซึ่งไม่มีค่าใช้จ่ายและง่าย หากคุณเป็นบุคคลธรรมดา PayPal แนะนำให้ใช้ชื่อของคุณเป็นชื่อธุรกิจ"
     upgrade_paypal_account_link_text: ~
@@ -1616,10 +1616,10 @@ th-TH:
       create_paypal_account: คลิ๊กที่นี่
       upgrade_paypal_account: "เข้าสู่ระบบบัญชี PayPal ของคุณ"
       paypal_account_billing_agreement: "ให้สิทธิ์แก่%{service_name}ในการเรียกเก็บค่าธรรมเนียมการทำธุรกรรม "
-      follow_steps: ~
+      follow_steps: "คุณสามารถทำตามขั้นตอนต่อไปนี้ เพื่อเริ่มรับเงินจากผู้ซื้อ"
       connect_paypal_account_title: ~
-      connect_paypal_account_title_with_step: ~
-      connect_paypal_account_instructions: ~
+      connect_paypal_account_title_with_step: "ขั้นตอนที่ %{current_step}/%{total_steps}: เชื่อมต่อแอคเคาท์ PayPal ของคุณ"
+      connect_paypal_account_instructions: "คลิกปุ่มด้านล่างนี้ เพื่อล็อกอินเข้าสู่ PayPal และเชื่อมต่อแอคเคาท์ PayPal ของคุณกับ %{service_name}."
       connect_paypal_account: "เชื่อมต่อบัญชี PayPal ของคุณ"
       paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: "หลังจากที่คุณทำการขายใน %{service_name} ค่าธรรมเนียมในบริการ (%{commission_from_seller} ของราคาสินค้าทั้งหมด ไม่รวมค่าจัดส่ง ค่าธรรมเนียมขั้นต่ำ %{minimum_commission}) จะถูกเรียกเก็บเงินจากบัญชี PayPal ของคุณ การให้อนุญาตให้ทำเช่นนี้เป็นสิ่งจำเป็นเพื่อที่จะรับการชำระเงินใน %{service_name} ค่าธรรมเนียมนี้ไม่รวม %{paypal_info_link}"
@@ -1701,7 +1701,7 @@ th-TH:
       grade: "เกรด:"
       and_gave_following_feedback: และให้ข้อเสนอแนะดังต่อไปนี้
     profile_listings:
-      show_also_closed: การแสดงถูกปิด
+      show_also_closed: โชว์ประกาศที่ปิดไปแล้วด้วย
       show_only_open: แสดงเฉพาะที่เปิด
       no_image: ไม่มีรูปภาพ
     show:
@@ -1728,13 +1728,13 @@ th-TH:
       reviews: ได้รับคำติชมแล้ว
       listing: รายการ
       listings: รายการ
-      open_listing: รายการเปิด
-      open_listings: รายการเปิด
+      open_listing: ประกาศที่ใช้งานอยู่
+      open_listings: ประกาศที่ใช้งานอยู่
       no_listings: ไม่มีรายการ
-      no_open_listings: ไม่มีรายการเปิด
+      no_open_listings: ไม่มีประกาศที่ใช้งานอยู่
       no_reviews: ไม่มีคำติชม
       show_all_listings: แสดงรายการทั้งหมด
-      show_all_open_listings: แสดงรายการเปิดทั้งหมด
+      show_all_open_listings: แสดงประกาศที่ใช้งานอยู่ทั้งหมด
       show_all_reviews: แสดงคำติชมทั้งหมด
     followed_people:
       you_follow_plural: "คุณได้ติดตามคน %{count} คน "
@@ -1799,7 +1799,7 @@ th-TH:
       email_addresses: ที่อยู่อีเมล์
       new_email: ที่อยู่อีเมล์ใหม่
       delete_personal_information: "หากคุณลบบัญชีของคุณ ข้อมูลส่วนบุคคลของคุณ (ชื่อ , หมายเลขโทรศัพท์, ที่อยู่, อีเมล์, ภาพโปรไฟล์ ฯลฯ) จะถูกลบออกอย่างถาวร และไม่สามารถกู้คืนได้ รายการทั้งหมดที่คุณได้สร้างขึ้นจะถูกลบออก คุณจะไม่สามารถเปิดใช้งานบัญชีของคุณได้อีก"
-      delete_information_others_involved: "ข้อมูลที่สมาชิกคนอื่น ๆ มีส่วนเกี่ยวข้อง (บทสนทนากับคนอื่น ๆ, การทำธุรกรรมที่คุณได้ทำ, ความเห็นที่คุณให้กับคนอื่น ๆ ฯลฯ) จะไม่ถูกลบ เมื่อคุณลบบัญชีของคุณ อย่างไรก็ตาม ชื่อของคุณจะไม่ปรากฏถัดจากข้อมูลเหล่านี้"
+      delete_information_others_involved: "ข้อมูลที่สมาชิกคนอื่น ๆ มีส่วนเกี่ยวข้อง (บทสนทนากับคนอื่น ๆ, การทำธุรกรรมที่คุณได้ทำ, ความเห็นที่คุณให้กับคนอื่น ๆ ฯลฯ) จะไม่ถูกลบ เมื่อคุณลบบัญชีของคุณ อย่างไรก็ตาม ชื่อของคุณจะไม่ถูกแสดง ในข้อมูลเหล่านั้น"
       unfinished_transactions: ~
       new_password: รหัสผ่านใหม่
       save: บันทึก
@@ -1860,12 +1860,12 @@ th-TH:
       these_fields_are_shown_in_your: "ข้อมูลนี้จะปรากฎแก่ผู้ใช้ %{service_name} ทั้งหมด"
       visible_to_everybody: ปรากฎให้เห็นแก่ทุกคน
       visible_to_registered_users: (ปรากฎให้เห็นแก่ผู้ใช้ที่เข้าสู่ระบบ)
-      default_in_listing: (ใช้เฉพาะเป็นค่าเริ่มต้นเมื่อมีการสร้างรายชื่อใหม่)
+      default_in_listing: "(ใช้เป็นค่าเริ่มต้น เมื่อมีการสร้างประกาศซื้อขายอันใหม่)"
       invisible: "(ไม่แสดงต่อผู้ใช้อื่น ๆ)"
       image_is_processing: ~
     save_information: บันทึกข้อมูล
   shipping_address:
-    shipping_address: ~
+    shipping_address: ที่อยู่ในการจัดส่ง
   tag_cloud:
     tag_used:
       with_tag: มีแท็ก
@@ -1989,7 +1989,7 @@ th-TH:
       price_per_night: ~
       quantity: ~
       subtotal: ~
-      shipping-price: ~
+      shipping-price: จัดส่ง
     price_per_quantity: ~
     price: ~
     quantity: ~
