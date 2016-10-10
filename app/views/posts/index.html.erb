@@ -15,9 +15,9 @@
 
     <div class="hero-text col-4">
 
-      <h4 class="date">
+      <h5 class="date">
         <%= p["post_date"].to_time.strftime('%^b %d, %G') %>
-      </h4>
+      </h5>
 
       <%= link_to post_path(p["post_id"]) do %>
 
@@ -30,7 +30,7 @@
 
       <div class="blog-desc">
         <%= raw p["post_excerpt"] %>
-      
+
 
       </div>
 
@@ -53,9 +53,9 @@
       <% end %>
 
 
-      <h4 class="date">
+      <h5 class="date">
         <%= p["post_date"].to_time.strftime('%^b %d, %G') %>
-      </h4>
+      </h5>
 
       <div class="blog-caption">
         <%= link_to post_path(p["post_id"]) do %>

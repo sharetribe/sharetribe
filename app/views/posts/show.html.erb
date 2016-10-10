@@ -1,24 +1,30 @@
 <div class="container">
   <% p = @post %>
   <div class="row">
-    <div class="blog-hero col-12">
-         
-         <% if !p["post_thumbnail"].kind_of?(Array) && p["post_thumbnail"]["link"] %>
-          <div class="blog-hero-image-post" style="background-image: url('<%=p["post_thumbnail"]["link"]%>')">
-          </div>
-          <% end %>
+    <div class="blog-hero-post col-12">
 
-           <h4 class="date">
-             <%= p["post_date"].to_time.strftime('%^b %d, %G') %>
-           </h4>
-           <h3 class="blog-title-hero">
-          <%= raw p["post_title"] %>
-        </h3>
+     <% if !p["post_thumbnail"].kind_of?(Array) && p["post_thumbnail"]["link"] %>
+     <div class="blog-hero-image-post" style="background-image: url('<%=p["post_thumbnail"]["link"]%>')">
+     </div>
+     <% end %>
 
-        <div class="blog-desc">
-          <%= raw p["post_content"] %>
-        </div>
+    <h5 class="date-post">
+       <%= p["post_date"].to_time.strftime('%^b %d, %G') %>
+    </h5>
+
+     <h1 class="post-title-hero">
+      <%= raw p["post_title"] %>
+    </h1>
+  </div>
+
+  <div class="row">
+    <div class="col-1">
+    </div>
+    <div class="post-detail-title col-10">
+      <div class="blog-desc">
+        <%= raw p["post_content"] %>
+      </div>
 
     </div>
-  </div>
-</div>
+  </div> 
+</div> 
