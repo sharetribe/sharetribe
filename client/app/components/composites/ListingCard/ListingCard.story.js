@@ -4,8 +4,8 @@ import Immutable from 'immutable';
 
 import { storify } from '../../Styleguide/withProps';
 import { formatDistance, formatMoney } from '../../../utils/numbers';
-import { Image, ImageRefs } from '../../../models/ImageModel';
 import ListingModel, { Distance, Money } from '../../../models/ListingModel';
+import { Image, ListingImage, AvatarImage } from '../../../models/ImageModel';
 
 import ListingCard from './ListingCard';
 import css from './ListingCard.story.css';
@@ -21,7 +21,7 @@ const ListingCardBasic =
       listing: new ListingModel({
         id: 'lkjg84573874yjdf',
         title: 'Title',
-        images: new Immutable.List([new ImageRefs({
+        images: new Immutable.List([new ListingImage({
           square: new Image({
             url: 'https://placehold.it/408x408',
           }),
@@ -48,7 +48,7 @@ const ListingCardBasic =
           familyName: 'family name',
           givenName: 'given name',
           description: 'product author',
-          avatarImage: { thumb: new Image({ url: 'https://placehold.it/40x40' }) },
+          avatarImage: new AvatarImage({ thumb: new Image({ url: 'https://placehold.it/40x40' }) }),
           profileURL: `#profile${Math.random(10)}`, // eslint-disable-line no-magic-numbers
         },
       }),
@@ -63,9 +63,9 @@ const ListingCardNoImage =
       listing: new ListingModel({
         id: 'lkjg84573874yjdf',
         title: 'No picture',
-        images: new Immutable.List([new ImageRefs()]),
+        images: new Immutable.List([new ListingImage()]),
         listingURL: 'https://example.com/listing/342iu4',
-        author: { avatarImage: { thumb: new Image({ url: 'https://placehold.it/40x40' }) } },
+        author: { avatarImage: new AvatarImage({ thumb: new Image({ url: 'https://placehold.it/40x40' }) }) },
         profileURL: '#profile',
         price: new Immutable.Map({
           ':money': new Money({
@@ -90,7 +90,7 @@ const ListingCardImageError =
       listing: new ListingModel({
         id: 'lkjg84573874yjdf',
         title: 'Picture load fails',
-        images: new Immutable.List([new ImageRefs({
+        images: new Immutable.List([new ListingImage({
           square: new Image({ url: 'https://example.com/image.png' }),
           square2x: new Image({
             type: 'square2x',
@@ -100,7 +100,7 @@ const ListingCardImageError =
           }),
         })]),
         listingURL: 'https://example.com/listing/342iu4',
-        author: { avatarImage: { thumb: new Image({ url: 'https://placehold.it/40x40' }) } },
+        author: { avatarImage: new AvatarImage({ thumb: new Image({ url: 'https://placehold.it/40x40' }) }) },
         profileURL: '#profile',
         price: new Immutable.Map({
           ':money': new Money({

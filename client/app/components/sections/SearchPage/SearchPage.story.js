@@ -1,8 +1,8 @@
 import r, { div, h1, h2, p } from 'r-dom';
 import Immutable from 'immutable';
 import { toFixedNumber } from '../../../utils/numbers';
-import { Image, ImageRefs } from '../../../models/ImageModel';
 import ListingModel, { Distance, Money } from '../../../models/ListingModel';
+import { Image, ListingImage, AvatarImage } from '../../../models/ImageModel';
 import ListingCard from '../../composites/ListingCard/ListingCard';
 import ListingCardPanel from '../../composites/ListingCardPanel/ListingCardPanel';
 import css from './SearchPage.story.css';
@@ -17,7 +17,7 @@ const listingCardTemplate = (title, perUnit, price, distance) => (
       listing: new ListingModel({
         id: 'lkjg84573874yjdf',
         title,
-        images: new Immutable.List([new ImageRefs({
+        images: new Immutable.List([new ListingImage({
           square: new Image({
             url: 'https://placehold.it/408x408',
           }),
@@ -44,7 +44,7 @@ const listingCardTemplate = (title, perUnit, price, distance) => (
           familyName: 'family name',
           givenName: 'given name',
           description: 'product author',
-          avatarImage: { thumb: new Image({ url: 'https://placehold.it/40x40' }) },
+          avatarImage: new AvatarImage({ thumb: new Image({ url: 'https://placehold.it/40x40' }) }),
           profileURL: `#profile${Math.random(10)}`, // eslint-disable-line no-magic-numbers
         },
       }),

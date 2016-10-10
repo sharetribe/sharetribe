@@ -7,12 +7,25 @@ export const Image = Immutable.Record({
   url: null,
 });
 
-export const ImageRefs = Immutable.Record({
+const ImageRefs = Immutable.Record({
   square: null,
   square2x: null,
   medium: null,
   small: null,
   thumb: null,
+  original: null,
+});
+
+export const ListingImage = Immutable.Record({
+  square: new Image(),
+  square2x: new Image(),
+});
+
+export const AvatarImage = Immutable.Record({
+  thumb: new Image(),
+  small: new Image(),
+  medium: new Image(),
+  original: new Image(),
 });
 
 export const parse = (data) => {
@@ -22,6 +35,7 @@ export const parse = (data) => {
     ':medium': 'medium',
     ':small': 'small',
     ':thumb': 'thumb',
+    ':original': 'original',
   };
   const images = data.map(([type, height, width, url]) =>
     new Image({ type, height, width, url }));
