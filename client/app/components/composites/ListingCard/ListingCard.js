@@ -55,10 +55,9 @@ class ListingCard extends Component {
     const distanceFormatted = formatDistance(listing.distance, localeCode);
     const price = listing.price;
     const moneyFormatted = price ? formatMoney(price.get(':money'), localeCode) : null;
-    const pricingUnitTranslations = price && price.get(':pricingUnit').size > 0 ?
-      price.get(':pricingUnit') :
-      null;
-    const pricingUnit = `/ ${localizedString(pricingUnitTranslations, 'pricing unit')}`;
+    const hasPricingUnit = price && price.get(':pricingUnit') != null;
+    const pricingUnit = price ? localizedString(price.get(':pricingUnit'), 'pricing unit') : '';
+    const pricingUnitFormatted = `/ ${pricingUnit}`;
 
     return div({
       className: classNames('ListingCard', css.listing, this.props.className),
@@ -121,8 +120,8 @@ class ListingCard extends Component {
               style: { color: this.props.color },
             }, [
               div({ className: css.price, title: price.get(':money').currency }, moneyFormatted),
-              pricingUnit ?
-                div({ className: css.per }, pricingUnit) :
+              hasPricingUnit ?
+                div({ className: css.per }, pricingUnitFormatted) :
                 null,
             ]) :
             div({ className: css.priceWrapper }),
