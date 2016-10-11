@@ -6,7 +6,7 @@
   = prepend_render_rails_context("")
 
   - if notifications
-    = react_component("Notifications", props: props, prerender: true)
+    = react_component("Notifications", props: notifications, prerender: true)
 
   - if display_onboarding_topbar?
     - props = onboarding_topbar_props
