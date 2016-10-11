@@ -1,11 +1,6 @@
 es-ES:
   emails:
     welcome_email:
-      welcome_email_subject: "Ya formas parte de %{service_name}"
-      welcome_to_marketplace: "¡Bienvenido a %{service_name}! Nos encanta que estés con nosotros."
-      love_marketplace_crew: "Un saludo del equipo de <br /><i>%{service_name} </i>"
-      welcome_email_footer_text: "¿Qué clase de correos deseas recibir de %{service_name}? %{settings_link}"
-      settings_link_text: "Revisa tu configuración"
       welcome_email_subject_for_marketplace_creator: "Bienvenido a Sharetribe"
       welcome_to_marketplace_creator: "¡Bienvenido a Sharetribe, %{name}!"
       congrats_for_creating_your_marketplace: "¡Enhorabuena! Ya has creado tu marketplace, ha sido fácil ¿verdad?"
