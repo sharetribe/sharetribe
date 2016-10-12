@@ -4,8 +4,10 @@ module TransactionService::Transaction
   end
 
   DataTypes = TransactionService::DataTypes::Transaction
+  ProcessStatus = TransactionService::DataTypes::ProcessStatus
 
   TxStore = TransactionService::Store::Transaction
+  ProcessTokenStore = TransactionService::Store::ProcessToken
 
   DEPRECATED_GATEWAYS = [:braintree, :checkout]
 
@@ -100,30 +102,38 @@ module TransactionService::Transaction
   end
 
   def finalize_create(community_id:, transaction_id:, force_sync: true)
-    tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
+    # Transaction may be nil, if it has been deleted due to voided payment
+    m_tx = Maybe(TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id))
 
-    if tx.nil?
+    proc_response =
+      if !force_sync
+        # Try to find existing process token
+        # This may happen if finalize_create action has been called already, for example
+        # as a reaction to payment event
 
-      # Transaction doesn't exist.
-      #
-      # This may happen if the finalize_create action has been called already, and it failed.
-      # If the finalization fails (e.g. booking fails), we void the payment and delete the
-      # transaction.
+        proc_token = ProcessTokenStore.get_by_transaction(community_id: community_id,
+                                                          transaction_id: transaction_id,
+                                                          op_name: :do_finalize_create)
 
-      return Result::Error.new("Can't find transaction, id: #{transaction_id}, community_id: #{community_id}", {code: :tx_not_existing})
-    end
+        proc_status_response(proc_token) if proc_token
+      end
 
-    tx_process = tx_process(tx[:payment_process])
-    gw = gateway_adapter(tx[:payment_gateway])
+    res =
+      if proc_response
+        proc_response
+      else
+        tx_process = tx_process(tx[:payment_process])
+        gw = gateway_adapter(tx[:payment_gateway])
 
-    res = tx_process.finalize_create(
-      tx: tx,
-      gateway_adapter: gw,
-      force_sync: force_sync)
+        tx_process.finalize_create(
+          tx: tx,
+          gateway_adapter: gw,
+          force_sync: force_sync)
+      end
 
     res.and_then { |tx_fields|
       Result::Success.new(DataTypes.create_transaction_response(
-                            query(tx[:id]),
+                            m_tx.map { |tx| query(tx[:id]) }.or_else(nil),
                             {},
                             tx_fields))
     }
@@ -276,5 +286,13 @@ module TransactionService::Transaction
 
   def paypal_billing_agreement_api
     PaypalService::API::Api.billing_agreements
+  end
+
+  def proc_status_response(proc_token)
+    Result::Success.new(
+      ProcessStatus.create_process_status({
+                                            process_token: proc_token[:process_token],
+                                            completed: proc_token[:op_completed],
+                                            result: proc_token[:op_output]}))
   end
 end

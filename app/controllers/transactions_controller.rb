@@ -174,34 +174,39 @@ class TransactionsController < ApplicationController
       return redirect_to search_path
     end
 
-    process_token = proc_status.dig(:data, :transaction_service_fields, :process_token)
-
-    tx = transaction_service.get(community_id: @current_community.id, transaction_id: params[:transaction_id])[:data]
+    tx_fields = proc_status.dig(:data, :transaction_service_fields) || {}
+    process_token = tx_fields[:process_token]
+    process_completed = tx_fields[:completed]
 
     if process_token.present?
-      # Operation was performed asynchronously
+      redirect_url = transaction_finalize_processed_path(process_token)
 
-      # We're using here the same PayPal spinner, although we could
-      # create a new one for TransactionService.
-      render "paypal_service/success", layout: false, locals: {
-        op_status_url: transaction_op_status_path(process_token),
-        redirect_url: transaction_finalize_processed_path(process_token, listing_id: tx[:listing_id])
-      }
+      if process_completed
+        redirect_to redirect_url
+      else
+        # Operation was performed asynchronously
+
+        # We're using here the same PayPal spinner, although we could
+        # create a new one for TransactionService.
+        render "paypal_service/success", layout: false, locals: {
+                 op_status_url: transaction_op_status_path(process_token),
+                 redirect_url: redirect_url
+               }
+      end
     else
-      handle_finalize_proc_result(proc_status, tx[:listing_id])
+      handle_finalize_proc_result(proc_status)
     end
   end
 
   def finalize_processed
     process_token = params[:process_token]
-    listing_id = params[:listing_id]
 
     proc_status = transaction_process_tokens.get_status(UUIDTools::UUID.parse(process_token))
     unless (proc_status[:success] && proc_status[:data][:completed])
       return redirect_to error_not_found_path
     end
 
-    handle_finalize_proc_result(proc_status[:data][:result], listing_id)
+    handle_finalize_proc_result(proc_status[:data][:result])
   end
 
   def transaction_op_status
@@ -257,15 +262,25 @@ class TransactionsController < ApplicationController
 
   private
 
-  def handle_finalize_proc_result(response, listing_id)
+  def handle_finalize_proc_result(response)
     response_data = response[:data] || {}
 
-    tx = response_data[:transaction]
-
     if response[:success]
+      tx = response_data[:transaction]
       redirect_to person_transaction_path(person_id: @current_user.id, id: tx[:id])
     else
-      flash[:error] = t("error_messages.booking.booking_failed_payment_voided")
+      listing_id = response_data[:listing_id]
+
+      flash[:error] =
+        case response_data[:reason]
+        when :connection_issue
+          t("error_messages.booking.booking_failed_payment_voided")
+        when :double_booking
+          t("error_messages.booking.double_booking_payment_voided")
+        else
+          t("error_messages.booking.booking_failed_payment_voided")
+        end
+
       redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
     end
   end

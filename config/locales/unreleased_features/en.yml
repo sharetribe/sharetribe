@@ -13,6 +13,7 @@ en:
   error_messages:
     booking:
       booking_failed_payment_voided: "Failed to create a booking. Your payment will be refunded."
+      double_booking_payment_voided: "Unfortunately the dates you chose are no longer available. Please choose another dates. You haven’t been charged."
   listings:
     error:
       create_failed_to_connect_to_booking_service: "Listing creation failed: Failed to connect to the booking service. Please try again."
