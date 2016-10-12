@@ -43,7 +43,7 @@ gem 'flying-sphinx', "~>1.2.0"
 # Use patched v2.0.2
 # Fixes issues: Create a new delayed delta job if there is an existing delta job which has failed
 gem 'ts-delayed-delta', "~>2.0.2",
-  :git    => 'git://github.com/pat/ts-delayed-delta.git',
+  :git    => 'https://github.com/pat/ts-delayed-delta.git',
   :branch => 'master',
   :ref    => '839284f2f28b3f4caf3a3bf5ccde9a6d222c7f4d'
 gem 'possibly', '~> 0.2.0'
@@ -64,7 +64,7 @@ gem 'money-rails', "~>1.3.0"
 
 # The latest release (0.9.0) is not Rails 4 compatible
 gem 'mercury-rails',
-  git: 'git://github.com/jejacks0n/mercury.git',
+  git: 'https://github.com/jejacks0n/mercury.git',
   branch: 'master',
   ref: '1cc637b0bccea19085f824d2881c6513ed5ee8ae'
 
@@ -84,7 +84,7 @@ gem 'jwt', '~> 1.5.2'
 # uses old JWT version
 # (This can be removed when oauth2 version > 1.1.0 is released)
 gem 'oauth2',
-  git: 'git://github.com/intridea/oauth2.git',
+  git: 'https://github.com/intridea/oauth2.git',
   branch: 'master',
   ref: 'e0006cb5099bf392f011eb5c49cbec4f893bbdba'
 
@@ -120,7 +120,7 @@ gem 'sitemap_generator', "~> 5.1.0"
 # The latest master is needed because it contains the I18n.extend configuration
 # See: https://github.com/fnando/i18n-js/pull/397
 gem "i18n-js",
-    git: "git://github.com/fnando/i18n-js.git",
+    git: "https://github.com/fnando/i18n-js.git",
     branch: "master",
     ref: "2ca6d31365bb41db21e373d126cac00d38d15144"
 
