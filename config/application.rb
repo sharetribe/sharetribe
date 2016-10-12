@@ -43,6 +43,9 @@ module Kassi
     config.autoload_paths += Dir[Rails.root.join('app', 'forms')]
     config.autoload_paths += Dir[Rails.root.join('app', 'validators')]
 
+    # Fakepal
+    config.autoload_paths += Dir[Rails.root.join('lib', 'services')]
+
     # Load also Jobs that are used by migrations
     config.autoload_paths += Dir[Rails.root.join('db', 'migrate_jobs', '**/')]
 

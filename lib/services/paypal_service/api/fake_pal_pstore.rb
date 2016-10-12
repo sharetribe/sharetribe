@@ -2,7 +2,7 @@ require 'pstore'
 
 module PaypalService
   module API
-    class FakePalPStore < FakePalStore
+    class FakePalPstore < FakePalStore
 
       class Namespace
         def initialize(store, namespace_path)
