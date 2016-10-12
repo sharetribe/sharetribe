@@ -41,8 +41,10 @@ module ServiceClient
         ctx.fetch(:enter_queue).dup + [self]
       end
 
+      # Retries if all attempts are not used and
+      # status is 5xx
       def leave_needs_retry?(ctx)
-        !max_attempts?(ctx) && !ctx.fetch(:res).fetch(:success)
+        !max_attempts?(ctx) && (500..599).cover?(ctx.fetch(:res).fetch(:status))
       end
 
       def error_needs_retry?(ctx)
