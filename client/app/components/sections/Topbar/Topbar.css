@@ -145,11 +145,12 @@
 
     @media (--medium-viewport) {
       display: flex;
-      width: var(--Topbar_avatarSize);
+      width: var(--Topbar_avatarMediumSize);
       padding: var(--Topbar_avatarTabletPadding);
     }
 
     @media (--large-viewport) {
+      width: var(--Topbar_avatarSize);
       padding: var(--Topbar_avatarPadding);
     }
   }
