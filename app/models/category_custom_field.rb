@@ -11,6 +11,7 @@
 # Indexes
 #
 #  index_category_custom_fields_on_category_id_and_custom_field_id  (category_id,custom_field_id)
+#  index_category_custom_fields_on_custom_field_id                  (custom_field_id)
 #
 
 class CategoryCustomField < ActiveRecord::Base
