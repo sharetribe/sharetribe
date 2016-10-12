@@ -1,6 +1,9 @@
 import r from 'r-dom';
+import _ from 'lodash';
+
 import { initialize as initializeI18n } from '../utils/i18n';
 import Topbar from '../components/sections/Topbar/Topbar';
+import { Image } from '../models/ImageModel';
 import { subset } from '../utils/routes';
 
 export default (props) => {
@@ -19,6 +22,14 @@ export default (props) => {
     'login',
     'sign_up',
   ], { locale });
+
+  const avatarImage = _.get(props, 'avatarDropdown.avatar.image.url');
+  const avatarImageRecord = avatarImage ? new Image({
+    type: ':thumb',
+    url: avatarImage,
+  }) : null;
+
+  _.set(props, 'avatarDropdown.avatar.image', avatarImageRecord);
 
   const combinedProps = Object.assign({}, props, { routes });
   return r(Topbar, combinedProps);

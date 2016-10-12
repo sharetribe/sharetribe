@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import { storify } from '../../Styleguide/withProps';
 
 import Topbar from './Topbar';
+import { Image } from '../../../models/ImageModel';
 
 const { storiesOf, action, specs, expect } = storybookFacade;
 
@@ -91,7 +92,7 @@ const baseProps = {
       logoutAction: action('clicked logout'),
     },
     avatar: {
-      image: 'https://www.gravatar.com/avatar/d0865b2133d55fd507639a0fd1692b9a',
+      image: new Image({ url: 'https://www.gravatar.com/avatar/d0865b2133d55fd507639a0fd1692b9a' }),
       givenName: 'First',
       familyName: 'Last',
     },

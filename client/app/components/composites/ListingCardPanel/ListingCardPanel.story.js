@@ -4,8 +4,8 @@ import Immutable from 'immutable';
 
 import { storify } from '../../Styleguide/withProps';
 import { toFixedNumber } from '../../../utils/numbers';
-import { Image, ImageRefs } from '../../../models/ImageModel';
 import ListingModel, { Distance, Money } from '../../../models/ListingModel';
+import { Image, ListingImage, AvatarImage } from '../../../models/ImageModel';
 
 import ListingCardPanel from '../ListingCardPanel/ListingCardPanel';
 import ListingCard from '../ListingCard/ListingCard';
@@ -23,7 +23,7 @@ const listingCardTemplate = (title, perUnit, price, distance) => (
       listing: new ListingModel({
         id: 'lkjg84573874yjdf',
         title,
-        images: new Immutable.List([new ImageRefs({
+        images: new Immutable.List([new ListingImage({
           square: new Image({
             url: 'https://placehold.it/408x408',
           }),
@@ -50,7 +50,7 @@ const listingCardTemplate = (title, perUnit, price, distance) => (
           familyName: 'family name',
           givenName: 'given name',
           description: 'product author',
-          avatarURL: 'https://placehold.it/40x40',
+          avatarImage: new AvatarImage({ thumb: new Image({ url: 'https://placehold.it/40x40' }) }),
           profileURL: `#profile${Math.random(10)}`, // eslint-disable-line no-magic-numbers
         },
       }),

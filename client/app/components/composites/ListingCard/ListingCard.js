@@ -99,7 +99,7 @@ class ListingCard extends Component {
           className: css.avatarPosition,
         }, r(Avatar, {
           url: listing.author.profileURL,
-          image: listing.author.avatarURL,
+          image: listing.author.avatarImage ? listing.author.avatarImage.thumb : null,
           color: this.props.color,
           givenName: listing.author.givenName,
           familyName: listing.author.familyName,
