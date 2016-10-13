@@ -3,8 +3,8 @@
   <div class="row">
     <div class="blog-hero-post col-12">
 
-     <% if !p["post_thumbnail"].kind_of?(Array) && p["post_thumbnail"]["link"] %>
-     <div class="blog-hero-image-post" style="background-image: url('<%=p["post_thumbnail"]["link"]%>')">
+     <% if !p["post_thumbnail"].kind_of?(Array) && p["post_thumbnail"]["thumbnail"] %>
+     <div class="blog-hero-image-post" style="background-image: url('<%= resize_wordpress_thumbnail(p["post_thumbnail"]["thumbnail"], 970) %>')">
      </div>
      <% end %>
 

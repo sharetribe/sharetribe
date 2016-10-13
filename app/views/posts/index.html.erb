@@ -5,8 +5,8 @@
     <div class="blog-hero col-8">
       <%= link_to post_path(p["post_id"]) do %>
 
-      <% if !p["post_thumbnail"].kind_of?(Array) && p["post_thumbnail"]["link"] %>
-      <div class="blog-hero-image" style="background-image: url('<%=p["post_thumbnail"]["link"]%>')">
+      <% if !p["post_thumbnail"].kind_of?(Array) && p["post_thumbnail"]["thumbnail"] %>
+      <div class="blog-hero-image" style="background-image: url('<%= resize_wordpress_thumbnail(p["post_thumbnail"]["thumbnail"], 900) %>')">
       </div>
       <% end %>
 
@@ -45,8 +45,8 @@
     <div class="blog-post col-4">
       <%= link_to post_path(p["post_id"]) do %>
 
-      <% if !p["post_thumbnail"].kind_of?(Array) && p["post_thumbnail"]["link"] %>
-      <div class="thumbnail" style="background-image: url('<%=p["post_thumbnail"]["link"]%>')">
+      <% if !p["post_thumbnail"].kind_of?(Array) && p["post_thumbnail"]["thumbnail"] %>
+      <div class="thumbnail" style="background-image: url('<%= resize_wordpress_thumbnail(p["post_thumbnail"]["thumbnail"]) %>')">
       </div>
       <% end %>
 
