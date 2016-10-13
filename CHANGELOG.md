@@ -19,6 +19,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Avoid redirect to correct S3 bucket endpoint when bucket is not in `us-east-1` region [#2605](https://github.com/sharetribe/sharetribe/pull/2605)
 - Added missing database indexes [#2621](https://github.com/sharetribe/sharetribe/pull/2621), [#2634](https://github.com/sharetribe/sharetribe/pull/2634)
 
+### Security
+
+- Fixed insecure gem urls in Gemfile [#2635](https://github.com/sharetribe/sharetribe/pull/2635)
+
 ## [6.0.0] - 2016-09-27
 
 ### Removed
