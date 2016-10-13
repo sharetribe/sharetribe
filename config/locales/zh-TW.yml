@@ -873,6 +873,12 @@ zh-TW:
       remember_to_accept: "记住接受来自%{requester}关于“%{listing_title}”信息的请求。%{requester}已经为该宝贝付款。你必须接受请求以接受付款。"
       one_day_left: 如果你不在一天内接受请求，该请求将被自动拒绝，你将无法收到支付款项。
       click_here_to_reply: 点击这里回应请求
+    welcome_email:
+      welcome_email_subject: "欢迎来到%{service_name}"
+      welcome_to_marketplace: "欢迎来到%{service_name}！恭喜你注册成功。"
+      love_marketplace_crew: "爱你的，<br /><i>%{service_name}团队</i>"
+      welcome_email_footer_text: "你希望从%{service_name}接收哪种类型的邮件？%{settings_link}"
+      settings_link_text: 查看你的设置
     new_listing_by_followed_person:
       subject: "%{author_name}在%{service_name}发布了一则新的信息"
       has_posted_a_new_listing: "%{author_name}发布了一则新的信息："
@@ -2025,6 +2031,9 @@ zh-TW:
       signup: ~
       admin_dashboard: ~
       language: ~
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~

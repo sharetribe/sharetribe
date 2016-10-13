@@ -878,6 +878,12 @@ ru:
       remember_to_accept: "Не забудьте принять запрос от %{requester} о новом размещении \"%{listing_title}\". %{requester} уже оплатил. Вы должны принять запрос чтобы получить оплату."
       one_day_left: "Если вы не примите запрос в течении одного дня запрос будет автоматически отменен и оплата не будет произведена."
       click_here_to_reply: "Нажмите здесь чтобы ответить на запрос"
+    welcome_email:
+      welcome_email_subject: "Добро пожаловать в %{service_name}"
+      welcome_to_marketplace: "Добро пожаловать в %{service_name}! Рады видеть вас с нами!"
+      love_marketplace_crew: "С уважением, команда <br /><i>%{service_name}</i>"
+      welcome_email_footer_text: "Какие типы сообщение вы хотите получать от %{service_name}? %{settings_link}"
+      settings_link_text: "Проверьте настройки"
     new_listing_by_followed_person:
       subject: "%{author_name} разместил новую публикацию в %{service_name}"
       has_posted_a_new_listing: "%{author_name} разместил новую публикацию:"
@@ -1040,7 +1046,7 @@ ru:
       is: является
       are: есть
       what_do_you_need: "Что бы вы хотели найти?"
-      post_new_listing: "Создать публикацию"
+      post_new_listing: "Создать обьявление"
       are_offering: "что предлагают"
       add_news_item: "Добавить статью"
       lend_rent_help_carpool: "Прокат, обмен, помощь, совместные поездки"
@@ -2048,6 +2054,9 @@ ru:
       signup: Регистрация
       admin_dashboard: "Панель администратора"
       language: ~
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~

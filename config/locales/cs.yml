@@ -893,6 +893,12 @@ cs:
       remember_to_accept: "Nezapomeňte přijmout žádost od uživatele %{requester} na inzerát %{listing_title}. Uživatel %{requester} již za inzerát zaplatil. Musíte přijmout žádost, abyste mohli obdržet platbu."
       one_day_left: "Pokud nepřijmete žádost do 1 dne od podání žádosti, žádost bude automaticky zamítnuta a nedostanete zaplaceno."
       click_here_to_reply: "Klikněte zde a odpovězte na žádost"
+    welcome_email:
+      welcome_email_subject: "Vítejte v %{service_name}"
+      welcome_to_marketplace: "Vítejte v %{service_name}! Jsme rádi, že jste s k nám připojili."
+      love_marketplace_crew: "S pozdravem,<br /><i>%{service_name}</i>"
+      welcome_email_footer_text: "Jaký druh e-mailů chcete dostávat od %{service_name}? %{settings_link}"
+      settings_link_text: "Zkontrolujte si nastavení"
     new_listing_by_followed_person:
       subject: "Uživatel %{author_name} přidal nový inzerát v %{service_name}"
       has_posted_a_new_listing: "Uživatel %{author_name} přidal nový inzerát:"
@@ -2057,6 +2063,9 @@ cs:
       signup: ~
       admin_dashboard: ~
       language: ~
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~

@@ -884,6 +884,12 @@ nb:
       remember_to_accept: "Husk å akseptere forespørselen fra %{requester} vedrørende %{listing_title}. %{requester} har allerede betalt. Du må akseptere forespørselen for å kunne motta betaling."
       one_day_left: "Dersom du ikke aksepterer forespørselen innen èn dag blir den automatisk avvist og du blir ikke betalt."
       click_here_to_reply: "Klikk her for å svare på forespørselen"
+    welcome_email:
+      welcome_email_subject: "Velkommen til %{service_name}!"
+      welcome_to_marketplace: "Velkommen til %{service_name}! Vi er glade for å ha deg med."
+      love_marketplace_crew: "Hilsen,<br /><i>%{service_name}</i>"
+      welcome_email_footer_text: "Ønsker du å endre hvilke e-poster du får fra %{service_name}? %{settings_link}"
+      settings_link_text: "Sjekk innstillingene dine."
     new_listing_by_followed_person:
       subject: "%{author_name} har lagt ut en ny annonse på %{service_name}"
       has_posted_a_new_listing: "%{author_name} har lagt ut en ny annonse:"
@@ -2049,6 +2055,9 @@ nb:
       signup: "Registrer deg"
       admin_dashboard: ~
       language: Språk
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: "%{service_name} kjøres på markedsplass-plattformen %{sharetribe_link}"
       create_own: "Vil du lage din egen digitale marrkedsplass, slik som %{service_name}? %{learn_more}."

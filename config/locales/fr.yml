@@ -884,6 +884,12 @@ fr:
       remember_to_accept: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce \"%{listing_title}\". %{requester} a déjà payé pour cette annonce. Vous devez accepter la demande pour recevoir le paiement."
       one_day_left: "Si vous n'acceptez pas la demande sous une journée la demande sera automatiquement refusée et vous ne recevrez pas le paiement."
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
+    welcome_email:
+      welcome_email_subject: "Bienvenue sur %{service_name}"
+      welcome_to_marketplace: "Bienvenue sur %{service_name} ! Ravi que vous nous ayez rejoint."
+      love_marketplace_crew: "Love,<br /><i>L'équipe de %{service_name}</i>"
+      welcome_email_footer_text: "Quels types d'emails souhaitez vous recevoir de la part de %{service_name} ? %{settings_link}"
+      settings_link_text: "Vérifiez vos paramètres"
     new_listing_by_followed_person:
       subject: "%{author_name} a publié une nouvelle annonce sur %{service_name}"
       has_posted_a_new_listing: "%{author_name} a publié une nouvelle annonce : "
@@ -2052,6 +2058,9 @@ fr:
       signup: S'inscrire
       admin_dashboard: "Panneau d'administration"
       language: Langue
+    utils:
+      km: km
+      mi: mi
     branding:
       powered_by: "%{service_name} est propulsé par la plate-forme de places de marché %{sharetribe_link}."
       create_own: "Voulez-vous créer votre propre place de marché en ligne, comme %{service_name} ? %{learn_more}."

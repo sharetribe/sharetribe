@@ -882,6 +882,12 @@ da-DK:
       remember_to_accept: "Husk at acceptere anmodningen fra %{requester} omhandlende \"%{listing_title}\". %{requester} har allerede betalt for dit produkt. Du skal godkende på siden, for at modtage dine penge."
       one_day_left: "Hvis du ikke accepterer anmodningen inden for en dag, bliver anmodningen automatisk afvist, og du vil ikke blive betalt."
       click_here_to_reply: "Klik her for at sende dit svar"
+    welcome_email:
+      welcome_email_subject: "Velkommen til %{service_name}"
+      welcome_to_marketplace: "Velkommen til %{service_name}! Vi er glade for at have dig med."
+      love_marketplace_crew: "Hilsen,<br /><i>Holdet bag %{service_name}</i>"
+      welcome_email_footer_text: "Hvilke typer emails vil du gerne modtage fra %{service_name}? %{settings_link}"
+      settings_link_text: "Tjek dine indstillinger"
     new_listing_by_followed_person:
       subject: "%{author_name} har oprettet en ny annonce på %{service_name}"
       has_posted_a_new_listing: "%{author_name} har oprettet en ny annonce:"
@@ -2050,6 +2056,9 @@ da-DK:
       signup: Tilmeld
       admin_dashboard: "Admin panel"
       language: Sprog
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: "%{service_name} er powered af %{sharetribe_link} markedsplads platformen."
       create_own: "Vil du oprette din egen online markedsplads hjemmeside som %{service_name}? %{learn_more}."

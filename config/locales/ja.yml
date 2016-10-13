@@ -867,6 +867,12 @@ ja:
       remember_to_accept: "「%{listing_title}」について%{requester}さんからのリクエストを承諾してください。%{requester}さんは既にお支払いを完了しています。お支払いを受けるには注文のリクエストを承諾してください。"
       one_day_left: もし1日以内にリクエストを承諾しない場合は、リクエストは自動的に却下され、お支払いはされませんのでご了承願います。
       click_here_to_reply: リクエストに答えるにはこちらをクリックしてください
+    welcome_email:
+      welcome_email_subject: "%{service_name}へようこそ"
+      welcome_to_marketplace: "%{service_name}へようこそ！よくお越しくださいました。"
+      love_marketplace_crew: "それではまた、<br /><i>%{service_name}チーム"
+      welcome_email_footer_text: "%{service_name}からのメール受信設定が出来ます。%{settings_link}"
+      settings_link_text: 設定を確認する
     new_listing_by_followed_person:
       subject: "%{service_name}で%{author_name}さんが新しいリストを投稿しました"
       has_posted_a_new_listing: "%{author_name}さんが新しいリストを投稿をしました："
@@ -2010,6 +2016,9 @@ ja:
       signup: ~
       admin_dashboard: ~
       language: ~
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~

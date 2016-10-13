@@ -873,6 +873,12 @@ zh:
       remember_to_accept: "记住接受来自%{requester}关于“%{listing_title}”信息的请求。%{requester}已经为该宝贝付款。你必须接受请求以接受付款。"
       one_day_left: 如果你不在一天内接受请求，该请求将被自动拒绝，你将无法收到支付款项。
       click_here_to_reply: 点击这里回应请求
+    welcome_email:
+      welcome_email_subject: "欢迎来到%{service_name}"
+      welcome_to_marketplace: "欢迎来到%{service_name}！恭喜你注册成功。"
+      love_marketplace_crew: "爱你的，<br /><i>%{service_name}团队</i>"
+      welcome_email_footer_text: "你希望从%{service_name}接收哪种类型的邮件？%{settings_link}"
+      settings_link_text: 查看你的设置
     new_listing_by_followed_person:
       subject: "%{author_name}在%{service_name}发布了一则新的信息"
       has_posted_a_new_listing: "%{author_name}发布了一则新的信息："
@@ -1784,13 +1790,13 @@ zh:
       welcome_to_kassi: "欢迎来到%{service_name}！"
       check_your_email: 查看你的收件箱
       resend_confirmation_instructions: 再次发送确认信
-      your_current_email_is: "你的的电子邮箱是%{email}。"
+      your_current_email_is: "您的电子邮箱是%{email}。"
       change_email: 改变
-      confirm_your_email: 请确认你的电子邮件
-      account_confirmation_instructions: "你很快会收到一封邮件包含一个需要你点击确认刚才输入的邮件地址的链接。在确认邮件之后你就可以加入%{service_name}了。"
+      confirm_your_email: 请确认您的电子邮件
+      account_confirmation_instructions: "您很快会收到一封确认邮件，请点击邮件中的链接激活您的账号。如果您在收件箱没有找到确认邮件，请检查您的垃圾邮件文件夹。 在确认邮件之后您就可以加入%%{service_name}了。"
       account_confirmation_instructions_title_admin: 欢迎来到你的集市！
       your_marketplace_has_now_been_created: 你的集市站点已经创建。这很容易吧？接下来只要一个步骤你就可以访问你的站点了：你需要确认你的电邮地址。
-      account_confirmation_instructions_admin: 你很快会收到一封邮件要求你点击确认刚才输入的邮件地址。在确认邮件之后你就可以配置你的集市了。
+      account_confirmation_instructions_admin: 您很快会收到一封确认邮件，请点击邮件中的链接激活您的账号。如果您在收件箱没有找到确认邮件，请检查您的垃圾邮件文件夹。在确认邮件之后您就可以开启您的集市了。
   settings:
     account:
       change: 修改
@@ -2025,6 +2031,9 @@ zh:
       signup: 注册
       admin_dashboard: 管理员空间
       language: 语言
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~

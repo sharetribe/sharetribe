@@ -883,6 +883,14 @@ hu:
       remember_to_accept: "Ne feledje elfogadni %{requester} felkérését a \"%{listing_title}\" hirdetés ügyében. %{requester} már kifizette a hirdetésben szereplő összeget. Annak érdekében, hogy az átutalás megtörténjen fogadja el a felkérést."
       one_day_left: "Amennyiben nem fogadja el a felkérést egy napon belül az automatikusan visszautasításra kerül és a kifizetés meghiúsul."
       click_here_to_reply: "Kattintson ide a kérésre válaszoláshoz"
+    welcome_email:
+      welcome_email_subject: "Üdvözöljük a %{service_name} oldalán!"
+      welcome_to_marketplace: "Üdvözöljük a %{service_name} oldalán! Örömmel fogadjuk hirdetőink között."
+      love_marketplace_crew: "Szeretettel, a %{service_name} csapata!"
+      welcome_email_footer_text: |-
+          Milyen jellegű e-maileket szeretne kapni %{service_name} -tól?
+          %{settings_link}
+      settings_link_text: "Ellenőrizze a beállításokat"
     new_listing_by_followed_person:
       subject: "%{author_name} új hirdetést adott fel a %{service_name} oldalon."
       has_posted_a_new_listing: "%{author_name} új hirdetést adott fel:"
@@ -2041,6 +2049,9 @@ hu:
       signup: Regisztráció
       admin_dashboard: "Rendszergazda kezelőpult"
       language: Nyelv
+    utils:
+      km: km
+      mi: mérföld
     branding:
       powered_by: ~
       create_own: ~

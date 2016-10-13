@@ -871,6 +871,12 @@ zh-HK:
       remember_to_accept: "不要忘記接受來自%{requester}有關%{listing_title}的請求。%{requester}已為此請求付款。你需要接受請求以收取款項。"
       one_day_left: 如果你不能在一天內接受請求，這請求將會被自動取消，你亦不會收到款項。
       click_here_to_reply: 按此以回應請求
+    welcome_email:
+      welcome_email_subject: "歡迎來到%{service_name}！"
+      welcome_to_marketplace: "歡迎來到%{service_name}！恭喜你成功註冊。"
+      love_marketplace_crew: "親愛的%{service_name}團隊敬上"
+      welcome_email_footer_text: "你希望從%{service_name}接收到哪種類型的電郵？%{settings_link}"
+      settings_link_text: 查看你的設定
     new_listing_by_followed_person:
       subject: "%{author_name}已經在%{service_name}發表了一個新訊息"
       has_posted_a_new_listing: "%{author_name}已經發表了一個新的訊息："
@@ -2017,6 +2023,9 @@ zh-HK:
       signup: ~
       admin_dashboard: 管理員控制台
       language: ~
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~

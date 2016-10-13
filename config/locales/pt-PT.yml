@@ -11,7 +11,7 @@ pt-PT:
         save_order_successful: ~
         save_order_error: ~
       new:
-        new_listing_category: "Nova categoria de posts"
+        new_listing_category: "Nova categoria de anúncios"
       form:
         category_name:
           category_title: ~
@@ -20,7 +20,7 @@ pt-PT:
           no_parent: ~
         category_transaction_types:
           transaction_types: ~
-          transaction_types_description: "Os tipos de transação determinam quais as operações que são permitidas através desta categoria de posts. Numa categoria pode, por exemplo, só ser possível vender ou alugar, enquanto noutra pode ser também possível doar."
+          transaction_types_description: "Os tipos de transação determinam quais as operações que são permitidas através desta categoria de anúncios. Numa categoria pode, por exemplo, só ser possível vender ou alugar, enquanto noutra pode ser também possível doar."
           select_all: ~
           clear_all: ~
         buttons:
@@ -30,16 +30,16 @@ pt-PT:
         remove_category: ~
         remove_category_name: ~
         warning_remove_effects: ~
+        warning_listing_will_be_moved:
+          one: "Há %{count} anúncio na categoria. Será movido para a categoria selecionada."
+          other: "Há %{count} anúncios na categoria. Serão movidos para a categoria selecionada."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "Há %{count} anúncio na categoria e subcategorias. Será movido para a categoria selecionada."
+          other: "Há %{count} anúncios na categoria e subcategorias. Serão movidos para a categoria selecionada."
         select_new_category: ~
         buttons:
           remove: ~
           cancel: ~
-        warning_listing_will_be_moved:
-          one: "Há %{count} post na categoria. Será movido para a categoria selecionada."
-          other: "Há %{count} posts na categoria. Serão movidos para a categoria selecionada."
-        warning_with_subcategories_listing_will_be_moved:
-          one: "Há %{count} post na categoria e subcategorias. Será movido para a categoria selecionada."
-          other: "Há %{count} posts na categoria e subcategorias. Serão movidos para a categoria selecionada."
     communities:
       edit_details:
         community_details: "Detalhes básicos"
@@ -66,7 +66,7 @@ pt-PT:
         edit_info: ~
         see_how_it_looks_like: ~
         verification_to_post_listings_info_content: "Informações de texto para utilizadores não verificados"
-        verification_to_post_listings_info_content_description: "Este mercado exige que as pessoas sejam verificadas manualmente por um administrador antes de postar. Aqui pode definir o texto que é mostrado aos utilizadores não-verificados quando estes tentarem fazer um novo post."
+        verification_to_post_listings_info_content_description: "Este mercado exige que as pessoas sejam verificadas manualmente por administrador antes de postar anúncios. Aqui você pode definir o texto padrão que é mostrado para os utilizadores não-verificados quando tentar postar um novo anúncio."
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: ~
         save: ~
@@ -98,7 +98,7 @@ pt-PT:
         custom_color1_instructions_text: "Você pode mudar a cor principal da interface de utilizador desta comunidade, inserindo um valor de cor hex. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\"> ColorPicker.com </a> pode ajudar você a escolher a cor e copie o código aqui."
         new_listing_button_instructions_text: ~
         default_browse_view: ~
-        default_browse_view_instructions_text: "A visualização de navegação padrão é usada na página inicial para definir a forma como os posts são exibidos por defeito."
+        default_browse_view_instructions_text: "A visualização de navegação padrão é usada na página inicial para definir a forma como os anúncios são exibidos por defeito."
         grid: Grelha
         list: ~
         map: ~
@@ -188,18 +188,18 @@ pt-PT:
         select_distance_unit: ~
         km: ~
         miles: ~
-        show_only_nearby: "Mostrar apenas posts próximos, com a busca de localização"
-        listing_preferences: "Preferências de posts"
+        show_only_nearby: "Mostrar apenas anúncios próximos, com a busca de localização"
+        listing_preferences: "Preferências de anúncios"
         transaction_preferences: ~
-        show_listing_publishing_date: "Mostrar data de publicação do post na página do post"
-        show_category_in_listing_list: "Mostrar o tipo de post na visualização em forma de lista"
-        hide_expiration_date: "Não requer posts para ter data de validade"
-        listing_comments_in_use: "Permitir aos utilizadores comentarem os posts (visível a todos os outros utilizadores)"
+        show_listing_publishing_date: "Mostrar data de publicação do anúncio na página do anúncio"
+        show_category_in_listing_list: "Mostrar o tipo de anúncio na visualização em forma de lista"
+        hide_expiration_date: "Não requer anúncios para ter data de validade"
+        listing_comments_in_use: "Permitir aos utilizadores comentarem nos anúncios (visível a todos os outros utilizadores)"
         email_preferences: ~
         automatic_newsletters: "Enviar automáticamente boletins diários / semanais para todos os utilizadores (a menos que optar por sair)"
         email_admins_about_new_members: "Envie um e-mail sempre para adminstrador quando um novo utilizador se cadastrar"
         google_analytics_key: ~
-        twitter_handle: "Twitter handle (usado com o botão de tweet na página de post)"
+        twitter_handle: "Twitter handle (usado com o botão de tweet na página de anúncio)"
         update_settings: ~
         automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
@@ -238,8 +238,8 @@ pt-PT:
       social_media:
         social_media: ~
         twitter_handle: ~
-        twitter_handle_info_text: "Nome de utilizador da conta do Twitter do seu mercado virtual (se tiver uma). Será mencionado quando as pessoas usarem o botão tweet na página do post."
-        twitter_handle_info_text_with_instructions: "Nome de utilizador da conta de Twitter do seu mercado virtual (se tiver um). Será mencionado quando as pessoas clicarem o botão 'tweet' na página de posts. %{instructions_link}."
+        twitter_handle_info_text: "Nome de utilizador da conta do Twitter do seu mercado virtual (se tiver uma). Será mencionado quando as pessoas usarem o botão tweet na página do anúncio."
+        twitter_handle_info_text_with_instructions: "Nome de utilizador da conta de Twitter do seu mercado virtual (se tiver um). Será mencionado quando as pessoas clicarem o botão 'tweet' na página de anúncios. %{instructions_link}."
         twitter_instructions_link_text: ~
         twitter_handle_placeholder: "nome de utilizador"
         invalid_twitter_handle: ~
@@ -282,7 +282,7 @@ pt-PT:
         transactions: ~
         headers:
           conversation: ~
-          listing: Post
+          listing: Anúncio
           status: ~
           sum: ~
           started: ~
@@ -305,9 +305,9 @@ pt-PT:
         paypal_admin_account: ~
     custom_fields:
       edit:
-        edit_listing_field: "Alterar post '%{field_name}'"
+        edit_listing_field: "Alterar anúncio '%{field_name}'"
       edit_price:
-        description: "Os preços máximo e mínimo afetam apenas o filtro. Não impõem um limite para o preço indicado nos posts."
+        description: "Os preços máximo e mínimo afetam apenas o filtro. Não impõem um limite para o preço indicado nos anúncios."
         edit_price_field: ~
         show_price_filter_homepage: ~
         price_min: ~
@@ -324,15 +324,15 @@ pt-PT:
           date_cant_be_filtered: ~
           text_cant_be_filtered: ~
       index:
-        listing_fields: "Campos de posts & filtros"
-        listing_fields_help: "Aqui pode editar os campos que os utilizadores têm de preencher ao criar um novo post. Por favor, note que alguns campos são predefinidos e não podem ser editados."
+        listing_fields: "Campos de anúncios & filtros"
+        listing_fields_help: "Aqui pode editar os campos que os utilizadores têm de preencher ao criar um novo anúncio. Por favor, note que alguns campos são predefinidos e não podem ser editados."
         add_new_field: ~
         remove_field_confirmation: ~
         cancel: ~
         save: ~
         field_title: ~
         field_type: ~
-        categories: "Categorias de post onde o campo é usado"
+        categories: "Categorias de anúncio onde o campo é usado"
         select_all: ~
         clear_all: ~
         options: ~
@@ -346,7 +346,7 @@ pt-PT:
         maximum_value: ~
         allow_decimals: ~
       new:
-        new_listing_field: "Novo post"
+        new_listing_field: "Novo anúncio"
       field_types:
         text: ~
         number: ~
@@ -376,7 +376,7 @@ pt-PT:
     listing_shapes:
       index:
         listing_shapes: ~
-        description: "O tipo de ordem define a forma como a ordem é processada no seu site. É possível decidir, por exemplo, se os seus utilizadores podem alugar e vender ou, talvez, apenas criar posts e comunicar através de mensagens gratuitas."
+        description: "O tipo da ordem define a forma como a ordem é processada no seu site. Você pode decidir se seus utilizador poderão alugar ou vender ou talvez apenas criar anúncios e se comunicar através de mensagens gratuitas."
         read_more_about_order_types: ~
         add_new_shape: ~
         select_template: ~
@@ -396,7 +396,7 @@ pt-PT:
         offering_services: ~
         giving_things_away: ~
         requesting: ~
-        announcement: Post
+        announcement: ~
         custom: ~
       new:
         create_listing_shape: ~
@@ -411,16 +411,25 @@ pt-PT:
         update_success: ~
         update_failure: ~
         delete: ~
+        confirm_delete_order_type:
+          one: "Existe %{count} anúncio com este tipo de ordem. Se excluir este tipo de ordem o anúncio será encerrado. Tem a certeza que deseja excluir este tipo de ordem?"
+          other: "Existem %{count} anúncios com este tipo de ordem. Se excluir este tipo de ordem so anúncios serão encerrados. Tem a certeza que deseja excluir este tipo de ordem?"
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
-        confirm_delete_order_type:
-          one: "Existe %{count} post com este tipo de ordem. Se excluir este tipo de ordem o post será encerrado. Tem a certeza que deseja excluir este tipo de ordem?"
-          other: "Existem %{count} posts com este tipo de ordem. Se excluir este tipo de ordem so posts serão encerrados. Tem a certeza que deseja excluir este tipo de ordem?"
       listing_shape_name: ~
       listing_shape_name_placeholder: ~
       action_button_label: ~
       action_button_placeholder: ~
-      successfully_closed: "Posts encerrados com sucesso"
+      open_listings_warning:
+        one: "Existe %{count} anúncio ativo com este tipo de ordem. Se modificar alguma das configurações abaixo este anúncio manterá a configuração anterior. O anúncio deve ser editado manualmente para usar as novas configurações. Se não quiser ter o anúncio visível com a antiga configuração deve fechá-lo clicando no botão abaixo."
+        other: "Existem %{count} anúncios ativos com este tipo de ordem. Se modificar alguma das configurações abaixo estes anúncios manterão a configuração anterior. Os anúncios devem ser editados manualmente para usar as novas configurações. Se não quiser ter os anúncios visíveis com a antiga configuração deve fechá-los clicando no botão abaixo."
+      close_listings_action:
+        one: "Fechar %{count} anúncio"
+        other: "Fechar %{count} anúncios"
+      confirm_close_listings_action:
+        one: "Tem a certeza que deseja fechar %{count} anúncio?"
+        other: "Tem a certeza que deseja fechar %{count} anúncios?"
+      successfully_closed: "Anúncios encerrados com sucesso"
       successfully_deleted: ~
       pricing_and_checkout_title: ~
       online_payments_label: ~
@@ -449,15 +458,6 @@ pt-PT:
           heading: ~
           quantity_label: ~
           time_label: ~
-      open_listings_warning:
-        one: "Existe %{count} post ativo com este tipo de ordem. Se modificar alguma das configurações abaixo este post manterá a configuração anterior. O post deve ser editado manualmente para usar as novas configurações. Se não quiser ter o post visível com a antiga configuração deve fechá-lo clicando no botão abaixo."
-        other: "Existem %{count} posts ativos com este tipo de ordem. Se modificar alguma das configurações abaixo estes posts manterão a configuração anterior. Os posts devem ser editados manualmente para usar as novas configurações. Se não quiser ter os posts visíveis com a antiga configuração deve fechá-los clicando no botão abaixo."
-      close_listings_action:
-        one: "Fechar %{count} post"
-        other: "Fechar %{count} posts"
-      confirm_close_listings_action:
-        one: "Tem a certeza que deseja fechar %{count} post?"
-        other: "Tem a certeza que deseja fechar %{count} posts?"
     paypal_accounts:
       marketplace_paypal_integration: ~
       preferences_updated: ~
@@ -552,8 +552,8 @@ pt-PT:
       accept_request: ~
       reject_offer: ~
       reject_request: ~
-      close_listing: "Encerrar o post %{listing_title_link}"
-      update_later: "Deixar o post ativo"
+      close_listing: "Encerrar o anúncio %{listing_title_link}"
+      update_later: "Deixar o anúncio ativo"
       optional_message: ~
       price_to_pay: ~
       accept: ~
@@ -596,7 +596,7 @@ pt-PT:
       canceled_request: "Ordem cancelada."
       canceled_offer: ~
       message_from: ~
-      about_listing: "Sobre o post %{listing_title}"
+      about_listing: "Sobre o anúncio %{listing_title}"
       free_message: ~
       message_content_not_available: ~
     message:
@@ -622,10 +622,10 @@ pt-PT:
       you_will_get_notified: "Receberá uma notificação por email quando %{person} lhe responder."
       title: Título
       send_message_to_user: "Enviar mensagem a %{person}"
-      about_listing: "Sobre o post %{listing_title}"
+      about_listing: "Sobre o anúncio %{listing_title}"
       author_has_to_accept_request: ~
     show:
-      in_response_to_listing: "sobre o post"
+      in_response_to_listing: "sobre o anúncio"
       message_sent_by: ~
       message_sent_to: ~
       send_reply: Responder
@@ -741,7 +741,7 @@ pt-PT:
       automatic_confirmation: ~
     payment_settings_reminder:
       remember_to_add_payment_details: ~
-      you_have_added_listing_with_payment: "Você adicionou um post %{listing_link}. No entanto, ainda não configurou os seus dados para pagamento. Precisa fazê-lo para poder receber pagamentos."
+      you_have_added_listing_with_payment: "Você adicionou um anúncio %{listing_link}. No entanto, ainda não configurou os seus dados para pagamento. Precisa fazê-lo para poder receber pagamentos."
       please_go_to_payment_settings: ~
       payment_settings_link: ~
     transaction_confirmed:
@@ -797,11 +797,11 @@ pt-PT:
       join_now: ~
       invitation_code: ~
     new_comment:
-      has_commented_your_listing_in_kassi: "%{author} comentou o seu post '%{listing}'."
+      has_commented_your_listing_in_kassi: "%{author} comentou o seu anúncio '%{listing}'."
       view_comment: ~
-      you_have_a_new_comment: "%{author} comentou o seu post em %{service_name}"
-      listing_you_follow_has_a_new_comment: "%{author} comentou um post que você segue no %{service_name}"
-      has_commented_listing_you_follow_in_kassi: "%{author} comentou o post '%{listing}' que você segue no %{service_name}."
+      you_have_a_new_comment: "%{author} comentou o seu anúncio em %{service_name}"
+      listing_you_follow_has_a_new_comment: "%{author} comentou um anúncio que você segue no %{service_name}"
+      has_commented_listing_you_follow_in_kassi: "%{author} comentou o anúncio '%{listing}' que você segue no %{service_name}."
     new_message:
       view_message: ~
       has_sent_you_a_message_in_kassi: "%{sender} enviou-lhe uma mensagem no %{service_name}."
@@ -836,13 +836,13 @@ pt-PT:
       you_can_give_feedback_to: "Ainda não deu uma opinião a %{name}"
       view_feedback: ~
     new_update_to_listing:
-      listing_you_follow_has_been_updated: "Um post que você segue foi atualizado"
-      has_updated_listing_you_follow_in_kassi: "%{author} atualizou o post '%{listing}' você está a seguir no %{service_name}."
+      listing_you_follow_has_been_updated: "Um anúncio que você segue foi atualizado"
+      has_updated_listing_you_follow_in_kassi: "%{author} atualizou o anúncio '%{listing}' você está a seguir no %{service_name}."
       view_changes: ~
     community_updates:
-      added_offer: "%{name_link} adicionou um post:"
-      added_request: "%{name_link} adicionou um post:"
-      added_listing: "%{name_link} adicionou um post:"
+      added_offer: "%{name_link} adicionou um anúncio:"
+      added_request: "%{name_link} adicionou um anúncio:"
+      added_listing: "%{name_link} adicionou um anúncio:"
       update_mail_title: "Atualização de %{title_link}"
       title_link_text: "%{community_name}"
       intro_paragraph: "Veja algumas das coisas que aconteceram no %{community_link} desde há %{time_since_last_update}."
@@ -867,15 +867,21 @@ pt-PT:
       you_have_time_to_accept: ~
       click_here_to_reply: ~
     transaction_preauthorized_reminder:
-      subject: "Não se esqueça de aceitar o pedido de %{requester} sobre o post %{listing_title}"
-      remember_to_accept: "Não se esqueça de aceitar o pedido de %{requester} sobre o post %{listing_title}. %{requester} já pagou mas você tem que aceitar o pedido para receber o pagamento."
+      subject: "Não se esqueça de aceitar o pedido de %{requester} sobre o anúncio %{listing_title}"
+      remember_to_accept: "Não se esqueça de aceitar o pedido de %{requester} sobre o anúncio %{listing_title}. %{requester} já pagou mas você tem que aceitar o pedido para receber o pagamento."
       one_day_left: ~
       click_here_to_reply: ~
+    welcome_email:
+      welcome_email_subject: ~
+      welcome_to_marketplace: ~
+      love_marketplace_crew: ~
+      welcome_email_footer_text: ""
+      settings_link_text: "Verifique as suas configurações"
     new_listing_by_followed_person:
-      subject: "%{author_name} publicou um novo post no %{service_name}"
-      has_posted_a_new_listing: "%{author_name} publicou um novo post:"
+      subject: "%{author_name} publicou um novo anúncio no %{service_name}"
+      has_posted_a_new_listing: "%{author_name} publicou um novo anúncio:"
       you_are_receiving_this_because: ~
-      view_listing: "Ver post"
+      view_listing: "Ver anúncio"
     new_member_notification:
       new_member_has_joined: ~
       this_is_automatic_message: ~
@@ -898,7 +904,7 @@ pt-PT:
     paypal:
       buyer_cannot_pay_error: ~
       pending_review_error: ~
-      seller_express_checkout_disabled: "O PayPal Express Checkout foi desabilitado para a conta PayPal do autor deste post. Por favor contacte o autor, informe-o que há um problema com a conta PayPal e aconselhe-o a entrar em contacto com o atendimento ao cliente do PayPal."
+      seller_express_checkout_disabled: "O PayPal Express Checkout foi desabilitado para a conta PayPal do autor deste anúncio. Por favor contacte o autor, informe-o que há um problema com a conta PayPal e aconselhe-o a entrar em contacto com o atendimento ao cliente do PayPal."
       generic_error: ~
       cancel_error: ~
       accept_authorization_error: ~
@@ -913,7 +919,7 @@ pt-PT:
     error_410:
       page_removed: ~
       page_you_requested_has_been_removed: ~
-      page_removed_reason: "Há algumas razões possíveis para isto. Por exemplo, um utilizador pode ter removido a sua conta ou um post pode ter sido removido."
+      page_removed_reason: "Há algumas razões possíveis para isto. Por exemplo, um utilizador pode ter removido a sua conta ou um anúncio pode ter sido removido."
     error_410_title: ~
     error_500:
       temporary_unavailable: ~
@@ -963,14 +969,14 @@ pt-PT:
     login:
       logged_in_to_kassi: "%{name} fez login no %{service_name} %{time_ago}"
     comment:
-      commented: "%{commenter_name} comentou o post %{listing_title} %{time_ago}."
+      commented: "%{commenter_name} comentou o anúncio %{listing_title} %{time_ago}."
       offer_partitive: Oferta
       request_partitive: Pedido
   header:
     about: Sobre
     home: Início
     members: Comunidade
-    new_listing: "Novo post"
+    new_listing: "Novo anúncio"
     mobile_version: "Versão para telemóvel"
     offers: ofertas
     requests: Pedidos
@@ -978,7 +984,7 @@ pt-PT:
     create_new_marketplace: "Criar um novo mercado virtual"
     contact_us: Contacte-nos
     profile: Perfil
-    manage_listings: "Gerir posts"
+    manage_listings: "Gerir anúncios"
     invite: ~
     login: ~
     signup: ~
@@ -1006,7 +1012,7 @@ pt-PT:
       items_to_request: "Itens para levar emprestados: "
       log_in: login!
       no_offers_visible_unless_logged_in: "Nenhuma oferta de itens, serviços ou caronas compartilhadas visíveis para utilizadores não logados."
-      no_open_offers_currently: "Não há nenhum post aberto sobre itens, serviços ou partilha de viagens."
+      no_open_offers_currently: "Não há nenhum anúncio aberto sobre itens, serviços ou partilha de viagens."
       no_open_requests_currently: "Não há nenhum pedido aberto sobre itens, serviços ou partilha de viagens."
       no_requests_visible_unless_logged_in: "Nenhuma solicitação de itens, serviços ou caronas compartilhadas visíveis para utilizadores não logados."
       one_private_offer_exists: "Já existe <b>uma oferta</b>,"
@@ -1025,10 +1031,10 @@ pt-PT:
       processing_uploaded_image: "(a processar imagem...)"
     index:
       no_listings_with_your_search_criteria: ~
-      no_listings_notification: "Não há posts. %{add_listing_link}."
-      add_listing_link_text: "Adicionar novo post"
-      open_listing: "post ativo"
-      open_listings: "posts ativos"
+      no_listings_notification: "Não há anúncios. %{add_listing_link}."
+      add_listing_link_text: "Adicionar novo anúncio"
+      open_listing: "anúncio ativo"
+      open_listings: "anúncios ativos"
       private_listing_notification_log_in: login
       is: ~
       are: ~
@@ -1086,7 +1092,7 @@ pt-PT:
       map_button: ~
       grid_button: Grelha
       list_button: ~
-      all_listing_types: "Todos os tipos de posts"
+      all_listing_types: "Todos os tipos de anúncios"
       all_categories: "Todas as categorias"
     errors:
       search_engine_not_responding: ~
@@ -1175,7 +1181,7 @@ pt-PT:
       settings: configuração
       sign_up: "Criar conta"
     notifications:
-      listing_could_not_be_saved: "O post não pôde ser salvo. Por favor, tente novamente. Se o problema persistir, por favor, %{contact_admin_link}."
+      listing_could_not_be_saved: "O anúncio não pôde ser salvo. Por favor, tente novamente. Se o problema persistir, por favor, %{contact_admin_link}."
       contact_admin_link_text: ~
       test_welcome_email_delivered_to: "Foi enviado um e-mail de teste para %{email}"
       something_went_wrong: ~
@@ -1189,7 +1195,7 @@ pt-PT:
       additional_email_confirmed: "O email que introduziu está agora confirmado."
       could_not_get_email_from_facebook: ~
       facebook_email_unconfirmed: ~
-      create_new_listing: "Criar um outro post"
+      create_new_listing: "Criar um outro anúncio"
       create_one_here: "criar uma aqui"
       email_confirmation_sent_to_new_address: "Email de confirmação é agora enviado para o novo endereço."
       email_not_found: "O email que forneceu não existe na base de dados do %{service_name}"
@@ -1217,13 +1223,13 @@ pt-PT:
       offer_accepted: "Oferta aceite"
       offer_confirmed: "Pedido realizado"
       offer_closed: "Oferta encerrada"
-      listing_created_successfully: "Post criado com sucesso. %{new_listing_link}"
+      listing_created_successfully: "Anúncio criado com sucesso. %{new_listing_link}"
       offer_rejected: "Oferta rejeitada"
       offer_canceled: ~
-      listing_updated_successfully: "Post atualizado com sucesso"
+      listing_updated_successfully: "Anúncio atualizado com sucesso"
       only_kassi_administrators_can_access_this_area: "Só administradores do %{service_name} podem aceder a esta área"
-      only_listing_author_can_close_a_listing: "Só o autor do post pode fechar o mesmo"
-      only_listing_author_can_edit_a_listing: "Só o autor do post pode editar o mesmo"
+      only_listing_author_can_close_a_listing: "Só o autor do anúncio pode fechar o mesmo"
+      only_listing_author_can_edit_a_listing: "Só o autor do anúncio pode editar o mesmo"
       payment_successful: ~
       payment_canceled: ~
       error_in_payment: ~
@@ -1256,11 +1262,11 @@ pt-PT:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Não está autorizado a fazer comentários sobre este evento"
       you_are_not_authorized_to_do_this: "Não está autorizado a fazer isto"
       you_are_not_authorized_to_view_this_content: "Não está autorizado a visualizar este conteúdo"
-      listing_closed: "O post foi encerrado"
+      listing_closed: "O anúncio foi encerrado"
       send_instructions: "Receberá um e-mail com instruções sobre como redefinir a sua palavra-passe dentro de alguns minutos."
       you_cannot_reply_to_a_closed_offer: "Não pode responder a uma oferta fechada"
       you_cannot_send_message_to_yourself: "Não pode enviar uma mensagem a si mesmo"
-      you_followed_listing: "Está agora a seguir este post"
+      you_followed_listing: "Está agora a seguir este anúncio"
       you_have_already_given_feedback_about_this_event: "Já deixou sua opinião sobre este evento"
       you_are_now_member: "Bem-vindo ao %{service_name} !"
       you_are_already_member: "Já é membro do %{service_name}. Bem-vindo de volta!"
@@ -1297,7 +1303,7 @@ pt-PT:
       payments: ~
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: "Não tem permissão para consultar este post."
+      listing_not_visible: "Não tem permissão para consultar este anúncio."
     comment:
       wrote: escreveu
       send_private_message: "Enviar mensagem privada a %{person}"
@@ -1309,20 +1315,20 @@ pt-PT:
       send_comment: "Enviar comentário"
       to_send_a_comment: "para enviar um novo comentário."
       write_comment: "Escrever um novo comentário:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: "Não pode enviar novos comentários pois este post está fechado."
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Não pode enviar novos comentários pois este anúncio está fechado."
       you_must: Deve
       subscribe_to_comments: "Avise-me quando houver novos comentários ou atualizações."
     edit:
-      edit_listing: "Editar post"
+      edit_listing: "Editar anúncio"
     edit_links:
-      close_listing: "Encerrar post"
-      edit_listing: "Editar post"
-      reopen_listing: "Reativar post"
+      close_listing: "Encerrar anúncio"
+      edit_listing: "Editar anúncio"
+      reopen_listing: "Reativar anúncio"
       move_to_top: ~
       show_in_updates_email: ~
       show_in_updates_email_loading: ~
       show_in_updates_email_error: ~
-      show_in_updates_email_success: "Este post será mostrado no próximo email de atualização enviado aos utilizadores"
+      show_in_updates_email_success: "Este anúncio será mostrado no próximo email de atualização enviado aos utilizadores"
     map:
       open_in_google_maps: ~
     error:
@@ -1369,7 +1375,7 @@ pt-PT:
         processing: "A processar..."
         loading_image: ~
         image_uploading_in_progress: ~
-        processing_takes_a_while: "Todas as imagens foram carregadas com sucesso! Vai levar algum tempo até serem processadas mas já pode salvar o post e continuar."
+        processing_takes_a_while: "Todas as imagens foram carregadas com sucesso! Vai levar algum tempo até serem processadas mas já pode salvar o anúncio e continuar."
         this_may_take_a_while: ~
         percentage_loaded: ~
         uploading_failed: ~
@@ -1399,7 +1405,7 @@ pt-PT:
         location: Localização
         origin: Origem
       send_button:
-        save_listing: "Salvar post"
+        save_listing: "Salvar anúncio"
       share_type:
         select: Selecionar
         borrow: Empréstimo
@@ -1442,7 +1448,7 @@ pt-PT:
       housing: Espaços
       items: Itens
       list_view: "Ver em forma de lista"
-      listings: Posts
+      listings: Anúncios
       map_view: "Ver mapa"
       offer_something: "Informe os outros!"
       offer_type: "Tipo de oferta"
@@ -1476,18 +1482,18 @@ pt-PT:
       how_paypal_works: ~
       payment_help: ~
     new:
-      listing: post
+      listing: anúncio
       selected_category: "Categoria: %{category}"
       selected_subcategory: "Subcategoria: %{subcategory}"
-      selected_transaction_type: "Tipo de post: %{transaction_type}"
+      selected_transaction_type: "Tipo de anúncio: %{transaction_type}"
       select_category: ~
       select_subcategory: ~
-      select_transaction_type: "Selecionar tipo de post"
+      select_transaction_type: "Selecionar tipo de anúncio"
       you_need_to_fill_payout_details_before_accepting: ~
       contact_admin_link_text: "contacte o administrador"
-      community_not_configured_for_payments: "%{service_name} não foi configurado para os pagamentos, pelo que (ainda) não pode criar novos posts. Por favor, %{contact_admin_link} para mais detalhes."
+      community_not_configured_for_payments: "%{service_name} não foi configurado para os pagamentos, pelo que (ainda) não pode criar novos anúncios. Por favor, %{contact_admin_link} para mais detalhes."
       payment_settings_link: ~
-      community_not_configured_for_payments_admin: "%{service_name} não foi configurado para os pagamentos, pelo que não pode criar novos posts. Ir para %{payment_settings_link} para preencher os detalhes de pagamento."
+      community_not_configured_for_payments_admin: "%{service_name} não foi configurado para os pagamentos, pelo que não pode criar novos anúncios. Ir para %{payment_settings_link} para preencher os detalhes de pagamento."
     quantity:
       hour: ~
       day: ~
@@ -1498,7 +1504,7 @@ pt-PT:
     quantity_placeholder: ~
     please_comment: Comentar
     reply_link:
-      listing_closed: "O post está encerrado"
+      listing_closed: "O anúncio está encerrado"
     show:
       add_your_phone_number: "Adicione o seu número de telefone"
       add_profile_picture: "Adicione uma foto ao seu perfil"
@@ -1510,7 +1516,7 @@ pt-PT:
       inquiry: ~
       item_offer_trade: "Serviço de troca"
       item_request_trade: "Pedido de troca"
-      no_description: "Este post não tem descrição"
+      no_description: "Este anúncio não tem descrição"
       no_image: ~
       no_reviews: ~
       offer: Oferta
@@ -1527,7 +1533,7 @@ pt-PT:
       times: vezes
       times_viewed: Visualizado
       processing_uploaded_image: "(a processar imagem...)"
-      listing_created_at: "Post criado"
+      listing_created_at: "Anúncio criado"
       price:
         per_quantity_unit: ~
         per_day: ~
@@ -1641,7 +1647,7 @@ pt-PT:
     paypal_account_connected_title: ~
     paypal_account_connected: ~
     change_account: ~
-    missing: "Tem posts ativos mas não pode receber pagamentos porque a sua conta no PayPal ainda não foi configurada. Por favor conecte a sua conta do PayPal em %{settings_link}. Também precisa de dar permissão para que o %{service_name} cobre a taxa de transação."
+    missing: "Tem anúncios ativos mas não pode receber pagamentos porque a sua conta no PayPal ainda não foi configurada. Por favor conecte a sua conta do PayPal em %{settings_link}. Também precisa de dar permissão para que o %{service_name} cobre a taxa de transação."
     from_your_payment_settings_link_text: ~
     redirect_message: ~
     redirect_link_text: ~
@@ -1655,7 +1661,7 @@ pt-PT:
     cancel_succesful: ~
     transaction:
       commission_payment_name: ~
-      commission_payment_description: "O mercado virtual %{service_name} obteve esta comissão de transação relativa ao post %{listing_title}"
+      commission_payment_description: "O mercado virtual %{service_name} obteve esta comissão de transação relativa ao anúncio %{listing_title}"
     wait_while_loading: ~
     chatting_with_paypal: ~
   people:
@@ -1670,7 +1676,7 @@ pt-PT:
       invite_only_help_text_title: "Apenas convidados"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Esse utilizador está inativo no %{service_name}"
-      inactive_description: "Esse utilizador parou de usar %{service_name}. Você pode não pode entrar em contacto, nem avaliar, nem comentar seus posts."
+      inactive_description: "Esse utilizador parou de usar %{service_name}. Você pode não pode entrar em contacto, nem avaliar, nem comentar seus anúncios."
     new:
       create_new_account: "Criar conta"
       email: "Endereço de email"
@@ -1702,7 +1708,7 @@ pt-PT:
       grade: "nota:"
       and_gave_following_feedback: "deu a seguinte opinião "
     profile_listings:
-      show_also_closed: "Mostar também posts invisíveis"
+      show_also_closed: "Mostar também anúncios invisíveis"
       show_only_open: "Mostrar apenas os abertos"
       no_image: ~
     show:
@@ -1727,15 +1733,15 @@ pt-PT:
       what_are_these: "O que é isto?"
       review: "avaliação recebida"
       reviews: "avaliações recebidas"
-      listing: post
-      listings: posts
-      open_listing: "post ativo"
-      open_listings: "posts ativos"
-      no_listings: "Sem posts"
-      no_open_listings: "Não há posts ativos"
+      listing: anúncio
+      listings: anúncios
+      open_listing: "anúncio ativo"
+      open_listings: "anúncios ativos"
+      no_listings: "Sem anúncios"
+      no_open_listings: "Não há anúncios ativos"
       no_reviews: ~
-      show_all_listings: "Mostrar todos os posts"
-      show_all_open_listings: "Listar todos os posts ativos"
+      show_all_listings: "Mostrar todos os anúncios"
+      show_all_open_listings: "Listar todos os anúncios ativos"
       show_all_reviews: ~
     followed_people:
       you_follow_plural: ~
@@ -1799,7 +1805,7 @@ pt-PT:
       delete_account_confirmation_popup: "Você tem certeza que realmente quer apagar sua conta de utilizador e perder permanentemente todos os dados relacionados à ela? A exclusão da conta não pode ser revertida."
       email_addresses: ~
       new_email: "Novo endereço de email"
-      delete_personal_information: "Se apagar a sua conta, as suas informações pessoais (nome, número de telefone, endereço, email, foto do perfil, etc.) serão apagadas permanentemente e não poderão ser recuperadas. Todos os posts que criou serão removidos. Não será possível reativar a conta."
+      delete_personal_information: "Se apagar a sua conta, as suas informações pessoais (nome, número de telefone, endereço, email, foto do perfil, etc.) serão apagadas permanentemente e não poderão ser recuperadas. Todos os anúncios que criou serão removidos. Não será possível reativar a conta."
       delete_information_others_involved: "Informação em que outros membros estejam envolvidos (conversas com outras pessoas, transações que realizou, avaliações que tenha feito dos outros, etc) não será removida quando apagar a sua conta. No entanto, o seu nome não aparecerá mais junto dessa informação."
       unfinished_transactions: ~
       new_password: "Nova palavra-passe"
@@ -1830,8 +1836,8 @@ pt-PT:
       email_about_new_messages: "...alguém me enviar uma mensagem"
       email_about_new_received_testimonials: "...alguém me enviar 'feedback'"
       email_about_testimonial_reminders: "...me esquecer de enviar 'feedback' sobre um evento"
-      email_daily_community_updates: "Receber um e-mail <b>diário</b> se houver novos posts"
-      email_weekly_community_updates: "Receber um e-mail <b>semanal</b> se houver novos posts"
+      email_daily_community_updates: "Receber um e-mail <b>diário</b> se houver novos anúncios"
+      email_weekly_community_updates: "Receber um e-mail <b>semanal</b> se houver novos anúncios"
       do_not_email_community_updates: "Não receber emails"
       email_when_conversation_accepted: "...alguém aceitar a minha oferta ou pedido"
       email_when_conversation_rejected: "...alguém rejeitar a minha oferta ou pedido"
@@ -1861,7 +1867,7 @@ pt-PT:
       these_fields_are_shown_in_your: "Esta informação pode ser vista por todos os utilizadores %{service_name}"
       visible_to_everybody: "visível para todos"
       visible_to_registered_users: "(visível para os utilizadores que tenham logado)"
-      default_in_listing: "(usado apenas por defeito ao criar um novo post)"
+      default_in_listing: "(usado apenas por defeito ao criar um novo anúncio)"
       invisible: "(não será mostrado a outros utilizadores)"
       image_is_processing: ~
     save_information: "Salvar informação"
@@ -1903,7 +1909,7 @@ pt-PT:
       negative: ~
       default_textual_feedback: ~
     testimonial:
-      about_listing: "sobre o post"
+      about_listing: "sobre o anúncio"
   date:
     formats:
       long_with_abbr_day_name: ~
@@ -2009,13 +2015,16 @@ pt-PT:
       user: ~
       inbox: ~
       profile: ~
-      manage_listings: "Gerir posts"
+      manage_listings: "Gerir anúncios"
       settings: ~
       logout: ~
       login: ~
       signup: ~
       admin_dashboard: ~
       language: ~
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~

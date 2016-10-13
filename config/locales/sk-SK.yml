@@ -893,6 +893,12 @@ sk-SK:
       remember_to_accept: "Nezabudnite prijať žiadosť od užívateľa %{requester} na inzerát \"%{listing_title}\". Užívateľ %{requester} už zaplatil za inzerát. Musíte prijať žiadosť, aby ste mohli obdržať platbu"
       one_day_left: "Pokiaľ neprijmete žiadosť do jedného dňa od podania žiadosti, žiadosť bude automaticky zamietnutá a peniaze Vám nebudú vyplatené."
       click_here_to_reply: "Kliknite sem pre odpoveď na žiadosť"
+    welcome_email:
+      welcome_email_subject: "Vitajte v %{service_name}"
+      welcome_to_marketplace: "Vitajte v %{service_name}! Sme radi, že ste sa k nám pridali."
+      love_marketplace_crew: "S pozdravom,<br /><i>%{service_name} tím</i>"
+      welcome_email_footer_text: "Aký typ e-mailových správ chcete dostávať od %{service_name}? %{settings_link}"
+      settings_link_text: "Skontrolujte si nastavenia"
     new_listing_by_followed_person:
       subject: "užívateľ %{author_name} pridal nový inzerát v %{service_name}"
       has_posted_a_new_listing: "Užívateľ %{author_name} pridal nový inzerát"
@@ -2070,6 +2076,9 @@ sk-SK:
       signup: "Zaregistrovať sa"
       admin_dashboard: "Konzola správcu"
       language: Jazyk
+    utils:
+      km: km
+      mi: míl
     branding:
       powered_by: "%{service_name} funguje na platforme %{sharetribe_link}."
       create_own: "Chcete si vytvoriť svoje vlastné online trhovisko ako %{service_name}? %{learn_more}"

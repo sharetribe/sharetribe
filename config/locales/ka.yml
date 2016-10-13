@@ -873,6 +873,12 @@ ka:
       remember_to_accept: "არ დაგავიწყდეთ რომ დაადასტუროთ %{listing_title} ჩამონათვალის შესახებ მოთხოვნა %{requester}-სგან. %{requester} უკვე გადაიხადა ამ ჩამონათვლისთვის. თანხის მისაღებად თქვენ უნდა დაადასტუროთ მოთხოვნა."
       one_day_left: "თუ არ დაადასტურებთ მოთხოვნას 1 დღის განმავლობაში მოთხოვნა ავტომატურად გაუქმდება და თქვენ ვერ მიიღებთ თანხას."
       click_here_to_reply: "დააჭირეთ აქ რომ უპასუხოთ მოთხოვნას"
+    welcome_email:
+      welcome_email_subject: "მოგესალმებით %{service_name}ზე"
+      welcome_to_marketplace: "მოგესალმებით %{service_name}-ზე! მოხარული ვართ რომ ჩვენი გუნდის წევრი ხართ."
+      love_marketplace_crew: "სიყვარული, <br /><i>%{service_name} ეკიპაჟი </i>"
+      welcome_email_footer_text: "რა სახის ელ. ფოსტა გინდათ რომ მიიღოთ %{service_name}-სგან? %{settings_link}"
+      settings_link_text: "შეამოწმე შენი პარამეტრები"
     new_listing_by_followed_person:
       subject: "%{author_name} გამოაქვეყნა ახალი ჩამონათვალი %{service_name}-ში"
       has_posted_a_new_listing: "%{author_name} დაპოსტა ახალი ჩამონათვალი"
@@ -2032,6 +2038,9 @@ ka:
       signup: დარეგისტრირება
       admin_dashboard: "ადმინისტრატორის პანელი"
       language: ენა
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~

@@ -868,6 +868,12 @@ nl:
       remember_to_accept: "Vergeet niet om het verzoek van %{requester} betreffende item \"%{listing_title}\" te accepteren. %{requester} heeft al betaald voor het verzoek. Je moet het verzoek aanvaarden om de betaling te ontvangen."
       one_day_left: "Als je het verzoek niet binnen één dag accepteert zal het automatisch verworpen worden en wordt je niet betaald."
       click_here_to_reply: "Klik hier om te antwoorden op het verzoek"
+    welcome_email:
+      welcome_email_subject: "Welkom bij %{service_name}"
+      welcome_to_marketplace: "Welkom, bij %{service_name}! We zijn blij dat je er bent."
+      love_marketplace_crew: "Groeten,<br /><i>%{service_name} team</i>"
+      welcome_email_footer_text: "Welk soort berichten zou u van %{service_name} willen ontvangen?%{settings_link}"
+      settings_link_text: "Kijk je instellingen na"
     new_listing_by_followed_person:
       subject: "%{author_name} heeft een nieuwe item gepost in %{service_name}"
       has_posted_a_new_listing: "%{author_name} heeft een nieuw item gepost:"
@@ -2013,6 +2019,9 @@ nl:
       signup: ~
       admin_dashboard: ~
       language: ~
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~

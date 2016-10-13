@@ -536,7 +536,7 @@ th-TH:
     what_is_this: นี่คืออะไร?
     removed_user: ~
     paypal_fee_info:
-      title: ~
+      title: "ค่าดำเนินการของ PayPal"
       body_text: |-
           PayPal คิดค่าธรรมเนียมในการประมวลผลจากการชำระเงินแต่ละครั้ง ค่าธรรมเนียมนี้อยู่ระหว่าง 2% และ 5% ของราคาขายทั้งหมด (รวมค่าจัดส่ง) ขึ้นอยู่กับปริมาณการขายรายเดือนของคุณ และประเทศที่พำนักของผู้ซื้อ โดยทั่วไป การซื้อสินค้าในประเทศมีค่าใช้จ่ายต่ำกว่าต่างประเทศ และยิ่งยอดขายรายเดือนสูงเท่าไหร่ ส่วนลดค่าธรรมเนียมก็จะน้อยลงตามสัดส่วน
           คุณสามารถดูค่าธรรมเนียมที่ถูกต้อง โดยการเข้าสู่บัญชี PayPal ของคุณ และไปยัง %{link_to_paypal} หลังจากการซื้อขายแต่ละครั้ง คุณจะได้รับใบเสร็จรับเงินแสดงค่าธรรมเนียมในแต่ละรายการ
@@ -564,7 +564,7 @@ th-TH:
       you_will_get_label: ~
       total_label: ~
       total_value: ~
-      paypal_fee_info: ~
+      paypal_fee_info: "*ไม่รวม %{fee_info_link_id} ค่าดำเนินการของ PayPal"
       shipping_price_label: จัดส่ง
     confirm:
       confirm_description: "หากรายการสั่งซื้อของคุณได้รับการกรอกจนเต็มแล้ว คุณควรยืนยันว่าเสร็จสิ้น หลังจากนั้นคุณจึงจะสามารถให้ข้อเสนอแนะไปยังบุคคลอื่น"
@@ -871,6 +871,12 @@ th-TH:
       remember_to_accept: "อย่าลืมยอมรับคำขอจาก%{requester}เกี่ยวกับรายการ %{listing_title} %{requester}ได้ชำระเงินแก่รายการไปแล้ว คุณต้องยอมรับคำขอเพื่อรับเงิน"
       one_day_left: "หากคุณไม่ยอมรับคำขอภายในหนึ่งวัน คำขอจะถูกปฏิเสธโดยอัตโนมัติ และคุณจะไม่ได้รับเงิน "
       click_here_to_reply: คลิกที่นี่เพื่อตอบสนองต่อคำขอ
+    welcome_email:
+      welcome_email_subject: "ยินดีต้อนรับสู่ %{service_name}!"
+      welcome_to_marketplace: "ยินดีต้อนรับสู่ %{service_name}! เราดีใจที่คุณอยู่ในนี้"
+      love_marketplace_crew: "ด้วยรัก, <br /><i>ลูกเรือ%{service_name}</i>"
+      welcome_email_footer_text: "อีเมล์ประเภทใดที่คุณต้องการจะได้รับจาก%{service_name}? %{settings_link}"
+      settings_link_text: ตรวจสอบการตั้งค่าของคุณ
     new_listing_by_followed_person:
       subject: "%{author_name}ได้โพสต์รายการใหม่ใน%{service_name}"
       has_posted_a_new_listing: "%{author_name}ได้โพสต์รายการใหม่"
@@ -1056,7 +1062,7 @@ th-TH:
       email: ที่อยู่อีเมล์
       message: ข้อความส่วนตัว
       send_invitation: ส่งบัตรเชิญ
-      add_email_addresses_description: "เพิ่มที่อยู่อีเมล์ของคนที่คุณกำลังเชิญชวนเพื่อให้ข้อมูลข้างล่าง ในการเพิ่มที่อยู่อีเมล์หลายแห่ง กรุณาแยกที่อยู่เหล่านั้นด้วยเครื่องหมายจุลภาค"
+      add_email_addresses_description: "เพิ่มที่อยู่อีเมล์ของคนที่คุณอยากชวนลงในกล่องด้านล่าง หากใส่อีเมลหลายอัน ให้ใช้เครื่องหมายลูกน้ำหรือจุลภาค , คั่นแต่ละอีเมล"
       add_lots_of_email_addresses: "ในฐานะที่คุณเป็นผู้ดูแล นี่เป็นเคล็ดลับ: หากคุณวางแผนที่จะส่งการเชิญจำนวนมาก คุณควรใช้เครื่องมือส่งอีเมล โปรดดู %{this_article_link} เพื่อหาแหล่งข้อมูลเกี่ยวกับบริการ อีเมล์ที่เหมาะสม"
       this_article_link: ~
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
@@ -1389,7 +1395,7 @@ th-TH:
         after_service_fee_you_will_get: "หลังจาก %{service_name} และการชำระเงินค่าธรรมเนียมการประมวลผล คุณจะได้รับ %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: ~
         after_service_fee_you_will_get_paypal_text: "ค่าบริการของ %{service_name} (%{sum_with_currency}) และ %{paypal_fee_info_link} จะถูกหักออกจากราคานี้"
-        paypal_fee_info_link_text: ~
+        paypal_fee_info_link_text: "ค่าดำเนินการของ PayPal"
         delivery: วิธีการส่งสินค้า
         shipping: จัดส่ง
         shipping_price: ค่าจัดส่ง
@@ -1593,7 +1599,7 @@ th-TH:
     paypal_account_email_connected: "<del>ติดต่อกับบัญชี PayPal</del> สำเร็จแล้ว!"
     payout_info_paypal: "%{service_name} ใช้ PayPal ในการทำธุรกรรมทางการเงิน คุณจำเป็นต้องมี %{create_paypal_account_link} ที่เชื่อมต่อกับ %{service_name} แล้ว จึงจะสามารถรับชำระเงินจากผู้ซื้อได้"
     paypal_billing_agreement_made: "<del>ให้สิทธิ์แก่%{service_name}ในการเรียกเก็บค่าธรรมเนียมการทำธุรกรรม </del>เสร็จสมบูรณ์แล้ว!"
-    commission_permission_needed: ~
+    commission_permission_needed: "คุณจำเป็นต้องอนุญาตให้ %{service_name} สามารถหักค่าดำเนินการในการให้ความสะดวกได้ด้วย"
     create_paypal_account_link_text: ~
     connected_account: "เชื่อมต่อบัญชี PayPal '%{email}' สำเร็จแล้ว"
     paypal_receive_funds_info_label_australia_only: ~
@@ -1621,12 +1627,12 @@ th-TH:
       connect_paypal_account_title_with_step: "ขั้นตอนที่ %{current_step}/%{total_steps}: เชื่อมต่อแอคเคาท์ PayPal ของคุณ"
       connect_paypal_account_instructions: "คลิกปุ่มด้านล่างนี้ เพื่อล็อกอินเข้าสู่ PayPal และเชื่อมต่อแอคเคาท์ PayPal ของคุณกับ %{service_name}."
       connect_paypal_account: "เชื่อมต่อบัญชี PayPal ของคุณ"
-      paypal_account_billing_agreement_with_step: ~
+      paypal_account_billing_agreement_with_step: "ขั้นตอนที่ %{current_step}/%{total_steps}: อนุญาตให้หักค่าดำเนินการ"
       paypal_account_billing_agreement_info_both: "หลังจากที่คุณทำการขายใน %{service_name} ค่าธรรมเนียมในบริการ (%{commission_from_seller} ของราคาสินค้าทั้งหมด ไม่รวมค่าจัดส่ง ค่าธรรมเนียมขั้นต่ำ %{minimum_commission}) จะถูกเรียกเก็บเงินจากบัญชี PayPal ของคุณ การให้อนุญาตให้ทำเช่นนี้เป็นสิ่งจำเป็นเพื่อที่จะรับการชำระเงินใน %{service_name} ค่าธรรมเนียมนี้ไม่รวม %{paypal_info_link}"
       paypal_account_billing_agreement_info_fixed: ~
       paypal_account_billing_agreement_info_relative: ~
       paypal_account_billing_agreement_info_none: "ขณะนี้ %{service_name} ไม่เรียกเก็บค่าบริการ หากมีการเปิดใช้งานค่าบริการ คุณจะต้องอนุญาตให้ %{service_name} ในการเรียกเก็บค่าบริการ เพื่อที่จะยอมรับการชำระเงิน ค่าธรรมเนียมนี้ไม่รวม %{paypal_info_link}"
-      paypal_info_link_text: ~
+      paypal_info_link_text: "ค่าดำเนินการของ PayPal"
       billing_agreement_description: "ให้สิทธิ์แก่%{service_name}ในการเรียกเก็บค่าธรรมเนียมการทำธุรกรรม "
       billing_agreement: ให้อนุญาต
       permissions_not_granted: "ไม่ได้รับอนุญาตสิทธิในการเชื่อมต่อกับบัญชี PayPal ของคุณ"
@@ -1638,12 +1644,12 @@ th-TH:
       something_went_wrong: "บางอย่างผิดพลาด กรุณาลองอีกครั้ง หากยังคงมีปัญหาอยู่ กรุณาติดต่อผู้ดูแลเว็บไซต์"
       account_not_verified: ~
       account_restricted: ~
-    paypal_account_connected_title: ~
-    paypal_account_connected: ~
-    change_account: ~
+    paypal_account_connected_title: "เชื่อมต่อบัญชี PayPal แล้ว"
+    paypal_account_connected: "บัญชี PayPal ของคุณคือ %{email} ได้เชื่อมต่อกับ %{service_name} แล้ว"
+    change_account: "เปลี่ยนบัญชี PayPal แล้ว"
     missing: "คุณมีรายการที่เปิดอยู่ แต่บัญชี PayPal ของคุณไม่ได้ถูกตั้งค่าเพื่อที่จะได้รับการชำระเงิน กรุณาเชื่อมต่อบัญชี PayPal ของคุณและให้อนุญาต %{service_name} ในการเรียกเก็บค่าธรรมเนียมการทำธุรกรรมจาก %{settings_link} ของคุณ"
     from_your_payment_settings_link_text: ~
-    redirect_message: ~
+    redirect_message: "ระบบกำลังนำคุณไปสู่หน้าของ PayPal หากไม่มีความเคลื่อนไหว คลิกที่นี่ %{redirect_link}"
     redirect_link_text: ~
     paypal_account_all_set_up: ~
     can_receive_payments: ~
@@ -1814,8 +1820,8 @@ th-TH:
         receive_notifications_new_title_mobile: ได้รับการแจ้งเตือน
         add_new_with_plus: "+ เพิ่มที่อยู่อีเมล์ใหม่"
         add_new_cancel: ยกเลิก
-        confirmation_title_mobile: "การยืนยัน:"
-        confirmation_title_desktop: การยืนยัน
+        confirmation_title_mobile: ยืนยันอีเมลแล้ว
+        confirmation_title_desktop: ยืนยันอีเมลแล้ว
         confirmation_resend: ส่งอีกครั้ง
         status_confirmed: ยืนยันแล้ว
         status_pending: กำลังรอดำเนินการ
@@ -1825,15 +1831,15 @@ th-TH:
       newsletters: อีเมล์จากผู้ดูแลระบบ
       community_updates: จดหมายข่าว
       email_about_confirm_reminders: "...ฉันลืมที่จะยืนยันการสั่งซื้อให้เสร็จ"
-      email_about_new_comments_to_own_listing: "... บางคนแสดงความคิดเห็นเกี่ยวกับข้อเสนอ หรือคำขอของฉัน"
+      email_about_new_comments_to_own_listing: "... บางคนแสดงความคิดเห็นเกี่ยวกับประกาศสินค้า หรือคำขอของฉัน"
       email_about_new_messages: "...บางคนส่งข้อความถึงฉัน"
       email_about_new_received_testimonials: "...บางคนแสดงความคิดเห็นแก่ฉัน"
       email_about_testimonial_reminders: "...ฉันลืมที่จะแสดงความคิดเห็น"
       email_daily_community_updates: "ส่งจดหมายข่าว<b>รายวัน</b> หากมีรายการใหม่แก่ฉัน"
       email_weekly_community_updates: "ส่งจดหมายข่าว<b>รายสัปดาห์</b> หากมีรายการใหม่แก่ฉัน"
       do_not_email_community_updates: อย่าส่งจดหมายข่าวแก่ฉัน
-      email_when_conversation_accepted: "...บางคนยอมรับข้อเสนอ หรือคำขอของฉัน"
-      email_when_conversation_rejected: "...บางคนปฏิเสธข้อเสนอ หรือคำขอของฉัน"
+      email_when_conversation_accepted: "...บางคนยอมรับประกาศสินค้า หรือคำขอของฉัน"
+      email_when_conversation_rejected: "...บางคนปฏิเสธประกาศสินค้า หรือคำขอของฉัน"
       email_about_completed_transactions: "...มีคนทำเครื่องหมายให้การสั่งซื้อของฉันสมบูรณ์"
       email_about_new_payments: "...ฉันได้รับการชำระเงินใหม่"
       email_about_new_listings_by_followed_people: "... คนที่ฉันติดตามโพสต์รายการใหม่"
@@ -2016,6 +2022,9 @@ th-TH:
       signup: ~
       admin_dashboard: ~
       language: ~
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~
