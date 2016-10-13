@@ -312,7 +312,7 @@ class PersonMailer < ActionMailer::Base
       @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]
 
       subject = if @recipient.has_admin_rights? && !@test_email
-        t("emails.welcome_email.welcome_email_subject_for_marketplace_creator")
+        t("emails.welcome_email_marketplace_creator.welcome_email_subject_for_marketplace_creator")
       else
         t("emails.welcome_email.welcome_email_subject", :community => community.full_name(recipient.locale), :person => person.given_name_or_username)
       end
