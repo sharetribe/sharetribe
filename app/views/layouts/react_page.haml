@@ -5,6 +5,9 @@
   -# Render railsContext here before any react component gets rendered
   = prepend_render_rails_context("")
 
+  - if notifications
+    = react_component("Notifications", props: notifications, prerender: true)
+
   - if display_onboarding_topbar?
     - props = onboarding_topbar_props
     - unless props[:next_step] == :all_done
