@@ -61,7 +61,6 @@ class ListingCard extends Component {
 
     return div({
       className: classNames('ListingCard', css.listing, this.props.className),
-      'data-listing-id': listing.id,
       onClick: this.clickHandler,
     }, [
       a({
