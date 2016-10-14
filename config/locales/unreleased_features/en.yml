@@ -12,7 +12,7 @@ en:
       error_in_checking_availability: "Could not check availability for the selected dates"
   error_messages:
     booking:
-      booking_failed_payment_voided: "Failed to create a booking. Your payment will be refunded."
+      booking_failed_payment_voided: "Booking failed due to an unexpected error. Please try again later. You haven't been charged."
       double_booking_payment_voided: "Unfortunately the dates you chose are no longer available. Please choose another dates. You haven’t been charged."
   listings:
     error:

@@ -121,7 +121,17 @@ module TransactionService::Transaction
     res =
       if proc_response
         proc_response
+      elsif m_tx.is_none?
+
+        # Transaction doesn't exist.
+        #
+        # This may happen if the finalize_create action has been called already, and it failed.
+        # If the finalization fails (e.g. booking fails), we void the payment and delete the
+        # transaction.
+        Result::Error.new("Can't find transaction, id: #{transaction_id}, community_id: #{community_id}", {code: :tx_not_existing})
       else
+        tx = m_tx.get
+
         tx_process = tx_process(tx[:payment_process])
         gw = gateway_adapter(tx[:payment_gateway])
 
