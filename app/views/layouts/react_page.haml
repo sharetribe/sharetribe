@@ -16,11 +16,6 @@
       - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
       - key_param = maps_key ? "&key=#{maps_key}" : ""
       = javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places#{key_param}"
-    - props = topbar_props
-    - cache props do
-      = react_component("TopbarApp", props: props, prerender: true, id: 'topbar-container')
-  - else
-    = render partial: 'layouts/global_header', locals: header_props()
 
   - if display_expiration_notice?
     = render partial: "layouts/expiration_notice",
