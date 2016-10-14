@@ -1,0 +1,18 @@
+- preview_link = link_to(t("admin.landing_page.preview_link_text"), "/?big_cover_photo=true")
+- basic_details_link = link_to(t("admin.landing_page.basic_details_link_text"),admin_details_edit_path)
+- design_link = link_to(t("admin.landing_page.design_link_text"),admin_look_and_feel_edit_path)
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.landing_page.landing_page")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(community) }
+
+.left-navi-section
+  .row
+    .col-12
+      %h2= t("admin.landing_page.landing_page")
+      %p= t("admin.landing_page.landing_page_description", :basic_details_link => basic_details_link, :design_link => design_link, :preview_link => preview_link).html_safe
+      %p
+        = link_to(t("admin.landing_page.landing_page_link_text"), "https://www.sharetribe.com/landingpage/")

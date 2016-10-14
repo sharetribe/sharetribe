@@ -1,0 +1,10 @@
+# we don't want these to be community updated (wording & layout)
+en:
+  admin:
+    landing_page:
+      landing_page: "Landing page"
+      landing_page_description: "Landing page is the first page of your marketplace that your users will see. You can preview your current landing page %{preview_link}. You can make changes to your landing page from %{basic_details_link} and %{design_link} sections. If you'd like to have a completely customized landing page for your marketplace, you can purchase it as an add-on."
+      landing_page_link_text: "Read more about custom landing page add-on"
+      basic_details_link_text: "basic details"
+      design_link_text: "design"
+      preview_link_text: "here"

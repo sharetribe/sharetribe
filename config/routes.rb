@@ -196,6 +196,9 @@ Kassi::Application.routes.draw do
       get   "/topbar/edit"        => "communities#topbar",                      as: :topbar_edit
       patch "/topbar"             => "communities#update_topbar",               as: :topbar
 
+      # Landing page menu
+      get   "/landing_page"         => "communities#landing_page",                  as: :landing_page
+
       resources :communities do
         member do
           get :edit_welcome_email

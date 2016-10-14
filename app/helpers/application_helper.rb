@@ -397,7 +397,20 @@ module ApplicationHelper
         :icon_class => icon_class("topbar_menu"),
         :path => admin_topbar_edit_path,
         :name => "topbar"
-      },
+      }
+    ]
+
+    if APP_CONFIG.display_knowledge_base_articles
+      links << {
+        :topic => :configure,
+        :text => t("admin.landing_page.landing_page"),
+        :icon_class => icon_class("home"),
+        :path => admin_landing_page_path,
+        :name => "landing_page",
+      }
+    end
+
+    links += [
       {
         :topic => :configure,
         :text => t("admin.categories.index.listing_categories"),
