@@ -18,7 +18,7 @@ class OffScreenMenu extends Component {
     const avatarExtras = { imageHeight: headerItemHeight };
     const buttonExtras = { className: css.offScreenHeaderNewListingButton, customColor: this.props.color };
     const header = this.props.avatar ? [
-      this.props.avatar ? r(Avatar, { ...this.props.avatar, ...avatarExtras }) : null,
+      this.props.avatar ? div({ className: css.avatarSpacer }, r(Avatar, { ...this.props.avatar, ...avatarExtras })) : null,
       this.props.newListingButton ? r(AddNewListingButton, { ...this.props.newListingButton, ...buttonExtras }) : null,
     ] : [
       r(LoginLinks, this.props.loginLinks),
