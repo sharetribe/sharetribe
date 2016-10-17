@@ -361,6 +361,7 @@ default: &default_settings
 
   # Display mention of custom landing page in admin panel
   show_landing_page_admin: false
+  custom_landing_page_marketing_site_url: "https://www.example.com/landingpage/"
 
   #######
   # Fonts
