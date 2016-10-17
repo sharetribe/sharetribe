@@ -309,4 +309,5 @@ module.exports = {
   '--Branding_borderColor': borderColor,
 
   '--Avatar_textColor': textColorLight,
+  '--Avatar_backgroundColor': 'hsl(210, 40%, 70%)',
 };
