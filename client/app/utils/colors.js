@@ -3,6 +3,7 @@ import _ from 'lodash';
 const COLOR_FF = 255;
 const HEXADECIMAL = 16;
 const PERCENTAGE_100 = 100.0;
+const HUE_RANGE = 360;
 
 const hexToRGB = _.memoize((hexadecimal) => {
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
@@ -56,4 +57,34 @@ const tint = _.memoize((hex, tintPercentage) => {
   };
 });
 
-export { brightness, hexToRGB, tint };
+/**
+ * Calculate a 32 bit FNV-1a hash
+ * Found here: https://gist.github.com/vaiorabbit/5657561
+ * Ref.: http://isthe.com/chongo/tech/comp/fnv/
+ *
+ * @param {string} str the input value
+ * @returns {string}
+ */
+const hashFnv32a = function hashFnv32a(str) {
+    /* eslint-disable */
+    var i, l,
+        hval = 0x811c9dc5;
+
+    for (i = 0, l = str.length; i < l; i++) {
+        hval ^= str.charCodeAt(i);
+        hval += (hval << 1) + (hval << 4) + (hval << 7) + (hval << 8) + (hval << 24);
+    }
+    return hval >>> 0;
+    /* eslint-enable */
+};
+
+const avatarColor = (name) => {
+  if (!name) {
+    return null;
+  } else {
+    const hue = hashFnv32a(name) % HUE_RANGE;
+    return `hsl(${hue}, 40%, 70%)`;
+  }
+};
+
+export { brightness, hexToRGB, tint, avatarColor };

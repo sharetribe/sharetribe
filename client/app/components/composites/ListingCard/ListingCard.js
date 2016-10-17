@@ -3,7 +3,7 @@ import r, { a, div, img } from 'r-dom';
 import classNames from 'classnames';
 import { t, fullLocaleCode, localizedString } from '../../../utils/i18n';
 import { canUseDOM } from '../../../utils/featureDetection';
-import { tint } from '../../../utils/colors';
+import { tint, avatarColor } from '../../../utils/colors';
 import { formatDistance, formatMoney } from '../../../utils/numbers';
 import ListingModel from '../../../models/ListingModel';
 
@@ -13,7 +13,6 @@ import noImageIcon from './images/noImageIcon.svg';
 import distanceIcon from './images/distanceIcon.svg';
 
 const TINT_PERCENTAGE = 20;
-
 
 class ListingCard extends Component {
 
@@ -100,7 +99,7 @@ class ListingCard extends Component {
         }, r(Avatar, {
           url: listing.author.profileURL,
           image: listing.author.avatarImage ? listing.author.avatarImage.thumb : null,
-          color: this.props.color,
+          color: avatarColor(`${listing.author.givenName}${listing.author.familyName}`) || this.props.color,
           givenName: listing.author.givenName,
           familyName: listing.author.familyName,
         })),
