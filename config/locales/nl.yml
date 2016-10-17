@@ -383,6 +383,11 @@ nl:
       subscription: ~
       preview: ~
     listing_shapes:
+      availability_title: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: ~
         description: ~
@@ -885,6 +890,9 @@ nl:
       person_name: ~
       person_email: ~
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: ~
     listings:
@@ -1331,6 +1339,8 @@ nl:
     error:
       something_went_wrong: ~
       something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: "Ontvang e-mail wanneer er een reactie is geplaatst"
       unfollow: "Ontvang geen e-mails als er een reactie is geplaatst"
@@ -1552,6 +1562,8 @@ nl:
       verification_required: "Verificatie vereist"
   listing_conversations:
     preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
       details: Details
       by: "%{listing} door %{author}"
       payment: Betaling

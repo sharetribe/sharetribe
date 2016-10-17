@@ -383,6 +383,11 @@ sv:
       subscription: ~
       preview: ~
     listing_shapes:
+      availability_title: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: Ordertyper
         description: "Ordertyper bestämmer hur orderprocessen fungerar på din sida. Du kan välja om dina användare ska hyra, sälja eller kanske bara skicka meddelanden och kommunicera via gratismeddelanden."
@@ -903,6 +908,9 @@ sv:
       person_name: ~
       person_email: ~
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: ~
     listings:
@@ -1349,6 +1357,8 @@ sv:
     error:
       something_went_wrong: "Något gick fel, felmeddelande: %{error_code}"
       something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: "Få e-post om nya kommentarer"
       unfollow: "Få inga meddelanden om nya kommentarer"
@@ -1570,6 +1580,8 @@ sv:
       verification_required: "Verifiering krävs"
   listing_conversations:
     preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
       details: Detaljer
       by: "%{listing} av %{author}"
       payment: Betalning

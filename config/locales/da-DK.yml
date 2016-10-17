@@ -385,6 +385,11 @@ da-DK:
       subscription: Abonnement
       preview: "Vis eksempel på min hjemmeside"
     listing_shapes:
+      availability_title: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: "Ordre typer"
         description: "Ordre typer bestemmer hvordan ordreprocessen fungerer på dit site. Du kan beslutte om dine brugere lejer, sælger - eller måske blot poster opslag og kommunikerer via meddelelser."
@@ -899,6 +904,9 @@ da-DK:
       person_name: "Navn:"
       person_email: "E-mail:"
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: "Kom godt i gang guide kunne ikke indlæses. Vi er blevet informeret om situationen, og vi løser det."
     listings:
@@ -1349,6 +1357,8 @@ da-DK:
     error:
       something_went_wrong: "Noget gik galt, error code: %{error_code}"
       something_went_wrong_plain: "Noget gik galt"
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: "Modtag emails om nye kommentarer"
       unfollow: "Afmeld emails om nye kommentarer"
@@ -1570,6 +1580,8 @@ da-DK:
       verification_required: "Godkendelse påkrævet"
   listing_conversations:
     preauthorize:
+      dates_not_available: "De valgte datoer er ikke tilgængelige"
+      error_in_checking_availability: "Kunne ikke tjekke tilgængelighed for de valgte dage"
       details: Detaljer
       by: "%{listing} af %{author}"
       payment: Betaling

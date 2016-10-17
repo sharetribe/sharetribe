@@ -393,6 +393,11 @@ ru:
       subscription: Подписка
       preview: ~
     listing_shapes:
+      availability_title: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: "Типы заказов"
         description: "Типы заказов определяют, каким образом процесс заказа работает на вашем сайте. Вы можете решить, будут ли пользователи арендовать или продавать, или просто публиковать объявления и общаться с помощью бесплатных сообщений."
@@ -895,6 +900,9 @@ ru:
       person_name: ~
       person_email: ~
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: ~
     listings:
@@ -1341,6 +1349,8 @@ ru:
     error:
       something_went_wrong: "Что-то пошло не так, код ошибки: %{error_code}"
       something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: "Получать письма о новых комментариях"
       unfollow: "Не получать письма о новых комментариях"
@@ -1562,6 +1572,8 @@ ru:
       verification_required: "Требуется подтверждение"
   listing_conversations:
     preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
       details: Детали
       by: "%{listing} от %{author}"
       payment: Оплата

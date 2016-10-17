@@ -368,6 +368,11 @@ it:
       subscription: ~
       preview: ~
     listing_shapes:
+      availability_title: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: "Tipo di ordini"
         description: "Il Tipo di ordini determina come funziona il processo di ordine nel tuo sito. Si può decidere se gli utenti sono affittanti o venditori, o forse solo pubblicisti di annunci e messaggi gratuiti."
@@ -874,6 +879,9 @@ it:
       person_name: ~
       person_email: ~
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: ~
     listings:
@@ -1324,6 +1332,8 @@ it:
     error:
       something_went_wrong: "Qualcosa è andato storto. Codice errore: %{error_code}"
       something_went_wrong_plain: "Qualcosa è andato storto"
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: "Ricevi email per ogni nuovo commento"
       unfollow: "Non ricevere email per ogni nuovo commento"
@@ -1545,6 +1555,8 @@ it:
       verification_required: "Richiesta verifica"
   listing_conversations:
     preauthorize:
+      dates_not_available: "Le date selezionate non sono disponibili"
+      error_in_checking_availability: "Non è possibile verificare la disponibilità nei giorni selezionati"
       details: Dettagli
       by: "%{listing} di %{author}"
       payment: Pagamento

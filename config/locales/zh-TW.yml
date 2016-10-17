@@ -378,6 +378,11 @@ zh-TW:
       subscription: ~
       preview: ~
     listing_shapes:
+      availability_title: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: 交易类型
         description: 交易类型决定了网站上订单如何处理。通过交易类型可以决定用户可以出租或者出售，或者只是让用户发布一些公告然后通过免费的消息进行沟通。
@@ -890,6 +895,9 @@ zh-TW:
       person_name: ~
       person_email: ~
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: ~
     listings:
@@ -1336,6 +1344,8 @@ zh-TW:
     error:
       something_went_wrong: "出错了，错误代码：%{error_code}"
       something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: 接收关于新评论的电子邮件
       unfollow: 不再接收关于新评论的电子邮件
@@ -1557,6 +1567,8 @@ zh-TW:
       verification_required: 要求验证
   listing_conversations:
     preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
       details: 详情
       by: "由%{author}发布的%{listing}"
       payment: 付款

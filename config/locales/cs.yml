@@ -388,6 +388,11 @@ cs:
       subscription: ~
       preview: ~
     listing_shapes:
+      availability_title: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: "Typy objednávek"
         description: "Zde můžete nastavit, jak bude Vaše stránka fungovat. Můžete se rozhodnout, zda Vaši uživatelé mohou pronajímat nebo prodávat nebo pouze přidávat příspěvky a komunikovat přes zprávy."
@@ -910,6 +915,9 @@ cs:
       person_name: ~
       person_email: ~
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: ~
     listings:
@@ -1356,6 +1364,8 @@ cs:
     error:
       something_went_wrong: "Něco se nezdařilo, kód chyby: %{error_code}"
       something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: "Dostávat e-maily o nových příspěvcích"
       unfollow: "Nedostávat e-maily o nových příspěvcích"
@@ -1577,6 +1587,8 @@ cs:
       verification_required: "Ověření požadováno"
   listing_conversations:
     preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
       details: Podrobnosti
       by: "%{listing} od uživatele %{author}"
       payment: Platba

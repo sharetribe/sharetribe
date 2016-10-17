@@ -378,6 +378,11 @@ zh-HK:
       subscription: ~
       preview: ~
     listing_shapes:
+      availability_title: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: 交易類別
         description: 交易類型決定了網站上訂單如何處理。通過交易類型可以決定用戶可以出租或者出售，或者只是讓用戶發布一些公告然後通過免費的消息進行溝通。
@@ -888,6 +893,9 @@ zh-HK:
       person_name: ~
       person_email: ~
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: ~
     listings:
@@ -1337,6 +1345,8 @@ zh-HK:
     error:
       something_went_wrong: "發生錯誤,代碼: %{error_code}"
       something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: 接收關於新評論的電郵
       unfollow: 不要接收關於新評論的電郵
@@ -1558,6 +1568,8 @@ zh-HK:
       verification_required: 需要驗証
   listing_conversations:
     preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
       details: 詳情
       by: ~
       payment: 款項

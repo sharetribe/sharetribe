@@ -383,6 +383,11 @@ de:
       subscription: Abonnement
       preview: "Seitenvorschau anzeigen"
     listing_shapes:
+      availability_title: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: Auftragsarten
         description: "Auftragsarten bestimmen wie der Auftragsprozess auf deiner Seite funktioniert. Du kannst bestimmen ob deine Nutzer vermieten oder verkaufen, oder nur einfach Einträge veröffentlichen und danach frei kommunizieren können."
@@ -901,6 +906,9 @@ de:
       person_name: "Name:"
       person_email: "E-mail:"
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: "Die Kurzanleitung konnte nicht geladen werden. Wir wurden über dieses Problem informiert und werden es schnellstmöglich lösen."
     listings:
@@ -1351,6 +1359,8 @@ de:
     error:
       something_went_wrong: "Etwas ist schief gelaufen, Fehlercode: %{error_code}"
       something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: "Erhalte E-Mails bei neuen Kommentaren"
       unfollow: "Diesem Eintrag nicht mehr folgen"
@@ -1572,6 +1582,8 @@ de:
       verification_required: "Verifizierung erforderlich"
   listing_conversations:
     preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
       details: Details
       by: "%{listing} von %{author}"
       payment: Zahlung

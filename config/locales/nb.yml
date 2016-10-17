@@ -383,6 +383,11 @@ nb:
       subscription: Påmelding
       preview: "Forhåndsvis mitt nettsted"
     listing_shapes:
+      availability_title: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: Annonsetype
         description: "Annonsetypene bestemmer hvordan bestillingsprosessen fungerer på din markedsplass. Du kan velge om dine brukere skal kunne leie eller selge, eller kanskje bare legge ut annonser og kommunisere via meldinger."
@@ -901,6 +906,9 @@ nb:
       person_name: "Navn:"
       person_email: "E-post:"
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: "Oppstartsveiledningen kunne ikke lastes! Vi har blitt informert om situasjonen og jobber med en fiks!"
     listings:
@@ -1351,6 +1359,8 @@ nb:
     error:
       something_went_wrong: "Noe gikk galt, feilkode: %{error_code}"
       something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: "Motta e-post ved nye kommentarer"
       unfollow: "Ikke motta e-post om nye kommentarer"
@@ -1572,6 +1582,8 @@ nb:
       verification_required: "Verifisering påkrevd"
   listing_conversations:
     preauthorize:
+      dates_not_available: "Valgte datoer er ikke tilgjengelige"
+      error_in_checking_availability: ~
       details: Detaljer
       by: "%{listing} av %{author}"
       payment: Betaling

@@ -388,6 +388,11 @@ sk-SK:
       subscription: "Predplatné služieb"
       preview: "Náhľad stránky"
     listing_shapes:
+      availability_title: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: "Typy objednávok"
         description: "Tu si môžete nastaviť, ako bude Vaše stránka fungovať. Môžete sa rozhodnúť, či Vaši užívatelia budú prenajímať, predávať, alebo iba pridávať príspevky a komunikovať cez správy."
@@ -910,6 +915,9 @@ sk-SK:
       person_name: "Meno:"
       person_email: "E-mail:"
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: "Otvorenie začiatočníckej príručky zlyhalo. O chybe vieme a pracujeme na jej odstránení."
     listings:
@@ -1361,6 +1369,8 @@ sk-SK:
     error:
       something_went_wrong: "Niekde nastala chyba, kód chyby: %{error_code}"
       something_went_wrong_plain: "Niekde nastala chyba"
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: "Prijať e-mail v prípade nového komentára."
       unfollow: "Neprijímať e-mail v prípade nového komentára."
@@ -1582,6 +1592,8 @@ sk-SK:
       verification_required: "Overenie požadované"
   listing_conversations:
     preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
       details: Detaily
       by: "%{listing} od užívateľa %{author}"
       payment: Platba
