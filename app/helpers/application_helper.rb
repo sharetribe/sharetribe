@@ -400,7 +400,7 @@ module ApplicationHelper
       }
     ]
 
-    if APP_CONFIG.display_knowledge_base_articles
+    if APP_CONFIG.show_landing_page_admin
       links << {
         :topic => :configure,
         :text => t("admin.landing_page.landing_page"),
