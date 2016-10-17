@@ -102,27 +102,19 @@ module TransactionService::Transaction
   end
 
   def finalize_create(community_id:, transaction_id:, force_sync: true)
-    # Transaction may be nil, if it has been deleted due to voided payment
-    m_tx = Maybe(TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id))
+    tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
-    proc_response =
-      if !force_sync
-        # Try to find existing process token
-        # This may happen if finalize_create action has been called already, for example
-        # as a reaction to payment event
-
-        proc_token = ProcessTokenStore.get_by_transaction(community_id: community_id,
-                                                          transaction_id: transaction_id,
-                                                          op_name: :do_finalize_create)
-
-        proc_status_response(proc_token) if proc_token
-      end
+    # Try to find existing process token
+    # This may happen if finalize_create action has been called already, for example
+    # as a reaction to payment event
+    proc_token = ProcessTokenStore.get_by_transaction(community_id: community_id,
+                                                      transaction_id: transaction_id,
+                                                      op_name: :do_finalize_create)
 
     res =
-      if proc_response
-        proc_response
-      elsif m_tx.is_none?
-
+      if !force_sync && proc_token.present?
+        proc_status_response(proc_token)
+      elsif tx.nil?
         # Transaction doesn't exist.
         #
         # This may happen if the finalize_create action has been called already, and it failed.
@@ -130,8 +122,6 @@ module TransactionService::Transaction
         # transaction.
         Result::Error.new("Can't find transaction, id: #{transaction_id}, community_id: #{community_id}", {code: :tx_not_existing})
       else
-        tx = m_tx.get
-
         tx_process = tx_process(tx[:payment_process])
         gw = gateway_adapter(tx[:payment_gateway])
 
@@ -142,8 +132,11 @@ module TransactionService::Transaction
       end
 
     res.and_then { |tx_fields|
+      # Transaction may be nil, if it has been deleted due to voided payment
+      m_tx = Maybe(tx)
+
       Result::Success.new(DataTypes.create_transaction_response(
-                            m_tx.map { |tx| query(tx[:id]) }.or_else(nil),
+                            m_tx.map { |tx_val| query(tx_val[:id]) }.or_else(nil),
                             {},
                             tx_fields))
     }
