@@ -207,7 +207,7 @@ class Topbar extends Component {
       this.props.routes.person_path(loggedInUsername) :
       null;
     const mobileMenuAvatarProps = this.props.avatarDropdown && loggedInUsername ?
-      { ...this.props.avatarDropdown.avatar, url: profileRoute } :
+      { ...this.props.avatarDropdown.avatar, url: profileRoute, color: marketplaceColor1 } :
       null;
     const mobileMenuProps = hasMenuProps ?
       Object.assign({}, this.props.menu, {
