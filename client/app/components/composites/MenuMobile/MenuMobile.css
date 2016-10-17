@@ -116,6 +116,11 @@
   }
 }
 
+.avatarSpacer {
+  height: var(--MobileMenu_offscreenHeaderItemHeight);
+  width: var(--MobileMenu_offscreenHeaderItemHeight);
+}
+
 .offScreenHeaderNewListingButton span {
   height: var(--MobileMenu_offscreenHeaderItemHeight);
   line-height: var(--MobileMenu_offscreenHeaderItemHeight);
