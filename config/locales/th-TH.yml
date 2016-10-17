@@ -549,30 +549,30 @@ th-TH:
       details: ~
       order_by: ~
       accept_offer: ยอมรับข้อเสนอ
-      accept_request: ยอมรับคำขอ
+      accept_request: ตอบรับออเดอร์
       reject_offer: ไม่ใช่เวลานี้
       reject_request: ไม่ใช่เวลานี้
       close_listing: "ลบประกาศ %{listing_title_link}"
       update_later: เปิดประกาศเอาไว้
       optional_message: ข้อความเพิ่มเติม
       price_to_pay: ราคารวมที่จะต้องจ่าย
-      accept: ~
-      decline: ~
+      accept: ยอมรับ
+      decline: ปฏิเสธ
       quantity_label: ~
       sum_label: ~
       service_fee_label: ~
       you_will_get_label: ~
       total_label: ~
       total_value: ~
-      paypal_fee_info: "*ไม่รวม %{fee_info_link_id} ค่าดำเนินการของ PayPal"
+      paypal_fee_info: "*ไม่รวม <a id='%{fee_info_link_id}' href='#'>ค่าธรรมเนียมการชำระเงินของ PayPal</a>"
       shipping_price_label: จัดส่ง
     confirm:
-      confirm_description: "หากรายการสั่งซื้อของคุณได้รับการกรอกจนเต็มแล้ว คุณควรยืนยันว่าเสร็จสิ้น หลังจากนั้นคุณจึงจะสามารถให้ข้อเสนอแนะไปยังบุคคลอื่น"
-      cancel_description: "หากรายการสั่งซื้อของคุณไม่ได้ถูกกรอกจนเต็ม คุณสามารถทำเครื่องหมาย 'อภิปราย' ได้ คุณยังคงสามารถให้ข้อเสนอแนะไปยังบุคคลอื่น และอธิบายถึงสิ่งที่เกิดขึ้น"
+      confirm_description: "หากได้รับสินค้าหรือบริการแล้ว กรุณากดยืนยันว่าได้รับสินค้าหรือบริการเป็นที่เรียบร้อย หลังจากนั้นคุณจะสามารถเขียนรีวิวผู้ขายได้"
+      cancel_description: "หากคุณไม่ได้รับหรือไม่พอใจในสินค้า/บริการ คุณสามารถทำเครื่องหมาย 'โต้แย้ง' ได้ และสามารถให้ข้อเสนอแนะไปยังบุคคลอื่น และอธิบายถึงสิ่งที่เกิดขึ้น"
       cancel_payed_description: "หากคำขอของคุณได้รับการยอมรับแล้ว แต่คุณเปลี่ยนใจ คุณยังสามารถยกเลิกคำขอ ก่อนที่จะชำระเงินได้"
       canceling_payed_transaction: ยกเลิกการทำรายการ
-      confirm: การทำเครื่องหมายเสร็จสมบูรณ์
-      cancel: อภิปราย
+      confirm: ยืนยันว่าได้รับสินค้าหรือบริการแล้ว
+      cancel: โต้แย้ง
       continue: ต่อไป
       give_feedback_to: "ให้ความคิดเห็นแก่ %{person_link}"
       do_not_give_feedback: ข้ามความคิดเห็น
@@ -587,7 +587,7 @@ th-TH:
       no_received_messages: ไม่พบข้อความ
       no_sent_messages: ไม่พบข้อความที่ถูกส่ง
     conversation:
-      accepted_request: คำขอได้รับการยอมรับแล้ว
+      accepted_request: ออเดอร์ได้รับการตอบรับแล้ว
       accepted_offer: ข้อเสนอได้รับการยอมรับแล้ว
       rejected_request: คำขอถูกปฎิเสธ
       rejected_offer: ข้อเสนอถูกปฏิเสธ
@@ -600,17 +600,17 @@ th-TH:
       free_message: ข้อความฟรี
       message_content_not_available: ~
     message:
-      accepted_request: ยอมรับคำขอ
-      received_payment: ~
+      accepted_request: ตอบรับออเดอร์
+      received_payment: "ตอบรับออเดอร์แล้ว และได้รับเงินจำนวน %{sum} แล้ว"
       accepted_offer: ยอมรับข้อเสนอ
       rejected_request: "ปฏิเสธคำขอ ยกเลิกการชำระเงิน"
       rejected_offer: ปฏิเสธข้อเสนอ
-      confirmed_request: ทำเครื่องหมายการสั่งซื้อเสร็จสมบูรณ์
+      confirmed_request: "ยืนยันว่าได้รับสินค้าหรือบริการแล้ว การสั่งซื้อเสร็จสมบูรณ์"
       confirmed_offer: ทำเครื่องหมายข้อเสนอเสร็จสมบูรณ์
       canceled_request: ยกเลิกการสั่งซื้อ
       canceled_offer: ยกเลิกข้อเสนอ
       paid: "ชำระเงิน %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "การชำระเงินได้รับอนุญาตแล้ว: %{sum}"
     new:
       message: ข้อความ
       message_to: "ข้อความถึง %{author_name}"
@@ -623,7 +623,7 @@ th-TH:
       title: หัวข้อ
       send_message_to_user: "ส่งข้อความไปหา%{person}"
       about_listing: "เกี่ยวกับรายการ %{listing_title}"
-      author_has_to_accept_request: "%{author_name} จำเป็นต้องยอมรับคำขอก่อน คุณจึงจะสามารถจ่ายเงินได้"
+      author_has_to_accept_request: "%{author_name} จำเป็นต้องตอบรับออเดอร์ก่อน คุณจึงจะสามารถจ่ายเงินได้"
     show:
       in_response_to_listing: เกี่ยวกับรายการ
       message_sent_by: ข้อความถูกส่งโดย
@@ -632,7 +632,7 @@ th-TH:
       write_a_reply: เขียนตอบกลับ
       conversation_about_listing: "กับ %{person} เกี่ยวกับ %{listing}"
       conversation_with_user: "กับ %{person}"
-      conversation_with: "บทสนทนาระหว่าง %{person}"
+      conversation_with: "บทสนทนากับ %{person}"
       last_message_at: "(ข้อความล่าสุด %{time})"
       price: "ราคา: %{price}"
       sum: "ทั้งหมด: %{sum}"
@@ -660,8 +660,8 @@ th-TH:
           multicurrency: "เราไม่สามารถประมวลผลการชำระเงิน PayPal เพราะบัญชี PayPal ของคุณยังไม่ได้รับการตั้งค่าที่จะได้รับเงินในสกุลเงิน%{currency} กรุณาไปที่ %{paypal_url} และเข้าสู่ระบบบัญชีของคุณ เพื่อที่จะยอมรับหรือปฏิเสธการชำระเงินด้วยตนเอง "
           verify: "คุณไม่สามารถยอมรับการทำธุรกรรมนี้ได้ เพราะคุณยังไม่ได้ยืนยันบัญชี PayPal ของคุณ กรุณาไปที่ %{paypal_url} เพื่อตรวจสอบบัญชีของคุณ"
           intl: "เราไม่สามารถประมวลผลการชำระเงิน PayPal ได้ เนื่องจากบัญชี PayPal ของคุณไม่มี กลไกการถอนเงิน กรุณาไปที่ %{paypal_url} เพื่อเข้าสู่ระบบบัญชีของคุณ และยอมรับหรือปฏิเสธการชำระเงินด้วยตนเอง "
-      waiting_for_current_user_to_deliver_listing: "กำลังรอให้คุณตอบสนองคำสั่งของ %{listing_title}"
-      waiting_for_listing_author_to_deliver_listing: "กำลังรอให้ %{listing_author_name} ตอบสนองคำสั่งของ %{listing_title}"
+      waiting_for_current_user_to_deliver_listing: "กำลังรอให้คุณดำเนินการจัดส่งสินค้าหรือบริการ %{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "กำลังรอให้ %{listing_author_name} ดำเนินการจัดส่งสินค้าหรือบริการ %{listing_title}"
       request_accepted: ได้รับการยอมรับแล้ว
       request_rejected: ถูกปฏิเสธ
       request_confirmed: เสร็จสมบูรณ์
@@ -670,9 +670,9 @@ th-TH:
       request_preauthorized: การชำระเงินได้รับอนุญาตแล้ว
       skip_feedback: ข้ามความคิดเห็น
       waiting_for_listing_author_to_accept_offer: "กำลังรอให้ %{listing_author_name} ที่จะยอมรับข้อเสนอ"
-      waiting_for_listing_author_to_accept_request: "กำลังรอให้ %{listing_author_name} ที่จะยอมรับคำขอ เมื่อใดที่ %{listing_author_name} ยอมรับคำขอ คุณจึงจะถูกเรียกเก็บเงิน"
-      waiting_for_you_to_accept_request: กำลังรอให้คุณยอมรับคำขอ
-      waiting_confirmation_from_requester: "กำลังรอให้ %{requester_name} เพื่อทำเครื่องหมายการสั่งซื้อให้เสร็จสมบูรณ์"
+      waiting_for_listing_author_to_accept_request: "กำลังรอให้ %{listing_author_name} ตอบรับออเดอร์ เมื่อ %{listing_author_name} ตอบรับออเดอร์ คุณจึงจะถูกเรียกเก็บเงิน"
+      waiting_for_you_to_accept_request: กำลังรอให้คุณตอบรับออเดอร์
+      waiting_confirmation_from_requester: "กำลังรอให้ %{requester_name} ยืนยันว่าได้รับสินค้าหรือบริการแล้ว"
       waiting_confirmation_from_you: กำลังรอให้คุณทำเครื่องหมายให้การสั่งซื้อเสร็จสมบูรณ์
       waiting_payment_from_requester: "กำลังรอให้%{requester_name}ชำระเงิน"
       waiting_payment_from_you: กำลังรอให้คุณชำระเงิน
@@ -685,15 +685,15 @@ th-TH:
           verify: "กำลังรอให้คุณตรวจสอบบัญชี PayPal ของคุณ"
     status_link:
       accept_offer: ยอมรับข้อเสนอ
-      accept_request: ยอมรับคำขอ
+      accept_request: ตอบรับออเดอร์
       reject_offer: ไม่ใช่ตอนนี้
       reject_request: ไม่ใช่ตอนนี้
       accept_preauthorized_offer: ยอมรับข้อเสนอ
-      accept_preauthorized_request: ยอมรับคำขอ
+      accept_preauthorized_request: ตอบรับออเดอร์
       reject_preauthorized_offer: ไม่ใช่ตอนนี้
       reject_preauthorized_request: ไม่ใช่ตอนนี้
-      confirm: การทำเครื่องหมายเสร็จสมบูรณ์
-      cancel: อภิปราย
+      confirm: ยืนยันว่าได้รับสินค้าหรือบริการแล้ว
+      cancel: โต้แย้ง
   feedback:
     feedback_subject: ~
     feedback_body: ~
@@ -779,7 +779,7 @@ th-TH:
       unsubscribe_from_these_emails: ยกเลิกการรับอีเมล์เหล่านี้
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ได้ยอมรับข้อเสนอ %{listing} ของคุณแล้ว"
-      has_accepted_your_request: "%{accepter} ได้ยอมรับคำขอ %{listing} ของคุณแล้ว"
+      has_accepted_your_request: "%{accepter} ได้ตอบรับออเดอร์ %{listing} ของคุณแล้ว"
       has_rejected_your_offer: "%{accepter} ได้ปฏิเสธข้อเสนอ %{listing} ของคุณ"
       has_rejected_your_request: "%{accepter} ได้ปฏิเสธคำขอ %{listing} ของคุณ"
       view_thread: แสดงการสนทนา
@@ -987,7 +987,7 @@ th-TH:
     manage_listings: ~
     invite: เชิญสมาชิกใหม่
     login: เข้าสู่ระบบ
-    signup: ลงทะเบียน
+    signup: สมัครสมาชิก
     menu: เมนู
   homepage:
     additional_private_listings_slate:
@@ -1022,7 +1022,7 @@ th-TH:
       some_private_offers_exist: "มีข้อเสนออยู่แล้ว <b>%{number_of_listings} ข้อ</b>,"
       some_private_requests_exist: "มีคำขออยู่แล้ว <b>%{number_of_listings} ข้อ</b>,"
     custom_filters:
-      update_view: อัพเดทมุมมอง
+      update_view: "ค้นหาชุด ตามสัดส่วนที่กำหนด"
       min: "ต่ำสุด:"
       max: "สูงสุด:"
     event_feed:
@@ -1057,7 +1057,7 @@ th-TH:
       no_reviews: ไม่มีรีวิว
       no_image: ไม่มีรูปภาพ
       filter: ตัวกรอง
-      this_is_private_community: คุณจำเป็นต้องลงทะเบียนก่อนที่จะสามารถดูเนื้อหา
+      this_is_private_community: คุณจำเป็นต้องสมัครสมาชิกก่อนที่จะสามารถดูเนื้อหา
     invitation_form:
       email: ที่อยู่อีเมล์
       message: ข้อความส่วนตัว
@@ -1107,7 +1107,7 @@ th-TH:
   landing_page:
     hero:
       search: ~
-      signup: ~
+      signup: สมัครสมาชิก
       search_placeholder: ~
       search_location_placeholder: ~
     listings:
@@ -1127,7 +1127,7 @@ th-TH:
       join_this_community: เข้าร่วมตลาด
       read_more: อ่านเพิ่มเติม...
       feedback: "ข้อความของคุณที่จะส่งไปยังทีมงาน %{service_name}"
-      dont_use_to_contact_support: "เราพบว่าคุณคือผู้ดูแลของ %{service_name} แบบฟอร์มนี้เป็นแบบฟอร์มที่ผู้ใช้ของคุณ ใช้ติดต่อคุณ คุณไม่สามารถใช้แบบฟอร์มนี้เพื่อติดต่อฝ่ายสนับสนุนของ Sharetribe ได้ คุณสามารถติดต่อฝ่ายสนับสนุนผ่านลิงค์การสนับสนุนในส่วนผู้ดูแลของคุณแทน"
+      dont_use_to_contact_support: "คุณเป็นแอดมินของ %{service_name} ข้อความนี้จะเป็นข้อความที่ลูกค้าใช้ติดต่อคุณ คุณไม่สามารถใช้แบบฟอร์มนี้ติดต่อกับ Sharetribe support ได้ ให้ใช้ support link ใน admin panel แทน"
       feedback_forum: ฟอรั่มข้อเสนอแนะ
       feedback_handle: ข้อเสนอแนะ
       give_feedback: ติดต่อเรา
@@ -1135,13 +1135,13 @@ th-TH:
       send_feedback_to_admin: ส่งข้อความ
       to_see_what_others_have_suggested: "ดูข้อเสนอแนะของผู้ใช้อื่น ๆ และโหวดไอเดียที่นั่น"
       your_email_address: "อีเมล์ของคุณ (เพื่อใช้ติดต่อคุณ)"
-      connect: ลงทะเบียน
+      connect: สมัครสมาชิก
       invite_your_friends: เชิญเพื่อน!
       invite_your_neighbors: ชวนเพื่อนบ้าน!
       invite_your_friends_description: "ยิ่งมีผู้คนที่มีอยู่ใน %{service_name} มากเท่าใด ก็จะยิ่งมีประโยชน์มากขึ้นเท่านั้น"
       invite_your_friends_invite_only_description: "ไม่มีใครสามารถเข้าร่วม%{service_name}ได้ จนกว่าพวกเขาจะได้รับเชิญ"
       join_without_facebook: "...หรืออีกทางเลือกหนึ่ง %{join_without_facebook_link}"
-      join_without_facebook_link: "ลงทะเบียนโดยไม่ต้องใช้ Facebook"
+      join_without_facebook_link: "สมัครสมาชิกโดยไม่ต้องใช้ Facebook"
     conversations:
       messages: ข้อความ
       notifications: แจ้งเตือน
@@ -1179,7 +1179,7 @@ th-TH:
       notifications: แจ้งเตือน
       requests: ขอเป็นเพื่อน
       settings: การตั้งค่า
-      sign_up: ลงทะเบียน
+      sign_up: สมัครสมาชิก
     notifications:
       listing_could_not_be_saved: "รายการไม่สามารถบันทึกได้ กรุณาลองอีกครั้ง หากยังคงมีปัญหาอยู่ กรุณา %{contact_admin_link}"
       contact_admin_link_text: ติดต่อผู้ดูแลระบบ
@@ -1250,7 +1250,7 @@ th-TH:
       registration_considered_spam: "การลงทะเบียนไม่สำเร็จ โปรดติดต่อเราได้จากเมนูหลัก และพูดถึง \"ข้อผิดพลาดอีเมล์ 2\""
       reply_cannot_be_empty: คุณไม่สามารถที่จะส่งข้อความว่างเปล่าได้
       reply_sent: การตอบกลับได้ถูกส่งเรียบร้อยแล้ว
-      request_accepted: คำขอได้รับการยอมรับแล้ว
+      request_accepted: ออเดอร์ได้รับการตอบรับแล้ว
       request_confirmed: การสั่งซื้อสินค้าเสร็จสมบูรณ์
       request_rejected: คำขอถูกปฎิเสธ
       request_canceled: การสั่งซื้อถูกยกเลิก
@@ -1276,7 +1276,7 @@ th-TH:
       you_must_log_in_to_invite_new_users: "คุณต้องเข้าสู่ระบบในการเชิญผู้ใช้ใหม่เพื่อเข้าร่วม %{service_name}"
       you_must_log_in_to_send_a_comment: คุณต้องเข้าสู่ระบบเพื่อส่งความคิดเห็นใหม่
       you_must_log_in_to_send_a_message: "คุณต้องเข้าสู่ระบบ %{service_name} เพื่อส่งข้อความไปหาผู้ใช้คนอื่น"
-      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_do_a_transaction: "คุณต้องเข้าสู่ระบบ %{service_name} เพื่อทำธุรกรรม"
       you_must_log_in_to_view_this_content: คุณต้องเข้าสู่ระบบเพื่อดูเนื้อหานี้
       you_must_log_in_to_view_this_page: คุณต้องเข้าสู่ระบบเพื่อดูหน้านี้
       you_must_log_in_to_view_your_inbox: "คุณต้องเข้าสู่ระบบ %{service_name} เพื่อดูกล่องจดหมายของคุณ"
@@ -1294,7 +1294,7 @@ th-TH:
       email_deleted: อีเมล์ได้ถูกลบแล้ว
       listing_author_payment_details_missing: "โปรดติดต่อผู้ขายโดยการกดปุ่ม 'ติดต่อ' ด้านล่าง ผู้ขายจำเป็นต้องอัพเดทรายละเอียดการชำระเงินของตนเพื่อที่จะรับเงิน"
       images_are_processing: ~
-      automatically_logged_out_please_sign_in: ~
+      automatically_logged_out_please_sign_in: "คุณใช้งานเกินระยะเวลาที่กำหนด โปรดเข้าสู่ระบบอีกครั้งเพื่อดำเนินการต่อ"
     settings:
       account: บัญชี
       notifications: แจ้งเตือน
@@ -1508,7 +1508,7 @@ th-TH:
     show:
       add_your_phone_number: เพิ่มเบอร์โทรศัพท์ของคุณ
       add_profile_picture: เพิ่มรูปโปรไฟล์
-      comments: การอภิปรายสาธารณะ
+      comments: คอมเมนต์
       contact_by_phone: "ติดต่อทางโทรศัพท์:"
       contact: ติดต่อ
       favor_offer: ข้อเสนอการบริการ
@@ -1538,8 +1538,8 @@ th-TH:
         per_quantity_unit: "ต่อ %{quantity_unit}"
         per_day: ต่อวัน
       delivery: วิธีการส่งสินค้า
-      shipping: ~
-      shipping_no_price: ~
+      shipping: "จัดส่ง (+%{price})"
+      shipping_no_price: จัดส่ง
       shipping_price_additional: ~
       pickup: มารับด้วยตนเอง
       pickup_no_price: มารับด้วยตนเอง
@@ -1597,9 +1597,9 @@ th-TH:
   paypal_accounts:
     payout_info_title: การรับชำระเงิน
     paypal_account_email_connected: "<del>ติดต่อกับบัญชี PayPal</del> สำเร็จแล้ว!"
-    payout_info_paypal: "%{service_name} ใช้ PayPal ในการทำธุรกรรมทางการเงิน คุณจำเป็นต้องมี %{create_paypal_account_link} ที่เชื่อมต่อกับ %{service_name} แล้ว จึงจะสามารถรับชำระเงินจากผู้ซื้อได้"
+    payout_info_paypal: "%{service_name} ใช้ PayPal ในการทำธุรกรรมทางการเงิน คุณจำเป็นต้องมี %{create_paypal_account_link} ที่เชื่อมต่อกับ %{service_name} จึงจะสามารถรับชำระเงินจากผู้ซื้อได้"
     paypal_billing_agreement_made: "<del>ให้สิทธิ์แก่%{service_name}ในการเรียกเก็บค่าธรรมเนียมการทำธุรกรรม </del>เสร็จสมบูรณ์แล้ว!"
-    commission_permission_needed: "คุณจำเป็นต้องอนุญาตให้ %{service_name} สามารถหักค่าดำเนินการในการให้ความสะดวกได้ด้วย"
+    commission_permission_needed: "คุณจำเป็นต้องอนุญาตให้ %{service_name} สามารถหักค่าดำเนินการเมื่อขายสินค้าได้ด้วย"
     create_paypal_account_link_text: ~
     connected_account: "เชื่อมต่อบัญชี PayPal '%{email}' สำเร็จแล้ว"
     paypal_receive_funds_info_label_australia_only: ~
@@ -1628,9 +1628,9 @@ th-TH:
       connect_paypal_account_instructions: "คลิกปุ่มด้านล่างนี้ เพื่อล็อกอินเข้าสู่ PayPal และเชื่อมต่อแอคเคาท์ PayPal ของคุณกับ %{service_name}."
       connect_paypal_account: "เชื่อมต่อบัญชี PayPal ของคุณ"
       paypal_account_billing_agreement_with_step: "ขั้นตอนที่ %{current_step}/%{total_steps}: อนุญาตให้หักค่าดำเนินการ"
-      paypal_account_billing_agreement_info_both: "หลังจากที่คุณทำการขายใน %{service_name} ค่าธรรมเนียมในบริการ (%{commission_from_seller} ของราคาสินค้าทั้งหมด ไม่รวมค่าจัดส่ง ค่าธรรมเนียมขั้นต่ำ %{minimum_commission}) จะถูกเรียกเก็บเงินจากบัญชี PayPal ของคุณ การให้อนุญาตให้ทำเช่นนี้เป็นสิ่งจำเป็นเพื่อที่จะรับการชำระเงินใน %{service_name} ค่าธรรมเนียมนี้ไม่รวม %{paypal_info_link}"
+      paypal_account_billing_agreement_info_both: "หลังจากที่คุณขายสินค้าสำเร็จบน %{service_name} ค่าธรรมเนียมในการให้บริการ (%{commission_from_seller} ของราคาสินค้าทั้งหมด ไม่รวมค่าจัดส่งและค่าธรรมเนียมขั้นต่ำ %{minimum_commission}) จะถูกเรียกเก็บจากบัญชี PayPal ของคุณ คุณจำเป็นต้องอนุญาติให้มีการหักค่าธรรมเนียมดังกล่าว เพื่อที่จะรับชำระเงินใน %{service_name} ค่าธรรมเนียมนี้ไม่รวม %{paypal_info_link}"
       paypal_account_billing_agreement_info_fixed: ~
-      paypal_account_billing_agreement_info_relative: ~
+      paypal_account_billing_agreement_info_relative: "หลังจากที่คุณขายสินค้าสำเร็จบน %{service_name} ค่าธรรมเนียมในการให้บริการ (%{commission_from_seller} ของราคาสินค้าทั้งหมด ไม่รวมค่าจัดส่ง) จะถูกเรียกเก็บจากบัญชี PayPal ของคุณ คุณจำเป็นต้องอนุญาติให้มีการหักค่าธรรมเนียมดังกล่าว เพื่อที่จะรับชำระเงินใน %{service_name} ค่าธรรมเนียมนี้ไม่รวม %{paypal_info_link}"
       paypal_account_billing_agreement_info_none: "ขณะนี้ %{service_name} ไม่เรียกเก็บค่าบริการ หากมีการเปิดใช้งานค่าบริการ คุณจะต้องอนุญาตให้ %{service_name} ในการเรียกเก็บค่าบริการ เพื่อที่จะยอมรับการชำระเงิน ค่าธรรมเนียมนี้ไม่รวม %{paypal_info_link}"
       paypal_info_link_text: "ค่าดำเนินการของ PayPal"
       billing_agreement_description: "ให้สิทธิ์แก่%{service_name}ในการเรียกเก็บค่าธรรมเนียมการทำธุรกรรม "
@@ -1646,17 +1646,17 @@ th-TH:
       account_restricted: ~
     paypal_account_connected_title: "เชื่อมต่อบัญชี PayPal แล้ว"
     paypal_account_connected: "บัญชี PayPal ของคุณคือ %{email} ได้เชื่อมต่อกับ %{service_name} แล้ว"
-    change_account: "เปลี่ยนบัญชี PayPal แล้ว"
+    change_account: "เปลี่ยนบัญชี PayPal"
     missing: "คุณมีรายการที่เปิดอยู่ แต่บัญชี PayPal ของคุณไม่ได้ถูกตั้งค่าเพื่อที่จะได้รับการชำระเงิน กรุณาเชื่อมต่อบัญชี PayPal ของคุณและให้อนุญาต %{service_name} ในการเรียกเก็บค่าธรรมเนียมการทำธุรกรรมจาก %{settings_link} ของคุณ"
     from_your_payment_settings_link_text: ~
     redirect_message: "ระบบกำลังนำคุณไปสู่หน้าของ PayPal หากไม่มีความเคลื่อนไหว คลิกที่นี่ %{redirect_link}"
     redirect_link_text: ~
-    paypal_account_all_set_up: ~
-    can_receive_payments: ~
-    paypal_account_connected_summary: ~
-    paypal_permission_granted_summary: ~
+    paypal_account_all_set_up: การตั้งค่าสำเร็จสมบูรณ์
+    can_receive_payments: คุณสามารถรับชำระเงินจากการขายสินค้าได้แล้ว
+    paypal_account_connected_summary: "เชื่อมต่อบัญชี PayPal <%{email}> สำเร็จแล้ว"
+    paypal_permission_granted_summary: คุณได้อนุญาตให้มีการหักค่าธรรมเนียมเมื่อขายสินค้าได้แล้ว
   paypal:
-    pay_with_paypal: ~
+    pay_with_paypal: ดำเนินการชำระเงิน
     checkout_with_paypal: "เช็คเอาท์ด้วย PayPal"
     cancel_succesful: ~
     transaction:
@@ -1700,9 +1700,9 @@ th-TH:
       username_is_invalid: "ชื่อผู้ใช้ไม่ถูกต้อง ตัวอักษร ตัวเลข และเส้นใต้เท่านั้นที่สามารถใช้ได้"
       visible_only_to_you: "ปรากฎให้เห็นเฉพาะกับคุณ และผู้ดูแลระบบตลาด"
       visible_to_everybody: ปรากฎให้เห็นกับทุกคน
-      create_account_with_facebook: "ลงทะเบียนด้วย Facebook"
+      create_account_with_facebook: "สมัครสมาชิกด้วย Facebook"
       OR: หรือ
-      signup_with_email: ลงทะเบียนด้วยอีเมล์
+      signup_with_email: สมัครสมาชิกด้วยอีเมล์
     profile_feedback:
       grade: "เกรด:"
       and_gave_following_feedback: และให้ข้อเสนอแนะดังต่อไปนี้
@@ -2018,8 +2018,8 @@ th-TH:
       manage_listings: ~
       settings: ~
       logout: ~
-      login: ~
-      signup: ~
+      login: เข้าสู่ระบบ
+      signup: สมัครสมาชิก
       admin_dashboard: ~
       language: ~
     utils:
