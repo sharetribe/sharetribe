@@ -87,6 +87,14 @@ class Transaction < ActiveRecord::Base
     self.booking_uuid = UUIDUtils.raw(uuid)
   end
 
+  def community_uuid_object
+    if self[:community_uuid].nil?
+      nil
+    else
+      UUIDUtils.parse_raw(self[:community_uuid])
+    end
+  end
+
   def status
     current_state
   end
