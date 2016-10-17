@@ -96,7 +96,8 @@ class PreauthorizeTransactionsController < ApplicationController
                                  quantity_selector:,
                                  shipping_enabled:,
                                  pickup_enabled:,
-                                 availability_enabled:)
+                                 availability_enabled:,
+                                 auth_context:)
 
       validate_delivery_method(tx_params: tx_params, shipping_enabled: shipping_enabled, pickup_enabled: pickup_enabled)
         .and_then { validate_booking(tx_params: tx_params, quantity_selector: quantity_selector) }
@@ -105,7 +106,8 @@ class PreauthorizeTransactionsController < ApplicationController
             validate_booking_timeslots(tx_params: tx_params,
                                        marketplace_uuid: marketplace_uuid,
                                        listing_uuid: listing_uuid,
-                                       quantity_selector: quantity_selector)
+                                       quantity_selector: quantity_selector,
+                                       auth_context: auth_context)
           else
             Result::Success.new(result)
           end
@@ -172,7 +174,7 @@ class PreauthorizeTransactionsController < ApplicationController
       }
     end
 
-    def validate_booking_timeslots(tx_params:, marketplace_uuid:, listing_uuid:, quantity_selector:)
+    def validate_booking_timeslots(tx_params:, marketplace_uuid:, listing_uuid:, quantity_selector:, auth_context:)
       start_on, end_on = tx_params.values_at(:start_on, :end_on)
 
       # The calendar UI doesn't give the exclusive end date for the
@@ -189,6 +191,9 @@ class PreauthorizeTransactionsController < ApplicationController
           refId: listing_uuid,
           start: start_on,
           end: end_adjusted
+        },
+        opts: {
+          auth_context: auth_context
         }
       ).rescue {
         Result::Error.new(nil, code: :harmony_api_error)
@@ -225,13 +230,19 @@ class PreauthorizeTransactionsController < ApplicationController
         shipping_enabled: listing.require_shipping_address,
         pickup_enabled: listing.pickup_enabled)
 
+      auth_context = {
+        marketplace_id: @current_community.uuid_object,
+        actor_id: @current_user.uuid_object
+      }
+
       Validator.validate_initiate_params(marketplace_uuid: @current_community.uuid_object,
                                          listing_uuid: listing.uuid_object,
                                          tx_params: tx_params,
                                          quantity_selector: listing.quantity_selector&.to_sym,
                                          shipping_enabled: listing.require_shipping_address,
                                          pickup_enabled: listing.pickup_enabled,
-                                         availability_enabled: listing.availability.to_sym == :booking)
+                                         availability_enabled: listing.availability.to_sym == :booking,
+                                         auth_context: auth_context)
     }
 
     validation_result.on_success { |tx_params|

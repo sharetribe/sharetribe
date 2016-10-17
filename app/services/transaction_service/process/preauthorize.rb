@@ -160,6 +160,11 @@ module TransactionService::Process
       end_on = tx[:booking][:end_on]
       end_adjusted = tx[:unit_type] == :day ? end_on + 1.days : end_on
 
+      auth_context = {
+        marketplace_id: tx[:community_uuid],
+        actor_id: UUIDUtils.base64_to_uuid(tx[:starter_id])
+      }
+
       HarmonyClient.post(
         :initiate_booking,
         body: {
@@ -171,7 +176,8 @@ module TransactionService::Process
           end: end_adjusted
         },
         opts: {
-          max_attempts: 3
+          max_attempts: 3,
+          auth_context: auth_context
         }).rescue { |error_msg, data|
 
         new_data =
