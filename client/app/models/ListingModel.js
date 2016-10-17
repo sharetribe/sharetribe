@@ -37,15 +37,19 @@ const parseListingImages = (images) => new ListingImage({
   square2x: images.square2x,
 });
 
-export const parse = (l) => new ListingModel({
-  id: l.get(':id'),
-  extId: l.getIn([':attributes', ':extId']),
-  distance: l.getIn([':attributes', ':distance']),
-  images: l.getIn([':attributes', ':images']).map(parseListingImages),
-  orderType: l.getIn([':attributes', ':orderType']),
-  price: l.getIn([':attributes', ':price']),
-  title: l.getIn([':attributes', ':title']),
-  authorId: l.getIn([':relationships', ':author', ':id']),
-});
+export const parse = (l) => {
+  const rawImages = l.getIn([':attributes', ':images']);
+  const images = rawImages ? rawImages.map(parseListingImages) : new Immutable.List();
+  return new ListingModel({
+    id: l.get(':id'),
+    extId: l.getIn([':attributes', ':extId']),
+    distance: l.getIn([':attributes', ':distance']),
+    images,
+    orderType: l.getIn([':attributes', ':orderType']),
+    price: l.getIn([':attributes', ':price']),
+    title: l.getIn([':attributes', ':title']),
+    authorId: l.getIn([':relationships', ':author', ':id']),
+  });
+};
 
 export default ListingModel;

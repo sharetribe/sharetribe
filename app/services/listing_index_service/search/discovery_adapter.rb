@@ -20,7 +20,7 @@ module ListingIndexService::Search
       path_base = "/discovery/listings/query"
       begin
         res = @conn.get do |req|
-          req.url(path_base, format_params(search.merge({marketplace_id: community_id})))
+          req.url(path_base, format_params(search.merge({ marketplace_id: community_id })))
           req.headers['Authorization'] = "apikey key=#{API_KEY}"
           req.headers['Accept'] = "application/transit+json"
         end
@@ -58,6 +58,7 @@ module ListingIndexService::Search
       }.or_else({})
 
       {
+       :marketplace_id => original[:marketplace_id],
        :'search[keywords]' => original[:keywords],
        :'page[number]' => original[:page],
        :'page[size]' => original[:per_page],
