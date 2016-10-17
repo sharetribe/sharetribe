@@ -513,6 +513,20 @@ class ApplicationController < ActionController::Base
 
   helper_method :topbar_props
 
+  def notifications_to_react
+    # Different way to display flash messages on React pages
+    if (params[:controller] == "homepage" && params[:action] == "index" && FeatureFlagHelper.search_engine == :discovery)
+      notifications = [:notice, :warning, :error].each_with_object({}) do |level, acc|
+        if flash[level]
+          acc[level] = flash[level]
+          flash.delete(level)
+        end
+      end.compact
+    end
+  end
+
+  helper_method :notifications_to_react
+
   def header_props
     user = Maybe(@current_user).map { |u|
       {

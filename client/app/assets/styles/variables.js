@@ -20,6 +20,8 @@ const textColorGrey = 'rgb(122, 125, 128)';
 const textColorLight = 'rgb(255, 255, 255)';
 const textColorDark = 'rgb(28, 30, 33)';
 const textColorSelected = '#4a4a4a';
+const textColorNotification = 'rgb(85,95,106)';
+const textColorNotificationHover = 'rgb(34,44,55)';
 const backgroundLightColor = 'white';
 const backgroundLightColorHover = 'rgba(169, 172, 176, 0.07)';
 const backgroundColorGrey = '#F7F7F7';
@@ -27,8 +29,10 @@ const customColorFallback = '#4a90e2';
 const customColor2Fallback = '#2ab  865';
 const alertColor = '#ff4e36';
 
+const minimumButtonSize = 44;
 const borderColor = 'rgba(169, 172, 176, 0.5)';
-const topbarItemHeight = '44px';
+const borderColorNotification = '#e1e1e1';
+const topbarItemHeight = `${minimumButtonSize}px`;
 const topbarMediumItemHeight = '36px';
 const bodyPadding = '24px';
 
@@ -246,7 +250,7 @@ module.exports = {
   '--MobileMenu_labelPaddingVertical': '18px',
   '--MobileMenu_labelPaddingHorizontal': '18px',
   '--MobileMenu_offscreenMenuWidth': '288px',
-  '--MobileMenu_offscreenHeaderItemHeight': '44px',
+  '--MobileMenu_offscreenHeaderItemHeight': `${minimumButtonSize}px`,
   '--MobileMenu_offscreenFooterBackgroundColor': backgroundColorGrey,
   '--MobileMenu_offscreenFooterMarginTop': pxToEms(14, 17),
 
@@ -310,4 +314,22 @@ module.exports = {
 
   '--Avatar_textColor': textColorLight,
   '--Avatar_backgroundColor': 'hsl(210, 40%, 70%)',
+
+  '--FlashNotification_spacingOutside': '12px',
+  '--FlashNotification_spacingInside': '14px',
+  '--FlashNotification_zIndex': zIndexMinimum + 10,
+  '--FlashNotification_border': borderColorNotification,
+  '--FlashNotification_boxShadow': '0 3px 20px 0 rgba(0,0,0,0.2)',
+  '--FlashNotification_errorColor': 'rgb(237, 79, 46)',
+  '--FlashNotification_textColor': textColorNotification,
+  '--FlashNotification_textColorHover': textColorNotificationHover,
+  '--FlashNotification_errorTextColor': textColorLight,
+  '--FlashNotification_errorTextColorHover': '#ccc',
+  '--FlashNotification_fontSize': fontSizeBig,
+  '--FlashNotification_lineHeight': '1.375rem',
+  '--FlashNotification_contentPadding': '18px 8px 20px 24px',
+  '--FlashNotification_fontSizeClose': '10px',
+  '--FlashNotification_closeIconSize': `${minimumButtonSize}px`,
+  '--FlashNotification_closeIconExtraSpace': '20px',
+
 };

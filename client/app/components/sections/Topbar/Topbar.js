@@ -22,7 +22,6 @@ import MenuMobile from '../../composites/MenuMobile/MenuMobile';
 import MenuPriority from '../../composites/MenuPriority/MenuPriority';
 import SearchBar from '../../composites/SearchBar/SearchBar';
 
-
 const LABEL_TYPE_MENU = 'menu';
 const LABEL_TYPE_DROPDOWN = 'dropdown';
 const SEARCH_PARAMS_TO_KEEP = ['view', 'locale'];
