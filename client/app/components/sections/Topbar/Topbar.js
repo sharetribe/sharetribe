@@ -61,8 +61,7 @@ const avatarDropdownProps = (avatarDropdown, customColor, username, isAdmin, not
     adminDashboard: t('web.topbar.admin_dashboard'),
     logout: t('web.topbar.logout'),
   };
-  const avatar = { ...avatarDropdown.avatar, color };
-  return { actions, translations, customColor: color, isAdmin, notificationCount, ...avatarDropdown, avatar };
+  return { actions, translations, customColor: color, isAdmin, notificationCount, ...avatarDropdown };
 };
 
 const mobileProfileLinks = function mobileProfileLinks(username, isAdmin, router, location, customColor, unReadMessagesCount) {
@@ -207,7 +206,7 @@ class Topbar extends Component {
       this.props.routes.person_path(loggedInUsername) :
       null;
     const mobileMenuAvatarProps = this.props.avatarDropdown && loggedInUsername ?
-      { ...this.props.avatarDropdown.avatar, url: profileRoute, color: marketplaceColor1 } :
+      { ...this.props.avatarDropdown.avatar, url: profileRoute } :
       null;
     const mobileMenuProps = hasMenuProps ?
       Object.assign({}, this.props.menu, {
