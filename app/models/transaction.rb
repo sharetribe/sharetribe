@@ -21,7 +21,7 @@
 #  minimum_commission_currency       :string(255)
 #  payment_gateway                   :string(255)      default("none"), not null
 #  listing_quantity                  :integer          default(1)
-#  listing_author_id                 :string(255)
+#  listing_author_id                 :string(255)      not null
 #  listing_title                     :string(255)
 #  unit_type                         :string(32)
 #  unit_price_cents                  :integer
