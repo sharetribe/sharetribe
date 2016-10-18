@@ -334,7 +334,7 @@ module ApplicationHelper
       :topic => :general,
       :text => t("admin.left_hand_navigation.preview"),
       :icon_class => icon_class("eye"),
-      :path => search_path(big_cover_photo: true),
+      :path => homepage_without_locale_path(big_cover_photo: true, locale: nil),
       :name => "preview",
     }
 
