@@ -4,7 +4,7 @@
 #
 #  id                                :integer          not null, primary key
 #  starter_id                        :string(255)      not null
-#  starter_uuid                      :binary(16)
+#  starter_uuid                      :binary(16)       not null
 #  listing_id                        :integer          not null
 #  listing_uuid                      :binary(16)       not null
 #  conversation_id                   :integer
@@ -23,7 +23,7 @@
 #  payment_gateway                   :string(255)      default("none"), not null
 #  listing_quantity                  :integer          default(1)
 #  listing_author_id                 :string(255)      not null
-#  listing_author_uuid               :binary(16)
+#  listing_author_uuid               :binary(16)       not null
 #  listing_title                     :string(255)
 #  unit_type                         :string(32)
 #  unit_price_cents                  :integer
