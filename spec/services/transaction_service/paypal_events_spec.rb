@@ -16,7 +16,9 @@ describe TransactionService::PaypalEvents do
       listing_uuid: opts[:listing_uuid],
       listing_title: opts[:listing_title],
       listing_author_id: opts[:listing_author_id],
+      listing_author_uuid: opts[:listing_author_uuid],
       starter_id: opts[:starter_id],
+      starter_uuid: opts[:starter_uuid],
       unit_price: opts[:unit_price],
       listing_quantity: Maybe(opts)[:listing_quantity].or_else(1),
       payment_gateway: opts[:payment_gateway],
@@ -66,11 +68,13 @@ describe TransactionService::PaypalEvents do
       community_id: @cid,
       community_uuid: @community.uuid, # raw UUID
       starter_id: @payer.id,
+      starter_uuid: @payer.uuid, # raw UUID
       listing_id: @listing.id,
       listing_title: @listing.title,
       listing_uuid: @listing.uuid, # raw UUID
       unit_price: @listing.price,
       listing_author_id: @listing.author_id,
+      listing_author_uuid: @listing.author.uuid, # raw UUID
       listing_quantity: 1,
       automatic_confirmation_after_days: 3,
       commission_from_seller: 10,
