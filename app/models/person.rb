@@ -177,8 +177,17 @@ class Person < ActiveRecord::Base
     set_default_preferences unless self.preferences
   end
 
+  before_create :add_uuid
+  def add_uuid
+    self.uuid ||= UUIDUtils.create_raw
+  end
+
   def uuid_object
-    UUIDTools::UUID.parse_raw(Base64.urlsafe_decode64(self.id))
+    if self[:uuid].nil?
+      nil
+    else
+      UUIDUtils.parse_raw(self[:uuid])
+    end
   end
 
   # Creates a new email
