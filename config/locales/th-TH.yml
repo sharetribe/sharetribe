@@ -867,8 +867,8 @@ th-TH:
       remember_to_give_feedback_to: "เตือนความจำ: อย่าลืมที่จะให้ข้อเสนอแนะไปยัง %{name}"
       you_have_not_given_feedback_yet: "คุณยังไม่ได้ให้ข้อเสนอแนะไปยัง %{name} เกี่ยวกับ %{event} อย่าลืมให้ข้อเสนอแนะ เกี่ยวกับการที่ %{given_name} ได้ดำเนินการในกรณีดังกล่าว"
     transaction_preauthorized:
-      subject: "%{requester} ได้ร้องขอและขออำนาจในการชำระเงินสำหรับ %{listing_title}"
-      transaction_requested_by_user: "%{requester} ได้ร้องขอและขออำนาจในการชำระเงินสำหรับ %{listing_title}"
+      subject: "%{requester} ได้ยื่นคำขอชำระเงินเพื่อซื้อสินค้าหรือบริการ %{listing_title}"
+      transaction_requested_by_user: "%{requester} ได้ยื่นคำขอชำระเงินเพื่อซื้อสินค้าหรือบริการ %{listing_title}"
       you_have_time_to_accept: "คุณต้องยอมรับหรือปฏิเสธคำขอภายใน %{payment_expires_in} หากคุณยอมรับ ภายในระยะเวลานี้ การชำระเงินจะผ่านระบบไป แต่ถ้าคุณไม่ยอมรับ คำขอจะถูกปฏิเสธ โดยอัตโนมัติ และคุณจะไม่ได้รับเงิน"
       click_here_to_reply: คลิกที่นี่เพื่อตอบสนองต่อคำขอ
     transaction_preauthorized_reminder:
@@ -1030,7 +1030,7 @@ th-TH:
       some_private_offers_exist: "มีข้อเสนออยู่แล้ว <b>%{number_of_listings} ข้อ</b>,"
       some_private_requests_exist: "มีคำขออยู่แล้ว <b>%{number_of_listings} ข้อ</b>,"
     custom_filters:
-      update_view: "ค้นหาชุด ตามสัดส่วนที่กำหนด"
+      update_view: ค้นหา
       min: "ต่ำสุด:"
       max: "สูงสุด:"
     event_feed:
