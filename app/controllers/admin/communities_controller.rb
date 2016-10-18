@@ -201,6 +201,12 @@ class Admin::CommunitiesController < ApplicationController
             :topbar)
   end
 
+  def landing_page
+    @selected_left_navi_link = "landing_page"
+
+    render :landing_page, locals: { community: @current_community }
+  end
+
   def test_welcome_email
     MailCarrier.deliver_later(PersonMailer.welcome_email(@current_user, @current_community, true, true))
     flash[:notice] = t("layouts.notifications.test_welcome_email_delivered_to", :email => @current_user.confirmed_notification_email_to)
