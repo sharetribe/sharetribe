@@ -1320,7 +1320,7 @@ DROP TABLE IF EXISTS `people`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `people` (
   `id` varchar(22) NOT NULL,
-  `uuid` binary(16) DEFAULT NULL,
+  `uuid` binary(16) NOT NULL,
   `community_id` int(11) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -1359,6 +1359,7 @@ CREATE TABLE `people` (
   `deleted` tinyint(1) DEFAULT '0',
   `cloned_from` varchar(22) DEFAULT NULL,
   UNIQUE KEY `index_people_on_username_and_community_id` (`username`,`community_id`) USING BTREE,
+  UNIQUE KEY `index_people_on_uuid` (`uuid`),
   UNIQUE KEY `index_people_on_email` (`email`) USING BTREE,
   UNIQUE KEY `index_people_on_facebook_id_and_community_id` (`facebook_id`,`community_id`) USING BTREE,
   UNIQUE KEY `index_people_on_reset_password_token` (`reset_password_token`) USING BTREE,
@@ -3173,4 +3174,6 @@ INSERT INTO schema_migrations (version) VALUES ('20161018090313');
 INSERT INTO schema_migrations (version) VALUES ('20161018090314');
 
 INSERT INTO schema_migrations (version) VALUES ('20161018090517');
+
+INSERT INTO schema_migrations (version) VALUES ('20161018093208');
 
