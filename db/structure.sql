@@ -1558,7 +1558,7 @@ CREATE TABLE `transactions` (
   `minimum_commission_currency` varchar(255) DEFAULT NULL,
   `payment_gateway` varchar(255) NOT NULL DEFAULT 'none',
   `listing_quantity` int(11) DEFAULT '1',
-  `listing_author_id` varchar(255) DEFAULT NULL,
+  `listing_author_id` varchar(255) NOT NULL,
   `listing_title` varchar(255) DEFAULT NULL,
   `unit_type` varchar(32) DEFAULT NULL,
   `unit_price_cents` int(11) DEFAULT NULL,
@@ -1592,7 +1592,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-12 16:30:44
+-- Dump completed on 2016-10-18 14:13:07
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3166,4 +3166,6 @@ INSERT INTO schema_migrations (version) VALUES ('20161004141208');
 INSERT INTO schema_migrations (version) VALUES ('20161006074506');
 
 INSERT INTO schema_migrations (version) VALUES ('20161012132850');
+
+INSERT INTO schema_migrations (version) VALUES ('20161018090313');
 
