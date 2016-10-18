@@ -1543,6 +1543,7 @@ DROP TABLE IF EXISTS `transactions`;
 CREATE TABLE `transactions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `starter_id` varchar(255) NOT NULL,
+  `starter_uuid` binary(16) DEFAULT NULL,
   `listing_id` int(11) NOT NULL,
   `listing_uuid` binary(16) NOT NULL,
   `conversation_id` int(11) DEFAULT NULL,
@@ -1561,6 +1562,7 @@ CREATE TABLE `transactions` (
   `payment_gateway` varchar(255) NOT NULL DEFAULT 'none',
   `listing_quantity` int(11) DEFAULT '1',
   `listing_author_id` varchar(255) NOT NULL,
+  `listing_author_uuid` binary(16) DEFAULT NULL,
   `listing_title` varchar(255) DEFAULT NULL,
   `unit_type` varchar(32) DEFAULT NULL,
   `unit_price_cents` int(11) DEFAULT NULL,
@@ -3176,4 +3178,6 @@ INSERT INTO schema_migrations (version) VALUES ('20161018090314');
 INSERT INTO schema_migrations (version) VALUES ('20161018090517');
 
 INSERT INTO schema_migrations (version) VALUES ('20161018093208');
+
+INSERT INTO schema_migrations (version) VALUES ('20161018100657');
 
