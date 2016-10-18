@@ -3,6 +3,7 @@
 # Table name: people
 #
 #  id                                 :string(22)       not null, primary key
+#  uuid                               :binary(16)
 #  community_id                       :integer          not null
 #  created_at                         :datetime
 #  updated_at                         :datetime

@@ -1320,6 +1320,7 @@ DROP TABLE IF EXISTS `people`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `people` (
   `id` varchar(22) NOT NULL,
+  `uuid` binary(16) DEFAULT NULL,
   `community_id` int(11) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -3168,4 +3169,6 @@ INSERT INTO schema_migrations (version) VALUES ('20161006074506');
 INSERT INTO schema_migrations (version) VALUES ('20161012132850');
 
 INSERT INTO schema_migrations (version) VALUES ('20161018090313');
+
+INSERT INTO schema_migrations (version) VALUES ('20161018090314');
 
