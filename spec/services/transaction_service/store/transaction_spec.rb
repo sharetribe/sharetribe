@@ -49,6 +49,23 @@ describe TransactionService::Store::Transaction do
       expect(tx[:starter_uuid]).to eq(@payer.uuid_object)
       expect(tx[:listing_author_uuid]).to eq(@listing.author.uuid_object)
     end
+
+    it "stores UUIDs in rearranged format" do
+      created_tx = transaction_store.create(@transaction_info)
+
+      tx = transaction_store.get(created_tx[:id])
+
+      expect(tx[:starter_uuid]).to eq(@payer.uuid_object)
+      expect(tx[:listing_author_uuid]).to eq(@listing.author.uuid_object)
+      expect(tx[:community_uuid]).to eq(@community.uuid_object)
+      expect(tx[:listing_uuid]).to eq(@listing.uuid_object)
+
+      model = ::Transaction.find(tx[:id])
+      expect(model.starter_uuid).to eq(UUIDUtils.raw(@payer.uuid_object))
+      expect(model.listing_author_uuid).to eq(UUIDUtils.raw(@listing.author.uuid_object))
+      expect(model.community_uuid).to eq(UUIDUtils.raw(@community.uuid_object))
+      expect(model.listing_uuid).to eq(UUIDUtils.raw(@listing.uuid_object))
+    end
   end
 
   context "#delete" do
