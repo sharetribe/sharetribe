@@ -230,6 +230,7 @@ Metrics/ModuleLength:
 # Offense count: 8
 # Configuration parameters: CountKeywordArgs.
 Metrics/ParameterLists:
+  CountKeywordArgs: false
   Max: 7
 
 # Offense count: 48
