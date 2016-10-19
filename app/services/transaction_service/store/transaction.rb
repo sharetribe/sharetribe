@@ -89,8 +89,8 @@ module TransactionService::Store::Transaction
     tx_data = HashUtils.compact(NewTransaction.call(opts))
     tx_model = TransactionModel.new(tx_data
                                       .except(:content, :booking_fields)
-                                      .merge(listing_uuid: tx_data[:listing_uuid].raw,
-                                             community_uuid: tx_data[:community_uuid].raw,
+                                      .merge(listing_uuid: UUIDUtils.raw(tx_data[:listing_uuid]),
+                                             community_uuid: UUIDUtils.raw(tx_data[:community_uuid]),
                                              starter_uuid: UUIDUtils.raw(tx_data[:starter_uuid]),
                                              listing_author_uuid: UUIDUtils.raw(tx_data[:listing_author_uuid])))
     build_conversation(tx_model, tx_data)
@@ -179,8 +179,8 @@ module TransactionService::Store::Transaction
         hash = add_opt_shipping_address(hash, m)
         hash = add_opt_booking(hash, m)
 
-        hash[:listing_uuid]        = UUIDTools::UUID.parse_raw(hash[:listing_uuid]) if hash[:listing_uuid].present?
-        hash[:community_uuid]      = UUIDTools::UUID.parse_raw(hash[:community_uuid]) if hash[:community_uuid].present?
+        hash[:listing_uuid]        = UUIDUtils.parse_raw(hash[:listing_uuid]) if hash[:listing_uuid].present?
+        hash[:community_uuid]      = UUIDUtils.parse_raw(hash[:community_uuid]) if hash[:community_uuid].present?
         hash[:starter_uuid]        = UUIDUtils.parse_raw(hash[:starter_uuid]) if hash[:starter_uuid].present?
         hash[:listing_author_uuid] = UUIDUtils.parse_raw(hash[:listing_author_uuid]) if hash[:listing_author_uuid].present?
         hash[:booking_uuid]        = UUIDUtils.parse_raw(hash[:booking_uuid]) if hash[:booking_uuid].present?
