@@ -3,6 +3,7 @@ import r from 'r-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import * as FlashNotificationActions from '../../../actions/FlashNotificationActions';
 import * as SearchPageActions from '../../../actions/SearchPageActions';
 import * as ownPropTypes from '../../../utils/PropTypes';
 import SearchPage from './SearchPage';
@@ -28,6 +29,7 @@ const listingsWithAuthors = (listings, profiles) =>
 const mapStateToProps = function mapStateToProps(state) {
   const listings = listingsWithAuthors(state.listings, state.profiles);
   return {
+    flashNotifications: state.flashNotifications,
     searchPage: state.searchPage.set('listings', listings),
     marketplace: state.marketplace,
     routes: state.routes,
@@ -35,7 +37,7 @@ const mapStateToProps = function mapStateToProps(state) {
 };
 
 const mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return { actions: bindActionCreators(SearchPageActions, dispatch) };
+  return { actions: bindActionCreators({ ...FlashNotificationActions, ...SearchPageActions }, dispatch) };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPageContainer);

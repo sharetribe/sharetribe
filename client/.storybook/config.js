@@ -19,6 +19,7 @@ const loadStories = function loadStories() {
   require('../app/components/sections/Topbar/Topbar.story.js');
   require('../app/components/sections/OnboardingTopBar/OnboardingTopBar.story.js');
   require('../app/components/sections/OnboardingGuide/OnboardingGuide.story.js');
+  require('../app/components/composites/FlashNotification/FlashNotification.story.js');
   require('../app/components/composites/ListingCard/ListingCard.story.js');
   require('../app/components/composites/ListingCardPanel/ListingCardPanel.story.js');
   require('../app/components/composites/Menu/Menu.story.js');
