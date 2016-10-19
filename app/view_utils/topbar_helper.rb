@@ -2,7 +2,6 @@ module TopbarHelper
 
   module_function
 
-  # rubocop:disable Metrics/ParameterLists
   def topbar_props(community:, path_after_locale_change:, user: nil, search_placeholder: nil,
                    locale_param: nil, current_path: nil, landing_page: false, host_with_port:)
 
@@ -71,7 +70,6 @@ module TopbarHelper
       unReadMessagesCount: MarketplaceService::Inbox::Query.notification_count(user&.id, community.id)
     }
   end
-  # rubocop:enable Metrics/ParameterLists
 
   def links(community:, user:, locale_param:, host_with_port:)
     user_links = Maybe(community.menu_links)
