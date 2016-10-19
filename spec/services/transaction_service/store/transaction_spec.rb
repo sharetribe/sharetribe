@@ -23,12 +23,14 @@ describe TransactionService::Store::Transaction do
       community_id: @cid,
       community_uuid: @community.uuid_object,
       starter_id: @payer.id,
+      starter_uuid: @payer.uuid_object,
       listing_id: @listing.id,
       listing_uuid: @listing.uuid_object,
       listing_title: @listing.title,
       unit_price: @listing.price,
       availability: @listing.availability,
       listing_author_id: @listing.author_id,
+      listing_author_uuid: @listing.author.uuid_object,
       listing_quantity: 1,
       automatic_confirmation_after_days: 3,
       commission_from_seller: 10,
@@ -38,11 +40,14 @@ describe TransactionService::Store::Transaction do
 
   context "#create" do
     it "creates transactions with deleted set to false" do
-      tx = transaction_store.create(@transaction_info)
+      created_tx = transaction_store.create(@transaction_info)
 
-      expect(tx).not_to be_nil
+      expect(created_tx).not_to be_nil
       expect(transaction_model.first.deleted).to eq(false)
-      expect(transaction_store.get(tx[:id])).not_to be_nil
+
+      tx = transaction_store.get(created_tx[:id])
+      expect(tx[:starter_uuid]).to eq(@payer.uuid_object)
+      expect(tx[:listing_author_uuid]).to eq(@listing.author.uuid_object)
     end
   end
 

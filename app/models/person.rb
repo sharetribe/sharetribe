@@ -178,7 +178,7 @@ class Person < ActiveRecord::Base
     set_default_preferences unless self.preferences
   end
 
-  before_create :add_uuid
+  after_initialize :add_uuid
   def add_uuid
     self.uuid ||= UUIDUtils.create_raw
   end
