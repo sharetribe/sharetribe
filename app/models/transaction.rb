@@ -97,6 +97,22 @@ class Transaction < ActiveRecord::Base
     end
   end
 
+  def starter_uuid_object
+    if self[:starter_uuid].nil?
+      nil
+    else
+      UUIDUtils.parse_raw(self[:starter_uuid])
+    end
+  end
+
+  def listing_author_uuid_object
+    if self[:listing_author_uuid].nil?
+      nil
+    else
+      UUIDUtils.parse_raw(self[:listing_author_uuid])
+    end
+  end
+
   def status
     current_state
   end

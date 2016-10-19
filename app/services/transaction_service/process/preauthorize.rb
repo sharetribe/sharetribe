@@ -162,7 +162,7 @@ module TransactionService::Process
 
       auth_context = {
         marketplace_id: tx[:community_uuid],
-        actor_id: UUIDUtils.base64_to_uuid(tx[:starter_id])
+        actor_id: tx[:starter_uuid]
       }
 
       HarmonyClient.post(
@@ -170,7 +170,7 @@ module TransactionService::Process
         body: {
           marketplaceId: tx[:community_uuid],
           refId: tx[:listing_uuid],
-          customerId: UUIDUtils.base64_to_uuid(tx[:starter_id]),
+          customerId: tx[:starter_uuid],
           initialStatus: :paid,
           start: tx[:booking][:start_on],
           end: end_adjusted
