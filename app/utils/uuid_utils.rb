@@ -1,5 +1,39 @@
 module UUIDUtils
 
+  # This lambda can be used as a Entity transformer.
+  #
+  # Usage:
+  #
+  # [:listing_uuid, :uuid, transform_with: UUIDUtils::PARSE_RAW]
+  #
+  PARSE_RAW = ->(v) {
+    case v
+    when nil
+      nil
+    when UUIDTools::UUID
+      v
+    else
+      parse_raw(v)
+    end
+  }
+
+  # This lambda can be used as a Entity transformer.
+  #
+  # Usage:
+  #
+  # [:listing_uuid, :uuid, transform_with: UUIDUtils::RAW]
+  #
+  RAW = ->(v) {
+    case v
+    when nil
+      nil
+    when String
+      v
+    else
+      raw(v)
+    end
+  }
+
   module_function
 
   def create

@@ -5,15 +5,15 @@ module TransactionService::Store::Transaction
 
   NewTransaction = EntityUtils.define_builder(
     [:community_id, :fixnum, :mandatory],
-    [:community_uuid, :uuid, :mandatory],
+    [:community_uuid, :string, :mandatory, transform_with: UUIDUtils::RAW], # :string type for raw bytes
     [:listing_id, :fixnum, :mandatory],
-    [:listing_uuid, :uuid, :mandatory],
+    [:listing_uuid, :string, :mandatory, transform_with: UUIDUtils::RAW], # :string type for raw bytes
     [:starter_id, :string, :mandatory],
-    [:starter_uuid, :uuid, :mandatory],
+    [:starter_uuid, :string, :mandatory, transform_with: UUIDUtils::RAW], # :string type for raw bytes
     [:listing_quantity, :fixnum, default: 1],
     [:listing_title, :string, :mandatory],
     [:listing_author_id, :string, :mandatory],
-    [:listing_author_uuid, :uuid, :mandatory],
+    [:listing_author_uuid, :string, :mandatory, transform_with: UUIDUtils::RAW], # :string type for raw bytes
     [:unit_type, :to_symbol, one_of: [:hour, :day, :night, :week, :month, :custom, nil]],
     [:unit_price, :money, default: Money.new(0)],
     [:unit_tr_key, :string],
@@ -33,15 +33,15 @@ module TransactionService::Store::Transaction
   Transaction = EntityUtils.define_builder(
     [:id, :fixnum, :mandatory],
     [:community_id, :fixnum, :mandatory],
-    [:community_uuid, :uuid], # This will be mandatory once the migrations have run
+    [:community_uuid, :uuid, :mandatory, transform_with: UUIDUtils::PARSE_RAW],
     [:listing_id, :fixnum, :mandatory],
-    [:listing_uuid, :uuid, :mandatory], # This will be mandatory once the migrations have run
+    [:listing_uuid, :uuid, :mandatory, transform_with: UUIDUtils::PARSE_RAW],
     [:starter_id, :string, :mandatory],
-    [:starter_uuid, :uuid, :mandatory],
+    [:starter_uuid, :uuid, :mandatory, transform_with: UUIDUtils::PARSE_RAW],
     [:listing_quantity, :fixnum, :mandatory],
     [:listing_title, :string, :mandatory],
     [:listing_author_id, :string, :mandatory],
-    [:listing_author_uuid, :uuid, :mandatory],
+    [:listing_author_uuid, :uuid, :mandatory, transform_with: UUIDUtils::PARSE_RAW],
     [:unit_type, :to_symbol, one_of: [:hour, :day, :night, :week, :month, :custom, nil]],
     [:unit_price, :money, default: Money.new(0)],
     [:unit_tr_key, :string],
@@ -87,12 +87,8 @@ module TransactionService::Store::Transaction
 
   def create(opts)
     tx_data = HashUtils.compact(NewTransaction.call(opts))
-    tx_model = TransactionModel.new(tx_data
-                                      .except(:content, :booking_fields)
-                                      .merge(listing_uuid: UUIDUtils.raw(tx_data[:listing_uuid]),
-                                             community_uuid: UUIDUtils.raw(tx_data[:community_uuid]),
-                                             starter_uuid: UUIDUtils.raw(tx_data[:starter_uuid]),
-                                             listing_author_uuid: UUIDUtils.raw(tx_data[:listing_author_uuid])))
+    tx_model = TransactionModel.new(tx_data.except(:content, :booking_fields))
+
     build_conversation(tx_model, tx_data)
     build_booking(tx_model, tx_data)
 
@@ -178,12 +174,6 @@ module TransactionService::Store::Transaction
 
         hash = add_opt_shipping_address(hash, m)
         hash = add_opt_booking(hash, m)
-
-        hash[:listing_uuid]        = UUIDUtils.parse_raw(hash[:listing_uuid]) if hash[:listing_uuid].present?
-        hash[:community_uuid]      = UUIDUtils.parse_raw(hash[:community_uuid]) if hash[:community_uuid].present?
-        hash[:starter_uuid]        = UUIDUtils.parse_raw(hash[:starter_uuid]) if hash[:starter_uuid].present?
-        hash[:listing_author_uuid] = UUIDUtils.parse_raw(hash[:listing_author_uuid]) if hash[:listing_author_uuid].present?
-        hash[:booking_uuid]        = UUIDUtils.parse_raw(hash[:booking_uuid]) if hash[:booking_uuid].present?
 
         hash
       }
