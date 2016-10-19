@@ -19,7 +19,9 @@ module MarketplaceService
         :author_skipped_feedback,
         :starter_skipped_feedback,
         :starter_id,
+        :starter_uuid,
         :listing_author_id,
+        :listing_author_uuid,
         :testimonials,
         :transitions,
         :payment_total,
@@ -106,6 +108,8 @@ module MarketplaceService
           availability: transaction_model.availability.to_sym,
           booking_uuid: transaction_model.booking_uuid_object,
           community_uuid: transaction_model.community_uuid_object,
+          starter_uuid: transaction_model.starter_uuid_object,
+          listing_author_uuid: transaction_model.listing_author_uuid_object,
           __model: transaction_model
         })]
       end
@@ -374,7 +378,7 @@ module MarketplaceService
 
         auth_context = {
           marketplace_id: transaction[:community_uuid],
-          actor_id: UUIDUtils.base64_to_uuid(transaction[:listing_author_id])
+          actor_id: transaction[:listing_author_uuid]
         }
 
         HarmonyClient.post(
@@ -383,7 +387,7 @@ module MarketplaceService
             id: transaction[:booking_uuid]
           },
           body: {
-            actorId: UUIDUtils.base64_to_uuid(transaction[:listing_author_id]),
+            actorId: transaction[:listing_author_uuid],
             reason: :provider_accepted
           },
           opts: {
@@ -401,7 +405,7 @@ module MarketplaceService
 
         auth_context = {
           marketplace_id: transaction[:community_uuid],
-          actor_id: UUIDUtils.base64_to_uuid(transaction[:listing_author_id])
+          actor_id: transaction[:listing_author_uuid]
         }
 
         HarmonyClient.post(
@@ -410,7 +414,7 @@ module MarketplaceService
             id: transaction[:booking_uuid]
           },
           body: {
-            actorId: UUIDUtils.base64_to_uuid(transaction[:listing_author_id]),
+            actorId: transaction[:listing_author_uuid],
 
             # Passing the reason to the event handler is a bit
             # cumbersome. We decided to skip it for now. That's why
