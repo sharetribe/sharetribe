@@ -27,7 +27,7 @@ module TransactionService::Store::Transaction
     [:automatic_confirmation_after_days, :fixnum, :mandatory],
     [:minimum_commission, :money, :mandatory],
     [:content, :string],
-    [:booking_uuid, :uuid],
+    [:booking_uuid, :string, transform_with: UUIDUtils::RAW], # :string type for raw bytes
     [:booking_fields, :hash])
 
   Transaction = EntityUtils.define_builder(
@@ -57,7 +57,7 @@ module TransactionService::Store::Transaction
     [:last_transition_at, :time],
     [:current_state, :to_symbol],
     [:shipping_address, :hash],
-    [:booking_uuid, :uuid],
+    [:booking_uuid, :uuid, transform_with: UUIDUtils::PARSE_RAW],
     [:booking, :hash])
 
   ShippingAddress = EntityUtils.define_builder(
