@@ -3,6 +3,7 @@
 # Table name: people
 #
 #  id                                 :string(22)       not null, primary key
+#  uuid                               :binary(16)       not null
 #  community_id                       :integer          not null
 #  created_at                         :datetime
 #  updated_at                         :datetime
@@ -52,6 +53,7 @@
 #  index_people_on_reset_password_token          (reset_password_token) UNIQUE
 #  index_people_on_username                      (username)
 #  index_people_on_username_and_community_id     (username,community_id) UNIQUE
+#  index_people_on_uuid                          (uuid) UNIQUE
 #
 
 require 'spec_helper'
