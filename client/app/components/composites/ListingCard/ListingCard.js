@@ -1,7 +1,7 @@
 import { Component, PropTypes } from 'react';
 import r, { a, div, img } from 'r-dom';
 import classNames from 'classnames';
-import { t, fullLocaleCode, localizedString } from '../../../utils/i18n';
+import { t, fullLocaleCode, localizedString, localizedPricingUnit } from '../../../utils/i18n';
 import { canUseDOM } from '../../../utils/featureDetection';
 import { tint, avatarColor } from '../../../utils/colors';
 import { formatDistance, formatMoney } from '../../../utils/numbers';
@@ -55,8 +55,9 @@ class ListingCard extends Component {
     const price = listing.price;
     const moneyFormatted = price ? formatMoney(price.get(':money'), localeCode) : null;
     const hasPricingUnit = price && price.get(':pricingUnit') != null;
-    const pricingUnit = price ? localizedString(price.get(':pricingUnit'), 'pricing unit') : '';
-    const pricingUnitFormatted = `/ ${pricingUnit}`;
+    const pricingUnitFormatted = hasPricingUnit ?
+      `/ ${localizedPricingUnit(price.get(':pricingUnit'))}` :
+      '';
     const orderTypeLabel = localizedString(listing.orderType, 'order type');
 
     return div({
