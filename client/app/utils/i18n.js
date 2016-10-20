@@ -92,6 +92,16 @@ const localizedString = function localizedString(localizationMap, scope) {
   }
 };
 
+const localizedPricingUnit = function localizedPricingUnit(pricingUnit) {
+  const pricingUnitType = pricingUnit.get(':unit');
+  if (pricingUnitType === 'custom') {
+    return localizedString(pricingUnit.get(':customTranslations'), 'pricing unit');
+  } else if (['piece', 'hour', 'day', 'night', 'week', 'month'].includes(pricingUnitType)) {
+    return I18n.t(`web.listings.pricing_units.${pricingUnitType}`);
+  }
+  return missingTranslationMessage(pricingUnitType);
+};
+
 const currentLocale = function currentLocale() {
   return I18n.localeInfo;
 };
@@ -119,6 +129,7 @@ export {
   initialize,
   localize,
   localizedString,
+  localizedPricingUnit,
   pluralize,
   translate,
   l,
