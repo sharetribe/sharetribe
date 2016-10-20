@@ -14,4 +14,5 @@ export default {
   routes: routesReducer,
   listings: (state = {}) => state,
   profiles: (state = {}) => state,
+  topbar: (state = {}) => state,
 };

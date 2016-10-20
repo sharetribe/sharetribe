@@ -2,7 +2,9 @@ import { Component, PropTypes } from 'react';
 import r, { div } from 'r-dom';
 import Immutable from 'immutable';
 import styleVariables from '../../../assets/styles/variables';
+import { routes as routesProp } from '../../../utils/PropTypes';
 
+import Topbar from '../../sections/Topbar/Topbar';
 import ListingCard from '../../composites/ListingCard/ListingCard';
 import ListingCardPanel from '../../composites/ListingCardPanel/ListingCardPanel';
 import Branding from '../../composites/Branding/Branding';
@@ -38,6 +40,10 @@ class SearchPage extends Component {
     const { marketplace_color1: marketplaceColor1, displayBrandingInfo, linkToSharetribe } = { ...DEFAULT_CONTEXT, ...this.props.marketplace };
     const displayBranding = this.props.marketplace && displayBrandingInfo && linkToSharetribe;
     return div({ className: css.searchPage }, [
+      r(Topbar, {
+        ...this.props.topbar,
+        routes: this.props.routes,
+      }),
       r(ListingCardPanel,
         { className: css.listingContainer },
         this.listings.map((listing) =>
@@ -73,6 +79,8 @@ SearchPage.propTypes = {
     displayBrandingInfo: bool,
     linkToSharetribe: string,
   }),
+  routes: routesProp,
+  topbar: shape(Topbar.propTypes).isRequired,
 };
 
 export default SearchPage;

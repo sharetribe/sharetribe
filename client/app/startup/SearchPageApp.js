@@ -57,6 +57,13 @@ export default (props) => {
   const routes = subset([
     'listing',
     'person',
+    'new_listing',
+    'person_inbox',
+    'person_settings',
+    'logout',
+    'admin',
+    'login',
+    'sign_up',
   ], { locale });
 
   const bootstrappedData = TransitImmutableConverter.fromJSON(props.data);
@@ -79,7 +86,9 @@ export default (props) => {
     profiles,
     routes,
     searchPage,
+    topbar: { ...props.topbar, routes },
   };
+
   const combinedReducer = combineReducers(reducers);
 
   const store = applyMiddleware(middleware)(createStore)(combinedReducer, combinedProps);
