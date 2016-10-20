@@ -389,7 +389,7 @@ th-TH:
         read_more_about_order_types: ~
         add_new_shape: ~
         select_template: ~
-        all_categories: ~
+        all_categories: หมวดหมู่ทั้งหมด
         no_categories: ~
         category_count: ~
         header:
@@ -878,8 +878,8 @@ th-TH:
       click_here_to_reply: คลิกที่นี่เพื่อตอบสนองต่อคำขอ
     welcome_email:
       welcome_email_subject: "ยินดีต้อนรับสู่ %{service_name}!"
-      welcome_to_marketplace: "ยินดีต้อนรับสู่ %{service_name}! เราดีใจที่คุณอยู่ในนี้"
-      love_marketplace_crew: "ด้วยรัก, <br /><i>ลูกเรือ%{service_name}</i>"
+      welcome_to_marketplace: "ยินดีต้อนรับสู่ %{service_name} ค่ะ"
+      love_marketplace_crew: "ด้วยความเคารพ, <br /><i>ทีมงาน%{service_name}</i>"
       welcome_email_footer_text: "อีเมล์ประเภทใดที่คุณต้องการจะได้รับจาก%{service_name}? %{settings_link}"
       settings_link_text: ตรวจสอบการตั้งค่าของคุณ
     new_listing_by_followed_person:

@@ -51,7 +51,7 @@ nl:
       failure: "Kan je niet autoriseren van %{kind} omdat '%{reason}'."
     mailer:
       confirmation_instructions:
-        subject: Bevestigingsinstructies
+        subject: "Bevestigingsinstructies om lid te worden van %{service_name}"
       reset_password_instructions:
         subject: "Wachtwoord resetten"
       unlock_instructions:
