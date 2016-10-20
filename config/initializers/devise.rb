@@ -253,7 +253,7 @@ Devise.setup do |config|
 
   # This will configure a setup phase hook, that will use SessionsController#facebook_setup as callback
   # It allows dynamic configuring on community basis
-  facebook_api_version = "v2.2"
+  facebook_api_version = FacebookSdkVersion::SERVER
 
   config.omniauth :facebook,
                   setup: true,

@@ -68,6 +68,10 @@ This guide contains information how to run tests.
 
 This guide shows how to write fast RSpec tests without requiring Rails environment
 
+#### [Upgrade Facebook SDK version](./upgrade-facebook-sdk-version.md)
+
+This guide shows how upgrade the Facebook SDK version
+
 ## Process documentation
 
 Documentation of the development process.

@@ -9,6 +9,8 @@ require File.expand_path('../config_loader', __FILE__)
 
 require File.expand_path('../available_locales', __FILE__)
 
+require File.expand_path('../facebook_sdk_version', __FILE__)
+
 # Load the logger
 require File.expand_path('../../lib/sharetribe_logger', __FILE__)
 
