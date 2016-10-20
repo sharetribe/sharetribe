@@ -4,6 +4,7 @@ module.exports = {
     // stylelint-config-standard overrides
     'shorthand-property-no-redundant-values': null,
     'selector-pseudo-class-no-unknown': [true, { ignorePseudoClasses: ['global'] }],
+    'property-no-unknown': [true, { ignoreProperties: ['composes'] }],
 
     // Single quotes everywhere
     'font-family-name-quotes': 'always-where-recommended',
