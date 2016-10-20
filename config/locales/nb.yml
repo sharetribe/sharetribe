@@ -2036,14 +2036,14 @@ nb:
       booked_days_label:
         one: "Dag booket:"
         other: "Dager booket:"
+      booked_nights_label:
+        one: "Reservert natt:"
+        other: "Reserverte netter:"
       price_per_day: "Pris per dag:"
       price_per_night: "Pris per natt:"
       quantity: "Antall:"
       subtotal: "Delsum:"
       shipping-price: "Frakt:"
-      booked_nights_label:
-        one: "Reservert natt:"
-        other: "Reserverte netter:"
     price_per_quantity: "Pris per %{unit_type}:"
     price: "Pris:"
     quantity: "Antall: %{quantity}"
@@ -2053,6 +2053,14 @@ nb:
     day: dag
     days: dager
   web:
+    listings:
+      pricing_units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
     listing_card:
       no_picture: "Ingen bilde"
     topbar:

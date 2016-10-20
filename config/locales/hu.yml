@@ -2044,6 +2044,14 @@ hu:
     day: nap
     days: napok
   web:
+    listings:
+      pricing_units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
     listing_card:
       no_picture: "Nincs kép"
     topbar:

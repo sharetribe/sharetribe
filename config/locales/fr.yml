@@ -383,6 +383,11 @@ fr:
       subscription: Abonnement
       preview: "Prévisualiser le site"
     listing_shapes:
+      availability_title: Disponibilité
+      allow_availability_management: "Permettre aux vendeurs de gérer leur disponibilité depuis un calendrier"
+      per_day_availability: "Disponibilité \"par jour\""
+      per_night_availability: "Disponibilité \"par nuit\""
+      pricing_units_disabled_info: "Les unités de prix ne peuvent être utilisées lorsque le calendrier de disponibilité est activé."
       index:
         listing_shapes: "Types de transaction"
         description: "Les types de transaction déterminent comment le processus de transaction fonctionne sur votre site. Vous pouvez choisir de permettre à vos utilisateurs de louer ou vendre, ou même de simplement publier des informations et de communiquer sans paiement."
@@ -901,6 +906,9 @@ fr:
       person_name: "Nom : "
       person_email: "Email : "
   error_messages:
+    booking:
+      booking_failed_payment_voided: "La réservation a échoué à cause d'une erreur inattendue. Veuillez essayer de nouveau un peu plus tard. Vous n'avez pas été facturé."
+      double_booking_payment_voided: "Hélas les dates que vous avez choisi ne sont plus disponibles. Veuillez choisir d'autres dates. Vous n'avez pas été facturé."
     onboarding:
       server_rendering: "Le chargement du guide de démarrage a échoué. Nous en avons été prévenus et nous sommes en train de résoudre cela !"
     listings:
@@ -1351,6 +1359,8 @@ fr:
     error:
       something_went_wrong: "Quelque chose s'est mal passé, code d'erreur : %{error_code}"
       something_went_wrong_plain: "Quelque chose s'est mal passé"
+      create_failed_to_connect_to_booking_service: "La création de l'annonce a échoué : impossible de se connecter au service de réservation. Veuillez essayer de nouveau."
+      update_failed_to_connect_to_booking_service: "La mise à jour de l'annonce a échoué : impossible de se connecter au service de réservation. Veuillez essayer de nouveau."
     follow_links:
       follow: "Recevoir les nouveaux commentaires par email."
       unfollow: "Ne pas recevoir les nouveaux commentaires par email."
@@ -1572,6 +1582,8 @@ fr:
       verification_required: "Vérification nécessaire"
   listing_conversations:
     preauthorize:
+      dates_not_available: "Les dates choisies ne sont pas disponibles"
+      error_in_checking_availability: "Impossible de vérifier la disponibilité des dates sélectionnés"
       details: Détails
       by: "%{listing} par %{author}"
       payment: Paiement
@@ -2041,6 +2053,14 @@ fr:
     day: jour
     days: jours
   web:
+    listings:
+      pricing_units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
     listing_card:
       no_picture: "Aucune image"
     topbar:
