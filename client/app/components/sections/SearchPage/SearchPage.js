@@ -5,6 +5,7 @@ import styleVariables from '../../../assets/styles/variables';
 
 import ListingCard from '../../composites/ListingCard/ListingCard';
 import ListingCardPanel from '../../composites/ListingCardPanel/ListingCardPanel';
+import Branding from '../../composites/Branding/Branding';
 import FlashNotification from '../../composites/FlashNotification/FlashNotification';
 
 import css from './SearchPage.css';
@@ -34,13 +35,15 @@ class SearchPage extends Component {
   }
 
   render() {
-    const { marketplace_color1: marketplaceColor1 } = { ...DEFAULT_CONTEXT, ...this.props.marketplace };
+    const { marketplace_color1: marketplaceColor1, displayBrandingInfo, linkToSharetribe } = { ...DEFAULT_CONTEXT, ...this.props.marketplace };
+    const displayBranding = this.props.marketplace && displayBrandingInfo && linkToSharetribe;
     return div({ className: css.searchPage }, [
       r(ListingCardPanel,
         { className: css.listingContainer },
         this.listings.map((listing) =>
           r(ListingCard, this.listingProps(listing, marketplaceColor1))
       )),
+      displayBranding ? r(Branding, { linkToSharetribe }) : null,
       r(FlashNotification, {
         actions: this.props.actions,
         messages: this.props.flashNotifications,
@@ -56,7 +59,7 @@ export const SearchPageModel = Immutable.Record({
   listings: new Immutable.List(),
 });
 
-const { func, instanceOf, shape, string } = PropTypes;
+const { bool, func, instanceOf, shape, string } = PropTypes;
 
 SearchPage.propTypes = {
   actions: shape({
@@ -67,6 +70,8 @@ SearchPage.propTypes = {
   marketplace: PropTypes.shape({
     marketplaceColor1: string,
     location: string,
+    displayBrandingInfo: bool,
+    linkToSharetribe: string,
   }),
 };
 

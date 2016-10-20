@@ -10,7 +10,9 @@
   marketplace: {
     marketplace_color1: CommonStylesHelper.marketplace_colors(@current_community)[:marketplace_color1],
     location: request.fullpath,
-    notifications: notifications_to_react
+    notifications: notifications_to_react,
+    displayBrandingInfo: display_branding_info?,
+    linkToSharetribe: "https://www.sharetribe.com/?utm_source=#{@current_community.ident}.sharetribe.com&utm_medium=referral&utm_campaign=nowl-footer"
   },
 
   data: bootstrapped_data,
