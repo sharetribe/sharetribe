@@ -13,11 +13,12 @@
     notifications: notifications_to_react,
     displayBrandingInfo: display_branding_info?,
     linkToSharetribe: "https://www.sharetribe.com/?utm_source=#{@current_community.ident}.sharetribe.com&utm_medium=referral&utm_campaign=nowl-footer"
-    page: page,
-    per_page: per_page
   },
-
-  data: bootstrapped_data,
+  searchPage: {
+    page: page,
+    per_page: per_page,
+    data: bootstrapped_data
+  },
   topbar: topbar_props,
   }
 %>

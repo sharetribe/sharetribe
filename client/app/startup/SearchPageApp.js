@@ -66,7 +66,7 @@ export default (props) => {
     'sign_up',
   ], { locale });
 
-  const bootstrappedData = TransitImmutableConverter.fromJSON(props.data);
+  const bootstrappedData = TransitImmutableConverter.fromJSON(props.searchPage.data);
 
   const rawListings = bootstrappedData
     .get(':data');
@@ -74,8 +74,8 @@ export default (props) => {
   const listings = listingsToMap(rawListings, routes.listing_path);
   const profiles = profilesToMap(bootstrappedData.get(':included'));
   const metaData = Immutable.Map({
-    page: props.marketplace.page,
-    per_page: props.marketplace.per_page,
+    page: props.searchPage.page,
+    pageSize: props.searchPage.per_page,
     total: bootstrappedData.getIn([':meta', ':total']),
   });
 

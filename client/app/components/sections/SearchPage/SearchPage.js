@@ -29,7 +29,7 @@ class SearchPage extends Component {
     this.nextPage = this.nextPage.bind(this);
     this.prevPage = this.prevPage.bind(this);
 
-    this.totalPages = Math.ceil(this.props.searchPage.state.get('total') / this.props.searchPage.state.get('per_page'));
+    this.totalPages = Math.ceil(this.props.searchPage.state.get('total') / this.props.searchPage.state.get('pageSize'));
     this.hasNextPage = this.totalPages > this.props.searchPage.state.get('page');
     this.hasPrevPage = this.props.searchPage.state.get('page') > 1;
   }
@@ -45,8 +45,9 @@ class SearchPage extends Component {
   setPage(num) {
     return (e) => {
       e.preventDefault();
-      const next = this.pageUrl(num);
-      window.location = next;
+
+      // placeholder for page change without page load
+      window.location = this.pageUrl(num);
       return false;
     };
   }
