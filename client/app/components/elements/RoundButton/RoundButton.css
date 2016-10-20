@@ -1,0 +1,5 @@
+.roundButton {
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: var(--PagingButton_shadow);
+}

@@ -36,6 +36,8 @@ const topbarItemHeight = `${minimumButtonSize}px`;
 const topbarMediumItemHeight = '36px';
 const bodyPadding = '24px';
 
+const searchPageShadow = '0 2px 3px 0 rgba(0, 0, 0, 0.1)';
+
 // With minimum z-index we try to avoid most clashes with rails components
 const zIndexMinimum = 5;
 
@@ -305,9 +307,14 @@ module.exports = {
   '--ListingCard_letterSpacing': '0.2px',
   '--ListingCard_fontWeightMedium': fontWeightMedium,
   '--ListingCard_fontWeightSemibold': fontWeightSemibold,
+  '--ListingCard_shadow': searchPageShadow,
 
   '--ListingCardPanel_gutterSpacing': bodyPadding,
   '--ListingCardPanel_backgroundColor': backgroundColorGrey,
+
+  '--PagingButton_shadow': searchPageShadow,
+  '--PagingButton_size': '36px',
+  '--PagingButton_verticalMargin': '49px',
 
   '--Branding_textColor': textColor,
   '--Branding_borderColor': borderColor,
