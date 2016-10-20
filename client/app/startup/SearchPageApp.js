@@ -28,9 +28,9 @@ const profilesToMap = (includes) =>
     }
   }, new Immutable.Map());
 
-const listingsToMap = (listings) =>
+const listingsToMap = (listings, getListingPath) =>
   listings.reduce((acc, val) => {
-    const listing = parseListingModel(val);
+    const listing = parseListingModel(val, getListingPath);
     return acc.set(listing.id, listing);
   }, new Immutable.Map());
 
@@ -64,7 +64,7 @@ export default (props) => {
   const rawListings = bootstrappedData
     .get(':data');
 
-  const listings = listingsToMap(rawListings);
+  const listings = listingsToMap(rawListings, routes.listing_path);
   const profiles = profilesToMap(bootstrappedData.get(':included'));
   const searchPage = new SearchPageModel({
     currentPage: rawListings.map((l) => l.get(':id')),
