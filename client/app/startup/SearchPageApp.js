@@ -73,8 +73,15 @@ export default (props) => {
 
   const listings = listingsToMap(rawListings, routes.listing_path);
   const profiles = profilesToMap(bootstrappedData.get(':included'));
+  const metaData = Immutable.Map({
+    page: props.marketplace.page,
+    per_page: props.marketplace.per_page,
+    total: bootstrappedData.getIn([':meta', ':total']),
+  });
+
   const searchPage = new SearchPageModel({
     currentPage: rawListings.map((l) => l.get(':id')),
+    state: metaData,
   });
   const { notifications, ...marketplaceInfo } = props.marketplace;
   const flashNotifications = systemNotificationsToList(notifications);

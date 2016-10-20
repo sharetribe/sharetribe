@@ -1,8 +1,9 @@
 import { Component, PropTypes } from 'react';
-import r, { div } from 'r-dom';
+import r, { div, a } from 'r-dom';
 import Immutable from 'immutable';
 import styleVariables from '../../../assets/styles/variables';
 import { routes as routesProp } from '../../../utils/PropTypes';
+import { upsertSearchQueryParam } from '../../../utils/url';
 
 import Topbar from '../../sections/Topbar/Topbar';
 import ListingCard from '../../composites/ListingCard/ListingCard';
@@ -25,6 +26,35 @@ class SearchPage extends Component {
     super(props, context);
     this.listings = listingsByIds(props.searchPage.listings, props.searchPage.currentPage) || [];
     this.listingProps = this.listingProps.bind(this);
+    this.nextPage = this.nextPage.bind(this);
+    this.prevPage = this.prevPage.bind(this);
+
+    this.totalPages = Math.ceil(this.props.searchPage.state.get('total') / this.props.searchPage.state.get('per_page'));
+    this.hasNextPage = this.totalPages > this.props.searchPage.state.get('page');
+    this.hasPrevPage = this.props.searchPage.state.get('page') > 1;
+  }
+
+  nextPage() {
+    return this.props.searchPage.state.get('page') + 1;
+  }
+
+  prevPage() {
+    return this.props.searchPage.state.get('page') - 1;
+  }
+
+  setPage(num) {
+    return (e) => {
+      e.preventDefault();
+      const next = this.pageUrl(num);
+      window.location = next;
+      return false;
+    };
+  }
+
+  pageUrl(num) {
+    const newParams = upsertSearchQueryParam(this.props.marketplace.location, 'page', num);
+    const locationBase = this.props.marketplace.location.split('?')[0];
+    return `${locationBase}?${newParams}`;
   }
 
   listingProps(listing, color) {
@@ -49,6 +79,11 @@ class SearchPage extends Component {
         this.listings.map((listing) =>
           r(ListingCard, this.listingProps(listing, marketplaceColor1))
       )),
+      div({}, [
+        `${this.props.searchPage.state.get('total')} listings, page ${this.props.searchPage.state.get('page')}/${this.totalPages}`,
+        this.hasPrevPage ? a({ onClick: this.setPage(this.prevPage()), href: this.pageUrl(this.prevPage()) }, 'prev') : null,
+        this.hasNextPage ? a({ onClick: this.setPage(this.nextPage()), href: this.pageUrl(this.nextPage()) }, 'next') : null,
+      ]),
       displayBranding ? r(Branding, { linkToSharetribe }) : null,
       r(FlashNotification, {
         actions: this.props.actions,
@@ -63,6 +98,7 @@ export const SearchPageModel = Immutable.Record({
   currentPage: new Immutable.List(),
   nextPage: new Immutable.List(),
   listings: new Immutable.List(),
+  state: new Immutable.Map(),
 });
 
 const { bool, func, instanceOf, shape, string } = PropTypes;
