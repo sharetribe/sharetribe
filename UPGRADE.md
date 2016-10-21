@@ -36,6 +36,10 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 In this release we are introducing layout changes that require new image styles. Therefore, a migration is added to reprocess all images from open listings into new styles. This does not require any precautions, but if your marketplace has a lot of open listings the time required for image reprocessing can be reduced by increasing the number of workers until all `CreateSquareImagesJob` jobs have been processed.
 
+This release updates Node.js to the latest LTS (long term support) version 6.9. You should update your local Node.js to the same version and run `npm install` to update the NPM packages. There is now a strict enforcement for the Node.js version, and building the frontend bundles fail when using an unsupported version of Node.js.
+
+Alongside the updated NPM packages, also the react_on_rails gem is updated to match the NPM package version, and requires running `bundle install` to install the latest version.
+
 ## Upgrade from 5.12.0 to 6.0.0
 
 Release 6.0.0 drops official support for MySQL server version 5.6. Please upgrade to 5.7 when upgrading Sharetribe. See the upgrade notes from release 5.12.0 below for more information.

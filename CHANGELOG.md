@@ -14,6 +14,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Changed
 
+- Updated Node.js to the latest LTS (long term support) version 6.9 [#2655](https://github.com/sharetribe/sharetribe/pull/2665)
+- Updated NPM packages [#2655](https://github.com/sharetribe/sharetribe/pull/2665)
+- Update react_on_rails gem [#2655](https://github.com/sharetribe/sharetribe/pull/2665)
+
 ### Fixed
 
 - Avoid redirect to correct S3 bucket endpoint when bucket is not in `us-east-1` region [#2605](https://github.com/sharetribe/sharetribe/pull/2605)
