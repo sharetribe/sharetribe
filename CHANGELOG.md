@@ -17,6 +17,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Updated Node.js to the latest LTS (long term support) version 6.9 [#2655](https://github.com/sharetribe/sharetribe/pull/2665)
 - Updated NPM packages [#2655](https://github.com/sharetribe/sharetribe/pull/2665)
 - Update react_on_rails gem [#2655](https://github.com/sharetribe/sharetribe/pull/2665)
+- Upgrade Facebook SDK from v2.2 to v2.8 [#2666](https://github.com/sharetribe/sharetribe/pull/2666)
 
 ### Fixed
 
