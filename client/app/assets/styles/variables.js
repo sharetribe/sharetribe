@@ -312,9 +312,7 @@ module.exports = {
   '--ListingCardPanel_gutterSpacing': bodyPadding,
   '--ListingCardPanel_backgroundColor': backgroundColorGrey,
 
-  '--PagingButton_shadow': searchPageShadow,
-  '--PagingButton_size': '36px',
-  '--PagingButton_verticalMargin': '49px',
+  '--RoundButton_shadow': searchPageShadow,
 
   '--Branding_textColor': textColor,
   '--Branding_borderColor': borderColor,

@@ -1,16 +1,22 @@
 import r from 'r-dom';
 import { storify } from '../../Styleguide/withProps';
 
-import RoundButton from './RoundButton';
+import RoundButton, { ArrowButton } from './RoundButton';
 
 const { storiesOf } = storybookFacade;
 
-const containerStyle = { style: { padding: '50px', width: '32px', height: '32px', background: 'grey' } };
+const containerStyle = { style: { padding: '50px', display: 'inline-block', background: '#bbb' } };
 
 storiesOf('Search results')
   .add('Round button', () => (
       r(storify(
-        r(RoundButton),
+        r(RoundButton, { diameter: '36px', content: '😎' }),
+        containerStyle
+      ))
+  ))
+  .add('Arrow button', () => (
+      r(storify(
+        r(ArrowButton, { direction: 'right' }),
         containerStyle
       ))
   ));

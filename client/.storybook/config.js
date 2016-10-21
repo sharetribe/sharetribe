@@ -26,6 +26,7 @@ const loadStories = function loadStories() {
   require('../app/components/composites/MenuMobile/MenuMobile.story.js');
   require('../app/components/composites/MenuMobile/LanguagesMobile.story.js');
   require('../app/components/composites/Branding/Branding.story.js');
+  require('../app/components/composites/PageSelection/PageSelection.story.js');
   require('../app/components/elements/Avatar/Avatar.story.js');
   require('../app/components/elements/Logo/Logo.story.js');
   require('../app/components/elements/MenuItem/MenuItem.story.js');

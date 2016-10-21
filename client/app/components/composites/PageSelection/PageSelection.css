@@ -1,0 +1,14 @@
+.pageSelection {
+  padding: 23px 24px;
+  margin-bottom: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+  align-items: baseline;
+}
+
+.arrowButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 44px;
+}
