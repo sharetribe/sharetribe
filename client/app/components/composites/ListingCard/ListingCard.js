@@ -13,12 +13,15 @@ import noImageIcon from './images/noImageIcon.svg';
 import distanceIcon from './images/distanceIcon.svg';
 
 const TINT_PERCENTAGE = 20;
+const IMAGE_LOADING = 'loading';
+const IMAGE_LOADED = 'loaded';
+const IMAGE_FAILED = 'failed';
 
 class ListingCard extends Component {
 
   constructor(props, context) {
     super(props, context);
-    this.state = { imageStatus: 'loading' };
+    this.state = { imageStatus: IMAGE_LOADING };
 
     this.handleImageLoaded = this.handleImageLoaded.bind(this);
     this.handleImageErrored = this.handleImageErrored.bind(this);
@@ -30,11 +33,11 @@ class ListingCard extends Component {
   }
 
   handleImageLoaded() {
-    this.setState({ imageStatus: 'loaded' }); // eslint-disable-line react/no-set-state
+    this.setState({ imageStatus: IMAGE_LOADED }); // eslint-disable-line react/no-set-state
   }
 
   handleImageErrored() {
-    this.setState({ imageStatus: 'failed' }); // eslint-disable-line react/no-set-state
+    this.setState({ imageStatus: IMAGE_FAILED }); // eslint-disable-line react/no-set-state
   }
 
   clickHandler() {
@@ -68,7 +71,7 @@ class ListingCard extends Component {
         className: css.squareWrapper,
         style: { backgroundColor: `rgb(${tintedRGB.r}, ${tintedRGB.g}, ${tintedRGB.b})` },
         href: listing.listingURL,
-      }, imageURL && this.state.imageStatus !== 'failed' ?
+      }, imageURL && this.state.imageStatus !== IMAGE_FAILED ?
         img({
           ...{
             className: classNames('ListingCard_image', css.thumbnail),
