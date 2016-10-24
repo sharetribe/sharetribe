@@ -4,6 +4,9 @@ class Admin::CommunityTransactionsController < ApplicationController
   TransactionQuery = MarketplaceService::Transaction::Query
   before_filter :ensure_is_admin
 
+  #Allow admin to access admin panel before email confirmation
+  skip_filter :cannot_access_without_confirmation
+
   def index
     @selected_left_navi_link = "transactions"
     pagination_opts = PaginationViewUtils.parse_pagination_opts(params)

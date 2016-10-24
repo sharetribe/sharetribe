@@ -4,6 +4,9 @@ class MercuryUpdateController < ApplicationController
 
   before_filter :ensure_is_admin
 
+  #Allow admin to access admin panel before email confirmation
+  skip_filter :cannot_access_without_confirmation
+
   # Update content with WYSIWYG editor Mercury
   def update
     param_hash = params[:content].inject({}) do |memo, content_hash|

@@ -3,6 +3,9 @@ class Admin::EmailsController < ApplicationController
 
   before_filter :ensure_is_admin
 
+  #Allow admin to access admin panel before email confirmation
+  skip_filter :cannot_access_without_confirmation
+
   def new
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "email_members"

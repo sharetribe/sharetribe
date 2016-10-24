@@ -3,6 +3,9 @@ class Admin::CustomFieldsController < ApplicationController
   before_filter :ensure_is_admin
   before_filter :field_type_is_valid, :only => [:new, :create]
 
+  #Allow admin to access admin panel before email confirmation
+  skip_filter :cannot_access_without_confirmation
+
   CHECKBOX_TO_BOOLEAN = ->(v) {
     if v == false || v == true
       v
