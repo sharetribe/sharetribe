@@ -11,7 +11,8 @@ window.ST = window.ST || {};
      - `endDate`: Last date that can be selected (type: Date)
      - `disabledDates`: Array of disabled dates (type: Array of Date)
   */
-  module.initializeFromToDatePicker = function(rangeContainerId, opts = {}) {
+  module.initializeFromToDatePicker = function(rangeContainerId, opts) {
+    opts = opts || {};
     var nightPicker = opts.nightPicker || false;
     var endDate = opts.endDate;
     var disabledStartDates = opts.disabledDates || [];
