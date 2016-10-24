@@ -1441,7 +1441,8 @@ CREATE TABLE `shipping_addresses` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `country_code` varchar(8) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `index_shipping_addresses_on_transaction_id` (`transaction_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -3186,4 +3187,6 @@ INSERT INTO schema_migrations (version) VALUES ('20161018105036');
 INSERT INTO schema_migrations (version) VALUES ('20161018105521');
 
 INSERT INTO schema_migrations (version) VALUES ('20161019125057');
+
+INSERT INTO schema_migrations (version) VALUES ('20161023074355');
 
