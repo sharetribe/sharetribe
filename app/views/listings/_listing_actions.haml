@@ -101,7 +101,9 @@
                 }
               });
 
-              window.ST.initializeFromToDatePicker('datepicker', {disabledDates: disabledDates});
+              var endDate = new Date(#{blocked_dates_end_on.to_i * 1000});
+
+              window.ST.initializeFromToDatePicker('datepicker', {disabledDates: disabledDates, endDate: endDate});
           .input-daterange.input-group.clearfix#datepicker{:data => {:locale => I18n.locale, :dateformat => t("datepicker.format")}}
             .datepicker-start-wrapper
               = label_tag t(".booking_from")
