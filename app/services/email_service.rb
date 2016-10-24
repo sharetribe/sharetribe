@@ -82,6 +82,7 @@ class EmailService
 
   def self.email_address_allowed?(address, allowed_emails)
     return true unless allowed_emails.present?
+    return false if address.nil?
 
     allowed = false
     allowed_array = allowed_emails.split(",")
