@@ -183,7 +183,7 @@ class HomepageController < ApplicationController
 
     if FeatureFlagHelper.feature_enabled?(:searchpage_v1)
       DiscoveryClient.get(:query_listings,
-                          params: DiscoveryUtils.format_params(search.merge(marketplace_id: @current_community.id)))
+                          params: DiscoveryUtils.listing_query_params(search.merge(marketplace_id: @current_community.id)))
       .rescue {
         Result::Error.new(nil, code: :discovery_api_error)
       }

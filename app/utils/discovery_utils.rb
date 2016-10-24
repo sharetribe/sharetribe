@@ -2,7 +2,7 @@ module DiscoveryUtils
 
   module_function
 
-  def format_params(original)
+  def listing_query_params(original)
     location_params =
       if(original[:latitude].present? && original[:longitude].present?)
         { :'search[lat]' => original[:latitude],
