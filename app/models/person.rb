@@ -218,7 +218,7 @@ class Person < ActiveRecord::Base
   end
 
   def self.username_available?(username, community_id)
-    !username.in?(USERNAME_BLACKLIST) &&
+    !username.downcase.in?(USERNAME_BLACKLIST) &&
       !Person
         .where("username = :username AND (is_admin = '1' OR community_id = :cid)", username: username, cid: community_id)
         .present?
