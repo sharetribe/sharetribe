@@ -22,9 +22,6 @@ window.ST = window.ST || {};
     var options = {
       startDate: today,
       inputs: [$("#start-on"), $("#end-on")],
-      onRender: function(date) {
-        return date.valueOf() < today.valueOf() ? 'disabled' : '';
-      },
       endDate: endDate,
       datesDisabled: disabledDates
     };
