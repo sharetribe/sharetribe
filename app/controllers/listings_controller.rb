@@ -573,7 +573,7 @@ class ListingsController < ApplicationController
       },
       opts: {
         auth_context: { marketplace_id: community.uuid_object,
-                        actor_id: user.uuid_object }
+                        actor_id: user ? user.uuid_object : UUIDUtils.v0_uuid }
       }
     ).rescue {
       Result::Error.new(nil, code: :harmony_api_error)
