@@ -56,7 +56,7 @@ module ServiceClient
       class ParsingError < StandardError
       end
 
-      def initialize(encoding)
+      def initialize(encoding, decode_response: true)
         encoder = encoder_by_encoding(encoding)
 
         if encoder.nil?
@@ -64,6 +64,7 @@ module ServiceClient
         end
 
         @_request_encoder = encoder
+        @_decode_response = decode_response
       end
 
       def enter(ctx)
@@ -88,6 +89,8 @@ module ServiceClient
       end
 
       def leave(ctx)
+        return ctx unless @_decode_response
+
         res = ctx.fetch(:res)
         headers = res.fetch(:headers)
         body = res[:body]

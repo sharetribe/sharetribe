@@ -13,7 +13,7 @@ class HomepageController < ApplicationController
     all_shapes = shapes.get(community_id: @current_community.id)[:data]
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
-    if FeatureFlagHelper.search_engine == :discovery
+    if FeatureFlagHelper.feature_enabled?(:searchpage_v1)
       @view_type = "grid"
     else
       @view_type = HomepageController.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
@@ -73,7 +73,7 @@ class HomepageController < ApplicationController
       viewport = viewport_geometry(params[:boundingbox], params[:lc], @current_community.location)
     end
 
-    if FeatureFlagHelper.search_engine == :discovery
+    if FeatureFlagHelper.feature_enabled?(:searchpage_v1)
       search_result.on_success { |listings|
         render layout: "layouts/react_page.haml", template: "search_page/search_page", locals: { bootstrapped_data: listings, page: current_page, per_page: per_page }
       }.on_error {
@@ -181,26 +181,33 @@ class HomepageController < ApplicationController
 
     raise_errors = Rails.env.development?
 
-    ListingIndexService::API::Api.listings.search(
-      community_id: @current_community.id,
-      search: search,
-      includes: includes,
-      engine: FeatureFlagHelper.search_engine,
-      raise_errors: raise_errors
-      ).and_then { |res|
-      Result::Success.new(
-        if FeatureFlagHelper.search_engine == :discovery
-          res
-        else
+    if FeatureFlagHelper.feature_enabled?(:searchpage_v1)
+      DiscoveryClient.get(:query_listings,
+                          params: DiscoveryUtils.listing_query_params(search.merge(marketplace_id: @current_community.id)))
+      .rescue {
+        Result::Error.new(nil, code: :discovery_api_error)
+      }
+        .and_then{ |res|
+        Result::Success.new(res[:body])
+      }
+    else
+      ListingIndexService::API::Api.listings.search(
+        community_id: @current_community.id,
+        search: search,
+        includes: includes,
+        engine: FeatureFlagHelper.search_engine,
+        raise_errors: raise_errors
+        ).and_then { |res|
+        Result::Success.new(
           ListingIndexViewUtils.to_struct(
             result: res,
             includes: includes,
             page: search[:page],
             per_page: search[:per_page]
           )
-        end
-      )
-    }
+        )
+      }
+    end
   end
 
   def location_search_params(params, keyword_search_in_use)

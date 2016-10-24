@@ -289,6 +289,10 @@ default: &default_settings
   harmony_api_disable_authentication: false
   harmony_api_token_secret: secret_key1
 
+  # Discovery service API connection
+  discovery_api_url:
+  discovery_api_key:
+
   # Perform Thinking Sphinx incremental indexing delayed jobs
   use_thinking_sphinx_indexing: true
 
