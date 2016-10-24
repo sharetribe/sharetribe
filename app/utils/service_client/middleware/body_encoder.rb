@@ -89,6 +89,8 @@ module ServiceClient
       end
 
       def leave(ctx)
+        return ctx unless @_decode_response
+
         res = ctx.fetch(:res)
         headers = res.fetch(:headers)
         body = res[:body]
@@ -98,12 +100,7 @@ module ServiceClient
         encoder = encoder_by_content_type(headers["Content-Type"]) || @_request_encoder
 
         begin
-          ctx[:res][:body] =
-            if @_decode_response
-              encoder[:encoder].decode(body)
-            else
-              body
-            end
+          ctx[:res][:body] = encoder[:encoder].decode(body)
         rescue StandardError => e
           raise ParsingError.new("Parsing error, msg: '#{e.message}', body: '#{body}'")
         end
