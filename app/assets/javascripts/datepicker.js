@@ -13,7 +13,12 @@ window.ST = window.ST || {};
   */
   module.initializeFromToDatePicker = function(rangeContainerId, opts = {}) {
     var endDate = opts.endDate;
-    var disabledDates = opts.disabledDates || [];
+    var disabledStartDates = opts.disabledDates || [];
+    var disabledEndDates = disabledStartDates.map(function(d) {
+      var clonedDate = new Date(d.getTime());
+      clonedDate.setDate(clonedDate.getDate() + 1);
+      return clonedDate;
+    });
     var now = new Date();
     var today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
     var dateRage = $('#'+ rangeContainerId);
@@ -22,8 +27,7 @@ window.ST = window.ST || {};
     var options = {
       startDate: today,
       inputs: [$("#start-on"), $("#end-on")],
-      endDate: endDate,
-      datesDisabled: disabledDates
+      endDate: endDate
     };
 
     if(dateLocale !== 'en') {
@@ -31,6 +35,14 @@ window.ST = window.ST || {};
     }
 
     var picker = dateRage.datepicker(options);
+
+    $("#start-on").focus(function() {
+      $("#start-on").datepicker("setDatesDisabled", disabledStartDates);
+    });
+
+    $("#end-on").focus(function() {
+      $("#end-on").datepicker("setDatesDisabled", disabledEndDates);
+    });
 
     var outputElements = {
       "booking-start-output": $("#booking-start-output"),
