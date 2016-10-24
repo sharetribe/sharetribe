@@ -250,15 +250,3 @@ $listing-author-avatar-height: 108;
 .listings-how-paypal-works-link {
   font-size: em(14);
 }
-
-.listings-availability-information-error {
-  @include border-radius(em(5));
-  padding: em(8) em(20) em(12) em(20);
-
-  margin-bottom: lines(0.5);
-  @include media(tablet) {
-    margin-bottom: lines(0.75);
-  }
-
-  background: $highlight;
-}

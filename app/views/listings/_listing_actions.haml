@@ -112,10 +112,9 @@
               = label_tag t(".booking_to")
               %input.input-sm.form-control.required#end-on{:type => 'text', :name => "end_on", :placeholder => t("datepicker.format"), :data => { :output => "booking-end-output" }}
               %input#booking-end-output{:type => 'hidden', :name => 'end_on'}
-        - blocked_dates_result.on_error do
 
-          .listings-availability-information-error
-            = "Could not load availabilty information. Please try again later."
+        - blocked_dates_result.on_error do
+          = t("listings.listing_actions.unable_load_availability")
 
       - elsif listing_unit_type.present?
         - delivery_type = delivery_opts.length > 0 ? delivery_opts.first[:name].to_s : ""
