@@ -1,0 +1,12 @@
+# we don't want these to be community updated (wording & layout)
+es-ES:
+  admin:
+    landing_page:
+      landing_page: "Página de inicio"
+      landing_page_description: "La página de inicio, también llamada página de atterrizaje, es quizás la página más importante de tu comunidad. Es la primera página que los visitantes de tu comunidad ven. Es más o menos como la fachada de tu casa. Tienes solamente unos segundos para convencer a los nuevos visitantes que deben explorar tu sitio. La página debe ser visualmente atractiva y tu propuesta debe ser clara y tentadora."
+      landing_page_preview_description: "%{preview_link} tu página de inicio y haz cambios desde la secciones de %{basic_details_link} y %{design_link}."
+      custom_landing_page_price_description: "Si quieres una página de incio completamente personalizada para tu comunidad, puedes adquirirla como una sección adicional por $99 al mes."
+      landing_page_link_text: "Lee más acerca de las páginas de inicio personalizadas"
+      preview_link_text: "Mira"
+      basic_details_link_text: "detalles básicos"
+      design_link_text: "diseño"
