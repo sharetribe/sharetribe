@@ -110,7 +110,7 @@ gem 'faraday', '~> 0.9.1'
 gem 'faraday_middleware', '~> 0.10.0'
 gem 'faraday-encoding', '~> 0.0.3'
 
-gem "react_on_rails", "~> 6.0.5"
+gem "react_on_rails", "~> 6.1.1"
 
 gem "css_parser", "~> 1.4.5"
 gem 'sitemap_generator', "~> 5.1.0"

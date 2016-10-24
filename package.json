@@ -2,7 +2,7 @@
   "repository": "sharetribe/sharetribe",
   "license": "MIT",
   "engines": {
-    "node": "6.1"
+    "node": "6.9"
   },
   "scripts": {
     "postinstall": "cd client && npm install",
