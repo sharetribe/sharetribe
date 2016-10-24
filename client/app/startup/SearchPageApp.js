@@ -66,15 +66,22 @@ export default (props) => {
     'sign_up',
   ], { locale });
 
-  const bootstrappedData = TransitImmutableConverter.fromJSON(props.data);
+  const bootstrappedData = TransitImmutableConverter.fromJSON(props.searchPage.data);
 
   const rawListings = bootstrappedData
     .get(':data');
 
   const listings = listingsToMap(rawListings, routes.listing_path);
   const profiles = profilesToMap(bootstrappedData.get(':included'));
+  const metaData = Immutable.Map({
+    page: props.searchPage.page,
+    pageSize: props.searchPage.per_page,
+    total: bootstrappedData.getIn([':meta', ':total']),
+  });
+
   const searchPage = new SearchPageModel({
     currentPage: rawListings.map((l) => l.get(':id')),
+    state: metaData,
   });
   const { notifications, ...marketplaceInfo } = props.marketplace;
   const flashNotifications = systemNotificationsToList(notifications);
