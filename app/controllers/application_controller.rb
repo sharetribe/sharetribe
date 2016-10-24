@@ -515,7 +515,7 @@ class ApplicationController < ActionController::Base
 
   def notifications_to_react
     # Different way to display flash messages on React pages
-    if (params[:controller] == "homepage" && params[:action] == "index" && FeatureFlagHelper.search_engine == :discovery)
+    if (params[:controller] == "homepage" && params[:action] == "index" && FeatureFlagHelper.feature_enabled?(:searchpage_v1))
       notifications = [:notice, :warning, :error].each_with_object({}) do |level, acc|
         if flash[level]
           acc[level] = flash[level]

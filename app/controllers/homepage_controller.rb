@@ -13,7 +13,7 @@ class HomepageController < ApplicationController
     all_shapes = shapes.get(community_id: @current_community.id)[:data]
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
-    if FeatureFlagHelper.search_engine == :discovery
+    if FeatureFlagHelper.feature_enabled?(:searchpage_v1)
       @view_type = "grid"
     else
       @view_type = HomepageController.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
@@ -73,7 +73,7 @@ class HomepageController < ApplicationController
       viewport = viewport_geometry(params[:boundingbox], params[:lc], @current_community.location)
     end
 
-    if FeatureFlagHelper.search_engine == :discovery
+    if FeatureFlagHelper.feature_enabled?(:searchpage_v1)
       search_result.on_success { |listings|
         render layout: "layouts/react_page.haml", template: "search_page/search_page", locals: { bootstrapped_data: listings, page: current_page, per_page: per_page }
       }.on_error {
