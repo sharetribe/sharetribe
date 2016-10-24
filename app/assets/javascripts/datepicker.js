@@ -2,10 +2,19 @@ window.ST = window.ST || {};
 
 (function(module) {
 
-  module.initializeFromToDatePicker = function(rangeCongainerId) {
+  /**
+     Initialize date range picker
+
+     params:
+
+     - `rangeContainerId`: element id
+     - `endDate`: Last date that can be selected (type: Date or String)
+  */
+  module.initializeFromToDatePicker = function(rangeContainerId, opts = {}) {
+    var endDate = opts.endDate;
     var now = new Date();
     var today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
-    var dateRage = $('#'+ rangeCongainerId);
+    var dateRage = $('#'+ rangeContainerId);
     var dateLocale = dateRage.data('locale');
 
     var options = {
@@ -13,7 +22,8 @@ window.ST = window.ST || {};
       inputs: [$("#start-on"), $("#end-on")],
       onRender: function(date) {
         return date.valueOf() < today.valueOf() ? 'disabled' : '';
-      }
+      },
+      endDate: endDate
     };
 
     if(dateLocale !== 'en') {
