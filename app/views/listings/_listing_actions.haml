@@ -102,8 +102,9 @@
               });
 
               var endDate = new Date(#{blocked_dates_end_on.to_i * 1000});
+              var nightPicker = #{@listing.quantity_selector.to_sym == :night};
 
-              window.ST.initializeFromToDatePicker('datepicker', {disabledDates: disabledDates, endDate: endDate});
+              window.ST.initializeFromToDatePicker('datepicker', {disabledDates: disabledDates, endDate: endDate, nightPicker: nightPicker });
           .input-daterange.input-group.clearfix#datepicker{:data => {:locale => I18n.locale, :dateformat => t("datepicker.format")}}
             .datepicker-start-wrapper
               = label_tag t(".booking_from")

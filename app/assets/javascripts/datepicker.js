@@ -12,6 +12,7 @@ window.ST = window.ST || {};
      - `disabledDates`: Array of disabled dates (type: Array of Date)
   */
   module.initializeFromToDatePicker = function(rangeContainerId, opts = {}) {
+    var nightPicker = opts.nightPicker || false;
     var endDate = opts.endDate;
     var disabledStartDates = opts.disabledDates || [];
     var disabledEndDates = disabledStartDates.map(function(d) {
@@ -27,7 +28,8 @@ window.ST = window.ST || {};
     var options = {
       startDate: today,
       inputs: [$("#start-on"), $("#end-on")],
-      endDate: endDate
+      endDate: endDate,
+      datesDisabled: disabledStartDates
     };
 
     if(dateLocale !== 'en') {
@@ -36,13 +38,15 @@ window.ST = window.ST || {};
 
     var picker = dateRage.datepicker(options);
 
-    $("#start-on").focus(function() {
-      $("#start-on").datepicker("setDatesDisabled", disabledStartDates);
-    });
+    if (nightPicker) {
+      $("#start-on").focus(function() {
+        $("#start-on").datepicker("setDatesDisabled", disabledStartDates);
+      });
 
-    $("#end-on").focus(function() {
-      $("#end-on").datepicker("setDatesDisabled", disabledEndDates);
-    });
+      $("#end-on").focus(function() {
+        $("#end-on").datepicker("setDatesDisabled", disabledEndDates);
+      });
+    }
 
     var outputElements = {
       "booking-start-output": $("#booking-start-output"),
