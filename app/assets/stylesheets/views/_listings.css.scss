@@ -201,9 +201,7 @@ $listing-author-avatar-height: 108;
   margin-left: lines(0.2);
 }
 
-// Transaction action button
 .book-button {
-  @include big-button($link);
   margin-top: 0;
   width: 100%;
   text-align: center;
@@ -211,6 +209,21 @@ $listing-author-avatar-height: 108;
   display: flex;
   -webkit-align-items: center;
   align-items: center;
+}
+
+// Transaction action button
+.enabled-book-button {
+  @include big-button($link);
+  @extend .book-button;
+}
+
+.disabled-book-button {
+  @include big-button($link);
+  @extend .book-button;
+
+  &, &:hover {
+    background-color: $border;
+  }
 }
 
 // Transaction action button
@@ -236,4 +249,16 @@ $listing-author-avatar-height: 108;
 
 .listings-how-paypal-works-link {
   font-size: em(14);
+}
+
+.listings-availability-information-error {
+  @include border-radius(em(5));
+  padding: em(8) em(20) em(12) em(20);
+
+  margin-bottom: lines(0.5);
+  @include media(tablet) {
+    margin-bottom: lines(0.75);
+  }
+
+  background: $highlight;
 }

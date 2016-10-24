@@ -23,102 +23,108 @@
     = form_tag form_path, :method => :get, :id => "booking-dates" do
 
       - if [:day, :night].include?(@listing.quantity_selector&.to_sym)
-        - days = [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]
-        - months = [:january, :february, :march, :april, :may, :june, :july, :august, :september, :october, :november, :december]
-        - translated_days = days.map { |day_symbol| t("datepicker.days.#{day_symbol}") }.to_json
-        - translated_days_short = days.map { |day_symbol| t("datepicker.days_short.#{day_symbol}") }.to_json
-        - translated_days_min = days.map { |day_symbol| t("datepicker.days_min.#{day_symbol}") }.to_json
-        - translated_months = months.map { |day_symbol| t("datepicker.months.#{day_symbol}") }.to_json
-        - translated_months_short = months.map { |day_symbol| t("datepicker.months_short.#{day_symbol}") }.to_json
+        - blocked_dates_result.on_success do |blocked_dates|
+          - days = [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]
+          - months = [:january, :february, :march, :april, :may, :june, :july, :august, :september, :october, :november, :december]
+          - translated_days = days.map { |day_symbol| t("datepicker.days.#{day_symbol}") }.to_json
+          - translated_days_short = days.map { |day_symbol| t("datepicker.days_short.#{day_symbol}") }.to_json
+          - translated_days_min = days.map { |day_symbol| t("datepicker.days_min.#{day_symbol}") }.to_json
+          - translated_months = months.map { |day_symbol| t("datepicker.months.#{day_symbol}") }.to_json
+          - translated_months_short = months.map { |day_symbol| t("datepicker.months_short.#{day_symbol}") }.to_json
 
-        - content_for :extra_javascript do
-          :javascript
+          - content_for :extra_javascript do
+            :javascript
 
-            var disabledDates = [
-              // TODO Server-render disabled dates here
-            ]
+              var disabledDates = [
+                // TODO Server-render disabled dates here
+              ]
 
-            // START Only for testing
-            // TODO Remove these
-            // var now = new Date();
-            // disabledDates = [2, 3, 4, 10, 11, 12, 15].map(function(i) {
-            //   return new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate() + i, 0, 0, 0, 0));
-            // });
-            // END Only for testing
+              // START Only for testing
+              // TODO Remove these
+              // var now = new Date();
+              // disabledDates = [2, 3, 4, 10, 11, 12, 15].map(function(i) {
+              //   return new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate() + i, 0, 0, 0, 0));
+              // });
+              // END Only for testing
 
-            $.fn.datepicker.dates['#{I18n.locale}'] = {
-              days: #{translated_days},
-              daysShort: #{translated_days_short},
-              daysMin: #{translated_days_min},
-              months: #{translated_months},
-              monthsShort: #{translated_months_short},
-              today: "#{t("datepicker.today")}",
-              weekStart: #{t("datepicker.week_start", default: 0)},
-              clear: "#{t("datepicker.clear")}",
-              format: "#{t("datepicker.format")}"
-            }
-            $.validator.addMethod("night_selected",
-              function(value, element, params) {
-                var startVal = $(params.startOnSelector).val()
-                if (!!startVal == false) {
-                  return true;
-                } else {
-                  return startVal !== value
-                }
-              });
-            $.validator.addMethod("availability_range",
-              function(value, element, params) {
-                var startVal = $(params.startOnSelector).datepicker('getDates');
-                var endVal = $(element).datepicker('getDates');
-
-                if (!startVal || startVal.length !== 1 || !endVal || endVal.length !== 1) {
-                  return false;
-                }
-
-                var startDate = startVal[0].getTime();
-                var endDate = endVal[0].getTime();
-
-                // Validate that all booked dates are outside the selected range
-                return disabledDates.every(function(d) {
-                  var date = d.getTime();
-                  if (startDate === endDate) {
-                    return date !== startDate;
+              $.fn.datepicker.dates['#{I18n.locale}'] = {
+                days: #{translated_days},
+                daysShort: #{translated_days_short},
+                daysMin: #{translated_days_min},
+                months: #{translated_months},
+                monthsShort: #{translated_months_short},
+                today: "#{t("datepicker.today")}",
+                weekStart: #{t("datepicker.week_start", default: 0)},
+                clear: "#{t("datepicker.clear")}",
+                format: "#{t("datepicker.format")}"
+              }
+              $.validator.addMethod("night_selected",
+                function(value, element, params) {
+                  var startVal = $(params.startOnSelector).val()
+                  if (!!startVal == false) {
+                    return true;
+                  } else {
+                    return startVal !== value
                   }
-                  return date < startDate || date >= endDate;
                 });
+              $.validator.addMethod("availability_range",
+                function(value, element, params) {
+                  var startVal = $(params.startOnSelector).datepicker('getDates');
+                  var endVal = $(element).datepicker('getDates');
+
+                  if (!startVal || startVal.length !== 1 || !endVal || endVal.length !== 1) {
+                    return false;
+                  }
+
+                  var startDate = startVal[0].getTime();
+                  var endDate = endVal[0].getTime();
+
+                  // Validate that all booked dates are outside the selected range
+                  return disabledDates.every(function(d) {
+                    var date = d.getTime();
+                    if (startDate === endDate) {
+                      return date !== startDate;
+                    }
+                    return date < startDate || date >= endDate;
+                  });
+                });
+              var rules = #{@listing.quantity_selector&.to_sym == :night} ? {
+                "end_on": {
+                  night_selected: {startOnSelector: "#start-on"},
+                  availability_range: {startOnSelector: "#start-on"}
+                }
+              } : {
+                "end_on": {
+                  availability_range: {startOnSelector: "#start-on"}
+                }
+              };
+              $("#booking-dates").validate({
+                rules: rules,
+                submitHandler: function(form) {
+                  var $form = $(form);
+                  $form.find("#start-on").attr("name", "");
+                  $form.find("#end-on").attr("name", "");
+
+                  form.submit();
+                }
               });
-            var rules = #{@listing.quantity_selector&.to_sym == :night} ? {
-              "end_on": {
-                night_selected: {startOnSelector: "#start-on"},
-                availability_range: {startOnSelector: "#start-on"}
-              }
-            } : {
-              "end_on": {
-                availability_range: {startOnSelector: "#start-on"}
-              }
-            };
-            $("#booking-dates").validate({
-              rules: rules,
-              submitHandler: function(form) {
-                var $form = $(form);
-                $form.find("#start-on").attr("name", "");
-                $form.find("#end-on").attr("name", "");
 
-                form.submit();
-              }
-            });
+              window.ST.initializeFromToDatePicker('datepicker', {disabledDates: disabledDates});
+          .input-daterange.input-group.clearfix#datepicker{:data => {:locale => I18n.locale, :dateformat => t("datepicker.format")}}
+            .datepicker-start-wrapper
+              = label_tag t(".booking_from")
+              %input.input-sm.form-control.required#start-on{:type => 'text', :name => "start_on", :placeholder => t("datepicker.format"), :data => { :output => "booking-start-output" } }
+              %input#booking-start-output{:type => 'hidden', :name => 'start_on'}
 
-            window.ST.initializeFromToDatePicker('datepicker', {disabledDates: disabledDates});
-        .input-daterange.input-group.clearfix#datepicker{:data => {:locale => I18n.locale, :dateformat => t("datepicker.format")}}
-          .datepicker-start-wrapper
-            = label_tag t(".booking_from")
-            %input.input-sm.form-control.required#start-on{:type => 'text', :name => "start_on", :placeholder => t("datepicker.format"), :data => { :output => "booking-start-output" } }
-            %input#booking-start-output{:type => 'hidden', :name => 'start_on'}
+            .datepicker-end-wrapper
+              = label_tag t(".booking_to")
+              %input.input-sm.form-control.required#end-on{:type => 'text', :name => "end_on", :placeholder => t("datepicker.format"), :data => { :output => "booking-end-output" }}
+              %input#booking-end-output{:type => 'hidden', :name => 'end_on'}
+        - blocked_dates_result.on_error do
 
-          .datepicker-end-wrapper
-            = label_tag t(".booking_to")
-            %input.input-sm.form-control.required#end-on{:type => 'text', :name => "end_on", :placeholder => t("datepicker.format"), :data => { :output => "booking-end-output" }}
-            %input#booking-end-output{:type => 'hidden', :name => 'end_on'}
+          .listings-availability-information-error
+            = "Could not load availabilty information. Please try again later."
+
       - elsif listing_unit_type.present?
         - delivery_type = delivery_opts.length > 0 ? delivery_opts.first[:name].to_s : ""
         - shipping_price_additional = delivery_opts.length > 0 ? delivery_opts.first[:shipping_price_additional] : nil
@@ -149,9 +155,15 @@
 
       = hidden_field_tag(:listing_id, @listing.id)
 
-      %button.book-button
-        .content
-          = action_button_label(@listing)
+      - blocked_dates_result.on_success do
+        %button.enabled-book-button
+          .content
+            = action_button_label(@listing)
+
+      - blocked_dates_result.on_error do
+        %button.disabled-book-button{disabled: true}
+          .content
+            = action_button_label(@listing)
 
     - if payment_gateway == :paypal && process != :none
       .row
