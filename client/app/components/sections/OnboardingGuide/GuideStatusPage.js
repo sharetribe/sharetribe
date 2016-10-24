@@ -61,7 +61,7 @@ const GuideStatusPage = (props) => {
          })),
   ]);
 
-  const description = props.nextPage ? todoDescPartial : doneDescPartial;
+  const description = nextPage ? todoDescPartial : doneDescPartial;
 
   const { routes } = props;
 
