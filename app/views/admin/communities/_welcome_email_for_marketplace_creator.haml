@@ -29,7 +29,7 @@
   %b
     = t("emails.welcome_email_marketplace_creator.helping_you")
   %br/
-  = t("emails.welcome_email_marketplace_creator.announce_drip_emails")
+  = t("emails.welcome_email_marketplace_creator.drip_emails_academy", :marketplace_academy_link => link_to(t("emails.welcome_email_marketplace_creator.marketplace_academy_link_text"), "https://www.sharetribe.com/academy/")).html_safe
 
 %p
   = t("emails.welcome_email_marketplace_creator.cheers")
