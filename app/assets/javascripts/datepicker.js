@@ -8,10 +8,12 @@ window.ST = window.ST || {};
      params:
 
      - `rangeContainerId`: element id
-     - `endDate`: Last date that can be selected (type: Date or String)
+     - `endDate`: Last date that can be selected (type: Date)
+     - `disabledDates`: Array of disabled dates (type: Array of Date)
   */
   module.initializeFromToDatePicker = function(rangeContainerId, opts = {}) {
     var endDate = opts.endDate;
+    var disabledDates = opts.disabledDates || [];
     var now = new Date();
     var today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
     var dateRage = $('#'+ rangeContainerId);
@@ -23,7 +25,8 @@ window.ST = window.ST || {};
       onRender: function(date) {
         return date.valueOf() < today.valueOf() ? 'disabled' : '';
       },
-      endDate: endDate
+      endDate: endDate,
+      datesDisabled: disabledDates
     };
 
     if(dateLocale !== 'en') {

@@ -33,6 +33,19 @@
 
         - content_for :extra_javascript do
           :javascript
+
+            var disabledDates = [
+              // TODO Server-render disabled dates here
+            ]
+
+            // START Only for testing
+            // TODO Remove these
+            // var now = new Date();
+            // disabledDates = [2, 3, 4, 10, 11, 12, 15].map(function(i) {
+            //   return new Date(now.getFullYear(), now.getMonth(), now.getDate() + i, 0, 0, 0, 0);
+            // });
+            // END Only for testing
+
             $.fn.datepicker.dates['#{I18n.locale}'] = {
               days: #{translated_days},
               daysShort: #{translated_days_short},
@@ -67,7 +80,7 @@
               }
             });
 
-            window.ST.initializeFromToDatePicker('datepicker');
+            window.ST.initializeFromToDatePicker('datepicker', {disabledDates: disabledDates});
         .input-daterange.input-group.clearfix#datepicker{:data => {:locale => I18n.locale, :dateformat => t("datepicker.format")}}
           .datepicker-start-wrapper
             = label_tag t(".booking_from")
