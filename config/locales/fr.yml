@@ -384,7 +384,7 @@ fr:
       preview: "Prévisualiser le site"
     listing_shapes:
       availability_title: Disponibilité
-      allow_availability_management: "Permettre aux vendeurs de gérer leur disponibilité depuis un calendrier"
+      allow_availability_management: "Activer la gestion automatique de la disponibilité (empêcher les doubles réservations)"
       per_day_availability: "Disponibilité \"par jour\""
       per_night_availability: "Disponibilité \"par nuit\""
       pricing_units_disabled_info: "Les unités de prix ne peuvent être utilisées lorsque le calendrier de disponibilité est activé."
@@ -452,7 +452,7 @@ fr:
       units_title: "Unités de prix"
       units_desc: "Si vous choisissez des unités de prix, le prix de l'annonce sera affiché avec le format \"prix par unité de prix\". Par exemple : \"39€ par heure\"."
       units:
-        piece: "Par élément"
+        piece: "Par unité"
         hour: "Par heure"
         day: "Par jour"
         night: "Par nuit"
@@ -470,7 +470,7 @@ fr:
         per: Par
         unit_type:
           heading: "Type d'unité"
-          quantity_label: "Quantité (par élément, par kg, par personne, par visite de 2 heures...)"
+          quantity_label: "Quantité (par unité, par kg, par personne, par visite de 2 heures...)"
           time_label: "Temps (par 30 minutes, par 2 semaines, par année...)"
     paypal_accounts:
       marketplace_paypal_integration: "Paramètres du système de paiements"
@@ -2055,12 +2055,12 @@ fr:
   web:
     listings:
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: unité
+        hour: heure
+        day: jour
+        night: nuit
+        week: semaine
+        month: mois
     listing_card:
       no_picture: "Aucune image"
     topbar:

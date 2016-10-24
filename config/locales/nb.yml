@@ -2055,12 +2055,12 @@ nb:
   web:
     listings:
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: stykk
+        hour: time
+        day: dag
+        night: natt
+        week: uke
+        month: måned
     listing_card:
       no_picture: "Ingen bilde"
     topbar:

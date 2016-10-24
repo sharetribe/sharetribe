@@ -2073,12 +2073,12 @@ sk-SK:
   web:
     listings:
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: kus
+        hour: hodina
+        day: deň
+        night: noc
+        week: týždeň
+        month: mesiac
     listing_card:
       no_picture: "bez obrázku"
     topbar:

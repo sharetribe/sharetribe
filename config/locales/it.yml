@@ -368,11 +368,11 @@ it:
       subscription: ~
       preview: ~
     listing_shapes:
-      availability_title: ~
-      allow_availability_management: ~
-      per_day_availability: ~
-      per_night_availability: ~
-      pricing_units_disabled_info: ~
+      availability_title: Disponibilità
+      allow_availability_management: "Abilita la gestione automatica della disponibilità (previene la doppia prenotazione)"
+      per_day_availability: "disponibilità \"Per giorno\""
+      per_night_availability: "Disponibilità \"Per notte\""
+      pricing_units_disabled_info: ""
       index:
         listing_shapes: "Tipo di ordini"
         description: "Il Tipo di ordini determina come funziona il processo di ordine nel tuo sito. Si può decidere se gli utenti sono affittanti o venditori, o forse solo pubblicisti di annunci e messaggi gratuiti."
@@ -880,8 +880,8 @@ it:
       person_email: ~
   error_messages:
     booking:
-      booking_failed_payment_voided: ~
-      double_booking_payment_voided: ~
+      booking_failed_payment_voided: "La prenotazione è fallita per un errore inaspettato. Per favore riprova più tardi. Nessun trasferimento di denaro è stato eseguito."
+      double_booking_payment_voided: "Sfortunatamente le date che hai scelto non sono disponibili. Per favore scegli un altro periodo. Nessun trasferimento di denaro è stato eseguito."
     onboarding:
       server_rendering: ~
     listings:
@@ -1332,8 +1332,8 @@ it:
     error:
       something_went_wrong: "Qualcosa è andato storto. Codice errore: %{error_code}"
       something_went_wrong_plain: "Qualcosa è andato storto"
-      create_failed_to_connect_to_booking_service: ~
-      update_failed_to_connect_to_booking_service: ~
+      create_failed_to_connect_to_booking_service: "Creazione di inserzione fallito: fallito a connettersi al booking service. Per favore riprova."
+      update_failed_to_connect_to_booking_service: "Aggiornamento di inserzione fallito: fallito a connettersi al booking service. Per favore riprova."
     follow_links:
       follow: "Ricevi email per ogni nuovo commento"
       unfollow: "Non ricevere email per ogni nuovo commento"
@@ -2024,12 +2024,12 @@ it:
   web:
     listings:
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: unità
+        hour: ora
+        day: giorno
+        night: notte
+        week: settimana
+        month: mese
     listing_card:
       no_picture: "Nessuna immagine"
     topbar:
