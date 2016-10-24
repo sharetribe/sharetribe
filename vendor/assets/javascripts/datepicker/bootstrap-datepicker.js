@@ -1,3 +1,9 @@
+/*
+  Version 1.4.0
+
+  Source: https://github.com/uxsolutions/bootstrap-datepicker/blob/v1.4.0/js/bootstrap-datepicker.js
+*/
+
 /* =========================================================
  * bootstrap-datepicker.js
  * Repo: https://github.com/eternicode/bootstrap-datepicker/
