@@ -66,9 +66,37 @@
                   return startVal !== value
                 }
               });
+            $.validator.addMethod("availability_range",
+              function(value, element, params) {
+                var startVal = $(params.startOnSelector).datepicker('getDates');
+                var endVal = $(element).datepicker('getDates');
+
+                if (!startVal || startVal.length !== 1 || !endVal || endVal.length !== 1) {
+                  return false;
+                }
+
+                var startDate = startVal[0].getTime();
+                var endDate = endVal[0].getTime();
+
+                // Validate that all booked dates are outside the selected range
+                return disabledDates.every(function(d) {
+                  var date = d.getTime();
+                  if (startDate === endDate) {
+                    return date !== startDate;
+                  }
+                  return date < startDate || date >= endDate;
+                });
+              });
             var rules = #{@listing.quantity_selector&.to_sym == :night} ? {
-              "end_on": {night_selected: {startOnSelector: "#start-on"}}
-            } : {};
+              "end_on": {
+                night_selected: {startOnSelector: "#start-on"},
+                availability_range: {startOnSelector: "#start-on"}
+              }
+            } : {
+              "end_on": {
+                availability_range: {startOnSelector: "#start-on"}
+              }
+            };
             $("#booking-dates").validate({
               rules: rules,
               submitHandler: function(form) {
