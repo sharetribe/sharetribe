@@ -16,7 +16,7 @@ module TransitUtils
 
   class UUIDReadHandler
     def from_rep(u)
-      UUIDTools::UUID.parse(u)
+      UUIDTools::UUID.parse(Transit::UUID.new(u).to_s)
     end
   end
 
