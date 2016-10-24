@@ -47,3 +47,12 @@
 .datepicker tbody tr:nth-child(odd) {
   background-color: transparent;
 }
+
+.datepicker table tr td.disabled-date,
+.datepicker table tr td.disabled-date:hover {
+  color: rgba(255, 0, 0, 0.5);
+}
+
+.datepicker table tr td.range.disabled {
+  background-color: rgba(255, 0, 0, 0.2);
+}
