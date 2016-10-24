@@ -13,4 +13,8 @@ module DateUtils
   def duration_nights(start_date, end_date)
     (end_date - start_date).to_i
   end
+
+  def to_midnight_utc(date)
+    Time.utc(date.year, date.month, date.day)
+  end
 end
