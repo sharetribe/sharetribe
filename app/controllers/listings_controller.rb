@@ -423,8 +423,7 @@ class ListingsController < ApplicationController
 
     if FeatureFlagHelper.feature_enabled?(:availability) &&
        shape.present? &&
-       shape[:availability] == :booking &&
-       @listing.availability.to_sym != :booking
+       shape[:availability] == :booking
 
       auth_context = {
         marketplace_id: @current_community.uuid_object,
