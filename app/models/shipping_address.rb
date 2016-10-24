@@ -17,6 +17,10 @@
 #  updated_at        :datetime         not null
 #  country_code      :string(8)
 #
+# Indexes
+#
+#  index_shipping_addresses_on_transaction_id  (transaction_id)
+#
 
 class ShippingAddress < ActiveRecord::Base
   attr_accessible(
