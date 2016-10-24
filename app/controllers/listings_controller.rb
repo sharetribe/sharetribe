@@ -211,8 +211,6 @@ class ListingsController < ApplicationController
         Result::Success.new([])
       end
 
-    binding.pry
-
     view_locals = {
       form_path: form_path,
       payment_gateway: payment_gateway,
