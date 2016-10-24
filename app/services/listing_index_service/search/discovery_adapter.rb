@@ -3,6 +3,12 @@ module ListingIndexService::Search
   class DiscoveryAdapter < SearchEngineAdapter
     API_KEY = APP_CONFIG.external_search_apikey
     SEARCH_URL = APP_CONFIG.external_search_url
+    INCLUDE_MAP = {
+      listing_images: :listing_images,
+      author: :author,
+      num_of_reviews: {author: :received_testimonials},
+      location: :location
+    }
 
     def initialize(raise_errors:)
       logger = ::Logger.new(STDOUT)
@@ -17,17 +23,30 @@ module ListingIndexService::Search
     end
 
     def search(community_id:, search:, includes: nil)
-      path_base = "/discovery/listings/query"
-      begin
-        res = @conn.get do |req|
-          req.url(path_base, format_params(search.merge({ marketplace_id: community_id })))
-          req.headers['Authorization'] = "apikey key=#{API_KEY}"
-          req.headers['Accept'] = "application/transit+json"
+
+      if DatabaseSearchHelper.needs_db_query?(search) && DatabaseSearchHelper.needs_search?(search)
+        return Result::Error.new(ArgumentError.new("Both DB query and search engine would be needed to fulfill the search"))
+      end
+
+      if DatabaseSearchHelper.needs_search?(search)
+        path_base = "/discovery/listings/query"
+        begin
+          res = @conn.get do |req|
+            req.url(path_base, format_params(search.merge({ marketplace_id: community_id })))
+            req.headers['Authorization'] = "apikey key=#{API_KEY}"
+            req.headers['Accept'] = "application/transit+json"
+          end
+          result = res.body
+          Result::Success.new(result)
+        rescue StandardError => e
+          Result::Error.new(e)
         end
-        result = res.body
-        Result::Success.new(result)
-      rescue StandardError => e
-        Result::Error.new(e)
+      else
+        included_models = includes.map { |m| INCLUDE_MAP[m] }
+        DatabaseSearchHelper.fetch_from_db(community_id: community_id,
+                                           search: search,
+                                           included_models: included_models,
+                                           includes: includes)
       end
     end
 
