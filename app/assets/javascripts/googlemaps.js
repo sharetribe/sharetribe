@@ -539,6 +539,16 @@ function addListingMarkers(listings, viewport) {
           title: entry["title"]
         });
 
+        // Marker icon based on category
+        var label = new Label({
+                       map: map
+                  });
+                  label.set('zIndex', 1234);
+                  label.bindTo('position', marker, 'position');
+                  label.set('text', "");
+                  label.set('color', "#FFF");
+        marker.set("label", label);
+
         markers.push(marker);
         markerContents.push(entry["id"]);
         markersArr.push(marker);
