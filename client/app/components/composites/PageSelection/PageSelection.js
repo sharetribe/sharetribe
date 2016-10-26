@@ -5,7 +5,6 @@ import { upsertSearchQueryParam } from '../../../utils/url';
 import css from './PageSelection.css';
 
 export default function PageSelection({ currentPage, totalPages, location, pageParam }) {
-  const BUTTON_SIZE = '36px';
   const hasNext = totalPages > currentPage;
   const hasPrev = currentPage > 1;
 
@@ -25,19 +24,19 @@ export default function PageSelection({ currentPage, totalPages, location, pageP
     };
 
   const buttonsVisible = [hasPrev, hasNext].filter((x) => x).length;
-  const arrowButtonsWidth = buttonsVisible === 2 ? '78px' : BUTTON_SIZE; // eslint-disable-line no-magic-numbers
+  const className = buttonsVisible === 2 ? css.arrowButtonsWide : css.arrowButtonsNarrow; // eslint-disable-line no-magic-numbers
 
   return div({ className: css.pageSelection }, [
     `Page ${currentPage} of ${totalPages} `,
-    div({ className: css.arrowButtons, style: { width: arrowButtonsWidth } }, [
+    div({ className: className }, [
       hasPrev ? a({
         onClick: setPage(currentPage - 1),
         href: getLocation(currentPage - 1) },
-        r(ArrowButton, { diameter: BUTTON_SIZE, direction: 'left' })) : null,
+        r(ArrowButton, { direction: 'left' })) : null,
       hasNext ? a({
         onClick: setPage(currentPage + 1),
         href: getLocation(currentPage + 1) },
-        r(ArrowButton, { diameter: BUTTON_SIZE, direction: 'right' })) : null,
+        r(ArrowButton, { direction: 'right' })) : null,
     ]),
   ]);
 }
