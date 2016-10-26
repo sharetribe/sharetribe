@@ -14,6 +14,8 @@ const fontSizeMobile = '17px';
 const fontWeightMedium = '500';
 const fontWeightSemibold = '600';
 
+const lineHeight = 22;
+
 const textColor = 'rgb(82, 89, 97)';
 const textColorFocus = 'rgb(0, 0, 0)';
 const textColorGrey = 'rgb(122, 125, 128)';
@@ -295,7 +297,7 @@ module.exports = {
   '--ListingCard_fontSizeDistance': fontSizeSmaller,
   '--ListingCard_fontSizePrice': fontSizeBigger,
   '--ListingCard_lineHeight': '26px',
-  '--ListingCard_lineHeightTitle': '22px',
+  '--ListingCard_lineHeightTitle': `${lineHeight}px`,
   '--ListingCard_colorTitle': textColorDark,
   '--ListingCard_colorDistance': textColorGrey,
   '--ListingCard_colorBackground': backgroundLightColor,
@@ -313,6 +315,11 @@ module.exports = {
   '--ListingCardPanel_backgroundColor': backgroundColorGrey,
 
   '--RoundButton_shadow': searchPageShadow,
+
+  '--NoResults_textColor': textColorDark,
+  '--NoResults_fontSize': fontSizeBig,
+  '--NoResults_lineHeight': `${lineHeight}px`,
+  '--NoResults_spacing': bodyPadding,
 
   '--Branding_textColor': textColor,
   '--Branding_borderColor': borderColor,
