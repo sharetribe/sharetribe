@@ -57,7 +57,7 @@ class ListingCard extends Component {
     const distanceFormatted = formatDistance(listing.distance, localeCode);
     const price = listing.price;
     const moneyFormatted = price ? formatMoney(price.get(':money'), localeCode) : null;
-    const hasPricingUnit = price && price.get(':pricingUnit') != null;
+    const hasPricingUnit = price && price.get(':pricingUnit') != null && price.get(':pricingUnit').get(':unit') != null;
     const pricingUnitFormatted = hasPricingUnit ?
       `/ ${localizedPricingUnit(price.get(':pricingUnit'))}` :
       '';
