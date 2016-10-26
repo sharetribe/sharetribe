@@ -28,7 +28,7 @@ export default function PageSelection({ currentPage, totalPages, location, pageP
 
   return div({ className: css.pageSelection }, [
     `Page ${currentPage} of ${totalPages} `,
-    div({ className: className }, [
+    div({ className }, [
       hasPrev ? a({
         onClick: setPage(currentPage - 1),
         href: getLocation(currentPage - 1) },
