@@ -15,10 +15,12 @@
 
 .arrowButtonsWide {
   @mixin arrowButtons;
+
   width: 78px;
 }
 
 .arrowButtonsNarrow {
   @mixin arrowButtons;
+
   width: 36px;
 }
