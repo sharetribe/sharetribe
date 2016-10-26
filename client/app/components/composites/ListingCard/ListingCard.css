@@ -10,9 +10,13 @@
   display: block;
   position: relative;
   width: 100%;
-  padding-bottom: 100%;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
+}
+
+/* Firefox doesn't support image aspect ratio inside flexbox */
+.aspectWrapper {
+  padding-bottom: 100%;
 }
 
 .noImageContainer,
