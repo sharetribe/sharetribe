@@ -10,13 +10,8 @@ export default function RoundButton({ diameter, content, className }) {
 }
 
 export const ArrowButton = ({ className, direction }) => {
-  const diameter = '36px';
   return div({
     className: classNames(className, css.arrowButton, css.roundButton),
-    style: {
-      height: diameter,
-      width: diameter,
-    },
     dangerouslySetInnerHTML: {
       __html: direction === 'left' ? arrowLeft : arrowRight,
     }
