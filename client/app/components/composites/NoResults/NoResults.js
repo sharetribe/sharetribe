@@ -1,5 +1,5 @@
 import { PropTypes } from 'react';
-import { div, p, a } from 'r-dom';
+import { div, p } from 'r-dom';
 import classNames from 'classnames';
 
 import { t } from '../../../utils/i18n';

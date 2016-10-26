@@ -291,6 +291,8 @@ module.exports = {
   '--AddNewListingButton_textPadding': '1.5em',
 
   // SEARCH PAGE
+  '--SearchPage_backgroundColor': backgroundColorGrey,
+
   '--ListingCard_noImageText': textColor,
   '--ListingCard_fontSize': fontSize,
   '--ListingCard_fontSizeTitle': fontSizeBig,
@@ -312,7 +314,6 @@ module.exports = {
   '--ListingCard_shadow': searchPageShadow,
 
   '--ListingCardPanel_gutterSpacing': bodyPadding,
-  '--ListingCardPanel_backgroundColor': backgroundColorGrey,
 
   '--RoundButton_shadow': searchPageShadow,
 
