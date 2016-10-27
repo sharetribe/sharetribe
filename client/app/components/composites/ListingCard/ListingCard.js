@@ -63,6 +63,35 @@ class ListingCard extends Component {
       '';
     const orderTypeLabel = localizedString(listing.orderType, 'order type');
 
+    const listingImage = img({
+      ...{
+        className: classNames('ListingCard_image', css.thumbnail),
+        src: imageURL,
+        onLoad: this.handleImageLoaded,
+        onError: this.handleImageErrored,
+      },
+      ...higherRes,
+    });
+
+    const noListingImage = div({ className: css.noImageContainer },
+      div(
+        { className: css.noImageWrapper },
+        [
+          div({
+            className: css.noImageIcon,
+            dangerouslySetInnerHTML: { __html: noImageIcon },
+          }),
+          div({
+            className: css.noImageText,
+          }, t('web.listing_card.no_picture')),
+        ]
+      )
+    );
+
+    const imageOrPlaceholder = imageURL && this.state.imageStatus !== IMAGE_FAILED ?
+      listingImage :
+      noListingImage;
+
     return div({
       className: classNames('ListingCard', css.listing, this.props.className),
       onClick: this.clickHandler,
@@ -71,31 +100,7 @@ class ListingCard extends Component {
         className: css.squareWrapper,
         style: { backgroundColor: `rgb(${tintedRGB.r}, ${tintedRGB.g}, ${tintedRGB.b})` },
         href: listing.listingURL,
-      }, imageURL && this.state.imageStatus !== IMAGE_FAILED ?
-        img({
-          ...{
-            className: classNames('ListingCard_image', css.thumbnail),
-            src: imageURL,
-            onLoad: this.handleImageLoaded,
-            onError: this.handleImageErrored,
-          },
-          ...higherRes,
-        }) :
-        div({
-          className: css.noImageContainer,
-        }, div(
-          {
-            className: css.noImageWrapper,
-          }, [
-            div({
-              className: css.noImageIcon,
-              dangerouslySetInnerHTML: { __html: noImageIcon },
-            }),
-            div({
-              className: css.noImageText,
-            }, t('web.listing_card.no_picture')),
-          ]),
-        ),
+      }, div({ className: css.aspectWrapper }, imageOrPlaceholder)
       ),
       div({ className: css.info }, [
         div({
