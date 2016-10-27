@@ -48,11 +48,37 @@
   background-color: transparent;
 }
 
-.datepicker table tr td.disabled-date,
-.datepicker table tr td.disabled-date:hover {
-  color: rgba(255, 0, 0, 0.5);
-}
+.datepicker table tr td {
 
-.datepicker table tr td.range.disabled {
-  background-color: rgba(255, 0, 0, 0.2);
+  &.day {
+    border-radius: 0px;
+
+    &:hover {
+      background-color: darken($link, 5%);
+      color: white;
+    }
+
+    &.disabled,
+    &.disabled:hover {
+      background-color: $highlight;
+      border-radius: 0px;
+      color: $border;
+    }
+
+    &.range,
+    &.selected {
+      background-color: $link;
+      color: #FFF;
+
+      &:hover, &:hover:hover {
+        background-color: darken($link, 5%);
+      }
+    }
+
+    &.range.disabled,
+    &.range.disabled:hover{
+      background-color: rgba(255, 0, 0, 0.8);
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
 }
