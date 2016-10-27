@@ -1,38 +1,46 @@
 %h3
-  = t("emails.welcome_email.welcome_to_marketplace_creator", :name => @recipient.given_name_or_username)
+  = t("emails.welcome_email_marketplace_creator.welcome_to_marketplace_creator", :name => @recipient.given_name_or_username)
 
 %p
-  = t("emails.welcome_email.congrats_for_creating_your_marketplace")
+  = t("emails.welcome_email_marketplace_creator.journey_begins")
 
 %p
-  %b
-    = t("emails.welcome_email.here_is_your_account_information")
   %br/
-  = t("emails.welcome_email.your_email_address")
+  %b
+    = t("emails.welcome_email_marketplace_creator.marketplace_information")
+  %br/
+  %b
+    = t("emails.welcome_email_marketplace_creator.your_email_address")
   = @recipient.confirmed_notification_emails_to
   %br/
-  = t("emails.welcome_email.your_marketplace_address")
+  %b
+    = t("emails.welcome_email_marketplace_creator.your_marketplace_address")
   = link_to @current_community.full_url, @current_community.full_url
   %br/
-  = t("emails.welcome_email.your_marketplace_admin_area")
+  = t("emails.welcome_email_marketplace_creator.share_your_marketplace_address")
+  %br/
+  %b
+    = t("emails.welcome_email_marketplace_creator.your_marketplace_admin_panel")
   = link_to @current_community.full_url + "/admin", @current_community.full_url + "/admin"
   %br/
-  = t("emails.welcome_email.just_follow_details")
+  = t("emails.welcome_email_marketplace_creator.follow_suggested_steps")
+  %br/
+
+%p
+  %br/
+  %b
+    = t("emails.welcome_email_marketplace_creator.not_alone")
+  %br/
+  = t("emails.welcome_email_marketplace_creator.support_team_and_book_call", :knowledge_base_link => link_to(t("emails.welcome_email_marketplace_creator.knowledge_base_link_text"), "#{APP_CONFIG.knowledge_base_url}"), :book_a_call_link => link_to(t("emails.welcome_email_marketplace_creator.book_a_call_link_text"), "https://www.sharetribe.com/book-a-call/")).html_safe
 
 %p
   %b
-    = t("emails.welcome_email.we_will_guide_you_along_the_way")
+    = t("emails.welcome_email_marketplace_creator.helping_you")
   %br/
-  = t("emails.welcome_email.are_you_new_to_online_marketplaces")
+  = t("emails.welcome_email_marketplace_creator.drip_emails_academy", :marketplace_academy_link => link_to(t("emails.welcome_email_marketplace_creator.marketplace_academy_link_text"), "https://www.sharetribe.com/academy/")).html_safe
 
 %p
-  %b
-    = t("emails.welcome_email.have_questions")
-  %br/
-  = t("emails.welcome_email.our_happiness_team_is_here_to_help", :knowledge_base_link => link_to(t("emails.welcome_email.knowledge_base_link_text"), "#{APP_CONFIG.knowledge_base_url}"), :admin_panel_link => link_to(t("emails.welcome_email.admin_panel_link_text"), @current_community.full_url + "/admin/")).html_safe
-
-%p
-  = t("emails.welcome_email.love")
+  = t("emails.welcome_email_marketplace_creator.cheers")
   %br/
   %i
-    = t("emails.welcome_email.sharetribe_crew")
+    = t("emails.welcome_email_marketplace_creator.sharetribe_team")
