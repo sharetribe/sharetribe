@@ -8,43 +8,75 @@
     content: '';
     flex: auto;
   }
-}
 
-.card {
-  margin: calc(var(--ListingCardPanel_gutterSpacing) / 2);
-  min-width: 264px;
-  max-width: 550px;
-  flex-basis: calc(100% - 24px);
-
-  /* Counting columns (minimum card width 264px) + gutters (24px)
-     24 + 264 + 24 + 264 + 24 = 600 */
-  @media screen and (min-width: 600px) {
-    max-width: 408px;
-    flex-basis: calc(50% - var(--ListingCardPanel_gutterSpacing));
+  & .card {
+    margin: calc(var(--ListingCardPanel_gutterSpacing) / 2);
+    min-width: 264px;
+    max-width: 550px;
+    flex-basis: calc(100% - 24px);
   }
 
-  /* 4*24 + 3*264 = 3*(24 + 264) + 24 = 888 */
-  @media screen and (min-width: 888px) {
-    flex-basis: calc(33.33% - var(--ListingCardPanel_gutterSpacing));
+  /* Counting columns (minimum card width 264px) + gutter (12px) + panel padding (12px)
+     12 + 264 + 12 + 264 + 12 = 564 */
+  @media screen and (min-width: 564px) {
+    padding: 6px;
+
+    & .card {
+      max-width: 408px;
+      flex-basis: calc(50% - 12px);
+      margin: 6px 6px;
+    }
   }
 
-  /* 4*(24 + 264) + 24 = 1176px */
-  @media screen and (min-width: 1176px) {
-    flex-basis: calc(25% - var(--ListingCardPanel_gutterSpacing));
+  /* 12 + 264 + 12 + 264 + 12 + 264 + 12 = 840 */
+  @media screen and (min-width: 840px) {
+    padding: 6px 8px;
+
+    & .card {
+      flex-basis: calc(33.33% - 12px);
+      margin: 6px 6px;
+    }
   }
 
-  /* 5*(24 + 264) + 24  = 1464px */
-  @media screen and (min-width: 1464px) {
-    flex-basis: calc(20% - var(--ListingCardPanel_gutterSpacing));
+  /* Width: 10 + 8 + 264 + 16 + 264 + 16 + 264 + 16 + 264 + 8 + 10 = 1140
+     = 4*(16 + 264) + 16 + 2*(18-16)
+     where 18 is space between panel edge and card and 16 is (natural) gutter */
+  @media screen and (min-width: 1140px) {
+    padding: 9px 10px;
+
+    & .card {
+      flex-basis: calc(25% - 16px);
+      margin: 9px 8px;
+    }
   }
 
-  /* 6*(24 + 264) + 24  = 1752px */
-  @media screen and (min-width: 1752px) {
-    flex-basis: calc(100% / 6 - var(--ListingCardPanel_gutterSpacing));
+  /* 5*(20 + 264) + 20 + 2*(24-20) = 1448px */
+  @media screen and (min-width: 1448px) {
+    padding: 12px 14px;
+
+    & .card {
+      flex-basis: calc(20% - 20px);
+      margin: 12px 10px;
+    }
   }
 
-  /* 7*(24 + 264) + 24 = 2040px */
-  @media screen and (min-width: 2040px) {
-    flex-basis: calc(100% / 7 - var(--ListingCardPanel_gutterSpacing));
+  /* 6*(24 + 264) + 24 + 2*(30-24) = 1764px */
+  @media screen and (min-width: 1764px) {
+    padding: 15px 18px;
+
+    & .card {
+      flex-basis: calc(100% / 6 - 24px);
+      margin: 15px 12px;
+    }
+  }
+
+  /* 7*(24 + 264) + 24 + 2*(36-24) = 2064px */
+  @media screen and (min-width: 2136px) {
+    padding: 18px 24px;
+
+    & .card {
+      flex-basis: calc(100% / 7 - 24px);
+      margin: 18px 12px;
+    }
   }
 }
