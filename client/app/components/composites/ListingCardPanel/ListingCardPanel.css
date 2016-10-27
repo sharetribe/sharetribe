@@ -3,7 +3,6 @@
   flex-wrap: wrap;
   justify-content: space-around;
   padding: calc(var(--ListingCardPanel_gutterSpacing) / 2);
-  background-color: var(--ListingCardPanel_backgroundColor);
 
   &::after {
     content: '';

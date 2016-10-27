@@ -1,7 +1,7 @@
 .listing {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: var(--ListingCard_shadow);
   border-radius: 3px;
   cursor: pointer;
 }

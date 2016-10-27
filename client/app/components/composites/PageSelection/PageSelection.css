@@ -1,0 +1,26 @@
+.pageSelection {
+  padding: 23px 24px;
+  margin-bottom: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+  align-items: baseline;
+}
+
+@define-mixin arrowButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 44px;
+}
+
+.arrowButtonsWide {
+  @mixin arrowButtons;
+
+  width: 78px;
+}
+
+.arrowButtonsNarrow {
+  @mixin arrowButtons;
+
+  width: 36px;
+}
