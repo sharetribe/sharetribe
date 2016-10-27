@@ -30,7 +30,7 @@
 
   /* 12 + 264 + 12 + 264 + 12 + 264 + 12 = 840 */
   @media screen and (min-width: 840px) {
-    padding: 6px 8px;
+    padding: 6px 6px;
 
     & .card {
       flex-basis: calc(33.33% - 12px);
