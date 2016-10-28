@@ -97,11 +97,9 @@ module CustomLandingPage
       end
 
       def call(type, id, _)
-        unless @_data.key?(id)
-          raise LinkResolvingError.new("Unknown category id '#{id}'.")
+        if @_data.key?(id)
+          @_data[id].merge("id" => id, "type" => type)
         end
-
-        @_data[id].merge("id" => id, "type" => type)
       end
     end
 
