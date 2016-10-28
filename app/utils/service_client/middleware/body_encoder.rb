@@ -49,7 +49,7 @@ module ServiceClient
       ENCODERS = [
         {encoding: :json, media_type: "application/json", encoder: JSONEncoder.new},
         {encoding: :transit_json, media_type: "application/transit+json", encoder: TransitEncoder.new(:json)},
-        {encoding: :transit_msgpack, media_type: "application/transit+msgpack", encoder: TransitEncoder.new(:transit_msgpack)},
+        {encoding: :transit_msgpack, media_type: "application/transit+msgpack", encoder: TransitEncoder.new(:msgpack)},
         {encoding: :text, media_type: "text/plain", encoder: TextEncoder.new},
       ]
 

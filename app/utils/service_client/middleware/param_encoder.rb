@@ -17,8 +17,11 @@ module ServiceClient
       def encode_param(k, v)
         case v
         when Date
-          # Convert to format: 2016-09-20T06:36:58.085Z
+          # Convert to format: 2016-09-20T00:00:00.000Z, i.e. utc
+          # midnight of given date
           [k, v.strftime("%FT%T.%LZ")]
+        when Time
+          [k, v.utc.strftime("%FT%T.%LZ")]
         else
           [k, v.to_s]
         end

@@ -34,6 +34,8 @@ module UUIDUtils
     end
   }
 
+  V0_UUID = UUIDTools::UUID.parse("00000000-0000-0000-0000-000000000000")
+
   module_function
 
   def create
@@ -50,6 +52,10 @@ module UUIDUtils
 
   def raw(uuid)
     to_rearranged(uuid.raw)
+  end
+
+  def v0_uuid
+    V0_UUID
   end
 
   # private
