@@ -56,7 +56,7 @@ Before you get started, the following needs to be installed:
   bundle install
   ```
 
-  **Note:** [`libv8`might fail to build with Clang 7.3](https://github.com/cowboyd/libv8/pull/207), in that case you can try installing V8 manually:
+  **Note:** [`libv8` might fail to build with Clang 7.3](https://github.com/cowboyd/libv8/pull/207), in that case you can try installing V8 manually:
 
   ```bash
   brew tap homebrew/versions
@@ -68,12 +68,12 @@ Before you get started, the following needs to be installed:
   bundle install
   ```
 
-1. Install node modules
+1. Install node modules:
   ```bash
   npm install
   ```
 
-1. Create a database.yml file by copying the example database configuration:
+1. Create a `database.yml` file by copying the example database configuration:
 
   ```bash
   cp config/database.example.yml config/database.yml
@@ -81,12 +81,11 @@ Before you get started, the following needs to be installed:
 
 1. Add your database configuration details to `config/database.yml`. You will probably only need to fill in the password for the database(s).
 
-1. Create a config.yml file by copying the example configution file:
+1. Create a `config.yml` file by copying the example configuration file:
 
   ```bash
   cp config/config.example.yml config/config.yml
   ```
-
 
 1. Create the database:
 
