@@ -1508,6 +1508,7 @@ fr:
       booking_to: Au
       how_paypal_works: "Comment fonctionne PayPal"
       payment_help: "Aide à propos du paiement"
+      unable_load_availability: ~
     new:
       listing: annonce
       selected_category: "Catégorie : %{category}"
@@ -2062,8 +2063,8 @@ fr:
         week: semaine
         month: mois
     no_listings:
-      sorry: ~
-      try_other_search_terms: ~
+      sorry: "Désolé, aucune annonce n'a pu être trouvée avec vos critères de recherche."
+      try_other_search_terms: "Essayez peut-être avec d'autres termes ?"
     listing_card:
       no_picture: "Aucune image"
     topbar:

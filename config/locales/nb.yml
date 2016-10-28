@@ -1508,6 +1508,7 @@ nb:
       booking_to: Til
       how_paypal_works: "Hvordan PayPal virker"
       payment_help: "Hjelp til betaling"
+      unable_load_availability: "Kunne ikke laste inn tilgjengelighetsinformasjon. Vennligst prøv igjen senere."
     new:
       listing: annonse
       selected_category: "Kategori: %{category}"
@@ -2062,8 +2063,8 @@ nb:
         week: uke
         month: måned
     no_listings:
-      sorry: ~
-      try_other_search_terms: ~
+      sorry: "Beklager, vi finner ingen resultater som matcher dine søkekriterier."
+      try_other_search_terms: "Kanskje du kan prøve noen andre søkeord?"
     listing_card:
       no_picture: "Ingen bilde"
     topbar:
