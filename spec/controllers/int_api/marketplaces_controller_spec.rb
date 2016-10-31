@@ -41,7 +41,7 @@ describe IntApi::MarketplacesController, type: :controller do
       expect(response.status).to eql 201
 
       r = JSON.parse(response.body)
-      expect(r["marketplace_url"]).to eql "http://imaginationtraders.#{APP_CONFIG.domain}?auth=#{AuthToken.last.token}"
+      expect(r["marketplace_url"]).to eql "http://imaginationtraders.#{APP_CONFIG.domain}/admin?auth=#{AuthToken.last.token}"
 
       c = Community.where(ident: "imaginationtraders").first
       expect(c).to_not be_nil

@@ -46,8 +46,12 @@ class IntApi::MarketplacesController < ApplicationController
         locale: params[:marketplace_language]},
         marketplace[:id]).data
 
+    # make the marketplace creator land to the admin panel
+    url = "#{marketplace[:url]}/admin"
+
+    # make the marketplace creator be logged in via Auth Token
     auth_token = UserService::API::AuthTokens.create_login_token(user[:id])
-    url = URLUtils.append_query_param(marketplace[:url], "auth", auth_token[:token])
+    url = URLUtils.append_query_param(url, "auth", auth_token[:token])
 
     # Enable specific features for all new trials
     FeatureFlagService::API::Api.features.enable(community_id: marketplace[:id], person_id: user[:id], features: [:topbar_v1])
