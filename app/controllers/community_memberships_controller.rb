@@ -110,6 +110,7 @@ class CommunityMembershipsController < ApplicationController
   end
 
   def confirmation_pending
+    render :confirmation_pending, locals: {support_email: APP_CONFIG.support_email}
   end
 
   # Ajax end-points for front-end validation

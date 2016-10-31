@@ -2,4 +2,4 @@
   %h1= t("sessions.confirmation_pending.confirm_your_email")
 
 #new-message-form.centered-section
-  = render partial: "community_memberships/confirmation_form"
+  = render partial: "community_memberships/confirmation_form", locals: {support_email: support_email}

@@ -1817,9 +1817,13 @@ en:
       change_email: Change
       confirm_your_email: "Please confirm your email address"
       account_confirmation_instructions: "You will soon receive an email with a link to confirm your email address. Don't forget to check your spam folder! After confirming your address, you can join %{service_name}."
-      account_confirmation_instructions_title_admin: "Welcome to your marketplace!"
-      your_marketplace_has_now_been_created: "Your marketplace has now been created. That was easy, wasn't it? There's just one more step before you can access your site: we need to confirm your email address."
-      account_confirmation_instructions_admin: "You will soon receive an email with a link to confirm your email address. Don't forget to check your spam folder! Once you open the link, you can start setting up your marketplace."
+      account_confirmation_instructions_title_admin: "Confirm your email address"
+      before_full_access_you_need_to_confirm_email: "Before we can give you full access to your marketplace, there's just one more thing we need to do: confirm your email address."
+      before_confirmation_only_access_admin_dashboard: "Before confirmation you can only access the %{admin_dashboard_link}."
+      admin_dashboard_link_text: "admin dashboard"
+      account_confirmation_instructions_admin: "You should have received an email at %{email_address} with a confirmation link. If you don't see it, check your spam folder or click the button below to resend the email. Once it arrives, open the included link to confirm your address, after which you'll get full access to your marketplace.
+If you need any help, don't hesitate to %{support_link}."
+      contact_support_link_text: "contact Sharetribe support"
   settings:
     account:
       change: Change
