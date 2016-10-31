@@ -51,7 +51,7 @@ class IntApi::MarketplacesController < ApplicationController
 
     #include port separately to url_params if it was present
     if marketplace[:url] && marketplace[:url].split(':')[2]
-      url_params.merge!(port: marketplace[:url].split(':')[2])
+      url_params[:port] = marketplace[:url].split(':')[2]
     end
 
     url = admin_getting_started_guide_url(url_params)
