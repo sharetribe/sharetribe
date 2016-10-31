@@ -10,13 +10,23 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Added
 
+### Changed
+
+### Deprecated
+
 ### Removed
+
+### Fixed
+
+### Security
+
+## [6.1.0] - 2016-10-31
 
 ### Changed
 
 - Updated Node.js to the latest LTS (long term support) version 6.9 [#2655](https://github.com/sharetribe/sharetribe/pull/2665)
 - Updated NPM packages [#2655](https://github.com/sharetribe/sharetribe/pull/2665)
-- Update react_on_rails gem [#2655](https://github.com/sharetribe/sharetribe/pull/2665)
+- Update `react_on_rails` gem [#2655](https://github.com/sharetribe/sharetribe/pull/2665)
 - Upgrade Facebook SDK from v2.2 to v2.8 [#2666](https://github.com/sharetribe/sharetribe/pull/2666)
 - Instruct crawlers not to follow auth paths, add crawling delay for bots that support the directive [#2693](https://github.com/sharetribe/sharetribe/pull/2693)
 
@@ -312,7 +322,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v6.0.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v6.1.0...HEAD
+[6.1.0]: https://github.com/sharetribe/sharetribe/compare/v6.0.0...v6.1.0
 [6.0.0]: https://github.com/sharetribe/sharetribe/compare/v5.12.0...v6.0.0
 [5.12.0]: https://github.com/sharetribe/sharetribe/compare/v5.11.0...v5.12.0
 [5.11.0]: https://github.com/sharetribe/sharetribe/compare/v5.10.0...v5.11.0
