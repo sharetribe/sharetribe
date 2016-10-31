@@ -83,16 +83,10 @@ Before you get started, the following needs to be installed:
   cp config/config.example.yml config/config.yml
   ```
 
-1. Create the database:
+1. Create and initialize the database:
 
   ```bash
-  bundle exec rake db:create
-  ```
-
-1. Initialize your database:
-
-  ```bash
-  bundle exec rake db:structure:load
+  bundle exec rake db:create db:structure:load
   ```
 
 1. Run Sphinx index:
