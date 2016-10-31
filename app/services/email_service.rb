@@ -82,13 +82,14 @@ class EmailService
 
   def self.email_address_allowed?(address, allowed_emails)
     return true unless allowed_emails.present?
+    return false if address.nil?
 
     allowed = false
     allowed_array = allowed_emails.split(",")
     allowed_array.each do |allowed_domain_or_address|
       allowed_domain_or_address.strip!
       allowed_domain_or_address.gsub!('.', '\.') #change . to be \. to only match a dot, not any char
-      if address =~ /#{allowed_domain_or_address}$/
+      if address =~ /#{allowed_domain_or_address}$/i
         allowed = true
         break
       end
