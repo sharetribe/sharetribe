@@ -1,10 +1,6 @@
-class Admin::ListingShapesController < ApplicationController
-  before_filter :ensure_is_admin
+class Admin::ListingShapesController < Admin::AdminAreaController
 
   before_filter :set_url_name
-
-  #Allow admin to access admin panel before email confirmation
-  skip_filter :cannot_access_without_confirmation
 
   LISTING_SHAPES_NAVI_LINK = "listing_shapes"
 

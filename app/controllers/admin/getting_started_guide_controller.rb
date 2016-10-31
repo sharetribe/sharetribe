@@ -1,9 +1,4 @@
-class Admin::GettingStartedGuideController < ApplicationController
-
-  before_filter :ensure_is_admin
-
-  #Allow admin to access admin panel before email confirmation
-  skip_filter :cannot_access_without_confirmation
+class Admin::GettingStartedGuideController < Admin::AdminAreaController
 
   rescue_from ReactOnRails::PrerenderError do |err|
     Rails.logger.error(err.message)

@@ -1,10 +1,5 @@
 # encoding: utf-8
-class Admin::EmailsController < ApplicationController
-
-  before_filter :ensure_is_admin
-
-  #Allow admin to access admin panel before email confirmation
-  skip_filter :cannot_access_without_confirmation
+class Admin::EmailsController < Admin::AdminAreaController
 
   def new
     @selected_tribe_navi_tab = "admin"

@@ -1,11 +1,7 @@
-class Admin::CommunitiesController < ApplicationController
+class Admin::CommunitiesController < Admin::AdminAreaController
   include CommunitiesHelper
 
-  before_filter :ensure_is_admin
   before_filter :ensure_white_label_plan, only: [:create_sender_address]
-
-  #Allow admin to access admin panel before email confirmation
-  skip_filter :cannot_access_without_confirmation
 
   def edit_look_and_feel
     @selected_left_navi_link = "tribe_look_and_feel"

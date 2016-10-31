@@ -1,8 +1,4 @@
-class Admin::CommunityCustomizationsController < ApplicationController
-  before_filter :ensure_is_admin
-
-  #Allow admin to access admin panel before email confirmation
-  skip_filter :cannot_access_without_confirmation
+class Admin::CommunityCustomizationsController < Admin::AdminAreaController
 
   def edit_details
     @selected_left_navi_link = "tribe_details"
