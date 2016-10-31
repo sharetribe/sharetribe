@@ -89,7 +89,7 @@ class EmailService
     allowed_array.each do |allowed_domain_or_address|
       allowed_domain_or_address.strip!
       allowed_domain_or_address.gsub!('.', '\.') #change . to be \. to only match a dot, not any char
-      if address.downcase =~ /#{allowed_domain_or_address.downcase}$/
+      if address =~ /#{allowed_domain_or_address}$/i
         allowed = true
         break
       end
