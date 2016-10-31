@@ -47,7 +47,14 @@ class IntApi::MarketplacesController < ApplicationController
         marketplace[:id]).data
 
     # make the marketplace creator land to the admin panel
-    url = "#{marketplace[:url]}/admin"
+    url_params = {host: marketplace[:url]}
+
+    #include port separately to url_params if it was present
+    if marketplace[:url] && marketplace[:url].split(':')[2]
+      url_params.merge!(port: marketplace[:url].split(':')[2])
+    end
+
+    url = admin_getting_started_guide_url(url_params)
 
     # make the marketplace creator be logged in via Auth Token
     auth_token = UserService::API::AuthTokens.create_login_token(user[:id])
