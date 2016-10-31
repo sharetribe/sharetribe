@@ -1,10 +1,11 @@
 import r, { div, a } from 'r-dom';
+import classNames from 'classnames';
 import { ArrowButton } from '../../elements/RoundButton/RoundButton';
 import { upsertSearchQueryParam } from '../../../utils/url';
 
 import css from './PageSelection.css';
 
-export default function PageSelection({ currentPage, totalPages, location, pageParam }) {
+export default function PageSelection({ className, currentPage, totalPages, location, pageParam }) {
   const hasNext = totalPages > currentPage;
   const hasPrev = currentPage > 1;
 
@@ -24,8 +25,8 @@ export default function PageSelection({ currentPage, totalPages, location, pageP
     };
 
   const buttonsVisible = [hasPrev, hasNext].filter((x) => x).length;
+  return div({ className: classNames(css.pageSelection, className) }, [
 
-  return div({ className: css.pageSelection }, [
     `Page ${currentPage} of ${totalPages} `,
     div({ className }, [
       hasPrev ? a({
