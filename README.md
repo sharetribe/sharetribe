@@ -38,16 +38,12 @@ Before you get started, the following needs to be installed:
 
 ### Setting up the development environment
 
-1. Get the code. Cloning this git repo is probably easiest way:
+1. Get the code. Clone this git repository and check out the latest release:
 
   ```bash
   git clone git://github.com/sharetribe/sharetribe.git
-  ```
-
-1. Navigate to the Sharetribe project root directory.
-
-  ```bash
   cd sharetribe
+  git checkout latest
   ```
 
 1. Install the required gems by running the following command in the project root directory:
