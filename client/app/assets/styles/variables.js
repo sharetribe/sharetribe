@@ -316,6 +316,8 @@ module.exports = {
   '--ListingCardPanel_gutterSpacing': bodyPadding,
 
   '--RoundButton_shadow': searchPageShadow,
+  '--RoundButton_textColorDisabled': '#dedede',
+
 
   '--NoResults_textColor': textColorDark,
   '--NoResults_fontSize': fontSizeBig,
