@@ -24,7 +24,6 @@ export default function PageSelection({ currentPage, totalPages, location, pageP
     };
 
   const buttonsVisible = [hasPrev, hasNext].filter((x) => x).length;
-  const className = buttonsVisible === 2 ? css.arrowButtonsWide : css.arrowButtonsNarrow; // eslint-disable-line no-magic-numbers
 
   return div({ className: css.pageSelection }, [
     `Page ${currentPage} of ${totalPages} `,

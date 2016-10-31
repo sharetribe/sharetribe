@@ -7,20 +7,15 @@
   align-items: center;
 }
 
-@define-mixin arrowButtons {
+.arrowButtonsWide {
   display: flex;
   justify-content: space-between;
   margin-left: 44px;
-}
-
-.arrowButtonsWide {
-  @mixin arrowButtons;
-
   width: 78px;
 }
 
-.arrowButtonsNarrow {
-  @mixin arrowButtons;
 
-  width: 36px;
+}
+
+
 }
