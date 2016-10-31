@@ -73,7 +73,8 @@ class RobotsGenerator
   def self.index_content(req)
     [
       "User-agent: *",
-      "Allow: /",
+      "Disallow: /*auth$",
+      "Crawl-Delay: 5",
       "Sitemap: #{req.scheme}://#{req.host_with_port}/sitemap.xml.gz"
     ].join("\n")
   end

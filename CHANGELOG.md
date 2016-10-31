@@ -18,6 +18,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Updated NPM packages [#2655](https://github.com/sharetribe/sharetribe/pull/2665)
 - Update react_on_rails gem [#2655](https://github.com/sharetribe/sharetribe/pull/2665)
 - Upgrade Facebook SDK from v2.2 to v2.8 [#2666](https://github.com/sharetribe/sharetribe/pull/2666)
+- Instruct crawlers not to follow auth paths, add crawling delay for bots that support the directive [#2693](https://github.com/sharetribe/sharetribe/pull/2693)
 
 ### Fixed
 
