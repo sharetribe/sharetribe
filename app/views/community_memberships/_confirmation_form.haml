@@ -2,7 +2,7 @@
   initialize_confirmation_pending_form("#{I18n.locale}","#{email_not_accepted_message}");
 
 - email_to_confirm = @current_user.latest_pending_email_address(@current_community)
-- contact_support_link = link_to t("sessions.confirmation_pending.contact_support_link_text"), "mailto:#{support_email}", "data-uv-trigger" => "contact"
+- contact_support_link = link_to t("sessions.confirmation_pending.contact_support_link_text"), "mailto:#{support_email}"
 - admin_dashboard_link = link_to t("sessions.confirmation_pending.admin_dashboard_link_text"), admin_getting_started_guide_path
 
 - if @current_user.has_admin_rights?
