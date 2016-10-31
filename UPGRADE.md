@@ -12,7 +12,6 @@ When updating, always run the following commands to update gem set, database str
 bundle install
 npm install
 RAILS_ENV=production rake db:migrate
-RAILS_ENV=production rake sharetribe:generate_customization_stylesheets_immediately
 
 # if running on local instance (localhost), you need to precompile assets using once update is done:
 rake assets:precompile
