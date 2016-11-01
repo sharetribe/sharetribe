@@ -2,12 +2,13 @@
 #
 # Table name: bookings
 #
-#  id             :integer          not null, primary key
-#  transaction_id :integer
-#  start_on       :date
-#  end_on         :date
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id               :integer          not null, primary key
+#  transaction_id   :integer
+#  start_on         :date
+#  end_on           :date
+#  end_on_exclusive :date
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #
 # Indexes
 #
@@ -17,8 +18,6 @@
 class Booking < ActiveRecord::Base
 
   belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id"
-
-  attr_accessible :transaction_id, :end_on, :start_on
 
   validates :start_on, :end_on, presence: true
   validates_with DateValidator,
