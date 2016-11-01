@@ -388,7 +388,7 @@ sk-SK:
       subscription: "Predplatné služieb"
       preview: "Náhľad stránky"
     listing_shapes:
-      availability_title: ~
+      availability_title: Dostupnosť
       allow_availability_management: ~
       per_day_availability: ~
       per_night_availability: ~
@@ -1593,7 +1593,7 @@ sk-SK:
       verification_required: "Overenie požadované"
   listing_conversations:
     preauthorize:
-      dates_not_available: ~
+      dates_not_available: "Vybraté dátumy nie sú k dispozícií"
       error_in_checking_availability: ~
       details: Detaily
       by: "%{listing} od užívateľa %{author}"
