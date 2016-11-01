@@ -4,17 +4,15 @@
   margin: lines(1.25) 0;
   text-align: center;
   position: relative;
-  z-index: 2;
   font-variant: italic;
 
-  &:after {
+  &:before {
     content: "";
     position: absolute;
     top: 50%;
     left: 0;
     right: 0;
     border-top: solid 1px $border;
-    z-index: -1;
   }
 }
 
@@ -26,4 +24,5 @@
   background-color: white;
   @include larger-type;
   color: $light-body;
+  position: relative;
 }
