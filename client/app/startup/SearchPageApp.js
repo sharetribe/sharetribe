@@ -14,6 +14,7 @@ import SearchPageContainer from '../components/sections/SearchPage/SearchPageCon
 import { SearchPageModel } from '../components/sections/SearchPage/SearchPage';
 import { parse as parseListingModel } from '../models/ListingModel';
 import { parse as parseProfile } from '../models/ProfileModel';
+import { Image } from '../models/ImageModel';
 import TransitImmutableConverter from '../utils/transitImmutableConverter';
 
 const profilesToMap = (includes) =>
@@ -46,6 +47,18 @@ const systemNotificationsToList = (serverNotifications) => {
   return new Immutable.List(alerts);
 };
 
+const getTopbarProps = (topbar, routes) => {
+  // Topbar avatar image url converted to Image record
+  const avatarImage = _.get(topbar, 'avatarDropdown.avatar.image.url');
+  const avatarImageRecord = avatarImage ? new Image({
+    type: ':thumb',
+    url: avatarImage,
+  }) : null;
+
+  const topbarProps = Object.assign({}, topbar, { routes });
+  _.set(topbarProps, 'avatarDropdown.avatar.image', avatarImageRecord);
+  return topbarProps;
+};
 
 export default (props) => {
   const locale = props.i18n.locale;
@@ -93,7 +106,7 @@ export default (props) => {
     profiles,
     routes,
     searchPage,
-    topbar: { ...props.topbar, routes },
+    topbar: { ...getTopbarProps(props.topbar, routes) },
   };
 
   const combinedReducer = combineReducers(reducers);
