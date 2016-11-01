@@ -301,6 +301,7 @@ module.exports = {
   '--ListingCard_lineHeight': '26px',
   '--ListingCard_lineHeightTitle': `${lineHeight}px`,
   '--ListingCard_colorTitle': textColorDark,
+  '--ListingCard_colorTitleHover': textColorFocus,
   '--ListingCard_colorDistance': textColorGrey,
   '--ListingCard_colorBackground': backgroundLightColor,
   '--ListingCard_spacingHorizontal': '20px',
@@ -338,7 +339,7 @@ module.exports = {
   '--Branding_borderColor': borderColor,
 
   '--Avatar_textColor': textColorLight,
-  '--Avatar_backgroundColor': 'hsl(210, 40%, 70%)',
+  '--Avatar_backgroundColor': 'hsl(210, 16%, 78%)',
 
   '--FlashNotification_spacingOutside': '12px',
   '--FlashNotification_spacingInside': '14px',
