@@ -32,6 +32,8 @@
   margin: 0 var(--PageSelection_marginInline);
   color: var(--PageSelection_textColorDark);
   background-color: var(--PageSelection_bgColorSelect);
+
+  /* This data url contains arrow icon */
   background-image: url('data:image/svg+xml;charset=utf-8;base64,PHN2ZyBjbGFzcz0iYXJyb3ciIHdpZHRoPSI4IiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjEzIDcgOCA2IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIHN0cm9rZT0iIzFDMUUyMSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSIgZD0iTTE0IDhsMyAzLjM5MUwyMCA4Ii8+PC9zdmc+');
   background-repeat: no-repeat;
   background-position: right var(--PageSelection_arrowSelect) center;
