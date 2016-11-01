@@ -36,7 +36,7 @@
   background-repeat: no-repeat;
   background-position: right var(--PageSelection_arrowSelect) center;
   border: 0;
-  border-radius: 0;
+  border-radius: 4px;
   box-shadow: var(--PageSelection_shadow);
   transition: border-color ease-in-out 100ms, box-shadow ease-in-out 100ms;
   cursor: pointer;
