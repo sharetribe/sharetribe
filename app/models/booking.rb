@@ -5,6 +5,7 @@
 #  id               :integer          not null, primary key
 #  transaction_id   :integer
 #  start_on         :date
+#  end_on           :date
 #  end_on_exclusive :date
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
@@ -15,11 +16,5 @@
 #
 
 class Booking < ActiveRecord::Base
-
   belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id"
-
-  def self.columns
-    super.reject { |c| c.name == "end_on" }
-  end
-
 end

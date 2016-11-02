@@ -232,7 +232,8 @@ module TransactionService::Store::Transaction
 
       tx_model.build_booking(
         start_on: start_on,
-        end_on_exclusive: end_on
+        end_on: end_on,
+        end_on_exclusive: end_on # TODO Remove this
       )
     end
   end

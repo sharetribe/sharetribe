@@ -36,6 +36,11 @@ describe TransactionService::Store::Transaction do
       commission_from_seller: 10,
       minimum_commission: Money.new(20, "EUR")
     }
+
+    @booking_fields = {
+      start_on: Date.new(2016, 11, 2),
+      end_on: Date.new(2016, 11, 3)
+    }
   end
 
   context "#create" do
@@ -48,6 +53,15 @@ describe TransactionService::Store::Transaction do
       tx = transaction_store.get(created_tx[:id])
       expect(tx[:starter_uuid]).to eq(@payer.uuid_object)
       expect(tx[:listing_author_uuid]).to eq(@listing.author.uuid_object)
+    end
+
+    it "creates a transaction with booking" do
+      created_tx = transaction_store.create(
+        @transaction_info.merge(booking_fields: @booking_fields))
+
+      tx = transaction_store.get(created_tx[:id])
+      expect(tx[:booking][:start_on]).to eq(@booking_fields[:start_on])
+      expect(tx[:booking][:end_on]).to eq(@booking_fields[:end_on])
     end
   end
 
