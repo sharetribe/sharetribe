@@ -151,7 +151,7 @@ describe PreauthorizeTransactionsController::Validator do
           quantity_selector: :night
         }
 
-        expect(validator.validate_booking(params).data[:code]).to eq(:at_least_one_night_required)
+        expect(validator.validate_booking(params).data[:code]).to eq(:at_least_one_day_or_night_required)
       end
 
       it "fails if start date or end date is missing for day selector" do

@@ -151,8 +151,8 @@ class PreauthorizeTransactionsController < ApplicationController
           Result::Error.new(nil, code: :dates_missing, tx_params: tx_params)
         elsif start_on > end_on
           Result::Error.new(nil, code: :end_cant_be_before_start, tx_params: tx_params)
-        elsif quantity_selector == :night && start_on == end_on
-          Result::Error.new(nil, code: :at_least_one_night_required, tx_params: tx_params)
+        elsif start_on == end_on
+          Result::Error.new(nil, code: :at_least_one_day_or_night_required, tx_params: tx_params)
         else
           Result::Success.new(tx_params)
         end
@@ -177,20 +177,13 @@ class PreauthorizeTransactionsController < ApplicationController
     def validate_booking_timeslots(tx_params:, marketplace_uuid:, listing_uuid:, quantity_selector:, auth_context:)
       start_on, end_on = tx_params.values_at(:start_on, :end_on)
 
-      # The calendar UI doesn't give the exclusive end date for the
-      # day selector, which is why we have to adjust by increasing
-      # it with one day. The timestamp will be 00:00:00, ensuring
-      # the the full day before the exclusive end date is taken into
-      # account.
-      end_adjusted = quantity_selector == :day ? end_on + 1.days : end_on
-
       HarmonyClient.get(
         :query_timeslots,
         params: {
           marketplaceId: marketplace_uuid,
           refId: listing_uuid,
           start: start_on,
-          end: end_adjusted
+          end: end_on
         },
         opts: {
           auth_context: auth_context
@@ -200,7 +193,7 @@ class PreauthorizeTransactionsController < ApplicationController
       }.and_then { |res|
         timeslots = res[:body][:data].map { |v| v[:attributes] }
 
-        if all_days_available(timeslots, start_on, end_adjusted)
+        if all_days_available(timeslots, start_on, end_on)
           Result::Success.new(tx_params)
         else
           Result::Error.new(nil, code: :dates_not_available)
@@ -304,7 +297,11 @@ class PreauthorizeTransactionsController < ApplicationController
         if data.is_a?(Array)
           # Entity validation failed
           t("listing_conversations.preauthorize.invalid_parameters")
-        elsif [:dates_missing, :end_cant_be_before_start, :delivery_method_missing, :at_least_one_night_required].include?(data[:code])
+        elsif [:dates_missing,
+               :end_cant_be_before_start,
+               :delivery_method_missing,
+               :at_least_one_day_or_night_required,
+              ].include?(data[:code])
           t("listing_conversations.preauthorize.invalid_parameters")
         elsif data[:code] == :dates_not_available
           t("listing_conversations.preauthorize.dates_not_available")
@@ -376,7 +373,7 @@ class PreauthorizeTransactionsController < ApplicationController
           logger.error(msg, :transaction_initiated_error, data)
           [t("listing_conversations.preauthorize.invalid_parameters"), listing_path(listing.id)]
 
-        elsif [:dates_missing, :end_cant_be_before_start, :delivery_method_missing, :at_least_one_night_required].include?(data[:code])
+        elsif [:dates_missing, :end_cant_be_before_start, :delivery_method_missing, :at_least_one_day_or_night_required].include?(data[:code])
           logger.error(msg, :transaction_initiated_error, data)
           [t("listing_conversations.preauthorize.invalid_parameters"), listing_path(listing.id)]
         elsif data[:code] == :agreement_missing
@@ -428,10 +425,8 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def calculate_quantity(tx_params:, is_booking:, unit:)
-    if is_booking && unit == :day
-      DateUtils.duration_days(tx_params[:start_on], tx_params[:end_on])
-    elsif is_booking && unit == :night
-      DateUtils.duration_nights(tx_params[:start_on], tx_params[:end_on])
+    if is_booking
+      DateUtils.duration(tx_params[:start_on], tx_params[:end_on])
     else
       tx_params[:quantity] || 1
     end

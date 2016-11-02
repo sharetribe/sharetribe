@@ -18,10 +18,11 @@
       %span.initiate-transaction-booking-value
         = l start_on, format: :long_with_abbr_day_name
         = "-"
-        = l end_on, format: :long_with_abbr_day_name
         - if unit_type == :day
+          = l (end_on - 1.day), format: :long_with_abbr_day_name
           = "(#{pluralize(duration, t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
         - else
+          = l end_on, format: :long_with_abbr_day_name
           = "(#{pluralize(duration, t("listing_conversations.preauthorize.night"), t("listing_conversations.preauthorize.nights"))})"
 
   - elsif quantity.present? && localized_unit_type.present?

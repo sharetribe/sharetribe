@@ -58,6 +58,13 @@ window.ST = window.ST || {};
       var newDate = e.dates[0];
       var outputElementId = $(e.target).data("output");
       var outputElement = outputElements[outputElementId];
+
+      if (outputElementId === "booking-end-output" && !nightPicker) {
+        // Add one day to end date if the picker is day picker
+        // End date should be excluded
+        newDate.setDate(newDate.getDate() + 1);
+      }
+
       outputElement.val(module.utils.toISODate(newDate));
     });
   };
