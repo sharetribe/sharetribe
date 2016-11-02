@@ -226,9 +226,14 @@ module TransactionService::Store::Transaction
 
   def build_booking(tx_model, tx_data)
     if is_booking?(tx_data)
-      start_on = tx_data[:booking_fields][:start_on]
-      end_on = tx_data[:booking_fields][:end_on]
-      tx_model.build_booking({start_on: start_on, end_on: end_on})
+      start_on, end_on = tx_data[:booking_fields].values_at(:start_on, :end_on)
+      end_on_exclusive = tx_data[:unit_type] == :day ? end_on + 1.day : end_on
+
+      tx_model.build_booking(
+        start_on: start_on,
+        end_on: end_on,
+        end_on_exclusive: end_on_exclusive
+      )
     end
   end
 
