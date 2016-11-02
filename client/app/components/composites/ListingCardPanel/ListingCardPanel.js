@@ -1,6 +1,7 @@
 import React, { Children, Component, PropTypes } from 'react';
-import { div } from 'r-dom';
+import r, { div } from 'r-dom';
 import classNames from 'classnames';
+import PageSelection from '../../composites/PageSelection/PageSelection';
 import css from './ListingCardPanel.css';
 
 
@@ -18,14 +19,30 @@ class ListingCardPanel extends Component {
       })
     );
 
-    return div({
-      className: classNames('ListingCardPanel', css.panel, this.props.className),
-    }, childrenWithColumnStyle);
+    return div(
+      {
+        className: classNames('ListingCardPanel', css.container, this.props.className),
+      },
+      [
+        div(
+          {
+            className: classNames('ListingCardPanel_listings', css.panel),
+          },
+          childrenWithColumnStyle),
+        r(PageSelection,
+          {
+            className: css.responsivePadding,
+            currentPage: this.props.currentPage,
+            totalPages: this.props.totalPages,
+            location: this.props.location,
+            pageParam: this.props.pageParam,
+          }),
+      ]);
   }
 }
 
 
-const { arrayOf, node, oneOfType, string } = PropTypes;
+const { arrayOf, oneOfType, node, number, string } = PropTypes;
 
 ListingCardPanel.propTypes = {
   children: oneOfType([
@@ -33,6 +50,10 @@ ListingCardPanel.propTypes = {
     node,
   ]),
   className: string,
+  currentPage: number,
+  totalPages: number,
+  location: string,
+  pageParam: string,
 };
 
 export default ListingCardPanel;

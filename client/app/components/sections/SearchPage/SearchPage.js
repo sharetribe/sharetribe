@@ -10,7 +10,6 @@ import ListingCard from '../../composites/ListingCard/ListingCard';
 import ListingCardPanel from '../../composites/ListingCardPanel/ListingCardPanel';
 import Branding from '../../composites/Branding/Branding';
 import FlashNotification from '../../composites/FlashNotification/FlashNotification';
-import PageSelection from '../../composites/PageSelection/PageSelection';
 import NoResults from '../../composites/NoResults/NoResults';
 
 import css from './SearchPage.css';
@@ -51,16 +50,17 @@ class SearchPage extends Component {
       },
       [
         r(ListingCardPanel,
-          { className: css.listingContainer },
+          {
+            className: css.listingContainer,
+            currentPage: this.props.searchPage.state.get('page'),
+            totalPages: this.totalPages,
+            location: this.props.marketplace.location,
+            pageParam: 'page',
+          },
           this.listings.map((listing) =>
             r(ListingCard, this.listingProps(listing, marketplaceColor1))
-        )),
-        r(PageSelection, {
-          currentPage: this.props.searchPage.state.get('page'),
-          totalPages: this.totalPages,
-          location: this.props.marketplace.location,
-          pageParam: 'page',
-        }),
+          )
+        ),
       ]);
     const noResults = r(NoResults, {
       className: classNames('SearchPage_main', css.empty),

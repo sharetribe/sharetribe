@@ -1,10 +1,12 @@
-import r, { div, a } from 'r-dom';
+import _ from 'lodash';
+import r, { div, a, p, select, option, span } from 'r-dom';
+import classNames from 'classnames';
 import { ArrowButton } from '../../elements/RoundButton/RoundButton';
 import { upsertSearchQueryParam } from '../../../utils/url';
-
+import { t } from '../../../utils/i18n';
 import css from './PageSelection.css';
 
-export default function PageSelection({ currentPage, totalPages, location, pageParam }) {
+export default function PageSelection({ className, currentPage, totalPages, location, pageParam }) {
   const hasNext = totalPages > currentPage;
   const hasPrev = currentPage > 1;
 
@@ -23,20 +25,48 @@ export default function PageSelection({ currentPage, totalPages, location, pageP
       return false;
     };
 
-  const buttonsVisible = [hasPrev, hasNext].filter((x) => x).length;
-  const className = buttonsVisible === 2 ? css.arrowButtonsWide : css.arrowButtonsNarrow; // eslint-disable-line no-magic-numbers
+  const pageDropdown = span(
+    {
+      className: css.selectContainer,
+    },
+    [
+      select(
+        {
+          className: css.select,
+          value: currentPage,
+          onChange: (event) => {
+            const num = parseInt(event.target.value, 10);
 
-  return div({ className: css.pageSelection }, [
-    `Page ${currentPage} of ${totalPages} `,
-    div({ className }, [
-      hasPrev ? a({
-        onClick: setPage(currentPage - 1),
-        href: getLocation(currentPage - 1) },
-        r(ArrowButton, { direction: 'left' })) : null,
-      hasNext ? a({
-        onClick: setPage(currentPage + 1),
-        href: getLocation(currentPage + 1) },
-        r(ArrowButton, { direction: 'right' })) : null,
+            // placeholder for page change without page load
+            window.location = getLocation(num);
+            return false;
+          },
+        },
+        _.range(1, totalPages + 1)
+          .map((page) => option({ value: page }, page))
+      ),
+    ]
+  );
+
+  const prevProps = hasPrev ? {
+    onClick: setPage(currentPage - 1),
+    href: getLocation(currentPage - 1),
+  } : {};
+
+  const nextProps = hasNext ? {
+    onClick: setPage(currentPage + 1),
+    href: getLocation(currentPage + 1),
+  } : {};
+
+  return div({ className: classNames(className, css.pageSelection) }, [
+    p({ className: css.pageOf }, [
+      t('web.search.page'),
+      pageDropdown,
+      t('web.search.page_of_pages', { total_number_of_pages: totalPages }),
+    ]),
+    div({ className: css.arrowButtonsWide }, [
+      a(prevProps, r(ArrowButton, { direction: 'left', isDisabled: !hasPrev })),
+      a(nextProps, r(ArrowButton, { direction: 'right', isDisabled: !hasNext })),
     ]),
   ]);
 }

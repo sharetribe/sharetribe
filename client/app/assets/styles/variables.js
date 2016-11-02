@@ -316,6 +316,18 @@ module.exports = {
   '--ListingCardPanel_gutterSpacing': bodyPadding,
 
   '--RoundButton_shadow': searchPageShadow,
+  '--RoundButton_textColorDisabled': '#dedede',
+
+  '--PageSelection_fontSize': fontSize,
+  '--PageSelection_fontSizeSelect': fontSizeBig,
+  '--PageSelection_textColor': textColor,
+  '--PageSelection_textColorDark': textColorDark,
+  '--PageSelection_lineHeight': `${lineHeight}px`,
+  '--PageSelection_marginInline': '14px',
+  '--PageSelection_bgColorSelect': backgroundLightColor,
+  '--PageSelection_arrowSelect': '20px',
+  '--PageSelection_shadow': '0 2px 3px rgba(0, 0, 0, 0.1)',
+  '--PageSelection_shadowHover': '0 8px 12px rgba(0, 0, 0, 0.1)',
 
   '--NoResults_textColor': textColorDark,
   '--NoResults_fontSize': fontSizeBig,
