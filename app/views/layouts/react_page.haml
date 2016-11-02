@@ -1,20 +1,12 @@
 !!! 5
-/[if lt IE 7] <html lang="en" class="no-js oldie ie6">
-/[if IE 7 ]   <html lang="en" class="no-js oldie ie7">
-/[if IE 8 ]   <html lang="en" class="no-js oldie ie8">
-<!--[if (gt IE 8)|!(IE)]><!--> <html lang="#{I18n.locale}" class="no-js"> <!--<![endif]-->
 
 %head
   %meta{charset: "utf-8"}
 
-  -# Kissmetrics is deprecated, use Google Tag Manager instead
-  = render :partial => "layouts/kissmetrics"
   = render :partial => "layouts/google_analytics_script", locals: {feature_flags: FeatureFlagHelper.feature_flags, community_id: Maybe(@current_community).id.or_else, google_analytics_key: Maybe(@current_community).google_analytics_key.or_else}
-  :css
-    @import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&subset=latin-ext);
 
   - font_path = APP_CONFIG[:font_proximanovasoft_url]
-  - if font_path.present? && FeatureFlagHelper.feature_enabled?(:topbar_v1)
+  - if font_path.present?
     = render partial: "layouts/fonts", locals: { font_path: font_path }
 
   %meta{content: "width=device-width, initial-scale=1.0, user-scalable=no", name: "viewport"}
@@ -87,32 +79,12 @@
   - if @current_community.facebook_connect_id
     %meta{ :property => "fb:app_id", :content => "#{@current_community.facebook_connect_id}" }
 
-  / CSS
-  = stylesheet_link_tag "application"
-
-  - if @current_community.has_customizations?
-    = render partial: "layouts/style_overrides", locals: MarketplaceHelper.style_customizations_map(@current_community)
-
+  = stylesheet_link_tag "react_page/styles"
   = stylesheet_link_tag "app-bundle"
 
-  / Modernizr, in the head tag, right after stylesheets, for best performance:
-  = javascript_include_tag "modernizr.min"
-
-  / Detect if JS is enabled. duplicate of what Modernizr is doing, but we plan to get rid of Modernizr at some point.
+  / Detect if JS is enabled.
   :javascript
     document.documentElement.className += ' js-enabled';
-
-
-  / Android pre Jellybean has an ugly bug, which prevents font-size 0 technique from
-  / removing the spaces between inline-blocks. Remove this piece of code when pre Jellybean becomes unsupported
-  :javascript
-    Modernizr.addTest('androidPreJellybean', function(){
-      var ua = navigator.userAgent;
-      if( ua.indexOf("Android") >= 0 ) {
-        var androidversion = parseFloat(ua.slice(ua.indexOf("Android")+8));
-        return androidversion < 4.1
-      }
-    });
 
   = csrf_meta_tag
 
@@ -141,11 +113,10 @@
       - react_component_cache(name: "onboarding_topbar", props: props) do
         = react_component("OnboardingTopBar", props: props, prerender: true)
 
-  - if FeatureFlagHelper.feature_enabled?(:topbar_v1)
-    - if(search_mode != :keyword )
-      - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
-      - key_param = maps_key ? "&key=#{maps_key}" : ""
-      = javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places#{key_param}"
+  - if(search_mode != :keyword )
+    - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
+    - key_param = maps_key ? "&key=#{maps_key}" : ""
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places#{key_param}"
 
   - if display_expiration_notice?
     = render partial: "layouts/expiration_notice",
