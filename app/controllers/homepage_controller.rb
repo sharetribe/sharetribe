@@ -75,7 +75,7 @@ class HomepageController < ApplicationController
 
     if FeatureFlagHelper.feature_enabled?(:searchpage_v1)
       search_result.on_success { |listings|
-        render layout: "layouts/react_page.haml", template: "search_page/search_page", locals: { bootstrapped_data: listings, page: current_page, per_page: per_page }
+        render layout: "layouts/react_page.haml", template: "search_page/search_page", locals: { props: searchpage_props(listings, current_page, per_page) }
       }.on_error {
         render nothing: true, status: 500
       }
@@ -374,6 +374,22 @@ class HomepageController < ApplicationController
       prev: prev_page,
       next: next_page
     }
+  end
+
+  def searchpage_props(bootstrapped_data, page, per_page)
+    SearchPageHelper.searchpage_props(
+      page: page,
+      per_page: per_page,
+      bootstrapped_data: bootstrapped_data,
+      notifications_to_react: notifications_to_react,
+      display_branding_info: display_branding_info?,
+      community: @current_community,
+      path_after_locale_change: @return_to,
+      user: @current_user,
+      search_placeholder: @community_customization&.search_placeholder,
+      current_path: request.fullpath,
+      locale_param: params[:locale],
+      host_with_port: request.host_with_port)
   end
 
 end
