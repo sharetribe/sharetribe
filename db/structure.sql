@@ -69,7 +69,6 @@ CREATE TABLE `bookings` (
   `transaction_id` int(11) DEFAULT NULL,
   `start_on` date DEFAULT NULL,
   `end_on` date DEFAULT NULL,
-  `end_on_exclusive` date DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
@@ -1598,7 +1597,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-02 21:46:48
+-- Dump completed on 2016-11-03  8:49:53
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3202,4 +3201,6 @@ INSERT INTO schema_migrations (version) VALUES ('20161102101418');
 INSERT INTO schema_migrations (version) VALUES ('20161102101419');
 
 INSERT INTO schema_migrations (version) VALUES ('20161102193340');
+
+INSERT INTO schema_migrations (version) VALUES ('20161103063652');
 

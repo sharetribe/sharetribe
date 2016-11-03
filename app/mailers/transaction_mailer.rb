@@ -30,7 +30,7 @@ class TransactionMailer < ActionMailer::Base
       payment_type = MarketplaceService::Community::Query.payment_type(@community.id)
       gateway_expires = MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type)
 
-      expires = Maybe(transaction).booking.end_on_exclusive.map { |booking_end|
+      expires = Maybe(transaction).booking.end_on.map { |booking_end|
         MarketplaceService::Transaction::Entity.preauth_expires_at(gateway_expires.days.from_now, booking_end)
       }.or_else(gateway_expires.days.from_now)
 
