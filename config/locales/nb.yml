@@ -2068,8 +2068,8 @@ nb:
     listing_card:
       no_picture: "Ingen bilde"
     search:
-      page: ~
-      page_of_pages: ~
+      page: Side
+      page_of_pages: "av %{total_number_of_pages}"
     topbar:
       menu: Meny
       more: Mer
