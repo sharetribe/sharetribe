@@ -192,10 +192,7 @@ module TransactionService::Store::Transaction
   def add_opt_booking(hash, m)
     if m.booking
       booking_data = EntityUtils.model_to_hash(m.booking)
-      hash.merge(booking: Booking.call({
-                                         start_on: booking_data[:start_on],
-                                         end_on: booking_data[:end_on_exclusive]
-                                       }.merge(duration: m.listing_quantity)))
+      hash.merge(booking: Booking.call(booking_data.merge(duration: m.listing_quantity)))
     else
       hash
     end
@@ -232,9 +229,7 @@ module TransactionService::Store::Transaction
 
       tx_model.build_booking(
         start_on: start_on,
-        end_on: end_on,
-        end_on_exclusive: end_on # TODO Remove this
-      )
+        end_on: end_on)
     end
   end
 
