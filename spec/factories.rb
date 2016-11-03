@@ -146,7 +146,7 @@ FactoryGirl.define do
   factory :booking do
     build_association(:transaction, as: :tx)
     start_on 1.day.from_now
-    end_on 2.days.from_now
+    end_on_exclusive 2.days.from_now
   end
 
   factory :message do

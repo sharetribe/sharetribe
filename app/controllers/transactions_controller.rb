@@ -479,10 +479,8 @@ class TransactionsController < ApplicationController
   end
 
   def calculate_quantity(tx_params:, is_booking:, unit:)
-    if is_booking && unit == :day
-      DateUtils.duration_days(tx_params[:start_on], tx_params[:end_on])
-    elsif is_booking && unit == :night
-      DateUtils.duration_nights(tx_params[:start_on], tx_params[:end_on])
+    if is_booking
+      DateUtils.duration(tx_params[:start_on], tx_params[:end_on])
     else
       tx_params[:quantity] || 1
     end

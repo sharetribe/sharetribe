@@ -157,9 +157,6 @@ module TransactionService::Process
     private
 
     def initiate_booking(tx:)
-      end_on = tx[:booking][:end_on]
-      end_adjusted = tx[:unit_type] == :day ? end_on + 1.days : end_on
-
       auth_context = {
         marketplace_id: tx[:community_uuid],
         actor_id: tx[:starter_uuid]
@@ -173,7 +170,7 @@ module TransactionService::Process
           customerId: tx[:starter_uuid],
           initialStatus: :paid,
           start: tx[:booking][:start_on],
-          end: end_adjusted
+          end: tx[:booking][:end_on]
         },
         opts: {
           max_attempts: 3,
