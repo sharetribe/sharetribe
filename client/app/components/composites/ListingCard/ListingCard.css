@@ -3,7 +3,12 @@
   flex-direction: column;
   box-shadow: var(--ListingCard_shadow);
   border-radius: 4px;
+  transition: box-shadow 100ms ease;
   cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.1);
+  }
 }
 
 .squareWrapper {
@@ -67,6 +72,11 @@
   top: calc(var(--ListingCard_avatarSize) / -2);
   width: var(--ListingCard_avatarSize);
   height: var(--ListingCard_avatarSize);
+  transition: box-shadow 100ms ease;
+
+  &:hover {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+  }
 }
 
 .title {
@@ -77,6 +87,10 @@
   line-height: var(--ListingCard_lineHeightTitle);
   color: var(--ListingCard_colorTitle);
   font-weight: var(--ListingCard_fontWeightMedium);
+
+  &:hover {
+    color: var(--ListingCard_colorTitleHover);
+  }
 }
 
 .avatarSpacer {

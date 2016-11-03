@@ -1,7 +1,9 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding: calc(var(--ListingCardPanel_gutterSpacing) / 2);
+
+  /* This padding is set up for mobile layout to match paddings in Topbar */
+  padding: 18px;
 
   & .panel {
     display: flex;
@@ -15,10 +17,9 @@
   }
 
   & .card {
-    margin: calc(var(--ListingCardPanel_gutterSpacing) / 2);
     min-width: 264px;
     max-width: 550px;
-    flex-basis: calc(100% - 24px);
+    flex-basis: calc(100%);
   }
 
   /* Counting columns (minimum card width 264px) + gutter (12px) + panel padding (12px)
