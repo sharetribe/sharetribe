@@ -17,11 +17,11 @@ import { parse as parseProfile } from '../models/ProfileModel';
 import { Image } from '../models/ImageModel';
 import TransitImmutableConverter from '../utils/transitImmutableConverter';
 
-const profilesToMap = (includes) =>
+const profilesToMap = (includes, getProfilePath) =>
   includes.reduce((acc, val) => {
     const type = val.get(':type');
     if (type === ':profile') {
-      const profile = parseProfile(val);
+      const profile = parseProfile(val, getProfilePath);
       const id = val.get(':id');
       return acc.set(id, profile);
     } else {
@@ -85,7 +85,7 @@ export default (props) => {
     .get(':data');
 
   const listings = listingsToMap(rawListings, routes.listing_path);
-  const profiles = profilesToMap(bootstrappedData.get(':included'));
+  const profiles = profilesToMap(bootstrappedData.get(':included'), routes.person_path);
   const metaData = Immutable.Map({
     page: props.searchPage.page,
     pageSize: props.searchPage.per_page,
