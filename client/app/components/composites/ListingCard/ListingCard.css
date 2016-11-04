@@ -72,6 +72,7 @@
   top: calc(var(--ListingCard_avatarSize) / -2);
   width: var(--ListingCard_avatarSize);
   height: var(--ListingCard_avatarSize);
+  border-radius: calc(var(--ListingCard_avatarSize) / 2);
   transition: box-shadow 100ms ease;
 
   &:hover {
