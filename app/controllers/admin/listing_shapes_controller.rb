@@ -36,8 +36,7 @@ class Admin::ListingShapesController < ApplicationController
 
     render_new_form(form: template,
                     process_summary: process_summary,
-                    available_locs: available_locales(),
-                    harmony_in_use: APP_CONFIG.harmony_api_in_use)
+                    available_locs: available_locales())
   end
 
   def edit
@@ -52,8 +51,7 @@ class Admin::ListingShapesController < ApplicationController
     render_edit_form(url_name: params[:url_name],
                      form: shape,
                      process_summary: process_summary,
-                     available_locs: available_locales(),
-                     harmony_in_use: APP_CONFIG.harmony_api_in_use)
+                     available_locs: available_locales())
   end
 
   def create
@@ -75,8 +73,7 @@ class Admin::ListingShapesController < ApplicationController
 
       render_new_form(form: shape,
                       process_summary: process_summary,
-                      available_locs: available_locales(),
-                      harmony_in_use: APP_CONFIG.harmony_api_in_use)
+                      available_locs: available_locales())
     end
 
   end
@@ -111,8 +108,7 @@ class Admin::ListingShapesController < ApplicationController
       return render_edit_form(url_name: params[:url_name],
                               form: shape,
                               process_summary: process_summary,
-                              available_locs: available_locales(),
-                              harmony_in_use: APP_CONFIG.harmony_api_in_use)
+                              available_locs: available_locales())
     end
   end
 
@@ -200,16 +196,15 @@ class Admin::ListingShapesController < ApplicationController
     }
   end
 
-  def render_new_form(form:, process_summary:, available_locs:, harmony_in_use:)
+  def render_new_form(form:, process_summary:, available_locs:)
     locals = common_locals(form: form,
                            count: 0,
                            process_summary: process_summary,
-                           available_locs: available_locs,
-                           harmony_in_use: harmony_in_use)
+                           available_locs: available_locs)
     render("new", locals: locals)
   end
 
-  def render_edit_form(url_name:, form:, process_summary:, available_locs:, harmony_in_use:)
+  def render_edit_form(url_name:, form:, process_summary:, available_locs:)
     can_delete_res = can_delete_shape?(url_name, all_shapes(community_id: @current_community.id, include_categories: true))
     cant_delete = !can_delete_res.success
     cant_delete_reason = cant_delete ? can_delete_res.error_msg : nil
@@ -224,8 +219,7 @@ class Admin::ListingShapesController < ApplicationController
     locals = common_locals(form: form,
                            count: count,
                            process_summary: process_summary,
-                           available_locs: available_locs,
-                           harmony_in_use: harmony_in_use).merge(
+                           available_locs: available_locs).merge(
       url_name: url_name,
       name: pick_translation(form[:name]),
       cant_delete: cant_delete,
@@ -234,12 +228,14 @@ class Admin::ListingShapesController < ApplicationController
     render("edit", locals: locals)
   end
 
-  def common_locals(form:, count:, process_summary:, available_locs:, harmony_in_use:)
+  def common_locals(form:, count:, process_summary:, available_locs:)
     { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
       uneditable_fields: uneditable_fields(process_summary, form[:author_is_seller]),
       shape: FormViewLayer.shape_to_locals(form),
       count: count,
-      harmony_in_use: harmony_in_use,
+      harmony_in_use: APP_CONFIG.harmony_api_in_use,
+      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
+      knowledge_base_url: APP_CONFIG.knowledge_base_url,
       locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
     }
   end

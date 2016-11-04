@@ -63,6 +63,9 @@
       .col-12
         = label_tag("", t("admin.listing_shapes.availability_title"), class: "input")
 
+        - if display_knowledge_base_articles
+          = render :partial => "layouts/info_text", :locals => { :text => link_to(t("admin.listing_shapes.read_more"), "#{knowledge_base_url}/articles/1097116").html_safe }
+
     .row
       .col-12
         = check_box_tag(:availability, "booking", shape[:availability] == :booking, class: "checkbox-row-checkbox js-availability")
