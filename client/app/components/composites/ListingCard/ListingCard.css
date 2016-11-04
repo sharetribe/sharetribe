@@ -111,6 +111,7 @@
   font-size: var(--ListingCard_fontSizePrice);
   font-weight: var(--ListingCard_fontWeightMedium);
   line-height: 1em;
+  flex-grow: 1;
 }
 
 .price {
