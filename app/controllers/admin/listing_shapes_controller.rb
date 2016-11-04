@@ -34,7 +34,10 @@ class Admin::ListingShapesController < ApplicationController
       return redirect_to action: :index
     end
 
-    render_new_form(template, process_summary, available_locales())
+    render_new_form(form: template,
+                    process_summary: process_summary,
+                    available_locs: available_locales(),
+                    harmony_in_use: APP_CONFIG.harmony_api_in_use)
   end
 
   def edit
@@ -46,7 +49,11 @@ class Admin::ListingShapesController < ApplicationController
 
     return redirect_to error_not_found_path if shape.nil?
 
-    render_edit_form(params[:url_name], shape, process_summary, available_locales())
+    render_edit_form(url_name: params[:url_name],
+                     form: shape,
+                     process_summary: process_summary,
+                     available_locs: available_locales(),
+                     harmony_in_use: APP_CONFIG.harmony_api_in_use)
   end
 
   def create
@@ -65,7 +72,11 @@ class Admin::ListingShapesController < ApplicationController
       redirect_to action: :index
     else
       flash.now[:error] = t("admin.listing_shapes.new.create_failure", error_msg: create_result.error_msg)
-      render_new_form(shape, process_summary, available_locales())
+
+      render_new_form(form: shape,
+                      process_summary: process_summary,
+                      available_locs: available_locales(),
+                      harmony_in_use: APP_CONFIG.harmony_api_in_use)
     end
 
   end
@@ -96,7 +107,12 @@ class Admin::ListingShapesController < ApplicationController
       return redirect_to admin_listing_shapes_path
     else
       flash.now[:error] = t("admin.listing_shapes.edit.update_failure", error_msg: update_result.error_msg)
-      return render_edit_form(params[:url_name], shape, process_summary, available_locales())
+
+      return render_edit_form(url_name: params[:url_name],
+                              form: shape,
+                              process_summary: process_summary,
+                              available_locs: available_locales(),
+                              harmony_in_use: APP_CONFIG.harmony_api_in_use)
     end
   end
 
@@ -184,12 +200,16 @@ class Admin::ListingShapesController < ApplicationController
     }
   end
 
-  def render_new_form(form, process_summary, available_locs)
-    locals = common_locals(form, 0, process_summary, available_locs)
+  def render_new_form(form:, process_summary:, available_locs:, harmony_in_use:)
+    locals = common_locals(form: form,
+                           count: 0,
+                           process_summary: process_summary,
+                           available_locs: available_locs,
+                           harmony_in_use: harmony_in_use)
     render("new", locals: locals)
   end
 
-  def render_edit_form(url_name, form, process_summary, available_locs)
+  def render_edit_form(url_name:, form:, process_summary:, available_locs:, harmony_in_use:)
     can_delete_res = can_delete_shape?(url_name, all_shapes(community_id: @current_community.id, include_categories: true))
     cant_delete = !can_delete_res.success
     cant_delete_reason = cant_delete ? can_delete_res.error_msg : nil
@@ -201,7 +221,11 @@ class Admin::ListingShapesController < ApplicationController
         open: true
       }).data
 
-    locals = common_locals(form, count, process_summary, available_locs).merge(
+    locals = common_locals(form: form,
+                           count: count,
+                           process_summary: process_summary,
+                           available_locs: available_locs,
+                           harmony_in_use: harmony_in_use).merge(
       url_name: url_name,
       name: pick_translation(form[:name]),
       cant_delete: cant_delete,
@@ -210,11 +234,12 @@ class Admin::ListingShapesController < ApplicationController
     render("edit", locals: locals)
   end
 
-  def common_locals(form, count, process_summary, available_locs)
+  def common_locals(form:, count:, process_summary:, available_locs:, harmony_in_use:)
     { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
       uneditable_fields: uneditable_fields(process_summary, form[:author_is_seller]),
       shape: FormViewLayer.shape_to_locals(form),
       count: count,
+      harmony_in_use: harmony_in_use,
       locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
     }
   end

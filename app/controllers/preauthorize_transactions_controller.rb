@@ -102,7 +102,7 @@ class PreauthorizeTransactionsController < ApplicationController
       validate_delivery_method(tx_params: tx_params, shipping_enabled: shipping_enabled, pickup_enabled: pickup_enabled)
         .and_then { validate_booking(tx_params: tx_params, quantity_selector: quantity_selector) }
         .and_then { |result|
-          if FeatureFlagHelper.feature_enabled?(:availability) && availability_enabled
+          if availability_enabled
             validate_booking_timeslots(tx_params: tx_params,
                                        marketplace_uuid: marketplace_uuid,
                                        listing_uuid: listing_uuid,
