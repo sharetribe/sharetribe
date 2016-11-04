@@ -384,6 +384,7 @@ en:
       preview: "Preview site"
     listing_shapes:
       availability_title: Availability
+      read_more: Read more about automatic availability management.
       allow_availability_management: "Enable automatic availability management (prevent double bookings)"
       per_day_availability: "\"Per day\" availability"
       per_night_availability: "\"Per night\" availability"
@@ -1248,6 +1249,8 @@ en:
       offer_rejected: "Offer rejected"
       offer_canceled: "Offer canceled"
       listing_updated_successfully: "Listing updated successfully"
+      listing_updated_availability_enabled: "Listing updated successfully. Automatic availability management enabled."
+      listing_updated_availability_disabled: "Listing updated successfully. Automatic availability management disabled."
       only_kassi_administrators_can_access_this_area: "Only %{service_name} administrators can access this area"
       only_listing_author_can_close_a_listing: "Only listing author can close a listing"
       only_listing_author_can_edit_a_listing: "Only listing author can edit a listing"

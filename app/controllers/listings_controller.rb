@@ -203,8 +203,7 @@ class ListingsController < ApplicationController
     blocked_dates_end_on = 12.months.from_now.to_date
 
     blocked_dates_result =
-      if FeatureFlagHelper.feature_enabled?(:availability) &&
-         @listing.availability.to_sym == :booking
+      if @listing.availability.to_sym == :booking
 
         get_blocked_dates(
           start_on: blocked_dates_start_on,
@@ -282,7 +281,7 @@ class ListingsController < ApplicationController
     shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
     listing_uuid = UUIDUtils.create
 
-    if FeatureFlagHelper.feature_enabled?(:availability) && shape.present? && shape[:availability] == :booking
+    if shape.present? && shape[:availability] == :booking
       auth_context = {
         marketplace_id: @current_community.uuid_object,
         actor_id: @current_user.uuid_object
@@ -421,9 +420,7 @@ class ListingsController < ApplicationController
 
     shape = get_shape(params[:listing][:listing_shape_id])
 
-    if FeatureFlagHelper.feature_enabled?(:availability) &&
-       shape.present? &&
-       shape[:availability] == :booking
+    if shape.present? && shape[:availability] == :booking
 
       auth_context = {
         marketplace_id: @current_community.uuid_object,
@@ -461,13 +458,14 @@ class ListingsController < ApplicationController
       availability: shape[:availability]
     ).merge(open_params).merge(unit_to_listing_opts(m_unit)).except(:unit)
 
+    old_availability = @listing.availability.to_sym
     update_successful = @listing.update_fields(listing_params)
 
     upsert_field_values!(@listing, params[:custom_fields])
 
     if update_successful
       @listing.location.update_attributes(params[:location]) if @listing.location
-      flash[:notice] = t("layouts.notifications.listing_updated_successfully")
+      flash[:notice] = update_flash(old_availability: old_availability, new_availability: shape[:availability])
       Delayed::Job.enqueue(ListingUpdatedJob.new(@listing.id, @current_community.id))
       reprocess_missing_image_styles(@listing) if listing_reopened
       redirect_to @listing
@@ -540,6 +538,17 @@ class ListingsController < ApplicationController
   end
 
   private
+
+  def update_flash(old_availability:, new_availability:)
+    case [new_availability.to_sym == :booking, old_availability.to_sym == :booking]
+    when [true, false]
+      t("layouts.notifications.listing_updated_availability_enabled")
+    when [false, true]
+      t("layouts.notifications.listing_updated_availability_disabled")
+    else
+      t("layouts.notifications.listing_updated_successfully")
+    end
+  end
 
   def create_bookable(community_uuid, listing_uuid, author_uuid, auth_context)
     res = HarmonyClient.post(

@@ -56,12 +56,15 @@
       = check_box_tag(:shipping_enabled, "true", shape[:shipping_enabled], class: "checkbox-row-checkbox js-shipping-enabled")
       = label_tag(:shipping_enabled, t("admin.listing_shapes.shipping_label"), class: "checkbox-row-label js-shipping-enabled-label")
 
-- if feature_enabled?(:availability)
+- if harmony_in_use
   - unless uneditable_fields[:availability]
 
     .row
       .col-12
         = label_tag("", t("admin.listing_shapes.availability_title"), class: "input")
+
+        - if display_knowledge_base_articles
+          = render :partial => "layouts/info_text", :locals => { :text => link_to(t("admin.listing_shapes.read_more"), "#{knowledge_base_url}/articles/1097116").html_safe }
 
     .row
       .col-12
@@ -85,7 +88,7 @@
     .js-pricing-units-info.hidden
       = render partial: "layouts/info_text", locals: {text: t("admin.listing_shapes.units_desc")}
 
-    - if feature_enabled?(:availability)
+    - if harmony_in_use
       .js-pricing-units-disabled-info.hidden
         = render partial: "layouts/info_text", locals: {text: t("admin.listing_shapes.pricing_units_disabled_info")}
 
