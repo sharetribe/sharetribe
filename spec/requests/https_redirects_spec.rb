@@ -34,6 +34,11 @@ describe "Redirect to HTTPS", type: :request do
       expect(response.status).to eq 200
     end
 
+    it "does not redirect HealthCheck" do
+      get "http://#{domain}/_health"
+      expect(response.status).to eq 200
+    end
+
     it "does not happen when SSL is terminated on proxy" do
       get "http://#{domain}", nil, { "X-Forwarded-Proto" => "https" }
       expect(response.status).to eq 200
