@@ -77,7 +77,8 @@ class HomepageController < ApplicationController
       search_result.on_success { |listings|
         render layout: "layouts/react_page.haml", template: "search_page/search_page", locals: { props: searchpage_props(listings, current_page, per_page) }
       }.on_error {
-        render nothing: true, status: 500
+        flash[:error] = t("homepage.errors.search_engine_not_responding")
+        render layout: "layouts/react_page.haml", template: "search_page/search_page", locals: { props: searchpage_props(nil, current_page, per_page) }
       }
     elsif request.xhr? # checks if AJAX request
       search_result.on_success { |listings|

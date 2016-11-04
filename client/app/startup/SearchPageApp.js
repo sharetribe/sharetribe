@@ -79,13 +79,12 @@ export default (props) => {
     'sign_up',
   ], { locale });
 
-  const bootstrappedData = TransitImmutableConverter.fromJSON(props.searchPage.data);
+  const bootstrappedData = TransitImmutableConverter.fromJSON(_.get(props, 'searchPage.data', null));
 
-  const rawListings = bootstrappedData
-    .get(':data');
+  const rawListings = bootstrappedData.get(':data', []);
 
   const listings = listingsToMap(rawListings, routes.listing_path);
-  const profiles = profilesToMap(bootstrappedData.get(':included'), routes.person_path);
+  const profiles = profilesToMap(bootstrappedData.get(':included', []), routes.person_path);
   const metaData = Immutable.Map({
     page: props.searchPage.page,
     pageSize: props.searchPage.per_page,

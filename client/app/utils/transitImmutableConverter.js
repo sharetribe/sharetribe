@@ -41,7 +41,12 @@ const createReader = function createReader() {
 
 const createInstance = () => {
   const reader = createReader();
-  const fromJSON = (json) => reader.read(json);
+  const fromJSON = (json) => {
+    if(json == null){
+      return new Immutable.Map()
+    }
+    return reader.read(json);
+  }
 
   return { fromJSON };
 };
