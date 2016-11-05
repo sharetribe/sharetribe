@@ -384,6 +384,7 @@ fr-CA:
       preview: ~
     listing_shapes:
       availability_title: ~
+      read_more: ~
       allow_availability_management: ~
       per_day_availability: ~
       per_night_availability: ~
@@ -1236,6 +1237,8 @@ fr-CA:
       offer_rejected: "Offre refusée"
       offer_canceled: "Offre annulée"
       listing_updated_successfully: "Annonce mise à jour avec succès"
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Seuls les administrateurs de %{service_name} peuvent accéder à ces pages"
       only_listing_author_can_close_a_listing: "Seul l'auteur de l'annonce peut la clore"
       only_listing_author_can_edit_a_listing: "Seul l'annonce de liste peut la modifier"

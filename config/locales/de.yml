@@ -384,6 +384,7 @@ de:
       preview: "Seitenvorschau anzeigen"
     listing_shapes:
       availability_title: ~
+      read_more: ~
       allow_availability_management: ~
       per_day_availability: ~
       per_night_availability: ~
@@ -1248,6 +1249,8 @@ de:
       offer_rejected: "Angebot abgelehnt"
       offer_canceled: "Angebot abgebrochen"
       listing_updated_successfully: "Eintrag wurde erfolgreich aktualisiert"
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Nur  %{service_name} Administratoren können diesen Bereich aufrufen"
       only_listing_author_can_close_a_listing: "Nur der erstellende Anbieter kann ein Angebot deaktivieren"
       only_listing_author_can_edit_a_listing: "Nur Autoren eines Eintrags können den Eintrag bearbeiten"

@@ -384,6 +384,7 @@ sv:
       preview: ~
     listing_shapes:
       availability_title: ~
+      read_more: ~
       allow_availability_management: ~
       per_day_availability: ~
       per_night_availability: ~
@@ -1250,6 +1251,8 @@ sv:
       offer_rejected: "Erbjudandet nekades"
       offer_canceled: "Erbjudande avbrutet"
       listing_updated_successfully: "Annons uppdaterades"
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Bara %{service_name} admin har åtkomst till denna plats"
       only_listing_author_can_close_a_listing: "Bara ägaren av annonsen kan stänga annonsen"
       only_listing_author_can_edit_a_listing: "Bara ägaren av annonsen kan redigera annonsen"

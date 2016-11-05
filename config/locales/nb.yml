@@ -384,6 +384,7 @@ nb:
       preview: "Forhåndsvis mitt nettsted"
     listing_shapes:
       availability_title: Tilgjengelighet
+      read_more: ~
       allow_availability_management: "Tillat tilbydere å administrere sine bestillinger fra en kalender"
       per_day_availability: "\"Per dag\"-tilgjengelighet"
       per_night_availability: "\"Per natt\"-tilgjengelighet"
@@ -1248,6 +1249,8 @@ nb:
       offer_rejected: "Tilbud avvist"
       offer_canceled: "Tilbud avslått"
       listing_updated_successfully: "Annonse oppdatert"
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Kun %{service_name} administratorer kan besøke dette området"
       only_listing_author_can_close_a_listing: "Kun annonsør kan stoppe en annonse"
       only_listing_author_can_edit_a_listing: "Kun annonsør kan endre en annonse"

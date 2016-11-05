@@ -389,6 +389,7 @@ sk-SK:
       preview: "Náhľad stránky"
     listing_shapes:
       availability_title: Dostupnosť
+      read_more: ~
       allow_availability_management: ~
       per_day_availability: ~
       per_night_availability: ~
@@ -1257,6 +1258,8 @@ sk-SK:
       offer_rejected: "Ponuka odmietnutá"
       offer_canceled: "Ponuka zrušená"
       listing_updated_successfully: "Inzerát bol úspešne aktualizovaný."
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Iba %{service_name} administrátory majú prístup k tejto oblasti"
       only_listing_author_can_close_a_listing: "Iba autor výpisu môže uzavrieť výpis"
       only_listing_author_can_edit_a_listing: "Iba autor výpisu môže upravovať výpis"

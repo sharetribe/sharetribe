@@ -369,6 +369,7 @@ ca:
       preview: ~
     listing_shapes:
       availability_title: ~
+      read_more: ~
       allow_availability_management: ~
       per_day_availability: ~
       per_night_availability: ~
@@ -1219,6 +1220,8 @@ ca:
       offer_rejected: "Oferta rebutjada"
       offer_canceled: ~
       listing_updated_successfully: ~
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Només els administradors poden accedir aquí"
       only_listing_author_can_close_a_listing: "Només el creador d'una llista pot tancar-la"
       only_listing_author_can_edit_a_listing: "Només el creador d'una llista pot editar"

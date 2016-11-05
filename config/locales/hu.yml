@@ -385,6 +385,7 @@ hu:
       preview: "A honlap előnézete"
     listing_shapes:
       availability_title: ~
+      read_more: ~
       allow_availability_management: ~
       per_day_availability: ~
       per_night_availability: ~
@@ -1249,6 +1250,8 @@ hu:
       offer_rejected: "Ajánlat visszautasítva"
       offer_canceled: "Ajánlat törölve"
       listing_updated_successfully: "Hidetését frissítette"
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Csak a %{service_name} adminisztrátoroknak van jogosultságuk ezt szerkeszteni."
       only_listing_author_can_close_a_listing: "Csak a hirdetés feladója törölheti a hirdetést\n"
       only_listing_author_can_edit_a_listing: "Csak a hirdetés feladója szerkesztheti a hirdetést\n"

@@ -386,6 +386,7 @@ da-DK:
       preview: "Vis eksempel på min hjemmeside"
     listing_shapes:
       availability_title: ~
+      read_more: ~
       allow_availability_management: ~
       per_day_availability: ~
       per_night_availability: ~
@@ -1246,6 +1247,8 @@ da-DK:
       offer_rejected: "Tilbud afslået"
       offer_canceled: "Tilbud annulleret"
       listing_updated_successfully: "Annoncen blev opdateret"
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Kun %{service_name} administratorer kan få adgang til dette område"
       only_listing_author_can_close_a_listing: "Kun notering forfatter kan lukke en liste"
       only_listing_author_can_edit_a_listing: "Kun notering forfatter kan redigere en liste"
