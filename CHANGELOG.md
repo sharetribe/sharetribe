@@ -18,6 +18,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Fixed
 
+- Fixed broken transaction button styles [#2723](https://github.com/sharetribe/sharetribe/pull/2723)
+
 ### Security
 
 ## [6.1.0] - 2016-10-31
