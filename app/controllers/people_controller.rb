@@ -369,7 +369,9 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def ensure_person_not_banned
-    @person = Person.find_by!(username: params[:username], community_id: @current_community.id)
+    username = params[:username] ? params[:username] : params[:id]
+    @person = Person.find_by!(username: username, community_id: @current_community.id)
+
     render_not_found! if @person.banned?
   end
 end
