@@ -1598,7 +1598,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-07 11:26:57
+-- Dump completed on 2016-11-07 14:51:54
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3206,4 +3206,6 @@ INSERT INTO schema_migrations (version) VALUES ('20161102193340');
 INSERT INTO schema_migrations (version) VALUES ('20161103063652');
 
 INSERT INTO schema_migrations (version) VALUES ('20161107092030');
+
+INSERT INTO schema_migrations (version) VALUES ('20161107105050');
 
