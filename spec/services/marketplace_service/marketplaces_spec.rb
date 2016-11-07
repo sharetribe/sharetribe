@@ -30,13 +30,13 @@ describe MarketplaceService::API::Marketplaces do
 
     it "should set correct currency based on contry selection" do
       c = create(@community_params)
-      expect(c[:available_currencies]).to eql "EUR"
+      expect(c[:currency]).to eql "EUR"
 
       c = create(@community_params.merge({:marketplace_country => "US"}))
-      expect(c[:available_currencies]).to eql "USD"
+      expect(c[:currency]).to eql "USD"
 
       c = create(@community_params.merge({:marketplace_country => "GG"}))
-      expect(c[:available_currencies]).to eql "GBP"
+      expect(c[:currency]).to eql "GBP"
     end
 
     it "should set correct listing shape and category" do
