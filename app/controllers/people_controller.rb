@@ -22,6 +22,7 @@ class PeopleController < Devise::RegistrationsController
 
   def show
     @person = Person.find_by!(username: params[:username], community_id: @current_community.id)
+    binding.pry
     raise PersonDeleted if @person.deleted?
 
     redirect_to landing_page_path and return if @current_community.private? && !@current_user
@@ -365,8 +366,5 @@ class PeopleController < Devise::RegistrationsController
     person.set_default_preferences
 
     [person, email]
-  end
-
-  def email_availability(email, community_id)
   end
 end
