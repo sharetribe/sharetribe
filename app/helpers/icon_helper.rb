@@ -27,8 +27,8 @@ module IconHelper
   end
 
   def icon_class_tag(icon_class, additional_classes = [])
-    classes_string = [icon_class].concat(additional_classes).join(" ")
-    "<i class=\"#{classes_string}\"></i>".html_safe
+    classes = [icon_class].concat(additional_classes)
+    tag("i", class: classes)
   end
 
   def icon_map_tag(icon_map, icon_name, additional_classes = [])
