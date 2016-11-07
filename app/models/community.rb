@@ -49,6 +49,7 @@
 #  stylesheet_needs_recompile                 :boolean          default(FALSE)
 #  service_logo_style                         :string(255)      default("full-logo")
 #  available_currencies                       :text(65535)
+#  currency                                   :string(3)
 #  facebook_connect_enabled                   :boolean          default(TRUE)
 #  minimum_price_cents                        :integer
 #  hide_expiration_date                       :boolean          default(FALSE)
