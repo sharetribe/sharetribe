@@ -252,8 +252,8 @@ class HomepageController < ApplicationController
 
   def filter_range(price_min, price_max)
     if (price_min && price_max)
-      min = MoneyUtil.parse_str_to_money(price_min, @current_community.default_currency).cents
-      max = MoneyUtil.parse_str_to_money(price_max, @current_community.default_currency).cents
+      min = MoneyUtil.parse_str_to_money(price_min, @current_community.currency).cents
+      max = MoneyUtil.parse_str_to_money(price_max, @current_community.currency).cents
 
       if ((@current_community.price_filter_min..@current_community.price_filter_max) != (min..max))
         (min..max)

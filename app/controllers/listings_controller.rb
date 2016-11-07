@@ -715,7 +715,7 @@ class ListingsController < ApplicationController
   def commission(community, process)
     payment_type = MarketplaceService::Community::Query.payment_type(community.id)
     payment_settings = TransactionService::API::Api.settings.get_active(community_id: community.id).maybe
-    currency = community.default_currency
+    currency = community.currency
 
     case [payment_type, process]
     when matches([__, :none])

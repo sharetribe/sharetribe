@@ -1,6 +1,3 @@
 .currency-selector
-  - if @current_community.currency
-    = Money.new(1, @current_community.currency).symbol
-    = form.hidden_field :currency, :value => @current_community.currency
-  - else
-    = form.select :currency, major_currencies(Money::Currency.table), { :selected => (@listing.currency || "EUR") }
+  = Money.new(1, @current_community.currency).symbol
+  = form.hidden_field :currency, :value => @current_community.currency
