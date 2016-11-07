@@ -212,6 +212,8 @@ GEM
       pusher-client (~> 0.3)
       riddle (>= 1.5.6)
       thinking-sphinx
+    font-awesome-rails (4.7.0.0)
+      railties (>= 3.2, < 5.1)
     foreman (0.82.0)
       thor (~> 0.19.1)
     formatador (0.2.5)
@@ -568,6 +570,7 @@ DEPENDENCIES
   faraday-encoding (~> 0.0.3)
   faraday_middleware (~> 0.10.0)
   flying-sphinx (~> 1.2.0)
+  font-awesome-rails (~> 4.7.0.0)
   guard-rspec (~> 4.6.5)
   haml (~> 4.0.5)
   i18n-js!
@@ -631,4 +634,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.13.3
+   1.13.6
