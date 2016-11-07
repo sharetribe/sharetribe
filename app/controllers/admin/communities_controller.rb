@@ -1,4 +1,4 @@
-class Admin::CommunitiesController < Admin::AdminAreaController
+class Admin::CommunitiesController < Admin::AdminBaseController
   include CommunitiesHelper
 
   before_filter :ensure_white_label_plan, only: [:create_sender_address]

@@ -1,6 +1,6 @@
 # This controller is parent for all controllers handling the admin area functions
 
-class Admin::AdminAreaController < ApplicationController
+class Admin::AdminBaseController < ApplicationController
 
   before_filter :ensure_is_admin
 

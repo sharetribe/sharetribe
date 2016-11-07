@@ -1,4 +1,4 @@
-class Admin::PlansController < Admin::AdminAreaController
+class Admin::PlansController < Admin::AdminBaseController
 
   # Redirect to external plan service. Nothing else.
   def show

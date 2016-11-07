@@ -1,6 +1,6 @@
 require 'csv'
 
-class Admin::CommunityMembershipsController < Admin::AdminAreaController
+class Admin::CommunityMembershipsController < Admin::AdminBaseController
 
   def index
     @selected_left_navi_link = "manage_members"

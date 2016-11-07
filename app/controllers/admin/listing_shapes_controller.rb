@@ -1,4 +1,4 @@
-class Admin::ListingShapesController < Admin::AdminAreaController
+class Admin::ListingShapesController < Admin::AdminBaseController
 
   before_filter :set_url_name
 

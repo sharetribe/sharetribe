@@ -1,4 +1,4 @@
-class Admin::CommunityCustomizationsController < Admin::AdminAreaController
+class Admin::CommunityCustomizationsController < Admin::AdminBaseController
 
   def edit_details
     @selected_left_navi_link = "tribe_details"

@@ -1,4 +1,4 @@
-class Admin::CategoriesController < Admin::AdminAreaController
+class Admin::CategoriesController < Admin::AdminBaseController
 
   def index
     @selected_left_navi_link = "listing_categories"

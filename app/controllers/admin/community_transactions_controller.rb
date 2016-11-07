@@ -1,6 +1,6 @@
 require 'csv'
 
-class Admin::CommunityTransactionsController < Admin::AdminAreaController
+class Admin::CommunityTransactionsController < Admin::AdminBaseController
   TransactionQuery = MarketplaceService::Transaction::Query
 
   def index

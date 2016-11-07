@@ -1,4 +1,4 @@
-class Admin::CustomFieldsController < Admin::AdminAreaController
+class Admin::CustomFieldsController < Admin::AdminBaseController
 
   before_filter :field_type_is_valid, :only => [:new, :create]
 
