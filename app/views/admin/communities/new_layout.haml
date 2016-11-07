@@ -1,3 +1,9 @@
+- content_for :extra_javascript do
+  :javascript
+    $(document).ready(function() {
+      window.ST.initializeNewLayoutManager(#{feature_rels.to_json});
+    });
+
 - support_link = link_to("support@sharetribe.com", "mailto:support@sharetribe.com")
 - content_for :title_header do
   %h1
@@ -31,10 +37,10 @@
             = feature[:title]
         .col-3
           .checkbox-centered
-            = check_box_tag "enabled_for_user[#{ feature[:name] }]", true, feature[:enabled_for_user]
+            = check_box_tag "enabled_for_user[#{ feature[:name] }]", true, feature[:enabled_for_user], disabled: feature[:disabled_for_user]
         .col-3
           .checkbox-centered
-            = check_box_tag  "enabled_for_community[#{ feature[:name] }]", true, feature[:enabled_for_community]
+            = check_box_tag  "enabled_for_community[#{ feature[:name] }]", true, feature[:enabled_for_community], disabled: feature[:disabled_for_community]
     .row
       .col-12
         = form.button t("admin.communities.settings.update_settings")
