@@ -18,13 +18,14 @@
 
   & .card {
     min-width: 264px;
-    max-width: 550px;
+    max-width: 575px;
     flex-basis: calc(100%);
+    margin: 0 0 18px 0;
   }
 
   /* Counting columns (minimum card width 264px) + gutter (12px) + panel padding (12px)
-     18 + 12 + 264 + 12 + 264 + 12 + 18 = 600 */
-  @media screen and (min-width: 600px) {
+     18 + 12 + 264 + 24 + 264 + 12 + 18 = 600 */
+  @media screen and (min-width: 612px) {
     padding: 18px;
 
     & .card {
