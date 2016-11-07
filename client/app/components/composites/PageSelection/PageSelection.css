@@ -17,6 +17,7 @@
   white-space: nowrap;
   font-size: var(--PageSelection_fontSize);
   color: var(--PageSelection_textColor);
+  margin: 0;
 }
 
 .selectContainer {
