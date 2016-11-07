@@ -46,15 +46,8 @@ class IntApi::MarketplacesController < ApplicationController
         locale: params[:marketplace_language]},
         marketplace[:id]).data
 
-    # make the marketplace creator land to the admin panel
-    url_params = {host: marketplace[:url]}
-
-    #include port separately to url_params if it was present
-    if marketplace[:url] && marketplace[:url].split(':')[2]
-      url_params[:port] = marketplace[:url].split(':')[2]
-    end
-
-    url = admin_getting_started_guide_url(url_params)
+    base_url = URI.new(marketplace[:url])
+    url = admin_getting_started_guide_url(host: base_url.host, port: base_url.port)
 
     # make the marketplace creator be logged in via Auth Token
     auth_token = UserService::API::AuthTokens.create_login_token(user[:id])
