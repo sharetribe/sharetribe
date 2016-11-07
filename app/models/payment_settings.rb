@@ -30,7 +30,9 @@ class PaymentSettings < ActiveRecord::Base
     :payment_process,
     :commission_from_seller,
     :minimum_price_cents,
+    :minimum_price_currency,
     :minimum_transaction_fee_cents,
+    :minimum_transaction_fee_currency,
     :confirmation_after_days)
 
   validates_presence_of(:community_id)

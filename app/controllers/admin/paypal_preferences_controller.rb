@@ -89,7 +89,9 @@ class Admin::PaypalPreferencesController < ApplicationController
                               payment_process: :preauthorize,
                               commission_from_seller: paypal_prefs_form.commission_from_seller.to_i,
                               minimum_price_cents: paypal_prefs_form.minimum_listing_price.cents,
-                              minimum_transaction_fee_cents: paypal_prefs_form.minimum_transaction_fee.cents})
+                              minimum_price_currency: currency,
+                              minimum_transaction_fee_cents: paypal_prefs_form.minimum_transaction_fee.cents,
+                              minimum_transaction_fee_currency: currency})
 
       # Onboarding wizard step recording
       state_changed = Admin::OnboardingWizard.new(@current_community.id)
