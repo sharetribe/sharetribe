@@ -297,7 +297,8 @@ class ListingsController < ApplicationController
   end
 
   def create_listing(shape, listing_uuid)
-    listing_params = ListingFormViewUtils.filter(params[:listing], shape)
+    with_currency = params[:listing].merge({currency: @current_community.currency})
+    listing_params = ListingFormViewUtils.filter(with_currency, shape)
     listing_unit = Maybe(params)[:listing][:unit].map { |u| ListingViewUtils::Unit.deserialize(u) }.or_else(nil)
     listing_params = ListingFormViewUtils.filter_additional_shipping(listing_params, listing_unit)
     validation_result = ListingFormViewUtils.validate(listing_params, shape, listing_unit)
@@ -434,7 +435,8 @@ class ListingsController < ApplicationController
       end
     end
 
-    listing_params = ListingFormViewUtils.filter(params[:listing], shape)
+    with_currency = params[:listing].merge({currency: @current_community.currency})
+    listing_params = ListingFormViewUtils.filter(with_currency, shape)
     listing_unit = Maybe(params)[:listing][:unit].map { |u| ListingViewUtils::Unit.deserialize(u) }.or_else(nil)
     listing_params = ListingFormViewUtils.filter_additional_shipping(listing_params, listing_unit)
     validation_result = ListingFormViewUtils.validate(listing_params, shape, listing_unit)
