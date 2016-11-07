@@ -130,6 +130,7 @@ class Admin::CommunitiesController < ApplicationController
                                            CustomLandingPage::LandingPageStore.enabled?(@current_community.id))
 
     render :new_layout, locals: { community: @current_community,
+                                  feature_rels: NewLayoutViewUtils::FEATURE_RELS,
                                   features: features }
   end
 

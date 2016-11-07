@@ -1,7 +1,7 @@
 - content_for :extra_javascript do
   :javascript
     $(document).ready(function() {
-      window.ST.initializeNewLayoutManager();
+      window.ST.initializeNewLayoutManager(#{feature_rels.to_json});
     });
 
 - support_link = link_to("support@sharetribe.com", "mailto:support@sharetribe.com")

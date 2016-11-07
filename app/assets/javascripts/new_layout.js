@@ -11,13 +11,17 @@ window.ST = window.ST || {};
     }
   };
 
-  module.initializeNewLayoutManager = function(){
-    var $topbar_user = $("#enabled_for_user_topbar_v1");
-    var $topbar_community = $("#enabled_for_community_topbar_v1");
+  // Disables and enables required checkboxes for parent flags
+  module.initializeNewLayoutManager = function(feature_rels){
+    Object.keys(feature_rels).forEach(function(key,index) {
+      var $parent_for_user = $("#enabled_for_user_" + key);
+      var $required_for_user = $("#enabled_for_user_" + feature_rels[key]);
 
-    var $user_searchpage = $("#enabled_for_user_searchpage_v1")
-        .click(check_handler($topbar_user));
-    var $community_searchpage = $("#enabled_for_community_searchpage_v1")
-        .click(check_handler($topbar_community));
+      var $parent_for_community = $("#enabled_for_community_" + key);
+      var $required_for_community = $("#enabled_for_community_" + feature_rels[key]);
+
+      $parent_for_user.click(check_handler($required_for_user));
+      $parent_for_community.click(check_handler($required_for_community));
+    });
   };
 })(window.ST);
