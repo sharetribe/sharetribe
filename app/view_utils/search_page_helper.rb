@@ -13,7 +13,7 @@ module SearchPageHelper
         localeInfo: I18nHelper.locale_info(Sharetribe::AVAILABLE_LOCALES, I18n.locale)
       },
       marketplace: {
-        marketplace_color1: CommonStylesHelper.marketplace_colors(@current_community)[:marketplace_color1],
+        marketplace_color1: CommonStylesHelper.marketplace_colors(community)[:marketplace_color1],
         location: current_path, # request.fullpath,
         notifications: notifications_to_react,
         displayBrandingInfo: display_branding_info,
