@@ -4,10 +4,10 @@ window.ST = window.ST || {};
 
   function check_handler(element) {
    return function(){
-      if(!element.prop("checked")){
+      if (!element.prop("checked")){
         element.prop("checked", this.checked);
       }
-      element.attr("disabled", this.checked)
+     element.attr("disabled", this.checked);
     }
   };
 
