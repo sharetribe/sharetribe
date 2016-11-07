@@ -15,7 +15,7 @@ describe NewLayoutViewUtils do
         }
       ])
 
-    stub_const("NewLayoutViewUtils::SEARCHPAGE", [])
+    stub_const("NewLayoutViewUtils::EXPERIMENTAL_FEATURES", {})
   end
 
   describe "#features" do
