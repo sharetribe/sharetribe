@@ -2,6 +2,11 @@
 # This is a base class for jobs that are initiated by a user, i.e.
 # we know the user ID and marketplace ID
 #
+# Features:
+#
+# - Saves user/marketplace ID to RequestStore
+# - Validate/transform params (optional)
+#
 # To use this class, make a new subclass:
 #
 # ```
@@ -23,22 +28,35 @@
 # end
 # ```
 #
+# To enqueue a new class:
+#
+# ```
+# Delayed::Job.enqueue(TestJob.new(
+#   user: {
+#     id: @current_user.id,
+#     marketplace_id: @current_community.id
+#   },
+#   params: {
+#     message: "Test message!"
+#   }
+# }
+# ```
 
 class BaseUserJob
   attr_reader :params, :user_info
 
-  UserInfo = EntityUtils.define_builder(
-    [:marketplace_id, :fixnum, :mandatory],
-    [:user_id, :fixnum, :mandatory]
+  User = EntityUtils.define_builder(
+    [:id, :string, :mandatory],
+    [:marketplace_id, :fixnum, :mandatory]
   )
 
   def initialize(data)
-    @user_info = user_info_entity(data[:user_info])
-    @params    = params_entity(data[:params])
+    @user   = user_entity(data.fetch(:user))
+    @params = params_entity(data[:params] || {})
   end
 
-  def user_info_entity(data)
-    UserInfo.call(data)
+  def user_entity(data)
+    User.call(data)
   end
 
   def params_entity(data)
@@ -58,7 +76,7 @@ class BaseUserJob
   # The store will be cleared automatically by a Delayed Job plugin
   #
   def set_request_store
-    RequestStore.store[:current_user_id] = @user_info[:user_id]
-    RequestStore.store[:current_community_id] = @user_info[:marketplace_id]
+    RequestStore.store[:current_user_id] = @user[:id]
+    RequestStore.store[:current_community_id] = @user[:marketplace_id]
   end
 end
