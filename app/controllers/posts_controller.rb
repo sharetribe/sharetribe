@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   def wp
     Rubypress::Client.new(host: "weareallnatives.wordpress.com",
                       username: "weareallnatives", 
-                      password: "changeme12",
+                      password: "changeme13",
                        use_ssl: true) 
   end
 end
