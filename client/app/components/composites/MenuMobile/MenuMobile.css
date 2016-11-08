@@ -37,13 +37,13 @@
 }
 
 .overlay {
-  display: none;
+  display: block;
   cursor: pointer;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 9;
-  height: 100vh;
+  height: 0;
   width: 100vw;
   background-color: #000;
   opacity: 0;
@@ -53,7 +53,7 @@
 }
 
 .canvasOpen .overlay {
-  display: block;
+  height: 100vh;
   opacity: 0.95;
 }
 
@@ -67,6 +67,7 @@
 }
 
 .offScreenMenu {
+  display: flex;
   width: var(--MobileMenu_offscreenMenuWidth);
   height: 100%;
   max-height: 100%;
@@ -90,6 +91,7 @@
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  width: 100%;
   height: auto;
   min-height: 100%;
   overflow-y: auto;
@@ -97,7 +99,6 @@
 }
 
 .canvasOpen .offScreenMenu {
-  display: flex;
   transform: translateX(0);
   box-shadow: 10px 0 30px 0 rgba(0, 0, 0, 0.15);
 }

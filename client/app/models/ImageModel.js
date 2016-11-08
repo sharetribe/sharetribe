@@ -37,8 +37,11 @@ export const parse = (data) => {
     ':thumb': 'thumb',
     ':original': 'original',
   };
-  const images = data.map(([type, height, width, url]) =>
-    new Image({ type, height, width, url }));
+
+  // Array destructuring would be better, but ES6 Symbol is needed in that case
+  const images = data.map((i) =>
+    new Image({ type: i[0], height: i[1], width: i[2], url: i[3] })
+  );
   const styles = images.reduce((acc, val) => {
     const style = knownStyles[val.type];
     return style ? acc.set(style, val) : acc;

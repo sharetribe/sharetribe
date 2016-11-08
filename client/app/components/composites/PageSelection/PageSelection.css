@@ -17,6 +17,7 @@
   white-space: nowrap;
   font-size: var(--PageSelection_fontSize);
   color: var(--PageSelection_textColor);
+  margin: 0;
 }
 
 .selectContainer {
@@ -52,6 +53,10 @@
   &:-moz-focusring {
     color: transparent;
     text-shadow: 0 0 0 #000;
+  }
+
+  &::-ms-expand {
+    display: none;
   }
 
   &:hover {
