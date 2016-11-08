@@ -7,7 +7,6 @@ class PeopleController < Devise::RegistrationsController
 
   before_filter EnsureCanAccessPerson.new(
     :id, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), only: [:update, :destroy]
-  before_filter :ensure_person_not_deleted_or_banned, :only => [:show]
 
   LOOSER_ACCESS_CONTROL = [
     :check_email_availability,
@@ -23,7 +22,9 @@ class PeopleController < Devise::RegistrationsController
   helper_method :show_closed?
 
   def show
-    @person ||= Person.find_by!(username: params[:username], community_id: @current_community.id)
+    @person = Person.find_by!(username: params[:username], community_id: @current_community.id)
+    raise PersonDeleted if @person.deleted?
+    raise PersonBanned if @person.banned?
 
     redirect_to landing_page_path and return if @current_community.private? && !@current_user
     @selected_tribe_navi_tab = "members"
@@ -366,11 +367,5 @@ class PeopleController < Devise::RegistrationsController
     person.set_default_preferences
 
     [person, email]
-  end
-
-  def ensure_person_not_deleted_or_banned
-    @person = Person.find_by!(username: params[:username], community_id: @current_community.id)
-    raise PersonDeleted if @person.deleted?
-    raise PersonBanned if @person.banned?
   end
 end
