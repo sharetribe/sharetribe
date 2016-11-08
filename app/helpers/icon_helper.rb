@@ -28,7 +28,7 @@ module IconHelper
 
   def icon_class_tag(icon_class, additional_classes = [])
     classes = [icon_class].concat(additional_classes)
-    tag("i", class: classes)
+    content_tag(:i, nil, class: classes)
   end
 
   def icon_map_tag(icon_map, icon_name, additional_classes = [])
