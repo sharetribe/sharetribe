@@ -7,6 +7,7 @@ module MarketplaceService::API::DataTypes
     [:locales, :mandatory, :enumerable],
     [:country, :string],
     [:available_currencies, :string],
+    [:currency, :string]
   )
 
 
