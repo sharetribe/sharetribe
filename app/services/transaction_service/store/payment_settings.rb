@@ -9,7 +9,9 @@ module TransactionService::Store::PaymentSettings
     [:payment_process, :to_symbol, one_of: [:preauthorize, :postpay, :free], default: :free],
     [:commission_from_seller, :fixnum],
     [:minimum_price_cents, :fixnum],
+    [:minimum_price_currency, :string],
     [:minimum_transaction_fee_cents, :fixnum],
+    [:minimum_transaction_fee_currency, :string],
     [:confirmation_after_days, :fixnum, default: 14]
   )
 
@@ -20,7 +22,9 @@ module TransactionService::Store::PaymentSettings
     [:payment_process, :to_symbol, one_of: [:preauthorize, :postpay, :free], default: :free],
     [:commission_from_seller, :fixnum],
     [:minimum_price_cents, :fixnum],
+    [:minimum_price_currency, :string],
     [:minimum_transaction_fee_cents, :fixnum],
+    [:minimum_transaction_fee_currency, :string],
     [:confirmation_after_days, :fixnum, default: 14],
     [:commission_type, :mandatory, one_of: [:relative, :fixed, :both, :none]]
   )
