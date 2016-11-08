@@ -1,6 +1,8 @@
 module ServiceClient
   module Middleware
 
+    IDENTITY = ->() {}
+
     AuthContext = EntityUtils.define_builder(
       [:marketplace_id, :uuid, :mandatory],
       [:actor_id, :uuid, :mandatory]
@@ -8,14 +10,15 @@ module ServiceClient
 
     class JwtAuthenticator < MiddlewareBase
 
-      def initialize(disable_authentication, token_secret)
+      def initialize(disable_authentication, token_secret, default_auth_context = IDENTITY)
         @_disabled = disable_authentication
         @_secret = token_secret
+        @_default_auth_context = default_auth_context
       end
 
       def enter(ctx)
         unless @_disabled
-          token = create_token(ctx[:opts][:auth_context])
+          token = create_token(ctx[:opts][:auth_context] || @_default_auth_context.call)
           ctx[:req][:headers]["Authorization"] = "Token #{token}"
         end
         ctx
