@@ -40,7 +40,7 @@ export const parse = (data) => {
 
   // Array destructuring would be better, but ES6 Symbol is needed in that case
   const images = data.map((i) =>
-    new Image({ type: i[0], height: i[1], width: i[2], url: i[3] })
+    new Image({ type: i.get(0), height: i.get(1), width: i.get(2), url: i.get(3) }) // eslint-disable-line no-magic-numbers
   );
   const styles = images.reduce((acc, val) => {
     const style = knownStyles[val.type];
