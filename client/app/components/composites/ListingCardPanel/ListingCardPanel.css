@@ -24,8 +24,8 @@
   }
 
   /* Counting columns (minimum card width 264px) + gutter (12px) + panel padding (12px)
-     18 + 12 + 264 + 24 + 264 + 12 + 18 = 600 */
-  @media screen and (min-width: 612px) {
+     18 + 12 + 264 + 24 + 264 + 12 + 18 = 612. Plus 17px for IE scrollbar */
+  @media screen and (min-width: 629px) {
     padding: 18px;
 
     & .card {
@@ -40,7 +40,7 @@
   }
 
   /* 18 + 12 + 264 + 24 + 264 + 24 + 264 + 12 + 18 = 900 */
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 917px) {
     padding: 18px;
 
     & .card {
@@ -54,9 +54,9 @@
   }
 
   /* Width: 20 + 8 + 264 + 16 + 264 + 16 + 264 + 16 + 264 + 8 + 20 = 1160
-     = 4*(16 + 264) + 16 + 2*(28-16)
+     = 4*(16 + 264) + 16 + 2*(28-16) + 17px (IE scrollbar)
      where 28 is space between panel edge and card and 16 is (natural) gutter */
-  @media screen and (min-width: 1160px) {
+  @media screen and (min-width: 1177px) {
     padding: 14px 20px;
 
     & .card {
@@ -70,7 +70,7 @@
   }
 
   /* 5*(20 + 264) + 20 + 2*(24-20) = 1448px */
-  @media screen and (min-width: 1448px) {
+  @media screen and (min-width: 1465px) {
     padding: 12px 14px;
 
     & .card {
@@ -84,7 +84,7 @@
   }
 
   /* 6*(24 + 264) + 24 + 2*(30-24) = 1764px */
-  @media screen and (min-width: 1764px) {
+  @media screen and (min-width: 1781px) {
     padding: 15px 18px;
 
     & .card {
@@ -98,7 +98,7 @@
   }
 
   /* 7*(24 + 264) + 24 + 2*(36-24) = 2064px */
-  @media screen and (min-width: 2136px) {
+  @media screen and (min-width: 2153px) {
     padding: 18px 24px;
 
     & .card {
