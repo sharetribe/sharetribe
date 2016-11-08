@@ -1,12 +1,13 @@
 class PeopleController < Devise::RegistrationsController
   class PersonDeleted < StandardError; end
+  class PersonBanned < StandardError; end
 
   skip_before_filter :verify_authenticity_token, :only => [:creates]
   skip_before_filter :require_no_authentication, :only => [:new]
 
   before_filter EnsureCanAccessPerson.new(
     :id, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), only: [:update, :destroy]
-  before_filter :ensure_person_not_banned, :only => [:show, :update]
+  before_filter :ensure_person_not_deleted_or_banned, :only => [:show]
 
   LOOSER_ACCESS_CONTROL = [
     :check_email_availability,
@@ -23,7 +24,6 @@ class PeopleController < Devise::RegistrationsController
 
   def show
     @person ||= Person.find_by!(username: params[:username], community_id: @current_community.id)
-    raise PersonDeleted if @person.deleted?
 
     redirect_to landing_page_path and return if @current_community.private? && !@current_user
     @selected_tribe_navi_tab = "members"
@@ -368,10 +368,9 @@ class PeopleController < Devise::RegistrationsController
     [person, email]
   end
 
-  def ensure_person_not_banned
-    username = params[:username] ? params[:username] : params[:id]
-    @person = Person.find_by!(username: username, community_id: @current_community.id)
-
-    render_not_found! if @person.banned?
+  def ensure_person_not_deleted_or_banned
+    @person = Person.find_by!(username: params[:username], community_id: @current_community.id)
+    raise PersonDeleted if @person.deleted?
+    raise PersonBanned if @person.banned?
   end
 end

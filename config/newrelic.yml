@@ -165,6 +165,7 @@ common: &default_settings
       ActiveRecord::RecordNotFound,
       ActionController::UnknownAction,
       PeopleController::PersonDeleted,
+      PeopleController::PersonBanned,
       ListingsController::ListingDeleted
 
   # (Advanced) Uncomment this to ensure the cpu and memory samplers
