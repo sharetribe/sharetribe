@@ -3,6 +3,7 @@
 # icon sets we use: ss-pika and font-awesome
 #
 module IconHelper
+  include ApplicationHelper
 
   ICON_PACK = APP_CONFIG.icon_pack || "font-awesome"
 
