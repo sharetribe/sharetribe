@@ -1,13 +1,13 @@
 module SessionContextSerializer
   def initialize(*)
-    super
-
     @_session_context = SessionContextStore.get
+
+    super if defined?(super)
   end
 
   def before
-    super
-
     SessionContextStore.set(@_session_context)
+
+    super if defined?(super)
   end
 end

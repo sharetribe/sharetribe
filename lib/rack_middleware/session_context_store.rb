@@ -14,7 +14,7 @@ module SessionContextStore
   end
 
   def get
-    RequestStore[:__session_context]
+    RequestStore[:__session_context] ||= Context.call({})
   end
 
   def set_from_model(community: nil, person: nil)
