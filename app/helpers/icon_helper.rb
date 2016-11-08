@@ -3,7 +3,6 @@
 # icon sets we use: ss-pika and font-awesome
 #
 module IconHelper
-  include ApplicationHelper
 
   ICON_PACK = APP_CONFIG.icon_pack || "font-awesome"
 
@@ -29,8 +28,8 @@ module IconHelper
   end
 
   def icon_class_tag(icon_class, additional_classes = [])
-    classes = [icon_class].concat(additional_classes)
-    content_tag(:i, nil, class: classes)
+    classes_string = [icon_class].concat(additional_classes).join(" ")
+    %Q(<i class="#{classes_string}"></i>)
   end
 
   def icon_map_tag(icon_map, icon_name, additional_classes = [])
