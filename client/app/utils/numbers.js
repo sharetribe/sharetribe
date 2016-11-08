@@ -43,7 +43,7 @@ const KNOWN_LOCALES = [
 ];
 
 const initializeNumbro = _.memoize((numbroInstance, locale) => {
-  if (locale && KNOWN_LOCALES.includes(locale) && locale !== 'en-US') {
+  if (locale && _.includes(KNOWN_LOCALES, locale) && locale !== 'en-US') {
     numbroInstance.culture(locale, require(`numbro/languages/${locale}`));
   } else {
     KNOWN_LOCALES.forEach((localeCode) => {
@@ -58,7 +58,7 @@ const initializeNumbro = _.memoize((numbroInstance, locale) => {
 const localizeNumbro = function localizeNumbro(locale) {
 
   // Ensure that numbro has required all the localization languages and select correct locale
-  if (KNOWN_LOCALES.includes(locale)) {
+  if (_.includes(KNOWN_LOCALES, locale)) {
     const isServer = typeof window === 'undefined';
     const numbroMultiLang = initializeNumbro(numbro, isServer ? null : locale);
     numbroMultiLang.culture(locale);

@@ -14,7 +14,7 @@
 //
 
 import { span } from 'r-dom';
-import { bind } from 'lodash';
+import { bind, includes } from 'lodash';
 
 const isServer = function isServer() {
   return typeof window === 'undefined';
@@ -96,7 +96,7 @@ const localizedPricingUnit = function localizedPricingUnit(pricingUnit) {
   const pricingUnitType = pricingUnit.get(':unit');
   if (pricingUnitType === 'custom') {
     return localizedString(pricingUnit.get(':customTranslations'), 'pricing unit');
-  } else if (['piece', 'hour', 'day', 'night', 'week', 'month'].includes(pricingUnitType)) {
+  } else if (includes(['piece', 'hour', 'day', 'night', 'week', 'month'], pricingUnitType)) {
     return I18n.t(`web.listings.pricing_units.${pricingUnitType}`);
   }
   return missingTranslationMessage(pricingUnitType);
