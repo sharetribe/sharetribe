@@ -16,7 +16,8 @@ module IconHelper
     if icon.nil?
       icon = (ICON_PACK == "font-awesome" ? "icon-circle-blank" : "ss-record")
     end
-    return icon
+
+    icon
   end
 
   def self.icon_specified?(icon_name)
