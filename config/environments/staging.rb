@@ -62,7 +62,7 @@ Kassi::Application.configure do
     failover:  true,
     socket_timeout: 1.5,
     socket_failure_delay:  0.2,
-    namespace: "sharetribe-staging",
+    namespace: ENV["MEMCACHED_NAMESPACE"] || "sharetribe-staging",
     compress: true
   }
 
