@@ -297,7 +297,8 @@ class ListingsController < ApplicationController
   end
 
   def create_listing(shape, listing_uuid)
-    listing_params = ListingFormViewUtils.filter(params[:listing], shape)
+    with_currency = params[:listing].merge({currency: @current_community.currency})
+    listing_params = ListingFormViewUtils.filter(with_currency, shape)
     listing_unit = Maybe(params)[:listing][:unit].map { |u| ListingViewUtils::Unit.deserialize(u) }.or_else(nil)
     listing_params = ListingFormViewUtils.filter_additional_shipping(listing_params, listing_unit)
     validation_result = ListingFormViewUtils.validate(listing_params, shape, listing_unit)
@@ -434,7 +435,8 @@ class ListingsController < ApplicationController
       end
     end
 
-    listing_params = ListingFormViewUtils.filter(params[:listing], shape)
+    with_currency = params[:listing].merge({currency: @current_community.currency})
+    listing_params = ListingFormViewUtils.filter(with_currency, shape)
     listing_unit = Maybe(params)[:listing][:unit].map { |u| ListingViewUtils::Unit.deserialize(u) }.or_else(nil)
     listing_params = ListingFormViewUtils.filter_additional_shipping(listing_params, listing_unit)
     validation_result = ListingFormViewUtils.validate(listing_params, shape, listing_unit)
@@ -462,17 +464,20 @@ class ListingsController < ApplicationController
     update_successful = @listing.update_fields(listing_params)
 
     upsert_field_values!(@listing, params[:custom_fields])
+    finalise_update(@listing, shape, @current_community, update_successful, old_availability)
+  end
 
+  def finalise_update(listing, shape, community, update_successful, old_availability)
     if update_successful
-      @listing.location.update_attributes(params[:location]) if @listing.location
+      listing.location.update_attributes(params[:location]) if listing.location
       flash[:notice] = update_flash(old_availability: old_availability, new_availability: shape[:availability])
-      Delayed::Job.enqueue(ListingUpdatedJob.new(@listing.id, @current_community.id))
-      reprocess_missing_image_styles(@listing) if listing_reopened
-      redirect_to @listing
+      Delayed::Job.enqueue(ListingUpdatedJob.new(listing.id, community.id))
+      reprocess_missing_image_styles(listing) if listing.closed?
+      redirect_to listing
     else
-      logger.error("Errors in editing listing: #{@listing.errors.full_messages.inspect}")
+      logger.error("Errors in editing listing: #{listing.errors.full_messages.inspect}")
       flash[:error] = t("layouts.notifications.listing_could_not_be_saved", :contact_admin_link => view_context.link_to(t("layouts.notifications.contact_admin_link_text"), new_user_feedback_path, :class => "flash-error-link")).html_safe
-      redirect_to edit_listing_path(@listing)
+      redirect_to edit_listing_path(listing)
     end
   end
 
@@ -715,7 +720,7 @@ class ListingsController < ApplicationController
   def commission(community, process)
     payment_type = MarketplaceService::Community::Query.payment_type(community.id)
     payment_settings = TransactionService::API::Api.settings.get_active(community_id: community.id).maybe
-    currency = community.default_currency
+    currency = community.currency
 
     case [payment_type, process]
     when matches([__, :none])

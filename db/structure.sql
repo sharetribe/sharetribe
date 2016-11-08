@@ -247,8 +247,7 @@ CREATE TABLE `communities` (
   `stylesheet_url` varchar(255) DEFAULT NULL,
   `stylesheet_needs_recompile` tinyint(1) DEFAULT '0',
   `service_logo_style` varchar(255) DEFAULT 'full-logo',
-  `available_currencies` text,
-  `currency` varchar(3) DEFAULT NULL,
+  `currency` varchar(3) NOT NULL,
   `facebook_connect_enabled` tinyint(1) DEFAULT '1',
   `minimum_price_cents` int(11) DEFAULT NULL,
   `hide_expiration_date` tinyint(1) DEFAULT '0',
@@ -1598,7 +1597,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-07 14:51:54
+-- Dump completed on 2016-11-07 15:29:03
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3208,4 +3207,10 @@ INSERT INTO schema_migrations (version) VALUES ('20161103063652');
 INSERT INTO schema_migrations (version) VALUES ('20161107092030');
 
 INSERT INTO schema_migrations (version) VALUES ('20161107105050');
+
+INSERT INTO schema_migrations (version) VALUES ('20161107112025');
+
+INSERT INTO schema_migrations (version) VALUES ('20161107131859');
+
+INSERT INTO schema_migrations (version) VALUES ('20161107132513');
 

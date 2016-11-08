@@ -35,7 +35,7 @@ class Admin::PaypalPreferencesController < ApplicationController
   def index
     @selected_left_navi_link = "paypal_account"
     paypal_account = accounts_api.get(community_id: @current_community.id).maybe
-    currency = @current_community.default_currency
+    currency = @current_community.currency
     minimum_commission = paypal_minimum_commissions_api.get(currency)
 
     tx_settings =
@@ -47,8 +47,8 @@ class Admin::PaypalPreferencesController < ApplicationController
     paypal_prefs_form = PaypalPreferencesForm.new(
       minimum_commission: minimum_commission,
       commission_from_seller: tx_settings[:commission_from_seller],
-      minimum_listing_price: Money.new(tx_settings[:minimum_price_cents], @current_community.default_currency),
-      minimum_transaction_fee: Money.new(tx_settings[:minimum_transaction_fee_cents], @current_community.default_currency)
+      minimum_listing_price: Money.new(tx_settings[:minimum_price_cents], @current_community.currency),
+      minimum_transaction_fee: Money.new(tx_settings[:minimum_transaction_fee_cents], @current_community.currency)
     )
 
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
@@ -77,7 +77,7 @@ class Admin::PaypalPreferencesController < ApplicationController
   end
 
   def preferences_update
-    currency = @current_community.default_currency
+    currency = @current_community.currency
     minimum_commission = paypal_minimum_commissions_api.get(currency)
 
     paypal_prefs_form = PaypalPreferencesForm.new(
