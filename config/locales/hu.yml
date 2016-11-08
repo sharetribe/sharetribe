@@ -476,14 +476,15 @@ hu:
     paypal_accounts:
       marketplace_paypal_integration: "Fizetési beállítások"
       preferences_updated: "Fizetési preferenciák frissítve"
-      marketplace_currency_used: "Ez a piactér %{currency} -pénznemet használ fizetőeszközként. A pénznem megváltoztatásához: %{contact_support_link}"
       contact_support_link_text: "Vegye fel a kapcsolatot a Sharetribe rendszergazdájával"
       integration_info_text: "A Sharetribe-os kifizetéseket a PayPal támogatja. Amennyiben szeretné, hogy felhasználói fizessenek a piactér használatakor kapcsolja össze PayPal fiókjával. Amint csatlakoztatta a PayPal fiókját, kiválaszthatja a minimális tranakciós méretet és a lehetséges jutalékot."
       link_paypal_personal_account_label: "Ön gondoskodik a termékekről illetve szolgáltatásokról személyesen?"
       link_paypal_personal_account: "Abban az esetben A PayPal fiókját is csatlakoztassa fiókjához %{personal_payment_preferences_link}"
       personal_payment_preferences_link_text: "Az Ön személyes piactéri fiókja"
       read_more_about_paypal: "Leírás a Sharetribe fizetési rendszeréről"
-      set_minimum_price_and_fee: "Állítson be egy minimális árat és kezelési költséget"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Tranzakció minimális mérete:"
       transaction_fee_label: "Tranzakciós díj:"
       minimum_transaction_fee_label: "Minimum tranzakciós költség:"

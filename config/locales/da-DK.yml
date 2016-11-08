@@ -479,14 +479,15 @@ da-DK:
     paypal_accounts:
       marketplace_paypal_integration: Betalingsindstillinger
       preferences_updated: "Betalingsindstillinger blev opdateret"
-      marketplace_currency_used: "Denne markedsplads bruger %{currency} som sin valuta. For at ændre valuta, %{contact_support_link}."
       contact_support_link_text: "kontakt Sharetribe support"
       integration_info_text: "Betalingssystemet på %{service_name} kører gennem PayPal. Hvis du vil have mulighed for at tage imod betalinger på din markedsplads, skal du tilknytte din PayPal-konto, og vælge en minimumspris pr. annonce og størrelsen på dit servicegebyr."
       link_paypal_personal_account_label: "Sælger du selv produkter?"
       link_paypal_personal_account: "Hvis ja, vil du også være nødt til at tilslutte din PayPal konto til %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "din personlige markedsplads konto"
       read_more_about_paypal: "Læs mere om Sharetribe's betalingssystem"
-      set_minimum_price_and_fee: "Vælg en minimumspris og servicegebyr"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Minimums pris:"
       transaction_fee_label: "Servicegebyr:"
       minimum_transaction_fee_label: "Mindste transaktionsafgift:"

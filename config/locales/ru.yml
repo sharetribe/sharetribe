@@ -475,14 +475,15 @@ ru:
     paypal_accounts:
       marketplace_paypal_integration: "Настройки платежей"
       preferences_updated: "Настройки платежей обновлены."
-      marketplace_currency_used: ~
       contact_support_link_text: "обратитесь в службу поддержки Sharetribe"
       integration_info_text: "Система платежей Sharetribe функционирует на основе PayPal. Если вы желаете разрешить вашим пользователям осуществлять платежи в вашем проекте, вы обязаны подключить ваш аккаунт PayPal и определить минимальный размер транзакции и комиссию которую вы желаете установить от каждой транзакции."
       link_paypal_personal_account_label: "Вы предоставляете товары или услуги сами?"
       link_paypal_personal_account: "Если так, то вам необходимо подключить учетную запись PayPal к %{personal_payment_preferences_link}"
       personal_payment_preferences_link_text: "ваш личный маркетплейс аккаунт"
       read_more_about_paypal: "Узнать больше о системе платежей Sharetribe"
-      set_minimum_price_and_fee: "Установите минимальную цену и комиссию за платеж"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Минимальный размер транзакции:"
       transaction_fee_label: "Комиссия за транзакцию:"
       minimum_transaction_fee_label: "Минимальная комиссия за платеж:"

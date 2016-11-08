@@ -460,14 +460,15 @@ tr-TR:
     paypal_accounts:
       marketplace_paypal_integration: "Ödeme tercihleri"
       preferences_updated: "Ödeme referansları güncellendi"
-      marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: "%{service_name}'in ödeme sistemi PayPal altyapısını kullanmaktadır. Eğer kullanıcılarınızın ödemelerini pazar aracılığıyla yapmasına izin vermek istiyorsanız, PayPal hesabınızı eklemeli, minimum listeleme ücreti ve her işlemden keseceğiniz ücreti belirlemelisiniz."
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: "Sharetribe'nin ödeme sistemi hakkında daha fazla bilgi edinin"
-      set_minimum_price_and_fee: "Minimum fiyat & işletim bedeli belirleyin"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Minimum listeleme fiyatı:"
       transaction_fee_label: "İşlem ücreti:"
       minimum_transaction_fee_label: "Minumum işlem ücreti:"

@@ -486,14 +486,15 @@ sk-SK:
     paypal_accounts:
       marketplace_paypal_integration: "Nastavenia platobného systému"
       preferences_updated: "Nastavenia platobného systému boli upravené"
-      marketplace_currency_used: "Toto trhovisko používa platobnú menu %{currency}. Pre zmenu meny, %{contact_support_link}."
       contact_support_link_text: "kontaktujte Sharetribe podporu"
       integration_info_text: "Platobný systém vašeho trhoviska je založený na PayPal. Pokiaľ chcete užívateľom umožniť, aby prevádzali platby cez vaše trhovisko, musíte sa pripojiť k Vašemu PayPal účtu, zadať minimálnu veľkosť transakcie a poplatok z každej prevedenej transakcie."
       link_paypal_personal_account_label: "Ponúkate tovar alebo poskytujete služby?"
       link_paypal_personal_account: "pokiaľ áno, tak sa musíte pripojiť na Váš PayPal účet. %{personal_payment_preferences_link}"
       personal_payment_preferences_link_text: "Váš osobný účet"
       read_more_about_paypal: "Čítať viac o platobnom systéme"
-      set_minimum_price_and_fee: "Nastaviť minimálnu cenu a transakčný poplatok"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Minimálna čiastka transakcie:"
       transaction_fee_label: "Transakčný poplatok:"
       minimum_transaction_fee_label: "Minimálny transakčný poplatok:"

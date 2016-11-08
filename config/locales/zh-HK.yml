@@ -468,14 +468,15 @@ zh-HK:
     paypal_accounts:
       marketplace_paypal_integration: 付款偏好
       preferences_updated: 已更新付款偏好設定
-      marketplace_currency_used: "這個網站使用%{currency}作為貨幣單位。若要更改單位，%{contact_support_link}。"
       contact_support_link_text: 聯絡Sharetribe支援
       integration_info_text: Sharetribe的付款由PayPal提供。你必需連接至你的PayPal帳戶以允許你用戶使用你的網站。當你連接你的PayPal帳戶後，你可以選擇最少的交易額和一個可行的佣金金額。
       link_paypal_personal_account_label: 你是否親自提供自己的產品或服務？
       link_paypal_personal_account: "假如這樣的話，你仍需要連接你的PayPal帳戶至%{personal_payment_preferences_link}。"
       personal_payment_preferences_link_text: 你的個人網站帳戶
       read_more_about_paypal: 了解更多關於Sharetribe的支付系統
-      set_minimum_price_and_fee: 設置最低價格和交易費用
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: 最小交易規模：
       transaction_fee_label: 交易費用：
       minimum_transaction_fee_label: 最低交易費用：

@@ -450,14 +450,15 @@ it:
     paypal_accounts:
       marketplace_paypal_integration: "Integrazione PayPal"
       preferences_updated: "Preferenze di pagamento aggiornate"
-      marketplace_currency_used: "Questo marketplace usa %{currency} come propria valuta. Per cambiare valuta %{contact_support_link}."
       contact_support_link_text: "Contatta il supporto di Sharetribe"
       integration_info_text: "Il sistema di pagamento di %{service_name} è gestito da PayPal. Se vuoi consentire ai tuoi utenti di effettuare pagamenti sulla tua piattaforma, è necessario collegare il tuo conto PayPal e decidere il prezzo minimo del tuo spazio e la quota che vuoi trattenere per ogni transazione."
       link_paypal_personal_account_label: "Stai offrendo tu stesso prodotti o servizi?"
       link_paypal_personal_account: "Se è così, sarà quindi necessario collegare il conto PayPal a %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "Il tuo account personale della piattaforma di marketplace"
       read_more_about_paypal: "Maggiori informazioni sul sistema di pagamenti di Sharetribe"
-      set_minimum_price_and_fee: "Inserisci un prezzo minimo e una tariffa di transazione"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Prezzo minimo consentito:"
       transaction_fee_label: "Tariffa di transazione:"
       minimum_transaction_fee_label: "Commissione minima sulle transazioni"

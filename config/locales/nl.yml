@@ -477,14 +477,15 @@ nl:
     paypal_accounts:
       marketplace_paypal_integration: "Voorkeuren betalingen"
       preferences_updated: "Voorkeuren betalingen bijgewerkt"
-      marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: "Het betaalsysteem van Sharetribe is PayPal. Als je gebruikers de mogelijkheid wil geven om betalingen te doen via je marktplaats, moet je je PayPal account linken en bepalen wat de minimale marge is die je wil maken op elke transactie."
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: "Lees meer over Sharetribe's betalingssysteem"
-      set_minimum_price_and_fee: "Bepaal de minimale prijs en commissie"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Minimale transactie prijs:"
       transaction_fee_label: "Transactiekosten:"
       minimum_transaction_fee_label: "Minimale transactie kosten:"

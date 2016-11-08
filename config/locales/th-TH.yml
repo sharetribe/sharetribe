@@ -464,14 +464,15 @@ th-TH:
     paypal_accounts:
       marketplace_paypal_integration: การตั้งค่าระบบการชำระเงิน
       preferences_updated: ~
-      marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: "ระบบการชำระเงินในตลาดของคุณจะถูกขับเคลื่อนโดย PayPal เพื่อให้ผู้ใช้ของคุณ ชำระเงินในตลาดของคุณ ฉะนั้นคุณต้องเชื่อมต่อบัญชี PayPal ของคุณ เมื่อคุณได้เชื่อมต่อบัญชี PayPal ของคุณแล้ว คุณจึงจะสามารถเลือกจำนวนขึ้นต่ำในการชำระเงินและ จำนวนเป็นไปได้ของค่าธรรมเนียมได้"
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: ~
-      set_minimum_price_and_fee: ~
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: ~
       transaction_fee_label: ~
       minimum_transaction_fee_label: ~

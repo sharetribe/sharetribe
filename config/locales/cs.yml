@@ -486,14 +486,15 @@ cs:
     paypal_accounts:
       marketplace_paypal_integration: "Nastavení plateb"
       preferences_updated: "Nastavení plateb aktualizováno"
-      marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: "Platební systém Sharetribe funguje díky PayPal. Pokud chcete uživatelům umožnit, aby prováděli platby přes Vaše tržiště, musíte se připojit ke svému PayPal účtu a zadat minimální velikost transakce a poplatek z každé provedené transakce."
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: "Přečtěte si více o Sharetribe platebním systému"
-      set_minimum_price_and_fee: "Nastavit minimální cenu & transakční poplatek"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Minimální částka transakce:"
       transaction_fee_label: "Transakční poplatek:"
       minimum_transaction_fee_label: "Minimální transakční poplatek:"

@@ -477,14 +477,15 @@ pt-BR:
     paypal_accounts:
       marketplace_paypal_integration: "Preferências de pagamento"
       preferences_updated: "Preferências de pagamento atualizadas."
-      marketplace_currency_used: "Este mercado usa %{currency} como moeda. Para mudar a moeda, %{contact_support_link}."
       contact_support_link_text: "Entre em contato com o suporte da Sharetribe"
       integration_info_text: "O sistema de pagamento de Sharetribe é gerenciado pelo PayPal. Se você quiser permitir que os seus usuários façam pagamentos através de seu mercado virtual, você deve se conectar a sua conta PayPal e decidir o tamanho mínimo da transação e a taxa que você quer ganhar de cada transação."
       link_paypal_personal_account_label: "Você também vende produtos?"
       link_paypal_personal_account: "Se vender, você precisa conectar sua conta PayPal a %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "Sua conta pessoal no mercado virtual"
       read_more_about_paypal: "Leia mais sobre o sistema de pagamento do Sharetribe"
-      set_minimum_price_and_fee: "Definir preço mínimo e taxa de transação"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Preço mínimo de anúncio:"
       transaction_fee_label: "Taxa de transação:"
       minimum_transaction_fee_label: "Taxa mínima de transação:"

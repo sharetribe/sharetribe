@@ -477,14 +477,15 @@ fi:
     paypal_accounts:
       marketplace_paypal_integration: Maksuasetukset
       preferences_updated: "Maksuasetukset päivitetty"
-      marketplace_currency_used: "Tämä markkinapaikka on asetettu käyttämään valuuttaa %{currency}. Jos haluat vaihtaa käytössä olevaa valuuttaa, %{contact_support_link}."
       contact_support_link_text: "ota yhteys Sharetriben ylläpitoon"
       integration_info_text: "Sharetribe-markkinapaikkojen maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun sivustosi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus sekä ilmoituksen minimihinta."
       link_paypal_personal_account_label: "Aiotko lisätä tavaroita tai palveluita tarjolle myös itse?"
       link_paypal_personal_account: "Jos aiot, sinun pitää yhdistää PayPal-tiliisi myös %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "omiin käyttäjätietoihisi"
       read_more_about_paypal: "Lue lisää Sharetriben maksujärjestelmästä"
-      set_minimum_price_and_fee: "Aseta maksutapahtuman minimikoko ja välityspalkkioprosentti"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Maksutapahtuman minimikoko:"
       transaction_fee_label: "Välityspalkkioprosentti:"
       minimum_transaction_fee_label: "Minimipalkkio:"

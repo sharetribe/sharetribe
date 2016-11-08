@@ -477,14 +477,15 @@ es-ES:
     paypal_accounts:
       marketplace_paypal_integration: "Preferencias del sistema de pagos"
       preferences_updated: "Preferencias del sistema de pagos actualizadas"
-      marketplace_currency_used: "Esta comunidad usa %{currency} como su moneda. Para cambiar la moneda, %{contact_support_link}."
       contact_support_link_text: "contacta al equipo de soporte de Sharetribe"
       integration_info_text: "El sistema de pagos de tu comunidad se basa en PayPal. Si quieres permitir a tus usuarios hacer pagos a través de tu comunidad, debes conectar tu cuenta de PayPal. Después de esto, puedes decidir el precio mínimo para las transacciones, así como la comisión y/o cuota por transacción que quieres recibir."
       link_paypal_personal_account_label: "Venderás productos u ofrecerás productos en tu comunidad?"
       link_paypal_personal_account: "Si es así, también necesitará conectar su cuenta PayPal en %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "su cuenta personal de la comunidad"
       read_more_about_paypal: "Leer más sobre el sistema de pagos."
-      set_minimum_price_and_fee: "Configura un precio mínimo y una comisión por transacción"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Precio mínimo por transacción:"
       transaction_fee_label: "Comisión por transacción:"
       minimum_transaction_fee_label: "Cuota mínima por transacción"

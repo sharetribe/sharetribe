@@ -468,14 +468,15 @@ zh-TW:
     paypal_accounts:
       marketplace_paypal_integration: 支付偏好
       preferences_updated: 支付偏好设置更新
-      marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: Sharetribe的支付系统由PayPal提供支持。如果你想使用你的用户名在你的集市上付款，你必须连接你的PayPal帐号及决定最小交易规模以及对每个交易收取的费用。
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: 了解更多关于Sharetribe的支付系统
-      set_minimum_price_and_fee: 设置最低价格和交易费用
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: 最小交易规模：
       transaction_fee_label: 交易费用：
       minimum_transaction_fee_label: 最低交易费用：

@@ -477,14 +477,15 @@ de:
     paypal_accounts:
       marketplace_paypal_integration: Zahlungseinstellungen
       preferences_updated: "Zahlungseinstellungen aktualisiert"
-      marketplace_currency_used: "Dieser Marktplatz nutzt %{currency} als Währung. Um die Währungseinstellung zu ändern, %{contact_support_link}"
       contact_support_link_text: "kontaktiere den Sharetribe Support"
       integration_info_text: "Bezahlungen auf Sharetribe sind durch PayPal durchgeleitet. Um deinen Kunden die Bezahlung auf Ihrem Marktplatz zu ermöglichen müssen Sie Ihr PayPal-Konto verbinden. Nachdem Sie Ihr PayPal-Konto verbunden haben, können Sie den Mindestbetrag einer Transaktion einrichten sowie eine mögliche Vermittlungsgebühr."
       link_paypal_personal_account_label: "Bietest du selbst Produkte oder Dienstleistungen an?"
       link_paypal_personal_account: "Wenn ja, dann musst Du auch Dein PayPal Konto mit %{personal_payment_preferences_link} verbinden."
       personal_payment_preferences_link_text: "Deinem Konto"
       read_more_about_paypal: "Mehr über das Shartetribe Zahlungssystem hier lesen."
-      set_minimum_price_and_fee: "Setze Mindestpreis und Transaktionsgebühr fest"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Der Mindestbetrag einer Transaktion:"
       transaction_fee_label: "Transaktionsgebühr:"
       minimum_transaction_fee_label: "Mindestgebühr für die Transaktion:"
