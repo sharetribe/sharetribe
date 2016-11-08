@@ -10,9 +10,9 @@ module ServiceClient
 
     class JwtAuthenticator < MiddlewareBase
 
-      def initialize(disable_authentication, token_secret, default_auth_context = IDENTITY)
-        @_disabled = disable_authentication
-        @_secret = token_secret
+      def initialize(disable:, secret:, default_auth_context: IDENTITY)
+        @_disabled = disable
+        @_secret = secret
         @_default_auth_context = default_auth_context
       end
 

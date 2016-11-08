@@ -21,7 +21,7 @@ HarmonyClient = ServiceClient::Client.new(
     ServiceClient::Middleware::Timing.new,
     ServiceClient::Middleware::BodyEncoder.new(:transit_msgpack),
     ServiceClient::Middleware::ParamEncoder.new,
-    ServiceClient::Middleware::JwtAuthenticator.new(APP_CONFIG.harmony_api_disable_authentication,
-                                                    APP_CONFIG.harmony_api_token_secret),
+    ServiceClient::Middleware::JwtAuthenticator.new(disable: APP_CONFIG.harmony_api_disable_authentication,
+                                                    secret: APP_CONFIG.harmony_api_token_secret),
   ]
 )
