@@ -282,11 +282,7 @@ class ListingsController < ApplicationController
     listing_uuid = UUIDUtils.create
 
     if shape.present? && shape[:availability] == :booking
-      auth_context = {
-        marketplace_id: @current_community.uuid_object,
-        actor_id: @current_user.uuid_object
-      }
-      bookable_res = create_bookable(@current_community.uuid_object, listing_uuid, @current_user.uuid_object, auth_context)
+      bookable_res = create_bookable(@current_community.uuid_object, listing_uuid, @current_user.uuid_object)
       unless bookable_res.success
         flash[:error] = t("listings.error.create_failed_to_connect_to_booking_service")
         return redirect_to new_listing_path
@@ -422,13 +418,7 @@ class ListingsController < ApplicationController
     shape = get_shape(params[:listing][:listing_shape_id])
 
     if shape.present? && shape[:availability] == :booking
-
-      auth_context = {
-        marketplace_id: @current_community.uuid_object,
-        actor_id: @current_user.uuid_object
-      }
-
-      bookable_res = create_bookable(@current_community.uuid_object, @listing.uuid_object, @current_user.uuid_object, auth_context)
+      bookable_res = create_bookable(@current_community.uuid_object, @listing.uuid_object, @current_user.uuid_object)
       unless bookable_res.success
         flash[:error] = t("listings.error.update_failed_to_connect_to_booking_service")
         return redirect_to edit_listing_path(@listing)
@@ -555,7 +545,7 @@ class ListingsController < ApplicationController
     end
   end
 
-  def create_bookable(community_uuid, listing_uuid, author_uuid, auth_context)
+  def create_bookable(community_uuid, listing_uuid, author_uuid)
     res = HarmonyClient.post(
       :create_bookable,
       body: {
@@ -564,8 +554,7 @@ class ListingsController < ApplicationController
         authorId: author_uuid
       },
       opts: {
-        max_attempts: 3,
-        auth_context: auth_context
+        max_attempts: 3
       })
 
     if !res[:success] && res[:data][:status] == 409
@@ -583,10 +572,6 @@ class ListingsController < ApplicationController
         refId: listing.uuid_object,
         start: start_on,
         end: end_on
-      },
-      opts: {
-        auth_context: { marketplace_id: community.uuid_object,
-                        actor_id: user ? user.uuid_object : UUIDUtils.v0_uuid }
       }
     ).rescue {
       Result::Error.new(nil, code: :harmony_api_error)
