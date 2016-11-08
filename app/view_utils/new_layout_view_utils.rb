@@ -16,21 +16,30 @@ module NewLayoutViewUtils
     searchpage_v1: :topbar_v1
   }
 
-  FEATURES = [
+  module_function
+
+  # Returns data structure describing features that are manageable to
+  # all admins
+  def published_features
+   [
     { title: t("admin.communities.new_layout.new_topbar"),
       name: :topbar_v1
     },
-  ]
+   ]
+  end
 
-  # Maps flag that is required for toggling the feature in admin ui to the feature
-  EXPERIMENTAL_FEATURES = {
-    manage_searchpage: {
-      title: t("admin.communities.new_layout.searchpage"),
-      name:  :searchpage_v1,
-    },
-  }
-
-  module_function
+  # Returns a hash describing experimental features. Returned hash
+  # maps a feature flag to a feature description. If the key feature
+  # flag is enabled for user or community, the value becomes
+  # manageable in admin ui.
+  def experimental_features
+    {
+      manage_searchpage: {
+        title: t("admin.communities.new_layout.searchpage"),
+        name:  :searchpage_v1,
+      },
+    }
+  end
 
   def features(community_id, person_id, private_community, clp_enabled)
     person_flags = FeatureFlagService::API::Api.features.get_for_person(community_id: community_id, person_id: person_id).data[:features]
@@ -57,7 +66,7 @@ module NewLayoutViewUtils
   # and returns the keys as symbols from the entries
   # that hold value "true".
   def enabled_features(feature_params)
-    allowed_features = (FEATURES + EXPERIMENTAL_FEATURES.values).map { |f| f[:name] }
+    allowed_features = (published_features + experimental_features.values).map { |f| f[:name] }
     features = feature_params.select { |key, value| value == "true" }
                  .keys
                  .map(&:to_sym)
@@ -70,7 +79,7 @@ module NewLayoutViewUtils
   # list of enabled features.
   def resolve_disabled(enabled)
      all_enabled = add_required_features(enabled)
-     features = (FEATURES + EXPERIMENTAL_FEATURES.values).map { |f| f[:name]}
+     features = (published_features + experimental_features.values).map { |f| f[:name]}
        .select { |f| !all_enabled.include?(f) }
   end
 
@@ -87,7 +96,7 @@ module NewLayoutViewUtils
     # Additional rules for flags
     all_flags.delete(:searchpage_v1) unless can_manage_searchpage?(all_flags, private_community, clp_enabled)
 
-    (FEATURES + EXPERIMENTAL_FEATURES.values_at(*all_flags)).compact
+    (published_features + experimental_features.values_at(*all_flags)).compact
   end
 
   def can_manage_searchpage?(flags, private_community, clp_enabled)

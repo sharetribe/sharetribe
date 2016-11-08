@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe NewLayoutViewUtils do
   before do
-    stub_const("NewLayoutViewUtils::FEATURES",
+    allow(NewLayoutViewUtils).to receive(:published_features).and_return(
       [
         { title: "Foo",
           name: :foo
@@ -15,7 +15,7 @@ describe NewLayoutViewUtils do
         }
       ])
 
-    stub_const("NewLayoutViewUtils::EXPERIMENTAL_FEATURES", {})
+    allow(NewLayoutViewUtils).to receive(:experimental_features).and_return({})
   end
 
   describe "#features" do
