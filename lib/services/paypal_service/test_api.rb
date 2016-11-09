@@ -17,10 +17,10 @@ module PaypalService
     end
 
     def wrap(val)
-      unless @should_fail
-        SuccessResponse.new(true, val)
-      else
+      if @should_fail
         ErrorResponse.new(false, [Error.new(@error_code, "error msg")])
+      else
+        SuccessResponse.new(true, val)
       end
     end
 
