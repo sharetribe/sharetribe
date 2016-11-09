@@ -8,7 +8,7 @@ class SessionContextMiddleware
   end
 
   def call(env)
-    SessionContextStore.set_from_model(
+    ::SessionContextStore.set_from_model(
       community: env[:current_marketplace],
       person: env["warden"]&.user)
 
