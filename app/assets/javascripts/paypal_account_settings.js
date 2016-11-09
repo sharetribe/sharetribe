@@ -31,9 +31,11 @@ window.ST = window.ST || {};
     var $form = $('#' + formId);
     var $currency = $form.find('#paypal_preferences_form_marketplace_currency');
     var $currencyLabels = $form.find('.paypal-preferences-currency-label');
+    var $warning = $form.find('.paypal-currency-change-warning-text');
 
     $currency.on('change', function() {
       $currencyLabels.text($currency.val());
+      $warning.show();
     });
 
     $form.validate({
