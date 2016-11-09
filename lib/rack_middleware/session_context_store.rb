@@ -17,6 +17,16 @@ module SessionContextStore
     RequestStore[:__session_context] ||= Context.call({})
   end
 
+  # Resets the store
+  #
+  # Note: Calling `reset!` is needed only in exceptional cases!
+  #       Normally, the underlying RequestStore is reseted after
+  #       each request or delayed job
+  #
+  def reset!
+    RequestStore[:__session_context] = nil
+  end
+
   def set_from_model(community: nil, person: nil)
     role =
       if person.nil?
