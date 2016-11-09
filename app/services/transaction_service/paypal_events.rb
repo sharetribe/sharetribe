@@ -14,7 +14,19 @@ module TransactionService::PaypalEvents
   def payment_updated(flow, payment)
     tx = MarketplaceService::Transaction::Query.transaction(payment[:transaction_id])
     if tx
-      case transition_type(tx, payment)
+      transition = transition_type(tx, payment)
+
+      # Event can be triggered due to a
+      #
+      # a) user action
+      # b) IPN message
+      # c) scheduled retry job
+      #
+      # In case of b) and c), we need to initialize the SessionContext here
+      #
+      SessionContextStore.set_from_transaction(actor: transition[:actor], tx: tx)
+
+      case transition[:name]
       when :initiated_to_preauthorized
         initiated_to_preauthorized(tx)
       when :initiated_to_voided
@@ -57,14 +69,14 @@ module TransactionService::PaypalEvents
   ## Mapping from payment transition to transaction transition
 
   TRANSITIONS = [
-    [:initiated_to_preauthorized,   [:initiated, :pending, :authorization]],
-    [:initiated_to_voided,          [:initiated, :voided]],
-    [:preauthorized_to_paid,        [:preauthorized, :completed]],
-    [:preauthorized_to_pending_ext, [:preauthorized, :pending]],
-    [:pending_ext_to_paid,          [:pending_ext, :completed]],
-    [:preauthorized_to_voided,      [:preauthorized, :voided]],
-    [:preauthorized_to_expired,     [:preauthorized, :expired]],
-    [:pending_ext_to_denied,        [:pending_ext, :denied]]
+    {name: :initiated_to_preauthorized,   actor: :starter, state: [:initiated, :pending, :authorization]},
+    {name: :initiated_to_voided,          actor: :starter, state: [:initiated, :voided]},
+    {name: :preauthorized_to_paid,        actor: :author,  state: [:preauthorized, :completed]},
+    {name: :preauthorized_to_pending_ext, actor: :author,  state: [:preauthorized, :pending]},
+    {name: :pending_ext_to_paid,          actor: :author,  state: [:pending_ext, :completed]},
+    {name: :preauthorized_to_voided,      actor: :author,  state: [:preauthorized, :voided]},
+    {name: :preauthorized_to_expired,     actor: :author,  state: [:preauthorized, :expired]},
+    {name: :pending_ext_to_denied,        actor: :author,  state: [:pending_ext, :denied]}
   ]
 
   def transition_type(tx, payment)
@@ -72,12 +84,12 @@ module TransactionService::PaypalEvents
     pending_reason = payment[:pending_reason]
     tx_state = tx[:status].to_sym
 
-    transition_key, = first_matching_transition(TRANSITIONS, [tx_state, payment_status, pending_reason])
-    Maybe(transition_key).or_else(:unknown_transition)
+    transition = first_matching_transition(TRANSITIONS, [tx_state, payment_status, pending_reason])
+    Maybe(transition).or_else({name: :unknown, actor: :unknown})
   end
 
   def first_matching_transition(transitions, val)
-    transitions.find { |(_, match)| match.zip(val).all? { |(p1, p2)| p1 == p2 } }
+    transitions.find { |transition| transition[:state].zip(val).all? { |(p1, p2)| p1 == p2 } }
   end
 
   ## Transaction transition handlers

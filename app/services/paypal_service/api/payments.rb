@@ -258,6 +258,12 @@ module PaypalService::API
         if(!response[:success] && stop_retrying_token?(response, token.created_at, clean_time_limit))
           request_cancel(token.community_id, token.token)
         end
+
+        # This operation is one of the few operations that span across
+        # multiple users and multiple marketplaces. Because of this,
+        # we need to reset SessionContext when ever we move to the
+        # next payment
+        SessionContextStore.reset!
       end
     end
 

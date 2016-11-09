@@ -18,8 +18,6 @@ describe ServiceClient::Middleware::JwtAuthenticator do
 
   SECRET = "secret"
 
-  let(:authenticator) { ServiceClient::Middleware::JwtAuthenticator.new(false, SECRET) }
-
   def req_token(context)
     context[:req][:headers]["Authorization"].split(" ")[1]
   end
@@ -31,7 +29,10 @@ describe ServiceClient::Middleware::JwtAuthenticator do
     end
   end
 
+
   it "encodes an authorization header" do
+    authenticator = ServiceClient::Middleware::JwtAuthenticator.new(disable: false, secret: SECRET)
+
     m_id = UUIDUtils.create
     a_id = UUIDUtils.create
     auth_context = {
@@ -46,17 +47,41 @@ describe ServiceClient::Middleware::JwtAuthenticator do
   end
 
   it "fails with a missing auth context" do
+    authenticator = ServiceClient::Middleware::JwtAuthenticator.new(disable: false, secret: SECRET)
+
     ctx = {req: {headers: {}}, opts: {}}
     expect { authenticator.enter(ctx) }.to raise_error(TypeError)
   end
 
   it "fails with an invalid missing auth context" do
+    authenticator = ServiceClient::Middleware::JwtAuthenticator.new(disable: false, secret: SECRET)
+
     auth_context = {
       marketplace_id: 1,
       actor_id: 2
     }
     ctx = {req: {headers: {}}, opts: {auth_context: auth_context}}
     expect { authenticator.enter(ctx) }.to raise_error(ArgumentError)
+  end
+
+  it "calls lambda to fetch the auth context" do
+    m_id = UUIDUtils.create
+    a_id = UUIDUtils.create
+
+    default_auth_context = ->() {
+      {
+        marketplace_id: m_id,
+        actor_id: a_id
+      }
+    }
+
+    authenticator = ServiceClient::Middleware::JwtAuthenticator.new(
+      disable: false, secret: SECRET, default_auth_context: default_auth_context)
+
+    ctx = authenticator.enter({req: {headers: {}},
+                               opts: {}})
+    expect(token_data(req_token(ctx))).to eq({"marketplaceId" => m_id.to_s,
+                                              "actorId"       => a_id.to_s})
   end
 
 end
