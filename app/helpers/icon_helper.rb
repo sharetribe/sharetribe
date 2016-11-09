@@ -15,8 +15,7 @@ module IconHelper
     if icon.nil?
       icon = (ICON_PACK == "font-awesome" ? "icon-circle-blank" : "ss-record")
     end
-
-    icon
+    return icon
   end
 
   def self.icon_specified?(icon_name)
@@ -29,7 +28,7 @@ module IconHelper
 
   def icon_class_tag(icon_class, additional_classes = [])
     classes_string = [icon_class].concat(additional_classes).join(" ")
-    %Q(<i class="#{classes_string}"></i>)
+    "<i class=\"#{classes_string}\"></i>".html_safe
   end
 
   def icon_map_tag(icon_map, icon_name, additional_classes = [])
