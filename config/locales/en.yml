@@ -485,6 +485,7 @@ en:
       read_more_about_paypal: "Read more about the payment system"
       edit_payment_settings: "Edit payment settings"
       supported_currencies_information_text: "Sharetribe's online payment system supports 24 currencies. If your currency is not on the list, please %{contact_support_link}. If you change the marketplace currency, existing listings will retain their old currency. You need to edit those listings individually to convert them to the new currency."
+      currency_change_warning_text: "Heads up: if you move forward with this currency change, don't forget to ask your sellers to manually edit their existing listings to get the currency update."
       marketplace_currency_label: "Marketplace currency:"
       minimum_listing_price_label: "Minimum transaction size:"
       transaction_fee_label: "Transaction fee:"

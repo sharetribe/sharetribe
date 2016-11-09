@@ -69,6 +69,15 @@
               .col-6
                 = form.select :marketplace_currency, options_for_select(available_currencies, currency)
 
+            .row.paypal-currency-change-warning-text
+              .col-12
+                .alert-box-warning
+                  %p
+                    %span.alert-box-icon
+                      = icon_tag("alert", ["icon-fix"])
+                    %span
+                      = t("admin.paypal_accounts.currency_change_warning_text")
+
             .row
               .col-6
                 = form.label :minimum_listing_price, t("admin.paypal_accounts.minimum_listing_price_label"), class: "paypal-horizontal-input-label"
