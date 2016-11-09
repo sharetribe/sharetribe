@@ -40,9 +40,14 @@ class ListingCard extends Component {
     this.setState({ imageStatus: IMAGE_FAILED }); // eslint-disable-line react/no-set-state
   }
 
-  clickHandler() {
+  clickHandler(event) {
     if (canUseDOM) {
-      window.location = this.props.listing.listingURL;
+      if (event.shiftKey || event.ctrlKey || event.metaKey) {
+        event.preventDefault();
+        window.open(this.props.listing.listingURL, '_blank');
+      } else {
+        window.location = this.props.listing.listingURL;
+      }
     }
   }
 
