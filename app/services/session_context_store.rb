@@ -49,4 +49,32 @@ module SessionContextStore
     set(session_context)
   end
 
+  def set_from_transaction(actor:, tx:)
+    marketplace_session_ctx = {
+      marketplace_id: tx[:community_id],
+      marketplace_uuid: tx[:community_uuid]
+    }
+
+    user_session_ctx =
+      case actor
+      when :starter
+        {
+          user_id: tx[:starter_id],
+          user_uuid: tx[:starter_uuid]
+        }
+      when :author
+        {
+          user_id: tx[:listing_author_id],
+          user_uuid: tx[:listing_author_uuid]
+        }
+      when :unknown
+        # Unknown user
+        {}
+      else
+        raise ArgumentError.new("Unknown transition actor: #{actor}")
+      end
+
+    SessionContextStore.set(marketplace_session_ctx.merge(user_session_ctx))
+  end
+
 end

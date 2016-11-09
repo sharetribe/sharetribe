@@ -24,7 +24,7 @@ module TransactionService::PaypalEvents
       #
       # In case of b) and c), we need to initialize the SessionContext here
       #
-      set_session_context!(actor: transition[:actor], tx: tx)
+      SessionContextStore.set_from_transaction(actor: transition[:actor], tx: tx)
 
       case transition[:name]
       when :initiated_to_preauthorized
@@ -61,38 +61,6 @@ module TransactionService::PaypalEvents
   end
 
   # Privates
-
-  def set_session_context!(actor:, tx:)
-    existing_session_ctx = SessionContextStore.get
-
-    marketplace_session_ctx = {
-      marketplace_id: tx[:community_id],
-      marketplace_uuid: tx[:community_uuid]
-    }
-
-    user_session_ctx =
-      case actor
-      when :starter
-        {
-          user_id: tx[:starter_id],
-          user_uuid: tx[:starter_uuid]
-        }
-      when :author
-        {
-          user_id: tx[:listing_author_id],
-          user_uuid: tx[:listing_author_uuid]
-        }
-      when :unknown
-        # Unknown user
-        {}
-      else
-        raise ArgumentError.new("Unknown transition actor: #{actor}")
-      end
-
-    SessionContextStore.set(existing_session_ctx
-                              .merge(marketplace_session_ctx)
-                              .merge(user_session_ctx))
-  end
 
   def shipping_fields_present?(details)
     details.except(:status).values.any?
