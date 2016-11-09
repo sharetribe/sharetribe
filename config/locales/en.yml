@@ -1490,7 +1490,6 @@ en:
       request_type: "Request type"
       requests: Requests
       rideshare: Rideshare
-      search_verb: Search
       you_have_something_others_do_not: "Have something to offer?"
       feed_title: "%{listing_type} in %{service_name} %{optional_category}"
     left_panel_link:
@@ -1622,7 +1621,6 @@ en:
       request_type: "Request type"
       requests: Requests
       rideshare: Rideshare
-      search_verb: Search
       you_have_something_others_do_not: "Have something to offer?"
     please_comment: Comment
   mercury:
@@ -1790,16 +1788,6 @@ en:
       following: Following
       follow: Follow
       unfollow: Unfollow
-  search:
-    show:
-      all_results: "All results"
-      loading_more_search_results: "Loading more search results"
-      offers: Offers
-      requests: Requests
-      search: Search
-      search_results: "Search results"
-      search_returned_no_results: "Your search returned no results."
-      search_verb: Search
   sessions:
     new:
       create_new_account: "Create a new account"
