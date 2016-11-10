@@ -30,7 +30,6 @@ class ApplicationController < ActionController::Base
     :fetch_community_admin_status,
     :warn_about_missing_payment_info,
     :set_homepage_path,
-    :report_queue_size,
     :maintenance_warning,
     :cannot_access_if_banned,
     :cannot_access_without_confirmation,
