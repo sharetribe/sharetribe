@@ -339,8 +339,8 @@ $tablet--hero: "(min-width: 480px) and (max-width: 767px)";
   }
 }
 
-
-.hero__search-icon {
+// Common styling for search icon
+.hero__search-icon--base {
   @include enable-flex-shrink-fix;
 
   order: 2;
@@ -366,9 +366,23 @@ $tablet--hero: "(min-width: 480px) and (max-width: 767px)";
   }
 }
 
+.hero__search-icon {
+  @extend .hero__search-icon--base;
+
+  @media #{$mobile-landscape} {
+    order: 0;
+    padding: 19px 0px;
+  }
+}
+
 .hero__search-icon--combined {
-  @extend .hero__search-icon;
+  @extend .hero__search-icon--base;
   display: none;
+
+  @media #{$mobile-landscape--hero} {
+    order: 0;
+    padding: 19px 0px;
+  }
 
   @media #{$mobile-landscape--hero}, #{$tablet--hero}, #{$tablet}, #{$desktop} {
     display: block;
