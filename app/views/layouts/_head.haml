@@ -7,6 +7,9 @@
 %head
   %meta{charset: "utf-8"}
 
+  -# Experimental Amplitude support
+  = render :partial => "layouts/amplitude", locals: { community: @current_community, user: @current_user, plan: @current_plan }
+
   -# Kissmetrics is deprecated, use Google Tag Manager instead
   = render :partial => "layouts/kissmetrics"
   = render :partial => "layouts/google_analytics_script", locals: {feature_flags: FeatureFlagHelper.feature_flags, community_id: Maybe(@current_community).id.or_else, google_analytics_key: Maybe(@current_community).google_analytics_key.or_else}

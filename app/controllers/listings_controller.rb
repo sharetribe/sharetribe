@@ -231,6 +231,14 @@ class ListingsController < ApplicationController
       blocked_dates_end_on: DateUtils.to_midnight_utc(blocked_dates_end_on)
     }
 
+    Analytics.record_event(
+      flash.now,
+      "Listing viewed",
+      {listing_id: @listing.id,
+       listing_uuid: @listing.uuid_object.to_s,
+       community_id: @current_community.id,
+       marketplace_uuid: @current_community.uuid_object.to_s})
+
     render(locals: onboarding_popup_locals.merge(view_locals))
   end
 

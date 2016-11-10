@@ -79,6 +79,7 @@ class SessionsController < ApplicationController
   def destroy
     sign_out
     flash[:notice] = t("layouts.notifications.logout_successful")
+    Analytics.mark_logged_out(flash)
     redirect_to landing_page_path
   end
 
