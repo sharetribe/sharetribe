@@ -43,9 +43,11 @@
                   </g>
                 </svg>
               </button>
-              <input type="search" name="q" class="hero__search-input<%= combined_mode %>" placeholder="<%= s["search_placeholder"]["value"] %>"/>
               <% if search_mode == "keyword_and_location_search" %>
-                <input type="search" name="lq" class="hero__search-input<%= combined_mode %>" placeholder="<%= s.dig("search_location_with_keyword_placeholder", "value") %>"/>
+                <input type="search" name="q" class="hero__keyword-search-input--combined" placeholder="<%= s["search_placeholder"]["value"] %>"/>
+                <input type="search" name="lq" class="hero__location-search-input--combined" placeholder="<%= s.dig("search_location_with_keyword_placeholder", "value") %>"/>
+              <% else %>
+                <input type="search" name="q" class="hero__search-input" placeholder="<%= s["search_placeholder"]["value"] %>"/>
               <% end %>
             </div>
             <button type="submit" class="hero__search-button hero__search-button<%= combined_mode %>"><%= s["search_button"]["value"] %></button>

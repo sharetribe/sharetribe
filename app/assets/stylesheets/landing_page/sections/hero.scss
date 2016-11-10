@@ -206,6 +206,8 @@ $tablet--hero: "(min-width: 480px) and (max-width: 767px)";
   }
 }
 
+// Common styles for both search inputs, keyword and location search in combined mode
+//
 .hero__search-input--combined {
   @extend .hero__search-input;
   border-radius: 29.5px;
@@ -213,12 +215,9 @@ $tablet--hero: "(min-width: 480px) and (max-width: 767px)";
   padding: 8px 24px 8px 24px;
 
   @media #{$mobile-landscape--hero}, #{$tablet--hero} {
-    padding: 8px 12px 8px 0px;
-    margin: 0;
-    border-radius: 0;
-    &:nth-of-type(2) {
-      padding: 8px 12px 8px 12px;
-    }
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 8px 0px;
   }
 
   @media #{$desktop} {
@@ -226,26 +225,40 @@ $tablet--hero: "(min-width: 480px) and (max-width: 767px)";
     letter-spacing: 0px;
     line-height: 32px;
 
-    padding: 14px 24px 14px 18px;
-
-    margin: 0;
-    border-radius: 0;
-    &:nth-of-type(2) {
-      padding: 14px 24px 14px 18px;
-    }
+    padding: 0px 24px 0px 18px;
+    margin: 14px 0px;
   }
 
   @media #{$tablet} {
-    margin: 0;
-    border-radius: 0;
     font-size: 18px;
     letter-spacing: 0px;
     line-height: 32px;
 
-    padding: 14px 12px 14px 12px;
+    padding: 0px 12px;
+    margin: 14px 0px;
+  }
+}
+
+.hero__keyword-search-input--combined {
+  @extend .hero__search-input--combined;
+
+  @media #{$mobile-landscape--hero}, #{$tablet--hero} {
+    padding-right: 12px;
+    padding-left: 0px;
+  }
+}
+
+.hero__location-search-input--combined {
+  @extend .hero__search-input--combined;
+
+  @media #{$mobile-landscape--hero}, #{$tablet--hero} {
+    border-radius: 0;
+    padding-right: 12px;
+    padding-left: 12px;
   }
 
-  &:nth-of-type(2) {
+  @media #{$mobile-landscape--hero}, #{$tablet--hero}, #{$tablet}, #{$desktop} {
+    border-radius: 0;
     border-left: solid 1px #cccccc;
   }
 }
