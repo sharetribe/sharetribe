@@ -1,5 +1,5 @@
 import r from 'r-dom';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Immutable from 'immutable';
 
 import { storify } from '../../Styleguide/withProps';
@@ -143,7 +143,7 @@ const testDistance = function testDistance(card, mountedCard) {
 storiesOf('Search results')
   .add('ListingCard - basic', () => {
     const card = ListingCardBasic;
-    const mountedCard = mount(card);
+    const mountedCard = shallow(card);
 
     specs(() => describe('ListingCard - basic', () => {
       it('Should not display "No picture"', () => {
@@ -158,7 +158,7 @@ storiesOf('Search results')
   })
   .add('ListingCard - no image', () => {
     const card = ListingCardNoImage;
-    const mountedCard = mount(card);
+    const mountedCard = shallow(card);
 
     specs(() => describe('ListingCard - no image', () => {
       it('Should display "No picture"', () => {
@@ -173,11 +173,11 @@ storiesOf('Search results')
   })
   .add('ListingCard - image fail', () => {
     const card = ListingCardImageError;
-    const mountedCard = mount(card);
+    const mountedCard = shallow(card);
 
     specs(() => describe('ListingCard - image fail', () => {
       it('Should display "No picture"', () => {
-        const mounted = mount(card);
+        const mounted = shallow(card);
         mounted.setState({ imageStatus: 'failed' });
         expect(mounted.text()).to.include('No picture');
         expect(mounted.find('.ListingCard_image')).to.have.length(0);
@@ -190,7 +190,7 @@ storiesOf('Search results')
   })
   .add('ListingCard - no Price', () => {
     const card = ListingCardNoPrice;
-    const mountedCard = mount(card);
+    const mountedCard = shallow(card);
 
     specs(() => describe('ListingCard - basic', () => {
       it('Should display order type "Giving away"', () => {
