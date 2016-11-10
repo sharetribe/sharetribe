@@ -160,28 +160,6 @@
 
 }
 
-@mixin hero-search-input-media {
-  @media #{$mobile-landscape} {
-    padding: 14px 24px 14px 12px;
-  }
-
-  @media #{$tablet} {
-    font-size: 18px;
-    letter-spacing: 0px;
-    line-height: 32px;
-
-    padding: 14px 24px 14px 12px;
-  }
-
-  @media #{$desktop} {
-    font-size: 18px;
-    letter-spacing: 0px;
-    line-height: 32px;
-
-    padding: 14px 24px 14px 18px;
-  }
-}
-
 .hero__search-input {
   @include typography__medium;
   order: 1;
@@ -201,8 +179,25 @@
   line-height: 32px;
   padding: 8px 12px 8px 0px;
 
-  @include hero-search-input-media;
+  @media #{$mobile-landscape} {
+    padding: 14px 24px 14px 12px;
+  }
 
+  @media #{$tablet} {
+    font-size: 18px;
+    letter-spacing: 0px;
+    line-height: 32px;
+
+    padding: 14px 24px 14px 12px;
+  }
+
+  @media #{$desktop} {
+    font-size: 18px;
+    letter-spacing: 0px;
+    line-height: 32px;
+
+    padding: 14px 24px 14px 18px;
+  }
 }
 
 .hero__search-input--combined {
@@ -226,7 +221,25 @@
     }
   }
 
-  @include hero-search-input-media;
+  @media #{$mobile-landscape} {
+    padding: 14px 24px 14px 12px;
+  }
+
+  @media #{$tablet} {
+    font-size: 18px;
+    letter-spacing: 0px;
+    line-height: 32px;
+
+    padding: 14px 24px 14px 12px;
+  }
+
+  @media #{$desktop} {
+    font-size: 18px;
+    letter-spacing: 0px;
+    line-height: 32px;
+
+    padding: 14px 24px 14px 18px;
+  }
 
   &:nth-of-type(2) {
     border-left: solid 1px #cccccc;
