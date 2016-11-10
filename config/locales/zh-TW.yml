@@ -1475,7 +1475,6 @@ zh-TW:
       request_type: 请求信息的类型
       requests: 需求
       rideshare: 拼车
-      search_verb: 搜索
       you_have_something_others_do_not: 想卖点什么？
       feed_title: "在%{service_name}%{optional_category}中的%{listing_type}"
     left_panel_link:
@@ -1607,7 +1606,6 @@ zh-TW:
       request_type: 请求信息的类型
       requests: 所有请求的信息
       rideshare: 拼车
-      search_verb: 搜索
       you_have_something_others_do_not: 想卖点什么？
     please_comment: 评论
   mercury:
@@ -1774,16 +1772,6 @@ zh-TW:
       following: 正在关注
       follow: 关注
       unfollow: 取消关注
-  search:
-    show:
-      all_results: 所有结果
-      loading_more_search_results: 加载更多搜索结果
-      offers: 宝贝
-      requests: 请求
-      search: 搜索
-      search_results: 搜索结果
-      search_returned_no_results: 没有发现符合要求的结果
-      search_verb: 搜索
   sessions:
     new:
       create_new_account: 注册新用户

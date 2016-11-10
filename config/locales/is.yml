@@ -1455,7 +1455,6 @@ is:
       request_type: "Tegund beiðni"
       requests: Beiðnir
       rideshare: Far
-      search_verb: Leit
       you_have_something_others_do_not: "Hvað hefuru upp á að bjóða?"
       feed_title: ~
     left_panel_link:
@@ -1587,7 +1586,6 @@ is:
       request_type: "Tegund beiðni"
       requests: Beiðnir
       rideshare: Far
-      search_verb: Leita
       you_have_something_others_do_not: "Hvað hefuru upp á að bjóða?"
     please_comment: Athugasemd
   mercury:
@@ -1752,16 +1750,6 @@ is:
       following: ~
       follow: ~
       unfollow: ~
-  search:
-    show:
-      all_results: ~
-      loading_more_search_results: ~
-      offers: ~
-      requests: ~
-      search: ~
-      search_results: ~
-      search_returned_no_results: ~
-      search_verb: ~
   sessions:
     new:
       create_new_account: ~

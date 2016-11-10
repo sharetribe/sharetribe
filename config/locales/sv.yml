@@ -1488,7 +1488,6 @@ sv:
       request_type: "Typ av förfrågan"
       requests: Förfrågan
       rideshare: Samåkning
-      search_verb: Sök
       you_have_something_others_do_not: "Har du något att erbjuda?"
       feed_title: "%{listing_type} på %{service_name}%{optional_category}"
     left_panel_link:
@@ -1620,7 +1619,6 @@ sv:
       request_type: "Typ av förfrågan"
       requests: Förfrågan
       rideshare: Samåkning
-      search_verb: Sök
       you_have_something_others_do_not: "Har du något att erbjuda?"
     please_comment: Kommentera
   mercury:
@@ -1788,16 +1786,6 @@ sv:
       following: Följer
       follow: Följ
       unfollow: "Sluta följ"
-  search:
-    show:
-      all_results: "Alla resultat"
-      loading_more_search_results: "Laddar fler sökresultat"
-      offers: Erbjudanden
-      requests: Förfrågningar
-      search: Sök
-      search_results: Sökresultat
-      search_returned_no_results: "Din sökning gav inga resultat."
-      search_verb: Sök
   sessions:
     new:
       create_new_account: "Skapa ett nytt konto"

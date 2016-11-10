@@ -1455,7 +1455,6 @@ el:
       request_type: "Τύπος αιτήματος"
       requests: Αιτήματα
       rideshare: Συνεπιβατισμός
-      search_verb: Αναζήτησε
       you_have_something_others_do_not: "Μπορείτε να προσφέρετε κάτι;"
       feed_title: "%{listing_type} στο %{service_name} \"%{community_name}\" - %{optional_category}"
     left_panel_link:
@@ -1587,7 +1586,6 @@ el:
       request_type: "Τύπος αιτήματος"
       requests: Αιτήματα
       rideshare: Οτοστόπ
-      search_verb: Ψάξε
       you_have_something_others_do_not: "Έχεις κάτι να προσφέρεις;"
     please_comment: Σχολίασε
   mercury:
@@ -1755,16 +1753,6 @@ el:
       following: ~
       follow: ~
       unfollow: ~
-  search:
-    show:
-      all_results: "Όλα τα αποτελέσματα"
-      loading_more_search_results: "Εμφάνιση περισσότερων αποτελεσμάτων"
-      offers: Προσφορές
-      requests: Αιτήματα
-      search: Αναζήτηση
-      search_results: "Αποτελέσματα αναζήτησης"
-      search_returned_no_results: "Η αναζήτησή σας δεν επέστρεψε αποτελέσματα."
-      search_verb: Αναζήτηση
   sessions:
     new:
       create_new_account: "Δημιουργία λογαριασμού"

@@ -1490,7 +1490,6 @@ es-ES:
       request_type: "Tipo de solicitud"
       requests: Solicitudes
       rideshare: "Traslado compartido"
-      search_verb: Buscar
       you_have_something_others_do_not: "¿Tienes algo que ofecer?"
       feed_title: "%{listing_type} en %{service_name}%{optional_category}"
     left_panel_link:
@@ -1622,7 +1621,6 @@ es-ES:
       request_type: "Tipo de solicitud"
       requests: Solicitudes
       rideshare: "Traslado compartido"
-      search_verb: Buscar
       you_have_something_others_do_not: "Tienes algo que quieres ofertar?"
     please_comment: Comentario
   mercury:
@@ -1790,16 +1788,6 @@ es-ES:
       following: Siguiendo
       follow: Seguir
       unfollow: "Dejar de seguir"
-  search:
-    show:
-      all_results: "Todos los resultados"
-      loading_more_search_results: "Cargar más resultados de búsqueda"
-      offers: Ofertas
-      requests: Solicitudes
-      search: Buscar
-      search_results: "Resultados de búsqueda"
-      search_returned_no_results: "Su búsqueda no ha obtenido resultados."
-      search_verb: buscar
   sessions:
     new:
       create_new_account: "Crear una cuenta nueva"

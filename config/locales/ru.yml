@@ -1480,7 +1480,6 @@ ru:
       request_type: "Тип запроса"
       requests: Запросы
       rideshare: Поездки
-      search_verb: Поиск
       you_have_something_others_do_not: "Можете предложить другим что-нибудь?"
       feed_title: "%{listing_type} в %{service_name} %{optional_category}"
     left_panel_link:
@@ -1612,7 +1611,6 @@ ru:
       request_type: "Тип запроса"
       requests: Запросы
       rideshare: "Совместная поездка"
-      search_verb: Поиск
       you_have_something_others_do_not: "Можете предложить что-нибудь?"
     please_comment: Комментарий
   mercury:
@@ -1782,16 +1780,6 @@ ru:
       following: Подписаны
       follow: Подписаться
       unfollow: Отписаться
-  search:
-    show:
-      all_results: "Все результаты"
-      loading_more_search_results: "Загрузка результатов поиска"
-      offers: Предложения
-      requests: Запросы
-      search: Поиск
-      search_results: "Результаты поиска"
-      search_returned_no_results: "Поиск не дал результатов."
-      search_verb: Поиск
   sessions:
     new:
       create_new_account: "Создать новую учётную запись"

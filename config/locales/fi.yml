@@ -1490,7 +1490,6 @@ fi:
       request_type: Pyyntötapa
       requests: Pyynnöt
       rideshare: Kimppakyydit
-      search_verb: Hae
       you_have_something_others_do_not: "Voisitko tarjota jotain muille?"
       feed_title: "%{listing_type} %{service_name}-palvelussa %{optional_category}"
     left_panel_link:
@@ -1622,7 +1621,6 @@ fi:
       request_type: Pyyntötapa
       requests: Pyynnöt
       rideshare: Kimppakyydit
-      search_verb: Hae
       you_have_something_others_do_not: "Voisitko tarjota jotain muille?"
     please_comment: Kommentoi
   mercury:
@@ -1790,16 +1788,6 @@ fi:
       following: Seurattu
       follow: Seuraa
       unfollow: "Lakkaa seuraamasta"
-  search:
-    show:
-      all_results: Kaikista
-      loading_more_search_results: "Ladataan lisää hakutuloksia"
-      offers: Tarjouksista
-      requests: Pyynnöistä
-      search: Haku
-      search_results: Hakutulokset
-      search_returned_no_results: "Antamallasi hakusanalla ei löytynyt tuloksia."
-      search_verb: Hae
   sessions:
     new:
       create_new_account: "Luo uusi tunnus"

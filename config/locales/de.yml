@@ -1490,7 +1490,6 @@ de:
       request_type: "Art der Anfrage"
       requests: Anfragen
       rideshare: Mitfahrgelegenheit
-      search_verb: Suchen
       you_have_something_others_do_not: "Hast du etwas anzubieten?"
       feed_title: "%{listing_type} in %{service_name} %{optional_category}"
     left_panel_link:
@@ -1622,7 +1621,6 @@ de:
       request_type: "Art der Anfrage"
       requests: Anfragen
       rideshare: Mitfahrgelegenheit
-      search_verb: Suche
       you_have_something_others_do_not: "Hast du etwas anzubieten?"
     please_comment: Kommentar
   mercury:
@@ -1790,16 +1788,6 @@ de:
       following: Folgend
       follow: Folgen
       unfollow: "Nicht mehr folgen"
-  search:
-    show:
-      all_results: "Alle Ergebnisse"
-      loading_more_search_results: "Weitere Suchergebnisse anzeigen"
-      offers: Angebote
-      requests: Anfragen
-      search: Suche
-      search_results: Suchergebnisse
-      search_returned_no_results: "Die Suche ergab keine Ergebnisse."
-      search_verb: Suche
   sessions:
     new:
       create_new_account: "Ein neues Konto bei %{service_name} erstellen"

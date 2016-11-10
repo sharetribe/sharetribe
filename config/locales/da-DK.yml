@@ -1488,7 +1488,6 @@ da-DK:
       request_type: Anmodningstype
       requests: Anmodninger
       rideshare: "Tur deling"
-      search_verb: Søg
       you_have_something_others_do_not: "Har du noget at tilbyde?"
       feed_title: "%{listing_type} i %{service_name} %{optional_category}"
     left_panel_link:
@@ -1620,7 +1619,6 @@ da-DK:
       request_type: Anmodningstype
       requests: Anmodninger
       rideshare: Samkørsel
-      search_verb: Søg
       you_have_something_others_do_not: "Har du noget at tilbyde?"
     please_comment: Kommentér
   mercury:
@@ -1788,16 +1786,6 @@ da-DK:
       following: Følger
       follow: Følg
       unfollow: "Stop med at følge"
-  search:
-    show:
-      all_results: "Vis resultater"
-      loading_more_search_results: "Henter flere søgeresultater"
-      offers: Tilbud
-      requests: Anmodninger
-      search: Søg
-      search_results: Søgeresultater
-      search_returned_no_results: "Din lokationssøgning gav ikke nogen resultater.  Opdater venligst søgetermerne og prøv igen."
-      search_verb: Søg
   sessions:
     new:
       create_new_account: "Opret en ny konto"

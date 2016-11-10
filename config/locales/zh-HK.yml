@@ -1476,7 +1476,6 @@ zh-HK:
       request_type: 請求類別
       requests: 請求
       rideshare: 順風車
-      search_verb: 搜尋
       you_have_something_others_do_not: 想提出交易？
       feed_title: "在%{service_name}%{optional_category}中的%{listing_type}"
     left_panel_link:
@@ -1608,7 +1607,6 @@ zh-HK:
       request_type: 請求類別
       requests: 請求
       rideshare: ~
-      search_verb: 搜尋
       you_have_something_others_do_not: 想提出交易？
     please_comment: 評論
   mercury:
@@ -1775,16 +1773,6 @@ zh-HK:
       following: 正在關注
       follow: 關注
       unfollow: 取消關注
-  search:
-    show:
-      all_results: 所有結果
-      loading_more_search_results: 載入更多搜尋結果
-      offers: 交易
-      requests: 請求
-      search: 搜尋
-      search_results: 搜尋結果
-      search_returned_no_results: 沒有發現符合要求的結果。
-      search_verb: 搜尋
   sessions:
     new:
       create_new_account: 註冊新用戶

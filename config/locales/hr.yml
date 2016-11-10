@@ -1455,7 +1455,6 @@ hr:
       request_type: "Tip zahtjeva"
       requests: Zahtjevi
       rideshare: "Dijeljenje vožnje"
-      search_verb: Traži
       you_have_something_others_do_not: "Imaš li nešto za ponuditi?"
       feed_title: "%{listing_type} u %{community_name} %{service_name} %{optional_category}"
     left_panel_link:
@@ -1587,7 +1586,6 @@ hr:
       request_type: ~
       requests: ~
       rideshare: ~
-      search_verb: ~
       you_have_something_others_do_not: ~
     please_comment: ~
   mercury:
@@ -1752,16 +1750,6 @@ hr:
       following: ~
       follow: ~
       unfollow: ~
-  search:
-    show:
-      all_results: ~
-      loading_more_search_results: ~
-      offers: ~
-      requests: ~
-      search: ~
-      search_results: ~
-      search_returned_no_results: ~
-      search_verb: ~
   sessions:
     new:
       create_new_account: ~

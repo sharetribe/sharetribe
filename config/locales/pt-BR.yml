@@ -1490,7 +1490,6 @@ pt-BR:
       request_type: "Tipo de solicitação"
       requests: Solicitações
       rideshare: Carona
-      search_verb: Pesquisa
       you_have_something_others_do_not: "Tem algo a oferecer?"
       feed_title: "%{listing_type} em %{service_name} %{optional_category}"
     left_panel_link:
@@ -1624,7 +1623,6 @@ pt-BR:
       request_type: "Tipo de solicitação"
       requests: Solicitações
       rideshare: Carona
-      search_verb: Buscar
       you_have_something_others_do_not: "Tem algo a oferecer?"
     please_comment: Comentar
   mercury:
@@ -1792,16 +1790,6 @@ pt-BR:
       following: Seguindo
       follow: Seguir
       unfollow: "Deixar de seguir"
-  search:
-    show:
-      all_results: "Todos resultados"
-      loading_more_search_results: "Carregando mais resultados de pesquisa"
-      offers: ofertas
-      requests: Solicitações
-      search: Pesquisa
-      search_results: "Procurar resultados"
-      search_returned_no_results: "Sua busca não retornou resultados."
-      search_verb: Pesquisa
   sessions:
     new:
       create_new_account: "Criar uma nova conta"

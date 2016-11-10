@@ -1491,7 +1491,6 @@ hu:
       request_type: "Kérés típusa"
       requests: Kérések
       rideshare: Telekocsi
-      search_verb: Keresés
       you_have_something_others_do_not: "Ajánlata van?"
       feed_title: "%{listing_type} hirdetések  a %{service_name} oldalon %{optional_category}"
     left_panel_link:
@@ -1623,7 +1622,6 @@ hu:
       request_type: "Kérés típus"
       requests: Kérések
       rideshare: Telekocsi
-      search_verb: Keresés
       you_have_something_others_do_not: "Ajánlata van?"
     please_comment: Megjegyzés
   mercury:
@@ -1792,16 +1790,6 @@ hu:
       following: Követés
       follow: Követ
       unfollow: "Követés leállítása"
-  search:
-    show:
-      all_results: "Összes találat"
-      loading_more_search_results: "Mutasson több találati eredményt"
-      offers: Ajánlatok
-      requests: Kérések
-      search: Keresés
-      search_results: Találatok
-      search_returned_no_results: "Nincs találat"
-      search_verb: Keresés
   sessions:
     new:
       create_new_account: "Fiók létrehozása"

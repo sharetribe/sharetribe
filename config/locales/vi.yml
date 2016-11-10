@@ -1455,7 +1455,6 @@ vi:
       request_type: "Loại yêu cầu"
       requests: "Các yêu cầu"
       rideshare: "Cuốc xe chia sẻ"
-      search_verb: "Tìm kiếm"
       you_have_something_others_do_not: "Có thứ gì để hỗ trợ không?"
       feed_title: "%{listing_type} tại %{community_name} %{service_name} %{optional_category}"
     left_panel_link:
@@ -1587,7 +1586,6 @@ vi:
       request_type: "Loại yêu cầu"
       requests: "Các yêu cầu"
       rideshare: "Cuốc xe chia sẻ"
-      search_verb: "Tìm kiếm"
       you_have_something_others_do_not: "Có thứ gì để hỗ trợ không?"
     please_comment: "Bình luận"
   mercury:
@@ -1752,16 +1750,6 @@ vi:
       following: ~
       follow: ~
       unfollow: ~
-  search:
-    show:
-      all_results: "Tất cả kết quả"
-      loading_more_search_results: "Nạp thêm kết quả tìm kiếm"
-      offers: "Các hỗ trợ"
-      requests: "Các yêu cầu"
-      search: Tìm
-      search_results: "Tìm kiếm kết quả"
-      search_returned_no_results: "Không có kết quả nào cho tim kiếm của bạn"
-      search_verb: Tìm
   sessions:
     new:
       create_new_account: "Tạo một tài khoản mới tại %{service_name}"

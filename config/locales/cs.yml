@@ -1495,7 +1495,6 @@ cs:
       request_type: "Typ žádosti"
       requests: Žádosti
       rideshare: Spolujízda
-      search_verb: Hledat
       you_have_something_others_do_not: "Máte něco, co byste chtěli nabídnout?"
       feed_title: "%{listing_type} v %{service_name} %{optional_category}"
     left_panel_link:
@@ -1627,7 +1626,6 @@ cs:
       request_type: "Typ žádosti"
       requests: Žádosti
       rideshare: Spolujízda
-      search_verb: Hledat
       you_have_something_others_do_not: "Máte něco, co byste chtěli nabídnout?"
     please_comment: Komentář
   mercury:
@@ -1796,16 +1794,6 @@ cs:
       following: "Přestat sledovat"
       follow: Sledovat
       unfollow: "Přestat sledovat"
-  search:
-    show:
-      all_results: "Všechny výsledky"
-      loading_more_search_results: "Načítání dalších výsledků vyhledávání"
-      offers: Nabídky
-      requests: Žádosti
-      search: Hledat
-      search_results: "Výsledky hledání"
-      search_returned_no_results: "Nebyly nalezeny žádné výsledky."
-      search_verb: Hledat
   sessions:
     new:
       create_new_account: "Vytvořit nový účet"

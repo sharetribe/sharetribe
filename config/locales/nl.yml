@@ -1482,7 +1482,6 @@ nl:
       request_type: "Verzoek type"
       requests: Vraag
       rideshare: "Rit delen"
-      search_verb: Zoek
       you_have_something_others_do_not: "Heb je iets aan te bieden?"
       feed_title: "%{listing_type} in %{service_name} %{optional_category}"
     left_panel_link:
@@ -1614,7 +1613,6 @@ nl:
       request_type: "Soort vraag"
       requests: Vraag
       rideshare: "Ritten delen"
-      search_verb: Zoek
       you_have_something_others_do_not: "Heb je iets aan te bieden?"
     please_comment: Reactie
   mercury:
@@ -1782,16 +1780,6 @@ nl:
       following: Volgend
       follow: Volgen
       unfollow: "Niet meer volgen"
-  search:
-    show:
-      all_results: "Alle resultaten"
-      loading_more_search_results: "Meer zoekresultaten aan het laden"
-      offers: Aanbod
-      requests: Vragen
-      search: Zoek
-      search_results: Zoekresultaten
-      search_returned_no_results: "Je zoekopdracht heeft geen resultaten opgeleverd."
-      search_verb: Zoek
   sessions:
     new:
       create_new_account: "Maak een nieuwe account aan"

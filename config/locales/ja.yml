@@ -1469,7 +1469,6 @@ ja:
       request_type: リクエストの種類
       requests: リクエスト
       rideshare: ライドシェア
-      search_verb: 検索する
       you_have_something_others_do_not: 何かオファーするものがありますか。
       feed_title: "%{service_name}の%{listing_type}の中の%{optional_category}"
     left_panel_link:
@@ -1601,7 +1600,6 @@ ja:
       request_type: リクエストの種類
       requests: リクエスト
       rideshare: ライドシェア
-      search_verb: 検索する
       you_have_something_others_do_not: 何かオファーするものがありますか。
     please_comment: コメント
   mercury:
@@ -1768,16 +1766,6 @@ ja:
       following: フォローしています
       follow: フォローする
       unfollow: フォローをやめる
-  search:
-    show:
-      all_results: すべての結果
-      loading_more_search_results: 検索結果をロード中
-      offers: オファー
-      requests: リクエスト
-      search: 検索
-      search_results: 検索結果
-      search_returned_no_results: 検索結果はありませんでした。
-      search_verb: 検索する
   sessions:
     new:
       create_new_account: 新規登録する

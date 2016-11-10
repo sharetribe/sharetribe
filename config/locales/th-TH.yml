@@ -1473,7 +1473,6 @@ th-TH:
       request_type: ชนิดคำขอ
       requests: คำขอ
       rideshare: Rideshare
-      search_verb: ค้นหา
       you_have_something_others_do_not: มีข้อเสนอบางอย่างหรือเปล่า?
       feed_title: "%{listing_type} ใน %{service_name} %{optional_category}"
     left_panel_link:
@@ -1605,7 +1604,6 @@ th-TH:
       request_type: ชนิดคำขอ
       requests: คำขอ
       rideshare: Rideshare
-      search_verb: ค้นหา
       you_have_something_others_do_not: มีข้อเสนอบางอย่างหรือเปล่า?
     please_comment: ข้อคิดเห็น
   mercury:
@@ -1772,16 +1770,6 @@ th-TH:
       following: กำลังติดตาม
       follow: ติดตาม
       unfollow: เลิกการติดตาม
-  search:
-    show:
-      all_results: ผลลัพธ์ทั้งหมด
-      loading_more_search_results: กำลังโหลดผลลัพธ์การค้นหาเพิ่มเติม
-      offers: ข้อเสนอ
-      requests: คำขอ
-      search: ค้นหา
-      search_results: ผลลัพธ์ในการค้นหา
-      search_returned_no_results: ไม่มีผลลัพธ์ในการค้นหาของคุณ
-      search_verb: ค้นหา
   sessions:
     new:
       create_new_account: สร้างบัญชีใหม่

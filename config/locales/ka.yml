@@ -1478,7 +1478,6 @@ ka:
       request_type: "მოთხოვნის ტიპი"
       requests: მოთხოვნა
       rideshare: დამგზავრება
-      search_verb: ძებნა
       you_have_something_others_do_not: "შეგიძლიათ რამის შემოთავაზება?"
       feed_title: "%{listing_type} %{service_name}ში %{optional_category}"
     left_panel_link:
@@ -1610,7 +1609,6 @@ ka:
       request_type: "მოთხოვნის ტიპი"
       requests: მოთხოვნები
       rideshare: დამგზავრება
-      search_verb: ძებნა
       you_have_something_others_do_not: "შეგიძლიათ რამის შემოთავაზება?"
     please_comment: კომენტარი
   mercury:
@@ -1777,16 +1775,6 @@ ka:
       following: მიყვება
       follow: გაყოლა
       unfollow: "შეწყვიტე მიყოლა"
-  search:
-    show:
-      all_results: "ყველა შედეგი"
-      loading_more_search_results: "იტვირთება მეტი ძებნის შედეგები"
-      offers: შეთავაზებები
-      requests: მოთხოვნები
-      search: ძებნა
-      search_results: "ძებნის შედეგები"
-      search_returned_no_results: "თქვენ ძებნას შედეგი არ მოჰყვა"
-      search_verb: ძებნა
   sessions:
     new:
       create_new_account: "ახალი ანგარიშის შექმნა"

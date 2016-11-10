@@ -1474,7 +1474,6 @@ fr-CA:
       request_type: "Type de demande"
       requests: Demandes
       rideshare: Covoiturage
-      search_verb: Chercher
       you_have_something_others_do_not: "Vous avez quelque chose à offrir ?"
       feed_title: "%{listing_type} sur %{service_name} %{optional_category}"
     left_panel_link:
@@ -1606,7 +1605,6 @@ fr-CA:
       request_type: "Type de demande"
       requests: Demandes
       rideshare: Covoiturage
-      search_verb: Chercher
       you_have_something_others_do_not: "Vous avez quelque chose à offrir ?"
     please_comment: Commentaire
   mercury:
@@ -1774,16 +1772,6 @@ fr-CA:
       following: Suivi(e)
       follow: Suivre
       unfollow: "Ne plus suivre"
-  search:
-    show:
-      all_results: "Tous les résultats"
-      loading_more_search_results: "Chargement de plus de résultats de recherche"
-      offers: Offres
-      requests: Demandes
-      search: Recherche
-      search_results: "Résultats de recherche"
-      search_returned_no_results: "Pas de résultats à votre recherche."
-      search_verb: Chercher
   sessions:
     new:
       create_new_account: "Créer un nouveau compte"

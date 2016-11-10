@@ -1455,7 +1455,6 @@ pl:
       request_type: "Rodzaj zapytania"
       requests: Zapytania
       rideshare: Przejazd
-      search_verb: Szukaj
       you_have_something_others_do_not: "Masz coś do zaoferowania?"
       feed_title: "%{listing_type} w %{service_name} %{optional_category}"
     left_panel_link:
@@ -1587,7 +1586,6 @@ pl:
       request_type: "Rodzaj zapytania"
       requests: Zapytania
       rideshare: Przejazd
-      search_verb: Szukaj
       you_have_something_others_do_not: "Masz coś do zaoferowania?"
     please_comment: Skomentuj
   mercury:
@@ -1757,16 +1755,6 @@ pl:
       following: ~
       follow: ~
       unfollow: ~
-  search:
-    show:
-      all_results: "Pokaż wszystkie wyniki"
-      loading_more_search_results: "Trwa ładowanie większej liczby wyników"
-      offers: Oferty
-      requests: Zapytania
-      search: Szukaj
-      search_results: "Wyniki wyszukiwania"
-      search_returned_no_results: "Nie mogliśmy znaleźć nic takiego."
-      search_verb: Szukaj
   sessions:
     new:
       create_new_account: "Stwórz nowe konto"

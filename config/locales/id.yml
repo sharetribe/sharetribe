@@ -1455,7 +1455,6 @@ id:
       request_type: "Jenis permintaan"
       requests: Permintaan
       rideshare: Tumpangan
-      search_verb: Cari
       you_have_something_others_do_not: "Punya sesuatu untuk ditawarkan?"
       feed_title: ~
     left_panel_link:
@@ -1587,7 +1586,6 @@ id:
       request_type: "Jenis permintaan"
       requests: Permintaan
       rideshare: Tumpangan
-      search_verb: Cari
       you_have_something_others_do_not: "Punya sesuatu untuk ditawarkan?"
     please_comment: Komentar
   mercury:
@@ -1752,16 +1750,6 @@ id:
       following: ~
       follow: ~
       unfollow: ~
-  search:
-    show:
-      all_results: "semua hasil"
-      loading_more_search_results: ~
-      offers: ~
-      requests: ~
-      search: ~
-      search_results: ~
-      search_returned_no_results: ~
-      search_verb: Cari
   sessions:
     new:
       create_new_account: ~

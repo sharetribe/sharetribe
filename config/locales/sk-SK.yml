@@ -1500,7 +1500,6 @@ sk-SK:
       request_type: "Typ žiadosti"
       requests: Žiadosti
       rideshare: jazda
-      search_verb: Hľadať
       you_have_something_others_do_not: "Máte nejakú ponuku?"
       feed_title: "%{listing_type} v %{service_name} %{optional_category}"
     left_panel_link:
@@ -1632,7 +1631,6 @@ sk-SK:
       request_type: "Typ žiadosti"
       requests: Žiadosti
       rideshare: jazda
-      search_verb: Hľadať
       you_have_something_others_do_not: "Máte nejakú ponuku?"
     please_comment: Komentár
   mercury:
@@ -1801,16 +1799,6 @@ sk-SK:
       following: Sledujete
       follow: Sledovať
       unfollow: "Prestať sledovať"
-  search:
-    show:
-      all_results: "Všetky výsledky"
-      loading_more_search_results: "Nahrávam ďalšie výsledky"
-      offers: Ponuky
-      requests: Žiadosti
-      search: Hľadaj
-      search_results: "Výsledky vyhľadávania"
-      search_returned_no_results: "Neboli nájdené žiadne výsledky."
-      search_verb: Hľadať
   sessions:
     new:
       create_new_account: "Vytvoriť nový účet"
