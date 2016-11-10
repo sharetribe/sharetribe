@@ -439,7 +439,6 @@ Kassi::Application.routes.draw do
           member do
             get :account
             get :notifications
-            get :payments
             get :unsubscribe
           end
         end
