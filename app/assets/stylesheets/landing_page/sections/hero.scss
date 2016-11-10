@@ -4,6 +4,12 @@
 /* Hero section                                                                         */
 /* ************************************************************************************ */
 
+// Media queries
+//
+// Some parts of the Hero component use different break-points:
+$mobile-landscape--hero: "(max-width: 479px) and (orientation: landscape)"; // same font-sizes as the mobile, but layout/grid structure from $tablet
+$tablet--hero: "(min-width: 480px) and (max-width: 767px)";
+
 .hero__section {
   width: 100%;
   @include viewport-unit(min-height, 80vh);
@@ -116,14 +122,8 @@
   @extend .hero__search-bar;
   flex-direction: column;
 
-  @media #{$hero_search-tablet} {
+  @media #{$mobile-landscape--hero}, #{$tablet--hero}, #{$tablet}, #{$desktop} {
     flex-direction: row;
-  }
-}
-
-@mixin hero-search-input-container {
-  @media #{$mobile-landscape}, #{$tablet}, #{$desktop} {
-    border-radius: 29.5px 0px 0px 29.5px;
   }
 }
 
@@ -139,7 +139,9 @@
   @include prefix-prop(flex-direction, row);
   padding: 0px 0px 0px 24px;
 
-  @include hero-search-input-container;
+  @media #{$mobile-landscape}, #{$tablet}, #{$desktop} {
+    border-radius: 29.5px 0px 0px 29.5px;
+  }
 }
 
 .hero__search-input-container--combined {
@@ -149,15 +151,19 @@
   padding: 0;
   flex-direction: column;
 
-  @media #{$hero_search-tablet} {
+  @media #{$mobile-landscape--hero}, #{$tablet--hero} {
     background-color: #FFF;
     border-radius: 29.5px;
     padding: 0px 0px 0px 24px;
     flex-direction: row;
   }
 
-  @include hero-search-input-container;
-
+  @media #{$tablet}, #{$desktop} {
+    background-color: #FFF;
+    border-radius: 29.5px 0px 0px 29.5px;
+    padding: 0px 0px 0px 24px;
+    flex-direction: row;
+  }
 }
 
 .hero__search-input {
@@ -206,7 +212,7 @@
   margin: 0 0 12px 0;
   padding: 8px 24px 8px 24px;
 
-  @media #{$hero_search-tablet} {
+  @media #{$mobile-landscape--hero}, #{$tablet--hero} {
     padding: 8px 12px 8px 0px;
     margin: 0;
     border-radius: 0;
@@ -216,29 +222,27 @@
   }
 
   @media #{$desktop} {
-    &:nth-of-type(2) {
-      padding: 14px 24px 14px 18px;
-    }
-  }
-
-  @media #{$mobile-landscape} {
-    padding: 14px 24px 14px 12px;
-  }
-
-  @media #{$tablet} {
-    font-size: 18px;
-    letter-spacing: 0px;
-    line-height: 32px;
-
-    padding: 14px 24px 14px 12px;
-  }
-
-  @media #{$desktop} {
     font-size: 18px;
     letter-spacing: 0px;
     line-height: 32px;
 
     padding: 14px 24px 14px 18px;
+
+    margin: 0;
+    border-radius: 0;
+    &:nth-of-type(2) {
+      padding: 14px 24px 14px 18px;
+    }
+  }
+
+  @media #{$tablet} {
+    margin: 0;
+    border-radius: 0;
+    font-size: 18px;
+    letter-spacing: 0px;
+    line-height: 32px;
+
+    padding: 14px 24px 14px 12px;
   }
 
   &:nth-of-type(2) {
@@ -291,14 +295,15 @@
   border-radius: 29.5px;
   display: block;
 
-  @media #{$hero_search-tablet} {
+  @media #{$mobile-landscape--hero}, #{$tablet--hero} {
     /* hero tablet */
     display: none;
     border-radius: 0px 29.5px 29.5px 0px;
   }
 
-  @media #{$mobile-landscape}, #{$tablet}, #{$desktop} {
+  @media #{$tablet}, #{$desktop} {
     display: block;
+    border-radius: 0px 29.5px 29.5px 0px;
   }
 
 }
@@ -337,7 +342,7 @@
     outline: none;
   }
 
-  @media #{$mobile-landscape}, #{$tablet} {
+  @media #{$tablet} {
     order: 0;
     padding: 19px 0px;
   }
@@ -352,7 +357,7 @@
   @extend .hero__search-icon;
   display: none;
 
-  @media #{$hero_search-tablet} {
+  @media #{$mobile-landscape--hero}, #{$tablet--hero}, #{$tablet}, #{$desktop} {
     display: block;
   }
 }
