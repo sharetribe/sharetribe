@@ -87,7 +87,6 @@
     padding: 15px 18px;
 
     & .card {
-
       /* Gutter is really just 24px but IE can't handle this calc, so added 1px */
       flex-basis: calc(100% / 6 - 25px);
       margin: 15px 12px;
@@ -103,7 +102,6 @@
     padding: 18px 24px;
 
     & .card {
-
       /* Gutter is really just 24px but IE can't handle this calc, so added 1px */
       flex-basis: calc(100% / 7 - 25px);
       margin: 18px 12px;
