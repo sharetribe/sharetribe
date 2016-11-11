@@ -17,10 +17,10 @@
  ampClient.init('<%= APP_CONFIG.amplitude_api_key %>');
 
  <% if user %>
-   ampClient.setUserId('<%= user.uuid_object %>');
+   ampClient.setUserId('<%= user.uuid_object.to_s %>');
    var userInfo = new amplitude.Identify()
                                .set('community_id', <%= community.id %>)
-                               .set('marketplace_uuid', '<%= community.uuid_object %>')
+                               .set('marketplace_uuid', '<%= community.uuid_object.to_s %>')
                                .set('admin', <%= user.is_marketplace_admin?.to_json %>);
    <% if plan %>
      userInfo.set('plan_status', '<%= plan[:status] %>');
@@ -29,8 +29,11 @@
    ampClient.identify(userInfo);
  <% end %>
 
- <% if flash[:_analytics_event].present? %>
-   ampClient.logEvent(<%= flash[:_analytics_event][:event]&.to_json&.html_safe %>, <%= flash[:_analytics_event][:props]&.to_json&.html_safe %>);
+ <% if flash[:_analytics_events].present? %>
+   <% flash[:_analytics_events].each do |ev| %>
+     ampClient.logEvent(<%= ev[:event]&.to_json&.html_safe %>,
+                        <%= ev[:props]&.to_json&.html_safe %>);
+   <% end %>
  <% end %>
 
  <% if flash[:_analytics_logout] %>

@@ -16,16 +16,16 @@
 #
 module Analytics
 
-  EVENT_KEY = :_analytics_event
+  EVENT_KEY = :_analytics_events
   LOGOUT_KEY = :_analytics_logout
 
   module_function
 
   def record_event(flash_or_now, event_name, props)
-    flash_or_now[EVENT_KEY] = {
-      event: event_name,
-      props: props
-    }
+    flash_or_now[EVENT_KEY] ||= []
+    flash_or_now[EVENT_KEY].push(
+      {event: event_name, props: props}
+    )
   end
 
   def mark_logged_out(flash_or_now)
