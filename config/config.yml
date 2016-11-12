@@ -1,0 +1,478 @@
+default: &default_settings
+
+  # Fill here the domain where you will be running Sharetribe.
+  # If you are running on localhost, you can write here "lvh.me:3000" (which redirects to localhost port 3000)
+  # The community subdomains will be added to this top domain.
+  # NOTE: Do not include http(s) here, or subdomains, just the top level domain, like "sharetribe.com" for example
+  domain: threadhabits.herokuapp.com
+
+  # If you want to make logins work across different subdomains you should put here the domain where you are running Sharetribe.
+  # practically in most cases the same value as in "domain:"
+  # The session cookies will apply for the whole domain. If this is not needed you can leave this empty.
+  # If you use domain aliases e.g. sharetribe.eu & sharetribe.cl, leave this empty.
+  # NOTE: Do not include http(s) here, or subdomains, just the top level domain, like "sharetribe.com" for example
+  session_domain:
+
+  # Redirect to this URL if community can not be found. For example, if user is trying to access community
+  # http://nonexisting.sharetribe.com and there's no community named "nonexisting", then the user is redirected
+  # to the URL that given here:
+  #
+  # Example value: http://mydomain.com
+  #
+  community_not_found_redirect:
+
+  # Login url. This can be a separate address for loggin in. For example
+  # a subdomain with https. It's recommended to use https here, so passwords
+  # are submited in encrypted form. e.g. "https://login.sharetribe.com"
+  # If this is empty, will use the same domain for login
+  login_domain:
+
+  # You can use Amazong S3 to store listing and profile images
+  # If you leave following empty, the images will be stored in local file system
+  # If you enable S3, you can use the user_asset_host option below to configure CDN in front
+  # of the S3 bucket.
+  # NOTE: in Heroku you can't store files in local system, so S3 should be used
+
+  # Default bucket
+  s3_bucket_name: threadhabits
+
+  # AWS S3 region
+  s3_region: 'us-west-2'
+
+  # Cache-Control: max-age time in seconds for assets uploaded to S3.
+  # Default is one day. Normally, you can use the default. Links to images have
+  # modification timestamp appended as query parameter and that should be enough for cache invalidation.
+  s3_cache_max_age: 86400
+
+  # Bucket for files users upload directly to S3. You can add an expiration policy to these files.
+  s3_upload_bucket_name: threadhabits
+
+  # Server assets directly from the Rails application, defaults to true
+  #
+  # Recommended setup: Set serve_static_files to true and setup CDN distribution
+  # Alternative setup: Set serve_static_files to false and setup Nginx/Apache in front of the Rails servers
+  serve_static_files: true
+
+  # Your CDN distribution host name
+  #
+  # From Rails documations: Browsers typically open at most two simultaneous connections to a single host,
+  # which means your assets often have to wait for other assets to finish downloading. You can alleviate
+  # this by using a %d wildcard in the asset_host. For example, “assets%d.example.com”. If that wildcard
+  # is present Rails distributes asset requests among the corresponding four hosts
+  # “assets0.example.com”, …, “assets3.example.com”. With this trick browsers will open eight simultaneous
+  # connections rather than two.
+  #
+  # Examples values:
+  #
+  # - 0c84dc78c9435aec606bbf2428c2c476.cloudfront.com
+  # - assets%0.your_domain.com
+  #
+  asset_host:
+
+  # Your user-uploaded assets CDN distribution host name, including the desired protocol (http or https).
+  #
+  # Host for linking to user-uploaded images and compiled custom stylesheets, instead of linking to the S3
+  # bucket (if configured) or straight to Sharetribe domain (i.e. the "domain" setting above).
+  #
+  # When "user_asset_host" is left blank and S3 is NOT in use, then assets are linked via Sharetribe's installation
+  # domain or using the "asset_host" (if configured). If S3 is enabled and "user_asset_host" is left blank,
+  # asset links point to the S3 bucket URL.
+  #
+  # Examples values:
+  #
+  # - https://yourdistribution.cloudfront.com
+  #
+  user_asset_host:
+
+  # AWS keys
+  aws_access_key_id: 'AKIAI4V3PCKYZRVX57EQ'
+  aws_secret_access_key: 'xJyhJn/h+xx5LtP/0cB7WFm8xqa2468NwY9KOr46'
+
+  # This is used with AWS SNS notifications. You need to create "email bounces and complaints" topic to SNS
+  # and subscribe an url (https://yourdomain.com/bounces?sns_notification_token=[this_token])
+  sns_notification_token:
+
+  # Region for the Amazon Simple Email Service, SES. Leave blank if
+  # SES not used
+  aws_ses_region:
+  # Verified email addresses created in SES are subscribed to send
+  # complaints and bounces to this SNS topic. Leave blank is SES not
+  # used.
+  aws_ses_sns_topic:
+
+  # Paypal credentials for the platform owner.
+  paypal_username: xxxxxxxxxxxxx
+  paypal_password: xxxxxxxxxxxxx
+  paypal_signature: xxxxxxxxxxxxx
+  paypal_partner_id: xxxxxxxxxxxxx # payerID for paypal platform owner account
+  paypal_app_id: APP-80W284485P519543T # Global test id
+  paypal_button_source: # Unique value given to you by your PayPal contact
+
+  # Paypal environment to use. Either :sandbox or :live
+  paypal_endpoint: sandbox
+  # after authorization there is 3 day period before expiration
+  paypal_expiration_period: 3
+  # The domain that we want Paypal to send IPN notifications to
+  # Note! You must also add the hook url for your production deployment
+  # manually to your production paypal account profile.
+  paypal_ipn_domain:
+  paypal_ipn_protocol: https
+
+  # If you want to force all use to be SSL secured (https://) you can set this to true
+  # Note that you can set this value separately to each enironment below (e.g. if your developing)
+  always_use_ssl: false
+
+  # The default locale (language) of the user interface
+  # if locales are listed in the community specific settings in db. The first in that list is used as default for that community.
+  # This setting here is the server wide default, and it's used if no community specific setting is found.
+  default_locale: en
+
+  # Facebook Connect
+  # If you want to use Facebook connect, enter the credentials here
+  fb_connect_id:
+  fb_connect_secret:
+
+  # You can use Airbrake to track errors if you want.
+  # You need to register an account and get an API key from airbrake.io
+  use_airbrake: false
+  airbrake_api_key: 'your_own_api_key_here'
+
+  # Mail delivery method for mails sent by Sharetribe
+  # possible values for delivery method are: sendmail or smtp
+  # The default is sendmail, it uses the system sendmail command and
+  # doesn't require other configuration if sendmail command works
+  # If using SMTP, uncomment corresponding lines and enter your information.
+  # the SMPT lines below contain example of using Gmail, but you can use any SMTP
+  # For the domain part you can enter HELO domain, if needed. Google for more info. :)
+  mail_delivery_method: sendmail
+
+  # smtp_email_address: "smtp.gmail.com"
+  # smtp_email_port: 587
+  # smtp_email_user_name: "<YOUR_GMAIL_USERNAME>@gmail.com"
+  # smtp_email_password: "<YOUR_GMAIL_PASSWORD>"
+  # smtp_email_domain: "localhost"
+
+  # This will be the from field in the mails sent from Sharetribe
+  sharetribe_mail_from_address: 'info@threadhabits.herokuapp.com'
+
+  # The address where the notifications of feedbacks from Sharetribe UI are sent
+  feedback_mailer_recipients:  'admins@example.com'
+
+  grid_listings_limit: 24
+  map_listings_limit: 150
+
+  # DEPRECATED, use Google Tag Manager instead
+  # Google Analytics can be used to track traffic on the site
+  # If set to true you need to obtain your own API key for analytics
+  # and enter it below
+  use_google_analytics: false
+  google_analytics_key: "enter_your_key_here"
+
+  # Google Tag Manager can be used to track traffic on the site
+  # If set to true you need to obtain your own container key
+  # and enter it below
+  use_google_tag_manager: false
+  google_tag_manager_key: "enter_your_key_here"
+
+  # DEPRECATED, use Google Tag Manager instead
+  # KISS metrics can be used to track many events on the site
+  use_kissmetrics: false
+  kissmetrics_url: '//doug1izaerwt3.cloudfront.net/INSERT_YOUR_API_KEY_HERE.1.js'
+
+  # Funneld can be used to track social media activity on the site.
+  use_funneld: false
+  funneld_key: "enter_your_key_here"
+
+  # Typekit fonts
+  # If you want to use fonts from a typekit package, put your personal url here.
+  # Normally you can leave this empty and generic default fonts will be used.
+  # Format example: "//use.typekit.net/your_code_here.js"
+  typekit_url:
+
+  # CAS is a centralized authentication system, it is completely optional
+  # If not needed leave to false
+  use_CAS: false
+
+  # If you want to force Sharetribe to show mobile view even when accessed with normal desktop browser, set this to true
+  # Useful only for mobile development
+  force_mobile_ui: false
+
+  # If you want to fetch the newest translate files from Web Translate It on every page load, set this to true
+  # This makes sense only in a server dedicated to translation testing.
+  # To make this work you also need config/translation.yml with wti credentials.
+  update_translations_on_every_page_load: false
+
+  # If you need for some reason change the session key used in cookies, you can do it here.
+  # Normally no need to touch this.
+  # DEPRECATED: Session key is needed to upgrade from 5.6.0 to 5.7.0 and will be removed in future
+  session_key: _sharetribe_session
+  cookie_session_key: _st_session
+
+  # Global Service name
+  # If you want to call this service with different name on this server, you can specify it here
+  # This can also be set community specific in community.settings["service_name"]
+  global_service_name: Sharetribe
+
+  # Icon set
+  # By default Sharetribe uses the Font Awesome Icon Pack
+  # http://fortawesome.github.io/Font-Awesome/
+  # If you want to use another icon set than "font-awesome", you can specify it here
+  # Currently only othe option is "ss-pika" (a proprietary icon set)
+  icon_pack: "font-awesome"
+
+  # If icon_pack is set to "ss-pika", set the location for the icon pack
+  # This setting is irrelevant to Open Source developers, since ss icon pack
+  # is not included in the Open Source distribution
+  ss_pika_location: "ss-pika"
+  ss_social_location: "ss-social"
+
+  # The default consent (terms of use) all the communities will use.
+  # It's just a string that tells the version of the consent.
+  consent: "SHARETRIBE1.0"
+
+  # If you want to run this server in a preproduction mode set this to true
+  # I preproduction mode, e.g. alternative url is used for custom CSS files
+  preproduction: false
+
+  # Logger type
+  # the "normal" value is good by default. If you are using Heroku + Unicorn, you'll need to set this to "stdout"
+  logger_type: "normal"
+
+  # Below it is possible to specify different settings for different
+  # environments. If you are not developing or testing Sharetribe, you
+  # don't need to change those
+  # ----------------------------------------------------------------
+
+  # Max filesize for uploaded image (bytes)
+  max_image_filesize: 104857600
+
+  # width/height for "original" sized image, i.e. the largest image we store.
+  # Please note, this does NOT mean that user can not upload images larger than
+  # 1600x1600.
+  original_image_width: 1600
+  original_image_height: 1600
+
+  # Email addresses for sales & support. Will be shown to the administrator.
+  sales_email: hello@threadhabits.herokuapp.com
+  support_email: support@threadhabits.herokuapp.com
+
+  # Knowledge base
+  knowledge_base_url: http://www.example.com/knowledgebase
+  display_knowledge_base_articles: false
+
+  # UserVoice Widget
+  # If you want to display a UserVoice widget in the Admin control panel, enter
+  # the URL here. (looks like '//widget.uservoice.com/some_code_here.js')
+  # This is completely optional and probably not needed in most cases.
+  uservoice_widget_url:
+
+  # External plan service connection
+  # The connection details hosted Sharetribe uses to connect to external subscription management system.
+  external_plan_service_in_use: false
+  external_plan_service_secret:
+  external_plan_service_login_url:
+
+  # External search service connection
+  external_search_in_use: false
+  external_search_url:
+  external_search_apikey:
+
+  # Combined keyword & location search distance score tweaking
+  external_search_scale_multiplier: 0.75
+  external_search_offset_multiplier: 0.5
+  external_search_distance_limit_min: 5
+  external_search_scale_min: 5
+  external_search_offset_min: 0
+
+  # Harmony service API connection
+  harmony_api_in_use: false
+  harmony_api_url:
+  harmony_api_disable_authentication: false
+  harmony_api_token_secret: secret_key1
+
+  # Discovery service API connection
+  discovery_api_url:
+  discovery_api_key:
+
+  # Perform Thinking Sphinx incremental indexing delayed jobs
+  use_thinking_sphinx_indexing: true
+
+  # Rails config.eager_load. Eager loads classes. Should be true only for production
+  eager_load: false
+
+  # Delayed job maximum run time in seconds
+  delayed_job_max_run_time: 180
+
+  # Optional HTTP basic auth for the entire installation
+  use_http_auth: false
+  http_auth_username: sharetribe
+  http_auth_password: changeme
+
+  # When is the next maintenance happening?
+  #
+  # Format: Time object or any string that can be parsed with Time.parse
+  #
+  # Example:
+  # "2016-03-21 13:30:24 +0200"
+  #
+  next_maintenance_at:
+
+  # Use I18n::JS::Middleware to compile the translation bundle for
+  # client-side JS code during the request. Should be true for
+  # development and false for other environments.
+  use_i18n_js_middleware: false
+
+  # Use JsRoutes::Middleware to compile the routes bundle for
+  # client-side JS code during the request. Should be true for
+  # development and false for other environments.
+  use_js_routes_middleware: false
+
+  # Default Google Maps API key for communities that don't specify one
+  # Default is not to use Google Maps API key
+  google_maps_key:
+
+  # Path or URL for landing page assets.
+  #
+  # Because a directory is expected, it's recommended to include trailing slash.
+  #
+  # You can add %{sitename} in the URL and it will be replaced with the sitename,
+  # that is saved in the landing page structure JSON.
+  #
+  # Example values:
+  #
+  # - landing_page/
+  # - https://s3.amazonaws.com/my-bucket/sites/%{sitename}/
+  #
+  clp_asset_url: "landing_page/"
+
+  #####################
+  # Custom landing page
+  #####################
+
+  # This will enabled a static landing page
+  #
+  # The hosted version stores the landing page data in the database but for single
+  # marketplace OS installations the database doesn't bring any benifits. That's why
+  # the static version is used instead of database in OS installations.
+  clp_static_enabled: false
+
+  # Landing page is cached heavily.
+  #
+  # By default, the cache is expired after `clp_cache_time`. If you want to manually
+  # expire cache, for example after a new landing page version is deployed, you can
+  # increase this version number
+  clp_static_released_version: 1
+
+  # Default caching time for custom landing pages in seconds
+  clp_cache_time: 900
+
+  # Display mention of custom landing page in admin panel
+  show_landing_page_admin: false
+  custom_landing_page_marketing_site_url: "https://www.example.com/landingpage/"
+
+  #######
+  # Fonts
+  #######
+
+  # Path or URL for Proxima Nova Soft font files
+  #
+  # Because a directory is expected, it's recommended to include trailing slash.
+  #
+  # Example values:
+  #
+  # - empty: don't use Proximan Nova Soft font
+  # - landing_page/
+  # - https://s3.amazonaws.com/my-bucket/fonts/
+  #
+  font_proximanovasoft_url:
+
+  # Maximum number of links in sitemap.xml.
+  #
+  # The default number is 500. Increasing the limit may affect performance.
+  #
+  # The hard coded max limit is 50000.
+  #
+  max_sitemap_links: 500
+
+  # Turn `enable_sitemap` to `false` to disable the sitemap
+  enable_sitemap: true
+
+  # Sitemap cache time in seconds
+  # Default 24 hours
+  sitemap_cache_time: 86400
+
+production: &production_settings
+  <<: *default_settings
+
+  eager_load: true
+
+  log_level: INFO
+
+staging:
+  <<: *production_settings
+  # By default staging has same settings as production, but those can be overridden here.
+
+  log_level: INFO
+
+development:
+  <<: *default_settings
+
+  # Usually it's easier to run development without SSL
+  always_use_ssl: false
+
+  # Skip email confirmation
+  skip_email_confirmation: true
+
+  secret_key_base: "fd1af50b59b5e27776941b3205f92aca0f704c2252225cf93e3d97ae53f4774d25736cbdb19c1580839a2f68e15009209227e966003f53932c1bcc5d65616948"
+
+  log_level: DEBUG
+
+  use_i18n_js_middleware: true
+
+  use_js_routes_middleware: true
+
+test:
+  <<: *default_settings
+  # The locale should be "en" for test environment
+  # even if you change it for others
+  default_locale: en
+
+  # The domain should be set to lvh.me:9887 (which redirects to localhost)
+  # to be able to run the tests with subdomains.
+  domain: lvh.me:9887
+  # NOTE: If you are running tests without internet connection, you might need to modify your hosts file.
+  # And add lines: (where there is one tab separating the ip and the domain)
+  #127.0.0.1       lvh.me
+  #127.0.0.1       login.lvh.me
+  #127.0.0.1       test.lvh.me
+  #127.0.0.1       test2.lvh.me
+
+  # The login domain should be empty for tests
+  # Note above, if running tests disconnected from the internet
+  login_domain:
+  #"http://login.lvh.me:9887"
+
+  # Facebook Connect dummy credentials for tests
+  fb_connect_id: "123456789012345"
+  fb_connect_secret: "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456"
+
+  # normally no point of submiting events from tests to Kissmetrics
+  use_kissmetrics: false
+
+  # Keep api available always for tests to be run
+  api_enabled: true
+
+  # don't use S3 in tests. (this is the default to avoid
+  # anyone losing money for paying for the hosting of test images)
+  s3_bucket_name: threadhabits
+  aws_access_key_id: AKIAI4V3PCKYZRVX57EQ
+  aws_secret_access_key: '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'
+
+  sns_notification_token: test_token
+
+  # easier to run tests without SSL
+  always_use_ssl: false
+
+  secret_key_base: "8fb582997a5e3ba2efb57c020dd01aa81647674dbb1aee6efcf30d75ec442e3a48832379e1ebaae2801782075efbf02ebed797a1df3f2b3ad87ec3faf37ccc64"
+
+  log_level: DEBUG
