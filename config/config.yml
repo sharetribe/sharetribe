@@ -144,13 +144,13 @@ default: &default_settings
   # If using SMTP, uncomment corresponding lines and enter your information.
   # the SMPT lines below contain example of using Gmail, but you can use any SMTP
   # For the domain part you can enter HELO domain, if needed. Google for more info. :)
-  mail_delivery_method: sendmail
+  mail_delivery_method: smtp
 
-  # smtp_email_address: "smtp.gmail.com"
-  # smtp_email_port: 587
-  # smtp_email_user_name: "<YOUR_GMAIL_USERNAME>@gmail.com"
-  # smtp_email_password: "<YOUR_GMAIL_PASSWORD>"
-  # smtp_email_domain: "localhost"
+  smtp_email_address: "<%= ENV['SMTP_ADDRESS'] %>"
+  smtp_email_port: <%= ENV['SMTP_PORT'] %>
+  smtp_email_user_name: <%= ENV['SMTP_LOGIN']  %>
+  smtp_email_password: <%= ENV['SMTP_PASSWORD'] %>
+  smtp_email_domain: <%= ENV['EMAIL_DOMAIN']  %>
 
   # This will be the from field in the mails sent from Sharetribe
   sharetribe_mail_from_address: 'info@threadhabits.herokuapp.com'
