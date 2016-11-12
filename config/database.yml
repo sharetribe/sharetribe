@@ -1,2 +1,4 @@
 production:
   url: <%= ENV['DATABASE_URL'] %>
+development:
+  url: 'mysql2://bb4e81f4177daa:740c7365@us-cdbr-iron-east-04.cleardb.net/heroku_7f94c94610a46d5?reconnect=true'
