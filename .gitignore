@@ -65,3 +65,7 @@ client/node_modules
 
 # Mocha results
 test-results.xml
+
+# local ruby version/gemset
+.ruby-version
+.ruby-gemset
