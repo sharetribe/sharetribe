@@ -45,7 +45,7 @@ default: &default_settings
   s3_cache_max_age: 86400
 
   # Bucket for files users upload directly to S3. You can add an expiration policy to these files.
-  s3_upload_bucket_name: threadhabits
+  s3_upload_bucket_name:
 
   # Server assets directly from the Rails application, defaults to true
   #
@@ -146,11 +146,11 @@ default: &default_settings
   # For the domain part you can enter HELO domain, if needed. Google for more info. :)
   mail_delivery_method: smtp
 
-  smtp_email_address: "<%= ENV['SMTP_ADDRESS'] %>"
-  smtp_email_port: <%= ENV['SMTP_PORT'] %>
-  smtp_email_user_name: <%= ENV['SMTP_LOGIN']  %>
-  smtp_email_password: <%= ENV['SMTP_PASSWORD'] %>
-  smtp_email_domain: <%= ENV['EMAIL_DOMAIN']  %>
+  smtp_email_address:
+  smtp_email_port:
+  smtp_email_user_name:
+  smtp_email_password:
+  smtp_email_domain:
 
   # This will be the from field in the mails sent from Sharetribe
   sharetribe_mail_from_address: 'info@threadhabits.herokuapp.com'
