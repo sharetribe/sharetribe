@@ -15,4 +15,5 @@ export default {
   listings: (state = {}) => state,
   profiles: (state = {}) => state,
   topbar: (state = {}) => state,
+  user: (state = {}) => state,
 };

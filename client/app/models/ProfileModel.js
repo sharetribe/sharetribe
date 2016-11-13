@@ -7,6 +7,7 @@ export const Profile = Immutable.Record({
   description: 'product author',
   avatarImage: new AvatarImage(),
   profileURL: 'https://example.com/anonym',
+  username: 'username',
 });
 
 const parseProfileImage = (image) => {
@@ -27,5 +28,6 @@ export const parse = (profile, getProfilePath) => {
     description: profile.getIn([':attributes', ':description']),
     avatarImage: parseProfileImage(profile.getIn([':attributes', ':avatar'])),
     profileURL,
+    username,
   });
 };
