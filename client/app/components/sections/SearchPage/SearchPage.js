@@ -31,12 +31,13 @@ class SearchPage extends Component {
     this.totalPages = Math.ceil(this.props.searchPage.state.get('total') / this.props.searchPage.state.get('pageSize'));
   }
 
-  listingProps(listing, color) {
+  listingProps(listing, color, loggedInUsername) {
     const listingKey = listing.id.toString();
     return {
       key: `card_${listingKey}`,
       color,
       listing,
+      loggedInUserIsAuthor: loggedInUsername === listing.getIn(['author', 'username']),
     };
   }
 
@@ -58,7 +59,7 @@ class SearchPage extends Component {
             pageParam: 'page',
           },
           this.listings.map((listing) =>
-            r(ListingCard, this.listingProps(listing, marketplaceColor1))
+            r(ListingCard, this.listingProps(listing, marketplaceColor1, this.props.user.loggedInUsername))
           )
         ),
       ]);
@@ -105,6 +106,10 @@ SearchPage.propTypes = {
   }),
   routes: routesProp,
   topbar: shape(Topbar.propTypes).isRequired,
+  user: shape({
+    loggedInUsername: string,
+    isAdmin: bool,
+  }),
 };
 
 export default SearchPage;

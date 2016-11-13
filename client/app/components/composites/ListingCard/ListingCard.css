@@ -47,11 +47,28 @@
   align-items: center;
 }
 
-.noImageText {
+.noImageText,
+.noImageLink {
   color: var(--ListingCard_noImageText);
   font-size: var(--ListingCard_fontSize);
   line-height: var(--ListingCard_lineHeight);
   font-weight: var(--ListingCard_fontWeightSemibold);
+}
+
+.noImageLink {
+  font-weight: 600;
+
+  & svg {
+    stroke: var(--ListingCard_noImageText);
+    height: 10px;
+    stroke-width: 4px;
+  }
+
+  &:hover,
+  &:hover svg {
+    color: var(--ListingCard_colorTitleHover);
+    stroke: var(--ListingCard_colorTitleHover);
+  }
 }
 
 .info {
