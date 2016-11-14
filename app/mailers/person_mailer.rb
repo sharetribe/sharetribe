@@ -291,7 +291,10 @@ class PersonMailer < ActionMailer::Base
          to: email_address,
          from: community_specific_sender(@community),
          subject: t("devise.mailer.reset_password_instructions.subject")) do |format|
-       format.html { render layout: false, locals: { reset_token: reset_token } }
+      format.html {
+        render layout: false, locals: { reset_token: reset_token,
+                                        host: @community.full_domain}
+      }
      end
   end
 
