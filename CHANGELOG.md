@@ -10,6 +10,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Added
 
+- Add support for using PayPal in fake mode for development purposes. [Read more](./docs/using-fakepal.md) [#2598](https://github.com/sharetribe/sharetribe/pull/2598)
+
 ### Changed
 
 ### Deprecated
