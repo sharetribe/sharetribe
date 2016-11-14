@@ -46,7 +46,7 @@ class IntApi::MarketplacesController < ApplicationController
         locale: params[:marketplace_language]},
         marketplace[:id]).data
 
-    base_url = URI.new(marketplace[:url])
+    base_url = URI(marketplace[:url])
     url = admin_getting_started_guide_url(host: base_url.host, port: base_url.port)
 
     # make the marketplace creator be logged in via Auth Token
