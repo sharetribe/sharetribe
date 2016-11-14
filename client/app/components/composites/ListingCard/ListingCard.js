@@ -1,5 +1,5 @@
 import { Component, PropTypes } from 'react';
-import r, { a, div, img } from 'r-dom';
+import r, { a, div, img, span } from 'r-dom';
 import classNames from 'classnames';
 import { t, fullLocaleCode, localizedString, localizedPricingUnit } from '../../../utils/i18n';
 import { canUseDOM } from '../../../utils/featureDetection';
@@ -11,6 +11,7 @@ import Avatar from '../../elements/Avatar/Avatar';
 import css from './ListingCard.css';
 import noImageIcon from './images/noImageIcon.svg';
 import distanceIcon from './images/distanceIcon.svg';
+import plusIcon from './images/plusIcon.svg';
 
 const TINT_PERCENTAGE = 20;
 const IMAGE_LOADING_TIMEOUT = 2000;
@@ -146,6 +147,22 @@ class ListingCard extends Component {
       ...higherRes,
     });
 
+    const addImage = div({
+      className: css.noImageText,
+    }, a({
+      className: css.noImageLink,
+      href: listing.listingURLEdit,
+    }, [
+      span({ dangerouslySetInnerHTML: { __html: plusIcon } }),
+      t('web.listing_card.add_picture'),
+    ]));
+
+    const noImage = div({
+      className: css.noImageText,
+    }, t('web.listing_card.no_picture'));
+
+    const imgPlaceholder = this.props.loggedInUserIsAuthor ? addImage : noImage;
+
     const noListingImage = div({ className: classNames('ListingCard_noImage', css.noImageContainer) },
       div(
         { className: css.noImageWrapper },
@@ -154,9 +171,7 @@ class ListingCard extends Component {
             className: css.noImageIcon,
             dangerouslySetInnerHTML: { __html: noImageIcon },
           }),
-          div({
-            className: css.noImageText,
-          }, t('web.listing_card.no_picture')),
+          imgPlaceholder,
         ]
       )
     );
@@ -169,10 +184,9 @@ class ListingCard extends Component {
       className: classNames('ListingCard', css.listing, this.props.className),
       onClick: this.clickHandler,
     }, [
-      a({
+      div({
         className: css.squareWrapper,
         style: { backgroundColor: `rgb(${tintedRGB.r}, ${tintedRGB.g}, ${tintedRGB.b})` },
-        href: listing.listingURL,
       }, div({ className: css.aspectWrapper }, imageOrPlaceholder)
       ),
       div({ className: css.info }, [
@@ -231,6 +245,7 @@ ListingCard.propTypes = {
   className: string,
   color: string.isRequired,
   listing: instanceOf(ListingModel).isRequired,
+  loggedInUserIsAuthor: string,
 };
 
 export default ListingCard;

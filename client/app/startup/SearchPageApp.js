@@ -29,9 +29,9 @@ const profilesToMap = (includes, getProfilePath) =>
     }
   }, new Immutable.Map());
 
-const listingsToMap = (listings, getListingPath) =>
+const listingsToMap = (listings, getListingPath, getEditListingPath) =>
   listings.reduce((acc, val) => {
-    const listing = parseListingModel(val, getListingPath);
+    const listing = parseListingModel(val, getListingPath, getEditListingPath);
     return acc.set(listing.id, listing);
   }, new Immutable.Map());
 
@@ -71,6 +71,7 @@ export default (props) => {
     'listing',
     'person',
     'new_listing',
+    'edit_listing',
     'person_inbox',
     'person_settings',
     'logout',
@@ -83,7 +84,7 @@ export default (props) => {
 
   const rawListings = bootstrappedData.get(':data', []);
 
-  const listings = listingsToMap(rawListings, routes.listing_path);
+  const listings = listingsToMap(rawListings, routes.listing_path, routes.edit_listing_path);
   const profiles = profilesToMap(bootstrappedData.get(':included', []), routes.person_path);
   const metaData = Immutable.Map({
     page: props.searchPage.page,
@@ -106,6 +107,7 @@ export default (props) => {
     routes,
     searchPage,
     topbar: { ...getTopbarProps(props.topbar, routes) },
+    user: props.topbar.user,
   };
 
   const combinedReducer = combineReducers(reducers);

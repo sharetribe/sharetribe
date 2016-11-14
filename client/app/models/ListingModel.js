@@ -28,8 +28,8 @@ const ListingModel = Immutable.Record({
   authorId: 'foo',
   author: new Profile(),
 
-  // these need to be updated
-  listingURL: 'https://example.com/listing/1',
+  listingURL: '/listing/1',
+  listingURLEdit: '/listing/1/edit',
 });
 
 const parseListingImages = (images) => new ListingImage({
@@ -37,7 +37,7 @@ const parseListingImages = (images) => new ListingImage({
   square2x: images.square2x,
 });
 
-export const parse = (l, getListingPath) => {
+export const parse = (l, getListingPath, getEditListingPath) => {
   const rawImages = l.getIn([':attributes', ':images']);
   const images = rawImages ? rawImages.map(parseListingImages) : new Immutable.List();
   return new ListingModel({
@@ -46,6 +46,7 @@ export const parse = (l, getListingPath) => {
     distance: l.getIn([':attributes', ':distance']),
     images,
     listingURL: getListingPath(l.getIn([':attributes', ':extId'])),
+    listingURLEdit: getEditListingPath(l.getIn([':attributes', ':extId'])),
     orderType: l.getIn([':attributes', ':orderType']),
     price: l.getIn([':attributes', ':price']),
     title: l.getIn([':attributes', ':title']),
