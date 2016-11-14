@@ -37,7 +37,7 @@ class AvatarDropdown extends Component {
   }
 
   render() {
-    const touchClass = hasTouchEvents ? '' : css.touchless;
+    const openOnHoverClass = hasTouchEvents ? '' : css.openOnHover;
     const openClass = this.state.isOpen ? css.openDropdown : '';
     const notificationsClass = this.props.notificationCount > 0 ? css.hasNotifications : null;
     const notificationBadgeInArray = this.props.notificationCount > 0 ?
@@ -47,7 +47,7 @@ class AvatarDropdown extends Component {
       onClick: this.handleClick,
       onBlur: this.handleBlur,
       tabIndex: 0,
-      className: classNames('AvatarDropdown', this.props.className, touchClass, openClass, css.avatarDropdown, notificationsClass),
+      className: classNames('AvatarDropdown', this.props.className, openOnHoverClass, openClass, css.avatarDropdown, notificationsClass),
     }, [
       div({ className: css.avatarWithNotifications }, [
         r(Avatar, this.props.avatar),
