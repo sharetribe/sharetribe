@@ -1,7 +1,6 @@
 require 'csv'
 
-class Admin::CommunityMembershipsController < ApplicationController
-  before_filter :ensure_is_admin
+class Admin::CommunityMembershipsController < Admin::AdminBaseController
 
   def index
     @selected_left_navi_link = "manage_members"

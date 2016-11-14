@@ -1,6 +1,5 @@
-class Admin::CustomFieldsController < ApplicationController
+class Admin::CustomFieldsController < Admin::AdminBaseController
 
-  before_filter :ensure_is_admin
   before_filter :field_type_is_valid, :only => [:new, :create]
 
   CHECKBOX_TO_BOOLEAN = ->(v) {

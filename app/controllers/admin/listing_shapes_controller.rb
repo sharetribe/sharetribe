@@ -1,5 +1,4 @@
-class Admin::ListingShapesController < ApplicationController
-  before_filter :ensure_is_admin
+class Admin::ListingShapesController < Admin::AdminBaseController
 
   before_filter :set_url_name
 

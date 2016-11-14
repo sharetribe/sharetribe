@@ -205,7 +205,7 @@ class ApplicationController < ActionController::Base
   def ensure_user_belongs_to_community
     return unless @current_user
 
-    if !@current_user.is_admin? && @current_user.accepted_community != @current_community
+    if !@current_user.has_admin_rights? && @current_user.accepted_community != @current_community
 
       logger.info(
         "Automatically logged out user that doesn't belong to community",

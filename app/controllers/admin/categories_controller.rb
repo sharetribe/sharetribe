@@ -1,6 +1,4 @@
-class Admin::CategoriesController < ApplicationController
-
-  before_filter :ensure_is_admin
+class Admin::CategoriesController < Admin::AdminBaseController
 
   def index
     @selected_left_navi_link = "listing_categories"

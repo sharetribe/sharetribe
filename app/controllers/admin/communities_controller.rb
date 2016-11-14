@@ -1,7 +1,6 @@
-class Admin::CommunitiesController < ApplicationController
+class Admin::CommunitiesController < Admin::AdminBaseController
   include CommunitiesHelper
 
-  before_filter :ensure_is_admin
   before_filter :ensure_white_label_plan, only: [:create_sender_address]
 
   def edit_look_and_feel

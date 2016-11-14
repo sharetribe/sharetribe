@@ -1,5 +1,5 @@
-class Admin::PaypalPreferencesController < ApplicationController
-  before_filter :ensure_is_admin
+class Admin::PaypalPreferencesController < Admin::AdminBaseController
+
   before_filter :ensure_paypal_provisioned
 
   PaypalAccountForm = FormUtils.define_form("PaypalAccountForm", :paypal_email, :commission_from_seller)
