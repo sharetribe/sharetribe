@@ -51,6 +51,7 @@ module FeatureTests
         listing = FeatureTests::Page::Listing
         listing_book = FeatureTests::Page::ListingBook
         topbar = FeatureTests::Section::Topbar
+        worker = FeatureTests::Worker
 
         topbar.click_logo
         home.click_listing(title)
@@ -68,8 +69,10 @@ module FeatureTests
 
         listing_book.proceed_to_payment
 
-        expect(page).to have_content("Payment authorized")
-        expect(page).to have_content("Snowman ☃ sells: #{title}")
+        worker.work_until do
+          page.has_content?("Payment authorized") &&
+            page.has_content?("Snowman ☃ sells: #{title}")
+        end
       end
 
       def accept_listing_request

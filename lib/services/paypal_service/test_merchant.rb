@@ -3,17 +3,17 @@ require_relative 'test_api'
 module PaypalService
 
   module TestMerchant
-    def self.build(api_builder)
-      PaypalService::Merchant.new(nil, TestLogger.new, TestMerchantActions.new.default_test_actions, api_builder)
+    def self.build(api_builder, store)
+      PaypalService::Merchant.new(nil, TestLogger.new, TestMerchantActions.new(store).default_test_actions, api_builder)
     end
   end
 
   class FakePalMerchant
-    def initialize
-      @tokens = {}
-      @payments_by_order_id = {}
-      @payments_by_auth_id = {}
-      @billing_agreements_by_token = {}
+    def initialize(store)
+      @tokens = store.namespace(:merchant, :tokens)
+      @payments_by_order_id = store.namespace(:merchant, :payments_by_order_id)
+      @payments_by_auth_id = store.namespace(:merchant, :payments_by_auth_id)
+      @billing_agreements_by_token = store.namespace(:merchant, :billing_agreements_by_token)
     end
 
     def save_token(req, payment_action)
@@ -147,8 +147,8 @@ module PaypalService
   class TestMerchantActions
     attr_reader :default_test_actions
 
-    def initialize
-      @fake_pal = FakePalMerchant.new
+    def initialize(store)
+      @fake_pal = FakePalMerchant.new(store)
       @default_test_actions = build_default_test_actions
     end
 

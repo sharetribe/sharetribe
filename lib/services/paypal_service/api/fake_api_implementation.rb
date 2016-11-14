@@ -9,47 +9,52 @@ require "#{Rails.root}/app/services/paypal_service/paypal_service_injector"
 module PaypalService
   module API
     class FakeApiImplementation
-      extend PaypalService::PaypalServiceInjector
+      include PaypalService::PaypalServiceInjector
 
-      def self.payments
-        @payments ||= build_test_payments(allow_async: false, events: events)
+      def initialize(store)
+        @store = store
       end
 
-      def self.billing_agreements
+      def payments
+        @payments ||= build_test_payments(events: events)
+      end
+
+      def billing_agreements
         @billing_agreements ||= build_billing_agreements
       end
 
-      def self.minimum_commissions
+      def minimum_commissions
         minimum_commissions_api
       end
 
-      def self.process
+      def process
         process_api
       end
 
-      def self.accounts
+      def accounts
         @accounts ||= build_test_accounts(prepend_country_code: false)
       end
 
-      def self.api_builder
+      def api_builder
         @api_builder ||= PaypalService::TestApiBuilder.new
       end
 
-      def self.test_merchant
-        @test_merchant ||= PaypalService::TestMerchant.build(api_builder)
+      def test_merchant
+        @test_merchant ||= PaypalService::TestMerchant.build(api_builder, @store)
       end
 
-      def self.test_permissions
-        @test_permissions ||= PaypalService::TestPermissions.build(api_builder)
+      def test_permissions
+        @test_permissions ||= PaypalService::TestPermissions.build(api_builder, @store)
       end
 
-      def self.test_onboarding
+      def test_onboarding
         @test_onboarding ||= PaypalService::Onboarding.new(
           {api_credentials: {partner_id: "partner-id"},
            endpoint: {endpoint_name: "sandbox"}})
       end
 
-      def self.reset!
+      def reset!
+        @store.reset!
         @payments = nil
         @events = nil
         @billing_agreements = nil
@@ -58,19 +63,18 @@ module PaypalService
         @api_builder = nil
       end
 
-      def self.build_test_events
+      def build_test_events
         PaypalService::TestEvents.new
       end
 
-      def self.build_test_payments(allow_async: true, events:)
+      def build_test_payments(events:)
         payments = PaypalService::API::Payments.new(
           events,
           test_merchant,
-          PaypalService::TestLogger.new,
-          allow_async: allow_async)
+          PaypalService::TestLogger.new)
       end
 
-      def self.build_test_accounts(prepend_country_code: false)
+      def build_test_accounts(prepend_country_code: false)
         PaypalService::API::Accounts.new(
           test_permissions,
           test_merchant,
@@ -79,7 +83,7 @@ module PaypalService
           prepend_country_code: prepend_country_code)
       end
 
-      def self.build_billing_agreements
+      def build_billing_agreements
         PaypalService::API::BillingAgreements.new(test_merchant)
       end
     end

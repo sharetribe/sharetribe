@@ -3,14 +3,15 @@ require_relative 'test_api'
 module PaypalService
 
   module TestPermissions
-    def self.build(api_builder)
-      PaypalService::Permissions.new(nil, TestLogger.new, TestPermissionsActions.new.default_test_actions, api_builder)
+    def self.build(api_builder, store)
+      PaypalService::Permissions.new(nil, TestLogger.new, TestPermissionsActions.new(store).default_test_actions, api_builder)
     end
   end
 
   class FakePalPermissions
-    def initialize
-      @tokens = []
+    def initialize(store)
+      @tokens = store.namespace(:permissions, :tokens)
+      @tokens[:tokens] = @tokens[:tokens] || []
     end
 
     def save_permission_token(req)
@@ -26,7 +27,7 @@ module PaypalService
         email: details["email"],
         payer_id: details["payer_id"]
       }.tap { |t|
-        @tokens.push(t)
+        @tokens[:tokens] = @tokens[:tokens] + [t]
       }
     end
 
@@ -39,11 +40,11 @@ module PaypalService
     end
 
     def by_request_token(request_token)
-      @tokens.find { |token| token[:request_token] == request_token }
+      @tokens[:tokens].find { |token| token[:request_token] == request_token }
     end
 
     def by_access_token(token:, token_secret:)
-      @tokens.find { |t| t[:access_token] == token && t[:access_token_secret] == token_secret }
+      @tokens[:tokens].find { |t| t[:access_token] == token && t[:access_token_secret] == token_secret }
     end
 
   end
@@ -51,8 +52,8 @@ module PaypalService
   class TestPermissionsActions
     attr_reader :default_test_actions
 
-    def initialize
-      @fake_pal = FakePalPermissions.new
+    def initialize(store)
+      @fake_pal = FakePalPermissions.new(store)
       @default_test_actions = build_default_test_actions
     end
 
