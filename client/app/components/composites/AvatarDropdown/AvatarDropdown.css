@@ -12,7 +12,7 @@
   }
 
   &.openDropdown,
-  &.touchless:hover {
+  &.openOnHover:hover {
     & .avatarProfileDropdown {
       visibility: visible;
     }
