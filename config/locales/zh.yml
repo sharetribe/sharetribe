@@ -668,7 +668,7 @@ zh:
       paid: 付款成功
       pending_external:
         paypal:
-          multicurrency: "由于你的PayPal帐号还没有设置%{currency}货币收款，我们无法处理PayPal付款。点击%{paypal_url}并登录你的帐号来手动接受或拒绝付款。"
+          multicurrency: "由于你的PayPal帐号还没有设置%{currency}收款，我们无法处理PayPal付款。点击%{paypal_url}并登录你的帐号来手动接受或拒绝付款。"
           verify: "因为你没有验证PayPal帐号，你不能接受这笔交易。点击%{paypal_url}验证你的帐号。"
           intl: "由于你的PayPal帐号没有设置取款机制，我们无法处理PayPal付款。点击%{paypal_url}并登录你的帐号来手动接受或拒绝付款。"
       waiting_for_current_user_to_deliver_listing: "正在等待你交付%{listing_title}"
@@ -683,7 +683,7 @@ zh:
       waiting_for_listing_author_to_accept_offer: "正在等待%{listing_author_name}接受宝贝"
       waiting_for_listing_author_to_accept_request: "正在等待%{listing_author_name}接受请求，当%{listing_author_name}接受后，你将会被扣款。"
       waiting_for_you_to_accept_request: 正在等待你接受请求
-      waiting_confirmation_from_requester: "正在等待%{requester_name}标记请求为已完成"
+      waiting_confirmation_from_requester: "正在等待 %{requester_name} 确认您的请求\n"
       waiting_confirmation_from_you: 正在等待你标记请求完成
       waiting_payment_from_requester: "正在等待%{requester_name}支付"
       waiting_payment_from_you: 正在等待你支付
@@ -733,12 +733,12 @@ zh:
       consent_not_given: 你还没有接受条款
   emails:
     accept_reminder:
-      remember_to_accept_offer: "请记得接受或拒绝来自%{sender_name}提供的宝贝"
+      remember_to_accept_offer: "请记得接受或拒绝来自%{sender_name}提供的请求"
       remember_to_accept_request: "请记得接受或拒绝来自%{sender_name}的请求"
-      you_can_accept_or_reject_offer_at: 你可以在此接受或拒绝该宝贝
+      you_can_accept_or_reject_offer_at: 你可以在此接受或拒绝该请求
       you_can_accept_or_reject_request_at: 你可以在此接受或拒绝该请求
-      you_have_not_yet_accepted_or_rejected_offer: "你尚未接受或拒绝你在%{date}收到的%{title}"
-      you_have_not_yet_accepted_or_rejected_request: "你尚未接受或拒绝你在%{date}收到的%{title}"
+      you_have_not_yet_accepted_or_rejected_offer: "你尚未接受或拒绝你在%{date}收到對%{title}的請求"
+      you_have_not_yet_accepted_or_rejected_request: "你尚未接受或拒绝你在%{date}收到對%{title}的請求"
       show_thread: 显示对话
     branding:
       powered_by: ~
@@ -757,11 +757,11 @@ zh:
       payment_settings_link: 付款设置
     transaction_confirmed:
       here_is_a_message_from: "这里有一条%{other_party_given_name}发送的消息："
-      request_marked_as_confirmed: 请求已完成——记得给予评价
+      request_marked_as_confirmed: 交易成功——請记得给予评价
       request_marked_as_canceled: 请求已取消
-      has_marked_request_as_confirmed: "%{other_party_full_name}标记关于“%{request}”的请求为完成。你现在可以评论给%{other_party_given_name}。"
-      has_marked_request_as_canceled: "%{other_party_full_name}取消了关于“%{request}”的请求。你仍然可以评论%{other_party_given_name}。"
-      giving_feedback_is_good_idea: "给予评论是个不错的主意。如果一切顺利，你应该让其他人知道%{other_party_given_name}可以被信任。如果有任何问题，在评论中提到它们也是很好的。"
+      has_marked_request_as_confirmed: "%{other_party_full_name}以确认您对“%{request}”的请求已成功完成。您现在可以对%{other_party_given_name}评论了。"
+      has_marked_request_as_canceled: "%{other_party_full_name}取消了关于“%{request}”的请求，不過你仍然可以對%{other_party_given_name}做出评论。"
+      giving_feedback_is_good_idea: "我们建议您对此次的经验给予评论。如果一切顺利，你应该让其他人知道%{other_party_given_name}是可以被信任的。任何问题也可以同时在评论中提到。"
       give_feedback_to: "给%{other_party_given_name}反馈"
     transaction_automatically_confirmed:
       subject: 请求自动完成——记得给予评价
@@ -791,11 +791,11 @@ zh:
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} 已经接受了你的%{listing}"
       has_accepted_your_request: "%{accepter}已经接受了你的%{listing}"
-      has_rejected_your_offer: "%{accepter} 已经拒绝了你的%{listing}"
+      has_rejected_your_offer: "%{accepter} 已经拒绝了你對%{listing}的請求。有任何問題請先與物主聯繫。"
       has_rejected_your_request: "%{accepter} 已经拒绝了你的%{listing}"
       view_thread: 查看对话
       your_offer_was_accepted: 你的宝贝已被接受
-      your_offer_was_rejected: 你的宝贝被拒绝
+      your_offer_was_rejected: 你的请求被拒绝
       your_request_was_accepted: 你的请求已被接受
       your_request_was_rejected: 你的请求被拒绝
       you_can_now_pay_to: "你现在可以支付要求的金额给%{payment_receiver}。"
@@ -843,8 +843,8 @@ zh:
       service_fee: 服务费
       money_will_be_transferred: "以下两种情况发生时，钱将被转给%{recipient_name} a)你标记请求为完成 b)你付款之后的%{automatic_confirmation_days}天。"
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name}在%{service_name}给你了反馈"
-      you_can_give_feedback_to: "你还没有给%{name}反馈"
+      has_given_you_feedback_in_kassi: "%{name}在%{service_name}给了你反馈"
+      you_can_give_feedback_to: "你还没有對%{name} 评价"
       view_feedback: 查看反馈
     new_update_to_listing:
       listing_you_follow_has_been_updated: 以下发布的信息已更新
@@ -868,7 +868,7 @@ zh:
       text_version_text: "你可以共享一些其他人可能需要的东西吗？或者你可能需要一些别人已经拥有的东西？点击%{url}新添一个宝贝或者查看其他人当前提供的或者请求的东西"
     reset_password_instructions:
       change_my_password: 修改密码
-      reset_password_instructions: "<p>你声明你忘记了%{service_name}的用户名或者密码。</p><p>你的用户名是：%{username}</p><p>如果你需要重置密码，点击以下链接：%{password_reset_link}</p><br/><p>如果你没有这个要求，请忽略这封电子邮件。 你的密码将不会改变，直到你访问上面的链接并创建一个新的密码。</p>"
+      reset_password_instructions: "<p>你以確認你忘记了%{service_name}的用户名或者密码。</p><p>你的用户名是：%{username}</p><p>如果你需要重置密码，点击以下链接：%{password_reset_link}</p><br/><p>如果你没有这个要求，请忽略这封电子邮件。 你的密码将不会改变，直到你访问上面的链接并创建一个新的密码。</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "提醒：记得给%{name} 评价"
       you_have_not_given_feedback_yet: "你尚未评价%{name} 参与的活动'%{event}'。记得评价%{given_name} 在活动中的表现。"
@@ -885,7 +885,7 @@ zh:
     welcome_email:
       welcome_email_subject: "欢迎来到%{service_name}"
       welcome_to_marketplace: "欢迎来到%{service_name}！恭喜你注册成功。"
-      love_marketplace_crew: "爱你的，<br /><i>%{service_name}团队</i>"
+      love_marketplace_crew: "<br /><i>%{service_name}团队</i>  敬上"
       welcome_email_footer_text: "你希望从%{service_name}接收哪种类型的邮件？%{settings_link}"
       settings_link_text: 查看你的设置
     new_listing_by_followed_person:
@@ -1267,7 +1267,7 @@ zh:
       reply_cannot_be_empty: 你不能发送空白消息
       reply_sent: 回复发送成功
       request_accepted: 你的请求已被接受
-      request_confirmed: 请求已完成。
+      request_confirmed: 请求完成。
       request_rejected: 请求已拒绝
       request_canceled: 请求已取消
       message_sent: 消息已发出
@@ -1366,7 +1366,7 @@ zh:
         repeated: 重复的（在字段“详细描述”中添加次数和天数）
       description:
         detailed_description: 详细描述
-        youtube_info: ~
+        youtube_info: "如果您的描述包括Youtube连结, 该影片将会在描述栏下方显示."
       destination:
         destination: 目的地
       form_content:
@@ -1616,16 +1616,19 @@ zh:
   paypal_accounts:
     payout_info_title: 支付信息
     paypal_account_email_connected: "<del>连接PayPal 帐号</del> 完成！"
-    payout_info_paypal: ~
+    payout_info_paypal: "%{service_name}使用Paypal为付款提供商。用户必须拥有%{create_paypal_account_link}才能够接受付款。同時这个账户也需要与%{service_name} 连接才能够使用。"
     paypal_billing_agreement_made: "<del>授权%{service_name}收取交易费</del> 完成！"
-    commission_permission_needed: ~
+    commission_permission_needed: "你也需要同意%{service_name} 收取手续费."
     create_paypal_account_link_text: "PayPal 账户"
     connected_account: "PayPal帐号“%{email}”连接成功。"
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: "你的 PayPal 账户需要可以接受付款。这可能需要一个商业账户。"
     paypal_receive_funds_info_australia_only: ~
-    paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: 登陆并点击升级套餐连接
+    paypal_receive_funds_info: |-
+        如果您在与%{service_name} 做付款连结时发生问题，请通过%{upgrade_paypal_account_link}升级您的账户到商业账户。 
+        
+        升级到商业账户是完全免费的。Paypal建议使用您的名字为商业账户里的公司名字。
+    upgrade_paypal_account_link_text: 升级至商业账户连接
     admin_account_not_connected: ~
     contact_admin_link_text: 联系集市管理员
     you_are_ready_to_accept_payments: 你已准备好接受付款！
@@ -1637,14 +1640,14 @@ zh:
       admin_account_not_connected: "没有为%{service_name}配置付款方式，所以你不能连接到你的PayPal帐号。请%{contact_admin_link}了解详情。"
       paypal_account_email: "连接你的 PayPal 帐号"
       paypal_account_email_placeholder: 你的PayPal电邮地址
-      paypal_account_email_info_text: "如果你没有PayPal帐号，你可以用%{create_paypal_account}创建一个。如果你在连接PayPal帐号时的到错误信息，那你需要升级到商业帐号。升级是免费而快捷的。如果你是个人用户，你应该只需要在PayPal询问”商业名称“时填入姓名。要升级帐号，通过%{upgrade_paypal_account}查找升级链接。"
+      paypal_account_email_info_text: "如果你没有PayPal帐号，你可以用%{create_paypal_account}创建一个。如果你在连接PayPal帐号时的到错误信息，那你需要升级到商业帐号。升级是免费而快捷的。如果你是个人用户，你只需要在PayPal询问”商业名称“时填入姓名。要升级帐号，通过%{upgrade_paypal_account}查找升级链接。"
       create_paypal_account: 点击这里
       upgrade_paypal_account: 登录你的PayPal帐号
       paypal_account_billing_agreement: "授权%{service_name}收取交易费"
       follow_steps: 跟着下面的步骤做以开始接收资金
       connect_paypal_account_title: "连接 PayPal 帐号"
-      connect_paypal_account_title_with_step: ~
-      connect_paypal_account_instructions: ~
+      connect_paypal_account_title_with_step: "步骤%{current_step}: 连接 PayPal 帐号"
+      connect_paypal_account_instructions: 请按下方按钮来连接您的Paypal账号
       connect_paypal_account: 连接PayPal帐号
       paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: "当你在%{service_name}完成一个销售后，服务费（%{commission_from_seller}的商品总价，不包括运费，最少的费用%{minimum_commission}）将从你的Paypal账号中扣除。要在%{service_name}中接受付款，你必须允许收取此费用。该费用不包括%{paypal_info_link}"
@@ -1654,7 +1657,7 @@ zh:
       paypal_info_link_text: PayPal的支付处理费
       billing_agreement_description: "授权%{service_name}收取交易费。"
       billing_agreement: 授权
-      permissions_not_granted: 没有授权连接PayPal帐号。
+      permissions_not_granted: PayPal授權連接失敗。
       could_not_fetch_redirect_url: 不能获得连接到PayPal的重定向链接。
       paypal_not_enabled: "PayPal 支付没有启用。"
       billing_agreement_canceled: 账单协议已取消
@@ -1673,7 +1676,7 @@ zh:
     paypal_account_all_set_up: 太棒了，一切就绪！
     can_receive_payments: 现在你可以为你的列表接收付款了。
     paypal_account_connected_summary: "PayPal 账户 %{email} 连接成功"
-    paypal_permission_granted_summary: ~
+    paypal_permission_granted_summary: 手续费连接通过
   paypal:
     pay_with_paypal: 进行支付
     checkout_with_paypal: 用PayPal结帐
@@ -1848,7 +1851,7 @@ zh:
       email_weekly_community_updates: 如果有新发布的信息，<b>每周</b>发送给我一封更新的邮件
       do_not_email_community_updates: 不要给我发送有更新消息的电子邮件
       email_when_conversation_accepted: …有人接受了我的宝贝或请求
-      email_when_conversation_rejected: …有人拒绝了我的宝贝或请求
+      email_when_conversation_rejected: …有人拒绝了我的请求
       email_about_completed_transactions: ……有人将我的宝贝或请求标记为已完成
       email_about_new_payments: ……我收到一笔新的付款
       email_about_new_listings_by_followed_people: ……我关注的人发布了一则新的信息
