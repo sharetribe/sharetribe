@@ -1810,8 +1810,11 @@ nl:
       confirm_your_email: "Bevestig uw e-mail adres"
       account_confirmation_instructions: "U ontvangt een e-mail met een link waarmee u uw e-mail adres dient te bevestigen. Zodra dit is gebeurd kunt u lid worden van %{service_name}."
       account_confirmation_instructions_title_admin: "Welkom bij je marktplaats!"
-      your_marketplace_has_now_been_created: "Je marktplaats is nu aangemaakt. Dat was makkelijk, niet? Er is nog één ding te doen alvorens je je site kan gebruiken: je moet je e-mail adres bevestigen."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Je zal binnenkort een e-mail ontvangen met een link om het e-mail adres dat je hebt opgegeven te bevestigen. Daarna kan je beginnen met je marktplaats te configureren."
+      contact_support_link_text: ~
   settings:
     account:
       change: Wijzig
@@ -2033,6 +2036,7 @@ nl:
       sorry: ~
       try_other_search_terms: ~
     listing_card:
+      add_picture: ~
       no_picture: ~
     search:
       page: ~

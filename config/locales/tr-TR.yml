@@ -1798,8 +1798,11 @@ tr-TR:
       confirm_your_email: "Email adresinizi doğrulayın"
       account_confirmation_instructions: "Birkaç dakika içinde girdiğiniz email adresini doğrulamak için tıklamanız gereken linki içeren bir e-posta alacaksınız. E-posta adresinizi doğruladıktan sonra, %{service_name} pazar yerine katılabilirsiniz."
       account_confirmation_instructions_title_admin: "Pazar yerinize hoş geldiniz!"
-      your_marketplace_has_now_been_created: "Pazar siteniz oluşturuldu. Çok kolaydı, değil mi? Sitenize erişebilmeniz için tek bir adım kaldı: e-posta adresinizi doğrulamalısınız."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Birkaç dakika içinde girdiğiniz e-posta adresini doğrulamak için tıklamanız gereken linki içeren bir e-posta alacaksınız. E-posta adresinizi doğruladıktan sonra, pazarınızı düzenlemeye başlayabilirsiniz."
+      contact_support_link_text: ~
   settings:
     account:
       change: Değiştir

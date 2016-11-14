@@ -1810,8 +1810,11 @@ ru:
       confirm_your_email: "Подтвердите Ваш email"
       account_confirmation_instructions: "Вскоре вы получите электронное письмо с ссылкой, которую нужно нажать для подтверждения электронной почты. После подтверждения вашей электронной почты вы сможете начать использовать %{service_name} ."
       account_confirmation_instructions_title_admin: "Добро пожаловать в ваш маркетплейс!"
-      your_marketplace_has_now_been_created: "Ваш маркетплейс сайт был сейчас создан. Это легко, не правда-ли? Теперь только один шаг до доступа к вашему сайту: вам нужно подтвердить ваш email адрес."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Вскоре вы получите электронное письмо с ссылкой, которую нужно нажать для подтверждения электронной почты. После подтверждения вашей электронной почты вы сможете начать использовать ваш маркетплейс."
+      contact_support_link_text: ~
   settings:
     account:
       change: Изменить
@@ -2056,6 +2059,7 @@ ru:
       sorry: ~
       try_other_search_terms: ~
     listing_card:
+      add_picture: ~
       no_picture: ~
     search:
       page: ~

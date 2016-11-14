@@ -1829,8 +1829,11 @@ sk-SK:
       confirm_your_email: "Prosím potvrďte Vašu e-mailovú adresu"
       account_confirmation_instructions: "Onedlho obdržíte e-mail s odkazom pre potvrdenie e-mailovej adresy. Nezabudnite si skontrolovať spam priečinok! Po potvrdení Vašeho e-mailu sa môžete pripojiť k %{service_name}."
       account_confirmation_instructions_title_admin: "Vitajte vo Vašom trhovisku!"
-      your_marketplace_has_now_been_created: "Vaše trhovisko je vytvorené. Bolo to ľahké, že? Ostáva ešte jeden krok, ktorý treba previesť a to je overenie Vašej e-mailovej adresy."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Onedlho obdržíte e-mail s odkazom pre potvrdenie e-mailovej adresy. Nezabudnite si skontrolovať spam priečinok! Po potvrdení Vašej e-mailovej adresy môžete začať s nastavením Vašeho trhoviska."
+      contact_support_link_text: ~
   settings:
     account:
       change: Zmeniť

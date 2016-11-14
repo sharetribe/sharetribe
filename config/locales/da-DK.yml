@@ -1816,8 +1816,11 @@ da-DK:
       confirm_your_email: "Bekræft din mail"
       account_confirmation_instructions: ~
       account_confirmation_instructions_title_admin: "Velkommen til din markedsplads!"
-      your_marketplace_has_now_been_created: "Din markedsplads er nu blevet oprettet. Det var nemt, var det ikke? Der er kun et step tilbage før du kan få adgang til din markedsplads: du skal godkende din email adresse."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Du vil nu modtage en mail med et link som du skal klikke på for at bekræfte din indtastede mailadresse. Efter at have godkendt din email, kan du starte med at foretage ændringer på din nye markedsplads."
+      contact_support_link_text: ~
   settings:
     account:
       change: Skift

@@ -1790,8 +1790,11 @@ es:
       confirm_your_email: "Confirma tu e-mail"
       account_confirmation_instructions: "Pronto recibirás un e-mail con un link al que deberás hacer clic para confirmar la cuenta e-mail ingresada. Después de confirmar tu e-mail puedes comenzar a usar %{service_name}."
       account_confirmation_instructions_title_admin: ~
-      your_marketplace_has_now_been_created: ~
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: ~
+      contact_support_link_text: ~
   settings:
     account:
       change: Cambiar
@@ -2013,6 +2016,7 @@ es:
       sorry: ~
       try_other_search_terms: ~
     listing_card:
+      add_picture: ~
       no_picture: ~
     search:
       page: ~

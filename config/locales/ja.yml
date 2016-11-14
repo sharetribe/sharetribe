@@ -1796,8 +1796,11 @@ ja:
       confirm_your_email: メールアドレスを認証してください
       account_confirmation_instructions: "ご記入いただいたメールアドレス宛に、認証手続き用のリンクが、まもなく届きます。認証後、%{service_name}に参加できます。"
       account_confirmation_instructions_title_admin: あなたのマーケットプレイスへようこそ！
-      your_marketplace_has_now_been_created: これより、あなたのマーケットプレイスは作成されました。簡単だったでしょう。あなたのサイトへのアクセスまで、あともう一歩です。あなたのメールアドレスの承認する必要があります。
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: ご記入いただいたメールアドレス宛に、認証手続き用のリンクが、まもなく届きます。認証後、あなたのマーケットプレイスに参加できます。
+      contact_support_link_text: ~
   settings:
     account:
       change: 変更

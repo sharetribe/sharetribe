@@ -1824,8 +1824,11 @@ cs:
       confirm_your_email: "Prosíme, potvrďte Váš e-mail"
       account_confirmation_instructions: "Brzy obdržíte e-mail s odkazem a kliknutím na odkaz musíte potvrdit Vámi zadanou e-mailovou adresu. Po potvrzení Vašeho e-mailu se můžete připojit k %{service_name}."
       account_confirmation_instructions_title_admin: "Vítejte ve Vašem tržišti!"
-      your_marketplace_has_now_been_created: "Stránka Vašeho tržiště byla právě vytvořena. Bylo to jednoduché, že? Je tu ještě jeden další krok, který je třeba provést, než budete mít přístup na Vaši stránku: je třeba potvrdit Vaši e-mailovou adresu."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Brzy obdržíte e-mail s odkazem, na který budete muset kliknout, abyste potvrdili Vámi zadanou e-mailovou adresu. Po potvrzení Vaší e-mailové adresy můžete začít s nastavením Vašeho tržiště."
+      contact_support_link_text: ~
   settings:
     account:
       change: Změnit

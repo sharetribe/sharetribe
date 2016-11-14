@@ -1818,8 +1818,11 @@ nb:
       confirm_your_email: "Vennligst bekreft din e-post"
       account_confirmation_instructions: "Du vil snart motta en e-post med en lenke for å bekrefte din e-post. Når du har bekreftet din e-post, kan du begynne å bruke %{service_name}."
       account_confirmation_instructions_title_admin: "Velkommen til din markedsplass!"
-      your_marketplace_has_now_been_created: "Din markedsplass er nå blitt laget. Det var enkelt, var det ikke? Kun noen få steg gjenstår før du kan bruke din side: du må bekrefte din epost-adresse."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Du vil snart motta en e-post med en link du må klikke på for å bekrefte din e-post. Når e-post er bekreftet kan du begynne å tilpasse markedsplassen din."
+      contact_support_link_text: ~
   settings:
     account:
       change: Endre

@@ -1818,8 +1818,11 @@ fr:
       confirm_your_email: "Veuillez confirmer votre email"
       account_confirmation_instructions: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer votre adresse email. N'oubliez pas de vérifier votre dossier \"Spam\" ou \"Indésirables\" ! Dès que vous l'aurez confirmée, vous pourrez rejoindre %{service_name}."
       account_confirmation_instructions_title_admin: "Bienvenue sur votre place de marché !"
-      your_marketplace_has_now_been_created: "Votre place de marché a été créée. C'était simple, non ? Il ne reste qu'une étape pour que vous puissiez y accéder : vous devez confirmer votre adresse email."
+      before_full_access_you_need_to_confirm_email: "Avant que nous vous donnions un accès complet à votre place de marché, il n'y a plus qu'une petite chose à faire : confirmer votre adresse email."
+      before_confirmation_only_access_admin_dashboard: "Avant la confirmation vous ne pouvez accéder qu'au %{admin_dashboard_link}."
+      admin_dashboard_link_text: "panneau d'administration"
       account_confirmation_instructions_admin: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer l'adresse email que vous avez saisie. N'oubliez pas de vérifier votre dossier \"Spam\" ou \"Indésirables\" ! En cliquant sur ce lien vous pourrez commencer à configurer votre place de marché."
+      contact_support_link_text: "contacter le support Sharetribe"
   settings:
     account:
       change: Changer
@@ -2060,6 +2063,7 @@ fr:
       sorry: "Désolé, aucune annonce n'a pu être trouvée avec vos critères de recherche."
       try_other_search_terms: "Essayez peut-être avec d'autres termes ?"
     listing_card:
+      add_picture: "Ajouter une image"
       no_picture: "Aucune image"
     search:
       page: Page

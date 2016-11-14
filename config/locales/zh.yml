@@ -1805,8 +1805,11 @@ zh:
       confirm_your_email: 请确认您的电子邮件
       account_confirmation_instructions: "您很快会收到一封确认邮件，请点击邮件中的链接激活您的账号。如果您在收件箱没有找到确认邮件，请检查您的垃圾邮件文件夹。 在确认邮件之后您就可以加入%{service_name}了。"
       account_confirmation_instructions_title_admin: 欢迎来到你的集市！
-      your_marketplace_has_now_been_created: 你的集市站点已经创建。这很容易吧？接下来只要一个步骤你就可以访问你的站点了：你需要确认你的电邮地址。
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: 您很快会收到一封确认邮件，请点击邮件中的链接激活您的账号。如果您在收件箱没有找到确认邮件，请检查您的垃圾邮件文件夹。在确认邮件之后您就可以开启您的集市了。
+      contact_support_link_text: ~
   settings:
     account:
       change: 修改

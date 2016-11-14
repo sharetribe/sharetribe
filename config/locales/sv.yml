@@ -1816,8 +1816,11 @@ sv:
       confirm_your_email: "Bekräfta din e-post"
       account_confirmation_instructions: "Du kommer snart att få ett e-postmeddelande med en länk som du behöver klicka på för att bekräfta din e-postadress du angav. Efter du har bekräftat din e-post så kan du gå med %{service_name}."
       account_confirmation_instructions_title_admin: "Välkommen till din marknadsplats!"
-      your_marketplace_has_now_been_created: "Din marknadsplats sida har nu skapats. Det var enkelt, var det inte? Det är bara ett till steg innan du kan komma åt sidan, du behöver bekräfta din e-postadress."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Du kommer snart att få ett e-postmeddelande med en länk som du behöver klicka på för att bekräfta din e-postadress du angav. Efter du har bekräftat din e-post så ´kan du böja konfigurera din marknadsplats."
+      contact_support_link_text: ~
   settings:
     account:
       change: Ändra

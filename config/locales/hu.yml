@@ -1820,8 +1820,11 @@ hu:
       confirm_your_email: "Kérjük e-mailcíme jóváhagyását"
       account_confirmation_instructions: "Ön hamarosan egy e-mailt fog kapni és a benne található link segítségével megerősítheti e-mailcímét. Ellenőrizze a levélszemét (spam) mappáját is! Amint megnyitotta a linket már csatlakozhat is a %{service_name} piactérhez."
       account_confirmation_instructions_title_admin: Üdvözöljük!
-      your_marketplace_has_now_been_created: "Az ön piactere elkészült! Ugye milyen egyszerű volt? Még egy utolsó lépés mielőtt belépne az oldalra:  kérjük erősítse meg az e-mailcímét."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Ön hamarosan egy e-mailt fog kapni és a benne található link segítségével megerősítheti e-mailcímét. Ellenőrizze a levélszemét (spam) mappáját is! Amint megnyitotta a linket megkezdheti a piactere felállítását."
+      contact_support_link_text: ~
   settings:
     account:
       change: Módosítás

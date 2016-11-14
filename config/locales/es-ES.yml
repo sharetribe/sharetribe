@@ -1818,8 +1818,11 @@ es-ES:
       confirm_your_email: "Confirma tu correo electrónico"
       account_confirmation_instructions: "Pronto recibirás un correo electrónico con un vínculo para confirmar tu cuenta de correo. No olvides revisar la carpeta de correo no deseado! Una vez lo hayas hecho, podrás comenzar a usar %{service_name}."
       account_confirmation_instructions_title_admin: "¡Bienvenido a tu comunidad!"
-      your_marketplace_has_now_been_created: "Tu comunidad ha sido creada. ¿Ha sido fácil, verdad? Sólo hay un paso más antes de que puedas entrar a tu sitio: Debes confirmar tu dirección de correo electrónico."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Pronto recibirás un correo electrónico con un vínculo para confirmar tu cuenta de correo. No olvides revisar tu carpeta de correo no deseado! Una vez hayas confirmado tu cuenta, podrás comenzar a configurar tu comunidad."
+      contact_support_link_text: ~
   settings:
     account:
       change: Cambiar
@@ -2060,6 +2063,7 @@ es-ES:
       sorry: "Perdón, no hemos encontrado ningún anuncio que satisfaga tus criterios de búsqueda."
       try_other_search_terms: "Intenta la búsqueda con términos distintos"
     listing_card:
+      add_picture: ~
       no_picture: "No hay imagen"
     search:
       page: Página

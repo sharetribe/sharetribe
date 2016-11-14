@@ -1818,8 +1818,11 @@ de:
       confirm_your_email: "Bitte bestätige deine E-Mail-Adresse"
       account_confirmation_instructions: "Du wirst in Kürze eine E-Mail mit einem Link erhalten, den du anklicken musst, um die angegebene E-Mail-Adresse zu bestätigen. Nach der Bestätigung Deiner E-Mail ist die Registrierung bei %{service_name} abgeschlossen."
       account_confirmation_instructions_title_admin: "Willkommen auf Deinem Marktplatz!"
-      your_marketplace_has_now_been_created: "Dein Marktplatz wurde jetzt erstellt. Das war ja einfach, nicht wahr? Nur noch einen Schritt bevor du dich anmelden kannst: Du solltest deine E-Mail-Adresse verifizieren."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Du wirst gleich eine E-Mail empfangen, die einen Link für die Verifizierung deiner E-Mail-Adresse enthält. Vergiss nicht, dein Spam-Ordner zu kontrollieren! Nachdem du deine E-Mail-Adresse verifiziert hast, kannst du mit der Einrichtung deines Marktplatzes anfangen."
+      contact_support_link_text: ~
   settings:
     account:
       change: Ändern

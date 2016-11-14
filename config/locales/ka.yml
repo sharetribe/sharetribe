@@ -1805,8 +1805,11 @@ ka:
       confirm_your_email: "გთხოვთ დაადასტურეთ თქვენი ელ. ფოსტა"
       account_confirmation_instructions: "თქვენ მალე მიიღებთ წერილს ელ. ფოსტაზე ბმულით რომ დაადასტუროთ თქვენი ელ. ფოსტის მისამართი. არ დაგავიწყდეთ სპამის ფოლდერის შემოწმება. თქვენი ელ. ფოსტის დადასტურების შემდეგ თქვენ შეგიძლით შემოუერთდეთ %{service_name}-ს."
       account_confirmation_instructions_title_admin: "მოგესალმებით თქვენ ბაზარზე!"
-      your_marketplace_has_now_been_created: "თქვენი ბაზარი უკვე შეიქმნა. იოლი იყო არა? მხოლოდ ერთი ნაბიჯი დაგრჩათ სანამ შეხვალთ თქვენს გვერდზე: ჩვენ გვინდა რომ ელ. ფოსტა დაადასტუროთ."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "თქვენ მალე მიიღებთ წერილს ელ. ფოსტაზე ბმულით რომ დაადასტუროთ თქვენი ელ. ფოსტის მისამართი. არ დაგავიწყდეთ სპამის ფოლდერის შემოწმება. ბმულის გახსნის შემდეგ თქვენ შეგიძლიათ დაიწყოთ თქვენი ბაზრის დაყენება."
+      contact_support_link_text: ~
   settings:
     account:
       change: შეცვლა
