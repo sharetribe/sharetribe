@@ -52,8 +52,7 @@ module PaypalService
     def build_paypal_payments
       PaypalService::API::Payments.new(
         events,
-        PaypalService::MerchantInjector.build_paypal_merchant,
-        allow_async: true)
+        PaypalService::MerchantInjector.build_paypal_merchant)
     end
 
     def build_paypal_accounts
