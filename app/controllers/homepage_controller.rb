@@ -13,7 +13,7 @@ class HomepageController < ApplicationController
     all_shapes = shapes.get(community_id: @current_community.id)[:data]
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
-    if FeatureFlagHelper.search_engine == :discovery
+    if FeatureFlagHelper.feature_enabled?(:searchpage_v1)
       @view_type = "grid"
     else
       @view_type = HomepageController.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
@@ -73,11 +73,12 @@ class HomepageController < ApplicationController
       viewport = viewport_geometry(params[:boundingbox], params[:lc], @current_community.location)
     end
 
-    if FeatureFlagHelper.search_engine == :discovery
+    if FeatureFlagHelper.feature_enabled?(:searchpage_v1)
       search_result.on_success { |listings|
-        render layout: "layouts/react_page.haml", template: "search_page/search_page", locals: { bootstrapped_data: listings }
+        render layout: "layouts/react_page.haml", template: "search_page/search_page", locals: { props: searchpage_props(listings, current_page, per_page) }
       }.on_error {
-        render nothing: true, status: 500
+        flash[:error] = t("homepage.errors.search_engine_not_responding")
+        render layout: "layouts/react_page.haml", template: "search_page/search_page", locals: { props: searchpage_props(nil, current_page, per_page) }
       }
     elsif request.xhr? # checks if AJAX request
       search_result.on_success { |listings|
@@ -181,26 +182,33 @@ class HomepageController < ApplicationController
 
     raise_errors = Rails.env.development?
 
-    ListingIndexService::API::Api.listings.search(
-      community_id: @current_community.id,
-      search: search,
-      includes: includes,
-      engine: FeatureFlagHelper.search_engine,
-      raise_errors: raise_errors
-      ).and_then { |res|
-      Result::Success.new(
-        if FeatureFlagHelper.search_engine == :discovery
-          res
-        else
+    if FeatureFlagHelper.feature_enabled?(:searchpage_v1)
+      DiscoveryClient.get(:query_listings,
+                          params: DiscoveryUtils.listing_query_params(search.merge(marketplace_id: @current_community.id)))
+      .rescue {
+        Result::Error.new(nil, code: :discovery_api_error)
+      }
+        .and_then{ |res|
+        Result::Success.new(res[:body])
+      }
+    else
+      ListingIndexService::API::Api.listings.search(
+        community_id: @current_community.id,
+        search: search,
+        includes: includes,
+        engine: FeatureFlagHelper.search_engine,
+        raise_errors: raise_errors
+        ).and_then { |res|
+        Result::Success.new(
           ListingIndexViewUtils.to_struct(
             result: res,
             includes: includes,
             page: search[:page],
             per_page: search[:per_page]
           )
-        end
-      )
-    }
+        )
+      }
+    end
   end
 
   def location_search_params(params, keyword_search_in_use)
@@ -245,8 +253,8 @@ class HomepageController < ApplicationController
 
   def filter_range(price_min, price_max)
     if (price_min && price_max)
-      min = MoneyUtil.parse_str_to_money(price_min, @current_community.default_currency).cents
-      max = MoneyUtil.parse_str_to_money(price_max, @current_community.default_currency).cents
+      min = MoneyUtil.parse_str_to_money(price_min, @current_community.currency).cents
+      max = MoneyUtil.parse_str_to_money(price_max, @current_community.currency).cents
 
       if ((@current_community.price_filter_min..@current_community.price_filter_max) != (min..max))
         (min..max)
@@ -367,6 +375,22 @@ class HomepageController < ApplicationController
       prev: prev_page,
       next: next_page
     }
+  end
+
+  def searchpage_props(bootstrapped_data, page, per_page)
+    SearchPageHelper.searchpage_props(
+      page: page,
+      per_page: per_page,
+      bootstrapped_data: bootstrapped_data,
+      notifications_to_react: notifications_to_react,
+      display_branding_info: display_branding_info?,
+      community: @current_community,
+      path_after_locale_change: @return_to,
+      user: @current_user,
+      search_placeholder: @community_customization&.search_placeholder,
+      current_path: request.fullpath,
+      locale_param: params[:locale],
+      host_with_port: request.host_with_port)
   end
 
 end

@@ -204,7 +204,7 @@ module.exports = {
     'arrow-spacing': 2,
     'generator-star-spacing': 0,
     'babel/generator-star-spacing': 2,
-    'no-confusing-arrow': 2,
+    'no-confusing-arrow': [2, { allowParens: true }],
     'no-duplicate-imports': 2,
     'no-useless-computed-key': 2,
     'no-useless-constructor': 2,

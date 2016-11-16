@@ -28,7 +28,7 @@ Before you get started, the following needs to be installed:
   * **Ruby**. Version 2.3.1 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Ruby, [RVM](https://rvm.io//) is recommended.
   * [**RubyGems**](http://rubygems.org/)
   * **Bundler**: `gem install bundler`
-  * **Node**. Version 6.1 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Node, consider using [n](https://github.com/tj/n) or [nvm](https://github.com/creationix/nvm).
+  * **Node**. Version 6.9 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Node, consider using [n](https://github.com/tj/n) or [nvm](https://github.com/creationix/nvm).
   * [**Git**](http://help.github.com/git-installation-redirect)
   * **A database**. Only MySQL 5.7 has been tested, so we give no guarantees that other databases (e.g. PostgreSQL) work. You can install MySQL Community Server two ways:
     1. If you are on a Mac, use homebrew: `brew install mysql` (*highly* recommended). Also consider installing the [MySQL Preference Pane](https://dev.mysql.com/doc/refman/5.1/en/osx-installation-prefpane.html) to control MySQL startup and shutdown. It is packaged with the MySQL downloadable installer, but can be easily installed as a stand-alone.
@@ -38,16 +38,12 @@ Before you get started, the following needs to be installed:
 
 ### Setting up the development environment
 
-1. Get the code. Cloning this git repo is probably easiest way:
+1. Get the code. Clone this git repository and check out the latest release:
 
   ```bash
   git clone git://github.com/sharetribe/sharetribe.git
-  ```
-
-1. Navigate to the Sharetribe project root directory.
-
-  ```bash
   cd sharetribe
+  git checkout latest
   ```
 
 1. Install the required gems by running the following command in the project root directory:
@@ -56,7 +52,7 @@ Before you get started, the following needs to be installed:
   bundle install
   ```
 
-  **Note:** [`libv8`might fail to build with Clang 7.3](https://github.com/cowboyd/libv8/pull/207), in that case you can try installing V8 manually:
+  **Note:** [`libv8` might fail to build with Clang 7.3](https://github.com/cowboyd/libv8/pull/207), in that case you can try installing V8 manually:
 
   ```bash
   brew tap homebrew/versions
@@ -68,12 +64,12 @@ Before you get started, the following needs to be installed:
   bundle install
   ```
 
-1. Install node modules
+1. Install node modules:
   ```bash
   npm install
   ```
 
-1. Create a database.yml file by copying the example database configuration:
+1. Create a `database.yml` file by copying the example database configuration:
 
   ```bash
   cp config/database.example.yml config/database.yml
@@ -81,23 +77,16 @@ Before you get started, the following needs to be installed:
 
 1. Add your database configuration details to `config/database.yml`. You will probably only need to fill in the password for the database(s).
 
-1. Create a config.yml file by copying the example configution file:
+1. Create a `config.yml` file by copying the example configuration file:
 
   ```bash
   cp config/config.example.yml config/config.yml
   ```
 
-
-1. Create the database:
-
-  ```bash
-  bundle exec rake db:create
-  ```
-
-1. Initialize your database:
+1. Create and initialize the database:
 
   ```bash
-  bundle exec rake db:structure:load
+  bundle exec rake db:create db:structure:load
   ```
 
 1. Run Sphinx index:

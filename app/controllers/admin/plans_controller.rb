@@ -1,6 +1,4 @@
-class Admin::PlansController < ApplicationController
-
-  before_filter :ensure_is_admin
+class Admin::PlansController < Admin::AdminBaseController
 
   # Redirect to external plan service. Nothing else.
   def show

@@ -256,7 +256,7 @@ class PersonMailer < ActionMailer::Base
     @person = new_member
     @email = new_member.emails.last.address
     with_locale(admin.locale, community.locales.map(&:to_sym), community.id) do
-      address = admin.confirmed_notification_email_to
+      address = admin.confirmed_notification_emails_to
       if address.present?
         premailer_mail(:to => address,
                        :from => community_specific_sender(community),
@@ -291,7 +291,10 @@ class PersonMailer < ActionMailer::Base
          to: email_address,
          from: community_specific_sender(@community),
          subject: t("devise.mailer.reset_password_instructions.subject")) do |format|
-       format.html { render layout: false, locals: { reset_token: reset_token } }
+      format.html {
+        render layout: false, locals: { reset_token: reset_token,
+                                        host: @community.full_domain}
+      }
      end
   end
 
@@ -312,7 +315,7 @@ class PersonMailer < ActionMailer::Base
       @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]
 
       subject = if @recipient.has_admin_rights? && !@test_email
-        t("emails.welcome_email.welcome_email_subject_for_marketplace_creator")
+        t("emails.welcome_email_marketplace_creator.welcome_email_subject_for_marketplace_creator")
       else
         t("emails.welcome_email.welcome_email_subject", :community => community.full_name(recipient.locale), :person => person.given_name_or_username)
       end

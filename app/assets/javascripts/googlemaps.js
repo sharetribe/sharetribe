@@ -548,6 +548,7 @@ function addListingMarkers(listings, viewport) {
                   label.set('text', "");
                   label.set('color', "#FFF");
         marker.set("label", label);
+
         markers.push(marker);
         markerContents.push(entry["id"]);
         markersArr.push(marker);

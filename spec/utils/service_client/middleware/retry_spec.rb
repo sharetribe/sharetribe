@@ -32,42 +32,55 @@ describe ServiceClient::Middleware::Retry do
 
     it "returns unmodified ctx if successful" do
       new_ctx = mw.leave(req: { attempts: 1 },
-                         res: { success: true },
+                         res: { status: 200 },
                          opts: {},
                          enter_queue: [],
                          retry_queue: [1, 2, 3])
 
       expect(new_ctx).to eq(req: { attempts: 1},
-                            res: { success: true },
+                            res: { status: 200 },
                             opts: {},
                             enter_queue: [],
                             retry_queue: [1, 2, 3])
     end
 
-    it "retries if unsuccessful" do
+    it "retries if the status is 5xx" do
       new_ctx = mw.leave(req: { attempts: 1 },
-                         res: { success: false },
+                         res: { status: 500 },
                          opts: {},
                          enter_queue: [],
                          retry_queue: [1, 2, 3])
 
-      expect(new_ctx).to eq(req: { attempts: 1 },
-                            res: { success: false },
-                            opts: {},
-                            enter_queue: [1, 2, 3],
-                            retry_queue: [1, 2, 3])
+      expect(new_ctx).to include(req: { attempts: 1 },
+                                 res: { status: 500 },
+                                 opts: {},
+                                 enter_queue: [1, 2, 3],
+                                 retry_queue: [1, 2, 3])
+    end
 
+    it "doesn't retry for 4xx statuses" do
+      new_ctx = mw.leave(req: { attempts: 1 },
+                         res: { status: 404 },
+                         opts: {},
+                         enter_queue: [],
+                         retry_queue: [1, 2, 3])
+
+      expect(new_ctx).to include(req: { attempts: 1 },
+                                 res: { status: 404 },
+                                 opts: {},
+                                 enter_queue: [],
+                                 retry_queue: [1, 2, 3])
     end
 
     it "doesn't retry if max number of attempts has been made" do
       new_ctx = mw.leave(req: { attempts: 3 },
-                         res: { success: false },
+                         res: { status: 500 },
                          opts: {},
                          enter_queue: [],
                          retry_queue: [1, 2, 3])
 
       expect(new_ctx).to eq(req: { attempts: 3 },
-                            res: { success: false },
+                            res: { status: 500 },
                             opts: {},
                             enter_queue: [],
                             retry_queue: [1, 2, 3])
@@ -75,13 +88,13 @@ describe ServiceClient::Middleware::Retry do
 
     it "doesn't retry if max number of attempts (from opts) has been made" do
       new_ctx = mw.leave(req: { attempts: 5 },
-                         res: { success: false },
+                         res: { status: 500 },
                          opts: { max_attempts: 5 },
                          enter_queue: [],
                          retry_queue: [1, 2, 3])
 
       expect(new_ctx).to eq(req: { attempts: 5 },
-                            res: { success: false },
+                            res: { status: 500 },
                             opts: { max_attempts: 5 },
                             enter_queue: [],
                             retry_queue: [1, 2, 3])
@@ -93,14 +106,14 @@ describe ServiceClient::Middleware::Retry do
 
     it "retries and removes the error if unsuccessful" do
       new_ctx = mw.error(req: { attempts: 1 },
-                         res: { success: false },
+                         res: {},
                          error: ArgumentError.new("Some error"),
                          opts: {},
                          enter_queue: [],
                          retry_queue: [1, 2, 3])
 
       expect(new_ctx).to eq(req: { attempts: 1 },
-                            res: { success: false },
+                            res: {},
                             error: nil,
                             opts: {},
                             enter_queue: [1, 2, 3],

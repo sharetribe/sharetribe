@@ -1,0 +1,12 @@
+# we don't want these to be community updated (wording & layout)
+fi:
+  admin:
+    landing_page:
+      landing_page: "Etusivu"
+      landing_page_description: "Etusivu on ehkä markkinapaikkasi tärkein sivu. Se on kuin talosi ulko-ovi: ensimmäinen asia jonka vierailijat näkevät. Sinulla on vain muutama sekunti aikaa vakuuttaa vierailijat siitä, että heidän kannattaa jatkaa selailua. Sivun on oltava houkutteleva ja arvolupauksesi näkyvissä sillä selkeästi."
+      landing_page_preview_description: "%{preview_link} nykyistä etusivuasi ja tee muutoksia %{basic_details_link}- ja %{design_link}-näkymien kautta."
+      custom_landing_page_price_description: "Jos haluat kokonaan sinua varten räätälöidyn etusivun, voit hankkia sen hintaan 99 dollaria kuussa."
+      landing_page_link_text: "Lue lisää räätälöidystä etusivusta"
+      preview_link_text: "Esikatsele"
+      basic_details_link_text: "perustiedot"
+      design_link_text: "ulkoasu"

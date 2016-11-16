@@ -245,6 +245,7 @@ hu:
         enabled_for_you: ~
         enabled_for_all: ~
         new_topbar: ~
+        searchpage: ~
       social_media:
         social_media: "Közösségi média"
         twitter_handle: "Twitter név"
@@ -384,6 +385,12 @@ hu:
       subscription: Feliratkozás
       preview: "A honlap előnézete"
     listing_shapes:
+      availability_title: ~
+      read_more: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: Ajánlattípusok
         description: |-
@@ -469,14 +476,16 @@ hu:
     paypal_accounts:
       marketplace_paypal_integration: "Fizetési beállítások"
       preferences_updated: "Fizetési preferenciák frissítve"
-      marketplace_currency_used: "Ez a piactér %{currency} -pénznemet használ fizetőeszközként. A pénznem megváltoztatásához: %{contact_support_link}"
       contact_support_link_text: "Vegye fel a kapcsolatot a Sharetribe rendszergazdájával"
       integration_info_text: "A Sharetribe-os kifizetéseket a PayPal támogatja. Amennyiben szeretné, hogy felhasználói fizessenek a piactér használatakor kapcsolja össze PayPal fiókjával. Amint csatlakoztatta a PayPal fiókját, kiválaszthatja a minimális tranakciós méretet és a lehetséges jutalékot."
       link_paypal_personal_account_label: "Ön gondoskodik a termékekről illetve szolgáltatásokról személyesen?"
       link_paypal_personal_account: "Abban az esetben A PayPal fiókját is csatlakoztassa fiókjához %{personal_payment_preferences_link}"
       personal_payment_preferences_link_text: "Az Ön személyes piactéri fiókja"
       read_more_about_paypal: "Leírás a Sharetribe fizetési rendszeréről"
-      set_minimum_price_and_fee: "Állítson be egy minimális árat és kezelési költséget"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      currency_change_warning_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Tranzakció minimális mérete:"
       transaction_fee_label: "Tranzakciós díj:"
       minimum_transaction_fee_label: "Minimum tranzakciós költség:"
@@ -883,6 +892,14 @@ hu:
       remember_to_accept: "Ne feledje elfogadni %{requester} felkérését a \"%{listing_title}\" hirdetés ügyében. %{requester} már kifizette a hirdetésben szereplő összeget. Annak érdekében, hogy az átutalás megtörténjen fogadja el a felkérést."
       one_day_left: "Amennyiben nem fogadja el a felkérést egy napon belül az automatikusan visszautasításra kerül és a kifizetés meghiúsul."
       click_here_to_reply: "Kattintson ide a kérésre válaszoláshoz"
+    welcome_email:
+      welcome_email_subject: "Üdvözöljük a %{service_name} oldalán!"
+      welcome_to_marketplace: "Üdvözöljük a %{service_name} oldalán! Örömmel fogadjuk hirdetőink között."
+      love_marketplace_crew: "Szeretettel, a %{service_name} csapata!"
+      welcome_email_footer_text: |-
+          Milyen jellegű e-maileket szeretne kapni %{service_name} -tól?
+          %{settings_link}
+      settings_link_text: "Ellenőrizze a beállításokat"
     new_listing_by_followed_person:
       subject: "%{author_name} új hirdetést adott fel a %{service_name} oldalon."
       has_posted_a_new_listing: "%{author_name} új hirdetést adott fel:"
@@ -894,6 +911,9 @@ hu:
       person_name: "Név:"
       person_email: "E-mail:"
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: "Az útmutató kezdőknek betőltése sikertelen. Tisztában vagyunk a problémával és igyekszünk kijavítani."
     listings:
@@ -1233,6 +1253,8 @@ hu:
       offer_rejected: "Ajánlat visszautasítva"
       offer_canceled: "Ajánlat törölve"
       listing_updated_successfully: "Hidetését frissítette"
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Csak a %{service_name} adminisztrátoroknak van jogosultságuk ezt szerkeszteni."
       only_listing_author_can_close_a_listing: "Csak a hirdetés feladója törölheti a hirdetést\n"
       only_listing_author_can_edit_a_listing: "Csak a hirdetés feladója szerkesztheti a hirdetést\n"
@@ -1344,6 +1366,8 @@ hu:
     error:
       something_went_wrong: "Hiba történt, hibakód: %{error_code}"
       something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: "E-mail értesítést kérek új hozzászólás esetén"
       unfollow: "Nem kérek e-mail értesítést új hozzászólás esetén"
@@ -1467,7 +1491,6 @@ hu:
       request_type: "Kérés típusa"
       requests: Kérések
       rideshare: Telekocsi
-      search_verb: Keresés
       you_have_something_others_do_not: "Ajánlata van?"
       feed_title: "%{listing_type} hirdetések  a %{service_name} oldalon %{optional_category}"
     left_panel_link:
@@ -1491,6 +1514,7 @@ hu:
       booking_to: "Adott időpontig"
       how_paypal_works: "Hogyan működik a PayPal"
       payment_help: "Segítség a fizetéshez"
+      unable_load_availability: ~
     new:
       listing: Hirdetés
       selected_category: "Kategória: %{category}"
@@ -1565,6 +1589,8 @@ hu:
       verification_required: "Visszaigazolás szükséges"
   listing_conversations:
     preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
       details: Részletek
       by: "%{listing} %{author} hirdetőtől"
       payment: Fizetés
@@ -1596,7 +1622,6 @@ hu:
       request_type: "Kérés típus"
       requests: Kérések
       rideshare: Telekocsi
-      search_verb: Keresés
       you_have_something_others_do_not: "Ajánlata van?"
     please_comment: Megjegyzés
   mercury:
@@ -1765,16 +1790,6 @@ hu:
       following: Követés
       follow: Követ
       unfollow: "Követés leállítása"
-  search:
-    show:
-      all_results: "Összes találat"
-      loading_more_search_results: "Mutasson több találati eredményt"
-      offers: Ajánlatok
-      requests: Kérések
-      search: Keresés
-      search_results: Találatok
-      search_returned_no_results: "Nincs találat"
-      search_verb: Keresés
   sessions:
     new:
       create_new_account: "Fiók létrehozása"
@@ -1805,8 +1820,11 @@ hu:
       confirm_your_email: "Kérjük e-mailcíme jóváhagyását"
       account_confirmation_instructions: "Ön hamarosan egy e-mailt fog kapni és a benne található link segítségével megerősítheti e-mailcímét. Ellenőrizze a levélszemét (spam) mappáját is! Amint megnyitotta a linket már csatlakozhat is a %{service_name} piactérhez."
       account_confirmation_instructions_title_admin: Üdvözöljük!
-      your_marketplace_has_now_been_created: "Az ön piactere elkészült! Ugye milyen egyszerű volt? Még egy utolsó lépés mielőtt belépne az oldalra:  kérjük erősítse meg az e-mailcímét."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Ön hamarosan egy e-mailt fog kapni és a benne található link segítségével megerősítheti e-mailcímét. Ellenőrizze a levélszemét (spam) mappáját is! Amint megnyitotta a linket megkezdheti a piactere felállítását."
+      contact_support_link_text: ~
   settings:
     account:
       change: Módosítás
@@ -2024,8 +2042,23 @@ hu:
     day: nap
     days: napok
   web:
+    listings:
+      pricing_units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+    no_listings:
+      sorry: ~
+      try_other_search_terms: ~
     listing_card:
+      add_picture: ~
       no_picture: "Nincs kép"
+    search:
+      page: ~
+      page_of_pages: ~
     topbar:
       menu: Menü
       more: Bővebben
@@ -2041,6 +2074,9 @@ hu:
       signup: Regisztráció
       admin_dashboard: "Rendszergazda kezelőpult"
       language: Nyelv
+    utils:
+      km: km
+      mi: mérföld
     branding:
       powered_by: ~
       create_own: ~

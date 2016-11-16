@@ -1,4 +1,106 @@
-= render :partial => 'layouts/head'
+!!! 5
+
+%head
+  %meta{charset: "utf-8"}
+
+  = render :partial => "layouts/google_analytics_script", locals: {feature_flags: FeatureFlagHelper.feature_flags, community_id: Maybe(@current_community).id.or_else, google_analytics_key: Maybe(@current_community).google_analytics_key.or_else}
+
+  - font_path = APP_CONFIG[:font_proximanovasoft_url]
+  - if font_path.present?
+    = render partial: "layouts/fonts", locals: { font_path: font_path }
+
+  %meta{content: "width=device-width, initial-scale=1.0, user-scalable=no", name: "viewport"}
+  %meta{ :property => "og:type", :content =>"website"}
+  %meta{:"http-equiv" => "content-language", content: "#{I18n.locale}"}
+  %meta{name: "twitter:card", content: "summary"}
+
+  / Additional meta tags for SEO, etc.
+  = content_for :head
+  / marketplace_head
+  - title_service_name = "#{@current_community.full_name(I18n.locale)}"
+
+  - if content_for?(:title)
+    - title = "#{content_for(:title)} - #{title_service_name}"
+  - else
+    - title = "#{title_service_name} - #{community_slogan}"
+
+  - if content_for?(:keywords)
+    - keywords = content_for(:keywords)
+  - else
+    - keywords = StringUtils.keywords(community_slogan)
+
+  - if content_for?(:meta_author)
+    - meta_author = content_for(:meta_author)
+  - else
+    - meta_author = @current_community.name(I18n.locale)
+
+  - full_url = "#{@current_community.full_url}#{request.fullpath}"
+
+  - if content_for?(:meta_description)
+    - meta_description = "#{content_for(:meta_description)}"
+  - else
+    - meta_description = "#{community_description(false)} - #{community_slogan}"
+
+  - if content_for?(:meta_image)
+    - meta_image = content_for(:meta_image)
+    - meta_image_width = content_for(:meta_image_width)
+    - meta_image_height = content_for(:meta_image_height)
+  - else
+    - if @current_community.logo?
+      - meta_image = @current_community.logo.url(:original)
+    - else
+      - meta_image = image_path("sharetribe_icon.png")
+
+  %title= title
+  %meta{ :property => "og:title", :content => title}
+  %meta{ :name => "twitter:title", :content => title}
+  %meta{ :name => "author", :content=> meta_author }
+  %meta{ :name => "keywords", :content => keywords }
+  %meta{ :property => "og:url", :content => full_url}
+  %meta{ :name => "identifier-url", :content => "#{@current_community.full_domain(with_protocol: true)}"}
+  %meta{ :name => "copyright", :content => "#{@current_community.name(I18n.locale)}"}
+  %meta{ :name => "twitter:url", :content => full_url}
+  %meta{ :property => "og:site_name", :content =>"#{@current_community.full_name(locale)}"}
+  %meta{ :name => "description", :content => strip_tags(meta_description).html_safe}
+  %meta{ :property => "og:description", :content => strip_tags(meta_description).html_safe}
+  %meta{ :name => "twitter:description", :content => strip_tags(meta_description).html_safe}
+  %meta{ :property => "og:image", :content => meta_image}
+  - if meta_image_width && meta_image_height
+    %meta{ :property => "og:image:width", :content => meta_image_width}
+    %meta{ :property => "og:image:height", :content => meta_image_height}
+  %meta{ :name => "twitter:image", :content => meta_image}
+  %link{:rel => "canonical", :href => full_url}
+  - if @facebook_locale_code
+    %meta{ :property => "og:locale", :content => @facebook_locale_code}
+
+  - if @current_community.twitter_handle.present?
+    %meta{ :name => "twitter:site", :content => "@#{@current_community.twitter_handle}"}
+
+  - if @current_community.facebook_connect_id
+    %meta{ :property => "fb:app_id", :content => "#{@current_community.facebook_connect_id}" }
+
+  = stylesheet_link_tag "react_page/styles"
+  = stylesheet_link_tag "app-bundle"
+
+  / Detect if JS is enabled.
+  :javascript
+    document.documentElement.className += ' js-enabled';
+
+  = csrf_meta_tag
+
+  %link{:rel => "image_src", :href => meta_image}
+
+  %link{:rel => "shortcut icon", :href => @current_community.favicon }
+
+  %link{:rel => "apple-touch-icon-precomposed",:href => @current_community.logo.url(:apple_touch)}
+
+  = auto_discovery_link_tag(:atom, atom_feed_url )
+
+  - unless on_admin?
+    = @current_community.custom_head_script.try(:html_safe)
+
+  -# A tag for google webmaster site verification
+  %meta{ name: "google-site-verification", content: "JUqB3tYmezYEJNAkw8MUdmIocAGztY85eaoNKBD5j0Q"}
 
 %body
 
@@ -11,16 +113,10 @@
       - react_component_cache(name: "onboarding_topbar", props: props) do
         = react_component("OnboardingTopBar", props: props, prerender: true)
 
-  - if FeatureFlagHelper.feature_enabled?(:topbar_v1)
-    - if(search_mode != :keyword )
-      - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
-      - key_param = maps_key ? "&key=#{maps_key}" : ""
-      = javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places#{key_param}"
-    - props = topbar_props
-    - cache props do
-      = react_component("TopbarApp", props: props, prerender: true, id: 'topbar-container')
-  - else
-    = render partial: 'layouts/global_header', locals: header_props()
+  - if(search_mode != :keyword )
+    - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
+    - key_param = maps_key ? "&key=#{maps_key}" : ""
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places#{key_param}"
 
   - if display_expiration_notice?
     = render partial: "layouts/expiration_notice",

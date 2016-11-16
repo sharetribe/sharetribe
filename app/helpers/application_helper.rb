@@ -334,7 +334,7 @@ module ApplicationHelper
       :topic => :general,
       :text => t("admin.left_hand_navigation.preview"),
       :icon_class => icon_class("eye"),
-      :path => search_path(big_cover_photo: true),
+      :path => homepage_without_locale_path(big_cover_photo: true, locale: nil),
       :name => "preview",
     }
 
@@ -397,7 +397,20 @@ module ApplicationHelper
         :icon_class => icon_class("topbar_menu"),
         :path => admin_topbar_edit_path,
         :name => "topbar"
-      },
+      }
+    ]
+
+    if APP_CONFIG.show_landing_page_admin
+      links << {
+        :topic => :configure,
+        :text => t("admin.landing_page.landing_page"),
+        :icon_class => icon_class("home"),
+        :path => admin_landing_page_path,
+        :name => "landing_page",
+      }
+    end
+
+    links += [
       {
         :topic => :configure,
         :text => t("admin.categories.index.listing_categories"),

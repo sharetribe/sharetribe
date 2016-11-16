@@ -3,6 +3,7 @@
 # Table name: people
 #
 #  id                                 :string(22)       not null, primary key
+#  uuid                               :binary(16)       not null
 #  community_id                       :integer          not null
 #  created_at                         :datetime
 #  updated_at                         :datetime
@@ -52,6 +53,7 @@
 #  index_people_on_reset_password_token          (reset_password_token) UNIQUE
 #  index_people_on_username                      (username)
 #  index_people_on_username_and_community_id     (username,community_id) UNIQUE
+#  index_people_on_uuid                          (uuid) UNIQUE
 #
 
 require 'json'
@@ -176,8 +178,17 @@ class Person < ActiveRecord::Base
     set_default_preferences unless self.preferences
   end
 
+  after_initialize :add_uuid
+  def add_uuid
+    self.uuid ||= UUIDUtils.create_raw
+  end
+
   def uuid_object
-    UUIDTools::UUID.parse_raw(Base64.urlsafe_decode64(self.id))
+    if self[:uuid].nil?
+      nil
+    else
+      UUIDUtils.parse_raw(self[:uuid])
+    end
   end
 
   # Creates a new email
@@ -207,7 +218,7 @@ class Person < ActiveRecord::Base
   end
 
   def self.username_available?(username, community_id)
-    !username.in?(USERNAME_BLACKLIST) &&
+    !USERNAME_BLACKLIST.include?(username.downcase) &&
       !Person
         .where("username = :username AND (is_admin = '1' OR community_id = :cid)", username: username, cid: community_id)
         .present?
@@ -317,7 +328,8 @@ class Person < ActiveRecord::Base
 
   def store_picture_from_facebook()
     if self.facebook_id
-      resp = RestClient.get("http://graph.facebook.com/#{self.facebook_id}/picture?type=large&redirect=false")
+      resp = RestClient.get(
+        "http://graph.facebook.com/#{FacebookSdkVersion::SERVER}/#{self.facebook_id}/picture?type=large&redirect=false")
       url = JSON.parse(resp)["data"]["url"]
       self.picture_from_url(url)
     end

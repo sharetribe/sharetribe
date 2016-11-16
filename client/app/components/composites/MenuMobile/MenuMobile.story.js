@@ -1,6 +1,8 @@
 import r from 'r-dom';
 import { storify, defaultRailsContext } from '../../Styleguide/withProps';
 
+import { Image } from '../../../models/ImageModel';
+
 import MenuMobile from './MenuMobile';
 
 const { storiesOf } = storybookFacade;
@@ -109,7 +111,7 @@ storiesOf('Top bar')
               ],
             },
             avatar: {
-              image: 'https://www.gravatar.com/avatar/d0865b2133d55fd507639a0fd1692b9a',
+              image: new Image({ url: 'https://www.gravatar.com/avatar/d0865b2133d55fd507639a0fd1692b9a' }),
               url: '#',
             },
             newListingButton: {

@@ -9,6 +9,8 @@ require File.expand_path('../config_loader', __FILE__)
 
 require File.expand_path('../available_locales', __FILE__)
 
+require File.expand_path('../facebook_sdk_version', __FILE__)
+
 # Load the logger
 require File.expand_path('../../lib/sharetribe_logger', __FILE__)
 
@@ -40,6 +42,9 @@ module Kassi
     config.autoload_paths += Dir[Rails.root.join('app', 'view_utils')]
     config.autoload_paths += Dir[Rails.root.join('app', 'forms')]
     config.autoload_paths += Dir[Rails.root.join('app', 'validators')]
+
+    # Fakepal
+    config.autoload_paths += Dir[Rails.root.join('lib', 'services')]
 
     # Load also Jobs that are used by migrations
     config.autoload_paths += Dir[Rails.root.join('db', 'migrate_jobs', '**/')]
@@ -92,6 +97,7 @@ module Kassi
 
     # Resolve current marketplace and append it to env
     config.middleware.use "MarketplaceLookup"
+    config.middleware.use "SessionContextMiddleware"
 
     # Map of removed locales and their fallbacks
     config.REMOVED_LOCALE_FALLBACKS = Sharetribe::REMOVED_LOCALE_FALLBACKS
@@ -206,6 +212,7 @@ module Kassi
 
     # Map custom errors to error pages
     config.action_dispatch.rescue_responses["PeopleController::PersonDeleted"] = :gone
+    config.action_dispatch.rescue_responses["PeopleController::PersonBanned"] = :gone
     config.action_dispatch.rescue_responses["ListingsController::ListingDeleted"] = :gone
     config.action_dispatch.rescue_responses["ApplicationController::FeatureFlagNotEnabledError"] = :not_found
 

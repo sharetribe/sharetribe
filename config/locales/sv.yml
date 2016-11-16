@@ -244,6 +244,7 @@ sv:
         enabled_for_you: ~
         enabled_for_all: ~
         new_topbar: ~
+        searchpage: ~
       social_media:
         social_media: "Social media"
         twitter_handle: "Twitter användarnamn"
@@ -383,6 +384,12 @@ sv:
       subscription: ~
       preview: ~
     listing_shapes:
+      availability_title: ~
+      read_more: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: Ordertyper
         description: "Ordertyper bestämmer hur orderprocessen fungerar på din sida. Du kan välja om dina användare ska hyra, sälja eller kanske bara skicka meddelanden och kommunicera via gratismeddelanden."
@@ -470,14 +477,16 @@ sv:
     paypal_accounts:
       marketplace_paypal_integration: Betalningsegenskaper
       preferences_updated: "Betalningsinställningarna uppdaterade"
-      marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: "Betalningssystemet på %{service_name} drivs av PayPal. Om du vill aktivera så att dina användare kan göra betalningar på din marknadsplats så måste du koppla ditt PayPal-konto och välja minsta annonspriset och avgiften som du ska ta i provision från varje transaktion."
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: "Läs mer om Sharetribes betalningssystem"
-      set_minimum_price_and_fee: "Ställ in lägsta pris och transaktionskonstnad"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      currency_change_warning_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Lägsta annonspris:"
       transaction_fee_label: "Transaktionsavgift:"
       minimum_transaction_fee_label: "Lägsta transaktionskostnad:"
@@ -884,6 +893,14 @@ sv:
       remember_to_accept: "Kom ihåg att acceptera förfrågan från %{requester} angående annonsen %{listing_title}. %{requester} har redan betalat för annonsen. Du måste acceptera förfrågan för att få betalt.."
       one_day_left: "Om du inte accepterar förfrågan inom en dag så kommer den automatiskt att avslås och du får inte någon betalning."
       click_here_to_reply: "Klicka här för att svara på förfrågan"
+    welcome_email:
+      welcome_email_subject: "Välkommen till %{service_name}"
+      welcome_to_marketplace: "Välkommen till %{service_name}! Kul att ha dig ombord."
+      love_marketplace_crew: "Vänligen,<br /><i>%{service_name} teamet</i>"
+      welcome_email_footer_text: |-
+          Vilken typ av e-postmeddelanden vill du få från %{service_name}?
+          %{settings_link}
+      settings_link_text: "Kontrollera dina inställningar"
     new_listing_by_followed_person:
       subject: "%{author_name} har skapat en ny annons på %{service_name}"
       has_posted_a_new_listing: "%{author_name} har skapat en ny annons:"
@@ -895,6 +912,9 @@ sv:
       person_name: ~
       person_email: ~
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: ~
     listings:
@@ -1114,7 +1134,7 @@ sv:
   landing_page:
     hero:
       search: ~
-      signup: ~
+      signup: "Gå med"
       search_placeholder: ~
       search_location_placeholder: Plats
     listings:
@@ -1234,6 +1254,8 @@ sv:
       offer_rejected: "Erbjudandet nekades"
       offer_canceled: "Erbjudande avbrutet"
       listing_updated_successfully: "Annons uppdaterades"
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Bara %{service_name} admin har åtkomst till denna plats"
       only_listing_author_can_close_a_listing: "Bara ägaren av annonsen kan stänga annonsen"
       only_listing_author_can_edit_a_listing: "Bara ägaren av annonsen kan redigera annonsen"
@@ -1341,6 +1363,8 @@ sv:
     error:
       something_went_wrong: "Något gick fel, felmeddelande: %{error_code}"
       something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: "Få e-post om nya kommentarer"
       unfollow: "Få inga meddelanden om nya kommentarer"
@@ -1464,7 +1488,6 @@ sv:
       request_type: "Typ av förfrågan"
       requests: Förfrågan
       rideshare: Samåkning
-      search_verb: Sök
       you_have_something_others_do_not: "Har du något att erbjuda?"
       feed_title: "%{listing_type} på %{service_name}%{optional_category}"
     left_panel_link:
@@ -1488,6 +1511,7 @@ sv:
       booking_to: Till
       how_paypal_works: "Hur PayPal fungerar"
       payment_help: Betalningshjälp
+      unable_load_availability: ~
     new:
       listing: annons
       selected_category: "Kategori: %{category}"
@@ -1562,6 +1586,8 @@ sv:
       verification_required: "Verifiering krävs"
   listing_conversations:
     preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
       details: Detaljer
       by: "%{listing} av %{author}"
       payment: Betalning
@@ -1593,7 +1619,6 @@ sv:
       request_type: "Typ av förfrågan"
       requests: Förfrågan
       rideshare: Samåkning
-      search_verb: Sök
       you_have_something_others_do_not: "Har du något att erbjuda?"
     please_comment: Kommentera
   mercury:
@@ -1604,16 +1629,16 @@ sv:
   paypal_accounts:
     payout_info_title: Utbetalningsinformation
     paypal_account_email_connected: "<del>1. Anslut PayPal konto</del> Klart!"
-    payout_info_paypal: ~
+    payout_info_paypal: "%{service_name} använder PayPal för hantering av betalningar. Du behöver ett %{create_paypal_account_link} som är anslutet till Campify för att ta emot betalningar från dina annonser. Du behöver också ge %{service_name} tillåtelse att ta ut en serviceavgift."
     paypal_billing_agreement_made: "<del>2. Ge %{service_name} tillåtelse att ta ut en serviceavgift</del> Klart!"
     commission_permission_needed: ~
-    create_paypal_account_link_text: ~
-    connected_account: "PayPal konto %{email} kopplades korrekt."
+    create_paypal_account_link_text: PayPal-konto
+    connected_account: "PayPal-kontot '%{email}' är anslutet."
     paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info_label: "Ditt PayPal-konto måste kunna ta emot betalningar. Detta kan kräva att du har ett \"Business account\"."
     paypal_receive_funds_info_australia_only: ~
-    paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: ~
+    paypal_receive_funds_info: "Om du får ett felmeddelande när du försöker ansluta ditt PayPal-konto to %{service_name} kan du uppgradera ditt konto genom att %{upgrade_paypal_account_link}. Det är gratis och enkelt att uppdatera. Om du är privatperson rekommenderar PayPal att du använder ditt eget namn som \"Business Name\"."
+    upgrade_paypal_account_link_text: "logga in och klicka på uppgraderings-länken"
     admin_account_not_connected: ~
     contact_admin_link_text: ~
     you_are_ready_to_accept_payments: "Du är redo att ta emot betalningar!"
@@ -1629,12 +1654,12 @@ sv:
       create_paypal_account: "klicka här"
       upgrade_paypal_account: "logga in till ditt PayPal konto"
       paypal_account_billing_agreement: "2. Ge %{service_name} tillåtelse att ta ut en serviceavgift."
-      follow_steps: ~
+      follow_steps: "Följ stegen nedan för att börja ta emot betalningar:"
       connect_paypal_account_title: ~
-      connect_paypal_account_title_with_step: ~
-      connect_paypal_account_instructions: ~
+      connect_paypal_account_title_with_step: "Steg %{current_step}/%{total_steps}: Anslut ditt PayPal-konto"
+      connect_paypal_account_instructions: "Klicka på knappen nedan för att logga in på PayPal och ansluta ditt konto till %{service_name}."
       connect_paypal_account: "Koppla ditt PayPal konto"
-      paypal_account_billing_agreement_with_step: ~
+      paypal_account_billing_agreement_with_step: "Steg %{current_step}/%{total_steps}: Tillåt debitering av serviceavgift"
       paypal_account_billing_agreement_info_both: "När du gör en försäljning på %{service_name}, så kommer en serviceavgift på %{commission_from_seller} av det totala priset (exkl. frakt), minsta avgift %{minimum_commission} att dras från ditt PayPalkonto. Du behöver tillåta betalningar på %{service_name}, och du behöver godkänna att denna avgift tas. Avgiften inkluderar inte %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "När du gör en försäljning på %{service_name}, så kommer en serviceavgift på %{minimum_commission} att dras från ditt PayPalkonto. För att acceptera betalningar på %{service_name} så behöver du tillåta att denna avgift tas. Avgiften inkluderar inte %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "När du gör en försäljning på %{service_name}, så kommer en serviceavgift på %{commission_from_seller} av det totala priset (exkl. frakt) att dras från ditt PayPalkonto. För att godkänna betalningar på %{service_name} så behöver du tillåta att denna avgift tas. Avgiften inkluderar inte %{paypal_info_link}"
@@ -1651,17 +1676,17 @@ sv:
       something_went_wrong: "Något gick fel. Vänligen försök igen. Om problemet kvarstår kontakta sidans administratör."
       account_not_verified: "Du har inte verifierat ditt PayPal-konto. Du behöver gå till www.paypal.com och verifiera ditt konto innan du kan gå vidare."
       account_restricted: "Ditt PayPalkonto är begränsat och kan inte kopplas. Vänligen logga in på PayPal.com och hitta vad detta beror på eller kontakta PayPals användarsupport för att lösa detta."
-    paypal_account_connected_title: ~
-    paypal_account_connected: ~
+    paypal_account_connected_title: "PayPal-kontot är anslutet"
+    paypal_account_connected: "PayPal-kontot <%{email}> är nu anslutet till %{service_name}."
     change_account: "Byt konto"
     missing: "Du har öppna annonser, men ditt PayPal-konto är inte inställt för att ta emot betalningar. Koppla ditt PayPal-konto och ge %{service_name} tillåtelse at ta en transaktionsavgift från din %{settings_link}."
     from_your_payment_settings_link_text: betalningsinställningar
-    redirect_message: ~
-    redirect_link_text: ~
-    paypal_account_all_set_up: ~
-    can_receive_payments: ~
-    paypal_account_connected_summary: ~
-    paypal_permission_granted_summary: ~
+    redirect_message: "Skickar dig vidare till PayPal. Klicka %{redirect_link} om sidan inte öppnas automatiskt."
+    redirect_link_text: här
+    paypal_account_all_set_up: "Hurra, allting är klart!"
+    can_receive_payments: "Du kan nu ta emot betalning för dina annonser."
+    paypal_account_connected_summary: "PayPal-kontot <%{email}> är anslutet"
+    paypal_permission_granted_summary: "Villkoren för serviceavgifter har godkänts"
   paypal:
     pay_with_paypal: "Fortsätt till betalning"
     checkout_with_paypal: "Gå till kassan med PayPal"
@@ -1761,16 +1786,6 @@ sv:
       following: Följer
       follow: Följ
       unfollow: "Sluta följ"
-  search:
-    show:
-      all_results: "Alla resultat"
-      loading_more_search_results: "Laddar fler sökresultat"
-      offers: Erbjudanden
-      requests: Förfrågningar
-      search: Sök
-      search_results: Sökresultat
-      search_returned_no_results: "Din sökning gav inga resultat."
-      search_verb: Sök
   sessions:
     new:
       create_new_account: "Skapa ett nytt konto"
@@ -1801,8 +1816,11 @@ sv:
       confirm_your_email: "Bekräfta din e-post"
       account_confirmation_instructions: "Du kommer snart att få ett e-postmeddelande med en länk som du behöver klicka på för att bekräfta din e-postadress du angav. Efter du har bekräftat din e-post så kan du gå med %{service_name}."
       account_confirmation_instructions_title_admin: "Välkommen till din marknadsplats!"
-      your_marketplace_has_now_been_created: "Din marknadsplats sida har nu skapats. Det var enkelt, var det inte? Det är bara ett till steg innan du kan komma åt sidan, du behöver bekräfta din e-postadress."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Du kommer snart att få ett e-postmeddelande med en länk som du behöver klicka på för att bekräfta din e-postadress du angav. Efter du har bekräftat din e-post så ´kan du böja konfigurera din marknadsplats."
+      contact_support_link_text: ~
   settings:
     account:
       change: Ändra
@@ -2025,23 +2043,41 @@ sv:
     day: dag
     days: dagar
   web:
+    listings:
+      pricing_units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+    no_listings:
+      sorry: ~
+      try_other_search_terms: ~
     listing_card:
+      add_picture: ~
       no_picture: ~
+    search:
+      page: ~
+      page_of_pages: ~
     topbar:
-      menu: ~
+      menu: Meny
       more: ~
       search_placeholder: ~
       search_location_placeholder: Plats
       user: ~
-      inbox: ~
-      profile: ~
+      inbox: Inkorg
+      profile: Profil
       manage_listings: ~
-      settings: ~
-      logout: ~
-      login: ~
-      signup: ~
+      settings: Inställningar
+      logout: "Logga ut"
+      login: "Logga in"
+      signup: "Gå med"
       admin_dashboard: ~
       language: ~
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~

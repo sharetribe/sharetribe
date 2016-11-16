@@ -153,7 +153,7 @@ module MarketplaceService::API
           consent: "SHARETRIBE1.0",
           ident: ident,
           settings: {"locales" => [locale]},
-          available_currencies: available_currencies_based_on(params[:marketplace_country].or_else("us")),
+          currency: country_currency(params[:marketplace_country].or_else("us")),
           country: params[:marketplace_country].upcase.or_else(nil)
         }
       end
@@ -244,7 +244,7 @@ module MarketplaceService::API
         return current_ident
       end
 
-      def available_currencies_based_on(country_code)
+      def country_currency(country_code)
         Maybe(MarketplaceService::AvailableCurrencies::COUNTRY_CURRENCIES[country_code.upcase]).or_else("USD")
       end
 

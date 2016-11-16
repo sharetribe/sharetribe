@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.message {
+  padding: var(--NoResults_spacing) 0;
+  text-align: center;
+  font-size: var(--NoResults_fontSize);
+  line-height: var(--NoResults_lineHeight);
+  color: var(--NoResults_textColor);
+}

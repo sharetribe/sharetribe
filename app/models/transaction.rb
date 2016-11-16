@@ -4,6 +4,7 @@
 #
 #  id                                :integer          not null, primary key
 #  starter_id                        :string(255)      not null
+#  starter_uuid                      :binary(16)       not null
 #  listing_id                        :integer          not null
 #  listing_uuid                      :binary(16)       not null
 #  conversation_id                   :integer
@@ -21,7 +22,8 @@
 #  minimum_commission_currency       :string(255)
 #  payment_gateway                   :string(255)      default("none"), not null
 #  listing_quantity                  :integer          default(1)
-#  listing_author_id                 :string(255)
+#  listing_author_id                 :string(255)      not null
+#  listing_author_uuid               :binary(16)       not null
 #  listing_title                     :string(255)
 #  unit_type                         :string(32)
 #  unit_price_cents                  :integer
@@ -85,6 +87,30 @@ class Transaction < ActiveRecord::Base
 
   def booking_uuid_object=(uuid)
     self.booking_uuid = UUIDUtils.raw(uuid)
+  end
+
+  def community_uuid_object
+    if self[:community_uuid].nil?
+      nil
+    else
+      UUIDUtils.parse_raw(self[:community_uuid])
+    end
+  end
+
+  def starter_uuid_object
+    if self[:starter_uuid].nil?
+      nil
+    else
+      UUIDUtils.parse_raw(self[:starter_uuid])
+    end
+  end
+
+  def listing_author_uuid_object
+    if self[:listing_author_uuid].nil?
+      nil
+    else
+      UUIDUtils.parse_raw(self[:listing_author_uuid])
+    end
   end
 
   def status

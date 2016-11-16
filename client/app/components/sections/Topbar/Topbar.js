@@ -22,7 +22,6 @@ import MenuMobile from '../../composites/MenuMobile/MenuMobile';
 import MenuPriority from '../../composites/MenuPriority/MenuPriority';
 import SearchBar from '../../composites/SearchBar/SearchBar';
 
-
 const LABEL_TYPE_MENU = 'menu';
 const LABEL_TYPE_DROPDOWN = 'dropdown';
 const SEARCH_PARAMS_TO_KEEP = ['view', 'locale'];
@@ -61,8 +60,7 @@ const avatarDropdownProps = (avatarDropdown, customColor, username, isAdmin, not
     adminDashboard: t('web.topbar.admin_dashboard'),
     logout: t('web.topbar.logout'),
   };
-  const avatar = { ...avatarDropdown.avatar, color };
-  return { actions, translations, customColor: color, isAdmin, notificationCount, ...avatarDropdown, avatar };
+  return { actions, translations, customColor: color, isAdmin, notificationCount, ...avatarDropdown };
 };
 
 const mobileProfileLinks = function mobileProfileLinks(username, isAdmin, router, location, customColor, unReadMessagesCount) {

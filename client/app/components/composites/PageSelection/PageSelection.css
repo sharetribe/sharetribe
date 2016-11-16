@@ -1,0 +1,70 @@
+.pageSelection {
+  margin: 2em 0;
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+  align-items: center;
+}
+
+.arrowButtonsWide {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 44px;
+  width: 78px;
+}
+
+.pageOf {
+  white-space: nowrap;
+  font-size: var(--PageSelection_fontSize);
+  color: var(--PageSelection_textColor);
+  margin: 0;
+}
+
+.selectContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.select {
+  display: inline-block;
+  font-size: var(--PageSelection_fontSizeSelect);
+  line-height: var(--PageSelection_lineHeight);
+  padding: 7px 36px 7px 18px;
+  margin: 0 var(--PageSelection_marginInline);
+  color: var(--PageSelection_textColorDark);
+  background-color: var(--PageSelection_bgColorSelect);
+
+  /* This data url contains arrow icon */
+  background-image: url('data:image/svg+xml;charset=utf-8;base64,PHN2ZyBjbGFzcz0iYXJyb3ciIHdpZHRoPSI4IiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjEzIDcgOCA2IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIHN0cm9rZT0iIzFDMUUyMSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSIgZD0iTTE0IDhsMyAzLjM5MUwyMCA4Ii8+PC9zdmc+');
+  background-repeat: no-repeat;
+  background-position: right var(--PageSelection_arrowSelect) center;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: var(--PageSelection_shadow);
+  transition: border-color ease-in-out 100ms, box-shadow ease-in-out 100ms;
+  cursor: pointer;
+  appearance: none;
+
+  & > option {
+    appearance: none;
+    background: none;
+  }
+
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:hover {
+    box-shadow: var(--PageSelection_shadowHover);
+  }
+
+  &:focus {
+    outline: none;
+    border: 0;
+  }
+}

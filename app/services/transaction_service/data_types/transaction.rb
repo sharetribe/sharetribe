@@ -35,7 +35,7 @@ module TransactionService::DataTypes::Transaction
     [:booking, :hash])
 
   TransactionResponse = EntityUtils.define_builder(
-    [:transaction, :hash, :mandatory],
+    [:transaction, :hash, :optional],
     [:gateway_fields, :hash, :optional],
     [:transaction_service_fields, :hash, :optional])
 

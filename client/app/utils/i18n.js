@@ -14,7 +14,7 @@
 //
 
 import { span } from 'r-dom';
-import { bind } from 'lodash';
+import { bind, includes } from 'lodash';
 
 const isServer = function isServer() {
   return typeof window === 'undefined';
@@ -48,10 +48,11 @@ const missingTranslationMessage = function missingTranslationMessage(scope) {
   return `[missing "${scope}" translation]`;
 };
 
-const initialize = function initialize(i18nLocale, i18nDefaultLocale, env) {
+const initialize = function initialize(i18nLocale, i18nDefaultLocale, env, localeInfo) {
   I18n.locale = i18nLocale;
   I18n.defaultLocale = i18nDefaultLocale;
   I18n.interpolationMode = 'split';
+  I18n.localeInfo = localeInfo != null ? localeInfo : { ident: i18nLocale };
 
   if (env === 'development') {
     I18n.missingTranslation = function displayMissingTranslation(scope) {
@@ -77,6 +78,43 @@ const initialize = function initialize(i18nLocale, i18nDefaultLocale, env) {
   }
 };
 
+const localizedString = function localizedString(localizationMap, scope) {
+  if (localizationMap == null || localizationMap.size === 0) {
+    return missingTranslationMessage(scope);
+  }
+
+  if (localizationMap.get(I18n.locale)) {
+    return localizationMap.get(I18n.locale);
+  } else if (localizationMap.get(I18n.defaultLocale)) {
+    return localizationMap.get(I18n.defaultLocale);
+  } else {
+    return localizationMap.first();
+  }
+};
+
+const localizedPricingUnit = function localizedPricingUnit(pricingUnit) {
+  const pricingUnitType = pricingUnit.get(':unit');
+  if (pricingUnitType === 'custom') {
+    return localizedString(pricingUnit.get(':customTranslations'), 'pricing unit');
+  } else if (includes(['piece', 'hour', 'day', 'night', 'week', 'month'], pricingUnitType)) {
+    return I18n.t(`web.listings.pricing_units.${pricingUnitType}`);
+  }
+  return missingTranslationMessage(pricingUnitType);
+};
+
+const currentLocale = function currentLocale() {
+  return I18n.localeInfo;
+};
+
+const fullLocaleCode = function fullLocaleCode() {
+  const localeInfo = currentLocale();
+  if (!(localeInfo && localeInfo.language && localeInfo.region)) {
+    throw new Error('No locale found');
+  }
+
+  return `${localeInfo.language.toLowerCase()}-${localeInfo.region.toUpperCase()}`;
+};
+
 // Bind functions to I18n
 const translate = bind(I18n.translate, I18n);
 const localize = bind(I18n.localize, I18n);
@@ -85,4 +123,16 @@ const t = bind(I18n.t, I18n);
 const l = bind(I18n.l, I18n);
 const p = bind(I18n.p, I18n);
 
-export { initialize, translate, localize, pluralize, t, l, p };
+export {
+  currentLocale,
+  fullLocaleCode,
+  initialize,
+  localize,
+  localizedString,
+  localizedPricingUnit,
+  pluralize,
+  translate,
+  l,
+  p,
+  t,
+};

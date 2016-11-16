@@ -89,6 +89,7 @@ function translate_validation_messages(locale) {
       address_validator: jQuery.validator.format(json.validation_messages.address_validator),
       money: jQuery.validator.format(json.validation_messages.money),
       night_selected: jQuery.validator.format(json.validation_messages.night_selected),
+      availability_range: jQuery.validator.format(json.validation_messages.availability_range),
       min_bound: formatMinMaxMessage(json.validation_messages.min_bound),
       max_bound: formatMinMaxMessage(json.validation_messages.max_bound),
       number_min: jQuery.validator.format(json.validation_messages.min),

@@ -244,6 +244,7 @@ fi:
         enabled_for_you: "Käytössä vain sinulla"
         enabled_for_all: "Käytössä kaikilla"
         new_topbar: "Uusi yläpalkki (näkyy joka sivulla)"
+        searchpage: ~
       social_media:
         social_media: "Sosiaalinen media"
         twitter_handle: Twitter-tili
@@ -383,6 +384,12 @@ fi:
       subscription: Tilaus
       preview: "Esikatsele sivustoa"
     listing_shapes:
+      availability_title: ~
+      read_more: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: Tilaustyypit
         description: "Tilaustyypit määrittelevät, kuinka tilaaminen ja käyttäjien välinen viestintä toimii sivustollasi. Voit päättää, voivatko käyttäjäsi esimerkiksi myydä tai vuokrata asioita toisiltaan, tai kenties vain jättää ilmoituksia ja antaa tavaroita pois ilmaiseksi."
@@ -470,14 +477,16 @@ fi:
     paypal_accounts:
       marketplace_paypal_integration: Maksuasetukset
       preferences_updated: "Maksuasetukset päivitetty"
-      marketplace_currency_used: "Tämä markkinapaikka on asetettu käyttämään valuuttaa %{currency}. Jos haluat vaihtaa käytössä olevaa valuuttaa, %{contact_support_link}."
       contact_support_link_text: "ota yhteys Sharetriben ylläpitoon"
       integration_info_text: "Sharetribe-markkinapaikkojen maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun sivustosi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus sekä ilmoituksen minimihinta."
       link_paypal_personal_account_label: "Aiotko lisätä tavaroita tai palveluita tarjolle myös itse?"
       link_paypal_personal_account: "Jos aiot, sinun pitää yhdistää PayPal-tiliisi myös %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "omiin käyttäjätietoihisi"
       read_more_about_paypal: "Lue lisää Sharetriben maksujärjestelmästä"
-      set_minimum_price_and_fee: "Aseta maksutapahtuman minimikoko ja välityspalkkioprosentti"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      currency_change_warning_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Maksutapahtuman minimikoko:"
       transaction_fee_label: "Välityspalkkioprosentti:"
       minimum_transaction_fee_label: "Minimipalkkio:"
@@ -884,6 +893,12 @@ fi:
       remember_to_accept: "Muista hyväksyä pyyntö käyttäjältä %{requester} koskien tilausta \"%{listing_title}\". %{requester} on jo maksanut tilauksen. Sinun pitää hyväksyä tilaus saadaksesi maksun tilillesi."
       one_day_left: "Mikäli et hyväksy pyyntöä yhden päivän sisällä, pyyntö hylätään automaattisesti etkä saa maksua tilillesi."
       click_here_to_reply: "Klikkaa tästä vastataksesi pyyntöön"
+    welcome_email:
+      welcome_email_subject: "Tervetuloa %{community}-palveluun"
+      welcome_to_marketplace: "Tervetuloa %{service_name}-palvelun jäseneksi! Mukavaa kun liityit."
+      love_marketplace_crew: "Terveisin,<br /><i>%{service_name}-tiimi</i>"
+      welcome_email_footer_text: "Millaisia sähköpostiviestejä haluat saada %{service_name}-palvelusta? %{settings_link}"
+      settings_link_text: "Tarkista sähköpostiasetuksesi"
     new_listing_by_followed_person:
       subject: "%{author_name} lisäsi ilmoituksen %{service_name}-palveluun"
       has_posted_a_new_listing: "%{author_name} on lisännyt uuden ilmoituksen:"
@@ -895,6 +910,9 @@ fi:
       person_name: "Nimi:"
       person_email: "Sähköpostiosoite:"
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: "Aloitusopasta ei voitu ladata. Tieto virheestä on lähetetty meille ja korjaamme sen mahdollisimman pian."
     listings:
@@ -1234,6 +1252,8 @@ fi:
       offer_rejected: "Tarjous hylätty"
       offer_canceled: "Tarjous peruttu"
       listing_updated_successfully: "Ilmoitus päivitetty onnistuneesti"
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Vain %{service_name}-palvelun ylläpitäjillä on pääsy tähän sisältöön"
       only_listing_author_can_close_a_listing: "Vain ilmoituksen laatija voi sulkea ilmoituksen."
       only_listing_author_can_edit_a_listing: "Vain ilmoituksen laatija voi muokata ilmoitusta."
@@ -1345,6 +1365,8 @@ fi:
     error:
       something_went_wrong: "Jotain meni vikaan, virhekoodi: %{error_code}"
       something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: "Seuraa ilmoitusta"
       unfollow: "Lopeta ilmoituksen seuraaminen"
@@ -1468,7 +1490,6 @@ fi:
       request_type: Pyyntötapa
       requests: Pyynnöt
       rideshare: Kimppakyydit
-      search_verb: Hae
       you_have_something_others_do_not: "Voisitko tarjota jotain muille?"
       feed_title: "%{listing_type} %{service_name}-palvelussa %{optional_category}"
     left_panel_link:
@@ -1492,6 +1513,7 @@ fi:
       booking_to: Loppuu
       how_paypal_works: "Miten PayPal toimii"
       payment_help: "Apua maksujen kanssa"
+      unable_load_availability: ~
     new:
       listing: ilmoitus
       selected_category: "Kategoria: %{category}"
@@ -1566,6 +1588,8 @@ fi:
       verification_required: "Vahvistus vaaditaan"
   listing_conversations:
     preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
       details: Erittely
       by: "%{listing} käyttäjältä %{author}"
       payment: maksu
@@ -1597,7 +1621,6 @@ fi:
       request_type: Pyyntötapa
       requests: Pyynnöt
       rideshare: Kimppakyydit
-      search_verb: Hae
       you_have_something_others_do_not: "Voisitko tarjota jotain muille?"
     please_comment: Kommentoi
   mercury:
@@ -1765,16 +1788,6 @@ fi:
       following: Seurattu
       follow: Seuraa
       unfollow: "Lakkaa seuraamasta"
-  search:
-    show:
-      all_results: Kaikista
-      loading_more_search_results: "Ladataan lisää hakutuloksia"
-      offers: Tarjouksista
-      requests: Pyynnöistä
-      search: Haku
-      search_results: Hakutulokset
-      search_returned_no_results: "Antamallasi hakusanalla ei löytynyt tuloksia."
-      search_verb: Hae
   sessions:
     new:
       create_new_account: "Luo uusi tunnus"
@@ -1805,8 +1818,11 @@ fi:
       confirm_your_email: "Vahvista sähköpostiosoitteesi"
       account_confirmation_instructions: "Saat pian sähköpostin, jossa on linkki, jota sinun on klikattava vahvistaaksesi sähköpostiosoitteesi. Jos et löydä viestiä, muista tarkistaa roskapostikansiosi! Vahvistuksen jälkeen voit liittyä palveluun %{service_name}."
       account_confirmation_instructions_title_admin: "Tervetuloa markkinapaikkasivustollesi!"
-      your_marketplace_has_now_been_created: "Sivustosi on nyt luotu. Se oli helppoa, eikö vain? Jäljellä on enää yksi vaihe, ennen kuin pääset katsomaan, miltä sivustosi näyttää: sinun pitää vahvistaa sähköpostiosoitteesi."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Saat pian sähköpostiisi linkin, jota sinun tulee klikata varmistaaksesi sähköpostiosoitteesi. Mikäli et löydä viestiä, muista tarkistaa roskapostikansiosi! Tämän jälkeen voit aloittaa sivustosi muokkaamisen."
+      contact_support_link_text: ~
   settings:
     account:
       change: Vaihda
@@ -2035,8 +2051,23 @@ fi:
     day: päivä
     days: päivää
   web:
+    listings:
+      pricing_units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+    no_listings:
+      sorry: ~
+      try_other_search_terms: ~
     listing_card:
+      add_picture: ~
       no_picture: ~
+    search:
+      page: ~
+      page_of_pages: ~
     topbar:
       menu: Valikko
       more: Lisää
@@ -2052,6 +2083,9 @@ fi:
       signup: Liity
       admin_dashboard: Ylläpitonäkymä
       language: Kieli
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~

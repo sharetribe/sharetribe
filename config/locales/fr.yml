@@ -244,6 +244,7 @@ fr:
         enabled_for_you: "Activé pour vous"
         enabled_for_all: "Activé pour tous"
         new_topbar: "Nouvelle barre des menus (visible sur toute les pages)"
+        searchpage: "Nouvelle page de recherche (nouvelle barre des menus requise)"
       social_media:
         social_media: "Réseaux sociaux"
         twitter_handle: "Nom Twitter"
@@ -383,6 +384,12 @@ fr:
       subscription: Abonnement
       preview: "Prévisualiser le site"
     listing_shapes:
+      availability_title: Disponibilité
+      read_more: "En savoir plus sur la gestion automatique des disponibilités."
+      allow_availability_management: "Activer la gestion automatique de la disponibilité (empêcher les doubles réservations)"
+      per_day_availability: "Disponibilité \"par jour\""
+      per_night_availability: "Disponibilité \"par nuit\""
+      pricing_units_disabled_info: "Les unités de prix ne peuvent être utilisées lorsque le calendrier de disponibilité est activé."
       index:
         listing_shapes: "Types de transaction"
         description: "Les types de transaction déterminent comment le processus de transaction fonctionne sur votre site. Vous pouvez choisir de permettre à vos utilisateurs de louer ou vendre, ou même de simplement publier des informations et de communiquer sans paiement."
@@ -447,7 +454,7 @@ fr:
       units_title: "Unités de prix"
       units_desc: "Si vous choisissez des unités de prix, le prix de l'annonce sera affiché avec le format \"prix par unité de prix\". Par exemple : \"39€ par heure\"."
       units:
-        piece: "Par élément"
+        piece: "Par unité"
         hour: "Par heure"
         day: "Par jour"
         night: "Par nuit"
@@ -465,19 +472,21 @@ fr:
         per: Par
         unit_type:
           heading: "Type d'unité"
-          quantity_label: "Quantité (par élément, par kg, par personne, par visite de 2 heures...)"
+          quantity_label: "Quantité (par unité, par kg, par personne, par visite de 2 heures...)"
           time_label: "Temps (par 30 minutes, par 2 semaines, par année...)"
     paypal_accounts:
       marketplace_paypal_integration: "Paramètres du système de paiements"
       preferences_updated: "Préférences du système de paiements mises à jour"
-      marketplace_currency_used: "Cette place de marché utilise %{currency} comme devise. Pour changer la devise, %{contact_support_link}."
       contact_support_link_text: "contactez le support Sharetribe"
       integration_info_text: "Le système de paiement de votre place de marché est propulsé par PayPal. Pour permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal. Une fois connecté, vous pourrez choisir un montant minimal pour les transactions et éventuellement vos frais de service."
       link_paypal_personal_account_label: "Proposez-vous vous aussi vos produits ou services ?"
       link_paypal_personal_account: "Dans ce cas, vous devez également connecter votre compte PayPal depuis %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "votre compte personnel"
       read_more_about_paypal: "En savoir plus sur le système de paiement."
-      set_minimum_price_and_fee: "Définir un montant minimum et les frais de service"
+      edit_payment_settings: "Modifier les paramètres de paiements"
+      supported_currencies_information_text: "Le système de paiement de Sharetribe gère 24 devises. Si votre devise n'est pas dans la liste, veuillez %{contact_support_link}. Si vous modifier la devise de votre place de marché, les annonces existantes conserveront l'ancienne devise. Vous devrez éditer ces annonces une à une pour les convertir à la nouvelle devise."
+      currency_change_warning_text: "Un conseil : si vous appliquez ce changement de devise, n'oubliez pas de demander à vos vendeurs d'éditer manuellement leurs annonces existantes pour mettre à jour la devise."
+      marketplace_currency_label: "Devise de la place de marché : "
       minimum_listing_price_label: "Montant minimal de transaction : "
       transaction_fee_label: "Frais de service : "
       minimum_transaction_fee_label: "Frais minimaux de transaction : "
@@ -884,6 +893,12 @@ fr:
       remember_to_accept: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce \"%{listing_title}\". %{requester} a déjà payé pour cette annonce. Vous devez accepter la demande pour recevoir le paiement."
       one_day_left: "Si vous n'acceptez pas la demande sous une journée la demande sera automatiquement refusée et vous ne recevrez pas le paiement."
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
+    welcome_email:
+      welcome_email_subject: "Bienvenue sur %{service_name}"
+      welcome_to_marketplace: "Bienvenue sur %{service_name} ! Ravi que vous nous ayez rejoint."
+      love_marketplace_crew: "Love,<br /><i>L'équipe de %{service_name}</i>"
+      welcome_email_footer_text: "Quels types d'emails souhaitez vous recevoir de la part de %{service_name} ? %{settings_link}"
+      settings_link_text: "Vérifiez vos paramètres"
     new_listing_by_followed_person:
       subject: "%{author_name} a publié une nouvelle annonce sur %{service_name}"
       has_posted_a_new_listing: "%{author_name} a publié une nouvelle annonce : "
@@ -895,6 +910,9 @@ fr:
       person_name: "Nom : "
       person_email: "Email : "
   error_messages:
+    booking:
+      booking_failed_payment_voided: "La réservation a échoué à cause d'une erreur inattendue. Veuillez essayer de nouveau un peu plus tard. Vous n'avez pas été facturé."
+      double_booking_payment_voided: "Hélas les dates que vous avez choisi ne sont plus disponibles. Veuillez choisir d'autres dates. Vous n'avez pas été facturé."
     onboarding:
       server_rendering: "Le chargement du guide de démarrage a échoué. Nous en avons été prévenus et nous sommes en train de résoudre cela !"
     listings:
@@ -1234,6 +1252,8 @@ fr:
       offer_rejected: "Offre refusée"
       offer_canceled: "Offre annulée"
       listing_updated_successfully: "Annonce mise à jour avec succès"
+      listing_updated_availability_enabled: "Annonce mise à jour avec succès. Gestion automatique des disponibilités activée."
+      listing_updated_availability_disabled: "Annonce mise à jour avec succès. Gestion automatique des disponibilités désactivée."
       only_kassi_administrators_can_access_this_area: "Seuls les administrateurs de %{service_name} peuvent accéder à ces pages"
       only_listing_author_can_close_a_listing: "Seul l'auteur de l'annonce peut la clore"
       only_listing_author_can_edit_a_listing: "Seul l'annonce de liste peut la modifier"
@@ -1345,6 +1365,8 @@ fr:
     error:
       something_went_wrong: "Quelque chose s'est mal passé, code d'erreur : %{error_code}"
       something_went_wrong_plain: "Quelque chose s'est mal passé"
+      create_failed_to_connect_to_booking_service: "La création de l'annonce a échoué : impossible de se connecter au service de réservation. Veuillez essayer de nouveau."
+      update_failed_to_connect_to_booking_service: "La mise à jour de l'annonce a échoué : impossible de se connecter au service de réservation. Veuillez essayer de nouveau."
     follow_links:
       follow: "Recevoir les nouveaux commentaires par email."
       unfollow: "Ne pas recevoir les nouveaux commentaires par email."
@@ -1468,7 +1490,6 @@ fr:
       request_type: "Type de demande"
       requests: Demandes
       rideshare: Covoiturage
-      search_verb: Rechercher
       you_have_something_others_do_not: "Vous avez quelque chose à offrir ?"
       feed_title: "%{listing_type} sur %{service_name} %{optional_category}"
     left_panel_link:
@@ -1492,6 +1513,7 @@ fr:
       booking_to: Au
       how_paypal_works: "Comment fonctionne PayPal"
       payment_help: "Aide à propos du paiement"
+      unable_load_availability: "Impossible de charger les informations de disponibilités. Veuillez essayer de nouveau dans quelques instants."
     new:
       listing: annonce
       selected_category: "Catégorie : %{category}"
@@ -1566,6 +1588,8 @@ fr:
       verification_required: "Vérification nécessaire"
   listing_conversations:
     preauthorize:
+      dates_not_available: "Les dates choisies ne sont pas disponibles"
+      error_in_checking_availability: "Impossible de vérifier la disponibilité des dates sélectionnés"
       details: Détails
       by: "%{listing} par %{author}"
       payment: Paiement
@@ -1597,7 +1621,6 @@ fr:
       request_type: "Type de demande"
       requests: Demandes
       rideshare: Covoiturage
-      search_verb: Rechercher
       you_have_something_others_do_not: "Vous avez quelque chose à offrir ?"
     please_comment: Commentaire
   mercury:
@@ -1765,16 +1788,6 @@ fr:
       following: Suivi(e)
       follow: Suivre
       unfollow: "Ne plus suivre"
-  search:
-    show:
-      all_results: "Tous les résultats"
-      loading_more_search_results: "Chargement de plus de résultats de recherche"
-      offers: Offres
-      requests: Demandes
-      search: Recherche
-      search_results: "Résultats de recherche"
-      search_returned_no_results: "Pas de résultats à votre recherche."
-      search_verb: Rechercher
   sessions:
     new:
       create_new_account: "Créer un nouveau compte"
@@ -1805,8 +1818,11 @@ fr:
       confirm_your_email: "Veuillez confirmer votre email"
       account_confirmation_instructions: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer votre adresse email. N'oubliez pas de vérifier votre dossier \"Spam\" ou \"Indésirables\" ! Dès que vous l'aurez confirmée, vous pourrez rejoindre %{service_name}."
       account_confirmation_instructions_title_admin: "Bienvenue sur votre place de marché !"
-      your_marketplace_has_now_been_created: "Votre place de marché a été créée. C'était simple, non ? Il ne reste qu'une étape pour que vous puissiez y accéder : vous devez confirmer votre adresse email."
+      before_full_access_you_need_to_confirm_email: "Avant que nous vous donnions un accès complet à votre place de marché, il n'y a plus qu'une petite chose à faire : confirmer votre adresse email."
+      before_confirmation_only_access_admin_dashboard: "Avant la confirmation vous ne pouvez accéder qu'au %{admin_dashboard_link}."
+      admin_dashboard_link_text: "panneau d'administration"
       account_confirmation_instructions_admin: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer l'adresse email que vous avez saisie. N'oubliez pas de vérifier votre dossier \"Spam\" ou \"Indésirables\" ! En cliquant sur ce lien vous pourrez commencer à configurer votre place de marché."
+      contact_support_link_text: "contacter le support Sharetribe"
   settings:
     account:
       change: Changer
@@ -2035,8 +2051,23 @@ fr:
     day: jour
     days: jours
   web:
+    listings:
+      pricing_units:
+        piece: unité
+        hour: heure
+        day: jour
+        night: nuit
+        week: semaine
+        month: mois
+    no_listings:
+      sorry: "Désolé, aucune annonce n'a pu être trouvée avec vos critères de recherche."
+      try_other_search_terms: "Essayez peut-être avec d'autres termes ?"
     listing_card:
+      add_picture: "Ajouter une image"
       no_picture: "Aucune image"
+    search:
+      page: Page
+      page_of_pages: "sur %{total_number_of_pages}"
     topbar:
       menu: Menu
       more: Plus
@@ -2052,6 +2083,9 @@ fr:
       signup: S'inscrire
       admin_dashboard: "Panneau d'administration"
       language: Langue
+    utils:
+      km: km
+      mi: mi
     branding:
       powered_by: "%{service_name} est propulsé par la plate-forme de places de marché %{sharetribe_link}."
       create_own: "Voulez-vous créer votre propre place de marché en ligne, comme %{service_name} ? %{learn_more}."

@@ -229,6 +229,7 @@ el:
         enabled_for_you: ~
         enabled_for_all: ~
         new_topbar: ~
+        searchpage: ~
       social_media:
         social_media: ~
         twitter_handle: ~
@@ -368,6 +369,12 @@ el:
       subscription: ~
       preview: ~
     listing_shapes:
+      availability_title: ~
+      read_more: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: ~
         description: ~
@@ -443,14 +450,16 @@ el:
     paypal_accounts:
       marketplace_paypal_integration: ~
       preferences_updated: ~
-      marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: ~
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: ~
-      set_minimum_price_and_fee: ~
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      currency_change_warning_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: ~
       transaction_fee_label: ~
       minimum_transaction_fee_label: ~
@@ -853,6 +862,12 @@ el:
       remember_to_accept: ~
       one_day_left: ~
       click_here_to_reply: ~
+    welcome_email:
+      welcome_email_subject: ~
+      welcome_to_marketplace: ~
+      love_marketplace_crew: ~
+      welcome_email_footer_text: "Θέλετε να ελέγξετε τι μηνύματα θα λαμβάνετε από το %{service_name}; %{settings_link}"
+      settings_link_text: "Δείτε τις ρυθμίσεις σας"
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -864,6 +879,9 @@ el:
       person_name: ~
       person_email: ~
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: ~
     listings:
@@ -1203,6 +1221,8 @@ el:
       offer_rejected: "Η προσφορά απορρίφθηκε"
       offer_canceled: "Η προσφορά ακυρώθηκε"
       listing_updated_successfully: "Η καταχώρηση ενημερώθηκε επιτυχώς"
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Μόνο οι διαχειριστές του %{service_name} έχουν πρόσβαση σε αυτό το σημείο"
       only_listing_author_can_close_a_listing: "Μόνο ο δημιουργός μιας καταχώρησης μπορεί να την κλείσει."
       only_listing_author_can_edit_a_listing: "Μόνο ο δημιουργός μιας καταχώρησης μπορεί να την επεξεργαστεί."
@@ -1310,6 +1330,8 @@ el:
     error:
       something_went_wrong: ~
       something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: "Να ειδοποιούμαι για νέα σχόλια"
       unfollow: "Παύση ειδοποιήσεων για νέα σχόλια"
@@ -1433,7 +1455,6 @@ el:
       request_type: "Τύπος αιτήματος"
       requests: Αιτήματα
       rideshare: Συνεπιβατισμός
-      search_verb: Αναζήτησε
       you_have_something_others_do_not: "Μπορείτε να προσφέρετε κάτι;"
       feed_title: "%{listing_type} στο %{service_name} \"%{community_name}\" - %{optional_category}"
     left_panel_link:
@@ -1457,6 +1478,7 @@ el:
       booking_to: ~
       how_paypal_works: ~
       payment_help: ~
+      unable_load_availability: ~
     new:
       listing: καταχώρηση
       selected_category: "Κατηγορία: %{category}"
@@ -1531,6 +1553,8 @@ el:
       verification_required: ~
   listing_conversations:
     preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
       details: ~
       by: ~
       payment: ~
@@ -1562,7 +1586,6 @@ el:
       request_type: "Τύπος αιτήματος"
       requests: Αιτήματα
       rideshare: Οτοστόπ
-      search_verb: Ψάξε
       you_have_something_others_do_not: "Έχεις κάτι να προσφέρεις;"
     please_comment: Σχολίασε
   mercury:
@@ -1730,16 +1753,6 @@ el:
       following: ~
       follow: ~
       unfollow: ~
-  search:
-    show:
-      all_results: "Όλα τα αποτελέσματα"
-      loading_more_search_results: "Εμφάνιση περισσότερων αποτελεσμάτων"
-      offers: Προσφορές
-      requests: Αιτήματα
-      search: Αναζήτηση
-      search_results: "Αποτελέσματα αναζήτησης"
-      search_returned_no_results: "Η αναζήτησή σας δεν επέστρεψε αποτελέσματα."
-      search_verb: Αναζήτηση
   sessions:
     new:
       create_new_account: "Δημιουργία λογαριασμού"
@@ -1770,8 +1783,11 @@ el:
       confirm_your_email: "Επιβεβαιώστε την ηλεκτρονική σας διεύθυνση"
       account_confirmation_instructions: "Σύντομα θα λάβετε ένα email με ένα σύνδεσμο τον οποίο πρέπει να ακολουθήσετε για να επιβεβαιώσετε τη διεύθυνση email σας. Μετά την επιβεβαίωση θα μπορείτε να εγγραφείτε σε αυτή την κοινότητα."
       account_confirmation_instructions_title_admin: ~
-      your_marketplace_has_now_been_created: ~
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: ~
+      contact_support_link_text: ~
   settings:
     account:
       change: Αλλαγή
@@ -1981,8 +1997,23 @@ el:
     day: ~
     days: ~
   web:
+    listings:
+      pricing_units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+    no_listings:
+      sorry: ~
+      try_other_search_terms: ~
     listing_card:
+      add_picture: ~
       no_picture: ~
+    search:
+      page: ~
+      page_of_pages: ~
     topbar:
       menu: ~
       more: ~
@@ -1998,6 +2029,9 @@ el:
       signup: ~
       admin_dashboard: ~
       language: ~
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~

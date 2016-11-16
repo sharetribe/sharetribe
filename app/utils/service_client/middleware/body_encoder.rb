@@ -49,14 +49,14 @@ module ServiceClient
       ENCODERS = [
         {encoding: :json, media_type: "application/json", encoder: JSONEncoder.new},
         {encoding: :transit_json, media_type: "application/transit+json", encoder: TransitEncoder.new(:json)},
-        {encoding: :transit_msgpack, media_type: "application/transit+msgpack", encoder: TransitEncoder.new(:transit_msgpack)},
+        {encoding: :transit_msgpack, media_type: "application/transit+msgpack", encoder: TransitEncoder.new(:msgpack)},
         {encoding: :text, media_type: "text/plain", encoder: TextEncoder.new},
       ]
 
       class ParsingError < StandardError
       end
 
-      def initialize(encoding)
+      def initialize(encoding, decode_response: true)
         encoder = encoder_by_encoding(encoding)
 
         if encoder.nil?
@@ -64,6 +64,7 @@ module ServiceClient
         end
 
         @_request_encoder = encoder
+        @_decode_response = decode_response
       end
 
       def enter(ctx)
@@ -88,6 +89,8 @@ module ServiceClient
       end
 
       def leave(ctx)
+        return ctx unless @_decode_response
+
         res = ctx.fetch(:res)
         headers = res.fetch(:headers)
         body = res[:body]

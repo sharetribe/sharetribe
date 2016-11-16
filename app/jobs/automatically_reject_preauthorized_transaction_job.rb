@@ -1,5 +1,6 @@
 class AutomaticallyRejectPreauthorizedTransactionJob < Struct.new(:conversation_id)
 
+  include SessionContextSerializer
   include DelayedAirbrakeNotification
 
   # This before hook should be included in all Jobs to make sure that the service_name is

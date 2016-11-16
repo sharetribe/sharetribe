@@ -15,12 +15,11 @@ module PaypalService::API
     Invnum = PaypalService::API::Invnum
     APIDataTypes = PaypalService::API::DataTypes
 
-    def initialize(events, merchant, logger = PaypalService::Logger.new, allow_async:)
+    def initialize(events, merchant, logger = PaypalService::Logger.new)
       @logger = logger
       @events = events
       @merchant = merchant
       @lookup = Lookup.new(logger)
-      @allow_async = allow_async
     end
 
     # For RequestWrapper mixin
@@ -37,7 +36,7 @@ module PaypalService::API
       @lookup.with_active_account(
         community_id, create_payment[:merchant_id]
       ) do |m_acc|
-        if (use_async?(force_sync))
+        if !force_sync
           proc_token = Worker.enqueue_payments_op(
             community_id: community_id,
             transaction_id: create_payment[:transaction_id],
@@ -117,7 +116,7 @@ module PaypalService::API
     ## POST /payments/:community_id/create?token=EC-7XU83376C70426719
     def create(community_id, token, force_sync: true)
       @lookup.with_token(community_id, token) do |token|
-        if (use_async?(force_sync))
+        if !force_sync
           proc_token = Worker.enqueue_payments_op(
             community_id: community_id,
             transaction_id: token[:transaction_id],
@@ -165,7 +164,7 @@ module PaypalService::API
     ## POST /payments/:community_id/:transaction_id/full_capture
     def full_capture(community_id, transaction_id, info, force_sync: true)
       @lookup.with_payment(community_id, transaction_id, [[:pending, :authorization]]) do |payment, m_acc|
-        if (use_async?(force_sync))
+        if !force_sync
           proc_token = Worker.enqueue_payments_op(
             community_id: community_id,
             transaction_id: transaction_id,
@@ -221,7 +220,7 @@ module PaypalService::API
     ## POST /payments/:community_id/:transaction_id/void
     def void(community_id, transaction_id, info, force_sync: true)
       @lookup.with_payment(community_id, transaction_id, [[:pending, nil]]) do |payment, m_acc|
-        if (use_async?(force_sync))
+        if !force_sync
           proc_token = Worker.enqueue_payments_op(
             community_id: community_id,
             transaction_id: transaction_id,
@@ -258,11 +257,13 @@ module PaypalService::API
         if(!response[:success] && stop_retrying_token?(response, token.created_at, clean_time_limit))
           request_cancel(token.community_id, token.token)
         end
-      end
-    end
 
-    def allow_async?
-      !!@allow_async
+        # This operation is one of the few operations that span across
+        # multiple users and multiple marketplaces. Because of this,
+        # we need to reset SessionContext when ever we move to the
+        # next payment
+        SessionContextStore.reset!
+      end
     end
 
     private
@@ -497,10 +498,5 @@ module PaypalService::API
     def remove_token(url_str)
       URLUtils.remove_query_param(url_str, "token")
     end
-
-    def use_async?(force_sync)
-      allow_async? && !force_sync
-    end
-
   end
 end

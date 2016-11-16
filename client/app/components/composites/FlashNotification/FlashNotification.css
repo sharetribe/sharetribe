@@ -1,0 +1,115 @@
+/* Notices */
+.notifications {
+  position: fixed;
+  top: var(--FlashNotification_spacingOutside);
+  right: var(--FlashNotification_spacingOutside);
+  width: calc(100% - 2 * var(--FlashNotification_spacingOutside));
+  z-index: var(--FlashNotification_zIndex);
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  @media (--medium-viewport) {
+    width: 336px;
+  }
+}
+
+.message {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  background-color: white;
+  border: solid 1px var(--FlashNotification_border);
+  border-radius: 6px;
+  margin-bottom: var(--FlashNotification_spacingOutside);
+  box-shadow: var(--FlashNotification_boxShadow);
+}
+
+.error {
+  background-color: var(--FlashNotification_errorColor);
+  border: solid 1px var(--FlashNotification_errorColor);
+}
+
+.messageContent {
+  display: inline-block;
+  flex-basis: auto;
+  width: auto;
+  flex-grow: 1;
+  color: var(--FlashNotification_textColor);
+  font-size: var(--FlashNotification_fontSize);
+  line-height: var(--FlashNotification_lineHeight);
+  padding: var(--FlashNotification_contentPadding);
+  margin: 0;
+
+  & > a {
+    text-decoration: none;
+    color: var(--FlashNotification_textColor);
+    border-bottom: solid 1px var(--FlashNotification_textColor);
+    cursor: pointer;
+  }
+
+  & > a:hover {
+    border-bottom: solid 2px var(--FlashNotification_textColor);
+  }
+}
+
+.error > .messageContent {
+  color: var(--FlashNotification_errorTextColor);
+
+  & > a {
+    color: var(--FlashNotification_errorTextColor);
+    border-bottom: solid 1px var(--FlashNotification_errorTextColor);
+  }
+
+  & > a:hover {
+    border-bottom: solid 2px var(--FlashNotification_errorTextColor);
+  }
+}
+
+.closeIcon {
+  line-height: var(--FlashNotification_fontSizeClose);
+  flex-basis: var(--FlashNotification_closeIconSize);
+  padding: var(--FlashNotification_spacingInside) var(--FlashNotification_spacingInside) var(--FlashNotification_closeIconExtraSpace) var(--FlashNotification_closeIconExtraSpace);
+  cursor: pointer;
+
+  & g {
+    fill: var(--FlashNotification_textColor);
+  }
+
+  &:hover g {
+    fill: var(--FlashNotification_textColorHover);
+  }
+}
+
+.error > .closeIcon {
+  & g {
+    fill: var(--FlashNotification_errorTextColor);
+  }
+
+  &:hover g {
+    fill: var(--FlashNotification_errorTextColorHover);
+  }
+}
+
+/* ReactCSSTransitionGroup styles for container */
+.enterRight {
+  opacity: 0;
+  transform: translate3d(110%, 0, 0);
+}
+
+.enterRightActive {
+  opacity: 1;
+  transform: translate3d(0%, 0, 0);
+  transition: all 500ms ease;
+}
+
+.leaveRight {
+  transform: translate3d(0%, 0, 0);
+  opacity: 1;
+}
+
+.leaveRightActive {
+  transform: translate3d(110%, 0, 0);
+  opacity: 0;
+  transition: all 500ms ease;
+}

@@ -36,16 +36,12 @@ module ListingIndexService::API
     private
 
     def process_results(results, engine)
-      if engine == :discovery
-        results
-      else
-        ListingIndexResult.call(
-          count: results[:count],
-          listings: results[:listings].map { |search_res|
-            search_res.merge(url: "#{search_res[:id]}-#{search_res[:title].to_url}")
-          }
-        )
-      end
+      ListingIndexResult.call(
+        count: results[:count],
+        listings: results[:listings].map { |search_res|
+          search_res.merge(url: "#{search_res[:id]}-#{search_res[:title].to_url}")
+        }
+      )
     end
 
     def search_engine(engine, raise_errors)
@@ -54,8 +50,6 @@ module ListingIndexService::API
         ListingIndexService::Search::SphinxAdapter.new
       when :zappy
         ListingIndexService::Search::ZappyAdapter.new(raise_errors: raise_errors)
-      when :discovery
-        ListingIndexService::Search::DiscoveryAdapter.new(raise_errors: raise_errors)
       else
         raise NotImplementedError.new("Adapter for search engine #{engine} not implemented")
       end

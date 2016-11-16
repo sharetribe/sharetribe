@@ -1,5 +1,5 @@
-class Admin::PaypalPreferencesController < ApplicationController
-  before_filter :ensure_is_admin
+class Admin::PaypalPreferencesController < Admin::AdminBaseController
+
   before_filter :ensure_paypal_provisioned
 
   PaypalAccountForm = FormUtils.define_form("PaypalAccountForm", :paypal_email, :commission_from_seller)
@@ -12,7 +12,8 @@ class Admin::PaypalPreferencesController < ApplicationController
     :commission_from_seller,
     :minimum_listing_price,
     :minimum_commission,
-    :minimum_transaction_fee
+    :minimum_transaction_fee,
+    :marketplace_currency
     ).with_validations do
       validates_numericality_of(
         :commission_from_seller,
@@ -20,6 +21,9 @@ class Admin::PaypalPreferencesController < ApplicationController
         allow_nil: false,
         greater_than_or_equal_to: MIN_COMMISSION_PERCENTAGE,
         less_than_or_equal_to: MAX_COMMISSION_PERCENTAGE)
+
+      available_currencies = MarketplaceService::AvailableCurrencies::CURRENCIES
+      validates_inclusion_of(:marketplace_currency, in: available_currencies)
 
       validate do |prefs|
         if minimum_listing_price.nil? || minimum_listing_price < minimum_commission
@@ -35,7 +39,7 @@ class Admin::PaypalPreferencesController < ApplicationController
   def index
     @selected_left_navi_link = "paypal_account"
     paypal_account = accounts_api.get(community_id: @current_community.id).maybe
-    currency = @current_community.default_currency
+    currency = @current_community.currency
     minimum_commission = paypal_minimum_commissions_api.get(currency)
 
     tx_settings =
@@ -47,8 +51,9 @@ class Admin::PaypalPreferencesController < ApplicationController
     paypal_prefs_form = PaypalPreferencesForm.new(
       minimum_commission: minimum_commission,
       commission_from_seller: tx_settings[:commission_from_seller],
-      minimum_listing_price: Money.new(tx_settings[:minimum_price_cents], @current_community.default_currency),
-      minimum_transaction_fee: Money.new(tx_settings[:minimum_transaction_fee_cents], @current_community.default_currency)
+      minimum_listing_price: Money.new(tx_settings[:minimum_price_cents], currency),
+      minimum_transaction_fee: Money.new(tx_settings[:minimum_transaction_fee_cents], currency),
+      marketplace_currency: currency
     )
 
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
@@ -58,6 +63,8 @@ class Admin::PaypalPreferencesController < ApplicationController
       admin_getting_started_guide_path,
       Admin::OnboardingWizard.new(@current_community.id).setup_status)
 
+    available_currencies = MarketplaceService::AvailableCurrencies::CURRENCIES
+
     view_locals = {
       paypal_account_email: paypal_account[:email].or_else(nil),
       order_permission_action: admin_paypal_preferences_account_create_path(),
@@ -65,31 +72,38 @@ class Admin::PaypalPreferencesController < ApplicationController
       paypal_prefs_valid: paypal_prefs_form.valid?,
       paypal_prefs_form: paypal_prefs_form,
       paypal_prefs_form_action: admin_paypal_preferences_preferences_update_path(),
-      min_commission: minimum_commission,
       min_commission_percentage: MIN_COMMISSION_PERCENTAGE,
       max_commission_percentage: MAX_COMMISSION_PERCENTAGE,
+      available_currencies: available_currencies,
       currency: currency,
       display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
-      knowledge_base_url: APP_CONFIG.knowledge_base_url
+      knowledge_base_url: APP_CONFIG.knowledge_base_url,
+      support_email: APP_CONFIG.support_email
     }
 
     render("index", locals: onboarding_popup_locals.merge(view_locals))
   end
 
   def preferences_update
-    currency = @current_community.default_currency
+    currency = params[:paypal_preferences_form]["marketplace_currency"]
     minimum_commission = paypal_minimum_commissions_api.get(currency)
 
     paypal_prefs_form = PaypalPreferencesForm.new(
       parse_preferences(params[:paypal_preferences_form], currency).merge(minimum_commission: minimum_commission))
 
     if paypal_prefs_form.valid?
-      tx_settings_api.update({community_id: @current_community.id,
-                              payment_gateway: :paypal,
-                              payment_process: :preauthorize,
-                              commission_from_seller: paypal_prefs_form.commission_from_seller.to_i,
-                              minimum_price_cents: paypal_prefs_form.minimum_listing_price.cents,
-                              minimum_transaction_fee_cents: paypal_prefs_form.minimum_transaction_fee.cents})
+      ActiveRecord::Base.transaction do
+        @current_community.currency = currency
+        @current_community.save!
+        tx_settings_api.update({community_id: @current_community.id,
+                                payment_gateway: :paypal,
+                                payment_process: :preauthorize,
+                                commission_from_seller: paypal_prefs_form.commission_from_seller.to_i,
+                                minimum_price_cents: paypal_prefs_form.minimum_listing_price.cents,
+                                minimum_price_currency: currency,
+                                minimum_transaction_fee_cents: paypal_prefs_form.minimum_transaction_fee.cents,
+                                minimum_transaction_fee_currency: currency})
+      end
 
       # Onboarding wizard step recording
       state_changed = Admin::OnboardingWizard.new(@current_community.id)
@@ -156,7 +170,8 @@ class Admin::PaypalPreferencesController < ApplicationController
     {
       minimum_listing_price: MoneyUtil.parse_str_to_money(params[:minimum_listing_price], currency),
       minimum_transaction_fee: MoneyUtil.parse_str_to_money(params[:minimum_transaction_fee], currency),
-      commission_from_seller: params[:commission_from_seller]
+      commission_from_seller: params[:commission_from_seller],
+      marketplace_currency: currency
     }
   end
 

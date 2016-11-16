@@ -68,6 +68,18 @@ This guide contains information how to run tests.
 
 This guide shows how to write fast RSpec tests without requiring Rails environment
 
+#### [Upgrade Facebook SDK version](./upgrade-facebook-sdk-version.md)
+
+This guide shows how upgrade the Facebook SDK version
+
+#### [SessionContextStore](./session-context-store.md)
+
+This document explains what is SessionContextStore, how and when to use it.
+
+#### [Using Fakepal](./using-fakepal.md)
+
+This guide shows how to use "Fakepal", which is a fake PayPal implementation that can be used for development purposes
+
 ## Process documentation
 
 Documentation of the development process.

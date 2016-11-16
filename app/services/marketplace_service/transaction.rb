@@ -10,6 +10,7 @@ module MarketplaceService
       Transaction = EntityUtils.define_entity(
         :id,
         :community_id,
+        :community_uuid,
         :last_transition,
         :last_transition_at,
         :listing,
@@ -18,7 +19,9 @@ module MarketplaceService
         :author_skipped_feedback,
         :starter_skipped_feedback,
         :starter_id,
+        :starter_uuid,
         :listing_author_id,
+        :listing_author_uuid,
         :testimonials,
         :transitions,
         :payment_total,
@@ -104,6 +107,9 @@ module MarketplaceService
           booking: transaction_model.booking,
           availability: transaction_model.availability.to_sym,
           booking_uuid: transaction_model.booking_uuid_object,
+          community_uuid: transaction_model.community_uuid_object,
+          starter_uuid: transaction_model.starter_uuid_object,
+          listing_author_uuid: transaction_model.listing_author_uuid_object,
           __model: transaction_model
         })]
       end
@@ -370,17 +376,23 @@ module MarketplaceService
       def paid(transaction)
         return unless transaction[:availability].to_sym == :booking
 
+        auth_context = {
+          marketplace_id: transaction[:community_uuid],
+          actor_id: transaction[:listing_author_uuid]
+        }
+
         HarmonyClient.post(
           :accept_booking,
           params: {
             id: transaction[:booking_uuid]
           },
           body: {
-            actorId: UUIDUtils.base64_to_uuid(transaction[:listing_author_id]),
+            actorId: transaction[:listing_author_uuid],
             reason: :provider_accepted
           },
           opts: {
-            max_attempts: 3
+            max_attempts: 3,
+            auth_context: auth_context
           }).on_error { |error_msg, data|
           log_and_notify_harmony_error!("Failed to accept booking",
                                         :failed_accept_booking,
@@ -391,13 +403,18 @@ module MarketplaceService
       def rejected(transaction)
         return unless transaction[:availability].to_sym == :booking
 
+        auth_context = {
+          marketplace_id: transaction[:community_uuid],
+          actor_id: transaction[:listing_author_uuid]
+        }
+
         HarmonyClient.post(
           :reject_booking,
           params: {
             id: transaction[:booking_uuid]
           },
           body: {
-            actorId: UUIDUtils.base64_to_uuid(transaction[:listing_author_id]),
+            actorId: transaction[:listing_author_uuid],
 
             # Passing the reason to the event handler is a bit
             # cumbersome. We decided to skip it for now. That's why
@@ -405,7 +422,8 @@ module MarketplaceService
             reason: :unknown
           },
           opts: {
-            max_attempts: 3
+            max_attempts: 3,
+            auth_context: auth_context
           }).on_error { |error_msg, data|
           log_and_notify_harmony_error!("Failed to reject booking",
                                         :failed_reject_booking,

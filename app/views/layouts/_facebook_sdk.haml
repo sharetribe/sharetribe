@@ -7,7 +7,7 @@ appId      : '#{Maybe(@current_community).facebook_connect_id.or_else(APP_CONFIG
 channelUrl : '//#{@current_community ? @current_community.full_domain : "www." + APP_CONFIG.domain}/channel.html', // Channel file for x-domain comms
 status     : false,                                 // Check Facebook Login status
 xfbml      : true,                                  // Look for social plugins on the page
-version    : 'v2.3'
+version    : '#{FacebookSdkVersion::CLIENT}'
 });
 // Additional initialization code such as adding Event Listeners goes here
 };

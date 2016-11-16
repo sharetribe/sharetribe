@@ -229,6 +229,7 @@ it:
         enabled_for_you: ~
         enabled_for_all: ~
         new_topbar: ~
+        searchpage: ~
       social_media:
         social_media: ~
         twitter_handle: "Nome utente di Twitter"
@@ -368,6 +369,12 @@ it:
       subscription: ~
       preview: ~
     listing_shapes:
+      availability_title: Disponibilità
+      read_more: "Leggi di più sulla gestione automatica delle disponibilità"
+      allow_availability_management: "Abilita la gestione automatica della disponibilità (previene la doppia prenotazione)"
+      per_day_availability: "disponibilità \"Per giorno\""
+      per_night_availability: "Disponibilità \"Per notte\""
+      pricing_units_disabled_info: ""
       index:
         listing_shapes: "Tipo di ordini"
         description: "Il Tipo di ordini determina come funziona il processo di ordine nel tuo sito. Si può decidere se gli utenti sono affittanti o venditori, o forse solo pubblicisti di annunci e messaggi gratuiti."
@@ -443,14 +450,16 @@ it:
     paypal_accounts:
       marketplace_paypal_integration: "Integrazione PayPal"
       preferences_updated: "Preferenze di pagamento aggiornate"
-      marketplace_currency_used: "Questo marketplace usa %{currency} come propria valuta. Per cambiare valuta %{contact_support_link}."
       contact_support_link_text: "Contatta il supporto di Sharetribe"
       integration_info_text: "Il sistema di pagamento di %{service_name} è gestito da PayPal. Se vuoi consentire ai tuoi utenti di effettuare pagamenti sulla tua piattaforma, è necessario collegare il tuo conto PayPal e decidere il prezzo minimo del tuo spazio e la quota che vuoi trattenere per ogni transazione."
       link_paypal_personal_account_label: "Stai offrendo tu stesso prodotti o servizi?"
       link_paypal_personal_account: "Se è così, sarà quindi necessario collegare il conto PayPal a %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "Il tuo account personale della piattaforma di marketplace"
       read_more_about_paypal: "Maggiori informazioni sul sistema di pagamenti di Sharetribe"
-      set_minimum_price_and_fee: "Inserisci un prezzo minimo e una tariffa di transazione"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      currency_change_warning_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Prezzo minimo consentito:"
       transaction_fee_label: "Tariffa di transazione:"
       minimum_transaction_fee_label: "Commissione minima sulle transazioni"
@@ -857,6 +866,12 @@ it:
       remember_to_accept: "Ricordati di accettare la richiesta di %{requester} per l'annuncio %{listing_title}. %{requester} ha già pagato per questo annuncio. Devi accettare la richiesta per ricevere il pagamento."
       one_day_left: "Se non accetti la richiesta entro un giorno, la richiesta sarà negata e non sarai pagato"
       click_here_to_reply: "Clicca qui per rispondere alla richiesta"
+    welcome_email:
+      welcome_email_subject: ~
+      welcome_to_marketplace: "Benvenuto su %{service_name}!"
+      love_marketplace_crew: "Con affetto,<br /><i>il team di %{service_name}</i>"
+      welcome_email_footer_text: "Quale genere di email vuoi ricevere da%{service_name}? %{settings_link}"
+      settings_link_text: "Controlla le tue impostazioni"
     new_listing_by_followed_person:
       subject: "%{author_name} ha pubblicato un nuovo annuncio su %{service_name}"
       has_posted_a_new_listing: "%{author_name} ha pubblicato un nuovo annuncio:"
@@ -868,6 +883,9 @@ it:
       person_name: ~
       person_email: ~
   error_messages:
+    booking:
+      booking_failed_payment_voided: "La prenotazione è fallita per un errore inaspettato. Per favore riprova più tardi. Nessun trasferimento di denaro è stato eseguito."
+      double_booking_payment_voided: "Sfortunatamente le date che hai scelto non sono disponibili. Per favore scegli un altro periodo. Nessun trasferimento di denaro è stato eseguito."
     onboarding:
       server_rendering: ~
     listings:
@@ -1207,6 +1225,8 @@ it:
       offer_rejected: "Offerta rifiutata"
       offer_canceled: "Offerta cancellata"
       listing_updated_successfully: "L'inserzione è stata aggiornata con successo"
+      listing_updated_availability_enabled: "L'inserzione si è aggiornata con successo. Abilitata la gestione automatica della disponibilità."
+      listing_updated_availability_disabled: "L'inserzione si è aggiornata con successo. Disabilitata la gestione automatica della disponibilità."
       only_kassi_administrators_can_access_this_area: "Solo gli amministratori di %{service_name} possono accedere a questa area"
       only_listing_author_can_close_a_listing: "Solo l'autore dell'inserzione può chiudere l'inserzione"
       only_listing_author_can_edit_a_listing: "Solo l'autore dell'inserzione può modificare l'inserzione"
@@ -1318,6 +1338,8 @@ it:
     error:
       something_went_wrong: "Qualcosa è andato storto. Codice errore: %{error_code}"
       something_went_wrong_plain: "Qualcosa è andato storto"
+      create_failed_to_connect_to_booking_service: "Creazione di inserzione fallito: fallito a connettersi al booking service. Per favore riprova."
+      update_failed_to_connect_to_booking_service: "Aggiornamento di inserzione fallito: fallito a connettersi al booking service. Per favore riprova."
     follow_links:
       follow: "Ricevi email per ogni nuovo commento"
       unfollow: "Non ricevere email per ogni nuovo commento"
@@ -1441,7 +1463,6 @@ it:
       request_type: "Tipo di richiesta"
       requests: Richieste
       rideshare: Passaggio
-      search_verb: Cerca
       you_have_something_others_do_not: "Hai qualcosa da offrire?"
       feed_title: ~
     left_panel_link:
@@ -1465,6 +1486,7 @@ it:
       booking_to: A
       how_paypal_works: "Come funziona PayPal"
       payment_help: "Aiuto per i pagamenti con PayPal"
+      unable_load_availability: "Non si possono avere informazioni disponibili. Per favore riprova più tardi."
     new:
       listing: inserzione
       selected_category: "Categoria: %{category}"
@@ -1539,6 +1561,8 @@ it:
       verification_required: "Richiesta verifica"
   listing_conversations:
     preauthorize:
+      dates_not_available: "Le date selezionate non sono disponibili"
+      error_in_checking_availability: "Non è possibile verificare la disponibilità nei giorni selezionati"
       details: Dettagli
       by: "%{listing} di %{author}"
       payment: Pagamento
@@ -1570,7 +1594,6 @@ it:
       request_type: "Tipo di richiesta"
       requests: Richieste
       rideshare: Passaggio
-      search_verb: Cerca
       you_have_something_others_do_not: "Hai qualcosa da offrire?"
     please_comment: Commenta
   mercury:
@@ -1738,16 +1761,6 @@ it:
       following: "Stai seguendo"
       follow: Segui
       unfollow: "Non Seguire"
-  search:
-    show:
-      all_results: "Tutti i risultati"
-      loading_more_search_results: "Caricamento di ulteriori risultati della ricerca"
-      offers: Offerte
-      requests: Richieste
-      search: Cerca
-      search_results: "Risultati della ricerca"
-      search_returned_no_results: "La tua ricerca non ha prodotto risultati."
-      search_verb: Cerca
   sessions:
     new:
       create_new_account: "Crea un nuovo account"
@@ -1778,10 +1791,13 @@ it:
       confirm_your_email: "Conferma la tua email"
       account_confirmation_instructions: "Presto riceverai un'e-mail con un link per confermare il tuo indirizzo email. Non dimenticare di controllare la cartella spam! Dopo aver confermato il tuo indirizzo, potrai unirti a %{service_name}."
       account_confirmation_instructions_title_admin: ~
-      your_marketplace_has_now_been_created: ~
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: |-
           Presto riceverai un'e-mail con un link per confermare il tuo indirizzo email. Non dimenticare di controllare la cartella spam! Dopo aver confermato il tuo indirizzo, puoi cominciare a configurare il tuo profilo, le tue inserzioni, e le preferenze di ricezione email.
           Nel tuo account di posta aggiungi il nostro indirizzo email
+      contact_support_link_text: ~
   settings:
     account:
       change: Cambia
@@ -2004,8 +2020,23 @@ it:
     day: giorno
     days: giorni
   web:
+    listings:
+      pricing_units:
+        piece: unità
+        hour: ora
+        day: giorno
+        night: notte
+        week: settimana
+        month: mese
+    no_listings:
+      sorry: "Purtroppo non si trovano inserzioni per i tuoi criteri di ricerca."
+      try_other_search_terms: "Prova con altri termini di ricerca."
     listing_card:
+      add_picture: ~
       no_picture: "Nessuna immagine"
+    search:
+      page: Pagina
+      page_of_pages: "di %{total_number_of_pages}"
     topbar:
       menu: Menù
       more: Altro..
@@ -2021,6 +2052,9 @@ it:
       signup: Registrati
       admin_dashboard: ~
       language: Lingua
+    utils:
+      km: km
+      mi: miglia
     branding:
       powered_by: ~
       create_own: ~

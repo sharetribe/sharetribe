@@ -4,14 +4,14 @@ nl:
       edit:
         edit_listing_category: "Wijzig categorie '%{category}'"
       index:
-        listing_categories: "Lijst categorieën"
+        listing_categories: "Advertentie categorieën"
         create_a_new_category: "+ Nieuwe categorie toevoegen"
         remove_category_confirmation: "Weet u zeker dat u de categorie '%{category_name}' wil verwijderen?"
         saving_order: "Opslaan volgorde categorieën"
         save_order_successful: "Succesvol volgorde categorieën opgeslagen"
         save_order_error: "Fout tijdens het opslagen volgorde categorieën. Vernieuw de pagina en probeer opnieuw."
       new:
-        new_listing_category: "Nieuw item categorie"
+        new_listing_category: "Nieuw advertentie categorie"
       form:
         category_name:
           category_title: "Categorie titel"
@@ -20,7 +20,7 @@ nl:
           no_parent: "Geen bovenliggende categorie"
         category_transaction_types:
           transaction_types: "Transactie types"
-          transaction_types_description: "Transactie types bepalen welke soort transacties toegelaten zijn met items in deze categorie. Bijvoorbeeld: enkel verkoop of zijn verhuur en gratis weggeven ook toegestaan."
+          transaction_types_description: "Transactie types bepalen welke soort transacties toegelaten zijn met advertenties in deze categorie. Bijvoorbeeld: enkel verkoop of zijn verhuur en gratis weggeven ook toegestaan."
           select_all: ~
           clear_all: ~
         buttons:
@@ -31,8 +31,8 @@ nl:
         remove_category_name: "Verwijder categorie '%{category_name}'"
         warning_remove_effects: "Opgelet! Categorie '%{category_name}' verwijderen heeft het volgende effect:"
         warning_listing_will_be_moved:
-          one: "Er is %{count} item in de categorie. Het zal verplaatst worden naar de geselecteerde categorie."
-          other: "Er zijn %{count} items in de categorie. Ze zullen verplaatst worden naar de geselecteerde categorie."
+          one: "Er is %{count} advertentie in de categorie. Het zal verplaatst worden naar de geselecteerde categorie."
+          other: "Er zijn %{count} advertenties in de categorie. Ze zullen verplaatst worden naar de geselecteerde categorie."
         warning_custom_field_will_be_moved:
           one: "Er is %{count} aangepast veld in de categorie. Het zal verplaatst worden naar de geselecteerde categorie."
           other: "Er zijn %{count} aangepaste velden in de categorie. Ze zullen verplaatst worden naar de geselecteerde categorie."
@@ -40,8 +40,8 @@ nl:
           one: "Er is %{count} subcategorie in deze categorie. Deze zal verwijderd worden."
           other: "Er zijn %{count} subcategorieën in deze categorie. Ze zullen verwijderd worden."
         warning_with_subcategories_listing_will_be_moved:
-          one: "Er is %{count} item in de categorie en subcategorieën. Deze zal verplaatst worden naar de geselecteerde categorie."
-          other: "Er zijn %{count} items in de categorie en subcategorieën. Deze zullen verplaatst worden naar de geselecteerde categorie."
+          one: "Er is %{count} advertentie in de categorie en subcategorieën. Deze zal verplaatst worden naar de geselecteerde categorie."
+          other: "Er zijn %{count} advertenties in de categorie en subcategorieën. Deze zullen verplaatst worden naar de geselecteerde categorie."
         warning_with_subcategories_custom_field_will_be_moved:
           one: "Er is %{count} aangepast veld in de categorie en de subcategorieën. Dit zal verplaatst worden naar de geselecteerde categorie."
           other: "Er zijn %{count} aangepaste velden in de categorie en de subcategorieën. Deze zullen verplaatst worden naar de geselecteerde categorie."
@@ -52,12 +52,12 @@ nl:
     communities:
       edit_details:
         community_details: "Basis details"
-        community_look_and_feel: "Look & feel"
+        community_look_and_feel: Design
         edit_community: "Basis details"
         enabled_languages: ~
         enabled_languages_description: ~
         default_language: Standaardtaal
-        language_selection_disabled: ~
+        language_selection_disabled: "Taalkeuze is onbruikbaar gemaakt voor je marktplaats omdat je de volgende onofficiele talen gebruikt: %{languages}. Neem contact op met Sharetribe support als je je taalinstellingen wilt wijzigen."
         community_name: "Naam marktplaats"
         edit_community_name_description: "De naam van je marktplaats. Deze wordt getoond aan gebruikers in e-mails en op diverse andere plaatsen."
         community_slogan: "Slogan marktplaats"
@@ -75,7 +75,7 @@ nl:
         edit_info: "Bewerk informatie"
         see_how_it_looks_like: "Bekijk hoe het er uit ziet"
         verification_to_post_listings_info_content: "Info tekst voor niet-geverifiëerde gebruikers"
-        verification_to_post_listings_info_content_description: "Deze marktplaats vereist dat mensen manueel worden geverifieerd door een administrator vooraleer ze items kunnen plaatsen. Hier kan je de default tekst instellen die wordt getoond aan niet-geverifieerde gebruikers wanneer zij een nieuw item proberen plaatsen."
+        verification_to_post_listings_info_content_description: "Deze marktplaats vereist dat mensen manueel worden geverifieerd door een administrator voordat ze advertenties kunnen plaatsen. Hier kan je de default tekst instellen die wordt getoond aan niet-geverifieerde gebruikers wanneer zij een nieuwe advertentie proberen plaatsen."
         verification_to_post_listings_info_content_default: "Manuele verificatie door een beheerder is vereist alvorens mensen items kunnen posten bij %{service_name}. Jouw account is nog niet geverifieerd. Contacteer %{contact_admin_link} om geverifieerd te worden."
         contact_admin_link_text: "contacteer de beheerder"
         save: "Instellingen opslaan"
@@ -94,10 +94,10 @@ nl:
         favicon: Favicon
         favicon_info_text: "Favicon zal het standaard Sharetribe-logo vervangen. De afmetingen moeten 32x32 pixels zijn. De afbeelding die wordt opgeladen zal verkleind worden naar deze afmetingen."
         community_custom_color1: Hoofdkleur
-        new_listing_button_custom_color: ~
-        logo_instructions_text_with_dimensions: "Het desktop logo zou %{width}x%{height} pixels moeten zijn. Het zal getoond worden aan gebruikers met grotere schermen."
+        new_listing_button_custom_color: "Kleur van de \"Plaats een nieuwe advertentie\" button"
+        logo_instructions_text_with_dimensions: "Het desktop logo dient %{width}x%{height} pixels te zijn. Het zal getoond worden aan gebruikers met grotere schermen."
         logo_instructions_text_with_dimensions_no_placing: ~
-        logo_icon_instructions_text_with_dimensions: "Mobiele logo's zouden vierkant moeten zijn, bij voorkeur %{width}x%{height} pixels. Het zal getoond worden aan gebruikers met kleinere schermen."
+        logo_icon_instructions_text_with_dimensions: "Mobiele logo's dienen vierkant te zijn, bij voorkeur %{width}x%{height} pixels. Het zal getoond worden aan gebruikers met kleinere schermen."
         logo_icon_instructions_text_with_dimensions_no_placing: ~
         cover_photo_visibility: "Cover afbeelding wordt getoond op de homepagina voor gebruikers die niet ingelogd zijn."
         cover_photo_instructions_text_with_dimensions: "De afbeelding zal verkleind worden naar %{width}x%{height} pixels. Grote afbeeldingen zullen in twee gesplitst worden. %{see_how_it_looks_like}"
@@ -105,9 +105,9 @@ nl:
         small_cover_photo_instructions_text_with_dimensions: "De afbeelding wordt verkleind tot %{width}x%{height} pixels. Grotere afbeeldingen worden in twee gesplitst."
         main_content_width: "Hou er bij het kiezen van een cover afbeelding rekening mee dat de hoofdpagina maximaal %{main_width} pixels is. Vergeet ook niet na te gaan hoe je cover afbeelding eruit ziet op kleinere schermen (b.v. door een smal browser scherm te gebruiken)."
         custom_color1_instructions_text: "Je kan de hoofdkleur van de intercace wijzigen door een zgn. hex kleur waarde in te geven. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kan je helpen deze kleur te kiezen en de bijbehorende code hier te kopiëren."
-        new_listing_button_instructions_text: ~
+        new_listing_button_instructions_text: "Je kunt de kleur van de button \"Post een nieuwe advertentie\" veranderen door een hex-kleurwaarde in te vullen. %{link_to_colorpicker} kan je helpen om de kleur te kiezen en de code te achterhalen."
         default_browse_view: "Standaard browse overzicht"
-        default_browse_view_instructions_text: "Standaard browse overzicht is gebruikt op de homepagina om te bepalen hoe de lijsten standaard weergegeven worden."
+        default_browse_view_instructions_text: "Standaard browse overzicht is gebruikt op de homepagina om te bepalen hoe de advertenties standaard weergegeven worden."
         grid: Raster
         list: Lijst
         map: Kaart
@@ -188,39 +188,39 @@ nl:
         join_with_invite_only: "Aansluiten bij deze marktplaats kan enkel met een uitnodiging van een andere gebruiker"
         users_can_invite_new_users: "Alle gebruikers kunnen nieuwe leden uitnodigen voor deze marktplaats"
         private: "Deze marktplaats is privé (enkel geregistreerde gebruikers kunnen de inhoud zien)"
-        require_verification_to_post_listings: "Enkel gebruikers die door de beheerder nagekeken werden kunnen nieuwe items toevoegen"
-        search_preferences: ~
-        default_search_type: ~
-        keyword_search: ~
-        keyword_and_location_search: ~
-        location_search: ~
-        select_distance_unit: ~
-        km: ~
-        miles: ~
-        show_only_nearby: ~
-        listing_preferences: "Voorkeuren lijst"
+        require_verification_to_post_listings: "Enkel gebruikers die door de beheerder nagekeken werden kunnen nieuwe advertenties toevoegen"
+        search_preferences: "Zoek-functie voorkeuren"
+        default_search_type: "Zoek type: %{select_search_type}"
+        keyword_search: "Zoeken op keywords"
+        keyword_and_location_search: "Zoeken op keyword èn locatie"
+        location_search: "Zoeken op locatie"
+        select_distance_unit: "Laat afstand zien in %{distance_units_selector}"
+        km: km
+        miles: mijlen
+        show_only_nearby: "Laat alleen naburige advertenties zien met zoeken op locatie"
+        listing_preferences: "Advertentie voorkeuren"
         transaction_preferences: "Voorkeuren transacties"
-        show_listing_publishing_date: "Toon publicatie datum van de lijst op de lijst pagina"
+        show_listing_publishing_date: "Toon publicatie datum van de advertentie op de advertentie pagina"
         show_category_in_listing_list: "Toon advertentietype in lijst overzicht"
-        hide_expiration_date: "Vereis niet dat lijsten een vervaldatum hebben"
-        listing_comments_in_use: "Laat gebruikers toe commentaar te geven op lijsten (zichtbaar voor alle gebruikers)"
+        hide_expiration_date: "Vereis niet dat advertenties een vervaldatum hebben"
+        listing_comments_in_use: "Laat gebruikers toe commentaar te geven op advertenties (zichtbaar voor alle gebruikers)"
         email_preferences: "E-mail voorkeuren"
         automatic_newsletters: "Zend automatisch dagelijkse / wekelijkse nieuwsbrieven naar gebruikers (tenzij ze zich uitgeschreven hebben)"
         email_admins_about_new_members: "Zend beheerder een e-mail telkens wanneer een nieuwe gebruiker zich inschrijft"
         google_analytics_key: "Google Analytics tracking ID"
-        twitter_handle: "Twitter account (gebruikt met de tweet knop in de items pagina)"
+        twitter_handle: "Twitter account (gebruikt met de tweet knop in de advertentie pagina)"
         update_settings: "Instellingen opslaan"
         automatically_confirmed_no_escrow: "%{days_dropdown} dagen nadat de betaling is uitgevoerd, zal de transactie automatisch als afgerond worden gemarkeerd"
         automatic_newsletter_frequency: "Zend automatische nieuwsbrief: %{frequency_dropdown}"
         newsletter_daily: Dagelijks
         newsletter_weekly: Wekelijks
-        delete_marketplace_title: ~
+        delete_marketplace_title: "Verwijder marktplaats"
         type_marketplace_domain: "Voer uw marktplaats domein %{domain} in onderstaand veld in:"
         type_marketplace_domain_placeholder: "Voer hier uw marktplaats domein in"
         once_you_delete: "Als je je marktplaats eenmaal verwijdert heb je geen toegang meer tot de marktplaats. Wees daarom voorzichtig."
         are_you_sure: "Weet je het zeker?"
         i_understand_button: "Ik begrijp dat door op deze button te klikken mijn marktplaats verwijderd zal worden"
-        last_community_updates: ~
+        last_community_updates: "Let op: na verwijdering, kan het zijn dat jij en je marktplaats gebruikers toch nog enkele laatste marktplaats update emails ontvangen."
         you_will_be_redirected_to: "Nadat je jouw marktplaats hebt verwijderd word je doorgelinkt naar %{destination}. Je hebt dan niet langer toegang tot je marktplaats."
         delete_this_marketplace: "Verwijder deze marktplaats"
       manage_members:
@@ -238,17 +238,18 @@ nl:
         ban_user_confirmation: "Dit verwijdert de gebruiker van de marktplaats en belet hem de site opnieuw te gebruiken met deze account. Ben je zeker dat je verder wil gaan?"
         ban_me_error: "Je kunt jezelf niet uitsluiten."
       new_layout:
-        new_layout: ~
-        description_roadmap: ~
+        new_layout: "Nieuwe layout"
+        description_roadmap: "Sharetribe is momenteel bezig om een nieuwe en verbeterde lay-out uit te brengen. Gedurende de transitieperiode kun je kiezen welke delen van je marktplaats nog de oude lay-out blijven gebruiken, door middel van het menu hieronder. Nieuwe features zijn alleen beschikbaar in de nieuwe layout."
         description_process: ~
         enabled_for_you: ~
         enabled_for_all: ~
-        new_topbar: ~
+        new_topbar: "Nieuwe menubalk boven (zichtbaar op iedere pagina)"
+        searchpage: ~
       social_media:
         social_media: "Sociale media"
         twitter_handle: "Twitter account"
-        twitter_handle_info_text: "Gebruikersnaam van de Twitter account van je marktplaats (als je er een hebt). Deze zal vermeld worden wanneer mensen de tweet-knop gebruiken op de item pagina."
-        twitter_handle_info_text_with_instructions: "Gebruikersnaam van de Twitter account van je marktplaats (als je er een hebt). Het zal vermeld worden wanneer mensen de tweet-knop gebruiken op de items pagina. %{instructions_link}."
+        twitter_handle_info_text: "Gebruikersnaam van de Twitter account van je marktplaats (als je er een hebt). Deze zal vermeld worden wanneer mensen de tweet-knop gebruiken op de advertentie pagina."
+        twitter_handle_info_text_with_instructions: "Gebruikersnaam van de Twitter account van je marktplaats (als je er een hebt). Het zal vermeld worden wanneer mensen de tweet-knop gebruiken op de advertenties pagina. %{instructions_link}."
         twitter_instructions_link_text: "Lees meer"
         twitter_handle_placeholder: gebruikersnaam
         invalid_twitter_handle: "Twitter account kan maximaal 15 alfanumerische karakters bevatten (letters A-Z en nummers 0-9)."
@@ -278,20 +279,20 @@ nl:
         language: Taal
         url: URL
         empty: "Je hebt geen bijkomende menu koppelingen"
-        max_number_of_links: ~
+        max_number_of_links: "Maximum aantal links zichtbaar in de menubalk boven: %{select_max_number}"
         all: ~
         max_number_of_links_info: ~
         about_page: ~
       topbar:
-        topbar: ~
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        topbar: "Menubalk boven"
+        new_listing_button_label: "Tekst voor \"Plaats een nieuwe advertentie\"-button."
+        invalid_post_listing_button_label: "Gelieve een geldige tekst te geven voor de \"Plaats een nieuwe advertentie\"-button."
       transactions:
         export_all_as_csv: ~
         transactions: "Bekijk transacties"
         headers:
           conversation: Conversatie
-          listing: Item
+          listing: Advertentie
           status: Status
           sum: Som
           started: Gestart
@@ -314,9 +315,9 @@ nl:
         paypal_admin_account: Betalingen
     custom_fields:
       edit:
-        edit_listing_field: "Edit item veld '%{field_name}'"
+        edit_listing_field: "Edit advertentie veld '%{field_name}'"
       edit_price:
-        description: ~
+        description: "De minimum en maximum prijs hebben alleen invloed op de filter. Ze zetten geen limiet op de prijs van advertenties."
         edit_price_field: "Pas veld prijs aan"
         show_price_filter_homepage: "Toon filter prijs op homepagina"
         price_min: "Minimum prijs"
@@ -326,36 +327,36 @@ nl:
         this_field_is_required: "Dit veld is verplicht"
       form:
         field_required:
-          this_field_is_required: "This veld is verplicht"
+          this_field_is_required: "Verplicht dit veld in te vullen bij een nieuwe advertentie"
           this_field_is_required_checkbox: "Dit veld is verplicht (gebruiker moet minstens één optie kiezen)"
         search_filter:
           search_filter: "Toon een filter gebaseerd op dit veld, op de home pagina."
           date_cant_be_filtered: ~
           text_cant_be_filtered: ~
       index:
-        listing_fields: "Items velden en filters"
-        listing_fields_help: "Hier kan je de velden aanpassen die gebruikers moeten invullen wanneer ze een nieuw item aanmaken. Merk op dat sommige velden gepredefinieerd zijn en niet gewijzigd kunnen worden."
+        listing_fields: "Advertentie velden en filters"
+        listing_fields_help: "Hier kan je de velden aanpassen die gebruikers moeten invullen wanneer ze een nieuwe advertentie aanmaken. Merk op dat sommige velden gepredefinieerd zijn en niet gewijzigd kunnen worden."
         add_new_field: "Voeg een nieuw veld toe:"
         remove_field_confirmation: "Weet u zeker dat u het veld '%{field_name}' wilt verwijderen?"
         cancel: Annuleer
         save: Opslaan
         field_title: "Veld titel"
         field_type: "Veld type"
-        categories: "Lijst categorieën waar het veld is gebruikt"
+        categories: "Advertentie categorieën waar het veld is gebruikt"
         select_all: ~
         clear_all: ~
         options: Opties
         add_option: "+ Voeg optie toe"
         saving_order: "Veld volgorde opslaan"
         save_order_successful: "Veld volgorde succesvol weggeschreven"
-        save_order_error: "Fout tijdens het wegschrijven van de veld volgorde. Vernieuw de pagina en probeer opnieuw."
+        save_order_error: "Fout tijdens het opslaan van de veld volgorde. Ververs de pagina en probeer opnieuw."
         select_one: "Kies een veld type..."
         continue: "Ga verder"
         minimum_value: Minimum
         maximum_value: Maximum
         allow_decimals: "Laat cijfers na de komma toe"
       new:
-        new_listing_field: "Nieuw item veld"
+        new_listing_field: "Nieuw advertentie veld"
       field_types:
         text: Tekst
         number: Nummer
@@ -383,6 +384,12 @@ nl:
       subscription: ~
       preview: ~
     listing_shapes:
+      availability_title: ~
+      read_more: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: ~
         description: ~
@@ -420,20 +427,32 @@ nl:
         update_success: ~
         update_failure: ~
         delete: ~
+        confirm_delete_order_type:
+          one: "Er is %{count} advertentie met dit order type. Als je dit order type verwijdert, dan wordt de advertentie gesloten. Weet je zeker dat je dit order type wilt verwijderen?"
+          other: "Er zijn %{count} advertentie met dit order type. Als je dit order type verwijdert, dan worden de advertenties gesloten. Weet je zeker dat je dit order type wilt verwijderen?"
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
       listing_shape_name: Naam
       listing_shape_name_placeholder: ~
       action_button_label: ~
       action_button_placeholder: ~
-      successfully_closed: ~
+      open_listings_warning:
+        one: "Er is %{count} open advertentie met dit order type. Als je een van de instellingen hieronder wijzigt, dan zal die advertentie de oude instellingen houden. De advertentie kan worden veranderd naar de nieuwe instellingen door deze aan te passen. Als je de advertentie met de oude instellingen niet zichtbaar wilt hebben op je site, dan kun je deze sluiten door op de knop hieronder te klikken."
+        other: "Er zijn %{count} open advertenties met dit order type. Als je een van de instellingen hieronder wijzigt, dan zullen deze listings de oude instellingen houden. Deze advertenties kunnen worden veranderd naar de nieuwe instellingen door deze aan te passen. Als je de advertenties met de oude instellingen niet zichtbaar wilt hebben op je site, dan kun je deze sluiten door op de knop hieronder te klikken."
+      close_listings_action:
+        one: "Sluit %{count} advertentie"
+        other: "Sluit %{count} advertenties"
+      confirm_close_listings_action:
+        one: "Weet je zeker dat je %{count} advertentie wilt sluiten?"
+        other: "Weet je zeker dat je %{count} advertenties wilt sluiten?"
+      successfully_closed: "Advertenties succesvol gesloten"
       successfully_deleted: ~
       pricing_and_checkout_title: ~
       online_payments_label: ~
       shipping_label: ~
-      price_label: ~
+      price_label: "Sta verkopers toe een prijs toe te voegen aan hun advertenties."
       units_title: ~
-      units_desc: ~
+      units_desc: "Als je prijs eenheden hebt ingeschakeld, dan wordt de advertentie prijs weergegeven als \"Prijs per eenheid\". Bijvoorbeeld \"$39 per uur\"."
       units:
         piece: "Per stuk"
         hour: "Per uur"
@@ -458,14 +477,16 @@ nl:
     paypal_accounts:
       marketplace_paypal_integration: "Voorkeuren betalingen"
       preferences_updated: "Voorkeuren betalingen bijgewerkt"
-      marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: "Het betaalsysteem van Sharetribe is PayPal. Als je gebruikers de mogelijkheid wil geven om betalingen te doen via je marktplaats, moet je je PayPal account linken en bepalen wat de minimale marge is die je wil maken op elke transactie."
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: "Lees meer over Sharetribe's betalingssysteem"
-      set_minimum_price_and_fee: "Bepaal de minimale prijs en commissie"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      currency_change_warning_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Minimale transactie prijs:"
       transaction_fee_label: "Transactiekosten:"
       minimum_transaction_fee_label: "Minimale transactie kosten:"
@@ -549,8 +570,8 @@ nl:
       accept_request: "Aanvaard het verzoek"
       reject_offer: "Nu niet"
       reject_request: "Nu niet"
-      close_listing: "Sluit item %{listing_title_link}"
-      update_later: "Laat het item open"
+      close_listing: "Sluit advertentie %{listing_title_link}"
+      update_later: "Laat de advertentie open"
       optional_message: "Optioneel bericht"
       price_to_pay: "Totaal te betalen prijs"
       accept: Aanvaard
@@ -593,7 +614,7 @@ nl:
       canceled_request: "Verzoek geannuleerd."
       canceled_offer: "Voorstel geannuleerd."
       message_from: "Bericht van %{person}"
-      about_listing: "Over item %{listing_title}"
+      about_listing: "Over advertentie %{listing_title}"
       free_message: "Vrij bericht"
       message_content_not_available: ~
     message:
@@ -619,10 +640,10 @@ nl:
       you_will_get_notified: "U ontvangt een bericht per mail als %{person} u antwoordt."
       title: Onderwerp
       send_message_to_user: "Stuur bericht naar %{person}"
-      about_listing: "Over item %{listing_title}"
+      about_listing: "Over advertentie %{listing_title}"
       author_has_to_accept_request: "%{author_name} moet het verzoek accepteren alvorens je kan betalen"
     show:
-      in_response_to_listing: "over item"
+      in_response_to_listing: "over advertentie"
       message_sent_by: "Bericht verstuurd door"
       message_sent_to: "Bericht verstuurd naar"
       send_reply: "Verstuur antwoord"
@@ -657,7 +678,7 @@ nl:
           multicurrency: "We konden de PayPal betaling niet uitvoeren omdat je PayPal account nog niet ingesteld is om betalingen te ontvangen in %{currency}. Log in op je account via %{paypal_url} om de betaling handmatig te accepteren of te annuleren"
           verify: "Je kunt deze transactie niet accepteren omdat je PayPal account nog niet geverifieerd is. Ga naar %{paypal_url} om je account te verifiëren."
           intl: "We konden de PayPal betaling niet uitvoeren omdat er geen opnames van je PayPal account kunnen worden uitgevoerd. Log in op je account via %{paypal_url} om de betaling handmatig te accepteren of te annuleren"
-      waiting_for_current_user_to_deliver_listing: "Wachten op jou om %{listing_title} te voldoen."
+      waiting_for_current_user_to_deliver_listing: "Wacht op jou om %{listing_title} te voldoen."
       waiting_for_listing_author_to_deliver_listing: "Wachten op %{listing_author_name} om %{listing_title} te voldoen"
       request_accepted: "Vraag geaccepteerd"
       request_rejected: "Verzoek afgewezen"
@@ -738,7 +759,7 @@ nl:
       automatic_confirmation: "Indien u het voorstel niet accepteert of afwijst binnen %{days_to_automatic_confirmation} dagen nadat het verzoek is geaccepteerd, zullen we het automatisch als afgerond markeren."
     payment_settings_reminder:
       remember_to_add_payment_details: "Vergeet niet om de juiste gegevens toe te voegen om betalingen te kunnen ontvangen."
-      you_have_added_listing_with_payment: "U heeft een item %{listing_link} toegevoegd met betaling. U heeft echter nog geen betalingsgegevens opgegeven. Om betalingen te kunnen ontvangen dient u deze informatie nog toe te voegen."
+      you_have_added_listing_with_payment: "U heeft een advertentie %{listing_link} toegevoegd met betaling. U heeft echter nog geen betalingsgegevens opgegeven. Om betalingen te kunnen ontvangen dient u deze informatie nog toe te voegen."
       please_go_to_payment_settings: "Ga aub naar %{payment_settings_link} en vul de vereiste betalingsgegevens in."
       payment_settings_link: "instellingen betalingen"
     transaction_confirmed:
@@ -794,11 +815,11 @@ nl:
       join_now: "Word nu lid"
       invitation_code: "Uitnodigingscode: %{code}"
     new_comment:
-      has_commented_your_listing_in_kassi: "%{author} heeft feedback gelaten op uw item '%{listing}'."
+      has_commented_your_listing_in_kassi: "%{author} heeft feedback gelaten op uw advertentie '%{listing}'."
       view_comment: "Toon reactie"
       you_have_a_new_comment: "%{author} heeft een reactie gegeven over uw vermelding op %{service_name}"
-      listing_you_follow_has_a_new_comment: "%{author} heeft commentaar gegeven op een listing die u volgt op %{service_name}"
-      has_commented_listing_you_follow_in_kassi: "%{author} heeft feedback gelaten op het item '%{listing}' dat u volgt op %{service_name}."
+      listing_you_follow_has_a_new_comment: "%{author} heeft commentaar gegeven op een advertentie die u volgt op %{service_name}"
+      has_commented_listing_you_follow_in_kassi: "%{author} heeft feedback gelaten op de advertentie '%{listing}' dat u volgt op %{service_name}."
     new_message:
       view_message: "Bekijk bericht"
       has_sent_you_a_message_in_kassi: "%{sender} heeft u een bericht gestuurd op %{service_name}."
@@ -833,13 +854,13 @@ nl:
       you_can_give_feedback_to: "U heeft nog geen feedback geven aan %{name}."
       view_feedback: "Bekijk feedback"
     new_update_to_listing:
-      listing_you_follow_has_been_updated: "Item dat u volgt is aangepast"
-      has_updated_listing_you_follow_in_kassi: "%{author} heeft het item '%{listing}' dat u volgt in %{service_name} bijgewerkt."
+      listing_you_follow_has_been_updated: "Advertentie die u volgt is aangepast"
+      has_updated_listing_you_follow_in_kassi: "%{author} heeft de advertentie'%{listing}' die u volgt in %{service_name} bijgewerkt."
       view_changes: "Bekijk wijzigingen"
     community_updates:
-      added_offer: "%{name_link} heeft een item toegevoegd:"
-      added_request: "%{name_link} heeft een item toegevoegd:"
-      added_listing: "%{name_link} heeft een item toegevoegd:"
+      added_offer: "%{name_link} heeft een advertentie toegevoegd:"
+      added_request: "%{name_link} heeft een advertentie toegevoegd:"
+      added_listing: "%{name_link} heeft een advertentie toegevoegd:"
       update_mail_title: "%{title_link} update"
       title_link_text: "%{community_name}"
       intro_paragraph: "Hieronder een paar dingen die afgelopen %{time_since_last_update} gebeurd zijn op %{community_link}."
@@ -864,21 +885,30 @@ nl:
       you_have_time_to_accept: ~
       click_here_to_reply: "Klik hier om te antwoorden op het verzoek"
     transaction_preauthorized_reminder:
-      subject: "Vergeet niet om het verzoek van %{requester} betreffende item %{listing_title} te accepteren"
-      remember_to_accept: "Vergeet niet om het verzoek van %{requester} betreffende item \"%{listing_title}\" te accepteren. %{requester} heeft al betaald voor het verzoek. Je moet het verzoek aanvaarden om de betaling te ontvangen."
+      subject: "Vergeet niet om het verzoek van %{requester} betreffende advertentie %{listing_title} te accepteren"
+      remember_to_accept: "Vergeet niet om het verzoek van %{requester} betreffende advertentie \"%{listing_title}\" te accepteren. %{requester} heeft al betaald voor het verzoek. Je moet het verzoek aanvaarden om de betaling te ontvangen."
       one_day_left: "Als je het verzoek niet binnen één dag accepteert zal het automatisch verworpen worden en wordt je niet betaald."
       click_here_to_reply: "Klik hier om te antwoorden op het verzoek"
+    welcome_email:
+      welcome_email_subject: "Welkom bij %{service_name}"
+      welcome_to_marketplace: "Welkom, bij %{service_name}! We zijn blij dat je er bent."
+      love_marketplace_crew: "Groeten,<br /><i>%{service_name} team</i>"
+      welcome_email_footer_text: "Welk soort berichten zou u van %{service_name} willen ontvangen?%{settings_link}"
+      settings_link_text: "Kijk je instellingen na"
     new_listing_by_followed_person:
-      subject: "%{author_name} heeft een nieuwe item gepost in %{service_name}"
-      has_posted_a_new_listing: "%{author_name} heeft een nieuw item gepost:"
+      subject: "%{author_name} heeft een nieuwe advertentie gepost in %{service_name}"
+      has_posted_a_new_listing: "%{author_name} heeft een nieuwe advertentie gepost:"
       you_are_receiving_this_because: "Je krijgt dit bericht omdat je %{author_name} volgt."
-      view_listing: "Bekijk item"
+      view_listing: "Bekijk advertentie"
     new_member_notification:
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
       person_email: ~
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: ~
     listings:
@@ -895,7 +925,7 @@ nl:
     paypal:
       buyer_cannot_pay_error: ~
       pending_review_error: ~
-      seller_express_checkout_disabled: ~
+      seller_express_checkout_disabled: "Paypal Express Checkout is uitgeschakeld voor de adverteerders PayPal account. Neem contact op met de adverteerder en laat deze weten dat er een probleem is met zijn/haar PayPal account, en adviseer om contact op te nemen met de PayPal Customer Service."
       generic_error: "Er heeft zicht een fout voorgedaan tijdens de betaling. De PayPal betaling kon niet worden uitgevoerd."
       cancel_error: "Fout tijdens uitvoeren annulering. Annulering is niet afgehandeld."
       accept_authorization_error: "Preautorisatie krijgen van de PayPal betaling is mislukt. Probeer opnieuw a.u.b."
@@ -910,7 +940,7 @@ nl:
     error_410:
       page_removed: "Pagina verwijderd"
       page_you_requested_has_been_removed: "De pagina die je hebt opgevraagd is verwijderd."
-      page_removed_reason: "Er zijn een paar mogelijke redenen hiervoor. Bijvoorbeeld, een gebruiker die zijn account of een item verwijderd heeft."
+      page_removed_reason: "Er zijn een paar mogelijke redenen hiervoor. Bijvoorbeeld, een gebruiker die zijn account of een advertentie verwijderd heeft."
     error_410_title: "pagina verwijderd"
     error_500:
       temporary_unavailable: "Marktplaats tijdelijk niet beschikbaar"
@@ -960,22 +990,22 @@ nl:
     login:
       logged_in_to_kassi: "%{name} is ingelogd bij %{service_name} %{time_ago}."
     comment:
-      commented: "%{commenter_name} heeft commentaar gegeven op listing %{listing_title} %{time_ago}."
+      commented: "%{commenter_name} heeft commentaar gegeven op advertentie %{listing_title} %{time_ago}."
       offer_partitive: aanbod
       request_partitive: vraag
   header:
     about: Over
     home: Home
     members: Gemeenschap
-    new_listing: "New item"
+    new_listing: "Nieuwe advertentie"
     mobile_version: "Mobiele versie"
     offers: Aanbod
     requests: Vraag
     search_kassi: "Zoek %{service_name}"
     create_new_marketplace: "Maak een nieuwe marktplaats"
-    contact_us: "Contacteer ons"
+    contact_us: "Neem contact op"
     profile: Profiel
-    manage_listings: ~
+    manage_listings: "Beheer advertenties"
     invite: "Nodig nieuwe leden uit"
     login: "Log in"
     signup: Registreer
@@ -1002,7 +1032,7 @@ nl:
       items_to_offer: "Spullen te leen: "
       items_to_request: "Spullen om te lenen: "
       log_in: "log in!"
-      no_offers_visible_unless_logged_in: "Geen item, gunst of rit aanbod is zichtbaar voor gebruikers die niet ingelogd zijn."
+      no_offers_visible_unless_logged_in: "Geen item, service of rit aanbod is zichtbaar voor gebruikers die niet ingelogd zijn."
       no_open_offers_currently: "Geen open item, gunst of rit aanbod."
       no_open_requests_currently: "Momenteel geen vraag of aanbod."
       no_requests_visible_unless_logged_in: "Vraag en aanbod is niet zichtbaar voor gebruikers die niet ingelogd zijn."
@@ -1022,10 +1052,10 @@ nl:
       processing_uploaded_image: "(Opgestuurde afbeelding verwerken...)"
     index:
       no_listings_with_your_search_criteria: "We slaagden er niet in om resultaten te vinden die voldoen aan de door u opgegeven criteria (indien u iets hebt toegevoegd duurt het ongeveer 10 minuten voordat dit verschijnt in de zoekfunctie)."
-      no_listings_notification: "Geen lijsten. %{add_listing_link}."
-      add_listing_link_text: "Voeg een nieuw item toe"
-      open_listing: "open item"
-      open_listings: "open items"
+      no_listings_notification: "Geen advertenties. %{add_listing_link}."
+      add_listing_link_text: "Voeg een nieuwe advertentie toe"
+      open_listing: "open advertentie"
+      open_listings: "open advertenties"
       private_listing_notification_log_in: "log in"
       is: is
       are: zijn
@@ -1172,7 +1202,7 @@ nl:
       settings: Instellingen
       sign_up: Registreer
     notifications:
-      listing_could_not_be_saved: "Item kon niet worden opgeslagen. Probeer het a.u.b. opnieuw. Als dit probleem zich blijft voordoen, %{contact_admin_link}."
+      listing_could_not_be_saved: "Advertentie kon niet worden opgeslagen. Probeer het a.u.b. opnieuw. Als dit probleem zich blijft voordoen, %{contact_admin_link}."
       contact_admin_link_text: "contacteer de beheerder"
       test_welcome_email_delivered_to: "Een testbericht is verzonden naar %{email}."
       something_went_wrong: "Er is iets mis gegaan"
@@ -1186,7 +1216,7 @@ nl:
       additional_email_confirmed: "Het e-mail adres dat je hebt ingegeven is nu bevestigd."
       could_not_get_email_from_facebook: "Kon uw Facebook e-mail adres niet ophalen. Kan geen account aanmaken zonder e-mail adres."
       facebook_email_unconfirmed: ~
-      create_new_listing: "Een ander item aanmaken"
+      create_new_listing: "Een andere advertentie aanmaken"
       create_one_here: "hier één maken"
       email_confirmation_sent_to_new_address: "E-mail bevestiging is nu gestuurd naar het nieuwe adres."
       email_not_found: "Het e-mail adres dat u heeft opgegeven, is niet gevonden in de %{service_name} database."
@@ -1200,7 +1230,7 @@ nl:
       invitation_limit_reached: ~
       invitation_sent: "Uitnodiging verzonden"
       inviting_new_users_is_not_allowed_in_this_community: "Nieuwe gebruikers uitnodigen is niet toegestaan."
-      login_again: "Log opnieuw in alstublieft."
+      login_again: "Log opnieuw in."
       login_failed: "Login mislukt. Vul de juiste gegevens in."
       account_creation_successful: "Welkom op %{service_name}, %{person_name}!"
       account_deleted: "Uw account is nu verwijderd."
@@ -1214,13 +1244,15 @@ nl:
       offer_accepted: "Aanbod geaccepteerd"
       offer_confirmed: "Voorstel bevestigd"
       offer_closed: "Aanbod gesloten"
-      listing_created_successfully: "Uw item is geplaatst. %{new_listing_link}."
+      listing_created_successfully: "Uw advertentie is geplaatst. %{new_listing_link}."
       offer_rejected: "Aanbod afgewezen"
       offer_canceled: "Voorstel geannuleerd"
-      listing_updated_successfully: "Item succesvol bijgewerkt"
+      listing_updated_successfully: "Advertentie succesvol bijgewerkt"
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Alleen %{service_name} administrators hebben toegang tot dit gedeelte"
-      only_listing_author_can_close_a_listing: "Alleen de auteur van het item kan deze sluiten"
-      only_listing_author_can_edit_a_listing: "Alleen de auteur van het item kan dit aanpassen"
+      only_listing_author_can_close_a_listing: "Alleen de auteur van de advertentie kan deze sluiten"
+      only_listing_author_can_edit_a_listing: "Alleen de auteur van de advertentie kan dit aanpassen"
       payment_successful: "Betaling succesvol"
       payment_canceled: "Betaling geannuleerd"
       error_in_payment: "Fout bij betaling. Als u nog geen betaling heeft uitgevoerd, probeer dan opnieuw. Als u dat wel al gedaan heeft, stuur ons dan een bericht."
@@ -1238,7 +1270,7 @@ nl:
       poll_updated: "Poll bijgewerkt"
       poll_deleted: "Poll verwijderd"
       read_more: "Lees meer!"
-      registration_considered_spam: "Registratie niet gelukt, stuur aub feedback en vermeld \"email2 error\"."
+      registration_considered_spam: "Registratie niet gelukt, neem contact op en vermeld \"email2 error\"."
       reply_cannot_be_empty: "U kunt geen leeg bericht sturen"
       reply_sent: "Reactie succesvol verstuurd"
       request_accepted: "Verzoek geaccepteerd"
@@ -1253,11 +1285,11 @@ nl:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Je hebt geen toestemming om feedback te geven over dit evenement"
       you_are_not_authorized_to_do_this: "Je hebt geen toestemming om dit te doen"
       you_are_not_authorized_to_view_this_content: "Je hebt geen toestemming om deze inhoud te zien"
-      listing_closed: ~
+      listing_closed: "Deze advertentie is gesloten."
       send_instructions: "U ontvangt binnen enkele minuten een e-mail met instructies om uw wachtwoord te resetten."
       you_cannot_reply_to_a_closed_offer: "Je kan niet reageren op een gesloten aanbod"
       you_cannot_send_message_to_yourself: "U kunt geen bericht naar uzelf sturen"
-      you_followed_listing: "U volgt nu dit item"
+      you_followed_listing: "U volgt nu deze advertentie"
       you_have_already_given_feedback_about_this_event: "Je heb al feedback gegeven over dit evenement"
       you_are_now_member: "Welkom op %{service_name}!"
       you_are_already_member: "Je bent al aangesloten bij %{service_name}. Welkom terug!"
@@ -1278,7 +1310,7 @@ nl:
       you_must_log_in_to_confirm_or_cancel: "Je moet inloggen om de transactie te confirmeren of te annuleren"
       you_need_to_confirm_your_account_first: "U dient uw e-mail adres te bevestigen."
       you_must_fill_all_the_fields: "U moet alle velden invullen"
-      you_unfollowed_listing: "U volgt dit item niet meer"
+      you_unfollowed_listing: "U volgt deze advertentie niet meer"
       joining_community_failed: "Aansluiten mislukt"
       can_not_delete_email: "Je kan het e-mail adres niet verwijderen"
       user_does_not_have_email_to_delete: "Je bezit het e-mail adres dat je tracht te verwijderen niet"
@@ -1294,7 +1326,7 @@ nl:
       payments: Betalingen
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: "Je hebt geen toestemming om deze listing te bekijken."
+      listing_not_visible: "Je hebt geen toestemming om deze advertentie te bekijken."
     comment:
       wrote: schreef
       send_private_message: "Verstuur privé bericht naar %{person}"
@@ -1306,25 +1338,27 @@ nl:
       send_comment: "Verzend reactie"
       to_send_a_comment: "om nieuwe reactie te verzenden."
       write_comment: "Schrijf een nieuwe reactie:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: "U kunt geen nieuw commentaar geven want het item is gesloten"
+      you_cannot_send_a_new_comment_because_listing_is_closed: "U kunt geen nieuw commentaar geven want de advertentie is gesloten"
       you_must: "U moet"
       subscribe_to_comments: "Breng me op de hoogte van nieuwe reacties en updates"
     edit:
-      edit_listing: "Bewerk item"
+      edit_listing: "Bewerk advertentie"
     edit_links:
-      close_listing: "Sluit item"
-      edit_listing: "Bewerk item"
-      reopen_listing: "Heropen item"
+      close_listing: "Sluit advertentie"
+      edit_listing: "Bewerk advertentie"
+      reopen_listing: "Heropen advertentie"
       move_to_top: "Ga naar de top van de homepage"
       show_in_updates_email: "Toon in de volgende automatische e-mail"
       show_in_updates_email_loading: Laden...
       show_in_updates_email_error: "Kan de server niet bereiken. Probeer opnieuw na herladen van de pagina."
-      show_in_updates_email_success: "Dit item zal getoond worden in de volgende automatische update e-mail die naar gebruikers verstuurd wordt"
+      show_in_updates_email_success: "Deze advertentie zal getoond worden in de volgende automatische update e-mail die naar gebruikers verstuurd wordt"
     map:
       open_in_google_maps: ~
     error:
       something_went_wrong: ~
       something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: "Advertentie plaatsing mislukt: Het lukte niet om de booking service te koppelen. Gelieve het nog eens te proberen."
+      update_failed_to_connect_to_booking_service: "Advertentie bijwerken mislukt: Het lukte niet om de booking service te bereiken. Gelieve het nog eens te proberen."
     follow_links:
       follow: "Ontvang e-mail wanneer er een reactie is geplaatst"
       unfollow: "Ontvang geen e-mails als er een reactie is geplaatst"
@@ -1366,7 +1400,7 @@ nl:
         processing: Verwerken...
         loading_image: Laden...
         image_uploading_in_progress: ~
-        processing_takes_a_while: ~
+        processing_takes_a_while: "Alle foto's zijn geupload. Het duurt even voordat ze verwerkt zijn, maar je kunt de advertentie nu opslaan en verder gaan."
         this_may_take_a_while: "(dit kan even duren)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Opladen afbeelding mislukt"
@@ -1396,7 +1430,7 @@ nl:
         location: Locatie
         origin: Oorsprong
       send_button:
-        save_listing: "Plaats item"
+        save_listing: "Plaats advertentie"
       share_type:
         select: Selecteer
         borrow: Lenen
@@ -1439,7 +1473,7 @@ nl:
       housing: Ruimtes
       items: Items
       list_view: "Lijst overzicht"
-      listings: Items
+      listings: Advertenties
       map_view: "Overzicht op de kaart"
       offer_something: "Vertel het anderen!"
       offer_type: "Aanbod type"
@@ -1448,7 +1482,6 @@ nl:
       request_type: "Verzoek type"
       requests: Vraag
       rideshare: "Rit delen"
-      search_verb: Zoek
       you_have_something_others_do_not: "Heb je iets aan te bieden?"
       feed_title: "%{listing_type} in %{service_name} %{optional_category}"
     left_panel_link:
@@ -1472,19 +1505,20 @@ nl:
       booking_to: Tot
       how_paypal_works: "Hoe PayPal werkt"
       payment_help: ~
+      unable_load_availability: ~
     new:
-      listing: Item
+      listing: advertentie
       selected_category: "Categorie: %{category}"
       selected_subcategory: "Subcategorie: %{subcategory}"
-      selected_transaction_type: "Item type: %{transaction_type}"
+      selected_transaction_type: "Advertentie type: %{transaction_type}"
       select_category: "Selecteer categorie"
       select_subcategory: "Kies subcategorie"
-      select_transaction_type: "Selecteer item type"
-      you_need_to_fill_payout_details_before_accepting: "U moet uw betalingsgegevens instellen voordat je een item kunt posten. Ga naar %{payment_settings_link} om deze details in te vullen."
+      select_transaction_type: "Selecteer advertentie type"
+      you_need_to_fill_payout_details_before_accepting: "U moet uw betalingsgegevens instellen voordat je een advertentie kunt posten. Ga naar %{payment_settings_link} om deze details in te vullen."
       contact_admin_link_text: "contacteer de beheerder"
-      community_not_configured_for_payments: "%{service_name} is nog niet ingesteld voor betalingen, dus je kunt nog geen items plaatsen. Neem a.u.b. contact op met %{contact_admin_link} voor details."
+      community_not_configured_for_payments: "%{service_name} is nog niet ingesteld voor betalingen, dus je kunt nog geen advertenties plaatsen. Neem a.u.b. contact op met %{contact_admin_link} voor details."
       payment_settings_link: "instellingen betalingen"
-      community_not_configured_for_payments_admin: "%{service_name} is nog niet ingesteld voor betalingen, dus je kunt nog geen items plaatsen. Ga naar %{payment_settings_link} om de betalingsgegevens in te stellen."
+      community_not_configured_for_payments_admin: "%{service_name} is nog niet ingesteld voor betalingen, dus je kunt nog geen advertenties plaatsen. Ga naar %{payment_settings_link} om de betalingsgegevens in te stellen."
     quantity:
       hour: "Aantal uur:"
       day: ~
@@ -1495,7 +1529,7 @@ nl:
     quantity_placeholder: Aantal
     please_comment: Reactie
     reply_link:
-      listing_closed: "Item is gesloten"
+      listing_closed: "Advertentie is gesloten"
     show:
       add_your_phone_number: "Voeg uw telefoonnummer toe"
       add_profile_picture: "Voeg profielfoto toe"
@@ -1507,7 +1541,7 @@ nl:
       inquiry: Verzoek
       item_offer_trade: "Ruil aanbod"
       item_request_trade: "Ruil vraag"
-      no_description: "Dit item heeft geen beschrijving"
+      no_description: "Deze advertentie heeft geen beschrijving"
       no_image: "Geen afbeelding"
       no_reviews: "Nog geen feedback ontvangen"
       offer: Aanbod
@@ -1524,7 +1558,7 @@ nl:
       times: keer
       times_viewed: Gezien
       processing_uploaded_image: "(Opgestuurd bestand bewerken...)"
-      listing_created_at: "Item geplaatst"
+      listing_created_at: "Advertentie geplaatst"
       price:
         per_quantity_unit: "per %{quantity_unit}"
         per_day: "per dag"
@@ -1546,6 +1580,8 @@ nl:
       verification_required: "Verificatie vereist"
   listing_conversations:
     preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
       details: Details
       by: "%{listing} door %{author}"
       payment: Betaling
@@ -1577,7 +1613,6 @@ nl:
       request_type: "Soort vraag"
       requests: Vraag
       rideshare: "Ritten delen"
-      search_verb: Zoek
       you_have_something_others_do_not: "Heb je iets aan te bieden?"
     please_comment: Reactie
   mercury:
@@ -1588,7 +1623,7 @@ nl:
   paypal_accounts:
     payout_info_title: Betalingsinformatie
     paypal_account_email_connected: "<del>Koppeling met PayPal account</del> Uitgevoerd!"
-    payout_info_paypal: ~
+    payout_info_paypal: "%{service_name} gebruikt Paypal als betalingssysteem. Een %{create_paypal_account_link} is vereist om betaling voor je advertenties te kunnen ontvangen. Deze moet gelinkt zijn aan %{service_name}."
     paypal_billing_agreement_made: "<del>Geef toestemming aan %{service_name} om een commissie in te houden op de betaling</del> Uitgevoerd!"
     commission_permission_needed: ~
     create_paypal_account_link_text: ~
@@ -1638,12 +1673,12 @@ nl:
     paypal_account_connected_title: ~
     paypal_account_connected: ~
     change_account: "Wijzig account"
-    missing: "Je hebt openstaande items, maar je hebt je PayPal account nog niet gekoppeld. Daardoor kun je nog geen betalingen ontvangen. Koppel a.u.b. je PayPal account in je %{settings_link}."
+    missing: "Je hebt openstaande advertentie, maar je hebt je PayPal account nog niet gekoppeld. Daardoor kun je nog geen betalingen ontvangen. Koppel a.u.b. je PayPal account in je %{settings_link} and sta %{service_name} toe transactiekosten in rekening te brengen."
     from_your_payment_settings_link_text: "instellingen betalingen"
     redirect_message: ~
     redirect_link_text: ~
     paypal_account_all_set_up: ~
-    can_receive_payments: ~
+    can_receive_payments: "Je kunt nu betalingen ontvangen voor je advertenties."
     paypal_account_connected_summary: ~
     paypal_permission_granted_summary: ~
   paypal:
@@ -1667,13 +1702,13 @@ nl:
       invite_only_help_text_title: "Enkel op uitnodiging"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Deze gebruiker is niet meer actief %{service_name}"
-      inactive_description: "Deze gebruiker is gestopt met het gebruiken van %{service_name}. U kunt deze gebruiker niet contacteren, feedback geven of commentaar geven op listings."
+      inactive_description: "Deze gebruiker is gestopt met het gebruiken van %{service_name}. U kunt deze gebruiker niet contacteren, feedback geven of commentaar geven op advertenties."
     new:
       create_new_account: "Maak account"
       email: "E-mail adres"
       email_is_in_use: "Het e-mail adres is al in gebruik."
-      email_is_in_use_or_not_allowed: "Dit e-mail adres is niet toegestaan of al in gebruik. Contacteer ons wanneer u niet kunt inloggen."
-      email_not_allowed: "Deze e-mail is niet toegestaan in %{service_name}. Gebruik aub een toegestaan adres. Stuur ons feedback als je nog altijd niet binnen geraakt."
+      email_is_in_use_or_not_allowed: "Dit e-mail adres is niet toegestaan of al in gebruik. Neem contact met ons op als u niet kunt inloggen."
+      email_not_allowed: "Deze e-mail is niet toegestaan in %{service_name}. Gebruik aub een toegestaan adres. Mocht het alsnog niet lukken, neem dan contact met ons op."
       email_restriction_instructions:
         one: "De toegang tot %{service_name} is beperkt. Om aan te sluiten heeft u een '%{allowed_emails}' e-mail adres nodig."
         other: "De toegang tot %{service_name} is beperkt. U heeft een e-mail adres nodig dat aantoont dat u gerechtigd bent om aan te sluiten."
@@ -1683,7 +1718,7 @@ nl:
       invalid_invitation_code: "Deze invitatie code is niet geldig."
       invitation_code: "Invitatie code"
       not_required: ", niet vereist"
-      notification_is_mandatory: ~
+      notification_is_mandatory: "Je moet ten minste één email-adres kiezen om notificaties te ontvangen. Als je geen emails wilt onvangen van %{service_name}, kijk dan de instellingen na  van de email-notificaties."
       password_again: "Bevestig wachtwoord"
       show_my_name_to_others: "Toon mijn echte naam aan andere %{service_name} gebruikers"
       sign_up: "Maak een nieuwe account op %{service_name}"
@@ -1724,15 +1759,15 @@ nl:
       what_are_these: "Wat zijn dit?"
       review: "ontvangen evaluatie"
       reviews: "ontvangen evaluaties"
-      listing: item
-      listings: items
-      open_listing: item
-      open_listings: "actuele items"
-      no_listings: "Geen items"
-      no_open_listings: "Geen actuele items"
+      listing: advertentie
+      listings: advertenties
+      open_listing: advertentie
+      open_listings: "actuele advertenties"
+      no_listings: "Geen advertenties"
+      no_open_listings: "Geen actuele advertenties"
       no_reviews: "Geen evaluaties"
-      show_all_listings: "Toon alle items"
-      show_all_open_listings: "Toon alle actuele items"
+      show_all_listings: "Toon alle advertenties"
+      show_all_open_listings: "Toon alle actuele advertenties"
       show_all_reviews: "Toon alle evaluaties"
     followed_people:
       you_follow_plural: "Je volgt %{count} mensen"
@@ -1745,16 +1780,6 @@ nl:
       following: Volgend
       follow: Volgen
       unfollow: "Niet meer volgen"
-  search:
-    show:
-      all_results: "Alle resultaten"
-      loading_more_search_results: "Meer zoekresultaten aan het laden"
-      offers: Aanbod
-      requests: Vragen
-      search: Zoek
-      search_results: Zoekresultaten
-      search_returned_no_results: "Je zoekopdracht heeft geen resultaten opgeleverd."
-      search_verb: Zoek
   sessions:
     new:
       create_new_account: "Maak een nieuwe account aan"
@@ -1782,21 +1807,24 @@ nl:
       resend_confirmation_instructions: "Stuur bevestigingsinstructies nogmaals"
       your_current_email_is: "Je e-mail is %{email}."
       change_email: Wijzig
-      confirm_your_email: "Bevestig uw e-mail adres alstublieft"
-      account_confirmation_instructions: "U ontvangt een e-mail met een link waarmee u uw e-mail adres dient te bevestigen. Zodra dit is gebeurd kunt u zich aansluiten bij %{service_name}."
+      confirm_your_email: "Bevestig uw e-mail adres"
+      account_confirmation_instructions: "U ontvangt een e-mail met een link waarmee u uw e-mail adres dient te bevestigen. Zodra dit is gebeurd kunt u lid worden van %{service_name}."
       account_confirmation_instructions_title_admin: "Welkom bij je marktplaats!"
-      your_marketplace_has_now_been_created: "Je marktplaats is nu aangemaakt. Dat was makkelijk, niet? Er is nog één ding te doen alvorens je je site kan gebruiken: je moet je e-mail adres bevestigen."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Je zal binnenkort een e-mail ontvangen met een link om het e-mail adres dat je hebt opgegeven te bevestigen. Daarna kan je beginnen met je marktplaats te configureren."
+      contact_support_link_text: ~
   settings:
     account:
       change: Wijzig
       confirm_new_password: "Bevestig nieuw wachtwoord"
       delete_account: "Verwijder account"
       delete_account_button: "Verwijder mijn account permanent"
-      delete_account_confirmation_popup: "Weet u zeker dat u uw account en alle bijbehorende data wilt verwijderen? Deze actie kan niet ongedaan worden."
+      delete_account_confirmation_popup: "Weet u zeker dat u uw account en alle bijbehorende data wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt."
       email_addresses: "E-mail adressen"
       new_email: "Nieuw e-mail adres"
-      delete_personal_information: "Als je je account verwijdert, zal al je persoonlijke informatie (naam, telefoonnummer, adres, e-mail, profiel afbeelding, enz...) permanent verwijderd worden. Dit kan niet meer ongedaan worden gemaakt. Al de items die je hebt aangemaakt, worden verwijderd. Je kunt je account niet opnieuw activeren."
+      delete_personal_information: "Als je je account verwijdert, zal al je persoonlijke informatie (naam, telefoonnummer, adres, e-mail, profiel afbeelding, enz...) permanent verwijderd worden. Dit kan niet meer ongedaan worden gemaakt. Al de advertenties die je hebt aangemaakt, worden verwijderd. Je kunt je account niet opnieuw activeren."
       delete_information_others_involved: "Informatie waar andere leden bij betrokken zijn (gesprekken met andere mensen, transacties die je gedaan hebt, feedback die je aan anderen hebt gegeven, enz...) verdwijnen niet wanneer je je account verwijdert. In deze gevallen zal jouw naam echter niet meer getoond worden."
       unfinished_transactions: "Je account kan niet worden verwijderd omdat je lopende transacties hebt. Sluit aub alle transacties alvorens je je account verwijdert."
       new_password: "Nieuw wachtwoord"
@@ -1827,8 +1855,8 @@ nl:
       email_about_new_messages: "...iemand me een bericht stuurt"
       email_about_new_received_testimonials: "...iemand me feedback geeft"
       email_about_testimonial_reminders: "...ik ben vergeten feedback te geven op een event"
-      email_daily_community_updates: "Stuur mij een <b>dagelijkse<b> update als er nieuwe items geplaatst worden"
-      email_weekly_community_updates: "Stuur mij een <b>wekelijkse<b> update als er nieuwe items geplaatst worden"
+      email_daily_community_updates: "Stuur mij een <b>dagelijkse<b> update als er nieuwe advertenties geplaatst worden"
+      email_weekly_community_updates: "Stuur mij een <b>wekelijkse<b> update als er nieuwe advertenties geplaatst worden"
       do_not_email_community_updates: "Ik ontvang liever geen updates"
       email_when_conversation_accepted: "...iemand mijn vraag of aanbod accepteert"
       email_when_conversation_rejected: "...iemand mijn vraag of aanbod weigert"
@@ -1840,7 +1868,7 @@ nl:
       settings_link: instellingen
       homepage_link: "Home page"
       unsubscribe_unsuccesful: "Fout bij uitschrijven"
-      unsuccessful_unsubscribe_info_text: "De reden is mogelijk dat de uitschrijf-link is verouderd of niet langer geldig is. Neem contact met ons op via de feedback knop links en we zullen u uitschrijven of log in en wijzig uw e-mail instellingen."
+      unsuccessful_unsubscribe_info_text: "De reden is mogelijk dat de uitschrijf-link is verouderd of niet langer geldig is. Neem contact met ons en we zullen u uitschrijven of log in en wijzig uw e-mail instellingen."
     profile:
       about_you: "Over jou"
       city: Stad
@@ -1858,9 +1886,9 @@ nl:
       these_fields_are_shown_in_your: "Deze informatie is zichtbaar voor alle %{service_name} gebruikers"
       visible_to_everybody: "zichtbaar voor iedereen"
       visible_to_registered_users: "(zichtbaar voor ingelogde gebruikers)"
-      default_in_listing: "(enkel als standaard gebruikt bij het aanmaken van een nieuwe lijst)"
+      default_in_listing: "(enkel als standaard gebruikt bij het aanmaken van een nieuwe advertentie)"
       invisible: "(niet getoond aan andere gebruikers)"
-      image_is_processing: "Je profielfoto wordt voorbereid. Laadt de pagina aub dadelijk even opnieuw."
+      image_is_processing: "Je profielfoto wordt verwerkt. Laadt de pagina aub dadelijk even opnieuw."
     save_information: "Informatie opslaan"
   shipping_address:
     shipping_address: "Verzend adres"
@@ -1900,7 +1928,7 @@ nl:
       negative: Negatief
       default_textual_feedback: "Alles verliep vlot, dank je wel!"
     testimonial:
-      about_listing: "over item"
+      about_listing: "over advertentie"
   date:
     formats:
       long_with_abbr_day_name: "%a, %d %b, %Y"
@@ -1996,8 +2024,23 @@ nl:
     day: dag
     days: dagen
   web:
+    listings:
+      pricing_units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+    no_listings:
+      sorry: ~
+      try_other_search_terms: ~
     listing_card:
+      add_picture: ~
       no_picture: ~
+    search:
+      page: ~
+      page_of_pages: ~
     topbar:
       menu: ~
       more: ~
@@ -2005,14 +2048,17 @@ nl:
       search_location_placeholder: ~
       user: ~
       inbox: ~
-      profile: ~
-      manage_listings: ~
-      settings: ~
+      profile: Profiel
+      manage_listings: "Beheer advertenties"
+      settings: Instellingen
       logout: ~
       login: ~
       signup: ~
       admin_dashboard: ~
       language: ~
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~

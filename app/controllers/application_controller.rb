@@ -27,11 +27,9 @@ class ApplicationController < ActionController::Base
     :redirect_removed_locale,
     :set_locale,
     :redirect_locale_param,
-    :set_default_url_for_mailer,
     :fetch_community_admin_status,
     :warn_about_missing_payment_info,
     :set_homepage_path,
-    :report_queue_size,
     :maintenance_warning,
     :cannot_access_if_banned,
     :cannot_access_without_confirmation,
@@ -207,7 +205,7 @@ class ApplicationController < ActionController::Base
   def ensure_user_belongs_to_community
     return unless @current_user
 
-    if !@current_user.is_admin? && @current_user.accepted_community != @current_community
+    if !@current_user.has_admin_rights? && @current_user.accepted_community != @current_community
 
       logger.info(
         "Automatically logged out user that doesn't belong to community",
@@ -328,14 +326,6 @@ class ApplicationController < ActionController::Base
       end
 
       redirect_to confirmation_pending_path
-    end
-  end
-
-  def set_default_url_for_mailer
-    url = @current_community ? "#{@current_community.full_domain}" : "www.#{APP_CONFIG.domain}"
-    ActionMailer::Base.default_url_options = {:host => url}
-    if APP_CONFIG.always_use_ssl
-      ActionMailer::Base.default_url_options[:protocol] = "https"
     end
   end
 
@@ -512,6 +502,20 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :topbar_props
+
+  def notifications_to_react
+    # Different way to display flash messages on React pages
+    if (params[:controller] == "homepage" && params[:action] == "index" && FeatureFlagHelper.feature_enabled?(:searchpage_v1))
+      notifications = [:notice, :warning, :error].each_with_object({}) do |level, acc|
+        if flash[level]
+          acc[level] = flash[level]
+          flash.delete(level)
+        end
+      end.compact
+    end
+  end
+
+  helper_method :notifications_to_react
 
   def header_props
     user = Maybe(@current_user).map { |u|

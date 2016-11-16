@@ -229,6 +229,7 @@ es:
         enabled_for_you: ~
         enabled_for_all: ~
         new_topbar: ~
+        searchpage: ~
       social_media:
         social_media: ~
         twitter_handle: ~
@@ -368,6 +369,12 @@ es:
       subscription: ~
       preview: ~
     listing_shapes:
+      availability_title: ~
+      read_more: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: ~
         description: ~
@@ -443,14 +450,16 @@ es:
     paypal_accounts:
       marketplace_paypal_integration: ~
       preferences_updated: ~
-      marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: ~
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: ~
-      set_minimum_price_and_fee: ~
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      currency_change_warning_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: ~
       transaction_fee_label: ~
       minimum_transaction_fee_label: ~
@@ -860,6 +869,12 @@ es:
       remember_to_accept: ~
       one_day_left: ~
       click_here_to_reply: ~
+    welcome_email:
+      welcome_email_subject: ~
+      welcome_to_marketplace: ~
+      love_marketplace_crew: ~
+      welcome_email_footer_text: "¿Qué tipo de emails desea recibir de %{service_name}? %{settings_link}"
+      settings_link_text: "Revisa tu configuración"
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -871,6 +886,9 @@ es:
       person_name: ~
       person_email: ~
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: ~
     listings:
@@ -1210,6 +1228,8 @@ es:
       offer_rejected: "Oferta rechazada"
       offer_canceled: "Oferta cancelada"
       listing_updated_successfully: "Listado actualizado!"
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Sólo los administradores de %{service_name} pueden acceder a esta área"
       only_listing_author_can_close_a_listing: "Sólo el creador de una lista puede cerrarla"
       only_listing_author_can_edit_a_listing: "Sólo el creador de una lista puede editarla"
@@ -1317,6 +1337,8 @@ es:
     error:
       something_went_wrong: ~
       something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: "Seguir este anuncio"
       unfollow: "Dejar de seguir este anuncio"
@@ -1440,7 +1462,6 @@ es:
       request_type: "Tipo de solicitud"
       requests: Solicitudes
       rideshare: "Traslado compartido"
-      search_verb: Buscar
       you_have_something_others_do_not: "¿Tienes algo que ofecer?"
       feed_title: "%{listing_type} en %{community_name} de %{service_name}%{optional_category}"
     left_panel_link:
@@ -1464,6 +1485,7 @@ es:
       booking_to: ~
       how_paypal_works: ~
       payment_help: ~
+      unable_load_availability: ~
     new:
       listing: listado
       selected_category: "Categoría: %{category}"
@@ -1538,6 +1560,8 @@ es:
       verification_required: ~
   listing_conversations:
     preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
       details: ~
       by: ~
       payment: ~
@@ -1569,7 +1593,6 @@ es:
       request_type: "Tipo de solicitud"
       requests: Solicitudes
       rideshare: "Traslado compartido"
-      search_verb: Buscar
       you_have_something_others_do_not: "¿Tienes algo para ofrecer?"
     please_comment: Comentario
   mercury:
@@ -1737,16 +1760,6 @@ es:
       following: ~
       follow: ~
       unfollow: ~
-  search:
-    show:
-      all_results: "Todos los resultados"
-      loading_more_search_results: "Cargar más resultados de búsqueda"
-      offers: Ofertas
-      requests: Solicitudes
-      search: Buscar
-      search_results: "Resultados de búsqueda"
-      search_returned_no_results: "La búsqueda no ha generado resultados."
-      search_verb: buscar
   sessions:
     new:
       create_new_account: "Crear una cuenta nueva"
@@ -1777,8 +1790,11 @@ es:
       confirm_your_email: "Confirma tu e-mail"
       account_confirmation_instructions: "Pronto recibirás un e-mail con un link al que deberás hacer clic para confirmar la cuenta e-mail ingresada. Después de confirmar tu e-mail puedes comenzar a usar %{service_name}."
       account_confirmation_instructions_title_admin: ~
-      your_marketplace_has_now_been_created: ~
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: ~
+      contact_support_link_text: ~
   settings:
     account:
       change: Cambiar
@@ -1988,8 +2004,23 @@ es:
     day: ~
     days: ~
   web:
+    listings:
+      pricing_units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+    no_listings:
+      sorry: ~
+      try_other_search_terms: ~
     listing_card:
+      add_picture: ~
       no_picture: ~
+    search:
+      page: ~
+      page_of_pages: ~
     topbar:
       menu: ~
       more: ~
@@ -2005,6 +2036,9 @@ es:
       signup: ~
       admin_dashboard: ~
       language: ~
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~

@@ -11,7 +11,7 @@ pt-PT:
         save_order_successful: ~
         save_order_error: ~
       new:
-        new_listing_category: ~
+        new_listing_category: "Nova categoria de anúncios"
       form:
         category_name:
           category_title: ~
@@ -20,7 +20,7 @@ pt-PT:
           no_parent: ~
         category_transaction_types:
           transaction_types: ~
-          transaction_types_description: ~
+          transaction_types_description: "Os tipos de transação determinam quais as operações que são permitidas através desta categoria de anúncios. Numa categoria pode, por exemplo, só ser possível vender ou alugar, enquanto noutra pode ser também possível doar."
           select_all: ~
           clear_all: ~
         buttons:
@@ -30,30 +30,36 @@ pt-PT:
         remove_category: ~
         remove_category_name: ~
         warning_remove_effects: ~
+        warning_listing_will_be_moved:
+          one: "Há %{count} anúncio na categoria. Será movido para a categoria selecionada."
+          other: "Há %{count} anúncios na categoria. Serão movidos para a categoria selecionada."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "Há %{count} anúncio na categoria e subcategorias. Será movido para a categoria selecionada."
+          other: "Há %{count} anúncios na categoria e subcategorias. Serão movidos para a categoria selecionada."
         select_new_category: ~
         buttons:
           remove: ~
           cancel: ~
     communities:
       edit_details:
-        community_details: ~
-        community_look_and_feel: ~
-        edit_community: ~
+        community_details: "Detalhes básicos"
+        community_look_and_feel: "Editar visual"
+        edit_community: "Detalhes básicos"
         enabled_languages: ~
         enabled_languages_description: "O conjunto de idiomas disponíveis para os utilizadores. O primeiro é utilizado como padrão."
         default_language: ~
         language_selection_disabled: ~
-        community_name: ~
+        community_name: "Nome do mercado virtual"
         edit_community_name_description: "O nome do seu mercado virtual. Será mostrado a utilizadores e em vários outros locais."
-        community_slogan: ~
+        community_slogan: "Slogan do mercado virtual"
         edit_community_slogan_description: "Isso é mostrado na página inicial do mercado virtual para os utilizadores que não estejam cadastrados. %{see_how_it_looks_like}."
-        community_description: ~
+        community_description: "Descrição do mercado virtual"
         edit_community_description_description: "Isso é mostrado na página inicial do mercado virtual para os utilizadores que não estejam cadastrados. %{see_how_it_looks_like}."
         community_search_placeholder: ~
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: "Este conteúdo é mostrado para utilizadores não cadastrados na página inicial dos mercados virtuais privados. Aqui você pode descrever o seu mercado virtual e o processo para se juntar a ele. Você também pode adicionar imagens, vídeos e conteúdo HTML aqui. %{see_how_it_looks_like}."
-        update_information: ~
+        update_information: "Salvar configuração"
         invite_people: "Convide novos utilizadores para o %{service_name}"
         edit_signup_info: ~
         edit_signup_info_description: "Este é um texto de informação que pode ser mostrado aos utilizadores na página de inscrição. Lá pode dar instruções sobre como se inscrever, onde conseguir um convite, etc. Não há instruções por defeito."
@@ -71,14 +77,14 @@ pt-PT:
         transaction_agreement_text_header: ~
         transaction_agreement_description: "Este é o conteúdo do acordo vigente que o utilizador deve aceitar. O conteúdo do mesmo é exibido quando o utilizador clica no link \"%{read_more}\" ao lado da legenda do acordo."
       edit_look_and_feel:
-        edit_community_look_and_feel: ~
-        community_logo: ~
+        edit_community_look_and_feel: "Editar o visual do mercado virtual %{community_name}."
+        community_logo: Logo
         community_logo_icon: ~
-        community_cover_photo: ~
+        community_cover_photo: "Foto de capa"
         small_community_cover_photo: ~
         favicon: ~
         favicon_info_text: ~
-        community_custom_color1: ~
+        community_custom_color1: "Cor principal"
         new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: "Área de Trabalho tamanho do logotipo deve ser %{width}x%{height} px. Ele será exibido para os utilizadores com telas maiores."
         logo_instructions_text_with_dimensions_no_placing: ~
@@ -92,7 +98,7 @@ pt-PT:
         custom_color1_instructions_text: "Você pode mudar a cor principal da interface de utilizador desta comunidade, inserindo um valor de cor hex. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\"> ColorPicker.com </a> pode ajudar você a escolher a cor e copie o código aqui."
         new_listing_button_instructions_text: ~
         default_browse_view: ~
-        default_browse_view_instructions_text: ~
+        default_browse_view_instructions_text: "A visualização de navegação padrão é usada na página inicial para definir a forma como os anúncios são exibidos por defeito."
         grid: Grelha
         list: ~
         map: ~
@@ -173,7 +179,7 @@ pt-PT:
         join_with_invite_only: "Novos utilizadores só podem se cadastrar neste mercado virtual com o convite de outro utilizador"
         users_can_invite_new_users: "Todos os utilizadores podem convidar novos utilizadores para este mercado virtual"
         private: "Este mercado virtual é privado (apenas utilizadores cadastrados podem ver o conteúdo)"
-        require_verification_to_post_listings: "Somente utilizadores verificados por administrador pode postar novos anúncios"
+        require_verification_to_post_listings: "Só utilizadores verificados por administrador podem postar."
         search_preferences: ~
         default_search_type: ~
         keyword_search: ~
@@ -182,18 +188,18 @@ pt-PT:
         select_distance_unit: ~
         km: ~
         miles: ~
-        show_only_nearby: ~
-        listing_preferences: ~
+        show_only_nearby: "Mostrar apenas anúncios próximos, com a busca de localização"
+        listing_preferences: "Preferências de anúncios"
         transaction_preferences: ~
-        show_listing_publishing_date: ~
-        show_category_in_listing_list: ~
-        hide_expiration_date: ~
+        show_listing_publishing_date: "Mostrar data de publicação do anúncio na página do anúncio"
+        show_category_in_listing_list: "Mostrar o tipo de anúncio na visualização em forma de lista"
+        hide_expiration_date: "Não requer anúncios para ter data de validade"
         listing_comments_in_use: "Permitir aos utilizadores comentarem nos anúncios (visível a todos os outros utilizadores)"
         email_preferences: ~
         automatic_newsletters: "Enviar automáticamente boletins diários / semanais para todos os utilizadores (a menos que optar por sair)"
         email_admins_about_new_members: "Envie um e-mail sempre para adminstrador quando um novo utilizador se cadastrar"
         google_analytics_key: ~
-        twitter_handle: ~
+        twitter_handle: "Twitter handle (usado com o botão de tweet na página de anúncio)"
         update_settings: ~
         automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
@@ -229,11 +235,12 @@ pt-PT:
         enabled_for_you: ~
         enabled_for_all: ~
         new_topbar: ~
+        searchpage: ~
       social_media:
         social_media: ~
         twitter_handle: ~
-        twitter_handle_info_text: "Nome de utilizador da conta do Twitter do seu marketplace (se você tiver uma). Será mencionado quando as pessoas usarem o botão tweet na página do anúncio."
-        twitter_handle_info_text_with_instructions: "Nome de utilizador da conta de Twitter de seu mercado virtual (se você tiver um). Ele será mencionado quando as pessoas usarem o botão 'tweet' na página de anúncios. %{instructions_link}."
+        twitter_handle_info_text: "Nome de utilizador da conta do Twitter do seu mercado virtual (se tiver uma). Será mencionado quando as pessoas usarem o botão tweet na página do anúncio."
+        twitter_handle_info_text_with_instructions: "Nome de utilizador da conta de Twitter do seu mercado virtual (se tiver um). Será mencionado quando as pessoas clicarem o botão 'tweet' na página de anúncios. %{instructions_link}."
         twitter_instructions_link_text: ~
         twitter_handle_placeholder: "nome de utilizador"
         invalid_twitter_handle: ~
@@ -276,7 +283,7 @@ pt-PT:
         transactions: ~
         headers:
           conversation: ~
-          listing: ~
+          listing: Anúncio
           status: ~
           sum: ~
           started: ~
@@ -299,9 +306,9 @@ pt-PT:
         paypal_admin_account: ~
     custom_fields:
       edit:
-        edit_listing_field: ~
+        edit_listing_field: "Alterar anúncio '%{field_name}'"
       edit_price:
-        description: ~
+        description: "Os preços máximo e mínimo afetam apenas o filtro. Não impõem um limite para o preço indicado nos anúncios."
         edit_price_field: ~
         show_price_filter_homepage: ~
         price_min: ~
@@ -318,15 +325,15 @@ pt-PT:
           date_cant_be_filtered: ~
           text_cant_be_filtered: ~
       index:
-        listing_fields: ~
-        listing_fields_help: "Aqui você pode editar os campos que os utilizadores têm de preencher ao criar um novo anúncio. Por favor, note que alguns campos são predefinidos e não podem ser editados."
+        listing_fields: "Campos de anúncios & filtros"
+        listing_fields_help: "Aqui pode editar os campos que os utilizadores têm de preencher ao criar um novo anúncio. Por favor, note que alguns campos são predefinidos e não podem ser editados."
         add_new_field: ~
         remove_field_confirmation: ~
         cancel: ~
         save: ~
         field_title: ~
         field_type: ~
-        categories: ~
+        categories: "Categorias de anúncio onde o campo é usado"
         select_all: ~
         clear_all: ~
         options: ~
@@ -340,7 +347,7 @@ pt-PT:
         maximum_value: ~
         allow_decimals: ~
       new:
-        new_listing_field: ~
+        new_listing_field: "Novo anúncio"
       field_types:
         text: ~
         number: ~
@@ -368,6 +375,12 @@ pt-PT:
       subscription: ~
       preview: ~
     listing_shapes:
+      availability_title: ~
+      read_more: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: ~
         description: "O tipo da ordem define a forma como a ordem é processada no seu site. Você pode decidir se seus utilizador poderão alugar ou vender ou talvez apenas criar anúncios e se comunicar através de mensagens gratuitas."
@@ -405,13 +418,25 @@ pt-PT:
         update_success: ~
         update_failure: ~
         delete: ~
+        confirm_delete_order_type:
+          one: "Existe %{count} anúncio com este tipo de ordem. Se excluir este tipo de ordem o anúncio será encerrado. Tem a certeza que deseja excluir este tipo de ordem?"
+          other: "Existem %{count} anúncios com este tipo de ordem. Se excluir este tipo de ordem so anúncios serão encerrados. Tem a certeza que deseja excluir este tipo de ordem?"
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
       listing_shape_name: ~
       listing_shape_name_placeholder: ~
       action_button_label: ~
       action_button_placeholder: ~
-      successfully_closed: ~
+      open_listings_warning:
+        one: "Existe %{count} anúncio ativo com este tipo de ordem. Se modificar alguma das configurações abaixo este anúncio manterá a configuração anterior. O anúncio deve ser editado manualmente para usar as novas configurações. Se não quiser ter o anúncio visível com a antiga configuração deve fechá-lo clicando no botão abaixo."
+        other: "Existem %{count} anúncios ativos com este tipo de ordem. Se modificar alguma das configurações abaixo estes anúncios manterão a configuração anterior. Os anúncios devem ser editados manualmente para usar as novas configurações. Se não quiser ter os anúncios visíveis com a antiga configuração deve fechá-los clicando no botão abaixo."
+      close_listings_action:
+        one: "Fechar %{count} anúncio"
+        other: "Fechar %{count} anúncios"
+      confirm_close_listings_action:
+        one: "Tem a certeza que deseja fechar %{count} anúncio?"
+        other: "Tem a certeza que deseja fechar %{count} anúncios?"
+      successfully_closed: "Anúncios encerrados com sucesso"
       successfully_deleted: ~
       pricing_and_checkout_title: ~
       online_payments_label: ~
@@ -443,15 +468,17 @@ pt-PT:
     paypal_accounts:
       marketplace_paypal_integration: ~
       preferences_updated: ~
-      marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: "O sistema de pagamento de Sharetribe é gerido pelo PayPal. Se quiser permitir que os seus utilizadores façam pagamentos através do seu mercado virtual, deve conectar-se à sua conta PayPal e decidir o valor mínimo da transação e a taxa que quer ganhar com cada transação."
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: ~
-      set_minimum_price_and_fee: ~
-      minimum_listing_price_label: ~
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      currency_change_warning_text: ~
+      marketplace_currency_label: ~
+      minimum_listing_price_label: "Preço mínimo de transação:"
       transaction_fee_label: ~
       minimum_transaction_fee_label: ~
       save_settings: ~
@@ -496,12 +523,12 @@ pt-PT:
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: gratuito
-      accept_for_free: ~
+      accept_for_free: "usar gratuitamente"
     categories:
-      item: ~
-      favor: ~
-      rideshare: ~
-      housing: ~
+      item: Itens
+      favor: Serviços
+      rideshare: Boleia
+      housing: Espaços
       tools: ~
       sports: ~
       music: ~
@@ -534,8 +561,8 @@ pt-PT:
       accept_request: ~
       reject_offer: ~
       reject_request: ~
-      close_listing: ~
-      update_later: ~
+      close_listing: "Encerrar o anúncio %{listing_title_link}"
+      update_later: "Deixar o anúncio ativo"
       optional_message: ~
       price_to_pay: ~
       accept: ~
@@ -550,7 +577,7 @@ pt-PT:
       shipping_price_label: ~
     confirm:
       confirm_description: "Se o seu pedido foi realizado, você deve confirmá-lo como concluído"
-      cancel_description: ~
+      cancel_description: "Se sua ordem não foi realizada, pode marcá-la como \"não efetuada\". Pode também dar feedback à outra parte e descrever o que aconteceu."
       cancel_payed_description: ~
       canceling_payed_transaction: ~
       confirm: Concluído
@@ -573,12 +600,12 @@ pt-PT:
       accepted_offer: ~
       rejected_request: ~
       rejected_offer: ~
-      confirmed_request: ~
+      confirmed_request: "Ordem concluída."
       confirmed_offer: ~
-      canceled_request: ~
+      canceled_request: "Ordem cancelada."
       canceled_offer: ~
       message_from: ~
-      about_listing: ~
+      about_listing: "Sobre o anúncio %{listing_title}"
       free_message: ~
       message_content_not_available: ~
     message:
@@ -587,9 +614,9 @@ pt-PT:
       accepted_offer: ~
       rejected_request: ~
       rejected_offer: ~
-      confirmed_request: ~
+      confirmed_request: "marcou a ordem como concluída"
       confirmed_offer: ~
-      canceled_request: ~
+      canceled_request: "cancelou a ordem"
       canceled_offer: ~
       paid: ~
       payment_preauthorized: ~
@@ -604,10 +631,10 @@ pt-PT:
       you_will_get_notified: "Receberá uma notificação por email quando %{person} lhe responder."
       title: Título
       send_message_to_user: "Enviar mensagem a %{person}"
-      about_listing: ~
+      about_listing: "Sobre o anúncio %{listing_title}"
       author_has_to_accept_request: ~
     show:
-      in_response_to_listing: ~
+      in_response_to_listing: "sobre o anúncio"
       message_sent_by: ~
       message_sent_to: ~
       send_reply: Responder
@@ -651,10 +678,10 @@ pt-PT:
       request_paid: ~
       request_preauthorized: ~
       skip_feedback: "Não deixar opinião"
-      waiting_for_listing_author_to_accept_offer: ~
-      waiting_for_listing_author_to_accept_request: ~
+      waiting_for_listing_author_to_accept_offer: "A aguardar que %{listing_author_name} aceite a oferta"
+      waiting_for_listing_author_to_accept_request: "A aguardar que o %{listing_author_name} aceite o seu pedido. A cobrança só será efetuada quando %{listing_author_name} aceitar o seu pedido."
       waiting_for_you_to_accept_request: ~
-      waiting_confirmation_from_requester: ~
+      waiting_confirmation_from_requester: "A aguardar que %{requester_name} marque a ordem como concluida"
       waiting_confirmation_from_you: ~
       waiting_payment_from_requester: ~
       waiting_payment_from_you: ~
@@ -716,20 +743,20 @@ pt-PT:
       create_own: ~
       learn_more: ~
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: ~
+      you_have_not_yet_confirmed_or_canceled_request: "Ainda não confirmou ou cancelou a ordem %{request_link}. Se a ordem foi concluída, deve confirmá-lo. Depois disso pode dar feedback a %{other_party_given_name}."
       remember_to_confirm_request: ~
-      if_will_not_happen_you_should_cancel: ~
+      if_will_not_happen_you_should_cancel: "Se acha que esta ordem não será concluída por qualquer razão, pode %{cancel_it_link}."
       cancel_it_link_text: ~
       automatic_confirmation: ~
     payment_settings_reminder:
       remember_to_add_payment_details: ~
-      you_have_added_listing_with_payment: ~
+      you_have_added_listing_with_payment: "Você adicionou um anúncio %{listing_link}. No entanto, ainda não configurou os seus dados para pagamento. Precisa fazê-lo para poder receber pagamentos."
       please_go_to_payment_settings: ~
       payment_settings_link: ~
     transaction_confirmed:
       here_is_a_message_from: ~
-      request_marked_as_confirmed: ~
-      request_marked_as_canceled: ~
+      request_marked_as_confirmed: "Ordem concluída - não se esqueça de dar feedback"
+      request_marked_as_canceled: "Ordem cancelada"
       has_marked_request_as_confirmed: ~
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: ~
@@ -779,11 +806,11 @@ pt-PT:
       join_now: ~
       invitation_code: ~
     new_comment:
-      has_commented_your_listing_in_kassi: ~
+      has_commented_your_listing_in_kassi: "%{author} comentou o seu anúncio '%{listing}'."
       view_comment: ~
       you_have_a_new_comment: "%{author} comentou o seu anúncio em %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} comentou um anúncio que você segue no %{service_name}"
-      has_commented_listing_you_follow_in_kassi: ~
+      has_commented_listing_you_follow_in_kassi: "%{author} comentou o anúncio '%{listing}' que você segue no %{service_name}."
     new_message:
       view_message: ~
       has_sent_you_a_message_in_kassi: "%{sender} enviou-lhe uma mensagem no %{service_name}."
@@ -792,7 +819,7 @@ pt-PT:
       new_payment: ~
       price_per_unit_type: ~
       quantity: ~
-      you_have_received_new_payment: ~
+      you_have_received_new_payment: "Você recebeu <b>%{payment_sum}</b> por <b>%{listing_title}</b> de %{payer_full_name}. Aqui está o seu recibo."
     paypal_new_payment:
       paypal_gateway_fee: ~
       shipping_total: ~
@@ -819,13 +846,13 @@ pt-PT:
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Um anúncio que você segue foi atualizado"
-      has_updated_listing_you_follow_in_kassi: ~
+      has_updated_listing_you_follow_in_kassi: "%{author} atualizou o anúncio '%{listing}' você está a seguir no %{service_name}."
       view_changes: ~
     community_updates:
-      added_offer: "%{name_link} adicionou um post:"
-      added_request: "%{name_link} adicionou um post:"
-      added_listing: ~
-      update_mail_title: ~
+      added_offer: "%{name_link} adicionou um anúncio:"
+      added_request: "%{name_link} adicionou um anúncio:"
+      added_listing: "%{name_link} adicionou um anúncio:"
+      update_mail_title: "Atualização de %{title_link}"
       title_link_text: "%{community_name}"
       intro_paragraph: "Veja algumas das coisas que aconteceram no %{community_link} desde há %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
@@ -849,21 +876,30 @@ pt-PT:
       you_have_time_to_accept: ~
       click_here_to_reply: ~
     transaction_preauthorized_reminder:
-      subject: ~
-      remember_to_accept: ~
+      subject: "Não se esqueça de aceitar o pedido de %{requester} sobre o anúncio %{listing_title}"
+      remember_to_accept: "Não se esqueça de aceitar o pedido de %{requester} sobre o anúncio %{listing_title}. %{requester} já pagou mas você tem que aceitar o pedido para receber o pagamento."
       one_day_left: ~
       click_here_to_reply: ~
+    welcome_email:
+      welcome_email_subject: ~
+      welcome_to_marketplace: ~
+      love_marketplace_crew: ~
+      welcome_email_footer_text: ""
+      settings_link_text: "Verifique as suas configurações"
     new_listing_by_followed_person:
-      subject: ~
-      has_posted_a_new_listing: ~
+      subject: "%{author_name} publicou um novo anúncio no %{service_name}"
+      has_posted_a_new_listing: "%{author_name} publicou um novo anúncio:"
       you_are_receiving_this_because: ~
-      view_listing: ~
+      view_listing: "Ver anúncio"
     new_member_notification:
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
       person_email: ~
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: ~
     listings:
@@ -880,7 +916,7 @@ pt-PT:
     paypal:
       buyer_cannot_pay_error: ~
       pending_review_error: ~
-      seller_express_checkout_disabled: ~
+      seller_express_checkout_disabled: "O PayPal Express Checkout foi desabilitado para a conta PayPal do autor deste anúncio. Por favor contacte o autor, informe-o que há um problema com a conta PayPal e aconselhe-o a entrar em contacto com o atendimento ao cliente do PayPal."
       generic_error: ~
       cancel_error: ~
       accept_authorization_error: ~
@@ -951,15 +987,15 @@ pt-PT:
   header:
     about: Sobre
     home: Início
-    members: ~
-    new_listing: ~
+    members: Comunidade
+    new_listing: "Novo anúncio"
     mobile_version: "Versão para telemóvel"
     offers: ofertas
     requests: Pedidos
     search_kassi: "Procurar %{service_name}"
-    create_new_marketplace: ~
+    create_new_marketplace: "Criar um novo mercado virtual"
     contact_us: Contacte-nos
-    profile: ~
+    profile: Perfil
     manage_listings: "Gerir anúncios"
     invite: ~
     login: ~
@@ -1007,14 +1043,14 @@ pt-PT:
       processing_uploaded_image: "(a processar imagem...)"
     index:
       no_listings_with_your_search_criteria: ~
-      no_listings_notification: ~
-      add_listing_link_text: ~
-      open_listing: ~
-      open_listings: ~
-      private_listing_notification_log_in: ~
+      no_listings_notification: "Não há anúncios. %{add_listing_link}."
+      add_listing_link_text: "Adicionar novo anúncio"
+      open_listing: "anúncio ativo"
+      open_listings: "anúncios ativos"
+      private_listing_notification_log_in: login
       is: ~
       are: ~
-      what_do_you_need: ~
+      what_do_you_need: "O que procura?"
       post_new_listing: "Publicar anúncio"
       are_offering: Oferta
       add_news_item: "Adicionar um artigo"
@@ -1061,15 +1097,15 @@ pt-PT:
       comment: Comentar
       comments: comentários
     filters:
-      show: ~
-      search: ~
-      map: ~
-      list: ~
+      show: "Filtro:"
+      search: Pesquisar
+      map: "Mostrar mapa"
+      list: "Mostrar lista"
       map_button: ~
       grid_button: Grelha
       list_button: ~
-      all_listing_types: ~
-      all_categories: ~
+      all_listing_types: "Todos os tipos de anúncios"
+      all_categories: "Todas as categorias"
     errors:
       search_engine_not_responding: ~
   infos:
@@ -1096,12 +1132,12 @@ pt-PT:
       create_own: ~
       learn_more: ~
     no_tribe:
-      inbox: ~
-      settings: ~
+      inbox: "Caixa de entrada"
+      settings: Configuração
       feedback: ~
     application:
       join_this_community: ~
-      read_more: ~
+      read_more: "Ler mais"
       feedback: "A sua mensagem para a equipa do %{service_name}"
       dont_use_to_contact_support: ~
       feedback_forum: "fórum de respostas"
@@ -1111,10 +1147,10 @@ pt-PT:
       send_feedback_to_admin: "Enviar mensagem"
       to_see_what_others_have_suggested: "para ver o que outros utilizadores sugeriram, e votar para novas idéias."
       your_email_address: "O seu e-mail (para entrar em contacto)"
-      connect: ~
-      invite_your_friends: ~
+      connect: "Criar conta"
+      invite_your_friends: "Convide amigos!"
       invite_your_neighbors: ~
-      invite_your_friends_description: ~
+      invite_your_friends_description: "Quanto mais pessoas houver no %{service_name}, mais útil e eficaz é o serviço."
       invite_your_friends_invite_only_description: ~
       join_without_facebook: ~
       join_without_facebook_link: ~
@@ -1157,12 +1193,12 @@ pt-PT:
       settings: configuração
       sign_up: "Criar conta"
     notifications:
-      listing_could_not_be_saved: ~
+      listing_could_not_be_saved: "O anúncio não pôde ser salvo. Por favor, tente novamente. Se o problema persistir, por favor, %{contact_admin_link}."
       contact_admin_link_text: ~
       test_welcome_email_delivered_to: "Foi enviado um e-mail de teste para %{email}"
       something_went_wrong: ~
-      community_updated: ~
-      community_update_failed: ~
+      community_updated: "Detalhes atualizados"
+      community_update_failed: "A atualização dos detalhes falhou."
       account_creation_succesful_you_still_need_to_confirm_your_email: "A sua conta foi criada com sucesso. Agora precisa de confirmar o seu endereço de e-mail."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Obrigado por aderir ao %{service_name}. Agora precisa confirmar o seu endereço de email."
       comment_cannot_be_empty: "Comentário não pode estar em branco"
@@ -1171,7 +1207,7 @@ pt-PT:
       additional_email_confirmed: "O email que introduziu está agora confirmado."
       could_not_get_email_from_facebook: ~
       facebook_email_unconfirmed: ~
-      create_new_listing: ~
+      create_new_listing: "Criar um outro anúncio"
       create_one_here: "criar uma aqui"
       email_confirmation_sent_to_new_address: "Email de confirmação é agora enviado para o novo endereço."
       email_not_found: "O email que forneceu não existe na base de dados do %{service_name}"
@@ -1187,7 +1223,7 @@ pt-PT:
       inviting_new_users_is_not_allowed_in_this_community: "Não é permitido convidar novos utilizadores."
       login_again: "Por favor, faça novamente login"
       login_failed: "Falha no acesso à sua conta. Por favor entre com os dados correctos."
-      account_creation_successful: ~
+      account_creation_successful: "Bem-vindo ao %{service_name}, %{person_name}!"
       account_deleted: ~
       login_successful: Bem-vindo!
       logout_successful: "Abandonou a sessão do %{service_name}. Até breve!"
@@ -1199,10 +1235,12 @@ pt-PT:
       offer_accepted: "Oferta aceite"
       offer_confirmed: "Pedido realizado"
       offer_closed: "Oferta encerrada"
-      listing_created_successfully: ~
+      listing_created_successfully: "Anúncio criado com sucesso. %{new_listing_link}"
       offer_rejected: "Oferta rejeitada"
       offer_canceled: ~
-      listing_updated_successfully: ~
+      listing_updated_successfully: "Anúncio atualizado com sucesso"
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Só administradores do %{service_name} podem aceder a esta área"
       only_listing_author_can_close_a_listing: "Só o autor do anúncio pode fechar o mesmo"
       only_listing_author_can_edit_a_listing: "Só o autor do anúncio pode editar o mesmo"
@@ -1238,7 +1276,7 @@ pt-PT:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Não está autorizado a fazer comentários sobre este evento"
       you_are_not_authorized_to_do_this: "Não está autorizado a fazer isto"
       you_are_not_authorized_to_view_this_content: "Não está autorizado a visualizar este conteúdo"
-      listing_closed: ~
+      listing_closed: "O anúncio foi encerrado"
       send_instructions: "Receberá um e-mail com instruções sobre como redefinir a sua palavra-passe dentro de alguns minutos."
       you_cannot_reply_to_a_closed_offer: "Não pode responder a uma oferta fechada"
       you_cannot_send_message_to_yourself: "Não pode enviar uma mensagem a si mesmo"
@@ -1291,25 +1329,27 @@ pt-PT:
       send_comment: "Enviar comentário"
       to_send_a_comment: "para enviar um novo comentário."
       write_comment: "Escrever um novo comentário:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: ~
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Não pode enviar novos comentários pois este anúncio está fechado."
       you_must: Deve
       subscribe_to_comments: "Avise-me quando houver novos comentários ou atualizações."
     edit:
-      edit_listing: ~
+      edit_listing: "Editar anúncio"
     edit_links:
-      close_listing: ~
-      edit_listing: ~
-      reopen_listing: ~
+      close_listing: "Encerrar anúncio"
+      edit_listing: "Editar anúncio"
+      reopen_listing: "Reativar anúncio"
       move_to_top: ~
       show_in_updates_email: ~
       show_in_updates_email_loading: ~
       show_in_updates_email_error: ~
-      show_in_updates_email_success: "Este anúncio será mostrado na próxima atualização automática de e-mail enviado aos utilizadores"
+      show_in_updates_email_success: "Este anúncio será mostrado no próximo email de atualização enviado aos utilizadores"
     map:
       open_in_google_maps: ~
     error:
       something_went_wrong: ~
       something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: "Receber emails quando houver novos comentários"
       unfollow: "Não receber emails quando houver novos comentários"
@@ -1351,7 +1391,7 @@ pt-PT:
         processing: "A processar..."
         loading_image: ~
         image_uploading_in_progress: ~
-        processing_takes_a_while: ~
+        processing_takes_a_while: "Todas as imagens foram carregadas com sucesso! Vai levar algum tempo até serem processadas mas já pode salvar o anúncio e continuar."
         this_may_take_a_while: ~
         percentage_loaded: ~
         uploading_failed: ~
@@ -1381,9 +1421,9 @@ pt-PT:
         location: Localização
         origin: Origem
       send_button:
-        save_listing: ~
+        save_listing: "Salvar anúncio"
       share_type:
-        select: ~
+        select: Selecionar
         borrow: Empréstimo
         buy: Compra
         give_away: doar
@@ -1395,7 +1435,7 @@ pt-PT:
         request_type: "Tipo de pedido"
         sell: vende-se
         share_for_free: Gratuito
-        accept_for_free: ~
+        accept_for_free: "Aceitar gratuitamente"
         trade: troca-se
       tag_list:
         comma_separate: "(separados por uma vírgula)"
@@ -1407,7 +1447,7 @@ pt-PT:
       valid_until_radio_buttons:
         for_the_time_being: "Por enquanto"
       privacy:
-        privacy: ~
+        privacy: Privacidade
         private: "Privativo (visível unicamente pelos utilizadores conectados)"
         public: "Público (visível também pelos utilizadores não conectados)"
     help_texts:
@@ -1423,8 +1463,8 @@ pt-PT:
       favors: Serviços
       housing: Espaços
       items: Itens
-      list_view: "Ver lista"
-      listings: Posts
+      list_view: "Ver em forma de lista"
+      listings: Anúncios
       map_view: "Ver mapa"
       offer_something: "Informe os outros!"
       offer_type: "Tipo de oferta"
@@ -1433,7 +1473,6 @@ pt-PT:
       request_type: "Tipo de pedido"
       requests: Pedidos
       rideshare: Boleia
-      search_verb: Pesquisa
       you_have_something_others_do_not: "Tem algo a oferecer?"
       feed_title: "%{listing_type} em %{service_name} %{optional_category}"
     left_panel_link:
@@ -1450,21 +1489,22 @@ pt-PT:
       rideshares: Boleia
       sells: Vender
       share_for_frees: Gratuito
-      accept_for_frees: ~
+      accept_for_frees: "Aceitar gratuitamente"
       trades: Troca
     listing_actions:
       booking_from: De
       booking_to: Até
       how_paypal_works: ~
       payment_help: ~
+      unable_load_availability: ~
     new:
-      listing: ~
-      selected_category: ~
-      selected_subcategory: ~
-      selected_transaction_type: ~
+      listing: anúncio
+      selected_category: "Categoria: %{category}"
+      selected_subcategory: "Subcategoria: %{subcategory}"
+      selected_transaction_type: "Tipo de anúncio: %{transaction_type}"
       select_category: ~
       select_subcategory: ~
-      select_transaction_type: ~
+      select_transaction_type: "Selecionar tipo de anúncio"
       you_need_to_fill_payout_details_before_accepting: ~
       contact_admin_link_text: "contacte o administrador"
       community_not_configured_for_payments: "%{service_name} não foi configurado para os pagamentos, pelo que (ainda) não pode criar novos anúncios. Por favor, %{contact_admin_link} para mais detalhes."
@@ -1480,7 +1520,7 @@ pt-PT:
     quantity_placeholder: ~
     please_comment: Comentar
     reply_link:
-      listing_closed: ~
+      listing_closed: "O anúncio está encerrado"
     show:
       add_your_phone_number: "Adicione o seu número de telefone"
       add_profile_picture: "Adicione uma foto ao seu perfil"
@@ -1497,7 +1537,7 @@ pt-PT:
       no_reviews: ~
       offer: Oferta
       listing_created: ~
-      open_until: ~
+      open_until: "Válido até %{date}"
       feedback: ~
       qr_code: ~
       request: Pedido
@@ -1509,7 +1549,7 @@ pt-PT:
       times: vezes
       times_viewed: Visualizado
       processing_uploaded_image: "(a processar imagem...)"
-      listing_created_at: ~
+      listing_created_at: "Anúncio criado"
       price:
         per_quantity_unit: ~
         per_day: ~
@@ -1531,6 +1571,8 @@ pt-PT:
       verification_required: ~
   listing_conversations:
     preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
       details: ~
       by: ~
       payment: ~
@@ -1553,7 +1595,7 @@ pt-PT:
       favors: Serviços
       housing: Espaços
       items: Itens
-      list_view: "Ver lista"
+      list_view: "Ver em forma de lista"
       map_view: "Ver mapa"
       offer_something: "Informe os outros!"
       offer_type: "Tipo de oferta"
@@ -1562,7 +1604,6 @@ pt-PT:
       request_type: "Tipo de pedido"
       requests: Pedidos
       rideshare: Boleia
-      search_verb: Pesquisar
       you_have_something_others_do_not: "Tem algo a oferecer?"
     please_comment: Comentar
   mercury:
@@ -1623,7 +1664,7 @@ pt-PT:
     paypal_account_connected_title: ~
     paypal_account_connected: ~
     change_account: ~
-    missing: ~
+    missing: "Tem anúncios ativos mas não pode receber pagamentos porque a sua conta no PayPal ainda não foi configurada. Por favor conecte a sua conta do PayPal em %{settings_link}. Também precisa de dar permissão para que o %{service_name} cobre a taxa de transação."
     from_your_payment_settings_link_text: ~
     redirect_message: ~
     redirect_link_text: ~
@@ -1637,7 +1678,7 @@ pt-PT:
     cancel_succesful: ~
     transaction:
       commission_payment_name: ~
-      commission_payment_description: ~
+      commission_payment_description: "O mercado virtual %{service_name} obteve esta comissão de transação relativa ao anúncio %{listing_title}"
     wait_while_loading: ~
     chatting_with_paypal: ~
   people:
@@ -1707,17 +1748,17 @@ pt-PT:
       slightly_better_than_expected: "Excedeu um pouco as expectativas"
       slightly_less_than_expected: "Um pouco pior do que o esperado"
       what_are_these: "O que é isto?"
-      review: ~
-      reviews: ~
-      listing: ~
-      listings: ~
-      open_listing: ~
-      open_listings: ~
-      no_listings: ~
-      no_open_listings: ~
+      review: "avaliação recebida"
+      reviews: "avaliações recebidas"
+      listing: anúncio
+      listings: anúncios
+      open_listing: "anúncio ativo"
+      open_listings: "anúncios ativos"
+      no_listings: "Sem anúncios"
+      no_open_listings: "Não há anúncios ativos"
       no_reviews: ~
-      show_all_listings: ~
-      show_all_open_listings: ~
+      show_all_listings: "Mostrar todos os anúncios"
+      show_all_open_listings: "Listar todos os anúncios ativos"
       show_all_reviews: ~
     followed_people:
       you_follow_plural: ~
@@ -1730,16 +1771,6 @@ pt-PT:
       following: ~
       follow: ~
       unfollow: ~
-  search:
-    show:
-      all_results: "Todos os resultados"
-      loading_more_search_results: "A carregar mais resultados de pesquisa"
-      offers: Ofertas
-      requests: Pedidos
-      search: Pesquisa
-      search_results: "Procurar resultados"
-      search_returned_no_results: "A sua pesquisa não encontrou resultados."
-      search_verb: Pesquisa
   sessions:
     new:
       create_new_account: "Criar uma nova conta"
@@ -1770,8 +1801,11 @@ pt-PT:
       confirm_your_email: "Por favor, confirme o seu email"
       account_confirmation_instructions: "Receberá um e-mail com um link para confirmar o endereço de e-mail indicado. Após confirmação do e-mail poderá entrar no %{service_name}."
       account_confirmation_instructions_title_admin: ~
-      your_marketplace_has_now_been_created: ~
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: ~
+      contact_support_link_text: ~
   settings:
     account:
       change: Alterar
@@ -1812,8 +1846,8 @@ pt-PT:
       email_about_new_messages: "...alguém me enviar uma mensagem"
       email_about_new_received_testimonials: "...alguém me enviar 'feedback'"
       email_about_testimonial_reminders: "...me esquecer de enviar 'feedback' sobre um evento"
-      email_daily_community_updates: "Receber um e-mail <b>diário</b> se houver novos posts"
-      email_weekly_community_updates: "Receber um e-mail <b>semanal</b> se houver novos posts"
+      email_daily_community_updates: "Receber um e-mail <b>diário</b> se houver novos anúncios"
+      email_weekly_community_updates: "Receber um e-mail <b>semanal</b> se houver novos anúncios"
       do_not_email_community_updates: "Não receber emails"
       email_when_conversation_accepted: "...alguém aceitar a minha oferta ou pedido"
       email_when_conversation_rejected: "...alguém rejeitar a minha oferta ou pedido"
@@ -1821,11 +1855,11 @@ pt-PT:
       email_about_new_payments: ~
       email_about_new_listings_by_followed_people: "...alguém que eu siga publique uma mensagem"
       unsubscribe_succesful: "O cancelamento da subscrição foi bem sucedido"
-      unsubscribe_info_text: ~
-      settings_link: ~
-      homepage_link: ~
-      unsubscribe_unsuccesful: ~
-      unsuccessful_unsubscribe_info_text: ~
+      unsubscribe_info_text: "Não vai receber mais estes emails. Verifique o seu %{settings_link} para escolher que tipo de emails deseja receber do %{service_name}, ou volte a %{homepage_link}."
+      settings_link: configurações
+      homepage_link: "página inicial"
+      unsubscribe_unsuccesful: "Erro no cancelamento da inscrição"
+      unsuccessful_unsubscribe_info_text: "O link de cancelamento expirou. Faça login para modificar a suas configurações de email."
     profile:
       about_you: "Sobre si"
       city: Cidade
@@ -1843,7 +1877,7 @@ pt-PT:
       these_fields_are_shown_in_your: "Esta informação pode ser vista por todos os utilizadores %{service_name}"
       visible_to_everybody: "visível para todos"
       visible_to_registered_users: "(visível para os utilizadores que tenham logado)"
-      default_in_listing: ~
+      default_in_listing: "(usado apenas por defeito ao criar um novo anúncio)"
       invisible: "(não será mostrado a outros utilizadores)"
       image_is_processing: ~
     save_information: "Salvar informação"
@@ -1885,7 +1919,7 @@ pt-PT:
       negative: ~
       default_textual_feedback: ~
     testimonial:
-      about_listing: ~
+      about_listing: "sobre o anúncio"
   date:
     formats:
       long_with_abbr_day_name: ~
@@ -1981,8 +2015,23 @@ pt-PT:
     day: ~
     days: ~
   web:
+    listings:
+      pricing_units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+    no_listings:
+      sorry: ~
+      try_other_search_terms: ~
     listing_card:
+      add_picture: ~
       no_picture: ~
+    search:
+      page: ~
+      page_of_pages: ~
     topbar:
       menu: ~
       more: ~
@@ -1998,6 +2047,9 @@ pt-PT:
       signup: ~
       admin_dashboard: ~
       language: ~
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~

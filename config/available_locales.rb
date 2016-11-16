@@ -57,6 +57,7 @@ module Sharetribe
     {ident: "sl", name: "Slovenščina", language: "sl", region: "SI", fallback: nil}, # Slovenian
     {ident: "sk-SK", name: "Slovenčina", language: "sk-SK", region: "SK", fallback: nil}, # Slovak
     {ident: "ti", name: "Tigrinya", language: "ti", region: "ER", fallback: nil}, # Tigrinya
+    {ident: "ar", name: "Arabic", language: "ar", region: "SA", fallback: nil} # Arabic (Saudi Arabia)
   ]
 
   AVAILABLE_LOCALES = SUPPORTED_LOCALES + UNSUPPORTED_LOCALES

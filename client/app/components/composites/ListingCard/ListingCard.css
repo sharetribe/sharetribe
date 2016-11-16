@@ -1,15 +1,26 @@
 .listing {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
+  box-shadow: var(--ListingCard_shadow);
+  border-radius: 4px;
+  transition: box-shadow 100ms ease;
   cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.1);
+  }
 }
 
 .squareWrapper {
   display: block;
   position: relative;
   width: 100%;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+/* Firefox doesn't support image aspect ratio inside flexbox */
+.aspectWrapper {
   padding-bottom: 100%;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
@@ -36,11 +47,28 @@
   align-items: center;
 }
 
-.noImageText {
+.noImageText,
+.noImageLink {
   color: var(--ListingCard_noImageText);
   font-size: var(--ListingCard_fontSize);
   line-height: var(--ListingCard_lineHeight);
   font-weight: var(--ListingCard_fontWeightSemibold);
+}
+
+.noImageLink {
+  font-weight: 600;
+
+  & svg {
+    stroke: var(--ListingCard_noImageText);
+    height: 10px;
+    stroke-width: 4px;
+  }
+
+  &:hover,
+  &:hover svg {
+    color: var(--ListingCard_colorTitleHover);
+    stroke: var(--ListingCard_colorTitleHover);
+  }
 }
 
 .info {
@@ -61,6 +89,12 @@
   top: calc(var(--ListingCard_avatarSize) / -2);
   width: var(--ListingCard_avatarSize);
   height: var(--ListingCard_avatarSize);
+  border-radius: calc(var(--ListingCard_avatarSize) / 2);
+  transition: box-shadow 100ms ease;
+
+  &:hover {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+  }
 }
 
 .title {
@@ -71,6 +105,10 @@
   line-height: var(--ListingCard_lineHeightTitle);
   color: var(--ListingCard_colorTitle);
   font-weight: var(--ListingCard_fontWeightMedium);
+
+  &:hover {
+    color: var(--ListingCard_colorTitleHover);
+  }
 }
 
 .avatarSpacer {
@@ -85,15 +123,16 @@
   align-items: flex-end;
 }
 
-.priceWrapper {
-  flex-basis: 68%;
+.orderTypeWrapper {
+  flex-basis: 67%;
+  font-size: var(--ListingCard_fontSizePrice);
+  font-weight: var(--ListingCard_fontWeightMedium);
+  line-height: 1em;
+  flex-grow: 1;
 }
 
 .price {
   float: left;
-  font-size: var(--ListingCard_fontSizePrice);
-  font-weight: var(--ListingCard_fontWeightMedium);
-  line-height: 1em;
   margin-right: var(--ListingCard_textSpacing);
 }
 
@@ -106,7 +145,7 @@
 }
 
 .distance {
-  flex-basis: 32%;
+  flex-basis: 33%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;

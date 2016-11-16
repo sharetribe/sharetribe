@@ -48,7 +48,7 @@
 #  stylesheet_url                             :string(255)
 #  stylesheet_needs_recompile                 :boolean          default(FALSE)
 #  service_logo_style                         :string(255)      default("full-logo")
-#  available_currencies                       :text(65535)
+#  currency                                   :string(3)        not null
 #  facebook_connect_enabled                   :boolean          default(TRUE)
 #  minimum_price_cents                        :integer
 #  hide_expiration_date                       :boolean          default(FALSE)
@@ -130,7 +130,7 @@ class Community < ActiveRecord::Base
 
   after_create :initialize_settings
 
-  monetize :minimum_price_cents, :allow_nil => true, :with_model_currency => :default_currency
+  monetize :minimum_price_cents, :allow_nil => true, :with_model_currency => :currency
 
   validates_length_of :ident, :in => 2..50
   validates_format_of :ident, :with => /\A[A-Z0-9_\-\.]*\z/i
@@ -565,14 +565,6 @@ class Community < ActiveRecord::Base
   # There is a method `payment_type` is community service. Use that instead.
   def payments_in_use?
     MarketplaceService::Community::Query.payment_type(id) == :paypal
-  end
-
-  def default_currency
-    if available_currencies
-      available_currencies.gsub(" ","").split(",").first
-    else
-      MoneyRails.default_currency
-    end
   end
 
   def self.all_with_custom_fb_login

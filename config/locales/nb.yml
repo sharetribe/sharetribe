@@ -94,7 +94,7 @@ nb:
         favicon: Favicon
         favicon_info_text: "Favicon vil erstatte Sharetribe standardlogo. Størrelsen bør være 32x32 piksler. Bilder som lastes opp blir endret i størrelse til disse målene."
         community_custom_color1: Hovedfarge
-        new_listing_button_custom_color: ~
+        new_listing_button_custom_color: "Farge på knappen for å opprette ny annonse"
         logo_instructions_text_with_dimensions: "Desktop logo størrelse skal være %{height}x%{width}px. Blir vist til brukere med større skjermer."
         logo_instructions_text_with_dimensions_no_placing: "Størrelsen på logoen burde være %{height} x %{width} piksler."
         logo_icon_instructions_text_with_dimensions: "Denne firkantede logoen blir vist når siden blir delt på Facebook, vist på moblie enheter og når de bokmerker siden på mobil. Dimensjonene bør (minst) være %{width}x%{height}px."
@@ -105,7 +105,7 @@ nb:
         small_cover_photo_instructions_text_with_dimensions: "Bildet vil bli endret i størrelse til %{width}x%{height} piksler og høyere bilder vil bli kuttet i midten."
         main_content_width: "Vær obs på at hovedinnholdet på siden er %{main_width} piksler bred på det meste når du velger forsidebilde. Husk også å sjekke hvordan forsidebildet ser ut på mindre skjermer (for eksempel ved å endre størrelsen på nettleservinduet)."
         custom_color1_instructions_text: "Du kan endre hovedfargen på brukergrensesnittet ved å skrive inn en hex-kode. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kan hjelpe deg med å finne en farge og kopiere koden hit."
-        new_listing_button_instructions_text: ~
+        new_listing_button_instructions_text: "Du kan endre fargen på knappen for å opprette en ny annonse ved å angi en fargekode i heksadesimaler. %{link_to_colorpicker} kan hjelpe deg å velge farge. Kopier koden og lim den inn her."
         default_browse_view: Standardvisning
         default_browse_view_instructions_text: "Standardvisning er brukt på forsiden for å velge hvordan annonser vises som standard."
         grid: Rutenett
@@ -238,12 +238,13 @@ nb:
         ban_user_confirmation: "Dette fjerner bruker fra denne markedsplassen og hindrer vedkommende tilgang med denne bruker kontoen igjen. Er du sikker på at du ønsker å fortsette?"
         ban_me_error: "Du kan ikke forby deg selv."
       new_layout:
-        new_layout: ~
-        description_roadmap: ~
-        description_process: ~
-        enabled_for_you: ~
-        enabled_for_all: ~
-        new_topbar: ~
+        new_layout: "Ny layout"
+        description_roadmap: "Sharetribe holder for tiden på med å sette ut i livet en ny og forbedret layout. I overgangsperioden kan du velge hvilke deler av din markedsplass som skal fortsette å bruke den gamle layouten fra menyen under Nye funksjoner vil kun bli tilgjengelig for den nye layouten."
+        description_process: "Support for den gamle layouten vil bli fjernet i fremtiden. Sharetribe-teamet vil gi deg beskjed før dette skjer. Har du spørsmål? Kontakt dem på %{support_link}."
+        enabled_for_you: "Tilgjengelig for deg"
+        enabled_for_all: "Tilgjengelig for alle"
+        new_topbar: "Ny toppmeny (synlig på alle sider)"
+        searchpage: "Ny søkeside (krever toppmeny)"
       social_media:
         social_media: "Sosiale medier"
         twitter_handle: Twitternavn
@@ -283,9 +284,9 @@ nb:
         max_number_of_links_info: "Link til %{about_page} er alltid først i menyen"
         about_page: om-side
       topbar:
-        topbar: ~
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        topbar: Toppmeny
+        new_listing_button_label: "Tekst på knappen for å opprette ny annonse"
+        invalid_post_listing_button_label: "Vennligst oppgi en gyldig tekst for knappen \"Opprett ny annonse\""
       transactions:
         export_all_as_csv: "Eksportér alle i CSV-fil"
         transactions: "Vis transaksjoner"
@@ -383,6 +384,12 @@ nb:
       subscription: Påmelding
       preview: "Forhåndsvis mitt nettsted"
     listing_shapes:
+      availability_title: Tilgjengelighet
+      read_more: "Les mer om automatisert tilgjengelighets-administrasjon."
+      allow_availability_management: "Tillat tilbydere å administrere sine bestillinger fra en kalender"
+      per_day_availability: "\"Per dag\"-tilgjengelighet"
+      per_night_availability: "\"Per natt\"-tilgjengelighet"
+      pricing_units_disabled_info: "Pris-enheter kan ikke brukes når tilgjengelighetskalenderen er aktivert."
       index:
         listing_shapes: Annonsetype
         description: "Annonsetypene bestemmer hvordan bestillingsprosessen fungerer på din markedsplass. Du kan velge om dine brukere skal kunne leie eller selge, eller kanskje bare legge ut annonser og kommunisere via meldinger."
@@ -470,14 +477,16 @@ nb:
     paypal_accounts:
       marketplace_paypal_integration: Betalingsinnstillinger
       preferences_updated: "Betalingsinnstillinger oppdatert"
-      marketplace_currency_used: "Denne markedsplassen bruker %{currency} som valuta. For å endre valuta, %{contact_support_link}."
       contact_support_link_text: "kontakt Sharetribes support"
       integration_info_text: "Betalingssystemet i Sharetribe er laget av PayPal. Hvis du vil gjøre det mulig for brukere å ta betalt i din markedsplass må du koble til din PayPal-konto og velge minimumsstørrelse på transaksjonene samt din tjenestekostnad for hver transaksjon."
       link_paypal_personal_account_label: "Selger du selv produkter eller tjenester?"
       link_paypal_personal_account: "I så tilfelle må du koble din PayPal-konto til %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "din personlige markedsplass-konto"
       read_more_about_paypal: "Les mer om Sharetribe`s betalingssystem"
-      set_minimum_price_and_fee: "Sett minimums pris & transaksjonsgebyr"
+      edit_payment_settings: "Endre betalingsopplysninger"
+      supported_currencies_information_text: "Sharetribes betalingsløsning støtter 24 valutaer. Hvis din valuta ikke er på listen, vennligst %{contact_support_link}. Hvis du endrer valutaen på markedsplassen, vil eksisterende annonser beholde opprinnelig valuta. Du må endre disse annonsene individuelt for å konvertere dem til den nye valutaen."
+      currency_change_warning_text: "Et tips: Hvis du foretar denne valuta-endringen, husk å be selgerne på markedsplassen din om å oppdatere annonsene sine for å aktivere den nye valutaen."
+      marketplace_currency_label: "Valuta på markedsplassen:"
       minimum_listing_price_label: "Minimum transaksjonsstørrelse:"
       transaction_fee_label: "Transaksjonskostnad:"
       minimum_transaction_fee_label: "Minimum transaksjonskostnad:"
@@ -884,6 +893,12 @@ nb:
       remember_to_accept: "Husk å akseptere forespørselen fra %{requester} vedrørende %{listing_title}. %{requester} har allerede betalt. Du må akseptere forespørselen for å kunne motta betaling."
       one_day_left: "Dersom du ikke aksepterer forespørselen innen èn dag blir den automatisk avvist og du blir ikke betalt."
       click_here_to_reply: "Klikk her for å svare på forespørselen"
+    welcome_email:
+      welcome_email_subject: "Velkommen til %{service_name}!"
+      welcome_to_marketplace: "Velkommen til %{service_name}! Vi er glade for å ha deg med."
+      love_marketplace_crew: "Hilsen,<br /><i>%{service_name}</i>"
+      welcome_email_footer_text: "Ønsker du å endre hvilke e-poster du får fra %{service_name}? %{settings_link}"
+      settings_link_text: "Sjekk innstillingene dine."
     new_listing_by_followed_person:
       subject: "%{author_name} har lagt ut en ny annonse på %{service_name}"
       has_posted_a_new_listing: "%{author_name} har lagt ut en ny annonse:"
@@ -895,6 +910,9 @@ nb:
       person_name: "Navn:"
       person_email: "E-post:"
   error_messages:
+    booking:
+      booking_failed_payment_voided: "Reservasjonen feilet på grunn av en uventet feil. Vennligst prøv igjen senere. Du har ikke blitt belastet for noe beløp."
+      double_booking_payment_voided: "Datoene du har valgt er dessverre ikke tilgjengelig lenger. Vennligst velg andre datoer. Du har ikke blitt belastet for noe beløp."
     onboarding:
       server_rendering: "Oppstartsveiledningen kunne ikke lastes! Vi har blitt informert om situasjonen og jobber med en fiks!"
     listings:
@@ -939,8 +957,8 @@ nb:
       javascript_is_disabled_in_your_browser: "Javascript er deaktivert i din nettleser"
       kassi_does_not_currently_work_without_javascript: "%{service_name} vil ikke fungere skikkelig uten javascript. Forsøk å aktivere javascript i nettleserens innstillinger og last siden på nytt."
       contact_us: "Kontakt oss"
-      send_feedback: ~
-      your_feedback_to_admins: ~
+      send_feedback: "Send melding"
+      your_feedback_to_admins: "Din melding til %{service_name}-teamet"
     send: Send
     your_email_address: "Din e-post"
   errors:
@@ -1129,17 +1147,17 @@ nb:
     no_tribe:
       inbox: Innboks
       settings: Innstillinger
-      feedback: ~
+      feedback: "Kontakt %{service_name}-teamet"
     application:
       join_this_community: "Bli medlem"
       read_more: "Les mer"
-      feedback: ~
-      dont_use_to_contact_support: ~
+      feedback: "Din melding til %{service_name}-tea,et"
+      dont_use_to_contact_support: "Vi ser du er admin for %{service_name}. Dette er skjemaet som dine brukere bruker for å kontakte deg. Du kan ikke bruke dette skjemaet for å kontakte Sharetribe support. Du kan kontakte Sharetribe support via Support-linken i administrasjonspanelet ditt."
       feedback_forum: diskusjonsforum
       feedback_handle: Tilbakemelding
       give_feedback: "Kontakt oss"
       or_check_our: "…eller sjekk ut vår"
-      send_feedback_to_admin: ~
+      send_feedback_to_admin: "Send melding"
       to_see_what_others_have_suggested: "for å se hva andre brukere har foreslått, og stemme på ideene der."
       your_email_address: "Din e-postadresse (for å kontakte deg)"
       connect: "Registrer deg"
@@ -1209,7 +1227,7 @@ nb:
       error_with_session: "Feil ved økt."
       feedback_considered_spam: "Tilbakemeldingen ble ikke lagret grunnet feil ved formatering. Prøv igjen eller se diskusjonsforum."
       feedback_not_saved: "Tilbakemeldingen kunne ikke sendes."
-      feedback_saved: ~
+      feedback_saved: "Tusen takk for din melding! Vi kommer tilbake til deg så snart som mulig!"
       feedback_sent_to: "Tilbakemelding sent til %{target_person}."
       feedback_skipped: "Hoppet over tilbakemelding"
       invitation_cannot_be_sent: "Invitasjonen kunne ikke sendes"
@@ -1234,6 +1252,8 @@ nb:
       offer_rejected: "Tilbud avvist"
       offer_canceled: "Tilbud avslått"
       listing_updated_successfully: "Annonse oppdatert"
+      listing_updated_availability_enabled: "Annonsen er oppdatert. Automatisert tilgjengelighets-administrasjon er aktivert."
+      listing_updated_availability_disabled: "Annonsen er oppdatert. Automatisert tilgjengelighets-administrasjon er deaktivert."
       only_kassi_administrators_can_access_this_area: "Kun %{service_name} administratorer kan besøke dette området"
       only_listing_author_can_close_a_listing: "Kun annonsør kan stoppe en annonse"
       only_listing_author_can_edit_a_listing: "Kun annonsør kan endre en annonse"
@@ -1344,7 +1364,9 @@ nb:
       open_in_google_maps: "Åpne i Google Maps"
     error:
       something_went_wrong: "Noe gikk galt, feilkode: %{error_code}"
-      something_went_wrong_plain: ~
+      something_went_wrong_plain: "Noe gikk galt"
+      create_failed_to_connect_to_booking_service: "Annonse-oppretting feilet: Kunne ikke koble til reservajons-tjenesten. Vennligst prøv på nytt."
+      update_failed_to_connect_to_booking_service: "Annonse-oppdatering feilet: Kunne ikke koble til reservasjons-tjenesten. Vennligst prøv på nytt."
     follow_links:
       follow: "Motta e-post ved nye kommentarer"
       unfollow: "Ikke motta e-post om nye kommentarer"
@@ -1468,7 +1490,6 @@ nb:
       request_type: "Type forespørsel"
       requests: Forespørsler
       rideshare: Samkjøre
-      search_verb: Søk
       you_have_something_others_do_not: "Har du noe å tilby?"
       feed_title: "%{listing_type} på %{service_name} %{optional_category}"
     left_panel_link:
@@ -1492,6 +1513,7 @@ nb:
       booking_to: Til
       how_paypal_works: "Hvordan PayPal virker"
       payment_help: "Hjelp til betaling"
+      unable_load_availability: "Kunne ikke laste inn tilgjengelighetsinformasjon. Vennligst prøv igjen senere."
     new:
       listing: annonse
       selected_category: "Kategori: %{category}"
@@ -1566,6 +1588,8 @@ nb:
       verification_required: "Verifisering påkrevd"
   listing_conversations:
     preauthorize:
+      dates_not_available: "Valgte datoer er ikke tilgjengelige"
+      error_in_checking_availability: "Kunne ikke sjekke tilgjengelighet for de angitte datoene."
       details: Detaljer
       by: "%{listing} av %{author}"
       payment: Betaling
@@ -1597,7 +1621,6 @@ nb:
       request_type: "Type forespørsel"
       requests: Forespørsler
       rideshare: Samkjøre
-      search_verb: Søk
       you_have_something_others_do_not: "Har du noe å tilby?"
     please_comment: Kommenter
   mercury:
@@ -1615,7 +1638,7 @@ nb:
     connected_account: "PayPal-kontoen '%{email}' er riktig tilkoblet."
     paypal_receive_funds_info_label_australia_only: "Din PayPal-konto må kunne ta imot betalinger. Dette kan kreve en Premiums- eller Bedriftskonto."
     paypal_receive_funds_info_label: "Din PayPal-konto må konfigureres til å ta imot betalinger. Du må opprette en Bedriftskonto."
-    paypal_receive_funds_info_australia_only: ~
+    paypal_receive_funds_info_australia_only: "Dersom du ser en feil når du prøver å koble kontoen din til %{service_name}, må du enten %{upgrade_paypal_account_link} og oppgradere til Business-konto, eller (dersom du er en privatperson) opprette en ny Premium-konto. Begge kontotypene er helt gratis."
     paypal_receive_funds_info: "Hvis du ser en feilmelding når du prøver å koble PayPal-kontoen din til %{service_name}, må du %{upgrade_paypal_account_link}. Det er gratis og enkelt. Hvis du er en privatperson, anbefaler PayPal at du bruker navnet ditt som bedriftsnavn."
     upgrade_paypal_account_link_text: "logge inn og klikke på oppgradér-linken"
     admin_account_not_connected: "Det er ikke mulig å bruke %{service_name} sin betalingsløsning, siden den ikke har blitt satt opp. Vennligst %{contact_admin_link} for detaljer."
@@ -1765,16 +1788,6 @@ nb:
       following: Følger
       follow: Følg
       unfollow: "Ikke følg"
-  search:
-    show:
-      all_results: "Alle resultater"
-      loading_more_search_results: "Henter flere søkeresultater"
-      offers: Tilbud
-      requests: Forespørsler
-      search: Søk
-      search_results: Søkeresultater
-      search_returned_no_results: "Ditt søk gav ingen treff."
-      search_verb: Søk
   sessions:
     new:
       create_new_account: "Opprett ny brukerkonto"
@@ -1805,8 +1818,11 @@ nb:
       confirm_your_email: "Vennligst bekreft din e-post"
       account_confirmation_instructions: "Du vil snart motta en e-post med en lenke for å bekrefte din e-post. Når du har bekreftet din e-post, kan du begynne å bruke %{service_name}."
       account_confirmation_instructions_title_admin: "Velkommen til din markedsplass!"
-      your_marketplace_has_now_been_created: "Din markedsplass er nå blitt laget. Det var enkelt, var det ikke? Kun noen få steg gjenstår før du kan bruke din side: du må bekrefte din epost-adresse."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Du vil snart motta en e-post med en link du må klikke på for å bekrefte din e-post. Når e-post er bekreftet kan du begynne å tilpasse markedsplassen din."
+      contact_support_link_text: ~
   settings:
     account:
       change: Endre
@@ -2018,6 +2034,9 @@ nb:
       booked_days_label:
         one: "Dag booket:"
         other: "Dager booket:"
+      booked_nights_label:
+        one: "Reservert natt:"
+        other: "Reserverte netter:"
       price_per_day: "Pris per dag:"
       price_per_night: "Pris per natt:"
       quantity: "Antall:"
@@ -2032,13 +2051,28 @@ nb:
     day: dag
     days: dager
   web:
+    listings:
+      pricing_units:
+        piece: stykk
+        hour: time
+        day: dag
+        night: natt
+        week: uke
+        month: måned
+    no_listings:
+      sorry: "Beklager, vi finner ingen resultater som matcher dine søkekriterier."
+      try_other_search_terms: "Kanskje du kan prøve noen andre søkeord?"
     listing_card:
+      add_picture: ~
       no_picture: "Ingen bilde"
+    search:
+      page: Side
+      page_of_pages: "av %{total_number_of_pages}"
     topbar:
       menu: Meny
-      more: ~
+      more: Mer
       search_placeholder: Søk...
-      search_location_placeholder: ~
+      search_location_placeholder: Sted
       user: Bruker
       inbox: Innboks
       profile: Profil
@@ -2047,8 +2081,11 @@ nb:
       logout: "Logg ut"
       login: "Logg inn"
       signup: "Registrer deg"
-      admin_dashboard: ~
+      admin_dashboard: Administrasjonspanel
       language: Språk
+    utils:
+      km: km
+      mi: miles
     branding:
       powered_by: "%{service_name} kjøres på markedsplass-plattformen %{sharetribe_link}"
       create_own: "Vil du lage din egen digitale marrkedsplass, slik som %{service_name}? %{learn_more}."

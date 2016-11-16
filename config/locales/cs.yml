@@ -249,6 +249,7 @@ cs:
         enabled_for_you: ~
         enabled_for_all: ~
         new_topbar: ~
+        searchpage: ~
       social_media:
         social_media: "Sociální média"
         twitter_handle: Twitter
@@ -388,6 +389,12 @@ cs:
       subscription: ~
       preview: ~
     listing_shapes:
+      availability_title: ~
+      read_more: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: "Typy objednávek"
         description: "Zde můžete nastavit, jak bude Vaše stránka fungovat. Můžete se rozhodnout, zda Vaši uživatelé mohou pronajímat nebo prodávat nebo pouze přidávat příspěvky a komunikovat přes zprávy."
@@ -479,14 +486,16 @@ cs:
     paypal_accounts:
       marketplace_paypal_integration: "Nastavení plateb"
       preferences_updated: "Nastavení plateb aktualizováno"
-      marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: "Platební systém Sharetribe funguje díky PayPal. Pokud chcete uživatelům umožnit, aby prováděli platby přes Vaše tržiště, musíte se připojit ke svému PayPal účtu a zadat minimální velikost transakce a poplatek z každé provedené transakce."
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: "Přečtěte si více o Sharetribe platebním systému"
-      set_minimum_price_and_fee: "Nastavit minimální cenu & transakční poplatek"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      currency_change_warning_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Minimální částka transakce:"
       transaction_fee_label: "Transakční poplatek:"
       minimum_transaction_fee_label: "Minimální transakční poplatek:"
@@ -893,6 +902,12 @@ cs:
       remember_to_accept: "Nezapomeňte přijmout žádost od uživatele %{requester} na inzerát %{listing_title}. Uživatel %{requester} již za inzerát zaplatil. Musíte přijmout žádost, abyste mohli obdržet platbu."
       one_day_left: "Pokud nepřijmete žádost do 1 dne od podání žádosti, žádost bude automaticky zamítnuta a nedostanete zaplaceno."
       click_here_to_reply: "Klikněte zde a odpovězte na žádost"
+    welcome_email:
+      welcome_email_subject: "Vítejte v %{service_name}"
+      welcome_to_marketplace: "Vítejte v %{service_name}! Jsme rádi, že jste s k nám připojili."
+      love_marketplace_crew: "S pozdravem,<br /><i>%{service_name}</i>"
+      welcome_email_footer_text: "Jaký druh e-mailů chcete dostávat od %{service_name}? %{settings_link}"
+      settings_link_text: "Zkontrolujte si nastavení"
     new_listing_by_followed_person:
       subject: "Uživatel %{author_name} přidal nový inzerát v %{service_name}"
       has_posted_a_new_listing: "Uživatel %{author_name} přidal nový inzerát:"
@@ -904,6 +919,9 @@ cs:
       person_name: ~
       person_email: ~
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: ~
     listings:
@@ -1243,6 +1261,8 @@ cs:
       offer_rejected: "Nabídka odmítnuta"
       offer_canceled: "Nabídka potvrzena"
       listing_updated_successfully: "Inzerát byl úspěšně vytvořen"
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Pouze %{service_name} mohou vstoupit do této oblasti"
       only_listing_author_can_close_a_listing: "Pouze autor inzerátu může inzerát uzavřít"
       only_listing_author_can_edit_a_listing: "Pouze autor inzerátu může inzerát upravit"
@@ -1350,6 +1370,8 @@ cs:
     error:
       something_went_wrong: "Něco se nezdařilo, kód chyby: %{error_code}"
       something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: "Dostávat e-maily o nových příspěvcích"
       unfollow: "Nedostávat e-maily o nových příspěvcích"
@@ -1473,7 +1495,6 @@ cs:
       request_type: "Typ žádosti"
       requests: Žádosti
       rideshare: Spolujízda
-      search_verb: Hledat
       you_have_something_others_do_not: "Máte něco, co byste chtěli nabídnout?"
       feed_title: "%{listing_type} v %{service_name} %{optional_category}"
     left_panel_link:
@@ -1497,6 +1518,7 @@ cs:
       booking_to: Komu
       how_paypal_works: "Jak PayPal funguje"
       payment_help: "Nápověda k platbě"
+      unable_load_availability: ~
     new:
       listing: inzerát
       selected_category: "Kategorie: %{category}"
@@ -1571,6 +1593,8 @@ cs:
       verification_required: "Ověření požadováno"
   listing_conversations:
     preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
       details: Podrobnosti
       by: "%{listing} od uživatele %{author}"
       payment: Platba
@@ -1602,7 +1626,6 @@ cs:
       request_type: "Typ žádosti"
       requests: Žádosti
       rideshare: Spolujízda
-      search_verb: Hledat
       you_have_something_others_do_not: "Máte něco, co byste chtěli nabídnout?"
     please_comment: Komentář
   mercury:
@@ -1771,16 +1794,6 @@ cs:
       following: "Přestat sledovat"
       follow: Sledovat
       unfollow: "Přestat sledovat"
-  search:
-    show:
-      all_results: "Všechny výsledky"
-      loading_more_search_results: "Načítání dalších výsledků vyhledávání"
-      offers: Nabídky
-      requests: Žádosti
-      search: Hledat
-      search_results: "Výsledky hledání"
-      search_returned_no_results: "Nebyly nalezeny žádné výsledky."
-      search_verb: Hledat
   sessions:
     new:
       create_new_account: "Vytvořit nový účet"
@@ -1811,8 +1824,11 @@ cs:
       confirm_your_email: "Prosíme, potvrďte Váš e-mail"
       account_confirmation_instructions: "Brzy obdržíte e-mail s odkazem a kliknutím na odkaz musíte potvrdit Vámi zadanou e-mailovou adresu. Po potvrzení Vašeho e-mailu se můžete připojit k %{service_name}."
       account_confirmation_instructions_title_admin: "Vítejte ve Vašem tržišti!"
-      your_marketplace_has_now_been_created: "Stránka Vašeho tržiště byla právě vytvořena. Bylo to jednoduché, že? Je tu ještě jeden další krok, který je třeba provést, než budete mít přístup na Vaši stránku: je třeba potvrdit Vaši e-mailovou adresu."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Brzy obdržíte e-mail s odkazem, na který budete muset kliknout, abyste potvrdili Vámi zadanou e-mailovou adresu. Po potvrzení Vaší e-mailové adresy můžete začít s nastavením Vašeho tržiště."
+      contact_support_link_text: ~
   settings:
     account:
       change: Změnit
@@ -2040,8 +2056,23 @@ cs:
     day: den
     days: dny
   web:
+    listings:
+      pricing_units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+    no_listings:
+      sorry: ~
+      try_other_search_terms: ~
     listing_card:
+      add_picture: ~
       no_picture: ~
+    search:
+      page: ~
+      page_of_pages: ~
     topbar:
       menu: ~
       more: ~
@@ -2057,6 +2088,9 @@ cs:
       signup: ~
       admin_dashboard: ~
       language: ~
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~

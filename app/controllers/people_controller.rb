@@ -1,5 +1,6 @@
 class PeopleController < Devise::RegistrationsController
   class PersonDeleted < StandardError; end
+  class PersonBanned < StandardError; end
 
   skip_before_filter :verify_authenticity_token, :only => [:creates]
   skip_before_filter :require_no_authentication, :only => [:new]
@@ -23,6 +24,7 @@ class PeopleController < Devise::RegistrationsController
   def show
     @person = Person.find_by!(username: params[:username], community_id: @current_community.id)
     raise PersonDeleted if @person.deleted?
+    raise PersonBanned if @person.banned?
 
     redirect_to landing_page_path and return if @current_community.private? && !@current_user
     @selected_tribe_navi_tab = "members"
@@ -365,8 +367,5 @@ class PeopleController < Devise::RegistrationsController
     person.set_default_preferences
 
     [person, email]
-  end
-
-  def email_availability(email, community_id)
   end
 end

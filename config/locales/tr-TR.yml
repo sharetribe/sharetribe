@@ -239,6 +239,7 @@ tr-TR:
         enabled_for_you: ~
         enabled_for_all: ~
         new_topbar: ~
+        searchpage: ~
       social_media:
         social_media: "Sosyal medya"
         twitter_handle: "Twitter aracı"
@@ -378,6 +379,12 @@ tr-TR:
       subscription: ~
       preview: ~
     listing_shapes:
+      availability_title: ~
+      read_more: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: ~
         description: ~
@@ -453,14 +460,16 @@ tr-TR:
     paypal_accounts:
       marketplace_paypal_integration: "Ödeme tercihleri"
       preferences_updated: "Ödeme referansları güncellendi"
-      marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: "%{service_name}'in ödeme sistemi PayPal altyapısını kullanmaktadır. Eğer kullanıcılarınızın ödemelerini pazar aracılığıyla yapmasına izin vermek istiyorsanız, PayPal hesabınızı eklemeli, minimum listeleme ücreti ve her işlemden keseceğiniz ücreti belirlemelisiniz."
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: "Sharetribe'nin ödeme sistemi hakkında daha fazla bilgi edinin"
-      set_minimum_price_and_fee: "Minimum fiyat & işletim bedeli belirleyin"
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      currency_change_warning_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: "Minimum listeleme fiyatı:"
       transaction_fee_label: "İşlem ücreti:"
       minimum_transaction_fee_label: "Minumum işlem ücreti:"
@@ -869,6 +878,12 @@ tr-TR:
       remember_to_accept: "\"%{listing_title}\" listelemesi hakkında %{requester}'den gelen talebi kabul etmeyi unutmayın. %{requester} listeleme için ödemeyi gerçekleştirdi. Ödemeyi alabilmek için talebi kabul etmeniz gerekmektedir."
       one_day_left: "Talebi bir gün içerisinde kabul etmezseniz, otomatik olarak reddedilecek ve ödeme alamayacaksınız."
       click_here_to_reply: "Talebe cevap vermek için buraya tıklayın"
+    welcome_email:
+      welcome_email_subject: "%{service_name} pazar yerine hoş geldiniz!"
+      welcome_to_marketplace: "%{service_name} pazar yerine hoş geldiniz! Sizi aramızda görmekten mutluyuz."
+      love_marketplace_crew: "Sevgiler, <br /><i>%{service_name} ekibi</i>"
+      welcome_email_footer_text: "%{service_name}'den hangi e-postaları almak istiyorsunuz? %{settings_link}"
+      settings_link_text: "Ayarlarınızı kontrol ediniz"
     new_listing_by_followed_person:
       subject: "%{author_name} %{service_name} pazar yerine yeni bir listeleme ekledi."
       has_posted_a_new_listing: "%{author_name} yeni bir listeleme ekledi."
@@ -880,6 +895,9 @@ tr-TR:
       person_name: Ad
       person_email: ~
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: ~
     listings:
@@ -1219,6 +1237,8 @@ tr-TR:
       offer_rejected: "Teklif reddedildi"
       offer_canceled: "Teklif iptal edildi"
       listing_updated_successfully: "İlan başarıyla güncellendi"
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Bu alana sadece %{service_name} yöneticileri erişebilir"
       only_listing_author_can_close_a_listing: "Listelemeyi sadece ilan sahibi kapatabilir."
       only_listing_author_can_edit_a_listing: "Listelemeyi yalnızca ilan sahibi düzenleyebilir."
@@ -1326,6 +1346,8 @@ tr-TR:
     error:
       something_went_wrong: ~
       something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: "Yeni yorumları e-posta olarak al"
       unfollow: "Yeni yorumları e-posta olarak alma"
@@ -1449,7 +1471,6 @@ tr-TR:
       request_type: "Talep türü"
       requests: Talepler
       rideshare: "Yolculuğu paylaşın"
-      search_verb: Arama
       you_have_something_others_do_not: "Teklif edecek bir şeyleriniz mi var?"
       feed_title: "%{service_name}%{optional_category} içinde %{listing_type}"
     left_panel_link:
@@ -1473,6 +1494,7 @@ tr-TR:
       booking_to: "'a"
       how_paypal_works: "PayPal Nasıl Çalışır"
       payment_help: ~
+      unable_load_availability: ~
     new:
       listing: ilan
       selected_category: "Kategori: %{category}"
@@ -1547,6 +1569,8 @@ tr-TR:
       verification_required: "Doğrulama gerekli"
   listing_conversations:
     preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
       details: Ayrıntılar
       by: "%{author} tarafından %{listing}"
       payment: Ödeme
@@ -1578,7 +1602,6 @@ tr-TR:
       request_type: "Talep türü"
       requests: Talepler
       rideshare: "Yolculuk paylaşımı"
-      search_verb: Ara
       you_have_something_others_do_not: "Teklif edecek bir şeyleriniz mi var?"
     please_comment: Yorum
   mercury:
@@ -1745,16 +1768,6 @@ tr-TR:
       following: "Takip ediliyor"
       follow: "Takip et"
       unfollow: "Takip etmeyi durdur"
-  search:
-    show:
-      all_results: "Tüm sonuçlar"
-      loading_more_search_results: "Daha fazla arama sonucu yükleniyor"
-      offers: Teklifler
-      requests: Talepler
-      search: Ara
-      search_results: "Arama sonuçları"
-      search_returned_no_results: "Aramanızla eşleşen sonuç bulunamadı."
-      search_verb: Ara
   sessions:
     new:
       create_new_account: "Yeni hesap oluştur"
@@ -1785,8 +1798,11 @@ tr-TR:
       confirm_your_email: "Email adresinizi doğrulayın"
       account_confirmation_instructions: "Birkaç dakika içinde girdiğiniz email adresini doğrulamak için tıklamanız gereken linki içeren bir e-posta alacaksınız. E-posta adresinizi doğruladıktan sonra, %{service_name} pazar yerine katılabilirsiniz."
       account_confirmation_instructions_title_admin: "Pazar yerinize hoş geldiniz!"
-      your_marketplace_has_now_been_created: "Pazar siteniz oluşturuldu. Çok kolaydı, değil mi? Sitenize erişebilmeniz için tek bir adım kaldı: e-posta adresinizi doğrulamalısınız."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Birkaç dakika içinde girdiğiniz e-posta adresini doğrulamak için tıklamanız gereken linki içeren bir e-posta alacaksınız. E-posta adresinizi doğruladıktan sonra, pazarınızı düzenlemeye başlayabilirsiniz."
+      contact_support_link_text: ~
   settings:
     account:
       change: Değiştir
@@ -1995,8 +2011,23 @@ tr-TR:
     day: gün
     days: günler
   web:
+    listings:
+      pricing_units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+    no_listings:
+      sorry: ~
+      try_other_search_terms: ~
     listing_card:
+      add_picture: ~
       no_picture: ~
+    search:
+      page: ~
+      page_of_pages: ~
     topbar:
       menu: ~
       more: ~
@@ -2012,6 +2043,9 @@ tr-TR:
       signup: ~
       admin_dashboard: ~
       language: ~
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~

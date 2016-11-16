@@ -47,3 +47,38 @@
 .datepicker tbody tr:nth-child(odd) {
   background-color: transparent;
 }
+
+.datepicker table tr td {
+
+  &.day {
+    border-radius: 0px;
+
+    &:hover {
+      background-color: darken($link, 5%);
+      color: white;
+    }
+
+    &.disabled,
+    &.disabled:hover {
+      background-color: $highlight;
+      border-radius: 0px;
+      color: $border;
+    }
+
+    &.range,
+    &.selected {
+      background-color: $link;
+      color: #FFF;
+
+      &:hover, &:hover:hover {
+        background-color: darken($link, 5%);
+      }
+    }
+
+    &.range.disabled,
+    &.range.disabled:hover{
+      background-color: rgba(255, 0, 0, 0.8);
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+}

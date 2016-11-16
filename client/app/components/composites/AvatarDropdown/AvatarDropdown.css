@@ -9,12 +9,15 @@
   & .avatarProfileDropdown {
     visibility: hidden;
     margin-bottom: -32px;
+    transition: visibility 0ms;
+    transition-delay: 300ms;
   }
 
   &.openDropdown,
-  &.touchless:hover {
+  &.openOnHover:hover {
     & .avatarProfileDropdown {
       visibility: visible;
+      transition-delay: 0ms;
     }
   }
 

@@ -5,13 +5,15 @@ module TransactionService::Store::Transaction
 
   NewTransaction = EntityUtils.define_builder(
     [:community_id, :fixnum, :mandatory],
-    [:community_uuid, :uuid, :mandatory],
+    [:community_uuid, :string, :mandatory, transform_with: UUIDUtils::RAW], # :string type for raw bytes
     [:listing_id, :fixnum, :mandatory],
-    [:listing_uuid, :uuid, :mandatory],
+    [:listing_uuid, :string, :mandatory, transform_with: UUIDUtils::RAW], # :string type for raw bytes
     [:starter_id, :string, :mandatory],
+    [:starter_uuid, :string, :mandatory, transform_with: UUIDUtils::RAW], # :string type for raw bytes
     [:listing_quantity, :fixnum, default: 1],
     [:listing_title, :string, :mandatory],
     [:listing_author_id, :string, :mandatory],
+    [:listing_author_uuid, :string, :mandatory, transform_with: UUIDUtils::RAW], # :string type for raw bytes
     [:unit_type, :to_symbol, one_of: [:hour, :day, :night, :week, :month, :custom, nil]],
     [:unit_price, :money, default: Money.new(0)],
     [:unit_tr_key, :string],
@@ -25,19 +27,21 @@ module TransactionService::Store::Transaction
     [:automatic_confirmation_after_days, :fixnum, :mandatory],
     [:minimum_commission, :money, :mandatory],
     [:content, :string],
-    [:booking_uuid, :uuid],
+    [:booking_uuid, :string, transform_with: UUIDUtils::RAW], # :string type for raw bytes
     [:booking_fields, :hash])
 
   Transaction = EntityUtils.define_builder(
     [:id, :fixnum, :mandatory],
     [:community_id, :fixnum, :mandatory],
-    [:community_uuid, :uuid], # This will be mandatory once the migrations have run
+    [:community_uuid, :uuid, :mandatory, transform_with: UUIDUtils::PARSE_RAW],
     [:listing_id, :fixnum, :mandatory],
-    [:listing_uuid, :uuid, :mandatory], # This will be mandatory once the migrations have run
+    [:listing_uuid, :uuid, :mandatory, transform_with: UUIDUtils::PARSE_RAW],
     [:starter_id, :string, :mandatory],
+    [:starter_uuid, :uuid, :mandatory, transform_with: UUIDUtils::PARSE_RAW],
     [:listing_quantity, :fixnum, :mandatory],
     [:listing_title, :string, :mandatory],
     [:listing_author_id, :string, :mandatory],
+    [:listing_author_uuid, :uuid, :mandatory, transform_with: UUIDUtils::PARSE_RAW],
     [:unit_type, :to_symbol, one_of: [:hour, :day, :night, :week, :month, :custom, nil]],
     [:unit_price, :money, default: Money.new(0)],
     [:unit_tr_key, :string],
@@ -53,7 +57,7 @@ module TransactionService::Store::Transaction
     [:last_transition_at, :time],
     [:current_state, :to_symbol],
     [:shipping_address, :hash],
-    [:booking_uuid, :uuid],
+    [:booking_uuid, :uuid, transform_with: UUIDUtils::PARSE_RAW],
     [:booking, :hash])
 
   ShippingAddress = EntityUtils.define_builder(
@@ -83,10 +87,8 @@ module TransactionService::Store::Transaction
 
   def create(opts)
     tx_data = HashUtils.compact(NewTransaction.call(opts))
-    tx_model = TransactionModel.new(tx_data
-                                      .except(:content, :booking_fields)
-                                      .merge(listing_uuid: tx_data[:listing_uuid].raw,
-                                             community_uuid: tx_data[:community_uuid].raw))
+    tx_model = TransactionModel.new(tx_data.except(:content, :booking_fields))
+
     build_conversation(tx_model, tx_data)
     build_booking(tx_model, tx_data)
 
@@ -173,10 +175,6 @@ module TransactionService::Store::Transaction
         hash = add_opt_shipping_address(hash, m)
         hash = add_opt_booking(hash, m)
 
-        hash[:listing_uuid] = UUIDTools::UUID.parse_raw(hash[:listing_uuid]) if hash[:listing_uuid].present?
-        hash[:community_uuid] = UUIDTools::UUID.parse_raw(hash[:community_uuid]) if hash[:community_uuid].present?
-        hash[:booking_uuid] = UUIDUtils.parse_raw(hash[:booking_uuid]) if hash[:booking_uuid].present?
-
         hash
       }
       .map { |hash| Transaction.call(hash) }
@@ -194,8 +192,7 @@ module TransactionService::Store::Transaction
   def add_opt_booking(hash, m)
     if m.booking
       booking_data = EntityUtils.model_to_hash(m.booking)
-      hash.merge(booking: Booking.call(
-                  booking_data.merge(duration: m.listing_quantity)))
+      hash.merge(booking: Booking.call(booking_data.merge(duration: m.listing_quantity)))
     else
       hash
     end
@@ -228,9 +225,11 @@ module TransactionService::Store::Transaction
 
   def build_booking(tx_model, tx_data)
     if is_booking?(tx_data)
-      start_on = tx_data[:booking_fields][:start_on]
-      end_on = tx_data[:booking_fields][:end_on]
-      tx_model.build_booking({start_on: start_on, end_on: end_on})
+      start_on, end_on = tx_data[:booking_fields].values_at(:start_on, :end_on)
+
+      tx_model.build_booking(
+        start_on: start_on,
+        end_on: end_on)
     end
   end
 

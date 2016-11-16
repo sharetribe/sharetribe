@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe NewLayoutViewUtils do
   before do
-    stub_const("NewLayoutViewUtils::FEATURES",
+    allow(NewLayoutViewUtils).to receive(:published_features).and_return(
       [
         { title: "Foo",
           name: :foo
@@ -14,6 +14,8 @@ describe NewLayoutViewUtils do
           name: :wat
         }
       ])
+
+    allow(NewLayoutViewUtils).to receive(:experimental_features).and_return({})
   end
 
   describe "#features" do
@@ -43,21 +45,27 @@ describe NewLayoutViewUtils do
       end
 
       it "should return list of feature flags with corresponding features enabled for person and community" do
-        expect(NewLayoutViewUtils.features(community_id, person_id)).to eql([
+        expect(NewLayoutViewUtils.features(community_id, person_id, false, true)).to eql([
           { title: "Foo",
             name: :foo,
             enabled_for_user: true,
-            enabled_for_community: false
+            enabled_for_community: false,
+            disabled_for_user: false,
+            disabled_for_community: false
           },
           { title: "Bar",
             name: :bar,
             enabled_for_user: true,
-            enabled_for_community: false
+            enabled_for_community: false,
+            disabled_for_user: false,
+            disabled_for_community: false
           },
           { title: "Wat",
             name: :wat,
             enabled_for_user: false,
-            enabled_for_community: true
+            enabled_for_community: true,
+            disabled_for_user: false,
+            disabled_for_community: false
           }
         ])
       end
@@ -86,21 +94,27 @@ describe NewLayoutViewUtils do
       end
 
       it "should return list of feature flags with no features enabled" do
-        expect(NewLayoutViewUtils.features(community_id, person_id)).to eql([
+        expect(NewLayoutViewUtils.features(community_id, person_id, false, true)).to eql([
           { title: "Foo",
             name: :foo,
             enabled_for_user: false,
-            enabled_for_community: false
+            enabled_for_community: false,
+            disabled_for_user: false,
+            disabled_for_community: false
           },
           { title: "Bar",
             name: :bar,
             enabled_for_user: false,
-            enabled_for_community: false
+            enabled_for_community: false,
+            disabled_for_user: false,
+            disabled_for_community: false
           },
           { title: "Wat",
             name: :wat,
             enabled_for_user: false,
-            enabled_for_community: false
+            enabled_for_community: false,
+            disabled_for_user: false,
+            disabled_for_community: false
           }
         ])
       end

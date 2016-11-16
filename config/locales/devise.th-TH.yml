@@ -6,8 +6,8 @@ th-TH:
       already_confirmed: "ได้รับการยืนยันแล้ว โปรดดำเนินการเข้าสู่ระบบ"
       not_locked: ไม่ได้ถูกล็อค
       not_saved:
-        other: "พบข้อผิดพลาด %{count} แห่งที่ห้ามไม่ไห้ %{resource} ถูกจัดเก็บ "
         zero: "พบข้อผิดพลาด 1 แห่งที่ห้ามไม่ไห้ %{resource} ถูกจัดเก็บ "
+        other: "พบข้อผิดพลาด %{count} แห่งที่ห้ามไม่ไห้ %{resource} ถูกจัดเก็บ "
   devise:
     failure:
       already_authenticated: คุณได้เข้าสู่ระบบแล้ว

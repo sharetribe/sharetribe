@@ -1,51 +1,114 @@
-.panel {
+.container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: calc(var(--ListingCardPanel_gutterSpacing) / 2);
-  background-color: var(--ListingCardPanel_backgroundColor);
+  flex-direction: column;
 
-  &::after {
-    content: '';
-    flex: auto;
-  }
-}
+  /* This padding is set up for mobile layout to match paddings in Topbar */
+  padding: 18px;
 
-.card {
-  margin: calc(var(--ListingCardPanel_gutterSpacing) / 2);
-  min-width: 264px;
-  max-width: 550px;
-  flex-basis: calc(100% - 24px);
+  & .panel {
+    display: flex;
+    flex-wrap: wrap;
 
-  /* Counting columns (minimum card width 264px) + gutters (24px)
-     24 + 264 + 24 + 264 + 24 = 600 */
-  @media screen and (min-width: 600px) {
-    max-width: 408px;
-    flex-basis: calc(50% - var(--ListingCardPanel_gutterSpacing));
+    &::after {
+      content: '';
+      flex: auto;
+    }
   }
 
-  /* 4*24 + 3*264 = 3*(24 + 264) + 24 = 888 */
-  @media screen and (min-width: 888px) {
-    flex-basis: calc(33.33% - var(--ListingCardPanel_gutterSpacing));
+  & .card {
+    min-width: 264px;
+    max-width: 575px;
+    flex-basis: calc(100%);
+    margin: 0 0 18px 0;
   }
 
-  /* 4*(24 + 264) + 24 = 1176px */
-  @media screen and (min-width: 1176px) {
-    flex-basis: calc(25% - var(--ListingCardPanel_gutterSpacing));
+  /* Counting columns (minimum card width 264px) + gutter (12px) + panel padding (12px)
+     18 + 12 + 264 + 24 + 264 + 12 + 18 = 612. Plus 17px for IE scrollbar */
+  @media screen and (min-width: 629px) {
+    padding: 18px;
+
+    & .card {
+      max-width: 408px;
+      flex-basis: calc(50% - 24px);
+      margin: 12px;
+    }
+
+    & .responsivePadding {
+      padding: 12px;
+    }
   }
 
-  /* 5*(24 + 264) + 24  = 1464px */
-  @media screen and (min-width: 1464px) {
-    flex-basis: calc(20% - var(--ListingCardPanel_gutterSpacing));
+  /* 18 + 12 + 264 + 24 + 264 + 24 + 264 + 12 + 18 = 900 */
+  @media screen and (min-width: 917px) {
+    padding: 18px;
+
+    & .card {
+      flex-basis: calc(33.33% - 24px);
+      margin: 12px;
+    }
+
+    & .responsivePadding {
+      padding: 12px;
+    }
   }
 
-  /* 6*(24 + 264) + 24  = 1752px */
-  @media screen and (min-width: 1752px) {
-    flex-basis: calc(100% / 6 - var(--ListingCardPanel_gutterSpacing));
+  /* Width: 20 + 8 + 264 + 16 + 264 + 16 + 264 + 16 + 264 + 8 + 20 = 1160
+     = 4*(16 + 264) + 16 + 2*(28-16) + 17px (IE scrollbar)
+     where 28 is space between panel edge and card and 16 is (natural) gutter */
+  @media screen and (min-width: 1177px) {
+    padding: 14px 20px;
+
+    & .card {
+      flex-basis: calc(25% - 16px);
+      margin: 14px 8px;
+    }
+
+    & .responsivePadding {
+      padding: 8px;
+    }
   }
 
-  /* 7*(24 + 264) + 24 = 2040px */
-  @media screen and (min-width: 2040px) {
-    flex-basis: calc(100% / 7 - var(--ListingCardPanel_gutterSpacing));
+  /* 5*(20 + 264) + 20 + 2*(24-20) = 1448px */
+  @media screen and (min-width: 1465px) {
+    padding: 12px 14px;
+
+    & .card {
+      flex-basis: calc(20% - 20px);
+      margin: 12px 10px;
+    }
+
+    & .responsivePadding {
+      padding: 10px;
+    }
+  }
+
+  /* 6*(24 + 264) + 24 + 2*(30-24) = 1764px */
+  @media screen and (min-width: 1781px) {
+    padding: 15px 18px;
+
+    & .card {
+      /* Gutter is really just 24px but IE can't handle this calc, so added 1px */
+      flex-basis: calc(100% / 6 - 25px);
+      margin: 15px 12px;
+    }
+
+    & .responsivePadding {
+      padding: 12px;
+    }
+  }
+
+  /* 7*(24 + 264) + 24 + 2*(36-24) = 2064px */
+  @media screen and (min-width: 2153px) {
+    padding: 18px 24px;
+
+    & .card {
+      /* Gutter is really just 24px but IE can't handle this calc, so added 1px */
+      flex-basis: calc(100% / 7 - 25px);
+      margin: 18px 12px;
+    }
+
+    & .responsivePadding {
+      padding: 12px;
+    }
   }
 }

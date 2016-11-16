@@ -12,7 +12,7 @@ module TransactionService::Process
     def create(tx:, gateway_fields:, gateway_adapter:, force_sync:)
       Transition.transition_to(tx[:id], :initiated)
 
-      if use_async?(force_sync, gateway_adapter)
+      if !force_sync
         proc_token = Worker.enqueue_preauthorize_op(
           community_id: tx[:community_id],
           transaction_id: tx[:id],
@@ -41,7 +41,7 @@ module TransactionService::Process
     def finalize_create(tx:, gateway_adapter:, force_sync:)
       ensure_can_execute!(tx: tx, allowed_states: [:initiated, :preauthorized])
 
-      if use_async?(force_sync, gateway_adapter)
+      if !force_sync
         proc_token = Worker.enqueue_preauthorize_op(
           community_id: tx[:community_id],
           transaction_id: tx[:id],
@@ -66,22 +66,8 @@ module TransactionService::Process
             if tx[:availability] != :booking
               Result::Success.new()
             else
-              end_on = tx[:booking][:end_on]
-              end_adjusted = tx[:unit_type] == :day ? end_on + 1.days : end_on
 
-              HarmonyClient.post(
-                :initiate_booking,
-                body: {
-                  marketplaceId: tx[:community_uuid],
-                  refId: tx[:listing_uuid],
-                  customerId: UUIDUtils.base64_to_uuid(tx[:starter_id]),
-                  initialStatus: :paid,
-                  start: tx[:booking][:start_on],
-                  end: end_adjusted
-                },
-                opts: {
-                  max_attempts: 3
-                }).on_error { |error_msg, data|
+              initiate_booking(tx: tx).on_error { |error_msg, data|
                 logger.error("Failed to initiate booking", :failed_initiate_booking, tx.slice(:community_id, :id).merge(error_msg: error_msg))
 
                 void_res = gateway_adapter.reject_payment(tx: tx, reason: "")[:response]
@@ -105,16 +91,6 @@ module TransactionService::Process
 
           booking_res.on_success {
             Transition.transition_to(tx[:id], :preauthorized)
-          }.rescue { |error_msg, data|
-            #
-            # The operation output is saved as YAML in database.
-            # Serializing/deserializing the Exception object causes issues,
-            # so we'll just convert the error to string
-            #
-
-            data[:error] = data[:error].to_s if data[:error].present?
-
-            Result::Error.new(error_msg, data)
           }
         end
 
@@ -180,6 +156,46 @@ module TransactionService::Process
 
     private
 
+    def initiate_booking(tx:)
+      auth_context = {
+        marketplace_id: tx[:community_uuid],
+        actor_id: tx[:starter_uuid]
+      }
+
+      HarmonyClient.post(
+        :initiate_booking,
+        body: {
+          marketplaceId: tx[:community_uuid],
+          refId: tx[:listing_uuid],
+          customerId: tx[:starter_uuid],
+          initialStatus: :paid,
+          start: tx[:booking][:start_on],
+          end: tx[:booking][:end_on]
+        },
+        opts: {
+          max_attempts: 3,
+          auth_context: auth_context
+        }).rescue { |error_msg, data|
+
+        new_data =
+          if data[:error].present?
+            # An error occurred, assume connection issue
+            {reason: :connection_issue, listing_id: tx[:listing_id]}
+          else
+            case data[:status]
+            when 409
+              # Conflict or double bookings, assume double booking
+              {reason: :double_booking, listing_id: tx[:listing_id]}
+            else
+              # Unknown. Return unchanged.
+              data
+            end
+          end
+
+        Result::Error.new(error_msg, new_data.merge(listing_id: tx[:listing_id]))
+      }
+    end
+
     def send_message(tx, message, sender_id)
       TxStore.add_message(community_id: tx[:community_id],
                           transaction_id: tx[:id],
@@ -193,10 +209,6 @@ module TransactionService::Process
                                               process_token: proc_token[:process_token],
                                               completed: proc_token[:op_completed],
                                               result: proc_token[:op_output]}))
-    end
-
-    def use_async?(force_sync, gw_adapter)
-      !force_sync && gw_adapter.allow_async?
     end
 
     def logger

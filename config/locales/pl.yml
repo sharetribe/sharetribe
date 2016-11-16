@@ -229,6 +229,7 @@ pl:
         enabled_for_you: "Włączone dla Ciebie"
         enabled_for_all: "Włączone dla wszystkich"
         new_topbar: "Nowy pasek górny (widoczny na każdej stronie)"
+        searchpage: ~
       social_media:
         social_media: ~
         twitter_handle: ~
@@ -368,6 +369,12 @@ pl:
       subscription: ~
       preview: ~
     listing_shapes:
+      availability_title: ~
+      read_more: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: ~
         description: ~
@@ -443,14 +450,16 @@ pl:
     paypal_accounts:
       marketplace_paypal_integration: ~
       preferences_updated: ~
-      marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: ~
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: ~
-      set_minimum_price_and_fee: ~
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      currency_change_warning_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: ~
       transaction_fee_label: ~
       minimum_transaction_fee_label: ~
@@ -853,6 +862,12 @@ pl:
       remember_to_accept: ~
       one_day_left: ~
       click_here_to_reply: ~
+    welcome_email:
+      welcome_email_subject: ~
+      welcome_to_marketplace: ~
+      love_marketplace_crew: ~
+      welcome_email_footer_text: "Jakie rodzaje wiadomości email chcesz otrzymywać od %{service_name}? %{settings_link}"
+      settings_link_text: "Sprawdź swoje ustawienia"
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -864,6 +879,9 @@ pl:
       person_name: "Imię:"
       person_email: "Adres email:"
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: ~
     listings:
@@ -1203,6 +1221,8 @@ pl:
       offer_rejected: "Oferta odrzucona"
       offer_canceled: "Oferta anulowana"
       listing_updated_successfully: "Oferta zaktualizowana pomyślnie"
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Tylko adminstratorzy %{service_name} mogą przejść do tej sekcji"
       only_listing_author_can_close_a_listing: "Tylko autor może zamknąć pozycję"
       only_listing_author_can_edit_a_listing: "Tylko autor może edytować pozycję"
@@ -1310,6 +1330,8 @@ pl:
     error:
       something_went_wrong: ~
       something_went_wrong_plain: "Coś poszło nie tak"
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: "Powiadom mnie emailem, gdy pojawią się nowe komentarze"
       unfollow: "Nie powiadamiaj mnie emailem, gdy pojawią się nowe komentarze"
@@ -1433,7 +1455,6 @@ pl:
       request_type: "Rodzaj zapytania"
       requests: Zapytania
       rideshare: Przejazd
-      search_verb: Szukaj
       you_have_something_others_do_not: "Masz coś do zaoferowania?"
       feed_title: "%{listing_type} w %{service_name} %{optional_category}"
     left_panel_link:
@@ -1457,6 +1478,7 @@ pl:
       booking_to: ~
       how_paypal_works: ~
       payment_help: ~
+      unable_load_availability: ~
     new:
       listing: oferta
       selected_category: "Kategoria: %{category}"
@@ -1531,6 +1553,8 @@ pl:
       verification_required: "Wymagana weryfikacja"
   listing_conversations:
     preauthorize:
+      dates_not_available: "Wybrane daty nie są dostępne"
+      error_in_checking_availability: "Nie możemy sprawdzić dostępności dla wskazanych dni"
       details: ~
       by: ~
       payment: ~
@@ -1562,7 +1586,6 @@ pl:
       request_type: "Rodzaj zapytania"
       requests: Zapytania
       rideshare: Przejazd
-      search_verb: Szukaj
       you_have_something_others_do_not: "Masz coś do zaoferowania?"
     please_comment: Skomentuj
   mercury:
@@ -1732,16 +1755,6 @@ pl:
       following: ~
       follow: ~
       unfollow: ~
-  search:
-    show:
-      all_results: "Pokaż wszystkie wyniki"
-      loading_more_search_results: "Trwa ładowanie większej liczby wyników"
-      offers: Oferty
-      requests: Zapytania
-      search: Szukaj
-      search_results: "Wyniki wyszukiwania"
-      search_returned_no_results: "Nie mogliśmy znaleźć nic takiego."
-      search_verb: Szukaj
   sessions:
     new:
       create_new_account: "Stwórz nowe konto"
@@ -1772,8 +1785,11 @@ pl:
       confirm_your_email: "Proszę potwierdź Twój adres email"
       account_confirmation_instructions: "Wkrótce otrzymasz wiadomość email z linkiem, aby potwierdzić Twój adres. Nie zapomnij sprawdzić folderu ze spamem! Po tym jak potwierdzisz adres, możesz dołączyć to %{service_name}."
       account_confirmation_instructions_title_admin: ~
-      your_marketplace_has_now_been_created: ~
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: ~
+      contact_support_link_text: ~
   settings:
     account:
       change: Zmień
@@ -1995,8 +2011,23 @@ pl:
     day: ~
     days: ~
   web:
+    listings:
+      pricing_units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+    no_listings:
+      sorry: ~
+      try_other_search_terms: ~
     listing_card:
+      add_picture: ~
       no_picture: ~
+    search:
+      page: ~
+      page_of_pages: ~
     topbar:
       menu: ~
       more: ~
@@ -2012,6 +2043,9 @@ pl:
       signup: ~
       admin_dashboard: "Panel administracyjny"
       language: Język
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: "Platforma %{service_name} działa na silniku %{sharetribe_link}."
       create_own: "Chcesz stworzyć swoją platformę online jak %{service_name}? %{learn_more}."

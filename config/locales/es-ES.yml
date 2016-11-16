@@ -244,6 +244,7 @@ es-ES:
         enabled_for_you: "Habilitar sólo para ti"
         enabled_for_all: "Habilitar para todos"
         new_topbar: "Nueva barra superior (visible en todas las páginas)"
+        searchpage: "Nueva página de búsqueda (requiere de la nueva barra superior)"
       social_media:
         social_media: "Social media"
         twitter_handle: Twitter
@@ -283,7 +284,7 @@ es-ES:
         max_number_of_links_info: "Vinculo para la %{about_page} se muestra siempre como el primer vínculo del menu."
         about_page: "página Acerca de"
       topbar:
-        topbar: "Barra Superior"
+        topbar: "Barra superior"
         new_listing_button_label: "Texto del botón para Publicar Anuncio"
         invalid_post_listing_button_label: "Proporciona un texto válido para el botón de \"Publicar Anuncio\""
       transactions:
@@ -383,6 +384,12 @@ es-ES:
       subscription: Subscripción
       preview: "Vista Previa"
     listing_shapes:
+      availability_title: Disponibilidad
+      read_more: "Lee más acercad de la administración automática de disponibilidad."
+      allow_availability_management: "Habilitar administración automática de disponibilidad (previene dobles reservaciones)"
+      per_day_availability: "Disponibilidad \"Por día\""
+      per_night_availability: "Disponibilidad \"Por Noche\""
+      pricing_units_disabled_info: "Las unidades de precio no pueden ser usadas cuando el calendario de disponibilidad está habilitado."
       index:
         listing_shapes: "Tipos de Orden"
         description: "Los tipos de orden determinan cómo funciona el proceso en tu comunidad. Puedes decidir si tus usuarios van a alquilar o vender, o incluso si sólo van a publicar anuncios y comunicarse por medio de mensajes gratuitos."
@@ -470,14 +477,16 @@ es-ES:
     paypal_accounts:
       marketplace_paypal_integration: "Preferencias del sistema de pagos"
       preferences_updated: "Preferencias del sistema de pagos actualizadas"
-      marketplace_currency_used: "Esta comunidad usa %{currency} como su moneda. Para cambiar la moneda, %{contact_support_link}."
-      contact_support_link_text: "contacta al equipo de soporte de Sharetribe"
+      contact_support_link_text: "contacta al equipo de soporte"
       integration_info_text: "El sistema de pagos de tu comunidad se basa en PayPal. Si quieres permitir a tus usuarios hacer pagos a través de tu comunidad, debes conectar tu cuenta de PayPal. Después de esto, puedes decidir el precio mínimo para las transacciones, así como la comisión y/o cuota por transacción que quieres recibir."
       link_paypal_personal_account_label: "Venderás productos u ofrecerás productos en tu comunidad?"
       link_paypal_personal_account: "Si es así, también necesitará conectar su cuenta PayPal en %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "su cuenta personal de la comunidad"
       read_more_about_paypal: "Leer más sobre el sistema de pagos."
-      set_minimum_price_and_fee: "Configura un precio mínimo y una comisión por transacción"
+      edit_payment_settings: "Modificar la configuración de pagos"
+      supported_currencies_information_text: "El sistema de pagos en línea de Sharetribe soporta 24 divisas distintas. Si tu divisa no aparece en la lista, por favor %{contact_support_link}. Si cambias la divisa de tu comunidad, los anuncios existentes mantendrán la divisa anterior. Necesitas editar esos anuncios para actualizar su precio a la nueva divisa."
+      currency_change_warning_text: "Cuidado: si procedes con el cambio, no olvides pedirle a tus usuarios que actualicen sus anuncios para que la divisa cambie en estos anuncios."
+      marketplace_currency_label: "Divisa de la comunidad:"
       minimum_listing_price_label: "Precio mínimo por transacción:"
       transaction_fee_label: "Comisión por transacción:"
       minimum_transaction_fee_label: "Cuota mínima por transacción"
@@ -884,6 +893,12 @@ es-ES:
       remember_to_accept: "Recuerda aceptar la solicitud de %{requester} sobre tu anuncio \"%{listing_title}\". %{requester} ya ha pagado. Debes aceptar la solicitud para poder recibir el pago."
       one_day_left: "Si no aceptas la solicitud en 1 día, la solicitud se rechazará automáticamente y no recibirás ningún pago."
       click_here_to_reply: "Haz clic aquí para responder a la solicitud"
+    welcome_email:
+      welcome_email_subject: "Ya formas parte de %{service_name}"
+      welcome_to_marketplace: "¡Bienvenido a %{service_name}! Nos encanta que estés con nosotros."
+      love_marketplace_crew: "Un saludo del equipo de <br /><i>%{service_name} </i>"
+      welcome_email_footer_text: "¿Qué clase de correos deseas recibir de %{service_name}? %{settings_link}"
+      settings_link_text: "Revisa tu configuración"
     new_listing_by_followed_person:
       subject: "%{author_name} ha publicado un nuevo anuncio en %{service_name}"
       has_posted_a_new_listing: "%{author_name} ha publicado un nuevo anuncio"
@@ -895,6 +910,9 @@ es-ES:
       person_name: "Nombre:"
       person_email: "Correo electrónico:"
   error_messages:
+    booking:
+      booking_failed_payment_voided: "La reserva falló debido a un error inesperado. Por favor intenta de nuevo más tarde. No se te ha cargado nada."
+      double_booking_payment_voided: "Desafortunadamente las fechas que elegiste no están disponibles. Por favor elige fechas distintas. No se te ha cargado nada."
     onboarding:
       server_rendering: "La guía de inicio no se ha cargado correctamente. Nuestro equipo está trabajando para arreglar el problema lo antes posible."
     listings:
@@ -1234,6 +1252,8 @@ es-ES:
       offer_rejected: "Oferta rechazada"
       offer_canceled: "Oferta cancelada"
       listing_updated_successfully: "Anuncio actualizado"
+      listing_updated_availability_enabled: "El anuncio se ha actualizado con éxito. La administración automática de disponibilidad se ha habilitado."
+      listing_updated_availability_disabled: "El anuncio se ha actualizado con éxito. La administración automática de disponibilidad se ha deshabilitado."
       only_kassi_administrators_can_access_this_area: "Sólo los administradores de %{service_name} pueden acceder a esta área"
       only_listing_author_can_close_a_listing: "Sólo el autor del anuncio puede cerrarlo"
       only_listing_author_can_edit_a_listing: "Sólo el autor del anuncio puede editarlo"
@@ -1344,7 +1364,9 @@ es-ES:
       open_in_google_maps: "Abrir en Google Maps"
     error:
       something_went_wrong: "Algo salió mal. Código de error: %{error_code}"
-      something_went_wrong_plain: ~
+      something_went_wrong_plain: "Algo salió mal"
+      create_failed_to_connect_to_booking_service: "Ocurrió un error al crear el anuncio: la conexión con el servicio de disponibilidad falló. Por favor inténtalo de nuevo."
+      update_failed_to_connect_to_booking_service: "Ocurrió un error al actualizar el anuncio: la conexión con el servicio de disponibilidad falló. Por favor inténtalo de nuevo."
     follow_links:
       follow: "Recibir correos cuando haya nuevos comentarios"
       unfollow: "Dejar de recibir correos cuando haya nuevos comentarios"
@@ -1468,7 +1490,6 @@ es-ES:
       request_type: "Tipo de solicitud"
       requests: Solicitudes
       rideshare: "Traslado compartido"
-      search_verb: Buscar
       you_have_something_others_do_not: "¿Tienes algo que ofecer?"
       feed_title: "%{listing_type} en %{service_name}%{optional_category}"
     left_panel_link:
@@ -1492,6 +1513,7 @@ es-ES:
       booking_to: a
       how_paypal_works: "Cómo funciona PayPal"
       payment_help: "Ayuda de pagos"
+      unable_load_availability: "No se ha podido cargar la información sobre disponibilidad. Intenta de nuevo más tarde."
     new:
       listing: anuncio
       selected_category: "Categoría: %{category}"
@@ -1566,6 +1588,8 @@ es-ES:
       verification_required: "Verificación requerida"
   listing_conversations:
     preauthorize:
+      dates_not_available: "Las fechas seleccionadas no están disponibles"
+      error_in_checking_availability: "No se pudo verificar la disponibilidad para las fechas seleccionadas"
       details: Detalles
       by: "%{listing} por %{author}"
       payment: Pago
@@ -1597,7 +1621,6 @@ es-ES:
       request_type: "Tipo de solicitud"
       requests: Solicitudes
       rideshare: "Traslado compartido"
-      search_verb: Buscar
       you_have_something_others_do_not: "Tienes algo que quieres ofertar?"
     please_comment: Comentario
   mercury:
@@ -1615,7 +1638,7 @@ es-ES:
     connected_account: "La cuenta de PayPal '%{email}' se ha conectado con éxito."
     paypal_receive_funds_info_label_australia_only: "Es necesario que tu cuenta PayPal esté habilitada para aceptar pagos. Esto puede requerir una cuenta Premium o Empresarial."
     paypal_receive_funds_info_label: "Es necesario que tu cuenta PayPal pueda aceptar pagos. Esto puede requerir que tengas una cuenta empresarial (Business account)."
-    paypal_receive_funds_info_australia_only: ~
+    paypal_receive_funds_info_australia_only: "Si ves un error al intentar conectar tu cuenta a %{service_name}, %{upgrade_paypal_account_link} y cambia tu cuenta a una cuenta de negocios, o (si eres un individuo), crea una cuenta Premier. Los dos tipos de cuentas son totalmente gratis."
     paypal_receive_funds_info: "Si ves un error al intentar conectar tu cuenta a %{service_name}, actualiza tu cuenta PayPal %{upgrade_paypal_account_link}. Es fácil y gratis. Si eres un persona física, PayPal recomienda que utilices tu nombre como el nombre de la empresa."
     upgrade_paypal_account_link_text: "iniciando sesión y haciendo clic en el enlace de actualización"
     admin_account_not_connected: "No es posible usar el sistema de pagos de %{service_name} para recibir pagos, ya que los pagos no se han configurado. Por favor %{contact_admin_link} para más información."
@@ -1631,7 +1654,7 @@ es-ES:
       paypal_account_email_placeholder: "Tu dirección de email en Paypal"
       paypal_account_email_info_text: "Si no tiene suna cuenta PayPal, puedes crear una yendo a %{create_paypal_account}. Si el sistema arroja un error al conectar tu cuenta, necesitas actualizar tu cuenta a una cuenta empresarial -business-. Actualizar es fácil y rápido y no te costará nada. Si eres una persona natural -un indviduo- , deberás poner tu nombre y apellido en el campo del \"nombre de la empresa\" cuando PayPal te lo solicite. Para actualizar tu cuenta, %{upgrade_paypal_account} y busca el enlace de actualización."
       create_paypal_account: "haciendo clic aquí"
-      upgrade_paypal_account: "Inicia sesión en PayPal"
+      upgrade_paypal_account: "inicia sesión en PayPal"
       paypal_account_billing_agreement: "Concede permisos a %{service_name} para cargar comisión por transferencias"
       follow_steps: "sigue los pasos siguientes para empezar a recibir fondos:"
       connect_paypal_account_title: "Conecta tu cuenta de Paypal"
@@ -1765,16 +1788,6 @@ es-ES:
       following: Siguiendo
       follow: Seguir
       unfollow: "Dejar de seguir"
-  search:
-    show:
-      all_results: "Todos los resultados"
-      loading_more_search_results: "Cargar más resultados de búsqueda"
-      offers: Ofertas
-      requests: Solicitudes
-      search: Buscar
-      search_results: "Resultados de búsqueda"
-      search_returned_no_results: "Su búsqueda no ha obtenido resultados."
-      search_verb: buscar
   sessions:
     new:
       create_new_account: "Crear una cuenta nueva"
@@ -1805,8 +1818,11 @@ es-ES:
       confirm_your_email: "Confirma tu correo electrónico"
       account_confirmation_instructions: "Pronto recibirás un correo electrónico con un vínculo para confirmar tu cuenta de correo. No olvides revisar la carpeta de correo no deseado! Una vez lo hayas hecho, podrás comenzar a usar %{service_name}."
       account_confirmation_instructions_title_admin: "¡Bienvenido a tu comunidad!"
-      your_marketplace_has_now_been_created: "Tu comunidad ha sido creada. ¿Ha sido fácil, verdad? Sólo hay un paso más antes de que puedas entrar a tu sitio: Debes confirmar tu dirección de correo electrónico."
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: "Pronto recibirás un correo electrónico con un vínculo para confirmar tu cuenta de correo. No olvides revisar tu carpeta de correo no deseado! Una vez hayas confirmado tu cuenta, podrás comenzar a configurar tu comunidad."
+      contact_support_link_text: ~
   settings:
     account:
       change: Cambiar
@@ -2035,8 +2051,23 @@ es-ES:
     day: día
     days: días
   web:
+    listings:
+      pricing_units:
+        piece: pieza
+        hour: hora
+        day: día
+        night: noche
+        week: semana
+        month: mes
+    no_listings:
+      sorry: "Perdón, no hemos encontrado ningún anuncio que satisfaga tus criterios de búsqueda."
+      try_other_search_terms: "Intenta la búsqueda con términos distintos"
     listing_card:
-      no_picture: ~
+      add_picture: ~
+      no_picture: "No hay imagen"
+    search:
+      page: Página
+      page_of_pages: "de %{total_number_of_pages}"
     topbar:
       menu: Menú
       more: Más
@@ -2052,10 +2083,13 @@ es-ES:
       signup: Registrarse
       admin_dashboard: "Panel de administración"
       language: Idioma
+    utils:
+      km: km
+      mi: mi
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} es impulsado por %{sharetribe_link}, plataforma de consumo colaborativo."
+      create_own: "Quieres crear tu propia comunidad de consumo colaborativo en línea como %{service_name}? %{learn_more}."
+      learn_more: "Aprende como"
   will_paginate:
     models:
       person:

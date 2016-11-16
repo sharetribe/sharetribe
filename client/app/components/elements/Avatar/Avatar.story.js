@@ -3,12 +3,13 @@ import { shallow } from 'enzyme';
 import { storify } from '../../Styleguide/withProps';
 
 import Avatar from './Avatar';
+import { Image } from '../../../models/ImageModel';
 
 const { storiesOf, specs, expect } = storybookFacade;
 const containerStyle = { style: { background: 'grey', width: '60px', height: '60px' } };
 
 const avatarProps = {
-  image: 'https://www.gravatar.com/avatar/d0865b2133d55fd507639a0fd1692b9a',
+  image: new Image({ url: 'https://www.gravatar.com/avatar/d0865b2133d55fd507639a0fd1692b9a' }),
   givenName: 'First',
   familyName: 'Last',
 };

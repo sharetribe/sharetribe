@@ -23,7 +23,7 @@ class PaypalAccountsController < ApplicationController
                                 new_user_feedback_path)).html_safe
     end
 
-    community_currency = @current_community.default_currency
+    community_currency = @current_community.currency
     payment_settings = payment_settings_api.get_active(community_id: @current_community.id).maybe.get
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 

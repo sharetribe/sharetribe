@@ -1382,12 +1382,6 @@ $noscript-height: lines(4);
   max-width: lines(5);
 }
 
-.currency-selector {
-  margin-left: lines(0.25);
-  display: inline;
-  @include big-type;
-}
-
 .quantity-field {
   max-width: lines(7);
 }
@@ -1482,15 +1476,10 @@ input[type=text].delivery-price-field {
     display: inline-block;
   }
 
-  .status-link {
-    @include button($link);
-    margin-right: lines(0.5);
-  }
-
   .accept, .confirm, .accept_preauthorized {
+    @include button(lighten($green, 40%));
+    margin-right: lines(0.5);
     color: $green;
-    background: lighten($green, 40%);
-    border-color: $green;
     &:hover {
       color: lighten($green, 10%);
       background: lighten($green, 50%);
@@ -1499,9 +1488,9 @@ input[type=text].delivery-price-field {
   }
 
   .reject, .cancel, .reject_preauthorized {
+    @include button(lighten($red, 40%));
+    margin-right: lines(0.5);
     color: $red;
-    background: lighten($red, 40%);
-    border-color: $red;
     &:hover {
       color: lighten($red, 10%);
       background: lighten($red, 50%);

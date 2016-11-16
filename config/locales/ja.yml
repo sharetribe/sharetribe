@@ -239,6 +239,7 @@ ja:
         enabled_for_you: ~
         enabled_for_all: ~
         new_topbar: ~
+        searchpage: ~
       social_media:
         social_media: ソーシャルメディア
         twitter_handle: Twitterのハンドル
@@ -378,6 +379,12 @@ ja:
       subscription: ~
       preview: ~
     listing_shapes:
+      availability_title: ~
+      read_more: ~
+      allow_availability_management: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
       index:
         listing_shapes: ~
         description: ~
@@ -453,14 +460,16 @@ ja:
     paypal_accounts:
       marketplace_paypal_integration: お支払い方法
       preferences_updated: お支払い情報は更新されました
-      marketplace_currency_used: ~
       contact_support_link_text: ~
       integration_info_text: Sharetribeのお支払いシステムはPayPalを導入しています。あなたのマーケットプレイスで、お支払いが発生するようなサービスをご検討の場合は、PayPalと連携させる必要がございます。最小価格を設定し、取引毎にいただく手数料を設定します。
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: Sharetribeのお支払い方法にについてさらに読む
-      set_minimum_price_and_fee: 最低価格とお支払い手数料の設定
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      currency_change_warning_text: ~
+      marketplace_currency_label: ~
       minimum_listing_price_label: 最低価格：
       transaction_fee_label: 課金手数料：
       minimum_transaction_fee_label: 最小ご利用手数料額
@@ -867,6 +876,12 @@ ja:
       remember_to_accept: "「%{listing_title}」について%{requester}さんからのリクエストを承諾してください。%{requester}さんは既にお支払いを完了しています。お支払いを受けるには注文のリクエストを承諾してください。"
       one_day_left: もし1日以内にリクエストを承諾しない場合は、リクエストは自動的に却下され、お支払いはされませんのでご了承願います。
       click_here_to_reply: リクエストに答えるにはこちらをクリックしてください
+    welcome_email:
+      welcome_email_subject: "%{service_name}へようこそ"
+      welcome_to_marketplace: "%{service_name}へようこそ！よくお越しくださいました。"
+      love_marketplace_crew: "それではまた、<br /><i>%{service_name}チーム"
+      welcome_email_footer_text: "%{service_name}からのメール受信設定が出来ます。%{settings_link}"
+      settings_link_text: 設定を確認する
     new_listing_by_followed_person:
       subject: "%{service_name}で%{author_name}さんが新しいリストを投稿しました"
       has_posted_a_new_listing: "%{author_name}さんが新しいリストを投稿をしました："
@@ -878,6 +893,9 @@ ja:
       person_name: ~
       person_email: ~
   error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
     onboarding:
       server_rendering: ~
     listings:
@@ -1217,6 +1235,8 @@ ja:
       offer_rejected: オファーは却下されました
       offer_canceled: オファーはキャンセルされました
       listing_updated_successfully: 投稿は更新されました
+      listing_updated_availability_enabled: ~
+      listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "こちらは%{service_name}の管理者だけがアクセス出来ます"
       only_listing_author_can_close_a_listing: リストの作成者のみがリストをクローズ出来ます
       only_listing_author_can_edit_a_listing: このリストの作成者のみがこのリストを編集出来ます
@@ -1324,6 +1344,8 @@ ja:
     error:
       something_went_wrong: "何か不具合がありました。 エラーコード： %{error_code}"
       something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
     follow_links:
       follow: 新しいコメントについてのメールを受けとります
       unfollow: 新しいコメントについてのメールを受けとりません
@@ -1447,7 +1469,6 @@ ja:
       request_type: リクエストの種類
       requests: リクエスト
       rideshare: ライドシェア
-      search_verb: 検索する
       you_have_something_others_do_not: 何かオファーするものがありますか。
       feed_title: "%{service_name}の%{listing_type}の中の%{optional_category}"
     left_panel_link:
@@ -1471,6 +1492,7 @@ ja:
       booking_to: この日まで
       how_paypal_works: PayPalの仕組み
       payment_help: ~
+      unable_load_availability: ~
     new:
       listing: リスト
       selected_category: "カテゴリー： %{category}"
@@ -1545,6 +1567,8 @@ ja:
       verification_required: 認証が必要です
   listing_conversations:
     preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
       details: 詳細
       by: "%{author}さんの%{listing}"
       payment: お支払い
@@ -1576,7 +1600,6 @@ ja:
       request_type: リクエストの種類
       requests: リクエスト
       rideshare: ライドシェア
-      search_verb: 検索する
       you_have_something_others_do_not: 何かオファーするものがありますか。
     please_comment: コメント
   mercury:
@@ -1743,16 +1766,6 @@ ja:
       following: フォローしています
       follow: フォローする
       unfollow: フォローをやめる
-  search:
-    show:
-      all_results: すべての結果
-      loading_more_search_results: 検索結果をロード中
-      offers: オファー
-      requests: リクエスト
-      search: 検索
-      search_results: 検索結果
-      search_returned_no_results: 検索結果はありませんでした。
-      search_verb: 検索する
   sessions:
     new:
       create_new_account: 新規登録する
@@ -1783,8 +1796,11 @@ ja:
       confirm_your_email: メールアドレスを認証してください
       account_confirmation_instructions: "ご記入いただいたメールアドレス宛に、認証手続き用のリンクが、まもなく届きます。認証後、%{service_name}に参加できます。"
       account_confirmation_instructions_title_admin: あなたのマーケットプレイスへようこそ！
-      your_marketplace_has_now_been_created: これより、あなたのマーケットプレイスは作成されました。簡単だったでしょう。あなたのサイトへのアクセスまで、あともう一歩です。あなたのメールアドレスの承認する必要があります。
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: ご記入いただいたメールアドレス宛に、認証手続き用のリンクが、まもなく届きます。認証後、あなたのマーケットプレイスに参加できます。
+      contact_support_link_text: ~
   settings:
     account:
       change: 変更
@@ -1993,8 +2009,23 @@ ja:
     day: 日
     days: 日
   web:
+    listings:
+      pricing_units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+    no_listings:
+      sorry: ~
+      try_other_search_terms: ~
     listing_card:
+      add_picture: ~
       no_picture: ~
+    search:
+      page: ~
+      page_of_pages: ~
     topbar:
       menu: ~
       more: ~
@@ -2010,6 +2041,9 @@ ja:
       signup: ~
       admin_dashboard: ~
       language: ~
+    utils:
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~

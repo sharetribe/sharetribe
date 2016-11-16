@@ -8,7 +8,7 @@ Use the [ISSUE_TEMPLATE.md](https://raw.githubusercontent.com/sharetribe/sharetr
 
 If you'd like to know what happens after you've reported an Issue, see [How to handle Github Issues](docs/how-to-handle-github-issues.md)
 
-## Bug fixes
+## Bug fixes 👍
 
 1. Fix the issue in a branch of your own fork of [Sharetribe](https://github.com/sharetribe/sharetribe).
 1. Rebase your branch to include the latest changes from `master`. We do not accept pull requests with merge commits.
@@ -16,7 +16,19 @@ If you'd like to know what happens after you've reported an Issue, see [How to h
 1. Make sure all the [tests pass](https://github.com/sharetribe/sharetribe#running-tests).
 1. Update [CHANGELOG.md](CHANGELOG.md)
 
-## New features
+## Refactoring only Pull Requests 👎
+
+[As the smart people at Discourse say it:](https://meta.discourse.org/t/discourse-development-contribution-guidelines/3823)
+
+> It is often tempting to submit PRs that improve Code Climate score or amend internal logic to make it more readable.
+
+> Though we strive to have well factored code that is easy to reason about we can not afford risking regressions on a production product without immediate tangible gain.
+
+> If you wish to improve an area of the code, fix a bug in that area and also improve the code.
+
+Of course, there might be exceptions to the rule, e.g. removing some unused code which is clearly used nowhere anymore.
+
+## New features are welcome ONLY IF they have been greenlighted by the Sharetribe team 👎👍
 
 By default, we don't accept pull requests that introduce new features if it hasn’t been greenlighted by the Sharetribe team in advance.
 

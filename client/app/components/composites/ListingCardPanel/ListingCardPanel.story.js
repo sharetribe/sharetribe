@@ -4,8 +4,8 @@ import Immutable from 'immutable';
 
 import { storify } from '../../Styleguide/withProps';
 import { toFixedNumber } from '../../../utils/numbers';
-import ListingModel from '../../../models/ListingModel';
-import { Image, ImageRefs } from '../../../models/ImageModel';
+import ListingModel, { Distance, Money } from '../../../models/ListingModel';
+import { Image, ListingImage, AvatarImage } from '../../../models/ImageModel';
 
 import ListingCardPanel from '../ListingCardPanel/ListingCardPanel';
 import ListingCard from '../ListingCard/ListingCard';
@@ -23,7 +23,7 @@ const listingCardTemplate = (title, perUnit, price, distance) => (
       listing: new ListingModel({
         id: 'lkjg84573874yjdf',
         title,
-        images: new Immutable.List([new ImageRefs({
+        images: new Immutable.List([new ListingImage({
           square: new Image({
             url: 'https://placehold.it/408x408',
           }),
@@ -35,16 +35,22 @@ const listingCardTemplate = (title, perUnit, price, distance) => (
           }),
         })]),
         listingURL: 'https://example.com/listing/342iu4',
-        price: price || toFixedNumber(Math.random() * 9999, 2), // eslint-disable-line no-magic-numbers
-        priceUnit: '€',
-        per: perUnit || '/ day',
-        distance: distance || Math.random() * (20000) + 0.01, // eslint-disable-line no-magic-numbers
-        distanceUnit: 'km',
+        price: new Immutable.Map({
+          ':money': new Money({
+            fractionalAmount: price || toFixedNumber(Math.random() * 9999, 2), // eslint-disable-line no-magic-numbers
+            currency: 'EUR',
+          }),
+          ':pricingUnit': new Immutable.Map({ en: (perUnit || 'day'), fi: 'päivä' }),
+        }),
+        distance: new Distance({
+          value: distance || Math.random() * (20000) + 0.01, // eslint-disable-line no-magic-numbers
+          unit: ':km',
+        }),
         author: {
           familyName: 'family name',
           givenName: 'given name',
           description: 'product author',
-          avatarURL: 'https://placehold.it/40x40',
+          avatarImage: new AvatarImage({ thumb: new Image({ url: 'https://placehold.it/40x40' }) }),
           profileURL: `#profile${Math.random(10)}`, // eslint-disable-line no-magic-numbers
         },
       }),

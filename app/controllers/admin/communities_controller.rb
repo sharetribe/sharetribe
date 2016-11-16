@@ -1,7 +1,6 @@
-class Admin::CommunitiesController < ApplicationController
+class Admin::CommunitiesController < Admin::AdminBaseController
   include CommunitiesHelper
 
-  before_filter :ensure_is_admin
   before_filter :ensure_white_label_plan, only: [:create_sender_address]
 
   def edit_look_and_feel
@@ -124,12 +123,18 @@ class Admin::CommunitiesController < ApplicationController
   def new_layout
     @selected_left_navi_link = "new_layout"
 
-    render :new_layout, locals: { community: @current_community, features: NewLayoutViewUtils.features(@current_community.id, @current_user.id) }
+    features = NewLayoutViewUtils.features(@current_community.id,
+                                           @current_user.id,
+                                           @current_community.private,
+                                           CustomLandingPage::LandingPageStore.enabled?(@current_community.id))
+
+    render :new_layout, locals: { community: @current_community,
+                                  feature_rels: NewLayoutViewUtils::FEATURE_RELS,
+                                  features: features }
   end
 
   def update_new_layout
     @community = @current_community
-
     enabled_for_user = Maybe(params[:enabled_for_user]).map { |f| NewLayoutViewUtils.enabled_features(f) }.or_else([])
     disabled_for_user = NewLayoutViewUtils.resolve_disabled(enabled_for_user)
 
@@ -199,6 +204,12 @@ class Admin::CommunitiesController < ApplicationController
             menu_links_params,
             admin_topbar_edit_path,
             :topbar)
+  end
+
+  def landing_page
+    @selected_left_navi_link = "landing_page"
+
+    render :landing_page, locals: { community: @current_community }
   end
 
   def test_welcome_email

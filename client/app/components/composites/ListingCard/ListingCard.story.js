@@ -1,11 +1,11 @@
 import r from 'r-dom';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Immutable from 'immutable';
 
 import { storify } from '../../Styleguide/withProps';
-import { formatDistance, formatPrice } from '../../../utils/numbers';
-import ListingModel from '../../../models/ListingModel';
-import { Image, ImageRefs } from '../../../models/ImageModel';
+import { formatDistance, formatMoney } from '../../../utils/numbers';
+import ListingModel, { Distance, Money } from '../../../models/ListingModel';
+import { Image, ListingImage, AvatarImage } from '../../../models/ImageModel';
 
 import ListingCard from './ListingCard';
 import css from './ListingCard.story.css';
@@ -13,60 +13,69 @@ import css from './ListingCard.story.css';
 const { storiesOf, specs, expect } = storybookFacade;
 const containerStyle = { style: { background: 'white' } };
 
+
+const basicListingData = {
+  id: 'lkjg84573874yjdf',
+  title: 'Title',
+  images: new Immutable.List([new ListingImage({
+    square: new Image({
+      url: 'https://placehold.it/408x408',
+    }),
+    square2x: new Image({
+      type: 'square2x',
+      width: 816,
+      height: 816,
+      url: 'https://placehold.it/816x816',
+    }),
+  })]),
+  listingURL: 'https://example.com/listing/342iu4',
+  orderType: new Immutable.Map({ en: 'Buy', fi: 'Osta' }),
+  price: new Immutable.Map({
+    ':money': new Money({
+      fractionalAmount: 2147483647, // eslint-disable-line no-magic-numbers
+      currency: 'EUR',
+    }),
+    ':pricingUnit': new Immutable.Map({ en: 'hundred centimeters' }),
+  }),
+  distance: new Distance({
+    value: 12972, // eslint-disable-line no-magic-numbers
+    unit: ':miles',
+  }),
+  author: {
+    familyName: 'family name',
+    givenName: 'given name',
+    description: 'product author',
+    avatarImage: new AvatarImage({ thumb: new Image({ url: 'https://placehold.it/40x40' }) }),
+    profileURL: `#profile${Math.random(10)}`, // eslint-disable-line no-magic-numbers
+  },
+};
+
 const ListingCardBasic =
-  r(ListingCard,
-    {
-      className: css.listing,
-      color: '#347F9D',
-      listing: new ListingModel({
-        id: 'lkjg84573874yjdf',
-        title: 'Title',
-        images: new Immutable.List([new ImageRefs({
-          square: new Image({
-            url: 'https://placehold.it/408x408',
-          }),
-          square2x: new Image({
-            type: 'square2x',
-            width: 816,
-            height: 816,
-            url: 'https://placehold.it/816x816',
-          }),
-        })]),
-        listingURL: 'https://example.com/listing/342iu4',
-        price: 21474836.47,  // eslint-disable-line no-magic-numbers
-        priceUnit: '€',
-        per: '/ hundred centimeters',
-        distance: 12972,  // eslint-disable-line no-magic-numbers
-        distanceUnit: 'mi',
-        author: {
-          familyName: 'family name',
-          givenName: 'given name',
-          description: 'product author',
-          avatarURL: 'https://placehold.it/40x40',
-          profileURL: `#profile${Math.random(10)}`, // eslint-disable-line no-magic-numbers
-        },
-      }),
-    },
-  );
+  r(ListingCard, {
+    className: css.listing,
+    color: '#347F9D',
+    listing: new ListingModel(basicListingData),
+  });
 
 const ListingCardNoImage =
   r(ListingCard,
     {
       className: css.listing,
       color: '#347F9D',
-      listing: new ListingModel({
-        id: 'lkjg84573874yjdf',
-        title: 'No picture',
-        images: new Immutable.List([new ImageRefs()]),
-        listingURL: 'https://example.com/listing/342iu4',
-        avatarURL: 'https://placehold.it/40x40',
-        profileURL: '#profile',
-        price: 19,  // eslint-disable-line no-magic-numbers
-        priceUnit: '€',
-        per: '/ day',
-        distance: 0.67,  // eslint-disable-line no-magic-numbers
-        distanceUnit: 'km',
-      }),
+      listing: new ListingModel(Object.assign({}, basicListingData, {
+        images: new Immutable.List(),
+        price: new Immutable.Map({
+          ':money': new Money({
+            fractionalAmount: 1900, // eslint-disable-line no-magic-numbers
+            currency: 'EUR',
+          }),
+          ':pricingUnit': new Immutable.Map({ en: 'day' }),
+        }),
+        distance: new Distance({
+          value: 0.67, // eslint-disable-line no-magic-numbers
+          unit: ':km',
+        }),
+      })),
     },
   );
 
@@ -75,10 +84,9 @@ const ListingCardImageError =
     {
       className: css.listing,
       color: '#347F9D',
-      listing: new ListingModel({
-        id: 'lkjg84573874yjdf',
+      listing: new ListingModel(Object.assign({}, basicListingData, {
         title: 'Picture load fails',
-        images: new Immutable.List([new ImageRefs({
+        images: new Immutable.List([new ListingImage({
           square: new Image({ url: 'https://example.com/image.png' }),
           square2x: new Image({
             type: 'square2x',
@@ -87,27 +95,47 @@ const ListingCardImageError =
             url: 'https://example.com/image@2x.png',
           }),
         })]),
-        listingURL: 'https://example.com/listing/342iu4',
-        avatarURL: 'https://placehold.it/40x40',
-        profileURL: '#profile',
-        price: 199,  // eslint-disable-line no-magic-numbers
-        priceUnit: '€',
-        per: '/ day',
-        distance: 9,  // eslint-disable-line no-magic-numbers
-        distanceUnit: 'km',
-      }),
+        price: new Immutable.Map({
+          ':money': new Money({
+            fractionalAmount: 19900, // eslint-disable-line no-magic-numbers
+            currency: 'EUR',
+          }),
+          ':pricingUnit': new Immutable.Map({ en: 'day' }),
+        }),
+        distance: new Distance({
+          value: 9, // eslint-disable-line no-magic-numbers
+          unit: ':miles',
+        }),
+      })),
+    },
+  );
+
+const ListingCardNoPrice =
+  r(ListingCard,
+    {
+      className: css.listing,
+      color: '#347F9D',
+      listing: new ListingModel(Object.assign({}, basicListingData, {
+        orderType: new Immutable.Map({ en: 'Giving away', fi: 'Annetaan' }),
+        price: null,
+      })),
     },
   );
 
 
-const testPrice = function priceTest(card, mountedCard) {
+const testPrice = function testPrice(card, mountedCard) {
   it('Should display formatted price', () => {
-    expect(mountedCard.text()).to.include(formatPrice(card.props.listing.price, card.props.listing.priceUnit));
+    expect(mountedCard.text()).to.include(formatMoney(card.props.listing.price.get(':money'), card.props.listing.price.get(':priceUnit')));
+    expect(mountedCard.find('.ListingCard_price')).to.have.length(1);
+  });
+  it('Should not display order type', () => {
+    expect(mountedCard.text()).to.not.include(card.props.listing.orderType.get('en'));
+    expect(mountedCard.find('.ListingCard_orderType')).to.have.length(0);
   });
 };
-const testDistance = function priceTest(card, mountedCard) {
+const testDistance = function testDistance(card, mountedCard) {
   it('Should display formatted distance', () => {
-    expect(mountedCard.text()).to.include(formatDistance(card.props.listing.distance, card.props.listing.distanceUnit));
+    expect(mountedCard.text()).to.include(formatDistance(card.props.listing.distance));
   });
 };
 
@@ -115,7 +143,7 @@ const testDistance = function priceTest(card, mountedCard) {
 storiesOf('Search results')
   .add('ListingCard - basic', () => {
     const card = ListingCardBasic;
-    const mountedCard = mount(card);
+    const mountedCard = shallow(card);
 
     specs(() => describe('ListingCard - basic', () => {
       it('Should not display "No picture"', () => {
@@ -126,11 +154,11 @@ storiesOf('Search results')
       testDistance(card, mountedCard);
     }));
 
-    return r(storify(ListingCardBasic, containerStyle));
+    return r(storify(card, containerStyle));
   })
   .add('ListingCard - no image', () => {
     const card = ListingCardNoImage;
-    const mountedCard = mount(card);
+    const mountedCard = shallow(card);
 
     specs(() => describe('ListingCard - no image', () => {
       it('Should display "No picture"', () => {
@@ -141,15 +169,15 @@ storiesOf('Search results')
       testDistance(card, mountedCard);
     }));
 
-    return r(storify(ListingCardNoImage, containerStyle));
+    return r(storify(card, containerStyle));
   })
   .add('ListingCard - image fail', () => {
     const card = ListingCardImageError;
-    const mountedCard = mount(card);
+    const mountedCard = shallow(card);
 
     specs(() => describe('ListingCard - image fail', () => {
       it('Should display "No picture"', () => {
-        const mounted = mount(card);
+        const mounted = shallow(card);
         mounted.setState({ imageStatus: 'failed' });
         expect(mounted.text()).to.include('No picture');
         expect(mounted.find('.ListingCard_image')).to.have.length(0);
@@ -158,5 +186,21 @@ storiesOf('Search results')
       testDistance(card, mountedCard);
     }));
 
-    return r(storify(ListingCardImageError, containerStyle));
-  });
+    return r(storify(card, containerStyle));
+  })
+  .add('ListingCard - no Price', () => {
+    const card = ListingCardNoPrice;
+    const mountedCard = shallow(card);
+
+    specs(() => describe('ListingCard - basic', () => {
+      it('Should display order type "Giving away"', () => {
+        expect(mountedCard.text()).to.include(card.props.listing.orderType.get('en'));
+        expect(mountedCard.find('.ListingCard_orderType')).to.have.length(1);
+        expect(mountedCard.find('.ListingCard_price')).to.have.length(0);
+      });
+      testDistance(card, mountedCard);
+    }));
+
+    return r(storify(card, containerStyle));
+  })
+;

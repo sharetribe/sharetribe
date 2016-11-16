@@ -20,7 +20,7 @@ Request body:
 Response 201 Created, body:
 
 ```ruby
-{ marketplace_url: "https://imaginationtraders.sharetribe.com"
+{ marketplace_url: "https://imaginationtraders.sharetribe.com/en/admin/getting_started_guide"
 }
 ```
 

@@ -113,7 +113,8 @@ CREATE TABLE `category_custom_fields` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_category_custom_fields_on_category_id_and_custom_field_id` (`category_id`,`custom_field_id`) USING BTREE
+  KEY `index_category_custom_fields_on_category_id_and_custom_field_id` (`category_id`,`custom_field_id`) USING BTREE,
+  KEY `index_category_custom_fields_on_custom_field_id` (`custom_field_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -246,7 +247,7 @@ CREATE TABLE `communities` (
   `stylesheet_url` varchar(255) DEFAULT NULL,
   `stylesheet_needs_recompile` tinyint(1) DEFAULT '0',
   `service_logo_style` varchar(255) DEFAULT 'full-logo',
-  `available_currencies` text,
+  `currency` varchar(3) NOT NULL,
   `facebook_connect_enabled` tinyint(1) DEFAULT '1',
   `minimum_price_cents` int(11) DEFAULT NULL,
   `hide_expiration_date` tinyint(1) DEFAULT '0',
@@ -1143,7 +1144,9 @@ CREATE TABLE `payment_settings` (
   `payment_process` varchar(64) DEFAULT NULL,
   `commission_from_seller` int(11) DEFAULT NULL,
   `minimum_price_cents` int(11) DEFAULT NULL,
+  `minimum_price_currency` varchar(3) DEFAULT NULL,
   `minimum_transaction_fee_cents` int(11) DEFAULT NULL,
+  `minimum_transaction_fee_currency` varchar(3) DEFAULT NULL,
   `confirmation_after_days` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -1319,6 +1322,7 @@ DROP TABLE IF EXISTS `people`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `people` (
   `id` varchar(22) NOT NULL,
+  `uuid` binary(16) NOT NULL,
   `community_id` int(11) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -1357,6 +1361,7 @@ CREATE TABLE `people` (
   `deleted` tinyint(1) DEFAULT '0',
   `cloned_from` varchar(22) DEFAULT NULL,
   UNIQUE KEY `index_people_on_username_and_community_id` (`username`,`community_id`) USING BTREE,
+  UNIQUE KEY `index_people_on_uuid` (`uuid`),
   UNIQUE KEY `index_people_on_email` (`email`) USING BTREE,
   UNIQUE KEY `index_people_on_facebook_id_and_community_id` (`facebook_id`,`community_id`) USING BTREE,
   UNIQUE KEY `index_people_on_reset_password_token` (`reset_password_token`) USING BTREE,
@@ -1438,7 +1443,8 @@ CREATE TABLE `shipping_addresses` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `country_code` varchar(8) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `index_shipping_addresses_on_transaction_id` (`transaction_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1540,6 +1546,7 @@ DROP TABLE IF EXISTS `transactions`;
 CREATE TABLE `transactions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `starter_id` varchar(255) NOT NULL,
+  `starter_uuid` binary(16) NOT NULL,
   `listing_id` int(11) NOT NULL,
   `listing_uuid` binary(16) NOT NULL,
   `conversation_id` int(11) DEFAULT NULL,
@@ -1557,7 +1564,8 @@ CREATE TABLE `transactions` (
   `minimum_commission_currency` varchar(255) DEFAULT NULL,
   `payment_gateway` varchar(255) NOT NULL DEFAULT 'none',
   `listing_quantity` int(11) DEFAULT '1',
-  `listing_author_id` varchar(255) DEFAULT NULL,
+  `listing_author_id` varchar(255) NOT NULL,
+  `listing_author_uuid` binary(16) NOT NULL,
   `listing_title` varchar(255) DEFAULT NULL,
   `unit_type` varchar(32) DEFAULT NULL,
   `unit_price_cents` int(11) DEFAULT NULL,
@@ -1591,7 +1599,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-04 17:13:09
+-- Dump completed on 2016-11-08 14:13:02
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3163,3 +3171,52 @@ INSERT INTO schema_migrations (version) VALUES ('20160930070122');
 INSERT INTO schema_migrations (version) VALUES ('20161004141208');
 
 INSERT INTO schema_migrations (version) VALUES ('20161006074506');
+
+INSERT INTO schema_migrations (version) VALUES ('20161012132850');
+
+INSERT INTO schema_migrations (version) VALUES ('20161018090313');
+
+INSERT INTO schema_migrations (version) VALUES ('20161018090314');
+
+INSERT INTO schema_migrations (version) VALUES ('20161018090517');
+
+INSERT INTO schema_migrations (version) VALUES ('20161018093208');
+
+INSERT INTO schema_migrations (version) VALUES ('20161018100657');
+
+INSERT INTO schema_migrations (version) VALUES ('20161018105036');
+
+INSERT INTO schema_migrations (version) VALUES ('20161018105521');
+
+INSERT INTO schema_migrations (version) VALUES ('20161019125057');
+
+INSERT INTO schema_migrations (version) VALUES ('20161023074355');
+
+INSERT INTO schema_migrations (version) VALUES ('20161101104218');
+
+INSERT INTO schema_migrations (version) VALUES ('20161101124317');
+
+INSERT INTO schema_migrations (version) VALUES ('20161101124829');
+
+INSERT INTO schema_migrations (version) VALUES ('20161102101418');
+
+INSERT INTO schema_migrations (version) VALUES ('20161102101419');
+
+INSERT INTO schema_migrations (version) VALUES ('20161102193340');
+
+INSERT INTO schema_migrations (version) VALUES ('20161103063652');
+
+INSERT INTO schema_migrations (version) VALUES ('20161107092030');
+
+INSERT INTO schema_migrations (version) VALUES ('20161107105050');
+
+INSERT INTO schema_migrations (version) VALUES ('20161107112025');
+
+INSERT INTO schema_migrations (version) VALUES ('20161107131859');
+
+INSERT INTO schema_migrations (version) VALUES ('20161107132513');
+
+INSERT INTO schema_migrations (version) VALUES ('20161107141257');
+
+INSERT INTO schema_migrations (version) VALUES ('20161109094513');
+

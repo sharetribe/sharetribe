@@ -245,3 +245,18 @@
 .paypal-last-steps-list {
   margin-bottom: lines(1.5);
 }
+
+.paypal-currency-information {
+  padding-left: 30px;
+  position: relative;
+}
+
+.paypal-currency-info-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.paypal-currency-change-warning-text {
+  display: none;
+}

@@ -19,4 +19,5 @@ Object.keys(global.document.defaultView).forEach((property) => {
 });
 global.navigator = global.window.navigator;
 
-initializeI18n('en', 'en', 'development');
+const localeInfo = { ident: 'en', name: 'English', language: 'en', region: 'US' };
+initializeI18n('en', 'en', 'development', localeInfo);

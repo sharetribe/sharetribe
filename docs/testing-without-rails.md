@@ -63,6 +63,20 @@ Even if your code is not Rails specific, you're probably using ActiveSupport's m
 
 You can fix this by including the parts of ActiveSupport you need, see: http://edgeguides.rubyonrails.org/active_support_core_extensions.html
 
+**Examples:**
+
+To include only core extensions to `Object`, use:
+
+```ruby
+require 'active_support'
+require 'active_support/core_ext/object'
+```
+
+To include the full ActiveSupport, use:
+
+```ruby
+require 'active_support/all'
+```
 ## TODO
 
 Starting from RSpec 3.x, the required way to avoid loading Rails is to have two helper files:

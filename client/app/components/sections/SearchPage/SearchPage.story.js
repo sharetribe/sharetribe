@@ -1,8 +1,8 @@
 import r, { div, h1, h2, p } from 'r-dom';
 import Immutable from 'immutable';
 import { toFixedNumber } from '../../../utils/numbers';
-import ListingModel from '../../../models/ListingModel';
-import { Image, ImageRefs } from '../../../models/ImageModel';
+import ListingModel, { Distance, Money } from '../../../models/ListingModel';
+import { Image, ListingImage, AvatarImage } from '../../../models/ImageModel';
 import ListingCard from '../../composites/ListingCard/ListingCard';
 import ListingCardPanel from '../../composites/ListingCardPanel/ListingCardPanel';
 import css from './SearchPage.story.css';
@@ -17,7 +17,7 @@ const listingCardTemplate = (title, perUnit, price, distance) => (
       listing: new ListingModel({
         id: 'lkjg84573874yjdf',
         title,
-        images: new Immutable.List([new ImageRefs({
+        images: new Immutable.List([new ListingImage({
           square: new Image({
             url: 'https://placehold.it/408x408',
           }),
@@ -29,16 +29,22 @@ const listingCardTemplate = (title, perUnit, price, distance) => (
           }),
         })]),
         listingURL: 'https://example.com/listing/342iu4',
-        price: price || toFixedNumber(Math.random() * 9999, 2), // eslint-disable-line no-magic-numbers
-        priceUnit: '€',
-        per: perUnit || '/ day',
-        distance: distance || Math.random() * (20000) + 0.01, // eslint-disable-line no-magic-numbers
-        distanceUnit: 'km',
+        price: new Immutable.Map({
+          ':money': new Money({
+            fractionalAmount: price || toFixedNumber(Math.random() * 9999, 2), // eslint-disable-line no-magic-numbers
+            currency: 'EUR',
+          }),
+          ':pricingUnit': new Immutable.Map({ en: (perUnit || 'day'), fi: 'päivä' }),
+        }),
+        distance: new Distance({
+          value: distance || Math.random() * (20000) + 0.01, // eslint-disable-line no-magic-numbers
+          unit: ':km',
+        }),
         author: {
           familyName: 'family name',
           givenName: 'given name',
           description: 'product author',
-          avatarURL: 'https://placehold.it/40x40',
+          avatarImage: new AvatarImage({ thumb: new Image({ url: 'https://placehold.it/40x40' }) }),
           profileURL: `#profile${Math.random(10)}`, // eslint-disable-line no-magic-numbers
         },
       }),
@@ -68,7 +74,7 @@ storiesOf('Search results')
       h2({ className: css.sectionTitle }, 'ListingCard'),
       div({
         className: css.singleListingWrapper,
-      }, listingCardTemplate('Listing title', '/ hundred centimeters')),
+      }, listingCardTemplate('Listing title', 'hundred centimeters')),
       h2({ className: css.sectionTitle }, `ListingCardPanel (${LISTINGS_COUNT} listings)`),
       r(ListingCardPanel, null, generateListings(LISTINGS_COUNT)),
     ])
