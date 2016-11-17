@@ -1,5 +1,12 @@
 @import "mixins/all";
 
+.userName{
+  vertical-align: top;
+  position: relative;
+  top: 9px;
+  left: 10px;
+}
+
 .topbar-placeholder {
   height: 50px;
 

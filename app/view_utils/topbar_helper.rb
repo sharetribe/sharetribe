@@ -20,7 +20,6 @@ module TopbarHelper
         only_path: true,
       }
     })
-
     given_name, family_name = *PersonViewUtils.person_display_names(user, community)
 
     {
@@ -53,7 +52,7 @@ module TopbarHelper
         },
       },
       newListingButton: {
-        text: I18n.t("homepage.index.post_new_listing"),
+        text: I18n.t("homepage.index.post_new_listing").gsub(".", ""),
       },
       i18n: {
         locale: I18n.locale,

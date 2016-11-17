@@ -12,19 +12,19 @@
     - with_first_listing_image(listing) do |first_image_url|
       = image_tag first_image_url, {:alt => listed_listing_title(listing), :class => "#{modifier_class} fluid-thumbnail-grid-image-image"}
 
-    .fluid-thumbnail-grid-image-overlay{:class => "#{modifier_class}"}
-    .fluid-thumbnail-grid-image-title{:class => "#{modifier_class}"}
-      = listing.title
+    / .fluid-thumbnail-grid-image-overlay{:class => "#{modifier_class}"}
+    / .fluid-thumbnail-grid-image-title{:class => "#{modifier_class}"}
+    /   =# listing.title
 
-    .fluid-thumbnail-grid-image-price-container{:class => "#{modifier_class}"}
-      - if listing.price
-        %span.fluid-thumbnail-grid-image-price
-          = humanized_money_with_symbol(listing.price).upcase
-          - price_unit = price_quantity_slash_unit(listing)
-        - if !price_unit.blank?
-          - price_text = " " + price_unit
-          %span.fluid-thumbnail-grid-image-quantity{:title => price_text}
-            = price_text
-      - else
-        %span.fluid-thumbnail-grid-image-type{:class => "#{modifier_class}"}
-          = shape_name(listing)
+    / .fluid-thumbnail-grid-image-price-container{:class => "#{modifier_class}"}
+    /   -# if listing.price
+    /     %span.fluid-thumbnail-grid-image-price
+    /       =# humanized_money_with_symbol(listing.price).upcase
+    /       -# price_unit = price_quantity_slash_unit(listing)
+    /     -# if !price_unit.blank?
+    /       -# price_text = " " + price_unit
+    /       %span.fluid-thumbnail-grid-image-quantity{:title => price_text}
+    /         =# price_text
+    /   -# else
+    /     %span.fluid-thumbnail-grid-image-type{:class => "#{modifier_class}"}
+    /       =# shape_name(listing)

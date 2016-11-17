@@ -43,6 +43,7 @@ class AvatarDropdown extends Component {
     const notificationBadgeInArray = this.props.notificationCount > 0 ?
       [r(NotificationBadge, { className: css.notificationBadge }, this.props.notificationCount)] :
       [];
+
     return div({
       onClick: this.handleClick,
       onBlur: this.handleBlur,
@@ -51,6 +52,7 @@ class AvatarDropdown extends Component {
     }, [
       div({ className: css.avatarWithNotifications }, [
         r(Avatar, this.props.avatar),
+        r.span({ className: "userName" }, this.props.username),
       ].concat(notificationBadgeInArray)),
       r(ProfileDropdown, {
         className: css.avatarProfileDropdown,

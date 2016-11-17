@@ -60,7 +60,7 @@ const avatarDropdownProps = (avatarDropdown, customColor, username, isAdmin, not
     adminDashboard: t('web.topbar.admin_dashboard'),
     logout: t('web.topbar.logout'),
   };
-  return { actions, translations, customColor: color, isAdmin, notificationCount, ...avatarDropdown };
+  return { actions, translations, username, customColor: color, isAdmin, notificationCount, ...avatarDropdown };
 };
 
 const mobileProfileLinks = function mobileProfileLinks(username, isAdmin, router, location, customColor, unReadMessagesCount) {
@@ -239,7 +239,6 @@ class Topbar extends Component {
 
     return div({ className: classNames('Topbar', css.topbar) }, [
       hasMenuProps ? r(MenuMobile, { ...mobileMenuProps, className: css.topbarMobileMenu }) : null,
-      r(Logo, { ...this.props.logo, className: classNames(css.topbarLogo, textLogo), color: marketplaceColor1 }),
       div({ className: css.topbarMediumSpacer }),
       this.props.search ?
         r(SearchBar, {
@@ -263,14 +262,11 @@ class Topbar extends Component {
           },
         }) :
         div({ className: css.topbarMobileSearchPlaceholder }),
-      div({ className: css.topbarMenuSpacer }, hasMenuProps ?
-        r(MenuPriority, menuProps) :
-        null),
-      hasMultipleLanguages ? r(Menu, {
-        ...languageMenuProps,
-        className: {
-          [css.topbarMenu]: true,
-        } }) : null,
+      
+
+      div({ className: css.topbarMenuSpacer }, [
+        r(Logo, { ...this.props.logo, className: classNames(css.topbarLogo, textLogo), color: marketplaceColor1 }),
+      ]),
       this.props.avatarDropdown && loggedInUsername ?
         r(AvatarDropdown, {
           ...avatarDropdownProps(this.props.avatarDropdown, marketplaceColor1,

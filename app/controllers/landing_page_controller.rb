@@ -35,7 +35,7 @@ class LandingPageController < ActionController::Metal
 
   def index
     return if perform_redirect!
-
+    
     cid = community(request).id
     default_locale = community(request).default_locale
     version = CLP::LandingPageStore.released_version(cid)

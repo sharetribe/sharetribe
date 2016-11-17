@@ -491,6 +491,8 @@ class ApplicationController < ActionController::Base
   helper_method :onboarding_topbar_props
 
   def topbar_props
+    puts "========"*100
+    puts @current_user.inspect
     TopbarHelper.topbar_props(
       community: @current_community,
       path_after_locale_change: @return_to,

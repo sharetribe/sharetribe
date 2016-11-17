@@ -145,7 +145,6 @@ class SearchBar extends Component {
     const keywordInput = input({
       type: 'search',
       className: css.keywordInput,
-      placeholder: keywordPlaceholder,
       defaultValue: keywordQuery,
       ref: (c) => {
         this.keywordInput = c;

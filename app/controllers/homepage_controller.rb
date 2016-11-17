@@ -9,7 +9,6 @@ class HomepageController < ApplicationController
   # rubocop:disable AbcSize
   def index
     redirect_to landing_page_path and return if no_current_user_in_private_clp_enabled_marketplace?
-
     all_shapes = shapes.get(community_id: @current_community.id)[:data]
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
