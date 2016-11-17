@@ -75,6 +75,7 @@ module Kassi
       'app-bundle.css',
       'app-bundle.js',
       'vendor-bundle.js',
+      'custom_style.css',
     ]
 
     # Read the config from the config.yml
