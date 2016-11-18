@@ -74,7 +74,13 @@ class CommunityMembershipsController < ApplicationController
       Analytics.record_event(flash, "GaveConsent")
 
       flash[:notice] = t("layouts.notifications.you_are_now_member")
-      redirect_to search_path
+
+      if session[:return_to]
+        redirect_to session[:return_to]
+        session[:return_to] = nil
+      else
+        redirect_to search_path
+      end
 
     }.on_error { |msg, data|
 
