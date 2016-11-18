@@ -1,4 +1,5 @@
 - link = confirmation_url(:confirmation_token => @confirmation_token, :host => @host, :locale => I18n.locale)
+- link.gsub!("threadhabits.threadhabits.", "threadhabits.")
 
 %tr
   %td{:align => "left", :style => "padding-bottom: 15px;"}
