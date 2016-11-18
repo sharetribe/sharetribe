@@ -31,7 +31,8 @@ module ListingIndexViewUtils
 
   ListingImage = Struct.new(
     :thumb,
-    :small_3x2)
+    :small_3x2,
+    :big)
 
   module_function
 
@@ -55,7 +56,7 @@ module ListingIndexViewUtils
       listing_images =
         if includes.include?(:listing_images)
           l[:listing_images].map { |li|
-            ListingImage.new(li[:thumb], li[:small_3x2])
+            ListingImage.new(li[:thumb], li[:small_3x2], li[:big])
           }
         else
           []

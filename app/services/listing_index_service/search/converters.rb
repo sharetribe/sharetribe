@@ -72,7 +72,8 @@ module ListingIndexService::Search::Converters
               [{
                 thumb: li.image.url(:thumb),
                 small_3x2: li.image.url(:small_3x2),
-                medium: li.image.url(:medium)
+                medium: li.image.url(:medium),
+                big: li.image.url(:big)
               }]
             }.or_else([])
         }

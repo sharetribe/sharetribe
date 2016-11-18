@@ -40,6 +40,7 @@ module ListingIndexService::DataTypes
     [:thumb, :string],
     [:small_3x2, :string],
     [:medium, :string],
+    [:big, :string],
   )
 
   Author = EntityUtils.define_builder(
