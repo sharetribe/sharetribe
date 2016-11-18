@@ -13,33 +13,35 @@
      if(!n._iq.hasOwnProperty(e)){n._iq[e]={_q:[]};v(n._iq[e])}return n._iq[e]};e.amplitude=n;
  })(window,document);
 
- var ampClient = amplitude.getInstance();
- ampClient.init('<%= APP_CONFIG.amplitude_api_key %>');
+ (function() {
+   var ampClient = amplitude.getInstance();
+   ampClient.init('<%= APP_CONFIG.amplitude_api_key %>');
 
- <% if user %>
-   ampClient.setUserId('<%= user.uuid_object.to_s %>');
-   var userInfo = new amplitude.Identify()
-                               .set('community_id', <%= community.id %>)
-                               .set('marketplace_uuid', '<%= community.uuid_object.to_s %>')
-                               .set('admin', <%= user.is_marketplace_admin?.to_json %>);
-   <% if plan %>
-     userInfo.set('plan_status', '<%= plan[:status] %>');
+   <% if user %>
+     ampClient.setUserId('<%= user.uuid_object.to_s %>');
+     var userInfo = new amplitude.Identify()
+                                 .set('community_id', <%= community.id %>)
+                                 .set('marketplace_uuid', '<%= community.uuid_object.to_s %>')
+                                 .set('admin', <%= user.is_marketplace_admin?.to_json %>);
+     <% if plan %>
+       userInfo.set('plan_status', '<%= plan[:status] %>');
+     <% end %>
+
+     ampClient.identify(userInfo);
    <% end %>
 
-   ampClient.identify(userInfo);
- <% end %>
-
- <% if flash[:_analytics_events].present? %>
-   <% flash[:_analytics_events].each do |ev| %>
-     ampClient.logEvent(<%= ev[:event]&.to_json&.html_safe %>,
-                        <%= ev[:props]&.to_json&.html_safe %>);
+   <% if flash[:_analytics_events].present? %>
+     <% flash[:_analytics_events].each do |ev| %>
+       ampClient.logEvent(<%= ev[:event]&.to_json&.html_safe %>,
+                          <%= ev[:props]&.to_json&.html_safe %>);
+     <% end %>
    <% end %>
- <% end %>
 
- <% if flash[:_analytics_logout] %>
-   ampClient.setUserId(null);
-   ampClient.regenerateDeviceid();
- <% end %>
+   <% if flash[:_analytics_logout] %>
+     ampClient.setUserId(null);
+     ampClient.regenerateDeviceid();
+   <% end %>
+ })();
 
 </script>
 <% end %>
