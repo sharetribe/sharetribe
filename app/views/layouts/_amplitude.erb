@@ -1,5 +1,6 @@
-<% if APP_CONFIG.amplitude_api_key.present? && (user.nil? || !user.is_admin?) %>
 <script type="text/javascript">
+<% amplitudeEnabled = APP_CONFIG.amplitude_api_key.present? && (user.nil? || !user.is_admin?) %>
+<% if amplitudeEnabled %>
  (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script");r.type="text/javascript";
    r.async=true;r.src="https://d24n15hnbwhuhn.cloudfront.net/libs/amplitude-3.0.1-min.gz.js";
    r.onload=function(){e.amplitude.runQueuedFunctions()};var i=t.getElementsByTagName("script")[0];
@@ -42,6 +43,20 @@
      ampClient.regenerateDeviceid();
    <% end %>
  })();
+<% end %>
+
+ (function(exports) {
+   exports.ampClient = {
+     logEvent: function(eventType, eventProperties, opt_callback) {
+       <% if amplitudeEnabled %>
+         debugger;
+         amplitude.getInstance().logEvent(eventType, eventProperties, opt_callback);
+       <% else %>
+         // No-op
+         opt_callback();
+       <% end %>
+     }
+   }
+ })(window);
 
 </script>
-<% end %>

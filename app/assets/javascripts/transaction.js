@@ -82,7 +82,7 @@ window.ST.transaction = window.ST.transaction || {};
       .flatMapLatest(function() {
         var timeout = Bacon.later(3000, "timeout");
         var response = Bacon.fromCallback(function(callback) {
-          amplitude.getInstance().logEvent(analyticsEvent[0], analyticsEvent[1], callback);
+          ampClient.logEvent(analyticsEvent[0], analyticsEvent[1], callback);
         });
 
         return timeout.merge(response).take(1);
