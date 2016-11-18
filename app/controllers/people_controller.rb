@@ -145,6 +145,13 @@ class PeopleController < Devise::RegistrationsController
 
     Delayed::Job.enqueue(CommunityJoinedJob.new(@person.id, @current_community.id)) if @current_community
 
+    Analytics.record_event(
+      flash,
+      "Sign up",
+      { community_id: @current_community.id,
+        marketplace_uuid: @current_community.uuid_object.to_s,
+        user_logged_in: true })
+
     # send email confirmation
     # (unless disabled for testing environment)
     if APP_CONFIG.skip_email_confirmation
@@ -198,6 +205,14 @@ class PeopleController < Devise::RegistrationsController
     CommunityMembership.create(person: @person, community: @current_community, status: "pending_consent")
 
     session[:fb_join] = "pending_analytics"
+
+    Analytics.record_event(
+      flash,
+      "Facebook sign up",
+      { community_id: @current_community.id,
+        marketplace_uuid: @current_community.uuid_object.to_s,
+        user_logged_in: true })
+
     redirect_to pending_consent_path
   end
 

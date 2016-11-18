@@ -71,6 +71,13 @@ class CommunityMembershipsController < ApplicationController
       Delayed::Job.enqueue(CommunityJoinedJob.new(@current_user.id, @current_community.id))
       Delayed::Job.enqueue(SendWelcomeEmail.new(@current_user.id, @current_community.id), priority: 5)
 
+      Analytics.record_event(
+        flash,
+        "Gave consent",
+        { community_id: @current_community.id,
+          marketplace_uuid: @current_community.uuid_object.to_s,
+          user_logged_in: true })
+
       flash[:notice] = t("layouts.notifications.you_are_now_member")
       redirect_to search_path
 
