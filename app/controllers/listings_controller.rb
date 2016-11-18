@@ -234,10 +234,11 @@ class ListingsController < ApplicationController
     Analytics.record_event(
       flash.now,
       "Listing viewed",
-      {listing_id: @listing.id,
-       listing_uuid: @listing.uuid_object.to_s,
-       community_id: @current_community.id,
-       marketplace_uuid: @current_community.uuid_object.to_s})
+      { listing_id: @listing.id,
+        listing_uuid: @listing.uuid_object.to_s,
+        community_id: @current_community.id,
+        marketplace_uuid: @current_community.uuid_object.to_s,
+        user_logged_in: @current_user.present? })
 
     render(locals: onboarding_popup_locals.merge(view_locals))
   end
