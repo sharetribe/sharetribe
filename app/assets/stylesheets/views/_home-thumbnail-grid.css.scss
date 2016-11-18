@@ -9,7 +9,7 @@ $home-thumbnail-grid-avatar-padding: 6px;
 $home-thumbnail-grid-author: $home-thumbnail-grid-avatar + ($home-thumbnail-grid-avatar-padding * 2);
 
 .home-fluid-thumbnail-grid-narrow {
-  @include create-fluid-thumbnail-grid(home, 1, 1, 2, 3, 3, 3, 3, 3);
+  @include create-fluid-thumbnail-grid(home, 1, 1, 2, 4, 4, 4, 4, 4);
 }
 
 .home-fluid-thumbnail-grid-wide {
@@ -65,7 +65,7 @@ $home-thumbnail-grid-author: $home-thumbnail-grid-avatar + ($home-thumbnail-grid
 }
 .home-fluid-thumbnail-grid-details-distance {
   float:left;
-  width: 50%;
+  width: 100%;
   height:100%;
   text-align:right;
   color:$body;

@@ -89,9 +89,10 @@
 }
 
 .fluid-thumbnail-grid-image-image-container {
-	height: 200px;
+	height: 300px; width: 100%;
 	img{
-		height: 200px;
+		height:300px; width: 100%;	object-fit: contain;
+    
 	}
 }
 

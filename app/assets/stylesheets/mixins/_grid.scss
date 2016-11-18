@@ -33,7 +33,7 @@ $grid-1-4-width: lines(10.75) - ($grid-1-4-padding * 2);
 @mixin wrapper($mobilePadding: lines(0.5)) {
   background: $background;
   margin: 0 auto;
-  max-width: lines(42);
+  max-width: lines(57);
   padding-left: $mobilePadding;
   padding-right: $mobilePadding;
 

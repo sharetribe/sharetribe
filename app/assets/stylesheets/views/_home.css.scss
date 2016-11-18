@@ -412,6 +412,7 @@ $home-list-avatar-padding: lines(0.25);
 .custom-filter-title {
   font-weight: 700;
   @include title-border;
+  margin-bottom: 20px; letter-spacing: 4px; background-color: #e6e6e6; font-family: 'Ubuntu', sans-serif; font-size: 10px; padding-left: 2px; text-decoration: none;}#desktop-filters {  font-family: 'Ubuntu', sans-serif; font-size: 13px;
 }
 
 .custom-filter-options {
@@ -528,3 +529,4 @@ $home-list-avatar-padding: lines(0.25);
 .pac-item span {
   pointer-events: none;
 }
+

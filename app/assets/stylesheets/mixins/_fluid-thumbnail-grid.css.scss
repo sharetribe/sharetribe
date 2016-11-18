@@ -12,10 +12,10 @@ $fluid-thumbnail-grid-margin-mobile: lines(0.5);
   $mobile-rows: 1,
   $large-mobile-rows: 2,
   $small-tablet-rows: 3,
-  $tablet-rows: 3,
-  $small-desktop-rows: 3,
-  $mid-desktop-rows: 3,
-  $desktop-rows: 3) {
+  $tablet-rows: 4,
+  $small-desktop-rows: 4,
+  $mid-desktop-rows: 4,
+  $desktop-rows: 4) {
 
   @include media(tiny-mobile) { @include thumbnail-item-width($tiny-mobile-rows); }
   @include media(mobile) { @include thumbnail-item-width($mobile-rows); }
@@ -32,10 +32,10 @@ $fluid-thumbnail-grid-margin-mobile: lines(0.5);
   $mobile-rows: 1,
   $large-mobile-rows: 2,
   $small-tablet-rows: 3,
-  $tablet-rows: 3,
-  $small-desktop-rows: 3,
-  $mid-desktop-rows: 3,
-  $desktop-rows: 3
+  $tablet-rows: 5,
+  $small-desktop-rows: 4,
+  $mid-desktop-rows: 4,
+  $desktop-rows: 4
   ) {
 
   .#{$prefix}-fluid-thumbnail-grid {
