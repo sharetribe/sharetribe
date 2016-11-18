@@ -9,7 +9,7 @@ class TransactionsController < ApplicationController
       fetch_data(params[:listing_id]).on_success do |listing_id, listing_model|
         Analytics.record_event(
           flash,
-          "Unlogged user tried to initiate a transaction",
+          "UnloggedUserTriedInitiateTransaction",
           { listing_id: listing_id,
             listing_uuid: listing_model.uuid_object.to_s,
             community_id: @current_community.id,
@@ -287,7 +287,7 @@ class TransactionsController < ApplicationController
 
       Analytics.record_event(
         flash,
-        "Transaction created",
+        "TransactionCreated",
         { listing_id: tx[:listing_id],
           listing_uuid: tx[:listing_uuid].to_s,
           transaction_id: tx[:id],

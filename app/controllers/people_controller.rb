@@ -147,7 +147,7 @@ class PeopleController < Devise::RegistrationsController
 
     Analytics.record_event(
       flash,
-      "Sign up",
+      "SignUp",
       { community_id: @current_community.id,
         marketplace_uuid: @current_community.uuid_object.to_s,
         user_logged_in: true })
@@ -208,7 +208,7 @@ class PeopleController < Devise::RegistrationsController
 
     Analytics.record_event(
       flash,
-      "Facebook sign up",
+      "FacebookSignUp",
       { community_id: @current_community.id,
         marketplace_uuid: @current_community.uuid_object.to_s,
         user_logged_in: true })

@@ -73,7 +73,7 @@ class CommunityMembershipsController < ApplicationController
 
       Analytics.record_event(
         flash,
-        "Gave consent",
+        "GaveConsent",
         { community_id: @current_community.id,
           marketplace_uuid: @current_community.uuid_object.to_s,
           user_logged_in: true })

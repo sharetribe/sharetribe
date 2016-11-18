@@ -47,7 +47,7 @@ class ConfirmationsController < Devise::ConfirmationsController
 
       Analytics.record_event(
         flash,
-        "Account confirmed",
+        "AccountConfirmed",
         { community_id: @current_community.id,
           marketplace_uuid: @current_community.uuid_object.to_s,
           user_logged_in: true })

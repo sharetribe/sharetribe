@@ -246,7 +246,7 @@ class PreauthorizeTransactionsController < ApplicationController
 
       Analytics.record_event(
         flash.now,
-        "Initiate preauthorized transaction",
+        "InitiatePreauthorizedTransaction",
         { listing_id: listing.id,
           listing_uuid: listing.uuid_object.to_s,
           community_id: @current_community.id,
@@ -266,7 +266,7 @@ class PreauthorizeTransactionsController < ApplicationController
                form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing_entity[:id]),
                country_code: LocalizationUtils.valid_country_code(@current_community.country),
                paypal_analytics_event: [
-                 "Redirecting buyer to PayPal",
+                 "RedirectingBuyerToPayPal",
                  { listing_id: listing.id,
                    listing_uuid: listing.uuid_object.to_s,
                    community_id: @current_community.id,
@@ -541,7 +541,7 @@ class PreauthorizeTransactionsController < ApplicationController
 
       Analytics.record_event(
         flash,
-        "Provider's payment details missing",
+        "ProviderPaymentDetailsMissing",
         { listing_id: listing.id,
           listing_uuid: listing.uuid_object.to_s,
           community_id: @current_community.id,

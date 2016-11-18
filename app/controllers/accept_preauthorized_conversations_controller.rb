@@ -68,7 +68,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
       Analytics.record_event(
         flash,
-        status == :paid ? "Preauthorized transaction accepted" : "Preauthorized transaction rejected",
+        status == :paid ? "PreauthorizedTransactionAccepted" : "PreauthorizedTransactionRejected",
         { listing_id: tx[:listing_id],
           listing_uuid: tx[:listing_uuid].to_s,
           transaction_id: tx[:id],

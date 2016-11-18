@@ -233,7 +233,7 @@ class ListingsController < ApplicationController
 
     Analytics.record_event(
       flash.now,
-      "Listing viewed",
+      "ListingViewed",
       { listing_id: @listing.id,
         listing_uuid: @listing.uuid_object.to_s,
         community_id: @current_community.id,
