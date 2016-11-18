@@ -238,15 +238,7 @@ class PreauthorizeTransactionsController < ApplicationController
         unit_price: listing_entity[:price],
         quantity: quantity)
 
-      shipping_total =
-        if tx_params[:delivery] == :shipping
-          ShippingTotal.new(
-            initial: listing_entity[:shipping_price],
-            additional: listing_entity[:shipping_price_additional],
-            quantity: quantity)
-        else
-          NoShippingFee.new
-        end
+      shipping_total = calculate_shipping_from_entity(tx_params: tx_params, listing_entity: listing_entity, quantity: quantity)
 
       order_total = OrderTotal.new(
         item_total: item_total,
@@ -342,16 +334,7 @@ class PreauthorizeTransactionsController < ApplicationController
       is_booking = date_selector?(listing)
 
       quantity = calculate_quantity(tx_params: tx_params, is_booking: is_booking, unit: listing.unit_type)
-
-      shipping_total =
-        if tx_params[:delivery] == :shipping
-          ShippingTotal.new(
-            initial: listing.shipping_price,
-            additional: listing.shipping_price_additional,
-            quantity: quantity)
-        else
-          NoShippingFee.new
-        end
+      shipping_total = calculate_shipping_from_model(tx_params: tx_params, listing_model: listing, quantity: quantity)
 
       tx_response = create_preauth_transaction(
         payment_type: :paypal,
@@ -393,6 +376,33 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   private
+
+  def calculate_shipping_from_entity(tx_params:, listing_entity:, quantity:)
+    calculate_shipping(
+      tx_params: tx_params,
+      initial: listing_entity[:shipping_price],
+      additional: listing_entity[:shipping_price_additional],
+      quantity: quantity)
+  end
+
+  def calculate_shipping_from_model(tx_params:, listing_model:, quantity:)
+    calculate_shipping(
+      tx_params: tx_params,
+      initial: listing_model.shipping_price,
+      additional: listing_model.shipping_price_additional,
+      quantity: quantity)
+  end
+
+  def calculate_shipping(tx_params:, initial:, additional:, quantity:)
+    if tx_params[:delivery] == :shipping
+      ShippingTotal.new(
+        initial: initial,
+        additional: additional,
+        quantity: quantity)
+    else
+      NoShippingFee.new
+    end
+  end
 
   def add_defaults(params:, shipping_enabled:, pickup_enabled:)
     default_shipping =
