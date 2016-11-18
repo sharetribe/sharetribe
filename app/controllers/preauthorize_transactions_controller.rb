@@ -252,6 +252,15 @@ class PreauthorizeTransactionsController < ApplicationController
         item_total: item_total,
         shipping_total: shipping_total)
 
+      Analytics.record_event(
+        flash,
+        "Preauthorized transaction initiated",
+        { listing_id: listing.id,
+          listing_uuid: listing.uuid_object.to_s,
+          community_id: @current_community.id,
+          marketplace_uuid: @current_community.uuid_object.to_s,
+          user_logged_in: @current_user.present? })
+
       render "listing_conversations/initiate",
              locals: {
                start_on: tx_params[:start_on],
@@ -512,6 +521,16 @@ class PreauthorizeTransactionsController < ApplicationController
 
     unless ready[:data][:result]
       flash[:error] = t("layouts.notifications.listing_author_payment_details_missing")
+
+      Analytics.record_event(
+        flash,
+        "Provider's payment details missing",
+        { listing_id: listing.id,
+          listing_uuid: listing.uuid_object.to_s,
+          community_id: @current_community.id,
+          marketplace_uuid: @current_community.uuid_object.to_s,
+          user_logged_in: @current_user.present? })
+
       redirect_to listing_path(listing)
     end
   end
