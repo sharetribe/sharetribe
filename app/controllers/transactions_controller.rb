@@ -4,6 +4,21 @@ class TransactionsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")
   end
 
+  before_filter only: [:new] do |controller|
+    unless controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_do_a_transaction")
+      fetch_data(params[:listing_id]).on_success do |listing_id, listing_model|
+        Analytics.record_event(
+          flash,
+          "Unlogged user tried to initiate a transaction",
+          { listing_id: listing_id,
+            listing_uuid: listing_model.uuid_object.to_s,
+            community_id: @current_community.id,
+            marketplace_uuid: @current_community.uuid_object.to_s,
+            user_logged_in: @current_user.present? })
+      end
+    end
+  end
+
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_do_a_transaction")
   end
