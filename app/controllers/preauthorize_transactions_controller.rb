@@ -253,8 +253,8 @@ class PreauthorizeTransactionsController < ApplicationController
         shipping_total: shipping_total)
 
       Analytics.record_event(
-        flash,
-        "Preauthorized transaction initiated",
+        flash.now,
+        "Initiate preauthorized transaction",
         { listing_id: listing.id,
           listing_uuid: listing.uuid_object.to_s,
           community_id: @current_community.id,
@@ -273,6 +273,13 @@ class PreauthorizeTransactionsController < ApplicationController
                expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(:paypal),
                form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing_entity[:id]),
                country_code: LocalizationUtils.valid_country_code(@current_community.country),
+               paypal_analytics_event: [
+                 "Redirecting buyer to PayPal",
+                 { listing_id: listing.id,
+                   listing_uuid: listing.uuid_object.to_s,
+                   community_id: @current_community.id,
+                   marketplace_uuid: @current_community.uuid_object.to_s,
+                   user_logged_in: @current_user.present? }],
                price_break_down_locals: TransactionViewUtils.price_break_down_locals(
                  booking:  is_booking,
                  quantity: quantity,

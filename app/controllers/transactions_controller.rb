@@ -284,6 +284,17 @@ class TransactionsController < ApplicationController
 
     if response[:success]
       tx = response_data[:transaction]
+
+      Analytics.record_event(
+        flash,
+        "Transaction created",
+        { listing_id: tx[:listing_id],
+          listing_uuid: tx[:listing_uuid].to_s,
+          transaction_id: tx[:id],
+          community_id: tx[:community_id],
+          marketplace_uuid: tx[:community_uuid].to_s,
+          user_logged_in: true })
+
       redirect_to person_transaction_path(person_id: @current_user.id, id: tx[:id])
     else
       listing_id = response_data[:listing_id]
