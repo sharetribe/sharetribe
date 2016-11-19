@@ -137,3 +137,43 @@ body{
 -ms-transform: scale(-1, 1);
 transform: scale(-1, 1);
 }
+
+.SearchBar__form__27PQI {
+  display: none;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: auto;
+  padding-left: 1.13em;
+  z-index: 6;
+  transition: height 1s ease-in;
+  font-size: 16px
+
+  /* When any child element of this form has focus, hilight the whole
+     form using a pseudo element. See: http://stackoverflow.com/a/11167056 */
+}
+
+.SearchBar__mobileSearchOpen__34aWg .SearchBar__form__27PQI {
+  display: -webkit-flex;
+  display: flex;
+}
+
+@media (min-width: 1201px) {
+  .SearchBar__form__27PQI {
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    position: relative;
+    height: 44px;
+    width: 480px;
+    padding-left: 1.715em;
+    top: 0;
+    font-size: 14px;
+  }
+  }
+
+@media (min-width: 1270px) {
+  .SearchBar__form__27PQI {
+    width: 480px;
+  }
+  }
