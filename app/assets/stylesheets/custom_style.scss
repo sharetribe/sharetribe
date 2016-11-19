@@ -56,6 +56,7 @@
 
 .Logo {
 	margin: 0 auto;
+    padding-right: 400px;
 }
 
 .SearchBar__searchButton__1Ck2b{
@@ -123,5 +124,17 @@
 }
 
 body{
-  padding-top: 80px;
+  padding-top: 50px;
 }
+.Topbar__topbar__7GUWt {
+    height: 55px;
+    
+}
+.SearchBar__searchButton__1Ck2b svg {
+ -moz-transform: scale(-1, 1);
+-webkit-transform: scale(-1, 1);
+-o-transform: scale(-1, 1);
+-ms-transform: scale(-1, 1);
+transform: scale(-1, 1);
+}
+
