@@ -9,7 +9,7 @@
 
     - if logged_in
       .header-right
-        = render :partial => "layouts/header_anchors", locals: {avatar_url: avatar_url, current_user_name: current_user_name, icons: icons}
+        = render :partial => "layouts/header_anchors", locals: {avatar_url: avatar_url, current_user_name: current_user.id, icons: icons}
         = render :partial => "layouts/header_user_menu", locals: {unread_count: unread_count, inbox_path: inbox_path, profile_path: profile_path, manage_listings_path: manage_listings_path, settings_path: settings_path, logout_path: logout_path, icons: icons}
 
       = render :partial => "layouts/header_right_visible_tablet", locals: {unread_count: unread_count, inbox_path: inbox_path, icons: icons}
