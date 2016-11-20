@@ -608,6 +608,9 @@ label.error {
 
   p {
     margin-bottom: lines(0.5);
+  }
+
+  p, li {
     @include small-type;
   }
 
@@ -619,7 +622,7 @@ label.error {
     h2 {
       @include big-type;
     }
-    p {
+    p, li {
       @include normal-type;
     }
   }
