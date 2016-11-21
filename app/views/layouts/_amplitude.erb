@@ -52,7 +52,6 @@
    exports.ampClient = {
      logEvent: function(eventType, eventProperties, opt_callback) {
        <% if amplitudeEnabled %>
-         debugger;
          amplitude.getInstance().logEvent(eventType, eventProperties, opt_callback);
        <% else %>
          // No-op
