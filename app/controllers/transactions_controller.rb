@@ -4,6 +4,17 @@ class TransactionsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")
   end
 
+  before_filter only: [:new] do |controller|
+    fetch_data(params[:listing_id]).on_success do |listing_id, listing_model, _, process|
+      Analytics.record_event(
+        flash,
+        "BuyButtonClicked",
+        { listing_id: listing_id,
+          listing_uuid: listing_model.uuid_object.to_s,
+          payment_process: process[:process] })
+    end
+  end
+
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_do_a_transaction")
   end
@@ -269,6 +280,15 @@ class TransactionsController < ApplicationController
 
     if response[:success]
       tx = response_data[:transaction]
+
+      Analytics.record_event(
+        flash,
+        "TransactionCreated",
+        { listing_id: tx[:listing_id],
+          listing_uuid: tx[:listing_uuid].to_s,
+          transaction_id: tx[:id],
+          payment_process: tx[:payment_process] })
+
       redirect_to person_transaction_path(person_id: @current_user.id, id: tx[:id])
     else
       listing_id = response_data[:listing_id]

@@ -223,11 +223,23 @@ class ApplicationController < ActionController::Base
   end
 
   # A before filter for views that only users that are logged in can access
+  #
+  # Takes one parameter: A warning message that will be displayed in flash notification
+  #
+  # Sets the `return_to` variable to session, so that we can redirect user back to this
+  # location after the user signed up.
+  #
+  # Returns true if user is logged in, false otherwise
   def ensure_logged_in(warning_message)
-    return if logged_in?
-    session[:return_to] = request.fullpath
-    flash[:warning] = warning_message
-    redirect_to login_path and return
+    if logged_in?
+      true
+    else
+      session[:return_to] = request.fullpath
+      flash[:warning] = warning_message
+      redirect_to login_path
+
+      false
+    end
   end
 
   def logged_in?

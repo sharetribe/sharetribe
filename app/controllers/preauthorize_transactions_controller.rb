@@ -238,19 +238,17 @@ class PreauthorizeTransactionsController < ApplicationController
         unit_price: listing_entity[:price],
         quantity: quantity)
 
-      shipping_total =
-        if tx_params[:delivery] == :shipping
-          ShippingTotal.new(
-            initial: listing_entity[:shipping_price],
-            additional: listing_entity[:shipping_price_additional],
-            quantity: quantity)
-        else
-          NoShippingFee.new
-        end
+      shipping_total = calculate_shipping_from_entity(tx_params: tx_params, listing_entity: listing_entity, quantity: quantity)
 
       order_total = OrderTotal.new(
         item_total: item_total,
         shipping_total: shipping_total)
+
+      Analytics.record_event(
+        flash.now,
+        "InitiatePreauthorizedTransaction",
+        { listing_id: listing.id,
+          listing_uuid: listing.uuid_object.to_s })
 
       render "listing_conversations/initiate",
              locals: {
@@ -264,6 +262,13 @@ class PreauthorizeTransactionsController < ApplicationController
                expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(:paypal),
                form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing_entity[:id]),
                country_code: LocalizationUtils.valid_country_code(@current_community.country),
+               paypal_analytics_event: [
+                 "RedirectingBuyerToPayPal",
+                 { listing_id: listing.id,
+                   listing_uuid: listing.uuid_object.to_s,
+                   community_id: @current_community.id,
+                   marketplace_uuid: @current_community.uuid_object.to_s,
+                   user_logged_in: @current_user.present? }],
                price_break_down_locals: TransactionViewUtils.price_break_down_locals(
                  booking:  is_booking,
                  quantity: quantity,
@@ -326,16 +331,7 @@ class PreauthorizeTransactionsController < ApplicationController
       is_booking = date_selector?(listing)
 
       quantity = calculate_quantity(tx_params: tx_params, is_booking: is_booking, unit: listing.unit_type)
-
-      shipping_total =
-        if tx_params[:delivery] == :shipping
-          ShippingTotal.new(
-            initial: listing.shipping_price,
-            additional: listing.shipping_price_additional,
-            quantity: quantity)
-        else
-          NoShippingFee.new
-        end
+      shipping_total = calculate_shipping_from_model(tx_params: tx_params, listing_model: listing, quantity: quantity)
 
       tx_response = create_preauth_transaction(
         payment_type: :paypal,
@@ -377,6 +373,33 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   private
+
+  def calculate_shipping_from_entity(tx_params:, listing_entity:, quantity:)
+    calculate_shipping(
+      tx_params: tx_params,
+      initial: listing_entity[:shipping_price],
+      additional: listing_entity[:shipping_price_additional],
+      quantity: quantity)
+  end
+
+  def calculate_shipping_from_model(tx_params:, listing_model:, quantity:)
+    calculate_shipping(
+      tx_params: tx_params,
+      initial: listing_model.shipping_price,
+      additional: listing_model.shipping_price_additional,
+      quantity: quantity)
+  end
+
+  def calculate_shipping(tx_params:, initial:, additional:, quantity:)
+    if tx_params[:delivery] == :shipping
+      ShippingTotal.new(
+        initial: initial,
+        additional: additional,
+        quantity: quantity)
+    else
+      NoShippingFee.new
+    end
+  end
 
   def add_defaults(params:, shipping_enabled:, pickup_enabled:)
     default_shipping =
@@ -512,6 +535,13 @@ class PreauthorizeTransactionsController < ApplicationController
 
     unless ready[:data][:result]
       flash[:error] = t("layouts.notifications.listing_author_payment_details_missing")
+
+      Analytics.record_event(
+        flash,
+        "ProviderPaymentDetailsMissing",
+        { listing_id: listing.id,
+          listing_uuid: listing.uuid_object.to_s })
+
       redirect_to listing_path(listing)
     end
   end
