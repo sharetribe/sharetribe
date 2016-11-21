@@ -369,6 +369,21 @@ class ApplicationController < ActionController::Base
     @minutes_to_maintenance = NextMaintenance.minutes_to(now)
   end
 
+  # This hook will be called by Devise after successful Facebook
+  # login.
+  #
+  # Return path where you want the user to be redirected to.
+  #
+  def after_sign_in_path_for(resourse)
+    if session[:return_to]
+      return_to_path = session[:return_to]
+      session[:return_to] = nil
+      return_to_path
+    else
+      search_path
+    end
+  end
+
   private
 
   # Override basic instrumentation and provide additional info for
