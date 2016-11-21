@@ -21,8 +21,8 @@ ja:
         category_transaction_types:
           transaction_types: 課金タイプ
           transaction_types_description: カテゴリーの中のリストはどの課金タイプに該当するかを決めます。例えば、「売ります」だけにする場合、「貸します」と「あげます」「ご自由にどうぞ」にも適用する場合。
-          select_all: ~
-          clear_all: ~
+          select_all: 全て選択
+          clear_all: 全て削除
         buttons:
           save: 保存する
           cancel: キャンセル
@@ -132,7 +132,7 @@ ja:
         set_sender_address: ~
         sender_name_label: ~
         sender_name_placeholder: ~
-        sender_email_label: ~
+        sender_email_label: メールアドレス
         sender_email_placeholder: ~
         this_is_how_it_will_look: ~
         send_verification_button: ~
@@ -155,27 +155,27 @@ ja:
       getting_started:
         getting_started: 「開始するには」ガイド
       available_languages:
-        en: ~
-        en-AU: ~
-        en-GB: ~
-        fr: ~
-        fr-CA: ~
-        es: ~
-        es-ES: ~
-        pt-PT: ~
-        pt-BR: ~
-        nb: ~
-        sv: ~
-        da-DK: ~
-        fi: ~
-        ru: ~
-        de: ~
-        el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
-        it: ~
+        en: 英語
+        en-AU: 英語(オーストラリア)
+        en-GB: 英語(イギリス)
+        fr: フランス語
+        fr-CA: フランス語(カナダ)
+        es: スペイン語(チリ)
+        es-ES: スペイン語
+        pt-PT: ポルトガル語
+        pt-BR: ポルトガル語(ブラジル)
+        nb: ノルウェー語
+        sv: スウェーデン語
+        da-DK: デンマーク語
+        fi: フィンランド語
+        ru: ロシア語
+        de: ドイツ語
+        el: ギリシャ語
+        nl: オランダ語
+        tr-TR: トルコ語
+        zh: 中国語
+        ja: 日本語
+        it: イタリア語
       settings:
         settings: 設定
         general: 一般
@@ -186,8 +186,8 @@ ja:
         require_verification_to_post_listings: サイト管理者によって承認されたユーザのみが新しいリストを投稿できます
         search_preferences: ~
         default_search_type: ~
-        keyword_search: ~
-        keyword_and_location_search: ~
+        keyword_search: キーワード検索
+        keyword_and_location_search: キーワード、場所で検索する
         location_search: ~
         select_distance_unit: ~
         km: ~
@@ -338,8 +338,8 @@ ja:
         field_title: 項目のタイトル
         field_type: 項目の種類
         categories: 項目が使用されるリストのカテゴリ
-        select_all: ~
-        clear_all: ~
+        select_all: 全て選択
+        clear_all: 全て削除
         options: オプション
         add_option: "+ オプションを追加する"
         saving_order: 項目の順番を保存する
@@ -377,7 +377,7 @@ ja:
       emails_title: メールアドレス
       support: サポート
       subscription: ~
-      preview: ~
+      preview: サイトプレビュー
     listing_shapes:
       availability_title: ~
       read_more: ~
@@ -386,19 +386,19 @@ ja:
       per_night_availability: ~
       pricing_units_disabled_info: ~
       index:
-        listing_shapes: ~
+        listing_shapes: 課金タイプ
         description: ~
         read_more_about_order_types: ~
         add_new_shape: ~
         select_template: ~
-        all_categories: ~
-        no_categories: ~
+        all_categories: すべてのカテゴリー
+        no_categories: カテゴリーなし
         category_count: ~
         header:
-          listing_shape_name: ~
+          listing_shape_name: 課金タイプ名称
           listing_shape_categories: ~
         order:
-          saving_order: ~
+          saving_order: 項目の順番を保存する
           save_order_successful: ~
           save_order_error: ~
       templates:
@@ -417,8 +417,8 @@ ja:
         create_failure: ~
       edit:
         edit_listing_shape: ~
-        update: ~
-        cancel: ~
+        update: 保存する
+        cancel: キャンセル
         update_success: ~
         update_failure: ~
         delete: ~
@@ -437,12 +437,12 @@ ja:
       units_title: ~
       units_desc: ~
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: １点
+        hour: １時間
+        day: １日
+        night: １泊
+        week: １週
+        month: １ヵ月
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: ~
@@ -941,7 +941,7 @@ ja:
       kassi_does_not_currently_work_without_javascript: "%{service_name}ではjavascriptなしでは正しく機能しません。お使いのブラウザのjavascriptを有効にして、再度ロードしてみてください。"
       contact_us: サイト管理者に、メニューの「お問い合わせ」より、ご連絡下さい。
       send_feedback: メッセージを送信する
-      your_feedback_to_admins: ~
+      your_feedback_to_admins: "%{service_name}運営チームへのメッセージ"
     send: 送信する
     your_email_address: あなたのメールアドレス
   errors:
@@ -1115,9 +1115,9 @@ ja:
   landing_page:
     hero:
       search: ~
-      signup: ~
+      signup: 新規登録
       search_placeholder: ~
-      search_location_placeholder: ~
+      search_location_placeholder: "場所 （地区、郵便番号、市町村名...）"
     listings:
       no_listing_image: ~
   layouts:
@@ -1130,11 +1130,11 @@ ja:
     no_tribe:
       inbox: 受信メール
       settings: 設定
-      feedback: ~
+      feedback: "%{service_name}運営チームへのコンタクト"
     application:
       join_this_community: マーケットプレイスに参加する
       read_more: もっと読む
-      feedback: ~
+      feedback: "%{service_name}運営チームへのメッセージ"
       dont_use_to_contact_support: ~
       feedback_forum: レビューフォーラム
       feedback_handle: レビューを書く
@@ -1210,7 +1210,7 @@ ja:
       error_with_session: セッション中にエラーが起こりました
       feedback_considered_spam: 初期化により内容は保存されませんでした。フィードバックフォーラムを使用して再試行してください。
       feedback_not_saved: レビューは送信できませんでした。
-      feedback_saved: ~
+      feedback_saved: メッセージどうもありがとうございます！なるべく早めにご返信させていただきますのでどうぞお待ちください。
       feedback_sent_to: "%{target_person}さんにレビューを送信しました。"
       feedback_skipped: レビューをスキップしました
       invitation_cannot_be_sent: 招待状は送られませんでした
@@ -1304,7 +1304,7 @@ ja:
       email_deleted: メールアドレスは削除されました
       listing_author_payment_details_missing: このリストの作成者はお支払い詳細を追加していないので、現在のところお支払いを受け取れません。このリストの作者に直接連絡を取ってください。作成者
       images_are_processing: ~
-      automatically_logged_out_please_sign_in: ~
+      automatically_logged_out_please_sign_in: セッションの期限が切れました。もう一度ログインしてください
     settings:
       account: ご登録情報
       notifications: メール通知
@@ -1340,7 +1340,7 @@ ja:
       show_in_updates_email_error: サーバに接続できませんでした。ページを読み込んだ後、再度お試しください。
       show_in_updates_email_success: このリストはユーザに送信される、次回の自動お知らせメールに掲載されます。
     map:
-      open_in_google_maps: ~
+      open_in_google_maps: Googleマップで表示する
     error:
       something_went_wrong: "何か不具合がありました。 エラーコード： %{error_code}"
       something_went_wrong_plain: ~
@@ -1360,7 +1360,7 @@ ja:
         repeated: 繰り返し（「詳しい説明」の項目で時間と曜日を追加してください）
       description:
         detailed_description: 詳細
-        youtube_info: ~
+        youtube_info: YouTubeへのリンクが含まれる場合には、詳細説明の下部に動画が表示されます
       destination:
         destination: 行き先
       form_content:
@@ -1378,11 +1378,11 @@ ja:
         googlemap_updatemap: 地図を更新
       images:
         image: 画像
-        best_result: ~
+        best_result: "最適な画像データ形式はJPG・GIF・PNG、画像サイズは縦%{height}×横%{width}となります"
         no_file_selected: ファイルが選択されていません
         remove_image: 画像を削除する
         select_file: ファイルを選択
-        add_more: ~
+        add_more: ＋画像追加
         removing: 削除しています...
         processing: 処理中です...
         loading_image: 読み込み中...
@@ -1798,9 +1798,9 @@ ja:
       account_confirmation_instructions_title_admin: あなたのマーケットプレイスへようこそ！
       before_full_access_you_need_to_confirm_email: ~
       before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
+      admin_dashboard_link_text: 管理画面
       account_confirmation_instructions_admin: ご記入いただいたメールアドレス宛に、認証手続き用のリンクが、まもなく届きます。認証後、あなたのマーケットプレイスに参加できます。
-      contact_support_link_text: ~
+      contact_support_link_text: Sharetribeサポートに問い合わせる
   settings:
     account:
       change: 変更
@@ -1991,6 +1991,15 @@ ja:
     years_ago: "%{count}年前"
     days_since:
       other: "%{count}日"
+    time_to:
+      seconds:
+        other: "%{count}秒"
+      minutes:
+        other: "%{count}分"
+      hours:
+        other: "%{count}時間"
+      days:
+        other: "%{count}日"
   transactions:
     initiate:
       booked_days: 予約日数
@@ -2011,17 +2020,17 @@ ja:
   web:
     listings:
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: 点
+        hour: 時間
+        day: 日
+        night: 泊
+        week: 週
+        month: 月
     no_listings:
       sorry: ~
       try_other_search_terms: ~
     listing_card:
-      add_picture: ~
+      add_picture: 画像を追加
       no_picture: ~
     search:
       page: ~
@@ -2030,16 +2039,16 @@ ja:
       menu: ~
       more: ~
       search_placeholder: ~
-      search_location_placeholder: ~
+      search_location_placeholder: "場所 （地区、郵便番号、市町村名...）"
       user: ~
-      inbox: ~
-      profile: ~
+      inbox: 受信メール
+      profile: プロフィール
       manage_listings: ~
-      settings: ~
-      logout: ~
-      login: ~
-      signup: ~
-      admin_dashboard: ~
+      settings: 設定
+      logout: ログアウト
+      login: ログイン
+      signup: 新規登録
+      admin_dashboard: 管理画面
       language: ~
     utils:
       km: ~

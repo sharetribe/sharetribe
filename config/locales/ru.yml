@@ -86,8 +86,8 @@ ru:
         see_how_it_looks_like: "Посмотреть как это выглядит"
         verification_to_post_listings_info_content: "Информационный текст для неподтвержденных участников"
         verification_to_post_listings_info_content_description: "Сейчас вашим пользователям требуется быть подтвержденным вручную вами, чтобы они смогли размещать публикации. Здесь вы можете установить базовый текст который показывается для не-подтвержденных пользователей когда они пробуют создать новое размещение публикации."
-        verification_to_post_listings_info_content_default: "%{service_name} требует чтобы пользователи были подтверждены вручную администрацией до того как они смогут создавать публикации. Вы еще не были авторизованы. Пожалуйста обратитесь к администрации %{contact_admin_link} для подтверждения."
-        contact_admin_link_text: "связаться с администратором"
+        verification_to_post_listings_info_content_default: "%{service_name} требует, чтобы пользователи были подтверждены вручную администрацией до того, как они смогут создавать объявления. Вы еще не были подтверждены. Пожалуйста, %{contact_admin_link} для подтверждения."
+        contact_admin_link_text: "свяжитесь с администратором"
         save: "Сохранить настройки"
         transaction_agreement: "Транзакционное соглашение"
         transaction_agreement_checkbox: "Требуется чтобы участники приняли соглашение перед транзакцией"
@@ -438,7 +438,7 @@ ru:
         update_failure: "Не удалось сохранить изменения. Ошибка: %{error_msg}"
         delete: "Удалить тип заказа"
         can_not_delete_last: "Вы не можете удалить этот тип заказа, потому что это единственный тип в вашем маркетплейсе."
-        can_not_delete_only_one_in_categories: ~
+        can_not_delete_only_one_in_categories: "Вы не можете удалить этот тип заказа, потому что в следующих категориях этот тип заказа единственный: %{categories}"
       listing_shape_name: Имя
       listing_shape_name_placeholder: Продать
       action_button_label: "Ярлык кнопки выполнения заказа"
@@ -848,7 +848,7 @@ ru:
       service_fee: "Комиссия сервиса"
       money_will_be_transferred: "Деньги будут переведены к %{recipient_name} когда а) вы отметите этот запрос завершенным или б) %{automatic_confirmation_days} дней пройдет после вашей оплаты."
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name} оставил отзыв о вас в Kassi"
+      has_given_you_feedback_in_kassi: "%{name} оставил отзыв о вас в %{service_name}"
       you_can_give_feedback_to: "Вы еще не создали отзыв о %{name}"
       view_feedback: "Просмотреть отзывы"
     new_update_to_listing:
@@ -951,7 +951,7 @@ ru:
       javascript_is_disabled_in_your_browser: "В вашем браузере отключён Javascript"
       kassi_does_not_currently_work_without_javascript: "К сожалению, %{service_name} не сможет работать при отключенном javascript. Попробуйте включить поддержку javascript в своём браузере и перезагрузить страницу."
       contact_us: "свяжитесь с нами"
-      send_feedback: ~
+      send_feedback: "Отправить сообщение"
       your_feedback_to_admins: "Ваше сообщение команде %{service_name}"
     send: Отправить
     your_email_address: "Ваш адрес электронной почты"
@@ -1151,7 +1151,7 @@ ru:
       feedback_handle: "Написать отзыв"
       give_feedback: "Напиши нам"
       or_check_our: "...или зайдите на наш"
-      send_feedback_to_admin: ~
+      send_feedback_to_admin: "Отправить сообщение"
       to_see_what_others_have_suggested: "чтобы увидеть, что предлагают другие пользователи и проголосовать за новые идеи для проекта."
       your_email_address: "Ваш адрес email (для связи с Вами)"
       connect: Регистрация
@@ -1200,8 +1200,8 @@ ru:
       settings: Настройки
       sign_up: Регистрация
     notifications:
-      listing_could_not_be_saved: "Публикация не сохранена. Попробуйте еще раз. Если проблема повториться, пожалуйста свяжитесь с нами %{contact_admin_link}."
-      contact_admin_link_text: "Связаться с администратором"
+      listing_could_not_be_saved: "Объявление не сохранено. Попробуйте еще раз. Если проблема повторится, пожалуйста %{contact_admin_link}."
+      contact_admin_link_text: "свяжитесь с администратором"
       test_welcome_email_delivered_to: "Тестовое сообщение было отправлено %{email}"
       something_went_wrong: "Что-то пошло не так"
       community_updated: "Информация обновлена."
@@ -1221,7 +1221,7 @@ ru:
       error_with_session: "Ошибка сессии."
       feedback_considered_spam: "Отзыв не сохранён из-за неверного формата. Попробуйте снова, либо воспользуйтесь форумом."
       feedback_not_saved: "Отзыв не может быть отправлен."
-      feedback_saved: ~
+      feedback_saved: "Благодарим за ваше сообщение! Мы свяжемся с вами при первой возможности."
       feedback_sent_to: "Отзыв отправлен %{target_person}"
       feedback_skipped: "Отзыв отменён"
       invitation_cannot_be_sent: "Приглашение не может быть отправлено"
@@ -1513,8 +1513,8 @@ ru:
       select_subcategory: "Выберите подкатегорию"
       select_transaction_type: "Выберите тип публикации"
       you_need_to_fill_payout_details_before_accepting: "Вам нужно заполнить детали оплаты до того как вы создадите публикацию. Перейдите в %{payment_settings_link} чтобы заполнить детали."
-      contact_admin_link_text: "Пожалуйста свяжитесь с администратором"
-      community_not_configured_for_payments: "%{service_name} не был настроен для принятия платежей, поэтому вы не можете размещать новые публикации сейчас. Свяжитесь с %{contact_admin_link} для уточнения деталей."
+      contact_admin_link_text: "свяжитесь с администратором"
+      community_not_configured_for_payments: "Сайт %{service_name} не был настроен для платежей, поэтому вы пока не можете размещать новые объявления. Пожалуйста, %{contact_admin_link} для уточнения деталей."
       payment_settings_link: "настройки оплаты"
       community_not_configured_for_payments_admin: "%{service_name} не был настроен для принятия платежей, поэтому вы не можете размещать новые публикации сейчас. Перейдите на %{payment_settings_link} чтобы настроить платежные реквизиты."
     quantity:
@@ -1631,15 +1631,15 @@ ru:
     paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: "Если вы увидите сообщение об ошибке, при попытке подключения к %{service_name}, обновите ваш PayPal с помощью %{upgrade_paypal_account_link}. Это бесплатно и легко. Если вы являетесь частным лицом, PayPal рекомендует использовать свое имя в качестве имени бизнеса."
     upgrade_paypal_account_link_text: "входа в счет и нажатия ссылки обновления"
-    admin_account_not_connected: "Использование %{service_name} платежной системы для того, чтобы получать платежи, не представляется возможным, поскольку платежная система не была авторизована. Пожалуйста %{contact_admin_link} для деталей."
-    contact_admin_link_text: "обратитесь к администратору этого маркетплейс"
+    admin_account_not_connected: "Использование платежной системы сайта %{service_name} для того, чтобы получать платежи, невозможно, поскольку платежная система не была настроена. Пожалуйста, %{contact_admin_link} для уточнения деталей."
+    contact_admin_link_text: "свяжитесь с администратором"
     you_are_ready_to_accept_payments: "Теперь вы готовы принимать платежи!"
     commission: "%{commission} %"
     new:
       payout_info_you_need_to_connect: "Чтобы принимать платежи вам нужно подключить ваш PayPal аккаунт через %{service_name}."
       payout_info_text: "Пожалуйста завершите следующие действия чтобы подключить ваш аккаунт."
-      contact_admin_link_text: "Пожалуйста свяжитесь с администратором"
-      admin_account_not_connected: "%{service_name} не был настроен для платежей, поэтому пока вы не можете подключить ваш PayPal аккаунт. Пожалуйста обратитесь для детализации вопроса %{contact_admin_link}."
+      contact_admin_link_text: "свяжитесь с администратором"
+      admin_account_not_connected: "Подключение вашего PayPal аккаунта невозможно, так как сайт %{service_name} не был настроен для платежей. Пожалуйста, %{contact_admin_link} для уточнения деталей."
       paypal_account_email: "Подключить ваш PayPal аккаунт"
       paypal_account_email_placeholder: "Ваш PayPal email адрес"
       paypal_account_email_info_text: "Если у вас нет PayPal аккаунта, вы можете создать его здесь %{create_paypal_account}. Если вы получили сообщение об ошибке при подключении PayPal, вам необходимо обновить его до уровня бизнес. Обновление быстрое, бесплатное и простое. Если вы физическое лицо, вам необходимо указать ваше имя и фамилию в поле \"Название компании\", когда PayPal запросит это. Нажмите здесь чтобы обновить %{upgrade_paypal_account}."

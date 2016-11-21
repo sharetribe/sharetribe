@@ -1791,13 +1791,13 @@ it:
       confirm_your_email: "Conferma la tua email"
       account_confirmation_instructions: "Presto riceverai un'e-mail con un link per confermare il tuo indirizzo email. Non dimenticare di controllare la cartella spam! Dopo aver confermato il tuo indirizzo, potrai unirti a %{service_name}."
       account_confirmation_instructions_title_admin: ~
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
+      before_full_access_you_need_to_confirm_email: "Prima di darti pieno acceso al tuo marketplace, c'è solo una cosa da fare: confermare l'indirizzo email."
+      before_confirmation_only_access_admin_dashboard: "Prima di confermare puoi accedere soltanto a %{admin_dashboard_link}"
+      admin_dashboard_link_text: "admin dashboard"
       account_confirmation_instructions_admin: |-
           Presto riceverai un'e-mail con un link per confermare il tuo indirizzo email. Non dimenticare di controllare la cartella spam! Dopo aver confermato il tuo indirizzo, puoi cominciare a configurare il tuo profilo, le tue inserzioni, e le preferenze di ricezione email.
           Nel tuo account di posta aggiungi il nostro indirizzo email
-      contact_support_link_text: ~
+      contact_support_link_text: "Contatta il supporto di Sharetribe"
   settings:
     account:
       change: Cambia
@@ -2032,7 +2032,7 @@ it:
       sorry: "Purtroppo non si trovano inserzioni per i tuoi criteri di ricerca."
       try_other_search_terms: "Prova con altri termini di ricerca."
     listing_card:
-      add_picture: ~
+      add_picture: "Aggiungi immagine"
       no_picture: "Nessuna immagine"
     search:
       page: Pagina

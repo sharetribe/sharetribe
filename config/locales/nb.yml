@@ -1818,11 +1818,11 @@ nb:
       confirm_your_email: "Vennligst bekreft din e-post"
       account_confirmation_instructions: "Du vil snart motta en e-post med en lenke for å bekrefte din e-post. Når du har bekreftet din e-post, kan du begynne å bruke %{service_name}."
       account_confirmation_instructions_title_admin: "Velkommen til din markedsplass!"
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
+      before_full_access_you_need_to_confirm_email: "Før vi kan gi deg full tilgang til markedsplassen din, er det kun én ting til du må gjøre: Bekrefte e-postadressen din."
+      before_confirmation_only_access_admin_dashboard: "Før du har bekreftet e-postadressen din, har du bare tilgang til %{admin_dashboard_link}."
+      admin_dashboard_link_text: Administrasjonspanel
       account_confirmation_instructions_admin: "Du vil snart motta en e-post med en link du må klikke på for å bekrefte din e-post. Når e-post er bekreftet kan du begynne å tilpasse markedsplassen din."
-      contact_support_link_text: ~
+      contact_support_link_text: "kontakt Sharetribe support"
   settings:
     account:
       change: Endre
@@ -2063,7 +2063,7 @@ nb:
       sorry: "Beklager, vi finner ingen resultater som matcher dine søkekriterier."
       try_other_search_terms: "Kanskje du kan prøve noen andre søkeord?"
     listing_card:
-      add_picture: ~
+      add_picture: "Legg til bilde"
       no_picture: "Ingen bilde"
     search:
       page: Side

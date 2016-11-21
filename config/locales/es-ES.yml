@@ -1817,12 +1817,12 @@ es-ES:
       change_email: Cambiar
       confirm_your_email: "Confirma tu correo electrónico"
       account_confirmation_instructions: "Pronto recibirás un correo electrónico con un vínculo para confirmar tu cuenta de correo. No olvides revisar la carpeta de correo no deseado! Una vez lo hayas hecho, podrás comenzar a usar %{service_name}."
-      account_confirmation_instructions_title_admin: "¡Bienvenido a tu comunidad!"
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
-      account_confirmation_instructions_admin: "Pronto recibirás un correo electrónico con un vínculo para confirmar tu cuenta de correo. No olvides revisar tu carpeta de correo no deseado! Una vez hayas confirmado tu cuenta, podrás comenzar a configurar tu comunidad."
-      contact_support_link_text: ~
+      account_confirmation_instructions_title_admin: "Confirma tu dirección de correo electrónico"
+      before_full_access_you_need_to_confirm_email: "Antes de darte acceso total a tu comunidad, es necesario que hagas sólo una cosa más: confirmar tu cuenta de correo electrónico."
+      before_confirmation_only_access_admin_dashboard: "Antes de confirmar to correo electrónico sólo puedes tener acceso al %{admin_dashboard_link}."
+      admin_dashboard_link_text: "panel de administración"
+      account_confirmation_instructions_admin: "Hemos enviado un correo electrónico a %{email_address} con un vínculo para confirmar tu cuenta de correo. Si no lo ves, revisa tu carpeta de correo no deseado o haz click en el botón de re-enviar! Una vez que llegue, abre el vínculo par confirmar tu cuenta de correo; una vez que lo hayas hecho, tendrás access completo a tu comunidad. Si necesitas ayuda, %{support_link}."
+      contact_support_link_text: "contacta al equipo de soporte de Sharetribe"
   settings:
     account:
       change: Cambiar
@@ -2063,7 +2063,7 @@ es-ES:
       sorry: "Perdón, no hemos encontrado ningún anuncio que satisfaga tus criterios de búsqueda."
       try_other_search_terms: "Intenta la búsqueda con términos distintos"
     listing_card:
-      add_picture: ~
+      add_picture: "Añadir imagen"
       no_picture: "No hay imagen"
     search:
       page: Página
