@@ -71,10 +71,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
         status == :paid ? "PreauthorizedTransactionAccepted" : "PreauthorizedTransactionRejected",
         { listing_id: tx[:listing_id],
           listing_uuid: tx[:listing_uuid].to_s,
-          transaction_id: tx[:id],
-          community_id: tx[:community_id],
-          marketplace_uuid: tx[:community_uuid].to_s,
-          user_logged_in: true })
+          transaction_id: tx[:id] })
 
       redirect_to person_transaction_path(person_id: sender_id, id: tx_id)
     else

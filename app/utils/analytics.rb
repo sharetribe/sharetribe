@@ -6,10 +6,10 @@
 # ==== Usage
 #
 # To record an event when you issue a normal render pass in `flash.now`:
-#   Analytics.record_event(flash.now, "EventName", { marketplace_uuid: @current_community.uuid_object.to_s })
+#   Analytics.record_event(flash.now, "EventName", { payment_process: tx[:payment_process] })
 #
 # To record an event on page load after redirect pass in `flash`:
-#   Analytics.record_event(flash, "EventName", { marketplace_uuid: @current_community.uuid_object.to_s })
+#   Analytics.record_event(flash, "EventName", { payment_process: tx[:payment_process] })
 #
 # To clear the user identification data (at log out):
 #  Analytics.mark_logged_out(flash)

@@ -45,12 +45,7 @@ class ConfirmationsController < Devise::ConfirmationsController
       end
       flash[:notice] = t("layouts.notifications.additional_email_confirmed")
 
-      Analytics.record_event(
-        flash,
-        "AccountConfirmed",
-        { community_id: @current_community.id,
-          marketplace_uuid: @current_community.uuid_object.to_s,
-          user_logged_in: true })
+      Analytics.record_event(flash, "AccountConfirmed")
 
       if @current_user && @current_user.has_admin_rights?
         report_to_gtm({event: "admin_email_confirmed"})

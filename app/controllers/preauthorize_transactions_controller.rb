@@ -248,10 +248,7 @@ class PreauthorizeTransactionsController < ApplicationController
         flash.now,
         "InitiatePreauthorizedTransaction",
         { listing_id: listing.id,
-          listing_uuid: listing.uuid_object.to_s,
-          community_id: @current_community.id,
-          marketplace_uuid: @current_community.uuid_object.to_s,
-          user_logged_in: @current_user.present? })
+          listing_uuid: listing.uuid_object.to_s })
 
       render "listing_conversations/initiate",
              locals: {
@@ -543,10 +540,7 @@ class PreauthorizeTransactionsController < ApplicationController
         flash,
         "ProviderPaymentDetailsMissing",
         { listing_id: listing.id,
-          listing_uuid: listing.uuid_object.to_s,
-          community_id: @current_community.id,
-          marketplace_uuid: @current_community.uuid_object.to_s,
-          user_logged_in: @current_user.present? })
+          listing_uuid: listing.uuid_object.to_s })
 
       redirect_to listing_path(listing)
     end

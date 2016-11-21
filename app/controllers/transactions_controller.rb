@@ -5,17 +5,13 @@ class TransactionsController < ApplicationController
   end
 
   before_filter only: [:new] do |controller|
-    unless controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_do_a_transaction")
-      fetch_data(params[:listing_id]).on_success do |listing_id, listing_model|
-        Analytics.record_event(
-          flash,
-          "UnloggedUserTriedInitiateTransaction",
-          { listing_id: listing_id,
-            listing_uuid: listing_model.uuid_object.to_s,
-            community_id: @current_community.id,
-            marketplace_uuid: @current_community.uuid_object.to_s,
-            user_logged_in: @current_user.present? })
-      end
+    fetch_data(params[:listing_id]).on_success do |listing_id, listing_model, _, process|
+      Analytics.record_event(
+        flash,
+        "BuyButtonClicked",
+        { listing_id: listing_id,
+          listing_uuid: listing_model.uuid_object.to_s,
+          payment_process: process[:process] })
     end
   end
 
@@ -291,9 +287,7 @@ class TransactionsController < ApplicationController
         { listing_id: tx[:listing_id],
           listing_uuid: tx[:listing_uuid].to_s,
           transaction_id: tx[:id],
-          community_id: tx[:community_id],
-          marketplace_uuid: tx[:community_uuid].to_s,
-          user_logged_in: true })
+          payment_process: tx[:payment_process] })
 
       redirect_to person_transaction_path(person_id: @current_user.id, id: tx[:id])
     else
