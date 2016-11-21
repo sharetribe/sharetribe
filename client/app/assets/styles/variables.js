@@ -358,4 +358,5 @@ module.exports = {
   '--FlashNotification_closeIconSize': `${minimumButtonSize}px`,
   '--FlashNotification_closeIconExtraSpace': '20px',
 
+  '--SideWinder_overlayZIndex': 999,
 };
