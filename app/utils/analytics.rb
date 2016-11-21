@@ -21,7 +21,7 @@ module Analytics
 
   module_function
 
-  def record_event(flash_or_now, event_name, props)
+  def record_event(flash_or_now, event_name, props = {})
     flash_or_now[EVENT_KEY] ||= []
     flash_or_now[EVENT_KEY].push(
       {event: event_name, props: props}
