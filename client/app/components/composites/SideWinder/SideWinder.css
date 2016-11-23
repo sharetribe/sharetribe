@@ -1,0 +1,82 @@
+.wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  transition: right 0.5s;
+}
+
+.winderOpen {
+  /* Prevent scrolling and hide scrollbars */
+  overflow: hidden;
+}
+
+.root {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+
+  @nest .winderOpen & {
+    display: block;
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 0;
+  width: 100%;
+  background-color: rgb(44, 47, 50);
+  opacity: 0;
+  z-index: var(--SideWinder_overlayZIndex);
+  cursor: pointer;
+  transition: opacity 0.5s;
+
+  @nest .winderOpen & {
+    height: 100%;
+    opacity: 0.5;
+  }
+}
+
+.content {
+  height: 100%;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  width: 60px;
+  height: 60px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 0;
+  z-index: var(--SideWinder_overlayZIndex);
+
+  & svg {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+
+    & g {
+      stroke: #fff;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+    background: none;
+
+    & svg g {
+      stroke: #ddd;
+    }
+  }
+}
