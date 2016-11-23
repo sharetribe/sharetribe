@@ -11,7 +11,9 @@ class TransactionsController < ApplicationController
         "BuyButtonClicked",
         { listing_id: listing_id,
           listing_uuid: listing_model.uuid_object.to_s,
-          payment_process: process[:process] })
+          payment_process: process[:process],
+          user_logged_in: @current_user.present?
+        })
     end
   end
 
