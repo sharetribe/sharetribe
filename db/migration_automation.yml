@@ -1,0 +1,18 @@
+---
+# Definitions for which migrations can be executed automatically when deploying.
+# Valid stages are: pre-deploy, post-deploy
+# Valid run values are: auto, manual
+# NOTE: The default for a migration without specification here is: run=auto, stage=pre-deploy
+migrations:
+  20161107131859:
+    run: auto
+    stage: pre-deploy
+  20161107132513:
+    run: auto
+    stage: pre-deploy
+  20161107141257:
+    run: auto
+    stage: pre-deploy
+  20161109094513:
+    run: manual
+    comment: Image reprocessing

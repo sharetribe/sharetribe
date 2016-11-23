@@ -60,7 +60,7 @@ Kassi::Application.configure do
     failover:  true,
     socket_timeout: 1.5,
     socket_failure_delay:  0.2,
-    namespace: "sharetribe-production",
+    namespace: ENV["MEMCACHED_NAMESPACE"] || "sharetribe-production",
     compress: true
   }
 

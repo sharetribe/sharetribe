@@ -87,6 +87,9 @@ module Kassi
     #Consider enabling, and other actions described in http://blog.gingerlime.com/2012/rails-ip-spoofing-vulnerabilities-and-protection
     config.action_dispatch.ip_spoofing_check = false
 
+    # HealthCheck endpoint
+    config.middleware.insert_before Rack::Sendfile, "HealthCheck"
+
     # Manually redirect http to https, if config option always_use_ssl is set to true
     # This needs to be done before routing: conditional routes break if this is done later
     # Enabling HSTS and secure cookies is not a possiblity because of potential reuse of domains without HTTPS
