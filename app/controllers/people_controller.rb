@@ -145,7 +145,7 @@ class PeopleController < Devise::RegistrationsController
 
     Delayed::Job.enqueue(CommunityJoinedJob.new(@person.id, @current_community.id)) if @current_community
 
-    Analytics.record_event(flash, "SignUp")
+    Analytics.record_event(flash, "SignUp", method: :email)
 
     # send email confirmation
     # (unless disabled for testing environment)
@@ -201,7 +201,7 @@ class PeopleController < Devise::RegistrationsController
 
     session[:fb_join] = "pending_analytics"
 
-    Analytics.record_event(flash, "FacebookSignUp")
+    Analytics.record_event(flash, "SignUp", method: :facebook)
 
     redirect_to pending_consent_path
   end
