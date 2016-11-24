@@ -63,17 +63,19 @@ module ServiceClient
           raise ArgumentError.new("Coulnd't find encoder for encoding: '#{encoding}'")
         end
 
-        @_request_encoder = encoder
+        @_default_encoder = encoder
         @_decode_response = decode_response
       end
 
       def enter(ctx)
         req = ctx.fetch(:req)
+        opts_encoding = ctx.dig(:opts, :encoding)
+        encoder = encoder_by_encoding(opts_encoding) || @_default_encoder
 
         body = req[:body]
         headers = req.fetch(:headers)
-        accept = @_request_encoder[:media_type]
-        content_type = body.nil? ? nil : @_request_encoder[:media_type]
+        accept = encoder[:media_type]
+        content_type = body.nil? ? nil : encoder[:media_type]
 
         ctx[:req][:headers]["Accept"] = accept
 
@@ -81,7 +83,7 @@ module ServiceClient
         # This makes the middleware idempotent.
         if ctx[:req][:headers]["Content-Type"] != content_type
 
-          ctx[:req][:body] = @_request_encoder[:encoder].encode(body)
+          ctx[:req][:body] = encoder[:encoder].encode(body)
           ctx[:req][:headers]["Content-Type"] = content_type
         end
 
@@ -97,7 +99,7 @@ module ServiceClient
 
         # Choose encoder by the Content-Type header, if possible.
         # Otherwise, fallback to the same encoder we used to encode the request
-        encoder = encoder_by_content_type(headers["Content-Type"]) || @_request_encoder
+        encoder = encoder_by_content_type(headers["Content-Type"]) || @_default_encoder
 
         begin
           ctx[:res][:body] = encoder[:encoder].decode(body)
