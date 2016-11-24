@@ -29,6 +29,7 @@ const loadStories = function loadStories() {
   require('../app/components/composites/PageSelection/PageSelection.story.js');
   require('../app/components/composites/SideWinder/SideWinder.story.js');
   require('../app/components/composites/EditAvailability/EditAvailability.story.js');
+  require('../app/components/composites/ManageAvailabilityHeader/ManageAvailabilityHeader.story.js');
   require('../app/components/elements/Avatar/Avatar.story.js');
   require('../app/components/elements/Logo/Logo.story.js');
   require('../app/components/elements/MenuItem/MenuItem.story.js');
