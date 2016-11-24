@@ -15,6 +15,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 ### Changed
 
 - Redirect user to the page where user was before login/sign up [#2758](https://github.com/sharetribe/sharetribe/pull/2758)
+- Updated NPM packages [#2762](https://github.com/sharetribe/sharetribe/pull/2762)
 
 ### Deprecated
 
