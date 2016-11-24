@@ -18,6 +18,10 @@ config.module.loaders.push(
     include: path.resolve(__dirname, '../'),
   },
   {
+    test: /\.scss$/,
+    loaders: ['style-loader', 'css-loader', 'sass-loader'],
+  },
+  {
     test: /\.(woff2?)$/,
     loader: 'url?limit=10000',
   },
