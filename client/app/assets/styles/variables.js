@@ -14,6 +14,8 @@ const fontSizeMobile = '17px';
 const fontWeightMedium = '500';
 const fontWeightSemibold = '600';
 
+const proximaNovaFontFamily = "'Proxima Nova Soft', Helvetica, sans";
+
 const lineHeight = 22;
 
 const textColor = 'rgb(82, 89, 97)';
@@ -107,6 +109,8 @@ module.exports = {
   '--colorButtonHover': '#4d998b',
   '--colorButtonGhost': '#26806F',
 
+  '--colorReservedAvailability': '#2AB865',
+
   '--customColorFallback': customColorFallback,
   '--customColor2Fallback': customColor2Fallback,
 
@@ -141,7 +145,7 @@ module.exports = {
   '--Topbar_logoMaxHeight': '40px',
   '--Topbar_logoMaxHeightTablet': '36px',
   '--Topbar_logoMaxHeightMobile': '32px',
-  '--Topbar_fontFamily': "'Proxima Nova Soft', Helvetica, sans",
+  '--Topbar_fontFamily': proximaNovaFontFamily,
   '--Topbar_borderColor': 'rgba(0, 0, 50, 0.1)',
 
    // Must be at least 16px to avoid iOS from zooming in when focusing
@@ -359,4 +363,6 @@ module.exports = {
   '--FlashNotification_closeIconExtraSpace': '20px',
 
   '--SideWinder_overlayZIndex': 999,
+
+  '--EditAvailability_fontFamily': proximaNovaFontFamily,
 };
