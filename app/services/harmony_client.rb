@@ -1,18 +1,6 @@
 HarmonyClient = ServiceClient::Client.new(
   APP_CONFIG.harmony_api_url,
-  {
-    # Bookables
-    create_bookable: "/bookables/create",
-    show_bookable: "/bookables/show",
-
-    # Timeslots
-    query_timeslots: "/timeslots/query",
-
-    # Bookings
-    initiate_booking: "/bookings/initiate",
-    accept_booking: "/bookings/accept",
-    reject_booking: "/bookings/reject"
-  },
+  HarmonyEndpoints::ENDPOINT_MAP,
   [
     ServiceClient::Middleware::Retry.new,
     ServiceClient::Middleware::RequestID.new,
