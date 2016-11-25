@@ -51,11 +51,11 @@ ar:
       send_instructions: "سيتم ارسال رسالة لبريدك الإلكتروني لتفاصيل فك حظر الحساب في غضون دقائق."
       unlocked: "لقدم تم فك الحظر عن حسابك بنجاح. قم بتسجيل الدخول الآن للإستمرار."
     omniauth_callbacks:
-      success: "لقت تم التفعيل بنجاح بواسطة حساب ‎%{kind}‎"
-      failure: "نأسف. لم يتم تفعيلك من قبل ‎%{kind}‎ بسبب \"‎%{reason}‎\"."
+      success: "‎%{kind}‎ لقت تم التفعيل بنجاح بواسطة حساب"
+      failure: ".\"‎%{reason}‎\" بسبب ‎%{kind}‎ نأسف. لم يتم تفعيلك من قبل"
     mailer:
       confirmation_instructions:
-        subject: "تعليمات التأكيد للإنضمام إلى ‎%{service_name}‎"
+        subject: "‎%{service_name}‎ تعليمات التأكيد للإنضمام إلى"
       reset_password_instructions:
         subject: "تعليمات إعادة إنشاء كلمة المرور"
       unlock_instructions:

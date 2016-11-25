@@ -2,46 +2,46 @@ ar:
   admin:
     categories:
       edit:
-        edit_listing_category: ~
+        edit_listing_category: "‎%{category}‎ تعديل القسم"
       index:
-        listing_categories: ~
-        create_a_new_category: ~
-        remove_category_confirmation: ~
-        saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
+        listing_categories: "أقسام الإعلان"
+        create_a_new_category: "+ أضف قسم جديد"
+        remove_category_confirmation: "؟‎%{category_name}‎ هل أنت متأكد من حذف القسم"
+        saving_order: "حفظ ترتيب القسم"
+        save_order_successful: "تم حفظ ترتيب القسم بنجاح"
+        save_order_error: "فشل في الحفظ. رجاء قم بإعادة تهيئة الصفحة وأعد المحاولة مرة أخرى."
       new:
-        new_listing_category: ~
+        new_listing_category: "قسم إعلان جديد"
       form:
         category_name:
-          category_title: ~
+          category_title: "اسم القسم"
         category_parent:
-          category_parent: ~
-          no_parent: ~
+          category_parent: "قسم متفرع"
+          no_parent: "قسم رئيسي"
         category_transaction_types:
-          transaction_types: ~
+          transaction_types: "نوع الطلبات"
           transaction_types_description: ~
-          select_all: ~
-          clear_all: ~
+          select_all: "تحديد الكل"
+          clear_all: "إلغاء تحديد الكل"
         buttons:
-          save: ~
-          cancel: ~
+          save: حفظ
+          cancel: إلغاء
       remove:
-        remove_category: ~
-        remove_category_name: ~
-        warning_remove_effects: ~
-        select_new_category: ~
+        remove_category: "حذف القسم"
+        remove_category_name: "‎%{category_name}‎ حذف القسم"
+        warning_remove_effects: ":سيؤثر على ‎%{category_name}‎ تحذير! حذف القسم"
+        select_new_category: "اختر قسم جديد الذي سيتم نقل العناصر المدرجة أعلاه إليه:"
         buttons:
-          remove: ~
-          cancel: ~
+          remove: حذف
+          cancel: إلغاء
     communities:
       edit_details:
         community_details: "التفاصيل الأساسية"
         community_look_and_feel: التصميم
         edit_community: "التفاصيل الأساسية"
-        enabled_languages: ~
-        enabled_languages_description: ~
-        default_language: ~
+        enabled_languages: "تفعيل اللغات"
+        enabled_languages_description: "قم بتحديد اللغ الأساسية للمستخدمين الخيار الأول يكون الأساسي"
+        default_language: "اللغة الأساسية"
         language_selection_disabled: ~
         community_name: "اسم السوق الإلكتروني"
         edit_community_name_description: ~
@@ -49,99 +49,99 @@ ar:
         edit_community_slogan_description: ~
         community_description: "وصف السوق الإلكتروني"
         edit_community_description_description: ~
-        community_search_placeholder: ~
+        community_search_placeholder: "ابحث في نص المساعدة"
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
         update_information: "حفظ الإعدادات"
-        invite_people: ~
-        edit_signup_info: ~
+        invite_people: "‎%{service_name}‎ قم بدعوة مشتركين آخرين إلى"
+        edit_signup_info: "معلومات الإشتراك"
         edit_signup_info_description: ~
-        edit_info: ~
-        see_how_it_looks_like: ~
+        edit_info: "تعديل المعلومات"
+        see_how_it_looks_like: "شاهد كيف تظهر"
         verification_to_post_listings_info_content: ~
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: ~
-        save: ~
-        transaction_agreement: ~
-        transaction_agreement_checkbox: ~
-        transaction_agreement_checkbox_header: ~
+        contact_admin_link_text: "تواصل مع المشرف"
+        save: "حفظ الإعدادات"
+        transaction_agreement: "اتفاق العملية"
+        transaction_agreement_checkbox: "اجبار المستخدم على قبول اتفاق قبل العملية"
+        transaction_agreement_checkbox_header: "عنوان الاتفاق"
         transaction_agreement_checkbox_label_description: ~
-        transaction_agreement_text_header: ~
+        transaction_agreement_text_header: "محتوى الاتفاق"
         transaction_agreement_description: ~
       edit_look_and_feel:
-        edit_community_look_and_feel: "تحرير مظهر السوق الإلكتروني \"‎%{community_name}‎\""
+        edit_community_look_and_feel: "‎%{community_name}‎ تحرير مظهر السوق الإلكتروني"
         community_logo: الشعار
-        community_logo_icon: ~
+        community_logo_icon: "شعار لوسائل التواصل الاجتماعي وأجهزة المحمول"
         community_cover_photo: "صورة الواجهة"
-        small_community_cover_photo: ~
-        favicon: ~
+        small_community_cover_photo: "صورة غطاء صغيرة"
+        favicon: "شعار المتصفح"
         favicon_info_text: ~
         community_custom_color1: "اللون الرئيسي"
-        new_listing_button_custom_color: ~
+        new_listing_button_custom_color: "لون زر الإضافة الجديدة"
         logo_instructions_text_with_dimensions: ~
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions_no_placing: ~
-        cover_photo_visibility: ~
+        cover_photo_visibility: "صورة الغطاء تظهر في الصفحة الرئيسية للمستخدمين الغير مسجلين."
         cover_photo_instructions_text_with_dimensions: ~
-        small_cover_photo_visibility: ~
+        small_cover_photo_visibility: "صورة الغطاء المصغرة تظهر في كل الصفحات ما عدا الصفحة الرئيسية للمستخدمين المسجلين"
         small_cover_photo_instructions_text_with_dimensions: ~
         main_content_width: ~
         custom_color1_instructions_text: ~
         new_listing_button_instructions_text: ~
-        default_browse_view: ~
+        default_browse_view: "عرض كمتصفح عادي"
         default_browse_view_instructions_text: ~
-        grid: ~
-        list: ~
-        map: ~
-        name_display_type: ~
-        name_display_type_instructions_text: ~
-        full_name: ~
-        first_name_with_initial: ~
-        first_name_only: ~
-        invalid_color_code: ~
-        custom_head_script: ~
+        grid: شبكة
+        list: قائمة
+        map: خارطة
+        name_display_type: "نوع عرض الإسم"
+        name_display_type_instructions_text: "اختر كيف سيتم عرض اسم المستخدم في الموقع"
+        full_name: "كامل الإسم (الأول والأخير)"
+        first_name_with_initial: "عرض جزئي (الأول ...)"
+        first_name_only: "الإسم الأول فقط (الأول)"
+        invalid_color_code: "رمز اللون يجب أن يحتوي على ٦ أرقام أو أحرف A-F، مثال: D96E21"
+        custom_head_script: "كود مخصص"
         custom_head_script_instructions_text: ~
       edit_text_instructions:
-        edit_text_instructions: ~
+        edit_text_instructions: تعليمات
       edit_welcome_email:
-        welcome_email_content: ~
+        welcome_email_content: "محتوى الرسالة الترحيبية"
         welcome_email_content_description: ~
-        edit_message: ~
-        send_test_message: ~
+        edit_message: "تعديل الرسالة"
+        send_test_message: "أرسل رسالة تجريبية"
       outgoing_email:
-        title: ~
+        title: "الإيميل المرسل"
         info: ~
         read_more: ~
-        sender_address: ~
+        sender_address: "‎%{sender_address}‎ :إيميل المرسل"
         sender_address_default: ~
-        need_to_change: ~
-        contact_support_link_text: ~
-        set_sender_address: ~
-        sender_name_label: ~
-        sender_name_placeholder: ~
-        sender_email_label: ~
-        sender_email_placeholder: ~
-        this_is_how_it_will_look: ~
-        send_verification_button: ~
-        successfully_saved: ~
-        status: ~
-        status_verified: ~
-        status_error: ~
+        need_to_change: "‎%{contact_support_link}‎ إذا أردت تغيير البريد الإلكتروني تواصل مع الدعم الفني"
+        contact_support_link_text: "اتصل بالدعم الفني الخاص بـ Sharetribe"
+        set_sender_address: "تعيين عنوان المرسل"
+        sender_name_label: الإسم
+        sender_name_placeholder: "اسم المرسل"
+        sender_email_label: "البريد الإلكتروني"
+        sender_email_placeholder: sender-email@example.com
+        this_is_how_it_will_look: "هكذا تبدو:"
+        send_verification_button: "أرسل رسالة التأكيد"
+        successfully_saved: "تم حفظ بريد المرسل بنجاح، سيتم إرسال رسالة التأكيد حالا"
+        status: "‎%{status}‎ :الحالة"
+        status_verified: مؤكد-مستخدم
+        status_error: "حصل خطأ ما. يرجى إعادة تهيئة الصفحة."
         status_requested: ~
         status_expired: ~
-        status_resent: ~
-        resend_link: ~
-        invalid_email_error: ~
+        status_resent: "تم ارسال رابط التأكيد مرة أخري ‎%{email}‎ ‎%{resend_link}‎"
+        resend_link: "إعادة الإرسال"
+        invalid_email_error: "خطأ في البريد الإلكتروني \"‎%{email}‎\""
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
-        unknown_error: ~
+        unknown_error: "حصل خطأ ما"
         white_label_offer: ~
         upgrade_plan_link: ~
-        verification_sent_from: ~
-        follow_the_instructions: ~
+        verification_sent_from: "تم ارسال رسالة التأكيد عبر ‎%{verification_sender_name}‎"
+        follow_the_instructions: "يرجى اتباع التعليمات في البريد الإلكتروني لتأكيد عنوانك"
       getting_started:
         getting_started: ~
       available_languages:
@@ -167,78 +167,78 @@ ar:
         ja: ~
         it: ~
       settings:
-        settings: ~
-        general: ~
-        access: ~
-        join_with_invite_only: ~
-        users_can_invite_new_users: ~
-        private: ~
-        require_verification_to_post_listings: ~
-        search_preferences: ~
-        default_search_type: ~
-        keyword_search: ~
-        keyword_and_location_search: ~
-        location_search: ~
-        select_distance_unit: ~
-        km: ~
-        miles: ~
-        show_only_nearby: ~
-        listing_preferences: ~
-        transaction_preferences: ~
+        settings: إعدادات
+        general: عام
+        access: "قبول التفضيلات"
+        join_with_invite_only: "كل المشتركين يحق لهم الإشتراك إذا قام مشتركين مسجلين سابقا بدعوتهم"
+        users_can_invite_new_users: "السماح لكل المشتركين بدعوة الآخرين"
+        private: "السماح فقد للمشتركين المسجلين بمشاهدة الإعلانات والملفات الشخصية، اجعل هذا السوق خاص"
+        require_verification_to_post_listings: "السماح فقط للمشتركين المؤكدين من المشرف بإضافة إعلانات"
+        search_preferences: "تفضيلات البحث"
+        default_search_type: "‎%{select_search_type}‎ :نوع البحث"
+        keyword_search: "بحث بالكلمة"
+        keyword_and_location_search: "طرق البحث بالكلمة والموقع"
+        location_search: "بحث بالموقع"
+        select_distance_unit: "أظهر المسافة بـ ‎%{distance_units_selector}‎"
+        km: كلم
+        miles: ميل
+        show_only_nearby: "أظهر فقط الإعلانات القريبة عند البحث بواسطة الموقع"
+        listing_preferences: "تفضيلات الإعلان"
+        transaction_preferences: "تفضيلات الطلب"
         show_listing_publishing_date: ~
         show_category_in_listing_list: ~
         hide_expiration_date: ~
         listing_comments_in_use: ~
-        email_preferences: ~
+        email_preferences: "تفضيلات البريد الإلكتروني"
         automatic_newsletters: ~
         email_admins_about_new_members: ~
         google_analytics_key: ~
         twitter_handle: ~
-        update_settings: ~
+        update_settings: "حفظ الإعدادات"
         automatically_confirmed_no_escrow: ~
-        automatic_newsletter_frequency: ~
-        newsletter_daily: ~
-        newsletter_weekly: ~
+        automatic_newsletter_frequency: "‎%{frequency_dropdown}‎: أرسل نشرات إخبارية تلقائيا"
+        newsletter_daily: يومي
+        newsletter_weekly: أسبوعي
         delete_marketplace_title: ~
         type_marketplace_domain: ~
         type_marketplace_domain_placeholder: ~
         once_you_delete: ~
-        are_you_sure: ~
+        are_you_sure: "هل أنت متأكد؟"
         i_understand_button: ~
         last_community_updates: ~
         you_will_be_redirected_to: ~
         delete_this_marketplace: ~
       manage_members:
-        manage_members: ~
-        email: ~
-        name: ~
-        join_date: ~
-        admin: ~
-        posting_allowed: ~
-        ban_user: ~
-        saving_user_status: ~
-        save_user_status_successful: ~
-        export_all_as_csv: ~
-        save_user_status_error: ~
+        manage_members: "إدارة المستخدمين"
+        email: "بريد إلكتروني"
+        name: الإسم
+        join_date: "تم الإنضمام"
+        admin: المشرف
+        posting_allowed: "النشر مسموح"
+        ban_user: "حظر المستخدم"
+        saving_user_status: "جاري الحفظ..."
+        save_user_status_successful: "تم الحفظ"
+        export_all_as_csv: "استخرج الكل في ملف إكسل"
+        save_user_status_error: "فشل في الحفظ. رجاء قم بإعادة تهيئة الصفحة وأعد المحاولة مرة أخرى."
         ban_user_confirmation: ~
-        ban_me_error: ~
+        ban_me_error: "لا يمكنك حظر نفسك"
       new_layout:
-        new_layout: ~
+        new_layout: "تصميم جديد"
         description_roadmap: ~
         description_process: ~
-        enabled_for_you: ~
-        enabled_for_all: ~
-        new_topbar: ~
-        searchpage: ~
+        enabled_for_you: "مفعل لك فقط"
+        enabled_for_all: "تفعيل للكل"
+        new_topbar: "قائمة علوية جديدة (متوفر على كل صفحة)"
+        searchpage: "صفحة بحث جديدة تحتاج إلى شريط علوي جديد"
       social_media:
-        social_media: ~
+        social_media: "وسائل التواصل الاجتماعي"
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
-        twitter_instructions_link_text: ~
-        twitter_handle_placeholder: ~
+        twitter_instructions_link_text: "إقرأ المزيد"
+        twitter_handle_placeholder: "اسم المستخدم"
         invalid_twitter_handle: ~
-        facebook_connect: ~
+        facebook_connect: فيسبوك
         facebook_connect_info_text: ~
         facebook_connect_info_text_with_instructions: ~
         facebook_instructions_link_text: ~
@@ -246,254 +246,268 @@ ar:
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
-        save: ~
+        save: "حفظ الإعدادات"
       analytics:
-        analytics: ~
+        analytics: تحليلات
         google_analytics_key: ~
         google_analytics_key_info_text: ~
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
-        save: ~
+        save: "حفظ الإعدادات"
       menu_links:
-        menu_links: ~
-        save: ~
+        menu_links: "روابط القائمة"
+        save: "حفظ الإعدادات"
         add_menu_link: ~
         title_placeholder: ~
         url_placeholder: ~
-        title: ~
-        language: ~
-        url: ~
+        title: العنوان
+        language: اللغة
+        url: الرابط
         empty: ~
         max_number_of_links: ~
-        all: ~
+        all: "إظهار الكل"
         max_number_of_links_info: ~
-        about_page: ~
+        about_page: نبذة
       topbar:
-        topbar: ~
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        topbar: "القائمة العلوية"
+        new_listing_button_label: "أدخل نص جديد لزر الإضافة الجديدة"
+        invalid_post_listing_button_label: "يرجى إعطاء نص صحيح لزر \"إدراج إعلان جديد\""
       transactions:
-        export_all_as_csv: ~
-        transactions: ~
+        export_all_as_csv: "استخرج الكل في ملف إكسل"
+        transactions: "أظهر العملية"
         headers:
           conversation: ~
-          listing: ~
-          status: ~
-          sum: ~
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
+          listing: إعلان
+          status: الحالة
+          sum: المجموع
+          started: بدأ
+          last_activity: "التفاعل الأخير"
+          initiated_by: البداية
+          other_party: "جهة أخرى"
         status:
-          free: ~
-          pending: ~
-          preauthorized: ~
-          accepted: ~
-          rejected: ~
-          paid: ~
-          confirmed: ~
-          canceled: ~
+          free: محادثة
+          pending: "قيد الإنتظار"
+          preauthorized: مخول
+          accepted: مقبول
+          rejected: مرفوض
+          paid: مدفوع
+          confirmed: مؤكد
+          canceled: ملغى
           initiated: ~
           pending_ext: ~
-        not_available: ~
+        not_available: "غير متوفر"
       paypal_account:
-        paypal_admin_account: ~
+        paypal_admin_account: "نظام الدفع"
     custom_fields:
       edit:
-        edit_listing_field: ~
+        edit_listing_field: "‎%{field_name}‎ تعديل حقل الإعلان"
       edit_price:
-        description: ~
-        edit_price_field: ~
-        show_price_filter_homepage: ~
-        price_min: ~
-        price_max: ~
+        description: "أقل وأكبر قيمة للسعر فقط تؤثر على الفرز. ولا تحدد سعر الإعلان"
+        edit_price_field: "تعديل حقل السعر"
+        show_price_filter_homepage: "أضف فرز بالسعر إلى الصفحة الرئيسية"
+        price_min: "أقل قيمة لفرز السعر"
+        price_max: "أكبر قيمة لفرز السعر"
       edit_location:
-        edit_location_field: ~
-        this_field_is_required: ~
+        edit_location_field: "تحرير حقل الموقع"
+        this_field_is_required: "هذا الحقل إجباري"
       form:
         field_required:
-          this_field_is_required: ~
+          this_field_is_required: "اجعل هذا الحقل إجباري عندما يتم إنشاء إعلان جديد"
           this_field_is_required_checkbox: ~
         search_filter:
-          search_filter: ~
-          date_cant_be_filtered: ~
-          text_cant_be_filtered: ~
+          search_filter: "عرض طريقة الفرز باستخدام هذا الحقل في الصفحة الرئيسية"
+          date_cant_be_filtered: "لا يوجد طريقة فرز لتاريخ حقل"
+          text_cant_be_filtered: "لا يوجد طريقة فرز لحقل كلمة. حقل البحث في الموقع يؤدي غرض البحث عن كلمة."
       index:
-        listing_fields: ~
+        listing_fields: "فرز وحقول الإعلانات"
         listing_fields_help: ~
-        add_new_field: ~
-        remove_field_confirmation: ~
-        cancel: ~
-        save: ~
-        field_title: ~
-        field_type: ~
-        categories: ~
-        select_all: ~
-        clear_all: ~
-        options: ~
-        add_option: ~
-        saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
-        select_one: ~
-        continue: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
+        add_new_field: "أضف حقل جديد"
+        remove_field_confirmation: "؟‎%{field_name}‎ هل أنت متأكد من حذف الحقل"
+        cancel: إلغاء
+        save: حفظ
+        field_title: "عنوان الحقل"
+        field_type: "نوع الحقل"
+        categories: "أقسام الأعلانات حيث سيتم استخدام الحقل"
+        select_all: "تحديد الكل"
+        clear_all: "إلغاء تحديد الكل"
+        options: خيارات
+        add_option: "+أضف خيارات"
+        saving_order: "حفظ ترتيب الحقل"
+        save_order_successful: "تم حفظ ترتيب الحقل بنجاح"
+        save_order_error: "فشل في الحفظ. رجاء قم بإعادة تهيئة الصفحة وأعد المحاولة مرة أخرى."
+        select_one: "حدد نوع الحقل"
+        continue: استمرار
+        minimum_value: أقل
+        maximum_value: أكثر
+        allow_decimals: "السماح بـالأرقام العشرية"
       new:
-        new_listing_field: ~
+        new_listing_field: "حقل إعلان جديد"
       field_types:
-        text: ~
-        number: ~
-        dropdown: ~
-        checkbox_group: ~
-        date: ~
+        text: نص
+        number: رقم
+        dropdown: "قائمة عرض"
+        checkbox_group: "اختيار متعدد"
+        date: تاريخ
     emails:
       new:
-        send_email_to_members: ~
-        send_email_to_members_title: ~
-        email_subject: ~
-        email_content: ~
-        email_content_placeholder: ~
-        email_language: ~
-        any_language: ~
-        send_email: ~
-        message_will_be_sent_only_to_people_with_this_language: ~
-        email_sent: ~
+        send_email_to_members: "أرسل رسالة إلى مستخدمين"
+        send_email_to_members_title: "أرسل رسالة إلى جميع المستخدمين"
+        email_subject: "موضوع الرسالة"
+        email_content: "محتوى الرسالة"
+        email_content_placeholder: "ماذا تود أن تقول لهذا المستخدم؟"
+        email_language: "لغة مستقبلي الرسالة"
+        any_language: "أي لغة"
+        send_email: "أرسل الرسالة"
+        message_will_be_sent_only_to_people_with_this_language: "حسب اللغة التي اخترتها ‎%{service_name}‎ ملاحظة سيتم ارسال الرسالة فقط إلى الشخاص الذين سيتعملون"
+        email_sent: "تم إرسال الرسالة"
     left_hand_navigation:
-      general: ~
-      users_and_transactions: ~
-      configure: ~
-      emails_title: ~
-      support: ~
-      subscription: ~
-      preview: ~
+      general: عام
+      users_and_transactions: "المستخدمين والعمليات"
+      configure: تعديل
+      emails_title: "عناوين بريدية"
+      support: "الدعم الفني"
+      subscription: الإشتراك
+      preview: "معاينة الموقع"
     listing_shapes:
-      availability_title: ~
+      availability_title: الإتاحة
       read_more: ~
-      allow_availability_management: ~
-      per_day_availability: ~
-      per_night_availability: ~
-      pricing_units_disabled_info: ~
+      allow_availability_management: "تفعيل إدارة الفحص التلقائي للمواعيد (لمنع الحجز المزدوج)"
+      per_day_availability: "متاح باليوم"
+      per_night_availability: "متاح بالليلة"
+      pricing_units_disabled_info: "لا يمكن استخدام وحدات الأسعار عندما يكون التقويم مفعل."
       index:
-        listing_shapes: ~
+        listing_shapes: "أنواع الطلب"
         description: ~
         read_more_about_order_types: ~
         add_new_shape: ~
         select_template: ~
-        all_categories: ~
-        no_categories: ~
-        category_count: ~
+        all_categories: "كل الأقسام"
+        no_categories: "لا يوجد أقسام"
+        category_count: "قسم ‎%{category_count}‎"
         header:
-          listing_shape_name: ~
-          listing_shape_categories: ~
+          listing_shape_name: "اسم نوع الطلب"
+          listing_shape_categories: "الأقسام التي سيستخدم فيها"
         order:
-          saving_order: ~
-          save_order_successful: ~
+          saving_order: "حفظ الطلب"
+          save_order_successful: "تم حفظ نوع الطلب بنجاح"
           save_order_error: ~
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
-        announcement: ~
-        custom: ~
+        selling_products: "بيع منتج"
+        renting_products: "تأجير منتج"
+        offering_services: "عرض خدمة"
+        giving_things_away: "العرض مجانا"
+        requesting: طلب
+        announcement: "إعلان عام"
+        custom: مخصص
       new:
-        create_listing_shape: ~
-        create: ~
-        cancel: ~
-        create_success: ~
+        create_listing_shape: "إنشاء نوع طلب"
+        create: إنشاء
+        cancel: إلغاء
+        create_success: "‎%{shape}‎ تم انشاء نوع طلب جديد"
         create_failure: ~
       edit:
-        edit_listing_shape: ~
-        update: ~
-        cancel: ~
-        update_success: ~
+        edit_listing_shape: "‎%{shape}‎ تحرير نوع الطلب"
+        update: حفظ
+        cancel: إلغاء
+        update_success: "تم حفظها ‎%{shape}‎ تغييرات إلى نوع الطلب"
         update_failure: ~
-        delete: ~
+        delete: "حذف نوع الطلب"
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
-      listing_shape_name_placeholder: ~
-      action_button_label: ~
-      action_button_placeholder: ~
-      successfully_closed: ~
+      listing_shape_name: الإسم
+      listing_shape_name_placeholder: "مثال. بيع"
+      action_button_label: "تسمية زر المحاسبة"
+      action_button_placeholder: "مثال. شراء"
+      successfully_closed: "تم إغلاق الإعلان بنجاح"
       successfully_deleted: ~
-      pricing_and_checkout_title: ~
-      online_payments_label: ~
-      shipping_label: ~
-      price_label: ~
-      units_title: ~
+      pricing_and_checkout_title: "التسعير والخروج"
+      online_payments_label: "السماح للبائعين باستقبال دفعات عبر الإنترنت"
+      shipping_label: "السماح للبائعين بتحديد سعر الشحن"
+      price_label: "السماح للبائعين بوضع سعر لإعلاناتهم"
+      units_title: "وحدة التسعير"
       units_desc: ~
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: بالقطعة
+        hour: بالساعة
+        day: باليوم
+        night: بالليلة
+        week: بالأسبوع
+        month: بالشهر
       can_not_find: ~
-      add_custom_unit: ~
-      delete_custom_unit: ~
+      add_custom_unit: "+أضف وحدة سعر خاصة..."
+      delete_custom_unit: حذف
       custom_unit_form:
-        title: ~
-        label_heading: ~
-        selector_label_heading: ~
-        label_placeholder: ~
-        selector_placeholder: ~
-        per: ~
+        title: "وحدة سعر جديدة"
+        label_heading: تسمية
+        selector_label_heading: "محدد التسمية"
+        label_placeholder: "مثال. \"كيلو\"، \"٣٠ دقيقة\"، \"شخص\"، \"حصة\""
+        selector_placeholder: "مثال. \"عدد الأشخاص\" ، \"الكمية بالكيلو\""
+        per: بـ
         unit_type:
-          heading: ~
-          quantity_label: ~
-          time_label: ~
+          heading: "نوع الوحدة"
+          quantity_label: "الكمية (بالقطعة، بالكيلو، بالشخص، بالساعة...)"
+          time_label: "الوقت (بالـ ٣٠ دقيقة، بالثلاثة أسابيع، بالسنة...)"
+      close_listings_action:
+        zero: "إعلان ‎%{count}‎ إغلاق"
+        one: "إعلان ‎%{count}‎ إغلاق"
+        two: "إعلان ‎%{count}‎ إغلاق"
+        few: "إعلانات ‎%{count}‎ إغلاق"
+        many: "إعلان ‎%{count}‎ إغلاق"
+        other: "إعلان ‎%{count}‎ إغلاق"
+      confirm_close_listings_action:
+        zero: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
+        one: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
+        two: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
+        few: "إعلانات ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
+        many: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
+        other: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
     paypal_accounts:
-      marketplace_paypal_integration: ~
-      preferences_updated: ~
-      contact_support_link_text: ~
+      marketplace_paypal_integration: "مفضلات نظام الدفع"
+      preferences_updated: "تم تحديث تفضيلات نظام الدفع"
+      contact_support_link_text: "اتصل بالدعم الفني"
       integration_info_text: ~
-      link_paypal_personal_account_label: ~
+      link_paypal_personal_account_label: "هل تقوم بتقديم خدمات أو منتجات بنفسك؟"
       link_paypal_personal_account: ~
-      personal_payment_preferences_link_text: ~
+      personal_payment_preferences_link_text: "حسابك الخاص في السوق الإلكتروني"
       read_more_about_paypal: ~
-      edit_payment_settings: ~
+      edit_payment_settings: "تعديل إعدادات طريقة الدفع"
       supported_currencies_information_text: ~
       currency_change_warning_text: ~
-      marketplace_currency_label: ~
+      marketplace_currency_label: ":عملة السوق الإلكتروني"
       minimum_listing_price_label: ~
       transaction_fee_label: ~
       minimum_transaction_fee_label: ~
-      save_settings: ~
+      save_settings: "حفظ الإعدادات"
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
     transaction_types:
-      sell: ~
-      rent: ~
-      give: ~
-      lend: ~
-      swap: ~
-      service: ~
-      request: ~
-      inquiry: ~
-      share_for_free: ~
+      sell: بيع
+      rent: تأجير
+      give: مجانا
+      lend: إعارة
+      swap: مبادلة
+      service: عرض
+      request: طلب
+      inquiry: تصريح
+      share_for_free: "المشاركة مجانا"
       default_action_button_labels:
-        sell: ~
-        rent: ~
-        request: ~
-        offer: ~
-        inquiry: ~
+        sell: شراء
+        rent: تأجير
+        request: عرض
+        offer: طلب
+        inquiry: اتصال
   common:
-    edit_page: ~
+    edit_page: "حرر الصفحة"
     default_community_slogan: "سوق اجتماعي"
-    default_community_description: ~
+    default_community_description: "هذا المكان لبيع، تأجير، مبادلة ومشاركة المنتجات والخدمات مع الأعضاء الآخرين في السوق الإلكتروني"
     cancel: إلغاء
     fields_that_are_mandatory: "الحقول المعلمة بـ (*) هي حقول إجبارية"
     or: أو
     password: "كلمة المرور"
-    service_name: ~
+    service_name: "‎%{service_name}‎"
     share_types:
-      request: ~
-      offer: ~
+      request: طلب
+      offer: عرض
       borrow: إعارة
       buy: شراء
       give_away: مجانا
@@ -502,8 +516,8 @@ ar:
       rent: تأجير
       rent_out: تأجير
       sell: بيع
-      offer_to_swap: ~
-      request_to_swap: ~
+      offer_to_swap: مبادلة
+      request_to_swap: مبادلة
       share_for_free: "شارك مجانا"
       accept_for_free: "أريد الاستخدام مجانا"
     categories:
@@ -511,66 +525,66 @@ ar:
       favor: خدمات
       rideshare: توصيلة
       housing: مساحات
-      tools: ~
-      sports: ~
-      music: ~
-      books: ~
-      games: ~
-      furniture: ~
-      outdoors: ~
-      food: ~
-      electronics: ~
-      pets: ~
-      film: ~
-      clothes: ~
-      garden: ~
-      travel: ~
-      other: ~
+      tools: أدوات
+      sports: "نشاطات رياضية"
+      music: موسيقى
+      books: "كتب ومجلات"
+      games: ألعاب
+      furniture: عفش
+      outdoors: "التخييم والخروج"
+      food: "الطعام والمطبخ"
+      electronics: إلكترونيات
+      pets: "حيوانات أليفة"
+      film: "أفلام وبرامج"
+      clothes: "ملابس وإكسسوارات"
+      garden: الحديقة
+      travel: السفر
+      other: أخرى
     username: "اسم المستخدم"
     username_or_email: "بريد إلكتروني أو اسم المستخدم"
     what_is_this: "ما هذا؟"
-    removed_user: ~
+    removed_user: "مستخدم محذوف"
     paypal_fee_info:
       title: ~
       body_text: ~
       body_with_shipping_text: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: هنا
   conversations:
     accept:
-      details: ~
-      order_by: ~
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
-      close_listing: ~
-      update_later: ~
-      optional_message: ~
-      price_to_pay: ~
-      accept: ~
-      decline: ~
-      quantity_label: ~
-      sum_label: ~
-      service_fee_label: ~
-      you_will_get_label: ~
-      total_label: ~
-      total_value: ~
+      details: "تفاصيل الطلب"
+      order_by: "‎%{orderer_link}‎ طلب بواسطة"
+      accept_offer: "اقبل العرض"
+      accept_request: "اقبل الطلب"
+      reject_offer: "ليس الآن"
+      reject_request: "ليس الآن"
+      close_listing: "‎%{listing_title_link}‎ أغلق الإعلان"
+      update_later: "اترك الإعلان مفتوحا"
+      optional_message: "رسالة اختيارية"
+      price_to_pay: "المجموع الذي يجب دفعه"
+      accept: قبول
+      decline: رفض
+      quantity_label: "الكمية:"
+      sum_label: "المجموع الفرعي:"
+      service_fee_label: ":‎%{service_name}‎ رسوم خدمة"
+      you_will_get_label: "ستحصل على:"
+      total_label: "المجموع:"
+      total_value: "*‎%{seller_gets}‎"
       paypal_fee_info: ~
-      shipping_price_label: ~
+      shipping_price_label: "الشحن:"
     confirm:
-      confirm_description: ~
-      cancel_description: ~
-      cancel_payed_description: ~
-      canceling_payed_transaction: ~
-      confirm: ~
-      cancel: ~
-      continue: ~
-      give_feedback_to: ~
-      do_not_give_feedback: ~
+      confirm_description: "إذا تم إكمال طلبك يجب عليك تأكيد ذلك بعدها يمكنك إعطاء رأيك"
+      cancel_description: "إذا لم يتم إتمام طلبك يمكنك تحديده بـ \"خلاف\" ومازال باستطاعتك إعطاء رأيك في الجهة الأخرى وشرح ما حدث"
+      cancel_payed_description: "إذا تم قبول طلبك ولكن ما زلت في شك من قرارك يمكنك إلغاء الطلب قبل إتمام عملية الدفع"
+      canceling_payed_transaction: "إلغاء العملية"
+      confirm: مكتملة
+      cancel: خلاف
+      continue: استمرار
+      give_feedback_to: "‎%{person_link}‎ أعط رأيك في"
+      do_not_give_feedback: "تخطى الرأي"
     details:
-      day: ~
-      days: ~
-      price_per_day: ~
+      day: يوم
+      days: أيام
+      price_per_day: "‎%{price}‎: السعر باليوم"
     index:
       loading_more_messages: "تحميل رسائل إضافية"
       message_partitive: رسالة
@@ -578,96 +592,96 @@ ar:
       no_received_messages: "لا توجد رسائل"
       no_sent_messages: "لا توجد رسائل مرسلة"
     conversation:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      message_from: ~
-      about_listing: ~
-      free_message: ~
-      message_content_not_available: ~
+      accepted_request: "تم قبول الطلب"
+      accepted_offer: "تم قبول العرض"
+      rejected_request: "تم رفض الطلب"
+      rejected_offer: "تم رفض العرض"
+      confirmed_request: "تم إكمال الطلب"
+      confirmed_offer: "تم إكمال العرض"
+      canceled_request: "تم إلغاء الطلب"
+      canceled_offer: "تم إلغاء العرض"
+      message_from: "‎%{person}‎ رسالة من"
+      about_listing: "‎%{listing_title}‎ عن الإعلان"
+      free_message: "رسالة مجانية"
+      message_content_not_available: "محتوى الرسالة غير متوفر"
     message:
-      accepted_request: ~
-      received_payment: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      paid: ~
+      accepted_request: "قَبِل الطلب"
+      received_payment: "‎%{sum}‎ قبل الطلب وتم استقبال دفعة بقيمة"
+      accepted_offer: "قَبِل العرض"
+      rejected_request: "رفض الطلب، وألغى عملية الشراء"
+      rejected_offer: "ألغى العرض"
+      confirmed_request: "حدد الطلب بالمكتمل"
+      confirmed_offer: "حدد العرض بالمكتمل"
+      canceled_request: "ألغى الطلب"
+      canceled_offer: "ألغى العرض"
+      paid: "‎%{sum}‎ تم دفع"
       payment_preauthorized: ~
     new:
       message: رسالة
-      message_to: ~
-      optional_message_to: ~
+      message_to: "‎%{author_name}‎ رسالة إلى"
+      optional_message_to: "‎%{author_name}‎ رسالة اختيارية إلى"
       send_message: "ارسل رسالة"
-      send: ~
-      this_message_is_private: ~
-      you_will_get_notified_of_acceptance: ~
-      you_will_get_notified: ~
+      send: أرسل
+      this_message_is_private: "بذلك ‎%{person}‎ سيتم إشعار ‎%{person}‎ هذه الرسالة خاصة بينك وبين"
+      you_will_get_notified_of_acceptance: "برفض أو الموافقة على عرضك ‎%{person}‎ سيصلك إشعار على بريدك عندما يقوم"
+      you_will_get_notified: "على الإجابة عليك ‎%{person}‎ سيصلك إشعار على بريدك عندما يقوم"
       title: عنوان
-      send_message_to_user: "أرسل رسالة إلى ‎%{person}‎"
-      about_listing: ~
-      author_has_to_accept_request: ~
+      send_message_to_user: "‎%{person}‎ أرسل رسالة إلى"
+      about_listing: "‎%{listing_title}‎ عن الإعلان"
+      author_has_to_accept_request: "يجب عليه قبول الطلب قبل أن تتمكن من الدفع ‎%{author_name}‎"
     show:
-      in_response_to_listing: ~
-      message_sent_by: ~
-      message_sent_to: ~
+      in_response_to_listing: "عن الإعلان"
+      message_sent_by: "أرسلت بواسطة"
+      message_sent_to: "أرسلت إلى"
       send_reply: "إرسال رد"
       write_a_reply: "أكتب رسالة:"
-      conversation_about_listing: "مع ‎%{person}‎ عن ‎%{listing}‎"
-      conversation_with_user: "مع ‎%{person}‎"
-      conversation_with: ~
-      last_message_at: ~
-      price: ~
-      sum: ~
-      total: ~
+      conversation_about_listing: "‎%{listing}‎ عن ‎%{person}‎ مع"
+      conversation_with_user: "‎%{person}‎ مع"
+      conversation_with: "‎%{person}‎ محادثة مع"
+      last_message_at: "(‎%{time}‎ الرسالة الأخيرة )"
+      price: "‎ %{price} :السعر"
+      sum: "‎%{sum}‎: المجموع"
+      total: "‎%{total}‎: المجموع"
     status:
       payment_errored: ~
       payment_errored_starter: ~
       payment_errored_author: ~
-      cancel_payed_transaction: ~
+      cancel_payed_transaction: إلغاء
       feedback_given: "تم تقديم الرأي"
       feedback_skipped: "تخطى إعطاء الرأي"
       give_feedback: "أعطي رأيك"
       offer_accepted: مقبول
       offer_rejected: مرفوض
-      offer_canceled: ~
-      offer_confirmed: ~
-      offer_paid: ~
-      offer_preauthorized: ~
-      offer_waiting_for_payment: ~
-      pay: ~
-      preauthorized: ~
-      paid: ~
+      offer_canceled: "تم الإلغاء"
+      offer_confirmed: مكتمل
+      offer_paid: "تم الدفع بنجاح"
+      offer_preauthorized: "تم الدفع بنجاح"
+      offer_waiting_for_payment: "ليتم عملية الدفع ‎%{requester_name}‎ ينتظر"
+      pay: ادفع
+      preauthorized: "تم إتمام عملية الدفع بنجاح"
+      paid: "تم الدفع بنجاح"
       pending_external:
         paypal:
           multicurrency: ~
           verify: ~
           intl: ~
-      waiting_for_current_user_to_deliver_listing: ~
-      waiting_for_listing_author_to_deliver_listing: ~
+      waiting_for_current_user_to_deliver_listing: "‎%{listing_title}‎ ينتظرك لإتمام الطلب على"
+      waiting_for_listing_author_to_deliver_listing: "‎%{listing_title}‎ لاتمام الطلب على ‎%{listing_author_name}‎ ينتظر"
       request_accepted: مقبول
       request_rejected: مرفوض
-      request_confirmed: ~
-      request_canceled: ~
-      request_paid: ~
-      request_preauthorized: ~
+      request_confirmed: مكتمل
+      request_canceled: "تم الإلغاء"
+      request_paid: "تم الدفع بنجاح"
+      request_preauthorized: "تم اعتماد عملية الدفع"
       skip_feedback: "تخطى الرأي"
-      waiting_for_listing_author_to_accept_offer: ~
+      waiting_for_listing_author_to_accept_offer: "ليقبل العرض ‎%{listing_author_name}‎ ينتظر"
       waiting_for_listing_author_to_accept_request: ~
-      waiting_for_you_to_accept_request: ~
-      waiting_confirmation_from_requester: ~
-      waiting_confirmation_from_you: ~
-      waiting_payment_from_requester: ~
-      waiting_payment_from_you: ~
-      waiting_feedback_from_you: ~
+      waiting_for_you_to_accept_request: "ينتظرك لقبول الطلب"
+      waiting_confirmation_from_requester: "ليقوم بتغيير حالة الطلب إلى مكتمل ‎%{requester_name}‎ ينتظر"
+      waiting_confirmation_from_you: "ينتظرك لإكمال العرض"
+      waiting_payment_from_requester: "ليتم عملية الدفع ‎%{requester_name}‎ ينتظر"
+      waiting_payment_from_you: "ينتظرك لإتمام الدفع"
+      waiting_feedback_from_you: "ينتظرك لإعطاء رأيك"
       pending_external_inbox:
         paypal:
           multicurrency: ~
@@ -679,222 +693,230 @@ ar:
       accept_request: "اقبل هذا الطلب"
       reject_offer: "ليس الآن"
       reject_request: "ليس الآن"
-      accept_preauthorized_offer: ~
-      accept_preauthorized_request: ~
-      reject_preauthorized_offer: ~
-      reject_preauthorized_request: ~
-      confirm: ~
-      cancel: ~
+      accept_preauthorized_offer: "اقبل هذا العرض"
+      accept_preauthorized_request: "اقبل هذا الطلب"
+      reject_preauthorized_offer: "ليس الآن"
+      reject_preauthorized_request: "ليس الآن"
+      confirm: مكتملة
+      cancel: خلاف
   feedback:
-    feedback_subject: ~
+    feedback_subject: "‎%{service_name}‎ لا يوجد أي ردود أفعال من"
     feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    unlogged_user: "مستخدم غير مسجل"
+    anonymous_user: "مستخدم مجهول"
   community_memberships:
     access_denied:
-      access_denied: ~
+      access_denied: "الدخول ممنوع"
       you_are_banned_in_this_community: ~
-      contact_page_link: ~
+      contact_page_link: "اتصل بهم"
     new:
-      welcome_fb_user: ~
-      fb_join_accept_terms: ~
-      join_community: "إنضم إلى ‎%{service_name}‎"
-      you_can_join: ~
+      welcome_fb_user: |-
+          !‎%{name}‎
+          ،‎%{service_name}‎
+          أهلا بك في
+      fb_join_accept_terms: "هنالك خطوة أخيرة وهي قبول شروط الإستخدام ‎%{service_name}‎ للإنضمام إلى"
+      join_community: "‎%{service_name}‎ إنضم إلى"
+      you_can_join: "في الأسفل ‎%{service_name}‎ بعد الموافقة على شروط ‎%{service_name}‎ يمكنك الإنضمام إلى"
       you_can_join_email_confirmation: ~
       you_can_join_email_confirmation_multiple_addresses: ~
       you_can_join_with_invite_only: ~
-      if_want_to_view_content: ~
+      if_want_to_view_content: "دون أن تكون عضوا فيها يجب عليك ‎%{service_name}‎ إذا أردت عرض محتوى"
       log_out: "تسجيل الخروج"
-      join_community_button: "إنضم إلى ‎%{service_name}‎"
+      join_community_button: "‎%{service_name}‎ إنضم إلى"
     give_consent:
-      invitation_code_invalid_or_used: ~
-      email_not_allowed: ~
-      email_not_available: ~
-      consent_not_given: ~
+      invitation_code_invalid_or_used: "رمز الدعوة غير صحيح أو مستخدم مسبقا."
+      email_not_allowed: "هذا البريد الإلكتروني غير مسموح له في ‎%{service_name}‎"
+      email_not_available: "البريد الإلكتروني مسجل مسبقا"
+      consent_not_given: "لم يتم قبول شروط الاستخدام"
   emails:
     accept_reminder:
-      remember_to_accept_offer: "تذكير بقبول أو رفض العرض المقدم من ‎%{sender_name}‎"
-      remember_to_accept_request: "تذكير بقبول أو رفض الطلب المقدم من ‎%{sender_name}‎"
+      remember_to_accept_offer: "‎%{sender_name}‎ تذكير بقبول أو رفض العرض المقدم من"
+      remember_to_accept_request: "‎%{sender_name}‎ تذكير بقبول أو رفض الطلب المقدم من"
       you_can_accept_or_reject_offer_at: "يمكنك قبول أو رفض العرض على"
       you_can_accept_or_reject_request_at: "يمكنك قبول أو رفض الطلب على"
-      you_have_not_yet_accepted_or_rejected_offer: "لم تقم بعد بقبول أو رفض العرض ‎%{title}‎ الذي استقبلته في تاريخ ‎%{date}‎"
-      you_have_not_yet_accepted_or_rejected_request: "لم تقم بعد بقبول أو رفض الطلب ‎%{title}‎ الذي استقبلته لتاريخ ‎%{date}‎"
-      show_thread: ~
+      you_have_not_yet_accepted_or_rejected_offer: "‎%{date}‎ الذي استقبلته في تاريخ ‎%{title}‎ لم تقم بعد بقبول أو رفض العرض"
+      you_have_not_yet_accepted_or_rejected_request: "‎%{date}‎ الذي استقبلته في تاريخ ‎%{title}‎ لم تقم بعد بقبول أو رفض الطلب"
+      show_thread: "أظهر المحادثة"
     branding:
       powered_by: ~
       create_own: ~
-      learn_more: ~
+      learn_more: "تعلم المزيد"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
-      remember_to_confirm_request: ~
+      remember_to_confirm_request: "تذكير بتأكيد أو إلغاء الطلب"
       if_will_not_happen_you_should_cancel: ~
-      cancel_it_link_text: ~
+      cancel_it_link_text: إلغاء
       automatic_confirmation: ~
     payment_settings_reminder:
-      remember_to_add_payment_details: ~
-      you_have_added_listing_with_payment: ~
-      please_go_to_payment_settings: ~
-      payment_settings_link: ~
+      remember_to_add_payment_details: "تذكر إضافة تفاصيل عملية الدفع لاستقبال الدفعات"
+      you_have_added_listing_with_payment: "ولكنك لم تضف بعد معلومات الدفع لكي تستقبل دفعات يجب عليك إضافة معلومات الدفع ‎%{listing_link}‎ لقد قمت بإضافة"
+      please_go_to_payment_settings: "رجاء قم بزيارة ‎%{payment_settings_link}‎ وقم بتعبئة معلومات الدفعة"
+      payment_settings_link: "إعدادات الدفع"
     transaction_confirmed:
       here_is_a_message_from: ~
-      request_marked_as_confirmed: ~
-      request_marked_as_canceled: ~
+      request_marked_as_confirmed: "تم إتمام طلبك - تذكر بإعطاء رأيك"
+      request_marked_as_canceled: "تم إلغاء الطلب"
       has_marked_request_as_confirmed: ~
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      give_feedback_to: "‎%{other_party_given_name}‎ أعط رأيك في"
     transaction_automatically_confirmed:
-      subject: ~
+      subject: "تم إكمال الطلب تلقائيا - تذكر بإعطاء رأيك"
       we_have_marked_request_as_confirmed: ~
     booking_transaction_automatically_confirmed:
-      subject: ~
+      subject: "تم إكمال الطلب تلقائيا - تذكر بإعطاء رأيك"
       we_have_marked_request_as_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
-      show_thread: ~
+      give_feedback_to: "‎%{other_party_given_name}‎ أعط رأيك في"
+      show_thread: "أظهر المحادثة"
     confirmation_instructions:
-      confirmation_instructions_signature: "شكرا جزيلا، ‎<br/>‎ فريق عمل ‎%{service_name}‎"
-      need_to_confirm: ~
+      confirmation_instructions_signature: "‎%{service_name}‎ فريق ‎<br/>‎شكرا جزيلا"
+      need_to_confirm: "قم بتأكيد بريدك الإلكتروني بالضغط على الزر في الأسفل ‎%{service_name}‎ للإلتحاق بـ"
       confirmation_link_text: "تأكيد العنوان الخاص بي"
-      or_paste_link: ~
+      or_paste_link: "بدلا من ذلك، يمكنك نسخ الرابط بالأسفل واضافته إلى المتصفح الخاص بك:"
     common:
-      hey: "مرحبا ‎%{name}‎"
-      kassi_team: "فريق عمل ‎%{service_name}‎"
+      hey: "،‎%{name}‎ مرحبا"
+      kassi_team: "‎%{service_name}‎ فريق عمل"
       thanks: "شكرا جزيلا"
       dont_want_to_receive_these_emails: "لا تريد استقبال هذه الرسائل الإلكترونية؟"
       edit_your_email_settings_here: "قم بتعديل إعدادات بريدك الإلكتروني هنا"
-      message_not_displaying_correctly: ~
+      message_not_displaying_correctly: "هل هذا البريد الإلكتروني مكتوب بشكل جيد؟"
       view_it_in_your_browser: "اعرض في المتصفح الخاص بك"
-      or: ~
-      unsubscribe_from_these_emails: ~
+      or: أو
+      unsubscribe_from_these_emails: "إلغاء الإشتراك من هذه النشرات الإخبارية"
     conversation_status_changed:
-      has_accepted_your_offer: "‎%{accepter}‎ قام بقبول عرضك ‎%{listing}‎"
-      has_accepted_your_request: "‎%{accepter}‎ قام بقبول طلبك ‎%{listing}‎"
-      has_rejected_your_offer: "‎%{accepter}‎ قد رفض عرضك ‎%{listing}‎"
-      has_rejected_your_request: "‎%{accepter}‎ قدم رفض طلبك ‎%{listing}‎"
-      view_thread: ~
+      has_accepted_your_offer: "‎%{listing}‎ قام بقبول عرضك ‎%{accepter}‎"
+      has_accepted_your_request: "‎%{listing}‎ قام بقبول طلبك ‎%{accepter}‎"
+      has_rejected_your_offer: "‎%{listing}‎ قد رفض عرضك ‎%{accepter}‎"
+      has_rejected_your_request: "‎%{listing}‎ قد رفض طلبك ‎%{accepter}‎"
+      view_thread: "أظهر المحادثة"
       your_offer_was_accepted: "لقد تم قبول عرضك"
       your_offer_was_rejected: "لقد تم رفض عرضك"
       your_request_was_accepted: "لقدم تم قبول طلبك"
       your_request_was_rejected: "لقدم تم رفض طلبك"
-      you_can_now_pay_to: ~
+      you_can_now_pay_to: "‎%{payment_receiver}‎ يمكنك الآن دفع القيمة المطلوبة لـ"
       pay_now: "إدفع الآن"
       remember_to_confirm: ~
     invitation_to_kassi:
       hi: مرحبا!
-      you_have_been_invited_to_kassi: "‎%{inviter}‎ قام بدعوتك إلى ‎%{service_name}‎."
-      here_is_a_message_from: "هنالك رسالة شخصية من ‎%{inviter}‎:"
-      join_now: ~
-      invitation_code: ~
+      you_have_been_invited_to_kassi: "‎%{service_name}‎ قام بدعوتك إلى ‎%{inviter}‎"
+      here_is_a_message_from: ":‎%{inviter}‎ هنالك رسالة شخصية من"
+      join_now: "إنضم الآن"
+      invitation_code: "‎%{code}‎ :رمز التفعيل"
     new_comment:
-      has_commented_your_listing_in_kassi: ~
-      view_comment: ~
-      you_have_a_new_comment: "‎%{author}‎ قام بالتعليق على ‎%{service_name}‎"
-      listing_you_follow_has_a_new_comment: ~
-      has_commented_listing_you_follow_in_kassi: ~
+      has_commented_your_listing_in_kassi: "‎%{listing}‎ قام بالتعليق على إعلانك ‎%{author}‎"
+      view_comment: "أظهر التعليق"
+      you_have_a_new_comment: "‎‎%{service_name}‎  قام بالتعليق على ‎%{author}‎"
+      listing_you_follow_has_a_new_comment: "‎%{service_name}‎‎ علق على إعلان تقوم بمتابعته في ‎%{author}‎"
+      has_commented_listing_you_follow_in_kassi: "‎%{service_name}‎ الذي تتابعه ‎%{listing}‎ قام بالتعليق على الإعلان ‎%{author}‎"
     new_message:
-      view_message: ~
-      has_sent_you_a_message_in_kassi: "‎%{sender}‎ قام بإرسال رسالة لـ ‎%{service_name}‎"
-      you_have_a_new_message: "رسالة جديدة لـ ‎%{service_name}‎ من قبل ‎%{sender_name}‎"
+      view_message: "أظهر الرسالة"
+      has_sent_you_a_message_in_kassi: "‎%{service_name}‎ قام بإرسال رسالة لـ ‎%{sender}‎"
+      you_have_a_new_message: "‎%{sender_name}‎ من قبل ‎%{service_name}‎ رسالة جديدة من لـ"
     new_payment:
-      new_payment: ~
-      price_per_unit_type: ~
-      quantity: ~
+      new_payment: "لقم استقبلت دفعة جديد"
+      price_per_unit_type: "‎%{unit_type}‎ السعر بـ"
+      quantity: "الكمية:"
       you_have_received_new_payment: ~
     paypal_new_payment:
-      paypal_gateway_fee: ~
-      shipping_total: ~
+      paypal_gateway_fee: ":رسوم باي بال"
+      shipping_total: "الشحن:"
     braintree_new_payment:
-      product: ~
-      price_payer_paid: ~
-      service_fee: ~
-      you_will_get: ~
+      product: "المنتج:"
+      price_payer_paid: ":مدفوع ‎%{payer_full_name}‎ سعر"
+      service_fee: ":‎%{service_name}‎ رسوم خدمة"
+      you_will_get: "المجموع:"
     receipt_to_payer:
-      receipt_of_payment: ~
+      receipt_of_payment: "وصل الدفع"
       you_have_made_new_payment: ~
-      product: ~
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
-      total: ~
-      price: ~
-      service_fee: ~
+      product: المنتج
+      price_per_unit_type: "‎%{unit_type}‎ السعر بـ"
+      duration: "المدة:"
+      quantity: "الكمية:"
+      subtotal: "المجموع الجزئي:"
+      total: المجموع
+      price: السعر
+      service_fee: "رسوم الخدمة"
       money_will_be_transferred: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: "‎%{name}‎ قام بإعطاء رأيه في ‎%{service_name}‎"
-      you_can_give_feedback_to: "لم تقم بإعطاء رأيك عن ‎%{name}‎"
-      view_feedback: ~
+      has_given_you_feedback_in_kassi: "‎‎%{service_name}‎ قام بإعطاء رأيه في ‎%{name}‎"
+      you_can_give_feedback_to: "‎%{name}‎ لم تقم بإعطاء رأيك عن"
+      view_feedback: "أظهر الرأي"
     new_update_to_listing:
-      listing_you_follow_has_been_updated: ~
-      has_updated_listing_you_follow_in_kassi: ~
-      view_changes: ~
+      listing_you_follow_has_been_updated: "الإعلان الذي تتابعه قد تم التعديل عليه"
+      has_updated_listing_you_follow_in_kassi: "‎%{service_name}‎ الذي تتابعه ‎%{listing}‎ قام بالتحديث على الإعلان ‎%{author}‎"
+      view_changes: "أظهر التغيرات"
     community_updates:
-      added_offer: "‎%{name_link}‎ تم إضافته إلى القائمة:"
-      added_request: "‎%{name_link}‎ تم إضافته إلى القائمة:"
-      added_listing: ~
-      update_mail_title: "تم تحديث ‎%{title_link}‎"
+      added_offer: ":أضاف إعلان ‎%{name_link}‎"
+      added_request: ":أضاف إعلان ‎%{name_link}‎"
+      added_listing: "قام بإضافة إعلان: ‎%{name_link}‎"
+      update_mail_title: "‎%{title_link}‎ تم تحديث"
       title_link_text: "‎%{community_name}‎"
-      intro_paragraph: ~
+      intro_paragraph: "‎%{time_since_last_update}‎ التي حدثت خلال ‎%{community_link}‎ هذه بعض المستجدات في السوق"
       intro_paragraph_link_text: "‎%{community_name}‎"
-      reduce_email_footer_text: ~
-      settings_link_text: ~
+      reduce_email_footer_text: "‎%{settings_link}‎ أو ‎%{unsubscribe_link}‎ كثير من الرسائل الإلكترونية؟"
+      settings_link_text: "قم بتعديل إعدادات بريدك الإلكتروني هنا"
       unsubscribe_link_text: "إلغاء الإشتراك"
     newsletter:
-      hi: "مرحبا ‎%{name}‎،"
+      hi: "،‎%{name}‎ مرحبا"
       newest_offers: "ماذا يقدم الآخرين حاليا"
       newest_requests: "ماذا يحتاج الآخرين حاليا"
-      text_version_text: "هل باستطاعتك مشاركة ما يحتاجه الآخرين؟ أو هل أنت بحاجة إلى شيء موجود عند الآخرين؟ قم بعمل طلب أو عرض أو تصفح كل ما يطلبه أو يقدمه الآخرين في ‎%{url}‎"
+      text_version_text: |-
+          ‎%{url}‎
+          هل باستطاعتك مشاركة ما يحتاجه الآخرين؟ أو هل أنت بحاجة إلى شيء موجود عند الآخرين؟ قم بعمل طلب أو عرض أو تصفح كل ما يطلبه أو يقدمه الآخرين في
     reset_password_instructions:
       change_my_password: "تغيير كلمة المرور"
       reset_password_instructions: ~
     testimonial_reminder:
-      remember_to_give_feedback_to: "تذكير! قم بإعطاء رأيك عن ‎%{name}‎"
-      you_have_not_given_feedback_yet: "لم تقم بإعطاء رأيك عن ‎%{name}‎ للحدث ‎%{event}‎. تذكر بإعطاء رأيك عن أداء ‎%{given_name}‎"
+      remember_to_give_feedback_to: "‎%{name}‎ تذكير! قم بإعطاء رأيك عن"
+      you_have_not_given_feedback_yet: "‎%{given_name}‎ تذكر بإعطاء رأيك عن. ‎‎%{event}‎ للحدث ‎%{name}‎ لم تقم بإعطاء رأيك لـ"
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
       you_have_time_to_accept: ~
-      click_here_to_reply: ~
+      click_here_to_reply: "اضغط هنا للرد على الطلب"
     transaction_preauthorized_reminder:
       subject: ~
       remember_to_accept: ~
       one_day_left: ~
-      click_here_to_reply: ~
+      click_here_to_reply: "اضغط هنا للرد على الطلب"
     welcome_email:
-      welcome_email_subject: ~
-      welcome_to_marketplace: ~
-      love_marketplace_crew: ~
-      welcome_email_footer_text: ~
-      settings_link_text: ~
+      welcome_email_subject: "‎%{service_name}‎ أهلا بك في"
+      welcome_to_marketplace: "سعداء بوجودك معنا ‎%{service_name}‎ أهلا بك في"
+      love_marketplace_crew: "‎%{service_name}‎ مع كامل الاحترام والتقدير"
+      welcome_email_footer_text: |-
+          ‎%{settings_link}‎
+          ؟‎%{service_name}‎
+          ما هي الرسائل التي تود استقبالها من
+      settings_link_text: "تأكد من الإعدادات الخاصة بك"
     new_listing_by_followed_person:
-      subject: ~
-      has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
-      view_listing: ~
+      subject: "‎%{service_name}‎ قام بوضع إعلان جديد ‎‎%{author_name}‎"
+      has_posted_a_new_listing: ":‎%{author_name}‎ قام بوضع إعلان جديد"
+      you_are_receiving_this_because: "‎%{author_name}‎ لقد استقبلت إشعارا لأنك تتابع"
+      view_listing: "أظهر الإعلان"
     new_member_notification:
       new_member_has_joined: ~
-      this_is_automatic_message: ~
-      person_name: ~
-      person_email: ~
+      this_is_automatic_message: "هذه رسالة تلقائية مرسلة من قبل مشرف ‎%{community}‎"
+      person_name: "الإسم:"
+      person_email: "البريد الإلكتروني:"
   error_messages:
     booking:
-      booking_failed_payment_voided: ~
-      double_booking_payment_voided: ~
+      booking_failed_payment_voided: "فشل في الحجز بسبب خطأ غير معروف. يرجى المحاولة مرة أخرى. لم يتم احتساب أي تكلفة عليك."
+      double_booking_payment_voided: "نأسف، المواعيد المختارة لم تعد متوفرة. يرجى اختيار مواعيد أخرى. لم يتم احتساب أي تكلفة عليك."
     onboarding:
       server_rendering: ~
     listings:
-      departure_time: "وقت الإقلاع يجب يكون في الفترة من الوقت الحالي إلى سنة من الآن"
+      departure_time: "وقت الإقلاع يجب أن يكون في الفترة من الوقت الحالي إلى سنة من الآن"
       share_type: "يجب إختيار واحدة على الأقل."
       valid_until: "هذا التاريخ يجب أن يكون في الفترة التي تبدأ من الوقت الحالي إلى ٦ أشهر من الآن"
-      price: ~
-      minimum_price: ~
+      price: "السعر يجب أن يكون رقم كاملا"
+      minimum_price: "‎%{currency}‎ ‎%{minimum_price}‎ أقل سعر هو"
     testimonials:
       you_must_explain_not_neutral_feedback: "إذا كنت تود إبداء رأي غير محايد، يجب عليك توضيح السبب"
       you_must_select_a_grade: "تذكر بإعطاء رأيك عن خبرتك هل كانت جيدة أم سيئة"
     transaction_agreement:
-      required_error: ~
+      required_error: "يجب عليك قبول الاتفاق"
     paypal:
       buyer_cannot_pay_error: ~
       pending_review_error: ~
@@ -911,12 +933,12 @@ ar:
       page_you_requested_can_not_be_found: "الصفحة المراد الوصول إليها غير موجودة، هل أنت متأكد من كتابة العنوان الصحيح؟"
     error_404_title: "لم يتم العثور على الصفحة"
     error_410:
-      page_removed: ~
-      page_you_requested_has_been_removed: ~
+      page_removed: "تم إزالة الصفحة"
+      page_you_requested_has_been_removed: "الصفحة المطلوبة تم حذفها"
       page_removed_reason: ~
-    error_410_title: ~
+    error_410_title: "تم حذف الصفحة"
     error_500:
-      temporary_unavailable: ~
+      temporary_unavailable: "السوق غير متوفر حاليا"
       unable_to_process: ~
       we_hate_this: ~
       refer_to_error_id: ~
@@ -924,71 +946,71 @@ ar:
     error_description: "شرح الخطأ"
     no_javascript:
       javascript_is_disabled_in_your_browser: "تم إيقاف عمل Javascript على المتصفح الخاص بك"
-      kassi_does_not_currently_work_without_javascript: "‎%{service_name}‎ لا تعمل بشكل صحيح دون javascript. حاول أن تفعل javascript من خصائص المتصفح الذي تستعمله وقم بإعادة تحميل الصفحة"
+      kassi_does_not_currently_work_without_javascript: "من المتصفح الخاص بك ثم قم بتحميل الصفحة مرة أخرى javascript يجب عليك تفعيل خاصية javascript لا تعمل بشكل صحيح دون ‎%{service_name}‎"
       contact_us: "اتصل بنا"
       send_feedback: "أرسل رسالة"
-      your_feedback_to_admins: "رسالتك إلى فريق عمل ‎%{service_name}‎"
+      your_feedback_to_admins: "‎%{service_name}‎ رسالتك إلى فريق عمل"
     send: أرسل
     your_email_address: "بريدك الإلكتروني"
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
-      invalid_datetime: ~
-      is_at: ~
-      before: ~
-      on_or_before: ~
-      after: ~
-      on_or_after: ~
-      positive_number: ~
+      invalid_date: "التاريخ غير صحيح"
+      invalid_time: "الوقت غير صحيح"
+      invalid_datetime: "الموعد غير صحيح"
+      is_at: "‎%{restriction}‎ يجب أن يكون عند"
+      before: "‎%{restriction}‎ يجب أن يكون قبل"
+      on_or_before: "‎%{restriction}‎ يجب أن يكون عند أو قبل"
+      after: "‎%{restriction}‎ يجب أن يكون بعد"
+      on_or_after: "‎%{restriction}‎ يجب أن يكون عند أو بعد"
+      positive_number: "أدخل رقم."
   event_feed_events:
     accept:
-      has_accepted_lend_item: "‎%{offerer_name}‎ قام بالموافقة على إعارة ‎%{listing_title}‎ إلى ‎%{requester_name}‎ قبل ‎%{time_ago}‎"
-      has_accepted_borrow_item: ~
-      has_accepted_rent_out_item: ~
-      has_accepted_rent_item: ~
-      has_accepted_give_away_item: ~
-      has_accepted_receive_item: ~
-      has_accepted_sell_item: ~
-      has_accepted_buy_item: ~
-      has_accepted_trade_item: ~
-      has_accepted_sell_housing: ~
-      has_accepted_buy_housing: ~
-      has_accepted_rent_out_housing: ~
-      has_accepted_rent_housing: ~
-      has_accepted_favor: ~
-      has_accepted_rideshare: ~
+      has_accepted_lend_item: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على إعارة ‎%{offerer_name}‎"
+      has_accepted_borrow_item: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على إعارة ‎%{offerer_name}‎"
+      has_accepted_rent_out_item: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على تأجير ‎%{offerer_name}‎"
+      has_accepted_rent_item: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على تأجير ‎%{offerer_name}‎"
+      has_accepted_give_away_item: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على إعطاء ‎%{offerer_name}‎"
+      has_accepted_receive_item: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على إعطاء ‎%{offerer_name}‎"
+      has_accepted_sell_item: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على بيع ‎%{offerer_name}‎"
+      has_accepted_buy_item: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على بيع ‎%{offerer_name}‎"
+      has_accepted_trade_item: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على مبادلة ‎%{offerer_name}‎"
+      has_accepted_sell_housing: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على بيع ‎%{offerer_name}‎"
+      has_accepted_buy_housing: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على بيع ‎%{offerer_name}‎"
+      has_accepted_rent_out_housing: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على تأجير ‎%{offerer_name}‎"
+      has_accepted_rent_housing: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على تأجير ‎%{offerer_name}‎"
+      has_accepted_favor: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على عرض ‎%{offerer_name}‎"
+      has_accepted_rideshare: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على مشاركة توصيلة ‎%{offerer_name}‎"
     join:
-      joined_kassi: ~
+      joined_kassi: "‎%{time_ago}‎ ‎%{service_name}‎ إنضم إلى ‎%{name}‎"
     login:
-      logged_in_to_kassi: ~
+      logged_in_to_kassi: "‎%{time_ago}‎ ‎%{service_name}‎ مسجل في ‎%{name}‎"
     comment:
-      commented: ~
+      commented: "‎%{time_ago}‎ ‎%{listing_title}‎ قام بالتعليق على الإعلان ‎%{commenter_name}‎"
       offer_partitive: عرض
       request_partitive: طلب
   header:
-    about: نبذة
+    about: "نبذة عن الموقع"
     home: الرئيسية
     members: مجتمع
-    new_listing: ~
+    new_listing: "إعلان جديد"
     mobile_version: "نسخة الجوال"
     offers: عروض
     requests: طلبات
-    search_kassi: "بحث ‎%{service_name}‎"
+    search_kassi: "‎%{service_name}‎ بحث"
     create_new_marketplace: "قم بإنشاء سوق إلكتروني جديد"
     contact_us: "اتصل بنا"
     profile: "الملف الشخصي"
-    manage_listings: ~
-    invite: ~
-    login: ~
-    signup: ~
-    menu: ~
+    manage_listings: "إدارة الإعلانات"
+    invite: "دعوة صديق"
+    login: "تسجيل الدخول"
+    signup: "إنشاء حساب"
+    menu: القائمة
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: "أيضا   هنالك ‎<b>‎عرض آخر‎</b>‎,"
-      additionally_one_private_request_exists: "أيضا   هنالك ‎<b>‎طلب آخر‎</b>‎"
-      additionally_some_private_offers_exist: "هنالك أيضا ‎%{number_of_listings}‎ من العروض الأخرى"
-      additionally_some_private_requests_exist: "هنالك أيضا ‎%{number_of_listings}‎ من الطلبات الأخرى"
+      additionally_one_private_offer_exists: "‎<b>‎عرض آخر ‎‎</b>‎ أيضا هنالك"
+      additionally_one_private_request_exists: "‎<b>‎طلب آخر‎</b>‎ أيضا هنالك"
+      additionally_some_private_offers_exist: "‎<b>‎ من العروض الأخرى ‎ ‎‎%{number_of_listings}‎ ‎</b>‎ هنالك أيضا"
+      additionally_some_private_requests_exist: "‎<b>‎ من الطلبات الأخرى ‎ ‎‎%{number_of_listings}‎ ‎</b>‎ هنالك أيضا"
     blank_slate:
       add_first: "أضف واحد!"
       but_that_is_visible_only_to_registered_members: "هذا متاح فقط للأعضاء المسجلين."
@@ -1009,31 +1031,31 @@ ar:
       no_open_offers_currently: "لا يوجد عروض"
       no_open_requests_currently: "لا يوجد طلبات"
       no_requests_visible_unless_logged_in: "لا يمكن عرض طلبات للمستخدمين الغير مسجلين"
-      one_private_offer_exists: "يوجد هنالك ‎<b>‎عرض واحد‎</b>‎ مسجل مسبقا"
-      one_private_request_exists: "يوجد هنالك ‎<b>‎طلب واحد‎</b>‎ مسجل مسبقا"
+      one_private_offer_exists: "مسجل مسبقا ‎<b>‎عرض واحد‎</b>‎  يوجد هنالك"
+      one_private_request_exists: "مسجل مسبقا ‎<b>‎طلب واحد‎</b>‎  يوجد هنالك"
       ride_offer: "قم بأخذ أطفال الغير إلى هواياتهم"
       ride_request: "توصيلة إلى العمل"
-      some_private_offers_exist: "يوجد هنالك ‎عدد عروض ‎<b>‎‎%{number_of_listings}‎‎</b>‎"
-      some_private_requests_exist: "يوجد هنالك عدد طلبات ‎<b>‎‎%{number_of_listings}‎‎</b>‎"
+      some_private_offers_exist: "‎<b>‎‎%{number_of_listings}‎‎</b>‎ يوجد هنالك عدد عروض"
+      some_private_requests_exist: "‎<b>‎‎%{number_of_listings}‎‎</b>‎ يوجد هنالك عدد طلبات"
     custom_filters:
-      update_view: ~
-      min: ~
-      max: ~
+      update_view: "تحديث الفرز"
+      min: "أقل قيمة:"
+      max: "أكبر قيمة:"
     event_feed:
       latest_events: "ماذا يحدث هنا"
     grid_item:
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(جاري تحميل ومعالجة الصورة...)"
     index:
-      no_listings_with_your_search_criteria: ~
-      no_listings_notification: ~
-      add_listing_link_text: ~
-      open_listing: ~
-      open_listings: ~
-      private_listing_notification_log_in: ~
-      is: ~
-      are: ~
+      no_listings_with_your_search_criteria: "نأسف، لم يتم العثور على نتائج، هل تود المحاولة مرة أخرى؟"
+      no_listings_notification: "‎%{add_listing_link}‎ لا يوجد إعلانات"
+      add_listing_link_text: "أضف إعلان جديد"
+      open_listing: "إعلان مفتوح"
+      open_listings: "إعلانات مفتوحة"
+      private_listing_notification_log_in: "تسجيل الدخول"
+      is: هو
+      are: نحن
       what_do_you_need: "عن ماذا تبحث؟"
-      post_new_listing: "أضف قائمة جديدة"
+      post_new_listing: "أضف إعلان جديد"
       are_offering: عرض
       add_news_item: "أضف مقال"
       lend_rent_help_carpool: "بيع، إعارة، مساعدة، مشاركة وسائل نقل"
@@ -1047,80 +1069,80 @@ ar:
       recent_events: "أحداث أخيرة"
       requesting: بحاجة
       tell_it_here: "عبر عنها هنا!"
-      welcome_to_new_kassi: "أهلا بك في ‎%{service_name}‎!"
-      no_reviews: ~
-      no_image: ~
-      filter: ~
-      this_is_private_community: ~
+      welcome_to_new_kassi: "!‎%{service_name}‎ أهلا بك في"
+      no_reviews: "لا يوجد مراجعات"
+      no_image: "لا يوجد صورة"
+      filter: فرز
+      this_is_private_community: "يجب عليك تسجيل الدخول قبل عرض هذا المحتوى"
     invitation_form:
       email: "البريد الإلكتروني (مجموعة)"
       message: "رسالة شخصية"
       send_invitation: "إرسال الدعوة"
-      add_email_addresses_description: ~
+      add_email_addresses_description: "أضف العناوين البريدية للأشخاص الذين تود دعوتهم في الأسفل. لإضافة أكثر من بريد إلكتروني قم بوضع فاصلة بينهم."
       add_lots_of_email_addresses: ~
-      this_article_link: ~
-      invitation_emails_field_placeholder: ~
+      this_article_link: "هذا المقال"
+      invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: "لقد قمت بالتسجيل في هذا السوق الرائع. يجب عليك التسجيل أيضا!"
-      errors_in_emails: ~
+      errors_in_emails: "قم بتأكد من صحة العناوين المدخلة، وإذا قمت بإدخال عدة عناوين تأكد من أنها مفصولة بفاصلة"
     list_item:
-      review: ~
-      reviews: ~
-      distance_away: ~
+      review: مراجعة
+      reviews: مراجعات
+      distance_away: "يبعد ‎%{distance_unit}‎‎%{distance}‎"
     news_item:
       show_less: "أضهر أقل"
       show_more: "أظهر أكثر"
     profile_info_empty_notification:
       add_your_info: "أضف معلومات التواصل الخاصة بك"
       add_a_profile_picture: "أضف صورة لملفك الشخصي"
-      you_have_not_added_your_info: ~
+      you_have_not_added_your_info: "لم تقم بإدخال معلومات التواصل معك. رجاء قم بذلك، لكي يتسنى للآخرين التواصل معك بسهولة أكثر. قم أيضا بإضافة صورة لملفك الشخصي لكي يثق بك الآخرين"
       add_your_info_link: "قم بإضافة معلوماتك الآن"
     recent_listing:
       please_offer: عرض
       comment: تعليق
       comments: تعليقات
     filters:
-      show: "تصفية:"
+      show: "فرز:"
       search: بحث
       map: "أظهر الخارطة"
       list: "أظهر القائمة"
-      map_button: ~
-      grid_button: ~
-      list_button: ~
-      all_listing_types: "جميع أنواع القوائم"
+      map_button: خارطة
+      grid_button: شبكة
+      list_button: قائمة
+      all_listing_types: "جميع أنواع الإعلانات"
       all_categories: "جميع الأقسام"
     errors:
-      search_engine_not_responding: ~
+      search_engine_not_responding: "البحث غير متوفر حاليا. يرجى المحاولة لاحقا."
   infos:
     about:
-      default_about_text_title: ~
+      default_about_text_title: "ما هو Sharetribe؟"
       default_about_text: ~
-      click_here_link_text: ~
+      click_here_link_text: "إضغط هنا"
     how_to_use:
-      default_title: ~
+      default_title: "كيفية العمل"
       default_content: ~
   landing_page:
     hero:
-      search: ~
-      signup: ~
-      search_placeholder: ~
-      search_location_placeholder: ~
+      search: بحث
+      signup: "إنشاء حساب"
+      search_placeholder: "عن ماذا تبحث؟"
+      search_location_placeholder: الموقع
     listings:
-      no_listing_image: ~
+      no_listing_image: "لا يوجد صورة"
   layouts:
     admin:
-      admin: "لوحة تحكم ‎%{service_name}‎"
+      admin: "‎%{service_name}‎ لوحة تحكم"
     branding:
       powered_by: ~
       create_own: ~
-      learn_more: ~
+      learn_more: "تعلم المزيد"
     no_tribe:
       inbox: "صندوق الوارد"
       settings: إعدادات
-      feedback: ~
+      feedback: "‎%{service_name}‎ اتصل بفريق عمل"
     application:
-      join_this_community: ~
+      join_this_community: "انضم إلى السوق الإلكتروني"
       read_more: "إقرأ المزيد"
-      feedback: "رسالتك إلى فريق عمل ‎%{service_name}‎"
+      feedback: "‎%{service_name}‎ رسالتك إلى فريق عمل"
       dont_use_to_contact_support: ~
       feedback_forum: "منتدى الآراء"
       feedback_handle: رأي
@@ -1131,20 +1153,20 @@ ar:
       your_email_address: "بريدك الإلكتروني (للتواصل معك)"
       connect: "مشترك جديد"
       invite_your_friends: "دعوة الأصدقاء!"
-      invite_your_neighbors: ~
-      invite_your_friends_description: ~
-      invite_your_friends_invite_only_description: ~
-      join_without_facebook: ~
-      join_without_facebook_link: ~
+      invite_your_neighbors: "دعوة الجيران!"
+      invite_your_friends_description: "تكون أكثر فائدة ‎%{service_name}‎ كلما زاد عدد الأشخاص في"
+      invite_your_friends_invite_only_description: "حتى يكونوا مدعوون ‎%{service_name}‎ لا يمكن لأح الإنضمام إلى"
+      join_without_facebook: "...‎%{join_without_facebook_link}‎ بدلا من ذلك"
+      join_without_facebook_link: "قم بالتسجيل دون استخدام فيسبوك"
     conversations:
       messages: رسائل
       notifications: إشعارات
       received: المستلمة
       sent: المرسلة
     global-header:
-      select_language: ~
+      select_language: "اختر اللغة"
     infos:
-      about: نبذة
+      about: "نبذة عن الموقع"
       how_to_use: "كيفية العمل"
       info_about_kassi: "معلومات عن ‎%{service_name}‎"
       news: أخبار
@@ -1156,7 +1178,7 @@ ar:
       hi: مرحبا
       login: "تسجيل الدخول"
       logout: "تسجيل الخروج"
-      notifications: إشعارات
+      notifications: الإشعارات
       requests: "طلبات صداقة"
       settings: الإعدادات
       sign_up: "قم بإنشاء حساب جديد"
@@ -1175,62 +1197,62 @@ ar:
       settings: إعدادات
       sign_up: "تسجيل جديد"
     notifications:
-      listing_could_not_be_saved: ~
-      contact_admin_link_text: ~
+      listing_could_not_be_saved: "‎%{contact_admin_link}‎ فشل في حفظ الإعلان قم بالمحاولة مرة أخرى في حال استمرت المشكلة قم بالإتصال بنا"
+      contact_admin_link_text: "تواصل مع المشرف"
       test_welcome_email_delivered_to: ~
-      something_went_wrong: ~
+      something_went_wrong: "حصل خطأ ما"
       community_updated: "تم تحديث البيانات"
       community_update_failed: "فشل في تحديث البيانات"
-      account_creation_succesful_you_still_need_to_confirm_your_email: ~
-      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
+      account_creation_succesful_you_still_need_to_confirm_your_email: "لقدم تم انشاء حسابك بنجاح. يجب عليك الآن تأكيد بريدك الإلكتروني من خلال رابط التأكيد المرسل إليك."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: ".الآن يمكنك تأكيد بريدك الإلكتروني ‎%{service_name}‎ شكرا لإنضمامك في"
       comment_cannot_be_empty: "التعليقات لا يمكن أن تكون فارغة"
       comment_sent: "تم إرسال التعليق"
-      confirmation_link_is_wrong_or_used: ~
-      additional_email_confirmed: ~
-      could_not_get_email_from_facebook: ~
-      facebook_email_unconfirmed: ~
-      create_new_listing: ~
+      confirmation_link_is_wrong_or_used: "رابط التفعيل استخدم من قبل أو لم يعد صالحا. حاول التسجيل مرة أخرى، أو قم بالتواصل معنا في حال استمرار المشكلة."
+      additional_email_confirmed: "تم الآن تأكيد البريد الإلكتروني المدخل"
+      could_not_get_email_from_facebook: "تعذر الحصول على بريد إلكتروني من فيسبوك، ولا يمكن إنشاء حساب دون بريد إلكتروني."
+      facebook_email_unconfirmed: "‎%{email}‎ مربوط مع حسابك في فيسبوك مسبقا ولكن يبدو أنه لم يتم تأكيده بعد. يرجى تأكيد البريد الإلكتروني أولا قبل تسجيل الدخول باستخدام حساب فيسبوك"
+      create_new_listing: "أضف إعلان جديد"
       create_one_here: "إنشاء جديد هنا"
       email_confirmation_sent_to_new_address: "رسالة التأكيد تم إرسالها إلى البريد الإلكتروني الجديد"
-      email_not_found: "البريد الإلكتروني المعطى لم يتم إيجاده في قاعدة بيانات ‎%{service_name}‎"
+      email_not_found: "‎%{service_name}‎ البريد الإلكتروني المعطى لم يتم إيجاده في قاعدة بيانات"
       error_with_session: "خطأ في الجلسة"
       feedback_considered_spam: "لم يتم حفظ رأيك، بسبب طريقة كتابته. رجاء قم بإعادة الكتابة أو استخدم منتدى الآراء"
       feedback_not_saved: "تعذر إرسال رأيك"
       feedback_saved: "شكرا جزيلا لرسالتك! سوف نتواصل معك في أقرب فرصة ممكنة"
-      feedback_sent_to: "تم إرسال رأيك إلى ‎%{target_person}‎"
+      feedback_sent_to: "‎%{target_person}‎ تم إرسال رأيك إلى"
       feedback_skipped: "تم تخطي إعطاء الرأي"
       invitation_cannot_be_sent: "تعذر إرسال الدعوة"
-      invitation_limit_reached: ~
+      invitation_limit_reached: "أنت تحاول إرسال الكثير من الدعوات لقد استنفذت عدد الدعوات المسموح باليوم"
       invitation_sent: "تم إرسال الدعوة بنجاح"
       inviting_new_users_is_not_allowed_in_this_community: "دعوة مستخدمين جدد غير مسموح"
       login_again: "رجاء قم بتسجيل الدخول مجددا"
       login_failed: "فشل في تسجيل الدخول. رجاء قم بإدخال المعلومات الصحيحة"
-      account_creation_successful: "أهلا بك في ‎%{service_name}‎، ‎%{person_name}‎!"
-      account_deleted: ~
-      login_successful: "أهلا بك ‎%{person_name}‎!"
-      logout_successful: "لقد تم تسجيل الخروج بنجاح من ‎%{service_name}‎. نراك قريبا!"
+      account_creation_successful: "‎%{service_name}‎ أهلا بك في ‎%{person_name}‎"
+      account_deleted: "لقدم تم حذف حسابك"
+      login_successful: "!‎%{person_name}‎ أهلا بك"
+      logout_successful: "!نراك قريبا ،‎%{service_name}‎ لقد تم تسجيل الخروج بنجاح من"
       news_item_created: "تم إنشاء المقال"
       news_item_creation_failed: "تعذر إنشاء المقال"
       news_item_update_failed: "تعذر تحديث المقال"
       news_item_updated: "تم تحديث المقال"
       news_item_deleted: "تم حذف المقال"
       offer_accepted: "تم قبول العرض"
-      offer_confirmed: ~
+      offer_confirmed: "تم قبول العرض"
       offer_closed: "تم إغلاق العرض"
-      listing_created_successfully: ~
+      listing_created_successfully: "‎%{new_listing_link}‎ تم إنشاء الإعلان بنجاح"
       offer_rejected: "تم رفض العرض"
-      offer_canceled: ~
-      listing_updated_successfully: ~
+      offer_canceled: "تم إلغاء العرض"
+      listing_updated_successfully: "تم تحديث الإعلان بنجاح"
       listing_updated_availability_enabled: ~
       listing_updated_availability_disabled: ~
-      only_kassi_administrators_can_access_this_area: "فقط ‎مسؤولي ‎%{service_name}‎ يستطيعون دخول هذه الصفحة"
+      only_kassi_administrators_can_access_this_area: "يستطيعون دخول هذه الصفحة ‎%{service_name}‎ فقط ‎مسؤولي"
       only_listing_author_can_close_a_listing: "فقط من وضع الاعلان يمكنه إغلاقه"
       only_listing_author_can_edit_a_listing: "فقط من وضع الإعلان يمكنه تعديله"
-      payment_successful: ~
-      payment_canceled: ~
-      error_in_payment: ~
-      cannot_receive_payment: ~
-      payment_waiting_for_later_accomplishment: ~
+      payment_successful: "تم الدفع بنجاح"
+      payment_canceled: "تم إلغاء عملية الدفع"
+      error_in_payment: "خطأ في عملية الدفع. إذا لم تقم بإكمال عملية الدفع، حاول مرة أخرى. إذا قمت باتمام عملية الدفع، رجاء تواصل معنا."
+      cannot_receive_payment: "الجهة الأخرى لا تستطيع استقبال دفعات لخطأ ما، يرجى التواصل مع مشرف السوق وتوضيح الأمر."
+      payment_waiting_for_later_accomplishment: "عندما تتم عملية الدفع، سيرسل إشعار إلى البائع وستحصل على فاتورة عبر بريدك الإلكتروني."
       password_recovery_sent: "تعليمات تغيير كلمة المرور الخاصة بك تم إرسالها لبريدك الإلكتروني"
       person_activated: "تم تفعيل المستخدم"
       person_deactivated: "تم تعطيل المستخدم"
@@ -1243,110 +1265,110 @@ ar:
       poll_updated: "تم تحديث الاستطلاع"
       poll_deleted: "تم إزالة الاستطلاع"
       read_more: "إقرأ المزيد!"
-      registration_considered_spam: ~
+      registration_considered_spam: "فشل في التسجيل، رجاء قم بالتواصل معنا عبر القائمة الرئيسية واذكر \"email2 error\"."
       reply_cannot_be_empty: "لا يمكنك إرسال رسالة فارغة"
       reply_sent: "تم إرسال الرد بنجاح"
       request_accepted: "تم قبول الطلب بنجاح"
-      request_confirmed: ~
+      request_confirmed: "تم إكمال الطلب"
       request_rejected: "تم رفض الطلب"
-      request_canceled: ~
+      request_canceled: "تم إلغاء الطلب"
       message_sent: "تم ارسال الرسالة"
-      message_not_sent: ~
+      message_not_sent: "تعذر إرسال الرسالة. يرجى المحاولة مرة أخرى"
       this_content_is_not_available_in_this_community: "هذا المحتوى غير موجود"
       unknown_error: "خطأ غير معروف. رجاء قم بالتواصل معنا وإرسال تفاصيل ما حدث"
       update_error: "حدث خطأ وانت تحاول تعديل معلوماتك، رجاء قم بالمحاولة مرة أخرى"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "لا يحق لك إعطاء رأيك في هذا الحدث"
       you_are_not_authorized_to_do_this: "أنت لست مخول للقيام بذلك"
       you_are_not_authorized_to_view_this_content: "أنت لست مخول لعرض هذا المحتوى"
-      listing_closed: ~
-      send_instructions: ~
+      listing_closed: "تم إغلاق الإعلان"
+      send_instructions: "سيصلك عبر البريد الإلكتروني تعليمات عن إعادة تعيين كلمة المرور في دقائق."
       you_cannot_reply_to_a_closed_offer: "لا يمكنك الرد على عرض مغلق"
       you_cannot_send_message_to_yourself: "لا يمكنك إرسال رسالة إلى نفسك"
       you_followed_listing: "أنت الآن تتابع هذه القائمة"
       you_have_already_given_feedback_about_this_event: "لقد قمت بإعطاء رأيك مسبقا لهذا الحدث"
-      you_are_now_member: "أهلا بك في ‎%{service_name}‎!"
-      you_are_already_member: ~
-      you_must_log_in_to_create_new_listing: ~
+      you_are_now_member: "!‎%{service_name}‎ أهلا بك في"
+      you_are_already_member: "!أهلا بعودتك ‎%{service_name}‎ أنت مسجل سابقا في"
+      you_must_log_in_to_create_new_listing: "‎%{sign_up_link}‎ لإنشاء إعلان جديد اذا لم يكن لديك حساب قم بإنشاء حساب جديد ‎%{service_name}‎ يجب عليك تسجيل الدخول في"
       additional_email_confirmed_dashboard: "تم تأكيد بريدك الإلكتروني"
       you_must_log_in_to_give_feedback: "لا بد من تسجيل الدخول لإعطاء رأيك"
-      you_must_log_in_to_invite_new_users: ~
+      you_must_log_in_to_invite_new_users: "‎%{service_name}‎ يجب عليك تسجيل الدخول لتستطيع دعوة مستخدمين آخرين إلى"
       you_must_log_in_to_send_a_comment: "لا بد من تسجيل الدخول لإرسال تعليق جديد"
-      you_must_log_in_to_send_a_message: "لا بد من تسجيل الدخول لـ ‎%{service_name}‎ لإرسال رسالة لمستخدم آخر"
-      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_send_a_message: ".لإرسال رسالة لمستخدم آخر ‎%{service_name}‎ لا بد من تسجيل الدخول لـ"
+      you_must_log_in_to_do_a_transaction: "للقيام بعمليات ‎%{service_name}‎ يجب عليك تسجيل الدخول إلى"
       you_must_log_in_to_view_this_content: "لا بد من تسجيل الدخول لعرض هذا المحتوى"
       you_must_log_in_to_view_this_page: "يجب عليك تسجيل الدخول لعرض محتوى هذه الصفحة"
-      you_must_log_in_to_view_your_inbox: "لا بد من تسجيل الدخول لـ ‎%{service_name}‎ لعرض بريدك الخاص"
-      you_must_log_in_to_view_your_settings: "لا بد من تسجيل الدخول لـ ‎%{service_name}‎ لعرض الإعدادات الخاصة بك"
-      you_must_log_in_to_add_news_item: ~
-      you_must_log_in_to_change_profile_settings: ~
+      you_must_log_in_to_view_your_inbox: ".لعرض بريدك الخاص ‎%{service_name}‎ لا بد من تسجيل الدخول لـ"
+      you_must_log_in_to_view_your_settings: ".لعرض الإعدادات الخاصة بك ‎%{service_name}‎ لا بد من تسجيل الدخول لـ"
+      you_must_log_in_to_add_news_item: ".لتتمكن من إضافة مقال جديد ‎%{service_name}‎ يجب عليك تسجيل الدخول لـ"
+      you_must_log_in_to_change_profile_settings: "للتعديل على إعدادات الملف الشخصي ‎%{service_name}‎ يجب عليك تسجيل الدخول إلى"
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "تحتاج إلى تأكيد بريدك الإلكتروني"
-      you_must_fill_all_the_fields: ~
-      you_unfollowed_listing: ~
+      you_must_fill_all_the_fields: "يجب عليك تعبأة كل الحقول"
+      you_unfollowed_listing: "انت لم تعد متابع لهذا الإعلان"
       joining_community_failed: "فشل في الإلتحاق"
-      can_not_delete_email: ~
-      user_does_not_have_email_to_delete: ~
-      email_deleted: ~
-      listing_author_payment_details_missing: ~
-      images_are_processing: ~
-      automatically_logged_out_please_sign_in: ~
+      can_not_delete_email: "لا يمكنك حذف البريد الإلكتروني"
+      user_does_not_have_email_to_delete: "أنت لا تملك البريد الإلكتروني الذي تود حذفه"
+      email_deleted: "تم حذف الربيد الإلكتروني"
+      listing_author_payment_details_missing: "يرجى التواصل مع المعلن عبر الضغط على زر الاتصال بالأسفل يجب عليه تعديل تفاصيل عملية الدفع ليتمكن من استقبال الدفعات"
+      images_are_processing: "نقوم حاليا بمعالجة الصور. ستكون جاهزة في دقائق."
+      automatically_logged_out_please_sign_in: "لقدم تم تسجيل خروجك تلقائيا. يرجى تسجيل الدخول مرة أخرى."
     settings:
-      account: حساب
+      account: الحساب
       notifications: إشعارات
       profile: "معلومات الملف الشخصي"
       settings: إعدادات
-      payments: ~
+      payments: المدفوعات
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "ليس لديك صلاحية لعرض هذا المحتوى"
     comment:
       wrote: كتب
-      send_private_message: "أرسل رسالة شخصية إلى ‎%{person}‎"
-      delete: ~
-      are_you_sure: ~
+      send_private_message: "‎%{person}‎ أرسل رسالة شخصية إلى"
+      delete: حذف
+      are_you_sure: "هل أنت متأكد من حذف التعليق؟"
     comment_form:
-      ask_a_question: ~
+      ask_a_question: "قم بالتعليق على الإعلان أو تواصل لتعرف أكثر. كل المستخدمين سيتمكنون من رؤية تعليقك."
       log_in: "تسجيل الدخول"
       send_comment: "أرسل تعليق"
       to_send_a_comment: "لإرسال تعليق جديد"
       write_comment: "أكتب تعليق جديد:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: ~
+      you_cannot_send_a_new_comment_because_listing_is_closed: "لا يمكنك إضافة تعليق لأن الإعلان مغلق."
       you_must: "يجب عليك"
-      subscribe_to_comments: ~
+      subscribe_to_comments: "قم بإشعاري في حال وجود تعليقات أو تحديثات"
     edit:
-      edit_listing: ~
+      edit_listing: "تعديل الإعلان"
     edit_links:
-      close_listing: ~
-      edit_listing: ~
-      reopen_listing: ~
-      move_to_top: ~
-      show_in_updates_email: ~
-      show_in_updates_email_loading: ~
-      show_in_updates_email_error: ~
+      close_listing: "إغلاق الإعلان"
+      edit_listing: "تعديل الإعلان"
+      reopen_listing: "أعد فتح الإعلان"
+      move_to_top: "الإنتقال لأول الصفحة"
+      show_in_updates_email: "أظهر في النشرة التالية"
+      show_in_updates_email_loading: "جاري التحميل..."
+      show_in_updates_email_error: "تعذر الوصول إلى الخادم. رجاء قم بإعادة تهيئة الصفحة وحاول مرة أخرى"
       show_in_updates_email_success: ~
     map:
-      open_in_google_maps: ~
+      open_in_google_maps: "افتح بواسطة خرائط جوجل"
     error:
       something_went_wrong: ~
-      something_went_wrong_plain: ~
-      create_failed_to_connect_to_booking_service: ~
-      update_failed_to_connect_to_booking_service: ~
+      something_went_wrong_plain: "حصل خطأ ما"
+      create_failed_to_connect_to_booking_service: "خطأ في إنشاء الإعلان: تعذر الإتصال بخدمة الحجز. يرجى إعادة المحاولة لاحقا."
+      update_failed_to_connect_to_booking_service: "تعذر تحديث الإعلان: تعذر الوصول إلى خدمة الحجز. يرجى المحاولة مرة أخرى."
     follow_links:
-      follow: ~
+      follow: "احصل على تحديثات عن التعليقات الجديدة عبر البريد الإلكتروني"
       unfollow: "لا ترسل لي رسائل بريد إلكتروني عن التعليقات الجديدة"
     form:
       custom_field_partials:
         dropdown:
-          select_one___: ~
+          select_one___: "اختر واحدة..."
       departure_time:
         at: عند
         departure_time: "وقت الإقلاع"
       departure_time_radio_buttons:
-        repeated: ~
+        repeated: "مكرر (قم بإضافة تواريخ وأيام في \"الشرح المفصل\")"
       description:
         detailed_description: "شرح مفصل"
-        youtube_info: ~
+        youtube_info: "إذا كان شرحك يحتوي على رابط فيديو من اليوتيوب، سيظهر مقطع الفيديو سيظهر أسفل من الشرح"
       destination:
         destination: "مكان الوصول"
       form_content:
@@ -1364,46 +1386,46 @@ ar:
         googlemap_updatemap: "تحديث الخارطة"
       images:
         image: صورة
-        best_result: ~
+        best_result: "‎%{width}‎ بـ ‎%{height}‎ لأحسن صورة استعمل مقاس"
         no_file_selected: "لم يتم اختيار ملف"
         remove_image: "احذف الصورة"
         select_file: "اختر ملف"
-        add_more: ~
-        removing: ~
-        processing: ~
-        loading_image: ~
-        image_uploading_in_progress: ~
-        processing_takes_a_while: ~
-        this_may_take_a_while: ~
-        percentage_loaded: ~
-        uploading_failed: ~
-        image_processing_failed: ~
-        file_too_large: ~
-        accepted_formats: ~
-        images_not_uploaded_confirm: ~
+        add_more: "+أضف المزيد"
+        removing: "جاري الحذف..."
+        processing: "جاري المعالجة..."
+        loading_image: تحميل...
+        image_uploading_in_progress: "جاري تحميل الصور..."
+        processing_takes_a_while: "تم تحميل كل الصور! معالجة الصور قد تحتاج وقت أطول. ولكن تستطيع الضغط على حفظ الإعلان والمتابعة."
+        this_may_take_a_while: "ثواني فقط"
+        percentage_loaded: "%‎%{percentage}‎"
+        uploading_failed: "فشل في تحميل الصورة"
+        image_processing_failed: "تعذر معالجة الصورة"
+        file_too_large: "حجم الملف كبير جدا"
+        accepted_formats: "يجب أن يكون ملف الصورة من نوع GIF ,JPG أو PNG"
+        images_not_uploaded_confirm: "لم يتم الإنتهاء من تحميل الصور بعد. هل تريد المتابعة؟"
       location:
         location: الموقع
       price:
-        price: ~
-        per: ~
-        per_day: ~
-        mass: ~
-        time: ~
-        long_time: ~
+        price: السعر
+        per: بـ
+        per_day: باليوم
+        mass: "حبة، كيلو، لتر، متر مربع، ..."
+        time: "ساعة، يوم، شهر، ..."
+        long_time: "أسبوع، شهر، ..."
         after_service_fee_you_will_get: ~
         no_service_fee_you_will_get_paypal_text: ~
         after_service_fee_you_will_get_paypal_text: ~
         paypal_fee_info_link_text: ~
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
-        shipping_price_additional: ~
-        pickup: ~
+        delivery: "طريقة التوصيل"
+        shipping: الشحن
+        shipping_price: "تكلفة الشحن"
+        shipping_price_additional: "عناصر إضافية"
+        pickup: الاستلام
       origin:
         location: الموقع
         origin: الأصل
       send_button:
-        save_listing: ~
+        save_listing: "حفظ الإعلان"
       share_type:
         select: اختر
         borrow: استعارة
@@ -1423,15 +1445,15 @@ ar:
         comma_separate: "(فاصلة منفصلة)"
         tags: بطاقات
       title:
-        listing_title: ~
+        listing_title: "إسم الإعلان"
       valid_until:
         valid_until: "وقت الإنتهاء"
       valid_until_radio_buttons:
         for_the_time_being: "في الوقت الراهن"
       privacy:
         privacy: "سياسة الخصوصية"
-        private: ~
-        public: ~
+        private: "خاص (فقط المستخدمين المسجلين دخولهم يستطيعون مشاهدة هذا المحتوى)"
+        public: "عام (مشاهد من قبل كل المستخدمين المسجلين دخولهم)"
     help_texts:
       help_share_type_title: "نوع الطلب أو العرض"
       help_tags_title: بطاقات
@@ -1456,7 +1478,7 @@ ar:
       requests: طلبات
       rideshare: توصيلة
       you_have_something_others_do_not: "هل لديك شيء للعرض؟"
-      feed_title: ~
+      feed_title: "‎%{optional_category}‎ ‎%{service_name}‎ في ‎%{listing_type}‎"
     left_panel_link:
       borrows: إعارة
       buys: شراء
@@ -1474,52 +1496,52 @@ ar:
       accept_for_frees: "القبول مجانا"
       trades: مبادلة
     listing_actions:
-      booking_from: ~
-      booking_to: ~
+      booking_from: من
+      booking_to: إلى
       how_paypal_works: ~
-      payment_help: ~
-      unable_load_availability: ~
+      payment_help: "المساعدة في عملية الدفع"
+      unable_load_availability: "تعذر تحميل المعلومات. رجاء قم بالمحاولة مرة أخرى لاحقا."
     new:
-      listing: "إدراج تسجيل"
-      selected_category: "قسم: ‎%{category}‎"
-      selected_subcategory: "قسم فرعي: ‎%{subcategory}‎"
-      selected_transaction_type: ~
-      select_category: ~
-      select_subcategory: ~
-      select_transaction_type: ~
+      listing: إعلان
+      selected_category: "‎%{category}‎ :قسم"
+      selected_subcategory: "‎%{subcategory}‎ :قسم فرعي"
+      selected_transaction_type: ":‎%{transaction_type}‎ نوع الإعلان"
+      select_category: "حدد القسم"
+      select_subcategory: "اختر قسم فرعي"
+      select_transaction_type: "اختر نوع الإعلان"
       you_need_to_fill_payout_details_before_accepting: ~
-      contact_admin_link_text: ~
+      contact_admin_link_text: "تواصل مع المشرف"
       community_not_configured_for_payments: ~
-      payment_settings_link: ~
+      payment_settings_link: "إعدادات طريقة الدفع"
       community_not_configured_for_payments_admin: ~
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
-      custom: ~
-    quantity_placeholder: ~
+      hour: ":عدد الساعات"
+      day: "عدد الأيام:"
+      night: "عدد الليالي:"
+      week: "عدد الأسابيع"
+      month: "عدد الأشهر"
+      custom: "الكمية:"
+    quantity_placeholder: الكمية
     please_comment: تعليق
     reply_link:
-      listing_closed: ~
+      listing_closed: "الإعلان مغلق"
     show:
       add_your_phone_number: "قم بإضافة رقم هاتفك"
       add_profile_picture: "أضف صورة لملفك الشخصي"
-      comments: "نقاش عام"
+      comments: " مناقشة"
       contact_by_phone: "قم بالاتصال:"
-      contact: ~
+      contact: اتصال
       favor_offer: "عرض خدمة"
       favor_request: "طلب خدمة"
-      inquiry: ~
+      inquiry: تصريح
       item_offer_trade: "عرض تبادل"
       item_request_trade: "طلب تبادل"
       no_description: "هذا المحتوى لا يحتوي على شرح"
-      no_image: ~
-      no_reviews: ~
+      no_image: "لا يوجد صورة"
+      no_reviews: "لا يوجد مراجعات"
       offer: عرض
-      listing_created: ~
-      open_until: "مفتوح إلى ‎%{date}‎"
+      listing_created: "تم الإنشاء"
+      open_until: "‎%{date}‎ مفتوح لغاية"
       feedback: رأي
       qr_code: "رمز QR"
       request: طلب
@@ -1530,43 +1552,43 @@ ar:
       time: الوقت
       times: مرات
       times_viewed: "تم العرض"
-      processing_uploaded_image: ~
-      listing_created_at: ~
+      processing_uploaded_image: "(جاري تحميل ومعالجة الصورة...)"
+      listing_created_at: "تم إنشاء الإعلان"
       price:
-        per_quantity_unit: ~
-        per_day: ~
-      delivery: ~
+        per_quantity_unit: "‎%{quantity_unit}‎ بـ"
+        per_day: باليوم
+      delivery: "طريقة التوصيل"
       shipping: ~
-      shipping_no_price: ~
+      shipping_no_price: الشحن
       shipping_price_additional: ~
-      pickup: ~
-      pickup_no_price: ~
-      youtube_video_player: ~
+      pickup: استلم
+      pickup_no_price: الإستلام
+      youtube_video_player: "مشغل مقاطع فيديو يوتيوب"
     unit_types:
-      piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      piece: قطعة
+      hour: ساعة
+      day: يوم
+      night: ليلة
+      week: أسبوع
+      month: شهر
     verification_required:
-      verification_required: ~
+      verification_required: "يحتاج إلى تأكيد"
   listing_conversations:
     preauthorize:
-      dates_not_available: ~
-      error_in_checking_availability: ~
-      details: ~
-      by: ~
-      payment: ~
+      dates_not_available: "الأوقات المختارة غير متوفرة"
+      error_in_checking_availability: "تعذر فحص المتوفر للأوقات المختارة"
+      details: تفاصيل
+      by: "‎%{listing}‎ بواسطة ‎%{author}‎"
+      payment: الدفعة
       exp: ~
       you_will_be_charged: ~
-      day: ~
-      days: ~
-      night: ~
-      nights: ~
-      invalid_parameters: ~
+      day: يوم
+      days: أيام
+      night: ليلة
+      nights: ليالي
+      invalid_parameters: "القيمة المدخلة خاطئة للعملية الجديدة"
     transaction_agreement_checkbox:
-      read_more: ~
+      read_more: عرض.
   mapview:
     index:
       all_categories: "كل الأقسام"
@@ -1589,17 +1611,17 @@ ar:
       you_have_something_others_do_not: "هل لديك شيء للعرض؟"
     please_comment: تعليق
   mercury:
-    content_too_long: ~
+    content_too_long: "القيمة المدخلة طويلة جدا"
   okl:
     member_id: "رقم المشترك الخاص"
     member_id_or_email: "رقم المشترك الخاص أو البريد الإلكتروني"
   paypal_accounts:
-    payout_info_title: ~
+    payout_info_title: "استقبال الدفعات"
     paypal_account_email_connected: ~
     payout_info_paypal: ~
     paypal_billing_agreement_made: ~
     commission_permission_needed: ~
-    create_paypal_account_link_text: ~
+    create_paypal_account_link_text: "حساب باي بال"
     connected_account: ~
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: ~
@@ -1607,62 +1629,62 @@ ar:
     paypal_receive_funds_info: ~
     upgrade_paypal_account_link_text: ~
     admin_account_not_connected: ~
-    contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
-    commission: ~
+    contact_admin_link_text: "اتصل بمشرف السوق"
+    you_are_ready_to_accept_payments: "!أنت جاهز لاستقبال الدفعات"
+    commission: "%‎%{commission}‎"
     new:
       payout_info_you_need_to_connect: ~
-      payout_info_text: ~
-      contact_admin_link_text: ~
+      payout_info_text: "لربط حسابك، يرجى عمل الآتي."
+      contact_admin_link_text: "تواصل مع المشرف"
       admin_account_not_connected: ~
-      paypal_account_email: ~
-      paypal_account_email_placeholder: ~
+      paypal_account_email: "قم بربط حسابك في باي بال"
+      paypal_account_email_placeholder: "بريدك الإلكتروني الخاص بـ باي بال"
       paypal_account_email_info_text: ~
-      create_paypal_account: ~
-      upgrade_paypal_account: ~
-      paypal_account_billing_agreement: ~
-      follow_steps: ~
+      create_paypal_account: "اضغط هنا"
+      upgrade_paypal_account: "قم بتسجيل الدخول لحسابك في باي بال"
+      paypal_account_billing_agreement: "لتتمكن من تعديل رسوم العملية ‎%{service_name}‎ احصل على موافقة من"
+      follow_steps: "اتبع الخطوات التالية للبدء باستقبال دفعات:"
       connect_paypal_account_title: ~
       connect_paypal_account_title_with_step: ~
       connect_paypal_account_instructions: ~
-      connect_paypal_account: ~
+      connect_paypal_account: "قم بربط حسابك في باي بال"
       paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: ~
       paypal_account_billing_agreement_info_fixed: ~
       paypal_account_billing_agreement_info_relative: ~
       paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: ~
-      billing_agreement_description: ~
-      billing_agreement: ~
+      billing_agreement_description: "لتتمكن من تعديل رسوم العملية ‎%{service_name}‎ احصل على موافقة من"
+      billing_agreement: "احصل على موافقة"
       permissions_not_granted: ~
       could_not_fetch_redirect_url: ~
-      paypal_not_enabled: ~
-      billing_agreement_canceled: ~
+      paypal_not_enabled: "لم يتم تفعيل الدفع بواسطة باي بال"
+      billing_agreement_canceled: "تم إلغاء إتفاق الفوترة"
       billing_agreement_not_accepted: ~
       billing_agreement_wrong_account: ~
-      something_went_wrong: ~
+      something_went_wrong: "حصل خطأ ما، يرجى المحاولة مرة أخرى. وإذا تكررت المشكلة يرجى التواصل مع مشرف الموقع."
       account_not_verified: ~
       account_restricted: ~
-    paypal_account_connected_title: ~
+    paypal_account_connected_title: "حساب باي بال متصل"
     paypal_account_connected: ~
     change_account: ~
     missing: ~
-    from_your_payment_settings_link_text: ~
+    from_your_payment_settings_link_text: "إعدادات طريقة الدفع"
     redirect_message: ~
-    redirect_link_text: ~
-    paypal_account_all_set_up: ~
-    can_receive_payments: ~
+    redirect_link_text: هنا
+    paypal_account_all_set_up: "ممتاز، تم إعداد كل شيء!"
+    can_receive_payments: "يمكنك الآن استقبال دفعات من إعلاناتك"
     paypal_account_connected_summary: ~
-    paypal_permission_granted_summary: ~
+    paypal_permission_granted_summary: "تم إعطاء الإذن لاحتساب عمولة على العملية"
   paypal:
-    pay_with_paypal: ~
+    pay_with_paypal: "الإنتقال إلى الدفع"
     checkout_with_paypal: ~
     cancel_succesful: ~
     transaction:
       commission_payment_name: ~
       commission_payment_description: ~
-    wait_while_loading: ~
-    chatting_with_paypal: ~
+    wait_while_loading: "يرجى الإنتظار."
+    chatting_with_paypal: "نحن نقوم بالتواصل مع باي بال"
   people:
     edit_links:
       activate: تفعيل
@@ -1670,18 +1692,20 @@ ar:
     help_texts:
       feedback_description_title: رأي
       help_invitation_code_title: "تحتاج دعوة للإنضمام"
-      terms_title: "شروط استخدام ‎%{service_name}‎"
-      invite_only_help_text: ~
-      invite_only_help_text_title: ادعو-فقط
+      terms_title: "‎%{service_name}‎ شروط استخدام"
+      invite_only_help_text: "حدد هذا الخيار إذا أردت أن يكون المشتركين الجدد هم من قام مشتركين آخرين مسجلين بدعوتهم"
+      invite_only_help_text_title: فقط-دعوة
     inactive_notification:
-      this_person_is_not_active_in_kassi: ~
-      inactive_description: ~
+      this_person_is_not_active_in_kassi: "‎%{service_name}‎ هذا المستخدم لم يعد نشط في"
+      inactive_description: "‎لا تستطيع الإتصال به، يمكنك إبداء رأيك أو التعليق على الإعلان ‎%{service_name}‎ هذا المستخدم قد توقف عن استعمال"
     new:
       create_new_account: "إنشاء حساب جديد"
       email: "البريد الإلكتروني"
       email_is_in_use: "البريد الإلكتروني المعطى من قبلك مستخدم مسبقا"
-      email_is_in_use_or_not_allowed: ~
-      email_not_allowed: ~
+      email_is_in_use_or_not_allowed: "غير مسموح لهذا البريد الإلكتروني أو أنه مستخدم مسبقا. اذا لم تستطع المتابعة، قم بالتواصل معنا."
+      email_not_allowed: |-
+          .رجاء استخدم بريد إلكتروني مسموح به في هذه الخدمة. إذا لم تستطع الدخول، رجاء قم بالإتصال بنا
+          ‎%{service_name}‎ هذا البريد الإلكتروني غير مسموح به في
       family_name: "إسم العائلة"
       given_name: "الإسم الأول"
       i_accept_the: "أوافق على"
@@ -1690,16 +1714,16 @@ ar:
       not_required: ",غير مطلوب"
       notification_is_mandatory: ~
       password_again: "تأكيد كلمة السر"
-      show_my_name_to_others: ~
-      sign_up: "قم بإنشاء حساب جديد لـ ‎%{service_name}‎"
+      show_my_name_to_others: "‎%{service_name}‎ أظهر الأسم لمستخدمي"
+      sign_up: "‎%{service_name}‎ قم بإنشاء حساب جديد في"
       terms: "شروط الاستخدام"
       username_is_in_use: "اسم المستخدم هذا موجود"
       username_is_invalid: "اسم المستخدم غير صحيح، الرموز المسموحة هي الأحرف، الأرقام والشرطة السفلية"
       visible_only_to_you: "مرئية فقط لك ولمشرف الوقع"
       visible_to_everybody: "مرئية للكل"
       create_account_with_facebook: "سجل باستخدام حساب فيسبوك"
-      OR: ~
-      signup_with_email: ~
+      OR: أو
+      signup_with_email: "تسجيل الدخول بالبريد الإلكتروني"
       email_restriction_instructions:
         zero: "الدخول لـ ‎%{service_name}‎ محظور. تحتاج إلى بريد إلكتروني ‎%{allowed_emails}‎"
         one: "الدخول لـ ‎%{service_name}‎ محظور. تحتاج إلى بريد إلكتروني يثبت أنه مسموح لك الانضمام."
@@ -1713,13 +1737,13 @@ ar:
     profile_listings:
       show_also_closed: "أظهر أيضا المغلقة"
       show_only_open: "أظهر فقط المفتوحة"
-      no_image: ~
+      no_image: "لا يوجد صورة"
     show:
-      contact: "اتصل بـ ‎%{person}‎"
+      contact: "‎%{person}‎ اتصل بـ"
       about_me: "تحدث عن نفسك:"
-      add_description: ~
+      add_description: "شارك الآخرين معلومات عنك"
       add_location: "أضف موقع"
-      add_phone_number: ~
+      add_phone_number: "قم بإضافة رقم هاتفك"
       address: "موقع:"
       as_expected: كالمتوقع
       edit_profile_info: "تعديل الملف الشخصي"
@@ -1736,154 +1760,154 @@ ar:
       what_are_these: "ما هذا؟"
       review: "المراجعة مستقبلة"
       reviews: "المراجعات مستقبلة"
-      listing: ~
-      listings: ~
-      open_listing: "افتح إدراج جديد"
-      open_listings: "افتح إدراج جديد"
-      no_listings: ~
-      no_open_listings: ~
-      no_reviews: ~
-      show_all_listings: ~
-      show_all_open_listings: ~
-      show_all_reviews: ~
+      listing: إعلان
+      listings: إعلانات
+      open_listing: "إعلان مفتوح"
+      open_listings: "إعلانات مفتوحة"
+      no_listings: "لا يوجد إعلانات"
+      no_open_listings: "لا يوجد إعلانات مفتوحة"
+      no_reviews: "لا يوجد مراجعات"
+      show_all_listings: "أظهر كل الإعلانات"
+      show_all_open_listings: "أظهر كل الإعلانات المفتوحة"
+      show_all_reviews: "أظهر كل المراجعات"
     followed_people:
-      you_follow_plural: ~
-      you_follow_singular: ~
-      they_follow_plural: ~
-      they_follow_singular: ~
-      show_all_followed_people: ~
-      no_followed_people: ~
+      you_follow_plural: "من الأشخاص ‎%{count}‎ أنت تتابع"
+      you_follow_singular: "شخص ‎%{count}‎ أنت تتابع"
+      they_follow_plural: "متابعين ‎%{count}‎"
+      they_follow_singular: "متابعين ‎%{count}‎"
+      show_all_followed_people: "أظهر كل المتابعين"
+      no_followed_people: "لا يوجد متابعين"
     follow_button:
-      following: ~
-      follow: ~
-      unfollow: ~
+      following: متابع
+      follow: متابعة
+      unfollow: "إلغاء المتابعة"
   sessions:
     new:
       create_new_account: "إنشاء حساب جديد"
       i_forgot_my_password: "نسيت اسم المستخدم أو كلمة المرور"
       login: "تسجيل الدخول"
-      login_to_kassi: "تسجيل الدخول لـ ‎%{service_name}‎"
-      connect_your_facebook_to_kassi: "قم بربط حسابك على فيسبوك لـ ‎%{service_name}‎"
+      login_to_kassi: "‎%{service_name}‎ تسجيل الدخول لـ"
+      connect_your_facebook_to_kassi: "‎%{service_name}‎ قم بربط حسابك على فيسبوك لـ"
       facebook_account: "حساب فيسبوك:"
       log_in_to_link_account: ~
       you_can_also_create_new_account: ~
       account_creation_link_text: "اضغط هنا"
-      cancle_facebook_connect: ~
+      cancle_facebook_connect: "‎%{cancel_link}‎ إذا لا تريد ربط هذا الحساب يمكنك"
       facebook_cancel_link_text: إلغاء
       log_in_with_your_facebook_account: "قم بالدخول عبر فيسبوك"
       or_sign_up_with_your_username: "...أو بإسم الدخول الخاص بك والبريد الإلكتروني:"
-      we_will_not_post_without_asking_you: ~
+      we_will_not_post_without_asking_you: "لن نقوم أبدا بالنشر على حساب فيسبوك الخاص بك دون إذنك"
     password_forgotten:
       email: "بريد إلكتروني"
       password_recovery_instructions: "أدخل بريدك الإلكتروني لإرسال اسم المستخدم وإعادة إنشاء كلمة المرور"
       request_new_password: "اطلب كلمة مرور جديدة"
       change_your_password: "تغيير كلمة السر"
     confirmation_pending:
-      welcome_to_kassi: "أهلا بك في ‎%{service_name}‎!"
+      welcome_to_kassi: "!‎%{service_name}‎ أهلا بك في"
       check_your_email: "تحقق من بريدك الوارد"
       resend_confirmation_instructions: "إعادة إرسال تعليمات التأكيد"
-      your_current_email_is: "بريدك الإلكتروني هو ‎%{email}‎"
+      your_current_email_is: "‎%{email}‎ بريدك الإلكتروني هو"
       change_email: تغيير
       confirm_your_email: "رجاء قم بتأكيد بريدك الإلكتروني"
-      account_confirmation_instructions: ~
-      account_confirmation_instructions_title_admin: ~
+      account_confirmation_instructions: "‎%{service_name}‎ سيصلك الآن رسالة لتأكيد بريدك الإلكتروني وتأكد من ملف سبام الخاص بك بعد ذلك يمكنك الانضمام إلى"
+      account_confirmation_instructions_title_admin: "قم بتأكيد بريدك الإلكتروني"
       before_full_access_you_need_to_confirm_email: ~
       before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
+      admin_dashboard_link_text: "لوحة التحكم"
       account_confirmation_instructions_admin: ~
-      contact_support_link_text: ~
+      contact_support_link_text: "تواصل مع الدعم الفني الخاص بـ Sharetribe"
   settings:
     account:
       change: تغيير
       confirm_new_password: "تأكيد كلمة السر"
       delete_account: "حذف الحساب"
-      delete_account_button: ~
-      delete_account_confirmation_popup: ~
-      email_addresses: ~
+      delete_account_button: "حذف الحساب نهائيا"
+      delete_account_confirmation_popup: "هل أنت متأكد من حذف حسابك نهائيا وحذف كل المعلومات المرتبطه به؟ لن يكون هنالك رجعة عن ذلك."
+      email_addresses: "العناوين البريدية الإلكترونية"
       new_email: "بريد إلكتروني جديد"
-      delete_personal_information: ~
-      delete_information_others_involved: ~
-      unfinished_transactions: ~
+      delete_personal_information: "إذا قمت بحذف حسابك كل معلوماتك الخاصة والإعلانات التي قمت بها ستحذف نهائيا من السوق ولا يمكنك إعادتها"
+      delete_information_others_involved: "المعلومات التي يكون فيها احتكاك مع الآخرين مثل المحادثات والعمليات التي قمت بها والمراجعات التي أعطيتها وغيرها لن تحذف عند قيامك بحذف حسابك نهائيا ولكن لن يظهر اسمك في هذه التفاعلات"
+      unfinished_transactions: "لا يمكنك حذف حسابك بسبب وجود عمليات مفتوحة. يرجى إكمال العمليات قبل حذف حسابك."
       new_password: "كلمة مرور جديدة"
       save: حفظ
       these_fields_are_shown_only_to_you: "اسم المستخدم يظهر في ملفك الشخصي مالم تقم بإعطاء إسمك. المعلومات الأخرى فقط معروضة لك."
-      email_already_confirmed: ~
+      email_already_confirmed: "تم تأكيد بريدك الإلكتروني مسبقا"
       email:
-        address_title: ~
-        remove_title: ~
-        remove_confirmation: ~
-        receive_notifications_title_desktop: ~
-        receive_notifications_title_mobile: ~
-        receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
-        add_new_cancel: ~
-        confirmation_title_mobile: ~
-        confirmation_title_desktop: ~
-        confirmation_resend: ~
-        status_confirmed: ~
-        status_pending: ~
+        address_title: عنوان
+        remove_title: حذف
+        remove_confirmation: "هل أن متأكد من حذف هذا البريد الإلكتروني؟"
+        receive_notifications_title_desktop: "استقبل إشعارات"
+        receive_notifications_title_mobile: "استقبل إشعارات"
+        receive_notifications_new_title_mobile: "استقبل إشعارات"
+        add_new_with_plus: "+ أضف بريد إلكتروني جديد"
+        add_new_cancel: إلغاء
+        confirmation_title_mobile: "تأكيد:"
+        confirmation_title_desktop: تأكيد
+        confirmation_resend: "أعد الإرسال"
+        status_confirmed: مؤكد
+        status_pending: "قيد الإنتظار"
     notifications:
-      email_from_admins: ~
+      email_from_admins: "أود استقبال رسائل من فترة لأخرى من قبل المشرفين على الموقع"
       i_want_to_get_email_notification_when: "أريد أن أحصل على تنبيهات عبر البريد الإلكتروني عندما..."
       newsletters: "رسائل من المشرفين على الموقع"
       community_updates: "النشرات الإخبارية"
-      email_about_confirm_reminders: ~
+      email_about_confirm_reminders: "...عندما أنسى أن أحدد طلب بالإكتمال"
       email_about_new_comments_to_own_listing: "...أحدهم قام بالتعليق على طلبي أو عرضي"
       email_about_new_messages: "...أحدهم أرسل لي رسالة"
       email_about_new_received_testimonials: "...أحدهم أبدى رأيه لي"
       email_about_testimonial_reminders: "...لقد نسيت أن أبدي رأيي في حدث"
-      email_daily_community_updates: ~
-      email_weekly_community_updates: ~
+      email_daily_community_updates: "عن الإعلانات الجديدة ‎<b>‎يوميه</b>‎ أرسل لي نشرات إخبارية"
+      email_weekly_community_updates: "عن الإعلانات الجديدة ‎<b>‎أسبوعية</b>‎ أرسل لي نشرات إخبارية"
       do_not_email_community_updates: "لا ترسل لي نشرات إخبارية"
       email_when_conversation_accepted: "...أحدهم قبل عرضي أو طلبي"
       email_when_conversation_rejected: "...أحدهم رفض عرضي أو طلبي"
-      email_about_completed_transactions: ~
-      email_about_new_payments: ~
-      email_about_new_listings_by_followed_people: ~
+      email_about_completed_transactions: "...عندما يحدد أحدهم طلبي بالإكتمال"
+      email_about_new_payments: "...لقد استقبلت دفعة جديدة"
+      email_about_new_listings_by_followed_people: "...شخص أتابع إعلاناته الجديدة"
       unsubscribe_succesful: "تم الغاء الاشتراك بنجاح"
       unsubscribe_info_text: ~
       settings_link: إعدادات
       homepage_link: "الصفحة الرئيسية"
       unsubscribe_unsuccesful: "خطأ في إلغاء الاشتراك"
-      unsuccessful_unsubscribe_info_text: ~
+      unsuccessful_unsubscribe_info_text: "رابط الإشتراك منتهي الصلاحية. يرجى تسجيل الدخول وتغيير إعدادات إشتراك بريدك الإلكتروني"
     profile:
-      about_you: "عن نفسك"
+      about_you: "تحدث عن نفسك"
       city: مدينة
       family_name: "إسم العائلة"
       given_name: "الإسم الأول"
-      first_name_with_initial: ~
-      first_name_only: ~
-      location_description: ~
+      first_name_with_initial: "(فقط الحرف الأول مرئي للمستخدمين الآخرين)"
+      first_name_only: "(غير مرئي للمشتركين الآخرين)"
+      location_description: "يمكنك إضافة عنوان الشارع أو المدينة أو الرمز البريدي. من الجيد إضافة بلدك عندما تضيف موقعك. مثلا: \"٢١٢١٢ جدة، المملكة العربية السعودية\" أو \"٢٠٠٠ شارع التحلية، جدة، المملكة العربية السعودية\""
       phone_number: "رقم الهاتف"
-      profile_picture: ~
+      profile_picture: "صورة الملف الشخصي"
       postal_code: "الرمز البريدي"
       profile_page: "في صفحة الملف الشخصي"
       profilemap: "عرض الخارطة"
       street_address: الموقع
-      these_fields_are_shown_in_your: "هذه المعلومات مرئية لكل مستخدمي ‎%{service_name}‎"
+      these_fields_are_shown_in_your: "‎%{service_name}‎ هذه المعلومات مرئية لكل مستخدمي"
       visible_to_everybody: "مرئية للكل"
       visible_to_registered_users: "(مرئية للمستخدمين المسجلين)"
-      default_in_listing: ~
-      invisible: ~
+      default_in_listing: "(يستخدم غالبا عند إنشاء إعلان جديد)"
+      invisible: "(غير مرئي للمشتركين الآخرين)"
       image_is_processing: ~
     save_information: "حفظ المعلومات"
   shipping_address:
-    shipping_address: ~
+    shipping_address: "عنوان الشحن"
   tag_cloud:
     tag_used:
       with_tag: "مع بطاقة"
       without_tag: "بدون بطاقة"
   terms:
     show:
-      accept_terms: "قبول شروط استخدام ‎%{service_name}‎"
+      accept_terms: "‎%{service_name}‎ قبول شروط استخدام"
       here: "بالضغط هنا"
       i_accept_new_terms: "أنا أقبل الشروط الجديدة"
       i_accept_terms: "أنا أقبل الشروط"
-      terms: "شروط استخدام ‎%{service_name}‎"
+      terms: "‎%{service_name}‎ شروط استخدام"
       terms_have_changed: "تم تغيير شروط الإستخدام"
       you_can_view_the_new_terms: "يمكنك عرض الشروط الجديدة"
-      you_need_to_accept: "أهلا بك في ‎%{service_name}‎! يبدو أن هذه المرة الأولى لك. قبل البدأ يجب عليك قبول"
-      you_need_to_accept_new_terms: "شروط استخدام ‎%{service_name}‎ قد تغيرت. يجب عليك قبول شروط الاستخدام الجديدة قبل الاستمرار في استخدام ‎%{service_name}‎. شروط الاستخدام الجديدة تهدف إلى تمكين الخدمة بعد انتهاء مشروع البحث."
+      you_need_to_accept: "أهلا بك في  ‎%{service_name}‎!  يبدو أن هذه المرة الأولى لك. قبل البدأ يجب عليك القبول"
+      you_need_to_accept_new_terms: ~
   testimonials:
     index:
       all_testimonials: "جميع الآراء"
@@ -1893,7 +1917,7 @@ ar:
     new:
       as_expected: كالمتوقع
       exceeded_expectations: "أفضل من المتوقع"
-      give_feedback_to: "قدم رآيك لـ ‎%{person}‎"
+      give_feedback_to: "‎%{person}‎ قدم رآيك لـ"
       grade: "ما هو شعورك العام؟"
       less_than_expected: "أسوأ مما كان متوقعا"
       send_feedback: "أرسل رأيك"
@@ -1901,146 +1925,204 @@ ar:
       slightly_less_than_expected: "أسوأ من المتوقع بقليل"
       textual_feedback: "كيف سارت الأمور؟"
       this_will_be_shown_in_profile: ~
-      positive: ~
-      negative: ~
-      default_textual_feedback: ~
+      positive: إيجابي
+      negative: سلبي
+      default_textual_feedback: "كل سار بشكل جيد. شكرا جزيلا"
     testimonial:
-      about_listing: ~
+      about_listing: "عن الإعلان"
   date:
     formats:
       long_with_abbr_day_name: ~
   datepicker:
     days:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: الأحد
+      monday: الإثنين
+      tuesday: الثلاثاء
+      wednesday: الأربعاء
+      thursday: الخميس
+      friday: الجمعة
+      saturday: السبت
     days_short:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: الأحد
+      monday: الإثنين
+      tuesday: الثلاثاء
+      wednesday: الأربعاء
+      thursday: الخميس
+      friday: الجمعة
+      saturday: السبت
     days_min:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: الأحد
+      monday: الإثنين
+      tuesday: الثلاثاء
+      wednesday: الأربعاء
+      thursday: الخميس
+      friday: الجمعة
+      saturday: السبت
     months:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: "كانون الثاني"
+      february: شباط
+      march: آذار
+      april: نيسان
+      may: أيار
+      june: حزيران
+      july: تموز
+      august: آب
+      september: أيلول
+      october: "تشرين أول"
+      november: "تشرين ثاني"
+      december: "كانون أول"
     months_short:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
-    today: ~
-    clear: ~
+      january: "كانون الثاني"
+      february: شباط
+      march: آذار
+      april: نيسان
+      may: أيار
+      june: حزيران
+      july: تموز
+      august: آب
+      september: أيلول
+      october: "تشرين أول"
+      november: "تشرين ثاني"
+      december: "كانون أول"
+    today: اليوم
+    clear: واضح
     format: ~
   time:
     formats:
-      short: "%b %e , %Y على ‎%H:%‎M"
-      shorter: "%b %e على ‎%H:%‎M"
+      short: ~
+      shorter: ~
       short_date: ~
   timestamps:
-    day_ago: "قبل ‎%{count}‎ يوم"
-    days_ago: "قبل ‎%{count}‎ أيام"
-    hour_ago: "قبل ‎%{count}‎ ساعة"
-    hours_ago: "قبل ‎%{count}‎ ساعات"
-    minute_ago: "قبل ‎%{count}‎ دقيقة"
-    minutes_ago: "قبل ‎%{count}‎ دقائق"
-    month_ago: "قبل ‎%{count}‎ شهر"
-    months_ago: "قبل ‎%{count}‎ أشهر"
-    seconds_ago: "قبل ‎%{count}‎ ثواني"
-    year_ago: "قبل ‎%{count}‎ سنة"
-    years_ago: "قبل ‎%{count}‎ سنوات"
+    day_ago: "يوم ‎%{count}‎ قبل"
+    days_ago: "أيام ‎%{count}‎ قبل"
+    hour_ago: "ساعة ‎%{count}‎ قبل"
+    hours_ago: "ساعات ‎%{count}‎ قبل"
+    minute_ago: "دقيقة ‎%{count}‎ قبل"
+    minutes_ago: "دقائق ‎%{count}‎ قبل"
+    month_ago: "شهر ‎%{count}‎ قبل"
+    months_ago: "أشهر ‎%{count}‎ قبل"
+    seconds_ago: "ثواني ‎%{count}‎ قبل"
+    year_ago: "سنة ‎%{count}‎ قبل"
+    years_ago: "سنوات ‎%{count}‎ قبل"
+    days_since:
+      zero: "‎%{count}‎ يوم"
+      one: "‎%{count}‎ يوم"
+      two: "‎%{count}‎ أيام"
+      few: "‎%{count}‎ أيام"
+      many: "‎%{count}‎ أيام"
+      other: "‎%{count}‎ أيام"
+    time_to:
+      seconds:
+        zero: "‎%{count}‎ ثانية"
+        one: "‎%{count}‎ ثواني"
+        two: "‎%{count}‎ ثواني"
+        few: "‎%{count}‎ ثواني"
+        many: "‎%{count}‎ ثواني"
+        other: "‎%{count}‎ ثواني"
+      minutes:
+        zero: "‎%{count}‎ دقيقة"
+        one: "‎%{count}‎ دقيقة"
+        two: "‎%{count}‎ دقائق"
+        few: "‎%{count}‎ دقائق"
+        many: "‎%{count}‎ دقائق"
+        other: "‎%{count}‎ دقائق"
+      hours:
+        zero: "‎%{count}‎ ساعة"
+        one: "‎%{count}‎ ساعة"
+        two: "‎%{count}‎ ساعة"
+        few: "‎%{count}‎ ساعات"
+        many: "‎%{count}‎ ساعة"
+        other: "‎%{count}‎ ساعة"
+      days:
+        zero: "‎%{count}‎ يوم"
+        one: "‎%{count}‎ يوم"
+        two: "‎%{count}‎ يوم"
+        few: "‎%{count}‎ أيام"
+        many: "‎%{count}‎ يوم‎"
+        other: "‎%{count}‎ يوم"
   transactions:
     initiate:
-      booked_days: ~
-      booked_nights: ~
-      price_per_day: ~
-      price_per_night: ~
-      quantity: ~
-      subtotal: ~
-      shipping-price: ~
-    price_per_quantity: ~
-    price: ~
-    quantity: ~
-    unit_price: ~
-    total: ~
+      booked_days: "أيام الحجز:"
+      booked_nights: "احجز ليلة:"
+      price_per_day: "السعر باليوم:"
+      price_per_night: "السعر بالليلة:"
+      quantity: "الكمية:"
+      subtotal: "المجموع الفرعي:"
+      shipping-price: "الشحن:"
+    price_per_quantity: ":‎%{unit_type}‎ السعر بـ"
+    price: "السعر:"
+    quantity: "‎%{quantity}‎ :الكمية"
+    unit_price: "‎%{unit_price}‎ :سعر الوحدة"
+    total: "المجموع:"
   unit:
-    day: ~
-    days: ~
+    day: يوم
+    days: أيام
   web:
     listings:
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: قطعة
+        hour: ساعة
+        day: يوم
+        night: ليلة
+        week: أسبوع
+        month: شهر
     no_listings:
-      sorry: ~
-      try_other_search_terms: ~
+      sorry: "نعتذر، لا يوجد إعلانات في هذا البحث"
+      try_other_search_terms: "حاول البحث في شيء آخر؟"
     listing_card:
-      add_picture: ~
-      no_picture: ~
+      add_picture: "أضف صورة"
+      no_picture: "لا يوجد صورة"
     search:
-      page: ~
-      page_of_pages: ~
+      page: صفحة
+      page_of_pages: "‎%{total_number_of_pages}‎ من"
     topbar:
-      menu: ~
-      more: ~
-      search_placeholder: ~
-      search_location_placeholder: ~
-      user: ~
-      inbox: ~
-      profile: ~
-      manage_listings: ~
-      settings: ~
-      logout: ~
-      login: ~
-      signup: ~
-      admin_dashboard: ~
-      language: ~
+      menu: القائمة
+      more: المزيد
+      search_placeholder: بحث...
+      search_location_placeholder: الموقع
+      user: المستخدم
+      inbox: "صندوق الوارد"
+      profile: "الملف الشخصي"
+      manage_listings: "إدارة الإعلانات"
+      settings: الإعدادات
+      logout: "تسجيل الخروج"
+      login: "تسجيل الدخول"
+      signup: "إنشاء حساب"
+      admin_dashboard: "لوحة التحكم"
+      language: اللغة
     utils:
-      km: ~
-      mi: ~
+      km: كلم
+      mi: ميل
     branding:
       powered_by: ~
       create_own: ~
-      learn_more: ~
+      learn_more: "تعلم المزيد"
   will_paginate:
-    previous_label: ~
-    next_label: ~
-    page_gap: ~
+    previous_label: "&#8592; Previous"
+    next_label: "Next &#8594;"
+    page_gap: "&hellip;"
     page_entries_info:
       multi_page: ~
       multi_page_html: ~
+      single_page:
+        zero: "لم يتم العثور على ‎%{model}‎"
+        one: "عرض ١ ‎%{model}‎"
+        two: "عرض الكل ‎%{count}‎ ‎%{model}‎"
+        few: "عرض الكل ‎%{count}‎ ‎%{model}‎"
+        many: "عرض الكل ‎%{count}‎ ‎%{model}‎"
+        other: "عرض الكل ‎%{count}‎ ‎%{model}‎"
+    models:
+      person:
+        zero: مستخدمين
+        one: مستخدم
+        two: مستخدمين
+        few: مستخدمين
+        many: مستخدمين
+        other: مستخدمين
+      listing_conversation:
+        zero: عملية
+        one: عملية
+        two: عمليات
+        few: عمليات
+        many: عمليات
+        other: عمليات
