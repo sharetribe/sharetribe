@@ -23,7 +23,7 @@ class HarmonyProxyController < ApplicationController
 
   EndpointDefinition = EntityUtils.define_builder(
     [:name, :symbol, :mandatory],
-    [:required_role, :mandatory, one_of: [:none, :user, :admin]],
+    [:login_needed, :bool, :mandatory],
     [:authorization, :callable, :mandatory])
 
   # Define here all the endpoints that you want to forward to Harmony
@@ -32,9 +32,7 @@ class HarmonyProxyController < ApplicationController
   #
   # - name: This is the endpoint name as a symbol. The name MUST match to one
   #         of the endpoints in the Harmony Client endpoint map.
-  # - required_role: The minimum role that is required to the action.
-  #                  Available roles are :none, :user and :admin, where
-  #                  :none < :user < :admin
+  # - login_needed: if `false`, this endpoint can be accessed by unlogged user
   # - authorization: A callable, which is called with two params, req and
   #                  auth_context. The function should return `true` if the user
   #                  is allowed to perform the given action, otherwise `false`
@@ -42,7 +40,7 @@ class HarmonyProxyController < ApplicationController
   ENDPOINTS = [
     {
       name: :show_bookable,
-      required_role: :user,
+      login_needed: true,
       authorization: AuthorizeShowBookable
     }
 
@@ -54,6 +52,15 @@ class HarmonyProxyController < ApplicationController
   #
   # The purpose of the controller is to forward all calls to it to
   # Harmony service and authrize the requests before forwarding them.
+  #
+  # Errors (from the proxy):
+  #
+  # - 404: Endpoint not found
+  # - 401: Authentication needed, but user is not logged in
+  # - 403: Authorization failed
+  #
+  # If there are now errors from the proxy (auth passed and call forwarded),
+  # the result from Harmony is forwarded to client unchanged (with the same body and status)
   #
   def proxy
     build_request_context(request)
@@ -116,6 +123,11 @@ class HarmonyProxyController < ApplicationController
     }
   end
 
+  # Authorize the user:
+  #
+  # - Call the endpoint's `authorization` function
+  # - Return 403, if `authorization` function returns `false`
+  #
   def authorize(ctx)
     req, endpoint, auth_context = ctx.values_at(:request, :endpoint, :auth_context)
 
@@ -126,8 +138,13 @@ class HarmonyProxyController < ApplicationController
     end
   end
 
+  # Authenticate the user:
+  #
+  # - If login is needed, but user is not logged in, return 401
+  # - Else, create auth_context from @current_user
+  #
   def authenticate(ctx)
-    if ctx[:endpoint][:required_role] != :none && @current_user.nil?
+    if ctx[:endpoint][:login_needed] == true && @current_user.nil?
       Result::Error.new("Unauhtorized", ctx.merge(error: { status: 401 }))
     else
       auth_context = create_auth_context(user: @current_user, community: @current_community)
