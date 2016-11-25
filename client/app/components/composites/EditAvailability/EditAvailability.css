@@ -1,0 +1,59 @@
+.root {
+  font-family: var(--EditAvailability_fontFamily);
+
+  /* stylelint-disable selector-class-pattern */
+
+  & :global(.CalendarMonth__caption) {
+    font-size: 18px;
+    padding-bottom: 45px;
+
+    & strong {
+      font-weight: normal;
+    }
+  }
+
+  & :global(.DayPicker__week-header) {
+    top: 55px;
+
+    & small {
+      font-size: 13px;
+    }
+  }
+
+  & :global(.DayPickerNavigation__prev),
+  & :global(.DayPickerNavigation__next) {
+    border: none;
+  }
+
+  & :global(.CalendarMonth__day) {
+    border: 1px solid #ebebeb;
+    color: #5e6977;
+  }
+
+  & :global(.CalendarMonth__day--today) {
+    font-weight: bold;
+    color: #000;
+  }
+
+  & :global(.CalendarMonth__day--past) {
+    cursor: default;
+  }
+
+  & :global(.CalendarMonth__day--past),
+  & :global(.CalendarMonth__day--blocked) {
+    background-color: #f8f8f8;
+    color: #d7d7d7;
+  }
+
+  & :global(.CalendarMonth__day--reserved) {
+    background-color: var(--colorReservedAvailability);
+    color: #fff;
+    cursor: default;
+  }
+
+  & :global(.CalendarMonth__day--outside) {
+    cursor: pointer;
+  }
+
+  /* stylelint-enable selector-class-pattern */
+}
