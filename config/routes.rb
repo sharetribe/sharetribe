@@ -62,7 +62,7 @@ Kassi::Application.routes.draw do
 
   # Harmony Proxy
   # This endpoint proxies the requests to Harmony and does authorization
-  match '/harmony_proxy/*path' => 'harmony_proxy#proxy', via: :all
+  match '/harmony_proxy/*harmony_path' => 'harmony_proxy#proxy', via: :all
 
   # UI API, i.e. internal endpoints for dynamic UI that doesn't belong to under any specific controller
   get "/ui_api/topbar_props" => "topbar_api#props"

@@ -16,8 +16,8 @@ class HarmonyProxyController < ApplicationController
 
       author_uuid = listing.author.uuid_object.to_s
 
-      auth_context[:marketplaceId] == q[:marketplaceId]
-      auth_context[:actorId] == author_uuid
+      auth_context[:marketplaceId] == q[:marketplaceId] &&
+        auth_context[:actorId] == author_uuid
     end
   end
 
@@ -37,7 +37,7 @@ class HarmonyProxyController < ApplicationController
   #                  auth_context. The function should return `true` if the user
   #                  is allowed to perform the given action, otherwise `false`
   #
-  ENDPOINTS = [
+  FORWARDABLE_ENDPOINTS = [
     {
       name: :show_bookable,
       login_needed: true,
@@ -59,7 +59,7 @@ class HarmonyProxyController < ApplicationController
   # - 401: Authentication needed, but user is not logged in
   # - 403: Authorization failed
   #
-  # If there are now errors from the proxy (auth passed and call forwarded),
+  # If there are no errors from the proxy (auth passed and call forwarded),
   # the result from Harmony is forwarded to client unchanged (with the same body and status)
   #
   def proxy
@@ -75,7 +75,7 @@ class HarmonyProxyController < ApplicationController
   private
 
   def success(ctx)
-    render json: res[:body], status: ctx[:response][:status]
+    render json: ctx[:response][:body], status: ctx[:response][:status]
   end
 
   def error(error_msg, ctx)
@@ -83,7 +83,7 @@ class HarmonyProxyController < ApplicationController
   end
 
   def build_request_context(request)
-    path = request.path_parameters[:path]
+    path = request.path_parameters[:harmony_path]
     format = request.path_parameters[:format] ? "." + request.path_parameters[:format] : ""
 
     Result::Success.new(
@@ -145,7 +145,7 @@ class HarmonyProxyController < ApplicationController
   #
   def authenticate(ctx)
     if ctx[:endpoint][:login_needed] == true && @current_user.nil?
-      Result::Error.new("Unauhtorized", ctx.merge(error: { status: 401 }))
+      Result::Error.new("Unauthorized", ctx.merge(error: { status: 401 }))
     else
       auth_context = create_auth_context(user: @current_user, community: @current_community)
       Result::Success.new(ctx.merge(auth_context: auth_context))
@@ -159,8 +159,8 @@ class HarmonyProxyController < ApplicationController
 
     endpoint_name = Maybe(harmony_endpoint).map { |ep| ep.first }.or_else(nil)
 
-    endpoint = ENDPOINTS.find { |endpoint|
-      endpoint[:name] == endpoint_name
+    endpoint = FORWARDABLE_ENDPOINTS.find { |ep|
+      ep[:name] == endpoint_name
     }
 
     if endpoint.present?
