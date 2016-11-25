@@ -55,6 +55,6 @@ class EditAvailabilityWrapper extends Component {
   }
 }
 
-storiesOf('General')
+storiesOf('Availability')
   .add('EditAvailability', () =>
        withProps(EditAvailabilityWrapper, {}));
