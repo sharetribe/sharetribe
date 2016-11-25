@@ -119,9 +119,7 @@ class HarmonyProxyController < ApplicationController
   def authorize(ctx)
     req, endpoint, auth_context = ctx.values_at(:request, :endpoint, :auth_context)
 
-    if role_unauthorized?(endpoint, auth_context)
-      Result::Error.new("Forbidden", ctx.merge(error: { status: 403 }))
-    elsif !endpoint[:authorization].call(req, auth_context)
+    if !endpoint[:authorization].call(req, auth_context)
       Result::Error.new("Forbidden", ctx.merge(error: { status: 403 }))
     else
       Result::Success.new(ctx)
@@ -161,21 +159,6 @@ class HarmonyProxyController < ApplicationController
       actorId: (user&.uuid_object || UUIDUtils.v0_uuid).to_s,
       actorRole: role(user)
     }
-  end
-
-  def role_unauthorized?(endpoint, auth_context)
-    !expanded_role(auth_context[:actorRole]).include?(endpoint[:required_role])
-  end
-
-  def expanded_role(role)
-    case role
-    when :user
-      [:none, :user]
-    when :admin
-      [:none, :user, :admin]
-    else
-      [role]
-    end
   end
 
   def role(user)
