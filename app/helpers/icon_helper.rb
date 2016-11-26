@@ -13,7 +13,7 @@ module IconHelper
   def icon_class(icon_name)
     icon = ICON_MAP[ICON_PACK][icon_name]
     if icon.nil?
-      icon = (ICON_PACK == "font-awesome" ? "icon-circle-blank" : "ss-record")
+      icon = (ICON_PACK == "font-awesome" ? "icon-th-large" : "ss-record")
     end
     return icon
   end
