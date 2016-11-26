@@ -120,7 +120,11 @@ Kassi::Application.routes.draw do
 
     # All new transactions (in the future)
     get "/transactions/new" => "transactions#new", as: :new_transaction
-
+    namespace :payments do
+      # Braintree routes
+      get "/purchase_new" => "braintree#purchase_new", as: :purchase_new
+      post "/purchase" => "braintree#purchase", as: :purchase
+    end
     # preauthorize flow
 
     # Deprecated route (26-08-2016)

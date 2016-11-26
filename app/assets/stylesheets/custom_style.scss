@@ -1,3 +1,10 @@
+.Link__link__3pNRT {
+  vertical-align: top;
+  position: relative;
+  top: -1px;
+  left: 10px;
+}
+
 .userName{
   vertical-align: top;
   position: relative;
@@ -12,7 +19,6 @@
 .SearchBar__searchButton__1Ck2b svg {
   stroke: rgb(46, 18, 46);
 }
-
 
 
 .shopping-cart {
@@ -43,6 +49,7 @@
 }
 
 .SearchBar__searchButton__1Ck2b{
+    height: 100%;
 	left: 0 !important;
 	border-right: 1px solid #d6d3d3;
 }
@@ -111,7 +118,7 @@ body{
   padding-top: 50px;
 }
 .Topbar__topbar__7GUWt {
-    height: 55px;
+    height: 40px;
     
 }
 .SearchBar__searchButton__1Ck2b svg {
@@ -120,16 +127,17 @@ body{
 -o-transform: scale(-1, 1);
 -ms-transform: scale(-1, 1);
 transform: scale(-1, 1);
+top: 10px;
 }
 
 .SearchBar__form__27PQI {
   display: none;
-  height: 50px;
+  height: 40px;
   position: absolute;
   left: 0;
   right: 0;
   top: auto;
-  padding-left: 1.13em;
+  padding-left: 1.65em;
   z-index: 6;
   transition: height 1s ease-in;
   font-size: 16px
@@ -148,7 +156,7 @@ transform: scale(-1, 1);
     display: -webkit-inline-flex;
     display: inline-flex;
     position: relative;
-    height: 44px;
+    height: 36px;
     width: 480px;
     padding-left: 1.715em;
     top: 0;
@@ -162,4 +170,10 @@ transform: scale(-1, 1);
   }
   }
 
-
+.AvatarDropdown__avatarWithNotifications__1TdZT {
+    top: -14px;
+      height: 30px;  
+}
+.AvatarDropdown__avatarWithNotifications__1TdZT img {
+    width: 30px;
+}

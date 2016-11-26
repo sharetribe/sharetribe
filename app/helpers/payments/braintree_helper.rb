@@ -1,0 +1,2 @@
+module Payments::BraintreeHelper
+end

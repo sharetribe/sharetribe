@@ -18,6 +18,7 @@ module ListingIndexViewUtils
     :quantity,
     :shape_name_tr_key,
     :listing_shape_id,
+    :custom_field_id,
     :icon_name)
 
   Author = Struct.new(
