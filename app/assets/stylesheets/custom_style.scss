@@ -193,3 +193,16 @@ height: auto;
         top: 63px;
     
 }
+
+.home-toolbar-button-group-button {
+    background-color: white;
+    color: black;
+}
+.home-toolbar-button-group-button.selected {
+    background-color: white;
+    color: black;
+}
+.home-toolbar-button-group-button.selected:hover {
+    background-color: black;
+    color: white;
+}
