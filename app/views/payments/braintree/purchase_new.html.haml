@@ -1,0 +1,23 @@
+%script{:src => "https://js.braintreegateway.com/js/braintree-2.30.0.min.js"}
+#new_message_form.centered-section
+
+  - author_link = link_to(author[:display_name], person_path(username: author[:username]))
+
+  .preauthorize-section
+    %h2.preauthorize-details-title
+      = t("listing_conversations.preauthorize.details")
+
+    %ul.no-bullets
+      %li
+        %div
+          = t("listing_conversations.preauthorize.by", listing: link_to("#{listing[:title]}", listing_path(listing[:id])), author: author_link).html_safe
+
+      = number_to_currency(@listing.price_cents/100)
+    
+  = form_tag payments_purchase_path, method: :post, id: "form" do
+    = hidden_field_tag(:listing_id, @listing.id)
+    %p Please enter your payment details:
+    #braintreeDropin
+    -# = hidden_field_tag :payment_method_nonce
+    %br
+    = submit_tag "Proceed", class: "form-submit"

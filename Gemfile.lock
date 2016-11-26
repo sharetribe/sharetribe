@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/lyang/braintree-rails.git
+  revision: 7dbe3eac3549e25d0d602747a435832528b31ccf
+  branch: master
+  specs:
+    braintree-rails (1.4.1)
+      activemodel (>= 3.0, < 5.1)
+      activesupport (>= 3.0, < 5.1)
+      braintree (>= 2.28.0, < 3)
+
+GIT
   remote: https://github.com/fnando/i18n-js.git
   revision: 2ca6d31365bb41db21e373d126cac00d38d15144
   ref: 2ca6d31365bb41db21e373d126cac00d38d15144
@@ -108,6 +118,8 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    braintree (2.33.1)
+      builder (>= 2.0.0)
     builder (3.2.2)
     byebug (9.0.5)
     callsite (0.0.11)
@@ -221,6 +233,11 @@ GEM
     git-version-bump (0.15.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    gon (5.1.2)
+      actionpack (>= 2.3.0)
+      json
+      multi_json
+      request_store (>= 1.0.5)
     guard (2.14.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -561,6 +578,8 @@ DEPENDENCIES
   awesome_print (~> 1.6.1)
   aws-sdk (~> 2)
   better_errors (~> 2.1.1)
+  braintree (~> 2.33.1)
+  braintree-rails!
   capybara (~> 2.6.2)
   coffee-rails (~> 4.0.1)
   color (~> 1.8)
@@ -585,6 +604,7 @@ DEPENDENCIES
   faraday-encoding (~> 0.0.3)
   faraday_middleware (~> 0.10.0)
   flying-sphinx (~> 1.2.0)
+  gon (~> 5.1.2)
   guard-rspec (~> 4.6.5)
   haml (~> 4.0.5)
   heroku

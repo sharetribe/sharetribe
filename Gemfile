@@ -188,3 +188,10 @@ gem 'color', '~> 1.8'
 gem 'uuidtools', '~> 2.1'
 gem 'transit-ruby', '~> 0.8'
 gem 'rollbar'
+
+# Send Server variable to JS
+gem 'gon', '~> 5.1.2'
+
+# aahmed: using braintree for new payment gateway
+gem 'braintree', '~> 2.33.1'
+gem 'braintree-rails', :github => "lyang/braintree-rails", :branch => 'master'
