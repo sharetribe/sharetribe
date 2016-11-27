@@ -42,6 +42,9 @@
       - if quantity
         = hidden_field_tag(:quantity, quantity)
 
+      = hidden_field_tag(:payment_method_nonce, nil, id: "payment_method_nonce")
+      = hidden_field_tag(:payment_method_type, nil, id: "payment_method_type")
+
       .row
         .col-12
           -# = button_tag t("conversations.new.send_message"), :class => "send_button"
