@@ -262,11 +262,18 @@ class Topbar extends Component {
           },
         }) :
         div({ className: css.topbarMobileSearchPlaceholder }),
-      
-
       div({ className: css.topbarMenuSpacer }, [
         r(Logo, { ...this.props.logo, className: classNames(css.topbarLogo, textLogo), color: marketplaceColor1 }),
       ]),
+       div({ className: css.topbarMenuSpacer }, hasMenuProps ?
+        r(MenuPriority, menuProps) :
+        null),
+      hasMultipleLanguages ? r(Menu, {
+        ...languageMenuProps,
+        className: {
+          [css.topbarMenu]: true,
+        } }) : null,
+
       this.props.avatarDropdown && loggedInUsername ?
         r(AvatarDropdown, {
           ...avatarDropdownProps(this.props.avatarDropdown, marketplaceColor1,

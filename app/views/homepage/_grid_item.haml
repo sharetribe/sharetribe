@@ -8,7 +8,7 @@
       .home-fluid-thumbnail-grid-author
         - name = PersonViewUtils::person_entity_display_name(listing.author, @current_community.name_display_type)
         %span.item-time
-          = time_ago_in_words(listing.created_at)
+          = distance_of_time_in_words(listing.created_at, Time.now)
         %div.product-details
           %div.company-info
             %span.pull-left

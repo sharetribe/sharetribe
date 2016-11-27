@@ -1,3 +1,4 @@
+
 import { Component, PropTypes } from 'react';
 import r, { div } from 'r-dom';
 import classNames from 'classnames';
@@ -52,7 +53,7 @@ class AvatarDropdown extends Component {
     }, [
       div({ className: css.avatarWithNotifications }, [
         r(Avatar, this.props.avatar),
-        r.span({ className: "userName" }, this.props.username),
+        r.span({ className: "userName" }, this.props.avatar.givenName),
       ].concat(notificationBadgeInArray)),
       r(ProfileDropdown, {
         className: css.avatarProfileDropdown,
