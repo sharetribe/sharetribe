@@ -184,7 +184,6 @@ class ListingsController < ApplicationController
     payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
     process = get_transaction_process(community_id: @current_community.id, transaction_process_id: @listing.transaction_process_id)
     form_path = new_transaction_path(listing_id: @listing.id)
-    # form_path = payments_purchase_new_path(listing_id: @listing.id)
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 
     delivery_opts = delivery_config(@listing.require_shipping_address, @listing.pickup_enabled, @listing.shipping_price, @listing.shipping_price_additional, @listing.currency)
@@ -236,6 +235,9 @@ class ListingsController < ApplicationController
   end
 
   def new
+    unless @current_user.is_seller?
+      redirect_to payments_purchase_new_path, notice: "In order to continue. You need to provide some details to become a market place user." and return
+    end
     category_tree = CategoryViewUtils.category_tree(
       categories: ListingService::API::Api.categories.get_all(community_id: @current_community.id)[:data],
       shapes: get_shapes,

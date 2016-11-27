@@ -122,8 +122,10 @@ Kassi::Application.routes.draw do
     get "/transactions/new" => "transactions#new", as: :new_transaction
     namespace :payments do
       # Braintree routes
-      get "/purchase_new" => "braintree#purchase_new", as: :purchase_new
+      get "/new" => "braintree#new", as: :purchase_new
+      post "/merchant" => "braintree#create", as: :merchant
       post "/purchase" => "braintree#purchase", as: :purchase
+      post "/braintree_webhook" => "braintree#braintree_webhook", as: :sub_merchant_webhook
     end
     # preauthorize flow
 

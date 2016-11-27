@@ -1,0 +1,61 @@
+= render partial: "customer_fields"
+.row
+  .col-6
+    .form-group
+      = text_area_tag :street_address, params[:street_address], placeholder: "Street Address (111 Main St)", class: "form-control"
+  .col-6
+    .form-group
+      = text_field_tag :postal_code, params[:postal_code], placeholder: "Postal Code", class: "form-control"
+
+.row
+  .col-6
+    .form-group
+      = text_field_tag :locality, params[:locality], placeholder: "Locality (Chicago)", class: "form-control"
+  .col-6
+    .form-group
+      = text_field_tag :region, params[:region], placeholder: "Region (IL)", class: "form-control"
+
+%h2 Please enter your Business info:
+.row
+  .col-6
+    .form-group
+      = text_field_tag :business_name, params[:business_name], placeholder: "Business Name", class: "form-control"
+  .col-6
+    .form-group
+      = text_field_tag :tax_id, params[:tax_id], placeholder: "Tax ID", class: "form-control"
+
+.row
+  .col-6
+    .form-group
+      = text_area_tag :business_address, params[:business_address], placeholder: "Business Address (111 Main St)", class: "form-control"
+  .col-6
+    .form-group
+      = text_field_tag :business_postal_code, params[:business_postal_code], placeholder: "Business Postal Code", class: "form-control"
+
+.row
+  .col-6
+    .form-group
+      = text_field_tag :business_locality, params[:business_locality], placeholder: "Locality (Chicago)", class: "form-control"
+  .col-6
+    .form-group
+      = text_field_tag :business_region, params[:business_region], placeholder: "Region (IL)", class: "form-control"
+
+%h2 Please enter your Bank Details:
+.row
+  .col-6
+    .form-group
+      = text_field_tag :account_number, params[:account_number], placeholder: "Account Number", class: "form-control"
+  .col-6
+    .form-group
+      = text_field_tag :routing_number, params[:routing_number], placeholder: "Routing Number", class: "form-control"
+
+%h2 Merchant Terms of Service
+.row
+  .col-12
+    .form-group
+      = check_box_tag :tos_accepted, true, false, id: "tos_accepted"
+      %label{for: "tos_accepted", style: "display: inline;"}
+        Threadhabbits uses Braintree, a division of PayPal, Inc. (Braintree) for payment processing services. By using the Braintree payment processing services you agree to the Braintree Payment Services Agreement available at
+        = link_to "https://www.braintreepayments.com/legal/gateway-agreement", "https://www.braintreepayments.com/legal/gateway-agreement", target: "_blank"
+        and the applicable bank agreement available at
+        = link_to "https://www.braintreepayments.com/legal/cea-wells.", "https://www.braintreepayments.com/legal/cea-wells", target: "_blank"

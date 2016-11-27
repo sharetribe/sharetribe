@@ -24,22 +24,25 @@
         %li
           = render partial: "transactions/price_break_down", locals: price_break_down
 
-  = form_tag(form_action, method: :post, id: "transaction-form") do
+  %script{:src => "https://js.braintreegateway.com/js/braintree-2.30.0.min.js"}
+  = form_tag(form_action, method: :post, id: "payment-form") do
 
-    = hidden_field_tag(:start_on, booking_start)
-    = hidden_field_tag(:end_on, booking_end)
-
+    -# = hidden_field_tag(:start_on, booking_start)
+    -# = hidden_field_tag(:end_on, booking_end)
 
     .preauthorize-section
-      %h2
-        = t("conversations.new.send_message_to_user", person: author_link).html_safe
-      .row
-        .col-12
-          = text_area_tag(:message, nil, :class => "text_area")
+      -# %h2
+      -#   = t("conversations.new.send_message_to_user", person: author_link).html_safe
+      -# .row
+      -#   .col-12
+      -#     = text_area_tag(:message, nil, :class => "text_area")
+      = render partial: 'payments/braintree/customer_fields' unless @current_user.is_buyer?
+      #braintreeDropin
 
       - if quantity
         = hidden_field_tag(:quantity, quantity)
 
       .row
         .col-12
-          = button_tag t("conversations.new.send_message"), :class => "send_button"
+          -# = button_tag t("conversations.new.send_message"), :class => "send_button"
+          = button_tag "Proceed", :class => "send_button"

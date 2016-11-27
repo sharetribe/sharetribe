@@ -31,6 +31,7 @@ class TransactionsController < ApplicationController
 
       case [process[:process], gateway]
       when matches([:none])
+        # Braintree Form is added in this section
         render_free(listing_model: listing_model, author_model: author_model, community: @current_community, params: transaction_params)
       when matches([:preauthorize, :paypal])
         redirect_to initiate_order_path(transaction_params)
@@ -462,6 +463,13 @@ class TransactionsController < ApplicationController
         })
     }
 
+    # TODO This is a braintree client token to load the drop ui
+    if @current_user.is_buyer?
+      gon.client_token = Braintree::ClientToken.generate(customer_id: @current_user.braintree_customer_id)
+    else
+      gon.client_token = Braintree::ClientToken.generate
+    end
+
     render "transactions/new", locals: {
              listing: listing,
              author: author,
@@ -470,7 +478,8 @@ class TransactionsController < ApplicationController
              booking_start: booking_start,
              booking_end: booking_end,
              quantity: quantity,
-             form_action: person_transactions_path(person_id: @current_user, listing_id: listing_model.id)
+             form_action: payments_purchase_path(person_id: @current_user, listing_id: listing_model.id)
+            #  person_transactions_path(person_id: @current_user, listing_id: listing_model.id)
            }
   end
 

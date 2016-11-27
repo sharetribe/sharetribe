@@ -55,6 +55,7 @@
 //= require Bacon.jquery.min
 //= require lodash.min
 //= require utils
+//= require payments/braintree
 //= require kassi
 //= require googlemaps
 //= require map_label
