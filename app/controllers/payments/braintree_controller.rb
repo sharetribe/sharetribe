@@ -80,6 +80,7 @@ class Payments::BraintreeController < ApplicationController
   
       if merchant.sub_merchant_account_status != "active"
         merchant.update_attribute(:sub_merchant_account_status, notification.merchant_account.status)
+        MailCarrier.deliver_now(BraintreeMailer.notify_merchant_active_account(merchant))
       end
     end
 

@@ -235,9 +235,12 @@ class ListingsController < ApplicationController
   end
 
   def new
-    unless @current_user.is_seller?
+    if !@current_user.is_seller?
       redirect_to payments_purchase_new_path, notice: "In order to continue. You need to provide some details to become a market place user." and return
+    elsif !@current_user.active_merchant?
+      redirect_to payments_purchase_new_path, notice: "You bank details are under approval. You'll be notified soon." and return
     end
+    
     category_tree = CategoryViewUtils.category_tree(
       categories: ListingService::API::Api.categories.get_all(community_id: @current_community.id)[:data],
       shapes: get_shapes,
