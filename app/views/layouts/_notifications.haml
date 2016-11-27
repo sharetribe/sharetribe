@@ -12,4 +12,7 @@
       .flash-notification{:class => "flash-#{announcement.to_s}"}
         .flash-icon{:class => icon_class}
         .flash-text
-          = flash[announcement]
+          - if flash[announcement].is_a?(Array)
+            = flash[announcement].join.html_safe
+          - else
+            = flash[announcement].html_safe

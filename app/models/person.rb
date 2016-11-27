@@ -65,7 +65,9 @@ require "open-uri"
 # This class represents a person (a user of Sharetribe).
 
 class Person < ActiveRecord::Base
-
+  
+  MASTER_SUB_MERCHANT_ID = "threadhabitas"
+  
   include ErrorsHelper
   include ApplicationHelper
 
@@ -605,6 +607,36 @@ class Person < ActiveRecord::Base
 
   def is_buyer?
     self.braintree_customer_id.present?
+  end
+
+  #aahmed: Braintree check if customer present
+  def is_seller?
+    self.sub_merchant_id.present?
+  end
+
+  #aahmed: Creating new customer
+  def make_customer(params)
+    customer = Braintree::Customer.create(
+      :first_name => params[:first_name] || self.username,
+      :last_name => params[:last_name] || "",
+      :email => params[:email] || self.email,
+      :payment_method_nonce => params[:payment_method_nonce],
+      :credit_card => {
+        :options => {
+          :make_default => true
+        }
+      }
+    )
+
+    customer
+  end
+
+  def first_name
+    given_name
+  end
+
+  def last_name
+    family_name
   end
 
   private

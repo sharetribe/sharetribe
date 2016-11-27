@@ -1,0 +1,28 @@
+-# - content_for :javascript do
+-#   initialize_merchant_form();
+- if @transaction_errors.present?
+  .flash-notifications
+    .flash-notification{:class => "flash-error"}
+      .flash-icon{:class => "ss-alert"}
+      .flash-text
+        %ul
+        - @transaction_errors.each do |error|
+          %li= error.message
+
+= form_tag(payments_merchant_path, method: :post, id: "new_merchant") do
+
+  -# = hidden_field_tag(:start_on, booking_start)
+  -# = hidden_field_tag(:end_on, booking_end)
+
+  .preauthorize-section
+    -# %h2
+    -#   = t("conversations.new.send_message_to_user", person: author_link).html_safe
+    -# .row
+    -#   .col-12
+    -#     = text_area_tag(:message, nil, :class => "text_area")
+    = render partial: 'merchant_fields'
+
+    .row
+      .col-12
+        -# = button_tag t("conversations.new.send_message"), :class => "send_button"
+        = button_tag "Submit", :class => "send_button"

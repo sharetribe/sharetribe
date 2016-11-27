@@ -1,0 +1,19 @@
+%h2 Please enter your personal info:
+.row
+  .col-6
+    .form-group
+      = text_field_tag :first_name, params[:first_name], placeholder: "First Name", class: "form-control", value: @current_user.first_name
+  .col-6
+    .form-group
+      = text_field_tag :last_name, params[:last_name], placeholder: "Last Name", class: "form-control", value: @current_user.last_name
+.row
+  .col-12
+    .form-group
+      = text_field_tag :email, params[:email], placeholder: "Email", class: "form-control", value: @current_user.emails.present? ? @current_user.emails.first.address : ""
+.row
+  .col-6
+    .form-group
+      = text_field_tag :date_of_birth, params[:date_of_birth],placeholder: "Date of Birth (YYYY-MM-DD)", class: "form-control"
+  .col-6
+    .form-group
+      = text_field_tag :phone, params[:phone],placeholder: "Phone", class: "form-control"
