@@ -51,7 +51,7 @@ const ManageAvailabilityCalendar = (props) => {
     },
   };
 
-  return div({ className: css.root }, [
+  return div({ className: `${css.root} ${props.extraClasses || ''}` }, [
     r(DayPicker, pickerProps),
   ]);
 };
@@ -70,6 +70,8 @@ ManageAvailabilityCalendar.propTypes = {
   onDayAllowed: PropTypes.func.isRequired,
   onDayBlocked: PropTypes.func.isRequired,
   onMonthChanged: PropTypes.func.isRequired,
+
+  extraClasses: PropTypes.string,
 };
 
 export default ManageAvailabilityCalendar;
