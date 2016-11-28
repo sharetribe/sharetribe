@@ -364,5 +364,11 @@ module.exports = {
 
   '--SideWinder_overlayZIndex': 999,
 
+  '--ManageAvailability_width': 405,
+  '--ManageAvailability_fontFamily': proximaNovaFontFamily,
+  '--ManageAvailability_padding': '20px',
+  '--ManageAvailability_saveButtonHeight': '60px',
+  '--ManageAvailabilityHeader_height': 254,
   '--ManageAvailabilityCalendar_fontFamily': proximaNovaFontFamily,
+  '--ManageAvailabilityCalendar_width': '318px',
 };
