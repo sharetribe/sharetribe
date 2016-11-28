@@ -364,5 +364,5 @@ module.exports = {
 
   '--SideWinder_overlayZIndex': 999,
 
-  '--EditAvailability_fontFamily': proximaNovaFontFamily,
+  '--ManageAvailabilityCalendar_fontFamily': proximaNovaFontFamily,
 };
