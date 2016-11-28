@@ -1,0 +1,4 @@
+- question_name = custom_field_value.question.name(I18n.locale)
+- Maybe(custom_field_value.selected_options.first).title(I18n.locale).each do |answer_title|
+  %b= "#{question_name}:"
+  = answer_title

@@ -12,9 +12,24 @@
         %div.product-details
           %div.company-info
             %span.pull-left
-              = listing.custom_field_id
+              - listing.custom_field_values.limit(1).each do |custom_field_value|
+                - question_name = custom_field_value.question.name(I18n.locale)
+                - Maybe(custom_field_value.selected_options.first).title(I18n.locale).each do |answer_title|
+                  = answer_title
             %span.pull-right
-              = "Size"
+              - listing.custom_field_values.limit(2).drop(1).each do |custom_field_value|
+                - question_name = custom_field_value.question.name(I18n.locale)
+                - Maybe(custom_field_value.selected_options.first).title(I18n.locale).each do |answer_title|
+                  = answer_title
           %div.item-name
             %span
               = listing.title
+          %div.price
+            - if listing.price
+              .home-list-price-value
+                = humanized_money_with_symbol(listing.price).upcase
+                - price_text = nil
+                - if listing.quantity.present?
+                  - price_text = t("listings.form.price.per") + " " + listing.quantity
+                - elsif listing.unit_type
+                  - price_text = price_quantity_per_unit(listing)

@@ -32,7 +32,6 @@ class HomepageController < ApplicationController
       @category_menu_enabled = @show_categories || @show_custom_fields
     end
 
-
     @homepage = true
 
     filter_params = {}
