@@ -12,6 +12,10 @@
     }
   }
 
+  & :global(.DayPicker) {
+    box-shadow: none;
+  }
+
   & :global(.DayPicker__week-header) {
     top: 55px;
 
