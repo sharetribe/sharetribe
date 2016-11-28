@@ -5,6 +5,9 @@ import { hexToRGB } from '../../../utils/colors';
 
 import css from './ManageAvailabilityHeader.css';
 
+// Adjust the background height to hide the transparent blur filter border.
+const BG_HEIGHT_ADJUSTEMENT = 200;
+
 const ManageAvailabilityHeader = (props) => {
   const bg = hexToRGB(props.backgroundColor);
 
@@ -19,7 +22,7 @@ const ManageAvailabilityHeader = (props) => {
       div({
         className: css.backgroundLayer,
         style: {
-          boxShadow: `inset 0px ${props.height}px rgba(${bg.r}, ${bg.g}, ${bg.b}, 0.9)`,
+          boxShadow: `inset 0px ${props.height + BG_HEIGHT_ADJUSTEMENT}px rgba(${bg.r}, ${bg.g}, ${bg.b}, 0.9)`,
           backgroundImage: `url(${props.imageUrl})`,
         },
       }),
