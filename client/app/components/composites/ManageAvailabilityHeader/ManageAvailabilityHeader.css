@@ -1,0 +1,34 @@
+.root {
+  position: relative;
+  overflow: hidden;
+}
+
+.backgroundLayer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px);
+}
+
+.listingHeader {
+  position: absolute;
+  bottom: 34px;
+  left: 34px;
+  right: 34px;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+.availabilityHeader {
+  position: absolute;
+  top: -30px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+}
