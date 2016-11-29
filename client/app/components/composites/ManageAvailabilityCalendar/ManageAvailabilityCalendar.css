@@ -1,5 +1,5 @@
 .root {
-  font-family: var(--EditAvailability_fontFamily);
+  font-family: var(--ManageAvailabilityCalendar_fontFamily);
 
   /* stylelint-disable selector-class-pattern */
 
@@ -10,6 +10,10 @@
     & strong {
       font-weight: normal;
     }
+  }
+
+  & :global(.DayPicker) {
+    box-shadow: none;
   }
 
   & :global(.DayPicker__week-header) {

@@ -3,7 +3,7 @@
 import { Component } from 'react';
 import r from 'r-dom';
 import withProps from '../../Styleguide/withProps';
-import EditAvailability from './EditAvailability';
+import ManageAvailabilityCalendar from './ManageAvailabilityCalendar';
 import moment from 'moment';
 import { isSameDay } from 'react-dates';
 
@@ -15,7 +15,7 @@ const now = Date.now();
 const day1 = moment(now + 24 * 60 * 60 * 1000);
 const day2 = moment(now + 2 * 24 * 60 * 60 * 1000);
 
-class EditAvailabilityWrapper extends Component {
+class ManageAvailabilityCalendarWrapper extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,7 +42,7 @@ class EditAvailabilityWrapper extends Component {
       });
     };
 
-    return r(EditAvailability, {
+    return r(ManageAvailabilityCalendar, {
       initialMonth: this.state.visibleMonth,
       blockedDays: this.state.blockedDays,
       reservedDays: this.state.reservedDays,
@@ -56,5 +56,5 @@ class EditAvailabilityWrapper extends Component {
 }
 
 storiesOf('Availability')
-  .add('EditAvailability', () =>
-       withProps(EditAvailabilityWrapper, {}));
+  .add('ManageAvailabilityCalendar', () =>
+       withProps(ManageAvailabilityCalendarWrapper, {}));

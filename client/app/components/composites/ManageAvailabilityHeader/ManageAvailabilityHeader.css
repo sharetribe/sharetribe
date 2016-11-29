@@ -1,18 +1,27 @@
 .root {
   position: relative;
+  width: 100%;
   overflow: hidden;
 }
 
-.backgroundLayer {
+.imageLayer,
+.colorLayer {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+.imageLayer {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   filter: blur(5px);
+}
+
+.colorLayer {
+  opacity: 0.9;
 }
 
 .listingHeader {
@@ -23,6 +32,9 @@
   color: #fff;
   font-size: 24px;
   line-height: 1.4;
+
+  /* Trigger hardware acceleration to remove weird text flash in Safari */
+  transform: translateZ(0);
 }
 
 .availabilityHeader {

@@ -6,7 +6,7 @@ import { DayPicker, isSameDay, isInclusivelyBeforeDay } from 'react-dates';
 import moment from 'moment';
 
 import 'react-dates/css/styles.scss';
-import css from './EditAvailability.css';
+import css from './ManageAvailabilityCalendar.css';
 
 const isPast = (day) => {
   const today = moment();
@@ -19,7 +19,7 @@ const isReserved = (reservedDays, day) =>
 const isBlocked = (blockedDays, day) =>
   !!blockedDays.find((d) => isSameDay(d, day));
 
-const EditAvailability = (props) => {
+const ManageAvailabilityCalendar = (props) => {
 
   const handleDayClick = (day) => {
     if (isReserved(props.reservedDays, day) || isPast(day)) {
@@ -33,7 +33,7 @@ const EditAvailability = (props) => {
   };
 
   const pickerProps = {
-    id: 'EditAvailability_picker',
+    id: 'ManageAvailabilityCalendar_picker',
     enableOutsideDays: true,
     initialVisibleMonth: () => props.initialMonth,
     onDayClick: handleDayClick,
@@ -51,12 +51,12 @@ const EditAvailability = (props) => {
     },
   };
 
-  return div({ className: css.root }, [
+  return div({ className: `${css.root} ${props.extraClasses || ''}` }, [
     r(DayPicker, pickerProps),
   ]);
 };
 
-EditAvailability.propTypes = {
+ManageAvailabilityCalendar.propTypes = {
 
   // moment.js instance
   initialMonth: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
@@ -70,6 +70,8 @@ EditAvailability.propTypes = {
   onDayAllowed: PropTypes.func.isRequired,
   onDayBlocked: PropTypes.func.isRequired,
   onMonthChanged: PropTypes.func.isRequired,
+
+  extraClasses: PropTypes.string,
 };
 
-export default EditAvailability;
+export default ManageAvailabilityCalendar;

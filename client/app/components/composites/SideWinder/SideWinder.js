@@ -189,7 +189,7 @@ SideWinder.propTypes = {
   width: PropTypes.number.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  children: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  children: PropTypes.any, // eslint-disable-line react/forbid-prop-types
 };
 
 export default SideWinder;
