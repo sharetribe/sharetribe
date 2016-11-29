@@ -4,20 +4,24 @@
   overflow: hidden;
 }
 
-.backgroundLayer {
+.imageLayer,
+.colorLayer {
   position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
 
-  /* The blur filter creates a transparent border around the
-   element. Let's stretch the element outside the visible area to hide
-   it. */
-  top: -100px;
-  right: -100px;
-  bottom: -100px;
-  left: -100px;
+.imageLayer {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   filter: blur(5px);
+}
+
+.colorLayer {
+  opacity: 0.9;
 }
 
 .listingHeader {
