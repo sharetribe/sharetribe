@@ -28,6 +28,9 @@
   color: #fff;
   font-size: 24px;
   line-height: 1.4;
+
+  /* Trigger hardware acceleration to remove weird text flash in Safari */
+  transform: translateZ(0);
 }
 
 .availabilityHeader {
