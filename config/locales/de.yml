@@ -2031,17 +2031,17 @@ de:
     initiate:
       booked_days: "Gebuchte Tage:"
       booked_nights: "Gebuchte Nächte:"
-      price_per_day: "Preis pro Tag:"
-      price_per_night: "Preis pro Nacht:"
-      quantity: "Anzahl:"
-      subtotal: "Zwischensumme:"
-      shipping-price: "Versandkosten:"
       booked_days_label:
         one: "Gebuchter Tag:"
         other: "Gebuchte Tage:"
       booked_nights_label:
         one: "Gebuchte Nacht:"
         other: "Gebuchte Nächte:"
+      price_per_day: "Preis pro Tag:"
+      price_per_night: "Preis pro Nacht:"
+      quantity: "Anzahl:"
+      subtotal: "Zwischensumme:"
+      shipping-price: "Versandkosten:"
     price_per_quantity: "Preis pro %{unit_type}"
     price: "Preis:"
     quantity: "Anzahl: %{quantity}"
@@ -2059,6 +2059,7 @@ de:
         night: Nacht
         week: Woche
         month: Monat
+      edit_availability_header: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

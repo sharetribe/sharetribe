@@ -418,6 +418,20 @@ ar:
       listing_shape_name_placeholder: "مثال. بيع"
       action_button_label: "تسمية زر المحاسبة"
       action_button_placeholder: "مثال. شراء"
+      close_listings_action:
+        zero: "إعلان ‎%{count}‎ إغلاق"
+        one: "إعلان ‎%{count}‎ إغلاق"
+        two: "إعلان ‎%{count}‎ إغلاق"
+        few: "إعلانات ‎%{count}‎ إغلاق"
+        many: "إعلان ‎%{count}‎ إغلاق"
+        other: "إعلان ‎%{count}‎ إغلاق"
+      confirm_close_listings_action:
+        zero: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
+        one: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
+        two: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
+        few: "إعلانات ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
+        many: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
+        other: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
       successfully_closed: "تم إغلاق الإعلان بنجاح"
       successfully_deleted: ~
       pricing_and_checkout_title: "التسعير والخروج"
@@ -447,20 +461,6 @@ ar:
           heading: "نوع الوحدة"
           quantity_label: "الكمية (بالقطعة، بالكيلو، بالشخص، بالساعة...)"
           time_label: "الوقت (بالـ ٣٠ دقيقة، بالثلاثة أسابيع، بالسنة...)"
-      close_listings_action:
-        zero: "إعلان ‎%{count}‎ إغلاق"
-        one: "إعلان ‎%{count}‎ إغلاق"
-        two: "إعلان ‎%{count}‎ إغلاق"
-        few: "إعلانات ‎%{count}‎ إغلاق"
-        many: "إعلان ‎%{count}‎ إغلاق"
-        other: "إعلان ‎%{count}‎ إغلاق"
-      confirm_close_listings_action:
-        zero: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
-        one: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
-        two: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
-        few: "إعلانات ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
-        many: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
-        other: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
     paypal_accounts:
       marketplace_paypal_integration: "مفضلات نظام الدفع"
       preferences_updated: "تم تحديث تفضيلات نظام الدفع"
@@ -751,7 +751,7 @@ ar:
       remember_to_add_payment_details: "تذكر إضافة تفاصيل عملية الدفع لاستقبال الدفعات"
       you_have_added_listing_with_payment: "ولكنك لم تضف بعد معلومات الدفع لكي تستقبل دفعات يجب عليك إضافة معلومات الدفع ‎%{listing_link}‎ لقد قمت بإضافة"
       please_go_to_payment_settings: "رجاء قم بزيارة ‎%{payment_settings_link}‎ وقم بتعبئة معلومات الدفعة"
-      payment_settings_link: "إعدادات الدفع"
+      payment_settings_link: "إعدادات طريقة الدفع"
     transaction_confirmed:
       here_is_a_message_from: ~
       request_marked_as_confirmed: "تم إتمام طلبك - تذكر بإعطاء رأيك"
@@ -1724,13 +1724,6 @@ ar:
       create_account_with_facebook: "سجل باستخدام حساب فيسبوك"
       OR: أو
       signup_with_email: "تسجيل الدخول بالبريد الإلكتروني"
-      email_restriction_instructions:
-        zero: "الدخول لـ ‎%{service_name}‎ محظور. تحتاج إلى بريد إلكتروني ‎%{allowed_emails}‎"
-        one: "الدخول لـ ‎%{service_name}‎ محظور. تحتاج إلى بريد إلكتروني يثبت أنه مسموح لك الانضمام."
-        two: "الدخول لـ ‎%{service_name}‎ محظور. تحتاج إلى بريد إلكتروني يثبت أنه مسموح لك الانضمام."
-        few: "الدخول لـ ‎%{service_name}‎ محظور. تحتاج إلى بريد إلكتروني يثبت أنه مسموح لك الانضمام."
-        many: "الدخول لـ ‎%{service_name}‎ محظور. تحتاج إلى بريد إلكتروني يثبت أنه مسموح لك الانضمام."
-        other: "الدخول لـ ‎%{service_name}‎ محظور. تحتاج إلى بريد إلكتروني يثبت أنه مسموح لك الانضمام."
     profile_feedback:
       grade: "الدرجة:"
       and_gave_following_feedback: "وقام بإعطاء الرأي التالي"
@@ -2066,6 +2059,7 @@ ar:
         night: ليلة
         week: أسبوع
         month: شهر
+      edit_availability_header: ~
     no_listings:
       sorry: "نعتذر، لا يوجد إعلانات في هذا البحث"
       try_other_search_terms: "حاول البحث في شيء آخر؟"
@@ -2098,19 +2092,6 @@ ar:
       create_own: ~
       learn_more: "تعلم المزيد"
   will_paginate:
-    previous_label: "&#8592; Previous"
-    next_label: "Next &#8594;"
-    page_gap: "&hellip;"
-    page_entries_info:
-      multi_page: ~
-      multi_page_html: ~
-      single_page:
-        zero: "لم يتم العثور على ‎%{model}‎"
-        one: "عرض ١ ‎%{model}‎"
-        two: "عرض الكل ‎%{count}‎ ‎%{model}‎"
-        few: "عرض الكل ‎%{count}‎ ‎%{model}‎"
-        many: "عرض الكل ‎%{count}‎ ‎%{model}‎"
-        other: "عرض الكل ‎%{count}‎ ‎%{model}‎"
     models:
       person:
         zero: مستخدمين
@@ -2126,3 +2107,9 @@ ar:
         few: عمليات
         many: عمليات
         other: عمليات
+    previous_label: "&#8592; Previous"
+    next_label: "Next &#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      multi_page: ~
+      multi_page_html: ~
