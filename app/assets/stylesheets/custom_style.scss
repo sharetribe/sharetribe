@@ -1,14 +1,15 @@
+
 .Link__link__3pNRT {
   vertical-align: top;
   position: relative;
-  top: -1px;
+   top: -18px;
   left: 10px;
 }
 
 .userName{
   vertical-align: top;
   position: relative;
-  top: -1px;
+  top: 5px;
   left: 10px;
 }
 
@@ -45,7 +46,7 @@
 
 .Logo {
 	margin: 0 auto;
-    padding-right: 500px;
+    padding-left: 50px;
 }
 
 .SearchBar__searchButton__1Ck2b{
@@ -104,6 +105,11 @@
         font-size: 12px;
 		margin-top: -6px;
 	}
+    .pull-right {
+        font-weight: normal;
+		padding-left: 8px;
+        font-size: 12px;
+    }
 }
 
 .pull-left {
@@ -115,10 +121,10 @@
 }
 
 body{
-  padding-top: 50px;
+  padding-top: 44px;
 }
 .Topbar__topbar__7GUWt {
-    height: 40px;
+    height: 45px;
     
 }
 .SearchBar__searchButton__1Ck2b svg {
@@ -171,9 +177,52 @@ top: 10px;
   }
 
 .AvatarDropdown__avatarWithNotifications__1TdZT {
-    top: -14px;
-      height: 30px;  
+    top: -13px;
+      height: 35px;  
 }
 .AvatarDropdown__avatarWithNotifications__1TdZT img {
-    width: 30px;
+    width: 35px;
+}
+.AddNewListingButton__desktop__17Luf {
+widht: 80%;
+height: auto;
+}
+
+.ProfileDropdown__rootArrowBelow__3YUUJ {
+          top: -25px;
+}
+.ProfileDropdown__rootArrowTop__3Vvtx {
+          top: -25px;
+}
+
+.ProfileDropdown__box__T_uM4 {
+        top: 63px;
+    
+}
+
+.home-toolbar-button-group-button {
+    background-color: white;
+    color: black;
+}
+.home-toolbar-button-group-button.selected {
+    background-color: white;
+    color: black;
+}
+.home-toolbar-button-group-button.selected:hover {
+    background-color: black;
+    color: white;
+}
+.Topbar__topbarMenuSpacer__3hqBi {
+    width: 100px!important;
+    float: right;
+}
+.MenuPriority__hiddenLinks__1LcCU {
+    float: right;
+}
+.topbarMenuSpacer {
+    width: 250px!important;
+}
+.MenuPriority {
+    width: 250px!important;
+    float: right;
 }

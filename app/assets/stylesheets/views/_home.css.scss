@@ -44,12 +44,8 @@
   @include ellipsis;
 
   // Notice: hard-coded for three buttons
-  width: 33.3%;
+  width: auto;
 
-  @include media(tablet) {
-    width: auto;
-    min-width: lines(5);
-  }
 }
 
 .home-toolbar-button-text {

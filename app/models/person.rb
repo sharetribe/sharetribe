@@ -605,13 +605,19 @@ class Person < ActiveRecord::Base
     super
   end
 
+  #aahmed: Braintree check if customer id present
   def is_buyer?
     self.braintree_customer_id.present?
   end
 
-  #aahmed: Braintree check if customer present
+  #aahmed: Braintree check if merchant id present
   def is_seller?
     self.sub_merchant_id.present?
+  end
+
+  #aahmed: Braintree check if merchant id present
+  def active_merchant?
+    self.sub_merchant_account_status == "active"
   end
 
   #aahmed: Creating new customer
@@ -637,6 +643,10 @@ class Person < ActiveRecord::Base
 
   def last_name
     family_name
+  end
+
+  def full_name
+    [first_name, last_name].join(" ")
   end
 
   private
