@@ -75,7 +75,11 @@ class PaypalService::CheckoutOrdersController < ApplicationController
                                                                       class: "flash-error-link"))
                         .html_safe
         redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
+      elsif response_data[:paypal_error_code] == "10417"
+        # https://www.paypal.com/us/selfhelp/article/What-is-API-error-code-10417-FAQ3308
 
+        flash[:error] = t("error_messages.paypal.transaction_cannot_complete")
+        redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
       elsif response_data[:paypal_error_code] == "10425"
         flash[:error] = t("error_messages.paypal.seller_express_checkout_disabled")
         redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
