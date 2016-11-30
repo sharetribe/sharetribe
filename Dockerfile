@@ -41,6 +41,9 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
 # Sharetribe
 #
 
+# Install nginx - used to serve maintenance mode page
+RUN apt-get install -y nginx
+
 # Install latest bundler
 RUN gem install bundler
 
