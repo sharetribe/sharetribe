@@ -927,7 +927,7 @@ en:
     transaction_agreement:
       required_error: "You need to accept the agreement"
     paypal:
-      transaction_cannot_complete: "Transaction cannot complete. The most likely cause for this is that the credit card failed bank authorization. You can try purchase again using alternative payment method."
+      transaction_cannot_complete: "Transaction cannot complete. This is most likely caused by the credit card failing bank authorization. Please, try purchasing again with an alternative payment method."
       buyer_cannot_pay_error: "The payment has been declined by PayPal. Please contact their Customer Service for more information: %{customer_service_link}"
       pending_review_error: "The payment was submitted but was flagged by PayPal as 'requiring a review'. When PayPal completes the review, the payment will be automatically authorized."
       seller_express_checkout_disabled: "PayPal Express Checkout has been disabled for the listing author's PayPal account. Please contact the author and let them know that there's an issue with their PayPal account, and advise them to contact PayPal Customer Service."
