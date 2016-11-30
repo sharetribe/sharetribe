@@ -20,7 +20,7 @@
     = render partial: "delivery_opts", locals: { delivery_opts: delivery_opts, is_author: is_author }
   - else
 
-    = form_tag form_path, :method => :get, :id => "booking-dates" do
+    = form_tag form_path, :method => :post, :id => "booking-dates" do
 
       - if [:day, :night].include?(@listing.quantity_selector&.to_sym)
         - blocked_dates_result.on_success do |blocked_dates|
@@ -152,7 +152,8 @@
       - blocked_dates_result.on_success do
         %button.enabled-book-button
           .content
-            = action_button_label(@listing)
+            -# = action_button_label(@listing)
+            Purchase with Paypal
 
       - blocked_dates_result.on_error do
         %button.disabled-book-button{disabled: true}

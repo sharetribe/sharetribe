@@ -1,0 +1,11 @@
+%h2 Please provide your Paypal Business Email
+.paypal-merchant
+  = form_tag(payments_update_merchant_path, method: :put, id: "new_paypal_merchant") do
+    .row
+      .col-6
+        .form-group
+          = text_field_tag :business_email, params[:business_email], placeholder: "Email"
+    .row
+      .col-12
+        -# = button_tag t("conversations.new.send_message"), :class => "send_button"
+        = button_tag "Submit", :class => "send_button"

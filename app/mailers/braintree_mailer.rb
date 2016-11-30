@@ -9,4 +9,10 @@ class BraintreeMailer < ActionMailer::Base
     mail(:to => @person.emails.first.address,
          :subject => "Bank Details Approved")
   end
+
+  def notify_successfull_purchase(person)
+    @person = person
+    mail(:to => @person.emails.first.address,
+         :subject => "Thank you for purchasing")
+  end
 end

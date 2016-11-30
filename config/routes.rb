@@ -122,10 +122,17 @@ Kassi::Application.routes.draw do
     get "/transactions/new" => "transactions#new", as: :new_transaction
     namespace :payments do
       # Braintree routes
-      get "/new" => "braintree#new", as: :purchase_new
-      post "/merchant" => "braintree#create", as: :merchant
-      post "/purchase" => "braintree#purchase", as: :purchase
-      post "/braintree_webhook" => "braintree#braintree_webhook", as: :sub_merchant_webhook
+      # get "/new" => "braintree#new", as: :purchase_new
+      # post "/merchant" => "braintree#create", as: :merchant
+      # post "/purchase" => "braintree#purchase", as: :purchase
+      # post "/braintree_webhook" => "braintree#braintree_webhook", as: :sub_merchant_webhook
+
+      # Paypal routes
+      get "/merchant" => "paypal#new", as: :merchant
+      put "/update" => "paypal#update", as: :update_merchant
+      post "/checkout_paypal" => "paypal#checkout", as: :checkout_paypal
+      post "/payments/webhook" => "paypal#webhook"
+      post "/confirm" => "paypal#confirm", as: :confirm_checkout
     end
     # preauthorize flow
 
