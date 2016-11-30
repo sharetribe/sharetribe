@@ -28,6 +28,20 @@ function paymentForm() {
   if (typeof gon !== 'undefined') {
     return braintree.setup(gon.client_token, 'dropin', {
       container: 'braintreeDropin',
+      onPaymentMethodReceived: function (payload) {
+        console.log(payload)
+        $("#payment_method_type").val(payload.type)
+        $("#payment_method_nonce").val(payload.nonce)
+        setTimeout(function () {
+          $("form#payment-form").submit()
+        }, 1000)
+      },
+      onError: function() {
+        if (obj.type == 'VALIDATION') {
+          console.log(obj.details.invalidFields)
+        }
+
+      },
       paypal: {
         singleUse: false,
         currency: 'USD',
