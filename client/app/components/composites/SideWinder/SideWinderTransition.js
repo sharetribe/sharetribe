@@ -30,20 +30,25 @@ class SideWinderTransition extends Component {
   }
   componentWillUnmount() {
     document.body.classList.remove(css.transitionVisible);
+    document.body.classList.remove(css.transitionEntering);
+    document.body.classList.remove(css.transitionLeaving);
+    document.body.classList.remove(css.transitionOpen);
+    window.clearTimeout(this.enterTimeoutId);
+    window.clearTimeout(this.leaveTimeoutId);
   }
   componentWillAppear(callback) {
     callback();
   }
   componentWillEnter(callback) {
     this.setState({ entering: true, open: true });
-    window.setTimeout(callback, this.props.enterTimeout);
+    this.enterTimeoutId = window.setTimeout(callback, this.props.enterTimeout);
   }
   componentDidEnter() {
     this.setState({ entering: false });
   }
   componentWillLeave(callback) {
     this.setState({ leaving: true, open: false });
-    window.setTimeout(callback, this.props.leaveTimeout);
+    this.leaveTimeoutId = window.setTimeout(callback, this.props.leaveTimeout);
   }
   componentDidLeave() {
     this.setState({ leaving: false });
