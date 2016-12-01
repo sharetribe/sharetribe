@@ -1,0 +1,17 @@
+- content_for :javascript do
+  initialize_update_notification_settings_form("#{I18n.locale}","#{target_user.id.to_s}");
+
+- content_for :title_header do
+  %h1= t("layouts.no_tribe.settings")
+
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(target_user, @current_community) }
+
+#person_settings_form.left-navi-section.settings-section.notification-settings
+  = form_for target_user, html: {id: "new_paypal_merchant"} do |form|
+    .row
+      .col-6
+        = label_tag "Paypal Business Email"
+        = form.text_field :paypal_business_email
+    .row
+      .col-6
+        = button_tag "Update", type: "submit", class: "send_button_account"

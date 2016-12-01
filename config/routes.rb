@@ -130,8 +130,8 @@ Kassi::Application.routes.draw do
       # Paypal routes
       get "/merchant" => "paypal#new", as: :merchant
       put "/update" => "paypal#update", as: :update_merchant
-      post "/checkout_paypal" => "paypal#checkout", as: :checkout_paypal
-      post "/payments/webhook" => "paypal#webhook"
+      get "/checkout_paypal" => "paypal#checkout", as: :checkout_paypal
+      post "/webhook" => "paypal#webhook"
       post "/confirm" => "paypal#confirm", as: :confirm_checkout
     end
     # preauthorize flow
@@ -452,6 +452,7 @@ Kassi::Application.routes.draw do
           member do
             get :account
             get :notifications
+            get :payments
             get :unsubscribe
           end
         end

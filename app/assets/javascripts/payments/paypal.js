@@ -3,6 +3,7 @@ function initialize_paypal_form() {
   $(form_id).validate({
     rules: {
       "business_email": {required: true, email: true},
+      "person[paypal_business_email]": {required: true, email: true},
     }
   });
 }
