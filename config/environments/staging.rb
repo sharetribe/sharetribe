@@ -56,14 +56,11 @@ Kassi::Application.configure do
   end
 
   # Use a different cache store in production
-  config.cache_store = :dalli_store, (ENV["MEMCACHIER_SERVERS"] || "").split(","), {
-    username: ENV["MEMCACHIER_USERNAME"],
-    password: ENV["MEMCACHIER_PASSWORD"],
-    failover:  true,
-    socket_timeout: 1.5,
-    socket_failure_delay:  0.2,
-    namespace: ENV["MEMCACHED_NAMESPACE"] || "sharetribe-staging",
-    compress: true
+  config.cache_store = :redis_store, {
+    host: ENV["redis_host"],
+    port: ENV["redis_port"],
+    db: ENV["redis_db"],
+    namespace: "cache"
   }
 
   # Compress JavaScript and CSS
