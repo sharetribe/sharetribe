@@ -10,7 +10,7 @@
 
   &:focus,
   &.openMenu,
-  &.touchless:hover {
+  &.openOnHover:hover {
     & .menuLabel {
       color: var(--Menu_textColorFocus);
     }
@@ -22,7 +22,7 @@
   }
 
   &.openMenu,
-  &.touchless:hover {
+  &.openOnHover:hover {
     & .menuContent {
       display: block;
     }
@@ -56,7 +56,7 @@
 }
 
 .menu.openMenu .menuLabelDropdownIconOpen,
-.menu.touchless:hover .menuLabelDropdownIconOpen {
+.menu.openOnHover:hover .menuLabelDropdownIconOpen {
   display: inline-block;
 }
 
@@ -66,7 +66,7 @@
 }
 
 .menu.openMenu .menuLabelDropdownIconClosed,
-.menu.touchless:hover .menuLabelDropdownIconClosed {
+.menu.openOnHover:hover .menuLabelDropdownIconClosed {
   display: none;
 }
 

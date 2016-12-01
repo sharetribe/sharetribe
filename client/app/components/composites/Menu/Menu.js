@@ -57,7 +57,7 @@ class Menu extends Component {
   render() {
     const requestedLabel = MENULABEL_MAP[this.props.menuLabelType];
     const LabelComponent = requestedLabel != null ? requestedLabel : null;
-    const touchClass = hasTouchEvents ? '' : css.touchless;
+    const openOnHoverClass = hasTouchEvents ? '' : css.openOnHover;
     const openClass = this.state.isOpen ? css.openMenu : '';
 
     return div({
