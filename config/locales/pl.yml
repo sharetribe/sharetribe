@@ -319,7 +319,7 @@ pl:
           date_cant_be_filtered: ~
           text_cant_be_filtered: ~
       index:
-        listing_fields: "Pola wyświetlania i filtry"
+        listing_fields: "Pola oferty i filtry"
         listing_fields_help: ~
         add_new_field: "Dodaj nowe pole:"
         remove_field_confirmation: "Na pewno chcesz usunąć pole '%{field_name}'?"
@@ -327,7 +327,7 @@ pl:
         save: Zapisz
         field_title: "Tytuł pola"
         field_type: "Rodzaj pola"
-        categories: "Pokazane kategorie, w których pola są użyte"
+        categories: "Kategorie ofert, w których pola są użyte"
         select_all: ~
         clear_all: ~
         options: Opcke
@@ -616,7 +616,7 @@ pl:
       about_listing: ~
       author_has_to_accept_request: ~
     show:
-      in_response_to_listing: "o pozycji"
+      in_response_to_listing: "o ofercie"
       message_sent_by: "Wiadomość wysłana przez"
       message_sent_to: "Wiadomość wysłana do"
       send_reply: "Wyślij odpowiedź"
@@ -896,6 +896,7 @@ pl:
     transaction_agreement:
       required_error: ~
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: ~
@@ -1224,8 +1225,8 @@ pl:
       listing_updated_availability_enabled: ~
       listing_updated_availability_disabled: ~
       only_kassi_administrators_can_access_this_area: "Tylko adminstratorzy %{service_name} mogą przejść do tej sekcji"
-      only_listing_author_can_close_a_listing: "Tylko autor może zamknąć pozycję"
-      only_listing_author_can_edit_a_listing: "Tylko autor może edytować pozycję"
+      only_listing_author_can_close_a_listing: "Tylko autor oferty może zamknąć ofertę"
+      only_listing_author_can_edit_a_listing: "Tylko autor oferty może edytować ofertę"
       payment_successful: "Płatność dokonana"
       payment_canceled: "Płatność anulowana"
       error_in_payment: "Błąd podczas procesowania płatności. Jeżeli nie dokończyłeś płatności, spróbuj ponownie. Jeżeli już zakończyłeś, prześlij nam opinię."
@@ -1262,7 +1263,7 @@ pl:
       send_instructions: "W ciągu kliku minut otrzymasz wiadomość email z instrukcją jak zrestartować swoje hasło."
       you_cannot_reply_to_a_closed_offer: "Nie możesz odpowiedzieć na zamknietą ofertę"
       you_cannot_send_message_to_yourself: "Nie można wysłać wiadomości do siebie"
-      you_followed_listing: "Już nie śledzisz oferty"
+      you_followed_listing: "Od teraz śledzisz tę ofertę"
       you_have_already_given_feedback_about_this_event: "Już przekazałeś opinię do tego wydarzenia"
       you_are_now_member: "Witaj w %{service_name}!"
       you_are_already_member: "Już jesteś członkiem %{service_name}. Witaj ponownie!"
@@ -1299,7 +1300,7 @@ pl:
       payments: Płatności
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: "Nie masz uprawnień, aby zobaczyć tę pozycję."
+      listing_not_visible: "Nie masz uprawnień, aby zobaczyć tę ofertę."
     comment:
       wrote: napisz
       send_private_message: "Wyślij wiadomość prywatną do %{person}"
@@ -1317,7 +1318,7 @@ pl:
     edit:
       edit_listing: "Edytuj ofertę"
     edit_links:
-      close_listing: "Usuń ofertę"
+      close_listing: "Zamknij ofertę"
       edit_listing: "Edytuj ofertę"
       reopen_listing: "Otwórz ponownie ofertę"
       move_to_top: "Przesuń na górę strony"
@@ -1736,8 +1737,8 @@ pl:
       reviews: "otrzymane recenzje"
       listing: oferta
       listings: oferty
-      open_listing: "otwórz ofertę"
-      open_listings: "otwórz oferty"
+      open_listing: "otwarta oferta"
+      open_listings: "otwarte oferty"
       no_listings: "Brak ofert"
       no_open_listings: "Brak otwartych ofert"
       no_reviews: "Brak recenzji"
@@ -1903,7 +1904,7 @@ pl:
       negative: Negatywny
       default_textual_feedback: "Wszystko było okej, dzięki bardzo!"
     testimonial:
-      about_listing: "o pozycji"
+      about_listing: "o ofercie"
   date:
     formats:
       long_with_abbr_day_name: ~
@@ -2020,6 +2021,8 @@ pl:
         week: ~
         month: ~
       edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

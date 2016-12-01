@@ -927,6 +927,7 @@ fr:
     transaction_agreement:
       required_error: "Vous devez accepter l'accord"
     paypal:
+      transaction_cannot_complete: "La transaction n'a pas pu être réalisée. Ceci est probablement dû au fait que votre banque n'a pas autorisé l'utilisation de votre carte bancaire. Veuillez essayer de nouveau en utilisant une autre méthode de paiement."
       buyer_cannot_pay_error: "Le paiement a été refusé par PayPal. Veuillez contacter leur support client pour obtenir plus d'informations : %{customer_service_link}"
       pending_review_error: "Le paiement a été soumis mais a été marqué par PayPal comme 'nécessitant une validation'. Quand cette validation sera confirmée par PayPal, le paiement sera automatiquement autorisé."
       seller_express_checkout_disabled: "PayPal Express Checkout a été désactivé pour le compte PayPal de l'auteur de cette annonce. Veuillez contacter l'auteur pour lui signaler qu'il y a un problème avec son compte PayPal et lui conseiller de contacter le service client PayPal."
@@ -2060,6 +2061,8 @@ fr:
         week: semaine
         month: mois
       edit_availability_header: Disponibilité
+      save_and_close_availability_editing: "Sauvegarder et fermer"
+      edit_listing_availability: "Editer la disponibilité de l'annonce"
     no_listings:
       sorry: "Désolé, aucune annonce n'a pu être trouvée avec vos critères de recherche."
       try_other_search_terms: "Essayez peut-être avec d'autres termes ?"

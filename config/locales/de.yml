@@ -927,6 +927,7 @@ de:
     transaction_agreement:
       required_error: "Du musst die Vereinbarung akzeptieren"
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: "Die Bezahlung wurde von Paypal abgelehnt. Bitte kontaktiere den Kundenservice für mehr Informationen: %{customer_service_link}"
       pending_review_error: "Die Zahlung wurde eingereicht, wurde aber von PayPal als \"erfordert Bewertung' gekennzeichnet. Wenn PayPal die Überprüfung abgeschlossen hat, wird die Zahlung automatisch genehmigt werden."
       seller_express_checkout_disabled: "PayPal Express-Checkout ist für das Paypal-Konto des Eintraginhabers deaktiviert. Bitte kontaktiere den Inhaber und lass ihn/sie wissen, dass es ein Problem mit seinem/ihrem Paypal-Konto gibt, und empfehle ihn/sie, den PayPal-Kundendienst zu kontaktieren."
@@ -2060,6 +2061,8 @@ de:
         week: Woche
         month: Monat
       edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

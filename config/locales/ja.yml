@@ -910,6 +910,7 @@ ja:
     transaction_agreement:
       required_error: 同意する必要があります
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: ~
@@ -2027,6 +2028,8 @@ ja:
         week: 週
         month: 月
       edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

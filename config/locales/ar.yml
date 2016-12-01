@@ -918,6 +918,7 @@ ar:
     transaction_agreement:
       required_error: "يجب عليك قبول الاتفاق"
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: ~
@@ -989,7 +990,7 @@ ar:
       offer_partitive: عرض
       request_partitive: طلب
   header:
-    about: "نبذة عن الموقع"
+    about: "عن الموقع"
     home: الرئيسية
     members: مجتمع
     new_listing: "إعلان جديد"
@@ -1166,7 +1167,7 @@ ar:
     global-header:
       select_language: "اختر اللغة"
     infos:
-      about: "نبذة عن الموقع"
+      about: "عن الموقع"
       how_to_use: "كيفية العمل"
       info_about_kassi: "معلومات عن ‎%{service_name}‎"
       news: أخبار
@@ -2060,6 +2061,8 @@ ar:
         week: أسبوع
         month: شهر
       edit_availability_header: ~
+      save_and_close_availability_editing: "حفظ وإغلاق"
+      edit_listing_availability: "تحرير توفر الإعلان"
     no_listings:
       sorry: "نعتذر، لا يوجد إعلانات في هذا البحث"
       try_other_search_terms: "حاول البحث في شيء آخر؟"

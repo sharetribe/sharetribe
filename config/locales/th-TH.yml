@@ -914,6 +914,7 @@ th-TH:
     transaction_agreement:
       required_error: ~
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: "PayPal Express Checkout ได้ถูกปิดในรายการบัญชี PayPal ของผู้เขียน กรุณาติดต่อ ผู้เขียน เพื่อรายงานให้รู้ว่ามีปัญหากับบัญชี PayPal ของเขา และแนะนำให้ติดต่อฝ่ายบริการลูกค้าของ PayPal"
@@ -2024,6 +2025,8 @@ th-TH:
         week: ~
         month: ~
       edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

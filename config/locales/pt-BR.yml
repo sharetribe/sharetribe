@@ -927,6 +927,7 @@ pt-BR:
     transaction_agreement:
       required_error: "Você precisa aceitar o acordo"
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: "O pagamento foi rejeitado pelo PayPal. Por favor contate o atendimento a cliente deles para maiores informações: %{customer_service_link}"
       pending_review_error: "O pagamento foi enviado mas foi marcado como \"requerendo verificação\" pelo PayPal. Quando o PayPal complete essa verificação o pagamento será automaticamente autorizado."
       seller_express_checkout_disabled: "O PayPal Express Checkout foi desabilitado para a conta PayPal do autor deste anúncio. Por favor contate o autor e informe-o que há um problema com sua conta PayPal e aconselhe-o a entrar em contato com o atendimento ao cliente do PayPal."
@@ -2056,6 +2057,8 @@ pt-BR:
         week: ~
         month: ~
       edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

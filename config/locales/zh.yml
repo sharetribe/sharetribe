@@ -916,6 +916,7 @@ zh:
     transaction_agreement:
       required_error: 你需要接受协议
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: " 该支付被Paypal拒绝。请联系他们的客服获得更多信息：%{customer_service_link}"
       pending_review_error: 支付已经提交，但是被Paypal标记为‘需要检查’。当Paypal完成检查后，该支付将会被自动授权。
       seller_express_checkout_disabled: ~
@@ -2036,6 +2037,8 @@ zh:
         week: ~
         month: ~
       edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

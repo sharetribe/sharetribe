@@ -921,6 +921,7 @@ ru:
     transaction_agreement:
       required_error: "Вам необходимо принять соглашение."
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: "PayPal отклонил платеж. Пожалуйста, свяжитесь с их отделом обслуживания клиентов для получения дополнительной информации: %{customer_service_link}"
       pending_review_error: "Платеж был представлен, но был помечен PayPal как «требующий рассмотрения». Когда PayPal завершит проверку, платеж будет автоматически авторизован."
       seller_express_checkout_disabled: ~
@@ -2055,6 +2056,9 @@ ru:
         night: ~
         week: ~
         month: ~
+      edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

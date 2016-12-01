@@ -936,6 +936,7 @@ cs:
     transaction_agreement:
       required_error: "Je třeba souhlasit s podmínkami"
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: "Platba byla odmítnuta serverem PayPal. Prosíme, kontaktujte jejich zákaznický servis pro více informací: %{customer_service_link}"
       pending_review_error: "Platba byla provedena, ale byla serverem PayPal označena jako \"vyžaduje přezkoumání\". Jakmile PayPal dokončí přezkoumání platby, bude platba automaticky vyřízena."
       seller_express_checkout_disabled: ~
@@ -2065,6 +2066,8 @@ cs:
         week: ~
         month: ~
       edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

@@ -928,6 +928,7 @@ hu:
     transaction_agreement:
       required_error: "Kérem fogadja el a megegyezést"
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: "PayPal az átutalást elutasította. Kérjük vegye fel a kapcsolatot a vevőszolgálatukkal: %{customer_service_link}"
       pending_review_error: "Az utalás elindításra került, de a PayPal jelölte mint: 'értékelés igénylése'. Amint a PayPal elvégzi az értékelést az utalás automatikusan engedélyezésre kerül."
       seller_express_checkout_disabled: "A PayPal Express Checkout tiltva van a hirdető PayPal fiókján. Kérjük lépjen kapcsolatba a hirdetővel és tudassa a problémáról. Továbbá tanácsolja neki, hogy vegye fel a kapcsolatot a PayPal ügyfélszolgálatával."
@@ -2051,6 +2052,8 @@ hu:
         week: ~
         month: ~
       edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

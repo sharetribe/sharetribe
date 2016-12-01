@@ -927,6 +927,7 @@ nb:
     transaction_agreement:
       required_error: "Du må godta avtalevilkår"
     paypal:
+      transaction_cannot_complete: "Betalingen kunne ikke gjennomføres. Dette skyldes sannsynligvis at betalingskortet ikke kunne bekreftes av banken. Vennligst prøv å gjennomføre kjøpet med en alternativ betalingsmetode."
       buyer_cannot_pay_error: "Betalingen ble avslått av PayPal. Vennligst kontakt PayPal Kundeservice for mer informasjon: %{customer_service_link}"
       pending_review_error: "Betalingen ble sendt men ble flagget av PayPal som \"må sjekkes\". Når PayPal får sjekket betalingen vil den automatisk bli godkjent."
       seller_express_checkout_disabled: "PayPal Express Checkout har blitt deaktivert for annonseeierens PayPal-konto. Vennligst kontakt annonseeieren og gi beskjed om at det er et problem med PayPal-kontoen deres. Råd dem til å kontakte PayPals kundeservice."
@@ -2060,6 +2061,8 @@ nb:
         week: uke
         month: måned
       edit_availability_header: ~
+      save_and_close_availability_editing: "Lagre og lukk"
+      edit_listing_availability: "Endre annonse-tilgjengelighet"
     no_listings:
       sorry: "Beklager, vi finner ingen resultater som matcher dine søkekriterier."
       try_other_search_terms: "Kanskje du kan prøve noen andre søkeord?"

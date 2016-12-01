@@ -914,6 +914,7 @@ zh-HK:
     transaction_agreement:
       required_error: ~
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: "該支付款項被Paypal拒絕。請聯絡他們的客戶服務部以獲得更多訊息：%{customer_service_link}"
       pending_review_error: 款項已經提交但被Paypal標記為‘需要檢查’。當Paypal完成檢查後，該支款將會被自動授權。
       seller_express_checkout_disabled: PayPal快速結帳已暫停此訊息發佈者的PayPal帳戶。請聯絡發佈者及讓他們知道自己的PayPal帳戶發生問題，並提議他們聯絡PayPal的客戶服務。
@@ -2025,6 +2026,8 @@ zh-HK:
         week: ~
         month: ~
       edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

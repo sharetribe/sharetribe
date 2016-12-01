@@ -916,6 +916,7 @@ ka:
     transaction_agreement:
       required_error: "თქვენ უნდა დაადასტუროთ ხელშეკრულება"
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: "გადახდის უარყოფა მოხდა PayPal-დან. გთხოვთ დაუკავშირდეთ მათი კლიენტთა მოსმახურების სერვისს მეტი ინფორმაციისთვის: %{customer_service_link}"
       pending_review_error: "გადახდა დარეგსისტრირდა, მაგრამ მონიშნულია PayPal-ზე როგორც \"საჭიროებს გადახედვას\" როდესაც PayPal გადახედავს გადახდა ავტომატურად ავტორიზებული გახდება."
       seller_express_checkout_disabled: "PayPal-ის ექსპრეს გადახდა შეჩერებულია ჩამონათვლის ავტორებისთვის PayPal-ის ანგარიშზე. გთხოვთ დაუკავშირდით ავტორს და შეატყობინოთ, რომ რაღაც პრობლემაა მათი PayPal-ის ანგარიშთან და ურჩიეთ, რომ დაუკავშირდნენ PayPal-ის კლიენტთა მომსახურებას."
@@ -2040,6 +2041,8 @@ ka:
         week: ~
         month: ~
       edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

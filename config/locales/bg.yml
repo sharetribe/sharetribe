@@ -896,6 +896,7 @@ bg:
     transaction_agreement:
       required_error: ~
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: "Плащането беше отказано от PayPal. Моля, свържете се с Отдел Обслужване на %{customer_service_link}."
       pending_review_error: ~
       seller_express_checkout_disabled: ~
@@ -2000,6 +2001,8 @@ bg:
         week: ~
         month: ~
       edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

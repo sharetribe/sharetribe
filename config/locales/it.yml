@@ -900,6 +900,7 @@ it:
     transaction_agreement:
       required_error: "E' necessario accettare l'accordo"
     paypal:
+      transaction_cannot_complete: "La transazione non può essere completata. Questo può essere dovuto alla mancata autorizzazione da parte della banca, per credito insufficiente o altri motivi. Per favore, prova con un altro metodo di pagamento."
       buyer_cannot_pay_error: "Il pagamento è stato rifiutato da PayPal. Si prega di contattare il loro Servizio Clienti per maggiori informazioni: %{customer_service_link}"
       pending_review_error: "Il pagamento è stato presentato, ma è stato contrassegnato da PayPal come 'in revisione'. Quando PayPal completarà la revisione, il pagamento verrà autorizzato automaticamente."
       seller_express_checkout_disabled: "Il pagamento con PayPal non è attivo sul conto PayPal dell'autore dell'inserzione. Per favore contatta l'autore, e mettilo a conoscenza che c'è un problema con il suo conto PayPal. Consigliali per favore di contattare l'Assistenza clienti PayPal."
@@ -2029,6 +2030,8 @@ it:
         week: settimana
         month: mese
       edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: "Purtroppo non si trovano inserzioni per i tuoi criteri di ricerca."
       try_other_search_terms: "Prova con altri termini di ricerca."

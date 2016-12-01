@@ -927,6 +927,7 @@ es-ES:
     transaction_agreement:
       required_error: "Debes aceptar el acuerdo"
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: "El pago fue rechazado por PayPal. Por favor contacta al servicio al cliente de PayPal para más información: %{customer_service_link}"
       pending_review_error: "El pago se realizó pero fue marcado por PayPal como 'pendiente de revisión'. Cuando PayPal complete esta revisión, el pago será autorizado automáticamente."
       seller_express_checkout_disabled: "El servicio de Express Checkout de PayPal ha sido inhabilitado para la cuenta de PayPal del autor del anuncio. Por favor contacta al autor del anuncio para avisarle que hay un problema con su cuenta de PayPal y recomendarle que contacte al servicio al cliente de PayPal."
@@ -2059,6 +2060,9 @@ es-ES:
         night: noche
         week: semana
         month: mes
+      edit_availability_header: Disponibilidad
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: "Perdón, no hemos encontrado ningún anuncio que satisfaga tus criterios de búsqueda."
       try_other_search_terms: "Intenta la búsqueda con términos distintos"

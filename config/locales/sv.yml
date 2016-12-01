@@ -929,6 +929,7 @@ sv:
     transaction_agreement:
       required_error: "Du behöver acceptera avtalet"
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: "Betalningen har avslagits av PayPal. Vänligen kontakta deras kundtjänst för mer information: %{customer_service_link}"
       pending_review_error: "Betalningen gick iväg men flaggas av PayPal som \"kräver en översyn\". När PayPal avslutar översynen kommer betalningen bli godkänd."
       seller_express_checkout_disabled: ~
@@ -2052,6 +2053,8 @@ sv:
         week: ~
         month: ~
       edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

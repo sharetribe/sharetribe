@@ -392,8 +392,8 @@ sk-SK:
       availability_title: Dostupnosť
       read_more: ~
       allow_availability_management: ~
-      per_day_availability: ~
-      per_night_availability: ~
+      per_day_availability: "\"za deň\" dostupnosť"
+      per_night_availability: "\"za noc\" dostupnosť"
       pricing_units_disabled_info: ~
       index:
         listing_shapes: "Typy objednávok"
@@ -936,6 +936,7 @@ sk-SK:
     transaction_agreement:
       required_error: "Musíte súhlasiť s podmienkami"
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: "Platba bola odmietnutá serverom PayPal. Pre viac informácií, kontaktujte ich zákaznícky servis: %{customer_service_link}"
       pending_review_error: "Platba bola prevedená, ale bola serverom PayPal označená ako \"vyžaduje preskúmať\". Akonáhle PayPal dokončí preskúmanie platby, platba bude automaticky vybavená."
       seller_express_checkout_disabled: "PayPal express pokladňa bola zakázaná. Kontaktujte predajcu a dajte mu vedieť, že majú problém s ich PayPal účtom. Prípadne im odkázať aby kontaktovali PayPal zákaznícky servis."
@@ -2078,6 +2079,8 @@ sk-SK:
         week: týždeň
         month: mesiac
       edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~
