@@ -24,7 +24,8 @@
   &.openMenu,
   &.openOnHover:hover {
     & .menuContent {
-      display: block;
+      visibility: visible;
+      transition-delay: 0ms;
     }
   }
 }
@@ -71,7 +72,7 @@
 }
 
 .menuContent {
-  display: none;
+  visibility: hidden;
   z-index: var(--Menu_zIndex);
   background-color: var(--Menu_colorBackground);
   border: 1px solid var(--Menu_borderColor);
@@ -87,6 +88,11 @@
   & :last-child {
     border-bottom-left-radius: 3px;
   }
+}
+
+.transitionDelay {
+  transition: visibility 0ms;
+  transition-delay: 300ms;
 }
 
 .menuContentArrowTop,

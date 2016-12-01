@@ -1,5 +1,8 @@
 import { Component, PropTypes } from 'react';
 import r, { div } from 'r-dom';
+import classNames from 'classnames';
+
+import { className } from '../../../utils/PropTypes';
 import MenuItem from '../../elements/MenuItem/MenuItem';
 import css from './Menu.css';
 
@@ -24,7 +27,7 @@ class MenuContent extends Component {
     return (
       div(
         {
-          className: `MenuContent ${css.menuContent}`,
+          className: classNames('MenuContent', css.menuContent, this.props.className),
         }, [
           div({
             className: css.menuContentArrowBelow,
@@ -59,6 +62,7 @@ MenuContent.propTypes = {
     })
   ).isRequired,
   arrowPosition: number.isRequired,
+  className,
 };
 
 export default MenuContent;

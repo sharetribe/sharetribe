@@ -3,27 +3,54 @@ import r, { div } from 'r-dom';
 import classNames from 'classnames';
 
 import { className } from '../../../utils/PropTypes';
-import { hasTouchEvents } from '../../../utils/featureDetection';
 import ProfileDropdown from './ProfileDropdown';
 import Avatar from '../../elements/Avatar/Avatar';
 import NotificationBadge from '../../elements/NotificationBadge/NotificationBadge';
 
 import css from './AvatarDropdown.css';
 
+const HOVER_TIMEOUT = 250;
+
 class AvatarDropdown extends Component {
   constructor(props, context) {
     super(props, context);
 
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
 
     this.state = {
       isOpen: false,
+      isHovering: false,
+      isMounted: false,
     };
+
+    this.mouseOverTimeout = null;
+    this.mouseOutTimeout = null;
+  }
+
+  componentDidMount() {
+    this.setState({ isMounted: true });// eslint-disable-line react/no-set-state
+  }
+
+  handleMouseOver() {
+    clearTimeout(this.mouseOutTimeout);
+    clearTimeout(this.mouseOverTimeout);
+    this.mouseOverTimeout = setTimeout(() => (
+      this.setState({ isHovering: true, isOpen: true }) // eslint-disable-line react/no-set-state
+      ), HOVER_TIMEOUT);
+  }
+
+  handleMouseOut() {
+    clearTimeout(this.mouseOverTimeout);
+    this.mouseOutTimeout = setTimeout(() => (
+      this.setState({ isHovering: false, isOpen: false }) // eslint-disable-line react/no-set-state
+      ), HOVER_TIMEOUT);
   }
 
   handleClick() {
-    if (hasTouchEvents) {
+    if (!this.state.isHovering) {
       this.setState({ isOpen: !this.state.isOpen });// eslint-disable-line react/no-set-state
     }
   }
@@ -37,13 +64,16 @@ class AvatarDropdown extends Component {
   }
 
   render() {
-    const openOnHoverClass = hasTouchEvents ? '' : css.openOnHover;
+    const openOnHoverClass = this.state.isMounted ? '' : css.openOnHover;
+    const transitionDelayClass = this.state.isMounted ? '' : css.transitionDelay;
     const openClass = this.state.isOpen ? css.openDropdown : '';
     const notificationsClass = this.props.notificationCount > 0 ? css.hasNotifications : null;
     const notificationBadgeInArray = this.props.notificationCount > 0 ?
       [r(NotificationBadge, { className: css.notificationBadge }, this.props.notificationCount)] :
       [];
     return div({
+      onMouseOver: this.handleMouseOver,
+      onMouseLeave: this.handleMouseOut,
       onClick: this.handleClick,
       onBlur: this.handleBlur,
       tabIndex: 0,
@@ -53,7 +83,7 @@ class AvatarDropdown extends Component {
         r(Avatar, this.props.avatar),
       ].concat(notificationBadgeInArray)),
       r(ProfileDropdown, {
-        className: css.avatarProfileDropdown,
+        classNames: [css.avatarProfileDropdown, transitionDelayClass],
         customColor: this.props.customColor,
         actions: this.props.actions,
         isAdmin: this.props.isAdmin,
