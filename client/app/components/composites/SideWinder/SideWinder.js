@@ -25,13 +25,24 @@ but tries to contain all the hackiness within itself.
 
 */
 import { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
+import ReactTransitionGroup from 'react-addons-transition-group';
 import r, { div, button } from 'r-dom';
+import Portal from '../Portal/Portal';
+import SideWinderTransition from './SideWinderTransition';
+import * as cssVariables from '../../../assets/styles/variables';
 
 import css from './SideWinder.css';
 import closeIcon from './images/close.svg';
 
 const KEYCODE_ESC = 27;
+
+const currentScrollOffset = () => {
+  if (!window || !document) {
+    // Likely no DOM, e.g. when rendering on the server
+    return 0;
+  }
+  return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+};
 
 // Starts syncing the window width to the given element. Returns a
 // function that stops the listening.
@@ -57,130 +68,98 @@ const syncWindowWidthTo = (el) => {
   /* eslint-enable no-param-reassign */
 };
 
-const SideWinderContent = (props) => div(
-  { className: css.content },
-  [
-    button({
-      onClick: props.onClose,
-      className: css.closeButton,
-      dangerouslySetInnerHTML: { __html: closeIcon },
-    }),
-    props.children,
-  ]
-);
-
-SideWinderContent.propTypes = {
-  onClose: PropTypes.func.isRequired,
-};
-
 class SideWinder extends Component {
-  constructor(props, context) {
-    super(props, context);
-    this.update = this.update.bind(this);
+  constructor(props) {
+    super(props);
     this.onWindowKeyUp = this.onWindowKeyUp.bind(this);
-    this.onBodyTouchMove = this.onBodyTouchMove.bind(this);
+    this.onWindowResize = this.onWindowResize.bind(this);
   }
   componentDidMount() {
+    if (this.props.wrapper.classList.contains(css.wrapper)) {
+      throw new Error('Only one SideWinder allowed for a wrapper element at a time.');
+    }
     this.props.wrapper.classList.add(css.wrapper);
 
-    // Two DOM elements are created: el and overlay, where el will be
-    // the root node for the whole side menu and overlay will hide the
-    // wrapper element contents. Both elements are manually rendered
-    // to the wrapper element, and React handles the tree within the
-    // el element.
-
-    this.rootEl = document.createElement('div');
-    this.rootEl.style.width = `${this.props.width}px`;
-    this.rootEl.style.right = `-${this.props.width}px`;
-    this.rootEl.className = css.root;
-
-    this.overlayEl = document.createElement('div');
-    this.overlayEl.className = css.overlay;
-    this.overlayEl.addEventListener('click', this.props.onClose);
-
-    this.props.wrapper.appendChild(this.rootEl);
-    this.props.wrapper.appendChild(this.overlayEl);
-
     window.addEventListener('keyup', this.onWindowKeyUp);
-    window.addEventListener('resize', this.update);
+    window.addEventListener('resize', this.onWindowResize);
 
-    // Prevent bg scrolling on touch devices.
-    document.body.addEventListener('touchmove', this.onBodyTouchMove);
-
-    this.update();
+    this.componentDidUpdate();
   }
   componentDidUpdate() {
-    this.update();
-  }
-  componentWillUnmount() {
-    ReactDOM.unmountComponentAtNode(this.rootEl);
-
-    const wrapper = this.props.wrapper;
-    wrapper.removeChild(this.rootEl);
-    wrapper.removeChild(this.overlayEl);
-    wrapper.classList.remove(css.wrapper);
-
-    // There needs to be a class to target the body element e.g. to
-    // prevent bg scrolling.
-    document.body.classList.remove(css.winderOpen);
-
-    window.removeEventListener('keyup', this.onWindowKeyUp);
-    window.removeEventListener('resize', this.update);
-    document.body.removeEventListener('touchmove', this.onBodyTouchMove);
-
-    if (this.stopWidthSync) {
+    if (this.props.isOpen && !this.stopWidthSync) {
+      this.stopWidthSync = syncWindowWidthTo(this.props.wrapper);
+    } else if (!this.props.isOpen && this.stopWidthSync) {
       this.stopWidthSync();
       this.stopWidthSync = null;
     }
   }
-  onBodyTouchMove(e) {
-    if (this.props.isOpen) {
-      e.preventDefault();
-    }
+  componentWillUnmount() {
+    this.props.wrapper.classList.remove(css.wrapper);
+    this.props.wrapper.style.removeProperty('right');
+    window.removeEventListener('keyup', this.onWindowKeyUp);
+    window.removeEventListener('resize', this.onWindowResize);
   }
   onWindowKeyUp(e) {
     if (this.props.isOpen && e.keyCode === KEYCODE_ESC) {
       this.props.onClose();
     }
   }
-  update() {
+  onWindowResize() {
+    if (this.props.isOpen) {
+      this.render();
+    }
+  }
+  render() {
     const isOpen = this.props.isOpen;
-    const scrollOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    const height = window.innerHeight;
+    const scrollOffset = currentScrollOffset();
 
     if (isOpen) {
-      document.body.classList.add(css.winderOpen);
-      this.rootEl.style.top = `${scrollOffset}px`;
-      this.overlayEl.style.top = `${scrollOffset}px`;
-      this.rootEl.style.height = `${height}px`;
-      this.overlayEl.style.height = `${height}px`;
       this.props.wrapper.style.right = `${this.props.width}px`;
     } else {
-      document.body.classList.remove(css.winderOpen);
-      this.rootEl.style.removeProperty('top');
-      this.rootEl.style.removeProperty('height');
-      this.overlayEl.style.removeProperty('top');
-      this.overlayEl.style.removeProperty('height');
       this.props.wrapper.style.removeProperty('right');
     }
 
-    if (isOpen && !this.stopWidthSync) {
-      this.stopWidthSync = syncWindowWidthTo(this.props.wrapper);
-    } else if (!isOpen && this.stopWidthSync) {
-      this.stopWidthSync();
-      this.stopWidthSync = null;
-    }
-
-    ReactDOM.render(r(SideWinderContent, {
-      onClose: this.props.onClose,
-    }, this.props.children), this.rootEl);
-  }
-
-  render() {
-    // The component is rendered manually within the given wrapper
-    // element which is outside the current render tree and might have
-    // other non-React DOM elements that should not be touched.
-    return null;
+    return r(Portal, {
+      parentElement: this.props.wrapper,
+    }, [
+      r(ReactTransitionGroup, [
+        div({
+          className: css.overlay,
+          style: {
+            top: scrollOffset,
+          },
+          onClick: this.props.onClose,
+          onTouchMove: (e) => {
+            e.preventDefault();
+          },
+        }),
+        isOpen ?
+          r(SideWinderTransition, {
+            enterTimeout: cssVariables['--SideWinder_animationDurationMs'],
+            leaveTimeout: cssVariables['--SideWinder_animationDurationMs'],
+          }, [
+            div({
+              className: css.root,
+              style: {
+                width: this.props.width,
+                right: -1 * this.props.width,
+                top: scrollOffset,
+              },
+              onTouchMove: (e) => {
+                e.preventDefault();
+              },
+            }, [
+              this.props.children,
+              button({
+                onClick: this.props.onClose,
+                className: css.closeButton,
+                dangerouslySetInnerHTML: { __html: closeIcon },
+              }),
+            ]),
+          ]) :
+        null,
+      ]),
+    ]);
   }
 }
 
