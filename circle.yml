@@ -1,3 +1,7 @@
+general:
+  branches:
+    ignore:
+      - gh-pages
 machine:
   timezone:
     Europe/Helsinki
