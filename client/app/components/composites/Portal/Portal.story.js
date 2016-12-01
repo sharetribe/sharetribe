@@ -26,7 +26,7 @@ class PortalWrapper extends Component {
     };
 
     return div([
-      p('Portal contents are rendered outside the current render tree. There can be only a single Portal for every parentElement.'),
+      p('Portal contents are rendered outside the current render tree.'),
       label(labelProps, [
         input({
           type: 'checkbox',
