@@ -152,7 +152,8 @@
       - blocked_dates_result.on_success do
         %button.enabled-book-button
           .content
-            = action_button_label(@listing)
+            -# = action_button_label(@listing)
+            Purchase with Paypal
 
       - blocked_dates_result.on_error do
         %button.disabled-book-button{disabled: true}

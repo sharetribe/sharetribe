@@ -510,6 +510,13 @@ module ApplicationHelper
         :icon_class => icon_class("notification_settings"),
         :path => notifications_person_settings_path(person),
         :name => "notifications"
+      },
+      {
+        :id => "settings-tab-payments",
+        :text => "Payments",
+        :icon_class => icon_class("notification_settings"),
+        :path => payments_person_settings_path(person),
+        :name => "payments"
       }
     ]
 

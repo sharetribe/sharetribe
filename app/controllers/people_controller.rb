@@ -245,7 +245,8 @@ class PeopleController < Devise::RegistrationsController
           :email_about_completed_transactions,
           :email_about_new_payments,
           :email_about_new_listings_by_followed_people,
-        ] }
+        ] },
+        :paypal_business_email
       )
 
       Maybe(person_params)[:location].each { |loc|
