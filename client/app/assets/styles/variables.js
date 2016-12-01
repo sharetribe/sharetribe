@@ -362,7 +362,9 @@ module.exports = {
   '--FlashNotification_closeIconSize': `${minimumButtonSize}px`,
   '--FlashNotification_closeIconExtraSpace': '20px',
 
-  '--SideWinder_overlayZIndex': 999,
+  '--SideWinder_overlayZIndex': zIndexMinimum + 20,
+  '--SideWinder_animationDuration': '0.5s',
+  '--SideWinder_animationDurationMs': 500,
 
   '--ManageAvailability_width': 405,
   '--ManageAvailability_fontFamily': proximaNovaFontFamily,

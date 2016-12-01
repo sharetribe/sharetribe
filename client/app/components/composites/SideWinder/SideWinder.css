@@ -1,26 +1,29 @@
+.transition {}  /* stylelint-disable-line block-no-empty */
+.transitionVisible {} /* stylelint-disable-line block-no-empty */
+.transitionOpen {} /* stylelint-disable-line block-no-empty */
+.transitionEntering {} /* stylelint-disable-line block-no-empty */
+.transitionLeaving {} /* stylelint-disable-line block-no-empty */
+
+.transitionVisible {
+  /* Prevent scrolling and hide scrollbars */
+  overflow: hidden;
+  height: 100%;
+}
+
 .wrapper {
   position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
   right: 0;
-  transition: right 0.5s;
-}
-
-.winderOpen {
-  /* Prevent scrolling and hide scrollbars */
-  overflow: hidden;
+  transition: right var(--SideWinder_animationDuration);
+  will-change: right;
 }
 
 .root {
-  display: none;
   position: absolute;
   top: 0;
-  right: 0;
-  height: 100%;
-
-  @nest .winderOpen & {
-    display: block;
-  }
+  height: 100vh;
 }
 
 .overlay {
@@ -33,16 +36,17 @@
   opacity: 0;
   z-index: var(--SideWinder_overlayZIndex);
   cursor: pointer;
-  transition: opacity 0.5s;
+  transition: opacity var(--SideWinder_animationDuration);
+  will-change: opacity, height;
 
-  @nest .winderOpen & {
-    height: 100%;
+  @nest .transitionOpen & {
+    height: 100vh;
     opacity: 0.5;
   }
-}
 
-.content {
-  height: 100%;
+  @nest .transitionLeaving & {
+    height: 100vh;
+  }
 }
 
 .closeButton {
