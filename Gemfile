@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 
 ruby '2.3.1'
 
+gem 'rubypress'
+
 gem 'rails', '4.2.7.1'
 
 gem 'coffee-rails', "~> 4.0.1"
@@ -149,8 +151,9 @@ group :development do
   gem 'quiet_assets', "~> 1.1.0"
   gem 'better_errors', "~> 2.1.1"
   gem 'web-console', '~> 2.0'
-  gem 'awesome_print', '~> 1.6.1'
 end
+  gem 'awesome_print', '~> 1.6.1'
+
 
 group :test do
   gem 'capybara', '~> 2.6.2'
