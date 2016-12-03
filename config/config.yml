@@ -399,6 +399,7 @@ default: &default_settings
 
   # Sitemap cache time in seconds
   # Default 24 hours
+  
   sitemap_cache_time: 86400
 
 production: &production_settings
