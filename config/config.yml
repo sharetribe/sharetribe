@@ -4,7 +4,7 @@ default: &default_settings
   # If you are running on localhost, you can write here "lvh.me:3000" (which redirects to localhost port 3000)
   # The community subdomains will be added to this top domain.
   # NOTE: Do not include http(s) here, or subdomains, just the top level domain, like "sharetribe.com" for example
-  domain: threadhabits.herokuapp.com
+  domain: threadhabits.com
 
   # If you want to make logins work across different subdomains you should put here the domain where you are running Sharetribe.
   # practically in most cases the same value as in "domain:"
@@ -399,7 +399,7 @@ default: &default_settings
 
   # Sitemap cache time in seconds
   # Default 24 hours
-  
+
   sitemap_cache_time: 86400
 
 production: &production_settings
@@ -408,8 +408,6 @@ production: &production_settings
   eager_load: true
 
   log_level: INFO
-
-  domain: threadhabits.com
 
   always_use_ssl: true
 
