@@ -4,7 +4,7 @@ default: &default_settings
   # If you are running on localhost, you can write here "lvh.me:3000" (which redirects to localhost port 3000)
   # The community subdomains will be added to this top domain.
   # NOTE: Do not include http(s) here, or subdomains, just the top level domain, like "sharetribe.com" for example
-  domain: threadhabits.com
+  domain: threadhabits.herokuapp.com
 
   # If you want to make logins work across different subdomains you should put here the domain where you are running Sharetribe.
   # practically in most cases the same value as in "domain:"
@@ -404,7 +404,7 @@ default: &default_settings
 
 production: &production_settings
   <<: *default_settings
-
+  domain: www.threadhabits.com
   eager_load: true
 
   log_level: INFO
@@ -413,13 +413,13 @@ production: &production_settings
 
 staging:
   <<: *production_settings
+  domain: www.threadhabits.com
   # By default staging has same settings as production, but those can be overridden here.
 
   log_level: INFO
 
 development:
   <<: *default_settings
-
   # Usually it's easier to run development without SSL
   always_use_ssl: false
 
