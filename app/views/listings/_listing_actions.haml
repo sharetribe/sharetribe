@@ -1,6 +1,7 @@
 - is_author = current_user?(@listing.author)
 - is_marketplace_admin = Maybe(@current_user).has_admin_rights?.or_else(false)
 - is_authorized = is_author || is_marketplace_admin
+- show_manage_availability = is_authorized && availability_enabled
 
 - if @listing.closed?
   .listing-view-admin-links
@@ -170,6 +171,8 @@
         %a.icon-with-text-container{href: edit_listing_path(@listing)}
           = icon_tag("edit", ["icon-part"])
           .text-part= t("listings.edit_links.edit_listing")
+        - if show_manage_availability && FeatureFlagHelper.feature_enabled?(:manage_availability)
+          = react_component("ManageAvailabilityApp", props: manage_availability_props, prerender: false)
       .listing-view-admin-link
         %a.icon-with-text-container{href: close_person_listing_path(@current_user, @listing), data: { method: "put", remote: "true"}}
           = icon_tag("lock", ["icon-part"])

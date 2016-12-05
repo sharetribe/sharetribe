@@ -12,7 +12,7 @@ import * as cssVariables from '../assets/styles/variables';
 
 export default (props) => {
   const locale = props.i18n.locale;
-  const defaultLocale = props.i18n.defaultLocale;
+  const defaultLocale = props.i18n.default_locale;
 
   initializeI18n(locale, defaultLocale, process.env.NODE_ENV);
   moment.locale(locale);
