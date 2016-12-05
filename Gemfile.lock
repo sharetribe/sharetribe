@@ -368,7 +368,7 @@ GEM
       websocket (~> 1.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
-    rack (1.6.4)
+    rack (1.6.5)
     rack-contrib (1.4.0)
       git-version-bump (~> 0.15)
       rack (~> 1.4)
@@ -588,7 +588,7 @@ DEPENDENCIES
   oauth2!
   omniauth-facebook (~> 4.0.0)
   paperclip (~> 5.1.0)
-  passenger (~> 5.0.18)
+  passenger (~> 5.0.30)
   paypal-sdk-merchant (~> 1.116.0)
   paypal-sdk-permissions (~> 1.96.4)
   possibly (~> 0.2.0)
