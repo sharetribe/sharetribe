@@ -7,7 +7,7 @@ Sharetribe is an open source platform to create your own peer-to-peer marketplac
 Would you like to set up your marketplace in one minute without touching code? [Head to Sharetribe.com](https://www.sharetribe.com).
 
 ### Contents
-- [Tech Stack](#tech_stack)
+- [Tech Stack](#tech-stack)
 - [Installation](#installation)
 - [Payments](#payments)
 - [Versioning](#versioning)
