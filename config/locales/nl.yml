@@ -923,6 +923,7 @@ nl:
     transaction_agreement:
       required_error: "Je moet de overeenkomst accepteren"
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: "Paypal Express Checkout is uitgeschakeld voor de adverteerders PayPal account. Neem contact op met de adverteerder en laat deze weten dat er een probleem is met zijn/haar PayPal account, en adviseer om contact op te nemen met de PayPal Customer Service."
@@ -2032,6 +2033,9 @@ nl:
         night: ~
         week: ~
         month: ~
+      edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~
