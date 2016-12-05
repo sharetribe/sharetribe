@@ -2,6 +2,7 @@ import onboardingGuideReducer from './OnboardingGuideReducer';
 import flashNotificationReducer from './FlashNotificationReducer';
 import searchPageReducer from './SearchPageReducer';
 import routesReducer from './RoutesReducer';
+import manageAvailabilityReducer from './ManageAvailabilityReducer';
 
 // This is how you do a directory of reducers.
 // The `import * as reducers` does not work for a directory, but only with a single file
@@ -16,4 +17,5 @@ export default {
   profiles: (state = {}) => state,
   topbar: (state = {}) => state,
   user: (state = {}) => state,
+  manageAvailability: manageAvailabilityReducer,
 };
