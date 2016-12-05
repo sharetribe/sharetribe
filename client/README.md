@@ -69,6 +69,93 @@ Styleguide can be published as a static build, to be used for e.g. reviews by ot
 
 We're using a [custom fork](https://github.com/mporkola/storybook-deployer) of [Storybook deployer](https://github.com/kadirahq/storybook-deployer), modified to output different branches to different directories. The goal is to get it merged upstream, but it still requires some work.
 
+Using shared Redux store
+------------------------
+
+Currently, there are some components that use their own Redux stores. However, when we build more and more React "apps" (i.e. React on Rails registered components) we will soon end up in a situation where these different apps need to communicate with each other. For example, Topbar app has a notification count and when we build a messaging app, the messaging app needs to signal to the Topbar app that user read a message and the notification count should be thus decreased. This can be done with shared Redux stores.
+
+**Usage:**
+
+To add new data to the store, you can either:
+
+* Add new data to `@redux_store_data` variable in the `ApplicationController` if you want to include that data in all page views.
+* Add new data to `@redux_store_data` variable in the current controller, if you want to include that data only in the current page.
+
+To use the store in React component, fetch the store in the "App" file. Here's an example:
+
+``` ruby
+
+# my_controller.rb
+
+  ...
+
+  def index
+    # Add data to the store
+    @redux_store_data.merge!(myData: {myName: "John Doe"})
+  end
+
+  ...
+
+```
+
+```haml
+-# index.haml
+
+= react_component("MyApp")
+```
+
+``` js
+// MyApp.js
+
+export default () => {
+  const store = ReactOnRails.getStore('SharedReduxStore');
+  return r(Provider, { store }, [
+    r(MyContainer)
+  ]);
+};
+```
+
+If you want to pass `props` (which is optional, because the component can get it's data also purely from the store):
+
+``` ruby
+
+# my_controller.rb
+
+  ...
+
+  def index
+    # Add data to the store
+    @redux_store_data.merge!(myData: {myName: "John Doe"})
+  end
+
+  ...
+
+```
+
+```haml
+-# index.haml
+
+= react_component("MyAppWithProps", props: "My App with props")
+```
+
+``` js
+// MyAppWithProps.js
+
+export default (props) => {
+  const store = ReactOnRails.getStore('SharedReduxStore');
+  return r(Provider, { store }, [
+    r(MyWithPropsContainer, props)
+  ]);
+};
+```
+
+**Implementation details:**
+
+* **Store name:** `SharedReduxStore`
+* In `clientRegistration.js` and `serverRegistration.js` files we register the `SharedReduxStore`
+* In `ApplicationController` we initialize the `@redux_store_data` instance variable.
+* In the `application.haml` layout file, we render the Redux store with the data in `@redux_store_data`.
+
 Linting JavaScript and CSS files
 ================================
 

@@ -6,6 +6,7 @@ import OnboardingTopBar from './OnboardingTopBarApp';
 import OnboardingGuideApp from './OnboardingGuideApp';
 import TopbarApp from './TopbarApp';
 import SearchPageApp from './SearchPageApp';
+import SharedReduxStore from '../stores/SharedReduxStore';
 
 ReactOnRails.register({
   OnboardingGuideApp,
@@ -15,6 +16,7 @@ ReactOnRails.register({
 });
 
 ReactOnRails.registerStore({
+  SharedReduxStore,
 });
 
 if (typeof window !== 'undefined') {

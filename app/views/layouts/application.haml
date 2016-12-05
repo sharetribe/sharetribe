@@ -2,6 +2,9 @@
 
 %body
 
+  -# Initialize and hydrate shared Redux store
+  = redux_store("SharedReduxStore", props: @redux_store_data)
+
   -# Render railsContext here before any react component gets rendered
   = prepend_render_rails_context("")
 

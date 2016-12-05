@@ -34,7 +34,8 @@ class ApplicationController < ActionController::Base
     :cannot_access_if_banned,
     :cannot_access_without_confirmation,
     :ensure_consent_given,
-    :ensure_user_belongs_to_community
+    :ensure_user_belongs_to_community,
+    :initialize_redux_store_data
 
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
   before_filter :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
@@ -382,6 +383,10 @@ class ApplicationController < ActionController::Base
     else
       search_path
     end
+  end
+
+  def initialize_redux_store_data
+    @redux_store_data = {}
   end
 
   private
