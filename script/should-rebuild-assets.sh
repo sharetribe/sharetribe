@@ -14,6 +14,7 @@ COMPARE_SHA="${1-HEAD}"
 CHANGES=$(git diff --shortstat "$COMPARE_SHA" -- \
               app/assets \
               client \
+              config/locales \
               package.json \
               vendor/assets)
 
