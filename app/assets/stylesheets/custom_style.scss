@@ -1,8 +1,78 @@
 .home-fluid-thumbnail-grid-item {
     min-height: 450px;
     max-height: 450px;
+
+}
+.wrapper {
+    background-color: #f0f0f0;
+}
+.wrapper {
+    .row {
+            background-color: #f0f0f0;
+    }
+}
+.home-toolbar {
+    background-color: white;
+    border: 1.5px solid #e3e3e3;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+        padding-top: 10px;
+        padding-right: 10px;
+    float: right;
+           padding-left: 10px;
 }
 
+.page-content {
+    background-color: #f0f0f0;
+}
+
+#linebreak {
+    border: 1.5px solid #e3e3e3;
+    margin: 0 auto;
+    min-height: 450px;
+    max-height: 450px;
+    width: 109%;
+    position: relative;
+    background-color: white;
+}
+
+#linebreak2 {
+    margin: 0 auto;
+    position: relative;
+    background-color: white;
+    padding-left: 5%;
+}
+.wrapper.row {
+  padding-left: 5%;
+}
+.col-border {
+    border: 1.5px solid #e3e3e3;
+    background-color: white;
+}
+#desktop-filters {
+    width: 100%;
+    #filters {
+        button {
+            margin-left: 12px;   
+        }
+    }
+}
+.custom-filter-options {
+    margin-left: 12px; 
+}
+.custom-filter-min-max-title {
+      margin-left: 12px;   
+    
+}
+
+.col-border {
+    .row {
+        .col-12{
+            background-color: white;
+        }
+    }
+}
 .Link__link__3pNRT {
   vertical-align: top;
   position: relative;
@@ -47,7 +117,12 @@
 .AddNewListingButton__mobile__2JhHF, .AddNewListingButton__desktop__17Luf {
 	padding: 0 1em;
 }
-
+.Logo__logoImage__3oOkB {
+    top: 0;
+    margin: 0 auto;
+    position: absolute;
+    z-index: 9999;
+}
 .Logo {
 	margin: 0 auto;
     padding-left: 50px;
@@ -68,7 +143,7 @@
 }
 
 .item-time {
-	padding: 3px 8px;
+	padding: 3px 15px;
     float: left;
     width: 100%;
     font-size: 12px;
@@ -91,15 +166,18 @@
     
 	}
 }
-
+.product-details{
+    margin: 0 auto;
+    padding-left: 5%;
+}
 .product-details {
 	.company-info {
 		border-top: 2px solid #d6d3d3;
 		padding: 1px 8px;
 		font-weight: bold;
 		float: left;
-    	width: 100%;
-
+    	width: 95%;
+        font-size: 15px;
 	}
 	.item-name {
 		float: left;
@@ -114,6 +192,7 @@
 		padding-left: 8px;
         font-size: 12px;
     }
+ 
 }
 
 .pull-left {
@@ -229,4 +308,11 @@ height: auto;
 .MenuPriority {
     width: 250px!important;
     float: right;
+    padding-left: 50px;
+}
+.MenuPriority__priorityLinks__XgHdH {
+    float:right;
+}
+.menu__label {
+    display: none;
 }
