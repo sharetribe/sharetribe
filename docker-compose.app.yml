@@ -31,4 +31,4 @@ services:
       # scheduled task definitions
       # Uncomment when deploying own installation of Sharetribe
       #- convox.cron.test-task=0 9 * * ? bundle exec rails runner CommunityMailer.deliver_community_updates
-    command: [ "bundle", "exec", "rake", "jobs:work" ]
+    command: [ "script/startup.sh", "worker" ]
