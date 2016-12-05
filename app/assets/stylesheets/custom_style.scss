@@ -1,16 +1,26 @@
+
 .home-fluid-thumbnail-grid-item {
     min-height: 450px;
     max-height: 450px;
 
 }
 .wrapper {
-    background-color: #f0f0f0;
+    background-color: #fbfbfb;
 }
 .wrapper {
     .row {
-            background-color: #f0f0f0;
+            background-color: #fbfbfb;
     }
 }
+
+.background {
+    background-color: #ffffff;
+    width: auto;
+    height: auto;
+    overflow:auto;
+}
+
+
 .home-toolbar {
     background-color: white;
     border: 1.5px solid #e3e3e3;
@@ -23,8 +33,8 @@
            padding-left: 10px;
 }
 
-.page-content {
-    background-color: #f0f0f0;
+article.page-content {
+        background-color: #fbfbfb;
 }
 
 #linebreak {
@@ -85,6 +95,7 @@
   position: relative;
   top: 5px;
   left: 10px;
+  font-weight: bold;
 }
 
 .AvatarDropdown {
@@ -315,4 +326,47 @@ height: auto;
 }
 .menu__label {
     display: none;
+}
+.listing-image-thumbnail {
+     border: 1px solid #000000;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    
+}
+#thumbnail-stripe {
+    left: 5px;
+}
+.AddNewListingButton {
+  font-family: Arial;
+  color: #000000;
+  font-size: 19px;
+  background: #ffffff;
+  border: solid #d9d9d9 2px;
+  text-decoration: none;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  border-radius: none;
+}
+.AddNewListingButton__button__2H8yh {
+  font-family: Arial;
+  color: #000000;
+  font-size: 19px;
+  background: #ffffff;
+  border: solid #d9d9d9 2px;
+  text-decoration: none;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  border-radius: none;
+}
+.AddNewListingButton__responsiveLayout__1JnL9 {
+  font-family: Arial;
+  color: #000000;
+  font-size: 19px;
+  background: #ffffff;
+  border: solid #d9d9d9 2px;
+  text-decoration: none;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  border-radius: none;
 }
