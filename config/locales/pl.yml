@@ -20,7 +20,7 @@ pl:
           no_parent: "Brak nadrzędnej"
         category_transaction_types:
           transaction_types: "Rodzaje zamówień"
-          transaction_types_description: ~
+          transaction_types_description: "Rodzaje transakcji określają jaki rodzaj transakcji jest dostępny dla ofert w tej kategorii. Na przykład - czy jest to tylko sprzedaż, czy także wypożyczanie lub oddawanie za darmo jest możliwe."
           select_all: ~
           clear_all: ~
         buttons:
@@ -30,6 +30,31 @@ pl:
         remove_category: "Usuń kategorię"
         remove_category_name: "Usuń kategorię '%{category_name}'"
         warning_remove_effects: "Uwaga! Usunięcie kategorii '%{category_name}' będzie miało następujące efekty:"
+        warning_listing_will_be_moved:
+          one: "W kategorii jest %{count} oferta. Będzie ona przeniesiona do wybranej kategorii."
+          few: "W kategorii są %{count} oferty. Będą one przeniesione do wybranej kategorii."
+          many: "W kategorii jest %{count} ofert. Będą one przeniesione do wybranej kategorii."
+          other: "W kategorii jest %{count} ofert. Będą one przeniesione do wybranej kategorii."
+        warning_custom_field_will_be_moved:
+          one: "W kategorii jest %{count} pole użytkownika. Będzie ono przeniesione do wybranej kategorii."
+          few: "W kategorii są %{count} pola użytkownika. Będą one przeniesione do wybranej kategorii."
+          many: "W kategorii jest %{count} pól użytkownika. Będą one przeniesione do wybranej kategorii."
+          other: "W kategorii jest %{count} pól użytkownika. Będą one przeniesione do wybranej kategorii."
+        warning_subcategory_will_be_removed:
+          one: "W tej kategorii jest %{count} podkategoria. Będzie ona usunięta. "
+          few: "W tej kategorii są %{count} podkategorie. Będą one usunięte. "
+          many: "W tej kategorii jest %{count} podkategorii. Będą one usunięte. "
+          other: "W tej kategorii jest %{count} podkategorii. Będą one usunięte. "
+        warning_with_subcategories_listing_will_be_moved:
+          one: "W tej kategorii i jej podkategoriach jest %{count} oferta. Będzie ona przeniesiona do wybranej kategorii. "
+          few: "W tej kategorii i jej podkategoriach są %{count} oferty. Będą one przeniesione do wybranej kategorii. "
+          many: "W tej kategorii i jej podkategoriach jest %{count} ofert. Będą one przeniesione do wybranej kategorii. "
+          other: "W tej kategorii i jej podkategoriach jest %{count} ofert. Będą one przeniesione do wybranej kategorii. "
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "W tej kategorii i jej podkategoriach jest %{count} pole użytkownika. Będzie ono przeniesione do wybranej kategorii."
+          few: "W tej kategorii i jej podkategoriach są %{count} pola użytkownika. Będą one przeniesione do wybranej kategorii."
+          many: "W tej kategorii i jej podkategoriach jest %{count} pól użytkownika. Będą one przeniesione do wybranej kategorii."
+          other: "W tej kategorii i jej podkategoriach jest %{count} pól użytkownika. Będą one przeniesione do wybranej kategorii."
         select_new_category: "Wybierz nową kategorię gdzie elementy wymienione powyżej zostaną przeniesione:"
         buttons:
           remove: Usuń
@@ -46,11 +71,11 @@ pl:
         community_name: "Nazwa platformy"
         edit_community_name_description: "Nazwa Twojej platformy. To jest wyświetlane dla użytkowników w wiadomościach email i różnych, innych miejscach."
         community_slogan: "Slogan platformy"
-        edit_community_slogan_description: ~
+        edit_community_slogan_description: "Ta zawartość jest pokazywana na stronie głównej platformy tym użytkownikom, którzy nie są zalogowani. %{see_how_it_looks_like}."
         community_description: "Opis platformy"
-        edit_community_description_description: ~
-        community_search_placeholder: ~
-        edit_community_search_placeholder_description: ~
+        edit_community_description_description: "Ta zawartość jest pokazywana na stronie głównej platformy tym użytkownikom, którzy nie są zalogowani. %{see_how_it_looks_like}."
+        community_search_placeholder: "Przeszukaj treść pomocy"
+        edit_community_search_placeholder_description: "Ta zawartość jest pokazywana na stronie głównej platformy jako tekst wypełniający w pasku wyszukiwania. %{see_how_it_looks_like}."
         private_community_homepage_content: "Treść prywatnej strony głównej platformy"
         edit_private_community_homepage_content_description: "Ta zawartość jest pokazywana na stronie głównej prywatnych platform tym użytkownikom, którzy nie są zalogowani. Tutaj możesz opisać swoją platformę oraz jak do niej dołączyć. Możesz dodać zdjęcia, wideo i treść HTML tutaj. %{see_how_it_looks_like}"
         update_information: "Zapisz ustawienia"
@@ -60,15 +85,15 @@ pl:
         edit_info: "Edytuj informacje"
         see_how_it_looks_like: "Zobacz, jak to będzie wyglądać"
         verification_to_post_listings_info_content: "Tekst informacyjny dla użytkowników niezweryfikowanych"
-        verification_to_post_listings_info_content_description: ~
-        verification_to_post_listings_info_content_default: ~
+        verification_to_post_listings_info_content_description: "Aktualnie wymagasz aby użytkownicy zostali przez Ciebie ręcznie zaakceptowani zanim będą oni mogli publikować oferty. Tutaj możesz określić domyślną wiadomość wyświetlaną niezaakceptowanym użytkownikom, kiedy próbują oni publikować nowe oferty."
+        verification_to_post_listings_info_content_default: "%{service_name} wymaga ręcznej akceptacji użytkowników przez administratora zanim będą oni mogli publikować oferty. Nie zostałeś/aś jeszcze zaakceptowany/a. Proszę, %{contact_admin_link} aby zostać zaakceptowanym/ą."
         contact_admin_link_text: "skontaktuj się z administratorami"
-        save: ~
-        transaction_agreement: ~
-        transaction_agreement_checkbox: ~
-        transaction_agreement_checkbox_header: ~
+        save: "Zapisz ustawienia"
+        transaction_agreement: "Umowa transakcji"
+        transaction_agreement_checkbox: "Wymaga od użytkowników zaakceptowania umowy przed dokonaniem transakcji"
+        transaction_agreement_checkbox_header: "Etykieta umowy"
         transaction_agreement_checkbox_label_description: ~
-        transaction_agreement_text_header: ~
+        transaction_agreement_text_header: "Tekst umowy"
         transaction_agreement_description: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Edytuj wygląd platformy %{community_name}"
@@ -77,35 +102,35 @@ pl:
         community_cover_photo: "Zdjęcie w tle"
         small_community_cover_photo: "Małe zdjęcie w tle"
         favicon: "Ikona strony, tzw. favicon"
-        favicon_info_text: ~
+        favicon_info_text: "Favicon zastąpi domyślne logo Sharetribe. Wymiary powinny wynosić 32x32 piksele więc załadowany obrazek będzie przycięty do tych wymiarów."
         community_custom_color1: "Główny kolor"
         new_listing_button_custom_color: "Opublikuj nowy kolor oferty"
         logo_instructions_text_with_dimensions: "Rozmiar loga na komputery powinno mieć %{width} na %{height} pikseli. Będzie wyświetlane użytkownikom z większym ekranem."
         logo_instructions_text_with_dimensions_no_placing: "Wielkość logotypu powinna mieścić się w przedziale %{width} na %{height} pikseli."
-        logo_icon_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: "Ten kwadratowy logotyp będzie pojawiał się, gdy ludzie udostępnią Twoją stronę na Facebooku, gdy przeglądają Twoją stronę na urządzeniu mobilnym lub, gdy zapiszą Twoją stronę na głównej witrynie ich urządzenia mobilnego. Rozmiary powinny mieścić się (przynajmniej) w %{width} na %{height} pikseli."
         logo_icon_instructions_text_with_dimensions_no_placing: "Ten kwadratowy logotyp będzie pojawiał się, gdy ludzie udostępnią Twoją stronę na Facebooku lub, gdy zapiszą Twoją stronę na głównej witrynie ich urządzenia mobilnego. Rozmiary powinny mieścić się (przynajmniej) w %{width} na %{height} pikseli."
         cover_photo_visibility: "Zdjęcie w tle jest wyświetlane na stronie głównej dla użytkowników, którzy nie są zalogowani."
-        cover_photo_instructions_text_with_dimensions: ~
+        cover_photo_instructions_text_with_dimensions: "Zdjęcie będzie zmniejszone do %{width} na %{height} pikseli i wyższe zdjęcia będą przycięte w środku. %{see_how_it_looks_like}"
         small_cover_photo_visibility: "Małe zdjęcie profilowe jest wyświetlane na wszystkich stronach poza stroną główną dla użytkowników, którzy nie są zalogowani."
         small_cover_photo_instructions_text_with_dimensions: "Zdjęcie będzie zmniejszone do %{width} na %{height} pikseli i wyższe zdjęcia będą ucięte w połowie."
-        main_content_width: ~
+        main_content_width: "Wybierając zdjęcie tytułowe zwróć uwagę, że szerokość głównej strony jest maksymalnie %{main_width} pikseli. Pamiętaj także, aby sprawdzić, jak Twoje zdjęcie tytułowe wygląda na mniejszych ekranach (np. używając węższych okien przeglądarki)."
         custom_color1_instructions_text: "Możesz zmienić główny kolor interfejsu wprowadzając jego wartość HEX. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> może Tobie pomoc wybrać kolor, a Ty go później wklej tutaj."
         new_listing_button_instructions_text: ~
         default_browse_view: "Domyślny widok przeglądarki"
         default_browse_view_instructions_text: "Domyślny widok przeglądarki jest używany na stronie głównej, aby określić w jaki sposób oferty są domyślnie wyświetlane."
-        grid: ~
-        list: ~
-        map: ~
-        name_display_type: ~
-        name_display_type_instructions_text: ~
-        full_name: ~
-        first_name_with_initial: ~
-        first_name_only: ~
+        grid: Siatka
+        list: Lista
+        map: Mapa
+        name_display_type: "Rodzaj wyświetlanej nazwy"
+        name_display_type_instructions_text: "Wybierz w jaki sposób imiona użytkowników będą wyświetlanie w serwisie."
+        full_name: "Pełne imię (pierwsze nazwisko)"
+        first_name_with_initial: "Pierwsze imię z inicjałem (Pierwsza Litera)"
+        first_name_only: "Tylko imię (Pierwsze)"
         invalid_color_code: "Kod kolory powinien zawierać sześć cyfr lub liter od A do F, np. D96E21."
-        custom_head_script: ~
-        custom_head_script_instructions_text: ~
+        custom_head_script: "Skrypt niestandardowy"
+        custom_head_script_instructions_text: "Ten skrypt jest osadzony wewnątrz tagu <head>  dla każdej strony i może być użyty do wstawienia niestandardowego kodu CSS, JavaScript czy HTML. Zwróć proszę uwagę, że przyszłe zmiany w Sharetribe mogą spowodować, ze Twój skrypt stanie się niekompatybilny."
       edit_text_instructions:
-        edit_text_instructions: ~
+        edit_text_instructions: "Tekst instrukcji"
       edit_welcome_email:
         welcome_email_content: "Treść wiadomości email"
         welcome_email_content_description: "Wiadomość poniżej zostanie wysłana do każdego nowego użytkownika, gdy dołączą. Możesz dostosować wiadomość, aby pasowała do Twojej platformy. Klikając na %{send_test_message_link} możesz wysłać wiadomość testową na swój adres email, aby zobaczyć czy wszystko wygląda w porządku."
@@ -184,7 +209,7 @@ pl:
         miles: ~
         show_only_nearby: "Pokaż tylko najbliższe oferty przy użyciu wyszukiwania po lokalizacji"
         listing_preferences: "Preferencje wyświetlania"
-        transaction_preferences: ~
+        transaction_preferences: "Preferencje dot. zamówień"
         show_listing_publishing_date: "Wyświetl datę publikacji oferty na liście ofert"
         show_category_in_listing_list: "Wyświetl rodzaj oferty na widoku listy"
         hide_expiration_date: "Nie wymagaj, aby oferty miały określone datę wygaśnięcia"
@@ -220,7 +245,7 @@ pl:
         save_user_status_successful: Zapisane
         export_all_as_csv: ~
         save_user_status_error: "Zapis nie udał się. Proszę odśwież stronę i spróbuj ponownie."
-        ban_user_confirmation: ~
+        ban_user_confirmation: "Ta akcja spowoduje usunięcie użytkownika z platformy i nie pozwoli mu na ponowne używanie tego konta. Czy jesteś pewien/pewna, że chcesz kontynuować?"
         ban_me_error: ~
       new_layout:
         new_layout: "Nowy układ"
@@ -263,7 +288,7 @@ pl:
         title: Nazwa
         language: Język
         url: "Adres URL"
-        empty: ~
+        empty: "Nie posiadasz żadnych więcej łączy menu."
         max_number_of_links: "Liczba maksymalnie wyświetlanych linków w górnym pasku: %{select_max_number}"
         all: Wszystkie
         max_number_of_links_info: "Link do %{about_page} jest zawsze wyświetlany jako pierwszy w menu"
@@ -274,25 +299,25 @@ pl:
         invalid_post_listing_button_label: "Proszę podaj poprawny tekst dla guzika \"Opublikuj nową ofertę\""
       transactions:
         export_all_as_csv: ~
-        transactions: ~
+        transactions: "Zobacz transakcje"
         headers:
-          conversation: ~
-          listing: ~
-          status: ~
-          sum: ~
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
+          conversation: "Wątek konwersacji"
+          listing: Oferta
+          status: Status
+          sum: Suma
+          started: Założono
+          last_activity: "Ostatnia aktywność"
+          initiated_by: Starter
+          other_party: "Inna strona"
         status:
-          free: ~
-          pending: ~
-          preauthorized: ~
-          accepted: ~
-          rejected: ~
-          paid: ~
-          confirmed: ~
-          canceled: ~
+          free: Konwersacja
+          pending: "W trakcie"
+          preauthorized: Pre-autoryzacja
+          accepted: Zaakceptowano
+          rejected: Odrzucono
+          paid: Zapłacono
+          confirmed: Potwierdzono
+          canceled: Anulowano
           initiated: ~
           pending_ext: ~
         not_available: ~
@@ -308,19 +333,19 @@ pl:
         price_min: "Filtruj po cenie minimalnej"
         price_max: "Filtruj po cenie maksymalnej"
       edit_location:
-        edit_location_field: ~
-        this_field_is_required: ~
+        edit_location_field: "Edytuj pole lokalizacji"
+        this_field_is_required: "To pole jest wymagane"
       form:
         field_required:
           this_field_is_required: "Ustaw to pole jako wymagane, gdy tworzona jest nowa oferta"
-          this_field_is_required_checkbox: ~
+          this_field_is_required_checkbox: "Ustaw to pole jako wymagane w trakcie tworzenia nowej oferty (użytkownik będzie musiał wybrać przynajmniej jedną opcję)"
         search_filter:
           search_filter: ~
           date_cant_be_filtered: ~
           text_cant_be_filtered: ~
       index:
         listing_fields: "Pola oferty i filtry"
-        listing_fields_help: ~
+        listing_fields_help: "W tym miejscu możesz edytować pola, które użytkownicy muszą wypełnić, kiedy tworzą nową ofertę. Zwróć uwagę, że niektóre pola są predefiniowane i nie mogą być edytowane."
         add_new_field: "Dodaj nowe pole:"
         remove_field_confirmation: "Na pewno chcesz usunąć pole '%{field_name}'?"
         cancel: Anuluj
@@ -485,7 +510,7 @@ pl:
   common:
     edit_page: "Edytuj stronę"
     default_community_slogan: "Platforma społecznościowa"
-    default_community_description: ~
+    default_community_description: "To jest miejsce przeznaczone do sprzedawania, pożyczania, wymiany lub współdzielenia dóbr i usług z innymi członkami platformy."
     cancel: Anuluj
     fields_that_are_mandatory: "Pola zaznaczone gwiazdką (*) są obowiązkowe."
     or: lub
@@ -568,9 +593,9 @@ pl:
       give_feedback_to: "Przekaż opinię dla %{person_link}"
       do_not_give_feedback: "Pomiń opinię"
     details:
-      day: ~
-      days: ~
-      price_per_day: ~
+      day: dzień
+      days: dni
+      price_per_day: "Cena per dzień: %{price}"
     index:
       loading_more_messages: "Ładowanie więcej wiadomości"
       message_partitive: wiadomość
@@ -586,9 +611,9 @@ pl:
       confirmed_offer: "Oferta zakończona."
       canceled_request: "Zamówienie anulowane."
       canceled_offer: "Oferta anulowana."
-      message_from: ~
-      about_listing: ~
-      free_message: ~
+      message_from: "Wiadomość od %{person}"
+      about_listing: "O ofercie %{listing_title}"
+      free_message: "Bezpłatna wiadomość"
       message_content_not_available: ~
     message:
       accepted_request: "zapytanie zaakceptowane"
@@ -604,8 +629,8 @@ pl:
       payment_preauthorized: ~
     new:
       message: Wiadomość
-      message_to: ~
-      optional_message_to: ~
+      message_to: "Wiadomość do %{author_name}"
+      optional_message_to: "Opcjonalna wiadomość do %{author_name}"
       send_message: "Wyślij wiadomość"
       send: Wysłano
       this_message_is_private: "Ta konwersacja jest prywatna pomiędzy Tobą i %{person}. %{person} będzie informowany o tej wiadomości na jego adres email."
@@ -613,8 +638,8 @@ pl:
       you_will_get_notified: "Otrzymasz powiadomienie na adres email, gdy %{person} odpowie Tobie."
       title: Tytuł
       send_message_to_user: "Wyślij wiadomość do %{person}"
-      about_listing: ~
-      author_has_to_accept_request: ~
+      about_listing: "O ofercie %{listing_title}"
+      author_has_to_accept_request: "%{author_name} musi zaakceptować zapytanie zanim zapłacisz"
     show:
       in_response_to_listing: "o ofercie"
       message_sent_by: "Wiadomość wysłana przez"
@@ -623,11 +648,11 @@ pl:
       write_a_reply: "Napisz odpowiedź:"
       conversation_about_listing: "Z osobą %{person} o %{listing}"
       conversation_with_user: "Z %{person}"
-      conversation_with: ~
+      conversation_with: "Konwersacja z %{person}"
       last_message_at: "(ostatnia wiadomość %{time})"
-      price: ~
-      sum: ~
-      total: ~
+      price: "Cena: %{price}"
+      sum: "Łącznie: %{sum}"
+      total: "Łącznie: %{total}"
     status:
       payment_errored: ~
       payment_errored_starter: ~
@@ -640,34 +665,34 @@ pl:
       offer_rejected: Odrzucono
       offer_canceled: Anulowano
       offer_confirmed: Ukończono
-      offer_paid: ~
-      offer_preauthorized: ~
-      offer_waiting_for_payment: ~
+      offer_paid: "Płatność dokonana"
+      offer_preauthorized: "Płatność dokonana"
+      offer_waiting_for_payment: "Oczekuje, aż %{requester_name} zapłaci"
       pay: Zapłać
-      preauthorized: ~
+      preauthorized: "Płatność dokonana"
       paid: "Płatność dokonana"
       pending_external:
         paypal:
           multicurrency: ~
           verify: ~
           intl: ~
-      waiting_for_current_user_to_deliver_listing: ~
-      waiting_for_listing_author_to_deliver_listing: ~
+      waiting_for_current_user_to_deliver_listing: "Czeka abyś wypełnił zamówienie na %{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "Czeka aż %{listing_author_name} wypełni zamówienie na %{listing_title}"
       request_accepted: Zaakceptowano
       request_rejected: Odrzucono
       request_confirmed: Ukończono
       request_canceled: Anulowano
-      request_paid: ~
-      request_preauthorized: ~
+      request_paid: "Płatność dokonana"
+      request_preauthorized: "Płatność autoryzowana"
       skip_feedback: "Pomiń przekazywanie opinii"
       waiting_for_listing_author_to_accept_offer: "Oczekuje na akceptację oferty %{listing_author_name}"
       waiting_for_listing_author_to_accept_request: "Oczekuje na %{listing_author_name}, aby zaakceptował zapytanie. Jak tylko %{listing_author_name} ją zaakceptuje, zostaniesz obciążony kosztem."
-      waiting_for_you_to_accept_request: ~
+      waiting_for_you_to_accept_request: "Czeka na Ciebie na akceptację"
       waiting_confirmation_from_requester: "Oczekuje, aż %{requester_name} zaznaczy jakie ukończone"
-      waiting_confirmation_from_you: ~
+      waiting_confirmation_from_you: "Czeka na Ciebie, abyś zaznaczył zamówienie jako zakończone"
       waiting_payment_from_requester: "Oczekuje, aż %{requester_name} zapłaci"
-      waiting_payment_from_you: ~
-      waiting_feedback_from_you: ~
+      waiting_payment_from_you: "Czeka na zapłatę od Ciebie"
+      waiting_feedback_from_you: "Czeka na Twoją opinię"
       pending_external_inbox:
         paypal:
           multicurrency: ~
@@ -679,10 +704,10 @@ pl:
       accept_request: "Zaakceptuj zapytanie"
       reject_offer: "Nie tym razem"
       reject_request: "Nie tym razem"
-      accept_preauthorized_offer: ~
-      accept_preauthorized_request: ~
-      reject_preauthorized_offer: ~
-      reject_preauthorized_request: ~
+      accept_preauthorized_offer: "Zaakceptuj ofertę"
+      accept_preauthorized_request: "Zaakceptuj zapytanie"
+      reject_preauthorized_offer: "Nie tym razem"
+      reject_preauthorized_request: "Nie tym razem"
       confirm: "Zaznacz jako ukończone"
       cancel: Spór
   feedback:
@@ -701,9 +726,9 @@ pl:
       join_community: "Dołącz do %{service_name}"
       you_can_join: "Możesz dołączyć do platformy %{service_name} akceptując zasady użytkowania i klikając na 'Dołącz do %{service_name}' poniżej."
       you_can_join_email_confirmation: "Aby dołączyć do platformy %{service_name} musisz posiadać działający adres email zakończony na %{email_ending}. Możesz dołączyć poprzez wprowadzenie swojego adresu, akceptując zasady i klikając na \"Dołącz do %{service_name}\" poniżej i potwierdzając Twój adres."
-      you_can_join_email_confirmation_multiple_addresses: ~
-      you_can_join_with_invite_only: ~
-      if_want_to_view_content: ~
+      you_can_join_email_confirmation_multiple_addresses: "Platforma %{service_name} wymaga podania działającego adresu email. Możesz dołączyć do niej poprzez wpisanie swojego aktywnego adresu email, akceptację warunków użytkowania %{service_name} oraz naciśnięcie 'Dołącz do %{service_name}' poniżej."
+      you_can_join_with_invite_only: "Musisz posiadać zaproszenie od innego członka aby dołączyć do %{service_name}. Jeśli posiadasz już kod zaproszenia, możesz dołączyć poprzez wpisanie kodu w pole poniżej, akceptację warunków użytkowania i kliknięcie 'Dołącz do %{service_name}' poniżej."
+      if_want_to_view_content: "Jeśli chcesz zobaczyć zawartość platformy %{service_name} bez dołączania do niej jako członek musisz"
       log_out: Wyloguj
       join_community_button: "Dołącz do %{service_name}"
     give_consent:
@@ -729,7 +754,7 @@ pl:
       remember_to_confirm_request: "Pamiętaj, aby potwierdzić bądź odrzucić zapytanie"
       if_will_not_happen_you_should_cancel: "Jeżeli uważasz, że zamówienie z jakiegoś powodu nie zostanie ukończone, możesz je %{cancel_it_link}."
       cancel_it_link_text: anuluj
-      automatic_confirmation: ~
+      automatic_confirmation: "Jeżeli nie potwierdzisz lub nie anulujesz zamówienia w ciągu %{days_to_automatic_confirmation} dni od jego akceptacji, zostanie ono automatycznie oznaczone jako zrealizowane."
     payment_settings_reminder:
       remember_to_add_payment_details: "Pamiętaj, aby dodać szczegóły płatności, aby otrzymywać wpłaty"
       you_have_added_listing_with_payment: "Dodałeś ofertę %{listing_link} z płatnością. Jednak, nie dodałeś szczegółów dotyczących płatności. Aby otrzymywać wpłaty, musisz dodać detale płatności."
@@ -745,14 +770,14 @@ pl:
       give_feedback_to: "Przekaż opinię do %{other_party_given_name}"
     transaction_automatically_confirmed:
       subject: "Zamówienie automatycznie zakończone - pamiętaj, aby przekazać recenzję"
-      we_have_marked_request_as_confirmed: ~
+      we_have_marked_request_as_confirmed: "Oznaczyliśmy zlecenie dotyczące %{request} jako zrealizowane. Zostało ono automatycznie oznaczone jako zrealizowane, ponieważ minęło %{days_passed} dni od jego akceptacji."
     booking_transaction_automatically_confirmed:
-      subject: ~
-      we_have_marked_request_as_confirmed: ~
+      subject: "Zamówienie automatycznie zakończone - pamiętaj, aby napisać opinię"
+      we_have_marked_request_as_confirmed: "Oznaczyliśmy zlecenie dotyczące %{request} jako zrealizowane. Zostało ono automatycznie oznaczone jako zrealizowane, ponieważ minął jeden dzień od zakończenia okresu rezerwacji."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
-      show_thread: ~
+      give_feedback_to: "Napisz opinię dla %{other_party_given_name}"
+      show_thread: "Pokaż konwersację"
     confirmation_instructions:
       confirmation_instructions_signature: "Pozdrawiamy,<br/>Zespół %{service_name}"
       need_to_confirm: "Musisz potwierdzić swój adres email."
@@ -780,7 +805,7 @@ pl:
       your_request_was_rejected: "Twoje zapytanie zostało odrzucone"
       you_can_now_pay_to: "Teraz możesz opłacić wymaganą kwotę do %{payment_receiver}."
       pay_now: "Zapłać teraz"
-      remember_to_confirm: ~
+      remember_to_confirm: "Kiedy zlecenie zostało wykonane, pamiętaj aby oznaczyć je jako zrealizowane. Jeśli nie zostało wykonane, masz %{days_to_automatic_confirmation} dni aby je anulować. W przeciwnym razie będzie ono automatycznie oznaczone jako zrealizowane."
     invitation_to_kassi:
       hi: Cześć!
       you_have_been_invited_to_kassi: "%{inviter} zaprosił Cię do %{service_name}."
@@ -848,31 +873,31 @@ pl:
       text_version_text: "Czy możesz podzielić się czymś, czego inni mogą potrzebować? A może Ty potrzebujesz czegoś, co mogą mieć inni? Dodaj ofertę lub zapytanie bądź sprawdź wszystko, co inni oferują lub pytają na %{url}"
     reset_password_instructions:
       change_my_password: "Zmień moje hasło"
-      reset_password_instructions: ~
+      reset_password_instructions: "<p>Wskazałeś/aś, że zapomniałeś/aś albo hasła albo nazwy użytkownika w platformie %{service_name}.</p><p>Twoja nazwa użytkownika to: %{username}</p><p>Jeśli potrzebujesz zresetować swoje hasło, naciśnij następujący link: %{password_reset_link}</p><br/><p>Jeśli nie chciałeś tej informacji zignoruj ją proszę. Twoje hasło nie ulegnie zmianie dopóki nie naciśniesz powyższego linka i nie stworzysz nowego.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Przypomnienie: pamiętaj, aby przekazać opinię do %{name}"
       you_have_not_given_feedback_yet: "Jeszcze nie przekazałeś opinii do %{name} o wydarzeniu %{event}. Pamiętaj, aby przekazać opinię jak %{given_name} spisał się podczas wydarzenia."
     transaction_preauthorized:
-      subject: ~
-      transaction_requested_by_user: ~
+      subject: "%{requester} zażądał i autoryzował płatność dla %{listing_title}"
+      transaction_requested_by_user: "%{requester} zażądał i autoryzował płatność dla %{listing_title}"
       you_have_time_to_accept: ~
-      click_here_to_reply: ~
+      click_here_to_reply: "Kliknij tutaj, aby odpowiedzieć na zapytanie"
     transaction_preauthorized_reminder:
-      subject: ~
-      remember_to_accept: ~
-      one_day_left: ~
-      click_here_to_reply: ~
+      subject: "Pamiętaj, aby zaakceptować zapytanie od %{requester} o ofercie %{listing_title}"
+      remember_to_accept: "Pamiętaj, aby zaakceptować zapytanie od %{requester} o ofercie %{listing_title}. %{requester} już zapłacił za tę ofertę. Możesz zaakceptować zapytanie, aby otrzymać płatność."
+      one_day_left: "Jeżeli nie zaakceptujesz zapytania w ciągu jednego dnia, zostanie ona automatycznie odrzucona i nie otrzymasz zapłaty."
+      click_here_to_reply: "Kliknij tutaj, aby odpowiedzieć na zapytanie"
     welcome_email:
-      welcome_email_subject: ~
-      welcome_to_marketplace: ~
-      love_marketplace_crew: ~
+      welcome_email_subject: "Witaj w %{service_name}!"
+      welcome_to_marketplace: "Witaj w %{service_name}! Dobrze Ciebie widzieć."
+      love_marketplace_crew: "Pozdrawiamy, <br /><i>Ekipa %{service_name}</i>"
       welcome_email_footer_text: "Jakie rodzaje wiadomości email chcesz otrzymywać od %{service_name}? %{settings_link}"
       settings_link_text: "Sprawdź swoje ustawienia"
     new_listing_by_followed_person:
-      subject: ~
-      has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
-      view_listing: ~
+      subject: "%{author_name} dodał nową ofertę w %{service_name}"
+      has_posted_a_new_listing: "%{author_name} dodał nową ofertę:"
+      you_are_receiving_this_because: "Otrzymujesz to powiadomienie, ponieważ śledzisz %{author_name}."
+      view_listing: "Wyświetl oferty"
     new_member_notification:
       new_member_has_joined: "Nowy członek dołączył do %{community}. Jednakże jeszcze mogli nie potwierdzić adresu email."
       this_is_automatic_message: "To jest automatyczna wiadomość wysłana do administratorów %{community}."
@@ -933,14 +958,14 @@ pl:
     your_email_address: "Twój adres email"
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
-      invalid_datetime: ~
-      is_at: ~
-      before: ~
-      on_or_before: ~
-      after: ~
-      on_or_after: ~
+      invalid_date: "to nie jest poprawna data"
+      invalid_time: "to nie jest poprawny czas"
+      invalid_datetime: "to nie jest poprawna data i czas"
+      is_at: "musi być przy %{restriction}"
+      before: "musi być przed %{restriction}"
+      on_or_before: "musi być na lub przed %{restriction}"
+      after: "musi być po %{restriction}"
+      on_or_after: "musi być na lub po %{restriction}"
       positive_number: ~
   event_feed_events:
     accept:
@@ -1176,7 +1201,7 @@ pl:
       settings: Ustawienia
       sign_up: Rejestracja
     notifications:
-      listing_could_not_be_saved: ~
+      listing_could_not_be_saved: "Oferta nie może być zapisana. Proszę spróbuj ponownie. Jeśli problem nadal będzie występował proszę %{contact_admin_link}."
       contact_admin_link_text: "skontaktuj się z administratorami"
       test_welcome_email_delivered_to: "Testowa wiadomość została wysłana do %{email}."
       something_went_wrong: "Coś poszło nie tak"
@@ -1280,8 +1305,8 @@ pl:
       you_must_log_in_to_view_your_settings: "Musisz się zalogować do %{service_name}, aby zobaczyć ustawienia."
       you_must_log_in_to_add_news_item: "Musisz się zalogować do %{service_name}, aby dodać nowy artykuł."
       you_must_log_in_to_change_profile_settings: "Musisz się zalogować do platformy %{service_name}, aby zobaczyć ustawienia profilu"
-      you_must_log_in_to_accept_or_reject: ~
-      you_must_log_in_to_confirm_or_cancel: ~
+      you_must_log_in_to_accept_or_reject: "Musisz zalogować się aby zaakceptować lub odrzucić transakcję"
+      you_must_log_in_to_confirm_or_cancel: "Musisz zalogować się aby anulować lub potwierdzić transakcję"
       you_need_to_confirm_your_account_first: "Musisz potwierdzić swój adres email."
       you_must_fill_all_the_fields: "Musisz wypełnić wszystkie pola"
       you_unfollowed_listing: "Już nie śledzisz tej oferty"
@@ -1289,7 +1314,7 @@ pl:
       can_not_delete_email: "Nie możesz usunąć adresu email"
       user_does_not_have_email_to_delete: "Nie masz adresu email, który chcesz usunąć"
       email_deleted: "Adres email usunięty"
-      listing_author_payment_details_missing: ~
+      listing_author_payment_details_missing: "Skontaktuj się proszę z autorem poprzez naciśnięcie przycisku \"Kontakt\" poniżej. Musi on zaktualizować dane dotyczące płatności aby móc je otrzymywać."
       images_are_processing: "Procesujemy Twoje zdjęcia. Daj nam minutę lub dwie i będą widoczne."
       automatically_logged_out_please_sign_in: ~
     settings:
@@ -1323,9 +1348,9 @@ pl:
       reopen_listing: "Otwórz ponownie ofertę"
       move_to_top: "Przesuń na górę strony"
       show_in_updates_email: "Pokaż w kolejnym newsletterze"
-      show_in_updates_email_loading: ~
-      show_in_updates_email_error: ~
-      show_in_updates_email_success: ~
+      show_in_updates_email_loading: Ładowanie...
+      show_in_updates_email_error: "Nie możemy skontaktować się z serwerem. Spróbuj ponownie lub odśwież stronę."
+      show_in_updates_email_success: "Oferta będzie wyświetlana w kolejnej automatycznej wiadomości email wysłanej do użytkowników."
     map:
       open_in_google_maps: "Otwórz w Google Maps"
     error:
@@ -1475,8 +1500,8 @@ pl:
       accept_for_frees: "Zaakceptuj za darmo"
       trades: Wymienianie
     listing_actions:
-      booking_from: ~
-      booking_to: ~
+      booking_from: Od
+      booking_to: Do
       how_paypal_works: ~
       payment_help: ~
       unable_load_availability: ~
@@ -1488,10 +1513,10 @@ pl:
       select_category: "Wybierz kategorię"
       select_subcategory: "Wybierz podkategorię"
       select_transaction_type: "Wybierz rodzaj oferty"
-      you_need_to_fill_payout_details_before_accepting: ~
+      you_need_to_fill_payout_details_before_accepting: "Musisz wypełnić szczegóły dotyczące płatności zanim zaakceptujesz zapytanie i otrzymasz płatność. Przejdź do %{payment_settings_link}, aby wypełnić szczegóły."
       contact_admin_link_text: ~
       community_not_configured_for_payments: ~
-      payment_settings_link: ~
+      payment_settings_link: "ustawienia płatności"
       community_not_configured_for_payments_admin: ~
     quantity:
       hour: ~
@@ -1556,18 +1581,18 @@ pl:
     preauthorize:
       dates_not_available: "Wybrane daty nie są dostępne"
       error_in_checking_availability: "Nie możemy sprawdzić dostępności dla wskazanych dni"
-      details: ~
-      by: ~
-      payment: ~
-      exp: ~
-      you_will_be_charged: ~
-      day: ~
-      days: ~
+      details: Szczegóły
+      by: "%{listing} od %{author}"
+      payment: Płatność
+      exp: "Wygasa:"
+      you_will_be_charged: "Będziesz obciążony tylko gdy %{author} zaakceptuje transakcję. %{author} musi ją zaakceptować w ciągu %{expiration_period} dni. Jeśli %{author} odrzuci transakcję lub nie odpowie, obciążenie nie będzie dokonane."
+      day: dzień
+      days: dni
       night: noc
       nights: nocy
       invalid_parameters: "Niepoprawna wartość dla nowej transakcji"
     transaction_agreement_checkbox:
-      read_more: ~
+      read_more: Obejrzyj.
   mapview:
     index:
       all_categories: "Wszystkie kategorie"
@@ -1595,10 +1620,10 @@ pl:
     member_id: "ID członka"
     member_id_or_email: "ID członka lub adres email"
   paypal_accounts:
-    payout_info_title: ~
-    paypal_account_email_connected: ~
+    payout_info_title: "Otrzymywanie płatności"
+    paypal_account_email_connected: "<del>Połącz z kontem PayPal</del> Zrealizowane!"
     payout_info_paypal: ~
-    paypal_billing_agreement_made: ~
+    paypal_billing_agreement_made: "<del>Udziel %{service_name} zezwolenia do pobrania opłaty za transakcję</del> Zrealizowane!"
     commission_permission_needed: ~
     create_paypal_account_link_text: ~
     connected_account: ~
@@ -1613,12 +1638,12 @@ pl:
     commission: ~
     new:
       payout_info_you_need_to_connect: ~
-      payout_info_text: ~
+      payout_info_text: "Aby połączyć swoje konto, wykonaj proszę następujące kroki."
       contact_admin_link_text: ~
       admin_account_not_connected: ~
-      paypal_account_email: ~
-      paypal_account_email_placeholder: ~
-      paypal_account_email_info_text: ~
+      paypal_account_email: "Połącz swoje konto PayPal"
+      paypal_account_email_placeholder: "Twój adres email zarejestrowany w PayPal"
+      paypal_account_email_info_text: "Jeśli nie posiadasz konta PayPal, możesz stworzyć nowe poprzez %{create_paypal_account}. Jeśli dostaniesz komunikat o błędzie podczas połączenia z Twoim kontem PayPal, ulepsz swoje konto PayPal do konta firmowego. Ulepszenie jest darmowe i łatwe. Jeśli jesteś osobą fizyczną, możesz użyć swojego imienia i nazwiska jako \"nazwy firmy\". Aby ulepszyć Twoje konto, %{upgrade_paypal_account} i znajdź link do ulepszenia."
       create_paypal_account: ~
       upgrade_paypal_account: ~
       paypal_account_billing_agreement: ~
@@ -1704,8 +1729,8 @@ pl:
       visible_only_to_you: "widoczne tylko dla Ciebie i administratora platformy"
       visible_to_everybody: "widoczne dla wszystkich"
       create_account_with_facebook: "Zarejestruj się poprzez Facebooka"
-      OR: ~
-      signup_with_email: ~
+      OR: LUB
+      signup_with_email: "Zarejestruj się przez email"
     profile_feedback:
       grade: "stopień:"
       and_gave_following_feedback: "oraz daj następującą opinię"
@@ -1746,16 +1771,16 @@ pl:
       show_all_open_listings: "Pokaż wszystkie otwarte oferty"
       show_all_reviews: "Pokaż wszystkie recenzje"
     followed_people:
-      you_follow_plural: ~
-      you_follow_singular: ~
-      they_follow_plural: ~
-      they_follow_singular: ~
-      show_all_followed_people: ~
-      no_followed_people: ~
+      you_follow_plural: "Śledzisz %{count} ludzi"
+      you_follow_singular: "Śledzisz %{count} osób"
+      they_follow_plural: "%{count} śledzonych ludzi"
+      they_follow_singular: "%{count} śledzonych ludzi"
+      show_all_followed_people: "Pokaż wszystkich śledzonych ludzi"
+      no_followed_people: "Brak śledzonych ludzi"
     follow_button:
-      following: ~
-      follow: ~
-      unfollow: ~
+      following: Śledzących
+      follow: Śledź
+      unfollow: "Nie śledź"
   sessions:
     new:
       create_new_account: "Stwórz nowe konto"
@@ -1764,7 +1789,7 @@ pl:
       login_to_kassi: "Zaloguj się do %{service_name}"
       connect_your_facebook_to_kassi: "Połącz swoje konto Facebook z %{service_name}"
       facebook_account: "Konto na Facebooku:"
-      log_in_to_link_account: ~
+      log_in_to_link_account: "Jeśli posiadasz już konto w platformie %{service_name}, zaloguj się aby połączyć je ze swoim kontem na Facebook."
       you_can_also_create_new_account: "Jeżeli nie masz konta na platformie %{service_name}, kliknij %{accont_creation_link}, aby stworzyć jedno z loginem z Facebooka."
       account_creation_link_text: "kliknij tutaj"
       cancle_facebook_connect: "Jeżeli nie chcesz łączyć tego konta, możesz %{cancel_link}."
@@ -1838,7 +1863,7 @@ pl:
       email_when_conversation_rejected: "...ktoś odrzuca moją ofertę lub zapytanie"
       email_about_completed_transactions: "... ktoś oznacza moje zamówienie jako ukończone"
       email_about_new_payments: "... otrzymałem nową płatność"
-      email_about_new_listings_by_followed_people: ~
+      email_about_new_listings_by_followed_people: "... ktoś kogo śledzę opublikował nową ofertę"
       unsubscribe_succesful: "Wypisanie z newslettera zakończyło się sukcesem"
       unsubscribe_info_text: "Już nie będziesz otrzymywać tych wiadomości email. Sprawdź Twój %{settings_link}, aby wybrać jakie rodzaje wiadomości chcesz otrzymać od platformy %{service_name}, bądź wróć do %{homepage_link}."
       settings_link: ustawienia
@@ -1852,7 +1877,7 @@ pl:
       given_name: Imię
       first_name_with_initial: "(tylko pierwsza litera widoczna dla innych użytkowników)"
       first_name_only: "(nie widoczne dla innych użytkowników)"
-      location_description: ~
+      location_description: "Możesz podać albo adres albo miasto lub kod pocztowy. Dobrze jest także dodać nazwę kraju podając lokalizację. Przykład: \"87-100 Toruń, Polska\" albo \"Marszałkowska 16, Warszawa, Polska\""
       phone_number: "Numer telefonu"
       profile_picture: "Zdjęcie profilowe"
       postal_code: "Kod pocztowy"
@@ -1907,61 +1932,61 @@ pl:
       about_listing: "o ofercie"
   date:
     formats:
-      long_with_abbr_day_name: ~
+      long_with_abbr_day_name: "%a, %d %b %Y"
   datepicker:
     days:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: Niedziela
+      monday: Poniedziałek
+      tuesday: Wtorek
+      wednesday: Środa
+      thursday: Czwartek
+      friday: Piątek
+      saturday: Sobota
     days_short:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: Ndz
+      monday: Pon
+      tuesday: Wt
+      wednesday: Śr
+      thursday: Czw
+      friday: Pt
+      saturday: Sob
     days_min:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: So
+      monday: Po
+      tuesday: Wt
+      wednesday: Śr
+      thursday: Czw
+      friday: Pt
+      saturday: So
     months:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: Styczeń
+      february: Luty
+      march: Marzec
+      april: Kwiecień
+      may: Maj
+      june: Czerwiec
+      july: Lipiec
+      august: Sierpień
+      september: Wrzesień
+      october: Październik
+      november: Listopad
+      december: Grudzień
     months_short:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
-    today: ~
-    clear: ~
-    format: ~
+      january: Sty
+      february: Lut
+      march: Mar
+      april: Kwi
+      may: Maj
+      june: Cze
+      july: Lip
+      august: Sie
+      september: Wrz
+      october: Paź
+      november: Lis
+      december: Gru
+    today: Dziś
+    clear: Wyczyść
+    format: mm/dd/rrrr
   time:
     formats:
       short: "%b %e, %Y na %H:%M"
@@ -2009,8 +2034,8 @@ pl:
     unit_price: ~
     total: ~
   unit:
-    day: ~
-    days: ~
+    day: dzień
+    days: dni
   web:
     listings:
       pricing_units:
@@ -2062,9 +2087,27 @@ pl:
         few: użytkowników
         many: użytkowników
         other: użytkowników
+      listing_conversation:
+        zero: transakcji
+        one: transkacja
+        few: transakcji
+        many: transakcji
+        other: transakcji
     previous_label: "&#8592; Poprzedni"
     next_label: "Kolejny, &#8594;"
     page_gap: "&hellip;"
     page_entries_info:
-      multi_page: ~
-      multi_page_html: ~
+      single_page:
+        zero: "Nie znaleziono %{model}."
+        one: "Wyświetlany %{count} %{model}."
+        few: "Wyświetlane %{count} %{model}"
+        many: "Wyświetlane %{count} %{model}"
+        other: "Wyświetlane %{count} %{model}"
+      single_page_html:
+        zero: "Nie znaleziono %{model}."
+        one: "Wyświetlanie <b>wszystkich&nbsp;%{count}</b>%{model}"
+        few: "Wyświetlanie <b>wszystkich&nbsp;%{count}</b>%{model}"
+        many: "Wyświetlanie <b>wszystkich&nbsp;%{count}</b>%{model}"
+        other: "Wyświetlanie <b>wszystkich&nbsp;%{count}</b>%{model}"
+      multi_page: "Wyświetlanie %{from} - %{to} %{model} z %{count} łącznie."
+      multi_page_html: "Wyświetlanie <b>%{from}&nbsp;-&nbsp;%{to}</b> %{model} z <b>%{count}</b> łącznie"

@@ -98,7 +98,7 @@ de:
         logo_instructions_text_with_dimensions: "Die Größe des Desktop-Logos sollte %{width}x%{height}px betragen. Es wird Benutzern mit größeren Bildschirmen angezeigt."
         logo_instructions_text_with_dimensions_no_placing: "Die Größe des Logos sollte %{width}x%{height}px betragen."
         logo_icon_instructions_text_with_dimensions: "Dieses quadratisches Logo wird angezeigt, wenn Leute deinen Marktplatz auf soziale Netzwerke teilen, wenn sie deinen Marktplatz auf einem Mobilgerät ansehen oder wenn sie ein Lesezeichen für deinen Marktplatz zum Hauptbildschirm ihres Mobilgeräten anheften. Die Größe dieses Icon-Logos sollte (mindestens) %{width}x%{height}px betragen."
-        logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_icon_instructions_text_with_dimensions_no_placing: "Dieses viereckige Logo wird angezeigt, wenn Leute deine Webseite auf Facebook teilen oder wenn sie deine Seite auf dem Startbildschirm ihres Mobilgerätes als Lesezeichen anheften. Die Bildgröße sollte (zumindest) %{width}x%{height} Pixels betragen."
         cover_photo_visibility: "Das Titelbild wird den nicht angemeldeten Benutzern auf der Startseite angezeigt."
         cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Das kleine Titelfoto wird nicht angemeldeten Benutzern auf allen Seiten angezeigt, außer auf der Startseite."
@@ -385,8 +385,8 @@ de:
       preview: "Seitenvorschau anzeigen"
     listing_shapes:
       availability_title: Verfügbarkeit
-      read_more: ~
-      allow_availability_management: ~
+      read_more: "Mehr über automatische Verfügbarkeitsverwaltung lesen."
+      allow_availability_management: "Automatische Verfügbarkeitsverwaltung aktivieren (doppelte Buchungen verhindern)"
       per_day_availability: "\"Pro Tag\" Verfügbarkeit"
       per_night_availability: "\"Pro Nacht\" Verfügbarkeit"
       pricing_units_disabled_info: "Preiseinheiten können nicht verwendet werden wenn der Terminkalender eingeschaltet ist."
@@ -483,9 +483,9 @@ de:
       link_paypal_personal_account: "Wenn ja, dann musst Du auch Dein PayPal Konto mit %{personal_payment_preferences_link} verbinden."
       personal_payment_preferences_link_text: "Deinem Konto"
       read_more_about_paypal: "Mehr über das Shartetribe Zahlungssystem hier lesen."
-      edit_payment_settings: ~
-      supported_currencies_information_text: ~
-      currency_change_warning_text: ~
+      edit_payment_settings: "Zahlungseinstellungen bearbeiten"
+      supported_currencies_information_text: "Der Zahlungssystem von Sharetribe unterstützt 24 Währungen. Wenn deine Währung nicht auf der Liste ist, bitte %{contact_support_link}. Wenn du die Währung des Marktplatzes wechselst, werden bestehende Anzeigen die alte Währung behalten. Du musst diese Anzeigen manuell bearbeiten so dass sie die neue Währung bekommen."
+      currency_change_warning_text: "Aufpassen: Wenn du die Währung wechselst, vergiss nicht das deinen Benutzern zu erwählen und sie zu bitten, ihre bestehenden Anzeigen zu bearbeiten. Dadurch werden sie auch die neue Währung bekommen."
       marketplace_currency_label: "Währung des Marktplatzes:"
       minimum_listing_price_label: "Der Mindestbetrag einer Transaktion:"
       transaction_fee_label: "Transaktionsgebühr:"
@@ -911,7 +911,7 @@ de:
       person_email: "E-mail:"
   error_messages:
     booking:
-      booking_failed_payment_voided: ~
+      booking_failed_payment_voided: "Die Buchung ist wegen eines unerwarteten Fehlers fehlgeschlagen. Bitte versuche erneut später. Dein Konto bzw. deine Kreditkarte wurde nicht belastet."
       double_booking_payment_voided: "Leider sind die von dir gewählten Daten nicht mehr verfügbar. Bitte wähle neue Daten. Dein Zahlungsmittel wurde nicht belastet."
     onboarding:
       server_rendering: "Die Kurzanleitung konnte nicht geladen werden. Wir wurden über dieses Problem informiert und werden es schnellstmöglich lösen."
@@ -927,7 +927,7 @@ de:
     transaction_agreement:
       required_error: "Du musst die Vereinbarung akzeptieren"
     paypal:
-      transaction_cannot_complete: ~
+      transaction_cannot_complete: "Transaktion konnte nicht abgeschlossen werden. Dies ist wahrscheinlich weil die Kreditkartentransaktion von der Bank nicht genehmigt wurde. Bitte versuche es erneut mit einer anderen Zahlungsmethode."
       buyer_cannot_pay_error: "Die Bezahlung wurde von Paypal abgelehnt. Bitte kontaktiere den Kundenservice für mehr Informationen: %{customer_service_link}"
       pending_review_error: "Die Zahlung wurde eingereicht, wurde aber von PayPal als \"erfordert Bewertung' gekennzeichnet. Wenn PayPal die Überprüfung abgeschlossen hat, wird die Zahlung automatisch genehmigt werden."
       seller_express_checkout_disabled: "PayPal Express-Checkout ist für das Paypal-Konto des Eintraginhabers deaktiviert. Bitte kontaktiere den Inhaber und lass ihn/sie wissen, dass es ein Problem mit seinem/ihrem Paypal-Konto gibt, und empfehle ihn/sie, den PayPal-Kundendienst zu kontaktieren."
@@ -1253,8 +1253,8 @@ de:
       offer_rejected: "Angebot abgelehnt"
       offer_canceled: "Angebot abgebrochen"
       listing_updated_successfully: "Eintrag wurde erfolgreich aktualisiert"
-      listing_updated_availability_enabled: ~
-      listing_updated_availability_disabled: ~
+      listing_updated_availability_enabled: "Anzeige erfolgreich aktualisiert. Automatische Verfügbarkeitsverwaltung aktiviert."
+      listing_updated_availability_disabled: "Anzeige erfolgreich aktualisiert. Automatische Verfügbarkeitsverwaltung deaktiviert."
       only_kassi_administrators_can_access_this_area: "Nur  %{service_name} Administratoren können diesen Bereich aufrufen"
       only_listing_author_can_close_a_listing: "Nur der erstellende Anbieter kann ein Angebot deaktivieren"
       only_listing_author_can_edit_a_listing: "Nur Autoren eines Eintrags können den Eintrag bearbeiten"
@@ -1366,8 +1366,8 @@ de:
     error:
       something_went_wrong: "Etwas ist schief gelaufen, Fehlercode: %{error_code}"
       something_went_wrong_plain: "Da ist etwas schiefgelaufen"
-      create_failed_to_connect_to_booking_service: ~
-      update_failed_to_connect_to_booking_service: ~
+      create_failed_to_connect_to_booking_service: "Erstellen der Anzeige fehlgeschlagen: Verbindung mit dem Buchungsdienst fehlgeschlagen. Bitte nochmal versuchen."
+      update_failed_to_connect_to_booking_service: "Aktualisierung der Anzeige fehlgeschlagen: Verbindung mit dem Buchungsdienst fehlgeschlagen. Bitte nochmal versuchen."
     follow_links:
       follow: "Erhalte E-Mails bei neuen Kommentaren"
       unfollow: "Diesem Eintrag nicht mehr folgen"
@@ -1514,7 +1514,7 @@ de:
       booking_to: Bis
       how_paypal_works: "Wie PayPal funktioniert"
       payment_help: "Hilfe beim Bezahlen"
-      unable_load_availability: ~
+      unable_load_availability: "Verfügbarkeitsinformationen konnte nicht geladen werden. Bitte versuche es nochmal später erneut."
     new:
       listing: Eintrag
       selected_category: "Kategorie: %{category}"
@@ -1639,9 +1639,9 @@ de:
     connected_account: "PayPal Konto '%{email}' erfolgreich verknüpft."
     paypal_receive_funds_info_label_australia_only: "Dein PayPal Konto muss Zahlungen empfangen können. Dafür ist u.U. ein PayPal Geschäftskonto erforderlich."
     paypal_receive_funds_info_label: "Dein PayPal Konto muss Zahlungen empfangen können. Dafür ist u.U. ein PayPal Geschäftskonto erforderlich."
-    paypal_receive_funds_info_australia_only: ~
-    paypal_receive_funds_info: "Wenn Du einen Fehler beim Versuch siehst, Dein PayPal Konto mit %{service_name} zu verbinden, solltest Du %{upgrade_paypal_account_link}. Das ist kostenlos und einfach. Wenn Du ein Einzelunternehmer bist, empfiehlt PayPal einfach Deinen Namen als Geschäftsnamen zu verwenden."
-    upgrade_paypal_account_link_text: "Dich anmelden und auf ein Geschäftskonto umstellen"
+    paypal_receive_funds_info_australia_only: "Wenn du bei Verbindung deines Kontos zu %{service_name} einen Fehler bekommst, bitte entweder %{upgrade_paypal_account_link} und zu einem Business-Konto upgraden, oder (wenn du eine Privatperson bist), ein neues Premier-Konto erstellst. Beide Kontotypen sind kostenfrei."
+    paypal_receive_funds_info: "Wenn du einen Fehler beim Versuch siehst, dein PayPal Konto mit %{service_name} zu verbinden, solltest du %{upgrade_paypal_account_link}. Das ist kostenlos und einfach. Wenn du ein Einzelunternehmer bist, empfiehlt PayPal einfach deinen Namen als Geschäftsnamen zu verwenden."
+    upgrade_paypal_account_link_text: "dich anmelden und auf ein Geschäftskonto umstellen"
     admin_account_not_connected: "Die Nutzung des Zahlungssystem von %{service_name} zum Empfang von Zahlungen ist nicht möglich, da es noch nicht konfiguriert wurde. Bitte %{contact_admin_link} für Details."
     contact_admin_link_text: "kontaktiere den Administrator"
     you_are_ready_to_accept_payments: "Du bist bereit, Zahlungen entgegenzunehmen!"
@@ -1819,8 +1819,8 @@ de:
       confirm_your_email: "Bitte bestätige deine E-Mail-Adresse"
       account_confirmation_instructions: "Du wirst in Kürze eine E-Mail mit einem Link erhalten, den du anklicken musst, um die angegebene E-Mail-Adresse zu bestätigen. Nach der Bestätigung Deiner E-Mail ist die Registrierung bei %{service_name} abgeschlossen."
       account_confirmation_instructions_title_admin: "Willkommen auf Deinem Marktplatz!"
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
+      before_full_access_you_need_to_confirm_email: "Bevor wir dir vollen Zugang zu deinem Marktplatz gewähren können, müssen wir nur noch eines tun: deine E-Mail-Adresse bestätigen."
+      before_confirmation_only_access_admin_dashboard: "Vor der Bestätigung hast du nur Zugang zu %{admin_dashboard_link}."
       admin_dashboard_link_text: "Administrator Dashboard"
       account_confirmation_instructions_admin: "Du wirst gleich eine E-Mail empfangen, die einen Link für die Verifizierung deiner E-Mail-Adresse enthält. Vergiss nicht, dein Spam-Ordner zu kontrollieren! Nachdem du deine E-Mail-Adresse verifiziert hast, kannst du mit der Einrichtung deines Marktplatzes anfangen."
       contact_support_link_text: "Kontaktiere unseren Support"
@@ -2060,12 +2060,12 @@ de:
         night: Nacht
         week: Woche
         month: Monat
-      edit_availability_header: ~
-      save_and_close_availability_editing: ~
-      edit_listing_availability: ~
+      edit_availability_header: Verfügbarkeit
+      save_and_close_availability_editing: "Speichern und schließen"
+      edit_listing_availability: "Verfügbarkeit der Anzeige bearbeiten"
     no_listings:
-      sorry: ~
-      try_other_search_terms: ~
+      sorry: "Verzeihung, aber wir konnten keine Anzeigen mit deinen Suchkriterien finden."
+      try_other_search_terms: "Vielleicht könntest du andere Suchkriterien verwenden?"
     listing_card:
       add_picture: "Bild hinzufügen"
       no_picture: "Kein Bild"
@@ -2091,8 +2091,8 @@ de:
       km: km
       mi: Meilen
     branding:
-      powered_by: ~
-      create_own: ~
+      powered_by: "%{service_name} wird von %{sharetribe_link} Marktplatz Plattform betrieben."
+      create_own: "Willst du deinen eigenen Online-Marktplatz-Website wie %{service_name} erstellen? %{learn_more}."
       learn_more: "Mehr erfahren"
   will_paginate:
     models:

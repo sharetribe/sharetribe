@@ -918,7 +918,7 @@ ar:
     transaction_agreement:
       required_error: "يجب عليك قبول الاتفاق"
     paypal:
-      transaction_cannot_complete: ~
+      transaction_cannot_complete: "لا يمكن إتمام العملية. قد يكون السبب تعذر تأكيد البطاقة الإئتمانية من البنك. يرجى إعادة العملية الشرائية باستخدام وسيلة دفع أخرى"
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: ~

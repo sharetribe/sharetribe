@@ -1611,16 +1611,16 @@ ja:
   paypal_accounts:
     payout_info_title: お支払い情報
     paypal_account_email_connected: "<del>1. PayPalアカウントに接続する</del> 完了しました！"
-    payout_info_paypal: ~
+    payout_info_paypal: "%{service_name}では代金決済方法としてPayPalを採用しています。Paypalでの決済を可能とするには、%{create_paypal_account_link}からPayPalアカウントを登録し、%{service_name}へ接続する必要があります。"
     paypal_billing_agreement_made: "<del>2. %{service_name}からの利用料金のお支払いを許可する</del> 完了しました！"
     commission_permission_needed: ~
-    create_paypal_account_link_text: ~
+    create_paypal_account_link_text: PayPalアカウント
     connected_account: "PayPalアカウントと「%{email}」は接続されました。"
     paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info_label: あなたのPayPalアカウントは、支払いの受け取りを可能とするため、ビジネスアカウントが必要です。
     paypal_receive_funds_info_australia_only: ~
-    paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: ~
+    paypal_receive_funds_info: "もしPaypalアカウントと%{service_name}を接続する際にエラーが出る場合には、PayPalアカウントを%{upgrade_paypal_account_link}からアップグレードして下さい。アップグレードは無料で手続きは簡単です。あなたが個人であれば、氏名を事業者名として使用することを推奨します。"
+    upgrade_paypal_account_link_text: ログインしてアップグレードのリンクをクリックする
     admin_account_not_connected: ~
     contact_admin_link_text: ~
     you_are_ready_to_accept_payments: お支払いの受諾が出来ます！
@@ -1636,12 +1636,12 @@ ja:
       create_paypal_account: こちら
       upgrade_paypal_account: ここであなたのアカウントをアップグレードしてください。
       paypal_account_billing_agreement: "%{service_name}に対する手数料の支払いを承諾してください"
-      follow_steps: ~
-      connect_paypal_account_title: ~
-      connect_paypal_account_title_with_step: ~
+      follow_steps: "下記ステップにしたがって代金の受け取り設定を進めて下さい:"
+      connect_paypal_account_title: PayPalアカウントに接続する
+      connect_paypal_account_title_with_step: "ステップ%{current_step}/%{total_steps}:PayPalアカウントに接続する"
       connect_paypal_account_instructions: ~
       connect_paypal_account: PayPalアカウントに接続する
-      paypal_account_billing_agreement_with_step: ~
+      paypal_account_billing_agreement_with_step: "ステップ%{current_step}/%{total_steps}:取引手数料の課金許可を与える"
       paypal_account_billing_agreement_info_both: "%{service_name}内で売り上げ後: 送料を除いた%{commission_from_seller}のご利用手数料が、最低でも%{minimum_commission}があなたのPayPalの口座より、差し引かれます。%{service_name}内でのお支払いを受け入れるには、お支払い手数料の請求に同意する必要があります。なお、手数料は%{paypal_info_link}を含みません。"
       paypal_account_billing_agreement_info_fixed: "%{service_name}内で売り上げ後、最低でも%{minimum_commission}があなたのPayPalの口座より、差し引かれます。%{service_name}内でのお支払いを受け入れるには、お支払い手数料の請求に同意する必要があります。なお、手数料は%{paypal_info_link}を含みません。"
       paypal_account_billing_agreement_info_relative: "%{service_name}内で売り上げ後、送料を除いた合計金額の%{commission_from_seller}の手数料があなたのPayPalの口座より、差し引かれます。%{service_name}内でのお支払いを受け入れるには、お支払い手数料の請求に同意する必要があります。なお、手数料は%{paypal_info_link}を含みません。"
@@ -1665,9 +1665,9 @@ ja:
     from_your_payment_settings_link_text: お支払い設定
     redirect_message: ~
     redirect_link_text: ~
-    paypal_account_all_set_up: ~
-    can_receive_payments: ~
-    paypal_account_connected_summary: ~
+    paypal_account_all_set_up: すべてのセットアップが完了しました！
+    can_receive_payments: これであなたは支払いを受け取ることができるようになりました。
+    paypal_account_connected_summary: "PayPalアカウントと「%{email}」は接続されました。"
     paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: お支払いへ進む
