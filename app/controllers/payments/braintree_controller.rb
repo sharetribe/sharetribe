@@ -35,12 +35,13 @@ class Payments::BraintreeController < ApplicationController
       if result.success?
 				@current_user.update_attribute(:braintree_customer_id, result.customer.id)
 			else
-        render_to_root
+        flash[:error] = @transaction_errors.map{|error| content_tag(:li, error.message)}
+        redirect_to listing_path(@listing.id) and return
       end
     end
 
     # Redirect back if listing author/owner does not have a sub merchant ID
-    unless @listing.author.is_seller?
+    unless @listing.author.is_seller? or @listing.author.active_merchant?
       render_to_root
       return false
     end
@@ -121,19 +122,23 @@ class Payments::BraintreeController < ApplicationController
     transaction_params = {
       :amount => price,
       :merchant_account_id => seller.sub_merchant_id, #sub merchant Id
-      :customer_id => buyer.braintree_customer_id,    #customer Id
+      :payment_method_nonce => params[:payment_method_nonce],
+      :customer_id => buyer.braintree_customer_id,
       :options => {
           :submit_for_settlement => true,
           :store_in_vault_on_success => true
       }
     }
 
-    unless seller.has_admin_rights?
+    if params[:payment_method_type] != "PayPalAccount"
       transaction_params[:service_fee_amount] = SERVICE_FEE
     end
+    
+    # !seller.has_admin_rights?
 
     transaction_params
   end
+  
   def merchant_account_params(params)
     merchant_account_params = {
       :individual => {

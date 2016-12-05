@@ -399,24 +399,27 @@ default: &default_settings
 
   # Sitemap cache time in seconds
   # Default 24 hours
+
   sitemap_cache_time: 86400
 
 production: &production_settings
   <<: *default_settings
-
+  domain: www.threadhabits.com
   eager_load: true
 
   log_level: INFO
 
+  always_use_ssl: true
+
 staging:
   <<: *production_settings
+  domain: www.threadhabits.com
   # By default staging has same settings as production, but those can be overridden here.
 
   log_level: INFO
 
 development:
   <<: *default_settings
-
   # Usually it's easier to run development without SSL
   always_use_ssl: false
 

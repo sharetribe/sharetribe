@@ -460,14 +460,20 @@ class Community < ActiveRecord::Base
     # assume that if port is used in domain config, it should
     # be added to the end of the full domain for links to work
     # This concerns usually mostly testing and development
-    default_host, default_port = APP_CONFIG.domain.split(':')
-    port_string = options[:port] || default_port
+    # default_host, default_port = APP_CONFIG.domain.split(':')
+    # port_string = options[:port] || default_port
+    #
+    # if domain.present? && use_domain? # custom domain
+    #   dom = domain
+    # else # just a subdomain specified
+    #   dom = "#{self.ident}.#{default_host}"
+    #   dom += ":#{port_string}" unless port_string.blank?
+    # end
 
-    if domain.present? && use_domain? # custom domain
-      dom = domain
-    else # just a subdomain specified
-      dom = "#{self.ident}.#{default_host}"
-      dom += ":#{port_string}" unless port_string.blank?
+    if Rails.env.production?
+      dom = "www.threadhabits.com"
+    else
+      dom = "localhost:3000"
     end
 
     if options[:with_protocol]
@@ -475,7 +481,6 @@ class Community < ActiveRecord::Base
     end
 
     return dom
-
   end
 
   # returns the community specific service name if such is in use
