@@ -37,6 +37,8 @@ gem 'aws-sdk', '~> 2'
 gem "will_paginate", '~>3.0.5'
 gem 'dalli', "~> 2.6.4"
 gem "memcachier", "~> 0.0.2"
+gem 'readthis', "~> 2.0.1"
+gem 'hiredis'
 gem 'kgio', "~>2.9.2"
 gem 'thinking-sphinx', '~> 3.1.1'
 gem 'flying-sphinx', "~>1.2.0"
@@ -166,7 +168,7 @@ group :test do
   gem 'timecop', '~> 0.6.3'
   gem 'rack-test', "~> 0.6.2"
   gem 'database_cleaner', '~> 1.1'
-  gem 'connection_pool', "~> 0.9.3"
+  gem 'connection_pool', "~> 2.1"
 
   # required for CircleCI automatic test balancing
   gem 'rspec_junit_formatter'
