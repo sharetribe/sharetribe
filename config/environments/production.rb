@@ -54,7 +54,7 @@ Kassi::Application.configure do
   end
 
   # Prefer redis instead of memcached
-  config.cache.store =
+  config.cache_store =
     if ENV["redis_host"].present?
       [:readthis_store, {
          redis: { host: ENV["redis_host"],
