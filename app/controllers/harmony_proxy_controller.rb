@@ -3,20 +3,20 @@ class HarmonyProxyController < ApplicationController
   skip_filter :cannot_access_without_confirmation, :ensure_consent_given
   skip_before_filter :verify_authenticity_token
 
-  module AuthorizeShowBookable
+  module EnsureListingAuthor
     module_function
 
     def call(req, auth_context)
-      q = req[:query_params]
+      p = req[:params]
 
-      raw_uuid = UUIDUtils.raw(UUIDTools::UUID.parse(q[:refId]))
+      raw_uuid = UUIDUtils.raw(UUIDTools::UUID.parse(p[:refId]))
       listing = Listing.find_by(uuid: raw_uuid)
 
       return false if listing.nil?
 
       author_uuid = listing.author.uuid_object.to_s
 
-      auth_context[:marketplaceId] == q[:marketplaceId] &&
+      auth_context[:marketplaceId] == p[:marketplaceId] &&
         auth_context[:actorId] == author_uuid
     end
   end
@@ -41,7 +41,17 @@ class HarmonyProxyController < ApplicationController
     {
       name: :show_bookable,
       login_needed: true,
-      authorization: AuthorizeShowBookable
+      authorization: EnsureListingAuthor
+    },
+    {
+      name: :create_blocks,
+      login_needed: true,
+      authorization: EnsureListingAuthor,
+    },
+    {
+      name: :delete_blocks,
+      login_needed: true,
+      authorization: EnsureListingAuthor
     }
 
     # Add here all whitelisted actions
@@ -91,7 +101,8 @@ class HarmonyProxyController < ApplicationController
         method: request.method,
         path: "/" + path + format,
         query_params: request.query_parameters,
-        body: request.request_parameters
+        body: request.request_parameters,
+        params: request.query_parameters.merge(request.request_parameters)
       })
   end
 
