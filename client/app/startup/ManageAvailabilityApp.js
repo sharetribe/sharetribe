@@ -5,7 +5,10 @@ import { combineReducers, applyMiddleware, createStore } from 'redux';
 import reducers from '../reducers/reducersIndex';
 import { initialize as initializeI18n } from '../utils/i18n';
 import moment from 'moment';
+import { Map, List } from 'immutable';
 import ManageAvailabilityContainer from '../components/sections/ManageAvailability/ManageAvailabilityContainer';
+import { EDIT_VIEW_OPEN_HASH } from '../reducers/ManageAvailabilityReducer';
+import * as cssVariables from '../assets/styles/variables';
 
 export default (props) => {
   const locale = props.i18n.locale;
@@ -15,9 +18,28 @@ export default (props) => {
   moment.locale(locale);
 
   const combinedReducer = combineReducers(reducers);
-  const store = applyMiddleware(middleware)(createStore)(combinedReducer, {});
+  const initialStoreState = {
+    manageAvailability: new Map({
+      isOpen: window.location.hash.replace(/^#/, '') === EDIT_VIEW_OPEN_HASH,
+      visibleMonth: moment().startOf('month'),
+      reservedDays: new List(),
+      blockedDays: new List(),
+      changes: new List(),
+    }),
+  };
+
+  const store = applyMiddleware(middleware)(createStore)(combinedReducer, initialStoreState);
+
+  const containerProps = {
+    header: {
+      backgroundColor: '347F9D',
+      imageUrl: 'https://placehold.it/1024x1024',
+      title: 'Pelago San Sebastian, in very good condition in Kallio',
+      height: cssVariables['--ManageAvailabilityHeader_height'],
+    },
+  };
 
   return r(Provider, { store }, [
-    r(ManageAvailabilityContainer, {}),
+    r(ManageAvailabilityContainer, containerProps),
   ]);
 };
