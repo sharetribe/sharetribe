@@ -359,10 +359,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def report_queue_size
-    MonitoringService::Monitoring.report_queue_size
-  end
-
   def maintenance_warning
     now = Time.now
     @show_maintenance_warning = NextMaintenance.show_warning?(15.minutes, now)
