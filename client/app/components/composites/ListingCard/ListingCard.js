@@ -14,7 +14,7 @@ import distanceIcon from './images/distanceIcon.svg';
 import plusIcon from './images/plusIcon.svg';
 
 const TINT_PERCENTAGE = 20;
-const IMAGE_LOADING_TIMEOUT = 2000;
+const IMAGE_LOADING_TIMEOUT = 10000;
 const IMAGE_TIMEOUT_TYPE_ERROR = 'Force image resolve as error';
 const IMAGE_LOADING = 'loading';
 const IMAGE_LOADED = 'loaded';
