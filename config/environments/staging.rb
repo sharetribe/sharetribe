@@ -58,6 +58,7 @@ Kassi::Application.configure do
   # Prefer redis instead of memcached
   config.cache_store =
     if ENV["redis_host"].present?
+      Readthis.fault_tolerant = true
       [:readthis_store, {
          redis: { host: ENV["redis_host"],
                   port: ENV["redis_port"],
