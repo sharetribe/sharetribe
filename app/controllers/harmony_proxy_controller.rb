@@ -3,20 +3,58 @@ class HarmonyProxyController < ApplicationController
   skip_filter :cannot_access_without_confirmation, :ensure_consent_given
   skip_before_filter :verify_authenticity_token
 
-  module AuthorizeShowBookable
+  # OR can be used to combine authorization methods using "OR" logic.
+  # It takes any number of authorization methods. OR is a normal
+  # lambda, so you can call it with `.call()`. Keep in mind, that
+  # for lambdas, `[]` is alias for `call()`
+  #
+  # Usage:
+  #
+  # {
+  #   authorization: OR[
+  #     IsAdmin,
+  #     IsListingAuthor,
+  #     IsFriday
+  #   ]
+  # }
+  #
+  # TODO: Implement AND, if needed. Implementation: s/any?/all?
+  #
+  OR = ->(*auth_methods) {
+    ->(*args) {
+      auth_methods.any? { |auth_method| auth_method.call(*args) }
+    }
+  }
+
+  # Return `true` if the caller is marketplace admin
+  module IsAdmin
     module_function
 
     def call(req, auth_context)
-      q = req[:query_params]
+      auth_context[:actorRole] == :admin
+    end
+  end
 
-      raw_uuid = UUIDUtils.raw(UUIDTools::UUID.parse(q[:refId]))
+  # Return `true` if the caller is listing author. Check for following
+  # params (body or query):
+  #
+  # - refId (listing uuid)
+  # - marketplaceId (marketplace uuid)
+  #
+  module IsListingAuthor
+    module_function
+
+    def call(req, auth_context)
+      p = req[:params]
+
+      raw_uuid = UUIDUtils.raw(UUIDTools::UUID.parse(p[:refId]))
       listing = Listing.find_by(uuid: raw_uuid)
 
       return false if listing.nil?
 
       author_uuid = listing.author.uuid_object.to_s
 
-      auth_context[:marketplaceId] == q[:marketplaceId] &&
+      auth_context[:marketplaceId] == p[:marketplaceId] &&
         auth_context[:actorId] == author_uuid
     end
   end
@@ -41,7 +79,26 @@ class HarmonyProxyController < ApplicationController
     {
       name: :show_bookable,
       login_needed: true,
-      authorization: AuthorizeShowBookable
+      authorization: OR[
+        IsListingAuthor,
+        IsAdmin
+      ]
+    },
+    {
+      name: :create_blocks,
+      login_needed: true,
+      authorization: OR[
+        IsListingAuthor,
+        IsAdmin
+      ]
+    },
+    {
+      name: :delete_blocks,
+      login_needed: true,
+      authorization: OR[
+        IsListingAuthor,
+        IsAdmin
+      ]
     }
 
     # Add here all whitelisted actions
@@ -91,7 +148,8 @@ class HarmonyProxyController < ApplicationController
         method: request.method,
         path: "/" + path + format,
         query_params: request.query_parameters,
-        body: request.request_parameters
+        body: request.request_parameters,
+        params: request.query_parameters.merge(request.request_parameters)
       })
   end
 

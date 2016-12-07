@@ -11,6 +11,10 @@ module HarmonyEndpoints
       # Timeslots
       query_timeslots: "/timeslots/query",
 
+      # Blocks
+      create_blocks: "/bookables/createBlocks",
+      delete_blocks: "/bookables/deleteBlocks",
+
       # Bookings
       initiate_booking: "/bookings/initiate",
       accept_booking: "/bookings/accept",
