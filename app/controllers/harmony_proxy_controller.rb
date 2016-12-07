@@ -3,7 +3,45 @@ class HarmonyProxyController < ApplicationController
   skip_filter :cannot_access_without_confirmation, :ensure_consent_given
   skip_before_filter :verify_authenticity_token
 
-  module EnsureListingAuthor
+  # OR can be used to combine authorization methods using "OR" logic.
+  # It takes any number of authorization methods. OR is a normal
+  # lambda, so you can call it with `.call()`. Keep in mind, that
+  # for lambdas, `[]` is alias for `call()`
+  #
+  # Usage:
+  #
+  # {
+  #   authorization: OR[
+  #     IsAdmin,
+  #     IsListingAuthor,
+  #     IsFriday
+  #   ]
+  # }
+  #
+  # TODO: Implement AND, if needed. Implementation: s/any?/all?
+  #
+  OR = ->(*auth_methods) {
+    ->(*args) {
+      auth_methods.any? { |auth_method| auth_method.call(*args) }
+    }
+  }
+
+  # Return `true` if the caller is marketplace admin
+  module IsAdmin
+    module_function
+
+    def call(req, auth_context)
+      auth_context[:actorRole] == :admin
+    end
+  end
+
+  # Return `true` if the caller is listing author. Check for following
+  # params (body or query):
+  #
+  # - refId (listing uuid)
+  # - marketplaceId (marketplace uuid)
+  #
+  module IsListingAuthor
     module_function
 
     def call(req, auth_context)
@@ -41,17 +79,26 @@ class HarmonyProxyController < ApplicationController
     {
       name: :show_bookable,
       login_needed: true,
-      authorization: EnsureListingAuthor
+      authorization: OR[
+        IsListingAuthor,
+        IsAdmin
+      ]
     },
     {
       name: :create_blocks,
       login_needed: true,
-      authorization: EnsureListingAuthor,
+      authorization: OR[
+        IsListingAuthor,
+        IsAdmin
+      ]
     },
     {
       name: :delete_blocks,
       login_needed: true,
-      authorization: EnsureListingAuthor
+      authorization: OR[
+        IsListingAuthor,
+        IsAdmin
+      ]
     }
 
     # Add here all whitelisted actions
