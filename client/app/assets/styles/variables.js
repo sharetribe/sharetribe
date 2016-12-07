@@ -372,5 +372,6 @@ module.exports = {
   '--ManageAvailability_saveButtonHeight': '60px',
   '--ManageAvailabilityHeader_height': 254,
   '--ManageAvailabilityCalendar_fontFamily': proximaNovaFontFamily,
+  '--ManageAvailabilityCalendar_fontSize': fontSize,
   '--ManageAvailabilityCalendar_width': '318px',
 };
