@@ -779,7 +779,7 @@ fr:
       we_have_marked_request_as_confirmed: "Nous avons signalé la commande à propos de '%{request}' comme terminée. La commande a été terminée automatiquement car %{days_passed} se sont écoulés depuis que la demande a été acceptée."
     booking_transaction_automatically_confirmed:
       subject: "Commande automatiquement signalée comme terminée - n'oubliez pas de donner un avis"
-      we_have_marked_request_as_confirmed: "Nous avons signalé la commande à propos de '%{request}' comme réalisée. La demande a été réalisée automatiquement car une journée s'est écoulée depuis la fin de la période de réservation."
+      we_have_marked_request_as_confirmed: "Nous avons signalé la commande à propos de '%{request}' comme réalisée. La demande a été automatiquement réalisée car une journée s'est écoulée depuis la fin de la période de réservation."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Vous pouvez désormais donner un avis sur %{other_party_given_name}. Donner un avis est toujours une bonne idée. Si tout s'est bien passé, vous devriez signaler aux autres que %{other_party_given_name} est quelqu'un de confiance. S'il y a eu un problème, c'est aussi une bonne chose de le mentionner."
       give_feedback_to: "Donner un avis sur %{other_party_given_name}"
@@ -846,9 +846,9 @@ fr:
       you_have_made_new_payment: "Vous avez payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> à %{recipient_full_name}. Voici un reçu du paiement."
       product: Produit
       price_per_unit_type: "Prix par %{unit_type}"
-      duration: "Durée : "
-      quantity: "Quantité : "
-      subtotal: "Sous-total : "
+      duration: Durée
+      quantity: Quantité
+      subtotal: Sous-total
       total: Total
       price: Prix
       service_fee: "Frais de service"

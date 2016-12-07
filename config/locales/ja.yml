@@ -238,8 +238,8 @@ ja:
         description_process: ~
         enabled_for_you: ~
         enabled_for_all: ~
-        new_topbar: ~
-        searchpage: ~
+        new_topbar: 新トップメニュー(全てのページで適用)
+        searchpage: 新検索ページ(新トップメニューが必要)
       social_media:
         social_media: ソーシャルメディア
         twitter_handle: Twitterのハンドル
@@ -279,7 +279,7 @@ ja:
         max_number_of_links_info: ~
         about_page: ~
       topbar:
-        topbar: ~
+        topbar: トップメニュー
         new_listing_button_label: ~
         invalid_post_listing_button_label: ~
       transactions:
@@ -888,8 +888,8 @@ ja:
       you_are_receiving_this_because: "あなたが%{author_name}さんをフォローしているので、このお知らせを送らせていただいております。"
       view_listing: リストを閲覧する
     new_member_notification:
-      new_member_has_joined: ~
-      this_is_automatic_message: ~
+      new_member_has_joined: "%{community}に新しいメンバーが参加しました。新メンバーは、まだメールアドレスを認証する必要があります。"
+      this_is_automatic_message: "これは%{community}の管理者に自動送信されるメッセージです。"
       person_name: ~
       person_email: ~
   error_messages:
@@ -1668,7 +1668,7 @@ ja:
     paypal_account_all_set_up: すべてのセットアップが完了しました！
     can_receive_payments: これであなたは支払いを受け取ることができるようになりました。
     paypal_account_connected_summary: "PayPalアカウントと「%{email}」は接続されました。"
-    paypal_permission_granted_summary: ~
+    paypal_permission_granted_summary: 取引手数料の許可が承諾されました。
   paypal:
     pay_with_paypal: お支払いへ進む
     checkout_with_paypal: PayPalでお支払い
