@@ -1,5 +1,5 @@
 import { Component, PropTypes } from 'react';
-import r, { button, div, a } from 'r-dom';
+import r, { button, div } from 'r-dom';
 import classNames from 'classnames';
 import { t } from '../../../utils/i18n';
 import SideWinder from '../../composites/SideWinder/SideWinder';
@@ -27,6 +27,8 @@ class ManageAvailability extends Component {
   constructor(props) {
     super(props);
     this.state = { renderCalendar: false };
+
+    this.clickHandler = this.clickHandler.bind(this);
   }
   componentDidMount() {
     // react-dates calendar height is often calculated incorrectly in
@@ -37,17 +39,24 @@ class ManageAvailability extends Component {
     window.setTimeout(() => {
       this.setState({ renderCalendar: true }); // eslint-disable-line react/no-set-state
     }, CALENDAR_RENDERING_TIMEOUT);
+
+    document.getElementById(this.props.availability_link_id)
+      .addEventListener('click', this.clickHandler);
   }
+
+  componentWillUnmount() {
+    document.getElementById(this.props.availability_link_id)
+      .removeEventListener('click', this.clickHandler);
+  }
+
+  clickHandler(e) {
+    e.preventDefault();
+    this.props.onOpen();
+  }
+
   render() {
     const showCalendar = this.props.winder.isOpen && this.state.renderCalendar;
     return div([
-      a({
-        href: '#',
-        onClick: (e) => {
-          e.preventDefault();
-          this.props.onOpen();
-        },
-      }, t('web.listings.edit_listing_availability')),
       r(SideWinder, this.props.winder, [
         div({ className: css.content }, [
           r(ManageAvailabilityHeader, this.props.header),
@@ -66,6 +75,7 @@ class ManageAvailability extends Component {
 }
 
 ManageAvailability.propTypes = {
+  availability_link_id: PropTypes.string.isRequired,
   hasChanges: PropTypes.bool.isRequired,
   onOpen: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,
