@@ -15,7 +15,7 @@ ST.thumbnailStripe = function(images, opts) {
   container.empty();
   var thumbnailContainer = $("<div />");
   thumbnailContainer.css("position", "absolute");
-  thumbnailContainer.css("left", ["-", paddingAdjustment, "px"].join(""));
+  //thumbnailContainer.css("left", ["-", paddingAdjustment, "px"].join(""));
   thumbnailContainer.css("right", ["-", paddingAdjustment, "px"].join(""));
   container.append(thumbnailContainer);
   var thumbnailContainerWidth;
