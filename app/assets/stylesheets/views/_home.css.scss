@@ -328,6 +328,20 @@ $home-list-avatar-padding: lines(0.25);
   }
 }
 
+.home-list-shape-value-mobile,
+.browsing-list-item-shape-value-mobile {
+  font-size: 24px;
+  & > .smaller {
+    font-size: 18px;
+  }
+  @include media(large-mobile) {
+    font-size: 36px;
+    & > .smaller {
+      font-size: 24px;
+    }
+  }
+}
+
 .home-list-price-mobile-with-listing-image {
   @include media(large-mobile) {
     left: auto;
@@ -347,7 +361,7 @@ $home-list-avatar-padding: lines(0.25);
 
 .home-list-item-price-value,
 .browsing-list-item-price-value {
-  font-size: em(44);
+  font-size: em(32);
   line-height: 1;
   font-weight: 400;
 }
