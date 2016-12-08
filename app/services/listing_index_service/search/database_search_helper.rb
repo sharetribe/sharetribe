@@ -15,7 +15,7 @@ module ListingIndexService::Search::DatabaseSearchHelper
         deleted: 0,
         listing_shape_id: Maybe(search[:listing_shape_ids]).or_else(nil)
       })
-
+    # query here
     query = Listing
             .where(where_opts)
             .includes(included_models)
