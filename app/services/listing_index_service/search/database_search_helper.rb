@@ -18,8 +18,6 @@ module ListingIndexService::Search::DatabaseSearchHelper
 
     query = Listing
             .where(where_opts)
-            # .joins(:author)
-            # .where("people.sub_merchant_account_status = 'active'")
             .includes(included_models)
             .order("listings.sort_date DESC")
             .paginate(per_page: search[:per_page], page: search[:page])
