@@ -30,6 +30,11 @@ class ManageAvailability extends Component {
 
     this.clickHandler = this.clickHandler.bind(this);
   }
+
+  componentWillMount() {
+    this.props.calendar.onMonthChanged(this.props.calendar.initialMonth);
+  }
+
   componentDidMount() {
     // react-dates calendar height is often calculated incorrectly in
     // Safari when the SideWinder is shown. Rendering it

@@ -25,6 +25,8 @@ export default (props) => {
       reservedDays: new List(),
       blockedDays: new List(),
       changes: new List(),
+      marketplaceUuid: props.marketplace.uuid,
+      listingUuid: props.listing.uuid,
     }),
   };
 

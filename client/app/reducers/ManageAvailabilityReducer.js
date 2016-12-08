@@ -3,6 +3,7 @@ import { Map, List } from 'immutable';
 import moment from 'moment';
 import { isSameDay } from 'react-dates';
 import * as actionTypes from '../constants/ManageAvailabilityConstants';
+import _ from 'lodash';
 
 const initialState = new Map({
   isOpen: true,
@@ -20,6 +21,10 @@ const initialState = new Map({
   // are calculated by going through this list to see the final values
   // for each day and comparing those to the blocked days above.
   changes: new List(),
+
+  marketplaceUuid: null,
+
+  listingUuid: null,
 });
 
 export const EDIT_VIEW_OPEN_HASH = 'manage-availability';
@@ -37,6 +42,28 @@ const withChange = (state, action, day) => {
   }
   const change = new Map({ action, day });
   return state.set('changes', state.get('changes').push(change));
+};
+
+const ranges = (bookings) =>
+  bookings.map((b) => ({
+    start: moment(b.attributes.start),
+    end: moment(b.attributes.end),
+  }));
+
+const splitRanges = (dateRanges) =>
+  _.flatMap(dateRanges, (range) => {
+    const { start, end } = range;
+    const days = end.diff(start, 'days');
+
+    return _.range(days).map((i) => start.clone().add(i, 'days'));
+  });
+
+const mergeNovelty = (state, novelty) => {
+  const blocks = splitRanges(ranges(novelty.blocks));
+  const bookings = splitRanges(ranges(novelty.bookings));
+
+  return state.set('reservedDays', state.get('reservedDays').concat(bookings))
+       .set('blockedDays', state.get('blockedDays').concat(blocks));
 };
 
 // Calculate all unique changes to the original blocked days
@@ -110,13 +137,14 @@ const manageAvailabilityReducer = (state = initialState, action) => {
     case actionTypes.BLOCK_DAY:
       return withChange(state, ACTION_BLOCK, payload);
     case actionTypes.CHANGE_MONTH:
-      // TODO: fetch more data
       return state.set('visibleMonth', payload);
     case actionTypes.SAVE_CHANGES:
       // TODO: save pending changes
       // TODO: clear daysToAllow and daysToBlock lists
       // TODO: set isOpen to false
       return state;
+    case actionTypes.DATA_LOADED:
+      return mergeNovelty(state, payload);
     case actionTypes.OPEN_EDIT_VIEW:
       window.location.hash = EDIT_VIEW_OPEN_HASH;
       return state.set('isOpen', true);
