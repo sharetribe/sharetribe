@@ -9,7 +9,7 @@
     .home-list-details-right
       .home-list-price
         - if listing.price
-          .home-list-price-value
+          .home-list-item-price-value
             = humanized_money_with_symbol(listing.price).upcase
           - price_text = nil
           - if listing.quantity.present?
@@ -45,7 +45,7 @@
             .home-list-price-quantity{:title => price_text}
               = price_text
         - else
-          %span.smaller
+          .home-list-shape-value-mobile
             = shape_name(listing)
 
 
