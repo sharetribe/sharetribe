@@ -10,7 +10,6 @@ import * as cssVariables from '../../../assets/styles/variables';
 
 const IS_OPEN_INITIALLY = false;
 const MOMENTJS_LOCALE = 'en';
-const OPEN_HASH = 'edit-availability';
 const now = Date.now();
 const day1 = moment(now + 24 * 60 * 60 * 1000);
 const day2 = moment(now + 2 * 24 * 60 * 60 * 1000);
@@ -27,22 +26,10 @@ class ManageAvailabilityWrapper extends Component {
       isOpen: IS_OPEN_INITIALLY,
       hasChanges: false,
     };
-    this.handleHashChange = this.handleHashChange.bind(this);
 
     // Set the Moment.js locale globally for react-dates to apply i18n
     // to react-dates.
     moment.locale(MOMENTJS_LOCALE);
-  }
-  componentDidMount() {
-    window.location.hash = this.state.isOpen ? OPEN_HASH : '';
-    window.addEventListener('hashchange', this.handleHashChange);
-  }
-  componentWillUnmount() {
-    window.removeEventListener('hashchange', this.handleHashChange);
-  }
-  handleHashChange() {
-    const hash = window.location.hash.replace('#', '');
-    this.setState({ isOpen: hash === OPEN_HASH });
   }
   render() {
 
@@ -61,12 +48,13 @@ class ManageAvailabilityWrapper extends Component {
     };
 
     return r(ManageAvailability, {
-      openWinderLinkHash: OPEN_HASH,
+      onOpen: () => {
+        this.setState({ isOpen: true });
+      },
       hasChanges: this.state.hasChanges,
       onSave: () => {
         console.log('Saving availability changes');
-        this.setState({ hasChanges: false });
-        window.location.hash = '';
+        this.setState({ hasChanges: false, isOpen: false });
       },
       winder: {
         wrapper: document.querySelector('#root'),
@@ -75,11 +63,10 @@ class ManageAvailabilityWrapper extends Component {
         onClose: () => {
           if (!this.state.hasChanges) {
             console.log('No availability changes to save');
-            window.location.hash = '';
+            this.setState({ isOpen: false });
           } else if (confirm('You have unsaved changes, close anyways?')) {
-            this.setState({ hasChanges: false });
-            window.location.hash = '';
             console.log('Closing with availability changes');
+            this.setState({ hasChanges: false, isOpen: false });
           } else {
             console.log('Continue editing availability changes');
           }

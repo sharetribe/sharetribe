@@ -1,43 +1,80 @@
+import { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import r from 'r-dom';
-import moment from 'moment';
 import ManageAvailability from './ManageAvailability';
+import * as availabilityReducer from '../../../reducers/ManageAvailabilityReducer';
+import * as ManageAvailabilityActions from '../../../actions/ManageAvailabilityActions';
 import * as cssVariables from '../../../assets/styles/variables';
 
-const OPEN_HASH = 'edit-availability';
-
-const log = (s) => () => {
-  console.log('ManageAvailabilityContainer', s); // eslint-disable-line no-console
-};
-
-const ManageAvailabilityContainer = () =>
+const ManageAvailabilityContainer = ({
+  header,
+  actions,
+  isOpen,
+  visibleMonth,
+  hasChanges,
+  reservedDays,
+  blockedDays,
+}) =>
       r(ManageAvailability, {
-        openWinderLinkHash: OPEN_HASH,
-        hasChanges: false,
-        onSave: log('save changes'),
+        hasChanges,
+        onOpen: actions.openEditView,
+        onSave: actions.saveChanges,
         winder: {
           wrapper: document.querySelector('#sidewinder-wrapper'),
-          isOpen: true,
           width: cssVariables['--ManageAvailability_width'],
-          onClose: log('close winder'),
+          isOpen,
+          onClose: actions.closeEditView,
         },
-        header: {
-          backgroundColor: '347F9D',
-          imageUrl: 'https://placehold.it/1024x1024',
-          title: 'Pelago San Sebastian, in very good condition in Kallio',
-          height: cssVariables['--ManageAvailabilityHeader_height'],
-        },
+        header,
         calendar: {
-          initialMonth: moment().startOf('month'),
-          blockedDays: [],
-          reservedDays: [],
-          onDayAllowed: log('allow date'),
-          onDayBlocked: log('block date'),
-          onMonthChanged: log('change month'),
+          initialMonth: visibleMonth,
+          blockedDays,
+          reservedDays,
+          onDayAllowed: actions.allowDay,
+          onDayBlocked: actions.blockDay,
+          onMonthChanged: actions.changeMonth,
         },
       });
 
-const mapStateToProps = (state) => state;
-const mapDispatchToProps = () => ({});
+const { object, shape, func, bool, arrayOf } = PropTypes;
+
+/* eslint-disable react/forbid-prop-types */
+
+ManageAvailabilityContainer.propTypes = {
+  // from ManageAvailabilityApp
+  header: object.isRequired,
+
+  // actions
+  actions: shape({
+    openEditView: func.isRequired,
+    saveChanges: func.isRequired,
+    closeEditView: func.isRequired,
+    allowDay: func.isRequired,
+    blockDay: func.isRequired,
+    changeMonth: func.isRequired,
+  }).isRequired,
+
+  // from mapStateToProps
+  isOpen: bool.isRequired,
+  visibleMonth: object.isRequired,
+  hasChanges: bool.isRequired,
+  reservedDays: arrayOf(object).isRequired,
+  blockedDays: arrayOf(object).isRequired,
+};
+
+/* eslint-enable react/forbid-prop-types */
+
+const mapStateToProps = ({ manageAvailability }) => ({
+  isOpen: manageAvailability.get('isOpen'),
+  visibleMonth: manageAvailability.get('visibleMonth'),
+  hasChanges: availabilityReducer.hasChanges(manageAvailability),
+  reservedDays: manageAvailability.get('reservedDays').toJS(),
+  blockedDays: availabilityReducer.blockedDays(manageAvailability).toJS(),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  actions: bindActionCreators(ManageAvailabilityActions, dispatch),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageAvailabilityContainer);

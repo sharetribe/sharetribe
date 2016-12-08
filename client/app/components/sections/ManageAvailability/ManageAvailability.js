@@ -41,7 +41,13 @@ class ManageAvailability extends Component {
   render() {
     const showCalendar = this.props.winder.isOpen && this.state.renderCalendar;
     return div([
-      a({ href: `#${this.props.openWinderLinkHash}` }, t('web.listings.edit_listing_availability')),
+      a({
+        href: '#',
+        onClick: (e) => {
+          e.preventDefault();
+          this.props.onOpen();
+        },
+      }, t('web.listings.edit_listing_availability')),
       r(SideWinder, this.props.winder, [
         div({ className: css.content }, [
           r(ManageAvailabilityHeader, this.props.header),
@@ -60,8 +66,8 @@ class ManageAvailability extends Component {
 }
 
 ManageAvailability.propTypes = {
-  openWinderLinkHash: PropTypes.string.isRequired,
   hasChanges: PropTypes.bool.isRequired,
+  onOpen: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,
   winder: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   header: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
