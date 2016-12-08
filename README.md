@@ -7,6 +7,7 @@ Sharetribe is an open source platform to create your own peer-to-peer marketplac
 Would you like to set up your marketplace in one minute without touching code? [Head to Sharetribe.com](https://www.sharetribe.com).
 
 ### Contents
+- [Tech Stack](#tech-stack)
 - [Installation](#installation)
 - [Payments](#payments)
 - [Versioning](#versioning)
@@ -19,6 +20,27 @@ Would you like to set up your marketplace in one minute without touching code? [
 - [Known issues](#known-issues)
 - [Documentation](#documentation)
 - [License](#mit-license)
+
+## Tech Stack
+- Ruby 2.3.1  
+- Ruby on Rails 4.2.7  
+- MySQL  5.7
+- React + jQuery
+- Node.js 6.9
+- "what you see is what you get" Editor [Mercury](http://jejacks0n.github.io/mercury/)  
+- Deploy: Custom Script (not using Mina or Cap3)  
+- Server: Heroku
+- Image Hosting: Amazon S3  
+- Background job: delayed_job
+- Gem: 
+    -  devise | for Email/Username Signup/Login
+    -  omniauth-facebook | Third party login: Facebook
+    -  haml | easier to write HTML
+    -  mysql2 | because sharetribe using mysql
+    -  paperclip | image upload
+    -  passenger | rails server
+    -  react_on_rails
+    -  factory_girl, capybara, rspec-rails, cucumber-rails, selenium-webdriver | for test
 
 ## Installation
 
