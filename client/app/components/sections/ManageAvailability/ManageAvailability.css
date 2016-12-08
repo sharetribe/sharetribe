@@ -1,6 +1,29 @@
 .content {
   height: 100%;
   font-family: var(--ManageAvailability_fontFamily);
+
+  /* --- OVERRIDE DEFAULT STYLES START --- */
+
+  & :global(tbody tr) {
+    /* This will reset the <table> element zebra-skin
+       coloring coming from the default styles */
+    background-color: initial;
+  }
+
+  & :global(td) {
+    /* This will reset the default border radius for first and last
+    <td> element */
+    &:first-child,
+    &:last-child {
+      border-radius: initial;
+    }
+  }
+
+  & button:hover {
+    background-color: var(--colorReservedAvailability);
+  }
+
+  /* --- OVERRIDE DEFAULT STYLES END --- */
 }
 
 .calendar {

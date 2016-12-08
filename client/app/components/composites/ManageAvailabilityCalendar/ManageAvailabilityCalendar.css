@@ -1,5 +1,6 @@
 .root {
   font-family: var(--ManageAvailabilityCalendar_fontFamily);
+  font-size: var(--ManageAvailabilityCalendar_fontSize);
 
   /* stylelint-disable selector-class-pattern */
 
@@ -50,9 +51,12 @@
   }
 
   & :global(.CalendarMonth__day--reserved) {
-    background-color: var(--colorReservedAvailability);
-    color: #fff;
-    cursor: default;
+    &,
+    &:active {
+      background-color: var(--colorReservedAvailability);
+      color: #fff;
+      cursor: default;
+    }
   }
 
   & :global(.CalendarMonth__day--outside) {
