@@ -18,7 +18,7 @@ const ManageAvailabilityHeader = (props) => div(
     }),
     div({
       className: css.colorLayer,
-      style: { backgroundColor: `#${props.backgroundColor}` },
+      style: { backgroundColor: props.backgroundColor },
     }),
     div({ className: css.listingHeader }, [
       span({ className: css.availabilityHeader }, t('web.listings.edit_availability_header')),

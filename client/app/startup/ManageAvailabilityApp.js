@@ -31,10 +31,11 @@ export default (props) => {
   const store = applyMiddleware(middleware)(createStore)(combinedReducer, initialStoreState);
 
   const containerProps = {
+    availability_link_id: props.availability_link_id,
     header: {
-      backgroundColor: '347F9D',
-      imageUrl: 'https://placehold.it/1024x1024',
-      title: 'Pelago San Sebastian, in very good condition in Kallio',
+      backgroundColor: props.marketplace.marketplace_color1 || cssVariables['--customColorFallback'],
+      imageUrl: props.listing.image_url,
+      title: props.listing.title,
       height: cssVariables['--ManageAvailabilityHeader_height'],
     },
   };

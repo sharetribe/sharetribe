@@ -493,7 +493,7 @@ class ListingsController < ApplicationController
         redirect_to @listing
       }
       format.js {
-        render :layout => false, locals: {payment_gateway: payment_gateway, process: process, country_code: community_country_code }
+        render :layout => false, locals: {payment_gateway: payment_gateway, process: process, country_code: community_country_code, availability_enabled: @listing.availability.to_sym == :booking }
       }
     end
   end
