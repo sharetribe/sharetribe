@@ -20,6 +20,7 @@ export default (props) => {
 
   const combinedReducer = combineReducers(reducers);
   const initialStoreState = {
+    flashNotifications: new List(),
     manageAvailability: new Map({
       isOpen: window.location.hash.replace(/^#/, '') === EDIT_VIEW_OPEN_HASH,
       visibleMonth: moment().startOf('month'),
