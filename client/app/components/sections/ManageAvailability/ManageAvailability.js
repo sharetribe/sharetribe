@@ -1,5 +1,5 @@
 import { Component, PropTypes } from 'react';
-import r, { button, div } from 'r-dom';
+import r, { button, div, a } from 'r-dom';
 import classNames from 'classnames';
 import { t } from '../../../utils/i18n';
 import SideWinder from '../../composites/SideWinder/SideWinder';
@@ -45,13 +45,15 @@ class ManageAvailability extends Component {
       this.setState({ renderCalendar: true }); // eslint-disable-line react/no-set-state
     }, CALENDAR_RENDERING_TIMEOUT);
 
-    document.getElementById(this.props.availability_link_id)
-      .addEventListener('click', this.clickHandler);
+    if (this.props.availability_link) {
+      this.props.availability_link.addEventListener('click', this.clickHandler);
+    }
   }
 
   componentWillUnmount() {
-    document.getElementById(this.props.availability_link_id)
-      .removeEventListener('click', this.clickHandler);
+    if (this.props.availability_link) {
+      this.props.availability_link.removeEventListener('click', this.clickHandler);
+    }
   }
 
   clickHandler(e) {
@@ -61,7 +63,14 @@ class ManageAvailability extends Component {
 
   render() {
     const showCalendar = this.props.winder.isOpen && this.state.renderCalendar;
+    const defaultLink = a({
+      href: '#',
+      onClick: this.clickHandler,
+    }, t('web.listings.edit_listing_availability'));
+    const maybeRenderDefaultLink = this.props.availability_link ? null : defaultLink;
+
     return div([
+      maybeRenderDefaultLink,
       r(SideWinder, this.props.winder, [
         div({ className: css.content }, [
           r(ManageAvailabilityHeader, this.props.header),
@@ -80,7 +89,7 @@ class ManageAvailability extends Component {
 }
 
 ManageAvailability.propTypes = {
-  availability_link_id: PropTypes.string.isRequired,
+  availability_link: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   hasChanges: PropTypes.bool.isRequired,
   onOpen: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,

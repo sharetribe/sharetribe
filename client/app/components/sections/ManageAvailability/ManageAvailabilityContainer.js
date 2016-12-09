@@ -8,7 +8,7 @@ import * as ManageAvailabilityActions from '../../../actions/ManageAvailabilityA
 import * as cssVariables from '../../../assets/styles/variables';
 
 const ManageAvailabilityContainer = ({
-  availability_link_id,
+  availability_link,
   header,
   actions,
   isOpen,
@@ -27,7 +27,7 @@ const ManageAvailabilityContainer = ({
           isOpen,
           onClose: actions.closeEditView,
         },
-        availability_link_id,
+        availability_link,
         header,
         calendar: {
           initialMonth: visibleMonth,
@@ -39,13 +39,13 @@ const ManageAvailabilityContainer = ({
         },
       });
 
-const { arrayOf, bool, func, object, shape, string } = PropTypes;
+const { arrayOf, bool, func, object, shape } = PropTypes;
 
 /* eslint-disable react/forbid-prop-types */
 
 ManageAvailabilityContainer.propTypes = {
   // from ManageAvailabilityApp
-  availability_link_id: string.isRequired,
+  availability_link: object,
   header: object.isRequired,
 
   // actions
