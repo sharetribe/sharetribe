@@ -9,35 +9,49 @@ import { paramsToQueryString } from '../utils/url';
   - TODO post(url, queryParams, body)
 
   Internally, harmony.js sets the correct headers to the request and
-  also extracts the correct CSFR token from the <meta> tag.
-*/
+  also extracts the correct CSRF token from the <meta> tag.
+ */
 
-const extractCsfrToken = () =>
-  document.querySelector('meta[name=csrf-token]').getAttribute('content');
+/**
+   Extracts CSRF token value from a <meta> tag.
+   Returns `null` if token doesn't exist or if the environment doesn't have `document` defined.
+ */
+const csrfToken = () => {
+  if (typeof document != 'undefined') {
+    const metaTag = document.querySelector('meta[name=csrf-token]');
 
-const constructRequestSender = (csfrToken) => {
+    if (metaTag) {
+      return metaTag.getAttribute('content');
+    }
+  }
+
+  return null;
+};
+
+const sendRequest = (method, url, queryParams) => {
   const harmonyApiUrl = '/harmony_proxy';
 
   const headers = new Headers({
-    'X-CSRF-Token': csfrToken,
     'Content-Type': 'application/json',
     Accept: 'application/json',
   });
+
+  const csrf = csrfToken();
+
+  if (csrf) {
+    headers.append('X-CSRF-Token', csrf);
+  }
 
   const defaultRequestOpts = {
     headers,
     credentials: 'same-origin',
   };
 
-  return (method, url, queryParams) => {
-    const urlWithQuery = harmonyApiUrl + url + paramsToQueryString(queryParams);
-    const requestOpts = Object.assign({}, defaultRequestOpts, { method });
+  const urlWithQuery = harmonyApiUrl + url + paramsToQueryString(queryParams);
+  const requestOpts = Object.assign({}, defaultRequestOpts, { method });
 
-    return window.fetch(urlWithQuery, requestOpts).then((response) => response.json());
-  };
+  return window.fetch(urlWithQuery, requestOpts).then((response) => response.json());
 };
-
-const sendRequest = constructRequestSender(extractCsfrToken());
 
 const get = (url, queryParams) => sendRequest('get', url, queryParams);
 
