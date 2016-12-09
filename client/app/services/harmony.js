@@ -1,4 +1,5 @@
 import { paramsToQueryString } from '../utils/url';
+import * as transitConverter from '../utils/transitImmutableConverter';
 
 /**
   harmony.js defines a interface for Harmony API.
@@ -28,6 +29,8 @@ const csrfToken = () => {
   return null;
 };
 
+const converter = transitConverter.createInstance();
+
 const sendRequest = (method, url, queryParams) => {
   const harmonyApiUrl = '/harmony_proxy';
 
@@ -50,7 +53,9 @@ const sendRequest = (method, url, queryParams) => {
   const urlWithQuery = harmonyApiUrl + url + paramsToQueryString(queryParams);
   const requestOpts = Object.assign({}, defaultRequestOpts, { method });
 
-  return window.fetch(urlWithQuery, requestOpts).then((response) => response.json());
+  return window.fetch(urlWithQuery, requestOpts)
+               .then((response) => response.text())
+               .then((text) => Promise.resolve(converter.fromJSON(text)));
 };
 
 const get = (url, queryParams) => sendRequest('get', url, queryParams);

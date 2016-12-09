@@ -1,16 +1,7 @@
 import Immutable from 'immutable';
 import { Image, ListingImage } from './ImageModel';
 import { Profile } from './ProfileModel';
-
-export const Distance = Immutable.Record({
-  value: 0,
-  unit: 'km',
-});
-
-export const Money = Immutable.Record({
-  fractionalAmount: 0,
-  currency: 'USD',
-});
+import { Money, Distance } from '../types/types';
 
 const ListingModel = Immutable.Record({
   id: 'uuid',

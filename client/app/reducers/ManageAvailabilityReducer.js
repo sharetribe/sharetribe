@@ -1,9 +1,8 @@
 /* eslint-disable no-alert */
-import { Map, List } from 'immutable';
+import { Map, List, Range } from 'immutable';
 import moment from 'moment';
 import { isSameDay } from 'react-dates';
 import * as actionTypes from '../constants/ManageAvailabilityConstants';
-import _ from 'lodash';
 
 const initialState = new Map({
   isOpen: true,
@@ -45,25 +44,26 @@ const withChange = (state, action, day) => {
 };
 
 const ranges = (bookings) =>
-  bookings.map((b) => ({
-    start: moment(b.attributes.start),
-    end: moment(b.attributes.end),
-  }));
+  bookings.map((b) => (new Map({
+    start: moment(b.getIn([':attributes', ':start'])),
+    end: moment(b.getIn([':attributes', ':end'])),
+  })));
 
 const splitRanges = (dateRanges) =>
-  _.flatMap(dateRanges, (range) => {
-    const { start, end } = range;
+  dateRanges.flatMap((range) => {
+    const start = range.get('start');
+    const end = range.get('end');
     const days = end.diff(start, 'days');
 
-    return _.range(days).map((i) => start.clone().add(i, 'days'));
+    return new Range(0, days).map((i) => start.clone().add(i, 'days'));
   });
 
 const mergeNovelty = (state, novelty) => {
-  const blocks = splitRanges(ranges(novelty.blocks));
-  const bookings = splitRanges(ranges(novelty.bookings));
+  const blocks = splitRanges(ranges(novelty.get('blocks')));
+  const bookings = splitRanges(ranges(novelty.get('bookings')));
 
   return state.set('reservedDays', state.get('reservedDays').concat(bookings))
-       .set('blockedDays', state.get('blockedDays').concat(blocks));
+              .set('blockedDays', state.get('blockedDays').concat(blocks));
 };
 
 // Calculate all unique changes to the original blocked days

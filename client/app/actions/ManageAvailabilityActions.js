@@ -1,6 +1,6 @@
 import * as actionTypes from '../constants/ManageAvailabilityConstants';
-import _ from 'lodash';
 import * as harmony from '../services/harmony';
+import { Map, List } from 'immutable';
 
 export const allowDay = (day) => ({
   type: actionTypes.ALLOW_DAY,
@@ -17,12 +17,9 @@ const changeVisibleMonth = (day) => ({
   payload: day,
 });
 
-export const dataLoaded = (bookings, blocks) => ({
+export const dataLoaded = (slots) => ({
   type: actionTypes.DATA_LOADED,
-  payload: {
-    bookings,
-    blocks,
-  },
+  payload: slots,
 });
 
 export const changeMonth = (day) =>
@@ -36,11 +33,14 @@ export const changeMonth = (day) =>
       marketplaceId: state.get('marketplaceUuid'),
       include: ['blocks', 'bookings'].join(','),
     }).then((response) => {
-      const groups = _.groupBy(response.included, 'type');
-      const bookings = groups.booking || [];
-      const blocks = groups.blocks || [];
+      const groups = response.get(':included').groupBy((v) => v.get(':type'));
 
-      dispatch(dataLoaded(bookings, blocks));
+      const slots = new Map({
+        blocks: groups.get(':block', new List()),
+        bookings: groups.get(':booking', new List()),
+      });
+
+      dispatch(dataLoaded(slots));
     });
 
     // TODO ADD ERROR HANDLING
