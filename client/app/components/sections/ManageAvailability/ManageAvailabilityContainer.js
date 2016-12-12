@@ -39,7 +39,7 @@ const ManageAvailabilityContainer = ({
           initialMonth: visibleMonth,
           blockedDays,
           reservedDays,
-          onDayAllowed: actions.allowDay,
+          onDayAllowed: actions.unblockDay,
           onDayBlocked: actions.blockDay,
           onMonthChanged: actions.changeMonth,
         },
@@ -59,7 +59,7 @@ ManageAvailabilityContainer.propTypes = {
     openEditView: func.isRequired,
     saveChanges: func.isRequired,
     closeEditView: func.isRequired,
-    allowDay: func.isRequired,
+    unblockDay: func.isRequired,
     blockDay: func.isRequired,
     changeMonth: func.isRequired,
   }).isRequired,
@@ -79,8 +79,8 @@ const mapStateToProps = ({ flashNotifications, manageAvailability }) => ({
   isOpen: manageAvailability.get('isOpen'),
   visibleMonth: manageAvailability.get('visibleMonth'),
   hasChanges: availabilityReducer.hasChanges(manageAvailability),
-  reservedDays: manageAvailability.get('reservedDays').toJS(),
   saveInProgress: manageAvailability.get('saveInProgress'),
+  reservedDays: manageAvailability.get('bookings').toJS(),
   blockedDays: availabilityReducer.blockedDays(manageAvailability).toJS(),
 });
 

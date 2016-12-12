@@ -5,13 +5,13 @@ import { expandRange } from '../utils/moment';
 import { t } from '../utils/i18n';
 import { addFlashNotification } from './FlashNotificationActions';
 
-export const allowDay = (day) => ({
-  type: actionTypes.ALLOW_DAY,
+export const blockDay = (day) => ({
+  type: actionTypes.BLOCK_DAY,
   payload: day,
 });
 
-export const blockDay = (day) => ({
-  type: actionTypes.BLOCK_DAY,
+export const unblockDay = (day) => ({
+  type: actionTypes.UNBLOCK_DAY,
   payload: day,
 });
 

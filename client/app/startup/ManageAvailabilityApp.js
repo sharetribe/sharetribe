@@ -26,8 +26,8 @@ export default (props) => {
       visibleMonth: moment()
         .utc()
         .startOf('month'),
-      reservedDays: new List(),
-      blockedDays: new List(),
+      bookings: new List(),
+      blocks: new List(),
       changes: new List(),
       saveInProgress: false,
       marketplaceUuid: new UUID({ value: props.marketplace.uuid }),

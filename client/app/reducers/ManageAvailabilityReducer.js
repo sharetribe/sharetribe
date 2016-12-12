@@ -9,14 +9,14 @@ const initialState = new Map({
   isOpen: true,
   visibleMonth: moment().startOf('month'),
 
-  // List of days that buyers have reserved. These cannot be blocked.
-  reservedDays: new List(),
+  // List of days that buyers have booked. These cannot be blocked.
+  bookings: new List(),
 
   // List of days that are blocked and already saved to the API.
-  blockedDays: new List(),
+  blocks: new List(),
 
   // List of changes with `action` (String) and `day` (moment
-  // instance) keys. Whenever the user blocks/allows a day, a change
+  // instance) keys. Whenever the user blocks/unblocks a day, a change
   // is added to this list. The actual changes for the UI and the API
   // are calculated by going through this list to see the final values
   // for each day and comparing those to the blocked days above.
@@ -36,11 +36,11 @@ export const EDIT_VIEW_OPEN_HASH = 'manage-availability';
 const includesDay = (days, day) =>
       days.some((d) => isSameDay(d, day));
 
-const ACTION_ALLOW = 'allow';
+const ACTION_UNBLOCK = 'unblock';
 const ACTION_BLOCK = 'block';
 
 const withChange = (state, action, day) => {
-  if (includesDay(state.get('reservedDays'), day)) {
+  if (includesDay(state.get('bookings'), day)) {
     // Changes to reserved days ignored
     return state;
   }
@@ -67,8 +67,8 @@ const mergeNovelty = (state, novelty) => {
   const bookings = expandRanges(ranges(novelty.get('bookings')));
   const loadedMonths = novelty.get('loadedMonths');
 
-  return state.set('reservedDays', state.get('reservedDays').concat(bookings))
-              .set('blockedDays', state.get('blockedDays').concat(blocks))
+  return state.set('bookings', state.get('bookings').concat(bookings))
+              .set('blocks', state.get('blocks').concat(blocks))
               .set('loadedMonths', state.get('loadedMonths').union(loadedMonths));
 };
 
@@ -91,15 +91,15 @@ const compressedChanges = (state) => {
     return result;
   }, new List());
 
-  const blockedDays = state.get('blockedDays');
+  const blocks = state.get('blocks');
 
   // Only include changes to the original blocked days
   return compressed.filter((c) => {
     const isBlock = c.get('action') === ACTION_BLOCK;
-    const alreadyBlocked = includesDay(blockedDays, c.get('day'));
+    const alreadyBlocked = includesDay(blocks, c.get('day'));
 
     // A change is only considered if it is a block that isn't already
-    // blocked or if it is an allow to a day that is already blocked.
+    // blocked or if it is an unblock to a day that is already blocked.
     return (isBlock && !alreadyBlocked) || (!isBlock && alreadyBlocked);
   });
 };
@@ -112,25 +112,25 @@ export const hasChanges = (state) =>
 export const blockedDays = (state) => {
   const changes = compressedChanges(state);
 
-  // Collect lists of day instances for allows and blocks
+  // Collect lists of day instances for blocks and unblocks
   const splitChanges = changes.reduce((result, c) => {
-    const isAllow = c.get('action') === ACTION_ALLOW;
+    const isBlock = c.get('action') === ACTION_BLOCK;
     const day = c.get('day');
-    return isAllow ?
-      result.set('allows', result.get('allows').push(day)) :
-      result.set('blocks', result.get('blocks').push(day));
+    return isBlock ?
+      result.set('blocks', result.get('blocks').push(day)) :
+      result.set('unblocks', result.get('unblocks').push(day));
   }, new Map({
-    allows: new List(),
     blocks: new List(),
+    unblocks: new List(),
   }));
 
-  const allows = splitChanges.get('allows');
   const blocks = splitChanges.get('blocks');
+  const unblocks = splitChanges.get('unblocks');
 
   return state
-    .get('blockedDays')
+    .get('blocks')
     .concat(blocks)
-    .filter((d) => !includesDay(allows, d));
+    .filter((d) => !includesDay(unblocks, d));
 };
 
 const manageAvailabilityReducer = (state = initialState, action) => {
@@ -140,10 +140,10 @@ const manageAvailabilityReducer = (state = initialState, action) => {
   let unsavedChanges = false;
 
   switch (type) {
-    case actionTypes.ALLOW_DAY:
-      return withChange(state, ACTION_ALLOW, payload);
     case actionTypes.BLOCK_DAY:
-      return withChange(state, ACTION_BLOCK, payload);
+      return saveInProgress ? state : withChange(state, ACTION_BLOCK, payload);
+    case actionTypes.UNBLOCK_DAY:
+      return saveInProgress ? state : withChange(state, ACTION_UNBLOCK, payload);
     case actionTypes.CHANGE_MONTH:
       return state.set('visibleMonth', payload);
     case actionTypes.START_SAVING:
