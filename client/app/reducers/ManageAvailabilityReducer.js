@@ -11,7 +11,8 @@ const initialState = new Map({
   // List of days that buyers have booked. These cannot be blocked.
   bookings: new List(),
 
-  // List of days that are blocked and already saved to the API.
+  // List of Maps with `id` and `day` keys indicating days that are
+  // blocked and already saved to the API.
   blocks: new List(),
 
   // List of changes with `action` (String) and `day` (moment
@@ -60,9 +61,13 @@ const expandRanges = (dateRanges) =>
   });
 
 const mergeNovelty = (state, novelty) => {
-  const blocks = expandRanges(ranges(novelty.get('blocks')));
   const bookings = expandRanges(ranges(novelty.get('bookings')));
   const loadedMonths = novelty.get('loadedMonths');
+
+  const blocks = novelty.get('blocks').map((b) => new Map({
+    id: b.get(':id'),
+    day: moment(b.getIn([':attributes', ':start'])),
+  }));
 
   return state.set('bookings', state.get('bookings').concat(bookings))
               .set('blocks', state.get('blocks').concat(blocks))
@@ -88,7 +93,7 @@ export const compressedChanges = (state) => {
     return result;
   }, new List());
 
-  const blocks = state.get('blocks');
+  const blocks = state.get('blocks').map((b) => b.get('day'));
 
   // Only include changes to the original blocked days
   return compressed.filter((c) => {
@@ -126,6 +131,7 @@ export const blockedDays = (state) => {
 
   return state
     .get('blocks')
+    .map((b) => b.get('day'))
     .concat(blocks)
     .filter((d) => !includesDay(unblocks, d));
 };
