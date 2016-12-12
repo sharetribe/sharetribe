@@ -161,22 +161,6 @@ describe('ManageAvailabilityReducer', () => {
       expect(afterAllow.equals(afterStartSaving)).to.equal(true);
     });
 
-    it('applies pending changes when saved', () => {
-      const state = applyActions(reducer, stateTodayBlocked, new List([
-        actions.blockDay(TOMORROW),
-        actions.blockDay(DAY_AFTER_TOMORROW),
-        actions.unblockDay(TOMORROW),
-        actions.startSaving(),
-        actions.changesSaved(),
-      ]));
-      expect(state.get('saveInProgress')).to.equal(false);
-      expect(hasChanges(state)).to.equal(false);
-      const blocked = state.get('blocks');
-      expect(blocked.size).to.equal(2);
-      expect(isSameDay(blocked.first(), TODAY)).to.equal(true);
-      expect(isSameDay(blocked.last(), DAY_AFTER_TOMORROW)).to.equal(true);
-    });
-
   });
 
 });
