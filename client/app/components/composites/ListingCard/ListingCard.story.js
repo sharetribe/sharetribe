@@ -5,7 +5,7 @@ import Immutable from 'immutable';
 import { storify } from '../../Styleguide/withProps';
 import { formatDistance, formatMoney } from '../../../utils/numbers';
 import ListingModel from '../../../models/ListingModel';
-import { Distance, Money } from '../../../types/types'
+import { Distance, Money } from '../../../types/types';
 import { Image, ListingImage, AvatarImage } from '../../../models/ImageModel';
 
 import ListingCard from './ListingCard';
