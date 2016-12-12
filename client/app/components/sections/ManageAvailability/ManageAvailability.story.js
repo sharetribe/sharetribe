@@ -3,6 +3,7 @@
 import { Component } from 'react';
 import r from 'r-dom';
 import moment from 'moment';
+import Immutable from 'immutable';
 import { isSameDay } from 'react-dates';
 import withProps from '../../Styleguide/withProps';
 import ManageAvailability from './ManageAvailability';
@@ -14,7 +15,11 @@ const now = Date.now();
 const day1 = moment(now + 24 * 60 * 60 * 1000);
 const day2 = moment(now + 2 * 24 * 60 * 60 * 1000);
 
-const { storiesOf } = storybookFacade;
+const { action, storiesOf } = storybookFacade;
+
+const actions = {
+  removeFlashNotification: action('removeFlashNotification'),
+};
 
 class ManageAvailabilityWrapper extends Component {
   constructor(props) {
@@ -48,6 +53,8 @@ class ManageAvailabilityWrapper extends Component {
     };
 
     return r(ManageAvailability, {
+      actions,
+      flashNotifications: new Immutable.List(),
       onOpen: () => {
         this.setState({ isOpen: true });
       },
