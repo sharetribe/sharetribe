@@ -1,7 +1,9 @@
+import Immutable from 'immutable';
 import * as actionTypes from '../constants/ManageAvailabilityConstants';
 import * as harmony from '../services/harmony';
-import Immutable from 'immutable';
 import { expandRange } from '../utils/moment';
+import { t } from '../utils/i18n';
+import { addFlashNotification } from './FlashNotificationActions';
 
 export const allowDay = (day) => ({
   type: actionTypes.ALLOW_DAY,
@@ -85,7 +87,8 @@ export const changeMonth = (day) =>
         include: ['blocks', 'bookings'].join(','),
         start: start.toJSON(),
         end: end.toJSON(),
-      }).then((response) => {
+      })
+      .then((response) => {
         const groups = response.get(':included').groupBy((v) => v.get(':type'));
 
         const slots = Immutable.Map({
@@ -94,10 +97,12 @@ export const changeMonth = (day) =>
         });
 
         dispatch(dataLoaded(slots, expandRange(start, end, 'months').toSet()));
+      })
+      .catch(() => {
+        // Status looks bad, alert user
+        dispatch(addFlashNotification('error', t('web.listings.errors.availability.something_went_wrong')));
       });
     }
-
-    // TODO ADD ERROR HANDLING
   };
 
 export const saveChanges = () => ({

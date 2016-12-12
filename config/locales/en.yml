@@ -2053,6 +2053,9 @@ en:
     days: days
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: "We're not able to display availability information. Try to reload the page."
       pricing_units:
         piece: piece
         hour: hour
