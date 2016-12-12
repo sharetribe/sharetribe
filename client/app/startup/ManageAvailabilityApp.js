@@ -29,6 +29,7 @@ export default (props) => {
       reservedDays: new List(),
       blockedDays: new List(),
       changes: new List(),
+      saveInProgress: false,
       marketplaceUuid: new UUID({ value: props.marketplace.uuid }),
       listingUuid: new UUID({ value: props.listing.uuid }),
       loadedMonths: new Set(),

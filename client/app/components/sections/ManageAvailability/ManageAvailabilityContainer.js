@@ -16,11 +16,13 @@ const ManageAvailabilityContainer = ({
   isOpen,
   visibleMonth,
   hasChanges,
+  saveInProgress,
   reservedDays,
   blockedDays,
 }) =>
       r(ManageAvailability, {
         hasChanges,
+        saveInProgress,
         onOpen: actions.openEditView,
         onSave: actions.saveChanges,
         winder: {
@@ -78,6 +80,7 @@ const mapStateToProps = ({ flashNotifications, manageAvailability }) => ({
   visibleMonth: manageAvailability.get('visibleMonth'),
   hasChanges: availabilityReducer.hasChanges(manageAvailability),
   reservedDays: manageAvailability.get('reservedDays').toJS(),
+  saveInProgress: manageAvailability.get('saveInProgress'),
   blockedDays: availabilityReducer.blockedDays(manageAvailability).toJS(),
 });
 

@@ -105,8 +105,8 @@ export const changeMonth = (day) =>
     }
   };
 
-export const saveChanges = () => ({
-  type: actionTypes.SAVE_CHANGES,
+export const startSaving = () => ({
+  type: actionTypes.START_SAVING,
 });
 
 export const openEditView = () => ({
