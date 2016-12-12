@@ -9,6 +9,7 @@ import { Map, List } from 'immutable';
 import ManageAvailabilityContainer from '../components/sections/ManageAvailability/ManageAvailabilityContainer';
 import { EDIT_VIEW_OPEN_HASH } from '../reducers/ManageAvailabilityReducer';
 import * as cssVariables from '../assets/styles/variables';
+import { UUID } from '../types/types';
 
 export default (props) => {
   const locale = props.i18n.locale;
@@ -25,8 +26,8 @@ export default (props) => {
       reservedDays: new List(),
       blockedDays: new List(),
       changes: new List(),
-      marketplaceUuid: props.marketplace.uuid,
-      listingUuid: props.listing.uuid,
+      marketplaceUuid: new UUID({ value: props.marketplace.uuid }),
+      listingUuid: new UUID({ value: props.listing.uuid }),
     }),
   };
 

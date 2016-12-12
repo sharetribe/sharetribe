@@ -1,20 +1,22 @@
 import transit from 'transit-js';
 import Immutable from 'immutable';
-import { parse as parseImage } from '../models/ImageModel';
-import { Distance, Money } from '../models/ListingModel';
+import { UUID, Distance, Money } from '../types/types';
 
-// Outside of this file we should only pass UUID references, no need to export
-class UUID extends Immutable.Record({ value: '' }) {
-  toString() {
-    return this.value;
-  }
-}
 const toUUID = (transitUuid) => new UUID({ value: transitUuid.toString() });
-
 const toDistance = ([value, unit]) => new Distance({ value, unit });
 const toMoney = ([fractionalAmount, currency]) => new Money({ fractionalAmount, currency });
 
-const createReader = function createReader() {
+const defaultHandlers = {
+  ':': (rep) => `:${rep}`,
+  list: (rep) => Immutable.List(rep).asImmutable(),
+  lstr: (rep) => Immutable.Map(rep).asImmutable(),
+  u: toUUID,
+  r: (rep) => rep,
+  di: toDistance,
+  mn: toMoney,
+};
+
+const createReader = function createReader(handlers) {
   return transit.reader('json', {
     mapBuilder: {
       init: () => Immutable.Map().asMutable(),
@@ -26,21 +28,12 @@ const createReader = function createReader() {
       add: (m, v) => m.push(v),
       finalize: (m) => m.asImmutable(),
     },
-    handlers: {
-      ':': (rep) => `:${rep}`,
-      list: (rep) => Immutable.List(rep).asImmutable(),
-      lstr: (rep) => Immutable.Map(rep).asImmutable(),
-      u: toUUID,
-      r: (rep) => rep,
-      di: toDistance,
-      im: parseImage,
-      mn: toMoney,
-    },
+    handlers: Object.assign({}, defaultHandlers, handlers),
   });
 };
 
-const createInstance = () => {
-  const reader = createReader();
+export const createInstance = (handlers = {}) => {
+  const reader = createReader(handlers);
   const fromJSON = (json) => {
     if (json == null) {
       return new Immutable.Map();
@@ -50,5 +43,3 @@ const createInstance = () => {
 
   return { fromJSON };
 };
-
-export default createInstance();

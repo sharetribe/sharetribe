@@ -148,6 +148,8 @@ class HarmonyProxyController < ApplicationController
         method: request.method,
         path: "/" + path + format,
         query_params: request.query_parameters,
+
+        # TODO Body needs some special handling when we start to pass Transit encoded data
         body: request.request_parameters,
         params: request.query_parameters.merge(request.request_parameters)
       })
@@ -156,12 +158,19 @@ class HarmonyProxyController < ApplicationController
   def call_harmony(ctx)
     req, endpoint = ctx.values_at(:request, :endpoint)
 
+    # The client is sending data in transit_json format.
+    # Since the proxy just forwards the request/response,
+    # we want to skip decoding and encoding.
+    opts = { encoding: :transit_json,
+             decode_response: false,
+             encode_request: false }
+
     res =
       case req[:method]
       when "GET"
-        HarmonyClient.get(endpoint[:name], params: req[:query_params], opts: { encoding: :json })
+        HarmonyClient.get(endpoint[:name], params: req[:query_params], opts: opts)
       when "POST"
-        HarmonyClient.post(endpoint[:name], params: req[:query_params], body: req[:body], opts: { encoding: :json })
+        HarmonyClient.post(endpoint[:name], params: req[:query_params], body: req[:body], opts: opts)
       else
         raise ArgumentError.new("Unknown method: #{req[:method]}")
       end
