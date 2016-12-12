@@ -133,9 +133,11 @@ export const blockedDays = (state) => {
     .filter((d) => !includesDay(unblocks, d));
 };
 
-const mergedChanges = (state) =>
+const clearState = (state) =>
       state
-      .set('blocks', blockedDays(state))
+      .set('isOpen', false)
+      .set('bookings', new List())
+      .set('blocks', new List())
       .set('changes', new List());
 
 const manageAvailabilityReducer = (state = initialState, action) => {
@@ -154,9 +156,7 @@ const manageAvailabilityReducer = (state = initialState, action) => {
     case actionTypes.START_SAVING:
       return state.set('saveInProgress', true);
     case actionTypes.CHANGES_SAVED:
-      return mergedChanges(state)
-        .set('saveInProgress', false)
-        .set('isOpen', false);
+      return state.set('saveInProgress', false);
     case actionTypes.DATA_LOADED:
       return mergeNovelty(state, payload);
     case actionTypes.OPEN_EDIT_VIEW:
@@ -166,7 +166,9 @@ const manageAvailabilityReducer = (state = initialState, action) => {
       unsavedChanges = hasChanges(state);
       if (!unsavedChanges || unsavedChanges && window.confirm('Are you sure?')) {
         window.location.hash = '';
-        return state.set('isOpen', false);
+
+        // Clean up store state, everything will be refetched when opened again.
+        return clearState(state);
       }
       return state;
     default:
