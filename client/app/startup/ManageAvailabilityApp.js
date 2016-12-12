@@ -7,7 +7,7 @@ import { initialize as initializeI18n } from '../utils/i18n';
 import moment from 'moment';
 import { Map, List, Set } from 'immutable';
 import ManageAvailabilityContainer from '../components/sections/ManageAvailability/ManageAvailabilityContainer';
-import { EDIT_VIEW_OPEN_HASH } from '../reducers/ManageAvailabilityReducer';
+import { EDIT_VIEW_OPEN_HASH } from '../actions/ManageAvailabilityActions';
 import * as cssVariables from '../assets/styles/variables';
 import { UUID } from '../types/types';
 

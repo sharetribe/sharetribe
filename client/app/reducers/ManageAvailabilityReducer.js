@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import { Map, List } from 'immutable';
 import moment from 'moment';
 import { isSameDay } from 'react-dates';
@@ -30,8 +29,6 @@ const initialState = new Map({
 
   loadedMonths: new Set(),
 });
-
-export const EDIT_VIEW_OPEN_HASH = 'manage-availability';
 
 const includesDay = (days, day) =>
       days.some((d) => isSameDay(d, day));
@@ -142,9 +139,7 @@ const clearState = (state) =>
 
 const manageAvailabilityReducer = (state = initialState, action) => {
   const { type, payload } = action;
-
   const saveInProgress = state.get('saveInProgress');
-  let unsavedChanges = false;
 
   switch (type) {
     case actionTypes.BLOCK_DAY:
@@ -160,17 +155,10 @@ const manageAvailabilityReducer = (state = initialState, action) => {
     case actionTypes.DATA_LOADED:
       return mergeNovelty(state, payload);
     case actionTypes.OPEN_EDIT_VIEW:
-      window.location.hash = EDIT_VIEW_OPEN_HASH;
       return state.set('isOpen', true);
     case actionTypes.CLOSE_EDIT_VIEW:
-      unsavedChanges = hasChanges(state);
-      if (!unsavedChanges || unsavedChanges && window.confirm('Are you sure?')) {
-        window.location.hash = '';
-
-        // Clean up store state, everything will be refetched when opened again.
-        return clearState(state);
-      }
-      return state;
+      // Clean up store state, everything will be refetched when opened again.
+      return clearState(state);
     default:
       return state;
   }
