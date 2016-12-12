@@ -34,7 +34,9 @@ export default (props) => {
   const store = applyMiddleware(middleware)(createStore)(combinedReducer, initialStoreState);
 
   const containerProps = {
-    availability_link_id: props.availability_link_id,
+    availability_link: props.availability_link_id ?
+      document.getElementById(props.availability_link_id) :
+      null,
     header: {
       backgroundColor: props.marketplace.marketplace_color1 || cssVariables['--customColorFallback'],
       imageUrl: props.listing.image_url,
