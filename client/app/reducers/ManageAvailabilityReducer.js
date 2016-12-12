@@ -73,7 +73,7 @@ const mergeNovelty = (state, novelty) => {
 };
 
 // Calculate all unique changes to the original blocked days
-const compressedChanges = (state) => {
+export const compressedChanges = (state) => {
   const changes = state.get('changes');
 
   const isSameDayChange = (c1) => (c2) =>
@@ -133,6 +133,11 @@ export const blockedDays = (state) => {
     .filter((d) => !includesDay(unblocks, d));
 };
 
+const mergedChanges = (state) =>
+      state
+      .set('blocks', blockedDays(state))
+      .set('changes', new List());
+
 const manageAvailabilityReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
@@ -148,6 +153,10 @@ const manageAvailabilityReducer = (state = initialState, action) => {
       return state.set('visibleMonth', payload);
     case actionTypes.START_SAVING:
       return state.set('saveInProgress', true);
+    case actionTypes.CHANGES_SAVED:
+      return mergedChanges(state)
+        .set('saveInProgress', false)
+        .set('isOpen', false);
     case actionTypes.DATA_LOADED:
       return mergeNovelty(state, payload);
     case actionTypes.OPEN_EDIT_VIEW:

@@ -70,5 +70,16 @@ const sendRequest = (method, url, queryParams, body) => {
 export const get = (url, queryParams) =>
   sendRequest('get', url, queryParams);
 
-export const post = (url, queryParams, body) =>
-  sendRequest('post', url, queryParams, body);
+export const createBlocks = (marketplaceId, refId, blocks) =>
+  sendRequest('post', '/bookables/createBlocks', {}, {
+    marketplaceId,
+    refId,
+    blocks,
+  });
+
+export const deleteBlocks = (marketplaceId, refId, blockIds) =>
+  sendRequest('post', 'bookables/deleteBlocks', {}, {
+    marketplaceId,
+    refId,
+    blocks: blockIds.map((id) => ({ id })),
+  });

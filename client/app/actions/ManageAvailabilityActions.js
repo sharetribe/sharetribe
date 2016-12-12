@@ -4,6 +4,15 @@ import * as harmony from '../services/harmony';
 import { expandRange } from '../utils/moment';
 import { t } from '../utils/i18n';
 import { addFlashNotification } from './FlashNotificationActions';
+import { compressedChanges } from '../reducers/ManageAvailabilityReducer';
+
+export const openEditView = () => ({
+  type: actionTypes.OPEN_EDIT_VIEW,
+});
+
+export const closeEditView = () => ({
+  type: actionTypes.CLOSE_EDIT_VIEW,
+});
 
 export const blockDay = (day) => ({
   type: actionTypes.BLOCK_DAY,
@@ -109,10 +118,30 @@ export const startSaving = () => ({
   type: actionTypes.START_SAVING,
 });
 
-export const openEditView = () => ({
-  type: actionTypes.OPEN_EDIT_VIEW,
+export const changesSaved = () => ({
+  type: actionTypes.CHANGES_SAVED,
 });
 
-export const closeEditView = () => ({
-  type: actionTypes.CLOSE_EDIT_VIEW,
-});
+export const saveChanges = () =>
+  (dispatch, getState) => {
+    dispatch(startSaving());
+
+    const state = getState().manageAvailability;
+    const marketplaceId = state.get('marketplaceUuid');
+    const listingId = state.get('listingUuid');
+    const changes = compressedChanges(state);
+
+    // TODO: compute these from the changes
+    const blocks = [];
+    const unblocks = [];
+
+    const created = harmony.createBlocks(marketplaceId, listingId, blocks);
+    const deleted = harmony.deleteBlocks(marketplaceId, listingId, unblocks);
+
+    Promise.all([created, deleted])
+      .then(() => dispatch(closeEditView()))
+      .catch((e) => {
+        // TODO: show notification
+        console.error(e);
+      });
+  };
