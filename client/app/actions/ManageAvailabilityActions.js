@@ -149,7 +149,10 @@ export const saveChanges = () =>
     const deleted = harmony.deleteBlocks(marketplaceId, listingId, unblocks);
 
     Promise.all([created, deleted])
-      .then(() => dispatch(closeEditView()))
+      .then(() => {
+        dispatch(changesSaved());
+        dispatch(closeEditView());
+      })
       .catch((e) => {
         // TODO: show notification
         console.error(e);
