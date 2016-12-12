@@ -25,6 +25,8 @@ case "$APP_MODE" in
             # Do nothing
             exec sleep 86400
         else
+            # add -worker suffix to newrelic app name to separate
+            [[ -n "$NEW_RELIC_APP_NAME" ]] && export NEW_RELIC_APP_NAME="${NEW_RELIC_APP_NAME}-worker"
             exec bundle exec rake jobs:work
         fi
         ;;
