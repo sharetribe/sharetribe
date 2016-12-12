@@ -31,7 +31,7 @@ const csrfToken = () => {
 
 const reader = createReader();
 
-const sendRequest = (method, url, queryParams) => {
+const sendRequest = (method, url, queryParams, body) => {
   const harmonyApiUrl = '/harmony_proxy';
 
   const headers = new Headers({
@@ -51,7 +51,10 @@ const sendRequest = (method, url, queryParams) => {
   };
 
   const urlWithQuery = harmonyApiUrl + url + paramsToQueryString(queryParams);
-  const requestOpts = Object.assign({}, defaultRequestOpts, { method });
+  const opts = { ...defaultRequestOpts, method };
+  const requestOpts = body ?
+        { ...opts, body: JSON.stringify(body) } :
+        opts;
 
   return window.fetch(urlWithQuery, requestOpts)
                 .then((response) => {
@@ -64,9 +67,8 @@ const sendRequest = (method, url, queryParams) => {
                 });
 };
 
-const get = (url, queryParams) => sendRequest('get', url, queryParams);
+export const get = (url, queryParams) =>
+  sendRequest('get', url, queryParams);
 
-export {
-  get,
-  // TODO implement post
-};
+export const post = (url, queryParams, body) =>
+  sendRequest('post', url, queryParams, body);
