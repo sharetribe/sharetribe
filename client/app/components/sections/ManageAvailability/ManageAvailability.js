@@ -25,16 +25,38 @@ SaveButton.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
+/**
+   Return `true` if component should load initial data.
+*/
+const shouldLoad = (isOpen, prevIsOpen) => {
+  if (!isOpen) {
+    return false;
+  } else if (prevIsOpen && isOpen) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+/**
+   Load initial data if needed. This should happen only once when
+   component `isOpen` becomes `true`
+*/
+const loadInitialDataIfNeeded = (props, prevProps = null) => {
+  const isOpen = props.winder.isOpen;
+  const prevIsOpen = prevProps && prevProps.winder.isOpen;
+
+  if (shouldLoad(isOpen, prevIsOpen)) {
+    props.calendar.onMonthChanged(props.calendar.initialMonth);
+  }
+};
+
 class ManageAvailability extends Component {
   constructor(props) {
     super(props);
     this.state = { renderCalendar: false };
 
     this.clickHandler = this.clickHandler.bind(this);
-  }
-
-  componentWillMount() {
-    this.props.calendar.onMonthChanged(this.props.calendar.initialMonth);
   }
 
   componentDidMount() {
@@ -50,6 +72,12 @@ class ManageAvailability extends Component {
     if (this.props.availability_link) {
       this.props.availability_link.addEventListener('click', this.clickHandler);
     }
+
+    loadInitialDataIfNeeded(this.props);
+  }
+
+  componentDidUpdate(prevProps) {
+    loadInitialDataIfNeeded(this.props, prevProps);
   }
 
   componentWillUnmount() {
