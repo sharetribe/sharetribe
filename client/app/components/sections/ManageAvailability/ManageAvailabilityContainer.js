@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import r from 'r-dom';
 import ManageAvailability from './ManageAvailability';
 import * as availabilityReducer from '../../../reducers/ManageAvailabilityReducer';
+import * as FlashNotificationActions from '../../../actions/FlashNotificationActions';
 import * as ManageAvailabilityActions from '../../../actions/ManageAvailabilityActions';
 import * as cssVariables from '../../../assets/styles/variables';
 
@@ -11,6 +12,7 @@ const ManageAvailabilityContainer = ({
   availability_link,
   header,
   actions,
+  flashNotifications,
   isOpen,
   visibleMonth,
   hasChanges,
@@ -27,7 +29,9 @@ const ManageAvailabilityContainer = ({
           isOpen,
           onClose: actions.closeEditView,
         },
+        actions,
         availability_link,
+        flashNotifications,
         header,
         calendar: {
           initialMonth: visibleMonth,
@@ -68,7 +72,8 @@ ManageAvailabilityContainer.propTypes = {
 
 /* eslint-enable react/forbid-prop-types */
 
-const mapStateToProps = ({ manageAvailability }) => ({
+const mapStateToProps = ({ flashNotifications, manageAvailability }) => ({
+  flashNotifications,
   isOpen: manageAvailability.get('isOpen'),
   visibleMonth: manageAvailability.get('visibleMonth'),
   hasChanges: availabilityReducer.hasChanges(manageAvailability),
@@ -77,7 +82,7 @@ const mapStateToProps = ({ manageAvailability }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(ManageAvailabilityActions, dispatch),
+  actions: bindActionCreators({ ...FlashNotificationActions, ...ManageAvailabilityActions }, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageAvailabilityContainer);

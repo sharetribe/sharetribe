@@ -345,9 +345,11 @@ module.exports = {
   '--Avatar_textColor': textColorLight,
   '--Avatar_backgroundColor': 'hsl(210, 16%, 78%)',
 
+  // FlashNotifications should be always on top of everything else.
+  // If you are creating zIndex greater than this one, remember to increase this
+  '--FlashNotification_zIndex': zIndexMinimum + 30,
   '--FlashNotification_spacingOutside': '12px',
   '--FlashNotification_spacingInside': '14px',
-  '--FlashNotification_zIndex': zIndexMinimum + 10,
   '--FlashNotification_border': borderColorNotification,
   '--FlashNotification_boxShadow': '0 3px 20px 0 rgba(0,0,0,0.2)',
   '--FlashNotification_errorColor': 'rgb(237, 79, 46)',
