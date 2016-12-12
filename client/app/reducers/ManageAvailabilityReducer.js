@@ -42,7 +42,18 @@ const withChange = (state, action, day) => {
     // Changes to reserved days ignored
     return state;
   }
-  const change = new Map({ action, day });
+  let id = null;
+
+  if (action === ACTION_UNBLOCK) {
+    const currentBlock = state.get('blocks').find(
+      (b) => isSameDay(b.get('day'), day)
+    );
+    if (currentBlock && currentBlock.get('id')) {
+      id = currentBlock.get('id');
+    }
+  }
+
+  const change = new Map({ id, action, day });
   return state.set('changes', state.get('changes').push(change));
 };
 
@@ -109,6 +120,32 @@ export const compressedChanges = (state) => {
 export const hasChanges = (state) =>
   compressedChanges(state).size > 0;
 
+export const blockChanges = (state) =>
+  compressedChanges(state).reduce((blocks, change) => {
+    if (change.get('action') === ACTION_UNBLOCK) {
+      return blocks;
+    }
+    const day = change.get('day');
+    const block = new Map({
+      start: moment(day).startOf('day'),
+      end: moment(day)
+        .add(1, 'days')
+        .startOf('day'),
+    });
+    return blocks.push(block);
+  }, new List());
+
+export const unblockChanges = (state) =>
+  compressedChanges(state).reduce((unblocks, change) => {
+    if (change.get('action') === ACTION_BLOCK) {
+      return unblocks;
+    }
+    if (!change.get('id')) {
+      throw new Error('No id in unblock');
+    }
+    return unblocks.push(change.get('id'));
+  }, new List());
+
 // Calculate currently blocked days from the fetched ones and the
 // unsaved changes.
 export const blockedDays = (state) => {
@@ -157,7 +194,7 @@ const manageAvailabilityReducer = (state = initialState, action) => {
     case actionTypes.START_SAVING:
       return state.set('saveInProgress', true);
     case actionTypes.CHANGES_SAVED:
-      return state.set('saveInProgress', false);
+      return state.set('saveInProgress', false).set('changes', new List());
     case actionTypes.DATA_LOADED:
       return mergeNovelty(state, payload);
     case actionTypes.OPEN_EDIT_VIEW:

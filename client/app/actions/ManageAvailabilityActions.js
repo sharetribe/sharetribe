@@ -6,7 +6,7 @@ import * as harmony from '../services/harmony';
 import { expandRange } from '../utils/moment';
 import { t } from '../utils/i18n';
 import { addFlashNotification } from './FlashNotificationActions';
-import { compressedChanges, hasChanges } from '../reducers/ManageAvailabilityReducer';
+import { hasChanges, blockChanges, unblockChanges } from '../reducers/ManageAvailabilityReducer';
 
 export const EDIT_VIEW_OPEN_HASH = 'manage-availability';
 
@@ -137,18 +137,22 @@ export const saveChanges = () =>
     dispatch(startSaving());
 
     const state = getState().manageAvailability;
-    const marketplaceId = state.get('marketplaceUuid');
-    const listingId = state.get('listingUuid');
-    const changes = compressedChanges(state);
+    const marketplaceId = state.get('marketplaceUuid').toString();
+    const listingId = state.get('listingUuid').toString();
+    const blocks = blockChanges(state).toJS();
+    const unblocks = unblockChanges(state)
+          .toJS()
+          .map((u) => u.value);
+    const requests = [];
 
-    // TODO: compute these from the changes
-    const blocks = [];
-    const unblocks = [];
+    if (blocks.length > 0) {
+      requests.push(harmony.createBlocks(marketplaceId, listingId, blocks));
+    }
+    if (unblocks.length > 0) {
+      requests.push(harmony.deleteBlocks(marketplaceId, listingId, unblocks));
+    }
 
-    const created = harmony.createBlocks(marketplaceId, listingId, blocks);
-    const deleted = harmony.deleteBlocks(marketplaceId, listingId, unblocks);
-
-    Promise.all([created, deleted])
+    Promise.all(requests)
       .then(() => {
         dispatch(changesSaved());
         dispatch(closeEditView());

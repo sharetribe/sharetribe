@@ -78,7 +78,7 @@ export const createBlocks = (marketplaceId, refId, blocks) =>
   });
 
 export const deleteBlocks = (marketplaceId, refId, blockIds) =>
-  sendRequest('post', 'bookables/deleteBlocks', {}, {
+  sendRequest('post', '/bookables/deleteBlocks', {}, {
     marketplaceId,
     refId,
     blocks: blockIds.map((id) => ({ id })),

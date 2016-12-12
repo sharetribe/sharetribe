@@ -7,12 +7,14 @@ import { isSameDay } from 'react-dates';
 import moment from 'moment';
 import { Map, List } from 'immutable';
 import * as actions from '../actions/ManageAvailabilityActions';
-import reducer, { blockedDays, hasChanges } from '../reducers/ManageAvailabilityReducer';
+import reducer, { blockedDays, hasChanges, blockChanges, unblockChanges } from '../reducers/ManageAvailabilityReducer';
 
+const UUID_V0 = '00000000-0000-0000-0000-000000000000';
 const CURRENT_MONTH = moment().startOf('month');
-const TODAY = moment();
+const TODAY = moment().startOf('day');
 const TOMORROW = moment(TODAY).add(1, 'days');
-const DAY_AFTER_TOMORROW = moment(TODAY).add(2, 'days');
+const DAY_AFTER_TOMORROW = moment(TOMORROW).add(1, 'days');
+const DAY_AFTER_DAY_AFTER_TOMORROW = moment(DAY_AFTER_TOMORROW).add(1, 'days');
 
 const applyActions = (reducerFn, state, actionList) => {
   if (actionList.size === 0) {
@@ -36,7 +38,9 @@ describe('ManageAvailabilityReducer', () => {
     listingUuid: null,
   });
 
-  const stateTodayBlocked = stateEmpty.set('blocks', new List([TODAY]));
+  const stateTodayBlocked = stateEmpty.set('blocks', new List([
+    new Map({ id: UUID_V0, day: TODAY }),
+  ]));
   const stateTodayBooked = stateEmpty.set('bookings', new List([TODAY]));
 
   describe('changes', () => {
@@ -159,6 +163,79 @@ describe('ManageAvailabilityReducer', () => {
       expect(afterBlock.equals(afterStartSaving)).to.equal(true);
       const afterAllow = reducer(afterStartSaving, actions.unblockDay(TODAY));
       expect(afterAllow.equals(afterStartSaving)).to.equal(true);
+    });
+
+  });
+
+  describe('changes', () => {
+
+    describe('blockChanges', () => {
+
+      it('should return no blocks with no changes', () => {
+        const blocks = blockChanges(stateEmpty);
+        expect(blocks.size).to.equal(0);
+      });
+
+      it('should return no blocks with only unblocks', () => {
+        const state = reducer(stateTodayBlocked, actions.unblockDay(TODAY));
+        const blocks = blockChanges(state);
+        expect(blocks.size).to.equal(0);
+      });
+
+      it('should return no blocks with collapsed changes', () => {
+        const state = applyActions(reducer, stateTodayBlocked, new List([
+          actions.unblockDay(TODAY),
+          actions.blockDay(TODAY),
+        ]));
+        const blocks = blockChanges(state);
+        expect(blocks.size).to.equal(0);
+      });
+
+    });
+
+    describe('unblockChanges', () => {
+
+      it('should return no unblocks with no changes', () => {
+        const unblocks = unblockChanges(stateEmpty);
+        expect(unblocks.size).to.equal(0);
+      });
+
+      it('should return no unblocks with only blocks', () => {
+        const state = reducer(stateEmpty, actions.blockDay(TODAY));
+        const unblocks = unblockChanges(state);
+        expect(unblocks.size).to.equal(0);
+      });
+
+      it('should return no unblocks with collapsed changes', () => {
+        const state = applyActions(reducer, stateTodayBlocked, new List([
+          actions.unblockDay(TODAY),
+          actions.blockDay(TODAY),
+        ]));
+        const unblocks = unblockChanges(state);
+        expect(unblocks.size).to.equal(0);
+      });
+
+    });
+
+    it('should collect blocks and unblocks', () => {
+      const state = applyActions(reducer, stateTodayBlocked, new List([
+        actions.blockDay(TOMORROW),
+        actions.unblockDay(TODAY),
+        actions.blockDay(DAY_AFTER_TOMORROW),
+      ]));
+      const blocks = blockChanges(state);
+      const unblocks = unblockChanges(state);
+      expect(blocks.size).to.equal(2);
+      expect(unblocks.size).to.equal(1);
+
+      const block1 = blocks.first();
+      const block2 = blocks.last();
+      expect(isSameDay(block1.get('start'), TOMORROW)).to.equal(true);
+      expect(isSameDay(block1.get('end'), DAY_AFTER_TOMORROW)).to.equal(true);
+      expect(isSameDay(block2.get('start'), DAY_AFTER_TOMORROW)).to.equal(true);
+      expect(isSameDay(block2.get('end'), DAY_AFTER_DAY_AFTER_TOMORROW)).to.equal(true);
+
+      expect(unblocks.first()).to.equal(UUID_V0);
     });
 
   });
