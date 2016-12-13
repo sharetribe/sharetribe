@@ -136,6 +136,12 @@ export const changesSaved = () => ({
   type: actionTypes.CHANGES_SAVED,
 });
 
+export const savingFailed = (e) => ({
+  type: actionTypes.SAVING_FAILED,
+  error: true,
+  payload: e,
+});
+
 export const saveChanges = () =>
   (dispatch, getState) => {
     dispatch(startSaving());
@@ -166,7 +172,8 @@ export const saveChanges = () =>
         dispatch(closeEditView());
       })
       .catch((e) => {
-        // TODO: show notification
+        // TODO: show notification?
         console.error(e);
+        dispatch(savingFailed(e));
       });
   };
