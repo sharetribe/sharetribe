@@ -3,6 +3,7 @@ import moment from 'moment';
 import { isSameDay } from 'react-dates';
 import * as actionTypes from '../constants/ManageAvailabilityConstants';
 import { expandRange } from '../utils/moment';
+import { UUID } from '../types/types';
 
 const initialState = Immutable.Map({
   isOpen: true,
@@ -73,7 +74,7 @@ const expandRanges = (dateRanges) =>
 
 const mergeNovelty = (state, novelty) => {
   const blocks = novelty.get('blocks').map((b) => Immutable.Map({
-    id: b.get(':id'),
+    id: new UUID(b.get(':id')),
     day: moment(b.getIn([':attributes', ':start'])),
   }));
 
