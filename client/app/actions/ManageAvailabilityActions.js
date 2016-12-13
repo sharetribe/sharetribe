@@ -156,6 +156,10 @@ export const saveChanges = () =>
       requests.push(harmony.deleteBlocks(marketplaceId, listingId, unblocks));
     }
 
+    if (requests.length === 0) {
+      throw new Error('No changes to save.');
+    }
+
     Promise.all(requests)
       .then(() => {
         dispatch(changesSaved());
