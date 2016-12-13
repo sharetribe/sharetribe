@@ -74,7 +74,7 @@ const expandRanges = (dateRanges) =>
 
 const mergeNovelty = (state, novelty) => {
   const blocks = novelty.get('blocks').map((b) => Immutable.Map({
-    id: new UUID(b.get(':id')),
+    id: new UUID({ value: b.get(':id') }),
     day: moment(b.getIn([':attributes', ':start'])),
   }));
 
