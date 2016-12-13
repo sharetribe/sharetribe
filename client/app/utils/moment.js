@@ -14,10 +14,10 @@ import Immutable from 'immutable';
    expandRange(moment("2016-12-12"), moment("2016-12-14"), "days")
     -> [moment("2016-12-12"), moment("2016-12-13")]
 
-   expandRange(moment("2016-12-01"), moment("2017-02-01"), "days")
+   expandRange(moment("2016-12-01"), moment("2017-02-01"), "months")
     -> [moment("2016-12-01"), moment("2017-01-01")]
 
-   expandRange(moment("2016-12-01"), moment("2017-02-15"), "days")
+   expandRange(moment("2016-12-01"), moment("2017-02-15"), "months")
     -> [moment("2016-12-01"), moment("2017-01-01")]
 
    @param {moment} start - range start (inclusive)

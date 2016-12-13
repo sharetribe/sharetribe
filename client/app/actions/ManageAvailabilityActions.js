@@ -50,11 +50,21 @@ const loadRange = (date, preloadMonths) => {
 
 /**
    Given a list of `months` and a Set of already `loadedMonths`,
-   return an object { start, end } where already loaded months is removed.
+   return an object { start, end } where months that are already
+   loaded are removed from the beginning and the end of the range.
+
+   Example:
+
+   start: 4
+   end: 11
+   loadedMonths: [2, 3, 4, 5, 6, 9, 11, 12]
+
+   result: { start: 7, end: 10 }
+
  */
 const removeLoadedMonths = (months, loadedMonths) => ({
   start: months.find((s) => !loadedMonths.includes(s)),
-  end: months.reverse().find((e) => !loadedMonths.includes(e)),
+  end: months.findLast((e) => !loadedMonths.includes(e)),
 });
 
 const monthsToLoad = (day, loadedMonths, preloadMonths) =>

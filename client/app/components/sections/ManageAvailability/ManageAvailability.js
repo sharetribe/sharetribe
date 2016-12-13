@@ -28,15 +28,7 @@ SaveButton.propTypes = {
 /**
    Return `true` if component should load initial data.
 */
-const shouldLoad = (isOpen, prevIsOpen) => {
-  if (!isOpen) {
-    return false;
-  } else if (prevIsOpen && isOpen) {
-    return false;
-  } else {
-    return true;
-  }
-};
+const shouldLoad = (isOpen, prevIsOpen) => isOpen && !prevIsOpen;
 
 /**
    Load initial data if needed. This should happen only once when
