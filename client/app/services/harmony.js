@@ -57,14 +57,14 @@ const sendRequest = (method, url, queryParams, body) => {
         opts;
 
   return window.fetch(urlWithQuery, requestOpts)
-                .then((response) => {
-                  if (response.status >= 200 && response.status < 300) { // eslint-disable-line no-magic-numbers
-                    return response.text()
-                      .then((text) => reader.read(text))
-                      .catch(() => new Error('Transit parsing failed for response.'));
-                  }
-                  return Promise.reject(new Error(response.statusText));
-                });
+               .then((response) => {
+                 if (response.status >= 200 && response.status < 300) { // eslint-disable-line no-magic-numbers
+                   return response.text()
+                     .then((text) => reader.read(text))
+                     .catch(() => new Error('Transit parsing failed for response.'));
+                 }
+                 return Promise.reject(new Error(response.statusText));
+               });
 };
 
 export const get = (url, queryParams) =>
