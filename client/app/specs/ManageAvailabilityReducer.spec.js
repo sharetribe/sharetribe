@@ -5,7 +5,7 @@
 import { expect } from 'chai';
 import { isSameDay } from 'react-dates';
 import moment from 'moment';
-import { Map, List } from 'immutable';
+import Immutable from 'immutable';
 import * as actions from '../actions/ManageAvailabilityActions';
 import reducer, { blockedDays, hasChanges, blockChanges, unblockChanges } from '../reducers/ManageAvailabilityReducer';
 
@@ -27,21 +27,21 @@ const applyActions = (reducerFn, state, actionList) => {
 
 describe('ManageAvailabilityReducer', () => {
 
-  const stateEmpty = new Map({
+  const stateEmpty = Immutable.Map({
     isOpen: true,
     visibleMonth: CURRENT_MONTH,
-    bookings: new List(),
-    blocks: new List(),
-    changes: new List(),
+    bookings: Immutable.List(),
+    blocks: Immutable.List(),
+    changes: Immutable.List(),
     saveInProgress: false,
     marketplaceUuid: null,
     listingUuid: null,
   });
 
-  const stateTodayBlocked = stateEmpty.set('blocks', new List([
-    new Map({ id: UUID_V0, day: TODAY }),
+  const stateTodayBlocked = stateEmpty.set('blocks', Immutable.List([
+    Immutable.Map({ id: UUID_V0, day: TODAY }),
   ]));
-  const stateTodayBooked = stateEmpty.set('bookings', new List([TODAY]));
+  const stateTodayBooked = stateEmpty.set('bookings', Immutable.List([TODAY]));
 
   describe('changes', () => {
 
@@ -85,7 +85,7 @@ describe('ManageAvailabilityReducer', () => {
     });
 
     it('blocks and allows a day', () => {
-      const state = applyActions(reducer, stateEmpty, new List([
+      const state = applyActions(reducer, stateEmpty, Immutable.List([
         actions.blockDay(TODAY),
         actions.unblockDay(TODAY),
       ]));
@@ -104,7 +104,7 @@ describe('ManageAvailabilityReducer', () => {
     });
 
     it('allows and blocks again an initially blocked day', () => {
-      const state = applyActions(reducer, stateTodayBlocked, new List([
+      const state = applyActions(reducer, stateTodayBlocked, Immutable.List([
         actions.unblockDay(TODAY),
         actions.blockDay(TODAY),
       ]));
@@ -183,7 +183,7 @@ describe('ManageAvailabilityReducer', () => {
       });
 
       it('should return no blocks with collapsed changes', () => {
-        const state = applyActions(reducer, stateTodayBlocked, new List([
+        const state = applyActions(reducer, stateTodayBlocked, Immutable.List([
           actions.unblockDay(TODAY),
           actions.blockDay(TODAY),
         ]));
@@ -207,7 +207,7 @@ describe('ManageAvailabilityReducer', () => {
       });
 
       it('should return no unblocks with collapsed changes', () => {
-        const state = applyActions(reducer, stateTodayBlocked, new List([
+        const state = applyActions(reducer, stateTodayBlocked, Immutable.List([
           actions.unblockDay(TODAY),
           actions.blockDay(TODAY),
         ]));
@@ -218,7 +218,7 @@ describe('ManageAvailabilityReducer', () => {
     });
 
     it('should collect blocks and unblocks', () => {
-      const state = applyActions(reducer, stateTodayBlocked, new List([
+      const state = applyActions(reducer, stateTodayBlocked, Immutable.List([
         actions.blockDay(TOMORROW),
         actions.unblockDay(TODAY),
         actions.blockDay(DAY_AFTER_TOMORROW),

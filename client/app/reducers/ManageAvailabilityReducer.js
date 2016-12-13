@@ -1,26 +1,26 @@
-import { Map, List } from 'immutable';
+import Immutable from 'immutable';
 import moment from 'moment';
 import { isSameDay } from 'react-dates';
 import * as actionTypes from '../constants/ManageAvailabilityConstants';
 import { expandRange } from '../utils/moment';
 
-const initialState = new Map({
+const initialState = Immutable.Map({
   isOpen: true,
   visibleMonth: moment().startOf('month'),
 
   // List of days that buyers have booked. These cannot be blocked.
-  bookings: new List(),
+  bookings: Immutable.List(),
 
   // List of Maps with `id` and `day` keys indicating days that are
   // blocked and already saved to the API.
-  blocks: new List(),
+  blocks: Immutable.List(),
 
   // List of changes with `action` (String) and `day` (moment
   // instance) keys. Whenever the user blocks/unblocks a day, a change
   // is added to this list. The actual changes for the UI and the API
   // are calculated by going through this list to see the final values
   // for each day and comparing those to the blocked days above.
-  changes: new List(),
+  changes: Immutable.List(),
 
   saveInProgress: false,
 
@@ -53,12 +53,12 @@ const withChange = (state, action, day) => {
     }
   }
 
-  const change = new Map({ id, action, day });
+  const change = Immutable.Map({ id, action, day });
   return state.set('changes', state.get('changes').push(change));
 };
 
 const ranges = (bookings) =>
-  bookings.map((b) => (new Map({
+  bookings.map((b) => (Immutable.Map({
     start: moment(b.getIn([':attributes', ':start'])),
     end: moment(b.getIn([':attributes', ':end'])),
   })));
@@ -72,13 +72,13 @@ const expandRanges = (dateRanges) =>
   });
 
 const mergeNovelty = (state, novelty) => {
-  const bookings = expandRanges(ranges(novelty.get('bookings')));
-  const loadedMonths = novelty.get('loadedMonths');
-
-  const blocks = novelty.get('blocks').map((b) => new Map({
+  const blocks = novelty.get('blocks').map((b) => Immutable.Map({
     id: b.get(':id'),
     day: moment(b.getIn([':attributes', ':start'])),
   }));
+
+  const bookings = expandRanges(ranges(novelty.get('bookings')));
+  const loadedMonths = novelty.get('loadedMonths');
 
   return state.set('bookings', state.get('bookings').concat(bookings))
               .set('blocks', state.get('blocks').concat(blocks))
@@ -102,7 +102,7 @@ export const compressedChanges = (state) => {
       return result.push(change);
     }
     return result;
-  }, new List());
+  }, Immutable.List());
 
   const blocks = state.get('blocks').map((b) => b.get('day'));
 
@@ -126,14 +126,14 @@ export const blockChanges = (state) =>
       return blocks;
     }
     const day = change.get('day');
-    const block = new Map({
+    const block = Immutable.Map({
       start: moment(day).startOf('day'),
       end: moment(day)
         .add(1, 'days')
         .startOf('day'),
     });
     return blocks.push(block);
-  }, new List());
+  }, Immutable.List());
 
 export const unblockChanges = (state) =>
   compressedChanges(state).reduce((unblocks, change) => {
@@ -144,7 +144,7 @@ export const unblockChanges = (state) =>
       throw new Error('No id in unblock');
     }
     return unblocks.push(change.get('id'));
-  }, new List());
+  }, Immutable.List());
 
 // Calculate currently blocked days from the fetched ones and the
 // unsaved changes.
@@ -158,9 +158,9 @@ export const blockedDays = (state) => {
     return isBlock ?
       result.set('blocks', result.get('blocks').push(day)) :
       result.set('unblocks', result.get('unblocks').push(day));
-  }, new Map({
-    blocks: new List(),
-    unblocks: new List(),
+  }, Immutable.Map({
+    blocks: Immutable.List(),
+    unblocks: Immutable.List(),
   }));
 
   const blocks = splitChanges.get('blocks');
@@ -176,9 +176,9 @@ export const blockedDays = (state) => {
 const clearState = (state) =>
       state
       .set('isOpen', false)
-      .set('bookings', new List())
-      .set('blocks', new List())
-      .set('changes', new List());
+      .set('bookings', Immutable.List())
+      .set('blocks', Immutable.List())
+      .set('changes', Immutable.List());
 
 const manageAvailabilityReducer = (state = initialState, action) => {
   const { type, payload } = action;
@@ -194,7 +194,7 @@ const manageAvailabilityReducer = (state = initialState, action) => {
     case actionTypes.START_SAVING:
       return state.set('saveInProgress', true);
     case actionTypes.CHANGES_SAVED:
-      return state.set('saveInProgress', false).set('changes', new List());
+      return state.set('saveInProgress', false).set('changes', Immutable.List());
     case actionTypes.DATA_LOADED:
       return mergeNovelty(state, payload);
     case actionTypes.OPEN_EDIT_VIEW:
