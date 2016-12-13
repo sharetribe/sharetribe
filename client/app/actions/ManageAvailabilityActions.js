@@ -7,6 +7,7 @@ import { t } from '../utils/i18n';
 import { expandRange } from '../utils/moment';
 import { addFlashNotification } from './FlashNotificationActions';
 import { hasChanges, blockChanges, unblockChanges } from '../reducers/ManageAvailabilityReducer';
+import { addFlashNotification } from './FlashNotificationActions';
 
 export const EDIT_VIEW_OPEN_HASH = 'manage-availability';
 
@@ -172,8 +173,7 @@ export const saveChanges = () =>
         dispatch(closeEditView());
       })
       .catch((e) => {
-        // TODO: show notification?
-        console.error(e);
+        dispatch(addFlashNotification('error', t('web.listings.errors.availability.saving_failed')));
         dispatch(savingFailed(e));
       });
   };
