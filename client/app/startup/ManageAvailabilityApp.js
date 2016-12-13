@@ -5,7 +5,7 @@ import { combineReducers, applyMiddleware, createStore } from 'redux';
 import reducers from '../reducers/reducersIndex';
 import { initialize as initializeI18n } from '../utils/i18n';
 import moment from 'moment';
-import { Map, List } from 'immutable';
+import { Map, List, Set } from 'immutable';
 import ManageAvailabilityContainer from '../components/sections/ManageAvailability/ManageAvailabilityContainer';
 import { EDIT_VIEW_OPEN_HASH } from '../reducers/ManageAvailabilityReducer';
 import * as cssVariables from '../assets/styles/variables';
@@ -23,12 +23,15 @@ export default (props) => {
     flashNotifications: new List(),
     manageAvailability: new Map({
       isOpen: window.location.hash.replace(/^#/, '') === EDIT_VIEW_OPEN_HASH,
-      visibleMonth: moment().startOf('month'),
+      visibleMonth: moment()
+        .utc()
+        .startOf('month'),
       reservedDays: new List(),
       blockedDays: new List(),
       changes: new List(),
       marketplaceUuid: new UUID({ value: props.marketplace.uuid }),
       listingUuid: new UUID({ value: props.listing.uuid }),
+      loadedMonths: new Set(),
     }),
   };
 

@@ -1,8 +1,9 @@
 /* eslint-disable no-alert */
-import { Map, List, Range } from 'immutable';
+import { Map, List } from 'immutable';
 import moment from 'moment';
 import { isSameDay } from 'react-dates';
 import * as actionTypes from '../constants/ManageAvailabilityConstants';
+import { expandRange } from '../utils/moment';
 
 const initialState = new Map({
   isOpen: true,
@@ -24,6 +25,8 @@ const initialState = new Map({
   marketplaceUuid: null,
 
   listingUuid: null,
+
+  loadedMonths: new Set(),
 });
 
 export const EDIT_VIEW_OPEN_HASH = 'manage-availability';
@@ -49,21 +52,22 @@ const ranges = (bookings) =>
     end: moment(b.getIn([':attributes', ':end'])),
   })));
 
-const splitRanges = (dateRanges) =>
+const expandRanges = (dateRanges) =>
   dateRanges.flatMap((range) => {
     const start = range.get('start');
     const end = range.get('end');
-    const days = end.diff(start, 'days');
 
-    return new Range(0, days).map((i) => start.clone().add(i, 'days'));
+    return expandRange(start, end, 'days');
   });
 
 const mergeNovelty = (state, novelty) => {
-  const blocks = splitRanges(ranges(novelty.get('blocks')));
-  const bookings = splitRanges(ranges(novelty.get('bookings')));
+  const blocks = expandRanges(ranges(novelty.get('blocks')));
+  const bookings = expandRanges(ranges(novelty.get('bookings')));
+  const loadedMonths = novelty.get('loadedMonths');
 
   return state.set('reservedDays', state.get('reservedDays').concat(bookings))
-              .set('blockedDays', state.get('blockedDays').concat(blocks));
+              .set('blockedDays', state.get('blockedDays').concat(blocks))
+              .set('loadedMonths', state.get('loadedMonths').union(loadedMonths));
 };
 
 // Calculate all unique changes to the original blocked days
