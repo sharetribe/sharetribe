@@ -1,5 +1,5 @@
 import { paramsToQueryString } from '../utils/url';
-import { createReader } from '../utils/transitImmutableConverter';
+import { createReader, createWriter } from '../utils/transitImmutableConverter';
 
 /**
   harmony.js defines a interface for Harmony API.
@@ -30,6 +30,7 @@ const csrfToken = () => {
 };
 
 const reader = createReader();
+const writer = createWriter();
 
 const sendRequest = (method, url, queryParams, body) => {
   const harmonyApiUrl = '/harmony_proxy';
@@ -53,7 +54,7 @@ const sendRequest = (method, url, queryParams, body) => {
   const urlWithQuery = harmonyApiUrl + url + paramsToQueryString(queryParams);
   const opts = { ...defaultRequestOpts, method };
   const requestOpts = body ?
-        { ...opts, body: JSON.stringify(body) } :
+        { ...opts, body: writer.write(body) } :
         opts;
 
   return window.fetch(urlWithQuery, requestOpts)

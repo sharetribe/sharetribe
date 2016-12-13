@@ -148,18 +148,16 @@ export const saveChanges = () =>
     dispatch(startSaving());
 
     const state = getState().manageAvailability;
-    const marketplaceId = state.get('marketplaceUuid').toString();
-    const listingId = state.get('listingUuid').toString();
-    const blocks = blockChanges(state).toJS();
-    const unblocks = unblockChanges(state)
-          .toJS()
-          .map((u) => u.value);
+    const marketplaceId = state.get('marketplaceUuid');
+    const listingId = state.get('listingUuid');
+    const blocks = blockChanges(state);
+    const unblocks = unblockChanges(state);
     const requests = [];
 
-    if (blocks.length > 0) {
+    if (blocks.size > 0) {
       requests.push(harmony.createBlocks(marketplaceId, listingId, blocks));
     }
-    if (unblocks.length > 0) {
+    if (unblocks.size > 0) {
       requests.push(harmony.deleteBlocks(marketplaceId, listingId, unblocks));
     }
 
