@@ -1,3 +1,5 @@
+/* eslint-disable no-magic-numbers */
+
 import { expect } from 'chai';
 import Immutable from 'immutable';
 import { createReader, createWriter } from '../utils/transitImmutableConverter';
@@ -67,10 +69,7 @@ describe('transitImmutableConverter', () => {
   });
 
   it('decodes lists to Immutable.List', () => {
-    const ONE = 1;
-    const TWO = 2;
-    const THREE = 3;
-    const v = [ONE, TWO, THREE];
+    const v = [1, 2, 3];
     const encoded = rawWriter.write(t.list(v));
 
     expect(Immutable.is(reader.read(encoded), Immutable.List(v))).to.equal(true);
@@ -88,17 +87,13 @@ describe('transitImmutableConverter', () => {
     // This is an end-to-end integration test that all the read/write handlers
     // work nicely together.
 
-    const ONE = 1;
-    const TWO = 2;
-    const THREE = 3;
-
     const v = Immutable.Map({
       'nested-map': Immutable.Map({
-        a: ONE,
+        a: 1,
         b: true,
         c: null,
       }),
-      list: Immutable.List([ONE, TWO, THREE]),
+      list: Immutable.List([1, 2, 3]),
       uuid: new UUID({ value: '00000000-0000-0000-0000-000000000000' }),
       distance: new Distance({ value: '12.3', unit: 'km' }),
       money: new Money({ fractionalAmount: 500, currency: 'USD' }),
