@@ -50,6 +50,35 @@ describe('FlashNotification', () => {
     });
 
     it('should handle FLASH_NOTIFICATION_ADD', () => {
+      const flashNote1 = new FlashNotificationModel({
+        id: 0,
+        type: 'error',
+        content: 'Run the tests',
+        isRead: false,
+      });
+      const flashNote2 = new FlashNotificationModel({
+        id: 0,
+        type: 'error',
+        content: 'Run the tests again',
+        isRead: false,
+      });
+
+      const reduced = reducer(new Immutable.List(), {
+        type: types.FLASH_NOTIFICATION_ADD,
+        payload: flashNote1,
+      });
+
+      const reducedWithInitialContent = reducer(new Immutable.List([flashNote1]), {
+        type: types.FLASH_NOTIFICATION_ADD,
+        payload: flashNote2,
+      });
+      const expectedList = new Immutable.List([flashNote1, flashNote2]);
+
+      expect(Immutable.is(reduced, new Immutable.List([flashNote1]))).to.equal(true);
+      expect(Immutable.is(reducedWithInitialContent, expectedList)).to.equal(true);
+    });
+
+    it('should handle duplicates FLASH_NOTIFICATION_ADD', () => {
       const flashNote = new FlashNotificationModel({
         id: 0,
         type: 'error',
@@ -57,20 +86,13 @@ describe('FlashNotification', () => {
         isRead: false,
       });
 
-      const reduced = reducer(new Immutable.List(), {
-        type: types.FLASH_NOTIFICATION_ADD,
-        payload: flashNote,
-      });
-
       const reducedWithInitialContent = reducer(new Immutable.List([flashNote]), {
         type: types.FLASH_NOTIFICATION_ADD,
         payload: flashNote,
       });
+      const expectedList = new Immutable.List([flashNote]);
 
-      expect(Immutable.is(reduced, new Immutable.List([flashNote]))).to.equal(true);
-      expect(
-        Immutable.is(reducedWithInitialContent, new Immutable.List([flashNote, flashNote]))
-      ).to.equal(true);
+      expect(Immutable.is(reducedWithInitialContent, expectedList)).to.equal(true);
     });
   });
 });
