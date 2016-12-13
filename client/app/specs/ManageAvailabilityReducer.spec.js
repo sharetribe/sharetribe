@@ -12,9 +12,9 @@ import reducer, { blockedDays, hasChanges, blockChanges, unblockChanges } from '
 const UUID_V0 = '00000000-0000-0000-0000-000000000000';
 const CURRENT_MONTH = moment().startOf('month');
 const TODAY = moment().startOf('day');
-const TOMORROW = moment(TODAY).add(1, 'days');
-const DAY_AFTER_TOMORROW = moment(TOMORROW).add(1, 'days');
-const DAY_AFTER_DAY_AFTER_TOMORROW = moment(DAY_AFTER_TOMORROW).add(1, 'days');
+const TOMORROW = TODAY.clone().add(1, 'days');
+const DAY_AFTER_TOMORROW = TOMORROW.clone().add(1, 'days');
+const DAY_AFTER_DAY_AFTER_TOMORROW = DAY_AFTER_TOMORROW.clone().add(1, 'days');
 
 const applyActions = (reducerFn, state, actionList) => {
   if (actionList.size === 0) {

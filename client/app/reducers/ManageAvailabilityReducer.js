@@ -127,8 +127,8 @@ export const blockChanges = (state) =>
     }
     const day = change.get('day');
     const block = Immutable.Map({
-      start: moment(day).startOf('day'),
-      end: moment(day)
+      start: day.clone().startOf('day'),
+      end: day.clone()
         .add(1, 'days')
         .startOf('day'),
     });
