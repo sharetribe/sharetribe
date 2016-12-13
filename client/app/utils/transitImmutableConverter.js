@@ -35,9 +35,6 @@ const createReader = function createReader(handlers) {
 export const createInstance = (handlers = {}) => {
   const reader = createReader(handlers);
   const fromJSON = (json) => {
-    if (json == null) {
-      return new Immutable.Map();
-    }
     return reader.read(json);
   };
 

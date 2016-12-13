@@ -84,7 +84,7 @@ export default (props) => {
     im: parseImage,
   });
 
-  const bootstrappedData = converter.fromJSON(_.get(props, 'searchPage.data', null));
+  const bootstrappedData = converter.fromJSON(_.get(props, 'searchPage.data', null)) || Immutable.Map();
 
   const rawListings = bootstrappedData.get(':data', []);
 
