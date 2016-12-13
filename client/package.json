@@ -23,7 +23,8 @@
     "deploy-storybook": "npm run ensure-node-version && storybook-to-ghpages",
     "test:stories": "npm run ensure-node-version && mocha './app/components/**/*.story.js' --reporter mocha-circleci-reporter --require babel-register --require ignore-styles --require ./mochaConfig.js",
     "test:specs": "npm run ensure-node-version && mocha './app/specs/*.spec.js' --reporter mocha-circleci-reporter --require babel-register --require ignore-styles --require ./mochaConfig.js",
-    "test": "npm run ensure-node-version && npm run test:stories && npm run test:specs"
+    "test": "npm run ensure-node-version && npm run test:stories && npm run test:specs",
+    "test:devspecs": "mocha './app/specs/*.spec.js' --require babel-register"
   },
   "dependencies": {
     "babel-cli": "6.18.0",
