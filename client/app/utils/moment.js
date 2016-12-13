@@ -3,7 +3,7 @@
    instances.
  */
 
-import { Range } from 'immutable';
+import Immutable from 'immutable';
 
 /**
    Takes a time range (`start` and `end` (exclusive)) and returns an Immutable List
@@ -25,5 +25,5 @@ import { Range } from 'immutable';
    @param {String} duration - minutes|days|months|etc.
 */
 export const expandRange = (start, end, duration) =>
-  new Range(0, end.diff(start, duration)).map(
+  Immutable.Range(0, end.diff(start, duration)).map(
     (i) => start.clone().add(i, duration));

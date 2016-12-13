@@ -1,6 +1,6 @@
 import * as actionTypes from '../constants/ManageAvailabilityConstants';
 import * as harmony from '../services/harmony';
-import { Map, List } from 'immutable';
+import Immutable from 'immutable';
 import { expandRange } from '../utils/moment';
 
 export const allowDay = (day) => ({
@@ -78,9 +78,9 @@ export const changeMonth = (day) =>
       }).then((response) => {
         const groups = response.get(':included').groupBy((v) => v.get(':type'));
 
-        const slots = new Map({
-          blocks: groups.get(':block', new List()),
-          bookings: groups.get(':booking', new List()),
+        const slots = Immutable.Map({
+          blocks: groups.get(':block', Immutable.List()),
+          bookings: groups.get(':booking', Immutable.List()),
         });
 
         dispatch(dataLoaded(slots, expandRange(start, end, 'months').toSet()));

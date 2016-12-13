@@ -162,6 +162,7 @@ module.exports = {
         "Immutable.Map",
         "Immutable.Record",
         "Immutable.Set",
+        "Immutable.Range"
         ]
     }],
     'new-parens': 2,
