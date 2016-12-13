@@ -3,8 +3,8 @@
 import Immutable from 'immutable';
 import * as actionTypes from '../constants/ManageAvailabilityConstants';
 import * as harmony from '../services/harmony';
-import { expandRange } from '../utils/moment';
 import { t } from '../utils/i18n';
+import { expandRange } from '../utils/moment';
 import { addFlashNotification } from './FlashNotificationActions';
 import { hasChanges, blockChanges, unblockChanges } from '../reducers/ManageAvailabilityReducer';
 
@@ -18,7 +18,11 @@ export const openEditView = () => {
 export const closeEditView = () =>
   (dispatch, getState) => {
     const state = getState().manageAvailability;
-    if (!hasChanges(state) || window.confirm('Are you sure?')) {
+    const explanation = t('web.listings.confirm_discarding_unsaved_availability_changes_explanation');
+    const question = t('web.listings.confirm_discarding_unsaved_availability_changes_question');
+    const text = `${explanation}\n\n${question}`;
+
+    if (!hasChanges(state) || window.confirm(text)) {
       window.location.hash = '';
       dispatch({ type: actionTypes.CLOSE_EDIT_VIEW });
     }
