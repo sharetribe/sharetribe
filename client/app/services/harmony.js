@@ -54,8 +54,14 @@ const sendRequest = (method, url, queryParams) => {
   const requestOpts = Object.assign({}, defaultRequestOpts, { method });
 
   return window.fetch(urlWithQuery, requestOpts)
-               .then((response) => response.text())
-               .then((text) => Promise.resolve(converter.fromJSON(text)));
+                .then((response) => {
+                  if (response.status >= 200 && response.status < 300) { // eslint-disable-line no-magic-numbers
+                    return response.json()
+                      .then((json) => converter.fromJSON(json))
+                      .catch(() => new Error('JSON parsing failed for response.'));
+                  }
+                  return Promise.reject(new Error(response.statusText));
+                });
 };
 
 const get = (url, queryParams) => sendRequest('get', url, queryParams);
