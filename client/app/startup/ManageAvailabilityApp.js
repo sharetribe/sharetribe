@@ -1,15 +1,38 @@
+import Immutable from 'immutable';
 import r from 'r-dom';
 import { Provider } from 'react-redux';
-import middleware from 'redux-thunk';
 import { combineReducers, applyMiddleware, createStore } from 'redux';
-import reducers from '../reducers/reducersIndex';
-import { initialize as initializeI18n } from '../utils/i18n';
+import middleware from 'redux-thunk';
 import moment from 'moment';
-import { Map, List, Set } from 'immutable';
+import throttle from 'lodash/throttle';
+
+// local imports
 import ManageAvailabilityContainer from '../components/sections/ManageAvailability/ManageAvailabilityContainer';
-import { EDIT_VIEW_OPEN_HASH } from '../reducers/ManageAvailabilityReducer';
+import reducers from '../reducers/reducersIndex';
 import * as cssVariables from '../assets/styles/variables';
+import { EDIT_VIEW_OPEN_HASH, hasChanges } from '../reducers/ManageAvailabilityReducer';
+import { initialize as initializeI18n } from '../utils/i18n';
+import { loadAvailabilityChanges, saveAvailabilityChanges } from '../services/localStorage';
 import { UUID } from '../types/types';
+
+const AVAILABILITY_CHANGES = 'Availability changes';
+const LOCALSTORAGE_THROTTLE = 1000;
+
+// Clean the store, if there is no actual transient changes
+const trimAvailabilityChanges = (store) => {
+  const manageAvailabilityState = store.getState().manageAvailability;
+  if (hasChanges(manageAvailabilityState)) {
+    return manageAvailabilityState.get('changes');
+  }
+  return [];
+};
+
+const persistAvailabilityChanges = (store) =>
+  store.subscribe(throttle(() => {
+    saveAvailabilityChanges(
+      AVAILABILITY_CHANGES,
+      trimAvailabilityChanges(store));
+  }, LOCALSTORAGE_THROTTLE));
 
 export default (props) => {
   const locale = props.i18n.locale;
@@ -19,16 +42,18 @@ export default (props) => {
   moment.locale(locale);
 
   const combinedReducer = combineReducers(reducers);
+
+  const persistedChanges = loadAvailabilityChanges(AVAILABILITY_CHANGES);
   const initialStoreState = {
-    flashNotifications: new List(),
-    manageAvailability: new Map({
+    flashNotifications: new Immutable.List(),
+    manageAvailability: new Immutable.Map({
       isOpen: window.location.hash.replace(/^#/, '') === EDIT_VIEW_OPEN_HASH,
       visibleMonth: moment()
         .utc()
         .startOf('month'),
-      reservedDays: new List(),
-      blockedDays: new List(),
-      changes: new List(),
+      reservedDays: new Immutable.List(),
+      blockedDays: new Immutable.List(),
+      changes: persistedChanges,
       marketplaceUuid: new UUID({ value: props.marketplace.uuid }),
       listingUuid: new UUID({ value: props.listing.uuid }),
       loadedMonths: new Set(),
@@ -36,6 +61,9 @@ export default (props) => {
   };
 
   const store = applyMiddleware(middleware)(createStore)(combinedReducer, initialStoreState);
+
+  // Save availability changes to localstore
+  persistAvailabilityChanges(store);
 
   const containerProps = {
     availability_link: props.availability_link_id ?
