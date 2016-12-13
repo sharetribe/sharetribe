@@ -29,7 +29,7 @@ const initialState = Immutable.Map({
 
   listingUuid: null,
 
-  loadedMonths: new Set(),
+  loadedMonths: Immutable.Set(),
 });
 
 const includesDay = (days, day) =>
@@ -179,7 +179,8 @@ const clearState = (state) =>
       .set('isOpen', false)
       .set('bookings', Immutable.List())
       .set('blocks', Immutable.List())
-      .set('changes', Immutable.List());
+      .set('changes', Immutable.List())
+      .set('loadedMonths', Immutable.Set());
 
 const manageAvailabilityReducer = (state = initialState, action) => {
   const { type, payload } = action;
