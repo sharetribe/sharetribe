@@ -1,3 +1,5 @@
+/* eslint-disable no-magic-numbers */
+
 import transit from 'transit-js';
 import Immutable from 'immutable';
 import { UUID, Distance, Money } from '../types/types';
@@ -6,18 +8,85 @@ const toUUID = (transitUuid) => new UUID({ value: transitUuid.toString() });
 const toDistance = ([value, unit]) => new Distance({ value, unit });
 const toMoney = ([fractionalAmount, currency]) => new Money({ fractionalAmount, currency });
 
-const defaultHandlers = {
+/**
+   See https://github.com/cognitect/transit-format
+   for documentation about all Transit format types
+*/
+const transitFormatHandlers = {
+  // Keyword
   ':': (rep) => `:${rep}`,
+
+  // List (like a LinkedList, not Vector/Array)
   list: (rep) => Immutable.List(rep).asImmutable(),
-  lstr: (rep) => Immutable.Map(rep).asImmutable(),
+
+  // UUID
   u: toUUID,
+
+  // URI
   r: (rep) => rep,
+};
+
+/**
+   List of our own common types
+*/
+const ownTypeHandlers = {
+  // Localized string
+  lstr: (rep) => Immutable.Map(rep).asImmutable(),
+
+  // Distance
   di: toDistance,
+
+  // Money
   mn: toMoney,
 };
 
-const createReader = function createReader(handlers) {
-  return transit.reader('json', {
+const ListHandler = transit.makeWriteHandler({
+  tag: () => 'array',
+  rep: (v) => v,
+  stringRep: () => null,
+});
+
+const UUIDHandler = transit.makeWriteHandler({
+  tag: () => 'u',
+  rep: (v) => v.toString(),
+});
+
+const isKeyword = (str) => str.length >= 2 && str.startsWith(':');
+
+const StringHandler = transit.makeWriteHandler({
+  tag: (v) => (isKeyword(v) ? ':' : 's'),
+  rep: (v) => (isKeyword(v) ? v.substring(1) : v),
+});
+
+const MapHandler = transit.makeWriteHandler({
+  tag: () => 'map',
+  rep: (v) => v,
+  stringRep: () => null,
+});
+
+const DistanceHandler = transit.makeWriteHandler({
+  tag: () => 'di',
+  rep: (v) => [v.get('value'), v.get('unit')],
+});
+
+const MoneyHandler = transit.makeWriteHandler({
+  tag: () => 'mn',
+  rep: (v) => [v.get('fractionalAmount'), v.get('currency')],
+});
+
+export const createWriter = (handlers = []) => transit.writer('json', {
+  handlers: transit.map([
+    Immutable.List, ListHandler,
+    Immutable.Map, MapHandler,
+    UUID, UUIDHandler,
+    String, StringHandler,
+    Distance, DistanceHandler,
+    Money, MoneyHandler,
+  ].concat(handlers)),
+});
+
+export const createReader = (handlers) =>
+  transit.reader('json', {
     mapBuilder: {
       init: () => Immutable.Map().asMutable(),
       add: (m, k, v) => m.set(k, v),
@@ -28,15 +97,5 @@ const createReader = function createReader(handlers) {
       add: (m, v) => m.push(v),
       finalize: (m) => m.asImmutable(),
     },
-    handlers: Object.assign({}, defaultHandlers, handlers),
+    handlers: Object.assign({}, transitFormatHandlers, ownTypeHandlers, handlers),
   });
-};
-
-export const createInstance = (handlers = {}) => {
-  const reader = createReader(handlers);
-  const fromJSON = (json) => {
-    return reader.read(json);
-  };
-
-  return { fromJSON };
-};
