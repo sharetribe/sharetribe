@@ -4,13 +4,13 @@
 
   /* --- OVERRIDE DEFAULT STYLES START --- */
 
-  & :global(tbody tr) {
+  & tbody tr {
     /* This will reset the <table> element zebra-skin
        coloring coming from the default styles */
     background-color: initial;
   }
 
-  & :global(td) {
+  & td {
     /* This will reset the default border radius for first and last
     <td> element */
     &:first-child,
@@ -19,8 +19,12 @@
     }
   }
 
-  & button:hover {
-    background-color: var(--colorReservedAvailability);
+  & button {
+    margin: 0;
+
+    &:hover {
+      background-color: var(--colorReservedAvailability);
+    }
   }
 
   /* --- OVERRIDE DEFAULT STYLES END --- */
