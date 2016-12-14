@@ -12,10 +12,12 @@ const ManageAvailabilityHeader = (props) => div(
     },
   },
   [
-    div({
-      className: css.imageLayer,
-      style: { backgroundImage: `url(${props.imageUrl})` },
-    }),
+    props.imageUrl ?
+      div({
+        className: css.imageLayer,
+        style: { backgroundImage: `url(${props.imageUrl})` },
+      }) :
+      null,
     div({
       className: css.colorLayer,
       style: { backgroundColor: props.backgroundColor },
@@ -29,7 +31,7 @@ const ManageAvailabilityHeader = (props) => div(
 
 ManageAvailabilityHeader.propTypes = {
   backgroundColor: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
   title: PropTypes.string.isRequired,
   height: PropTypes.number.isRequired,
 };
