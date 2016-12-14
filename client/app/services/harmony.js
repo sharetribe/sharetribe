@@ -56,9 +56,9 @@ const sendRequest = (method, url, queryParams) => {
   return window.fetch(urlWithQuery, requestOpts)
                 .then((response) => {
                   if (response.status >= 200 && response.status < 300) { // eslint-disable-line no-magic-numbers
-                    return response.json()
-                      .then((json) => converter.fromJSON(json))
-                      .catch(() => new Error('JSON parsing failed for response.'));
+                    return response.text()
+                      .then((text) => converter.fromJSON(text))
+                      .catch(() => new Error('Transit parsing failed for response.'));
                   }
                   return Promise.reject(new Error(response.statusText));
                 });
