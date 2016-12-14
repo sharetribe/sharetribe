@@ -5,9 +5,9 @@ import { combineReducers, applyMiddleware, createStore } from 'redux';
 import reducers from '../reducers/reducersIndex';
 import { initialize as initializeI18n } from '../utils/i18n';
 import moment from 'moment';
-import { Map, List, Set } from 'immutable';
+import Immutable from 'immutable';
 import ManageAvailabilityContainer from '../components/sections/ManageAvailability/ManageAvailabilityContainer';
-import { EDIT_VIEW_OPEN_HASH } from '../reducers/ManageAvailabilityReducer';
+import { EDIT_VIEW_OPEN_HASH } from '../actions/ManageAvailabilityActions';
 import * as cssVariables from '../assets/styles/variables';
 import { UUID } from '../types/types';
 
@@ -20,18 +20,19 @@ export default (props) => {
 
   const combinedReducer = combineReducers(reducers);
   const initialStoreState = {
-    flashNotifications: new List(),
-    manageAvailability: new Map({
+    flashNotifications: Immutable.List(),
+    manageAvailability: Immutable.Map({
       isOpen: window.location.hash.replace(/^#/, '') === EDIT_VIEW_OPEN_HASH,
       visibleMonth: moment()
         .utc()
         .startOf('month'),
-      reservedDays: new List(),
-      blockedDays: new List(),
-      changes: new List(),
+      bookings: Immutable.List(),
+      blocks: Immutable.List(),
+      changes: Immutable.List(),
+      saveInProgress: false,
       marketplaceUuid: new UUID({ value: props.marketplace.uuid }),
       listingUuid: new UUID({ value: props.listing.uuid }),
-      loadedMonths: new Set(),
+      loadedMonths: Immutable.Set(),
     }),
   };
 

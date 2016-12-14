@@ -1,5 +1,6 @@
+import Immutable from 'immutable';
 import { paramsToQueryString } from '../utils/url';
-import { createReader } from '../utils/transitImmutableConverter';
+import { createReader, createWriter } from '../utils/transitImmutableConverter';
 
 /**
   harmony.js defines a interface for Harmony API.
@@ -30,8 +31,9 @@ const csrfToken = () => {
 };
 
 const reader = createReader();
+const writer = createWriter();
 
-const sendRequest = (method, url, queryParams) => {
+const sendRequest = (method, url, queryParams, body) => {
   const harmonyApiUrl = '/harmony_proxy';
 
   const headers = new Headers({
@@ -51,22 +53,40 @@ const sendRequest = (method, url, queryParams) => {
   };
 
   const urlWithQuery = harmonyApiUrl + url + paramsToQueryString(queryParams);
-  const requestOpts = Object.assign({}, defaultRequestOpts, { method });
+  const opts = { ...defaultRequestOpts, method };
+  const requestOpts = body ?
+        { ...opts, body: writer.write(body) } :
+        opts;
 
   return window.fetch(urlWithQuery, requestOpts)
-                .then((response) => {
-                  if (response.status >= 200 && response.status < 300) { // eslint-disable-line no-magic-numbers
-                    return response.text()
-                      .then((text) => reader.read(text))
-                      .catch(() => new Error('Transit parsing failed for response.'));
-                  }
-                  return Promise.reject(new Error(response.statusText));
-                });
+               .then((response) => {
+                 if (response.status >= 200 && response.status < 300) { // eslint-disable-line no-magic-numbers
+                   return response.text()
+                     .then((text) => reader.read(text))
+                     .catch(() => new Error('Transit parsing failed for response.'));
+                 }
+                 return Promise.reject(new Error(response.statusText));
+               });
 };
 
-const get = (url, queryParams) => sendRequest('get', url, queryParams);
+export const get = (url, queryParams) =>
+  sendRequest('get', url, queryParams);
 
-export {
-  get,
-  // TODO implement post
-};
+export const createBlocks = (marketplaceId, refId, blocks) =>
+  sendRequest('post', '/bookables/createBlocks', {}, {
+    ':marketplaceId': marketplaceId,
+    ':refId': refId,
+    ':blocks': blocks.map((b) => Immutable.Map({
+      ':start': b.get('start').toDate(),
+      ':end': b.get('end').toDate(),
+    })),
+  });
+
+export const deleteBlocks = (marketplaceId, refId, blockIds) =>
+  sendRequest('post', '/bookables/deleteBlocks', {}, {
+    ':marketplaceId': marketplaceId,
+    ':refId': refId,
+    ':blocks': blockIds.map((id) => Immutable.Map({
+      ':id': id,
+    })),
+  });

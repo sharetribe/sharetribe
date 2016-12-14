@@ -49,6 +49,11 @@
   border-radius: 4px;
   transition: bottom 0.5s;
   cursor: pointer;
+
+  &[disabled],
+  &[disabled]:hover {
+    background-color: #eee;
+  }
 }
 
 .saveButtonVisible {

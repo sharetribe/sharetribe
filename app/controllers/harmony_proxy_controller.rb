@@ -43,9 +43,15 @@ class HarmonyProxyController < ApplicationController
     module_function
 
     def call(req, auth_context)
-      p = req[:params]
+      marketplace_id =
+        case req[:method]
+        when "GET"
+          req[:query_params][:marketplaceId]
+        when "POST"
+          req[:body][:marketplaceId].to_s
+        end
 
-      auth_context[:marketplaceId] == p[:marketplaceId]
+      auth_context[:marketplaceId] == marketplace_id
     end
   end
 
@@ -59,9 +65,17 @@ class HarmonyProxyController < ApplicationController
     module_function
 
     def call(req, auth_context)
-      p = req[:params]
+      ref_id =
+        case req[:method]
+        when "GET"
+          UUIDTools::UUID.parse(req[:query_params][:refId])
+        when "POST"
+          req[:body][:refId]
+        end
 
-      raw_uuid = UUIDUtils.raw(UUIDTools::UUID.parse(p[:refId]))
+      return false if ref_id.nil?
+
+      raw_uuid = UUIDUtils.raw(ref_id)
       listing = Listing.find_by(uuid: raw_uuid)
 
       if listing.nil?
@@ -184,7 +198,7 @@ class HarmonyProxyController < ApplicationController
         path: "/" + path + format,
         query_params: request.query_parameters,
         body: body_params,
-        params: request.query_parameters.merge(body_params)
+        raw_body: request.body.string
       })
   end
 
@@ -203,7 +217,7 @@ class HarmonyProxyController < ApplicationController
       when "GET"
         HarmonyClient.get(endpoint[:name], params: req[:query_params], opts: opts)
       when "POST"
-        HarmonyClient.post(endpoint[:name], params: req[:query_params], body: req[:body], opts: opts)
+        HarmonyClient.post(endpoint[:name], params: req[:query_params], body: req[:raw_body], opts: opts)
       else
         raise ArgumentError.new("Unknown method: #{req[:method]}")
       end

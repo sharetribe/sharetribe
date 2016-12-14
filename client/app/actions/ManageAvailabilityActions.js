@@ -1,17 +1,40 @@
+/* eslint-disable no-alert */
+
 import Immutable from 'immutable';
 import * as actionTypes from '../constants/ManageAvailabilityConstants';
 import * as harmony from '../services/harmony';
-import { expandRange } from '../utils/moment';
 import { t } from '../utils/i18n';
+import { expandRange } from '../utils/moment';
 import { addFlashNotification } from './FlashNotificationActions';
+import { hasChanges, blockChanges, unblockChanges } from '../reducers/ManageAvailabilityReducer';
 
-export const allowDay = (day) => ({
-  type: actionTypes.ALLOW_DAY,
-  payload: day,
-});
+export const EDIT_VIEW_OPEN_HASH = 'manage-availability';
+
+export const openEditView = () => {
+  window.location.hash = EDIT_VIEW_OPEN_HASH;
+  return ({ type: actionTypes.OPEN_EDIT_VIEW });
+};
+
+export const closeEditView = () =>
+  (dispatch, getState) => {
+    const state = getState().manageAvailability;
+    const explanation = t('web.listings.confirm_discarding_unsaved_availability_changes_explanation');
+    const question = t('web.listings.confirm_discarding_unsaved_availability_changes_question');
+    const text = `${explanation}\n\n${question}`;
+
+    if (!hasChanges(state) || window.confirm(text)) {
+      window.location.hash = '';
+      dispatch({ type: actionTypes.CLOSE_EDIT_VIEW });
+    }
+  };
 
 export const blockDay = (day) => ({
   type: actionTypes.BLOCK_DAY,
+  payload: day,
+});
+
+export const unblockDay = (day) => ({
+  type: actionTypes.UNBLOCK_DAY,
   payload: day,
 });
 
@@ -105,14 +128,49 @@ export const changeMonth = (day) =>
     }
   };
 
-export const saveChanges = () => ({
-  type: actionTypes.SAVE_CHANGES,
+export const startSaving = () => ({
+  type: actionTypes.START_SAVING,
 });
 
-export const openEditView = () => ({
-  type: actionTypes.OPEN_EDIT_VIEW,
+export const changesSaved = () => ({
+  type: actionTypes.CHANGES_SAVED,
 });
 
-export const closeEditView = () => ({
-  type: actionTypes.CLOSE_EDIT_VIEW,
+export const savingFailed = (e) => ({
+  type: actionTypes.SAVING_FAILED,
+  error: true,
+  payload: e,
 });
+
+export const saveChanges = () =>
+  (dispatch, getState) => {
+    dispatch(startSaving());
+
+    const state = getState().manageAvailability;
+    const marketplaceId = state.get('marketplaceUuid');
+    const listingId = state.get('listingUuid');
+    const blocks = blockChanges(state);
+    const unblocks = unblockChanges(state);
+    const requests = [];
+
+    if (blocks.size > 0) {
+      requests.push(harmony.createBlocks(marketplaceId, listingId, blocks));
+    }
+    if (unblocks.size > 0) {
+      requests.push(harmony.deleteBlocks(marketplaceId, listingId, unblocks));
+    }
+
+    if (requests.length === 0) {
+      throw new Error('No changes to save.');
+    }
+
+    Promise.all(requests)
+      .then(() => {
+        dispatch(changesSaved());
+        dispatch(closeEditView());
+      })
+      .catch((e) => {
+        dispatch(addFlashNotification('error', t('web.listings.errors.availability.saving_failed')));
+        dispatch(savingFailed(e));
+      });
+  };
