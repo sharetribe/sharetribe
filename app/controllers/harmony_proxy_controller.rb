@@ -184,7 +184,8 @@ class HarmonyProxyController < ApplicationController
         path: "/" + path + format,
         query_params: request.query_parameters,
         body: body_params,
-        params: request.query_parameters.merge(body_params)
+        params: request.query_parameters.merge(body_params),
+        raw_body: request.body.string
       })
   end
 
@@ -203,7 +204,7 @@ class HarmonyProxyController < ApplicationController
       when "GET"
         HarmonyClient.get(endpoint[:name], params: req[:query_params], opts: opts)
       when "POST"
-        HarmonyClient.post(endpoint[:name], params: req[:query_params], body: req[:body], opts: opts)
+        HarmonyClient.post(endpoint[:name], params: req[:query_params], body: req[:raw_body], opts: opts)
       else
         raise ArgumentError.new("Unknown method: #{req[:method]}")
       end
