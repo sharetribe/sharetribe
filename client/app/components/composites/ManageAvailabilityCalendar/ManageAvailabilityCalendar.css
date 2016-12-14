@@ -28,6 +28,15 @@
   & :global(.DayPickerNavigation__prev),
   & :global(.DayPickerNavigation__next) {
     border: none;
+
+    &:hover {
+      border: none;
+
+      & svg {
+        fill: #000;
+      }
+    }
+
   }
 
   & :global(.CalendarMonth__day) {
