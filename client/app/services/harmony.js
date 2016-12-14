@@ -1,3 +1,4 @@
+import Immutable from 'immutable';
 import { paramsToQueryString } from '../utils/url';
 import { createReader, createWriter } from '../utils/transitImmutableConverter';
 
@@ -73,14 +74,19 @@ export const get = (url, queryParams) =>
 
 export const createBlocks = (marketplaceId, refId, blocks) =>
   sendRequest('post', '/bookables/createBlocks', {}, {
-    marketplaceId,
-    refId,
-    blocks,
+    ':marketplaceId': marketplaceId,
+    ':refId': refId,
+    ':blocks': blocks.map((b) => Immutable.Map({
+      ':start': b.get('start').toDate(),
+      ':end': b.get('end').toDate(),
+    })),
   });
 
 export const deleteBlocks = (marketplaceId, refId, blockIds) =>
   sendRequest('post', '/bookables/deleteBlocks', {}, {
-    marketplaceId,
-    refId,
-    blocks: blockIds.map((id) => ({ id })),
+    ':marketplaceId': marketplaceId,
+    ':refId': refId,
+    ':blocks': blockIds.map((id) => Immutable.Map({
+      ':id': id,
+    })),
   });
