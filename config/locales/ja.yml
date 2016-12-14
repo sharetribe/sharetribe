@@ -2020,6 +2020,9 @@ ja:
     days: 日
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
       pricing_units:
         piece: 点
         hour: 時間

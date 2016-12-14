@@ -2026,6 +2026,9 @@ zh-TW:
     days: 天
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
       pricing_units:
         piece: ~
         hour: ~

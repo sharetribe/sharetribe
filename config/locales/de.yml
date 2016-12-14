@@ -2053,6 +2053,9 @@ de:
     days: Tage
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
       pricing_units:
         piece: Stück
         hour: Stunde

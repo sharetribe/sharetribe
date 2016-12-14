@@ -2017,6 +2017,9 @@ pt-PT:
     days: ~
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
       pricing_units:
         piece: ~
         hour: ~

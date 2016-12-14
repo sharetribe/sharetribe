@@ -2053,6 +2053,9 @@ es-ES:
     days: días
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
       pricing_units:
         piece: pieza
         hour: hora

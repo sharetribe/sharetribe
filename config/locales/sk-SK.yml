@@ -2071,6 +2071,9 @@ sk-SK:
     days: dni
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
       pricing_units:
         piece: kus
         hour: hodina

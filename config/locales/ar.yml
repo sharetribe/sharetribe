@@ -2053,6 +2053,9 @@ ar:
     days: أيام
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
       pricing_units:
         piece: قطعة
         hour: ساعة

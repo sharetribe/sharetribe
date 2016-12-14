@@ -2053,6 +2053,9 @@ fr:
     days: jours
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
       pricing_units:
         piece: unité
         hour: heure

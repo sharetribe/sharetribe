@@ -2053,6 +2053,9 @@ fi:
     days: päivää
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
       pricing_units:
         piece: kappale
         hour: tunti

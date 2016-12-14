@@ -2051,6 +2051,9 @@ da-DK:
     days: dage
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
       pricing_units:
         piece: ~
         hour: ~

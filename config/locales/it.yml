@@ -2022,6 +2022,9 @@ it:
     days: giorni
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
       pricing_units:
         piece: unità
         hour: ora
