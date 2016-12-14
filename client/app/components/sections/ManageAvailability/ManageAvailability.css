@@ -21,10 +21,6 @@
 
   & button {
     margin: 0;
-
-    &:hover {
-      background-color: var(--colorReservedAvailability);
-    }
   }
 
   /* --- OVERRIDE DEFAULT STYLES END --- */
@@ -53,6 +49,11 @@
   &[disabled],
   &[disabled]:hover {
     background-color: #eee;
+  }
+
+  &:hover {
+    transition: background-color 0.1s ease-in;
+    background-color: var(--colorReservedAvailabilityDark);
   }
 }
 

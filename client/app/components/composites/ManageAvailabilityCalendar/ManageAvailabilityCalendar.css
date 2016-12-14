@@ -36,12 +36,17 @@
         fill: #000;
       }
     }
-
   }
 
   & :global(.CalendarMonth__day) {
     border: 1px solid #ebebeb;
     color: #5e6977;
+    background-color: #fff;
+    transition: background-color 0.1s ease-in;
+
+    &:hover {
+      color: #d7d7d7;
+    }
   }
 
   & :global(.CalendarMonth__day--today) {
@@ -53,14 +58,23 @@
     cursor: default;
   }
 
-  & :global(.CalendarMonth__day--past),
-  & :global(.CalendarMonth__day--blocked) {
+  & :global(.CalendarMonth__day--past) {
     background-color: #f8f8f8;
     color: #d7d7d7;
   }
 
+  & :global(.CalendarMonth__day--blocked) {
+    background-color: #f8f8f8;
+    color: #d7d7d7;
+
+    &:hover {
+      color: #5e6977;
+    }
+  }
+
   & :global(.CalendarMonth__day--reserved) {
     &,
+    &:hover,
     &:active {
       background-color: var(--colorReservedAvailability);
       color: #fff;
