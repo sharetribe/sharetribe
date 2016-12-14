@@ -18,11 +18,15 @@ class HarmonyProxyController < ApplicationController
   #   ]
   # }
   #
-  # TODO: Implement AND, if needed. Implementation: s/any?/all?
-  #
   OR = ->(*auth_methods) {
     ->(*args) {
       auth_methods.any? { |auth_method| auth_method.call(*args) }
+    }
+  }
+
+  AND = ->(*auth_methods) {
+    ->(*args) {
+      auth_methods.all? { |auth_method| auth_method.call(*args) }
     }
   }
 
@@ -32,6 +36,16 @@ class HarmonyProxyController < ApplicationController
 
     def call(req, auth_context)
       auth_context[:actorRole] == :admin
+    end
+  end
+
+  module IsMarketplaceMember
+    module_function
+
+    def call(req, auth_context)
+      p = req[:params]
+
+      auth_context[:marketplaceId] == p[:marketplaceId]
     end
   end
 
@@ -50,12 +64,12 @@ class HarmonyProxyController < ApplicationController
       raw_uuid = UUIDUtils.raw(UUIDTools::UUID.parse(p[:refId]))
       listing = Listing.find_by(uuid: raw_uuid)
 
-      return false if listing.nil?
-
-      author_uuid = listing.author.uuid_object.to_s
-
-      auth_context[:marketplaceId] == p[:marketplaceId] &&
+      if listing.nil?
+        false
+      else
+        author_uuid = listing.author.uuid_object.to_s
         auth_context[:actorId] == author_uuid
+      end
     end
   end
 
@@ -79,26 +93,17 @@ class HarmonyProxyController < ApplicationController
     {
       name: :show_bookable,
       login_needed: true,
-      authorization: OR[
-        IsListingAuthor,
-        IsAdmin
-      ]
+      authorization: AND[IsMarketplaceMember, OR[IsListingAuthor, IsAdmin]],
     },
     {
       name: :create_blocks,
       login_needed: true,
-      authorization: OR[
-        IsListingAuthor,
-        IsAdmin
-      ]
+      authorization: AND[IsMarketplaceMember, OR[IsListingAuthor, IsAdmin]],
     },
     {
       name: :delete_blocks,
       login_needed: true,
-      authorization: OR[
-        IsListingAuthor,
-        IsAdmin
-      ]
+      authorization: AND[IsMarketplaceMember, OR[IsListingAuthor, IsAdmin]],
     }
 
     # Add here all whitelisted actions
