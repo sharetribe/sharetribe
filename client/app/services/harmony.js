@@ -1,5 +1,5 @@
 import { paramsToQueryString } from '../utils/url';
-import * as transitConverter from '../utils/transitImmutableConverter';
+import { createReader } from '../utils/transitImmutableConverter';
 
 /**
   harmony.js defines a interface for Harmony API.
@@ -29,7 +29,7 @@ const csrfToken = () => {
   return null;
 };
 
-const converter = transitConverter.createInstance();
+const reader = createReader();
 
 const sendRequest = (method, url, queryParams) => {
   const harmonyApiUrl = '/harmony_proxy';
@@ -57,7 +57,7 @@ const sendRequest = (method, url, queryParams) => {
                 .then((response) => {
                   if (response.status >= 200 && response.status < 300) { // eslint-disable-line no-magic-numbers
                     return response.text()
-                      .then((text) => converter.fromJSON(text))
+                      .then((text) => reader.read(text))
                       .catch(() => new Error('Transit parsing failed for response.'));
                   }
                   return Promise.reject(new Error(response.statusText));

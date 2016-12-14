@@ -15,7 +15,7 @@ import { SearchPageModel } from '../components/sections/SearchPage/SearchPage';
 import { parse as parseListingModel } from '../models/ListingModel';
 import { parse as parseProfile } from '../models/ProfileModel';
 import { Image, parse as parseImage } from '../models/ImageModel';
-import * as transitConverter from '../utils/transitImmutableConverter';
+import { createReader } from '../utils/transitImmutableConverter';
 
 const profilesToMap = (includes, getProfilePath) =>
   includes.reduce((acc, val) => {
@@ -80,11 +80,11 @@ export default (props) => {
     'sign_up',
   ], { locale });
 
-  const converter = transitConverter.createInstance({
+  const reader = createReader({
     im: parseImage,
   });
 
-  const bootstrappedData = converter.fromJSON(_.get(props, 'searchPage.data', null));
+  const bootstrappedData = reader.read(_.get(props, 'searchPage.data', null)) || Immutable.Map();
 
   const rawListings = bootstrappedData.get(':data', []);
 
