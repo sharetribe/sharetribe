@@ -198,7 +198,7 @@ class HarmonyProxyController < ApplicationController
         path: "/" + path + format,
         query_params: request.query_parameters,
         body: body_params,
-        raw_body: request.body.string
+        raw_body: request.raw_post()
       })
   end
 
