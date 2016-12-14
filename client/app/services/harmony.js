@@ -35,8 +35,8 @@ const sendRequest = (method, url, queryParams) => {
   const harmonyApiUrl = '/harmony_proxy';
 
   const headers = new Headers({
-    'Content-Type': 'application/json',
-    Accept: 'application/json',
+    'Content-Type': 'application/transit+json',
+    Accept: 'application/transit+json',
   });
 
   const csrf = csrfToken();

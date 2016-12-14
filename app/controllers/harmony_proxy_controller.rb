@@ -105,6 +105,14 @@ class HarmonyProxyController < ApplicationController
 
   ].map { |ep_def| EndpointDefinition.call(ep_def) }
 
+  TRANSIT_JSON_MIME = "application/transit+json"
+
+  # List of expected headers
+  EXPECTED_HEADERS = {
+    "Content-Type" => TRANSIT_JSON_MIME,
+    "Accept" => TRANSIT_JSON_MIME
+  }
+
   # This is the main method of the HarmonyProxyController
   #
   # The purpose of the controller is to forward all calls to it to
@@ -120,11 +128,18 @@ class HarmonyProxyController < ApplicationController
   # the result from Harmony is forwarded to client unchanged (with the same body and status)
   #
   def proxy
-    build_request_context(request)
-      .and_then(&method(:find_endpoint))
-      .and_then(&method(:authenticate))
-      .and_then(&method(:authorize))
-      .and_then(&method(:call_harmony))
+    # Validate headers and build `ctx`
+    ctx = validate_headers(request)
+            .and_then(&method(:build_request_context))
+
+    # Pipe `ctx` through following methods
+    result = ctx.and_then(&method(:find_endpoint))
+               .and_then(&method(:authenticate))
+               .and_then(&method(:authorize))
+               .and_then(&method(:call_harmony))
+
+    # Handle result
+    result
       .on_success(&method(:success))
       .on_error(&method(:error))
   end
@@ -139,19 +154,32 @@ class HarmonyProxyController < ApplicationController
     render plain: error_msg, status: ctx[:error][:status]
   end
 
+  def validate_headers(request)
+    missing_header = EXPECTED_HEADERS.to_a.find { |k, v|
+      request.headers[k] != v
+    }
+
+    if missing_header.nil?
+      Result::Success.new(request)
+    else
+      name, expected = missing_header
+      actual = request.headers[name]
+      Result::Error.new("Expected header '#{name}' with value '#{expected}', got '#{actual}'")
+    end
+  end
+
   def build_request_context(request)
     path = request.path_parameters[:harmony_path]
     format = request.path_parameters[:format] ? "." + request.path_parameters[:format] : ""
+    body_params = TransitUtils.decode_io(request.body, :json) || {}
 
     Result::Success.new(
       request: {
         method: request.method,
         path: "/" + path + format,
         query_params: request.query_parameters,
-
-        # TODO Body needs some special handling when we start to pass Transit encoded data
-        body: request.request_parameters,
-        params: request.query_parameters.merge(request.request_parameters)
+        body: body_params,
+        params: request.query_parameters.merge(body_params)
       })
   end
 
