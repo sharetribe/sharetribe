@@ -190,7 +190,8 @@ class HarmonyProxyController < ApplicationController
   def build_request_context(request)
     path = request.path_parameters[:harmony_path]
     format = request.path_parameters[:format] ? "." + request.path_parameters[:format] : ""
-    body_params = TransitUtils.decode_io(request.body, :json) || {}
+    raw_body = request.body.read
+    body_params = TransitUtils.decode(raw_body, :json) || {}
 
     Result::Success.new(
       request: {
@@ -198,7 +199,7 @@ class HarmonyProxyController < ApplicationController
         path: "/" + path + format,
         query_params: request.query_parameters,
         body: body_params,
-        raw_body: request.raw_post()
+        raw_body: raw_body
       })
   end
 
