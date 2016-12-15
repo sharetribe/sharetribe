@@ -28,11 +28,15 @@
 
 .calendar {
   width: var(--ManageAvailabilityCalendar_width);
-  margin: var(--ManageAvailability_padding) auto 0 auto;
+  /* The desired space between header and calendar month title is 24px.
+  The calendar component already includes 22px padding/margins, so
+  we add only 2px */
+  margin: 2px auto 0 auto;
 }
 
 .saveButton {
-  margin: var(--ManageAvailability_padding);
+  margin: var(--ManageAvailability_saveButtonPadding);
+  padding: 0;
 
   /* This will position the button to the flexbox group bottom.
   See excellent SO answer: http://stackoverflow.com/a/33856609/432787 */

@@ -369,10 +369,14 @@ module.exports = {
   '--SideWinder_animationDuration': '0.5s',
   '--SideWinder_animationDurationMs': 500,
 
-  '--ManageAvailability_width': 405,
+  // Calendar size without margins/paddings: 274px
+  // Our desired padding: 34px
+  // Total size: 274px + (2 * 34px) = 342x
+  '--ManageAvailability_width': 342,
   '--ManageAvailability_fontFamily': proximaNovaFontFamily,
-  '--ManageAvailability_padding': '20px',
+  '--ManageAvailability_padding': '34px',
   '--ManageAvailability_saveButtonHeight': '60px',
+  '--ManageAvailability_saveButtonPadding': '18px',
   '--ManageAvailabilityHeader_height': 254,
   '--ManageAvailabilityCalendar_fontFamily': proximaNovaFontFamily,
   '--ManageAvailabilityCalendar_fontSize': fontSize,
