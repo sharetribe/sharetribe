@@ -110,6 +110,7 @@ module.exports = {
   '--colorButtonGhost': '#26806F',
 
   '--colorReservedAvailability': '#2AB865',
+  '--colorReservedAvailabilityDark': '#249E57',
 
   '--customColorFallback': customColorFallback,
   '--customColor2Fallback': customColor2Fallback,
