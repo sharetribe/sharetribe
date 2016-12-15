@@ -29,9 +29,11 @@
 
 .listingHeader {
   position: absolute;
-  bottom: var(--ManageAvailability_padding);
-  left: var(--ManageAvailability_padding);
-  right: var(--ManageAvailability_padding);
+  bottom: 0;
+  width: 100%;
+  max-width: var(--ManageAvailability_maxWidth);
+  padding: var(--ManageAvailability_padding);
+  padding-top: 0;
   color: #fff;
   font-size: 24px;
   line-height: 1.4;

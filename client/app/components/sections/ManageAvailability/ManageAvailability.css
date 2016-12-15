@@ -27,7 +27,7 @@
 }
 
 .calendar {
-  width: var(--ManageAvailabilityCalendar_width);
+  width: var(--ManageAvailabilityCalendar_width)px;
   /* The desired space between header and calendar month title is 24px.
   The calendar component already includes 22px padding/margins, so
   we add only 2px */

@@ -372,7 +372,8 @@ module.exports = {
   // Calendar size without margins/paddings: 274px
   // Our desired padding: 34px
   // Total size: 274px + (2 * 34px) = 342x
-  '--ManageAvailability_width': 342,
+  '--ManageAvailability_maxWidth': 342,
+  '--ManageAvailability_minWidth': 320,
   '--ManageAvailability_fontFamily': proximaNovaFontFamily,
   '--ManageAvailability_padding': '34px',
   '--ManageAvailability_saveButtonHeight': '60px',

@@ -4,7 +4,8 @@ Usage:
 
   r(SideWinder, {
     wrapper: document.querySelector('#root'),
-    width: 300,
+    maxWidth: 300,
+    minWidth: 200,
     isOpen: false,
     onClose: handleClose,
   }, [
@@ -30,6 +31,7 @@ import r, { div, button } from 'r-dom';
 import Portal from '../Portal/Portal';
 import SideWinderTransition from './SideWinderTransition';
 import * as cssVariables from '../../../assets/styles/variables';
+import { canUseDOM } from '../../../utils/featureDetection';
 
 import css from './SideWinder.css';
 import closeIcon from './images/close.svg';
@@ -67,6 +69,9 @@ const syncWindowWidthTo = (el) => {
 
   /* eslint-enable no-param-reassign */
 };
+
+const calculateWidth = ({max, min}) =>
+  Math.max((canUseDOM ? Math.min(window.innerWidth, max) : max), min);
 
 class SideWinder extends Component {
   constructor(props) {
@@ -109,12 +114,18 @@ class SideWinder extends Component {
       this.render();
     }
   }
+
   render() {
     const isOpen = this.props.isOpen;
     const scrollOffset = currentScrollOffset();
 
+    const width = calculateWidth({
+      max: this.props.maxWidth,
+      min: this.props.minWidth
+    });
+
     if (isOpen) {
-      this.props.wrapper.style.right = `${this.props.width}px`;
+      this.props.wrapper.style.right = `${width}px`;
     } else {
       this.props.wrapper.style.removeProperty('right');
     }
@@ -141,8 +152,8 @@ class SideWinder extends Component {
             div({
               className: css.root,
               style: {
-                width: this.props.width,
-                right: -1 * this.props.width,
+                width: width,
+                right: -1 * width,
                 top: scrollOffset,
               },
               onTouchMove: (e) => {
@@ -165,7 +176,8 @@ class SideWinder extends Component {
 
 SideWinder.propTypes = {
   wrapper: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  width: PropTypes.number.isRequired,
+  maxWidth: PropTypes.number.isRequired,
+  minWidth: PropTypes.number.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   children: PropTypes.any, // eslint-disable-line react/forbid-prop-types
