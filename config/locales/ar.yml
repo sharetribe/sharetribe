@@ -59,7 +59,7 @@ ar:
         edit_signup_info_description: ~
         edit_info: "تعديل المعلومات"
         see_how_it_looks_like: "شاهد كيف تظهر"
-        verification_to_post_listings_info_content: ~
+        verification_to_post_listings_info_content: "تعليمات للمستخدمين الغير مؤكدين"
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: "تواصل مع المشرف"
@@ -832,9 +832,9 @@ ar:
       you_have_made_new_payment: ~
       product: المنتج
       price_per_unit_type: "‎%{unit_type}‎ السعر بـ"
-      duration: "المدة:"
-      quantity: "الكمية:"
-      subtotal: "المجموع الجزئي:"
+      duration: المدة
+      quantity: الكمية
+      subtotal: "المجموع الجزئي"
       total: المجموع
       price: السعر
       service_fee: "رسوم الخدمة"
@@ -2055,7 +2055,8 @@ ar:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
+          something_went_wrong: "يتعذر عرض المعلومات المتوفرة. يرجى إعادة تهيئة الصفحة مرة أخرى"
+          saving_failed: "لم نستطع حفظ تغييرات التوفر حاليا يرجى إعادة تهيئة الصفحة مرة أخرى"
       pricing_units:
         piece: قطعة
         hour: ساعة
@@ -2065,6 +2066,8 @@ ar:
         month: شهر
       edit_availability_header: ~
       save_and_close_availability_editing: "حفظ وإغلاق"
+      confirm_discarding_unsaved_availability_changes_explanation: "لديك معلومات تغييرت لم يتم حفظها لمعلومات التوفر. إذا أردت المتابعة فإن هذه التغيرات لن تحفظ"
+      confirm_discarding_unsaved_availability_changes_question: "هل أنت متأكد من تجاهل التغييرات؟"
       edit_listing_availability: "تحرير توفر الإعلان"
     no_listings:
       sorry: "نعتذر، لا يوجد إعلانات في هذا البحث"

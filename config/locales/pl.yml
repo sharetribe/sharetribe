@@ -94,7 +94,7 @@ pl:
         transaction_agreement_checkbox_header: "Etykieta umowy"
         transaction_agreement_checkbox_label_description: ~
         transaction_agreement_text_header: "Tekst umowy"
-        transaction_agreement_description: ~
+        transaction_agreement_description: "To jest treść właściwej umowy, jaką użytkownik powinien zaakceptować. Zawartość umowy jest wyświetlana gdy użytkownik kliknie link %{read_more} znajdujący się obok etykiety umowy."
       edit_look_and_feel:
         edit_community_look_and_feel: "Edytuj wygląd platformy %{community_name}"
         community_logo: "Logo na desktopie"
@@ -257,7 +257,7 @@ pl:
         searchpage: ~
       social_media:
         social_media: ~
-        twitter_handle: ~
+        twitter_handle: "Obsługa Twitter"
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
         twitter_instructions_link_text: ~
@@ -318,11 +318,11 @@ pl:
           paid: Zapłacono
           confirmed: Potwierdzono
           canceled: Anulowano
-          initiated: ~
-          pending_ext: ~
+          initiated: "Oczekiwanie na płatność PayPal"
+          pending_ext: "Oczekiwanie na płatność PayPal"
         not_available: ~
       paypal_account:
-        paypal_admin_account: ~
+        paypal_admin_account: "System płatności"
     custom_fields:
       edit:
         edit_listing_field: "Edytuje pole %{field_name} oferty"
@@ -473,7 +473,7 @@ pl:
           quantity_label: ~
           time_label: ~
     paypal_accounts:
-      marketplace_paypal_integration: ~
+      marketplace_paypal_integration: "Preferencje systemu płatności"
       preferences_updated: ~
       contact_support_link_text: ~
       integration_info_text: ~
@@ -673,7 +673,7 @@ pl:
       paid: "Płatność dokonana"
       pending_external:
         paypal:
-          multicurrency: ~
+          multicurrency: "Nie mogliśmy przeprowadzić Twojej płatności PayPal ponieważ Twoje konto PayPal nie zostało skonfigurowane do otrzymywania pieniędzy w %{currency}. Idź do %{paypal_url} i zaloguj się na swoje konto, aby ręcznie zaakceptować lub odrzucić płatność."
           verify: ~
           intl: ~
       waiting_for_current_user_to_deliver_listing: "Czeka abyś wypełnił zamówienie na %{listing_title}"
@@ -695,10 +695,10 @@ pl:
       waiting_feedback_from_you: "Czeka na Twoją opinię"
       pending_external_inbox:
         paypal:
-          multicurrency: ~
-          intl: ~
+          multicurrency: "Oczekiwanie aż zaakceptujesz płatność PayPal"
+          intl: "Oczekiwanie aż zaakceptujesz płatność PayPal"
           unknown_reason: ~
-          verify: ~
+          verify: "Oczekiwanie aż zweryfikujesz swoje konto PayPal"
     status_link:
       accept_offer: "Zaakceptuj ofertę"
       accept_request: "Zaakceptuj zapytanie"
@@ -775,7 +775,7 @@ pl:
       subject: "Zamówienie automatycznie zakończone - pamiętaj, aby napisać opinię"
       we_have_marked_request_as_confirmed: "Oznaczyliśmy zlecenie dotyczące %{request} jako zrealizowane. Zostało ono automatycznie oznaczone jako zrealizowane, ponieważ minął jeden dzień od zakończenia okresu rezerwacji."
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: ~
+      giving_feedback_is_good_idea: "Możesz teraz udzielić opinii dla %{other_party_given_name}. Udzielanie opinii jest zawsze dobrym pomysłem. Jeśli wszystko poszło dobrze, powinieneś/powinnaś dać znać innym, że %{other_party_given_name} jest wart/a zaufania. Jeśli był jakiś problem, warto o tym wspomnieć także."
       give_feedback_to: "Napisz opinię dla %{other_party_given_name}"
       show_thread: "Pokaż konwersację"
     confirmation_instructions:
@@ -925,7 +925,7 @@ pl:
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: ~
-      generic_error: ~
+      generic_error: "W trakcie procesu płatności pojawił się błąd. Nie można zakończyć Twojej płatności PayPal."
       cancel_error: ~
       accept_authorization_error: ~
       reject_authorization_error: ~
@@ -1626,7 +1626,7 @@ pl:
     paypal_billing_agreement_made: "<del>Udziel %{service_name} zezwolenia do pobrania opłaty za transakcję</del> Zrealizowane!"
     commission_permission_needed: ~
     create_paypal_account_link_text: ~
-    connected_account: ~
+    connected_account: "Konto PayPal '%{email}' zostało połączone."
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: ~
     paypal_receive_funds_info_australia_only: ~
@@ -1634,8 +1634,8 @@ pl:
     upgrade_paypal_account_link_text: ~
     admin_account_not_connected: ~
     contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
-    commission: ~
+    you_are_ready_to_accept_payments: "Jesteś gotowy/a do akceptowania płatności!"
+    commission: "%{commission} %"
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: "Aby połączyć swoje konto, wykonaj proszę następujące kroki."
@@ -1644,29 +1644,29 @@ pl:
       paypal_account_email: "Połącz swoje konto PayPal"
       paypal_account_email_placeholder: "Twój adres email zarejestrowany w PayPal"
       paypal_account_email_info_text: "Jeśli nie posiadasz konta PayPal, możesz stworzyć nowe poprzez %{create_paypal_account}. Jeśli dostaniesz komunikat o błędzie podczas połączenia z Twoim kontem PayPal, ulepsz swoje konto PayPal do konta firmowego. Ulepszenie jest darmowe i łatwe. Jeśli jesteś osobą fizyczną, możesz użyć swojego imienia i nazwiska jako \"nazwy firmy\". Aby ulepszyć Twoje konto, %{upgrade_paypal_account} i znajdź link do ulepszenia."
-      create_paypal_account: ~
-      upgrade_paypal_account: ~
-      paypal_account_billing_agreement: ~
+      create_paypal_account: "przez kliknięcie tutaj"
+      upgrade_paypal_account: "Zaloguj się do swojego konta PayPal"
+      paypal_account_billing_agreement: "Udziel %{service_name} zezwolenia do pobrania opłaty za transakcję"
       follow_steps: ~
       connect_paypal_account_title: ~
       connect_paypal_account_title_with_step: ~
       connect_paypal_account_instructions: ~
-      connect_paypal_account: ~
+      connect_paypal_account: "Połącz swoje konto PayPal"
       paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: ~
       paypal_account_billing_agreement_info_fixed: ~
       paypal_account_billing_agreement_info_relative: ~
       paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: ~
-      billing_agreement_description: ~
-      billing_agreement: ~
-      permissions_not_granted: ~
+      billing_agreement_description: "Udziel %{service_name} zezwolenia do pobrania opłaty za transakcję."
+      billing_agreement: "Udziel zezwolenia"
+      permissions_not_granted: "Zezwolenie na połączenie z Twoim kontem PayPal nie zostało udzielone."
       could_not_fetch_redirect_url: ~
-      paypal_not_enabled: ~
-      billing_agreement_canceled: ~
+      paypal_not_enabled: "Płatności PayPal nie sa udostępnione."
+      billing_agreement_canceled: "Umowa dotycząca wystawiania rachunków została anulowana"
       billing_agreement_not_accepted: ~
       billing_agreement_wrong_account: ~
-      something_went_wrong: ~
+      something_went_wrong: "Coś poszło źle. Proszę, spróbuj ponownie. Jeśli problem będzie się powtarzał, proszę, skontaktuj się z administratorem strony."
       account_not_verified: ~
       account_restricted: ~
     paypal_account_connected_title: ~
@@ -2041,6 +2041,7 @@ pl:
       errors:
         availability:
           something_went_wrong: ~
+          saving_failed: ~
       pricing_units:
         piece: ~
         hour: ~
@@ -2050,6 +2051,8 @@ pl:
         month: ~
       edit_availability_header: ~
       save_and_close_availability_editing: ~
+      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_question: ~
       edit_listing_availability: ~
     no_listings:
       sorry: ~

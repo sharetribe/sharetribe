@@ -2074,6 +2074,7 @@ sk-SK:
       errors:
         availability:
           something_went_wrong: ~
+          saving_failed: ~
       pricing_units:
         piece: kus
         hour: hodina
@@ -2083,6 +2084,8 @@ sk-SK:
         month: mesiac
       edit_availability_header: Dostupnosť
       save_and_close_availability_editing: "uložiť a zavrieť"
+      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_question: ~
       edit_listing_availability: ~
     no_listings:
       sorry: ~

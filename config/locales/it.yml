@@ -2024,7 +2024,8 @@ it:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
+          something_went_wrong: "Non è possibile mostrare l'informazione. Prova a ricaricare la pagina."
+          saving_failed: "Non è possibile salvare i cambiamenti alle disponibilità. Prova a ricaricare la pagina."
       pricing_units:
         piece: unità
         hour: ora
@@ -2034,6 +2035,8 @@ it:
         month: mese
       edit_availability_header: ~
       save_and_close_availability_editing: ~
+      confirm_discarding_unsaved_availability_changes_explanation: "Non hai salvato i cambiamenti alle informazioni sulle disponibilità. Se non lo fai, i cambiamenti verranno persi."
+      confirm_discarding_unsaved_availability_changes_question: "Hai la certezza di voler lasciar pedere i tuoi cambiamenti?"
       edit_listing_availability: ~
     no_listings:
       sorry: "Purtroppo non si trovano inserzioni per i tuoi criteri di ricerca."

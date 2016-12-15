@@ -2055,7 +2055,8 @@ de:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
+          something_went_wrong: "Wir können die Verfügbarkeitsinformationen nicht anzeigen. Bitte versuche, die Seite erneut zu laden."
+          saving_failed: "Wir können die Änderungen an der Verfügbarkeit nicht speichern. Bitte versuche, die Seite erneut zu laden."
       pricing_units:
         piece: Stück
         hour: Stunde
@@ -2065,6 +2066,8 @@ de:
         month: Monat
       edit_availability_header: Verfügbarkeit
       save_and_close_availability_editing: "Speichern und schließen"
+      confirm_discarding_unsaved_availability_changes_explanation: "Einige Änderungen zu der Verfügbarkeit wurden noch nicht gespeichert. Beim Fortsetzen gehen diese Änderungen verloren."
+      confirm_discarding_unsaved_availability_changes_question: "Bist du sicher, dass du diese Änderungen verwerfen willst?"
       edit_listing_availability: "Verfügbarkeit der Anzeige bearbeiten"
     no_listings:
       sorry: "Verzeihung, aber wir konnten keine Anzeigen mit deinen Suchkriterien finden."

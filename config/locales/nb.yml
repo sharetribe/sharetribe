@@ -2055,7 +2055,8 @@ nb:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
+          something_went_wrong: "Vi klarer ikke vise tilgjengeligheten. Prøv å laste inn siden på nytt."
+          saving_failed: "Vi klarer ikke lagre endringene for tilgjengelighet. Prøv å laste inn siden på nytt."
       pricing_units:
         piece: stykk
         hour: time
@@ -2065,6 +2066,8 @@ nb:
         month: måned
       edit_availability_header: ~
       save_and_close_availability_editing: "Lagre og lukk"
+      confirm_discarding_unsaved_availability_changes_explanation: "Du har ulagrede endringer i tilgjengelighets-informasjonen. Hvis du fortsetter, vil disse endringene gå tapt."
+      confirm_discarding_unsaved_availability_changes_question: "Er du sikker på at du vil forkaste endringene dine?"
       edit_listing_availability: "Endre annonse-tilgjengelighet"
     no_listings:
       sorry: "Beklager, vi finner ingen resultater som matcher dine søkekriterier."
