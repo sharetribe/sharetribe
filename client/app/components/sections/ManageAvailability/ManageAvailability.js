@@ -122,7 +122,7 @@ class ManageAvailability extends Component {
     const maybeRenderDefaultLink = this.props.availability_link ? null : defaultLink;
 
     const winder = {
-      wrapper: document.querySelector('#sidewinder-wrapper'),
+      wrapper: this.props.sideWinderWrapper,
       maxWidth: cssVariables['--ManageAvailability_maxWidth'],
       minWidth: cssVariables['--ManageAvailability_minWidth'],
       isOpen: this.props.isOpen,
@@ -133,6 +133,9 @@ class ManageAvailability extends Component {
 
         if (!this.props.hasChanges || window.confirm(text)) { // eslint-disable-line no-alert
           this.props.actions.closeEditView();
+          if (typeof this.props.onCloseCallback === 'function') {
+            this.props.onCloseCallback();
+          }
         }
       },
     };
@@ -173,9 +176,11 @@ ManageAvailability.propTypes = {
   saveInProgress: PropTypes.bool.isRequired,
   onOpen: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,
+  onCloseCallback: PropTypes.func,
   isOpen: PropTypes.bool.isRequired,
   header: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   calendar: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  sideWinderWrapper: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
 export default ManageAvailability;

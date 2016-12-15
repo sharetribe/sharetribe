@@ -48,6 +48,7 @@ export default (props) => {
       title: props.listing.title,
       height: cssVariables['--ManageAvailabilityHeader_height'],
     },
+    sideWinderWrapper: document.querySelector('#sidewinder-wrapper'),
   };
 
   return r(Provider, { store }, [

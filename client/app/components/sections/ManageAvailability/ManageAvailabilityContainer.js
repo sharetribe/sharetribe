@@ -18,6 +18,7 @@ const ManageAvailabilityContainer = ({
   saveInProgress,
   reservedDays,
   blockedDays,
+  sideWinderWrapper,
 }) =>
       r(ManageAvailability, {
         hasChanges,
@@ -37,6 +38,7 @@ const ManageAvailabilityContainer = ({
           onDayBlocked: actions.blockDay,
           onMonthChanged: actions.changeMonth,
         },
+        sideWinderWrapper,
       });
 
 const { arrayOf, bool, func, object, shape } = PropTypes;
