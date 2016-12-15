@@ -45,6 +45,8 @@
   height: var(--ManageAvailability_saveButtonHeight);
   min-height: var(--ManageAvailability_saveButtonHeight);
   font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
   color: #fff;
   background-color: var(--colorReservedAvailability);
   border: none;
