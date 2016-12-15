@@ -1,6 +1,10 @@
 .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   height: 100%;
   font-family: var(--ManageAvailability_fontFamily);
+  overflow-y: auto;
 
   /* --- OVERRIDE DEFAULT STYLES START --- */
 
@@ -19,10 +23,6 @@
     }
   }
 
-  & button {
-    margin: 0;
-  }
-
   /* --- OVERRIDE DEFAULT STYLES END --- */
 }
 
@@ -32,12 +32,13 @@
 }
 
 .saveButton {
-  position: absolute;
-  bottom: -100px;
-  left: var(--ManageAvailability_padding);
-  right: var(--ManageAvailability_padding);
-  width: calc(100% - 2 * var(--ManageAvailability_padding));
+  margin: var(--ManageAvailability_padding);
+
+  /* This will position the button to the flexbox group bottom.
+  See excellent SO answer: http://stackoverflow.com/a/33856609/432787 */
+  margin-top: auto;
   height: var(--ManageAvailability_saveButtonHeight);
+  min-height: var(--ManageAvailability_saveButtonHeight);
   font-size: 16px;
   color: #fff;
   background-color: var(--colorReservedAvailability);
