@@ -70,7 +70,7 @@ const syncWindowWidthTo = (el) => {
   /* eslint-enable no-param-reassign */
 };
 
-const calculateWidth = ({max, min}) =>
+const calculateWidth = ({ max, min }) =>
   Math.max((canUseDOM ? Math.min(window.innerWidth, max) : max), min);
 
 class SideWinder extends Component {
@@ -121,7 +121,7 @@ class SideWinder extends Component {
 
     const width = calculateWidth({
       max: this.props.maxWidth,
-      min: this.props.minWidth
+      min: this.props.minWidth,
     });
 
     if (isOpen) {
@@ -152,7 +152,7 @@ class SideWinder extends Component {
             div({
               className: css.root,
               style: {
-                width: width,
+                width,
                 right: -1 * width,
                 top: scrollOffset,
               },
