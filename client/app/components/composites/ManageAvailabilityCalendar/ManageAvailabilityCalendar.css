@@ -40,6 +40,14 @@
     }
   }
 
+  & :global(.DayPickerNavigation--horizontal .DayPickerNavigation__prev) {
+    padding-left: 0;
+  }
+
+  & :global(.DayPickerNavigation--horizontal .DayPickerNavigation__next) {
+    padding-right: 0;
+  }
+
   & :global(.CalendarMonth__day) {
     border: 1px solid #ebebeb;
     color: #5e6977;
