@@ -27,7 +27,8 @@ const ManageAvailabilityContainer = ({
         onSave: actions.saveChanges,
         winder: {
           wrapper: document.querySelector('#sidewinder-wrapper'),
-          width: cssVariables['--ManageAvailability_width'],
+          maxWidth: cssVariables['--ManageAvailability_maxWidth'],
+          minWidth: cssVariables['--ManageAvailability_minWidth'],
           isOpen,
           onClose: actions.closeEditView,
         },

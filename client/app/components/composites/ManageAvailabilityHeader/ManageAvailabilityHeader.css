@@ -2,6 +2,9 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+
+  /* height is set by React, but min-height we can set here */
+  min-height: 190px;
 }
 
 .imageLayer,
@@ -26,9 +29,11 @@
 
 .listingHeader {
   position: absolute;
-  bottom: 34px;
-  left: 34px;
-  right: 34px;
+  bottom: 0;
+  width: 100%;
+  max-width: var(--ManageAvailability_maxWidth);
+  padding: var(--ManageAvailability_padding);
+  padding-top: 0;
   color: #fff;
   font-size: 24px;
   line-height: 1.4;

@@ -66,7 +66,8 @@ class ManageAvailabilityWrapper extends Component {
       winder: {
         wrapper: document.querySelector('#root'),
         isOpen: this.state.isOpen,
-        width: cssVariables['--ManageAvailability_width'],
+        maxWidth: cssVariables['--ManageAvailability_maxWidth'],
+        minWidth: cssVariables['--ManageAvailability_minWidth'],
         onClose: () => {
           if (!this.state.hasChanges) {
             console.log('No availability changes to save');
