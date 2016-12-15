@@ -364,6 +364,10 @@ class ListingsController < ApplicationController
           flash[:show_onboarding_popup] = true
         end
 
+        if shape[:availability] == :booking && FeatureFlagHelper.feature_enabled?(:manage_availability)
+          redirect_to listing_path(@listing, anchor: 'manage-availability'), status: 303 and return
+        end
+
         redirect_to @listing, status: 303 and return
       else
         logger.error("Errors in creating listing: #{@listing.errors.full_messages.inspect}")
