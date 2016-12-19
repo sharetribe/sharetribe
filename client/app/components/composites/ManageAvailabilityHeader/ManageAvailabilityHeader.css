@@ -29,11 +29,10 @@
 
 .listingHeader {
   position: absolute;
-  bottom: 0;
-  width: 100%;
-  max-width: var(--ManageAvailability_maxWidth);
-  padding: var(--ManageAvailability_padding);
-  padding-top: 0;
+  bottom: var(--ManageAvailability_padding);
+  width: var(--ManageAvailability_contentWidth);
+  left: 50%;
+  margin-left: calc(-1 * (var(--ManageAvailability_contentWidth) / 2));
   color: #fff;
   font-size: 24px;
   font-weight: 500;
