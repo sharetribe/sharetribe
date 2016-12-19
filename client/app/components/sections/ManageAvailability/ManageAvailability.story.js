@@ -93,7 +93,6 @@ class ManageAvailabilityWrapper extends Component {
           this.setState({ visibleMonth: m });
         },
       },
-      saveInProgress: false,
     });
   }
 }
