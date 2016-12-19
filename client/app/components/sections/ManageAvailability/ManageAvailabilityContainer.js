@@ -6,7 +6,6 @@ import ManageAvailability from './ManageAvailability';
 import * as availabilityReducer from '../../../reducers/ManageAvailabilityReducer';
 import * as FlashNotificationActions from '../../../actions/FlashNotificationActions';
 import * as ManageAvailabilityActions from '../../../actions/ManageAvailabilityActions';
-import * as cssVariables from '../../../assets/styles/variables';
 
 const ManageAvailabilityContainer = ({
   availability_link,
@@ -19,19 +18,14 @@ const ManageAvailabilityContainer = ({
   saveInProgress,
   reservedDays,
   blockedDays,
+  sideWinderWrapper,
 }) =>
       r(ManageAvailability, {
         hasChanges,
         saveInProgress,
         onOpen: actions.openEditView,
         onSave: actions.saveChanges,
-        winder: {
-          wrapper: document.querySelector('#sidewinder-wrapper'),
-          maxWidth: cssVariables['--ManageAvailability_maxWidth'],
-          minWidth: cssVariables['--ManageAvailability_minWidth'],
-          isOpen,
-          onClose: actions.closeEditView,
-        },
+        isOpen,
         actions,
         availability_link,
         flashNotifications,
@@ -44,6 +38,7 @@ const ManageAvailabilityContainer = ({
           onDayBlocked: actions.blockDay,
           onMonthChanged: actions.changeMonth,
         },
+        sideWinderWrapper,
       });
 
 const { arrayOf, bool, func, object, shape } = PropTypes;

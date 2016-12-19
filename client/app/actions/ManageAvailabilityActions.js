@@ -1,32 +1,16 @@
-/* eslint-disable no-alert */
-
 import Immutable from 'immutable';
 import * as actionTypes from '../constants/ManageAvailabilityConstants';
 import * as harmony from '../services/harmony';
 import { t } from '../utils/i18n';
 import { expandRange } from '../utils/moment';
 import { addFlashNotification } from './FlashNotificationActions';
-import { hasChanges, blockChanges, unblockChanges } from '../reducers/ManageAvailabilityReducer';
+import { blockChanges, unblockChanges } from '../reducers/ManageAvailabilityReducer';
 
 export const EDIT_VIEW_OPEN_HASH = 'manage-availability';
 
-export const openEditView = () => {
-  window.location.hash = EDIT_VIEW_OPEN_HASH;
-  return ({ type: actionTypes.OPEN_EDIT_VIEW });
-};
+export const openEditView = () => ({ type: actionTypes.OPEN_EDIT_VIEW });
 
-export const closeEditView = () =>
-  (dispatch, getState) => {
-    const state = getState().manageAvailability;
-    const explanation = t('web.listings.confirm_discarding_unsaved_availability_changes_explanation');
-    const question = t('web.listings.confirm_discarding_unsaved_availability_changes_question');
-    const text = `${explanation}\n\n${question}`;
-
-    if (!hasChanges(state) || window.confirm(text)) {
-      window.location.hash = '';
-      dispatch({ type: actionTypes.CLOSE_EDIT_VIEW });
-    }
-  };
+export const closeEditView = () => ({ type: actionTypes.CLOSE_EDIT_VIEW });
 
 export const blockDay = (day) => ({
   type: actionTypes.BLOCK_DAY,

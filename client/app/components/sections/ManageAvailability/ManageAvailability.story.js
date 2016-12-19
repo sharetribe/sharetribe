@@ -19,6 +19,7 @@ const { action, storiesOf } = storybookFacade;
 
 const actions = {
   removeFlashNotification: action('removeFlashNotification'),
+  closeEditView: () => action('EditView')('close'),
 };
 
 class ManageAvailabilityWrapper extends Component {
@@ -57,29 +58,24 @@ class ManageAvailabilityWrapper extends Component {
       flashNotifications: new Immutable.List(),
       onOpen: () => {
         this.setState({ isOpen: true });
+        action('EditView')('open');
       },
       hasChanges: this.state.hasChanges,
       onSave: () => {
         console.log('Saving availability changes');
         this.setState({ hasChanges: false, isOpen: false });
       },
-      winder: {
-        wrapper: document.querySelector('#root'),
-        isOpen: this.state.isOpen,
-        maxWidth: cssVariables['--ManageAvailability_maxWidth'],
-        minWidth: cssVariables['--ManageAvailability_minWidth'],
-        onClose: () => {
-          if (!this.state.hasChanges) {
-            console.log('No availability changes to save');
-            this.setState({ isOpen: false });
-          } else if (confirm('You have unsaved changes, close anyways?')) {
-            console.log('Closing with availability changes');
-            this.setState({ hasChanges: false, isOpen: false });
-          } else {
-            console.log('Continue editing availability changes');
-          }
-        },
+      onCloseCallback: () => {
+        if (!this.state.hasChanges) {
+          console.log('No availability changes to save');
+          this.setState({ isOpen: false });
+        } else {
+          console.log('Closing with availability changes');
+          this.setState({ hasChanges: false, isOpen: false });
+        }
       },
+      isOpen: this.state.isOpen,
+      sideWinderWrapper: document.querySelector('#root'),
       header: {
         backgroundColor: '347F9D',
         imageUrl: 'https://placehold.it/1024x1024',
@@ -96,6 +92,7 @@ class ManageAvailabilityWrapper extends Component {
           this.setState({ visibleMonth: m });
         },
       },
+      saveInProgress: false,
     });
   }
 }
