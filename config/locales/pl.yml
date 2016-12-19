@@ -79,7 +79,7 @@ pl:
         private_community_homepage_content: "Treść prywatnej strony głównej platformy"
         edit_private_community_homepage_content_description: "Ta zawartość jest pokazywana na stronie głównej prywatnych platform tym użytkownikom, którzy nie są zalogowani. Tutaj możesz opisać swoją platformę oraz jak do niej dołączyć. Możesz dodać zdjęcia, wideo i treść HTML tutaj. %{see_how_it_looks_like}"
         update_information: "Zapisz ustawienia"
-        invite_people: "Zaproś nowych użytkowników"
+        invite_people: "Zaproś nowych użytkowników do %{service_name}"
         edit_signup_info: "Dane rejestracji"
         edit_signup_info_description: "To jest tekst informacyjny, który może zostać wyświetlony dla użytkowników na stronie rejestracji. Tutaj możesz dodać instrukcje dotyczące rejestracji, jak otrzymać zaproszenie i inne. Domyślnie, nie ma instrukcji."
         edit_info: "Edytuj informacje"
@@ -97,7 +97,7 @@ pl:
         transaction_agreement_description: "To jest treść właściwej umowy, jaką użytkownik powinien zaakceptować. Zawartość umowy jest wyświetlana gdy użytkownik kliknie link %{read_more} znajdujący się obok etykiety umowy."
       edit_look_and_feel:
         edit_community_look_and_feel: "Edytuj wygląd platformy %{community_name}"
-        community_logo: "Logo na desktopie"
+        community_logo: Logo
         community_logo_icon: "Logo dla sieci społecznościowych i urządzeń mobilnych"
         community_cover_photo: "Zdjęcie w tle"
         small_community_cover_photo: "Małe zdjęcie w tle"
@@ -105,7 +105,7 @@ pl:
         favicon_info_text: "Favicon zastąpi domyślne logo Sharetribe. Wymiary powinny wynosić 32x32 piksele więc załadowany obrazek będzie przycięty do tych wymiarów."
         community_custom_color1: "Główny kolor"
         new_listing_button_custom_color: "Opublikuj nowy kolor oferty"
-        logo_instructions_text_with_dimensions: "Rozmiar loga na komputery powinno mieć %{width} na %{height} pikseli. Będzie wyświetlane użytkownikom z większym ekranem."
+        logo_instructions_text_with_dimensions: "Rozmiar logo powinien wynosić %{width} na %{height} pikseli. Będzie ono wyświetlane użytkownikom z większym ekranem."
         logo_instructions_text_with_dimensions_no_placing: "Wielkość logotypu powinna mieścić się w przedziale %{width} na %{height} pikseli."
         logo_icon_instructions_text_with_dimensions: "Ten kwadratowy logotyp będzie pojawiał się, gdy ludzie udostępnią Twoją stronę na Facebooku, gdy przeglądają Twoją stronę na urządzeniu mobilnym lub, gdy zapiszą Twoją stronę na głównej witrynie ich urządzenia mobilnego. Rozmiary powinny mieścić się (przynajmniej) w %{width} na %{height} pikseli."
         logo_icon_instructions_text_with_dimensions_no_placing: "Ten kwadratowy logotyp będzie pojawiał się, gdy ludzie udostępnią Twoją stronę na Facebooku lub, gdy zapiszą Twoją stronę na głównej witrynie ich urządzenia mobilnego. Rozmiary powinny mieścić się (przynajmniej) w %{width} na %{height} pikseli."
@@ -168,7 +168,7 @@ pl:
         verification_sent_from: ~
         follow_the_instructions: ~
       getting_started:
-        getting_started: ~
+        getting_started: "Poradnik dla początkujących"
       available_languages:
         en: ~
         en-AU: ~
@@ -256,29 +256,29 @@ pl:
         new_topbar: "Nowy pasek górny (widoczny na każdej stronie)"
         searchpage: ~
       social_media:
-        social_media: ~
+        social_media: "Media społecznościowe"
         twitter_handle: "Obsługa Twitter"
-        twitter_handle_info_text: ~
+        twitter_handle_info_text: "Nazwa konta Twitter Twojej platformy (jeśli takie masz). Będzie wspomniana gdy ludzie użyją przycisku \"Tweet\" na stronie oferty."
         twitter_handle_info_text_with_instructions: ~
         twitter_instructions_link_text: ~
-        twitter_handle_placeholder: ~
+        twitter_handle_placeholder: "Nazwa użytkownika"
         invalid_twitter_handle: ~
-        facebook_connect: ~
-        facebook_connect_info_text: ~
+        facebook_connect: Facebook
+        facebook_connect_info_text: "Aby umożliwić logowanie poprzez Facebook, stwórz aplikację dla swojej platformy w <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Dodaj wygenerowane id oraz tajny klucz aplikacji tutaj."
         facebook_connect_info_text_with_instructions: ~
         facebook_instructions_link_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
-        save: ~
+        facebook_connect_id: "id klienta Facebook"
+        invalid_facebook_connect_id: "Id klienta powinno zawierać wyłącznie liczby."
+        facebook_connect_secret: "Tajny klucz klienta Facebook"
+        invalid_facebook_connect_secret: "Tajny klucz klienta powinien zawierać wyłącznie liczby oraz litery od a do f"
+        save: "Zapisz ustawienia"
       analytics:
-        analytics: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
+        analytics: Analizy
+        google_analytics_key: "ID śledzenia z usługi Google Analytics"
+        google_analytics_key_info_text: "ID śledzenia Twojego konta Google Analytics"
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
-        save: ~
+        save: "Zapisz ustawienia"
       menu_links:
         menu_links: "Linki menu"
         save: "Zapisz ustawienia"
@@ -386,10 +386,10 @@ pl:
         message_will_be_sent_only_to_people_with_this_language: "Uwaga: ta wiadomość email zostanie wysłana tylko do użytkowników platformy %{service_name}, którzy używają jej w języku, który wskazałeś."
         email_sent: "Wiadomość email wysłana"
     left_hand_navigation:
-      general: ~
-      users_and_transactions: ~
-      configure: ~
-      emails_title: ~
+      general: Ogólne
+      users_and_transactions: "Użytkownicy i transakcje"
+      configure: Konfiguracja
+      emails_title: E-maile
       support: ~
       subscription: ~
       preview: ~
@@ -474,9 +474,9 @@ pl:
           time_label: ~
     paypal_accounts:
       marketplace_paypal_integration: "Preferencje systemu płatności"
-      preferences_updated: ~
+      preferences_updated: "Preferencje systemu płatności zaktualizowane"
       contact_support_link_text: ~
-      integration_info_text: ~
+      integration_info_text: "System płatności Twojej platformy jest obsługiwany przez PayPal. Aby umożliwić Twoim użytkownikom płacenie za pomocą platformy musisz połączyć ją ze swoim kontem PayPal. Po zrobieniu tego będzie możliwe ustawienie minimalnej wielkości transakcji i możliwej wysokości prowizji."
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
@@ -485,10 +485,10 @@ pl:
       supported_currencies_information_text: ~
       currency_change_warning_text: ~
       marketplace_currency_label: ~
-      minimum_listing_price_label: ~
-      transaction_fee_label: ~
+      minimum_listing_price_label: "Minimalna wartość transakcji:"
+      transaction_fee_label: "Opłata za transakcję:"
       minimum_transaction_fee_label: ~
-      save_settings: ~
+      save_settings: "Zapisz ustawienia"
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
     transaction_types:
@@ -654,9 +654,9 @@ pl:
       sum: "Łącznie: %{sum}"
       total: "Łącznie: %{total}"
     status:
-      payment_errored: ~
-      payment_errored_starter: ~
-      payment_errored_author: ~
+      payment_errored: "Płatność nie powiodła się. Spróbuj ponownie."
+      payment_errored_starter: "Płatność nie powiodła się. Spróbuj ponownie. Jeśli problem będzie nadal występował proszę skontaktuj się ze wsparciem Sharetribe."
+      payment_errored_author: "Płatność nie powiodła się. Proszę skontaktuj się z %{starter_name} i poproś o ponowienie płatności."
       cancel_payed_transaction: Anuluj
       feedback_given: "Otrzymana opinia"
       feedback_skipped: "Opinia pominięta"
@@ -674,8 +674,8 @@ pl:
       pending_external:
         paypal:
           multicurrency: "Nie mogliśmy przeprowadzić Twojej płatności PayPal ponieważ Twoje konto PayPal nie zostało skonfigurowane do otrzymywania pieniędzy w %{currency}. Idź do %{paypal_url} i zaloguj się na swoje konto, aby ręcznie zaakceptować lub odrzucić płatność."
-          verify: ~
-          intl: ~
+          verify: "Nie możesz zaakceptować tej transakcji, gdyż nie zweryfikowałeś/aś swojego konta PayPal. Idź na %{paypal_url} aby zweryfikować swoje konto."
+          intl: "Nie mogliśmy przeprowadzić Twojej płatności PayPal ponieważ Twoje konto PayPal nie posiada mechanizmy wypłaty. Idź na %{paypal_url} i zaloguj się na swoje konto, aby ręcznie zaakceptować lub odrzucić płatność."
       waiting_for_current_user_to_deliver_listing: "Czeka abyś wypełnił zamówienie na %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "Czeka aż %{listing_author_name} wypełni zamówienie na %{listing_title}"
       request_accepted: Zaakceptowano
@@ -765,7 +765,7 @@ pl:
       request_marked_as_confirmed: "Zamówienie zakończone - pamiętaj, aby przekazać opinię"
       request_marked_as_canceled: "Zamówienie anulowane"
       has_marked_request_as_confirmed: "%{other_party_full_name} oznaczyła Twoje zamówienie o %{request} jako ukończone. Teraz możesz przekazać opinię do %{other_party_given_name}."
-      has_marked_request_as_canceled: "%{other_party_full_name} anulował zamówienie o %{request}. Wciąż możesz przekazać opinię do %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} anulował zamówienie na %{request}. Wciąż możesz przekazać opinię do %{other_party_given_name}."
       giving_feedback_is_good_idea: "Przekazywanie opinii jest zawsze dobrym pomysłem. Jeżeli wszystko poszło dobrze, daj znać innym, że %{other_party_given_name} jest warty zaufania. Jeżeli napotkałeś jakieś problemy, dobrze zaznaczyć to także."
       give_feedback_to: "Przekaż opinię do %{other_party_given_name}"
     transaction_automatically_confirmed:
@@ -780,9 +780,9 @@ pl:
       show_thread: "Pokaż konwersację"
     confirmation_instructions:
       confirmation_instructions_signature: "Pozdrawiamy,<br/>Zespół %{service_name}"
-      need_to_confirm: "Musisz potwierdzić swój adres email."
-      confirmation_link_text: "Potwierdź mój adres email"
-      or_paste_link: "Bądź skopiuj poniższy link do paska przeglądarki Twojej przeglądarki:"
+      need_to_confirm: "Aby dołączyć do %{service_name}, potwierdź swój adres e-mail poprzez naciśnięcie przycisku poniżej."
+      confirmation_link_text: "Potwierdź mój adres"
+      or_paste_link: "Ewentualnie możesz skopiować poniższy link do paska adresowego Twojej przeglądarki:"
     common:
       hey: "Witaj %{name}"
       kassi_team: "Zespół %{service_name}"
@@ -846,7 +846,7 @@ pl:
       total: Suma
       price: Cena
       service_fee: "Opłata serwisowa"
-      money_will_be_transferred: ~
+      money_will_be_transferred: "Pieniądze zostaną przesłane do %{recipient_name} kiedy: a) zaznaczysz zlecenie jako zrealizowane lub b) minie %{automatic_confirmation_days} dni od kiedy dokonałeś płatności."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} przekazał Tobie opinię w %{service_name}"
       you_can_give_feedback_to: "Jeszcze nie przekazałeś opinii do %{name}"
@@ -926,8 +926,8 @@ pl:
       pending_review_error: ~
       seller_express_checkout_disabled: ~
       generic_error: "W trakcie procesu płatności pojawił się błąd. Nie można zakończyć Twojej płatności PayPal."
-      cancel_error: ~
-      accept_authorization_error: ~
+      cancel_error: "Wystąpił błąd podczas anulowania. Nie można zakończyć anulowania."
+      accept_authorization_error: "Wystąpił błąd podczas akceptowania preautoryzowanej płatności PayPal. Proszę spróbować ponownie."
       reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Wróć do strony głównej"
@@ -1087,7 +1087,7 @@ pl:
       this_article_link: ~
       invitation_emails_field_placeholder: "kumpel1@przyklad.pl, kumpel2@przyklad.pl, ..."
       invitation_message_field_placeholder: "Dołączyłem do tej platformy. Ty też powinieneś/aś!"
-      errors_in_emails: "Sprawdź czy adresy email, które dodałeś są poprawne. Jeżeli dodałeś wiele adresów, upewnij się, że są oddzielone przecinkami."
+      errors_in_emails: "Sprawdź czy adresy e-mail, które dodałeś są poprawne i nie zawierają żadnych nietypowych znaków. Jeżeli dodałeś wiele adresów, upewnij się, że są oddzielone przecinkami."
     list_item:
       review: recenzje
       reviews: recenzje
@@ -1502,7 +1502,7 @@ pl:
     listing_actions:
       booking_from: Od
       booking_to: Do
-      how_paypal_works: ~
+      how_paypal_works: "Jak działa PayPal"
       payment_help: ~
       unable_load_availability: ~
     new:
@@ -1540,7 +1540,7 @@ pl:
       inquiry: Ogłoszenie
       item_offer_trade: "Wymień się ofertą"
       item_request_trade: "Wymień się zapytaniem"
-      no_description: "Pozycja nie ma opisu"
+      no_description: "Ta oferta nie posiada opisu"
       no_image: "Brak zdjęcia"
       no_reviews: "Brak otrzymanych recenzji"
       offer: Oferuj
@@ -1637,10 +1637,10 @@ pl:
     you_are_ready_to_accept_payments: "Jesteś gotowy/a do akceptowania płatności!"
     commission: "%{commission} %"
     new:
-      payout_info_you_need_to_connect: ~
+      payout_info_you_need_to_connect: "Aby akceptować płatności musisz połączyć swoje konto PayPal z %{service_name}."
       payout_info_text: "Aby połączyć swoje konto, wykonaj proszę następujące kroki."
       contact_admin_link_text: ~
-      admin_account_not_connected: ~
+      admin_account_not_connected: "Połączenie Twojego konta PayPal nie jest możliwe ponieważ %{service_name} nie ustawił/a płatności. Proszę %{contact_admin_link} aby uzyskać więcej informacji."
       paypal_account_email: "Połącz swoje konto PayPal"
       paypal_account_email_placeholder: "Twój adres email zarejestrowany w PayPal"
       paypal_account_email_info_text: "Jeśli nie posiadasz konta PayPal, możesz stworzyć nowe poprzez %{create_paypal_account}. Jeśli dostaniesz komunikat o błędzie podczas połączenia z Twoim kontem PayPal, ulepsz swoje konto PayPal do konta firmowego. Ulepszenie jest darmowe i łatwe. Jeśli jesteś osobą fizyczną, możesz użyć swojego imienia i nazwiska jako \"nazwy firmy\". Aby ulepszyć Twoje konto, %{upgrade_paypal_account} i znajdź link do ulepszenia."
@@ -1683,10 +1683,10 @@ pl:
   paypal:
     pay_with_paypal: ~
     checkout_with_paypal: ~
-    cancel_succesful: ~
+    cancel_succesful: "Płatność PayPal została anulowana"
     transaction:
-      commission_payment_name: ~
-      commission_payment_description: ~
+      commission_payment_name: "Płatność prowizji dla %{listing_title}"
+      commission_payment_description: "Platforma %{service_name} pobrała tę prowizję od transakcji dotyczącej %{listing_title}"
     wait_while_loading: ~
     chatting_with_paypal: ~
   people:
