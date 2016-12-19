@@ -35,15 +35,20 @@
   margin: 2px auto 0 auto;
 }
 
-.saveButton {
-  margin: var(--ManageAvailability_saveButtonPadding);
-  padding: 0;
+.saveButtonContainer {
+  padding: var(--ManageAvailability_saveButtonPadding);
 
   /* This will position the button to the flexbox group bottom.
   See excellent SO answer: http://stackoverflow.com/a/33856609/432787 */
   margin-top: auto;
-  height: var(--ManageAvailability_saveButtonHeight);
-  min-height: var(--ManageAvailability_saveButtonHeight);
+  height: calc(var(--ManageAvailability_saveButtonHeight) + (2 * var(--ManageAvailability_saveButtonPadding)));
+  min-height: calc(var(--ManageAvailability_saveButtonHeight) + (2 * var(--ManageAvailability_saveButtonPadding)));
+  transition: bottom 0.5s;
+  position: relative;
+  overflow: hidden;
+}
+
+.saveButton {
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.2px;
@@ -51,8 +56,12 @@
   background-color: var(--colorReservedAvailability);
   border: none;
   border-radius: 4px;
-  transition: bottom 0.5s;
   cursor: pointer;
+  height: var(--ManageAvailability_saveButtonHeight);
+  width: calc(100% - (2 * var(--ManageAvailability_saveButtonPadding)));
+  transition: bottom 0.5s;
+  position: absolute;
+  bottom: -100px;
 
   &[disabled],
   &[disabled]:hover {
@@ -66,5 +75,5 @@
 }
 
 .saveButtonVisible {
-  bottom: var(--ManageAvailability_padding);
+  bottom: var(--ManageAvailability_saveButtonPadding);
 }

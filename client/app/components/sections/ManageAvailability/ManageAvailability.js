@@ -12,14 +12,16 @@ import css from './ManageAvailability.css';
 
 const CALENDAR_RENDERING_TIMEOUT = 100;
 
-const SaveButton = (props) => button({
+const SaveButton = (props) => div({
+  className: css.saveButtonContainer,
+}, button({
   className: classNames({
     [css.saveButton]: true,
     [css.saveButtonVisible]: props.isVisible,
   }),
   disabled: props.isDisabled,
   onClick: props.onClick,
-}, t('web.listings.save_and_close_availability_editing'));
+}, t('web.listings.save_and_close_availability_editing')));
 
 SaveButton.propTypes = {
   isVisible: PropTypes.bool.isRequired,
