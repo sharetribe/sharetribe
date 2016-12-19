@@ -64,12 +64,18 @@
         = label_tag("", t("admin.listing_shapes.availability_title"), class: "input")
 
         - if display_knowledge_base_articles
-          = render :partial => "layouts/info_text", :locals => { :text => link_to(t("admin.listing_shapes.read_more"), "#{knowledge_base_url}/articles/1097116").html_safe }
+          - if feature_enabled?(:manage_availability)
+            = render :partial => "layouts/info_text", :locals => { :text => link_to(t("admin.listing_shapes.read_more_availability_management"), "#{knowledge_base_url}/articles/1116607").html_safe }
+          - else
+            = render :partial => "layouts/info_text", :locals => { :text => link_to(t("admin.listing_shapes.read_more"), "#{knowledge_base_url}/articles/1097116").html_safe }
 
     .row
       .col-12
         = check_box_tag(:availability, "booking", shape[:availability] == :booking, class: "checkbox-row-checkbox js-availability")
-        = label_tag(:availability, t("admin.listing_shapes.allow_availability_management"), class: "checkbox-row-label js-availability-label")
+        - if feature_enabled?(:manage_availability)
+          = label_tag(:availability, t("admin.listing_shapes.allow_providers_to_manage_availability"), class: "checkbox-row-label js-availability-label")
+        - else
+          = label_tag(:availability, t("admin.listing_shapes.allow_availability_management"), class: "checkbox-row-label js-availability-label")
 
     .row
       .col-12
