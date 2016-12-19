@@ -88,12 +88,12 @@ export const changeMonth = (day) =>
     const { start, end } = monthsToLoad(day, state.get('loadedMonths'), PRELOAD_MONTHS);
 
     if (start && end) {
-      harmony.get('/bookables/show', {
+      harmony.showBookable({
         refId: state.get('listingUuid'),
         marketplaceId: state.get('marketplaceUuid'),
-        include: ['blocks', 'bookings'].join(','),
-        start: start.toJSON(),
-        end: end.toJSON(),
+        include: ['blocks', 'bookings'],
+        start: start,
+        end: end,
       })
       .then((response) => {
         const groups = response.get(':included').groupBy((v) => v.get(':type'));

@@ -90,3 +90,12 @@ export const deleteBlocks = (marketplaceId, refId, blockIds) =>
       ':id': id,
     })),
   });
+
+export const showBookable = ({refId, marketplaceId, include, start, end}) =>
+  sendRequest('get', '/bookables/show', {
+    refId,
+    marketplaceId,
+    include: (include || []).join(','),
+    start: start.toJSON(),
+    end: end.toJSON(),
+  })
