@@ -9,7 +9,8 @@
     padding-bottom: 45px;
 
     & strong {
-      font-weight: normal;
+      font-weight: 600;
+      letter-spacing: 0.2px;
     }
   }
 
@@ -22,6 +23,7 @@
 
     & small {
       font-size: 13px;
+      font-weight: 600;
     }
   }
 
@@ -38,11 +40,20 @@
     }
   }
 
+  & :global(.DayPickerNavigation--horizontal .DayPickerNavigation__prev) {
+    padding-left: 0;
+  }
+
+  & :global(.DayPickerNavigation--horizontal .DayPickerNavigation__next) {
+    padding-right: 0;
+  }
+
   & :global(.CalendarMonth__day) {
     border: 1px solid #ebebeb;
     color: #5e6977;
     background-color: #fff;
     transition: background-color 0.1s ease-in;
+    font-weight: 600;
 
     &:hover {
       color: #d7d7d7;
@@ -55,17 +66,16 @@
   }
 
   & :global(.CalendarMonth__day--past) {
-    cursor: default;
-  }
-
-  & :global(.CalendarMonth__day--past) {
     background-color: #f8f8f8;
     color: #d7d7d7;
+    font-weight: normal;
+    cursor: default;
   }
 
   & :global(.CalendarMonth__day--blocked) {
     background-color: #f8f8f8;
     color: #d7d7d7;
+    font-weight: normal;
 
     &:hover {
       color: #5e6977;
@@ -79,6 +89,7 @@
       background-color: var(--colorReservedAvailability);
       color: #fff;
       cursor: default;
+      font-weight: normal;
     }
   }
 
