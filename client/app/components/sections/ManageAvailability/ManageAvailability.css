@@ -23,6 +23,11 @@
     }
   }
 
+  & button {
+    display: block;
+    line-height: 1;
+  }
+
   /* --- OVERRIDE DEFAULT STYLES END --- */
 }
 
@@ -68,7 +73,8 @@
     background-color: #eee;
   }
 
-  &:hover {
+  &:hover,
+  &:active {
     transition: background-color 0.1s ease-in;
     background-color: var(--colorReservedAvailabilityDark);
   }
