@@ -41,11 +41,15 @@
   }
 
   & :global(.DayPickerNavigation--horizontal .DayPickerNavigation__prev) {
-    padding-left: 0;
+    /* The navigation arrows have 9px padding. Add -9px margin to
+    align the arrows with the calendar */
+    margin-left: -9px;
   }
 
   & :global(.DayPickerNavigation--horizontal .DayPickerNavigation__next) {
-    padding-right: 0;
+    /* The navigation arrows have 9px padding. Add -9px margin to
+    align the arrows with the calendar */
+    margin-right: -9px;
   }
 
   & :global(.CalendarMonth__day) {
