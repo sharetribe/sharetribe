@@ -61,6 +61,7 @@ class ManageAvailabilityWrapper extends Component {
         action('EditView')('open');
       },
       hasChanges: this.state.hasChanges,
+      saveInProgress: false,
       onSave: () => {
         console.log('Saving availability changes');
         this.setState({ hasChanges: false, isOpen: false });
