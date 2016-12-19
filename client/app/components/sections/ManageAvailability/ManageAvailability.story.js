@@ -59,6 +59,7 @@ class ManageAvailabilityWrapper extends Component {
         this.setState({ isOpen: true });
       },
       hasChanges: this.state.hasChanges,
+      saveInProgress: false,
       onSave: () => {
         console.log('Saving availability changes');
         this.setState({ hasChanges: false, isOpen: false });
