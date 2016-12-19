@@ -551,9 +551,17 @@ class ListingsController < ApplicationController
   def update_flash(old_availability:, new_availability:)
     case [new_availability.to_sym == :booking, old_availability.to_sym == :booking]
     when [true, false]
-      t("layouts.notifications.listing_updated_availability_enabled")
+      if FeatureFlagHelper.feature_enabled?(:manage_availability)
+        t("layouts.notifications.listing_updated_availability_management_enabled")
+      else
+        t("layouts.notifications.listing_updated_availability_enabled")
+      end
     when [false, true]
-      t("layouts.notifications.listing_updated_availability_disabled")
+      if FeatureFlagHelper.feature_enabled?(:manage_availability)
+        t("layouts.notifications.listing_updated_availability_management_disabled")
+      else
+        t("layouts.notifications.listing_updated_availability_disabled")
+      end
     else
       t("layouts.notifications.listing_updated_successfully")
     end
