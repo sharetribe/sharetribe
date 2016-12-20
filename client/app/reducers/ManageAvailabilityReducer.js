@@ -7,7 +7,6 @@ import { expandRange } from '../utils/moment';
 const initialState = Immutable.Map({
   isOpen: true,
   visibleMonth: moment()
-    .utc()
     .startOf('month'),
 
   // List of days that buyers have booked. These cannot be blocked.
@@ -183,7 +182,6 @@ const clearState = (state) =>
       .set('changes', Immutable.List())
       .set('loadedMonths', Immutable.Set())
       .set('visibleMonth', moment()
-           .utc()
            .startOf('month'));
 
 const manageAvailabilityReducer = (state = initialState, action) => {
