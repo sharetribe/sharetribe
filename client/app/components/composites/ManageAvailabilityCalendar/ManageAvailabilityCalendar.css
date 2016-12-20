@@ -101,5 +101,9 @@
     cursor: pointer;
   }
 
+  & :global(.CalendarMonth > table) {
+    transform: translate3d(0, 0, 0);
+  }
+
   /* stylelint-enable selector-class-pattern */
 }
