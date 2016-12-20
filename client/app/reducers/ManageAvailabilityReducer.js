@@ -198,7 +198,7 @@ const manageAvailabilityReducer = (state = initialState, action) => {
     case actionTypes.START_SAVING:
       return state.set('saveInProgress', true);
     case actionTypes.CHANGES_SAVED:
-      return state.set('saveInProgress', false).set('changes', Immutable.List());
+      return state.set('saveInProgress', false);
     case actionTypes.SAVING_FAILED:
       return state.set('saveInProgress', false);
     case actionTypes.DATA_LOADED:
