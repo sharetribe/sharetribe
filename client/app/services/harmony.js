@@ -69,7 +69,7 @@ const sendRequest = (method, url, queryParams, body) => {
                });
 };
 
-export const get = (url, queryParams) =>
+const get = (url, queryParams) =>
   sendRequest('get', url, queryParams);
 
 export const createBlocks = (marketplaceId, refId, blocks) =>
