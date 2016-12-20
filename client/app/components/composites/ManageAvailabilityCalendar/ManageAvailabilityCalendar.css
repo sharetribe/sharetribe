@@ -101,5 +101,10 @@
     cursor: pointer;
   }
 
+  /* React-Dates fix: remove click events from invisible month */
+  & :global(.CalendarMonth:first-of-type) {
+    pointer-events: none;
+  }
+
   /* stylelint-enable selector-class-pattern */
 }
