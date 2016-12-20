@@ -5,11 +5,6 @@ import { createReader, createWriter } from '../utils/transitImmutableConverter';
 /**
   harmony.js defines a interface for Harmony API.
 
-  It exports two functions:
-
-  - get(url, queryParams)
-  - TODO post(url, queryParams, body)
-
   Internally, harmony.js sets the correct headers to the request and
   also extracts the correct CSRF token from the <meta> tag.
  */
@@ -69,19 +64,30 @@ const sendRequest = (method, url, queryParams, body) => {
                });
 };
 
-export const get = (url, queryParams) =>
-  sendRequest('get', url, queryParams);
+/**
+   Create blocks
 
+   @param {UUID} refId - listing UUID
+   @param {UUID} marketplaceId - marketplace UUID
+   @param {Immutable.Map} blocks - List of new blocks. `start` and `end` must be midnight UTC Dates
+*/
 export const createBlocks = (marketplaceId, refId, blocks) =>
   sendRequest('post', '/bookables/createBlocks', {}, {
     ':marketplaceId': marketplaceId,
     ':refId': refId,
     ':blocks': blocks.map((b) => Immutable.Map({
-      ':start': b.get('start').toDate(),
-      ':end': b.get('end').toDate(),
+      ':start': b.get('start'),
+      ':end': b.get('end'),
     })),
   });
 
+/**
+   Delete blocks
+
+   @param {UUID} refId - listing UUID
+   @param {UUID} marketplaceId - marketplace UUID
+   @param {Array} blockIds - Array of block UUIDs
+*/
 export const deleteBlocks = (marketplaceId, refId, blockIds) =>
   sendRequest('post', '/bookables/deleteBlocks', {}, {
     ':marketplaceId': marketplaceId,
@@ -89,4 +95,21 @@ export const deleteBlocks = (marketplaceId, refId, blockIds) =>
     ':blocks': blockIds.map((id) => Immutable.Map({
       ':id': id,
     })),
+  });
+
+/**
+   Show bookables
+
+   @param {UUID} refId - listing UUID
+   @param {UUID} marketplaceId - marketplace UUID
+   @param {Date} start - start date (midnight UTC)
+   @param {Date} end - end date (midnight UTC)
+*/
+export const showBookable = ({ refId, marketplaceId, include, start, end }) =>
+  sendRequest('get', '/bookables/show', {
+    refId,
+    marketplaceId,
+    include: (include || []).join(','),
+    start: start.toJSON(),
+    end: end.toJSON(),
   });

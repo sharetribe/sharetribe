@@ -24,7 +24,6 @@ export default (props) => {
     manageAvailability: Immutable.Map({
       isOpen: window.location.hash.replace(/^#/, '') === EDIT_VIEW_OPEN_HASH,
       visibleMonth: moment()
-        .utc()
         .startOf('month'),
       bookings: Immutable.List(),
       blocks: Immutable.List(),

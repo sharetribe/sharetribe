@@ -2,7 +2,7 @@ import Immutable from 'immutable';
 import * as actionTypes from '../constants/ManageAvailabilityConstants';
 import * as harmony from '../services/harmony';
 import { t } from '../utils/i18n';
-import { expandRange } from '../utils/moment';
+import { expandRange, fromMidnightUTCDate, toMidnightUTCDate } from '../utils/moment';
 import { addFlashNotification } from './FlashNotificationActions';
 import { blockChanges, unblockChanges } from '../reducers/ManageAvailabilityReducer';
 
@@ -76,6 +76,16 @@ const removeLoadedMonths = (months, loadedMonths) => ({
   end: months.findLast((e) => !loadedMonths.includes(e)),
 });
 
+const convertBlocksFromUTCMidnightDates = (blocks) =>
+  blocks.map((block) =>
+    block.updateIn([':attributes', ':start'], fromMidnightUTCDate)
+         .updateIn([':attributes', ':end'], fromMidnightUTCDate));
+
+const convertBlocksToUTCMidnightDates = (blocks) =>
+  blocks.map((block) =>
+    block.updateIn(['start'], toMidnightUTCDate)
+         .updateIn(['end'], toMidnightUTCDate));
+
 const monthsToLoad = (day, loadedMonths, preloadMonths) =>
   removeLoadedMonths(loadRange(day, preloadMonths), loadedMonths);
 
@@ -88,19 +98,19 @@ export const changeMonth = (day) =>
     const { start, end } = monthsToLoad(day, state.get('loadedMonths'), PRELOAD_MONTHS);
 
     if (start && end) {
-      harmony.get('/bookables/show', {
+      harmony.showBookable({
         refId: state.get('listingUuid'),
         marketplaceId: state.get('marketplaceUuid'),
-        include: ['blocks', 'bookings'].join(','),
-        start: start.toJSON(),
-        end: end.toJSON(),
+        include: ['blocks', 'bookings'],
+        start: toMidnightUTCDate(start),
+        end: toMidnightUTCDate(end),
       })
       .then((response) => {
         const groups = response.get(':included').groupBy((v) => v.get(':type'));
 
         const slots = Immutable.Map({
-          blocks: groups.get(':block', Immutable.List()),
-          bookings: groups.get(':booking', Immutable.List()),
+          blocks: convertBlocksFromUTCMidnightDates(groups.get(':block', Immutable.List())),
+          bookings: convertBlocksFromUTCMidnightDates(groups.get(':booking', Immutable.List())),
         });
 
         dispatch(dataLoaded(slots, expandRange(start, end, 'months').toSet()));
@@ -133,7 +143,7 @@ export const saveChanges = () =>
     const state = getState().manageAvailability;
     const marketplaceId = state.get('marketplaceUuid');
     const listingId = state.get('listingUuid');
-    const blocks = blockChanges(state);
+    const blocks = convertBlocksToUTCMidnightDates(blockChanges(state));
     const unblocks = unblockChanges(state);
     const requests = [];
 
