@@ -386,7 +386,9 @@ nb:
     listing_shapes:
       availability_title: Tilgjengelighet
       read_more: "Les mer om automatisert tilgjengelighets-administrasjon."
+      read_more_availability_management: "Les mer om tilgjengelighets-håndtering."
       allow_availability_management: "Tillat tilbydere å administrere sine bestillinger fra en kalender"
+      allow_providers_to_manage_availability: "Tillat tilbyderne å endre tilgjengeligheten fra en kalender."
       per_day_availability: "\"Per dag\"-tilgjengelighet"
       per_night_availability: "\"Per natt\"-tilgjengelighet"
       pricing_units_disabled_info: "Pris-enheter kan ikke brukes når tilgjengelighetskalenderen er aktivert."
@@ -1255,6 +1257,8 @@ nb:
       listing_updated_successfully: "Annonse oppdatert"
       listing_updated_availability_enabled: "Annonsen er oppdatert. Automatisert tilgjengelighets-administrasjon er aktivert."
       listing_updated_availability_disabled: "Annonsen er oppdatert. Automatisert tilgjengelighets-administrasjon er deaktivert."
+      listing_updated_availability_management_enabled: "Annonse oppdatert. Tilgjengelighets-håndtering er aktivert."
+      listing_updated_availability_management_disabled: "Annonse oppdatert. Tilgjengelighets-håndtering er deaktivert."
       only_kassi_administrators_can_access_this_area: "Kun %{service_name} administratorer kan besøke dette området"
       only_listing_author_can_close_a_listing: "Kun annonsør kan stoppe en annonse"
       only_listing_author_can_edit_a_listing: "Kun annonsør kan endre en annonse"

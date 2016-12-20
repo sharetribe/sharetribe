@@ -371,7 +371,9 @@ el:
     listing_shapes:
       availability_title: ~
       read_more: ~
+      read_more_availability_management: ~
       allow_availability_management: ~
+      allow_providers_to_manage_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -1224,6 +1226,8 @@ el:
       listing_updated_successfully: "Η καταχώρηση ενημερώθηκε επιτυχώς"
       listing_updated_availability_enabled: ~
       listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "Μόνο οι διαχειριστές του %{service_name} έχουν πρόσβαση σε αυτό το σημείο"
       only_listing_author_can_close_a_listing: "Μόνο ο δημιουργός μιας καταχώρησης μπορεί να την κλείσει."
       only_listing_author_can_edit_a_listing: "Μόνο ο δημιουργός μιας καταχώρησης μπορεί να την επεξεργαστεί."
@@ -2002,6 +2006,7 @@ el:
       errors:
         availability:
           something_went_wrong: ~
+          saving_failed: ~
       pricing_units:
         piece: ~
         hour: ~
@@ -2011,6 +2016,8 @@ el:
         month: ~
       edit_availability_header: ~
       save_and_close_availability_editing: ~
+      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_question: ~
       edit_listing_availability: ~
     no_listings:
       sorry: ~

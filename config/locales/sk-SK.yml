@@ -391,7 +391,9 @@ sk-SK:
     listing_shapes:
       availability_title: Dostupnosť
       read_more: ~
+      read_more_availability_management: ~
       allow_availability_management: ~
+      allow_providers_to_manage_availability: ~
       per_day_availability: "\"za deň\" dostupnosť"
       per_night_availability: "\"za noc\" dostupnosť"
       pricing_units_disabled_info: "Cena jednotky je nedostupná, pokiaľ je zapnutý kalendár dostupnosti."
@@ -1264,6 +1266,8 @@ sk-SK:
       listing_updated_successfully: "Inzerát bol úspešne aktualizovaný."
       listing_updated_availability_enabled: ~
       listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "Iba %{service_name} administrátory majú prístup k tejto oblasti"
       only_listing_author_can_close_a_listing: "Iba autor výpisu môže uzavrieť výpis"
       only_listing_author_can_edit_a_listing: "Iba autor výpisu môže upravovať výpis"

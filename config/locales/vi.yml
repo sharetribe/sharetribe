@@ -30,12 +30,12 @@ vi:
         remove_category: "Gỡ bỏ hạng mục"
         remove_category_name: "Gỡ bỏ hạng mục %{category_name}"
         warning_remove_effects: "Cảnh báo! Loại bỏ hạng mục %{category_name} sẽ có những tác động sau:"
+        warning_listing_will_be_moved:
+          other: "Có những tin đăng %{count} ở trong hạng mục. Chúng sẽ được chuyển đến các hạng mục đã được chọn."
         select_new_category: ~
         buttons:
           remove: ~
           cancel: ~
-        warning_listing_will_be_moved:
-          other: "Có những tin đăng %{count} ở trong hạng mục. Chúng sẽ được chuyển đến các hạng mục đã được chọn."
     communities:
       edit_details:
         community_details: ~
@@ -373,7 +373,9 @@ vi:
     listing_shapes:
       availability_title: ~
       read_more: ~
+      read_more_availability_management: ~
       allow_availability_management: ~
+      allow_providers_to_manage_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -1226,6 +1228,8 @@ vi:
       listing_updated_successfully: "Cập nhật thành công"
       listing_updated_availability_enabled: ~
       listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "Chỉ những người quản trị viên %{service_name} có thể truy cập khu vực này"
       only_listing_author_can_close_a_listing: "Chỉ tác giả của danh sách mới có thể đóng danh sách"
       only_listing_author_can_edit_a_listing: "Chỉ tác giả của danh sách mới có thể chỉnh sửa danh sách"

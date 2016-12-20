@@ -371,7 +371,9 @@ it:
     listing_shapes:
       availability_title: Disponibilità
       read_more: "Leggi di più sulla gestione automatica delle disponibilità"
+      read_more_availability_management: "Leggi di più sulla gestione delle disponibilità"
       allow_availability_management: "Abilita la gestione automatica della disponibilità (previene la doppia prenotazione)"
+      allow_providers_to_manage_availability: ~
       per_day_availability: "disponibilità \"Per giorno\""
       per_night_availability: "Disponibilità \"Per notte\""
       pricing_units_disabled_info: ""
@@ -1228,6 +1230,8 @@ it:
       listing_updated_successfully: "L'inserzione è stata aggiornata con successo"
       listing_updated_availability_enabled: "L'inserzione si è aggiornata con successo. Abilitata la gestione automatica della disponibilità."
       listing_updated_availability_disabled: "L'inserzione si è aggiornata con successo. Disabilitata la gestione automatica della disponibilità."
+      listing_updated_availability_management_enabled: "Inserzioni aggiornate con successo. Gestione delle disponibilità abilitate con successo."
+      listing_updated_availability_management_disabled: ""
       only_kassi_administrators_can_access_this_area: "Solo gli amministratori di %{service_name} possono accedere a questa area"
       only_listing_author_can_close_a_listing: "Solo l'autore dell'inserzione può chiudere l'inserzione"
       only_listing_author_can_edit_a_listing: "Solo l'autore dell'inserzione può modificare l'inserzione"

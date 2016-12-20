@@ -381,7 +381,9 @@ th-TH:
     listing_shapes:
       availability_title: ~
       read_more: ~
+      read_more_availability_management: ~
       allow_availability_management: ~
+      allow_providers_to_manage_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -1242,6 +1244,8 @@ th-TH:
       listing_updated_successfully: การอัพเดทรายการเสร็จสมบูรณ์แล้ว
       listing_updated_availability_enabled: ~
       listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "ผู้ดูแล %{service_name} เท่านั้นที่จะสามารถเข้าถึงพื้นที่นี้ได้"
       only_listing_author_can_close_a_listing: ผู้ประกาศเท่านั้นจึงจะมีสิทธิ์ลบประกาศได้
       only_listing_author_can_edit_a_listing: คนเขียนรายการเท่านั้นที่จะสามารถแก้ไขรายการได้

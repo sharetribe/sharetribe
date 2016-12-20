@@ -371,7 +371,9 @@ ar:
     listing_shapes:
       availability_title: الإتاحة
       read_more: ~
+      read_more_availability_management: ~
       allow_availability_management: "تفعيل إدارة الفحص التلقائي للمواعيد (لمنع الحجز المزدوج)"
+      allow_providers_to_manage_availability: ~
       per_day_availability: "متاح باليوم"
       per_night_availability: "متاح بالليلة"
       pricing_units_disabled_info: "لا يمكن استخدام وحدات الأسعار عندما يكون التقويم مفعل."
@@ -1246,6 +1248,8 @@ ar:
       listing_updated_successfully: "تم تحديث الإعلان بنجاح"
       listing_updated_availability_enabled: ~
       listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "يستطيعون دخول هذه الصفحة ‎%{service_name}‎ فقط ‎مسؤولي"
       only_listing_author_can_close_a_listing: "فقط من وضع الاعلان يمكنه إغلاقه"
       only_listing_author_can_edit_a_listing: "فقط من وضع الإعلان يمكنه تعديله"

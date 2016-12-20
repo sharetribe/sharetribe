@@ -21,8 +21,8 @@ ru:
         category_transaction_types:
           transaction_types: "Тип транзакции"
           transaction_types_description: "Типы транзакций определяют какие типы транзакций допустимы для публикаций данной категории. Для примера, это продажа, аренда или в дар где есть бесплатная возможность."
-          select_all: ~
-          clear_all: ~
+          select_all: "Выбрать все"
+          clear_all: "Очистить все"
         buttons:
           save: Сохранить
           cancel: Отменить
@@ -67,7 +67,7 @@ ru:
         enabled_languages: "Включенные языки"
         enabled_languages_description: "Набор доступных языков для пользователей. Первый в списке используется по умолчанию."
         default_language: "Язык по умолчанию"
-        language_selection_disabled: ~
+        language_selection_disabled: "Выбор языка недоступен для площадки, поскольку вы используете неофициальный язык %{languages}. Если вы хотите изменить языковые настройки, свяжитесь со службой поддержки Sharetribe."
         community_name: "Название проекта"
         edit_community_name_description: "Название вашего проекта. Оно будет показано в emails и других местах."
         community_slogan: Девиз
@@ -145,52 +145,52 @@ ru:
         need_to_change: ~
         contact_support_link_text: ~
         set_sender_address: ~
-        sender_name_label: ~
-        sender_name_placeholder: ~
-        sender_email_label: ~
-        sender_email_placeholder: ~
-        this_is_how_it_will_look: ~
-        send_verification_button: ~
-        successfully_saved: ~
-        status: ~
-        status_verified: ~
+        sender_name_label: Имя
+        sender_name_placeholder: "Имя отправителя"
+        sender_email_label: "Адрес электронной почты"
+        sender_email_placeholder: sender-email@example.com
+        this_is_how_it_will_look: "Образец:"
+        send_verification_button: "Отправить письмо с подтверждением"
+        successfully_saved: "Адрес отправителя успешно сохранен. Письмо с подтверждением будет скоро отправлено."
+        status: "Состояние: %{status}"
+        status_verified: "Подтверждено - используется"
         status_error: ~
-        status_requested: ~
-        status_expired: ~
-        status_resent: ~
-        resend_link: ~
-        invalid_email_error: ~
-        invalid_email_domain: ~
+        status_requested: "Неподтверждено - письмо с подтверждением отправлено на %{email} %{time_ago}. %{resend_link}"
+        status_expired: "Срок подтверждения %{email} истек. %{resend_link}"
+        status_resent: "Письмо с подтверждением повторно отправлено на %{email}. %{resend_link}"
+        resend_link: "Отправить повторно"
+        invalid_email_error: "Некорректный формат %{email}"
+        invalid_email_domain: "В адресе электронной почты %{email} используется неподдерживаемый провайдер услуг электронной почты: %{domain}. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: ~
-        unknown_error: ~
+        unknown_error: "Что-то пошло не так"
         white_label_offer: ~
         upgrade_plan_link: ~
-        verification_sent_from: ~
-        follow_the_instructions: ~
+        verification_sent_from: "Письмо с подтверждением было отправлено от %{verification_sender_name}."
+        follow_the_instructions: "Следуйте инструкциям в письме для подтверждения адреса."
       getting_started:
         getting_started: "Гид для начала работы"
       available_languages:
         en: Английский
-        en-AU: ~
-        en-GB: ~
+        en-AU: "Английский (Австралия)"
+        en-GB: "Английский (Великобритания)"
         fr: Французский
         fr-CA: "Французский (Канадский)"
-        es: ~
+        es: "Испанский (Чили)"
         es-ES: Испанский
-        pt-PT: ~
+        pt-PT: Португальский
         pt-BR: ~
-        nb: ~
-        sv: ~
-        da-DK: ~
-        fi: ~
+        nb: "Норвежский букмол"
+        sv: Шведский
+        da-DK: Датский
+        fi: Финский
         ru: Русский
-        de: ~
-        el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
-        it: ~
+        de: Немецкий
+        el: Греческий
+        nl: Датский
+        tr-TR: Турецкий
+        zh: Китайский
+        ja: Японский
+        it: Итальянский
       settings:
         settings: Настройки
         general: Основные
@@ -205,8 +205,8 @@ ru:
         keyword_and_location_search: ~
         location_search: ~
         select_distance_unit: ~
-        km: ~
-        miles: ~
+        km: км
+        miles: мили
         show_only_nearby: ~
         listing_preferences: "Настройки предложений"
         transaction_preferences: "Настройки транзакции"
@@ -243,7 +243,7 @@ ru:
         ban_user: "Заблокировать участника"
         saving_user_status: Сохранение...
         save_user_status_successful: Сохранено
-        export_all_as_csv: ~
+        export_all_as_csv: "Экспортировать все как CSV"
         save_user_status_error: "Во время сохранения поля произошла ошибка Обновите страницу и попробуйте еще раз."
         ban_user_confirmation: "Это удалит участника из проекта и доступ из этого аккаунта будет не возможен. Вы уверены что хотите продолжить?"
         ban_me_error: "Вы не можете заблокировать сами себя"
@@ -298,7 +298,7 @@ ru:
         new_listing_button_label: ~
         invalid_post_listing_button_label: ~
       transactions:
-        export_all_as_csv: ~
+        export_all_as_csv: "Экспортировать все как CSV"
         transactions: "Посмотреть транзакции"
         headers:
           conversation: Обсуждение
@@ -353,8 +353,8 @@ ru:
         field_title: "Наименование поля"
         field_type: "Тип поля"
         categories: "Категории публикаций где данное поле используется"
-        select_all: ~
-        clear_all: ~
+        select_all: "Выбрать все"
+        clear_all: "Очистить все"
         options: Варианты
         add_option: "+ Добавить опцию"
         saving_order: "Сохранение порядка полей"
@@ -396,7 +396,9 @@ ru:
     listing_shapes:
       availability_title: ~
       read_more: ~
+      read_more_availability_management: ~
       allow_availability_management: ~
+      allow_providers_to_manage_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -408,7 +410,7 @@ ru:
         select_template: "Выберите шаблон..."
         all_categories: "Все рубрики"
         no_categories: "Рубрик нет"
-        category_count: ~
+        category_count: "Категорий: %{category_count}"
         header:
           listing_shape_name: "Имя типа заказа"
           listing_shape_categories: ~
@@ -437,12 +439,27 @@ ru:
         update_success: "Смена типа заказа '%{shape}' сохранено"
         update_failure: "Не удалось сохранить изменения. Ошибка: %{error_msg}"
         delete: "Удалить тип заказа"
+        confirm_delete_order_type:
+          one: "Имеется %{count} объявление с этим типом заказов. Если вы удалите тип заказа, это объявление будет закрыто. Удалить тип заказа?"
+          few: "Имеется %{count} объявления с этим типом заказов. Если вы удалите тип заказа, эти объявления будут закрыты. Удалить тип заказа?"
+          many: "Имеется %{count} объявлений с этим типом заказов. Если вы удалите тип заказа, эти объявления будут закрыты. Удалить тип заказа?"
+          other: "Имеется %{count} объявлений с этим типом заказов. Если вы удалите тип заказа, эти объявления будут закрыты. Удалить тип заказа?"
         can_not_delete_last: "Вы не можете удалить этот тип заказа, потому что это единственный тип в вашем маркетплейсе."
         can_not_delete_only_one_in_categories: "Вы не можете удалить этот тип заказа, потому что в следующих категориях этот тип заказа единственный: %{categories}"
       listing_shape_name: Имя
       listing_shape_name_placeholder: Продать
       action_button_label: "Ярлык кнопки выполнения заказа"
       action_button_placeholder: Купить
+      close_listings_action:
+        one: "Закрыть %{count} объявление"
+        few: "Закрыть %{count} объявления"
+        many: "Закрыть %{count} объявлений"
+        other: "Закрыть %{count} объявлений"
+      confirm_close_listings_action:
+        one: "Хотите закрыть %{count} объявление?"
+        few: "Хотите закрыть %{count} объявления?"
+        many: "Хотите закрыть %{count} объявлений?"
+        other: "Хотите закрыть %{count} объявлений?"
       successfully_closed: "Публикации успешно закрыты"
       successfully_deleted: "Успешно удален тип '%{order_type}' закаа"
       pricing_and_checkout_title: "Цена & расчет"
@@ -464,7 +481,7 @@ ru:
       custom_unit_form:
         title: "Новая ценовая единица"
         label_heading: Ярлык
-        selector_label_heading: ~
+        selector_label_heading: "Метка селектора"
         label_placeholder: "например: \"Кг\", \"30 минут\", \"человек\", \"класс\""
         selector_placeholder: "например: \"Количество людей\", \"Сумма в кг\""
         per: За
@@ -714,7 +731,7 @@ ru:
     feedback_subject: ~
     feedback_body: ~
     unlogged_user: ~
-    anonymous_user: ~
+    anonymous_user: "Анонимный пользователь"
   community_memberships:
     access_denied:
       access_denied: "Доступ закрыт"
@@ -1091,7 +1108,7 @@ ru:
     list_item:
       review: Проверка
       reviews: Отзывы
-      distance_away: ~
+      distance_away: "Расстояние %{distance} %{distance_unit}"
     news_item:
       show_less: Меньше
       show_more: Больше
@@ -1115,7 +1132,7 @@ ru:
       all_listing_types: "Все типы публикаций"
       all_categories: "Все категории"
     errors:
-      search_engine_not_responding: ~
+      search_engine_not_responding: "Поиск временно недоступен. Попробуйте повторить операцию позже."
   infos:
     about:
       default_about_text_title: "Что такое Sharetribe?"
@@ -1126,7 +1143,7 @@ ru:
       default_content: "Здесь вы можете информацию о %{marketplace_name}."
   landing_page:
     hero:
-      search: ~
+      search: Поиск
       signup: Регистрация
       search_placeholder: ~
       search_location_placeholder: Местоположение
@@ -1138,7 +1155,7 @@ ru:
     branding:
       powered_by: ~
       create_own: ~
-      learn_more: ~
+      learn_more: "Узнать больше"
     no_tribe:
       inbox: Входящие
       settings: Настройки
@@ -1249,6 +1266,8 @@ ru:
       listing_updated_successfully: "Публикация обновлена успешно"
       listing_updated_availability_enabled: ~
       listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "Только администраторы %{service_name} имеют доступ к этому разделу"
       only_listing_author_can_close_a_listing: "Листинг может закрыть только автор"
       only_listing_author_can_edit_a_listing: "Листинг может редактировать только автор"
@@ -1284,7 +1303,7 @@ ru:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Для того, чтобы оставить отзыв об этом событии, требуется авторизация"
       you_are_not_authorized_to_do_this: "У вас не хватает прав для этого действия"
       you_are_not_authorized_to_view_this_content: "У вас не хватает прав для просмотра этой информации"
-      listing_closed: ~
+      listing_closed: "Объявление закрыто"
       send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по восстановлению вашего пароля."
       you_cannot_reply_to_a_closed_offer: "Вы не можете ответить на закрытое предложение"
       you_cannot_send_message_to_yourself: "Вы не можете отправить сообщение самому себе"
@@ -1329,8 +1348,8 @@ ru:
     comment:
       wrote: написал
       send_private_message: "Отправить личное сообщение для %{person}"
-      delete: ~
-      are_you_sure: ~
+      delete: удалить
+      are_you_sure: "Удалить комментарий?"
     comment_form:
       ask_a_question: "Оставьте комментарий или запросите более подробную информацию. Ваш комментарий смогут увидеть все остальные пользователи."
       log_in: войти
@@ -1398,15 +1417,15 @@ ru:
         removing: Удаление...
         processing: Обработка...
         loading_image: Загрузка...
-        image_uploading_in_progress: ~
-        processing_takes_a_while: ~
+        image_uploading_in_progress: "Загрузка изображения..."
+        processing_takes_a_while: "Все изображения загружены! Обработка может занять некоторое время. Вы можете сохранить объявление и продолжить работу."
         this_may_take_a_while: "(возможно нужно подождать)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Ошибка загрузки изображения"
         image_processing_failed: ~
         file_too_large: "Файл слишком большой"
         accepted_formats: "Файлы изображений должны быть в формате GIF, JPG или PNG."
-        images_not_uploaded_confirm: ~
+        images_not_uploaded_confirm: "Изображения не были загружены. Хотите продолжить?"
       location:
         location: Местоположение
       price:
@@ -2051,7 +2070,8 @@ ru:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
+          something_went_wrong: "Невозможно отобразить информацию о доступности. Попробуйте обновить страницу."
+          saving_failed: ~
       pricing_units:
         piece: ~
         hour: ~
@@ -2061,6 +2081,8 @@ ru:
         month: ~
       edit_availability_header: ~
       save_and_close_availability_editing: ~
+      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_question: ~
       edit_listing_availability: ~
     no_listings:
       sorry: ~
@@ -2074,7 +2096,7 @@ ru:
     topbar:
       menu: Меню
       more: Еще
-      search_placeholder: ~
+      search_placeholder: Поиск...
       search_location_placeholder: Местоположение
       user: Пользователь
       inbox: Входящие

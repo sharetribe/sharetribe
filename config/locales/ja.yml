@@ -381,7 +381,9 @@ ja:
     listing_shapes:
       availability_title: ~
       read_more: ~
+      read_more_availability_management: ~
       allow_availability_management: ~
+      allow_providers_to_manage_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -1238,6 +1240,8 @@ ja:
       listing_updated_successfully: 投稿は更新されました
       listing_updated_availability_enabled: ~
       listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "こちらは%{service_name}の管理者だけがアクセス出来ます"
       only_listing_author_can_close_a_listing: リストの作成者のみがリストをクローズ出来ます
       only_listing_author_can_edit_a_listing: このリストの作成者のみがこのリストを編集出来ます

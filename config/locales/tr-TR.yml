@@ -381,7 +381,9 @@ tr-TR:
     listing_shapes:
       availability_title: ~
       read_more: ~
+      read_more_availability_management: ~
       allow_availability_management: ~
+      allow_providers_to_manage_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -1240,6 +1242,8 @@ tr-TR:
       listing_updated_successfully: "İlan başarıyla güncellendi"
       listing_updated_availability_enabled: ~
       listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "Bu alana sadece %{service_name} yöneticileri erişebilir"
       only_listing_author_can_close_a_listing: "Listelemeyi sadece ilan sahibi kapatabilir."
       only_listing_author_can_edit_a_listing: "Listelemeyi yalnızca ilan sahibi düzenleyebilir."

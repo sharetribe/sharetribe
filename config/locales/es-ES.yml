@@ -386,7 +386,9 @@ es-ES:
     listing_shapes:
       availability_title: Disponibilidad
       read_more: "Lee más acercad de la administración automática de disponibilidad."
+      read_more_availability_management: "Lee más acerca del manejo de la disponibilidad."
       allow_availability_management: "Habilitar administración automática de disponibilidad (previene dobles reservaciones)"
+      allow_providers_to_manage_availability: "Permitir a los vendedores administrar su disponibilidad."
       per_day_availability: "Disponibilidad \"Por día\""
       per_night_availability: "Disponibilidad \"Por Noche\""
       pricing_units_disabled_info: "Las unidades de precio no pueden ser usadas cuando el calendario de disponibilidad está habilitado."
@@ -1255,6 +1257,8 @@ es-ES:
       listing_updated_successfully: "Anuncio actualizado"
       listing_updated_availability_enabled: "El anuncio se ha actualizado con éxito. La administración automática de disponibilidad se ha habilitado."
       listing_updated_availability_disabled: "El anuncio se ha actualizado con éxito. La administración automática de disponibilidad se ha deshabilitado."
+      listing_updated_availability_management_enabled: "Anuncio actualizado exitosamente. Manejo de disponibilidad habilitado."
+      listing_updated_availability_management_disabled: "Anuncio actualizado exitosamente. Manejo de disponibilidad deshabilitado."
       only_kassi_administrators_can_access_this_area: "Sólo los administradores de %{service_name} pueden acceder a esta área"
       only_listing_author_can_close_a_listing: "Sólo el autor del anuncio puede cerrarlo"
       only_listing_author_can_edit_a_listing: "Sólo el autor del anuncio puede editarlo"
@@ -2055,7 +2059,8 @@ es-ES:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
+          something_went_wrong: "No hemos podido cargar información sobre disponibilidad. Intenta cargar la página nuevamente."
+          saving_failed: "No hemos podido guardar los cambios sobre disponibilidad. Intenta cargar la página nuevamente."
       pricing_units:
         piece: pieza
         hour: hora
@@ -2065,6 +2070,8 @@ es-ES:
         month: mes
       edit_availability_header: Disponibilidad
       save_and_close_availability_editing: "Guardar y cerrar"
+      confirm_discarding_unsaved_availability_changes_explanation: "Hay cambios sobre disponibilidad que no han sido guardados. Si continuas, estos cambios se perderán."
+      confirm_discarding_unsaved_availability_changes_question: "¿Estás seguro que quieres desechar los cambios?"
       edit_listing_availability: "Editar la disponibilidad del anuncio"
     no_listings:
       sorry: "Perdón, no hemos encontrado ningún anuncio que satisfaga tus criterios de búsqueda."

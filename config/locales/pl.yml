@@ -390,13 +390,15 @@ pl:
       users_and_transactions: "Użytkownicy i transakcje"
       configure: Konfiguracja
       emails_title: E-maile
-      support: ~
+      support: Pomoc
       subscription: ~
       preview: ~
     listing_shapes:
       availability_title: ~
       read_more: ~
+      read_more_availability_management: ~
       allow_availability_management: ~
+      allow_providers_to_manage_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -554,7 +556,7 @@ pl:
     username: "Nazwa użytkownika"
     username_or_email: "Adres email lub nazwa konta użytkownika"
     what_is_this: "Co to jest?"
-    removed_user: ~
+    removed_user: "Użytkownik usunięty"
     paypal_fee_info:
       title: ~
       body_text: ~
@@ -572,8 +574,8 @@ pl:
       update_later: "Zostaw ofertę otwartą"
       optional_message: "Opcjonalna wiadomość"
       price_to_pay: "Całościowy koszt do zapłaty"
-      accept: ~
-      decline: ~
+      accept: Akceptuj
+      decline: Odrzuć
       quantity_label: ~
       sum_label: ~
       service_fee_label: ~
@@ -697,7 +699,7 @@ pl:
         paypal:
           multicurrency: "Oczekiwanie aż zaakceptujesz płatność PayPal"
           intl: "Oczekiwanie aż zaakceptujesz płatność PayPal"
-          unknown_reason: ~
+          unknown_reason: "Płatność oczekuje na realizację. Zaloguj się na swoje konto PayPal aby zobaczyć więcej szczegółów."
           verify: "Oczekiwanie aż zweryfikujesz swoje konto PayPal"
     status_link:
       accept_offer: "Zaakceptuj ofertę"
@@ -919,7 +921,7 @@ pl:
       you_must_explain_not_neutral_feedback: "Jeżeli chcesz przekazać nieneutralną opinię, musisz wyjaśnić dlaczego."
       you_must_select_a_grade: "Pamiętaj, aby przekazać czy Twoje odczucia są pozytywne lub negatywne."
     transaction_agreement:
-      required_error: ~
+      required_error: "Musisz zaakceptować umowę"
     paypal:
       transaction_cannot_complete: ~
       buyer_cannot_pay_error: ~
@@ -928,7 +930,7 @@ pl:
       generic_error: "W trakcie procesu płatności pojawił się błąd. Nie można zakończyć Twojej płatności PayPal."
       cancel_error: "Wystąpił błąd podczas anulowania. Nie można zakończyć anulowania."
       accept_authorization_error: "Wystąpił błąd podczas akceptowania preautoryzowanej płatności PayPal. Proszę spróbować ponownie."
-      reject_authorization_error: ~
+      reject_authorization_error: "Wystąpił błąd podczas próby odrzucenia preautoryzowanej płatności PayPal. Proszę spróbować ponownie."
   error_pages:
     back_to_kassi_front_page: "Wróć do strony głównej"
     error_404:
@@ -937,15 +939,15 @@ pl:
       page_you_requested_can_not_be_found: "Strony, której szukasz nie znaleziono. Czy jesteś pewien, że podałeś poprawny adres?"
     error_404_title: "strony nie znaleziono"
     error_410:
-      page_removed: ~
-      page_you_requested_has_been_removed: ~
-      page_removed_reason: ~
-    error_410_title: ~
+      page_removed: "Strona usunięta"
+      page_you_requested_has_been_removed: "Żądana strona została usunięta."
+      page_removed_reason: "Jest kilka możliwych powodów tego. Na przykład, użytkownik mógł usunąć swoje konto, albo oferta została usunięta."
+    error_410_title: "strona usunięta"
     error_500:
-      temporary_unavailable: ~
-      unable_to_process: ~
-      we_hate_this: ~
-      refer_to_error_id: ~
+      temporary_unavailable: "Platforma czasowo niedostępna"
+      unable_to_process: "Serwer nie jest w stanie przetworzyć Twojej prośby w tej chwili. Proszę spróbuj ponownie za kilka chwil."
+      we_hate_this: "Nie cierpimy gdy tak się dzieje! Zostaliśmy powiadomieni o sytuacji i naprawiamy ją."
+      refer_to_error_id: "Jeśli chcesz skontaktować się z pomocą w tej kwestii, proszę dodaj ID błędu \"%{error_id}\" w swojej wiadomości."
     error_500_title: "załadowanie strony nie powiodło się"
     error_description: "Opis problemu"
     no_javascript:
@@ -1122,8 +1124,8 @@ pl:
       default_about_text: "Ta platforma działa na podstawie technologii Sharetribe. Z Sharetribe możesz tworzyć łatwo swoje platformy. Jest bezpłatna i zajmuje tylko minutę. %{click_here_link} i dowiedz się więcej!"
       click_here_link_text: "Kliknij tutaj"
     how_to_use:
-      default_title: ~
-      default_content: ~
+      default_title: "Jak to działa"
+      default_content: "Tutaj możesz znaleźć informację jak działa platforma %{marketplace_name}."
   landing_page:
     hero:
       search: ~
@@ -1249,6 +1251,8 @@ pl:
       listing_updated_successfully: "Oferta zaktualizowana pomyślnie"
       listing_updated_availability_enabled: ~
       listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "Tylko adminstratorzy %{service_name} mogą przejść do tej sekcji"
       only_listing_author_can_close_a_listing: "Tylko autor oferty może zamknąć ofertę"
       only_listing_author_can_edit_a_listing: "Tylko autor oferty może edytować ofertę"
@@ -1514,7 +1518,7 @@ pl:
       select_subcategory: "Wybierz podkategorię"
       select_transaction_type: "Wybierz rodzaj oferty"
       you_need_to_fill_payout_details_before_accepting: "Musisz wypełnić szczegóły dotyczące płatności zanim zaakceptujesz zapytanie i otrzymasz płatność. Przejdź do %{payment_settings_link}, aby wypełnić szczegóły."
-      contact_admin_link_text: ~
+      contact_admin_link_text: "skontaktuj się z administratorem"
       community_not_configured_for_payments: ~
       payment_settings_link: "ustawienia płatności"
       community_not_configured_for_payments_admin: ~
@@ -1664,16 +1668,16 @@ pl:
       could_not_fetch_redirect_url: ~
       paypal_not_enabled: "Płatności PayPal nie sa udostępnione."
       billing_agreement_canceled: "Umowa dotycząca wystawiania rachunków została anulowana"
-      billing_agreement_not_accepted: ~
-      billing_agreement_wrong_account: ~
+      billing_agreement_not_accepted: "Nie zaakceptowałeś umowy rozliczeniowej w PayPal."
+      billing_agreement_wrong_account: "Nie zgadzają się konta PayPal. Proszę użyć tego samego konta PayPal, które było połączone w pierwszym kroku."
       something_went_wrong: "Coś poszło źle. Proszę, spróbuj ponownie. Jeśli problem będzie się powtarzał, proszę, skontaktuj się z administratorem strony."
-      account_not_verified: ~
+      account_not_verified: "Nie zweryfikowałeś swojego konta PayPal. Musisz wejść na paypal.com i zweryfikować konto, zanim będziesz mógł kontynuować."
       account_restricted: ~
     paypal_account_connected_title: ~
     paypal_account_connected: ~
     change_account: ~
-    missing: ~
-    from_your_payment_settings_link_text: ~
+    missing: "Masz aktywne oferty, ale Twoje konto PayPal nie zostało ustawione do otrzymywania płatności. Podłącz swoje konto PayPal i udziel %{service_name} zgody na pobieranie opłaty za transakcje z Twoich %{settings_link}."
+    from_your_payment_settings_link_text: "ustawienia płatności"
     redirect_message: ~
     redirect_link_text: ~
     paypal_account_all_set_up: ~
@@ -1687,8 +1691,8 @@ pl:
     transaction:
       commission_payment_name: "Płatność prowizji dla %{listing_title}"
       commission_payment_description: "Platforma %{service_name} pobrała tę prowizję od transakcji dotyczącej %{listing_title}"
-    wait_while_loading: ~
-    chatting_with_paypal: ~
+    wait_while_loading: "Proszę czekać."
+    chatting_with_paypal: "Trwa komunikacja z PayPal."
   people:
     edit_links:
       activate: Aktywuj
@@ -1810,11 +1814,11 @@ pl:
       change_email: Zmień
       confirm_your_email: "Proszę potwierdź Twój adres email"
       account_confirmation_instructions: "Wkrótce otrzymasz wiadomość email z linkiem, aby potwierdzić Twój adres. Nie zapomnij sprawdzić folderu ze spamem! Po tym jak potwierdzisz adres, możesz dołączyć to %{service_name}."
-      account_confirmation_instructions_title_admin: ~
+      account_confirmation_instructions_title_admin: "Potwierdź swój adres email"
       before_full_access_you_need_to_confirm_email: ~
       before_confirmation_only_access_admin_dashboard: ~
       admin_dashboard_link_text: ~
-      account_confirmation_instructions_admin: ~
+      account_confirmation_instructions_admin: "Powinieneś dostać wiadomość e-mail na adres %{email_address} w linkiem do potwierdzenia. Jeśli go nie widzisz, sprawdź swój folder spam lub kliknij przycisk poniżej aby przesłać e-mail ponownie. Gdy wiadomość dotrze, otwórz załączony link aby potwierdzić swój adres e-mail, po czym będziesz miał pełen dostęp do swojej platformy. Jeśli potrzebujesz dodatkowej pomocy, proszę %{support_link}"
       contact_support_link_text: ~
   settings:
     account:
@@ -1825,9 +1829,9 @@ pl:
       delete_account_confirmation_popup: "Czy jesteś pewien, że chcesz usunąć swoje konto użytkownika i definitywnie stracić wszystkie dane z nim związane? Usuwanie konta nie może zostać cofnięte."
       email_addresses: "Adresy email"
       new_email: "Nowy adres email"
-      delete_personal_information: ~
-      delete_information_others_involved: ~
-      unfinished_transactions: ~
+      delete_personal_information: "Jeśli usuniesz swoje konto, Twoje informacje osobiste (imię, telefon, adres, e-mail, zdjęcie profilowe itp.) zostaną usunięte na stałe i nie będzie można ich odzyskać. Wszystkie oferty jakie stworzyłeś zostaną także usunięte. Nie będziesz mógł odzyskać swojego konta."
+      delete_information_others_involved: "Informacje w których zaangażowani są inni użytkownicy (konwersacje z innymi, przeprowadzone transakcje, udzielone opinie itp.) nie są usuwane, gdy usuwasz swoje konto. Jednakże Twoje imię nie będzie wyświetlane przy tych informacjach."
+      unfinished_transactions: "Twoje konto nie może zostać usunięte, ponieważ masz aktywne transakcje. Zakończ wszystkie swoje transakcje zanim usuniesz konto."
       new_password: "Nowe hasło"
       save: Zapisz
       these_fields_are_shown_only_to_you: "Nazwa użytkownika jest wyświetlana w Twoim profilu, chyba, że podałeś swoje imię. Inne informacje są widoczne tylko dla Ciebie."

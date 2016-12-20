@@ -386,7 +386,9 @@ nl:
     listing_shapes:
       availability_title: ~
       read_more: ~
+      read_more_availability_management: ~
       allow_availability_management: "Schakel automatisch beschikbaarheidsmanagement in (voorkom dubbele boekingen)"
+      allow_providers_to_manage_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -1251,6 +1253,8 @@ nl:
       listing_updated_successfully: "Advertentie succesvol bijgewerkt"
       listing_updated_availability_enabled: ~
       listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "Alleen %{service_name} administrators hebben toegang tot dit gedeelte"
       only_listing_author_can_close_a_listing: "Alleen de auteur van de advertentie kan deze sluiten"
       only_listing_author_can_edit_a_listing: "Alleen de auteur van de advertentie kan dit aanpassen"
@@ -2029,6 +2033,7 @@ nl:
       errors:
         availability:
           something_went_wrong: ~
+          saving_failed: ~
       pricing_units:
         piece: ~
         hour: ~
@@ -2038,6 +2043,8 @@ nl:
         month: ~
       edit_availability_header: ~
       save_and_close_availability_editing: ~
+      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_question: ~
       edit_listing_availability: ~
     no_listings:
       sorry: ~
