@@ -79,9 +79,13 @@ const setPushState = (state, title, path) => {
 class ManageAvailability extends Component {
   constructor(props) {
     super(props);
-    this.state = { renderCalendar: false };
+    this.state = {
+      renderCalendar: false,
+      viewportHeight: null,
+    };
 
     this.clickHandler = this.clickHandler.bind(this);
+    this.resizeHandler = this.resizeHandler.bind(this);
   }
 
   componentDidMount() {
@@ -90,7 +94,7 @@ class ManageAvailability extends Component {
     // asynchronously allows the calendar to calculate the height
     // properly.
     // See: https://github.com/airbnb/react-dates/issues/46
-    window.setTimeout(() => {
+    this.calendarTimeout = window.setTimeout(() => {
       this.setState({ renderCalendar: true }); // eslint-disable-line react/no-set-state
     }, CALENDAR_RENDERING_TIMEOUT);
 
@@ -99,6 +103,9 @@ class ManageAvailability extends Component {
     }
 
     loadInitialDataIfNeeded(this.props);
+
+    this.setState({ viewportHeight: window.innerHeight }); // eslint-disable-line react/no-set-state
+    window.addEventListener('resize', this.resizeHandler);
   }
 
   componentWillUpdate(nextProps) {
@@ -121,6 +128,8 @@ class ManageAvailability extends Component {
   }
 
   componentWillUnmount() {
+    window.removeEventListener('resize', this.resizeHandler);
+    window.clearTimeout(this.calendarTimeout);
     if (this.props.availability_link) {
       this.props.availability_link.removeEventListener('click', this.clickHandler);
     }
@@ -129,6 +138,10 @@ class ManageAvailability extends Component {
   clickHandler(e) {
     e.preventDefault();
     this.props.onOpen();
+  }
+
+  resizeHandler() {
+    this.setState({ viewportHeight: window.innerHeight }); // eslint-disable-line react/no-set-state
   }
 
   render() {
@@ -143,6 +156,7 @@ class ManageAvailability extends Component {
       wrapper: this.props.sideWinderWrapper,
       maxWidth: cssVariables['--ManageAvailability_maxWidth'],
       minWidth: cssVariables['--ManageAvailability_minWidth'],
+      height: this.state.viewportHeight,
       isOpen: this.props.isOpen,
       onClose: () => {
         if (this.props.saveInProgress) {

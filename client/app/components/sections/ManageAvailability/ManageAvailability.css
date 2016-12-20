@@ -56,6 +56,7 @@
 
 .calendar {
   width: var(--ManageAvailabilityCalendar_width);
+  flex-shrink: 0;
 
   /* The desired space between header and calendar month title is 24px.
   The calendar component already includes 22px padding/margins, so
@@ -71,6 +72,7 @@
   min-height: calc(var(--ManageAvailability_saveButtonHeight) + var(--ManageAvailability_padding));
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .saveButton {
