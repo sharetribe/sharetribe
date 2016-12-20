@@ -9,7 +9,7 @@
     padding-bottom: 45px;
 
     & strong {
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: 0.2px;
     }
   }
@@ -23,7 +23,7 @@
 
     & small {
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 500;
     }
   }
 
@@ -57,7 +57,7 @@
     color: #5e6977;
     background-color: #fff;
     transition: background-color 0.1s ease-in;
-    font-weight: 600;
+    font-weight: 500;
 
     &:hover {
       color: #d7d7d7;
