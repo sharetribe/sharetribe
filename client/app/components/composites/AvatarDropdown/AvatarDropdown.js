@@ -16,7 +16,7 @@ class AvatarDropdown extends Component {
     super(props, context);
 
     this.handleMouseOver = this.handleMouseOver.bind(this);
-    this.handleMouseOut = this.handleMouseOut.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
 
@@ -27,24 +27,29 @@ class AvatarDropdown extends Component {
     };
 
     this.mouseOverTimeout = null;
-    this.mouseOutTimeout = null;
+    this.mouseLeaveTimeout = null;
   }
 
   componentDidMount() {
     this.setState({ isMounted: true });// eslint-disable-line react/no-set-state
   }
 
+  componentWillUnmount() {
+    window.clearTimeout(this.mouseLeaveTimeout);
+    window.clearTimeout(this.mouseOverTimeout);
+  }
+
   handleMouseOver() {
-    clearTimeout(this.mouseOutTimeout);
-    clearTimeout(this.mouseOverTimeout);
-    this.mouseOverTimeout = setTimeout(() => (
+    window.clearTimeout(this.mouseLeaveTimeout);
+    window.clearTimeout(this.mouseOverTimeout);
+    this.mouseOverTimeout = window.setTimeout(() => (
       this.setState({ isHovering: true, isOpen: true }) // eslint-disable-line react/no-set-state
       ), HOVER_TIMEOUT);
   }
 
-  handleMouseOut() {
-    clearTimeout(this.mouseOverTimeout);
-    this.mouseOutTimeout = setTimeout(() => (
+  handleMouseLeave() {
+    window.clearTimeout(this.mouseOverTimeout);
+    this.mouseLeaveTimeout = window.setTimeout(() => (
       this.setState({ isHovering: false, isOpen: false }) // eslint-disable-line react/no-set-state
       ), HOVER_TIMEOUT);
   }
@@ -73,7 +78,7 @@ class AvatarDropdown extends Component {
       [];
     return div({
       onMouseOver: this.handleMouseOver,
-      onMouseLeave: this.handleMouseOut,
+      onMouseLeave: this.handleMouseLeave,
       onClick: this.handleClick,
       onBlur: this.handleBlur,
       tabIndex: 0,
