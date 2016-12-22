@@ -24,6 +24,7 @@ const initialState = Immutable.Map({
   changes: Immutable.List(),
 
   saveInProgress: false,
+  saveFinished: false,
 
   marketplaceUuid: null,
 
@@ -181,6 +182,7 @@ const clearState = (state) =>
       .set('blocks', Immutable.List())
       .set('changes', Immutable.List())
       .set('saveInProgress', false)
+      .set('saveFinished', false)
       .set('loadedMonths', Immutable.Set())
       .set('visibleMonth', moment()
            .startOf('month'));
@@ -199,7 +201,7 @@ const manageAvailabilityReducer = (state = initialState, action) => {
     case actionTypes.START_SAVING:
       return state.set('saveInProgress', true);
     case actionTypes.CHANGES_SAVED:
-      return clearState(state);
+      return state.set('saveInProgress', false).set('saveFinished', true);
     case actionTypes.SAVING_FAILED:
       return state.set('saveInProgress', false);
     case actionTypes.DATA_LOADED:
