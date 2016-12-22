@@ -29,6 +29,7 @@ export default (props) => {
       blocks: Immutable.List(),
       changes: Immutable.List(),
       saveInProgress: false,
+      saveFinished: false,
       marketplaceUuid: new UUID({ value: props.marketplace.uuid }),
       listingUuid: new UUID({ value: props.listing.uuid }),
       loadedMonths: Immutable.Set(),

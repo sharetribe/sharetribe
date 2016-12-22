@@ -11,23 +11,41 @@ import FlashNotification from '../../composites/FlashNotification/FlashNotificat
 import * as cssVariables from '../../../assets/styles/variables';
 
 import css from './ManageAvailability.css';
+import loadingImage from './images/loading.svg';
+import checkmarkImage from './images/checkmark.svg';
 
 const CALENDAR_RENDERING_TIMEOUT = 100;
 
-const SaveButton = (props) => div({
-  className: css.saveButtonContainer,
-}, button({
-  className: classNames({
-    [css.saveButton]: true,
-    [css.saveButtonVisible]: props.isVisible,
-  }),
-  disabled: props.isDisabled,
-  onClick: props.onClick,
-}, t('web.listings.save_and_close_availability_editing')));
+const SaveButton = (props) => {
+
+  let html = null;
+  let text = null;
+
+  if (props.saveInProgress) {
+    html = { __html: loadingImage };
+  } else if (props.saveFinished) {
+    html = { __html: checkmarkImage };
+  } else {
+    text = t('web.listings.save_and_close_availability_editing');
+  }
+
+  return div({
+    className: css.saveButtonContainer,
+  }, button({
+    className: classNames({
+      [css.saveButton]: true,
+      [css.saveButtonVisible]: props.isVisible,
+    }),
+    disabled: props.saveInProgress || props.saveFinished,
+    onClick: props.onClick,
+    dangerouslySetInnerHTML: html,
+  }, text));
+};
 
 SaveButton.propTypes = {
   isVisible: PropTypes.bool.isRequired,
-  isDisabled: PropTypes.bool.isRequired,
+  saveInProgress: PropTypes.bool.isRequired,
+  saveFinished: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
@@ -127,6 +145,9 @@ class ManageAvailability extends Component {
       minWidth: cssVariables['--ManageAvailability_minWidth'],
       isOpen: this.props.isOpen,
       onClose: () => {
+        if (this.props.saveInProgress) {
+          return;
+        }
         const explanation = t('web.listings.confirm_discarding_unsaved_availability_changes_explanation');
         const question = t('web.listings.confirm_discarding_unsaved_availability_changes_question');
         const text = `${explanation}\n\n${question}`;
@@ -152,7 +173,8 @@ class ManageAvailability extends Component {
           }) : null,
           r(SaveButton, {
             isVisible: this.props.hasChanges,
-            isDisabled: this.props.saveInProgress,
+            saveInProgress: this.props.saveInProgress,
+            saveFinished: this.props.saveFinished,
             onClick: this.props.onSave,
           }),
         ]),
@@ -174,6 +196,7 @@ ManageAvailability.propTypes = {
   flashNotifications: PropTypes.instanceOf(Immutable.List).isRequired,
   hasChanges: PropTypes.bool.isRequired,
   saveInProgress: PropTypes.bool.isRequired,
+  saveFinished: PropTypes.bool.isRequired,
   onOpen: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,
   onCloseCallback: PropTypes.func,

@@ -24,6 +24,7 @@ const initialState = Immutable.Map({
   changes: Immutable.List(),
 
   saveInProgress: false,
+  saveFinished: false,
 
   marketplaceUuid: null,
 
@@ -180,6 +181,8 @@ const clearState = (state) =>
       .set('bookings', Immutable.List())
       .set('blocks', Immutable.List())
       .set('changes', Immutable.List())
+      .set('saveInProgress', false)
+      .set('saveFinished', false)
       .set('loadedMonths', Immutable.Set())
       .set('visibleMonth', moment()
            .startOf('month'));
@@ -198,7 +201,7 @@ const manageAvailabilityReducer = (state = initialState, action) => {
     case actionTypes.START_SAVING:
       return state.set('saveInProgress', true);
     case actionTypes.CHANGES_SAVED:
-      return state.set('saveInProgress', false);
+      return state.set('saveInProgress', false).set('saveFinished', true);
     case actionTypes.SAVING_FAILED:
       return state.set('saveInProgress', false);
     case actionTypes.DATA_LOADED:
@@ -207,7 +210,7 @@ const manageAvailabilityReducer = (state = initialState, action) => {
       return state.set('isOpen', true);
     case actionTypes.CLOSE_EDIT_VIEW:
       // Clean up store state, everything will be refetched when opened again.
-      return clearState(state);
+      return saveInProgress ? state : clearState(state);
     default:
       return state;
   }

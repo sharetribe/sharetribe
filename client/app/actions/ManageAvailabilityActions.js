@@ -6,6 +6,9 @@ import { expandRange, fromMidnightUTCDate, toMidnightUTCDate } from '../utils/mo
 import { addFlashNotification } from './FlashNotificationActions';
 import { blockChanges, unblockChanges } from '../reducers/ManageAvailabilityReducer';
 
+// Delay to show the save button checkmark before closing the winder.
+const SAVE_FINISHED_DELAY = 2000;
+
 export const EDIT_VIEW_OPEN_HASH = 'manage-availability';
 
 export const openEditView = () => ({ type: actionTypes.OPEN_EDIT_VIEW });
@@ -136,6 +139,10 @@ export const savingFailed = (e) => ({
   payload: e,
 });
 
+const timeout = (ms) => new Promise((resolve) => {
+  window.setTimeout(resolve, ms);
+});
+
 export const saveChanges = () =>
   (dispatch, getState) => {
     dispatch(startSaving());
@@ -161,6 +168,12 @@ export const saveChanges = () =>
     Promise.all(requests)
       .then(() => {
         dispatch(changesSaved());
+
+        // Wait a bit to show the save button in the done state before
+        // closing the winder.
+        return timeout(SAVE_FINISHED_DELAY);
+      })
+      .then(() => {
         dispatch(closeEditView());
       })
       .catch((e) => {
