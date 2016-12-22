@@ -11,6 +11,7 @@ import FlashNotification from '../../composites/FlashNotification/FlashNotificat
 import * as cssVariables from '../../../assets/styles/variables';
 
 import css from './ManageAvailability.css';
+import loadingImage from './images/loading.svg';
 
 const CALENDAR_RENDERING_TIMEOUT = 100;
 
@@ -21,13 +22,14 @@ const SaveButton = (props) => div({
     [css.saveButton]: true,
     [css.saveButtonVisible]: props.isVisible,
   }),
-  disabled: props.isDisabled,
+  disabled: props.saveInProgress,
   onClick: props.onClick,
-}, t('web.listings.save_and_close_availability_editing')));
+  dangerouslySetInnerHTML: props.saveInProgress ? { __html: loadingImage } : null,
+}, props.saveInProgress ? null : t('web.listings.save_and_close_availability_editing')));
 
 SaveButton.propTypes = {
   isVisible: PropTypes.bool.isRequired,
-  isDisabled: PropTypes.bool.isRequired,
+  saveInProgress: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
@@ -127,6 +129,9 @@ class ManageAvailability extends Component {
       minWidth: cssVariables['--ManageAvailability_minWidth'],
       isOpen: this.props.isOpen,
       onClose: () => {
+        if (this.props.saveInProgress) {
+          return;
+        }
         const explanation = t('web.listings.confirm_discarding_unsaved_availability_changes_explanation');
         const question = t('web.listings.confirm_discarding_unsaved_availability_changes_question');
         const text = `${explanation}\n\n${question}`;
@@ -152,7 +157,7 @@ class ManageAvailability extends Component {
           }) : null,
           r(SaveButton, {
             isVisible: this.props.hasChanges,
-            isDisabled: this.props.saveInProgress,
+            saveInProgress: this.props.saveInProgress,
             onClick: this.props.onSave,
           }),
         ]),

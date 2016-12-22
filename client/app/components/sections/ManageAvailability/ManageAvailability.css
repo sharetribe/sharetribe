@@ -67,13 +67,9 @@
   margin: 0 0 0 calc(-1 * (var(--ManageAvailability_contentWidth) / 2));
   bottom: calc(-2 * var(--ManageAvailability_saveButtonHeight));
 
-  &[disabled],
-  &[disabled]:hover {
-    background-color: #eee;
-  }
-
   &:hover,
-  &:active {
+  &:active,
+  &[disabled] {
     transition: background-color 0.1s ease-in;
     background-color: var(--colorReservedAvailabilityDark);
   }

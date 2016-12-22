@@ -161,7 +161,6 @@ export const saveChanges = () =>
     Promise.all(requests)
       .then(() => {
         dispatch(changesSaved());
-        dispatch(closeEditView());
       })
       .catch((e) => {
         dispatch(addFlashNotification('error', t('web.listings.errors.availability.saving_failed')));
