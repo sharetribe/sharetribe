@@ -69,7 +69,7 @@ de:
         private_community_homepage_content: "Privater Inhalt der Marktplatz Startseite"
         edit_private_community_homepage_content_description: "Dieser Content ist nur bei privaten Marktplätzen sichtbar. User, die nicht eingeloggt sind, sehen den Text auf der Startseite. Beschreibe hier deinen Marktplatz und wie man ihm beitreten kann. Du kannst hier außerdem Bilder, Videos und HTML-Content hinzufügen. %{see_how_it_looks_like}."
         update_information: "Einstellungen speichern"
-        invite_people: "Lade Leute zu diesem Marktplatz ein"
+        invite_people: "Lade Leute zu dem Marktplatz %{service_name} ein"
         edit_signup_info: Anmeldedaten
         edit_signup_info_description: "Dies ist ein Infotext, der den Nutzern auf der Anmeldeseite angezeigt wird. Hier kannst du den Nutzern Anleitungen zum Anmelden geben, wie z.B. Informationen darüber, wie sie eine Einladung erhalten können etc.. Standardgemäß gibt es hier keine Anweisungen, aber du kannst sie hinzufügen, wenn du auf den Link unten klickst."
         edit_info: "Angaben bearbeiten"
@@ -133,7 +133,7 @@ de:
         sender_address: "Absender Adresse: %{sender_address}"
         sender_address_default: "Absender Adresse: nicht festgelegt (verwendet wird die Standard Email %{sender_address})"
         need_to_change: "Wenn Du die Email Adresse ändern möchtest, kontaktiere bitte %{contact_support_link}."
-        contact_support_link_text: "Kontaktiere unseren Support"
+        contact_support_link_text: "kontaktiere Sharetribe Support"
         set_sender_address: "Lege eine absender adresse fest"
         sender_name_label: Name
         sender_name_placeholder: Absender
@@ -188,7 +188,7 @@ de:
         join_with_invite_only: "Benutzer können diesem Marktplatz nur mit der Einladung eines Mitglieds beitreten"
         users_can_invite_new_users: "Alle Mitglieder können neue Benutzer zu diesem Marktplatz einladen"
         private: "Dieser Marktplatz ist privat (nur registrierte Benutzer können den Inhalt sehen)"
-        require_verification_to_post_listings: "Nur von Administratoren verifizierte Benutzer können neue Einträge veröffentlichen"
+        require_verification_to_post_listings: "Nur verifizierte Benutzer können neue Einträge veröffentlichen"
         search_preferences: Einstellungen
         default_search_type: "Suchtyp: %{select_search_type}"
         keyword_search: Schlagwortsuche
@@ -312,7 +312,7 @@ de:
           pending_ext: "Warten auf die Paypal Zahlung"
         not_available: "nicht verfügbar"
       paypal_account:
-        paypal_admin_account: Zahlungen
+        paypal_admin_account: Zahlungssystem
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
@@ -479,12 +479,12 @@ de:
     paypal_accounts:
       marketplace_paypal_integration: Zahlungseinstellungen
       preferences_updated: "Zahlungseinstellungen aktualisiert"
-      contact_support_link_text: "kontaktiere den Sharetribe Support"
+      contact_support_link_text: "kontaktiere Support"
       integration_info_text: "Bezahlungen auf Sharetribe sind durch PayPal durchgeleitet. Um deinen Kunden die Bezahlung auf Ihrem Marktplatz zu ermöglichen müssen Sie Ihr PayPal-Konto verbinden. Nachdem Sie Ihr PayPal-Konto verbunden haben, können Sie den Mindestbetrag einer Transaktion einrichten sowie eine mögliche Vermittlungsgebühr."
       link_paypal_personal_account_label: "Bietest du selbst Produkte oder Dienstleistungen an?"
       link_paypal_personal_account: "Wenn ja, dann musst Du auch Dein PayPal Konto mit %{personal_payment_preferences_link} verbinden."
       personal_payment_preferences_link_text: "Deinem Konto"
-      read_more_about_paypal: "Mehr über das Shartetribe Zahlungssystem hier lesen."
+      read_more_about_paypal: "Mehr über das Zahlungssystem lesen"
       edit_payment_settings: "Zahlungseinstellungen bearbeiten"
       supported_currencies_information_text: "Der Zahlungssystem von Sharetribe unterstützt 24 Währungen. Wenn deine Währung nicht auf der Liste ist, bitte %{contact_support_link}. Wenn du die Währung des Marktplatzes wechselst, werden bestehende Anzeigen die alte Währung behalten. Du musst diese Anzeigen manuell bearbeiten so dass sie die neue Währung bekommen."
       currency_change_warning_text: "Aufpassen: Wenn du die Währung wechselst, vergiss nicht das deinen Benutzern zu erwählen und sie zu bitten, ihre bestehenden Anzeigen zu bearbeiten. Dadurch werden sie auch die neue Währung bekommen."
@@ -773,7 +773,7 @@ de:
       request_marked_as_confirmed: "Anfrage erledigt. Denke daran, Feedback zu geben."
       request_marked_as_canceled: "Anfrage abgebrochen"
       has_marked_request_as_confirmed: "%{other_party_full_name} hat die Anfrage '%{request}' als \"erledigt\" markiert. Du kannst nun Feedback an %{other_party_given_name} geben."
-      has_marked_request_as_canceled: "%{other_party_full_name} hat deine Anfrage des %{request} abgelehnt. Du kannst trotzdem der %{other_party_given_name} Feedback geben."
+      has_marked_request_as_canceled: "%{other_party_full_name} hat deine Anfrage '%{request}' abgelehnt. Du kannst trotzdem %{other_party_given_name} Feedback geben."
       giving_feedback_is_good_idea: "Feedback zu geben, ist immer eine gute Idee. Wenn alles gut war, solltest du es andere wissen lassen, dass %{other_party_given_name} vertraut werden kann. Wenn es Probleme gab, dann ist es gut, dies auch zu erwähnen."
       give_feedback_to: "Gib %{other_party_given_name} ein Feedback"
     transaction_automatically_confirmed:
@@ -788,7 +788,7 @@ de:
       show_thread: "Unterhaltung anzeigen"
     confirmation_instructions:
       confirmation_instructions_signature: "Liebe Grüße, <br/> das %{service_name} Team"
-      need_to_confirm: "Du musst Deine E-Mail-Adresse bestätigen."
+      need_to_confirm: "Klicke unten, um deine E-Mail-Adresse zu bestätigen und %{service_name} zu beitreten."
       confirmation_link_text: "Meine E-Mail-Adresse bestätigen"
       or_paste_link: "Alternativ kannst du den folgenden Link in die Adresszeile deines Browsers kopieren:"
     common:
@@ -848,9 +848,9 @@ de:
       you_have_made_new_payment: "Du hast %{payment_sum} bezahlt für %{listing_title} an %{recipient_full_name}. Hier ist ein Beleg Deiner Zahlung."
       product: Produkt
       price_per_unit_type: "Preis pro %{unit_type}"
-      duration: "Dauer:"
-      quantity: "Anzahl:"
-      subtotal: "Zwischensumme:"
+      duration: Dauer
+      quantity: Anzahl
+      subtotal: Zwischensumme
       total: Gesamtbetrag
       price: Preis
       service_fee: Servicegebühr
@@ -1095,7 +1095,7 @@ de:
       this_article_link: "diesen Artikel"
       invitation_emails_field_placeholder: "freund1@beispiel.com, freund2@beispiel.com, ..."
       invitation_message_field_placeholder: "Ich bin diesem tollen Marktplatz beigetreten. Das solltest du auch tun!"
-      errors_in_emails: "Überprüfe, ob die eingegebenen E-Mail-Adressen korrekt sind. Wenn du mehrere E-Mail-Adressen eingegeben hast, trenne sie mit einem Komma."
+      errors_in_emails: "Überprüfe, ob die eingegebenen E-Mail-Adressen korrekt sind und keine ungewöhnliche Zeichen enthalten. Wenn du mehrere E-Mail-Adressen eingegeben hast, trenne sie mit einem Komma."
     list_item:
       review: Bewertung
       reviews: Bewertungen
@@ -1361,7 +1361,7 @@ de:
       edit_listing: "Eintrag bearbeiten"
       reopen_listing: "Eintrag wieder aktivieren"
       move_to_top: "Auf der Homepage nach oben verschieben"
-      show_in_updates_email: "In der nächsten automatischen E-Mail anzeigen"
+      show_in_updates_email: "Im nächsten Newsletter anzeigen"
       show_in_updates_email_loading: Lädt...
       show_in_updates_email_error: "Der Server konnte nicht erreicht werden. Lade die Seite neu und versuche es erneut."
       show_in_updates_email_success: "Dieser Eintrag wird auf der nächsten automatischen Update-E-Mail den Nutzern angezeigt"
@@ -1822,11 +1822,11 @@ de:
       change_email: Ändern
       confirm_your_email: "Bitte bestätige deine E-Mail-Adresse"
       account_confirmation_instructions: "Du wirst in Kürze eine E-Mail mit einem Link erhalten, den du anklicken musst, um die angegebene E-Mail-Adresse zu bestätigen. Nach der Bestätigung Deiner E-Mail ist die Registrierung bei %{service_name} abgeschlossen."
-      account_confirmation_instructions_title_admin: "Willkommen auf Deinem Marktplatz!"
+      account_confirmation_instructions_title_admin: "Bestätige deine E-Mail-Adresse"
       before_full_access_you_need_to_confirm_email: "Bevor wir dir vollen Zugang zu deinem Marktplatz gewähren können, müssen wir nur noch eines tun: deine E-Mail-Adresse bestätigen."
       before_confirmation_only_access_admin_dashboard: "Vor der Bestätigung hast du nur Zugang zu %{admin_dashboard_link}."
       admin_dashboard_link_text: "Administrator Dashboard"
-      account_confirmation_instructions_admin: "Du wirst gleich eine E-Mail empfangen, die einen Link für die Verifizierung deiner E-Mail-Adresse enthält. Vergiss nicht, dein Spam-Ordner zu kontrollieren! Nachdem du deine E-Mail-Adresse verifiziert hast, kannst du mit der Einrichtung deines Marktplatzes anfangen."
+      account_confirmation_instructions_admin: "Du wirst gleich eine E-Mail auf %{email_address} empfangen, die einen Link für die Verifizierung deiner E-Mail-Adresse enthält. Vergiss nicht, dein Spam-Ordner zu kontrollieren! Nachdem du deine E-Mail-Adresse mit dem Link in dieser E-Mail verifiziert hast, kannst du mit der Einrichtung deines Marktplatzes anfangen. Brauchst du Hilfe, bitte %{support_link}."
       contact_support_link_text: "Kontaktiere unseren Support"
   settings:
     account:
@@ -1859,18 +1859,18 @@ de:
         status_confirmed: Bestätigt
         status_pending: Ausstehend
     notifications:
-      email_from_admins: "Ich möchte gelegentlich Neuigkeiten von den Administratoren empfangen."
+      email_from_admins: "Ich möchte gelegentlich Neuigkeiten von den Administratoren empfangen"
       i_want_to_get_email_notification_when: "Ich möchte eine E-Mail-Benachrichtigung erhalten, wenn..."
-      newsletters: Newsletter
-      community_updates: Neuigkeiten-E-Mails
+      newsletters: "E-mails von Administatoren"
+      community_updates: Newsletters
       email_about_confirm_reminders: "...ich vergessen habe, eine Anfrage als erledigt zu bestätigen"
       email_about_new_comments_to_own_listing: "...jemand mein Angebot oder meine Anfrage kommentiert"
       email_about_new_messages: "...mir jemand eine Nachricht sendet"
       email_about_new_received_testimonials: "...mir jemand eine Bewertung gibt"
       email_about_testimonial_reminders: "...ich vergessen habe, jemandem zu einer Transaktion eine Bewertung zu geben"
-      email_daily_community_updates: "Schickt mir täglich Neuigkeiten per E-Mail, sofern es neue Einträge gibt"
-      email_weekly_community_updates: "Schickt mir wöchentlich Neuigkeiten per E-Mail, sofern es neue Einträge gibt"
-      do_not_email_community_updates: "Schickt mir keine Neuigkeiten per E-Mail"
+      email_daily_community_updates: "Schickt mir <b>täglich</b> Newsletters, sofern es neue Einträge gibt"
+      email_weekly_community_updates: "Schickt mir <b>wöchentlich</b> Newsletters, sofern es neue Einträge gibt"
+      do_not_email_community_updates: "Schickt mir keine Newsletters"
       email_when_conversation_accepted: "...jemand mein Angebot oder meine Anfrage akzeptiert"
       email_when_conversation_rejected: "...jemand mein Angebot oder meine Anfrage ablehnt"
       email_about_completed_transactions: "...jemand mein Angebot oder meine Anfrage als erledigt markiert"
@@ -1889,7 +1889,7 @@ de:
       given_name: Vorname
       first_name_with_initial: "(anderen Benutzern wird nur der erste Buchstabe angezeigt)"
       first_name_only: "(wird anderen Benutzern nicht angezeigt)"
-      location_description: "Du kannst entweder deinen exakten Standort oder nur deine Postleitzahl angeben. Bitte füge mindestens deine Postleitzahl hinzu. Du kannst auch einen Standort aus der Karte auswählen."
+      location_description: "Du kannst entweder deinen exakten Standort oder nur deine Postleitzahl angeben. Es ist eine gute Idee, das Land auch einzugeben. Beispiele: \"10117 Berlin, Deutschland\" oder \"2000 Sand Hill Road, CA, USA\"."
       phone_number: Telefonnummer
       profile_picture: Profilbild
       postal_code: Postleitzahl
@@ -1901,7 +1901,7 @@ de:
       visible_to_registered_users: "(sichtbar für angemeldete Benutzer)"
       default_in_listing: "(wird nur beim Erstellen eines neuen Eintrags als Standardeinstellung benutzt)"
       invisible: "(wird anderen Benutzern nicht angezeigt)"
-      image_is_processing: "Dein Profilbild wird verarbeitet. Bitte lade die Seite nach einer Weile neu."
+      image_is_processing: "Dein Profilbild wird verarbeitet. Es wird gleich fertig sein."
     save_information: "Informationen speichern"
   shipping_address:
     shipping_address: Lieferadresse

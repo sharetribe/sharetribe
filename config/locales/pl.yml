@@ -64,10 +64,10 @@ pl:
         community_details: "Podstawowe informacje"
         community_look_and_feel: Wygląd
         edit_community: "Podstawoowe informacje"
-        enabled_languages: ~
-        enabled_languages_description: ~
-        default_language: ~
-        language_selection_disabled: ~
+        enabled_languages: "Włączone języki"
+        enabled_languages_description: "Zestaw języków dostępny dla użytkowników. Pierwszy używany jest jako domyślny."
+        default_language: "Domyślny język"
+        language_selection_disabled: "Wybór języka jest zablokowany dla Twojej platformy, ponieważ używasz następujących nieoficjalnych języków: %{languages}. Proszę skontaktuj się z obsługą Sharetribe jeśli chcesz zmodyfikować swoje ustawienia językowe."
         community_name: "Nazwa platformy"
         edit_community_name_description: "Nazwa Twojej platformy. To jest wyświetlane dla użytkowników w wiadomościach email i różnych, innych miejscach."
         community_slogan: "Slogan platformy"
@@ -170,27 +170,27 @@ pl:
       getting_started:
         getting_started: "Poradnik dla początkujących"
       available_languages:
-        en: ~
-        en-AU: ~
-        en-GB: ~
-        fr: ~
-        fr-CA: ~
-        es: ~
-        es-ES: ~
+        en: Angielski
+        en-AU: "Angielski (Australia)"
+        en-GB: "Angielski (Wielka Brytania)"
+        fr: Francuski
+        fr-CA: "Francuski (Kanada)"
+        es: "Hiszpański (Chile)"
+        es-ES: Hiszpański
         pt-PT: ~
-        pt-BR: ~
-        nb: ~
-        sv: ~
-        da-DK: ~
-        fi: ~
-        ru: ~
-        de: ~
-        el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
-        it: ~
+        pt-BR: "Portugalski (Brazylijski)"
+        nb: "Norweski Bokmål"
+        sv: Szwedzki
+        da-DK: Duński
+        fi: Fiński
+        ru: Rosyjski
+        de: Niemiecki
+        el: Grecki
+        nl: Holenderski
+        tr-TR: Turecki
+        zh: Chiński
+        ja: Japoński
+        it: Włoski
       settings:
         settings: Ustawienia
         general: Główne
@@ -220,7 +220,7 @@ pl:
         google_analytics_key: "ID śledzenia z usługi Google Analytics"
         twitter_handle: "Nick z Twittera (używany przez guzik twitnięcia na stronie oferty)"
         update_settings: "Zapisz ustawienia"
-        automatically_confirmed_no_escrow: ~
+        automatically_confirmed_no_escrow: "Zlecenie zostanie automatycznie oznaczone jako zrealizowane %{days_dropdown} dni po dokonaniu płatności"
         automatic_newsletter_frequency: "Wysyłaj automatycznie newsletter: %{frequency_dropdown}"
         newsletter_daily: Codziennie
         newsletter_weekly: Tygodniowo
@@ -246,7 +246,7 @@ pl:
         export_all_as_csv: ~
         save_user_status_error: "Zapis nie udał się. Proszę odśwież stronę i spróbuj ponownie."
         ban_user_confirmation: "Ta akcja spowoduje usunięcie użytkownika z platformy i nie pozwoli mu na ponowne używanie tego konta. Czy jesteś pewien/pewna, że chcesz kontynuować?"
-        ban_me_error: ~
+        ban_me_error: "Nie możesz wyrzucić samego siebie."
       new_layout:
         new_layout: "Nowy układ"
         description_roadmap: "Platforma Sharetribe właśnie jest w procesie aktualizacji nowego i usprawnionego interfejsu. W trakcie możesz wybrać te części Twojej platformy, które mają korzystać ze starego interfejsu. Nowe funkcje będą widoczne tylko w nowym interfejsie."
@@ -259,14 +259,14 @@ pl:
         social_media: "Media społecznościowe"
         twitter_handle: "Obsługa Twitter"
         twitter_handle_info_text: "Nazwa konta Twitter Twojej platformy (jeśli takie masz). Będzie wspomniana gdy ludzie użyją przycisku \"Tweet\" na stronie oferty."
-        twitter_handle_info_text_with_instructions: ~
-        twitter_instructions_link_text: ~
+        twitter_handle_info_text_with_instructions: "Nazwa konta Twitter Twojej platformy (jeśli takie masz). Będzie wspomniana gdy ludzie użyją przycisku \"Tweet\" na stronie oferty. %{instructions_link}"
+        twitter_instructions_link_text: "Czytaj więcej"
         twitter_handle_placeholder: "Nazwa użytkownika"
         invalid_twitter_handle: ~
         facebook_connect: Facebook
         facebook_connect_info_text: "Aby umożliwić logowanie poprzez Facebook, stwórz aplikację dla swojej platformy w <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Dodaj wygenerowane id oraz tajny klucz aplikacji tutaj."
-        facebook_connect_info_text_with_instructions: ~
-        facebook_instructions_link_text: ~
+        facebook_connect_info_text_with_instructions: "Aby umożliwić logowanie poprzez Facebook, stwórz aplikację dla swojej platformy w <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Dodaj wygenerowane id oraz tajny klucz aplikacji tutaj. %{instructions_link}"
+        facebook_instructions_link_text: "Zobacz instrukcje konfiguracji połączenia Facebook."
         facebook_connect_id: "id klienta Facebook"
         invalid_facebook_connect_id: "Id klienta powinno zawierać wyłącznie liczby."
         facebook_connect_secret: "Tajny klucz klienta Facebook"
@@ -276,8 +276,8 @@ pl:
         analytics: Analizy
         google_analytics_key: "ID śledzenia z usługi Google Analytics"
         google_analytics_key_info_text: "ID śledzenia Twojego konta Google Analytics"
-        google_analytics_key_info_text_with_instructions: ~
-        google_analytics_instructions_link_text: ~
+        google_analytics_key_info_text_with_instructions: "ID śledzenia Twojego konta Google Analytics. %{instructions_link}"
+        google_analytics_instructions_link_text: "Czytaj więcej na temat połączenia Google Analytics"
         save: "Zapisz ustawienia"
       menu_links:
         menu_links: "Linki menu"
@@ -320,7 +320,7 @@ pl:
           canceled: Anulowano
           initiated: "Oczekiwanie na płatność PayPal"
           pending_ext: "Oczekiwanie na płatność PayPal"
-        not_available: ~
+        not_available: "Nie dostępne"
       paypal_account:
         paypal_admin_account: "System płatności"
     custom_fields:
@@ -403,56 +403,61 @@ pl:
       per_night_availability: ~
       pricing_units_disabled_info: ~
       index:
-        listing_shapes: ~
-        description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
-        select_template: ~
+        listing_shapes: "Rodzaje zamówień"
+        description: "Rodzaje zleceń określają jak przetwarzanie zamówień działa na Twojej platformie. Możesz zdecydować, czy użytkownicy wypożyczają, sprzedają, czy tylko umieszczają ogłoszenia i komunikują się za pomocą darmowych wiadomości."
+        read_more_about_order_types: "Czytaj więcej na temat rodzajów zamówień"
+        add_new_shape: "Dodaj nowy rodzaj zlecenia: "
+        select_template: "Wybierz szablon..."
         all_categories: "Wszystkie kategorie"
-        no_categories: ~
-        category_count: ~
+        no_categories: "Brak kategorii"
+        category_count: "%{category_count} kategorii"
         header:
-          listing_shape_name: ~
-          listing_shape_categories: ~
+          listing_shape_name: "Nazwa rodzaju zlecenia"
+          listing_shape_categories: "Kategorie w których to jest użyte"
         order:
-          saving_order: ~
-          save_order_successful: ~
-          save_order_error: ~
+          saving_order: "Zapisywanie kolejności"
+          save_order_successful: "Zapisano kolejność rodzajów zamówień"
+          save_order_error: "Wystąpił błąd w zapisywaniu kolejności. Proszę odśwież stronę i spróbuj ponownie."
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
-        announcement: ~
-        custom: ~
+        selling_products: "Sprzedawanie produktów"
+        renting_products: "Wypożyczanie produktów"
+        offering_services: "Oferowanie usług"
+        giving_things_away: "Oddawanie przedmiotów za darmo"
+        requesting: Żądanie
+        announcement: "Umieszczanie ogłoszeń"
+        custom: Dowolne
       new:
-        create_listing_shape: ~
-        create: ~
-        cancel: ~
-        create_success: ~
-        create_failure: ~
+        create_listing_shape: "Utwórz rodzaj zamówień"
+        create: Utwórz
+        cancel: Anuluj
+        create_success: "Nowy rodzaj zamówień '%{shape}' został utworzony"
+        create_failure: "Nie udało się utworzyć nowego rodzaju zamówień. Błąd: %{error_msg}"
       edit:
-        edit_listing_shape: ~
-        update: ~
-        cancel: ~
-        update_success: ~
-        update_failure: ~
-        delete: ~
-        can_not_delete_last: ~
-        can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
-      listing_shape_name_placeholder: ~
-      action_button_label: ~
-      action_button_placeholder: ~
-      successfully_closed: ~
-      successfully_deleted: ~
-      pricing_and_checkout_title: ~
-      online_payments_label: ~
-      shipping_label: ~
-      price_label: ~
-      units_title: ~
-      units_desc: ~
+        edit_listing_shape: "Edytuj rodzaj zlecenia '%{shape}'"
+        update: Zapisz
+        cancel: Anuluj
+        update_success: "Zmiany do rodzaju zlecenia '%{shape}' zachowane"
+        update_failure: "Nie można było zapisać zmian. Błąd: %{error_msg}"
+        delete: "Usuń rodzaj zamówień"
+        can_not_delete_last: "Nie możesz usunąć tego rodzaju zamówień, gdyż jest to jedyny rodzaj na Twojej platformie."
+        can_not_delete_only_one_in_categories: "Nie możesz usunąć tego rodzaju zamówienia, ponieważ w następujących kategoriach ten rodzaj zamówienia jest jedynym: %{categories}"
+        confirm_delete_order_type:
+          one: "Istnieje %{count} oferta w ramach tego rodzaju zamówień. Jeśli usuniesz ten rodzaj zamówień, ta oferta zostanie zamknięta. Czy jesteś pewien, że chcesz usunąć ten rodzaj zamówień?"
+          few: "Istnieją %{count} oferty w ramach tego rodzaju zamówień. Jeśli usuniesz ten rodzaj zamówień, te oferty zostaną zamknięte. Czy jesteś pewien, że chcesz usunąć ten rodzaj zamówień?"
+          many: "Istnieje %{count} ofert w ramach tego rodzaju zamówień. Jeśli usuniesz ten rodzaj zamówień, te oferty zostaną zamknięte. Czy jesteś pewien, że chcesz usunąć ten rodzaj zamówień?"
+          other: "Istnieje %{count} ofert w ramach tego rodzaju zamówień. Jeśli usuniesz ten rodzaj zamówień, te oferty zostaną zamknięte. Czy jesteś pewien, że chcesz usunąć ten rodzaj zamówień?"
+      listing_shape_name: Nazwa
+      listing_shape_name_placeholder: "np. Sprzedaż"
+      action_button_label: "Etykieta przycisku 'Zapłać'"
+      action_button_placeholder: "np. Zakup"
+      successfully_closed: "Zamknięto oferty"
+      successfully_deleted: "Usunięto rodzaj zamówień '%{order_type}'"
+      pricing_and_checkout_title: "Wycena i płatność"
+      online_payments_label: "Pozwól sprzedawcom akceptować płatności online"
+      shipping_label: "Pozwól sprzedawcom określić opłatę za transport"
+      price_label: "Pozwól sprzedawcom dodawać cenę do ich ofert"
+      units_title: Jednostki
+      units_desc: "Jeśli włączyłeś jednostki, cena oferty będzie wyświetlana jako \"cena za jednostkę\". Przykład: \"50 zł za godzinę\"."
       units:
         piece: "Za sztukę"
         hour: "Za godzinę"
@@ -460,20 +465,35 @@ pl:
         night: "Za noc"
         week: Tygodniowo
         month: Miesięcznie
-      can_not_find: ~
-      add_custom_unit: ~
-      delete_custom_unit: ~
+      can_not_find: "Nie można znaleźć rodzaju zamówienia o id: %{id}"
+      add_custom_unit: "+ Dodaj dowolną jednostkę..."
+      delete_custom_unit: usuń
       custom_unit_form:
-        title: ~
-        label_heading: ~
-        selector_label_heading: ~
+        title: "Nowa jednostka"
+        label_heading: Etykieta
+        selector_label_heading: "Etykieta selektora"
         label_placeholder: "np. \"kg\", \"30 minut\", \"osobę\", \"zajęcia\""
-        selector_placeholder: ~
+        selector_placeholder: "np. \"Liczba ludzi\", \"Ilość w kg\""
         per: Za
         unit_type:
-          heading: ~
-          quantity_label: ~
-          time_label: ~
+          heading: "Rodzaj jednostki"
+          quantity_label: "Ilość (na sztuki, na osoby, na dwugodzinne wycieczki...)"
+          time_label: "Czas (na 30 minut, na 2 tygodnie, na rok)"
+      open_listings_warning:
+        one: "Jest %{count} aktywna oferta w ramach tego rodzaju zamówienia. Jeśli zmienisz jakiekolwiek z poniższych ustawień, ta oferta zachowa dotychczasowe ustawienia. Oferta może być zmieniona do nowych ustawień poprzez ręczną jej edycję. Jeśli nie chcesz mieć ofert ze starymi ustawieniami na swojej platformie, możesz zamknąć ją klikając przycisk poniżej."
+        few: "Są %{count} aktywne oferty w ramach tego rodzaju zamówienia. Jeśli zmienisz jakiekolwiek z poniższych ustawień, te oferty zachowają dotychczasowe ustawienia. Oferty mogą być zmienione do nowych ustawień poprzez ręczną ich edycję. Jeśli nie chcesz mieć ofert ze starymi ustawieniami na swojej platformie, możesz zamknąć je klikając przycisk poniżej."
+        many: "Jest %{count} aktywnych ofert w ramach tego rodzaju zamówienia. Jeśli zmienisz jakiekolwiek z poniższych ustawień, te oferty zachowają dotychczasowe ustawienia. Oferty mogą być zmienione do nowych ustawień poprzez ręczną ich edycję. Jeśli nie chcesz mieć ofert ze starymi ustawieniami na swojej platformie, możesz zamknąć je klikając przycisk poniżej."
+        other: "Jest %{count} aktywnych ofert w ramach tego rodzaju zamówienia. Jeśli zmienisz jakiekolwiek z poniższych ustawień, te oferty zachowają dotychczasowe ustawienia. Oferty mogą być zmienione do nowych ustawień poprzez ręczną ich edycję. Jeśli nie chcesz mieć ofert ze starymi ustawieniami na swojej platformie, możesz zamknąć je klikając przycisk poniżej."
+      close_listings_action:
+        one: "Zamknij %{count} ofertę"
+        few: "Zamknij %{count} oferty"
+        many: "Zamknij %{count} ofert"
+        other: "Zamknij %{count} ofert"
+      confirm_close_listings_action:
+        one: "Czy jesteś pewien, że chcesz zamknąć %{count} ofertę?"
+        few: "Czy jesteś pewien, że chcesz zamknąć %{count} oferty?"
+        many: "Czy jesteś pewien, że chcesz zamknąć %{count} ofert?"
+        other: "Czy jesteś pewien, że chcesz zamknąć %{count} ofert?"
     paypal_accounts:
       marketplace_paypal_integration: "Preferencje systemu płatności"
       preferences_updated: "Preferencje systemu płatności zaktualizowane"
@@ -482,17 +502,17 @@ pl:
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
-      read_more_about_paypal: ~
+      read_more_about_paypal: "Czytaj więcej na temat systemu płatności"
       edit_payment_settings: ~
       supported_currencies_information_text: ~
       currency_change_warning_text: ~
       marketplace_currency_label: ~
       minimum_listing_price_label: "Minimalna wartość transakcji:"
       transaction_fee_label: "Opłata za transakcję:"
-      minimum_transaction_fee_label: ~
+      minimum_transaction_fee_label: "Minimalna wartość opłaty za transakcję:"
       save_settings: "Zapisz ustawienia"
-      minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      minimum_listing_price_below_tx_fee: "Minimalna wartość transakcji musi być większa lub równa minimalnej wartości opłaty za transakcję: %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "Minimalna wartość transakcji musi być większa niż minimalna prowizja %{minimum_commission}."
     transaction_types:
       sell: Sprzedawanie
       rent: Wynajmowanie
@@ -558,14 +578,18 @@ pl:
     what_is_this: "Co to jest?"
     removed_user: "Użytkownik usunięty"
     paypal_fee_info:
-      title: ~
-      body_text: ~
-      body_with_shipping_text: ~
-      link_to_paypal_text: ~
+      title: "Opłata za obsługę płatności PayPal"
+      body_text: |-
+          PayPal pobiera opłatę za obsługę każdej płatności. Opłata ta wynosi od 2% do 5% łącznej ceny sprzedaży, zależnie od poziomu wartości Twojego obrotu oraz kraju zamieszkania kupującego. Generalnie transakcje krajowe mają niższą opłatę niż międzynarodowe oraz wyższy poziom obrotu daje Ci zniżkę w opłatach.
+          Możesz sprawdzić dokładny poziom opłat logując się na swoje konto PayPal i idąc na %{link_to_paypal}. Po każdej transakcji dostaniesz rachunek pokazujący dokładną wartość opłaty.
+      body_with_shipping_text: |-
+          PayPal pobiera opłatę za obsługę każdej płatności. Opłata ta wynosi od 2% do 5% łącznej ceny sprzedaży (włączając koszt transportu), zależnie od poziomu wartości Twojego obrotu oraz kraju zamieszkania kupującego. Generalnie transakcje krajowe mają niższą opłatę niż międzynarodowe oraz wyższy poziom obrotu daje Ci zniżkę w opłatach.
+          Możesz sprawdzić dokładny poziom opłat logując się na swoje konto PayPal i idąc na %{link_to_paypal}. Po każdej transakcji dostaniesz rachunek pokazujący dokładną wartość opłaty.
+      link_to_paypal_text: tutaj
   conversations:
     accept:
-      details: ~
-      order_by: ~
+      details: "Szczegóły zamówienia"
+      order_by: "Sortuj wg %{orderer_link}"
       accept_offer: "Zaakceptuj ofertę"
       accept_request: "Zaakceptuj zapytanie"
       reject_offer: "Nie tym razem"
@@ -576,14 +600,14 @@ pl:
       price_to_pay: "Całościowy koszt do zapłaty"
       accept: Akceptuj
       decline: Odrzuć
-      quantity_label: ~
-      sum_label: ~
-      service_fee_label: ~
-      you_will_get_label: ~
-      total_label: ~
-      total_value: ~
-      paypal_fee_info: ~
-      shipping_price_label: ~
+      quantity_label: "Ilość:"
+      sum_label: "Suma częściowa:"
+      service_fee_label: "Opłata serwisowa %{service_name}:"
+      you_will_get_label: "Otrzymasz:"
+      total_label: "Łącznie:"
+      total_value: "%{seller_gets}*"
+      paypal_fee_info: "* wyłączając <a id='%{fee_info_link_id}' hred='#'>opłaty za obsługę płatności PayPal</a>"
+      shipping_price_label: "Transport:"
     confirm:
       confirm_description: "Jeżeli Twoje zamówienie zostało zrealizowane, proszę zaznacz, że jest skończone. Później możesz dodać opinię do innej imprezy."
       cancel_description: "Jeżeli Twoje zamówienie nie zostało zrealizowane, możesz zaznaczyć je jako 'sporny'. Możesz wciąż dać opinię innej imprezie i opisać co się stało."
@@ -827,11 +851,11 @@ pl:
     new_payment:
       new_payment: "Otrzymałeś nową płatność"
       price_per_unit_type: "Price per %{unit_type}"
-      quantity: ~
+      quantity: "Ilość:"
       you_have_received_new_payment: "Opłaciłeś <b>%{payment_sum}</b> za <b>%{listing_title}</b> od %{payer_full_name}. Tutaj jest Twój rachunek."
     paypal_new_payment:
-      paypal_gateway_fee: ~
-      shipping_total: ~
+      paypal_gateway_fee: "Opłata PayPal:"
+      shipping_total: "Transport:"
     braintree_new_payment:
       product: "Produkt:"
       price_payer_paid: "Kwota, którą zapłacił %{payer_full_name}:"
@@ -842,9 +866,9 @@ pl:
       you_have_made_new_payment: "Zapłaciłeś <b>%{payment_sum}</b> za <b>%{listing_title}</b> do %{recipient_full_name}. Tutaj jest rachunek za tę płatność."
       product: Produkt
       price_per_unit_type: "Price per %{unit_type}"
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      duration: "Czas trwania"
+      quantity: Ilość
+      subtotal: Podsumowanie
       total: Suma
       price: Cena
       service_fee: "Opłata serwisowa"
@@ -882,7 +906,7 @@ pl:
     transaction_preauthorized:
       subject: "%{requester} zażądał i autoryzował płatność dla %{listing_title}"
       transaction_requested_by_user: "%{requester} zażądał i autoryzował płatność dla %{listing_title}"
-      you_have_time_to_accept: ~
+      you_have_time_to_accept: "Musisz zaakceptować lub odrzucić żądanie w ciągu %{payment_expires_in}. Jeśli zaakceptujesz je w tym czasie płatność przejdzie. Jeśli nie zaakceptujesz, żądanie zostanie automatycznie odrzucone i nie otrzymasz zapłaty."
       click_here_to_reply: "Kliknij tutaj, aby odpowiedzieć na zapytanie"
     transaction_preauthorized_reminder:
       subject: "Pamiętaj, aby zaakceptować zapytanie od %{requester} o ofercie %{listing_title}"
@@ -968,7 +992,7 @@ pl:
       on_or_before: "musi być na lub przed %{restriction}"
       after: "musi być po %{restriction}"
       on_or_after: "musi być na lub po %{restriction}"
-      positive_number: ~
+      positive_number: "Wprowadź liczbę."
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} zgodził się, aby pożyczyć %{listing_title} do %{requester_name} %{time_ago}"
@@ -1302,7 +1326,7 @@ pl:
       you_must_log_in_to_invite_new_users: "Musisz się zalogować, aby zaprosić innych użytkowników do %{service_name}"
       you_must_log_in_to_send_a_comment: "Musiz się zalogować, aby dodać nowy komentarz"
       you_must_log_in_to_send_a_message: "Musisz się zalogować do %{service_name}, aby móc wysłać wiadomość do innego użytkownika."
-      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_do_a_transaction: "Musisz zalogować się do %{service_name} aby przeprowadzić transakcję."
       you_must_log_in_to_view_this_content: "Aby zobaczyć zawartość musisz się zalogować."
       you_must_log_in_to_view_this_page: "Musisz się zalogować, aby zobaczyć tę stronę"
       you_must_log_in_to_view_your_inbox: "Musisz się zalogować do %{service_name}, aby zobaczyć swoją skrzynkę."
@@ -1358,7 +1382,7 @@ pl:
     map:
       open_in_google_maps: "Otwórz w Google Maps"
     error:
-      something_went_wrong: ~
+      something_went_wrong: "Coś poszło źle, kod błędu: %{error_code}"
       something_went_wrong_plain: "Coś poszło nie tak"
       create_failed_to_connect_to_booking_service: ~
       update_failed_to_connect_to_booking_service: ~
@@ -1421,14 +1445,14 @@ pl:
         time: "godzina, dzień, miesiąc, ..."
         long_time: "tygodni, miesięcy, ..."
         after_service_fee_you_will_get: "Po prowizjach %{service_name} i pośrednika płatności otrzymasz %{sum_with_currency}"
-        no_service_fee_you_will_get_paypal_text: ~
-        after_service_fee_you_will_get_paypal_text: ~
-        paypal_fee_info_link_text: ~
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
-        shipping_price_additional: ~
-        pickup: ~
+        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} będzie odjęte od ceny."
+        after_service_fee_you_will_get_paypal_text: "opłata serwisowa %{service_name} (%{sum_with_currency}) oraz %{paypal_fee_info_link} będą odjęte od ceny."
+        paypal_fee_info_link_text: "Opłata za obsługę płatności PayPal"
+        delivery: "Metoda dostawy"
+        shipping: Transport
+        shipping_price: "Koszt transportu"
+        shipping_price_additional: "Dodatkowy przedmiot"
+        pickup: Odbiór
       origin:
         location: Lokalizacja
         origin: Początek
@@ -1519,17 +1543,17 @@ pl:
       select_transaction_type: "Wybierz rodzaj oferty"
       you_need_to_fill_payout_details_before_accepting: "Musisz wypełnić szczegóły dotyczące płatności zanim zaakceptujesz zapytanie i otrzymasz płatność. Przejdź do %{payment_settings_link}, aby wypełnić szczegóły."
       contact_admin_link_text: "skontaktuj się z administratorem"
-      community_not_configured_for_payments: ~
+      community_not_configured_for_payments: "%{service_name} nie został jeszcze skonfigurowany dla płatności, więc nie możesz jeszcze umieszczać nowych ofert. Proszę %{contact_admin_link} aby uzyskać więcej informacji."
       payment_settings_link: "ustawienia płatności"
-      community_not_configured_for_payments_admin: ~
+      community_not_configured_for_payments_admin: "%{service_name} nie został jeszcze skonfigurowany dla płatności, więc nie możesz jeszcze umieszczać nowych ofert. Idź do %{payment_settings_link} aby wypełnić szczegóły dotyczące płatności."
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
-      custom: ~
-    quantity_placeholder: ~
+      hour: "Liczba godzin:"
+      day: "Liczba dni:"
+      night: "Liczba nocy:"
+      week: "Liczba tygodni:"
+      month: "Liczba miesięcy:"
+      custom: "Ilość:"
+    quantity_placeholder: "Ilość:"
     please_comment: Skomentuj
     reply_link:
       listing_closed: "Oferta jest zamknieta"
@@ -1565,20 +1589,20 @@ pl:
       price:
         per_quantity_unit: "za %{quantity_unit}"
         per_day: "za dzień"
-      delivery: ~
-      shipping: ~
-      shipping_no_price: ~
-      shipping_price_additional: ~
-      pickup: ~
-      pickup_no_price: ~
+      delivery: "Metoda dostawy"
+      shipping: "Transport (+%{price})"
+      shipping_no_price: Transport
+      shipping_price_additional: "Transport (+%{price}, dodatkowe przedmioty: +%{shipping_price_additional})"
+      pickup: Odbiór
+      pickup_no_price: Odbiór
       youtube_video_player: ~
     unit_types:
-      piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      piece: sztuka
+      hour: godzina
+      day: dzień
+      night: Noc
+      week: tydzień
+      month: miesiąc
     verification_required:
       verification_required: "Wymagana weryfikacja"
   listing_conversations:
@@ -1619,7 +1643,7 @@ pl:
       you_have_something_others_do_not: "Masz coś do zaoferowania?"
     please_comment: Skomentuj
   mercury:
-    content_too_long: ~
+    content_too_long: "Wprowadzona zawartość była za długa."
   okl:
     member_id: "ID członka"
     member_id_or_email: "ID członka lub adres email"
@@ -1643,7 +1667,7 @@ pl:
     new:
       payout_info_you_need_to_connect: "Aby akceptować płatności musisz połączyć swoje konto PayPal z %{service_name}."
       payout_info_text: "Aby połączyć swoje konto, wykonaj proszę następujące kroki."
-      contact_admin_link_text: ~
+      contact_admin_link_text: "skontaktuj się z administratorem"
       admin_account_not_connected: "Połączenie Twojego konta PayPal nie jest możliwe ponieważ %{service_name} nie ustawił/a płatności. Proszę %{contact_admin_link} aby uzyskać więcej informacji."
       paypal_account_email: "Połącz swoje konto PayPal"
       paypal_account_email_placeholder: "Twój adres email zarejestrowany w PayPal"
@@ -1657,11 +1681,11 @@ pl:
       connect_paypal_account_instructions: ~
       connect_paypal_account: "Połącz swoje konto PayPal"
       paypal_account_billing_agreement_with_step: ~
-      paypal_account_billing_agreement_info_both: ~
-      paypal_account_billing_agreement_info_fixed: ~
-      paypal_account_billing_agreement_info_relative: ~
+      paypal_account_billing_agreement_info_both: "Po każdej sprzedaży w %{service_name} opłata serwisowa (%{commission_from_seller}) od pełnej ceny oferty, wyłączając transport, lecz nie mniej niż %{minimum_commission} obciąży Twoje konto PayPal. Zgoda na to jest wymagana aby akceptować płatności w %{service_name}. Opłata nie zawiera %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "Po każdej sprzedaży w %{service_name} opłata serwisowa %{minimum_commission} obciąży Twoje konto PayPal. Zgoda na to jest wymagana aby akceptować płatności w %{service_name}. Opłata nie zawiera %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Po każdej sprzedaży w %{service_name} opłata serwisowa (%{commission_from_seller} od pełnej ceny oferty, wyłączając transport) obciąży Twoje konto PayPal. Zgoda na to jest wymagana aby akceptować płatności w %{service_name}. Opłata nie zawiera %{paypal_info_link}."
       paypal_account_billing_agreement_info_none: ~
-      paypal_info_link_text: ~
+      paypal_info_link_text: "Opłata za obsługę płatności PayPal"
       billing_agreement_description: "Udziel %{service_name} zezwolenia do pobrania opłaty za transakcję."
       billing_agreement: "Udziel zezwolenia"
       permissions_not_granted: "Zezwolenie na połączenie z Twoim kontem PayPal nie zostało udzielone."
@@ -1672,10 +1696,10 @@ pl:
       billing_agreement_wrong_account: "Nie zgadzają się konta PayPal. Proszę użyć tego samego konta PayPal, które było połączone w pierwszym kroku."
       something_went_wrong: "Coś poszło źle. Proszę, spróbuj ponownie. Jeśli problem będzie się powtarzał, proszę, skontaktuj się z administratorem strony."
       account_not_verified: "Nie zweryfikowałeś swojego konta PayPal. Musisz wejść na paypal.com i zweryfikować konto, zanim będziesz mógł kontynuować."
-      account_restricted: ~
+      account_restricted: "Twoje konto PayPal jest ograniczone i nie może był podłączone. Proszę, zaloguj się na paypal.com aby sprawdzić dlaczego, lub skontaktuj się z obsługą klienta PayPal aby rozwiązać problem."
     paypal_account_connected_title: ~
     paypal_account_connected: ~
-    change_account: ~
+    change_account: "Zmień konto PayPal"
     missing: "Masz aktywne oferty, ale Twoje konto PayPal nie zostało ustawione do otrzymywania płatności. Podłącz swoje konto PayPal i udziel %{service_name} zgody na pobieranie opłaty za transakcje z Twoich %{settings_link}."
     from_your_payment_settings_link_text: "ustawienia płatności"
     redirect_message: ~
@@ -1685,8 +1709,8 @@ pl:
     paypal_account_connected_summary: ~
     paypal_permission_granted_summary: ~
   paypal:
-    pay_with_paypal: ~
-    checkout_with_paypal: ~
+    pay_with_paypal: "Przejdź do płatności"
+    checkout_with_paypal: "Zapłać poprzez PayPal"
     cancel_succesful: "Płatność PayPal została anulowana"
     transaction:
       commission_payment_name: "Płatność prowizji dla %{listing_title}"
@@ -1835,7 +1859,7 @@ pl:
       new_password: "Nowe hasło"
       save: Zapisz
       these_fields_are_shown_only_to_you: "Nazwa użytkownika jest wyświetlana w Twoim profilu, chyba, że podałeś swoje imię. Inne informacje są widoczne tylko dla Ciebie."
-      email_already_confirmed: ~
+      email_already_confirmed: "Twój adres e-mail został już potwierdzony."
       email:
         address_title: Adres
         remove_title: Usuń
@@ -1893,10 +1917,10 @@ pl:
       visible_to_registered_users: "(widoczne dla użytkowników, którzy są zalogowani)"
       default_in_listing: "(używane wyłącznie jako domyślne przy tworzeniu nowej oferty)"
       invisible: "(nie widoczne dla innych użytkowników)"
-      image_is_processing: ~
+      image_is_processing: "Trzymaj się mocno. Przetwarzamy właśnie Twoje zdjęcie profilowe. Będzie gotowe za minutę lub dwie."
     save_information: "Zapisz informacje"
   shipping_address:
-    shipping_address: ~
+    shipping_address: "Adres dostawy"
   tag_cloud:
     tag_used:
       with_tag: "Z tagiem"
@@ -2013,9 +2037,30 @@ pl:
       few: "%{count} dni"
       many: "%{count} dni"
       other: "%{count} dni"
+    time_to:
+      seconds:
+        one: "%{count} sekunda"
+        few: "%{count} sekundy"
+        many: "%{count} sekund"
+        other: "%{count} sekund"
+      minutes:
+        one: "%{count} minuta"
+        few: "%{count} minuty"
+        many: "%{count} minut"
+        other: "%{count} minut"
+      hours:
+        one: "%{count} godzina"
+        few: "%{count} godziny"
+        many: "%{count} godzin"
+        other: "%{count} godzin"
+      days:
+        one: "%{count} dzień"
+        few: "%{count} dni"
+        many: "%{count} dni"
+        other: "%{count} dni"
   transactions:
     initiate:
-      booked_days: ~
+      booked_days: "Zarezerwowanych dni:"
       booked_nights: "Zarezerwowanych nocy:"
       booked_days_label:
         one: "Zarezerwowane dzień:"
@@ -2029,14 +2074,14 @@ pl:
         other: "Zarezerwowanych nocy:"
       price_per_day: "Cena za dzień:"
       price_per_night: "Cena za noc:"
-      quantity: ~
-      subtotal: ~
-      shipping-price: ~
+      quantity: "Ilość:"
+      subtotal: "Suma częściowa:"
+      shipping-price: "Transport:"
     price_per_quantity: "Cena za %{unit_type}:"
-    price: ~
-    quantity: ~
-    unit_price: ~
-    total: ~
+    price: "Cena:"
+    quantity: "Ilość: %{quantity}"
+    unit_price: "Cena jednostkowa: %{unit_price}"
+    total: "Łącznie:"
   unit:
     day: dzień
     days: dni
