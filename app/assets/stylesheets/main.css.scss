@@ -1385,6 +1385,12 @@ $noscript-height: lines(4);
   max-width: lines(5);
 }
 
+.price-currency {
+  margin-left: lines(0.25);
+  display: inline;
+  @include big-type;
+}
+
 .quantity-field {
   max-width: lines(7);
 }
