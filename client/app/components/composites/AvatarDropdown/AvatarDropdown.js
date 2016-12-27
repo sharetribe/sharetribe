@@ -22,7 +22,6 @@ class AvatarDropdown extends Component {
 
     this.state = {
       isOpen: false,
-      isHovering: false,
       isMounted: false,
     };
 
@@ -43,21 +42,19 @@ class AvatarDropdown extends Component {
     window.clearTimeout(this.mouseLeaveTimeout);
     window.clearTimeout(this.mouseOverTimeout);
     this.mouseOverTimeout = window.setTimeout(() => (
-      this.setState({ isHovering: true, isOpen: true }) // eslint-disable-line react/no-set-state
+      this.setState({ isOpen: true }) // eslint-disable-line react/no-set-state
       ), HOVER_TIMEOUT);
   }
 
   handleMouseLeave() {
     window.clearTimeout(this.mouseOverTimeout);
     this.mouseLeaveTimeout = window.setTimeout(() => (
-      this.setState({ isHovering: false, isOpen: false }) // eslint-disable-line react/no-set-state
+      this.setState({ isOpen: false }) // eslint-disable-line react/no-set-state
       ), HOVER_TIMEOUT);
   }
 
   handleClick() {
-    if (!this.state.isHovering) {
-      this.setState({ isOpen: !this.state.isOpen });// eslint-disable-line react/no-set-state
-    }
+    this.setState({ isOpen: !this.state.isOpen });// eslint-disable-line react/no-set-state
   }
 
   handleBlur(event) {

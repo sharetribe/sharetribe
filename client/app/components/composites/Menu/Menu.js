@@ -28,7 +28,6 @@ class Menu extends Component {
     this.calculateDropdownPosition = this.calculateDropdownPosition.bind(this);
     this.state = {
       isOpen: false,
-      isHovering: false,
       isMounted: false,
       arrowPosition: INITIAL_ARROW_POSITION,
     };
@@ -48,24 +47,22 @@ class Menu extends Component {
   }
 
   handleMouseover() {
-    clearTimeout(this.mouseOutTimout);
-    clearTimeout(this.mouseOverTimout);
+    window.clearTimeout(this.mouseOutTimout);
+    window.clearTimeout(this.mouseOverTimout);
     this.mouseOverTimout = setTimeout(() => (
-      this.setState({ isHovering: true, isOpen: true })  // eslint-disable-line react/no-set-state
+      this.setState({ isOpen: true })  // eslint-disable-line react/no-set-state
       ), HOVER_TIMEOUT);
   }
 
   handleMouseout() {
-    clearTimeout(this.mouseOverTimout);
+    window.clearTimeout(this.mouseOverTimout);
     this.mouseOutTimout = setTimeout(() => (
-      this.setState({ isHovering: false, isOpen: false }) // eslint-disable-line react/no-set-state
+      this.setState({ isOpen: false }) // eslint-disable-line react/no-set-state
       ), HOVER_TIMEOUT);
   }
 
   handleClick() {
-    if (!this.state.isHovering) {
-      this.setState({ isOpen: !this.state.isOpen }); // eslint-disable-line react/no-set-state
-    }
+    this.setState({ isOpen: !this.state.isOpen }); // eslint-disable-line react/no-set-state
   }
 
   handleBlur(event) {
