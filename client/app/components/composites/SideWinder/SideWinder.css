@@ -4,6 +4,8 @@
 .transitionEntering {} /* stylelint-disable-line block-no-empty */
 .transitionLeaving {} /* stylelint-disable-line block-no-empty */
 
+.orientationHook {} /* stylelint-disable-line block-no-empty */
+
 .transitionVisible {
   /* Prevent scrolling and hide scrollbars */
   overflow: hidden;

@@ -28,6 +28,7 @@ but tries to contain all the hackiness within itself.
 import { Component, PropTypes } from 'react';
 import ReactTransitionGroup from 'react-addons-transition-group';
 import r, { div, button } from 'r-dom';
+import classNames from 'classnames';
 import Portal from '../Portal/Portal';
 import SideWinderTransition from './SideWinderTransition';
 import * as cssVariables from '../../../assets/styles/variables';
@@ -37,6 +38,7 @@ import css from './SideWinder.css';
 import closeIcon from './images/close.svg';
 
 const KEYCODE_ESC = 27;
+const ORIENTATION_TIMEOUT = 400;
 
 const currentScrollOffset = () => {
   if (!window || !document) {
@@ -87,6 +89,7 @@ class SideWinder extends Component {
 
     window.addEventListener('keyup', this.onWindowKeyUp);
     window.addEventListener('resize', this.onWindowResize);
+    window.addEventListener('orientationchange', this.onOrientationChange);
 
     this.componentDidUpdate();
   }
@@ -103,6 +106,8 @@ class SideWinder extends Component {
     this.props.wrapper.style.removeProperty('right');
     window.removeEventListener('keyup', this.onWindowKeyUp);
     window.removeEventListener('resize', this.onWindowResize);
+    window.removeEventListener('orientationchange', this.onOrientationChange);
+    window.clearTimeout(this.orientationTimeout);
   }
   onWindowKeyUp(e) {
     if (this.props.isOpen && e.keyCode === KEYCODE_ESC) {
@@ -113,6 +118,12 @@ class SideWinder extends Component {
     if (this.props.isOpen) {
       this.render();
     }
+  }
+
+  onOrientationChange() {
+    this.orientationTimeout = window.setTimeout(() => {
+      window.scrollTo(0, document.querySelector(`.${css.orientationHook}`).offsetTop);
+    }, ORIENTATION_TIMEOUT);
   }
 
   render() {
@@ -135,7 +146,7 @@ class SideWinder extends Component {
     }, [
       r(ReactTransitionGroup, [
         div({
-          className: css.overlay,
+          className: classNames(css.orientationHook, css.overlay),
           style: {
             top: scrollOffset,
           },
