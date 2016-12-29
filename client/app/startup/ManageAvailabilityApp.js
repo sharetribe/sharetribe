@@ -46,7 +46,6 @@ export default (props) => {
       backgroundColor: props.marketplace.marketplace_color1 || cssVariables['--customColorFallback'],
       imageUrl: props.listing.image_url,
       title: props.listing.title,
-      height: cssVariables['--ManageAvailabilityHeader_height'],
     },
     sideWinderWrapper: document.querySelector('#sidewinder-wrapper'),
   };

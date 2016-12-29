@@ -377,7 +377,7 @@ module.exports = {
   '--ManageAvailability_fontFamily': proximaNovaFontFamily,
   '--ManageAvailability_padding': '34px',
   '--ManageAvailability_saveButtonHeight': '60px',
-  '--ManageAvailabilityHeader_height': 254,
+  '--ManageAvailabilityHeader_height': '254px',
   '--ManageAvailabilityCalendar_fontFamily': proximaNovaFontFamily,
   '--ManageAvailabilityCalendar_fontSize': fontSize,
   '--ManageAvailabilityCalendar_width': '318px',

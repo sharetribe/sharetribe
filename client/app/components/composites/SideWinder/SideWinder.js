@@ -130,6 +130,7 @@ class SideWinder extends Component {
     const isOpen = this.props.isOpen;
     const scrollOffset = currentScrollOffset();
 
+    const height = this.props.height ? { height: this.props.height } : {};
     const width = calculateWidth({
       max: this.props.maxWidth,
       min: this.props.minWidth,
@@ -163,6 +164,7 @@ class SideWinder extends Component {
             div({
               className: css.root,
               style: {
+                ...height,
                 width,
                 right: -1 * width,
                 top: scrollOffset,
@@ -187,6 +189,7 @@ class SideWinder extends Component {
 
 SideWinder.propTypes = {
   wrapper: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  height: PropTypes.number,
   maxWidth: PropTypes.number.isRequired,
   minWidth: PropTypes.number.isRequired,
   isOpen: PropTypes.bool.isRequired,

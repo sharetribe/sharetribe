@@ -5,6 +5,8 @@
 
   /* height is set by React, but min-height we can set here */
   min-height: 135px;
+  max-height: var(--ManageAvailabilityHeader_height);
+  flex-grow: 1;
 }
 
 .imageLayer,

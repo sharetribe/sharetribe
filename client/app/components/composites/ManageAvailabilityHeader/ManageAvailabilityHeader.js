@@ -7,9 +7,6 @@ import css from './ManageAvailabilityHeader.css';
 const ManageAvailabilityHeader = (props) => div(
   {
     className: css.root,
-    style: {
-      height: `${props.height}px`,
-    },
   },
   [
     props.imageUrl ?
@@ -33,7 +30,6 @@ ManageAvailabilityHeader.propTypes = {
   backgroundColor: PropTypes.string.isRequired,
   imageUrl: PropTypes.string,
   title: PropTypes.string.isRequired,
-  height: PropTypes.number.isRequired,
 };
 
 export default ManageAvailabilityHeader;
