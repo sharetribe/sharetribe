@@ -104,7 +104,7 @@
   border-width: calc((var(--ProfileDropdown_arrowWidth) - 2 * var(--ProfileDropdown_lineWidth)) / 2);
   margin-left: calc(0 - (var(--ProfileDropdown_arrowWidth) - 2 * var(--ProfileDropdown_lineWidth)) / 2);
   z-index: calc(var(--ProfileDropdown_zIndex) + 1);
-  left: calc(var(--ProfileDropdown_lineWidth) * 2);
+  left: calc(var(--ProfileDropdown_lineWidth) * 2 + 1);
   top: var(--ProfileDropdown_topSeparation);
 }
 

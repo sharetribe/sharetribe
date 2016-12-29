@@ -1,5 +1,6 @@
 import { Component, PropTypes } from 'react';
 import r, { a, div, span } from 'r-dom';
+import classNames from 'classnames';
 
 import css from './ProfileDropdown.css';
 import inboxEmptyIcon from './images/inboxEmptyIcon.svg';
@@ -38,7 +39,7 @@ ProfileActionCard.propTypes = {
 class ProfileDropdown extends Component {
   render() {
     return div({
-      className: this.props.className,
+      className: classNames(this.props.classNames),
       ref: this.props.profileDropdownRef,
     }, [
       div({ className: css.rootArrowTop }),
@@ -82,7 +83,7 @@ ProfileDropdown.propTypes = {
   }),
   customColor: PropTypes.string.isRequired,
   isAdmin: PropTypes.bool.isRequired,
-  className,
+  classNames: PropTypes.arrayOf(className).isRequired,
   notificationCount: PropTypes.number,
   profileDropdownRef: PropTypes.func.isRequired,
 };
