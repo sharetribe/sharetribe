@@ -21,8 +21,8 @@ pl:
         category_transaction_types:
           transaction_types: "Rodzaje zamówień"
           transaction_types_description: "Rodzaje transakcji określają jaki rodzaj transakcji jest dostępny dla ofert w tej kategorii. Na przykład - czy jest to tylko sprzedaż, czy także wypożyczanie lub oddawanie za darmo jest możliwe."
-          select_all: ~
-          clear_all: ~
+          select_all: "Zaznacz wszystko"
+          clear_all: "Wyczyść wszystko"
         buttons:
           save: Zapisz
           cancel: Anuluj
@@ -137,36 +137,36 @@ pl:
         edit_message: "Edytuj wiadomość"
         send_test_message: "Wyślij wiadomość testową"
       outgoing_email:
-        title: ~
-        info: ~
-        read_more: ~
-        sender_address: ~
-        sender_address_default: ~
-        need_to_change: ~
-        contact_support_link_text: ~
-        set_sender_address: ~
-        sender_name_label: ~
-        sender_name_placeholder: ~
-        sender_email_label: ~
-        sender_email_placeholder: ~
-        this_is_how_it_will_look: ~
-        send_verification_button: ~
-        successfully_saved: ~
-        status: ~
-        status_verified: ~
-        status_error: ~
-        status_requested: ~
-        status_expired: ~
-        status_resent: ~
-        resend_link: ~
-        invalid_email_error: ~
-        invalid_email_domain: ~
+        title: "Adres mailingowy"
+        info: "Ta nazwa i adres jest wykorzystywany do wysyłania e-maili od Twojej platformy do użytkowników."
+        read_more: "Przeczytaj więcej na temat adresu mailingowego."
+        sender_address: "Adres nadawcy: %{sender_address}"
+        sender_address_default: "Adres nadawcy: nie ustawiony (wykorzystanie domyślnego adresu %{sender_address})"
+        need_to_change: "Jeśli potrzebujesz zmienić adres e-mail, proszę %{contact_support_link}."
+        contact_support_link_text: "skontaktuj się ze wsparciem Sharetribe"
+        set_sender_address: "Ustaw adres nadawcy"
+        sender_name_label: Nazwa
+        sender_name_placeholder: "Nazwa nadawcy"
+        sender_email_label: "Adres e-mail"
+        sender_email_placeholder: email-nadawcy@przyklad.com
+        this_is_how_it_will_look: "Tak to będzie wyglądało:"
+        send_verification_button: "Wyślij e-mail weryfikacyjny"
+        successfully_saved: "Adres nadawcy zachowany. E-mail weryfikacyjny będzie wysłany wkrótce."
+        status: "Status: %{status}"
+        status_verified: "Zweryfikowane - w użyciu"
+        status_error: "Wystąpił błąd. Proszę odświeżyć stronę."
+        status_requested: "Niezweryfikowany - e-mail weryfikacyjny wysłany został %{time_ago} do %{email}. %{resend_link}"
+        status_expired: "Czas na weryfikację %{email} upłynął. %{resend_link}"
+        status_resent: "E-mail weryfikacyjny wysłany ponownie do %{email}. %{resend_link}"
+        resend_link: "Wyślij ponownie"
+        invalid_email_error: "Nieprawidłowy format e-maila dla '%{email}'"
+        invalid_email_domain: "Adres e-mailowy '%{email}' używa niewspieranej domeny: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: ~
-        unknown_error: ~
+        unknown_error: "Coś poszło źle"
         white_label_offer: ~
         upgrade_plan_link: ~
-        verification_sent_from: ~
-        follow_the_instructions: ~
+        verification_sent_from: "E-mail weryfikacyjny był wysłany z %{verification_sender_name}"
+        follow_the_instructions: "Proszę postępuj zgodnie z instrukcjami w e-mailu aby zweryfikować swój adres."
       getting_started:
         getting_started: "Poradnik dla początkujących"
       available_languages:
@@ -224,15 +224,15 @@ pl:
         automatic_newsletter_frequency: "Wysyłaj automatycznie newsletter: %{frequency_dropdown}"
         newsletter_daily: Codziennie
         newsletter_weekly: Tygodniowo
-        delete_marketplace_title: ~
-        type_marketplace_domain: ~
-        type_marketplace_domain_placeholder: ~
-        once_you_delete: ~
-        are_you_sure: ~
-        i_understand_button: ~
-        last_community_updates: ~
-        you_will_be_redirected_to: ~
-        delete_this_marketplace: ~
+        delete_marketplace_title: "Usuń platformę"
+        type_marketplace_domain: "Wprowadź domenę swojej platformy (%{domain}) w pole tekstowe poniżej:"
+        type_marketplace_domain_placeholder: "Wprowadź domenę swojej platformy tutaj"
+        once_you_delete: "Kiedy skasujesz swoją platformę nie będziesz miał więcej możliwości dostępu do niej. Bądź ostrożny."
+        are_you_sure: "Czy jesteś pewien?"
+        i_understand_button: "Rozumiem, że poprzez naciśnięcie tego przycisku moja platforma zostanie skasowana."
+        last_community_updates: "Miej świadomość, że po skasowaniu Ty i użytkownicy Twojej platformy możecie nadal otrzymywać ostatnie e-maile aktualizacyjne dotyczące platformy."
+        you_will_be_redirected_to: "Po skasowaniu swojej platformy zostaniesz przeniesiony do %{destination}. Nie będziesz mógł więcej dostać się do swojej platformy."
+        delete_this_marketplace: "Usuń tę platformę"
       manage_members:
         manage_members: "Zarządzaj użytkownikami"
         email: "Adres email"
@@ -243,7 +243,7 @@ pl:
         ban_user: "Zablokuj użytkownika"
         saving_user_status: "Trwa zapisywanie..."
         save_user_status_successful: Zapisane
-        export_all_as_csv: ~
+        export_all_as_csv: "Wyeksportuj wszystko do CSV"
         save_user_status_error: "Zapis nie udał się. Proszę odśwież stronę i spróbuj ponownie."
         ban_user_confirmation: "Ta akcja spowoduje usunięcie użytkownika z platformy i nie pozwoli mu na ponowne używanie tego konta. Czy jesteś pewien/pewna, że chcesz kontynuować?"
         ban_me_error: "Nie możesz wyrzucić samego siebie."
@@ -298,7 +298,7 @@ pl:
         new_listing_button_label: "Opublikuj nowy tekst na guziku oferty"
         invalid_post_listing_button_label: "Proszę podaj poprawny tekst dla guzika \"Opublikuj nową ofertę\""
       transactions:
-        export_all_as_csv: ~
+        export_all_as_csv: "Wyeksportuj wszystko do CSV"
         transactions: "Zobacz transakcje"
         headers:
           conversation: "Wątek konwersacji"
@@ -327,7 +327,7 @@ pl:
       edit:
         edit_listing_field: "Edytuje pole %{field_name} oferty"
       edit_price:
-        description: ~
+        description: "Najmniejsza i największa cena dotyczy tylko filtra. Nie ograniczają one ceny oferty."
         edit_price_field: "Edytuj pole ceny"
         show_price_filter_homepage: "Pokaż filtr ceny na stronie głównej"
         price_min: "Filtruj po cenie minimalnej"
@@ -353,8 +353,8 @@ pl:
         field_title: "Tytuł pola"
         field_type: "Rodzaj pola"
         categories: "Kategorie ofert, w których pola są użyte"
-        select_all: ~
-        clear_all: ~
+        select_all: "Zaznacz wszystko"
+        clear_all: "Wyczyść wszystko"
         options: Opcke
         add_option: "+ dodaj opcję"
         saving_order: "Zapisz porządek pól"
@@ -497,10 +497,10 @@ pl:
     paypal_accounts:
       marketplace_paypal_integration: "Preferencje systemu płatności"
       preferences_updated: "Preferencje systemu płatności zaktualizowane"
-      contact_support_link_text: ~
+      contact_support_link_text: "skontaktuj się ze wsparciem"
       integration_info_text: "System płatności Twojej platformy jest obsługiwany przez PayPal. Aby umożliwić Twoim użytkownikom płacenie za pomocą platformy musisz połączyć ją ze swoim kontem PayPal. Po zrobieniu tego będzie możliwe ustawienie minimalnej wielkości transakcji i możliwej wysokości prowizji."
-      link_paypal_personal_account_label: ~
-      link_paypal_personal_account: ~
+      link_paypal_personal_account_label: "Czy udostępniasz produkty lub usługi?"
+      link_paypal_personal_account: "Jeśli tak, będziesz także musiał połączyć swoje konto PayPal do %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: "Czytaj więcej na temat systemu płatności"
       edit_payment_settings: ~
@@ -652,7 +652,7 @@ pl:
       canceled_request: "anulowano zamówienie"
       canceled_offer: "anulowano ofertę"
       paid: "zapłacono %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Płatność zautoryzowana: %{sum}"
     new:
       message: Wiadomość
       message_to: "Wiadomość do %{author_name}"
@@ -737,10 +737,10 @@ pl:
       confirm: "Zaznacz jako ukończone"
       cancel: Spór
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    feedback_subject: "Nowa opinia od %{service_name}"
+    feedback_body: "%{author_name_and_email} przesłał następującą opinię od %{service_name}"
+    unlogged_user: "Użytkownik wylogowany"
+    anonymous_user: "Użytkownik anonimowy"
   community_memberships:
     access_denied:
       access_denied: "Brak dostępu"
@@ -948,8 +948,8 @@ pl:
       required_error: "Musisz zaakceptować umowę"
     paypal:
       transaction_cannot_complete: ~
-      buyer_cannot_pay_error: ~
-      pending_review_error: ~
+      buyer_cannot_pay_error: "Płatność została odrzucona przez PayPal. Proszę skontaktuj się z ich obsługą klienta aby uzyskać więcej szczegółów: %{customer_service_link}"
+      pending_review_error: "Płatność została przesłana, jednak PayPal oznaczył ją jako wymagającą przeglądu. Kiedy PayPal zakończy przegląd, płatność zostanie automatycznie autoryzowana."
       seller_express_checkout_disabled: ~
       generic_error: "W trakcie procesu płatności pojawił się błąd. Nie można zakończyć Twojej płatności PayPal."
       cancel_error: "Wystąpił błąd podczas anulowania. Nie można zakończyć anulowania."
@@ -1109,8 +1109,8 @@ pl:
       message: "Wiadmość prywatna"
       send_invitation: "Wyślij zaproszenie"
       add_email_addresses_description: "Dodaj adresy email osób poniżej, które chcesz zaprosić. Aby dodać wiele adresów za jednym razem, oddziel je przecinkiem."
-      add_lots_of_email_addresses: ~
-      this_article_link: ~
+      add_lots_of_email_addresses: "Ponieważ jesteś administratorem, mamy dla Ciebie podpowiedź: jeśli planujesz wysyłać wiele zaproszeń, powinieneś skorzystać z narzędzi e-mailingowych. Przeczytaj %{this_article_link} aby poznać materiały dotyczące odpowiednich usług."
+      this_article_link: "ten artykuł"
       invitation_emails_field_placeholder: "kumpel1@przyklad.pl, kumpel2@przyklad.pl, ..."
       invitation_message_field_placeholder: "Dołączyłem do tej platformy. Ty też powinieneś/aś!"
       errors_in_emails: "Sprawdź czy adresy e-mail, które dodałeś są poprawne i nie zawierają żadnych nietypowych znaków. Jeżeli dodałeś wiele adresów, upewnij się, że są oddzielone przecinkami."
@@ -1141,7 +1141,7 @@ pl:
       all_listing_types: "Wszystkie typy ofert"
       all_categories: "Wszystkie kategorie"
     errors:
-      search_engine_not_responding: ~
+      search_engine_not_responding: "Wyszukiwanie jest w tej chwili niedostępne. Spróbuj wyszukiwania ponownie wkrótce."
   infos:
     about:
       default_about_text_title: "Czym jest Sharetribe?"
@@ -1252,7 +1252,7 @@ pl:
       feedback_sent_to: "Opinia przesłana do %{target_person}"
       feedback_skipped: "Opinia pominięta"
       invitation_cannot_be_sent: "Zaproszenie nie może być wysłane"
-      invitation_limit_reached: ~
+      invitation_limit_reached: "Próbowałeś wysłać zbyt wiele zaproszeń. Osiągnięto limit dzienny."
       invitation_sent: "Zaproszenie wysłane pomyślnie"
       inviting_new_users_is_not_allowed_in_this_community: "Zapraszanie nowych użytkowników nie jest dozwolone."
       login_again: "Zaloguj się ponownie."
@@ -1312,7 +1312,7 @@ pl:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Nie jesteś uprawniony, aby przekazać opinię do tego wydarzenia"
       you_are_not_authorized_to_do_this: "Nie jesteś uprawniony, aby to zrobić"
       you_are_not_authorized_to_view_this_content: "Nie jesteś uprawniony, aby to zobaczyć"
-      listing_closed: ~
+      listing_closed: "Ta oferta została zamknięta"
       send_instructions: "W ciągu kliku minut otrzymasz wiadomość email z instrukcją jak zrestartować swoje hasło."
       you_cannot_reply_to_a_closed_offer: "Nie możesz odpowiedzieć na zamknietą ofertę"
       you_cannot_send_message_to_yourself: "Nie można wysłać wiadomości do siebie"
@@ -1357,8 +1357,8 @@ pl:
     comment:
       wrote: napisz
       send_private_message: "Wyślij wiadomość prywatną do %{person}"
-      delete: ~
-      are_you_sure: ~
+      delete: usuń
+      are_you_sure: "Czy jesteś pewien, że chcesz usunąć komentarz?"
     comment_form:
       ask_a_question: "Skomentuj tą ofertę lub zapytaj o więcej szczegółów. Wszyscy inni użytkownicy będą mogli zobaczyć Twój komentarz."
       log_in: "Zaloguj się"
@@ -1422,19 +1422,19 @@ pl:
         no_file_selected: "Nie wybrano pliku"
         remove_image: "Usuń zdjęcie"
         select_file: "Wybierz plik"
-        add_more: ~
+        add_more: "+ Dodaj więcej"
         removing: "Trwa usuwanie..."
         processing: "Trwa procesowanie..."
         loading_image: "Trwa ładowanie..."
-        image_uploading_in_progress: ~
-        processing_takes_a_while: ~
+        image_uploading_in_progress: "Ładowanie obrazu w trakcie..."
+        processing_takes_a_while: "Wszystkie obrazy załadowane! Przetworzenie ich zajmie trochę czasu, ale możesz już zapisać ofertę i kontynuować."
         this_may_take_a_while: "to trwa tylko chwilę"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Wysyłanie obrazka zakończyło się niepowodzeniem"
         image_processing_failed: "Błąd przetwarzania obrazu"
         file_too_large: "Ten plik jest zbyt duży"
         accepted_formats: "Obrazek musi mieć format pliku GIF, JPG lub PNG."
-        images_not_uploaded_confirm: ~
+        images_not_uploaded_confirm: "Nie wszystkie obrazy zostały załadowane. Czy na pewno chcesz kontynuować?"
       location:
         location: Lokalizacja
       price:
@@ -1531,7 +1531,7 @@ pl:
       booking_from: Od
       booking_to: Do
       how_paypal_works: "Jak działa PayPal"
-      payment_help: ~
+      payment_help: "Pomoc w sprawie płatności"
       unable_load_availability: ~
     new:
       listing: oferta
@@ -1702,8 +1702,8 @@ pl:
     change_account: "Zmień konto PayPal"
     missing: "Masz aktywne oferty, ale Twoje konto PayPal nie zostało ustawione do otrzymywania płatności. Podłącz swoje konto PayPal i udziel %{service_name} zgody na pobieranie opłaty za transakcje z Twoich %{settings_link}."
     from_your_payment_settings_link_text: "ustawienia płatności"
-    redirect_message: ~
-    redirect_link_text: ~
+    redirect_message: "Przekierowanie do PayPal. Jeśli nic się nie wydarzy, kliknij %{redirect_link}."
+    redirect_link_text: tutaj
     paypal_account_all_set_up: ~
     can_receive_payments: ~
     paypal_account_connected_summary: ~
@@ -1747,7 +1747,7 @@ pl:
       invalid_invitation_code: "Kod zaproszenia jest niepoprawny"
       invitation_code: "Kod zaproszenia"
       not_required: ", nie wymagane"
-      notification_is_mandatory: ~
+      notification_is_mandatory: "Musisz wybrać przynajmniej jeden adres e-mail do otrzymywania powiadomień. Jeśli nie chcesz otrzymywać żadnych e-maili od %{service_name}, sprawdź swoje ustawienia powiadomień e-mailowych."
       password_again: "Powtórz hasło"
       show_my_name_to_others: "Pokaż moje prawdziwe imię do innych użytkowników %{service_name}"
       sign_up: "Stwórz nowe konto w %{service_name}"

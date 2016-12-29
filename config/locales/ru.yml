@@ -138,13 +138,13 @@ ru:
         send_test_message: "Отправить тестовое сообщение"
       outgoing_email:
         title: "Исходящий адрес электронной почты"
-        info: ~
+        info: "Это имя и адрес будут использоваться для электронных писем, отправляемых с проекта пользователям."
         read_more: ~
         sender_address: ~
         sender_address_default: ~
         need_to_change: ~
         contact_support_link_text: ~
-        set_sender_address: ~
+        set_sender_address: "Установите адрес отправителя"
         sender_name_label: Имя
         sender_name_placeholder: "Имя отправителя"
         sender_email_label: "Адрес электронной почты"
@@ -161,7 +161,7 @@ ru:
         resend_link: "Отправить повторно"
         invalid_email_error: "Некорректный формат %{email}"
         invalid_email_domain: "В адресе электронной почты %{email} используется неподдерживаемый провайдер услуг электронной почты: %{domain}. %{invalid_email_domain_read_more_link}"
-        invalid_email_domain_read_more_link: ~
+        invalid_email_domain_read_more_link: "Для получения дополнительной информации прочтите статью в базе знаний."
         unknown_error: "Что-то пошло не так"
         white_label_offer: ~
         upgrade_plan_link: ~
@@ -199,12 +199,12 @@ ru:
         users_can_invite_new_users: "Все участники могут приглашать новых участников в этот проект."
         private: "Этот проект приватный (только зарегистрированные участники могут видеть содержимое)"
         require_verification_to_post_listings: "Только участники подтвержденные администратором могут размещать новые публикации"
-        search_preferences: ~
-        default_search_type: ~
-        keyword_search: ~
+        search_preferences: "Настройки поиска"
+        default_search_type: "Тип поиска: %{select_search_type}"
+        keyword_search: "Поиск по ключевому слову"
         keyword_and_location_search: ~
-        location_search: ~
-        select_distance_unit: ~
+        location_search: "Поиск по местоположению"
+        select_distance_unit: "Отобразить расстояние в %{distance_units_selector}"
         km: км
         miles: мили
         show_only_nearby: ~
@@ -226,13 +226,13 @@ ru:
         newsletter_weekly: Еженедельно
         delete_marketplace_title: "Удалить маркетплейс"
         type_marketplace_domain: ~
-        type_marketplace_domain_placeholder: ~
-        once_you_delete: ~
-        are_you_sure: ~
-        i_understand_button: ~
-        last_community_updates: ~
-        you_will_be_redirected_to: ~
-        delete_this_marketplace: ~
+        type_marketplace_domain_placeholder: "Введите доменное имя своего проекта"
+        once_you_delete: "Осторожно, после удаления проекта вы не сможете получить к нему доступ."
+        are_you_sure: Уверены?
+        i_understand_button: "Я понимаю, что после того, как нажму на эту кнопку мой проект будет удален"
+        last_community_updates: "Обратите внимание на то, что даже после удаления вы и пользователи проекта могут получить последние электронные письма с обновлениями."
+        you_will_be_redirected_to: "После того, как вы удалите проект, вы будете перенаправлены на %{destination}. После этого вы не сможете получить доступ к проекту."
+        delete_this_marketplace: "Удалить этот проект"
       manage_members:
         manage_members: "Управление участниками"
         email: E-mail
@@ -289,8 +289,8 @@ ru:
         language: Язык
         url: URL
         empty: "У вас нет дополнительных ссылок меню"
-        max_number_of_links: ~
-        all: ~
+        max_number_of_links: "Макс. количество ссылок, отображаемых в верхней строке: %{select_max_number}"
+        all: Все
         max_number_of_links_info: ~
         about_page: ~
       topbar:
@@ -631,7 +631,7 @@ ru:
       message_from: "Сообщение от %{person}"
       about_listing: "О предложении %{listing_title}"
       free_message: Сообщение
-      message_content_not_available: ~
+      message_content_not_available: "Содержимое сообщения недоступно"
     message:
       accepted_request: "запрос принят"
       received_payment: ~
@@ -765,7 +765,7 @@ ru:
     branding:
       powered_by: ~
       create_own: ~
-      learn_more: ~
+      learn_more: "Узнать больше"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Вы пока еще не подтвердили или отменили запрос %{request_link}. Если запрос был выполнен, вам нужно подтвердить это. После этого вы можете оставить отзыв о %{other_party_given_name}."
       remember_to_confirm_request: "Не забудьте подтвердить или отменить запрос"
@@ -918,8 +918,8 @@ ru:
     new_member_notification:
       new_member_has_joined: ~
       this_is_automatic_message: ~
-      person_name: ~
-      person_email: ~
+      person_name: "Имя:"
+      person_email: "Эл. почта:"
   error_messages:
     booking:
       booking_failed_payment_voided: ~
@@ -1148,7 +1148,7 @@ ru:
       search_placeholder: ~
       search_location_placeholder: Местоположение
     listings:
-      no_listing_image: ~
+      no_listing_image: "Нет изображения"
   layouts:
     admin:
       admin: "Администрирование %{service_name}"
@@ -1243,7 +1243,7 @@ ru:
       feedback_sent_to: "Отзыв отправлен %{target_person}"
       feedback_skipped: "Отзыв отменён"
       invitation_cannot_be_sent: "Приглашение не может быть отправлено"
-      invitation_limit_reached: ~
+      invitation_limit_reached: "Вы пытаетесь отправить слишком много приглашений. Достигнуто предельное количество приглашений, которые можно отправить за сутки."
       invitation_sent: "Приглашение успешно отправлено"
       inviting_new_users_is_not_allowed_in_this_community: "Приглашать новых пользователей не разрешено"
       login_again: "Попробуйте войти ещё раз."
@@ -1296,7 +1296,7 @@ ru:
       request_rejected: "Запрос отклонён"
       request_canceled: "Запрос отменен"
       message_sent: "Сообщение отправлено"
-      message_not_sent: ~
+      message_not_sent: "Ошибка отправки сообщения. Повторите попытку."
       this_content_is_not_available_in_this_community: "Эта информация не доступна."
       unknown_error: "Неизвестная ошибка. Используйте ссылку отзыва для отправки деталей о том, как это произошло."
       update_error: "Произошла ошибка при сохранении данных. Попробуйте снова."
@@ -1422,7 +1422,7 @@ ru:
         this_may_take_a_while: "(возможно нужно подождать)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Ошибка загрузки изображения"
-        image_processing_failed: ~
+        image_processing_failed: "Ошибка обработки изображения"
         file_too_large: "Файл слишком большой"
         accepted_formats: "Файлы изображений должны быть в формате GIF, JPG или PNG."
         images_not_uploaded_confirm: "Изображения не были загружены. Хотите продолжить?"
@@ -1586,7 +1586,7 @@ ru:
       shipping_price_additional: "Доставка (+%{price}, дополнительно: +%{shipping_price_additional}"
       pickup: "Самостоятельное получение"
       pickup_no_price: "Самостоятельное получение"
-      youtube_video_player: ~
+      youtube_video_player: "Видеопроигрыватель YouTube"
     unit_types:
       piece: шт.
       hour: час
@@ -1738,7 +1738,7 @@ ru:
       invalid_invitation_code: "Код приглашения недействителен."
       invitation_code: "Код приглашения:"
       not_required: ", не обязательно"
-      notification_is_mandatory: ~
+      notification_is_mandatory: "Вы должны выбрать не менее одного адреса эл. почты для получения оповещений. Если вы не хотите получать эл. письма от %{service_name} проверьте настройки оповещений по эл. почте."
       password_again: "Подтвердите пароль"
       show_my_name_to_others: "Показывать моё настоящее имя другим пользователям %{service_name}"
       sign_up: "Зарегистрироваться в %{service_name}"
@@ -2107,7 +2107,7 @@ ru:
       login: Войти
       signup: Регистрация
       admin_dashboard: "Панель администратора"
-      language: ~
+      language: Язык
     utils:
       km: ~
       mi: ~
