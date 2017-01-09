@@ -171,7 +171,7 @@
         %a.icon-with-text-container{href: edit_listing_path(@listing)}
           = icon_tag("edit", ["icon-part"])
           .text-part= t("listings.edit_links.edit_listing")
-      - if show_manage_availability && FeatureFlagHelper.feature_enabled?(:manage_availability)
+      - if show_manage_availability
         - availability_link_id = "edit-listing-availability-#{SecureRandom.urlsafe_base64(5)}"
         .listing-view-admin-link
           %a.icon-with-text-container{id: availability_link_id, href: "#manage-availability"}
