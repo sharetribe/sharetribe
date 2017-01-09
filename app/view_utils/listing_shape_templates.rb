@@ -57,7 +57,8 @@ class ListingShapeTemplates
         online_payments: true,
         template: :renting_products,
         author_is_seller: true,
-        units: [{type: :day, quantity_selector: :day}, {type: :week, quantity_selector: :number}, {type: :month, quantity_selector: :number}]
+        availability: :booking,
+        units: [{type: :night, quantity_selector: :night}]
       },
       {
         label: "admin.listing_shapes.templates.offering_services",
