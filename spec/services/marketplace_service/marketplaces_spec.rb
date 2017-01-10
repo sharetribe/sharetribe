@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe MarketplaceService::API::Marketplaces do
   include MarketplaceService::API::Marketplaces
 
@@ -44,19 +46,22 @@ describe MarketplaceService::API::Marketplaces do
       c = Community.find(community_hash[:id])
       s = listings_api.shapes.get(community_id: c.id).data.first
       expect(s[:units].empty?).to eql true
+      expect(s[:availability]).to eql :none
       expect(s[:price_enabled]).to eql true
       expect(s[:shipping_enabled]).to eql true
 
       community_hash = create(@community_params.merge({:marketplace_type => "rental"}))
       c = Community.find(community_hash[:id])
       s = listings_api.shapes.get(community_id: c.id).data.first
-      expect(s[:units][0][:type]).to eql :day
+      expect(s[:availability]).to eql :booking
+      expect(s[:units][0][:type]).to eql :night
       expect(s[:price_enabled]).to eql true
       expect(s[:shipping_enabled]).to eql false
 
       community_hash = create(@community_params.merge({:marketplace_type => "service"}))
       c = Community.find(community_hash[:id])
       s = listings_api.shapes.get(community_id: c.id).data.first
+      expect(s[:availability]).to eql :none
       expect(s[:units][0][:type]).to eql :day
       expect(s[:price_enabled]).to eql true
       expect(s[:shipping_enabled]).to eql false

@@ -364,7 +364,7 @@ class ListingsController < ApplicationController
           flash[:show_onboarding_popup] = true
         end
 
-        if shape[:availability] == :booking && FeatureFlagHelper.feature_enabled?(:manage_availability)
+        if shape[:availability] == :booking
           redirect_to listing_path(@listing, anchor: 'manage-availability'), status: 303 and return
         end
 
@@ -551,17 +551,9 @@ class ListingsController < ApplicationController
   def update_flash(old_availability:, new_availability:)
     case [new_availability.to_sym == :booking, old_availability.to_sym == :booking]
     when [true, false]
-      if FeatureFlagHelper.feature_enabled?(:manage_availability)
-        t("layouts.notifications.listing_updated_availability_management_enabled")
-      else
-        t("layouts.notifications.listing_updated_availability_enabled")
-      end
+      t("layouts.notifications.listing_updated_availability_management_enabled")
     when [false, true]
-      if FeatureFlagHelper.feature_enabled?(:manage_availability)
-        t("layouts.notifications.listing_updated_availability_management_disabled")
-      else
-        t("layouts.notifications.listing_updated_availability_disabled")
-      end
+      t("layouts.notifications.listing_updated_availability_management_disabled")
     else
       t("layouts.notifications.listing_updated_successfully")
     end
