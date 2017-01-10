@@ -92,7 +92,7 @@ pl:
         transaction_agreement: "Umowa transakcji"
         transaction_agreement_checkbox: "Wymaga od użytkowników zaakceptowania umowy przed dokonaniem transakcji"
         transaction_agreement_checkbox_header: "Etykieta umowy"
-        transaction_agreement_checkbox_label_description: ~
+        transaction_agreement_checkbox_label_description: "Ten tekst będzie wyświetlony obok pola akceptacji przy podsumowaniu transakcji. użytkownik musi zaznaczyć to pole, aby kontynuować realizację transakcji. Przykładowa etykieta może wyglądać następująco: \"Poprzez zaznaczenie kratki akceptuję umowę.\""
         transaction_agreement_text_header: "Tekst umowy"
         transaction_agreement_description: "To jest treść właściwej umowy, jaką użytkownik powinien zaakceptować. Zawartość umowy jest wyświetlana gdy użytkownik kliknie link %{read_more} znajdujący się obok etykiety umowy."
       edit_look_and_feel:
@@ -115,7 +115,7 @@ pl:
         small_cover_photo_instructions_text_with_dimensions: "Zdjęcie będzie zmniejszone do %{width} na %{height} pikseli i wyższe zdjęcia będą ucięte w połowie."
         main_content_width: "Wybierając zdjęcie tytułowe zwróć uwagę, że szerokość głównej strony jest maksymalnie %{main_width} pikseli. Pamiętaj także, aby sprawdzić, jak Twoje zdjęcie tytułowe wygląda na mniejszych ekranach (np. używając węższych okien przeglądarki)."
         custom_color1_instructions_text: "Możesz zmienić główny kolor interfejsu wprowadzając jego wartość HEX. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> może Tobie pomoc wybrać kolor, a Ty go później wklej tutaj."
-        new_listing_button_instructions_text: ~
+        new_listing_button_instructions_text: "Możesz zmienić kolor przycisku \"umieść nową ofertę\" poprzez wprowadzenie heksadecymalnego kodu koloru. %{link_to_colorpicker} może Ci pomóc wybrać kolor i skopiować odpowiedni kod tutaj."
         default_browse_view: "Domyślny widok przeglądarki"
         default_browse_view_instructions_text: "Domyślny widok przeglądarki jest używany na stronie głównej, aby określić w jaki sposób oferty są domyślnie wyświetlane."
         grid: Siatka
@@ -161,14 +161,14 @@ pl:
         resend_link: "Wyślij ponownie"
         invalid_email_error: "Nieprawidłowy format e-maila dla '%{email}'"
         invalid_email_domain: "Adres e-mailowy '%{email}' używa niewspieranej domeny: '%{domain}'. %{invalid_email_domain_read_more_link}"
-        invalid_email_domain_read_more_link: ~
+        invalid_email_domain_read_more_link: "Przeczytaj artykuł aby uzyskać więcej informacji"
         unknown_error: "Coś poszło źle"
-        white_label_offer: ~
-        upgrade_plan_link: ~
+        white_label_offer: "Ustaw swój własny adres e-mail jako nadawcę i usuń cały branding Sharetribe z wychodzących wiadomości e-mail poprzez %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "podniesienie licencji do wersji Pro lub wyższej"
         verification_sent_from: "E-mail weryfikacyjny był wysłany z %{verification_sender_name}"
         follow_the_instructions: "Proszę postępuj zgodnie z instrukcjami w e-mailu aby zweryfikować swój adres."
       getting_started:
-        getting_started: "Poradnik dla początkujących"
+        getting_started: "Poradnik początkujących"
       available_languages:
         en: Angielski
         en-AU: "Angielski (Australia)"
@@ -177,7 +177,7 @@ pl:
         fr-CA: "Francuski (Kanada)"
         es: "Hiszpański (Chile)"
         es-ES: Hiszpański
-        pt-PT: ~
+        pt-PT: Portugalski
         pt-BR: "Portugalski (Brazylijski)"
         nb: "Norweski Bokmål"
         sv: Szwedzki
@@ -199,14 +199,14 @@ pl:
         users_can_invite_new_users: "Pozwól użytkownikom zapraszać nowych"
         private: "Pozwól wyłącznie zarejestrowanym użytkownikom wyświetlać oferty i profile innych (ustaw platformę jako \"prywatną\")"
         require_verification_to_post_listings: "Pozwól tylko zweryfikowanym użytkownikom na dodawanie nowych ofert"
-        search_preferences: ~
-        default_search_type: ~
-        keyword_search: ~
+        search_preferences: "Preferencje wyszukiwania"
+        default_search_type: "Typ wyszukiwania: %{select_search_type}"
+        keyword_search: "Wyszukiwanie tekstu"
         keyword_and_location_search: "Słowo kluczowe i wyszukiwanie po lokalizacji"
-        location_search: ~
-        select_distance_unit: ~
-        km: ~
-        miles: ~
+        location_search: "Wyszukiwanie lokalizacji"
+        select_distance_unit: "Pokazuj odległość w %{distance_units_selector}"
+        km: km
+        miles: milach
         show_only_nearby: "Pokaż tylko najbliższe oferty przy użyciu wyszukiwania po lokalizacji"
         listing_preferences: "Preferencje wyświetlania"
         transaction_preferences: "Preferencje dot. zamówień"
@@ -254,7 +254,7 @@ pl:
         enabled_for_you: "Włączone dla Ciebie"
         enabled_for_all: "Włączone dla wszystkich"
         new_topbar: "Nowy pasek górny (widoczny na każdej stronie)"
-        searchpage: ~
+        searchpage: "Nowa strona wyszukiwania (wymaga nowego górnego paska)"
       social_media:
         social_media: "Media społecznościowe"
         twitter_handle: "Obsługa Twitter"
@@ -262,7 +262,7 @@ pl:
         twitter_handle_info_text_with_instructions: "Nazwa konta Twitter Twojej platformy (jeśli takie masz). Będzie wspomniana gdy ludzie użyją przycisku \"Tweet\" na stronie oferty. %{instructions_link}"
         twitter_instructions_link_text: "Czytaj więcej"
         twitter_handle_placeholder: "Nazwa użytkownika"
-        invalid_twitter_handle: ~
+        invalid_twitter_handle: "Kod obsługi Twitter powinien zawierać wyłącznie maksymalnie 15 alfanumerycznych znaków (litery A-Z i cyfry 0-9)."
         facebook_connect: Facebook
         facebook_connect_info_text: "Aby umożliwić logowanie poprzez Facebook, stwórz aplikację dla swojej platformy w <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Dodaj wygenerowane id oraz tajny klucz aplikacji tutaj."
         facebook_connect_info_text_with_instructions: "Aby umożliwić logowanie poprzez Facebook, stwórz aplikację dla swojej platformy w <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Dodaj wygenerowane id oraz tajny klucz aplikacji tutaj. %{instructions_link}"
@@ -340,9 +340,9 @@ pl:
           this_field_is_required: "Ustaw to pole jako wymagane, gdy tworzona jest nowa oferta"
           this_field_is_required_checkbox: "Ustaw to pole jako wymagane w trakcie tworzenia nowej oferty (użytkownik będzie musiał wybrać przynajmniej jedną opcję)"
         search_filter:
-          search_filter: ~
-          date_cant_be_filtered: ~
-          text_cant_be_filtered: ~
+          search_filter: "Wyświetla filtr oparty o to pole na stronie głównej"
+          date_cant_be_filtered: "Dla pól typu data nie są dostępne filtry."
+          text_cant_be_filtered: "Nie ma filtrów dla pól tekstowych. Główne wyszukiwanie tekstowe wyszukuje po wszystkich polach tekstowych."
       index:
         listing_fields: "Pola oferty i filtry"
         listing_fields_help: "W tym miejscu możesz edytować pola, które użytkownicy muszą wypełnić, kiedy tworzą nową ofertę. Zwróć uwagę, że niektóre pola są predefiniowane i nie mogą być edytowane."
@@ -391,17 +391,16 @@ pl:
       configure: Konfiguracja
       emails_title: E-maile
       support: Pomoc
-      subscription: ~
-      preview: ~
+      subscription: Subskrypcja
+      preview: "Podgląd strony"
     listing_shapes:
-      availability_title: ~
-      read_more: ~
-      read_more_availability_management: ~
-      allow_availability_management: ~
-      allow_providers_to_manage_availability: ~
-      per_day_availability: ~
-      per_night_availability: ~
-      pricing_units_disabled_info: ~
+      availability_title: Dostępność
+      read_more: "Czytaj więcej na temat automatycznego zarządzania dostępnością."
+      read_more_availability_management: "Czytaj więcej na temat zarządzania dostępnością."
+      allow_providers_to_manage_availability: "Pozwól dostawcom na zarządzanie dostępnością z kalendarza"
+      per_day_availability: "Dostępność \"per dzień\""
+      per_night_availability: "Dostępność \"per noc\""
+      pricing_units_disabled_info: "Jednostki nie mogą być wykorzystywane gdy włączono kalendarz dostępności."
       index:
         listing_shapes: "Rodzaje zamówień"
         description: "Rodzaje zleceń określają jak przetwarzanie zamówień działa na Twojej platformie. Możesz zdecydować, czy użytkownicy wypożyczają, sprzedają, czy tylko umieszczają ogłoszenia i komunikują się za pomocą darmowych wiadomości."
@@ -439,17 +438,32 @@ pl:
         update_success: "Zmiany do rodzaju zlecenia '%{shape}' zachowane"
         update_failure: "Nie można było zapisać zmian. Błąd: %{error_msg}"
         delete: "Usuń rodzaj zamówień"
-        can_not_delete_last: "Nie możesz usunąć tego rodzaju zamówień, gdyż jest to jedyny rodzaj na Twojej platformie."
-        can_not_delete_only_one_in_categories: "Nie możesz usunąć tego rodzaju zamówienia, ponieważ w następujących kategoriach ten rodzaj zamówienia jest jedynym: %{categories}"
         confirm_delete_order_type:
           one: "Istnieje %{count} oferta w ramach tego rodzaju zamówień. Jeśli usuniesz ten rodzaj zamówień, ta oferta zostanie zamknięta. Czy jesteś pewien, że chcesz usunąć ten rodzaj zamówień?"
           few: "Istnieją %{count} oferty w ramach tego rodzaju zamówień. Jeśli usuniesz ten rodzaj zamówień, te oferty zostaną zamknięte. Czy jesteś pewien, że chcesz usunąć ten rodzaj zamówień?"
           many: "Istnieje %{count} ofert w ramach tego rodzaju zamówień. Jeśli usuniesz ten rodzaj zamówień, te oferty zostaną zamknięte. Czy jesteś pewien, że chcesz usunąć ten rodzaj zamówień?"
           other: "Istnieje %{count} ofert w ramach tego rodzaju zamówień. Jeśli usuniesz ten rodzaj zamówień, te oferty zostaną zamknięte. Czy jesteś pewien, że chcesz usunąć ten rodzaj zamówień?"
+        can_not_delete_last: "Nie możesz usunąć tego rodzaju zamówień, gdyż jest to jedyny rodzaj na Twojej platformie."
+        can_not_delete_only_one_in_categories: "Nie możesz usunąć tego rodzaju zamówienia, ponieważ w następujących kategoriach ten rodzaj zamówienia jest jedynym: %{categories}"
       listing_shape_name: Nazwa
       listing_shape_name_placeholder: "np. Sprzedaż"
       action_button_label: "Etykieta przycisku 'Zapłać'"
       action_button_placeholder: "np. Zakup"
+      open_listings_warning:
+        one: "Jest %{count} aktywna oferta w ramach tego rodzaju zamówienia. Jeśli zmienisz jakiekolwiek z poniższych ustawień, ta oferta zachowa dotychczasowe ustawienia. Oferta może być zmieniona do nowych ustawień poprzez ręczną jej edycję. Jeśli nie chcesz mieć ofert ze starymi ustawieniami na swojej platformie, możesz zamknąć ją klikając przycisk poniżej."
+        few: "Są %{count} aktywne oferty w ramach tego rodzaju zamówienia. Jeśli zmienisz jakiekolwiek z poniższych ustawień, te oferty zachowają dotychczasowe ustawienia. Oferty mogą być zmienione do nowych ustawień poprzez ręczną ich edycję. Jeśli nie chcesz mieć ofert ze starymi ustawieniami na swojej platformie, możesz zamknąć je klikając przycisk poniżej."
+        many: "Jest %{count} aktywnych ofert w ramach tego rodzaju zamówienia. Jeśli zmienisz jakiekolwiek z poniższych ustawień, te oferty zachowają dotychczasowe ustawienia. Oferty mogą być zmienione do nowych ustawień poprzez ręczną ich edycję. Jeśli nie chcesz mieć ofert ze starymi ustawieniami na swojej platformie, możesz zamknąć je klikając przycisk poniżej."
+        other: "Jest %{count} aktywnych ofert w ramach tego rodzaju zamówienia. Jeśli zmienisz jakiekolwiek z poniższych ustawień, te oferty zachowają dotychczasowe ustawienia. Oferty mogą być zmienione do nowych ustawień poprzez ręczną ich edycję. Jeśli nie chcesz mieć ofert ze starymi ustawieniami na swojej platformie, możesz zamknąć je klikając przycisk poniżej."
+      close_listings_action:
+        one: "Zamknij %{count} ofertę"
+        few: "Zamknij %{count} oferty"
+        many: "Zamknij %{count} ofert"
+        other: "Zamknij %{count} ofert"
+      confirm_close_listings_action:
+        one: "Czy jesteś pewien, że chcesz zamknąć %{count} ofertę?"
+        few: "Czy jesteś pewien, że chcesz zamknąć %{count} oferty?"
+        many: "Czy jesteś pewien, że chcesz zamknąć %{count} ofert?"
+        other: "Czy jesteś pewien, że chcesz zamknąć %{count} ofert?"
       successfully_closed: "Zamknięto oferty"
       successfully_deleted: "Usunięto rodzaj zamówień '%{order_type}'"
       pricing_and_checkout_title: "Wycena i płatność"
@@ -479,21 +493,6 @@ pl:
           heading: "Rodzaj jednostki"
           quantity_label: "Ilość (na sztuki, na osoby, na dwugodzinne wycieczki...)"
           time_label: "Czas (na 30 minut, na 2 tygodnie, na rok)"
-      open_listings_warning:
-        one: "Jest %{count} aktywna oferta w ramach tego rodzaju zamówienia. Jeśli zmienisz jakiekolwiek z poniższych ustawień, ta oferta zachowa dotychczasowe ustawienia. Oferta może być zmieniona do nowych ustawień poprzez ręczną jej edycję. Jeśli nie chcesz mieć ofert ze starymi ustawieniami na swojej platformie, możesz zamknąć ją klikając przycisk poniżej."
-        few: "Są %{count} aktywne oferty w ramach tego rodzaju zamówienia. Jeśli zmienisz jakiekolwiek z poniższych ustawień, te oferty zachowają dotychczasowe ustawienia. Oferty mogą być zmienione do nowych ustawień poprzez ręczną ich edycję. Jeśli nie chcesz mieć ofert ze starymi ustawieniami na swojej platformie, możesz zamknąć je klikając przycisk poniżej."
-        many: "Jest %{count} aktywnych ofert w ramach tego rodzaju zamówienia. Jeśli zmienisz jakiekolwiek z poniższych ustawień, te oferty zachowają dotychczasowe ustawienia. Oferty mogą być zmienione do nowych ustawień poprzez ręczną ich edycję. Jeśli nie chcesz mieć ofert ze starymi ustawieniami na swojej platformie, możesz zamknąć je klikając przycisk poniżej."
-        other: "Jest %{count} aktywnych ofert w ramach tego rodzaju zamówienia. Jeśli zmienisz jakiekolwiek z poniższych ustawień, te oferty zachowają dotychczasowe ustawienia. Oferty mogą być zmienione do nowych ustawień poprzez ręczną ich edycję. Jeśli nie chcesz mieć ofert ze starymi ustawieniami na swojej platformie, możesz zamknąć je klikając przycisk poniżej."
-      close_listings_action:
-        one: "Zamknij %{count} ofertę"
-        few: "Zamknij %{count} oferty"
-        many: "Zamknij %{count} ofert"
-        other: "Zamknij %{count} ofert"
-      confirm_close_listings_action:
-        one: "Czy jesteś pewien, że chcesz zamknąć %{count} ofertę?"
-        few: "Czy jesteś pewien, że chcesz zamknąć %{count} oferty?"
-        many: "Czy jesteś pewien, że chcesz zamknąć %{count} ofert?"
-        other: "Czy jesteś pewien, że chcesz zamknąć %{count} ofert?"
     paypal_accounts:
       marketplace_paypal_integration: "Preferencje systemu płatności"
       preferences_updated: "Preferencje systemu płatności zaktualizowane"
@@ -501,12 +500,12 @@ pl:
       integration_info_text: "System płatności Twojej platformy jest obsługiwany przez PayPal. Aby umożliwić Twoim użytkownikom płacenie za pomocą platformy musisz połączyć ją ze swoim kontem PayPal. Po zrobieniu tego będzie możliwe ustawienie minimalnej wielkości transakcji i możliwej wysokości prowizji."
       link_paypal_personal_account_label: "Czy udostępniasz produkty lub usługi?"
       link_paypal_personal_account: "Jeśli tak, będziesz także musiał połączyć swoje konto PayPal do %{personal_payment_preferences_link}."
-      personal_payment_preferences_link_text: ~
+      personal_payment_preferences_link_text: "twoje osobiste konto platformy"
       read_more_about_paypal: "Czytaj więcej na temat systemu płatności"
-      edit_payment_settings: ~
-      supported_currencies_information_text: ~
-      currency_change_warning_text: ~
-      marketplace_currency_label: ~
+      edit_payment_settings: "Edytuj ustawienia płatności"
+      supported_currencies_information_text: "System płatności online Sharetribe wspiera 24 waluty. Jeśli Twojej waluty nie ma na liście, proszę %{contact_support_link}. Jeśli zmienisz walutę platformy, istniejące oferty zachowają dotychczasową walutę. Musisz edytować te oferty indywidualnie, aby dostosować je do nowej waluty."
+      currency_change_warning_text: "Uwaga: jeśli będziesz kontynuować ze zmianą waluty, nie zapomnij poprosić swoich sprzedawców aby ręcznie edytowali swoje istniejące oferty w celu zaktualizowania waluty."
+      marketplace_currency_label: "Waluta platformy:"
       minimum_listing_price_label: "Minimalna wartość transakcji:"
       transaction_fee_label: "Opłata za transakcję:"
       minimum_transaction_fee_label: "Minimalna wartość opłaty za transakcję:"
@@ -640,10 +639,10 @@ pl:
       message_from: "Wiadomość od %{person}"
       about_listing: "O ofercie %{listing_title}"
       free_message: "Bezpłatna wiadomość"
-      message_content_not_available: ~
+      message_content_not_available: "Zawartość wiadomości jest niedostępna"
     message:
       accepted_request: "zapytanie zaakceptowane"
-      received_payment: ~
+      received_payment: "żądanie zaakceptowane, płatność %{sum} otrzymana"
       accepted_offer: "oferta zaakceptowana"
       rejected_request: "odrzucone zapytanie, anulowana płatność"
       rejected_offer: "odrzucono ofertę"
@@ -758,10 +757,10 @@ pl:
       log_out: Wyloguj
       join_community_button: "Dołącz do %{service_name}"
     give_consent:
-      invitation_code_invalid_or_used: ~
-      email_not_allowed: ~
-      email_not_available: ~
-      consent_not_given: ~
+      invitation_code_invalid_or_used: "Kod zaproszenia był błędny, lub został on już wykorzystany wcześniej."
+      email_not_allowed: "Ten adres e-mail nie jest dozwolony w %{service_name}."
+      email_not_available: "Adres e-mail, który podałeś jest już używany."
+      consent_not_given: "Warunki nie zostały zaakceptowane."
   emails:
     accept_reminder:
       remember_to_accept_offer: "Pamiętaj, aby zaakceptować bądź odrzucić ofertę od %{sender_name}"
@@ -772,9 +771,9 @@ pl:
       you_have_not_yet_accepted_or_rejected_request: "Jeszcze nie zaakceptowałeś, ani nie odrzuciłeś oferty %{title}, którą otrzymałeś %{date}"
       show_thread: "Pokaż konwersację"
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} działa na silniku platformy %{sharetribe_link}."
+      create_own: "Chcesz stworzyć swoją własną platformę online jak %{service_name}? %{learn_more}."
+      learn_more: "Czytaj więcej"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Jeszcze nie potwierdziłeś, ani nie anulowałeś zamówienie %{request_link}. Jeżeli zamówienie zostało ukończone, powinieneś potwierdzić to. Po tym możesz przekazać opinię do %{other_party_given_name}."
       remember_to_confirm_request: "Pamiętaj, aby potwierdzić bądź odrzucić zapytanie"
@@ -931,10 +930,10 @@ pl:
       person_email: "Adres email:"
   error_messages:
     booking:
-      booking_failed_payment_voided: ~
-      double_booking_payment_voided: ~
+      booking_failed_payment_voided: "Rezerwacja nie powiodła się ze względu na niespodziewany błąd. Proszę spróbuj ponownie później. Nie zostałeś obciążony opłatą."
+      double_booking_payment_voided: "Niestety daty, które wybrałeś nie są już dostępne. proszę spróbuj innych dat. Nie zostałeś obciążony opłatą."
     onboarding:
-      server_rendering: ~
+      server_rendering: "Poradnik początkujących się nie załadował. Zostaliśmy powiadomieni o sytuacji i naprawiamy ją."
     listings:
       departure_time: "Czas rozpoczęcia musi być pomiędzy aktualny czasem, a datą za rok od dziś."
       share_type: "Musisz wybrać przynajmniej jedną."
@@ -947,10 +946,10 @@ pl:
     transaction_agreement:
       required_error: "Musisz zaakceptować umowę"
     paypal:
-      transaction_cannot_complete: ~
+      transaction_cannot_complete: "Transakcja nie może być zakończona. Najprawdopodobniej jest to spowodowane brakiem autoryzacji karty kredytowej. Proszę, spróbuj kupić jeszcze raz za pomocą innej metody płatności."
       buyer_cannot_pay_error: "Płatność została odrzucona przez PayPal. Proszę skontaktuj się z ich obsługą klienta aby uzyskać więcej szczegółów: %{customer_service_link}"
       pending_review_error: "Płatność została przesłana, jednak PayPal oznaczył ją jako wymagającą przeglądu. Kiedy PayPal zakończy przegląd, płatność zostanie automatycznie autoryzowana."
-      seller_express_checkout_disabled: ~
+      seller_express_checkout_disabled: "Szybkie płatności PayPal zostały wyłączone dla konta autora oferty. Proszę, skontaktuj się z autorem oferty i daj mu znać, że jest problem z jego kontem PayPal i poleć mu kontakt z obsługą klienta PayPal."
       generic_error: "W trakcie procesu płatności pojawił się błąd. Nie można zakończyć Twojej płatności PayPal."
       cancel_error: "Wystąpił błąd podczas anulowania. Nie można zakończyć anulowania."
       accept_authorization_error: "Wystąpił błąd podczas akceptowania preautoryzowanej płatności PayPal. Proszę spróbować ponownie."
@@ -1030,7 +1029,7 @@ pl:
     create_new_marketplace: "Stwórz nową platformę"
     contact_us: "Skontaktuj się z nami"
     profile: Profil
-    manage_listings: ~
+    manage_listings: "Zarządzaj ofertami"
     invite: "Zaproś nowych członków"
     login: "Zaloguj się"
     signup: "Zarejestruj się"
@@ -1117,7 +1116,7 @@ pl:
     list_item:
       review: recenzje
       reviews: recenzje
-      distance_away: ~
+      distance_away: "odległy o %{distance} %{distance_unit}"
     news_item:
       show_less: "Pokaż mniej"
       show_more: "Pokaż więcej"
@@ -1152,19 +1151,19 @@ pl:
       default_content: "Tutaj możesz znaleźć informację jak działa platforma %{marketplace_name}."
   landing_page:
     hero:
-      search: ~
-      signup: ~
-      search_placeholder: ~
+      search: Szukaj
+      signup: "Zarejestruj się"
+      search_placeholder: "Czego poszukujesz?"
       search_location_placeholder: Lokalizacja
     listings:
-      no_listing_image: ~
+      no_listing_image: "Brak zdjęcia"
   layouts:
     admin:
       admin: "Panel administratora %{service_name}"
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} działa na silniku platformy %{sharetribe_link}."
+      create_own: "Chcesz stworzyć swoją platformę online jak %{service_name}? %{learn_more}."
+      learn_more: "Czytaj więcej"
     no_tribe:
       inbox: "Skrzynka odbiorcza"
       settings: Ustawienia
@@ -1240,7 +1239,7 @@ pl:
       confirmation_link_is_wrong_or_used: "Ten link potwierdzający został już użyty lub jest uszkodzony. Spróbuj się zalogować, albo przesłać nam opinię jeżeli problem wciąż występuje."
       additional_email_confirmed: "Adres email, który wprowadziłeś jest potwierdzony."
       could_not_get_email_from_facebook: "Nie mogliśmy pobrać adresu z Facebooka i nie możemy stworzyć konta bez adresu email."
-      facebook_email_unconfirmed: ~
+      facebook_email_unconfirmed: "Adres e-mailowy '%{email}' powiązany z Twoim kontem Facebook jest już wykorzystywany, ale nie został jeszcze potwierdzony. Proszę, potwierdź adres e-mail przed logowaniem za pomocą Facebook."
       create_new_listing: "Stwórz kolejną ofertę"
       create_one_here: "stwórz nowy tutaj"
       email_confirmation_sent_to_new_address: "Email potwierdzający został wysłany na nowy adres."
@@ -1273,10 +1272,8 @@ pl:
       offer_rejected: "Oferta odrzucona"
       offer_canceled: "Oferta anulowana"
       listing_updated_successfully: "Oferta zaktualizowana pomyślnie"
-      listing_updated_availability_enabled: ~
-      listing_updated_availability_disabled: ~
-      listing_updated_availability_management_enabled: ~
-      listing_updated_availability_management_disabled: ~
+      listing_updated_availability_management_enabled: "Oferta zaktualizowana pomyślnie. Zarządzanie dostępnością włączone."
+      listing_updated_availability_management_disabled: "Oferta zaktualizowana pomyślnie. Zarządzanie dostępnością wyłączone."
       only_kassi_administrators_can_access_this_area: "Tylko adminstratorzy %{service_name} mogą przejść do tej sekcji"
       only_listing_author_can_close_a_listing: "Tylko autor oferty może zamknąć ofertę"
       only_listing_author_can_edit_a_listing: "Tylko autor oferty może edytować ofertę"
@@ -1305,7 +1302,7 @@ pl:
       request_rejected: "Zapytanie odrzucone"
       request_canceled: "Zamówienie anulowane"
       message_sent: "Wiadomość wysłana"
-      message_not_sent: ~
+      message_not_sent: "Wysyłanie wiadomości nie powiodło się. Proszę spróbować ponownie."
       this_content_is_not_available_in_this_community: "Treść nie jest dostępna."
       unknown_error: "Nieznany błąd. Użyj linka Kontakt i wyślij nam szczegóły tego co się stało."
       update_error: "W trakcie aktualizacji informacji wystąpił błąd, spróbuj ponownie później."
@@ -1344,7 +1341,13 @@ pl:
       email_deleted: "Adres email usunięty"
       listing_author_payment_details_missing: "Skontaktuj się proszę z autorem poprzez naciśnięcie przycisku \"Kontakt\" poniżej. Musi on zaktualizować dane dotyczące płatności aby móc je otrzymywać."
       images_are_processing: "Procesujemy Twoje zdjęcia. Daj nam minutę lub dwie i będą widoczne."
-      automatically_logged_out_please_sign_in: ~
+      maintenance_mode:
+        zero: "Strona staje się właśnie niedostępna ze względów serwisowych"
+        one: "Strona stanie się niedostępna ze względów serwisowych za %{count} minutę"
+        few: "Strona stanie się niedostępna ze względów serwisowych za %{count} minuty"
+        many: "Strona stanie się niedostępna ze względów serwisowych za %{count} minut"
+        other: "Strona stanie się niedostępna ze względów serwisowych za %{count} minut"
+      automatically_logged_out_please_sign_in: "Zostałeś automatycznie wylogowany. Proszę zaloguj się ponownie."
     settings:
       account: Konto
       notifications: Powiadomienia
@@ -1384,8 +1387,8 @@ pl:
     error:
       something_went_wrong: "Coś poszło źle, kod błędu: %{error_code}"
       something_went_wrong_plain: "Coś poszło nie tak"
-      create_failed_to_connect_to_booking_service: ~
-      update_failed_to_connect_to_booking_service: ~
+      create_failed_to_connect_to_booking_service: "Utworzenie oferty nie powiodło się: Nie udało się połączyć z serwisem rezerwacyjnym. Proszę spróbować jeszcze raz."
+      update_failed_to_connect_to_booking_service: "Uaktualnienie oferty nie powiodło się: Nie udało się połączyć z serwisem rezerwacyjnym. Proszę spróbować jeszcze raz."
     follow_links:
       follow: "Powiadom mnie emailem, gdy pojawią się nowe komentarze"
       unfollow: "Nie powiadamiaj mnie emailem, gdy pojawią się nowe komentarze"
@@ -1400,7 +1403,7 @@ pl:
         repeated: "Powtarzalny (dodaj czasy i dni w polu 'opis szczegółowy')"
       description:
         detailed_description: "Szczegółowy opis"
-        youtube_info: ~
+        youtube_info: "Jeśli Twój opis zawiera łącza YouTube, wideo będzie pokazane poniżej opisu."
       destination:
         destination: Lokalizacja
       form_content:
@@ -1532,7 +1535,7 @@ pl:
       booking_to: Do
       how_paypal_works: "Jak działa PayPal"
       payment_help: "Pomoc w sprawie płatności"
-      unable_load_availability: ~
+      unable_load_availability: "Nie można załadować informacji o dostępności. Proszę spróbować ponownie później."
     new:
       listing: oferta
       selected_category: "Kategoria: %{category}"
@@ -1595,7 +1598,7 @@ pl:
       shipping_price_additional: "Transport (+%{price}, dodatkowe przedmioty: +%{shipping_price_additional})"
       pickup: Odbiór
       pickup_no_price: Odbiór
-      youtube_video_player: ~
+      youtube_video_player: "odtwarzacz wideo YouTube"
     unit_types:
       piece: sztuka
       hour: godzina
@@ -1650,18 +1653,18 @@ pl:
   paypal_accounts:
     payout_info_title: "Otrzymywanie płatności"
     paypal_account_email_connected: "<del>Połącz z kontem PayPal</del> Zrealizowane!"
-    payout_info_paypal: ~
+    payout_info_paypal: "%{service_name} wykorzystuje PayPal jako dostawcę obsługi płatności. %{create_paypal_account_link} jest wymagane dla akceptacji płatności za twoje oferty i musi być połączone z %{service_name}."
     paypal_billing_agreement_made: "<del>Udziel %{service_name} zezwolenia do pobrania opłaty za transakcję</del> Zrealizowane!"
-    commission_permission_needed: ~
-    create_paypal_account_link_text: ~
+    commission_permission_needed: "Będziesz także musiał udzielić %{service_name} akceptacji na obciążanie płatności opłatą transakcyjną."
+    create_paypal_account_link_text: "Konto PayPal"
     connected_account: "Konto PayPal '%{email}' zostało połączone."
-    paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: ~
-    paypal_receive_funds_info_australia_only: ~
-    paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: ~
-    admin_account_not_connected: ~
-    contact_admin_link_text: ~
+    paypal_receive_funds_info_label_australia_only: "Twoje konto PayPal musi być w stanie akceptować płatności. To może wymagać konta firmowego."
+    paypal_receive_funds_info_label: "Twoje konto PayPal musi być w stanie akceptować płatności. To może wymagać konta firmowego."
+    paypal_receive_funds_info_australia_only: "Jeśli zobaczysz błąd podczas próby połączenia swojego konta PayPal do %{service_name}, albo %{upgrade_paypal_account_link}, albo (jeśli jesteś osobą fizyczną), utwórz nowe konto 'Premier'. Oba rodzaje kont są całkowicie bezpłatne."
+    paypal_receive_funds_info: "Jeśli zobaczysz błąd podczas próby połączenia konta do %{service_name}, %{upgrade_paypal_account_link}. Jest to proste i darmowe. Jeśli jesteś osobą fizyczną, PayPal zaleca użycie Twojego imienia i nazwiska jako nazwy firmy."
+    upgrade_paypal_account_link_text: "Zaloguj się i zmień swoje konto PayPal na konto firmowe"
+    admin_account_not_connected: "Używanie systemu płatności platformy %{service_name} do otrzymywania płatności nie jest możliwe, gdyż płatności nie zostały skonfigurowane. Proszę %{contact_admin_link} aby uzyskać więcej informacji."
+    contact_admin_link_text: "skontaktuj się z administratorem platformy"
     you_are_ready_to_accept_payments: "Jesteś gotowy/a do akceptowania płatności!"
     commission: "%{commission} %"
     new:
@@ -1675,21 +1678,21 @@ pl:
       create_paypal_account: "przez kliknięcie tutaj"
       upgrade_paypal_account: "Zaloguj się do swojego konta PayPal"
       paypal_account_billing_agreement: "Udziel %{service_name} zezwolenia do pobrania opłaty za transakcję"
-      follow_steps: ~
-      connect_paypal_account_title: ~
-      connect_paypal_account_title_with_step: ~
-      connect_paypal_account_instructions: ~
+      follow_steps: "Postępuj zgodnie z poniższą instrukcją, aby zacząć otrzymywać płatności:"
+      connect_paypal_account_title: "Połącz swoje konto PayPal"
+      connect_paypal_account_title_with_step: "Krok %{current_step}/%{total_steps}: Połącz swoje konto PayPal"
+      connect_paypal_account_instructions: "Kliknij na przycisk poniżej aby zalogować się do PayPal i połączyć swoje konto PayPal z %{service_name}."
       connect_paypal_account: "Połącz swoje konto PayPal"
-      paypal_account_billing_agreement_with_step: ~
+      paypal_account_billing_agreement_with_step: "Krok %{current_step}/%{total_steps}: Udziel zezwolenia na obciążenia opłatą transakcyjną"
       paypal_account_billing_agreement_info_both: "Po każdej sprzedaży w %{service_name} opłata serwisowa (%{commission_from_seller}) od pełnej ceny oferty, wyłączając transport, lecz nie mniej niż %{minimum_commission} obciąży Twoje konto PayPal. Zgoda na to jest wymagana aby akceptować płatności w %{service_name}. Opłata nie zawiera %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Po każdej sprzedaży w %{service_name} opłata serwisowa %{minimum_commission} obciąży Twoje konto PayPal. Zgoda na to jest wymagana aby akceptować płatności w %{service_name}. Opłata nie zawiera %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Po każdej sprzedaży w %{service_name} opłata serwisowa (%{commission_from_seller} od pełnej ceny oferty, wyłączając transport) obciąży Twoje konto PayPal. Zgoda na to jest wymagana aby akceptować płatności w %{service_name}. Opłata nie zawiera %{paypal_info_link}."
-      paypal_account_billing_agreement_info_none: ~
+      paypal_account_billing_agreement_info_none: "%{service_name} nie obciąża obecnie opłatą serwisową. Jeśli opłaty serwisowe zostaną włączone, będziesz musiał udzielić zezwolenia %{service_name} na obciążanie opłatą serwisową, aby akceptować płatności. Opłata nie obejmuje %{paypal_info_link}."
       paypal_info_link_text: "Opłata za obsługę płatności PayPal"
       billing_agreement_description: "Udziel %{service_name} zezwolenia do pobrania opłaty za transakcję."
       billing_agreement: "Udziel zezwolenia"
       permissions_not_granted: "Zezwolenie na połączenie z Twoim kontem PayPal nie zostało udzielone."
-      could_not_fetch_redirect_url: ~
+      could_not_fetch_redirect_url: "Nie można zrealizować przekierowania URL aby połączyć się z PayPal"
       paypal_not_enabled: "Płatności PayPal nie sa udostępnione."
       billing_agreement_canceled: "Umowa dotycząca wystawiania rachunków została anulowana"
       billing_agreement_not_accepted: "Nie zaakceptowałeś umowy rozliczeniowej w PayPal."
@@ -1697,17 +1700,17 @@ pl:
       something_went_wrong: "Coś poszło źle. Proszę, spróbuj ponownie. Jeśli problem będzie się powtarzał, proszę, skontaktuj się z administratorem strony."
       account_not_verified: "Nie zweryfikowałeś swojego konta PayPal. Musisz wejść na paypal.com i zweryfikować konto, zanim będziesz mógł kontynuować."
       account_restricted: "Twoje konto PayPal jest ograniczone i nie może był podłączone. Proszę, zaloguj się na paypal.com aby sprawdzić dlaczego, lub skontaktuj się z obsługą klienta PayPal aby rozwiązać problem."
-    paypal_account_connected_title: ~
-    paypal_account_connected: ~
+    paypal_account_connected_title: "Konto PayPal zostało połączone"
+    paypal_account_connected: "Konto PayPal <%{email}> zostało połączone z %{service_name}."
     change_account: "Zmień konto PayPal"
     missing: "Masz aktywne oferty, ale Twoje konto PayPal nie zostało ustawione do otrzymywania płatności. Podłącz swoje konto PayPal i udziel %{service_name} zgody na pobieranie opłaty za transakcje z Twoich %{settings_link}."
     from_your_payment_settings_link_text: "ustawienia płatności"
     redirect_message: "Przekierowanie do PayPal. Jeśli nic się nie wydarzy, kliknij %{redirect_link}."
     redirect_link_text: tutaj
-    paypal_account_all_set_up: ~
-    can_receive_payments: ~
-    paypal_account_connected_summary: ~
-    paypal_permission_granted_summary: ~
+    paypal_account_all_set_up: "Brawo, wszystko zostało ustawione!"
+    can_receive_payments: "Możesz teraz otrzymywać płatności za swoje oferty."
+    paypal_account_connected_summary: "Konto PayPal <%{email}> zostało połączone."
+    paypal_permission_granted_summary: "Udzielono zgody na obciążenia opłatą transakcyjną"
   paypal:
     pay_with_paypal: "Przejdź do płatności"
     checkout_with_paypal: "Zapłać poprzez PayPal"
@@ -1839,11 +1842,11 @@ pl:
       confirm_your_email: "Proszę potwierdź Twój adres email"
       account_confirmation_instructions: "Wkrótce otrzymasz wiadomość email z linkiem, aby potwierdzić Twój adres. Nie zapomnij sprawdzić folderu ze spamem! Po tym jak potwierdzisz adres, możesz dołączyć to %{service_name}."
       account_confirmation_instructions_title_admin: "Potwierdź swój adres email"
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
+      before_full_access_you_need_to_confirm_email: "Zanim będziemy mogli dać Ci pełen dostęp do platformy, jest tylko jedna rzecz, którą musimy zrobić: potwierdzić Twój adres e-mail."
+      before_confirmation_only_access_admin_dashboard: "Przed potwierdzeniem możesz mieć jedynie dostęp do %{admin_dashboard_link}."
+      admin_dashboard_link_text: "panelu administratora"
       account_confirmation_instructions_admin: "Powinieneś dostać wiadomość e-mail na adres %{email_address} w linkiem do potwierdzenia. Jeśli go nie widzisz, sprawdź swój folder spam lub kliknij przycisk poniżej aby przesłać e-mail ponownie. Gdy wiadomość dotrze, otwórz załączony link aby potwierdzić swój adres e-mail, po czym będziesz miał pełen dostęp do swojej platformy. Jeśli potrzebujesz dodatkowej pomocy, proszę %{support_link}"
-      contact_support_link_text: ~
+      contact_support_link_text: "skontaktuj się ze wsparciem Sharetribe"
   settings:
     account:
       change: Zmień
@@ -2089,47 +2092,47 @@ pl:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
-          saving_failed: ~
+          something_went_wrong: "Nie jesteśmy w stanie wyświetlić informacji o dostępności. Spróbuj odświeżyć stronę."
+          saving_failed: "Nie jesteśmy w stanie zapisać zmian w dostępności. Spróbuj odświeżyć stronę."
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
-      edit_availability_header: ~
-      save_and_close_availability_editing: ~
-      confirm_discarding_unsaved_availability_changes_explanation: ~
-      confirm_discarding_unsaved_availability_changes_question: ~
-      edit_listing_availability: ~
+        piece: sztuka
+        hour: godzina
+        day: dzień
+        night: noc
+        week: tydzień
+        month: miesiąc
+      edit_availability_header: Dostępność
+      save_and_close_availability_editing: "Zapisz i zamknij"
+      confirm_discarding_unsaved_availability_changes_explanation: "Masz niezapisane zmiany w informacjach dotyczących dostępności. Jeśli będziesz kontynuować, utracisz te zmiany."
+      confirm_discarding_unsaved_availability_changes_question: "Czy jesteś pewien, że chcesz odrzucić swoje zmiany?"
+      edit_listing_availability: "Edytuj dostępność oferty"
     no_listings:
-      sorry: ~
-      try_other_search_terms: ~
+      sorry: "Przykro nam, ale nie można znaleźć ofert spełniających kryteria Twojego wyszukiwania."
+      try_other_search_terms: "Może spróbuj innych warunków wyszukiwania?"
     listing_card:
-      add_picture: ~
-      no_picture: ~
+      add_picture: "Dodaj zdjęcie"
+      no_picture: "Brak zdjęcia"
     search:
-      page: ~
-      page_of_pages: ~
+      page: Strona
+      page_of_pages: "z %{total_number_of_pages}"
     topbar:
-      menu: ~
-      more: ~
-      search_placeholder: ~
+      menu: Menu
+      more: Więcej
+      search_placeholder: Szukaj...
       search_location_placeholder: Lokalizacja
-      user: ~
-      inbox: ~
-      profile: ~
-      manage_listings: ~
-      settings: ~
-      logout: ~
-      login: ~
-      signup: ~
+      user: Użytkownik
+      inbox: "Skrzynka odbiorcza"
+      profile: Profil
+      manage_listings: "Zarządzaj ofertami"
+      settings: Ustawienia
+      logout: Wyloguj
+      login: Zaloguj
+      signup: "Zarejestruj się"
       admin_dashboard: "Panel administracyjny"
       language: Język
     utils:
-      km: ~
-      mi: ~
+      km: km
+      mi: mi
     branding:
       powered_by: "Platforma %{service_name} działa na silniku %{sharetribe_link}."
       create_own: "Chcesz stworzyć swoją platformę online jak %{service_name}? %{learn_more}."

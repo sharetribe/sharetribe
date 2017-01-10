@@ -387,7 +387,6 @@ sv:
       availability_title: ~
       read_more: ~
       read_more_availability_management: ~
-      allow_availability_management: ~
       allow_providers_to_manage_availability: ~
       per_day_availability: ~
       per_night_availability: ~
@@ -1257,8 +1256,6 @@ sv:
       offer_rejected: "Erbjudandet nekades"
       offer_canceled: "Erbjudande avbrutet"
       listing_updated_successfully: "Annons uppdaterades"
-      listing_updated_availability_enabled: ~
-      listing_updated_availability_disabled: ~
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "Bara %{service_name} admin har åtkomst till denna plats"

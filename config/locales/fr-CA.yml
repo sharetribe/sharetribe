@@ -387,7 +387,6 @@ fr-CA:
       availability_title: ~
       read_more: ~
       read_more_availability_management: ~
-      allow_availability_management: ~
       allow_providers_to_manage_availability: ~
       per_day_availability: ~
       per_night_availability: ~
@@ -1243,8 +1242,6 @@ fr-CA:
       offer_rejected: "Offre refusée"
       offer_canceled: "Offre annulée"
       listing_updated_successfully: "Annonce mise à jour avec succès"
-      listing_updated_availability_enabled: ~
-      listing_updated_availability_disabled: ~
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "Seuls les administrateurs de %{service_name} peuvent accéder à ces pages"

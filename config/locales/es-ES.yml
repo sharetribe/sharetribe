@@ -387,7 +387,6 @@ es-ES:
       availability_title: Disponibilidad
       read_more: "Lee más acercad de la administración automática de disponibilidad."
       read_more_availability_management: "Lee más acerca del manejo de la disponibilidad."
-      allow_availability_management: "Habilitar administración automática de disponibilidad (previene dobles reservaciones)"
       allow_providers_to_manage_availability: "Permitir a los vendedores administrar su disponibilidad."
       per_day_availability: "Disponibilidad \"Por día\""
       per_night_availability: "Disponibilidad \"Por Noche\""
@@ -1255,8 +1254,6 @@ es-ES:
       offer_rejected: "Oferta rechazada"
       offer_canceled: "Oferta cancelada"
       listing_updated_successfully: "Anuncio actualizado"
-      listing_updated_availability_enabled: "El anuncio se ha actualizado con éxito. La administración automática de disponibilidad se ha habilitado."
-      listing_updated_availability_disabled: "El anuncio se ha actualizado con éxito. La administración automática de disponibilidad se ha deshabilitado."
       listing_updated_availability_management_enabled: "Anuncio actualizado exitosamente. Manejo de disponibilidad habilitado."
       listing_updated_availability_management_disabled: "Anuncio actualizado exitosamente. Manejo de disponibilidad deshabilitado."
       only_kassi_administrators_can_access_this_area: "Sólo los administradores de %{service_name} pueden acceder a esta área"

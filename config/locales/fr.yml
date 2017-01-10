@@ -387,7 +387,6 @@ fr:
       availability_title: Disponibilité
       read_more: "En savoir plus sur la gestion automatique des disponibilités."
       read_more_availability_management: "En savoir plus sur la gestion des disponibilités."
-      allow_availability_management: "Activer la gestion automatique de la disponibilité (empêcher les doubles réservations)"
       allow_providers_to_manage_availability: "Autoriser les fournisseurs à gérer leur disponibilité depuis un calendrier"
       per_day_availability: "Disponibilité \"par jour\""
       per_night_availability: "Disponibilité \"par nuit\""
@@ -1255,8 +1254,6 @@ fr:
       offer_rejected: "Offre refusée"
       offer_canceled: "Offre annulée"
       listing_updated_successfully: "Annonce mise à jour avec succès"
-      listing_updated_availability_enabled: "Annonce mise à jour avec succès. Gestion automatique des disponibilités activée."
-      listing_updated_availability_disabled: "Annonce mise à jour avec succès. Gestion automatique des disponibilités désactivée."
       listing_updated_availability_management_enabled: "Annonce mise à jour avec succès. Gestion des disponibilités activée."
       listing_updated_availability_management_disabled: "Annonce mise à jour avec succès. Gestion des disponibilités désactivée."
       only_kassi_administrators_can_access_this_area: "Seuls les administrateurs de %{service_name} peuvent accéder à ces pages"
@@ -1877,8 +1874,8 @@ fr:
       email_about_new_payments: "...je reçois un nouveau paiement"
       email_about_new_listings_by_followed_people: "...quelqu'un que je suis publie une nouvelle annonce"
       unsubscribe_succesful: "Désinscription réussie"
-      unsubscribe_info_text: "Vous ne recevrez plus ces emails. Gérez vos %{settings_link} pour choisir quels emails vous voulez recevoir ou non, ou retourner sur la %{homepage_link}."
-      settings_link: paramètres
+      unsubscribe_info_text: "Vous ne recevrez plus ces emails. Vous pouvez %{settings_link} pour choisir quels genres d'emails vous souhaitez recevoir de %{service_name}, ou bien retourner sur la %{homepage_link}."
+      settings_link: "gérer vos paramètres"
       homepage_link: "page d'accueil"
       unsubscribe_unsuccesful: "Erreur lors de la désinscription"
       unsuccessful_unsubscribe_info_text: "Le lien de désinscription a expiré. Veuillez vous connecter pour gérer vos paramètres de notifications."

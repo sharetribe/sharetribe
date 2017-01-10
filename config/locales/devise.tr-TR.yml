@@ -3,13 +3,13 @@ tr-TR:
     messages:
       expired: "süresi doldu, lütfen yeni bir tane isteyiniz"
       not_found: bulunamadı
-      already_confirmed: "daha önce teyit edilmişti, lütfen hesabınıza girmeyi deneyiniz"
+      already_confirmed: "daha önce teyit edildi, lütfen hesabınıza giriş yapınız"
       not_locked: kilitlenmedi
       not_saved:
         other: "%{count} hata %{resource}'un kaydedilmesini engelledi. "
   devise:
     failure:
-      already_authenticated: "Giriş yapılmış."
+      already_authenticated: "Giriş yaptınız"
       unauthenticated: "Devam etmeden önce bir hesap açmalı veya hesabınıza giriş yapmalısınız."
       unconfirmed: "Devam etmeden önce hesabınızı doğrulamalısınız."
       locked: "Hesabınız kilitlenmiştir."
@@ -18,27 +18,27 @@ tr-TR:
       timeout: "Zaman aşımı oldu, devam etmek için lütfen tekrar giriş yapın."
       inactive: "Hesabınız henüz etkinleştirilmemiştir."
     passwords:
-      updated_not_active: "Parolanız başarıyla değiştirilmiştir."
-      send_paranoid_instructions: "Eğer e-posta adresiniz veritabanımızda kayıtlıysa parolanızı tekrar belirlemenize dair bir link içeren bir e-posta alacaksınız."
+      updated_not_active: "Parolanız başarıyla değiştirildi"
+      send_paranoid_instructions: "Eğer e-posta adresiniz veritabanımızda kayıtlı ise, şifre yenileme linki e-posta adresinize gönderilecektir."
       send_instructions: "Birkaç dakika içinde parolanızı tekrar nasıl oluşturacağınıza ilişkin talimatlar içeren bir e-posta alacaksınız."
-      updated: "Parolanız başarıyla değiştirilmiştir. Şu anda giriş yapmış bulunuyorsunuz."
+      updated: "Parolanız başarıyla değiştirilmiştir. Şu an giriş yaptınız."
     sessions:
       signed_in: "Başarıyla giriş yaptınız."
       signed_out: "Başarıyla çıkış yaptınız."
     confirmations:
-      send_paranoid_instructions: "Eğer e-posta adresiniz veritabanımızda kayıtlıysa bir kaç dakika içinde hesabınızı doğrulamanıza dair talimatlar içeren bir e-posta alacaksınız."
+      send_paranoid_instructions: "Eğer e-posta adresiniz veritabanımızda kayıtlıysa, bir kaç dakika içerisinde hesabınızı doğrulamanız için bir e-posta alacaksınız."
       send_instructions: "Bir kaç dakika içerisinde hesabınızı nasıl doğrulayacağınıza dair bir e-posta alacaksınız."
       confirmed: "Hesabınız başarıyla doğrulanmıştır."
     registrations:
-      signed_up_but_unconfirmed: "Doğrulama linki içeren bir mesaj e-posta adresinize iletilmiştir. Hesabınızı etkinleştirmek için lütfen bu linke tıklayınız."
-      signed_up_but_inactive: "Başarıyla kayıt yaptınız. Fakat henüz hesabınız etkinleştirilmediğinden dolayı girişiniz gerçekleşmedi."
+      signed_up_but_unconfirmed: "Doğrulama linki e-posta adresinize gönderilmiştir. Hesabınızı etkinleştirmek için lütfen linke tıklayınız."
+      signed_up_but_inactive: "Başarıyla kaydınız yapıldı. Ancak henüz hesabınız aktif edilmediğinden giriş yapamıyorsunuz."
       signed_up_but_locked: "Başarıyla kayıt yaptınız. Fakat hesabınız kilitlendiğinden dolayı girişiniz gerçekleşmedi."
       reasons:
         inactive: "etkin değil"
         unconfirmed: doğrulanmadı
         locked: kilitli
       update_needs_confirmation: "Hesabınızı başarıyla güncellediniz. Fakat e-posta adresinizin doğrulanması gerekmektedir. Lütfen e-posta adresinizi kontrol ediniz ve size iletilen doğrulama linkine tıklayarak e-posta adresinizi doğrulayınız."
-      signed_up: "Hoş geldiniz! Başarıyla giriş yaptınız."
+      signed_up: "Hoş geldiniz! Kaydınız başarıyla gerçekleşti"
       updated: "Hesabınızı başarıyla güncellediniz."
       destroyed: "Hoşçakalın! Hesabınız iptal edildi. Umarız sizi yakında tekrar görürüz."
     unlocks:
